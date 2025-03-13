@@ -4,117 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C455AC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3205BC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ArsQpXutp1ZN+3DTaOrRuw3KgW/PGL4qdBmYSDGPwLE=; b=Ak683LxI5+QZsBwCG/NEKCN+13
-	Iep27WxhLjjSE4a4KxD7jshoOSyynTpxGNohsn6N0rHhTtvLlhZSoGZJ8+lrB4GoyHUnq+RStpLwT
-	LcoQjX3dteGBV8B9TfagPl55Ky/Ce8XnBGFqNcvzGf1HgkFyqBOJp7Gs0+FT2il28wJ5kfPnhg2h8
-	q0/4Au57qBN0leCFDGqh01/kml9uJDWhXOTUObpu3CofR+e5kLi3/gfjsmFEIRrorXTBSxG/5FvNl
-	vFOf91Y2znZs/k8YS3Kr5LZ4GEaqF6oY/DkzjfBnTVcpxcwqXu80nrYCZ1Zj/5e//Bum85IIrRu/P
-	4SJGECrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PKh8G+LwBkJ3MIk4e3k+H4mcCK2kqqjrk6p1SaoabOk=; b=TbccRAEZ+t59WfA8bL/39RdrXX
+	ogVyW8/9kpeKsV3As+3zlHJWgrUNdxIdRDUU8EIadF0KPI/L1quwvylKY+r83A8grx5jvJCcvyqQf
+	GJ8HCKpnYWI7K09vAm5GoaSYu3AlZ3UbiLbLvH7ylAdBqqYYMsW85XYGNvxMaYedNiWkY6+6YBiEj
+	fAJN7aJ7M6Z+7jBW2uHYM85szwhUO1RiPmPqf6eR6sZGsO09Mm2EtHKYYR1rca+6GyDrDPPudvVpa
+	SpyhbE8/H6KzRrzG1Y7ZOo9hbYnKuQf+tz5AFzDyMNmCWtWdAaTz5GpzVeOvM4Mvh+f7k2/l0sUtk
+	hpOSv7Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdIw-0000000AQbV-2HQW;
-	Thu, 13 Mar 2025 07:48:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsdKb-0000000ARIE-0x0W;
+	Thu, 13 Mar 2025 07:50:17 +0000
+Received: from mail-bn8nam11on20629.outbound.protection.outlook.com ([2a01:111:f403:2414::629] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsd50-0000000AOMn-49dN
+	id 1tsd5r-0000000AOXt-0LVO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 07:34:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 953A95C4C25;
-	Thu, 13 Mar 2025 07:31:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FB9FC4CEF2;
-	Thu, 13 Mar 2025 07:34:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741851250;
-	bh=n7oj+3BMVatFUBrwyBY2k5vyym+icTWhFSlMuR1riQQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SWEMnlQEFBJ8GwE92hn7JMZ2dVjqBKlPftKjdsyQ5qcJ/CEJKL/tM2IRMpZhqsUTP
-	 grm9zrIZ8uUvdNwcZTZj2x0qs2juS8xDrW+08tHPfFHWVYO6Hoq6tpor6R3ytf3cH6
-	 cGaOZ456RyvR3B66rM5267AYTY1T9yzuJzpBfL9gPcu/SaJcJkyYXcTXF0/MlnkIiB
-	 SJhVnfddaYr1bk7Xf+RfaW/AQrCmxayUuii7KXFH2Jfc4UjlKUbWDdIwgIfOgODEML
-	 SYeidepb6r/SZX1tQsD5EmCtUQiklQ/nhj0Jh9E/sCVK2ITQg/EBx/neYjTqKQo2RM
-	 +e5Ch+aHBc4wg==
-Message-ID: <ac119dba-6e73-496c-97e1-d59ac0fe4a27@kernel.org>
-Date: Thu, 13 Mar 2025 08:33:59 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/8] memory: Add STM32 Octo Memory Manager driver
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- christophe.kerello@foss.st.com
-References: <20250219080059.367045-1-patrice.chotard@foss.st.com>
- <20250219080059.367045-5-patrice.chotard@foss.st.com>
- <eaf1ecca-4fde-4128-8590-6013c3a13a04@kernel.org>
- <8b1b7df5-07f4-4f95-88e7-4e95ee909ffd@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+	Thu, 13 Mar 2025 07:35:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rbghmJaQ/cMJjwzCcclISy0aa0LqV8lC1UM6SR3WpL5Zja2kG4jK52efEpk5O+5ql3RU/gQoD8VFHK8i/X6PtSYsiLyHtSgp/Y/qcOEvw6WSE1lnRbRg4H1p4gy66v7C79bpaQB3RWgAuZak3po+oiV3DN5t5LgrqoXHEMJs7iV8KQ8yj0MO0181NDg7D7y68V6QGCZSnLV1Su4io0Dec1Ia6B6pnmDyTyCzcGin90H6GeURPhhE7eS/bQjlEgCsqMdw6omJpr+lG/E0ZnCUUjE17bguCSxoxRydDETk4gPOVXKV2RA6sJAkvvpcLFnW+avAy7KXlvt/ncdjQ13qeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PKh8G+LwBkJ3MIk4e3k+H4mcCK2kqqjrk6p1SaoabOk=;
+ b=a7qrWqq1Yl9WsrXqn7EucZTl2ZouptkjrY+xyDdSY66sNSqnuvlmtodUnj3hyKwMPDOqShGuM0EMp+o03xgAbqXON0PePuItiSvoVHAUlSRHFmrxipv6hT48cboROzo/uOnCQFc5a2o9o5IxrENxaBTTaWIHOK5sk4KieFIpFl3J6PU6Kcvmxjnp/nyUwDrY02+QvY8RSjwmv34GBdgRNm0VGlQ/GSPxQ3J7qKQjXVDsJlJQmmcCO4GgeZac36xfUXdmqcYQ0+egJe05FWavT1a5i1LzE+R4wp/hzVsY6b56GGTWxNJhSToVBiOAzdu9sHkoFciFdAu6LRmge000CA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PKh8G+LwBkJ3MIk4e3k+H4mcCK2kqqjrk6p1SaoabOk=;
+ b=jRwwNX/ZR9d0QSvm5S3qfKPVVRs9tHh9ECJA+bPRMIThIC0wWZq6oEy1GK4QSLS/YMM2CjDF1kHWCGeGNC6I1diPHMsvJ3QtxRD+3oQjSfmFwiSgbDpwocVGSV4KApUPhib2TvrutrlTbq/JJI3LGXQ6tZ4hFdnuaMH+uc0vgcI=
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
+ by DS7PR12MB6262.namprd12.prod.outlook.com (2603:10b6:8:96::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8511.28; Thu, 13 Mar 2025 07:34:56 +0000
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6%5]) with mapi id 15.20.8511.026; Thu, 13 Mar 2025
+ 07:34:55 +0000
+From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+To: Andrew Lunn <andrew@lunn.ch>, "Russell King (Oracle)"
+	<linux@armlinux.org.uk>
+CC: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, "Simek,
+ Michal" <michal.simek@amd.com>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "git (AMD-Xilinx)" <git@amd.com>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: RE: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Thread-Topic: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Thread-Index: AQHbkzTKsOmRASZLiU2r8QNuR6Yh/7NvfgWAgAANigCAAAd4EIAABRmAgAABiVCAAAgAAIAABycAgAA+CwCAACn9gIAAU7+QgABF/4A=
+Date: Thu, 13 Mar 2025 07:34:55 +0000
+Message-ID: <BL3PR12MB6571DF7CBA49AF626ABDA382C9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
+References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
+ <20250312095411.1392379-3-suraj.gupta2@amd.com>
+ <ad1e81b5-1596-4d94-a0fa-1828d667b7a2@lunn.ch>
+ <Z9GWokRDzEYwJmBz@shell.armlinux.org.uk>
+ <BL3PR12MB6571795DA783FD05189AD74BC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <34ed11e7-b287-45c6-8ff4-4a5506b79d17@lunn.ch>
+ <BL3PR12MB6571540090EE54AC9743E17EC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <fd686050-e794-4b2f-bfb8-3a0769abb506@lunn.ch>
+ <BL3PR12MB6571959081FC8DDC5D509560C9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <Z9HjOAnpNkmZcoeo@shell.armlinux.org.uk>
+ <186bf47a-04af-4bfb-a6d3-118b844c9ba8@lunn.ch>
+ <BL3PR12MB6571E707DC09A31A553CB1BCC9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
+In-Reply-To: <BL3PR12MB6571E707DC09A31A553CB1BCC9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
+Accept-Language: en-US
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <8b1b7df5-07f4-4f95-88e7-4e95ee909ffd@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=e9a92bdb-0a75-44e4-aef5-e2da97db286f;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-03-13T03:10:41Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|DS7PR12MB6262:EE_
+x-ms-office365-filtering-correlation-id: 4b410aaa-b8fe-4629-3ccc-08dd62018d25
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?mx8oadVTsKIpNFepZ5JKd/BbWnbhSD9a+2C1JHiBjFEHoaCDgOx63Wj5QjA9?=
+ =?us-ascii?Q?NtgvLO3K2TL7F2u1OkZXN67EbZ2sChjucArPHYKTYZaLxuReTChmGDnmeqEk?=
+ =?us-ascii?Q?A3V7D9U5F13pmtYvhsKsS4yeG7tbJLobTuAay/5C+Ijg8PtP6Oxg3u7DC6vQ?=
+ =?us-ascii?Q?wbU64fBiqIHD19iUVH8dCcksRt5rxGcy7dvFwSj6nKxQmHIgJbwX+hPW7m0s?=
+ =?us-ascii?Q?0q9EGV8xO7RohoCWDlCLy48RpqE4/0Sz65rKxdBjcy9HIejBCIMm9wvEDd7s?=
+ =?us-ascii?Q?fpMN3I37jF1qxm4Klsjooc5A3f4ErHA3dSD0g1PBq7Ba/r33WZo153NMmOuz?=
+ =?us-ascii?Q?WTAYLN4fsov40Xlj9eprZ75oOVBDeCGct0V1xY0n0zSt2tzO8ZRSKIKtGqAt?=
+ =?us-ascii?Q?l6a+guAinAydH+n3j094Y+PHskiydsqpcLEcYjgxOQxkyVleGfx7QOASVJgo?=
+ =?us-ascii?Q?lzTLv2fhVhVEpAXGYZB2EoVglhE/7mxKi9baMEEOudJNgkaxuzUBTh4i2cDs?=
+ =?us-ascii?Q?h6/RsriO0m6HC51d0oyzbj5dW73A3+AnxLNCVBNd13skDFgXElVBBF8egMbn?=
+ =?us-ascii?Q?jby+RlubwSkH/8wfiYnLwSSoBEgoxxh+abeOtGji9oiuTAMvEPBeBBqeRAfL?=
+ =?us-ascii?Q?2bx0fSo5SwGFJwGcE/NGYFkVXHluOjeSkPJiphb49H/vwxLORdE4YkWyhicg?=
+ =?us-ascii?Q?B1Adbq22JgwWMpoGzJkd4tBU9/EL1hGLad/MaLGzmwdEjSbIlQY73yQBkT7Z?=
+ =?us-ascii?Q?HkVQ9szN5lCGylG+0G/Whynl//fWACG5fXqog/oqtv5xl7m5GZewqyTftQHp?=
+ =?us-ascii?Q?h/rxWWy4tLTDYgkAs9R61YiK3QKGGDMJz0dZcvQTXxax8a7Yz5ou1iA7s7Dr?=
+ =?us-ascii?Q?SQ05/i7Bo4HDfvAIYc5zpifnp5wPxQPDMndI0oXtVi9+KGme4dR2bbGHBaJ9?=
+ =?us-ascii?Q?DZIgqDyAylxKyMxUdkCplYgBGkq828fLxdLaCePiWYp3dJIrHsrUXpMxgI0/?=
+ =?us-ascii?Q?aN0zoIkGGHmUyHZoj5LDV2ibZOE1DTBlY2R7bsARIte/QB56yktKulTF3dfx?=
+ =?us-ascii?Q?bYMX6tgGTx0Ov8K8W8hDIteDvo1VOhASz+gxIv2y2hrnIMd9Jy92exhtWrEj?=
+ =?us-ascii?Q?1mNdo9bJLHCixPg1Vdr4vqJ8skuXAG8R6R5u6YNMkUghzsP7MnDm/HdjAxr/?=
+ =?us-ascii?Q?ckmxuI/yeFTLjajPXP8Yu+O22XngfrAsSJmxsQACfVxGmUtEB9nqS3YWQH8D?=
+ =?us-ascii?Q?J7NArJRslgBpEhXczNtPYEw7Abss55tr+THSedv19/1+P547Nx+6QM0adeCg?=
+ =?us-ascii?Q?ezMwTMXOkTHplCb1AMqXdBeZvlTEOeu8nY3nSofZZv3yal+6GF3ylLy6bnO0?=
+ =?us-ascii?Q?jnutuY+x4alzmm/T7gS/hZC7y+IydNoOkTA+FcZwYdV6fUe6zHoq9tV2uDJI?=
+ =?us-ascii?Q?EP015eyFlKQoPVvmqMp8qqTKtO74L4hx?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?d8JApem87uwt76d8Mqk90WOHJXsMJzLbTF/L8SNQx/3ToEQGIe14e7nad5qF?=
+ =?us-ascii?Q?vD2J9uP3jYOdfTn/FKlOZ0DtrnCDLETfVgbVDC06CHSVCXL38V7DEEshc2KP?=
+ =?us-ascii?Q?ZatZbiaQt2w7NL6zTrWp8rjTsyQAgWYUejOdCGhDHseQ5AQgYkeLFvEAaLhR?=
+ =?us-ascii?Q?6UCqSHYnRPBdUWEmGW2Cd48m0becD2ME9/qMIWzevsOKXWaqaKBwu/W3YpTn?=
+ =?us-ascii?Q?rXjtebvasgo3VtgtEO+tHjnzVdLQMNHIYMCdwuu83DUBU0jKsPj/E11I/RFK?=
+ =?us-ascii?Q?JBjO92oQ4JJIBaQunNX0yS2uZLvA2FuMz7zZMyXH3U7XXsypkxroi1gstNrY?=
+ =?us-ascii?Q?se7fUkxo++0Fc/fRij5qJax/U0aNBzktCMbRBAipKjltTuEb5HCZntjRACiX?=
+ =?us-ascii?Q?4d7AMdUUfXo/CgZsg2lpi4h83nqpteNDoAN7Nv+R0guWdbWx9H6yg+Joozfv?=
+ =?us-ascii?Q?8W+Ss53mMntNCYllJ/+do6utbpGlHJ4oRPCSSw4h1CYcX/rlMDqe7S5JA8yz?=
+ =?us-ascii?Q?zgjxIOfc9I8O4yhEVXrN84SaRnM/SMnfCQHhiuxUCCDQHR/VP3i8/+4wXXYf?=
+ =?us-ascii?Q?n6GqYKNEzsZQVm7poCewOoHHrPrNmcMUGF0kMGGY5mVCSAIqY181SBlAINrs?=
+ =?us-ascii?Q?RymRIUL+Af51S6yqkquhg2rUhosGnaDVEW8W7qbz2VdK4iIPNRGiEcfe90BD?=
+ =?us-ascii?Q?DH5NKfAy2NdoP2Myj9hULepAh7nKk6vyTa6oeSsb3LH6OFyu+sGwdUdR1u7h?=
+ =?us-ascii?Q?/Y/Ca+PJvIll9HrwcaqRUyNFaF7mXVoziMt3yveXvEcrRNjDfVgTyxiSqRUO?=
+ =?us-ascii?Q?CD9bp3ARq16cEvJa3JL0i5OssjS+0r18pdlLhR6Pb+sPtKjHgbXY8IU0KqEt?=
+ =?us-ascii?Q?QmrfTtahv4D5//Wxz8/d5nJTTk8o4A/2iPoFK2C6hqI19ZIR/4tmO0wLd/cy?=
+ =?us-ascii?Q?kUmAcYPVj3ipTcS20kC5axaAkfit/DF723dGNvTNM/m/KG36PHwgFDkBXsoI?=
+ =?us-ascii?Q?lGbKdQauUFKucaIpb7vQN7JccjaoX2b9w0LtqRJACV1rOH5SVs8sz+lcY97E?=
+ =?us-ascii?Q?wuopIr+EBDz8+4vBrNhhoFVgNkCRpMFRNT/PTLJnOlqnK8B3KGUnRW6logxE?=
+ =?us-ascii?Q?EjNIBgWXHBDcVuk6cxgBNX8ofZ8AaH1DxP7RCdCexml+RRL9XQTJCdRmpVMP?=
+ =?us-ascii?Q?Wqx8yJS72qGyg93/xnV9Bq41JSPWWbS+XFOm4kNXMaUJVzaRx+UEBRShRMEr?=
+ =?us-ascii?Q?0/0L+5F9nt4P97S8vLTxhAQeFGubD1T7g9PTdcihUWh0W378hMjT7IItbvUg?=
+ =?us-ascii?Q?VVDBDVVxNphiK+mDkCqOoRguLiEd6tJN3pTHbWDEn1Cv95M+78pYgRpvDA98?=
+ =?us-ascii?Q?VFW7gzMYxOaM3LKFt/VcKt/9rWvLNjIwGzrxjLJSLsHmpAZ7NZYCnrgyqWHq?=
+ =?us-ascii?Q?b6EFK+I2W1Hbe1ZfWZuRcMRM6Jcefe9FmMpc4D9St6AWNtDEUAsZlPVVxrvt?=
+ =?us-ascii?Q?MzHJrWxqd2JI3I5ifK3BvW5pTSIHF4zTEwrAnaTzzUDNKhGzwWy0Z2cGyNYy?=
+ =?us-ascii?Q?GPfAb5pGNUSXOyZdLik=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b410aaa-b8fe-4629-3ccc-08dd62018d25
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2025 07:34:55.8819
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zNmM7JlRoT2o5bRB/ONgftJ76CYGbDAuo1RefRr52YbXi/CW+TGpI1fxMKWvt9pXl7m09nVAQN4QKa63YYDTuw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6262
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_003411_120529_979AD977 
-X-CRM114-Status: GOOD (  30.29  )
+X-CRM114-CacheID: sfid-20250313_003503_253568_F468DA01 
+X-CRM114-Status: GOOD (  38.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,213 +186,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/03/2025 15:23, Patrice CHOTARD wrote:
->>> +static int stm32_omm_disable_child(struct device *dev)
->>> +{
->>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
->>> +	struct reset_control *reset;
->>> +	int ret;
->>> +	u8 i;
->>> +
->>> +	for (i = 0; i < omm->nb_child; i++) {
->>> +		ret = clk_prepare_enable(omm->child[i].clk);
->>> +		if (ret) {
->>> +			dev_err(dev, "Can not enable clock\n");
->>> +			return ret;
->>> +		}
->>> +
->>> +		reset = of_reset_control_get_exclusive(omm->child[i].node, 0);
->>> +		if (IS_ERR(reset)) {
->>> +			dev_err(dev, "Can't get child reset\n");
->>
->> Why do you get reset of child? Parent is not suppposed to poke there.
->> You might not have the reset there in the first place and it would not
->> be an error.
-> 
-> By ressetting child (OSPI), we ensure they are disabled and in a known state.
-> See the comment below.
-> 
->>
->>
->>> +			return PTR_ERR(reset);
->>> +		};
->>> +
->>> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
->>> +		reset_control_assert(reset);
->>> +		udelay(2);
->>> +		reset_control_deassert(reset);
->>
->> No, the child should handle this, not parent.
-> 
-> Octo Memory Manager can only be configured if both child are disabled.
-> That's why here, parent handles this.
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-So if device by any chance started and is doing some useful work, then
-you cancel that work and reset it?
+> -----Original Message-----
+> From: Gupta, Suraj
+> Sent: Thursday, March 13, 2025 9:01 AM
+> To: Andrew Lunn <andrew@lunn.ch>; Russell King (Oracle)
+> <linux@armlinux.org.uk>
+> Cc: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
+> andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
+> kuba@kernel.org; pabeni@redhat.com; robh@kernel.org; krzk+dt@kernel.org;
+> conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>;
+> netdev@vger.kernel.org; devicetree@vger.kernel.org; linux-kernel@vger.ker=
+nel.org;
+> linux-arm-kernel@lists.infradead.org; git (AMD-Xilinx) <git@amd.com>; Kat=
+akam,
+> Harini <harini.katakam@amd.com>
+> Subject: RE: [PATCH net-next V2 2/2] net: axienet: Add support for 2500ba=
+se-X only
+> configuration.
+>
+>
+>
+> > -----Original Message-----
+> > From: Andrew Lunn <andrew@lunn.ch>
+> > Sent: Thursday, March 13, 2025 3:41 AM
+> > To: Russell King (Oracle) <linux@armlinux.org.uk>
+> > Cc: Gupta, Suraj <Suraj.Gupta2@amd.com>; Pandey, Radhey Shyam
+> > <radhey.shyam.pandey@amd.com>; andrew+netdev@lunn.ch;
+> > davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> > pabeni@redhat.com; robh@kernel.org; krzk+dt@kernel.org;
+> > conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>;
+> > netdev@vger.kernel.org; devicetree@vger.kernel.org;
+> > linux-kernel@vger.kernel.org; linux-arm- kernel@lists.infradead.org;
+> > git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+> > <harini.katakam@amd.com>
+> > Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for
+> > 2500base-X only configuration.
+> >
+> > Caution: This message originated from an External Source. Use proper
+> > caution when opening attachments, clicking links, or responding.
+> >
+> >
+> > > This is not an approach that works with the Linux kernel, sorry.
+> > >
+> > > What we have today is a driver that works for people's hardware -
+> > > and we don't know what the capabilities of that hardware is.
+> > >
+> > > If there's hardware out there today which has XAE_ABILITY_2_5G set,
+> > > but defaults to <=3D1G mode, this will work with the current driver.
+> > > However, with your patch applied, it stops working because instead
+> > > of the driver indicating MAC_10FD | MAC_100FD | MAC_1000FD, it only
+> > > indicates MAC_2500FD. If this happens, it will regress users setups,
+> > > and that is something we try not to do.
+> > >
+> > > Saying "someone else needs to add the code for their FPGA logic"
+> > > misses the point - there may not be "someone else" to do that, which
+> > > means the only option is to revert your change if it were merged.
+> > > That in itself can cause its own user regressions because obviously
+> > > stuff that works with this patch stops working.
+> > >
+> > > This is why we're being cautious, and given your responses, it's not
+> > > making Andrew or myself feel that there's a reasonable approach
+> > > being taken here.
+> > >
+> > > >From everything you have said, I am getting the feeling that using
+> > > XAE_ABILITY_2_5G to decide which of (1) or (2) is supported is just
+> > > wrong. Given that we're talking about an implementation that has
+> > > been synthesized at 2.5G and can't operate slower, maybe there's
+> > > some way that could be created to specify that in DT?
+> > >
+> > > e.g. (and I'm sure the DT folk aren't going to like it)...
+> > >
+> > >       xlnx,axi-ethernet-X.YY.Z-2.5G
+> > >
+> > > (where X.YY.Z is the version) for implementations that can _only_ do
+> > > 2.5G, and leave all other implementations only doing 1G and below.
+> > >
+> > > Or maybe some DT property. Or something else.
+> >
+> > Given that AMD has been talking about an FPGA, not silicon, i actually
+> > think it would be best to change the IP to explicitly enumerate how it
+> > has been synthesised. Make use of some register bits which currently
+> > read as 0. Current IP would then remain as 1000BaseX/SGMII,
+> > independent of how they have been synthesised. Newer versions of the
+> > IP will then set the bits if they have been synthesised as 2) or 3),
+> > and the driver can then enable that capability, without breaking
+> > current generation systems. Plus there needs to be big fat warning for
+> > anybody upgrading to the latest version of the IP for bug fixes to ensu=
+re they
+> correctly set the synthesis options because it now actually matters.
+> >
+> >          Andrew
+>
+> Synthesis options I mentioned in comment might sound confusing, let me cl=
+ear it up.
+> Actual synthesis options (as seen from configuration UI) IP provides are =
+(1) and (2).
+> When a user selects (2), IP comes with default 2.5G but also contains 1G
+> capabilities which can be enabled and work with by adding switching FPGA =
+logic
+> (that makes it (3)).
+>
+> So, in short  if a user selects (1): It's <=3D1G only.
+> If it selects (2): It's 2.5G only but can be made (3) by FPGA logic chang=
+es. So
+> whatever existing systems for (3) would be working at default (2).
+>
+> This is the reason we didn't described (3) in V1 series as that is not pr=
+ovided by IP
+> but can be synthesized after FPGA changes.
+> Hope I'm able to answer your questions.
+>
 
-And what if child does not have reset line? Your binding allows that, so
-how is it supposed to work then?
+I understand your concerns that current solution might break if any existin=
+g system uses (3).
 
-This also leads me to questions about bindings - if you need to assert
-some reset, doesn't it mean that these resets are also coming through
-this device so they are part of this device node?
+Russel's suggestion to use DT compatible we can try to send as RFC and chec=
+k if that is accepted by DT maintainers.
+Andrew's suggestion is complete IP solution and will involve IP changes to =
+correct ability register behaviour based on synthesis time selection in a n=
+ew IP version. But this will need internal discussions and IP rework and mi=
+ght take few months.
 
-
-> 
->>
->>> +
->>> +		reset_control_put(reset);
->>> +		clk_disable_unprepare(omm->child[i].clk);
->>> +	}
->>> +
->>> +	return 0;
->>> +}
->>> +
->>> +static int stm32_omm_probe(struct platform_device *pdev)
->>> +{
->>> +	struct platform_device *vdev;
->>> +	struct device *dev = &pdev->dev;
->>> +	struct stm32_omm *omm;
->>> +	struct clk *clk;
->>> +	int ret;
->>> +	u8 child_access_granted = 0;
->>
->> Keep inits/assignments together
-> 
-> ok
-> 
->>
->>> +	u8 i, j;
->>> +	bool child_access[OMM_CHILD_NB];
->>> +
->>> +	omm = devm_kzalloc(dev, sizeof(*omm), GFP_KERNEL);
->>> +	if (!omm)
->>> +		return -ENOMEM;
->>> +
->>> +	omm->io_base = devm_platform_ioremap_resource_byname(pdev, "regs");
->>> +	if (IS_ERR(omm->io_base))
->>> +		return PTR_ERR(omm->io_base);
->>> +
->>> +	omm->mm_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "memory_map");
->>> +	if (IS_ERR(omm->mm_res))
->>> +		return PTR_ERR(omm->mm_res);
->>> +
->>> +	/* check child's access */
->>> +	for_each_child_of_node_scoped(dev->of_node, child) {
->>> +		if (omm->nb_child >= OMM_CHILD_NB) {
->>> +			dev_err(dev, "Bad DT, found too much children\n");
->>> +			ret = -E2BIG;
->>> +			goto err_clk_release;
->>> +		}
->>> +
->>> +		if (!of_device_is_compatible(child, "st,stm32mp25-ospi")) {
->>> +			ret = -EINVAL;
->>> +			goto err_clk_release;
->>> +		}
->>> +
->>> +		ret = stm32_omm_check_access(dev, child);
->>> +		if (ret < 0 && ret != -EACCES)
->>> +			goto err_clk_release;
->>> +
->>> +		child_access[omm->nb_child] = false;
->>> +		if (!ret) {
->>> +			child_access_granted++;
->>> +			child_access[omm->nb_child] = true;
->>> +		}
->>> +
->>> +		omm->child[omm->nb_child].node = child;
->>> +
->>> +		clk = of_clk_get(child, 0);
->>
->> Why are you taking children clock? And why with this API, not clk_get?
-> 
-> I need children's clock to reset them.
-
-
-The device driver should reset its device. It is not a discoverable bus,
-that would explain power sequencing from the parent.
-
-> Why of_clk_get() usage is a problem here ? i can't get your point ?
-
-Because it is not the API which device drivers should use. You should
-use clk_get or devm_clk_get.
-
-
-> 
->> This looks like mixing clock provider in the clock consumer.
->>
->>> +		if (IS_ERR(clk)) {
->>> +			dev_err(dev, "Can't get child clock\n");
->>
->> Syntax is always return dev_err_probe (or ret = dev_err_probe).
-> 
-> ok
-> 
->>
->>> +			ret = PTR_ERR(clk);
->>> +			goto err_clk_release;
->>> +		};
->>> +
->>> +		omm->child[omm->nb_child].clk = clk;
->>> +		omm->nb_child++;
->>> +	}
->>> +
->>> +	if (omm->nb_child != OMM_CHILD_NB) {
->>> +		ret = -EINVAL;
->>> +		goto err_clk_release;
->>> +	}
->>> +
->>> +	platform_set_drvdata(pdev, omm);
->>> +
->>> +	pm_runtime_enable(dev);
->>> +
->>> +	/* check if OMM's resource access is granted */
->>> +	ret = stm32_omm_check_access(dev, dev->of_node);
->>> +	if (ret < 0 && ret != -EACCES)
->>> +		goto err_clk_release;
->>> +
->>> +	if (!ret && child_access_granted == OMM_CHILD_NB) {
->>> +		/* Ensure both OSPI instance are disabled before configuring OMM */
->>> +		ret = stm32_omm_disable_child(dev);
->>> +		if (ret)
->>> +			goto err_clk_release;
->>> +
->>> +		ret = stm32_omm_configure(dev);
->>> +		if (ret)
->>> +			goto err_clk_release;
->>> +	} else {
->>> +		dev_dbg(dev, "Octo Memory Manager resource's access not granted\n");
->>> +		/*
->>> +		 * AMCR can't be set, so check if current value is coherent
->>> +		 * with memory-map areas defined in DT
->>> +		 */
->>> +		ret = stm32_omm_set_amcr(dev, false);
->>> +		if (ret)
->>> +			goto err_clk_release;
->>> +	}
->>> +
->>> +	/* for each child, if resource access is granted and status "okay", probe it */
->>> +	for (i = 0; i < omm->nb_child; i++) {
->>> +		if (!child_access[i] || !of_device_is_available(omm->child[i].node))
->>
->> If you have a device available, why do you create one more platform device?
->>
->>> +			continue;
->>> +
->>> +		vdev = of_platform_device_create(omm->child[i].node, NULL, NULL);
->>
->> Why you cannot just populate the children?
-> 
-> I can't use of_platform_populate(), by default it will populate all OMM's child.
-> Whereas here, we want to probe only the OMM's child which match our criteria.  
-
-
-Why wouldn't you populate everyone? The task of bus driver is not to
-filter out DT. If you got such DT - with all device nodes - you are
-expected to populate all of them. Otherwise, if you do not want all of
-them, it is expected that firmware or bootloader will give you DT
-without these nodes.
-
-Best regards,
-Krzysztof
+Please let me know your thoughts on it.
 
