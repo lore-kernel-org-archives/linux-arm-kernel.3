@@ -4,86 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1FBC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBE2C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t7v1Qkb8L6FlMwponX2mZyIWEvjJH1SZ0cHZtJhckdo=; b=vGV2SMOkjH0+LbUkmWNj7xoG/p
-	NGSPf2tA73dcZzu/SLvsT0rTFCXJYi2DiY1suZLMkUgCDZ+wLBgQUgL4uC6dVOnkB/FX82R+EZsxt
-	TBgfAjn3yyimyxEdTcoAyFpMNpC/azfe8AjzhJKiHM/LdIiCO8m2FJyM5rHuumAYdN8sRXT0IObve
-	eIfYI12cBeVKlWZUcx73fabYN8Azrfdb923AKOwXsGQzKI++Y5h2zYiq8QfGSgl89RIDfbGs9FQZI
-	Ebos5kDszNt7LRwSnNYrM5KtIDYS0e2HmMp/UvhXVTsVNESBuTk6xk9mYEOVlBc6ANx/f7vfoHs4+
-	dCA7b0gg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W/aqvoIKuR6wHeO9Dw3liQGVZV24Y7M6R/uaPC7XW8g=; b=oLWNASEHhrgg1QSSw2Ty4ff+ds
+	Ylz4yNVO9Ju8754lD4GJPjPHtx4CwDA61dTOQD11B6U3e/AhNcVBKg/f/xeZoci0kigIGmCPG1uy/
+	VujS0YGZs0E+xMGTYXhiaNBxPxgls/Ht4vwuJRccX0VVAduiidt3tx3SRStkntXZUQegFCIFik6ZP
+	Mo/27pxC8AH+fO+wi748QyQME27Rx4+bAStC3xm5kliBTG5O0uXN+8N4OErjxU9OIqzJXpVmTth32
+	6gx+QbSZ1gtlw383aHOsVyPkaUmI/4C7IiR0VO4V2JvJUviwHziI023YrlLahQWhbLVcHVAr/emIA
+	rbiPpw2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsn3s-0000000C9y7-3FpB;
-	Thu, 13 Mar 2025 18:13:40 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tsn5V-0000000CALz-1llk;
+	Thu, 13 Mar 2025 18:15:21 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsmol-0000000C60Y-2ejL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 17:58:04 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2240b4de12bso34540695ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 10:58:02 -0700 (PDT)
+	id 1tsmsL-0000000C6G3-0sJU;
+	Thu, 13 Mar 2025 18:01:46 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5dccaaca646so2316331a12.0;
+        Thu, 13 Mar 2025 11:01:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741888682; x=1742493482; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=t7v1Qkb8L6FlMwponX2mZyIWEvjJH1SZ0cHZtJhckdo=;
-        b=RJIMb7ZGzPj2ym9U0204zCzluXVr52xP2/DaHY6Fk/h8RNaHqp5RrJj1ZlnPT8ey1C
-         84x34tD/Qvo4sFMsaZiWoSgvB0+Ht4XrHFZl7BxubUCJxUiRm3P1eCe39w+S1mdsY83J
-         40H6+cZIOBIrSrYq92b/owyUOeXKGmz3JH7a0Za9wzx0HMlbxy6W6OVza2rnVmA4Xl3T
-         wJ6w+nHZkEBtzRFvnEo9praC/gTnQPMuKZY+KbD5fJRGAXD1tzFJXJxhZ8hADyXRozay
-         NoaJFdD4Cwe0BXMuugYWGb4hhAYJollCRgrH9dohX1ZzeUu8h05BirRPd/nPGXA2/CyT
-         DVuw==
+        d=gmail.com; s=20230601; t=1741888903; x=1742493703; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=W/aqvoIKuR6wHeO9Dw3liQGVZV24Y7M6R/uaPC7XW8g=;
+        b=eweJL+/wA4I2Lz+tr70l+93WRnR8w+9wv7yhdkLp0uY5VLoioARDiUkjzW3Z0fA0ka
+         n5FP7xjovNWLz/juN+t/w+437WKSolSD6oPbkQAv0iYT+1X0QQrS81goGd2ZCgc10f9O
+         UYIIwMwVab1Tuf4LRJmvySxQTrYKJLXBlP/05/1YlAckLLFGY8xUgo7vF/Jk6gJRuFWl
+         4g9aCTa4NkCzYus8/KVpa+x3npaxoVe+5u9lmHQnyukHsFxZ53J652L/5RhSCJZ/mXgD
+         /w4o23mD0H98vidEI4x6OgFqNXYzMuljvzMSSUqcPECYva+DdlqrfS1iJelEtlzfubE8
+         D5Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741888682; x=1742493482;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t7v1Qkb8L6FlMwponX2mZyIWEvjJH1SZ0cHZtJhckdo=;
-        b=Os0KrP3K+QGsdGUC9M3fQJB4N8Nd0RAppqOm1ULUd568iYA8evZJMb+RrT0ZyW/b2f
-         XojUjfWq1/kiJUjpziRm4C8BY+ryiTN9DhQtXDiv3SBHKTMjMTkGztJVaOl6XMQQqnoT
-         1b9UqOjRSSSOzF/0VEbfCb188UgdQzo413G7n6CkDVh2GssFEc+6UlDFFJYW4/apt3bb
-         qanMPimdNeXUFGoJH5tvbOZzjVSXEo1YN1TNOY2t7UECQJufMU/RRG+7OFBqysgwkkxe
-         AmRIR5BVMJeOWzgKpcaPOxqmehmNSHWFDf8VL3kqVFa95uCu6CoamricZwcn6Ha8byb0
-         T+Tg==
-X-Forwarded-Encrypted: i=1; AJvYcCWq3vUJSCkM9jEVCHQbnNjOmrmeuCHAhjhIAd4L/GTcMwOewPEFwqY/NEfn8W48ibK/Lb/GENIIDWnIMdJbCRrJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxugWQtaL/gHla6Y9ChageXZf/9IrY7NGLOGfF8pzOcDslJaRM3
-	mRCKfof/7gzwOWkPrruzIzkArthM27TXW6lmhNANCylwnI1eDGFuqYsSiQ==
-X-Gm-Gg: ASbGncsPaqzebvQVSuLxofWoCpAXvfaTGaEmsx9YBrShQc15CpwRbAHIe6ydKyDNSnX
-	dnlcyoG93aKNdTrO+XVOa0DqttemQ4cGYeBVG7bkfmyWFNZ0/GuOgql+xdmB/ak6n0bwBTCZgPF
-	5GdjuC39aW2XoI5O7thFmIXBiEiS2KKHinKMmHjIIc/GiFLK5PshAUCTs/WhQsiqkvstVa7HsGJ
-	WXyVzMWo/2ojkJSLNJpc4m4+q3uGDJkl3Kt1uI8LuvPD8OxVA17fwuVRFvx13M5F2fY+icMjgLs
-	Bqqx4We4rkyKp0UJS/2G/ZJ/dh+RDBZ2YlXY3sV63E7RJtqKbLa0aYqaP9o=
-X-Google-Smtp-Source: AGHT+IFRRUvqj0O9I5WXVWC/ciIqdS7Vqabcfjv6S8Y/Ld1N1H21yqO9vl98/qGFXLxeYxTxDkE4+g==
-X-Received: by 2002:a05:6a00:2e17:b0:736:48d1:57f7 with SMTP id d2e1a72fcca58-7371f0d6230mr500593b3a.7.1741888682280;
-        Thu, 13 Mar 2025 10:58:02 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:abab:f7ee:5b0a:8554])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-737115749f2sm1632720b3a.80.2025.03.13.10.57.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 10:58:01 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH] ARM: dts: imx31/imx6: Use flash as the NOR node name
-Date: Thu, 13 Mar 2025 14:57:52 -0300
-Message-Id: <20250313175752.1532299-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1741888903; x=1742493703;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=W/aqvoIKuR6wHeO9Dw3liQGVZV24Y7M6R/uaPC7XW8g=;
+        b=a3KOeWS/fRCkolyIRSnQw5wF0eksvTa4Vnu+x3BIT7dQRVOzr9+TDzp2Ya4JY1jqhA
+         fBYRArO0OeTog04RtZRHBQ8TFF3n31JfgVJ3oEC6bhKH3ZXdVZzR1nXtqQp2mnKlkZmO
+         U/fSetyP8DVAgUJhXTd55nowWsG9rAoYJgy+8VNNGepIRKLXmP663i9MVH/H0qu8OI/a
+         ibQyK+H+y7IVCor80huD3o7niJgEiFd25l4KJFviSPVWJFM2MhbJUWybtmhdVWuT392z
+         n0Gz1xYQssnLAYKDpdqqGLkKlxToJbP/WK2m2Ixj11rj7yzaSjyNj0Tytg1509G1Y709
+         g8wQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUbwh8GIGd1MjLekMULpmX+nyTsdbVA7j1e9oAe/+RwF5DCZ6yLYSJZCfP1qg/CDv22oEGHVyS7oLpsvfKNZN8=@lists.infradead.org, AJvYcCWSTGUc+rmmP81E+2o2u1TfCGeiAsPnal84z2P8b+RaE02QLxgCGHwGkvtFVhFYY83hRZ9T7qrAUd4JfGV1Jn4A@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1f9mlGuyLFxFKI40gxjANa/OjGtb3F9fOTvMkdTV+TNMKfckb
+	He+yfgda65u7pjdPFPnghfEKMACzUHbUye1q5+9H71WGLKYBJTU5
+X-Gm-Gg: ASbGnctCeRQQrvQQoW6pZ++I4OKEQIGUYzPs0q49QZyUVkvFIi4qI3Qv6bflcOcqZqI
+	4jNjxwHAifa2PtGmMmhFbzlZVEPfXFKVaxWw85IFWFU9ctdg0O38qYyRDH3SBgCqiOzBcW5Vhkk
+	QjlVpJg8UEVSjqrOD2PtafrBAb+cpYvEO8rpzb25WTzYiezJrvgk4skI1Hvd6N5JhhTPfcRAPcB
+	00E/1SYrjx+nHiK/wK/7Kne0XClkUj75gDC4uzxSeOsceCqFV5D97fEEXcUdoq7/M3KTX95hu4H
+	TmxzFdrhH8IftACfC68NiNVtMbdcvZyGqoGTrei5d+SxSxyJtbKQe2TUPqkYzXvQqty0Ig2E62q
+	TYH2AgLewVYKCaJFg86n/1gwDfqdR/5cow91vW6F7FVF8yegDMT46j7OnJIEacF6DjC5kZigEdz
+	3Ac0z2UWVreVGkAg/U90I=
+X-Google-Smtp-Source: AGHT+IFuZtAhl/EeTwlESgZEmFiH1TMtmKl7RGfRolizt1DBUCNDPnPwoWBarCBAea1UlBVhaKlHyA==
+X-Received: by 2002:a05:6402:2550:b0:5e5:9c04:777 with SMTP id 4fb4d7f45d1cf-5e814d805b7mr3320106a12.6.1741888902566;
+        Thu, 13 Mar 2025 11:01:42 -0700 (PDT)
+Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e81692e6d4sm945413a12.9.2025.03.13.11.01.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Mar 2025 11:01:41 -0700 (PDT)
+Message-ID: <02b97708-1214-4fa4-a011-70388cff8f79@gmail.com>
+Date: Thu, 13 Mar 2025 19:01:38 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 nf 00/15] bridge-fastpath and related improvements
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Kuniyuki Iwashima <kuniyu@amazon.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Nikolay Aleksandrov <razor@blackwall.org>, Roopa Prabhu <roopa@nvidia.com>,
+ Ivan Vecera <ivecera@redhat.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jozsef Kadlecsik <kadlec@netfilter.org>, Simon Horman <horms@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, bridge@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-hardening@vger.kernel.org, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Ahmed Zaki <ahmed.zaki@intel.com>, Vladimir Oltean <olteanv@gmail.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>
+References: <20250305102949.16370-1-ericwouds@gmail.com>
+ <897ade0e-a4d0-47d0-8bf7-e5888ef45a61@gmail.com> <Z9DKxOnxr1fSv0On@calendula>
+ <58cbe875-80e7-4a44-950b-b836b97f3259@gmail.com> <Z9IUrL0IHTKQMUvC@calendula>
+From: Eric Woudstra <ericwouds@gmail.com>
+Content-Language: en-US
+In-Reply-To: <Z9IUrL0IHTKQMUvC@calendula>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_105803_674142_5A67C96D 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250313_110145_253682_78E17632 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +119,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
 
-According to mtd-physmap.yaml, 'nor' is not a valid node name.
 
-Change it to 'flash' to fix the following dt-schema warning:
+On 3/13/25 12:11 AM, Pablo Neira Ayuso wrote:
 
-nor@0,0: $nodename:0: 'nor@0,0' does not match '^(flash|.*sram|nand)(@.*)?$'
+>> What do you suggest?
+> 
+> Probably I can collect 4/15 and 5/15 from this series to be included
+> in the next pull request, let me take a look. But it would be good to
+> have tests for these two patches.
+> 
 
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- arch/arm/boot/dts/nxp/imx/imx31-lite.dts         | 2 +-
- arch/arm/boot/dts/nxp/imx/imx6q-mccmon6.dts      | 2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+These are not most important to bridge-fastpath, but it gives extra
+possibilities. How about concentrating first on patch 2/15 (with 1/15
+removing a warning and 3/15 cleaning up), adding nf_flow_encap_push()
+for xmit direct? It is a vital patch for the bridge-fastpath.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx31-lite.dts b/arch/arm/boot/dts/nxp/imx/imx31-lite.dts
-index d17abdfb6330..630f8fa69ba8 100644
---- a/arch/arm/boot/dts/nxp/imx/imx31-lite.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx31-lite.dts
-@@ -157,7 +157,7 @@ &uart3 {
- &weim {
- 	status = "okay";
- 
--	nor@0,0 {
-+	flash@0,0 {
- 		compatible = "cfi-flash";
- 		reg = <0 0x0 0x200000>;
- 		bank-width = <2>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-mccmon6.dts b/arch/arm/boot/dts/nxp/imx/imx6q-mccmon6.dts
-index f08b37010291..bba82126aaaa 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-mccmon6.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-mccmon6.dts
-@@ -279,7 +279,7 @@ &weim {
- 	ranges = <0 0 0x08000000 0x08000000>;
- 	status = "okay";
- 
--	nor@0,0 {
-+	flash@0,0 {
- 		compatible = "cfi-flash";
- 		reg = <0 0 0x02000000>;
- 		#address-cells = <1>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-index a381cb224c1e..2587d17c5918 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-@@ -854,7 +854,7 @@ &weim {
- 	ranges = <0 0 0x08000000 0x08000000>;
- 	status = "disabled"; /* pin conflict with SPI NOR */
- 
--	nor@0,0 {
-+	flash@0,0 {
- 		compatible = "cfi-flash";
- 		reg = <0 0 0x02000000>;
- 		#address-cells = <1>;
--- 
-2.34.1
+Anyway, I will look into writing selftests for conntrack-bridge setup,
+including various vlan setups. This will take me some time, which I
+do not have in abundance, so for that I do not know if I get it done
+before the merge window.
 
 
