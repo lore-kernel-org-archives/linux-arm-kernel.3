@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91620C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819BCC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wInLS8J+wE7Mh+XocCbLIXnZEs/dRwFY6sut2f8KufA=; b=mS1vtue2B9lJVdil6ZutIPZ+5h
-	SezdBDD7tQRu5dS7tyl/oZT/4GS62BWE7DC6qGuwoBmhE/UVHVFCfvKdoguFdvVAzJuUN3qK0ymM5
-	lCM1g2U6HPvAQu55XQKNMwTH3hm0Cs1lmoEQ4hQ4qSEAt1cxu9EbrLbH3pcrGk+5arFFGwaN5NEfO
-	MwXoXcSV+MAsrLK5Be6k5yTBA7etJe3GExwBYhEG2TZ/Qs1jQablqWFTK79AVdmngI21woPvmdutF
-	yeynykdhMtF2veoZ5KgwErJVR26qctkpvcGQ1kZUKG/z9MnR4ZvVG9fS9ndXVIyeOFYrmoWiYCHo+
-	PH+7tUxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P8TnEmqSHNmEFF2Gnw1R5cVX6hnoXPw8fB05bPnBUqE=; b=qjm1y9HDYOtQCUMvfhypjm0rb3
+	saTdrJkZ7FEaq2H49/KPOBBqnuatvyJ7Ef1AbzT86wUewo1A491YGHk2NgwCzBONhpxSExDXpnXMB
+	Jl3HNOdhdMI9BesOKvWLZkGausYb9cKU1peMW0CAXiH/L2NDy742UyuiCzdZMcj2G5jtyW1MdtopT
+	hbDyWkRugrccajfuJUFmwhlL8IMdEMVvnFj9qYzPXuxIlCyzLEmxnyMaCnM0CqiEQVB1DD139T4KX
+	t0ccmatRXLL5gwyTBloDx1qcuWwaiwlIvT43ByyBVWqwrOI2MqO/rtKEds6TK4AxqnjykD1PWyGxO
+	nkQMD8mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsoIx-0000000CL2r-3fVh;
-	Thu, 13 Mar 2025 19:33:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tsoUk-0000000CM6U-0WKs;
+	Thu, 13 Mar 2025 19:45:30 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsoGn-0000000CKdt-2VFN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 19:31:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AAD165C272E;
-	Thu, 13 Mar 2025 19:28:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAFF8C4CEDD;
-	Thu, 13 Mar 2025 19:31:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741894264;
-	bh=atuEPx6iJ0rL6pAp8s4JxhvT/PcR6fvU8+nzY8V+xV0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CSLkm0PEB/nEkfB+lJaIzvAQ7L1e9w7uj+UMZdHuZQCOB4iQpUXJdZmWmerWocpVx
-	 aE7FglW70BbEcvyN5HvQmj04tw4t6ybOZV+OeS1XI2T+tg7Qg1PPB/Mudzr8NIhZ5u
-	 /990C02GaqNbfKue+E5EY33t+nj2Y8V6ggKYwSwOyvvSuFIHywGBOOAsKRKJQTpWGg
-	 kv0aghyYMYOmbHgHJdZn2RM5K4y2QyNtRebzKQsQ6mFsnxtl1QOzrDFn9p/CZ0sLao
-	 beac0BkXH50LyxdJ6H+wPky6qMiQRrXHEXwKxMoyC0dPjk0aDxSgVkEeeaHg/gScZl
-	 OZIL2Ms5F0KyQ==
-Date: Thu, 13 Mar 2025 19:30:58 +0000
-From: Will Deacon <will@kernel.org>
-To: Tejun Heo <tj@kernel.org>
-Cc: syzbot <syzbot+e13e654d315d4da1277c@syzkaller.appspotmail.com>,
-	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com,
-	maz@kernel.org, mark.rutland@arm.com, richard.xnu.clark@gmail.com,
-	jiangshanlai@gmail.com, marcel@holtmann.org,
-	johan.hedberg@gmail.com, luiz.dentz@gmail.com,
-	linux-bluetooth@vger.kernel.org
-Subject: Re: [syzbot] [arm?] WARNING in delayed_work_timer_fn
-Message-ID: <20250313193057.GA7784@willie-the-truck>
-References: <00000000000046efb605fec3def0@google.com>
- <675c28e0.050a0220.17d782.000d.GAE@google.com>
- <20250211111045.GA8885@willie-the-truck>
- <Z6u6MgaJWMpjCn4O@slm.duckdns.org>
- <20250214164556.GA13743@willie-the-truck>
+	id 1tsoT3-0000000CLsV-1ARm;
+	Thu, 13 Mar 2025 19:43:46 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250214164556.GA13743@willie-the-truck>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1741895022;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P8TnEmqSHNmEFF2Gnw1R5cVX6hnoXPw8fB05bPnBUqE=;
+	b=dE/+DN+ZBOTdTSE44pKduxHrktT3P0T3mJE54QcXa1CssIfbI2E7pJGRixf6iMC6TNqG2P
+	7Gg8u/bn/pBFrOxEOKdYdE8PBHJySRi8q9yw9LdnoAfU5DgiGWh1xWBDl8Ey25o3ar+1na
+	uIN8hdE7ZZmKg8Kdb+8Vuhr7bktDRJ50DW8aHlf7xi6W3Cr6MC1NQ0svgXRWROLzH+a+7y
+	Ojc+eZnD38JL4yAF76nC+YBvUW+dx1uKSG4VPd0mnO4stoJmO1dpMZEo6f8bJBIKL7iT3O
+	Va61HSg+Wv+xpatv0k0JfhdJeDdiHmsnN9G1tLUJLkVUac9+YtVWMfcqrRyQOA==
+Date: Thu, 13 Mar 2025 20:43:41 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Quentin Schulz <quentin.schulz@cherry.de>, Alexey Charkov
+ <alchark@gmail.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Viresh Kumar
+ <viresh.kumar@linaro.org>, Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas
+ <didi.debian@cknow.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Kever Yang <kever.yang@rock-chips.com>
+Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
+ on RK3588j
+In-Reply-To: <3271211.5fSG56mABF@phil>
+References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
+ <a56b59a21dc3c21192fe45197eee4865@manjaro.org>
+ <2cf3889741f84584d8f23a4407fed08e@manjaro.org> <3271211.5fSG56mABF@phil>
+Message-ID: <80c7d9fcdd270df2c61fbd61eec44d70@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_123105_751692_DAE8F385 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20250313_124345_612692_8862B704 
+X-CRM114-Status: GOOD (  43.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,130 +80,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 04:45:57PM +0000, Will Deacon wrote:
-> On Tue, Feb 11, 2025 at 10:59:30AM -1000, Tejun Heo wrote:
-> > On Tue, Feb 11, 2025 at 11:10:46AM +0000, Will Deacon wrote:
-> > > Given that this seems to explode a few times a month, I wonder if it's
-> > > worth adding some instrumentation to e.g. dump the name of the workqueue?
-> > 
-> > It's usually most useful to print out the work function when identifying the
-> > culprit. I'd be happy to take the patch.
+Hello Heiko,
+
+On 2025-03-13 20:00, Heiko Stuebner wrote:
+> Am Donnerstag, 13. März 2025, 11:42:17 MEZ schrieb Dragan Simic:
+>> On 2025-03-12 11:34, Dragan Simic wrote:
+>> > On 2025-03-12 11:15, Quentin Schulz wrote:
+>> >> On 2/16/25 1:32 PM, Alexey Charkov wrote:
+>> >>> On Sat, Feb 15, 2025 at 11:30 PM Heiko Stübner <heiko@sntech.de>
+>> >>> wrote:
+>> >>>> Am Samstag, 15. Februar 2025, 19:59:44 MEZ schrieb Alexey Charkov:
+>> >>>>> On Tue, Feb 11, 2025 at 7:32 PM Quentin Schulz
+>> >>>>> <quentin.schulz@cherry.de> wrote:
+>> >>>>>> On 6/17/24 8:28 PM, Alexey Charkov wrote:
+>> >> [...]
+>> >>>>>>> +     };
+>> >>>>>>> +
+>> >>>>>>> +     cluster2_opp_table: opp-table-cluster2 {
+>> >>>>>>> +             compatible = "operating-points-v2";
+>> >>>>>>> +             opp-shared;
+>> >>>>>>> +
+>> >>>>>>> +             opp-1416000000 {
+>> >>>>>>> +                     opp-hz = /bits/ 64 <1416000000>;
+>> >>>>>>> +                     opp-microvolt = <750000 750000 950000>;
+>> >>>>>>> +                     clock-latency-ns = <40000>;
+>> >>>>>>> +             };
+>> >>>>>>> +             opp-1608000000 {
+>> >>>>>>> +                     opp-hz = /bits/ 64 <1608000000>;
+>> >>>>>>> +                     opp-microvolt = <787500 787500 950000>;
+>> >>>>>>> +                     clock-latency-ns = <40000>;
+>> >>>>>>> +             };
+>> >>>>>>> +             opp-1800000000 {
+>> >>>>>>> +                     opp-hz = /bits/ 64 <1800000000>;
+>> >>>>>>> +                     opp-microvolt = <875000 875000 950000>;
+>> >>>>>>> +                     clock-latency-ns = <40000>;
+>> >>>>>>> +             };
+>> >>>>>>> +             opp-2016000000 {
+>> >>>>>>> +                     opp-hz = /bits/ 64 <2016000000>;
+>> >>>>>>> +                     opp-microvolt = <950000 950000 950000>;
+>> >>>>>>> +                     clock-latency-ns = <40000>;
+>> >>>>>>> +             };
+>> >>>>>>
+>> >>>>>> opp-1800000000 and opp-2016000000 should be removed as well.
+>> >>>>>>
+>> >>>>>> Did I misunderstand what Rockchip did here? Adding Kever in Cc at
+>> >>>>>> least
+>> >>>>>> for awareness on Rockchip side :)
+>> >>>>>>
+>> >>>>>> I guess another option could be to mark those above as
+>> >>>>>>
+>> >>>>>> turbo-mode;
+>> >>>>>>
+>> >>>>>> though no clue what this would entail. From a glance at cpufreq,
+>> >>>>>> it
+>> >>>>>> seems that for Rockchip since we use the default cpufreq-dt, it
+>> >>>>>> would
+>> >>>>>> mark those as unusable, so essentially a no-op, so better remove
+>> >>>>>> them
+>> >>>>>> entirely?
+>> >>>>>
+>> >>>>> I believe the opp core just marks 'turbo-mode' opps as
+>> >>>>> CPUFREQ_BOOST_FREQ, and cpufreq-dt only passes that flag along to
+>> >>>>> the
+>> >>>>> cpufreq core. But then to actually use those boost frequencies I
+>> >>>>> would
+>> >>>>> guess the governor needs to somehow know the power/thermal
+>> >>>>> constraints
+>> >>>>> of the chip?.. Don't know where that is defined.
+>> >>>>
+>> >>>> personally I don't believe in "boost" frequencies - except when they
+>> >>>> are
+>> >>>> declared officially.
+>> >>>>
+>> >>>> Rockchip for the longest time maintains that running the chip
+>> >>>> outside
+>> >>>> the declared power/rate envelope can reduce its overall lifetime.
+>> >>>>
+>> >>>> So for Rockchip in mainline a "it runs stable for me" has never been
+>> >>>> a
+>> >>>> suitable reasoning ;-) .
+>> >>>
+>> >>> My key concern here was perhaps that we are looking at a file inside
+>> >>> the Rockchip source tree which looks relevant by the name of it, but
+>> >>> doesn't actually get included anywhere for any of the boards. This
+>> >>> may
+>> >>> or may not constitute an endorsement by Rockchip of any OPPs listed
+>> >>> there :-D
+>> >>
+>> >> Rockchip support stated:
+>> >>
+>> >> """
+>> >> If you run overdrive mode, you do not need to include rk3588j.dtsi,
+>> >> and you can change it to #incldue rk3588.dtsi to ensure that the
+>> >> maximum frequency can reach 2GHz
+>> >>
+>> >> below picture from datasheet.
+>> >> """
+>> >>
+>> >> The picture is the table 3-2 Recommended operating conditions, page 30
+>> >> from the RK3588J datasheet, e.g.
+>> >> https://www.lcsc.com/datasheet/lcsc_datasheet_2403201054_Rockchip-RK3588J_C22364189.pdf
+>> >>
+>> >> What is overdrive?
+>> >>
+>> >> """
+>> >> Overdrive mode brings higher frequency, and the voltage will increase
+>> >> accordingly. Under
+>> >> the overdrive mode for a long time, the chipset may shorten the
+>> >> lifetime, especially in high temperature condition
+>> >> """
+>> >>
+>> >> according to the same datasheet, end of the same table, page 31.
+>> >>
+>> >> so this seems like a turbo-mode frequency to me.
+>> >>
+>> >> Additionally, the note for the "normal mode" (the one with the lower
+>> >> freqs) states:
+>> >>
+>> >> """
+>> >> Normal mode means the chipset works under safety voltage and
+>> >> frequency. For the
+>> >> industrial environment, highly recommend to keep in normal mode, the
+>> >> lifetime is
+>> >> reasonably guaranteed.
+>> >> """
+>> >>
+>> >> I believe "industrial environment" means RK3588J used in the
+>> >> temperatures that aren't OK for the standard RK3588 variant?
+>> >
+>> > Thanks a lot for obtaining these clarifications!
+>> >
+>> > Yes, I'd say that in this case "industrial environment" boils down
+>> > to the extended temperature range for the RK3588J variant.
+>> >
+>> >>> I haven't seen a TRM for the J variant, nor do I have a board with
+>> >>> RK3588J to run tests, so it would be great if Kever could chime in
+>> >>> with how these OPPs are different from the others (or not).
+>> >>>
+>> >>>> So while the situation might be strange for the rk3588j, I really
+>> >>>> only want
+>> >>>> correct frequencies here please - not any pseudo "turbo freqs".
+>> >>>>
+>> >>>> I don't care that much what people do on their own device{s/trees},
+>> >>>> but
+>> >>>> the devicetrees we supply centrally (and to u-boot, etc) should only
+>> >>>> contain frequencies vetted by the manufacturer.
+>> >>>
+>> >>> Fair enough. Let's just try and get another data point on whether
+>> >>> these frequencies are vetted or not.
+>> >>
+>> >> So the higher freqs seems to be vetted (and used by default on
+>> >> Rockchip's BSP kernel), it just feels like you aren't really supposed
+>> >> to run those higher frequencies all the time? And especially not in
+>> >> "industrial environment"?
+>> >>
+>> >> I would assume we want to stay on the safer side and remove those
+>> >> higher frequencies? Heiko?
+>> >
+>> > I agree, we should remove the higher-frequency OPPs.  I'd like
+>> > to go through everything once again in detail and prepare a patch
+>> > that removes the unsafe OPPs, and you could review it once it's
+>> > on the ML, to make sure it's fine.
+>> 
+>> Just as a note, everything above (and even a bit more) is confirmed
+>> and clearly described in the publicly available RK3588J datasheet,
+>> which I'll provide as a reference in my upcoming patch.
 > 
-> Thanks, Tejun. I sent a patch adding some more diagnostics:
+> so just to reiterate my stance, in mainline I really only want 
+> frequencies
+> that are not possibly influencing the lifetime of the chip.
 > 
-> https://lore.kernel.org/r/20250214164349.13694-1-will@kernel.org
+> It doesn't even matter about the variant we're talking about being
+> industrial :-) . When someone is using mainline I want them to be
+> reasonable assured that we don't have stuff in here that may affect
+> the lifetime of their board.
+> 
+> All gambling on performance for possible lifetime reduction people
+> can do on their own ... for example with a dt-overlay ;-) .
+> 
+> So TL;DR, I agree to both Quentin and Dragan
 
-Ok, we have our first crash [1] with the new debug information:
+Thanks!  Indeed, we must provide only the OPPs that are declared
+by the manufacturer to be always safe for the particular SoC
+variant.  The RK3588J is actually a good example, because it, in
+theory, can run safely at higher OPPs as well, but only when not
+enjoying the extended temperature range that the RK3588J, as an
+SoC variant targeted at industrial applications, is specifically
+made (or binned) for.
 
-[   77.133818][   T10] Bluetooth: hci3: Opcode 0x0c1a failed: -110
-[   77.135329][   T10] Bluetooth: hci3: Error when powering off device on rfkill (-110)
-[   77.143656][    C1] ------------[ cut here ]------------
-[   77.145336][    C1] workqueue: cannot queue hci_cmd_timeout on wq hci3
-[   77.147101][    C1] WARNING: CPU: 1 PID: 7433 at kernel/workqueue.c:2258 __queue_work+0xe94/0x1324
-[   77.149301][    C1] Modules linked in:
-[   77.150287][    C1] CPU: 1 UID: 0 PID: 7433 Comm: syz.2.193 Not tainted 6.14.0-rc5-syzkaller-g77c95b8c7a16 #0
-[   77.152960][    C1] Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 02/12/2025
-[   77.155583][    C1] pstate: 604000c5 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   77.157546][    C1] pc : __queue_work+0xe94/0x1324
-[   77.158811][    C1] lr : __queue_work+0xe94/0x1324
-[   77.160114][    C1] sp : ffff800080017b40
-[   77.161145][    C1] x29: ffff800080017b90 x28: dfff800000000000 x27: ffff700010002f88
-[   77.163285][    C1] x26: ffff80008fbbd600 x25: ffff0000dacac800 x24: 0000000000000008
-[   77.165326][    C1] x23: ffff0000dacac9c0 x22: 0000000000000100 x21: 1fffe0001b595938
-[   77.167421][    C1] x20: ffff800092f09000 x19: ffff0000ecf20948 x18: 0000000000000008
-[   77.169356][    C1] x17: 0000000000000000 x16: ffff80008b72ce6c x15: ffff700011f87b38
-[   77.171279][    C1] x14: 1ffff00011f87b38 x13: 0000000000000004 x12: ffffffffffffffff
-[   77.173271][    C1] x11: 0000000000000103 x10: 0000000000ff0100 x9 : d5bcdc7e4519df00
-[   77.175255][    C1] x8 : d5bcdc7e4519df00 x7 : 0000000000000001 x6 : 0000000000000001
-[   77.177277][    C1] x5 : ffff8000800172f8 x4 : ffff80008fcaf7c0 x3 : ffff8000804a7bb4
-[   77.179372][    C1] x2 : 0000000000000000 x1 : 0000000100000101 x0 : 0000000000000000
-[   77.181374][    C1] Call trace:
-[   77.182230][    C1]  __queue_work+0xe94/0x1324 (P)
-[   77.183476][    C1]  delayed_work_timer_fn+0x74/0x90
-[   77.184755][    C1]  call_timer_fn+0x1b4/0x8b8
-[   77.185932][    C1]  __run_timer_base+0x59c/0x7b4
-[   77.187119][    C1]  run_timer_softirq+0xcc/0x194
-[   77.188360][    C1]  handle_softirqs+0x320/0xd34
-[   77.189576][    C1]  __do_softirq+0x14/0x20
-[   77.190672][    C1]  ____do_softirq+0x14/0x20
-[   77.191884][    C1]  call_on_irq_stack+0x24/0x4c
-[   77.193050][    C1]  do_softirq_own_stack+0x20/0x2c
-[   77.194311][    C1]  __irq_exit_rcu+0x1d8/0x544
-[   77.195550][    C1]  irq_exit_rcu+0x14/0x84
-[   77.196669][    C1]  el1_interrupt+0x38/0x68
-[   77.197818][    C1]  el1h_64_irq_handler+0x18/0x24
-[   77.199152][    C1]  el1h_64_irq+0x6c/0x70
-[   77.200245][    C1]  lock_acquire+0x278/0x724 (P)
-[   77.201520][    C1]  rcu_lock_acquire+0x44/0x54
-[   77.202722][    C1]  page_ext_get+0x2c/0x2e8
-[   77.203908][    C1]  page_table_check_set+0xa0/0x408
-[   77.205117][    C1]  __page_table_check_ptes_set+0x2d0/0x398
-[   77.206601][    C1]  set_pte_range+0x618/0x644
-[   77.207792][    C1]  finish_fault+0x968/0xd6c
-[   77.208968][    C1]  handle_pte_fault+0x3528/0x57b0
-[   77.210314][    C1]  handle_mm_fault+0xfa8/0x188c
-[   77.211592][    C1]  __get_user_pages+0x1878/0x3400
-[   77.212967][    C1]  populate_vma_page_range+0x220/0x2f0
-[   77.214435][    C1]  __mm_populate+0x240/0x3d8
-[   77.215600][    C1]  vm_mmap_pgoff+0x304/0x3c4
-[   77.216833][    C1]  ksys_mmap_pgoff+0xd0/0x5c8
-[   77.218066][    C1]  __arm64_sys_mmap+0xf8/0x110
-[   77.219195][    C1]  invoke_syscall+0x98/0x2b8
-[   77.220453][    C1]  el0_svc_common+0x130/0x23c
-[   77.221747][    C1]  do_el0_svc+0x48/0x58
-[   77.222881][    C1]  el0_svc+0x54/0x168
-[   77.223946][    C1]  el0t_64_sync_handler+0x84/0x108
-[   77.225305][    C1]  el0t_64_sync+0x198/0x19c
-[   77.226425][    C1] irq event stamp: 3967
-[   77.227573][    C1] hardirqs last  enabled at (3966): [<ffff80008b7ec538>] _raw_spin_unlock_irqrestore+0x38/0x98
-[   77.230143][    C1] hardirqs last disabled at (3967): [<ffff80008b7ec3e0>] _raw_spin_lock_irq+0x28/0x70
-[   77.232639][    C1] softirqs last  enabled at (2318): [<ffff800080311b48>] handle_softirqs+0xb44/0xd34
-[   77.235151][    C1] softirqs last disabled at (3923): [<ffff800080020dbc>] __do_softirq+0x14/0x20
-[   77.237528][    C1] ---[ end trace 0000000000000000 ]---
+Thus, we must support only the RK3588J OPPs that are declared to
+be safe throughout the entire extended temperature range, while
+anyone who actually can assure that their RK3588J-based board is
+never going to run within the extended temperature range, probably
+may safely apply an overlay that adds the higher OPPs.  As we
+obviously can't know what will be the temperature conditions, we
+may provide only the lower OPPs that are always safe.
 
-
-So it looks like I was right about bluetooth (the work function is
-"hci_cmd_timeout") but, unfortunately, "hci3" doesn't tell us much about
-the client.
-
-Perhaps the failed power-off right before the warning suggests that
-we're not tearing down the wq properly on that error path? Let's see...
-
-hci_rfkill_set_block() calls hci_dev_do_close() if the power-off fails.
-That in turn cancels the delayed 'cmd_timer' work but only if HCI_UP is
-not set in the device flags. But if hci_dev_do_poweroff() failed, HCI_UP
-may well still be set. Then somehow the workqueue is destroyed, I guess
-via hci_unregister_dev() setting HCI_UNREGISTER which enables
-hci_release_dev() but at that point it's hard to know which bluetooth
-driver is responsible.
-
-Assuming hci_unregister_dev() is triggered via hci_dev_do_close()
-closing the device, then unconditionally cancelling the delayed cmd work
-when clearing HCI_UP sounds like a reasonable starter for ten?
-
-Dunno, this is all guesswork in code that I'm not familiar with, so I'm
-hoping somebody can tell me why I'm wrong :)
-
-Will
-
---->8
-
-diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
-index dd770ef5ec36..d2623f6d0593 100644
---- a/net/bluetooth/hci_sync.c
-+++ b/net/bluetooth/hci_sync.c
-@@ -5147,11 +5147,9 @@ int hci_dev_close_sync(struct hci_dev *hdev)
-        }
-
-        err = hci_dev_shutdown(hdev);
--
--       if (!test_and_clear_bit(HCI_UP, &hdev->flags)) {
--               cancel_delayed_work_sync(&hdev->cmd_timer);
-+       cancel_delayed_work_sync(&hdev->cmd_timer);
-+       if (!test_and_clear_bit(HCI_UP, &hdev->flags))
-                return err;
--       }
-
-        hci_leds_update_powered(hdev, false);
- 
+I'll finish the patch and send it over tomorrow or so...  I still
+need to go through the changes once again, to make 100% sure I've
+missed nothing, and that I haven't included anything extraneous. :)
 
