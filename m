@@ -4,84 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E102EC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3674BC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mlRVJcVtWlCgGaC1+Bh3zzAvG6/5rcI0aOt6KS9P5mo=; b=1dUF8/Z+iLf0eygJhmH5QrOhxK
-	pnckOJ4v0DMKTZ0L19FIQgmYVPYufMxzcWkIkdmTkTvp673tlCUcIXvKETr7YitOkZX+wlDZINDSc
-	oVKvv2AIE8Jdk8mDydNhaHxivko2etZeuYwEF8puco/L4FyCSSCOgIAsSO5H/RFYqKTSiYYDcN9p1
-	8boNlC4VXWS0kUi4mcH9b8Th4hREoekr64lskB2LrwBCFyyin+3VTOI4/Evl23p+STRi9EbKpoP2l
-	LvTQ34GukNH7Y/jT9FRPaQ6OYJma0psycCyY8Moo3PnCZdkFZaUCQo69X8+lhcpOQwcgZCC1xUbnG
-	Q1iGbk6g==;
+	bh=Jt5WSssG+OEvsuPkFz6BZY4vYElG8JeyaALVDa3jMX0=; b=v3QvZm+lVrYSGZEqa8drP/Ow1/
+	VuiRWoYxQBxrcuqarEI2Cu8k7ozOzLHjjAe/bUy8g9CAUmz/XDEjlLjHeTWK9X+QdyPgd/2iqGoGd
+	Xh6Rfi8EtH5j0ZwYDLTUb2CUXBufbDwZsqW0a964ZrcCWK8ekULKakoeRjGYlqNgn47aedhCPSW9u
+	uRea9UWZw82NWHAJU1ysAdKhjxY8W1tjiP7qV59qc1rSJUhY7ahTj0dUCCAshrpVe8NVEZgGAAxty
+	QAcDwEAZsecFSyuoVjSxjc3B24S7/VW0dy4mVCGljlBA/Smsah2z5u21QLLYjmapBn60J05eJw+x3
+	Soed2Low==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsng4-0000000CEpe-3Xlh;
-	Thu, 13 Mar 2025 18:53:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tsng2-0000000CElI-2D3P;
+	Thu, 13 Mar 2025 18:53:06 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnPj-0000000CCx6-2Msd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 18:36:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 054C15C6356;
-	Thu, 13 Mar 2025 18:33:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FAEBC4CEE3;
-	Thu, 13 Mar 2025 18:36:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741890974;
-	bh=noNqbEqWozEmWb8r+oEsKLOqlleIkAazUiumENMSLF0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=h/HNnNqra92rwOtBSLrZYKtv3i4wYf3e0w1wkpDU+50RtKRiaiHiK99B01QMkiV26
-	 4vWx7Bsfkl6b1D2c+z/Q/61EFzU8MmxNMbhxdIxefn0yyO9QogszYYj7RcTNWPHMjV
-	 qIprYoFVtNk7kt1Y5ToOA9NWDet7gBIDZTdeF2zQIgRWciKmbieoXlgZ9f6qwA8N+J
-	 8CrEpbGixi5fOo2MN0WrcUiIjSHYERG06Te4Jo/2VM46BydjX3ntLSE5sbwIqEBpPc
-	 uMOJAfbxtltCqjC3ZlX7TNNh2gpwRMgNN7jSG3TK6iDp0C/NYwLtuptXKQUuQLUeK0
-	 WjRSaEhsPKQCg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tsnPg-00DK9R-1h;
-	Thu, 13 Mar 2025 18:36:12 +0000
-Date: Thu, 13 Mar 2025 18:36:10 +0000
-Message-ID: <86h63wok11.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>,
-	suzuki.poulose@arm.com,	yang@os.amperecomputing.com,	corbet@lwn.net,
-	catalin.marinas@arm.com,	will@kernel.org,	jean-philippe@linaro.org,
-	robin.murphy@arm.com,	joro@8bytes.org,	akpm@linux-foundation.org,
-	mark.rutland@arm.com,	joey.gouly@arm.com,	james.morse@arm.com,
-	broonie@kernel.org,	anshuman.khandual@arm.com,	oliver.upton@linux.dev,
-	ioworker0@gmail.com,	baohua@kernel.org,	david@redhat.com,	jgg@ziepe.ca,
-	shameerali.kolothum.thodi@huawei.com,	nicolinc@nvidia.com,
-	mshavit@google.com,	jsnitsel@redhat.com,	smostafa@google.com,
-	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	iommu@lists.linux.dev
-Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
-In-Reply-To: <f244c20e-e11c-477b-9487-cb6738c028ca@arm.com>
-References: <20250313104111.24196-2-miko.lenczewski@arm.com>
-	<20250313104111.24196-3-miko.lenczewski@arm.com>
-	<86ikocomvd.wl-maz@kernel.org>
-	<f244c20e-e11c-477b-9487-cb6738c028ca@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ryan.roberts@arm.com, miko.lenczewski@arm.com, suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org, mark.rutland@arm.com, joey.gouly@arm.com, james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com, oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org, david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com, nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1tsnKs-0000000CCNM-40nt;
+	Thu, 13 Mar 2025 18:31:16 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-223959039f4so28916655ad.3;
+        Thu, 13 Mar 2025 11:31:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741890674; x=1742495474; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jt5WSssG+OEvsuPkFz6BZY4vYElG8JeyaALVDa3jMX0=;
+        b=ZL4YkUlJhKeNLQ9v5pQ7LDhsoe3g3nTfrsv8zXLjGAOTBofcJyBbXbKsinaxsc4VsL
+         +Ueb38m9Q/Gd4N6AWCH7qggp0z5AdKQ6K07swL0mmH5++BL+HIFhApeaQCX6xTma5kYl
+         zjShFmki+ZI0eY7DeoH+APkF/5A5DY5PuDrJYo6WRT/CxYzVXSEyxVPMVqgrGNqxhUwF
+         BMRQpBMd1+9pTAgs+j7PaTLa4TcSgjHvJKbbJ97bX6PSRsOCuM+BYlUzL7+FjQPc8cPB
+         DUcdsYTD3foUF8W52xrZekgvZwMIvrydXL4mqA8CkgEJZvOY0nwCasXzUUnpkoBVLIUX
+         FbHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741890674; x=1742495474;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Jt5WSssG+OEvsuPkFz6BZY4vYElG8JeyaALVDa3jMX0=;
+        b=g0whNuGDbR/sXuLJJ1Gm1lAzufRq3rir5N9Ar71EhLF5MJXviMoXuVuz6Kldy7nhID
+         l2lm3fV7uqGyvoEkZnCjsm/sHtqM4stzLZSAu+LrCBYqDPITe279v+1cEDhBzd7O7dFS
+         InzHC4mS9i3+4eTTFvLl2vjnYxL7Gt1Ex5ejR9x9x2eilNKDaxNz8cr/NIu63vpU584e
+         lYwOVQFclBYTGi4g52ocecvSkoUn6TV9fwpXFoEmSSPlwBGoaSFgLrEWB+0IBXwV6/yB
+         OlAMRzlslj5rVq2R/XCDF6Bzqo+KdFoX+AsQd42XJgJSxsT2/EKzl4v0cd884T2ycYDM
+         OT/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV3u0mkzk5R0Xgx2+7dEovgXCaTuYxzTKM44HB/DZw5FHq3r/LvyqJDsOdDThVdzvoVo0M7Qzph+QPGNqYbE/0V@lists.infradead.org, AJvYcCVEvlYIVHr8h7otkU8Pm42unz90l9XgUU9ZogpMWJvpnwPswxghEUw++NaHdM2s/KzukG1uAdMVF5uEyU0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzQ+Fvk7PYw3f/QUw+EpWE5wfIsyDbV9PsgklR8RAeEqOGKiLJ
+	avW5YnSNNFrukechJDMnFRduNGWV/YYin1kql0GRag+e3RWR1lP9
+X-Gm-Gg: ASbGncvTa/4IDwqlVZQoJAxSMXeirzQIV1lrbadepgxD/kFmoFzRlap/JstFuQxKKcc
+	S/5vzrBfD5Jvpk122UY5l+7xbUGxLOUK7vjm8dngcJ5bOm0GlG2h4MCrbn2OY8dPDP4n+T5MNCP
+	I1n4MIpFV4NxoYGILfAPYc1+fTpR+0B0Jpcx28/WTy767GPP1u7RQN0LlDD2gE3yDL3w5ZkzSKW
+	N4lJnRg+g8Tbaaj3qy4OsLUNQp47+aVh4nsuD/yfmEJm+lkTdovPRNnlD+XcT8DWjkp1h7D4aiz
+	hFpYkMjYgxjFoLdTrmCcicX2IuD7eb/DRmxkw5Pf8FFLeO52lTC5MbGhAg==
+X-Google-Smtp-Source: AGHT+IHUyL3JZBiKaHL1hLSTeQrgywlLwwEUN5of1N0Gy8TC0X3IRTq509SX5+fcaAZt7Xsc6jRvwQ==
+X-Received: by 2002:a17:902:d48f:b0:220:fb23:48df with SMTP id d9443c01a7336-225dd8ed442mr5472005ad.36.1741890673680;
+        Thu, 13 Mar 2025 11:31:13 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3011926599csm4185647a91.35.2025.03.13.11.31.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 11:31:13 -0700 (PDT)
+Date: Thu, 13 Mar 2025 11:31:12 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Kees Cook <kees@kernel.org>, Alessandro Carminati <acarmina@redhat.com>,
+	linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Daniel Diaz <daniel.diaz@linaro.org>,
+	David Gow <davidgow@google.com>,
+	Arthur Grillo <arthurgrillo@riseup.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Alessandro Carminati <alessandro.carminati@gmail.com>,
+	Jani Nikula <jani.nikula@intel.com>,
+	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org
+Subject: Re: [PATCH v4 00/14] Add support for suppressing warning backtraces
+Message-ID: <c8287bde-fa1c-4113-af22-4701d40d386e@roeck-us.net>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <202503131016.5DCEAEC945@keescook>
+ <20250313-abiding-vivid-robin-159dfa@houat>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250313-abiding-vivid-robin-159dfa@houat>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_113615_727163_8369E2C4 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20250313_113114_997869_E5A8F8EA 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,65 +119,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Mar 2025 18:22:00 +0000,
-Ryan Roberts <ryan.roberts@arm.com> wrote:
->=20
-> On 13/03/2025 17:34, Marc Zyngier wrote:
-> > On Thu, 13 Mar 2025 10:41:10 +0000,
-> > Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com> wrote:
-> >>
-> >> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel=
-/pi/idreg-override.c
-> >> index c6b185b885f7..9728faa10390 100644
-> >> --- a/arch/arm64/kernel/pi/idreg-override.c
-> >> +++ b/arch/arm64/kernel/pi/idreg-override.c
-> >> @@ -209,6 +209,7 @@ static const struct ftr_set_desc sw_features __pre=
-l64_initconst =3D {
-> >>  		FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
-> >>  		FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
-> >>  		FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
-> >> +		FIELD("nobbml2", ARM64_SW_FEATURE_OVERRIDE_NOBBML2, NULL),
-> >>  		{}
-> >>  	},
-> >>  };
-> >> @@ -246,6 +247,7 @@ static const struct {
-> >>  	{ "rodata=3Doff",			"arm64_sw.rodataoff=3D1" },
-> >>  	{ "arm64.nolva",		"id_aa64mmfr2.varange=3D0" },
-> >>  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=3D1" },
-> >> +	{ "arm64.nobbml2",		"arm64_sw.nobbml2=3D1" },
-> >=20
-> > Why is that a SW feature? This looks very much like a HW feature to
-> > me, and you should instead mask out ID_AA64MMFR2_EL1.BBM, and be done
-> > with it. Something like:
->=20
-> I think this implies that we would expect the BBM field to be advertising=
- BBML2
-> support normally and we would check for that as part of the cpufeature
-> detection. That's how Miko was doing it in v2, but Yang pointed out that
-> AmpereOne, which supports BBML2+NOABORT semantics, doesn't actually adver=
-tise
-> BBML2 in its MMFR2. So we don't want to check that field, and instead rely
-> solely on the MIDR allow-list + a command line override. It was me that
-> suggested putting that in the SW feature register, and I think that still=
- sounds
-> like the right solution for this situation?
+On Thu, Mar 13, 2025 at 06:24:25PM +0100, Maxime Ripard wrote:
+> > 
+> > Yeah, as with my prior review, I'm a fan of this. It makes a bunch of my
+> > very noisy tests much easier to deal with.
+> 
+> And for the record, we're also affected by this in DRM and would very
+> much like to get it merged in one shape or another.
+> 
 
-I think this is mixing two different things:
+I was unable to get maintainers of major architectures interested enough
+to provide feedback, and did not see a path forward. Maybe Alessandro
+has more success than me.
 
-- preventing BBM-L2 from being visible to the kernel: this is what my
-  suggestion is doing by nuking an architectural feature in the
-  relevant register
-
-- random HW not correctly advertising what they are doing: this is an
-  erratum workaround
-
-I'd rather we don't conflate the two things, and make them very
-explicitly distinct.
-
-Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Guenter
 
