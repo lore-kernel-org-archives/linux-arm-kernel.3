@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C805C35FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25945C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=swmYT6xkFK4vHGwvPJgLRw5zOvFrSALNRVhA9GAQH88=; b=d/Zl1lkXMozmvG1rchx2wk+nVv
-	Zq5scxZ2wFlleJ5i3xpK3qj84bScXNTjeZxG87e3TBAMHTIErq9dt9mkaBsLyXzEx+JFsDWd+YXL6
-	uCsIXCUJLM9/5jD2Im/Kx2hs0Tcwyw9NwpmevopcETBkf3RYfcu/bXbXrnl0XNcOrbp3+a1lrxHeF
-	N6gHVIfwnAf1Sx9TF84D9QFc1ex/5DqM9mNoqx0XDWcp+zN7ZgFRtDeIB2W2NRi+Le9lWZIRoVqHr
-	D/SGdke76j5i/qBeE7kz6qf8LTvDY5bcTgh818m3Hr6HlarRswdYEmJx8B7byiky4tqsW7P2GMhJX
-	OUrh04bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2JCIWIA2tXCmZdC2AbanjAO3zmfFwpL+OHnNB2RBlX0=; b=E/nfcWi4+ZseqwD/od5CcRmfN/
+	Z7bs6Ja+zHBw5KX1GFkWUXQVlgzyIpXuuAjrxZa2aZERXjjxw2+aQA2pLgWoZkk9FlFs7unxTLnZh
+	yPa8YWVPemeHVsneqqJ+GFfoDvxsQ24wGkvCE6a48jUK0mJuu+8OfMsZEMewOWGRTqIsXIG4mfa+j
+	Q/q1HsIBqj7ywUb08AlmcOMfyiOb0laYEgcwbn93m7i7AXzoOfYGE7d5nU/TJa7wwqJMhuS9k+5zt
+	sC+4L2zCmU4htvCUEB+jvsNWzCn56l9syoVgJxJYm+6r6g6ovhoHJSPERixnrYb5zuHNx/VCnDqq0
+	1v3HWEBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnfu-0000000CEaX-2AU5;
-	Thu, 13 Mar 2025 18:52:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnAX-0000000CBDx-2lep
+	id 1tsnfw-0000000CEcO-2aav;
+	Thu, 13 Mar 2025 18:53:00 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsnGh-0000000CBo4-3RT1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 18:20:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E97E1477;
-	Thu, 13 Mar 2025 11:20:43 -0700 (PDT)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E6463F694;
-	Thu, 13 Mar 2025 11:20:28 -0700 (PDT)
-Date: Thu, 13 Mar 2025 18:20:26 +0000
-From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	yang@os.amperecomputing.com, corbet@lwn.net,
-	catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
-	mark.rutland@arm.com, joey.gouly@arm.com, james.morse@arm.com,
-	broonie@kernel.org, anshuman.khandual@arm.com,
-	oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org,
-	david@redhat.com, jgg@ziepe.ca,
-	shameerali.kolothum.thodi@huawei.com, nicolinc@nvidia.com,
-	mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20250313182026.GC40525@mazurka.cambridge.arm.com>
-References: <20250313104111.24196-2-miko.lenczewski@arm.com>
- <20250313104111.24196-3-miko.lenczewski@arm.com>
- <86ikocomvd.wl-maz@kernel.org>
+	Thu, 13 Mar 2025 18:26:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3B97F2047D;
+	Thu, 13 Mar 2025 18:26:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741890410;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=2JCIWIA2tXCmZdC2AbanjAO3zmfFwpL+OHnNB2RBlX0=;
+	b=L21nxXiC/8lSiEQRsHkhOD4tQSQEUHfkDTxcrpBvX5c0NzUlm9e09dfaHSgYea3zASohPv
+	HCkIxgpYmmNr+gcJPXucdPpjYqXtD6mnH8smH12pzU96bepqDwm7ne6X/m9R74fnBZaVQQ
+	oagyoFjvvIUXTW27HN641mXilezSDHh/7Xm3mwl6EGGv5MrwFz3slxBOwd9zGIrDWIY5V7
+	t3Xzkj0qWzDpY+m9uGiyQq/Hy+yP6cQp5PpcEtYWN6EUUHH/60DgAUUu05WFwe28Pn+5Wn
+	v/xHIG2WhhuSa6lNBivoNFZ0d/HTLMP/2TCOoLwHIAQyqSvcpiF/eGOEIn112g==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
+Subject: [PATCH net-next v3 0/7] net: ethtool: Introduce ethnl dump helpers
+Date: Thu, 13 Mar 2025 19:26:39 +0100
+Message-ID: <20250313182647.250007-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <86ikocomvd.wl-maz@kernel.org>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvdekieejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjefhleeihefgffeiffdtffeivdehfeetheekudekgfetffetveffueeujeeitdevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrqddvrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrn
+ hgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_112033_790626_11761B29 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250313_112656_473670_80AA733D 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,78 +90,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 05:34:46PM +0000, Marc Zyngier wrote:
-> On Thu, 13 Mar 2025 10:41:10 +0000,
-> Mikołaj Lenczewski <miko.lenczewski@arm.com> wrote:
-> > 
-> > diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-> > index c6b185b885f7..9728faa10390 100644
-> > --- a/arch/arm64/kernel/pi/idreg-override.c
-> > +++ b/arch/arm64/kernel/pi/idreg-override.c
-> > @@ -209,6 +209,7 @@ static const struct ftr_set_desc sw_features __prel64_initconst = {
-> >  		FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
-> >  		FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
-> >  		FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
-> > +		FIELD("nobbml2", ARM64_SW_FEATURE_OVERRIDE_NOBBML2, NULL),
-> >  		{}
-> >  	},
-> >  };
-> > @@ -246,6 +247,7 @@ static const struct {
-> >  	{ "rodata=off",			"arm64_sw.rodataoff=1" },
-> >  	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
-> >  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
-> > +	{ "arm64.nobbml2",		"arm64_sw.nobbml2=1" },
-> 
-> Why is that a SW feature? This looks very much like a HW feature to
-> me, and you should instead mask out ID_AA64MMFR2_EL1.BBM, and be done
-> with it. Something like:
-> 
-> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-> index c6b185b885f70..803a0c99f7b46 100644
-> --- a/arch/arm64/kernel/pi/idreg-override.c
-> +++ b/arch/arm64/kernel/pi/idreg-override.c
-> @@ -102,6 +102,7 @@ static const struct ftr_set_desc mmfr2 __prel64_initconst = {
->  	.override	= &id_aa64mmfr2_override,
->  	.fields		= {
->  		FIELD("varange", ID_AA64MMFR2_EL1_VARange_SHIFT, mmfr2_varange_filter),
-> +		FIELD("bbm", ID_AA64MMFR2_EL1_BBM_SHIFT, NULL),
->  		{}
->  	},
->  };
-> @@ -246,6 +247,7 @@ static const struct {
->  	{ "rodata=off",			"arm64_sw.rodataoff=1" },
->  	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
->  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
-> +	{ "arm64.nobbml2",		"id_aa64mmfr2.bbm=0" },
->  };
->  
->  static int __init parse_hexdigit(const char *p, u64 *v)
-> 
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+Hi everyone,
 
-Thanks for the review.
+This is V3 for the ethnl dump support, allowing better handling of
+per-phy dump but also any other dump operation that needs to dump more
+than one message per netdev.
 
-I think part of this confusion is due to me not including a changelog
-(definitely something for the next respin!), but the discussion this
-change is based on is found here:
+Changes in V3:
+ - Fixed some typos and xmas tree issues
+ - Added a missing check for EOPNOTSUPP in patch 1
+ - Added missing kdoc
+ - Added missing comments in phy_reply_size
 
-https://lore.kernel.org/all/b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amperecomputing.com/
+Changes in V2:
+ - Rebased on the netdev_lock work by Stanislav and the fixes from Eric
+ - Fixed a bissectability issue
+ - Fixed kdoc for the new ethnl ops and fields
 
-Essentially, this is a SW feature because we do not check the
-id_aa64mmfr2.bbm register as part of the has_bbml2_noabort() cpucap
-matches filter. This is because certain hardware implementations
-do not actually declare bbml2 via the hardware feature register, despite
-implementing our bbml2_noabort feature, and certain hypervisor setups
-might result in issues so we want to have an override to allow
-potentially disabling the feature for generic kernels.
+V1: https://lore.kernel.org/netdev/20250305141938.319282-1-maxime.chevallier@bootlin.com/
+V2: https://lore.kernel.org/netdev/20250308155440.267782-1-maxime.chevallier@bootlin.com/
+
+As of today when using ethnl's default ops, the DUMP requests will
+simply perform a GET for each netdev.
+
+That hits limitations for commands that may return multiple messages for
+a single netdev, such as :
+
+ - RSS (listing contexts)
+ - All PHY-specific commands (PLCA, PSE-PD, phy)
+ - tsinfo (one item for the netdev +  one per phy)
+
+ Commands that need a non-default DUMP support have to re-implement
+ ->dumpit() themselves, which prevents using most of ethnl's internal
+ circuitry.
+
+This series therefore introduces a better support for dump operations in
+ethnl.
+
+The patches 1 and 2 introduce the support for filtered DUMPs, where an
+ifindex/ifname can be passed in the request header for the DUMP
+operation. This is for when we want to dump everything a netdev
+supports, but without doing so for every single netdev. ethtool's
+"--show-phys ethX" option for example performs a filtered dump.
+
+Patch 3 introduces 3 new ethnl ops : 
+ ->dump_start() to initialize a dump context
+ ->dump_one_dev(), that can be implemented per-command to dump
+ everything on a given netdev
+ ->dump_done() to release the context
+
+The default behaviour for dumps remains the same, calling the whole
+->doit() path for each netdev.
+
+Patch 4 introduces a set of ->dump_start(), ->dump_one_dev() and
+->dump_done() callback implementations that can simply be plugged into
+the existing commands that list objects per-phy, making the 
+phy-targeting command behaviour more coherent.
+
+Patch 5 uses that new set of helpers to rewrite the phy.c support, which
+now uses the regulat ethnl_ops instead of fully custom genl ops. This
+one is the hardest to review, sorry about that, I couldn't really manage
+to incrementally rework that file :(
+
+Patches 6 and 7 are where the new dump infra shines, adding per-netdev
+per-phy dump support for PLCA and PSE-PD.
+
+We could also consider converting tsinfo/tsconfig, rss and tunnels to
+these new ->dump_***() operations as well, but that's out of this
+series' scope.
+
+Thanks,
+
+Maxime
+
+Maxime Chevallier (7):
+  net: ethtool: netlink: Allow per-netdevice DUMP operations
+  net: ethtool: netlink: Rename ethnl_default_dump_one
+  net: ethtool: netlink: Introduce command-specific dump_one_dev
+  net: ethtool: netlink: Introduce per-phy DUMP helpers
+  net: ethtool: phy: Convert the PHY_GET command to generic phy dump
+  net: ethtool: plca: Use per-PHY DUMP operations
+  net: ethtool: pse-pd: Use per-PHY DUMP operations
+
+ net/ethtool/netlink.c | 190 +++++++++++++++++------
+ net/ethtool/netlink.h |  47 +++++-
+ net/ethtool/phy.c     | 344 ++++++++++++------------------------------
+ net/ethtool/plca.c    |  12 ++
+ net/ethtool/pse-pd.c  |   6 +
+ 5 files changed, 309 insertions(+), 290 deletions(-)
 
 -- 
-Kind regards,
-Mikołaj Lenczewski
+2.48.1
+
 
