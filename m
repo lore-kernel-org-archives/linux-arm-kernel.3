@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770F8C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 22:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC14C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 22:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGTlMNHCa7C+A7AKqq9ehG7FOSf1xIqof5PWqvP0CNo=; b=1CEQZy0AvSYgfSTnBV0xC7qQW+
-	RC7opPSTW5RDBE732YgTqSnetnVqAD4uW4XwydMjxX/LnOdClU/5X04jG3jqAt8p/cPf0R5A4GkTF
-	zQtS7M9yPEp2dBYhbMguGVztvYqQHpW2kDBm7EVf++oCtIWynuaOzb+fvvhkgq7kbhygIOl2HPdaX
-	6WttUTl8cK3dmnBHHTqB0xWRwSUzwefV0aqqQo77pgnyYgpb7iwnzbErpbaO12lvJE6hzghdbdPrt
-	XjFqqW2rZBXLXQeN2OBwnF9G1zk+cUEHjovU6yrXUxeW5cV0QKeWCkinq5EZhX1OtqSbAUJeAemfW
-	m+ALNYtA==;
+	bh=ayENqWRYykqKMSaDdgouWzzeeWpkub6h14X1CWsUIWY=; b=0MISlLrcSOAIrhb7GRrygKT/DW
+	n1/B297dJndzIzhK26lPaUvIh10of/PA6LHtQNWlwXhaDr9VffVNxNccGw346OIl9Qg3KK+BvKS1Q
+	tkO7B+mLKI/OjZbPQ8F5Uz7jestk23H2LO9bGAqwNdmmtlyFSpcp22Sy1sZVJN+5AQLTcuhKxy3aJ
+	Aa6RRqCnm/9kakyNbe3EGsBlPIbBTYHKuBvLKZM0vTgnhgsvAJB4+UOTyaJDL6Lv4bftaENdY//FB
+	OeV/NfE0LXaQUoBiOWQC2X4a2jHw11l08sANctFare9CQ6UBFAXwGxy2qvBrQxO5dcOsD2Wyo6jBh
+	SpXJSdkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsqkz-0000000Cb14-0AaV;
-	Thu, 13 Mar 2025 22:10:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsqqY-0000000CbTF-0ENk;
+	Thu, 13 Mar 2025 22:16:10 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsqjJ-0000000Cakw-1aqG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 22:08:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 040395C104E;
-	Thu, 13 Mar 2025 22:06:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBE56C4CEDD;
-	Thu, 13 Mar 2025 22:08:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741903720;
-	bh=ezBvF8CtGQo3h+RgO+IQTdZTkG8bJwCjFg1T82y9dbA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sS3s1Ufp3kDkfWGxADijig3PYyitlaCg+XrAKu1lGl+vBlpnu0+IbvHLmWpqCZx0H
-	 F6zkFbefnAll2pjJf2QKkO0Vc/vUbX6WhYSvb6dYl8llLOcCjdn7rg76Jepuctgg67
-	 IBHlYwtcDnAEWnBmJzwgw9MkAVLmhQ/F5b816EQLVUUgIW3evLX6TtoIT7HhK+4GIh
-	 0y3ob7aiKHoj77gBgGn4l8xDpD4X+/x9+dsSMd5PERuKA5oOephtN87xp6dVO5bBkh
-	 6/O8el+cpTtpWaObpzoYcoOzSVhg9ygOTLlQH9VmCrW8y4zuVQI/82S1kYsCtQ2So5
-	 79CLWTaIWvGcw==
-Date: Thu, 13 Mar 2025 22:08:36 +0000
-From: Will Deacon <will@kernel.org>
-To: Emanuele Rocca <emanuele.rocca@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
- arm_smccc_version_init+0x90/0x1ac
-Message-ID: <20250313220835.GD8101@willie-the-truck>
-References: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
- <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
- <20250131124103.GA29766@willie-the-truck>
- <Z5zWMU4M_L5k6kII@J2N7QTR9R3>
- <20250204100014.GA777@willie-the-truck>
- <Z6OWxUFxkK9plrm0@NH27D9T0LF>
- <20250206131154.GD3204@willie-the-truck>
- <Z6TqBQKSILZUnYbJ@NH27D9T0LF>
+	id 1tsqos-0000000CbIy-14DN;
+	Thu, 13 Mar 2025 22:14:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=ayENqWRYykqKMSaDdgouWzzeeWpkub6h14X1CWsUIWY=; b=hbr+6sOMUOohmJsjF5BXVys2lg
+	oAuBs8vSReUdYyq0GZhOT2JLtY1OqxHtEr/x+5UWWm6gv1s8mp0pJfTALrWhkrSglwOhiN4MDu9P3
+	HMyRbLQvdy6BndmlF15t7lsziwXrqLiUQ3qeUAAtlpIuOVtrsIj1yvX76MNcduysfwTtMclHwZDE9
+	o95TkLbPWNQxgDpskFxwkFzncrMHnoyj8lwD6RpWXqcb9uD+M0q0BwGv2yUGug5/kRC4CR2zXRRJD
+	g3jFunuwzDFkcbuBmkkcy3NNdf8e1y0KelHXl5i4xSLU9AH6aydSqNfZGmJ5YcpUFh8RNOfXmktkJ
+	0UnKXYaA==;
+Received: from i53875bc6.versanet.de ([83.135.91.198] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tsqoi-0002tC-Ns; Thu, 13 Mar 2025 23:14:16 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: amadeus@jmu.edu.cn, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ jonas@kwiboo.se, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 0/2] arm64: dts: rockchip: Add pwm nodes for RK3528
+Date: Thu, 13 Mar 2025 23:14:15 +0100
+Message-ID: <1819496.VLH7GnMWUR@phil>
+In-Reply-To: <20250313071031.1840032-1-amadeus@jmu.edu.cn>
+References: <7779050.EvYhyI6sBW@phil> <20250313071031.1840032-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6TqBQKSILZUnYbJ@NH27D9T0LF>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_150841_461339_9DBF0812 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250313_151426_307334_44089600 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +73,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 05:57:41PM +0100, Emanuele Rocca wrote:
-> On 2025-02-06 01:11, Will Deacon wrote:
-> > In your screenshot, x6 looks like it's retained its poison value, but
-> > that was the register being corrupted in the initial report. Maybe you
-> > could share the diff you made?
-> 
-> Sure, please see [1]. A kernel built with that patch crashes and all
-> registers retain their poison values.
+Hi,
 
-Okey doke, at least it sounds like the firmware isn't taking advantage
-of the broken spec, then.
+Am Donnerstag, 13. M=C3=A4rz 2025, 08:10:31 MEZ schrieb Chukun Pan:
+> Hi,
+>=20
+> > so yes of course the pinctrl needs to be default - simply because
+> > that's the only pinctrl state mainline supports.
+>=20
+> > But judging by the fact that you're discussing working vs. non-working
+> > below, can you please check if we should drop the patch for 6.15 till
+> > that is solved?
+>=20
+> I suggest dropping this patch first, I will send v2
+> when this issue is solved.
 
-In any case, I think the right way forward here is to use the
-out-of-line 1.2 helpers whenever we can (the spectre mitigations can
-stay as they are).
+I've dropped the patch now.
 
-Will
+
+Heiko
+
+
 
