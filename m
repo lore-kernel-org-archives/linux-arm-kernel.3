@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAEDC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935C1C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oxo4nRaNKlTff6Ix3Ee9t1VjmVf7/i10eQiNoUZabVo=; b=zH7gamgF0dWd3OTVZDNItudi4B
-	fXSyAO8CvIkfI75v8uH7koWBYCwd5R+qfPbrNfmg86+hqLWmCtR0u9teN92vn+L93rc11xGzCtVvb
-	8zyz43b+8ppVKwCywKDw87Bc97wABp/V0y2yyU20SPQSnKgZOJsXy89qpqFnIkPeRUbRooovtw3yd
-	Fm+WTHzOVKCCLX7opG9GTgCsGbRlYURRZBiE/Qk0jpNSyFKVRnD3epkXOba+BWA4iCW9yAcr93fbZ
-	WSRL33QNcatYKvbLrR2NYQ3pLLiyhxa80zvoM29CDML9EVSYDBF7qLqcQis5yaSnItdG0vKnIUQfP
-	lN3ZwtwQ==;
+	bh=nlba2e7QUGGw+oIulUZtQ6j1YAhK9970oGDrQHkajZU=; b=J1Oqbx/Bl1LYuu13PhErBzEM4R
+	04rrH4GGL8/Weg6P7CzYkdE/29xgO1hQkiA8odAWUHJOvbf/xEsWIHBVuvAhI4qrI2TTFFYxBQoMR
+	7eJ4poUWv0219+AxyHYtcb6KDW2ukm+pEn/bAejX4AdUcHRr2lhTNE9qWVqGHePXSMzCELrzxgW4x
+	SsEKpuAfFpY2qk6mXEYVnT+5wsLOsHTWQMDp1S7EUtQtqQm5rIrhx5zpyGkh1zJYw3XAzV+E7VlpG
+	2a3jMcEpmZmt8hZXp3sUDeKmw17dRc03L3radNRjrM00JZIUwvVcbfoIJz8JdGN5Acrv53zwWdXZa
+	cy39CCFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshah-0000000BEBP-0S5x;
-	Thu, 13 Mar 2025 12:23:11 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1tshcK-0000000BENL-2GNa;
+	Thu, 13 Mar 2025 12:24:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshTc-0000000BCy6-3J9A
+	id 1tshTq-0000000BD1E-3wUX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 12:15:57 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-6ff1814102aso16226197b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 05:15:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741868151; x=1742472951; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Oxo4nRaNKlTff6Ix3Ee9t1VjmVf7/i10eQiNoUZabVo=;
-        b=qetsvb32V0gXBiwG68hRYKVijw25ar/mUW5e3cU1szXGzPpXdUosGMoyvpxTNLgZQL
-         tYVEP5yjtXXQQsVfxg0ZNQC5efrKVX97YIQ/n2RRS1WtRm8uGvk/BhGkVTlvxdNHpAP2
-         vXo9dqvN/V4L+Az2qEqH6EzX6CujjDOh1aifu9DKNaZaV2xEUqUPcuTDK13O5wk11Bm3
-         df1ufvyw/CukjvG9AB89Ywo/w0SKbC+zo3oRuSpXu5sZ/cPTOtSyGBxiBz8dcjQY6w3/
-         WYKvs2Po+j9frfSuX0cBjLjMk3s3NFw53vgRA9uBK4I+9x98yvhh/scuPPVCaq7Ychwn
-         by+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741868151; x=1742472951;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Oxo4nRaNKlTff6Ix3Ee9t1VjmVf7/i10eQiNoUZabVo=;
-        b=Ay2v46FY5XlQ3zOwY9Em5pOH0Fubq7UO0SX1wwyzqFnXttHM5ClDvIwXjq9WYaQNWH
-         nD/KZ5RbUrBqaB6f02cGvX6bLRxkjS2KVqCbTWMB4sDjiy6QKnZr/NhtCKtvl6ElgdRS
-         DWRuiYvChfxlugnrgQZZKGjdTJ1RvDW2wEGSsS+NWJ6LRvTKSp7WIpvuCoWAlzHdAtce
-         +SehFoqfcX6qXd4IFiayaewe7Ex6FgPhIxBfeUihgbrWHuUR3tkygj0OA3Unqf3hc7un
-         YcIYCjfB/uf5qc1m9jMG/FmWx/pIHRGjwDymYh3FpiaP8LD8WJ7dD0CdCvdbgJk9EI2v
-         wuYw==
-X-Forwarded-Encrypted: i=1; AJvYcCV0Sj7S9IIQtYWmnIeJVQB0xnkKcAKEb54AKDaxkJtOZD6SpM8LUl9ZMyvYcZKDpYN11NabPc1/m+9FcrjTkwx1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3yQlr3GoUcTFRqCoLtUuD/tiZA5+bqgYXSMD6Z5ftKIIoB+sq
-	6TdJLichwB6Xk3NNzTN1NARRn4pLV36wKvfud7VWY0ModPdvoZH7ykoP/HcV74V3y0Y2/9AOlK5
-	y/moYyPgapO+H0EXGqCTc8vWsacOjeX/U6M7cXg==
-X-Gm-Gg: ASbGncs0fOThgJTZ+eyEJ0xQ7PnbwgjtmUHZBZUoiqKm3i2ll/isn75oYvjALw++wHf
-	yj1tGHpvJiCTb2rAT7QLVnyBcABm6JyplVybD4rTiQECNOLrp3vhXByIUO8ub1im36PmdaNsIZZ
-	/v7Zbk2l/GEQqj9s0suI+i6op46uk=
-X-Google-Smtp-Source: AGHT+IH+g4YhUvJzDDM8IF19825mFy84oTJJNtvmLZ+edTkcRlAfOhjQ33xlQord/MYk0nTfcCGUgTiOxucg/kuf8R8=
-X-Received: by 2002:a05:690c:6389:b0:6fe:c4bd:e2ca with SMTP id
- 00721157ae682-6ff2f80f6f8mr30294897b3.14.1741868151300; Thu, 13 Mar 2025
- 05:15:51 -0700 (PDT)
+	Thu, 13 Mar 2025 12:16:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 830C05C5D92;
+	Thu, 13 Mar 2025 12:13:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DBAEC4CEEB;
+	Thu, 13 Mar 2025 12:16:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741868166;
+	bh=ZWHDQFZydgFLF+pZhM5zaTgB/SRGh95yQ/J43duDfo4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mvpnul617r3+1dJblDjuGGF3ygGimnd4POqbjFo4+O44NuhkG8MrwnO4J7SN96WfS
+	 Eg2ju52wMFzIKWlWGxAafV0lhzgdgNg3/4R12d/n1OI8YH+hBSdjITulP9baWQf1g7
+	 4ZNcfDFOO0YoabVlIfJpBV+8WdB92DhaHXXo3V8zGi0tZ2915gd6CIV0IYwkxMB3ZD
+	 9XjHE9QsRB9AD+dEhS4KMrTYEYUC67YyOfo5ocyJ/0nUmdq0UYBhih2r1skkSY6IOK
+	 k6HV4X3z21S4/yKifPdRROwdqOsixPHowbEuoo66WoObj7bk9GHrVEsvCz/CcMVB9i
+	 1ECWlKglNYubQ==
+Date: Thu, 13 Mar 2025 12:15:59 +0000
+From: Will Deacon <will@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Sebastian Ene <sebastianene@google.com>, catalin.marinas@arm.com,
+	joey.gouly@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+	snehalreddy@google.com, suzuki.poulose@arm.com,
+	vdonnefort@google.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com, Andrei Homescu <ahomescu@google.com>
+Subject: Re: [PATCH v2 4/4] KVM: arm64: Release the ownership of the hyp rx
+ buffer to Trustzone
+Message-ID: <20250313121559.GB7356@willie-the-truck>
+References: <20250227181750.3606372-1-sebastianene@google.com>
+ <20250227181750.3606372-5-sebastianene@google.com>
+ <20250305004522.GC31667@willie-the-truck>
+ <20250305094104.vctshdtgdukno2aj@bogus>
+ <20250305193425.GA32246@willie-the-truck>
+ <Z8ltm55D1jrv8QtX@bogus>
 MIME-Version: 1.0
-References: <CGME20250313040150epcas5p347f94dac34fd2946dea51049559ee1de@epcas5p3.samsung.com>
- <20250313035322.243239-1-anuj20.g@samsung.com>
-In-Reply-To: <20250313035322.243239-1-anuj20.g@samsung.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 13 Mar 2025 13:15:15 +0100
-X-Gm-Features: AQ5f1JqMiJUg0zYIlcoPjPPIUUYi7aY9XoeZibdDJNGexKsNoy8AEu5lVvN-wm8
-Message-ID: <CAPDyKFqdK0OPKkTK5C5b1_9kXNSkXJKBvBSa80eXj+GpNfEKBg@mail.gmail.com>
-Subject: Re: [PATCH] block: remove unused parameter
-To: Anuj Gupta <anuj20.g@samsung.com>
-Cc: Jens Axboe <axboe@kernel.dk>, "Md. Haris Iqbal" <haris.iqbal@ionos.com>, 
-	Jack Wang <jinpu.wang@ionos.com>, "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>, 
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Stefan Hajnoczi <stefanha@redhat.com>, 
-	=?UTF-8?Q?Roger_Pau_Monn=C3=A9?= <roger.pau@citrix.com>, 
-	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Maxim Levitsky <maximlevitsky@gmail.com>, 
-	Alex Dubov <oakad@yahoo.com>, Richard Weinberger <richard@nod.at>, Zhihao Cheng <chengzhihao1@huawei.com>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Sagi Grimberg <sagi@grimberg.me>, James Smart <james.smart@broadcom.com>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, linux-block@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev, 
-	xen-devel@lists.xenproject.org, linux-mmc@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org, 
-	linux-scsi@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z8ltm55D1jrv8QtX@bogus>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_051552_852757_2191C370 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20250313_051607_064984_A9069AC6 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,284 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Mar 2025 at 06:13, Anuj Gupta <anuj20.g@samsung.com> wrote:
->
-> request_queue param is not used by blk_rq_map_sg and __blk_rq_map_sg.
-> remove it.
->
-> Signed-off-by: Anuj Gupta <anuj20.g@samsung.com>
+On Thu, Mar 06, 2025 at 09:40:43AM +0000, Sudeep Holla wrote:
+> On Wed, Mar 05, 2025 at 07:34:26PM +0000, Will Deacon wrote:
+> > On Wed, Mar 05, 2025 at 09:41:04AM +0000, Sudeep Holla wrote:
+> > > On Wed, Mar 05, 2025 at 12:45:23AM +0000, Will Deacon wrote:
+> > > > Hmm, the FFA spec is characteristically unclear as to whether or not we
+> > > > need to release the rx buffer in the case that the flags indicate use of
+> > > > the rx buffer but the returned partition count is 0.
+> > > > 
+> > > > Sudeep -- do you know what we should be doing in that case?
+> > > > 
+> > > 
+> > > We need to call RX_RELEASE here. I went back to the spec to confirm the
+> > > same again.
+> > > 
+> > > v1.2 EAC0 spec Section 7.2.2.4.2 Transfer of buffer ownership
+> > > (Or just look for the section title in any version of the spec)
+> > > "
+> > > 2. Ownership transfer for the RX buffer takes place as follows.
+> > >     2. For a framework message,
+> > >        1. Completion of the FFA_PARTITION_INFO_GET ABI transfers the ownership
+> > >        of the caller’s RX buffer from the Producer to the Consumer.
+> > > 3. For both types of messages, an invocation of the following FF-A ABIs
+> > >     transfers the ownership from the Consumer to the Producer.
+> > >        1. FFA_MSG_WAIT ...
+> > >        2. FFA_RX_RELEASE.
+> > > "
+> > > 
+> > > Hope that helps, can dig deeper if there are any ambiguities around this.
+> > 
+> > Thanks Sudeep, but that also makes it sound like we need the RX_RELEASE
+> > even if we're not using the RX buffer per the input flags. :/
+> > 
+> 
+> Good spot, I had forgotten about the input flags that can avoid using the
+> buffer. I will see if we can improve the spec in that regards.
 
-Acked-by: Ulf Hansson <ulf.hansson@linaro.org> # For MMC/MEMSTICK
+Thanks. In the meantime, what do you think is the correct behaviour in that
+case? I guess _not_ doing the release when the flags don't request the RX
+buffer? In other words:
 
-> ---
->  block/blk-merge.c                   | 4 ++--
->  block/bsg-lib.c                     | 2 +-
->  drivers/block/mtip32xx/mtip32xx.c   | 2 +-
->  drivers/block/rnbd/rnbd-clt.c       | 2 +-
->  drivers/block/sunvdc.c              | 2 +-
->  drivers/block/virtio_blk.c          | 2 +-
->  drivers/block/xen-blkfront.c        | 2 +-
->  drivers/memstick/core/ms_block.c    | 2 +-
->  drivers/memstick/core/mspro_block.c | 4 +---
->  drivers/mmc/core/queue.c            | 2 +-
->  drivers/mtd/ubi/block.c             | 2 +-
->  drivers/nvme/host/apple.c           | 2 +-
->  drivers/nvme/host/fc.c              | 2 +-
->  drivers/nvme/host/pci.c             | 2 +-
->  drivers/nvme/host/rdma.c            | 3 +--
->  drivers/nvme/target/loop.c          | 2 +-
->  drivers/scsi/scsi_lib.c             | 2 +-
->  include/linux/blk-mq.h              | 9 ++++-----
->  18 files changed, 22 insertions(+), 26 deletions(-)
->
-> diff --git a/block/blk-merge.c b/block/blk-merge.c
-> index 1d1589c35297..fdd4efb54c6c 100644
-> --- a/block/blk-merge.c
-> +++ b/block/blk-merge.c
-> @@ -551,8 +551,8 @@ static inline struct scatterlist *blk_next_sg(struct scatterlist **sg,
->   * Map a request to scatterlist, return number of sg entries setup. Caller
->   * must make sure sg can hold rq->nr_phys_segments entries.
->   */
-> -int __blk_rq_map_sg(struct request_queue *q, struct request *rq,
-> -               struct scatterlist *sglist, struct scatterlist **last_sg)
-> +int __blk_rq_map_sg(struct request *rq, struct scatterlist *sglist,
-> +                   struct scatterlist **last_sg)
->  {
->         struct req_iterator iter = {
->                 .bio    = rq->bio,
-> diff --git a/block/bsg-lib.c b/block/bsg-lib.c
-> index 93523d8f8195..9ceb5d0832f5 100644
-> --- a/block/bsg-lib.c
-> +++ b/block/bsg-lib.c
-> @@ -219,7 +219,7 @@ static int bsg_map_buffer(struct bsg_buffer *buf, struct request *req)
->         if (!buf->sg_list)
->                 return -ENOMEM;
->         sg_init_table(buf->sg_list, req->nr_phys_segments);
-> -       buf->sg_cnt = blk_rq_map_sg(req->q, req, buf->sg_list);
-> +       buf->sg_cnt = blk_rq_map_sg(req, buf->sg_list);
->         buf->payload_len = blk_rq_bytes(req);
->         return 0;
->  }
-> diff --git a/drivers/block/mtip32xx/mtip32xx.c b/drivers/block/mtip32xx/mtip32xx.c
-> index 95361099a2dc..0d619df03fa9 100644
-> --- a/drivers/block/mtip32xx/mtip32xx.c
-> +++ b/drivers/block/mtip32xx/mtip32xx.c
-> @@ -2056,7 +2056,7 @@ static void mtip_hw_submit_io(struct driver_data *dd, struct request *rq,
->         unsigned int nents;
->
->         /* Map the scatter list for DMA access */
-> -       nents = blk_rq_map_sg(hctx->queue, rq, command->sg);
-> +       nents = blk_rq_map_sg(rq, command->sg);
->         nents = dma_map_sg(&dd->pdev->dev, command->sg, nents, dma_dir);
->
->         prefetch(&port->flags);
-> diff --git a/drivers/block/rnbd/rnbd-clt.c b/drivers/block/rnbd/rnbd-clt.c
-> index 82467ecde7ec..15627417f12e 100644
-> --- a/drivers/block/rnbd/rnbd-clt.c
-> +++ b/drivers/block/rnbd/rnbd-clt.c
-> @@ -1010,7 +1010,7 @@ static int rnbd_client_xfer_request(struct rnbd_clt_dev *dev,
->          * See queue limits.
->          */
->         if ((req_op(rq) != REQ_OP_DISCARD) && (req_op(rq) != REQ_OP_WRITE_ZEROES))
-> -               sg_cnt = blk_rq_map_sg(dev->queue, rq, iu->sgt.sgl);
-> +               sg_cnt = blk_rq_map_sg(rq, iu->sgt.sgl);
->
->         if (sg_cnt == 0)
->                 sg_mark_end(&iu->sgt.sgl[0]);
-> diff --git a/drivers/block/sunvdc.c b/drivers/block/sunvdc.c
-> index 282f81616a78..2b33fb5b949b 100644
-> --- a/drivers/block/sunvdc.c
-> +++ b/drivers/block/sunvdc.c
-> @@ -485,7 +485,7 @@ static int __send_request(struct request *req)
->         }
->
->         sg_init_table(sg, port->ring_cookies);
-> -       nsg = blk_rq_map_sg(req->q, req, sg);
-> +       nsg = blk_rq_map_sg(req, sg);
->
->         len = 0;
->         for (i = 0; i < nsg; i++)
-> diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
-> index 6a61ec35f426..a3df4d49bd46 100644
-> --- a/drivers/block/virtio_blk.c
-> +++ b/drivers/block/virtio_blk.c
-> @@ -226,7 +226,7 @@ static int virtblk_map_data(struct blk_mq_hw_ctx *hctx, struct request *req,
->         if (unlikely(err))
->                 return -ENOMEM;
->
-> -       return blk_rq_map_sg(hctx->queue, req, vbr->sg_table.sgl);
-> +       return blk_rq_map_sg(req, vbr->sg_table.sgl);
->  }
->
->  static void virtblk_cleanup_cmd(struct request *req)
-> diff --git a/drivers/block/xen-blkfront.c b/drivers/block/xen-blkfront.c
-> index edcd08a9dcef..5babe575c288 100644
-> --- a/drivers/block/xen-blkfront.c
-> +++ b/drivers/block/xen-blkfront.c
-> @@ -751,7 +751,7 @@ static int blkif_queue_rw_req(struct request *req, struct blkfront_ring_info *ri
->         id = blkif_ring_get_request(rinfo, req, &final_ring_req);
->         ring_req = &rinfo->shadow[id].req;
->
-> -       num_sg = blk_rq_map_sg(req->q, req, rinfo->shadow[id].sg);
-> +       num_sg = blk_rq_map_sg(req, rinfo->shadow[id].sg);
->         num_grant = 0;
->         /* Calculate the number of grant used */
->         for_each_sg(rinfo->shadow[id].sg, sg, num_sg, i)
-> diff --git a/drivers/memstick/core/ms_block.c b/drivers/memstick/core/ms_block.c
-> index 5b617c1f6789..f4398383ae06 100644
-> --- a/drivers/memstick/core/ms_block.c
-> +++ b/drivers/memstick/core/ms_block.c
-> @@ -1904,7 +1904,7 @@ static void msb_io_work(struct work_struct *work)
->
->                 /* process the request */
->                 dbg_verbose("IO: processing new request");
-> -               blk_rq_map_sg(msb->queue, req, sg);
-> +               blk_rq_map_sg(req, sg);
->
->                 lba = blk_rq_pos(req);
->
-> diff --git a/drivers/memstick/core/mspro_block.c b/drivers/memstick/core/mspro_block.c
-> index 634d343b6bdb..c9853d887d28 100644
-> --- a/drivers/memstick/core/mspro_block.c
-> +++ b/drivers/memstick/core/mspro_block.c
-> @@ -627,9 +627,7 @@ static int mspro_block_issue_req(struct memstick_dev *card)
->         while (true) {
->                 msb->current_page = 0;
->                 msb->current_seg = 0;
-> -               msb->seg_count = blk_rq_map_sg(msb->block_req->q,
-> -                                              msb->block_req,
-> -                                              msb->req_sg);
-> +               msb->seg_count = blk_rq_map_sg(msb->block_req, msb->req_sg);
->
->                 if (!msb->seg_count) {
->                         unsigned int bytes = blk_rq_cur_bytes(msb->block_req);
-> diff --git a/drivers/mmc/core/queue.c b/drivers/mmc/core/queue.c
-> index ab662f502fe7..3ba62f825b84 100644
-> --- a/drivers/mmc/core/queue.c
-> +++ b/drivers/mmc/core/queue.c
-> @@ -523,5 +523,5 @@ unsigned int mmc_queue_map_sg(struct mmc_queue *mq, struct mmc_queue_req *mqrq)
->  {
->         struct request *req = mmc_queue_req_to_req(mqrq);
->
-> -       return blk_rq_map_sg(mq->queue, req, mqrq->sg);
-> +       return blk_rq_map_sg(req, mqrq->sg);
->  }
-> diff --git a/drivers/mtd/ubi/block.c b/drivers/mtd/ubi/block.c
-> index 2836905f0152..39cc0a6a4d37 100644
-> --- a/drivers/mtd/ubi/block.c
-> +++ b/drivers/mtd/ubi/block.c
-> @@ -199,7 +199,7 @@ static blk_status_t ubiblock_read(struct request *req)
->          * and ubi_read_sg() will check that limit.
->          */
->         ubi_sgl_init(&pdu->usgl);
-> -       blk_rq_map_sg(req->q, req, pdu->usgl.sg);
-> +       blk_rq_map_sg(req, pdu->usgl.sg);
->
->         while (bytes_left) {
->                 /*
-> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-> index a060f69558e7..a437eee741e1 100644
-> --- a/drivers/nvme/host/apple.c
-> +++ b/drivers/nvme/host/apple.c
-> @@ -525,7 +525,7 @@ static blk_status_t apple_nvme_map_data(struct apple_nvme *anv,
->         if (!iod->sg)
->                 return BLK_STS_RESOURCE;
->         sg_init_table(iod->sg, blk_rq_nr_phys_segments(req));
-> -       iod->nents = blk_rq_map_sg(req->q, req, iod->sg);
-> +       iod->nents = blk_rq_map_sg(req, iod->sg);
->         if (!iod->nents)
->                 goto out_free_sg;
->
-> diff --git a/drivers/nvme/host/fc.c b/drivers/nvme/host/fc.c
-> index b9929a5a7f4e..1b5ad1173bc7 100644
-> --- a/drivers/nvme/host/fc.c
-> +++ b/drivers/nvme/host/fc.c
-> @@ -2571,7 +2571,7 @@ nvme_fc_map_data(struct nvme_fc_ctrl *ctrl, struct request *rq,
->         if (ret)
->                 return -ENOMEM;
->
-> -       op->nents = blk_rq_map_sg(rq->q, rq, freq->sg_table.sgl);
-> +       op->nents = blk_rq_map_sg(rq, freq->sg_table.sgl);
->         WARN_ON(op->nents > blk_rq_nr_phys_segments(rq));
->         freq->sg_cnt = fc_dma_map_sg(ctrl->lport->dev, freq->sg_table.sgl,
->                                 op->nents, rq_dma_dir(rq));
-> diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-> index 950289405ef2..a0b1c57067aa 100644
-> --- a/drivers/nvme/host/pci.c
-> +++ b/drivers/nvme/host/pci.c
-> @@ -812,7 +812,7 @@ static blk_status_t nvme_map_data(struct nvme_dev *dev, struct request *req,
->         if (!iod->sgt.sgl)
->                 return BLK_STS_RESOURCE;
->         sg_init_table(iod->sgt.sgl, blk_rq_nr_phys_segments(req));
-> -       iod->sgt.orig_nents = blk_rq_map_sg(req->q, req, iod->sgt.sgl);
-> +       iod->sgt.orig_nents = blk_rq_map_sg(req, iod->sgt.sgl);
->         if (!iod->sgt.orig_nents)
->                 goto out_free_sg;
->
-> diff --git a/drivers/nvme/host/rdma.c b/drivers/nvme/host/rdma.c
-> index 86a2891d9bcc..b5a0295b5bf4 100644
-> --- a/drivers/nvme/host/rdma.c
-> +++ b/drivers/nvme/host/rdma.c
-> @@ -1476,8 +1476,7 @@ static int nvme_rdma_dma_map_req(struct ib_device *ibdev, struct request *rq,
->         if (ret)
->                 return -ENOMEM;
->
-> -       req->data_sgl.nents = blk_rq_map_sg(rq->q, rq,
-> -                                           req->data_sgl.sg_table.sgl);
-> +       req->data_sgl.nents = blk_rq_map_sg(rq, req->data_sgl.sg_table.sgl);
->
->         *count = ib_dma_map_sg(ibdev, req->data_sgl.sg_table.sgl,
->                                req->data_sgl.nents, rq_dma_dir(rq));
-> diff --git a/drivers/nvme/target/loop.c b/drivers/nvme/target/loop.c
-> index a9d112d34d4f..a5c41144667c 100644
-> --- a/drivers/nvme/target/loop.c
-> +++ b/drivers/nvme/target/loop.c
-> @@ -162,7 +162,7 @@ static blk_status_t nvme_loop_queue_rq(struct blk_mq_hw_ctx *hctx,
->                 }
->
->                 iod->req.sg = iod->sg_table.sgl;
-> -               iod->req.sg_cnt = blk_rq_map_sg(req->q, req, iod->sg_table.sgl);
-> +               iod->req.sg_cnt = blk_rq_map_sg(req, iod->sg_table.sgl);
->                 iod->req.transfer_len = blk_rq_payload_bytes(req);
->         }
->
-> diff --git a/drivers/scsi/scsi_lib.c b/drivers/scsi/scsi_lib.c
-> index f1cfe0bb89b2..0d29470e86b0 100644
-> --- a/drivers/scsi/scsi_lib.c
-> +++ b/drivers/scsi/scsi_lib.c
-> @@ -1149,7 +1149,7 @@ blk_status_t scsi_alloc_sgtables(struct scsi_cmnd *cmd)
->          * Next, walk the list, and fill in the addresses and sizes of
->          * each segment.
->          */
-> -       count = __blk_rq_map_sg(rq->q, rq, cmd->sdb.table.sgl, &last_sg);
-> +       count = __blk_rq_map_sg(rq, cmd->sdb.table.sgl, &last_sg);
->
->         if (blk_rq_bytes(rq) & rq->q->limits.dma_pad_mask) {
->                 unsigned int pad_len =
-> diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
-> index fa2a76cc2f73..f2eff998913d 100644
-> --- a/include/linux/blk-mq.h
-> +++ b/include/linux/blk-mq.h
-> @@ -1165,14 +1165,13 @@ static inline unsigned short blk_rq_nr_discard_segments(struct request *rq)
->         return max_t(unsigned short, rq->nr_phys_segments, 1);
->  }
->
-> -int __blk_rq_map_sg(struct request_queue *q, struct request *rq,
-> -               struct scatterlist *sglist, struct scatterlist **last_sg);
-> -static inline int blk_rq_map_sg(struct request_queue *q, struct request *rq,
-> -               struct scatterlist *sglist)
-> +int __blk_rq_map_sg(struct request *rq, struct scatterlist *sglist,
-> +               struct scatterlist **last_sg);
-> +static inline int blk_rq_map_sg(struct request *rq, struct scatterlist *sglist)
->  {
->         struct scatterlist *last_sg = NULL;
->
-> -       return __blk_rq_map_sg(q, rq, sglist, &last_sg);
-> +       return __blk_rq_map_sg(rq, sglist, &last_sg);
->  }
->  void blk_dump_rq_flags(struct request *, char *);
->
-> --
-> 2.25.1
->
+
+	if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
+		goto out_unlock;
+
+	if (!count)
+		goto release_rx;
+
+	[...]
+
+	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+		ffa_to_smccc_res(res, FFA_RET_ABORTED);
+		goto release_rx;
+	}
+
+	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
+release_rx:
+	ffa_rx_release(&_res);
+out_unlock:
+	hyp_spin_unlock(&host_buffers.lock);
+}
+
+
+What do you reckon?
+
+Will
 
