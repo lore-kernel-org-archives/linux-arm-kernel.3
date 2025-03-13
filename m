@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AE5C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3BAC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+6TtqnWRHap1+zGPihePGn3UrV1PoskvkH+xAMooAk4=; b=luKUSsgW1oj9j254GXzBx1bcHe
-	QAYouwVsBSwWtR71gTvE1bv7yWf+IXswl3Wf6pH0ZWC6k29CMj8PzM7JvfdHvuAjY62sg7oGgJJkm
-	Er/qyLXGD4KagAIw5Xh+8QFT/aHnhIWB0+cfkhhbtq0ByczF5ftuTSM8QxL6POlr3tBig+JN6u9Ej
-	HyV3IkONkTcusCNKYM9f41McgwRSmBD9e1WbAxiibFEt6iSfp6NX2qhKsm9VVJQI0RLsIFvFEAoUK
-	QxS434croZUXZoZjf8et2rEqDIBQCu5oXX14pi2g45V1ZGD3umKFCj7GneIlmKYO3nNvvF+N6X24S
-	0FT0QhbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=otiuG/DUDKB+IeX0NW1iPawStHS+TeRO4UsrEuDZfQg=; b=k39EqTfdP2SsINb3HuIRkY1vRa
+	Lomc3zOudAvq2Df43Q1TdWgawG1rJ6WNhH9D3TVJk7/mj9V6m+RjM0vGGfK7yF3Gy9vzdJMvUvDMl
+	6WZoJz5tPsTrgN3Np1PBRX7nW6RZMEkmmMFwM6DbQzH2pfWHqUghg9dDKOCxjq9coAVTTmvhyZEjr
+	QtoFIDTxADZAI3GsqjeOkvWgTP+h6vn/4KPk0plCMwkbE23JCRItSDBwuXaSQFWdK0hL4RMseHh9J
+	MWo1EfOWswER+ltde8kXdMwcVr8wkSplOvyp78mujMtFMol0Zr4+QjeEDBHNUrEzBIkP6IZHnkQ2+
+	A9SrqoPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdrI-0000000AXJh-1wuM;
-	Thu, 13 Mar 2025 08:24:04 +0000
-Received: from smtp.forwardemail.net ([121.127.44.59])
+	id 1tsdtC-0000000AXn0-1tCY;
+	Thu, 13 Mar 2025 08:26:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdpb-0000000AX5n-2SMQ
+	id 1tsdrW-0000000AXN6-1pbf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 08:22:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1741854136;
- bh=+6TtqnWRHap1+zGPihePGn3UrV1PoskvkH+xAMooAk4=;
- b=jHKclm54nareliKFW22AKZ8TtNtKH39oimuTwJR+P+hmrkIEFKrlbGH2O9MjiKb8L+FSJse1Z
- H+ho1w0Y94adLjcZ+oie8BRn7sXYgMKQ6OXw/P7BMpA0cINNSja7oDkVplgZe3vJg6Of8B/IirG
- GEfe7cHPuPEJU3H7dvDBFbxD5SG+2GoaJ4kkCq4I8en0BDZLims8A6fpZlO48lYgrkAgVDmvUbl
- vHMpZWQBwicUoHi6pJ+aIBp6lnvSgJ3OeouPYWpa+x7EPAJC1OwTvLCabPnLSIJGYpD2CvtjEYC
- BFzbnFOJlTSkU0Xi27AfTztYkvDOhUAZz+D1gViZK8rA==
-X-Forward-Email-ID: 67d295b469c9ba463efbea93
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.59
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <60065c0b-4597-4976-b74b-172556c4e156@kwiboo.se>
-Date: Thu, 13 Mar 2025 09:22:08 +0100
+	Thu, 13 Mar 2025 08:24:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 107065C585E;
+	Thu, 13 Mar 2025 08:22:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B9AEC4CEE9;
+	Thu, 13 Mar 2025 08:24:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741854257;
+	bh=nzEoy2Dm6WdPm0bsSQMi/Pi0gl+x9sAMvCNvyjcf8w0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bnlCx8r5QwZudVcnRFXkQ1/mShMlI7S9sNXIJ4mIckmfuhk7xAEPAFGfSKILwYrJR
+	 q2H3UNAsxYwuDi8A0LOMPV0du9lLjSGcePOm5ghr2wkIHFiOL/7zVi2p4L7Esi7/lY
+	 kq5DF0j/MpU5EUsSEUN/hknlvSWobgVt7qaPJgvLWWWBQ9v1x8dBioVK5p8ezZJ6A7
+	 k70YQOXiIsL4Z8ERTGw78t+MIFzSfp/DJsHBZCj+vHfZMOcyYTGgG8xIs7UOxWYdvE
+	 SPUIMMHvzqwIJ8PRGZYN7NOb/sI11IjH/oykGoVY4w1JAU+NavEA/zxKhQqYQZh3vb
+	 NbfeAfr+L8JUQ==
+Date: Thu, 13 Mar 2025 09:24:12 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Taniya Das <quic_tdas@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Ajit Pandey <quic_ajipan@quicinc.com>, Imran Shaik <quic_imrashai@quicinc.com>, 
+	Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 06/10] dt-bindings: clock: Add Qualcomm QCS615
+ Graphics clock controller
+Message-ID: <20250313-graceful-jackdaw-of-opportunity-62996d@krzk-bin>
+References: <20250313-qcs615-v5-mm-cc-v6-0-ebf4b9a5e916@quicinc.com>
+ <20250313-qcs615-v5-mm-cc-v6-6-ebf4b9a5e916@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] arm64: dts: rockchip: Add pwm nodes for RK3528
-To: heiko@sntech.de, Chukun Pan <amadeus@jmu.edu.cn>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <7779050.EvYhyI6sBW@phil>
- <20250313071031.1840032-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250313071031.1840032-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250313-qcs615-v5-mm-cc-v6-6-ebf4b9a5e916@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_012220_080351_1F49D78A 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20250313_012418_532430_DE850A2C 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Mar 13, 2025 at 12:29:43PM +0530, Taniya Das wrote:
+ +
+> +  '#reset-cells':
+> +    const: 1
+> +
+> +  '#power-domain-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - '#clock-cells'
+> +  - '#reset-cells'
+> +  - '#power-domain-cells'
+> +
 
-On 2025-03-13 08:10, Chukun Pan wrote:
-> Hi,
-> 
->> so yes of course the pinctrl needs to be default - simply because
->> that's the only pinctrl state mainline supports.
-> 
->> But judging by the fact that you're discussing working vs. non-working
->> below, can you please check if we should drop the patch for 6.15 till
->> that is solved?
-> 
-> I suggest dropping this patch first, I will send v2
-> when this issue is solved.
+I don't get why this binding is different than others and you do not
+reference qcom,gcc.yaml? Is it not applicable here? Other gpucc do
+reference.
 
-I noticed that the pwm nodes and saradc node ended up in wrong mmio
-address order, so yes please drop the patch (or reorder nodes) ;-)
 
-Chukun, please get back with more details about the issue you are having.
-E.g. a stack trace, what board, DT and U-Boot you are using etc.
-
-I have not seen any issue with PWM using the merged patch having
-pinctrl-names=default.
-
-Please see my Linux tree [1] and U-Boot tree [2], those are little ahead
-of what has been posted on ML, e.g. it has working USB2.0 host, CPU opp,
-Hantro VPU, GPU + opp, arm and logic pwm regulators for E20C, ROCK 2A/2F
-and Sige1.
-
-Will try to post USB2.0 host and Hantro VPU patches later today.
-CPU opp and GPU + opp depend on PWM and I was planning to post that
-together with initial thermal support.
-
-[1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250311-rk3528/
-[2] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
-
-Regards,
-Jonas
-
-> 
-> Thanks,
-> Chukun
-> 
-> --
-> 2.25.1
-> 
+Best regards,
+Krzysztof
 
 
