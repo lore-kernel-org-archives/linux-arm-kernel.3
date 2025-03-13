@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1FFC35FF1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB9EC35FF3
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAZ5cL1SfrjA7Y0umyPN+UK00JHcs/16+CpAWe19s+o=; b=BLbAatwDUt7uquvKXvaXM1usqp
-	VWADXSrCLqAekDiLrW1Ifk9MKO2YI9f3QzYAUbaB3NccgSSM0eo/Ix4mTXZvSIRBpxUlIFkFpGx1Y
-	PxXoBN60EQsTxwWxATCobJ6KcR0SbPC9dY+WuiOtKwK6qIsvV1H1AhVEUyfkguj4qU0A7Shia4/FG
-	kbgBfichRkCk8zQWIYUTYIjNB0sfhfVrN+irYBCQirOuCfHH16am8NYlPBVbFeeE7k783VeAblw6A
-	V7a3E/NhMVNAyiRo9YB1MOPK4H2nfY6ShlzKbJbGVqpQ5PP7zUdaV3+cS77Q65/6+7cxiQiEzsM4C
-	hw2DgMSQ==;
+	bh=7p82QQTCNn5aWbI81oQLDxx2PK3gOSFMLvfRqeu+jK8=; b=dd4GLtLuqEvokhcrh8xtFtai0j
+	kF31dIxosfuk/twoZUguaocJQaud0qm21b8CvOVz85yZAGA5IVZceb7fmmnU5g8rM9Vr7pThcruqP
+	M2f4UoHKcd1sIIuwVw/NpAPRxs1nJ/n8/LrczuR2JYgdTAec+4PdelH5lwjvZQNJVtkIhjqlaDNqP
+	RZzICMj9jOqfT4WAIgq05uPfM33P5X+o+JxBKTjjdWV0JlaE6zHUdpAecqvFtrensItHmm2fFLdET
+	YbRzD9pau7AkATB0R6X6J3xXftl2bhdB6Og/DMw8W7/ohQfq2LWB3pnnrZ6/2ive+/AQfr7yf7Ta3
+	jrxzrQKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnfz-0000000CEg6-2Diw;
-	Thu, 13 Mar 2025 18:53:03 +0000
+	id 1tsnfy-0000000CEfI-3Ad5;
+	Thu, 13 Mar 2025 18:53:02 +0000
 Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnGj-0000000CBop-3vwm
+	id 1tsnGj-0000000CBo9-0pCW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 13 Mar 2025 18:26:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 83267204D0;
-	Thu, 13 Mar 2025 18:26:55 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2EED220483;
+	Thu, 13 Mar 2025 18:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741890416;
+	t=1741890414;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tAZ5cL1SfrjA7Y0umyPN+UK00JHcs/16+CpAWe19s+o=;
-	b=KLd7yoic/Vzc8ypq4AeHKcb2zBeiokXqDYF58ByZtSNH0nrJNSizZKq+zsbBtBTJW/K2ta
-	l2k0mhSNscBhiS572vDspuiHAVoJE9Y1KOBiqdIj3kcx1A6EOJ8d2UyURV+03lG0pJsQF6
-	NNQ0YMIeRyEpX96LU6AXI0fjF40SOdgNOakyHADv/ic5KYkkxroblSfp1NBdLzYTlmTWHK
-	MBuANmSP4tsSfIShIgpKjqsptzkN50kL/lwTwoOCayQFNidcYJgSx27vYAmIlssjgjHIJL
-	qyv62j6su38LhdAYm8UtqJqGtXxXWWoj/iMfKfiPMG1x/LEAZitva36e8z+uPw==
+	bh=7p82QQTCNn5aWbI81oQLDxx2PK3gOSFMLvfRqeu+jK8=;
+	b=eUX3yj5eyIIaJqOtg3SkruBLDLB+tKfXbiI9y4ExzDaKx8ahud/DqStq3TTzFCM33tzSIv
+	e0DjiT0kuULaGHIyC9IIQa3gw5YZuvUsPCQGtsOqH80Z63yArtMpOooUh4bRyz6Y/76t8u
+	cU75FeVOF02ZggQArJuPOZjTsZQxnxwqwfUgWnmxgCxphmD8q3UVVkN0O+oirna+lVHI2o
+	8ifYSKosIy9dFKX7qLYCv8ZjGd1CszmiApGBgCqqR78fGGVIDrDjBKQbHzMlhpbqDB3c+r
+	UpAjZFGko4hx6db0ch1CH5vTNSr313cVBHsnvp20W74zZmyUqbab+f4BuY9FhA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -63,9 +63,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Simon Horman <horms@kernel.org>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: [PATCH net-next v3 5/7] net: ethtool: phy: Convert the PHY_GET command to generic phy dump
-Date: Thu, 13 Mar 2025 19:26:44 +0100
-Message-ID: <20250313182647.250007-6-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v3 3/7] net: ethtool: netlink: Introduce command-specific dump_one_dev
+Date: Thu, 13 Mar 2025 19:26:42 +0100
+Message-ID: <20250313182647.250007-4-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250313182647.250007-1-maxime.chevallier@bootlin.com>
 References: <20250313182647.250007-1-maxime.chevallier@bootlin.com>
@@ -73,12 +73,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvdekieejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvddtueefvdfhiefgieelfeeggeefiedvueevkedttddvffekleeujedtjeeuteehnecuffhomhgrihhnpegsrghsvgdruggvvhenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrqddvrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrn
- hgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvdekieejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdqvddrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguu
+ hhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_112658_239148_CC3133F3 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20250313_112657_494659_8435C44E 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,470 +93,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have an infrastructure in ethnl for perphy DUMPs, we can get
-rid of the custom ->doit and ->dumpit to deal with PHY listing commands.
+Prepare more generic ethnl DUMP hanldling, by allowing netlink commands
+to register their own dump_one_dev() callback. This avoids having to
+roll with a fully custom genl ->dumpit callback, allowing the re-use
+of some ethnl plumbing.
 
-As most of the code was custom, this basically means re-writing how we
-deal with PHY listing.
+Fallback to the default dump_one_dev behaviour when no custom callback
+is found.
+
+The command dump context is maintained within the ethnl_dump_ctx, that
+we move in netlink.h so that command handlers can access it.
+
+This context can be allocated/freed in new ->dump_start() and
+->dump_done() callbacks.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- net/ethtool/netlink.c |   9 +-
- net/ethtool/netlink.h |   4 -
- net/ethtool/phy.c     | 344 ++++++++++++------------------------------
- 3 files changed, 105 insertions(+), 252 deletions(-)
+ net/ethtool/netlink.c | 62 +++++++++++++++++++++++++------------------
+ net/ethtool/netlink.h | 35 ++++++++++++++++++++++++
+ 2 files changed, 71 insertions(+), 26 deletions(-)
 
 diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
-index 821bc8b99306..b32ddfe7cf88 100644
+index 644c202d284d..2dc6086e1ab5 100644
 --- a/net/ethtool/netlink.c
 +++ b/net/ethtool/netlink.c
-@@ -382,6 +382,7 @@ ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
- 	[ETHTOOL_MSG_MM_SET]		= &ethnl_mm_request_ops,
- 	[ETHTOOL_MSG_TSCONFIG_GET]	= &ethnl_tsconfig_request_ops,
- 	[ETHTOOL_MSG_TSCONFIG_SET]	= &ethnl_tsconfig_request_ops,
-+	[ETHTOOL_MSG_PHY_GET]		= &ethnl_phy_request_ops,
- };
+@@ -339,24 +339,6 @@ int ethnl_multicast(struct sk_buff *skb, struct net_device *dev)
  
- static struct ethnl_dump_ctx *ethnl_dump_context(struct netlink_callback *cb)
-@@ -1374,10 +1375,10 @@ static const struct genl_ops ethtool_genl_ops[] = {
- 	},
- 	{
- 		.cmd	= ETHTOOL_MSG_PHY_GET,
--		.doit	= ethnl_phy_doit,
--		.start	= ethnl_phy_start,
--		.dumpit	= ethnl_phy_dumpit,
--		.done	= ethnl_phy_done,
-+		.doit	= ethnl_default_doit,
-+		.start	= ethnl_default_start,
-+		.dumpit	= ethnl_default_dumpit,
-+		.done	= ethnl_default_done,
- 		.policy = ethnl_phy_get_policy,
- 		.maxattr = ARRAY_SIZE(ethnl_phy_get_policy) - 1,
- 	},
-diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
-index 530a9b5c8b39..60f16090640f 100644
---- a/net/ethtool/netlink.h
-+++ b/net/ethtool/netlink.h
-@@ -542,10 +542,6 @@ int ethnl_tunnel_info_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
- int ethnl_act_module_fw_flash(struct sk_buff *skb, struct genl_info *info);
- int ethnl_rss_dump_start(struct netlink_callback *cb);
- int ethnl_rss_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
--int ethnl_phy_start(struct netlink_callback *cb);
--int ethnl_phy_doit(struct sk_buff *skb, struct genl_info *info);
--int ethnl_phy_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
--int ethnl_phy_done(struct netlink_callback *cb);
- int ethnl_tsinfo_start(struct netlink_callback *cb);
- int ethnl_tsinfo_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
- int ethnl_tsinfo_done(struct netlink_callback *cb);
-diff --git a/net/ethtool/phy.c b/net/ethtool/phy.c
-index 1f590e8d75ed..88343fed7366 100644
---- a/net/ethtool/phy.c
-+++ b/net/ethtool/phy.c
-@@ -12,304 +12,160 @@
- #include <net/netdev_lock.h>
+ /* GET request helpers */
  
- struct phy_req_info {
--	struct ethnl_req_info		base;
--	struct phy_device_node		*pdn;
-+	struct ethnl_req_info base;
- };
- 
--#define PHY_REQINFO(__req_base) \
--	container_of(__req_base, struct phy_req_info, base)
-+struct phy_reply_data {
-+	struct ethnl_reply_data	base;
-+	u32 phyindex;
-+	char *drvname;
-+	char *name;
-+	unsigned int upstream_type;
-+	char *upstream_sfp_name;
-+	unsigned int upstream_index;
-+	char *downstream_sfp_name;
-+};
-+
-+#define PHY_REPDATA(__reply_base) \
-+	container_of(__reply_base, struct phy_reply_data, base)
- 
- const struct nla_policy ethnl_phy_get_policy[ETHTOOL_A_PHY_HEADER + 1] = {
- 	[ETHTOOL_A_PHY_HEADER] = NLA_POLICY_NESTED(ethnl_header_policy),
- };
- 
--/* Caller holds rtnl */
--static ssize_t
--ethnl_phy_reply_size(const struct ethnl_req_info *req_base,
--		     struct netlink_ext_ack *extack)
-+static int phy_reply_size(const struct ethnl_req_info *req_info,
-+			  const struct ethnl_reply_data *reply_data)
- {
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device_node *pdn = req_info->pdn;
--	struct phy_device *phydev = pdn->phy;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 	size_t size = 0;
- 
--	ASSERT_RTNL();
--
- 	/* ETHTOOL_A_PHY_INDEX */
- 	size += nla_total_size(sizeof(u32));
- 
- 	/* ETHTOOL_A_DRVNAME */
--	if (phydev->drv)
--		size += nla_total_size(strlen(phydev->drv->name) + 1);
-+	if (rep_data->drvname)
-+		size += nla_total_size(strlen(rep_data->drvname) + 1);
- 
- 	/* ETHTOOL_A_NAME */
--	size += nla_total_size(strlen(dev_name(&phydev->mdio.dev)) + 1);
-+	size += nla_total_size(strlen(rep_data->name) + 1);
- 
- 	/* ETHTOOL_A_PHY_UPSTREAM_TYPE */
- 	size += nla_total_size(sizeof(u32));
- 
--	if (phy_on_sfp(phydev)) {
--		const char *upstream_sfp_name = sfp_get_name(pdn->parent_sfp_bus);
--
--		/* ETHTOOL_A_PHY_UPSTREAM_SFP_NAME */
--		if (upstream_sfp_name)
--			size += nla_total_size(strlen(upstream_sfp_name) + 1);
-+	/* ETHTOOL_A_PHY_UPSTREAM_SFP_NAME */
-+	if (rep_data->upstream_sfp_name)
-+		size += nla_total_size(strlen(rep_data->upstream_sfp_name) + 1);
- 
--		/* ETHTOOL_A_PHY_UPSTREAM_INDEX */
-+	/* ETHTOOL_A_PHY_UPSTREAM_INDEX */
-+	if (rep_data->upstream_index)
- 		size += nla_total_size(sizeof(u32));
--	}
- 
- 	/* ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME */
--	if (phydev->sfp_bus) {
--		const char *sfp_name = sfp_get_name(phydev->sfp_bus);
--
--		if (sfp_name)
--			size += nla_total_size(strlen(sfp_name) + 1);
--	}
-+	if (rep_data->downstream_sfp_name)
-+		size += nla_total_size(strlen(rep_data->downstream_sfp_name) + 1);
- 
- 	return size;
- }
- 
--static int
--ethnl_phy_fill_reply(const struct ethnl_req_info *req_base, struct sk_buff *skb)
-+static int phy_prepare_data(const struct ethnl_req_info *req_info,
-+			    struct ethnl_reply_data *reply_data,
-+			    const struct genl_info *info)
- {
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device_node *pdn = req_info->pdn;
--	struct phy_device *phydev = pdn->phy;
--	enum phy_upstream ptype;
-+	struct phy_link_topology *topo = reply_data->dev->link_topo;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
-+	struct nlattr **tb = info->attrs;
-+	struct phy_device_node *pdn;
-+	struct phy_device *phydev;
- 
--	ptype = pdn->upstream_type;
-+	/* RTNL is held by the caller */
-+	phydev = ethnl_req_get_phydev(req_info, tb, ETHTOOL_A_PHY_HEADER,
-+				      info->extack);
-+	if (IS_ERR_OR_NULL(phydev))
-+		return -EOPNOTSUPP;
- 
--	if (nla_put_u32(skb, ETHTOOL_A_PHY_INDEX, phydev->phyindex) ||
--	    nla_put_string(skb, ETHTOOL_A_PHY_NAME, dev_name(&phydev->mdio.dev)) ||
--	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_TYPE, ptype))
--		return -EMSGSIZE;
-+	pdn = xa_load(&topo->phys, phydev->phyindex);
-+	if (!pdn)
-+		return -EOPNOTSUPP;
- 
--	if (phydev->drv &&
--	    nla_put_string(skb, ETHTOOL_A_PHY_DRVNAME, phydev->drv->name))
--		return -EMSGSIZE;
-+	rep_data->phyindex = phydev->phyindex;
-+	rep_data->name = kstrdup(dev_name(&phydev->mdio.dev), GFP_KERNEL);
-+	rep_data->drvname = kstrdup(phydev->drv->name, GFP_KERNEL);
-+	rep_data->upstream_type = pdn->upstream_type;
- 
--	if (ptype == PHY_UPSTREAM_PHY) {
-+	if (pdn->upstream_type == PHY_UPSTREAM_PHY) {
- 		struct phy_device *upstream = pdn->upstream.phydev;
--		const char *sfp_upstream_name;
--
--		/* Parent index */
--		if (nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_INDEX, upstream->phyindex))
--			return -EMSGSIZE;
--
--		if (pdn->parent_sfp_bus) {
--			sfp_upstream_name = sfp_get_name(pdn->parent_sfp_bus);
--			if (sfp_upstream_name &&
--			    nla_put_string(skb, ETHTOOL_A_PHY_UPSTREAM_SFP_NAME,
--					   sfp_upstream_name))
--				return -EMSGSIZE;
--		}
-+		rep_data->upstream_index = upstream->phyindex;
- 	}
- 
--	if (phydev->sfp_bus) {
--		const char *sfp_name = sfp_get_name(phydev->sfp_bus);
-+	if (pdn->parent_sfp_bus)
-+		rep_data->upstream_sfp_name = kstrdup(sfp_get_name(pdn->parent_sfp_bus),
-+						      GFP_KERNEL);
- 
--		if (sfp_name &&
--		    nla_put_string(skb, ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME,
--				   sfp_name))
--			return -EMSGSIZE;
--	}
-+	if (phydev->sfp_bus)
-+		rep_data->downstream_sfp_name = kstrdup(sfp_get_name(phydev->sfp_bus),
-+							GFP_KERNEL);
- 
- 	return 0;
- }
- 
--static int ethnl_phy_parse_request(struct ethnl_req_info *req_base,
--				   struct nlattr **tb,
--				   struct netlink_ext_ack *extack)
-+static int phy_fill_reply(struct sk_buff *skb,
-+			  const struct ethnl_req_info *req_info,
-+			  const struct ethnl_reply_data *reply_data)
- {
--	struct phy_link_topology *topo = req_base->dev->link_topo;
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device *phydev;
--
--	phydev = ethnl_req_get_phydev(req_base, tb, ETHTOOL_A_PHY_HEADER,
--				      extack);
--	if (!phydev)
--		return 0;
--
--	if (IS_ERR(phydev))
--		return PTR_ERR(phydev);
--
--	if (!topo)
--		return 0;
--
--	req_info->pdn = xa_load(&topo->phys, phydev->phyindex);
--
--	return 0;
--}
--
--int ethnl_phy_doit(struct sk_buff *skb, struct genl_info *info)
--{
--	struct phy_req_info req_info = {};
--	struct nlattr **tb = info->attrs;
--	struct sk_buff *rskb;
--	void *reply_payload;
--	int reply_len;
--	int ret;
--
--	ret = ethnl_parse_header_dev_get(&req_info.base,
--					 tb[ETHTOOL_A_PHY_HEADER],
--					 genl_info_net(info), info->extack,
--					 true);
--	if (ret < 0)
--		return ret;
--
--	rtnl_lock();
--	netdev_lock_ops(req_info.base.dev);
--
--	ret = ethnl_phy_parse_request(&req_info.base, tb, info->extack);
--	if (ret < 0)
--		goto err_unlock;
--
--	/* No PHY, return early */
--	if (!req_info.pdn)
--		goto err_unlock;
--
--	ret = ethnl_phy_reply_size(&req_info.base, info->extack);
--	if (ret < 0)
--		goto err_unlock;
--	reply_len = ret + ethnl_reply_header_size();
--
--	rskb = ethnl_reply_init(reply_len, req_info.base.dev,
--				ETHTOOL_MSG_PHY_GET_REPLY,
--				ETHTOOL_A_PHY_HEADER,
--				info, &reply_payload);
--	if (!rskb) {
--		ret = -ENOMEM;
--		goto err_unlock;
--	}
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 
--	ret = ethnl_phy_fill_reply(&req_info.base, rskb);
--	if (ret)
--		goto err_free_msg;
--
--	netdev_unlock_ops(req_info.base.dev);
--	rtnl_unlock();
--	ethnl_parse_header_dev_put(&req_info.base);
--	genlmsg_end(rskb, reply_payload);
--
--	return genlmsg_reply(rskb, info);
--
--err_free_msg:
--	nlmsg_free(rskb);
--err_unlock:
--	netdev_unlock_ops(req_info.base.dev);
--	rtnl_unlock();
--	ethnl_parse_header_dev_put(&req_info.base);
--	return ret;
--}
--
--struct ethnl_phy_dump_ctx {
--	struct phy_req_info	*phy_req_info;
--	unsigned long ifindex;
--	unsigned long phy_index;
+-/**
+- * struct ethnl_dump_ctx - context structure for generic dumpit() callback
+- * @ops:        request ops of currently processed message type
+- * @req_info:   parsed request header of processed request
+- * @reply_data: data needed to compose the reply
+- * @pos_ifindex: saved iteration position - ifindex
+- *
+- * These parameters are kept in struct netlink_callback as context preserved
+- * between iterations. They are initialized by ethnl_default_start() and used
+- * in ethnl_default_dumpit() and ethnl_default_done().
+- */
+-struct ethnl_dump_ctx {
+-	const struct ethnl_request_ops	*ops;
+-	struct ethnl_req_info		*req_info;
+-	struct ethnl_reply_data		*reply_data;
+-	unsigned long			pos_ifindex;
 -};
 -
--int ethnl_phy_start(struct netlink_callback *cb)
--{
--	const struct genl_info *info = genl_info_dump(cb);
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	int ret;
-+	if (nla_put_u32(skb, ETHTOOL_A_PHY_INDEX, rep_data->phyindex) ||
-+	    nla_put_string(skb, ETHTOOL_A_PHY_NAME, rep_data->name) ||
-+	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_TYPE, rep_data->upstream_type))
-+		return -EMSGSIZE;
- 
--	BUILD_BUG_ON(sizeof(*ctx) > sizeof(cb->ctx));
-+	if (rep_data->drvname &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_DRVNAME, rep_data->drvname))
-+		return -EMSGSIZE;
- 
--	ctx->phy_req_info = kzalloc(sizeof(*ctx->phy_req_info), GFP_KERNEL);
--	if (!ctx->phy_req_info)
--		return -ENOMEM;
-+	if (rep_data->upstream_index &&
-+	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_INDEX,
-+			rep_data->upstream_index))
-+		return -EMSGSIZE;
- 
--	ret = ethnl_parse_header_dev_get(&ctx->phy_req_info->base,
--					 info->attrs[ETHTOOL_A_PHY_HEADER],
--					 sock_net(cb->skb->sk), cb->extack,
--					 false);
--	ctx->ifindex = 0;
--	ctx->phy_index = 0;
-+	if (rep_data->upstream_sfp_name &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_UPSTREAM_SFP_NAME,
-+			   rep_data->upstream_sfp_name))
-+		return -EMSGSIZE;
- 
--	if (ret)
--		kfree(ctx->phy_req_info);
-+	if (rep_data->downstream_sfp_name &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME,
-+			   rep_data->downstream_sfp_name))
-+		return -EMSGSIZE;
- 
--	return ret;
-+	return 0;
+ static const struct ethnl_request_ops *
+ ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
+ 	[ETHTOOL_MSG_STRSET_GET]	= &ethnl_strset_request_ops,
+@@ -540,9 +522,9 @@ static int ethnl_default_doit(struct sk_buff *skb, struct genl_info *info)
+ 	return ret;
  }
  
--int ethnl_phy_done(struct netlink_callback *cb)
-+static void phy_cleanup_data(struct ethnl_reply_data *reply_data)
+-static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
+-				      const struct ethnl_dump_ctx *ctx,
+-				      const struct genl_info *info)
++static int ethnl_default_dump_one(struct sk_buff *skb,
++				  const struct ethnl_dump_ctx *ctx,
++				  const struct genl_info *info)
  {
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--
--	if (ctx->phy_req_info->base.dev)
--		ethnl_parse_header_dev_put(&ctx->phy_req_info->base);
--
--	kfree(ctx->phy_req_info);
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
+ 	void *ehdr;
+ 	int ret;
+@@ -553,15 +535,15 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
+ 	if (!ehdr)
+ 		return -EMSGSIZE;
  
--	return 0;
-+	kfree(rep_data->drvname);
-+	kfree(rep_data->name);
-+	kfree(rep_data->upstream_sfp_name);
-+	kfree(rep_data->downstream_sfp_name);
+-	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
+ 	rtnl_lock();
+-	netdev_lock_ops(dev);
++	netdev_lock_ops(ctx->reply_data->dev);
+ 	ret = ctx->ops->prepare_data(ctx->req_info, ctx->reply_data, info);
+-	netdev_unlock_ops(dev);
++	netdev_unlock_ops(ctx->reply_data->dev);
+ 	rtnl_unlock();
+ 	if (ret < 0)
+ 		goto out;
+-	ret = ethnl_fill_reply_header(skb, dev, ctx->ops->hdr_attr);
++	ret = ethnl_fill_reply_header(skb, ctx->reply_data->dev,
++				      ctx->ops->hdr_attr);
+ 	if (ret < 0)
+ 		goto out;
+ 	ret = ctx->ops->fill_reply(skb, ctx->req_info, ctx->reply_data);
+@@ -569,11 +551,29 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
+ out:
+ 	if (ctx->ops->cleanup_data)
+ 		ctx->ops->cleanup_data(ctx->reply_data);
+-	ctx->reply_data->dev = NULL;
++
+ 	if (ret < 0)
+ 		genlmsg_cancel(skb, ehdr);
+ 	else
+ 		genlmsg_end(skb, ehdr);
++
++	return ret;
++}
++
++static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
++				      struct ethnl_dump_ctx *ctx,
++				      const struct genl_info *info)
++{
++	int ret;
++
++	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
++
++	if (ctx->ops->dump_one_dev)
++		ret = ctx->ops->dump_one_dev(skb, ctx, info);
++	else
++		ret = ethnl_default_dump_one(skb, ctx, info);
++
++	ctx->reply_data->dev = NULL;
+ 	return ret;
  }
  
--static int ethnl_phy_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
--				  struct netlink_callback *cb)
--{
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	struct phy_req_info *pri = ctx->phy_req_info;
--	struct phy_device_node *pdn;
--	int ret = 0;
--	void *ehdr;
--
--	if (!dev->link_topo)
--		return 0;
--
--	xa_for_each_start(&dev->link_topo->phys, ctx->phy_index, pdn, ctx->phy_index) {
--		ehdr = ethnl_dump_put(skb, cb, ETHTOOL_MSG_PHY_GET_REPLY);
--		if (!ehdr) {
--			ret = -EMSGSIZE;
--			break;
--		}
--
--		ret = ethnl_fill_reply_header(skb, dev, ETHTOOL_A_PHY_HEADER);
--		if (ret < 0) {
--			genlmsg_cancel(skb, ehdr);
--			break;
--		}
--
--		pri->pdn = pdn;
--		ret = ethnl_phy_fill_reply(&pri->base, skb);
--		if (ret < 0) {
--			genlmsg_cancel(skb, ehdr);
--			break;
--		}
--
--		genlmsg_end(skb, ehdr);
--	}
-+const struct ethnl_request_ops ethnl_phy_request_ops = {
-+	.request_cmd		= ETHTOOL_MSG_PHY_GET,
-+	.reply_cmd		= ETHTOOL_MSG_PHY_GET_REPLY,
-+	.hdr_attr		= ETHTOOL_A_PHY_HEADER,
-+	.req_info_size		= sizeof(struct phy_req_info),
-+	.reply_data_size	= sizeof(struct phy_reply_data),
+@@ -606,6 +606,7 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
+ 			dev_hold(dev);
+ 			rcu_read_unlock();
  
--	return ret;
--}
-+	.prepare_data		= phy_prepare_data,
-+	.reply_size		= phy_reply_size,
-+	.fill_reply		= phy_fill_reply,
-+	.cleanup_data		= phy_cleanup_data,
++			ctx->req_info->dev = dev;
+ 			ret = ethnl_default_dump_one_dev(skb, dev, ctx,
+ 							 genl_info_dump(cb));
  
--int ethnl_phy_dumpit(struct sk_buff *skb, struct netlink_callback *cb)
--{
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	struct net *net = sock_net(skb->sk);
--	struct net_device *dev;
--	int ret = 0;
--
--	rtnl_lock();
--
--	if (ctx->phy_req_info->base.dev) {
--		dev = ctx->phy_req_info->base.dev;
--		netdev_lock_ops(dev);
--		ret = ethnl_phy_dump_one_dev(skb, dev, cb);
--		netdev_unlock_ops(dev);
--	} else {
--		for_each_netdev_dump(net, dev, ctx->ifindex) {
--			netdev_lock_ops(dev);
--			ret = ethnl_phy_dump_one_dev(skb, dev, cb);
--			netdev_unlock_ops(dev);
--			if (ret)
--				break;
--
--			ctx->phy_index = 0;
--		}
--	}
--	rtnl_unlock();
-+	.dump_start		= ethnl_dump_start_perphy,
-+	.dump_one_dev		= ethnl_dump_one_dev_perphy,
-+	.dump_done		= ethnl_dump_done_perphy,
+@@ -668,6 +669,12 @@ static int ethnl_default_start(struct netlink_callback *cb)
+ 	ctx->reply_data = reply_data;
+ 	ctx->pos_ifindex = 0;
  
--	return ret;
--}
-+	.allow_pernetdev_dump	= true,
++	if (ctx->ops->dump_start) {
++		ret = ctx->ops->dump_start(ctx);
++		if (ret)
++			goto free_reply_data;
++	}
++
+ 	return 0;
+ 
+ free_reply_data:
+@@ -683,6 +690,9 @@ static int ethnl_default_done(struct netlink_callback *cb)
+ {
+ 	struct ethnl_dump_ctx *ctx = ethnl_dump_context(cb);
+ 
++	if (ctx->ops->dump_done)
++		ctx->ops->dump_done(ctx);
++
+ 	kfree(ctx->reply_data);
+ 	kfree(ctx->req_info);
+ 
+diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
+index 4aaa73282d6a..79fe98190c64 100644
+--- a/net/ethtool/netlink.h
++++ b/net/ethtool/netlink.h
+@@ -307,6 +307,26 @@ struct ethnl_reply_data {
+ 	struct net_device		*dev;
+ };
+ 
++/**
++ * struct ethnl_dump_ctx - context structure for generic dumpit() callback
++ * @ops:        request ops of currently processed message type
++ * @req_info:   parsed request header of processed request
++ * @reply_data: data needed to compose the reply
++ * @pos_ifindex: saved iteration position - ifindex
++ * @cmd_ctx: command-specific context to maintain across the dump.
++ *
++ * These parameters are kept in struct netlink_callback as context preserved
++ * between iterations. They are initialized by ethnl_default_start() and used
++ * in ethnl_default_dumpit() and ethnl_default_done().
++ */
++struct ethnl_dump_ctx {
++	const struct ethnl_request_ops	*ops;
++	struct ethnl_req_info		*req_info;
++	struct ethnl_reply_data		*reply_data;
++	unsigned long			pos_ifindex;
++	void				*cmd_ctx;
 +};
++
+ int ethnl_ops_begin(struct net_device *dev);
+ void ethnl_ops_complete(struct net_device *dev);
+ 
+@@ -373,6 +393,15 @@ int ethnl_sock_priv_set(struct sk_buff *skb, struct net_device *dev, u32 portid,
+  *	 - 0 if no configuration has changed
+  *	 - 1 if configuration changed and notification should be generated
+  *	 - negative errno on errors
++ * @dump_start:
++ *	Optional callback to prepare a dump operation, should there be a need
++ *	to maintain some context across the dump.
++ * @dump_one_dev:
++ *	Optional callback to generate all messages for a given netdev. This
++ *	is relevant only when a request can produce different results for the
++ *	same netdev depending on command-specific attributes.
++ * @dump_done:
++ *	Optional callback to cleanup any context allocated in ->dump_start()
+  *
+  * Description of variable parts of GET request handling when using the
+  * unified infrastructure. When used, a pointer to an instance of this
+@@ -409,6 +438,12 @@ struct ethnl_request_ops {
+ 			    struct genl_info *info);
+ 	int (*set)(struct ethnl_req_info *req_info,
+ 		   struct genl_info *info);
++
++	int (*dump_start)(struct ethnl_dump_ctx *ctx);
++	int (*dump_one_dev)(struct sk_buff *skb,
++			    struct ethnl_dump_ctx *ctx,
++			    const struct genl_info *info);
++	void (*dump_done)(struct ethnl_dump_ctx *ctx);
+ };
+ 
+ /* request handlers */
 -- 
 2.48.1
 
