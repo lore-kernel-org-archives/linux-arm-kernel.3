@@ -4,84 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38716C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD901C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=21WuzUt5Ju1Izhrm+Sfoym710/ntJSEGJipzNuRdFBQ=; b=eTkcUH5usyRUtltG/xXt15FQ8X
-	7FBwnhfJHCK5DWGXCXmfhSxwvATJToFogZ8Tlv4/QlGXMFjaTceogSBLnp4c8r+8NjGDEBQiXysXa
-	WmYx8QWXF1BvPa0f8qNUC2DBlDRVFxCHMNW38FXlip/y64e6nZ6iiglYzb032uhP1qxPZr8qwD3LB
-	X5yLY+AiTIvhRsJ5sgnekdlywUJCMZWaxMypeG9QQZx5yRG3cMsOIMz5Hntq4yeoKeprOE2jLKM+Z
-	K2nZ4pbKHJxESwEQbgdB58tkMfjZjpbhPHAm8eVRCjdDF2Q8TTJgnDKna/sLfEnmH13qb7KVpgJa/
-	gs9cln1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v/0jNVrwKMItKSCUBAzfapo+WkPaGouv9TnK8r11Lcg=; b=gsOZlezbQ9hdB2fhFr5GyaXJLr
+	Bt6Iom8FQmRqzVlNmw2tXBXyAbt6EwOrEzOqct1b+c/LCud18g+eP6OF7uUS1ZizOHfOlZ7x8Uc8Q
+	Cl14XXQO6KesYcSP8O5zQQGdDY0wTbR9KuBH87J9nUsXCrd9XO97lWzxiYfKHey+i1w9d2mGvrs71
+	VVXjElFx+a59ghUCkJAKyDt+NCPfeSzmQJOQmYRUSjkbKThVS/Y//Pve06mp9bWEv2x/S3Wbmhuqo
+	WKCFtXEcgFN+gyiyCtHNQejJIh4TCTvMrAx8rcluE0QBY/jorXQThxjhM65lCaQ3a3puIt9nnG+cZ
+	DdjuFNhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsmu7-0000000C6YR-3GVM;
-	Thu, 13 Mar 2025 18:03:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsmQZ-0000000C3Em-2dbQ;
-	Thu, 13 Mar 2025 17:33:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2472D5C5FB5;
-	Thu, 13 Mar 2025 17:30:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8795C4CEDD;
-	Thu, 13 Mar 2025 17:33:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741887182;
-	bh=KufBf6SNVV2/+3f+j7cVUdlgE/k57oz+yacfQZgVu0o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=glfl0tSTDarf5KmqF2WaDKQ2aRgXTC2tuZCMgPixsObeC0jAFrgN3rInTUWfn0763
-	 IbTUdLElP7hTrnIqxhoBOjbuQXmNvzO62AXUJpkcz7ojHEH0Qq552EN6lP6+5kKVyO
-	 21XKi5XV0757FEkmF1hVr4jd6GhrGaVTCaCeieCwv+wcygHRTVyzpNB879d6cmtUqG
-	 2XEPCXesdn3A0vr6fnke/W1ltXLgodm8hgyjYbkS5uwwIrVXs0feJbcqowtqo1ahnP
-	 H9qaMyKjyptQvO5fkVzqDZuvO7MC82StGOKEqbR7pykgPK9Zy85yxzTBBaKBG4Lvkz
-	 6MfRNnXGGfTqw==
-Date: Thu, 13 Mar 2025 10:33:00 -0700
-From: Minchan Kim <minchan@kernel.org>
-To: Barry Song <21cnbao@gmail.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Qun-Wei Lin <qun-wei.lin@mediatek.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Dave Jiang <dave.jiang@intel.com>, Ira Weiny <ira.weiny@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chris Li <chrisl@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	"Huang, Ying" <ying.huang@intel.com>,
-	Kairui Song <kasong@tencent.com>,
-	Dan Schatzberg <schatzberg.dan@gmail.com>,
-	Al Viro <viro@zeniv.linux.org.uk>, linux-kernel@vger.kernel.org,
-	linux-block@vger.kernel.org, nvdimm@lists.linux.dev,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Casper Li <casper.li@mediatek.com>,
-	Chinwen Chang <chinwen.chang@mediatek.com>,
-	Andrew Yang <andrew.yang@mediatek.com>,
-	James Hsu <james.hsu@mediatek.com>
-Subject: Re: [PATCH 0/2] Improve Zram by separating compression context from
- kswapd
-Message-ID: <Z9MWzDUxUigJrZXt@google.com>
-References: <20250307120141.1566673-1-qun-wei.lin@mediatek.com>
- <Z9HOavSkFf01K9xh@google.com>
- <5gqqbq67th4xiufiw6j3ewih6htdepa4u5lfirdeffrui7hcdn@ly3re3vgez2g>
- <CAGsJ_4xwnVxn1odj=j+z0VXm1DRUmnhugnwCH-coqBLJweDu9Q@mail.gmail.com>
- <Z9MCwXzYDRJoTiIr@google.com>
- <CAGsJ_4yaSx1vEiZdCouBveeH3D-bQDdvrhRpz=Kbvqn30Eh-nA@mail.gmail.com>
+	id 1tsmu6-0000000C6WC-0vO0;
+	Thu, 13 Mar 2025 18:03:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsmOs-0000000C349-2MuZ;
+	Thu, 13 Mar 2025 17:31:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65DEE1A2D;
+	Thu, 13 Mar 2025 10:31:28 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1F9283F673;
+	Thu, 13 Mar 2025 10:31:17 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: joro@8bytes.org,
+	will@kernel.org
+Cc: iommu@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	heiko@sntech.de
+Subject: [PATCH 3/3] iommu/rockchip: Retire global dma_dev workaround
+Date: Thu, 13 Mar 2025 17:31:06 +0000
+Message-Id: <25dc948a7d35c8142c5719ac22bc523f8524d006.1741886382.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
+In-Reply-To: <cover.1741886382.git.robin.murphy@arm.com>
+References: <cover.1741886382.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4yaSx1vEiZdCouBveeH3D-bQDdvrhRpz=Kbvqn30Eh-nA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_103303_783977_DEC6C955 
-X-CRM114-Status: GOOD (  45.53  )
+X-CRM114-CacheID: sfid-20250313_103118_710375_C4736AD5 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,125 +64,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 05:58:00AM +1300, Barry Song wrote:
-> On Fri, Mar 14, 2025 at 5:07 AM Minchan Kim <minchan@kernel.org> wrote:
-> >
-> > On Thu, Mar 13, 2025 at 04:45:54PM +1300, Barry Song wrote:
-> > > On Thu, Mar 13, 2025 at 4:09 PM Sergey Senozhatsky
-> > > <senozhatsky@chromium.org> wrote:
-> > > >
-> > > > On (25/03/12 11:11), Minchan Kim wrote:
-> > > > > On Fri, Mar 07, 2025 at 08:01:02PM +0800, Qun-Wei Lin wrote:
-> > > > > > This patch series introduces a new mechanism called kcompressd to
-> > > > > > improve the efficiency of memory reclaiming in the operating system. The
-> > > > > > main goal is to separate the tasks of page scanning and page compression
-> > > > > > into distinct processes or threads, thereby reducing the load on the
-> > > > > > kswapd thread and enhancing overall system performance under high memory
-> > > > > > pressure conditions.
-> > > > > >
-> > > > > > Problem:
-> > > > > >  In the current system, the kswapd thread is responsible for both
-> > > > > >  scanning the LRU pages and compressing pages into the ZRAM. This
-> > > > > >  combined responsibility can lead to significant performance bottlenecks,
-> > > > > >  especially under high memory pressure. The kswapd thread becomes a
-> > > > > >  single point of contention, causing delays in memory reclaiming and
-> > > > > >  overall system performance degradation.
-> > > > >
-> > > > > Isn't it general problem if backend for swap is slow(but synchronous)?
-> > > > > I think zram need to support asynchrnous IO(can do introduce multiple
-> > > > > threads to compress batched pages) and doesn't declare it's
-> > > > > synchrnous device for the case.
-> > > >
-> > > > The current conclusion is that kcompressd will sit above zram,
-> > > > because zram is not the only compressing swap backend we have.
-> >
-> > Then, how handles the file IO case?
-> 
-> I didn't quite catch your question :-)
+The global dma_dev trick was mostly because the old domain_alloc op
+provided no context, so no way to know which IOMMU was to own the
+pagetable, or if a suitable one even existed at all. In the new
+multi-instance world with domain_alloc_paging this is no longer a
+concern - now we know that the given device must be associated with a
+valid IOMMU instance which provided the op to call in the first place,
+and therefore that instance can and should be the pagetable owner. To
+avoid worrying about the lifetime and stability of the rk_domain->iommus
+list, and keep the lookups simple and efficient, we'll still stash a
+dma_dev pointer, but now it's accurately per-domain.
 
-Sorry for not clear.
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/iommu/rockchip-iommu.c | 34 +++++++++++++---------------------
+ 1 file changed, 13 insertions(+), 21 deletions(-)
 
-What I meant was zram is also used for fs backend storage, not only
-for swapbackend. The multiple simultaneous compression can help the case,
-too.
+diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+index 9d2120a9232a..af4cc91b2bbf 100644
+--- a/drivers/iommu/rockchip-iommu.c
++++ b/drivers/iommu/rockchip-iommu.c
+@@ -88,6 +88,7 @@ struct rk_iommu_domain {
+ 	dma_addr_t dt_dma;
+ 	spinlock_t iommus_lock; /* lock for iommus list */
+ 	spinlock_t dt_lock; /* lock for modifying page directory table */
++	struct device *dma_dev;
+ 
+ 	struct iommu_domain domain;
+ };
+@@ -123,7 +124,6 @@ struct rk_iommudata {
+ 	struct rk_iommu *iommu;
+ };
+ 
+-static struct device *dma_dev;
+ static const struct rk_iommu_ops *rk_ops;
+ static struct iommu_domain rk_identity_domain;
+ 
+@@ -132,7 +132,7 @@ static inline void rk_table_flush(struct rk_iommu_domain *dom, dma_addr_t dma,
+ {
+ 	size_t size = count * sizeof(u32); /* count of u32 entry */
+ 
+-	dma_sync_single_for_device(dma_dev, dma, size, DMA_TO_DEVICE);
++	dma_sync_single_for_device(dom->dma_dev, dma, size, DMA_TO_DEVICE);
+ }
+ 
+ static struct rk_iommu_domain *to_rk_domain(struct iommu_domain *dom)
+@@ -734,9 +734,9 @@ static u32 *rk_dte_get_page_table(struct rk_iommu_domain *rk_domain,
+ 	if (!page_table)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	pt_dma = dma_map_single(dma_dev, page_table, SPAGE_SIZE, DMA_TO_DEVICE);
+-	if (dma_mapping_error(dma_dev, pt_dma)) {
+-		dev_err(dma_dev, "DMA mapping error while allocating page table\n");
++	pt_dma = dma_map_single(rk_domain->dma_dev, page_table, SPAGE_SIZE, DMA_TO_DEVICE);
++	if (dma_mapping_error(rk_domain->dma_dev, pt_dma)) {
++		dev_err(rk_domain->dma_dev, "DMA mapping error while allocating page table\n");
+ 		iommu_free_page(page_table);
+ 		return ERR_PTR(-ENOMEM);
+ 	}
+@@ -1051,9 +1051,7 @@ static int rk_iommu_attach_device(struct iommu_domain *domain,
+ static struct iommu_domain *rk_iommu_domain_alloc_paging(struct device *dev)
+ {
+ 	struct rk_iommu_domain *rk_domain;
+-
+-	if (!dma_dev)
+-		return NULL;
++	struct rk_iommu *iommu;
+ 
+ 	rk_domain = kzalloc(sizeof(*rk_domain), GFP_KERNEL);
+ 	if (!rk_domain)
+@@ -1068,10 +1066,12 @@ static struct iommu_domain *rk_iommu_domain_alloc_paging(struct device *dev)
+ 	if (!rk_domain->dt)
+ 		goto err_free_domain;
+ 
+-	rk_domain->dt_dma = dma_map_single(dma_dev, rk_domain->dt,
++	iommu = rk_iommu_from_dev(dev);
++	rk_domain->dma_dev = iommu->dev;
++	rk_domain->dt_dma = dma_map_single(rk_domain->dma_dev, rk_domain->dt,
+ 					   SPAGE_SIZE, DMA_TO_DEVICE);
+-	if (dma_mapping_error(dma_dev, rk_domain->dt_dma)) {
+-		dev_err(dma_dev, "DMA map error for DT\n");
++	if (dma_mapping_error(rk_domain->dma_dev, rk_domain->dt_dma)) {
++		dev_err(rk_domain->dma_dev, "DMA map error for DT\n");
+ 		goto err_free_dt;
+ 	}
+ 
+@@ -1105,13 +1105,13 @@ static void rk_iommu_domain_free(struct iommu_domain *domain)
+ 		if (rk_dte_is_pt_valid(dte)) {
+ 			phys_addr_t pt_phys = rk_ops->pt_address(dte);
+ 			u32 *page_table = phys_to_virt(pt_phys);
+-			dma_unmap_single(dma_dev, pt_phys,
++			dma_unmap_single(rk_domain->dma_dev, pt_phys,
+ 					 SPAGE_SIZE, DMA_TO_DEVICE);
+ 			iommu_free_page(page_table);
+ 		}
+ 	}
+ 
+-	dma_unmap_single(dma_dev, rk_domain->dt_dma,
++	dma_unmap_single(rk_domain->dma_dev, rk_domain->dt_dma,
+ 			 SPAGE_SIZE, DMA_TO_DEVICE);
+ 	iommu_free_page(rk_domain->dt);
+ 
+@@ -1256,14 +1256,6 @@ static int rk_iommu_probe(struct platform_device *pdev)
+ 	if (err)
+ 		return err;
+ 
+-	/*
+-	 * Use the first registered IOMMU device for domain to use with DMA
+-	 * API, since a domain might not physically correspond to a single
+-	 * IOMMU device..
+-	 */
+-	if (!dma_dev)
+-		dma_dev = &pdev->dev;
+-
+ 	pm_runtime_enable(dev);
+ 
+ 	for (i = 0; i < iommu->num_irq; i++) {
+-- 
+2.39.2.101.g768bb238c484.dirty
 
-> 
-> >
-> > >
-> > > also. it is not good to hack zram to be aware of if it is kswapd
-> > > , direct reclaim , proactive reclaim and block device with
-> > > mounted filesystem.
-> >
-> > Why shouldn't zram be aware of that instead of just introducing
-> > queues in the zram with multiple compression threads?
-> >
-> 
-> My view is the opposite of yours :-)
-> 
-> Integrating kswapd, direct reclaim, etc., into the zram driver
-> would violate layering principles. zram is purely a block device
-
-That's the my question. What's the reason zram need to know about
-kswapd, direct_reclaim and so on? I didn't understand your input.
-
-> driver, and how it is used should be handled separately. Callers have
-> greater flexibility to determine its usage, similar to how different
-> I/O models exist in user space.
-> 
-> Currently, Qun-Wei's patch checks whether the current thread is kswapd.
-> If it is, compression is performed asynchronously by threads;
-> otherwise, it is done in the current thread. In the future, we may
-
-Okay, then, why should we do that without following normal asynchrnous
-disk storage? VM justs put the IO request and sometimes congestion
-control. Why is other logic needed for the case?
-
-> have additional reclaim threads, such as for damon or
-> madv_pageout, etc.
-> 
-> > >
-> > > so i am thinking sth as below
-> > >
-> > > page_io.c
-> > >
-> > > if (sync_device or zswap_enabled())
-> > >    schedule swap_writepage to a separate per-node thread
-> >
-> > I am not sure that's a good idea to mix a feature to solve different
-> > layers. That wouldn't be only swap problem. Such an parallelism under
-> > device  is common technique these days and it would help file IO cases.
-> >
-> 
-> zswap and zram share the same needs, and handling this in page_io
-> can benefit both through common code. It is up to the callers to decide
-> the I/O model.
-> 
-> I agree that "parallelism under the device" is a common technique,
-> but our case is different—the device achieves parallelism with
-> offload hardware, whereas we rely on CPUs, which can be scarce.
-> These threads may also preempt CPUs that are critically needed
-> by other non-compression tasks, and burst power consumption
-> can sometimes be difficult to control.
-
-That's general problem for common resources in the system and always
-trace-off domain in the workload areas. Eng folks has tried to tune
-them statically/dynamically depending on system behavior considering
-what they priorites.
-
-> 
-> > Furthermore, it would open the chance for zram to try compress
-> > multiple pages at once.
-> 
-> We are already in this situation when multiple callers use zram simultaneously,
-> such as during direct reclaim or with a mounted filesystem.
-> 
-> Of course, this allows multiple pages to be compressed simultaneously,
-> even if the user is single-threaded. However, determining when to enable
-> these threads and whether they will be effective is challenging, as it
-> depends on system load. For example, Qun-Wei's patch chose not to use
-> threads for direct reclaim as, I guess,  it might be harmful.
-
-Direct reclaim is already harmful and that's why VM has the logic 
-to throttle writeback or other special logics for kswapd or direct
-reclaim path for th IO, which could be applied into the zram, too.
 
