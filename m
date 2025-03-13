@@ -4,102 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18000C282DE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0308C35FF3
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vw2iLoQgKTIm5C5RlVpBbP72ozOsdqnvE5gsQ2+Yr1A=; b=VVPoaGu6lK3w0pba65uybgP/pq
-	ai6UduR2VuWioIJZLWV/p8OxREkRU3zE54ElWbk+nQfE92MIVR7rRx01r7YFpnF/wu0HKrJ5N1qjG
-	QlKJ/tqGPJqQkSvGyXhezym7S0KYmwvs1uho7sdbRgl2+AT3YquLNGebishZgWQjhbgK2AR15X7Nd
-	iPeZyJTLlIjQiNykeKlfkpSasdJSKBI/ic1b/t3ejKBnQ8tN7Lc5SOL/CmPUTKCHE3tZD/1ITv5nD
-	i8B5frf0P4Rg6fW4BAWJSYVi37aEbu+Inx7qjzZgTT4DImkZAVc99b56fpmmdPKx3L5+pGcEE/XbD
-	E5M/Y29Q==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rq/qv+y8dDgw7ZhPUrX84eJg7W99kBcA3pyMfFCVdG0=; b=joV8jV/R9bbwYvj3aumpZwT544
+	nYIOUCZNg+glnRYahM2kb/Cb7xqvIHQ6IoIbENd7DuNIF3OrmN0a0XFYC8ULI0vOjTLGkL2CS2vJ2
+	FLHrOHS8XrImVJnNktc8HjxeHpxxJHuOcuoxej7tdbPrtohWV9LM2+MbVro9VaXdyGkdx+qh/Pd9k
+	A5fVxLA48cLmYzISox03GMY31LIAISM8IZtLqY975lskYBwZn0g+V6ZfU2Q+Anbl6pEnYyQwcDic1
+	oa7QTPECsGPcX4WIACzXEftkN0nhUC9GahuBwKidkkDG8JLpZZJEVYVvjCnxBBeWjaNPhgSyifia+
+	J0Hwxyvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsng7-0000000CEuM-1L6i;
-	Thu, 13 Mar 2025 18:53:11 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tsngA-0000000CEzz-03Q6;
+	Thu, 13 Mar 2025 18:53:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnTE-0000000CDPb-1Dhb
+	id 1tsnY7-0000000CDvi-2NRR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 18:39:53 +0000
+	Thu, 13 Mar 2025 18:44:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 82E88A478A7;
-	Thu, 13 Mar 2025 18:34:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05F44C4CEDD;
-	Thu, 13 Mar 2025 18:39:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EB444A478C8
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 18:39:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 002D8C4CEFE
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 18:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741891191;
-	bh=kIkQaPZ9LaF/0ujXnF4WzyuxIHtkF7tmzmaoCMQRocI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=crRHUmJsyyTm/0gxcFpH38mFYe/K37F23Wur1AA6SNOOMMtc4LdvyUwYEJeKqQy+d
-	 fzMFCs1gw4esrxCVrZcbUPnXo8lq6e2l/3KLmBAD3EOqkPT6CkBxbRpBV5UwUpBWJm
-	 wgK3VoxyTdooHwjDGgEGoDJU2f+nQclqw3isCJr6O/kdb2FrqKvcx0xkxlZvoGZ4xA
-	 niBNKasEtGGfBY9GMIDp6iTdzNSeu3WujgBCXYQWpDy1em0XOLfrsXeWFO12XSraIf
-	 F5HVNTSiNVJ3zt0IP6FLkq8xvfsck5K6n73RoocpCNci6rnPl02y2gfvO7J/yRGIbo
-	 irPCvOhLakY8w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tsnTA-00DKDm-RA;
-	Thu, 13 Mar 2025 18:39:48 +0000
-Date: Thu, 13 Mar 2025 18:39:48 +0000
-Message-ID: <86frjgojuz.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>
-Cc: ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	yang@os.amperecomputing.com,
-	corbet@lwn.net,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	jean-philippe@linaro.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	akpm@linux-foundation.org,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	broonie@kernel.org,
-	anshuman.khandual@arm.com,
-	oliver.upton@linux.dev,
-	ioworker0@gmail.com,
-	baohua@kernel.org,
-	david@redhat.com,
-	jgg@ziepe.ca,
-	shameerali.kolothum.thodi@huawei.com,
-	nicolinc@nvidia.com,
-	mshavit@google.com,
-	jsnitsel@redhat.com,
-	smostafa@google.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
-In-Reply-To: <20250313182026.GC40525@mazurka.cambridge.arm.com>
-References: <20250313104111.24196-2-miko.lenczewski@arm.com>
-	<20250313104111.24196-3-miko.lenczewski@arm.com>
-	<86ikocomvd.wl-maz@kernel.org>
-	<20250313182026.GC40525@mazurka.cambridge.arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
+	s=k20201202; t=1741891494;
+	bh=QlrkRP5I6RTz1lPCtN5zk3M5pm0O9z7QzlqRgomvjQM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=LnhXIoTkCwWwLQy654e32ktSRBBCvIiG9b2hKyu6onBsTkAjERAmziuGX0st7Auqg
+	 SYpt7I+8sO50eeWmFz4B+ezIQL3iphfcwaLQCecNPFG238AST/I6mJjR9Cm7Qhtnsp
+	 uqShKstvAdW4lKiXALVRC54yMBumFkP74kiRY5MvfBxq67fW2SVAaJuVvhRfMffnds
+	 tCwJOnfiTqJ8ELFf0ZhW/7PFSl/BeJpC2wgo7+yoqk6AfscXq/e4I4u82rnPIoWM9t
+	 hph5YEyoLUulJuNAdCm6KiWPYR7vKjMA3MNxqmcbQWjEQ0bEc8Bjy9bsWw3JEjXvpy
+	 LdfYkYUvJQx2A==
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-ac2a9a74d9cso282097166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 11:44:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW/BC3O/PoOYzQrLpFBPZL+j9GGE/hsKZFYLXaOLAthI+Wghj3Vz4jFC+Uar0BIwSKRdMGiKj8NJnB9zhs66ImA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo9FBwpZW7y4lPqBtkUfscz/QH3ON+xZcqZS4YVCINPQjDgRKD
+	+WziaAiUh5/UgUlsYWshwQ3TX0ah1/bKy8a2xzhc86x1ANsMq6lTbLH1izy+5pNIOHf4tzWvHUk
+	nX87jVQeJj78X3FLRln38OlxGNA==
+X-Google-Smtp-Source: AGHT+IE84CwfiOJs5wEvz9/gyK0Vhm2tPQAYrNHeBZsspi51p+XlCkmCog0DPrxtkstcI25d+u0kzAVhA8ECGZ8aCbU=
+X-Received: by 2002:a17:907:9382:b0:ac2:7a3b:31e2 with SMTP id
+ a640c23a62f3a-ac2b9ea186bmr1272361466b.45.1741891492123; Thu, 13 Mar 2025
+ 11:44:52 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250307220304.247725-1-romank@linux.microsoft.com> <20250307220304.247725-9-romank@linux.microsoft.com>
+In-Reply-To: <20250307220304.247725-9-romank@linux.microsoft.com>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 13 Mar 2025 13:44:40 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqLmS4EEoPkOmaH6F_0XtQu5wkM-WEfxFvjLA=bJroEUVw@mail.gmail.com>
+X-Gm-Features: AQ5f1JoBoOFXWy0RvRDKcw8n2aFR2QulZQgf-P4S7wWE9_vZ-wABCiQ7BInknts
+Message-ID: <CAL_JsqLmS4EEoPkOmaH6F_0XtQu5wkM-WEfxFvjLA=bJroEUVw@mail.gmail.com>
+Subject: Re: [PATCH hyperv-next v5 08/11] Drivers: hv: vmbus: Get the IRQ
+ number from DeviceTree
+To: Roman Kisel <romank@linux.microsoft.com>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de, catalin.marinas@arm.com, 
+	conor+dt@kernel.org, dave.hansen@linux.intel.com, decui@microsoft.com, 
+	haiyangz@microsoft.com, hpa@zytor.com, joey.gouly@arm.com, krzk+dt@kernel.org, 
+	kw@linux.com, kys@microsoft.com, lenb@kernel.org, lpieralisi@kernel.org, 
+	manivannan.sadhasivam@linaro.org, mark.rutland@arm.com, maz@kernel.org, 
+	mingo@redhat.com, oliver.upton@linux.dev, rafael@kernel.org, 
+	ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com, 
+	tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org, yuzenghui@huawei.com, 
+	devicetree@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org, 
+	apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com, 
+	sunilmut@microsoft.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: miko.lenczewski@arm.com, ryan.roberts@arm.com, suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org, mark.rutland@arm.com, joey.gouly@arm.com, james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com, oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org, david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com, nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_113952_456102_D32D19AC 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20250313_114455_737998_4BB15D02 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,95 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Mar 2025 18:20:26 +0000,
-Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com> wrote:
->=20
-> On Thu, Mar 13, 2025 at 05:34:46PM +0000, Marc Zyngier wrote:
-> > On Thu, 13 Mar 2025 10:41:10 +0000,
-> > Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com> wrote:
-> > >=20
-> > > diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kerne=
-l/pi/idreg-override.c
-> > > index c6b185b885f7..9728faa10390 100644
-> > > --- a/arch/arm64/kernel/pi/idreg-override.c
-> > > +++ b/arch/arm64/kernel/pi/idreg-override.c
-> > > @@ -209,6 +209,7 @@ static const struct ftr_set_desc sw_features __pr=
-el64_initconst =3D {
-> > >  		FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
-> > >  		FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
-> > >  		FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
-> > > +		FIELD("nobbml2", ARM64_SW_FEATURE_OVERRIDE_NOBBML2, NULL),
-> > >  		{}
-> > >  	},
-> > >  };
-> > > @@ -246,6 +247,7 @@ static const struct {
-> > >  	{ "rodata=3Doff",			"arm64_sw.rodataoff=3D1" },
-> > >  	{ "arm64.nolva",		"id_aa64mmfr2.varange=3D0" },
-> > >  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=3D1" },
-> > > +	{ "arm64.nobbml2",		"arm64_sw.nobbml2=3D1" },
-> >=20
-> > Why is that a SW feature? This looks very much like a HW feature to
-> > me, and you should instead mask out ID_AA64MMFR2_EL1.BBM, and be done
-> > with it. Something like:
-> >=20
-> > diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/=
-pi/idreg-override.c
-> > index c6b185b885f70..803a0c99f7b46 100644
-> > --- a/arch/arm64/kernel/pi/idreg-override.c
-> > +++ b/arch/arm64/kernel/pi/idreg-override.c
-> > @@ -102,6 +102,7 @@ static const struct ftr_set_desc mmfr2 __prel64_ini=
-tconst =3D {
-> >  	.override	=3D &id_aa64mmfr2_override,
-> >  	.fields		=3D {
-> >  		FIELD("varange", ID_AA64MMFR2_EL1_VARange_SHIFT, mmfr2_varange_filte=
-r),
-> > +		FIELD("bbm", ID_AA64MMFR2_EL1_BBM_SHIFT, NULL),
-> >  		{}
-> >  	},
-> >  };
-> > @@ -246,6 +247,7 @@ static const struct {
-> >  	{ "rodata=3Doff",			"arm64_sw.rodataoff=3D1" },
-> >  	{ "arm64.nolva",		"id_aa64mmfr2.varange=3D0" },
-> >  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=3D1" },
-> > +	{ "arm64.nobbml2",		"id_aa64mmfr2.bbm=3D0" },
-> >  };
-> > =20
-> >  static int __init parse_hexdigit(const char *p, u64 *v)
-> >=20
-> >=20
-> > Thanks,
-> >=20
-> > 	M.
-> >=20
-> > --=20
-> > Without deviation from the norm, progress is not possible.
->=20
-> Thanks for the review.
->=20
-> I think part of this confusion is due to me not including a changelog
-> (definitely something for the next respin!), but the discussion this
-> change is based on is found here:
->=20
-> https://lore.kernel.org/all/b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amper=
-ecomputing.com/
->=20
-> Essentially, this is a SW feature because we do not check the
-> id_aa64mmfr2.bbm register as part of the has_bbml2_noabort() cpucap
-> matches filter. This is because certain hardware implementations
-> do not actually declare bbml2 via the hardware feature register, despite
-> implementing our bbml2_noabort feature, and certain hypervisor setups
-> might result in issues so we want to have an override to allow
-> potentially disabling the feature for generic kernels.
+On Fri, Mar 7, 2025 at 4:03=E2=80=AFPM Roman Kisel <romank@linux.microsoft.=
+com> wrote:
+>
+> The VMBus driver uses ACPI for interrupt assignment on
+> arm64 hence it won't function in the VTL mode where only
+> DeviceTree can be used.
+>
+> Update the VMBus driver to discover interrupt configuration
+> from DT.
+>
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+> ---
+>  drivers/hv/vmbus_drv.c | 36 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 36 insertions(+)
+>
+> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+> index 75eb1390b45c..c8474b48dcd2 100644
+> --- a/drivers/hv/vmbus_drv.c
+> +++ b/drivers/hv/vmbus_drv.c
+> @@ -2345,6 +2345,36 @@ static int vmbus_acpi_add(struct platform_device *=
+pdev)
+>  }
+>  #endif
+>
+> +static int __maybe_unused vmbus_set_irq(struct platform_device *pdev)
+> +{
+> +       struct irq_data *data;
+> +       int irq;
+> +       irq_hw_number_t hwirq;
+> +
+> +       irq =3D platform_get_irq(pdev, 0);
+> +       if (irq =3D=3D 0) {
+> +               pr_err("VMBus interrupt mapping failure\n");
+> +               return -EINVAL;
+> +       }
+> +       if (irq < 0) {
+> +               pr_err("VMBus interrupt data can't be read from DeviceTre=
+e, error %d\n", irq);
+> +               return irq;
+> +       }
 
-I replied to Ryan on the same subject: not advertising a feature that
-is actually supported is very much an erratum, and we should not
-conflate feature control of an architecture feature (which is what the
-ID override horror is doing) with implementation-specific workarounds.
+I don't think why you couldn't get the interrupt is important. Just
+check for (irq <=3D 0) and be done with it. I'm not even sure if
+returning 0 is possible now. There's a long history to that and
+NO_IRQ.
 
-Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Rob
 
