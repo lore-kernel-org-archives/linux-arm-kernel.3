@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB05C35FF1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76CEC3DA4A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ur4qggA9DegsBrL273HPT9/qtLwWjJSN1L4MMDhc1oY=; b=UfPWlOIvzMGhf5LC1Tb0uGrlA5
-	XQVBLX8xZ9oyuIrngu/HodxnecvX/isD6fzFyfq6WW13JOSge+ebz5TOL2os8bFvFs+36xnXsyH8q
-	76uKmS66oN36yBbzlQ27y3L5e4Nhg3hZJ2Ae/fcEPIVqiRPAgkfS9aKnTVA4feCAe0AlyTo4qwZKe
-	0V029EreII2WH4vWNHgFEBJRbe5sM2W/fNaqWrOC/tDRR/pEfTT/0fHBfeB+OAdPkfNEgdGQFCEHz
-	u4/497j896I5MNuYz5iErtYAGMrKyRLMgZ/oxFCkxAmzmjKsqJE023aRMAJqFZhra2vm5+6M5Rert
-	IdSRiIwQ==;
+	bh=+QJeRvWt4UkHaBTliCWdYR/evWkKDG2k/rxh/t0R1Z8=; b=O+1hFcAVAUVOqutZIgicNZyo++
+	/E/ZnjCtxq2/N64HFUGnNkOcLyq5VXKcBDFCrSQuZBJRDVSGU6yUjpKzkpfQUBHa+Y/yFJFHu6JX3
+	asPJfo3VxfXAq+M6txrYycs5+NGAIL9zTTocl8I8+h2lhkFiNzghqGQ6Rkt6WXUUT2Ga4PAWvQJbW
+	09fjbH9icHMAfHhMBuGhQbeK5zpoLWGVyn66GEefdlWE3TzEJ9lFiR/6+EOz5rr/wEiKNUJwV2D/P
+	8KVzxTgNXf/7/xB1wDSbgGtOCa20zSBiICnBFjp66sOcPO+Z66zD0kcSd0AXUOksZF2AV5AYByjBx
+	XTyPyuUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnfv-0000000CEbx-3DGA;
-	Thu, 13 Mar 2025 18:52:59 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tsnfx-0000000CEdK-1RrG;
+	Thu, 13 Mar 2025 18:53:01 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnGh-0000000CBo6-3Qsr
+	id 1tsnGi-0000000CBo8-21uP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 18:26:57 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C477220457;
-	Thu, 13 Mar 2025 18:26:50 +0000 (UTC)
+	Thu, 13 Mar 2025 18:26:58 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id EE67020479;
+	Thu, 13 Mar 2025 18:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741890411;
+	t=1741890413;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Ur4qggA9DegsBrL273HPT9/qtLwWjJSN1L4MMDhc1oY=;
-	b=nHZrjwQo1jwTdKg2UlRWbWxLNc1+6ovFJVD+wCVxESvlFOu3LtsPvOXj35tWgAfDt7XVYf
-	lbpJv8dvrJmt0z/RSwn/uuwDuEL8a3ftj4HCbidJ6qjuP8/eehmjkMXuIVLSWOC2f281CQ
-	r2JQ3MnzebgItLsgCoxUWl3sSUwTOlBjsDp8J3ETRWdbTDkwas4xWFOZ3MhSsm+HSNkz1s
-	TaNyaaD3AZA4zn3hJbLRWWRO5y4LIUAv8toNWy75ACtOgdFBx+WaY+tRxOzO8AdpmpaIbu
-	x7rsT9JQFvj00uwm73jzrNbr3G6/Zq3X0uZeO3InObbA2sZJPxRSd/1ynN44Bw==
+	bh=+QJeRvWt4UkHaBTliCWdYR/evWkKDG2k/rxh/t0R1Z8=;
+	b=ZO+9Mhq/ztUPNYbtFp3WN5/7Vtyjww4NRp03XNiAZTw8W6doobPncAolknETfltZXEVsTr
+	b2txe8uL8cVUnDIhrY1krFal571dtJpBFYEFJS2kBS0x+djQBlhBtcuEzT7dJHA8gQW0W0
+	HAKBS3x99nOtcLCUb/DQCi4ASQ9BEDeLVPgVnt2WEwxOydIoXzuP6yXEPvstUsGWz0BUwE
+	Ovsj8O2oHTfJvrpfKt3+OIdn2Ub/bq3IPkFzKrqPlcvtSQRYQMBG7C8/ZCg4gmioEAOEv1
+	uAIxLUR4ybKswrAYbYh9tU9Bg6GPDw3Ywf55Y9JJ2YMCQYm3+U4tzHR2N9vtfA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -63,9 +63,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Simon Horman <horms@kernel.org>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: [PATCH net-next v3 1/7] net: ethtool: netlink: Allow per-netdevice DUMP operations
-Date: Thu, 13 Mar 2025 19:26:40 +0100
-Message-ID: <20250313182647.250007-2-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v3 2/7] net: ethtool: netlink: Rename ethnl_default_dump_one
+Date: Thu, 13 Mar 2025 19:26:41 +0100
+Message-ID: <20250313182647.250007-3-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250313182647.250007-1-maxime.chevallier@bootlin.com>
 References: <20250313182647.250007-1-maxime.chevallier@bootlin.com>
@@ -77,8 +77,9 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvdekieejucetufdoteggode
  hhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_112656_473672_393D165F 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20250313_112656_660221_0C68CF40 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,114 +94,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We have a number of netlink commands in the ethnl family that may have
-multiple objects to dump even for a single net_device, including :
-
- - PLCA, PSE-PD, phy: one message per PHY device
- - tsinfo: one message per timestamp source (netdev + phys)
- - rss: One per RSS context
-
-To get this behaviour, these netlink commands need to roll a custom
-->dumpit().
-
-To prepare making per-netdev DUMP more generic in ethnl, introduce a
-member in the ethnl ops to indicate if a given command may allow
-pernetdev DUMPs (also referred to as filtered DUMPs).
+As we work on getting more objects out of a per-netdev DUMP, rename
+ethnl_default_dump_one() into ethnl_default_dump_one_dev(), making it
+explicit that this dumps everything for one netdev.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- net/ethtool/netlink.c | 45 +++++++++++++++++++++++++++++--------------
- net/ethtool/netlink.h |  2 ++
- 2 files changed, 33 insertions(+), 14 deletions(-)
+ net/ethtool/netlink.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
-index a163d40c6431..7adede5e4ff1 100644
+index 7adede5e4ff1..644c202d284d 100644
 --- a/net/ethtool/netlink.c
 +++ b/net/ethtool/netlink.c
-@@ -587,21 +587,38 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
- 	int ret = 0;
+@@ -540,9 +540,9 @@ static int ethnl_default_doit(struct sk_buff *skb, struct genl_info *info)
+ 	return ret;
+ }
  
- 	rcu_read_lock();
--	for_each_netdev_dump(net, dev, ctx->pos_ifindex) {
--		dev_hold(dev);
-+	if (ctx->req_info->dev) {
-+		dev = ctx->req_info->dev;
- 		rcu_read_unlock();
-+		/* Filtered DUMP request targeted to a single netdev. We already
-+		 * hold a ref to the netdev from ->start()
-+		 */
-+		ret = ethnl_default_dump_one(skb, dev, ctx,
-+					     genl_info_dump(cb));
-+		rcu_read_lock();
-+		netdev_put(ctx->req_info->dev, &ctx->req_info->dev_tracker);
- 
--		ret = ethnl_default_dump_one(skb, dev, ctx, genl_info_dump(cb));
-+		if (ret < 0 && ret != -EOPNOTSUPP && likely(skb->len))
-+			ret = skb->len;
- 
--		rcu_read_lock();
--		dev_put(dev);
-+	} else {
-+		for_each_netdev_dump(net, dev, ctx->pos_ifindex) {
-+			dev_hold(dev);
-+			rcu_read_unlock();
-+
-+			ret = ethnl_default_dump_one(skb, dev, ctx,
-+						     genl_info_dump(cb));
-+
-+			rcu_read_lock();
-+			dev_put(dev);
- 
--		if (ret < 0 && ret != -EOPNOTSUPP) {
--			if (likely(skb->len))
--				ret = skb->len;
--			break;
-+			if (ret < 0 && ret != -EOPNOTSUPP) {
-+				if (likely(skb->len))
-+					ret = skb->len;
-+				break;
-+			}
-+			ret = 0;
- 		}
--		ret = 0;
- 	}
- 	rcu_read_unlock();
- 
-@@ -635,10 +652,10 @@ static int ethnl_default_start(struct netlink_callback *cb)
- 	}
- 
- 	ret = ethnl_default_parse(req_info, &info->info, ops, false);
--	if (req_info->dev) {
--		/* We ignore device specification in dump requests but as the
--		 * same parser as for non-dump (doit) requests is used, it
--		 * would take reference to the device if it finds one
-+	if (req_info->dev && !ops->allow_pernetdev_dump) {
-+		/* We ignore device specification in unfiltered dump requests
-+		 * but as the same parser as for non-dump (doit) requests is
-+		 * used, it would take reference to the device if it finds one
+-static int ethnl_default_dump_one(struct sk_buff *skb, struct net_device *dev,
+-				  const struct ethnl_dump_ctx *ctx,
+-				  const struct genl_info *info)
++static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
++				      const struct ethnl_dump_ctx *ctx,
++				      const struct genl_info *info)
+ {
+ 	void *ehdr;
+ 	int ret;
+@@ -593,8 +593,8 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
+ 		/* Filtered DUMP request targeted to a single netdev. We already
+ 		 * hold a ref to the netdev from ->start()
  		 */
- 		netdev_put(req_info->dev, &req_info->dev_tracker);
- 		req_info->dev = NULL;
-diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
-index ec6ab5443a6f..4aaa73282d6a 100644
---- a/net/ethtool/netlink.h
-+++ b/net/ethtool/netlink.h
-@@ -331,6 +331,7 @@ int ethnl_sock_priv_set(struct sk_buff *skb, struct net_device *dev, u32 portid,
-  * @req_info_size:    size of request info
-  * @reply_data_size:  size of reply data
-  * @allow_nodev_do:   allow non-dump request with no device identification
-+ * @allow_pernetdev_dump: allow filtering dump requests with ifname/ifindex
-  * @set_ntf_cmd:      notification to generate on changes (SET)
-  * @parse_request:
-  *	Parse request except common header (struct ethnl_req_info). Common
-@@ -388,6 +389,7 @@ struct ethnl_request_ops {
- 	unsigned int		req_info_size;
- 	unsigned int		reply_data_size;
- 	bool			allow_nodev_do;
-+	bool			allow_pernetdev_dump;
- 	u8			set_ntf_cmd;
+-		ret = ethnl_default_dump_one(skb, dev, ctx,
+-					     genl_info_dump(cb));
++		ret = ethnl_default_dump_one_dev(skb, dev, ctx,
++						 genl_info_dump(cb));
+ 		rcu_read_lock();
+ 		netdev_put(ctx->req_info->dev, &ctx->req_info->dev_tracker);
  
- 	int (*parse_request)(struct ethnl_req_info *req_info,
+@@ -606,8 +606,8 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
+ 			dev_hold(dev);
+ 			rcu_read_unlock();
+ 
+-			ret = ethnl_default_dump_one(skb, dev, ctx,
+-						     genl_info_dump(cb));
++			ret = ethnl_default_dump_one_dev(skb, dev, ctx,
++							 genl_info_dump(cb));
+ 
+ 			rcu_read_lock();
+ 			dev_put(dev);
 -- 
 2.48.1
 
