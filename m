@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A2AC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 21:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B7BC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 22:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HkWJgCpi4IMDDL0/3GZ80gBUzVHdo21aXQE6CJSvNic=; b=dGuFZpjOSSvuCBZxrdA1Pqvj6L
-	8xxYdEWovcWn0LRF30gAK6Wsf6LstiDNivrZnmfz2FQUOFRmmXIiRAZqbjaDcegg+Di7MtkNp3jWu
-	hrzYH9bOTgCEwGQabjvt8rXzILymQWfAF0p5IbxxXmGHffmLpQY0VvQTmE1RKsZqOXMoACbgY39Nf
-	3cg2q09I+504BRnBWD7LcgYea1RDpB6J4nGrm6OANeLIzwZGo4we1ISdy4Y9nY40ABRDGaBcNbbI/
-	q4gBrgF2t5FZLg5HZjKa/vl4BTOrl479Qm2jaylQCU6EzgpInikzZpbfgAsysvUhjql1rlLe9v7Z0
-	cDFqx/2g==;
+	bh=FXnwyIrlYjRja8w5zbDnlPmt00MdMjTHLA8rcuJYBjc=; b=NCkv7PL8Hb1foVco4kIypul7Dp
+	bfszEuG1rgrX0ldjPh+D/zJjh/XSOz8lD/gIegHxdt0dLq2r8saDe1+RetDLaZg6XKQU9Pt8cxUP7
+	QcCCycfahx4Clcq/nhtWNd4Avi95lotMquDVNeEYiMZQRg5B/XTxqd42Z7XQTubYwJa1WVUBAlgej
+	DHgMjUCw1GqErsk9cFA+jWO3MPf3mEzoANup23PHJHfhNkZZn32+lTn2tibxtSUiYQckGbwQgMOTy
+	KE02zvUP26ZgsESg/XVPwbUPuJj+QsYT3DRTsYrZBdU2kSa8Y7Yudoa653PMjGe762Fxm9tNSzKU8
+	a6DErk3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsqZA-0000000CZQM-2v8X;
-	Thu, 13 Mar 2025 21:58:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tsqao-0000000CZd5-1g0r;
+	Thu, 13 Mar 2025 21:59:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsqXV-0000000CZ3F-21dy
+	id 1tsqXz-0000000CZA9-3jw8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 21:56:30 +0000
+	Thu, 13 Mar 2025 21:57:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DBE8FA4871A;
-	Thu, 13 Mar 2025 21:50:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 658C2C4CEDD;
-	Thu, 13 Mar 2025 21:56:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 978A25C5F6A;
+	Thu, 13 Mar 2025 21:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E558C4CEDD;
+	Thu, 13 Mar 2025 21:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741902988;
-	bh=TKbcK7oZnLUUFbewILYOfqu9OkRqcOXwMXKVHin0yq0=;
+	s=k20201202; t=1741903019;
+	bh=yrnuKSIDcUeOE2Ia1gcmbVXvf0a2OSMKLH8MMZOfz70=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XCiqFnpCEhmcNzdl5VjMdUP4t7FYJuXbcBM4C7NMRZE9AaR+m0pEsDTdD7vMsnUNb
-	 8oqi41wh1aMVJCjG3bAZuUTpqyIhDpJj/0yiwMXpGj5mwhtKWa88vhSCUtJPdsrdOB
-	 zZthIx+NCpjVKdJ3msZjys79AOyGfIPK+YS/R67+V3j/18TXu2133YLcVbedYvfRmx
-	 msFlCbC7wqmzncu8uVMGRPQ5vzBN18HjBi2mQNPv1OLKL9JvQlyV1EISclMd6PjQnu
-	 /GTW/AczLkojfdfl7bK5NZBTayXpIWKmQ93DeP9J57qUnnhYTqUpNz5c3qfIFLtvf4
-	 /VTpnGzBmL0ew==
-Date: Thu, 13 Mar 2025 21:56:23 +0000
+	b=MdB5fPEKxtsJL0sOPHXAWUnzKZaCP3AAuMkuhxF/x3L4yspa+52lC+7dbyzFDmqVH
+	 LbngK8rmVBIRjaRuK9ZCUWnSWBzCBREL02+NcqEZAzaNBinzPV9y6xJzu6IoJPgp7k
+	 wLz5OO3J+ykcR6eEQ6nMyByPniqbD7GEGw4vyFTh7/mgfhppBuLuuMp34xtSSrWSFs
+	 ddMikFcQrLI/HNS16/lDkRXZonCR7m+66KW5eIdxkKYvjNMsu185RBa5wK7x/xmpVh
+	 J/Cg/ixquLhIQZjqI5NqQfN16ie0pY57IyRvSeOu9yZt3cJ2l39LRLXx9d/e76oeZY
+	 p1FsEjlDwelUg==
+Date: Thu, 13 Mar 2025 21:56:54 +0000
 From: Will Deacon <will@kernel.org>
 To: James Clark <james.clark@linaro.org>
 Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
@@ -50,21 +50,19 @@ Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
 	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] arm64/sysreg: Enforce whole word match for
- open/close tokens
-Message-ID: <20250313215622.GA8101@willie-the-truck>
+Subject: Re: [PATCH v2 1/4] arm64/sysreg: Fix unbalanced closing block
+Message-ID: <20250313215652.GB8101@willie-the-truck>
 References: <20250115162600.2153226-1-james.clark@linaro.org>
- <20250115162600.2153226-3-james.clark@linaro.org>
+ <20250115162600.2153226-2-james.clark@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250115162600.2153226-3-james.clark@linaro.org>
+In-Reply-To: <20250115162600.2153226-2-james.clark@linaro.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_145629_588085_F1C2E47A 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20250313_145659_968727_16A761A5 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 04:25:56PM +0000, James Clark wrote:
-> Opening and closing tokens can also match on words with common prefixes
-> like "Endsysreg" vs "EndsysregFields". This could potentially make the
-> script go wrong in weird ways so make it fall through to the fatal
-> unhandled statement catcher if it doesn't fully match the current
-> block.
-> 
-> Closing ones also get expect_fields(1) to ensure nothing other than
-> whitespace follows.
+On Wed, Jan 15, 2025 at 04:25:55PM +0000, James Clark wrote:
+> This is a sysreg block so close it with one. This doesn't make a
+> difference to the output because the script only matches on the
+> beginning of the word to close blocks which is correct by coincidence
+> here.
 > 
 > Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
->  arch/arm64/tools/gen-sysreg.awk | 31 +++++++++++++++++--------------
->  1 file changed, 17 insertions(+), 14 deletions(-)
+>  arch/arm64/tools/sysreg | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-> index 1a2afc9fdd42..f2a1732cb1f6 100755
-> --- a/arch/arm64/tools/gen-sysreg.awk
-> +++ b/arch/arm64/tools/gen-sysreg.awk
-> @@ -111,7 +111,7 @@ END {
->  /^$/ { next }
->  /^[\t ]*#/ { next }
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 762ee084b37c..bbe7df69da9c 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2074,7 +2074,7 @@ EndEnum
+>  Res0	4:2
+>  Field	1	ExTRE
+>  Field	0	E0TRE
+> -EndSysregFields
+> +EndSysreg
 >  
-> -/^SysregFields/ && block_current() == "Root" {
-> +$1 == "SysregFields" && block_current() == "Root" {
+>  Sysreg	SMPRI_EL1	3	0	1	2	4
+>  Res0	63:4
+> -- 
+> 2.34.1
 
-Stylistic nit, but could you just do:
-
-	/^SysregFields$/ && block_current() == "Root" {
-
-instead? That way the diff is smaller (well, same number of lines) and
-you avoid the ugly $1.
-
-But I'm not an Orc, so who knows...
+Acked-by: Will Deacon <will@kernel.org>
 
 Will
 
