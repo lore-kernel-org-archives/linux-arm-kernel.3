@@ -4,109 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3A8C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CD4C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/AOuWXnGYR13C3EsQl2M3GLqAI/OrlKtR5FIj9y6Kyo=; b=Or+VKIvQOnY49HukX0JMenuwxQ
-	3MvxwUs2Kd5SKJuXD4J3vNpPUylltSLhXzfBnGLh8/GXYQ+2FlHCq2+pqajHgABYt4HO2nvrEsKPH
-	Cpt62w6YVDpdnlZvpOKJAss+sVdYsN0jm1FaPI1bL0c8jdbURRmkUeiAkr+ofA4pwFf0nMzpXMCRL
-	P9FHRWDmqxUOtWKDLAbo80FoO+DM7bjtWKIoIW4RzCsEfagEdkwVx5dzP5SRd3bEu4XfX1yJQogNO
-	U5f6IoWOe/6wV2p7TSX85wa2A+ZcVqrH6r377HRmkRIslumzZD0t2QJp08KzMUKgxlRMyMXBDrKFS
-	D6KJl5Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i0ICit655ZgktoYzropZyPBtWwkiaJm1uSiPb1j6R/Q=; b=A2ZnynMd61l+3CSvYIeP8CaQqR
+	D8I9PJKEj37uvPWN4OyEzMYpM6scnrCnDucy27FYojTR6adF+NAsiTTrhle4LYrqtCM5l0m3ouV7s
+	kCLYwzTZu+wcComBM96N/N0aPjzcoc2vJ0hXtSotfeUZdRvtghHSWh2eY/D1SxQl2e3uSD7ko27l0
+	naxFKjR6rJH9thlGtQwlE741MsHEzfP+OrjtRh4WHr/J/fgBlAQ6a+2jD+fWKThDj9ponQeIJA8X8
+	on9XRVzdUPMcyNSplgntrbzLpK1lca2TPLz5h6oZe3fuSQ5wYZVH93i1sJNZxPhqRHvtQoJ+DPBxS
+	uuLUrRpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm9Q-0000000ByKM-06lC;
-	Thu, 13 Mar 2025 17:15:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tsm9S-0000000ByPe-2YyZ;
+	Thu, 13 Mar 2025 17:15:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslcR-0000000Brii-0pqs
+	id 1tsldS-0000000Brxk-0RKE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:41:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741884074;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/AOuWXnGYR13C3EsQl2M3GLqAI/OrlKtR5FIj9y6Kyo=;
-	b=bUuYYmkEnhynfcGaETgfVn+JbJ8QVPcucDFPgcjGa2/nDPQ4UlI409RsyIGyRLQcVXaZhE
-	TS6gRQpHwPPGvJqixHXTGPGeZ9Bor2wt94wWcKxi2xSh8WAfWDYH8TEwZcEsRwcphka30u
-	0H5QGhN5AoyCkJRfqM7E8PXEQ2UBNuY=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-151-m5UXHl3DNP6MLUyVx_9YZw-1; Thu, 13 Mar 2025 12:41:12 -0400
-X-MC-Unique: m5UXHl3DNP6MLUyVx_9YZw-1
-X-Mimecast-MFC-AGG-ID: m5UXHl3DNP6MLUyVx_9YZw_1741884072
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2ff798e8c3bso2098698a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 09:41:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741884072; x=1742488872;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/AOuWXnGYR13C3EsQl2M3GLqAI/OrlKtR5FIj9y6Kyo=;
-        b=hdtHg8CmB8WkB3vAImxvyx8dSJ0qh42NgtAkAv+gWjQu85ZmwOLVlsGXiBAyPyskvC
-         DfoRdaD1p7sxVrilX1EEOnKb0wTDvQfap3jq5nFrv4Gst7QojoUfYVYrt6VtN0QAMDVO
-         2FaWATj/1KWTqRZr1K4vleWeR7N2h716hCcY79qce3xf6BG4xNVsNTE1fQ1trgDz3/iB
-         lObvE5u/SCEdApjykb4wf8sEligsipuzU6swVFCld1qj54yOJR2S/pxUHRIKhduGAv9v
-         MX7ZcC0JPzJ2l76n8POahoVYoQdPezz59PUUUGRtJ62sXcRVJGLGPtkWMyblplLz9cFk
-         bd7A==
-X-Forwarded-Encrypted: i=1; AJvYcCWuIacz6O7dCj4VWy1PT7z7yy61ShfobGvJTcP/7Ve1btK8fMmBxciqUjwTTjoK5WFEsWVp8E853Kb71Isand1d@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywkl0MUo62qq8KleiUIhvGwialUCUEV5/fMZ/YNTw6mnmEcCUgv
-	oA+ceQ0ePjIS+c3bRDvYwBJODq+GkHbUyGKpQzV4RefG5PwKkk0FA4dIkf+Op04vD/2Uo/0pQjW
-	h1e+iZcjhO6sIANMYOrsFN/Hfe3U9OWhg/TTSHNZRgOIR8VVa7Z2MKbfQzOxUnwVgyqCYURmK+L
-	gCPF6Xp65+rDLpa/BV7EKD7uXG+A7BCYv3KcxQ/5CCaKgjF0g=
-X-Gm-Gg: ASbGncv7elNYdUKGoGphrbQEBh3LhY0RlNPRCqkUqPSFi4dhSsesn3fBE6fiZTA3l9N
-	cLWqbDdsKWqu5y423XvraKI3e4nQGw67RG3oCseyMkFnASN9lO+1m9b9qTb8cgx4FZaRgQ6c=
-X-Received: by 2002:a17:90b:2812:b0:2fe:6942:370e with SMTP id 98e67ed59e1d1-3014e814787mr282619a91.7.1741884071631;
-        Thu, 13 Mar 2025 09:41:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGZSR0GKOgpT9qIwRRXIxVMEVNcO4hzEa3HpTc2cVefBnUNShY5U2qKEnTkHJXaXXzQjc2Wb29JilB9GlX1pNU=
-X-Received: by 2002:a17:90b:2812:b0:2fe:6942:370e with SMTP id
- 98e67ed59e1d1-3014e814787mr282561a91.7.1741884071208; Thu, 13 Mar 2025
- 09:41:11 -0700 (PDT)
+	Thu, 13 Mar 2025 16:42:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 69595A47796;
+	Thu, 13 Mar 2025 16:36:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17910C4CEE9;
+	Thu, 13 Mar 2025 16:42:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741884136;
+	bh=DyWTNTgy8kHzg4Osmhv7e7UL0kU6+DuQEfTAbk0Nx1k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qodb0LD4MmDeeqYnU6AlJa9f/2SqshRXtDrK0QTyvq4aidqSLizjoStsnasZnIC1X
+	 Z+sL1VfQjfJ4H3xj2EdAYsShp1iV7rn//+VORCx8UX6tSUhQLYKpG7c9kZpX/YWePr
+	 hueGKVjV6PEX4bQWNUsLkH7rfDmTSE44YaCBWe2XTCAbucePAzePGhS5SHbNmlHvEK
+	 D5ncERxebtd5CAAR96gZkSOWE5kNklRJ4G6q6e8ecFfft5iqUJweZeGL++7UUrVsVh
+	 WrODqU0EyS0GHOP4+yrHy01obzKql8ai3zFyAycFD+tM2mTQ7Z05nb9l3kIfD/b+Dj
+	 7vHsr4rR58Odw==
+Date: Thu, 13 Mar 2025 16:42:11 +0000
+From: Lee Jones <lee@kernel.org>
+To: Ryan.Wanner@microchip.com
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	claudiu.beznea@tuxon.dev, sre@kernel.org,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	p.zabel@pengutronix.de, linux@armlinux.org.uk,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rtc@vger.kernel.org
+Subject: Re: [PATCH v3 00/21] Enable Power Modes Support for SAMA7D65 SoC
+Message-ID: <20250313164211.GD3645863@google.com>
+References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-References: <20250313114329.284104-1-acarmina@redhat.com> <20250313114329.284104-8-acarmina@redhat.com>
- <20250313122503.GA7438@willie-the-truck>
-In-Reply-To: <20250313122503.GA7438@willie-the-truck>
-From: Alessandro Carminati <acarmina@redhat.com>
-Date: Thu, 13 Mar 2025 17:40:59 +0100
-X-Gm-Features: AQ5f1JoRjBn0wYL3TNCgo2Be9gEw3kQ3UV-S3_DQ-XzPf4lVXAvFHPCcZEOjQyQ
-Message-ID: <CAGegRW5r3V2-_44-X353vS-GZwDYG=SVwc6MzSGE8GdFQuFoKA@mail.gmail.com>
-Subject: Re: [PATCH v4 07/14] arm64: Add support for suppressing warning backtraces
-To: Will Deacon <will@kernel.org>
-Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Kees Cook <keescook@chromium.org>, 
-	Daniel Diaz <daniel.diaz@linaro.org>, David Gow <davidgow@google.com>, 
-	Arthur Grillo <arthurgrillo@riseup.net>, Brendan Higgins <brendan.higgins@linux.dev>, 
-	Naresh Kamboju <naresh.kamboju@linaro.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Maxime Ripard <mripard@kernel.org>, 
-	=?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
-	Daniel Vetter <daniel@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Guenter Roeck <linux@roeck-us.net>, Alessandro Carminati <alessandro.carminati@gmail.com>, 
-	Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org, 
-	kunit-dev@googlegroups.com, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	loongarch@lists.linux.dev, x86@kernel.org, 
-	Linux Kernel Functional Testing <lkft@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dloK1W1LDesFfcMIJRYHFGspGAvVYeyssqOg-CsFVYc_1741884072
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <cover.1740671156.git.Ryan.Wanner@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_094115_320388_6000EF20 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20250313_094218_275254_CE3B9DC0 
+X-CRM114-Status: GOOD (  25.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,75 +77,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Will,
+On Thu, 27 Feb 2025, Ryan.Wanner@microchip.com wrote:
 
-On Thu, Mar 13, 2025 at 1:25=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Thu, Mar 13, 2025 at 11:43:22AM +0000, Alessandro Carminati wrote:
-> > diff --git a/arch/arm64/include/asm/bug.h b/arch/arm64/include/asm/bug.=
-h
-> > index 28be048db3f6..044c5e24a17d 100644
-> > --- a/arch/arm64/include/asm/bug.h
-> > +++ b/arch/arm64/include/asm/bug.h
-> > @@ -11,8 +11,14 @@
-> >
-> >  #include <asm/asm-bug.h>
-> >
-> > +#ifdef HAVE_BUG_FUNCTION
-> > +# define __BUG_FUNC  __func__
-> > +#else
-> > +# define __BUG_FUNC  NULL
-> > +#endif
-> > +
-> >  #define __BUG_FLAGS(flags)                           \
-> > -     asm volatile (__stringify(ASM_BUG_FLAGS(flags)));
-> > +     asm volatile (__stringify(ASM_BUG_FLAGS(flags, %c0)) : : "i" (__B=
-UG_FUNC));
->
-> Why is 'i' the right asm constraint to use here? It seems a bit odd to
-> use that for a pointer.
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> This patch set adds support for low power modes for the SAMA7D65 SoC and
+> the required components and changes for low power modes.
+> 
+> The series includes changes in the asm code to account for the addtional
+> clocks that are in this SoC.
+> 
+> The Device tree additions are to enable all the components needed to
+> keep the SoC in low power mode.
+> 
+> There are some DTB check warnings but that is due to the dt-binding not
+> in the correct .yaml file format.
+> 
+> Changes v1 -> v2:
+> - Add missing compatible for ddr3phy, it is now in both syscon sets.
+> - Fix alphabetical ordering for sama7d65.
+> - Remove the incorrect reorganizing patch.
+> - Remove sama7g5-rtt as a compatible for sama7d65-rtt and add
+>   sama7d65-rtt as a compatible wake up source in the pm driver.
+> 
+> Changes from v2 -> v3:
+> - Correct mistake in v2 sfrbu dt-binding patch.
+> - Correct incorrect dt-binding addition and formatting for rtc and rtt bindings.
+> - Add missing SoB tag.
+> - Cleaned up commit message for Backup mode to describe SHDWC is status
+>   register is cleared for this SoC.
+> - Cleaned up variable naming and usage for mcks. Changed the mcks number
+>   to the correct number of clocks needed to be saved and corrected the
+>   ASM code accordingly.
+> - Removed the SHDWC from ULP0 wake-up source as it is not configured as
+>   a valid wake-up source for ULP0.
+> - Separated all the DTSI and DTS changes into individual patches.
+> 
+> 
+> Li Bin (1):
+>   ARM: at91: pm: fix at91_suspend_finish for ZQ calibration
+> 
+> Ryan Wanner (20):
+>   dt-bindings: mfd: syscon: add microchip,sama7d65-ddr3phy
+>   dt-bindings: mfd: syscon: add microchip,sama7d65-sfrbu
 
-I received this code as legacy from a previous version.
-In my review, I considered the case when HAVE_BUG_FUNCTION is defined:
-Here, __BUG_FUNC is defined as __func__, which is the name of the
-current function as a string literal.
-Using the constraint "i" seems appropriate to me in this case.
+Ping me when these are ready to take.
 
-However, when HAVE_BUG_FUNCTION is not defined:
-__BUG_FUNC is defined as NULL. Initially, I considered it literal 0,
-but after investigating your concern, I found:
+>   dt-bindings: sram: Add microchip,sama7d65-sram
+>   dt-bindings: power: reset: atmel,sama5d2-shdwc: Add
+>     microchip,sama7d65-shdwc
+>   dt-bindings: reset: atmel,at91sam9260-reset: add
+>     microchip,sama7d65-rstc
+>   dt-bindings: rtc: at91rm9200: add microchip,sama7d65-rtc
+>   dt-bindings: at91rm9260-rtt: add microchip,sama7d65-rtt
+>   ARM: at91: Add PM support to sama7d65
+>   ARM: at91: pm: add DT compatible support for sama7d65
+>   ARM: at91: PM: Add Backup mode for SAMA7D65
+>   ARM: at91: pm: Enable ULP0/ULP1 for SAMA7D65
+>   power: reset: at91-sama5d2_shdwc: Add sama7d65 PMC
+>   ARM: dts: microchip: sama7d65: Add SRAM and DRAM components support
+>   ARM: dts: microchip: sama7d65: Add Reset Controller to sama7d65 SoC
+>   ARM: dts: microchip: sama7d65: Add Shutdown controller support
+>   ARM: dts: microchip: sama7d65: Add RTT and GPBR Support for sama7d65
+>     SoC
+>   ARM: dts: microchip: sama7d65: Add RTC support for sama7d65
+>   ARM: dts: microchip: sama7d65: Add SFRBU support to sama7d65
+>   ARM: dts: microchip: sama7d65: Enable shutdown controller
+>   ARM: dts: microchip: sama7d65: Add RTT timer to curiosity board
+> 
+>  .../devicetree/bindings/mfd/syscon.yaml       |   4 +
+>  .../power/reset/atmel,sama5d2-shdwc.yaml      |   5 +
+>  .../reset/atmel,at91sam9260-reset.yaml        |   3 +
+>  .../bindings/rtc/atmel,at91rm9200-rtc.yaml    |   4 +-
+>  .../bindings/rtc/atmel,at91sam9260-rtt.yaml   |   1 +
+>  .../devicetree/bindings/sram/sram.yaml        |   1 +
+>  .../dts/microchip/at91-sama7d65_curiosity.dts |  13 +++
+>  arch/arm/boot/dts/microchip/sama7d65.dtsi     |  77 +++++++++++++
+>  arch/arm/mach-at91/Kconfig                    |   1 +
+>  arch/arm/mach-at91/pm.c                       |  47 +++++---
+>  arch/arm/mach-at91/pm.h                       |   1 +
+>  arch/arm/mach-at91/pm_data-offsets.c          |   2 +
+>  arch/arm/mach-at91/pm_suspend.S               | 101 ++++++++++++++++--
+>  drivers/power/reset/at91-sama5d2_shdwc.c      |   1 +
+>  14 files changed, 238 insertions(+), 23 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
-```
-$ echo -E "#include <stdio.h>\n#include <stddef.h>\nint main()
-{\nreturn 0;\n}" | aarch64-linux-gnu-gcc -E -dM - | grep NULL
-#define NULL ((void *)0)
-```
-
-I realized that NULL is actually a pointer that is not a link time
-symbol, and using the "i" constraint with NULL may result in undefined
-behavior.
-
-Would the following alternative definition for __BUG_FUNC be more convincin=
-g?
-
-```
-#ifdef HAVE_BUG_FUNCTION
-    #define __BUG_FUNC __func__
-#else
-    #define __BUG_FUNC (uintptr_t)0
-#endif
-```
-Let me know your thoughts.
-
->
-> Will
->
-
-
-
---
----
-172
-
+-- 
+Lee Jones [李琼斯]
 
