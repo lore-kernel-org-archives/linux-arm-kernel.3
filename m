@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A6FC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 06:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450FAC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DzZ/OwKmmQbXUKB6Ig9nkspgT/x2zvQUcWtNQDAlXJ8=; b=JD2dOK3RFXWQPP
-	cQfME5rcCpyWTIg0wjt1nuosg5LVYLnkRgJeCVRtrGCUtTHtNmlT9r0bUCXBymZaKDCW2hIEzCjt4
-	uyBYoPebWE2cB0wLAGBJ8ZkAHDwxD4lj69FK+/c92xOw0/7IJkSMSWVIIxDxi4jrvvOOtDyaVIp+Z
-	xXLkZxb8uDe1McaLSMebZKeNMU2skopTELNS5eNOYYNPdMk+OJEVxvqiqoGf3uMTkNynF9KVOFAYS
-	0itF7X/nhWXbyiSaBN6KO88VjaOY2kFwRYX8Tuf1FVOxNFw7aqSoaQww245TR7WnUXkdNBMOOb9bZ
-	3twuBjhwh/cLx1QAeTYw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rAMd6rGhip9Etdi0DcL12HaRjFlmNQeXSBT7tbE4ZZA=; b=QK67PUjWu+hK1ngqeBmMPNnrmm
+	OjF0K7o8a1tgqKDCTzpxCir4PMtFBRxKn03v5fYhNj2qmqOzkLmUpyCkdgXfQ8V3cezp7AyJYSQa2
+	JsizzIlMalmNK6DzELfdzIEDFS12tLahfub3UaC+X+32Jyb/sUqfQfGjmoveTk/K2ArtxgtEO/BPH
+	k44PKec0Vf2qMZj3BJ9h/lVEceV0l6q2xT1rY8xfcJboh+mZUuoTYsPNasaCGAMIRWmsrkQ25CnLS
+	3lVQUJeX0VnV+emedsfJlA71Lfjm6f7UCadlKO+5vLTeAR7vzUCToe2DQNJv4psLNLucqGK5MUDVa
+	1dc+Pusg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tscXd-0000000AHIn-0tXk;
-	Thu, 13 Mar 2025 06:59:41 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tscZF-0000000AHf1-3evM;
+	Thu, 13 Mar 2025 07:01:21 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tscVx-0000000AGxQ-2wpK
+	id 1tscW2-0000000AGxm-2C5n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 06:57:58 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-225a28a511eso10450625ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 23:57:57 -0700 (PDT)
+	Thu, 13 Mar 2025 06:58:03 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22359001f1aso14744495ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 23:58:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1741849077; x=1742453877; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DzZ/OwKmmQbXUKB6Ig9nkspgT/x2zvQUcWtNQDAlXJ8=;
-        b=1LUheUBGaWQWFfKsT4nlEnA2m6fYDvQhhb302dFNSnerismXDvna5N567qDGtXzv5B
-         LB3MXaIDvSzOkvWZsTXh+ASyYcJ6JSFldOzBCkHW/Dw6yiA4YLzPr+Ryz7CbD8EA4t3k
-         jmN6Qlnoc1l7ZtZ29291naKJj18n2mCe2Zm2RHS5PSiomcSAV4PxkQKI+OOMaGpv/ggl
-         f/IqgYQYbzqbmPeFCkWIGsCRr4a7yrmv2bpplBn/YS1mYnuaRFrSOV/5NvD0eCbcBjVv
-         zcDYWq1ImFMV+B0VqaS7jnpkOJfHegLCBTurGBgJl6i+BYf1XTtb3zbLjHlWdCouar1P
-         SVPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741849077; x=1742453877;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1741849082; x=1742453882; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DzZ/OwKmmQbXUKB6Ig9nkspgT/x2zvQUcWtNQDAlXJ8=;
-        b=k2wotydRDp9IPvTgPeULgTYTRXe7o8vd0lgj1YwqktkcdRN4gl4bbyzFX1dFttPxQg
-         eQ7chSMA9bR0uCLJHrDNhDq7O+xp7SrsjzoLJZoJZKgaycxz2ACZeeoiE/Iix2VbFXW4
-         7ahXXMbEo0XMWaUGYqZ3t2PXfjpCjdgF8VWMAQV72qY388sqfG8n5OwW4+o6ejt4HAfl
-         fU9TezsNblj0jj6GAroSc3NBDVoQhe8QgcddeylkC1PfDFFcOUm1JYtlFBvT6c/u4rEz
-         r1mjRHer75Snn3nrP6dyWPn9gRTwBnQ8Do/7ffhWtjR+TT9G833B6RS09LNv16KEcnOt
-         cVMQ==
-X-Gm-Message-State: AOJu0YyhqQRgu5D6DfX7NOoyFT3ztYCoY4XYQUr/GSIrB5+MIZRlP/Tt
-	xFG7IZMmjXpW/QUUj1uD2ITlVbmUcCPiF9squdrUs9NFRQxlX1paISnUlqt6dZk=
-X-Gm-Gg: ASbGncvre7Vg+VyrZUxIL0VYnUgX4Wzn5PabcxuT9Kka/x97J88Md/2P7evk1GarNQ8
-	n/qCAiqMnMo2KCTCh2NR8cJjmwADe5IWy3ORFENM2JO+Z6e5VTY9SM/cITilKg/TR1jVoYG1kRM
-	PTQN//Nhor103okQUdMX+2AUBpzRR+/YjzWQky4dBupYz46A5mBJPzBSA9YTN+8CL7Bb7zvPIQI
-	QfTbvXqwRujzYMZpAsJFC/Da10LjOjMCnD8+nkvoafQ1je4HzZ7QkEY4FkWVfeW+n+iicUgX3ck
-	GTqw48GVBPo90dJyqYiG6YsW1di0xCgJnwHBzYQdqxOuKURj
-X-Google-Smtp-Source: AGHT+IFJys5eR6oUmPsgD0nQ7bgGFWSfRnMTkiQzEi9pZgL77FdSzGwIkj2Od2Zq73fxdD3yVQX53g==
-X-Received: by 2002:a05:6a00:c95:b0:725:96f2:9e63 with SMTP id d2e1a72fcca58-736aab16545mr42898380b3a.24.1741849076765;
-        Wed, 12 Mar 2025 23:57:56 -0700 (PDT)
+        bh=rAMd6rGhip9Etdi0DcL12HaRjFlmNQeXSBT7tbE4ZZA=;
+        b=VIPEUNhegCXRKCZj/ePqrH5FOhskGl53WTXqn+66EYJhj+U8sHSILONUHgD8xVVGT7
+         0RxzKRP4PtEnawqEstQ6SSnmLosgQQbwW3UhSqte2sYlQO+DLO+AhOrLLrBL8vakpJJn
+         cVHYjiPWoi9+5j3jNa84ySPCdeFo+QlMLI2vYog4yaNFax7nhPALw2XaHuBq4v8narDI
+         02FuAC1WDNK/OF1fRnLmh9QZ5ET4AgKmmLs75gxp5cQvdPySXyVcfXY4wlaaPAbUH70i
+         4M2GKOGU7TtWxOkbeIxsdtxcUkeVEbinfp20FEgWCluj4yK2zogmhh3RZvqPVbFSwODl
+         amLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741849082; x=1742453882;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rAMd6rGhip9Etdi0DcL12HaRjFlmNQeXSBT7tbE4ZZA=;
+        b=oYCLmkPx6hz+wxQ7VthpyWUmX6nJhaG+DEoyDqhTuFYFmASTNw3QRQiE3zowyX2YZB
+         +JBdVb7H77CFX/XZo7QELi85N/J+wXfN204TsC80vhSskyYfqOff2RgEhX4Hh5Q52Y1k
+         0YMryW7ViEF6EC/z1WjYjkLIIe/ZJk7jSEmxcPk7PdzftRURhh55n8lYx+26/528sSck
+         +aFQXa/u65MA93qb0/gBOZUyLffX+FtoHaJu98iyo5Uy+e4nv13K0wgnD1AUE5xDmOdH
+         plcqDkgILKundFZSVh4RZ8il7ImF1z0rEZvAMZzdkEBOzn6vs8Zm7no96C1w3zi5dVw4
+         GmWA==
+X-Gm-Message-State: AOJu0YySQMfxV/9h0Sci84UJYOErzq7N8byHYlxcBK3vLAmP6NXYE7kA
+	+y5A05/rPHE0mbAQJuZ8nJkrtayBFCkq40aEZRK5YmZthcmi7fSwds8IeUY3s3k=
+X-Gm-Gg: ASbGnctGREOj7FgRLJFrKcKmSP14qV0OTqifZ5U9ZZCx+GDbXcn1of4RG8+/RI2GWm5
+	iLLQ8pr/8PMhoEUbmtVZfWe6IeATL5rXAnirwMDynMqJRH+gdV0x1qj7q23xYISQdmM7mSU6Bsp
+	3wBjLvmCnmiA5sMnZF5aM3zDEwSpUaljcGAFPt6CNOXOenPaMJBVo0No5i42BjYlza6XD91Rtm5
+	5laiXHp0kjms2E6gR/9XN61/uzAFaCJdQn43R+tlihdiFs2BYlG4YB2afY5RfRlPJzHtm1FH3mB
+	863VBxrmINWtsrLjx6biVt/o42eVvaMtPMqrdBNYM1GE09+0
+X-Google-Smtp-Source: AGHT+IGCLVrEGNjCO/QnspZOy0VKIly8ZUkVAApjFMGze7gowWxFFi+tM448yykvGdA29pKzg5pogw==
+X-Received: by 2002:a17:902:d2ca:b0:216:3d72:1712 with SMTP id d9443c01a7336-22428ad53e6mr379581645ad.48.1741849081724;
+        Wed, 12 Mar 2025 23:58:01 -0700 (PDT)
 Received: from localhost ([157.82.205.237])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-73711694b2csm624169b3a.129.2025.03.12.23.57.53
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-225c6bd7bb4sm6378025ad.237.2025.03.12.23.57.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Mar 2025 23:57:56 -0700 (PDT)
+        Wed, 12 Mar 2025 23:58:01 -0700 (PDT)
 From: Akihiko Odaki <akihiko.odaki@daynix.com>
-Subject: [PATCH v4 0/7] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
-Date: Thu, 13 Mar 2025 15:57:41 +0900
-Message-Id: <20250313-pmc-v4-0-2c976827118c@daynix.com>
+Date: Thu, 13 Mar 2025 15:57:42 +0900
+Subject: [PATCH v4 1/7] KVM: arm64: PMU: Set raw values from user to
+ PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOWB0mcC/2XNyw6DIBAF0F8xrEvDU6Wr/kfTBQ5QWfgINERj/
- Pei7ULT5b2Zc2dB0QZvI7oVCwo2+eiHPgdxKRC0un9Z7E3OiBEmCScMjx3gRhFdl9opIQHlyzF
- Y56d95fHMufXxPYR5H010a88+UUwxaOdUrYjiBu5Gz72frjB0aBtI7IiqL2KY4BI4r6SWjlrxh
- /gB0d8nnhERlIJupAFuTmhd1w9opBY6AQEAAA==
-X-Change-ID: 20250302-pmc-b90a86af945c
+Message-Id: <20250313-pmc-v4-1-2c976827118c@daynix.com>
+References: <20250313-pmc-v4-0-2c976827118c@daynix.com>
+In-Reply-To: <20250313-pmc-v4-0-2c976827118c@daynix.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Zenghui Yu <yuzenghui@huawei.com>, 
@@ -88,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  Akihiko Odaki <akihiko.odaki@daynix.com>, stable@vger.kernel.org
 X-Mailer: b4 0.15-dev-edae6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_235757_763904_3DC44B29 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20250312_235802_584110_F57D8669 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,71 +103,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare vPMC registers for user-initiated changes after first run. This
-is important specifically for debugging Windows on QEMU with GDB; QEMU
-tries to write back all visible registers when resuming the VM execution
-with GDB, corrupting the PMU state. Windows always uses the PMU so this
-can cause adverse effects on that particular OS.
+Commit a45f41d754e0 ("KVM: arm64: Add {get,set}_user for
+PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}") changed KVM_SET_ONE_REG to update
+the mentioned registers in a way matching with the behavior of guest
+register writes. This is a breaking change of a UAPI though the new
+semantics looks cleaner and VMMs are not prepared for this.
 
-This series also contains patch "KVM: arm64: PMU: Set raw values from
-user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}", which reverts semantic
-changes made for the mentioned registers in the past. It is necessary
-to migrate the PMU state properly on Firecracker, QEMU, and crosvm.
+Firecracker, QEMU, and crosvm perform migration by listing registers
+with KVM_GET_REG_LIST, getting their values with KVM_GET_ONE_REG and
+setting them with KVM_SET_ONE_REG. This algorithm assumes
+KVM_SET_ONE_REG restores the values retrieved with KVM_GET_ONE_REG
+without any alteration. However, bit operations added by the earlier
+commit do not preserve the values retried with KVM_GET_ONE_REG and
+potentially break migration.
 
+Remove the bit operations that alter the values retrieved with
+KVM_GET_ONE_REG.
+
+Cc: stable@vger.kernel.org
+Fixes: a45f41d754e0 ("KVM: arm64: Add {get,set}_user for PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}")
 Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
+Acked-by: Marc Zyngier <maz@kernel.org>
 ---
-Changes in v4:
-- Reverted changes for functions implementing ioctls in patch
-  "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
-- Removed kvm_pmu_vcpu_reset().
-- Reordered function calls in kvm_vcpu_reload_pmu() for better style.
-- Link to v3: https://lore.kernel.org/r/20250312-pmc-v3-0-0411cab5dc3d@daynix.com
+ arch/arm64/kvm/sys_regs.c | 21 +--------------------
+ 1 file changed, 1 insertion(+), 20 deletions(-)
 
-Changes in v3:
-- Added patch "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
-- Added an explanation of this path series' motivation to each patch.
-- Explained why userspace register writes and register reset should be
-  covered in patch "KVM: arm64: PMU: Reload when user modifies
-  registers".
-- Marked patch "KVM: arm64: PMU: Set raw values from user to
-  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" for stable.
-- Reoreded so that patch "KVM: arm64: PMU: Set raw values from user to
-  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" would come first.
-- Added patch "KVM: arm64: PMU: Call kvm_pmu_handle_pmcr() after masking
-  PMCNTENSET_EL0".
-- Added patch "KVM: arm64: Reload PMCNTENSET_EL0".
-- Link to v2: https://lore.kernel.org/r/20250307-pmc-v2-0-6c3375a5f1e4@daynix.com
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 42791971f758..0a2ce931a946 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1126,26 +1126,7 @@ static bool access_pmu_evtyper(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 
+ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 val)
+ {
+-	bool set;
+-
+-	val &= kvm_pmu_valid_counter_mask(vcpu);
+-
+-	switch (r->reg) {
+-	case PMOVSSET_EL0:
+-		/* CRm[1] being set indicates a SET register, and CLR otherwise */
+-		set = r->CRm & 2;
+-		break;
+-	default:
+-		/* Op2[0] being set indicates a SET register, and CLR otherwise */
+-		set = r->Op2 & 1;
+-		break;
+-	}
+-
+-	if (set)
+-		__vcpu_sys_reg(vcpu, r->reg) |= val;
+-	else
+-		__vcpu_sys_reg(vcpu, r->reg) &= ~val;
+-
++	__vcpu_sys_reg(vcpu, r->reg) = val & kvm_pmu_valid_counter_mask(vcpu);
+ 	return 0;
+ }
+ 
 
-Changes in v2:
-- Changed to utilize KVM_REQ_RELOAD_PMU as suggested by Oliver Upton.
-- Added patch "KVM: arm64: PMU: Reload when user modifies registers"
-  to cover more registers.
-- Added patch "KVM: arm64: PMU: Set raw values from user to
-  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}".
-- Link to v1: https://lore.kernel.org/r/20250302-pmc-v1-1-caff989093dc@daynix.com
-
----
-Akihiko Odaki (7):
-      KVM: arm64: PMU: Set raw values from user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}
-      KVM: arm64: PMU: Assume PMU presence in pmu-emul.c
-      KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
-      KVM: arm64: PMU: Reload when user modifies registers
-      KVM: arm64: PMU: Call kvm_pmu_handle_pmcr() after masking PMCNTENSET_EL0
-      KVM: arm64: PMU: Reload PMCNTENSET_EL0
-      KVM: arm64: PMU: Reload when resetting
-
- arch/arm64/kvm/arm.c      |  8 ++++---
- arch/arm64/kvm/pmu-emul.c | 60 ++++++++++++++---------------------------------
- arch/arm64/kvm/reset.c    |  3 ---
- arch/arm64/kvm/sys_regs.c | 53 +++++++++++++++++++++++------------------
- include/kvm/arm_pmu.h     |  3 +--
- 5 files changed, 53 insertions(+), 74 deletions(-)
----
-base-commit: da2f480cb24d39d480b1e235eda0dd2d01f8765b
-change-id: 20250302-pmc-b90a86af945c
-
-Best regards,
 -- 
-Akihiko Odaki <akihiko.odaki@daynix.com>
+2.48.1
 
 
