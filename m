@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08924C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C35C2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUzi5ZksSJYWS2A9I/7z/iOgsJQtHu27+81wdqO0VsU=; b=VCkTavdNXHJn0nk49WmUXQS5pa
-	PPpM1EpMWcPX867ezxlAeuMugTJ9bQIYbt/BT8Vdz+8G6wW6GzVGSeMDrUwEv79h5CfMdcKskfmYA
-	Z1P5wTUIJi+ZBoc+a+hscJBXz2Q96VcZe9Q2EX0XlbOu2t97tfjKN4ivxMs3KtZUBdI9qw4QN299L
-	Zlt2EvGy/lwzWjCkr8KvgHk4m85PHyC73PGSk+masf2TQPXuaomrKKPrnDlaNUPZ8FzNV1CvJgvai
-	T+zclqg4ZH041+5y1ETuGyHd82WuGpkgFjAMJfSpx166dvIaoiXzD4Zw9jOgZ/VgUjrlFwCT2VDsG
-	b3/tkBaQ==;
+	bh=kXB6XQxBgOO4BeiHGxJ2UAjO984VQj53DfOOCopmIU4=; b=pG4BfzA5QbenlrpD5k1BHLWIe+
+	5b16+so1KB7CeYTP1V29ghcmkpP3piUtmKpqPQHRkIYKgcxZsBmsWBt2COINUa1dmcD3BnpXc4hzl
+	wuaM7AzsiX9mKmrQRsd+AUSSY+7ebY8aHRAyGEXOcDvLncUXGErNQ3KKnwigPDynrGtBpLOtg4ptW
+	W5kruwlagqZRY7+sNUHyNT+J7006pvc5axvWcXWn6qScFgPSRcillejiNF37//bqKpu6GZAKHm7Zk
+	3D6VwNRk0dmOtJaTSNiRmrdcQoUxoXMR9o27yYF/co1MFP7qIGyjxWyCyjJ6wlEhUWeag1BKJmj+c
+	UcOHaDBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdQv-0000000ATjM-0yx2;
-	Thu, 13 Mar 2025 07:56:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tsdg6-0000000AVom-3HvN;
+	Thu, 13 Mar 2025 08:12:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdOF-0000000AT3c-2ndC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 07:54:04 +0000
+	id 1tsdeR-0000000AVYw-23BQ;
+	Thu, 13 Mar 2025 08:10:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 33A3F5C5934;
-	Thu, 13 Mar 2025 07:51:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC868C4CEEA;
-	Thu, 13 Mar 2025 07:54:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 32C925C58ED;
+	Thu, 13 Mar 2025 08:08:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 192C1C4CEE9;
+	Thu, 13 Mar 2025 08:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741852442;
-	bh=Oy727npOYrvDbZWrxWnM9zWO+qFg0rFlevRSA+NrZME=;
+	s=k20201202; t=1741853446;
+	bh=Zp1VrZoXU/0dSvEI86TANfaHnZV5iTRbrfgotlEDFRI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SxpC1gHLTs+PecJ+hInrBRCCE9ad6XT6umULdnQR6nEsT7gW1hsq/BfMqI2JKiMQp
-	 EyqfK8Bi0Dixqyk9PM5o1EcaalTWMaDw+82hX9azT/zfTo8PPRKU6bVZza0H2zMush
-	 lhSiwKUpeYJ3UJ1RjN7jC6kC7YVIKSeHjiMQ1VY/hljnwEuFikzd7Hc8lMkMFz+bzS
-	 i3/TO82rZmgJU2oRMsHZDu9ALXvQMhUgUYoaJws4OMitVwXA4wdv8AGYOVljeQsiBf
-	 fC57gOfe3yxRqhUZmElgauWRVyCFX/Zrb3vMBfhJrzqa6FRkykAjHv/xiyCJt8LWE0
-	 L6Q+99qAXpocA==
-Date: Thu, 13 Mar 2025 08:53:58 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Taniya Das <quic_tdas@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ajit Pandey <quic_ajipan@quicinc.com>, Imran Shaik <quic_imrashai@quicinc.com>, 
-	Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 04/10] dt-bindings: clock: Add Qualcomm QCS615 Display
- clock controller
-Message-ID: <20250313-noisy-hopping-poodle-c51ccb@krzk-bin>
-References: <20250313-qcs615-v5-mm-cc-v6-0-ebf4b9a5e916@quicinc.com>
- <20250313-qcs615-v5-mm-cc-v6-4-ebf4b9a5e916@quicinc.com>
+	b=BpXfG2HhBD0lvTWWhRZA+1T8htRe+xTYjak3WeCBc7WDn9XNvGVXbCye4eQHWGXQx
+	 tDbB1ms2wNbC4aEE3MROlHrWhcxKkySOS7TESW0MK8akdtqAYX8xdfbUGc0S7l3Ieo
+	 bvMrAGxYbhEv0F405l+dTAhBKbRrUI5WgeKlc1OYbxkQoD2AiuvrnBtsFFh7yHmSjg
+	 VSIflVkoxTCLnojftgiyh96Dk22WoaGJ0B6JXAGJACTduRHPzr1c6Fqh0CS2dE28N2
+	 iWOZfLVkFcRXWfUISQzeA+efY0As4cm82VNBDuhZi5FmIm7v2hrA1Qesz3PKfbSrrp
+	 jw/RBgrYdOfVA==
+Date: Thu, 13 Mar 2025 10:10:40 +0200
+From: Dmitry Baryshkov <lumag@kernel.org>
+To: Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, 
+	cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org, yubing.zhang@rock-chips.com, 
+	krzk+dt@kernel.org, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	robh@kernel.org, sebastian.reichel@collabora.com, 
+	Andy Yan <andy.yan@rock-chips.com>, "stephen@radxa.com" <stephen@radxa.com>
+Subject: Re: [PATCH v2 7/7] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5
+ ITX
+Message-ID: <y7ouhmfbls3vcumrgudcvhlahxx7iqliimeq4cljko4xfwgzcb@45iozv6spswb>
+References: <20250312104214.525242-1-andyshrk@163.com>
+ <20250312104214.525242-8-andyshrk@163.com>
+ <q3y36jgswj4xa2g3hnptc6kgzphbqfg675r5paa2lwvdseytio@jysj4f2i6osu>
+ <5858d492.44b.1958ceb23dd.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250313-qcs615-v5-mm-cc-v6-4-ebf4b9a5e916@quicinc.com>
+In-Reply-To: <5858d492.44b.1958ceb23dd.Coremail.andyshrk@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_005403_758566_1B9D216B 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250313_011047_607675_F5E5EA19 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +78,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 12:29:41PM +0530, Taniya Das wrote:
-> Add DT bindings for the Display clock on QCS615 platforms. Add the
-> relevant DT include definitions as well.
+On Thu, Mar 13, 2025 at 08:32:55AM +0800, Andy Yan wrote:
 > 
-> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
-> ---
->  .../bindings/clock/qcom,qcs615-dispcc.yaml         | 73 ++++++++++++++++++++++
->  include/dt-bindings/clock/qcom,qcs615-dispcc.h     | 52 +++++++++++++++
->  2 files changed, 125 insertions(+)
+> Hi Dmitry,
+> 
+> At 2025-03-12 20:39:17, "Dmitry Baryshkov" <lumag@kernel.org> wrote:
+> >On Wed, Mar 12, 2025 at 06:42:08PM +0800, Andy Yan wrote:
+> >> From: Andy Yan <andy.yan@rock-chips.com>
+> >> 
+> >> The HDMI Port next to Headphone Jack is drived by
+> >> DP1 on rk3588 via a dp2hdmi converter.
+> >> 
+> >> Add related dt nodes to enable it.
+> >> 
+> >> Note: ROCKCHIP_VOP2_EP_DP1 is defined as 11 in dt-binding header,
+> >> but it will trigger a dtc warning like "graph node unit address
+> >> error, expected "b"" if we use it directly after endpoint, so we
+> >> use "b" instead here.
+> >> 
+> >> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> >> ---
+> >> 
+> >> (no changes since v1)
+> >> 
+> >>  .../boot/dts/rockchip/rk3588-rock-5-itx.dts   | 37 +++++++++++++++++++
+> >>  1 file changed, 37 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
+> >> index 67b886329248..29f10ec9f0c1 100644
+> >> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
+> >> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
+> >> @@ -57,6 +57,18 @@ analog-sound {
+> >>  			  "Headphone", "Headphones";
+> >>  	};
+> >>  
+> >> +	dp-con {
+> >> +		compatible = "dp-connector";
+> >
+> >You've written that it is an HDMI connector. Could you possibly clarify,
+> >why is it being registered as a DP connector? Is there any kind of
+> >a bridge between the DP controller and the HDMI connector?
+> 
+> When I was preparing this patch at that time, I also had some doubts. 
+> Whether it should be registered as a DP connector or an HDMI connector. 
+> There is a DP2HDMI conversion chip between the DP of RK3588 and this hdmi 
+> interface, but this conversion chip does not require a software driver. 
+> If the current writing is incorrect, I will change it to hdmi-connector in the next version.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Yes. Please add the RA620 chip to simple-bridge.c and simple-bridge.yaml
+and use HDMI connector here.
 
-Best regards,
-Krzysztof
+> 
+> Thanks
+> >
+> >> +		label = "DP OUT";
+> >> +		type = "full-size";
+> >> +
+> >> +		port {
+> >> +			dp_con_in: endpoint {
+> >> +				remote-endpoint = <&dp1_out_con>;
+> >> +			};
+> >> +		};
+> >> +	};
+> >> +
+> >>  	gpio-leds {
+> >>  		compatible = "gpio-leds";
+> >>  		pinctrl-names = "default";
+> >> @@ -268,6 +280,24 @@ &cpu_l3 {
+> >>  	cpu-supply = <&vdd_cpu_lit_s0>;
+> >>  };
+> >>  
+> >> +&dp1 {
+> >> +	status = "okay";
+> >> +	pinctrl-names = "default";
+> >> +	pinctrl-0 = <&dp1m0_pins>;
+> >> +};
+> >> +
+> >> +&dp1_in {
+> >> +	dp1_in_vp2: endpoint {
+> >> +		remote-endpoint = <&vp2_out_dp1>;
+> >> +	};
+> >> +};
+> >> +
+> >> +&dp1_out {
+> >> +	dp1_out_con: endpoint {
+> >> +		remote-endpoint = <&dp_con_in>;
+> >> +	};
+> >> +};
+> >> +
+> >>  &gpu {
+> >>  	mali-supply = <&vdd_gpu_s0>;
+> >>  	status = "okay";
+> >> @@ -1262,3 +1292,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
+> >>  		remote-endpoint = <&hdmi1_in_vp1>;
+> >>  	};
+> >>  };
+> >> +
+> >> +&vp2 {
+> >> +	vp2_out_dp1: endpoint@b {
+> >> +		reg = <ROCKCHIP_VOP2_EP_DP1>;
+> >> +		remote-endpoint = <&dp1_in_vp2>;
+> >> +	};
+> >> +};
+> >> -- 
+> >> 2.34.1
+> >> 
+> >
+> >-- 
+> >With best wishes
+> >Dmitry
 
+-- 
+With best wishes
+Dmitry
 
