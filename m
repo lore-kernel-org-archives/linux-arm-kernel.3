@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3027AC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 14:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A75C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 14:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4EvY1LEFvjjHJU3jZAtzphl1AzmykKRYyWCA/SvfCK4=; b=z/9avfCRhX/C0q0flNqh/pYPor
-	ZQ/2l9sIpLVm+z94CuvjBJlbIL/MRQwe0kX7JayuJYajMhCczplYxBFZjGXUQhKm+dC4rKOFASkAq
-	rsw+95TT5ynGHtQwZZltFFvW6j9xCXDHfa4c6eyWIHINO+CjTXNTxPeZtFPlB7yuteopvHl1thUQG
-	P12fC+MbU4oUV9+trWOF0oZW1uB9hD6aYMTvXW3Ir8fsuDiikN80zRmN3zBjc24zt/HKCZXsjOznE
-	JrBNomsAWbcHJZjwpqVem2A670O/CjwgcuVmkce/N5I3lOE2QLWEshybaM3SNFA3hYoHkVNrf4STj
-	lEZdDGoQ==;
+	bh=nwDn29V3N1FLlRNDGUNKsIzGpTbAoIKj1qt8XLcUZ5w=; b=HN6Au/p1GtIXOFKAZSCWrv+8kR
+	nanXuMUoFJAo71tfigsM9c+sYSBb048t0bHjnR3NvFOuiA6GHwKOb01J5WiqJ1skmv/VP0XI///zm
+	owMMJs6os/RjI4CEFUmc4MaB7V9gfmi9qRoehmqwpg/EFuqpYEWcJ36NiPtNHJdBYpcO6wi0ai6mY
+	2HRk7szB+74CFcOuVQR38QKEFFgNbhoQSjI1taocGvbOWPN9LOvPbuEdIhTP6R2NYy5ECqc/83Zzp
+	O0aikr/vz+656Po19O/Gh18UMiT0zZCk6mHIQqma33zEk7JNKO0fa4OEtjmftm2/sIJH6HRIJHVqh
+	/ElFPdYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjf9-0000000BYKD-1yJv;
-	Thu, 13 Mar 2025 14:35:55 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tsjfA-0000000BYKv-3P5g;
+	Thu, 13 Mar 2025 14:35:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsiRU-0000000BMd5-2ZRX
+	id 1tsiUN-0000000BN0R-1pzA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 13:17:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=4EvY1LEFvjjHJU3jZAtzphl1AzmykKRYyWCA/SvfCK4=; b=Cb
-	xcRkr5Js6+IwxGpOdQ1oKGkQeF2cq/TMzpc3U5FT2lIMY76EHMFIggsHj8bcQ651yDwsQnnj+ykg/
-	VVeS7E5Fzb19hUdFqt2smal5gYticNcoGaqM1qybqC23066JPaLgcwYgNZK7XSU5DFkTI5Si9hhIM
-	sbyH5zQuUwYlRao=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tsiRD-004zrS-Is; Thu, 13 Mar 2025 14:17:27 +0100
-Date: Thu, 13 Mar 2025 14:17:27 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Michael Klein <michael@fossekall.de>,
-	Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] ARM: dts: bananapi: add support for PHY LEDs
-Message-ID: <7cf91323-d550-496a-a8ec-ae104c77224d@lunn.ch>
-References: <20250312193629.85417-1-michael@fossekall.de>
- <20250312193629.85417-2-michael@fossekall.de>
- <4637912.LvFx2qVVIh@jernej-laptop>
- <Z9KYqlfUYxRaWnGQ@a98shuttle.de>
- <20250313104042.694c1856@donnerap.manchester.arm.com>
+	Thu, 13 Mar 2025 13:20:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 36D50A474B6;
+	Thu, 13 Mar 2025 13:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC62EC4CEE5;
+	Thu, 13 Mar 2025 13:20:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741872041;
+	bh=7sLRPlPMdxJhpz09Z2Z7FAiXZqSpH6scXcJJzy6jD6M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WBtA0e4YOEjcIza/D/OQhLriwtnpU6IR3sxl+1DAQ+cHYTn77DmxnxinkMlGg/TBR
+	 hhbQha4y9eqMBmMseUhJrkzkbqzsvsDaEkeMLCr3Q4MvR60adtKrFyaxUrM7khRj9F
+	 UnGbBm+jALy6kuskJ3iSySuxDxb3ZMrX8AxddDinr2wKFDnrE5Da2+R/YqX3VHND6A
+	 splMA/3ogKPO5qR2j6ifCvSPWBTMZ2w7Ytx7njAiS+vaTzjo6dZgs1p/1UDcorCSjT
+	 n7abIhzeOS3hVMURteAiU88Z2QtloTx53jyL6PYXjzfHzEC8X6acvjkBTRXV09uby/
+	 SMpmUw7/RMIxw==
+Date: Thu, 13 Mar 2025 13:20:36 +0000
+From: Lee Jones <lee@kernel.org>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	~postmarketos/upstreaming@lists.sr.ht
+Subject: Re: [PATCH v6 06/10] mfd: bcm590xx: Add PMU ID/revision parsing
+ function
+Message-ID: <20250313132036.GB3616286@google.com>
+References: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
+ <20250304-bcm59054-v6-6-ae8302358443@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250313104042.694c1856@donnerap.manchester.arm.com>
+In-Reply-To: <20250304-bcm59054-v6-6-ae8302358443@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_061744_655551_BDE3E2E9 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20250313_062043_610551_9149B7DC 
+X-CRM114-Status: GOOD (  34.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,46 +83,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 10:40:42AM +0000, Andre Przywara wrote:
-> On Thu, 13 Mar 2025 09:34:50 +0100
-> Michael Klein <michael@fossekall.de> wrote:
+On Tue, 04 Mar 2025, Artur Weber wrote:
+
+> The BCM590xx PMUs have two I2C registers for reading the PMU ID
+> and revision. The revision is useful for subdevice drivers, since
+> different revisions may have slight differences in behavior (for
+> example - BCM59054 has different regulator configurations for
+> revision A0 and A1).
 > 
-> Hi,
+> Check the PMU ID register and make sure it matches the DT compatible.
+> Fetch the digital and analog revision from the PMUREV register
+> so that it can be used in subdevice drivers.
 > 
-> > On Thu, Mar 13, 2025 at 07:07:24AM +0100, Jernej Škrabec wrote:
-> > >Dne sreda, 12. marec 2025 ob 20:36:28 Srednjeevropski standardni čas je Michael Klein napisal(a):  
-> > >> The Bananapi M1 has three LEDs connected to the RTL8211E ethernet PHY.
-> > >> Add the corresponding nodes to the device tree.
-> > >>
-> > >> Signed-off-by: Michael Klein <michael@fossekall.de>  
-> > >
-> > >This is patch 2/2. Which one is patch 1/2? I got only one.  
-> > 
-> > https://patchwork.kernel.org/project/netdevbpf/patch/20250312193629.85417-1-michael@fossekall.de/
-> > 
-> > Sorry for any inconvenience in case I messed up the patch submission.
-> > 
-> > I made two commits for this change and submitted them via `git send-email 
-> > HEAD^^`. The first patch went to netdev@vger.kernel.org, the second 
-> > to linux-arm-kernel@lists.infradead.org, which seems logical. Have I 
-> > done something wrong?
+> Also add some known revision values to bcm590xx.h, for convenience
+> when writing subdevice drivers.
 > 
-> Well, for those really small "series" it's probably better to send all
-> patches to everyone, especially if the first patch gives some context,
-> without which the second leaves people (like me) scratching their head.
+> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+> ---
+> Changes in v6:
+> - Adapt to PMUID being passed as device type value
+> - Rename rev_dig and rev_ana to rev_digital and rev_analog
+> - Rewrite commit message
+> 
+> Changes in v5:
+> - Add REG_ prefix to register offset constant names
+> 
+> Changes in v4:
+> - Added this commit
+> ---
+>  drivers/mfd/bcm590xx.c       | 63 ++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/mfd/bcm590xx.h | 14 ++++++++++
+>  2 files changed, 77 insertions(+)
+> 
+> diff --git a/drivers/mfd/bcm590xx.c b/drivers/mfd/bcm590xx.c
+> index 4620eed0066fbf1dd691a2e392e967747b4d125b..74dc4ae5ecd5db7fadc56918f63110c1265d4a76 100644
+> --- a/drivers/mfd/bcm590xx.c
+> +++ b/drivers/mfd/bcm590xx.c
+> @@ -17,6 +17,15 @@
+>  #include <linux/regmap.h>
+>  #include <linux/slab.h>
+>  
+> +/* Under primary I2C address: */
+> +#define BCM590XX_REG_PMUID		0x1e
+> +
+> +#define BCM590XX_REG_PMUREV		0x1f
+> +#define BCM590XX_PMUREV_DIG_MASK	0xF
+> +#define BCM590XX_PMUREV_DIG_SHIFT	0
+> +#define BCM590XX_PMUREV_ANA_MASK	0xF0
+> +#define BCM590XX_PMUREV_ANA_SHIFT	4
+> +
+>  static const struct mfd_cell bcm590xx_devs[] = {
+>  	{
+>  		.name = "bcm590xx-vregs",
+> @@ -37,6 +46,56 @@ static const struct regmap_config bcm590xx_regmap_config_sec = {
+>  	.cache_type	= REGCACHE_MAPLE,
+>  };
+>  
+> +/* Map PMU ID value to model name string */
+> +static const char * const bcm590xx_names[] = {
+> +	[BCM590XX_PMUID_BCM59054] = "BCM59054",
+> +	[BCM590XX_PMUID_BCM59056] = "BCM59056",
+> +};
+> +
+> +/*
+> + * Parse the version from version registers and make sure it matches
+> + * the device type passed to the compatible.
+> + */
+> +static int bcm590xx_parse_version(struct bcm590xx *bcm590xx)
+> +{
+> +	unsigned int id, rev;
+> +	int ret;
+> +
+> +	/* Get PMU ID and verify that it matches compatible */
+> +	ret = regmap_read(bcm590xx->regmap_pri, BCM590XX_REG_PMUID, &id);
+> +	if (ret) {
+> +		dev_err(bcm590xx->dev, "failed to read PMU ID: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	if (id != bcm590xx->pmu_id) {
+> +		dev_err(bcm590xx->dev,
+> +			"Incorrect ID for %s: expected %x, got %x. Check your DT compatible.\n",
 
-However, netdev does not like pathchsets which contain patches which
-should not be applied to the netdev tree. DT patches generally go
-through a different Maintainer to driver changes implementing the
-binding.
+Isn't it more likely that the H/W this is being executed on is
+unsupported?  If so, say that instead.
 
-So for your DT patch, you could add to the commit message something
-like:
+> +			bcm590xx_names[bcm590xx->pmu_id], bcm590xx->pmu_id, id);
+> +		return -EINVAL;
 
-The RTL8211E ethernet PHY driver has recently gained support for
-controlling PHY LEDs via /sys/class/leds. The Bananapi M1 has three
-LEDs connected to the RTL8211E PHY.  Add the corresponding nodes to
-the device tree.
+-ENODEV
 
-	Andrew
+> +	}
+> +
+> +	/* Get PMU revision and store it in the info struct */
+> +	ret = regmap_read(bcm590xx->regmap_pri, BCM590XX_REG_PMUREV, &rev);
+> +	if (ret) {
+> +		dev_err(bcm590xx->dev, "failed to read PMU revision: %d\n",
+> +			ret);
+> +		return ret;
+> +	}
+> +
+> +	bcm590xx->rev_digital = (rev & BCM590XX_PMUREV_DIG_MASK)
+> +				     >> BCM590XX_PMUREV_DIG_SHIFT;
+> +
+> +	bcm590xx->rev_analog = (rev & BCM590XX_PMUREV_ANA_MASK)
+> +				    >> BCM590XX_PMUREV_ANA_SHIFT;
+> +
+> +	dev_info(bcm590xx->dev, "PMU ID 0x%x (%s), revision: digital %d, analog %d",
+> +		 id, bcm590xx_names[id],
+> +		 bcm590xx->rev_digital, bcm590xx->rev_analog);
+> +
+> +	return 0;
+> +}
+> +
+>  static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
+>  {
+>  	struct bcm590xx *bcm590xx;
+> @@ -78,6 +137,10 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
+>  		goto err;
+>  	}
+>  
+> +	ret = bcm590xx_parse_version(bcm590xx);
+> +	if (ret)
+> +		goto err;
+> +
+>  	ret = devm_mfd_add_devices(&i2c_pri->dev, -1, bcm590xx_devs,
+>  				   ARRAY_SIZE(bcm590xx_devs), NULL, 0, NULL);
+>  	if (ret < 0) {
+> diff --git a/include/linux/mfd/bcm590xx.h b/include/linux/mfd/bcm590xx.h
+> index 8d146e3b102a7dbce6f4dbab9f8ae5a9c4e68c0e..fbc458e94bef923ca1b69afe2cac944adf6fedf8 100644
+> --- a/include/linux/mfd/bcm590xx.h
+> +++ b/include/linux/mfd/bcm590xx.h
+> @@ -17,6 +17,16 @@
+>  #define BCM590XX_PMUID_BCM59054		0x54
+>  #define BCM590XX_PMUID_BCM59056		0x56
+>  
+> +/* Known chip revision IDs */
+> +#define BCM59054_REV_DIGITAL_A1		1
+> +#define BCM59054_REV_ANALOG_A1		2
+> +
+> +#define BCM59056_REV_DIGITAL_A0		1
+> +#define BCM59056_REV_ANALOG_A0		1
+> +
+> +#define BCM59056_REV_DIGITAL_B0		2
+> +#define BCM59056_REV_ANALOG_B0		2
+> +
+>  /* max register address */
+>  #define BCM590XX_MAX_REGISTER_PRI	0xe7
+>  #define BCM590XX_MAX_REGISTER_SEC	0xf0
+> @@ -30,6 +40,10 @@ struct bcm590xx {
+>  
+>  	/* PMU ID value; also used as device type */
+>  	u8 pmu_id;
+> +
+> +	/* Chip revision, read from PMUREV reg */
+> +	u8 rev_digital;
+> +	u8 rev_analog;
+>  };
+>  
+>  #endif /*  __LINUX_MFD_BCM590XX_H */
+> 
+> -- 
+> 2.48.1
+> 
+
+-- 
+Lee Jones [李琼斯]
 
