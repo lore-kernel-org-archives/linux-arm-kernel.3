@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B394C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 13:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E97F5C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 13:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PEsRyzQpnsTIeXVgh3VKXs2l1ybuznv72IKMRB+grdU=; b=alGIJLVZ/sDFUeLJL6UKYzqDAo
-	05TE5/z3IcNgwA/hroVCvEoB+001wmZFP/UTjMfGxn3dlTInFndVUgpZcuFi4sMNw+T327VQcSy29
-	D9FyeOCj4EaNz7bdBc+/O6oFrevwusRtnB6r1EIAMeSsWbCuQAhsx3t3ruUWfSUZ+D3vmmFZv01/b
-	66sB4fE26WhjV877eUOgJKyBdNe5u3rbWOFpPQnA/rbgkhGja/Qe9btkg4n/NAaMK00FRsH5+5Tjt
-	TZCDcypf1i8LzyNWO0eMJOLhw5gbLlfaei1CtrKvDecfCsizB3qKbdyV7mThtsTxn0ylhIwtBFUY+
-	JnhtZuwA==;
+	bh=zsraXg0fxkFjzQY88Fh2lk47iycKRhTpzuZNO4npsTY=; b=nTV/yGO39R7zp1PTxhMseGSp9Y
+	dzmedkwP/ESQ2K4o+xOZ9TU5yJIPEBw0J4zdv+GTK+No0AAl1+KNbfahmMsN/4LpjeQ2SNwqakPz4
+	gk+imyn620IWmwvZ4+HMVpn7HzdQX7u5jaULXSy7j/Q2c0tAe9ugV/6X/tg5ZFyWQ/gIfG/1Yhh3d
+	lzVGHAG+6Cc+3YSW9wiFbWsmee37wCyJ3UxWSFgiDgy0d+8OV79AQaDQYj5z1WMNMoNGTm+s5NcZN
+	76JRIPCgNlBtYwdwVg+pmd9ohqKborg4WXDT4cKe7vEuB/dm20o04jKHMEe4GIJMcJZPnRRJOSYrT
+	nkbKwODw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsiXq-0000000BNOm-23WA;
-	Thu, 13 Mar 2025 13:24:18 +0000
-Received: from mx.treblig.org ([2a00:1098:5b::1])
+	id 1tsiZU-0000000BNkk-0Zko;
+	Thu, 13 Mar 2025 13:26:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsiUp-0000000BN55-2uVc
+	id 1tsiVP-0000000BN8U-2Jxe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Mar 2025 13:21:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=zsraXg0fxkFjzQY88Fh2lk47iycKRhTpzuZNO4npsTY=; b=AhaFgjOBWIyJxoshc+kWpFJg4q
+	ysQdDAfkcyOBn02jrz2Fb0QoX5MIpDgjhgXW5jt7MJT6yi6GeZWRmPSkx9EJcbsL6nVOwBkxGX4gh
+	n4ijv27l2T77SEQXpWFZjnI7uK13/nnBgC4iDz7KLbTUsDSkuLJrcuivDN+sURJ7ogzeeiwCxajdc
+	LKhReTc6PzTU7vwPSCkr+pCt/0RzIwHjTxIsQtraSyf9KAyzPi6KPXltjOpackjyxYS+v63KjOByz
+	WuAGLjTMICed1PK5fccCi3lVkpX39UxWfJSEAb1gHspE7dYJNJj/aN6IiHgzunsdvQWiy+lXxrenD
+	J11e93Uw==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsiVM-00000002dfp-11dU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 13:21:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
-	; s=bytemarkmx; h=Content-Type:MIME-Version:Message-ID:Subject:From:Date:From
-	:Subject; bh=PEsRyzQpnsTIeXVgh3VKXs2l1ybuznv72IKMRB+grdU=; b=Qr8mHT8tIdgntsqj
-	NLrrS5Nptf7Tk9fTNx2lUaq17GWzLPe++dmJ/knwGNcamJkF7mmQdKUGO4KkGfI+uOVW2SYvOuYnj
-	ywq5WWolNQHzhB7hsIoObIvmm9u6ce/iE5xZaAOFJw6dhcs5UnROKWLVAjmUtFfLy396y+rxr2CzL
-	qmpNRx7lY61adQjn+6wz7BJhLBG7bIIvq2SLUJ5JvM22js3jepniEmeIAk3RyUCZbWHhkRBXvC77N
-	an/ZWCodTWczRMEeRy9NtcFHMYAC/dC1m5zJFgVLfnQGxemQF6+/kVt1/UTOqMf+RwyDheSgPRMs0
-	Clmjuln9XCwddUhhDw==;
-Received: from dg by mx.treblig.org with local (Exim 4.96)
-	(envelope-from <dg@treblig.org>)
-	id 1tsiUj-004dd2-1D;
-	Thu, 13 Mar 2025 13:21:05 +0000
-Date: Thu, 13 Mar 2025 13:21:05 +0000
-From: "Dr. David Alan Gilbert" <linux@treblig.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>, ioana.ciornei@nxp.com,
-	stuyoder@gmail.com
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] bus: fsl-mc: Remove deadcode
-Message-ID: <Z9LbwRUsHwFLpBZA@gallifrey>
-References: <20241115152055.279732-1-linux@treblig.org>
- <3f9dbb7b-6527-48e1-9028-b46e5a0c58ce@csgroup.eu>
+	Thu, 13 Mar 2025 13:21:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D96D9A47299;
+	Thu, 13 Mar 2025 13:16:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E84C4CEE5;
+	Thu, 13 Mar 2025 13:21:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741872102;
+	bh=fF2QQTE+2YlxG3sB1lZ42t5C418bXvGhFBRVwKr1Kpg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hs5puAaaFMdqwgfIqkKwLHW6ZeRgfcbUzR8YNU2CaYJ3WLY9ZVVODoiotmphYWUj9
+	 zE+qKbmvtmdAUMM1ujxlvrtLaa74rV+r7IoDOvoj9TSZ2bZjLpZc1OSXP8ffRrY68/
+	 jlLrLDxKwlL48GKa6lnMvNmZuuJZUTYgLcEiWIzNvbNCyaePBZ8yT5qzQPp4ByZdqq
+	 i9Eflcvo1pUQUmOHh5Wtve8cU2BjKVfl1xn4GxNWl1edLCPtyte7lpL1r6Ky9/9A2W
+	 qMHSbZ08UEwQOXFptifHfzCQk1aB45s9mj+T5t4n/93/2EXTxFAAUXTxSQR+qQEMeB
+	 TDndXATAWJ41g==
+Date: Thu, 13 Mar 2025 13:21:36 +0000
+From: Lee Jones <lee@kernel.org>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	~postmarketos/upstreaming@lists.sr.ht
+Subject: Re: [PATCH v6 00/10] mfd: bcm590xx: Add support for BCM59054
+Message-ID: <20250313132136.GC3616286@google.com>
+References: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <3f9dbb7b-6527-48e1-9028-b46e5a0c58ce@csgroup.eu>
-X-Chocolate: 70 percent or better cocoa solids preferably
-X-Operating-System: Linux/6.1.0-21-amd64 (x86_64)
-X-Uptime: 13:17:26 up 309 days, 31 min,  1 user,  load average: 0.00, 0.00,
- 0.00
-User-Agent: Mutt/2.2.12 (2023-09-09)
+In-Reply-To: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_062111_821906_389EE9B7 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250313_132144_598530_8D7D40C8 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,165 +96,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-* Christophe Leroy (christophe.leroy@csgroup.eu) wrote:
-> 
-> 
-> Le 15/11/2024 ‡ 16:20, linux@treblig.org a Ècrit†:
-> > [Vous ne recevez pas souvent de courriers de linux@treblig.org. DÈcouvrez pourquoi ceci est important ‡ https://aka.ms/LearnAboutSenderIdentification ]
-> > 
-> > From: "Dr. David Alan Gilbert" <linux@treblig.org>
-> > 
-> > fsl_mc_allocator_driver_exit() was added explicitly by
-> > commit 1e8ac83b6caf ("bus: fsl-mc: add fsl_mc_allocator cleanup function")
-> > but was never used.
-> > 
-> > Remove it.
-> > 
-> > fsl_mc_portal_reset() was added in 2015 by
-> > commit 197f4d6a4a00 ("staging: fsl-mc: fsl-mc object allocator driver")
-> > but was never used.
-> > 
-> > Remove it.
-> > 
-> > fsl_mc_portal_reset() was the only caller of dpmcp_reset().
-> > 
-> > Remove it.
-> > 
-> > Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
-> 
-> Acked-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+On Tue, 04 Mar 2025, Artur Weber wrote:
 
-Hi,
-  Can someone pick this old change up please?  I see the PPC patchwork says
-  'handled elsewhere' but doesn't say where.
-
-Thanks,
-
-Dave
+> Add support for the BCM59054 MFD to the bcm590xx driver and fix a
+> couple of small bugs in it that also affected the already supported
+> BCM59056.
 > 
-> > ---
-> >   drivers/bus/fsl-mc/dpmcp.c            | 22 ----------------------
-> >   drivers/bus/fsl-mc/fsl-mc-allocator.c |  5 -----
-> >   drivers/bus/fsl-mc/fsl-mc-private.h   |  6 ------
-> >   drivers/bus/fsl-mc/mc-io.c            | 20 --------------------
-> >   include/linux/fsl/mc.h                |  2 --
-> >   5 files changed, 55 deletions(-)
-> > 
-> > diff --git a/drivers/bus/fsl-mc/dpmcp.c b/drivers/bus/fsl-mc/dpmcp.c
-> > index 5fbd0dbde24a..7816c0a728ef 100644
-> > --- a/drivers/bus/fsl-mc/dpmcp.c
-> > +++ b/drivers/bus/fsl-mc/dpmcp.c
-> > @@ -75,25 +75,3 @@ int dpmcp_close(struct fsl_mc_io *mc_io,
-> >          /* send command to mc*/
-> >          return mc_send_command(mc_io, &cmd);
-> >   }
-> > -
-> > -/**
-> > - * dpmcp_reset() - Reset the DPMCP, returns the object to initial state.
-> > - * @mc_io:     Pointer to MC portal's I/O object
-> > - * @cmd_flags: Command flags; one or more of 'MC_CMD_FLAG_'
-> > - * @token:     Token of DPMCP object
-> > - *
-> > - * Return:     '0' on Success; Error code otherwise.
-> > - */
-> > -int dpmcp_reset(struct fsl_mc_io *mc_io,
-> > -               u32 cmd_flags,
-> > -               u16 token)
-> > -{
-> > -       struct fsl_mc_command cmd = { 0 };
-> > -
-> > -       /* prepare command */
-> > -       cmd.header = mc_encode_cmd_header(DPMCP_CMDID_RESET,
-> > -                                         cmd_flags, token);
-> > -
-> > -       /* send command to mc*/
-> > -       return mc_send_command(mc_io, &cmd);
-> > -}
-> > diff --git a/drivers/bus/fsl-mc/fsl-mc-allocator.c b/drivers/bus/fsl-mc/fsl-mc-allocator.c
-> > index b5e8c021fa1f..6c3beb82dd1b 100644
-> > --- a/drivers/bus/fsl-mc/fsl-mc-allocator.c
-> > +++ b/drivers/bus/fsl-mc/fsl-mc-allocator.c
-> > @@ -656,8 +656,3 @@ int __init fsl_mc_allocator_driver_init(void)
-> >   {
-> >          return fsl_mc_driver_register(&fsl_mc_allocator_driver);
-> >   }
-> > -
-> > -void fsl_mc_allocator_driver_exit(void)
-> > -{
-> > -       fsl_mc_driver_unregister(&fsl_mc_allocator_driver);
-> > -}
-> > diff --git a/drivers/bus/fsl-mc/fsl-mc-private.h b/drivers/bus/fsl-mc/fsl-mc-private.h
-> > index b3520ea1b9f4..e1b7ec3ed1a7 100644
-> > --- a/drivers/bus/fsl-mc/fsl-mc-private.h
-> > +++ b/drivers/bus/fsl-mc/fsl-mc-private.h
-> > @@ -66,10 +66,6 @@ int dpmcp_close(struct fsl_mc_io *mc_io,
-> >                  u32 cmd_flags,
-> >                  u16 token);
-> > 
-> > -int dpmcp_reset(struct fsl_mc_io *mc_io,
-> > -               u32 cmd_flags,
-> > -               u16 token);
-> > -
-> >   /*
-> >    * Data Path Resource Container (DPRC) API
-> >    */
-> > @@ -631,8 +627,6 @@ int dprc_scan_objects(struct fsl_mc_device *mc_bus_dev,
-> > 
-> >   int __init fsl_mc_allocator_driver_init(void);
-> > 
-> > -void fsl_mc_allocator_driver_exit(void);
-> > -
-> >   void fsl_mc_init_all_resource_pools(struct fsl_mc_device *mc_bus_dev);
-> > 
-> >   void fsl_mc_cleanup_all_resource_pools(struct fsl_mc_device *mc_bus_dev);
-> > diff --git a/drivers/bus/fsl-mc/mc-io.c b/drivers/bus/fsl-mc/mc-io.c
-> > index 95b10a6cf307..a0ad7866cbfc 100644
-> > --- a/drivers/bus/fsl-mc/mc-io.c
-> > +++ b/drivers/bus/fsl-mc/mc-io.c
-> > @@ -263,23 +263,3 @@ void fsl_mc_portal_free(struct fsl_mc_io *mc_io)
-> >          dpmcp_dev->consumer_link = NULL;
-> >   }
-> >   EXPORT_SYMBOL_GPL(fsl_mc_portal_free);
-> > -
-> > -/**
-> > - * fsl_mc_portal_reset - Resets the dpmcp object for a given fsl_mc_io object
-> > - *
-> > - * @mc_io: Pointer to the fsl_mc_io object that wraps the MC portal to free
-> > - */
-> > -int fsl_mc_portal_reset(struct fsl_mc_io *mc_io)
-> > -{
-> > -       int error;
-> > -       struct fsl_mc_device *dpmcp_dev = mc_io->dpmcp_dev;
-> > -
-> > -       error = dpmcp_reset(mc_io, 0, dpmcp_dev->mc_handle);
-> > -       if (error < 0) {
-> > -               dev_err(&dpmcp_dev->dev, "dpmcp_reset() failed: %d\n", error);
-> > -               return error;
-> > -       }
-> > -
-> > -       return 0;
-> > -}
-> > -EXPORT_SYMBOL_GPL(fsl_mc_portal_reset);
-> > diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
-> > index c90ec889bfc2..37316a58d2ed 100644
-> > --- a/include/linux/fsl/mc.h
-> > +++ b/include/linux/fsl/mc.h
-> > @@ -417,8 +417,6 @@ int __must_check fsl_mc_portal_allocate(struct fsl_mc_device *mc_dev,
-> > 
-> >   void fsl_mc_portal_free(struct fsl_mc_io *mc_io);
-> > 
-> > -int fsl_mc_portal_reset(struct fsl_mc_io *mc_io);
-> > -
-> >   int __must_check fsl_mc_object_allocate(struct fsl_mc_device *mc_dev,
-> >                                          enum fsl_mc_pool_type pool_type,
-> >                                          struct fsl_mc_device **new_mc_adev);
-> > --
-> > 2.47.0
-> > 
+> While we're at it - convert the devicetree bindings to YAML format
+> and drop the bcm59056 DTS in favor of describing the PMU in users'
+> DTS files, as is done for most other MFDs.
 > 
+> The BCM59054 is fairly similar to the BCM59056, with the primary
+> difference being the different number and layout of regulators.
+> It is primarily used in devices using the BCM21664 and BCM23550
+> chipsets.
+> 
+> This patchset has been tested on a Samsung Galaxy Grand Neo
+> (baffinlite rev02; DTS not in mainline yet) with a BCM59054 PMIC.
+> Testing on a BCM59056 would be appreciated.
+> 
+> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+> ---
+> Changes in v6:
+> - Rename mfd/brcm,bcm590xx.yaml to mfd/brcm,bcm59056.yaml again
+> - Use PMU ID value as device type
+> - Rename rev_dig and rev_ana to rev_digital and rev_analog
+> - Link to v5: https://lore.kernel.org/r/20250221-bcm59054-v5-0-065f516a9042@gmail.com
+> 
+> Changes in v5:
+> - Make regulator binding descriptions reference mfd/brcm,bcm590xx.yaml
+>   instead of mfd/brcm,bcm59056.yaml
+> - Move regmap type enum to common MFD header
+> - Link to v4: https://lore.kernel.org/r/20250215-bcm59054-v4-0-dbfb2d76a855@gmail.com
+> 
+> Changes in v4:
+> - Fix yamllint warnings in DT bindings
+> - Address miscelaneous review comments related to DT bindings
+>   - Note that I did not end up moving the regulator refs from
+>     allOf compatible matches; I explained my reasoning in [1].
+>     [1] https://lore.kernel.org/lkml/ab853605-859d-44c6-8cbd-44391cd677e6@gmail.com/
+> - Add PMU ID/revision parsing to MFD driver
+> - Fix instances of regulator data not matching vendor kernel for
+>   BCM59054
+> - Use different voltage table for BCM59054 VSR reg based on PMU
+>   revision
+> - Link to v3: https://lore.kernel.org/r/20250131-bcm59054-v3-0-bbac52a84787@gmail.com
+> 
+> Changes in v3:
+> - Split out regulator DT bindings into separate YAML
+> - Use tables of regulator info instead of get_XXX_register, reg_is_XXX
+>   functions
+> - Drop "regulator: bcm590xx: Add proper handling for PMMODE registers";
+>   it adds unnecessary noise to the series and will be submitted separately
+> - Link to v2: https://lore.kernel.org/r/20231030-bcm59054-v2-0-5fa4011aa5ba@gmail.com
+> 
+> Changes in v2:
+> - Fixed BCM59054 ID being passed to BCM59056 function in the
+>   regulator driver
+> - Dropped linux-rpi-kernel from the CC list
+> - Link to v1: https://lore.kernel.org/r/20231030-bcm59054-v1-0-3517f980c1e3@gmail.com
+> 
+> ---
+> Artur Weber (10):
+>       dt-bindings: mfd: brcm,bcm59056: Convert to YAML
+>       dt-bindings: mfd: brcm,bcm59056: Add compatible for BCM59054
+>       ARM: dts: Drop DTS for BCM59056 PMU
+>       mfd: bcm590xx: Drop unused "id" member of bcm590xx MFD struct
+>       mfd: bcm590xx: Add support for multiple device types + BCM59054 compatible
+>       mfd: bcm590xx: Add PMU ID/revision parsing function
+>       regulator: bcm590xx: Use dev_err_probe for regulator register error
+>       regulator: bcm590xx: Store regulator descriptions in table
+>       regulator: bcm590xx: Rename BCM59056-specific data as such
+>       regulator: bcm590xx: Add support for BCM59054 regulators
+> 
+>  .../devicetree/bindings/mfd/brcm,bcm59056.txt      |   39 -
+>  .../devicetree/bindings/mfd/brcm,bcm59056.yaml     |   76 ++
+>  .../bindings/regulator/brcm,bcm59054.yaml          |   56 +
+>  .../bindings/regulator/brcm,bcm59056.yaml          |   51 +
+>  arch/arm/boot/dts/broadcom/bcm28155-ap.dts         |   68 +-
+>  arch/arm/boot/dts/broadcom/bcm59056.dtsi           |   91 --
+>  drivers/mfd/bcm590xx.c                             |   75 +-
+>  drivers/regulator/bcm590xx-regulator.c             | 1289 ++++++++++++++++----
+>  include/linux/mfd/bcm590xx.h                       |   28 +-
+>  9 files changed, 1366 insertions(+), 407 deletions(-)
+
+Besides my one comment, the MFD side looks okay.
+
+So you still need ACKs from Mark and to rework Rob's suggestion.
+
 -- 
- -----Open up your eyes, open up your mind, open up your code -------   
-/ Dr. David Alan Gilbert    |       Running GNU/Linux       | Happy  \ 
-\        dave @ treblig.org |                               | In Hex /
- \ _________________________|_____ http://www.treblig.org   |_______/
+Lee Jones [ÊùéÁêºÊñØ]
 
