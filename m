@@ -4,75 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00D8C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 06:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BAAC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 06:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M7NmYC/Iylm9myghHwqILim55SAUt9QrM+UZYk0eJlw=; b=oM3xGPhOrpWIdR5gtQXB838avW
-	hP06q/WvPuivw1qYMb8LjdciRJFhSediw7GETLycM0L4Cw8wBXj1+WMRruAt3cturMP0b8L7pemM9
-	1UtU3qunYF/HVUMOUqS5MNR00gG1SlrwJuJ1ySyk92bnwzF1l/K3TcjaLapO+XyfYZXOp+w7yM9so
-	p7rc5cZ8RGZJKJ0ElppMuyhjHIaMi2+XlGYIYOlHUeWwJg/sq8+heCV6XOEJJgR5qtyzW9Rk/3tiE
-	m5yCzhr0LG++X2F86zhBCe97qq9IolojU6NJbDBkSK0/xxIxRpZct5wQZoA5V9JkYSlUmz/aKkOXo
-	+wbTy+gA==;
+	bh=u9GQvN6eAq5O0guwPtkuvhhGOk5JuU0nmo5VNi6oETg=; b=HNXiiSmXwKjbgDu7B8aKXUaBp8
+	590mq5DB2q5eKnVnUcpvmzBRbf0hcCNU2+Hx0O+CpcvejJVt8cO3kY41GRJe0MEfbmL7t6P8DKInb
+	K+7ECk4F/8+GTIbBWRli6d/WgNJSyNDpW31sjnjtVJG22TIqlK/DvvSj1lzK5Avor7Vqc5NNVkUcz
+	Bdj8JB+SY5adPJ+tQFwDwVYbjHh6KNt6wC6snVNq5X9j5AvbsXzdLVcqdhuIdKriT35NtGByvkQR6
+	9iTBB/JBSlFJDSnBXnSJMTxAwp0edpr1KJ3NAgixWyw//+i1WUso8dZ14IVxX5FrQyHlutCzbcHj5
+	oRVBTivw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsc6z-0000000ADsO-1y1q;
-	Thu, 13 Mar 2025 06:32:09 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1tscD6-0000000AEiW-1sE9;
+	Thu, 13 Mar 2025 06:38:28 +0000
+Received: from mail-dm6nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2413::61c] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsc5K-0000000ADc5-2Ul9;
-	Thu, 13 Mar 2025 06:30:27 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id DBF1768C4E; Thu, 13 Mar 2025 07:30:19 +0100 (CET)
-Date: Thu, 13 Mar 2025 07:30:19 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Anuj Gupta <anuj20.g@samsung.com>
-Cc: Jens Axboe <axboe@kernel.dk>, "Md. Haris Iqbal" <haris.iqbal@ionos.com>,
-	Jack Wang <jinpu.wang@ionos.com>,
-	"Michael S. Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowang@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Stefan Hajnoczi <stefanha@redhat.com>,
-	Roger Pau =?iso-8859-1?Q?Monn=E9?= <roger.pau@citrix.com>,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	Maxim Levitsky <maximlevitsky@gmail.com>,
-	Alex Dubov <oakad@yahoo.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Richard Weinberger <richard@nod.at>,
-	Zhihao Cheng <chengzhihao1@huawei.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Keith Busch <kbusch@kernel.org>, Sagi Grimberg <sagi@grimberg.me>,
-	James Smart <james.smart@broadcom.com>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
-	virtualization@lists.linux.dev, xen-devel@lists.xenproject.org,
-	linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-nvme@lists.infradead.org, linux-scsi@vger.kernel.org
-Subject: Re: [PATCH] block: remove unused parameter
-Message-ID: <20250313063019.GB9789@lst.de>
-References: <CGME20250313040150epcas5p347f94dac34fd2946dea51049559ee1de@epcas5p3.samsung.com> <20250313035322.243239-1-anuj20.g@samsung.com>
+	id 1tscBQ-0000000AEVF-11vh
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 06:36:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Lg/xDL6sRh1mEYuzKOBGxp7iYGHkBWB0z7f6Lz+bzQ6bAUQDxQMwOE0FjlrMgBPoQwzFXlQRc9hc6VTT8o111imb04Xgrqkh+9nukveeWMkUTsQPSSXMbnDzvdVYTK7gfKZrJgi39Ul149gtCN4YCX4NpwK6uCjGbwcigfM/ttpziuaV5vtMll174dZefX8K7xDlF8czCciAQ0rFnW0NHPTASiVBnozHsYYe+OwKqth4wEpzqWn1u7MpqcO5bBdMnTMhP/xt85Ur7Jlqpb4CpRwAuUz/zU5l5Gk72BjsG7gEEsbXPxljcFNos1OhZCzKHEZrTmpP5Htf91GDuHmlrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u9GQvN6eAq5O0guwPtkuvhhGOk5JuU0nmo5VNi6oETg=;
+ b=ehoZS4JAph2rgkzPyz1KYpqcQsngCINXfmtBL7VL9b0r/U2Mw21h0xKFfeFthOo/mm3ycskMFgPme0NDE8rZdvuy0IWWESLW3gS5Es9mf2/T6S1I7zx7/nkQVvqGscu37MQjkx43uXfLjRFTPAUc/d2rUan4O85WhQVgqMWPtHgyWxyypSWJApNL7/vNk+OT4dyHxjOFllHu9lxjT9dxiBHdItVzDalU3usA7cniqmCvObVCwmhkIh9/LkEYPR0jkJYP/Vgs95CGrDlGv5aV8wXHELdmtqIG9QdVahjaccUVUzQsMFoHzJjS6IqX0lUnXuDHekpTl7UdqFQMI4mhLQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u9GQvN6eAq5O0guwPtkuvhhGOk5JuU0nmo5VNi6oETg=;
+ b=Zk0uPES1WgvV9IeUHWhL2KuBVBkTbuG/6myLsQ448bJmnnaGQ6PK7YY2pWjhAkIHdhuk4h1UgeOFahjJIE4YzByxCGkG1MoRr8qF5wOeloTUNA/JyMO+FF/KBYBYJeT9AZR85uJlH++bKD3yh1akmfFTjRiNgHhSu+46UBk+Vl8=
+Received: from DM6PR12MB4877.namprd12.prod.outlook.com (2603:10b6:5:1bb::24)
+ by PH7PR12MB8178.namprd12.prod.outlook.com (2603:10b6:510:2b3::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Thu, 13 Mar
+ 2025 06:36:37 +0000
+Received: from DM6PR12MB4877.namprd12.prod.outlook.com
+ ([fe80::92ad:22ff:bff2:d475]) by DM6PR12MB4877.namprd12.prod.outlook.com
+ ([fe80::92ad:22ff:bff2:d475%3]) with mapi id 15.20.8511.026; Thu, 13 Mar 2025
+ 06:36:36 +0000
+From: "Visavalia, Rohit" <rohit.visavalia@amd.com>
+To: "Visavalia, Rohit" <rohit.visavalia@amd.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>, "Simek,
+ Michal" <michal.simek@amd.com>, "Sagar, Vishal" <vishal.sagar@amd.com>
+CC: "javier.carrasco.cruz@gmail.com" <javier.carrasco.cruz@gmail.com>,
+	"geert+renesas@glider.be" <geert+renesas@glider.be>,
+	"u.kleine-koenig@baylibre.com" <u.kleine-koenig@baylibre.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3 0/2] clk: xilinx: vcu: Sequence update and call trace
+ fix
+Thread-Topic: [PATCH v3 0/2] clk: xilinx: vcu: Sequence update and call trace
+ fix
+Thread-Index: AQHbe7AMf9305KtbS027DZl22Wzb/7NwzORw
+Date: Thu, 13 Mar 2025 06:36:35 +0000
+Message-ID: <DM6PR12MB48770D3D5731EA5ED4DCCA6DE5D32@DM6PR12MB4877.namprd12.prod.outlook.com>
+References: <20250210113614.4149050-1-rohit.visavalia@amd.com>
+In-Reply-To: <20250210113614.4149050-1-rohit.visavalia@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=ea9f7b2a-afb5-4793-8892-00a36fb27681;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-03-13T06:35:38Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DM6PR12MB4877:EE_|PH7PR12MB8178:EE_
+x-ms-office365-filtering-correlation-id: 2b54472e-47cb-4002-10ba-08dd61f96700
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018|7053199007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?3wzyrKqAimS3H1odk4rxLRBKKBXn6UQVIrUMQ16D+Wu2y4yzt5vO8onswfC2?=
+ =?us-ascii?Q?d57Y8GfgF0mOY+Eg/4slfvnXS3pbzsSNlt54xWJ04tm5p3G8x8enLoAEVEXf?=
+ =?us-ascii?Q?oNNCZu5L7h4HHyivoYZf7YQj9KeWawVKTIFfOmq1e9oI+3MDtx2ojKO1ZBu/?=
+ =?us-ascii?Q?2HskeZq+O6ElMfbpF5MszUmVx0YxWnExO6zb40Y/pAlhIjf9vjS/1htItRh+?=
+ =?us-ascii?Q?6GC5JGL63Xaol7mdmOX6r0xIZhUJ9l7HC9wQ2GH3X3xOq9hcfDqZOhPGMeUd?=
+ =?us-ascii?Q?dW7PahU7l3LmuyEjMwn61+KmAWqGQ5cbgozvCVTS1WLkkKowLC/sRQwLW+X3?=
+ =?us-ascii?Q?Zs0DNtHJs2/t3PogYeugfs8zyBqOzbZzKg0hI8UCibLLZsG6vg12R7NLZwyM?=
+ =?us-ascii?Q?DK2E0ayiJ9niZ65K26qtnB4zW6PjUBDSga+adLgLGYWEpiTf73t9mpRqARJv?=
+ =?us-ascii?Q?4AFQhMJobwjALkebG4a/SVtF4ujowwWwK8KqKHPYseR9g4WjQfPkt9WNN2lw?=
+ =?us-ascii?Q?jlJVPJM1goxT7mrNhUTdTiK7ZX8o5ODseQGa0meQq8xWQv1H2xyD2pxW0mwz?=
+ =?us-ascii?Q?duD/dM0mjwEp2JYEYTrnWGy7SdOF7UBSB99KHV8P5sLN7TKDV9TkUgrT1WuL?=
+ =?us-ascii?Q?czEaMJAzNgq6QKtpIX1VreHRKlkHEm5HivUZIZNEQB6sa4G4CBkBeOnWi0rG?=
+ =?us-ascii?Q?3DmH0ytJgQ53iYRUNlPhM/77VK1D5Kl43LK6Lfd2I/9hjGB5bdl79FeUjVod?=
+ =?us-ascii?Q?8+CjY5PGOhm5KsUaT7wc6sD+FyA8+Lhrf7kOgPGU9t95BhDaVWCVmWC/k5wX?=
+ =?us-ascii?Q?FmcPSE4M4VZ+dZ/v+so+m9qZkK7sduC8nLQnbATXGMysibMZ2Rh/XHvYzs+u?=
+ =?us-ascii?Q?eYamfzDQLShX9etM1QA7HJVUOLByorx05VRpe/7DIwzho2I6BT1L30UmscH2?=
+ =?us-ascii?Q?a9KX0TJwOT1/p62p+21eKiQtD0bgcNdKGpxwp/10zJnhcjnSoXjwpbOOO2pY?=
+ =?us-ascii?Q?9x74FPoEY9hAI0LImkmYg2iDI5aDqLYFxUsCkcWFDbOq2E8NJhE+apPQ4X5n?=
+ =?us-ascii?Q?iDXZj/ayp831vWoslJW3kGhiEw3ca0sIlkxAOdfQdQeTnq/9s8IGB1dKZWvn?=
+ =?us-ascii?Q?WXXZlMHIkHXO/yLS8dXAbTnjcbJQRZyQN13+vtdyscHV5jfRSlp7mjZSSN6U?=
+ =?us-ascii?Q?NSsRCy1SNNZFFCQFMbhXx2ZwcP4f6lb6VTOD3hF6iPy3bqfRU65xv+VERsfJ?=
+ =?us-ascii?Q?VuNoCIN9TT3ng6IqH2iR80kFoyfSeskjCVYHjGZZmCzJD0czLiVnZM2iMx42?=
+ =?us-ascii?Q?IBd06FZW+2zNm64T96Z13rYe8ZVD5f+BE7D11UGqCRPMVtGsq4/MzkEx7+cb?=
+ =?us-ascii?Q?po5RMIW+D+3VxEhj/uT/GZ2sKrpemBHsX28sVcE8Tvmp6pOVAodLxnkOEg4X?=
+ =?us-ascii?Q?Q9RBTQLFbypr3jCNIPVzew6AnxfwrxIB?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4877.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018)(7053199007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?4wpwLmQK2OaMhHhhZFNWLntoE9nodt7TJGU/WPwcLyQsoNe8ej+lRTlQMl4I?=
+ =?us-ascii?Q?2eSb8H0o+KIXWUXtRfl27PJc06NfFgNTuaEZmujD7rrzNkf1OHgw+GrWiqEL?=
+ =?us-ascii?Q?uJzteNoM2MPQe9qhfGjZRBsWJvF1XiEXa936o3fAcWeoacd2VsgO1H+kNSl1?=
+ =?us-ascii?Q?DBDvrG3s+j28NzovoqYyoNKLO5TE2A6pkHS74rpTQvUQPYHhYRodVrqdmbAF?=
+ =?us-ascii?Q?7aUK8CSbSeV3OyB2inJz/qTB+9z45nv3UMqdiBNMiynxr+BH1avKpQn5FM3L?=
+ =?us-ascii?Q?0erAWRlAluq42XMyQNoFRepmahyhFBfcBYUPve8y43ECUwosa7KSXCd+xZss?=
+ =?us-ascii?Q?R9KT07S06GFWQQhjF5nI6RHM2YWoVH19OSQO594HqWOOVWW33KhwvSFtRq86?=
+ =?us-ascii?Q?W2qy1Y+mJAluIF9ZNZ2sGsxeGhJpuOov+KCHnjgsEL/talINhNQJlJEsy9K5?=
+ =?us-ascii?Q?MKl0GvguFM//AaIP8i+PWJO/v22pPDQkEQjHHeRa+pq8JCKWrwmDmQt+Vkwj?=
+ =?us-ascii?Q?4mw6H99BnL8aI09ihvGCRFEDOYdeVFVwwNyhO8QhW/l6U7d9KIDcaACl+OVi?=
+ =?us-ascii?Q?vhe+EsZZUhs/zs/8m0TyaCFLia1JSs3VMkzFCVcjfg+Imqyc2LpPlIQZh3EK?=
+ =?us-ascii?Q?ScUtzXFofForOl8zcN5+KakhEuP5W0+w5/QJSJ0hLRx6x7pvT9Oh2qP4ZfpR?=
+ =?us-ascii?Q?fW8MTNGV5FTlJFRlf0IZ8TnXgmR0KaBKQ60i8TJ5Ee+g2HqX3C4EixYih24D?=
+ =?us-ascii?Q?0NcCOJ+AfiA5uGKeTTNSUHC3wxgaN2Ud0bdaoluRgRl5mUtdMNriM9A+OCRm?=
+ =?us-ascii?Q?KeZAHI/YjnhOjdk53KVnmnLOHCORHYOeHsYbJ6OgFbdnzHGJUzfY9M+SrMRV?=
+ =?us-ascii?Q?cHfriodLykbdKTzH8lWVCBQFg+y4gP6zX5OLQZXLxzkr9JJUKnXnIHK2kEvZ?=
+ =?us-ascii?Q?Mfl6IdYWSF9xxoCepexyCcDVq25mJodRQRL2BAKQr7vyRRv7bIfh/IVJb3yi?=
+ =?us-ascii?Q?LqoZIiapjrem/awsYCvXRRQqNPGU8KTcAbxi6mpeAlhp8ErMUUPSvcoCTn0p?=
+ =?us-ascii?Q?/kYov8R8vw6QeXJjqzb7odifu5757oua9QlXGaUhea2sxmrNxpZJex/mYYYK?=
+ =?us-ascii?Q?U2axVfM+yljyrAAXUl6EFUs60tUQIhwZ52noA9kUc3pOOEsTOWzwhAD5N8qy?=
+ =?us-ascii?Q?Ky/CEMzYuch9m6Dw1Nt0JSb6jcM+qYBNpuaYi+IXNSV+wTb/YPcR8DxN6IjE?=
+ =?us-ascii?Q?NpA75LoQpKjrbtGuVoWxY0ZNQlc2vzdtvuSf6fZCTP9z4MJxK3WxT6pvuCEQ?=
+ =?us-ascii?Q?WJOcpaWVJH9/XWDJZNL3N7OZrsi5jV8m9pUHAZDnoVm2bQmIjqABXIysJFS+?=
+ =?us-ascii?Q?VaHvTrKnQmo3GQjBRpvWxQGTPF0jLb0DoGqzyu9GEDiOE2Nn/eDpi4tCGUwH?=
+ =?us-ascii?Q?2Bz3R55zGdcPiHVaP02QZTWgTZXmHFnHYDJ4XHcieYJ4QyYxNGQoDMvZiWis?=
+ =?us-ascii?Q?KlVCLkvFpOabl/GtPcALIOw26eXrfy31V1jJ0tYQ7KXwP20lDdJlCvZtmbK0?=
+ =?us-ascii?Q?yeiVoj+TN/thJmrepus=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250313035322.243239-1-anuj20.g@samsung.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4877.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b54472e-47cb-4002-10ba-08dd61f96700
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2025 06:36:35.8775
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: H7lngKExtEgnR6ncVrnLsoUCZG3qXVqTvPJBswNGJ+DgbpDztgUtrygrp2fF1gj9K3aVAAfJNHxRo2AL7oD/mg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_233026_790482_966D1CB5 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_233644_330482_6CBE9B45 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,7 +171,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Looks good:
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Hi All,
+
+Just a gentle reminder regarding this patch series review.
+
+Thanks & Regards
+Rohit
+
+>-----Original Message-----
+>From: Rohit Visavalia <rohit.visavalia@amd.com>
+>Sent: Monday, February 10, 2025 5:06 PM
+>To: mturquette@baylibre.com; sboyd@kernel.org; Simek, Michal
+><michal.simek@amd.com>; Sagar, Vishal <vishal.sagar@amd.com>
+>Cc: javier.carrasco.cruz@gmail.com; geert+renesas@glider.be; u.kleine-
+>koenig@baylibre.com; linux-clk@vger.kernel.org; linux-arm-
+>kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Visavalia, Rohit
+><rohit.visavalia@amd.com>
+>Subject: [PATCH v3 0/2] clk: xilinx: vcu: Sequence update and call trace f=
+ix
+>
+>This patch series updates VCU init/reset sequence and does a driver fix.
+>patch1 fixes call trace related to pll_post clk.
+>Patch2 adds optional reset-gpio support.
+>
+>---
+>Changes in v3:
+>  - Removed patch https://lore.kernel.org/linux-clk/20250102170359.761670-=
+3-
+>rohit.visavalia@amd.com
+>    as it is not required with latest xilinx clk driver.
+>  - Link to v2: https://lore.kernel.org/linux-clk/20250102170359.761670-1-
+>rohit.visavalia@amd.com/
+>
+>Changes in v2:
+>  - Changed patches sequence to have patches with "Fixes" as preceding in =
+order
+>  - Used dev_err_probe()
+>  - Moved warning to dev_dbg() and updated print with more detail
+>  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-1=
+-
+>rohit.visavalia@amd.com
+>
+>Rohit Visavalia (2):
+>  clk: xilinx: vcu: unregister pll_post only if registered correctly
+>  clk: xilinx: vcu: Update vcu init/reset sequence
+>
+> drivers/clk/xilinx/xlnx_vcu.c | 33 +++++++++++++++++++++++++++++++--
+> 1 file changed, 31 insertions(+), 2 deletions(-)
+>
+>--
+>2.25.1
+
 
