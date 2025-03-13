@@ -4,69 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A13C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D46C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/4i5gpxewGrC7J40W6/IMINDnBVeaAfqjjzIxUosRI=; b=eVXb9d2nabHOGYeMV9fsmChyC0
-	bG8Rtgt1ViIQKvc7wq13HkfbcO+8l9rkdbmgaGqmqzBdkYtjlMNSDTTPlL59Gu3YrKikWU8kWPw5d
-	IGbqr66ROfx06PbhEsTwcGI1szqMKqfPO7Qp64ofnOaOtt5QTHjxuhm+G5c5QCxJMYprwCbx9N9yM
-	ZcrdcBqK132D01J/kizAhzF1LzRYpPbySwYWm0ExQUTwJOgN4Xm2aHDd6bD2MnOmXamB2pNO8U6op
-	aBtczcvurCQUt1mKNke6t71nLy8wGkklrvRtkv2ZsSHeZWeuX9iOZ2KpusR1ghyYhtg0cdFkKhxhh
-	rOUAlmww==;
+	bh=x5mfuPj5wGfn/COVQWn//5JUMh9q7U0SLwIMMebtlZo=; b=RlbMyhP4uXRZ9hsCsWFcteH+sv
+	MU06w20YtvmoFOALdviN52s3NJufgDEbGeeeetNQSW0H4TlNJZGLjho7nFfU/0UHZpcajKFUmPGci
+	BiG/rMeO5vyxizzLSi4Hkeq+/ZIi0iA/23lt2mkaI0VXLiv65zKYo9WL3MZKmtPQ4U+JiTMPhdoGz
+	Wn/MQV4CGYpT2lgMDB6PbpahTmcjZHGp8yA1ZhLBSyONnlPZNpMCAtZt5QDOOfl+0e4gLvX1oXwUP
+	oj1wQDR+asSpxBRcnUpZT4QUQO/oZf0Kn4X5L47pdYZVkYQDFt6/16kOxmHfZUsGpv4pact94+kxu
+	/dcg83Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgLT-0000000AyY8-2cFG;
-	Thu, 13 Mar 2025 11:03:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgJo-0000000AyMa-1QNO
+	id 1tsgOC-0000000Az8z-1Wmb;
+	Thu, 13 Mar 2025 11:06:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsgMW-0000000AymU-0FS0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:01:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21D5E1516;
-	Thu, 13 Mar 2025 04:01:50 -0700 (PDT)
-Received: from [10.57.40.246] (unknown [10.57.40.246])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C60353F673;
-	Thu, 13 Mar 2025 04:01:35 -0700 (PDT)
-Message-ID: <417d6f59-0d78-4e81-ad0b-e06846f786b0@arm.com>
-Date: Thu, 13 Mar 2025 11:01:33 +0000
+	Thu, 13 Mar 2025 11:04:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4B12DA46CD6;
+	Thu, 13 Mar 2025 10:58:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F6FBC4CEDD;
+	Thu, 13 Mar 2025 11:04:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741863866;
+	bh=Dn/c8VmE1oX2i+/300L2/hJI+Z2XWSLaocWxzcn61Gw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ci6GSYdKWJdTyQ9RwXufcNrSfq0vW8tkOcPFSj7UKJONuuRctzOX0gokzV0KKPibe
+	 kbSdeeJhHPg33ApW8ItWRnG8CFryui4MS/B9Xd5TxdJpbEqkwQcbhVB8UIZdAppLA4
+	 rEWi5fkCWxKxwOHYxsF1S+rGVVmGz0mVW8GVfkriIZXMzBLF8h2uQMIn0rU9AUbOW1
+	 DUz9l/ztlC3HPJfc+GR1MeUtukeIhZxShB+CSq2rBWtrCQsPbavJDQ0fSKQUG5rrWk
+	 eIKWZK0txQPiAV7ORv3AQPzOaasmpxg1C7skkAtB8sKTCde8PSxk4YbVLrko1aWtt8
+	 YAnZtZQkzdHxA==
+Message-ID: <b2f6a357-a468-4526-a1b6-69ab2c643b2c@kernel.org>
+Date: Thu, 13 Mar 2025 12:04:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
- path
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
- Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
- <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- Charan Teja Kalla <quic_charante@quicinc.com>
-References: <cover.1740753261.git.robin.murphy@arm.com>
- <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
- <CGME20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd@eucas1p2.samsung.com>
- <9b358d68-332e-404e-9a75-740297f7b28d@samsung.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <9b358d68-332e-404e-9a75-740297f7b28d@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
+To: Purva Yeshi <purvayeshi550@gmail.com>, ukleinek@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
+ piotr.wojtaszczyk@timesys.com
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250312122750.6391-1-purvayeshi550@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250312122750.6391-1-purvayeshi550@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_040140_465095_97BFE7B2 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20250313_040428_244781_95D0CE6C 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,91 +119,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-03-13 9:56 am, Marek Szyprowski wrote:
-[...]
-> This patch landed in yesterday's linux-next as commit bcb81ac6ae3c
-> ("iommu: Get DT/ACPI parsing into the proper probe path"). In my tests I
-> found it breaks booting of ARM64 RK3568-based Odroid-M1 board
-> (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts). Here is the
-> relevant kernel log:
+On 12/03/2025 13:27, Purva Yeshi wrote:
+> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
+> YAML schema (`nxp,lpc3220-pwm.yaml`).
+> 
+> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
+> 
+> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
+> ---
 
-...and the bug-flushing-out begins!
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> Unable to handle kernel NULL pointer dereference at virtual address
-> 00000000000003e8
-> Mem abort info:
->     ESR = 0x0000000096000004
->     EC = 0x25: DABT (current EL), IL = 32 bits
->     SET = 0, FnV = 0
->     EA = 0, S1PTW = 0
->     FSC = 0x04: level 0 translation fault
-> Data abort info:
->     ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
->     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [00000000000003e8] user address but active_mm is swapper
-> Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-> Modules linked in:
-> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc3+ #15533
-> Hardware name: Hardkernel ODROID-M1 (DT)
-> pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> pc : devm_kmalloc+0x2c/0x114
-> lr : rk_iommu_of_xlate+0x30/0x90
-> ...
-> Call trace:
->    devm_kmalloc+0x2c/0x114 (P)
->    rk_iommu_of_xlate+0x30/0x90
 
-Yeah, looks like this is doing something a bit questionable which can't
-work properly. TBH the whole dma_dev thing could probably be cleaned up
-now that we have proper instances, but for now does this work?
-
-(annoyingly none of my Rockchip boards are set up for testing right now, 
-but I might have time to dig one out later)
-
-Thanks,
-Robin.
-
------>8-----
-
-Subject: [PATCH] iommu/rockchip: Allocate per-device data sensibly
-
-Now that DT-based probing is finally happening in the right order again,
-it reveals an issue in Rockchip's of_xlate, which can now be called
-during registration, but is using the global dma_dev which is only
-assigned later. However, this makes little sense when we're already
-looking up the correct IOMMU device, who should logically be the owner
-of the devm allocation anyway.
-
-Fixes: bcb81ac6ae3c ("iommu: Get DT/ACPI parsing into the proper probe 
-path")
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
-  drivers/iommu/rockchip-iommu.c | 6 +++---
-  1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 323cc665c357..48826d1ccfd8 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -1148,12 +1148,12 @@ static int rk_iommu_of_xlate(struct device *dev,
-  	struct platform_device *iommu_dev;
-  	struct rk_iommudata *data;
+<form letter>
+This is an automated instruction, just in case, because many review tags
+are being ignored. If you know the process, you can skip it (please do
+not feel offended by me posting it here - no bad intentions intended).
+If you do not know the process, here is a short explanation:
 
--	data = devm_kzalloc(dma_dev, sizeof(*data), GFP_KERNEL);
-+	iommu_dev = of_find_device_by_node(args->np);
-+
-+	data = devm_kzalloc(&iommu_dev->dev, sizeof(*data), GFP_KERNEL);
-  	if (!data)
-  		return -ENOMEM;
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here. However, there's no need to repost
+patches *only* to add the tags. The upstream maintainer will do that for
+tags received on the version they apply.
 
--	iommu_dev = of_find_device_by_node(args->np);
--
-  	data->iommu = platform_get_drvdata(iommu_dev);
-  	data->iommu->domain = &rk_identity_domain;
-  	dev_iommu_priv_set(dev, data);
--- 
-2.39.2.101.g768bb238c484.dirty
+Full context and explanation:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+</form letter>
 
-
+Best regards,
+Krzysztof
 
