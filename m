@@ -4,58 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0E3C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 14:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED1EEC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 15:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWPeXqc7da8T6UngbvlcqLBzHtr9r2EtpP+FB5smiZM=; b=vCHpK9YhGdHq4vR1Qwqi93Wpk/
-	ASnghphm03zzq6Uom0QLQ9nDGTQ/J5364R7ztKns2GfWbtJM/8kT0OBTE0Cs2XaawovXa7sM0N/r9
-	vWcIRWdPda2U+Nw/58r7P9YEryvWKSQRDmeVNRrGdqw9TsMU3FbJZGB1ymjNRJKn6lxo+yosXMxlj
-	ofAVG/REq+bXx0uXNdRxN6IkZXCd2FNsqbjeK3W3y+d0ObR+6Rl2FF79ojrpu7lU/eeryBsT9/UKJ
-	oSFm1loxKdq5eYje4ey+oVmy2+64Wdpx+ihJ/suTOKx9VmV6sp7vCRe811Mkobc9x0XFIX/7djuLy
-	A72aIqLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RuImD1g+x/qsnuL4PMuSnn+mVCyez/VYXYkuQ3lTIDo=; b=AoJIT/3WJ9H9HD/maXg9BMO/vb
+	CAyA8o75nbVp4m+Nn+b0lOGQAvBNXC8xgtMGuag753PvlCdVjdXlUVKmC3NIh3JhLGiliU5MP1Pmw
+	a8zwWMZbbLsffHRGXLVXBH5SeppTBXHkm1UP9YhoUhs0jAFi7+LpvzCXj47WhQ2T8xCNYPosPZp+V
+	ragDBZ1K2IBA7Bhf9/JQoUU4utULtzq9Hhrq7j6cysh9/j64CoPjiEjiEBvijEF5cNJJskLEp9R5y
+	dac6w8utNQHpSnRlA8pCgZcJW1z4lYO1I6x/55xWSM7w5eo2Pxy51bwNwxBy1tBq8hWzY1aSfFPvP
+	TUCIBWSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjzK-0000000BarR-0OUW;
-	Thu, 13 Mar 2025 14:56:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjxf-0000000BahJ-0g7z
+	id 1tsk8C-0000000BbiL-3oat;
+	Thu, 13 Mar 2025 15:05:56 +0000
+Received: from mail-vi1eur02on20607.outbound.protection.outlook.com ([2a01:111:f403:2607::607] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsiyW-0000000BRAo-2Ywb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 14:55:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CFD01516;
-	Thu, 13 Mar 2025 07:55:12 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C8E63F694;
-	Thu, 13 Mar 2025 07:55:01 -0700 (PDT)
-Date: Thu, 13 Mar 2025 14:54:56 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: lcherian@marvell.com, coresight@lists.linaro.org,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 2/7] coresight: Convert disclaim functions to take a
- struct cs_access
-Message-ID: <20250313145456.GR9682@e132581.arm.com>
-References: <20250211103945.967495-1-james.clark@linaro.org>
- <20250211103945.967495-3-james.clark@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Thu, 13 Mar 2025 13:51:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NnUBEWXwd5XzY156ERmWwXdnrle/AKgp3dIKVXO+b2uBlpWJuoUVpwWoeLqt42VcqqVSN9UtFPwOSjD7PuHRLpLN4+8mrvOBll3Rj8T6YZry9waBU1qfnceyDHcf+yDuPEMyodf8eTKc3E9ojznH01esn8w18xVzqrzH7awaL5r6Zb/8aGx+eICPDWVscvpYbl+7aVHciaVD8w5Lb2LgHmu8ENI9UxieY/h/4YpicIRqvQz+319EEqH78BQZnn74XBWGU4pwzmsxRY70P/7DLgGPsRc/tNj9A1uoRoNh3wYacRa3hcOuzjTn1S15Xjp2SyqseMqkotMz+ATpdvXHoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GUp5I9bxDRXMsjAfEJ7jXsjtxjZLP9YU0HGEB/1/mWI=;
+ b=cUK0PqH/k5cxPqhZMB8wL1FXbBz9bM6/my42F8lA9ghJdXGkfgqFuhQKDDQrQ2MyVyut/msyESPDiYRQ3P6Gu5Z3bB3MIIrrGpiZXuWOjc82SAzrC3mvnAIfK3IPpc64JZn2mZZzrFRLv5HQPCx7etNnh8eZyywj06QGzCF2K/Pco8SeVEF+lj08beiGUizGH1w3kXF1qRyzAqvhVMtDXg/xZLOuisR+hc47cRHyM65+k1Do/4NEPK3DOLTcCuPCKzoEwSM2GTDpNGN+Mv9vHe9OMDvh3PItz3oZjJnapwbKOBLkqrtSMktoLnNQPNW2+Bz2gcOExC7JJ0FAXSCgYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GUp5I9bxDRXMsjAfEJ7jXsjtxjZLP9YU0HGEB/1/mWI=;
+ b=S6GtSI/di9797Qc/7yno+0Nspp9/Zkl26l/uYNclvqDosKyQKGE5su6tooouYU5frONord2j5LSICuub3z3N70B5IYZTQ+pJGRzoU/XyvLHe15ynn5aS43rTTvlONBQKXGa4Dnu1uc+xp3OgxEYccDT8EwE9Ia+m7idoYWEihcpeqX7e0pHZ/2I/Eq5H2+A8MCHv6TZ+NmfM55YTwDWT3RbU0u3rnZAKuBCj15TUiEiUYrq2BIuaTAl7N6hd4w1XNH7sZJPGpbA7u6n4gmik6ggUzour5kKu2fxVcU+JWeDCa/i5Y5atSO5/jWjldxo+N+kT6SnK8NruihjNQrCdzg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
+ by VI1PR04MB7039.eurprd04.prod.outlook.com (2603:10a6:800:12b::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.28; Thu, 13 Mar
+ 2025 13:51:46 +0000
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8534.027; Thu, 13 Mar 2025
+ 13:51:46 +0000
+Date: Thu, 13 Mar 2025 15:51:42 +0200
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: "Dr. David Alan Gilbert" <linux@treblig.org>, stuyoder@gmail.com, 
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] bus: fsl-mc: Remove deadcode
+Message-ID: <oz65tdekf2ywyzadbntuxntwxulcdzyo33se54qqdsddkogquh@bqnmsmqijfvb>
+References: <20241115152055.279732-1-linux@treblig.org>
+ <3f9dbb7b-6527-48e1-9028-b46e5a0c58ce@csgroup.eu>
+ <Z9LbwRUsHwFLpBZA@gallifrey>
+ <362f9392-f891-4a15-9ffd-5f5a6cac41b8@csgroup.eu>
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250211103945.967495-3-james.clark@linaro.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <362f9392-f891-4a15-9ffd-5f5a6cac41b8@csgroup.eu>
+X-ClientProxiedBy: AM6PR10CA0015.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:209:89::28) To AS8PR04MB8868.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|VI1PR04MB7039:EE_
+X-MS-Office365-Filtering-Correlation-Id: d2accff3-5a4a-4d95-2f92-08dd623631ab
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|13003099007|7053199007|27256017;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?n7d9ClzdfJ6mpC8REkARTPKTtkNyksyrVT/wRqA6wt9n3dTW4o5klE88ws?=
+ =?iso-8859-1?Q?sTvhajq/xFl2pUHiJM8HC+OPnRdjY10S7AL7uP/dpArCbzjO01VHjD6xq7?=
+ =?iso-8859-1?Q?vSy9ZniC73jqw/431lw2OeKraOx+QGEhdAolJwxKAelWVS1DDb4tq5Z3/s?=
+ =?iso-8859-1?Q?/Fha7pB5B7FjVhl6mivObmLxftmUDgVLTYFDniXKEijFDoYNy+2tune/RL?=
+ =?iso-8859-1?Q?/+dV/kudFIkVkeh3ko1qw1e5Awd1EtFM+zDkzb0wNqf03P5A7Ph/SpJfq3?=
+ =?iso-8859-1?Q?9c2HOOPXZ/ItMA/a/HWI6TAXoLjNbOgHo4809Oh3C5GUB4Ven5E9vJzDWE?=
+ =?iso-8859-1?Q?SHw19w/zv4x8vLbDGlVnSUWaE3N9KMaX8zjK4l/D/9WOR0yHeg6aerWI9J?=
+ =?iso-8859-1?Q?1tvvXY2+Di1y1GqO+gN0o5B8HKICctQCFBtCCp7j7NDfAjngDCa/pDNcyO?=
+ =?iso-8859-1?Q?peitxNlp54lCsRnyi7HKWzAUM9obHTy8rjdR6k5AiK2ms8ghp8bN/Q75w5?=
+ =?iso-8859-1?Q?+cvOJqi4qAHDeC/Mqw1Rtex+/xBatrpxxHxUr7YKWuFMqfa2EOgxVLDJ6Q?=
+ =?iso-8859-1?Q?/IxaCPczaHCNXYmjr4HwyOZ2hxdTjScvzNnYDO9xXfwAUTYI/AzmJTMrqQ?=
+ =?iso-8859-1?Q?Wfiv0orVMGwIjPH9xJmQnztuVcR6IWsXL/3zeUYtDsWShjjsUk8vrYSTT4?=
+ =?iso-8859-1?Q?FMM6Ugk1C+AQp7MkDWSTB24gT++E/K/VKpT/nwUbHP+GeyjM2CDUlhvU7q?=
+ =?iso-8859-1?Q?Ui+pM74J7WS9+XZRxayXvKn7cfh5NSNvLP+3dzFQwm189V+biBZqC7ZmwE?=
+ =?iso-8859-1?Q?oTcxEWHgu8MUwijPde/szUcjFBtLo3rpZNMq/DuEQc7ESjl1ByT5vTQrvI?=
+ =?iso-8859-1?Q?ghV7104x6bK/tdeB5jhuTTd59HQmxM9KxAnRf9tyC8O0e/qjxsDwiv7gXR?=
+ =?iso-8859-1?Q?YXwxCQE98LSTCLDmJdNzWau6xlvxynrQ273f3QDMVSTdWU+S4RhIHzYTWq?=
+ =?iso-8859-1?Q?raIrP2R2/GRYDDfjWNhO4gaXTpeGSycqus84ICNDs/Futjsw9ylAqSdDCO?=
+ =?iso-8859-1?Q?CyRtRmStrFlIPwlzMSKpjITvYlQgUiklTAbc+3m0Ayhpx3F5ij1OvsTinS?=
+ =?iso-8859-1?Q?OLqpyL2cGbkMmaTjzKuOOpYqmINUhGrs6rho0966Qr6g4Dv0KS/FRUTqoJ?=
+ =?iso-8859-1?Q?gAcIeajMXlY/Di/56Oj6jVsO+hmkTpiaeaDwsMi7fSXHktQxdVeYYBM4SQ?=
+ =?iso-8859-1?Q?rhoq1e6HiG1sw9m/pvi2PsulIhBbBCMGtSG3GDzGhnpoV5KkKJprFg+MPI?=
+ =?iso-8859-1?Q?gGsu3KW5MH/XFEmt0N41pu2z2823kvOmW7ztC7fFtIvmjebYHKBbWkg0Wt?=
+ =?iso-8859-1?Q?37LUg4A8CULrmfByVqKlzM1t0faLKX6WA9jnYd5b7mqvCJ7rD99F6OUmlD?=
+ =?iso-8859-1?Q?cMlYOkW3uXUR6wDKO8fd5RywqOVqJa4TRVPDbNTpGYOR2MeHkSfd/etQFE?=
+ =?iso-8859-1?Q?Q=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(13003099007)(7053199007)(27256017);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?hilon3FNFlz5K+L9QHfczcKb/zzNhzAmxcxd2RrGJ6dwBBPwUtkaYW8e2v?=
+ =?iso-8859-1?Q?D0Na+Mww0mX3PmSpja5kiuVw3Q3IceS4cUdRpaWBGe2c6yLVeHD0bxJh8p?=
+ =?iso-8859-1?Q?5TTjbaNABI0aHW0XybUVHEOWEoyNe7swXuq3ru5HOsS2+5XPfekiiVjkx5?=
+ =?iso-8859-1?Q?e/E0rvS4HkPBF/rZWQCIPTSe2JejxtjmYgYIdn9vBMbs3vh47TxQiwEQ3A?=
+ =?iso-8859-1?Q?XGwm/3iBLCsRq4T8/8cgjfwC0AEiyZ51MB5bnKm4ScqiMWF2TWdrQLxCbC?=
+ =?iso-8859-1?Q?9knBh50dqN9Cq0/mOAKS/uWp8nuaLG8yubrvfWPdRcaJMnvQL+Ow/lmyTY?=
+ =?iso-8859-1?Q?cbxuVAP6Yc6WRv1USqhpPkMxg5qTQCLtXPUOGDdV2TmJgC9ygjNjgfswsc?=
+ =?iso-8859-1?Q?6DA0+jOOKdAEZF487gRLl813dTvWq24OIwmcjhMX3MZkW0y2tG8rZFDFs6?=
+ =?iso-8859-1?Q?cDKVLjznUPzqsRWnSaoNPhVjs09YezHSNEL9jlRtSlpmIk8uz5oQJLSSkU?=
+ =?iso-8859-1?Q?VmeqMc4ULnG+u7lfyzmJBWNRnfk5U24PADAeSmq1XoXo2AZeqMqWLN6zzn?=
+ =?iso-8859-1?Q?YxzxBDm/F6HTqLqF+4QPUB9nhhkUA0X5N/LzLbEDWd14G7/jl2GvzvCd1P?=
+ =?iso-8859-1?Q?X2DH8aw94pvxzMUyyRoTD7kh4XCNT73cY3Jfa2PMtMqms/ONf1Hll3Wzjl?=
+ =?iso-8859-1?Q?ILmCtR9gbQDMgAn0ppN4vTVjVubJPKt1uEyaQD4GunW3Xxomix1V/tY04o?=
+ =?iso-8859-1?Q?FZbSL/E8uScJ7ZRe3NkF5cubo7+VWXe0mkSyVRJ5+pX0V3OuqfpRW0wLHl?=
+ =?iso-8859-1?Q?xKyX3eawHgXafFH6r9yFncjTBlFTdylRmWI7GNa4G8CQzoLNsN+cqgkV7v?=
+ =?iso-8859-1?Q?eUdN6Pg35JrO3CNtKYRMhG2HFiq2pfnqri5Rpv8WJBkeK+Z8D0ACNaOxxV?=
+ =?iso-8859-1?Q?tSRMBfNKYf/w5tXhgv0RAQfn+CsIC7kDpvRNf9TVtiyyjYNfjdXw4xMXE8?=
+ =?iso-8859-1?Q?n4oUFaXlivf2EaCqc4M57f5EeZym5m9t6i0UvteIDdvrGPHV9xDSh/3Gmy?=
+ =?iso-8859-1?Q?0Yc2e+yCMq9woFIgWGDPvIuFaDVOWI62DEHmZl451eo8Xkh2VP8l9krIKn?=
+ =?iso-8859-1?Q?H5GV0zg1tE1enGbepfe7eK4mPLGnTHY45BeLfpA+QqAsa3xLzIwblgVExL?=
+ =?iso-8859-1?Q?kj9YiW0+WaM303LBBE0ieMj3JE9frs0IpYY/SD4LVD9kmbWuRCt5IQWNck?=
+ =?iso-8859-1?Q?rPn1QX5QlPxBwLemXViqYUUmo82yu6dfqbsLPHcW9eu+UAuZSlUWv5rbW7?=
+ =?iso-8859-1?Q?jG46ua4P2ERjsa9re+u7N3AirmnXmrxnj2ZkxBsF5kkWh81F6mQHrVezJv?=
+ =?iso-8859-1?Q?29lt6Y67ayK7P8tgSQXJmvY3RlHdmDM1BJ6NjlFRPYK86PKLFeFwT0sUs9?=
+ =?iso-8859-1?Q?i7jl2yzS6fbZIUWLUAAlrTIz2mWgBtg6LAuvmXswBo81SAv1cHQcfSR8RL?=
+ =?iso-8859-1?Q?6kDepWMlkB3EGBYpC2zmiGNAHsMTwFYqAJrW1Vu+DAkX8jqetDxx0NnxhY?=
+ =?iso-8859-1?Q?VRRIdXIIwzvCpxRWj0HMHENbmh8cjBuTpD3qi9LGtfTJF+EUftKdUk0cIe?=
+ =?iso-8859-1?Q?CeS3kmTgTPXZKm6KQXTueXdE6e0PkAD0nH?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2accff3-5a4a-4d95-2f92-08dd623631ab
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 13:51:45.9849
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rXHJ9/TsAcFLrPp9pJgzeO6szhfQi7nJwn2L74QbeeVWYNkJ/qJAxfH5rDBbP7jTyGOYNF5H1XoxAIfpFqqJLQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7039
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_075503_248278_C53B08F1 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250313_065152_658983_E0A8A6C3 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,19 +162,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 10:39:38AM +0000, James Clark wrote:
+On Thu, Mar 13, 2025 at 02:37:56PM +0100, Christophe Leroy wrote:
+> 
+> 
+> Le 13/03/2025 à 14:21, Dr. David Alan Gilbert a écrit :
+> > [Vous ne recevez pas souvent de courriers de linux@treblig.org. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
+> > 
+> > * Christophe Leroy (christophe.leroy@csgroup.eu) wrote:
+> > > 
+> > > 
+> > > Le 15/11/2024 à 16:20, linux@treblig.org a écrit :
+> > > > [Vous ne recevez pas souvent de courriers de linux@treblig.org. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
+> > > > 
+> > > > From: "Dr. David Alan Gilbert" <linux@treblig.org>
+> > > > 
+> > > > fsl_mc_allocator_driver_exit() was added explicitly by
+> > > > commit 1e8ac83b6caf ("bus: fsl-mc: add fsl_mc_allocator cleanup function")
+> > > > but was never used.
+> > > > 
+> > > > Remove it.
+> > > > 
+> > > > fsl_mc_portal_reset() was added in 2015 by
+> > > > commit 197f4d6a4a00 ("staging: fsl-mc: fsl-mc object allocator driver")
+> > > > but was never used.
+> > > > 
+> > > > Remove it.
+> > > > 
+> > > > fsl_mc_portal_reset() was the only caller of dpmcp_reset().
+> > > > 
+> > > > Remove it.
+> > > > 
+> > > > Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
+> > > 
+> > > Acked-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> > 
+> > Hi,
+> >    Can someone pick this old change up please?  I see the PPC patchwork says
+> >    'handled elsewhere' but doesn't say where.
+> 
+> MAINTAINERS file says where:
+> 
+> QORIQ DPAA2 FSL-MC BUS DRIVER
+> M:	Stuart Yoder <stuyoder@gmail.com>
+> M:	Laurentiu Tudor <laurentiu.tudor@nxp.com>
+> L:	linux-kernel@vger.kernel.org
+> S:	Maintained
+> F:	Documentation/ABI/stable/sysfs-bus-fsl-mc
+> F:	Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
+> F:
+> Documentation/networking/device_drivers/ethernet/freescale/dpaa2/overview.rst
+> F:	drivers/bus/fsl-mc/
+> F:	include/uapi/linux/fsl_mc.h
+> 
+> FREESCALE SOC DRIVERS
+> M:	Christophe Leroy <christophe.leroy@csgroup.eu>
+> L:	linuxppc-dev@lists.ozlabs.org
+> L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> S:	Maintained
+> F:	Documentation/devicetree/bindings/misc/fsl,dpaa2-console.yaml
+> F:	Documentation/devicetree/bindings/soc/fsl/
+> F:	drivers/soc/fsl/
+> F:	include/linux/fsl/
+> F:	include/soc/fsl/
+> 
+> I acked the 2 line changes in include/linux/fsl/mc.h, the main changes being
+> in the C files which are not under my scope.
+> 
+> Stuart, Laurentiu, can you pick up the patch ?
 
-[...]
+Stuart and Laurentiu are no longer at NXP. Even when they handled the
+fsl-mc bus driver, they didn't have a tree themselves to pick patches up
+but rather, historically, patches on the fsl-mc bus were picked by Greg
+KH.
 
->  static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
->  {
-> -       return coresight_read_claim_tags(csdev) != 0;
-> +       return coresight_read_claim_tags(&csdev->access) != 0;
->  }
-
-Likewise other claim functions, can coresight_is_claimed_any() change its
-argument type from struct coresight_device to struct csdev_access?
-
-Thanks,
-Leo
+Ioana
 
