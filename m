@@ -4,108 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6292C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB075C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 18:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMpJM2PKQtP17t8uQ4Fmv85P+FTVTembdLIzGgtaCOo=; b=xJWK+BcHr4HQtHbO3gmF5wms0H
-	XU11nZCO9uR793Op+02E7VNLWmEGPsNFaAn95cpooP8bOnoj44PR7kBT4RFNLscgT+dNWOxgNrJZW
-	18S7XZMpmWWGcqDRZxmqGMlLqFUMmuxOY44BYASD9WVllnPHb2BPsWMlN1+sC3nz4W/2E8GvgAzF2
-	IJBko7McfKxHR1ef5d/ecD7tNaYo7MAU7jWTY+WKfzgGeEcbWsdMkUURPfIFQykBxOwupewRSq2ET
-	pgfQc4/Jq0go6h1WPM2eRHwoTobqKWNvJaXZ9mC0Uvl07gTI+4/PCR3eevJ+kbgGA5S7cZjcDyiQd
-	+BpFCEuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NhFJsw8uawrCjQJevU/7j+bAkPgtLqvzMAQJU5JD9+8=; b=usYzr+NnD1qqR5WCloaUA69tOl
+	aCGJOznf/IqDuhwgsoA5UFuxTXkr4me/ECLeY7C29pHYNfNPq4PUnGPZ8I+VTFD7qpsVYhppt5wyZ
+	DX/VO7q0TgTQcLoGIWY3iIBW6OAzMaT44CWpLoSfIS/F1HhZFRygWu5mdObdM0KqWgtF53GeY2x7H
+	Zi7pXde0sG4HwApOCyVqNnfOyvf8asqaT9G0KuwNmkz8a+KUo6fdhb7DA3o3LQWnp2qIhKQtgO9fX
+	KMgevQfFRUoEq69L2e9HI4G4/Dqcg5RvWUu1VkPFTavNaxk+B1BSXPWlSqZy61XPM/711p2fSW7s+
+	CL3JzTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsn0b-0000000C9D6-0LSJ;
-	Thu, 13 Mar 2025 18:10:17 +0000
-Received: from mx-rz-1.rrze.uni-erlangen.de ([2001:638:a000:1025::14])
+	id 1tsn2E-0000000C9Ve-37oh;
+	Thu, 13 Mar 2025 18:11:58 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsmZM-0000000C4b6-0TYj
+	id 1tsmbZ-0000000C4rG-1wrg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 17:42:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1741887726; bh=eMpJM2PKQtP17t8uQ4Fmv85P+FTVTembdLIzGgtaCOo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From:To:CC:
-	 Subject;
-	b=EylAawIJnVf2ZcpVODV6h7Cd6tFaTJITSYF/0JlrK6IuiFs4dZwU8e6ejgLrdKXOn
-	 euzixyFk9vMVgJLXqQkBS/tnOhGibnLs6oSecZMI6DZqgCu9NVAZsSf7FCgOXaBOzm
-	 FVfd9YYuOqrwESybNB0MM4HHzXpSWiUv+fIRPeSc6jBOR5V9CFsdz/6Mx0n3sZXK3F
-	 9JBY6oY/BkjKfOOMdrtMut4pv6qH4Z1gsCNoHwSXKB9P6mKyI8jYX2b4rO/eLkSGiW
-	 M5lPEWLkxcTNQZYNfXCFVw+BXW2cJIBPA22v9QKHFKspLI1cPxRJKY/S4tC9mVpZdz
-	 iLFLKHdsBxhFg==
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4ZDFDt2Yhrz8sYr;
-	Thu, 13 Mar 2025 18:42:06 +0100 (CET)
-X-Virus-Scanned: amavisd-new at boeck5.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 2001:9e8:3614:2b00:7ee6:68e5:4447:ba92
-Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3614:2b00:7ee6:68e5:4447:ba92])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX1+yE2bMaADTi8fDRnpWeMZ6kPDMqZKHwD4=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4ZDFDp5vZnz8ssF;
-	Thu, 13 Mar 2025 18:42:02 +0100 (CET)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Luis Gerhorst <luis.gerhorst@fau.de>,
-	Henriette Herzog <henriette.herzog@rub.de>,
-	Cupertino Miranda <cupertino.miranda@oracle.com>,
-	Matan Shachnai <m.shachnai@gmail.com>,
-	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
-	Daniel Xu <dxu@dxuuu.xyz>,
-	bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kselftest@vger.kernel.org,
-	George Guo <guodongtai@kylinos.cn>,
-	WANG Xuerui <git@xen0n.name>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Maximilian Ott <ott@cs.fau.de>,
-	Milan Stephan <milan.stephan@fau.de>
-Subject: [PATCH bpf-next 06/11] bpf: Rename sanitize_stack_spill to nospec_result
-Date: Thu, 13 Mar 2025 18:41:44 +0100
-Message-ID: <20250313174149.1113165-1-luis.gerhorst@fau.de>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250313172127.1098195-1-luis.gerhorst@fau.de>
-References: <20250313172127.1098195-1-luis.gerhorst@fau.de>
+	Thu, 13 Mar 2025 17:44:26 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ff799d99dcso2700163a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 10:44:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741887864; x=1742492664; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NhFJsw8uawrCjQJevU/7j+bAkPgtLqvzMAQJU5JD9+8=;
+        b=UMyovoRr/XHNRqeQbDKXkDCYdoyG67h5eisFkjTElaBszbiTUOz3CfknhxelWHZM5P
+         erwlk8/RZoQDMh7HWilQuHZMmAhEFVOUHjQ/FAvjELl02BA8SpgKKYXBaUmf84s99qnO
+         p7ZNX/QqocWI9U0crgvjwwa/gh3UCBDh28x/6Y/+jNZAym3DkWpbhGsL469LbsULO2zn
+         h2UGxyuM6bR6MZtTyXs5t+/FPFk39UtcTMp41J9KpZ3HsFAbyunbVF2nTbXlOOrbuuFC
+         ng9mk58sEL5Ok6XFJQuMI4rD2JuEBilNl5XubJK5B4bgHIh3D300r4UNgn8MAgm7nUwI
+         HAqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741887864; x=1742492664;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NhFJsw8uawrCjQJevU/7j+bAkPgtLqvzMAQJU5JD9+8=;
+        b=U9YfgMx55dJoQdYpmdavSBrXw0H8aFq6QQct1NpxlF8h3C49KN8FKrk8mptGb3OWQn
+         MjeLP9rDYfQjHY+3pQOfmF0rNZru91QMUX8BuSA7Ui86x3LhKCVfYeNuJhTL9kAIkLKV
+         iGSq4SBhhUhjm6Y73WjReGyjYK34boQIekd4F3heoJXCC9YTXexRgg0gJTRPoTA7Rr+8
+         P7mCcsBjE0eS9OvrMu8lW6729ZakCi0ZCTpgdpzk5UVodcbeQrPsILJetaQdk6IJ0SP5
+         EPjL9panTy93mPf9IGWxgihDmxm2S2q7Qeo5qLEnqcaeTqfQfrT4nDuPj11aDHdfqaGu
+         znHw==
+X-Forwarded-Encrypted: i=1; AJvYcCXekd0rN/UzOPUrPfL/d1rr5U4VviTUVEROtG6PXVAF4L3RHH6Cgn8C34w56LBjt9j05JTFCWGkg01nlvlfvF+E@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvfQIty/mDBzhtUe2Ng/XY+NF+addLiw4NlsnwHnBHual90GE4
+	z7W0hbJIBW1znfxsmE3fVNeK7PdVaof9jMO6q56cqQIzDcTvblWrETIER3aNUg==
+X-Gm-Gg: ASbGnctMEhQDFQCCZJRG2/091LtSVvlHFqGX6JzYckyVQYwE8MD9cyB3er4Lp/GM5zU
+	465bamOcY7SsaQqYLrG+eN4FSxcl65EG4M8clQ1hF2vtb61GdGFyMV2jJHn60lOqOlKQObDRsvg
+	n8a1niQqTL+26sm4xMKLUsDBMf70ragFyA8nwBIJSXxg2Rx+Sivn7aTDOwttEzStvGDTFmKvkpV
+	KpCx8/cPqMobNezIx1b3wgO7/07Pzq+1mDoojJ7bJPuXHyFlTu6fUIWiMhMDRdU0G5areSwdZeP
+	ukU4K3ZRihJhErjAhvDEmpTBnjFgEexi32RiY00OkwT7dFXblZYFbQ==
+X-Google-Smtp-Source: AGHT+IEaq+Fi1cGt0rAKa6Fc1r8aIz7Paw4eI3nREquhMURMlKswOymRbr7ex68I++4IhbW37kjVlQ==
+X-Received: by 2002:a17:90b:54c4:b0:2ff:52b8:2767 with SMTP id 98e67ed59e1d1-3014e8619f7mr487146a91.19.1741887864312;
+        Thu, 13 Mar 2025 10:44:24 -0700 (PDT)
+Received: from thinkpad ([120.60.60.84])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30138b4751fsm1670259a91.12.2025.03.13.10.44.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 10:44:23 -0700 (PDT)
+Date: Thu, 13 Mar 2025 23:14:16 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	bhelgaas@google.com, vigneshr@ti.com, kishon@kernel.org,
+	cassel@kernel.org, wojciech.jasko-EXT@continental-corporation.com,
+	thomas.richard@bootlin.com, bwawrzyn@cisco.com,
+	linux-pci@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH 1/4] PCI: cadence: Add support to build pcie-cadence
+ library as a kernel module
+Message-ID: <20250313174416.n3c4srf6hb2l3bvg@thinkpad>
+References: <20250307103128.3287497-1-s-vadapalli@ti.com>
+ <20250307103128.3287497-2-s-vadapalli@ti.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250307103128.3287497-2-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_104208_299979_7F1CAF35 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250313_104425_511062_A97E1EF4 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,55 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is made to clarify that this flag will cause a nospec to be added
-after this insn and can therefore be relied upon to reduce speculative
-path analysis.
+On Fri, Mar 07, 2025 at 04:01:25PM +0530, Siddharth Vadapalli wrote:
+> From: Kishon Vijay Abraham I <kishon@ti.com>
+> 
+> Currently, the Cadence PCIe controller driver can be built as a built-in
+> module only. Since PCIe functionality is not a necessity for booting, add
+> support to build the Cadence PCIe driver as a loadable module as well.
+> 
+> Signed-off-by: Kishon Vijay Abraham I <kishon@ti.com>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
-Cc: Henriette Herzog <henriette.herzog@rub.de>
-Cc: Maximilian Ott <ott@cs.fau.de>
-Cc: Milan Stephan <milan.stephan@fau.de>
----
- include/linux/bpf_verifier.h | 2 +-
- kernel/bpf/verifier.c        | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
-index d6cfc4ee6820..da586dd4703e 100644
---- a/include/linux/bpf_verifier.h
-+++ b/include/linux/bpf_verifier.h
-@@ -563,7 +563,7 @@ struct bpf_insn_aux_data {
- 	u64 map_key_state; /* constant (32 bit) key tracking for maps */
- 	int ctx_field_size; /* the ctx field size for load insn, maybe 0 */
- 	u32 seen; /* this insn was processed by the verifier at env->pass_cnt */
--	bool sanitize_stack_spill; /* subject to Spectre v4 sanitation */
-+	bool nospec_result; /* result is unsafe under speculation, nospec must follow */
- 	bool zext_dst; /* this insn zero extends dst reg */
- 	bool needs_zext; /* alu op needs to clear upper bits */
- 	bool storage_get_func_atomic; /* bpf_*_storage_get() with atomic memory alloc */
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index eb65038682b0..4c1ed31d86af 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -5007,7 +5007,7 @@ static int check_stack_write_fixed_off(struct bpf_verifier_env *env,
- 		}
- 
- 		if (sanitize)
--			env->insn_aux_data[insn_idx].sanitize_stack_spill = true;
-+			env->insn_aux_data[insn_idx].nospec_result = true;
- 	}
- 
- 	err = destroy_if_dynptr_stack_slot(env, state, spi);
-@@ -20719,7 +20719,7 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
- 		}
- 
- 		if (type == BPF_WRITE &&
--		    env->insn_aux_data[i + delta].sanitize_stack_spill) {
-+		    env->insn_aux_data[i + delta].nospec_result) {
- 			struct bpf_insn patch[] = {
- 				*insn,
- 				BPF_ST_NOSPEC(),
+> ---
+>  drivers/pci/controller/cadence/Kconfig             |  6 +++---
+>  drivers/pci/controller/cadence/pcie-cadence-ep.c   |  6 ++++++
+>  drivers/pci/controller/cadence/pcie-cadence-host.c |  9 +++++++++
+>  drivers/pci/controller/cadence/pcie-cadence.c      | 12 ++++++++++++
+>  drivers/pci/controller/cadence/pcie-cadence.h      |  4 ++--
+>  5 files changed, 32 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+> index 8a0044bb3989..82b58096eea0 100644
+> --- a/drivers/pci/controller/cadence/Kconfig
+> +++ b/drivers/pci/controller/cadence/Kconfig
+> @@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
+>  	depends on PCI
+>  
+>  config PCIE_CADENCE
+> -	bool
+> +	tristate
+>  
+>  config PCIE_CADENCE_HOST
+> -	bool
+> +	tristate
+>  	depends on OF
+>  	select IRQ_DOMAIN
+
+Even though this was added earlier, looks like not needed.
+
+- Mani
+
 -- 
-2.48.1
-
+மணிவண்ணன் சதாசிவம்
 
