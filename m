@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5B3C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 13:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E42CC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 14:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lM0g+et7+koHvwD3M6Xbjrzfe2Oj1PGsMfiK3GoCkb0=; b=2iCDt0RoYXwvmWKRymoshzLd4R
-	KCIIJZPNXMvuM3jqTVwubFfyLDJ89ee/R0QJKmnYQK6T5aC7kpQEnyTGYkP20rSn05VlWUoieqOXA
-	xhPBHZX/iIY/yWQSu/HNsliSotBDJXrvjT26w0OvNUeihF4OkMX1vxvuPkbYwlSbZQP08hUjCEpvw
-	AX6wwnjvPHBG4Wu2/pdxgPXRfuAVXGm26zsZ5A0o8tnU5H8T4P5Ak9Q91hvUqTQFCuopRHHT8kxyM
-	qFw6d9MBNpxRsLi34FIsBUDxqQ5zIkTZnBQ0cbpVlnqEj/lHWBC0FJBHifRN+8TrmeUNRM42Jn4oj
-	Se0q8DqQ==;
+	bh=wYBSTQZkpol7T1dKE62nFL+WbYIAMEdcURh6EKQh7UA=; b=O6rcTZVqRjDLD3EQaVwgGEpvQi
+	3rKTatWNEay5amXSOdLISskLE05QXLvLXfmefCsbKOohVTikbzxKy6Q1QTmxCFq8thcORVOFFOW4z
+	qH2YwhbnDL1sqjRKyaYkzMsySHcEvnh0Kcpc/L28rWNW0zkvGQOeUtPXfQUmOmtcfjD6gQ6MBm2Zf
+	ZEe5N5qhdFZ4T7I8HiXViGWu9ojJs5Ku0BTWNlp+P6u/2bVOpb6rvYHJijVI8eJMsxQXTagZ9hAlR
+	ANfxLY+aKKML1thCqs6Xrsm+OkA9IqN0VcmFzC+RNhfHcF71d6IoB0C5UIwnC7mu7Pyh7CVmF+pe0
+	jHx8wv7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsj4N-0000000BTIE-0hIw;
-	Thu, 13 Mar 2025 13:57:55 +0000
-Received: from mx.treblig.org ([2a00:1098:5b::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsj2h-0000000BT66-3Rrc
+	id 1tsj8U-0000000BTkq-28h5;
+	Thu, 13 Mar 2025 14:02:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsj6q-0000000BTZJ-2DPh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 13:56:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
-	; s=bytemarkmx; h=Content-Type:MIME-Version:Message-ID:Subject:From:Date:From
-	:Subject; bh=lM0g+et7+koHvwD3M6Xbjrzfe2Oj1PGsMfiK3GoCkb0=; b=fShdanW6PbvuMFwP
-	d1KJgdHaBd9oqatJIw5wA440G9mE87T9T7pcZPbqnEr/U25jvEF/fb9jkBiIllm6yjUBaGXMMQJgQ
-	3riEx4T9FqTUlLmZiGaj/BphArEk5qjlRF7Rd32O8Nk5ugQp+6Rs6nNZ3MgczTvCMMeJf/PhJqqk1
-	M1DTti6LAUeCZ3X732q2w44mc4TrghGxiJFwWclX5/WpD3EcVD9ZBRndSnT32MSTRfq9BaZ/R0ZiT
-	LPvwKn/OT/+x1DBiy/Bku+Tk0CNowUwiHyCcmqWlK7X42Gp5xocQUlZ9yqWJJfN55QiR9kbcqmAIZ
-	R8pIkXl1jwJioPNI7g==;
-Received: from dg by mx.treblig.org with local (Exim 4.96)
-	(envelope-from <dg@treblig.org>)
-	id 1tsj2d-004e9J-1n;
-	Thu, 13 Mar 2025 13:56:07 +0000
-Date: Thu, 13 Mar 2025 13:56:07 +0000
-From: "Dr. David Alan Gilbert" <linux@treblig.org>
-To: gregkh@linuxfoundation.org, Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, stuyoder@gmail.com,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] bus: fsl-mc: Remove deadcode
-Message-ID: <Z9Lj9_yM1EK5pKee@gallifrey>
-References: <20241115152055.279732-1-linux@treblig.org>
- <3f9dbb7b-6527-48e1-9028-b46e5a0c58ce@csgroup.eu>
- <Z9LbwRUsHwFLpBZA@gallifrey>
- <362f9392-f891-4a15-9ffd-5f5a6cac41b8@csgroup.eu>
- <oz65tdekf2ywyzadbntuxntwxulcdzyo33se54qqdsddkogquh@bqnmsmqijfvb>
+	Thu, 13 Mar 2025 14:00:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C62F91424;
+	Thu, 13 Mar 2025 07:00:37 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD2283F694;
+	Thu, 13 Mar 2025 07:00:24 -0700 (PDT)
+Date: Thu, 13 Mar 2025 14:00:21 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Sebastian Ene <sebastianene@google.com>, catalin.marinas@arm.com,
+	Sudeep Holla <sudeep.holla@arm.com>, joey.gouly@arm.com,
+	maz@kernel.org, oliver.upton@linux.dev, snehalreddy@google.com,
+	suzuki.poulose@arm.com, vdonnefort@google.com, yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com,
+	Andrei Homescu <ahomescu@google.com>
+Subject: Re: [PATCH v2 4/4] KVM: arm64: Release the ownership of the hyp rx
+ buffer to Trustzone
+Message-ID: <Z9Lk9QwAGhYxk8lC@bogus>
+References: <20250227181750.3606372-1-sebastianene@google.com>
+ <20250227181750.3606372-5-sebastianene@google.com>
+ <20250305004522.GC31667@willie-the-truck>
+ <20250305094104.vctshdtgdukno2aj@bogus>
+ <20250305193425.GA32246@willie-the-truck>
+ <Z8ltm55D1jrv8QtX@bogus>
+ <20250313121559.GB7356@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <oz65tdekf2ywyzadbntuxntwxulcdzyo33se54qqdsddkogquh@bqnmsmqijfvb>
-X-Chocolate: 70 percent or better cocoa solids preferably
-X-Operating-System: Linux/6.1.0-21-amd64 (x86_64)
-X-Uptime: 13:54:58 up 309 days,  1:09,  1 user,  load average: 0.13, 0.07,
- 0.01
-User-Agent: Mutt/2.2.12 (2023-09-09)
+In-Reply-To: <20250313121559.GB7356@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_065611_903885_0B950C60 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20250313_070028_651180_65B75DBC 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,90 +75,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
+On Thu, Mar 13, 2025 at 12:15:59PM +0000, Will Deacon wrote:
+> On Thu, Mar 06, 2025 at 09:40:43AM +0000, Sudeep Holla wrote:
+> > On Wed, Mar 05, 2025 at 07:34:26PM +0000, Will Deacon wrote:
+> > > On Wed, Mar 05, 2025 at 09:41:04AM +0000, Sudeep Holla wrote:
+> > > > On Wed, Mar 05, 2025 at 12:45:23AM +0000, Will Deacon wrote:
+> > > > > Hmm, the FFA spec is characteristically unclear as to whether or not we
+> > > > > need to release the rx buffer in the case that the flags indicate use of
+> > > > > the rx buffer but the returned partition count is 0.
+> > > > >
+> > > > > Sudeep -- do you know what we should be doing in that case?
+> > > > >
+> > > >
+> > > > We need to call RX_RELEASE here. I went back to the spec to confirm the
+> > > > same again.
+> > > >
+> > > > v1.2 EAC0 spec Section 7.2.2.4.2 Transfer of buffer ownership
+> > > > (Or just look for the section title in any version of the spec)
+> > > > "
+> > > > 2. Ownership transfer for the RX buffer takes place as follows.
+> > > >     2. For a framework message,
+> > > >        1. Completion of the FFA_PARTITION_INFO_GET ABI transfers the ownership
+> > > >        of the callerâ€™s RX buffer from the Producer to the Consumer.
+> > > > 3. For both types of messages, an invocation of the following FF-A ABIs
+> > > >     transfers the ownership from the Consumer to the Producer.
+> > > >        1. FFA_MSG_WAIT ...
+> > > >        2. FFA_RX_RELEASE.
+> > > > "
+> > > >
+> > > > Hope that helps, can dig deeper if there are any ambiguities around this.
+> > >
+> > > Thanks Sudeep, but that also makes it sound like we need the RX_RELEASE
+> > > even if we're not using the RX buffer per the input flags. :/
+> > >
+> >
+> > Good spot, I had forgotten about the input flags that can avoid using the
+> > buffer. I will see if we can improve the spec in that regards.
+>
+> Thanks. In the meantime, what do you think is the correct behaviour in that
+> case? I guess _not_ doing the release when the flags don't request the RX
+> buffer? In other words:
+>
+>
+> 	if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
+> 		goto out_unlock;
+>
+> 	if (!count)
+> 		goto release_rx;
+>
+> 	[...]
+>
+> 	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+> 		ffa_to_smccc_res(res, FFA_RET_ABORTED);
+> 		goto release_rx;
+> 	}
+>
+> 	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
+> release_rx:
+> 	ffa_rx_release(&_res);
+> out_unlock:
+> 	hyp_spin_unlock(&host_buffers.lock);
+> }
+>
+>
+> What do you reckon?
 
-* Ioana Ciornei (ioana.ciornei@nxp.com) wrote:
-> On Thu, Mar 13, 2025 at 02:37:56PM +0100, Christophe Leroy wrote:
-> > 
-> > 
-> > Le 13/03/2025 à 14:21, Dr. David Alan Gilbert a écrit :
-> > > [Vous ne recevez pas souvent de courriers de linux@treblig.org. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
-> > > 
-> > > * Christophe Leroy (christophe.leroy@csgroup.eu) wrote:
-> > > > 
-> > > > 
-> > > > Le 15/11/2024 à 16:20, linux@treblig.org a écrit :
-> > > > > [Vous ne recevez pas souvent de courriers de linux@treblig.org. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
-> > > > > 
-> > > > > From: "Dr. David Alan Gilbert" <linux@treblig.org>
-> > > > > 
-> > > > > fsl_mc_allocator_driver_exit() was added explicitly by
-> > > > > commit 1e8ac83b6caf ("bus: fsl-mc: add fsl_mc_allocator cleanup function")
-> > > > > but was never used.
-> > > > > 
-> > > > > Remove it.
-> > > > > 
-> > > > > fsl_mc_portal_reset() was added in 2015 by
-> > > > > commit 197f4d6a4a00 ("staging: fsl-mc: fsl-mc object allocator driver")
-> > > > > but was never used.
-> > > > > 
-> > > > > Remove it.
-> > > > > 
-> > > > > fsl_mc_portal_reset() was the only caller of dpmcp_reset().
-> > > > > 
-> > > > > Remove it.
-> > > > > 
-> > > > > Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
-> > > > 
-> > > > Acked-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> > > 
-> > > Hi,
-> > >    Can someone pick this old change up please?  I see the PPC patchwork says
-> > >    'handled elsewhere' but doesn't say where.
-> > 
-> > MAINTAINERS file says where:
-> > 
-> > QORIQ DPAA2 FSL-MC BUS DRIVER
-> > M:	Stuart Yoder <stuyoder@gmail.com>
-> > M:	Laurentiu Tudor <laurentiu.tudor@nxp.com>
-> > L:	linux-kernel@vger.kernel.org
-> > S:	Maintained
-> > F:	Documentation/ABI/stable/sysfs-bus-fsl-mc
-> > F:	Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
-> > F:
-> > Documentation/networking/device_drivers/ethernet/freescale/dpaa2/overview.rst
-> > F:	drivers/bus/fsl-mc/
-> > F:	include/uapi/linux/fsl_mc.h
-> > 
-> > FREESCALE SOC DRIVERS
-> > M:	Christophe Leroy <christophe.leroy@csgroup.eu>
-> > L:	linuxppc-dev@lists.ozlabs.org
-> > L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> > S:	Maintained
-> > F:	Documentation/devicetree/bindings/misc/fsl,dpaa2-console.yaml
-> > F:	Documentation/devicetree/bindings/soc/fsl/
-> > F:	drivers/soc/fsl/
-> > F:	include/linux/fsl/
-> > F:	include/soc/fsl/
-> > 
-> > I acked the 2 line changes in include/linux/fsl/mc.h, the main changes being
-> > in the C files which are not under my scope.
-> > 
-> > Stuart, Laurentiu, can you pick up the patch ?
-> 
-> Stuart and Laurentiu are no longer at NXP. Even when they handled the
-> fsl-mc bus driver, they didn't have a tree themselves to pick patches up
-> but rather, historically, patches on the fsl-mc bus were picked by Greg
-> KH.
+Yes matches my understanding. I also cross checked with FF-A spec authors
+to be sure. Now I got to fix that in the driver, currently it releases
+buffer unconditionally which is wrong ðŸ™.
 
-OK, copied Greg in.
-
-Dave
-
-> Ioana
 -- 
- -----Open up your eyes, open up your mind, open up your code -------   
-/ Dr. David Alan Gilbert    |       Running GNU/Linux       | Happy  \ 
-\        dave @ treblig.org |                               | In Hex /
- \ _________________________|_____ http://www.treblig.org   |_______/
+Regards,
+Sudeep
 
