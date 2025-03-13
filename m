@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA098C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7583FC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HiHcfO46YFy+G7rNegmU0HN6KM+mOtmwJso74ubWtrM=; b=xQuJWhvKSCZghT7GC1pFOApjdJ
-	O8aQ3QtTaRMqiXOxgqDkas9Bm3szyZrUo8IRkgiIz96kidtKue1vIDgJp13nXIj3bHpsq3A/x3tdT
-	428ObvEf5IP5Uy3QxGkBOc4drliZ9OB4RWXri37TsswhydzvJphhR1KjY6/4DKK1nyG5Y0NRuBFhv
-	uRBuzCA3uGxxl7rZ01zKkDJWJZM97E44CV4aT4r0EeKXqh/OdFYBsPdrokEQ2LfxDZMeRZF2udWIm
-	PKultNel367pS88Rf3AtausMyxekQ1RgS8SpVz1D0ApRoWkmqITv9sTz3Z1vL0qgDgepLjJJGin3r
-	22kxvjKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L3F+szF2XQGRywilPjvawnmOy3jehJGbZVMLTgFQTJw=; b=29Kr4yHs29x10xKGvDicjPybX0
+	nv8G0HyuwmmRj5Afd65eaQIPOvac7/cPMHrZqsfQTsjBRqpGLcqlN3OFm+AgyaMpoNhxbnumkiTgW
+	KB5ygICZATlKcD7BwoKlyU3G/rkYgtGZ9IlexsyE5jeeySlRsMmXgk/7Tlv5LRctjp746SpN/WCRp
+	PvtHnc6A3Zl6Vevu7NowRrzABMrBjpOAzBNEsnD2LlyrQlqDJG8DhUUTr0lKWU8OtGxA09HDYlYsP
+	ivlMaCSAxxTYOisgir0aNKRXXM4I/TA7i89+etRM6UhwTx3xDUfm1p6j05yhAhMxmodyAOSW9SpNF
+	0/olKq0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnzB-0000000CIA3-48zE;
-	Thu, 13 Mar 2025 19:12:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tso1I-0000000CIU7-2nAt;
+	Thu, 13 Mar 2025 19:15:04 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnxW-0000000CHwV-1QSW
+	id 1tsnzc-0000000CIEt-2nhu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 19:11:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5549EA48703
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 19:05:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A9BC4CEF0
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 19:11:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741893068;
-	bh=Lr25EZkqxsPL3BB3IHuJEFZ8TJ1hBBK49jrHSJx6Gj4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=oevAoY3+/xB5VOwPK/1aY6R2CgtAQVmg9qw2dUTMnNz4qVSiKJDy3ZHfRR16qT+/4
-	 dVYWCd79CPNwrCz8OQQcQhFRgmsj7YValC4LccajI/xIBupibEPUCGGpLxvczxx4+4
-	 FvhaJtKiq/oheQW7uf3JuDTOuTB6lrG+rlxQUHQOHVSUrITYB/SUgcOlnOABelmx5D
-	 n3s/daUujbgufdPlIJjDZbu245wCFv368RoC+7bwyNecYdHdq273StjobJAbCMlBSz
-	 L++PFLlZ5Swc248DwDwTjIPwxurGSgFPlwmmRoCpRyiS7+PVPn2iWYaK9u8rBTzTKO
-	 b1Lxnk6yR14NQ==
-Received: by mail-il1-f171.google.com with SMTP id e9e14a558f8ab-3d439dc0548so4765775ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 12:11:08 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yw5xbMKgkobo7L4Z5vaWUCGVM/z0Bz+/spewCnkejjH3wFXJZR3
-	wGSHy4OzTFWrefSBW4NzxHaMLcQp2l0bWgVsF2twoLbEjtH3MZbs4SNrS4UfEscpnn61ef2tRSZ
-	eKMkw+Fu7BcrswyXUxpy+BmEVrbY=
-X-Google-Smtp-Source: AGHT+IGNaR9f/JVYBzHMMBNK+4GBcPFS332kc+pm3ldB4zFS8Anllv7AuVgokgN6kmTde5EZ5Ep8F2WKYTV04VfIU5M=
-X-Received: by 2002:a05:6e02:144b:b0:3d4:276:9a1b with SMTP id
- e9e14a558f8ab-3d481783128mr10476285ab.16.1741893067798; Thu, 13 Mar 2025
- 12:11:07 -0700 (PDT)
+	Thu, 13 Mar 2025 19:13:21 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ac25d2b2354so232074866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 12:13:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741893199; x=1742497999; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=L3F+szF2XQGRywilPjvawnmOy3jehJGbZVMLTgFQTJw=;
+        b=Z6KF2A65bH+X1QNfBcdT+yCoFIVJf0f3FHDJJvEiQnO5S0o0MovfctEarrQOVbbSR3
+         TL1dmpt9hinxwruR/dQNOoaIHn0P6cmmggZmdCtXZkQeaY8bR79CgKQjLZEvs7+Y0UOu
+         4jbC7JHKHawBILFiwH2FEXgzbu6iJ2Bqo+m/WRsCT+6O2So77g93QQbfXNdJCbhGwjcS
+         MH+zTvQSj/S/eMI1FB7h4nBS5IcNDyQ5bZydbotaG4XEiF/igeGhrTKzoU2y5ZzmtaNE
+         xahvscqPap49rGtZfn4hOqhjpgY4nHGB5omA86swLwBgwTSfZ6gj1cKCqTxs/9ygmG65
+         VTYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741893199; x=1742497999;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L3F+szF2XQGRywilPjvawnmOy3jehJGbZVMLTgFQTJw=;
+        b=cSrrhJbbsiALG5Z2k2IW0ZJ4oqXpyM45WqbpMQ9qt+pouVj+M38PXVw/BAGCezlv7v
+         j/1CeOg6N3VDtT1LMgtKwZG+Sqqxomh7ZdvcIkfk1ZFWeUrJ44LDPMlE8RfE2qzf1FMC
+         XakakdvuaDtCYTtn2japWYkA9e0jXrUvauePo1IDzFhdKExOA/9ZuqsMmFvUTHDN1RVT
+         QzoOpl+9ZL/idrp/7K6Gix8Ksv3JNH3aep0sxQA0RrhHWS2c9V2VS7qM7rY84tp4wKbd
+         jM27Zfrim7f+hnVcwdt65LHirw8WXJIzQ8qNql+sWwYXBi/vDQgI6S1nTnFCqCAfPsiB
+         vYgg==
+X-Forwarded-Encrypted: i=1; AJvYcCVynMZVwyceFII8wNlrzwqMcnROoBRTGS1Dl2WOVBbcTfZSwx5Qj1o8TTC8fYUVxjDtp4QE/4mmOdjg6rPUsAht@lists.infradead.org
+X-Gm-Message-State: AOJu0YzibMIS6eqh1Kr661BR/JttB6MdXOdS5AArMYmxK3AV6V3MMQ3e
+	9sMIvFZjEktCdQpkXVjC2DhlTWfntKdMExQW7tDErmTPEthT5Gq4xNSWd3MBElLAD+npJ2szSIC
+	TZQ==
+X-Gm-Gg: ASbGncsUhWLls/8XypNJayF6jWEBJvzHJCmNy0TMft0D7qwxl12LD72UGTdKcDYRpMX
+	6evtpR2q+obV9qnqrlYsO96vZsXogLdz/56pkHP03aQEcAkDdRCWnDouEn/e+Gi8qYzGC3JOjIy
+	BhR4rbRVsAAMH2lN5w5H8CBsdmmc3DOCzEuPd9Gj1q5ZdwUP9v1PeeLGuCNS6QJrdf7kbTF3zyg
+	Yc3x3dqq949FBqrtyJ9BDOe0/pOV/F3AC4v0i1+KA3tn/g4C8XeVhdZYokHKlndIYQWymIkIQME
+	E4Kxg63ypGfl5/qOx0LHCfAYNdjL/58eDY8lzPOlJ/THnWwf878nXyAwLU/9vlChVaoL8VIzK4y
+	063SIB4xixemM6Q==
+X-Google-Smtp-Source: AGHT+IEanomM0uBClXIAdabeKJSIm41T83oGDtOVqnFsMRhIN+NlCFIyaB46i6op0dkiYwNIf1+dsA==
+X-Received: by 2002:a17:907:9718:b0:abf:c20d:501a with SMTP id a640c23a62f3a-ac3290b6383mr73370666b.16.1741893198827;
+        Thu, 13 Mar 2025 12:13:18 -0700 (PDT)
+Received: from google.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3149ced82sm113262066b.123.2025.03.13.12.13.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 12:13:18 -0700 (PDT)
+Date: Thu, 13 Mar 2025 19:13:14 +0000
+From: Quentin Perret <qperret@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/6] KVM: arm64: Move hyp state to hyp_vmemmap
+Message-ID: <Z9MuSsOQuTy1kAwK@google.com>
+References: <20250227003310.367350-1-qperret@google.com>
+ <20250227003310.367350-5-qperret@google.com>
+ <Z8V6xOVCPp7OOX6g@google.com>
 MIME-Version: 1.0
-References: <20250308012742.3208215-1-song@kernel.org> <20250308012742.3208215-2-song@kernel.org>
- <20250313-angelic-coral-giraffe-dfa4f3@leitao>
-In-Reply-To: <20250313-angelic-coral-giraffe-dfa4f3@leitao>
-From: Song Liu <song@kernel.org>
-Date: Thu, 13 Mar 2025 12:10:56 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW4QjDx1_2xXVjPzy2HueR+ZGb-q=zsn4S-TYSp38Tp-Zg@mail.gmail.com>
-X-Gm-Features: AQ5f1JoREMu_L4nvl7y97uDhMFDyg_nK0nvfqGckRS9rsJPlVC_Jg1pGhtp1-gQ
-Message-ID: <CAPhsuW4QjDx1_2xXVjPzy2HueR+ZGb-q=zsn4S-TYSp38Tp-Zg@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
-To: Breno Leitao <leitao@debian.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
-	indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com, 
-	irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org, 
-	mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev, 
-	rostedt@goodmis.org, will@kernel.org, kernel-team@meta.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8V6xOVCPp7OOX6g@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_121110_512045_6E753B97 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20250313_121320_705612_DFC5DEB7 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +105,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 11:12=E2=80=AFAM Breno Leitao <leitao@debian.org> w=
-rote:
->
-> On Fri, Mar 07, 2025 at 05:27:41PM -0800, Song Liu wrote:
-> > With proper exception boundary detection, it is possible to implment
-> > arch_stack_walk_reliable without sframe.
-> >
-> > Note that, arch_stack_walk_reliable does not guarantee getting reliable
-> > stack in all scenarios. Instead, it can reliably detect when the stack
-> > trace is not reliable, which is enough to provide reliable livepatching=
-.
-> >
-> > This version has been inspired by Weinan Liu's patch [1].
-> >
-> > [1] https://lore.kernel.org/live-patching/20250127213310.2496133-7-wnli=
-u@google.com/
-> > Signed-off-by: Song Liu <song@kernel.org>
->
-> Tested-by: Breno Leitao <leitao@debian.org>
+On Monday 03 Mar 2025 at 09:47:48 (+0000), Vincent Donnefort wrote:
+> [...]
+> 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > index 1a414288fe8c..955c431af5d0 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > @@ -194,16 +194,20 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+> >  
+> >  	/*
+> >  	 * Adjust the host stage-2 mappings to match the ownership attributes
+> > -	 * configured in the hypervisor stage-1.
+> > +	 * configured in the hypervisor stage-1, and make sure to propagate them
+> > +	 * to the hyp_vmemmap state.
+> >  	 */
+> >  	state = pkvm_getstate(kvm_pgtable_hyp_pte_prot(ctx->old));
+> >  	switch (state) {
+> >  	case PKVM_PAGE_OWNED:
+> > +		set_hyp_state(phys, PKVM_PAGE_OWNED);
+> >  		return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
+> >  	case PKVM_PAGE_SHARED_OWNED:
+> > +		set_hyp_state(phys, PKVM_PAGE_SHARED_OWNED);
+> >  		set_host_state(phys, PKVM_PAGE_SHARED_BORROWED);
+> >  		break;
+> >  	case PKVM_PAGE_SHARED_BORROWED:
+> > +		set_hyp_state(phys, PKVM_PAGE_SHARED_BORROWED);
+> >  		set_host_state(phys, PKVM_PAGE_SHARED_OWNED);
+> >  		break;
+> >  	default:
+> 
+> Are the SHARED_OWNED/SHARED_BORROWED still relevant since the introduction of
+> "KVM: arm64: Don't map 'kvm_vgic_global_state' at EL2 with pKVM"? It doesn't
+> seem we have any !OWNED pages in the hyp anymore at setup, do we?
 
-Thanks for the testing!
+That's a good point. I personally don't hate that we have this code here
+for completeness though -- it's simple enough that maintaining it isn't
+too bad, and if we were to add shared pages in the future it would 'just
+work'. But no strong opinion. I guess we could also remove this code as
+a separate clean-up, this isn't specific to this series.
 
->
-> >  arch/arm64/Kconfig                         |  2 +-
-> >  arch/arm64/include/asm/stacktrace/common.h |  1 +
-> >  arch/arm64/kernel/stacktrace.c             | 44 +++++++++++++++++++++-
-> >  3 files changed, 45 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 940343beb3d4..ed4f7bf4a879 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -275,6 +275,7 @@ config ARM64
-> >       select HAVE_SOFTIRQ_ON_OWN_STACK
-> >       select USER_STACKTRACE_SUPPORT
-> >       select VDSO_GETRANDOM
-> > +     select HAVE_RELIABLE_STACKTRACE
->
-> Can we really mark this is reliable stacktrace?  I am wondering
-> if we need an intermediate state (potentially reliable stacktrace?)
-> until we have a fully reliable stack unwinder.
-
-AFAICT, we do not expect arch_stack_walk_reliable() to always
-return a reliable stack. Instead, it is expected to return -EINVAL if
-the stack trace is not reliable. OTOH, arch_stack_walk() doesn't
-warn the caller when the stack trace is not reliable. This is exactly
-what we need for live patch: we just need to make the patch
-transition when the stack trace is reliable and none of the functions
-in the stack is being patched. If the stack trace is not reliable, we
-will retry the transition at a later time.
-
-Thanks,
-Song
+Thanks!
+Quentin
 
