@@ -4,172 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 001CCC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 15:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D1AC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 15:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8gAA+4EqlJx0rjxfoA6MFVai1qP84GJtaEiX/bow6Tk=; b=MeaEdbkOM2HXVW+e903mrU+aXP
-	CAGKo823VpI0mo7UbY1cQj2mo3P0wTTxruOW0V1tMpGM5B65YjtfzWky1Sco9g7F+zxYXl8Z3Bb2y
-	zZuE2QwAxczcDHI9Ofd64qLiGICnP6KOjag3Uscx/XA34Fl8xnGxZ8tcAnvMuLg+J2y65LLgszRJ5
-	XODGkJ3hE4bJRmUB9dFqaqSztQ7wNSJZNnxWOOcZjCc3ieWJzLqHsnkGWlFzSzSM3ljEaZ22qk+GC
-	qCEhxRrDRmSFaZkBf37Cej7cKP0B2OoNOwx9d9pXpbqvQrCQt0VBxTUA3T27C038G6ByuZinCorV3
-	pw8HoAeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=BCf2+waZi8IsVS0Dh7ZXk+hJXrnbdpJGf8gHBiSbXaU=; b=ggadayipILpPFEAMWdxVTF7vQo
+	Feu7fpKq0J3U0+XVvV7kcnMa3QaAbpYySjZ4KbfGJvtTZ16mYnBsAItGy/p7eDeRX0ZBXHyDKphD8
+	IHvSfkeYM9IL6/1DPfH0okeWKKqzZ/6AJq2qpER/irGS00mqKKNMjDWngH7U0ZBmZt5UD3rjPZotz
+	e1hJShOnA41unTKEGQB8AWAKiyQWs5hfhSoOD8FjajXjfgSaSoPQWNXJ+IIyPQMaSSVSTvC9wwCgz
+	PhvVQgzQ5T5NpPBNCXUnpRPqw0WztYS8hekSXRk6IFBfdhvcrWg3WWfwITYmNioTmE9yGdv/kJC4E
+	RyyLXDEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6e8-0000000EVQV-2aAQ;
-	Fri, 14 Mar 2025 15:08:24 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1tt6fm-0000000EVf3-3Imu;
+	Fri, 14 Mar 2025 15:10:06 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6Z5-0000000EUgD-3GZv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 15:03:13 +0000
+	id 1tt6aZ-0000000EUvM-2moH;
+	Fri, 14 Mar 2025 15:04:45 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x8RcFyqJP71O/LRjVeDNRyY0YLVs4B0tabAEnek8cTRkpJoAuMFdYw2/ou+Vokig+pktyzNx6Zo6f4JC2YPFykPVGWK1d+pmLjxhkLjd1KQdmHD4mBaTmc9e9U8q8fooSNfC/jjooEebFTIuLIDjx411FC0rtXjoJz75AkXD6kwvBiwh8NO6IELJdmBr/uFvgwpqpYO+2zjHihcabBqIg2EIXcnHQZG70VvAxQBfgwVlg0vHxY86VdnEK7pBNzTSv4pTiQHwUwhqTtjwO4jUyZKwjxSkZNb84X3O4Z2sz1jJu+QJ5lvyI8TnN9Ox+Nac/P8/RdSt6MKRHEvW4GTa4g==
+ b=ro2hcywl6rQ2bZK21bJKxPQaFg73YMGieEYoZIKng6n8yMypXnCPgU5BNXllPWquoR21gqYRZigXiNFJ5mp0T0LZbuHINwx7hmt+osLXvp8hi8J0GV2c5w0j6YdRF3syMvZcAeqvdqwdYa9PIw/Uwjagpt5mgKeMaTBCckFQkeWBp3lViSDzbsWnZW1QJLgmB5E2JmjWRO+xQnCzxhAKgsBJGOTBSDllSUEEyeHUz0H8i2c8lGYCfGP6kIsITYWt3x/J1kv/ATaCZUlG2szyazWRpkhXYNbZh4MTK1x3rXJHFYOYk8XgoBApzWO47mxCRzd+fVswNU8k6ES2FFacWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8gAA+4EqlJx0rjxfoA6MFVai1qP84GJtaEiX/bow6Tk=;
- b=kfHFO832ZwqKR5HJJiFjvCeF5dKu1anSHMXOVG0i0G8NwovBdvfILcEsZ0RPGkJDdOU/K9Hp9R+F97KWD/WDBytbpGVNhxXCcPZq8rhBAMNkgBgN5PvZfuMWEmsy16x0WPkummYdGHBtHTNJKr9/S04zkfpTstZNm61JgtfezXpQ+QZd/HpADhcKy5oNHcmpQ1LSxT2RM+KJGLerd9ABL0E9O5bAXuQ98vnNIu9K7M0XPo15jWUrB/exRlZMbQXtGkRuo/A4eZsVQIfh7BMFxGsuWbTKJxBFdUrbKAYMYO85NHRSulyxdtvg2W53LN0ThG7DI54ZBFS0677YPH6Q/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=BCf2+waZi8IsVS0Dh7ZXk+hJXrnbdpJGf8gHBiSbXaU=;
+ b=eJkIcbTPj2AZT/uJYwHJzn3fG+qlapLwdCmXicSGh1OVjxhTyiUnBhwdNNGNBJjmhIdRs90FaSeg1EwAhd9jv0v96ZJSY0YcrfRDlLZhQTzCoIhAJOwXvl4PJkUnhWZy51cKezG0HmOET/OUL4wximWoc+Sd3c1kv1C0JFbYTti12mwrM3bQzGxU8gLZqHwLH7hG1Jtv2DXTpbKC202ImD6Kt1h0LWqCzRA4oRlpMU/KvkDApYBCVEhCgavMYQtC23YHAaDj0M2Q6x8uOa9wNn6ytQy1N+CZoED10vPWyCxVIhEe42Prc2+dhxBpyeGMisyzBw0vQl26MqCVWJ8eLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=topic.nl;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=topic.nl;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8gAA+4EqlJx0rjxfoA6MFVai1qP84GJtaEiX/bow6Tk=;
- b=HkYgNMl1Z6snwO9n/h4X6NYlWtm+2bPPgDx9mMidKpNoOL0nJC1nHfcL7rLoKR2Lsr6xfoHLRNOyYMYSwJKovThO2AHV5ylrwn6Uy+hBNfDuvrDHvG92sT+ZdQtGeZ1Wqow0LXX/IvJcEfXaEVhAsayenYV8jkyzwdM2i3kCckUQh4lAHV6fR+aRLJTqse2SOEdJ9hK3R93JAhc2FqHeAVl6tUWw98pWzuwN/ZqFsofw6oH75q9ecxnfZKOfaKiQ5hXyxG48bYUsZUmQcUdVisbVXBF8qNie/JQl8+hVsGYJDwNMRulKaAoj+3136WBPiOWGD4gowjq2HnNEDSrSew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PR3PR04MB7290.eurprd04.prod.outlook.com (2603:10a6:102:82::13) with
+ bh=BCf2+waZi8IsVS0Dh7ZXk+hJXrnbdpJGf8gHBiSbXaU=;
+ b=f3SSiXnwMM8zk0nRyjDn/m9TFebxZ/qrRY0FU3zTznBDTWRvjTFJz66VpYLpXmq0Dg9Zkh3Krkf09Wy5I8+joIUY0MNtw8r0bqeL8q1kYGSCV0TdbotdKFkTzfO9GxFg1I3yQ11XgV2L0hQQHTjz8ks4FTAfIcw8BHCQjai+cL2D4geB/kkwVIRqSz0Nw0DGmOcdTa2dhDt0qysMKNDBFY+RfxYQbV603wm/7+AH6rlbmZBRxTYdx4CaFr4hZ/WlS4aOW+hFkNp47J+htoVuYEM4oIobk0lg6acjFzBTKIWEK0KqCqkCPLmbVAhI4uVPCn6WU30tpCt1yHNfmVWKlA==
+Received: from DU2PR04CA0219.eurprd04.prod.outlook.com (2603:10a6:10:2b1::14)
+ by AS8PR04MB7656.eurprd04.prod.outlook.com (2603:10a6:20b:29b::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.27; Fri, 14 Mar
- 2025 15:03:08 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.026; Fri, 14 Mar 2025
- 15:03:08 +0000
-Date: Fri, 14 Mar 2025 11:03:00 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH PATCH RFC NOT TESTED 1/2] ARM: dts: ti: dra7: Correct
- ranges for PCIe and parent bus nodes
-Message-ID: <Z9RFJDdnoU+aKwF7@lizhi-Precision-Tower-5810>
-References: <20250305-dra-v1-0-8dc6d9a0e1c0@nxp.com>
- <20250305-dra-v1-1-8dc6d9a0e1c0@nxp.com>
- <20250313165311.2fj7aus3pcsg4m2c@thinkpad>
- <20250314064642.fyf3jqylmc6meft7@uda0492258>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250314064642.fyf3jqylmc6meft7@uda0492258>
-X-ClientProxiedBy: SJ0PR03CA0075.namprd03.prod.outlook.com
- (2603:10b6:a03:331::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Fri, 14 Mar
+ 2025 15:04:40 +0000
+Received: from DB1PEPF000509F4.eurprd02.prod.outlook.com
+ (2603:10a6:10:2b1:cafe::f4) by DU2PR04CA0219.outlook.office365.com
+ (2603:10a6:10:2b1::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.24 via Frontend Transport; Fri,
+ 14 Mar 2025 15:04:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ DB1PEPF000509F4.mail.protection.outlook.com (10.167.242.150) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Fri, 14 Mar 2025 15:04:40 +0000
+Received: from EUR05-DB8-obe.outbound.protection.outlook.com (104.47.17.111) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Fri, 14 Mar 2025 15:04:39 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
+ by PA1PR04MB11034.eurprd04.prod.outlook.com (2603:10a6:102:483::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Fri, 14 Mar
+ 2025 15:04:37 +0000
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8511.026; Fri, 14 Mar 2025
+ 15:04:37 +0000
+From: Mike Looijmans <mike.looijmans@topic.nl>
+To: linux-phy@lists.infradead.org
+CC: Mike Looijmans <mike.looijmans@topic.nl>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] phy-zynqmp: Postpone getting clock rate until actually needed
+Date: Fri, 14 Mar 2025 16:04:18 +0100
+Message-ID: <20250314150431.28319-1-mike.looijmans@topic.nl>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P189CA0001.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d7::6) To AS8PR04MB8644.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::12)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PR3PR04MB7290:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69d3fad2-9c82-4145-48e4-08dd6309545f
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|PA1PR04MB11034:EE_|DB1PEPF000509F4:EE_|AS8PR04MB7656:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7daf1d0-f4c1-4528-c912-08dd63098b92
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NE9OMmFpOGJYOVRjdHcxM3loKzd3Q1VtRnAyamNSZGxvclFINDBIOHp1OExi?=
- =?utf-8?B?QllTSTA2K1pHM2htQnVYN21wdVZ0L2cvUytYMk80dWhad21nNXNoZGxZcmNY?=
- =?utf-8?B?L2dWYjJSUER3b1RZd3dsMkdkSXhIRmhNNDZOaGlwNmZacjkyZzV0cDkxTzRs?=
- =?utf-8?B?WjdMWHU5OVFLcTM3Mm1wZWg0RStsdkpIMVFGN0RIV0xpK2R0MlZyQ3VkZ2RG?=
- =?utf-8?B?ZXdyanh6bkxxenFFbG1XYmdyK0h0eW1Gb3NoVnZwbXo3aUJjYjByeHJadWhs?=
- =?utf-8?B?TTRJaXZhS0N5Z0lXdnN6M21ZV3lvRmJKbHVHWHhoQU1IK2VJVGp4cVBXSU81?=
- =?utf-8?B?clVLY24xTEFKL3NzL1J1SG1Zbm1SYmRaRDB0L2VhRGxzb1R1REdVdk9vaHpz?=
- =?utf-8?B?N2huZ2VqTFltajlLSHJtZjcvTVRDL2YrQ0VnaTl5ZUtvcDl4c3ZRUFMvTGdh?=
- =?utf-8?B?N2lrbG5kUEwwbWFscGhWcm5wbXlRMU1zSXhFN1VuSW4vaU1EOXlzdGtWM3dB?=
- =?utf-8?B?OHZwc0UyVGRqMlJlOVUwU3ZJcThiVGs0NEhacDlwYWFjVUpENnhmUGNISUNz?=
- =?utf-8?B?ak15OGxhcUFObXhSRmp1SFk1aW1JcHlzUVFYQTVBZksrejhYZWY0TDBkREJk?=
- =?utf-8?B?bVRyWm9US3RPb1loR1UzVGF3N2JOakF1eUMrbFgvM01aYWVzbmUxbExMaStE?=
- =?utf-8?B?UTdrTlJpQ2t3TUo5MnZDdjVBUDBUT3VwYWV0cjFPVFNkNjFpVlQ2K01HdlhH?=
- =?utf-8?B?SGRORDYyU2NkTkFUTmVoRXRSRDNvOTJYaE5hV0tWMlF6U01DMTFwV1g5b1Ja?=
- =?utf-8?B?M0puNWxrMW1aOW56Q1A0Vml4U1h5dVM0RWFyKzJNUm1SOUpnNVlzVXc3V2VN?=
- =?utf-8?B?VjI2eHovTjdrd203SDdtd1JrSXV5S2ZjOFhneSszYmpydnVheVJKSWtvYk93?=
- =?utf-8?B?b0p0OVZBaEgwQ3FUc1ZhOWh5eVJvR1NGZkRLT3FCckxUb09NaU1wZVZUMkIv?=
- =?utf-8?B?dnFQUVFtUGpUZ0R0YTBGTjdlQU9yZFQ1QTY3U0F4SE9SVE1WSEx0TnFDYTRt?=
- =?utf-8?B?VWlLVC9GVUxwaUFxWHFLOHRrUEFXRTloT3hyd2cxdXZSWi9aM3c1ZUlRVUdi?=
- =?utf-8?B?VTNON2xsaUYrZDJkeW52VFNYZzB4TzhsbFFrK3gzZ1BBQmVDa3NBU2VsSmQx?=
- =?utf-8?B?THB2WnpDdnI4ZVNLMzBXOCtTV0NLbnYveWlXa3h1djNSZkJEVVBuT1NkVy9k?=
- =?utf-8?B?OWZ5RnI3T1kzcmlaNzkxc05tSkVrSFdyTXpMMU54aVZQdHN6QWFqYjBkVkJk?=
- =?utf-8?B?ZFREVFVTaHJEK2E5b0IzM0V6UXovTDhoNEdkRkFGZkxKRFFWckt3QnBlLzJh?=
- =?utf-8?B?NlN3S1g1RmthUFhuMUVTbTc1VThnVkpCYTAxRkNoL2U3Z3NwL3UzTGd3N24r?=
- =?utf-8?B?VHFWd0NjSDV5bFI0dGpzakJIRFJ5cUdQbEtqcDFGTklnODNLL1hZNlJSZ1Vi?=
- =?utf-8?B?ZjBaejlUdjh6YlhBc2hVR2RhSUR3UXVnNExKWEM0S2U5d0JPQlR6WkhwUjk1?=
- =?utf-8?B?VmxBYWovRnE3QjhPaW9LeEV5dmQxUUxOL1pCYUFENEpYM1lVVU1pYVVzMVI1?=
- =?utf-8?B?THQ4bGxHU3l2ZGxkVkRwZnJwcnRXMTBWOWFpRWVMcDVoVEVCdVFIeWhDU09G?=
- =?utf-8?B?WmkrTEl6bkc4dFJPcUxDWXhCNXF0R04rYm5ZeHQrL3NpUUZsT3J6cHgzbEpX?=
- =?utf-8?B?UEhMN1phUTR0L3RmOVIyWStBUFE1dVJiUGxjd2lMT2NFWjNMYUNEYmtQTnhR?=
- =?utf-8?B?akxhRTV0b0QxanFsUFN2WVVuaHd2aHpGaWtReTNCaUJleVdYOVV0dXZwTSsx?=
- =?utf-8?B?NVRhYUt0a09vMnNJQ0phVjgvNDEreER3MDI0aFQwRDArU0E9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VjdqcHowK0hyWTNmU0gvWllMYnJjT0RUT1dBQXhUQkRNN1FwQVphQW5wM2di?=
- =?utf-8?B?alVmaS9BYUJjeHl3MHVubWxNOHY0NWpFWFovdGVlVXNyeXU4ejV6cVZzK2xi?=
- =?utf-8?B?M1podWJpalFjc3lldjJiTjhsRjluaVlGQWt2bUkzYjkyTGRVZDZSUUVPekRK?=
- =?utf-8?B?V3VKVVNYVUcxbFdtRFhjRlRGSVRUS0hZUnJJdEtMcHlZVlp5SDV1WW1PRkxE?=
- =?utf-8?B?YXVNKzZtcFZ0VTQwbjJ4L2NXM0VPWm5Zbkx2Tis0MGI3a2NaTndZVGE1NEI2?=
- =?utf-8?B?Mks4STNVZnhTTHV5RFNJWjNMTlU3UkN2OG95OVVlRnA1L1A0L3U4T1FXYkxo?=
- =?utf-8?B?R0g1aVNHMU5sNVFlaHBYNTU2bFZwb3FTcmNCL0grQWFidm5aY3hrR2xKT2ZI?=
- =?utf-8?B?bmNQTHJsbWZWOE9uSE9QdksxZkU5aUg2Tit1OFVxN3V2aGF1c0dHVGlrMGpx?=
- =?utf-8?B?S0J2U1gxSHgrcXFlc0J6Z09KWTl5d1RGZ2dmc1NNRzV5OG9uVlNhMTE0ODJS?=
- =?utf-8?B?bEhWaUNDWTVtOUh4bDk3eTRuUy9EcitrSzlKNzlsQ0x2WExzMFJnOGtwTkVm?=
- =?utf-8?B?ZTlhN1JkZlJPejRXcmtRSTZwMnJld2FYQ0o1MzNjQmFEYmwveVEwd3FTbVQ3?=
- =?utf-8?B?OGp2WUxSRWkzUDJKN3lpUDdEQ3k3UklkZ0RTUVFrWFRzTVNYeWE5NzVybVRl?=
- =?utf-8?B?RXR0OXlTYjJwcTloYnhEdmVMeDh0RzgyZ1luMkxaRnk0MDJtR1lnOUZwUXp4?=
- =?utf-8?B?OVJFSmRzMU9DU0I3U2tGd2NiVGEvb2lscXNyOVJ1cm5NSlJpNmZXTFV6TkxN?=
- =?utf-8?B?SVlRSi8yWEVFb1c5bkl0akY3aU51QkxJYnRlSFpGQURLdUxMdm11QnR6YnFk?=
- =?utf-8?B?MzR4QVNyWk40Tlk2bGZFc0xtVkRnYllBcFRMdWxYc3RvVm9xYXcyeGlYRkV1?=
- =?utf-8?B?Tm9WTU1rOHF6QVgvVzNlTmZiUDNEb2dOeUVZd2lzRnVBMkRQNXlEcCtyY24x?=
- =?utf-8?B?cWtLOXVhUEJzY212TWVzS3J5WW85cWg4L3hPM2tIWmZOZGdTQUpNZFFCNTFU?=
- =?utf-8?B?VG1lT1pVWk15eFhSUldtTm5VUXQ1RnRidnhSYWhvZENscnlJUVpOQzZrd05V?=
- =?utf-8?B?NzNZSHRRYXlqcGw4S3BWd05odVBUZFVBcHNmbDhUdUNsZHBCMEFyamFqWDl2?=
- =?utf-8?B?anNTNDB4SFRQaWFTMjBCSzU0MHhDNWdUN1hTbSsvV3IzaHA2dDB0WXpXMS8r?=
- =?utf-8?B?K3h2VjhqeUU0YVNmcmM0S2daajVBZnlyQmsxdEdxck1tSXFTR0RMOGtJVGxy?=
- =?utf-8?B?M2tQU1NQRFlJYW0rc0Ftbk5EaVFmTktsL3Q2MmFaOWx2Tm03MW0rdlRuN3dT?=
- =?utf-8?B?blgzMFkva1YvbjNZMnBJbllqcmZvMUdyMFJDN2dQSkRGRmpEaFVrT3pqNjlP?=
- =?utf-8?B?dTdBZ2I5YXg3TDR5TXZKcjkrRjFnK1pRc1BablVRem1kTEhnamMybDlvY3No?=
- =?utf-8?B?VnhFQXRKMlovMjBVb1p1MVZyN3ZOalVqbFNoNzh4QWNNeStoenB5cXBUa3JL?=
- =?utf-8?B?WlU4b3M3QWkwY3ZIeUR2cjQ1dENFd29oSEEwWncvdGJ0SUtPQVB0aFhUaDQw?=
- =?utf-8?B?VHdsdmsveWR6ZFNyaHVrUjc0eCsyRmdPTzlza3ZobEVDVVB3NC96T3RvUEsr?=
- =?utf-8?B?Y29QSUVHUElxZ2RGSnVUajFTcXYvOStQM3gzRXM4VXNzamV3SUFjQkNpblRV?=
- =?utf-8?B?Yk5ub01wWlEvMWdFNUc3Y2NLdnZva0h2Rk9aTExVTlBPWVdESmFueU5LL0oy?=
- =?utf-8?B?QjFuMkFOTE12S1ZjdFQ2MFpDY1FNOGxyWGdEbmRSQXpEblR1Q2dZcmdCSk5j?=
- =?utf-8?B?cFY0UFVGb0hZb2RhU2N5SStHM2JzdEM5SDNrbG9scHMyeEVJOEJwejBJOXFh?=
- =?utf-8?B?dzJDVSttY0Y0V09qeFM1VkZjb1d0bGkrNytOWHpRMHpLYnQ1RXg0TGp1dzBm?=
- =?utf-8?B?U0w5dWpjRzVMNm1nUmpPdkpHZmlmaXg3WjVzbEc0aGhTV3hKR0kvQXRuZkx4?=
- =?utf-8?B?d2EwendxcndHaE9tT1R2YS9sclBOaHNoNU5JNmRLWnBZRXhJWWMrVXQxeC8w?=
- =?utf-8?Q?KVhWW1Ok29C+JBywOpHIxrZuX?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69d3fad2-9c82-4145-48e4-08dd6309545f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 15:03:07.9255
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|52116014|366016|1800799024|376014|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?jCa9bQSLAgzz8MFgBoN0S23r6M5BAyUMRY47AYeVQwStorVNvv++hLcvmgml?=
+ =?us-ascii?Q?dzmG0rC/9e913bN0H4GVwOwwb3qN+TatFb1wktPNrFJzCczi0ZlVN2mXHeVk?=
+ =?us-ascii?Q?C88ebvU8kxOKOSURv1WChDrS/kqp6YmJn8/VwJwQKeuYhTpnD6BbrPbS+kdi?=
+ =?us-ascii?Q?iIe9DwkaQ1PZ1hb8lo3oJjj4C+BpuE3t6ga+YcxSdu/KJd6zK8mqvd67kibs?=
+ =?us-ascii?Q?XcUHvoBSkq78GarJ0KBPZElzhC/G6GcbKuFYmtUDK5O80n+6sx3eFz3dz5Ra?=
+ =?us-ascii?Q?u5RLfzeERrDrd7rE4A/bSZOcb78sY2V5+6i30MODowhnee4M/aPhAaV/+rVB?=
+ =?us-ascii?Q?mHmzKx9NQAywlnrwEWGWdnuEbGRyXhUlFcmVVot/6kbgSBmvrxpXSIpBN1WN?=
+ =?us-ascii?Q?btx46TWVA6Prui+dtgyDwGA5ZvVD7GfNu4rvBbRx9KahUFMSWqQsMUQQER+l?=
+ =?us-ascii?Q?zwCzauLGhDEox7DahnFlx6rjDVegZWUq75gym4LF9Hb3d/Mr9V1b9JhcktpL?=
+ =?us-ascii?Q?w3Zkq9wNPYSdeusGUq8QxSVdVIttYPxDxOT1XrSLmxnbbKDK2wEG5P1G8B0M?=
+ =?us-ascii?Q?4XxgVhS8NGwiNE3R8hdYUYQhPc6P5eNB3XQR5vIr2IVAQzifSUc1Hc4z/KUw?=
+ =?us-ascii?Q?QYnBPlZ3ictM0c7QYG9jWdQzlrMMvnppWQ49AJe2lK4JjYRxlf8w7SeT09tS?=
+ =?us-ascii?Q?1W33zNpGw4JU3u6L17Oqjv5cxLlxGCAMRYtqatHjCp7loTzz7wRcxCZnXgdK?=
+ =?us-ascii?Q?5Gl1B8oLuRGPwGQSMX0piNwE2TqTzW0B+dXUVP+GLaJYDrqLgGRifXzT+soR?=
+ =?us-ascii?Q?VfFgyOvSvJCVgH39yMDWkXZGloVCpULSCE7RHn4/BXGnphinfV2wgbhop/Pz?=
+ =?us-ascii?Q?1jOUaCwe7ZzEB32Hl2MnLnghUkDKghznny1QS8HICa7rXqfsKpd25ULxrJAs?=
+ =?us-ascii?Q?uGl+znqsGMN19EsHP28cJlrdyEJvLvlENTHYG9LRNiut9jm85ytO4khfNmA1?=
+ =?us-ascii?Q?SSbWIJhEvkXZ7MUc6nNfNH/kQVYeOqDg0LdMfw9CqMwxOgT6USXam5cLTgQz?=
+ =?us-ascii?Q?tVZZEXYR7M2ytkNVLuMry555RDcNNJzgiiqfFPFdHnOKBQ8mE3KevY+wkT5F?=
+ =?us-ascii?Q?mxQ/VBE87dyKhXsX9Z0mHXxsoylAE65XZwCtCurgie0H1Na4VqsLLKclKG3h?=
+ =?us-ascii?Q?eMB+cS4QyRIDViJzQ90bYopbs3zkD7kGspZ8/LUTt38kL4NJQV6kNtwKK8Cx?=
+ =?us-ascii?Q?zyzHIla/AnCe40VKrjhYHP6CFytnM9eczy1F01KZb8OD2AxjHALQV4VwKGmR?=
+ =?us-ascii?Q?j0eyLyEuHuTv+tA9VUKRvViro00a7bbOdOrfS/GNL50dCsydyxZg0eXNdmDG?=
+ =?us-ascii?Q?sweV/+WJBFI8giyGp3m0XqFq+XYHaoh2zjZi/F4Vo0dLPECv2JLRxet2ROX2?=
+ =?us-ascii?Q?z1dvHk9G0tRB35kTpUuAj8QXhlt5W269?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11034
+X-CodeTwo-MessageID: 99f83d17-a6cd-4cac-b32b-9d42b63e4306.20250314150439@westeu12-emailsignatures-cloud.codetwo.com
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.7a5992b5-aa78-4b18-bf5c-70f893b58f48@emailsignatures365.codetwo.com>
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F4.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: f8660d00-9633-4e09-77d9-08dd630989ac
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|376014|36860700013|82310400026|35042699022|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2h9PdMNYgzi2H5YLAmGI9g4lWuayjRFIIZU0qHX8/s0h8dN4+z6uIe6zRczy?=
+ =?us-ascii?Q?s3FZgT0vOJrx030QYcxCiY5UlOW5Naww1gRKe+PUgOH4LSWeV5RPWrOIdwSl?=
+ =?us-ascii?Q?uUYQBSTwNByqHZnQip1fmaRP4xDT8yRoX5n5p3TuIUN5TZRSit/Zc8DoopAq?=
+ =?us-ascii?Q?Ea9XPmbNV11opIp4+h/cKtBtS6RNlGfQ8CqXjb6EPnMsRYThHghZ0P0UUGVS?=
+ =?us-ascii?Q?W0bqxesIzJvtq9QvYFeLCiiLFfeWndVPFgIE9K49UA+vaAU0yV8epiajXioM?=
+ =?us-ascii?Q?foSGSQjTJICE6fn0SRXtdSlkukjckwB29IRaOOHLnd2pE20+HqO/HZnc7D0W?=
+ =?us-ascii?Q?YZ+4JPWg/zMNcKBYwUEzdHu/4edU4Aiczs7KkqJEdt92rrwRL2VU2YvOIeJ/?=
+ =?us-ascii?Q?DQQbBR+oovOUllOFR2LFYvMF8p2/pkbgmeRCabREFV1b3VqDzxowKnBZxsl1?=
+ =?us-ascii?Q?mRBoXYRouUxFSNnq6/19HFJmUrc6IdjXSn87se7G/Yum5yvToxtmZNgik260?=
+ =?us-ascii?Q?P0DEXGpnUB/yvUG7QfAViJi3eVbF4J5s+A9RSVblTZr431qgsRZ080+k1soG?=
+ =?us-ascii?Q?CvHaiINboC8jQ0To+MCt/+SJBajjn8pe1ybTK/0/V7Ek6LT/8BUbGV8otga4?=
+ =?us-ascii?Q?03nFaq73Ct6n5Lqt1G//oKEULifWp/rhXds2wEka6Lae+nbQixZ2CVM7m1Cj?=
+ =?us-ascii?Q?HAb5hjaTbBHu67gUMoGaH4xkDb6XXqmgGik94jdCEE6L/6q12XHXQfN0JGRn?=
+ =?us-ascii?Q?RZxwgrZiOPL4CuTiAIAEZwWxPDN4LoGRWaeOVYMSR2frPsXlcXnr5JZQigiY?=
+ =?us-ascii?Q?+dHey0Sin/ppDISoOsQK41KED9zp86brZfwjyfpY6ETscOLzvYVPsDvwYgIh?=
+ =?us-ascii?Q?Mk0tQm0TtdUuO7O+v2dUHfndaPigLdJv1MAIvvU9u1VHa2KgZEtE0NDn634f?=
+ =?us-ascii?Q?p1YkmS4BOes3NObW1UR0WT01ABwYeEhvQ0WmrKzs1ocu/0qEfx/cnpdm9XQf?=
+ =?us-ascii?Q?/8C5FNiVTV0YFmLwYw4J7E09KSKeWBu4Rq4cR51rsxjnqT0pWLw5//5XmhFG?=
+ =?us-ascii?Q?es4UoKgH3Kl6WxjnJsjFaku1GZDwwxHxtw1qZ7jqmZ+b+CVrhSLIryOeYJVh?=
+ =?us-ascii?Q?2Nbbh+5jHeZd8duJi6nWm/6qsYj9W8sFOyMP4oQZVcQpFN/39WeJMzmaxqyM?=
+ =?us-ascii?Q?zN0Bw7aYBI3PgW+pDzLn/tTapE277Pdzg5wg7fwCBTgcV9tpSIRvm3ly4iZM?=
+ =?us-ascii?Q?J8vOJb50kju7QcO2fmkXW6OWkcINZ+7zeipxGwfG9qCmgRKaxRPCDKHqOPDk?=
+ =?us-ascii?Q?Gf85KU9m0TbcnyiOkmQ69VIYAqPjXBYMOv/j5iucgTahMkRjafMp5orwGfAb?=
+ =?us-ascii?Q?+2pztA8hw0PtPlWqkHtET7tnw5zm+C0NqTyfvhQy8dqtRkd0unj+8zJuxyce?=
+ =?us-ascii?Q?OVU0573wdLk=3D?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(14060799003)(376014)(36860700013)(82310400026)(35042699022)(1800799024);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 15:04:40.2267
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z3sCcqLSDXmciUAECphHmYMd4+gem2+fSGRJnmMmAPHJjgZTwiyUei0yJ0+y6B07b5aRIZ5I9IU8QwOfMiBX1Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7290
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7daf1d0-f4c1-4528-c912-08dd63098b92
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F4.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_080311_989060_22C7CC3E 
-X-CRM114-Status: GOOD (  40.32  )
+X-CRM114-CacheID: sfid-20250314_080443_846687_752C8608 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,146 +185,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 12:16:42PM +0530, Siddharth Vadapalli wrote:
-> On Thu, Mar 13, 2025 at 10:23:11PM +0530, Manivannan Sadhasivam wrote:
->
-> Hello Mani,
->
-> > On Wed, Mar 05, 2025 at 11:20:22AM -0500, Frank Li wrote:
-> >
-> > If you want a specific patch to be tested, you can add [PATCH RFT] tag.C
-> >
-> > > According to code in drivers/pci/controller/dwc/pci-dra7xx.c
-> > >
-> > > dra7xx_pcie_cpu_addr_fixup()
-> > > {
-> > > 	return cpu_addr & DRA7XX_CPU_TO_BUS_ADDR;  //0x0FFFFFFF
-> > > }
-> > >
-> > > PCI parent bus trim high 4 bits address to 0. Correct ranges in
-> > > target-module@51000000 to algin hardware behavior, which translate PCIe
-> > > outbound address 0..0x0fff_ffff to 0x2000_0000..0x2fff_ffff.
-> > >
-> > > Set 'config' and 'addr_space' reg values to 0.
-> > > Change parent bus address of downstream I/O and non-prefetchable memory to
-> > > 0.
-> > >
-> > > Ensure no functional impact on the final address translation result.
-> > >
-> > > Prepare for the removal of the driver’s cpu_addr_fixup().
-> > >
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > ---
-> > >  arch/arm/boot/dts/ti/omap/dra7.dtsi | 18 +++++++++---------
-> > >  1 file changed, 9 insertions(+), 9 deletions(-)
-> > >
-> > > diff --git a/arch/arm/boot/dts/ti/omap/dra7.dtsi b/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > > index b709703f6c0d4..9213fdd25330b 100644
-> > > --- a/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > > +++ b/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > > @@ -196,7 +196,7 @@ axi0: target-module@51000000 {
-> > >  			#size-cells = <1>;
-> > >  			#address-cells = <1>;
-> > >  			ranges = <0x51000000 0x51000000 0x3000>,
-> > > -				 <0x20000000 0x20000000 0x10000000>;
-> > > +				 <0x00000000 0x20000000 0x10000000>;
-> >
-> > I'm not able to interpret this properly. So this essentially means that the
-> > parent address 0x20000000 is mapped to child address 0x00000000. And the child
-> > address is same for other controller as well.
-> >
-> > Also, the cpu_addr_fixup() is doing the same by masking out the upper 4 bits. I
-> > tried looking into the DRA7 TRM, but it says (ECAM_Param_Base_Addr +
-> > 0x20000000) where ECAM_Param_Base_Addr = 0x0000_0000 to 0x0FFF_F000.
-> >
-> > I couldn't relate TRM with the cpu_addr_fixup() callback. Can someone from TI
-> > shed light on this?
->
-> A "git blame" on the line being modified in dra7.dtsi gives the
-> following commit:
-> https://github.com/torvalds/linux/commit/c761028ef5e2
-> prior to which the ranges is exactly the same as the one being added by
-> this patch.
+At probe time the driver would display the following error and abort:
+  xilinx-psgtr fd400000.phy: Invalid rate 0 for reference clock 0
 
-Okay, original one correct reflect hardware behavior.
+This issue was that at probe time, the system has not decided yet whether
+the GTR is to be used for SATA (150MHz) or PCIe (100 MHz). The driver
+doesn't need to know the clock frequency at that point yet, so wait until
+the lane is actually being initialized before requesting the clock rate
+setting.
 
->
-> The cpu_addr_fixup() function was introduced by the following commit:
-> https://github.com/torvalds/linux/commit/2ed6cc71e6f7
-> with the reason described in
-> Section 24.9.4.3.2 PCIe Controller Slave Port
-> of the T.R.M. at:
-> https://www.ti.com/lit/ug/spruic2d/spruic2d.pdf
-> ---------------------------------------------------------------------------
-> NOTE:
-> The PCIe controller remains fully functional, and able to send transactions
-> to, for example, anywhere within the 64-bit PCIe memory space, with the
-> appropriate remapping of the 28-bit address by the outbound address
-> translation unit (iATU). The limitation is that the total size of addressed
-> PCIe regions (in config, memory, IO spaces) must be less than 2^28 bytes.
-> ---------------------------------------------------------------------------
->
-> The entire sequence is:
-> 0) dra7.dtsi had ranges which match the ranges in the current patch.
-> 1) cpu_addr_fixup() was added by
-> https://github.com/torvalds/linux/commit/2ed6cc71e6f7
-> 2) ranges was updated to <0x20000000 0x20000000 0x10000000> by:
-> https://github.com/torvalds/linux/commit/c761028ef5e2
+Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+---
 
-Actually this patch is not necessary, with cpu_addr_fixup(), it should
-work with/without c761028ef5e2 change because it just the use CPU physical
-address, the finial result is exact same.
+ drivers/phy/xilinx/phy-zynqmp.c | 61 ++++++++++++++++-----------------
+ 1 file changed, 30 insertions(+), 31 deletions(-)
 
-> 3) ranges is being changed back to its original state of "0)" above.
->
-> cpu_addr_fixup() was introduced to remove the following:
-> 	pp->io_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> 	pp->mem_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> 	pp->cfg0_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> 	pp->cfg1_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> in dra7xx_pcie_host_init(). The reason for the above is mentioned in the
-> "NOTE" as:
-> ---------------------------------------------------------------------------
-> The limitation is that the total size of addressed PCIe regions
-> (in config, memory, IO spaces) must be less than 2^28 bytes.
-> ---------------------------------------------------------------------------
->
+diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqm=
+p.c
+index 05a4a59f7c40..e29e3e51d380 100644
+--- a/drivers/phy/xilinx/phy-zynqmp.c
++++ b/drivers/phy/xilinx/phy-zynqmp.c
+@@ -222,7 +222,6 @@ struct xpsgtr_phy {
+  * @siou: siou base address
+  * @gtr_mutex: mutex for locking
+  * @phys: PHY lanes
+- * @refclk_sscs: spread spectrum settings for the reference clocks
+  * @clk: reference clocks
+  * @tx_term_fix: fix for GT issue
+  * @saved_icm_cfg0: stored value of ICM CFG0 register
+@@ -235,7 +234,6 @@ struct xpsgtr_dev {
+ 	void __iomem *siou;
+ 	struct mutex gtr_mutex; /* mutex for locking */
+ 	struct xpsgtr_phy phys[NUM_LANES];
+-	const struct xpsgtr_ssc *refclk_sscs[NUM_LANES];
+ 	struct clk *clk[NUM_LANES];
+ 	bool tx_term_fix;
+ 	unsigned int saved_icm_cfg0;
+@@ -398,13 +396,40 @@ static int xpsgtr_wait_pll_lock(struct phy *phy)
+ 	return ret;
+ }
+=20
++/* Get the spread spectrum (SSC) settings for the reference clock rate */
++static const struct xpsgtr_ssc *xpsgtr_find_sscs(struct xpsgtr_phy *gtr_ph=
+y)
++{
++	unsigned long rate;
++	struct clk *clk;
++	unsigned int i;
++
++	clk =3D gtr_phy->dev->clk[gtr_phy->refclk];
++	rate =3D clk_get_rate(clk);
++
++	for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
++		/* Allow an error of 100 ppm */
++		unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
++
++		if (abs(rate - ssc_lookup[i].refclk_rate) < error)
++			return &ssc_lookup[i];
++	}
++
++	dev_err(gtr_phy->dev->dev, "Invalid rate %lu for reference clock %u\n",
++		rate, gtr_phy->refclk);
++
++	return NULL;
++}
++
+ /* Configure PLL and spread-sprectrum clock. */
+ static void xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
+ {
+ 	const struct xpsgtr_ssc *ssc;
+ 	u32 step_size;
+=20
+-	ssc =3D gtr_phy->dev->refclk_sscs[gtr_phy->refclk];
++	ssc =3D xpsgtr_find_sscs(gtr_phy);
++	if (!ssc)
++		return;
++
+ 	step_size =3D ssc->step_size;
+=20
+ 	xpsgtr_clr_set(gtr_phy->dev, PLL_REF_SEL(gtr_phy->lane),
+@@ -823,8 +848,7 @@ static struct phy *xpsgtr_xlate(struct device *dev,
+ 	}
+=20
+ 	refclk =3D args->args[3];
+-	if (refclk >=3D ARRAY_SIZE(gtr_dev->refclk_sscs) ||
+-	    !gtr_dev->refclk_sscs[refclk]) {
++	if (refclk >=3D ARRAY_SIZE(gtr_dev->clk)) {
+ 		dev_err(dev, "Invalid reference clock number %u\n", refclk);
+ 		return ERR_PTR(-EINVAL);
+ 	}
+@@ -928,9 +952,7 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *gtr=
+_dev)
+ {
+ 	unsigned int refclk;
+=20
+-	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->refclk_sscs); ++refclk) {
+-		unsigned long rate;
+-		unsigned int i;
++	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->clk); ++refclk) {
+ 		struct clk *clk;
+ 		char name[8];
+=20
+@@ -946,29 +968,6 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *gt=
+r_dev)
+ 			continue;
+=20
+ 		gtr_dev->clk[refclk] =3D clk;
+-
+-		/*
+-		 * Get the spread spectrum (SSC) settings for the reference
+-		 * clock rate.
+-		 */
+-		rate =3D clk_get_rate(clk);
+-
+-		for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
+-			/* Allow an error of 100 ppm */
+-			unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
+-
+-			if (abs(rate - ssc_lookup[i].refclk_rate) < error) {
+-				gtr_dev->refclk_sscs[refclk] =3D &ssc_lookup[i];
+-				break;
+-			}
+-		}
+-
+-		if (i =3D=3D ARRAY_SIZE(ssc_lookup)) {
+-			dev_err(gtr_dev->dev,
+-				"Invalid rate %lu for reference clock %u\n",
+-				rate, refclk);
+-			return -EINVAL;
+-		}
+ 	}
+=20
+ 	return 0;
+--=20
+2.43.0
 
-That is functional equal.
 
-> I am not sure if Frank is accounting for all of this in the current patch
-> as well as the dependent patch series associated with removing
-> cpu_addr_fixup().
-
-I have not track back the history. I think before
-https://github.com/torvalds/linux/commit/c761028ef5e2 is correct reflect
-hardware behavor. axi@0 trim down 4 bits before send to PCI controller.
-
-The commit message of c761028ef5e2
-
-"In order to update pcie to probe with ti-sysc and genpd, let's update the
-pcie ranges to not use address 0 for 0x20000000 and 0x30000000. The range
-for 0 is typically used for child devices as the offset from the module
-base. In the following patches, we will update pcie to probe with ti-sysc,
-and the patches become a bit confusing to read compared to other similar
-modules unless we update the ranges first. So let's just use the full
-addresses for ranges for the 0x20000000 and 0x30000000 ranges."
-
-I think maybe only ti's bus fabric do address translation at that time, and
-DT team and dwc pci driver never consider that before. Now more vendor bus
-fabric do address translation. So needn't every platform driver consider it
-but it require DTB reflect hardware behavor correctly.
-
-We may revert patch c761028ef5e2 firstly, after some time later, we can
-cleanup cpu_addr_fixup().
-
-It will be wondful, if someone help test it.
-
-Frank
->
-> Regarding testing the series, I unfortunately don't have the hardware so
-> I cannot test it.
->
-> Regards,
-> Siddharth.
+Met vriendelijke groet / kind regards,=0A=
+=0A=
+Mike Looijmans=0A=
+System Expert=0A=
+=0A=
+=0A=
+TOPIC Embedded Products B.V.=0A=
+Materiaalweg 4, 5681 RJ Best=0A=
+The Netherlands=0A=
+=0A=
+T: +31 (0) 499 33 69 69=0A=
+E: mike.looijmans@topic.nl=0A=
+W: www.topic.nl=0A=
+=0A=
+Please consider the environment before printing this e-mail=0A=
 
