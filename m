@@ -4,85 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF4CC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 05:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC53C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 06:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kN0S+GBjOAD0OG2qYKmCRMuBk4r0QOq8VP04yVuXG9Q=; b=od5S1X0ZJWeRBnCwPgSCGLch3Q
-	vnhuBfDA8PFDPLaTjqhcf/j9bp3/hA8NJ59t24882/gaeFVlRNeXNnLNrLPVAtDOP6w8HTVhp/OA8
-	xCuf3/BOs7Eo2PtfERVRNNFsTYry1hHKVU9Ww1LhOpAiUcvHvsqX4vOyvDPKY6Ix3Y8fc7RJ/uxoG
-	2hm6rEpO4E4gI7u3E9Z6D41M+OHBEkV8hXjJgSKkkTKj3lzFNuq9W8Cspe0H8+8K5dF+/nHb7e+jB
-	35d82wuGEYaZVaCDHdxgFm8YKQcgh2Z5J2YI0BooHItOCjijVDX+WWJlCtpGiI4LlLmHRjUgCaAVE
-	SG+6boQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PAAUP8owXBwbZ90/a7pUKXIErzNvIYENt/NbS6H8+xw=; b=i/w/594Xy2bq86+DCNW78eN9EW
+	H4YI0DcDDz/CfHlY/kd2dzHWBpPxY4izwYfPkakR6pCp6EChI4sArKEBdzj6LDNMC5v+toBLwu6Kw
+	gPIF4uxS880dlhs0/Gob0YdZlJpn1vRYk69T1PmFsAXpduUM9iFqgotAFGzW1NooixKYZP3K1FODV
+	jHt3i9CPSZb8I7omlY6ipHtzaGT+6Bh8mch7LG695Af5n+JdBoH5OCfs/uEAoeyuNi60RCYRRI9Fp
+	MO3QUSu0Qh8+NuLqvMsNO1lm/O/1/4GQv2lfXAWOhoJziHYJ2QP0+MAlP76oph6sYdxngbnJidzQc
+	AMKfPrgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsxtS-0000000D7uw-07SQ;
-	Fri, 14 Mar 2025 05:47:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tsy9s-0000000D9qn-39iJ;
+	Fri, 14 Mar 2025 06:04:36 +0000
+Received: from mail-dbaeur03on20609.outbound.protection.outlook.com ([2a01:111:f403:260d::609] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsxrl-0000000D7XB-2bKc;
-	Fri, 14 Mar 2025 05:45:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C78F1A487DE;
-	Fri, 14 Mar 2025 05:40:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40296C4CEE3;
-	Fri, 14 Mar 2025 05:45:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741931152;
-	bh=UIHoxzhPf3e+N6sft1joYHuPe2ZldXQM7xaEMHF8UQM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g9V5wLKvvzdYnmDpHxzPOfq0AxNt5QiDf5RPSpD1Z9RQFIFrZI9gA6Ga/OC4vbrhF
-	 zyDAK/ALK3zLwiZA6+/Q21+00Jl+xwDMvnbK9EKGk9+vsSta0y8nKGItKJlqK8TFK8
-	 Zmt6h+ElRvf3Xdm+rk+dFeLAJn4QCe7tdd5Bcs7zqnaInu6fdUEwMmqvuSl7jzpzlk
-	 y0LjtBD7LCjdJeUA0wCptEUIDygjsTNjui4I1ClM50r1tz72lQWQx5jEp6mYfhYszs
-	 K0h3QOuxoRTchgjOR1QZXwOpfJDwG7nh3cJRlxEKdJeH0c8hGd77+eWDt9B5y6qNkZ
-	 XKaU59OZuTVUg==
-Date: Thu, 13 Mar 2025 22:45:49 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
+	id 1tsy8E-0000000D9kR-0vbG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 06:02:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Xo1haDNsrF/MRfdVq22DGETb0bB/ePkMAMVsuK/JP+oH1qmqzn1WuRF7iRPHHR5UtKBhjpOXUBmIX3GR3kHYMvbwyrWEsZ+i1+Bp5VXEXbVRAP/pivtLRgv3rzLHOG4r9C1TG/ssM+oG6su0LC0NV34cO2HCTheJ7rG6E2aD3zzK0jTLRtIEQfCvqWnJHJ+Hb5gwJlQzrxi7beGfrFCxm6/47XpmSDWAcqgbp/rwD80F6QoXvWmGC3V+/kRw39KyMdc3gbVsKqx7Y5dHj88aCUZ1oINuyhm2kKLlA/CsLPLaq0VmhLhrWK1Lv5jT7NTilxHX+Tckvw/h6/9tPGck0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PAAUP8owXBwbZ90/a7pUKXIErzNvIYENt/NbS6H8+xw=;
+ b=NSfpGgQHzUu1qlXzbauVMZaZ+0OvASagfFdzoLhZyddgcP2QnCj11FvWG0HJprZCxm7hfhlwGEv3MB0FzfssKsK2uCGjtejo3FLsUYDE8yP7CUBVFqGr4oskd9Q6pW8W5zc9xDGZRHRtY3Wi36FsTbLOwa2NcSrxtum2dE1OoRcx54Ma5I08EIn9tY5pNU3dWJhUnKxrDsfEvddSc2b2omVaoM7u6046xkTJ20OMDLuMLBdaIX/FAIT3K/sRAN22aWQoT5KtZhtK3sbAOlPPWk7yhSY8zF5yrtgXCkuKDxmx1JuG5CTEDSVQ4YMqNFJlSk94QFa1hVNB0ll5sheuoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PAAUP8owXBwbZ90/a7pUKXIErzNvIYENt/NbS6H8+xw=;
+ b=VTobF99hc30rJ2ksZpLPhG5mGWSStPdDT2jVND4Pm1zPI//PwtUv8siGb+JLgSo1A10Q6kWoIMDaX6XD4hxknMPewT1EJtp/ugj+ZDr5/AL3DSNppP9N+I40JokhSm2aneK86aLHmbJEvXKUdgfKv/rCGlftpTP0AvEkpSEcsZOZWruYU0Dpo1mW/F91rFgJWPZUDkeF2MhK/F2LVhcqXAvRTK/4zg2vPT+eEE+9F74Rze7vYnCfubRLmOmVgPcBW10PbukhxdmYSBlfZryuD12hqGyxeRsRi7hNZqLwZhDAVFYpkE6xV0Janbch37DutIFmHFQ8xYl5wi3mAbUvpg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by AS8PR04MB9142.eurprd04.prod.outlook.com (2603:10a6:20b:449::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Fri, 14 Mar
+ 2025 06:02:49 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%5]) with mapi id 15.20.8511.026; Fri, 14 Mar 2025
+ 06:02:49 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
- the build
-Message-ID: <Z9PCjQ8PhOadVGQ8@google.com>
-References: <20250308003209.234114-1-irogers@google.com>
- <Z9KFLGpenwOP32q3@google.com>
- <Z9M24AJzui9lFbGo@x1>
- <Z9M9-YhDJg3NgiUy@x1>
- <Z9NEX3j_1RUvaFI0@x1>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] arm64: dts: imx95: Correct the range of PCIe app-reg region
+Date: Fri, 14 Mar 2025 14:01:04 +0800
+Message-Id: <20250314060104.390065-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z9NEX3j_1RUvaFI0@x1>
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR04CA0196.apcprd04.prod.outlook.com
+ (2603:1096:4:14::34) To AS8PR04MB8676.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|AS8PR04MB9142:EE_
+X-MS-Office365-Filtering-Correlation-Id: d305c141-72b5-496d-7d19-08dd62bdd938
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OWIXC/MNnkDecLOC7OfzjW787OcrDVMWVDEbstC2G6lsi3Zt3b+qdVgYCMBc?=
+ =?us-ascii?Q?vZs0E77BmCpEgFbVceB54mYRQCHEAe83s3Gz171XoMnsqyduE6fIwylksBN2?=
+ =?us-ascii?Q?4YREVKdJNvXz81dbo6n9fOFM7idwNVCiaZ6ksLWJYnpOoNSuxTEEyeD2VqCX?=
+ =?us-ascii?Q?gbV5N7atRHiaCOUU7MrbHTlAwpHCthL7aBiK01areeBH9y1aK5uzmsrTp5zj?=
+ =?us-ascii?Q?CGn0ROVFSdKGjmwUrIBCZMkrKAS5ck+/M6uNfE4mNlEZKobDlAFTgLyu+Zmm?=
+ =?us-ascii?Q?ESyxqBYArr3RZ1QSSDnpLHwpi02/BCzQNq9s9TP5DA3Z1D2y2wS/Gfqsq0Ox?=
+ =?us-ascii?Q?+TTjYYwgryZS+hNnTxuj3jGv1XZHvd2UaADfIKuZwvO3XkxVvIiJA89G8Gqm?=
+ =?us-ascii?Q?U09NQXKxfOiDNV9Vt13ECZ8tnFYnd+tvUJNoNPL6lrDYtgw3nxUD8n0sEZ+Y?=
+ =?us-ascii?Q?I8Y7MW04twz+WtjQF+yyU4JOPXdMRPqtzdGP8+Mxb04w6Nq0xgIbT+m0Bczm?=
+ =?us-ascii?Q?e4DXqGAEnN4K8PDyPhGSfyv8OltX2XtHvtmtvpsHdCSHOYy9KDPO6oPGJ3Cw?=
+ =?us-ascii?Q?4NGF/Wwuzvu8Tr4hA6j7hdI6xtOocrClE09mjkgMaF5U8eOR8ea7+a3hlYg7?=
+ =?us-ascii?Q?sj2+R7WhvQxJ/xwsa+Ol7ONSEWtHdjH8Bh7L14A3fluc7T3ZDzciMmw2pc0a?=
+ =?us-ascii?Q?weeDViT4pC+460JtHe/IADfCibW2hHZm7+Mq9waOfGZO/jKZsnDoRnSoJzuq?=
+ =?us-ascii?Q?9RcLycMtgOlI6kkLDqAQhP0xvPCwjvljpZj0eDGefDl8hCFX6TpJdxCvLFa2?=
+ =?us-ascii?Q?qrpgGydFc5uVG1fwcQgnO27+JPeeYK70uEZGZLCtbEZJzFAK0onoecqopxgz?=
+ =?us-ascii?Q?CXjZfses0N/Bj+3aNh6S1wjWtytcGMz/6tH0JnP8m3gNGjguXtaSuKYSMyxy?=
+ =?us-ascii?Q?lKuf6cuEdd3n+t4CRwv0R5q0VhZTC2pjq/5f9fIsbOpgO31e+4XQKDvcAiTl?=
+ =?us-ascii?Q?HKUQfOvtDDbPehP2ikZkZuMqqywwurovRnFDu4mDnDb8g4EeOOK9HxCO/Ca6?=
+ =?us-ascii?Q?mrHdpMDE2qt7OMclluPMwzmv7fccohL0vC0knqxpw4YNlCH+ojt2uUJcK9AI?=
+ =?us-ascii?Q?sfFYmXcSqb3A0ck3G1k/2gw4rU30zD9KdUVDPmPhl2491EXYapMftfYl2RK4?=
+ =?us-ascii?Q?upq4YybKyRpbFuWLRAehbHjxA8RDNlXJ2DbP/m5zzn1+XXfLs78AJ5ZHaj8p?=
+ =?us-ascii?Q?MyjFnZC5uZkauQMckTSBYg/2CpjYe5DbHfCRfMz1alsJDsnavqlymu4gd0RN?=
+ =?us-ascii?Q?sS4ghEcVrmcMERy2o8OexrgjPSm1YzjYR1oplNNt0R1relQZr2eoA6/WcOoD?=
+ =?us-ascii?Q?+xtUWi8w9P3ezzUCtE03GwW+pWxMyk/6FoOO+ITHrYjbOrktc1Q4EZ1Db/6B?=
+ =?us-ascii?Q?kMJRCZxhdULenrxznHPC2QZlTOHRq7Z9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Si6u+1tGDqfOObyYGWYF8N0WIb+DFM+WadUbvAaPXy9epb480VoI425DaPr1?=
+ =?us-ascii?Q?tYELsd5meKTtrswvxhsKMjSPv0tFADCs3Jskx2UsHwElRsL7ePH/0ocFgiXz?=
+ =?us-ascii?Q?n4Fgay7THtCSINC22KlWsYIg37Uk3BpxRbGvSOp8md0BBN58Pfwv6ey6ThHw?=
+ =?us-ascii?Q?2rgPe3kuNBWaidEOybrWSPtjznhQTyP3Wj1tjvmJuPiC8aFIZ+vbhwQi0fiv?=
+ =?us-ascii?Q?tu2aUMDI/mhhttxHSdfN7tZ0ZgYiPnG3thSp6Zut4bJEbFTRMHeXnU8aM0Hv?=
+ =?us-ascii?Q?pXu9zQ9U3SExOvJUdiocPR7HoWlLLFlGBOVE+ougdhROSSXfMg2CtnFEjM6p?=
+ =?us-ascii?Q?rBGio5oTg91aFwp/TXBRbkHPU0otDgtirPSDNXuud33+eazUAiel9s6+/PSS?=
+ =?us-ascii?Q?l8s6DKUrq2ze+UpSuaWks4F97skJYF8vOYandVZsR3LqZenJqIIYjDxvq6p/?=
+ =?us-ascii?Q?WxsuOdRgUUsUxVA+RVya/JHJYXeO6Sg3sr89ecEC9iI7v5LWYDcG4s6dGL5H?=
+ =?us-ascii?Q?jdxKy9CFRLGDgkIq3g1abM56+tIWDMASCey4EhW5GWubNz8Wsu1bNeG/AmNG?=
+ =?us-ascii?Q?2L4pq3kc7u4QlC8/hpsNJ9EZ/8a2pD1ddOC2RpsTTiScReOjVnrz4azYSLCh?=
+ =?us-ascii?Q?KoaBBheLCab9dDNbaawCk3sUf510WUnNAxz1R85e55tyXmaqJJO/pSAbxP3V?=
+ =?us-ascii?Q?sCQPidHTJJmoeXOjUJQENYVDYGfS4XW0yuVO16IFUnW7KvKAFuyqqb6+6Cv5?=
+ =?us-ascii?Q?xeUyGaVYwhgISDRspxuXDh1yN9lYEpkvnGByEyAK4nqsTDcKxIyGhNkPj8MP?=
+ =?us-ascii?Q?DAcwpVSsb3xybG7u/kwYC6PjpImAjD3L+v9PhNtYygysKEINyU8aJlIUopNc?=
+ =?us-ascii?Q?sxvpR63sKPcw3y60lVSTAqomZ46ybjiIMq1YyFn8mn0AZZXgmnJAQ7kLL7AK?=
+ =?us-ascii?Q?59p1Y2CL+z3GHpyUdPvReLjCIasX1uvfLX2Udh8wsF1+gh+fF+7CTzPmnEss?=
+ =?us-ascii?Q?6Kfox+ppA6ThM22m5AXdPp5ZJ2vH2nEF92pl/WxBS8jsAyTW8LJcJzzKL8mF?=
+ =?us-ascii?Q?+YaNhI7WZTVJz4JSh7tvZi5p8cycGZbClJoIP0Unm8UdiXPvW2Tr4vXvfWwF?=
+ =?us-ascii?Q?AE81thNHYnyl8GG563L0yz+Qn+OkJGxSC0uy5dkNOyLFDcxWhB5cYnX/g6Ld?=
+ =?us-ascii?Q?ThcxMNVuinlNGvGMMzVk3RmtTnlK1zeHd4SX7euFghudXGtWPsJiBNjU83+s?=
+ =?us-ascii?Q?eRkVVFOQwpBz4Pg3YA0Q+OVp49TpCGqDC2VG8wO+b37XoAqHRmUrmuPgQKjN?=
+ =?us-ascii?Q?Z3j5lfNyYUUvcCrPZ1W3kpKTE01cNEiUu1MLsUTBB9HWv6/m1kxBtqmty1g8?=
+ =?us-ascii?Q?Yqg4DxWgAofe5hc4edsbCoOs2hIYplbGOa+5rZj9vn7fCX1+DwspZmDFxY2c?=
+ =?us-ascii?Q?TFLJrIh19jwzgbUOHCdTybag1oIcFILmd9hQsrQkzinJA1PZHYzhsrDm5+ph?=
+ =?us-ascii?Q?9qCZAuIs0BjwqQcgDq41FixrakiTsVX0fPGzlOcykqiFmO7oCGROK8eS3dAp?=
+ =?us-ascii?Q?3hNeKLj25aHS+7Co04FBOvSXKfj8UMgwiALIB9/j?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d305c141-72b5-496d-7d19-08dd62bdd938
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 06:02:49.1697
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a30BBYWSZtrXKnn12Vfyc8DJfiE+UJ90zPyhqWseQT/6VuoQ/gAUw3KmkI+afiR9pwE33PcC4QoU8ope28278A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_224553_785231_5D4DB955 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250313_230254_315207_B1D43F55 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,67 +165,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrote:
-> On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wrote:
-> > Still building, but noticed this on x86_64:
-> > 
-> > 105: perf trace enum augmentation tests                              : FAILED!
-> > 106: perf trace BTF general tests                                    : FAILED!
-> > 107: perf trace exit race                                            : Ok
-> > 108: perf trace record and replay                                    : FAILED!
-> > 
-> > 
-> > The first doesn´t help that much with verbose mode, haven't checked if
-> > before this series it was failing :-\
-> > 
-> > root@x1:~# perf test -vvv 105
-> > 105: perf trace enum augmentation tests:
-> > --- start ---
-> > test child forked, pid 19411
-> > Checking if vmlinux exists
-> > Tracing syscall landlock_add_rule
-> > ---- end(-1) ----
-> > 105: perf trace enum augmentation tests                              : FAILED!
-> > root@x1:~#
-> 
-> So:
-> 
-> root@x1:~# perf trace -e landlock_add_rule perf test -w landlock
-> root@x1:~# 
-> 
-> But:
-> 
-> root@x1:~# perf trace perf test -w landlock |& grep landlock_add_rule
->     26.120 ( 0.002 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, rule_type: LANDLOCK_RULE_PATH_BENEATH, rule_attr: 0x7ffde75e2680, flags: 45) = -1 EINVAL (Invalid argument)
->     26.124 ( 0.001 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, rule_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffde75e2690, flags: 45) = -1 EINVAL (Invalid argument)
-> root@x1:~# 
-> 
-> -e is having some trouble, when no event is specified, then it works.
-> 
-> Something in the changes made to:
-> 
-> static int trace__parse_events_option(const struct option *opt, const char *str,
->                                       int unset __maybe_unused)
+Correct the range of PCIe app-reg region from 0x2000 to 0x4000 refer to
+SerDes_SS memory map of i.MX95 Rerference Manual.
 
-Thanks for the test, I think this should fix it:
+Fixes: 3b1d5deb29ff ("arm64: dts: imx95: add pcie[0,1] and pcie-ep[0,1] support")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Thanks,
-Namhyung
-
-
----8<---
-diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-index ace66e69c1bcde1e..67a8ec10e9e4bc8d 100644
---- a/tools/perf/util/syscalltbl.c
-+++ b/tools/perf/util/syscalltbl.c
-@@ -76,7 +76,7 @@ int syscalltbl__id(int e_machine, const char *name)
- {
-        const struct syscalltbl *table = find_table(e_machine);
-        struct syscall_cmp_key key;
--       const int *id;
-+       const uint16_t *id;
- 
-        if (!table)
-                return -1;
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 6b8470cb3461..0e6a9e639d76 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -1542,7 +1542,7 @@ pcie0: pcie@4c300000 {
+ 			reg = <0 0x4c300000 0 0x10000>,
+ 			      <0 0x60100000 0 0xfe00000>,
+ 			      <0 0x4c360000 0 0x10000>,
+-			      <0 0x4c340000 0 0x2000>;
++			      <0 0x4c340000 0 0x4000>;
+ 			reg-names = "dbi", "config", "atu", "app";
+ 			ranges = <0x81000000 0x0 0x00000000 0x0 0x6ff00000 0 0x00100000>,
+ 				 <0x82000000 0x0 0x10000000 0x9 0x10000000 0 0x10000000>;
+@@ -1582,7 +1582,7 @@ pcie0_ep: pcie-ep@4c300000 {
+ 			reg = <0 0x4c300000 0 0x10000>,
+ 			      <0 0x4c360000 0 0x1000>,
+ 			      <0 0x4c320000 0 0x1000>,
+-			      <0 0x4c340000 0 0x2000>,
++			      <0 0x4c340000 0 0x4000>,
+ 			      <0 0x4c370000 0 0x10000>,
+ 			      <0x9 0 1 0>;
+ 			reg-names = "dbi","atu", "dbi2", "app", "dma", "addr_space";
+@@ -1609,7 +1609,7 @@ pcie1: pcie@4c380000 {
+ 			reg = <0 0x4c380000 0 0x10000>,
+ 			      <8 0x80100000 0 0xfe00000>,
+ 			      <0 0x4c3e0000 0 0x10000>,
+-			      <0 0x4c3c0000 0 0x2000>;
++			      <0 0x4c3c0000 0 0x4000>;
+ 			reg-names = "dbi", "config", "atu", "app";
+ 			ranges = <0x81000000 0 0x00000000 0x8 0x8ff00000 0 0x00100000>,
+ 				 <0x82000000 0 0x10000000 0xa 0x10000000 0 0x10000000>;
+@@ -1649,7 +1649,7 @@ pcie1_ep: pcie-ep@4c380000 {
+ 			reg = <0 0x4c380000 0 0x10000>,
+ 			      <0 0x4c3e0000 0 0x1000>,
+ 			      <0 0x4c3a0000 0 0x1000>,
+-			      <0 0x4c3c0000 0 0x2000>,
++			      <0 0x4c3c0000 0 0x4000>,
+ 			      <0 0x4c3f0000 0 0x10000>,
+ 			      <0xa 0 1 0>;
+ 			reg-names = "dbi", "atu", "dbi2", "app", "dma", "addr_space";
+-- 
+2.37.1
 
 
