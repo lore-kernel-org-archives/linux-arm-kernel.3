@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1709FC35FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 23:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BB2C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 23:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FhaLeXI33H4wC5eS68es3oEBN2a+09QOjpgGG+TYMwk=; b=3B712/T6r2JU9u9R89of11KKwx
-	6k3cRuFPY8zMJWhrlUwbiHkE5LRKrmDY3G/2L7xPqW4YTzNZb6TiPG8TEMxl3vVKuji7lROKWQlfJ
-	X6t7avgrk8hxAc9KSPa9WxDvhNFelFg053lCksj4OhG0VgfmtT9UdQUkaHFuGIuYw7HhDJUABebgk
-	fAuXUd/joRqaLH50CZSG7tLElTSBHuX1iPn9mji8vnaeglBydSygNG2FHFzNYHyaIsfDnghs9v9AP
-	BQBhCu14L2/QmGLZ8ywf5yBWhERkHcJ+LnBJkZ4+Vjq+0q0mhswxregaFBYGhuQ/eLxPrsQfSINN0
-	NtfqJ/lA==;
+	bh=P0BbUbAG3eg70hP8/1CroK/Kf34mgOD7Ll45eATb+8I=; b=EqN36UBh+JvzXywY17Cl9C5nET
+	hBqHPXoyOgrHz8eZmn/UCtPcK5ldxE3hLbNMh61bATfsRm4Kk/Zf7CzzSzxNshVW5XZwB6KotUHqi
+	4oU8wj7Wd+kloWVfehSni1cmj94h3uRJXDhJNr1PmMP0stFRu2gPatBzF31kZvCiueGM7SoZX7GI2
+	CdDwMptJIpL5y5NwExBd0LaDG4/kXyWYT93KDCt41VhmYnEg82Z2cSoPzAIRc3/czXoT217j2GH2O
+	yK9skhmdIgvL4ydQ/T61rjvLUphniq48XsZ9cA66nN5s/z0OTm+gN51Mgwny2FFBLVGCJsTuRwZRH
+	hipljpyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttEpH-0000000FXnw-01UT;
-	Fri, 14 Mar 2025 23:52:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ttEqu-0000000FXu4-2o6v;
+	Fri, 14 Mar 2025 23:54:08 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttEnc-0000000FXgj-1YlC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Mar 2025 23:50:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=FhaLeXI33H4wC5eS68es3oEBN2a+09QOjpgGG+TYMwk=; b=CU7LsZFDtkHIs7NeRMSIpebI9C
-	gFyoQ3nJQT89fR2tDkZPrjY9vhZN2B1zAPj7u8p5p9zl4wjtjnhgMpuzenzZQIn44GaFKHCxeQQld
-	r/kwxjORkkWTNW8VTnZn65KM25Roe6mx4Xfr+sBq4mMNfOr1hrOc75esc/7QvQeMiom99QXeINz4l
-	Qc9MMweF9T7I1V1WrLLiU2zUsyLW2VzIxfq5PpMirMeurERfTEp4klk/x6Vyti10SwQUKta4Nex9u
-	c0/rn9rph1v+cNFK2xU2s3Vx3nATPdglEMGbtF8kd3RyeA0FLr8SvrF1k4UPHvpw8BjsRPkYlehwd
-	ZKtGrIqg==;
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttEnO-0000000310M-2Nww
+	id 1ttEoj-0000000FXkV-0Sln
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 23:50:42 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-ac298c8fa50so497786866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 16:50:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741996228; x=1742601028; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=FhaLeXI33H4wC5eS68es3oEBN2a+09QOjpgGG+TYMwk=;
-        b=ObdZZQOL304m4wfs0lE1vCg3ZYayJHcWciFXVk2Q52psK+mvqv5/+dgOpJPODSKMmI
-         BwyrYaK5tW8P23LyYW01Gya/2wgoY6H/8cab1dWzXz2r+JIz3T9OQDSqA32S4jAr6mJo
-         Sgcgv3WNTiWjY/4Z/Cs2sMKsRt5DsQXUv80yrIPD+yZpLjIrB2zPqY4zsnh3lq0NPGJV
-         tSBJjN/lliX9tcIKzx72xzrN1xZlYPaNpYloMNL9SwI/3aJW1sA0RwDCxGJuenNCNozU
-         60cwcMv+8ofPTaMl2in2kpHXLAFeaH+u2AXvShc+rG4xHMVFyEqks+tjgTf333WOlUR/
-         znog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741996228; x=1742601028;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FhaLeXI33H4wC5eS68es3oEBN2a+09QOjpgGG+TYMwk=;
-        b=U7ChKA3vZuFmjcjwav3S4YTLbzMGXBC/O+nTz1lV09540X4R9g4Q3zjUI6oGhJ/7+e
-         upnsrLy7udEeRSl2FeZTeDBuNaHcc4g6MWplKnu6fbXV8UgvM3EUrUL2OH8YHeHNVfgb
-         B63zqTE8TaLBBKmMehHrjSPp4EYMdJOE+QxQSZMqWp5//4P3qoxwLxX93uH4VIdHnaYs
-         BbqXt5f1OE1Q1KKX2oSOmTzsVsY6AOYoh3KABip875mk02Dpf5SxzX2Bxsyz+WS0kMeV
-         87trNaSACoJK4K53YhLT026v1S+TvLhRwNMi4WgP4bnhc7h9JWrfaKvvndgXtkqp/33k
-         IFSg==
-X-Forwarded-Encrypted: i=1; AJvYcCUecpkJWkltlfkBHiw6TMdhA/92mjqMNA+Nn4hukmBOq0XZL1Z9Ihob4ougo7sNYmDlVkmg6xC8vW28XM/3I3C0@lists.infradead.org
-X-Gm-Message-State: AOJu0YykAleR+ZZFlZ8gdIQlKwiXQGaTCsbRjVpefiWtg3Oh5BCxevq0
-	/RrHbwPMNkbwJuCLmlZAHYlsbCaqCnerBzLoqB9APBAdAKO0KfeqOkKDTMy5DWxElMew/it1Qms
-	pGNPw3knqj3vyko0fvWxMSw2xg7w=
-X-Gm-Gg: ASbGncsWMHX6CyOi2vkW1r46TOm5nmzjJSrX9yGkka8YbYdaOqsRWjG2bYaFzirEflK
-	P6x7xNp6+EJQdwfiBh2sjgnkAdU5QCnenqwYDbdRUa0LY79U9/hSwQzUPEuNsIOwtxFSa17R9i9
-	QnbhtOBOrgPpG0ad/RwQm4UMiLlVkArmvYgBm+K2nwdmFLUa5+XWc/4fAQ2Q==
-X-Google-Smtp-Source: AGHT+IFseiObElwtIvtwwHdh6W2D/y7AiXA+tiz3sPg/0iJkCw16MaB9jRCfbh+AF0S93nY9BT48BWskRpDCmzUJ804=
-X-Received: by 2002:a17:907:3f9a:b0:abf:68b5:f798 with SMTP id
- a640c23a62f3a-ac3301e1c42mr425515866b.9.1741996227456; Fri, 14 Mar 2025
- 16:50:27 -0700 (PDT)
+	Fri, 14 Mar 2025 23:51:54 +0000
+Date: Fri, 14 Mar 2025 19:51:44 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1741996309;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P0BbUbAG3eg70hP8/1CroK/Kf34mgOD7Ll45eATb+8I=;
+	b=NFxeQgAk/R//VsAghYt8xhZSxiEQfPlmN19UgK3B030JQ8DgU2qLncAavMBApOJvK5h5lg
+	FUI5N99t4GbrKAlZJktXynUCkOGRuTdDJO+6pTR+vnBMnEg2gyTzcvSnu8Z6AeMVQhUdCe
+	G/CygyehVX9vYdfN1LvodihTLRmi16FtkLWVdvudJpaumAGt4A6HbhqFCQ0WA8bXBghD0a
+	FaY2zdPIg22BU+zEcb1/4T24fLmnLXnoNfEToknIWMRMU6gDUUQOti7EI4zXgs4O/Y7paf
+	zr+w5Yo/Fw2B8LmI1cejA0u0Erz9SM016vXwFJNqetok9RyACi6XuJE+f6ly1w==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: Qasim Ijaz <qasdev00@gmail.com>
+Cc: marcan@marcan.st, fnkl.kernel@gmail.com,
+	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu: apple-dart: fix potential null pointer deref
+Message-ID: <Z9TBEAJkOrHIWype@blossom>
+References: <20250314230102.11008-1-qasdev00@gmail.com>
 MIME-Version: 1.0
-References: <20250303152305.3195648-1-memxor@gmail.com>
-In-Reply-To: <20250303152305.3195648-1-memxor@gmail.com>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Sat, 15 Mar 2025 00:49:51 +0100
-X-Gm-Features: AQ5f1Jqb8X_ecTpFBQJRSB2pLw8-43_Uphf1mm0uCmpV5lZuYqh9UnxBIZQL3Zc
-Message-ID: <CAP01T75iEw0mU6LeigHMp06DGsgZHp7UWY422xZtX1U7tVHa0Q@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 00/25] Resilient Queued Spin Lock
-To: bpf@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Martin KaFai Lau <martin.lau@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, Barret Rhoden <brho@google.com>, 
-	Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kkd@meta.com, kernel-team@meta.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250314230102.11008-1-qasdev00@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_235030_813424_8DB1C389 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250314_165153_354773_3221E921 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,27 +75,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Mar 2025 at 16:23, Kumar Kartikeya Dwivedi <memxor@gmail.com> wrote:
->
->
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-Hello,
-
-In v4, we will fix a couple of issues noticed in patchwork, where the
-locktorture patch breaks bisection and needs to be ordered after the
-Makefile change (patch 17 and 18 need to be swapped), but the biggest
-change is that we will move rqspinlock implementation under
-kernel/bpf/ to make it clear that it should be used by the BPF
-subsystem only.
-
-Thanks
-
->
-> Introduction
-> ------------
->
-> This patch set introduces Resilient Queued Spin Lock (or rqspinlock with
-> res_spin_lock() and res_spin_unlock() APIs).
->
-> [...]
+Le Fri , Mar 14, 2025 at 11:01:02PM +0000, Qasim Ijaz a écrit :
+> If kzalloc() fails, accessing cfg->supports_bypass causes a null pointer dereference. 
+> 
+> Fix by checking for NULL immediately after allocation and returning -ENOMEM.
+> 
+> Fixes: 3bc0102835f6 ("iommu: apple-dart: Allow mismatched bypass support")
+> Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
+> ---
+>  drivers/iommu/apple-dart.c | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+> index 13ccb801f52a..e13501541fdd 100644
+> --- a/drivers/iommu/apple-dart.c
+> +++ b/drivers/iommu/apple-dart.c
+> @@ -797,12 +797,11 @@ static int apple_dart_of_xlate(struct device *dev,
+>  
+>  	if (!cfg) {
+>  		cfg = kzalloc(sizeof(*cfg), GFP_KERNEL);
+> -
+> +		if (!cfg)
+> +			return -ENOMEM;
+>  		/* Will be ANDed with DART capabilities */
+>  		cfg->supports_bypass = true;
+>  	}
+> -	if (!cfg)
+> -		return -ENOMEM;
+>  	dev_iommu_priv_set(dev, cfg);
+>  
+>  	cfg_dart = cfg->stream_maps[0].dart;
+> -- 
+> 2.39.5
+> 
 
