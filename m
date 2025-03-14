@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AF5C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB8BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lu+QUDsHnKE/Syu77Ecp814Qglbn8gBdxsQityr+Uto=; b=aZi2TftRrlhVFLu49lNb1N+dMQ
-	Vavgb7Qy9k/eKFM7Y/o+38DKlzuJXYol/Rv38vTtYlrfHWEAOFCM3JdRwFQq15U4Maty2Cin69YyZ
-	ADpmj8Lh9abAck7S6SZg1dOZzvS5e1mgx7xyZuxW/Q/LCMdYWn9/FdL2Q8lXvyBEEsc20p43g3D0j
-	eedG3lg6+A91v+B7itgCsDXOECaF2Mw8igvMqGzBOmtKo8e1R3eorw03ASRbSBslvE7ujHv4u6Viy
-	1cC4IOoISpJNpFNLh53iPkKIrEogLm8BzOncl9IJi+oidFm4Y5huyBpOg6GQiLgZPCxkkYKFk9/Fm
-	c8FJ0AJA==;
+	bh=ds+e2FY4qG8uWc/bHrSma6khFqfMpMsqfzupXVEK1dg=; b=Lt7IGOABEGBz2xj3RQ/3uMT2RX
+	l4Sgm6mBK7HKkf66e5BvegEh9pGqafVrDYqKYTXBDw0IOusJ/F752FvfyqdzWW2MewPaj6ao81d6x
+	lRfHHNu/6QAaCoziceA5RFoICBxa5pTqhFPR4FIifLjPtR+7QEy7mq6zHA5Oq4shi+L6UHUfi3p/P
+	r5R+JzZWjY8ubTSWM/uYYWA9tspC0ldcdzWo8uvCoJNNXFU5uqhDzJj8hBBU5Le1j7pJJ4jLI3MXt
+	5sP05lw5PxqozDvNB1qLfAW3/4f89Hb6kXI9xlsq12nm5ewd5brQvWJRpFQve6VwfBMJ92q1gSawO
+	5Qgu8NHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7a3-0000000Eg8T-3mc9;
-	Fri, 14 Mar 2025 16:08:15 +0000
+	id 1tt7bj-0000000EgnK-16TP;
+	Fri, 14 Mar 2025 16:09:59 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7Us-0000000EfB0-1Fgq
+	id 1tt7Wy-0000000EfW0-3Ile
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 16:02:55 +0000
+	Fri, 14 Mar 2025 16:05:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 00C195C1D1E;
-	Fri, 14 Mar 2025 16:00:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 803CFC4CEE9;
-	Fri, 14 Mar 2025 16:02:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7C6E35C40BE;
+	Fri, 14 Mar 2025 16:02:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7DEC4CEE3;
+	Fri, 14 Mar 2025 16:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741968173;
-	bh=2xfK40kbAsq1KvSui06/jpf2SUEyYwHkDTzV9ntlS0E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=NwAIwXPA5LFcIGfs/bRsgeS29k96CBCEM5nbbzJuvRLWiyQYt3rykJ48fbgDzQ4h+
-	 dK5u8r9V4Ee5/y1NQs8aHLSzT00O9fYt03Ryl/fN2Oj3OMa5XNtYYNt9JJ0muwTSdR
-	 /MXZloiB9t3j0LdunViaOvQrids/JmMppD1Q9DdA+L7qM1Mr/lKS63K0FZ294Zgg+e
-	 n5VWtTs9xkuvnxnxouvylTWiPpD++qr7929bLwS4kxC38MLOgLWTRQPorjIPZjTYY1
-	 2dClBdjtIEOBybXRJhhp9zobqDT6wXGMklWdgHYkfaq8adhrbHNM+T+wwGfJIwgk5n
-	 /feX1H8EpT2Mw==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	linux-watchdog@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] watchdog: aspeed: fix 64-bit division
-Date: Fri, 14 Mar 2025 17:02:44 +0100
-Message-Id: <20250314160248.502324-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	s=k20201202; t=1741968303;
+	bh=Ta9k0fUFkF12PTa91lP+YCJcKC0H52dUXuAZotRTJvA=;
+	h=Date:From:To:Cc:Subject:From;
+	b=u8tAqGa9bhEIECQIBlEv9g6B6qZ7Y5H/9JBa5b0TQMLpSkByxyxzgCccJOnEBFaJi
+	 dd67nB5jdJmrkiNtBJC4XD6vD9J3VXNRvaoPJv+OnPlKnyBrLxr6CQW2eniXbIS2ej
+	 G2NfLkLKG6oxz5Gl/AfbeCwbtvw/6L6AbsxjwHpSXgrshKnopilnu1xOHSZuhLD4y7
+	 kjqm/f44h+1/dYfPvCrFYlLR9SLEERWI24zTIlt8ADGZDU0dn8viqsBgqrCtwC4Llz
+	 /A9jjNO4Jhtig+Qfnr6p2HYaAO04XKlM5tm/dpyrWtOj3hlwAkcAnICTHFoO4q9ZQ5
+	 yCmFiXmt2/5rQ==
+Date: Fri, 14 Mar 2025 16:04:59 +0000
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc7
+Message-ID: <20250314160458.GA9438@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_090254_378962_6A013A41 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250314_090504_873605_A4A2426B 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +71,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+Hi Linus,
 
-On 32-bit architectures, the new calculation causes a build failure:
+Please pull this pair of arm64 mm fixes for -rc7.
 
-ld.lld-21: error: undefined symbol: __aeabi_uldivmod
+Summary in the tag, but the main one is a horrible macro fix for our
+TLB flushing code which resulted in over-invalidation on the MMU
+notifier path.
 
-Since neither value is ever larger than a register, cast both
-sides into a uintptr_t.
+Cheers,
 
-Fixes: 5c03f9f4d362 ("watchdog: aspeed: Update bootstatus handling")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/watchdog/aspeed_wdt.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Will
 
-diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
-index 369635b38ca0..837e15701c0e 100644
---- a/drivers/watchdog/aspeed_wdt.c
-+++ b/drivers/watchdog/aspeed_wdt.c
-@@ -254,7 +254,7 @@ static void aspeed_wdt_update_bootstatus(struct platform_device *pdev,
- 
- 	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
- 		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--		idx = ((intptr_t)wdt->base & 0x00000fff) / resource_size(res);
-+		idx = ((intptr_t)wdt->base & 0x00000fff) / (uintptr_t)resource_size(res);
- 	}
- 
- 	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
--- 
-2.39.5
+--->8
 
+The following changes since commit eed6bfa8b28230382b797a88569f2c7569a1a419:
+
+  arm64: hugetlb: Fix flush_hugetlb_tlb_range() invalidation level (2025-02-27 17:40:58 +0000)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to f7edb07ad7c66eab3dce57384f33b9799d579133:
+
+  Fix mmu notifiers for range-based invalidates (2025-03-11 11:37:43 +0000)
+
+----------------------------------------------------------------
+arm64 fixes for -rc7
+
+- Fix population of the vmemmap for regions of memory that are smaller
+  than a section (128 MiB)
+
+- Fix range-based TLB over-invalidation when invoked via a MMU notifier
+
+----------------------------------------------------------------
+Piotr Jaroszynski (1):
+      Fix mmu notifiers for range-based invalidates
+
+Zhenhua Huang (1):
+      arm64: mm: Populate vmemmap at the page level if not section aligned
+
+ arch/arm64/include/asm/tlbflush.h | 22 ++++++++++++----------
+ arch/arm64/mm/mmu.c               |  5 ++++-
+ 2 files changed, 16 insertions(+), 11 deletions(-)
 
