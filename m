@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0842C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 20:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 604E1C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 20:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kVE/X+1dvBgKywWxxHtjJI1otue6/+H9v0hJ6Relc5w=; b=i6s0q+IERxzZtJ8xWvfSk2Ajg5
-	Ztd3Ngnemsom6tiYfg6ZMrMJ1OP+eZe5SkODImcaxhfmPxue8neOMA/vDRsTRv+iaACbLaxGf5ZkK
-	5cpzeRUlZXpNH3mAoHM0m4nM4HWvn+r0V2aBDM7pXXHzbdrejaSUP1iaEMU8gXWnC4L536P/bLkIq
-	t9RdbjLAVya0XarZl2bNLaxcqunAGst4It3O66gfWJWzIcz3Mmm4U2ise/5j021rkN83Zv3EOE0/B
-	Zug9WhcRHQXB/OeMM6d6Nowcfd4BXF65f/g4HsPUt/j8/ukjaouZQPfbdz5enIr2J2uktKjrFxDM8
-	3Wu/yDwg==;
+	bh=pogjioNrCPU8tB4PVX2EwY4WFCYTF+eohhDC6CPnHkI=; b=QbjraE0gN6GmVygDaGbRchvdl2
+	/SRdK7D+z7IIUNkAvdHwqCQJ+LQmxnIXu8v4JA115biGfIopVEX66fkMIf93u9bzgRRAG/SsvT+rX
+	NtYWLgsx98ZDZPGebV061O83wuUaisX4JbP3FVEtdvr5GtO/95hp6+TLCik9CpzTYfzXAa8av6JKo
+	4AfiDLOJSZq2f51u/M5QcJNc6wpZdYjnw1GVZEr30jq1O8R1Rc4MeqeavQzaY9RurBwGXa45fi7gv
+	ee8eHWS6+kBz8CubtxInuq/U9AEvMqIMDsrtquXbrSEKUVidPBBDjbrx2qECpO/lqjMsgro3aGRu/
+	ecezwWkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttBVo-0000000FDyG-1do1;
-	Fri, 14 Mar 2025 20:20:08 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1ttBmF-0000000FFHG-0akq;
+	Fri, 14 Mar 2025 20:37:07 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttBU8-0000000FDn3-11AX
+	id 1ttBkU-0000000FFAI-2jNZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 20:18:25 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-224171d6826so62515965ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 13:18:23 -0700 (PDT)
+	Fri, 14 Mar 2025 20:35:19 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e5b572e45cso4538540a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 13:35:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741983503; x=1742588303; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kVE/X+1dvBgKywWxxHtjJI1otue6/+H9v0hJ6Relc5w=;
-        b=qfQU7WN6kJcYX55aFFXBsGp7fT3LE80SWeHhs6CSIZ8JOKlJ2YtAKqfj/hJplx/TbR
-         mg6FEMooX0x3pZcWTvoFW1JhZEQ7ti+eG4yFf0LkK+bdL2q1bGvNQqffY2fJ5NuEdeAs
-         UFOu/fnc/ou4x/r+FLqBYPjhVWBQDO2RAywUVz1PyZ6WFGv7xy+mDbJYfkxvivfZKAP/
-         EdMNEnvWE5Dk3BzE2qPmzCvqK2a90rEqJsk70i0F/DFARDGAihf/26sIlJt/fWgBOd5/
-         E/QdyVVN1DfNc6iItejVdnU4zDEWPDDIZfAg45Z8ODWJcYNiH784xpZ9uVSl9QRPIvD9
-         trJg==
+        d=linux-foundation.org; s=google; t=1741984517; x=1742589317; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pogjioNrCPU8tB4PVX2EwY4WFCYTF+eohhDC6CPnHkI=;
+        b=VfIB3uF8zeIgCPnGKEllusQhqkA+D8avR5iM4XZBCUYi6wcRCgvf8i75piDoyt4eCM
+         V0vv7iWo5QJjlXVHsdXyZYfL2AooBKN6YsNyIzipol1auzYLlsUKiLzMEkoPhvaqxrbB
+         s9p//bY3vY+V8ITZKdK8agu25TC0zhE7eCkGE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741983503; x=1742588303;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kVE/X+1dvBgKywWxxHtjJI1otue6/+H9v0hJ6Relc5w=;
-        b=s8iSOi8mqpx4S15GmlbXB6yfFPS0vBWwhlo7WyMx4w7SoQWKIowpY9mO68hPNQOvZf
-         tz5oDwQHsfJO7Ej+FbfVQFubHMsVbdzAVrQ34hux+QgesSk3ehAlON6NMt+kNHHIe7Zl
-         0WmV9rTc4LF2KfImRbE/u8BH7I40fFy1bTpu7yOqzv33MW2pgF0wPw2V6talZ8kfIKzx
-         SX5yWKAmZcxaVjSWT1EGUacGhmascWbcRs6U+NTK9vPcnI6fUx/oiec1wZBcCvgxQzxb
-         c2dDWGA4BOqeBE0rj9SaCrzlWaWNpgFoOrNHWH8McemW2K0G+iArm8GgQIvxCojYNF0n
-         jpzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXwhC8NfeqUo+Y1FeYzJceyUVmBQUjQTKZ628XgSoatRalUK0e9OAmDy8N0jnjO5+7iThr4Lq6Sl5/mq9JgZrrD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIL27fZFEeLp2uvUkl2xHuEopN0C43kDZuZmS3ve9eRlQTpPEf
-	vDRNTdpGeYbaYryXGqnY6++lUyFWAS7xiU254Ta6RAvVD22YyO+W3xI86zFC7DE=
-X-Gm-Gg: ASbGncvHE/CWnbFTqc6YDjzJ3BRydaa7kj/beA/uEGpxQeNnkqZ5GCOkZZiF+Uo5LsI
-	guzWDns+YgK2kjKLZOdT+BX0SYGgoH/cnaVyYoP/M2mLdEQNw9e1ueUJSsoL0Et07cSV0pFRmzA
-	srKxVc2Zj4EiW4CrJzvzs9hvF1aF1hPBaoh3bnMnaUY1/f9VXuRDtUNfkP7xLDMlSuAvyg8bZ4G
-	rxS8hLfQUTKyMNqVvdlqMV0wjaCGV7fpU9QFx2tHa8/JQuN0fc3UWgJ3nXKzgbqzmKmKRMS0Vwp
-	3sNdN3rHcwd7LPPaqilQjY3WK3Og8q/K1niwTU5AxriA6Dk=
-X-Google-Smtp-Source: AGHT+IHXBdYKz+0nlSrPK7TcM2iKiILeG/wu7hs+o6yF94fn14To6hkfN4AHSD2DhQ5uyimEFEKDcQ==
-X-Received: by 2002:a17:902:e843:b0:224:1acc:14db with SMTP id d9443c01a7336-225e0ac3830mr51638205ad.29.1741983502703;
-        Fri, 14 Mar 2025 13:18:22 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:edf2:f43:33df:904c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd5a7dsm32535845ad.251.2025.03.14.13.18.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 13:18:22 -0700 (PDT)
-Date: Fri, 14 Mar 2025 14:18:19 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Daniel Baluta <daniel.baluta@nxp.com>
-Cc: andersson@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, Frank.Li@nxp.com,
-	p.zabel@pengutronix.de, peng.fan@nxp.com,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] remoteproc: imx_dsp_rproc: Document run_stall struct
- member
-Message-ID: <Z9SPC1Rl28NKjFTV@p14s>
-References: <20250314151720.1793719-1-daniel.baluta@nxp.com>
+        d=1e100.net; s=20230601; t=1741984517; x=1742589317;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pogjioNrCPU8tB4PVX2EwY4WFCYTF+eohhDC6CPnHkI=;
+        b=BCTn6fBqwHSGdHVNIZOeQxhxTgV7tI1tMfbQjr5rYpPvgiVydA04ikrk59MZrfhyC4
+         Jj8le+KCRv+5s2f4Asf6sJ1Z6aGhxGlT5LmYhZVGF6FzQrf4hxEAowFJS8zdfK3ClBrx
+         HFk9LwjJ0VEaf+7dTTO2SNWCpHadxdcH82kbqYt4GUAzEU2gClYBPoMNWKbYfNCwQtcZ
+         A8KGD4vzPuK5sGhIvA74go5sOmFSNST3J0gd3lbdWqvqXfX5v7vML1CNAORUkHsJyCs/
+         7dtx2yq7d5qVlgByPSDEV1MMpJd0UrCbbDgsmsUr5ls2zOEclqH/jAXwcEfWnrDNyK/L
+         uSwg==
+X-Forwarded-Encrypted: i=1; AJvYcCXBIlasPAVOpj75mfi9RJ8lbsXXdPX4nvr3kOFJA104wi4yT3chvIdPzVEqpfe71nhy5xuPJEElwWootj5TnU3S@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxv7b9tymY58T93Ej3GumAOSGya/VqU3oTYPpTXNxq6exlyrZ4c
+	JIh0xZx73i4gg4KwqStr1/ndbtcXhtMAuuf8aJMFim0bOxTMIZzzQ1DdbYLSvbK80elsR9+JM8D
+	X5wg=
+X-Gm-Gg: ASbGncvBpOjJ5bYzl1qa1jIkR6EUYSsd/N4a0spA8trQ/ORn7nVdzLhy71IYCR8L50Z
+	Lxe0L9LYKALyFBcmBvCxe02gPsVpMELZ9vK9ni/coBL+RT66pmwI4Scm52zqmSImJfL/W9SjYIG
+	yZpQnmR7eoB+3guI17SdKrzoTrwS62qY7zq/9ZC0WrRKrdFwZginMFgkvVkq/MOjZXAaMI1Bpmh
+	EiNlnl+70I8sprhhlsl3/zJ5zoLcej82Tfv1l/oYkAxXg2qVhTOX7D+v+bV9PQFXctiortVfvEy
+	Eb1LX1VkkPEVxVpUpnz6NF+4DHl9B6tSAQHjKrnIVBfoutOGWWFzwLcccsbVTTpAJ8neG6DlQth
+	KQaX6yPP1qESrYUQeGXo=
+X-Google-Smtp-Source: AGHT+IGubpZhhxZPIgHpA++yz5LE1e9RNiD4r5Z/BKoh7zxtyEKx4rlaLL73is/IeXbpsxvsOvbSVA==
+X-Received: by 2002:a05:6402:35d4:b0:5e7:c42d:d8ca with SMTP id 4fb4d7f45d1cf-5e89fa44f3bmr4198879a12.14.1741984516682;
+        Fri, 14 Mar 2025 13:35:16 -0700 (PDT)
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com. [209.85.218.54])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816ad27ccsm2439005a12.62.2025.03.14.13.35.15
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 Mar 2025 13:35:16 -0700 (PDT)
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-ac25313ea37so502256866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 13:35:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXiDVRRDluBhl652ejKjtwQgenkpIQxBsiyduRqtfzQqXeN0nkXEuOdC+IXqaUt3xlEaz3td5jahAIUAVwwp9lB@lists.infradead.org
+X-Received: by 2002:a17:907:9713:b0:abf:4c82:22b1 with SMTP id
+ a640c23a62f3a-ac330284c14mr404711766b.32.1741984514750; Fri, 14 Mar 2025
+ 13:35:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250314151720.1793719-1-daniel.baluta@nxp.com>
+References: <20250314160458.GA9438@willie-the-truck>
+In-Reply-To: <20250314160458.GA9438@willie-the-truck>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 14 Mar 2025 10:34:57 -1000
+X-Gmail-Original-Message-ID: <CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com>
+X-Gm-Features: AQ5f1JryKZLnw2-ForjqZas2k5iB8R4KsSVk5Q8oMuZFtCfIHNVaIuQqepQJz1U
+Message-ID: <CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com>
+Subject: Re: [GIT PULL] arm64 fixes for -rc7
+To: Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_131824_286676_95B4E946 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250314_133518_717529_D3AA5E61 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +103,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 05:17:19PM +0200, Daniel Baluta wrote:
-> Add documentation for 'run_stall' imx_dsp_rproc struct member.
-> This also fixes the following warning:
-> 
-> warning: Function parameter or struct member 'run_stall'
-> not described in 'imx_dsp_rproc'
-> 
-> Fixes: 0184b4fdbad1 ("imx_dsp_rproc: Use reset controller API to control the DSP")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202503142125.IE33sCto-lkp@intel.com/
-> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> ---
->  drivers/remoteproc/imx_dsp_rproc.c | 1 +
->  1 file changed, 1 insertion(+)
+On Fri, 14 Mar 2025 at 06:05, Will Deacon <will@kernel.org> wrote:
 >
+> Summary in the tag, but the main one is a horrible macro fix for our
+> TLB flushing code which resulted in over-invalidation on the MMU
+> notifier path.
 
-Applied.
+From a quick look, that macro is still quite broken. Maybe not in ways
+that matter, but still...
 
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index bc60edcdd661..90cb1fc13e71 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -96,6 +96,7 @@ enum imx_dsp_rp_mbox_messages {
->  /**
->   * struct imx_dsp_rproc - DSP remote processor state
->   * @regmap: regmap handler
-> + * @run_stall: reset control handle used for Run/Stall operation
->   * @rproc: rproc handler
->   * @dsp_dcfg: device configuration pointer
->   * @clks: clocks needed by this device
-> -- 
-> 2.43.0
-> 
+In particular, the 'stride' argument is used multiple times, and
+without parentheses.
+
+The 'lpa' argument is also used multiple times, and the input to that
+is typically something like kvm_lpa2_is_enabled(), so I think it
+potentially generates lots of pointless duplicate code with that
+BUG_ON() in system_supports_lpa2() -> cpus_have_final_cap().
+
+Maybe the compiler figures it out. But that macro is bad, bad, bad.
+When it looks like a function, it should act like a function, and not
+evaluate its arguments multiple times.
+
+The most immediate bug may have been fixed, but not the actual real
+horror of that thing.
+
+             Linus
 
