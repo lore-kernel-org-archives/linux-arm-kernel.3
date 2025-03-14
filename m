@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C45C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DBFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NUgcdMszcZT79fuSYG7PG9+8zG6HmJmlZyIf7W0iDLk=; b=Ecrzbif3wpf0YtiSZN+f4nqWlq
-	ScgYYfqv3sgS2DyNCxOdR1ZmLChlf5ZGAW7QXVHEy9PDeEIpwmSdVX2kDxWaqBoItbCJlb1FhBRkG
-	Zt0M8E2V/CCnwm5kDn1rDeQMiI8UUL2xG++XH5XpRRZlW5kqPLz1C3cyX/boBvC+YvPZxkqtpUEG1
-	wm6TImCk7oUEoh/4JGFactZKHYAjPmc3+0xHYfvDhNfXAIybLuCZzJHLelLQ9db2A6xPVzAbytyRy
-	stt5lNxzyivS3e2ZCfTc0Gz4rVRx075lAaOMi3a3Nz1GfS1RCzUUWttkqS7CD679vQhfyBBFP5KA1
-	swoCNqtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7+F/dB8IVBgBEgFjNS5P8WtON/Q3cnLwScSTpV82+eo=; b=TPp2PREqf8BHh2zo4nelHkQOy3
+	8H7gN1iNPscu386432ZIZsnOPyjNHUmFSlCCqunKGB5M69bznWJ3TRm6MlxhvNJ13WmODiVe6EGdG
+	gZpc3uRG5D3knHu/iWPKMTT9uws43/dAHT9XQ8l1e3JcGA1rN7fLkvfgygEUM1msJfA1ou+mTQdfP
+	V4sjz3cuA2oKszrTWV787SEWYXRyAHZYR2VBK6R6xot3x45cusv3fN29jbEZnm/7TYkvLlLGqE6Wu
+	9FNUHP+a/lbZCT1mJrJrOV2MOtvO0ilCwu/eyScshdYjNq4PR3wSuRrEA9Jli7XZP9XpGgOQdYiky
+	L4urPIWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt1v3-0000000Dlva-027W;
-	Fri, 14 Mar 2025 10:05:33 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1tt1va-0000000Dm5Y-4BUp;
+	Fri, 14 Mar 2025 10:06:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt1qx-0000000Dl1d-2DJc
+	id 1tt0ck-0000000DWIU-1vBU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:01:20 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-549a4a4400aso2107214e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 03:01:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741946478; x=1742551278; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NUgcdMszcZT79fuSYG7PG9+8zG6HmJmlZyIf7W0iDLk=;
-        b=iKjFXwjUG6mBlU/g9XLBPo/jP1t6tQk0j8eehC9/gp00UWl4X9pb326xA/pjJqdmU8
-         RLOABBmeZBbaX183q78MffMflHETf62kknRcYnbiXRIrkhVveqWoIY/2qANwTZ1buCb1
-         CWIFoG1nA+0iNh1+QijNfhlybGcraMV8x/sd1jwoQ7HDu5mZZf72/zTG6yPztteg740M
-         SS7G9PiDC3mqfhCMW2W5eTdCftrjywMd1YTPssUFg85F8I6mrpJ7+XB+e76wG8N6NKai
-         ylzKB30fWBHB4W++GVzjnec+2rI7xZKvj7zYBQvRmlKZaSb1av+UQH7dLRqlUWNvxGX2
-         xY0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741946478; x=1742551278;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NUgcdMszcZT79fuSYG7PG9+8zG6HmJmlZyIf7W0iDLk=;
-        b=AfHy7cXvTWAib4fmgb6bkoLD3Euq3TVUTFfOIGpSNCDh3Slw6xb928kCYMxvvPU0gy
-         7E3d8QvV67a7b/nXkLzOvdSqZOXuOJQAEM2IU1CqK2vIisGTozGGYpVU+tdACjgY8aci
-         k1ftj4DQ6n0cjZw6awhep/pjgrmb3XuafBc+JuDba5zAIsgZaqyfOavQ2NRMBPNtaYy3
-         WLfFxR3DUl+xTuhJHIUvGVwIsHdiHPLoR+De3S8C3qG4iZ/4up/jVSzB0P6/6DslhNi7
-         WMb1MnequgEZdbCmPlpF2frGgfMfzyeKHF3xu+JsBCantmX+9hmsztDWyTDJcoidfbKG
-         rVHA==
-X-Forwarded-Encrypted: i=1; AJvYcCWB5cBrXMr7TUN4Evxv/RSVJiCsbgf/xnGNNDC13Jq0jZ06z1gxoAWKLa3CaWj1vXHF7NqkFhbxzrvNEXhVpBB2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3B+K8f2Ya1Zqn9y8jt6QTo0k0L61DFnDNQ1frNB28JKO8OcRz
-	R9DWL7i3CpGW98Ff8AuDeZ8y4lVLJ3RYavOWNMxgQHWR3BTw7+Dqe8hMcafxqas=
-X-Gm-Gg: ASbGnctDzWlYwfD3Nj0OH+B3gs/idR07d152Nl2N4j7KqfDN1WedYAcJBO7NtBkXYq4
-	QHrPbCUNvQq3Z4zySc7la+FvDiTXcxwx16/VLiLoeyfPT/p9LCEIdELM0fJQuso6cISkJp0K/Hr
-	gkgwphbDVH2NjOUa2IaHZGoJJJzrPMTeOKg20HKPql7aJHIRVPjG3eJOWXr6YfLJ2318RgSHeYv
-	AVIXSjdp88YR8JWRJ9jbMrtZAVSrv8sP2Vn/T603LFRV1xu0JG5XnwdNWcuSgy62XlzIR9lZXmR
-	gP4vo+8HAn8BKFU7/4+AT9btJroSh1Qj5YqcabTNqlZ9WqEgbdvgObURi539BrEeMN8n0+77sqF
-	uOugbR0twbf/dTGZrEJw=
-X-Google-Smtp-Source: AGHT+IFr9G0sLdjjGzAEmSADvTJYSJ3/q7bZeLPAORPr3YpjeuD+P4b+VCcMRGSP60Xi47buAS1RYQ==
-X-Received: by 2002:a05:6512:23a9:b0:549:8d07:ff0d with SMTP id 2adb3069b0e04-549c3987fa1mr605518e87.45.1741946477176;
-        Fri, 14 Mar 2025 03:01:17 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30c3f0ea468sm5168221fa.41.2025.03.14.03.01.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 03:01:15 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-pm@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Anup Patel <anup@brainfault.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+	Fri, 14 Mar 2025 08:42:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DFEC05C4324;
+	Fri, 14 Mar 2025 08:40:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CCB3C4CEE3;
+	Fri, 14 Mar 2025 08:42:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741941753;
+	bh=VQS1Yr4tAB+kjagZmPvDSgv3gMXHVfCnmPEGOBTodA8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aroWDp12uCjQCvTYtVLocTJeFM5M5VgtVNoNyOVNxs2UzKYMNijJ8Kh7AoXiHm0fm
+	 JImb3CaJ94LBildurK4O+I8fgZZduBY26IBJJtbrzWKConLJUJHb+SOQL4TKEfs6U6
+	 W6CakZRT9d4ootX3Z5IDjJrK++GuLL1ZExp0VgzK1g6qDMGfNa3Lo+Icy2+OHRNInB
+	 Y0/tEyw/yfU0VUzvO9jQikWmv24uK8U52DNjnllVLel6jZ39DVEkLROngw66uUYfQz
+	 TRjemEdizSl30kWlOrNBZ6jJill4vzcv9qIKviCYIW/tEm7bI6gL936PODFY99wd9G
+	 tCDv94y8VsYEg==
+Date: Fri, 14 Mar 2025 08:42:27 +0000
+From: Lee Jones <lee@kernel.org>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/4] pmdomain/cpuidle-psci: Improve domain-idlestate statistics
-Date: Fri, 14 Mar 2025 11:00:54 +0100
-Message-ID: <20250314100103.1294715-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	~postmarketos/upstreaming@lists.sr.ht
+Subject: Re: [PATCH v6 06/10] mfd: bcm590xx: Add PMU ID/revision parsing
+ function
+Message-ID: <20250314084227.GJ3645863@google.com>
+References: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
+ <20250304-bcm59054-v6-6-ae8302358443@gmail.com>
+ <20250313132036.GB3616286@google.com>
+ <ef190ba8-a5c7-4a1a-90e6-2610de00e4ed@sirena.org.uk>
+ <f363c1ce-8612-476e-a5d5-c3cb358bf50a@gmail.com>
+ <20250314080022.GH3645863@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250314080022.GH3645863@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_030119_563761_1F4B10BB 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_014234_540284_1F17B7B7 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +87,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series improves and extends the support for domain-idlestates statistic
-for genpd and the cpuidle-psci-domain. More information is available in each
-commit message.
+On Fri, 14 Mar 2025, Lee Jones wrote:
 
-Please help to review and test!
+> On Thu, 13 Mar 2025, Artur Weber wrote:
+> 
+> > On 13.03.2025 14:25, Mark Brown wrote:
+> > > On Thu, Mar 13, 2025 at 01:20:36PM +0000, Lee Jones wrote:
+> > > > On Tue, 04 Mar 2025, Artur Weber wrote:
+> > > 
+> > > > > +	if (id != bcm590xx->pmu_id) {
+> > > > > +		dev_err(bcm590xx->dev,
+> > > > > +			"Incorrect ID for %s: expected %x, got %x. Check your DT compatible.\n",
+> > > > 
+> > > > Isn't it more likely that the H/W this is being executed on is
+> > > > unsupported?  If so, say that instead.
+> > > 
+> > > Given that the compatibles are device specific the driver shouldn't be
+> > > binding if the device is unsupported.
+> > 
+> > Yes, the intention here is just to make sure that the DT compatible and
+> > hardware ID match. Unsupported hardware would not have a DT compatible.
+> 
+> Right, so the user is utilising the correct compatible on the incorrect
+> (most likely unsupported) platform.  When using a supported DTB on
+> unknown hardware, the driver will bind but fail here.
 
-Kind regards
-Ulf Hansson
-
-Ulf Hansson (4):
-  pmdomain: core: Add genpd helper to correct the usage/rejected
-    counters
-  cpuidle: psci: Move the per CPU variable domain_state to a struct
-  cpuidle: psci: Correct the domain-idlestate statistics in debugfs
-  pmdomain: core: Add residency reflection for domain-idlestates to
-    debugfs
-
- drivers/cpuidle/cpuidle-psci-domain.c |  2 +-
- drivers/cpuidle/cpuidle-psci.c        | 40 ++++++++++++-----
- drivers/cpuidle/cpuidle-psci.h        |  4 +-
- drivers/pmdomain/core.c               | 65 +++++++++++++++++++++++++--
- drivers/pmdomain/governor.c           |  2 +
- include/linux/pm_domain.h             | 10 +++++
- 6 files changed, 106 insertions(+), 17 deletions(-)
+If you simply drop the unnecessary "Check your DT compatible." part, not
+only does it tidy up the print / line, it also covers more bases.
 
 -- 
-2.43.0
-
+Lee Jones [李琼斯]
 
