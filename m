@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BAA9C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDE8C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQHS6edakeTMkoUtKqh0HQvA5buiRQWe1WYXeTlyIUk=; b=2YyrhwtEGovuZh/o5kqRet4OJS
-	7SkL4k+iWrPaxSeiZY14gSSKKmb1BCukt4lEsTJvl7fwzDe20v08BJEx7qLYFQbC3udTGs5vvNUVG
-	SZgRhpTO2OgEJVosXahffYrB944aGBspn0V0YoPqFewaUhVPIwAFIyPVPwSQDAjd2woejR9rk9toA
-	8D7cmHfieAD+BAH01L8mon4AAqWECePV+LSwNhLGtNEkVeBHL8hVFmErtPuhmdBuq3poh0JPeo20+
-	nE2cTcXhFDJ+e0MKTzGYuZHo32YQRna79I8Mo4tZ/aUKlBoKjpeiiiTzdrcv/snqg6aRO8Ua93oPE
-	2XnQlLIw==;
+	bh=lsMqkIj6X9Ksraxyiyv0PPQiVt9JWGsjKjXFZZVZW/M=; b=GVOLyglbljlQLHy9pi6HWriusT
+	RDSggYxQMU3aFLLZM9ZuIQiXTVuBarPKjfUOevb5/JJbqwjTnX/g5ynjwGC4E+kmmCiinGvEIx74O
+	w9WWZCiaSX0w8tdQOdxMCk+62x+uymdikJ5WN+b3ccZpcgyclCZF5aoK+nR8y5x6wZcon5yCqi/yY
+	6ZGU/VgXqjGbsjSBg21SnuCHlv7vDEAtCHre+rqfNxZH0LvSpz9WWFgwk1XtDv2ePPvqkgzrYYx1U
+	Uo50QCIwLFpJeu0fIRf/3MDW4B/C5uTPbSJZZ60ECXXjSl0OzPDe0DUOeiGQkwT5OAgrNkrCr3pZw
+	+gBf7n+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3DH-0000000E06q-1JVx;
-	Fri, 14 Mar 2025 11:28:27 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1tt3Ev-0000000E0EX-0OzD;
+	Fri, 14 Mar 2025 11:30:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt33t-0000000Dyef-42NV
+	id 1tt34r-0000000Dyp0-0ck8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 11:18:47 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3913f97d115so997470f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 04:18:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741951124; x=1742555924; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nQHS6edakeTMkoUtKqh0HQvA5buiRQWe1WYXeTlyIUk=;
-        b=c9t1kN3WfR1aJc3y2tB7tc8ucvXB2/RrZqtlzqw1iVwkudl5SlNBSmo5/yYesBAEG1
-         53xg2EKMOyr4bJcaoaQOw0zSIFIJ2YJBwb+3rYvjqAm6jhWXb6d9J+/tKEDu03B5ZInr
-         dzSmGXYmWzCDkG3sU/ZwX+/vBCeBQ4RddrzKbLv4MBKX875bmhUvCU+nF58H6f04Nlei
-         pNbEhbC3y+Vt29SFlPKLL6RJBqnCjMlvk35wlVPeXjhhYcJE0sKmgagP9hyfQuSovJso
-         XS3+AawsJWU9n/nNnUVqW2gkffNGLwqGEe+R+iQ7T3l+L4fuf+IirIBfl769eQRDzWy2
-         hPNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741951124; x=1742555924;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nQHS6edakeTMkoUtKqh0HQvA5buiRQWe1WYXeTlyIUk=;
-        b=h4WNTCQy3H6ZNUiSx5Uaqe6D9Jro9bn/8TX2xnbp94cDRNSImyVOxfmcq6wjaJeo7P
-         MbwBfvGtdf7X9ZoIEHU7rTO6pnyBdPoAlRrHaq0jKIxtue71fYI4oLWv3g/JJf0y/b4j
-         f9VdiZKhaQgw+O/SsBICUJSLco1iS2irW++0+UpKWsQ8dHboq4KLwIx0Qyqy7UNowqM/
-         fOqDhSHtUFf6ZHcxqtMsgJnKs3S+9qfD1ss26DSIx9bwevSyrSMT1GPNiDTWAz+xCNqo
-         ye0wf2inVH5JoUA4s1Q3TrshTRw6xnAZyPiULqaPwge4ykUpA8ngXApl/qPNWdGycxsZ
-         8j3w==
-X-Forwarded-Encrypted: i=1; AJvYcCXzmCGg9qqhxBT5TN3ZKwc9oxi9ahLpiE/FW3VNfaibyMsfFnMGjA4sxoRE4v6bfR8RAefE2fMuGhoRVJiSG5ZC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWQb2sAyOWazUsBgM6eAlOmFkE5kWKeVGEK2SS1YT40w5q+Nz/
-	K9XNe2IBLpoUnYjvX2AV/bu8pp0gFpbjrR4JaUvWD4LN2K9AYxlhRU2OvsP+x1dIl0Md4k8MNg=
-	=
-X-Google-Smtp-Source: AGHT+IFYtQOOphKfLoOaQyXRnKRzCcMMNh/zGKLdmVfOk340KK97aCzghkWNQExmuTK4+Cq9Ck3MWM7VWg==
-X-Received: from wmrn15.prod.google.com ([2002:a05:600c:500f:b0:43c:f03d:18aa])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:4026:b0:391:a74:d7e2
- with SMTP id ffacd0b85a97d-395b9b10d93mr6955810f8f.26.1741951124121; Fri, 14
- Mar 2025 04:18:44 -0700 (PDT)
-Date: Fri, 14 Mar 2025 11:18:32 +0000
-In-Reply-To: <20250314111832.4137161-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20250314111832.4137161-1-tabba@google.com>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250314111832.4137161-5-tabba@google.com>
-Subject: [PATCH v3 4/4] KVM: arm64: Create each pKVM hyp vcpu after its
- corresponding host vcpu
-From: Fuad Tabba <tabba@google.com>
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, 
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
-	qperret@google.com, vdonnefort@google.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 14 Mar 2025 11:19:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 190CCA45598;
+	Fri, 14 Mar 2025 11:14:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0C6BC4CEE9;
+	Fri, 14 Mar 2025 11:19:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741951183;
+	bh=oqVgxdpTP6G2PaiGKfQC4A75YZyp+n3zWNLGzhZi3Ok=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mjjMhDN6TgO6LGNUdqHBc4gzpfwcgKKS0B58OrCbfyJQMPpXv5ytGjdGwIdnFkB/J
+	 f1zPN4QTih0sP9PEytu5yT3wL2hKPfTosDCTUaEaZ10Y9Vh9WW32Y2xUqva2Sb5oF9
+	 KkdiNSLOoiiN5gXEJHzJEy7oWr8SmzETnbusOqHG/ljSsMhXeyHwc3ImmAh0Im0BjF
+	 VF1NJulcguYsWchdK5C4fDd82G3u+CXXwGNxFbjx5+uQAfYmncHo8cxA/Wafmi3gFF
+	 Md8P90ysNU7Dfb+mm0ije8hK0pWr0i93VwfwPv0fmUnk2dnf87LZ/BYKu2sNwCItCp
+	 3hsJvf4YkeqDg==
+Date: Fri, 14 Mar 2025 12:19:31 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Elliot Berman <quic_eberman@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+	Melody Olvera <quic_molvera@quicinc.com>,
+	Shivendra Pratap <quic_spratap@quicinc.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, Elliot Berman <elliotb317@gmail.com>,
+	Elliot Berman <elliot.berman@oss.qualcomm.com>
+Subject: Re: [PATCH v9 2/5] firmware: psci: Read and use vendor reset types
+Message-ID: <Z9QQw6BcE7IXzu+r@lpieralisi>
+References: <20250303-arm-psci-system_reset2-vendor-reboots-v9-0-b2cf4a20feda@oss.qualcomm.com>
+ <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_041846_016214_B5DE4A15 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20250314_041945_317253_7D569FF5 
+X-CRM114-Status: GOOD (  47.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,271 +91,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of creating and initializing _all_ hyp vcpus in pKVM when
-the first host vcpu runs for the first time, initialize _each_
-hyp vcpu in conjunction with its corresponding host vcpu.
+On Mon, Mar 03, 2025 at 01:08:31PM -0800, Elliot Berman wrote:
+> From: Elliot Berman <elliot.berman@oss.qualcomm.com>
+> 
+> SoC vendors have different types of resets and are controlled through
+> various registers. For instance, Qualcomm chipsets can reboot to a
+> "download mode" that allows a RAM dump to be collected. Another example
+> is they also support writing a cookie that can be read by bootloader
+> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
+> vendor reset types to be implemented without requiring drivers for every
+> register/cookie.
+> 
+> Add support in PSCI to statically map reboot mode commands from
+> userspace to a vendor reset and cookie value using the device tree.
 
-Some of the host vcpu state (e.g., system registers and traps
-values) is not initialized until the first time the host vcpu is
-run. Therefore, initializing a hyp vcpu before its corresponding
-host vcpu has run for the first time might not view the complete
-host state of these vcpus.
+I have managed to discuss a little bit this patchset over the last
+few days and I think we have defined a plan going forward.
 
-Additionally, this behavior is inline with non-protected modes.
+A point that was raised is:
 
-Acked-by: Will Deacon <will@kernel.org>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/include/asm/kvm_host.h      |  2 +
- arch/arm64/include/asm/kvm_pkvm.h      |  1 +
- arch/arm64/kvm/arm.c                   |  4 ++
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 54 +++++++++++++++-----------
- arch/arm64/kvm/pkvm.c                  | 28 ++++++-------
- 6 files changed, 53 insertions(+), 42 deletions(-)
+https://man7.org/linux/man-pages/man2/reboot.2.html
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index d919557af5e5..31b21cf8118a 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -869,6 +869,8 @@ struct kvm_vcpu_arch {
- #define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(0))
- /* SVE config completed */
- #define VCPU_SVE_FINALIZED	__vcpu_single_flag(cflags, BIT(1))
-+/* pKVM VCPU setup completed */
-+#define VCPU_PKVM_FINALIZED	__vcpu_single_flag(cflags, BIT(2))
- 
- /* Exception pending */
- #define PENDING_EXCEPTION	__vcpu_single_flag(iflags, BIT(0))
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index eb65f12e81d9..abd693ce5b93 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -19,6 +19,7 @@
- int pkvm_init_host_vm(struct kvm *kvm);
- int pkvm_create_hyp_vm(struct kvm *kvm);
- void pkvm_destroy_hyp_vm(struct kvm *kvm);
-+int pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu);
- 
- /*
-  * This functions as an allow-list of protected VM capabilities.
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 0160b4924351..6acd8b924210 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -843,6 +843,10 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 		ret = pkvm_create_hyp_vm(kvm);
- 		if (ret)
- 			return ret;
-+
-+		ret = pkvm_create_hyp_vcpu(vcpu);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	mutex_lock(&kvm->arch.config_lock);
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index e42bf68c8848..ce31d3b73603 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -43,12 +43,6 @@ struct pkvm_hyp_vm {
- 	struct hyp_pool pool;
- 	hyp_spinlock_t lock;
- 
--	/*
--	 * The number of vcpus initialized and ready to run.
--	 * Modifying this is protected by 'vm_table_lock'.
--	 */
--	unsigned int nr_vcpus;
--
- 	/* Array of the hyp vCPU structures for this VM. */
- 	struct pkvm_hyp_vcpu *vcpus[];
- };
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 6efb9bf56180..4ef3748dc660 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -245,10 +245,12 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
- 
- 	hyp_spin_lock(&vm_table_lock);
- 	hyp_vm = get_vm_by_handle(handle);
--	if (!hyp_vm || hyp_vm->nr_vcpus <= vcpu_idx)
-+	if (!hyp_vm || hyp_vm->kvm.created_vcpus <= vcpu_idx)
- 		goto unlock;
- 
- 	hyp_vcpu = hyp_vm->vcpus[vcpu_idx];
-+	if (!hyp_vcpu)
-+		goto unlock;
- 
- 	/* Ensure vcpu isn't loaded on more than one cpu simultaneously. */
- 	if (unlikely(hyp_vcpu->loaded_hyp_vcpu)) {
-@@ -367,8 +369,14 @@ static void unpin_host_vcpus(struct pkvm_hyp_vcpu *hyp_vcpus[],
- {
- 	int i;
- 
--	for (i = 0; i < nr_vcpus; i++)
--		unpin_host_vcpu(hyp_vcpus[i]->host_vcpu);
-+	for (i = 0; i < nr_vcpus; i++) {
-+		struct pkvm_hyp_vcpu *hyp_vcpu = hyp_vcpus[i];
-+
-+		if (!hyp_vcpu)
-+			continue;
-+
-+		unpin_host_vcpu(hyp_vcpu->host_vcpu);
-+	}
- }
- 
- static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
-@@ -392,24 +400,18 @@ static void pkvm_vcpu_init_sve(struct pkvm_hyp_vcpu *hyp_vcpu, struct kvm_vcpu *
- 
- static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
- 			      struct pkvm_hyp_vm *hyp_vm,
--			      struct kvm_vcpu *host_vcpu,
--			      unsigned int vcpu_idx)
-+			      struct kvm_vcpu *host_vcpu)
- {
- 	int ret = 0;
- 
- 	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
- 		return -EBUSY;
- 
--	if (host_vcpu->vcpu_idx != vcpu_idx) {
--		ret = -EINVAL;
--		goto done;
--	}
--
- 	hyp_vcpu->host_vcpu = host_vcpu;
- 
- 	hyp_vcpu->vcpu.kvm = &hyp_vm->kvm;
- 	hyp_vcpu->vcpu.vcpu_id = READ_ONCE(host_vcpu->vcpu_id);
--	hyp_vcpu->vcpu.vcpu_idx = vcpu_idx;
-+	hyp_vcpu->vcpu.vcpu_idx = READ_ONCE(host_vcpu->vcpu_idx);
- 
- 	hyp_vcpu->vcpu.arch.hw_mmu = &hyp_vm->kvm.arch.mmu;
- 	hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
-@@ -647,27 +649,28 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
- 		goto unlock;
- 	}
- 
--	idx = hyp_vm->nr_vcpus;
-+	ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu);
-+	if (ret)
-+		goto unlock;
-+
-+	idx = hyp_vcpu->vcpu.vcpu_idx;
- 	if (idx >= hyp_vm->kvm.created_vcpus) {
- 		ret = -EINVAL;
- 		goto unlock;
- 	}
- 
--	ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu, idx);
--	if (ret)
-+	if (hyp_vm->vcpus[idx]) {
-+		ret = -EINVAL;
- 		goto unlock;
-+	}
- 
- 	hyp_vm->vcpus[idx] = hyp_vcpu;
--	hyp_vm->nr_vcpus++;
- unlock:
- 	hyp_spin_unlock(&vm_table_lock);
- 
--	if (ret) {
-+	if (ret)
- 		unmap_donated_memory(hyp_vcpu, sizeof(*hyp_vcpu));
--		return ret;
--	}
--
--	return 0;
-+	return ret;
- }
- 
- static void
-@@ -713,12 +716,17 @@ int __pkvm_teardown_vm(pkvm_handle_t handle)
- 	/* Reclaim guest pages (including page-table pages) */
- 	mc = &host_kvm->arch.pkvm.teardown_mc;
- 	reclaim_guest_pages(hyp_vm, mc);
--	unpin_host_vcpus(hyp_vm->vcpus, hyp_vm->nr_vcpus);
-+	unpin_host_vcpus(hyp_vm->vcpus, hyp_vm->kvm.created_vcpus);
- 
- 	/* Push the metadata pages to the teardown memcache */
--	for (idx = 0; idx < hyp_vm->nr_vcpus; ++idx) {
-+	for (idx = 0; idx < hyp_vm->kvm.created_vcpus; ++idx) {
- 		struct pkvm_hyp_vcpu *hyp_vcpu = hyp_vm->vcpus[idx];
--		struct kvm_hyp_memcache *vcpu_mc = &hyp_vcpu->vcpu.arch.pkvm_memcache;
-+		struct kvm_hyp_memcache *vcpu_mc;
-+
-+		if (!hyp_vcpu)
-+			continue;
-+
-+		vcpu_mc = &hyp_vcpu->vcpu.arch.pkvm_memcache;
- 
- 		while (vcpu_mc->nr_pages) {
- 			void *addr = pop_hyp_memcache(vcpu_mc, hyp_phys_to_virt);
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 74cf5d87e77b..fc6b5df309dd 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -125,7 +125,9 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
- 		return -ENOMEM;
- 
- 	ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, vcpu, hyp_vcpu);
--	if (ret)
-+	if (!ret)
-+		vcpu_set_flag(vcpu, VCPU_PKVM_FINALIZED);
-+	else
- 		free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
- 
- 	return ret;
-@@ -144,9 +146,7 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
- static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
- {
- 	size_t pgd_sz, hyp_vm_sz;
--	struct kvm_vcpu *host_vcpu;
- 	void *pgd, *hyp_vm;
--	unsigned long idx;
- 	int ret;
- 
- 	if (host_kvm->created_vcpus < 1)
-@@ -180,17 +180,7 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
- 
- 	host_kvm->arch.pkvm.handle = ret;
- 
--	kvm_for_each_vcpu(idx, host_vcpu, host_kvm) {
--		ret = __pkvm_create_hyp_vcpu(host_vcpu);
--		if (ret)
--			goto destroy_vm;
--	}
--
- 	return 0;
--
--destroy_vm:
--	__pkvm_destroy_hyp_vm(host_kvm);
--	return ret;
- free_vm:
- 	free_pages_exact(hyp_vm, hyp_vm_sz);
- free_pgd:
-@@ -210,6 +200,18 @@ int pkvm_create_hyp_vm(struct kvm *host_kvm)
- 	return ret;
- }
- 
-+int pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
-+{
-+	int ret = 0;
-+
-+	mutex_lock(&vcpu->kvm->arch.config_lock);
-+	if (!vcpu_get_flag(vcpu, VCPU_PKVM_FINALIZED))
-+		ret = __pkvm_create_hyp_vcpu(vcpu);
-+	mutex_unlock(&vcpu->kvm->arch.config_lock);
-+
-+	return ret;
-+}
-+
- void pkvm_destroy_hyp_vm(struct kvm *host_kvm)
- {
- 	mutex_lock(&host_kvm->arch.config_lock);
--- 
-2.49.0.rc1.451.g8f38331e32-goog
+LINUX_REBOOT_CMD_RESTART2 *arg command, what is it supposed to
+represent ?
 
+Is it the mode the system should reboot into OR it is the
+actual command to be issued (which is what this patchset
+implements) ?
+
+LINUX_REBOOT_CMD_RESTART "..a default restart..."
+
+It is unclear what "default" means. We wonder whether the
+reboot_mode variable was introduced to _define_ that "default".
+
+So, in short, my aim is trying to decouple reboot_mode from the
+LINUX_REBOOT_CMD_RESTART2 *arg command.
+
+I believe that adding a sysfs interface to reboot-mode driver
+infrastructure would be useful, so that the commands would
+be exposed to userspace and userspace can set the *arg command
+specifically to issue a given reset/mode.
+
+I wonder why this is not already in place for eg syscon-reboot-mode
+resets, how does user space issue a command in those systems if the
+available commands aren't exposed to userspace ?
+
+Is there a kernel entity exposing those "modes" to userspace, somehow ?
+
+> A separate initcall is needed to parse the devicetree, instead of using
+> psci_dt_init because mm isn't sufficiently set up to allocate memory.
+> 
+> Reboot mode framework is close but doesn't quite fit with the
+> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
+> be solved but doesn't seem reasonable in sum:
+>  1. reboot mode registers against the reboot_notifier_list, which is too
+>     early to call SYSTEM_RESET2. PSCI would need to remember the reset
+>     type from the reboot-mode framework callback and use it
+>     psci_sys_reset.
+>  2. reboot mode assumes only one cookie/parameter is described in the
+>     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
+>     cookie.
+
+This can be changed and I think it should, so that the reboot modes
+are exposed to user space and PSCI can use that.
+
+>  3. psci cpuidle driver already registers a driver against the
+>     arm,psci-1.0 compatible. Refactoring would be needed to have both a
+>     cpuidle and reboot-mode driver.
+> 
+> Signed-off-by: Elliot Berman <elliot.berman@oss.qualcomm.com>
+> ---
+>  drivers/firmware/psci/psci.c | 105 +++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 105 insertions(+)
+> 
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index a1ebbe9b73b136218e9d9f9b8daa7756b3ab2fbe..6f8c47deaec0225f26704e1f3bcad52603127a85 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -80,6 +80,14 @@ static u32 psci_cpu_suspend_feature;
+>  static bool psci_system_reset2_supported;
+>  static bool psci_system_off2_hibernate_supported;
+>  
+> +struct psci_reset_param {
+> +	const char *mode;
+> +	u32 reset_type;
+> +	u32 cookie;
+> +};
+> +static struct psci_reset_param *psci_reset_params __ro_after_init;
+> +static size_t num_psci_reset_params __ro_after_init;
+> +
+>  static inline bool psci_has_ext_power_state(void)
+>  {
+>  	return psci_cpu_suspend_feature &
+> @@ -306,9 +314,39 @@ static int get_set_conduit_method(const struct device_node *np)
+>  	return 0;
+>  }
+>  
+> +static int psci_vendor_system_reset2(const char *cmd)
+> +{
+> +	unsigned long ret;
+> +	size_t i;
+> +
+> +	for (i = 0; i < num_psci_reset_params; i++) {
+> +		if (!strcmp(psci_reset_params[i].mode, cmd)) {
+> +			ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
+> +					     psci_reset_params[i].reset_type,
+> +					     psci_reset_params[i].cookie, 0);
+> +			/*
+> +			 * if vendor reset fails, log it and fall back to
+> +			 * architecture reset types
+
+That's not what the code does.
+
+> +			 */
+> +			pr_err("failed to perform reset \"%s\": %ld\n", cmd,
+> +			       (long)ret);
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -ENOENT;
+> +}
+> +
+>  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+>  			  void *data)
+>  {
+> +	/*
+> +	 * try to do the vendor system_reset2
+> +	 * If there wasn't a matching command, fall back to architectural resets
+> +	 */
+> +	if (data && !psci_vendor_system_reset2(data))
+> +		return NOTIFY_DONE;
+> +
+>  	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+>  	    psci_system_reset2_supported) {
+>  		/*
+> @@ -795,6 +833,73 @@ static const struct of_device_id psci_of_match[] __initconst = {
+>  	{},
+>  };
+>  
+> +#define REBOOT_PREFIX "mode-"
+> +
+> +static int __init psci_init_system_reset2_modes(void)
+> +{
+> +	const size_t len = strlen(REBOOT_PREFIX);
+> +	struct psci_reset_param *param;
+> +	struct device_node *psci_np __free(device_node) = NULL;
+> +	struct device_node *np __free(device_node) = NULL;
+> +	struct property *prop;
+> +	size_t count = 0;
+> +	u32 magic[2];
+> +	int num;
+> +
+> +	if (!psci_system_reset2_supported)
+> +		return 0;
+> +
+> +	psci_np = of_find_matching_node(NULL, psci_of_match);
+> +	if (!psci_np)
+> +		return 0;
+> +
+> +	np = of_find_node_by_name(psci_np, "reset-types");
+> +	if (!np)
+> +		return 0;
+
+Related to my initial question above. If LINUX_REBOOT_CMD_RESTART2 *arg command,
+is the actual reset to be issued, should we add a default mode "cold"
+and, if SYSTEM_RESET2 is supported, a "warm" reset mode too ?
+
+It all boils down to what *arg represents - adding "cold" and "warm"
+modes would remove the dependency on reboot_mode for resets issued
+through LINUX_REBOOT_CMD_RESTART2, the question is whether this
+is the correct thing to do.
+
+Comments very welcome.
+
+Thanks,
+Lorenzo
+
+> +
+> +	for_each_property_of_node(np, prop) {
+> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
+> +			continue;
+> +		num = of_property_count_u32_elems(np, prop->name);
+> +		if (num != 1 && num != 2)
+> +			continue;
+> +
+> +		count++;
+> +	}
+> +
+> +	param = psci_reset_params =
+> +		kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
+> +	if (!psci_reset_params)
+> +		return -ENOMEM;
+> +
+> +	for_each_property_of_node(np, prop) {
+> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
+> +			continue;
+> +
+> +		num = of_property_read_variable_u32_array(np, prop->name, magic,
+> +							  1, ARRAY_SIZE(magic));
+> +		if (num < 0) {
+> +			pr_warn("Failed to parse vendor reboot mode %s\n",
+> +				param->mode);
+> +			kfree_const(param->mode);
+> +			continue;
+> +		}
+> +
+> +		param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+> +		if (!param->mode)
+> +			continue;
+> +
+> +		/* Force reset type to be in vendor space */
+> +		param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
+> +		param->cookie = num > 1 ? magic[1] : 0;
+> +		param++;
+> +		num_psci_reset_params++;
+> +	}
+> +
+> +	return 0;
+> +}
+> +arch_initcall(psci_init_system_reset2_modes);
+> +
+>  int __init psci_dt_init(void)
+>  {
+>  	struct device_node *np;
+> 
+> -- 
+> 2.34.1
+> 
 
