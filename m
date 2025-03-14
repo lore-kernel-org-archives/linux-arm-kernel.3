@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C021DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656E5C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RfRPWuvb7XwDn1wjwYTv1b67JZJwwNQzIu9o3d0A1bw=; b=SHqXz4P1UhB53IZCVWeBhQ8Eta
-	TXtHZs+RgBDmZmhQRkt82Y83Szh25qR//2ycpv2FUklW1QvDNTEE12ymY7Vi8RDieb5dvse/9TIjh
-	dOEt52gN5Gj4dro1NdDcBXrJtOQWJHnhm4zOxmnakoZ9M9eWYhw5YQ79ADqfmUBy0NcwCSxNsj+xh
-	30iHF5TLhYCLwzPZv++2VnuNMr1qBwKB1opCF+OO4yZ1aLxnlqXDTb2+QpNWTzwFjkE55t5IFw4+m
-	gfY5hSJhgvJXv2XebtwEmoOUwReVX4fCWtodF1S0NylOZ2vTr4Mn6XkOjDxV8TQ5yd2YAzkV7aG69
-	lh+pt8hA==;
+	bh=BHOlyh761y5bpg3sWSdpyyGdp5isJuHXbyNPE7yDcas=; b=jBlaGRisuityNzV5+nrrpaNN3b
+	K6qR22y9AWiyAA226nKHuk5Jm0lZ7nzCS9FAgGVjByVQei3Guq9dLQRHvvpmjnGpTnSIxaI6wnqWH
+	kUbEVUbW3xmRQQbqBW/ahHVHH3sWF+Oeuhp/lLunWWV9utPqs3w99aHfy1Z9heI0MuaTLU8TF94iN
+	OqG/mrax/PKSizrWq04jt3ToeO6IEjyjNIq0a/x1VIEWZkOGllGOyamb08Pbi1WCofdl51SQ0xD0/
+	3d6dhAyNTQFk8ua91/27xBULq6PPGvobaNmqa3VFD30uJxaHDfTp9BamrTuAy6aQT4RZ4oypdxWvD
+	qkI/gNGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2PH-0000000DsBI-4ByC;
-	Fri, 14 Mar 2025 10:36:48 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1tt2Qv-0000000DsNh-2pOv;
+	Fri, 14 Mar 2025 10:38:29 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2KK-0000000DquP-3CSO
+	id 1tt2KN-0000000Dqv8-34TE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:31:42 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id CD3F0432F7;
-	Fri, 14 Mar 2025 10:31:36 +0000 (UTC)
+	Fri, 14 Mar 2025 10:31:45 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5A8AF4427F;
+	Fri, 14 Mar 2025 10:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741948299;
+	t=1741948301;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RfRPWuvb7XwDn1wjwYTv1b67JZJwwNQzIu9o3d0A1bw=;
-	b=NjwGvzADe5ggxDIFTBrgYQSMg+wxXKvEAfso47jw3wTlz0BfgWFG6K0ve6as9JXKYFEtQJ
-	6W3a/aNFQC5D9TfrOkTqW8J0XaHoGx/Bd7U8q9qXwwoDc0+4EheOmLd8OkpdBWRGLLkKa3
-	GMvuYQSuJf+C8D3ZsZfJmt35QrAuAeaEp6CeqzR+sac5L1yvYMC7gzSPui5xAi6NmXpIcE
-	RwHKofDTKqIMzqrYi232lm36Gv9YGJIC172UFe7xBEPic5ysWwcUyQjdTNVP7hyn1SgqD4
-	lNphdQ+L78eMB6igxh+Uz1yyA78aHT9Zt+wlpawYQFhMnsRLneLD36bJ1RRSbA==
+	bh=BHOlyh761y5bpg3sWSdpyyGdp5isJuHXbyNPE7yDcas=;
+	b=YmF9+RVLBmgkU16GTnhcx1yLjXLkTvo9QV6253ZXlAEKOWpUA0nwa8c4VfhpGX5CDcz6Nu
+	UTu0lZu7SfDrv5JC/0D5ahp3FysygD6ZaNCayCygcI3z6PjgyjutvEarI1F8kFfanYY2MB
+	WtAh2JkX2BJnm9dwbbbnvEGWiuihcSDWjWCza4kjdL4KfupxgnZTsfZWSZZvoKAiRfw1tu
+	tY49NhrHFOwcquU/X4o5SSSpDk3ab3jLlTjEsHe6AgL44HSwqvUIY2/kZDWtcCx5BnSiVe
+	Ax9JAIO3UvYzoQggIFKlvWJrWq5/RcZuiVfdrhYMQBq1kWkQLGV1YssGY8b9iw==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 14 Mar 2025 11:31:15 +0100
-Subject: [PATCH v7 02/11] drm/bridge: add support for refcounting
+Date: Fri, 14 Mar 2025 11:31:16 +0100
+Subject: [PATCH v7 03/11] drm/bridge: get/put the bridge reference in
+ drm_bridge_add/remove()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250314-drm-bridge-refcount-v7-2-152571f8c694@bootlin.com>
+Message-Id: <20250314-drm-bridge-refcount-v7-3-152571f8c694@bootlin.com>
 References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
 In-Reply-To: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -78,8 +79,9 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedtiedtucetufdoteggode
  hgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehprghulhhksehshihsqdgsrghsvgdrihhopdhrtghpthhtoheprghsrhhivhgrthhssehrvgguhhgrthdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgv
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_033140_964573_055B1939 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20250314_033143_906729_F7E1ED84 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,229 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DRM bridges are currently considered as a fixed element of a DRM card, and
-thus their lifetime is assumed to extend for as long as the card
-exists. New use cases, such as hot-pluggable hardware with video bridges,
-require DRM bridges to be added to and removed from a DRM card without
-tearing the card down. This is possible for connectors already (used by DP
-MST), it is now needed for DRM bridges as well.
-
-As a first preliminary step, make bridges reference-counted to allow a
-struct drm_bridge (along with the private driver structure embedding it) to
-stay allocated even after the driver has been removed, until the last
-reference is put.
+drm_bridge_add() adds the bridge to the global bridge_list, so take a
+reference for that. Vice versa in drm_bridge_remove().
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
 Changes in v7:
- - export drm_bridge_put_void
- - struct drm_bridge: use container pointer instead of container_offset
- - remove drm_bridge_is_refcounted()
- - remove all DRM_DEBUG()s
- - drm_bridge_get/put: accept NULL pointer and return the bridge pointer to
-   allow pass-through calls
- - extract to separate patches:
-    - the addition of drm_bridge_alloc
-    - the addition of drm_bridge_get/put() to drm_bridge_add/remove()
-    - the addition of drm_bridge_get/put() to drm_bridge_attach/detach()
- - fix a typo, slightly improve kerneldoc
-
-Changes in v6:
- - use drm_warn, not WARN_ON (Jani Nikula)
- - Add devm_drm_bridge_alloc() to replace drm_bridge_init() (similar to
-   drmm_encoder_alloc)
- - Remove .destroy func: deallocation is done via the struct offset
-   computed by the devm_drm_bridge_alloc() macro
- - use fixed free callback, as the same callback is used in all cases
-   anyway (remove free_cb, add bool is_refcounted)
- - add drm_bridge_get/put() to drm_bridge_attach/detach() (add the bridge
-   to a list)
- - make some DRM_DEBUG() strings more informative
-
-This patch was added in v5.
+- in v6 this was part of "drm/bridge: add support for refcounted DRM
+  bridges", now split to a separate patch
 ---
- drivers/gpu/drm/drm_bridge.c | 33 +++++++++++++++-
- include/drm/drm_bridge.h     | 91 ++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 123 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/drm_bridge.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 96df717b2caeb41d45346ded576eaeb2806fd051..2ba0dac9bfc2dfd709d5e2457d69067c7324972c 100644
+index 2ba0dac9bfc2dfd709d5e2457d69067c7324972c..72fa51d4dd2337f97c2bd65cfabf9cee05b661b4 100644
 --- a/drivers/gpu/drm/drm_bridge.c
 +++ b/drivers/gpu/drm/drm_bridge.c
-@@ -199,23 +199,54 @@
- static DEFINE_MUTEX(bridge_lock);
- static LIST_HEAD(bridge_list);
- 
-+void __drm_bridge_free(struct kref *kref)
-+{
-+	struct drm_bridge *bridge = container_of(kref, struct drm_bridge, refcount);
-+
-+	kfree(bridge->container);
-+}
-+EXPORT_SYMBOL(__drm_bridge_free);
-+
-+/**
-+ * drm_bridge_put_void - wrapper to drm_bridge_put() taking a void pointer
-+ *
-+ * @data: pointer to @struct drm_bridge, cast to a void pointer
-+ *
-+ * Wrapper of drm_bridge_put() to be used when a function taking a void
-+ * pointer is needed, for example as a devm action.
-+ */
-+void drm_bridge_put_void(void *data)
-+{
-+	struct drm_bridge *bridge = (struct drm_bridge *)data;
-+
-+	drm_bridge_put(bridge);
-+}
-+EXPORT_SYMBOL(drm_bridge_put_void);
-+
- void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t offset,
- 			      const struct drm_bridge_funcs *funcs)
- {
- 	void *container;
- 	struct drm_bridge *bridge;
-+	int err;
- 
- 	if (!funcs) {
- 		dev_warn(dev, "Missing funcs pointer\n");
- 		return ERR_PTR(-EINVAL);
- 	}
- 
--	container = devm_kzalloc(dev, size, GFP_KERNEL);
-+	container = kzalloc(size, GFP_KERNEL);
- 	if (!container)
- 		return ERR_PTR(-ENOMEM);
- 
- 	bridge = container + offset;
-+	bridge->container = container;
- 	bridge->funcs = funcs;
-+	kref_init(&bridge->refcount);
-+
-+	err = devm_add_action_or_reset(dev, drm_bridge_put_void, bridge);
-+	if (err)
-+		return ERR_PTR(err);
- 
- 	return container;
- }
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index dae463b30542d586a595b67f7bdf5a5e898e9572..5c1e2b9cafb12eb429d1f5d3ef312e6cf9b54f47 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -840,6 +840,17 @@ struct drm_bridge {
- 	const struct drm_bridge_timings *timings;
- 	/** @funcs: control functions */
- 	const struct drm_bridge_funcs *funcs;
-+
-+	/**
-+	 * @container: Pointer to the private driver struct embedding this
-+	 * @struct drm_bridge.
-+	 */
-+	void *container;
-+	/**
-+	 * @refcount: reference count of users referencing this bridge.
-+	 */
-+	struct kref refcount;
-+
- 	/** @driver_private: pointer to the bridge driver's internal context */
- 	void *driver_private;
- 	/** @ops: bitmask of operations supported by the bridge */
-@@ -941,6 +952,82 @@ drm_priv_to_bridge(struct drm_private_obj *priv)
- 	return container_of(priv, struct drm_bridge, base);
- }
- 
-+void __drm_bridge_free(struct kref *kref);
-+
-+/**
-+ * drm_bridge_get - Acquire a bridge reference
-+ * @bridge: DRM bridge
-+ *
-+ * This function increments the bridge's refcount.
-+ *
-+ * Returns:
-+ * Pointer to @bridge.
-+ */
-+static inline struct drm_bridge *drm_bridge_get(struct drm_bridge *bridge)
-+{
-+	if (!bridge)
-+		return bridge;
-+
-+	kref_get(&bridge->refcount);
-+
-+	return bridge;
-+}
-+
-+/**
-+ * drm_bridge_put - Release a bridge reference
-+ * @bridge: DRM bridge
-+ *
-+ * This function decrements the bridge's reference count and frees the
-+ * object if the reference count drops to zero.
-+ *
-+ * See also drm_bridge_put_and_clear() which is more handy in many cases.
-+ *
-+ * Returns:
-+ * Pointer to @bridge.
-+ */
-+static inline struct drm_bridge *drm_bridge_put(struct drm_bridge *bridge)
-+{
-+	if (!bridge)
-+		return bridge;
-+
-+	kref_put(&bridge->refcount, __drm_bridge_free);
-+
-+	return bridge;
-+}
-+
-+void drm_bridge_put_void(void *data);
-+
-+/**
-+ * drm_bridge_put_and_clear - Given a bridge pointer, clear the pointer
-+ *                            then put the bridge
-+ *
-+ * @bridge_pp: pointer to pointer to a struct drm_bridge
-+ *
-+ * Helper to put a DRM bridge (whose pointer is passed), but only after
-+ * setting its pointer to NULL. Useful for drivers having struct drm_bridge
-+ * pointers they need to dispose of, without leaving a use-after-free
-+ * window where the pointed bridge might have been freed while still
-+ * holding a pointer to it.
-+ *
-+ * For example a driver having this private struct::
-+ *
-+ *     struct my_bridge {
-+ *         struct drm_bridge *remote_bridge;
-+ *         ...
-+ *     };
-+ *
-+ * can dispose of remote_bridge using::
-+ *
-+ *     drm_bridge_put_and_clear(&my_bridge->remote_bridge);
-+ */
-+static inline void drm_bridge_put_and_clear(struct drm_bridge **bridge_pp)
-+{
-+	struct drm_bridge *bridge = *bridge_pp;
-+
-+	*bridge_pp = NULL;
-+	drm_bridge_put(bridge);
-+}
-+
- void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t offset,
- 			      const struct drm_bridge_funcs *funcs);
- 
-@@ -951,6 +1038,10 @@ void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t offset,
-  * @member: the name of the &drm_bridge within @type
-  * @funcs: callbacks for this bridge
-  *
-+ * The returned refcount is initialized to 1. This reference will be
-+ * automatically dropped via devm (by calling drm_bridge_put()) when @dev
-+ * is removed.
-+ *
-  * Returns:
-  * Pointer to new bridge, or ERR_PTR on failure.
+@@ -259,6 +259,8 @@ EXPORT_SYMBOL(__devm_drm_bridge_alloc);
   */
+ void drm_bridge_add(struct drm_bridge *bridge)
+ {
++	drm_bridge_get(bridge);
++
+ 	mutex_init(&bridge->hpd_mutex);
+ 
+ 	if (bridge->ops & DRM_BRIDGE_OP_HDMI)
+@@ -306,6 +308,8 @@ void drm_bridge_remove(struct drm_bridge *bridge)
+ 	mutex_unlock(&bridge_lock);
+ 
+ 	mutex_destroy(&bridge->hpd_mutex);
++
++	drm_bridge_put(bridge);
+ }
+ EXPORT_SYMBOL(drm_bridge_remove);
+ 
 
 -- 
 2.48.1
