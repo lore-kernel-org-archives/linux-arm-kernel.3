@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CCCC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC910C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PBq11ylwu5R382gZxqzXZy+KZY3NpzkBPWG/tVivh9M=; b=jE3PgkqEgdSS79siC4IuXK2cBp
-	tixmzIUjelKKCTHIMCNlLA6J6DstjgQeMrbDGmsOwlPUiMrDB/2zH34IW4LFpbyvuorVNfKfM6vnC
-	mafOCr2cbhntBjTMrwE6nKdS+OM3nvMWhrwsRrvg71VCzRBhmXtj7TLxqesNXq6MgW2q6b+Xydvlv
-	K1HKY3YpJ1kPcpLofqNK1Qx6xanb+Lr8dPNxBVosYvhDz32zS3TiZ+T5QlcQu0WDeHPljmd03eo0m
-	tadxA8Z2crQs7111lYOX1JJh2PJ8vnZa2E/BT5KIbiF8pm+RX+o8zd/xmTMaL5+o+Mpq1FFnJ09sK
-	iv5Bmbyw==;
+	bh=LDjucKYgDaPfFyv56RFmqZL83XSTQZVQ30iv1e6e2oU=; b=ZocyWgUNxxepmspDSbFFYS33Bz
+	vm91/PMr20oM+svOV/ohonLaZbJ1rCVo+G/p0Norsp0UVvG6fnU2wBpV/YWNDmQVNi4527y8MuY/d
+	QVlJaGbN/Owf7RXVDg9Vgijg5frRrQUnvWtEn6fNiAfaJo+1HZ+grRCDMsD3ktWktfhhtqZSEoqhH
+	ZRRY0LkMADPqro3wYzy7VkNx18M7w8DoiK1ePTlEAcl/Xi36tu0GLgmBPOI5pq0kXs41LtWozftxq
+	kqRMK6FOENq7AtMFJiKp7mdx9GyVp1UW13/08sFQxI+sjyy6HSkjcn9cI1ukNnyz6y1wGzBV023bi
+	owI7weLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2hN-0000000Duoy-3kwi;
-	Fri, 14 Mar 2025 10:55:29 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tt2j1-0000000DvA5-2rMY;
+	Fri, 14 Mar 2025 10:57:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2OV-0000000Ds0C-35SK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:36:00 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-549b159c84cso1929656e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 03:35:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741948558; x=1742553358; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PBq11ylwu5R382gZxqzXZy+KZY3NpzkBPWG/tVivh9M=;
-        b=iMS6uas5hg1aRHYVsy1DBdE/UqVbwKdjbJKXk2mQuxyiZWeXMWhvhEW9tvTxIcmdPt
-         YpboSxCxSOfChpmYHpsxY3ibY9N7ca9v+bdtAlmW6BOTNOaXo6/o1QyJGQflmxAuhXnc
-         VPe10JZetFtM9qOXscIvm3QPdxl67uRHlJgSlHkgp3U2XJulT+QuGWUQG34Bw6XQyW0c
-         vjkxOpl1kGuiQBcgvcNFwY8lLx9iTWfWGeAlsMrQa4G2hy7xQIgSYud3hbHn/j1cbZ4e
-         b2/nkG4DKynJn2YnCzEKEENARMaCFn9axZ3OVEmKef2BVGp94Z6hPwp436RlV+ehefYG
-         FA0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741948558; x=1742553358;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PBq11ylwu5R382gZxqzXZy+KZY3NpzkBPWG/tVivh9M=;
-        b=UpfyU1wckWRFUESEivMBQLGht2fh6OIPxCfyCYHKKFQg3G4PgCrCDQZuv/59QMnDgk
-         BHKEcypyISt7QtPx/qMoJQqW2Ciwxq3JilNC6m+/p+a3rDXJLtla9D1E/SZjhyW3bW36
-         OFOfnYICfDY/Z6fDqdkuoNo9rmORWpOmx6WpMA5GSTBgdcYxw75BC/xGXwnWuoywobyp
-         xeXDw4mxDlIE1YkMaJ2k7BE++Lp5KQg/pkFmec/3avRooEov5iOKYpOlXJ6Uy6u9p858
-         nS889JLtXBDsT9OaBOuRWAv8zgBzQtNKgh565yE5ESspcSqNUA1Ydrt8Cxj0E54tLmQe
-         yOpw==
-X-Forwarded-Encrypted: i=1; AJvYcCU22xmKgfI4m/hZeYKZjZ20XrtmZwwM8y9a5k1npoeqVnBRbCHJXJ2RaQRBOr9xLkIeuS4pPLojqAfT7zLtR+1S@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDsxISqbsBHH1G8mxTO+/df4qbX0woRUdJX5RmRcBXESNhSKcz
-	ngOJy5P8A4jwPuv8OtXnY9Lj5/8YVHYDtESBV2C8pis6wy6XhJUrr6CRUt5QCBCi1ORoVienw2U
-	ZYmYNdFHdjG6BpQVJwYyV/MXa6N4LMj6hXRR8pudh9qhSOPpV
-X-Gm-Gg: ASbGnctAXPEwBjW9dnbPAQB2jABgvnjAc40gjD8Vkt8loYiQFDZOtLVW+zMsdgevfyT
-	Xf6dFeSRZr8xW5nJAosCqKhbjIpc9Tpt4f9/43u0fKdjyxnP8cWqZRTB937vvSp1Gn68wamyBai
-	GDCzPgNpfyXo2NY94gG0uUtV8=
-X-Google-Smtp-Source: AGHT+IFo7a8aP8LrtXsMzS05IJF+N+ZjJx5DRyPZKzboYtcGh7BYc7nkwi3Kg4DoP3cYib1OWjtVARzILEhT3JyV8rs=
-X-Received: by 2002:a05:6512:2350:b0:545:2b24:c714 with SMTP id
- 2adb3069b0e04-549c3911e6bmr755718e87.18.1741948557930; Fri, 14 Mar 2025
- 03:35:57 -0700 (PDT)
+	id 1tt2OW-0000000Ds0F-08Gb;
+	Fri, 14 Mar 2025 10:36:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741948558;
+	bh=LRk5FiXCZAm/QLOqWOprpG9wIHqysVDkW9SPn6Y74UY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o8Jm4H0499PVZUsmP41hbpJxEZtW+GATf073GkU3+PVx0hzH0NaAHMax6kJ4rVO4R
+	 p7OiUuBgIMoXxI7pQALVCzDvtwFNq/Tr4yyUMtScGddFL4MBsgNm5zrscSh3t7eA7S
+	 PhSWlOTThdGgqc2sW2NL0i1AA1+WD3Es7980ZMTkQlcHnq1Q36Eph+Ny8n3DVltn8b
+	 zyHKWwtgyL4jqKWxxN9amhMZ1kTBjV50WJcKgpD4uf3wBNpdKkyt9YCE0oEn92R/dC
+	 8/RT3RrUKLY5dM+NfW1qZcWTrmLgoKztvozDvd0a5yW588jt1zRoJBgtK7YzIGWWMs
+	 yHnNmzH52vTzg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F131717E0CA6;
+	Fri, 14 Mar 2025 11:35:56 +0100 (CET)
+Message-ID: <d4b3bc28-b96b-4b11-a99d-d3492ad19438@collabora.com>
+Date: Fri, 14 Mar 2025 11:35:56 +0100
 MIME-Version: 1.0
-References: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
-In-Reply-To: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 14 Mar 2025 11:35:45 +0100
-X-Gm-Features: AQ5f1JpewYNdVReOE7yOz7Jhb_-0BXB-6RAsfqpo9dfZwpZcAV2B4PUacGG94IY
-Message-ID: <CACRpkdYkvTr9ijyEVSzevHdHFDb0iJTOzCS_3gQG0eNcpR7tcw@mail.gmail.com>
-Subject: Re: [PATCH next] pinctrl: bcm281xx: Add missing assignment in bcm21664_pinctrl_lock_all()
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Artur Weber <aweber.kernel@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-gpio@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] dt-bindings: pmic: mediatek: Add pmic documents
+To: Krzysztof Kozlowski <krzk@kernel.org>, "Lu.Tang" <Lu.Tang@mediatek.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Sean Wang <sean.wang@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Chen Zhong <chen.zhong@mediatek.com>,
+ Sen Chu <shen.chu@mediatek.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-gpio@vger.kernel.org, Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250314073307.25092-1-Lu.Tang@mediatek.com>
+ <20250314073307.25092-6-Lu.Tang@mediatek.com>
+ <19ddb133-7f11-4c1b-b0e1-91523d42040c@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <19ddb133-7f11-4c1b-b0e1-91523d42040c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_033559_774528_5F6EA835 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_033600_226711_5DCF9F35 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,19 +87,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 11:48=E2=80=AFAM Dan Carpenter <dan.carpenter@linar=
-o.org> wrote:
+Il 14/03/25 11:32, Krzysztof Kozlowski ha scritto:
+> On 14/03/2025 08:32, Lu.Tang wrote:
+> 
+> Please use subject prefixes matching the subsystem. You can get them for
+> example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+> your patch is touching. For bindings, the preferred subjects are
+> explained here:
+> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+> 
+> There is no subsystem "pmic".
+> 
+>> Add new pmic mfd and adc documents for mt8196
+>>
+>> Signed-off-by: Lu.Tang <Lu.Tang@mediatek.com>
+> 
+> Are you sure Latin transcription of your name includes '.' or you just
+> copy-paste email address?
+> 
+> 
+> ...
+> 
+>> +  - Lu Tang <lu.tang@mediatek.com>
+>> +
+>> +description:
+>> +  The Auxiliary Analog/Digital Converter (AUXADC) is an ADC found
+>> +  in some MediaTek PMICs, performing various PMIC related measurements
+>> +  such as battery and PMIC internal voltage regulators temperatures,
+>> +  other than voltages for various PMIC internal components.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - mediatek,mt6363-auxadc
+>> +      - mediatek,mt6373-auxadc
+> 
+> Just fold the device to the parent node.
+> 
+> 
+> 
+> ..
+> 
+> 
+> 
+>> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml b/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
+>> new file mode 100644
+>> index 000000000000..a8f1231623cf
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
+> 
+> Filename matching one of the compatibles, e.g. the oldest one.
+> 
 
-> The next line checks if this regmap_write() failed, but it doesn't
-> work because the assignment was accidentally left out.  Add the
-> assignment.
->
-> Fixes: 60d69769c851 ("pinctrl: bcm281xx: Add support for BCM21664 pinmux"=
-)
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+Yeah but besides that I don't see valid reasons why this should be a different
+binding (and also why this should use a different driver, fwiw) - when it can
+most probably just extend the current PMIC MFD driver... and the same goes for
+the PMIC AUXADC: there's a mt6359-auxadc binding and driver that can be extended
+to 6363 and 6373 rather easily.
 
-Patch applied!
+There's nothing "really special" about those.....
 
-Yours,
-Linus Walleij
+Cheers
+
+>> @@ -0,0 +1,173 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/mfd/mediatek,spmi-pmic.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: MediaTek SPMI PMICs multi-function device
+>> +
+>> +maintainers:
+>> +  - Lu Tang <lu.tang@mediatek.com>
+>> +
+>> +description: |
+>> +  Some Mediatek PMICs are interfaced to the chip via the SPMI (System Power
+>> +  Management Interface) bus.
+>> +
+>> +  The Mediatek SPMI series includes the MT6363, MT6373, MT6316 and other
+>> +  PMICs.Please see the sub-modules below for supported features.
+>> +
+>> +   MT6363/MT6373 is a multifunction device with the following sub modules:
+>> +  - Regulators
+>> +  - ADC
+>> +  - GPIO
+>> +  - Keys
+>> +   MT6316 is a multifunction device with the following sub modules:
+>> +  - Regulators
+> 
+> I don't get why they are in the same schema. It would result in
+> unnecessary big if:then with half of children not applicable for other
+> variants.
+> 
+>> +
+>> +properties:
+>> +  compatible:
+>> +    oneOf:
+>> +      - enum:
+>> +          - mediatek,mt6363
+>> +          - mediatek,mt6373
+>> +          - mediatek,mt6316
+> Sort these with alphanumeric order.
+> 
+> Best regards,
+> Krzysztof
+
+
+
 
