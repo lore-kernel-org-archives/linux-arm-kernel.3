@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181DCC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9758AC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LFbq4A4eyESsSochcOn8mw2R98NzHq+t8NmflICHBvY=; b=mFa8lAGNd12rz5XgB9LAF4oGM9
-	3LNTWYpg5+cpiwVtqqJV0ftYqGHKg/6W/Lkv8X0l4ozJGLe2IQIicGEBMqv1DcIeAcG8a5+YxxzCW
-	TBZ5iuU6giN4jNEWkXVdxEgcH2A2vsVsR7JLXr/iSOGsMg6L3UFZd5K4xexhZD1MFfvOhpv1KPSvU
-	TJOwpXHxmbEJU1qQMid+WcPJmU3reLz2i/w3skyGAFSDgYBhgDt5fAuMmjNDTAoF2US2VVuqcTj+0
-	mDj52/yN8vaqZREemHjPO5PqL5+QT32DVxmqahvqeOGpT5YUHAL1AaoV04+bib9fWMKt/0MPNXBeO
-	7HJywnKQ==;
+	bh=g9UiPlgUHg/BOEsx5e3OD0q6bWRlSXKycrwmYgrT/Zs=; b=yqh3o1g4mbMJPoCUOXcwkhDCZ8
+	F4OviMKfubK7oETeM8wKsY5O4MEkzhXcs/gs5NlnRPoETjYM+GpbcrWnMHy00z6eOzXfBQ0iAUMUj
+	1qDDdBrRRqyB4yp+KRId5iWAsVgukrSsRuWWLhvYrod0IDRMC7jv6X36sGiZbeLIgWL6kgOyz6cgr
+	BC7hw7WWgpvzD1HkZP1g6iwrUsf+3DTd/iIMOhVVs5weJoW5SHawoWbtd9jAkcFsXhA8lMBeEmiKb
+	+ispRZQrGeSt8YgoD7zJYOehXhjdrjMSA1rVbhEZZ7lqYsztwhwNiwehQcur9jF+i01LlgTZpRor9
+	x10cArzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAzD-0000000F9OX-3eWf;
-	Fri, 14 Mar 2025 19:46:27 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAil-0000000F76n-3Il0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 19:29:29 +0000
-Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 16DD02045FE8;
-	Fri, 14 Mar 2025 12:29:25 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 16DD02045FE8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741980565;
-	bh=LFbq4A4eyESsSochcOn8mw2R98NzHq+t8NmflICHBvY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V65fmnyFaBrkadfcxhuyHw1OJE9ZjRKOUteodlsoIcJZgDvMATJQ88nSW7sG0wPLx
-	 HfuiZOlUipe8JRn9pKvBiJJ/44HlIZc7A9uZD8RKbvN04TR6vOF9W7riP7TSVJgceh
-	 tvk4sSsJPWKj/QWMIChAxWljQ1rD9ta5NsheO/ms=
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-To: linux-hyperv@vger.kernel.org,
-	x86@kernel.org,
+	id 1ttB0r-0000000F9XY-2W7Z;
+	Fri, 14 Mar 2025 19:48:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1ttAoI-0000000F8Pn-0GbY;
+	Fri, 14 Mar 2025 19:35:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=g9UiPlgUHg/BOEsx5e3OD0q6bWRlSXKycrwmYgrT/Zs=; b=pQoRp/7P+Sr7BTNSui6T0CDG8p
+	jN222Pv7h5IjEgKbvugzirzqLvVNQUI9zxKCuJIeyOnNOM4SE0lQy1k1Zc8iKo83nf1vgblKfhqrR
+	96eHsQOxH+/mIY+dWa/H8z+bNST8C3BjfhE2kQhKlbB4jiUFe6KMtd9B3Kh7wvibDh68=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ttAo6-005O1r-Na; Fri, 14 Mar 2025 20:34:58 +0100
+Date: Fri, 14 Mar 2025 20:34:58 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lee Jones <lee@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	mhklinux@outlook.com,
-	ltykernel@gmail.com,
-	stanislav.kinsburskiy@gmail.com,
-	linux-acpi@vger.kernel.org,
-	eahariha@linux.microsoft.com,
-	jeff.johnson@oss.qualcomm.com
-Cc: kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	daniel.lezcano@linaro.org,
-	joro@8bytes.org,
-	robin.murphy@arm.com,
-	arnd@arndb.de,
-	jinankjain@linux.microsoft.com,
-	muminulrussell@gmail.com,
-	skinsburskii@linux.microsoft.com,
-	mrathor@linux.microsoft.com,
-	ssengar@linux.microsoft.com,
-	apais@linux.microsoft.com,
-	gregkh@linuxfoundation.org,
-	vkuznets@redhat.com,
-	prapal@linux.microsoft.com,
-	anrayabh@linux.microsoft.com,
-	rafael@kernel.org,
-	lenb@kernel.org,
-	corbet@lwn.net
-Subject: [PATCH v6 09/10] hyperv: Add definitions for root partition driver to hv headers
-Date: Fri, 14 Mar 2025 12:28:55 -0700
-Message-Id: <1741980536-3865-10-git-send-email-nunodasneves@linux.microsoft.com>
-X-Mailer: git-send-email 1.8.3.1
-In-Reply-To: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
-References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v12 09/13] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+Message-ID: <49d2cfed-cb31-438d-9736-6d8e0bb24041@lunn.ch>
+References: <20250309172717.9067-1-ansuelsmth@gmail.com>
+ <20250309172717.9067-10-ansuelsmth@gmail.com>
+ <20250314113551.GK3890718@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250314113551.GK3890718@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_122927_879470_1B87C509 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20250314_123510_100127_430FCC6B 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,516 +85,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A few additional definitions are required for the mshv driver code
-(to follow). Introduce those here and clean up a little bit while
-at it.
+> > +static int an8855_mii_set_page(struct an8855_mfd_priv *priv, u8 phy_id,
+> > +			       u8 page) __must_hold(&priv->bus->mdio_lock)
+> > +{
+> > +	struct mii_bus *bus = priv->bus;
+> > +	int ret;
+> > +
+> > +	ret = __mdiobus_write(bus, phy_id, AN8855_PHY_SELECT_PAGE, page);
+> 
+> Calling functions with '__' is a red flag.
 
-Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
-Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Reviewed-by: Tianyu Lan <tiala@microsoft.com>
----
- include/hyperv/hvgdk_mini.h |  72 ++++++++++++++++++--
- include/hyperv/hvhdk.h      | 132 ++++++++++++++++++++++++++++++++++--
- include/hyperv/hvhdk_mini.h |  91 +++++++++++++++++++++++++
- 3 files changed, 284 insertions(+), 11 deletions(-)
+In this case, it is correct. It was probably a bad decision to call
+this __mdiobus_write() in the first place, but we were not expecting
+it to be used in real driver code, just in core code, where calls to
+it are wrapped with a mutex lock/unlock.
 
-diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
-index 58895883f636..735329859f21 100644
---- a/include/hyperv/hvgdk_mini.h
-+++ b/include/hyperv/hvgdk_mini.h
-@@ -13,7 +13,7 @@ struct hv_u128 {
- 	u64 high_part;
- } __packed;
- 
--/* NOTE: when adding below, update hv_status_to_string() */
-+/* NOTE: when adding below, update hv_result_to_string() */
- #define HV_STATUS_SUCCESS			    0x0
- #define HV_STATUS_INVALID_HYPERCALL_CODE	    0x2
- #define HV_STATUS_INVALID_HYPERCALL_INPUT	    0x3
-@@ -51,6 +51,7 @@ struct hv_u128 {
- #define HV_HYP_PAGE_SHIFT		12
- #define HV_HYP_PAGE_SIZE		BIT(HV_HYP_PAGE_SHIFT)
- #define HV_HYP_PAGE_MASK		(~(HV_HYP_PAGE_SIZE - 1))
-+#define HV_HYP_LARGE_PAGE_SHIFT		21
- 
- #define HV_PARTITION_ID_INVALID		((u64)0)
- #define HV_PARTITION_ID_SELF		((u64)-1)
-@@ -374,6 +375,10 @@ union hv_hypervisor_version_info {
- #define HV_SHARED_GPA_BOUNDARY_ACTIVE			BIT(5)
- #define HV_SHARED_GPA_BOUNDARY_BITS			GENMASK(11, 6)
- 
-+/* HYPERV_CPUID_FEATURES.ECX bits. */
-+#define HV_VP_DISPATCH_INTERRUPT_INJECTION_AVAILABLE	BIT(9)
-+#define HV_VP_GHCB_ROOT_MAPPING_AVAILABLE		BIT(10)
-+
- enum hv_isolation_type {
- 	HV_ISOLATION_TYPE_NONE	= 0,	/* HV_PARTITION_ISOLATION_TYPE_NONE */
- 	HV_ISOLATION_TYPE_VBS	= 1,
-@@ -436,10 +441,13 @@ union hv_vp_assist_msr_contents {	 /* HV_REGISTER_VP_ASSIST_PAGE */
- #define HVCALL_WITHDRAW_MEMORY				0x0049
- #define HVCALL_MAP_GPA_PAGES				0x004b
- #define HVCALL_UNMAP_GPA_PAGES				0x004c
-+#define HVCALL_INSTALL_INTERCEPT			0x004d
- #define HVCALL_CREATE_VP				0x004e
- #define HVCALL_DELETE_VP				0x004f
- #define HVCALL_GET_VP_REGISTERS				0x0050
- #define HVCALL_SET_VP_REGISTERS				0x0051
-+#define HVCALL_TRANSLATE_VIRTUAL_ADDRESS		0x0052
-+#define HVCALL_CLEAR_VIRTUAL_INTERRUPT			0x0056
- #define HVCALL_DELETE_PORT				0x0058
- #define HVCALL_DISCONNECT_PORT				0x005b
- #define HVCALL_POST_MESSAGE				0x005c
-@@ -447,12 +455,15 @@ union hv_vp_assist_msr_contents {	 /* HV_REGISTER_VP_ASSIST_PAGE */
- #define HVCALL_POST_DEBUG_DATA				0x0069
- #define HVCALL_RETRIEVE_DEBUG_DATA			0x006a
- #define HVCALL_RESET_DEBUG_SESSION			0x006b
-+#define HVCALL_MAP_STATS_PAGE				0x006c
-+#define HVCALL_UNMAP_STATS_PAGE				0x006d
- #define HVCALL_ADD_LOGICAL_PROCESSOR			0x0076
- #define HVCALL_GET_SYSTEM_PROPERTY			0x007b
- #define HVCALL_MAP_DEVICE_INTERRUPT			0x007c
- #define HVCALL_UNMAP_DEVICE_INTERRUPT			0x007d
- #define HVCALL_RETARGET_INTERRUPT			0x007e
- #define HVCALL_NOTIFY_PORT_RING_EMPTY			0x008b
-+#define HVCALL_REGISTER_INTERCEPT_RESULT		0x0091
- #define HVCALL_ASSERT_VIRTUAL_INTERRUPT			0x0094
- #define HVCALL_CREATE_PORT				0x0095
- #define HVCALL_CONNECT_PORT				0x0096
-@@ -460,12 +471,18 @@ union hv_vp_assist_msr_contents {	 /* HV_REGISTER_VP_ASSIST_PAGE */
- #define HVCALL_GET_VP_ID_FROM_APIC_ID			0x009a
- #define HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_SPACE	0x00af
- #define HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_LIST	0x00b0
-+#define HVCALL_SIGNAL_EVENT_DIRECT			0x00c0
-+#define HVCALL_POST_MESSAGE_DIRECT			0x00c1
- #define HVCALL_DISPATCH_VP				0x00c2
-+#define HVCALL_GET_GPA_PAGES_ACCESS_STATES		0x00c9
-+#define HVCALL_ACQUIRE_SPARSE_SPA_PAGE_HOST_ACCESS	0x00d7
-+#define HVCALL_RELEASE_SPARSE_SPA_PAGE_HOST_ACCESS	0x00d8
- #define HVCALL_MODIFY_SPARSE_GPA_PAGE_HOST_VISIBILITY	0x00db
- #define HVCALL_MAP_VP_STATE_PAGE			0x00e1
- #define HVCALL_UNMAP_VP_STATE_PAGE			0x00e2
- #define HVCALL_GET_VP_STATE				0x00e3
- #define HVCALL_SET_VP_STATE				0x00e4
-+#define HVCALL_GET_VP_CPUID_VALUES			0x00f4
- #define HVCALL_MMIO_READ				0x0106
- #define HVCALL_MMIO_WRITE				0x0107
- 
-@@ -775,10 +792,10 @@ struct hv_message_page {
- 
- /* Define timer message payload structure. */
- struct hv_timer_message_payload {
--	__u32 timer_index;
--	__u32 reserved;
--	__u64 expiration_time;	/* When the timer expired */
--	__u64 delivery_time;	/* When the message was delivered */
-+	u32 timer_index;
-+	u32 reserved;
-+	u64 expiration_time;	/* When the timer expired */
-+	u64 delivery_time;	/* When the message was delivered */
- } __packed;
- 
- struct hv_x64_segment_register {
-@@ -807,6 +824,8 @@ struct hv_x64_table_register {
- 	u64 base;
- } __packed;
- 
-+#define HV_NORMAL_VTL	0
-+
- union hv_input_vtl {
- 	u8 as_uint8;
- 	struct {
-@@ -1325,6 +1344,49 @@ struct hv_retarget_device_interrupt {	 /* HV_INPUT_RETARGET_DEVICE_INTERRUPT */
- 	struct hv_device_interrupt_target int_target;
- } __packed __aligned(8);
- 
-+enum hv_intercept_type {
-+#if defined(CONFIG_X86)
-+	HV_INTERCEPT_TYPE_X64_IO_PORT			= 0x00000000,
-+	HV_INTERCEPT_TYPE_X64_MSR			= 0x00000001,
-+	HV_INTERCEPT_TYPE_X64_CPUID			= 0x00000002,
-+#endif
-+	HV_INTERCEPT_TYPE_EXCEPTION			= 0x00000003,
-+	/* Used to be HV_INTERCEPT_TYPE_REGISTER */
-+	HV_INTERCEPT_TYPE_RESERVED0			= 0x00000004,
-+	HV_INTERCEPT_TYPE_MMIO				= 0x00000005,
-+#if defined(CONFIG_X86)
-+	HV_INTERCEPT_TYPE_X64_GLOBAL_CPUID		= 0x00000006,
-+	HV_INTERCEPT_TYPE_X64_APIC_SMI			= 0x00000007,
-+#endif
-+	HV_INTERCEPT_TYPE_HYPERCALL			= 0x00000008,
-+#if defined(CONFIG_X86)
-+	HV_INTERCEPT_TYPE_X64_APIC_INIT_SIPI		= 0x00000009,
-+	HV_INTERCEPT_MC_UPDATE_PATCH_LEVEL_MSR_READ	= 0x0000000A,
-+	HV_INTERCEPT_TYPE_X64_APIC_WRITE		= 0x0000000B,
-+	HV_INTERCEPT_TYPE_X64_MSR_INDEX			= 0x0000000C,
-+#endif
-+	HV_INTERCEPT_TYPE_MAX,
-+	HV_INTERCEPT_TYPE_INVALID			= 0xFFFFFFFF,
-+};
-+
-+union hv_intercept_parameters {
-+	/*  HV_INTERCEPT_PARAMETERS is defined to be an 8-byte field. */
-+	u64 as_uint64;
-+#if defined(CONFIG_X86)
-+	/* HV_INTERCEPT_TYPE_X64_IO_PORT */
-+	u16 io_port;
-+	/* HV_INTERCEPT_TYPE_X64_CPUID */
-+	u32 cpuid_index;
-+	/* HV_INTERCEPT_TYPE_X64_APIC_WRITE */
-+	u32 apic_write_mask;
-+	/* HV_INTERCEPT_TYPE_EXCEPTION */
-+	u16 exception_vector;
-+	/* HV_INTERCEPT_TYPE_X64_MSR_INDEX */
-+	u32 msr_index;
-+#endif
-+	/* N.B. Other intercept types do not have any parameters. */
-+};
-+
- /* Data structures for HVCALL_MMIO_READ and HVCALL_MMIO_WRITE */
- #define HV_HYPERCALL_MMIO_MAX_DATA_LENGTH 64
- 
-diff --git a/include/hyperv/hvhdk.h b/include/hyperv/hvhdk.h
-index 64407c2a3809..b4067ada02cf 100644
---- a/include/hyperv/hvhdk.h
-+++ b/include/hyperv/hvhdk.h
-@@ -19,11 +19,24 @@
- 
- #define HV_VP_REGISTER_PAGE_VERSION_1	1u
- 
-+#define HV_VP_REGISTER_PAGE_MAX_VECTOR_COUNT		7
-+
-+union hv_vp_register_page_interrupt_vectors {
-+	u64 as_uint64;
-+	struct {
-+		u8 vector_count;
-+		u8 vector[HV_VP_REGISTER_PAGE_MAX_VECTOR_COUNT];
-+	} __packed;
-+};
-+
- struct hv_vp_register_page {
- 	u16 version;
- 	u8 isvalid;
- 	u8 rsvdz;
- 	u32 dirty;
-+
-+#if IS_ENABLED(CONFIG_X86)
-+
- 	union {
- 		struct {
- 			/* General purpose registers
-@@ -95,6 +108,22 @@ struct hv_vp_register_page {
- 	union hv_x64_pending_interruption_register pending_interruption;
- 	union hv_x64_interrupt_state_register interrupt_state;
- 	u64 instruction_emulation_hints;
-+	u64 xfem;
-+
-+	/*
-+	 * Fields from this point are not included in the register page save chunk.
-+	 * The reserved field is intended to maintain alignment for unsaved fields.
-+	 */
-+	u8 reserved1[0x100];
-+
-+	/*
-+	 * Interrupts injected as part of HvCallDispatchVp.
-+	 */
-+	union hv_vp_register_page_interrupt_vectors interrupt_vectors;
-+
-+#elif IS_ENABLED(CONFIG_ARM64)
-+	/* Not yet supported in ARM */
-+#endif
- } __packed;
- 
- #define HV_PARTITION_PROCESSOR_FEATURES_BANKS 2
-@@ -299,10 +328,11 @@ union hv_partition_isolation_properties {
- #define HV_PARTITION_ISOLATION_HOST_TYPE_RESERVED   0x2
- 
- /* Note: Exo partition is enabled by default */
--#define HV_PARTITION_CREATION_FLAG_EXO_PARTITION                    BIT(8)
--#define HV_PARTITION_CREATION_FLAG_LAPIC_ENABLED                    BIT(13)
--#define HV_PARTITION_CREATION_FLAG_INTERCEPT_MESSAGE_PAGE_ENABLED   BIT(19)
--#define HV_PARTITION_CREATION_FLAG_X2APIC_CAPABLE                   BIT(22)
-+#define HV_PARTITION_CREATION_FLAG_GPA_SUPER_PAGES_ENABLED		BIT(4)
-+#define HV_PARTITION_CREATION_FLAG_EXO_PARTITION			BIT(8)
-+#define HV_PARTITION_CREATION_FLAG_LAPIC_ENABLED			BIT(13)
-+#define HV_PARTITION_CREATION_FLAG_INTERCEPT_MESSAGE_PAGE_ENABLED	BIT(19)
-+#define HV_PARTITION_CREATION_FLAG_X2APIC_CAPABLE			BIT(22)
- 
- struct hv_input_create_partition {
- 	u64 flags;
-@@ -349,13 +379,23 @@ struct hv_input_set_partition_property {
- enum hv_vp_state_page_type {
- 	HV_VP_STATE_PAGE_REGISTERS = 0,
- 	HV_VP_STATE_PAGE_INTERCEPT_MESSAGE = 1,
-+	HV_VP_STATE_PAGE_GHCB = 2,
- 	HV_VP_STATE_PAGE_COUNT
- };
- 
- struct hv_input_map_vp_state_page {
- 	u64 partition_id;
- 	u32 vp_index;
--	u32 type; /* enum hv_vp_state_page_type */
-+	u16 type; /* enum hv_vp_state_page_type */
-+	union hv_input_vtl input_vtl;
-+	union {
-+		u8 as_uint8;
-+		struct {
-+			u8 map_location_provided : 1;
-+			u8 reserved : 7;
-+		};
-+	} flags;
-+	u64 requested_map_location;
- } __packed;
- 
- struct hv_output_map_vp_state_page {
-@@ -365,7 +405,14 @@ struct hv_output_map_vp_state_page {
- struct hv_input_unmap_vp_state_page {
- 	u64 partition_id;
- 	u32 vp_index;
--	u32 type; /* enum hv_vp_state_page_type */
-+	u16 type; /* enum hv_vp_state_page_type */
-+	union hv_input_vtl input_vtl;
-+	u8 reserved0;
-+} __packed;
-+
-+struct hv_x64_apic_eoi_message {
-+	u32 vp_index;
-+	u32 interrupt_vector;
- } __packed;
- 
- struct hv_opaque_intercept_message {
-@@ -515,6 +562,13 @@ struct hv_synthetic_timers_state {
- 	u64 reserved[5];
- } __packed;
- 
-+struct hv_async_completion_message_payload {
-+	u64 partition_id;
-+	u32 status;
-+	u32 completion_count;
-+	u64 sub_status;
-+} __packed;
-+
- union hv_input_delete_vp {
- 	u64 as_uint64[2];
- 	struct {
-@@ -649,6 +703,57 @@ struct hv_input_set_vp_state {
- 	union hv_input_set_vp_state_data data[];
- } __packed;
- 
-+union hv_x64_vp_execution_state {
-+	u16 as_uint16;
-+	struct {
-+		u16 cpl:2;
-+		u16 cr0_pe:1;
-+		u16 cr0_am:1;
-+		u16 efer_lma:1;
-+		u16 debug_active:1;
-+		u16 interruption_pending:1;
-+		u16 vtl:4;
-+		u16 enclave_mode:1;
-+		u16 interrupt_shadow:1;
-+		u16 virtualization_fault_active:1;
-+		u16 reserved:2;
-+	} __packed;
-+};
-+
-+struct hv_x64_intercept_message_header {
-+	u32 vp_index;
-+	u8 instruction_length:4;
-+	u8 cr8:4; /* Only set for exo partitions */
-+	u8 intercept_access_type;
-+	union hv_x64_vp_execution_state execution_state;
-+	struct hv_x64_segment_register cs_segment;
-+	u64 rip;
-+	u64 rflags;
-+} __packed;
-+
-+union hv_x64_memory_access_info {
-+	u8 as_uint8;
-+	struct {
-+		u8 gva_valid:1;
-+		u8 gva_gpa_valid:1;
-+		u8 hypercall_output_pending:1;
-+		u8 tlb_locked_no_overlay:1;
-+		u8 reserved:4;
-+	} __packed;
-+};
-+
-+struct hv_x64_memory_intercept_message {
-+	struct hv_x64_intercept_message_header header;
-+	u32 cache_type; /* enum hv_cache_type */
-+	u8 instruction_byte_count;
-+	union hv_x64_memory_access_info memory_access_info;
-+	u8 tpr_priority;
-+	u8 reserved1;
-+	u64 guest_virtual_address;
-+	u64 guest_physical_address;
-+	u8 instruction_bytes[16];
-+} __packed;
-+
- /*
-  * Dispatch state for the VP communicated by the hypervisor to the
-  * VP-dispatching thread in the root on return from HVCALL_DISPATCH_VP.
-@@ -716,6 +821,7 @@ static_assert(sizeof(struct hv_vp_signal_pair_scheduler_message) ==
- #define HV_DISPATCH_VP_FLAG_SKIP_VP_SPEC_FLUSH		0x8
- #define HV_DISPATCH_VP_FLAG_SKIP_CALLER_SPEC_FLUSH	0x10
- #define HV_DISPATCH_VP_FLAG_SKIP_CALLER_USER_SPEC_FLUSH	0x20
-+#define HV_DISPATCH_VP_FLAG_SCAN_INTERRUPT_INJECTION	0x40
- 
- struct hv_input_dispatch_vp {
- 	u64 partition_id;
-@@ -730,4 +836,18 @@ struct hv_output_dispatch_vp {
- 	u32 dispatch_event; /* enum hv_vp_dispatch_event */
- } __packed;
- 
-+struct hv_input_modify_sparse_spa_page_host_access {
-+	u32 host_access : 2;
-+	u32 reserved : 30;
-+	u32 flags;
-+	u64 partition_id;
-+	u64 spa_page_list[];
-+} __packed;
-+
-+/* hv_input_modify_sparse_spa_page_host_access flags */
-+#define HV_MODIFY_SPA_PAGE_HOST_ACCESS_MAKE_EXCLUSIVE  0x1
-+#define HV_MODIFY_SPA_PAGE_HOST_ACCESS_MAKE_SHARED     0x2
-+#define HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE      0x4
-+#define HV_MODIFY_SPA_PAGE_HOST_ACCESS_HUGE_PAGE       0x8
-+
- #endif /* _HV_HVHDK_H */
-diff --git a/include/hyperv/hvhdk_mini.h b/include/hyperv/hvhdk_mini.h
-index f8a39d3e9ce6..42e7876455b5 100644
---- a/include/hyperv/hvhdk_mini.h
-+++ b/include/hyperv/hvhdk_mini.h
-@@ -36,6 +36,52 @@ enum hv_scheduler_type {
- 	HV_SCHEDULER_TYPE_MAX
- };
- 
-+/* HV_STATS_AREA_TYPE */
-+enum hv_stats_area_type {
-+	HV_STATS_AREA_SELF = 0,
-+	HV_STATS_AREA_PARENT = 1,
-+	HV_STATS_AREA_INTERNAL = 2,
-+	HV_STATS_AREA_COUNT
-+};
-+
-+enum hv_stats_object_type {
-+	HV_STATS_OBJECT_HYPERVISOR		= 0x00000001,
-+	HV_STATS_OBJECT_LOGICAL_PROCESSOR	= 0x00000002,
-+	HV_STATS_OBJECT_PARTITION		= 0x00010001,
-+	HV_STATS_OBJECT_VP			= 0x00010002
-+};
-+
-+union hv_stats_object_identity {
-+	/* hv_stats_hypervisor */
-+	struct {
-+		u8 reserved[15];
-+		u8 stats_area_type;
-+	} __packed hv;
-+
-+	/* hv_stats_logical_processor */
-+	struct {
-+		u32 lp_index;
-+		u8 reserved[11];
-+		u8 stats_area_type;
-+	} __packed lp;
-+
-+	/* hv_stats_partition */
-+	struct {
-+		u64 partition_id;
-+		u8  reserved[7];
-+		u8  stats_area_type;
-+	} __packed partition;
-+
-+	/* hv_stats_vp */
-+	struct {
-+		u64 partition_id;
-+		u32 vp_index;
-+		u16 flags;
-+		u8  reserved;
-+		u8  stats_area_type;
-+	} __packed vp;
-+};
-+
- enum hv_partition_property_code {
- 	/* Privilege properties */
- 	HV_PARTITION_PROPERTY_PRIVILEGE_FLAGS			= 0x00010000,
-@@ -47,19 +93,45 @@ enum hv_partition_property_code {
- 
- 	/* Compatibility properties */
- 	HV_PARTITION_PROPERTY_PROCESSOR_XSAVE_FEATURES		= 0x00060002,
-+	HV_PARTITION_PROPERTY_XSAVE_STATES                      = 0x00060007,
- 	HV_PARTITION_PROPERTY_MAX_XSAVE_DATA_SIZE		= 0x00060008,
- 	HV_PARTITION_PROPERTY_PROCESSOR_CLOCK_FREQUENCY		= 0x00060009,
- };
- 
-+enum hv_snp_status {
-+	HV_SNP_STATUS_NONE = 0,
-+	HV_SNP_STATUS_AVAILABLE = 1,
-+	HV_SNP_STATUS_INCOMPATIBLE = 2,
-+	HV_SNP_STATUS_PSP_UNAVAILABLE = 3,
-+	HV_SNP_STATUS_PSP_INIT_FAILED = 4,
-+	HV_SNP_STATUS_PSP_BAD_FW_VERSION = 5,
-+	HV_SNP_STATUS_BAD_CONFIGURATION = 6,
-+	HV_SNP_STATUS_PSP_FW_UPDATE_IN_PROGRESS = 7,
-+	HV_SNP_STATUS_PSP_RB_INIT_FAILED = 8,
-+	HV_SNP_STATUS_PSP_PLATFORM_STATUS_FAILED = 9,
-+	HV_SNP_STATUS_PSP_INIT_LATE_FAILED = 10,
-+};
-+
- enum hv_system_property {
- 	/* Add more values when needed */
- 	HV_SYSTEM_PROPERTY_SCHEDULER_TYPE = 15,
-+	HV_DYNAMIC_PROCESSOR_FEATURE_PROPERTY = 21,
-+};
-+
-+enum hv_dynamic_processor_feature_property {
-+	/* Add more values when needed */
-+	HV_X64_DYNAMIC_PROCESSOR_FEATURE_MAX_ENCRYPTED_PARTITIONS = 13,
-+	HV_X64_DYNAMIC_PROCESSOR_FEATURE_SNP_STATUS = 16,
- };
- 
- struct hv_input_get_system_property {
- 	u32 property_id; /* enum hv_system_property */
- 	union {
- 		u32 as_uint32;
-+#if IS_ENABLED(CONFIG_X86)
-+		/* enum hv_dynamic_processor_feature_property */
-+		u32 hv_processor_feature;
-+#endif
- 		/* More fields to be filled in when needed */
- 	};
- } __packed;
-@@ -67,9 +139,28 @@ struct hv_input_get_system_property {
- struct hv_output_get_system_property {
- 	union {
- 		u32 scheduler_type; /* enum hv_scheduler_type */
-+#if IS_ENABLED(CONFIG_X86)
-+		u64 hv_processor_feature_value;
-+#endif
- 	};
- } __packed;
- 
-+struct hv_input_map_stats_page {
-+	u32 type; /* enum hv_stats_object_type */
-+	u32 padding;
-+	union hv_stats_object_identity identity;
-+} __packed;
-+
-+struct hv_output_map_stats_page {
-+	u64 map_location;
-+} __packed;
-+
-+struct hv_input_unmap_stats_page {
-+	u32 type; /* enum hv_stats_object_type */
-+	u32 padding;
-+	union hv_stats_object_identity identity;
-+} __packed;
-+
- struct hv_proximity_domain_flags {
- 	u32 proximity_preferred : 1;
- 	u32 reserved : 30;
--- 
-2.34.1
+But drivers started to need to perform multiple read/write operations
+in an atomic sequence, so they started doing there own taking of the
+lock, and using these unlocked low level helpers.
 
+We should probably rename __mdiobus_write() to _mdiobus_write() to
+avoid compiler namespace issues.
+
+> > +	if (ret < 0)
+> > +		dev_err_ratelimited(&bus->dev,
+> > +				    "failed to set an8855 mii page\n");
+> 
+> Use 100-chars if it avoids these kind of line breaks.
+
+I _guess_ the code is following networking coding style, even though
+it is outside of normal networking directories. netdev keeps with the
+old 80 limit.
+
+> > +static int an8855_regmap_read(void *ctx, uint32_t reg, uint32_t *val)
+> > +{
+> > +	struct an8855_mfd_priv *priv = ctx;
+> > +	struct mii_bus *bus = priv->bus;
+> > +	u16 addr = priv->switch_addr;
+> > +	int ret;
+> > +
+> > +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
+> 
+> guard()?
+
+netdev people consider guard() too magical. scoped_guard() is however
+O.K.
+
+> > +	return ret < 0 ? ret : 0;
+> 
+> Doesn't the caller already expect possible >0 results?
+
+It should not happen. Networking has a very small number of functions
+which do return 1 on a different sort of success. Such functions are
+generally called foo_changed(), e.g. mdiobus_modify_changed(). This
+will do a read/modify/write. If it did not need to modify anything,
+because of the current value, it will return 0. If something did
+actually change, it returns 1. If something did actually change, you
+sometimes need to take further actions. But many callers don't care,
+so we have wrappers e.g. mdiobus_modify() calls
+mdiobus_modify_changed() and then converts 0 or 1 to just 0. I'm
+guessing this code copied such a helper when it should not of done.
+
+	Andrew
 
