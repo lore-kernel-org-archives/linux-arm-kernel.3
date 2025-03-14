@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 229CDC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008F9C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:07:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZGqvrAfhcKrz89VYEJIZSiwWmc+V5sZA3zV6G2zLMIE=; b=zGU/TPymjPCEvtXNkhM3uzCfSF
-	QM9euMh9rW0CmHmoHSsZ3CBATb4eHXwyQxAnXXisUDjeRIcRhD5VCkJvl5Sb2RwjroraEzmf/uAWY
-	qkQuHjkxDQs1B/OriYVNhaTiZtChS62PyU8gMBsTgQ0KVNzKm7D821XUpxt2Cu0X4ZbXHfzr6cH5B
-	K6A4fT3JpoFYCR/+nUOZ0yIjbvdtkYw6lJ14aMEGJlUqw2kQn2lEtm9ajSJ1U8EH2AbVUrKZV1Jte
-	kYkNJi5de6EY+KosZKaYDaHUcNk0kLbJ20AvIxYQn3vrOoa/EFVSJ+vO1cIy5quj6dV8gj9cpAsPS
-	TBa8ofZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P3OKRzgTmhPXAg//lEvyW0v8602qzDdflfkOw5zbN/8=; b=inn82WuG4BYFU6AhLWsW55Y4/Q
+	pt0G7BeZmzMXvRCxFbUi2U67FCGbMwkqkF9zYpMdriL8xJNTlSI0MYVke3fpb723CBKxWBqfTi6n4
+	Qu52gB/zRNDTAm3SZpeWggmKVMBQCVmJshklfMNgBO8jUcdPJrWfohvzr0l1aFo3/7zlkGi6N26Je
+	oyatrWsPpKxRfUvcTxNqETkkJxVrYX4XQEibTWsNYjRdHYGdDtJY5pk+P/QKYgy2mFko8d/FcxHkN
+	CGmAkvnvAOtnaEpNtd+psdBW0LvAdJqbXPdDR5oYfMqaoKFr8de9EOxLgHGDSngobf9k7BobEYyVO
+	JORagCtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt02n-0000000DODj-3iwU;
-	Fri, 14 Mar 2025 08:05:25 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tt04S-0000000DOTG-2dsh;
+	Fri, 14 Mar 2025 08:07:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tszv4-0000000DMru-3pRO
+	id 1tszy1-0000000DNQr-15bF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 07:57:28 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2240b4de12bso49252675ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 00:57:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1741939046; x=1742543846; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZGqvrAfhcKrz89VYEJIZSiwWmc+V5sZA3zV6G2zLMIE=;
-        b=HYWaY0AJB19CvvKe6IuKkLxyA2HX0Bw4fD/KPZYI8LlYCYNK4jUIO33eoUai6JB1r7
-         6PUVCZDEwD50MCyWfswiLH5hy5NJl3Nv1BaFTJMeJfRPnioqm5CI6ezhKoF924O0Pkqf
-         EYGg3CqIa2AG0Z+eiHggU7m1nXdQr7hNtjBxg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741939046; x=1742543846;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZGqvrAfhcKrz89VYEJIZSiwWmc+V5sZA3zV6G2zLMIE=;
-        b=lj31ViVELwEC7/unpXSG2FgKDgtSZFexZX3Cwd1KTL0bruEVwJa8keX+Vcyktog3rM
-         NhnKKx6KQOSSjQOSYVrYOaE4dULzLQTNvAE1zWxNqC/FAII6P6g9vcHZN5AQbxCCNcHi
-         R/Pp1gHfVHcABRAXOQNEhV0GlXtwVwkrYrU6A+6LxblH+8v0spixjvQsfIXcaj4AezUY
-         D3efJTU/VrTnLXIlp21CMGzXm+EvFaY2I4PFDURl9m9UYINPEBZ4cct73123JID+ZN8Y
-         nQgnmSb49DK8id42CfMo9xuruLcPVvhgLyJ4fH5U6sYTYnlffIg9r5tmtIWhVORtNLOC
-         zYMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXdhlTO0MG29u7G/jShlrAwtGuEmHIEv4vfmzhZ6afaTdOLpb9EaZc/9JdpXbxEbvA8RL4BX6yF9+qNpBLWE5q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyjoQF4MPrnh86sAfHLSNrMYMH3lXcIViNmi6qhFFUAEc0fNdd
-	w/YQpcFxZVYYlUJb5enBCPOuuS1hQq1xPk41G3jBj1E8+c4ziSbBfXai54vqOA==
-X-Gm-Gg: ASbGncuZB+B1usKieoeGe2xzoeN+bVwj4RuJbaVL+ZqQfmd+Nd3neaVHl2rZl+L7Jca
-	a7gcOV0EWw+bmwOh8Ta5Xq5nDK9C7xciRd2r29WBL+T+otAUsCkdA+l0aFRndj59wyqrckDih8T
-	DTGcYLfBl9gFnrfeUhc06I+oP/zBJrsTfrrR0wbp+67wxiVBmdVpOdVLIOqSvH2ZsJiBqHC3+zE
-	k8VM+BnNHRJltEXjNIw9hUfshpmkcM7dI+z1Smaz1oZv7MV6OarH7CEO5SBlm0RACZ4xEggxjkN
-	cT/qgp64DUzqYPlgOlU2iZuUm7kSzHYXxt7HdoewEjzUftOPcVsWYp3CMekxmTV9m2iW6LOv8hI
-	=
-X-Google-Smtp-Source: AGHT+IGcdiyY6idwVO/6iM9R+Lbkfus0qpbdDrY+BW36asi0U5rIaBOZjp3x3v1YPc7FN9l17L4XaQ==
-X-Received: by 2002:a17:902:ce89:b0:224:1579:5e91 with SMTP id d9443c01a7336-225e0b51498mr21334615ad.47.1741939045771;
-        Fri, 14 Mar 2025 00:57:25 -0700 (PDT)
-Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:ae4f:9361:a038:8207])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c688da81sm24405595ad.43.2025.03.14.00.57.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 00:57:25 -0700 (PDT)
-From: Fei Shao <fshao@chromium.org>
-To: Hans Verkuil <hverkuil@xs4all.nl>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Fei Shao <fshao@chromium.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Fri, 14 Mar 2025 08:00:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 91648A4884F;
+	Fri, 14 Mar 2025 07:54:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 233A8C4CEE5;
+	Fri, 14 Mar 2025 08:00:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741939228;
+	bh=7U8GExGUpIrRj21vxo50VT57HSCBjO9buljApi9E9Pg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ip2N1VrFv07pJUN826d9NhByxmZDPrULXITjASJ0+CdknlGXT8HPiuJYW5W5mhFjW
+	 8DXTYNA8XDKNPHhZNPMTkkE0OxZUvRg7+maUvfhffmOtxKhEYZUu62RqORGVw78zjz
+	 tMKrODkyUaf2MtiMqJXC6G0gV21xjC0VXhLwZConcNmX3V4IZtYhd6QnVc9ty/re4+
+	 1MCX5njrIslpGQJQMTxEXLS8wlQvg83vCznIa/XoJXsuPIqUxKuXW5bvwMqGr+AdXN
+	 rIf5xtkEgwwHw19Zqq6KfjyIvtwy2vtYNvjx1jAuC8ghCvsZA3mjpFNvdrsA/lAaax
+	 FIlOLUOKscRrA==
+Date: Fri, 14 Mar 2025 08:00:22 +0000
+From: Lee Jones <lee@kernel.org>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] media: mediatek: vcodec: Correct vsi_core framebuffer size
-Date: Fri, 14 Mar 2025 15:56:17 +0800
-Message-ID: <20250314075703.4167532-1-fshao@chromium.org>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
+	~postmarketos/upstreaming@lists.sr.ht
+Subject: Re: [PATCH v6 06/10] mfd: bcm590xx: Add PMU ID/revision parsing
+ function
+Message-ID: <20250314080022.GH3645863@google.com>
+References: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
+ <20250304-bcm59054-v6-6-ae8302358443@gmail.com>
+ <20250313132036.GB3616286@google.com>
+ <ef190ba8-a5c7-4a1a-90e6-2610de00e4ed@sirena.org.uk>
+ <f363c1ce-8612-476e-a5d5-c3cb358bf50a@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <f363c1ce-8612-476e-a5d5-c3cb358bf50a@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_005726_966623_B8300E2C 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20250314_010029_364462_B05201D0 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,33 +86,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The framebuffer size for decoder instances was being incorrectly set -
-inst->vsi_core->fb.y.size was assigned twice consecutively.
+On Thu, 13 Mar 2025, Artur Weber wrote:
 
-Assign the second picinfo framebuffer size to the C framebuffer instead,
-which appears to be the intended target based on the surrounding code.
+> On 13.03.2025 14:25, Mark Brown wrote:
+> > On Thu, Mar 13, 2025 at 01:20:36PM +0000, Lee Jones wrote:
+> > > On Tue, 04 Mar 2025, Artur Weber wrote:
+> > 
+> > > > +	if (id != bcm590xx->pmu_id) {
+> > > > +		dev_err(bcm590xx->dev,
+> > > > +			"Incorrect ID for %s: expected %x, got %x. Check your DT compatible.\n",
+> > > 
+> > > Isn't it more likely that the H/W this is being executed on is
+> > > unsupported?  If so, say that instead.
+> > 
+> > Given that the compatibles are device specific the driver shouldn't be
+> > binding if the device is unsupported.
+> 
+> Yes, the intention here is just to make sure that the DT compatible and
+> hardware ID match. Unsupported hardware would not have a DT compatible.
 
-Fixes: 2674486aac7d ("media: mediatek: vcodec: support stateless hevc decoder")
-Signed-off-by: Fei Shao <fshao@chromium.org>
----
+Right, so the user is utilising the correct compatible on the incorrect
+(most likely unsupported) platform.  When using a supported DTB on
+unknown hardware, the driver will bind but fail here.
 
- .../mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c       | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
-index aa721cc43647..2725db882e5b 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
-@@ -821,7 +821,7 @@ static int vdec_hevc_slice_setup_core_buffer(struct vdec_hevc_slice_inst *inst,
- 	inst->vsi_core->fb.y.dma_addr = y_fb_dma;
- 	inst->vsi_core->fb.y.size = ctx->picinfo.fb_sz[0];
- 	inst->vsi_core->fb.c.dma_addr = c_fb_dma;
--	inst->vsi_core->fb.y.size = ctx->picinfo.fb_sz[1];
-+	inst->vsi_core->fb.c.size = ctx->picinfo.fb_sz[1];
- 
- 	inst->vsi_core->dec.vdec_fb_va = (unsigned long)fb;
- 
 -- 
-2.49.0.rc1.451.g8f38331e32-goog
-
+Lee Jones [李琼斯]
 
