@@ -4,67 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5DAC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A515C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JLnCETxFJsnPhE+BfNEBBbq9n4NPDo2G48x8+5UEJs=; b=2oinMIJzNtAK1AxtT2Es1lbwoJ
-	E78QlBWWLItEy7I6+sthr2qw9CbzmE3gIb4HzPzQBcGvo1z+Zf1yGThLRGQuxs4ULiZ0rInaMXAuC
-	EUzLxN1q9TYW9kcQXwLPqecNR3PCh0sB05tcYCKlRtV0bvXFP4ezC77Yt6H9Ti970lOXL8K/jraQ0
-	ciUpkglMXuPeeh8cnXwTumc7M5Rg6CE4qIPHGms2uwpzIE9K4xxGzHc/0fJBHkX9ZfMj1ocYKcOM2
-	Az71BlG2YBrpmg7OWS/7lYNmBtT4rfbSAorMTzFhXPAAtDQJALUIhetAp+qXlOW18ywPP90RwFVBH
-	lGQqwKfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zTpKh+6J9wm2jU7DQlEhYXzFlTCXWRQEeiEdGd+zv9M=; b=eHzFLB/5/wIpglBjL8TfmPzNgG
+	BMnNlfqx+ZqP+G6s8nVTIbvRv1g62352ptfn/3hOTd6TV6TXlu8wm2kp6ujPjJWzH0mvEPyamDm4B
+	k9nKRvHx0Nq7ETYAT64IyEVY50u3lZC9h0Xv2x5V9i1tmyD6cKrKLneksQ5WUbPFGY0y2gm3Rze3M
+	jLZxrWRW8GHa77nqIZ+YtCVKeHpgLZOkUTzZ8VileGl3nkliYb1umF5x07a/yG7qQ9ZWovGCC0OTf
+	ctFaAPyR66VRkzEUdQbCMQ+mzPtZLt+lRtP+D99+F85SnrIvZYykahGQZUYKPuIvckLlVhstsk10b
+	+QVSyCFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9RB-0000000Eyoy-2s1Q;
-	Fri, 14 Mar 2025 18:07:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tt9Sp-0000000EyzD-1RbB;
+	Fri, 14 Mar 2025 18:08:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt94Q-0000000EvF3-2sj7
+	id 1tt9Ca-0000000EwMQ-4ASe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 17:43:43 +0000
+	Fri, 14 Mar 2025 17:52:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DA7185C4A31;
-	Fri, 14 Mar 2025 17:41:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E208BC4CEE3;
-	Fri, 14 Mar 2025 17:43:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741974221;
-	bh=UfJrm2yCFAgVvDAibstSIiqplSzCVgfdGZqcvC0TH/o=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=MzdiXnLDnYiyc+IiiZC3WYzF3D4mo6tnnO1kek0ERsAdbr0I63piUX76szP1uEFQv
-	 LQ3atwDzS6mIvsfhNVFwNjJSHdJlJ8drU9ZUbb+uUzptDyvGXqfi2WCWgHJYtM9m0x
-	 Vk2ErzxebJgpJDcfbNdMD4ezLbwigmdt46NMXTk/Cip7PcgbIEwEHkQPQI+bDlgNB5
-	 FaZZ3fTCNVEGaQ2plJXiHa+uVRfpz8g6tmXFN8+4G5J22yxw45hdXRSDKLtQoqTsJd
-	 uKm9zP8mggbQscDuQ5vzyhbh7CWYR/BeGbb3erFFkc8qkqWfW4XMwgUqx9iv3hSLQJ
-	 myOLVRANzrNkQ==
-From: Namhyung Kim <namhyung@kernel.org>
-To: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Yujie Liu <yujie.liu@intel.com>
-Cc: Leo Yan <leo.yan@arm.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Ian Rogers <irogers@google.com>, James Clark <james.clark@linaro.org>, 
- Adrian Hunter <adrian.hunter@intel.com>, Jiri Olsa <jolsa@kernel.org>, 
- "Liang, Kan" <kan.liang@linux.intel.com>, 
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
- Mike Leach <mike.leach@linaro.org>, 
- Graham Woodward <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com
-In-Reply-To: <20250312075636.429127-1-yujie.liu@intel.com>
-References: <20250312075636.429127-1-yujie.liu@intel.com>
-Subject: Re: [PATCH] perf script: Fix typo in branch event mask
-Message-Id: <174197422088.4059945.167819241578952524.b4-ty@kernel.org>
-Date: Fri, 14 Mar 2025 10:43:40 -0700
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6E7EEA487B3;
+	Fri, 14 Mar 2025 17:46:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C89EC4CEE5;
+	Fri, 14 Mar 2025 17:52:07 +0000 (UTC)
+Date: Fri, 14 Mar 2025 17:52:04 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [bug report] arm64/mm: Clear PXX_TYPE_MASK and set PXD_TYPE_SECT
+ in [pmd|pud]_mkhuge()
+Message-ID: <Z9RsxL98s23mvqJa@arm.com>
+References: <d7902504-1ed4-452f-9b08-148f6b8b69fd@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c04d2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d7902504-1ed4-452f-9b08-148f6b8b69fd@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_104342_784286_0A485189 
-X-CRM114-Status: UNSURE (   5.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_105209_105506_AF6183EA 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,14 +62,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Mar 2025 15:56:36 +0800, Yujie Liu wrote:
-> BRACH -> BRANCH
+On Fri, Mar 14, 2025 at 01:54:01PM +0300, Dan Carpenter wrote:
+> Hello Anshuman Khandual,
 > 
+> Commit 1601df9e366e ("arm64/mm: Clear PXX_TYPE_MASK and set
+> PXD_TYPE_SECT in [pmd|pud]_mkhuge()") from Feb 21, 2025 (linux-next),
+> leads to the following (unpublished) Smatch static checker warning:
 > 
-Applied to perf-tools-next, thanks!
+> arch/arm64/include/asm/pgtable.h:587 pmd_mkhuge() warn: odd binop '0x1 & 0xfffffffffffffffe'
+> arch/arm64/include/asm/pgtable.h:626 pud_mkhuge() warn: odd binop '0x1 & 0xfffffffffffffffe'
+> 
+> arch/arm64/include/asm/pgtable.h
+>     579 static inline pmd_t pmd_mkhuge(pmd_t pmd)
+>     580 {
+>     581         /*
+>     582          * It's possible that the pmd is present-invalid on entry
+>     583          * and in that case it needs to remain present-invalid on
+>     584          * exit. So ensure the VALID bit does not get modified.
+>     585          */
+>     586         pmdval_t mask = PMD_TYPE_MASK & ~PTE_VALID;
+> --> 587         pmdval_t val = PMD_TYPE_SECT & ~PTE_VALID;
+> 
+> This is "1 & ~1".  I see the comment, but I'm too stupid to know even
+> after reading he comment whether it's intentional or not.  :P
+> 
+>     588 
+>     589         return __pmd((pmd_val(pmd) & ~mask) | val);
+>     590 }
 
-Best regards,
-Namhyung
+Prior to the above commit, the code was:
 
+#define pmd_mkhuge(pmd)			(__pmd(pmd_val(pmd) & ~PMD_TABLE_BIT))
 
+So just clearing a bit. That's why the reworked code has val 0 in the
+current configuration. This may change with support for 128-bit PTEs
+though, different format.
+
+The comment is about preserving the PTE_VALID bit in the original pmd
+value, so it's masked out of both mask and val.
+
+It's good that smatch catches these though. Any way to mark a false
+positive?
+
+-- 
+Catalin
 
