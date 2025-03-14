@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E352C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21139C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kQpDXagoqiBnz1ULF4xuJAkhLPjv+oLVEWalqIw1Byo=; b=SdnCmt4wCK5DxnmTmgXWqlf3U2
-	WZgxUeN2HSHYSgUFnRpE4Rx1UkFXsj2dKWaEE0BO1nKsgy7NjdDpo1/AMl1M8d9L7RocYpwsexUQg
-	zJ1WYTYLdK+EAbr3ZlzLLzhYPPgec3T4PGJ+xduDhnBZIK39KX1e6J3li33gNWnodFHQ7VYzZNvyE
-	WnbWDhPGjQIGAaArW8lpjt2zx7u8jj0BEZn3ha18NBADaTXODhc/R2kJBQclFVLTdEivHwIKyY1ia
-	BDxOja/x4iU5aPjvW/DheqjQ+coEwAZXyUBeCmFJVEsUm7jYTcKx7ue+ZirR9NXK7e46CxJzY2gid
-	URh3ITMw==;
+	bh=utJMkJZ9Gl5P1DrxVDG/0o+Zv8qkpo1fMxwwRlX4UR4=; b=Lyx0gHpPlkMn6l40PTwsp724yW
+	ko2Vpl2kiZ8Fg0UlP5tesHVepihghMUmLVxpjJzfjxLvB5/+pJrRxa723xdUB/MQokwTwTwS0H/WQ
+	8xEJNBLFE9tqrQbXSnioSXMVVTQliPRzejFR/oE6h1tHAHicnhKVmMVqrnj6XMeGj/EQPtFlNYEUU
+	oh9klBS66UibesloK+fIPZ6cSONCNrhvfT+qw5lppeEVMTXliuc/sZ0FC7gPbGRSxTsdqTtuQiKRD
+	IVKvXipBBabvK/Jph6oy2Bv7oD+AZqU1MCpKwr7B75U8UdgsvNuEfTVeHxFankfMDuvbmRstRxg4e
+	tZw4OD1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAni-0000000F8KJ-3HsU;
-	Fri, 14 Mar 2025 19:34:34 +0000
+	id 1ttApM-0000000F8Zk-1oJT;
+	Fri, 14 Mar 2025 19:36:16 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAij-0000000F74b-2Ave
+	id 1ttAik-0000000F74r-05kk
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 14 Mar 2025 19:29:27 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5DAC22033459;
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7AC4F203345B;
 	Fri, 14 Mar 2025 12:29:24 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5DAC22033459
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7AC4F203345B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1741980564;
-	bh=kQpDXagoqiBnz1ULF4xuJAkhLPjv+oLVEWalqIw1Byo=;
+	bh=utJMkJZ9Gl5P1DrxVDG/0o+Zv8qkpo1fMxwwRlX4UR4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QgsX3nal9IDsR2TJGB/RRIgqwXlA1XJAcEFtFir/jWdb0FV+lxfTqCBlPUIFANd3e
-	 Vc6uZgDGxORP3rIneNmC1gyNtfyTIg+OL8ArNcTFcoLWqp//OtwVhCq7tPae3e10I1
-	 oGTCxEimeV33kN0de0MCS5Snl2CS0w1KGYaSPRZI=
+	b=LJHeMn5yTvvBeQxzdXDTwSuQizpptvJ+Kxp/xmBk/lsEbzFRS7ETcGe8ZOP744RJ+
+	 XEelsIIyeM2OzNUwiSuNWnVnmcDVt/YIGUPlmgXjMjIUyk3NOYuCbk3rUkXKFozzRg
+	 l0j5z1FyepIE2G2v6FP0NcaDSOUzzfOwovKQeIsM=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	x86@kernel.org,
@@ -78,15 +78,15 @@ Cc: kys@microsoft.com,
 	rafael@kernel.org,
 	lenb@kernel.org,
 	corbet@lwn.net
-Subject: [PATCH v6 03/10] arm64/hyperv: Add some missing functions to arm64
-Date: Fri, 14 Mar 2025 12:28:49 -0700
-Message-Id: <1741980536-3865-4-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v6 04/10] hyperv: Introduce hv_recommend_using_aeoi()
+Date: Fri, 14 Mar 2025 12:28:50 -0700
+Message-Id: <1741980536-3865-5-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
 In-Reply-To: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_122925_600691_77032970 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250314_122926_102157_3B765B29 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,91 +101,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These non-nested msr and fast hypercall functions are present in x86,
-but they must be available in both architectures for the root partition
-driver code.
+Factor out the check for enabling auto eoi, to be reused in root
+partition code.
 
-While at it, remove the redundant 'extern' keywords from the
-hv_do_hypercall() variants in asm-generic/mshyperv.h.
+No functional changes.
 
 Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
+Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Reviewed-by: Tianyu Lan <tiala@microsoft.com>
 ---
- arch/arm64/hyperv/hv_core.c       | 17 +++++++++++++++++
- arch/arm64/include/asm/mshyperv.h | 13 +++++++++++++
- include/asm-generic/mshyperv.h    |  6 ++++--
- 3 files changed, 34 insertions(+), 2 deletions(-)
+ drivers/hv/hv.c                | 12 +-----------
+ include/asm-generic/mshyperv.h | 13 +++++++++++++
+ 2 files changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/hyperv/hv_core.c b/arch/arm64/hyperv/hv_core.c
-index 69004f619c57..e33a9e3c366a 100644
---- a/arch/arm64/hyperv/hv_core.c
-+++ b/arch/arm64/hyperv/hv_core.c
-@@ -53,6 +53,23 @@ u64 hv_do_fast_hypercall8(u16 code, u64 input)
- }
- EXPORT_SYMBOL_GPL(hv_do_fast_hypercall8);
+diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
+index a38f84548bc2..308c8f279df8 100644
+--- a/drivers/hv/hv.c
++++ b/drivers/hv/hv.c
+@@ -313,17 +313,7 @@ void hv_synic_enable_regs(unsigned int cpu)
  
-+/*
-+ * hv_do_fast_hypercall16 -- Invoke the specified hypercall
-+ * with arguments in registers instead of physical memory.
-+ * Avoids the overhead of virt_to_phys for simple hypercalls.
-+ */
-+u64 hv_do_fast_hypercall16(u16 code, u64 input1, u64 input2)
-+{
-+	struct arm_smccc_res	res;
-+	u64			control;
-+
-+	control = (u64)code | HV_HYPERCALL_FAST_BIT;
-+
-+	arm_smccc_1_1_hvc(HV_FUNC_ID, control, input1, input2, &res);
-+	return res.a0;
-+}
-+EXPORT_SYMBOL_GPL(hv_do_fast_hypercall16);
-+
- /*
-  * Set a single VP register to a 64-bit value.
-  */
-diff --git a/arch/arm64/include/asm/mshyperv.h b/arch/arm64/include/asm/mshyperv.h
-index 2e2f83bafcfb..b721d3134ab6 100644
---- a/arch/arm64/include/asm/mshyperv.h
-+++ b/arch/arm64/include/asm/mshyperv.h
-@@ -40,6 +40,19 @@ static inline u64 hv_get_msr(unsigned int reg)
- 	return hv_get_vpreg(reg);
- }
+ 	shared_sint.vector = vmbus_interrupt;
+ 	shared_sint.masked = false;
+-
+-	/*
+-	 * On architectures where Hyper-V doesn't support AEOI (e.g., ARM64),
+-	 * it doesn't provide a recommendation flag and AEOI must be disabled.
+-	 */
+-#ifdef HV_DEPRECATING_AEOI_RECOMMENDED
+-	shared_sint.auto_eoi =
+-			!(ms_hyperv.hints & HV_DEPRECATING_AEOI_RECOMMENDED);
+-#else
+-	shared_sint.auto_eoi = 0;
+-#endif
++	shared_sint.auto_eoi = hv_recommend_using_aeoi();
+ 	hv_set_msr(HV_MSR_SINT0 + VMBUS_MESSAGE_SINT, shared_sint.as_uint64);
  
-+/*
-+ * Nested is not supported on arm64
-+ */
-+static inline void hv_set_non_nested_msr(unsigned int reg, u64 value)
-+{
-+	hv_set_msr(reg, value);
-+}
-+
-+static inline u64 hv_get_non_nested_msr(unsigned int reg)
-+{
-+	return hv_get_msr(reg);
-+}
-+
- /* SMCCC hypercall parameters */
- #define HV_SMCCC_FUNC_NUMBER	1
- #define HV_FUNC_ID	ARM_SMCCC_CALL_VAL(			\
+ 	/* Enable the global synic bit */
 diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-index c8043efabf5a..c3697bc0598d 100644
+index c3697bc0598d..8519b8ec8e9d 100644
 --- a/include/asm-generic/mshyperv.h
 +++ b/include/asm-generic/mshyperv.h
-@@ -70,8 +70,10 @@ extern enum hv_partition_type hv_curr_partition_type;
- extern void * __percpu *hyperv_pcpu_input_arg;
- extern void * __percpu *hyperv_pcpu_output_arg;
- 
--extern u64 hv_do_hypercall(u64 control, void *inputaddr, void *outputaddr);
--extern u64 hv_do_fast_hypercall8(u16 control, u64 input8);
-+u64 hv_do_hypercall(u64 control, void *inputaddr, void *outputaddr);
-+u64 hv_do_fast_hypercall8(u16 control, u64 input8);
-+u64 hv_do_fast_hypercall16(u16 control, u64 input1, u64 input2);
-+
+@@ -77,6 +77,19 @@ u64 hv_do_fast_hypercall16(u16 control, u64 input1, u64 input2);
  bool hv_isolation_type_snp(void);
  bool hv_isolation_type_tdx(void);
  
++/*
++ * On architectures where Hyper-V doesn't support AEOI (e.g., ARM64),
++ * it doesn't provide a recommendation flag and AEOI must be disabled.
++ */
++static inline bool hv_recommend_using_aeoi(void)
++{
++#ifdef HV_DEPRECATING_AEOI_RECOMMENDED
++	return !(ms_hyperv.hints & HV_DEPRECATING_AEOI_RECOMMENDED);
++#else
++	return false;
++#endif
++}
++
+ static inline struct hv_proximity_domain_info hv_numa_node_to_pxm_info(int node)
+ {
+ 	struct hv_proximity_domain_info pxm_info = {};
 -- 
 2.34.1
 
