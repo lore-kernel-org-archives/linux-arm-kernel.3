@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B63C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBAFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVHCPBxikyr6bz94T8wXYfnynt+o8o3vwTA2lD3uomo=; b=v7V83Sl/hVpHZQtd2dUHOEjx9C
-	xIdKIu+1kd4qnBPd7zZfCRfUTSipna3OqK1RyOPffSKdQKsjiKy5jz/ZSHtb2nkh4PAG/YpurOfug
-	3tXCdpj31RohRknL8mpM6t10HNeqCSI6ihA1g1gD2a6HsNdivOwjwghVSC03Aifzf2wcBqXf8PlrI
-	XOUTt7tHatEdgF8zwAey39GTtxlTGXlA8rJ9liS0DzCsEgQ6mTCr3Py01SQXNgdKObBazPinOHFj4
-	W4InBYOsem9BpWaO9YYy+0vqpGtagYJj5i93KIvy4L8YdC8xaJh4sOXQYTFM7BjnVMLlOVFmqT3sE
-	Ot2K2UyA==;
+	bh=82vwVg0CBFLxNk1y97bWD8aRM0sls0IM+3B5nN7emI4=; b=kWu1msA8xTqtsT9NwrsQGJvAiF
+	PKawi/ROlKeeKGpN132Jn6iddHTsRwq1m5Pn0XS0SxiTkdIZ27iyhy+FtzUN3Td6sowqxD+ipatzZ
+	TZdfgltxSqYYSRkSQh1fnGY44aIMmHyKlndZygGMWTeMXNwKk5L+Hd8h/n9tUZTUdb5YKgcG+5ZK0
+	bwIl81YM8bQiReQLidZfyLDpbYugQHGTDlza0++IoTlaOZAHiq8Ut5ZEgWWIDR63/Fbf8F3uKSYj4
+	sHLNsSMvQX7GrnvKedkz0nT0fv53zWXtiZeN4TpvDnLIP57xqF0gdxhybU8uP6GipnFkcdRq+Q697
+	OwLMkmAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt39y-0000000Dzb3-49EL;
-	Fri, 14 Mar 2025 11:25:02 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tt3Bc-0000000DzqU-2oc3;
+	Fri, 14 Mar 2025 11:26:44 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt33p-0000000Dycy-2SAF
+	id 1tt33s-0000000Dydd-0DnD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 11:18:42 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-39134c762ebso892065f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 04:18:40 -0700 (PDT)
+	Fri, 14 Mar 2025 11:18:45 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43bd0586b86so15294045e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 04:18:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741951119; x=1742555919; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1741951122; x=1742555922; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yVHCPBxikyr6bz94T8wXYfnynt+o8o3vwTA2lD3uomo=;
-        b=PrdCGMDlbDWh1p9ipoMDZ8EDnGh6+QQRl9mDFez7QpQyW4mc/SWx2rCznoLZlwJp5g
-         EEB3dmkHwknCikDgYldjJIyiRtee1R2BYxkVGxR03GCMcf2iSGqJvWbnFgt8jqM+IQ/t
-         ViQpPPC/kLhavBHkLV3/q4j64cY3cDuVip9SV/nhuULQiB/lupZMdmyeFH8KRkJeqW+A
-         g2exWX3pyTbPVFkfw0KJ+UnXrG3lvOF7H9cAzk5BKvL6E1ExI15/7eV3tjFjO1Us4CUP
-         +tHdxdXB2qkRQsOuA8atYqej/pO+QwmgqDUTuBU2SPZb+N0f1S4KJIfvd8Jno5/imWok
-         Ku8w==
+        bh=82vwVg0CBFLxNk1y97bWD8aRM0sls0IM+3B5nN7emI4=;
+        b=RspgiEGXD4hgk6EdknSEKQI16VgnEd8veeoMbH2YQjDRAZis2snzXNP486zaTvYl+V
+         Rd+66uUx95IUiY/g/ty7oOh9OwXVyYFa9noOFTfpGO3q/TxNtPEgLnjRgRrSVSw54j9N
+         vKHuovDRTSoCoh5zB4noSufVOTjt7emOOBXVt/WcQZ4K8qj0HoGorJIAfxaR/x88f9NG
+         T+SPv2eGurMeOclzE20VrTVV6mTPStx+ccBo2NH8vjdG/KaUPayioxyoSqfXfBNrnClq
+         GCYqP5KBl5fBuULkQhI+1TATXGmVbD0AInFYP5OnF5Gt0xkvb/PzwdQYK2poawp9uh8a
+         3/Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741951119; x=1742555919;
+        d=1e100.net; s=20230601; t=1741951122; x=1742555922;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yVHCPBxikyr6bz94T8wXYfnynt+o8o3vwTA2lD3uomo=;
-        b=OjDiWw59MGS0C2i6Td9IEkltB5iHTxuCANC4nJWGOVAbv6yrozMVvnAVH0ivU2TP12
-         xXYFjYcqG8G1NAOvFFE6FVl3jlsq2t0WQEIj80BwvMvDpx4KsfZVJb1Q6aFqW8CmiOFV
-         NjgXp43RVaFd22Mzx6Tuvh0FH9nrJVFbGUnFYoDRDe4bXCJaAHb6t8nr9ZppGPqCfJLh
-         W6ggFLZz7FGybx7DkzcpH4HIU/XK6wXrnBJLLWhdveFNdljk/kcdqxlJzsNSQNOxP3Vm
-         gvQoyWizDyGh/tUfJGeBrsBOMh1aKkWBN0cJ1dsEf4T6KBL4Pa1sftroFB8eFBbMWVU5
-         Wq1g==
-X-Forwarded-Encrypted: i=1; AJvYcCVrehDYTbFSptqB5lTZArMKJv0RoJTPV4H4gUZVDCcj7QgTrNps92Vq12rykziKAjuM/oscWAjRzd3wuqayKNY/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8JCch9yihMDoCkjMORe+UODOP713dXHip4hI4Q+pwq+wMe+7H
-	t2CvF4BpFx3hX/1/8jArR8DP07P/fZaSTjwAjq+hE1U8x0Z5fAK0fExcnpxJDPXjd+3xznNpfg=
+        bh=82vwVg0CBFLxNk1y97bWD8aRM0sls0IM+3B5nN7emI4=;
+        b=LHVrBd1xr3cKLbKf+tz52iWo3IckPqkrI2yRxHdazsjr9sDQUxsfgPUl8co5Ub1B5h
+         biYDKIu0LOGrsL6nYRoHEXwPJJBCh4d4CMCojcAkP9hmm1lQyntk0MDQxahoUQl1NnKr
+         T5cxvuFOG9mvbqP06ApH844xbzcoIQqQFEiY9pXFUumEzZy5NCoD9gAYMXum/Qph33yq
+         Hi5x6t1cG1IMGXPdpBu87SMBDZZqONRc0a/eYaa11cejZvjJZhF8XFTMlIH9sJba8ktf
+         UwAFH0Hc446+/StrbNh4XMEFaktNxtDellIJIbNFPmyyoiA0qL+9OUi1aMTC7TdGQwG+
+         uw6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXT5BIHyNckbeDEod718cPwb3lPKAf37uXL3to0K12ojg8DmRxw7hxC9IhUyN7WGbyuIrRr/P81+qz0YfjkJ4V9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuzXeymcLXHkkGoM3p0fREcM+d8KcDiymrxMnqEGB4mL8WE3eu
+	MiX9mYvatNrdW4K9CS1LulrTX8wiXJemseZB3TY3jCzoBURwpMi9E6GqkVBN4ywv1lbWJ+Zyng=
 	=
-X-Google-Smtp-Source: AGHT+IFH3SuJ1uC+yXMAZ9jkckywHcWe5WA9zfg61vMBkH7bJ1po2Sm1vehb5nwh9MKJnjPHma3sjh1qZQ==
-X-Received: from wmrs15.prod.google.com ([2002:a05:600c:384f:b0:43d:c77:3fd8])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:59af:0:b0:390:f6aa:4e80
- with SMTP id ffacd0b85a97d-397200ac22fmr2439040f8f.53.1741951119711; Fri, 14
- Mar 2025 04:18:39 -0700 (PDT)
-Date: Fri, 14 Mar 2025 11:18:30 +0000
+X-Google-Smtp-Source: AGHT+IFgy0IRKYEui6JFldvaggSnbklu2RRtgsoq5WhXW+8cqly4bSvIDl1pRV1tvV13ltYjlwnhY564FA==
+X-Received: from wmbep16.prod.google.com ([2002:a05:600c:8410:b0:43c:f122:1874])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600d:e:b0:43c:ec28:d303
+ with SMTP id 5b1f17b1804b1-43d1f0a4287mr27609165e9.5.1741951122171; Fri, 14
+ Mar 2025 04:18:42 -0700 (PDT)
+Date: Fri, 14 Mar 2025 11:18:31 +0000
 In-Reply-To: <20250314111832.4137161-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20250314111832.4137161-1-tabba@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250314111832.4137161-3-tabba@google.com>
-Subject: [PATCH v3 2/4] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
+Message-ID: <20250314111832.4137161-4-tabba@google.com>
+Subject: [PATCH v3 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
+ separate function
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, 
@@ -75,8 +76,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com,
 	qperret@google.com, vdonnefort@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_041841_623012_4681FAE1 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250314_041844_090149_19541AFE 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +92,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialize and set the traps controlled by the HCRX_EL2 in pKVM.
+Move the code that creates and initializes the hyp view of a vcpu
+in pKVM to its own function. This is meant to make the transition
+to initializing every vcpu individually clearer.
 
+Acked-by: Will Deacon <will@kernel.org>
 Reviewed-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/pkvm.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/pkvm.c | 48 ++++++++++++++++++++-----------------------
+ 1 file changed, 22 insertions(+), 26 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 3927fe52a3dd..6efb9bf56180 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -166,8 +166,13 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 930b677eb9b0..74cf5d87e77b 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -113,6 +113,24 @@ static void __pkvm_destroy_hyp_vm(struct kvm *host_kvm)
+ 	free_hyp_memcache(&host_kvm->arch.pkvm.teardown_mc);
+ }
  
- 	pkvm_vcpu_reset_hcr(vcpu);
- 
--	if ((!pkvm_hyp_vcpu_is_protected(hyp_vcpu)))
-+	if ((!pkvm_hyp_vcpu_is_protected(hyp_vcpu))) {
-+		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
++static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
++{
++	size_t hyp_vcpu_sz = PAGE_ALIGN(PKVM_HYP_VCPU_SIZE);
++	pkvm_handle_t handle = vcpu->kvm->arch.pkvm.handle;
++	void *hyp_vcpu;
++	int ret;
 +
-+		/* Trust the host for non-protected vcpu features. */
-+		vcpu->arch.hcrx_el2 = host_vcpu->arch.hcrx_el2;
- 		return 0;
-+	}
++	hyp_vcpu = alloc_pages_exact(hyp_vcpu_sz, GFP_KERNEL_ACCOUNT);
++	if (!hyp_vcpu)
++		return -ENOMEM;
++
++	ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, vcpu, hyp_vcpu);
++	if (ret)
++		free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
++
++	return ret;
++}
++
+ /*
+  * Allocates and donates memory for hypervisor VM structs at EL2.
+  *
+@@ -125,9 +143,8 @@ static void __pkvm_destroy_hyp_vm(struct kvm *host_kvm)
+  */
+ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
+ {
+-	size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
++	size_t pgd_sz, hyp_vm_sz;
+ 	struct kvm_vcpu *host_vcpu;
+-	pkvm_handle_t handle;
+ 	void *pgd, *hyp_vm;
+ 	unsigned long idx;
+ 	int ret;
+@@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
+ 	if (ret < 0)
+ 		goto free_vm;
  
- 	ret = pkvm_check_pvm_cpu_features(vcpu);
- 	if (ret)
-@@ -175,6 +180,7 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
+-	handle = ret;
++	host_kvm->arch.pkvm.handle = ret;
  
- 	pvm_init_traps_hcr(vcpu);
- 	pvm_init_traps_mdcr(vcpu);
-+	vcpu_set_hcrx(vcpu);
+-	host_kvm->arch.pkvm.handle = handle;
+-
+-	/* Donate memory for the vcpus at hyp and initialize it. */
+-	hyp_vcpu_sz = PAGE_ALIGN(PKVM_HYP_VCPU_SIZE);
+ 	kvm_for_each_vcpu(idx, host_vcpu, host_kvm) {
+-		void *hyp_vcpu;
+-
+-		/* Indexing of the vcpus to be sequential starting at 0. */
+-		if (WARN_ON(host_vcpu->vcpu_idx != idx)) {
+-			ret = -EINVAL;
+-			goto destroy_vm;
+-		}
+-
+-		hyp_vcpu = alloc_pages_exact(hyp_vcpu_sz, GFP_KERNEL_ACCOUNT);
+-		if (!hyp_vcpu) {
+-			ret = -ENOMEM;
+-			goto destroy_vm;
+-		}
+-
+-		ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, host_vcpu,
+-					hyp_vcpu);
+-		if (ret) {
+-			free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
++		ret = __pkvm_create_hyp_vcpu(host_vcpu);
++		if (ret)
+ 			goto destroy_vm;
+-		}
+ 	}
  
  	return 0;
- }
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
 
