@@ -4,73 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B01C35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFEB5C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/CuegWTXX++lEAWrfzud8ieAFRmgEoVgm6KVD6Myd8=; b=EU8uFiT2FOdb1qKoWFGen/zm9S
-	vTbUlQJtznAmN+RYkJOC2i65xGcsjvMOklwNpeADiCR7fzrIPfNqJUeN1G7KZ12EVkFGP5rq+gvxj
-	0yrgjb8+hETWLtzitCBEvLl0lTw+Iv6WOlk/9ntwLi6g8VPE96fOv9lekHfA4jsEEEHIBfiCKa9Y/
-	Zjj/9aHyZ97cXR7rYQIKNlPQLSJ+epJ3WtTzjN5ieRYNVlARLi3Bo5V3TyGwU3V5ZSwBgCO9Ox8E8
-	wJHNUYZ+/5rdh7n1tWfmXNGwIL5n0TPXiRW1sAMUiZ0rm6FhuwM8wTKAJ/umpx8vawmotXYULkODM
-	U5FCY2/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JcN4/9CSJN5rkyu5eOfeNCH8pnymRY8wa04sQtTz80M=; b=QdjN+fk0QS7ht5oyDZWyMbSu3Q
+	+pjH1pJk+E2htdNEjDhs44Wh2ZAsKi2UXDjej+v+DeCsvOtMyH3X0wIYT112//Z/pnAyiavnKW9oT
+	FeaQfp8t2pbnrw1lDD932OJxkrXHD0hPYzbi05gyEdQSQGwU1pu8vNj4VgVYVWMG3DuxlUPtteWZI
+	f8XionjhGQ4gBShqsQ2Zcb43ZvTjPxnBi2yl/SGs8cqpBsD+oN235CQkJ1/za9vAySvoZyhJRt/Ln
+	vVgsCVWL49ry4WM3ZbAUKzsC3ot3aFD6Tt1Z2i3+6Ge2i7VEFEDVhWYd4aoShVjgVrUFXbukGMIxX
+	50/vhwiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9t7-0000000F2MO-1DkW;
-	Fri, 14 Mar 2025 18:36:05 +0000
+	id 1tt9wM-0000000F2uW-08u2;
+	Fri, 14 Mar 2025 18:39:26 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9ea-0000000F0bh-3km5
+	id 1tt9uU-0000000F2kI-1txM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 18:21:06 +0000
+	Fri, 14 Mar 2025 18:37:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 820085C54A7;
-	Fri, 14 Mar 2025 18:18:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DB48C4CEE3;
-	Fri, 14 Mar 2025 18:21:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741976464;
-	bh=kl2X8mVwSaZH4P+oC1wMNXj/evjiX1wGJ3tMBcCpssU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L1wVNbwKbDzm3i2OHiUkdhMC2cbWxtIPNWUQYV9lrxpezJqu7/HcWGVSBkBHgv48N
-	 h+BdVTb3qNZMfrDpcM3B4GZ/PhumzL62IDZidEjyswRZCpH2TfYb31PUyXpr3wT7yY
-	 USIdnYdZ0h+c0sB/4qMNrorcGKWJUs0IJ3GZAQIhAy/YdIoEGX3IHc5/sTg9g8F78W
-	 rI2IIP5+93xW68HrYA/Sl2+m6OSHtXcW6+9gLZ6OmF40AudM8wVzRSALKjgjMPAvOi
-	 /7AkeQFVPNQkFJhs0h9XNEqOYZAyRlkufGEHwC2oukZrkODksegJdB9AqZLVZ1aLOK
-	 bBAuiJCUSEr7w==
-Date: Fri, 14 Mar 2025 19:21:01 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Anusha Srivatsa <asrivats@redhat.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Dmitry Baryshkov <lumag@kernel.org>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, 
-	Hui Pu <Hui.Pu@gehealthcare.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 00/11] drm/bridge: add devm_drm_bridge_alloc() with
- bridge refcount
-Message-ID: <20250314-daft-woodoo-cheetah-e029c5@houat>
-References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1F2525C4C5C;
+	Fri, 14 Mar 2025 18:35:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD216C4CEE3;
+	Fri, 14 Mar 2025 18:37:27 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH 0/4] arm64: mitigate CVE-2024-7881 in the absence of firmware mitigation
+Date: Fri, 14 Mar 2025 18:37:25 +0000
+Message-Id: <174197730164.734861.6726211221092480832.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250128155428.210645-1-mark.rutland@arm.com>
+References: <20250128155428.210645-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="mifitjekzidylpjw"
-Content-Disposition: inline
-In-Reply-To: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_112105_020597_18B53218 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20250314_113730_533063_421519B9 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,94 +68,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 28 Jan 2025 15:54:24 +0000, Mark Rutland wrote:
+> On some CPUs from Arm Ltd, it is possible for unprivileged code to cause
+> a hardware prefetcher to form an address using the contents of a memory
+> location which is accessible by privileged accesses in the active
+> translation regime, potentially leaking the contents of this memory
+> location via a side channel. This has been assigned CVE-2024-7881:
+> 
+>   https://developer.arm.com/Arm%20Security%20Center/Arm%20CPU%20Vulnerability%20CVE-2024-7881
+> 
+> [...]
 
---mifitjekzidylpjw
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 00/11] drm/bridge: add devm_drm_bridge_alloc() with
- bridge refcount
-MIME-Version: 1.0
+Applied to arm64 (for-next/leaky-prefetcher), thanks!
 
-Hi,
+There hasn't been much review (thanks Oliver for looking at the KVM
+bits) and there's some implied work that can go on top of this series.
+But the patches looked fine to me, so I queued them. Mark or others,
+please shout if you'd like them dropped, they are on a branch.
 
-On Fri, Mar 14, 2025 at 11:31:13AM +0100, Luca Ceresoli wrote:
-> This series improves the way DRM bridges are allocated and initialized and
-> makes them reference-counted. The goal of reference counting is to avoid
-> use-after-free by drivers which got a pointer to a bridge and keep it
-> stored and used even after the bridge has been deallocated.
->=20
-> The overall goal is supporting Linux devices with a DRM pipeline whose
-> final components can be hot-plugged and hot-unplugged, including one or
-> more bridges. For more details see the big picture [0].
->=20
-> DRM bridge drivers will have to be adapted to the new API, which is pretty
-> simple for most cases. Refcounting will have to be adopted on the two
-> sides: all functions returning a bridge pointer and all code obtaining su=
-ch
-> a pointer. This series has just an overview of some of those conversions,
-> because for now the main goal is to agree on the API.
->=20
-> Series layout:
->=20
->  1. Add the new API and refcounting:
->=20
->     drm/bridge: add devm_drm_bridge_alloc()
->     drm/bridge: add support for refcounting
->=20
->  2. get/put the reference in basic operations in the bridge core:
->=20
->     drm/bridge: get/put the bridge reference in drm_bridge_add/remove()
->     drm/bridge: get/put the bridge reference in drm_bridge_attach/detach()
->=20
->  3. as an example of changes for bridge consumers, get a reference for the
->     bridge returned by drm_bridge_chain_get_first_bridge(), have it put by
->     all callers (all users will be covered later on separately):
->=20
->     drm/bridge: add a cleanup action for scope-based drm_bridge_put() inv=
-ocation
->     drm/bridge: get the bridge returned by drm_bridge_chain_get_first_bri=
-dge()
->     drm/mxsfb: put the bridge returned by drm_bridge_chain_get_first_brid=
-ge()
->     drm/atomic-helper: put the bridge returned by drm_bridge_chain_get_fi=
-rst_bridge()
->     drm/probe-helper: put the bridge returned by drm_bridge_chain_get_fir=
-st_bridge()
->=20
->  4. convert a few bridge drivers (bridge providers) to the new API:
->=20
->     drm/bridge: ti-sn65dsi83: use dynamic lifetime management
->     drm/bridge: samsung-dsim: use dynamic lifetime management
->=20
-> This work was formerly a part of my v6 DRM bridge hotplug series[0], now
-> split as a standalone series with many improvements, hence the "v7" versi=
-on
-> number.
+[1/4] arm64: cpufeature: rename unmap_kernel_at_el0() -> needs_kpti()
+      https://git.kernel.org/arm64/c/174ade921138
+[2/4] arm64: cpufeature: factor out cpu_is_meltdown_safe()
+      https://git.kernel.org/arm64/c/f4fe70cd8522
+[3/4] arm64: cpufeature: mitigate CVE-2024-7881
+      https://git.kernel.org/arm64/c/837dfd070e94
+[4/4] KVM: arm64: expose SMCCC_ARCH_WORKAROUND_4 to guests
+      https://git.kernel.org/arm64/c/d2c173acbf93
 
-Except for one patch where I had comments, I think the series is in
-excellent shape. We're still missing a couple of things to close this
-topic though:
+-- 
+Catalin
 
-  - Converting the other bridge iterators/accessors to take / put the refer=
-ences
-  - Mass converting the drivers to devm_drm_bridge_alloc
-  - Documenting somewhere (possibly in drm_bridge_init?) that it really
-    shouldn't be used anymore
-
-Maxime
-
---mifitjekzidylpjw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ9RzjQAKCRAnX84Zoj2+
-diSPAYD12sjIXgXPRf7BpM6STJktvb89YmsuXfj5+lHzeniMrs6Zp+V4ziemLado
-cqXTAAgBfj5T5uiMZqBaPy+UxbyoWpdNB5xJ8B5O7i7F+qiCLQoCXZjhFQdI1vaR
-wbgQnB8LMA==
-=oW4m
------END PGP SIGNATURE-----
-
---mifitjekzidylpjw--
 
