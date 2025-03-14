@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC18C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 00:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9471DC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 00:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vRtPg6oACw1hvTRmuv/RSNk9va89gmS+OSMNWv2jX3U=; b=3QmhImHLo6kUE4CR1hXMqL5B0W
-	i9kRF/pliC+zjKyTBdoUm6Gxb93sXbPi6vKF63K7f4r1gJ7W4ltiBhhZKfpxDpGLd/LDh6goRZumX
-	L2Chh3oIDdBu3kwoK9iutZUjXfKkHm+paOKgJVxTPExsv1XGkbTDk3YXiN3Bv62QgmVURWXXV0Yyp
-	8EKFOqxSMgEMwGjE5S7rDBU52HFrWimLhj6vHcXC2J5PoSkSW6+xYqUmvANQjWby4NML94aS6zNDb
-	C9xakubvOJ9MKq1r/cdpvnJAi5Ba65O66FlU+KYG2sWxeCcg8UXmEIJfKH0FeKuSPBVuRtSgyPQ8S
-	vwRZ8QAw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dvkY8LE8GxIxs55S0NwZi9F3m+UhYcVL1EwUpxmHvns=; b=VqItwHBSQX14hO2eXJQs7+zb40
+	u/gOS0sViqr5ZQzw65thHRJ9dwteyA25GqeSQ7f7jR+vb0rWllvl7XObdTA4BkLEkSLxmxNvvgi2/
+	SVZSEREAb1UTz/XtHu3xiViF6hkAlUwqop7/ZPGuhzDqxmGtZR6uP80SkERNyACbag2tG/lBOijps
+	+jSXxGUzvEH2wY7TRwkQ+Dw+abS0yy1nPho0eShPWNgIk1dFAU3GA8EUGlOaPyZvlS+6Ayx7A16hq
+	/gDRuVMP3DerLiOr5LdqNSvvjUoyGBmPHFtY71E3vxos+3hVGhEv9Awilke1e7STmufOfirdWJ3Ct
+	gng7mu/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttF2X-0000000FYVD-0JzD;
-	Sat, 15 Mar 2025 00:06:09 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1ttFH3-0000000FZuh-2u1e;
+	Sat, 15 Mar 2025 00:21:09 +0000
+Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttE1q-0000000FULO-3Kwt
+	id 1ttEC2-0000000FUod-3HdS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 23:01:23 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43690d4605dso1598165e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 16:01:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741993281; x=1742598081; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vRtPg6oACw1hvTRmuv/RSNk9va89gmS+OSMNWv2jX3U=;
-        b=BrvucrGjYCL0yGZRPpUwVBeu4xPE+dgNKX8byh6xAM4Jv2xjql6smVL4pPtwvd7FRH
-         eADrxCA9a91E/E9O3DS1dCnBCc6AKXF9ryjCtbnRGnm+s4G4B7OjnPuwArZo9PrMvqoY
-         Krfh4J/p/KtGsb4Htm1UK2PBfL6Xz3YLBoErUy9eRagp3lV1rn4H+NKaw+htNLK4cMrx
-         f5MAurdL7aGAvvqPtkqzht+yyjlRtQ/tFGvoopTj6j85yEI5ubnX9H4yBJd3PlG/bL3z
-         k0tJTDM4jNYmzBXgGEvPVvvlMMRr496tBLekQ4Z+7/YyCR8BmJwGrRY8PcNxIU6tfNZO
-         9Mbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741993281; x=1742598081;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vRtPg6oACw1hvTRmuv/RSNk9va89gmS+OSMNWv2jX3U=;
-        b=Eu4TxjGf2lcHlfc190/YPAwVSHJRYPefgCzRzHyMmWQfGxYDrmeJ9JVv5vKpALISXO
-         6UH0ef5jrAwQ+FZL3WhhSnbG/MT2iWYm1oTvDcFuWQk+meSKjVgfRvdDuzS0Rb0iOM4A
-         3FMPJ86GrQn7Ur/pyT8n0CEQePXyRbg4J/0I3PnXYq2PpcPNG95iWIpyApEE8MOcHEDx
-         gA6xgZlqcsusNYhmSJ9yr84HX9X/GNWqN1vaVhubWuDoN9pYne9CLhk1GzwxqegyaBus
-         nb2WUf2ZILXTJ/FvAvby382Q1NWrTliZm00gRSipkyvfDeV+23Z3T9bp9DbEZRf135QR
-         qJtA==
-X-Forwarded-Encrypted: i=1; AJvYcCXkgIwCSG6uaDkBxt60S9M/glzBRPQ6TEty9b01ALGZ4Yhaz8nGSR1023DFOmdwfm9bWi/0s3WdgWCTG05OmEof@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWWh/NKSCSY9YomqzLCklXNvcGtJJx5KSDtCZor6Oc8RJjaLAM
-	etNC+w7eaVwukQTCSLRn6ejW8hzwyH0qUjIXX2i7wDdy24Jw9Np8
-X-Gm-Gg: ASbGncvEQGxLnBoXtnY57scXzZH4yem0ktwoa1YGWl9zKM3kiyvU6marVnPwhrRLyww
-	yUs8f0i0MdMfgdlq3P9IkFuJfzAUD4NrRj5IQJWQeBD7AxgbkXRD7wnZr6/BTAh+AKCU1IFf6Qn
-	JU3SYqLbIw6lMhyFFniiZxrYEWplRzRBzvUPIXbnEA+JJFnPTRtVwYhEBQej1deCA3FATieH9mq
-	ZY+n+EY3TqeisAqovIYT/jchliLxrqBDGY66Uxum3ZWryQk4pAQno+ZX51jQp1K0KF2eADRHBcc
-	dU/YC4rom0AN/IiHhYwiplnE7HgxubHOg3KSLHEs7wx3
-X-Google-Smtp-Source: AGHT+IE0pax4j7XCryEzABptGEHj97UrueRJkeMrjB7rZqxeTR5+yJpR9Dcqmq7/m6LJKVapTevhJg==
-X-Received: by 2002:a05:600c:198c:b0:43d:10c:2f60 with SMTP id 5b1f17b1804b1-43d1ed00016mr53261805e9.24.1741993280384;
-        Fri, 14 Mar 2025 16:01:20 -0700 (PDT)
-Received: from qasdev.Home ([2a02:c7c:6696:8300:15a:24b1:8146:1068])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1fe2927fsm30441345e9.18.2025.03.14.16.01.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 16:01:19 -0700 (PDT)
-From: Qasim Ijaz <qasdev00@gmail.com>
-To: marcan@marcan.st,
-	fnkl.kernel@gmail.com,
-	Sven Peter <sven@svenpeter.dev>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>
-Cc: asahi@lists.linux.dev,
+	Fri, 14 Mar 2025 23:11:56 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1741993911;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dvkY8LE8GxIxs55S0NwZi9F3m+UhYcVL1EwUpxmHvns=;
+	b=vVbc0m6WD1NDLD+3S/6AFxUZl58jcM37eGR3bDoW0ejnx5hesy8QyjtjNIlpNHHX+F3SC8
+	VXYGYqqzpBHfTRS3tuyw2y2NNp7Oqf/yiVFwa05SdfDgYbulhRlb5TIIXzov5f6JGV8MCz
+	U4KVAKvm+eW66XoG1shaB7GTrYqMmSU=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] iommu: apple-dart: fix potential null pointer deref
-Date: Fri, 14 Mar 2025 23:01:02 +0000
-Message-Id: <20250314230102.11008-1-qasdev00@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	Fuad Tabba <tabba@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	maz@kernel.org,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	broonie@kernel.org,
+	qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v3 0/4] KVM: arm64: Fix initializing HCRX_EL2 and other traps in pKVM
+Date: Fri, 14 Mar 2025 16:11:40 -0700
+Message-Id: <174199388872.1347355.17256091490684730021.b4-ty@linux.dev>
+In-Reply-To: <20250314111832.4137161-1-tabba@google.com>
+References: <20250314111832.4137161-1-tabba@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_160122_836001_D660B8B7 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250314_161155_032448_99C5FB4A 
+X-CRM114-Status: UNSURE (   6.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If kzalloc() fails, accessing cfg->supports_bypass causes a null pointer dereference. 
+On Fri, 14 Mar 2025 11:18:28 +0000, Fuad Tabba wrote:
+> Changes since v2 [1]:
+> - Remove WRITE_ONCE when setting hyp handle (Quentin)
+> - Rebase on Linux 6.14-rc6
+> 
+> For context, please refer to v1 [2].
+> 
+> Cheers,
+> /fuad
+> 
+> [...]
 
-Fix by checking for NULL immediately after allocation and returning -ENOMEM.
+Applied to next, thanks!
 
-Fixes: 3bc0102835f6 ("iommu: apple-dart: Allow mismatched bypass support")
-Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
----
- drivers/iommu/apple-dart.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+[1/4] KVM: arm64: Factor out setting HCRX_EL2 traps into separate function
+      https://git.kernel.org/kvmarm/kvmarm/c/44f979bf434e
+[2/4] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
+      https://git.kernel.org/kvmarm/kvmarm/c/066daa8d3bc2
+[3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to separate function
+      https://git.kernel.org/kvmarm/kvmarm/c/8b21fb47c778
+[4/4] KVM: arm64: Create each pKVM hyp vcpu after its corresponding host vcpu
+      https://git.kernel.org/kvmarm/kvmarm/c/1eab115486c5
 
-diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-index 13ccb801f52a..e13501541fdd 100644
---- a/drivers/iommu/apple-dart.c
-+++ b/drivers/iommu/apple-dart.c
-@@ -797,12 +797,11 @@ static int apple_dart_of_xlate(struct device *dev,
- 
- 	if (!cfg) {
- 		cfg = kzalloc(sizeof(*cfg), GFP_KERNEL);
--
-+		if (!cfg)
-+			return -ENOMEM;
- 		/* Will be ANDed with DART capabilities */
- 		cfg->supports_bypass = true;
- 	}
--	if (!cfg)
--		return -ENOMEM;
- 	dev_iommu_priv_set(dev, cfg);
- 
- 	cfg_dart = cfg->stream_maps[0].dart;
--- 
-2.39.5
-
+--
+Best,
+Oliver
 
