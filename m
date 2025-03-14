@@ -4,79 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDE8C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB04AC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lsMqkIj6X9Ksraxyiyv0PPQiVt9JWGsjKjXFZZVZW/M=; b=GVOLyglbljlQLHy9pi6HWriusT
-	RDSggYxQMU3aFLLZM9ZuIQiXTVuBarPKjfUOevb5/JJbqwjTnX/g5ynjwGC4E+kmmCiinGvEIx74O
-	w9WWZCiaSX0w8tdQOdxMCk+62x+uymdikJ5WN+b3ccZpcgyclCZF5aoK+nR8y5x6wZcon5yCqi/yY
-	6ZGU/VgXqjGbsjSBg21SnuCHlv7vDEAtCHre+rqfNxZH0LvSpz9WWFgwk1XtDv2ePPvqkgzrYYx1U
-	Uo50QCIwLFpJeu0fIRf/3MDW4B/C5uTPbSJZZ60ECXXjSl0OzPDe0DUOeiGQkwT5OAgrNkrCr3pZw
-	+gBf7n+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8w/NMnluLso4auUJlPLHvGrwv8C1kQ2MGdbvhxTHnEI=; b=wjdxw81fWt3T0xygHPEIdyKoLO
+	2oxMLzjQz6dMailRVznwhEmyHsuohghU/TcJr+0idkeb6F5kkQYFMyJEDu70t/dOxYoPS9KRzqRHf
+	ZBmW3PlvHQfvLAYrquoSbCdgSGqmCAWLIsCuC74h1NdjF9LDVkxMsUGXSa6vyCJdSuapUeVxIJD+F
+	jFiEu7AaPePUa8lC1/2OwlAJ+yXQdoW6IBF1bwC9BSM/ViS8J2qC64M1YWt30usacfzFsRpziU/8c
+	PptoVejRPywtRsjcJ6j2hXKRSggcbCG9DkCHXIkMVoxcqA5013i+0CPfhfNpOguaeyhGcUeJCYHOj
+	JDMekc3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3Ev-0000000E0EX-0OzD;
-	Fri, 14 Mar 2025 11:30:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tt3GY-0000000E0OF-3BDC;
+	Fri, 14 Mar 2025 11:31:50 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt34r-0000000Dyp0-0ck8
+	id 1tt36N-0000000Dz2L-16QY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 11:19:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 190CCA45598;
-	Fri, 14 Mar 2025 11:14:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0C6BC4CEE9;
-	Fri, 14 Mar 2025 11:19:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741951183;
-	bh=oqVgxdpTP6G2PaiGKfQC4A75YZyp+n3zWNLGzhZi3Ok=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mjjMhDN6TgO6LGNUdqHBc4gzpfwcgKKS0B58OrCbfyJQMPpXv5ytGjdGwIdnFkB/J
-	 f1zPN4QTih0sP9PEytu5yT3wL2hKPfTosDCTUaEaZ10Y9Vh9WW32Y2xUqva2Sb5oF9
-	 KkdiNSLOoiiN5gXEJHzJEy7oWr8SmzETnbusOqHG/ljSsMhXeyHwc3ImmAh0Im0BjF
-	 VF1NJulcguYsWchdK5C4fDd82G3u+CXXwGNxFbjx5+uQAfYmncHo8cxA/Wafmi3gFF
-	 Md8P90ysNU7Dfb+mm0ije8hK0pWr0i93VwfwPv0fmUnk2dnf87LZ/BYKu2sNwCItCp
-	 3hsJvf4YkeqDg==
-Date: Fri, 14 Mar 2025 12:19:31 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Elliot Berman <quic_eberman@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-	Melody Olvera <quic_molvera@quicinc.com>,
-	Shivendra Pratap <quic_spratap@quicinc.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, Elliot Berman <elliotb317@gmail.com>,
-	Elliot Berman <elliot.berman@oss.qualcomm.com>
-Subject: Re: [PATCH v9 2/5] firmware: psci: Read and use vendor reset types
-Message-ID: <Z9QQw6BcE7IXzu+r@lpieralisi>
-References: <20250303-arm-psci-system_reset2-vendor-reboots-v9-0-b2cf4a20feda@oss.qualcomm.com>
- <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
+	Fri, 14 Mar 2025 11:21:20 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Fri, 14 Mar
+ 2025 19:21:14 +0800
+Received: from aspeed-fw03.aspeedtech.com (192.168.10.13) by
+ TWMBX01.aspeed.com (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12
+ via Frontend Transport; Fri, 14 Mar 2025 19:21:14 +0800
+From: Kevin Chen <kevin_chen@aspeedtech.com>
+To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<derek.kiernan@amd.com>, <dragan.cvetic@amd.com>, <arnd@arndb.de>,
+	<gregkh@linuxfoundation.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>
+CC: Kevin Chen <kevin_chen@aspeedtech.com>
+Subject: [PATCH v4 0/3] Add AST2600 LPC PCC support
+Date: Fri, 14 Mar 2025 19:21:10 +0800
+Message-ID: <20250314112113.953238-1-kevin_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_041945_317253_7D569FF5 
-X-CRM114-Status: GOOD (  47.82  )
+X-CRM114-CacheID: sfid-20250314_042119_302277_C89633E7 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,232 +67,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 01:08:31PM -0800, Elliot Berman wrote:
-> From: Elliot Berman <elliot.berman@oss.qualcomm.com>
-> 
-> SoC vendors have different types of resets and are controlled through
-> various registers. For instance, Qualcomm chipsets can reboot to a
-> "download mode" that allows a RAM dump to be collected. Another example
-> is they also support writing a cookie that can be read by bootloader
-> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
-> vendor reset types to be implemented without requiring drivers for every
-> register/cookie.
-> 
-> Add support in PSCI to statically map reboot mode commands from
-> userspace to a vendor reset and cookie value using the device tree.
+--
+v4
+aspeed-lpc-pcc.c:
+ -- Remove the debug message in the aspeed_lpc_pcc_probe.
+ -- Add pcc-ports in the aspeed-g6.dtsi.
 
-I have managed to discuss a little bit this patchset over the last
-few days and I think we have defined a plan going forward.
+v3
+aspeed-lpc-pcc.c:
+ -- Add ida_free and fix the dev usage with removing some debug messages.
+aspeed-lpc.yaml:
+ -- Add description about the pcc-ports usage.
 
-A point that was raised is:
+v2:
+ -- Change driver path to drivers/misc
 
-https://man7.org/linux/man-pages/man2/reboot.2.html
+Kevin Chen (3):
+  dt-binding: aspeed: Add LPC PCC controller
+  ARM: dts: aspeed-g6: Add AST2600 LPC PCC support
+  soc: aspeed: lpc-pcc: Add PCC controller support
 
-LINUX_REBOOT_CMD_RESTART2 *arg command, what is it supposed to
-represent ?
+ .../devicetree/bindings/mfd/aspeed-lpc.yaml   |  38 ++
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       |   8 +
+ drivers/misc/Kconfig                          |  10 +
+ drivers/misc/Makefile                         |   1 +
+ drivers/misc/aspeed-lpc-pcc.c                 | 437 ++++++++++++++++++
+ 5 files changed, 494 insertions(+)
+ create mode 100644 drivers/misc/aspeed-lpc-pcc.c
 
-Is it the mode the system should reboot into OR it is the
-actual command to be issued (which is what this patchset
-implements) ?
+-- 
+2.34.1
 
-LINUX_REBOOT_CMD_RESTART "..a default restart..."
-
-It is unclear what "default" means. We wonder whether the
-reboot_mode variable was introduced to _define_ that "default".
-
-So, in short, my aim is trying to decouple reboot_mode from the
-LINUX_REBOOT_CMD_RESTART2 *arg command.
-
-I believe that adding a sysfs interface to reboot-mode driver
-infrastructure would be useful, so that the commands would
-be exposed to userspace and userspace can set the *arg command
-specifically to issue a given reset/mode.
-
-I wonder why this is not already in place for eg syscon-reboot-mode
-resets, how does user space issue a command in those systems if the
-available commands aren't exposed to userspace ?
-
-Is there a kernel entity exposing those "modes" to userspace, somehow ?
-
-> A separate initcall is needed to parse the devicetree, instead of using
-> psci_dt_init because mm isn't sufficiently set up to allocate memory.
-> 
-> Reboot mode framework is close but doesn't quite fit with the
-> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
-> be solved but doesn't seem reasonable in sum:
->  1. reboot mode registers against the reboot_notifier_list, which is too
->     early to call SYSTEM_RESET2. PSCI would need to remember the reset
->     type from the reboot-mode framework callback and use it
->     psci_sys_reset.
->  2. reboot mode assumes only one cookie/parameter is described in the
->     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
->     cookie.
-
-This can be changed and I think it should, so that the reboot modes
-are exposed to user space and PSCI can use that.
-
->  3. psci cpuidle driver already registers a driver against the
->     arm,psci-1.0 compatible. Refactoring would be needed to have both a
->     cpuidle and reboot-mode driver.
-> 
-> Signed-off-by: Elliot Berman <elliot.berman@oss.qualcomm.com>
-> ---
->  drivers/firmware/psci/psci.c | 105 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 105 insertions(+)
-> 
-> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> index a1ebbe9b73b136218e9d9f9b8daa7756b3ab2fbe..6f8c47deaec0225f26704e1f3bcad52603127a85 100644
-> --- a/drivers/firmware/psci/psci.c
-> +++ b/drivers/firmware/psci/psci.c
-> @@ -80,6 +80,14 @@ static u32 psci_cpu_suspend_feature;
->  static bool psci_system_reset2_supported;
->  static bool psci_system_off2_hibernate_supported;
->  
-> +struct psci_reset_param {
-> +	const char *mode;
-> +	u32 reset_type;
-> +	u32 cookie;
-> +};
-> +static struct psci_reset_param *psci_reset_params __ro_after_init;
-> +static size_t num_psci_reset_params __ro_after_init;
-> +
->  static inline bool psci_has_ext_power_state(void)
->  {
->  	return psci_cpu_suspend_feature &
-> @@ -306,9 +314,39 @@ static int get_set_conduit_method(const struct device_node *np)
->  	return 0;
->  }
->  
-> +static int psci_vendor_system_reset2(const char *cmd)
-> +{
-> +	unsigned long ret;
-> +	size_t i;
-> +
-> +	for (i = 0; i < num_psci_reset_params; i++) {
-> +		if (!strcmp(psci_reset_params[i].mode, cmd)) {
-> +			ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
-> +					     psci_reset_params[i].reset_type,
-> +					     psci_reset_params[i].cookie, 0);
-> +			/*
-> +			 * if vendor reset fails, log it and fall back to
-> +			 * architecture reset types
-
-That's not what the code does.
-
-> +			 */
-> +			pr_err("failed to perform reset \"%s\": %ld\n", cmd,
-> +			       (long)ret);
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	return -ENOENT;
-> +}
-> +
->  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->  			  void *data)
->  {
-> +	/*
-> +	 * try to do the vendor system_reset2
-> +	 * If there wasn't a matching command, fall back to architectural resets
-> +	 */
-> +	if (data && !psci_vendor_system_reset2(data))
-> +		return NOTIFY_DONE;
-> +
->  	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->  	    psci_system_reset2_supported) {
->  		/*
-> @@ -795,6 +833,73 @@ static const struct of_device_id psci_of_match[] __initconst = {
->  	{},
->  };
->  
-> +#define REBOOT_PREFIX "mode-"
-> +
-> +static int __init psci_init_system_reset2_modes(void)
-> +{
-> +	const size_t len = strlen(REBOOT_PREFIX);
-> +	struct psci_reset_param *param;
-> +	struct device_node *psci_np __free(device_node) = NULL;
-> +	struct device_node *np __free(device_node) = NULL;
-> +	struct property *prop;
-> +	size_t count = 0;
-> +	u32 magic[2];
-> +	int num;
-> +
-> +	if (!psci_system_reset2_supported)
-> +		return 0;
-> +
-> +	psci_np = of_find_matching_node(NULL, psci_of_match);
-> +	if (!psci_np)
-> +		return 0;
-> +
-> +	np = of_find_node_by_name(psci_np, "reset-types");
-> +	if (!np)
-> +		return 0;
-
-Related to my initial question above. If LINUX_REBOOT_CMD_RESTART2 *arg command,
-is the actual reset to be issued, should we add a default mode "cold"
-and, if SYSTEM_RESET2 is supported, a "warm" reset mode too ?
-
-It all boils down to what *arg represents - adding "cold" and "warm"
-modes would remove the dependency on reboot_mode for resets issued
-through LINUX_REBOOT_CMD_RESTART2, the question is whether this
-is the correct thing to do.
-
-Comments very welcome.
-
-Thanks,
-Lorenzo
-
-> +
-> +	for_each_property_of_node(np, prop) {
-> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> +			continue;
-> +		num = of_property_count_u32_elems(np, prop->name);
-> +		if (num != 1 && num != 2)
-> +			continue;
-> +
-> +		count++;
-> +	}
-> +
-> +	param = psci_reset_params =
-> +		kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
-> +	if (!psci_reset_params)
-> +		return -ENOMEM;
-> +
-> +	for_each_property_of_node(np, prop) {
-> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> +			continue;
-> +
-> +		num = of_property_read_variable_u32_array(np, prop->name, magic,
-> +							  1, ARRAY_SIZE(magic));
-> +		if (num < 0) {
-> +			pr_warn("Failed to parse vendor reboot mode %s\n",
-> +				param->mode);
-> +			kfree_const(param->mode);
-> +			continue;
-> +		}
-> +
-> +		param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-> +		if (!param->mode)
-> +			continue;
-> +
-> +		/* Force reset type to be in vendor space */
-> +		param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
-> +		param->cookie = num > 1 ? magic[1] : 0;
-> +		param++;
-> +		num_psci_reset_params++;
-> +	}
-> +
-> +	return 0;
-> +}
-> +arch_initcall(psci_init_system_reset2_modes);
-> +
->  int __init psci_dt_init(void)
->  {
->  	struct device_node *np;
-> 
-> -- 
-> 2.34.1
-> 
 
