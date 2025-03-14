@@ -4,58 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A94CC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 14:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D253C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 14:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6flG7QTM40WRBnQasBWOXHpa0T28XTCqXZkYS2D79xk=; b=WXuzey9vA/bpNs3Mc4Q6EgXBha
-	Ahqb928KRntQ6wB0qohLGnyIMddkXw2aC57axAKxkYt7Xp1IpFOvMR6uNIcQ3juiu2r5YlKiHqde4
-	KTSdD+OEH7C0ddCQ7LeoRpTUMSKM9+/ctOmpBN+/GAFgG4l2hldQUWTAn9jUpjrrt9BW5CgBavj1x
-	H5O+U/Z0umpBX4PPbld4E8FxjoJACLS1idD+EZJHeVWkxgUce+mdpMRE6LyC3fZ/FT/WFVaaexp9K
-	a7DJ975UpSo0HVr1WdUbFc8wAJLvfrfWUkPXzTLgWK+po+p3Ba5IixTMIDG4xgrob2zeun9rFfA/n
-	1eq0po1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PyIhlryqTffvbOslgC9jaZL7kWsAmiR5RzOr1CoMFHs=; b=wIN7XOKbRGho+UfTLL01fMPgzB
+	jm8yctZPe9brsRrR+8Yhpvve0KUjh0rS7ldJV6VHBRiDbHDmlFVKtswzgJsGMKSJPnGVdIlEvHEph
+	LYNTUfCszZXLjvh50Kztk+IAU6JVYMjnarQVhZ4BrCgP18+tkWpJT+at+o0cwNnoiMZfUH7NK4q1s
+	vFUvkT/KzjrSSKCkrkKshYHzO4qf92Sk9YJfEL7aI20mXnNEdR9Cl1KL5VIssvvPfE1tgjJJiNGBB
+	HT5nMsBx8B9rfl/OH1m64jXG7KsKRGh8IRV4mbqQTyhS+xd/wnMr3sURa7U5zDwZVg9GMVITfrKFg
+	EEZAjj4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6Ee-0000000EQlt-3O6i;
-	Fri, 14 Mar 2025 14:42:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tt6KY-0000000ERlD-43du;
+	Fri, 14 Mar 2025 14:48:10 +0000
+Received: from mail-am7eur03on20624.outbound.protection.outlook.com ([2a01:111:f403:260e::624] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6Cy-0000000EQRO-1Yn3
+	id 1tt6Ir-0000000ERZS-36ZY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 14:40:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7AD445C473A;
-	Fri, 14 Mar 2025 14:38:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6C2CC4CEE3;
-	Fri, 14 Mar 2025 14:40:16 +0000 (UTC)
-Date: Fri, 14 Mar 2025 14:40:13 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 6.12 3/8] KVM: arm64: Remove host FPSIMD saving for
- non-protected KVM
-Message-ID: <Z9Q_zW_mM-v2iPHC@arm.com>
-References: <20250314-stable-sve-6-12-v1-0-ddc16609d9ba@kernel.org>
- <20250314-stable-sve-6-12-v1-3-ddc16609d9ba@kernel.org>
- <2025031427-yiddish-unrented-2bc2@gregkh>
+	Fri, 14 Mar 2025 14:46:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RsVqjjRoVj/fD+XvWhpMxbAj5H/Gtdt2yyotWaYWdl/U74Gqf+2jGXV5RKNJ4m9PV1iHhEgB5DrJyX4Thv8QSClB4fln20ZGPX/nVhcqMAvyW1vDQr3jAY1GwkX7bSKFXo4otTHw4RERpnrQqUqggGvx5LUUkm/rPLvnLPMDZFrDKBuXSJ2QOUsBiNYFVjSI+sQFU64FNcPPx8GTrq942p6MmMfzcOhW1j9EM4UE+CWg9zGVtv/w2o0cBircswIC66nWUP4eDXu3XYDYfTBIwcW/3e3S0/xaInyXq/l7BJesZz5ALeDesaJev0K85vEHjvEK+B/7wsCdGtT13u78Rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PyIhlryqTffvbOslgC9jaZL7kWsAmiR5RzOr1CoMFHs=;
+ b=Y5UPrQkhkTrByUsQbkSkVwyhdWEskJ64+ii17iS4B0jbDPpSfxBOGE4aJ+7l527k7f5NCGNQteBhWz+FDV4dBtpmKsmXmeRo4kzX7/SnK/hxUjvExiyX84ymgC+sTmJMYZi99Ok6NXcrtVCnTPtvC3pZOdKA0mpIfOsuHtEocMavgC86jLHyE4ZfQkC0QhXLCTJPmn/3+fm8ODDapzHHHSFSS6hSXhhiJGGzAlx45NsJz7pzBCh7k6g5Yb8QOfStfDYduDFnSsjvWLko22nFkLC4sMiPNhgL0ednwFsXEP9oeJkvI4PVBXryiF9Y31KEpxysJo7ENzseQvAYnXdvKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
+ header.d=mt.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PyIhlryqTffvbOslgC9jaZL7kWsAmiR5RzOr1CoMFHs=;
+ b=sw0ksIdSMuuLsbWrxTpDnL4V6VU/yPxG28oA1J5McC+j0pGwCF6kgbPHneECKywetgt8UffYIb5aluIjrm1SeQjLeixNapn7PdlM3HpJD6bry4NEe/4l5nzzf5MqCyYdi3t2foJyXTXKSuDf/ziWEML4edR9cqMCNfSpQAAg9SQyQ3nZH117ImCtY2aSYTFfh43+rtDCyrXvaHA1OgNHLboJvCbLALtisCwVlPpeNGj8nmm/h2HmBlPpAhuEGXRP3tfrQOR3oQVyVPmWdhTiAZCymtAV4aoTGhb1LIUV+CmpcySJb8zaaT7w3bDYAkAh/CM9BPgWgUz+1XMRdudEZw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mt.com;
+Received: from DBBPR03MB10396.eurprd03.prod.outlook.com (2603:10a6:10:53a::11)
+ by AS8PR03MB7208.eurprd03.prod.outlook.com (2603:10a6:20b:2ea::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Fri, 14 Mar
+ 2025 14:46:16 +0000
+Received: from DBBPR03MB10396.eurprd03.prod.outlook.com
+ ([fe80::ee3c:c9be:681:c0bf]) by DBBPR03MB10396.eurprd03.prod.outlook.com
+ ([fe80::ee3c:c9be:681:c0bf%4]) with mapi id 15.20.8511.026; Fri, 14 Mar 2025
+ 14:46:15 +0000
+From: Mathis Foerst <mathis.foerst@mt.com>
+To: linux-kernel@vger.kernel.org
+Cc: Mathis Foerst <mathis.foerst@mt.com>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	manuel.traut@mt.com,
+	mathis.foerst@zuehlke.com
+Subject: [PATCH v2 0/1] media: imx: csi: Parse link configuration from fw_node
+Date: Fri, 14 Mar 2025 15:46:08 +0100
+Message-Id: <20250314144609.219486-1-mathis.foerst@mt.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: ZRAP278CA0018.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:10::28) To DBBPR03MB10396.eurprd03.prod.outlook.com
+ (2603:10a6:10:53a::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2025031427-yiddish-unrented-2bc2@gregkh>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DBBPR03MB10396:EE_|AS8PR03MB7208:EE_
+X-MS-Office365-Filtering-Correlation-Id: 618bee19-5405-4350-b6e5-08dd6306f918
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vtD80hrrBTKe9ZgQ6B/Wz431d9AO19v05L7bPckPWd0W++T0j4aKuYTMSN6M?=
+ =?us-ascii?Q?NFpSX8SAVeEw1UGKy/XnCx1CfNmLM1AM7jlZVh4S7eIdE10ZpzIQmkkT4zUi?=
+ =?us-ascii?Q?l0O4dl9TjXNxl4sW+KhFv4VnGAZoCNZ7tnEUjAcO5zjaIzwGpoVwL67xB1Ys?=
+ =?us-ascii?Q?ZKIWVb7Cycd0Eyy/niLOeQDxWF75TVeCHdWBOSRk1pxNJsZBGhytDuhyUzhK?=
+ =?us-ascii?Q?KKzqN/DZ2C2RLLrh8sRNEa1HuV9zHZfBGuvYrfQH9pIHTZ7qgEQmKgWWo/6F?=
+ =?us-ascii?Q?wsT8z3EcBQX6YGFcBDbKa0DDuS9InqJvaOn8dBynlCWQLZRspWeIac7dpAvX?=
+ =?us-ascii?Q?IlgCisyDkc01VKaG3pCYnNDWq7gaSxSS9+liTgWVf7f0/Y9SNs87c8vzoWvi?=
+ =?us-ascii?Q?TcK4NCKxHo2gN8vCGCXcYZLcCoBqt76lprs76p1P/gKVJ9viZ/eWNFmWSomW?=
+ =?us-ascii?Q?o3t0yQXgpzkz1jBGUUP5zu5x787cSI1PxiN5EJl5bJmDkIApONNtN6BobA+A?=
+ =?us-ascii?Q?YRGXkRFHMNdiwka+MCovydxSZAZIF9TcYzshsOtumxy7kPTPoXxetRY/4wg9?=
+ =?us-ascii?Q?BAsfqecineV2+m0hHQfYfP4hIjuoB497Yoi8+HPbnLsKfbj7JN0wkEn3HDdx?=
+ =?us-ascii?Q?8tm3OUYGBeZk19i4qmV3ToiiEny9U4nzk+HeF7Z6NQsCFDo6wVeskJSvJyho?=
+ =?us-ascii?Q?vTKAsdIS8gEt5qAPmuTrBAHVA72+Y8q5PjhTQnt4zHyp2XiKx8XbdLn2xNGE?=
+ =?us-ascii?Q?RosJT5tELGO95ZYCSt3OOLwIjH6tTSNQp68IiQoWvnrQrg+pKeMhtE50pIb7?=
+ =?us-ascii?Q?2YOvhpIDsItulgtrwWzP5CiNMpQPLonLT7860z+6RptQ/Fkvat362UCcc11+?=
+ =?us-ascii?Q?fgUAsqPEtHTB15boaZlEjPdTTmiNGYbOFthOCXXP4uK3oqlxa6xESGFRMJo8?=
+ =?us-ascii?Q?rZ6Wgz6PopE+tMUmYGd2sS3sTvlkqf+VGf4QQR0lCnOFhZZwuNs3oj9PDU9J?=
+ =?us-ascii?Q?wNJ1u763FmrqesSrdqBlRg8XsQ1VJVKAEHiW+YmZLoZ967MwXn33QUVglLju?=
+ =?us-ascii?Q?qb/6AvQVqm0Gh44L4WMf4E7y+uvC72R6KnPSxO2igleIfwiWVcPgON16r53r?=
+ =?us-ascii?Q?Ms+str/uaT/VzRl2guOeVIVXjzxcbi8FzZiHA3BgG3v9ZjUfuBsNF4sqx2fX?=
+ =?us-ascii?Q?iDaOlOsGVWW4FaZ0D0mdEGi4N6Y6NSKGt+WG8xWcQ84plv5MT38J5J2Egg5Y?=
+ =?us-ascii?Q?5g08NCNVbN3TRWMqH6ICRo+xBl2P2arCwFqIbvGEepD7hyAYH1RvdC+Ey0+F?=
+ =?us-ascii?Q?6tIxuo+C/gD9mrB8HJSTIcS8RLN7luWI4+7GIHeoEHxbRpsklsQE5QIzogG0?=
+ =?us-ascii?Q?t2D7UH9ZYa0r8+iMcPBhuYghhgGONi2uM80fdRipq5lpCFcUqd1THIRLicfm?=
+ =?us-ascii?Q?Kzr9I/fksymTVQBtf1w6/Gu5u4mY/cYF?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR03MB10396.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xjw8K0zkmh1ZgaZQ2ptDzkaXCWjPkcy2TndjXXs7JexRUtYlaTkqC0GOacZ4?=
+ =?us-ascii?Q?IrUBrUk1V8e/+MmeT6IO3gvNYlo9P/2Dq+X6a6bGX1DYXOy4a1GhlPpvU0wT?=
+ =?us-ascii?Q?d1UaOd3Tq72oXmnUNE+bPVe0RHAuO7pFrMX9vmDY050LRBAKKYyoh5S93EYV?=
+ =?us-ascii?Q?nX0HO9ZYfAqzehOj7kIiSvteN+tHPEt8NWIrJQO74T0+7sOuGlwBGfHX8pmy?=
+ =?us-ascii?Q?dfA7nBBpVJC2QJ5FsbrkSHzeXpZI0+3bwMVyZ5Ee434ETpip1TtXexW79QLf?=
+ =?us-ascii?Q?3GASREQABQQQqcMpNJNNOK1VYt0gd9jNLM5C2px8MCzqWYaiWjPNElCuznY2?=
+ =?us-ascii?Q?G+BMWSuoWLcR8AD/bmzRm3vICPQTZtamPjMNXccvYOzTx9x6kAFbWlwp9Ybm?=
+ =?us-ascii?Q?AL/U2aSLqrx/0u5Vg15/6zqpBdLL/IjFDLnN6zv3Cc+twWbd2ATLJoruFDGm?=
+ =?us-ascii?Q?NuKcSOm54zk+oykxmqjTRH544x6xnRahqeXDtA90sFueT5V6fyhyqvFtiOcB?=
+ =?us-ascii?Q?sBUOt2awSrqZdGU7RO/lr/Wvb/y351NpYyQ1KdzMlGaDUtnMdmjYgFhn3zdO?=
+ =?us-ascii?Q?VlygMFmPIKRr7XVOmDcRnz9ltJCOn6/NxVVd7NTaMJXGSLienYiAUgOpMJAH?=
+ =?us-ascii?Q?saXScC39HW8QmaPiCJOS9tFESOJ1M1CLAG+7GclBDc9g4iVNHwRZhGJF1t61?=
+ =?us-ascii?Q?RJkrghQA+vmRfsH2e4Nwc3wCTWYKhWAQu55qYyyWvekyBLmg7lWTB/xDUZpv?=
+ =?us-ascii?Q?AGZY59HmEApYrHs2GL8hsOwYWtPqEnIzd5Plt2aPgdVjCVpHorHC8QC0NKLN?=
+ =?us-ascii?Q?DKSqb3pHoYTUfxLO/jFS3FzvvI+wgG++587FGN8Z/xp4oZhRxcKTXvXuWgAw?=
+ =?us-ascii?Q?5tRg488Fuwp0Q0feMOWxloDprBD0sFZlLmDTrvBQGYh82aU7CgCSGiAYpT1q?=
+ =?us-ascii?Q?kdLBdlqcnNG4VW1WVDf+G0L+7HAt5yXwlpdePO3oREfn96YOc8YArBdjpuvw?=
+ =?us-ascii?Q?H1kevjkX4qBRVuY+5Go6nrqNggU0XU00Rt3cc73qjPcjUSdhj1cAbg/5uDRm?=
+ =?us-ascii?Q?k4+e1tpZXo1l39wARWaLZSAi3YQbpk6E9p88kHdZXg8zbF9CuKO+vYKdYfRu?=
+ =?us-ascii?Q?4/WFQON82dIY+pY+XJyxq3Yi1rBe9WEjLaehDUgJlea8vxKINdrdA819r0Us?=
+ =?us-ascii?Q?xZ2agzqejO0QBAxuxgxeLEfbgConcU1QHDADcV/BpiuVwW0ZzQHUYwkQPF/u?=
+ =?us-ascii?Q?cXkwQZcePQ3Qf2cs2bXUktH0AFMO/8b4AenRUN0k3NlxjC9HXVR3zQZyc3H8?=
+ =?us-ascii?Q?uW2BNNB2sSTpLHDJllOQ+by2N0QHsFgHT5Ne76uGtVevDlV76UNXPI4N4SfD?=
+ =?us-ascii?Q?yj9aoeD1fCmCTsB2boHUDJIZw211ZGyneSGEcGM67hxT5kML3/mWoCWZYjYP?=
+ =?us-ascii?Q?1pRHNxEMZJsuG43wChNzHtdhHb4NCmEUsi4KbimLCWotrtPlu6Xn6WXlasvD?=
+ =?us-ascii?Q?u2gj59AJWo9rPXEEtQyREf7yvKgbvhqjiQd6JK1qRUUhBc+ek2mrHKkMR3+c?=
+ =?us-ascii?Q?RrN0q94ipY1zCnBBl9S8i0x1/rnvvDyOlwukBYB1?=
+X-OriginatorOrg: mt.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 618bee19-5405-4350-b6e5-08dd6306f918
+X-MS-Exchange-CrossTenant-AuthSource: DBBPR03MB10396.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 14:46:15.7998
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sPaUa8QzieQWIl0pmBMHvHCIYl1zHl/r9JddqOj0JSloTfxiXKpGapxywnfzze5dbsSUO/8uG0EkbZTsaXKWfg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR03MB7208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_074020_462733_2A1C0913 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250314_074625_858501_745CC2BA 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +168,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 06:32:45AM +0100, Greg Kroah-Hartman wrote:
-> On Fri, Mar 14, 2025 at 12:35:15AM +0000, Mark Brown wrote:
-> > From: Mark Rutland <mark.rutland@arm.com>
-> > 
-> > Now that the host eagerly saves its own FPSIMD/SVE/SME state,
-> > non-protected KVM never needs to save the host FPSIMD/SVE/SME state,
-> > and the code to do this is never used. Protected KVM still needs to
-> > save/restore the host FPSIMD/SVE state to avoid leaking guest state to
-> > the host (and to avoid revealing to the host whether the guest used
-> > FPSIMD/SVE/SME), and that code needs to be retained.
-> > 
-> > Remove the unused code and data structures.
-> > 
-> > To avoid the need for a stub copy of kvm_hyp_save_fpsimd_host() in the
-> > VHE hyp code, the nVHE/hVHE version is moved into the shared switch
-> > header, where it is only invoked when KVM is in protected mode.
-> > 
-> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> > Reviewed-by: Mark Brown <broonie@kernel.org>
-> > Tested-by: Mark Brown <broonie@kernel.org>
-> > Acked-by: Will Deacon <will@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Fuad Tabba <tabba@google.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Cc: Oliver Upton <oliver.upton@linux.dev>
-> > Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-> > Link: https://lore.kernel.org/r/20250210195226.1215254-3-mark.rutland@arm.com
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Signed-off-by: Mark Brown <broonie@kernel.org>
-> > ---
-> 
-> What is the upstream git id for this on?
+Hi,
 
-It seems to be 8eca7f6d5100 ("KVM: arm64: Remove host FPSIMD saving for
-non-protected KVM").
+this patch fixes the imx-media-csi driver to work with camera drivers that
+do not implement the subdev-pad-operation "get_mbus_format".
 
+Changelog:
+v1 -> v2:
+- Factor out the function "csi_parse_upstream_fw_link_config" for better
+readability.
+
+It's the follow up of this discussion:
+https://lore.kernel.org/linux-media/Z8AoA6WjbXQufqR6@kekkonen.localdomain/
+
+I tested the changes successfully on an i.MX6DL with an MT9M114 and an
+MT9V032 camera. They both use the parallel camera interface.
+Sadly, I don't have the hardware to test with a MIPI CSI-2 camera.
+
+Best regards,
+Mathis Foerst
+
+
+Mathis Foerst (1):
+  media: imx: csi: Parse link configuration from fw_node
+
+ drivers/staging/media/imx/imx-media-csi.c | 36 ++++++++++++++++++++---
+ 1 file changed, 32 insertions(+), 4 deletions(-)
+
+
+base-commit: ac9c34d1e45a4c25174ced4fc0cfc33ff3ed08c7
 -- 
-Catalin
+2.34.1
+
 
