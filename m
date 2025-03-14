@@ -4,55 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35AEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC6BEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhGa+AC2l2DgLbDZrQrKztBZnDog+cBOZjYuZE0Ri9I=; b=YdEO/MqFXIfWLMSBpfwJz4F492
-	ItZ9vJvsOpKW/bO0NDr4w+xN8NhHAfizSiDXOtwfOCkOoSJtUhK7IF905xq668gmDmsI5Seb3JOqy
-	z2Lvg1mm/SoX4e0bMdwBx+Hfbhue4UiB+AbI0gfa45mR7N1/ZbkMREpiUCrEEMsW6xZ+XUpXTCenJ
-	5X07vv/xqMuCU10wyiWZQuQ61ShUChVn3E7AFxCaIBr3EUVEoB/VLDtCKmoyeMQI+vBkjvNVqP85q
-	YYlcgBSedSrUBk9A//iI7ImXGcIPEmT6jULQylTDFI/U1Xwb4x63kzyNCDTYPhPQFjLEYt5yeB9uI
-	b4V6jBWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q3k7fvz1tmhIjGgQ1ycjom2LPIMfNTsp0uqFM8k2kiw=; b=p/dRcI8PzBm+teTX6B3Cz1zUWH
+	++QMaRrfb4f9QXWxy+bo7J8eK6zhhUvgzitVYcDaoDXomcFXipRmQQ1C9M3V7pwecrlwa0V3IGoGm
+	WUvai4cjQNpiUDAgjs3GlVWIob4Dl8qKn/0ZY+30M6rFCPcz2w0hNNfjSpk3DwAyoOqms5aWgSEcV
+	ULOCzSGAmp3f+elNSuOpkI7mnN2JM12+xCkoLRfpPFxzMkyagIMJNDn5eN4f1hjz967mL6JHwgqX9
+	8ddAt+Q2rRq4YOdJ6bsO4YrkdxqmJ8XxKvelP8gJK9VRhU2auftxt4K0z1zNSsahwBi4qgZEFqxbZ
+	VDX/yrog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3b8-0000000E4RV-0XWy;
-	Fri, 14 Mar 2025 11:53:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3ZR-0000000E4IU-0Ngx
+	id 1tt3cl-0000000E4Zt-3JG5;
+	Fri, 14 Mar 2025 11:54:47 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt3aN-0000000E4NU-0ZVt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 11:51:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30EFE13D5;
-	Fri, 14 Mar 2025 04:51:30 -0700 (PDT)
-Received: from [10.57.85.159] (unknown [10.57.85.159])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27F3D3F5A1;
-	Fri, 14 Mar 2025 04:51:18 -0700 (PDT)
-Message-ID: <172bf7a8-4533-4627-83d2-552e4681c360@arm.com>
-Date: Fri, 14 Mar 2025 11:51:16 +0000
+	Fri, 14 Mar 2025 11:52:20 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-224019ad9edso51429715ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 04:52:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741953138; x=1742557938; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=q3k7fvz1tmhIjGgQ1ycjom2LPIMfNTsp0uqFM8k2kiw=;
+        b=lFDSqmWu70mhAR+As5jwMxny1FtxIjX2N7ADc3LCjFY237crcqaJ9ag6QBnIUEqlfj
+         B7ixSYSDI42u3N4XlsIiV8NfnMlzveOrCIbuBl32aehwkKeSha7pg6x7dTga6Q/d82f9
+         iJSSQReK/mIdGV0PHNeWEdq73hZVTi/ZIIxLIogct+zuuyCQ4nL2Id73GqgQTdzP9Wfo
+         YV8ZLUZKepkpAcO6tBdy6Xo+DlH0Rv7m7fme8w6yMCEK5Ecfw5mC53uOWRoY95Srvg+q
+         jskgnk5Da43Y5PN+/Z+pjbMVPbMU/e6EozA6Fmkg4Mqtpsz2aAeBm1bFJ19RzAjRXVoa
+         KekA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741953138; x=1742557938;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=q3k7fvz1tmhIjGgQ1ycjom2LPIMfNTsp0uqFM8k2kiw=;
+        b=sA8vCDgx2FbgqEBN4LYFHsgbYQRVMI94zTGad/NIF8unSQbRb7y2+NfNiEcnv+rWII
+         GsJJmEhBSxp24TxgUVAxH1H4TDO/Gmd+eZeW2yez972dqwJyMmlw4NnNeGNxU2NpfE1B
+         pngfZTI8Su0LbbXl65QxWbWLgepYKZM1hvSS4ACPjg1FHcSTRFr4VSOCJwqSqqEDVilp
+         ORDWJQYJkwqYzm9QrdkehIZAwttzIU/sxYJdA46BJZjhoCUEoFeOKi84OWkWQDlJ7coh
+         CDdTw5Kw54riL1YtmgZHHl1gfhzfzOHA48nByfYLZnhnA+ENeRZCgTsaVtO6GQzAC4HF
+         b/+A==
+X-Forwarded-Encrypted: i=1; AJvYcCXtddcJgHIB+zk7b/mo6VkAH/yXiQHfhro1brgYoOlIj7KzyBZA8KJJcr90k+wpcoSA5T+f+ssPi65KrhlECrNu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhJePPyFVxyLOMwD+q+K6PReNFT/02n73Bekade+uk+DQZUALT
+	WJ99OdAfZ6ZaJVYCML+d50kdv97yFmdlJ9uROuRxRRfRPWqjZjLNQvZSp86gDA==
+X-Gm-Gg: ASbGncucG0UZGO3gZO7sK8xVx8dTidNzlBvU3AVG0qKVJKVfgxEBeNgCfQY3pKwoc6w
+	A1LEO5xlddMEA6w4pnZ4RPvvAqPdPm4Bick5OxxrwzGdRzXmgd7FkPaUTuAByvrvecOPaNuGK7N
+	vLFAMXSDUE7jYEFZQvSNuATIEQVMKvJJg7kYLCh7gFTYUq6LmphSrY55ZQrnNR4HolfgGfDRGHV
+	f6nYYCqfX0AVDcGSe8/RPztIfbTecQcdgGWiMlrv6aBhJLEKYQyKBYdW85BIb1C6MAYWubBB9J9
+	RQm6UxPDPV2chB4ei3RKSdU8/WrFTdGb38DI7eViQbXPxazkvD1QcpNQ
+X-Google-Smtp-Source: AGHT+IG5j5a+pzEwcsJNmm0hEeTrp2CuiBSxB3Ea66ul7lGwBGWPT/QsbfK1PDyEJKG9pn3UaFiZdQ==
+X-Received: by 2002:a05:6a20:7f8d:b0:1f5:80a3:b008 with SMTP id adf61e73a8af0-1f5c13165c8mr3802766637.32.1741953137749;
+        Fri, 14 Mar 2025 04:52:17 -0700 (PDT)
+Received: from thinkpad ([120.56.195.144])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-737115295e5sm2751523b3a.23.2025.03.14.04.52.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Mar 2025 04:52:17 -0700 (PDT)
+Date: Fri, 14 Mar 2025 17:22:12 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Damien Le Moal <dlemoal@kernel.org>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 0/2] PCI: dw-rockchip: hide broken ATS cap in EP-mode
+Message-ID: <20250314115212.ywlee4vyuxyq4x6s@thinkpad>
+References: <20250310094826.842681-4-cassel@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 PATCH 3/6] arm64: mm: make __create_pgd_mapping() and helpers
- non-void
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250304222018.615808-1-yang@os.amperecomputing.com>
- <20250304222018.615808-4-yang@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250304222018.615808-4-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250310094826.842681-4-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_045121_241556_CBF66C84 
-X-CRM114-Status: GOOD (  33.02  )
+X-CRM114-CacheID: sfid-20250314_045219_169143_1E0EF8A9 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,367 +105,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 22:19, Yang Shi wrote:
-> The later patch will enhance __create_pgd_mapping() and related helpers
-> to split kernel linear mapping, it requires have return value.  So make
-> __create_pgd_mapping() and helpers non-void functions.
+On Mon, Mar 10, 2025 at 10:48:26AM +0100, Niklas Cassel wrote:
+> Hello there,
 > 
-> And move the BUG_ON() out of page table alloc helper since failing
-> splitting kernel linear mapping is not fatal and can be handled by the
-> callers in the later patch.  Have BUG_ON() after
-> __create_pgd_mapping_locked() returns to keep the current callers behavior
-> intact.
+> Address Translation Services (ATS) is broken on rk3588 when running the
+> PCIe controller in Endpoint Mode.
 > 
-> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> ---
->  arch/arm64/mm/mmu.c | 127 ++++++++++++++++++++++++++++++--------------
->  1 file changed, 86 insertions(+), 41 deletions(-)
+> This causes IOTLB invalidation timeout errors on the host side when using
+> and rk3588 in Endpoint Mode, and you are unable to run pci_endpoint_test.
 > 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index b4df5bc5b1b8..dccf0877285b 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -189,11 +189,11 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->  	} while (ptep++, addr += PAGE_SIZE, addr != end);
->  }
->  
-> -static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
-> -				unsigned long end, phys_addr_t phys,
-> -				pgprot_t prot,
-> -				phys_addr_t (*pgtable_alloc)(int),
-> -				int flags)
-> +static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
-> +			       unsigned long end, phys_addr_t phys,
-> +			       pgprot_t prot,
-> +			       phys_addr_t (*pgtable_alloc)(int),
-> +			       int flags)
->  {
->  	unsigned long next;
->  	pmd_t pmd = READ_ONCE(*pmdp);
-> @@ -208,6 +208,8 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  			pmdval |= PMD_TABLE_PXN;
->  		BUG_ON(!pgtable_alloc);
->  		pte_phys = pgtable_alloc(PAGE_SHIFT);
-> +		if (!pte_phys)
-> +			return -ENOMEM;
+> Solve this by hiding the ATS capability.
+> With this, we do not get any IOTLB invalidation timeouts, and we can run
+> pci_endpoint_test successfully.
+> 
 
-nit: personally I'd prefer to see a "goto out" and funnel all to a single return
-statement. You do that in some functions (via loop break), but would be cleaner
-if consistent.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-If pgtable_alloc() is modified to return int (see my comment at the bottom),
-this becomes:
+- Mani
 
-ret = pgtable_alloc(PAGE_SHIFT, &pte_phys);
-if (ret)
-	goto out;
+> 
+> Changes since v2:
+> -Added missing EXPORT_SYMBOL_GPL().
+> 
+> 
+> Niklas Cassel (2):
+>   PCI: dwc: ep: Add dw_pcie_ep_hide_ext_capability()
+>   PCI: dw-rockchip: Hide broken ATS capability
+> 
+>  .../pci/controller/dwc/pcie-designware-ep.c   | 39 +++++++++++++++++++
+>  drivers/pci/controller/dwc/pcie-designware.h  |  7 ++++
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 27 +++++++++++++
+>  3 files changed, 73 insertions(+)
+> 
+> -- 
+> 2.48.1
+> 
 
-
->  		ptep = pte_set_fixmap(pte_phys);
->  		init_clear_pgtable(ptep);
->  		ptep += pte_index(addr);
-> @@ -239,13 +241,16 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  	 * walker.
->  	 */
->  	pte_clear_fixmap();
-> +
-> +	return 0;
->  }
->  
-> -static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
-> -		     phys_addr_t phys, pgprot_t prot,
-> -		     phys_addr_t (*pgtable_alloc)(int), int flags)
-> +static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
-> +		    phys_addr_t phys, pgprot_t prot,
-> +		    phys_addr_t (*pgtable_alloc)(int), int flags)
->  {
->  	unsigned long next;
-> +	int ret = 0;
->  
->  	do {
->  		pmd_t old_pmd = READ_ONCE(*pmdp);
-> @@ -264,22 +269,27 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
->  						      READ_ONCE(pmd_val(*pmdp))));
->  		} else {
-> -			alloc_init_cont_pte(pmdp, addr, next, phys, prot,
-> +			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
->  					    pgtable_alloc, flags);
-> +			if (ret)
-> +				break;
->  
->  			BUG_ON(pmd_val(old_pmd) != 0 &&
->  			       pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
->  		}
->  		phys += next - addr;
->  	} while (pmdp++, addr = next, addr != end);
-> +
-> +	return ret;
->  }
->  
-> -static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
-> -				unsigned long end, phys_addr_t phys,
-> -				pgprot_t prot,
-> -				phys_addr_t (*pgtable_alloc)(int), int flags)
-> +static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
-> +			       unsigned long end, phys_addr_t phys,
-> +			       pgprot_t prot,
-> +			       phys_addr_t (*pgtable_alloc)(int), int flags)
->  {
->  	unsigned long next;
-> +	int ret = 0;
->  	pud_t pud = READ_ONCE(*pudp);
->  	pmd_t *pmdp;
->  
-> @@ -295,6 +305,8 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
->  			pudval |= PUD_TABLE_PXN;
->  		BUG_ON(!pgtable_alloc);
->  		pmd_phys = pgtable_alloc(PMD_SHIFT);
-> +		if (!pmd_phys)
-> +			return -ENOMEM;
->  		pmdp = pmd_set_fixmap(pmd_phys);
->  		init_clear_pgtable(pmdp);
->  		pmdp += pmd_index(addr);
-> @@ -314,21 +326,26 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
->  		    (flags & NO_CONT_MAPPINGS) == 0)
->  			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->  
-> -		init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
-> +		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
-> +		if (ret)
-> +			break;
->  
->  		pmdp += pmd_index(next) - pmd_index(addr);
->  		phys += next - addr;
->  	} while (addr = next, addr != end);
->  
->  	pmd_clear_fixmap();
-> +
-> +	return ret;
->  }
->  
-> -static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
-> -			   phys_addr_t phys, pgprot_t prot,
-> -			   phys_addr_t (*pgtable_alloc)(int),
-> -			   int flags)
-> +static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
-> +			  phys_addr_t phys, pgprot_t prot,
-> +			  phys_addr_t (*pgtable_alloc)(int),
-> +			  int flags)
->  {
->  	unsigned long next;
-> +	int ret = 0;
->  	p4d_t p4d = READ_ONCE(*p4dp);
->  	pud_t *pudp;
->  
-> @@ -340,6 +357,8 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->  			p4dval |= P4D_TABLE_PXN;
->  		BUG_ON(!pgtable_alloc);
->  		pud_phys = pgtable_alloc(PUD_SHIFT);
-> +		if (!pud_phys)
-> +			return -ENOMEM;
->  		pudp = pud_set_fixmap(pud_phys);
->  		init_clear_pgtable(pudp);
->  		pudp += pud_index(addr);
-> @@ -369,8 +388,10 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->  			BUG_ON(!pgattr_change_is_safe(pud_val(old_pud),
->  						      READ_ONCE(pud_val(*pudp))));
->  		} else {
-> -			alloc_init_cont_pmd(pudp, addr, next, phys, prot,
-> +			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
->  					    pgtable_alloc, flags);
-> +			if (ret)
-> +				break;
->  
->  			BUG_ON(pud_val(old_pud) != 0 &&
->  			       pud_val(old_pud) != READ_ONCE(pud_val(*pudp)));
-> @@ -379,14 +400,17 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->  	} while (pudp++, addr = next, addr != end);
->  
->  	pud_clear_fixmap();
-> +
-> +	return ret;
->  }
->  
-> -static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
-> -			   phys_addr_t phys, pgprot_t prot,
-> -			   phys_addr_t (*pgtable_alloc)(int),
-> -			   int flags)
-> +static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
-> +			  phys_addr_t phys, pgprot_t prot,
-> +			  phys_addr_t (*pgtable_alloc)(int),
-> +			  int flags)
->  {
->  	unsigned long next;
-> +	int ret = 0;
->  	pgd_t pgd = READ_ONCE(*pgdp);
->  	p4d_t *p4dp;
->  
-> @@ -398,6 +422,8 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
->  			pgdval |= PGD_TABLE_PXN;
->  		BUG_ON(!pgtable_alloc);
->  		p4d_phys = pgtable_alloc(P4D_SHIFT);
-> +		if (!p4d_phys)
-> +			return -ENOMEM;
->  		p4dp = p4d_set_fixmap(p4d_phys);
->  		init_clear_pgtable(p4dp);
->  		p4dp += p4d_index(addr);
-> @@ -412,8 +438,10 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
->  
->  		next = p4d_addr_end(addr, end);
->  
-> -		alloc_init_pud(p4dp, addr, next, phys, prot,
-> +		ret = alloc_init_pud(p4dp, addr, next, phys, prot,
->  			       pgtable_alloc, flags);
-> +		if (ret)
-> +			break;
->  
->  		BUG_ON(p4d_val(old_p4d) != 0 &&
->  		       p4d_val(old_p4d) != READ_ONCE(p4d_val(*p4dp)));
-> @@ -422,23 +450,26 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
->  	} while (p4dp++, addr = next, addr != end);
->  
->  	p4d_clear_fixmap();
-> +
-> +	return ret;
->  }
->  
-> -static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
-> -					unsigned long virt, phys_addr_t size,
-> -					pgprot_t prot,
-> -					phys_addr_t (*pgtable_alloc)(int),
-> -					int flags)
-> +static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
-> +				       unsigned long virt, phys_addr_t size,
-> +				       pgprot_t prot,
-> +				       phys_addr_t (*pgtable_alloc)(int),
-> +				       int flags)
->  {
->  	unsigned long addr, end, next;
->  	pgd_t *pgdp = pgd_offset_pgd(pgdir, virt);
-> +	int ret = 0;
->  
->  	/*
->  	 * If the virtual and physical address don't have the same offset
->  	 * within a page, we cannot map the region as the caller expects.
->  	 */
->  	if (WARN_ON((phys ^ virt) & ~PAGE_MASK))
-> -		return;
-> +		return -EINVAL;
->  
->  	phys &= PAGE_MASK;
->  	addr = virt & PAGE_MASK;
-> @@ -446,29 +477,38 @@ static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
->  
->  	do {
->  		next = pgd_addr_end(addr, end);
-> -		alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
-> +		ret = alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
->  			       flags);
-> +		if (ret)
-> +			break;
->  		phys += next - addr;
->  	} while (pgdp++, addr = next, addr != end);
-> +
-> +	return ret;
->  }
->  
-> -static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
-> -				 unsigned long virt, phys_addr_t size,
-> -				 pgprot_t prot,
-> -				 phys_addr_t (*pgtable_alloc)(int),
-> -				 int flags)
-> +static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
-> +				unsigned long virt, phys_addr_t size,
-> +				pgprot_t prot,
-> +				phys_addr_t (*pgtable_alloc)(int),
-> +				int flags)
->  {
-> +	int ret;
-> +
->  	mutex_lock(&fixmap_lock);
-> -	__create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
-> +	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
->  				    pgtable_alloc, flags);
-> +	BUG_ON(ret);
-
-This function now returns an error, but also BUGs on ret!=0. For this patch, I'd
-suggest keeping this function as void.
-
-But I believe there is a pre-existing bug in arch_add_memory(). That's called at
-runtime so if __create_pgd_mapping() fails and BUGs, it will take down a running
-system.
-
-With this foundational patch, we can fix that with an additional patch to pass
-along the error code instead of BUGing in that case. arch_add_memory() would
-need to unwind whatever __create_pgd_mapping() managed to do before the memory
-allocation failure (presumably unmapping and freeing any allocated tables). I'm
-happy to do this as a follow up patch.
-
->  	mutex_unlock(&fixmap_lock);
-> +
-> +	return ret;
->  }
->  
->  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
->  extern __alias(__create_pgd_mapping_locked)
-> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
-> -			     phys_addr_t size, pgprot_t prot,
-> -			     phys_addr_t (*pgtable_alloc)(int), int flags);
-> +int create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
-> +			    phys_addr_t size, pgprot_t prot,
-> +			    phys_addr_t (*pgtable_alloc)(int), int flags);
-
-create_kpti_ng_temp_pgd() now returns error instead of BUGing on allocation
-failure, but I don't see a change to handle that error. You'll want to update
-__kpti_install_ng_mappings() to BUG on error.
-
->  #endif
->  
->  static phys_addr_t __pgd_pgtable_alloc(int shift)
-> @@ -476,13 +516,17 @@ static phys_addr_t __pgd_pgtable_alloc(int shift)
->  	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
->  	void *ptr = (void *)__get_free_page(GFP_PGTABLE_KERNEL & ~__GFP_ZERO);
->  
-> -	BUG_ON(!ptr);
-> +	if (!ptr)
-> +		return 0;
-
-0 is a valid (though unlikely) physical address. I guess you could technically
-encode like ERR_PTR(), but since you are returning phys_addr_t and not a
-pointer, then perhaps it will be clearer to make this return int and accept a
-pointer to a phys_addr_t, which it will populate on success?
-
-> +
->  	return __pa(ptr);
->  }
->  
->  static phys_addr_t pgd_pgtable_alloc(int shift)
->  {
->  	phys_addr_t pa = __pgd_pgtable_alloc(shift);
-> +	if (!pa)
-> +		goto out;
-
-This would obviously need to be fixed up as per above.
-
->  	struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
->  
->  	/*
-> @@ -498,6 +542,7 @@ static phys_addr_t pgd_pgtable_alloc(int shift)
->  	else if (shift == PMD_SHIFT)
->  		BUG_ON(!pagetable_pmd_ctor(ptdesc));
->  
-> +out:
->  	return pa;
->  }
->  
-
-You have left early_pgtable_alloc() to panic() on allocation failure. Given we
-can now unwind the stack with error code, I think it would be more consistent to
-also allow early_pgtable_alloc() to return error.
-
-Thanks,
-Ryan
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
