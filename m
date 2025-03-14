@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A0DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35AEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvCj2PjtPJjxwNnPyd97WSHCjp2HGMwP8QapT+cQ2lk=; b=n+n/mNSEFbt2PDP3p4yYsDc3RX
-	nQncsjTk2jdS4RlGGcxDA7Rcc8+kSMVrfhb4qD9Im09u/9LSKoCtxZDY4nVhyI8cQdxIYkEayA/wq
-	9cdwYJSZb4qOz9ybT8QAYK0oriyeRpqNk0MCEUVpOZj0FolaKJYt3gXsv3KlQxdMPngNxsFBd8eqg
-	H2PoLiV8RnZxEZHRoXy3wRex5mmp123Bf3MN7ErmBzGFpTfE3LGpLvwIkfIkGPGPopsGQkkt4xNiN
-	OOtoXhqQtUaBP1EmWXC3HUtwTBwtR9xL/YN2kUETJdtz3TCmxgc39C1koBke7fpsUr9rENyisH8TG
-	RVBxP6CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vhGa+AC2l2DgLbDZrQrKztBZnDog+cBOZjYuZE0Ri9I=; b=YdEO/MqFXIfWLMSBpfwJz4F492
+	ItZ9vJvsOpKW/bO0NDr4w+xN8NhHAfizSiDXOtwfOCkOoSJtUhK7IF905xq668gmDmsI5Seb3JOqy
+	z2Lvg1mm/SoX4e0bMdwBx+Hfbhue4UiB+AbI0gfa45mR7N1/ZbkMREpiUCrEEMsW6xZ+XUpXTCenJ
+	5X07vv/xqMuCU10wyiWZQuQ61ShUChVn3E7AFxCaIBr3EUVEoB/VLDtCKmoyeMQI+vBkjvNVqP85q
+	YYlcgBSedSrUBk9A//iI7ImXGcIPEmT6jULQylTDFI/U1Xwb4x63kzyNCDTYPhPQFjLEYt5yeB9uI
+	b4V6jBWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3QR-0000000E2Qs-3Wg5;
-	Fri, 14 Mar 2025 11:42:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3KY-0000000E11G-4Av0;
-	Fri, 14 Mar 2025 11:36:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6DAAA5C5F47;
-	Fri, 14 Mar 2025 11:33:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEDE7C4CEE3;
-	Fri, 14 Mar 2025 11:35:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741952157;
-	bh=yW9nZIxhmtnFOby8Z0VwAjK/L/tgPv3zbbh3MfKKb78=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nmEH+Wjz+0HaqAbutQUHO+Dm9bsoSmQdsPw8vfFUbS2ZbSDg3Ru5aqXzit5erl9tY
-	 sNc/yJR7GuW8i1NmRenh8Z4G3lvhvpWK4V0b60ISgJkKqhTgg2CWr0wvVZsrPEDgCH
-	 wMmnV8yLLf/GVSmS4cDBR4gnM4rQddWcnD0yYiWXJmVtypJZniGHjb/HvVGVoBm/IO
-	 K2CGRCNw1CFfvFxXB7GM9spo1YljsSZsFF0YBAu3vc19btrr0LFP0Xe0MK2SxvjKCO
-	 sZ/o5b/giWGbaCtcKnYAw8hIzO5dbkDNnEV80mcOU4hmQGuDaPG4IYc3wJsweJZg21
-	 NptJxLqSkb4hw==
-Date: Fri, 14 Mar 2025 11:35:51 +0000
-From: Lee Jones <lee@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 09/13] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-Message-ID: <20250314113551.GK3890718@google.com>
-References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-10-ansuelsmth@gmail.com>
+	id 1tt3b8-0000000E4RV-0XWy;
+	Fri, 14 Mar 2025 11:53:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt3ZR-0000000E4IU-0Ngx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 11:51:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30EFE13D5;
+	Fri, 14 Mar 2025 04:51:30 -0700 (PDT)
+Received: from [10.57.85.159] (unknown [10.57.85.159])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27F3D3F5A1;
+	Fri, 14 Mar 2025 04:51:18 -0700 (PDT)
+Message-ID: <172bf7a8-4533-4627-83d2-552e4681c360@arm.com>
+Date: Fri, 14 Mar 2025 11:51:16 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250309172717.9067-10-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 PATCH 3/6] arm64: mm: make __create_pgd_mapping() and helpers
+ non-void
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250304222018.615808-1-yang@os.amperecomputing.com>
+ <20250304222018.615808-4-yang@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250304222018.615808-4-yang@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_043559_157017_BAA8CC78 
-X-CRM114-Status: GOOD (  36.50  )
+X-CRM114-CacheID: sfid-20250314_045121_241556_CBF66C84 
+X-CRM114-Status: GOOD (  33.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,609 +67,367 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 09 Mar 2025, Christian Marangi wrote:
-
-> Add support for Airoha AN8855 Switch MFD that provide support for a DSA
-
-Drop all references to MFD.
-
-It doesn't exist.  It is a figment of your (and my) imagination.
-
-> switch and a NVMEM provider. Also provide support for a virtual MDIO
-> passthrough as the PHYs address for the switch are shared with the switch
-> address.
+On 04/03/2025 22:19, Yang Shi wrote:
+> The later patch will enhance __create_pgd_mapping() and related helpers
+> to split kernel linear mapping, it requires have return value.  So make
+> __create_pgd_mapping() and helpers non-void functions.
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> And move the BUG_ON() out of page table alloc helper since failing
+> splitting kernel linear mapping is not fatal and can be handled by the
+> callers in the later patch.  Have BUG_ON() after
+> __create_pgd_mapping_locked() returns to keep the current callers behavior
+> intact.
+> 
+> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 > ---
->  MAINTAINERS                 |   1 +
->  drivers/mfd/Kconfig         |  10 +
->  drivers/mfd/Makefile        |   1 +
->  drivers/mfd/airoha-an8855.c | 445 ++++++++++++++++++++++++++++++++++++
->  4 files changed, 457 insertions(+)
->  create mode 100644 drivers/mfd/airoha-an8855.c
+>  arch/arm64/mm/mmu.c | 127 ++++++++++++++++++++++++++++++--------------
+>  1 file changed, 86 insertions(+), 41 deletions(-)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index b7075425c94e..5844addbda2b 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -730,6 +730,7 @@ F:	Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
->  F:	Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
->  F:	Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
->  F:	Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
-> +F:	drivers/mfd/airoha-an8855.c
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index b4df5bc5b1b8..dccf0877285b 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -189,11 +189,11 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+>  	} while (ptep++, addr += PAGE_SIZE, addr != end);
+>  }
 >  
->  AIROHA ETHERNET DRIVER
->  M:	Lorenzo Bianconi <lorenzo@kernel.org>
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index 6b0682af6e32..1b5abe5e2694 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -53,6 +53,16 @@ config MFD_ALTERA_SYSMGR
->  	  using regmap_mmio accesses for ARM32 parts and SMC calls to
->  	  EL3 for ARM64 parts.
+> -static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+> -				unsigned long end, phys_addr_t phys,
+> -				pgprot_t prot,
+> -				phys_addr_t (*pgtable_alloc)(int),
+> -				int flags)
+> +static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+> +			       unsigned long end, phys_addr_t phys,
+> +			       pgprot_t prot,
+> +			       phys_addr_t (*pgtable_alloc)(int),
+> +			       int flags)
+>  {
+>  	unsigned long next;
+>  	pmd_t pmd = READ_ONCE(*pmdp);
+> @@ -208,6 +208,8 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  			pmdval |= PMD_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		pte_phys = pgtable_alloc(PAGE_SHIFT);
+> +		if (!pte_phys)
+> +			return -ENOMEM;
+
+nit: personally I'd prefer to see a "goto out" and funnel all to a single return
+statement. You do that in some functions (via loop break), but would be cleaner
+if consistent.
+
+If pgtable_alloc() is modified to return int (see my comment at the bottom),
+this becomes:
+
+ret = pgtable_alloc(PAGE_SHIFT, &pte_phys);
+if (ret)
+	goto out;
+
+
+>  		ptep = pte_set_fixmap(pte_phys);
+>  		init_clear_pgtable(ptep);
+>  		ptep += pte_index(addr);
+> @@ -239,13 +241,16 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  	 * walker.
+>  	 */
+>  	pte_clear_fixmap();
+> +
+> +	return 0;
+>  }
 >  
-> +config MFD_AIROHA_AN8855
-
-Should this be EN?
-
-
-> +	tristate "Airoha AN8855 Switch MFD"
-> +	select MFD_CORE
-> +	select MDIO_DEVICE
-> +	depends on NETDEVICES && OF
-> +	help
-> +	  Support for the Airoha AN8855 Switch MFD. This is a SoC Switch
-
-Nit: "an SoC".
-
-What kind of switch?
-
-> +	  that provides various peripherals. Currently it provides a
-
-Which other peripherals?
-
-> +	  DSA switch and a NVMEM provider.
-> +
->  config MFD_ACT8945A
->  	tristate "Active-semi ACT8945A"
->  	select MFD_CORE
-> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-> index 9220eaf7cf12..37677f65a981 100644
-> --- a/drivers/mfd/Makefile
-> +++ b/drivers/mfd/Makefile
-> @@ -8,6 +8,7 @@ obj-$(CONFIG_MFD_88PM860X)	+= 88pm860x.o
->  obj-$(CONFIG_MFD_88PM800)	+= 88pm800.o 88pm80x.o
->  obj-$(CONFIG_MFD_88PM805)	+= 88pm805.o 88pm80x.o
->  obj-$(CONFIG_MFD_88PM886_PMIC)	+= 88pm886.o
-> +obj-$(CONFIG_MFD_AIROHA_AN8855)	+= airoha-an8855.o
->  obj-$(CONFIG_MFD_ACT8945A)	+= act8945a.o
->  obj-$(CONFIG_MFD_SM501)		+= sm501.o
->  obj-$(CONFIG_ARCH_BCM2835)	+= bcm2835-pm.o
-> diff --git a/drivers/mfd/airoha-an8855.c b/drivers/mfd/airoha-an8855.c
-> new file mode 100644
-> index 000000000000..0a6440bd4118
-> --- /dev/null
-> +++ b/drivers/mfd/airoha-an8855.c
-> @@ -0,0 +1,445 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * MFD driver for Airoha AN8855 Switch
-
-No such thing as an MFD driver.
-
-Core is sometimes used in place of a better name.
-
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/gpio/consumer.h>
-> +#include <linux/mfd/core.h>
-> +#include <linux/mdio.h>
-> +#include <linux/mdio/mdio-regmap.h>
-> +#include <linux/module.h>
-> +#include <linux/phy.h>
-> +#include <linux/regmap.h>
-> +
-> +/* Register for hw trap status */
-
-Ironically, this is probably the most readable name, yet it is the only
-one graced with a comment.  Also 'hw' is an abbreviation, so it should be
-HW or H/W or better yet hardware.
-
-> +#define AN8855_HWTRAP			0x1000009c
-> +
-> +#define AN8855_CREV			0x10005000
-
-Chip?
-
-> +#define   AN8855_ID			0x8855
-
-What kid of ID?  Chip, revision, model, serial?
-
-> +#define AN8855_RG_GPHY_AFE_PWD		0x1028c840
-
-No idea!
-
-> +/* MII Registers */
-> +#define AN8855_PHY_SELECT_PAGE		0x1f
-> +#define   AN8855_PHY_PAGE		GENMASK(2, 0)
-> +#define   AN8855_PHY_PAGE_STANDARD	FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x0)
-> +#define   AN8855_PHY_PAGE_EXTENDED_1	FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x1)
-> +#define   AN8855_PHY_PAGE_EXTENDED_4	FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x4)
-> +
-> +/* MII Registers Page 4 */
-> +#define AN8855_PBUS_MODE		0x10
-> +#define   AN8855_PBUS_MODE_ADDR_FIXED	0x0
-> +#define AN8855_PBUS_MODE_ADDR_INCR	BIT(15)
-> +#define AN8855_PBUS_WR_ADDR_HIGH	0x11
-> +#define AN8855_PBUS_WR_ADDR_LOW		0x12
-> +#define AN8855_PBUS_WR_DATA_HIGH	0x13
-> +#define AN8855_PBUS_WR_DATA_LOW		0x14
-> +#define AN8855_PBUS_RD_ADDR_HIGH	0x15
-> +#define AN8855_PBUS_RD_ADDR_LOW		0x16
-> +#define AN8855_PBUS_RD_DATA_HIGH	0x17
-> +#define AN8855_PBUS_RD_DATA_LOW		0x18
-> +
-> +struct an8855_mfd_priv {
-
-It's not an "mfd".
-
-> +	struct mii_bus *bus;
-> +
-> +	unsigned int switch_addr;
-> +	u16 current_page;
-> +};
-> +
-> +static const struct mfd_cell an8855_mfd_devs[] = {
-
-"_child_" or "_sub_" or drop it entirely.
-
-> +	{
-> +		.name = "an8855-efuse",
-> +		.of_compatible = "airoha,an8855-efuse",
-> +	}, {
-> +		.name = "an8855-switch",
-> +		.of_compatible = "airoha,an8855-switch",
-> +	}, {
-> +		.name = "an8855-mdio",
-> +		.of_compatible = "airoha,an8855-mdio",
-> +	}
-> +};
-> +
-> +static int an8855_mii_set_page(struct an8855_mfd_priv *priv, u8 phy_id,
-> +			       u8 page) __must_hold(&priv->bus->mdio_lock)
-> +{
-> +	struct mii_bus *bus = priv->bus;
-> +	int ret;
-> +
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PHY_SELECT_PAGE, page);
-
-Calling functions with '__' is a red flag.
-
-> +	if (ret < 0)
-> +		dev_err_ratelimited(&bus->dev,
-> +				    "failed to set an8855 mii page\n");
-
-Use 100-chars if it avoids these kind of line breaks.
-
-> +	/* Cache current page if next mii read/write is for switch */
-
-MII here?
-
-"this switch"?
-
-I don't see any checks here - how do we know if it is for switch or not?
-
-> +	priv->current_page = page;
-> +	return ret < 0 ? ret : 0;
-
-You already check for 'ret < 0' at the call sites, so this little dance
-is superfluous.
-
-> +}
-> +
-> +static int an8855_mii_read32(struct mii_bus *bus, u8 phy_id, u32 reg,
-> +			     u32 *val) __must_hold(&bus->mdio_lock)
-> +{
-> +	int lo, hi, ret;
-> +
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_MODE,
-> +			      AN8855_PBUS_MODE_ADDR_FIXED);
-
-100-chars.
-
-> +	if (ret < 0)
-> +		goto err;
-> +
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_RD_ADDR_HIGH,
-> +			      upper_16_bits(reg));
-> +	if (ret < 0)
-> +		goto err;
-
-'\n'
-
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_RD_ADDR_LOW,
-> +			      lower_16_bits(reg));
-> +	if (ret < 0)
-> +		goto err;
-> +
-> +	hi = __mdiobus_read(bus, phy_id, AN8855_PBUS_RD_DATA_HIGH);
-> +	if (hi < 0) {
-> +		ret = hi;
-> +		goto err;
-> +	}
-
-'\n'
-
-> +	lo = __mdiobus_read(bus, phy_id, AN8855_PBUS_RD_DATA_LOW);
-> +	if (lo < 0) {
-> +		ret = lo;
-> +		goto err;
-> +	}
-> +
-> +	*val = ((u16)hi << 16) | ((u16)lo & 0xffff);
-> +
-> +	return 0;
-> +err:
-> +	dev_err_ratelimited(&bus->dev,
-> +			    "failed to read an8855 register\n");
-
-dev_err() will already print out the an8855 part.
-
-> +	return ret;
-> +}
-> +
-> +static int an8855_regmap_read(void *ctx, uint32_t reg, uint32_t *val)
-> +{
-> +	struct an8855_mfd_priv *priv = ctx;
-> +	struct mii_bus *bus = priv->bus;
-> +	u16 addr = priv->switch_addr;
-> +	int ret;
-> +
-> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-
-guard()?
-
-> +	ret = an8855_mii_set_page(priv, addr, AN8855_PHY_PAGE_EXTENDED_4);
-> +	if (ret < 0)
-> +		goto exit;
-> +
-> +	ret = an8855_mii_read32(bus, addr, reg, val);
-> +
-> +exit:
-> +	mutex_unlock(&bus->mdio_lock);
-> +
-> +	return ret < 0 ? ret : 0;
-> +}
-> +
-> +static int an8855_mii_write32(struct mii_bus *bus, u8 phy_id, u32 reg,
-> +			      u32 val) __must_hold(&bus->mdio_lock)
-> +{
-> +	int ret;
-> +
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_MODE,
-> +			      AN8855_PBUS_MODE_ADDR_FIXED);
-> +	if (ret < 0)
-> +		goto err;
-> +
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_ADDR_HIGH,
-> +			      upper_16_bits(reg));
-> +	if (ret < 0)
-> +		goto err;
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_ADDR_LOW,
-> +			      lower_16_bits(reg));
-> +	if (ret < 0)
-> +		goto err;
-> +
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_DATA_HIGH,
-> +			      upper_16_bits(val));
-> +	if (ret < 0)
-> +		goto err;
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_DATA_LOW,
-> +			      lower_16_bits(val));
-> +	if (ret < 0)
-> +		goto err;
-> +
-> +	return 0;
-> +err:
-> +	dev_err_ratelimited(&bus->dev,
-> +			    "failed to write an8855 register\n");
-> +	return ret;
-> +}
-> +
-> +static int an8855_regmap_write(void *ctx, uint32_t reg, uint32_t val)
-> +{
-> +	struct an8855_mfd_priv *priv = ctx;
-> +	struct mii_bus *bus = priv->bus;
-> +	u16 addr = priv->switch_addr;
-> +	int ret;
-> +
-> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-> +	ret = an8855_mii_set_page(priv, addr, AN8855_PHY_PAGE_EXTENDED_4);
-> +	if (ret < 0)
-> +		goto exit;
-> +
-> +	ret = an8855_mii_write32(bus, addr, reg, val);
-> +
-> +exit:
-> +	mutex_unlock(&bus->mdio_lock);
-> +
-> +	return ret < 0 ? ret : 0;
-
-Doesn't the caller already expect possible >0 results?
-
-> +}
-> +
-> +static int an8855_regmap_update_bits(void *ctx, uint32_t reg, uint32_t mask,
-> +				     uint32_t write_val)
-> +{
-> +	struct an8855_mfd_priv *priv = ctx;
-> +	struct mii_bus *bus = priv->bus;
-> +	u16 addr = priv->switch_addr;
-> +	u32 val;
-> +	int ret;
-> +
-> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-> +	ret = an8855_mii_set_page(priv, addr, AN8855_PHY_PAGE_EXTENDED_4);
-> +	if (ret < 0)
-> +		goto exit;
-> +
-> +	ret = an8855_mii_read32(bus, addr, reg, &val);
-> +	if (ret < 0)
-> +		goto exit;
-> +
-> +	val &= ~mask;
-> +	val |= write_val;
-> +	ret = an8855_mii_write32(bus, addr, reg, val);
-> +
-> +exit:
-> +	mutex_unlock(&bus->mdio_lock);
-> +
-> +	return ret < 0 ? ret : 0;
-> +}
-> +
-> +static const struct regmap_range an8855_readable_ranges[] = {
-> +	regmap_reg_range(0x10000000, 0x10000fff), /* SCU */
-> +	regmap_reg_range(0x10001000, 0x10001fff), /* RBUS */
-> +	regmap_reg_range(0x10002000, 0x10002fff), /* MCU */
-> +	regmap_reg_range(0x10005000, 0x10005fff), /* SYS SCU */
-> +	regmap_reg_range(0x10007000, 0x10007fff), /* I2C Slave */
-> +	regmap_reg_range(0x10008000, 0x10008fff), /* I2C Master */
-> +	regmap_reg_range(0x10009000, 0x10009fff), /* PDMA */
-> +	regmap_reg_range(0x1000a100, 0x1000a2ff), /* General Purpose Timer */
-> +	regmap_reg_range(0x1000a200, 0x1000a2ff), /* GPU timer */
-> +	regmap_reg_range(0x1000a300, 0x1000a3ff), /* GPIO */
-> +	regmap_reg_range(0x1000a400, 0x1000a5ff), /* EFUSE */
-> +	regmap_reg_range(0x1000c000, 0x1000cfff), /* GDMP CSR */
-> +	regmap_reg_range(0x10010000, 0x1001ffff), /* GDMP SRAM */
-> +	regmap_reg_range(0x10200000, 0x10203fff), /* Switch - ARL Global */
-> +	regmap_reg_range(0x10204000, 0x10207fff), /* Switch - BMU */
-> +	regmap_reg_range(0x10208000, 0x1020bfff), /* Switch - ARL Port */
-> +	regmap_reg_range(0x1020c000, 0x1020cfff), /* Switch - SCH */
-> +	regmap_reg_range(0x10210000, 0x10213fff), /* Switch - MAC */
-> +	regmap_reg_range(0x10214000, 0x10217fff), /* Switch - MIB */
-> +	regmap_reg_range(0x10218000, 0x1021bfff), /* Switch - Port Control */
-> +	regmap_reg_range(0x1021c000, 0x1021ffff), /* Switch - TOP */
-> +	regmap_reg_range(0x10220000, 0x1022ffff), /* SerDes */
-> +	regmap_reg_range(0x10286000, 0x10286fff), /* RG Batcher */
-> +	regmap_reg_range(0x1028c000, 0x1028ffff), /* ETHER_SYS */
-> +	regmap_reg_range(0x30000000, 0x37ffffff), /* I2C EEPROM */
-> +	regmap_reg_range(0x38000000, 0x3fffffff), /* BOOT_ROM */
-> +	regmap_reg_range(0xa0000000, 0xbfffffff), /* GPHY */
-> +};
-> +
-> +static const struct regmap_access_table an8855_readable_table = {
-> +	.yes_ranges = an8855_readable_ranges,
-> +	.n_yes_ranges = ARRAY_SIZE(an8855_readable_ranges),
-> +};
-> +
-> +static const struct regmap_config an8855_regmap_config = {
-> +	.name = "switch",
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.max_register = 0xbfffffff,
-> +	.reg_read = an8855_regmap_read,
-> +	.reg_write = an8855_regmap_write,
-> +	.reg_update_bits = an8855_regmap_update_bits,
-> +	.disable_locking = true,
-> +	.rd_table = &an8855_readable_table,
-> +};
-> +
-> +static int an855_regmap_phy_reset_page(struct an8855_mfd_priv *priv,
-> +				       int phy) __must_hold(&priv->bus->mdio_lock)
-> +{
-> +	/* Check PHY page only for addr shared with switch */
-> +	if (phy != priv->switch_addr)
-> +		return 0;
-> +
-> +	/* Don't restore page if it's not set to switch page */
-> +	if (priv->current_page != FIELD_GET(AN8855_PHY_PAGE,
-> +					    AN8855_PHY_PAGE_EXTENDED_4))
-> +		return 0;
-> +
-> +	/* Restore page to 0, PHY might change page right after but that
-> +	 * will be ignored as it won't be a switch page.
-> +	 */
-
-Use proper multi-line comments please.
-
-> +	return an8855_mii_set_page(priv, phy, AN8855_PHY_PAGE_STANDARD);
-> +}
-> +
-> +static int an8855_regmap_phy_read(void *ctx, uint32_t reg, uint32_t *val)
-> +{
-> +	struct an8855_mfd_priv *priv = ctx;
-> +	struct mii_bus *bus = priv->bus;
-> +	u16 phy_id, addr;
-> +	int ret;
-> +
-> +	phy_id = FIELD_GET(MDIO_REGMAP_PHY_ADDR, reg);
-> +	addr = FIELD_GET(MDIO_REGMAP_PHY_REG, reg);
-> +
-> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-> +	ret = an855_regmap_phy_reset_page(priv, phy_id);
-> +	if (ret)
-> +		goto exit;
-> +
-> +	ret = __mdiobus_read(priv->bus, phy_id, addr);
-> +
-> +exit:
-> +	mutex_unlock(&bus->mdio_lock);
-> +
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	*val = ret;
-> +	return 0;
-> +}
-> +
-> +static int an8855_regmap_phy_write(void *ctx, uint32_t reg, uint32_t val)
-> +{
-> +	struct an8855_mfd_priv *priv = ctx;
-> +	struct mii_bus *bus = priv->bus;
-> +	u16 phy_id, addr;
-> +	int ret;
-> +
-> +	phy_id = FIELD_GET(MDIO_REGMAP_PHY_ADDR, reg);
-> +	addr = FIELD_GET(MDIO_REGMAP_PHY_REG, reg);
-> +
-> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-> +	ret = an855_regmap_phy_reset_page(priv, phy_id);
-> +	if (ret)
-> +		goto exit;
-> +
-> +	ret = __mdiobus_write(priv->bus, phy_id, addr, val);
-> +
-> +exit:
-> +	mutex_unlock(&bus->mdio_lock);
+> -static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+> -		     phys_addr_t phys, pgprot_t prot,
+> -		     phys_addr_t (*pgtable_alloc)(int), int flags)
+> +static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+> +		    phys_addr_t phys, pgprot_t prot,
+> +		    phys_addr_t (*pgtable_alloc)(int), int flags)
+>  {
+>  	unsigned long next;
+> +	int ret = 0;
+>  
+>  	do {
+>  		pmd_t old_pmd = READ_ONCE(*pmdp);
+> @@ -264,22 +269,27 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
+>  						      READ_ONCE(pmd_val(*pmdp))));
+>  		} else {
+> -			alloc_init_cont_pte(pmdp, addr, next, phys, prot,
+> +			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
+>  					    pgtable_alloc, flags);
+> +			if (ret)
+> +				break;
+>  
+>  			BUG_ON(pmd_val(old_pmd) != 0 &&
+>  			       pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
+>  		}
+>  		phys += next - addr;
+>  	} while (pmdp++, addr = next, addr != end);
 > +
 > +	return ret;
-> +}
-> +
-> +/* Regmap for MDIO Passtrough
-> + * PHY Addr and PHY Reg are encoded in the regmap register.
-> + */
-> +static const struct regmap_config an8855_regmap_phy_config = {
-> +	.name = "phy",
-> +	.reg_bits = 20,
-> +	.val_bits = 16,
-> +	.reg_stride = 1,
-> +	.max_register = MDIO_REGMAP_PHY_ADDR | MDIO_REGMAP_PHY_REG,
-> +	.reg_read = an8855_regmap_phy_read,
-> +	.reg_write = an8855_regmap_phy_write,
-> +	.disable_locking = true,
-> +};
-> +
-> +static int an8855_read_switch_id(struct device *dev, struct regmap *regmap)
-> +{
-> +	u32 id;
-> +	int ret;
-> +
-> +	ret = regmap_read(regmap, AN8855_CREV, &id);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (id != AN8855_ID) {
-> +		dev_err(dev, "Switch ID detected %x but expected %x\n",
-
-"Detected Switch ID %x but %x was expected"
-
-Or
-
-"Expected Switch ID %x but %x was detected"
-
-> +			id, AN8855_ID);
-> +		return -ENODEV;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int an8855_mfd_probe(struct mdio_device *mdiodev)
-> +{
-> +	struct regmap *regmap, *regmap_phy;
-> +	struct device *dev = &mdiodev->dev;
-> +	struct an8855_mfd_priv *priv;
-> +	struct gpio_desc *reset_gpio;
-> +	u32 val;
-> +	int ret;
-> +
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	priv->bus = mdiodev->bus;
-> +	priv->switch_addr = mdiodev->addr;
-> +	/* no DMA for mdiobus, mute warning for DMA mask not set */
-
-Nit: Please start sentences with uppercase chars.
-
-> +	dev->dma_mask = &dev->coherent_dma_mask;
-> +
-> +	regmap = devm_regmap_init(dev, NULL, priv, &an8855_regmap_config);
-> +	if (IS_ERR(regmap))
-> +		return dev_err_probe(dev, PTR_ERR(regmap),
-> +				     "regmap initialization failed\n");
-> +
-> +	regmap_phy = devm_regmap_init(dev, NULL, priv, &an8855_regmap_phy_config);
-> +	if (IS_ERR(regmap_phy))
-> +		return dev_err_probe(dev, PTR_ERR(regmap_phy),
-> +				     "regmap phy initialization failed\n");
-> +
-> +	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
-> +	if (IS_ERR(reset_gpio))
-> +		return PTR_ERR(reset_gpio);
-> +
-> +	if (reset_gpio) {
-> +		usleep_range(100000, 150000);
-> +		gpiod_set_value_cansleep(reset_gpio, 0);
-> +		usleep_range(100000, 150000);
-> +		gpiod_set_value_cansleep(reset_gpio, 1);
-> +
-> +		/* Poll HWTRAP reg to wait for Switch to fully Init */
-> +		ret = regmap_read_poll_timeout(regmap, AN8855_HWTRAP, val,
-> +					       val, 20, 200000);
+>  }
+>  
+> -static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+> -				unsigned long end, phys_addr_t phys,
+> -				pgprot_t prot,
+> -				phys_addr_t (*pgtable_alloc)(int), int flags)
+> +static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+> +			       unsigned long end, phys_addr_t phys,
+> +			       pgprot_t prot,
+> +			       phys_addr_t (*pgtable_alloc)(int), int flags)
+>  {
+>  	unsigned long next;
+> +	int ret = 0;
+>  	pud_t pud = READ_ONCE(*pudp);
+>  	pmd_t *pmdp;
+>  
+> @@ -295,6 +305,8 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+>  			pudval |= PUD_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		pmd_phys = pgtable_alloc(PMD_SHIFT);
+> +		if (!pmd_phys)
+> +			return -ENOMEM;
+>  		pmdp = pmd_set_fixmap(pmd_phys);
+>  		init_clear_pgtable(pmdp);
+>  		pmdp += pmd_index(addr);
+> @@ -314,21 +326,26 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+>  		    (flags & NO_CONT_MAPPINGS) == 0)
+>  			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>  
+> -		init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
+> +		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
 > +		if (ret)
-> +			return ret;
-> +	}
+> +			break;
+>  
+>  		pmdp += pmd_index(next) - pmd_index(addr);
+>  		phys += next - addr;
+>  	} while (addr = next, addr != end);
+>  
+>  	pmd_clear_fixmap();
 > +
-> +	ret = an8855_read_switch_id(dev, regmap);
-> +	if (ret)
-> +		return ret;
+> +	return ret;
+>  }
+>  
+> -static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+> -			   phys_addr_t phys, pgprot_t prot,
+> -			   phys_addr_t (*pgtable_alloc)(int),
+> -			   int flags)
+> +static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+> +			  phys_addr_t phys, pgprot_t prot,
+> +			  phys_addr_t (*pgtable_alloc)(int),
+> +			  int flags)
+>  {
+>  	unsigned long next;
+> +	int ret = 0;
+>  	p4d_t p4d = READ_ONCE(*p4dp);
+>  	pud_t *pudp;
+>  
+> @@ -340,6 +357,8 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  			p4dval |= P4D_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		pud_phys = pgtable_alloc(PUD_SHIFT);
+> +		if (!pud_phys)
+> +			return -ENOMEM;
+>  		pudp = pud_set_fixmap(pud_phys);
+>  		init_clear_pgtable(pudp);
+>  		pudp += pud_index(addr);
+> @@ -369,8 +388,10 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  			BUG_ON(!pgattr_change_is_safe(pud_val(old_pud),
+>  						      READ_ONCE(pud_val(*pudp))));
+>  		} else {
+> -			alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+> +			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+>  					    pgtable_alloc, flags);
+> +			if (ret)
+> +				break;
+>  
+>  			BUG_ON(pud_val(old_pud) != 0 &&
+>  			       pud_val(old_pud) != READ_ONCE(pud_val(*pudp)));
+> @@ -379,14 +400,17 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  	} while (pudp++, addr = next, addr != end);
+>  
+>  	pud_clear_fixmap();
 > +
-> +	/* Release global PHY power down */
-> +	ret = regmap_write(regmap, AN8855_RG_GPHY_AFE_PWD, 0x0);
-> +	if (ret)
-> +		return ret;
+> +	return ret;
+>  }
+>  
+> -static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+> -			   phys_addr_t phys, pgprot_t prot,
+> -			   phys_addr_t (*pgtable_alloc)(int),
+> -			   int flags)
+> +static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+> +			  phys_addr_t phys, pgprot_t prot,
+> +			  phys_addr_t (*pgtable_alloc)(int),
+> +			  int flags)
+>  {
+>  	unsigned long next;
+> +	int ret = 0;
+>  	pgd_t pgd = READ_ONCE(*pgdp);
+>  	p4d_t *p4dp;
+>  
+> @@ -398,6 +422,8 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>  			pgdval |= PGD_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		p4d_phys = pgtable_alloc(P4D_SHIFT);
+> +		if (!p4d_phys)
+> +			return -ENOMEM;
+>  		p4dp = p4d_set_fixmap(p4d_phys);
+>  		init_clear_pgtable(p4dp);
+>  		p4dp += p4d_index(addr);
+> @@ -412,8 +438,10 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>  
+>  		next = p4d_addr_end(addr, end);
+>  
+> -		alloc_init_pud(p4dp, addr, next, phys, prot,
+> +		ret = alloc_init_pud(p4dp, addr, next, phys, prot,
+>  			       pgtable_alloc, flags);
+> +		if (ret)
+> +			break;
+>  
+>  		BUG_ON(p4d_val(old_p4d) != 0 &&
+>  		       p4d_val(old_p4d) != READ_ONCE(p4d_val(*p4dp)));
+> @@ -422,23 +450,26 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>  	} while (p4dp++, addr = next, addr != end);
+>  
+>  	p4d_clear_fixmap();
 > +
-> +	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, an8855_mfd_devs,
-> +				    ARRAY_SIZE(an8855_mfd_devs), NULL, 0,
-> +				    NULL);
-> +}
+> +	return ret;
+>  }
+>  
+> -static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+> -					unsigned long virt, phys_addr_t size,
+> -					pgprot_t prot,
+> -					phys_addr_t (*pgtable_alloc)(int),
+> -					int flags)
+> +static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+> +				       unsigned long virt, phys_addr_t size,
+> +				       pgprot_t prot,
+> +				       phys_addr_t (*pgtable_alloc)(int),
+> +				       int flags)
+>  {
+>  	unsigned long addr, end, next;
+>  	pgd_t *pgdp = pgd_offset_pgd(pgdir, virt);
+> +	int ret = 0;
+>  
+>  	/*
+>  	 * If the virtual and physical address don't have the same offset
+>  	 * within a page, we cannot map the region as the caller expects.
+>  	 */
+>  	if (WARN_ON((phys ^ virt) & ~PAGE_MASK))
+> -		return;
+> +		return -EINVAL;
+>  
+>  	phys &= PAGE_MASK;
+>  	addr = virt & PAGE_MASK;
+> @@ -446,29 +477,38 @@ static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+>  
+>  	do {
+>  		next = pgd_addr_end(addr, end);
+> -		alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
+> +		ret = alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
+>  			       flags);
+> +		if (ret)
+> +			break;
+>  		phys += next - addr;
+>  	} while (pgdp++, addr = next, addr != end);
 > +
-> +static const struct of_device_id an8855_mfd_of_match[] = {
-> +	{ .compatible = "airoha,an8855" },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, an8855_mfd_of_match);
+> +	return ret;
+>  }
+>  
+> -static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+> -				 unsigned long virt, phys_addr_t size,
+> -				 pgprot_t prot,
+> -				 phys_addr_t (*pgtable_alloc)(int),
+> -				 int flags)
+> +static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+> +				unsigned long virt, phys_addr_t size,
+> +				pgprot_t prot,
+> +				phys_addr_t (*pgtable_alloc)(int),
+> +				int flags)
+>  {
+> +	int ret;
 > +
-> +static struct mdio_driver an8855_mfd_driver = {
-> +	.probe = an8855_mfd_probe,
-> +	.mdiodrv.driver = {
-> +		.name = "an8855",
-> +		.of_match_table = an8855_mfd_of_match,
-> +	},
-> +};
-> +mdio_module_driver(an8855_mfd_driver);
-> +
-> +MODULE_AUTHOR("Christian Marangi <ansuelsmth@gmail.com>");
-> +MODULE_DESCRIPTION("Driver for Airoha AN8855 MFD");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.48.1
-> 
+>  	mutex_lock(&fixmap_lock);
+> -	__create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+> +	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+>  				    pgtable_alloc, flags);
+> +	BUG_ON(ret);
 
--- 
-Lee Jones [李琼斯]
+This function now returns an error, but also BUGs on ret!=0. For this patch, I'd
+suggest keeping this function as void.
+
+But I believe there is a pre-existing bug in arch_add_memory(). That's called at
+runtime so if __create_pgd_mapping() fails and BUGs, it will take down a running
+system.
+
+With this foundational patch, we can fix that with an additional patch to pass
+along the error code instead of BUGing in that case. arch_add_memory() would
+need to unwind whatever __create_pgd_mapping() managed to do before the memory
+allocation failure (presumably unmapping and freeing any allocated tables). I'm
+happy to do this as a follow up patch.
+
+>  	mutex_unlock(&fixmap_lock);
+> +
+> +	return ret;
+>  }
+>  
+>  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+>  extern __alias(__create_pgd_mapping_locked)
+> -void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> -			     phys_addr_t size, pgprot_t prot,
+> -			     phys_addr_t (*pgtable_alloc)(int), int flags);
+> +int create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+> +			    phys_addr_t size, pgprot_t prot,
+> +			    phys_addr_t (*pgtable_alloc)(int), int flags);
+
+create_kpti_ng_temp_pgd() now returns error instead of BUGing on allocation
+failure, but I don't see a change to handle that error. You'll want to update
+__kpti_install_ng_mappings() to BUG on error.
+
+>  #endif
+>  
+>  static phys_addr_t __pgd_pgtable_alloc(int shift)
+> @@ -476,13 +516,17 @@ static phys_addr_t __pgd_pgtable_alloc(int shift)
+>  	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
+>  	void *ptr = (void *)__get_free_page(GFP_PGTABLE_KERNEL & ~__GFP_ZERO);
+>  
+> -	BUG_ON(!ptr);
+> +	if (!ptr)
+> +		return 0;
+
+0 is a valid (though unlikely) physical address. I guess you could technically
+encode like ERR_PTR(), but since you are returning phys_addr_t and not a
+pointer, then perhaps it will be clearer to make this return int and accept a
+pointer to a phys_addr_t, which it will populate on success?
+
+> +
+>  	return __pa(ptr);
+>  }
+>  
+>  static phys_addr_t pgd_pgtable_alloc(int shift)
+>  {
+>  	phys_addr_t pa = __pgd_pgtable_alloc(shift);
+> +	if (!pa)
+> +		goto out;
+
+This would obviously need to be fixed up as per above.
+
+>  	struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
+>  
+>  	/*
+> @@ -498,6 +542,7 @@ static phys_addr_t pgd_pgtable_alloc(int shift)
+>  	else if (shift == PMD_SHIFT)
+>  		BUG_ON(!pagetable_pmd_ctor(ptdesc));
+>  
+> +out:
+>  	return pa;
+>  }
+>  
+
+You have left early_pgtable_alloc() to panic() on allocation failure. Given we
+can now unwind the stack with error code, I think it would be more consistent to
+also allow early_pgtable_alloc() to return error.
+
+Thanks,
+Ryan
+
 
