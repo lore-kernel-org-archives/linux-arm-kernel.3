@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB79C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C7EC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P39uc41+i6CaXnIEhBjbbDAGdQqhn08LxLdHg10hkUw=; b=BElCbdqeaLyYGLUbG1x2Afckt8
-	XzAjBx31upF/VyX4f6Knb41Dm8lS1c4dRx5t7xBflUgyi6VhZe6J95y7Eb8sNuxFzYvBi1lOml4sD
-	YGvVmiYY70Vec1JbeQXwBuigqSDTuT19lxtpwsRc1ivOHCvI6Sj7mOMLhZobjC4/yaClZucblBATD
-	9709fFTQ7jSYQZH7slclOEurhRfGjo50hStuxXTDMlcvSxhAtqJLZZQNmxIVfOewpSk1LbtF0KCJ+
-	OpkJBvA9ITRQlm8yB2jYfF/fnPaRt2QkU/TSeC+8VjMTTVSO97HJFdw8QZj1BT80iO9z352haVahJ
-	2IfrfV1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xhGL/5dP+r7ugB7Q7VSeJZ/+Dft2bf2TUcqfmLnrLYA=; b=FSkU3UTFxl9iOUlVduV8/dxdtb
+	5+uHozUNb9PrngT1IdStpPfTVJxGLT2Wl5Io+mMSoGh5LckX7aCTMTjWa2wg0daI4q+4dPWHvsXRj
+	e7ZfbSDnPdreSuJeTrzubIJIPPlS9Y7sfxyXqINMH+DhiaSRmOQov8AKSTpDrMbC9sSuq8iMHaRvJ
+	71dlwkpTH0JKC/XzR5WpIhh3y5n24YTSQL54cVBsruDtgO62EpYBH6M4ZtpqaPXDwV08WfSb6NmlA
+	f5ccccUKd3riZcRE+U8Hqe+ekEmu5heJkhULJ3P8G6uxsWQyp/CQtVb2LLMSp/o+NLdurX0eck5Gk
+	9zaUeyow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttA35-0000000F3WF-3nDJ;
-	Fri, 14 Mar 2025 18:46:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ttAKA-0000000F5G0-40Mn;
+	Fri, 14 Mar 2025 19:04:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttA0X-0000000F3Je-1eWn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 18:43:46 +0000
+	id 1ttAIV-0000000F51R-0fQ2;
+	Fri, 14 Mar 2025 19:02:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D03C4A48899;
-	Fri, 14 Mar 2025 18:38:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33BE5C4CEE3;
-	Fri, 14 Mar 2025 18:43:42 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	robh@kernel.org,
-	broonie@kernel.org,
-	maz@kernel.org,
-	James Clark <james.clark@linaro.org>
-Cc: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	James Morse <james.morse@arm.com>,
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0EA865C4341;
+	Fri, 14 Mar 2025 19:00:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 355A6C4CEE3;
+	Fri, 14 Mar 2025 19:02:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741978937;
+	bh=6FXnnEH09QAZ8cazzLfIiksMA3P3FtrJqIeAvTlUtZw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ug4sIOBCu/atbRHws0kDAWy+P5JRCWkjk10Zl3FLpFAtgKe9A5Uem7BJTId/TGUOU
+	 j7vwrcb4rZJcwex9/ELOavYmCYBdGo5p0vvWxXrM0E1G4siGrk+myBlWzNZy5umxmq
+	 PEBcZtM8OxpuaFmiPPVS10CjJFTLgFWfMofJK86xa31Ki67vsNJDHlZtIrVCx04EjD
+	 0fGaMIt3VpbtboLeO/oQzxgqVc+vf9FAsjOLzCZcdgiHpF/YYFofa1zJQhV4gU3Cn/
+	 dRqzB5ucYs9eEA2Ohfxd5/tzmh5ky4yShDRLraFXOHwAY8JSO7Hm5x8US02JVWHtEM
+	 bN+S6ZWSr8APg==
+Date: Fri, 14 Mar 2025 20:02:15 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Arnd Bergmann <arnd@arndb.de>, Simon Horman <horms@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/4] arm64/sysreg: Sort sysreg by encoding
-Date: Fri, 14 Mar 2025 18:43:39 +0000
-Message-Id: <174197777060.737113.10729866203138129273.b4-ty@arm.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250115162600.2153226-1-james.clark@linaro.org>
-References: <20250115162600.2153226-1-james.clark@linaro.org>
+Subject: Re: [PATCH] net: airoha: fix CONFIG_DEBUG_FS check
+Message-ID: <Z9R9NxIsMAyUZFYf@lore-desk>
+References: <20250314155009.4114308-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FZYNFFCFDJf0hCka"
+Content-Disposition: inline
+In-Reply-To: <20250314155009.4114308-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_114345_499651_235EC29A 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_120219_253125_42DDF2CC 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,28 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jan 2025 16:25:54 +0000, James Clark wrote:
-> A few small fixes and then sort and ensure sysreg remains sorted due to
-> the discussion here [1].
-> 
-> Applies to next-20250115 for the review but I can repost after rc1.
-> 
-> Changes since v1:
-> 
-> [...]
 
-Applied to arm64 (for-next/sysreg), thanks!
+--FZYNFFCFDJf0hCka
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I'm not convinced about sorting, it makes backporting hard. Most likely
-it would also conflict with other patches already queued. So I only
-applied the first two patches.
+> From: Arnd Bergmann <arnd@arndb.de>
+>=20
+> The #if check causes a build failure when CONFIG_DEBUG_FS is turned
+> off:
+>=20
+> In file included from drivers/net/ethernet/airoha/airoha_eth.c:17:
+> drivers/net/ethernet/airoha/airoha_eth.h:543:5: error: "CONFIG_DEBUG_FS" =
+is not defined, evaluates to 0 [-Werror=3Dundef]
+>   543 | #if CONFIG_DEBUG_FS
+>       |     ^~~~~~~~~~~~~~~
+>=20
+> Replace it with the correct #ifdef.
+>=20
+> Fixes: 3fe15c640f38 ("net: airoha: Introduce PPE debugfs support")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-[1/4] arm64/sysreg: Fix unbalanced closing block
-      https://git.kernel.org/arm64/c/00cb1e01cd29
-[2/4] arm64/sysreg: Enforce whole word match for open/close tokens
-      https://git.kernel.org/arm64/c/2fdbf2ff3884
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
--- 
-Catalin
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index f66b9b736b94..60690b685710 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -540,7 +540,7 @@ void airoha_ppe_deinit(struct airoha_eth *eth);
+>  struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+>  						  u32 hash);
+> =20
+> -#if CONFIG_DEBUG_FS
+> +#ifdef CONFIG_DEBUG_FS
+>  int airoha_ppe_debugfs_init(struct airoha_ppe *ppe);
+>  #else
+>  static inline int airoha_ppe_debugfs_init(struct airoha_ppe *ppe)
+> --=20
+> 2.39.5
+>=20
 
+--FZYNFFCFDJf0hCka
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ9R9NgAKCRA6cBh0uS2t
+rEjOAP9PNYodICfGjmIM6RqqwfDUTqlRvi1GK0wpap1X8ufqJgEAl2iP+EBO7tAb
+SxEklWiXoPTNumH+pUYGDB1aGt621wE=
+=8zdq
+-----END PGP SIGNATURE-----
+
+--FZYNFFCFDJf0hCka--
 
