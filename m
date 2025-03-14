@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3C5C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E02D9C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rsYUkunEA14LX5hAkIEL3nskHcxyQjfpTSg9UpldL1Y=; b=4FHd+aadw+NXA6q5bBfioIIT1I
-	wJFAjCPF6pmkuQiPxQWrgqT/wlr0b5sMZhxHsfx+EIiS/WvjRWI3yui66nG/J0rNniYrtMD1lv7Rd
-	wO7DruRvi9pSohlSrxvTjayLWP6uFWrZptXfiGm+fZrafaSJIKhcpJr2/No9NB4Mda8RvD9oA117L
-	g6G/2KyutEqRIeWRybYasy2Bg0NJ5cu0nE1tLd/WLeKU5jX6rx/07Iq24HrJUgTnXbyLfZ7vP2FxO
-	IHlGUu8EYT0krikaNRiLNmLcdRdmRgirLv5NV1eCyzXJH6juFUgYBCU6+Ss2P7pK80ZiqgaD1XSYG
-	RONlu+mg==;
+	bh=nqtk7IJNV0Jlogzo2grgXmBklKukxwQuYjeZqgeesfY=; b=iDclG28PBu6fxMbJGB55KINrk5
+	59k7CYgFL8S0gzzoDsjYgMoL6sijx57x8JraDG0GQHZQgHzK6aaAD/fuLORSEnO65k3yZ0uZItuKV
+	Yk7+xyZsRteAh+8imbrJLpYlJVUKTE3pN6IZOSYytwzNoXMJQoamTh4jwtktACcXe/7h7YdHcu1uy
+	U3DueIbZWBLLjXltY+g80fC9FayO2B5KVhijZxZ8q7Oxi5TA/2cT5BFN8eYBeIp0WEJsfdJyAEZTh
+	2rJPBYwIOlHUHRLD3x+2qIrDl2wpsGH8rQjHW5s4qO01227hPP/b8HObvVXDQAlsTaroIOIF9EqAp
+	3bS7neXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7iM-0000000EilC-2j2A;
-	Fri, 14 Mar 2025 16:16:50 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tt7k1-0000000EjHD-2zAR;
+	Fri, 14 Mar 2025 16:18:33 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7bX-0000000Egj4-3u2w;
-	Fri, 14 Mar 2025 16:09:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741968568; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LMIiKlEFRL7N9+/imfQ/ARMtn9JFru4merPBSfWzCSvqgh21dPEhUykHGsEGxqLoaPEQnWgmX+iOoG4VbSBjUuR+YmRtQ5aFe+F/3EZKX+rZqFP4CH3pzdtJnDJ0+Y1FMUUpY+yFt99yXwRHxVeJbUCvFgQHdk7mW7u0xp3bK+I=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741968568; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=rsYUkunEA14LX5hAkIEL3nskHcxyQjfpTSg9UpldL1Y=; 
-	b=JO5QXbBXLKDMz+mJxUHm1HnQjcNm3DIiNTk4C2rtLXrYkvAEXu6a9fxhTKJxCFmW2hnyczWiQxE8zzBwAfSQaNakleoXRwgnXMbAuACsamFtSshk1OBYDyTcz8Hr53f6zsBQRgr6u1DlBNteFWjUSRPDNxQKPG4ABfRkHUAM2xE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741968568;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=rsYUkunEA14LX5hAkIEL3nskHcxyQjfpTSg9UpldL1Y=;
-	b=c/I5hwSlMs2R24pybQ1fYH9SEpXp07ix8hd3P/fSCBH4OZSnqcisjn4WP4DvTcTF
-	006odrCwTyuofuinr5ZjX8JfjURc32Hs9PWHYCi29olNVWIGitlSpAeynEdpVwWC2Ya
-	ssASjlNX9w4uW5TbZwLqO02ZAj5zw/xIVw5Ld/vA=
-Received: by mx.zohomail.com with SMTPS id 1741968564767949.3760976982635;
-	Fri, 14 Mar 2025 09:09:24 -0700 (PDT)
-Message-ID: <2c82edc7-fd39-4e81-95b5-f43467fd166f@collabora.com>
-Date: Fri, 14 Mar 2025 13:09:17 -0300
+	id 1tt7hP-0000000EiQt-1uoj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 16:15:52 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5498c742661so2508902e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 09:15:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741968949; x=1742573749; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nqtk7IJNV0Jlogzo2grgXmBklKukxwQuYjeZqgeesfY=;
+        b=a50/V2ctqINRnSvoljbEsJyK7zfn+vRZunL5vY3BITmSKUkZ8j46MUfwdTe/oACkqB
+         n8rYfdldWpGteNqxbGEOgbpv+BTpjnZEFXaKA+LvFS5Fhx6krhE8qpvcYc6LpLokTk4o
+         YAw0Y/UvhE8xor4IwlvqHdX4B1nKL3YlNYVRBTWPcj7XK/8V+36c0nIbvKMDq2hnybYG
+         5mpxtSMbcRaPe9csKe8O1FlNQrP9r05NS8ZXOKnYXkz1Zv05b9WYABDkLTmIz74cQiko
+         IweQJ3AhvgGGd4RprZ3VHfhDgN0g04uLH6FhdTE/dQQLUMHRBNdSfFoeoRgQLA0WbnlM
+         V1CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741968949; x=1742573749;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nqtk7IJNV0Jlogzo2grgXmBklKukxwQuYjeZqgeesfY=;
+        b=w1Zbv6pyuV1mKnoNgUkPrbNnxmq91gcEUlTRuIXcvspQ8YM2EPrs4RNx1WjxlL1McB
+         xx0a8CsWkA0M4H7W+d6TcLuqgp3HMsvhoV1PKaBSsV3wkqphPTFABqvdVICZUrM+GcWK
+         6BMuD0EWkiFIjZFrIAtCeZZWhx4M/q/OhqtnbbDEw1lYlRmCBkN1UbraQc66xu0aO9cs
+         Yf9SmugN8lD05yX+RKacD5wPW2RpqtipyPN2OGir8oM+HhU+YOSFI1EtXvh/HNrfqh1o
+         5iSbhaFzovmmBlttXtGHmz/drg7kk2B6FFAVzs58I/pZ5GfOwMlrXqXWjG5BxGrr8T9n
+         KvAw==
+X-Forwarded-Encrypted: i=1; AJvYcCXJ3P8iz63IaRPWYUIwgPRMM17aPOI6hPteDbaiwvl83yiCmUd6+G/Jmyx2gY7Xq1/oR50RmOK0avy+XmdfMme3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKMZjOSfwGZ5Cy4jsANBow/4n+yByiRCTRKPucjypxYlxIIg9s
+	Xdbwt2aqV+Q9EJPaxfbcVRjfL8u4nho6dRUjim+6VChdh8GFBeQvu82YbRipKgdwyckaVUWmkgY
+	NOmGC6AkOE2WCofcFJ3MabzSGpU8=
+X-Gm-Gg: ASbGncsOP2sy5iQpVX6n+TF96hkKoHYSqWkC35/d3jNErg7k9VLdUFjuRNtquMtzne+
+	ttjYAOi0G4xrqLwXEy6ivuSSkKzW+YoZaQrNH0KiKH06MpewzcrRZjiotbdI1FtUdN0WqhwJGQW
+	55myNWtruZlhoP3OJoq0uD1We6wd6Fw6XAIOUdTydC1eFfn+qGNkWP4OySpA==
+X-Google-Smtp-Source: AGHT+IHs4vHG3o/VoTCk8BvZAkaA4ZWrJ6VUBnc+4V5f4RD13xhlVAn9aENqaNp9snNvosmgj0yTWM/vq8qkdSSAfs8=
+X-Received: by 2002:a05:6512:12c2:b0:549:9078:dd46 with SMTP id
+ 2adb3069b0e04-549c398613emr1113102e87.43.1741968949238; Fri, 14 Mar 2025
+ 09:15:49 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 5/6] drm/panfrost: Enable AARCH64_4K page table format
- on mediatek_mt8188
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Cc: boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, kernel@collabora.com,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- sjoerd@collabora.com
-References: <20250310195921.157511-1-ariel.dalessandro@collabora.com>
- <20250310195921.157511-6-ariel.dalessandro@collabora.com>
- <55b8bc40-0a29-46c2-ba5d-c7cc7742cf5f@collabora.com>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <55b8bc40-0a29-46c2-ba5d-c7cc7742cf5f@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+References: <20250306222359.797855-1-Frank.Li@nxp.com> <CAOMZO5CL-qQSHuSoCtb+f_mqNG8vu4tTVDi-ThoHq+m9SeagxA@mail.gmail.com>
+ <Z8oqhGmVOBCPlJUI@lizhi-Precision-Tower-5810>
+In-Reply-To: <Z8oqhGmVOBCPlJUI@lizhi-Precision-Tower-5810>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Fri, 14 Mar 2025 13:15:37 -0300
+X-Gm-Features: AQ5f1JpU2myyIHkRjTA1o08t3hT9TDTNqBiNNH7ei9kP-eOpdOt4OgxaTqhZts4
+Message-ID: <CAOMZO5A9ggneYjfR=R4kY7DY-BC2pMh+ayiPEtOTOipCdtBWvg@mail.gmail.com>
+Subject: Re: [PATCH] ARM64: dts: imx8mp-evk: add ecspi2 support
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_090948_035615_4B92470E 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250314_091551_492079_AFD7FFBA 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,66 +101,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Angelo,
+On Thu, Mar 6, 2025 at 8:06=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
 
-On 3/11/25 6:09 AM, AngeloGioacchino Del Regno wrote:
-> Il 10/03/25 20:59, Ariel D'Alessandro ha scritto:
->> Now that Panfrost supports AARCH64_4K page table format, let's enable it
->> on Mediatek MT8188.
->>
->> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> ---
->>   drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/ 
->> drm/panfrost/panfrost_drv.c
->> index 0f3935556ac76..d7b8bded6d784 100644
->> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
->> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
->> @@ -824,6 +824,7 @@ static const struct panfrost_compatible 
->> mediatek_mt8188_data = {
->>       .num_pm_domains = ARRAY_SIZE(mediatek_mt8183_pm_domains),
->>       .pm_domain_names = mediatek_mt8183_pm_domains,
->>       .pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
->> +    .gpu_configs = BIT(GPU_CONFIG_AARCH64_4K),
->>   };
->>   static const char * const mediatek_mt8192_supplies[] = { "mali", 
->> NULL };
-> 
-> Didn't that work on MT8195/8395 as well? I also recall hearing that it 
-> was somewhat
-> giving ever-so-slightly better performance?
+> Thanks! It is actually to get spidev. From commit message, I don't know
+> what next steps should be did, use "rohm,bh2228fv" or other method to
+> support spidev?
 
-Running glmark2-es2-drm [0] benchmark, reported the same performance 
-("glmark2 Score") on both configurations, before and after this 
-patchset. Tested on a Mediatek Genio 1200 EVK board.
+You can add a specific spidev entry. Take a look at:
 
-To avoid holding this longer, I'll add it to patchset v2, and let's 
-continue discussion there in any case.
-
-[0] https://github.com/glmark2/glmark2
-
-> 
-> If it does, please enable it on 8195 as well :-)
-> 
-> also s/mediatek_mt8188/MediaTek MT8188/g
-
-Ack.
-
-> 
-> ...and btw
-> Reviewed-by: AngeloGioacchino Del Regno 
-> <angelogioacchino.delregno@collabora.com>
-
-Thanks!
-
--- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
-
+https://web.git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git/commit/=
+?id=3D10254a6c6073b0be171d434a3aeeff0256e59443
+or
+https://web.git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git/commit/=
+?id=3D9783da2384c5623d376e4641bbce9339be1001eb
 
