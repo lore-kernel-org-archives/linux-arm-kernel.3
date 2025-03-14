@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13837C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3820C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 20:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSUTA5z36ql72JekD9ouDmOBEs0+WULpQCq7eoA298E=; b=u5uUyIA79ZQCsAc+gvo+QTuMbQ
-	msKqQIiyuwHrU0U2AnEt2QSnVaMaXdOxYaFyLlNLfbgpwA/EsCZZSuymbZoS2j4JS8uBFwQ5GFjBL
-	zkcl16XzkMYx9r3XF/79LFM/PQlv+fV9k2voXqL4YQjIJ8yd5oGfpGc5EdXe00T2G5tW4His07jiv
-	Z1i+Ds7OufNO80zivmSnOv/HqA8NouMZiqF6oX5NivRuSnNHYlp/yfNagXTbzZ6WQhx1tE9BKTeeI
-	VqwrtkfOih+0krzIjfohGxyRkRtmih98dHz3z2RAedqQi5EsZsX2s2KyOYu21wPZUNCZ4dWN3V2qX
-	7n4Li2Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=27COgGu5PBodqBumQyTkUt8aOA21pd+Sx4lJoxIXQjw=; b=xRjCvfoPTj590eNgPRPOVMA7d0
+	s6rE5WLA9ghGbcf0dVI/FEYwU4HD/nLXqeDF/PGNlhHyJR7CZLtOBUQlaIA5SOwKIM//4jcVU+Skd
+	6mp+sOVPyiXDoHsnQPo38x5rcP1ZGqy5Wn/BGlYVim/rgfkaA+OTrBwh6etRbGugd5qSr48DqMnX4
+	Tn67qDKkBIctyDPRDymfhVJPE7UHMgjRjsrZioIDc7PjUTLA4fCSHRyzTY+zqyj0/IT3lRd3XeBoM
+	n9hHAKdwXEBj2cefFVC8VfrJ1Lb9e4uVCY8w3M2HV9R+BG9VhHzFCZxI28jUmZBqXt9T4U2WjAxDZ
+	w97+XwOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttB2V-0000000F9hB-2QbU;
-	Fri, 14 Mar 2025 19:49:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ttBFo-0000000FAwh-0byc;
+	Fri, 14 Mar 2025 20:03:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAud-0000000F90A-0ioN;
-	Fri, 14 Mar 2025 19:41:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ZSUTA5z36ql72JekD9ouDmOBEs0+WULpQCq7eoA298E=; b=SjdFy+Fq1Mqqp9/ZrB0+kU88+7
-	1r5EbroNgCXtOKvAkjdplUsUIM/zYIsPWcrkuEKXEtUfc4T0or4pxqBqTcFQG4OeGMqCm/LN0NV5h
-	7nybjoweSIZ2WsZN5GDJGnMHW6Ymd6cUBbFAYWSTHEBCCbYbKdasZMh+SV3gd9NCvpXU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ttAuT-005O81-8g; Fri, 14 Mar 2025 20:41:33 +0100
-Date: Fri, 14 Mar 2025 20:41:33 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	id 1ttBE6-0000000FAcC-3qT0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 20:01:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7D7AB5C55F4;
+	Fri, 14 Mar 2025 19:59:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5386C4CEE3;
+	Fri, 14 Mar 2025 20:01:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741982510;
+	bh=I2/xCpzzeaxrkmm7yQ3y21IF5fQqrnzVJEYGyz3cje8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JYRyztuPRhxcAKA69kTgFlLLOKjWM9BARguq+/o6PX8iovbyQUKPzKeTbWJTQJxAs
+	 GadHX53ZubESMMnb7s+6MmPFMKnsU+xpf1EIS0GDHbiKi1qZhavsWNG/jsli0wWvGP
+	 jTcfJgmE/whopTSI09a1X/MUutMDBVnR1438EOYPxFOlvMKVFDeEw3/yWbLe8crwkS
+	 P03s8MbroD/Aqmo2cMPUbwt/Jy1TyTWYZNToGjhSQXBj2eqh/vtYoxvwXihDR10Uet
+	 jNA8eZfodKwEzcTdlGGwbUCQ6xDLbKyEBT6MGRWtNVlo2Rwu5OuwFI8BL/C6VVbdGP
+	 CdjCrP9+6gOfw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Jie Gan <quic_jiegan@quicinc.com>
+Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+	Jinlong Mao <quic_jinlmao@quicinc.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 07/13] net: mdio: regmap: add support for
- multiple valid addr
-Message-ID: <0c6cb801-5592-4449-b776-a337161b3326@lunn.ch>
-References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-8-ansuelsmth@gmail.com>
- <Z83RsW1_bzoEWheo@shell.armlinux.org.uk>
- <67cdd3c9.df0a0220.1c827e.b244@mx.google.com>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: (subset) [PATCH v15 00/10] Coresight: Add Coresight TMC Control Unit driver
+Date: Fri, 14 Mar 2025 15:01:03 -0500
+Message-ID: <174198247887.1604753.1605423266163412383.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250303032931.2500935-1-quic_jiegan@quicinc.com>
+References: <20250303032931.2500935-1-quic_jiegan@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <67cdd3c9.df0a0220.1c827e.b244@mx.google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_124143_213211_0A14D51E 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20250314_130150_993454_D0003D7A 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 06:45:43PM +0100, Christian Marangi wrote:
-> On Sun, Mar 09, 2025 at 05:36:49PM +0000, Russell King (Oracle) wrote:
-> > On Sun, Mar 09, 2025 at 06:26:52PM +0100, Christian Marangi wrote:
-> > > +/* If a non empty valid_addr_mask is passed, PHY address and
-> > > + * read/write register are encoded in the regmap register
-> > > + * by placing the register in the first 16 bits and the PHY address
-> > > + * right after.
-> > > + */
-> > > +#define MDIO_REGMAP_PHY_ADDR		GENMASK(20, 16)
-> > > +#define MDIO_REGMAP_PHY_REG		GENMASK(15, 0)
-> > 
-> > Clause 45 PHYs have 5 bits of PHY address, then 5 bits of mmd address,
-> > and then 16 bits of register address - significant in that order. Can
-> > we adjust the mask for the PHY address later to add the MMD between
-> > the PHY address and register number?
-> >
-> 
-> Honestly to future proof this, I think a good idea might be to add
-> helper to encode these info and use Clause 45 format even for C22.
-> Maybe we can use an extra bit to signal if the format is C22 or C45.
-> 
-> BIT(26) 0: C22 1:C45
-> GENMASK(25, 21) PHY ADDR
-> GENMASK(20, 16) MMD ADDR
-> GENMASK(15, 0) REG
 
-If you look back at older kernels, there was some helpers to do
-something like this, but the C22/C45 was in bit 31. When i cleaned up
-MDIO drivers to have separate C22 and C45 read/write functions, they
-become redundant and they were removed. You might want to bring them
-back again.
+On Mon, 03 Mar 2025 11:29:21 +0800, Jie Gan wrote:
+> From: Jie Gan <jie.gan@oss.qualcomm.com>
+> 
+> The Coresight TMC Control Unit(CTCU) device hosts miscellaneous configuration
+> registers to control various features related to TMC ETR device.
+> 
+> The CTCU device works as a helper device physically connected to the TMC ETR device.
+> ---------------------------------------------------------
+>              |ETR0|             |ETR1|
+>               . \                 / .
+>               .  \               /  .
+>               .   \             /   .
+>               .    \           /    .
+> ---------------------------------------------------
+> ETR0ATID0-ETR0ATID3     CTCU    ETR1ATID0-ETR1ATID3
+> ---------------------------------------------------
+> Each ETR has four ATID registers with 128 bits long in total.
+> e.g. ETR0ATID0-ETR0ATID3 registers are used by ETR0 device.
+> 
+> [...]
 
-	Andrew
+Applied, thanks!
+
+[10/10] arm64: dts: qcom: sa8775p: Add CTCU and ETR nodes
+        commit: 05ed68070d7a061f62f502d07f883c05dc666990
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
