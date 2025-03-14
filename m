@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F25C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927B0C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SueYIwtN34aDecFmdVLLejPK7ADkRNRofT3ZajDoNZo=; b=W5Sx/LCDw5AM7SYujx9RgEFO8H
-	4yo4Lrgn0qeb3mW2dv/PEDKGZppLqVNilPZ3VKcO9ZI5KB2WzpniJkPKeTClk7TQqhBl1x8yCmN3I
-	NKUDzQer/fJWclBVSpyoX4eZ1aPyGAMdul5xklv5i3TABQVEG6607Ak7KLn46OXP1XFBYG/7p+szX
-	d9FNFTtG3/UA68+3A5pJ+Em8W/FItGisYayw7xoz9wEnT1Eh57FIMVbumFVw0c65WEwdR2fXiZLcu
-	/BVFw5nqVHVyu1pk2ghuqgXXpCeh3Z4ioexfrLmZmWJyiza0sN5iwohn7GAUwqUvW4XkoBX6nHOjI
-	76kHHNsQ==;
+	bh=69QxnrDX+ARIIKroQoEvmFo1SyKWNr0b2to7TUKNckk=; b=wXixTHcdO6A6IEO5bE3pncYj2P
+	IW31Gz2nQTxtVWIf2c5hDM7t/LuP9qtMGBCGUFWz23d35tQO6zC9AQlII41tpNeH8qize89+UTtHA
+	LbGM/ZzXmFjdnlCSD9G/eCW2MbYps8tGkJqcIaMYNLMKI0E/07jgKXTn+BC8wdavh/Tjz1JdAMFvU
+	nhUnp4F5kZqNGNTVXkM6ci0rlfNJpKBh+ZJH9RaCPBWFszzz5q02FlvS15/jODJNsIUprFzcCUjt9
+	RWfm4LUE30rbfzrkZPoYscFvrbgESDbleb1co/v8Nmu5nCHAikj5e5obF+lFpxJxEiORPsRUezytH
+	iZEMScCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2rG-0000000DwmC-0Y5T;
-	Fri, 14 Mar 2025 11:05:42 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tt2st-0000000Dx11-3v3S;
+	Fri, 14 Mar 2025 11:07:23 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2g4-0000000DuVJ-09hY
+	id 1tt2hB-0000000Dul1-0yTl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:54:09 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3965c995151so1073527f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 03:54:07 -0700 (PDT)
+	Fri, 14 Mar 2025 10:55:19 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-390f5f48eafso1140167f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 03:55:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741949646; x=1742554446; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741949715; x=1742554515; darn=lists.infradead.org;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=SueYIwtN34aDecFmdVLLejPK7ADkRNRofT3ZajDoNZo=;
-        b=cxnvfuIaaPP9/Amt4W18ndML4ocdD2y6lo+DCB7oIvHaCs/mOHiOcSTSrFfSl68C18
-         tWpRlqUuUjyZzDYV7c5Dm2wDRMfaArDeF+Na71CrzUuo+8veYdGpWSl7/sAZmdpE5rUi
-         zPBmPajgd1CemYPnhra2uBgK3zv4YdztvkPJkgXNIOOAAXQeJiZ3+sIBR01XURwSaRE9
-         FRV3geusUVDgon4PPcD1PmAxCaz6cp851O034HwupNrbwma1MqZbXNDYiwKp8iq6yrxq
-         4dML83ocsB6DnMNnEllEz8zz32/41qR7GlREQ8ftuQw1IGjTIPKPTcCZYy4xMcC0nus+
-         PkLA==
+        bh=69QxnrDX+ARIIKroQoEvmFo1SyKWNr0b2to7TUKNckk=;
+        b=DR+WmssyGBHWmv5ulwt5aCtoVab7wrK7q8i0vKsH2xImAxxS/dNjGwgNvctomckB21
+         5BuiSxRBPd7Sw5y7UCFtG9u+1K6+WF2GM7ZhuJH6TXbAnjbY0VyFVfUaMoTIHddkiydf
+         fSpOA/LWAAtcqMkd+RqbuRrlcm7ygdsZI0NtForJIJHASLIOjPLI/CnooIFkGVFafoQ6
+         NTIhwD6j2bSA+WH0u0ruyb8D6q6nHUBjFHXKObFm56Nb8dEThWtrb5iWv7xwTZ/j0LNp
+         am8aH/2nXAQTW0b3fC2iwgEJTNikn63Ynrx24bOYmEaZfq3gdSiWbc7jaFx6Q3YRMoFx
+         sA1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741949646; x=1742554446;
+        d=1e100.net; s=20230601; t=1741949715; x=1742554515;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SueYIwtN34aDecFmdVLLejPK7ADkRNRofT3ZajDoNZo=;
-        b=eCuudpcPSFJ7yr4g4DjVIK2poEXSi5xbEocczNICLKjvfupNo/YfIrb8lBJMKHT1vS
-         YOWDwkihtOLUrI1aaHPm2wxmBBXBgRvpHhi9VWWvnIn2uMbBbViJ8rlTSfalLiwu1yJs
-         H0aIEy6AOz/fm999OfQfjjLvsL6B55SzpTIiFk2/fmacMlr9AbcXeysXlHocCOdHReK4
-         nJKT6zbdVRO15PHo8gvPk8R5iHTzkBAlqgEUfDYXGoY5gAp5d6/ytVi+ZB6GOAnc13On
-         1uvyB1xyzihW5F/VG61UcjbeHwsrWZ1amBPlwD/lhBWRePBLCTJEdO3Q9KBkTI/RXZ24
-         jdZw==
-X-Gm-Message-State: AOJu0YwJ0f135RxMrkxndLNthRWPT/85k/yLbbymQigDGYjoZlKAZJfz
-	YI3ZazDxNkrnmAuBfj1HE6Zdlm8hkubW/OIc3YgrlnQd3YVhHQTYgtins1bij1I=
-X-Gm-Gg: ASbGncvtiE2182AApCH0bK9UKpBcrw+8RKeobo+YK3S/IruwTu+OQazj8vZuLSVExiq
-	4r8JcLNc7K2weIOdzkhKO4lMasG48e4BcE6I5A7Jrt0+3C+A+5bLUcwHv7Ug6umik44DUWelbSn
-	c2f/qt43Er28X3JXIIJzEC4YTqpQyOaVdCBClH8dlcfYFAO2TB5qTlJ6c3n7kyaGyy81D3G6I/H
-	a+J3Feur9ZANp7C5m9p1hlWsNSJeY6uC+dGFK92jZIXth8gmqi6rbrmAqaHxjRly/uJCAEQwT9B
-	eLSc1mWVmhiF5l+xCqZP8wk0QLjU7fE487n6ERdwr7yE30f/bA==
-X-Google-Smtp-Source: AGHT+IEACPU91gBpeFuuxQpAkQpgEGbE5KgvAJiimxZO969gaBd9V+wUWXBVsmKmnFpnT8PzS+EZIw==
-X-Received: by 2002:adf:9bc4:0:b0:391:4052:a232 with SMTP id ffacd0b85a97d-3971f7f9ac2mr2041595f8f.55.1741949646352;
-        Fri, 14 Mar 2025 03:54:06 -0700 (PDT)
+        bh=69QxnrDX+ARIIKroQoEvmFo1SyKWNr0b2to7TUKNckk=;
+        b=WYW0T+dfCWLy54oyNif5U8llW3rZhHWWlUCJUMvyypInjx7ETsW3+wLwwVi7at9Gy0
+         0r6lwqCHv9W82/Itx0Uf9FtlpHY2kBWHWUJMoRnPT56mv9ydsZhgl6QRDFoUa/iEESB2
+         k6iMEFNQPYSRlIccUfHaJjbphMk0Y+y+EX26DLOFtBWgdrEh4zZO1V+h9RxfYLF6Pela
+         hvnUM4uVm5sjpdHOWe1hsDCs+6cha2Pojk9y/MwJ+x61fkpvJh3XRGb9LgZFS9BW/HsV
+         mv7uRF7h+Bzx+KvxzM8g0JN9zhs18uMlRGJEXOWF5KgyshywfUWUcXsbPd3dNtPteTx8
+         oN4A==
+X-Forwarded-Encrypted: i=1; AJvYcCWIlX7NtW7dgCokQ3h2dHLqupJRlYOJ0ySlRSnsi42So5dnu7kZZDsC2YQYiDAWNXlGz7J0KSTonjg4Va3xJE/j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/oT2IC2FuGF6pI6BulQ+3jvHMH9PM8fklI6WWpBiTZee7a+24
+	8cTlj3Md2CEAU65JPLwqQJskunbzvpmSawJ71pODdmVDwAl/rS4MESXE+TpdP6M=
+X-Gm-Gg: ASbGncuP053qqjpjnmHxJO3zaokTs8y9w+hidaTRGN5i2oXRZpZ2AimWmyTewscGuH8
+	lidkh7eLahnOCsN2YJ527GWUixbnDa9Q686wMkIEoraUwUziOd/vdT7Cb7KHV0ObaYMtlt6e+xy
+	CA7qtQony9iutUr+3m3c7JsRG512j0jJsOQwBhnoqxMBTdejITw3QN3lWBDBoeIz/Qp3jR2DtPl
+	jO9Ibl/1urNTxV1uED31ehNlQw1ubbgRWXcbtFtqPEGCPi30eR3ubzhhHEYOMy939YmLP2FkbB8
+	NfyXIHYPaD18jIV/0E5tCv7nSwGj3aGdkNE26cBHYs0wIEl0WA==
+X-Google-Smtp-Source: AGHT+IFIUbmEzg8hVlyMnrgTdM6eNUAOtW5/W1qBKD80PS2iZfgCvSTaSkNrtRfyXIH2NLPpshVzkw==
+X-Received: by 2002:a5d:47a3:0:b0:390:e9ea:59a with SMTP id ffacd0b85a97d-3971d03e612mr2341760f8f.5.1741949715472;
+        Fri, 14 Mar 2025 03:55:15 -0700 (PDT)
 Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d1fd6b2acsm14141035e9.0.2025.03.14.03.54.05
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d1fe74f4asm8461655e9.1.2025.03.14.03.55.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 03:54:05 -0700 (PDT)
-Date: Fri, 14 Mar 2025 13:54:01 +0300
+        Fri, 14 Mar 2025 03:55:15 -0700 (PDT)
+Date: Fri, 14 Mar 2025 13:55:10 +0300
 From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: [bug report] arm64/mm: Clear PXX_TYPE_MASK and set PXD_TYPE_SECT in
- [pmd|pud]_mkhuge()
-Message-ID: <d7902504-1ed4-452f-9b08-148f6b8b69fd@stanley.mountain>
+To: Jie Gan <quic_jiegan@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH next] Coresight: Fix a NULL vs IS_ERR() bug in probe
+Message-ID: <dab039b9-d58a-41be-92f0-ff209cfabfe2@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_035408_076335_6FEE96A5 
-X-CRM114-Status: UNSURE (   6.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_035517_282665_820C4634 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,33 +98,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Anshuman Khandual,
+The devm_platform_get_and_ioremap_resource() function doesn't
+return NULL, it returns error pointers.  Update the checking to
+match.
 
-Commit 1601df9e366e ("arm64/mm: Clear PXX_TYPE_MASK and set
-PXD_TYPE_SECT in [pmd|pud]_mkhuge()") from Feb 21, 2025 (linux-next),
-leads to the following (unpublished) Smatch static checker warning:
+Fixes: f78d206f3d73 ("Coresight: Add Coresight TMC Control Unit driver")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/hwtracing/coresight/coresight-ctcu-core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-arch/arm64/include/asm/pgtable.h:587 pmd_mkhuge() warn: odd binop '0x1 & 0xfffffffffffffffe'
-arch/arm64/include/asm/pgtable.h:626 pud_mkhuge() warn: odd binop '0x1 & 0xfffffffffffffffe'
+diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+index da35d8b4d579..c6bafc96db96 100644
+--- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
++++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+@@ -204,8 +204,8 @@ static int ctcu_probe(struct platform_device *pdev)
+ 	dev->platform_data = pdata;
+ 
+ 	base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
+-	if (!base)
+-		return -ENOMEM;
++	if (IS_ERR(base))
++		return PTR_ERR(base);
+ 
+ 	drvdata->apb_clk = coresight_get_enable_apb_pclk(dev);
+ 	if (IS_ERR(drvdata->apb_clk))
+-- 
+2.47.2
 
-arch/arm64/include/asm/pgtable.h
-    579 static inline pmd_t pmd_mkhuge(pmd_t pmd)
-    580 {
-    581         /*
-    582          * It's possible that the pmd is present-invalid on entry
-    583          * and in that case it needs to remain present-invalid on
-    584          * exit. So ensure the VALID bit does not get modified.
-    585          */
-    586         pmdval_t mask = PMD_TYPE_MASK & ~PTE_VALID;
---> 587         pmdval_t val = PMD_TYPE_SECT & ~PTE_VALID;
-
-This is "1 & ~1".  I see the comment, but I'm too stupid to know even
-after reading he comment whether it's intentional or not.  :P
-
-    588 
-    589         return __pmd((pmd_val(pmd) & ~mask) | val);
-    590 }
-
-regards,
-dan carpenter
 
