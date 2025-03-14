@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C978C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AF5C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rXJyhLZM0wQnuMA6BY86fx7l1XvsG57/1opLs9TF2k0=; b=S2v2PQOuKDrb0o80v0LJH0+lOZ
-	O6dIFcNt//4lgViMoe5VJ6B2NO8mRzM+L/C7vbmb4FGxP7pNSz6Vs/h5x32MTPYR4TOokjH0/jtk6
-	B5NPDTaguyl9F1DIuduWqVaMt7PzxuBbjr5fKN1asilfmqPnFF+ko5s+g6iNscLyB6VMmCzhdTQsO
-	uSK1m+0cfQkyBoE4QZvdnvHZJPiUZoEwLCFzGFOp1Mdc68KC+ywlel/z5iC8JpEyOPqSegCuvqoxy
-	4rv+LFtWEy/5/kLCQiM1f7R1pCFf99rMz/yLLHW0M7lAKp68cNNiN9ICLU7z2ubi8aEstzUQfrWXr
-	pULDzLwA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lu+QUDsHnKE/Syu77Ecp814Qglbn8gBdxsQityr+Uto=; b=aZi2TftRrlhVFLu49lNb1N+dMQ
+	Vavgb7Qy9k/eKFM7Y/o+38DKlzuJXYol/Rv38vTtYlrfHWEAOFCM3JdRwFQq15U4Maty2Cin69YyZ
+	ADpmj8Lh9abAck7S6SZg1dOZzvS5e1mgx7xyZuxW/Q/LCMdYWn9/FdL2Q8lXvyBEEsc20p43g3D0j
+	eedG3lg6+A91v+B7itgCsDXOECaF2Mw8igvMqGzBOmtKo8e1R3eorw03ASRbSBslvE7ujHv4u6Viy
+	1cC4IOoISpJNpFNLh53iPkKIrEogLm8BzOncl9IJi+oidFm4Y5huyBpOg6GQiLgZPCxkkYKFk9/Fm
+	c8FJ0AJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7YQ-0000000EfoX-0wdv;
-	Fri, 14 Mar 2025 16:06:34 +0000
-Received: from 003.mia.mailroute.net ([199.89.3.6])
+	id 1tt7a3-0000000Eg8T-3mc9;
+	Fri, 14 Mar 2025 16:08:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7TO-0000000EevS-2WMP
+	id 1tt7Us-0000000EfB0-1Fgq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 16:01:23 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 003.mia.mailroute.net (Postfix) with ESMTP id 4ZDpxw2lf2zlxdd0;
-	Fri, 14 Mar 2025 16:01:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1741968065; x=1744560066; bh=rXJyhLZM0wQnuMA6BY86fx7l
-	1XvsG57/1opLs9TF2k0=; b=aEo7PzKDFvqEu1SpnvxvHFFD23HwXN7o7B14pn+T
-	nkwZ6O9nOQH4aWdeR8HCx33d5yIF/mdttl6f8EPzQkHK89SXd4Aho16S0ZythcsP
-	cA55cJMCbIm1djaeOSyu/7qaO7aeA1833OZRGaX9DadZ5HxBo1TI1cr9soH9bfHD
-	wnaUbzJ0XHfIC70bsVsj8EiPqpvZcUoYWhej0mi5Gfl2aT+H6gq9VNVScFj+5d+n
-	lzoAfEyyK0aWgBiIJ0MXXoOJ/s9zttde3/k41PbTePU2bK2JJoKHnHnf5CLeSXOU
-	60V4UHspkVUPt/ftllQT+ZYtSTbT+s52m5FjnGxjdmKcPw==
-X-Virus-Scanned: by MailRoute
-Received: from 003.mia.mailroute.net ([127.0.0.1])
- by localhost (003.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id DP3PM_usb6m4; Fri, 14 Mar 2025 16:01:05 +0000 (UTC)
-Received: from [100.66.154.22] (unknown [104.135.204.82])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 003.mia.mailroute.net (Postfix) with ESMTPSA id 4ZDpxW0567zlfdj2;
-	Fri, 14 Mar 2025 16:00:46 +0000 (UTC)
-Message-ID: <0d7a8cad-adfc-4cac-bcc6-65d1f9c86b43@acm.org>
-Date: Fri, 14 Mar 2025 09:00:45 -0700
+	Fri, 14 Mar 2025 16:02:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 00C195C1D1E;
+	Fri, 14 Mar 2025 16:00:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 803CFC4CEE9;
+	Fri, 14 Mar 2025 16:02:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741968173;
+	bh=2xfK40kbAsq1KvSui06/jpf2SUEyYwHkDTzV9ntlS0E=;
+	h=From:To:Cc:Subject:Date:From;
+	b=NwAIwXPA5LFcIGfs/bRsgeS29k96CBCEM5nbbzJuvRLWiyQYt3rykJ48fbgDzQ4h+
+	 dK5u8r9V4Ee5/y1NQs8aHLSzT00O9fYt03Ryl/fN2Oj3OMa5XNtYYNt9JJ0muwTSdR
+	 /MXZloiB9t3j0LdunViaOvQrids/JmMppD1Q9DdA+L7qM1Mr/lKS63K0FZ294Zgg+e
+	 n5VWtTs9xkuvnxnxouvylTWiPpD++qr7929bLwS4kxC38MLOgLWTRQPorjIPZjTYY1
+	 2dClBdjtIEOBybXRJhhp9zobqDT6wXGMklWdgHYkfaq8adhrbHNM+T+wwGfJIwgk5n
+	 /feX1H8EpT2Mw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] watchdog: aspeed: fix 64-bit division
+Date: Fri, 14 Mar 2025 17:02:44 +0100
+Message-Id: <20250314160248.502324-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Add dma-coherent for gs101 UFS dt node
-To: Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Avri Altman <avri.altman@wdc.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-scsi@vger.kernel.org, kernel-team@android.com,
- willmcvicker@google.com, stable@vger.kernel.org
-References: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_090122_705791_F4A4B78F 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_090254_378962_6A013A41 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,14 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/14/25 8:38 AM, Peter Griffin wrote:
-> ufs-exynos driver enables the shareability option for gs101 which
-> means the descriptors need to be allocated as cacheable.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Shouldn't that code be modified such that the shareability option is
-only set if the dma-coherent property is present in the device tree?
+On 32-bit architectures, the new calculation causes a build failure:
 
-Thanks,
+ld.lld-21: error: undefined symbol: __aeabi_uldivmod
 
-Bart.
+Since neither value is ever larger than a register, cast both
+sides into a uintptr_t.
+
+Fixes: 5c03f9f4d362 ("watchdog: aspeed: Update bootstatus handling")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/watchdog/aspeed_wdt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
+index 369635b38ca0..837e15701c0e 100644
+--- a/drivers/watchdog/aspeed_wdt.c
++++ b/drivers/watchdog/aspeed_wdt.c
+@@ -254,7 +254,7 @@ static void aspeed_wdt_update_bootstatus(struct platform_device *pdev,
+ 
+ 	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
+ 		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-		idx = ((intptr_t)wdt->base & 0x00000fff) / resource_size(res);
++		idx = ((intptr_t)wdt->base & 0x00000fff) / (uintptr_t)resource_size(res);
+ 	}
+ 
+ 	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
+-- 
+2.39.5
+
 
