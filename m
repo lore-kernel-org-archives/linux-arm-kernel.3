@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C7EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0D6C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhGL/5dP+r7ugB7Q7VSeJZ/+Dft2bf2TUcqfmLnrLYA=; b=FSkU3UTFxl9iOUlVduV8/dxdtb
-	5+uHozUNb9PrngT1IdStpPfTVJxGLT2Wl5Io+mMSoGh5LckX7aCTMTjWa2wg0daI4q+4dPWHvsXRj
-	e7ZfbSDnPdreSuJeTrzubIJIPPlS9Y7sfxyXqINMH+DhiaSRmOQov8AKSTpDrMbC9sSuq8iMHaRvJ
-	71dlwkpTH0JKC/XzR5WpIhh3y5n24YTSQL54cVBsruDtgO62EpYBH6M4ZtpqaPXDwV08WfSb6NmlA
-	f5ccccUKd3riZcRE+U8Hqe+ekEmu5heJkhULJ3P8G6uxsWQyp/CQtVb2LLMSp/o+NLdurX0eck5Gk
-	9zaUeyow==;
+	bh=14q1zuoC/RYgpg42ycjqCS4ie1FHZTJiWO21vFg6qTk=; b=ABEaiTxAUuiV5pajo2fvMqtw2H
+	J4zjhYDES0V86XFBk8bzxHeZqy6pdPDo2aEhuDodaq1D5EChLwcHsCYtvS/EEDOkPG77D8Ykqti59
+	jKGUjcl3Csc/tusX45FlCBa5c+xRpMvFyymBHTluvAUCkN+os0TN74ekHzXjcKePg2RvDrlp5jMeE
+	odgEAaXNTy10rNHX6WsiA1WdYdHQ9Zh1gE4pJbDKh4+ga5UBaDoUDR9zA4FvRPxR1TFepc1szOhYi
+	uP/jnfi/e9hueNOTZ62LqqYi3cWjQg1QT6ICcSIElizicKjxMiwc+AOFJbK7S44YnEwCiWKAf6SAL
+	kBO5Iz8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAKA-0000000F5G0-40Mn;
-	Fri, 14 Mar 2025 19:04:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ttAYf-0000000F6Lf-0Eq7;
+	Fri, 14 Mar 2025 19:19:01 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAIV-0000000F51R-0fQ2;
-	Fri, 14 Mar 2025 19:02:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0EA865C4341;
-	Fri, 14 Mar 2025 19:00:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 355A6C4CEE3;
-	Fri, 14 Mar 2025 19:02:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741978937;
-	bh=6FXnnEH09QAZ8cazzLfIiksMA3P3FtrJqIeAvTlUtZw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ug4sIOBCu/atbRHws0kDAWy+P5JRCWkjk10Zl3FLpFAtgKe9A5Uem7BJTId/TGUOU
-	 j7vwrcb4rZJcwex9/ELOavYmCYBdGo5p0vvWxXrM0E1G4siGrk+myBlWzNZy5umxmq
-	 PEBcZtM8OxpuaFmiPPVS10CjJFTLgFWfMofJK86xa31Ki67vsNJDHlZtIrVCx04EjD
-	 0fGaMIt3VpbtboLeO/oQzxgqVc+vf9FAsjOLzCZcdgiHpF/YYFofa1zJQhV4gU3Cn/
-	 dRqzB5ucYs9eEA2Ohfxd5/tzmh5ky4yShDRLraFXOHwAY8JSO7Hm5x8US02JVWHtEM
-	 bN+S6ZWSr8APg==
-Date: Fri, 14 Mar 2025 20:02:15 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	id 1ttAWz-0000000F6Eb-0w2w;
+	Fri, 14 Mar 2025 19:17:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=14q1zuoC/RYgpg42ycjqCS4ie1FHZTJiWO21vFg6qTk=; b=Axg7LZJgdNjewBL3JmJdJjRst/
+	x+jKPP3zJ0C+xYYh9xUgnBH1pROTkSJ0lR28U4q6kclRSU7gfyGVxoJEzNWkYluenQIkMYN/tHsEs
+	jwlKbjzT8MOPsstAZgrAr7deVqqDqD2BHYSVuejuSKEG/zgHZE3gFV9+gIuUwKuX9gtA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ttAWg-005Nnw-Nm; Fri, 14 Mar 2025 20:16:58 +0100
+Date: Fri, 14 Mar 2025 20:16:58 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>, Simon Horman <horms@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: airoha: fix CONFIG_DEBUG_FS check
-Message-ID: <Z9R9NxIsMAyUZFYf@lore-desk>
-References: <20250314155009.4114308-1-arnd@kernel.org>
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v12 09/13] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+Message-ID: <2253e19b-2115-441e-b78a-3c10d61f2fad@lunn.ch>
+References: <20250309172717.9067-1-ansuelsmth@gmail.com>
+ <20250309172717.9067-10-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FZYNFFCFDJf0hCka"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250314155009.4114308-1-arnd@kernel.org>
+In-Reply-To: <20250309172717.9067-10-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_120219_253125_42DDF2CC 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250314_121717_262993_E18F860B 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +static int an8855_mii_set_page(struct an8855_mfd_priv *priv, u8 phy_id,
 
---FZYNFFCFDJf0hCka
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+phy_id is a bit of an odd name. __mdiobus_write() expects addr, since
+at this level, it is just a device on a bus. We have no idea if it is
+a PHY, or an Ethernet switch, or anything else.
 
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> The #if check causes a build failure when CONFIG_DEBUG_FS is turned
-> off:
->=20
-> In file included from drivers/net/ethernet/airoha/airoha_eth.c:17:
-> drivers/net/ethernet/airoha/airoha_eth.h:543:5: error: "CONFIG_DEBUG_FS" =
-is not defined, evaluates to 0 [-Werror=3Dundef]
->   543 | #if CONFIG_DEBUG_FS
->       |     ^~~~~~~~~~~~~~~
->=20
-> Replace it with the correct #ifdef.
->=20
-> Fixes: 3fe15c640f38 ("net: airoha: Introduce PPE debugfs support")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> +			       u8 page) __must_hold(&priv->bus->mdio_lock)
+> +{
+> +	struct mii_bus *bus = priv->bus;
+> +	int ret;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PHY_SELECT_PAGE, page);
+> +	if (ret < 0)
+> +		dev_err_ratelimited(&bus->dev,
+> +				    "failed to set an8855 mii page\n");
+> +
+> +	/* Cache current page if next mii read/write is for switch */
+> +	priv->current_page = page;
+> +	return ret < 0 ? ret : 0;
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+__mdiobus_write() should only return -ve error code, or 0. So you
+don't need this.
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index f66b9b736b94..60690b685710 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -540,7 +540,7 @@ void airoha_ppe_deinit(struct airoha_eth *eth);
->  struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
->  						  u32 hash);
-> =20
-> -#if CONFIG_DEBUG_FS
-> +#ifdef CONFIG_DEBUG_FS
->  int airoha_ppe_debugfs_init(struct airoha_ppe *ppe);
->  #else
->  static inline int airoha_ppe_debugfs_init(struct airoha_ppe *ppe)
-> --=20
-> 2.39.5
->=20
-
---FZYNFFCFDJf0hCka
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ9R9NgAKCRA6cBh0uS2t
-rEjOAP9PNYodICfGjmIM6RqqwfDUTqlRvi1GK0wpap1X8ufqJgEAl2iP+EBO7tAb
-SxEklWiXoPTNumH+pUYGDB1aGt621wE=
-=8zdq
------END PGP SIGNATURE-----
-
---FZYNFFCFDJf0hCka--
+	Andrew
 
