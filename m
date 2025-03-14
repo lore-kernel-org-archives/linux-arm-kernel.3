@@ -4,43 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9758AC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13837C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9UiPlgUHg/BOEsx5e3OD0q6bWRlSXKycrwmYgrT/Zs=; b=yqh3o1g4mbMJPoCUOXcwkhDCZ8
-	F4OviMKfubK7oETeM8wKsY5O4MEkzhXcs/gs5NlnRPoETjYM+GpbcrWnMHy00z6eOzXfBQ0iAUMUj
-	1qDDdBrRRqyB4yp+KRId5iWAsVgukrSsRuWWLhvYrod0IDRMC7jv6X36sGiZbeLIgWL6kgOyz6cgr
-	BC7hw7WWgpvzD1HkZP1g6iwrUsf+3DTd/iIMOhVVs5weJoW5SHawoWbtd9jAkcFsXhA8lMBeEmiKb
-	+ispRZQrGeSt8YgoD7zJYOehXhjdrjMSA1rVbhEZZ7lqYsztwhwNiwehQcur9jF+i01LlgTZpRor9
-	x10cArzg==;
+	bh=ZSUTA5z36ql72JekD9ouDmOBEs0+WULpQCq7eoA298E=; b=u5uUyIA79ZQCsAc+gvo+QTuMbQ
+	msKqQIiyuwHrU0U2AnEt2QSnVaMaXdOxYaFyLlNLfbgpwA/EsCZZSuymbZoS2j4JS8uBFwQ5GFjBL
+	zkcl16XzkMYx9r3XF/79LFM/PQlv+fV9k2voXqL4YQjIJ8yd5oGfpGc5EdXe00T2G5tW4His07jiv
+	Z1i+Ds7OufNO80zivmSnOv/HqA8NouMZiqF6oX5NivRuSnNHYlp/yfNagXTbzZ6WQhx1tE9BKTeeI
+	VqwrtkfOih+0krzIjfohGxyRkRtmih98dHz3z2RAedqQi5EsZsX2s2KyOYu21wPZUNCZ4dWN3V2qX
+	7n4Li2Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttB0r-0000000F9XY-2W7Z;
-	Fri, 14 Mar 2025 19:48:09 +0000
+	id 1ttB2V-0000000F9hB-2QbU;
+	Fri, 14 Mar 2025 19:49:51 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAoI-0000000F8Pn-0GbY;
-	Fri, 14 Mar 2025 19:35:11 +0000
+	id 1ttAud-0000000F90A-0ioN;
+	Fri, 14 Mar 2025 19:41:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=g9UiPlgUHg/BOEsx5e3OD0q6bWRlSXKycrwmYgrT/Zs=; b=pQoRp/7P+Sr7BTNSui6T0CDG8p
-	jN222Pv7h5IjEgKbvugzirzqLvVNQUI9zxKCuJIeyOnNOM4SE0lQy1k1Zc8iKo83nf1vgblKfhqrR
-	96eHsQOxH+/mIY+dWa/H8z+bNST8C3BjfhE2kQhKlbB4jiUFe6KMtd9B3Kh7wvibDh68=;
+	bh=ZSUTA5z36ql72JekD9ouDmOBEs0+WULpQCq7eoA298E=; b=SjdFy+Fq1Mqqp9/ZrB0+kU88+7
+	1r5EbroNgCXtOKvAkjdplUsUIM/zYIsPWcrkuEKXEtUfc4T0or4pxqBqTcFQG4OeGMqCm/LN0NV5h
+	7nybjoweSIZ2WsZN5GDJGnMHW6Ymd6cUBbFAYWSTHEBCCbYbKdasZMh+SV3gd9NCvpXU=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1ttAo6-005O1r-Na; Fri, 14 Mar 2025 20:34:58 +0100
-Date: Fri, 14 Mar 2025 20:34:58 +0100
+	id 1ttAuT-005O81-8g; Fri, 14 Mar 2025 20:41:33 +0100
+Date: Fri, 14 Mar 2025 20:41:33 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Lee Jones <lee@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, Rob Herring <robh@kernel.org>,
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -50,7 +51,6 @@ Cc: Christian Marangi <ansuelsmth@gmail.com>, Rob Herring <robh@kernel.org>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
 	Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -58,19 +58,20 @@ Cc: Christian Marangi <ansuelsmth@gmail.com>, Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 09/13] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-Message-ID: <49d2cfed-cb31-438d-9736-6d8e0bb24041@lunn.ch>
+Subject: Re: [net-next PATCH v12 07/13] net: mdio: regmap: add support for
+ multiple valid addr
+Message-ID: <0c6cb801-5592-4449-b776-a337161b3326@lunn.ch>
 References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-10-ansuelsmth@gmail.com>
- <20250314113551.GK3890718@google.com>
+ <20250309172717.9067-8-ansuelsmth@gmail.com>
+ <Z83RsW1_bzoEWheo@shell.armlinux.org.uk>
+ <67cdd3c9.df0a0220.1c827e.b244@mx.google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250314113551.GK3890718@google.com>
+In-Reply-To: <67cdd3c9.df0a0220.1c827e.b244@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_123510_100127_430FCC6B 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20250314_124143_213211_0A14D51E 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,66 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +static int an8855_mii_set_page(struct an8855_mfd_priv *priv, u8 phy_id,
-> > +			       u8 page) __must_hold(&priv->bus->mdio_lock)
-> > +{
-> > +	struct mii_bus *bus = priv->bus;
-> > +	int ret;
-> > +
-> > +	ret = __mdiobus_write(bus, phy_id, AN8855_PHY_SELECT_PAGE, page);
+On Sun, Mar 09, 2025 at 06:45:43PM +0100, Christian Marangi wrote:
+> On Sun, Mar 09, 2025 at 05:36:49PM +0000, Russell King (Oracle) wrote:
+> > On Sun, Mar 09, 2025 at 06:26:52PM +0100, Christian Marangi wrote:
+> > > +/* If a non empty valid_addr_mask is passed, PHY address and
+> > > + * read/write register are encoded in the regmap register
+> > > + * by placing the register in the first 16 bits and the PHY address
+> > > + * right after.
+> > > + */
+> > > +#define MDIO_REGMAP_PHY_ADDR		GENMASK(20, 16)
+> > > +#define MDIO_REGMAP_PHY_REG		GENMASK(15, 0)
+> > 
+> > Clause 45 PHYs have 5 bits of PHY address, then 5 bits of mmd address,
+> > and then 16 bits of register address - significant in that order. Can
+> > we adjust the mask for the PHY address later to add the MMD between
+> > the PHY address and register number?
+> >
 > 
-> Calling functions with '__' is a red flag.
-
-In this case, it is correct. It was probably a bad decision to call
-this __mdiobus_write() in the first place, but we were not expecting
-it to be used in real driver code, just in core code, where calls to
-it are wrapped with a mutex lock/unlock.
-
-But drivers started to need to perform multiple read/write operations
-in an atomic sequence, so they started doing there own taking of the
-lock, and using these unlocked low level helpers.
-
-We should probably rename __mdiobus_write() to _mdiobus_write() to
-avoid compiler namespace issues.
-
-> > +	if (ret < 0)
-> > +		dev_err_ratelimited(&bus->dev,
-> > +				    "failed to set an8855 mii page\n");
+> Honestly to future proof this, I think a good idea might be to add
+> helper to encode these info and use Clause 45 format even for C22.
+> Maybe we can use an extra bit to signal if the format is C22 or C45.
 > 
-> Use 100-chars if it avoids these kind of line breaks.
+> BIT(26) 0: C22 1:C45
+> GENMASK(25, 21) PHY ADDR
+> GENMASK(20, 16) MMD ADDR
+> GENMASK(15, 0) REG
 
-I _guess_ the code is following networking coding style, even though
-it is outside of normal networking directories. netdev keeps with the
-old 80 limit.
-
-> > +static int an8855_regmap_read(void *ctx, uint32_t reg, uint32_t *val)
-> > +{
-> > +	struct an8855_mfd_priv *priv = ctx;
-> > +	struct mii_bus *bus = priv->bus;
-> > +	u16 addr = priv->switch_addr;
-> > +	int ret;
-> > +
-> > +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-> 
-> guard()?
-
-netdev people consider guard() too magical. scoped_guard() is however
-O.K.
-
-> > +	return ret < 0 ? ret : 0;
-> 
-> Doesn't the caller already expect possible >0 results?
-
-It should not happen. Networking has a very small number of functions
-which do return 1 on a different sort of success. Such functions are
-generally called foo_changed(), e.g. mdiobus_modify_changed(). This
-will do a read/modify/write. If it did not need to modify anything,
-because of the current value, it will return 0. If something did
-actually change, it returns 1. If something did actually change, you
-sometimes need to take further actions. But many callers don't care,
-so we have wrappers e.g. mdiobus_modify() calls
-mdiobus_modify_changed() and then converts 0 or 1 to just 0. I'm
-guessing this code copied such a helper when it should not of done.
+If you look back at older kernels, there was some helpers to do
+something like this, but the C22/C45 was in bit 31. When i cleaned up
+MDIO drivers to have separate C22 and C45 read/write functions, they
+become redundant and they were removed. You might want to bring them
+back again.
 
 	Andrew
 
