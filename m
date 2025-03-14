@@ -4,115 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2C0C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CCCC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ku1DsPZ+JRAHmMFKc2X0Q+SuZg2TwwtqR+7wXSSn8c=; b=Pi8/IAFsyAaU2JoQju1cI//y9/
-	M0MZ3mqTLGq1yaDWFoAQGsLfamIPgCgWYETyXgIYZstIuwVv+qXMTov90GLoznI0ey8NbGJJTbCuw
-	t5fS6UhS8k37OitTddEd4Nmc+Cys9invMAYoB6C0cUTavV8RwU2y4OMOZNX2KUF+hO2zNA0qk5MvQ
-	DPE7MFjm34Nhz5nAr2K8KY313gSuOFBIu6vSJQe7wK1dF8LOo3tO971zTFKGZUy2FS9rYuVAlIlI4
-	eqyH/EqcCiR008jwcf6VcQTIHkBnSsnnvcx9oTnZkAyBwt5bb9HNel0fHH8/ERwe0/MwvtHzi0c15
-	nNXY6LCw==;
+	bh=PBq11ylwu5R382gZxqzXZy+KZY3NpzkBPWG/tVivh9M=; b=jE3PgkqEgdSS79siC4IuXK2cBp
+	tixmzIUjelKKCTHIMCNlLA6J6DstjgQeMrbDGmsOwlPUiMrDB/2zH34IW4LFpbyvuorVNfKfM6vnC
+	mafOCr2cbhntBjTMrwE6nKdS+OM3nvMWhrwsRrvg71VCzRBhmXtj7TLxqesNXq6MgW2q6b+Xydvlv
+	K1HKY3YpJ1kPcpLofqNK1Qx6xanb+Lr8dPNxBVosYvhDz32zS3TiZ+T5QlcQu0WDeHPljmd03eo0m
+	tadxA8Z2crQs7111lYOX1JJh2PJ8vnZa2E/BT5KIbiF8pm+RX+o8zd/xmTMaL5+o+Mpq1FFnJ09sK
+	iv5Bmbyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2fi-0000000DuM0-25Kz;
-	Fri, 14 Mar 2025 10:53:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tt2hN-0000000Duoy-3kwi;
+	Fri, 14 Mar 2025 10:55:29 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2L4-0000000DrDJ-1aS4;
-	Fri, 14 Mar 2025 10:32:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E0A255C6236;
-	Fri, 14 Mar 2025 10:30:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA27CC4CEE3;
-	Fri, 14 Mar 2025 10:32:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741948345;
-	bh=fNvNDqVEbRp/SUOH8DN2J2EdftYPKxBHy32M6zxTM9I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=naYBomTgPGZbIg5N19AAYOb4jjzvS+OurVkqTiN/o2E46M+WWwbK0wxDrB+w0AaP6
-	 dCQS3tL9/Pi68+rBvn4AsggnZgUvPpvuZzwZUpI6zGeUrq4EUbKfRFl9T4P2HAwBW5
-	 1C6425kADzUzfterlxQMykmGE6TAJCzwzoR+SFw4Ia9u6ztyjq2/lcgZoth6SNNpPR
-	 gNwcnWZ/Fh6MvKLIecXyoJsh7YrncAol26Hi2GCBdZQJOMQ5OQ7FknBUJJmos43YL7
-	 rHVuaG6/0EC0u2Y61LYPUl8EBLhoV1/u8XjYm5bBA3jQOYY/zrQJbf5gAGB7TX/PVi
-	 OaqO+q556XM0g==
-Message-ID: <19ddb133-7f11-4c1b-b0e1-91523d42040c@kernel.org>
-Date: Fri, 14 Mar 2025 11:32:13 +0100
+	id 1tt2OV-0000000Ds0C-35SK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 10:36:00 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-549b159c84cso1929656e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 03:35:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741948558; x=1742553358; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PBq11ylwu5R382gZxqzXZy+KZY3NpzkBPWG/tVivh9M=;
+        b=iMS6uas5hg1aRHYVsy1DBdE/UqVbwKdjbJKXk2mQuxyiZWeXMWhvhEW9tvTxIcmdPt
+         YpboSxCxSOfChpmYHpsxY3ibY9N7ca9v+bdtAlmW6BOTNOaXo6/o1QyJGQflmxAuhXnc
+         VPe10JZetFtM9qOXscIvm3QPdxl67uRHlJgSlHkgp3U2XJulT+QuGWUQG34Bw6XQyW0c
+         vjkxOpl1kGuiQBcgvcNFwY8lLx9iTWfWGeAlsMrQa4G2hy7xQIgSYud3hbHn/j1cbZ4e
+         b2/nkG4DKynJn2YnCzEKEENARMaCFn9axZ3OVEmKef2BVGp94Z6hPwp436RlV+ehefYG
+         FA0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741948558; x=1742553358;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PBq11ylwu5R382gZxqzXZy+KZY3NpzkBPWG/tVivh9M=;
+        b=UpfyU1wckWRFUESEivMBQLGht2fh6OIPxCfyCYHKKFQg3G4PgCrCDQZuv/59QMnDgk
+         BHKEcypyISt7QtPx/qMoJQqW2Ciwxq3JilNC6m+/p+a3rDXJLtla9D1E/SZjhyW3bW36
+         OFOfnYICfDY/Z6fDqdkuoNo9rmORWpOmx6WpMA5GSTBgdcYxw75BC/xGXwnWuoywobyp
+         xeXDw4mxDlIE1YkMaJ2k7BE++Lp5KQg/pkFmec/3avRooEov5iOKYpOlXJ6Uy6u9p858
+         nS889JLtXBDsT9OaBOuRWAv8zgBzQtNKgh565yE5ESspcSqNUA1Ydrt8Cxj0E54tLmQe
+         yOpw==
+X-Forwarded-Encrypted: i=1; AJvYcCU22xmKgfI4m/hZeYKZjZ20XrtmZwwM8y9a5k1npoeqVnBRbCHJXJ2RaQRBOr9xLkIeuS4pPLojqAfT7zLtR+1S@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDsxISqbsBHH1G8mxTO+/df4qbX0woRUdJX5RmRcBXESNhSKcz
+	ngOJy5P8A4jwPuv8OtXnY9Lj5/8YVHYDtESBV2C8pis6wy6XhJUrr6CRUt5QCBCi1ORoVienw2U
+	ZYmYNdFHdjG6BpQVJwYyV/MXa6N4LMj6hXRR8pudh9qhSOPpV
+X-Gm-Gg: ASbGnctAXPEwBjW9dnbPAQB2jABgvnjAc40gjD8Vkt8loYiQFDZOtLVW+zMsdgevfyT
+	Xf6dFeSRZr8xW5nJAosCqKhbjIpc9Tpt4f9/43u0fKdjyxnP8cWqZRTB937vvSp1Gn68wamyBai
+	GDCzPgNpfyXo2NY94gG0uUtV8=
+X-Google-Smtp-Source: AGHT+IFo7a8aP8LrtXsMzS05IJF+N+ZjJx5DRyPZKzboYtcGh7BYc7nkwi3Kg4DoP3cYib1OWjtVARzILEhT3JyV8rs=
+X-Received: by 2002:a05:6512:2350:b0:545:2b24:c714 with SMTP id
+ 2adb3069b0e04-549c3911e6bmr755718e87.18.1741948557930; Fri, 14 Mar 2025
+ 03:35:57 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] dt-bindings: pmic: mediatek: Add pmic documents
-To: "Lu.Tang" <Lu.Tang@mediatek.com>, Jonathan Cameron <jic23@kernel.org>,
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, Chen Zhong <chen.zhong@mediatek.com>,
- Sen Chu <shen.chu@mediatek.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-input@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-gpio@vger.kernel.org, Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250314073307.25092-1-Lu.Tang@mediatek.com>
- <20250314073307.25092-6-Lu.Tang@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250314073307.25092-6-Lu.Tang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
+In-Reply-To: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 14 Mar 2025 11:35:45 +0100
+X-Gm-Features: AQ5f1JpewYNdVReOE7yOz7Jhb_-0BXB-6RAsfqpo9dfZwpZcAV2B4PUacGG94IY
+Message-ID: <CACRpkdYkvTr9ijyEVSzevHdHFDb0iJTOzCS_3gQG0eNcpR7tcw@mail.gmail.com>
+Subject: Re: [PATCH next] pinctrl: bcm281xx: Add missing assignment in bcm21664_pinctrl_lock_all()
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Artur Weber <aweber.kernel@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-gpio@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_033226_538297_D9573913 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20250314_033559_774528_5F6EA835 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,97 +99,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2025 08:32, Lu.Tang wrote:
+On Mon, Mar 10, 2025 at 11:48=E2=80=AFAM Dan Carpenter <dan.carpenter@linar=
+o.org> wrote:
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+> The next line checks if this regmap_write() failed, but it doesn't
+> work because the assignment was accidentally left out.  Add the
+> assignment.
+>
+> Fixes: 60d69769c851 ("pinctrl: bcm281xx: Add support for BCM21664 pinmux"=
+)
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-There is no subsystem "pmic".
+Patch applied!
 
-> Add new pmic mfd and adc documents for mt8196
-> 
-> Signed-off-by: Lu.Tang <Lu.Tang@mediatek.com>
-
-Are you sure Latin transcription of your name includes '.' or you just
-copy-paste email address?
-
-
-...
-
-> +  - Lu Tang <lu.tang@mediatek.com>
-> +
-> +description:
-> +  The Auxiliary Analog/Digital Converter (AUXADC) is an ADC found
-> +  in some MediaTek PMICs, performing various PMIC related measurements
-> +  such as battery and PMIC internal voltage regulators temperatures,
-> +  other than voltages for various PMIC internal components.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt6363-auxadc
-> +      - mediatek,mt6373-auxadc
-
-Just fold the device to the parent node.
-
-
-
-..
-
-
-
-> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml b/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
-> new file mode 100644
-> index 000000000000..a8f1231623cf
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
-
-Filename matching one of the compatibles, e.g. the oldest one.
-
-> @@ -0,0 +1,173 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/mediatek,spmi-pmic.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek SPMI PMICs multi-function device
-> +
-> +maintainers:
-> +  - Lu Tang <lu.tang@mediatek.com>
-> +
-> +description: |
-> +  Some Mediatek PMICs are interfaced to the chip via the SPMI (System Power
-> +  Management Interface) bus.
-> +
-> +  The Mediatek SPMI series includes the MT6363, MT6373, MT6316 and other
-> +  PMICs.Please see the sub-modules below for supported features.
-> +
-> +   MT6363/MT6373 is a multifunction device with the following sub modules:
-> +  - Regulators
-> +  - ADC
-> +  - GPIO
-> +  - Keys
-> +   MT6316 is a multifunction device with the following sub modules:
-> +  - Regulators
-
-I don't get why they are in the same schema. It would result in
-unnecessary big if:then with half of children not applicable for other
-variants.
-
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - enum:
-> +          - mediatek,mt6363
-> +          - mediatek,mt6373
-> +          - mediatek,mt6316
-Sort these with alphanumeric order.
-
-Best regards,
-Krzysztof
+Yours,
+Linus Walleij
 
