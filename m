@@ -4,124 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89493C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D209AC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FD2VJEjIz3gradIbfAYuUXm+xccGXY9Qu6gKId/0kC4=; b=V7Jp2jpuuujKkaYf2dKm7LeXvQ
-	lwifHxffXcta963Mf8YT5Ra4eQ0uEm/B9sZ/E9DP2+phsG8bjJf7D2kC3RRwnIBnhP4ua4Eh9sAHa
-	MjkA4lK4Fulr6NZD/5TDBhXAU3Y88Phbo0jBl1Xiqhz1EwQP0zbthwA3yAeaMxcvDat1pFnP9O+ng
-	dNT2TJGkukoJb/IMH+TXm06g3e7zDsA/jUT+STG6YDgXzkI+0JfXqCEsY1LRq+3rTXKvjva8rFfI5
-	7L8GZ0Ewxzpi4ZKRQe2u1r4SZDSYUzArARnPOaYLo88ka/G8Q44npyKqgbDC9dopMMiB6Oc9VD/tR
-	CHMpkf9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KhvzLiY857SGZEqzmins+PvzyIr/NTQcyLXE/tMCnFQ=; b=moJsSipRbMmVKO
+	FxLic+mhIMdeu5r9d9fcwiqD3tePoQpv4z7XX6lzqYKTh021AHLr9GKsE+HY6WjXSVR6p9PNiV+L+
+	w4eW/+aH7SJQW8B/05L7NSGt/OEMn6xjRaHbU6XuKRLyP1BXe1QFnKBzzOj30Quf/piiPGr+DQ096
+	rnr7WJDIQakFePuy10u4yA7lo0clINtqG73AEk/c0bGKiM+RIC3Wbnv8bpF/9yaLnC8qK+uRIaB0W
+	TPNopgNkeOS3/82jLDIhZ7dnmU3Z7bkAhpGnlVr9FfON7BJu7pc+1SdkdZWyA8p43516L929TS2oM
+	y+ckmDgLrpce7tGnSCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7yr-0000000El4R-3BxR;
-	Fri, 14 Mar 2025 16:33:53 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1tt86V-0000000Eluf-4121;
+	Fri, 14 Mar 2025 16:41:47 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7xB-0000000EkyK-1BFF
+	id 1tt84q-0000000Elha-2Puc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 16:32:11 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfout.phl.internal (Postfix) with ESMTP id 0306E1382C9D;
-	Fri, 14 Mar 2025 12:32:06 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Fri, 14 Mar 2025 12:32:06 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1741969925;
-	 x=1742056325; bh=FD2VJEjIz3gradIbfAYuUXm+xccGXY9Qu6gKId/0kC4=; b=
-	Ds8hAQypRK544JDNwLw2u6IIKcvUUa7R6ntosZ2MidyztlHRcZAgSqW4RjC1TIaW
-	ouIT4yIAeAAH8mDQ7cIGDPArduGkUyL3XBfaRL4iDq1PYytB2ygGeeWxTo4IYKSl
-	I/OqFnCXkuPHHTYLio2Nm4nnUuqolSmU65rNyvIyp0Xc3qec/vTwrW4UtMHhien6
-	Derm6xcyOv1cRM7BfGcgYpQazwapUXrVnhWxImzWw+mbgEyKV964FVCWRy5gegPs
-	y0YkNYDoqopNCfbt/QUtIPiVySKvQZf8IGxcW5yGuzWPQmbWo33yu0y7EV6cLkYJ
-	B4D4WR36R+TwEvxM10uEbg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1741969925; x=
-	1742056325; bh=FD2VJEjIz3gradIbfAYuUXm+xccGXY9Qu6gKId/0kC4=; b=z
-	Q32XetIAN2hHDJkpQSZkyzo/rpF+XhB/mjKToLE5z+Da39DIHBMDocuA2OyhTw6t
-	Sko/3rbfsp8fimUg/m3DrwTpv0hWYMrnNL8/wFAHym5LrmKg0MXG+WnWQKxiTzce
-	XlGRD+GPUrSg+WU+9zeaoKvcM45VBDIzMjSxt+BAG6Yro1DDRkJX9M3uvdLQrave
-	Ir+p6tWvV3h9jIzc6nH/zcb6MMooaBQ99Yuc7/d62fKpqZCjvQDaxaTez1xUHONv
-	dL8YhMlY11F/G4sjFhr46GG5kGudzxFpF3bhJqCKinp+QVjN6OjzZjJOOCkE1DRi
-	2aLZjtsxJh8x/+hJcLG6A==
-X-ME-Sender: <xms:BFrUZ7IR0aZo9ff3gW_0UwYjioNzF6cQV45M3gc9b4t_0VMc1321eA>
-    <xme:BFrUZ_KQ-NAnmPC2Em-Ct44pCbIrvUGk_9vZxc-fn5cGvJ8ClLkerYKGKBSQ3Av4h
-    I5eXWvAFbLDPw74SiI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedufeduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhepgfdtveffgfejfeevteeggffgffeggfdugeek
-    feffudejfedtgfffheefffetheefnecuffhomhgrihhnpehmrghnjedrohhrghenucevlh
-    hushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghr
-    nhgusgdruggvpdhnsggprhgtphhtthhopedvledpmhhouggvpehsmhhtphhouhhtpdhrtg
-    hpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthho
-    pehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehflhhorhhirg
-    hnrdhfrghinhgvlhhlihessghrohgruggtohhmrdgtohhmpdhrtghpthhtoheptghrohhs
-    qdhqtghomhdqughtshdqfigrthgthhgvrhhssegthhhrohhmihhumhdrohhrghdprhgtph
-    htthhopehsfigsohihugestghhrhhomhhiuhhmrdhorhhgpdhrtghpthhtohepvghllhhi
-    ohhtsgefudejsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnuggvrhhsshhonheskh
-    gvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopehkohhnrhgrugihsggtihhosehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:BFrUZzt7h746867z5VifeUIhVN1E38o_umyheLXKiBuuv3sOJ8W9CQ>
-    <xmx:BFrUZ0bmreGz-c0iuhwSVG1gAW5Fu08jueAgw6FyIHnhaQ4-1vL52Q>
-    <xmx:BFrUZya0uYzuClpPwBes8mBgGOCLlWngSb3i6tHbNY5WzzhxZH38Ig>
-    <xmx:BFrUZ4B02kq7vWkUblhxQNH79MJIe3sXWjc629hWgepC8f_h3xe6wg>
-    <xmx:BVrUZzEQbjCOZOC9YcdgK3OeEJsVGZgHKtQqkCKLsbhcr-6pmgnOX31Z>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A7C6F2220072; Fri, 14 Mar 2025 12:32:04 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 14 Mar 2025 16:40:05 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e6f4b3ebe5so4178973a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 09:40:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741970403; x=1742575203; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KhvzLiY857SGZEqzmins+PvzyIr/NTQcyLXE/tMCnFQ=;
+        b=kicJo1owH3pduibQOf7V5aak5k0B/hbF5XJzfR7eHKm1n6jMmWzAMqlD4dQPRj8BAp
+         s72aPcWWDH/B9tE0xHlTlFkY5InBfcjj7cj4UcZX8RqBwLxIOofDbO10hbjHP/owzFZz
+         TIeomONDDn0XFbpbgxt2mfvglM58OEHi+lG0rINYmhNBvE3ey4M+OYsJxL9Kr3RbEDzV
+         XasGWC672JWm3lQY50Tlm/aWQTC7ldkmoKtG+9JvMGKlmA7y7/bd0ATDg/Xghll9LGzP
+         BmXNSoxkrfGTxC7H9G/YoPcXo5fRIhSbrhP++xgyuEKgI8U4iEpyDh8oBPfeh1AV1AHd
+         EomA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741970403; x=1742575203;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KhvzLiY857SGZEqzmins+PvzyIr/NTQcyLXE/tMCnFQ=;
+        b=bGizWWepd6ikYraxAyykWpvVsHnnFFbpTO0QI23NXciW57Kcaxogl2jypfQV/wO6wG
+         5bDMyiRwAJIo+Utuc/Zzkk8LAxSYctifrva1Iv4zDN8zS+lYqzpGkC363JEjHLf6d0wL
+         irJLes/kTQ1hRELprDVMYccT+yflbaBnnMOUuTppWekd8P3Q61b88nwtxWfnYWppAa+F
+         EeetAXNe1lsstgQ0+9V6WT51LGVURn+87GwbZ7bVUjTkDL0WLIHna/MNDzPUmCK8s7Cm
+         HCJaZ2mOeVx4baTrctP2eoxLcRFufoQYTx3L1tanvE1R5mCWnkfNa3N7QNj1vrQlbaOb
+         Q/Iw==
+X-Forwarded-Encrypted: i=1; AJvYcCWoAAteFa+S8+SlJCElLktbV4HvrTZtoA2+ji+y6fFRcZdUX+gvVeuWaWaQb+b9aGME7/UD7SSW+rHjVBFGL9Kh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0JsIZgqokSho3lOcMgh2oD6IQhFKoChjd6F6g79l9KVJSZEll
+	ZYXpUFjCANMvmPgVsZqVTkBbsneN5CgPX1fFwIcfSnVPdVD+52arfF9x4vL5VzwCGbIui7x2HJK
+	sd/U=
+X-Gm-Gg: ASbGncuSGXkm1G2VFTs7AdMtAKeQu1b1OtKqDlJOFEy6QfLvvqR+UtbdMCdDMAoSRKb
+	m8ASBgxpz20aWXlDH4ki5cj34re9Nt4HF4mFmNlfi9uoNY2qHFxq1ScHs5O2uByx84DD8EnnjMW
+	+S30BBoznL5EFlBxNBd80S1okyNEjdT8psPbo8Qx5kFaru93pMGpoL8z/ksug5CTtiBSosu32Vc
+	BcHI/0XNhrugMDFbPk+hVL5QWwnhdmM67+jeQwWyyvWvNFga3Wi968nLqR6CGhLUmvDmL3xFoLe
+	IhWeVJ8pSqSZx0iwcB/14YRz7S3i4Kv4ZNdrG7qy7hoaJvbkDBCX3iGF6iSCm/PcR8TV+lZYU5D
+	ngOtE8kVR8tkDo893qppteanO65fy
+X-Google-Smtp-Source: AGHT+IFGfvz33USapJBinW272gepivtVA3O/20eKJ/+H17ddACPCm8qjeCgFc9bP4W9ixUKFcXUt8A==
+X-Received: by 2002:a05:6402:4301:b0:5e5:bcd6:4ad8 with SMTP id 4fb4d7f45d1cf-5e89f24c63fmr3817601a12.9.1741970402855;
+        Fri, 14 Mar 2025 09:40:02 -0700 (PDT)
+Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816968cd8sm2115727a12.18.2025.03.14.09.40.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Mar 2025 09:40:02 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH 0/3] firmware: exynos-acpm: read fix & reduce log verbosity
+Date: Fri, 14 Mar 2025 16:40:00 +0000
+Message-Id: <20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org>
 MIME-Version: 1.0
-Date: Fri, 14 Mar 2025 17:31:44 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Elliot Berman" <quic_eberman@quicinc.com>
-Cc: "Bjorn Andersson" <andersson@kernel.org>,
- "Sebastian Reichel" <sre@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Vinod Koul" <vkoul@kernel.org>,
- "Andy Yan" <andy.yan@rock-chips.com>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Bartosz Golaszewski" <bartosz.golaszewski@linaro.org>,
- "Olof Johansson" <olof@lixom.net>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Konrad Dybcio" <konradybcio@kernel.org>,
- "Srinivas Kandagatla" <srinivas.kandagatla@linaro.org>,
- "Satya Durga Srinivasu Prabhala" <quic_satyap@quicinc.com>,
- "Melody Olvera" <quic_molvera@quicinc.com>,
- "Shivendra Pratap" <quic_spratap@quicinc.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- "Florian Fainelli" <florian.fainelli@broadcom.com>,
- "Stephen Boyd" <swboyd@chromium.org>, linux-pm@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, "Elliot Berman" <elliotb317@gmail.com>,
- "Elliot Berman" <elliot.berman@oss.qualcomm.com>
-Message-Id: <a9d8d9aa-f63c-481e-b051-a3da0adb3c66@app.fastmail.com>
-In-Reply-To: <Z9QQw6BcE7IXzu+r@lpieralisi>
-References: <20250303-arm-psci-system_reset2-vendor-reboots-v9-0-b2cf4a20feda@oss.qualcomm.com>
- <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
- <Z9QQw6BcE7IXzu+r@lpieralisi>
-Subject: Re: [PATCH v9 2/5] firmware: psci: Read and use vendor reset types
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOBb1GcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDY0MT3cTkglzdtMyK1GJdYxOLZANTCxNzs0RzJaCGgqJUsARQfXRsbS0
+ AgKKOcFwAAAA=
+X-Change-ID: 20250314-acpm-fixes-348c058476a7
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_093209_900539_36DCC9F0 
-X-CRM114-Status: GOOD (  36.38  )
+X-CRM114-CacheID: sfid-20250314_094004_620908_8830EC33 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,108 +108,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025, at 12:19, Lorenzo Pieralisi wrote:
-> On Mon, Mar 03, 2025 at 01:08:31PM -0800, Elliot Berman wrote:
->> From: Elliot Berman <elliot.berman@oss.qualcomm.com>
->> 
->> SoC vendors have different types of resets and are controlled through
->> various registers. For instance, Qualcomm chipsets can reboot to a
->> "download mode" that allows a RAM dump to be collected. Another example
->> is they also support writing a cookie that can be read by bootloader
->> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
->> vendor reset types to be implemented without requiring drivers for every
->> register/cookie.
->> 
->> Add support in PSCI to statically map reboot mode commands from
->> userspace to a vendor reset and cookie value using the device tree.
->
-> I have managed to discuss a little bit this patchset over the last
-> few days and I think we have defined a plan going forward.
->
-> A point that was raised is:
->
-> https://man7.org/linux/man-pages/man2/reboot.2.html
->
-> LINUX_REBOOT_CMD_RESTART2 *arg command, what is it supposed to
-> represent ?
->
-> Is it the mode the system should reboot into OR it is the
-> actual command to be issued (which is what this patchset
-> implements) ?
->
-> LINUX_REBOOT_CMD_RESTART "..a default restart..."
->
-> It is unclear what "default" means. We wonder whether the
-> reboot_mode variable was introduced to _define_ that "default".
+While trying to use the ACPM driver, I stubmbled across two issues:
 
-I think the reboot_mode predates the 'cmd' argument: linux-2.1.30
-introduced LINUX_REBOOT_CMD_RESTART2 and it already had
-the warm/cold/bios/hard options for i386 reboot. I think the
-argument went unused for a while after it got introduced though.
+    * acpm_pmic_bulk_read() doesn't return the correct register values
+    * superfluous log messages during boot
 
-> So, in short, my aim is trying to decouple reboot_mode from the
-> LINUX_REBOOT_CMD_RESTART2 *arg command.
->
-> I believe that adding a sysfs interface to reboot-mode driver
-> infrastructure would be useful, so that the commands would
-> be exposed to userspace and userspace can set the *arg command
-> specifically to issue a given reset/mode.
->
-> I wonder why this is not already in place for eg syscon-reboot-mode
-> resets, how does user space issue a command in those systems if the
-> available commands aren't exposed to userspace ?
->
-> Is there a kernel entity exposing those "modes" to userspace, somehow ?
+The patches attached are the result and hopefully self-explanatory.
 
-Don't know one either.
+This driver only exists in linux-next at the moment.
 
->> A separate initcall is needed to parse the devicetree, instead of using
->> psci_dt_init because mm isn't sufficiently set up to allocate memory.
->> 
->> Reboot mode framework is close but doesn't quite fit with the
->> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
->> be solved but doesn't seem reasonable in sum:
->>  1. reboot mode registers against the reboot_notifier_list, which is too
->>     early to call SYSTEM_RESET2. PSCI would need to remember the reset
->>     type from the reboot-mode framework callback and use it
->>     psci_sys_reset.
->>  2. reboot mode assumes only one cookie/parameter is described in the
->>     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
->>     cookie.
->
-> This can be changed and I think it should, so that the reboot modes
-> are exposed to user space and PSCI can use that.
+Cheers,
+Andre'
 
-Can we try to call them 'arguments' rather than 'modes' while discussing?
-I think it's way too easy to confuse them otherwise.
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+André Draszik (3):
+      firmware: exynos-acpm: fix reading longer results
+      firmware: exynos-acpm: silence EPROBE_DEFER error on boot
+      firmware: exynos-acpm: convert to dev_err_probe() in client API
 
->> +	psci_np = of_find_matching_node(NULL, psci_of_match);
->> +	if (!psci_np)
->> +		return 0;
->> +
->> +	np = of_find_node_by_name(psci_np, "reset-types");
->> +	if (!np)
->> +		return 0;
->
-> Related to my initial question above. If LINUX_REBOOT_CMD_RESTART2 *arg command,
-> is the actual reset to be issued, should we add a default mode "cold"
-> and, if SYSTEM_RESET2 is supported, a "warm" reset mode too ?
->
-> It all boils down to what *arg represents - adding "cold" and "warm"
-> modes would remove the dependency on reboot_mode for resets issued
-> through LINUX_REBOOT_CMD_RESTART2, the question is whether this
-> is the correct thing to do.
->
-> Comments very welcome.
+ drivers/firmware/samsung/exynos-acpm-pmic.c | 16 ++++++++--------
+ drivers/firmware/samsung/exynos-acpm.c      | 13 ++++++-------
+ 2 files changed, 14 insertions(+), 15 deletions(-)
+---
+base-commit: 0226d0ce98a477937ed295fb7df4cc30b46fc304
+change-id: 20250314-acpm-fixes-348c058476a7
 
-It would make some sense to me to treat all psci reboot as "warm" and
-not do anything here if reboot="cold" is set: those would have to
-be backed by a hardware specific driver.
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
 
-A related problem is how to determine when to use UEFI reboot: at the
-moment arm64 tries the UEFI runtime interface before it even attempts
-any of the notifiers, so PSCI reboot won't ever be used if UEFI is
-present.
-
-     Arnd
 
