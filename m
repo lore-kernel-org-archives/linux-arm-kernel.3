@@ -4,156 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA7DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C3CC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqGH3UI0iS4969Rz5p75QFtiVhLL+7aiN3pA7ChIUo0=; b=K86KjYGaT6fHNCDlBnr4QcMlIw
-	ILvdI5M4/BUtjRQYwGB89HS5PYtqVoQmWNhlCKDkHMz7VIKHCACte1wxAUwHWLocVqarJ7jVbdi0l
-	jyxZjuTR8ldtz5sMzmTYXCMJMJc7qesdo8qmIRYRAYQLhIbPwF+QF11vFtz7WOxLg5fN3LIrgy6QX
-	+Yy4UWd67TpMojlysncERf76E6+3A7hEEsyY3mLRJ2IUMYVtiP+EKAM4gTWRrR3NzdEhfQpAPbbeM
-	RRhGnQh5gif6abjJNC0bnD48Xf8tapQB3RJyF4QqLVCLl/62mxhnsXaeB6tu8wnYEaBio4Ae0AlOf
-	MmOUOnag==;
+	bh=6c4rNPX9KYZkw6UGJ7wf01mW0kMliSBgjDLx+b3r4GU=; b=EqtewSDIp88WJ70EI/1m2H52Kc
+	L7SW3piJ7nVzGz1MXQT3Mc/s7Caoz1Mdn/r9cG2Zkz+ZTTcs1EkZ9vTFKSVJYThAgqALKtx1TVqrp
+	a7W2fFcxGgdIlMzoL5Sp3y0jodm37owkDebzlzWCZZPsLslffahbev+Kktjy0EeZVPToHmAYaCVJQ
+	QjnwnnEetICL8BfTVrPC0EsegLje5s8I3B13ELUbr7BsRYQ1sOmTnGjBMb1+GcGk4wn7/hXuHxmKR
+	BUVUPhJRopATuhDZW8iaRf9SDKgblO3J3P6phfMHHxQuhZMnUOwsxbbZ6PlP895wcU/vuDxJsNL+K
+	QsbWkUiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0JD-0000000DRTa-2a9T;
-	Fri, 14 Mar 2025 08:22:23 +0000
-Received: from mail-db8eur05on20617.outbound.protection.outlook.com ([2a01:111:f403:2614::617] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tt0Ll-0000000DS2O-1GPq;
+	Fri, 14 Mar 2025 08:25:01 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0Aw-0000000DPnI-33c7
+	id 1tt0Hd-0000000DQw7-2r2v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 08:13:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ASH9FUKwHcmG5ikUU5s+LrTlnV48RyoHYFDQSsVkJxmIBoR+zHEz+OKMYTeSJw9C+aV5NTwBUuvUay7vABjNtMkYpUaQaGuGeqfbPdqyKp+N00lZ8KHzPXqvwGY9CFo/Sq5tbZmYIaruIl97NE/8pr+ojl0k3AiQda3ppf6VRZzlcWVoXyhysnuFvVnEV8XL8BgM4l/lM6h8nJLWGk/NrC/oVTWqZAE6pBNkZag49xE2zXeLL3pvanFd6TabuxPWnr5UAbCSM/Boj+D0u0c74gNpOlLi4n+PGs1uOuoyjmVOmNv1domT+drLgNkcPy5hwL6dDvJQfa2Uy8+VPqRM/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yqGH3UI0iS4969Rz5p75QFtiVhLL+7aiN3pA7ChIUo0=;
- b=WDYEv9QjnUQvjd8Shg/IcdEC0yZuI+xgPQJ4xuTqtLZKZXWpkZAxkBN0UM87BHFteajd/8WSK2icdET9DP3fm6gDSrUZi8LyNDwRCzT5GIdvRp1Tl0uiNVSX7buHdbG0p/MTfjkC8QK/p5sQG4vVoBwNkpey8+XaOhhCjA5KlUJizFvy7Rf0E+QLoz5gD9hzPSiJFJWzkNtZjryzV3zvCmbEbbRIgwEP44ItDQZOB1JND+E9mx9HSXuC5d0Q9ZZQNt0N31RFWzm2DAoUf4PdKADVlm9nWCuFiI2ZZKvFDj80csFoxlQDYtmQON81IWk7z68LNL2rW6Mykng6LD1Evw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yqGH3UI0iS4969Rz5p75QFtiVhLL+7aiN3pA7ChIUo0=;
- b=Kyt1n/sJrpLEYYNjyCp+vWjmO/E2mGxuzPcAVgmH/aw4UabfrohjGeWGatWwBSCG6mIJlRqCkfvfiz+s4e1xPKLcbRXWeiHsK6/heDrQpSzhN+t8lgDnXMfPC0WgFBfih3bfCubl7AvbkS+F/pzCJOjm50tMCwJYF/YWdUq7JmPLih5FcP/Zf/Golymecxo09QxqKNqSRTo19WsfOXWCwwT+EJoyrPPSZXfEPeSHLXAMEBN6E/d7Cav2N4dDFVsghRVr55ohpcmHVNnaONgn6hiiu1s5rcqNSSC4bvW4nTSDqyYM8esclV5NfNA0XYfsF22NOE9EdmTv5yPkdxrkRg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GV1PR04MB10193.eurprd04.prod.outlook.com (2603:10a6:150:1a4::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.28; Fri, 14 Mar
- 2025 08:13:47 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8534.025; Fri, 14 Mar 2025
- 08:13:47 +0000
-Date: Fri, 14 Mar 2025 17:21:29 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>, Abel Vesa <abelvesa@kernel.org>,
-	linux-amarula@amarulasolutions.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v10 14/18] clk: imx8mp: rename ccm_base to base
-Message-ID: <20250314092129.GC12210@nxa18884-linux>
-References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
- <20250306112959.242131-15-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250306112959.242131-15-dario.binacchi@amarulasolutions.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2PR06CA0014.apcprd06.prod.outlook.com
- (2603:1096:4:186::11) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 14 Mar 2025 08:20:50 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4ZDcfy4Js8zCtSW;
+	Fri, 14 Mar 2025 16:17:30 +0800 (CST)
+Received: from kwepemf500004.china.huawei.com (unknown [7.202.181.242])
+	by mail.maildlp.com (Postfix) with ESMTPS id 79E4018006C;
+	Fri, 14 Mar 2025 16:20:42 +0800 (CST)
+Received: from lihuafei.huawei.com (10.90.53.74) by
+ kwepemf500004.china.huawei.com (7.202.181.242) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 14 Mar 2025 16:20:41 +0800
+From: Li Huafei <lihuafei1@huawei.com>
+To: <namhyung@kernel.org>, <acme@kernel.org>, <leo.yan@linux.dev>,
+	<james.clark@linaro.org>, <mark.rutland@arm.com>, <john.g.garry@oracle.com>,
+	<will@kernel.org>, <irogers@google.com>
+CC: <mike.leach@linaro.org>, <peterz@infradead.org>, <mingo@redhat.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<kjain@linux.ibm.com>, <mhiramat@kernel.org>, <atrajeev@linux.vnet.ibm.com>,
+	<sesse@google.com>, <adrian.hunter@intel.com>, <kan.liang@linux.intel.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <lihuafei1@huawei.com>
+Subject: [PATCH 6/7] perf annotate-data: Handle arm64 global variable access
+Date: Sat, 15 Mar 2025 00:21:36 +0800
+Message-ID: <20250314162137.528204-7-lihuafei1@huawei.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250314162137.528204-1-lihuafei1@huawei.com>
+References: <20250314162137.528204-1-lihuafei1@huawei.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV1PR04MB10193:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb5fd1a4-ca82-4a3a-4d6d-08dd62d024fd
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|366016|376014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QB3JmticT1EUyah9y9As/LzZtHOXbPCQoRS3HvVkZkAYcCBYJL5RdnpGUwj0?=
- =?us-ascii?Q?7FH9T6J/m7G/uq0ZeQE4oOrmIb6mqAK9UffaUxw0l229RnmoDwWM5FP60Ycq?=
- =?us-ascii?Q?wmeyiU4qz8Ruxu/nZ+hNMT8l2DCl8IDYUxhZlIhxuP0aWGgwOaepWCLbNPDZ?=
- =?us-ascii?Q?Ia3Jbnn4O+5KV6T9tL0NwXTzJlxZw46o6Oycmqh9j1Gxn7pEXSo1R0cA+FeV?=
- =?us-ascii?Q?BEKIis/xFUO+cjtavGiquRdLzsFJhDjB3ocLrUcq1GfBlOvqxPrIyGyrxksK?=
- =?us-ascii?Q?TmKFBzPTXrntpM3UoWHrFseuElbMx9RipNap6cbqrwlwJUkSp/M9CfGTycj2?=
- =?us-ascii?Q?DEcUXhMRLIZ08EyFoJdQSZ4hY6hDvXzSlBgamKALSb4zqsOU/L9vtVVT7Uwf?=
- =?us-ascii?Q?ZM7iMtxJIWwMFeEswd7vm2bJrC0+6zHwli3EwcBcurW1jOlsVTFiSlvUpDRS?=
- =?us-ascii?Q?TyGO53honaQhsBK+3L54dy7jJf8pNfHblu4/s2JKAOdXryZg2saM9iR/gM69?=
- =?us-ascii?Q?6vkSmThC8fY+xj8zz16dg8T6MMFdfcj3E4nut0qphwUFpef6Rh7X6kY0CdEx?=
- =?us-ascii?Q?9YMaNUKiiHjysmPFXTMbEhb9We7jgr8d8GDjBz0mFOp6ODouqz8VualwutvY?=
- =?us-ascii?Q?iX2Xfr81PtkiZGJHETOY5lAE1PDLH5+3SuQ8JIKZxQaMfzsy/ESOAPiKGyc+?=
- =?us-ascii?Q?g1/l7uFJEFto/g+VatkAXoqug2fj6B7enaPu5QxLtknyyw7IpFvDoFpM9Gvz?=
- =?us-ascii?Q?k8hm+c7OCqW5WGA3XUdn0NvMj7sL+cEWnc2rj/eKtqGZD3pf0fEJ00n9jek6?=
- =?us-ascii?Q?1LClGDfrEQmFFqtuXZqPpfVzIBx1LIN8J2ClgpnQLD6S6/t4Up6UmJski1LB?=
- =?us-ascii?Q?sENW7fNPRUjZgyLtzRCZt6/SSzYFyoiuoZPb/Dj541uOnwADCb+hvUDYmS7B?=
- =?us-ascii?Q?7Xd/drkfj/cxntp14ZbG/ai7BVaGCxxdxT91UozEZab805yn/S/VWIz/ia5/?=
- =?us-ascii?Q?WzIb7bUKdCyJTsnEDUflOY8lddi3rv37iSDpYDAIr4zAn/XP0WAjDarX0r1I?=
- =?us-ascii?Q?jUbRfDuDh31HZskc9CCBfIWx3VGMW6RLwuQzs23l1Ls7TW0sOAMGyCPEccWq?=
- =?us-ascii?Q?Tw1rIWoxo/fftF4vQ/Sj2i4pKlJLA8/lv2hGtP+eaBcqUQTV/KDy6bAXR7hV?=
- =?us-ascii?Q?yJzc8QzxUNy50sXISoLqeaCeKSAdigs8v4LDlaBOJMkXUCTEu6TSDPHfAjGp?=
- =?us-ascii?Q?b7ncPYMceGuTNUkx9rGJcyeAARyClUeDP0Vlm26l1GDoXIwdDiqCt+P2Y7qi?=
- =?us-ascii?Q?kdCejjqQskVsBEA1IKappd+PZtErR9laQ70iZS37ohVUmtSe+mIoUi5TBe04?=
- =?us-ascii?Q?ndkih7bebbcJ0I3rEsnVd7kn3BI/SDkMe1dcE7u7hqgWLxQ6Bie++Cd1kx8G?=
- =?us-ascii?Q?HvBJlqo/rCZpR27zNy1bfP9kBjVqgjOm?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(366016)(376014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HqSkGLVt61jPSVsO3sxwjsq+ouPBiqqCRdaZzsm14YglHtz1mZSWamv5EZ4w?=
- =?us-ascii?Q?MIROBnHbY++VVgm66Hy2OPo3bt5mUJ5e7FRMsWovqmvAPdNrM0k2/GHu9ex+?=
- =?us-ascii?Q?SRRXPvCUlHO2Otm98KGVuGNlIzXcy6KWEW50O/PBTOQpUp2FTTrpIjbCAF5C?=
- =?us-ascii?Q?o9Ob1l6F4Uz/xwmBFXj1IDJfWDguGaovdXhkrNcx4u2yPEjovVfv6HCz9Mlg?=
- =?us-ascii?Q?HujqJPXeQaxhgaf3aHuQPYcdDHjW6epfB81GZM+m7YZvghheQA8o4aSAKa6s?=
- =?us-ascii?Q?mYvXoV5cACUXvA80nWd6T654qNkW+mRDHudvFkbXzt2v+fFEgscUE5xt0jEp?=
- =?us-ascii?Q?jbhhHSZfLjCB8wklzdB0/5ylo3bWZaT/qEzcNpjzIDGg4rxk8W/CnDyFxuUS?=
- =?us-ascii?Q?dz4qRSsgy3HIz4vSn/t9UAt6PwDAGf9UzbUn3+i2YhqUJz+jEtMKuVrwugSS?=
- =?us-ascii?Q?qFA51G3RA+s0rTVxlEogaL21Az52BxrbfU8v0w1ZdESfUK3SJxUZVtxJLIhb?=
- =?us-ascii?Q?8/4J8tV6thEVDvqwsQ6ObghUGsGWQGTT0kiUXQkPNkafZCmZkfLVBo7Uh8r4?=
- =?us-ascii?Q?qc5fhNTlZ0W1GiqBwubpITe+y9OKzHZLFwCZez08d8XAxrrm7jAj4ibPbamS?=
- =?us-ascii?Q?koLtQyi5nWqvRctAu74gOFCQSzfz4x8BEXAbJHipNNfsbybkURxsdpiKJMYr?=
- =?us-ascii?Q?sBj/T08/NxRK4BZFAguUIJVbf5RDN2YjuuswySLX/uanxQg6EEGZ/Euuuooq?=
- =?us-ascii?Q?gHmXKhYk18VlfyUxkBRpQPQLFkU1WeRjRXe+TdJgqPSHI7aZGqJMcRUsDnqX?=
- =?us-ascii?Q?RPraj4JierLVrt1muKVkO9GjYLSxUG8j6jQyyaJa3+cA8jTeTndeL0CKPcQI?=
- =?us-ascii?Q?ZZ+NPLW+qsYYfNhI+AeJQhJqebZ3iHXtbwqrON8tArOWhfD2uQHugSxaIEuE?=
- =?us-ascii?Q?m4dYGxoU9V7rMsvz7TzONWtMD67jvhNlPrOPdW/0pdeg1X7IkdbfzN9tDpsC?=
- =?us-ascii?Q?43QIj8WfVNarAJ0GfQw6iqCyscuAnHq0lo6oUK4mCvaV/LFXqMpXv4OcXGiy?=
- =?us-ascii?Q?lT1j9Tqgx5Py+iUPPo0CcTQsvI3g19P6TrnBbFnfvoHhtzKe0RWJMdqTVnT8?=
- =?us-ascii?Q?c0pI6N1qNbTCuCkojRDDpJOFcGpCfBQwgOcWGlGr5N/rUgg/c6DxqN0doRVs?=
- =?us-ascii?Q?moaqn2H2v5Im04oG0NHIiZsoaow6cAoC8gtj/ftVyMw49bmnk9cmppiJFujF?=
- =?us-ascii?Q?3pScU1upjzf12kNHYbrrVZFWDWyVwBmdCbTPfLYb1xnvw/At2673cvZPSvy0?=
- =?us-ascii?Q?CD+sRWfhgj3RQTk61uIU+8PtkLSCIkmB2LBtenfF8I5XdtkwTXkeunpDC1mO?=
- =?us-ascii?Q?ZE/KPHnt00othPqvVvZIVKpO2yG3EBU3/yGsXafhNP5V43ymAb288QP0SLsU?=
- =?us-ascii?Q?V+BqPi8qfysuvyhzE52ya9jj36C0lNrJQ6tRXCpclXx2dRmc7gMxuGPM6w9H?=
- =?us-ascii?Q?iWB4HZm1JmMG8srFPY0XYFgZGrDKdokdVjbza7hGFd5b4PQiVef5lLeJ4jah?=
- =?us-ascii?Q?AJT3F4RpWl88Osm+GWREqJxLnEV6vwiM0CoycIXt?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb5fd1a4-ca82-4a3a-4d6d-08dd62d024fd
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 08:13:47.1285
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8HfS+UA29tGO++bZbCPfqLiB/d+B17VOQRorzRHItBx4qjBndOyMDROS9/FFNZPpTluBlWgCzUeAR5rpaoRUKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10193
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.74]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemf500004.china.huawei.com (7.202.181.242)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_011350_767398_555C8D50 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_012046_091349_726BE663 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,16 +76,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 06, 2025 at 12:28:03PM +0100, Dario Binacchi wrote:
->The old code also accessed the anatop address space and therefore used
->the variables anatop_base and ccm_base to distinguish between the two
->address spaces. However, now that a specific anatop driver exists for
->the i.MX8MP platform, the variable ccm_base can be renamed to base, as
->is usually the case for the variable pointing to the memory region
->managed by a Linux driver.
->The patch does not introduce any functional changes.
->
->Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Arm64 uses the 'adrp' and 'add' instructions to load the address of a
+global variable. For example:
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+ adrp    x19, ffff8000819c3000
+ add     x19, x19, #0x3e8
+ <<after some sequence>>
+ ldr     x22, [x19, #8]
+
+Here, 'adrp' retrieves the base address of the page where the global
+variable is located, and 'add' adds the offset within the page. If PMU
+sampling occurs at the instruction 'ldr x22, [x19, #8]', we need to
+trace the preceding 'adrp' and 'add' instructions to obtain the status
+information of x19.
+
+A new register status type 'TSR_KIND_GLOBAL_ADDR' is introduced,
+indicating that the register holds the address of a global variable, and
+this address is also stored in the 'type_state_reg' structure. After
+obtaining the status information of x19, we use
+get_global_var_type() to search for a matching global variable and
+verify whether the returned offset is equal to 8. If it is, then we have
+identified the data type and offset of the accessed global variable.
+
+Signed-off-by: Li Huafei <lihuafei1@huawei.com>
+---
+ tools/perf/arch/arm64/annotate/instructions.c | 90 ++++++++++++++++++-
+ tools/perf/util/annotate-data.c               | 20 +++++
+ tools/perf/util/annotate-data.h               |  2 +
+ 3 files changed, 111 insertions(+), 1 deletion(-)
+
+diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
+index f70d93001fe7..f2053e7f60a8 100644
+--- a/tools/perf/arch/arm64/annotate/instructions.c
++++ b/tools/perf/arch/arm64/annotate/instructions.c
+@@ -262,6 +262,94 @@ update_insn_state_arm64(struct type_state *state, struct data_loc_info *dloc,
+ 	struct type_state_reg *tsr;
+ 	Dwarf_Die type_die;
+ 	int sreg, dreg;
++	u32 insn_offset = dl->al.offset;
++
++	/* Access global variables via PC relative addressing, for example:
++	 *
++	 *  adrp    x19, ffff800082074000
++	 *  add     x19, x19, #0x380
++	 *
++	 * The adrp instruction locates the page base address, and the add
++	 * instruction adds the offset within the page.
++	 */
++	if (!strncmp(dl->ins.name, "adrp", 4)) {
++		sreg = get_arm64_regnum(dl->ops.source.raw);
++		if (sreg < 0 || !has_reg_type(state, sreg))
++			return;
++
++		tsr = &state->regs[sreg];
++		tsr->ok = true;
++		tsr->kind = TSR_KIND_GLOBAL_ADDR;
++		/*
++		 * The default arm64_mov_ops has already parsed the adrp
++		 * instruction and saved the target address.
++		 */
++		tsr->addr = dl->ops.target.addr;
++
++		pr_debug_dtp("adrp [%x] global addr=%#"PRIx64" -> reg%d\n",
++			     insn_offset, tsr->addr, sreg);
++		return;
++	}
++
++	/* Add the offset within the page. */
++	if (!strncmp(dl->ins.name, "add", 3)) {
++		regmatch_t match[4];
++		char *ops = strdup(dl->ops.raw);
++		u64 offset;
++		static regex_t add_regex;
++		static bool regex_compiled;
++
++		/*
++		 * Matching the operand assembly syntax of the add instruction:
++		 *
++		 *  <Xd|SP>, <Xn|SP>, #<imm>
++		 */
++		if (!regex_compiled) {
++			regcomp(&add_regex,
++				"^([xw][0-9]{1,2}|sp), ([xw][0-9]{1,2}|sp), #(0x[0-9a-f]+)",
++				REG_EXTENDED);
++			regex_compiled = true;
++		}
++
++		if (!ops)
++			return;
++
++		if (regexec(&add_regex, dl->ops.raw, 4, match, 0))
++			return;
++
++		/*
++		 * Parse the source register first. If it is not of the type
++		 * TSR_KIND_GLOBAL_ADDR, further parsing is not required.
++		 */
++		ops[match[2].rm_eo] = '\0';
++		sreg = get_arm64_regnum(ops + match[2].rm_so);
++		if (sreg < 0 || !has_reg_type(state, sreg) ||
++		    state->regs[sreg].kind != TSR_KIND_GLOBAL_ADDR) {
++			free(ops);
++			return;
++		}
++
++		ops[match[1].rm_eo] = '\0';
++		dreg = get_arm64_regnum(ops + match[1].rm_so);
++		if (dreg < 0 || !has_reg_type(state, dreg)) {
++			free(ops);
++			return;
++		}
++
++		ops[match[3].rm_eo] = '\0';
++		offset = strtoul(ops + match[3].rm_so, NULL, 16);
++
++		tsr = &state->regs[dreg];
++		tsr->ok = true;
++		tsr->kind = TSR_KIND_GLOBAL_ADDR;
++		tsr->addr = state->regs[sreg].addr + offset;
++
++		pr_debug_dtp("add [%x] global addr=%#"PRIx64"(reg%d) -> reg%d\n",
++			     insn_offset, tsr->addr, sreg, dreg);
++
++		free(ops);
++		return;
++	}
+ 
+ 	if (strncmp(dl->ins.name, "ld", 2))
+ 		return;
+@@ -287,7 +375,7 @@ update_insn_state_arm64(struct type_state *state, struct data_loc_info *dloc,
+ 		tsr->ok = true;
+ 
+ 		pr_debug_dtp("load [%x] %#x(reg%d) -> reg%d",
+-			     (u32)dl->al.offset, dst->offset, dreg, sreg);
++			     insn_offset, dst->offset, dreg, sreg);
+ 		pr_debug_type_name(&tsr->type, tsr->kind);
+ 	}
+ }
+diff --git a/tools/perf/util/annotate-data.c b/tools/perf/util/annotate-data.c
+index 2bc8d646eedc..aaca08bb9097 100644
+--- a/tools/perf/util/annotate-data.c
++++ b/tools/perf/util/annotate-data.c
+@@ -65,6 +65,9 @@ void pr_debug_type_name(Dwarf_Die *die, enum type_state_kind kind)
+ 	case TSR_KIND_CANARY:
+ 		pr_info(" stack canary\n");
+ 		return;
++	case TSR_KIND_GLOBAL_ADDR:
++		pr_info(" global address\n");
++		return;
+ 	case TSR_KIND_TYPE:
+ 	default:
+ 		break;
+@@ -1087,6 +1090,23 @@ static enum type_match_result check_matching_type(struct type_state *state,
+ 		return PERF_TMR_OK;
+ 	}
+ 
++	if (state->regs[reg].kind == TSR_KIND_GLOBAL_ADDR) {
++		int var_offset;
++		u64 var_addr;
++
++		pr_debug_dtp("global var by address");
++
++		var_addr = state->regs[reg].addr + dloc->op->offset;
++
++		if (get_global_var_type(cu_die, dloc, dloc->ip, var_addr,
++					&var_offset, type_die)) {
++			dloc->type_offset = var_offset;
++			return PERF_TMR_OK;
++		}
++
++		return PERF_TMR_BAIL_OUT;
++	}
++
+ 	if (state->regs[reg].kind == TSR_KIND_CANARY) {
+ 		pr_debug_dtp("stack canary");
+ 
+diff --git a/tools/perf/util/annotate-data.h b/tools/perf/util/annotate-data.h
+index 717f394eb8f1..e3e877313207 100644
+--- a/tools/perf/util/annotate-data.h
++++ b/tools/perf/util/annotate-data.h
+@@ -36,6 +36,7 @@ enum type_state_kind {
+ 	TSR_KIND_CONST,
+ 	TSR_KIND_POINTER,
+ 	TSR_KIND_CANARY,
++	TSR_KIND_GLOBAL_ADDR,
+ };
+ 
+ /**
+@@ -177,6 +178,7 @@ struct type_state_reg {
+ 	bool caller_saved;
+ 	u8 kind;
+ 	u8 copied_from;
++	u64 addr;
+ };
+ 
+ /* Type information in a stack location, dynamically allocated */
+-- 
+2.25.1
+
 
