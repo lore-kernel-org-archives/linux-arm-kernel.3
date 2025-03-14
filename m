@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F650C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA4D2C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDuPD6J5153l5GKFgDRheQSNLKlO1I3c+X1mkrW09bQ=; b=mMtKLYy5oBQ1nqrvCw/Xh+Pugq
-	FWKdWVV8Zz9OUvV9eny7d/8Y6s/a7oL7PLD+kjzyb7ikg7oMVjo8wE272uk64RrQClrsDiKHHHcaJ
-	dXCqapfBUi2GJiOi/7Q2uZgasJFkHNdkXG+b8KQ6JQaBpMhopP8B04wZ4TdORe+3fAjobcmwYs67G
-	9HBhA3nzNAosbTaTI/8Moz2L2CokQBj2UFbamrWw31Lxqngq5u/lc6doVip4LjRWCr7HdxLs6F+ok
-	lCap+RH/17xOCib6bxXoqbMjtNOVdYdmkcsPEYdwuhzDdOH01kupRqK/aO65qmuXKlFW+IBWER9zc
-	hoo70WrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wct3xXzwtNYwbG+KZ7NzjW0V6OGSi4ER0/+PrKoRIfY=; b=L/W84Egh2WA0XEOacu7riwio8b
+	5Rr8fKbFuRzxVAweGl/6F7ODzItATNHJnMZUWvvdRZALRvFBX5ElgdGIBP+1Sbq9yUR4ewlU3SZZ9
+	p6d29fJ6HJkfYpUvS1QEWYdPnrKNyT0fqvJcii0ywYzBvs7ix9IvCO/wG7MIYATah+zbCC3JkOYt0
+	PnFBhl4Ip83viseltL6XmZSKz6TgQmcXP/8X2WI7gRM3iCkzPxEkJwNgdQcnbvdmJgTzxiC63V0gA
+	d2wMcimPQDZ1In10zIEW4NzNhTFzADxWnPQktS1//3qZxRnV4l/IqhX3FCsXgIhZLsSomA4JpRhIb
+	+3CrgXKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9jG-0000000F169-0WIz;
-	Fri, 14 Mar 2025 18:25:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tt9kt-0000000F1Gd-3NpJ;
+	Fri, 14 Mar 2025 18:27:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9Ub-0000000EzEg-1aq9
+	id 1tt9Vi-0000000EzMt-3gMM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 18:10:46 +0000
+	Fri, 14 Mar 2025 18:11:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AF11DA4885D;
-	Fri, 14 Mar 2025 18:05:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACDEFC4CEE9;
-	Fri, 14 Mar 2025 18:10:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 486CDA48864;
+	Fri, 14 Mar 2025 18:06:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BE89C4CEE3;
+	Fri, 14 Mar 2025 18:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741975844;
-	bh=GUBpMm6oomjtS9UWURbwiJnVJD5A8VtOUo4HCzFBqOE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V+CccntGTMKTSI08JPci1UF0sYzB5R0BMqvdDOmRb8mdn77ZEo9aRGjcNEJy3565m
-	 q0t3ZFWr3HoSLznR0cfwy8bImJcgwa0vA+K4qzJDlkah9Uy/yuekVB4Dqnt4I3PDbM
-	 Auye8C4tt03P717Sri/Y4yjyGBqAcJQE1fqzhEdYe5UJhNXv/TO7spHMH7qfq65Cz7
-	 ytUKk5y01X3TjRFROLrShwrI9UjIsqPlypRgMeSbx4/1zPpGZYkbdzIrTzwr32hbeO
-	 AWf/qJ5tMqFDsCcNqAxgzv5DI6P8rmf9p7kWYhFaiYq9kW7WEPYTMTkE34OZCr/sBP
-	 /s3SvWINwXdHg==
-Date: Fri, 14 Mar 2025 19:10:41 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Anusha Srivatsa <asrivats@redhat.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Dmitry Baryshkov <lumag@kernel.org>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, 
-	Hui Pu <Hui.Pu@gehealthcare.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 06/11] drm/bridge: get the bridge returned by
+	s=k20201202; t=1741975913;
+	bh=ngZOWsfXuCD39NLjndi5h6K1uhUdOH7LeujeO4Dg3GI=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=Mg4rrMcAry4vXwrRGRMZaODYR7HScvj0eqWPlp8rPomU+3SzPYILi9Z5o6PLq2I3n
+	 bDh51/9S1vJP+Wi3fJROLpEnMJw9KxIHdcqfK9Z4/0Jb+RyXwPwayqdbdns3x1gRuF
+	 LG8EuYiWD0cW0fjhbRb6EY3bJqzp3qojob5pkIkxdBbxSo3wkji4g5OyKULTG6m3wT
+	 kTu7WGyoqOy1MbLGQLTLA7q7jW0i1NiJKAjhgtuIjIFZ8XUC3NLN7lo4c9iTM0Mbgc
+	 ls7OuQ8SXtpy0fowNpKsOsz2NBG43Xb0m1Bf78/8orKP/BdPaztl5RERtuNxs/KQ81
+	 isHcd+RUuaB9w==
+Message-ID: <0cc45a0aae50ab25262691c7145082e1@kernel.org>
+Date: Fri, 14 Mar 2025 18:11:51 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v7 07/11] drm/mxsfb: put the bridge returned by
  drm_bridge_chain_get_first_bridge()
-Message-ID: <20250314-aspiring-myrtle-husky-a5f4ac@houat>
-References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
- <20250314-drm-bridge-refcount-v7-6-152571f8c694@bootlin.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="isweh2hn5bnofcnk"
-Content-Disposition: inline
-In-Reply-To: <20250314-drm-bridge-refcount-v7-6-152571f8c694@bootlin.com>
+In-Reply-To: <20250314-drm-bridge-refcount-v7-7-152571f8c694@bootlin.com>
+References: <20250314-drm-bridge-refcount-v7-7-152571f8c694@bootlin.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa" <asrivats@redhat.com>, "David
+ Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>, "Fabio
+ Estevam" <festevam@gmail.com>, =?utf-8?b?SGVydsOpIENvZGluYQ==?= <herve.codina@bootlin.com>, "Hui
+ Pu" <Hui.Pu@gehealthcare.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan
+ Teki" <jagan@amarulasolutions.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Marek
+ Vasut" <marex@denx.de>, "Maxime Ripard" <mripard@kernel.org>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Robert Foss" <rfoss@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Stefan Agner" <stefan@agner.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_111045_556181_A5FD621B 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20250314_111154_985967_0257CF25 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,78 +83,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---isweh2hn5bnofcnk
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 06/11] drm/bridge: get the bridge returned by
- drm_bridge_chain_get_first_bridge()
-MIME-Version: 1.0
-
-On Fri, Mar 14, 2025 at 11:31:19AM +0100, Luca Ceresoli wrote:
-> drm_bridge_chain_get_first_bridge() returns a bridge pointer that the
-> caller could hold for a long time. Increment the refcount of the returned
-> bridge and document it must be put by the caller.
->=20
+On Fri, 14 Mar 2025 11:31:20 +0100, Luca Ceresoli wrote:
+> The bridge returned by drm_bridge_chain_get_first_bridge() is
+> refcounted. Put it when done. Use a scope-based free action to catch all
+> the code paths.
+> 
 > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->=20
-> ---
->=20
-> This patch was added in v7.
-> ---
->  include/drm/drm_bridge.h | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->=20
-> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-> index a5accd64c364ebb57903ae1e7459034ad9ebf4f3..d9777d5f2e9ef006f0062e450=
-7bce99df4146cd9 100644
-> --- a/include/drm/drm_bridge.h
-> +++ b/include/drm/drm_bridge.h
-> @@ -1105,6 +1105,9 @@ drm_bridge_get_prev_bridge(struct drm_bridge *bridg=
-e)
->   * drm_bridge_chain_get_first_bridge() - Get the first bridge in the cha=
-in
->   * @encoder: encoder object
->   *
-> + * The refcount of the returned bridge is incremented. Use drm_bridge_pu=
-t()
-> + * when done with it.
-> + *
->   * RETURNS:
->   * the first bridge in the chain, or NULL if @encoder has no bridge atta=
-ched
->   * to it.
-> @@ -1112,8 +1115,8 @@ drm_bridge_get_prev_bridge(struct drm_bridge *bridg=
-e)
->  static inline struct drm_bridge *
->  drm_bridge_chain_get_first_bridge(struct drm_encoder *encoder)
->  {
-> -	return list_first_entry_or_null(&encoder->bridge_chain,
-> -					struct drm_bridge, chain_node);
-> +	return drm_bridge_get(list_first_entry_or_null(&encoder->bridge_chain,
-> +						       struct drm_bridge, chain_node));
->  }
-
-We'll need to modify drm_bridge_get_next_bridge, drm_bridge_get_prev_bridge=
-, and
-drm_for_each_bridge_in_chain in a similar manner, but for this one
+> 
+> [ ... ]
 
 Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
+Thanks!
 Maxime
-
---isweh2hn5bnofcnk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ9RxIQAKCRAnX84Zoj2+
-dpOTAX0S4kYV1tOUty+kqLjtPal9GsCYRFqXKFnFw8v/vOB6r9g6O1iB9NF6Fuei
-eWtscfEBgNdNVATng2hmNpDKPKzMj3MJjHtfjcUN5zb7Je++I+OBx8qk+kLSKPcs
-cymXEqjh8g==
-=khjF
------END PGP SIGNATURE-----
-
---isweh2hn5bnofcnk--
 
