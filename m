@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB82BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 229CDC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YeVPzS50yaHINy2hyaHmo427d2ZmemrCtOQyBXxOGLc=; b=cO117Qvd0PEGb8F5pgzeMIvtzR
-	nO0agn2CRkVI72g7k7/LYEo+rKaRn4IqfPm5zBtbdizbunCFxK0Dd4fOPg/rk5pJKfRCrfFtgbvS0
-	dJXHWUo05J4EATxfzgD3vNfqbeE6XA4+UltPp2hNWOWxsO/bpMeckSEDhB1Z3P/DzdXeMT8VCpCAS
-	MIs1GCzImvWPa5jIrdxGAs867A/qLXf/0Imm0pVNn+JPNdzFxGP1bFJiHtn4NgoAP3oKCNty0tdAY
-	ba6eFCL0hd/fFb7YBGwXInaTToTYTdOHbdpfBhMil8TG15TCI0GfCk/fnNZSwKdi0weJ/vPTOaX56
-	MWTrCRbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZGqvrAfhcKrz89VYEJIZSiwWmc+V5sZA3zV6G2zLMIE=; b=zGU/TPymjPCEvtXNkhM3uzCfSF
+	QM9euMh9rW0CmHmoHSsZ3CBATb4eHXwyQxAnXXisUDjeRIcRhD5VCkJvl5Sb2RwjroraEzmf/uAWY
+	qkQuHjkxDQs1B/OriYVNhaTiZtChS62PyU8gMBsTgQ0KVNzKm7D821XUpxt2Cu0X4ZbXHfzr6cH5B
+	K6A4fT3JpoFYCR/+nUOZ0yIjbvdtkYw6lJ14aMEGJlUqw2kQn2lEtm9ajSJ1U8EH2AbVUrKZV1Jte
+	kYkNJi5de6EY+KosZKaYDaHUcNk0kLbJ20AvIxYQn3vrOoa/EFVSJ+vO1cIy5quj6dV8gj9cpAsPS
+	TBa8ofZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt019-0000000DNxM-3j1W;
-	Fri, 14 Mar 2025 08:03:43 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tt02n-0000000DODj-3iwU;
+	Fri, 14 Mar 2025 08:05:25 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsztG-0000000DMZE-3jW7;
-	Fri, 14 Mar 2025 07:55:36 +0000
-X-UUID: b4dd632800a911f0a1e849db4cc18d44-20250314
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=YeVPzS50yaHINy2hyaHmo427d2ZmemrCtOQyBXxOGLc=;
-	b=uYFtcfRwdxaj2iS21RarYs0NybjH/gJXTkpxGu7gB+bb9CZNKKaFzHVB+8Ok+F2h+55CFTT7AW0ctkB2bYbOhY37wEBhkDtuo6Oq5F4sZ9DbNz95V1gqOobphRk+sfFGgEjR2I/cy7ImCGuGIK3Y+e5odC+iDryIioBdNywiC+M=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:8ea04dc7-641e-4f27-984e-e100741f63e0,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:0ef645f,CLOUDID:1c585e8c-f5b8-47d5-8cf3-b68fe7530c9a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: b4dd632800a911f0a1e849db4cc18d44-20250314
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <lu.tang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 465315324; Fri, 14 Mar 2025 00:55:33 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 14 Mar 2025 15:55:30 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 14 Mar 2025 15:55:29 +0800
-From: Lu.Tang <Lu.Tang@mediatek.com>
-To: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Dmitry Torokhov
-	<dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>, Liam Girdwood
-	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Stephen Boyd
-	<sboyd@kernel.org>, Chen Zhong <chen.zhong@mediatek.com>, Sen Chu
-	<shen.chu@mediatek.com>
-CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-input@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-gpio@vger.kernel.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Lu.Tang
-	<Lu.Tang@mediatek.com>
-Subject: [PATCH 5/5] dt-bindings: pmic: mediatek: Add pmic documents
-Date: Fri, 14 Mar 2025 15:32:31 +0800
-Message-ID: <20250314073307.25092-6-Lu.Tang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250314073307.25092-1-Lu.Tang@mediatek.com>
-References: <20250314073307.25092-1-Lu.Tang@mediatek.com>
+	id 1tszv4-0000000DMru-3pRO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 07:57:28 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2240b4de12bso49252675ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 00:57:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1741939046; x=1742543846; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZGqvrAfhcKrz89VYEJIZSiwWmc+V5sZA3zV6G2zLMIE=;
+        b=HYWaY0AJB19CvvKe6IuKkLxyA2HX0Bw4fD/KPZYI8LlYCYNK4jUIO33eoUai6JB1r7
+         6PUVCZDEwD50MCyWfswiLH5hy5NJl3Nv1BaFTJMeJfRPnioqm5CI6ezhKoF924O0Pkqf
+         EYGg3CqIa2AG0Z+eiHggU7m1nXdQr7hNtjBxg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741939046; x=1742543846;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZGqvrAfhcKrz89VYEJIZSiwWmc+V5sZA3zV6G2zLMIE=;
+        b=lj31ViVELwEC7/unpXSG2FgKDgtSZFexZX3Cwd1KTL0bruEVwJa8keX+Vcyktog3rM
+         NhnKKx6KQOSSjQOSYVrYOaE4dULzLQTNvAE1zWxNqC/FAII6P6g9vcHZN5AQbxCCNcHi
+         R/Pp1gHfVHcABRAXOQNEhV0GlXtwVwkrYrU6A+6LxblH+8v0spixjvQsfIXcaj4AezUY
+         D3efJTU/VrTnLXIlp21CMGzXm+EvFaY2I4PFDURl9m9UYINPEBZ4cct73123JID+ZN8Y
+         nQgnmSb49DK8id42CfMo9xuruLcPVvhgLyJ4fH5U6sYTYnlffIg9r5tmtIWhVORtNLOC
+         zYMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXdhlTO0MG29u7G/jShlrAwtGuEmHIEv4vfmzhZ6afaTdOLpb9EaZc/9JdpXbxEbvA8RL4BX6yF9+qNpBLWE5q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyjoQF4MPrnh86sAfHLSNrMYMH3lXcIViNmi6qhFFUAEc0fNdd
+	w/YQpcFxZVYYlUJb5enBCPOuuS1hQq1xPk41G3jBj1E8+c4ziSbBfXai54vqOA==
+X-Gm-Gg: ASbGncuZB+B1usKieoeGe2xzoeN+bVwj4RuJbaVL+ZqQfmd+Nd3neaVHl2rZl+L7Jca
+	a7gcOV0EWw+bmwOh8Ta5Xq5nDK9C7xciRd2r29WBL+T+otAUsCkdA+l0aFRndj59wyqrckDih8T
+	DTGcYLfBl9gFnrfeUhc06I+oP/zBJrsTfrrR0wbp+67wxiVBmdVpOdVLIOqSvH2ZsJiBqHC3+zE
+	k8VM+BnNHRJltEXjNIw9hUfshpmkcM7dI+z1Smaz1oZv7MV6OarH7CEO5SBlm0RACZ4xEggxjkN
+	cT/qgp64DUzqYPlgOlU2iZuUm7kSzHYXxt7HdoewEjzUftOPcVsWYp3CMekxmTV9m2iW6LOv8hI
+	=
+X-Google-Smtp-Source: AGHT+IGcdiyY6idwVO/6iM9R+Lbkfus0qpbdDrY+BW36asi0U5rIaBOZjp3x3v1YPc7FN9l17L4XaQ==
+X-Received: by 2002:a17:902:ce89:b0:224:1579:5e91 with SMTP id d9443c01a7336-225e0b51498mr21334615ad.47.1741939045771;
+        Fri, 14 Mar 2025 00:57:25 -0700 (PDT)
+Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:ae4f:9361:a038:8207])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c688da81sm24405595ad.43.2025.03.14.00.57.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Mar 2025 00:57:25 -0700 (PDT)
+From: Fei Shao <fshao@chromium.org>
+To: Hans Verkuil <hverkuil@xs4all.nl>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Fei Shao <fshao@chromium.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] media: mediatek: vcodec: Correct vsi_core framebuffer size
+Date: Fri, 14 Mar 2025 15:56:17 +0800
+Message-ID: <20250314075703.4167532-1-fshao@chromium.org>
+X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_005534_932059_30BDC41B 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20250314_005726_966623_B8300E2C 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,317 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new pmic mfd and adc documents for mt8196
+The framebuffer size for decoder instances was being incorrectly set -
+inst->vsi_core->fb.y.size was assigned twice consecutively.
 
-Signed-off-by: Lu.Tang <Lu.Tang@mediatek.com>
+Assign the second picinfo framebuffer size to the C framebuffer instead,
+which appears to be the intended target based on the surrounding code.
+
+Fixes: 2674486aac7d ("media: mediatek: vcodec: support stateless hevc decoder")
+Signed-off-by: Fei Shao <fshao@chromium.org>
 ---
- .../iio/adc/mediatek,spmi-pmic-auxadc.yaml    |  31 ++++
- .../bindings/input/mediatek,pmic-keys.yaml    |   1 +
- .../bindings/mfd/mediatek,mt6685.yaml         |  50 +++++
- .../bindings/mfd/mediatek,spmi-pmic.yaml      | 173 ++++++++++++++++++
- .../pinctrl/mediatek,mt65xx-pinctrl.yaml      |   1 +
- 5 files changed, 256 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iio/adc/mediatek,spmi-pmic-auxadc.yaml
- create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6685.yaml
- create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,spmi-pmic-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,spmi-pmic-auxadc.yaml
-new file mode 100644
-index 000000000000..250782ad7d01
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iio/adc/mediatek,spmi-pmic-auxadc.yaml
-@@ -0,0 +1,31 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iio/adc/mediatek,spmi-pmic-auxadc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek SPMI PMIC AUXADC
-+
-+maintainers:
-+  - Lu Tang <lu.tang@mediatek.com>
-+
-+description:
-+  The Auxiliary Analog/Digital Converter (AUXADC) is an ADC found
-+  in some MediaTek PMICs, performing various PMIC related measurements
-+  such as battery and PMIC internal voltage regulators temperatures,
-+  other than voltages for various PMIC internal components.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt6363-auxadc
-+      - mediatek,mt6373-auxadc
-+
-+  "#io-channel-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - "#io-channel-cells"
-+
-+additionalProperties: false
-diff --git a/Documentation/devicetree/bindings/input/mediatek,pmic-keys.yaml b/Documentation/devicetree/bindings/input/mediatek,pmic-keys.yaml
-index b95435bd6a9b..ce760039d4c2 100644
---- a/Documentation/devicetree/bindings/input/mediatek,pmic-keys.yaml
-+++ b/Documentation/devicetree/bindings/input/mediatek,pmic-keys.yaml
-@@ -31,6 +31,7 @@ properties:
-       - mediatek,mt6358-keys
-       - mediatek,mt6359-keys
-       - mediatek,mt6397-keys
-+      - mediatek,mt6363-keys
+ .../mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c       | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
+index aa721cc43647..2725db882e5b 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
+@@ -821,7 +821,7 @@ static int vdec_hevc_slice_setup_core_buffer(struct vdec_hevc_slice_inst *inst,
+ 	inst->vsi_core->fb.y.dma_addr = y_fb_dma;
+ 	inst->vsi_core->fb.y.size = ctx->picinfo.fb_sz[0];
+ 	inst->vsi_core->fb.c.dma_addr = c_fb_dma;
+-	inst->vsi_core->fb.y.size = ctx->picinfo.fb_sz[1];
++	inst->vsi_core->fb.c.size = ctx->picinfo.fb_sz[1];
  
-   power-off-time-sec: true
+ 	inst->vsi_core->dec.vdec_fb_va = (unsigned long)fb;
  
-diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6685.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6685.yaml
-new file mode 100644
-index 000000000000..d3276df8952b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6685.yaml
-@@ -0,0 +1,50 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/mediatek,mt6685.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT6685 Clock IC
-+
-+maintainers:
-+  - Lu Tang <lu.tang@mediatek.com>
-+
-+description: |
-+  MT6685 is a clock IC.
-+  Please see the sub-modules below for supported features.
-+
-+  MT6685 is a multifunction device with the following sub modules:
-+  - RTC
-+  - Clock
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt6685
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 2
-+
-+required:
-+  - compatible
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/spmi/spmi.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    spmi {
-+        mfd@9 {
-+            compatible = "mediatek,mt6685";
-+            reg = <0x9 SPMI_USID>;
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml b/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
-new file mode 100644
-index 000000000000..a8f1231623cf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
-@@ -0,0 +1,173 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/mediatek,spmi-pmic.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek SPMI PMICs multi-function device
-+
-+maintainers:
-+  - Lu Tang <lu.tang@mediatek.com>
-+
-+description: |
-+  Some Mediatek PMICs are interfaced to the chip via the SPMI (System Power
-+  Management Interface) bus.
-+
-+  The Mediatek SPMI series includes the MT6363, MT6373, MT6316 and other
-+  PMICs.Please see the sub-modules below for supported features.
-+
-+   MT6363/MT6373 is a multifunction device with the following sub modules:
-+  - Regulators
-+  - ADC
-+  - GPIO
-+  - Keys
-+   MT6316 is a multifunction device with the following sub modules:
-+  - Regulators
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - mediatek,mt6363
-+          - mediatek,mt6373
-+          - mediatek,mt6316
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 2
-+
-+  regulators:
-+    type: object
-+    description:
-+      List of child nodes that specify the regulators.
-+    additionalProperties: true
-+
-+    properties:
-+      compatible:
-+        oneOf:
-+          - enum:
-+              - mediatek,mt6363-regulator
-+              - mediatek,mt6373-regulator
-+              - mediatek,mt6316-regulator
-+
-+    required:
-+      - compatible
-+
-+  adc:
-+    type: object
-+    $ref: /schemas/iio/adc/mediatek,spmi-pmic-auxadc.yaml#
-+    unevaluatedProperties: false
-+
-+  keys:
-+    type: object
-+    $ref: /schemas/input/mediatek,pmic-keys.yaml
-+    unevaluatedProperties: false
-+    description:
-+      Power and Home keys.
-+
-+  pinctrl:
-+    type: object
-+    $ref: /schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
-+    unevaluatedProperties: false
-+    description:
-+      Pin controller
-+
-+required:
-+  - compatible
-+  - regulators
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/spmi/spmi.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    spmi {
-+        main_pmic: pmic@4 {
-+            compatible = "mediatek,mt6363";
-+            reg = <0x4 SPMI_USID>;
-+            interrupts = <0x4 IRQ_TYPE_NONE>;
-+            #address-cells = <0>;
-+            interrupt-controller;
-+            #interrupt-cells = <2>;
-+
-+            mt6363keys: keys {
-+                compatible = "mediatek,mt6363-keys";
-+                mediatek,long-press-mode = <1>;
-+                power-off-time-sec = <0>;
-+
-+                power {
-+                    linux,keycodes = <116>;
-+                    wakeup-source;
-+                };
-+
-+                home {
-+                    linux,keycodes = <115>;
-+                };
-+            };
-+
-+            mt6363_pio: pinctrl {
-+                compatible = "mediatek,mt6363-pinctrl";
-+                gpio-controller;
-+                #gpio-cells = <2>;
-+            };
-+
-+            mt6363regulator: regulators {
-+                compatible = "mediatek,mt6363-regulator";
-+
-+                mt6363_vs2: vs2 {
-+                    regulator-name = "mt6363_vs2";
-+                    regulator-allowed-modes = <0 1 2>;
-+                    regulator-always-on;
-+                    regulator-allow-set-load;
-+                };
-+
-+                mt6363_vbuck1: vbuck1 {
-+                    regulator-name = "mt6363_vbuck1";
-+                    regulator-allowed-modes = <0 1 2>;
-+                };
-+
-+                mt6363_vbuck2: vbuck2 {
-+                    regulator-name = "mt6363_vbuck2";
-+                    regulator-allowed-modes = <0 1 2>;
-+                };
-+
-+                mt6363_vbuck3: vbuck3 {
-+                    regulator-name = "mt6363_vbuck3";
-+                    regulator-allowed-modes = <0 1 2>;
-+                };
-+
-+                mt6363_vbuck4: vbuck4 {
-+                    regulator-name = "mt6363_vbuck4";
-+                    regulator-allowed-modes = <0 1 2>;
-+                };
-+
-+                mt6363_vbuck5: vbuck5 {
-+                    regulator-name = "mt6363_vbuck5";
-+                    regulator-allowed-modes = <0 1 2>;
-+                };
-+
-+                mt6363_vbuck6: vbuck6 {
-+                    regulator-name = "mt6363_vbuck6";
-+                    regulator-allowed-modes = <0 1 2>;
-+                };
-+
-+                mt6363_vbuck7: vbuck7 {
-+                    regulator-name = "mt6363_vbuck7";
-+                    regulator-allowed-modes = <0 1 2>;
-+                };
-+
-+                // ...
-+
-+                mt6363_isink_load: isink-load {
-+                    regulator-name = "mt6363_isink_load";
-+                };
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
-index bccff08a5ba3..bf3ba58a7705 100644
---- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
-@@ -17,6 +17,7 @@ properties:
-     enum:
-       - mediatek,mt2701-pinctrl
-       - mediatek,mt2712-pinctrl
-+      - mediatek,mt6363-pinctrl
-       - mediatek,mt6397-pinctrl
-       - mediatek,mt7623-pinctrl
-       - mediatek,mt8127-pinctrl
 -- 
-2.46.0
+2.49.0.rc1.451.g8f38331e32-goog
 
 
