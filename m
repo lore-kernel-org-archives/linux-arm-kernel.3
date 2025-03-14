@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F67EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 15:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2A3C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 15:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auGt9XWP0Qbzw3OPjJr1G6NzqivSoczirlHeVfF6E10=; b=2M9PppF39lWE+CbXU8kA2KGPpc
-	pxKLTnSpYR22kJuVyvLwvkGCz1x+Fxr36dDOPMIDrYdkN16ga/tGV3sGIJOZocwE0nXuoJrttE3zQ
-	fp5+rNDKBjMVsIpnF8JnmotSIPMwxHpVykttMD6RJqG/k2QZWotlUh5c5I+g75kE1n1Zcy3H1BajO
-	VSvgBpgc2sgAl18t+flFxcU3umP4yfujiFuwDJn6FZ3CEaBtG6UH2s6oLQDJqnv9+sYM8HkgBf+TT
-	8sC3i908GTn6ORmSDDvT8W4AbvfRHrHsNNen4UqMJe1zqYOdIY+x+OjlUO7tZCbFDuCDVZ4oaHH/k
-	0OaQQc1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Content-Transfer-Encoding:Mime-Version:To:From:Cc:Subject:Message-Id:Date:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TDGHe5H9DDTsiL/3ihAwqrP4qS9aTGO3ohjYTzmIf94=; b=EAMPuetl2FtGzDJRQWZzaMvZz2
+	4gx6GIzTR3aHzOYQcIABJzr2AMauC6dXfzMfOed1cFT+Cwzi6fRH/Q+1YTa916wPTgEIm/kZkI+Ji
+	ObbWHW89zz+/UUi8NMdijIRYF6fqUMcbRCkjioe0yBRAirXx5EnqnzCl21SSQWv+DoEh65gIdrfJl
+	jACqq3F1F+GAKuJwnRTykAvosnNGoyIj1gk8Au6/sYvlXBH328jc8KmzOPTgSOMwT1vUNHFAI75EU
+	yMuZokFueMpteMN3xLoLxiPyTfYr5erR5fvhDiioiLCvqcF+YISYCfDsmVSRSnVndAAuR4uIt9f86
+	ewKXs9xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6j5-0000000EWCJ-13eg;
-	Fri, 14 Mar 2025 15:13:31 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tt6kj-0000000EWUi-40Ne;
+	Fri, 14 Mar 2025 15:15:13 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6da-0000000EVMu-18X2
+	id 1tt6f5-0000000EVYS-0Lgw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 15:07:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B06D2A47554;
-	Fri, 14 Mar 2025 15:02:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FE39C4CEE3;
-	Fri, 14 Mar 2025 15:07:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741964869;
-	bh=auGt9XWP0Qbzw3OPjJr1G6NzqivSoczirlHeVfF6E10=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XNy5Dld9pXvBnJf7wFR2PSc2XDHnXiK4b460XZRPxQk4OI9ncVfutK1DC+v3Ca7iq
-	 8hatfFD9HqzC6G0xlxxkVw7+Xhu5afEzXQZZXm+weAOhZXM/LKsA0kQ7XqIGt04ZmN
-	 PRHTmKa2cyrMcd/TFdZch5GLtrXLTy3pBtBt/sKM9bQLFsLAyi9VDYbroS0g1c7tWR
-	 9nDRO7GOWk3GbTScXZ4mOKDkmgUJq/MENFAZJJ5Be3tPavyh1qZXNjOB2PCGLLFlsp
-	 bIvokHWi1xBp5PzSdliL2ixusTBWMibIQB0p+RPp9PYmfkZ8c2cKGDPzGnueoufAqi
-	 X08d4J+ZWL6fQ==
-Date: Fri, 14 Mar 2025 15:07:43 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Greg KH <gregkh@linuxfoundation.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 6.12 3/8] KVM: arm64: Remove host FPSIMD saving for
- non-protected KVM
-Message-ID: <fb6255b7-0ba2-45a3-93fd-2ebebfac61be@sirena.org.uk>
-References: <20250314-stable-sve-6-12-v1-0-ddc16609d9ba@kernel.org>
- <20250314-stable-sve-6-12-v1-3-ddc16609d9ba@kernel.org>
- <2025031427-yiddish-unrented-2bc2@gregkh>
- <Z9Q_zW_mM-v2iPHC@arm.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="S8XTGybJTDvyceBH"
-Content-Disposition: inline
-In-Reply-To: <Z9Q_zW_mM-v2iPHC@arm.com>
-X-Cookie: Reality does not exist -- yet.
+	Fri, 14 Mar 2025 15:09:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=In-Reply-To:References:
+	Content-Transfer-Encoding:Mime-Version:To:From:Cc:Subject:Message-Id:Date:
+	Content-Type:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=TDGHe5H9DDTsiL/3ihAwqrP4qS9aTGO3ohjYTzmIf94=; b=MjgqkO1UHN37C5wdfNLcTeDKFh
+	F4uhfb/1LWyBNpNtuF7lk1D2cTSB+zaldu5zhS5tsdgZ7h1ghQTUTeqUv8NG3KcGjnLqRj+JWHKeH
+	FWqD8pBWMKLsTNOwa2AXdwhXEqky8tsmv/5NCCrnNq1tQWBz+rTq1WkyQii0lOEnE5P5eMm+srzBr
+	si6UEHvgsjAtmYQ3/J8L4mNh1SmkVsUhQpQztAFBNd9e/oe4rtpKBaTH0myfdgHbKN9GuiNyCR+DG
+	SrPsuNnTanh+j8D//n6bCPBCINHeaIbaYDqU8HqIp6wJthZhzkxcwta5TZTXGcFAyCisTwdRLN6AZ
+	02Pu5FhA==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1tt6ey-000Mpp-1C;
+	Fri, 14 Mar 2025 16:09:16 +0100
+Received: from [185.213.155.229] (helo=localhost)
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1tt6ex-0001HJ-0C;
+	Fri, 14 Mar 2025 16:09:15 +0100
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 14 Mar 2025 15:09:15 +0000
+Message-Id: <D8G31H1FDKXJ.3C3P6GDB2JBW@folker-schwesinger.de>
+Subject: Re: [PATCH] dmaengine: xilinx_dma: Set dma_device directions
+Cc: "Vinod Koul" <vkoul@kernel.org>, "Michal Simek" <michal.simek@amd.com>,
+ "Marek Vasut" <marex@denx.de>, "Radhey Shyam Pandey"
+ <radhey.shyam.pandey@amd.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+To: "Thomas Gessler" <thomas.gessler@brueckmann-gmbh.de>,
+ <dmaengine@vger.kernel.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: aerc 0.20.1-33-g75c6578986f4
+References: <20250314134849.703819-1-thomas.gessler@brueckmann-gmbh.de>
+In-Reply-To: <20250314134849.703819-1-thomas.gessler@brueckmann-gmbh.de>
+X-Authenticated-Sender: dev@folker-schwesinger.de
+X-Virus-Scanned: Clear (ClamAV 1.0.7/27577/Fri Mar 14 10:01:01 2025)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_080750_375799_E305BF73 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250314_080923_407856_74A22E9A 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri Mar 14, 2025 at 2:48 PM CET, Thomas Gessler wrote:
+> Coalesce the direction bits from the enabled TX and/or RX channels into
+> the directions bit mask of dma_device. Without this mask set,
+> dma_get_slave_caps() in the DMAEngine fails, which prevents the driver
+> from being used with an IIO DMAEngine buffer.
+>
+> Signed-off-by: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
 
---S8XTGybJTDvyceBH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Tested-by: Folker Schwesinger <dev@folker-schwesinger.de>
 
-On Fri, Mar 14, 2025 at 02:40:13PM +0000, Catalin Marinas wrote:
-> On Fri, Mar 14, 2025 at 06:32:45AM +0100, Greg Kroah-Hartman wrote:
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c
+> index 108a7287f4cd..641aaf0c0f1c 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -3205,6 +3205,10 @@ static int xilinx_dma_probe(struct platform_device=
+ *pdev)
+>  		}
+>  	}
+> =20
+> +	for (i =3D 0; i < xdev->dma_config->max_channels; i++)
+> +		if (xdev->chan[i])
+> +			xdev->common.directions |=3D xdev->chan[i]->direction;
+> +
+>  	if (xdev->dma_config->dmatype =3D=3D XDMA_TYPE_VDMA) {
+>  		for (i =3D 0; i < xdev->dma_config->max_channels; i++)
+>  			if (xdev->chan[i])
 
-> > What is the upstream git id for this on?
-
-> It seems to be 8eca7f6d5100 ("KVM: arm64: Remove host FPSIMD saving for
-> non-protected KVM").
-
-Yes, sorry.
-
---S8XTGybJTDvyceBH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfURj4ACgkQJNaLcl1U
-h9Am2Qf/b4EHZqu6pDkBYyouOVfn8Z/DkFLUSyW1rFgzV1MJ+UBtBsdKnClTUz2/
-HbeF25PC/M9OJgPZDBVbyvMcSidxldZib36id+wvTgvvZvAPr/fiAW/T8AXmPT+T
-OujSaupg0i2yN3LtCcDbI9cytqJjYzD+eXHp2RZehpJvA2pWTJ/zLAq0d0WE55BD
-FAZx74C24WZ7InXKCP+U5hE2jpHp2iIuK5H+lTY6AJCpgOn9R6aIGkeo9SK5UCSC
-0k0oWK77zGxIe3B3Vxj/NvRkfk8D5rrh+pGJkuTihWjDzoCNyi8moceHdTO1YoVO
-aA73+5Bj6jDghbg3JPgw/01G2fO2yQ==
-=YUsB
------END PGP SIGNATURE-----
-
---S8XTGybJTDvyceBH--
 
