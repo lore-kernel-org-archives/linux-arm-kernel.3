@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6EBC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB09AC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IchMW5cPaVGupciOSvL/QWeDOAs3j9uz2T3WU11vBas=; b=1BzL/2+WKxWw9k9Sf/kM7syyr+
-	EP6rX6wlXjoVPMrQRlOngkb9O80kory5u2nfTEzWWR8rObs7Dtmd9HchWP8LeqJ2mNhrFhdWhJF7R
-	8UH1L8webPYlnJrHC5ZSXxv1gEuAcY80ZG4z2/VWZSB+VA9L6YAr5PDHARlpRMPiKMMNsh9zPu4ZN
-	43cGctQkus3/AJI860Uq1ZIGyCW1QWOE67giYq4Yhsys06KzxpGGMmzLLZ+Bk6qpKpPsLgJe861g6
-	+I3vpTIC1yHtRm59o3F48/yqU085zOJaukL6HZ/5JoG8Ssq+aPF427P0pI2DKkHtvtClg5BxRZi/W
-	gsIaLq5g==;
+	bh=LlB5MQOuYaWQrpOWhB9woaeEf6g8GikGRsA35Bq/gXM=; b=DoEgKYvyqcJ0kjCY7jroEtfP+O
+	lBdnNWVfXL5GhnxKtIMAa4VLhMgYnMvi1xyL7cAqf2KQJ/j8b8dw3a5rOa5tSPO0H6n/QkC3BlETK
+	om/9pgM+NCbGZBSEE1RnbX2U9UYq1uCClbBNTo+4fGkw3O+lCHI4gVKnS7oo4baG625dRs7Gq9xAm
+	Mh43FzjQvd8owOQ2w/OYozB0lXVRoBrUMi5SatIwGJsfJ6urptQg3qkrSbwxIJYCDuUS2+7uTyom2
+	QcsExmBrtFp9XnBC7XwPFNzyoEu3WXIzW7If15e/ZmwkjhG0HyXsww6+m0qic+ye7yRJalrLZEtFG
+	uPiJM0nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2SZ-0000000DsfQ-1iQh;
-	Fri, 14 Mar 2025 10:40:11 +0000
+	id 1tt2UD-0000000Dsx2-0WqF;
+	Fri, 14 Mar 2025 10:41:53 +0000
 Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2KP-0000000DqwJ-3J90
+	id 1tt2KS-0000000DqxF-1CaX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:31:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DB06243316;
-	Fri, 14 Mar 2025 10:31:41 +0000 (UTC)
+	Fri, 14 Mar 2025 10:31:49 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5DA1244284;
+	Fri, 14 Mar 2025 10:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741948304;
+	t=1741948306;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=IchMW5cPaVGupciOSvL/QWeDOAs3j9uz2T3WU11vBas=;
-	b=FwWfXmphH0YQs4relpX07icAwCxBCsSkr6f43qURPHZIlDnKITvWbre+Gy+YLr85PUIPcG
-	KFp3mgFlH8Z63SKX6ouW2Xm9icJIiCAR/be42+KfDmDyPVhP7zsiZ+nb09A11S76FcQFGZ
-	TjBOn63k2hZ0aVmmu/h7UQ99fRUjVRX2deQoq3bQeqlzUykA9gd97bJwjbjaEM1S51bzOS
-	fAp9qxgJzqKsxa9gfRV4wZYWKW+4drG4QB7DAtipW+LUz/gxAUIGgoZrh6XWEnJvMTsqV2
-	L0/Bdicz/XyHDrYmgU8dcylxVTxWs4BUcVQnWWtlZD+kU0lHCCNx4tG9fEA6/Q==
+	bh=LlB5MQOuYaWQrpOWhB9woaeEf6g8GikGRsA35Bq/gXM=;
+	b=jnN5REUyT8QbnSBd1lYuqg7e/9eOngFqXhr8ESD7QRQvpCSeHJn/BzBaiX4OdhuLJmZ1PG
+	ZAugrkJ7tR6HCzyfRempUlSl8KyIQPKPBqZZXydJoqb17taTGsg1u5pd8LnvmQz2dnWsRL
+	sKSa1EzNWWYbli6wPq7bwhkSBdwdiqUdX0KuuOi4povOgf/37+VB/t443bpXM+uCp8VQEN
+	GVSH91QtQXeEt1zRubonQS1Ovd9WQqY5brokaIBsbRnaedVsxGzTp8WBsHbY5YAt1y3yYG
+	8S54lgUQ0UzUlzsf+kTn4wiYdxygSRMbII/ShWtYfCkccSQSmZcKIYWIhv2UIw==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 14 Mar 2025 11:31:17 +0100
-Subject: [PATCH v7 04/11] drm/bridge: get/put the bridge reference in
- drm_bridge_attach/detach()
+Date: Fri, 14 Mar 2025 11:31:18 +0100
+Subject: [PATCH v7 05/11] drm/bridge: add a cleanup action for scope-based
+ drm_bridge_put() invocation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250314-drm-bridge-refcount-v7-4-152571f8c694@bootlin.com>
+Message-Id: <20250314-drm-bridge-refcount-v7-5-152571f8c694@bootlin.com>
 References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
 In-Reply-To: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -75,12 +75,12 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedtiedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhunhhgrdgtohhmpdhrtghpthhtohepmhgrrhgvgiesuggvnhigrdguvgdprhgtphhtthhopehjvghrn
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedtiedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehnecuvehluhhsthgvrhfuihiivgepgeenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhunhhgrdgtohhmpdhrtghpthhtohepmhgrrhgvgiesuggvnhigrdguvgdprhgtphhtthhopehjvghrn
  hgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehprghulhhksehshihsqdgsrghsvgdrihhopdhrtghpthhtoheprghsrhhivhgrthhssehrvgguhhgrthdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgv
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_033145_982558_B01F1EAE 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250314_033148_476176_88023485 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +95,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drm_bridge_attach() adds the bridge to the encoder chain, so take a
-reference for that. Vice versa in drm_bridge_detach().
+Many functions get a drm_bridge pointer, only use it in the function body
+(or a smaller scope such as a loop body), and don't store it. In these
+cases they always need to drm_bridge_put() it before returning (or exiting
+the scope).
+
+Some of those functions have complex code paths with multiple return points
+or loop break/continue. This makes adding drm_bridge_put() in the right
+places tricky, ugly and error prone in case of future code changes.
+
+Others use the bridge pointer in the return statement and would need to
+split the return line to fit the drm_bridge_put, which is a bit annoying:
+
+  -return some_thing(bridge);
+  +ret = some_thing(bridge);
+  +drm_bridge_put(bridge);
+  +return ret;
+
+To make it easier for all of them to put the bridge reference correctly
+without complicating code, define a scope-based cleanup action to be used
+with __free().
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Changes in v7:
-- in v6 this was part of "drm/bridge: add support for refcounted DRM
-  bridges", now split to a separate patch
+This patch was added in v7.
 ---
- drivers/gpu/drm/drm_bridge.c | 17 +++++++++++++----
- 1 file changed, 13 insertions(+), 4 deletions(-)
+ include/drm/drm_bridge.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 72fa51d4dd2337f97c2bd65cfabf9cee05b661b4..da85694e9310f1f910bc8a5aa5d95a91d9254888 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -370,11 +370,17 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
- 	if (!encoder || !bridge)
- 		return -EINVAL;
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 5c1e2b9cafb12eb429d1f5d3ef312e6cf9b54f47..a5accd64c364ebb57903ae1e7459034ad9ebf4f3 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -23,6 +23,7 @@
+ #ifndef __DRM_BRIDGE_H__
+ #define __DRM_BRIDGE_H__
  
--	if (previous && (!previous->dev || previous->encoder != encoder))
--		return -EINVAL;
-+	drm_bridge_get(bridge);
++#include <linux/cleanup.h>
+ #include <linux/ctype.h>
+ #include <linux/list.h>
+ #include <linux/mutex.h>
+@@ -995,6 +996,9 @@ static inline struct drm_bridge *drm_bridge_put(struct drm_bridge *bridge)
+ 	return bridge;
+ }
  
--	if (bridge->dev)
--		return -EBUSY;
-+	if (previous && (!previous->dev || previous->encoder != encoder)) {
-+		ret = -EINVAL;
-+		goto err_put_bridge;
-+	}
++/* Cleanup action for use with __free() */
++DEFINE_FREE(drm_bridge_put, struct drm_bridge *, if (_T) drm_bridge_put(_T))
 +
-+	if (bridge->dev) {
-+		ret = -EBUSY;
-+		goto err_put_bridge;
-+	}
- 
- 	bridge->dev = encoder->dev;
- 	bridge->encoder = encoder;
-@@ -423,6 +429,8 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
- 			      "failed to attach bridge %pOF to encoder %s\n",
- 			      bridge->of_node, encoder->name);
- 
-+err_put_bridge:
-+	drm_bridge_put(bridge);
- 	return ret;
- }
- EXPORT_SYMBOL(drm_bridge_attach);
-@@ -443,6 +451,7 @@ void drm_bridge_detach(struct drm_bridge *bridge)
- 
- 	list_del(&bridge->chain_node);
- 	bridge->dev = NULL;
-+	drm_bridge_put(bridge);
- }
+ void drm_bridge_put_void(void *data);
  
  /**
 
