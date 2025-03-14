@@ -4,136 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE95BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A344CC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GYuaoE2tpXVMoioaikSazmkTcaXhz8QWbIRrJWb/YhI=; b=3BmEuDFthe4rCQEMq5e8rpBESA
-	uBS3eCTQP+giY1QiNVrJcJ1uNrYuHsCykGe2mdeHpGkZ8vIjSEtplYLxEBYFmWXCdRhjdXlW533+q
-	yatxrhuT3c/juXVLFV7ZAZmzrSUA2Pa5+tLyiFo4LzlHQSALnMFzyI20kq6OZQHC01kmHgHzjHEA4
-	tLUOeOLTnN6QXabYftjaQDVZjUKMPwaszENAir0rNuGeHR0cczhFss/HK1ledG10Mz2Gryed/nmly
-	u8F1JMn47OsSed71Db7r2HPj4CsfH50colVgledL7QWXk5f0WaPDRqpQ9SAj4lgAfBzgGW4o0mE6H
-	ZOOL8/AQ==;
+	bh=z6B4P6li35NYfvylmnEIJbA99kfnu8jlKpUXmSAMqD8=; b=yP+YjkLbC4Pb0TqrbVll2xCvLW
+	ibwvKieUO5mxbEAvHFf8uiehl7E0zZwzA3LsxeNM6Q49HTseDTEbskT23DFkipHYRyqsQvQsC9G/g
+	KjiUSjkpkg9bvHxdhKnUI01Jvpk44BhPRXrAaDAV2y5ftGWDW4IX++EAJQWjXOemmtvb+yV2MUU2r
+	1g4BttVa1WtYV8rWAKo2c57CQP62MZpINSeJGe+8s1ZF5AJFOibGAy7U+1byOxYSM8RDt9y/X4ZLo
+	aGjJvkB4iyv5bvIi1MwhFs5xaG06Ytr96LCyWriftXGZh6HKqVXoWssFetT9mtQsKRWpvSraguE6Z
+	DFa7qJGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9W7-0000000EzRA-0RW3;
-	Fri, 14 Mar 2025 18:12:19 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tt9Xl-0000000Ezn0-18e2;
+	Fri, 14 Mar 2025 18:14:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9FU-0000000EwvX-02On
+	id 1tt9J6-0000000ExLA-3jvM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 17:55:09 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-225a28a511eso43351165ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 10:55:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741974907; x=1742579707; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=GYuaoE2tpXVMoioaikSazmkTcaXhz8QWbIRrJWb/YhI=;
-        b=Sjcf7A99rPBTF0zYqllwcWpG/9lSBoAfXaFepPnGyhtUHxNS21HWRMg/jmV1Blt9Sx
-         btjzJBnkSJOpO55fcs4t1qG55jIXUGMPN7BdpKPanfn1RVMX5DpmoO8etP8eCWCuXwF7
-         wbEw1JnCEEL+U4l8D4a5JCJJMhri+N2Og8ZYITn6AFluWfzbFZp9WRpAHcAIXg1zYJrL
-         31BSCj5GZbDvIl3IeKC/vFfMWdryXsS+CPefdFH8MeW8p7tIdhFkBIPZVxi6CnIKBUt2
-         lYWH4ynbgeot9nKsO3Q7v3isLRtWM9QAsDEaHOixt2/+IbEFEf0eNJVD2aKHlaVvSRz+
-         NBmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741974907; x=1742579707;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GYuaoE2tpXVMoioaikSazmkTcaXhz8QWbIRrJWb/YhI=;
-        b=U2s7GYT6svB0NyaolbksY9s8ic0n10qzD/38Dj8IzEjp3+fJtEPQo8lUz+6k7vAKO5
-         t6hD++iY45IbhUQGXqJYkKO/cgCrXdYJazeVikwp5J6UYdP2WUfSB7C8Xs/RFecILE0A
-         06YQAhvwv88sdzVYykQHKHqr/wcWU5qWui02qt5AWipk13bNk4L/iT+0E9QKl6W0RYWD
-         IAHekk8msMnTbpIbdBbOS7eq7sA7L1F88uZpYt+E/D3F96vTYtLIFqm0/CtXKsLZQYHy
-         WfB8zV6XXc1tVunKXFMyiwM/AgQxuGjilxZkFMyQAR78Kt5Whv+T69sbhQiCRRxyELdr
-         tYEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVklkNAdRRHRBnO4a7+2cYSx3C2pAZfIaepuY5xG04n4hxrgFs0FZZSJbT9EJP7C5uOOvVIlNknjOjbJ6tus4qF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7s8ZUVJ5coA7/2XqlUCZ25LWL+jvrKAIITux71Gwr1uSTcY7z
-	D/wtcvGlktK1QBFB1t6xz3U9YqD5UyOKS9FrjrsYQTqGHOzM3AG5
-X-Gm-Gg: ASbGncuiFz1ODxm9/Et172jD9hwPLBfA7Fj64YSayQlWw0NpOqDeNSzyswa7Aei7PMq
-	1yWNnsibx3nGb9zn7RbLcShRUh1n72qhvS6SBxsReuPQbBDSrS/DzdGjRq0T5YeJKyasNu8UXkn
-	vOL42sYuGlAQ8//7s+ACfIm3wjpJziEFucOo697kcKbvXWbnaisXI2dNHvVrPfUQTQWpqq70cje
-	5cIMd7qebfbJgspdqLhAETjCWdRQnEIiG4t6MAnsI4TllCuHr3HxF8o1X0BQF6LDLJIIdv9Uprf
-	3qvhHuEazLoSPbDFYfyEt2q/7h2cHjBxw1aTRjdZS+kRx7SuXxXHCQTHwEKJz7ECr5dgtfbkMn4
-	WJT54ILpHQMh87W3RpA==
-X-Google-Smtp-Source: AGHT+IFfzffcjUeInESVFEr7t0qDIWD/oGmdtUB4ui/iRUi+/KiJTJutkbCHfIyZnt3dHb9VK0PZMQ==
-X-Received: by 2002:a05:6a00:3c81:b0:736:3c77:31fd with SMTP id d2e1a72fcca58-737223fe959mr3608574b3a.23.1741974906924;
-        Fri, 14 Mar 2025 10:55:06 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73711559289sm3249490b3a.68.2025.03.14.10.55.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Mar 2025 10:55:06 -0700 (PDT)
-Message-ID: <e53b32db-7059-4167-992e-d461a996b122@roeck-us.net>
-Date: Fri, 14 Mar 2025 10:55:05 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] watchdog: aspeed: fix 64-bit division
-To: Arnd Bergmann <arnd@kernel.org>, Wim Van Sebroeck
- <wim@linux-watchdog.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-watchdog@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250314160248.502324-1-arnd@kernel.org>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20250314160248.502324-1-arnd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Fri, 14 Mar 2025 17:58:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E95BE5C542D;
+	Fri, 14 Mar 2025 17:56:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E66A8C4CEE3;
+	Fri, 14 Mar 2025 17:58:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741975131;
+	bh=z6B4P6li35NYfvylmnEIJbA99kfnu8jlKpUXmSAMqD8=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=Bw1jHUi3Ya3L6oLYeiERZiA1MI/e5bpo7F/Y15CRB6uQ5cBl6rauUOJ6hB9NRKdoC
+	 v5IPQSKHkxpJgDLxYKOh4+Bmzb1eLA1/Lzaqq6EJ9uPIBDuV1WnuA7KdRk262rbtKa
+	 Y5hCo9VHoLGAMPl9zE7emTWBoFJGyhkMoQDsk7v/b6Uc5qwZksQWU2oXe02jORkneO
+	 MjxyIozdSoT3xoTkTo4QdCTZU4QNUNpCQB0K0Qr5bGCYNfovRHKVWvZa63MEUwRMw7
+	 l2AmNkiIOZCpeB2dCmZqmNryEGuGxVp9yx3fpSy8BaO9/bZuZuf4aOgUd33QAZewtV
+	 HxBIi6NEi7m/Q==
+Message-ID: <ab48cc194d9fc1f5d3fc7846abbf4cce@kernel.org>
+Date: Fri, 14 Mar 2025 17:58:48 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v7 01/11] drm/bridge: add devm_drm_bridge_alloc()
+In-Reply-To: <20250314-drm-bridge-refcount-v7-1-152571f8c694@bootlin.com>
+References: <20250314-drm-bridge-refcount-v7-1-152571f8c694@bootlin.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa" <asrivats@redhat.com>, "David
+ Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>, "Fabio
+ Estevam" <festevam@gmail.com>, =?utf-8?b?SGVydsOpIENvZGluYQ==?= <herve.codina@bootlin.com>, "Hui
+ Pu" <Hui.Pu@gehealthcare.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan
+ Teki" <jagan@amarulasolutions.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Marek
+ Vasut" <marex@denx.de>, "Maxime Ripard" <mripard@kernel.org>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Robert Foss" <rfoss@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Stefan Agner" <stefan@agner.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_105508_057263_286CB6B6 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20250314_105852_983675_0627BB38 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,37 +82,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/14/25 09:02, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> On 32-bit architectures, the new calculation causes a build failure:
-> 
-> ld.lld-21: error: undefined symbol: __aeabi_uldivmod
-> 
-> Since neither value is ever larger than a register, cast both
-> sides into a uintptr_t.
-> 
-> Fixes: 5c03f9f4d362 ("watchdog: aspeed: Update bootstatus handling")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On Fri, 14 Mar 2025 11:31:14 +0100, Luca Ceresoli wrote:
+> Add a macro to allocate and initialize a DRM bridge embedded within a
+> private driver struct.
+>=20
+> Compared to current practice, which is based on [devm_]kzalloc() allocati=
+on
+> followed by open-coded initialization of fields, this allows to have a
+>=20
+> [ ... ]
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-> ---
->   drivers/watchdog/aspeed_wdt.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
-> index 369635b38ca0..837e15701c0e 100644
-> --- a/drivers/watchdog/aspeed_wdt.c
-> +++ b/drivers/watchdog/aspeed_wdt.c
-> @@ -254,7 +254,7 @@ static void aspeed_wdt_update_bootstatus(struct platform_device *pdev,
->   
->   	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
->   		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -		idx = ((intptr_t)wdt->base & 0x00000fff) / resource_size(res);
-> +		idx = ((intptr_t)wdt->base & 0x00000fff) / (uintptr_t)resource_size(res);
->   	}
->   
->   	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
-
+Thanks!
+Maxime
 
