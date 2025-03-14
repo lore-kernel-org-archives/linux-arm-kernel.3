@@ -4,98 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC8FC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A92CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BkyX6SSYfheLZc0I8Te+XAXX22QoX47uyuXFCY8mX8g=; b=SlBh2t2I3LZwAcfv1lWnabcuuH
-	18OWVaEuPPu0izkZalNHuvPwIfKdZaZautIvfRq/aydssmNA8eMVPY4B++UefejzdSozwtEodgrS/
-	fJN6x2TvzVbEPSCauEf0rAW5ZfotKEANzwZcuLrcegqFvwc7fH1t+8LVztz5CiFHIXHRMMDnbuDgG
-	w5ol3/SBbk1vvZan/Dz4UIOKc46nfm2pLw7V8/ZSmn+ZH0V8gjIC+XyfEPqrCapVhizITpKATssn1
-	K9GyF3l25nzT1L1yY4puRQly03g1361wnePL8tlMzThbiuEzivv3CjwNQhtYBwCInpgVkX04DPkmT
-	SXi1wTUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yxXrWuszmkPt9+jWh/jp7RjsQBBCWLjTzHixGfM6EZE=; b=tE1YuNfpJ9vJVwifOQJquOtHHL
+	LzebJ69jvuTxGHifIHuuBuY0aWAjUjS9YRCROkFTCMOHE31hSpIjOsSnLt+H2haWuKD/dD8DTR8yn
+	UyYmiwgCZvhKbTg3qyjBzTQS03bnVs3QskOQfjaCGiEiT/PQ0MJpE55pQ3oJb7FJytaSmLwSymzfp
+	ejVbv34P9vygOSI0I04uaKMjlSKZiNCA1fhPSl/1kPcs/Lq7WrHfyNiwQI4fI6PiqxPwj4PTPLIQN
+	l9rLU9vrSgrpZl53cPYjj3lPjHrjc3AbM7+5qNqx8qmvsjPUNQt5ANRalHkUMfQ3N76oiplrcckV6
+	Em06Q7gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt1vY-0000000Dm3f-2YKL;
-	Fri, 14 Mar 2025 10:06:04 +0000
-Received: from mail-pl1-f175.google.com ([209.85.214.175])
+	id 1tt1wi-0000000DmPo-0AqC;
+	Fri, 14 Mar 2025 10:07:16 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0Xu-0000000DVWv-1HR5;
-	Fri, 14 Mar 2025 08:37:35 +0000
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-22409077c06so48273825ad.1;
-        Fri, 14 Mar 2025 01:37:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741941453; x=1742546253;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+	id 1tt1qz-0000000Dl2O-1Ius
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 10:01:22 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-549963b5551so1880883e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 03:01:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741946479; x=1742551279; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BkyX6SSYfheLZc0I8Te+XAXX22QoX47uyuXFCY8mX8g=;
-        b=pz3z6UsEyNlRUF1+dTTugMEXUuI7ipYle/2qVk6llh0u7+/rIGFXwbdDnVZrsRZ34R
-         C64u48IqJBKbYF5bIExxvndfgb8yaxeA2MDyK9O3RwkuiSvZUnqQAzLFs3bEnAduJEUo
-         /zp5vS4q01z+tKQC2T+pu/9a5+GE3YXZZ7YunuD5ZkEERpH36mFv179jB1TavgovRsO+
-         KKfpjZH5gDNoOzHuWlmXEUo1W2Jb3ntsXLrvjUpoEI/ApSDGrGiTSqYmhMPRgYmjqJrl
-         JURGwYW1jb0RFyOp0/mvMGzyQuLCBI9+YvKZM8VMewy/I/g5RhKN829ybv6Q+m49edYN
-         Y2+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWUB+Tbx/y7qUtFi2grFheJC4PBwJ0Y5mPMOW0zLiOOu/9YFctb1OB+WX9QKDr/KqCw+N2Je+wx6hRyZSbVgbcE1Q==@lists.infradead.org, AJvYcCXEC4AhBaNHf/uFZk7N7BqMUinfudIA5SNUGDcGvKLpHxdLlJjCnzndv3nTxJGIRSd6nqNZvqqoXLN8dgHgoAeq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDVMrGgAXy9TXGiz5hBtrfg/rG7Ls+VxLl0RdgToGu1ebm7nPS
-	+b8VZGUfuFRI0P86VsFTz1bHh7CclhISXn1QUgNBTrY5K8QWhxc8
-X-Gm-Gg: ASbGnctS9bjyNGT2eSclMLn2Ng3FXevflWc1Ma0snD52AobVImneDDMvkQnpBHz8S0F
-	+AMhsgljLCkH78B23rM+NWNgxnAACQbj+upKQniNX+X5+TozR5pvkGSBZFED/wZgo/iMFnBKt3A
-	Eh6smVaDG0/ivQdpREYXIM2p5eKucme3JrCiTM7eQO6ym2/zxjABDFEwWIaXQ3MI2QhhwryK6Gv
-	lCScbG2bVsPCjHpv+m+r4BnF+cfTTr1T26EsXw+ljJnKRTL8GtRgasXxwVtrVUGFX7tVlVAz/5c
-	se1iItk80TZK8qwJ5t6Vue/a4QaquqifyEXFDBODQUKDeySAzBa9QsHbK58KU9Vmz55NpULICc/
-	2Srw=
-X-Google-Smtp-Source: AGHT+IG918SBQhjvMeRBJOnKfiU6p+a6y3ckJ/PqZfGFBhVlcJayE1fO2bgYIBBQYyK+PXqeApqP3w==
-X-Received: by 2002:a17:903:2b0f:b0:220:e5be:29c8 with SMTP id d9443c01a7336-225e0aee8f9mr28139165ad.32.1741941452931;
-        Fri, 14 Mar 2025 01:37:32 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-225c6bbe884sm24780695ad.185.2025.03.14.01.37.31
+        bh=yxXrWuszmkPt9+jWh/jp7RjsQBBCWLjTzHixGfM6EZE=;
+        b=dWowXyth6zRH15jIsSaE48cvumegICj4UjhDaIlwvPBF5dDCf40S50tYfTqDYxZzLz
+         HS2QGLcp1tBXpgu1dH7ITo1mFu8PlPSqCb1qlE/txf9n18EZBUsW0ozsSStIBRQtP8ua
+         /PtNNPMNnwdbITXiVuUtNCTjMEUl6XicWLMmWuFjY5pfivbAiGBZ37KvK3MSIhKIuN/A
+         F37hU4fFRE7dl+cpmCGWRrsOR16iNzVim8xtAlQmwikISMIEtEYY2dFn5XBSUJxJBHZl
+         oJ6IWdxJcqPh84o0NjdhwYQAe5UgXxwR0fDnO9WrHnqaCf0ZtBERVlQxGovoKaFZ4CVp
+         1oAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741946479; x=1742551279;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yxXrWuszmkPt9+jWh/jp7RjsQBBCWLjTzHixGfM6EZE=;
+        b=jPjz+2gXFBElfOCMpx9aAU+1eg/eDMc2a5kqhjL3wHa3CjhLgq94E3lFFldvvON5yc
+         n76xXCgMFrc1yLFax8spPM57hLX1/u/ETKe/OEPV/Vv0EwERb7XIMnmB/IAJSv0MHV4d
+         W8pInnTn9gaJ9Q6FUmXUpE4Nw1xKcdkd9esZuN6FYRn0t51YWYoxLRS2qQiS+xiiFM8l
+         Op73X7qgF+A1Hs18DOAPXXJy1KKRFsujwlqNhDhlxfmac4zgoH1WIV8Zj6YdP4E5PCW5
+         5nngVGFtEkbOHFkNnwAWx6RepsHvUhLMqNWMoYiLM3RJy9GMjpogYwmomWenUhkIyYE1
+         1f/g==
+X-Forwarded-Encrypted: i=1; AJvYcCVvhjiW/f18aN4M63sSaJFfpJIGypLToPbee9vrqASoHSWJnYainm+tQxPcjVP5dtU5eY0oZEnfOxn6Tc1urgs1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmNL45eB+w4ncSQr5WzJFDhZymaJpsMk1F7vqDcZW+43qbClQ+
+	Tz45q/nSM+eGNED4+NfAq5VXcWd5sVfqgsHfot304nk37UkPyRf3kiKtT0HACA0=
+X-Gm-Gg: ASbGncsEkpyUO6uO9pteAOs87NBJbYH50bFAGe2dQ/fExTi/k67PtcHRDoKEcuFyA0c
+	EVLhCHFbZzRS6mQn0rSaNnzsYR8BMzwZVL7cbOJ6To37IX4rZPSR+OePmTnI8FxCe+VpEXBnLhZ
+	aN2y2K1ZJJJ8+JpxFvyV4Z6SYpZs0jL24omWog0GqZK8sqD5ANPhQMIWxItZ6L2GzV0Bsp/huzY
+	gGNs4JOabRRML+x/AqMfCLKApyriesEldALbW/5k8/r2eQESdhHtpYy00mRi5va9MqUqvR9Oe6b
+	/5PUO9whzKuhO9e7jKpPbGaiSXHRmUaxuqbPpv6wqktUb+cLTnnGKpvNdF/J30+FjTik1hpn4Sa
+	JxcVDt/++VKEo5PtIYcvacXzRTRn10w==
+X-Google-Smtp-Source: AGHT+IGI4U+6gFVGvMxY7c2ZChVVcSTAYz3qWc9D46+/1FYmNXR+U/zCzRxHxW++97VulyB6QhEBRA==
+X-Received: by 2002:a05:6512:238d:b0:549:8d8d:2c62 with SMTP id 2adb3069b0e04-549c396e3d9mr653362e87.36.1741946479167;
+        Fri, 14 Mar 2025 03:01:19 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30c3f0ea468sm5168221fa.41.2025.03.14.03.01.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 01:37:32 -0700 (PDT)
-Date: Fri, 14 Mar 2025 17:37:30 +0900
-From: Krzysztof Wilczynski <kw@linux.com>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 08/11] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <20250314083730.GC234496@rocinante>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <d1362766e3e966f78591129de918046a4b892c18.1738963156.git.andrea.porta@suse.com>
+        Fri, 14 Mar 2025 03:01:18 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-pm@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/4] pmdomain: core: Add genpd helper to correct the usage/rejected counters
+Date: Fri, 14 Mar 2025 11:00:55 +0100
+Message-ID: <20250314100103.1294715-2-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250314100103.1294715-1-ulf.hansson@linaro.org>
+References: <20250314100103.1294715-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d1362766e3e966f78591129de918046a4b892c18.1738963156.git.andrea.porta@suse.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_013734_347796_38E4E720 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20250314_030121_350486_07DE538D 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,106 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+In the cpuidle-psci-domain case the ->power_off() callback is usually
+returning zero to indicate success. This is because the actual call to the
+PSCI FW to enter the selected domain-idlestate, needs to be done after the
+->power_off() callback has returned.
 
-Even though this is not for the PCI sub-system directly, I had a very brief
-look over the code.  I hope you don't mind.
+When the call to the PSCI FW fails, this leads to receiving an incorrect
+tracking of the usage/rejected counts for the selected domain-idlestate.
+In other words, the presented debug-statistics for genpd may look better
+than what the actually are.
 
-As such, a few nit picks, nothing blocking.
+To allow a better correctness of the data, let's add a new genpd helper
+function, which enables the caller adjust the usage/rejected counters for a
+domain-idlestate, in cases of errors during power-off.
 
-> +# RaspberryPi RP1 misc device
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+---
+ drivers/pmdomain/core.c   | 25 +++++++++++++++++++++++++
+ include/linux/pm_domain.h |  6 ++++++
+ 2 files changed, 31 insertions(+)
 
-Would this be better if it matched the "tristate" description below?
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 9b2f28b34bb5..c79ef6e3ab85 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -728,6 +728,31 @@ int dev_pm_genpd_rpm_always_on(struct device *dev, bool on)
+ }
+ EXPORT_SYMBOL_GPL(dev_pm_genpd_rpm_always_on);
+ 
++/**
++ * pm_genpd_inc_rejected() - Adjust the rejected/usage counts for an idle-state.
++ *
++ * @genpd: The PM domain the idle-state belongs to.
++ * @state_idx: The index of the idle-state that failed.
++ *
++ * In some special cases the ->power_off() callback is asynchronously powering
++ * off the PM domain, leading to that it may return zero to indicate success,
++ * even though the actual power-off could fail. To account for this correctly in
++ * the rejected/usage counts for the idle-state statistics, users can call this
++ * function to adjust the values.
++ *
++ * It is assumed that the users guarantee that the genpd doesn't get removed
++ * while this routine is getting called.
++ */
++void pm_genpd_inc_rejected(struct generic_pm_domain *genpd,
++			   unsigned int state_idx)
++{
++	genpd_lock(genpd);
++	genpd->states[genpd->state_idx].rejected++;
++	genpd->states[genpd->state_idx].usage--;
++	genpd_unlock(genpd);
++}
++EXPORT_SYMBOL_GPL(pm_genpd_inc_rejected);
++
+ static int _genpd_power_on(struct generic_pm_domain *genpd, bool timed)
+ {
+ 	unsigned int state_idx = genpd->state_idx;
+diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+index d56a78af4af1..6e808aeecbcb 100644
+--- a/include/linux/pm_domain.h
++++ b/include/linux/pm_domain.h
+@@ -285,6 +285,8 @@ int pm_genpd_remove_subdomain(struct generic_pm_domain *genpd,
+ int pm_genpd_init(struct generic_pm_domain *genpd,
+ 		  struct dev_power_governor *gov, bool is_off);
+ int pm_genpd_remove(struct generic_pm_domain *genpd);
++void pm_genpd_inc_rejected(struct generic_pm_domain *genpd,
++			   unsigned int state_idx);
+ struct device *dev_to_genpd_dev(struct device *dev);
+ int dev_pm_genpd_set_performance_state(struct device *dev, unsigned int state);
+ int dev_pm_genpd_add_notifier(struct device *dev, struct notifier_block *nb);
+@@ -336,6 +338,10 @@ static inline int pm_genpd_remove(struct generic_pm_domain *genpd)
+ 	return -EOPNOTSUPP;
+ }
+ 
++static inline void pm_genpd_inc_rejected(struct generic_pm_domain *genpd,
++					 unsigned int state_idx)
++{ }
++
+ static inline struct device *dev_to_genpd_dev(struct device *dev)
+ {
+ 	return ERR_PTR(-EOPNOTSUPP);
+-- 
+2.43.0
 
-> +config MISC_RP1
-> +	tristate "RaspberryPi RP1 PCIe support"
-> +	depends on OF_IRQ && OF_OVERLAY && PCI_MSI && PCI_QUIRKS
-> +	select PCI_DYNAMIC_OF_NODES
-> +	help
-> +	  Support the RP1 peripheral chip found on Raspberry Pi 5 board.
-> +
-> +	  This device supports several sub-devices including e.g. Ethernet
-> +	  controller, USB controller, I2C, SPI and UART.
-> +
-> +	  The driver is responsible for enabling the DT node once the PCIe
-> +	  endpoint has been configured, and handling interrupts.
-> +
-> +	  This driver uses an overlay to load other drivers to support for
-> +	  RP1 internal sub-devices.
-
-> +/* the dts overlay is included from the dts directory so
-
-  /*
-   * The dts overlay is included from the dts directory so
-
-To make the code comment match rest of the style.
-
-> +/*
-> + * Copyright (c) 2018-24 Raspberry Pi Ltd.
-> + * All rights reserved.
-
-  Copyright (c) 2018-2025 Raspberry Pi Ltd.
-
-To spell the current year fully, plus update it to 2025 already.
-
-I would also add an extra newline here to split the two apart a bit.
-
-> +	if (pci_resource_len(pdev, 1) <= 0x10000) {
-> +		dev_err(&pdev->dev,
-> +			"Not initialised - is the firmware running?\n");
-> +		return -EINVAL;
-> +	}
-
-The American spelling in the above might be better.  But I don't have
-strong opinions here.  It seems more popular in error messages.
-
-> +	err = pci_alloc_irq_vectors(pdev, RP1_INT_END, RP1_INT_END,
-> +				    PCI_IRQ_MSIX);
-> +	if (err < 0) {
-> +		return dev_err_probe(&pdev->dev, err,
-> +				     "pci_alloc_irq_vectors failed");
-
-Missing a new line at the end, but also...
-
-  return dev_err_probe(&pdev->dev, err,
-		       "Failed to allocate MSI-X vectors\n");
-
-Or, something like this over this the function name.  Perhaps exposing
-error code could be useful to the end user? If so then something like this:
-
-  return dev_err_probe(&pdev->dev, err,
-		       "Failed to allocate MSI-X vectors, err=%d\n", err);
-
-Here and other errors where appropriate.
-
-> +	for (i = 0; i < RP1_INT_END; i++) {
-> +		unsigned int irq = irq_create_mapping(rp1->domain, i);
-> +
-> +		if (!irq) {
-> +			dev_err(&pdev->dev, "failed to create irq mapping\n");
-
-  dev_err(&pdev->dev, "Failed to create IRQ mapping\n");
-
-To make the error message capitalisation consistent.
-
-> +static const struct pci_device_id dev_id_table[] = {
-> +	{ PCI_DEVICE(PCI_VENDOR_ID_RPI, PCI_DEVICE_ID_RPI_RP1_C0), },
-> +	{ 0, }
-
-  { }
-
-Would probably be sufficient.
-
-> +MODULE_AUTHOR("Phil Elwell <phil@raspberrypi.com>");
-> +MODULE_AUTHOR("Andrea della Porta <andrea.porta@suse.com>");
-> +MODULE_DESCRIPTION("RP1 wrapper");
-
-  RaspberryPi RP1 misc device
-
-To match the Kconfig comment in the above description or the one from the
-"tristate" also in Kconfig.
-
-Thank you for all the work here!
-
-	Krzysztof
 
