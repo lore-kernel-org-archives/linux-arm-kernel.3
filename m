@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67ECBC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C45C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDrv/uiFf6I/CBc/jkbxtnGgzXTM90PbsfJSUc1CXPk=; b=ylp4l5XmGQaHHS6lo/sloKQeGL
-	p/FWIpcXQshGJUmT7vj8Qnu39GVeVwm6WPXRdOui72tf2dWnqs6hlsEb6VRXZFQSfuuO9C5GH7o9X
-	Yzxjh2aFO48PG/07TikhhbPhds1dq6x8tsC0hCBE3WFglHeqQVapGp9foMtX4gZlDuTMyXeH1upvX
-	mWB+YnxQJLis+5Fv11acBgGHqokYUWywAWqHNbkPLS7Ppxh4dsEGmJ49j9/I4EnqimU+c7U/ifD5f
-	EasqBBuqyAKFCpPFSYNxsyWkenXqjCoaihm4zBT9p2aMP9zWnnaU/3W0Hcq5tbx48j5N5L0fgIwIS
-	gH6uFWXw==;
+	bh=Dqrq7DAoDmvEjgrCRa2NkON5cNDrn4Qu2Ew1/bm/cis=; b=Bi4tP8FfKEeFrWO771W4hX034i
+	I/vAzL/jlfkIYTl0MyPkEw0gqGUgdet2+SXAUoRbhsMpxqh++GarSMwQJLUBWbQYrt9RvIXc6BSO+
+	CU7B7XP7MaDDjHQa4al/RzkOTOaOxXcgTWtDI9UmGLISzys+w/9md3ut/Z/X+AT5q/3g+y+7zmB0D
+	4UGNNZgETnmKtUAzgjh5zdLedBhT9c3UnXzl6mSE1EBfXhlv8N9fMeyOBSXFnCs1qyAQgJ2oAymU+
+	f4A8J2s149hNLL++Itu1SauxMTeafmEXZ7hJMDxqzy/NKZMpgH2Bz5FnO7pUy7j++ZU1Uov4Ipeur
+	9gTb2sQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAvv-0000000F99d-13Ug;
-	Fri, 14 Mar 2025 19:43:03 +0000
+	id 1ttAxZ-0000000F9G0-3rVy;
+	Fri, 14 Mar 2025 19:44:45 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAil-0000000F75o-0TPM
+	id 1ttAil-0000000F76G-1kqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 19:29:28 +0000
+	Fri, 14 Mar 2025 19:29:29 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id D29982038A52;
+	by linux.microsoft.com (Postfix) with ESMTPSA id EEA942038F38;
 	Fri, 14 Mar 2025 12:29:24 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D29982038A52
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EEA942038F38
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741980564;
-	bh=oDrv/uiFf6I/CBc/jkbxtnGgzXTM90PbsfJSUc1CXPk=;
+	s=default; t=1741980565;
+	bh=Dqrq7DAoDmvEjgrCRa2NkON5cNDrn4Qu2Ew1/bm/cis=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QSqgRN2eSFL9v1ZQFtA0kI8kpOs8wA979X32O4UUnS5mMT/uW0RWZocOW8laLG7P0
-	 x/M05Uy7BtaWIvlNN0C91FhL/jQ/4C3EWFQoTH7yI3r6pIruBlcldN7eQqu4PVQQXa
-	 DCo9oCJycJG9dspA4lgqMWph7gXjWmnIFLV6BEMk=
+	b=mRJf/GPbhQYrzHp1rvtjepy82nTzU1PTujkRaZz2FCzlCELBWCBTdnqYW4OI6wkNu
+	 fJm+YhFk/pgz/qPlmQ9D/jBuliw/VhbKHYZzQ0X9UcC6kdIYD9OZyZPxxqgrkpaxrs
+	 iHMp51UVnktOsTcYyeO6RWKhO198OVt7DQadNCZ4=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	x86@kernel.org,
@@ -78,15 +78,15 @@ Cc: kys@microsoft.com,
 	rafael@kernel.org,
 	lenb@kernel.org,
 	corbet@lwn.net
-Subject: [PATCH v6 07/10] Drivers: hv: Introduce per-cpu event ring tail
-Date: Fri, 14 Mar 2025 12:28:53 -0700
-Message-Id: <1741980536-3865-8-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v6 08/10] x86: hyperv: Add mshv_handler() irq handler and setup function
+Date: Fri, 14 Mar 2025 12:28:54 -0700
+Message-Id: <1741980536-3865-9-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
 In-Reply-To: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_122927_197450_4D8D0F85 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250314_122927_540909_A0F1C821 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,121 +101,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a pointer hv_synic_eventring_tail to track the tail pointer for the
-SynIC event ring buffer for each SINT.
+Add mshv_handler() to process messages related to managing guest
+partitions such as intercepts, doorbells, and scheduling messages.
 
-This will be used by the mshv driver, but must be tracked independently
-since the driver module could be removed and re-inserted.
+In a (non-nested) root partition, the same interrupt vector is shared
+between the vmbus and mshv_root drivers.
+
+Introduce a stub for mshv_handler() and call it in
+sysvec_hyperv_callback alongside vmbus_handler().
+
+Even though both handlers will be called for every Hyper-V interrupt,
+the messages for each driver are delivered to different offsets
+within the SYNIC message page, so they won't step on each other.
 
 Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 Reviewed-by: Wei Liu <wei.liu@kernel.org>
-Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Reviewed-by: Tianyu Lan <tiala@microsoft.com>
 ---
- drivers/hv/hv_common.c | 41 +++++++++++++++++++++++++++++++++++++----
- 1 file changed, 37 insertions(+), 4 deletions(-)
+ arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
+ drivers/hv/hv_common.c         | 5 +++++
+ include/asm-generic/mshyperv.h | 1 +
+ 3 files changed, 15 insertions(+)
 
+diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+index fcd0e066d9bd..3e2533954675 100644
+--- a/arch/x86/kernel/cpu/mshyperv.c
++++ b/arch/x86/kernel/cpu/mshyperv.c
+@@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
+ }
+ EXPORT_SYMBOL_GPL(hv_set_msr);
+ 
++static void (*mshv_handler)(void);
+ static void (*vmbus_handler)(void);
+ static void (*hv_stimer0_handler)(void);
+ static void (*hv_kexec_handler)(void);
+@@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+ 	struct pt_regs *old_regs = set_irq_regs(regs);
+ 
+ 	inc_irq_stat(irq_hv_callback_count);
++	if (mshv_handler)
++		mshv_handler();
++
+ 	if (vmbus_handler)
+ 		vmbus_handler();
+ 
+@@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+ 	set_irq_regs(old_regs);
+ }
+ 
++void hv_setup_mshv_handler(void (*handler)(void))
++{
++	mshv_handler = handler;
++}
++
+ void hv_setup_vmbus_handler(void (*handler)(void))
+ {
+ 	vmbus_handler = handler;
 diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-index 885bbc3d86d8..3cd9b96ffc67 100644
+index 3cd9b96ffc67..b3b11be11650 100644
 --- a/drivers/hv/hv_common.c
 +++ b/drivers/hv/hv_common.c
-@@ -68,6 +68,16 @@ static void hv_kmsg_dump_unregister(void);
- 
- static struct ctl_table_header *hv_ctl_table_hdr;
- 
-+/*
-+ * Per-cpu array holding the tail pointer for the SynIC event ring buffer
-+ * for each SINT.
-+ *
-+ * We cannot maintain this in mshv driver because the tail pointer should
-+ * persist even if the mshv driver is unloaded.
-+ */
-+u8 * __percpu *hv_synic_eventring_tail;
-+EXPORT_SYMBOL_GPL(hv_synic_eventring_tail);
-+
- /*
-  * Hyper-V specific initialization and shutdown code that is
-  * common across all architectures.  Called from architecture
-@@ -90,6 +100,9 @@ void __init hv_common_free(void)
- 
- 	free_percpu(hyperv_pcpu_input_arg);
- 	hyperv_pcpu_input_arg = NULL;
-+
-+	free_percpu(hv_synic_eventring_tail);
-+	hv_synic_eventring_tail = NULL;
+@@ -680,6 +680,11 @@ void __weak hv_remove_vmbus_handler(void)
  }
+ EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
  
- /*
-@@ -372,6 +385,11 @@ int __init hv_common_init(void)
- 		BUG_ON(!hyperv_pcpu_output_arg);
- 	}
- 
-+	if (hv_root_partition()) {
-+		hv_synic_eventring_tail = alloc_percpu(u8 *);
-+		BUG_ON(!hv_synic_eventring_tail);
-+	}
++void __weak hv_setup_mshv_handler(void (*handler)(void))
++{
++}
++EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
 +
- 	hv_vp_index = kmalloc_array(nr_cpu_ids, sizeof(*hv_vp_index),
- 				    GFP_KERNEL);
- 	if (!hv_vp_index) {
-@@ -460,11 +478,12 @@ void __init ms_hyperv_late_init(void)
- int hv_common_cpu_init(unsigned int cpu)
+ void __weak hv_setup_kexec_handler(void (*handler)(void))
  {
- 	void **inputarg, **outputarg;
-+	u8 **synic_eventring_tail;
- 	u64 msr_vp_index;
- 	gfp_t flags;
- 	const int pgcount = hv_output_page_exists() ? 2 : 1;
- 	void *mem;
--	int ret;
-+	int ret = 0;
- 
- 	/* hv_cpu_init() can be called with IRQs disabled from hv_resume() */
- 	flags = irqs_disabled() ? GFP_ATOMIC : GFP_KERNEL;
-@@ -472,8 +491,8 @@ int hv_common_cpu_init(unsigned int cpu)
- 	inputarg = (void **)this_cpu_ptr(hyperv_pcpu_input_arg);
- 
- 	/*
--	 * hyperv_pcpu_input_arg and hyperv_pcpu_output_arg memory is already
--	 * allocated if this CPU was previously online and then taken offline
-+	 * The per-cpu memory is already allocated if this CPU was previously
-+	 * online and then taken offline
- 	 */
- 	if (!*inputarg) {
- 		mem = kmalloc(pgcount * HV_HYP_PAGE_SIZE, flags);
-@@ -520,11 +539,21 @@ int hv_common_cpu_init(unsigned int cpu)
- 	if (msr_vp_index > hv_max_vp_index)
- 		hv_max_vp_index = msr_vp_index;
- 
--	return 0;
-+	if (hv_root_partition()) {
-+		synic_eventring_tail = (u8 **)this_cpu_ptr(hv_synic_eventring_tail);
-+		*synic_eventring_tail = kcalloc(HV_SYNIC_SINT_COUNT,
-+						sizeof(u8), flags);
-+		/* No need to unwind any of the above on failure here */
-+		if (unlikely(!*synic_eventring_tail))
-+			ret = -ENOMEM;
-+	}
-+
-+	return ret;
  }
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index 8519b8ec8e9d..ccccb1cbf7df 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
+ void hv_remove_kexec_handler(void);
+ void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
+ void hv_remove_crash_handler(void);
++void hv_setup_mshv_handler(void (*handler)(void));
  
- int hv_common_cpu_die(unsigned int cpu)
- {
-+	u8 **synic_eventring_tail;
- 	/*
- 	 * The hyperv_pcpu_input_arg and hyperv_pcpu_output_arg memory
- 	 * is not freed when the CPU goes offline as the hyperv_pcpu_input_arg
-@@ -537,6 +566,10 @@ int hv_common_cpu_die(unsigned int cpu)
- 	 * originally allocated memory is reused in hv_common_cpu_init().
- 	 */
- 
-+	synic_eventring_tail = this_cpu_ptr(hv_synic_eventring_tail);
-+	kfree(*synic_eventring_tail);
-+	*synic_eventring_tail = NULL;
-+
- 	return 0;
- }
- 
+ extern int vmbus_interrupt;
+ extern int vmbus_irq;
 -- 
 2.34.1
 
