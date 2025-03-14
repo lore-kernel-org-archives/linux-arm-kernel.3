@@ -4,93 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4952C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 12:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6422C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 12:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dwJmXPh0UZn8nk0X5v3R0BkMm6bGB9ygKP2kfBs4kzg=; b=XgbUqofQ0lDb7H1Nvopcv0neQz
-	S5rO7Q2rS1ihrv+ws4uUaPciC5/UlFfI16iDQVT6nf6I2EA8BCASNCnT6A/4rIE2rkzLVK2aJYi5d
-	5Bmx+f90KuqAq75DUwUxvVN4qjxB9Kveac/FPznd2g5zeNZqTXqc+PhZRyKfB6RavRn+e8fHAoZA5
-	ceIs1rVatA9pMPJawvbkr6SQ+Wiqoo0f/NXeOnUirvdy8i5ID8Ho3o3/3Fc0aLoROsO5GIX39X+PG
-	I+/5QTzHu7X4TXwvQ+RG2kOloYTKDFy5T9I0+wKI2yuEUriXO23+UlmI4Cx6lhk94mOOZ1N/EJYs6
-	+IfoNCgw==;
+	bh=q94XCeSDxcErsrby+n8BAGLr925UXv5rqtA/MVkTbdA=; b=nvTyFr9OKSrsB5POS9SytEkyJR
+	GJuGEp85/un9oN5hIBb+mYylAEyKZqbvJ4N+3UQvc+SchVeBJ6uVfGl92h3V5hlW8mIlf3bkb0A7z
+	i6C4dBfY36xBRdiUBjQ1/F0TFIhdFcMj8HD0HrOyGiWVCmy6i6HNk2kjjGikTshYN2uuJWuUzfMa7
+	dbUog5gQqXP2K2IpHnRQTh56rGstGp/+VtteGZ2cfdvte73VEu6G8ZRklp3Q4hAmFSyvpZz84KJp+
+	YL/3Fd2+5NmteEo5Ddymru0R4YEzhJcLA1GMuBTo60+UL8G8S90N/kpAYwowFY6hXI/dyE9tX1WgL
+	po43S5+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3kf-0000000E5y6-3xJH;
-	Fri, 14 Mar 2025 12:02:57 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3ix-0000000E5U5-39FU
+	id 1tt3mJ-0000000E6Ih-2ie7;
+	Fri, 14 Mar 2025 12:04:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt3j7-0000000E5Xp-0kSE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 12:01:14 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6fedf6aaed2so19152977b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 05:01:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741953670; x=1742558470; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dwJmXPh0UZn8nk0X5v3R0BkMm6bGB9ygKP2kfBs4kzg=;
-        b=SRd7gW1mxd1JtVXeiJbn7tlJwBGrPLMVglvYR6xdkCAFAu7tOCOrr15l8HWdNhF0Md
-         mLquWR9KAh55D/2NPPe+GM3v457+3+OsVVClssFDjw7MremGfY0g3bigMz7et+Wv4+5P
-         L81oHqtCG3Qg2EWWeZ+gksEzSVEkaTK49EhLui8dsEZfQPPLR1QMIqmnXfrEFe/HKiDx
-         zoCc0oiNC1rym6zYL52V45xQkeXtg5RFcX1bcHgXWRFEelQ1OcYZq2pCF5T2C9wqWSEQ
-         Vqe/6SdJI569hIX1MezgwlIpoAspsjRCACQUG92I96R+x3o9I+o+W5Rrxc/eibFnVuX9
-         h/SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741953670; x=1742558470;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dwJmXPh0UZn8nk0X5v3R0BkMm6bGB9ygKP2kfBs4kzg=;
-        b=sqfm7BECoO8iFIPojWgxhKD770PUcIenP5WH0j6ycgIk25kQtFjEICjJgfmP6u13Y2
-         no69W2BVWSn/CNSmIM/bh/oDjPgqYSrpxTVSNpOIjJFxgy2fdSPeuOKm+fZWyoBZ4NIH
-         5PXtuMadRX0pxJ+LbQASraRtiTQmlBa6GAw6ebWQBn2c2yahbygxwk4E0+oiKXRMJmc7
-         AcO/MnfZAc26EJOfLq83Q0cUtPoqPKI3A2f8NVfF1iwHs8FIDFnfuFvNXGpzdPOIAbdR
-         SV3BWpi2YtmkRC3MkPCab1v32zqBCKch3zzHZOHn8hPQrcGkp8+iU4Jo0/3/jyV5uGyo
-         mMkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXjmyQimE1mFiB+pZaoDT7x+wyOA7V2vZ2ntLwDPn8iioghIqd76GJqpKPZSkgZR5eV6xpJ4ylNphr2XM6VBpLS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFi1wOk6wgdrx2B2ssVUkd0GSwZC0CHOjdH1kLevg/ho1k25hj
-	p0V2aGAl7H4NnZ9g7/fVOg+34fPebEhxKm8PLtBCohi/u0GxIaBNYY97q8/ITYQjt+vN0BwX56J
-	D9wIjr1cu8VVksVHTTEkY1G4tOwuOnzNI7AkhkQ==
-X-Gm-Gg: ASbGncvT3vyVHQRcSABtnj0AFKGFJd9wfvCMvDj4Y+7Kdk26c9c1UU3tmcr+/UN5Rej
-	/SsOXFM/+CwiDGJugH4mXYG7YsGGs0g2wwxkUh3B22vzN79MQhhfkb20aA77cBR68Zmqg+B+W50
-	BqKtAG2eimshZZpx6zeHrelkms6fw=
-X-Google-Smtp-Source: AGHT+IGZZCcwY5/1JbZjTo0RWJ2K/xyqiqYRIB+WoabIYLpe9OvKoQa822klhbBDtTeF2wPU+BJ9g+hqI+KNvuehlJ8=
-X-Received: by 2002:a05:690c:4c0a:b0:6f9:47ad:f5f1 with SMTP id
- 00721157ae682-6ff4641f8cfmr21140237b3.17.1741953670170; Fri, 14 Mar 2025
- 05:01:10 -0700 (PDT)
+	Fri, 14 Mar 2025 12:01:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BF131424;
+	Fri, 14 Mar 2025 05:01:28 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98BEB3F792;
+	Fri, 14 Mar 2025 05:01:16 -0700 (PDT)
+Date: Fri, 14 Mar 2025 12:01:11 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
+	broonie@kernel.org, maz@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] arm64/sysreg: Enforce whole word match for
+ open/close tokens
+Message-ID: <Z9Qah4N93Mhqr3-V@J2N7QTR9R3.cambridge.arm.com>
+References: <20250115162600.2153226-1-james.clark@linaro.org>
+ <20250115162600.2153226-3-james.clark@linaro.org>
 MIME-Version: 1.0
-References: <20250311-mvneta-xdp-meta-v1-0-36cf1c99790e@kernel.org> <20250311-mvneta-xdp-meta-v1-3-36cf1c99790e@kernel.org>
-In-Reply-To: <20250311-mvneta-xdp-meta-v1-3-36cf1c99790e@kernel.org>
-From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Date: Fri, 14 Mar 2025 14:00:33 +0200
-X-Gm-Features: AQ5f1JqD4PpWF9sD-c3WrV8oOlJztNLgYA2GJMvNudQfJQpIo6DpWKsJUUlKuVc
-Message-ID: <CAC_iWjKRLs4POP3TQ0XrXUiBmW0D5qD0JYh=UxqAytXjPvRmGw@mail.gmail.com>
-Subject: Re: [PATCH net-next 3/7] net: netsec: Add metadata support for xdp mode
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Marcin Wojtas <marcin.s.wojtas@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Masahisa Kojima <kojima.masahisa@socionext.com>, Sunil Goutham <sgoutham@marvell.com>, 
-	Geetha sowjanya <gakula@marvell.com>, Subbaraya Sundeep <sbhatta@marvell.com>, 
-	hariprasad <hkelam@marvell.com>, Bharat Bhushan <bbhushan2@marvell.com>, Felix Fietkau <nbd@nbd.name>, 
-	Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
-	Roger Quadros <rogerq@kernel.org>, netdev@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250115162600.2153226-3-james.clark@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_050111_789951_2767E90C 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20250314_050121_310122_1D38C37C 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,51 +69,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Mar 2025 at 14:19, Lorenzo Bianconi <lorenzo@kernel.org> wrote:
->
-> Set metadata size building the skb from xdp_buff in netsec driver
->
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/net/ethernet/socionext/netsec.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/net/ethernet/socionext/netsec.c b/drivers/net/ethernet/socionext/netsec.c
-> index dc99821c6226fbaece65c8ade23899f610b44a9a..ee890de69ffe795dbdcc5331e36be86769f0d9a6 100644
-> --- a/drivers/net/ethernet/socionext/netsec.c
-> +++ b/drivers/net/ethernet/socionext/netsec.c
-> @@ -970,7 +970,7 @@ static int netsec_process_rx(struct netsec_priv *priv, int budget)
->                 struct netsec_de *de = dring->vaddr + (DESC_SZ * idx);
->                 struct netsec_desc *desc = &dring->desc[idx];
->                 struct page *page = virt_to_page(desc->addr);
-> -               u32 xdp_result = NETSEC_XDP_PASS;
-> +               u32 metasize, xdp_result = NETSEC_XDP_PASS;
->                 struct sk_buff *skb = NULL;
->                 u16 pkt_len, desc_len;
->                 dma_addr_t dma_handle;
-> @@ -1019,7 +1019,7 @@ static int netsec_process_rx(struct netsec_priv *priv, int budget)
->                 prefetch(desc->addr);
->
->                 xdp_prepare_buff(&xdp, desc->addr, NETSEC_RXBUF_HEADROOM,
-> -                                pkt_len, false);
-> +                                pkt_len, true);
->
->                 if (xdp_prog) {
->                         xdp_result = netsec_run_xdp(priv, xdp_prog, &xdp);
-> @@ -1048,6 +1048,9 @@ static int netsec_process_rx(struct netsec_priv *priv, int budget)
->
->                 skb_reserve(skb, xdp.data - xdp.data_hard_start);
->                 skb_put(skb, xdp.data_end - xdp.data);
-> +               metasize = xdp.data - xdp.data_meta;
-> +               if (metasize)
-> +                       skb_metadata_set(skb, metasize);
->                 skb->protocol = eth_type_trans(skb, priv->ndev);
->
->                 if (priv->rx_cksum_offload_flag &&
->
-> --
-> 2.48.1
->
+On Wed, Jan 15, 2025 at 04:25:56PM +0000, James Clark wrote:
+> Opening and closing tokens can also match on words with common prefixes
+> like "Endsysreg" vs "EndsysregFields". This could potentially make the
+> script go wrong in weird ways so make it fall through to the fatal
+> unhandled statement catcher if it doesn't fully match the current
+> block.
+> 
+> Closing ones also get expect_fields(1) to ensure nothing other than
+> whitespace follows.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Acked-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+In retrospect, this is what I should have wirrten originally. Thanks for
+the fix!
+
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+
+Mark.
+
+> ---
+>  arch/arm64/tools/gen-sysreg.awk | 31 +++++++++++++++++--------------
+>  1 file changed, 17 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+> index 1a2afc9fdd42..f2a1732cb1f6 100755
+> --- a/arch/arm64/tools/gen-sysreg.awk
+> +++ b/arch/arm64/tools/gen-sysreg.awk
+> @@ -111,7 +111,7 @@ END {
+>  /^$/ { next }
+>  /^[\t ]*#/ { next }
+>  
+> -/^SysregFields/ && block_current() == "Root" {
+> +$1 == "SysregFields" && block_current() == "Root" {
+>  	block_push("SysregFields")
+>  
+>  	expect_fields(2)
+> @@ -127,7 +127,8 @@ END {
+>  	next
+>  }
+>  
+> -/^EndSysregFields/ && block_current() == "SysregFields" {
+> +$1 == "EndSysregFields" && block_current() == "SysregFields" {
+> +	expect_fields(1)
+>  	if (next_bit > 0)
+>  		fatal("Unspecified bits in " reg)
+>  
+> @@ -145,7 +146,7 @@ END {
+>  	next
+>  }
+>  
+> -/^Sysreg/ && block_current() == "Root" {
+> +$1 == "Sysreg" && block_current() == "Root" {
+>  	block_push("Sysreg")
+>  
+>  	expect_fields(7)
+> @@ -177,7 +178,8 @@ END {
+>  	next
+>  }
+>  
+> -/^EndSysreg/ && block_current() == "Sysreg" {
+> +$1 == "EndSysreg" && block_current() == "Sysreg" {
+> +	expect_fields(1)
+>  	if (next_bit > 0)
+>  		fatal("Unspecified bits in " reg)
+>  
+> @@ -206,7 +208,7 @@ END {
+>  
+>  # Currently this is effectivey a comment, in future we may want to emit
+>  # defines for the fields.
+> -(/^Fields/ || /^Mapping/) && block_current() == "Sysreg" {
+> +($1 == "Fields" || $1 == "Mapping") && block_current() == "Sysreg" {
+>  	expect_fields(2)
+>  
+>  	if (next_bit != 63)
+> @@ -224,7 +226,7 @@ END {
+>  }
+>  
+>  
+> -/^Res0/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "Res0" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	expect_fields(2)
+>  	parse_bitdef(reg, "RES0", $2)
+>  	field = "RES0_" msb "_" lsb
+> @@ -234,7 +236,7 @@ END {
+>  	next
+>  }
+>  
+> -/^Res1/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "Res1" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	expect_fields(2)
+>  	parse_bitdef(reg, "RES1", $2)
+>  	field = "RES1_" msb "_" lsb
+> @@ -244,7 +246,7 @@ END {
+>  	next
+>  }
+>  
+> -/^Unkn/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "Unkn" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	expect_fields(2)
+>  	parse_bitdef(reg, "UNKN", $2)
+>  	field = "UNKN_" msb "_" lsb
+> @@ -254,7 +256,7 @@ END {
+>  	next
+>  }
+>  
+> -/^Field/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "Field" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	expect_fields(3)
+>  	field = $3
+>  	parse_bitdef(reg, field, $2)
+> @@ -265,14 +267,14 @@ END {
+>  	next
+>  }
+>  
+> -/^Raz/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "Raz" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	expect_fields(2)
+>  	parse_bitdef(reg, field, $2)
+>  
+>  	next
+>  }
+>  
+> -/^SignedEnum/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "SignedEnum" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	block_push("Enum")
+>  
+>  	expect_fields(3)
+> @@ -285,7 +287,7 @@ END {
+>  	next
+>  }
+>  
+> -/^UnsignedEnum/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "UnsignedEnum" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	block_push("Enum")
+>  
+>  	expect_fields(3)
+> @@ -298,7 +300,7 @@ END {
+>  	next
+>  }
+>  
+> -/^Enum/ && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+> +$1 == "Enum" && (block_current() == "Sysreg" || block_current() == "SysregFields") {
+>  	block_push("Enum")
+>  
+>  	expect_fields(3)
+> @@ -310,7 +312,8 @@ END {
+>  	next
+>  }
+>  
+> -/^EndEnum/ && block_current() == "Enum" {
+> +$1 == "EndEnum" && block_current() == "Enum" {
+> +	expect_fields(1)
+>  
+>  	field = null
+>  	msb = null
+> -- 
+> 2.34.1
+> 
 
