@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84717C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 13:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C55C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 13:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PHDfhs56hK5UnVKo9awBayvWK0d+3uOOirUQNJt2aUg=; b=G62+NiiO9PNvGXI9jdgBBDB0M3
-	vVbCdxKzJdcxwogC9Se7OUxXpbxI5Lrv4Oxuh8HhCirGA70UX7Go90g2mR+G/67H481Tv6gVp4aQ0
-	REQSuKa1ZZthCEfT9ys5DhW5GnZpTKogTwMMKce8CpJJMM8itcgvEl+PC4C/xTZ029y+Tyb15gaH8
-	YVp92oQC+eJudcOCt2ZZakXm/bHfh2ontvR+Xj/jU65SKs89Pc2CMzARTkVEKuCWkMEHj30mPrzOJ
-	/yeQkckCBrtLgAFQd9M6XRJSG7ZwRisfxOSYJdCj/T5i78EiXPE2q9u0o06Kx6zRH0+UW+0elUvjE
-	x1dl5egg==;
+	bh=r5PKoNAd5zdxZnMwzm0dBWgFUNSzx8BJjkS0WWVbCIU=; b=Nxv1+VRYTJ9fDlaD5kWvoc7Uo5
+	g59ODvgsmABdZ9xDTQ9d7n63mS+/AqwIWUoAGrRRwdpKmT3VKYYg17UXni6vSvuxWMsBvgiFirOXK
+	z6ccDGqonBqox3SchFjsEJ3oxfnvwAcnGkoiaM6BRi8ot3Ye4uYjXDawsb1+Z2DIBZWJVsrB+0CE5
+	7vBNo/gHBl5hx6gV7tt0LQjduGoRnh7qBylAlUHxW7G3QKuWkX7zZ1Vi1f3D608ktSy1dF2zcEvDH
+	G9NICDMDFD5CbCOkLedc8SdpBtn7wOi5R7aD1DCFudvWTL/vpqjiVlv85PcFQIsyyUdz0NatmW+tQ
+	b/jqs+ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt4sD-0000000EFQK-3b8I;
-	Fri, 14 Mar 2025 13:14:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt4qX-0000000EFDC-1oMu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 13:13:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 578751424;
-	Fri, 14 Mar 2025 06:13:14 -0700 (PDT)
-Received: from [10.57.85.159] (unknown [10.57.85.159])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B9033F673;
-	Fri, 14 Mar 2025 06:12:59 -0700 (PDT)
-Message-ID: <e36a3e64-5e40-456f-903c-0ac540932e6d@arm.com>
-Date: Fri, 14 Mar 2025 13:12:58 +0000
+	id 1tt55d-0000000EHBG-1jir;
+	Fri, 14 Mar 2025 13:28:41 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt53x-0000000EGsy-1hQ6;
+	Fri, 14 Mar 2025 13:26:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741958806; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Z4W+LsH/yJVY8B2N8xt6Is2fJE82So2XzSPtn7d1dWbqu4KuqlKZPvCJ7kAh5Y0sSRkpbTvljesD5Kw9AVLRWAhGoaDrXRHsyjhGzW0hAc2YgaqajgYYb2ZEoCXbSU89HF1ZB82muum0unsKRvH/5wAqtiqyP1PHJNgWeL1sD84=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741958806; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=r5PKoNAd5zdxZnMwzm0dBWgFUNSzx8BJjkS0WWVbCIU=; 
+	b=AIinGbWMGyIBE8aBnER/snIY71HEWQQI4rocF/uQhMHT9lXY6UUjTtDCfEx9ipVP5gfgUwHXB0qHzKIxgKX1+8EkLp9SVbHAyIPZeahTwXhHhBH7oWrCXxj2dCLu+eNSMhhKkxXS2t/YvOHhwW7wrZdq6pjdxUIlC4l9M9T/tyQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741958806;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=r5PKoNAd5zdxZnMwzm0dBWgFUNSzx8BJjkS0WWVbCIU=;
+	b=Qv8oUF2xoV7SRGHb8WOn1havaIyZS9juaRsefyEHe2dbt1msKRDccagbfNOKPW87
+	zTiFnyzdYiHi3wNHHfIuIXKtduni4uLVngjGleHDg05twcBc7y/GTP2+V2hvTdWXAPh
+	EjBTzg5QqH8QaO4CUgzNw3Fkl0hWey8tNuOtra6M=
+Received: by mx.zohomail.com with SMTPS id 1741958804809871.0776006949541;
+	Fri, 14 Mar 2025 06:26:44 -0700 (PDT)
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+Date: Fri, 14 Mar 2025 14:26:26 +0100
+Subject: [PATCH 1/5] media: mc: add manual request completion
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Marc Zyngier <maz@kernel.org>
-Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- yang@os.amperecomputing.com, corbet@lwn.net, catalin.marinas@arm.com,
- will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com,
- joro@8bytes.org, akpm@linux-foundation.org, mark.rutland@arm.com,
- joey.gouly@arm.com, james.morse@arm.com, broonie@kernel.org,
- anshuman.khandual@arm.com, oliver.upton@linux.dev, ioworker0@gmail.com,
- baohua@kernel.org, david@redhat.com, jgg@ziepe.ca,
- shameerali.kolothum.thodi@huawei.com, nicolinc@nvidia.com,
- mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20250313104111.24196-2-miko.lenczewski@arm.com>
- <20250313104111.24196-3-miko.lenczewski@arm.com>
- <86ikocomvd.wl-maz@kernel.org> <f244c20e-e11c-477b-9487-cb6738c028ca@arm.com>
- <86h63wok11.wl-maz@kernel.org> <4998dd9b-106d-4ca7-be88-5330429dcfe8@arm.com>
- <3bba7adb-392b-4024-984f-b6f0f0f88629@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <3bba7adb-392b-4024-984f-b6f0f0f88629@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-1-5e277a3d695b@collabora.com>
+References: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-0-5e277a3d695b@collabora.com>
+In-Reply-To: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-0-5e277a3d695b@collabora.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@xs4all.nl>, Tiffany Lin <tiffany.lin@mediatek.com>, 
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+ Yunfei Dong <yunfei.dong@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ kernel@collabora.com, Sebastian Fricke <sebastian.fricke@collabora.com>, 
+ Hans Verkuil <hverkuil@xs4all.nl>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741958789; l=5988;
+ i=sebastian.fricke@collabora.com; s=linux-media; h=from:subject:message-id;
+ bh=lUKighMYgVNAExQB5VpogYNcL74ZwJPIAc0FRqQAaq0=;
+ b=7wlGUTVZ371dfKFxqOPYsO1RtwsP+gLegIco+T4VVi5ZIkPmx+P08yrYtk3qysCozDkqEurtV
+ e2waPI9m/NRCYSojyDp2r85Rx0RLLkTEwFd/KjNugkMM4z2v399MP2y
+X-Developer-Key: i=sebastian.fricke@collabora.com; a=ed25519;
+ pk=pYXedPwrTtErcj7ERYeo/IpTrpe4QbJuEzSB52fslBg=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_061305_563740_CE659C7C 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20250314_062657_591562_F26E27DA 
+X-CRM114-Status: GOOD (  22.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,123 +93,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2025 12:33, Suzuki K Poulose wrote:
-> On 14/03/2025 09:18, Ryan Roberts wrote:
->> On 13/03/2025 18:36, Marc Zyngier wrote:
->>> On Thu, 13 Mar 2025 18:22:00 +0000,
->>> Ryan Roberts <ryan.roberts@arm.com> wrote:
->>>>
->>>> On 13/03/2025 17:34, Marc Zyngier wrote:
->>>>> On Thu, 13 Mar 2025 10:41:10 +0000,
->>>>> Mikołaj Lenczewski <miko.lenczewski@arm.com> wrote:
->>>>>>
->>>>>> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/
->>>>>> idreg-override.c
->>>>>> index c6b185b885f7..9728faa10390 100644
->>>>>> --- a/arch/arm64/kernel/pi/idreg-override.c
->>>>>> +++ b/arch/arm64/kernel/pi/idreg-override.c
->>>>>> @@ -209,6 +209,7 @@ static const struct ftr_set_desc sw_features
->>>>>> __prel64_initconst = {
->>>>>>           FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
->>>>>>           FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
->>>>>>           FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
->>>>>> +        FIELD("nobbml2", ARM64_SW_FEATURE_OVERRIDE_NOBBML2, NULL),
->>>>>>           {}
->>>>>>       },
->>>>>>   };
->>>>>> @@ -246,6 +247,7 @@ static const struct {
->>>>>>       { "rodata=off",            "arm64_sw.rodataoff=1" },
->>>>>>       { "arm64.nolva",        "id_aa64mmfr2.varange=0" },
->>>>>>       { "arm64.no32bit_el0",        "id_aa64pfr0.el0=1" },
->>>>>> +    { "arm64.nobbml2",        "arm64_sw.nobbml2=1" },
->>>>>
->>>>> Why is that a SW feature? This looks very much like a HW feature to
->>>>> me, and you should instead mask out ID_AA64MMFR2_EL1.BBM, and be done
->>>>> with it. Something like:
->>>>
->>>> I think this implies that we would expect the BBM field to be advertising BBML2
->>>> support normally and we would check for that as part of the cpufeature
->>>> detection. That's how Miko was doing it in v2, but Yang pointed out that
->>>> AmpereOne, which supports BBML2+NOABORT semantics, doesn't actually advertise
->>>> BBML2 in its MMFR2. So we don't want to check that field, and instead rely
->>>> solely on the MIDR allow-list + a command line override. It was me that
->>>> suggested putting that in the SW feature register, and I think that still
->>>> sounds
->>>> like the right solution for this situation?
->>>
->>> I think this is mixing two different things:
->>>
->>> - preventing BBM-L2 from being visible to the kernel: this is what my
->>>    suggestion is doing by nuking an architectural feature in the
->>>    relevant register
->>>
->>> - random HW not correctly advertising what they are doing: this is an
->>>    erratum workaround
->>>
->>> I'd rather we don't conflate the two things, and make them very
->>> explicitly distinct.
->>
->> It all sounds so obvious when you put it like that! :)
->>
->> I'm guessing there is a layer where the workaround can be applied to the
->> sanitised feature registers on a per-cpu basis and that won't affect this global
->> override which will remain as an overlay on top? If so then that sounds perfect
->> (you can probably tell I find the whole feature management framework rather
->> inpeneterable). That workaround would be added as part of Yang's series anyway.
-> 
-> Unfortunately, there is no easy way to fix this via the normal erratum
-> workaround "capability". The sanitised feature registers are handled
-> separately (initialised via init_cpu_features() for boot CPU and
-> sanitised eachtime via update_cpu_features).
-> 
-> Also we do not "enable" any capability (i.e. calling cpu_enable())
-> until the very end, after the CPUs are all brought up (except for boot CPUs).
-> 
-> But it may be possible to "fix up" the BBML2 feature in
-> cpuinfo_store_*cpu(), without using the "enable" call back.
-> 
-> Something like:
-> 
-> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> index 285d7d538342..8c23adbe29f8 100644
-> --- a/arch/arm64/kernel/cpuinfo.c
-> +++ b/arch/arm64/kernel/cpuinfo.c
-> @@ -479,7 +479,11 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
->         info->reg_id_aa64mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
->         info->reg_id_aa64mmfr1 = read_cpuid(ID_AA64MMFR1_EL1);
->         info->reg_id_aa64mmfr2 = read_cpuid(ID_AA64MMFR2_EL1);
-> 
-> +    /*
-> +     * The CPU cap is not detected system wide, but we are able to
-> +     * check if this CPU is affected by the Erratum.
-> +     */
-> +       if (this_cpu_has_cap(AMPERE_ONE_ERRATUM_BBML2))
-> +               // Fixup  info->reg_id_aa64_mmfr2 with BBML2.
-> +
->         info->reg_id_aa64mmfr3 = read_cpuid(ID_AA64MMFR3_EL1);
->         info->reg_id_aa64mmfr4 = read_cpuid(ID_AA64MMFR4_EL1);
->         info->reg_id_aa64pfr0 = read_cpuid(ID_AA64PFR0_EL1);
->         info->reg_id_aa64pfr1 = read_cpuid(ID_AA64PFR1_EL1);
-> 
+From: Hans Verkuil <hverkuil@xs4all.nl>
 
-This is the type of thing I was imagining, thanks!
+By default when the last request object is completed, the whole
+request completes as well.
 
-> Suzuki
-> 
->>
->> So sounds like we are back to testing MMFR2.BBM in the matches function, with
->> the addition of Maz's proposal above. Sorry for sending you round the houses,
->> Miko.
->>
->> Thanks,
->> Ryan
->>
->>>
->>> Thanks,
->>>
->>>     M.
->>>
->>
-> 
+But sometimes you want to manually complete a request in a driver,
+so add a manual complete mode for this.
+
+In req_queue the driver marks the request for manual completion by
+calling media_request_mark_manual_completion, and when the driver
+wants to manually complete the request it calls
+media_request_manual_complete().
+
+Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+---
+ drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
+ include/media/media-request.h | 36 +++++++++++++++++++++++++++++++++++-
+ 2 files changed, 71 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
+--- a/drivers/media/mc/mc-request.c
++++ b/drivers/media/mc/mc-request.c
+@@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
+ 	req->access_count = 0;
+ 	WARN_ON(req->num_incomplete_objects);
+ 	req->num_incomplete_objects = 0;
++	req->manual_completion = false;
+ 	wake_up_interruptible_all(&req->poll_wait);
+ }
+ 
+@@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+ 	req->mdev = mdev;
+ 	req->state = MEDIA_REQUEST_STATE_IDLE;
+ 	req->num_incomplete_objects = 0;
++	req->manual_completion = false;
+ 	kref_init(&req->kref);
+ 	INIT_LIST_HEAD(&req->objects);
+ 	spin_lock_init(&req->lock);
+@@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
+ 
+ 	req->num_incomplete_objects--;
+ 	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
+-	    !req->num_incomplete_objects) {
++	    !req->num_incomplete_objects && !req->manual_completion) {
+ 		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+ 		completed = true;
+ 		wake_up_interruptible_all(&req->poll_wait);
+@@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
+ 	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+ 		goto unlock;
+ 
+-	if (!--req->num_incomplete_objects) {
++	if (!--req->num_incomplete_objects && !req->manual_completion) {
+ 		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+ 		wake_up_interruptible_all(&req->poll_wait);
+ 		completed = true;
+@@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
+ 		media_request_put(req);
+ }
+ EXPORT_SYMBOL_GPL(media_request_object_complete);
++
++void media_request_manual_complete(struct media_request *req)
++{
++	unsigned long flags;
++	bool completed = false;
++
++	if (WARN_ON(!req))
++		return;
++	if (WARN_ON(!req->manual_completion))
++		return;
++
++	spin_lock_irqsave(&req->lock, flags);
++	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
++		goto unlock;
++
++	req->manual_completion = false;
++	/*
++	 * It is expected that all other objects in this request are
++	 * completed when this function is called. WARN if that is
++	 * not the case.
++	 */
++	if (!WARN_ON(req->num_incomplete_objects)) {
++		req->state = MEDIA_REQUEST_STATE_COMPLETE;
++		wake_up_interruptible_all(&req->poll_wait);
++		completed = true;
++	}
++unlock:
++	spin_unlock_irqrestore(&req->lock, flags);
++	if (completed)
++		media_request_put(req);
++}
++EXPORT_SYMBOL_GPL(media_request_manual_complete);
+diff --git a/include/media/media-request.h b/include/media/media-request.h
+index d4ac557678a78372222704400c8c96cf3150b9d9..645d18907be7148ca50dcc9248ff06bd8ccdf953 100644
+--- a/include/media/media-request.h
++++ b/include/media/media-request.h
+@@ -56,6 +56,10 @@ struct media_request_object;
+  * @access_count: count the number of request accesses that are in progress
+  * @objects: List of @struct media_request_object request objects
+  * @num_incomplete_objects: The number of incomplete objects in the request
++ * @manual_completion: if true, then the request won't be marked as completed
++ * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
++ * to set this field to false and complete the request
++ * if @num_incomplete_objects == 0.
+  * @poll_wait: Wait queue for poll
+  * @lock: Serializes access to this struct
+  */
+@@ -68,6 +72,7 @@ struct media_request {
+ 	unsigned int access_count;
+ 	struct list_head objects;
+ 	unsigned int num_incomplete_objects;
++	bool manual_completion;
+ 	wait_queue_head_t poll_wait;
+ 	spinlock_t lock;
+ };
+@@ -218,6 +223,35 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
+ int media_request_alloc(struct media_device *mdev,
+ 			int *alloc_fd);
+ 
++/**
++ * media_request_mark_manual_completion - Set manual_completion to true
++ *
++ * @req: The request
++ *
++ * Mark that the request has to be manually completed by calling
++ * media_request_manual_complete().
++ *
++ * This function should be called in the req_queue callback.
++ */
++static inline void
++media_request_mark_manual_completion(struct media_request *req)
++{
++	req->manual_completion = true;
++}
++
++/**
++ * media_request_manual_complete - Set manual_completion to false
++ *
++ * @req: The request
++ *
++ * Set @manual_completion to false, and if @num_incomplete_objects
++ * is 0, then mark the request as completed.
++ *
++ * If there are still incomplete objects in the request, then
++ * WARN for that since that suggests a driver error.
++ */
++void media_request_manual_complete(struct media_request *req);
++
+ #else
+ 
+ static inline void media_request_get(struct media_request *req)
+@@ -336,7 +370,7 @@ void media_request_object_init(struct media_request_object *obj);
+  * @req: The media request
+  * @ops: The object ops for this object
+  * @priv: A driver-specific priv pointer associated with this object
+- * @is_buffer: Set to true if the object a buffer object.
++ * @is_buffer: Set to true if the object is a buffer object.
+  * @obj: The object
+  *
+  * Bind this object to the request and set the ops and priv values of
+
+-- 
+2.34.1
 
 
