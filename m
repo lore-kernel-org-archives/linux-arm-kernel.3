@@ -4,118 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D908DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 12:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D393C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 12:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=un+HUtkysff+yfRSKidLsG2FZKrPmSS6m1fAdoGXos8=; b=zgkhWFnCD1eXN7laGOgw/lggar
-	uBcsz+AHiKpljm7SYRg1R1+Hw+PtGgS/lDmyntz0NCbJ78cLCAIF2FoDdpKlPl3DS2MljqZKeCKwN
-	eTFc7ZN4kiYz+bMcvSHCtNKrAJyl3HvmMbwd0b79LMVYjLxpDxHXPu6Dg52Pv3Y/pdluvAMKHfnJx
-	51xTxfRW9SG8EJ85cgCo3qVCtD1SreID84ZbmsBnZPV1sQxIwQ+rZPUjcDjBrOGAs5A8+DDr7slLl
-	rSkW71WumZVKgvh59a0jzLeSqWK08unXYGLadMmVCWuNc0ARxPYRX/wFNEgxx42Epur9YCEBrVHaa
-	cEUChRZQ==;
+	bh=nCDKKkmmEmBFVBRPnxzjptz4ApPAEAkcTpipePaX/0I=; b=iI6xETj32HwxNKqZGhK3xhkkxA
+	h7AYhh1hDc0LqA7jIVX983H5pvl1npa1vcU44ivD0gfVbOpvtslgiYe2tgfMdNdLQY8alPQWqMj3O
+	0VcTQ4uevLs4r9O/+R3uomK6sTA1Zi/u5FEleYMpSZSygUEQuY86FXRdCGwpLG89icaE7Is3Layxh
+	Eip+yKt0gT1W8Eyycw+A2kMVErYdGLiijXzuhq8POCFzx2h8+Gvq/memwpklt7b5277QailyAfnHI
+	0mtp5QcxvEbTNZdOjZn2FswhZ+vFe9/rRkj7WYQw9IhLnkfL8naO2Rd9mQYkXBgVWwb8+V0RkXiHY
+	HcxvzSPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3yy-0000000E7jv-1rBU;
-	Fri, 14 Mar 2025 12:17:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt3xI-0000000E7X2-0vs9;
-	Fri, 14 Mar 2025 12:16:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B1416A46A0B;
-	Fri, 14 Mar 2025 12:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B097C4CEE3;
-	Fri, 14 Mar 2025 12:15:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741954559;
-	bh=syyfjmm1ILVSuq9iD+2uDPwICAchoBLMuHILst+2s14=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Pichpc16VJLp7OPpMBWAS8J28BjePgu2HLwegUy/x8qaj0zQoI7iMfZ5uHB4pbWsN
-	 t3sB9Tk49VClQtqKyFiLiFEk/GsIqJuyXYr36qp/O2d/eMk4nbyFf6zKtQFhmrVklP
-	 72kbKSYocc8g30uDviLAgkF8KVTWG7YI+2KiHCs4VPP+HHbjoAKZCMYVRI5fLKQHqO
-	 9IEyRlVYIVfrrKcoTU2LmoiaxDnOwxAbcFQvGTFQf/Ney/v/fjj/JznEV9Ll7XQoQj
-	 Hdkpr+/z5LcbVmC3lqLhua4Bonmd6srD+0fMOhzzJ8SB1qw+nIa+eGxyg8clf8Gv9e
-	 p8fsxvtddMwdw==
-Message-ID: <b4318673-f2b6-4740-ba80-32bb33e91f3f@kernel.org>
-Date: Fri, 14 Mar 2025 13:15:52 +0100
+	id 1tt4GL-0000000EBSh-044t;
+	Fri, 14 Mar 2025 12:35:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt4Ee-0000000EBEx-3q2z
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 12:33:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DEA351424;
+	Fri, 14 Mar 2025 05:34:03 -0700 (PDT)
+Received: from [10.57.67.32] (unknown [10.57.67.32])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 859543F5A1;
+	Fri, 14 Mar 2025 05:33:49 -0700 (PDT)
+Message-ID: <3bba7adb-392b-4024-984f-b6f0f0f88629@arm.com>
+Date: Fri, 14 Mar 2025 12:33:48 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: =?UTF-8?B?UmU6IOWbnuWkjTogW1BBVENIIDEvNV0gcG1pYzogbWVkaWF0ZWs6IEFk?=
- =?UTF-8?Q?d_pmic_auxadc_driver?=
-To: =?UTF-8?B?THUgVGFuZyAo5rGk55KQKQ==?= <Lu.Tang@mediatek.com>,
- =?UTF-8?B?Q2hlbiBaaG9uZyAo6ZKf6L6wKQ==?= <Chen.Zhong@mediatek.com>,
- =?UTF-8?B?U2VuIENodSAo5YKo5qOuKQ==?= <Sen.Chu@mediatek.com>
-Cc: "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-input@vger.kernel.org" <linux-input@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20250314073307.25092-1-Lu.Tang@mediatek.com>
- <20250314073307.25092-2-Lu.Tang@mediatek.com>
- <90d1c0f2-b037-482e-a569-f75b713e3a71@collabora.com>
- <SEZPR03MB68910F9B60DAF0060440503980D22@SEZPR03MB6891.apcprd03.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <SEZPR03MB68910F9B60DAF0060440503980D22@SEZPR03MB6891.apcprd03.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
+Content-Language: en-GB
+To: Ryan Roberts <ryan.roberts@arm.com>, Marc Zyngier <maz@kernel.org>
+Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ yang@os.amperecomputing.com, corbet@lwn.net, catalin.marinas@arm.com,
+ will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com,
+ joro@8bytes.org, akpm@linux-foundation.org, mark.rutland@arm.com,
+ joey.gouly@arm.com, james.morse@arm.com, broonie@kernel.org,
+ anshuman.khandual@arm.com, oliver.upton@linux.dev, ioworker0@gmail.com,
+ baohua@kernel.org, david@redhat.com, jgg@ziepe.ca,
+ shameerali.kolothum.thodi@huawei.com, nicolinc@nvidia.com,
+ mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+References: <20250313104111.24196-2-miko.lenczewski@arm.com>
+ <20250313104111.24196-3-miko.lenczewski@arm.com>
+ <86ikocomvd.wl-maz@kernel.org> <f244c20e-e11c-477b-9487-cb6738c028ca@arm.com>
+ <86h63wok11.wl-maz@kernel.org> <4998dd9b-106d-4ca7-be88-5330429dcfe8@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <4998dd9b-106d-4ca7-be88-5330429dcfe8@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_051600_384309_0A30A52E 
-X-CRM114-Status: UNSURE (   4.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_053357_042070_9AF5898F 
+X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,11 +76,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2025 10:21, Lu Tang (汤璐) wrote:
-> Update email
+On 14/03/2025 09:18, Ryan Roberts wrote:
+> On 13/03/2025 18:36, Marc Zyngier wrote:
+>> On Thu, 13 Mar 2025 18:22:00 +0000,
+>> Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>
+>>> On 13/03/2025 17:34, Marc Zyngier wrote:
+>>>> On Thu, 13 Mar 2025 10:41:10 +0000,
+>>>> Mikołaj Lenczewski <miko.lenczewski@arm.com> wrote:
+>>>>>
+>>>>> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+>>>>> index c6b185b885f7..9728faa10390 100644
+>>>>> --- a/arch/arm64/kernel/pi/idreg-override.c
+>>>>> +++ b/arch/arm64/kernel/pi/idreg-override.c
+>>>>> @@ -209,6 +209,7 @@ static const struct ftr_set_desc sw_features __prel64_initconst = {
+>>>>>   		FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
+>>>>>   		FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
+>>>>>   		FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
+>>>>> +		FIELD("nobbml2", ARM64_SW_FEATURE_OVERRIDE_NOBBML2, NULL),
+>>>>>   		{}
+>>>>>   	},
+>>>>>   };
+>>>>> @@ -246,6 +247,7 @@ static const struct {
+>>>>>   	{ "rodata=off",			"arm64_sw.rodataoff=1" },
+>>>>>   	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
+>>>>>   	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
+>>>>> +	{ "arm64.nobbml2",		"arm64_sw.nobbml2=1" },
+>>>>
+>>>> Why is that a SW feature? This looks very much like a HW feature to
+>>>> me, and you should instead mask out ID_AA64MMFR2_EL1.BBM, and be done
+>>>> with it. Something like:
+>>>
+>>> I think this implies that we would expect the BBM field to be advertising BBML2
+>>> support normally and we would check for that as part of the cpufeature
+>>> detection. That's how Miko was doing it in v2, but Yang pointed out that
+>>> AmpereOne, which supports BBML2+NOABORT semantics, doesn't actually advertise
+>>> BBML2 in its MMFR2. So we don't want to check that field, and instead rely
+>>> solely on the MIDR allow-list + a command line override. It was me that
+>>> suggested putting that in the SW feature register, and I think that still sounds
+>>> like the right solution for this situation?
+>>
+>> I think this is mixing two different things:
+>>
+>> - preventing BBM-L2 from being visible to the kernel: this is what my
+>>    suggestion is doing by nuking an architectural feature in the
+>>    relevant register
+>>
+>> - random HW not correctly advertising what they are doing: this is an
+>>    erratum workaround
+>>
+>> I'd rather we don't conflate the two things, and make them very
+>> explicitly distinct.
 > 
-You just sent 10 emails like this to everyone. This is pointless, don't.
+> It all sounds so obvious when you put it like that! :)
+> 
+> I'm guessing there is a layer where the workaround can be applied to the
+> sanitised feature registers on a per-cpu basis and that won't affect this global
+> override which will remain as an overlay on top? If so then that sounds perfect
+> (you can probably tell I find the whole feature management framework rather
+> inpeneterable). That workaround would be added as part of Yang's series anyway.
 
-Best regards,
-Krzysztof
+Unfortunately, there is no easy way to fix this via the normal erratum
+workaround "capability". The sanitised feature registers are handled
+separately (initialised via init_cpu_features() for boot CPU and
+sanitised eachtime via update_cpu_features).
+
+Also we do not "enable" any capability (i.e. calling cpu_enable())
+until the very end, after the CPUs are all brought up (except for boot 
+CPUs).
+
+But it may be possible to "fix up" the BBML2 feature in
+cpuinfo_store_*cpu(), without using the "enable" call back.
+
+Something like:
+
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index 285d7d538342..8c23adbe29f8 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -479,7 +479,11 @@ static void __cpuinfo_store_cpu(struct 
+cpuinfo_arm64 *info)
+         info->reg_id_aa64mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
+         info->reg_id_aa64mmfr1 = read_cpuid(ID_AA64MMFR1_EL1);
+         info->reg_id_aa64mmfr2 = read_cpuid(ID_AA64MMFR2_EL1);
+
++	/*
++	 * The CPU cap is not detected system wide, but we are able to
++	 * check if this CPU is affected by the Erratum.
++	 */
++       if (this_cpu_has_cap(AMPERE_ONE_ERRATUM_BBML2))
++               // Fixup  info->reg_id_aa64_mmfr2 with BBML2.
++
+         info->reg_id_aa64mmfr3 = read_cpuid(ID_AA64MMFR3_EL1);
+         info->reg_id_aa64mmfr4 = read_cpuid(ID_AA64MMFR4_EL1);
+         info->reg_id_aa64pfr0 = read_cpuid(ID_AA64PFR0_EL1);
+         info->reg_id_aa64pfr1 = read_cpuid(ID_AA64PFR1_EL1);
+
+Suzuki
+
+> 
+> So sounds like we are back to testing MMFR2.BBM in the matches function, with
+> the addition of Maz's proposal above. Sorry for sending you round the houses, Miko.
+> 
+> Thanks,
+> Ryan
+> 
+>>
+>> Thanks,
+>>
+>> 	M.
+>>
+> 
+
 
