@@ -4,74 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4250BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 14:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC29DC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 15:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3mTgXdjRhAbeq30ZDJ/sx04DyGkMzLexZXSrhYrxbCg=; b=ea2a0eHigjDATk8//1iqQgYEC/
-	ezHbW0gY7iTVandCXqWTOsv1QX4Q/EJgUuqW2yXIesTjPyrgTqHhOjFYZ9SLsdWf9tZBSzrGx2Jmt
-	v6LHLRPAjM4BBWBEJqq274JjZ6lGn+XoYtru29un6BWblEqd9HcLnl+kUWTyUFE51hZww4TlepId0
-	UdEFU5e73M33Y3hmmEiMNyGSQRlKMKdfaWsojQlGPdKifBV+MUPFDzDXAheikxfnnsZgFC+37DA+U
-	esOVuzXxv+HMoE74R6CJ6hJSvz2580EVOKJhDsnc2GySZjoceql95CGKaiTHI46pZAgkg7kt+fKsw
-	jFJKN70g==;
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=DasCPADCDjnV2jDDFR92iEghmdulkaTefmYegBGMoq8=; b=AsUqAr9RgA48Rvt49LwBVgZVBq
+	qcq5h38lDto0ZcCDeoXtbNJgPTD4A+/UEufX40cJJiGhs4nISKdDnNYRJU6UudwxuEjgmM0ila21j
+	DFb73xs8zTlq9Cr9Z7HoKwrMKY39EHIl6IJMVFQiSbjteOaLbhO54XnKjuH4FNGd/xeOxhNDbc013
+	R5i200vbZdlwoemfusejWwl6gkDqNx7WI214nsVMlRl7Agx1oFc2Gz6XN2yjbGZPuonVw6gg314Vd
+	e/OvAPbZPVnqeDKbaed3we0J7hOlRP9UsHo2iTM8qDqPCqANiYwI0u+JfoKOgsITgugojTdIdQoLv
+	yadLORKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6U0-0000000ETmi-0jid;
-	Fri, 14 Mar 2025 14:57:56 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tt6XW-0000000EUHQ-1MWE;
+	Fri, 14 Mar 2025 15:01:34 +0000
+Received: from mail-am6eur05on2072a.outbound.protection.outlook.com ([2a01:111:f403:2612::72a] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6Qe-0000000ET9d-1HlC;
-	Fri, 14 Mar 2025 14:54:29 +0000
-X-UUID: 378a5d1400e411f083f2a1c9db70dae0-20250314
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=3mTgXdjRhAbeq30ZDJ/sx04DyGkMzLexZXSrhYrxbCg=;
-	b=VpzaK7nwdRxS73ILbAswK0JFqwosNHJjJN3hEJX2xndhp1ZuYuS0aa4xBIS0EzVre64VJX2Gs3GiE1iQKBuRwodkC/nrqdlHEm0DFLV26io/pYILS1DfRkSGo7i9CcDPiXryV5Ns3j3v2AlMzfIqDGqsuA9+LKHbRizq5atp1EM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:0c665353-3a6b-4b7c-a071-cb7659dcc8c3,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:022a59c6-16da-468a-87f7-8ca8d6b3b9f7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 378a5d1400e411f083f2a1c9db70dae0-20250314
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <zoie.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2073565401; Fri, 14 Mar 2025 07:54:23 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 14 Mar 2025 22:54:20 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 14 Mar 2025 22:54:20 +0800
-From: Zoie Lin <zoie.lin@mediatek.com>
-To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<teddy.chen@mediatek.com>, <joseph-cc.chang@mediatek.com>,
-	<leilk.liu@mediatek.com>, Zoie Lin <zoie.lin@mediatek.com>
-Subject: [PATCH v5 1/1] i2c: mediatek: add runtime PM operations and bus regulator control
-Date: Fri, 14 Mar 2025 22:53:43 +0800
-Message-ID: <20250314145407.2900190-1-zoie.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1tt6Vp-0000000ETw7-1oN8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 14:59:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tO2BIhMqHZVHIOJbwsCGjysNHxNRHfGdDBpWeW1VpZpn7yvrc6E/WSQgQSuxb0WRtaAgItR5qtqI8Bx3ea1y6ELDhv5FBVuXOjNRBFUHROTebxFRmW8oY5qV6LlIWTQSMgC0dKODlKBbP9Cg46YL86osmtn/9oiShvh+xwaN5nChImj/od37LnFoTQYQVwaOqx5D9FaoUPTUy0Mx7ibHM31oVFf+g+N7W2CPifIXmWBZWaoJj1vqheu9gZKcS8wYPpYwFpdl5pPY3kIAVXNL/I4pjUxumzKK0d2WWRAStXIaZBEurinENoVM+ws4PVCrj420xSy/Qn1qQR0MoVu75w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DasCPADCDjnV2jDDFR92iEghmdulkaTefmYegBGMoq8=;
+ b=KOpBtHb3zo5/Rs2D6KfYp6sPLOBR5SywGWX6QRsStSZT8vYC0hvDstO8Tp/Aan9m72GoCaJw7ba2gqJNZxfJ/R/m0Ou8BngNysoIznVtjmZ80py3JDQ/b1AdUIbjcnZtgtCLLvRWOpCEdYzDpXvuinhBJbFeidtSurlZ5evx/gCLSiOw9TyBK4tPct+7bFoYCEwrhClf6Gqv6ZLOO8GuzFvgkhvL/Ci7ZayYgBP20Sg62YUTrYuFiouJ5Pm9X1ASuM7QbH5yRiFru+wjwF3BvQGvN94KRuJBUNYNZcg+g+c5lAc4KW2GBOsgCJYn0ZncLWOg8+hRxtweCqgc61FgMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=topic.nl;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=topic.nl;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DasCPADCDjnV2jDDFR92iEghmdulkaTefmYegBGMoq8=;
+ b=cSDebQ9zag0fleVIarqgBRZHG1os8lTuC1cfk4Oly1Wf9z6hTUahrxbMuhA+rW0jb/11v1QxXlpgIcl5II5W5BN3XYY4Ce/S3gbKqLsx6SSh32Lwb+9lxvlvyI26+8iNUB5Ec5IIIHA2dNgANmAi6jKdREsw2WHVyhQehxC9WhE5u9SABVBzvSZEydU/tdJ2+n8ccgBhigi+qSMOm/MuKhRMeNeYKB4AYKv98/fodBbwoNXkg5dLG7HhM6UU1h49Db1XekmYLAl1GE7ZDi6es1BBQTQfChhchQpQFT/GApvnCbaXdSvbNyOMqC9aB00rSKFsNy8fkdHKPX4Y3kujJQ==
+Received: from AS9PR06CA0422.eurprd06.prod.outlook.com (2603:10a6:20b:49e::6)
+ by AS8PR04MB8120.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Fri, 14 Mar
+ 2025 14:59:42 +0000
+Received: from AM3PEPF00009B9F.eurprd04.prod.outlook.com
+ (2603:10a6:20b:49e:cafe::93) by AS9PR06CA0422.outlook.office365.com
+ (2603:10a6:20b:49e::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.28 via Frontend Transport; Fri,
+ 14 Mar 2025 14:59:42 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ AM3PEPF00009B9F.mail.protection.outlook.com (10.167.16.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Fri, 14 Mar 2025 14:59:41 +0000
+Received: from DUZPR83CU001.outbound.protection.outlook.com (40.93.64.9) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Fri, 14 Mar 2025 14:59:41 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
+ by DU4PR04MB10483.eurprd04.prod.outlook.com (2603:10a6:10:565::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.31; Fri, 14 Mar
+ 2025 14:59:39 +0000
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8511.026; Fri, 14 Mar 2025
+ 14:59:39 +0000
+From: Mike Looijmans <mike.looijmans@topic.nl>
+To: linux-pci@vger.kernel.org
+CC: Mike Looijmans <mike.looijmans@topic.nl>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] pcie-xilinx: Support reset GPIO and wait for link-up status
+Date: Fri, 14 Mar 2025 15:59:02 +0100
+Message-ID: <20250314145933.27902-1-mike.looijmans@topic.nl>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
+X-ClientProxiedBy: AM0PR10CA0126.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:208:e6::43) To AS8PR04MB8644.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::12)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|DU4PR04MB10483:EE_|AM3PEPF00009B9F:EE_|AS8PR04MB8120:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0369ea7c-3f6d-4f0e-c500-08dd6308d9a2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?JZS3fSnyBQntrSu3919hOoDYRHOW4is1FdiUw+B4ieLzBiJwlmxXY1p/UcfH?=
+ =?us-ascii?Q?V+lJv62+lld293htehF9SdgrckYwPj0F1oDj+Rdl5Esh3h3YMeyEpyIN5Qis?=
+ =?us-ascii?Q?NSSbpHGthj2UU50Wjwp+A4OPWZAI4lm87YEqx7uWDN0NljU5RLkCJjpx32RV?=
+ =?us-ascii?Q?KMW1EKwRs7bbXvcxUGEwovTuyZr3LutVTsNjglkRSzg6GHdMovel9cuw6Ea/?=
+ =?us-ascii?Q?xpqA/nnwol34myuYA//Kqhpl2/hJNrqIi4t2AcgsQJlv7RcPWvtfQYkwRLUB?=
+ =?us-ascii?Q?5eWi3lNiXskyiqZpOdqGubaONF5X74EPpsRcWLVUgXnrCwQOMT8yhNvDqsvB?=
+ =?us-ascii?Q?WG8PJPyhID1NP4yaF7SSh2HehSwcJyI8syKMG0PjxZyMuxlre+JEtvUqiPQx?=
+ =?us-ascii?Q?3Lg4WzKnksqJqrzBrRNSGWcHzSMeGV23Ic2IcSWY6aS7iJ0ytEmHhicps4+7?=
+ =?us-ascii?Q?GQ4iSk9gcnTw9AfVlQECZxXo0zDSFNTQAc/yXqmy/QBnBR9gQPch/rvQM98c?=
+ =?us-ascii?Q?9KFBbtAPQJ4/oAWbY4adQMzRbR6U9HECYxRdGDXirPUKUhVtJMsP/xb9fdWN?=
+ =?us-ascii?Q?4xb7vWGzLZ6vT6oEg5Mjs+aK1AZo8Nfu2tm1O8uHUumU6UCzJJ31BiAcWG8J?=
+ =?us-ascii?Q?lr/Wm8Ar7OfjNDeUp1gSklW5UM0Qpx130JS/O0ITkyBlhXPeFmkfbhtrXlj7?=
+ =?us-ascii?Q?tcoMe0FJa9Hm2J6kxMqs7CXmOYkU4LFs0Q7wRKtpfEJqlvzzi2xhxq+jmNLF?=
+ =?us-ascii?Q?AYxUFJosUImhRNRpc2prlEAt9G7ojOBuQRvYRekDFGAXIKqgB4+Q140xyyGX?=
+ =?us-ascii?Q?fMl3UlOSCsZU3JwCEzvDmXQ1lKQ/QIe9iLmv2AG9ma8X0QEJJR6/hpWSdrDS?=
+ =?us-ascii?Q?V7omkLb3EmSCwmucnt0Tc0X/Fe8urhfD91pZdBqdohdF6OF/NL+FRd5Jdp13?=
+ =?us-ascii?Q?tW067fwB6713fz7mXgKCnmdWnE/lkAWl8mPeWfxL3v/A4+GjhiyZ9Ws6ei5R?=
+ =?us-ascii?Q?T3K192YmaFL1krMvKO6jIV5JvI3WizSXEMmG9hFCAH2J349CGn81rdekWzN0?=
+ =?us-ascii?Q?cuXVKBjKJrNwmzkMKIttHWMTXSwGLvDxbYbgM1ndBa40uYFY9UeWK/4IZ+PR?=
+ =?us-ascii?Q?j+TfhD//Sqhphp8OZqbQP4rTLWGzQ2ODJfGu3NLfjAx6kFnI2Mn4ypypn8ga?=
+ =?us-ascii?Q?eEhQV0hTLez3SMDRZjzjuoqc/dMbXw4Hac5jJ6TWFBbYen6289n5BcPQclKX?=
+ =?us-ascii?Q?iaFtxN33gUN6f8zqn1rbdYH7FUBddLDkqegu++DHl0z51IFVrozCAR//+yhj?=
+ =?us-ascii?Q?/DZrRi+IRM4tmy8v+95+Ta8nXckXbmwobOxUflf3a4bR2Ptys4cvBV4x4no+?=
+ =?us-ascii?Q?GFFI7j+mvK7qzw3cq1kp9bL3o+toSIm7+NPDUEjiYah9uZUR+Q8eYkAUZvx1?=
+ =?us-ascii?Q?kI/HOEcXHvKTvXrmC6+BRW/COsil2wUd?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10483
+X-CodeTwo-MessageID: f3928d99-3d05-4cb2-aae3-0b2d49200134.20250314145941@westeu12-emailsignatures-cloud.codetwo.com
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.c4ab15e9-561e-402d-bf39-9e852485e4fa@emailsignatures365.codetwo.com>
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 06cdbf93-5668-4437-9c56-08dd6308d813
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|35042699022|36860700013|1800799024|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rlVh9MODRyPRFUeLqN5eaGNCJDbJOSd1zTa7Zja3i8HqtqZn5iGr91nsl6/1?=
+ =?us-ascii?Q?gKMeaqba5+hzlcW07xk7x2M21I+zVjvcUIjcw0YcAqV5cNt4ojxRTbYJbdnV?=
+ =?us-ascii?Q?PitcVmrFpFOvxiHPQETphp338XmrQwG4hmpXAfKFO2ScLDR7vpAHjB5ViBor?=
+ =?us-ascii?Q?26s3AAwKbQuUCaxsHREIhcWrgQuqof5oG7INGENAYadskb1MBadFktIpCg8Q?=
+ =?us-ascii?Q?VdJGCfLmPa9KOisDkU84MYQlTw2awNrgePw/Me7G+26Zkm6Xu++g4dyRU+n9?=
+ =?us-ascii?Q?VXee7IlpI10Z0A3puDwwGJnq4PGZ5uVU+uPJ4vLXYp9O4L+0aKx+l46bmr23?=
+ =?us-ascii?Q?Os4D8qRaOGWfwiDsE8DhU9Ej/zRky2ARFFxHN5qJrFSpOOhOR4u5o3TJCPL9?=
+ =?us-ascii?Q?kkxZncoThUhx4eTZkwCfy94vce0YVZXgf9/VO2FzGDD6JkOT4HX+1ZBvbRoV?=
+ =?us-ascii?Q?jH4sJI32+/a9BzsKkrJdYYLD+zgypmpP6WIO4DDpH2RNkdrQBHzSDsInPyLa?=
+ =?us-ascii?Q?HCOKQCcUXlRimKfI9/5RL7n005tPYJA7lPXpscQbJwVHMZgpP069g3NCLpjt?=
+ =?us-ascii?Q?+IhBt/9iRqav4Y220ZeFecbqtCYc3NIYmQA7CtDZRk0eIuq6JO7OPOxsR0wh?=
+ =?us-ascii?Q?XevAsbdf/N8mLhTYeBEVd6gTHzS6yBPbqBasB9sfT0yDrH65U7hnO+ElxLM3?=
+ =?us-ascii?Q?0v/4qzlHDiRsatEV0hWoCOZhfC6xA+KAwMgPH0dnYBggqkT9Y6jof0VaKuJF?=
+ =?us-ascii?Q?G2cRObek9YYzL2JsEVFcETkKZVLEDXI+l9NiB7nQ1yiPIJY33lRQBew7It8B?=
+ =?us-ascii?Q?ozlJSfxNdbc/CISZi2LrkH0Tk5CvD+Wbwnu669Wo9wtibEEyKi072nUZ9bAr?=
+ =?us-ascii?Q?fnksspk5zwRK9fe8p5A+BJESYWS1jrvIzbTjWDTlMM4gFMlL1WFQnsu5tcXc?=
+ =?us-ascii?Q?Uy2Ff+pCH0qMR94r/K0JXxIZ93c3DBoyqRnQLrIn+XtD8w/W/7INd3Jck2U7?=
+ =?us-ascii?Q?gQrRZAEMjoaY3YaG6lpk1eFPwOFd9htrX6hFtemB9wAbTzaIe64igLYQggrK?=
+ =?us-ascii?Q?WncoUEEMKdQ9EEkVD1uc7CuV5vTi0Xy9FEqCbsFRJm07N+PPS++u/TxrR4Ep?=
+ =?us-ascii?Q?NIXgm3QhW7TKOfnjMfrx3wPtNw8fX8G+beAeGWlS6xaCN/4PgCirozNmAGGd?=
+ =?us-ascii?Q?O7bDcmVca9laRraZCXBir2kFXTa/9d6DOzZ/InZZGtYEBzfKIAC5UWsmodHZ?=
+ =?us-ascii?Q?uCA+9ZglipkpEozTJgckeKHCgcG4ALgJ0nEWTHbcGxhnCc2guYxqWMqSbPtG?=
+ =?us-ascii?Q?kI9PbQHuzLjhJF9uvyHli5uMQ/+IrEHVHYdrg3JV95vCsi9FIzNMiA2naDAS?=
+ =?us-ascii?Q?TwkJMzcTDKCZIwD1t4zek5HxDJFvffyj7TaCLwS01fSWHEm3Fb1qEsYy5HQ2?=
+ =?us-ascii?Q?48lYMRoM2L4=3D?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(35042699022)(36860700013)(1800799024)(376014)(13003099007);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 14:59:41.8533
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0369ea7c-3f6d-4f0e-c500-08dd6308d9a2
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_075428_350076_6043D590 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20250314_075949_472459_C8B907AA 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,206 +188,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for runtime PM operations in
-the I2C driver, enabling runtime suspend and resume functionality.
+Support providing the PERST reset signal through a devicetree binding.
+Thus the system no longer relies on external components to perform the
+bus reset.
 
-Although in most platforms, the bus power of i2c is always
-on, some platforms disable the i2c bus power in order to meet
-low power request.
+When the driver loads, the transceiver may still be in the state of
+setting up a link. Wait for that to complete before continuing. This
+fixes that the PCIe core does not work when loading the PL bitstream
+from userspace. There's only milliseconds between the FPGA boot and the
+core initializing in that case, and the link won't be up yet. The design
+works when the FPGA was programmed in the bootloader, as that will give
+the system hundreds of milliseconds to boot.
 
-This implementation includes bus regulator control to facilitate
-proper handling of the bus power based on platform requirements.
+As the PCIe spec mentions about 120 ms time to establish a link, we'll
+allow up to 200ms before giving up.
 
-Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
+Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
 ---
- drivers/i2c/busses/i2c-mt65xx.c | 74 ++++++++++++++++++++++++++++-----
- 1 file changed, 63 insertions(+), 11 deletions(-)
 
-This series is based on linux-next, tag: next-20250314
+ drivers/pci/controller/pcie-xilinx.c | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
 
-Changes in v5:
-- Add pm runtime autosuspend setting to 250ms
-- Add error message for clock enable failure
-
-Changes in v4:
-- Removed unnecessary variable initialization.
-- Removed unnecessary brackets.
-- Corrected grammar issues in the commit message.
-- Confirmed autosuspend delay is not necessary.
-
-Changes in v3:
-- Removed the autosuspend functionality
-- Resumed the I2C bus in mtk_i2c_resume_noirq() 
-
-Changes in v2:
-- Author name modification
-- Replacement of pm runtime API
-- Removal of redundant error messages
-- Return value adjustment
-- Add runtime pm status check
-
-diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-index 5bd342047d59..a630733a8890 100644
---- a/drivers/i2c/busses/i2c-mt65xx.c
-+++ b/drivers/i2c/busses/i2c-mt65xx.c
-@@ -21,6 +21,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/scatterlist.h>
- #include <linux/sched.h>
- #include <linux/slab.h>
-@@ -1245,8 +1246,8 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	int left_num = num;
- 	struct mtk_i2c *i2c = i2c_get_adapdata(adap);
- 
--	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
--	if (ret)
-+	ret = pm_runtime_resume_and_get(i2c->dev);
-+	if (ret < 0)
- 		return ret;
- 
- 	i2c->auto_restart = i2c->dev_comp->auto_restart;
-@@ -1299,7 +1300,9 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	ret = num;
- 
- err_exit:
--	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	pm_runtime_mark_last_busy(i2c->dev);
-+	pm_runtime_put_autosuspend(i2c->dev);
-+
- 	return ret;
+diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/=
+pcie-xilinx.c
+index 0b534f73a942..cd09deba0ddc 100644
+--- a/drivers/pci/controller/pcie-xilinx.c
++++ b/drivers/pci/controller/pcie-xilinx.c
+@@ -15,8 +15,10 @@
+ #include <linux/irqdomain.h>
+ #include <linux/kernel.h>
+ #include <linux/init.h>
++#include <linux/iopoll.h>
+ #include <linux/msi.h>
+ #include <linux/of_address.h>
++#include <linux/of_gpio.h>
+ #include <linux/of_pci.h>
+ #include <linux/of_platform.h>
+ #include <linux/of_irq.h>
+@@ -126,6 +128,14 @@ static inline bool xilinx_pcie_link_up(struct xilinx_p=
+cie *pcie)
+ 		XILINX_PCIE_REG_PSCR_LNKUP) ? 1 : 0;
  }
- 
-@@ -1370,6 +1373,38 @@ static int mtk_i2c_parse_dt(struct device_node *np, struct mtk_i2c *i2c)
- 	return 0;
- }
- 
-+static int mtk_i2c_runtime_suspend(struct device *dev)
+=20
++static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
 +{
-+	struct mtk_i2c *i2c = dev_get_drvdata(dev);
++	u32 val;
 +
-+	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	if (i2c->adap.bus_regulator)
-+		regulator_disable(i2c->adap.bus_regulator);
-+
-+	return 0;
++	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
++			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2000, 200000);
 +}
 +
-+static int mtk_i2c_runtime_resume(struct device *dev)
-+{
-+	int ret;
-+	struct mtk_i2c *i2c = dev_get_drvdata(dev);
+ /**
+  * xilinx_pcie_clear_err_interrupts - Clear Error Interrupts
+  * @pcie: PCIe port information
+@@ -492,8 +502,21 @@ static int xilinx_pcie_init_irq_domain(struct xilinx_p=
+cie *pcie)
+ static void xilinx_pcie_init_port(struct xilinx_pcie *pcie)
+ {
+ 	struct device *dev =3D pcie->dev;
++	struct gpio_desc *perst_gpio;
 +
-+	if (i2c->adap.bus_regulator) {
-+		ret = regulator_enable(i2c->adap.bus_regulator);
-+		if (ret) {
-+			dev_err(dev, "enable regulator failed!\n");
-+			return ret;
-+		}
++	perst_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
++	if (IS_ERR(perst_gpio)) {
++		dev_err(dev, "gpio request failed: %d\n", PTR_ERR(perst_gpio));
++		perst_gpio =3D NULL;
 +	}
 +
-+	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	if (ret)
-+		if (i2c->adap.bus_regulator)
-+			regulator_disable(i2c->adap.bus_regulator);
-+
-+	return ret;
-+}
-+
- static int mtk_i2c_probe(struct platform_device *pdev)
- {
- 	int ret = 0;
-@@ -1472,13 +1507,19 @@ static int mtk_i2c_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	ret = clk_bulk_prepare_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	ret = clk_bulk_prepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 	if (ret) {
- 		dev_err(&pdev->dev, "clock enable failed!\n");
- 		return ret;
- 	}
-+
-+	platform_set_drvdata(pdev, i2c);
-+
-+	ret = mtk_i2c_runtime_resume(i2c->dev);
-+	if (ret < 0)
-+		goto err_clk_bulk_unprepare;
- 	mtk_i2c_init_hw(i2c);
--	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	mtk_i2c_runtime_suspend(i2c->dev);
- 
- 	ret = devm_request_irq(&pdev->dev, irq, mtk_i2c_irq,
- 			       IRQF_NO_SUSPEND | IRQF_TRIGGER_NONE,
-@@ -1486,19 +1527,22 @@ static int mtk_i2c_probe(struct platform_device *pdev)
- 	if (ret < 0) {
- 		dev_err(&pdev->dev,
- 			"Request I2C IRQ %d fail\n", irq);
--		goto err_bulk_unprepare;
-+		goto err_clk_bulk_unprepare;
- 	}
-+	pm_runtime_set_autosuspend_delay(&pdev->dev, 250);
-+	pm_runtime_use_autosuspend(&pdev->dev);
-+	pm_runtime_enable(&pdev->dev);
- 
- 	i2c_set_adapdata(&i2c->adap, i2c);
- 	ret = i2c_add_adapter(&i2c->adap);
- 	if (ret)
--		goto err_bulk_unprepare;
--
--	platform_set_drvdata(pdev, i2c);
-+		goto err_pm_runtime_disable;
- 
- 	return 0;
- 
--err_bulk_unprepare:
-+err_pm_runtime_disable:
-+	pm_runtime_disable(&pdev->dev);
-+err_clk_bulk_unprepare:
- 	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 
- 	return ret;
-@@ -1510,6 +1554,7 @@ static void mtk_i2c_remove(struct platform_device *pdev)
- 
- 	i2c_del_adapter(&i2c->adap);
- 
-+	pm_runtime_disable(&pdev->dev);
- 	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- }
- 
-@@ -1518,6 +1563,10 @@ static int mtk_i2c_suspend_noirq(struct device *dev)
- 	struct mtk_i2c *i2c = dev_get_drvdata(dev);
- 
- 	i2c_mark_adapter_suspended(&i2c->adap);
-+
-+	if (!pm_runtime_status_suspended(dev))
-+		mtk_i2c_runtime_suspend(dev);
-+
- 	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 
- 	return 0;
-@@ -1536,7 +1585,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
- 
- 	mtk_i2c_init_hw(i2c);
- 
--	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	if (pm_runtime_status_suspended(dev))
-+		mtk_i2c_runtime_resume(dev);
- 
- 	i2c_mark_adapter_resumed(&i2c->adap);
- 
-@@ -1546,6 +1596,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
- static const struct dev_pm_ops mtk_i2c_pm = {
- 	NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_i2c_suspend_noirq,
- 				  mtk_i2c_resume_noirq)
-+	SET_RUNTIME_PM_OPS(mtk_i2c_runtime_suspend, mtk_i2c_runtime_resume,
-+			   NULL)
- };
- 
- static struct platform_driver mtk_i2c_driver = {
--- 
-2.45.2
++	if (perst_gpio) {
++		usleep_range(10, 20); /* Assert the reset for ~10 us */
++		gpiod_set_value_cansleep(perst_gpio, 0);
++		usleep_range(1000, 2000);
++	}
+=20
+-	if (xilinx_pcie_link_up(pcie))
++	if (!xilinx_pci_wait_link_up(pcie))
+ 		dev_info(dev, "PCIe Link is UP\n");
+ 	else
+ 		dev_info(dev, "PCIe Link is DOWN\n");
+--=20
+2.43.0
 
+
+Met vriendelijke groet / kind regards,=0A=
+=0A=
+Mike Looijmans=0A=
+System Expert=0A=
+=0A=
+=0A=
+TOPIC Embedded Products B.V.=0A=
+Materiaalweg 4, 5681 RJ Best=0A=
+The Netherlands=0A=
+=0A=
+T: +31 (0) 499 33 69 69=0A=
+E: mike.looijmans@topic.nl=0A=
+W: www.topic.nl=0A=
+=0A=
+Please consider the environment before printing this e-mail=0A=
 
