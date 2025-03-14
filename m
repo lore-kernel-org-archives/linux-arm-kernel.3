@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53ABC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7155FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dGlveVYkNT3ORTsa8Y4KKrCzm4MLsBH8s3oP68vMpb8=; b=1OFP7378YnWKkmiU9PfUv3zJHb
-	CF51XfSTbwCJ3cHkGP2pQXPayQROZFY8nvhXc4seL/nmTJwEpWF/Ez6zfq96GfxrLpebnY2D6Vyvc
-	eCcmsUjnM1nrcoHipxQsjRtt/srEDsJ2L6LdhLJcCaOI2AOCZFP4MXh95GMc9jc2SCGg/kSua9qFj
-	TT/MR1p7Iu/5zg92CT4ZLeWpv/6LX2kG16ZCK9y9QGL23DpSM/X1gYWFV+FHxJUD9/uxX46RNTmWK
-	5tNzYci693C2m18En6yKVQaqcsweYYsy5TL0NzkaoNN0ObudB3C23YzbowGRepvcwmC/2NHs2z1fQ
-	y+LqeHHw==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3IYRjktN0Xe+l0KkZ0Ly6k4G+9WnYnpIs+H0Ux3E9Tw=; b=UxlcQi8pNf7zpOklcUefnSY6cG
+	SnAd90iN305p3IJyDESXP7p8YRvckTINUKUC92YiIZftaQGvy0gsJb4TJta5+59XpmWOawXVk/Yt1
+	n39ww4JWsL0lbA2MET8CwXcu5+d2xidC5aj/oRwovQWnfOObque2RPgn52uCF7k7ENSugcnh+J/3h
+	mTMMHgdMwl3lOWoh4ruNbDOGmGP/rCSGilWUu00OSYqI8HIgm7vSLTxmnGqXjooklzgrMObejjStL
+	Ltglnr4+CpbGe1bKYAW8VknNPjn24fCm8yb7YQblIxPisOTQMHYYUxSU1GdYNZ58P2ajMulzJi+MP
+	13B4UApQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt36g-0000000Dz9i-2DGF;
-	Fri, 14 Mar 2025 11:21:38 +0000
+	id 1tt38L-0000000DzTP-10Dj;
+	Fri, 14 Mar 2025 11:23:21 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt33k-0000000Dyao-270z
+	id 1tt33m-0000000Dybh-0WzW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 11:18:37 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43943bd1409so15543745e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 04:18:35 -0700 (PDT)
+	Fri, 14 Mar 2025 11:18:39 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d08915f61so12011335e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 04:18:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741951114; x=1742555914; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=dGlveVYkNT3ORTsa8Y4KKrCzm4MLsBH8s3oP68vMpb8=;
-        b=nRj2Y2FyvD3hkY5I2/s300KtxuohRC8B5uMOvSclhFv4O76nqdlZ+wmylgycCLllE1
-         Orsoy8trcS2oFJlhfr32zCscxsaDWZIlji7LAuuCiNgKg54D7RL7wurc+65fxHGZfv4F
-         BpMZ7I/0+8ebaXppbpIazujHjK/K0G8lclKL/Z2aH7miTNlzLHhJbS8dyff5r0qdRvvQ
-         f6SSu0fVa15mtwmFRjJKR/cgp/D91msJt4QYrMS4xUzVWvTpCMYH/xYkfXdKdkzDL3TU
-         BvWNzWcPTjT3rhYBVUDQOgcybDbHOzBqZeJQuOWvQbDO0KY+jMZvJlEFY7mnsJOCX9+F
-         o56g==
+        d=google.com; s=20230601; t=1741951116; x=1742555916; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3IYRjktN0Xe+l0KkZ0Ly6k4G+9WnYnpIs+H0Ux3E9Tw=;
+        b=1imTjkqKk68PAYbuXCnaW40M4JqYvAK6n0aWJYcjR958QmimhTk436sCX7q3grLiLV
+         U6JUBGC0Crn41Etr7cdc0Fqrw0wj5xkCHk8SIlYkmeYSMFA8DmF6F98jy3t87uPFLQrN
+         y3UsUguEwdI/wo+XPQCmWPV4hgc3s5RS5EHdt3q6NYGtTCMmKLqtx75vBUUHEyTRkKdq
+         XzgPi5hBUxE4hmiTmK6+Lh7s0ooX4MhfTCHG3xk3yBK3RP+q7hP9y4FpeCGs20tPYmeF
+         d3iiFBkOjht7c1t3DQc/5ivjSc4JU6dcAOSs2qX4lo8wBEmHxcBlIsILSdZgKIEw5zrE
+         aEUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741951114; x=1742555914;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dGlveVYkNT3ORTsa8Y4KKrCzm4MLsBH8s3oP68vMpb8=;
-        b=i0ymNmYh0B2bwC89fB1a5ftLadkooA4sB6WTzhhciCBGCttxVbXJodhtvX6nvROeaL
-         2fgsjZUxr5mIPzAICG3PKr1f8SeZH87sWimaX/mVLFEZ/mejueUsm/9TNJ9lAScYvYy9
-         Nm1ayCNXWKvRGm5o27RndbWnp87FNEFLobYmgZZdJ/Va9GVsQPV5oVIoQMPNoPal2IpN
-         83T7Li4CZOHjAH6vQCrhbIED8LGk+MGwr1DjfFFnXu0Z/t8sARZWsGs55uuBxsqSdFV6
-         1pzg6knREJnqyoEJoGFpd+gIQ3ynkf23qceRKwV2drlWfoDbELdfQO7JxaqH395kumgg
-         v0BA==
-X-Forwarded-Encrypted: i=1; AJvYcCVLHbd8eyLVz4x2GHHypGlGVaCfnBFxckZwkDB7F/xpdSbTOyHsFgjoF9BQ6iTq8pzI1FJrLuHr81GSG5RJPs7o@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjM5QQo0zuEply7Hv9nNOsKl8MHAHwdF9OU5ClIdx5ar0ZDAB9
-	ngM9SHAeuuYLkratYvR1UNUMxYw/TptF/YyH/vHAqSjkWc8ShemaYGRANaSFnhU3x6fn6G2cKA=
+        d=1e100.net; s=20230601; t=1741951116; x=1742555916;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3IYRjktN0Xe+l0KkZ0Ly6k4G+9WnYnpIs+H0Ux3E9Tw=;
+        b=VP3JVtlyp26TeSvJbwPcWevXRm8t6/cD65p7u9b7LMPTJ8kjd7vC3fUtWcGjsdIBW6
+         Q5IcIYzezm0OJON5zQAtSKd6sqOE3WmFydX3B523ZNxl9nGxcd3tjpJKd0waGk0qWWdh
+         pJV6yLweIbAeb+zEi8W8kPktj2pHEoMvtqK5YC5j/h3zuqFqd810ObMVds5QACZ2TdVY
+         1GGX5fgbAR9pVtJROrYQY7Z5aC5QaYoPRrxiVXo8pW9b5GwjPFTva2onM24/GarwbjFr
+         lGNp/MvI/nWrF3Abt1sBj2riwyjlxaPeftDaSdzrQviR6cPLtDuPdNlH/V2Hl27bDOeL
+         b+Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCUmiSWINati1hQ4oUWGHomKuGANF7YP0YCWHsf+mEw0uNWDSQeqI3B3+GvO4pbGJNumrUaakwrGDRBUX4bKxAa9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX2tnux/v55VnC7KTkRAJZLv2CvmG3qGlY4pYa3/EEhvaYsl0x
+	pshYHIub7BTiNuWclVyG56OlQnMzXmorov3ZVu5BLwkzSDe7NN5fb4AIlGkjkLxTf98DNILg6g=
 	=
-X-Google-Smtp-Source: AGHT+IGJOLU5r/fEt2G8VDB8bc+OCYCwiUAaTtua3hlqUyNrvce5rqhGBeHSxBkdMi8rNd4X/72wEQMn4A==
-X-Received: from wmqd2.prod.google.com ([2002:a05:600c:34c2:b0:43c:f6c0:3375])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:510f:b0:43d:aed:f7de
- with SMTP id 5b1f17b1804b1-43d1ece301amr23196365e9.21.1741951114433; Fri, 14
- Mar 2025 04:18:34 -0700 (PDT)
-Date: Fri, 14 Mar 2025 11:18:28 +0000
+X-Google-Smtp-Source: AGHT+IE6bHiPzyDuSNjh1OdQCzS5lebQOdEcH1nt2Xe9SkNJCG2uKeQglvcRSThYGjxDUfSnU0jOLPC3Hg==
+X-Received: from wmbbi13.prod.google.com ([2002:a05:600c:3d8d:b0:43c:ec4d:6037])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f56:b0:43c:fd72:f028
+ with SMTP id 5b1f17b1804b1-43d1ecd2ddamr26160465e9.29.1741951116586; Fri, 14
+ Mar 2025 04:18:36 -0700 (PDT)
+Date: Fri, 14 Mar 2025 11:18:29 +0000
+In-Reply-To: <20250314111832.4137161-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20250314111832.4137161-1-tabba@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250314111832.4137161-1-tabba@google.com>
-Subject: [PATCH v3 0/4] KVM: arm64: Fix initializing HCRX_EL2 and other traps
- in pKVM
+Message-ID: <20250314111832.4137161-2-tabba@google.com>
+Subject: [PATCH v3 1/4] KVM: arm64: Factor out setting HCRX_EL2 traps into
+ separate function
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, 
@@ -74,9 +76,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com,
 	qperret@google.com, vdonnefort@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_041836_538148_EF1EC1B0 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_041838_167383_F149C1CB 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,37 +92,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes since v2 [1]:
-- Remove WRITE_ONCE when setting hyp handle (Quentin)
-- Rebase on Linux 6.14-rc6
+Factor out the code for setting a vcpu's HCRX_EL2 traps in to a
+separate inline function. This allows us to share the logic with
+pKVM when setting the traps in protected mode.
 
-For context, please refer to v1 [2].
+No functional change intended.
 
-Cheers,
-/fuad
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/include/asm/kvm_emulate.h | 24 ++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c            | 20 +-------------------
+ 2 files changed, 25 insertions(+), 19 deletions(-)
 
-[1] https://lore.kernel.org/all/20250226215520.1759218-1-tabba@google.com
-[2] https://lore.kernel.org/all/20250214150258.464798-1-tabba@google.com/
-
-Fuad Tabba (4):
-  KVM: arm64: Factor out setting HCRX_EL2 traps into separate function
-  KVM: arm64: Initialize HCRX_EL2 traps in pKVM
-  KVM: arm64: Factor out pKVM hyp vcpu creation to separate function
-  KVM: arm64: Create each pKVM hyp vcpu after its corresponding host
-    vcpu
-
- arch/arm64/include/asm/kvm_emulate.h   | 24 +++++++++
- arch/arm64/include/asm/kvm_host.h      |  2 +
- arch/arm64/include/asm/kvm_pkvm.h      |  1 +
- arch/arm64/kvm/arm.c                   |  4 ++
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 62 ++++++++++++++---------
- arch/arm64/kvm/pkvm.c                  | 70 +++++++++++++-------------
- arch/arm64/kvm/sys_regs.c              | 20 +-------
- 8 files changed, 104 insertions(+), 85 deletions(-)
-
-
-base-commit: 80e54e84911a923c40d7bee33a34c1b4be148d7a
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 78ec1ef2cfe8..31c8497372d0 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -649,4 +649,28 @@ static inline bool guest_hyp_sve_traps_enabled(const struct kvm_vcpu *vcpu)
+ {
+ 	return __guest_hyp_cptr_xen_trap_enabled(vcpu, ZEN);
+ }
++
++static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++
++	if (cpus_have_final_cap(ARM64_HAS_HCX)) {
++		/*
++		 * In general, all HCRX_EL2 bits are gated by a feature.
++		 * The only reason we can set SMPME without checking any
++		 * feature is that its effects are not directly observable
++		 * from the guest.
++		 */
++		vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
++
++		if (kvm_has_feat(kvm, ID_AA64ISAR2_EL1, MOPS, IMP))
++			vcpu->arch.hcrx_el2 |= (HCRX_EL2_MSCEn | HCRX_EL2_MCE2);
++
++		if (kvm_has_tcr2(kvm))
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_TCR2En;
++
++		if (kvm_has_fpmr(kvm))
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnFPM;
++	}
++}
+ #endif /* __ARM64_KVM_EMULATE_H__ */
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 82430c1e1dd0..16ce5f584e7c 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -4971,25 +4971,7 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
+ 	mutex_lock(&kvm->arch.config_lock);
+ 	vcpu_set_hcr(vcpu);
+ 	vcpu_set_ich_hcr(vcpu);
+-
+-	if (cpus_have_final_cap(ARM64_HAS_HCX)) {
+-		/*
+-		 * In general, all HCRX_EL2 bits are gated by a feature.
+-		 * The only reason we can set SMPME without checking any
+-		 * feature is that its effects are not directly observable
+-		 * from the guest.
+-		 */
+-		vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
+-
+-		if (kvm_has_feat(kvm, ID_AA64ISAR2_EL1, MOPS, IMP))
+-			vcpu->arch.hcrx_el2 |= (HCRX_EL2_MSCEn | HCRX_EL2_MCE2);
+-
+-		if (kvm_has_tcr2(kvm))
+-			vcpu->arch.hcrx_el2 |= HCRX_EL2_TCR2En;
+-
+-		if (kvm_has_fpmr(kvm))
+-			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnFPM;
+-	}
++	vcpu_set_hcrx(vcpu);
+ 
+ 	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
+ 		goto out;
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
 
