@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E777EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE5AC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F5fU/ZAp4kwouvmwyCB6tqSL8X1EC9No9N/HhFa/rVs=; b=LgZPVngttm/MdKx+OOH1t+GwwN
-	NIA8n5dp4eHTITb85Pq2bNmG422imVmnMpGKucBCz9W7tVbpaFCtQ8KorP5uRf2XZbyBJNMRZ8EPm
-	yazUsQgc5Dlxjnh8+tMKTp2Bw18K3PQxRP5kI6zWsD5BhJCM+z46kE5s2Ki9/Lqcpb2W3tSlUhnMY
-	Iq9jBW/FP091/dkYm+V93zJXCDQ8COY80mPinH8IJ6v4V5UUbYGfQgz7WQDUlF5wVGeArfxOnXDQP
-	eCB0PJJ0LkBZIZd6H8nfFXS77yNmFLVvwvcbZHVFz389h+6HqeUGaFMKJQyo8VMZsBYFjav4vwY8j
-	1N4CLmKg==;
+	bh=+k4g7avi2DD44LmDtyqP5U/JLznbKmKzyJkY/aH+oPk=; b=djQFWaiJ3jJm0SInjcPXrMPSzj
+	sjD8UZ/kPPie7C6Ev4OVfsA4KpB69Evpe9l8F7gCR3q9LXLzThrLGwcD6nBSC5LcKs6Cq/E+6188U
+	e74EBED6Uj3zS3hSeRdHHdExzByW4ZiOkRqAaWFWDbpwO6oXWi2onWk7dJeG1L04Kz8q9qNbWLD8W
+	q2aaFo/fnvu1EcSKmMPcMxxKQmk32Q58k/NEqRWqkTc1SS9PtE9RwowNFA8r5J1+pBLd9cjY+q7Lm
+	RYTMHRv2eJTT/C2rFLaohvgOtSMR2bnNSs80rRqbzN1kpZ54QxkbALqFCIeaP3YmcnMYgTJfR6BOM
+	zuV4AWEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8El-0000000EnUr-0v1W;
-	Fri, 14 Mar 2025 16:50:19 +0000
+	id 1tt8GO-0000000Endl-4AUw;
+	Fri, 14 Mar 2025 16:52:00 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt88i-0000000EmTO-17gU
+	id 1tt88n-0000000EmU6-0RdE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 16:44:05 +0000
+	Fri, 14 Mar 2025 16:44:10 +0000
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tt88g-0001Jn-SR; Fri, 14 Mar 2025 17:44:02 +0100
+	id 1tt88l-0001NV-TW; Fri, 14 Mar 2025 17:44:07 +0100
 From: Philipp Zabel <p.zabel@pengutronix.de>
 To: soc@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	kernel@pengutronix.de,
 	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller fixes for v6.14
-Date: Fri, 14 Mar 2025 17:44:01 +0100
-Message-Id: <20250314164401.743984-1-p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset controller updates for v6.15
+Date: Fri, 14 Mar 2025 17:44:06 +0100
+Message-Id: <20250314164406.744117-1-p.zabel@pengutronix.de>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -47,8 +47,8 @@ X-SA-Exim-Mail-From: p.zabel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_094404_305133_0255F624 
-X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-CacheID: sfid-20250314_094409_144184_85923810 
+X-CRM114-Status: UNSURE (   8.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,23 +72,35 @@ The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
 are available in the Git repository at:
 
-  git://git.pengutronix.de/pza/linux.git tags/reset-fixes-for-v6.14
+  git://git.pengutronix.de/pza/linux.git tags/reset-for-v6.15
 
-for you to fetch changes up to 0e2268f88bb27ef14ac3de1bc4df29ff12bb28cb:
+for you to fetch changes up to c361baf67200a79c878d72cc879b1217c52cec96:
 
-  reset: mchp: sparx5: Fix for lan966x (2025-03-13 09:40:26 +0100)
-
-----------------------------------------------------------------
-Reset controller fixes for v6.14
-
-* Fix lan966x boot with internal CPU by stopping reset-microchip-sparx5
-  from indirectly calling devm_request_mem_region() on a memory region
-  shared with other devices.
+  reset: imx: fix incorrect module device table (2025-03-14 16:46:15 +0100)
 
 ----------------------------------------------------------------
-Horatiu Vultur (1):
-      reset: mchp: sparx5: Fix for lan966x
+Reset controller updates for v6.15
 
- drivers/reset/reset-microchip-sparx5.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+* Add missing microchip,sam9x7-rstc compatible to device tree binding
+  documentation.
+* Add SCU reset driver for i.MX8QXP and i.MX8QM.
+
+----------------------------------------------------------------
+Arnd Bergmann (1):
+      reset: imx: fix incorrect module device table
+
+Frank Li (2):
+      dt-bindings: firmware: imx: add property reset-controller
+      reset: imx: Add SCU reset driver for i.MX8QXP and i.MX8QM
+
+Varshini Rajendran (1):
+      dt-bindings: reset: atmel,at91sam9260-reset: add sam9x7
+
+ .../devicetree/bindings/firmware/fsl,scu.yaml      |  12 +++
+ .../bindings/reset/atmel,at91sam9260-reset.yaml    |   4 +
+ drivers/reset/Kconfig                              |   7 ++
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-imx-scu.c                      | 101 +++++++++++++++++++++
+ 5 files changed, 125 insertions(+)
+ create mode 100644 drivers/reset/reset-imx-scu.c
 
