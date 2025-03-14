@@ -4,52 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08526C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBB7C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=PezkqZTNHtfn7HzJ2XPoDoUWXzYGcrdEYrS4gar5vd8=; b=AMWwdwCGDm0YWKe+XyDCpoJRfx
-	FrbAVWJndoYFJIsYdLu/Q6HNyfwmhAVyARJlLkEYEsJLOUNOuaIBObKTMHtdp+yEbU/jOPSsCZ/gE
-	u904iG0COawl2C/MV5Tg4QTnS1yv14P19iaNx2TN85yT/rdEqTkqORNTB99NEhc3bE1uXnnt6RwYN
-	l/V7UMltAX3NedQw86ETIwGnxzU25L3Vdo0BHf1LdSEEGQbclhgOAsjW/kFMNU6K8SXKfSQcgwfGV
-	7WSXTwnDjvdYpVmyvNk11eEHwMUDWNqO7W+vsNv5JWlS5iEgQhNTDA6Y2qhE2wV+lNmjpdg5t0FUm
-	j2g19H6g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BbQhEfrk5hZ6e045uRUKKdxPWnpNGFEGM6IntccI2UI=; b=O78LydKGDfZtKO0Bn+0Aba9OQ6
+	+v4Nwt64vQaHVqyPIsP2RwwUI+WIJmtbHU7wdha73q9ujlXeag8PLUOh8XweV4kE0AyHGXOX+hSPt
+	zSlPeneonNwKZ/AwGLxZk1l7QnIal54fuszf6Hhdg/0cKtoAcJ0gwh22D3y5faiTJqhOdhGzTWtWN
+	7EPH8v1EvmMQ4v6vE2XNt19IvosWgUO0T9MPakp5R+uheXxKxzXVyCweXArDEmgc+1QyVgTLJHuMV
+	uAHyJ3bLDJ1H9zPhlm6FyuoD/1pzXfHfkivN0uBH2V+4DR/7N33J11mDFKHYJCtURL2ACtaanNsen
+	sOLi4wYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2Dt-0000000DpjE-1uGE;
-	Fri, 14 Mar 2025 10:25:01 +0000
-Received: from [42.101.60.213] (helo=mail.nfschina.com)
-	by bombadil.infradead.org with smtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt261-0000000DocU-2ITl
+	id 1tt2Ds-0000000DpiF-1dxn;
+	Fri, 14 Mar 2025 10:25:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt20X-0000000DnGW-2TO7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:16:55 +0000
-Received: from liqiong-suma.shanghai.nfschina.local (unknown [180.167.10.98])
-	by mail.nfschina.com (MailData Gateway V2.8.8) with ESMTPSA id 0287C606FFD3E;
-	Fri, 14 Mar 2025 18:16:44 +0800 (CST)
-X-MD-Sfrom: liqiong@nfschina.com
-X-MD-SrcIP: 180.167.10.98
-From: Li Qiong <liqiong@nfschina.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <michal.simek@amd.com>
-Cc: Li Qiong <liqiong@nfschina.com>,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] usb: gadget: udc-xilinx: Remove the invalid comment
-Date: Fri, 14 Mar 2025 18:16:39 +0800
-Message-Id: <20250314101639.424013-2-liqiong@nfschina.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20250314101639.424013-1-liqiong@nfschina.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Fri, 14 Mar 2025 10:11:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8C582A44918;
+	Fri, 14 Mar 2025 10:05:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F422DC4CEE3;
+	Fri, 14 Mar 2025 10:11:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741947072;
+	bh=tDstaa/o6sUBQipm+8mIlCkuic6AshHp3d0i/s0EITM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=M74ckQG0sfvECxcaXf8Tl8WoWWhi4VT0YPYkXgn/QrpSQ5sg/X2u5ixhpCg99qZ92
+	 yJYOHdeJao8AqwcLwQCD4g0MlEnSjubhKT9LCyazptQa/koISoX3njO/nrKiQB4W5G
+	 X13YnXU0g5T9erpPZhALc3PWY7OlKct8dJCXG8XAXiLLSBhb1fvezOKgJ5+Wgm0maO
+	 PsxXQuZA7FB6TBsHmnHIRhKa+IYLhCIB/04KlUd3ALJxUcayMa2+9HfPyGBMWpfV1+
+	 XtQae7eE0BBFynLsY29h7JG092I7A2tuVFXm9wj/tGtN6dAykI3tODuqQeo3eBrdFY
+	 SRvU1zcD2guQg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tt20T-00DVK5-Fo;
+	Fri, 14 Mar 2025 10:11:09 +0000
+Date: Fri, 14 Mar 2025 10:11:08 +0000
+Message-ID: <86ecyzorb7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>,
+	suzuki.poulose@arm.com,	yang@os.amperecomputing.com,	corbet@lwn.net,
+	catalin.marinas@arm.com,	will@kernel.org,	jean-philippe@linaro.org,
+	robin.murphy@arm.com,	joro@8bytes.org,	akpm@linux-foundation.org,
+	mark.rutland@arm.com,	joey.gouly@arm.com,	james.morse@arm.com,
+	broonie@kernel.org,	anshuman.khandual@arm.com,	oliver.upton@linux.dev,
+	ioworker0@gmail.com,	baohua@kernel.org,	david@redhat.com,	jgg@ziepe.ca,
+	shameerali.kolothum.thodi@huawei.com,	nicolinc@nvidia.com,
+	mshavit@google.com,	jsnitsel@redhat.com,	smostafa@google.com,
+	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	iommu@lists.linux.dev
+Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
+In-Reply-To: <4998dd9b-106d-4ca7-be88-5330429dcfe8@arm.com>
+References: <20250313104111.24196-2-miko.lenczewski@arm.com>
+	<20250313104111.24196-3-miko.lenczewski@arm.com>
+	<86ikocomvd.wl-maz@kernel.org>
+	<f244c20e-e11c-477b-9487-cb6738c028ca@arm.com>
+	<86h63wok11.wl-maz@kernel.org>
+	<4998dd9b-106d-4ca7-be88-5330429dcfe8@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ryan.roberts@arm.com, miko.lenczewski@arm.com, suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org, mark.rutland@arm.com, joey.gouly@arm.com, james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com, oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org, david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com, nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_031653_746662_DD8A6C54 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_031113_756757_000A19E2 
+X-CRM114-Status: GOOD (  30.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,30 +98,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function don't return value, remove the invalid comment.
+On Fri, 14 Mar 2025 09:18:43 +0000,
+Ryan Roberts <ryan.roberts@arm.com> wrote:
+>=20
+> On 13/03/2025 18:36, Marc Zyngier wrote:
+> > On Thu, 13 Mar 2025 18:22:00 +0000,
+> > Ryan Roberts <ryan.roberts@arm.com> wrote:
+> >>
+> >> On 13/03/2025 17:34, Marc Zyngier wrote:
+> >>> On Thu, 13 Mar 2025 10:41:10 +0000,
+> >>> Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com> wrote:
+> >>>>
+> >>>> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kern=
+el/pi/idreg-override.c
+> >>>> index c6b185b885f7..9728faa10390 100644
+> >>>> --- a/arch/arm64/kernel/pi/idreg-override.c
+> >>>> +++ b/arch/arm64/kernel/pi/idreg-override.c
+> >>>> @@ -209,6 +209,7 @@ static const struct ftr_set_desc sw_features __p=
+rel64_initconst =3D {
+> >>>>  		FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
+> >>>>  		FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
+> >>>>  		FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
+> >>>> +		FIELD("nobbml2", ARM64_SW_FEATURE_OVERRIDE_NOBBML2, NULL),
+> >>>>  		{}
+> >>>>  	},
+> >>>>  };
+> >>>> @@ -246,6 +247,7 @@ static const struct {
+> >>>>  	{ "rodata=3Doff",			"arm64_sw.rodataoff=3D1" },
+> >>>>  	{ "arm64.nolva",		"id_aa64mmfr2.varange=3D0" },
+> >>>>  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=3D1" },
+> >>>> +	{ "arm64.nobbml2",		"arm64_sw.nobbml2=3D1" },
+> >>>
+> >>> Why is that a SW feature? This looks very much like a HW feature to
+> >>> me, and you should instead mask out ID_AA64MMFR2_EL1.BBM, and be done
+> >>> with it. Something like:
+> >>
+> >> I think this implies that we would expect the BBM field to be advertis=
+ing BBML2
+> >> support normally and we would check for that as part of the cpufeature
+> >> detection. That's how Miko was doing it in v2, but Yang pointed out th=
+at
+> >> AmpereOne, which supports BBML2+NOABORT semantics, doesn't actually ad=
+vertise
+> >> BBML2 in its MMFR2. So we don't want to check that field, and instead =
+rely
+> >> solely on the MIDR allow-list + a command line override. It was me that
+> >> suggested putting that in the SW feature register, and I think that st=
+ill sounds
+> >> like the right solution for this situation?
+> >=20
+> > I think this is mixing two different things:
+> >=20
+> > - preventing BBM-L2 from being visible to the kernel: this is what my
+> >   suggestion is doing by nuking an architectural feature in the
+> >   relevant register
+> >=20
+> > - random HW not correctly advertising what they are doing: this is an
+> >   erratum workaround
+> >=20
+> > I'd rather we don't conflate the two things, and make them very
+> > explicitly distinct.
+>=20
+> It all sounds so obvious when you put it like that! :)
+>=20
+> I'm guessing there is a layer where the workaround can be applied to the
+> sanitised feature registers on a per-cpu basis and that won't affect this=
+ global
+> override which will remain as an overlay on top? If so then that sounds p=
+erfect
+> (you can probably tell I find the whole feature management framework rath=
+er
+> inpeneterable).
 
-Signed-off-by: Li Qiong <liqiong@nfschina.com>
----
-v2: Split the first patch to two patches.
-v3: Add changes from the previous version.
+You and I, brother... The only person who actually understands what's
+in that file is Suzuki.
 
- drivers/usb/gadget/udc/udc-xilinx.c | 2 --
- 1 file changed, 2 deletions(-)
+> That workaround would be added as part of Yang's series anyway.
 
-diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
-index ae2aeb271897..fa94cc065274 100644
---- a/drivers/usb/gadget/udc/udc-xilinx.c
-+++ b/drivers/usb/gadget/udc/udc-xilinx.c
-@@ -2178,8 +2178,6 @@ static int xudc_probe(struct platform_device *pdev)
- /**
-  * xudc_remove - Releases the resources allocated during the initialization.
-  * @pdev: pointer to the platform device structure.
-- *
-- * Return: 0 always
-  */
- static void xudc_remove(struct platform_device *pdev)
- {
--- 
-2.30.2
+Yup, that's what I'd expect. Ideally tied to an erratum number so that
+we have an actual promise from the vendor that their implementation is
+actually BBM-L2 compliant despite the idreg breakage.
 
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
