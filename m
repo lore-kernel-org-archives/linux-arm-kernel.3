@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB547C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C976C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 18:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TgHfgZdfHwr3VmPVenW/lrNRZErmyNxPVMe0JcfQ1QY=; b=1kkbG2f6E7pyBeRyt0KtrWKJeI
-	fUc9JSg4iJ3W7aAUNjdgUYo0oPfei34JekHc5FzCNl28pZoJsu6Tt33LlDuqLHNmC/axC/wzOcZOy
-	Nvl43K1q3QC4XjyWVeknqI4XLFIOo9t1OMqRDy1nnnZML5NDWYVtZrtox35qcyc8uzk4sKe0bwkQ2
-	jZFQ494DNuLbDWmNo6Z0vyjVyCgR3P85KUWzNAGaFUmt/YCM07S+ErGgi2UbIx+scjUk+BJJRXKS3
-	zoj+L2QlOF9Rxza/7chLAe94bK2UBm117XUdHbleUzR9fc2dAdEVpfng6dr0kx6ug6CrxMg5UPrBP
-	NtSPbsCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Fch1azEEMWXPMej0Y3TZong0d8hy1lzwM5gXxbOPew=; b=TpfWcYumrKrYUidJrAtGTueY2b
+	UtChA200ccSImfTYmKnr1LPc4Aijx2QnYSNbmmStRD2LdLs/FzsxmhFi+DvU10YG12I2fgnihfx1n
+	QEbiZExqtECji23b+II8ndkjS/r5Apwa+Pv+lW55NYMCvKwqH6zbBGYBOzTbzu6HoWcqfoN2Dq4bf
+	wETzmW1zbupPBe0AqHMTWuDh0BBuK2JJ5dIEV4cmCf4myel+kciXzHD3NrdmGmlfLTz6+MMSqobgT
+	fk/OkcRylrnmsHKJH788Jz7ab3uoCkW3DAHgszwswrgnGhMPav3Wz9lHurY16L0MxtB9nmc1MbDU5
+	VkTpHdYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9b2-0000000F05Y-2hI6;
-	Fri, 14 Mar 2025 18:17:24 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tt9cg-0000000F0MN-1CnS;
+	Fri, 14 Mar 2025 18:19:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt9NL-0000000EyKu-1ssV
+	id 1tt9On-0000000EyWm-3cks
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 18:03:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=TgHfgZdfHwr3VmPVenW/lrNRZErmyNxPVMe0JcfQ1QY=; b=tgCW5XDH3faGlWtg3QVF6uope3
-	kDyVymeZhDdoTIRHMZm2ZgbkIU3NSKYuUdk4dcFb1gdTeIeCAHhoI68mJR9N9srnLZlxPKIkeDRf/
-	icp1oXrp+44SVSIPnvYGsFkAzsJURuJda1WDOAl5u+QbvabMLf5dKv7/oArVqgAAq2/e2Hpd3cKde
-	23nvDnH82EE0MjxWWQy2zABD3BR2piwFeBBeUZr+COkpIuBWKcuiEuOai1DJQipwx3T0PFgbefuc6
-	9AWmgACO78bc+n0mei+87fAIvLZhSPK34nLqFpu11R/0JO7qZYdF32P7MIguKZRYS3JlyssvtRgVp
-	TD+zshhw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59374 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tt9NB-0000fU-28;
-	Fri, 14 Mar 2025 18:03:05 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tt9Mq-006xIG-IC; Fri, 14 Mar 2025 18:02:44 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next] net: stmmac: remove unnecessary stmmac_mac_set() in
- stmmac_release()
+	Fri, 14 Mar 2025 18:04:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0BA9B5C4A31;
+	Fri, 14 Mar 2025 18:02:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B5EEC4CEE3;
+	Fri, 14 Mar 2025 18:04:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741975483;
+	bh=dc+5Fwuqnj7VThwM2tp+KuPSbbCmFL6xhXJcyRarTx0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u8s3Pa9uc2R03aqOxHsgjhJL9fFv7bs2a+kw03vbXaqvQBgxetaOnIpQyRQcLq6xR
+	 zqr/IrjBjCKigQp3pC7vlUAIjDkyktnRqXtEj09/0E8KPXhDjfdWUqGbXNPGoIgRYw
+	 toDPkqhfPuVKQF0zBltgvMAAEI7gjzuhGadfRZTrkILYKBiFyGqHMrD7ubCvJRJyje
+	 IUTkULwspqSyCVF+Q8sR5uE1SCyY2crzmi+GseQuUMC+SdZ9ebGAYEnb9D871z5+Di
+	 DNWvGOd4AcjCihziIAkzc6opk6rFd17GY4EdntSBY412OW14vYqVqAENhJgGCIQEQw
+	 7VLeuPLpS7Xlw==
+Date: Fri, 14 Mar 2025 19:04:40 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Anusha Srivatsa <asrivats@redhat.com>, Paul Kocialkowski <paulk@sys-base.io>, 
+	Dmitry Baryshkov <lumag@kernel.org>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, 
+	Hui Pu <Hui.Pu@gehealthcare.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 02/11] drm/bridge: add support for refcounting
+Message-ID: <20250314-amorphous-congenial-woodlouse-f50bde@houat>
+References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
+ <20250314-drm-bridge-refcount-v7-2-152571f8c694@bootlin.com>
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ogfn2prbpwhr3lh7"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tt9Mq-006xIG-IC@rmk-PC.armlinux.org.uk>
-Date: Fri, 14 Mar 2025 18:02:44 +0000
+In-Reply-To: <20250314-drm-bridge-refcount-v7-2-152571f8c694@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_110315_483602_DA716B75 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_110446_019221_569E33F1 
+X-CRM114-Status: GOOD (  43.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +85,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_release() calls phylink_stop() and then goes on to call
-stmmac_mac_set(, false). However, phylink_stop() will call
-stmmac_mac_link_down() before returning, which will do this work.
-Remove this unnecessary call.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Tested-by: Furong Xu <0x1207@gmail.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ---
- 1 file changed, 3 deletions(-)
+--ogfn2prbpwhr3lh7
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 02/11] drm/bridge: add support for refcounting
+MIME-Version: 1.0
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index c2ee6c0af3fd..839ecebf5f5f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4129,9 +4129,6 @@ static int stmmac_release(struct net_device *dev)
- 	/* Release and free the Rx/Tx resources */
- 	free_dma_desc_resources(priv, &priv->dma_conf);
- 
--	/* Disable the MAC Rx/Tx */
--	stmmac_mac_set(priv, priv->ioaddr, false);
--
- 	/* Powerdown Serdes if there is */
- 	if (priv->plat->serdes_powerdown)
- 		priv->plat->serdes_powerdown(dev, priv->plat->bsp_priv);
--- 
-2.30.2
+On Fri, Mar 14, 2025 at 11:31:15AM +0100, Luca Ceresoli wrote:
+> DRM bridges are currently considered as a fixed element of a DRM card, and
+> thus their lifetime is assumed to extend for as long as the card
+> exists. New use cases, such as hot-pluggable hardware with video bridges,
+> require DRM bridges to be added to and removed from a DRM card without
+> tearing the card down. This is possible for connectors already (used by DP
+> MST), it is now needed for DRM bridges as well.
+>=20
+> As a first preliminary step, make bridges reference-counted to allow a
+> struct drm_bridge (along with the private driver structure embedding it) =
+to
+> stay allocated even after the driver has been removed, until the last
+> reference is put.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>=20
+> ---
+>=20
+> Changes in v7:
+>  - export drm_bridge_put_void
+>  - struct drm_bridge: use container pointer instead of container_offset
+>  - remove drm_bridge_is_refcounted()
+>  - remove all DRM_DEBUG()s
+>  - drm_bridge_get/put: accept NULL pointer and return the bridge pointer =
+to
+>    allow pass-through calls
+>  - extract to separate patches:
+>     - the addition of drm_bridge_alloc
+>     - the addition of drm_bridge_get/put() to drm_bridge_add/remove()
+>     - the addition of drm_bridge_get/put() to drm_bridge_attach/detach()
+>  - fix a typo, slightly improve kerneldoc
+>=20
+> Changes in v6:
+>  - use drm_warn, not WARN_ON (Jani Nikula)
+>  - Add devm_drm_bridge_alloc() to replace drm_bridge_init() (similar to
+>    drmm_encoder_alloc)
+>  - Remove .destroy func: deallocation is done via the struct offset
+>    computed by the devm_drm_bridge_alloc() macro
+>  - use fixed free callback, as the same callback is used in all cases
+>    anyway (remove free_cb, add bool is_refcounted)
+>  - add drm_bridge_get/put() to drm_bridge_attach/detach() (add the bridge
+>    to a list)
+>  - make some DRM_DEBUG() strings more informative
+>=20
+> This patch was added in v5.
+> ---
+>  drivers/gpu/drm/drm_bridge.c | 33 +++++++++++++++-
+>  include/drm/drm_bridge.h     | 91 ++++++++++++++++++++++++++++++++++++++=
+++++++
+>  2 files changed, 123 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> index 96df717b2caeb41d45346ded576eaeb2806fd051..2ba0dac9bfc2dfd709d5e2457=
+d69067c7324972c 100644
+> --- a/drivers/gpu/drm/drm_bridge.c
+> +++ b/drivers/gpu/drm/drm_bridge.c
+> @@ -199,23 +199,54 @@
+>  static DEFINE_MUTEX(bridge_lock);
+>  static LIST_HEAD(bridge_list);
+> =20
+> +void __drm_bridge_free(struct kref *kref)
+> +{
+> +	struct drm_bridge *bridge =3D container_of(kref, struct drm_bridge, ref=
+count);
+> +
+> +	kfree(bridge->container);
+> +}
+> +EXPORT_SYMBOL(__drm_bridge_free);
+> +
+> +/**
+> + * drm_bridge_put_void - wrapper to drm_bridge_put() taking a void point=
+er
+> + *
+> + * @data: pointer to @struct drm_bridge, cast to a void pointer
+> + *
+> + * Wrapper of drm_bridge_put() to be used when a function taking a void
+> + * pointer is needed, for example as a devm action.
+> + */
+> +void drm_bridge_put_void(void *data)
+> +{
+> +	struct drm_bridge *bridge =3D (struct drm_bridge *)data;
+> +
+> +	drm_bridge_put(bridge);
+> +}
+> +EXPORT_SYMBOL(drm_bridge_put_void);
+> +
+>  void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t of=
+fset,
+>  			      const struct drm_bridge_funcs *funcs)
+>  {
+>  	void *container;
+>  	struct drm_bridge *bridge;
+> +	int err;
+> =20
+>  	if (!funcs) {
+>  		dev_warn(dev, "Missing funcs pointer\n");
+>  		return ERR_PTR(-EINVAL);
+>  	}
+> =20
+> -	container =3D devm_kzalloc(dev, size, GFP_KERNEL);
+> +	container =3D kzalloc(size, GFP_KERNEL);
+>  	if (!container)
+>  		return ERR_PTR(-ENOMEM);
+> =20
+>  	bridge =3D container + offset;
+> +	bridge->container =3D container;
+>  	bridge->funcs =3D funcs;
+> +	kref_init(&bridge->refcount);
+> +
+> +	err =3D devm_add_action_or_reset(dev, drm_bridge_put_void, bridge);
+> +	if (err)
+> +		return ERR_PTR(err);
+> =20
+>  	return container;
+>  }
+> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+> index dae463b30542d586a595b67f7bdf5a5e898e9572..5c1e2b9cafb12eb429d1f5d3e=
+f312e6cf9b54f47 100644
+> --- a/include/drm/drm_bridge.h
+> +++ b/include/drm/drm_bridge.h
+> @@ -840,6 +840,17 @@ struct drm_bridge {
+>  	const struct drm_bridge_timings *timings;
+>  	/** @funcs: control functions */
+>  	const struct drm_bridge_funcs *funcs;
+> +
+> +	/**
+> +	 * @container: Pointer to the private driver struct embedding this
+> +	 * @struct drm_bridge.
+> +	 */
+> +	void *container;
 
+newline here
+
+> +	/**
+> +	 * @refcount: reference count of users referencing this bridge.
+> +	 */
+> +	struct kref refcount;
+> +
+>  	/** @driver_private: pointer to the bridge driver's internal context */
+>  	void *driver_private;
+>  	/** @ops: bitmask of operations supported by the bridge */
+> @@ -941,6 +952,82 @@ drm_priv_to_bridge(struct drm_private_obj *priv)
+>  	return container_of(priv, struct drm_bridge, base);
+>  }
+> =20
+> +void __drm_bridge_free(struct kref *kref);
+> +
+> +/**
+> + * drm_bridge_get - Acquire a bridge reference
+> + * @bridge: DRM bridge
+> + *
+> + * This function increments the bridge's refcount.
+> + *
+> + * Returns:
+> + * Pointer to @bridge.
+> + */
+> +static inline struct drm_bridge *drm_bridge_get(struct drm_bridge *bridg=
+e)
+> +{
+> +	if (!bridge)
+> +		return bridge;
+> +
+> +	kref_get(&bridge->refcount);
+> +
+> +	return bridge;
+> +}
+> +
+> +/**
+> + * drm_bridge_put - Release a bridge reference
+> + * @bridge: DRM bridge
+> + *
+> + * This function decrements the bridge's reference count and frees the
+> + * object if the reference count drops to zero.
+> + *
+> + * See also drm_bridge_put_and_clear() which is more handy in many cases.
+> + *
+> + * Returns:
+> + * Pointer to @bridge.
+> + */
+> +static inline struct drm_bridge *drm_bridge_put(struct drm_bridge *bridg=
+e)
+> +{
+> +	if (!bridge)
+> +		return bridge;
+> +
+> +	kref_put(&bridge->refcount, __drm_bridge_free);
+> +
+> +	return bridge;
+> +}
+
+I'm not sure we discussed it already, but why do you need to put both
+drm_bridge_get and drm_bridge_put into the header, and thus export
+__drm_bridge_free?
+
+I'd expect both to be in drm_bridge.c?
+
+> +
+> +void drm_bridge_put_void(void *data);
+> +
+> +/**
+> + * drm_bridge_put_and_clear - Given a bridge pointer, clear the pointer
+> + *                            then put the bridge
+> + *
+> + * @bridge_pp: pointer to pointer to a struct drm_bridge
+> + *
+> + * Helper to put a DRM bridge (whose pointer is passed), but only after
+> + * setting its pointer to NULL. Useful for drivers having struct drm_bri=
+dge
+> + * pointers they need to dispose of, without leaving a use-after-free
+> + * window where the pointed bridge might have been freed while still
+> + * holding a pointer to it.
+> + *
+> + * For example a driver having this private struct::
+> + *
+> + *     struct my_bridge {
+> + *         struct drm_bridge *remote_bridge;
+> + *         ...
+> + *     };
+> + *
+> + * can dispose of remote_bridge using::
+> + *
+> + *     drm_bridge_put_and_clear(&my_bridge->remote_bridge);
+> + */
+> +static inline void drm_bridge_put_and_clear(struct drm_bridge **bridge_p=
+p)
+> +{
+> +	struct drm_bridge *bridge =3D *bridge_pp;
+> +
+> +	*bridge_pp =3D NULL;
+> +	drm_bridge_put(bridge);
+> +}
+
+I'm not convinced we need that one for now, and it doesn't look like
+there's a user for it in your series, so I'd rather introduce it once we
+actually need it.
+
+>  void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t of=
+fset,
+>  			      const struct drm_bridge_funcs *funcs);
+> =20
+> @@ -951,6 +1038,10 @@ void *__devm_drm_bridge_alloc(struct device *dev, s=
+ize_t size, size_t offset,
+>   * @member: the name of the &drm_bridge within @type
+>   * @funcs: callbacks for this bridge
+>   *
+> + * The returned refcount is initialized to 1.
+
+I'm confused, there's no returned refcount here? Or did you mean the
+returned bridge refcount?
+
+Maxime
+
+--ogfn2prbpwhr3lh7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ9RvuAAKCRAnX84Zoj2+
+dtM5AYCvzfyI8gpm36jTfrIY96znjt1wzijA2lQ52UxjSFkYO9t694AMup+ITzs7
+EyQVzgABgIg4gTydgrw1WqSFnOK2JnBDYv4sNhcaTrhO/VRhtqjjmYMxojwjjHEe
+jjPoI3FqXw==
+=Jlmw
+-----END PGP SIGNATURE-----
+
+--ogfn2prbpwhr3lh7--
 
