@@ -4,88 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C40C35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 06:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A07FC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 06:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sdv4Yo9ucrKy29fcoJrxnRwdBQqji21FxYro7lytlc4=; b=gXF+0VBvJ5Hr62T1LRz/Pdqtt5
-	JVE3ZRHKzspBxxrXoIa9vn+DGqwcvkxnSI486btvkSN0dQ5Iu7GUZ+246YQ+Nmd+zW7gUV2K3B/xY
-	DL3+OKQJAmz1NqZOacnFE0nQLHQcJ1h3zTSzzyM6y7B6uEvV7TAUHQ35VOyfFJIBUHoYV0+Ixdtq4
-	jGu1L771LbsEt+8jUgdfmMZOCUcPleQRIJypRHi+uFRlDf7bBLc+v/1OcRZOZTgXCNfQHoeQI/SpH
-	q0GJx+QNt8WxPY9zGGmnhD1TzBynCaEb1zf88yJdeUUbpdW33Ft2DPu81YEGPHnFe7bNCZz9pfdqb
-	7NhOBH8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XnFyzZnqMoky8Ia5bG8t1qzz0EqjBcV6mjGfZUxjJQk=; b=lfDcfQxDKLgnjwsh8CnqjF1VN0
+	bkV4No86hOu8XfktrsX6QiJiLGhxBIKHVkkqi+GZ2b4BjQeucMSz0ZxNXuSwF+tWuJ8d/fynnfeRR
+	HHuYjo6MXT6fWsU9Sm+SmYyVxvzNBiIx4aD7WJvKeCyNX+zaJfKkqW3UAlyNiXG3RwoLPwkJYYexk
+	m2hmm763OqDKereY7b87jbHbhuWGeFVlkoS2Rund3Y8FSWMpmnQiZJ2UnWHvb+mfiHx5UqL3FPhg5
+	6RdwKI1W0z5cZbr/Zk+utmZtjbwO2Wba7qrYpdFA4k0Mmpv+/rJptGwXlCdGQ+U0XsR3OIG1QNzF+
+	3aFV9Ekg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsyrK-0000000DFAa-2T1o;
-	Fri, 14 Mar 2025 06:49:30 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tsyxB-0000000DFUP-3he3;
+	Fri, 14 Mar 2025 06:55:33 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsyp0-0000000DEwK-08YS
+	id 1tsyvW-0000000DFM4-0y76
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 06:47:07 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52E6kiWC2063154
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 14 Mar 2025 01:46:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741934804;
-	bh=sdv4Yo9ucrKy29fcoJrxnRwdBQqji21FxYro7lytlc4=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=QBExZSDEGmPHLzA6qsuMdsZ87CEhH9UuDdJqw8tIQ8kGUBYsBbWc1N3cliSogzmvO
-	 N2qYjaClgK7sXf35eZ2kg3naoyhq8X84YJtLCEf1iSCMjhVyqQcXKjksGHbd3wt1EW
-	 KQRypMsLx8Y2DJtGqXwZPVcifxJIefmf6uA6El6Q=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52E6ki2E108138
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 14 Mar 2025 01:46:44 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 14
- Mar 2025 01:46:43 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 14 Mar 2025 01:46:43 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52E6kgOi032405;
-	Fri, 14 Mar 2025 01:46:43 -0500
-Date: Fri, 14 Mar 2025 12:16:42 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: Frank Li <Frank.Li@nxp.com>, Tony Lindgren <tony@atomide.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>,
-        Siddharth
- Vadapalli <s-vadapalli@ti.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-        Bjorn Helgaas
-	<bhelgaas@google.com>, <linux-omap@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH PATCH RFC NOT TESTED 1/2] ARM: dts: ti: dra7: Correct
- ranges for PCIe and parent bus nodes
-Message-ID: <20250314064642.fyf3jqylmc6meft7@uda0492258>
-References: <20250305-dra-v1-0-8dc6d9a0e1c0@nxp.com>
- <20250305-dra-v1-1-8dc6d9a0e1c0@nxp.com>
- <20250313165311.2fj7aus3pcsg4m2c@thinkpad>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
+	Fri, 14 Mar 2025 06:53:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EGl6PlINSQ+Z76E202lsrxmRY47C+6jKFOArFPgtBiDIMwOJ9cRgN9nz200LIY2hS5kd1R21OCGLMh4sdbLU49uh5/8XyNwW2ogopHOxQKs60rRjsISjoaRtq6WRE15FcREmCE62s84qZnKtEly0O6ydddkYTSLUm9WxzjZef5MlZ/rsJEe63ypAVHd9UAZhXVa252Mq5i8Hje6GulyXUG27lxZsaF1vZv0S63xBeTHg8Qyfkg9n7lYKOZYlmhkrvvyiuziEZnlpFizssBgvPtdcvRMhfnpSUZW6zvGtbggCEuV6McI3EGHZqA6NeCpvi/5iAHUXc6Q/85vGP+ULDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XnFyzZnqMoky8Ia5bG8t1qzz0EqjBcV6mjGfZUxjJQk=;
+ b=rOorjmrUZdtJUm4CtlCDas45mOs+hqML4BdzCZExg7VsfZvlUjrtR65nu0QFAC1sq1EsxpwQFX8CKIPyj/gjpLUaebxRpPX1YBzW7pXYVCT0fQ/37JFJvpqZ954jBbt5i1v1ByfAQOgP+Cj2oiE5d6NG6flG+idyUZ8t7ScXoVOdMid+jeGdK91yoG61qDTyHG5MIu+r+Xrsb60HbogSUJWF0nHO2klU4l8Ad0wVgRKysjUpjXdEq53LYxQx0gx3oJGzrFKPhTwg6x9dpy0lsTTY1iZKnkIE4IDT8ZCrrVJgD1kfpkt1B1u4oh92JdazQxMxpZD/NMP++Q4vCIsQkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XnFyzZnqMoky8Ia5bG8t1qzz0EqjBcV6mjGfZUxjJQk=;
+ b=waDNCSOnSM5t/DuXjubLDH9mX6QUbqLOb27F/QRMXFSZ2xbRzfeH37evlo6Ot0kqJcgEnalYS7fRgw/siuIdPHhmf0ApDt+S9MlDK+GWhH1XWZWltB4WwFjFcWljufMck+gn5jmGmdKjkkTV3THdlK+WEwI6wlbSsCF0r/NGg1l3e0HsFX1/bylHu5ei+PHpaDevbyMwKQX+Q03FCO7T0EXTUDCR/9FgfrOWCj8CkESz/VJTKJ1d2BuXqO0JIdcJ2hbGdvC6cc7w6Zua0D7t5tEH62xlMwFs4pujHuRGKPdvHbiPtcHJAXtxLpNv0OCXOKEzY86eEpvmEdfZw61xmw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU4PR04MB10483.eurprd04.prod.outlook.com (2603:10a6:10:565::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.31; Fri, 14 Mar
+ 2025 06:53:39 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8534.025; Fri, 14 Mar 2025
+ 06:53:39 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: shawnguo@kernel.org,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	marex@denx.de,
+	imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH] soc: imx: Dump higher 64bits UID
+Date: Fri, 14 Mar 2025 14:52:25 +0800
+Message-Id: <20250314065225.442717-1-peng.fan@oss.nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250313165311.2fj7aus3pcsg4m2c@thinkpad>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR01CA0160.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU4PR04MB10483:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75a5eabc-39e0-4abc-918e-08dd62c4f314
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RkFXd/Ec/Fgp6Z2O+TUUsnj2TgRdlddsweV1k8ZawFk2eKhP0kTWQ2qp35pw?=
+ =?us-ascii?Q?V08wmQraNsnWRPr8dPCUaX8lvIze9YYFZ/yctxOKPqmWpCrpB60KdcYo+0qA?=
+ =?us-ascii?Q?fwgjOekKtkcGxdVlB7bzKFdTOFp1vVXn99NY6kACC1CMyEvddi1ObGRR5VGu?=
+ =?us-ascii?Q?Y7psRU/CODXfRpPL98XgcMzsw4Q2l7HISc+Xs0cuzAY7WbqWI/wvrwQp1DFg?=
+ =?us-ascii?Q?qj1F2nxbbXwGy8x55hzCuiXY+iWqwC7lw6PYVO/YYPm+vw8Fn5BCdD4CD1bi?=
+ =?us-ascii?Q?PIRVnkSODe80402fBpVchOI9DlR1rN6TpG0AHBy3NcGcUnP0ZRZLJwhBI7tv?=
+ =?us-ascii?Q?FkN5P9Hqv51UcnePR6lJPfUVI0qx2vBuc5j3Xz5f5vjxt+jgwpdgR1vG4WIm?=
+ =?us-ascii?Q?inXifMtTfMr5P4JiicjFohKK9DHin0w+lqwFxds/qA14D4xtx3H5LluOkVaJ?=
+ =?us-ascii?Q?j6en+PEDgEiqdF5gHYy/4cxReQEMkOFr+Xb6MvssO6sPSIjRl8WUFwOsnU16?=
+ =?us-ascii?Q?zaDhXdiBxiQQFRPBPPgBUxjLkNiFIu0ME3XRCGYntvimBRJZykTrXZZiexAK?=
+ =?us-ascii?Q?vht4PbeHvfFPchA8AcrzZ1cUtEbnddaVuZy50bMq1x0sAAwNEMpsNp18f4IB?=
+ =?us-ascii?Q?KzPBuAGTegRFisQO2kpF6zbNhnU07Ab7kYpQynRM68QOYrg4mT3+LBC+kuYn?=
+ =?us-ascii?Q?bMrpcbGo3XEjTww0hRr5w4k11J+PloBfps7whbisbeP/yxu0VbWT4wSi+AQX?=
+ =?us-ascii?Q?NhJQZJB5+0tHPvOVGpieDoqC8SL7mPIRmal/hB6WhCYbydJY+KyQHFj9Atcx?=
+ =?us-ascii?Q?sNS4K+KOqiiSwfNXGOUjMzbP7wvB4AceYWHbDtT7ZKHOtMYsuU785/L9nZFZ?=
+ =?us-ascii?Q?5csEhknlmLNedGM9HQwBzBvAe23BQwWS1akC1SMwMkno/5MJp60rpPB3RcnX?=
+ =?us-ascii?Q?2EQmmZfHKsUIcdTlLSykDTpKJHImIU2FkWa530mMTwN4wO9W/vKYoeQSOBFB?=
+ =?us-ascii?Q?T/MNV0FOX90KTbQkmeTt6sijFcl/lysrDk0v+7mx0rsVO5Lu/Gaj7qfDN+Qe?=
+ =?us-ascii?Q?rhfN058roSNxWxQL6OX7LOPEGIyMM+V7ZMWg8UMllGIuE3oZHCC+sI2IlAe+?=
+ =?us-ascii?Q?Z4bNjLO6WkOas3cVS3N5BMdw+laIpDZmjSuV/m5WKeJ2g8l0gZJhHWO90bjI?=
+ =?us-ascii?Q?u/A5iYe7lUbtOajekTtts33ZfVXv2ZxsrOL4kab92BHK9eu4nZPbdl5t7kbM?=
+ =?us-ascii?Q?H0uTaoFAB9pG8tJUIKvhACrAwz92IZ0Lza5uvBYZwOyvBMnHWsfH74ntMh1O?=
+ =?us-ascii?Q?IWTMtXOuaZi0wdS3HvDK8Fu/4nBRJ4CGX5K8XUeJdXuJ2L6t9fPCr17iwW3y?=
+ =?us-ascii?Q?ecTnvNJwLlI+OyddzmocKtyoFZ2FWT+j0NCtvZ3Ch/XGp6yB64SoyNQC0mAv?=
+ =?us-ascii?Q?fGf8wXHqj4vd1GUkRIDA2Syp0CNmWBTA?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IMWs2TBSRXoVCO9/+CjCBtB26VWdoHSbR29nJNy8coXYdnrkaVuRUCVZ9DIz?=
+ =?us-ascii?Q?9wASLuVNBY75dQWNsdY/VklNuxZDN+A8czifV0GwFh3IZSm6xSLziheadA0a?=
+ =?us-ascii?Q?3rXe160X8+AdsX1boXWJBWfVdcp/v7m/0gjPCifdh4q21Po3klMk94e1ysXP?=
+ =?us-ascii?Q?/GO7OUNCZj5M33YlDB524sl2ZQmnSeHNH+MFRHWatPLrsYXbqm4nsZETLk4Y?=
+ =?us-ascii?Q?93dVT7krkacSg4RnY8kAv+grP3dchlJ8c8FcP5TDHC0jaEFC2X62F7BymikN?=
+ =?us-ascii?Q?wqYwIK5aDxCr/IPR8XVBzf1knU0nXjq074JKHZIUlL+zDTGyTGPPlxMwGmGc?=
+ =?us-ascii?Q?0jnbMAC9ihwDE2Aay6RivI3yfzFHUwIWzQli5VFcPnavREmrIIm9IoTUPiic?=
+ =?us-ascii?Q?wt6bCCp6l9aZWwAHdlelx9Iy9aTLVyp3FhIUrLSuQwf5t4zz0hUWXqvp+7S1?=
+ =?us-ascii?Q?FIuYoTvARBXvBE78ilbwSqbgO424s+Dgb4w9NOL92fEZHgRClRbJDfuB2N67?=
+ =?us-ascii?Q?hg/5OUB4WPkb7eKVM6679nq0hQTMZNF6ShqiEyAqQ5kIflVYQ+tUTx0oqVJy?=
+ =?us-ascii?Q?uxt3i5IsvTXlpTfRCEBlm26BYJwL5TWgkMwuZQ0yP8vWnj6MgAd3Ce3UK0rj?=
+ =?us-ascii?Q?Rvuvagin3GCT5xEmSOIZhW32EvV/MXk0AI6v0PgviH6b7zwuemwW0UJbC2tE?=
+ =?us-ascii?Q?qdMSNT576kqzgBtzoVX75Z/b7ooXmiXI8GRRAj6XHaVGmJvyJKzbiVqxDZl4?=
+ =?us-ascii?Q?njPIyyjLb7zd2DgcN4wV7BQyWXk1Rg5TpKPdaR4CwokXgpB1B9adw9B7bjq9?=
+ =?us-ascii?Q?ILRFM/MfstYaOAy4sJQQSCWDRGbUMYn5eTXst2LsAa8t6w09IYGeNn8G/Fu4?=
+ =?us-ascii?Q?QUiKpAjyLUATT0Ol0MnjMjAxdDpsE7FrzQzfj2fx4j0KUT8sKI0IQJMkYjb0?=
+ =?us-ascii?Q?TonnA/kSZVbQPRFhTG+GX/vvNTroR5PoS7zKjfN78KT0+Tm9c6+TRf4XG6K8?=
+ =?us-ascii?Q?uUUyOOq2uak+M9Xg9Gg+nwMtYMjcxb6aYrncTb3d9RaEBDgkOIzkisGTDsRd?=
+ =?us-ascii?Q?iDm7ElFE6De0sdpRe37wYZaXzl7KicZ3Lu1w2OJ9cHyoyOScxyKvyOcEi9FP?=
+ =?us-ascii?Q?AtN5rJKHmarsNp3BDXigfOeqlUFvhCvWhdxlh+q22qmB57SUbNPLFFBr40x6?=
+ =?us-ascii?Q?ojFTPCUGjkzkEOuxArYLVUxMYFVLqOokNUISgtBNFh9/QFnJ1PthC952ps2f?=
+ =?us-ascii?Q?i2qsa9Ma9JsjW7d3aBN4W//fycSUgOLHMZ/2uOwwFm947yzMjmZWwChDIj9O?=
+ =?us-ascii?Q?p/OoBwSMoY3WScam6B3ua/ShoH8Lf7vPwrCWcG9a6IegP+F9Bj1PAnYIkSPP?=
+ =?us-ascii?Q?wo/g3zufoo0f/C84TrOOK5zVSUFOBUqF/17YcugJ0845BkK7khvYUIhWZ9BK?=
+ =?us-ascii?Q?zuF5VlU/hnkDxZGVZNuoBtj7BP3NCNJ/XjZZuTrjlMGZntOpOfFm0ZSDKthG?=
+ =?us-ascii?Q?6bC1+cirklKm+1mEHBhruwzd9ddqFNjCFtKLJD8p8NdVefUK4bRHeGbmk1IX?=
+ =?us-ascii?Q?juquAHTKk2kiudeG0zkLLQovcBr/ggL0MeLJAmnL?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75a5eabc-39e0-4abc-918e-08dd62c4f314
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 06:53:39.0331
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0azjYfpiOZlqly6m9/NcL1FdYh6BRJaXW7Xroz1rD4Zh+tjAVgUVck7DKLivEW4t8NSBoIShuPGIHNaHWCkSPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10483
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_234706_163722_4D17326F 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20250313_235350_281013_3854F56B 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,108 +163,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 10:23:11PM +0530, Manivannan Sadhasivam wrote:
+From: Peng Fan <peng.fan@nxp.com>
 
-Hello Mani,
+i.MX8MP UID is actually 128bits and partitioned into two parts.
+The 1st 64bits are at 0x410 and 0x420, and 2nd 64bits are at 0xE00
+and 0xE10.
 
-> On Wed, Mar 05, 2025 at 11:20:22AM -0500, Frank Li wrote:
-> 
-> If you want a specific patch to be tested, you can add [PATCH RFT] tag.C
-> 
-> > According to code in drivers/pci/controller/dwc/pci-dra7xx.c
-> > 
-> > dra7xx_pcie_cpu_addr_fixup()
-> > {
-> > 	return cpu_addr & DRA7XX_CPU_TO_BUS_ADDR;  //0x0FFFFFFF
-> > }
-> > 
-> > PCI parent bus trim high 4 bits address to 0. Correct ranges in
-> > target-module@51000000 to algin hardware behavior, which translate PCIe
-> > outbound address 0..0x0fff_ffff to 0x2000_0000..0x2fff_ffff.
-> > 
-> > Set 'config' and 'addr_space' reg values to 0.
-> > Change parent bus address of downstream I/O and non-prefetchable memory to
-> > 0.
-> > 
-> > Ensure no functional impact on the final address translation result.
-> > 
-> > Prepare for the removal of the driver’s cpu_addr_fixup().
-> > 
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  arch/arm/boot/dts/ti/omap/dra7.dtsi | 18 +++++++++---------
-> >  1 file changed, 9 insertions(+), 9 deletions(-)
-> > 
-> > diff --git a/arch/arm/boot/dts/ti/omap/dra7.dtsi b/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > index b709703f6c0d4..9213fdd25330b 100644
-> > --- a/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > +++ b/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > @@ -196,7 +196,7 @@ axi0: target-module@51000000 {
-> >  			#size-cells = <1>;
-> >  			#address-cells = <1>;
-> >  			ranges = <0x51000000 0x51000000 0x3000>,
-> > -				 <0x20000000 0x20000000 0x10000000>;
-> > +				 <0x00000000 0x20000000 0x10000000>;
-> 
-> I'm not able to interpret this properly. So this essentially means that the
-> parent address 0x20000000 is mapped to child address 0x00000000. And the child
-> address is same for other controller as well.
-> 
-> Also, the cpu_addr_fixup() is doing the same by masking out the upper 4 bits. I
-> tried looking into the DRA7 TRM, but it says (ECAM_Param_Base_Addr +
-> 0x20000000) where ECAM_Param_Base_Addr = 0x0000_0000 to 0x0FFF_F000.
-> 
-> I couldn't relate TRM with the cpu_addr_fixup() callback. Can someone from TI
-> shed light on this?
+Dump the whole 128bits for i.MX8MP, by introducing soc_uid_h.
 
-A "git blame" on the line being modified in dra7.dtsi gives the
-following commit:
-https://github.com/torvalds/linux/commit/c761028ef5e2
-prior to which the ranges is exactly the same as the one being added by
-this patch.
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ drivers/soc/imx/soc-imx8m.c | 29 +++++++++++++++++++++--------
+ 1 file changed, 21 insertions(+), 8 deletions(-)
 
-The cpu_addr_fixup() function was introduced by the following commit:
-https://github.com/torvalds/linux/commit/2ed6cc71e6f7
-with the reason described in
-Section 24.9.4.3.2 PCIe Controller Slave Port
-of the T.R.M. at:
-https://www.ti.com/lit/ug/spruic2d/spruic2d.pdf
----------------------------------------------------------------------------
-NOTE:
-The PCIe controller remains fully functional, and able to send transactions
-to, for example, anywhere within the 64-bit PCIe memory space, with the
-appropriate remapping of the 28-bit address by the outbound address
-translation unit (iATU). The limitation is that the total size of addressed
-PCIe regions (in config, memory, IO spaces) must be less than 2^28 bytes.
----------------------------------------------------------------------------
+diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-imx8m.c
+index 3ed8161d7d28..02d8c85e9a28 100644
+--- a/drivers/soc/imx/soc-imx8m.c
++++ b/drivers/soc/imx/soc-imx8m.c
+@@ -24,13 +24,15 @@
+ #define OCOTP_UID_HIGH			0x420
+ 
+ #define IMX8MP_OCOTP_UID_OFFSET		0x10
++#define IMX8MP_OCOTP_UID_HIGH		0xE00
+ 
+ /* Same as ANADIG_DIGPROG_IMX7D */
+ #define ANADIG_DIGPROG_IMX8MM	0x800
+ 
+ struct imx8_soc_data {
+ 	char *name;
+-	int (*soc_revision)(u32 *socrev, u64 *socuid);
++	int (*soc_revision)(u32 *socrev, u64 *socuid, u64 *socuid_h);
++	bool uid_len_128;
+ };
+ 
+ #ifdef CONFIG_HAVE_ARM_SMCCC
+@@ -49,7 +51,7 @@ static u32 imx8mq_soc_revision_from_atf(void)
+ static inline u32 imx8mq_soc_revision_from_atf(void) { return 0; };
+ #endif
+ 
+-static int imx8mq_soc_revision(u32 *socrev, u64 *socuid)
++static int imx8mq_soc_revision(u32 *socrev, u64 *socuid, u64 *socuid_h)
+ {
+ 	struct device_node *np __free(device_node) =
+ 		of_find_compatible_node(NULL, NULL, "fsl,imx8mq-ocotp");
+@@ -102,7 +104,7 @@ static int imx8mq_soc_revision(u32 *socrev, u64 *socuid)
+ 	return ret;
+ }
+ 
+-static int imx8mm_soc_uid(u64 *socuid)
++static int imx8mm_soc_uid(u64 *socuid, u64 *socuid_h)
+ {
+ 	struct device_node *np __free(device_node) =
+ 		of_find_compatible_node(NULL, NULL, "fsl,imx8mm-ocotp");
+@@ -131,6 +133,12 @@ static int imx8mm_soc_uid(u64 *socuid)
+ 	*socuid <<= 32;
+ 	*socuid |= readl_relaxed(ocotp_base + OCOTP_UID_LOW + offset);
+ 
++	if (offset) {
++		*socuid_h = readl_relaxed(ocotp_base + IMX8MP_OCOTP_UID_HIGH + 0x10);
++		*socuid_h <<= 32;
++		*socuid_h |= readl_relaxed(ocotp_base + IMX8MP_OCOTP_UID_HIGH);
++	}
++
+ 	clk_disable_unprepare(clk);
+ 	clk_put(clk);
+ 
+@@ -139,7 +147,7 @@ static int imx8mm_soc_uid(u64 *socuid)
+ 	return ret;
+ }
+ 
+-static int imx8mm_soc_revision(u32 *socrev, u64 *socuid)
++static int imx8mm_soc_revision(u32 *socrev, u64 *socuid, u64 *socuid_h)
+ {
+ 	struct device_node *np __free(device_node) =
+ 		of_find_compatible_node(NULL, NULL, "fsl,imx8mm-anatop");
+@@ -156,7 +164,7 @@ static int imx8mm_soc_revision(u32 *socrev, u64 *socuid)
+ 
+ 	iounmap(anatop_base);
+ 
+-	return imx8mm_soc_uid(socuid);
++	return imx8mm_soc_uid(socuid, socuid_h);
+ }
+ 
+ static const struct imx8_soc_data imx8mq_soc_data = {
+@@ -177,6 +185,7 @@ static const struct imx8_soc_data imx8mn_soc_data = {
+ static const struct imx8_soc_data imx8mp_soc_data = {
+ 	.name = "i.MX8MP",
+ 	.soc_revision = imx8mm_soc_revision,
++	.uid_len_128 = true,
+ };
+ 
+ static __maybe_unused const struct of_device_id imx8_soc_match[] = {
+@@ -211,7 +220,7 @@ static int imx8m_soc_probe(struct platform_device *pdev)
+ 	const struct of_device_id *id;
+ 	struct soc_device *soc_dev;
+ 	u32 soc_rev = 0;
+-	u64 soc_uid = 0;
++	u64 soc_uid = 0, soc_uid_h = 0;
+ 	int ret;
+ 
+ 	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
+@@ -232,7 +241,7 @@ static int imx8m_soc_probe(struct platform_device *pdev)
+ 	if (data) {
+ 		soc_dev_attr->soc_id = data->name;
+ 		if (data->soc_revision) {
+-			ret = data->soc_revision(&soc_rev, &soc_uid);
++			ret = data->soc_revision(&soc_rev, &soc_uid, &soc_uid_h);
+ 			if (ret)
+ 				return ret;
+ 		}
+@@ -242,7 +251,11 @@ static int imx8m_soc_probe(struct platform_device *pdev)
+ 	if (!soc_dev_attr->revision)
+ 		return -ENOMEM;
+ 
+-	soc_dev_attr->serial_number = devm_kasprintf(dev, GFP_KERNEL, "%016llX", soc_uid);
++	if (data && data->uid_len_128)
++		soc_dev_attr->serial_number = kasprintf(GFP_KERNEL, "%016llX%016llX",
++							soc_uid_h, soc_uid);
++	else
++		soc_dev_attr->serial_number = devm_kasprintf(dev, GFP_KERNEL, "%016llX", soc_uid);
+ 	if (!soc_dev_attr->serial_number)
+ 		return -ENOMEM;
+ 
+-- 
+2.37.1
 
-The entire sequence is:
-0) dra7.dtsi had ranges which match the ranges in the current patch.
-1) cpu_addr_fixup() was added by
-https://github.com/torvalds/linux/commit/2ed6cc71e6f7
-2) ranges was updated to <0x20000000 0x20000000 0x10000000> by:
-https://github.com/torvalds/linux/commit/c761028ef5e2
-3) ranges is being changed back to its original state of "0)" above.
-
-cpu_addr_fixup() was introduced to remove the following:
-	pp->io_base &= DRA7XX_CPU_TO_BUS_ADDR;
-	pp->mem_base &= DRA7XX_CPU_TO_BUS_ADDR;
-	pp->cfg0_base &= DRA7XX_CPU_TO_BUS_ADDR;
-	pp->cfg1_base &= DRA7XX_CPU_TO_BUS_ADDR;
-in dra7xx_pcie_host_init(). The reason for the above is mentioned in the
-"NOTE" as:
----------------------------------------------------------------------------
-The limitation is that the total size of addressed PCIe regions
-(in config, memory, IO spaces) must be less than 2^28 bytes.
----------------------------------------------------------------------------
-
-I am not sure if Frank is accounting for all of this in the current patch
-as well as the dependent patch series associated with removing
-cpu_addr_fixup().
-
-Regarding testing the series, I unfortunately don't have the hardware so
-I cannot test it.
-
-Regards,
-Siddharth.
 
