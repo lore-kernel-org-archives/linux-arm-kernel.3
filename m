@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06E8C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 09:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47447C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 09:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+oeCLF9y8zq18/FbTwjOpOdSnMcYhWJYE6gBd5T6Kk=; b=obdyxQI7MTYbrizmSZ5NE7P+zE
-	9mAZtRX16XbWM8tAa+YWrxltmOvPuS3FkfTeMf5UyMS7zColG/R9J+WVb2exovFPqKKUYloNxN3qh
-	tVZKKkO1RWjsYn0mP/drdxbqZIV1qVDP92oKIUXwGphA0YrxbIJuhQ7RAopqEFMXXS2V73StMzt14
-	UtdK0+l481zWwMumO1qqXqIAG3EyBliP2CVHxRkBsy7G3c+EpkfH3Mw5rWQQ6HZrfFhPf0Amx7K5P
-	m+dnPw46bVpkYqc7OCb5B//19VQON3Z6Y3IvUFFxT3z13+/w9bLrBKBerQtyt7zy79nAxzbKks5OT
-	xprsRL8w==;
+	bh=3+cfzX22IbBOLxyOqDg7iqnovY5rmZuB+AfJrOsUu/k=; b=gJtU9FHa5rH5tFhYsrtKA/Xvkh
+	SrJ20OJy9NuuQuSwZEtW71p17qu1Op2BwHImlM52KIYAzKQ2+5nBECqeX8aRYYp+r+dT5YuZrvMCI
+	rRoeBwvQZ24WH00bToRRpevL6jQ0l3gVsrD9Wretxz44WwwaSrFE2TqAD7ycNCnBo8Va0Gn48uXn+
+	dYjuu7qXDLAm4+FUZtLBxtmEDoYVsxILrLY8YZaXaWNYFq5nLGdTPZpjI0b+yf10e6SJgJAregMpV
+	4S7zRu6BSWPvCXyHCCTIDUanD4TQdWv6YEMMCBk08lZQoBEnaY/dEjBdOrhH9erEDkzN+ntXWlmTY
+	mtLJdKAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt1LT-0000000Dfsm-38We;
-	Fri, 14 Mar 2025 09:28:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt1Jm-0000000DfTn-2ArR
+	id 1tt1SK-0000000Dgzb-2UiD;
+	Fri, 14 Mar 2025 09:35:52 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt1Qe-0000000DgcT-1EL9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 09:27:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 549631424;
-	Fri, 14 Mar 2025 02:27:11 -0700 (PDT)
-Received: from [10.57.85.159] (unknown [10.57.85.159])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 73EA03F673;
-	Fri, 14 Mar 2025 02:26:57 -0700 (PDT)
-Message-ID: <d3a15aaf-16a6-4a88-a6c5-9b9afaa5f370@arm.com>
-Date: Fri, 14 Mar 2025 09:26:56 +0000
+	Fri, 14 Mar 2025 09:34:10 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4ZDfM02gTzz1d080;
+	Fri, 14 Mar 2025 17:33:48 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5F66A140159;
+	Fri, 14 Mar 2025 17:33:55 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Fri, 14 Mar 2025 17:33:54 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<akpm@linux-foundation.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
+	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
+	<zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>, <linuxarm@huawei.com>
+Subject: Re: [PATCH 2/2] arm64/watchdog_hld: Add a cpufreq notifier for update
+ watchdog thresh
+To: Doug Anderson <dianders@chromium.org>
+References: <20250307021811.46981-1-yangyicong@huawei.com>
+ <20250307021811.46981-3-yangyicong@huawei.com>
+ <CAD=FV=XLn9Dz8rhRnjTKdbbeS3YP+XZFzpSV0C6+DakWOUmMpA@mail.gmail.com>
+ <99a3afd4-6e16-0f39-9d2a-f629457dd756@huawei.com>
+ <CAD=FV=Wy9-nDW-F+R1Aob6GOfP1Cnmr1gKkCO+WebA8ES7uu8A@mail.gmail.com>
+ <260393cc-614a-b5c1-0e04-8443e00a7991@huawei.com>
+ <CAD=FV=XhMnGWAQ19n6_O2QTkXNu_+NkA+R=4X_w+-Vewpd55ng@mail.gmail.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <1ec5d92d-a9d9-82a4-7630-1fc0b2311ed3@huawei.com>
+Date: Fri, 14 Mar 2025 17:33:54 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
- james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com,
- oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org,
- david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev
-References: <20250313104111.24196-2-miko.lenczewski@arm.com>
- <20250313104111.24196-3-miko.lenczewski@arm.com>
- <ea10caee-59ef-4a00-9b61-37cb0a379411@arm.com>
- <20250313180833.GA40525@mazurka.cambridge.arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250313180833.GA40525@mazurka.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <CAD=FV=XhMnGWAQ19n6_O2QTkXNu_+NkA+R=4X_w+-Vewpd55ng@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_022702_647160_3445D77C 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20250314_023408_660202_2DD28F7D 
+X-CRM114-Status: GOOD (  30.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,94 +81,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/03/2025 18:08, Mikołaj Lenczewski wrote:
-> On Thu, Mar 13, 2025 at 04:13:22PM +0000, Ryan Roberts wrote:
->> On 13/03/2025 10:41, Mikołaj Lenczewski wrote: 
->>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>> index d561cf3b8ac7..b936e0805161 100644
->>> --- a/arch/arm64/kernel/cpufeature.c
->>> +++ b/arch/arm64/kernel/cpufeature.c
->>> @@ -2176,6 +2176,76 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->>>  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->>>  }
->>>  
->>> +static inline bool bbml2_possible(void)
->>> +{
->>> +	return !arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_NOBBML2);
->>
->> If you're going to keep this helper, I think it really needs to be:
->>
->> return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT) &&
->>        !arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_NOBBML2);
->>
->> Then you would simplify the caller to remove it's own
->> IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT) check.
->>
->> But personally I would remove the helper and just fold the test into
->> has_bbml2_noabort().
->>
->> Thanks,
->> Ryan
+On 2025/3/14 10:03, Doug Anderson wrote:
+> Hi,
 > 
-> I was debating folding it into has_bbml2_noabort(), but went ahead and
-> implemented it separately to match hvhe_possible(), which was another sw
-> feature helper.
-
-hvhe_possible() is a .matches function, so there is nothing to fold it into.
-
-> 
-> But I agree, folding it will be simpler and read just as easily (if not
-> easier). Will do so.
-> 
->>> +}
->>> +
->>> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
->>> +{
->>> +	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
->>> +	 * as possible. This list is therefore an allow-list of known-good
->>> +	 * implementations that both support bbml2 and additionally, fulfill the
->>> +	 * extra constraint of never generating TLB conflict aborts when using
->>> +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
->>> +	 * kernel contexts difficult to prove safe against recursive aborts).
->>> +	 *
->>> +	 * Note that implementations can only be considered "known-good" if their
->>> +	 * implementors attest to the fact that the implementation never raises
->>> +	 * TLBI conflict aborts for bbml2 mapping granularity changes.
->>> +	 */
->>> +	static const struct midr_range supports_bbml2_noabort_list[] = {
->>> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
->>> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
->>> +		{}
->>> +	};
->>> +
->>> +	return is_midr_in_range_list(cpu_midr, supports_bbml2_noabort_list);
->>> +}
->>> +
->>> +static inline unsigned int __cpu_read_midr(int cpu)
+> On Wed, Mar 12, 2025 at 12:48 AM Yicong Yang <yangyicong@huawei.com> wrote:
 >>
->> nit: why the double underscrore prefix?
+>>>>>> +static int __init init_watchdog_freq_notifier(void)
+>>>>>> +{
+>>>>>> +       return cpufreq_register_notifier(&watchdog_freq_notifier,
+>>>>>> +                                        CPUFREQ_POLICY_NOTIFIER);
+>>>>>> +}
+>>>>>> +core_initcall(init_watchdog_freq_notifier);
+>>>>>
+>>>>> I haven't dug into everything, but don't you have a potential blind
+>>>>> spot, though? What if the order is this:
+>>>>>
+>>>>> 1. hw_nmi_get_sample_period() is called
+>>>>> 2. cpufreq driver probes
+>>>>> 3. init_watchdog_freq_notifier() initcall runs
+>>>>>
+>>>>> Since the cpufreq driver proved before you registered for the
+>>>>> notifier, won't you miss the creation of the policy? Maybe instead of
+>>>>> registering for an initcall you should somehow trigger off the first
+>>>>> call to hw_nmi_get_sample_period() and register at that point in time?
+>>>>>
+>>>>
+>>>> for arm64 the watchdog_perf is registered after armv8 PMU driver's init,
+>>>> so the sequence is like:
+>>>>
+>>>> # core_initcall
+>>>> init_watchdog_freq_notifier()
+>>>> # device_initcall
+>>>> armv8_pmu_driver_init()
+>>>>   lockup_detector_retry_init()
+>>>>     schedule_work(&detector_work);
+>>>> # in detector work
+>>>> hw_nmi_get_sample_period() // notifier's already been registered
+>>>>
+>>>> so we'll always get the correct frequency, either by the cpufreq
+>>>> already registered or by the notifier which will update the
+>>>> frequency. Please correct me if I missed anything :)
+>>>
+>>> Hmm, OK. So this relies on the fact that because the
+>>> init_watchdog_freq_notifier() is at "core" level that it'll pretty
+>>> much init before any of the other things. This type of thing is always
+>>> a little fragile but I guess it's OK.
+>>>
+>>> What about if the order is different though? Again, I haven't traced
+>>> through it all, but I'm thinking:
+>>>
+>>> # core_initcall
+>>> init_watchdog_freq_notifier()
+>>> # device_initcall
+>>> <cpufreq driver policy is created>
+>>>
+>>> Now hardlockup_detector_perf_adjust_period() will be called before
+>>> armv8_pmu_driver_init(). Is that a problem?
+>>
+>> it doesn't matter, since in this situation:
+>>
+>> # device_initcall
+>> <cpufreq driver policy is created>
+>>   hardlockup_detector_perf_adjust_period()
+>>     if (!event) // armv8_pmu_driver_init() not called, not event created
+>>       return;
+>> # later after armv8_pmu_driver_init()
+>> hw_nmi_get_sample_period() // since cpufreq already been registered, we can
+>>                            // get the accurate cpufreq
 > 
-> Again copying other helpers I saw that seemed to do similar things.
-> Didn't know if this was the expected style, so did as other helpers did.
-> Will remove.
-
-Often those double underscores are used when you have a public function wrapping
-into a private function, like this:
-
-static void __do_a_thing(bool modify_behaviour_in_some_way);
-
-void do_a_thing(void)
-{
-	__do_a_thing(false);
-}
-
-I'm sure the coding style offers a better explanation.
-
-Thanks,
-Ryan
-
+> Got it. Sorry for asking the dumb questions--I didn't have time to dig
+> through the code earlier this week. Yeah, looks like it should be OK.
 > 
-> Thank you for the review.
 > 
+>>> I guess even worse would be if async probe was on and the cpufreq
+>>> driver and PMU driver were running at the same time?
+>>>
+>>
+>> I think there're 2 cases here:
+>> 1) cpufreq initialized before hw_nmi_get_sample_period() called, in which
+>>    case the cpufreq is accurate when create the event
+>> 2) hw_nmi_get_sample_period() called before cpufreq driver's initialized,
+>>    in which case we rely on the notifier call to adjust the event's period
+>>
+>> May need further check to see if there's any race window here, but the worst
+>> case will be using the inaccurate cpufreq (5GHz) for calculating the period.
+> 
+> OK, sure. _Maybe_ there could be some small race if these two things
+> are happening at exactly the same time on two different cores:
+> 
+> core 1:
+> * lockup_detector_delay_init()
+> * watchdog_hardlockup_probe()
+> * hardlockup_detector_event_create()
+> * hw_nmi_get_sample_period()
+> * No cpufreq driver, so returns SAFE_MAX_CPU_FREQ
+> 
+> core 2:
+> * cpufreq driver probes + policy is created
+> * "event" hasn't been created yet, so your new code is a no-op
+> 
+> core 1:
+> * event gets created based on SAFE_MAX_CPU_FREQ.
+> 
+> Did I get that right?
+> 
+
+I think yes, should exist theoretically.
+
+> That doesn't feel _completely_ impossible especially since
+> lockup_detector_delay_init() is already running on a separate
+> workqueue. As you said, though, the worst case is it looks like we'll
+> just end up with how things were before your patch series.
+> 
+> In any case, I guess it's pretty unlikely, but maybe it wouldn't be
+> very hard to add a mutex in there? It doesn't feel like that would add
+> much overhead...
+> 
+
+I'll see how to do the synchronization here. I need to look a bit deeper into
+the cpufreq core. Will update in the next version.
+
+Thanks.
+
 
 
