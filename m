@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47447C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 09:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA8EEC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 09:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3+cfzX22IbBOLxyOqDg7iqnovY5rmZuB+AfJrOsUu/k=; b=gJtU9FHa5rH5tFhYsrtKA/Xvkh
-	SrJ20OJy9NuuQuSwZEtW71p17qu1Op2BwHImlM52KIYAzKQ2+5nBECqeX8aRYYp+r+dT5YuZrvMCI
-	rRoeBwvQZ24WH00bToRRpevL6jQ0l3gVsrD9Wretxz44WwwaSrFE2TqAD7ycNCnBo8Va0Gn48uXn+
-	dYjuu7qXDLAm4+FUZtLBxtmEDoYVsxILrLY8YZaXaWNYFq5nLGdTPZpjI0b+yf10e6SJgJAregMpV
-	4S7zRu6BSWPvCXyHCCTIDUanD4TQdWv6YEMMCBk08lZQoBEnaY/dEjBdOrhH9erEDkzN+ntXWlmTY
-	mtLJdKAg==;
+	bh=k4SyWjKH84umbmffX+zqpn74bUGXrF4npvZzZHb0tBI=; b=DWXr9pGt3gWAICfhXOP3o8ScL5
+	PGSwQeLyL+B6H5xekjS0313Ebqa3BQM5V6C+Y2JRONjNOKNsJNI7YUpBIsN9F7VPvea9dSpM20lkN
+	DViK77eedM3/rAt0ORww8XBMc0KzUQyIubRcovVnx+wyt/uIHoFW4HaP8ylTSmZb0WSwJ2W3kxp5S
+	Qk9BohhWZSwC6/rF4yRhmT+C2SYRdOJuWGRQF+PlQuXgiPgMc7jimEjaSFzFNHDNCKkow5p0KTN3c
+	7qgrDtskkG77Do2hugcKvxbUwlGaRGdVjI/WGYZc/dS8juvkjms84E/Ga460SSPWibFuSQp3u5pNS
+	nFdTCTmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt1SK-0000000Dgzb-2UiD;
-	Fri, 14 Mar 2025 09:35:52 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt1Qe-0000000DgcT-1EL9
+	id 1tt1UH-0000000DhTk-0j3q;
+	Fri, 14 Mar 2025 09:37:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt1Sb-0000000Dh3R-1AUR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 09:34:10 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4ZDfM02gTzz1d080;
-	Fri, 14 Mar 2025 17:33:48 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5F66A140159;
-	Fri, 14 Mar 2025 17:33:55 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Fri, 14 Mar 2025 17:33:54 +0800
-CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<akpm@linux-foundation.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
-	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
-	<zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>, <linuxarm@huawei.com>
-Subject: Re: [PATCH 2/2] arm64/watchdog_hld: Add a cpufreq notifier for update
- watchdog thresh
-To: Doug Anderson <dianders@chromium.org>
-References: <20250307021811.46981-1-yangyicong@huawei.com>
- <20250307021811.46981-3-yangyicong@huawei.com>
- <CAD=FV=XLn9Dz8rhRnjTKdbbeS3YP+XZFzpSV0C6+DakWOUmMpA@mail.gmail.com>
- <99a3afd4-6e16-0f39-9d2a-f629457dd756@huawei.com>
- <CAD=FV=Wy9-nDW-F+R1Aob6GOfP1Cnmr1gKkCO+WebA8ES7uu8A@mail.gmail.com>
- <260393cc-614a-b5c1-0e04-8443e00a7991@huawei.com>
- <CAD=FV=XhMnGWAQ19n6_O2QTkXNu_+NkA+R=4X_w+-Vewpd55ng@mail.gmail.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <1ec5d92d-a9d9-82a4-7630-1fc0b2311ed3@huawei.com>
-Date: Fri, 14 Mar 2025 17:33:54 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Fri, 14 Mar 2025 09:36:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B6F7113E;
+	Fri, 14 Mar 2025 02:36:18 -0700 (PDT)
+Received: from [10.57.39.196] (unknown [10.57.39.196])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F8663F673;
+	Fri, 14 Mar 2025 02:36:06 -0700 (PDT)
+Message-ID: <f2e3c123-6d58-4560-be4f-b9171c0d9c73@arm.com>
+Date: Fri, 14 Mar 2025 09:36:03 +0000
 MIME-Version: 1.0
-In-Reply-To: <CAD=FV=XhMnGWAQ19n6_O2QTkXNu_+NkA+R=4X_w+-Vewpd55ng@mail.gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+User-Agent: Mozilla Thunderbird
+Subject: Re: Regression on linux-next (next-20250312)
+To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>
+Cc: "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+ "intel-xe@lists.freedesktop.org" <intel-xe@lists.freedesktop.org>,
+ "Kurmi, Suresh Kumar" <suresh.kumar.kurmi@intel.com>,
+ "Saarinen, Jani" <jani.saarinen@intel.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+References: <SJ1PR11MB61295DE21A1184AEE0786E25B9D22@SJ1PR11MB6129.namprd11.prod.outlook.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <SJ1PR11MB61295DE21A1184AEE0786E25B9D22@SJ1PR11MB6129.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_023408_660202_2DD28F7D 
-X-CRM114-Status: GOOD (  30.31  )
+X-CRM114-CacheID: sfid-20250314_023609_409922_EE08B829 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,127 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/3/14 10:03, Doug Anderson wrote:
-> Hi,
+On 2025-03-14 9:17 am, Borah, Chaitanya Kumar wrote:
+> Hello Robin,
 > 
-> On Wed, Mar 12, 2025 at 12:48 AM Yicong Yang <yangyicong@huawei.com> wrote:
->>
->>>>>> +static int __init init_watchdog_freq_notifier(void)
->>>>>> +{
->>>>>> +       return cpufreq_register_notifier(&watchdog_freq_notifier,
->>>>>> +                                        CPUFREQ_POLICY_NOTIFIER);
->>>>>> +}
->>>>>> +core_initcall(init_watchdog_freq_notifier);
->>>>>
->>>>> I haven't dug into everything, but don't you have a potential blind
->>>>> spot, though? What if the order is this:
->>>>>
->>>>> 1. hw_nmi_get_sample_period() is called
->>>>> 2. cpufreq driver probes
->>>>> 3. init_watchdog_freq_notifier() initcall runs
->>>>>
->>>>> Since the cpufreq driver proved before you registered for the
->>>>> notifier, won't you miss the creation of the policy? Maybe instead of
->>>>> registering for an initcall you should somehow trigger off the first
->>>>> call to hw_nmi_get_sample_period() and register at that point in time?
->>>>>
->>>>
->>>> for arm64 the watchdog_perf is registered after armv8 PMU driver's init,
->>>> so the sequence is like:
->>>>
->>>> # core_initcall
->>>> init_watchdog_freq_notifier()
->>>> # device_initcall
->>>> armv8_pmu_driver_init()
->>>>   lockup_detector_retry_init()
->>>>     schedule_work(&detector_work);
->>>> # in detector work
->>>> hw_nmi_get_sample_period() // notifier's already been registered
->>>>
->>>> so we'll always get the correct frequency, either by the cpufreq
->>>> already registered or by the notifier which will update the
->>>> frequency. Please correct me if I missed anything :)
->>>
->>> Hmm, OK. So this relies on the fact that because the
->>> init_watchdog_freq_notifier() is at "core" level that it'll pretty
->>> much init before any of the other things. This type of thing is always
->>> a little fragile but I guess it's OK.
->>>
->>> What about if the order is different though? Again, I haven't traced
->>> through it all, but I'm thinking:
->>>
->>> # core_initcall
->>> init_watchdog_freq_notifier()
->>> # device_initcall
->>> <cpufreq driver policy is created>
->>>
->>> Now hardlockup_detector_perf_adjust_period() will be called before
->>> armv8_pmu_driver_init(). Is that a problem?
->>
->> it doesn't matter, since in this situation:
->>
->> # device_initcall
->> <cpufreq driver policy is created>
->>   hardlockup_detector_perf_adjust_period()
->>     if (!event) // armv8_pmu_driver_init() not called, not event created
->>       return;
->> # later after armv8_pmu_driver_init()
->> hw_nmi_get_sample_period() // since cpufreq already been registered, we can
->>                            // get the accurate cpufreq
+> Hope you are doing well. I am Chaitanya from the linux graphics team in Intel.
 > 
-> Got it. Sorry for asking the dumb questions--I didn't have time to dig
-> through the code earlier this week. Yeah, looks like it should be OK.
+> This mail is regarding a regression we are seeing in our CI runs[1] on linux-next repository.
 > 
+> Since the version next-20250312 [2], we are seeing the following regression
 > 
->>> I guess even worse would be if async probe was on and the cpufreq
->>> driver and PMU driver were running at the same time?
->>>
->>
->> I think there're 2 cases here:
->> 1) cpufreq initialized before hw_nmi_get_sample_period() called, in which
->>    case the cpufreq is accurate when create the event
->> 2) hw_nmi_get_sample_period() called before cpufreq driver's initialized,
->>    in which case we rely on the notifier call to adjust the event's period
->>
->> May need further check to see if there's any race window here, but the worst
->> case will be using the inaccurate cpufreq (5GHz) for calculating the period.
+> `````````````````````````````````````````````````````````````````````````````````
+> <4>[    6.246790] reg-dummy reg-dummy: late IOMMU probe at driver bind, something fishy here!
+> <4>[    6.246812] WARNING: CPU: 0 PID: 1 at drivers/iommu/iommu.c:449 __iommu_probe_device+0x140/0x570
+> <4>[    6.246822] Modules linked in:
+> <4>[    6.246830] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc6-next-20250312-next-20250312-g9fbcd7b32bf7+ #1
+> <4>[    6.246838] Hardware name: Intel Corporation Arrow Lake Client Platform/MTL-S UDIMM 2DPC EVCRB, BIOS MTLSFWI1.R00.4400.D85.2410100007 10/10/2024
+> <4>[    6.246847] RIP: 0010:__iommu_probe_device+0x140/0x570
+> `````````````````````````````````````````````````````````````````````````````````
+> Details log can be found in [3].
 > 
-> OK, sure. _Maybe_ there could be some small race if these two things
-> are happening at exactly the same time on two different cores:
+> After bisecting the tree, the following patch [4] seems to be the first "bad" commit
 > 
-> core 1:
-> * lockup_detector_delay_init()
-> * watchdog_hardlockup_probe()
-> * hardlockup_detector_event_create()
-> * hw_nmi_get_sample_period()
-> * No cpufreq driver, so returns SAFE_MAX_CPU_FREQ
+> `````````````````````````````````````````````````````````````````````````````````````````````````````````
+> commit bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c
+> Author: Robin Murphy mailto:robin.murphy@arm.com
+> Date:   Fri Feb 28 15:46:33 2025 +0000
 > 
-> core 2:
-> * cpufreq driver probes + policy is created
-> * "event" hasn't been created yet, so your new code is a no-op
+>      iommu: Get DT/ACPI parsing into the proper probe path
 > 
-> core 1:
-> * event gets created based on SAFE_MAX_CPU_FREQ.
+> `````````````````````````````````````````````````````````````````````````````````````````````````````````
 > 
-> Did I get that right?
+> We also verified that if we revert the patch the issue is not seen.
 > 
+> Could you please check why the patch causes this regression and provide a fix if necessary?
 
-I think yes, should exist theoretically.
+Yes, the warnings are false positives, and the fix is already in today's 
+-next, see 73d2f10957f5 ("iommu: Don't warn prematurely about dodgy 
+probes"). Sorry for the disruption.
 
-> That doesn't feel _completely_ impossible especially since
-> lockup_detector_delay_init() is already running on a separate
-> workqueue. As you said, though, the worst case is it looks like we'll
-> just end up with how things were before your patch series.
+Thanks,
+Robin.
+
 > 
-> In any case, I guess it's pretty unlikely, but maybe it wouldn't be
-> very hard to add a mutex in there? It doesn't feel like that would add
-> much overhead...
+> Thank you.
 > 
-
-I'll see how to do the synchronization here. I need to look a bit deeper into
-the cpufreq core. Will update in the next version.
-
-Thanks.
-
+> Regards
+> 
+> Chaitanya
+> 
+> [1] https://intel-gfx-ci.01.org/tree/linux-next/combined-alt.html?
+> [2] https://web.git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?h=next-20250312
+> [3] https://intel-gfx-ci.01.org/tree/linux-next/next-20250312/bat-arls-6/boot0.txt
+> [4] https://web.git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?h=next-20250312&id=bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c
+> 
 
 
