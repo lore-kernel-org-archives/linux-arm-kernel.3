@@ -4,160 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 604A6C35FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C93C35FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xCbP2sNib2bkuxYqVljhaOrUA6IEAB/sxBR8bC8Gkbk=; b=D+sByWrmc5qtwP9m2kEsdabBCB
-	Zi3ZPPiUIp2EseP9hrKdj8EfQ6nJqz2ByL/3eQlJzHkiGS7wEz52mocAbYo8yVAdvZuhqNNg1+Ur1
-	hiVdHdCB+rj8+QwhDEfe7eP+iX7KfU58dbXakqpKnzjh8rXPRQpDCTDBoCmP+iZqQ6Z0uqHYhsE8q
-	B4w54FXf4tavZHPuYVCfJC3vSjsFoUUHMR9+LFFf4Cn7K0mqhq2rfl+vQiZfNoLSs4hxUfoqpmIpj
-	vukBaKwBZt1tfuW1M9RmvZe0heJ2K+Um2yrROjsmoixhpjCzX2I5XYs6mZcZATNTMW73V2XwYxMG7
-	OILoWvSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AIazsbhGjTnWVs4powPGcBo+ahU9A4azfZMflVf9GOM=; b=e7F4E5OEDOOAklT24bNORdjhFN
+	GgEFeXbBuBC2MyZxyAf+VOd6UUmAcCOyeR8rfylXG4WVpj3LFug5cv7FOvJ1vhNPRE0nBSZ9c1Djf
+	fLvGTgchKsfTZeY91F8tRN2Gozpf6e6JI8/ObYKDpyqwCYdASVGi1gMR1me8JjEmw/2becaIWel07
+	v0r7r3THDaOaT3egUT5W9rSBusH6isXYHpRVBXP8nbEIysP61jGWMWp3jMdhORgJa9bG+AKrtcY0I
+	8uQvazyEc5ewugnDqq4E958iK5toqMP3jvDvOWxlizr3xCAKwrK05ro3g8Q8VtreEVAzpmKG3eBKN
+	vIvoE6Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0lB-0000000DXCu-2qxL;
-	Fri, 14 Mar 2025 08:51:17 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1tt0lC-0000000DXDO-0oRq;
+	Fri, 14 Mar 2025 08:51:18 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0O5-0000000DSZH-0Jed
+	id 1tt0OP-0000000DSdz-0Vrv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 08:27:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XCviBDUvkcHZ8MUS9IRpUuT94SQBspvn6pwluXTzMcsqkfOCBv4xmGZfxhewQa2neJaJVFnYZgYbq3u5X2VSn3/fwdPZCIa5widA0DM9zJOLYNFYRFJbcWRWhNOgJwtUb4QuhQADySYSv+unAso3CXKluyqEx8Xka7IleiW/SSwW+fH6OgzuqIYHG+cfygzv/0VkDRXhtHOSeG8ns7FmVzTayXo5UfFY60wMv8APCqzGejW/xuYtZINBeP+v5oZsYAl0jLlxeZxm7cN8WAYtl7ALUK4mXFY9kbnRulxfSkS0azJUYnxPb4F6ivAPk/x1hX1XhU3c8b1i+Z7UjSuvUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xCbP2sNib2bkuxYqVljhaOrUA6IEAB/sxBR8bC8Gkbk=;
- b=xvnfHqxvvjAlkZ9fizAB7//+pQXoFDwntRMlW303OW2rnR5XtDBR0lhnhBkCmAv/xkYF4G5uHLP1aLDN1+Dt1rxTvUZHnFPxmj4tYAObTKEXll46PPRiDwBfViExLPvxBRgq65Wdes5/h3iL6l+NNqCRXVtnBOXNAa3PAZCDdUa6h5ClA0dy5OLMzTRGGy9Wo019tAitBUTLJ5LKoovItYmnNKsHROEpQrcdsl/3/6fQhsnXws37JDAtZBiJ4KZm4AEOK2GZ+FRzPxA6lA6+2OITGhFVyIPBWZKv6PuUTzE7Nd5AUoP687QuLLx7o++b8uX9orUlW8TqLOss4RfE0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xCbP2sNib2bkuxYqVljhaOrUA6IEAB/sxBR8bC8Gkbk=;
- b=KYNo4o9HCABlRNfuxYuZjB7s1sDA4xj3vO4NsPnjndOuqFDyA+biXt65W5tsNqO00wu8BGpWpl34HNWOH4ZdRkBI0UFRxAUTBHE+uvpTIdfS7c8NnIvQafOQ2+OUeTUABKw+2lvTe0mARxoHWLYh5tJlNmyJ67O/vVUALF9aiwOsDXv117ktpw+dxHliRlf3GIYLlprOpA0mOTVSbA/siBS8f0eMFGleB4D7icy7+IlYiCS/nkvc3TiuCwGD8Og/ZQhsDlMyyfsr0cOhVp23gZkiBpMkXViyTDXbu4BNaCja7oPxwYATbagC2SLcNdy9TlPgUGmIrXmUhT39AjkfWA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DBBPR04MB7738.eurprd04.prod.outlook.com (2603:10a6:10:1ea::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.25; Fri, 14 Mar
- 2025 08:27:21 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8534.025; Fri, 14 Mar 2025
- 08:27:21 +0000
-Date: Fri, 14 Mar 2025 17:35:03 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>, Abel Vesa <abelvesa@kernel.org>,
-	linux-amarula@amarulasolutions.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v10 00/18] Support spread spectrum clocking for i.MX8M
- PLLs
-Message-ID: <20250314093503.GD12210@nxa18884-linux>
-References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR06CA0232.apcprd06.prod.outlook.com
- (2603:1096:4:ac::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 14 Mar 2025 08:27:46 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54298ec925bso2925528e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 01:27:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1741940863; x=1742545663; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AIazsbhGjTnWVs4powPGcBo+ahU9A4azfZMflVf9GOM=;
+        b=YiU55JgMtLvgZCPe3231c1tzT2XANIl9pnoA9OC7kWL+Vpg1j++/StvAdIni7/nHl9
+         ikNj2XPJe7UZLV5k1CgB4Ak2EcT5LqZ2vIpuOy76h0BxYOoZhl3bFXiVix2ExZ3pQCGo
+         z9dJ3gZ6NIdVvofYwOFTaA0u/GMbelCKq/l4k=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741940863; x=1742545663;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AIazsbhGjTnWVs4powPGcBo+ahU9A4azfZMflVf9GOM=;
+        b=QI9oi2UPAd3GPoQmqaD410pBU6chpT671CWTO5xF6+6vNLklplMGUjJRHFNUs5Ys/V
+         1rS2TbhfyEZ47jd3cnF0D0i2Cm1y6Ab7g1Q74/R9P6FaDcVqpzbw1tSbfdcIR+olyGWK
+         p74HmgUZAA0nxRC2qGsDA2n8fALGRBuYBCMgao496sWD+aqGQ3byHoS31teoFZy97lsw
+         m/KD7IUaV/xUH2bAFgE8TFiUDlPx5BXhABN1LY+Mk1F4/5LnbaRXVDP0Hzr1qybmb9dD
+         c/vqcZLpkrdEHghetjeRLHfpjrUZHpVaDevl4n+sGPmyNF56twAkpGGxwjLXT7cXdblK
+         /Hsw==
+X-Forwarded-Encrypted: i=1; AJvYcCVli6uEh1cT602+jpV8cYm5H+2TXp733YSFPvshkBNc/0l08+AKajnSi/dc6yDC+EVxlK/Su6y1g76jNRsFAw1x@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoNe7KleHWWk6bJGP2Hf7octa6PQmgdIzQIZPEBwHpmne89Yco
+	4n0vyMLdyOEzutO8jHuTMgFkOUkfbNCJDperzPMJZpMkpUMw1lp/dfTfaqo9Lg/ran8tU8hnSSL
+	NaX36hzMTSfYc54Zfx7X3uENV38vcoa2hdcKs
+X-Gm-Gg: ASbGnctPNYdPnqagl8m0GnUsBjDy0amH29SXtcqu8YzVkMZhRq8nECbnF9SvvC3UP/9
+	+1o1zZxnSundhvjwI+iQEPYeAr699DQOO/m2QEaIe82amu3oxVy7QJ997dK4d0FQimCfOcB19QP
+	5K9klc2vipBYCpxwKoUgTKad37GUrEf1/B7n+F1tPVqmtRPMcNbiKR
+X-Google-Smtp-Source: AGHT+IFNFAiq0DF0mxEisHTLx9G59G5mtBKcvgViPsH0J58VO/6T1UIYLgI9JMkclJbxf4qIJjWLMm8EKW+D8w91aec=
+X-Received: by 2002:a05:6512:2245:b0:549:4d73:641b with SMTP id
+ 2adb3069b0e04-549c398d3bdmr568085e87.52.1741940863125; Fri, 14 Mar 2025
+ 01:27:43 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DBBPR04MB7738:EE_
-X-MS-Office365-Filtering-Correlation-Id: dba5fb7e-943a-410d-5ea2-08dd62d20a42
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jzY6UPjTK06CgyRla7HDGrkCEBhP86jFbNPGrjDJ1JQrwvQ5YO89RD3eWNJf?=
- =?us-ascii?Q?S0MnIcyD1BD2blvI4hzUmaLSWtnyIEiLjVpuIT7JnDW3ywlJkkkVecCe7QVe?=
- =?us-ascii?Q?lKuU+YdFMxa78czCOmY0YRcKq6TVQU02sMGXnS8uRvby89lQ9g5kEejuC72F?=
- =?us-ascii?Q?gmEe1nPDBoOQkOYXvwQfVTKgx8n/x48crhN0q0fdlx4uDUL5+pXUzUDwz4g2?=
- =?us-ascii?Q?CZhIKUia9HrymKPEFad5ZLjliCh/LAmHN5Ip28CO5pRfA0vAgvaQwSxxyBBM?=
- =?us-ascii?Q?Xk0N/GjX4l0sSGZ+EoLrrd4Em/pLRy7dwdhf0khC/Ifoz8l/wqcDVYBYnSRt?=
- =?us-ascii?Q?hFKNGZOjoVFvVvg1p9CNorSp0IVtuo2+FKSfIycdZBMw63wCtrVa4OnOieLo?=
- =?us-ascii?Q?Wr2Z5c42dhRUjIVQwiYcxQfjVtwGW3JSM1yUSBpXyiCkKsRRkjeySNrEwghu?=
- =?us-ascii?Q?7slf52RT7mTlLQEQS7vFJa0rfRL9vy/IYaF4aOGijy12jDtqnEhteRx9RiYS?=
- =?us-ascii?Q?DxFoZSS8MAoo9V2V5yP0U6INjKXk57l1dt3CbrQDn7oY/Otisl6s0dCAkyv0?=
- =?us-ascii?Q?4c+1D9sASLC/AHpXGPoLTsSumjyiFI2qJ6D26QPW7/7+h59DcNTqItDKw8jz?=
- =?us-ascii?Q?CAqt65gr9vVOdaHwsNZoXuY4J7VsPVSS+cMVNYsWq4hqk94y8nBaDc7MexwA?=
- =?us-ascii?Q?Vwto0gwn1yFOtAMqhWD3TDUyN2RwVjyf4i8Qez1NrVGLKQUszYU0p6bybnNw?=
- =?us-ascii?Q?TqUD6WeICiDDKlyOtJw+sMSJXPS/jV0vWD76x6yMpvvkLlzFUf9n9Rb+TS4I?=
- =?us-ascii?Q?5X73Fbbk+KV+7fqgpGK+GPDEd4hBUYu4kQqVOiL+AnqL19n941461GDuX1Ax?=
- =?us-ascii?Q?WTPApvmmLZQ+wAmlzwcU5gUJExO6Gg7buA4Kt2q6tY/FUHiYhgiOgoqumgib?=
- =?us-ascii?Q?egIhQeck0TYisAurd1l2Zun/VveiLXFXBRkzWIH96TSI/xeA5U0bPx9F/lFh?=
- =?us-ascii?Q?WMPGwNvJoFUFa8LTPgJk57Ue1gfkr7TegyURNzePPeV+PABLCC3RnxwQWGOD?=
- =?us-ascii?Q?qtOVbbX0SyMrnp5i0+vChCkZkhkgJA0jpDVyG+tAShBDTtX1JihwkdcyxS/Z?=
- =?us-ascii?Q?SxbbfmLev1jBT9lNzbOQphdE/57sE5/OthyaepDB92SrExloJTkrYdDjlx1V?=
- =?us-ascii?Q?8uFtEhsE4OlypSWeGoGnbFpqgWA8zV3RysjuMs2kQpwg8EAM1OOICQEP72/2?=
- =?us-ascii?Q?jayxsWGxW69bAKYMCouMb9bNARQuv5YOJILhU8JdVB27bILoDRzWyqFma7Np?=
- =?us-ascii?Q?5SjOrT6/sz8YVNRe2KdgpAtTJrgwNIto9CgTXiMEkvL0dQaKQyw63uEwyqj3?=
- =?us-ascii?Q?BnRb/rkSo5Ouh3GeIQ7VVYTmI4fY71lImlDbPDwgCPltQiyICqAW/C7oH5ay?=
- =?us-ascii?Q?Y5nuEq6lCgete+JRwNQRLnncuoLMU+TZ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FdvYfwCaA3fsIOqUzolQiprEpL6SlEvZAcxBqhH0M3JkDDEw60B6Kc9e3VxJ?=
- =?us-ascii?Q?knLgmpnSBlb49MQRDrgb0ptv7gjWYg2+HQ4BG34EmHzpm/ImC6g68gvgTefU?=
- =?us-ascii?Q?TCz+JxkANztH2xipTDmPfQ4mB3yEY5dEG96lGIrWnz4/QEilzWMsSqMUpkEk?=
- =?us-ascii?Q?YscZssOltU6QjpbK8OiRTBggZUrpIHyVtSpNbiMZqhYpVBn+zLHB+Tohboio?=
- =?us-ascii?Q?jzJ54W7a+dRicDTwlc8nA0dSvci+KVT6QAErTi7SgkyuwgFBoamwNsui9GgZ?=
- =?us-ascii?Q?XI6rPC/2jCSaYzbbntuAHD5Da3YMK7aP5Z7Inv2k3SuBlFRe1nZNPkmAbyxp?=
- =?us-ascii?Q?amaaatOxAa3jms673cuzvwU0Q+w1tbozQqExxSbqgb5+L1beSQCpGez4Xf9x?=
- =?us-ascii?Q?pDFNz0UehaG3nEFYpCR7VS0RSnVlpjbY5GGWuvdlQrqprz2jlfDwCBwcqmWZ?=
- =?us-ascii?Q?X41jGTt40UyHXR+vclVqI3VewvPEmHkLqqw2UNQNAmFbgrzxf+2MpjA/DPov?=
- =?us-ascii?Q?bB1S+h7ziH931NURZhywy/gMLxTTunTjhvxczBNvToNRlwy/uXKIh2spQHSH?=
- =?us-ascii?Q?wj7ZQtakk3wpMGxj0EWw7XXh1MWqW11T60WMj85oEsVSaoBXidGSTPfC4wpF?=
- =?us-ascii?Q?n5Jflmk1uZ/4x6mLwrAgi6wpVOMfj56V+BMYYTClFsiNgLSlJu99OyuPuDTj?=
- =?us-ascii?Q?WJFwZyHoWGkI627lvkCb4a3zLlg6ImBRHIb5iyDAo7Ps0WudROP+s0xyh4vt?=
- =?us-ascii?Q?pWFvIvbwmu0dAWv+aWt52SpSW4sTshH0yxPAdjiqUR2++BFsiXH8xSiTy1Rk?=
- =?us-ascii?Q?VnPl8XLPubj9aplpYC3+5oWGdW/z6KxCMy68ITM2Rd+1J4l73dejtpv/zZ6e?=
- =?us-ascii?Q?KhCFADXlkiDkc3YGN06ODBuyTHxYkhmk+zbmkGLGaO0jVTeFB6Hp0Lj380K6?=
- =?us-ascii?Q?sD6cFy7Z+SonyqSnLZbj0xeGMRKqLtMdQQ6h9c46UOVAxzVhJPt5GRzrsHmv?=
- =?us-ascii?Q?dp8DMv0ubVc09irpJEd6/67qTANxP0CoCXnvYDfyNLE5XhyIimtSqj3dvjfv?=
- =?us-ascii?Q?G3M6wkkcx5VJxGlPU3MMJTSiiSyO+oX6tVPCW1ASjeSY0tofqFYtn+CACxLB?=
- =?us-ascii?Q?74RIyhhXlt3OgZ5+cwN3kVV+wIWDmf0zgthZfEIP5i9nagNcuTrmVF2NKqF6?=
- =?us-ascii?Q?rHoruFbb5pVAP16tXtceHpYg47V4ymTlld9/DXT3jJc/JS1Mj145IAE+VvOe?=
- =?us-ascii?Q?RXFNBB0s/z3l8xCMNwe53AbsbJG/V3v+WRxX5JcRPZlV9KINC6hf0XcgKJAS?=
- =?us-ascii?Q?XdWjtUCEq+vH9bQE+fGGasE0bvQvV5/Q3vZMcUr+8MwMyC0NaUuIJ3IEFGgW?=
- =?us-ascii?Q?viLV1k7oKiVrWsJnlpEh02qicZVlXdGHNaqxsDXhiDT7qWvDqOK93PuBRtm6?=
- =?us-ascii?Q?wJEtej3sxjeLVQ0UCCN3qd0YxRpWeBteDWncoGjk1q4eTvedVcgwxNWO7cMc?=
- =?us-ascii?Q?j2mYy1FyUUOGT9juIrjLWRSMPokuIzj/HPpdkNKxQV+SG0y69OWXDiPbZe0A?=
- =?us-ascii?Q?uKpu8wdcuFj5A8ZDOcPvNHCc0nWCggz+VA3ooiNI?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dba5fb7e-943a-410d-5ea2-08dd62d20a42
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 08:27:21.3287
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VtDGobT1XKsKH0nsB724JkHrL0Q3AnVBS3+eqbeSVlaGX4nrloVaBiwVkBgBhk9cVIRzNsi68CtWJk1f3aGfPg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7738
+References: <20250314073307.25092-1-Lu.Tang@mediatek.com>
+In-Reply-To: <20250314073307.25092-1-Lu.Tang@mediatek.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 14 Mar 2025 16:27:32 +0800
+X-Gm-Features: AQ5f1Jpo3FChFigHgYdppgke4q0-o7VP4uIqPhGPsM2p4V783Z7jAOTWY1--PXQ
+Message-ID: <CAGXv+5EzdMtOXotGUNdwdP-cKPwMccH6kGDifpg+WgjX_2z2VQ@mail.gmail.com>
+Subject: Re: [PATCH 0/5] Add PMIC and SPMI driver for mt8196
+To: "Lu.Tang" <Lu.Tang@mediatek.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Chen Zhong <chen.zhong@mediatek.com>, Sen Chu <shen.chu@mediatek.com>, 
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, Project_Global_Chrome_Upstream_Group@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_012725_114104_E665D006 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250314_012745_180357_1332EA1D 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,28 +101,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 06, 2025 at 12:27:49PM +0100, Dario Binacchi wrote:
->This version keeps the version v9 patches that can be merged and
->removes the patches that will need to be modified in case Peng's
->PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
->The idea is to speed up the merging of the patches in the series
->that have already been reviewed and are not dependent on the
->introduction of the assigned-clocks-sscs property, and postpone
->the patches for spread spectrum to a future series once it becomes
->clear what needs to be done.
+On Fri, Mar 14, 2025 at 3:56=E2=80=AFPM Lu.Tang <Lu.Tang@mediatek.com> wrot=
+e:
 >
-Although I give R-b, there is an idea just come out in my mind that this
-might break OS distribution that use firmware(e.g. U-Boot) to publish
-device tree for Linux Kernel, such as ARM System-Ready complaint OS.
-I overlooked this point in previous patchset reviewing.
+> This series is based on linux-next.
+>
+> Changes in v0:
+> - Modify SPMI driver for mt8196
+> - Add SPMI PMIC mfd driver
+> - Add PMIC regulator driver for mt8196
+>
+> *** BLURB HERE ***
+>
+> Lu.Tang (5):
+>   pmic: mediatek: Add pmic auxadc driver
+>   pmic: mediatek: Add pmic regulator driver
+>   pmic: mediatek: Add spmi pmic mfd driver
+>   spmi: mediatek: modify spmi dirver for mt8196
+>   dt-bindings: pmic: mediatek: Add pmic documents
 
-Since this patchset is to move anatop stuff to a new driver to reflect
-the HW truth.  And requires new entries in CCM node, so old bootloader
-with new kernel will not boot for OS distribution, such as Fedora/openSuse.
+You are adding three PMICs at the same time. Please separate each
+patch in this series so that it is one patch per type per PMIC.
 
-Not sure how to keep backwards support as before. Leave to maintainers
-to say if they are ok with this.
+ChenYu
 
-Regards,
-Peng
+
+>  .../iio/adc/mediatek,spmi-pmic-auxadc.yaml    |   31 +
+>  .../bindings/input/mediatek,pmic-keys.yaml    |    1 +
+>  .../bindings/mfd/mediatek,mt6685.yaml         |   50 +
+>  .../bindings/mfd/mediatek,spmi-pmic.yaml      |  173 +++
+>  .../pinctrl/mediatek,mt65xx-pinctrl.yaml      |    1 +
+>  drivers/iio/adc/Kconfig                       |   10 +
+>  drivers/iio/adc/Makefile                      |    1 +
+>  drivers/iio/adc/mtk-spmi-pmic-adc.c           |  576 +++++++++
+>  drivers/mfd/Kconfig                           |   26 +
+>  drivers/mfd/Makefile                          |    2 +
+>  drivers/mfd/mt6685-core.c                     |   83 ++
+>  drivers/mfd/mtk-spmi-pmic.c                   |  518 ++++++++
+>  drivers/regulator/Kconfig                     |   34 +
+>  drivers/regulator/Makefile                    |    3 +
+>  drivers/regulator/mt6316-regulator.c          |  381 ++++++
+>  drivers/regulator/mt6363-regulator.c          | 1106 +++++++++++++++++
+>  drivers/regulator/mt6373-regulator.c          |  826 ++++++++++++
+>  drivers/spmi/spmi-mtk-pmif.c                  | 1040 +++++++++++++++-
+>  include/linux/mfd/mt6363/core.h               |  134 ++
+>  include/linux/mfd/mt6363/registers.h          |  168 +++
+>  include/linux/mfd/mt6373/core.h               |   94 ++
+>  include/linux/mfd/mt6373/registers.h          |   53 +
+>  include/linux/regulator/mt6316-regulator.h    |   48 +
+>  include/linux/regulator/mt6363-regulator.h    |  424 +++++++
+>  include/linux/regulator/mt6373-regulator.h    |  318 +++++
+>  25 files changed, 6037 insertions(+), 64 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/mediatek,sp=
+mi-pmic-auxadc.yaml
+>  create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6685=
+.yaml
+>  create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,spmi-p=
+mic.yaml
+>  create mode 100644 drivers/iio/adc/mtk-spmi-pmic-adc.c
+>  create mode 100644 drivers/mfd/mt6685-core.c
+>  create mode 100644 drivers/mfd/mtk-spmi-pmic.c
+>  create mode 100644 drivers/regulator/mt6316-regulator.c
+>  create mode 100644 drivers/regulator/mt6363-regulator.c
+>  create mode 100644 drivers/regulator/mt6373-regulator.c
+>  create mode 100644 include/linux/mfd/mt6363/core.h
+>  create mode 100644 include/linux/mfd/mt6363/registers.h
+>  create mode 100644 include/linux/mfd/mt6373/core.h
+>  create mode 100644 include/linux/mfd/mt6373/registers.h
+>  create mode 100644 include/linux/regulator/mt6316-regulator.h
+>  create mode 100644 include/linux/regulator/mt6363-regulator.h
+>  create mode 100644 include/linux/regulator/mt6373-regulator.h
+>
+> --
+> 2.46.0
+>
+>
 
