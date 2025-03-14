@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0D6C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D25C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14q1zuoC/RYgpg42ycjqCS4ie1FHZTJiWO21vFg6qTk=; b=ABEaiTxAUuiV5pajo2fvMqtw2H
-	J4zjhYDES0V86XFBk8bzxHeZqy6pdPDo2aEhuDodaq1D5EChLwcHsCYtvS/EEDOkPG77D8Ykqti59
-	jKGUjcl3Csc/tusX45FlCBa5c+xRpMvFyymBHTluvAUCkN+os0TN74ekHzXjcKePg2RvDrlp5jMeE
-	odgEAaXNTy10rNHX6WsiA1WdYdHQ9Zh1gE4pJbDKh4+ga5UBaDoUDR9zA4FvRPxR1TFepc1szOhYi
-	uP/jnfi/e9hueNOTZ62LqqYi3cWjQg1QT6ICcSIElizicKjxMiwc+AOFJbK7S44YnEwCiWKAf6SAL
-	kBO5Iz8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uumL/iMZWLeatJCRzK/5OqmHs1yyifX8CVVlfPUqW88=; b=unT8XNPUXukG0w5lAec3y2XPUg
+	HA7EPhIPEupn+LQZxmuBJrb7bXkxD5AFUP6DgKmdZwc83qE14YpE3kj3jnZ2F//4Hlh+ozmVgn06A
+	xOVRarmQ3041mvvQHsn6RpqgjjZt1iXZw4X23s2b3l/pTZF15mHBqwHiaf9DGQjMC/rN15udSR+EA
+	5QUyTFriXJUPbUDcx1e9pJstycxJ+wbPRtYRUfAeEinS4DVjDE3E+S9OLMwJnseGucR60myLBn9j3
+	p1ajgz70jn3vI3azBl5UmvDauC6KSPO1yjp8vCf6b1y7xLBCuj94O5rj/BmeQ5VSlwH3mZE9GmA9N
+	O5+csjMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAYf-0000000F6Lf-0Eq7;
-	Fri, 14 Mar 2025 19:19:01 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAWz-0000000F6Eb-0w2w;
-	Fri, 14 Mar 2025 19:17:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=14q1zuoC/RYgpg42ycjqCS4ie1FHZTJiWO21vFg6qTk=; b=Axg7LZJgdNjewBL3JmJdJjRst/
-	x+jKPP3zJ0C+xYYh9xUgnBH1pROTkSJ0lR28U4q6kclRSU7gfyGVxoJEzNWkYluenQIkMYN/tHsEs
-	jwlKbjzT8MOPsstAZgrAr7deVqqDqD2BHYSVuejuSKEG/zgHZE3gFV9+gIuUwKuX9gtA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ttAWg-005Nnw-Nm; Fri, 14 Mar 2025 20:16:58 +0100
-Date: Fri, 14 Mar 2025 20:16:58 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 09/13] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-Message-ID: <2253e19b-2115-441e-b78a-3c10d61f2fad@lunn.ch>
-References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-10-ansuelsmth@gmail.com>
+	id 1ttAgi-0000000F6uz-2N4t;
+	Fri, 14 Mar 2025 19:27:20 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ttAf2-0000000F6ok-20cQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Mar 2025 19:25:37 +0000
+Received: from [192.168.0.107] (76-14-231-56.or.wavecable.com [76.14.231.56])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 068C52033454;
+	Fri, 14 Mar 2025 12:25:33 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 068C52033454
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741980333;
+	bh=uumL/iMZWLeatJCRzK/5OqmHs1yyifX8CVVlfPUqW88=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lcwAW6o9/himPCT2tEXXsKoXHWO8oRb1H+x24X7ywVm5YDb+pGWilcslz1ctKgD2Q
+	 GFC+AqJBc2u+TzfWQJOXhlLuVrZvFJflC3ZhteSn1bhAyI+98O5uSfCvvTUlOFsxju
+	 DJnw4BKFc9L2OEScqPySBUc6fAC0f5am1INgXf3w=
+Message-ID: <c480e790-0abb-41af-a0cb-e358ff7b671f@linux.microsoft.com>
+Date: Fri, 14 Mar 2025 12:25:32 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309172717.9067-10-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 10/10] Drivers: hv: Introduce mshv_root module to
+ expose /dev/mshv to VMMs
+To: Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+ linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org
+Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+ mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
+ will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-11-git-send-email-nunodasneves@linux.microsoft.com>
+ <fcd132af-03e4-496d-ba70-0097e90a83cf@oss.qualcomm.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <fcd132af-03e4-496d-ba70-0097e90a83cf@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_121717_262993_E18F860B 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250314_122536_547686_4C0C3CB6 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static int an8855_mii_set_page(struct an8855_mfd_priv *priv, u8 phy_id,
+On 3/11/2025 11:01 AM, Jeff Johnson wrote:
+> On 2/26/25 15:08, Nuno Das Neves wrote:
+> ...
+>> +
+>> +MODULE_AUTHOR("Microsoft");
+>> +MODULE_LICENSE("GPL");
+>> +
+> 
+> Since commit 1fffe7a34c89 ("script: modpost: emit a warning when the
+> description is missing"), a module without a MODULE_DESCRIPTION() will
+> result in a warning with make W=1. Please add a MODULE_DESCRIPTION()
+> to avoid this warning.
+> 
+> This is a canned review based upon finding a MODULE_LICENSE without a
+> MODULE_DESCRIPTION.
+> 
+> /jeff
 
-phy_id is a bit of an odd name. __mdiobus_write() expects addr, since
-at this level, it is just a device on a bus. We have no idea if it is
-a PHY, or an Ethernet switch, or anything else.
+Thanks Jeff. Fixed in v6.
 
-> +			       u8 page) __must_hold(&priv->bus->mdio_lock)
-> +{
-> +	struct mii_bus *bus = priv->bus;
-> +	int ret;
-> +
-> +	ret = __mdiobus_write(bus, phy_id, AN8855_PHY_SELECT_PAGE, page);
-> +	if (ret < 0)
-> +		dev_err_ratelimited(&bus->dev,
-> +				    "failed to set an8855 mii page\n");
-> +
-> +	/* Cache current page if next mii read/write is for switch */
-> +	priv->current_page = page;
-> +	return ret < 0 ? ret : 0;
-
-__mdiobus_write() should only return -ve error code, or 0. So you
-don't need this.
-
-	Andrew
+Nuno
 
