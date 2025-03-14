@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7598BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C978C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tIY165QBF2I7E64kxf0y7gan5+WkPY6SwpR93M25+8U=; b=0wohWWpZxOCZNKPU0mYVk4jTWF
-	JXEDJ7ZFgxBasu0Nr/xk3R+LaRjkjD2MK6qb/ZVjvP83rypNsEiWYn1F6/eFQvUkY9FhVVX2pfbck
-	zYObSaKeKtdOveLJMmG3yktVKNXQ8fTn9yyFl4PZoi3gh2J7gir5CQhMl3kDMiMkfA0/Ha5tq8wsX
-	1Bp/c854UQNEuN1xHhX7PHAMYa8x7CZ5qSO8p5qclrCZ1cBsNIfY5gxZCSRu0v/bId8fI5mAdcS/w
-	IYrber5rWoteB2wtg/ND4b8hqAYFL1s7Ie2TPfxgOeoYCPJf8avcGiSa5kyftKLHNAZqNa+1j7alY
-	YGi8wOoQ==;
+	bh=rXJyhLZM0wQnuMA6BY86fx7l1XvsG57/1opLs9TF2k0=; b=S2v2PQOuKDrb0o80v0LJH0+lOZ
+	O6dIFcNt//4lgViMoe5VJ6B2NO8mRzM+L/C7vbmb4FGxP7pNSz6Vs/h5x32MTPYR4TOokjH0/jtk6
+	B5NPDTaguyl9F1DIuduWqVaMt7PzxuBbjr5fKN1asilfmqPnFF+ko5s+g6iNscLyB6VMmCzhdTQsO
+	uSK1m+0cfQkyBoE4QZvdnvHZJPiUZoEwLCFzGFOp1Mdc68KC+ywlel/z5iC8JpEyOPqSegCuvqoxy
+	4rv+LFtWEy/5/kLCQiM1f7R1pCFf99rMz/yLLHW0M7lAKp68cNNiN9ICLU7z2ubi8aEstzUQfrWXr
+	pULDzLwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7Wl-0000000EfTh-2Oxc;
-	Fri, 14 Mar 2025 16:04:51 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tt7YQ-0000000EfoX-0wdv;
+	Fri, 14 Mar 2025 16:06:34 +0000
+Received: from 003.mia.mailroute.net ([199.89.3.6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7Sg-0000000EepC-1chy
+	id 1tt7TO-0000000EevS-2WMP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 16:00:39 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ff62f9b6e4so561521a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 09:00:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741968038; x=1742572838; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tIY165QBF2I7E64kxf0y7gan5+WkPY6SwpR93M25+8U=;
-        b=TZdCwFxysKtV8D/XFN+dmxhgh2wWTj1mz200GvVfaoFKt7S76x+DkbJCVQcQTelx8A
-         C9uUcr/zx+DpZgRF8lK7ycFIkJmORgHrXHg95Bo8VHgO3cc2kOpnb2+H9m9lTaO86Eoj
-         2C61i6+ZILBUr3T6cKEcHwhik/mJHrI5fn8RkCsKec1Yl2AgzCXE/gYZ43B3s2aWm2Vf
-         Nz58UK3KPDK6cJQ47iqm5YIA7DtbxuLlvlxdo2t2WeS2Do5wRVR5ZMV3H4ST3ULE9SQ5
-         4fCM9EmQNG7hpKUca/neyaam+3ojie+bgJMLwgWktTt/buj4Qgc7VDPwN3HDQaOuGmNJ
-         cCQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741968038; x=1742572838;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tIY165QBF2I7E64kxf0y7gan5+WkPY6SwpR93M25+8U=;
-        b=MZRwVe3//V18KTjBjzs91Do1/t3LJR+Be98fsPkSJO/4BMYo117nEE5DFpAkgRZV/V
-         d67OhM0sMSw5pxP0bYhfwZyzwWcdAJtp/9+ZghYHRZf+PxLRw+45QLy9v8y81+pK9IGa
-         rDUhBCNzsV6WB9t1M3UGRBbJPaXcSiPYPOaOmnJuZJ63LVUitJusOE4XUsgQJv6v6ri7
-         1mXaesk7sagyASXPb8dFxfdzOSsD/Zgokun9ZWXkr3d2s1R8fiKbHpfBDzpLA+HsrOHl
-         Yn18KWd6JS0nA42EhPudJZlYaw8YNj2jbyzOU3KYY3AegMBmrBd8U6/7Fa5pJV3hKptE
-         CpZA==
-X-Forwarded-Encrypted: i=1; AJvYcCUemZmdzflgDiB3PM71sHJuU7ilBYih+BUVsaOVVip0UyyNEk0z4AJL2ag3Tgkn3n1NugjhB6UDRqufzx1uFGe1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpKTe/aRvKu3oB3eMtGXlGfNzFqyhZlJsVl4A2VkiEsPWelu0N
-	htqx/6+ncAK3SjjmghxWCObVzvyG6WLlF/7oNI/WIQv8sbZRugRjkpw3qPsRDX0moV8sCAcVh8e
-	FNZd9qvd++K9EbPW1Cs6RxM/NaA==
-X-Gm-Gg: ASbGnctDGFSkAxhF2+4FrLcfwQ4sqelKN1HJeos3LX7YSGAWKGpNNbXbEj/6ouVDgYq
-	g+0HVHD2avwEvxPpVYAjvN9OjvqQu9TWPB+NyvCH++RRNKpquA3GYi71yA6VMNvWHHG9MS3lvcg
-	hU00nZCRfww1XUg6/gTSGBN2KLyUQ=
-X-Google-Smtp-Source: AGHT+IHPg5LEX9RcXJcT7z3Dh6z47dRs4csMp548pLAhreG5srJVcZIIpfZ8T/92XQSoT8s0QhUvp3pVVX5xQ+RxwCQ=
-X-Received: by 2002:a17:90b:164f:b0:2ff:5759:549a with SMTP id
- 98e67ed59e1d1-30151c88e12mr1556703a91.1.1741968037522; Fri, 14 Mar 2025
- 09:00:37 -0700 (PDT)
+	Fri, 14 Mar 2025 16:01:23 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 003.mia.mailroute.net (Postfix) with ESMTP id 4ZDpxw2lf2zlxdd0;
+	Fri, 14 Mar 2025 16:01:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1741968065; x=1744560066; bh=rXJyhLZM0wQnuMA6BY86fx7l
+	1XvsG57/1opLs9TF2k0=; b=aEo7PzKDFvqEu1SpnvxvHFFD23HwXN7o7B14pn+T
+	nkwZ6O9nOQH4aWdeR8HCx33d5yIF/mdttl6f8EPzQkHK89SXd4Aho16S0ZythcsP
+	cA55cJMCbIm1djaeOSyu/7qaO7aeA1833OZRGaX9DadZ5HxBo1TI1cr9soH9bfHD
+	wnaUbzJ0XHfIC70bsVsj8EiPqpvZcUoYWhej0mi5Gfl2aT+H6gq9VNVScFj+5d+n
+	lzoAfEyyK0aWgBiIJ0MXXoOJ/s9zttde3/k41PbTePU2bK2JJoKHnHnf5CLeSXOU
+	60V4UHspkVUPt/ftllQT+ZYtSTbT+s52m5FjnGxjdmKcPw==
+X-Virus-Scanned: by MailRoute
+Received: from 003.mia.mailroute.net ([127.0.0.1])
+ by localhost (003.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id DP3PM_usb6m4; Fri, 14 Mar 2025 16:01:05 +0000 (UTC)
+Received: from [100.66.154.22] (unknown [104.135.204.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 003.mia.mailroute.net (Postfix) with ESMTPSA id 4ZDpxW0567zlfdj2;
+	Fri, 14 Mar 2025 16:00:46 +0000 (UTC)
+Message-ID: <0d7a8cad-adfc-4cac-bcc6-65d1f9c86b43@acm.org>
+Date: Fri, 14 Mar 2025 09:00:45 -0700
 MIME-Version: 1.0
-References: <20250314012029.668306-1-chenyuan0y@gmail.com> <20250314-prophetic-attentive-platypus-3ab214@houat>
-In-Reply-To: <20250314-prophetic-attentive-platypus-3ab214@houat>
-From: Chenyuan Yang <chenyuan0y@gmail.com>
-Date: Fri, 14 Mar 2025 11:00:26 -0500
-X-Gm-Features: AQ5f1JoUD0V5ZOdvR5FcIitlHbVLK_E695Xu4I0ACsV86e_NOveKe5yScUlp2jo
-Message-ID: <CALGdzurT1_fY_o8Hv92j4+XFQHu1iHRzqVtZAM8upHYBPfA1BA@mail.gmail.com>
-Subject: Re: [PATCH] drm/sun4i: backend: Fix error pointers in sun4i_backend_atomic_check
-To: Maxime Ripard <mripard@kernel.org>
-Cc: wens@csie.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, jernej.skrabec@gmail.com, 
-	samuel@sholland.org, neil.armstrong@linaro.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] Add dma-coherent for gs101 UFS dt node
+To: Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Avri Altman <avri.altman@wdc.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-scsi@vger.kernel.org, kernel-team@android.com,
+ willmcvicker@google.com, stable@vger.kernel.org
+References: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_090038_425151_B4BF35FB 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20250314_090122_705791_F4A4B78F 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,82 +93,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HI Maxime.
+On 3/14/25 8:38 AM, Peter Griffin wrote:
+> ufs-exynos driver enables the shareability option for gs101 which
+> means the descriptors need to be allocated as cacheable.
 
-Thanks so much for pointing that out!
+Shouldn't that code be modified such that the shareability option is
+only set if the dma-coherent property is present in the device tree?
 
-How about such a patch?
+Thanks,
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c
-b/drivers/gpu/drm/sun4i/sun4i_backend.c
-index 2dded3b828df..5ad0e90d3e6b 100644
---- a/drivers/gpu/drm/sun4i/sun4i_backend.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
-@@ -490,9 +490,14 @@ static int sun4i_backend_atomic_check(struct
-sunxi_engine *engine,
-  drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
-  struct drm_plane_state *plane_state =3D
-  drm_atomic_get_plane_state(state, plane);
-- struct sun4i_layer_state *layer_state =3D
-- state_to_sun4i_layer_state(plane_state);
-- struct drm_framebuffer *fb =3D plane_state->fb;
-+ struct sun4i_layer_state *layer_state =3D NULL;
-+ struct drm_framebuffer *fb =3D NULL;
-+
-+ if (IS_ERR(plane_state))
-+ return PTR_ERR(plane_state);
-+
-+ layer_state =3D state_to_sun4i_layer_state(plane_state);
-+ fb =3D plane_state->fb;
-
-  if (!sun4i_backend_plane_is_supported(plane_state,
-        &layer_state->uses_frontend))
---=20
-
--Chenyuan
-
-On Fri, Mar 14, 2025 at 2:17=E2=80=AFAM Maxime Ripard <mripard@kernel.org> =
-wrote:
->
-> Hi,
->
-> On Thu, Mar 13, 2025 at 08:20:29PM -0500, Chenyuan Yang wrote:
-> > The function sun4i_backend_atomic_check was dereferencing pointers
-> > returned by drm_atomic_get_plane_state without checking for errors. Thi=
-s
-> > could lead to undefined behavior if the function returns an error point=
-er.
-> >
-> > This commit adds checks using IS_ERR to ensure that plane_state is
-> > valid before dereferencing them.
-> >
-> > Similar to commit da29abe71e16
-> > ("drm/amd/display: Fix error pointers in amdgpu_dm_crtc_mem_type_change=
-d").
-> >
-> > Fixes: 96180dde23b7 ("drm/sun4i: backend: Add a custom atomic_check for=
- the frontend")
-> > Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-> > ---
-> >  drivers/gpu/drm/sun4i/sun4i_backend.c | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >
-> > diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c b/drivers/gpu/drm/su=
-n4i/sun4i_backend.c
-> > index 2dded3b828df..a8e0e2123764 100644
-> > --- a/drivers/gpu/drm/sun4i/sun4i_backend.c
-> > +++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
-> > @@ -490,6 +490,10 @@ static int sun4i_backend_atomic_check(struct sunxi=
-_engine *engine,
-> >       drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
-> >               struct drm_plane_state *plane_state =3D
-> >                       drm_atomic_get_plane_state(state, plane);
-> > +
-> > +             if (IS_ERR(plane_state))
-> > +                     return PTR_ERR(plane_state);
-> > +
->
-> This introduces a build warning. You shouldn't mix declarations and code.
->
-> Maxime
+Bart.
 
