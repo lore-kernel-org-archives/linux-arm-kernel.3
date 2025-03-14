@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490A9C35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 17:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA9AC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 17:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HPWXN7XU6ij/VILhA4L2prDYWt4HSSzxWCxw+iSrXQ4=; b=v1+QyuWFMB62Fm5VEXeVSlg9vu
-	oim2eKYdhlkRthdY042NIRU/s08RFrwRnfjJ7UWG9DPN36TNe60DmCVZD/e/RtzXAChNqgWcNeSHQ
-	+XUSqpCTKfpbrArgp2wo26pIgF1G3yd0O6zSj+SCKhBkwjNqdkfZ8AOVRw+IgHLU9FyG2CgFouja+
-	YFpBiSJ1lZfQRy3uZ4HoVgepTwI0L/s5VmsPRriFoNw6pO4b4dOrks7zXrpo9gRTvrmS0zBYOi9Ef
-	GS+BsolIa7/nOko1+5cqneWAsUre7twMJboOQWP1Dl/gAIj4ctZIlrfc/02iBzzQW/YK1DR9j0JY5
-	wE249rvQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TbD/TdwU+qHq+NwWIps3/LhUGddSUepWeKH8hb9UQKc=; b=v+BB+5JLhgOBLIsbacIwNMUS8f
+	W5AGRpmvOxlNlx73DrtSmHKp9ig1ZRutO5Kj27B1Izi9NHO6avb8/CQ8MF9forSWWxrhXd1bDKdqf
+	DzkGiWEoB5Im7PocSJ1z9+JPPoJxewqz/iwkcrysFqfJV/KAs8v52D76cObMwbUA2MsMw645xPrql
+	3dfKZsNwoq7b2ja6u+Y53bVClM07Xz8uN6RAZV+0Rw8lPfdATycGPR52Izcer70v7CvD1l+9TkYYj
+	SUgXYGYNKhz0o36aD4DPCcQti6F9fmScR47Do/Vh6sasSBxIov8dfhgtTVTRixNeQihCKUnY8GH8m
+	hBMgHWqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt92W-0000000Eur8-1tw3;
-	Fri, 14 Mar 2025 17:41:44 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tt94A-0000000EvCE-0j2B;
+	Fri, 14 Mar 2025 17:43:26 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8vZ-0000000Et4b-2tRj
+	id 1tt8vc-0000000Et6u-2i9d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 17:34:35 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52EF9wIc000641;
-	Fri, 14 Mar 2025 18:34:18 +0100
+	Fri, 14 Mar 2025 17:34:38 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52EF6KLg008585;
+	Fri, 14 Mar 2025 18:34:13 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	HPWXN7XU6ij/VILhA4L2prDYWt4HSSzxWCxw+iSrXQ4=; b=itp+4B3r9rKo4hwC
-	HNzlLq7jgA4uFFDPQmVojOmqSclbeZ6R7I6P+LyoIq8q4xFXqrO4fTUCjftg/NOL
-	loD7xKhuMlwHYAj+KQz9ieDdOwzqF7dj6MGxGT3bi8a7YInOaC+y9PTsIG5nXlFF
-	08ELdOeHXfOZ1v4si4LOaGqJ058oK8l+9VIjaca13SvrBId7XTYppObOvnzV8O+6
-	7svBrf0piKsFylfhKfj00h4eUXGzhljwmnvFfi4HSth1MLnihYkyUFweRot1vHJ0
-	PjMFntVokKbHhy9AjBA/9Gjt94HLsZUbwwvMtGshRClEvl8vSFtZOscuZV2sFgBQ
-	Ymr3pw==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=TbD/TdwU+qHq+NwWIps3/L
+	hUGddSUepWeKH8hb9UQKc=; b=VZ3xLcv6tx+H3qO2Y6pL+h3q1yn8UsQQ+z+s/R
+	Va2hhkTOiNfcyLTPCcQOjjMw9JoPjkJwtanyf8W4lw4Cd0i1wCfQAjzAVve4pXoK
+	YzBbVysPCv6i1dhl7K7uV8Nvmxd6cSw350BwTMbt4JUjikNXpXODisUHqZPM1Q7y
+	Nj2XH/fz2m4tVPqMISgD1b/tLJFPPtW0nhSaXz2MZIX7jTDwS4XcHJZ8nptJbYMH
+	zcLx39/f0KCNBftuC2RjXqgs3CEwvhTGxEwfqkspLDn3NozMarzX11cn4pWpNGzn
+	kFdpJkqNlPWVYo/hY7syKspvIyYug/28BWs2Jyh/5Qkd260w==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45c2pkn7y5-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45c2nswdtk-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Mar 2025 18:34:18 +0100 (CET)
+	Fri, 14 Mar 2025 18:34:13 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4568940063;
-	Fri, 14 Mar 2025 18:33:04 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4B2204005F;
+	Fri, 14 Mar 2025 18:32:59 +0100 (CET)
 Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E436C6D8E8C;
-	Fri, 14 Mar 2025 18:15:08 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D6E076D07B8;
+	Fri, 14 Mar 2025 18:15:03 +0100 (CET)
 Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
  (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 14 Mar
- 2025 18:15:08 +0100
+ 2025 18:15:03 +0100
 Received: from localhost (10.252.1.141) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 14 Mar
- 2025 18:15:08 +0100
+ 2025 18:15:03 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <jic23@kernel.org>,
@@ -68,12 +67,10 @@ CC: <robh@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
         <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v4 6/8] arm64: defconfig: enable STM32 LP timer clockevent driver
-Date: Fri, 14 Mar 2025 18:14:49 +0100
-Message-ID: <20250314171451.3497789-7-fabrice.gasnier@foss.st.com>
+Subject: [PATCH v4 0/8] Add STM32MP25 LPTIM support: MFD, PWM, IIO, counter, clocksource
+Date: Fri, 14 Mar 2025 18:14:43 +0100
+Message-ID: <20250314171451.3497789-1-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250314171451.3497789-1-fabrice.gasnier@foss.st.com>
-References: <20250314171451.3497789-1-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -84,9 +81,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-14_06,2025-03-14_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_103434_040524_05E87F90 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250314_103436_989028_482E5033 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +97,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the STM32 LP timer MFD core and clockevent drivers used on
-STM32MP257F-EV1 board, for PSCI OSI.
+This series adds support for STM32MP25 to MFD PWM, IIO, counter and
+clocksource low-power timer (LPTIM) drivers.
+This new variant is managed by using a new DT compatible string, hardware
+configuration and version registers.
+It comes with a slightly updated register set, some new features and new
+interconnect signals inside the SoC.
+Same feature list as on STM32MP1x is supported currently.
+The device tree files add all instances in stm32mp251 dtsi file.
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Changes in V4
 ---
-Changes in v2:
-- dropped unused IIO trigger, PWM and counter driver unused on upstream
-board currently, as advised by Krzysztof
----
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+- Simplify IIO trigger driver as per Jonathan's comments.
+- Rework clocksource driver: encapsulate mp25 changes in separate function
+  after Daniel's suggestion.
+- Add some definitions to MFD header.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 1f25423de383..b29b2350ae27 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -775,6 +775,7 @@ CONFIG_MFD_TI_LP873X=m
- CONFIG_MFD_TPS65219=y
- CONFIG_MFD_TPS6594_I2C=m
- CONFIG_MFD_ROHM_BD718XX=y
-+CONFIG_MFD_STM32_LPTIMER=m
- CONFIG_MFD_WCD934X=m
- CONFIG_MFD_KHADAS_MCU=m
- CONFIG_REGULATOR_FIXED_VOLTAGE=y
-@@ -1401,6 +1402,7 @@ CONFIG_CLK_RENESAS_VBATTB=m
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_QCOM=y
- CONFIG_TEGRA186_TIMER=y
-+CONFIG_CLKSRC_STM32_LP=y
- CONFIG_RENESAS_OSTM=y
- CONFIG_ARM_MHU=y
- CONFIG_IMX_MBOX=y
+Changes in V3
+---
+- Yaml indentation issue fixed, reported by Rob's bot
+
+Changes in V2
+---
+- Review comments from Krzysztof
+  - Adopt compatible fallback in dt-bindings and driver
+  - drivers: drop "st,stm32mp25-..." compatibles when unused (e.g. no .data)
+  - counter driver: no update (patch dropped)
+  - defconfig: only enable the necessary config for upstream board
+  - add lptimer DT node in stm32mp257f-ev1 board
+- Add missing management of IER access for stm32mp25
+
+Fabrice Gasnier (7):
+  dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
+  mfd: stm32-lptimer: add support for stm32mp25
+  clocksource: stm32-lptimer: add support for stm32mp25
+  pwm: stm32-lp: add support for stm32mp25
+  arm64: defconfig: enable STM32 LP timer clockevent driver
+  arm64: dts: st: add low-power timer nodes on stm32mp251
+  arm64: dts: st: use lptimer3 as tick broadcast source on
+    stm32mp257f-ev1
+
+Olivier Moysan (1):
+  iio: trigger: stm32-lptimer: add support for stm32mp25
+
+ .../bindings/mfd/st,stm32-lptimer.yaml        |  40 +++-
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        | 177 ++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |   8 +
+ arch/arm64/configs/defconfig                  |   2 +
+ drivers/clocksource/timer-stm32-lp.c          |  51 +++-
+ drivers/iio/trigger/stm32-lptimer-trigger.c   |  75 ++++--
+ drivers/mfd/stm32-lptimer.c                   |  33 ++-
+ drivers/pwm/pwm-stm32-lp.c                    | 219 +++++++++++++++---
+ include/linux/iio/timer/stm32-lptim-trigger.h |   9 +
+ include/linux/mfd/stm32-lptimer.h             |  37 ++-
+ 10 files changed, 594 insertions(+), 57 deletions(-)
+
 -- 
 2.25.1
 
