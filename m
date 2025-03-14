@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFE4C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE75DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IDQpZnKOwg8xvl3hBP1CVJrE/5b1YbVGtnJdK4DcRVY=; b=3ZiMFWDNHBTk6d7iAptVSzZstu
-	5Ib8WMFAGsWUErO0VH/LwV7JSuNlZki2Cy4Qz7n1CDmcxbWwAIGrKMyT4zl3G8cT/WWz5o6L/TqkV
-	j+kFs56EsyXki0/7AeQ1ImsptWvQlONpbjvkL+ZNHZkMSNwxnf5Wj2rmWwztNVOwuYhld/n4BCGi1
-	g8Lw9FBF0rZEno4QJb6c2aCB62Z17oTJd/oRugeL+DlaWe+b6+76Ps7wPIVpab9mbMnHMqqJXmGlu
-	XGZ/tJmMCSeX7JCuHXCj3YZ79cJkXj6mkUqbgxXqzWvOBnAUWxtee0NUvPwre3Xb2oyi8zIzNOjFU
-	zSgPX1Yw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U08S6bLxyQhDFXz9H3gyB4utEcaZGmnAtgkdoh3pZ5c=; b=EXgq3dQ+ULYcm95vCxqWU/FrtB
+	DpvtaMOmxJc5phqyOsbGPEaQG/S3u38B4HIiUKzR9jTw6OKafWhfpkCqjZy7dGoLpKLE5bocr7Khv
+	lZKPkalzbch8YEIeOLSJGdOgHndFNVoZZAyHV0MoGKcuYV1d8zAIlrh/NBxi4nF9t0Z1dgdDsSzNR
+	Ge2vdOIVklm0K6oCHvq+i6+Feimtm7RzQgVuRxPA30Sa9/0pLhAh2gML2BjQkG8nvD/KY8DmpxC5D
+	29r55lgR3gy8qfqF638wwfyQxR+YytwKcw7yEroYalpHwfiJJRX3CaWpNI7JA9Zrhz8cWa0WGnrZX
+	n/0lqmjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0Vj-0000000DV7N-0rca;
-	Fri, 14 Mar 2025 08:35:19 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1tt0XM-0000000DVSO-3oLy;
+	Fri, 14 Mar 2025 08:37:00 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0Hd-0000000DQvL-2drM
+	id 1tt0Hd-0000000DQvO-3xqG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 08:20:48 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4ZDcfx0mk3zCtSP;
-	Fri, 14 Mar 2025 16:17:29 +0800 (CST)
+	Fri, 14 Mar 2025 08:20:49 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZDcfS1V3szCs8d;
+	Fri, 14 Mar 2025 16:17:04 +0800 (CST)
 Received: from kwepemf500004.china.huawei.com (unknown [7.202.181.242])
-	by mail.maildlp.com (Postfix) with ESMTPS id EC7F2140156;
-	Fri, 14 Mar 2025 16:20:40 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id D6A5E1800E4;
+	Fri, 14 Mar 2025 16:20:37 +0800 (CST)
 Received: from lihuafei.huawei.com (10.90.53.74) by
  kwepemf500004.china.huawei.com (7.202.181.242) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 14 Mar 2025 16:20:39 +0800
+ 15.2.1544.11; Fri, 14 Mar 2025 16:20:36 +0800
 From: Li Huafei <lihuafei1@huawei.com>
 To: <namhyung@kernel.org>, <acme@kernel.org>, <leo.yan@linux.dev>,
 	<james.clark@linaro.org>, <mark.rutland@arm.com>, <john.g.garry@oracle.com>,
@@ -47,12 +47,10 @@ CC: <mike.leach@linaro.org>, <peterz@infradead.org>, <mingo@redhat.com>,
 	<sesse@google.com>, <adrian.hunter@intel.com>, <kan.liang@linux.intel.com>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-perf-users@vger.kernel.org>, <lihuafei1@huawei.com>
-Subject: [PATCH 4/7] perf annotate: Support for the 'extract_reg_offset' callback function in arm64
-Date: Sat, 15 Mar 2025 00:21:34 +0800
-Message-ID: <20250314162137.528204-5-lihuafei1@huawei.com>
+Subject: [PATCH 0/7] Add data type profiling support for arm64
+Date: Sat, 15 Mar 2025 00:21:30 +0800
+Message-ID: <20250314162137.528204-1-lihuafei1@huawei.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250314162137.528204-1-lihuafei1@huawei.com>
-References: <20250314162137.528204-1-lihuafei1@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -60,8 +58,8 @@ X-Originating-IP: [10.90.53.74]
 X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemf500004.china.huawei.com (7.202.181.242)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_012046_042565_3966DF62 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20250314_012046_304578_EE591FEB 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,175 +74,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At present, only the following two addressing modes are supported:
+Hi,
 
- 1. Base register only (no offset): [base{, #0}]
- 2. Base plus offset (immediate): [base{, #imm}]
+This patchset supports arm64 perf data type profiling. Data type
+profiling was introduced by Namhyung [1], which associates PMU sampling
+(here referring to memory access-related event sampling) with the
+referenced data types, providing developers with an effective tool for
+analyzing the impact of memory usage and layout. For more detailed
+background, please refer to [2].
 
-For addressing modes where the offset needs to be calculated from the
-register value, it is difficult to know the specific value of the offset
-register, making it impossible to calculate the offset.
+Namhyung initially supported this feature only on x86, and later Athira
+added support for it on powerpc [3]. Unlike the x86 implementation, the
+powerpc implementation parses operands directly from raw instruction
+code instead of using the results from assembler disassembly. As Athira
+mentioned, this is mainly because not all memory access instructions on
+powerpc have explicit memory reference assembler notations '()' in their
+assembly code. On arm64, all memory access instructions have the
+notation '[]', so my implementation is similar to x86, using the
+disassembly results from objdump, llvm, or libcapstone, and parsing
+based on strings. I believe this has the advantage of reusing the
+complex instruction parsing logic of the assembler, but it may not
+perform as well as raw instruction parsing in terms of efficiency.
 
-Signed-off-by: Li Huafei <lihuafei1@huawei.com>
----
- tools/perf/arch/arm64/annotate/instructions.c | 62 +++++++++++++++++++
- tools/perf/util/Build                         |  1 +
- tools/perf/util/disasm.c                      |  1 +
- tools/perf/util/dwarf-regs-arm64.c            | 25 ++++++++
- tools/perf/util/include/dwarf-regs.h          |  7 +++
- 5 files changed, 96 insertions(+)
+Below is a brief description of this patchset:
+ - Patch 1 first identifies load and store instructions and provides a
+   parsing function.
+ - Patches 2-3 are refactoring patches. They primarily move the code for
+   extracting registers and offsets to specific architecture
+   implementations. Additionally, a new callback function
+   'extract_reg_offset' is introduced to avoid having too many
+   architecture-specific implementations in the function
+   'annotate_get_insn_location()'.
+ - Patch 4 implements the extract_reg_offset callback for arm64.
+   Currently, it does not support parsing instructions with register
+   pairs or register offsets in operands. Register pairs often appear in
+   stack push/pop instructions, and register offsets are common when
+   accessing per-CPU variables, both of which require special handling.
+ - Patch 5 adds support for instruction tracing on arm64, primarily
+   addressing the issue where DWARF does not generate information for
+   intermediate pointers in pointer chains.
+ - Patches 6-7 further enhance instruction tracing. Patch 6 supports
+   parsing accesses to global variables, while Patch 7 focuses on
+   resolving accesses to the kernel's current pointer.
+
+There are still areas for improvement in the current implementation:
+ - Support more types of memory access instructions, such as those
+   involving register pairs and register offsets.
+ - Handle all data processing instructions (e.g., mov, add), as these
+   instructions can change the state of registers and may affect the
+   accuracy of instruction tracking.
+ - Supporting parsing of special memory access scenarios like per-CPU
+   variables and arrays.
+
+The patch set is based on 6.14-rc6 (commit 80e54e84911a). After applying
+this patch set, the date type profiling results on arm64 are as follows
+(SPE support is required):
+
+ # perf mem record -a -K -- sleep 1
+ # perf annotate --data-type --type-stat --stdio
+ Only instruction-based sampling period is currently supported by Arm SPE.
+ Annotate data type stats:
+ total 556, ok 357 (64.2%), bad 199 (35.8%)
+ -----------------------------------------------------------
+         10 : no_sym
+         36 : no_insn_ops
+         65 : no_var
+         70 : no_typeinfo
+         18 : bad_offset
+         59 : insn_track
+ 
+ Annotate type: 'struct rq' in [kernel.kallsyms] (29 samples):
+ ============================================================================
+  Percent     offset       size  field
+   100.00          0      0xe80  struct rq        {
+     0.00          0        0x4      raw_spinlock_t      __lock {
+     0.00          0        0x4          arch_spinlock_t raw_lock {
+     0.00          0        0x4              union        {
+     0.00          0        0x4                  atomic_t        val {
+     0.00          0        0x4                      int counter;
+                                                 };
+     0.00          0        0x2                  struct   {
+     0.00          0        0x1                      u8  locked;
+     0.00        0x1        0x1                      u8  pending;
+                                                 };
+     0.00          0        0x4                  struct   {
+     0.00          0        0x2                      u16 locked_pending;
+     0.00        0x2        0x2                      u16 tail;
+                                                 };
+                                             };
+                                         };
+                                     };
+    13.79        0x4        0x4      unsigned int        nr_running;
+    13.79        0x8        0x4      unsigned int        nr_numa_running;
+     0.00        0xc        0x4      unsigned int        nr_preferred_running;
+     0.00       0x10        0x4      unsigned int        numa_migrate_on;
+     0.00       0x18        0x8      long unsigned int   last_blocked_load_update_tick;
+     0.00       0x20        0x4      unsigned int        has_blocked_load;
+     0.00       0x40       0x20      call_single_data_t  nohz_csd {
+     0.00       0x40       0x10          struct __call_single_node       node {
+     0.00       0x40        0x8              struct llist_node   llist {
+     0.00       0x40        0x8                  struct llist_node*      next;
+                                             };
+     0.00       0x48        0x4              union        {
+     0.00       0x48        0x4                  unsigned int    u_flags;
+     0.00       0x48        0x4                  atomic_t        a_flags {
+     0.00       0x48        0x4                      int counter;
+                                                 };
+                                             };
+     ...
+
+Thanks,
+Huafei
+
+[1] https://lore.kernel.org/lkml/20231213001323.718046-1-namhyung@kernel.org/
+[2] https://lwn.net/Articles/955709/
+[3] https://lore.kernel.org/all/20240718084358.72242-1-atrajeev@linux.vnet.ibm.com/#r
+
+Li Huafei (7):
+  perf annotate: Handle arm64 load and store instructions
+  perf annotate: Advance the mem_ref check to mov__parse()
+  perf annotate: Add 'extract_reg_offset' callback function to extract
+    register number and access offset
+  perf annotate: Support for the 'extract_reg_offset' callback function
+    in arm64
+  perf annotate-data: Support instruction tracking for arm64
+  perf annotate-data: Handle arm64 global variable access
+  perf annotate-data: Handle the access to the 'current' pointer on
+    arm64
+
+ tools/perf/arch/arm64/annotate/instructions.c | 302 +++++++++++++++++-
+ .../perf/arch/powerpc/annotate/instructions.c |  10 +
+ tools/perf/arch/x86/annotate/instructions.c   |  99 ++++++
+ tools/perf/util/Build                         |   1 +
+ tools/perf/util/annotate-data.c               |  23 +-
+ tools/perf/util/annotate-data.h               |   4 +-
+ tools/perf/util/annotate.c                    | 112 +------
+ tools/perf/util/disasm.c                      |  14 +
+ tools/perf/util/disasm.h                      |   4 +
+ tools/perf/util/dwarf-regs-arm64.c            |  25 ++
+ tools/perf/util/include/dwarf-regs.h          |   7 +
+ 11 files changed, 490 insertions(+), 111 deletions(-)
  create mode 100644 tools/perf/util/dwarf-regs-arm64.c
 
-diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
-index c212eb7341bd..54497b72a5c5 100644
---- a/tools/perf/arch/arm64/annotate/instructions.c
-+++ b/tools/perf/arch/arm64/annotate/instructions.c
-@@ -188,3 +188,65 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- 	free(arm);
- 	return SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_REGEXP;
- }
-+
-+
-+/*
-+ * Get the base register number and access offset in load/store instructions.
-+ * At present, only the following two addressing modes are supported:
-+ *
-+ *  1. Base register only (no offset): [base{, #0}]
-+ *  2. Base plus offset (immediate): [base{, #imm}]
-+ *
-+ * For addressing modes where the offset needs to be calculated from the
-+ * register value, it is difficult to know the specific value of the offset
-+ * register, making it impossible to calculate the offset.
-+ *
-+ * Fills @reg and @offset when return 0.
-+ */
-+static int
-+extract_reg_offset_arm64(struct arch *arch __maybe_unused,
-+			 struct disasm_line *dl __maybe_unused,
-+			 const char *insn_str, int insn_ops __maybe_unused,
-+			 struct annotated_op_loc *op_loc)
-+{
-+	char *str;
-+	regmatch_t match[4];
-+	static regex_t reg_off_regex;
-+	static bool regex_compiled;
-+
-+	if (!regex_compiled) {
-+		regcomp(&reg_off_regex, "^\\[(sp|[xw][0-9]{1,2})(, #(-?[0-9]+))?\\].*",
-+			REG_EXTENDED);
-+		regex_compiled = true;
-+	}
-+
-+	if (!op_loc->mem_ref)
-+		return 0;
-+
-+	if (regexec(&reg_off_regex, insn_str, 4, match, 0))
-+		return -1;
-+
-+	str = strdup(insn_str);
-+	if (!str)
-+		return -1;
-+
-+	/* Get the base register number. */
-+	str[match[1].rm_eo] = '\0';
-+	op_loc->reg1 = get_arm64_regnum(str + match[1].rm_so);
-+
-+	/*
-+	 * If there is an immediate offset, match[2] records the start and end
-+	 * positions of "#imm".
-+	 */
-+	if (match[2].rm_so == -1) {
-+		free(str);
-+		return 0;
-+	}
-+
-+	/* Get the immediate offset. */
-+	str[match[3].rm_eo] = '\0';
-+	op_loc->offset = strtol(str + match[3].rm_so, NULL, 0);
-+
-+	free(str);
-+	return 0;
-+}
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index 5ec97e8d6b6d..d408cbe94fdd 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -210,6 +210,7 @@ perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs-csky.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs-powerpc.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs-x86.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs-arm64.o
- perf-util-$(CONFIG_LIBDW) += debuginfo.o
- perf-util-$(CONFIG_LIBDW) += annotate-data.o
- 
-diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
-index 905eceb824a4..1035c60a8545 100644
---- a/tools/perf/util/disasm.c
-+++ b/tools/perf/util/disasm.c
-@@ -128,6 +128,7 @@ static struct arch architectures[] = {
- 	{
- 		.name = "arm64",
- 		.init = arm64__annotate_init,
-+		.extract_reg_offset = extract_reg_offset_arm64,
- 	},
- 	{
- 		.name = "csky",
-diff --git a/tools/perf/util/dwarf-regs-arm64.c b/tools/perf/util/dwarf-regs-arm64.c
-new file mode 100644
-index 000000000000..edf41c059967
---- /dev/null
-+++ b/tools/perf/util/dwarf-regs-arm64.c
-@@ -0,0 +1,25 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Mapping of DWARF debug register numbers into register names.
-+ *
-+ * Copyright (c) 2025  Huawei Inc, Li Huafei <lihuafei1@huawei.com>
-+ */
-+#include <errno.h>
-+#include <string.h>
-+#include <dwarf-regs.h>
-+
-+int get_arm64_regnum(const char *name)
-+{
-+	int reg;
-+
-+	if (!strcmp(name, "sp"))
-+		return 31;
-+
-+	if (*name != 'x' && *name != 'w')
-+		return -EINVAL;
-+
-+	name++;
-+	reg = strtol(name, NULL, 0);
-+
-+	return reg >= 0 && reg <= 30 ? reg : -EINVAL;
-+}
-diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index 6f1b9f6b2466..81cc5f69a391 100644
---- a/tools/perf/util/include/dwarf-regs.h
-+++ b/tools/perf/util/include/dwarf-regs.h
-@@ -101,6 +101,8 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int
- 
- int get_x86_regnum(const char *name);
- 
-+int get_arm64_regnum(const char *name);
-+
- #if !defined(__x86_64__) && !defined(__i386__)
- int get_arch_regnum(const char *name);
- #endif
-@@ -128,6 +130,11 @@ static inline void get_powerpc_regs(u32 raw_insn __maybe_unused, int is_source _
- {
- 	return;
- }
-+
-+static inline int get_arm64_regnum(const char *name __maybe_unused)
-+{
-+	return -1;
-+}
- #endif
- 
- #endif
 -- 
 2.25.1
 
