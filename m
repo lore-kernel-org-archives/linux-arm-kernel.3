@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77919C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49552C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 19:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JqI9TbPHCy3il1UNWg2awM1y5je68lG4yjIK0wb1VU=; b=GP1IBYrkxxwWZ1JNKpWmnIGp1D
-	cW5xh9UCiCuXpH9CVxcG15QLprwTmYsC074RTKTpj4czWq9UTagwuxOH7K+OJRg7vQ2gkNsk93vyN
-	03EV3+R3SqSFL1bv2XuNoL+bpRyTcwogw9TYWF373VC2LUWRXGAYBKqXD/TLl+N7B++j4kkB1SfrV
-	Jop+lJIdPyqITwBTDVNeV8cnYPjGsbjpBK6KDUuwdpDcvvRLWT3fQrfj9/TPZERKdYS8F3wvtxWrL
-	1WX6lZzUdVpEiTT9+f9DUVI17HN5Hqh+8L+bS5pGzwjgL7StJtK+wZ1h9bkYapKtASdjRH260d2lc
-	OVvvinPw==;
+	bh=FUdDLeTcFv7peeEsvlaUqyHqo41x8jGlZj8eHhigyuc=; b=NZ7T4gbmIP7l1fd7/HDoi2mLhK
+	QOFgf4KObWlpGIFUV7pR73hNSipthreYDOPlMiQ0AtEwpiI7tCAtExPeRt6HKvcW7OEBKiaJuHWi9
+	8h8BRdUQW4wXJ5OOXySjQDhmH3YFN700GwwkgRs+04YUeygcCkLshg6N+7sf7F4TnFtvOfgjL38Ei
+	Y9x6xfEy8gwHrJoUYBNASbzkv82kH/c68XX+WRdZJA52xn4eLALRYMFXw38NIRy2/FanF2g2DSwK1
+	sD2/ART3HV+ekuSyK0VtP501+ZljutMW+sP1CPOyJH2L9zyFQ9781tWCyANhwoFwzt/XuYp6crIq4
+	YlrQQ6dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAsd-0000000F8pu-3NrB;
-	Fri, 14 Mar 2025 19:39:39 +0000
+	id 1ttAuH-0000000F8x7-23bE;
+	Fri, 14 Mar 2025 19:41:21 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttAik-0000000F75c-3u9m
+	id 1ttAil-0000000F75p-0VRg
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 14 Mar 2025 19:29:28 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id B3883203345E;
+	by linux.microsoft.com (Postfix) with ESMTPSA id 972EE2033456;
 	Fri, 14 Mar 2025 12:29:24 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B3883203345E
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 972EE2033456
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1741980564;
-	bh=/JqI9TbPHCy3il1UNWg2awM1y5je68lG4yjIK0wb1VU=;
+	bh=FUdDLeTcFv7peeEsvlaUqyHqo41x8jGlZj8eHhigyuc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aLaEpu1KaR49m6Bi5ihb4qI3/4BH/nmolTozffk/qhMB4YggqJXDq2mMENSi5ZF9S
-	 qqJYF+R4RPki6TRa0UXlbXPgKgThH7nNS+wWpsQ2OSB9z2pURh5fGl+oNqiwf3OKJB
-	 rJy7L2KNYG1zCrRFLhzQbvaN5HkFWVsGjPou/Nck=
+	b=PQ9z6eCqIupiYkGG5TlmdH1mNJebiDCLhXL8ck324lwF7H/kECeYM8nAzuTF0QAKi
+	 spwx2HjSI8QiRV0nMwmoCtwMrd0Ola9VV1TnE9i2o/oV3BIR5HfTYVFmOXTI+hceBy
+	 7XdeOQ7VyEHc/nMraIzqQsieqDfk4Lri6rwM1rpY=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	x86@kernel.org,
@@ -78,15 +78,15 @@ Cc: kys@microsoft.com,
 	rafael@kernel.org,
 	lenb@kernel.org,
 	corbet@lwn.net
-Subject: [PATCH v6 06/10] Drivers: hv: Export some functions for use by root partition module
-Date: Fri, 14 Mar 2025 12:28:52 -0700
-Message-Id: <1741980536-3865-7-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v6 05/10] acpi: numa: Export node_to_pxm()
+Date: Fri, 14 Mar 2025 12:28:51 -0700
+Message-Id: <1741980536-3865-6-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
 In-Reply-To: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_122927_015767_4AC72555 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20250314_122927_180188_3C4494E7 
+X-CRM114-Status: UNSURE (   7.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,62 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hv_get_hypervisor_version(), hv_call_deposit_pages(), and
-hv_call_create_vp(), are all needed in-module with CONFIG_MSHV_ROOT=m.
+node_to_pxm() is used by hv_numa_node_to_pxm_info().
+That helper will be used by Hyper-V root partition module code
+when CONFIG_MSHV_ROOT=m.
 
 Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Reviewed-by: Stanislav Kinsburskii <skinsburskii@microsoft.linux.com>
-Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
+Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
 Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 Reviewed-by: Tianyu Lan <tiala@microsoft.com>
 ---
- arch/arm64/hyperv/mshyperv.c   | 1 +
- arch/x86/kernel/cpu/mshyperv.c | 1 +
- drivers/hv/hv_proc.c           | 3 ++-
- 3 files changed, 4 insertions(+), 1 deletion(-)
+ drivers/acpi/numa/srat.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index 2265ea5ce5ad..4e27cc29c79e 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -26,6 +26,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
- 
- 	return 0;
+diff --git a/drivers/acpi/numa/srat.c b/drivers/acpi/numa/srat.c
+index 00ac0d7bb8c9..ce815d7cb8f6 100644
+--- a/drivers/acpi/numa/srat.c
++++ b/drivers/acpi/numa/srat.c
+@@ -51,6 +51,7 @@ int node_to_pxm(int node)
+ 		return PXM_INVAL;
+ 	return node_to_pxm_map[node];
  }
-+EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
++EXPORT_SYMBOL_GPL(node_to_pxm);
  
- static int __init hyperv_init(void)
+ static void __acpi_map_pxm_to_node(int pxm, int node)
  {
-diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
-index fd285b18d6b4..fcd0e066d9bd 100644
---- a/arch/x86/kernel/cpu/mshyperv.c
-+++ b/arch/x86/kernel/cpu/mshyperv.c
-@@ -420,6 +420,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
- 
- 	return 0;
- }
-+EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
- 
- static void __init ms_hyperv_init_platform(void)
- {
-diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
-index 605999f10e17..7d7ecb6f6137 100644
---- a/drivers/hv/hv_proc.c
-+++ b/drivers/hv/hv_proc.c
-@@ -107,6 +107,7 @@ int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
- 	kfree(counts);
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(hv_call_deposit_pages);
- 
- int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
- {
-@@ -191,4 +192,4 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
- 
- 	return ret;
- }
--
-+EXPORT_SYMBOL_GPL(hv_call_create_vp);
 -- 
 2.34.1
 
