@@ -4,98 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899D0C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 17:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532DEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 17:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDdp6JPsZHB45CMyh1swLsd39KS9lz9tRFCDBXIEVj8=; b=ePZQesWJYIh05LT0wYLe8EExgp
-	qNvqviET8bVEPI/YUYjD/pHgsc4GCVpdJyZj/NPa0unR7kkSfJzJTNJqaJuS9Vj4xQfKJpoo97QfF
-	xOvgcmkCSscKkxvdHKkjOs79jhPTbL7Wh10Xc89jQeMXdT+mFzR9Yh7w0E6rMxAxIBtwnrIIMlJnT
-	AC5b8pD7mhFxabcMgga0pcLCviyUZct2XSePapiTqLNinjiiPDgIQ0VBCi1nIzVIehrOjwS3LSn60
-	wJ92oyDBE7wR7aoSTdGETJ4zyyhlOb5S9lMCy0kbZ//4jXpoXIQFa0qguA5ei2eQpBeziNYA31EOS
-	sEh+G7lg==;
+	bh=Ohl7k0gmwMXK/pYwwELYGP7uTlpHFBOkmIkCgcJ6yWc=; b=BqMdhjHQHNnK7Gu/xTa/e23BlG
+	gf2tanmnB2+AmPMu8YSYjMEcHav+kl8BembcXDUNjIAxPPXvz9MdaXdbKgTmjn4zi6qcbk3YtGtTJ
+	X3ozjPdmTA+7bXMc3kSp5pLbaaRNDx6YBNFt8XkOGd3a3ku+YuX8opxnHefQ5OrcI2PsUBuDeRgvJ
+	GlinIsPL9E0w24aWvKmgbptp48BY6h97HlgWbcmxo0ZNS8cmt1itKKMcEHzgrd+W7XRJZi/5WkbB1
+	iPMq4cN7LVxMEn/2QNvxPGfp7nx+N3t2K3zywcauRZUXUwEPtNVkPP+e1ihaTF46JV81sDMTx78E1
+	H2ObPJxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8g9-0000000EqOf-1PYC;
-	Fri, 14 Mar 2025 17:18:37 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tt8ph-0000000ErkX-34nV;
+	Fri, 14 Mar 2025 17:28:29 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8eU-0000000EqCE-1VxW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 17:16:55 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2235189adaeso42477985ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 10:16:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741972613; x=1742577413; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CDdp6JPsZHB45CMyh1swLsd39KS9lz9tRFCDBXIEVj8=;
-        b=mtSZvJR1xgIG/KGSzTUGupDVzXmD4EOkA3ju7ecMXUS/lbNsIrcoGP0b7365G8Now/
-         xbLDpIb9VDcAGKAN0z4fwJsvYDrxmfY6xB/J08Mjv+pfAyrqCAE9B6Y2NtyTmAQK4bbF
-         tnbWyRbG3yWBgu95tt8AAMSRqDlvVKuVlPRS+yZA534mk+5VyGH7lGwxKpPcSc7jE65n
-         YMrGGM88ob15msutRVKqqekVXUq+ltUx6nu2nUOGe/Cu9rQKrpNfiLNvUAPK6WJonSu4
-         Pgu8kw44aSSXxUi2LDvCupJYOrrDZmIxe0rm2k6Y0aaHVZO8Zl8dEbRDctiJmYdLAjBk
-         wImQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741972613; x=1742577413;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CDdp6JPsZHB45CMyh1swLsd39KS9lz9tRFCDBXIEVj8=;
-        b=IlyGyyPtkFpc9HgxCowT8k+iYqbc7RcWnPuBIsv1fnpdF6Mw+wl0sARo6NcCxINRA4
-         UewhRBfpU7TA0cPh/pjIr/MI7NvwoxRkkRsinNAgbwH6KmT6lGqYBJp0hyeAac+Kx41F
-         Lpf+o2aZuXgtmlcaidSvxo/ddoNRQ2KQdB7KvgUuFTu8uhPE1Bph4hZiqPDdXbJmuFKc
-         tAFRNmfViB+SJNPhkYyHRC5fFn6cjyzhy/XxBWf9wnM/wOS65X4FTqHW/rKifZivAdrO
-         krcxvhSRjhki4KB8vGYS/JKkriRIpcWz/ECZL2/4QKAjBx0APd9O1PP2xZ3MFzFELC5G
-         2f1A==
-X-Forwarded-Encrypted: i=1; AJvYcCVNDOvHUQHXQECvB5iCIexBLGcNd+WHg/Lq4xwbUTat5HumnrEDp/oxFPzTmOF4kQEQURg32QvSffdawnyTBenk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7wCu6Mozks3hw+PNTXoW3F0/6NYXVuwSNdYUiPJBJY7Ae0naZ
-	o8xwVhNv8dtsRGncFlx5hsJL+o68YbKFMdXjYrRJb2LaL7m71V+0cFVx6ckRqQ==
-X-Gm-Gg: ASbGncutk2xerqCFGzePK1G7lGP6UXyvL5MbFsz/lj0WUmiGuSo/azUz6I0zfcRbJ0+
-	VWjX8yb4n2cjRqkf40Hf0NvM9tggURp53u+Guu7QT4f4qWPftB0wgraX7ieLe5OqUtkYmrGtP0w
-	X7ZXGDTODDNgX1XBrk4zR+znhPqF820zpNdxZwWQWkPNtEmlhemkpoVsmEHDAEeKB/Hj4Q6PUnM
-	hM1diyoNrrG34fkxPjCR1uApjmkqHQfat5oT+6v26PGTIQSUEded1oaUqnIBz1I3D9rCnecilif
-	2UX92brXEqv4odGLT1uYJsaGtnLLLnIwh43LOPI/yVvmDOYWVqUp/FcAH3ZUK+hzjeyB6lxdWBE
-	gtaJmmyZB7Fip7rQ=
-X-Google-Smtp-Source: AGHT+IESV7lf4zH31HRl2I8byc8Hhj6aLdJrikr6gIoStXmwWR0DzwK8g18nrHPo3RniArFYGonCrg==
-X-Received: by 2002:a17:903:40c5:b0:21f:7078:4074 with SMTP id d9443c01a7336-225c6617ddfmr87561165ad.7.1741972613410;
-        Fri, 14 Mar 2025 10:16:53 -0700 (PDT)
-Received: from google.com (198.103.247.35.bc.googleusercontent.com. [35.247.103.198])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c68a84besm31146555ad.79.2025.03.14.10.16.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 10:16:53 -0700 (PDT)
-Date: Fri, 14 Mar 2025 10:16:49 -0700
-From: William McVicker <willmcvicker@google.com>
-To: Bart Van Assche <bvanassche@acm.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@wdc.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	id 1tt8o1-0000000ErPC-2Y4X;
+	Fri, 14 Mar 2025 17:26:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7FE7EA48726;
+	Fri, 14 Mar 2025 17:21:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2662C4CEEE;
+	Fri, 14 Mar 2025 17:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741973204;
+	bh=KkiVUBJqS82/ZAZxfj0qf27tw7VtghnwZimo7bY835Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mMsNUN1xSLDSyBven2d76R+1AdL+jQP0MK50eptkf3aVcdtQKta9NJ8EbEk+isGge
+	 MTD2FCEo7J6G1Kjca+jijbQWQKEabwqLxg2MC2HxFJgri2riKxWrj1mpGamjfKEVib
+	 zFioHjdgXrG7GkbAE6V7F0J+jQvVe3bGpkNvuPK1KTEGYRgVrUN6MeaP58tj1120zr
+	 qjxMja5IyRQDiFIAAARLh7wWOI7UJD9mllNnB1j3m72i66Ch7wPgghldbzlqurr99b
+	 KwMCbHnuEKMAWfo9RAu1xBqH5ra02axDg8YAPcFarIjbI/v8UDWiAnpLIjdoxdgxou
+	 nT4e2P2pKwefw==
+Date: Fri, 14 Mar 2025 14:26:41 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org,
-	kernel-team@android.com, stable@vger.kernel.org
-Subject: Re: [PATCH 0/2] Add dma-coherent for gs101 UFS dt node
-Message-ID: <Z9RkgY3gnx6Xp0nc@google.com>
-References: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
- <0d7a8cad-adfc-4cac-bcc6-65d1f9c86b43@acm.org>
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
+ the build
+Message-ID: <Z9Rm0W6YLpxKIcI1@x1>
+References: <20250308003209.234114-1-irogers@google.com>
+ <Z9KFLGpenwOP32q3@google.com>
+ <Z9M24AJzui9lFbGo@x1>
+ <Z9M9-YhDJg3NgiUy@x1>
+ <Z9NEX3j_1RUvaFI0@x1>
+ <Z9PCjQ8PhOadVGQ8@google.com>
+ <Z9RjHpEJGWtj8PAM@x1>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <0d7a8cad-adfc-4cac-bcc6-65d1f9c86b43@acm.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z9RjHpEJGWtj8PAM@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_101654_398490_88A6D4EA 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20250314_102645_783424_5FF35B30 
+X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,23 +99,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/14/2025, Bart Van Assche wrote:
-> On 3/14/25 8:38 AM, Peter Griffin wrote:
-> > ufs-exynos driver enables the shareability option for gs101 which
-> > means the descriptors need to be allocated as cacheable.
+On Fri, Mar 14, 2025 at 02:10:57PM -0300, Arnaldo Carvalho de Melo wrote:
+> On Thu, Mar 13, 2025 at 10:45:49PM -0700, Namhyung Kim wrote:
+> > On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrote:
+> > > On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wrote:
+> > > > Still building, but noticed this on x86_64:
+> > > > 
+> > > > 105: perf trace enum augmentation tests                              : FAILED!
+> > > > 106: perf trace BTF general tests                                    : FAILED!
+> > > > 107: perf trace exit race                                            : Ok
+> > > > 108: perf trace record and replay                                    : FAILED!
+> > > > 
+> > > > 
+> > > > The first doesn´t help that much with verbose mode, haven't checked if
+> > > > before this series it was failing :-\
+> > > > 
+> > > > root@x1:~# perf test -vvv 105
+> > > > 105: perf trace enum augmentation tests:
+> > > > --- start ---
+> > > > test child forked, pid 19411
+> > > > Checking if vmlinux exists
+> > > > Tracing syscall landlock_add_rule
+> > > > ---- end(-1) ----
+> > > > 105: perf trace enum augmentation tests                              : FAILED!
+> > > > root@x1:~#
+> > > 
+> > > So:
+> > > 
+> > > root@x1:~# perf trace -e landlock_add_rule perf test -w landlock
+> > > root@x1:~# 
+> > > 
+> > > But:
+> > > 
+> > > root@x1:~# perf trace perf test -w landlock |& grep landlock_add_rule
+> > >     26.120 ( 0.002 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, rule_type: LANDLOCK_RULE_PATH_BENEATH, rule_attr: 0x7ffde75e2680, flags: 45) = -1 EINVAL (Invalid argument)
+> > >     26.124 ( 0.001 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, rule_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffde75e2690, flags: 45) = -1 EINVAL (Invalid argument)
+> > > root@x1:~# 
+> > > 
+> > > -e is having some trouble, when no event is specified, then it works.
+> > > 
+> > > Something in the changes made to:
+> > > 
+> > > static int trace__parse_events_option(const struct option *opt, const char *str,
+> > >                                       int unset __maybe_unused)
+> > 
+> > Thanks for the test, I think this should fix it:
+> > 
 > 
-> Shouldn't that code be modified such that the shareability option is
-> only set if the dma-coherent property is present in the device tree?
-
-That's what we do downstream and would fix any issues when booting with an
-older DT that doesn't have the `dma-coherent` property set. So I agree that
-would be a worthy fix (which I did verify fixes the stability issues).
-
-Regards,
-Will
-
+> Well, not really:
 > 
-> Thanks,
+> root@number:~# perf trace -e landlock_add_rule perf test -w landlock
+> perf: Segmentation fault
+> Obtained 10 stack frames.
+> perf() [0x5be761]
+> perf() [0x5be7f9]
+> /lib64/libc.so.6(+0x40fd0) [0x7fe005c4efd0]
+> perf() [0x491bc1]
+> perf() [0x497090]
+> perf() [0x4973ab]
+> perf() [0x413483]
+> /lib64/libc.so.6(+0x2a088) [0x7fe005c38088]
+> /lib64/libc.so.6(__libc_start_main+0x8b) [0x7fe005c3814b]
+> perf() [0x413ad5]
+> Segmentation fault (core dumped)
+> root@number:~#
 > 
-> Bart.
+> Time for me to test another patch from Ian, the one symbolizing the
+> above backtrace...
+> 
+> Worked, but didn't help as much, with gdb:
+> 
+> (gdb) run trace -e landlock_add_rule perf test -w landlock
+> Starting program: /root/bin/perf trace -e landlock_add_rule perf test -w landlock
+> 
+> This GDB supports auto-downloading debuginfo from the following URLs:
+>   <https://debuginfod.fedoraproject.org/>
+> Enable debuginfod for this session? (y or [n]) y
+> Debuginfod has been enabled.
+> To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+> Downloading 53.88 K separate debug info for system-supplied DSO at 0x7ffff7fc6000
+> Downloading 458.26 K separate debug info for /lib64/libtracefs.so.1                                                                                                                            
+> [Thread debugging using libthread_db enabled]                                                                                                                                                  
+> Using host libthread_db library "/lib64/libthread_db.so.1".
+> [Detaching after fork from child process 39141]
+> 
+> Program received signal SIGSEGV, Segmentation fault.
+> 0x00000000004d0e56 in trace__find_usable_bpf_prog_entry (trace=0x7fffffffa510, sc=0x10fb7b0) at builtin-trace.c:3882
+> 3882				bool is_pointer = field->flags & TEP_FIELD_IS_POINTER,
+> (gdb) p field
+> $1 = (struct tep_format_field *) 0x64656e6769736e75
+> (gdb) bt
+> #0  0x00000000004d0e56 in trace__find_usable_bpf_prog_entry (trace=0x7fffffffa510, sc=0x10fb7b0) at builtin-trace.c:3882
+> #1  0x00000000004cf3de in trace__init_syscalls_bpf_prog_array_maps (trace=0x7fffffffa510, e_machine=62) at builtin-trace.c:4040
+> #2  0x00000000004bf626 in trace__run (trace=0x7fffffffa510, argc=4, argv=0x7fffffffde40) at builtin-trace.c:4473
+> #3  0x00000000004bb7a9 in cmd_trace (argc=4, argv=0x7fffffffde40) at builtin-trace.c:5741
+> #4  0x00000000004d873f in run_builtin (p=0xf83d48 <commands+648>, argc=7, argv=0x7fffffffde40) at perf.c:351
+> #5  0x00000000004d7df3 in handle_internal_command (argc=7, argv=0x7fffffffde40) at perf.c:404
+> #6  0x00000000004d860f in run_argv (argcp=0x7fffffffdc7c, argv=0x7fffffffdc70) at perf.c:448
+> #7  0x00000000004d7a4f in main (argc=7, argv=0x7fffffffde40) at perf.c:556
+> (gdb) list -10
+> 3867		return NULL;
+> 3868	
+> 3869	try_to_find_pair:
+> 3870		for (int i = 0, num_idx = syscalltbl__num_idx(sc->e_machine); i < num_idx; ++i) {
+> 3871			int id = syscalltbl__id_at_idx(sc->e_machine, i);
+> 3872			struct syscall *pair = trace__syscall_info(trace, NULL, sc->e_machine, id);
+> 3873			struct bpf_program *pair_prog;
+> 3874			bool is_candidate = false;
+> 3875	
+> 3876			if (pair == NULL || pair == sc ||
+> (gdb)
+
+Humm
+
+(gdb) p i
+$1 = 147
+(gdb) p num_idx
+$2 = 379
+(gdb) p id
+$3 = 192
+(gdb) p pair
+$4 = (struct syscall *) 0x10fe8f0
+(gdb) p *pair
+$5 = {e_machine = 62, id = 192, tp_format = 0x10f6c00, nr_args = 3, args_size = 48, bpf_prog = {sys_enter = 0x0, sys_exit = 0x0}, is_exit = false, is_open = false, nonexistent = false, 
+  use_btf = false, args = 0x10f9480, name = 0x814406 "lgetxattr", fmt = 0x0, arg_fmt = 0x10fa0a0}
+(gdb) p sc
+$6 = (struct syscall *) 0x10fb7b0
+(gdb) p sc->args
+$7 = (struct tep_format_field *) 0x64656e6769736e75
+(gdb) p *pair
+$8 = {e_machine = 62, id = 192, tp_format = 0x10f6c00, nr_args = 3, args_size = 48, bpf_prog = {sys_enter = 0x0, sys_exit = 0x0}, is_exit = false, is_open = false, nonexistent = false, 
+  use_btf = false, args = 0x10f9480, name = 0x814406 "lgetxattr", fmt = 0x0, arg_fmt = 0x10fa0a0}
+(gdb)
+
+it finds the pair, but then its sc->args has a bogus pointer... I'll see
+where this isn't being initialized...
+
+- Arnaldo
 
