@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A66C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 15:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F67EC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 15:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tSXxaoqaOmMa3Slznv8S2xnGouiZjQdl/76oRMg/G00=; b=3+8YL1M1BPqcpFd2NRGyB0x1X1
-	Co26G6/n4V2uNq3N+GEFgyKMFHygfFgQ8lscLm8nUvk8x1Ojum0S4VY0QiD807l/z7nfIR9K2zoDq
-	3jirhicqQpcZBi92YBjRUD97ZGjDiYXQP6hzFt7fIazHcztcD/SCVAGVcK/CggclxFiKn8r6V3A/5
-	gmT/7OXwtFQcIYE2/ZChO7MJNJXNafaKJpNF1+BTZCM1ukn/2ThrPGACNOWLn3QSiaEDvRg9FP+aZ
-	fDFa130+DUhrBAkj2cdkJOYWxxDU4nI3NNF4Wx/KCGGyhDv/FEzx83+AI6kc1jDfP/vAZ5MnO5DYf
-	HkSPrNYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=auGt9XWP0Qbzw3OPjJr1G6NzqivSoczirlHeVfF6E10=; b=2M9PppF39lWE+CbXU8kA2KGPpc
+	pxKLTnSpYR22kJuVyvLwvkGCz1x+Fxr36dDOPMIDrYdkN16ga/tGV3sGIJOZocwE0nXuoJrttE3zQ
+	fp5+rNDKBjMVsIpnF8JnmotSIPMwxHpVykttMD6RJqG/k2QZWotlUh5c5I+g75kE1n1Zcy3H1BajO
+	VSvgBpgc2sgAl18t+flFxcU3umP4yfujiFuwDJn6FZ3CEaBtG6UH2s6oLQDJqnv9+sYM8HkgBf+TT
+	8sC3i908GTn6ORmSDDvT8W4AbvfRHrHsNNen4UqMJe1zqYOdIY+x+OjlUO7tZCbFDuCDVZ4oaHH/k
+	0OaQQc1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6hQ-0000000EVqk-2LmF;
-	Fri, 14 Mar 2025 15:11:48 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1tt6j5-0000000EWCJ-13eg;
+	Fri, 14 Mar 2025 15:13:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6bY-0000000EV5d-0kTX
+	id 1tt6da-0000000EVMu-18X2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 15:05:45 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e455bf1f4d3so1732916276.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 08:05:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=monstr-eu.20230601.gappssmtp.com; s=20230601; t=1741964742; x=1742569542; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=tSXxaoqaOmMa3Slznv8S2xnGouiZjQdl/76oRMg/G00=;
-        b=Vvwf066UoaqbwuLTmLGGKLZ/1YaJObnhVqeRbvFsXr/FqywC4UzZHHNto3+7YUuwjv
-         4pBe7+ZfpYCitcqRTiRoH+jhh1hh/WT/853I9VGwZPHC+foGDjoKUCDADH8aoSfqxbWk
-         dBDAKbVvggiRaSjtQScuNZTQ8eysyNFvQUR1f2kSZBfVzhiJEUey8IkB8VqgTspbb1M1
-         YQQGfbAMHnNzwqi939TH3uTJysS/TNywc/dcZIs3jnu2e0AysA0OGUsse3aigTX1h8Wl
-         GmNmh93n5Ei57vAi6j6y57+FGYA+4gAXBoP05v2YQfRtHlrWxun+oD5tvZrbsc9Yzriu
-         DTpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741964742; x=1742569542;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tSXxaoqaOmMa3Slznv8S2xnGouiZjQdl/76oRMg/G00=;
-        b=leizucU0J8Ay5uy5AqnAx/Eht5B8ta8n+VnfZa1l6tR/lbeV1fLY2PvTJGHxkwvph3
-         xTyZ0urO39sJzKWQfzFwmxwfcMVaj6Ua5+NBGS4dgV6LOKPH/HXG05d6rBYsKYf87293
-         Hh8GVngtWbqQ+SbYtyL7itdJUdLjYSh5vjQ/yoiybXAEiYk6dcoHPD5VwoYTNbj8mWHh
-         GKSDHJl0R7SpylVCqHsAUL0VVxDPtwwLsyyig4B3kcqrjIlh3w0a6FifGMsxpBA2yujx
-         riFDINbm1wBw406F5fJ+M+S3EVr2VqyelsIdY1OKbQaKiWDbs5FI9Mgtw0kPTs2Mxh2O
-         nGCw==
-X-Gm-Message-State: AOJu0YyAzQ/EjpLoaoXYGV3Oy6+TYqyL3aB+FyCVBlWQm4GHyLcRVKl1
-	o9pYehlrBtEkGU+gX+qrKHReWn7QC/BQjlxzCXC/oHrjFYnjJT6pfUtTG0IekhE79lC6Z8zK+Dc
-	N+w0a6o2amQwCLNrRHKEvXtLtkqoplUYBOz4TSXAgRbrdFZehpz/u
-X-Gm-Gg: ASbGncuE8YYmAdfpaSl/4ulIgVme9pYTcS3xWInETjaNmnoplJfuMDWjSgbmbzYzI24
-	yKq9+uEQBxzX23PvK3JdD7dEbH0FVXeKnyEoe8gM3lqsNw3FP4D/KFfqDqkSsdUe8RiJ9vS2w8p
-	9v72bnfQ+LxZEFy4Z0djeOGf8g8w0=
-X-Google-Smtp-Source: AGHT+IErmmVkyNQov5Nd1+Xs71JZWSwc57b2CHBJnpd+Wy8GkZC/5L2QJoES2aegCf8CKQTf+m44eDFuMReFg2cWef4=
-X-Received: by 2002:a05:690c:6404:b0:6f9:447d:d1a2 with SMTP id
- 00721157ae682-6ff45ff5cc7mr31632587b3.29.1741964742689; Fri, 14 Mar 2025
- 08:05:42 -0700 (PDT)
+	Fri, 14 Mar 2025 15:07:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B06D2A47554;
+	Fri, 14 Mar 2025 15:02:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FE39C4CEE3;
+	Fri, 14 Mar 2025 15:07:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741964869;
+	bh=auGt9XWP0Qbzw3OPjJr1G6NzqivSoczirlHeVfF6E10=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XNy5Dld9pXvBnJf7wFR2PSc2XDHnXiK4b460XZRPxQk4OI9ncVfutK1DC+v3Ca7iq
+	 8hatfFD9HqzC6G0xlxxkVw7+Xhu5afEzXQZZXm+weAOhZXM/LKsA0kQ7XqIGt04ZmN
+	 PRHTmKa2cyrMcd/TFdZch5GLtrXLTy3pBtBt/sKM9bQLFsLAyi9VDYbroS0g1c7tWR
+	 9nDRO7GOWk3GbTScXZ4mOKDkmgUJq/MENFAZJJ5Be3tPavyh1qZXNjOB2PCGLLFlsp
+	 bIvokHWi1xBp5PzSdliL2ixusTBWMibIQB0p+RPp9PYmfkZ8c2cKGDPzGnueoufAqi
+	 X08d4J+ZWL6fQ==
+Date: Fri, 14 Mar 2025 15:07:43 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Greg KH <gregkh@linuxfoundation.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 6.12 3/8] KVM: arm64: Remove host FPSIMD saving for
+ non-protected KVM
+Message-ID: <fb6255b7-0ba2-45a3-93fd-2ebebfac61be@sirena.org.uk>
+References: <20250314-stable-sve-6-12-v1-0-ddc16609d9ba@kernel.org>
+ <20250314-stable-sve-6-12-v1-3-ddc16609d9ba@kernel.org>
+ <2025031427-yiddish-unrented-2bc2@gregkh>
+ <Z9Q_zW_mM-v2iPHC@arm.com>
 MIME-Version: 1.0
-From: Michal Simek <monstr@monstr.eu>
-Date: Fri, 14 Mar 2025 16:05:32 +0100
-X-Gm-Features: AQ5f1JpYX8ZmFDvOocARvlWoAwlfJN6MLmhqbrBxLvebmV4tl_7rNn7qQnD9bs0
-Message-ID: <CAHTX3d+T+_zvwAVqGO+J_+Yia+wXAGsaEbPi1ye1AUYXoq6dmw@mail.gmail.com>
-Subject: [GIT PULL] arm64: ZynqMP SoC changes for v6.15
-To: SoC Team <soc@kernel.org>
-Cc: linux-arm <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="S8XTGybJTDvyceBH"
+Content-Disposition: inline
+In-Reply-To: <Z9Q_zW_mM-v2iPHC@arm.com>
+X-Cookie: Reality does not exist -- yet.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_080544_222875_9ABC534A 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250314_080750_375799_E305BF73 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +83,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-please pull this patch to your tree. Tree is based on v6.13-rc1 but
-that shouldn't be a problem.
-There is no conflict with the latest Linus tree and also don't see any
-issue with Linux next.
-The patch is pretty much cleanup because firmware is not using that
-parameters anyway.
+--S8XTGybJTDvyceBH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks,
-Michal
+On Fri, Mar 14, 2025 at 02:40:13PM +0000, Catalin Marinas wrote:
+> On Fri, Mar 14, 2025 at 06:32:45AM +0100, Greg Kroah-Hartman wrote:
 
+> > What is the upstream git id for this on?
 
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+> It seems to be 8eca7f6d5100 ("KVM: arm64: Remove host FPSIMD saving for
+> non-protected KVM").
 
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+Yes, sorry.
 
-are available in the Git repository at:
+--S8XTGybJTDvyceBH
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  https://github.com/Xilinx/linux-xlnx.git tags/zynqmp-soc-for-6.15
+-----BEGIN PGP SIGNATURE-----
 
-for you to fetch changes up to 5abc174016052caff1bcf4cedb159bd388411e98:
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfURj4ACgkQJNaLcl1U
+h9Am2Qf/b4EHZqu6pDkBYyouOVfn8Z/DkFLUSyW1rFgzV1MJ+UBtBsdKnClTUz2/
+HbeF25PC/M9OJgPZDBVbyvMcSidxldZib36id+wvTgvvZvAPr/fiAW/T8AXmPT+T
+OujSaupg0i2yN3LtCcDbI9cytqJjYzD+eXHp2RZehpJvA2pWTJ/zLAq0d0WE55BD
+FAZx74C24WZ7InXKCP+U5hE2jpHp2iIuK5H+lTY6AJCpgOn9R6aIGkeo9SK5UCSC
+0k0oWK77zGxIe3B3Vxj/NvRkfk8D5rrh+pGJkuTihWjDzoCNyi8moceHdTO1YoVO
+aA73+5Bj6jDghbg3JPgw/01G2fO2yQ==
+=YUsB
+-----END PGP SIGNATURE-----
 
-  firmware: xilinx: Dont send linux address to get fpga config get
-status (2025-02-17 15:40:01 +0100)
-
-----------------------------------------------------------------
-arm64: ZynqMP SoC changes for 6.15
-
-- Align fpga config status with firmware
-
-----------------------------------------------------------------
-Siva Durga Prasad Paladugu (1):
-      firmware: xilinx: Dont send linux address to get fpga config get status
-
- drivers/firmware/xilinx/zynqmp.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
-
-
--- 
-Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
-w: www.monstr.eu p: +42-0-721842854
-Maintainer of Linux kernel - Xilinx Microblaze
-Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
-U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
+--S8XTGybJTDvyceBH--
 
