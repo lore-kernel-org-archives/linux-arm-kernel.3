@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F2CC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C44C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BOXF7Pg1BN8KhVlvEOHOs8IMKH5Qn7TfyoXlWWPpcw=; b=pYVI/gUrVo7ae/O0edtFgqAb3q
-	vJAAQwCWnk6uu9uxucdC4evXDn8W5tdMiH+CjEB0624jj8rxz9YUXGB9uFM1nCJYnvSGXmS+WIyCV
-	WpbVwYwAbKGKNiAoJQAO8EXQ0XZsW5qgDnhT5fQBezjXqFrGa9xhX38+1fdKRpxRLhkMaQVDUlmkc
-	88BDwsZunFVxaruZZNc9Gzv4YUeW3dsyD+v9EAdqn/C6GZMCtv494a4TPFYi2JeCNVSaf106iUJHv
-	cucVH8ZKCr1ybgB+giLtW4ERcN3QflPrAR5hqpuLUdYWlkAjKN8ar4+fxHNigX8i70qmTIpR/qQ2N
-	KFWqKK6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hdZsOfDihGoABO9sZ0NeH0eyzKDQN5UznnZshMEvn/M=; b=xjjr01wpAkuY96XUmJduQw5tkL
+	6IbYxmQPVxgEU3q1i1XDaxuxp2fShiHQpEADo/OCmCLn2T2wbpW3ZQDQap8HbRPdzrK/DxZpVUne6
+	mxdjV2u91FRmffJfW/22LTeN19kQDZBlhi0pvRcX69MBtBj4ZdgP8KsZjMTL975dB/FmK6mQXPlrL
+	n3XudFg4K+w5Os8CmguQyFbNE4gauMatLVtWhB8G5QiEgGnZPXQH92Ze29wwpZHw8dxZhI0pUGf57
+	gK+eIUmadxpLfB6bU4F1DR475FosVBfGopTbiiKnfIXPKU8TXfq0jDjTXaLqnuR4IQ3Mm9oLYyIUy
+	/QFSUtPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2wC-0000000DxW8-1GNG;
-	Fri, 14 Mar 2025 11:10:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2k1-0000000DvQY-38TM
+	id 1tt2xq-0000000DxwV-31IR;
+	Fri, 14 Mar 2025 11:12:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt2sa-0000000Dwxy-37sF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:58:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36A61113E;
-	Fri, 14 Mar 2025 03:58:21 -0700 (PDT)
-Received: from [10.57.85.159] (unknown [10.57.85.159])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E15813F673;
-	Fri, 14 Mar 2025 03:58:09 -0700 (PDT)
-Message-ID: <36c70203-5203-44a1-bc08-479334b730c7@arm.com>
-Date: Fri, 14 Mar 2025 10:58:08 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 PATCH 2/6] arm64: cpufeature: add AmpereOne to BBML2 allow
- list
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250304222018.615808-1-yang@os.amperecomputing.com>
- <20250304222018.615808-3-yang@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250304222018.615808-3-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 14 Mar 2025 11:07:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 632AE5C6221;
+	Fri, 14 Mar 2025 11:04:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1430C4CEE3;
+	Fri, 14 Mar 2025 11:07:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741950423;
+	bh=ebSXBKJQxoM/5pHbw/m81faONgALiALCEATQNZ03LzM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X19Qnj3rhxkaLAlGJniaeRTT0/l/BH2UbT5Bp/MhvNAVFfdN/8JVs48Bft/YbvNqo
+	 ogMcq5Y47H94ZQORaL9TSHXGtnCuzEltJO/xIyDnmPqYrumFCCkiT6GT9hl7aRRnju
+	 uBkaKbgmYxb+wQnEsqkHJFnXLmejTloNoCdrmo+ye1wDx6Regzlqk93Wm5jYwnduVf
+	 YU3RJ6t8LXKCad60sIjBfdpZKucVPSt2je1bvwjoVv6jSqWGPMeKV1ywGcE4Qn61Yw
+	 WncJrPBygzsTMayf5g5x/bR6T1Kpfm+WQm+1GcuIb+4XKBWIlgPb/24x733h8du265
+	 FjL3JP9WWeHqw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tt2sX-00DWpC-H8;
+	Fri, 14 Mar 2025 11:07:01 +0000
+Date: Fri, 14 Mar 2025 11:07:01 +0000
+Message-ID: <86cyejooq2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] KVM: arm64: Use 0b11 for encoding PKVM_NOPAGE
+In-Reply-To: <20250227003310.367350-3-qperret@google.com>
+References: <20250227003310.367350-1-qperret@google.com>
+	<20250227003310.367350-3-qperret@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_035813_832534_6A8C0919 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250314_040704_865087_B8079F5B 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,35 +92,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 22:19, Yang Shi wrote:
-> AmpereOne supports BBML2 without conflict abort, add to the allow list.
+On Thu, 27 Feb 2025 00:33:06 +0000,
+Quentin Perret <qperret@google.com> wrote:
 > 
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> The page ownership state encoded as 0b11 is currently considered
+> reserved for future use, and PKVM_NOPAGE uses bit 2. In order to
+> simplify the relocation of the hyp ownership state into the
+> vmemmap in later patches, let's use the 'reserved' encoding for
+> the PKVM_NOPAGE state. The struct hyp_page layout isn't guaranteed
+> stable at all, so there is no real reason to have 'reserved' encodings.
+> 
+> No functional changes intended.
+> 
+> Signed-off-by: Quentin Perret <qperret@google.com>
 > ---
->  arch/arm64/kernel/cpufeature.c | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/kvm/hyp/include/nvhe/memory.h | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
 > 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 7934c6dd493e..bf3df8407ca3 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2192,6 +2192,8 @@ static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
->  	static const struct midr_range supports_bbml2_noabort_list[] = {
->  		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
->  		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-> +		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-> +		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
->  		{}
->  	};
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> index 34233d586060..642b5e05fe77 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> @@ -13,18 +13,15 @@
+>   *   01: The page is owned by the page-table owner, but is shared
+>   *       with another entity.
+>   *   10: The page is shared with, but not owned by the page-table owner.
+> - *   11: Reserved for future use (lending).
+>   */
+>  enum pkvm_page_state {
+>  	PKVM_PAGE_OWNED			= 0ULL,
+>  	PKVM_PAGE_SHARED_OWNED		= BIT(0),
+>  	PKVM_PAGE_SHARED_BORROWED	= BIT(1),
+> -	__PKVM_PAGE_RESERVED		= BIT(0) | BIT(1),
 >  
+>  	/* Meta-states which aren't encoded directly in the PTE's SW bits */
+> -	PKVM_NOPAGE			= BIT(2),
+> +	PKVM_NOPAGE			= BIT(0) | BIT(1),
 
-Miko's series will move back to additionally checking MMFR2.BBM, so you will
-need to add an erratum workaround for these CPUs to set MMFR2.BBM=2 in the
-per-cpu "sanitised" feature register. See:
+Isn't this comment stale now?
 
-https://lore.kernel.org/linux-arm-kernel/86ecyzorb7.wl-maz@kernel.org/
+	M.
 
-Thanks,
-Ryan
-
+-- 
+Without deviation from the norm, progress is not possible.
 
