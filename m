@@ -4,79 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3780AC35FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 604A6C35FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 08:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEZ/C92I7ZmrCxL8IlGbszsJAl6imIlNGPyscyDrJzg=; b=EG8nn6lQhsd0PLNtJiuZMgEIJG
-	pIknPns7OX6VM6app1CF74yuu7R96S8tf8hk2IMgjTSnu+I/EatPpwbUuWc7AIaW/bQK5DQwdoT2D
-	frU3z79VfkFgZBY+6ekxi2GHESa/GrjcSlWGO0p/GDcZwZqQKpPKa4S2jq8tHdDxJvv4oWS30t5HC
-	CQoo89hQ1LrSITUJo+55pjkQrEBNZp7K8+gH2v9J+NnK1yiWQhCqZJrAkuAYnCAy9WlxWhtttI3IE
-	iUmWGssDR8E/qtp8OmrOIByVaZNHPIWovNlTXaLE8trz9JgYCMJ1E35XttzjKQhf28n5W7P4tmQop
-	2jOx5O8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xCbP2sNib2bkuxYqVljhaOrUA6IEAB/sxBR8bC8Gkbk=; b=D+sByWrmc5qtwP9m2kEsdabBCB
+	Zi3ZPPiUIp2EseP9hrKdj8EfQ6nJqz2ByL/3eQlJzHkiGS7wEz52mocAbYo8yVAdvZuhqNNg1+Ur1
+	hiVdHdCB+rj8+QwhDEfe7eP+iX7KfU58dbXakqpKnzjh8rXPRQpDCTDBoCmP+iZqQ6Z0uqHYhsE8q
+	B4w54FXf4tavZHPuYVCfJC3vSjsFoUUHMR9+LFFf4Cn7K0mqhq2rfl+vQiZfNoLSs4hxUfoqpmIpj
+	vukBaKwBZt1tfuW1M9RmvZe0heJ2K+Um2yrROjsmoixhpjCzX2I5XYs6mZcZATNTMW73V2XwYxMG7
+	OILoWvSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt0lB-0000000DXCh-0eoW;
+	id 1tt0lB-0000000DXCu-2qxL;
 	Fri, 14 Mar 2025 08:51:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tszeq-0000000DKxK-08K5
+	id 1tt0O5-0000000DSZH-0Jed
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 07:40:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8CFC75C5568;
-	Fri, 14 Mar 2025 07:38:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01C2CC4CEE3;
-	Fri, 14 Mar 2025 07:40:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741938039;
-	bh=cZHObQyc4WIrTAFoYw+ZBLwnZMrRJxIHZxIxht/mE34=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=slrqn5rSprDoCRW37ehneMOSF/4zeDbuA/8+MwVmT03/JpailkBFrOdPFVPGwJHay
-	 vnhcaD+TlbvL7VyIbaZiKfv2UrCrACOXIj6dd36+9fTjjbJt0FXbN9FAxAnZcUGbwh
-	 FIPhVPvYCAGbE79OfShlWbOeKoZafz28W+t095NishYtkFFqlK/VUd30Js1ovcktt0
-	 kzxgf2s6XOK1TCHjSZYXJyIx54D29Sb52pqqBHrKVVz9p2cS1LEj8XdhFgpOYRSko4
-	 wdk4wb8bpaJmsVTct8Giw4ID4yVc5Wxb4JG1XFyJnDCgrKqM4cOsP7Rl9GV7xgl/XE
-	 nJxlc4uFFDIew==
-Received: from disco-boy.misterjones.org ([217.182.43.188] helo=www.loen.fr)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tszem-00DSa3-IQ;
-	Fri, 14 Mar 2025 07:40:36 +0000
+	Fri, 14 Mar 2025 08:27:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XCviBDUvkcHZ8MUS9IRpUuT94SQBspvn6pwluXTzMcsqkfOCBv4xmGZfxhewQa2neJaJVFnYZgYbq3u5X2VSn3/fwdPZCIa5widA0DM9zJOLYNFYRFJbcWRWhNOgJwtUb4QuhQADySYSv+unAso3CXKluyqEx8Xka7IleiW/SSwW+fH6OgzuqIYHG+cfygzv/0VkDRXhtHOSeG8ns7FmVzTayXo5UfFY60wMv8APCqzGejW/xuYtZINBeP+v5oZsYAl0jLlxeZxm7cN8WAYtl7ALUK4mXFY9kbnRulxfSkS0azJUYnxPb4F6ivAPk/x1hX1XhU3c8b1i+Z7UjSuvUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xCbP2sNib2bkuxYqVljhaOrUA6IEAB/sxBR8bC8Gkbk=;
+ b=xvnfHqxvvjAlkZ9fizAB7//+pQXoFDwntRMlW303OW2rnR5XtDBR0lhnhBkCmAv/xkYF4G5uHLP1aLDN1+Dt1rxTvUZHnFPxmj4tYAObTKEXll46PPRiDwBfViExLPvxBRgq65Wdes5/h3iL6l+NNqCRXVtnBOXNAa3PAZCDdUa6h5ClA0dy5OLMzTRGGy9Wo019tAitBUTLJ5LKoovItYmnNKsHROEpQrcdsl/3/6fQhsnXws37JDAtZBiJ4KZm4AEOK2GZ+FRzPxA6lA6+2OITGhFVyIPBWZKv6PuUTzE7Nd5AUoP687QuLLx7o++b8uX9orUlW8TqLOss4RfE0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xCbP2sNib2bkuxYqVljhaOrUA6IEAB/sxBR8bC8Gkbk=;
+ b=KYNo4o9HCABlRNfuxYuZjB7s1sDA4xj3vO4NsPnjndOuqFDyA+biXt65W5tsNqO00wu8BGpWpl34HNWOH4ZdRkBI0UFRxAUTBHE+uvpTIdfS7c8NnIvQafOQ2+OUeTUABKw+2lvTe0mARxoHWLYh5tJlNmyJ67O/vVUALF9aiwOsDXv117ktpw+dxHliRlf3GIYLlprOpA0mOTVSbA/siBS8f0eMFGleB4D7icy7+IlYiCS/nkvc3TiuCwGD8Og/ZQhsDlMyyfsr0cOhVp23gZkiBpMkXViyTDXbu4BNaCja7oPxwYATbagC2SLcNdy9TlPgUGmIrXmUhT39AjkfWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DBBPR04MB7738.eurprd04.prod.outlook.com (2603:10a6:10:1ea::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.25; Fri, 14 Mar
+ 2025 08:27:21 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8534.025; Fri, 14 Mar 2025
+ 08:27:21 +0000
+Date: Fri, 14 Mar 2025 17:35:03 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>, Abel Vesa <abelvesa@kernel.org>,
+	linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v10 00/18] Support spread spectrum clocking for i.MX8M
+ PLLs
+Message-ID: <20250314093503.GD12210@nxa18884-linux>
+References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR06CA0232.apcprd06.prod.outlook.com
+ (2603:1096:4:ac::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Date: Fri, 14 Mar 2025 07:40:36 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: James Clark <james.clark@linaro.org>,
- linux-arm-kernel@lists.infradead.org, robh@kernel.org, broonie@kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland
- <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Anshuman
- Khandual <anshuman.khandual@arm.com>, James Morse <james.morse@arm.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] arm64/sysreg: Enforce whole word match for
- open/close tokens
-In-Reply-To: <20250313215622.GA8101@willie-the-truck>
-References: <20250115162600.2153226-1-james.clark@linaro.org>
- <20250115162600.2153226-3-james.clark@linaro.org>
- <20250313215622.GA8101@willie-the-truck>
-User-Agent: Roundcube Webmail/1.4.15
-Message-ID: <36968527640d231882444ba7065317fe@kernel.org>
-X-Sender: maz@kernel.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 217.182.43.188
-X-SA-Exim-Rcpt-To: will@kernel.org, james.clark@linaro.org, linux-arm-kernel@lists.infradead.org, robh@kernel.org, broonie@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, oliver.upton@linux.dev, anshuman.khandual@arm.com, james.morse@arm.com, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DBBPR04MB7738:EE_
+X-MS-Office365-Filtering-Correlation-Id: dba5fb7e-943a-410d-5ea2-08dd62d20a42
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jzY6UPjTK06CgyRla7HDGrkCEBhP86jFbNPGrjDJ1JQrwvQ5YO89RD3eWNJf?=
+ =?us-ascii?Q?S0MnIcyD1BD2blvI4hzUmaLSWtnyIEiLjVpuIT7JnDW3ywlJkkkVecCe7QVe?=
+ =?us-ascii?Q?lKuU+YdFMxa78czCOmY0YRcKq6TVQU02sMGXnS8uRvby89lQ9g5kEejuC72F?=
+ =?us-ascii?Q?gmEe1nPDBoOQkOYXvwQfVTKgx8n/x48crhN0q0fdlx4uDUL5+pXUzUDwz4g2?=
+ =?us-ascii?Q?CZhIKUia9HrymKPEFad5ZLjliCh/LAmHN5Ip28CO5pRfA0vAgvaQwSxxyBBM?=
+ =?us-ascii?Q?Xk0N/GjX4l0sSGZ+EoLrrd4Em/pLRy7dwdhf0khC/Ifoz8l/wqcDVYBYnSRt?=
+ =?us-ascii?Q?hFKNGZOjoVFvVvg1p9CNorSp0IVtuo2+FKSfIycdZBMw63wCtrVa4OnOieLo?=
+ =?us-ascii?Q?Wr2Z5c42dhRUjIVQwiYcxQfjVtwGW3JSM1yUSBpXyiCkKsRRkjeySNrEwghu?=
+ =?us-ascii?Q?7slf52RT7mTlLQEQS7vFJa0rfRL9vy/IYaF4aOGijy12jDtqnEhteRx9RiYS?=
+ =?us-ascii?Q?DxFoZSS8MAoo9V2V5yP0U6INjKXk57l1dt3CbrQDn7oY/Otisl6s0dCAkyv0?=
+ =?us-ascii?Q?4c+1D9sASLC/AHpXGPoLTsSumjyiFI2qJ6D26QPW7/7+h59DcNTqItDKw8jz?=
+ =?us-ascii?Q?CAqt65gr9vVOdaHwsNZoXuY4J7VsPVSS+cMVNYsWq4hqk94y8nBaDc7MexwA?=
+ =?us-ascii?Q?Vwto0gwn1yFOtAMqhWD3TDUyN2RwVjyf4i8Qez1NrVGLKQUszYU0p6bybnNw?=
+ =?us-ascii?Q?TqUD6WeICiDDKlyOtJw+sMSJXPS/jV0vWD76x6yMpvvkLlzFUf9n9Rb+TS4I?=
+ =?us-ascii?Q?5X73Fbbk+KV+7fqgpGK+GPDEd4hBUYu4kQqVOiL+AnqL19n941461GDuX1Ax?=
+ =?us-ascii?Q?WTPApvmmLZQ+wAmlzwcU5gUJExO6Gg7buA4Kt2q6tY/FUHiYhgiOgoqumgib?=
+ =?us-ascii?Q?egIhQeck0TYisAurd1l2Zun/VveiLXFXBRkzWIH96TSI/xeA5U0bPx9F/lFh?=
+ =?us-ascii?Q?WMPGwNvJoFUFa8LTPgJk57Ue1gfkr7TegyURNzePPeV+PABLCC3RnxwQWGOD?=
+ =?us-ascii?Q?qtOVbbX0SyMrnp5i0+vChCkZkhkgJA0jpDVyG+tAShBDTtX1JihwkdcyxS/Z?=
+ =?us-ascii?Q?SxbbfmLev1jBT9lNzbOQphdE/57sE5/OthyaepDB92SrExloJTkrYdDjlx1V?=
+ =?us-ascii?Q?8uFtEhsE4OlypSWeGoGnbFpqgWA8zV3RysjuMs2kQpwg8EAM1OOICQEP72/2?=
+ =?us-ascii?Q?jayxsWGxW69bAKYMCouMb9bNARQuv5YOJILhU8JdVB27bILoDRzWyqFma7Np?=
+ =?us-ascii?Q?5SjOrT6/sz8YVNRe2KdgpAtTJrgwNIto9CgTXiMEkvL0dQaKQyw63uEwyqj3?=
+ =?us-ascii?Q?BnRb/rkSo5Ouh3GeIQ7VVYTmI4fY71lImlDbPDwgCPltQiyICqAW/C7oH5ay?=
+ =?us-ascii?Q?Y5nuEq6lCgete+JRwNQRLnncuoLMU+TZ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FdvYfwCaA3fsIOqUzolQiprEpL6SlEvZAcxBqhH0M3JkDDEw60B6Kc9e3VxJ?=
+ =?us-ascii?Q?knLgmpnSBlb49MQRDrgb0ptv7gjWYg2+HQ4BG34EmHzpm/ImC6g68gvgTefU?=
+ =?us-ascii?Q?TCz+JxkANztH2xipTDmPfQ4mB3yEY5dEG96lGIrWnz4/QEilzWMsSqMUpkEk?=
+ =?us-ascii?Q?YscZssOltU6QjpbK8OiRTBggZUrpIHyVtSpNbiMZqhYpVBn+zLHB+Tohboio?=
+ =?us-ascii?Q?jzJ54W7a+dRicDTwlc8nA0dSvci+KVT6QAErTi7SgkyuwgFBoamwNsui9GgZ?=
+ =?us-ascii?Q?XI6rPC/2jCSaYzbbntuAHD5Da3YMK7aP5Z7Inv2k3SuBlFRe1nZNPkmAbyxp?=
+ =?us-ascii?Q?amaaatOxAa3jms673cuzvwU0Q+w1tbozQqExxSbqgb5+L1beSQCpGez4Xf9x?=
+ =?us-ascii?Q?pDFNz0UehaG3nEFYpCR7VS0RSnVlpjbY5GGWuvdlQrqprz2jlfDwCBwcqmWZ?=
+ =?us-ascii?Q?X41jGTt40UyHXR+vclVqI3VewvPEmHkLqqw2UNQNAmFbgrzxf+2MpjA/DPov?=
+ =?us-ascii?Q?bB1S+h7ziH931NURZhywy/gMLxTTunTjhvxczBNvToNRlwy/uXKIh2spQHSH?=
+ =?us-ascii?Q?wj7ZQtakk3wpMGxj0EWw7XXh1MWqW11T60WMj85oEsVSaoBXidGSTPfC4wpF?=
+ =?us-ascii?Q?n5Jflmk1uZ/4x6mLwrAgi6wpVOMfj56V+BMYYTClFsiNgLSlJu99OyuPuDTj?=
+ =?us-ascii?Q?WJFwZyHoWGkI627lvkCb4a3zLlg6ImBRHIb5iyDAo7Ps0WudROP+s0xyh4vt?=
+ =?us-ascii?Q?pWFvIvbwmu0dAWv+aWt52SpSW4sTshH0yxPAdjiqUR2++BFsiXH8xSiTy1Rk?=
+ =?us-ascii?Q?VnPl8XLPubj9aplpYC3+5oWGdW/z6KxCMy68ITM2Rd+1J4l73dejtpv/zZ6e?=
+ =?us-ascii?Q?KhCFADXlkiDkc3YGN06ODBuyTHxYkhmk+zbmkGLGaO0jVTeFB6Hp0Lj380K6?=
+ =?us-ascii?Q?sD6cFy7Z+SonyqSnLZbj0xeGMRKqLtMdQQ6h9c46UOVAxzVhJPt5GRzrsHmv?=
+ =?us-ascii?Q?dp8DMv0ubVc09irpJEd6/67qTANxP0CoCXnvYDfyNLE5XhyIimtSqj3dvjfv?=
+ =?us-ascii?Q?G3M6wkkcx5VJxGlPU3MMJTSiiSyO+oX6tVPCW1ASjeSY0tofqFYtn+CACxLB?=
+ =?us-ascii?Q?74RIyhhXlt3OgZ5+cwN3kVV+wIWDmf0zgthZfEIP5i9nagNcuTrmVF2NKqF6?=
+ =?us-ascii?Q?rHoruFbb5pVAP16tXtceHpYg47V4ymTlld9/DXT3jJc/JS1Mj145IAE+VvOe?=
+ =?us-ascii?Q?RXFNBB0s/z3l8xCMNwe53AbsbJG/V3v+WRxX5JcRPZlV9KINC6hf0XcgKJAS?=
+ =?us-ascii?Q?XdWjtUCEq+vH9bQE+fGGasE0bvQvV5/Q3vZMcUr+8MwMyC0NaUuIJ3IEFGgW?=
+ =?us-ascii?Q?viLV1k7oKiVrWsJnlpEh02qicZVlXdGHNaqxsDXhiDT7qWvDqOK93PuBRtm6?=
+ =?us-ascii?Q?wJEtej3sxjeLVQ0UCCN3qd0YxRpWeBteDWncoGjk1q4eTvedVcgwxNWO7cMc?=
+ =?us-ascii?Q?j2mYy1FyUUOGT9juIrjLWRSMPokuIzj/HPpdkNKxQV+SG0y69OWXDiPbZe0A?=
+ =?us-ascii?Q?uKpu8wdcuFj5A8ZDOcPvNHCc0nWCggz+VA3ooiNI?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dba5fb7e-943a-410d-5ea2-08dd62d20a42
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2025 08:27:21.3287
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VtDGobT1XKsKH0nsB724JkHrL0Q3AnVBS3+eqbeSVlaGX4nrloVaBiwVkBgBhk9cVIRzNsi68CtWJk1f3aGfPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7738
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_004040_187934_D60667C5 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20250314_012725_114104_E665D006 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +172,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-03-13 21:56, Will Deacon wrote:
-> On Wed, Jan 15, 2025 at 04:25:56PM +0000, James Clark wrote:
->> Opening and closing tokens can also match on words with common 
->> prefixes
->> like "Endsysreg" vs "EndsysregFields". This could potentially make the
->> script go wrong in weird ways so make it fall through to the fatal
->> unhandled statement catcher if it doesn't fully match the current
->> block.
->> 
->> Closing ones also get expect_fields(1) to ensure nothing other than
->> whitespace follows.
->> 
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>  arch/arm64/tools/gen-sysreg.awk | 31 +++++++++++++++++--------------
->>  1 file changed, 17 insertions(+), 14 deletions(-)
->> 
->> diff --git a/arch/arm64/tools/gen-sysreg.awk 
->> b/arch/arm64/tools/gen-sysreg.awk
->> index 1a2afc9fdd42..f2a1732cb1f6 100755
->> --- a/arch/arm64/tools/gen-sysreg.awk
->> +++ b/arch/arm64/tools/gen-sysreg.awk
->> @@ -111,7 +111,7 @@ END {
->>  /^$/ { next }
->>  /^[\t ]*#/ { next }
->> 
->> -/^SysregFields/ && block_current() == "Root" {
->> +$1 == "SysregFields" && block_current() == "Root" {
-> 
-> Stylistic nit, but could you just do:
-> 
-> 	/^SysregFields$/ && block_current() == "Root" {
-> 
-> instead? That way the diff is smaller (well, same number of lines) and
-> you avoid the ugly $1.
+On Thu, Mar 06, 2025 at 12:27:49PM +0100, Dario Binacchi wrote:
+>This version keeps the version v9 patches that can be merged and
+>removes the patches that will need to be modified in case Peng's
+>PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
+>The idea is to speed up the merging of the patches in the series
+>that have already been reviewed and are not dependent on the
+>introduction of the assigned-clocks-sscs property, and postpone
+>the patches for spread spectrum to a future series once it becomes
+>clear what needs to be done.
+>
+Although I give R-b, there is an idea just come out in my mind that this
+might break OS distribution that use firmware(e.g. U-Boot) to publish
+device tree for Linux Kernel, such as ARM System-Ready complaint OS.
+I overlooked this point in previous patchset reviewing.
 
-The code is trying to match the first field of a line such as:
+Since this patchset is to move anatop stuff to a new driver to reflect
+the HW truth.  And requires new entries in CCM node, so old bootloader
+with new kernel will not boot for OS distribution, such as Fedora/openSuse.
 
-SysregFields	ZCR_ELx
+Not sure how to keep backwards support as before. Leave to maintainers
+to say if they are ok with this.
 
-while you seem to try and match a SysregFields all alone on a line.
-
-That being said, my perl-foo is sub-zero, so I may be very wrong myself.
-
-         M.
--- 
-Jazz is not dead. It just smells funny...
+Regards,
+Peng
 
