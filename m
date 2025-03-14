@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12798C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 07:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50A7C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 07:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8pDMTcWpJsDRXzT/2JxMsS956FfhtnBwYmuLpB0+Kts=; b=1dXd7cFHuJYGPAty3YauRm/tsC
-	FFs/q3KhGABgaoFCfU0HSzssbqZCVmOci/5rSOcYJhLPoBT61jE1v2r8ZwFywdrOmysYNiMFbw5WL
-	A4R76azPlxvHP7sCoduPH/eUWZH+mQqxyB5KaTbRjl+6N2vNWtYL7614UgyAJrxZ8Fiie1OZUP2Y5
-	/+eY3kYZQZp/LUfmdui5Mk1dAyC3dWMZpaYURpBZUPwG2YCDp+hki2KKLZimZ3fLIgWNo4oxrJgDt
-	ToU2UD1Ach/Q7Z++YMTHiJPIREefHzCOzIK2uvrv6hvjxjmChYueTr00JD37GSsvgB4oGBpYa8yjI
-	xEGLNsAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QB5LQt7bpy+JzNLqAPOMyuAUrCHcw7EYGy1OQwsiSpg=; b=DjbkBgyOXrcCvdIcWE5VLDZ8Hn
+	ABl3/KuPoi3k10GepiRF7q6IaU/1HvQKzoKP6x2nEbMAXQ0P9SMsAGRsk4Ma7WPav+lRL8KjDAgLF
+	w7OA7ke26zuDk5nVHoOqMKhYm9kJ6otBIW60350gnWb+6EoeOBXrWZ5rNI4AWqxp6KIRLxUCWYfRF
+	oc+qym+Kptx40Aprhr63vFR7+8C7HXO4/ShXKOWODjajCjHuiD47NQk4kmzeiELrFX63MsqqFiBJ5
+	ZijBMd4N/rZfa20dFdq07P43elCH34d2e2TapTiqbUs2BdmBU3xkGCEsXveT1MdmJlWuGXTL0jro5
+	Nr3UOZfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tszl0-0000000DLkn-2cpv;
-	Fri, 14 Mar 2025 07:47:02 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tszua-0000000DMm7-3fp0;
+	Fri, 14 Mar 2025 07:56:56 +0000
+Received: from [216.200.240.185] (helo=mailgw02.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tszjJ-0000000DLSl-1WKb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 07:45:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4ZDbyF55mhz27gbb;
-	Fri, 14 Mar 2025 15:45:41 +0800 (CST)
-Received: from dggemv711-chm.china.huawei.com (unknown [10.1.198.66])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5D5B01A0171;
-	Fri, 14 Mar 2025 15:45:06 +0800 (CST)
-Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
- dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
+	id 1tszsv-0000000DMUP-0OLi;
+	Fri, 14 Mar 2025 07:55:14 +0000
+X-UUID: a45c77be00a911f0a1e849db4cc18d44-20250314
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=QB5LQt7bpy+JzNLqAPOMyuAUrCHcw7EYGy1OQwsiSpg=;
+	b=hy20dZ12n6HxyTDC8HNU+Izo+m6Fm3uMa6gjFBmAdBPOgjyXiWR+v/mGLvKcYRrjGMuRKhlzzufy+npPEK/z6ZZ3lGfzjiBPYE6MLBZZOe7rBk6g9yNZ/sw2F8pnHmuTbLMPiHYxpnrmy0qZFQebLukqZcn0Uut0U1f/tQarTiY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:12404639-51e8-4888-bed6-1bb9efc3c95c,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:0ef645f,CLOUDID:d2be55c6-16da-468a-87f7-8ca8d6b3b9f7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: a45c77be00a911f0a1e849db4cc18d44-20250314
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <lu.tang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1155081101; Fri, 14 Mar 2025 00:55:05 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 14 Mar 2025 15:45:06 +0800
-Received: from [10.67.120.218] (10.67.120.218) by
- kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 14 Mar 2025 15:45:05 +0800
-Subject: Re: [PATCH] coresight: Fixes device's owner field for registered
- using coresight_init_driver()
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, <james.clark@arm.com>,
-	<anshuman.khandual@arm.com>
-References: <20240918035327.9710-1-hejunhao3@huawei.com>
- <e2194d2a-0f51-4e59-a1ca-b4563b3389ec@arm.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <yangyicong@huawei.com>,
-	<prime.zeng@hisilicon.com>, hejunhao <hejunhao3@huawei.com>
-From: hejunhao <hejunhao3@huawei.com>
-Message-ID: <c3744062-f7c1-82df-2fa1-591da3b2dc5e@huawei.com>
-Date: Fri, 14 Mar 2025 15:44:43 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+ 15.2.1258.28; Fri, 14 Mar 2025 15:55:02 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 14 Mar 2025 15:55:01 +0800
+From: Lu.Tang <Lu.Tang@mediatek.com>
+To: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Dmitry Torokhov
+	<dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>, Liam Girdwood
+	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Stephen Boyd
+	<sboyd@kernel.org>, Chen Zhong <chen.zhong@mediatek.com>, Sen Chu
+	<shen.chu@mediatek.com>
+CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-input@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-gpio@vger.kernel.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Lu.Tang
+	<Lu.Tang@mediatek.com>
+Subject: [PATCH 0/5] Add PMIC and SPMI driver for mt8196
+Date: Fri, 14 Mar 2025 15:32:26 +0800
+Message-ID: <20250314073307.25092-1-Lu.Tang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-In-Reply-To: <e2194d2a-0f51-4e59-a1ca-b4563b3389ec@arm.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.218]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemn500004.china.huawei.com (7.202.194.145)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_004517_722827_3CE72299 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20250314_005513_136848_06035BB1 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,201 +94,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+This series is based on linux-next.
 
-Could you confirm if this patch was queued in coresight/next or upstream 
-of the mainline?
+Changes in v0:
+- Modify SPMI driver for mt8196
+- Add SPMI PMIC mfd driver
+- Add PMIC regulator driver for mt8196
 
-I couldn't find it in: kernel/git/coresight/linux.git or Kernel v6.14.0-rc4.
+*** BLURB HERE ***
 
-Maybe am I missing some information?
+Lu.Tang (5):
+  pmic: mediatek: Add pmic auxadc driver
+  pmic: mediatek: Add pmic regulator driver
+  pmic: mediatek: Add spmi pmic mfd driver
+  spmi: mediatek: modify spmi dirver for mt8196
+  dt-bindings: pmic: mediatek: Add pmic documents
 
-Best regards,
-Junhao.
+ .../iio/adc/mediatek,spmi-pmic-auxadc.yaml    |   31 +
+ .../bindings/input/mediatek,pmic-keys.yaml    |    1 +
+ .../bindings/mfd/mediatek,mt6685.yaml         |   50 +
+ .../bindings/mfd/mediatek,spmi-pmic.yaml      |  173 +++
+ .../pinctrl/mediatek,mt65xx-pinctrl.yaml      |    1 +
+ drivers/iio/adc/Kconfig                       |   10 +
+ drivers/iio/adc/Makefile                      |    1 +
+ drivers/iio/adc/mtk-spmi-pmic-adc.c           |  576 +++++++++
+ drivers/mfd/Kconfig                           |   26 +
+ drivers/mfd/Makefile                          |    2 +
+ drivers/mfd/mt6685-core.c                     |   83 ++
+ drivers/mfd/mtk-spmi-pmic.c                   |  518 ++++++++
+ drivers/regulator/Kconfig                     |   34 +
+ drivers/regulator/Makefile                    |    3 +
+ drivers/regulator/mt6316-regulator.c          |  381 ++++++
+ drivers/regulator/mt6363-regulator.c          | 1106 +++++++++++++++++
+ drivers/regulator/mt6373-regulator.c          |  826 ++++++++++++
+ drivers/spmi/spmi-mtk-pmif.c                  | 1040 +++++++++++++++-
+ include/linux/mfd/mt6363/core.h               |  134 ++
+ include/linux/mfd/mt6363/registers.h          |  168 +++
+ include/linux/mfd/mt6373/core.h               |   94 ++
+ include/linux/mfd/mt6373/registers.h          |   53 +
+ include/linux/regulator/mt6316-regulator.h    |   48 +
+ include/linux/regulator/mt6363-regulator.h    |  424 +++++++
+ include/linux/regulator/mt6373-regulator.h    |  318 +++++
+ 25 files changed, 6037 insertions(+), 64 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/mediatek,spmi-pmic-auxadc.yaml
+ create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6685.yaml
+ create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,spmi-pmic.yaml
+ create mode 100644 drivers/iio/adc/mtk-spmi-pmic-adc.c
+ create mode 100644 drivers/mfd/mt6685-core.c
+ create mode 100644 drivers/mfd/mtk-spmi-pmic.c
+ create mode 100644 drivers/regulator/mt6316-regulator.c
+ create mode 100644 drivers/regulator/mt6363-regulator.c
+ create mode 100644 drivers/regulator/mt6373-regulator.c
+ create mode 100644 include/linux/mfd/mt6363/core.h
+ create mode 100644 include/linux/mfd/mt6363/registers.h
+ create mode 100644 include/linux/mfd/mt6373/core.h
+ create mode 100644 include/linux/mfd/mt6373/registers.h
+ create mode 100644 include/linux/regulator/mt6316-regulator.h
+ create mode 100644 include/linux/regulator/mt6363-regulator.h
+ create mode 100644 include/linux/regulator/mt6373-regulator.h
 
-
-On 2024/9/18 16:29, Suzuki K Poulose wrote:
-> On 18/09/2024 04:53, Junhao He wrote:
->> The coresight_init_driver() of the coresight-core module is called from
->> the sub coresgiht device (such as tmc/stm/funnle/...) module. It calls
->> amba_driver_register() and Platform_driver_register(), which are macro
->> functions that use the coresight-core's module to initialize the 
->> caller's
->> owner field.  Therefore, when the sub coresight device calls
->> coresight_init_driver(), an incorrect THIS_MODULE value is captured.
->>
->> The sub coesgiht modules can be removed while their callbacks are
->> running, resulting in a general protection failure.
->>
->> Add module parameter to coresight_init_driver() so can be called
->> with the module of the callback.
->>
->> Fixes: 075b7cd7ad7d ("coresight: Add helpers registering/removing 
->> both AMBA and platform drivers")
->> Signed-off-by: Junhao He <hejunhao3@huawei.com>
->
-> Thanks for the fix, looks good to me. I will queue this for v6.13
->
-> Suzuki
->
->> ---
->>   drivers/hwtracing/coresight/coresight-catu.c       | 2 +-
->>   drivers/hwtracing/coresight/coresight-core.c       | 6 +++---
->>   drivers/hwtracing/coresight/coresight-cpu-debug.c  | 3 ++-
->>   drivers/hwtracing/coresight/coresight-funnel.c     | 3 ++-
->>   drivers/hwtracing/coresight/coresight-replicator.c | 3 ++-
->>   drivers/hwtracing/coresight/coresight-stm.c        | 2 +-
->>   drivers/hwtracing/coresight/coresight-tmc-core.c   | 2 +-
->>   drivers/hwtracing/coresight/coresight-tpiu.c       | 2 +-
->>   include/linux/coresight.h                          | 2 +-
->>   9 files changed, 14 insertions(+), 11 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-catu.c 
->> b/drivers/hwtracing/coresight/coresight-catu.c
->> index bfea880d6dfb..337668f9cfd4 100644
->> --- a/drivers/hwtracing/coresight/coresight-catu.c
->> +++ b/drivers/hwtracing/coresight/coresight-catu.c
->> @@ -702,7 +702,7 @@ static int __init catu_init(void)
->>   {
->>       int ret;
->>   -    ret = coresight_init_driver("catu", &catu_driver, 
->> &catu_platform_driver);
->> +    ret = coresight_init_driver("catu", &catu_driver, 
->> &catu_platform_driver, THIS_MODULE);
->>       tmc_etr_set_catu_ops(&etr_catu_buf_ops);
->>       return ret;
->>   }
->> diff --git a/drivers/hwtracing/coresight/coresight-core.c 
->> b/drivers/hwtracing/coresight/coresight-core.c
->> index 9fc6f6b863e0..c546a417836c 100644
->> --- a/drivers/hwtracing/coresight/coresight-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-core.c
->> @@ -1399,17 +1399,17 @@ module_init(coresight_init);
->>   module_exit(coresight_exit);
->>     int coresight_init_driver(const char *drv, struct amba_driver 
->> *amba_drv,
->> -              struct platform_driver *pdev_drv)
->> +              struct platform_driver *pdev_drv, struct module *owner)
->>   {
->>       int ret;
->>   -    ret = amba_driver_register(amba_drv);
->> +    ret = __amba_driver_register(amba_drv, owner);
->>       if (ret) {
->>           pr_err("%s: error registering AMBA driver\n", drv);
->>           return ret;
->>       }
->>   -    ret = platform_driver_register(pdev_drv);
->> +    ret = __platform_driver_register(pdev_drv, owner);
->>       if (!ret)
->>           return 0;
->>   diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c 
->> b/drivers/hwtracing/coresight/coresight-cpu-debug.c
->> index 75962dae9aa1..cc599c5ef4b2 100644
->> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
->> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
->> @@ -774,7 +774,8 @@ static struct platform_driver 
->> debug_platform_driver = {
->>     static int __init debug_init(void)
->>   {
->> -    return coresight_init_driver("debug", &debug_driver, 
->> &debug_platform_driver);
->> +    return coresight_init_driver("debug", &debug_driver, 
->> &debug_platform_driver,
->> +                     THIS_MODULE);
->>   }
->>     static void __exit debug_exit(void)
->> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c 
->> b/drivers/hwtracing/coresight/coresight-funnel.c
->> index 5a819c8970fb..8f451b051ddc 100644
->> --- a/drivers/hwtracing/coresight/coresight-funnel.c
->> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
->> @@ -433,7 +433,8 @@ static struct amba_driver dynamic_funnel_driver = {
->>     static int __init funnel_init(void)
->>   {
->> -    return coresight_init_driver("funnel", &dynamic_funnel_driver, 
->> &funnel_driver);
->> +    return coresight_init_driver("funnel", &dynamic_funnel_driver, 
->> &funnel_driver,
->> +                     THIS_MODULE);
->>   }
->>     static void __exit funnel_exit(void)
->> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c 
->> b/drivers/hwtracing/coresight/coresight-replicator.c
->> index 3e55be9c8418..f7607c72857c 100644
->> --- a/drivers/hwtracing/coresight/coresight-replicator.c
->> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
->> @@ -438,7 +438,8 @@ static struct amba_driver 
->> dynamic_replicator_driver = {
->>     static int __init replicator_init(void)
->>   {
->> -    return coresight_init_driver("replicator", 
->> &dynamic_replicator_driver, &replicator_driver);
->> +    return coresight_init_driver("replicator", 
->> &dynamic_replicator_driver, &replicator_driver,
->> +                     THIS_MODULE);
->>   }
->>     static void __exit replicator_exit(void)
->> diff --git a/drivers/hwtracing/coresight/coresight-stm.c 
->> b/drivers/hwtracing/coresight/coresight-stm.c
->> index 117dbb484543..403eea8f95d4 100644
->> --- a/drivers/hwtracing/coresight/coresight-stm.c
->> +++ b/drivers/hwtracing/coresight/coresight-stm.c
->> @@ -1046,7 +1046,7 @@ static struct platform_driver 
->> stm_platform_driver = {
->>     static int __init stm_init(void)
->>   {
->> -    return coresight_init_driver("stm", &stm_driver, 
->> &stm_platform_driver);
->> +    return coresight_init_driver("stm", &stm_driver, 
->> &stm_platform_driver, THIS_MODULE);
->>   }
->>     static void __exit stm_exit(void)
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c 
->> b/drivers/hwtracing/coresight/coresight-tmc-core.c
->> index b54562f392f3..e31e36635394 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
->> @@ -742,7 +742,7 @@ static struct platform_driver tmc_platform_driver 
->> = {
->>     static int __init tmc_init(void)
->>   {
->> -    return coresight_init_driver("tmc", &tmc_driver, 
->> &tmc_platform_driver);
->> +    return coresight_init_driver("tmc", &tmc_driver, 
->> &tmc_platform_driver, THIS_MODULE);
->>   }
->>     static void __exit tmc_exit(void)
->> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c 
->> b/drivers/hwtracing/coresight/coresight-tpiu.c
->> index b048e146fbb1..f9ecd05cbe5c 100644
->> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
->> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
->> @@ -318,7 +318,7 @@ static struct platform_driver 
->> tpiu_platform_driver = {
->>     static int __init tpiu_init(void)
->>   {
->> -    return coresight_init_driver("tpiu", &tpiu_driver, 
->> &tpiu_platform_driver);
->> +    return coresight_init_driver("tpiu", &tpiu_driver, 
->> &tpiu_platform_driver, THIS_MODULE);
->>   }
->>     static void __exit tpiu_exit(void)
->> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->> index f09ace92176e..e6c26952ddc2 100644
->> --- a/include/linux/coresight.h
->> +++ b/include/linux/coresight.h
->> @@ -660,7 +660,7 @@ coresight_find_output_type(struct 
->> coresight_platform_data *pdata,
->>                  union coresight_dev_subtype subtype);
->>     int coresight_init_driver(const char *drv, struct amba_driver 
->> *amba_drv,
->> -              struct platform_driver *pdev_drv);
->> +              struct platform_driver *pdev_drv, struct module *owner);
->>     void coresight_remove_driver(struct amba_driver *amba_drv,
->>                    struct platform_driver *pdev_drv);
->
->
-> .
->
+-- 
+2.46.0
 
 
