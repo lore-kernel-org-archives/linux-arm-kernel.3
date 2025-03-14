@@ -4,57 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83060C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F671C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 11:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pe2N1xntlABzzrCxpUzFdRGjuE1D664Fmn7X5yGHwCg=; b=gb7hpu8J2CCsms6/9Mau1ncIVq
-	gIPa36fhentLrQL8gAfziaKmo2sk0zyTUrBqUh7mg6qFwWGA+0B1VtPj2aCrrqNrO7vv3ydmwyra2
-	5O70n+Hdqj6KIlT4IYSZgrcawd96UsJ+n7zzJ343vpAVi/DinDwcZZJevjatJxKMKOgv4N663DV98
-	SjE0Q/PDdayPPFX3Izc4lQGXwqSua9o0u3QVc//4ZyiAXuY1f8QYFziqbWa88K9lCC034EiM+woMA
-	wWov6Gzcex0iorzgh2316ZI3W2XLGodu1lNlg2vgTGO7eUvGY8ekO3FGkE3Q9txNU8DQ5KnT1OwRC
-	7H/6iicQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vt7taJ9jFaGy2PqWPcRNDlH3LVQLTY6sNu+Up2uwHy0=; b=Kr91D5Z3wPOT+WhizIxM8rbfkw
+	Tnt2uJVfNnJ30TMFLO1DFXeGv2pj/ueyonJe7LGM+uIuQd2vF5tUcqLi9P6QdSQaaDshTf3UIgOsj
+	2k7LgLaRBNK//PO7l0tnTmaQ3pAZ+TxL4RZjoJLt6lhG8CTxQEvMEYSsYX/RPEiomB9Lvb7qxnQ3x
+	VCsTM8aa2NWvLNE7NjiiCmIh/hPcPgS3sahB3fK5WbDkjKAMWmJJ1igXY/zFGlWddXyCQIORdXc64
+	skaGv6aVmuSabh4SkKbf9eWiWR6+jts3XV4aCzSpaFaLalK0PcmsxcCdzCfo3FdS3tn8BrQ+iyU85
+	BEyMP3HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2mJ-0000000DvbX-1QMg;
-	Fri, 14 Mar 2025 11:00:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2RS-0000000DsTW-3J1Y
+	id 1tt2nx-0000000Dvoc-0BHw;
+	Fri, 14 Mar 2025 11:02:17 +0000
+Received: from mail-tyzapc01on20730.outbound.protection.outlook.com ([2a01:111:f403:2011::730] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tt2Ss-0000000DsiI-3g8V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:39:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E58981424;
-	Fri, 14 Mar 2025 03:39:11 -0700 (PDT)
-Received: from [10.57.67.32] (unknown [10.57.67.32])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 57ABF3F5A1;
-	Fri, 14 Mar 2025 03:39:00 -0700 (PDT)
-Message-ID: <1a030491-5bc6-4122-baed-faf123f0f872@arm.com>
-Date: Fri, 14 Mar 2025 10:38:59 +0000
+	Fri, 14 Mar 2025 10:40:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rabb2YKSwyCfGD0swVIdo1wko8FrSkVzkthhZ+haCZLLam1NRzK9J7nblullDsxOg7M5NBWbZys3jENi/UlsatWByn64GmWyUk+TEqwEkkOW5Jz506qxVxVoGuYn+EGlFvLGJZaKJxpbLXvejEv0iY8h0boHne6AcVsz/tY0XZN5QFSetjX+amROKUv+oAbvIv+4dqvGR5YqTeDchIS/+TWGmvfuReQgKj1IeD4me/yJHpsXPvI+uTUwWHL9CwdQGxe6lCLZohSG2aJCVQ/aWrivMso2S7U8Nt48n7huSxtYUEbtH8hOG9Q00T3E5DRqs8hu3puQo7cyrxd/Yl6PRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Vt7taJ9jFaGy2PqWPcRNDlH3LVQLTY6sNu+Up2uwHy0=;
+ b=eDssABkC5PydNoA92HSuV5NPjc8++bTJ2ZOEIjJzk/zmjmLZaM8J6dUdv0hXaVUWKtjz3yp8/PC5N9IE0rwWlD2xOM6h6KLp6jwwsV3yG54/z7CxuK1l77yqxV67/Oq+U5viyny6yl9MhNYUjQ192SroTd4rrRPanfi91HxDaNdZL38WtI+Cukn01Ng4+mk/Cr6MUpAnvDHGLyBAuRG/TunF4qHtKnGizpFdSDVH2/6BO8pmohw92vD3hf9/IjTXwseTRXEu9nL1UKEXYQvieF7tK3fnytKEv7fJxp43dCyQnO2x+tjSWnl1OG1221SQY2kU1P/c09CNmT8QqpxH/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Vt7taJ9jFaGy2PqWPcRNDlH3LVQLTY6sNu+Up2uwHy0=;
+ b=Rkhs1h8b2oBCCJG9cIziVLNJnjh+54zG99DJtFF33qYZJs2F1gr3Az/chWYjyND5X7nxwZCeSocwAEV2+7UnoThUf8fw8FVIs3QU6ns4RGVMKgytRsmtWp2QpLqHlkmn7H2/ASbq/aAGjiK2zdY3JcgV3cVRf4+L8FYHHOl3mnO7fbJU3XcWUOce8p2pfykuyRRoKAL2g6lw6bW8vdb8Lrf/JqLTth0slaasx3viCuDEl5d1MT+3pjsbFKh5jbAWyHDJ+V22fGKm97G8sD7khlDCMhbPs1K0sZQi/0TfP6TTJUuuA49oDMcLgP8yI6HwTzqKOM2y5vKbDbZ1mh2EWA==
+Received: from PSAPR06MB4949.apcprd06.prod.outlook.com (2603:1096:301:ad::9)
+ by KL1PR06MB7087.apcprd06.prod.outlook.com (2603:1096:820:11c::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.25; Fri, 14 Mar
+ 2025 10:39:59 +0000
+Received: from PSAPR06MB4949.apcprd06.prod.outlook.com
+ ([fe80::7bdd:639a:6b94:37bf]) by PSAPR06MB4949.apcprd06.prod.outlook.com
+ ([fe80::7bdd:639a:6b94:37bf%4]) with mapi id 15.20.8534.024; Fri, 14 Mar 2025
+ 10:39:59 +0000
+From: Kevin Chen <kevin_chen@aspeedtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "lee@kernel.org" <lee@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
+	<andrew@codeconstruct.com.au>, "derek.kiernan@amd.com"
+	<derek.kiernan@amd.com>, "dragan.cvetic@amd.com" <dragan.cvetic@amd.com>,
+	"arnd@arndb.de" <arnd@arndb.de>, "gregkh@linuxfoundation.org"
+	<gregkh@linuxfoundation.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 2/3] ARM: dts: aspeed-g6: Add AST2600 LPC PCC support
+Thread-Topic: [PATCH v2 2/3] ARM: dts: aspeed-g6: Add AST2600 LPC PCC support
+Thread-Index: AQHbjPJxRrvZq8xUXkuIjl5B+8oxRLNiyu+AgAAESYCAD7D4YA==
+Date: Fri, 14 Mar 2025 10:39:59 +0000
+Message-ID: <PSAPR06MB49492B48614D381498502A9089D22@PSAPR06MB4949.apcprd06.prod.outlook.com>
+References: <20250304104434.481429-1-kevin_chen@aspeedtech.com>
+ <20250304104434.481429-3-kevin_chen@aspeedtech.com>
+ <142a2edc-a668-4a6a-a4e8-eff3e8bf9e91@kernel.org>
+In-Reply-To: <142a2edc-a668-4a6a-a4e8-eff3e8bf9e91@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR06MB4949:EE_|KL1PR06MB7087:EE_
+x-ms-office365-filtering-correlation-id: d41bab3e-7b12-4ec5-eff6-08dd62e491a1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|921020|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?OHhWakFUbWorUkVPNWpBOFk5a1kxRitHRnpBY3hvemFVK0Vsa05nekYyVFRB?=
+ =?utf-8?B?amsyeXJUUUhjU3FzWlR2bGhlWG9vS0lzMkJBRjZaQ3gzK0w0cEVKaUpuMTdF?=
+ =?utf-8?B?bEtodVVwV2F4djlRUEJ4QW93Znl6amlBdXBjOXFsYUE5VCtXb1F5OUxDNmhJ?=
+ =?utf-8?B?NXZIZ1EyY0lSaGZ3aFh1OC94RWgwWWNVclVvdnZZVHhBeGJEV1Z6alNjY09k?=
+ =?utf-8?B?WmY2SDBJK2VEcTBFZ0ZrQVlNNTFRc0V3ajQ1VWc0Q2VEeW5ZLzdkMmdCZ0U1?=
+ =?utf-8?B?bVJBY0FXNWpqM1F6dkdkT00va3JCZ2lUSDh1Q2pHTE03SDhCTDJXeWJPcGJ1?=
+ =?utf-8?B?MlNoZGhybW14MmVnWEpJRXhqbkl0RDFKVSsyRlZvZ0dIV01jVEFUVTlUZ3ls?=
+ =?utf-8?B?eVdlRE02eGdZTjVVUUtSeFFjSm1mbWU1V2NRS0V6MGJpWXp2Wk42SXpHUTNv?=
+ =?utf-8?B?ZHVNUmVjZE5vTVR5T0U2NDVaWk41SzJFQ09iMEpZeFo2Smh3alB2dHVuOGox?=
+ =?utf-8?B?c0RqRHprZjcvYlR2ZFF4NXNSQUc1MDI3RS9hamRBRkNqZHc3SWpKUWo2VExL?=
+ =?utf-8?B?YlgwSklZNkZYK29aTlZHVjQ0OUpSTXdNaHBRYktTdUc3QStqc1VFenB4S0pz?=
+ =?utf-8?B?MHR0cEVIRjV1a3lZUG9tL1d1TkFDdnZ5aUJNVWlHMHZMSldkM2xzemZ6TWl6?=
+ =?utf-8?B?T2M4L0d2VzMzZ202RjF5Skxpc3h2eWFwY2c0dlVtbmo5Lzdhd3VEbkhjVVJI?=
+ =?utf-8?B?akoweHZVeEhId2FHZ3g3MHByYWkvU3pUN05jaXp0M2VQVkc2Ylg1RzdVSHY3?=
+ =?utf-8?B?aVhXS0g5eHJBaGNhOTlXZHB0UWYwbVdVWVgyK09qWXFZYmI2WjR4R2t3Mk1K?=
+ =?utf-8?B?TUtta1M2VXpBdStRc2dZUGRiR1c5TXphdG9XMlpiQjh6OUppNkpRN3g1eXZW?=
+ =?utf-8?B?cGlkMmY4VVg5THduZHZTWUNpTGJDV0owdlU0V0cxaW1EMERtMTVaZnJtekor?=
+ =?utf-8?B?dXNuSWZEN1hsSnRXL0hQZTVMODdXMWhaemhrWXVCR09KU3ltNjJCaVlBK3J1?=
+ =?utf-8?B?eHVSeFlIS0NrZFRzZE5xeENUQmFWR3p0RmN2RGFIR0g4SWwwNlRkay83SDg1?=
+ =?utf-8?B?QWxGRXRyM2RHaXcwcDZxZDhHOTF4VXBjQ2FDVkE4QkRxbTl4S0h0bFl0TlhL?=
+ =?utf-8?B?MnE5UTlFKzVVekdIbTR0SGNNMWpIQUkvMjhKbnNyaUlPc0tXa0Iwd21ZR3RD?=
+ =?utf-8?B?c2c5K0hNeHdOVUtiUDdQcVFlOWVmTWxiQkI0SmxDZGo4bXpBejJuTXlPVmdU?=
+ =?utf-8?B?NTdQUVNZUUlQRmF6dFJLNHppQi94eU1qK2tkTDl2NWlKMHQzc2syN1c5TWxH?=
+ =?utf-8?B?aXEvUklaczA3Q3VPV0tLNjErRm9Td2FzVWQ1cnNJT0kxVE4yQUNZUFdoNi9T?=
+ =?utf-8?B?QjhuekxwaUk4dlM3K0NVaEkyWU51Q2tyRU5mZzVCRTFOVEY3MnI4RXVxUFRt?=
+ =?utf-8?B?Zjh4Qmw5d0RBVklpOXIra3JUN0JmQWM2ZlhPN29OVUF2dGkybzVVd2ttUndh?=
+ =?utf-8?B?YTdOUEc1ZDJTUDJCTnQ1RnUybXJHcFFmMUpTL25sVnZEN0lzN29FQmp3SjVs?=
+ =?utf-8?B?MHBhQ1FEN1BuQzRERmNiNm9WUC9iRk9SalZnSXpWRGIvdWpkSC9mejBRMjg3?=
+ =?utf-8?B?bFZCSDlXeWN0eVc3YTkxR2creXNkd3JhMzdWOTVUSitCeCtCZEU1NVFYT2Jr?=
+ =?utf-8?B?UWdTV3ZBWHRnd0lFVU0yRWEzOTBkK0NrY1hLb3RGR2hMN2pMWEVxNi83eTJB?=
+ =?utf-8?B?MVBYS1F2SXpHR1RxcEZuNWp2MGsrNEJGTmcvTnk4S2tneEx2QWx1UWh0RHVG?=
+ =?utf-8?B?NkdObktUdWtNZnNjL2YrS3BPUDcwRmJEQlEvNEZldFczeTQxcXd2bXFlTkJI?=
+ =?utf-8?B?Z01peW5SQW1MeHVIT0dqWXJuSi9xUnU1MmpCNlcvMitUMWY5WEd3em5RZjU3?=
+ =?utf-8?B?Q3pOSmR0ZjVRPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR06MB4949.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(921020)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?L29BRGJiN01ISTBrZG55REVQSGdYUzc4SEhWYUFTbUpaTzNwQ2UrRXAwVzFK?=
+ =?utf-8?B?dmtGckNxUFc4bHV1Z092VmlhRHROUmFFalp4ZitveXRoOEJRWWdpYkpVL01r?=
+ =?utf-8?B?ZE9TOWN3VllkT3AxSzErSkxaV1lGYy9uTUdVRUwrQjhrU05iM2cyVjFzZUE2?=
+ =?utf-8?B?SXFGZ1JKeWlpT2tuY2xNNUFJNjRpbENaUU92b1BFZWt1MmZEb3pldDZIV1B6?=
+ =?utf-8?B?OXRCcGs1bldva3JBdnNDV3o3U3pyZG1JK3JKTFVpaWNscUM4VTI2aFJRL0t3?=
+ =?utf-8?B?OHRXanBOcXEvRmE4V2U4RUFXQzZoWnFvc3R5OU5MWm00bWxIY1QxWnJOU2ht?=
+ =?utf-8?B?QjhSNU1xNytwWE82L0dSMCszclFWUW52WUduRFphVnVJN3c4U0k2UXcrekla?=
+ =?utf-8?B?QXhUOEp1bHZTbXVwaDJmM2d1aGRrS21FR2RyZUlrQ1lZQzIrV2lXTE1vNWlW?=
+ =?utf-8?B?MStiZjdqY0RseVR0dko1bHZEeFYzRUVyeUxidnkvS2F1cnlZRUZPTzJYR3lE?=
+ =?utf-8?B?MUM1T2ZvYWRwQ0VJSi8vd01CekRaci9KWnhHbzNFMnlmSVBBZ2xsczlyT0J4?=
+ =?utf-8?B?K1V2ZDlZV2psamxHVVZXbWx1d0FvMkpmaHB3MnhZZGlSbDgzOTR4ZWtvUFBP?=
+ =?utf-8?B?RWd2dmd4c2czRW9xZys5TTR5UW1rVUk4d1A2NUIyQm4yZUcrYzlrZkgveERo?=
+ =?utf-8?B?Qm9vaTN6VnJURmhHWTA5ZjlZdndpeXFPTWFoZVNZOTg3K2NJVWkzYmYvVWhh?=
+ =?utf-8?B?anlsZ2h3OGt4TVlrR2plTVQxTGRMWHZTZFg5Nk5sWDZDbitPbWVyS1VJL3JM?=
+ =?utf-8?B?VHRGaFQ4WjQzV0x5SFdXRUhYa3ZKcGJZQWowOCsyVE1yT05KcEFVYzdEWkpo?=
+ =?utf-8?B?QUJDQzZaZW9GdnZqQjU0OWl5a0VmMG9UT1VGN09hREtSN2MyK2Z1R1JmOS9E?=
+ =?utf-8?B?K1VpM29iWWRQRWhsY2NJM3BxWGdDTk4wanBkdmZNZnUzdDhhcTVWZDdBV1BC?=
+ =?utf-8?B?bnZoRTNGZHoyTU4xQ25CSWYxazc5TlJ0Tm92R2VER2dWTlRrRUl2Zm1oekZs?=
+ =?utf-8?B?R1h1QUErZXVpcW9oUjlnemRtdEdabmpBRjZhS1Vxdk5UTDBYNEtLbkpnbUR1?=
+ =?utf-8?B?d0VRVk8zWXNHVENiWW41RWpOTDd2WGNUcVFCWlJUV1ZGUjJwSmR3OFdRY1dY?=
+ =?utf-8?B?VVgrcHk1TTcxN3k1bGpydXd5U1Q5MjRlME9kenhqVGYvR0VRdFNNWVlzU3pw?=
+ =?utf-8?B?d0xIWWRVTjhYQWs1V1V3TU1sdkhFUGYreWoyMGJITnZzQ0lzTnB0NGh1ZVN1?=
+ =?utf-8?B?SjgzZWd2T1VBSFNvb2RIeXBhZ2FzbWJjSERNYTJ6R2JZcVJiL1hyQk41dThX?=
+ =?utf-8?B?RC9vV2JTeENSTC9OdGNGKzVIRGkyL0VuSUFNYWM1L1VqaVFHZkNLWDl0OVVu?=
+ =?utf-8?B?bGxYVHJOVjBwdFNZUnZrMm4wQTJCMThwQTczTXZialVXYXlYYkdVUnQ4OTNr?=
+ =?utf-8?B?TXRzREtObmFkRFFiSlZvRmRqeUUrMnlVLzhXVVRzMm55alNmZ00yYmVxdlVt?=
+ =?utf-8?B?UzB0TUhaUXA4bG4reHJENDFBSXFVOVozWktvWHVxMVhteGJUenF5YTB4TFRH?=
+ =?utf-8?B?cE1JKzgwQnE3L3g5cWhOTEgzbWU3eEZVcnVzeFNSQmt5RUtMVm1GREZGMDRC?=
+ =?utf-8?B?ZnNBSXdPeWEyOEhBQVk5TkZoaldWZ3NqRnhQQXc4QUl4TG5sT3Z6RmtYN2xh?=
+ =?utf-8?B?K25iQVV4S1lZSlRPTTRMRk9kN3dGd3B2aXJRR2lNdXpCTGRQaXdZVHFoSjVk?=
+ =?utf-8?B?QUdlekNDcUZCUHhtK1lVRWovWUVpeTYyRVk3NDRqVE4wVnN6bUJFbjFkRmM0?=
+ =?utf-8?B?bWxTMFhUL0RjVVhad2NRZXJOMFBURGpBZFkxM0xNV014dzZIVzFrSUtuQm1Q?=
+ =?utf-8?B?M255RUxBNS9hditNcSs1citXeU9zM1FjZDIxUFlLQzQ1OHVqM1hRM084M2Uy?=
+ =?utf-8?B?dFJPaCtVMG5MZERCWXY2VDNLS3F2RTZqalBZanVaVzJCcFpBbFhDUGJoUW93?=
+ =?utf-8?B?TUhjTUlKSFA4ZStJTkhaVTcreDZkdVNNaUJYaW5iV0JtbW5VZlYydUI4clpu?=
+ =?utf-8?Q?TvFt9t2oLFD+XvucMyruKZA0x?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: Fixes device's owner field for registered
- using coresight_init_driver()
-Content-Language: en-GB
-To: hejunhao <hejunhao3@huawei.com>, james.clark@arm.com,
- anshuman.khandual@arm.com
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linuxarm@huawei.com,
- jonathan.cameron@huawei.com, yangyicong@huawei.com, prime.zeng@hisilicon.com
-References: <20240918035327.9710-1-hejunhao3@huawei.com>
- <e2194d2a-0f51-4e59-a1ca-b4563b3389ec@arm.com>
- <c3744062-f7c1-82df-2fa1-591da3b2dc5e@huawei.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <c3744062-f7c1-82df-2fa1-591da3b2dc5e@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR06MB4949.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d41bab3e-7b12-4ec5-eff6-08dd62e491a1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Mar 2025 10:39:59.1654
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: vhz83hch2qReK4QLJxe+nOttblVhEQAgtGyT+iO3Iv6+kDqNMsGxLhHxaBFN6jhvNJlIZiqv5ANgDVPT+32x8afR7GQQFMB5DKqlICOO/J0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB7087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_033902_913835_EE9BB387 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20250314_034030_909786_380E59E0 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,227 +188,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
-
-On 14/03/2025 07:44, hejunhao wrote:
-> Hi Suzuki,
-> 
-> Could you confirm if this patch was queued in coresight/next or upstream 
-> of the mainline?
-> 
-> I couldn't find it in: kernel/git/coresight/linux.git or Kernel v6.14.0- 
-> rc4.
-> 
-> Maybe am I missing some information?
-
-Apologies, I missed queueing this. That said, I have a minor comment on 
-the patch below.
-
-> 
-> Best regards,
-> Junhao.
-> 
-> 
-> On 2024/9/18 16:29, Suzuki K Poulose wrote:
->> On 18/09/2024 04:53, Junhao He wrote:
->>> The coresight_init_driver() of the coresight-core module is called from
->>> the sub coresgiht device (such as tmc/stm/funnle/...) module. It calls
->>> amba_driver_register() and Platform_driver_register(), which are macro
->>> functions that use the coresight-core's module to initialize the 
->>> caller's
->>> owner field.  Therefore, when the sub coresight device calls
->>> coresight_init_driver(), an incorrect THIS_MODULE value is captured.
->>>
->>> The sub coesgiht modules can be removed while their callbacks are
->>> running, resulting in a general protection failure.
->>>
->>> Add module parameter to coresight_init_driver() so can be called
->>> with the module of the callback.
->>>
->>> Fixes: 075b7cd7ad7d ("coresight: Add helpers registering/removing 
->>> both AMBA and platform drivers")
->>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
->>
->> Thanks for the fix, looks good to me. I will queue this for v6.13
->>
->> Suzuki
->>
->>> ---
->>>   drivers/hwtracing/coresight/coresight-catu.c       | 2 +-
->>>   drivers/hwtracing/coresight/coresight-core.c       | 6 +++---
->>>   drivers/hwtracing/coresight/coresight-cpu-debug.c  | 3 ++-
->>>   drivers/hwtracing/coresight/coresight-funnel.c     | 3 ++-
->>>   drivers/hwtracing/coresight/coresight-replicator.c | 3 ++-
->>>   drivers/hwtracing/coresight/coresight-stm.c        | 2 +-
->>>   drivers/hwtracing/coresight/coresight-tmc-core.c   | 2 +-
->>>   drivers/hwtracing/coresight/coresight-tpiu.c       | 2 +-
->>>   include/linux/coresight.h                          | 2 +-
->>>   9 files changed, 14 insertions(+), 11 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/ 
->>> hwtracing/coresight/coresight-catu.c
->>> index bfea880d6dfb..337668f9cfd4 100644
->>> --- a/drivers/hwtracing/coresight/coresight-catu.c
->>> +++ b/drivers/hwtracing/coresight/coresight-catu.c
->>> @@ -702,7 +702,7 @@ static int __init catu_init(void)
->>>   {
->>>       int ret;
->>>   -    ret = coresight_init_driver("catu", &catu_driver, 
->>> &catu_platform_driver);
->>> +    ret = coresight_init_driver("catu", &catu_driver, 
->>> &catu_platform_driver, THIS_MODULE);
->>>       tmc_etr_set_catu_ops(&etr_catu_buf_ops);
->>>       return ret;
->>>   }
->>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
->>> hwtracing/coresight/coresight-core.c
->>> index 9fc6f6b863e0..c546a417836c 100644
->>> --- a/drivers/hwtracing/coresight/coresight-core.c
->>> +++ b/drivers/hwtracing/coresight/coresight-core.c
->>> @@ -1399,17 +1399,17 @@ module_init(coresight_init);
->>>   module_exit(coresight_exit);
->>>     int coresight_init_driver(const char *drv, struct amba_driver 
->>> *amba_drv,
->>> -              struct platform_driver *pdev_drv)
->>> +              struct platform_driver *pdev_drv, struct module *owner)
->>>   {
->>>       int ret;
->>>   -    ret = amba_driver_register(amba_drv);
->>> +    ret = __amba_driver_register(amba_drv, owner);
->>>       if (ret) {
->>>           pr_err("%s: error registering AMBA driver\n", drv);
->>>           return ret;
->>>       }
->>>   -    ret = platform_driver_register(pdev_drv);
->>> +    ret = __platform_driver_register(pdev_drv, owner);
->>>       if (!ret)
->>>           return 0;
->>>   diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/ 
->>> drivers/hwtracing/coresight/coresight-cpu-debug.c
->>> index 75962dae9aa1..cc599c5ef4b2 100644
->>> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
->>> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
->>> @@ -774,7 +774,8 @@ static struct platform_driver 
->>> debug_platform_driver = {
->>>     static int __init debug_init(void)
->>>   {
->>> -    return coresight_init_driver("debug", &debug_driver, 
->>> &debug_platform_driver);
->>> +    return coresight_init_driver("debug", &debug_driver, 
->>> &debug_platform_driver,
->>> +                     THIS_MODULE);
-
-minor nit:
-
-Could we make the coresight_init_driver() a static inline or even a
-macro to automatically add the THIS_MODULE param ?
-
-Something like:
-
-#define coresight_init_driver(name, amba_drv, pdev_drv)
-	coresight_init_driver_owner(name, amba_drv, pdev_drv, THIS_MODULE)
-
-I could respin this and queue the change.
-
-
-Suzuki
-
-
->>>   }
->>>     static void __exit debug_exit(void)
->>> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/ 
->>> drivers/hwtracing/coresight/coresight-funnel.c
->>> index 5a819c8970fb..8f451b051ddc 100644
->>> --- a/drivers/hwtracing/coresight/coresight-funnel.c
->>> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
->>> @@ -433,7 +433,8 @@ static struct amba_driver dynamic_funnel_driver = {
->>>     static int __init funnel_init(void)
->>>   {
->>> -    return coresight_init_driver("funnel", &dynamic_funnel_driver, 
->>> &funnel_driver);
->>> +    return coresight_init_driver("funnel", &dynamic_funnel_driver, 
->>> &funnel_driver,
->>> +                     THIS_MODULE);
->>>   }
->>>     static void __exit funnel_exit(void)
->>> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/ 
->>> drivers/hwtracing/coresight/coresight-replicator.c
->>> index 3e55be9c8418..f7607c72857c 100644
->>> --- a/drivers/hwtracing/coresight/coresight-replicator.c
->>> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
->>> @@ -438,7 +438,8 @@ static struct amba_driver 
->>> dynamic_replicator_driver = {
->>>     static int __init replicator_init(void)
->>>   {
->>> -    return coresight_init_driver("replicator", 
->>> &dynamic_replicator_driver, &replicator_driver);
->>> +    return coresight_init_driver("replicator", 
->>> &dynamic_replicator_driver, &replicator_driver,
->>> +                     THIS_MODULE);
->>>   }
->>>     static void __exit replicator_exit(void)
->>> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/ 
->>> hwtracing/coresight/coresight-stm.c
->>> index 117dbb484543..403eea8f95d4 100644
->>> --- a/drivers/hwtracing/coresight/coresight-stm.c
->>> +++ b/drivers/hwtracing/coresight/coresight-stm.c
->>> @@ -1046,7 +1046,7 @@ static struct platform_driver 
->>> stm_platform_driver = {
->>>     static int __init stm_init(void)
->>>   {
->>> -    return coresight_init_driver("stm", &stm_driver, 
->>> &stm_platform_driver);
->>> +    return coresight_init_driver("stm", &stm_driver, 
->>> &stm_platform_driver, THIS_MODULE);
->>>   }
->>>     static void __exit stm_exit(void)
->>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/ 
->>> drivers/hwtracing/coresight/coresight-tmc-core.c
->>> index b54562f392f3..e31e36635394 100644
->>> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
->>> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
->>> @@ -742,7 +742,7 @@ static struct platform_driver tmc_platform_driver 
->>> = {
->>>     static int __init tmc_init(void)
->>>   {
->>> -    return coresight_init_driver("tmc", &tmc_driver, 
->>> &tmc_platform_driver);
->>> +    return coresight_init_driver("tmc", &tmc_driver, 
->>> &tmc_platform_driver, THIS_MODULE);
->>>   }
->>>     static void __exit tmc_exit(void)
->>> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/ 
->>> hwtracing/coresight/coresight-tpiu.c
->>> index b048e146fbb1..f9ecd05cbe5c 100644
->>> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
->>> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
->>> @@ -318,7 +318,7 @@ static struct platform_driver 
->>> tpiu_platform_driver = {
->>>     static int __init tpiu_init(void)
->>>   {
->>> -    return coresight_init_driver("tpiu", &tpiu_driver, 
->>> &tpiu_platform_driver);
->>> +    return coresight_init_driver("tpiu", &tpiu_driver, 
->>> &tpiu_platform_driver, THIS_MODULE);
->>>   }
->>>     static void __exit tpiu_exit(void)
->>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->>> index f09ace92176e..e6c26952ddc2 100644
->>> --- a/include/linux/coresight.h
->>> +++ b/include/linux/coresight.h
->>> @@ -660,7 +660,7 @@ coresight_find_output_type(struct 
->>> coresight_platform_data *pdata,
->>>                  union coresight_dev_subtype subtype);
->>>     int coresight_init_driver(const char *drv, struct amba_driver 
->>> *amba_drv,
->>> -              struct platform_driver *pdev_drv);
->>> +              struct platform_driver *pdev_drv, struct module *owner);
->>>     void coresight_remove_driver(struct amba_driver *amba_drv,
->>>                    struct platform_driver *pdev_drv);
->>
->>
->> .
->>
-> 
-
+PiBPbiAwNC8wMy8yMDI1IDExOjQ0LCBLZXZpbiBDaGVuIHdyb3RlOg0KPiA+IFRoZSBBU1QyNjAw
+IGhhcyBQQ0MgY29udHJvbGxlciBpbiBMUEMsIHBsYWNlZCBpbiBMUEMgbm9kZS4NCj4gPg0KPiA+
+IFNpZ25lZC1vZmYtYnk6IEtldmluIENoZW4gPGtldmluX2NoZW5AYXNwZWVkdGVjaC5jb20+DQo+
+ID4gLS0tDQo+ID4gIGFyY2gvYXJtL2Jvb3QvZHRzL2FzcGVlZC9hc3BlZWQtZzYuZHRzaSB8IDcg
+KysrKysrKw0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspDQo+ID4NCj4gPiBk
+aWZmIC0tZ2l0IGEvYXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1nNi5kdHNpDQo+IGIv
+YXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1nNi5kdHNpDQo+ID4gaW5kZXggOGVkNzE1
+YmQ1M2FhLi44N2RjYWNiNzg2OTIgMTAwNjQ0DQo+ID4gLS0tIGEvYXJjaC9hcm0vYm9vdC9kdHMv
+YXNwZWVkL2FzcGVlZC1nNi5kdHNpDQo+ID4gKysrIGIvYXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVk
+L2FzcGVlZC1nNi5kdHNpDQo+ID4gQEAgLTYyNiw2ICs2MjYsMTMgQEAgbHBjX3Nub29wOiBscGMt
+c25vb3BAODAgew0KPiA+ICAJCQkJCXN0YXR1cyA9ICJkaXNhYmxlZCI7DQo+ID4gIAkJCQl9Ow0K
+PiA+DQo+ID4gKwkJCQlscGNfcGNjOiBscGMtcGNjQDAgew0KPiA+ICsJCQkJCWNvbXBhdGlibGUg
+PSAiYXNwZWVkLGFzdDI2MDAtbHBjLXBjYyI7DQo+ID4gKwkJCQkJcmVnID0gPDB4MCAweDE0MD47
+DQo+ID4gKwkJCQkJaW50ZXJydXB0cyA9IDxHSUNfU1BJIDE0NSBJUlFfVFlQRV9MRVZFTF9ISUdI
+PjsNCj4gPiArCQkJCQlzdGF0dXMgPSAiZGlzYWJsZWQiOw0KPiANCj4gSW5jb21wbGV0ZS4gWW91
+ciBkcml2ZXIgY2xlYXJseSBiYWlscyBvbiBtaXNzaW5nIHBvcnRzLi4uDQpBZ3JlZS4NCg0KPiAN
+Cj4gQmVzdCByZWdhcmRzLA0KPiBLcnp5c3p0b2YNCg==
 
