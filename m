@@ -4,96 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3223C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7598BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 16:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbAf7RLJv6RsTwMHx91Z6PJ5PYNVMVgiR3uOKlVTE8s=; b=VfpLt39S2Vo0eIoedgWwgranJ2
-	yFkiYEpm8Kyw6aqCtUCvuXsiE0Iud/q2/caMdWP7/rV5z42OHjmZ0nB/o238oDq9LwEPansDJ5ljY
-	nidKZK5uqX5wFXpv3/EGLqKlfo17T/6egZm0PkdSaaxnShWiQ7psaTb/1RmPUjdSDw2mZaepvsmhD
-	yHbAYJaQEJToxz0LYMKxu49MhEn/RxeLuK/rm2rtzrhQA4ykrxBuK+25n4HyCzOTWlo+oqG52kH/f
-	0QDbxZsavqvWrt5wYV5euLoSB1JRjoMRGV2qBT7x5Y3rw7Yk69f+UiONNat6im9UxQgpaWbUpdmn6
-	NZgsX7vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tIY165QBF2I7E64kxf0y7gan5+WkPY6SwpR93M25+8U=; b=0wohWWpZxOCZNKPU0mYVk4jTWF
+	JXEDJ7ZFgxBasu0Nr/xk3R+LaRjkjD2MK6qb/ZVjvP83rypNsEiWYn1F6/eFQvUkY9FhVVX2pfbck
+	zYObSaKeKtdOveLJMmG3yktVKNXQ8fTn9yyFl4PZoi3gh2J7gir5CQhMl3kDMiMkfA0/Ha5tq8wsX
+	1Bp/c854UQNEuN1xHhX7PHAMYa8x7CZ5qSO8p5qclrCZ1cBsNIfY5gxZCSRu0v/bId8fI5mAdcS/w
+	IYrber5rWoteB2wtg/ND4b8hqAYFL1s7Ie2TPfxgOeoYCPJf8avcGiSa5kyftKLHNAZqNa+1j7alY
+	YGi8wOoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7V7-0000000EfFo-3Vo4;
-	Fri, 14 Mar 2025 16:03:09 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tt7Wl-0000000EfTh-2Oxc;
+	Fri, 14 Mar 2025 16:04:51 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt7Rq-0000000Eecc-2EGV
+	id 1tt7Sg-0000000EepC-1chy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 15:59:47 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43d04ea9d9aso15801455e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 08:59:46 -0700 (PDT)
+	Fri, 14 Mar 2025 16:00:39 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ff62f9b6e4so561521a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Mar 2025 09:00:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741967985; x=1742572785; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=qbAf7RLJv6RsTwMHx91Z6PJ5PYNVMVgiR3uOKlVTE8s=;
-        b=W4TcfgPEKVqaAWdOOMQACe1dIfwRXWHEf+Pi1qnFfve5COa6N3Ab/PlPc34R7F0sIu
-         IQJlDtPSWoAgj8WyqDbIUJnDceCQ8Vo9rt9K+loTqiBCBFeybxqxSzV3X3mOqEvq61rv
-         fZxoerKoKJX1TAkuXwOO/1OEAL+IOaY2kk2cI04ZsValxcAkQDkCnGF0hlA3peVbBN9x
-         xrlFoX6wmhXhVZRiuqJ1rIN4inDFI+Bvpso94lo8lXIoE5UrftWdGyD31fjrIL66fvdo
-         TPfwsAgX59nRiZ320oTWVrr4wcyPh4mZeyjj+ZoSmXvgaQ/r1QNfmrtFox8R1f7uUyzS
-         nGKg==
+        d=gmail.com; s=20230601; t=1741968038; x=1742572838; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tIY165QBF2I7E64kxf0y7gan5+WkPY6SwpR93M25+8U=;
+        b=TZdCwFxysKtV8D/XFN+dmxhgh2wWTj1mz200GvVfaoFKt7S76x+DkbJCVQcQTelx8A
+         C9uUcr/zx+DpZgRF8lK7ycFIkJmORgHrXHg95Bo8VHgO3cc2kOpnb2+H9m9lTaO86Eoj
+         2C61i6+ZILBUr3T6cKEcHwhik/mJHrI5fn8RkCsKec1Yl2AgzCXE/gYZ43B3s2aWm2Vf
+         Nz58UK3KPDK6cJQ47iqm5YIA7DtbxuLlvlxdo2t2WeS2Do5wRVR5ZMV3H4ST3ULE9SQ5
+         4fCM9EmQNG7hpKUca/neyaam+3ojie+bgJMLwgWktTt/buj4Qgc7VDPwN3HDQaOuGmNJ
+         cCQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741967985; x=1742572785;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qbAf7RLJv6RsTwMHx91Z6PJ5PYNVMVgiR3uOKlVTE8s=;
-        b=msf4/9OKSsGJTq08317fICfWxSl0NaCia9dZTEHHnlScNYoxX9/olkWHGb7JRa1qHF
-         tfyo4YOGkhpEq+kqF0ZFo10qLLBzbL53a2dxEpVGcWrm3AcWwvHI20sUKuILYRIoiX1/
-         MLkah+6n1jTo//ZC77bdmc0vfwuv0/1TvRWq7oTQZwGiDoP2bESOZ/g8IrzA76k5HnZ8
-         KimNKVsmmj00k0wm8swiTonh/zmXNiu1TZUzWkW5LL1I/k65YZvM1MgrDzkXgCH80Lfn
-         PTxuVjqWK2FTJBH2vDE4xaDtiJCGAEISxUoWr8F9VwjWfgL9kYCKMxxXSQirQd8tGvOK
-         KCOg==
-X-Forwarded-Encrypted: i=1; AJvYcCWkidf0jDaBKQzMAS1hgpMZA3R5wNsjR1Ep8n/YDp2NRYIwsrJK6WhRFYNi50BgqwH+0KVOLALw89LqoIWD4bVz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrfOmLYJB7PrbyJVcT7ECoUFNnLmdwKQEgjG0a9Z9BbAFKRdKf
-	wmn95DSg2F3XHJiL48AGc3JQ+1ylKSbDlbZrsU8VUJW8MjjRgJFFDAuEAwYmbe8=
-X-Gm-Gg: ASbGncsvdTwmBhye+zBX7kI7Zklutg+l1pB98n+B2uNj2fl6pQEzB9QCWdeUD1NpKXc
-	mtbjHhlV/CjVHaAm3vbdVyAemJHZpyZDhr5qLBFVCLxNWYmwX6YX6L7PqPivmqTwP+vrb9mTjNn
-	jUjNCCamUC+IlaoDUXyR87BfMBG5cHqNsbiYqgArGbu5XXUp9XK+MxCMew2EAQNtC8eUNgqd0RJ
-	YVKg4P745glMnz5im87tAKW5Os7B4ASWHU4GWC2p5zClt2ZO8KqFt1ZJoXaUb5SvlqRWQuTMXnt
-	C2DEh9aU9VAmY8nO0me7BCuAM8+PfLU5Nkzd/1YMgbNAj58Y
-X-Google-Smtp-Source: AGHT+IHxwHHx6Fb/u1dWZbQ1qTy60BcLwUz4P4SvmS/UEUbzjpP8/AFJeuPq9qAxmx2U4YpAhe3Dbw==
-X-Received: by 2002:a05:600c:41d3:b0:43c:f689:dd with SMTP id 5b1f17b1804b1-43d20e467c7mr27073105e9.19.1741967985037;
-        Fri, 14 Mar 2025 08:59:45 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d200fac7asm21846905e9.28.2025.03.14.08.59.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 08:59:44 -0700 (PDT)
-Message-ID: <931e5e0b07d598912712b091d99a636b796fe19f.camel@linaro.org>
-Subject: Re: [PATCH 2/2] scsi: ufs: dt-bindings: exynos: add dma-coherent
- property for gs101
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
- <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alim
- Akhtar	 <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Bart
- Van Assche	 <bvanassche@acm.org>, "Martin K. Petersen"
- <martin.petersen@oracle.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-scsi@vger.kernel.org, kernel-team@android.com,
- willmcvicker@google.com, 	stable@vger.kernel.org
-Date: Fri, 14 Mar 2025 15:59:43 +0000
-In-Reply-To: <20250314-ufs-dma-coherent-v1-2-bdf9f9be2919@linaro.org>
-References: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
-	 <20250314-ufs-dma-coherent-v1-2-bdf9f9be2919@linaro.org>
+        d=1e100.net; s=20230601; t=1741968038; x=1742572838;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tIY165QBF2I7E64kxf0y7gan5+WkPY6SwpR93M25+8U=;
+        b=MZRwVe3//V18KTjBjzs91Do1/t3LJR+Be98fsPkSJO/4BMYo117nEE5DFpAkgRZV/V
+         d67OhM0sMSw5pxP0bYhfwZyzwWcdAJtp/9+ZghYHRZf+PxLRw+45QLy9v8y81+pK9IGa
+         rDUhBCNzsV6WB9t1M3UGRBbJPaXcSiPYPOaOmnJuZJ63LVUitJusOE4XUsgQJv6v6ri7
+         1mXaesk7sagyASXPb8dFxfdzOSsD/Zgokun9ZWXkr3d2s1R8fiKbHpfBDzpLA+HsrOHl
+         Yn18KWd6JS0nA42EhPudJZlYaw8YNj2jbyzOU3KYY3AegMBmrBd8U6/7Fa5pJV3hKptE
+         CpZA==
+X-Forwarded-Encrypted: i=1; AJvYcCUemZmdzflgDiB3PM71sHJuU7ilBYih+BUVsaOVVip0UyyNEk0z4AJL2ag3Tgkn3n1NugjhB6UDRqufzx1uFGe1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpKTe/aRvKu3oB3eMtGXlGfNzFqyhZlJsVl4A2VkiEsPWelu0N
+	htqx/6+ncAK3SjjmghxWCObVzvyG6WLlF/7oNI/WIQv8sbZRugRjkpw3qPsRDX0moV8sCAcVh8e
+	FNZd9qvd++K9EbPW1Cs6RxM/NaA==
+X-Gm-Gg: ASbGnctDGFSkAxhF2+4FrLcfwQ4sqelKN1HJeos3LX7YSGAWKGpNNbXbEj/6ouVDgYq
+	g+0HVHD2avwEvxPpVYAjvN9OjvqQu9TWPB+NyvCH++RRNKpquA3GYi71yA6VMNvWHHG9MS3lvcg
+	hU00nZCRfww1XUg6/gTSGBN2KLyUQ=
+X-Google-Smtp-Source: AGHT+IHPg5LEX9RcXJcT7z3Dh6z47dRs4csMp548pLAhreG5srJVcZIIpfZ8T/92XQSoT8s0QhUvp3pVVX5xQ+RxwCQ=
+X-Received: by 2002:a17:90b:164f:b0:2ff:5759:549a with SMTP id
+ 98e67ed59e1d1-30151c88e12mr1556703a91.1.1741968037522; Fri, 14 Mar 2025
+ 09:00:37 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250314012029.668306-1-chenyuan0y@gmail.com> <20250314-prophetic-attentive-platypus-3ab214@houat>
+In-Reply-To: <20250314-prophetic-attentive-platypus-3ab214@houat>
+From: Chenyuan Yang <chenyuan0y@gmail.com>
+Date: Fri, 14 Mar 2025 11:00:26 -0500
+X-Gm-Features: AQ5f1JoUD0V5ZOdvR5FcIitlHbVLK_E695Xu4I0ACsV86e_NOveKe5yScUlp2jo
+Message-ID: <CALGdzurT1_fY_o8Hv92j4+XFQHu1iHRzqVtZAM8upHYBPfA1BA@mail.gmail.com>
+Subject: Re: [PATCH] drm/sun4i: backend: Fix error pointers in sun4i_backend_atomic_check
+To: Maxime Ripard <mripard@kernel.org>
+Cc: wens@csie.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, jernej.skrabec@gmail.com, 
+	samuel@sholland.org, neil.armstrong@linaro.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.53.2-1 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_085946_569111_398643D8 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250314_090038_425151_B4BF35FB 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +97,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pete,
+HI Maxime.
 
-On Fri, 2025-03-14 at 15:38 +0000, Peter Griffin wrote:
-> dma-coherent property is required for gs101 as ufs-exynos enables
-> sharability.
->=20
-> Fixes: 438e23b61cd4 ("scsi: ufs: dt-bindings: exynos: Add gs101 compatibl=
-e")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> =C2=A0Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml | 2 +=
+Thanks so much for pointing that out!
+
+How about such a patch?
+
+diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c
+b/drivers/gpu/drm/sun4i/sun4i_backend.c
+index 2dded3b828df..5ad0e90d3e6b 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_backend.c
++++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
+@@ -490,9 +490,14 @@ static int sun4i_backend_atomic_check(struct
+sunxi_engine *engine,
+  drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
+  struct drm_plane_state *plane_state =3D
+  drm_atomic_get_plane_state(state, plane);
+- struct sun4i_layer_state *layer_state =3D
+- state_to_sun4i_layer_state(plane_state);
+- struct drm_framebuffer *fb =3D plane_state->fb;
++ struct sun4i_layer_state *layer_state =3D NULL;
++ struct drm_framebuffer *fb =3D NULL;
 +
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yam=
-l b/Documentation/devicetree/bindings/ufs/samsung,exynos-
-> ufs.yaml
-> index 720879820f6616a30cae2db3d4d2d22e847666c4..5dbb7f6a8c354b82685c521e7=
-0655e106f702a8d 100644
-> --- a/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml
-> +++ b/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml
-> @@ -96,6 +96,8 @@ allOf:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 6
-> =C2=A0
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dma-coherent: true
-> +
++ if (IS_ERR(plane_state))
++ return PTR_ERR(plane_state);
++
++ layer_state =3D state_to_sun4i_layer_state(plane_state);
++ fb =3D plane_state->fb;
 
-This is allowed globally already in this file. Did you meant to make it 're=
-quired'?
+  if (!sun4i_backend_plane_is_supported(plane_state,
+        &layer_state->uses_frontend))
+--=20
 
-Cheers,
-Andre'
+-Chenyuan
 
-> =C2=A0=C2=A0=C2=A0=C2=A0 else:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
->=20
-
+On Fri, Mar 14, 2025 at 2:17=E2=80=AFAM Maxime Ripard <mripard@kernel.org> =
+wrote:
+>
+> Hi,
+>
+> On Thu, Mar 13, 2025 at 08:20:29PM -0500, Chenyuan Yang wrote:
+> > The function sun4i_backend_atomic_check was dereferencing pointers
+> > returned by drm_atomic_get_plane_state without checking for errors. Thi=
+s
+> > could lead to undefined behavior if the function returns an error point=
+er.
+> >
+> > This commit adds checks using IS_ERR to ensure that plane_state is
+> > valid before dereferencing them.
+> >
+> > Similar to commit da29abe71e16
+> > ("drm/amd/display: Fix error pointers in amdgpu_dm_crtc_mem_type_change=
+d").
+> >
+> > Fixes: 96180dde23b7 ("drm/sun4i: backend: Add a custom atomic_check for=
+ the frontend")
+> > Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+> > ---
+> >  drivers/gpu/drm/sun4i/sun4i_backend.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c b/drivers/gpu/drm/su=
+n4i/sun4i_backend.c
+> > index 2dded3b828df..a8e0e2123764 100644
+> > --- a/drivers/gpu/drm/sun4i/sun4i_backend.c
+> > +++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
+> > @@ -490,6 +490,10 @@ static int sun4i_backend_atomic_check(struct sunxi=
+_engine *engine,
+> >       drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
+> >               struct drm_plane_state *plane_state =3D
+> >                       drm_atomic_get_plane_state(state, plane);
+> > +
+> > +             if (IS_ERR(plane_state))
+> > +                     return PTR_ERR(plane_state);
+> > +
+>
+> This introduces a build warning. You shouldn't mix declarations and code.
+>
+> Maxime
 
