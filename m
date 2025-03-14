@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB9FC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 13:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB04C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 13:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UvqczFxSx/BpRPWAiq3VcVYwRhpE7hzNXJY21OJYYjA=; b=wnyLQ7PKapVXvNm+ZcJBzVUEPU
-	q9RgrephGfAUHOXarsJgZMEzCNiyOtc7iJZRKIfLaWLCr1GGiuszwPGijxVjJlVd42+KkWDw9rSPV
-	jNSE0/seH86XP2M2kyc7Q/xYjM9hL9BobYByKxrQNMcaQeEuK4ZjJUGzdmpXtY/h3FHs/zUGxrVSh
-	sBZBTN7QMbK3fFN1qXAK5+gAAByMdvVm7N7+8Lv9JAM4ikcGiu85cKaPGNa+bRgEMlFb9aJd1xhdp
-	3heams/yLx9WPxJyOv6bBOlZflpM9ncog3Ezza4h/wI58giDz5oP0YqAcI7Qhk/2Ja1CayfjQS+Rh
-	t5SyWL0g==;
+	bh=2w6nVaSkt+gjFrHh6x+y1Un3lZJxYil1Iwfei6xJLgg=; b=1oZq7kbPvs3Ehh4r/mnOBeJwL4
+	e+UXnL8y8z4H5GWs49q0qOxeBhIvPukU08D8KNyWMN0QNj3R6ZYg2gqRcqi2yFDvG4SzHq6KXSZlG
+	jeIJYih8Nd6cPJfi3HzKMZw94LejnWDujho1rSproLmevBda7lgCTpMoO7aAdKVwOunXWO1kD2mWF
+	1enCEp1cdGBJm9KwSh11rL6Jhs0/2I6yC+92BWTDrIpVAUx3ayGochyyzvnM9miTt5pK8I51pqPxX
+	/ttsS6qhqKMqbl+gIoNbdU3hmngoBYFplCaQqNww186sx7Ali5ilLKH7nIwO7XZHhCe2vwzGe2+br
+	OlLRlSwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt5In-0000000EJFb-40Jq;
-	Fri, 14 Mar 2025 13:42:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tt5Pn-0000000EK8I-14Wq;
+	Fri, 14 Mar 2025 13:49:31 +0000
+Received: from mxout37.expurgate.net ([91.198.224.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt5BB-0000000EI8z-3qEe
+	id 1tt5O6-0000000EJtr-0hAx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 13:34:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6064E5C065B;
-	Fri, 14 Mar 2025 13:32:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D00EC4CEE3;
-	Fri, 14 Mar 2025 13:34:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741959264;
-	bh=Nh5wUl4x9u8EMy8wWXBvkYp2HpGM28PTwr1jqa491Ek=;
-	h=From:To:Cc:Subject:Date:From;
-	b=spcca3v5SutSp2uGX31Y9pVTWxuWKbNyywVCiV+txSk9catfchEKY1vB/6eYIh8m9
-	 wnLJ3tjygr+CJfFMRyJKfdzttIG+XJw91bjPc+20WEDXngA59JbYB5K27p6WWh++Jp
-	 //jEOhG991TB3niUsqCMaOW09XDdKYeSxSjyG+sYnGyCDk0LYr3rSUJ67GBmVmBSXE
-	 OqCtSk4GnGeWOELqd1cs1Vo9xwJFxTFh1SbsEDlsKzVRj0zJHzfQakEPYnGFUoE2ZS
-	 chi+fvuPP49C+5iDwHkt647fsHAPUEupNKzwpgZJSnv4Xa9vXMQAiqI9+Z0nKam76z
-	 W3ewsm5PT7FoA==
-From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	stable@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Quentin Perret <qperret@google.com>
-Subject: [PATCH] KVM: arm64: Tear down vGIC on failed vCPU creation
-Date: Fri, 14 Mar 2025 13:34:09 +0000
-Message-Id: <20250314133409.9123-1-will@kernel.org>
-X-Mailer: git-send-email 2.20.1
+	Fri, 14 Mar 2025 13:47:48 +0000
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <thomas.gessler@brueckmann-gmbh.de>)
+	id 1tt5Nu-003bqT-Vn; Fri, 14 Mar 2025 14:47:35 +0100
+Received: from [217.239.223.202] (helo=zimbra.brueckmann-gmbh.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <thomas.gessler@brueckmann-gmbh.de>)
+	id 1tt5Nt-003e41-4V; Fri, 14 Mar 2025 14:47:33 +0100
+Received: from zimbra.brueckmann-gmbh.de (localhost [127.0.0.1])
+	by zimbra.brueckmann-gmbh.de (Postfix) with ESMTPS id E9E4FCAF156;
+	Fri, 14 Mar 2025 14:47:31 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.brueckmann-gmbh.de (Postfix) with ESMTP id E5E97CAF150;
+	Fri, 14 Mar 2025 14:47:31 +0100 (CET)
+Received: from zimbra.brueckmann-gmbh.de ([127.0.0.1])
+ by localhost (zimbra.brueckmann-gmbh.de [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id EnYx8uQXloXr; Fri, 14 Mar 2025 14:47:31 +0100 (CET)
+Received: from ew-linux.ew (unknown [10.0.11.14])
+	by zimbra.brueckmann-gmbh.de (Postfix) with ESMTPSA id CE686CAF131;
+	Fri, 14 Mar 2025 14:47:31 +0100 (CET)
+From: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
+To: dmaengine@vger.kernel.org
+Cc: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Marek Vasut <marex@denx.de>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dmaengine: xilinx_dma: Set max segment size
+Date: Fri, 14 Mar 2025 14:47:15 +0100
+Message-ID: <20250314134717.703287-1-thomas.gessler@brueckmann-gmbh.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-purgate-ID: 151534::1741960053-ADFAB3DC-1FE738A5/0/0
+X-purgate-type: clean
+X-purgate: clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_063426_006926_7BABF3A8 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250314_064746_344299_603EBE53 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,49 +85,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If kvm_arch_vcpu_create() fails to share the vCPU page with the
-hypervisor, we propagate the error back to the ioctl but leave the
-vGIC vCPU data initialised. Note only does this leak the corresponding
-memory when the vCPU is destroyed but it can also lead to use-after-free
-if the redistributor device handling tries to walk into the vCPU.
+Set the maximumg DMA segment size from the actual core configuration
+value. Without this setting, the default value of 64 KiB is reported,
+and larger sizes cannot be used for IIO DMAEngine buffers.
 
-Add the missing cleanup to kvm_arch_vcpu_create(), ensuring that the
-vGIC vCPU structures are destroyed on error.
-
-Cc: <stable@vger.kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Quentin Perret <qperret@google.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
 ---
+ drivers/dma/xilinx/xilinx_dma.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-It's hard to come up with a "Fixes:" tag for this. Prior to 3f868e142c0b
-("KVM: arm64: Introduce kvm_share_hyp()"), create_hyp_mappings() could
-still have failed, although if you go back before 66c57edd3bc7 ("KVM:
-arm64: Restrict EL2 stage-1 changes in protected mode") then it's
-vanishingly unlikely.
-
- arch/arm64/kvm/arm.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index b8e55a441282..fa71cee02faa 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -466,7 +466,11 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	if (err)
- 		return err;
- 
--	return kvm_share_hyp(vcpu, vcpu + 1);
-+	err = kvm_share_hyp(vcpu, vcpu + 1);
-+	if (err)
-+		kvm_vgic_vcpu_destroy(vcpu);
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c
+index 108a7287f4cd..4b4a299e3807 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -3114,6 +3114,8 @@ static int xilinx_dma_probe(struct platform_device =
+*pdev)
+ 		}
+ 	}
+=20
++	dma_set_max_seg_size(xdev->dev, xdev->max_buffer_len);
 +
-+	return err;
- }
- 
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
--- 
-2.49.0.rc1.451.g8f38331e32-goog
+ 	if (xdev->dma_config->dmatype =3D=3D XDMA_TYPE_AXIDMA) {
+ 		xdev->has_axistream_connected =3D
+ 			of_property_read_bool(node, "xlnx,axistream-connected");
+--=20
+2.43.0
 
 
