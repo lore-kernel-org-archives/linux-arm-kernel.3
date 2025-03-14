@@ -4,82 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48DFEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307FAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w5qzGqYNtcXVKnkJY6yYk6vm8l8FZO+5k1KrJz2DeFQ=; b=gpjvRfpOzKtvV1BicmO6QcrKYD
-	DRmvJGLweaaH9Lf5LbCy39eXyNNUXzAmu54jbDpmAKv6DC8xMjNV13dqMWNCfBezARDWrE29kFfoQ
-	13joJGcSSLtLuNM6NSwD61SIVacosVU8uVShf3h5vLRnMmGaPqL1Vw0oRKaL4oKRvQKQ+iLs/V6Cl
-	8b6O8m+VD78baeg7Ybgt6n5lf9Gl8EeMEqWYhBfiny4datdOyALozsOlGgNKJNU8dUTEndxSomO8d
-	iUaaBi28n1DvSy1NF4sdwyc22dZSN/qOE/lxENsXRIhYP0jfUmuCvU+eBIIGYdGLCGx195BpZS4Fo
-	2pfNnY6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nWgj1Djh5oVGiHM2nT92zyKoliBiU3ZIlinZxdLWGNw=; b=IQ+28faS/+eqxTEP8of26uy2je
+	7l2zC7alb1aac4hTjyw9X2S/mvW9KqGAk09SlntJGpFajyrEO4CLiQKiyptjh34fe5CR5fWp0u9hA
+	6axyaVQ5992OyAlTw4WLMEnTaR6Ma2jwk3Py8+4VQg1mRjCqMTLADr/dR0LeZOrs00PeWr3khjsig
+	15q+ZthkIoCQaxS01hxDVX0a1pAj3FAWrOofdPfLjGI/HBdCOCXZ4yncxCGCWv78fgXCT7Mk8KlKl
+	6jQu1Icd1jetMk3FCkJA+7OyoClfNFQ2uTgQk2wl8Vf2WH9LiilR3Zy787tLWJM1R96lKfD/aAitP
+	xOFJ3ucQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2Hz-0000000Dqc5-0IGi;
-	Fri, 14 Mar 2025 10:29:15 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tt2Jc-0000000Dqmq-3MOp;
+	Fri, 14 Mar 2025 10:30:56 +0000
+Received: from mail-vi1eur05on20603.outbound.protection.outlook.com ([2a01:111:f403:2613::603] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2GI-0000000DqLw-2XoP
+	id 1tt2Hr-0000000DqZR-2Tzr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:27:32 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52EAROek1654743
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 14 Mar 2025 05:27:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741948045;
-	bh=w5qzGqYNtcXVKnkJY6yYk6vm8l8FZO+5k1KrJz2DeFQ=;
-	h=From:To:CC:Subject:Date;
-	b=skypVqA9Lnak3jdekm/tYR026cOAKKMklxqsQO2Jyv/aQOmizSmFIjWsAJ5XfHvYV
-	 qE3RpsNe7Fio+1DeV3cmUji9lbDMr+TGDI34hgwKae34pGS2juB/MLtQvhEzIvlgN2
-	 f7GtZHlO18seGqlhhewsXkUkzTviGFkWrrhOzuKM=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52EARONO116857
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 14 Mar 2025 05:27:24 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 14
- Mar 2025 05:27:24 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 14 Mar 2025 05:27:24 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52EAROxS081406;
-	Fri, 14 Mar 2025 05:27:24 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 52EARN2R024336;
-	Fri, 14 Mar 2025 05:27:24 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: Sai Krishna <saikrishnag@marvell.com>, Meghana Malladi <m-malladi@ti.com>,
-        Diogo Ivo <diogo.ivo@siemens.com>, Paolo Abeni <pabeni@redhat.com>,
-        Jakub
- Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
-        "David S.
- Miller" <davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net] net: ti: icssg-prueth: Add lock to stats
-Date: Fri, 14 Mar 2025 15:57:21 +0530
-Message-ID: <20250314102721.1394366-1-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 14 Mar 2025 10:29:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F1utDJJgOsF64FKnwrJbzFsN8Yak2QxbRvCuiNk1SMgpVZjFDtk9g+sQ+W6RjYxM1StPV21kxStsEbNLwFzYlUidAUBoTpZdLn0IiWb1XSy6zx1D+iOuzfOTE/8XxPIQbEiQ1zozd27N8c2mKR8569yAEqZIhAoVt0LYWo/0h8PFlUPAhOyltXOBiSUnHtThiUdll80923w9RVfmglgTVcAFNsitrYbA/9gwbhfAa03lB/70hRyQ/1XRAGjZfm4NM8uxmr2P/ROyHIsPzA35h7LC+dOUyVEDYRvF8wAuKTtoIVQG78UrS7BeDFsgjZnP3snSDIWdziAO1BZHA7GX9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nWgj1Djh5oVGiHM2nT92zyKoliBiU3ZIlinZxdLWGNw=;
+ b=NNbQnRNJ7zGaWJSceaFjFh0PqCkn8f4mSdQ3lxskrqSgLCk8mPlYaheQ9o5jYkULT9jc4+s6HdOEYKKVILA9cdGEikmEAmSP6GmZSDA7gnaTDkUnG4u5pqmHbO2UzIglfVOjEX3UPneC4FxDFjiThnhXul/UaUCifh8HS7HB5aEWA9+M1Zcr5vnLB68b88DEdf7sirC8Dl+EZuu8f2ZuwKKKKShxPqGoafVpHuaLuNL0N00qRYjMJt2B9Go35LIFNElmU6r+vtbs1XPfIG7dj4bX6q1CXlNE0IhdyuLGTUZbozMXXSRRVOxs2Pv6PcSjHhDmr123AauRliqZV0ttNA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nWgj1Djh5oVGiHM2nT92zyKoliBiU3ZIlinZxdLWGNw=;
+ b=SRH5sI0vU35QEiXpgELMIVRaofbmzbGB6LNw4BFH4Ubf0w6ZfMYBJkQSzfOHDhfu2+ztL6ZCiSQ060p/TsZzAXpjzoNS9bPXT0YOV11kCKqJCSL3BdTNwVaWP1fnqhty8Nqk5KSk0O/+Pqgxj4PS90d8sNlORiMFZwEw+6ING5yciR6sLZsdxQHka56o3V8w98tfJ8tf4WscZDskDravQMSm5ku66lQyiRSwVjNHq8rYyq0VDdGyXbYtlSz35vlHvYxA4PorS14rpar7e1E569VtLWJDXTeBfR6HnXaEnwLmQ+80aVAnbKNnYYCATeOg+35dpRZM9QBcuulZKsjGyQ==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8454.eurprd04.prod.outlook.com (2603:10a6:20b:412::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.27; Fri, 14 Mar
+ 2025 10:29:01 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8534.025; Fri, 14 Mar 2025
+ 10:29:01 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, "arm-scmi@vger.kernel.org"
+	<arm-scmi@vger.kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+	Cristian Marussi <cristian.marussi@arm.com>, Ranjani Vaidyanathan
+	<ranjani.vaidyanathan@nxp.com>
+Subject: RE: [PATCH] pmdomain: arm: scmi_pm_domain: Remove redundant state
+ verification
+Thread-Topic: [PATCH] pmdomain: arm: scmi_pm_domain: Remove redundant state
+ verification
+Thread-Index: AQHblMe4GnkknwhmmUSVPD82/DKJm7Nybh2g
+Date: Fri, 14 Mar 2025 10:29:00 +0000
+Message-ID: <PAXPR04MB8459F43DF554C008CD97FF3488D22@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250314095851.443979-1-sudeep.holla@arm.com>
+In-Reply-To: <20250314095851.443979-1-sudeep.holla@arm.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM9PR04MB8454:EE_
+x-ms-office365-filtering-correlation-id: 5d17884c-a90e-45ce-1686-08dd62e3094f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?4+QwD29+4XNwtswNen3d+tn2MfXdGtne1rgWaKqBEY07ZHg8pD81snvxp3pA?=
+ =?us-ascii?Q?ulPIkzuAAbo6MJxuAcU9bVziJ6zLaFQpt0tMpF7wifRygpQMVnVxVYbCHITm?=
+ =?us-ascii?Q?fWUUHVQ2S39ltPyOZYwP7iXdmf9jNJ4hx/UE38ZCRFp7Y6GEwNTNpxrBcT9q?=
+ =?us-ascii?Q?gjXIjgsgn4HHXy7OUqb8kl1fAnfslJ4Hqo7FP3XN5m33SD33zV+CgqsARL+4?=
+ =?us-ascii?Q?qZkRBLx04ji8yI15xZn4bYNsnnChNaLA+Jc805qOr8Sjf3IvfK1zRHsmnrol?=
+ =?us-ascii?Q?Ev6RI1egiMPEyKXRUKSBAA6KXTzLUpRPMEL908AxzxYECWbL2+JzGV1622UI?=
+ =?us-ascii?Q?6FyPByTfwaqE1vJ1I9pRM7VQEAODXx7maK0xoa849MgCLNjmUI7wBOWKnIj4?=
+ =?us-ascii?Q?C1VR7Haa0hLzzpl75gA6Qu6pnFIvT4KgS9XApHaEWVwdDrtj4x7+enSiiVfo?=
+ =?us-ascii?Q?O/2rBnjVhBjAy0IOo64o1cMZEhRm9b4aS1J4QN0ekDEmSESukjNBmsxCvRr9?=
+ =?us-ascii?Q?dL/FUmjOjOjlCwRVD8xo8YXbESoP+6dLKGmhP2E17kbycIh/Hu+xOmwc8sBo?=
+ =?us-ascii?Q?jH/iHy9H2bZy2jdfS81S+dHXcIHdk+mTJ5MMobPQ+a7ap+qpbMtcKU5caatZ?=
+ =?us-ascii?Q?Kmoesc8Mdzv6MCYVOb/2jWrhEfPcFNfcJ+/Tnzjhn+v/iRlN8Lih5DUd0Xjf?=
+ =?us-ascii?Q?UZfqsOsaued8YDOrqomqg8O0DS+4g3saQjCJNWf9pM8KH32NlKbWaogRFh4I?=
+ =?us-ascii?Q?rrdAwINcr33v6QN3B12zmcWgQ/YvSYwk00g62PLJn1ufpbU7lmNqYTkqwDX2?=
+ =?us-ascii?Q?bTC4WCw9apGjhkPdTyEs7PrMQXYYCpBYAKF1WVS5zkZMWLbQojZPyiae3jfu?=
+ =?us-ascii?Q?aCN9Kx6OQrnr8hs77fhkinY39dlqVocgnu9o82hNLxycDGDB6BiPKi0XU24p?=
+ =?us-ascii?Q?q8wPFRPXmDtcnlHsVVFbbAXENjTwuxYPOiAXM50LCNIypxwC2bdpmflb2+dg?=
+ =?us-ascii?Q?qWSzOinHlch7yCKgiukLv8Vik4vbyIRldDaALSDZb//6y+3e6ZZFaKFop2iA?=
+ =?us-ascii?Q?So7iaQsJXwBBdn6DLA3GKYI3UcTzkLJdNiAPGd4rMOOb48PQqL7+ws2soA3M?=
+ =?us-ascii?Q?b6SANmR88aBYxtGRiV+8761MR43QNK8NgzF3SRMk6Q1qL15jsD5shsrymmAz?=
+ =?us-ascii?Q?grxhDl6A7Pcs1JUKIklzM38cbn+v8H09pA36sX3gnggS51dGXfH0GyounCVV?=
+ =?us-ascii?Q?4d0dOCT02TDmkVYhRIkMvAOuIFguEqG/Fk1BobGraH4/932Rro13yxc4T4As?=
+ =?us-ascii?Q?Sbvxg0H3QQBsfzCqAP2zGxK5XsrI1q8oVIEu6r1nS3aLj3mqw64nk801eeh2?=
+ =?us-ascii?Q?/EacwvBgPeYlbivlrcqI9Mz4/qnxNQtZMLPffP2qhBnDSeElhwZux8jUwjOP?=
+ =?us-ascii?Q?Spfn/61j+irNht//CfieajmLjFmNHgnj?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?52sbSrraoICQDJWNmKF+S+7lZKJp2kq30Be0e9wsshH+w889GF7tecm43Bv8?=
+ =?us-ascii?Q?lR5SldtS/vxxMQu2nIO76wN171kto9sa/8BozRXM1TppqiwCSkAaxkrNYV8I?=
+ =?us-ascii?Q?4Jfs0p+/+0jep5fcBfCKfpaskLCGPRsrgWnAgernSFQ5o+quebo84KAADw2v?=
+ =?us-ascii?Q?pHtN09YpKRy3A7WfxyCFSt2Z5bYCmoXUaUEUgfW+zXnlxT0WT8L67xS0ESE1?=
+ =?us-ascii?Q?nHq3OkIyxA2ItM9KPUkizlZdAYPYurxqeyWbMEYp/sIwkUfO/fEajQ4cGpWN?=
+ =?us-ascii?Q?drqELkUhEhvPUlM23OC7ysL9mBgzHk/GY0UZ6wRNPq3cq1JOmFCuLk7mle6W?=
+ =?us-ascii?Q?5iWrlfQeZpUy46kBE2yBokNv+NOpCMRRlfwSB1hMW4iG2FP9moyvIOjrZuDk?=
+ =?us-ascii?Q?HuG44SaakqWXlbuiVWxlTrrqAoZQZ4RjAThcQHlCUj0ej+MyC570k6DoAd1P?=
+ =?us-ascii?Q?ofQIgl9/lBmM4jxnJ4rMhnMGTWC3b5w3JW4uT1vKLJbMAUnKgF4w0ELdh8oN?=
+ =?us-ascii?Q?0OdkJ3IxX31Dv2QholBftL5PFDgzijHVyc2rsu8+w6+b105xCaN5dirXWsIQ?=
+ =?us-ascii?Q?SMv2XVRFCZ6DOjOiVt2Op8wqHGPNf3H1NJa58d3OItOEqxNitk089uGYas0X?=
+ =?us-ascii?Q?/wNbThb9tJGHy2eHxBvhgwa6A46oq/vvYln3DLWBFTkIPRUSwLCZZnjf7kGj?=
+ =?us-ascii?Q?4eRCVVAPqKlkMtQvcphDVfahTuGrBkZjRXzazab4XKYMPHZ2n9FjMxsjpOrr?=
+ =?us-ascii?Q?GEoZXOT5cRXqcg/rsAcMbxrJE8maKRvqth3Bct4EFDB+XDr2hkJpSOt4bBVI?=
+ =?us-ascii?Q?C3IDm7zXZdD7Fpeq48YlHlABIrxTRWZ7UG/wCT3hNCcOtR42F+u6mJIeoXO8?=
+ =?us-ascii?Q?L9aIDiDHu74ieYZiCDDc7x5co+02e2UxSAzDudhmtHH315l9+X4a3xLLVbkZ?=
+ =?us-ascii?Q?+sCkVAm0Z4IA/FyIYfKwxpypl6M9eYobkeH5PeJf0EHc9tf9Qn431C1JpCRj?=
+ =?us-ascii?Q?2nYvqVfYwVYWWqWyGIrShifrSethftdZkwFycN24oHL1cFUsyoqRbUrnXJ24?=
+ =?us-ascii?Q?2lMndmVkOFRyS8LlhtddnGEKLWMzr2KWoppdkE2dsyHrFbsTRB+VmTZpDthH?=
+ =?us-ascii?Q?Ecc/NPZMj2vsblpnB5RaVcgjfRHYTe/AO/oJLhVuaYeRVFAEZ+xJGp7eyVfk?=
+ =?us-ascii?Q?A02KQDxsEkXPR6E0LUQjC31issFg3rNcwbFhM5X0oFi/9ObGhhNju0LCamyt?=
+ =?us-ascii?Q?C2VO9lCVlZMMRDI0mKLnNLQOZq3syAdtAsNV1m4Qy/YCaje+aMqEhMEPgnxi?=
+ =?us-ascii?Q?n7C0U9qDpgkdSlKyuzEuQRYRqFmvCOY271JkikhTwGM5OYIfTBWc49jP24qv?=
+ =?us-ascii?Q?AVAacou1P+Jj/BYOPIv31rtROoGIkwsip3HIWu5yiJjm44VaqPdqPIMeQliU?=
+ =?us-ascii?Q?1IvDVWd7uu2vMcVOM18P9cUZArJkImIJ8kk5Wl8ke//s6Ga/b+wYsqDjRDVX?=
+ =?us-ascii?Q?+454bE3KC3m06jLRfcPyTDhjB81MlD4B5LGNYls22pNYDBd96A//N6eEa/WD?=
+ =?us-ascii?Q?le5lyu8gkuAGDYXILPQ=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d17884c-a90e-45ce-1686-08dd62e3094f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Mar 2025 10:29:00.9438
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PDYbmc0qKwTYLQxCBWOoiYcMBq6zsV5Vsanzc9Bb9rXma88ttianCegs20axgWkNWqQ5awN9gK97HKVeIlNHmA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8454
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_032730_742100_812D4237 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20250314_032907_676136_17687E32 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,77 +164,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the API emac_update_hardware_stats() reads different ICSSG
-stats without any lock protection.
+> Subject: [PATCH] pmdomain: arm: scmi_pm_domain: Remove
+> redundant state verification
+>=20
+> Currently, scmi_pd_power() explicitly verifies whether the requested
+> power state was applied by calling state_get(). While this check could
+> detect failures where the state was not properly updated, ensuring
+> correctness is the responsibility of the SCMI firmware.
+>=20
+> Removing this redundant state_get() call eliminates an unnecessary
+> round-trip to the firmware, improving efficiency. Any mismatches
+> between the requested and actual states should be handled by the
+> SCMI firmware, which must return a failure if state_set() is unsuccessful=
+.
+>=20
+> Additionally, in some cases, checking the state after powering off a
+> domain may be unreliable or unsafe, depending on the firmware
+> implementation.
+>=20
+> This patch removes the redundant verification, simplifying the function
+> without compromising correctness.
+>=20
+> Cc: Peng Fan <peng.fan@nxp.com>
+> Cc: Ulf Hansson <ulf.hansson@linaro.org>
+> Cc: Cristian Marussi <cristian.marussi@arm.com>
+> Reported-and-tested-by: Ranjani Vaidyanathan
+> <ranjani.vaidyanathan@nxp.com>
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
 
-This API gets called by .ndo_get_stats64() which is only under RCU
-protection and nothing else. Add lock to this API so that the reading of
-statistics happens during lock.
-
-Fixes: c1e10d5dc7a1 ("net: ti: icssg-prueth: Add ICSSG Stats")
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
-NOTE: This was suggested by Jakub Kicinski <kuba@kernel.org> [1] to get
-this as bug fix in net during upstreaming of FW Stats for ICSSG driver
-This patch doesn't depend on [1] and can be applied cleanly on net/main
-
-[1] https://lore.kernel.org/all/20250306165513.541ff46e@kernel.org/
-
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 1 +
- drivers/net/ethernet/ti/icssg/icssg_prueth.h | 2 ++
- drivers/net/ethernet/ti/icssg/icssg_stats.c  | 4 ++++
- 3 files changed, 7 insertions(+)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 00ed97860547..9a75733e3f8f 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -1679,6 +1679,7 @@ static int prueth_probe(struct platform_device *pdev)
- 	}
- 
- 	spin_lock_init(&prueth->vtbl_lock);
-+	spin_lock_init(&prueth->stats_lock);
- 	/* setup netdev interfaces */
- 	if (eth0_node) {
- 		ret = prueth_netdev_init(prueth, eth0_node);
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 329b46e9ee53..f41786b05741 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -305,6 +305,8 @@ struct prueth {
- 	int default_vlan;
- 	/** @vtbl_lock: Lock for vtbl in shared memory */
- 	spinlock_t vtbl_lock;
-+	/** @stats_lock: Lock for reading icssg stats */
-+	spinlock_t stats_lock;
- };
- 
- struct emac_tx_ts_response {
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-index 8800bd3a8d07..6f0edae38ea2 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-@@ -26,6 +26,8 @@ void emac_update_hardware_stats(struct prueth_emac *emac)
- 	u32 val, reg;
- 	int i;
- 
-+	spin_lock(&prueth->stats_lock);
-+
- 	for (i = 0; i < ARRAY_SIZE(icssg_all_miig_stats); i++) {
- 		regmap_read(prueth->miig_rt,
- 			    base + icssg_all_miig_stats[i].offset,
-@@ -51,6 +53,8 @@ void emac_update_hardware_stats(struct prueth_emac *emac)
- 			emac->pa_stats[i] += val;
- 		}
- 	}
-+
-+	spin_unlock(&prueth->stats_lock);
- }
- 
- void icssg_stats_work_handler(struct work_struct *work)
-
-base-commit: 4003c9e78778e93188a09d6043a74f7154449d43
--- 
-2.34.1
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
