@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3537FC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A5FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Mar 2025 10:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wU4X2qKqaxDaY9EaQnOKhlpYUMSwe6BwXu4MBzd47Lg=; b=0ig6fWHiRVBG1B93w+1bizqIg5
-	iZ+DmKEA3du7Jp8Mde5HNbZUwYMMPpR1XdviO24b85IK7E7CMsQB7c3SO3f6pJVYWymlnvVoab3gk
-	2rzyToxHTlIAxKypjOybt/OrQlaxWiOIc1Ik900umuCqhWgkn7EtN8lXiO6TszginEFk7kcGSMapN
-	Hrt1NDk5Lz6lllhhY5JdLR6uXew/13QDkRRdyFvkdGpFq+CfQzX5KFaO/toTsNIWS9fqWid76JFVv
-	s2L3xnvFNgZ9K7SLqDRQwH1YlBesx1E5yg99UWYWlDXkterWCQ5IvsxbMV48zSPTXyTKUKuEVf3xW
-	zb9HMZOQ==;
+	bh=a2O/5cwkwdH0/bC3mxEibhJGOmZklnRGwTYbxWL/TKI=; b=Mmh7vq72Z0vuVkfteceokviUB/
+	RharGb9s7BGO3w6p/FxToIagI3JIpvthJzhgHSdP+Cu6syEBHAHdnqX/1Gn9qPXbySzwJUK9kMAau
+	8u9Y/iBHXU1IqZh4GQLJqhhHG7XsiM4enPnCwuGU9Ui0gvExHAijDTJHnFqiBRKXB3orBZxqp2zQ2
+	SGGhcSfGhsmXQG6rezhnUmjadNAg6Q4UrgW8CMPxfzbx194uDauvo8UseO6ZCjDN+78ltonznEmpF
+	fSFoBWyb0dnrwF3CiTGD3iK+2PQaZY2PiPBi6Mn364Ba483N5wZkVujwHwAUUvcGspAOrcnG2muWV
+	YdUfwCrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2Vq-0000000Dt9J-3d1B;
-	Fri, 14 Mar 2025 10:43:34 +0000
+	id 1tt2XV-0000000DtRC-2D4F;
+	Fri, 14 Mar 2025 10:45:17 +0000
 Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt2KU-0000000Dqyh-41gd
+	id 1tt2KX-0000000Dr06-2433
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Mar 2025 10:31:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D411A43304;
-	Fri, 14 Mar 2025 10:31:46 +0000 (UTC)
+	Fri, 14 Mar 2025 10:31:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 919584427F;
+	Fri, 14 Mar 2025 10:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741948309;
+	t=1741948312;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wU4X2qKqaxDaY9EaQnOKhlpYUMSwe6BwXu4MBzd47Lg=;
-	b=jOo2nGzbVi8NxF5Xlbr1nGpGO+Mb2tRSoZwL+7v5OmmpmoVzJIdOCMLC20nns1yjOlO2B/
-	aYEYZokJqZKBTg1k0W1LReq7PUhw4FGJVdUE5RMTKXZ2NGqmYcjynS6DpnfasR8zD4qYyo
-	EvlFuw6A9D4noBT+9jwVFYdj1nasb3kYb/TmnMG0UZcQB7yh+927XWH1fBmaOf6x7RhUku
-	AyG/8hXkEJwxBVHmJUdJel2DrACi1a1MSbnNJc59cudJkfYflqEp7IWh4fuQv8s1xKSBJn
-	+E1VC5zWIqEA5GmcRncvTQ7vLaVz1qBC6eazTSNyb/F+H+4pzKvpM/OX1qe09A==
+	bh=a2O/5cwkwdH0/bC3mxEibhJGOmZklnRGwTYbxWL/TKI=;
+	b=AdoOVcgrU/gxtG4PnYwY1X+P3hLsmp4fPb2JA78t9w9lSdvt20Y6huBuEkEbcYdZg5mGhM
+	+G0s4ox6IlVgYSpl8jfrlPZs4clJuBLI/uIasuroUyoKVQhGOWQCv3EKgGWG+hTsIwHlfE
+	JKLrdjRRTtdz4JzaFbIaBuKmWRIAGm0xMB9mC6VPZYNQP58bh9do8Ih3db6wlrApUxSl2+
+	AWEsX8bHynVAbgA5OoieYdPk8HQYvKiIX7xKJs4Ey400YH0qKqU9/OOEcjE4CZjaBRquME
+	//lL1A28mRKmStU8bABzooxELHO6FOXjM0NBXDqx5/T1jdFqZLUlnI1GCU+/4A==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 14 Mar 2025 11:31:19 +0100
-Subject: [PATCH v7 06/11] drm/bridge: get the bridge returned by
+Date: Fri, 14 Mar 2025 11:31:20 +0100
+Subject: [PATCH v7 07/11] drm/mxsfb: put the bridge returned by
  drm_bridge_chain_get_first_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250314-drm-bridge-refcount-v7-6-152571f8c694@bootlin.com>
+Message-Id: <20250314-drm-bridge-refcount-v7-7-152571f8c694@bootlin.com>
 References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
 In-Reply-To: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -75,12 +75,12 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedtiedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehnecuvehluhhsthgvrhfuihiivgepgeenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhunhhgrdgtohhmpdhrtghpthhtohepmhgrrhgvgiesuggvnhigrdguvgdprhgtphhtthhopehjvghrn
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedtiedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehnecuvehluhhsthgvrhfuihiivgepieenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhunhhgrdgtohhmpdhrtghpthhtohepmhgrrhgvgiesuggvnhigrdguvgdprhgtphhtthhopehjvghrn
  hgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehprghulhhksehshihsqdgsrghsvgdrihhopdhrtghpthhtoheprghsrhhivhgrthhssehrvgguhhgrthdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgv
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_033151_148484_29B030D9 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250314_033153_681200_9A687538 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,9 +95,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drm_bridge_chain_get_first_bridge() returns a bridge pointer that the
-caller could hold for a long time. Increment the refcount of the returned
-bridge and document it must be put by the caller.
+The bridge returned by drm_bridge_chain_get_first_bridge() is
+refcounted. Put it when done. Use a scope-based free action to catch all
+the code paths.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
@@ -105,34 +105,30 @@ Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 This patch was added in v7.
 ---
- include/drm/drm_bridge.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/mxsfb/lcdif_kms.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index a5accd64c364ebb57903ae1e7459034ad9ebf4f3..d9777d5f2e9ef006f0062e4507bce99df4146cd9 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -1105,6 +1105,9 @@ drm_bridge_get_prev_bridge(struct drm_bridge *bridge)
-  * drm_bridge_chain_get_first_bridge() - Get the first bridge in the chain
-  * @encoder: encoder object
-  *
-+ * The refcount of the returned bridge is incremented. Use drm_bridge_put()
-+ * when done with it.
-+ *
-  * RETURNS:
-  * the first bridge in the chain, or NULL if @encoder has no bridge attached
-  * to it.
-@@ -1112,8 +1115,8 @@ drm_bridge_get_prev_bridge(struct drm_bridge *bridge)
- static inline struct drm_bridge *
- drm_bridge_chain_get_first_bridge(struct drm_encoder *encoder)
- {
--	return list_first_entry_or_null(&encoder->bridge_chain,
--					struct drm_bridge, chain_node);
-+	return drm_bridge_get(list_first_entry_or_null(&encoder->bridge_chain,
-+						       struct drm_bridge, chain_node));
- }
+diff --git a/drivers/gpu/drm/mxsfb/lcdif_kms.c b/drivers/gpu/drm/mxsfb/lcdif_kms.c
+index dbd42cc1da87f82ef9cd4ccc70cdecbe56035174..21311cf5efee7d26c80316bffe80dd2bfed02238 100644
+--- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
++++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
+@@ -433,7 +433,6 @@ static int lcdif_crtc_atomic_check(struct drm_crtc *crtc,
+ 	struct drm_connector *connector;
+ 	struct drm_encoder *encoder;
+ 	struct drm_bridge_state *bridge_state;
+-	struct drm_bridge *bridge;
+ 	u32 bus_format, bus_flags;
+ 	bool format_set = false, flags_set = false;
+ 	int ret, i;
+@@ -448,6 +447,8 @@ static int lcdif_crtc_atomic_check(struct drm_crtc *crtc,
  
- /**
+ 	/* Try to find consistent bus format and flags across first bridges. */
+ 	for_each_new_connector_in_state(state, connector, connector_state, i) {
++		struct drm_bridge *bridge __free(drm_bridge_put) = NULL;
++
+ 		if (!connector_state->crtc)
+ 			continue;
+ 
 
 -- 
 2.48.1
