@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB3AC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 20:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081AAC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 20:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ETI5JIwMaLYszF8ULu8d7j+vLyUoN2P4VsLTI2rnD3M=; b=Kl8i8F33Dl7YnoLiiEZJDgspkv
-	xeCT28TcIt5U30g5+hvq12t2W4qPs72DKHaM352EGe/xNFpNdVEgmOWDs1UOrtQil3agqgiyX7Hxr
-	aTr3v4GcdszOl2FEKUA675UzwKodYGEvc+rVs+ENaig9NwD0/QHLgE6LMtMdjPXSalClmqfB2+kjN
-	jBju6keSPAkjOqqOSUYl5y2GP7C1i2ObleX3FbntxbT4dIVKsxMENxMwAA+PX038P7yMZruNRUNqS
-	FyeLOr8fSV9uaO54rmEp3N4D8dtjcoF7Iej7PTqnWfM+99jwfy4vpUWt+OfsEAgTuO2eyZf1pgqkr
-	QA7SpjQg==;
+	bh=lrnlKj8sSo9riL3hDutZp5tUCG42S5hCP5t/7KI5BsE=; b=F9bbdfjHDXx92cWGIxwPChX8mC
+	vjdkHCnlVEWN//xkJOUOG/EjgpnCzb3ndwxC7FI9kVwCBxv2m9s0IkphV7SAEA6Izn77wT2V+hFyo
+	yckxp7CO6ohwsKDUF7U8pO1SLZOsuh6JPg8Rnfdv1nMlXOmZZSodCcoeZnBnffwWpbg/gbWgbOyMD
+	AgPUOEkpGXmE5na25BBi6DA8P68ZXS3xaBGT7+DxjRctrSoB2xRwkuvKlEYHS744K3qf1GWwhsuYN
+	N7fcm5WFfLawzv1fTgKttiW1Hk03t2cQ96qogJREbuhgbRgVj3nKl8cXJxfciDnssLn7xLwRePWfy
+	urR5vjDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttY2g-0000000Goga-13RK;
-	Sat, 15 Mar 2025 20:23:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ttY4K-0000000Gook-3yAo;
+	Sat, 15 Mar 2025 20:25:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttXvN-0000000GnS8-2nQB
+	id 1ttXvP-0000000GnSo-3GlV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Mar 2025 20:16:02 +0000
+	Sat, 15 Mar 2025 20:16:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3604E5C4638;
-	Sat, 15 Mar 2025 20:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76520C4CEE5;
-	Sat, 15 Mar 2025 20:16:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5A9EEA48B85;
+	Sat, 15 Mar 2025 20:10:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 143E7C113CF;
+	Sat, 15 Mar 2025 20:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742069760;
-	bh=UQ59zv9FuaqX9nZDy1KqpQxejNQdEppJ2cczOe71XF8=;
+	s=k20201202; t=1742069762;
+	bh=CpTQVdmtXh0uTx65c9F5PQoTrjYzcny7+9eiEMKtE/Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CizdI21kCtv5eit8m4INMznvOqkXezGWSbe6h7pQUBBhLuNPA935WXkxxavRCLAUs
-	 ezUatl5+zp8Zcged/GR2MnT7ol/xmlRmOfl0Mql76Bz/eDmCp9UDOAS4KhjLHINsIB
-	 Ry7314Du3l6g3Hdk6lowrsAmPWsgdvZeCUqYeY7XtLTjD7/VB4JesE8cCpwOW3XX+k
-	 A2JpHxLj/COP/2laWlwkm+QcLUH3uPAzgV4SIQqY70q8+wmm/sxV86Nga3gm5+HX6X
-	 lw/DDGN1Szdp39qR6zV8n6m/IYlCz5drnN09ueOvLzn+tYvnvFokOhBvldtI/8WmUR
-	 DFzkKul4Lnllw==
+	b=Rt74XQ34r5n1G30d4C5QLmhvGYhqtsM5ePEZ58Oc4IqMG9sBy9XR8xvhB8JcyOjzb
+	 kuxktKG3tnl8vCzlYIIjkwdBz1D66shG3pZmj7Lxcwd3KjQMyNXj0lDLrejzRsV2eD
+	 0TAFR6cNwPiLRU3rJKifXVEVbg42FzVxZAVTUYFvUKe1wx2EclDyrxx0v5hoTVONv5
+	 1QnpgTq19p3pc4IdJdCXz8R1mJzaB1bFTR34jN3Eq+vVCBzm4+EGOxgnvSIc/jrCVd
+	 2frTdiiq9jDT3rkwNm+vllPK8LNZpKAI3mXivT9ixE7f2X2ndZMt8epfQ0RTL5287A
+	 wY+Sc6Gzt07DQ==
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -63,17 +63,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH v12 03/13] PCI: dwc: Call devm_pci_alloc_host_bridge() early in dw_pcie_host_init()
-Date: Sat, 15 Mar 2025 15:15:38 -0500
-Message-Id: <20250315201548.858189-4-helgaas@kernel.org>
+Subject: [PATCH v12 04/13] PCI: dwc: Consolidate devicetree handling in dw_pcie_host_get_resources()
+Date: Sat, 15 Mar 2025 15:15:39 -0500
+Message-Id: <20250315201548.858189-5-helgaas@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250315201548.858189-1-helgaas@kernel.org>
 References: <20250315201548.858189-1-helgaas@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_131601_749393_2D88005D 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250315_131603_958683_EC13941B 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +88,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+From: Bjorn Helgaas <bhelgaas@google.com>
 
-Move devm_pci_alloc_host_bridge() to the beginning of dw_pcie_host_init().
+Consolidate devicetree resource handling in dw_pcie_host_get_resources().
+No functional change intended.
 
-devm_pci_alloc_host_bridge() is generic code that doesn't depend on any DWC
-resource, so moving it earlier keeps all the subsequent devicetree-related
-code together.
-
-[bhelgaas: reorder earlier in series]
-Link: https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-4-01d2313502ab@nxp.com
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
 ---
- drivers/pci/controller/dwc/pcie-designware-host.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ .../pci/controller/dwc/pcie-designware-host.c | 37 +++++++++++++------
+ 1 file changed, 25 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 1206b26bff3f..5636243fb90e 100644
+index 5636243fb90e..9ce06b1ee266 100644
 --- a/drivers/pci/controller/dwc/pcie-designware-host.c
 +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -431,6 +431,12 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+@@ -418,25 +418,15 @@ static void dw_pcie_host_request_msg_tlp_res(struct dw_pcie_rp *pp)
+ 	}
+ }
  
- 	raw_spin_lock_init(&pp->lock);
+-int dw_pcie_host_init(struct dw_pcie_rp *pp)
++static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct device *dev = pci->dev;
+-	struct device_node *np = dev->of_node;
+ 	struct platform_device *pdev = to_platform_device(dev);
+ 	struct resource_entry *win;
+-	struct pci_host_bridge *bridge;
+ 	struct resource *res;
+ 	int ret;
  
-+	bridge = devm_pci_alloc_host_bridge(dev, 0);
-+	if (!bridge)
-+		return -ENOMEM;
-+
-+	pp->bridge = bridge;
-+
- 	ret = dw_pcie_get_resources(pci);
- 	if (ret)
- 		return ret;
-@@ -448,12 +454,6 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
- 	if (IS_ERR(pp->va_cfg0_base))
- 		return PTR_ERR(pp->va_cfg0_base);
- 
+-	raw_spin_lock_init(&pp->lock);
+-
 -	bridge = devm_pci_alloc_host_bridge(dev, 0);
 -	if (!bridge)
 -		return -ENOMEM;
 -
 -	pp->bridge = bridge;
 -
+ 	ret = dw_pcie_get_resources(pci);
+ 	if (ret)
+ 		return ret;
+@@ -455,13 +445,36 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+ 		return PTR_ERR(pp->va_cfg0_base);
+ 
  	/* Get the I/O range from DT */
- 	win = resource_list_first_type(&bridge->windows, IORESOURCE_IO);
+-	win = resource_list_first_type(&bridge->windows, IORESOURCE_IO);
++	win = resource_list_first_type(&pp->bridge->windows, IORESOURCE_IO);
  	if (win) {
+ 		pp->io_size = resource_size(win->res);
+ 		pp->io_bus_addr = win->res->start - win->offset;
+ 		pp->io_base = pci_pio_to_address(win->res->start);
+ 	}
+ 
++	return 0;
++}
++
++int dw_pcie_host_init(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct device *dev = pci->dev;
++	struct device_node *np = dev->of_node;
++	struct pci_host_bridge *bridge;
++	int ret;
++
++	raw_spin_lock_init(&pp->lock);
++
++	bridge = devm_pci_alloc_host_bridge(dev, 0);
++	if (!bridge)
++		return -ENOMEM;
++
++	pp->bridge = bridge;
++
++	ret = dw_pcie_host_get_resources(pp);
++	if (ret)
++		return ret;
++
+ 	/* Set default bus ops */
+ 	bridge->ops = &dw_pcie_ops;
+ 	bridge->child_ops = &dw_child_pcie_ops;
 -- 
 2.34.1
 
