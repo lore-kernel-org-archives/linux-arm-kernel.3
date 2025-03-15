@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE403C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 10:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898DAC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 10:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Oi98ZwxkXO6Jx8VTzcNwX2z0Wuokb3ss3AkwMKz14J0=; b=TEgELWgxYvp3POQNo4NNZOoQcr
-	b9jo04+DUTxg25LWGNcVLWQuHmWVtsmwpI3CoK3djj7tT/VU1x/hqfljka4v6wdegAdN9isG4NQcR
-	PP3qESBy5/AdMTWh4lu7YaIs0FVApO+fNH6ojnWKpNhaKAtE+y1yhKxlpOoRLzADTkxFx66fIV68Q
-	B5JHjN+2hlv1qwdNDYKxDQj1LaU4CynFwBwWuZw6QYKpbJT+5m3MaUKMNGv0QvHLPANIScidClxkA
-	GfnphtiYmI0ZDOIQuaCok/btxKtzXQAYGO3Zq99nMl/96U8+Pkc5msLnT3MrY4LQ8CiDw/ZR6uUOH
-	5LoLOjGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IDO6qw82nyFcQB/J3641Yt/wUtlNoDqx6ZzyhWMfBIU=; b=Lhijz53TO4DvdAKQWwxk74QbTB
+	MTwBIhYgCv3+1Lx2cXEEzpUMxeU5zLygHrgMJwFvVqsxs7RE5ByEegdy7A2i2vA9bZ2Zs0E6pxOsI
+	IZVhi1BO3BHMgDnJu3yV8qptZtYW/T38h7o9GP4BEvN2EdhogBVtTbDsLmAzNluMutChzd1qXCsna
+	3hjZO+yk6s7zwJN36PSWp+R0wTE8vZTHZvMrcaDvbgEsi/oMfcS6DEt4OMCPFW8+abZOQ8FmbsExM
+	w8pXnVXPzh09VzB5XKABEakn2lZ/8XSnTlA2stGk+8BiDw2amfPHQAiD0fvXK/yywiDTQERHc+ftB
+	pQBXW01w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttOnr-0000000GDCF-22Dt;
-	Sat, 15 Mar 2025 10:31:39 +0000
-Received: from mail.nppct.ru ([195.133.245.4])
+	id 1ttOu5-0000000GEZI-3kew;
+	Sat, 15 Mar 2025 10:38:05 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttOm8-0000000GCt8-3aDw
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Mar 2025 10:29:55 +0000
-Received: from mail.nppct.ru (localhost [127.0.0.1])
-	by mail.nppct.ru (Postfix) with ESMTP id 0B5121C2439
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 13:29:38 +0300 (MSK)
-Authentication-Results: mail.nppct.ru (amavisd-new); dkim=pass (1024-bit key)
-	reason="pass (just generated, assumed good)" header.d=nppct.ru
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nppct.ru; h=
-	content-transfer-encoding:mime-version:x-mailer:message-id:date
-	:date:subject:subject:to:from:from; s=dkim; t=1742034574; x=
-	1742898575; bh=3BroxUqixAB8gXUImb1vjnpxBW+vzrQRIfMr2CxrOfo=; b=D
-	VaCmVgb8jMMwQ4Equ8S8ziqnQd0rOya7xfQsNGlIgbSjf+0GD9RdZ4jx20p6gLvf
-	6L77hhdmEIQ6SdX80/sCUzotay7L+ELiQJ7LjZvjigUOu88Lu46skRzw4HgRG+Zr
-	9sRqmAZdHuhhLWtq0W1YVFhxl7ze/kuGkOPvZw7U+M=
-X-Virus-Scanned: Debian amavisd-new at mail.nppct.ru
-Received: from mail.nppct.ru ([127.0.0.1])
-	by mail.nppct.ru (mail.nppct.ru [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 3QPfv3lO-2El for <linux-arm-kernel@lists.infradead.org>;
-	Sat, 15 Mar 2025 13:29:34 +0300 (MSK)
-Received: from localhost.localdomain (unknown [87.249.24.51])
-	by mail.nppct.ru (Postfix) with ESMTPSA id CFB551C0879;
-	Sat, 15 Mar 2025 13:29:29 +0300 (MSK)
-From: Alexey Nepomnyashih <sdl@nppct.ru>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Alexey Nepomnyashih <sdl@nppct.ru>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+	id 1ttOsP-0000000GETw-1FeP;
+	Sat, 15 Mar 2025 10:36:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742034981; x=1773570981;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=6qV1PsRPK6FY5acDPimlrsGS7ltsPHOPEUhKI9EF4XM=;
+  b=KdbSChBZ8Zvx3VP9eHCeFqPb4BCTRxYFgzwN0tL++1DGQb9hjOsncbpK
+   G2aExJ9y3MfjdGc24EFzuLFIOB+eZF/yw7PEPn1tAxisFSoFtwpA40wD7
+   qld4G21ILS1evihHfMcBJjGq1yGuPH0nLZ1rnfkx/zBGoca3LbyqFpXf/
+   kPuz/ADsht2SNZscw5w+U/nlJOO6PMQ0TFOSjyeEUjBHdpWUQydagVge8
+   +sn3D6NEI1CjOQc+OWa9UvKIaDZIsP/tpfIb+End8O/1VoZnlTe/KZIKj
+   JPLZ/6Mx/Si29fhw8UTcmcp0MD6XXkij5Y4ahs6W1ENi4TBm2VFq6nRtN
+   w==;
+X-CSE-ConnectionGUID: aTvuKe8yQLaL32i8pZ/wmg==
+X-CSE-MsgGUID: t+gfIh1FRjySxiTETluXUg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11373"; a="42432662"
+X-IronPort-AV: E=Sophos;i="6.14,250,1736841600"; 
+   d="scan'208";a="42432662"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Mar 2025 03:36:20 -0700
+X-CSE-ConnectionGUID: eC/YFbOmQVSFCVE/Kr1wMg==
+X-CSE-MsgGUID: esa9I441ThObWjVI1iQfHA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,250,1736841600"; 
+   d="scan'208";a="144695410"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by fmviesa002.fm.intel.com with ESMTP; 15 Mar 2025 03:36:17 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ttOsJ-000BGR-0F;
+	Sat, 15 Mar 2025 10:36:15 +0000
+Date: Sat, 15 Mar 2025 18:36:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
 	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	lvc-project@linuxtesting.org,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com,
 	Sebastian Fricke <sebastian.fricke@collabora.com>
-Subject: [PATCH 6.1] media: mediatek: vcodec: Fix VP8 stateless decoder smatch warning
-Date: Sat, 15 Mar 2025 10:29:01 +0000
-Message-ID: <20250315102903.3634639-1-sdl@nppct.ru>
-X-Mailer: git-send-email 2.43.0
+Subject: Re: [PATCH 4/5] media: vcodec: Implement manual request completion
+Message-ID: <202503151824.EfaOfTwf-lkp@intel.com>
+References: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_032953_964740_383495A2 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250315_033621_384345_1773DF06 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yunfei Dong <yunfei.dong@mediatek.com>
+Hi Sebastian,
 
-commit b113bc7c0e83b32f4dd2d291a2b6c4803e0a2c44 upstream.
+kernel test robot noticed the following build warnings:
 
-Fix a smatch static checker warning on vdec_vp8_req_if.c.
-Which leads to a kernel crash when fb is NULL.
+[auto build test WARNING on f2151613e040973c868d28c8b00885dfab69eb75]
 
-Fixes: 7a7ae26fd458 ("media: mediatek: vcodec: support stateless VP8 decoding")
-Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
-Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-[ Alexey Nepomnyashih: changed mtk_vdec_err() to mtk_vcodec_err. ]
-Signed-off-by: Alexey Nepomnyashih <sdl@nppct.ru>
----
- .../platform/mediatek/vcodec/vdec/vdec_vp8_req_if.c    | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Fricke/media-mc-add-manual-request-completion/20250314-213005
+base:   f2151613e040973c868d28c8b00885dfab69eb75
+patch link:    https://lore.kernel.org/r/20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b%40collabora.com
+patch subject: [PATCH 4/5] media: vcodec: Implement manual request completion
+config: arm-randconfig-001-20250315 (https://download.01.org/0day-ci/archive/20250315/202503151824.EfaOfTwf-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250315/202503151824.EfaOfTwf-lkp@intel.com/reproduce)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/vdec/vdec_vp8_req_if.c b/drivers/media/platform/mediatek/vcodec/vdec/vdec_vp8_req_if.c
-index e1fe2603e92e..22d8f178b04d 100644
---- a/drivers/media/platform/mediatek/vcodec/vdec/vdec_vp8_req_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/vdec/vdec_vp8_req_if.c
-@@ -336,14 +336,18 @@ static int vdec_vp8_slice_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
- 	src_buf_info = container_of(bs, struct mtk_video_dec_buf, bs_buffer);
- 
- 	fb = inst->ctx->dev->vdec_pdata->get_cap_buffer(inst->ctx);
--	dst_buf_info = container_of(fb, struct mtk_video_dec_buf, frame_buffer);
-+	if (!fb) {
-+		mtk_vcodec_err(inst, "fb buffer is NULL");
-+		return -ENOMEM;
-+	}
- 
--	y_fb_dma = fb ? (u64)fb->base_y.dma_addr : 0;
-+	dst_buf_info = container_of(fb, struct mtk_video_dec_buf, frame_buffer);
-+	y_fb_dma = fb->base_y.dma_addr;
- 	if (inst->ctx->q_data[MTK_Q_DATA_DST].fmt->num_planes == 1)
- 		c_fb_dma = y_fb_dma +
- 			inst->ctx->picinfo.buf_w * inst->ctx->picinfo.buf_h;
- 	else
--		c_fb_dma = fb ? (u64)fb->base_c.dma_addr : 0;
-+		c_fb_dma = fb->base_c.dma_addr;
- 
- 	inst->vsi->dec.bs_dma = (u64)bs->dma_addr;
- 	inst->vsi->dec.bs_sz = bs->size;
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503151824.EfaOfTwf-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c:29:13: warning: no previous prototype for 'state_to_str' [-Wmissing-prototypes]
+      29 | const char *state_to_str(enum mtk_request_state state)
+         |             ^~~~~~~~~~~~
+
+
+vim +/state_to_str +29 drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+
+    28	
+  > 29	const char *state_to_str(enum mtk_request_state state)
+    30	{
+    31		switch (state) {
+    32		case MTK_REQUEST_RECEIVED:
+    33			return "RECEIVED";
+    34		case MTK_REQUEST_LAT_DONE:
+    35			return "LAT_DONE";
+    36		case MTK_REQUEST_CORE_DONE:
+    37			return "CORE_DONE";
+    38		default:
+    39			return "UNKNOWN";
+    40		}
+    41	}
+    42	
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
