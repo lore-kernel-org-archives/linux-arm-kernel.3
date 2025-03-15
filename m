@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2EA7C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 08:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA1EC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 09:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xoAXBMZMFdzI1bxx8xlOt+7qXGb/M8aMLz7dtBNMqJY=; b=4LibtHsMOJ5no7fGQ6VDubpD4m
-	/Sco30U+qxZiyHrzgL2gLrbqMdLf2f93IYBjz2fLp6X9ABWJcJ1ghGHQdh4SLqrx4nigHomL91phg
-	rhxiJhLhH8QCHfDEMYyFpvXyWv8PERD1Rz+worSCLJHS0bk8ACN46U4NAYDp844lwIFCr1UFAtsYb
-	TFgvhtif0cPHvyYM+KvjUjXyKjNafusTdEQKB+M0drnoWx4qEwD2Xq1f+8uMn3I1aef5IwnO2Ob0I
-	eyOvOWpCeuF3b31KzWgs9JCc8mTCMD/CPbmIojQA0wyEoM9Da4eK0yly7ZNe4LAYPv2jEvBfHVFJV
-	/iu+nO2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KLwVXPbbRkF8uCWikKGIA8xgMN+KuKWxo6BOl1fHSvk=; b=Nu8JF/TzVggslN
+	o3AiM6nOAhh/rvPi4vRRHZ8GvPk60+PPNRcv3hEXYWkQZoeOplqNYwo4ADXo6BWu36jRTFgeO7rRd
+	43c70NIxEFGp9Hs976xZ7MfJaZfV3aC+1zyFXhSbyTDrnY6MB8iS5wbMfj0AJRO9Fe4ZyGD5IX0WA
+	OhFOcASiG66YkS95JSA0FXfUvrhC0Ha3twpPVWKvoznJw2Z0lQhtht6hWsFH9djTBUUXm1yKSxoTg
+	dJ4192ToT+vy6nIBsFQtquWFbjE0Ru4wM/H6B40dfu79zXgCG72n9Csja6mzmMjHmGigm53vSnUmx
+	srnpReNiEN62LsApqatw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttNDz-0000000G3lv-2S13;
-	Sat, 15 Mar 2025 08:50:31 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1ttNbA-0000000G68t-0vyS;
+	Sat, 15 Mar 2025 09:14:28 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttNB4-0000000G34t-1N9l;
-	Sat, 15 Mar 2025 08:47:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742028448;
-	bh=G8uYSrifhqywqfMO1IBBhasEEunS+Y3jrko3Aki/XA0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LQO04r4q3Sevfv8mmADPojqCSJcQxUVqr4wr2MLx8Y89UPKMJ/9MVD3Ka68IF5d2V
-	 fYWoNfuPE/yl6yzB4kFEUFU5qHLrhdKhuBuFwd1RfDrwkkbACsdMEBPxSty6ki57Qv
-	 hwdp7lNTn0Bit7z2HUoapOazm5azakK1LwI0jFXyxelzE5e/0z3uO+SkZnOLl8x9m2
-	 FPIaialuC/Wp1qsgs/2EiYwo5CYKPsf/VkuTaDuUC8zbgYfWp+0LH7vtssH5L+PWpw
-	 7pu4dbwDbgizk1/LFSBduf/h4FFXinQyo+bIydoS5dF9tqeLGWIDNMQ7ruU9xJHH7z
-	 bLG9gUCBi32qA==
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CCFF117E05C8;
-	Sat, 15 Mar 2025 09:47:27 +0100 (CET)
-Date: Sat, 15 Mar 2025 09:47:22 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, steven.price@arm.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, kernel@collabora.com, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com,
- angelogioacchino.delregno@collabora.com
-Subject: Re: [PATCH v2 6/6] drm/panfrost: Force AARCH64_4K page table format
- on MediaTek MT8192
-Message-ID: <20250315094722.4c4804c6@collabora.com>
-In-Reply-To: <20250314173858.212264-7-ariel.dalessandro@collabora.com>
-References: <20250314173858.212264-1-ariel.dalessandro@collabora.com>
-	<20250314173858.212264-7-ariel.dalessandro@collabora.com>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1ttNZS-0000000G5lj-35PW
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Mar 2025 09:12:45 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2235189adaeso49878545ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 02:12:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1742029961; x=1742634761; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KLwVXPbbRkF8uCWikKGIA8xgMN+KuKWxo6BOl1fHSvk=;
+        b=Wolhkcim3gRGDX9w8vDPAUEQuo7WdK6Ok1sDuTUNXIKj5ll1x4mwkCy7zjuf/7r+8T
+         8saLKWBOkQW47pc6aYzoNVqRpOXNdD+NNM9AzfY1aYhLXhrxWgUJTL/Y4kNj06E6g/ms
+         DC2419Ax/LcrqnTCrqf9NC7gMmlw8jrhFquTlPViBlVoPHFTFS00mjcDBlc11yw9sFL0
+         GXe7kmwQ7pMDSBRfIfBWJs4JPGRgSEWYvRHpEByvMLEt5mWZNTz5/Jt/U6Dgi7EDSSDX
+         7v/2f4IJEVKOBm/APN5zoO+ag/htww8KxzvYJVYnuO/Gz9M5f7q4OGqp+oy6NAANLam0
+         1Atw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742029961; x=1742634761;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KLwVXPbbRkF8uCWikKGIA8xgMN+KuKWxo6BOl1fHSvk=;
+        b=usnyDkhYOKi4uqMmdqxkhuiPtV3q2nYv8pIxosZUbsbwPyYl7OTsla27EwLZvi9evG
+         PR6VfjD7d8SekdjlXD/IGDZyrmg3Y9FpYcMXfQGdYlyM4mwwgkvjRgmmfkHRwt0xmLYO
+         TnZ6s/lotdmxzS6OLhzzbC+o9LcEuisMxCbgKumEOSoCn9aD1l4iwZEPoy2HVL2q9r2j
+         GdhNx5NB25Y6jxjz9pVDjA4vTEeeWz+LIMWnpevka0i9qjp6Nyp8eW0/WkRAL4httwqZ
+         WkWZGk6DLIy1CEZktf/wOTh4OvsDTUAtnK7HbOH6SlqjGIWzX5ReKjmpANYWet32z+QT
+         HxPw==
+X-Gm-Message-State: AOJu0YwTOFRmuS9dk+D01SmCDJhSNn3HTN8G5ryR3CE3iAALyF4JexKU
+	anW8TbnO3L9JcBjx4AW2a1OWS/CpSML4CruejRhAYt4WclYMH9ryO4483E6KLLM=
+X-Gm-Gg: ASbGncvYvQSgo3/pRx3+1iqeZ1u5UlWkUFOeMQ5g2RdPkYC3ai/hx0Fs+qSLD9VwiGF
+	/KrahWgKR0v49L3Eep7OCIt4FBIoL9BCe9MDJhOmi7VNbwjV5OIaHsNcUpZnKU7Ry2ozYHmTg11
+	QbHZQO65PVZw8Dbnu4gxMo84fnKH8WPuV/Mf12iBXE81g8RI2RRpWTMxLdiRGI/iUH7SMK04iVP
+	qlsMSyj4X9fcquRsgNi2bSXYq3qXlFAQUI5pnDTfXKkxifub4ywRtSNmf/44SvrR8ByL8h0wETx
+	GCpLBuiQzRZUdJFcrrgQCXP69+sqnWD6Ympmt184NDSmGe0c
+X-Google-Smtp-Source: AGHT+IFQlkAYLQJz9OZLtD7VhX6ghBBoAGJzqQtpfj3z/JvhpgmI8tBgESFhabIFaTXRXazJxYdPNQ==
+X-Received: by 2002:a17:903:3c64:b0:215:ba2b:cd55 with SMTP id d9443c01a7336-225e1681376mr66493455ad.2.1742029961548;
+        Sat, 15 Mar 2025 02:12:41 -0700 (PDT)
+Received: from localhost ([157.82.205.237])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-225c6ba7255sm40793705ad.126.2025.03.15.02.12.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 15 Mar 2025 02:12:41 -0700 (PDT)
+From: Akihiko Odaki <akihiko.odaki@daynix.com>
+Subject: [PATCH v5 0/5] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+Date: Sat, 15 Mar 2025 18:12:09 +0900
+Message-Id: <20250315-pmc-v5-0-ecee87dab216@daynix.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGlE1WcC/2XQQW7DIBAF0KtYrEvFMGAgq96j6gKGccPCdmq7V
+ qIody+Ju3CU5Qfeh+EqZp4Kz+LQXMXEa5nLONRg3xpBxzh8syy5ZqGVtgqVlqeeZAoq+jZ2wVg
+ S9eRp4q6cHy2fXzUfy7yM0+VRusJ99dmvIEFS7LrggwqY6SPHy1DO7zT24l6w6j1yG9JSyZYQn
+ Y22AzYvCHcI/m/CipQBoJhsJswvyOwRbshUpCm41msH4J+fd9sGnvjnt/7Wsk0tUpxZ1v2+LIf
+ GK7aGvQkAMWgko7JLzIgRDUEyicH47GItu/0Bqtb5MIIBAAA=
+X-Change-ID: 20250302-pmc-b90a86af945c
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Andrew Jones <andrew.jones@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, devel@daynix.com, 
+ Akihiko Odaki <akihiko.odaki@daynix.com>, stable@vger.kernel.org
+X-Mailer: b4 0.15-dev-edae6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_014730_557364_487021BB 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250315_021243_071739_EC74703B 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +105,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Mar 2025 14:38:58 -0300
-Ariel D'Alessandro <ariel.dalessandro@collabora.com> wrote:
+Prepare vPMC registers for user-initiated changes after first run. This
+is important specifically for debugging Windows on QEMU with GDB; QEMU
+tries to write back all visible registers when resuming the VM execution
+with GDB, corrupting the PMU state. Windows always uses the PMU so this
+can cause adverse effects on that particular OS.
 
-> MediaTek MT8192 SoC has an ARM Mali-G57 MC5 GPU (Valhall-JM). Now that
-> Panfrost supports AARCH64_4K page table format, let's enable it on this
-> SoC.
-> 
-> Running glmark2-es2-drm [0] benchmark, reported the same performance
-> score on both modes Mali LPAE (LEGACY) vs. AARCH64_4K, before and after
-> this commit. Tested on a Mediatek (MT8395) Genio 1200 EVK board.
-> 
-> [0] https://github.com/glmark2/glmark2
-> 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+This series also contains patch "KVM: arm64: PMU: Set raw values from
+user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}", which reverts semantic
+changes made for the mentioned registers in the past. It is necessary
+to migrate the PMU state properly on Firecracker, QEMU, and crosvm.
 
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
+---
+Changes in v5:
+- Rebased.
+- Link to v4: https://lore.kernel.org/r/20250313-pmc-v4-0-2c976827118c@daynix.com
 
-> ---
->  drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> index e854f290858f9..ef30d314b2281 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> @@ -836,6 +836,7 @@ static const struct panfrost_compatible mediatek_mt8192_data = {
->  	.num_pm_domains = ARRAY_SIZE(mediatek_mt8192_pm_domains),
->  	.pm_domain_names = mediatek_mt8192_pm_domains,
->  	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
-> +	.gpu_quirks = BIT(GPU_QUIRK_FORCE_AARCH64_PGTABLE),
->  };
->  
->  static const struct of_device_id dt_match[] = {
+Changes in v4:
+- Reverted changes for functions implementing ioctls in patch
+  "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
+- Removed kvm_pmu_vcpu_reset().
+- Reordered function calls in kvm_vcpu_reload_pmu() for better style.
+- Link to v3: https://lore.kernel.org/r/20250312-pmc-v3-0-0411cab5dc3d@daynix.com
+
+Changes in v3:
+- Added patch "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
+- Added an explanation of this path series' motivation to each patch.
+- Explained why userspace register writes and register reset should be
+  covered in patch "KVM: arm64: PMU: Reload when user modifies
+  registers".
+- Marked patch "KVM: arm64: PMU: Set raw values from user to
+  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" for stable.
+- Reoreded so that patch "KVM: arm64: PMU: Set raw values from user to
+  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" would come first.
+- Added patch "KVM: arm64: PMU: Call kvm_pmu_handle_pmcr() after masking
+  PMCNTENSET_EL0".
+- Added patch "KVM: arm64: Reload PMCNTENSET_EL0".
+- Link to v2: https://lore.kernel.org/r/20250307-pmc-v2-0-6c3375a5f1e4@daynix.com
+
+Changes in v2:
+- Changed to utilize KVM_REQ_RELOAD_PMU as suggested by Oliver Upton.
+- Added patch "KVM: arm64: PMU: Reload when user modifies registers"
+  to cover more registers.
+- Added patch "KVM: arm64: PMU: Set raw values from user to
+  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}".
+- Link to v1: https://lore.kernel.org/r/20250302-pmc-v1-1-caff989093dc@daynix.com
+
+---
+Akihiko Odaki (5):
+      KVM: arm64: PMU: Set raw values from user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}
+      KVM: arm64: PMU: Assume PMU presence in pmu-emul.c
+      KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+      KVM: arm64: PMU: Reload when user modifies registers
+      KVM: arm64: PMU: Reload when resetting
+
+ arch/arm64/kvm/arm.c            | 17 ++++++++-----
+ arch/arm64/kvm/emulate-nested.c |  6 +++--
+ arch/arm64/kvm/pmu-emul.c       | 56 +++++++++++------------------------------
+ arch/arm64/kvm/reset.c          |  3 ---
+ arch/arm64/kvm/sys_regs.c       | 52 ++++++++++++++++++++++----------------
+ include/kvm/arm_pmu.h           |  4 +--
+ 6 files changed, 62 insertions(+), 76 deletions(-)
+---
+base-commit: 80e54e84911a923c40d7bee33a34c1b4be148d7a
+change-id: 20250302-pmc-b90a86af945c
+
+Best regards,
+-- 
+Akihiko Odaki <akihiko.odaki@daynix.com>
 
 
