@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5364BC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 17:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE04C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 18:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6dr+at3MIXIUoL+5SQHgPYKX+5wYXnZaEouretQYfAM=; b=oO12AiLfTuOuLGnI/NFuT2CvPr
-	s5uuZlwVQ3BMAl84Jvo8FC4yBRoUxX9PCHPEnguMdiCM+J5iMyRpa7s++ZJzuPnQz9Z9PS+v0Eb+s
-	yznd4ffhD/MKCsYrWY2hgXU3GIOS5Bd8NXGHN2WEoT67lC8IewHR/JIcOtmxHWS08+RloPCYgwOhh
-	SW88Vbfn0615/0NwCY4otj8tp7GY6Zq0qj/6Pi6TPjtxZrkwlClrNPGUCuz4LTQQcMcEe+WUVVn+E
-	nNG9gGVZgYbflgOMj6sV6Ft5Fjh4m5Fm8CU+DtJf2US+Q1gnZoXddlKKesJUMvf6pXYKDUNmtI1QK
-	UM00orNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/uv81aofP8HfDkN97F1S5VP9Cqyo5uM82HW+xIHafOY=; b=c00w/+j2nJcAQ4OG+jtcDsBxCk
+	oM1Tm1F6d6JoXCRzhW0B8ih1IptZSLKAwMgfZLw36YmhuO8AzdSk2yPEz6F2Jyj7f3G+Bw8rwwOn8
+	WkiLOdhYdoAWja57PEjmn1MI4WljByQ1hn7pTFpoTNG55IbEKeabZOHNETFmo303C0ml1TY1Jr1RQ
+	3rmflUF/3ldcnWzb6nRr2X5YFhXa+9vwSl69IN3Irn/Clp9s+deifUe+hsT48ZTFNVOm+QP3M+HBQ
+	ORlFtiVEshuURzJrdC8trBV4rqp+Chox18tEmW9HJfeeOpIcCcVSfpL8fJNCCwioChRAbciTtPciK
+	akNQRBkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttV5E-0000000GdKk-1ywy;
-	Sat, 15 Mar 2025 17:14:00 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ttVoy-0000000Gfsx-21vE;
+	Sat, 15 Mar 2025 18:01:16 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttV3Y-0000000GdDb-1Pwh;
-	Sat, 15 Mar 2025 17:12:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 67C9DA48B35;
-	Sat, 15 Mar 2025 17:06:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD39C4CEE5;
-	Sat, 15 Mar 2025 17:12:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742058734;
-	bh=TAGSXpXNt+/x3uk6tc75dLbGfKv+LBmzv0BZheJ4OhM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=KQOVZk/fN4mnPBUj7zObUCAOTzYH07FpvRS3NiGw9KhKmckav2nGnZhFSviF70S38
-	 ABS77iPHzZUpfeBHw/nlquL0mh46+LeVPnHYUm3hOctvdBFGn0DB/K10VXtTH8OlkF
-	 OQKk+fXxSLi4mfOyyc0ADd7BelPfMpHgGdEutvvPvnqn4UwZ0R0EZYKHVF3z9DgF8E
-	 w22GOdJjzJf63TyoynEIyfUbLz0HMcmZzgTKBK2HSLVnNJwty6ZqSAYwvdNLfbsNAw
-	 uw43pONGXMZjQTUcRH+keLJ2OUcx7GkCW1R3BiZFRdKslGCo55wZmIfzY2PLlgEZUz
-	 viaus37Bpynvw==
-Date: Sat, 15 Mar 2025 12:12:13 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Russell King <linux@armlinux.org.uk>, Vladimir Oltean <olteanv@gmail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org, 
- Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org, 
- upstream@airoha.com, Conor Dooley <conor+dt@kernel.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- linux-mediatek@lists.infradead.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Eric Dumazet <edumazet@google.com>, Lee Jones <lee@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, 
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
- Jakub Kicinski <kuba@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-In-Reply-To: <20250315154407.26304-6-ansuelsmth@gmail.com>
-References: <20250315154407.26304-1-ansuelsmth@gmail.com>
- <20250315154407.26304-6-ansuelsmth@gmail.com>
-Message-Id: <174205873356.67148.10337205475865865960.robh@kernel.org>
-Subject: Re: [net-next PATCH v13 05/14] dt-bindings: mfd: Document support
- for Airoha AN8855 Switch SoC
+	id 1ttVnH-0000000Gfiw-0kor
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Mar 2025 17:59:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742061571; x=1773597571;
+  h=date:from:to:cc:subject:message-id;
+  bh=y5F2enYPKVagd3tgUbCGGhJNjlaBHdKATg4VFSD7KA8=;
+  b=kGdXkuEmlqzKBexm6jmi6u/PWPx6iGCUxztzJjXQh52AKTwqXDGp7Xa5
+   eJ8gGlDwH/twLHHh6BwqjYqQgDSNpu8+Q3NPDlG9CuQXWSB+petdt3RWF
+   rvzT830i/SZM5f2A33mrgxcPHO762TefYfYnczsSWbj6RqOfjempzIehJ
+   g8B7ZUsE0UVq9GRBRIRRJlg5NBAAA7nS13L78yK3pa2uCxfrVQhSSaBMK
+   Gh0TFCmQNeaSisjPBz2vzbtQMiYTobqbpKipXtq3ltBExAD6lXGdQ2JL4
+   HCTeitxrhW/bg4DxgioHJbmxuqk/68J33LIP5tOJhbzkiLUufqpZemwof
+   g==;
+X-CSE-ConnectionGUID: ipW44gNXQ9yjvv+UWuhmNQ==
+X-CSE-MsgGUID: OvyOGQueSea8Ajt9lmjt+w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11374"; a="42930927"
+X-IronPort-AV: E=Sophos;i="6.14,250,1736841600"; 
+   d="scan'208";a="42930927"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Mar 2025 10:59:27 -0700
+X-CSE-ConnectionGUID: 0umuRtKIQpixNL4yYDcAkw==
+X-CSE-MsgGUID: XAcLW5yPSXC1V2zUaNEblQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,250,1736841600"; 
+   d="scan'208";a="121756928"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 15 Mar 2025 10:59:26 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ttVn9-000BY9-2C;
+	Sat, 15 Mar 2025 17:59:23 +0000
+Date: Sun, 16 Mar 2025 01:59:01 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:arm/fixes] BUILD SUCCESS
+ 45d5fe1c53baaed1fb3043f45d1e15ebb4bbe86a
+Message-ID: <202503160155.OCXP2ee7-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_101216_505737_93327A2F 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250315_105931_290440_E5C02439 
+X-CRM114-Status: UNSURE (   4.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +83,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
+branch HEAD: 45d5fe1c53baaed1fb3043f45d1e15ebb4bbe86a  ARM: davinci: da850: fix selecting ARCH_DAVINCI_DA8XX
 
-On Sat, 15 Mar 2025 16:43:45 +0100, Christian Marangi wrote:
-> Document support for Airoha AN8855 Switch SoC. This SoC expose various
-> peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
-> 
-> It does also support i2c and timers but those are not currently
-> supported/used.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../bindings/mfd/airoha,an8855.yaml           | 182 ++++++++++++++++++
->  MAINTAINERS                                   |   1 +
->  2 files changed, 183 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
-> 
+elapsed time: 1445m
 
-My bot found errors running 'make dt_binding_check' on your patch:
+configs tested: 88
+configs skipped: 3
 
-yamllint warnings/errors:
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@1: $nodename:0: 'phy@1' does not match '^ethernet-phy(@[a-f0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@1: Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@2: $nodename:0: 'phy@2' does not match '^ethernet-phy(@[a-f0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@2: Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
+tested configs:
+alpha                            allyesconfig    gcc-14.2.0
+arc                              allmodconfig    gcc-13.2.0
+arc                              allyesconfig    gcc-13.2.0
+arc                   randconfig-001-20250315    gcc-13.2.0
+arc                   randconfig-002-20250315    gcc-13.2.0
+arm                              allyesconfig    gcc-14.2.0
+arm                   randconfig-001-20250315    gcc-14.2.0
+arm                   randconfig-002-20250315    clang-21
+arm                   randconfig-003-20250315    clang-21
+arm                   randconfig-004-20250315    gcc-14.2.0
+arm64                            allmodconfig    clang-18
+arm64                 randconfig-001-20250315    gcc-14.2.0
+arm64                 randconfig-002-20250315    gcc-14.2.0
+arm64                 randconfig-003-20250315    clang-16
+arm64                 randconfig-004-20250315    gcc-14.2.0
+csky                  randconfig-001-20250315    gcc-14.2.0
+csky                  randconfig-002-20250315    gcc-14.2.0
+hexagon                          allmodconfig    clang-21
+hexagon                          allyesconfig    clang-18
+hexagon               randconfig-001-20250315    clang-21
+hexagon               randconfig-002-20250315    clang-17
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20250315    gcc-12
+i386        buildonly-randconfig-002-20250315    clang-19
+i386        buildonly-randconfig-003-20250315    clang-19
+i386        buildonly-randconfig-004-20250315    clang-19
+i386        buildonly-randconfig-005-20250315    gcc-11
+i386        buildonly-randconfig-006-20250315    gcc-12
+i386                                defconfig    clang-19
+loongarch             randconfig-001-20250315    gcc-14.2.0
+loongarch             randconfig-002-20250315    gcc-14.2.0
+m68k                             allmodconfig    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+m68k                             allyesconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                 randconfig-001-20250315    gcc-14.2.0
+nios2                 randconfig-002-20250315    gcc-14.2.0
+openrisc                          allnoconfig    gcc-14.2.0
+parisc                            allnoconfig    gcc-14.2.0
+parisc                randconfig-001-20250315    gcc-14.2.0
+parisc                randconfig-002-20250315    gcc-14.2.0
+powerpc                           allnoconfig    gcc-14.2.0
+powerpc               randconfig-001-20250315    clang-21
+powerpc               randconfig-002-20250315    gcc-14.2.0
+powerpc               randconfig-003-20250315    clang-18
+powerpc64             randconfig-001-20250315    gcc-14.2.0
+powerpc64             randconfig-002-20250315    clang-18
+powerpc64             randconfig-003-20250315    gcc-14.2.0
+riscv                             allnoconfig    gcc-14.2.0
+riscv                 randconfig-001-20250315    gcc-14.2.0
+riscv                 randconfig-002-20250315    gcc-14.2.0
+s390                             allmodconfig    clang-19
+s390                              allnoconfig    clang-15
+s390                             allyesconfig    gcc-14.2.0
+s390                  randconfig-001-20250315    clang-19
+s390                  randconfig-002-20250315    gcc-14.2.0
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                    randconfig-001-20250315    gcc-14.2.0
+sh                    randconfig-002-20250315    gcc-14.2.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+sparc                 randconfig-001-20250315    gcc-14.2.0
+sparc                 randconfig-002-20250315    gcc-14.2.0
+sparc64               randconfig-001-20250315    gcc-14.2.0
+sparc64               randconfig-002-20250315    gcc-14.2.0
+um                               allmodconfig    clang-21
+um                                allnoconfig    clang-18
+um                               allyesconfig    gcc-12
+um                    randconfig-001-20250315    gcc-12
+um                    randconfig-002-20250315    clang-18
+x86_64                            allnoconfig    clang-19
+x86_64                           allyesconfig    clang-19
+x86_64      buildonly-randconfig-001-20250315    gcc-12
+x86_64      buildonly-randconfig-002-20250315    clang-19
+x86_64      buildonly-randconfig-003-20250315    clang-19
+x86_64      buildonly-randconfig-004-20250315    clang-19
+x86_64      buildonly-randconfig-005-20250315    clang-19
+x86_64      buildonly-randconfig-006-20250315    gcc-12
+x86_64                              defconfig    gcc-11
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                randconfig-001-20250315    gcc-14.2.0
+xtensa                randconfig-002-20250315    gcc-14.2.0
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250315154407.26304-6-ansuelsmth@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
