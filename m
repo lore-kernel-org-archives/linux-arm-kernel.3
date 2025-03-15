@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C5BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 00:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E998C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 00:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xd84y/Dt5kGdwOHOv/ySZ7avVCs31VnToN8B2fxVlBI=; b=shrsYI3K45tODTcby8X9St9GZa
-	q0rtKExmi8Vjsax7Gr3a9LsnIpdesC1BBql+wB4QvJjIkjQ2ivSvb3Xl+WWNLRU0XT/574tHokjPq
-	/Fkt277PaXJ7rmFYQ6jtcGVL6vrZ4wmA/Fav3iNkJj5ULhlIsGMpX/dJzTzdbiJcIuaLBlxM9DQpt
-	VIa95oQn7++i73I6aMcPb2tE7ARVhASHAy4aIxfJ5XM9zFdZTkIg/2OdFUqZOZddci+tVnepP4J3D
-	MOQ0l4AWEYfBjb7ZScupVnXVew44p8MEmVxI/LvEFDvG5ZrinwmZ/OzNHqmhD305UOKE+lT7MuZ6E
-	LildmL6w==;
+	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=; b=h+X/YFRn1G60j/HFvyZW2E4OcW
+	TM9sjYQipbj5G2qtJ25uyJt3YHToHm5N19yviIh1VGtnWbpmC8SWWXXe/ADtDDItJTZQ7hW6pBHDy
+	cI1tJXqQcOzuTeoxePpAP9kz9g9TmFOVj37nTTFul4QPtD5ql9lQyoklqVZ+phSfgx3jNNVwF86t3
+	vt1CHZGeyv81dNOHCeuDDpAso2p3UXwJoZ+ywG1wvevdVl/0fsP6wCi1rcIH5uwe0pRsUOf6Ffly8
+	bLxPRo1tzZsBBuJDW83zsVbyQ4nFpB/JmuTLB5ZNLlfWUq7nsebZpN/PQXBv/j0mLEnyG06d8dA3Q
+	NNe+/CPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttFPR-0000000Fb7E-47IQ;
-	Sat, 15 Mar 2025 00:29:49 +0000
+	id 1ttFR5-0000000FbG8-2Ycz;
+	Sat, 15 Mar 2025 00:31:31 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttFFY-0000000FZRz-2YEj
+	id 1ttFFY-0000000FZS0-2mjQ
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 15 Mar 2025 00:19:38 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 3D2F82038F38;
-	Fri, 14 Mar 2025 17:19:35 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 3D2F82038F38
+	by linux.microsoft.com (Postfix) with ESMTPSA id 06AF02045FE8;
+	Fri, 14 Mar 2025 17:19:36 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 06AF02045FE8
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741997975;
-	bh=Xd84y/Dt5kGdwOHOv/ySZ7avVCs31VnToN8B2fxVlBI=;
+	s=default; t=1741997976;
+	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=K4ToaNaFpr0/1wcbNtPZbQaGBstjklj6nutG57i5Nh1TAFAOO9cx7IxYaN6CQUNkL
-	 6G3BryTp8ULqqG8RZbO7mXzsWVcwlBtd0qbaKwdjo3tRnw/NN0B1ID19EEoVdpftjV
-	 drW6A7Dih+jvHMo+BY5DjCNYYtfNUOKbLAfU6EvU=
+	b=HSyzEKDaib/vNCsj0GVsgBRAnrzEB+NL8ATK/bG84DrwPyanIH5lU4qwJwKnntN4c
+	 gwattMzODKXWZLDfgxcC5LW+foXpL4yumP+Wx/H9YOhZ5tZwxmFXWOzSj7mOcHDm7O
+	 Zal/Tatiej9zT9mFNSWbnkskAD/Jx8sn2YNPgiUw=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -82,17 +82,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v6 06/11] arm64, x86: hyperv: Report the VTL the system boots in
-Date: Fri, 14 Mar 2025 17:19:26 -0700
-Message-ID: <20250315001931.631210-7-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v6 08/11] Drivers: hv: vmbus: Get the IRQ number from DeviceTree
+Date: Fri, 14 Mar 2025 17:19:28 -0700
+Message-ID: <20250315001931.631210-9-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250315001931.631210-1-romank@linux.microsoft.com>
 References: <20250315001931.631210-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_171936_677591_9BDE6861 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250314_171936_725344_684CF63E 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +107,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hyperv guest code might run in various Virtual Trust Levels.
+The VMBus driver uses ACPI for interrupt assignment on
+arm64 hence it won't function in the VTL mode where only
+DeviceTree can be used.
 
-Report the level when the kernel boots in the non-default (0)
-one.
+Update the VMBus driver to discover interrupt configuration
+from DT.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- arch/arm64/hyperv/mshyperv.c | 2 ++
- arch/x86/hyperv/hv_vtl.c     | 7 ++++++-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+ drivers/hv/vmbus_drv.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index f251a08ada5b..ecbd2f5c955e 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -110,6 +110,8 @@ static int __init hyperv_init(void)
- 	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
- 		hv_get_partition_id();
- 	ms_hyperv.vtl = get_vtl();
-+	if (ms_hyperv.vtl > 0) /* non default VTL */
-+		pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
+diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+index 22afebfc28ff..e8f2c3e92d1f 100644
+--- a/drivers/hv/vmbus_drv.c
++++ b/drivers/hv/vmbus_drv.c
+@@ -2345,6 +2345,31 @@ static int vmbus_acpi_add(struct platform_device *pdev)
+ }
+ #endif
  
- 	ms_hyperv_late_init();
- 
-diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
-index 582fe820e29c..038c896fdd60 100644
---- a/arch/x86/hyperv/hv_vtl.c
-+++ b/arch/x86/hyperv/hv_vtl.c
-@@ -55,7 +55,12 @@ static void  __noreturn hv_vtl_restart(char __maybe_unused *cmd)
- 
- void __init hv_vtl_init_platform(void)
++static int vmbus_set_irq(struct platform_device *pdev)
++{
++	struct irq_data *data;
++	int irq;
++	irq_hw_number_t hwirq;
++
++	irq = platform_get_irq(pdev, 0);
++	/* platform_get_irq() may not return 0. */
++	if (irq < 0)
++		return irq;
++
++	data = irq_get_irq_data(irq);
++	if (!data) {
++		pr_err("No interrupt data for VMBus virq %d\n", irq);
++		return -ENODEV;
++	}
++	hwirq = irqd_to_hwirq(data);
++
++	vmbus_irq = irq;
++	vmbus_interrupt = hwirq;
++	pr_debug("VMBus virq %d, hwirq %d\n", vmbus_irq, vmbus_interrupt);
++
++	return 0;
++}
++
+ static int vmbus_device_add(struct platform_device *pdev)
  {
--	pr_info("Linux runs in Hyper-V Virtual Trust Level\n");
-+	/*
-+	 * This function is a no-op if the VTL mode is not enabled.
-+	 * If it is, this function runs if and only the kernel boots in
-+	 * VTL2 which the x86 hv initialization path makes sure of.
-+	 */
-+	pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
+ 	struct resource **cur_res = &hyperv_mmio;
+@@ -2359,6 +2384,11 @@ static int vmbus_device_add(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
  
- 	x86_platform.realmode_reserve = x86_init_noop;
- 	x86_platform.realmode_init = x86_init_noop;
++	if (!__is_defined(HYPERVISOR_CALLBACK_VECTOR))
++		ret = vmbus_set_irq(pdev);
++	if (ret)
++		return ret;
++
+ 	for_each_of_range(&parser, &range) {
+ 		struct resource *res;
+ 
 -- 
 2.43.0
 
