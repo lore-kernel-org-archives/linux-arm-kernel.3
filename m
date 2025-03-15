@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7EDEC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 15:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B85FC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 15:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okDifKvdAt9bOzQUyi7HcNUDD0Vs7iNNXK17iMvuX8c=; b=cvADnJIjGsOEatPF3pSocrRY65
-	d/N8lD79U92o7blAmP0wKzLy4wF/WakI+F6SETyC8ChQBin0Q1UK7U9rfjMoZN9erQZWSg5rxM/2K
-	kzyVk2uv6FwtcxWBgEM0DMY7/UGOSv7pvTok7DxG1PHwqBV6hxgTi6uvcLv/7ciKmPLqFozwHKEvs
-	RGsbAQet02azMjOdYj9QmuKsp+ZxckLS2Obh3OEixwazs6iwBt85YieY0V4GODmsRb4VeLT416TL9
-	OvyWMRQXr70Xd/Q6d2WCUlfRDWMdkQbRV1Mki/lE/lLJ7R5Hi4s1kuso5FYLMlF3zrRXapjz7pt/Y
-	Aej4vNTA==;
+	bh=qe3n3ZQ5LVdeF6eehOPJZ7TfJ6ssfs/dDpnWYl0JxU0=; b=1NBMhZTLPX8Qs6xxsNyJdInMmj
+	h03/d5FDvjD1NQmJnR9sTuT9HnFauh8AC1s81GROpcMJmxO1ejxuWTKjFFP3L5UW9iDlUbpdtaMdE
+	7g0nCPES9N8wl4z25+PBXV52RPXqJbI+q5Q2lrJuinnV1MUuCyIEE0tpWKBrTkdlP7AKdtvrlDNCB
+	lAJWBRm8fDK/0W77W0VIbiK666wVmKhx7UzRTqEoZZ4IZSozGqrkaRwOBOWGQ+4eCzn2yUdGJCnzA
+	j1N8UrdNGlKdyQyMz4roCiWu9fxUXKd6rMj5MyWHYmkveYHDXoPtUUqnGw85vnao/Ia89jPxMrziH
+	ATYMDsfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttTk9-0000000GXlu-2ggm;
-	Sat, 15 Mar 2025 15:48:09 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1ttTln-0000000GY30-2jvk;
+	Sat, 15 Mar 2025 15:49:51 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttTgp-0000000GX03-1QlH;
-	Sat, 15 Mar 2025 15:44:44 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-390cf7458f5so2553429f8f.2;
-        Sat, 15 Mar 2025 08:44:42 -0700 (PDT)
+	id 1ttTgr-0000000GX14-39J3;
+	Sat, 15 Mar 2025 15:44:47 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfa7e7f54so3681385e9.1;
+        Sat, 15 Mar 2025 08:44:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742053481; x=1742658281; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742053484; x=1742658284; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=okDifKvdAt9bOzQUyi7HcNUDD0Vs7iNNXK17iMvuX8c=;
-        b=mg7bWDL79Nu80JznaYY1zl3yivEqB696yk8n1vxar+nT0f/4HI6RQ2kdRETQY/2uNb
-         5CuNpU0nyQwpb11MHI5Lb4MS/jvTu2z6owCxZ+BeXPocr8iORDku00uTO8D5OwwXLkSp
-         Cou51U5plShWPahUAMPvzDET3r5M1PHTp7rfdCTQz7qUI46ztWd6HtMn9KXzBzsk9uhu
-         OI7XP+G7PO1nEbzpzfVyMW9h86SDxXwI6AEnGdlfmskxxfCrR8OYjf9+k6hdhImz7Xd3
-         2WbLwlrJ0GzB8cfPMNrvnr1DwyOf65GaIMcNl4L549KZ03ogiCloBBVry4fcixe4SeBu
-         zhUg==
+        bh=qe3n3ZQ5LVdeF6eehOPJZ7TfJ6ssfs/dDpnWYl0JxU0=;
+        b=OJKX5nN8FPCykU+080jd8FnSXf71ax0F74Xl3D9CNq6A/BApSg/tXdyJoRjxXBZQVp
+         t331SXcl16hB0HvaMMBAqF8m+lJI+/0/lIEvyGwugCbKeyhzxXIJy2hOm9WaoD5IAMNr
+         NxFwG+Tu3P/YgVDfWKsWZ2iLMTLw7+cuilP/bJ9Oz16LaB8L5pP/YyL2eL7pldXl+epa
+         tiAjmIfVTG6003Ppt10z2MCp/MRHw1TcIioHWrOTOZePdDC+6XziPi2ZArGW/lL4yGxK
+         0y/i2cA79GjJ1FcHV5jRxYcwY+7Uu37ZfQ+SJPWJHCLA1CIqzAa5z6e5/xE/kATgFyNd
+         21CA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742053481; x=1742658281;
+        d=1e100.net; s=20230601; t=1742053484; x=1742658284;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=okDifKvdAt9bOzQUyi7HcNUDD0Vs7iNNXK17iMvuX8c=;
-        b=nMU0hTMQ1SRk44slQZ9tUF0/UVRViDJTwbz8d8N5YElJV4bdWlT86msLEGLnDVmFe8
-         Vm1cfOG6K8LxJy5TZD1r+0Lm+vP4eUneF/gtC3ipAP3GbUXUdkdtbK0qm5STAe8ZvsWv
-         fnMnZ1NaAR66esJOFYhEmXwcQ56PaajgTTrlDgVMOM96d7r6wQOQHfUEN+S+SSWllUfC
-         ce/lxnV8bUYuaDRKPRUnrqjLV4M7VtlpqElR2hGBSltxdjnnTxyp0xqDBm9qsMIXFZ3J
-         PyC0SlWlrO3es9eoFLE4pap9/pzhggLVqr+MyTevEVZDhCtUsDnHQlGmQAxSAND1keDI
-         UgPw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJRS4uj9pMwDQa7dtRTAjw0oJ6mvSmfyv8/y6SsaIyqJGdMuzXi84fuJy35/tvUIsAzIBh6ZQS3b4a4R9u4JOy@lists.infradead.org, AJvYcCWbf5wCUTsu1ceXcs/SEbRQ2MrNkpNRo4ovoWFKHYqQw7fZlaL6kY7RTolz9GkJyc9Yiy+iUibUPTr5j95jELY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAtz022hgsxRTus5NsIPl1RLgl49fCl0wcXHOvdJfC+YXFXpTq
-	sgKdBsdZUdJfFL/wEFoOe2nVmnshwz0UjaoYfmOmO3VzMo4DeAVT
-X-Gm-Gg: ASbGncsQr+54TMi+u8LtednfswrDXySsRhp/KHaw5PSUcXfN/b7jguFdV+sr62vyFIA
-	2uJdIOkNujU70ku3dLgE0yjXje6O8M4bnPIol05yr3DmpIsmMa3jlkX08bwlOfiOi2eAl5GIqN1
-	tLMxEbHSMMdFtBw0g/yTPCnhW4WTU01BRgrjpLNkFjEhN9qKSODUIsPOLWV1i+UlvJLmwHvBtxZ
-	ZZLoJtrmiIRDy/xvwS1zzkqYvzgguGceYl86pHVJKC/8xQhYMPOFMJ4K9cDuMgcS4CpA0nonBHr
-	t0TK12ydZZaD31D4tTU+H5PLyLrBagx4XDXq5/z7UazEFqgPX9ifb0KA8aZYfeYm/jTw7aFi5pb
-	VBlVhRNOhDBlM/Q==
-X-Google-Smtp-Source: AGHT+IH0OLRKrXpJrRaoJd0L3/pG0iIlC1HdRZdErik/X4m/88HEG/SGXSmlbLE3Y1ZZpFL0dkO6yQ==
-X-Received: by 2002:a05:6000:1567:b0:391:2f2f:828 with SMTP id ffacd0b85a97d-3971ee443f8mr9152016f8f.29.1742053481230;
-        Sat, 15 Mar 2025 08:44:41 -0700 (PDT)
+        bh=qe3n3ZQ5LVdeF6eehOPJZ7TfJ6ssfs/dDpnWYl0JxU0=;
+        b=T8mJ9BuUQUIPU7fHH1rw/rGBZx+iIXuLDTZT+zqmKt370eK1ClyuBfs4tt8g7v7tY9
+         nDUoBDQ1p48RTCyRsVtAgKzd3kQVW+Hkgk42RChxQF/MIDKDucv5NXxF4gqEGwcKmlPJ
+         1RQb6yCFGLcFrYmrSis9rVTcAWBR5CUEgVUzB0qfBiYHubcwg44AQwQy+PMggJLEiISX
+         0yz9lVc8S+E2I1sA2VSxUVyXybBZPThi0FVhEFyUJ2T20mI59zuxGLdaT9znAqfumidB
+         djHzyJQ5MzLkfh/OrDs3teh+3ledl58HYNDRk4kQoHoXGyU/R8TCta3Hm0q0BHRmbntG
+         4cYA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQslVC2Kgewo869XxLH5Dzs18wq/uYv3yt1vOQvwpfi8y7XzDN6Qh6u4sungIYGp0Za5l9kPgT8lNYWFeLpBg=@lists.infradead.org, AJvYcCW6J66AWsNcyINj/Mn8eIwRPo3pYtggCQn6pVpCULAIS63RJnwXP9UYJkD86k+M8s5rsvbRDrhLNwD19LbQUXjY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSe2g0SND8ZftXaDWAxvc8f6O3yQgT1jClLFk+CQVOiykgBts6
+	P7LnfCAibBKpDrEjEDVOpfO4beRcAlbjyo2edo28jsScZ7Fkg0EI
+X-Gm-Gg: ASbGnctCOoSFT9sPlH20hNa8+0XQMjSYxJdpULn+NyrapTVKWu3xtcSDssrB0/XSSMQ
+	vDjVko8XKtHL6sHYMrnmbH9u5C8KU8yqCdWuLTC6I9x0rasM/dq1XNjkb93nph45UxjHTVbLE5Y
+	36vsxHGMvRYr/0yjAeOi+qH58+4UTtnE4YQAMJk4e1Uo1NbnJU54rx82pUTcRGj8idwG6lVzzVF
+	Ms5gBposMRUTkPa4pe6ChIG49rksq6C6QBaPX4fGqv63qb17SKkZu8h1ekITmGdmAY16DNrWRBg
+	OP77yxhaLTfxgQnelBtsSu+Uys14l70j1FXxbxeJh0LeQWYI0zZ3K+symFI15xeZI+Luupr6o6c
+	aNih5qzPJS470jHpD3oK6jite
+X-Google-Smtp-Source: AGHT+IGTFgETv3X0OQn9kvlEZkX9uQ97Mv1FK3vI4v+6bp7/gfuNtt5DkcoUjwWXNpHFChDijAtH+w==
+X-Received: by 2002:a05:600c:3b87:b0:43b:ca8c:fca3 with SMTP id 5b1f17b1804b1-43d1f235e79mr82196265e9.11.1742053482562;
+        Sat, 15 Mar 2025 08:44:42 -0700 (PDT)
 Received: from localhost.localdomain (93-34-90-129.ip49.fastwebnet.it. [93.34.90.129])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d1fe0636dsm53464195e9.11.2025.03.15.08.44.40
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d1fe0636dsm53464195e9.11.2025.03.15.08.44.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Mar 2025 08:44:40 -0700 (PDT)
+        Sat, 15 Mar 2025 08:44:42 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Christian Marangi <ansuelsmth@gmail.com>,
 	Lee Jones <lee@kernel.org>,
@@ -92,17 +92,17 @@ To: Christian Marangi <ansuelsmth@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@airoha.com
-Subject: [net-next PATCH v13 01/14] dt-bindings: nvmem: Document support for Airoha AN8855 Switch EFUSE
-Date: Sat, 15 Mar 2025 16:43:41 +0100
-Message-ID: <20250315154407.26304-2-ansuelsmth@gmail.com>
+Subject: [net-next PATCH v13 02/14] dt-bindings: net: Document support for Airoha AN8855 Switch Virtual MDIO
+Date: Sat, 15 Mar 2025 16:43:42 +0100
+Message-ID: <20250315154407.26304-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250315154407.26304-1-ansuelsmth@gmail.com>
 References: <20250315154407.26304-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_084443_378071_39D2D941 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20250315_084445_840295_FB7C6251 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,165 +117,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document support for Airoha AN8855 Switch EFUSE used to calibrate
-internal PHYs and store additional configuration info.
+Document support for Airoha AN8855 Virtual MDIO Passtrough. This is needed
+as AN8855 require special handling as the same address on the MDIO bus is
+shared for both Switch and PHY and special handling for the page
+configuration is needed to switch accessing to Switch address space
+or PHY.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/nvmem/airoha,an8855-efuse.yaml   | 123 ++++++++++++++++++
- MAINTAINERS                                   |   8 ++
- 2 files changed, 131 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
+ .../bindings/net/airoha,an8855-mdio.yaml      | 56 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 2 files changed, 57 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
 
-diff --git a/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml b/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
+diff --git a/Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml b/Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
 new file mode 100644
-index 000000000000..9802d9ea2176
+index 000000000000..3078277bf478
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
-@@ -0,0 +1,123 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml#
++$id: http://devicetree.org/schemas/net/airoha,an8855-mdio.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Airoha AN8855 Switch EFUSE
++title: Airoha AN8855 MDIO Passtrough
 +
 +maintainers:
 +  - Christian Marangi <ansuelsmth@gmail.com>
 +
 +description:
-+  Airoha AN8855 EFUSE used to calibrate internal PHYs and store additional
-+  configuration info.
++  Airoha AN8855 Virtual MDIO Passtrough. This is needed as AN8855
++  require special handling as the same address on the MDIO bus is
++  shared for both Switch and PHY and special handling for the page
++  configuration is needed to switch accessing to Switch address space
++  or PHY.
 +
-+$ref: nvmem.yaml#
++$ref: /schemas/net/mdio.yaml#
 +
 +properties:
 +  compatible:
-+    const: airoha,an8855-efuse
-+
-+  '#nvmem-cell-cells':
-+    const: 0
++    const: airoha,an8855-mdio
 +
 +required:
 +  - compatible
-+  - '#nvmem-cell-cells'
 +
 +unevaluatedProperties: false
 +
 +examples:
 +  - |
-+    efuse {
-+        compatible = "airoha,an8855-efuse";
++    mdio {
++        compatible = "airoha,an8855-mdio";
++        #address-cells = <1>;
++        #size-cells = <0>;
 +
-+        #nvmem-cell-cells = <0>;
++        internal_phy1: phy@1 {
++            reg = <1>;
++        };
 +
-+        nvmem-layout {
-+            compatible = "fixed-layout";
-+            #address-cells = <1>;
-+            #size-cells = <1>;
++        internal_phy2: phy@2 {
++            reg = <2>;
++        };
 +
-+            shift_sel_port0_tx_a: shift-sel-port0-tx-a@c {
-+               reg = <0xc 0x4>;
-+            };
++        internal_phy3: phy@3 {
++            reg = <3>;
++        };
 +
-+            shift_sel_port0_tx_b: shift-sel-port0-tx-b@10 {
-+                reg = <0x10 0x4>;
-+            };
++        internal_phy4: phy@4 {
++            reg = <4>;
++        };
 +
-+            shift_sel_port0_tx_c: shift-sel-port0-tx-c@14 {
-+                reg = <0x14 0x4>;
-+            };
-+
-+            shift_sel_port0_tx_d: shift-sel-port0-tx-d@18 {
-+               reg = <0x18 0x4>;
-+            };
-+
-+            shift_sel_port1_tx_a: shift-sel-port1-tx-a@1c {
-+               reg = <0x1c 0x4>;
-+            };
-+
-+            shift_sel_port1_tx_b: shift-sel-port1-tx-b@20 {
-+               reg = <0x20 0x4>;
-+            };
-+
-+            shift_sel_port1_tx_c: shift-sel-port1-tx-c@24 {
-+               reg = <0x24 0x4>;
-+            };
-+
-+            shift_sel_port1_tx_d: shift-sel-port1-tx-d@28 {
-+               reg = <0x28 0x4>;
-+            };
-+
-+            shift_sel_port2_tx_a: shift-sel-port2-tx-a@2c {
-+                reg = <0x2c 0x4>;
-+            };
-+
-+            shift_sel_port2_tx_b: shift-sel-port2-tx-b@30 {
-+                reg = <0x30 0x4>;
-+            };
-+
-+            shift_sel_port2_tx_c: shift-sel-port2-tx-c@34 {
-+                reg = <0x34 0x4>;
-+            };
-+
-+            shift_sel_port2_tx_d: shift-sel-port2-tx-d@38 {
-+                reg = <0x38 0x4>;
-+            };
-+
-+            shift_sel_port3_tx_a: shift-sel-port3-tx-a@4c {
-+                reg = <0x4c 0x4>;
-+            };
-+
-+            shift_sel_port3_tx_b: shift-sel-port3-tx-b@50 {
-+                reg = <0x50 0x4>;
-+            };
-+
-+            shift_sel_port3_tx_c: shift-sel-port3-tx-c@54 {
-+               reg = <0x54 0x4>;
-+            };
-+
-+            shift_sel_port3_tx_d: shift-sel-port3-tx-d@58 {
-+               reg = <0x58 0x4>;
-+            };
-+
-+            shift_sel_port4_tx_a: shift-sel-port4-tx-a@5c {
-+                reg = <0x5c 0x4>;
-+            };
-+
-+            shift_sel_port4_tx_b: shift-sel-port4-tx-b@60 {
-+                reg = <0x60 0x4>;
-+            };
-+
-+            shift_sel_port4_tx_c: shift-sel-port4-tx-c@64 {
-+                reg = <0x64 0x4>;
-+            };
-+
-+            shift_sel_port4_tx_d: shift-sel-port4-tx-d@68 {
-+                reg = <0x68 0x4>;
-+            };
++        internal_phy5: phy@5 {
++            reg = <5>;
 +        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index ffbcd072fb14..576fa7eb7b55 100644
+index 576fa7eb7b55..1e8055b5e162 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -719,6 +719,14 @@ S:	Supported
- F:	fs/aio.c
- F:	include/linux/*aio*.h
+@@ -725,6 +725,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
+ L:	netdev@vger.kernel.org
+ S:	Maintained
++F:	Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
+ F:	Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
  
-+AIROHA DSA DRIVER
-+M:	Christian Marangi <ansuelsmth@gmail.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
-+
  AIROHA ETHERNET DRIVER
- M:	Lorenzo Bianconi <lorenzo@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
 -- 
 2.48.1
 
