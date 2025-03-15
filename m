@@ -4,129 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07FC1C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 13:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB34C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 14:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjpqPzRFbrMWa9s0+G/5KdhXuFCxnkj7sVYO/d8vBxQ=; b=SqQnoWhLkg6J0M3bAbwRG6wwfF
-	xb8HaDfrac+5g5MChci2ztDUNnMitsuw7lst+9xsayBVucTBhM6q1kpOjfIpyE17pVmR6yw9/SDMC
-	+HTwjX/s1pr5rMSKFikQmQvBcPIBVQl8Rz26eCKMqx6sywoU3p2QXL2+ORJWuMrwcUS9y4+c69n3/
-	HKYVETrAIu8uUmohp7vvv3kiY4WswRx3Ff7dmzFGkVRcSyByF/lZJNPu/olYCLAOcn/kksJvKTbT9
-	GLJjyDgRRlG6MpqTh8Fgo4mBxcG6sbMh7LY+CZu62zm12urXXS/4q7dbiul3lDNWBYlGHdxQi7GQ5
-	Pza48KOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Op9cD1U0KRYqHmW8EnMYGo3fVWW5K4SEiP+kI5MweBQ=; b=vdNeNbCpu7kMwJ4L6N3UMT5ydt
+	1GFz+Pwvtk7/F8Lpu5troNMLcj+5uQWtn24cGp0kkSoOuod7qCK8FFIttv4hok2nPG4CurnTd6Yrx
+	s6X5SpOWN7gR/0Sawr16iFtrcPt4iB9XtJWmWD6l3Ynk9QhNpYoG35KdoIst9XMkDDnAIxZX6wA7M
+	BUunuWvl9SHo3KzxasjK5hzSctN/on3nZ3at7fxdPQz4/FWCtFJV6dZIUCuA+eksuwkne1onR0R8I
+	glYfA0V4oJV5FsbCZmEE93EJmE+mxBXrjpriO58+2JP0JFM/GWgHjEqmMipZNiCt4LJDtuS7hz6sE
+	ycbsh2/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttRLW-0000000GNe2-1wb8;
-	Sat, 15 Mar 2025 13:14:34 +0000
-Received: from flow-b7-smtp.messagingengine.com ([202.12.124.142])
+	id 1ttS3h-0000000GPyK-1hGl;
+	Sat, 15 Mar 2025 14:00:13 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttRJp-0000000GNXe-45Cr
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Mar 2025 13:12:51 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailflow.stl.internal (Postfix) with ESMTP id E9D261D41476;
-	Sat, 15 Mar 2025 09:12:46 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Sat, 15 Mar 2025 09:12:48 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1742044366;
-	 x=1742051566; bh=zjpqPzRFbrMWa9s0+G/5KdhXuFCxnkj7sVYO/d8vBxQ=; b=
-	lZ2/HmJ4Luof3h0jM9GjUUFV2YpYFeD7OGy2kLNvpLkJjviGMki9XUyLU2U/0OMB
-	CkwvIYIhidWAd1GKRWdV6TEbefX53lV5jKtRRfa23y2b9ef4wcfx6yUlJ/FJmy9o
-	fIWWzZNpLG9eT9hCRQGMUVkJ4jPTjeKEnKU1uTIz4UKNdqytzIe+pGxQ/59IZDiQ
-	l6uMIJOcPnk4WZpTL9cJdkidWOcgJJuOqXi1sJkWQ8RwVEMtHtVZJxE9vq8CyRLI
-	228k4aXecExrqxH4IPg6EpqxBGqmpaQA6RlGidCe7aM1NNTb8gkVO03iTGcdDykQ
-	n2HMhtm5wnKClR7xeIEezA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742044366; x=
-	1742051566; bh=zjpqPzRFbrMWa9s0+G/5KdhXuFCxnkj7sVYO/d8vBxQ=; b=H
-	5fbJXZv8JDZz2yet9pCdXyzltbiv1u7lorfHdCFab6j/MODdd1FrsTK19ZypetAO
-	OBwVbn0H+RdYm34vJZnCxfkiutdnBBXHhTAv1I4KUjUAMMVBnWS3Zx4JpN4OdteV
-	lgEstOBROYSojsFLGIq8AApnm2XyHoFjjjYwFRY224P0YanLHjQRCMq0taH/p2M0
-	fXj2+HZYDWFZF0KDTmo3JWNNVX5+fwfKTvAoZ1jIsCOac0rwSMZO6GQzG4NXNWEV
-	VWzYg4UcwWlsN/Ms5mThJrs3x1evFn6Fg43gWYM2onHPKw6vPmDGidNAxsioUKhz
-	tIyTTW25KsI/qgII9GrPA==
-X-ME-Sender: <xms:zHzVZ5e5bbccQ71eoT8MsSnlXos6dj6O4LkQW_sKfOjBwJN9ga_7XQ>
-    <xme:zHzVZ3PLn__o3phvppzjPnaRYNaigd1xifdYMmPHdAtgA2EfSEDm-96xVIk_mpwIH
-    N52W5V-y9tAcT1cwxE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufeefkeduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    geefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegsphesrghlihgvnhekrdguvg
-    dprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghp
-    thhtohepjhhovgihrdhgohhulhihsegrrhhmrdgtohhmpdhrtghpthhtohepmhgrrhhkrd
-    hruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepshhuuggvvghprdhhohhllhgr
-    segrrhhmrdgtohhmpdhrtghpthhtohepshhuiihukhhirdhpohhulhhoshgvsegrrhhmrd
-    gtohhmpdhrtghpthhtohepsghhvghlghgrrghssehgohhoghhlvgdrtghomhdprhgtphht
-    thhopeihuhiivghnghhhuhhisehhuhgrfigvihdrtghomhdprhgtphhtthhopegtohhnoh
-    hrodgutheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:zHzVZyhKN6cMRS4T7Hyae4tpIeUndwwkmU8hurEs_dOE89UDlPVf6Q>
-    <xmx:zHzVZy_v7TD1PtrsgQplvuTn8Rk60LqhHhFGQUaeKuGzNK7CLnbYHg>
-    <xmx:zHzVZ1vVyhc3jQx09MJdCmVEumffhYKMcs14uJ8B14nC6wN-yqYSHQ>
-    <xmx:zHzVZxE213fSgpsEbMo0wfDUAThAM6CnHsoTjCTY9GC3DBJyiy-zsw>
-    <xmx:znzVZztE_URjpvPiI1QQu-wngtUYNO6vdD-kx2_N6EFnVyHS0jhLgu_A>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 6EB5A2220072; Sat, 15 Mar 2025 09:12:44 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1ttS21-0000000GPre-3CFW;
+	Sat, 15 Mar 2025 13:58:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Op9cD1U0KRYqHmW8EnMYGo3fVWW5K4SEiP+kI5MweBQ=; b=PuvGPAjucn1pH/T3gmp8kVswvv
+	vz/GySD7QeVeaaijo9DnWkJEu3lF2h9Xec16pwWR3tZVgy7u2K3gK1vUXDIe9wQXpuJEOFbzmSW1E
+	TZ6OFz+nAdiK6WE6bTZ9K2AIcjNJrZatWNfRxWDa79Ft8e8QUDDu6X+5I8X6lrYYCJfo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ttS1q-005avu-TO; Sat, 15 Mar 2025 14:58:18 +0100
+Date: Sat, 15 Mar 2025 14:58:18 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: airoha: Validate egress gdm port in
+ airoha_ppe_foe_entry_prepare()
+Message-ID: <b647d3c2-171e-43ea-9329-ea37093f5dec@lunn.ch>
+References: <20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org>
 MIME-Version: 1.0
-Date: Sat, 15 Mar 2025 14:12:24 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Roman Kisel" <romank@linux.microsoft.com>, bhelgaas@google.com,
- "Borislav Petkov" <bp@alien8.de>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Dan Carpenter" <dan.carpenter@linaro.org>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Dexuan Cui" <decui@microsoft.com>,
- "Haiyang Zhang" <haiyangz@microsoft.com>,
- "H. Peter Anvin" <hpa@zytor.com>, "Joey Gouly" <joey.gouly@arm.com>,
- krzk+dt@kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, "Len Brown" <lenb@kernel.org>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
- "Mark Rutland" <mark.rutland@arm.com>, "Marc Zyngier" <maz@kernel.org>,
- "Ingo Molnar" <mingo@redhat.com>,
- "Oliver Upton" <oliver.upton@linux.dev>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Rob Herring" <robh@kernel.org>, ssengar@linux.microsoft.com,
- "Sudeep Holla" <sudeep.holla@arm.com>,
- "Suzuki K Poulose" <suzuki.poulose@arm.com>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Wei Liu" <wei.liu@kernel.org>,
- "Will Deacon" <will@kernel.org>, "Zenghui Yu" <yuzenghui@huawei.com>,
- devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com
-Message-Id: <50ec2615-97cf-423d-bfe6-f65092a14348@app.fastmail.com>
-In-Reply-To: <96bc4caf-b79a-4111-bafa-a7662260f4be@linux.microsoft.com>
-References: <20250315001931.631210-1-romank@linux.microsoft.com>
- <20250315001931.631210-2-romank@linux.microsoft.com>
- <96bc4caf-b79a-4111-bafa-a7662260f4be@linux.microsoft.com>
-Subject: Re: [PATCH hyperv-next v6 01/11] arm64: kvm, smccc: Introduce and use API for
- detecting hypervisor presence
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_061250_540117_963D7F82 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250315_065829_890870_B315E270 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,23 +72,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 15, 2025, at 01:27, Roman Kisel wrote:
-> On 3/14/2025 5:19 PM, Roman Kisel wrote:
->
-> While the change is Acked, here is the caveat maybe.
->
-> This patch produces warnings wtih sparse and CHECK_ENDING.
-> That said, the kernel build produces a whole lot more other warnings
-> from building with sparse by itself and/or with CHECK_ENDING.
->
-> I am not sure how to proceed with that, thinking I should
-> not add warnings yet at the same time there are many others.
-> Not certain if folks take these signals as fyi or blockers.
+> Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
+> routine.
 
-It would be best not to add warnigns. There is slow progress on
-fixing all the endianess warnings and I hope this can eventually
-complete, so even if there are many existing ones please try to
-keep new code clean.
+A more interesting question is, why do you see an invalid port? Is the
+hardware broken? Something not correctly configured? Are you just
+papering over the crack?
 
-     Arnd
+> -static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
+> +static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+> +					struct airoha_foe_entry *hwe,
+>  					struct net_device *dev, int type,
+>  					struct airoha_flow_data *data,
+>  					int l4proto)
+> @@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
+>  	if (dev) {
+>  		struct airoha_gdm_port *port = netdev_priv(dev);
+
+If port is invalid, is dev also invalid? And if dev is invalid, could
+dereferencing it to get priv cause an opps?
+
+	Andrew
 
