@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08237C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 18:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 327ACC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 18:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cRPOjYnSh8ApHHzvgr2hPl5wbkf5pyUscON/xnu2WNQ=; b=sZqGfC9lygstEdFaRuJA67G/Dq
-	kUbp3zfX6T/jYJcmCDR/27hA4tMadVEjiUWKjGNyqDcwlODele13IB+jKK1MUpHkuiyGAacVRw2Qy
-	upmDeuDjiBNQI7wLHD619gSoYSNbEcnvhHrFxKJSaV8itwa6ZIrj9YE7NrqCwP5N8JAzwMGvUUFRC
-	c/89WqjAATpcsjmV3b3aGDb689ckH3qEmTY2Qgtr1o36VC803tE3YYXcq6b4+0pTisTjmsSI19g8V
-	V4hc7gmDBhLuhs3IFf7/VnHmF91D+TMLqypTrEs1eZIBeOUSKu+gMFjMeuzfEBSmceuUb0fkaE0G4
-	bS6PhNkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=U2pgX2929lgiRZeMx88Pme3kZDXM1ob1DUqx09/G8z4=; b=MtnOs/02DLbRKV
+	EjC6plTUPlLDVeQE6W2yMv6lUPfksLs4/AY8zXVGu0PkSwsf+JN9JJWSgSu6/g6PechgU4zrYbEDz
+	XLvQofrc9+W0UYi/oCUvofSm9993lq5pxEiqIxxtkrpFbeF/2xXsVo0h9z14Y6bhA0jhM4BlRJVEr
+	pamGH9jXsdcSGnot75X3aYlPsbirnDdnYwDiJkAh4fNEWZmjuOg8j7t9Wm4I9GhaZyH/YBRhGBewC
+	RC/ViPrzrfxsme5hu5nMr6bUuzLl90lyR+uT1yP9YOy9tbUY++P+cxL22sFutJZJSP22gzJY/VC3o
+	bR5+w45co7gJAnDeY2Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttWSk-0000000GiHS-06Mm;
-	Sat, 15 Mar 2025 18:42:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ttWaw-0000000GinW-3ZUW;
+	Sat, 15 Mar 2025 18:50:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttWR3-0000000Gi5m-2SSO;
-	Sat, 15 Mar 2025 18:40:38 +0000
+	id 1ttWZF-0000000GigR-3rTO
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Mar 2025 18:49:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C49CEA48B36;
-	Sat, 15 Mar 2025 18:35:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E57AC4CEE5;
-	Sat, 15 Mar 2025 18:40:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3922CA489CD;
+	Sat, 15 Mar 2025 18:43:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72D6FC4CEE5;
+	Sat, 15 Mar 2025 18:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742064036;
-	bh=00RmH4uBlvkSbz6rfOkjFvbEmq2n+WwmAs6qZnlIY2E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qYKTwSu+jSfZi4orffYnERK0ro+MZCC0aG9Ccz6itSm5oeGfBdat6ovAVDBtyfOVE
-	 kNyMg8vS7cl0TAlVD4aXWOq+qlX9kZLGhfggeTQMfqpDYLps3E2+gpSVEge6rI1ki0
-	 VZ6S4+vxVXVOI6CGOr0iuqi9vDd23lcOyARxOoGVlewz7RU/kToieksHnvPD3cEP4S
-	 znpU2Oo4YkLJuAT4aev1rsB0g2TmGJvjDUZp7JKjmUN4LKcMFVmWVAaFCAEjTYTmND
-	 FXP5K6wrEiKmS3m4hzH3NrPKRvY1k5OXVlKbrKGAgXQzdmVzirvxoGJLrOWqRl8/Pu
-	 TlnQ0FKNps/XA==
-Date: Sat, 15 Mar 2025 18:40:28 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Simon Xue <xxm@rock-chips.com>, Lars-Peter Clausen <lars@metafoo.de>,
- Andy Shevchenko <andy.shevchenko@gmail.com>, Shreeya Patel
- <shreeya.patel@collabora.com>, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: rockchip: Fix clock initialization sequence
-Message-ID: <20250315184028.46053659@jic23-huawei>
-In-Reply-To: <10623626.nUPlyArG6x@phil>
-References: <20250312062016.137821-1-xxm@rock-chips.com>
-	<10623626.nUPlyArG6x@phil>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	s=k20201202; t=1742064544;
+	bh=OnKnsixMsIfR9PWM2GKcKb1NM2Qu2lps2DgKe5a/iVM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=SC2mtGbhf3T7iUSmBYdVeklwCEwI13OQ6a3CqVJG9hdTduV8tMC8viwCK5PQ5svgt
+	 yEFwpbQLSaMovvNo1DNNefn270I4Y9SmAYepdWmGF1MrsZeUpF0i3fAo4inK54pOG0
+	 L1gMGSoCR0of0daaOOodYfCP662k/xMF040MMUZ9NsYjiQXym4MYKxKO7qDvid3sTo
+	 WkOrWCyoYBuXRICkq5ZpEQyirDW90mN0J2qI74H3xxsjoI9IxeZATbGITayZiz9pZQ
+	 AIQvWwR+kA/Me6BczXJbR4gkhcjMt2l5z0GTgKpd4AhA2hUQVs02M2A1EHulV0TXJU
+	 dR2CF94O0F6cw==
+Date: Sat, 15 Mar 2025 13:49:03 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Roman Kisel <romank@linux.microsoft.com>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+	catalin.marinas@arm.com, conor+dt@kernel.org,
+	dan.carpenter@linaro.org, dave.hansen@linux.intel.com,
+	decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+	joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com,
+	kys@microsoft.com, lenb@kernel.org, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, mark.rutland@arm.com,
+	maz@kernel.org, mingo@redhat.com, oliver.upton@linux.dev,
+	rafael@kernel.org, robh@kernel.org, ssengar@linux.microsoft.com,
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, tglx@linutronix.de,
+	wei.liu@kernel.org, will@kernel.org, yuzenghui@huawei.com,
+	devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	x86@kernel.org, apais@microsoft.com, benhill@microsoft.com,
+	bperkins@microsoft.com, sunilmut@microsoft.com
+Subject: Re: [PATCH hyperv-next v6 11/11] PCI: hv: Get vPCI MSI IRQ domain
+ from DeviceTree
+Message-ID: <20250315184903.GA848938@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250315001931.631210-12-romank@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_114037_703878_30E8396D 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20250315_114906_092614_78B6DF3D 
+X-CRM114-Status: GOOD (  25.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,72 +86,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Mar 2025 08:00:54 +0100
-Heiko Stuebner <heiko@sntech.de> wrote:
+On Fri, Mar 14, 2025 at 05:19:31PM -0700, Roman Kisel wrote:
+> The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
+> arm64. It won't be able to do that in the VTL mode where only DeviceTree
+> can be used.
+> 
+> Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
+> case, too.
+> 
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 
-> Am Mittwoch, 12. M=C3=A4rz 2025, 07:20:16 MEZ schrieb Simon Xue:
-> > clock_set_rate should be executed after devm_clk_get_enabled.
-> >=20
-> > Fixes: 97ad10bb2901 ("iio: adc: rockchip_saradc: Make use of devm_clk_g=
-et_enabled")
-> > Signed-off-by: Simon Xue <xxm@rock-chips.com> =20
->=20
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-ouch.
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
-Applied and marked for stable.
+Looks good to me; trivial whitespace comment below.
 
-Thanks,
+> ---
+>  drivers/pci/controller/pci-hyperv.c | 73 ++++++++++++++++++++++++++---
+>  1 file changed, 67 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+> index 6084b38bdda1..cbff19e8a07c 100644
+> --- a/drivers/pci/controller/pci-hyperv.c
+> +++ b/drivers/pci/controller/pci-hyperv.c
+> @@ -50,6 +50,7 @@
+>  #include <linux/irqdomain.h>
+>  #include <linux/acpi.h>
+>  #include <linux/sizes.h>
+> +#include <linux/of_irq.h>
+>  #include <asm/mshyperv.h>
+>  
+>  /*
+> @@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct irq_domain *domain,
+>  	int ret;
+>  
+>  	fwspec.fwnode = domain->parent->fwnode;
+> -	fwspec.param_count = 2;
+> -	fwspec.param[0] = hwirq;
+> -	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
+> +	if (is_of_node(fwspec.fwnode)) {
+> +		/* SPI lines for OF translations start at offset 32 */
+> +		fwspec.param_count = 3;
+> +		fwspec.param[0] = 0;
+> +		fwspec.param[1] = hwirq - 32;
+> +		fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
+> +	} else {
+> +		fwspec.param_count = 2;
+> +		fwspec.param[0] = hwirq;
+> +		fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
+> +	}
+>  
+>  	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
+>  	if (ret)
+> @@ -887,10 +896,47 @@ static const struct irq_domain_ops hv_pci_domain_ops = {
+>  	.activate = hv_pci_vec_irq_domain_activate,
+>  };
+>  
+> +#ifdef CONFIG_OF
+> +
+> +static struct irq_domain *hv_pci_of_irq_domain_parent(void)
+> +{
+> +	struct device_node *parent;
+> +	struct irq_domain *domain;
+> +
+> +	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
+> +	if (!parent)
+> +		return NULL;
+> +	domain = irq_find_host(parent);
+> +	of_node_put(parent);
+> +
+> +	return domain;
+> +}
+> +
+> +#endif
+> +
+> +#ifdef CONFIG_ACPI
+> +
+> +static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
+> +{
+> +	struct irq_domain *domain;
+> +	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
+> +
+> +	if (acpi_irq_model != ACPI_IRQ_MODEL_GIC)
+> +		return NULL;
+> +	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
+> +	if (!gsi_domain_disp_fn)
+> +		return NULL;
+> +	return irq_find_matching_fwnode(gsi_domain_disp_fn(0),
+> +				     DOMAIN_BUS_ANY);
+> +}
+> +
+> +#endif
+> +
+>  static int hv_pci_irqchip_init(void)
+>  {
+>  	static struct hv_pci_chip_data *chip_data;
+>  	struct fwnode_handle *fn = NULL;
+> +	struct irq_domain *irq_domain_parent = NULL;
+>  	int ret = -ENOMEM;
+>  
+>  	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL);
+> @@ -907,9 +953,24 @@ static int hv_pci_irqchip_init(void)
+>  	 * way to ensure that all the corresponding devices are also gone and
+>  	 * no interrupts will be generated.
+>  	 */
+> -	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+> -							  fn, &hv_pci_domain_ops,
+> -							  chip_data);
+> +#ifdef CONFIG_ACPI
+> +	if (!acpi_disabled)
+> +		irq_domain_parent = hv_pci_acpi_irq_domain_parent();
+> +#endif
+> +#if defined(CONFIG_OF)
+> +	if (!irq_domain_parent)
+> +		irq_domain_parent = hv_pci_of_irq_domain_parent();
+> +#endif
+> +	if (!irq_domain_parent) {
+> +		WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
+> +		ret = -EINVAL;
+> +		goto free_chip;
+> +	}
+> +
+> +	hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
+> +		irq_domain_parent, 0, HV_PCI_MSI_SPI_NR,
+> +		fn, &hv_pci_domain_ops,
+> +		chip_data);
 
-Jonathan
+This is a different style of indenting the parameters than other
+similar cases in this file, which line up parameters on subsequent
+lines under the open parenthesis.
 
->=20
-> > ---
-> >  drivers/iio/adc/rockchip_saradc.c | 17 ++++++++---------
-> >  1 file changed, 8 insertions(+), 9 deletions(-)
-> >=20
-> > diff --git a/drivers/iio/adc/rockchip_saradc.c b/drivers/iio/adc/rockch=
-ip_saradc.c
-> > index a29e54754c8f..ab4de67fb135 100644
-> > --- a/drivers/iio/adc/rockchip_saradc.c
-> > +++ b/drivers/iio/adc/rockchip_saradc.c
-> > @@ -480,15 +480,6 @@ static int rockchip_saradc_probe(struct platform_d=
-evice *pdev)
-> >  	if (info->reset)
-> >  		rockchip_saradc_reset_controller(info->reset);
-> > =20
-> > -	/*
-> > -	 * Use a default value for the converter clock.
-> > -	 * This may become user-configurable in the future.
-> > -	 */
-> > -	ret =3D clk_set_rate(info->clk, info->data->clk_rate);
-> > -	if (ret < 0)
-> > -		return dev_err_probe(&pdev->dev, ret,
-> > -				     "failed to set adc clk rate\n");
-> > -
-> >  	ret =3D regulator_enable(info->vref);
-> >  	if (ret < 0)
-> >  		return dev_err_probe(&pdev->dev, ret,
-> > @@ -515,6 +506,14 @@ static int rockchip_saradc_probe(struct platform_d=
-evice *pdev)
-> >  	if (IS_ERR(info->clk))
-> >  		return dev_err_probe(&pdev->dev, PTR_ERR(info->clk),
-> >  				     "failed to get adc clock\n");
-> > +	/*
-> > +	 * Use a default value for the converter clock.
-> > +	 * This may become user-configurable in the future.
-> > +	 */
-> > +	ret =3D clk_set_rate(info->clk, info->data->clk_rate);
-> > +	if (ret < 0)
-> > +		return dev_err_probe(&pdev->dev, ret,
-> > +				     "failed to set adc clk rate\n");
-> > =20
-> >  	platform_set_drvdata(pdev, indio_dev);
-> > =20
-> >  =20
->=20
->=20
->=20
->=20
-
+>  	if (!hv_msi_gic_irq_domain) {
+>  		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
+> -- 
+> 2.43.0
+> 
 
