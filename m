@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA98BC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 12:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E4E3C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 12:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xJXr6WgMx8n3fKTnlnR1Gv5ViijHn8UWDqEVLGt99ZQ=; b=F3cq7OeBWHh1BgYiqHl+VP2i1P
-	Vr2W98I/hESYfPqZKpHR7iZb+NIAXDdcMVtYCMB/9F6G4I80MXvaOimn5D3i3XH2MNwQ8xBE4oDBW
-	znznPEptuxefKuQeQr0a/a+Kbbk+dChO8cWs21SQVZWKcUbcADuWSJbPdKkN/V8+v2D3+oXBgIu2b
-	YLznpoCleJ9C9cTnC18zW1sP+82bqG/g8+lYkcf/IuoRj5lOBLf5ACLuqE/1fHqouO7kIIkwJ3foa
-	XbOJ3K7z0dL/yfAblBfzOgxabJJ0ZoFSiYb0NGzP3IFdkHo3taVi+eoCF/ULzkjeaOab/F2Ihfxsa
-	3qZ1AVow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gh3QUyiOPP/PspLDIgE2PK/QvR0dyXvPHAT6Rp95d8c=; b=dPq+aStB4VZ6/Ac/nIglAd40Q4
+	XKfhJ+3dtsaVcvJ6my/CiOcYUl7MkxvKFJV+R9IqhTwzCKBMnkd356At1hYU9R0g/+AqSnh27SobG
+	9UnZz/191pAmEJENnjULNcOpK9ha2foJlYLvCPzZ4TYtqJFPf0m4VA/ygiUquDzhU94ia2hCtyvPm
+	IR9aG6Js3sO9dFsZHgakZqZEW/yBx4oGDMzrZElgiFn9RJSlrQufm99yLVKpHSBc2wViEqc26eAlj
+	ZnVltF4L4BiJehxD3MPKabr60/vv80ytcUbcs3z+on6roMxTHcXauU5e9dAm/m19br4GnMaS+whgA
+	jhzi+r7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttQHa-0000000GIxj-06kY;
-	Sat, 15 Mar 2025 12:06:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ttQLa-0000000GJRE-0w5O;
+	Sat, 15 Mar 2025 12:10:34 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttQFs-0000000GIiT-2Z8x;
-	Sat, 15 Mar 2025 12:04:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F4275C2DAE;
-	Sat, 15 Mar 2025 12:02:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBD87C4CEE5;
-	Sat, 15 Mar 2025 12:04:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742040279;
-	bh=Q6YX4RfHkj91q3Dip9aHj/as/+GLl3Xew2ywTJYh+2A=;
-	h=From:Date:Subject:To:Cc:From;
-	b=U39fyKuekTfBHLvZY24aOSCyeQBGiZlnNB0yhKBqhK/PZg1FwzzK3/gOIK7k6EEXM
-	 jiHLpxXlNiBkdp4cPKN/UuWx5BlDzPDym9AYNtarwk+Xs4lfpQyQqBXYrfIVC0a+Bs
-	 7wdNYsivLfpX6re+1ENOgIfPa1EkIiBEQvErmQ+segZ7d9cgn4Pu/l7yVea4YvgIjt
-	 /d5ye/imNkEakUsvVdSwSxJjI4yE8PAGAC5jtvCz7tdl/CfwQI4PUWp3jaUhOrxd8a
-	 n5lnldPbDq7ktVT3yIsxaPQngVPdgupypDUkh1H0UNwKecoqpTcKFkEtrTT/5s0JJx
-	 3ypYJbDdoDJtg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 15 Mar 2025 13:04:20 +0100
-Subject: [PATCH net-next v2] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
+	id 1ttQJt-0000000GJI1-1eOg
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Mar 2025 12:08:50 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2255003f4c6so51187385ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 05:08:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742040528; x=1742645328; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gh3QUyiOPP/PspLDIgE2PK/QvR0dyXvPHAT6Rp95d8c=;
+        b=VGfKtrFySI0HSGowxnoPG3MzkISH2jwfPMv7Oy8FR/y7+I2sTJzgyrc9QCK3LOGIsr
+         m5yzYTPL43YuooqpdCjgQTgGbf/2Rvn3mq3seJnEIRotAmzGVa+H1K3xslBWPwWnEqaX
+         +75L4rPma94a+IF+xHCd3apQ8NWxqj2FEl0yLgFYS29EnO46To5+dDqONHK2KkaQ/WUM
+         K4u+XDnS30t2BdgPHD7loO4OAufqumqSl8RgtFqTx82YiclO/uOuM3LX/Mv7qdkcWRsd
+         9zcQmII4cXP1s4djPI8r7Xwbkygb4p2oFTEF25b4a6onOqyzmpPWgTRcSZmtFI2dSLAu
+         7Ffg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742040528; x=1742645328;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Gh3QUyiOPP/PspLDIgE2PK/QvR0dyXvPHAT6Rp95d8c=;
+        b=MtCYZLvKVXgGl3Kp4kC6kDpndyfB+n+JbXTjXwqZru6DMPjzY0IPDXUIYD8tP0eqKW
+         j2nqqjeFt0CCqv7eggV18DhNC+lxjOOwHHzPaVv1W0ZrNxuyINKiEtaa6hsK1SC2YdCi
+         vsvVgReBTx5IbG3fP4SwzZxWlfvBKI2S2ok3J/IRVXWkoEqBRWR8hqBEOLeNmukBr85U
+         h9gg1si9gUCYxvz0YL0A8Pm4ICSvJFmTdUrHYaOA45ZhmXu9jGBjqs26jUGDs4j7+D/U
+         ybtIcN/D9lTKWv6FuC7DdXL9PvlNbHKcgo+MaRoaU9lsoKOqb1LCtZpPc0tOCarBuPa6
+         Z7iA==
+X-Forwarded-Encrypted: i=1; AJvYcCXobIfTVY34ZY6hxk0p4BKi8Q5R3uHOIoh2iCG2oY+CM8YK7YpGb6CReIYYoCOeo2jgpb/qlXsq5NHij0AkAM4P@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWlmeA/x0pXT/njJBaBE41KbctQrpvFzClXNNtqCKLHyU6jl8F
+	TSuPa7Vr3AVAQK5+MKbhZp4MRxVnpfUnV9f+ljmunmBFNpLZYAut
+X-Gm-Gg: ASbGncvcWipzkApvatBv3GMdTLU9lht73JaLx+Usv25HPe38OcVx7kqmtMTYpoO+hZ4
+	zHifgbNBoqmNMdetyY8ah/NCeoRxE+HsegMP4tR5XYcwQqDm6wd+UpjbTP+k0Zj4G1QkMqmO6jw
+	Mk4vm96F6GHkc4bJpleqFPTs0+f+YUEm1tdV2XkBAy5j5nqnWSKiVGv4e6xY4+bmxtnurz2q+b/
+	dmRb6gAb9btezyRcK5NzWugndQcFOjVZGFQS1/wkiziSCVfSjfzKNGA4SheGjUbl7CskO6aoBDB
+	j9DKVvutOWaAMyT4oIBSBNgMwNRKnv+p+lL698/Dw/QnqdOvW0W9n+2xHZY=
+X-Google-Smtp-Source: AGHT+IF0eKUU5b7C4gS520TnleAFf5PI5qABtaudJMqtzsfOMNPKTlZNANfAMzNeFK4EP5joNbXczg==
+X-Received: by 2002:aa7:88ca:0:b0:736:39d4:ccf6 with SMTP id d2e1a72fcca58-73722391515mr8708599b3a.8.1742040527945;
+        Sat, 15 Mar 2025 05:08:47 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:bb6a:1a3e:36e4:cce7])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-737116944ddsm4325435b3a.123.2025.03.15.05.08.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Mar 2025 05:08:47 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] ARM: dts: imx51-digi-connectcore-som: Fix MMX7455 compatible
+Date: Sat, 15 Mar 2025 09:08:41 -0300
+Message-Id: <20250315120841.1836214-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMRs1WcC/42NQQ6CMBAAv0L27BpaoCGe/IfhsMgCjU1Ltoga0
- r9beYHHmcPMDpHFcoRLsYPwZqMNPoM+FXCfyU+MdsgMutRNWSmNZCXMhKMLr5V6x+ifzuGyCo7
- 2jVSbxgxKN7UhyI1FOOujf+syzzauQT7HblM/+295U6jQVKYaqW/beiivDxbP7hxkgi6l9AW/J
- 0jlywAAAA==
-X-Change-ID: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_050440_784555_C47F8316 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20250315_050849_431851_0F764D47 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,153 +98,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The system occasionally crashes dereferencing a NULL pointer when it is
-forwarding constant, high load bidirectional traffic.
+From: Fabio Estevam <festevam@denx.de>
 
-[ 2149.913414] Unable to handle kernel read from unreadable memory at virtual address 0000000000000000
-[ 2149.925812] Mem abort info:
-[ 2149.928713]   ESR = 0x0000000096000005
-[ 2149.932762]   EC = 0x25: DABT (current EL), IL = 32 bits
-[ 2149.938429]   SET = 0, FnV = 0
-[ 2149.941814]   EA = 0, S1PTW = 0
-[ 2149.945187]   FSC = 0x05: level 1 translation fault
-[ 2149.950348] Data abort info:
-[ 2149.953472]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-[ 2149.959243]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[ 2149.964593]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[ 2149.970243] user pgtable: 4k pages, 39-bit VAs, pgdp=000000008b507000
-[ 2149.977068] [0000000000000000] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
-[ 2149.986062] Internal error: Oops: 0000000096000005 [#1] SMP
-[ 2150.082282]  arht_wrapper(O) i2c_core arht_hook(O) crc32_generic
-[ 2150.177623] CPU: 0 PID: 38 Comm: kworker/u9:1 Tainted: G           O       6.6.73 #0
-[ 2150.185362] Hardware name: Airoha AN7581 Evaluation Board (DT)
-[ 2150.191189] Workqueue: nf_ft_offload_add nf_flow_rule_route_ipv6 [nf_flow_table]
-[ 2150.198653] pstate: 00400005 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[ 2150.205615] pc : airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
-[ 2150.211882] lr : airoha_ppe_flow_offload_replace.isra.0+0x6cc/0xc54
-[ 2150.218149] sp : ffffffc080e8ba10
-[ 2150.221456] x29: ffffffc080e8bae0 x28: ffffff80080b0000 x27: 0000000000000000
-[ 2150.228591] x26: ffffff8001c70020 x25: 0000000000000002 x24: 0000000000000000
-[ 2150.235727] x23: 0000000061000000 x22: 00000000ffffffed x21: ffffffc080e8bbb0
-[ 2150.242862] x20: ffffff8001c70000 x19: 0000000000000008 x18: 0000000000000000
-[ 2150.249998] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-[ 2150.257133] x14: 0000000000000001 x13: 0000000000000008 x12: 0101010101010101
-[ 2150.264268] x11: 7f7f7f7f7f7f7f7f x10: 0000000000000041 x9 : 0000000000000000
-[ 2150.271404] x8 : ffffffc080e8bad8 x7 : 0000000000000000 x6 : 0000000000000015
-[ 2150.278540] x5 : ffffffc080e8ba4e x4 : 0000000000000004 x3 : 0000000000000000
-[ 2150.285675] x2 : 0000000000000008 x1 : 00000000080b0000 x0 : 0000000000000000
-[ 2150.292811] Call trace:
-[ 2150.295250]  airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
-[ 2150.301171]  airoha_ppe_setup_tc_block_cb+0x7c/0x8b4
-[ 2150.306135]  nf_flow_offload_ip_hook+0x710/0x874 [nf_flow_table]
-[ 2150.312168]  nf_flow_rule_route_ipv6+0x53c/0x580 [nf_flow_table]
-[ 2150.318200]  process_one_work+0x178/0x2f0
-[ 2150.322211]  worker_thread+0x2e4/0x4cc
-[ 2150.325953]  kthread+0xd8/0xdc
-[ 2150.329008]  ret_from_fork+0x10/0x20
-[ 2150.332589] Code: b9007bf7 b4001e9c f9448380 b9491381 (f9400000)
-[ 2150.338681] ---[ end trace 0000000000000000 ]---
-[ 2150.343298] Kernel panic - not syncing: Oops: Fatal exception
-[ 2150.349035] SMP: stopping secondary CPUs
-[ 2150.352954] Kernel Offset: disabled
-[ 2150.356438] CPU features: 0x0,00000000,00000000,1000400b
-[ 2150.361743] Memory Limit: none
+According to fsl,mma7455.yaml, the correct compatible string is
+"fsl,mma7455".
 
-Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
-routine.
+Change it accordingly to fix the following dt-schema warning:
 
-Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+failed to match any schema with compatible: ['fsl,mma7455l']
+
+Signed-off-by: Fabio Estevam <festevam@denx.de>
 ---
-Changes in v2:
-- Avoid checking netdev_priv pointer since it is always not NULL
-- Link to v1: https://lore.kernel.org/r/20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 13 +++++++++++++
- drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
- drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
- 3 files changed, 24 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index c0a642568ac115ea9df6fbaf7133627a4405a36c..bf9c882e9c8b087dbf5e907636547a0117d1b96a 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2454,6 +2454,19 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
- 	}
- }
- 
-+int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			     struct airoha_gdm_port *port)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		if (eth->ports[i] == port)
-+			return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 				 struct device_node *np, int index)
- {
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index f66b9b736b9447b31afc036eb906d0a1c617e132..c7d4f124d11481cd31c1566936cd47e3446877c0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -532,6 +532,9 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
- #define airoha_qdma_clear(qdma, offset, val)			\
- 	airoha_rmw((qdma)->regs, (offset), (val), 0)
- 
-+int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			     struct airoha_gdm_port *port);
-+
- void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
- int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 				 void *cb_priv);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 8b55e871352d359fa692c253d3f3315c619472b3..65833e2058194a64569eafec08b80df8190bba6c 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -197,7 +197,8 @@ static int airoha_get_dsa_port(struct net_device **dev)
- #endif
- }
- 
--static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
-+static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
-+					struct airoha_foe_entry *hwe,
- 					struct net_device *dev, int type,
- 					struct airoha_flow_data *data,
- 					int l4proto)
-@@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
- 	if (dev) {
- 		struct airoha_gdm_port *port = netdev_priv(dev);
- 		u8 pse_port;
-+		int err;
-+
-+		err = airoha_is_valid_gdm_port(eth, port);
-+		if (err)
-+			return err;
- 
- 		if (dsa_port >= 0)
- 			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
-@@ -633,7 +639,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
- 	    !is_valid_ether_addr(data.eth.h_dest))
- 		return -EINVAL;
- 
--	err = airoha_ppe_foe_entry_prepare(&hwe, odev, offload_type,
-+	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
- 					   &data, l4proto);
- 	if (err)
- 		return err;
-
----
-base-commit: bfc6c67ec2d64d0ca4e5cc3e1ac84298a10b8d62
-change-id: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
-
-Best regards,
+diff --git a/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi
+index dc72a2d14960..1980f751f161 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi
+@@ -165,7 +165,7 @@ &i2c2 {
+ 	mma7455l@1d {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_mma7455l>;
+-		compatible = "fsl,mma7455l";
++		compatible = "fsl,mma7455";
+ 		reg = <0x1d>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <7 IRQ_TYPE_LEVEL_HIGH>, <6 IRQ_TYPE_LEVEL_HIGH>;
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.34.1
 
 
