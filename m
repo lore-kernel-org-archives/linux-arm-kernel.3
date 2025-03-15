@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9606C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 16:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5364BC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 17:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1VeO5hr1KTtCeq/vjZzvAaFvuU/CjtDmvpB7mrE5/C4=; b=kAOpWdRd+DUa1dF18Nf6Dten5f
-	QwxoEwKqAinFvxPqI96o0oe3ZyPF1JWE7L5Ba2AaOlOY8vtiWJ+YD56SzqAQN1ZtTPUjl6wQIi7Ix
-	pHEk8xwCIYxBE1lzn7y/zrsA2MO/2+hQrAetoHsvs0/NOJDpRbvf1CGqS9FRW8Quy8b4r0kKRWjWW
-	V2YJumuBbOGFXtYs7uFB7NFjN6H/V6GlyTcRlY2dLZa0/srJbvfNbjggHj7gyzxEcHtZHDOdzAagB
-	NtJ8OL21P17QWNnoQ9Rpu1AFKT6zOBlR7k1xLWMSSTckK38BNfWKQi7vhjvKLDOawl1MHQNYoivMi
-	iBL+2eGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6dr+at3MIXIUoL+5SQHgPYKX+5wYXnZaEouretQYfAM=; b=oO12AiLfTuOuLGnI/NFuT2CvPr
+	s5uuZlwVQ3BMAl84Jvo8FC4yBRoUxX9PCHPEnguMdiCM+J5iMyRpa7s++ZJzuPnQz9Z9PS+v0Eb+s
+	yznd4ffhD/MKCsYrWY2hgXU3GIOS5Bd8NXGHN2WEoT67lC8IewHR/JIcOtmxHWS08+RloPCYgwOhh
+	SW88Vbfn0615/0NwCY4otj8tp7GY6Zq0qj/6Pi6TPjtxZrkwlClrNPGUCuz4LTQQcMcEe+WUVVn+E
+	nNG9gGVZgYbflgOMj6sV6Ft5Fjh4m5Fm8CU+DtJf2US+Q1gnZoXddlKKesJUMvf6pXYKDUNmtI1QK
+	UM00orNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttU67-0000000Ga1J-2Rei;
-	Sat, 15 Mar 2025 16:10:51 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ttV5E-0000000GdKk-1ywy;
+	Sat, 15 Mar 2025 17:14:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttTj3-0000000GXXh-0vBd;
-	Sat, 15 Mar 2025 15:47:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=1VeO5hr1KTtCeq/vjZzvAaFvuU/CjtDmvpB7mrE5/C4=; b=bvFFYx/+tc7xY5119MNFQ24BzH
-	p5GW/e2RPUGfl6YbHvUc3gEWbnzaqzRFeHVtnACjnxRKvnLyhWNeAwPM2SxHcLFRM9GhNUXdpW5+/
-	zs37wl9m4gD9tAPdcqyfQSdxkVoK17w7J/7+CQ5WSqnbkIIdInBy7wB6rNsHJRG+LScgrirpKVKoI
-	hsBhK+s+/3jdgmGd4fmMfAFPXEF55g+01xjFLjo4Qr+uY4JOlm0rtImyR09CJ8CAASE4dpH+bTud0
-	kItcxsoQ0a/kgn5kMfvmFwcP8aWylJZDveXAOz9f9yxQuUO7bPRmM95uzGBjq/v9g+iTco8ccvlaE
-	ekRAHjbQ==;
-Received: from [194.95.143.137] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ttTiz-0008Tk-UU; Sat, 15 Mar 2025 16:46:57 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts64 changes for 6.15 #2
-Date: Sat, 15 Mar 2025 16:46:57 +0100
-Message-ID: <23866869.6Emhk5qWAg@phil>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
+	id 1ttV3Y-0000000GdDb-1Pwh;
+	Sat, 15 Mar 2025 17:12:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67C9DA48B35;
+	Sat, 15 Mar 2025 17:06:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD39C4CEE5;
+	Sat, 15 Mar 2025 17:12:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742058734;
+	bh=TAGSXpXNt+/x3uk6tc75dLbGfKv+LBmzv0BZheJ4OhM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=KQOVZk/fN4mnPBUj7zObUCAOTzYH07FpvRS3NiGw9KhKmckav2nGnZhFSviF70S38
+	 ABS77iPHzZUpfeBHw/nlquL0mh46+LeVPnHYUm3hOctvdBFGn0DB/K10VXtTH8OlkF
+	 OQKk+fXxSLi4mfOyyc0ADd7BelPfMpHgGdEutvvPvnqn4UwZ0R0EZYKHVF3z9DgF8E
+	 w22GOdJjzJf63TyoynEIyfUbLz0HMcmZzgTKBK2HSLVnNJwty6ZqSAYwvdNLfbsNAw
+	 uw43pONGXMZjQTUcRH+keLJ2OUcx7GkCW1R3BiZFRdKslGCo55wZmIfzY2PLlgEZUz
+	 viaus37Bpynvw==
+Date: Sat, 15 Mar 2025 12:12:13 -0500
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Russell King <linux@armlinux.org.uk>, Vladimir Oltean <olteanv@gmail.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org, 
+ Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org, 
+ upstream@airoha.com, Conor Dooley <conor+dt@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ linux-mediatek@lists.infradead.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Eric Dumazet <edumazet@google.com>, Lee Jones <lee@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+In-Reply-To: <20250315154407.26304-6-ansuelsmth@gmail.com>
+References: <20250315154407.26304-1-ansuelsmth@gmail.com>
+ <20250315154407.26304-6-ansuelsmth@gmail.com>
+Message-Id: <174205873356.67148.10337205475865865960.robh@kernel.org>
+Subject: Re: [net-next PATCH v13 05/14] dt-bindings: mfd: Document support
+ for Airoha AN8855 Switch SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_084701_289624_F92BAE53 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250315_101216_505737_93327A2F 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,85 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
 
-please find below some additional Rockchip changes for for 6.15 .
-And I think with that I'll call it done, and have everything else
-wait for after the merge-window.
+On Sat, 15 Mar 2025 16:43:45 +0100, Christian Marangi wrote:
+> Document support for Airoha AN8855 Switch SoC. This SoC expose various
+> peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
+> 
+> It does also support i2c and timers but those are not currently
+> supported/used.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  .../bindings/mfd/airoha,an8855.yaml           | 182 ++++++++++++++++++
+>  MAINTAINERS                                   |   1 +
+>  2 files changed, 183 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+> 
 
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Please pull.
-Thanks
-Heiko
+yamllint warnings/errors:
 
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@1: $nodename:0: 'phy@1' does not match '^ethernet-phy(@[a-f0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@1: Unevaluated properties are not allowed ('compatible' was unexpected)
+	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@2: $nodename:0: 'phy@2' does not match '^ethernet-phy(@[a-f0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: phy@2: Unevaluated properties are not allowed ('compatible' was unexpected)
+	from schema $id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
 
-The following changes since commit ba82f56bbf20e4166c988621cd0507509872848e:
+doc reference errors (make refcheckdocs):
 
-  arm64: dts: rockchip: Add SPI NOR device on the ROCK 4D (2025-03-08 18:19:59 +0100)
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250315154407.26304-6-ansuelsmth@gmail.com
 
-are available in the Git repository at:
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.15-rockchip-dts64-2
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-for you to fetch changes up to 73d246b4402c3356f6b3d13665de3a51eea7b555:
+pip3 install dtschema --upgrade
 
-  arm64: dts: rockchip: remove ethm0_clk0_25m_out from Sige5 gmac0 (2025-03-15 15:49:00 +0100)
-
-----------------------------------------------------------------
-New peripheral the sdhci controller on rk3528. Enablement of hdmi and hdmi
-audio on a number of additional boards. Better handling for scmi shared
-memory on rk3568 and a fix for the used SCMI clock ids on rk3576.
-As well as some fixes that were a bit late for trying to stuff them into
-6.14 at this late stage of the cycle.
-
-----------------------------------------------------------------
-Chen-Yu Tsai (1):
-      arm64: dts: rockchip: Remove bluetooth node from rock-3a
-
-Chukun Pan (1):
-      arm64: dts: rockchip: Move rk356x scmi SHMEM to reserved memory
-
-Jianfeng Liu (3):
-      arm64: dts: rockchip: Add AP6275P wireless support to ArmSoM Sige7
-      arm64: dts: rockchip: Enable HDMI audio output for ArmSoM Sige7
-      arm64: dts: rockchip: Fix pcie reset gpio on Orange Pi 5 Max
-
-Jimmy Hon (4):
-      arm64: dts: rockchip: Enable HDMI0 audio output for Orange Pi 5/5B
-      arm64: dts: rockchip: Enable HDMI audio outputs for Orange Pi 5 Max
-      arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Plus
-      arm64: dts: rockchip: Enable HDMI audio outputs for Orange Pi 5 Plus
-
-Jonas Karlman (2):
-      arm64: dts: rockchip: Add SDHCI controller for RK3528
-      arm64: dts: rockchip: Enable onboard eMMC on Radxa E20C
-
-Nicolas Frattaroli (3):
-      dt-bindings: clock: rk3576: add SCMI clocks
-      arm64: dts: rockchip: fix RK3576 SCMI clock IDs
-      arm64: dts: rockchip: remove ethm0_clk0_25m_out from Sige5 gmac0
-
-Yao Zi (1):
-      arm64: dts: rockchip: Fix PWM pinctrl names
-
- arch/arm64/boot/dts/rockchip/rk3308-roc-cc.dts     |  2 +-
- arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts    |  4 +-
- arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi   |  2 +-
- arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts | 15 ++++++
- arch/arm64/boot/dts/rockchip/rk3528.dtsi           | 24 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts    | 14 ------
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      | 25 +++++-----
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  3 +-
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 18 ++++----
- .../boot/dts/rockchip/rk3588-armsom-sige7.dts      | 24 ++++++++++
- .../dts/rockchip/rk3588-orangepi-5-compact.dtsi    |  2 +-
- .../boot/dts/rockchip/rk3588-orangepi-5-max.dts    | 16 +++++++
- .../boot/dts/rockchip/rk3588-orangepi-5-plus.dts   | 54 ++++++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts |  2 +-
- .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi      |  8 ++++
- include/dt-bindings/clock/rockchip,rk3576-cru.h    |  5 ++
- 16 files changed, 174 insertions(+), 44 deletions(-)
-
-
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
