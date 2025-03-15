@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8ACCC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 08:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B5EEC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 08:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3eoq8Ip4Lg2/aL44gQkJ166eIGqKVZnzBY67DvJxGBM=; b=0IikWjeJHb+mQP2/kGlm1Y3FQc
-	RZQCF7o5LTt2XTQUQD9Lx/6xQ696vpiznmkHiZ/SJ42dixAJJUdvZqPjf74A8OnBQQvr9bVK0VB5J
-	d9MzR5yPAds2zs8orwHFTlblQRBrjYLMKVUU+qlLlADDdVkTAdgwqN45s4Jx7PVESU+AYtwZl90Yn
-	B+S+xor5dJmca0yojgw7CCw77ngK5l1sQ4kEjZurHIYHylFIL/5UIEV/1fWucgXbDY7kOckQF/0om
-	ijDv9AmYa4hzHvLeIW664u7ksF2e0Q1kaG6Il9nu8hkITcYCoG2Wz5uD+XiLSOzceW0IKImtFnA5y
-	lWaPYUUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=glAtyP4dUnz0l0KiAvV4ANow7G2hB+arbAc9Pjp2TVs=; b=j61cafaLrU8m1myczavI4Fc+tI
+	gQ09WDxQ67RVzRGZsiYPWkmew9cSqt+8rtYpRetNsj9LslJUubp6YZ+h4F7iYvuHu7ON74t+p3cSw
+	1Mb5xuYFxyVwqObXfSr0B7DevgGBeEtjQRC2bxxr6V+zTNrn2s8cjD05+W4pNpuNQ+sBUiXTelMyo
+	9a6Xm9AWCSJMBbSiV7Z0R1GUknWbLVqU3SBAQqmp6JgQtRN3cgJLhqZCg7J3R7/ukRGkAbdYU/DZb
+	B1X8saYzyrGbjR4Wru0aN32BIoXnpnYYQ/zoCk1HKjLou/9j5aKaQI2iBR4NxSg7ciOUfvhKlNEgU
+	gO0BVeCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttMmr-0000000G1R7-202F;
-	Sat, 15 Mar 2025 08:22:29 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1ttMry-0000000G1ly-0r6Y;
+	Sat, 15 Mar 2025 08:27:46 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttMlC-0000000G1KB-0QdY
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Mar 2025 08:20:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1742026845;
- bh=3eoq8Ip4Lg2/aL44gQkJ166eIGqKVZnzBY67DvJxGBM=;
- b=w7LqclMASyLeWLBzlcFEXPkiES7tVScMS+1BxvSTE89GzPrEB1p7LQHRolowru1ucr7l03jUY
- Ddk8uUcswC9f4cOl81j5XzT7OOEu3i3KpDgQ2Lp4cZSghAVDz1mD0fphdqSkLSJlMO0At7A/xPb
- 6Cge+KV0yS2T9NAMLvJKjY2Jr1TbXME/QlJJ9R1TsNBe6MHibBpMYajEbJ/IPAbT/Rcz4MLD0mV
- asOtoCKP6G80giXu/c21kEy+Vnyx/yGGutwvC++3B720iy6PKbIS0TPBNk44Sc3Ocpf7bNPqvZs
- 9oJhppVYUrMMuAABG20UnHPAslUYewRhlez2CvAkVPJQ==
-X-Forward-Email-ID: 67d5383dca5d7787a43350e7
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <6c355664-50dd-4efd-94b7-9d93c02d3e80@kwiboo.se>
-Date: Sat, 15 Mar 2025 09:20:07 +0100
+	id 1ttMqH-0000000G1dj-2hGu;
+	Sat, 15 Mar 2025 08:26:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742027161; x=1773563161;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=VkdKPwJSbXuVY/GWIxtpTxYdiXqy9fUXpxwA7ilNpuc=;
+  b=D4ZWLzniqBnvLwMex3E8iLG+DR5fMIfEWarzts4mIfJszhsvHzt6C+n4
+   JAftHmdfaRxzLNTJbfWJlU4Wbyztwuuw41CzHol3kBVkt7A/yhZMW8cU+
+   op9m3BDopVuwh8ZBPOzwcStql/c/4/53XJdgfsZ6EAQ40bqT8Ua1ebrIh
+   D4of0vMRupKCoOFi1GY+PaAl7KIzgYs0urW9pPgBkAes1xl9p+DCEGdwV
+   1o9zI8KGAWmM60VTiHPfBNjizmcpdUdYzZJdUeIv4JImlS29M/7Tw2/Y7
+   hZez0cHtxPjyHfky4TvA8xW+nbZh+gP3jeH94lVSry21VGgLV2wBSlBKG
+   w==;
+X-CSE-ConnectionGUID: MRkLZTLKSgmJW2tyCO2QjQ==
+X-CSE-MsgGUID: G/wEx4AuTjOrGFK7tXZP1Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11373"; a="43388360"
+X-IronPort-AV: E=Sophos;i="6.14,249,1736841600"; 
+   d="scan'208";a="43388360"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Mar 2025 01:25:54 -0700
+X-CSE-ConnectionGUID: UBbR/qeyT+uAlIeUlwwv7A==
+X-CSE-MsgGUID: uIYkhi5mSoij1+dwF9nXrw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,249,1736841600"; 
+   d="scan'208";a="125691055"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by fmviesa003.fm.intel.com with ESMTP; 15 Mar 2025 01:25:50 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ttMq4-000B9v-1M;
+	Sat, 15 Mar 2025 08:25:48 +0000
+Date: Sat, 15 Mar 2025 16:24:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com,
+	Sebastian Fricke <sebastian.fricke@collabora.com>
+Subject: Re: [PATCH 4/5] media: vcodec: Implement manual request completion
+Message-ID: <202503151605.1d1dDLuM-lkp@intel.com>
+References: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/6] thermal: rockchip: Support RK3576 SoC in the
- thermal driver
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Ye Zhang <ye.zhang@rock-chips.com>, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org, Sebastian Reichel
- <sebastian.reichel@collabora.com>, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, kernel@collabora.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250228-rk3576-tsadc-upstream-v3-0-4bfbb3b699b9@collabora.com>
- <20250228-rk3576-tsadc-upstream-v3-3-4bfbb3b699b9@collabora.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250228-rk3576-tsadc-upstream-v3-3-4bfbb3b699b9@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_012046_172319_C84BDAD8 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20250315_012601_692545_E7EEC003 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,103 +98,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Hi Sebastian,
 
-On 2025-02-28 21:06, Nicolas Frattaroli wrote:
-> From: Ye Zhang <ye.zhang@rock-chips.com>
-> 
-> The RK3576 SoC has six TS-ADC channels: TOP, BIG_CORE, LITTLE_CORE,
-> DDR, NPU and GPU.
-> 
-> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-> [ported to mainline, reworded commit message]
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/thermal/rockchip_thermal.c | 42 ++++++++++++++++++++++++++++++++++++++
->  1 file changed, 42 insertions(+)
-> 
-> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-> index a8ad85feb68fbb7ec8d79602b16c47838ecb3c00..bec1930bebd87859a7e519cfc9f05e10b1c31e87 100644
-> --- a/drivers/thermal/rockchip_thermal.c
-> +++ b/drivers/thermal/rockchip_thermal.c
-> @@ -1061,6 +1061,22 @@ static void rk_tsadcv3_tshut_mode(int chn, void __iomem *regs,
->  	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
->  }
->  
-> +static void rk_tsadcv4_tshut_mode(int chn, void __iomem *regs,
-> +				  enum tshut_mode mode)
-> +{
-> +	u32 val_gpio, val_cru;
-> +
-> +	if (mode == TSHUT_MODE_GPIO) {
-> +		val_gpio = TSADCV2_INT_SRC_EN(chn) | TSADCV2_INT_SRC_EN_MASK(chn);
-> +		val_cru = TSADCV2_INT_SRC_EN_MASK(chn);
-> +	} else {
-> +		val_cru = TSADCV2_INT_SRC_EN(chn) | TSADCV2_INT_SRC_EN_MASK(chn);
-> +		val_gpio = TSADCV2_INT_SRC_EN_MASK(chn);
-> +	}
-> +	writel_relaxed(val_gpio, regs + TSADCV3_HSHUT_GPIO_INT_EN);
-> +	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
-> +}
+kernel test robot noticed the following build warnings:
 
-This function is identical to rk_tsadcv3_tshut_mode() in mainline.
+[auto build test WARNING on f2151613e040973c868d28c8b00885dfab69eb75]
 
-Should the v3 function be renamed to v4 in mainline to match vendor
-kernel to avoid confusion?
+url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Fricke/media-mc-add-manual-request-completion/20250314-213005
+base:   f2151613e040973c868d28c8b00885dfab69eb75
+patch link:    https://lore.kernel.org/r/20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b%40collabora.com
+patch subject: [PATCH 4/5] media: vcodec: Implement manual request completion
+config: x86_64-buildonly-randconfig-003-20250315 (https://download.01.org/0day-ci/archive/20250315/202503151605.1d1dDLuM-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+rustc: rustc 1.78.0 (9b00956e5 2024-04-29)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250315/202503151605.1d1dDLuM-lkp@intel.com/reproduce)
 
-> +
->  static const struct rockchip_tsadc_chip px30_tsadc_data = {
->  	/* cpu, gpu */
->  	.chn_offset = 0,
-> @@ -1284,6 +1300,28 @@ static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
->  	},
->  };
->  
-> +static const struct rockchip_tsadc_chip rk3576_tsadc_data = {
-> +	/* top, big_core, little_core, ddr, npu, gpu */
-> +	.chn_offset = 0,
-> +	.chn_num = 6, /* six channels for tsadc */
-> +	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
-> +	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
-> +	.tshut_temp = 95000,
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503151605.1d1dDLuM-lkp@intel.com/
 
-Here the default is GPIO and 95 deg, in DT node the default is override
-to CRU and 120 deg.
+All warnings (new ones prefixed by >>):
 
-Any reason that is not the default here?
+>> drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c:29:13: warning: no previous prototype for function 'state_to_str' [-Wmissing-prototypes]
+      29 | const char *state_to_str(enum mtk_request_state state)
+         |             ^
+   drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c:29:7: note: declare 'static' if the function is not intended to be used outside of this translation unit
+      29 | const char *state_to_str(enum mtk_request_state state)
+         |       ^
+         | static 
+   1 warning generated.
 
-Regards,
-Jonas
 
-> +	.initialize = rk_tsadcv8_initialize,
-> +	.irq_ack = rk_tsadcv4_irq_ack,
-> +	.control = rk_tsadcv4_control,
-> +	.get_temp = rk_tsadcv4_get_temp,
-> +	.set_alarm_temp = rk_tsadcv3_alarm_temp,
-> +	.set_tshut_temp = rk_tsadcv3_tshut_temp,
-> +	.set_tshut_mode = rk_tsadcv4_tshut_mode,
-> +	.table = {
-> +		.id = rk3588_code_table,
-> +		.length = ARRAY_SIZE(rk3588_code_table),
-> +		.data_mask = TSADCV4_DATA_MASK,
-> +		.mode = ADC_INCREMENT,
-> +	},
-> +};
-> +
->  static const struct rockchip_tsadc_chip rk3588_tsadc_data = {
->  	/* top, big_core0, big_core1, little_core, center, gpu, npu */
->  	.chn_offset = 0,
-> @@ -1342,6 +1380,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
->  		.compatible = "rockchip,rk3568-tsadc",
->  		.data = (void *)&rk3568_tsadc_data,
->  	},
-> +	{
-> +		.compatible = "rockchip,rk3576-tsadc",
-> +		.data = (void *)&rk3576_tsadc_data,
-> +	},
->  	{
->  		.compatible = "rockchip,rk3588-tsadc",
->  		.data = (void *)&rk3588_tsadc_data,
-> 
+vim +/state_to_str +29 drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
 
+    28	
+  > 29	const char *state_to_str(enum mtk_request_state state)
+    30	{
+    31		switch (state) {
+    32		case MTK_REQUEST_RECEIVED:
+    33			return "RECEIVED";
+    34		case MTK_REQUEST_LAT_DONE:
+    35			return "LAT_DONE";
+    36		case MTK_REQUEST_CORE_DONE:
+    37			return "CORE_DONE";
+    38		default:
+    39			return "UNKNOWN";
+    40		}
+    41	}
+    42	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
