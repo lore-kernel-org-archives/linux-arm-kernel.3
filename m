@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616B9C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Mar 2025 23:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614ADC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 00:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H0iQpl+Wki8Uj9+MocJTn+ssGXwRd5V7LBD6/Q7fjpo=; b=HVzTa3mJPRrRfvZcpPdD8KAkCp
-	DfPoFdnkfTI2UhzAWTzh5C0Jx3Yc/2T+9ufNc22tg+IRU85ZIcYk7l/upydcNt2HO5aBQQAgHSQGk
-	JKb+1rR+SfkFDnqX2NCJCvzF5S1eOYiEBGLwdQJHLpzKmOL2of+aXEmVQpnrJ28nT5m5MSP6pIHJJ
-	Hk3kJAkI61s7jyzxFq/dxfftWaOd2INdXkIEPMg371nlc5x5lhcb37uuQL6OHR6xePPcqtLy/Bqn3
-	uteTjJN2R1c8RGp3ztjAxY6I6NMZSTY3f68Z3v8wKM2m0LkDLo0gIRJlTMGBj/baljt3YiC5xmKbc
-	3Q7GG5Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ReFJ5dJwkWUyrjcVhdb2bnujKSw8PoZywGxsopBOdNQ=; b=l3QSHSyIyN9l4ZP7pAP9WCjQmb
+	F3ezK33WO2yENXbATCVoGetKYoTgEM0UkKYpamq8YUulSE59iWCbwts2BtVWpwP3bWLpFtGF7v42p
+	RPi+j21ufDpcp4fE2sNIXg3sSyIVUdDhluLp+zHlGDVV/w/jKHPuxqJXTwmOBU/Kr9dpwK0YUp7pu
+	CIMioQMmKwuL1cxseelQo0EeEtmaBenJwyDNMshgkBYBUpZTC7BMNWXYVDTZ7jsrvsoZkv1nPdf0S
+	eV/RkWkDLJ6T3/k7zRMJCaI8zYROlHGlHLJZczh/YS1dUTJNyZX0b+9Yo5/peYG8g/KJqQAspyW/v
+	1VmmpXYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttaYK-0000000Gwq4-0Nzg;
-	Sat, 15 Mar 2025 23:04:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ttbWM-0000000H0EQ-2eOl;
+	Sun, 16 Mar 2025 00:06:26 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttaWd-0000000Gwh6-3oHJ;
-	Sat, 15 Mar 2025 23:02:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C61F05C1EE6;
-	Sat, 15 Mar 2025 23:00:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21B62C4CEE5;
-	Sat, 15 Mar 2025 23:02:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742079758;
-	bh=8XxuyM3rSXd31IYIv534Hq8h4Bllxjj9SAfhpY0z5zA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Bj7Di1njZVjpy/0Z52Tb50Gk3d6lh4HTnDSUTCsGBYIs1wS6mKBiWq96kFuJUFw0p
-	 yGblIEs1YuxFZkW0isR0z6Lgu4m0+XyYM639dyGvwzvVXGz80ny3yPAARlcpESzzen
-	 P+RKfVlW2Qn/filHuFtMeg/2MjgfFso2dpnrf+gjwVij0yrwBlHbvVsIpW1ISpdA/j
-	 iUfazW87RiSB3UEpLWUqTesR2F7UlQGQwbYbs8pxQB65L5ofbeukzbnVOY9ni7PARm
-	 ZgQ0SHiOT1cLht/iB3jbrcQJNWvo46UoNo/uoUHeiJBkDYeda+WoxQFqjy2GIdE8Iq
-	 GGQjIIks1wvEA==
-Date: Sat, 15 Mar 2025 16:02:35 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
- the build
-Message-ID: <Z9YHCzINiu4uBQ8B@google.com>
-References: <20250308003209.234114-1-irogers@google.com>
- <Z9KFLGpenwOP32q3@google.com>
- <Z9M24AJzui9lFbGo@x1>
- <Z9M9-YhDJg3NgiUy@x1>
- <Z9NEX3j_1RUvaFI0@x1>
- <Z9PCjQ8PhOadVGQ8@google.com>
- <Z9RjHpEJGWtj8PAM@x1>
- <Z9Rm0W6YLpxKIcI1@x1>
- <Z9SWDGsdgagMr8PV@x1>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z9SWDGsdgagMr8PV@x1>
+	id 1ttbUg-0000000H0Ap-384D
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 16 Mar 2025 00:04:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742083483; x=1773619483;
+  h=date:from:to:cc:subject:message-id;
+  bh=4rt8Zr3BZCLFFDlcjhyBZInSVCJzxXhIYVU/P5G/b6Q=;
+  b=Ltil+EgaksL+I54CtWkmk47rdxd3BSmNv6Dupy6z41fCo36O5RpjykAK
+   23Y/p0GdVdVlNLNgEfdtSSvUZi04byTQdFPtr4KCWZoIi+8qf7xYzBWBi
+   ChG8wIz2pXDx/Tqo59qRXHGSzOE9Q/+qK1Rdc6N4ckQG3jUAog/Ux66cr
+   +wYxlyfXS4jBZTS4ZMa+81sUY0DzlX/VN820M+iwisoW5LTjycjOzAzzs
+   sAUzbDXYAMaYyQySOXtXA+lJLg98bSdkXlhkAj35kHBxNq5VwfZeTrpfH
+   sI4LmpDsWaH0K1wWoZjf2fvvTXGjyXKfOT9A0hCp8SabDOPOyUmI8exM+
+   g==;
+X-CSE-ConnectionGUID: hbVmK1txQUqqEE2n5Dd4Og==
+X-CSE-MsgGUID: V8D3wZpSTtyj/i9Cm+yfWw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11374"; a="42942522"
+X-IronPort-AV: E=Sophos;i="6.14,251,1736841600"; 
+   d="scan'208";a="42942522"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Mar 2025 17:04:38 -0700
+X-CSE-ConnectionGUID: wcT74oUFSJ2KsTO0GY4frQ==
+X-CSE-MsgGUID: MENUepbQRB6IusnI/5SelQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,251,1736841600"; 
+   d="scan'208";a="152541995"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by fmviesa001.fm.intel.com with ESMTP; 15 Mar 2025 17:04:37 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ttbUY-000Bj5-2C;
+	Sun, 16 Mar 2025 00:04:34 +0000
+Date: Sun, 16 Mar 2025 08:04:08 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:k3/dt] BUILD SUCCESS
+ 377fde74eae4abcbcd5475676d58fb595a07ff85
+Message-ID: <202503160859.nqoAvZQO-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_160240_045178_B34C5325 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20250315_170442_917660_0C7F8BF5 
+X-CRM114-Status: UNSURE (   4.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,179 +83,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 05:48:12PM -0300, Arnaldo Carvalho de Melo wrote:
-> On Fri, Mar 14, 2025 at 02:26:41PM -0300, Arnaldo Carvalho de Melo wrote:
-> > it finds the pair, but then its sc->args has a bogus pointer... I'll see
-> > where this isn't being initialized...
-> 
-> Breakpoint 4, trace__find_usable_bpf_prog_entry (trace=0x7fffffffa510, sc=0x1046f10) at builtin-trace.c:3874
-> 3874			bool is_candidate = false;
-> (gdb) n
-> 3876			if (pair == NULL || pair == sc ||
-> (gdb) p pair
-> $7 = (struct syscall *) 0x1083c50
-> (gdb) p pair->name
-> $8 = 0x81478e "accept4"
-> (gdb) n
-> 3877			    pair->bpf_prog.sys_enter == trace->skel->progs.syscall_unaugmented)
-> (gdb) p i
-> $9 = 1
-> (gdb) n
-> 3876			if (pair == NULL || pair == sc ||
-> (gdb) n
-> 3880			printf("sc=%p\n", sc); fflush(stdout);
-> (gdb) n
-> sc=0x1046f10
-> 3881			printf("sc->name=%p\n", sc->name); fflush(stdout);
-> (gdb) n
-> sc->name=0x6c66202c786c3830
-> 3882			printf("sc->nr_args=%d, sc->args=%p\n", sc->nr_args, sc->args); fflush(stdout);
-> (gdb) p sc->nr_args
-> $10 = 1935635045
-> (gdb) p sc->args
-> $11 = (struct tep_format_field *) 0x257830203a6e656c
-> (gdb) p *sc
-> $12 = {e_machine = 540697702, id = 807761968, tp_format = 0x657075202c786c38, nr_args = 1935635045, args_size = 1634427759, bpf_prog = {sys_enter = 0x257830203a726464, 
->     sys_exit = 0x7075202c786c3830}, is_exit = 101, is_open = 101, nonexistent = 114, use_btf = 95, args = 0x257830203a6e656c, 
->   name = 0x6c66202c786c3830 <error: Cannot access memory at address 0x6c66202c786c3830>, fmt = 0x257830203a736761, arg_fmt = 0x786c3830}
-> (gdb) 
-> 
-> Ok, ran out of time, but if I simple avoid the second loop in:
-> 
-> static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace, int e_machine)
-> 
-> 
-> I.e. the one that starts with:
-> 
->         /*
->          * Now lets do a second pass looking for enabled syscalls without
->          * an augmenter that have a signature that is a superset of another
->          * syscall with an augmenter so that we can auto-reuse it.
-> 
-> This:
-> 
-> diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-> index e0434f7dc67cb988..3664bb512c70cabf 100644
-> --- a/tools/perf/builtin-trace.c
-> +++ b/tools/perf/builtin-trace.c
-> @@ -3989,6 +3989,8 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace, int e_m
->                         goto out;
->         }
->  
-> +       return 0;
-> +
->         /*
->          * Now lets do a second pass looking for enabled syscalls without
->          * an augmenter that have a signature that is a superset of another
-> ⬢ [acme@toolbox perf-tools-next]$ 
-> 
-> 
-> Then all works, we don't reuse any BPF program, but then that is an
-> heuristic anyway, that is tried becuase landlock_add_rule has a pointer
-> argument:
-> 
-> root@number:~# perf trace -e landlock_add_rule perf test -w landlock
->      0.000 ( 0.003 ms): perf/71034 landlock_add_rule(ruleset_fd: 11, rule_type: LANDLOCK_RULE_PATH_BENEATH, rule_attr: 0x7fff6f2bb550, flags: 45) = -1 EINVAL (Invalid argument)
->      0.004 ( 0.001 ms): perf/71034 landlock_add_rule(ruleset_fd: 11, rule_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7fff6f2bb540, flags: 45) = -1 EINVAL (Invalid argument)
-> root@number:~# perf test enum
-> 105: perf trace enum augmentation tests                              : Ok
-> root@number:~#
-> 
-> So its some sort of syncronization on the various new tables, sorted by
-> name, etc that then when iterating over the syscalls ends up using a sc
-> that is not initialized.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git k3/dt
+branch HEAD: 377fde74eae4abcbcd5475676d58fb595a07ff85  arm64: dts: ti: k3-am62a-phycore-som: Reorder properties per DTS coding style
 
-Right, I've realized that calling trace__syscall_info() can invalidate
-the existing sc since it calls trace__find_syscall() which reallocates
-and resorts the syscall table.  That's why it was ok when no filter was
-used since it'd allocate the whole table in the first pass.  Otherwise
-it looks for a pair syscall while holding the original sc but calling
-the function would invalidate the sc.
+elapsed time: 1445m
 
-What about this (on top of my earlier fix)?
+configs tested: 153
+configs skipped: 130
 
-Thanks,
-Namhyung
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
+tested configs:
+alpha                   allnoconfig    gcc-14.2.0
+alpha                  allyesconfig    clang-21
+alpha                     defconfig    gcc-14.2.0
+arc                    allmodconfig    clang-18
+arc                     allnoconfig    gcc-14.2.0
+arc                    allyesconfig    clang-18
+arc                       defconfig    gcc-14.2.0
+arc         randconfig-001-20250315    gcc-14.2.0
+arc         randconfig-002-20250315    gcc-14.2.0
+arm                    allmodconfig    clang-18
+arm                     allnoconfig    gcc-14.2.0
+arm                    allyesconfig    clang-18
+arm                       defconfig    gcc-14.2.0
+arm            footbridge_defconfig    gcc-14.2.0
+arm                 imxrt_defconfig    gcc-14.2.0
+arm         randconfig-001-20250315    gcc-14.2.0
+arm         randconfig-002-20250315    gcc-14.2.0
+arm         randconfig-003-20250315    gcc-14.2.0
+arm         randconfig-004-20250315    gcc-14.2.0
+arm64                  allmodconfig    clang-18
+arm64                   allnoconfig    gcc-14.2.0
+arm64                     defconfig    gcc-14.2.0
+arm64       randconfig-001-20250315    gcc-14.2.0
+arm64       randconfig-002-20250315    gcc-14.2.0
+arm64       randconfig-003-20250315    clang-16
+arm64       randconfig-003-20250315    gcc-14.2.0
+arm64       randconfig-004-20250315    gcc-14.2.0
+csky                    allnoconfig    gcc-14.2.0
+csky                      defconfig    gcc-14.2.0
+csky        randconfig-001-20250315    gcc-14.2.0
+csky        randconfig-002-20250315    gcc-14.2.0
+hexagon                allmodconfig    clang-21
+hexagon                 allnoconfig    gcc-14.2.0
+hexagon                allyesconfig    clang-21
+hexagon                   defconfig    gcc-14.2.0
+hexagon     randconfig-001-20250315    gcc-14.2.0
+hexagon     randconfig-002-20250315    gcc-14.2.0
+i386                   allmodconfig    clang-19
+i386                    allnoconfig    clang-19
+i386                   allyesconfig    clang-19
+i386                      defconfig    clang-19
+i386        randconfig-001-20250316    gcc-12
+i386        randconfig-002-20250316    gcc-12
+i386        randconfig-003-20250316    gcc-12
+i386        randconfig-004-20250316    gcc-12
+i386        randconfig-005-20250316    gcc-12
+i386        randconfig-006-20250316    gcc-12
+i386        randconfig-007-20250316    gcc-12
+i386        randconfig-011-20250315    gcc-12
+i386        randconfig-012-20250315    gcc-12
+i386        randconfig-013-20250315    gcc-12
+i386        randconfig-014-20250315    gcc-12
+i386        randconfig-015-20250315    gcc-12
+i386        randconfig-016-20250315    gcc-12
+i386        randconfig-017-20250315    gcc-12
+loongarch              allmodconfig    gcc-14.2.0
+loongarch               allnoconfig    gcc-14.2.0
+loongarch                 defconfig    gcc-14.2.0
+loongarch   randconfig-001-20250315    gcc-14.2.0
+loongarch   randconfig-002-20250315    gcc-14.2.0
+m68k                   allmodconfig    gcc-14.2.0
+m68k                   allyesconfig    gcc-14.2.0
+m68k               apollo_defconfig    clang-17
+m68k                      defconfig    gcc-14.2.0
+m68k              m5272c3_defconfig    clang-17
+microblaze             allmodconfig    gcc-14.2.0
+microblaze             allyesconfig    gcc-14.2.0
+microblaze                defconfig    gcc-14.2.0
+mips              maltaup_defconfig    gcc-14.2.0
+mips                rb532_defconfig    clang-17
+nios2                     defconfig    gcc-14.2.0
+nios2       randconfig-001-20250315    gcc-14.2.0
+nios2       randconfig-002-20250315    gcc-14.2.0
+openrisc               allyesconfig    gcc-14.2.0
+openrisc                  defconfig    gcc-12
+parisc                 allmodconfig    gcc-14.2.0
+parisc                 allyesconfig    gcc-14.2.0
+parisc                    defconfig    gcc-12
+parisc      generic-64bit_defconfig    clang-17
+parisc      randconfig-001-20250315    gcc-14.2.0
+parisc      randconfig-002-20250315    gcc-14.2.0
+parisc64                  defconfig    gcc-14.2.0
+powerpc                allmodconfig    gcc-14.2.0
+powerpc                allyesconfig    gcc-14.2.0
+powerpc        mpc885_ads_defconfig    clang-17
+powerpc          mvme5100_defconfig    gcc-14.2.0
+powerpc     randconfig-001-20250315    gcc-14.2.0
+powerpc     randconfig-002-20250315    gcc-14.2.0
+powerpc     randconfig-003-20250315    gcc-14.2.0
+powerpc          sam440ep_defconfig    clang-17
+powerpc64   randconfig-001-20250315    gcc-14.2.0
+powerpc64   randconfig-002-20250315    gcc-14.2.0
+powerpc64   randconfig-003-20250315    gcc-14.2.0
+riscv                  allmodconfig    gcc-14.2.0
+riscv                  allyesconfig    gcc-14.2.0
+riscv                     defconfig    gcc-12
+riscv       randconfig-001-20250316    gcc-14.2.0
+riscv       randconfig-002-20250316    gcc-14.2.0
+s390                   allmodconfig    gcc-14.2.0
+s390                   allyesconfig    gcc-14.2.0
+s390                      defconfig    gcc-12
+s390        randconfig-001-20250316    gcc-14.2.0
+s390        randconfig-002-20250316    gcc-14.2.0
+sh                     allmodconfig    gcc-14.2.0
+sh                     allyesconfig    gcc-14.2.0
+sh               apsh4a3a_defconfig    gcc-14.2.0
+sh                        defconfig    gcc-12
+sh                r7785rp_defconfig    gcc-14.2.0
+sh          randconfig-001-20250316    gcc-14.2.0
+sh          randconfig-002-20250316    gcc-14.2.0
+sh                sdk7786_defconfig    clang-17
+sh                   shx3_defconfig    gcc-14.2.0
+sparc                  allmodconfig    gcc-14.2.0
+sparc       randconfig-001-20250316    gcc-14.2.0
+sparc       randconfig-002-20250316    gcc-14.2.0
+sparc64                   defconfig    gcc-12
+sparc64     randconfig-001-20250316    gcc-14.2.0
+sparc64     randconfig-002-20250316    gcc-14.2.0
+um                     allmodconfig    clang-21
+um                     allyesconfig    clang-21
+um                        defconfig    gcc-12
+um                   i386_defconfig    gcc-12
+um          randconfig-001-20250316    gcc-14.2.0
+um          randconfig-002-20250316    gcc-14.2.0
+um                 x86_64_defconfig    clang-17
+um                 x86_64_defconfig    gcc-12
+x86_64                  allnoconfig    clang-19
+x86_64                 allyesconfig    clang-19
+x86_64                    defconfig    clang-19
+x86_64                        kexec    clang-19
+x86_64      randconfig-001-20250316    gcc-12
+x86_64      randconfig-002-20250316    gcc-12
+x86_64      randconfig-003-20250316    gcc-12
+x86_64      randconfig-004-20250316    gcc-12
+x86_64      randconfig-005-20250316    gcc-12
+x86_64      randconfig-006-20250316    gcc-12
+x86_64      randconfig-007-20250316    gcc-12
+x86_64      randconfig-008-20250316    gcc-12
+x86_64      randconfig-071-20250315    clang-19
+x86_64      randconfig-072-20250315    clang-19
+x86_64      randconfig-073-20250315    clang-19
+x86_64      randconfig-074-20250315    clang-19
+x86_64      randconfig-075-20250315    clang-19
+x86_64      randconfig-076-20250315    clang-19
+x86_64      randconfig-077-20250315    clang-19
+x86_64      randconfig-078-20250315    clang-19
+x86_64                     rhel-9.4    clang-19
+x86_64                 rhel-9.4-bpf    clang-18
+x86_64               rhel-9.4-kunit    clang-18
+x86_64                 rhel-9.4-ltp    clang-18
+x86_64                rhel-9.4-rust    clang-18
+xtensa      randconfig-001-20250316    gcc-14.2.0
+xtensa      randconfig-002-20250316    gcc-14.2.0
 
----8<---
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 49199d753b7cafbf..da0ddc713e6b35da 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -2506,10 +2506,12 @@ static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, i
- 	};
- 	struct syscall *sc, *tmp;
- 
--	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
--		     sizeof(struct syscall), syscall__cmp);
--	if (sc)
--		return sc;
-+	if (trace->syscalls.table) {
-+		sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-+			     sizeof(struct syscall), syscall__cmp);
-+		if (sc)
-+			return sc;
-+	}
- 
- 	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
- 			   sizeof(struct syscall));
-@@ -3855,6 +3857,10 @@ static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int e_machine, i
- 
- static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *sc)
- {
-+	int orig_id = sc->id;
-+	const char *orig_name = sc->name;
-+	int e_machine = sc->e_machine;
-+	struct tep_format_field *args = sc->args;
- 	struct tep_format_field *field, *candidate_field;
- 	/*
- 	 * We're only interested in syscalls that have a pointer:
-@@ -3866,18 +3872,19 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 
- 	return NULL;
- 
-+	/* calling trace__syscall_info() may invalidate 'sc' */
- try_to_find_pair:
--	for (int i = 0, num_idx = syscalltbl__num_idx(sc->e_machine); i < num_idx; ++i) {
--		int id = syscalltbl__id_at_idx(sc->e_machine, i);
--		struct syscall *pair = trace__syscall_info(trace, NULL, sc->e_machine, id);
-+	for (int i = 0, num_idx = syscalltbl__num_idx(e_machine); i < num_idx; ++i) {
-+		int id = syscalltbl__id_at_idx(e_machine, i);
-+		struct syscall *pair = trace__syscall_info(trace, NULL, e_machine, id);
- 		struct bpf_program *pair_prog;
- 		bool is_candidate = false;
- 
--		if (pair == NULL || pair == sc ||
-+		if (pair == NULL || pair->id == orig_id ||
- 		    pair->bpf_prog.sys_enter == trace->skel->progs.syscall_unaugmented)
- 			continue;
- 
--		for (field = sc->args, candidate_field = pair->args;
-+		for (field = args, candidate_field = pair->args;
- 		     field && candidate_field; field = field->next, candidate_field = candidate_field->next) {
- 			bool is_pointer = field->flags & TEP_FIELD_IS_POINTER,
- 			     candidate_is_pointer = candidate_field->flags & TEP_FIELD_IS_POINTER;
-@@ -3944,7 +3951,7 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 				goto next_candidate;
- 		}
- 
--		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc->name);
-+		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, orig_name);
- 		return pair_prog;
- 	next_candidate:
- 		continue;
-@@ -4041,6 +4048,11 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace, int e_m
- 		if (pair_prog == NULL)
- 			continue;
- 
-+		/*
-+		 * Get syscall info again as find usable entry above might
-+		 * modify the syscall table and shuffle it.
-+		 */
-+		sc = trace__syscall_info(trace, NULL, e_machine, key);
- 		sc->bpf_prog.sys_enter = pair_prog;
- 
- 		/*
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
