@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859D6C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 04:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6E2C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 04:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjwed54Vqji5j5yoD9/wFQ/aRgNfk0MsQVfeIXpdSXQ=; b=3m5U9Q5RkciD5Lz3jbJVpbw1OR
-	uTYFVzwUhARv9gnqoq5LVe9yvkTJB2GVq1Zd85cSVyBxx/I6eowwdh+W1tsYhfG0UT1SA/B8WRgGe
-	i+MA7ryn3TeVKgzz1/cIibUpO9/EtA1lqYPfcRGuANkgY6fmHodJc1NvmAYVbobVMgYdfVFPQkpaN
-	l2WJzocwyY/rov4wTDWBhpMhn+CEZzn0W7JRuf5M5HY6QNq+sYCUvL409oCVNe3ppxx+za62zf7Tn
-	2LN/K49v1s9Rlfm60lZ2gyBrH7A0RkIc8r42s7nZrcC1PziDetrY1IBZOZs4QAzpkENlMV9gVIAkb
-	x1YI3/9w==;
+	bh=bm/TjLVsOIQb5qeMDxohaetZDngVOOW8hl6xb9zJkyk=; b=b2U2DTUC1z+eXyrQg3SGwXwaed
+	Qf0dnmA1FI40DVbymns56NZtMtzN7pCEBf6egnlfkpK3ZpXQ2YLYYjASOXI5DVxUTgCVEivAzCdsy
+	4XhOMchflAp/OHOhHr1XU1O7QMU2IWFnvjC+oGzAPV+paB0P8qUFhrm9/VABKHP6M3LQbRUCQCR14
+	rIt1emvztiAZqBkmP6fuJ2CtVEGb8a8Xm9OokjtjuIYfzhM6D6KAZgSzbz0/Trkzz+0O7bmVrkMb8
+	uvkFMOBsupqnv4v/cQTcRwvZ2hXI7w/k9TQPSGXFQZNAY8gBltmYU2lwkCDm7bT4NcXAMnkLJEkKM
+	gsWakLsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttfoa-0000000HGsq-1YrK;
-	Sun, 16 Mar 2025 04:41:32 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1ttfqE-0000000HH0a-0swl;
+	Sun, 16 Mar 2025 04:43:14 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttfGM-0000000HCOh-1jma
+	id 1ttfGN-0000000HCPO-1iZB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Mar 2025 04:06:12 +0000
-Received: by mail-wr1-x442.google.com with SMTP id ffacd0b85a97d-39104c1cbbdso1885958f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 21:06:10 -0700 (PDT)
+	Sun, 16 Mar 2025 04:06:13 +0000
+Received: by mail-wr1-x441.google.com with SMTP id ffacd0b85a97d-39104c1cbbdso1885962f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 21:06:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742097969; x=1742702769; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742097970; x=1742702770; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tjwed54Vqji5j5yoD9/wFQ/aRgNfk0MsQVfeIXpdSXQ=;
-        b=IFITeoEwBJXYwaABHQgU0SHkHBJ3rXE6mOnOo6EXgIR8a0QMHEIjx6jN50q62W7QMR
-         CO5FTgO3mH2a+DonkZd/SmumFH1DKY0+VuU3Vf7QELbAAdMxvGf80JiGnnJBYCtgw9q2
-         uGfZDl9b9CIsNnSlycJJUmyiLffQS1PRuEK6MQ8QcqehDzEK3IT+h1yammCbXUjQMY7d
-         QI/uxhc/SiVTjfdEAni7I+Q2hQAtc8zgEGwBFZ5BPXSo+ehvSGCMPwS5NWEupD9QiSrK
-         9sFQRJE0/MwNWws98HqcG2hAvGc3gWT1hqr+unH+HoGzl2ehAJ89vHo/enTGJMyJPW4N
-         wQmA==
+        bh=bm/TjLVsOIQb5qeMDxohaetZDngVOOW8hl6xb9zJkyk=;
+        b=B8TGxkvpv+rw6/iOsaKx1rQowkBr5k9DJxVV8ZBfD/bDmhIRo+/9fLW72BzDU/eLtm
+         dd99FWOIjfIR+9azPF1cH/+UZG/PkG7whQM8PlaqQk1izGgA/JbcMMmrU6Evl5y+uJpt
+         vExgnMXjT1sPEJH2RwV0t7hZLtz2jZHfYhbuo032ZQ7QivGh30C+6ed1ThoXZ0/gt7Ct
+         NzQBs4GatXgUcaOt65Ex2SEeNgUE0i0f6rtQagkoNlbo7Hjc+cAvqsNVhaw625PlHpq3
+         8CpX1qibhJODY+JCCjPBvI4pQx9ZT5+5yZc5d4bAX+F3zRy5dquwCa5aen6BF+6s2Yf0
+         nFRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742097969; x=1742702769;
+        d=1e100.net; s=20230601; t=1742097970; x=1742702770;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tjwed54Vqji5j5yoD9/wFQ/aRgNfk0MsQVfeIXpdSXQ=;
-        b=HEv1RRmJRDnsIbjiZz6rycit1VN6L9raJPRAfzJFtIKFgcAYnRbOH7kL9hB+Y8PM+Y
-         VO4qwGP4ErGD39JIjjeF7BMG0eXVSfuzZXBG3Zfjk8AJeSqFX9NNAfZDc+83gmEP/ETm
-         OP7YwifA7Z/1lQt8uSCHRnnV6AIvo7GVDjfJrmjuiLHk5+E2R5o/I4lfuDUwR1+hHghH
-         f2EW8Adupei9Qpf7E1cf2RRKMEAObLg7LGNYlEskAFYlrFPhytTaWFbdr+tTMhbRIDCg
-         TfDE+u1R8tx+r7Gg26Uvp0HVAKZhb2s65xtQ44DFBYKLqlK4twvVbmUem7LIHgdIyFlz
-         NGOw==
-X-Forwarded-Encrypted: i=1; AJvYcCXGTkdKTBZ6uvLL71GMVnfvzOPrtr4es3AtpkSFxHAVobgkpMAxjaeGo+pVfqXD/lFoNdMI19ru0k4OdLnbU/N0@lists.infradead.org
-X-Gm-Message-State: AOJu0YywkdiM6IMX3tx1opPRAt9VS6UqcAjzKCJIumml+b5R2y1AYEf5
-	QvO018lysTolCutG2aWoFpweHBbGCzMmmAuHTgCv4bGotAnIIf/D
-X-Gm-Gg: ASbGnctsK2Xmvp2Vhz87kqLClQ+9SNTgm7fn9R88IW+gDshC81LJLnrFwGEtPYO/9CC
-	7Zelw+HTqEtC1W2C0zIa+6D6+DhKpl0iDxZ9gSTD1psr6NsZ+jKwn4jwv6YRk14+YcF3wdiuuz4
-	LHnXkOyfzPZJOdO/OTgXzOByGCjqROMyrpiqE1nScH3XnU5GGcAR7Ms/Zx9xONwwH/fuY7W4PSD
-	K7m5l9spVA4Qykb41Pgdcs3Bw6lTcngquwcDkLzSzmqDQ28dpa2hhSviwr/2boGc9Vj4YdauM/0
-	9GcBHQBjwh6NeYSiUipvQZQsVDmeMnY3Qw==
-X-Google-Smtp-Source: AGHT+IGK4qXm9ArrLCXgXNAYLraEfl7iQZEVMYeN5XftPU/x8Co4B5Nq48EhLKMbp6h132WBFeRBuQ==
-X-Received: by 2002:a5d:5f8f:0:b0:38f:38eb:fcfc with SMTP id ffacd0b85a97d-3971d136069mr9762245f8f.7.1742097968994;
-        Sat, 15 Mar 2025 21:06:08 -0700 (PDT)
-Received: from localhost ([2a03:2880:31ff:5::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1fdda152sm67916635e9.1.2025.03.15.21.06.08
+        bh=bm/TjLVsOIQb5qeMDxohaetZDngVOOW8hl6xb9zJkyk=;
+        b=SeF5PVPsChay30Yi64OKaesyC+ugdRS+czscKX7/Ue0bTSSm5s0c1Nb+TDsUFukEsy
+         2aHFDgIXmDJ4jXzb2LEcILWCeWA/FF7SCdFmrjXuZW0Oa2z4CB6WYN8YmABI2dtondEl
+         ORLbva8r3WjK89Ni4z6LeBRTfxZPjXOF0/LyGOqKcbMiltuyfEiqR7wpwrkZ/THpin1m
+         0dwaV14U7SUn23SwRIhrgP///T3LBGMkmHev46mF2vaWG0bC4Pe7Ah28XI7JjOMOWP6h
+         IfzNZeWp8rRljQQgprYuBZT/dc+wapq+giYEiTnNkYmHz5HvhoI9jtIzJVRsFeF7BGul
+         Ul9A==
+X-Forwarded-Encrypted: i=1; AJvYcCUz4x0oYkqrkpTI8GdwIkmsI94e317/k5K7IEY61pGlX/XKlZFPh3ye+bobwssPJPLxecKAiY/Sk5zEoN+Wdy32@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywwj8mOKCxHjaWJ6GWGgEqk5ktUI6G+NtWDc0323zoTNJII29U5
+	GNVk2BvTmVGvenOE/LmLzNvaNcYfuSkTIM7q2JEhNZYmYsgs6S9+0nJlUQ2ojE0=
+X-Gm-Gg: ASbGncu3JeaqmaPtHTo36YBG09gHeatQwon3/vmteoEZsk03lpIBouu4oQU899QufjH
+	UZHm8OpaKtQQRGTac7PaOrbMuEaOv1AhOFyE2dleXgRlUDlp0wAELcurmmJhyePwalNN97R178y
+	Oz/Wnc726Kl1NKH1+3lJsTuOvqy9ryUl3urmBjcgl2flLQJ4hD4C81JXdF5n6zii10oAmLBuyt1
+	Qt3vi6Qwzih1EBfI1lZC7NP9Y41G6IWjYMkyfVbslqHki5MumS7jeU9ROMJ0uyLw8S3bHF7/BpW
+	6S0/NOrfMQwH8sIRnzd5Qsy+CpOHhX9mxy0=
+X-Google-Smtp-Source: AGHT+IGURbU24AaTjAxqIKJjqCn2mEjZeMLGKyXVZQ1FJ1WehOwHXfyeGE85aKEnu+FeFGs/jt2rrQ==
+X-Received: by 2002:adf:a39b:0:b0:397:5de8:6937 with SMTP id ffacd0b85a97d-3975de869d5mr7109406f8f.41.1742097970041;
+        Sat, 15 Mar 2025 21:06:10 -0700 (PDT)
+Received: from localhost ([2a03:2880:31ff:72::])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c82c2690sm10726584f8f.25.2025.03.15.21.06.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Mar 2025 21:06:08 -0700 (PDT)
+        Sat, 15 Mar 2025 21:06:09 -0700 (PDT)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -88,19 +88,19 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kkd@meta.com,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v4 20/25] bpf: Convert percpu_freelist.c to rqspinlock
-Date: Sat, 15 Mar 2025 21:05:36 -0700
-Message-ID: <20250316040541.108729-21-memxor@gmail.com>
+Subject: [PATCH bpf-next v4 21/25] bpf: Convert lpm_trie.c to rqspinlock
+Date: Sat, 15 Mar 2025 21:05:37 -0700
+Message-ID: <20250316040541.108729-22-memxor@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250316040541.108729-1-memxor@gmail.com>
 References: <20250316040541.108729-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6720; h=from:subject; bh=9q6tMvL0KIAbFk+sY/U9KRjErNQz0NSPRbrt2C3ZJkE=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBn1k3eRwoCpVBivHRVCIfYOVJ3bSQqELoQ3YdqIHaZ 0Qn/pVmJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ9ZN3gAKCRBM4MiGSL8RyhG8D/ 4gZK23dPYHGv97XCNumvumPpE5iAC1RvxTgRMG3f8G3jsmtWgXSKJJX0I/LPV9SIjEVENK69dF8OYo JtJzi6M0frKXWOH3i348qYosuOyV2drlvwfNUUEFB30EDCZyh15S5rPPv1UpNngps6KckmlscR7wKN MXqabQVbUGrYpUvjSK5gYCr7BOGqDYpZ1XagCXPKfXCOsOOn1H3cDaPCfaf8XxgcflHHLVxFBMvW9y +YzbVai2PpwEalAolVi6/DC77pJhgfX7rwqhMncu4/xkyFnH87t5JONBFJHZf45QeGx0A4agc9nOg8 rxjniya94z/TfDYqZLAfQEZIV9kAGOUMvPwhEnXyYuDHDDRec7tKNSO+P2IUb2hYefVM3Ghm0n4p0P CmZc9N/Y2GIRXvVl4VLGwfu/ensS1wCFj82w76Ig1qpUYwppwWkH9o5bWb9dv3U8lmN3c8F9NHEx1o OIsPoR47YLMoasxqRtXiWe2dvZbilJdVqJelZipX4dCEyIoC+1YYy6r2/ftW3XakSo6UWBre8hFohm bGJu1Qo3BxBDSej8CFT3E3KsVzZ5XVrF/RPr0liFKY5TyEV1kO33w/oEzrui9Z/irDz8gIF9aF4Y8z u+gd5bcIJtqR98WDZhEnXhXlVzZ3ZFtHlkSpmLfDqE0N5VNrh6rqLtwffGVA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3875; h=from:subject; bh=JAC4N7kXKK3pnjvfn/+uPUJ4VSIRwkWi681l7P20D6I=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBn1k3ePndVFVpKoLfCEr0LeaQTth201gHenOAJqnlp 4yxo4/+JAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ9ZN3gAKCRBM4MiGSL8RyqETD/ wPY/kdxYtWMwPuTaaDUV/B3x37peOYAWOdkQcKpbuywBe0gInjoXHOEs+9kkyNps+nUXY3V1aFV1sh HCKWqCMPO7iBeiB4f45fMwvNewTenIvKf+TNJluOSt/v1CzNEil4pBSqsDlCXmZr8B7JXHb796aCm+ 5WfEq7kYFsgD21IEcJQNF4uTNry5R1ceqOAZvdd4y1NmNljt/7G8QS0IJv3zlu/0+BIunPtpqFbpVP 5z55MtMIE1CGFkAHVq48XJVIB9TfWzMIoyD6LKaRKQbrABVSTvT2LTCRcJkvJFKXpEKGbuYcmjo0pK O1yf/FMseMc11MT7/8ZDm/ezGZao7FjQfCb3U94APSqklR8acBNVZlQeLBwTSY1KIAnQu5C4zjoEme yPoSD0GDwU1vuNhQZvVvL5JSlqw6LXR5JgtO2hm1HOvelVuwOon0Mimv8uG/tiH9K7vPJr83ZdKO6X G4BmtnD77NsUAbSGZsNDHKg0c8/kyezVplqtG2Su21wBajRyeNwORZRBpxsxuP6d6oi3H2Fw43nklC +4rCMj1HNzhTA2XLuXrVuqohGykMqtcQZZNUzk4T6xxGMDuQYGV53FMQZWK9zFKZckR/KT1y/gf3zD rVdO2lI+Ki076kbGMvCDeNlQEq7beSPEriiu/ij7C2wMIRHqnyK28WWFR79w==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_210610_479951_C05AD7CF 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20250315_210611_472191_46125D39 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,221 +115,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the percpu_freelist.c code to use rqspinlock, and remove the
-extralist fallback and trylock-based acquisitions to avoid deadlocks.
+Convert all LPM trie usage of raw_spinlock to rqspinlock.
 
-Key thing to note is the retained while (true) loop to search through
-other CPUs when failing to push a node due to locking errors. This
-retains the behavior of the old code, where it would keep trying until
-it would be able to successfully push the node back into the freelist of
-a CPU.
+Note that rcu_dereference_protected in trie_delete_elem is switched over
+to plain rcu_dereference, the RCU read lock should be held from BPF
+program side or eBPF syscall path, and the trie->lock is just acquired
+before the dereference. It is not clear the reason the protected variant
+was used from the commit history, but the above reasoning makes sense so
+switch over.
 
-Technically, we should start iteration for this loop from
-raw_smp_processor_id() + 1, but to avoid hitting the edge of nr_cpus,
-we skip execution in the loop body instead.
-
-Closes: https://lore.kernel.org/bpf/CAPPBnEa1_pZ6W24+WwtcNFvTUHTHO7KUmzEbOcMqxp+m2o15qQ@mail.gmail.com
-Closes: https://lore.kernel.org/bpf/CAPPBnEYm+9zduStsZaDnq93q1jPLqO-PiKX9jy0MuL8LCXmCrQ@mail.gmail.com
+Closes: https://lore.kernel.org/lkml/000000000000adb08b061413919e@google.com
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- kernel/bpf/percpu_freelist.c | 113 ++++++++---------------------------
- kernel/bpf/percpu_freelist.h |   4 +-
- 2 files changed, 27 insertions(+), 90 deletions(-)
+ kernel/bpf/lpm_trie.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/kernel/bpf/percpu_freelist.c b/kernel/bpf/percpu_freelist.c
-index 034cf87b54e9..632762b57299 100644
---- a/kernel/bpf/percpu_freelist.c
-+++ b/kernel/bpf/percpu_freelist.c
-@@ -14,11 +14,9 @@ int pcpu_freelist_init(struct pcpu_freelist *s)
- 	for_each_possible_cpu(cpu) {
- 		struct pcpu_freelist_head *head = per_cpu_ptr(s->freelist, cpu);
- 
--		raw_spin_lock_init(&head->lock);
-+		raw_res_spin_lock_init(&head->lock);
- 		head->first = NULL;
- 	}
--	raw_spin_lock_init(&s->extralist.lock);
--	s->extralist.first = NULL;
- 	return 0;
- }
- 
-@@ -34,58 +32,39 @@ static inline void pcpu_freelist_push_node(struct pcpu_freelist_head *head,
- 	WRITE_ONCE(head->first, node);
- }
- 
--static inline void ___pcpu_freelist_push(struct pcpu_freelist_head *head,
-+static inline bool ___pcpu_freelist_push(struct pcpu_freelist_head *head,
- 					 struct pcpu_freelist_node *node)
- {
--	raw_spin_lock(&head->lock);
--	pcpu_freelist_push_node(head, node);
--	raw_spin_unlock(&head->lock);
--}
--
--static inline bool pcpu_freelist_try_push_extra(struct pcpu_freelist *s,
--						struct pcpu_freelist_node *node)
--{
--	if (!raw_spin_trylock(&s->extralist.lock))
-+	if (raw_res_spin_lock(&head->lock))
- 		return false;
--
--	pcpu_freelist_push_node(&s->extralist, node);
--	raw_spin_unlock(&s->extralist.lock);
-+	pcpu_freelist_push_node(head, node);
-+	raw_res_spin_unlock(&head->lock);
- 	return true;
- }
- 
--static inline void ___pcpu_freelist_push_nmi(struct pcpu_freelist *s,
--					     struct pcpu_freelist_node *node)
-+void __pcpu_freelist_push(struct pcpu_freelist *s,
-+			struct pcpu_freelist_node *node)
- {
--	int cpu, orig_cpu;
-+	struct pcpu_freelist_head *head;
-+	int cpu;
- 
--	orig_cpu = raw_smp_processor_id();
--	while (1) {
--		for_each_cpu_wrap(cpu, cpu_possible_mask, orig_cpu) {
--			struct pcpu_freelist_head *head;
-+	if (___pcpu_freelist_push(this_cpu_ptr(s->freelist), node))
-+		return;
- 
-+	while (true) {
-+		for_each_cpu_wrap(cpu, cpu_possible_mask, raw_smp_processor_id()) {
-+			if (cpu == raw_smp_processor_id())
-+				continue;
- 			head = per_cpu_ptr(s->freelist, cpu);
--			if (raw_spin_trylock(&head->lock)) {
--				pcpu_freelist_push_node(head, node);
--				raw_spin_unlock(&head->lock);
--				return;
--			}
--		}
--
--		/* cannot lock any per cpu lock, try extralist */
--		if (pcpu_freelist_try_push_extra(s, node))
-+			if (raw_res_spin_lock(&head->lock))
-+				continue;
-+			pcpu_freelist_push_node(head, node);
-+			raw_res_spin_unlock(&head->lock);
- 			return;
-+		}
- 	}
- }
- 
--void __pcpu_freelist_push(struct pcpu_freelist *s,
--			struct pcpu_freelist_node *node)
--{
--	if (in_nmi())
--		___pcpu_freelist_push_nmi(s, node);
--	else
--		___pcpu_freelist_push(this_cpu_ptr(s->freelist), node);
--}
--
- void pcpu_freelist_push(struct pcpu_freelist *s,
- 			struct pcpu_freelist_node *node)
- {
-@@ -120,71 +99,29 @@ void pcpu_freelist_populate(struct pcpu_freelist *s, void *buf, u32 elem_size,
- 
- static struct pcpu_freelist_node *___pcpu_freelist_pop(struct pcpu_freelist *s)
- {
-+	struct pcpu_freelist_node *node = NULL;
- 	struct pcpu_freelist_head *head;
--	struct pcpu_freelist_node *node;
- 	int cpu;
- 
- 	for_each_cpu_wrap(cpu, cpu_possible_mask, raw_smp_processor_id()) {
- 		head = per_cpu_ptr(s->freelist, cpu);
- 		if (!READ_ONCE(head->first))
- 			continue;
--		raw_spin_lock(&head->lock);
-+		if (raw_res_spin_lock(&head->lock))
-+			continue;
- 		node = head->first;
- 		if (node) {
- 			WRITE_ONCE(head->first, node->next);
--			raw_spin_unlock(&head->lock);
-+			raw_res_spin_unlock(&head->lock);
- 			return node;
- 		}
--		raw_spin_unlock(&head->lock);
-+		raw_res_spin_unlock(&head->lock);
- 	}
--
--	/* per cpu lists are all empty, try extralist */
--	if (!READ_ONCE(s->extralist.first))
--		return NULL;
--	raw_spin_lock(&s->extralist.lock);
--	node = s->extralist.first;
--	if (node)
--		WRITE_ONCE(s->extralist.first, node->next);
--	raw_spin_unlock(&s->extralist.lock);
--	return node;
--}
--
--static struct pcpu_freelist_node *
--___pcpu_freelist_pop_nmi(struct pcpu_freelist *s)
--{
--	struct pcpu_freelist_head *head;
--	struct pcpu_freelist_node *node;
--	int cpu;
--
--	for_each_cpu_wrap(cpu, cpu_possible_mask, raw_smp_processor_id()) {
--		head = per_cpu_ptr(s->freelist, cpu);
--		if (!READ_ONCE(head->first))
--			continue;
--		if (raw_spin_trylock(&head->lock)) {
--			node = head->first;
--			if (node) {
--				WRITE_ONCE(head->first, node->next);
--				raw_spin_unlock(&head->lock);
--				return node;
--			}
--			raw_spin_unlock(&head->lock);
--		}
--	}
--
--	/* cannot pop from per cpu lists, try extralist */
--	if (!READ_ONCE(s->extralist.first) || !raw_spin_trylock(&s->extralist.lock))
--		return NULL;
--	node = s->extralist.first;
--	if (node)
--		WRITE_ONCE(s->extralist.first, node->next);
--	raw_spin_unlock(&s->extralist.lock);
- 	return node;
- }
- 
- struct pcpu_freelist_node *__pcpu_freelist_pop(struct pcpu_freelist *s)
- {
--	if (in_nmi())
--		return ___pcpu_freelist_pop_nmi(s);
- 	return ___pcpu_freelist_pop(s);
- }
- 
-diff --git a/kernel/bpf/percpu_freelist.h b/kernel/bpf/percpu_freelist.h
-index 3c76553cfe57..914798b74967 100644
---- a/kernel/bpf/percpu_freelist.h
-+++ b/kernel/bpf/percpu_freelist.h
-@@ -5,15 +5,15 @@
- #define __PERCPU_FREELIST_H__
- #include <linux/spinlock.h>
- #include <linux/percpu.h>
+diff --git a/kernel/bpf/lpm_trie.c b/kernel/bpf/lpm_trie.c
+index e8a772e64324..be66d7e520e0 100644
+--- a/kernel/bpf/lpm_trie.c
++++ b/kernel/bpf/lpm_trie.c
+@@ -15,6 +15,7 @@
+ #include <net/ipv6.h>
+ #include <uapi/linux/btf.h>
+ #include <linux/btf_ids.h>
 +#include <asm/rqspinlock.h>
+ #include <linux/bpf_mem_alloc.h>
  
- struct pcpu_freelist_head {
- 	struct pcpu_freelist_node *first;
--	raw_spinlock_t lock;
-+	rqspinlock_t lock;
+ /* Intermediate node */
+@@ -36,7 +37,7 @@ struct lpm_trie {
+ 	size_t				n_entries;
+ 	size_t				max_prefixlen;
+ 	size_t				data_size;
+-	raw_spinlock_t			lock;
++	rqspinlock_t			lock;
  };
  
- struct pcpu_freelist {
- 	struct pcpu_freelist_head __percpu *freelist;
--	struct pcpu_freelist_head extralist;
- };
+ /* This trie implements a longest prefix match algorithm that can be used to
+@@ -342,7 +343,9 @@ static long trie_update_elem(struct bpf_map *map,
+ 	if (!new_node)
+ 		return -ENOMEM;
  
- struct pcpu_freelist_node {
+-	raw_spin_lock_irqsave(&trie->lock, irq_flags);
++	ret = raw_res_spin_lock_irqsave(&trie->lock, irq_flags);
++	if (ret)
++		goto out_free;
+ 
+ 	new_node->prefixlen = key->prefixlen;
+ 	RCU_INIT_POINTER(new_node->child[0], NULL);
+@@ -356,8 +359,7 @@ static long trie_update_elem(struct bpf_map *map,
+ 	 */
+ 	slot = &trie->root;
+ 
+-	while ((node = rcu_dereference_protected(*slot,
+-					lockdep_is_held(&trie->lock)))) {
++	while ((node = rcu_dereference(*slot))) {
+ 		matchlen = longest_prefix_match(trie, node, key);
+ 
+ 		if (node->prefixlen != matchlen ||
+@@ -442,8 +444,8 @@ static long trie_update_elem(struct bpf_map *map,
+ 	rcu_assign_pointer(*slot, im_node);
+ 
+ out:
+-	raw_spin_unlock_irqrestore(&trie->lock, irq_flags);
+-
++	raw_res_spin_unlock_irqrestore(&trie->lock, irq_flags);
++out_free:
+ 	if (ret)
+ 		bpf_mem_cache_free(&trie->ma, new_node);
+ 	bpf_mem_cache_free_rcu(&trie->ma, free_node);
+@@ -467,7 +469,9 @@ static long trie_delete_elem(struct bpf_map *map, void *_key)
+ 	if (key->prefixlen > trie->max_prefixlen)
+ 		return -EINVAL;
+ 
+-	raw_spin_lock_irqsave(&trie->lock, irq_flags);
++	ret = raw_res_spin_lock_irqsave(&trie->lock, irq_flags);
++	if (ret)
++		return ret;
+ 
+ 	/* Walk the tree looking for an exact key/length match and keeping
+ 	 * track of the path we traverse.  We will need to know the node
+@@ -478,8 +482,7 @@ static long trie_delete_elem(struct bpf_map *map, void *_key)
+ 	trim = &trie->root;
+ 	trim2 = trim;
+ 	parent = NULL;
+-	while ((node = rcu_dereference_protected(
+-		       *trim, lockdep_is_held(&trie->lock)))) {
++	while ((node = rcu_dereference(*trim))) {
+ 		matchlen = longest_prefix_match(trie, node, key);
+ 
+ 		if (node->prefixlen != matchlen ||
+@@ -543,7 +546,7 @@ static long trie_delete_elem(struct bpf_map *map, void *_key)
+ 	free_node = node;
+ 
+ out:
+-	raw_spin_unlock_irqrestore(&trie->lock, irq_flags);
++	raw_res_spin_unlock_irqrestore(&trie->lock, irq_flags);
+ 
+ 	bpf_mem_cache_free_rcu(&trie->ma, free_parent);
+ 	bpf_mem_cache_free_rcu(&trie->ma, free_node);
+@@ -592,7 +595,7 @@ static struct bpf_map *trie_alloc(union bpf_attr *attr)
+ 			  offsetof(struct bpf_lpm_trie_key_u8, data);
+ 	trie->max_prefixlen = trie->data_size * 8;
+ 
+-	raw_spin_lock_init(&trie->lock);
++	raw_res_spin_lock_init(&trie->lock);
+ 
+ 	/* Allocate intermediate and leaf nodes from the same allocator */
+ 	leaf_size = sizeof(struct lpm_trie_node) + trie->data_size +
 -- 
 2.47.1
 
