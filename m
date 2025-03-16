@@ -4,158 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D2FC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 01:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21F0C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 04:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67zmGeXuCMRKWzEElMLEOJVKxGDQpwBgMA6Rp1uyIXI=; b=xFf7EucS6Ypkldnec4C7LEINMp
-	oHIZbbAv4NMjUsWYM7t/CjVAPnPSYIp8VEpSXWUHWkDydrQ7LT7ykpcayHyNccn9juF6R4zVa/TIO
-	S1hYAM4kOs/JA4rpgB4kbLvUjVoEkf5oETCDVxGYDTAt1nZYqvdPAlxUbwTwvpwGVKJkVQ3BWllDl
-	v7A9ey7fTBuGjXHuyrMOoXEEhu9bn3wCvoE9TvDvPVFvTpY9PsuBY+8tjmPrs2jFeEl0pDD2A/M8K
-	SVK9b2o4sOSR2U4cGj2Wj1GoXcsP4DUpb4bAPx0cl9k8klnxyJW59UUaB2fzYnR9bdO0rl4XWPtZP
-	D6nWDhhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iAZ9jQC/mJhCSOh/eXQcdu5v8UyTgJRpZIptn/Tfisg=; b=sDH7v2soveLroXVqg88YIBGKRK
+	jiKkDXszwPAGf53STYDQQ7MDLsCKkqrUUGay1xf3lO1UuEmJtQZqQc7GAawVndV+c9NEKtpYhaQNZ
+	pFpLbwNqLLsvyMjqVqaZoZtG3N8RKsYhZ3oxttbIZWs3ynBFK5acBOvx2yXS/BbeOuowzwOSuPElM
+	uzNyhah9MV0yT9xOi9GULZ+lhZRk9VXydcwinhHCxX1ESbfm36RxFjXGJU0UZvVIqWw64pdEkhFkH
+	T4WzbqWKgtl96lQxjNBn31n/2D9VEkYulTt1DqbbPKej+ZJW18Xus4Dcr5VpJHUzr21QJanZv10GI
+	PfMA0vfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttcvx-0000000H5lu-3sxe;
-	Sun, 16 Mar 2025 01:36:57 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1ttfHf-0000000HCjY-1Q6U;
+	Sun, 16 Mar 2025 04:07:31 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttcuI-0000000H5eT-0D7c
+	id 1ttfFx-0000000HC8U-3bBQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Mar 2025 01:35:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sHr6AwbCTdEIY3LIMfFz09q2Pb4Qvw29ofL/iGvs3rYRjjC+OKFX7RRxCuTIaXUhAiGpwt74hRjTNLsmUGfSGjihqixSokokONabP5MRN4ox5Z/MgYGr3esy7KWMsKM9n/bmsAMtPVbL2ecnhXwMX8gUO8iGiinR94L3jNi0NhJCgK7l28zdgrZfFU1B4evrs7M/NX73u47dAtnfPESDMVWI2aNpMpS4ZmWaouhjntVzs/6pqdpfxCHhnpUoj/tndSKTswFbMnw8KJ35A+9M0SDq4z7e10sfaiciVbztUnwoQuJ/GpSJ2Z+PSasQBww1Lw/7KCMylHGY1bVwwT409A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=67zmGeXuCMRKWzEElMLEOJVKxGDQpwBgMA6Rp1uyIXI=;
- b=WyXrMldp56nvErD+rfLPi1X6ucYj2Stwcz6pzcXWxy+wB1YUZtgsPXH9VMvXnRpBuM3f5pFNYdlH4ohhHQMIn7/nmDd+cQNFb6vixCwP9puSc5UeqlplcbWGFegNt9pshqk2bRySk1dVYaHPEa6Ct4HcgkL7TDWAd4ZqefzMD2AAEgTsYdkh1rUv5419DqLZZsmqhbs1ROHwmFVvIBuaFrbe4lW/9hhpRsF/KLU82kT6uDTNMc+yLAu0c8LTTbYyPY/PU5bUMiZW4zFImFp9GYZtwOChEd3m1R5SJqqrGvb9pXivXwOiRRuDM2b7r8TEqhG/6RnVKXRF9qWCEpc/tg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=67zmGeXuCMRKWzEElMLEOJVKxGDQpwBgMA6Rp1uyIXI=;
- b=iNlH+u1B/MrAl2Au7UkRJ6ySxJdNDICc4MvjKIjuo7zmvyo4bDsAWL0sGvno0DZCYnsntFvr5ewe6haAt9XcEu7RPfqRSwYxSqVHSoXFuSuJS0tVcLLXPYFXQs2pJFrlAgpQgyHuUftBaTCRIIcgr2doTH3ddpjrppT6mjecRrSS3HnqdNkGmZ9nrkEAHS0k4ntpAkqjBw1ewlCB2oweBGPQ6M/yDnl3Kno3qmWX7Va4Knflnsdy3TF5xQe0rjx1/GLJtgbg5y9gxOBnn0TL/k9m7cKz7n6o37w2hQljJkxKjuhnCYHb7UqBOncEpcNIc6Fli8CVtQI0jQHPvKsPjw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM0PR04MB6964.eurprd04.prod.outlook.com (2603:10a6:208:18a::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Sun, 16 Mar
- 2025 01:35:07 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.026; Sun, 16 Mar 2025
- 01:35:07 +0000
-Date: Sat, 15 Mar 2025 21:34:57 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v12 12/13] PCI: dwc: Use parent_bus_offset to remove need
- for .cpu_addr_fixup()
-Message-ID: <Z9YqwXG5yrQX8Mep@lizhi-Precision-Tower-5810>
-References: <20250315201548.858189-1-helgaas@kernel.org>
- <20250315201548.858189-13-helgaas@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250315201548.858189-13-helgaas@kernel.org>
-X-ClientProxiedBy: BY5PR04CA0023.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::33) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Sun, 16 Mar 2025 04:05:47 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-43cf034d4abso11625375e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 21:05:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742097944; x=1742702744; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iAZ9jQC/mJhCSOh/eXQcdu5v8UyTgJRpZIptn/Tfisg=;
+        b=ggOHiU4z9mxgNU+shSrVw+6jinkyYBmCQcSlAUpjVuyTW4wK08vB2E/Dz84C+KF/++
+         1fUUAwQH2D7eHRbvYNi/XeShfkZHQmG4+IpiWMH3qkdBYs/JxBjjGt/YrcS6jNpWctyO
+         //vBYAUtxRigCP5xodJVJxcsrzIaYo1rtFuP5jy6QaXdLP7KqJqG4Thxx3uV4wJDARu2
+         AhJzeu4PT1a9ujNojmSJ8uKt71S0U5NfiXHKQWWef0DHZbsH1JfiQgs3AMfFpYDE69le
+         l9NJ7uasiaomB0oEmGPn/WfllE06irKh/95hAfdcNbTH1a9LjcytI7J107KA9DrevnkR
+         F3rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742097944; x=1742702744;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iAZ9jQC/mJhCSOh/eXQcdu5v8UyTgJRpZIptn/Tfisg=;
+        b=QrSss1yohq0THZAoOl7EGb7N+16TVwcD44LBPR/UX6JjNEh3QzlQDziMbR/qoAWCbW
+         tOulTIwxZD59RdI3ZCvrQyqeFMZSdLGaQ5z7M5xgcwWbecKmrwMjWXYPa3IbqmnmA2MD
+         fA62tddtnVBcIlc+RpWICuJ3v0kXgFdI0yMQV012ckl7MM385YxcMusRB1trQOIaxJa+
+         El7S9wOamxQhfa/YiCk2D323tKaW/LJH3YC65JEVessTLblk/1BLKNHzd47fRfRRK2L2
+         K82prg4pxsGO0Fi4Dc87Zil49BQDnIRQbtp3c13uYZ4hhb2v+KrRNMyO3TcY6BeBoaHC
+         gQJg==
+X-Forwarded-Encrypted: i=1; AJvYcCVoC1zxQQ8YrkB/Yqu1t1MwJUBvWVxrvvo6O4EMwH7HyrIxP0yCC8yptm+j3fS0bYPtDv6L92dAt8A5h0jDD7CF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyxa7JvSJiieVg75RJDBdG7SGAR0unR101iDA4+GplLTOxyq3ih
+	isRckU19i8z6Toqr0KAPY/pxtgunfYtblPZsTtgD4iuqtaaIA1PK
+X-Gm-Gg: ASbGncvS7ztNpyO5hcTbYjdonSDSvQXcM+UAB5b65hn0F8lEXsXieB6gTvEX0Pz3cEk
+	UnlWPJhPbQdzK7SVG5f5j31xdAeZxDNDGdrX83L9x9vVQOq1hs5NkMd9c3VTnTvHb4vy62onH/f
+	rik7lJYVdj967htqUkFqX1J2b8OqBfl/eSgxb5mrW6fbj35ytOPZ34nAWLNwl55jXQSZgxoPbOP
+	wUKHdz/qKeOGej61mhviRrqNnNXy7Nc3QV1RoU+E9RDM7Kk1mMqoTPxrK0runGPUNgqAnIL5qgk
+	Y717B6PcmcnG07X6N06OIVcYO2CdwDxI8Q==
+X-Google-Smtp-Source: AGHT+IGf5Cwi04Qa+X8PjeKePQUKLiwDo+IJ3EDto0rr/2TEINmkWVGh9IecdlUhicgQ4p2TyfcEGQ==
+X-Received: by 2002:a05:600c:4f41:b0:43c:e7a7:aea0 with SMTP id 5b1f17b1804b1-43d1ecd94b6mr82913775e9.26.1742097943833;
+        Sat, 15 Mar 2025 21:05:43 -0700 (PDT)
+Received: from localhost ([2a03:2880:31ff:5::])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3978ef9a23bsm6539658f8f.15.2025.03.15.21.05.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Mar 2025 21:05:43 -0700 (PDT)
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+To: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Barret Rhoden <brho@google.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Will Deacon <will@kernel.org>,
+	Waiman Long <llong@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Josh Don <joshdon@google.com>,
+	Dohyun Kim <dohyunkim@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kkd@meta.com,
+	kernel-team@meta.com
+Subject: [PATCH bpf-next v4 01/25] locking: Move MCS struct definition to public header
+Date: Sat, 15 Mar 2025 21:05:17 -0700
+Message-ID: <20250316040541.108729-2-memxor@gmail.com>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250316040541.108729-1-memxor@gmail.com>
+References: <20250316040541.108729-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM0PR04MB6964:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a28707e-2316-4448-aa6e-08dd642ac8b4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tISBMOx6ePZHcpW+ig/sMYJ99vEzIpEzg/YrqBNc0x/sJvtYIzNZZf3vQUdT?=
- =?us-ascii?Q?NNfJOGbnwbTQ3hPhK51p/94Bm5jj3Wdmt5RKBPFP/WrihtkSvaI7ECvMdjTz?=
- =?us-ascii?Q?vglnQoskm++AAKJho6W5P7Uy46m6CWapylpT5wVlHfqfwxPsrGehXhQcoZHJ?=
- =?us-ascii?Q?8N7ApXJ9iOKEP5YQwQl0z84ZrmrSr2vScVKd0BD0B26pMzwqWgESJJPSq/v1?=
- =?us-ascii?Q?+YC/BfWQRJ8oe4Us+318jvq/GXQmnYO6eG8PqYuPD96pFVwNHmCKpf+afny6?=
- =?us-ascii?Q?7UGIAslp13QjLPUoKgIbUDuNZ5jJMsDotfVTYU2xDpDn3h9FGyrc2rvmi2Cy?=
- =?us-ascii?Q?gcNZDSRJ9N2hlb9bKy6ugnBCh6kEobpo/ag5N/XsHwnCfAe2W6LmE/5Bw8Ut?=
- =?us-ascii?Q?PfE8srtZoGMAVMcdivgoNjttb3L3xEOr9mrAau8MH0Jykc2fMaDGa9bBsq/7?=
- =?us-ascii?Q?5Et+Y+oh2xvlO3SzvvjRs3vJJtx3E+R8BKIU5tQ+MsAi08Yq0yEwEqFPtTvf?=
- =?us-ascii?Q?fDx3xvHbQEW5CjjflcmC/pezKI00IS+Fj3OlPXIhmIrjMQNoxfKcLDU/NMEi?=
- =?us-ascii?Q?iJZu4N6qu4ucGIPW3+RxjjsSJo8S4PBe3e1+Cgf03fkn0JAfOrFnq37GIUzQ?=
- =?us-ascii?Q?t68hVWWTnYL66jwZyqGjIW9DSaaZLSLPg2Kxg1dh/tcXiJIUfp3krIdOB6Pd?=
- =?us-ascii?Q?heswcMG+x5mdtQwjMXbvE4HvKJo0//yHaPIM8v8t04ACRKegXgEnoG0oMCdA?=
- =?us-ascii?Q?XqveAZJMZhmkR9eHwn8kuPRWP7zPYBF87xE1ANKxOelX941J36OpMEXioSoA?=
- =?us-ascii?Q?FRdTb6rd/lH9Q/cMme6Dj+4u6KZoTcsSdyFBofT+l5iOPBwssOtelBKWxNMw?=
- =?us-ascii?Q?3WsmIObk4kyGm60q5QN5vfJDWxmV8890y23tdFLiYAXwzka+uEszrX4JZ8Yd?=
- =?us-ascii?Q?QTKQHcC1V+1WKlOlB9+/NuHAqLcgzPRDufFzwKuUCiDWAB0vi/CFKcgDglwN?=
- =?us-ascii?Q?LwntPSW4JUp05JThwa3x4OfKZy4DOnHnLrhrWc45kcmQrsVZK8xJ67UTb7aX?=
- =?us-ascii?Q?uaAVEkNcXAlojhhuT13Qt0+b3M9gXEy3ZE3YkvQtxaHfCoKmCB6aM+z5H/KM?=
- =?us-ascii?Q?CUqjRiKyf/oO5SSm3j4QVMsPnkqK25RuztgxWG67iW6Fk57ydx7ZEw1yn6Zt?=
- =?us-ascii?Q?bYOVrk9mdwUtpTj/3VFCukUsq7X4K+OqVcNEVIP56wwM9Tn0LlqsAh8ix64P?=
- =?us-ascii?Q?tDhM7XA0YvS0+yJS8qkSACN9NA9yaaT7ltEJYrQqi/szP19SnzWTMSPXT6x4?=
- =?us-ascii?Q?uRR8YbKXP4xFrtiEDwzmQysI4ClPHY/2OwLQ3thRyBtdFXMQYBqQkEdx+Rb8?=
- =?us-ascii?Q?3OegP5lPs96qCCmBCDv4sljiSsTUfqoEPgkllBhuDabFtHcMPyHMLJKXLgkS?=
- =?us-ascii?Q?x2X1oWhuCR0VUo3X3xb8CR0dO+yiWwka?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3SwZBQKjMsxSneUXzxJ4KMOIfZOomsSwapIDTw78C4GtUqRFHCOSLpFP0t8c?=
- =?us-ascii?Q?kRT3H9pfZCEro7OeOd57PtKodthZ2jHBNDaP0Izj8tHViAR4MC1btyKbtgWF?=
- =?us-ascii?Q?vbStWeVvn2M359wqSNcC3CtIjvY0FuMSZH9iT1rnNUn6c2zmjSvqcQY2OW2N?=
- =?us-ascii?Q?qbX1LFD6iKNK6cymiGP6P3GT4qyYIyh1U9wS8WMFe/RMsO8FMfc+Z3wy4WtI?=
- =?us-ascii?Q?AYwjU71EKl771uSsoWx4zJGj3926hOY8IiZvza0WUpTu8Uf1RaXK5Cp191qo?=
- =?us-ascii?Q?UXPpsy72CsGI7zmiy60L4BwCTO3CFy8U5agA3stxx+OtFxlv+4ghOfScNK13?=
- =?us-ascii?Q?1ekbTxf1n2UuOoIDLpm2Jm++XJI80zdiB3oV//SOthKZL5Sp0GYZ1r8AK0d/?=
- =?us-ascii?Q?t8Nm6BLIR7FiFiVs6E70O5o6BRKTI+Xku8kl1NHiSaV0yCueiSugEmqCgm/M?=
- =?us-ascii?Q?QxijDSnCE3Ck41zdbYArmqW95OEFx1vOKMQ4BnPwHL5/IW5TfhzSeYmimk/m?=
- =?us-ascii?Q?DHu2zVrmx6mDK/6eROniGpTbAP6FExd2D49PYRTl8+gY5IVh18gWDHkl648D?=
- =?us-ascii?Q?QmhBF4sxsA9ATaTDAGEiJfYDVCUD27hkGugSL0gzltm0LXhHF3iZ6TTUZdeE?=
- =?us-ascii?Q?CZBthzwzYiF2wJRJvaQtuxzD+IwKFg0Uxko0ycEVD/O1itVk7SyizlDFM9jz?=
- =?us-ascii?Q?k1kxaxE41x/iQz/GE5yUQ7zNRtjcfEkKCI0DriObfLyw7KMJKtj//iyemmt7?=
- =?us-ascii?Q?BtaPUOKQB2d8QUsCxFHFcS/5OWr1Oc0mtxgXwYMGPehL2G+YvBGMLKpMPOQq?=
- =?us-ascii?Q?O/oMqUVr4+eFEdYxP+2LvJ8/jJG3ZPAnktMJ+wJZNAM0PNVU7vsWbvggQRFE?=
- =?us-ascii?Q?LK3sP6RbNbfufgghc3Gfg8PtJILIK+P5w8mfL+ueahd4jttTWV8Ree7jQrFi?=
- =?us-ascii?Q?O0wYPe7rRuGqVPbccqT+liMLxj+3MYOwBoOku7IhiLgsSkIYwxKJsPSSKsPy?=
- =?us-ascii?Q?xFiclruo4yQcqNjVBjDUSIzJm8UZwCCvBc2VEeFSRWHXOfSJRi8htSMdR6wd?=
- =?us-ascii?Q?EjpjU14zY5QOZwko5i96MQgFQ2djm8AROOs9kh4LVhWT0qBTmx5hcX2QTBx3?=
- =?us-ascii?Q?htPcFbSc6W2Doc3PpfpbveZQZgAoyWoKaTO9HlBpX6vrgJ0WiIyKaecZ+Sfj?=
- =?us-ascii?Q?Jie4zqtgXnYjbApoM8zG12f6ikUAIjFwtOjwotdqg73P2687RVj8dFTjem3N?=
- =?us-ascii?Q?xq0otl+mAcAR87i+xj7yKTWcADFbZDBbqVNPkmvMRkM+Vau3TTHIQre2own5?=
- =?us-ascii?Q?HDb+EhgdgSaL0nBs1lUZ4PTvWlOpMCN74/abVv1Hh7YAfxmezDEAcJrrIOBP?=
- =?us-ascii?Q?IAqxhmiC1RFQD8wVUqc1du6T2whxMECDGaKMeexUyovZhLr2077EqB9ofdDX?=
- =?us-ascii?Q?0rqapTxBFlM4TUxjHSL9u197NVcqKyddwekwndWr1+m2iLvkIyw7L543BIVo?=
- =?us-ascii?Q?Fxns1X7R53fSEWV1oxpKP8oI9COsrrxMzy9lMWKd495sOCMLuLYJjh0QurpD?=
- =?us-ascii?Q?kcp416y5UH4tj9caf0LnozI6051CmD6ELNluMKQL?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a28707e-2316-4448-aa6e-08dd642ac8b4
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2025 01:35:07.6411
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UC0rOBePPCb1i7fdmHGy0GAq3R2OYIdU3orryOEIImr4VA75HFzT0B4e4Z54QzrGmXpcwkbYcH6K5JCh7iD/+g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6964
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1522; h=from:subject; bh=eRhFkF/3rcweOD1hEb8YOfkkc+MgHB8pVKtpJtztTto=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBn1k3butWk8EuLzPVXxsuVw8yqD8MdVwsBmree1XPD V9Au8WSJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ9ZN2wAKCRBM4MiGSL8RyiyIEA CF0DaeI20sABfTiW+XnI2K40s/yy2XdKyaP2M+UF+REcO/yDFmgt6PB92KqELak5+J8Zi2i1IGAPbL VUQGB/9GPicCJbHPwoFytzQGK9WLhUge3emsZIXUEY6hsTw5s5YX3aKvWQSxl2n+2FRSIopyc1rC3+ nX4Pt4N8iQzyrESusYoivUFphBfzorcIhNELZlC8XfeNgSvpH7VhGHxzgDF+f0x7ptI8tLqB4S9WnC rGlawzSJSmYe+054/yEUR03h250A1H8XHtH8s0UkaymWWfZwSVmdA2vRjk0YvRn/kn0jx3eBtT/Tc1 MnmcwgF3gfyF2j7LQ9KQ79/bXniDKzmIuPc4cUE7V8Mj/AWjZPH/AEFoQy7K47YG2vKIGBw+LK0DZD 8CMVBbbCsDt32Q699Fn0tSZeYkwgoDuNKv3MIFEk8nz7Ih7KdMQgjbUPJyk1KW8RabsVw0BOlA3igv /cfexOGCQVv0Tr8SQeEhc6OGyDr1NKnYqPqJ3+aBlq4sy68DpHYpQSYKJcESF4nGYrf9eOB6GPGPGK BEZnXXAechWthJbFWsNbSQMW/iZ7GgQ5MtQ4/T19J94XQ3Bc/LoSVUvlTBboqEyIUDd+eYO1ECll0r w9vUiTso2v9M8XgX8vGZeEBkK42nAuhPuDiT1R4EOcasWTSuQANf3LFmwfGQ==
+X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_183514_104024_0234953C 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20250315_210545_917019_265BE91C 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,130 +115,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 15, 2025 at 03:15:47PM -0500, Bjorn Helgaas wrote:
-> From: Frank Li <Frank.Li@nxp.com>
->
-> We know the parent_bus_offset, either computed from a DT reg property (the
-> offset is the CPU physical addr - the 'config'/'addr_space' address on the
-> parent bus) or from a .cpu_addr_fixup() (which may have used a host bridge
-> window offset).
->
-> Apply that parent_bus_offset instead of calling .cpu_addr_fixup() when
-> programming the ATU.
->
-> This assumes all intermediate addresses are at the same offset from the CPU
-> physical addresses.
->
-> Link: https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-9-01d2313502ab@nxp.com
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> [bhelgaas: commit log]
-> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+Move the definition of the struct mcs_spinlock from the private
+mcs_spinlock.h header in kernel/locking to the mcs_spinlock.h
+asm-generic header, since we will need to reference it from the
+qspinlock.h header in subsequent commits.
 
-look good
+Reviewed-by: Barret Rhoden <brho@google.com>
+Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+---
+ include/asm-generic/mcs_spinlock.h | 6 ++++++
+ kernel/locking/mcs_spinlock.h      | 6 ------
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-Frank
-> ---
->  drivers/pci/controller/dwc/pcie-designware-ep.c   |  5 +++--
->  drivers/pci/controller/dwc/pcie-designware-host.c | 12 ++++++------
->  drivers/pci/controller/dwc/pcie-designware.c      |  3 ---
->  3 files changed, 9 insertions(+), 11 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> index 2ef9964fa080..c1feaadb046a 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> @@ -314,7 +314,8 @@ static void dw_pcie_ep_unmap_addr(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
->  	struct dw_pcie_ep *ep = epc_get_drvdata(epc);
->  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
->
-> -	ret = dw_pcie_find_index(ep, addr, &atu_index);
-> +	ret = dw_pcie_find_index(ep, addr - pci->parent_bus_offset,
-> +				 &atu_index);
->  	if (ret < 0)
->  		return;
->
-> @@ -333,7 +334,7 @@ static int dw_pcie_ep_map_addr(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
->
->  	atu.func_no = func_no;
->  	atu.type = PCIE_ATU_TYPE_MEM;
-> -	atu.parent_bus_addr = addr;
-> +	atu.parent_bus_addr = addr - pci->parent_bus_offset;
->  	atu.pci_addr = pci_addr;
->  	atu.size = size;
->  	ret = dw_pcie_ep_outbound_atu(ep, &atu);
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 9e38ac7d1bcb..d760abcbb785 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -635,7 +635,7 @@ static void __iomem *dw_pcie_other_conf_map_bus(struct pci_bus *bus,
->  		type = PCIE_ATU_TYPE_CFG1;
->
->  	atu.type = type;
-> -	atu.parent_bus_addr = pp->cfg0_base;
-> +	atu.parent_bus_addr = pp->cfg0_base - pci->parent_bus_offset;
->  	atu.pci_addr = busdev;
->  	atu.size = pp->cfg0_size;
->
-> @@ -660,7 +660,7 @@ static int dw_pcie_rd_other_conf(struct pci_bus *bus, unsigned int devfn,
->
->  	if (pp->cfg0_io_shared) {
->  		atu.type = PCIE_ATU_TYPE_IO;
-> -		atu.parent_bus_addr = pp->io_base;
-> +		atu.parent_bus_addr = pp->io_base - pci->parent_bus_offset;
->  		atu.pci_addr = pp->io_bus_addr;
->  		atu.size = pp->io_size;
->
-> @@ -686,7 +686,7 @@ static int dw_pcie_wr_other_conf(struct pci_bus *bus, unsigned int devfn,
->
->  	if (pp->cfg0_io_shared) {
->  		atu.type = PCIE_ATU_TYPE_IO;
-> -		atu.parent_bus_addr = pp->io_base;
-> +		atu.parent_bus_addr = pp->io_base - pci->parent_bus_offset;
->  		atu.pci_addr = pp->io_bus_addr;
->  		atu.size = pp->io_size;
->
-> @@ -755,7 +755,7 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
->
->  		atu.index = i;
->  		atu.type = PCIE_ATU_TYPE_MEM;
-> -		atu.parent_bus_addr = entry->res->start;
-> +		atu.parent_bus_addr = entry->res->start - pci->parent_bus_offset;
->  		atu.pci_addr = entry->res->start - entry->offset;
->
->  		/* Adjust iATU size if MSG TLP region was allocated before */
-> @@ -777,7 +777,7 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
->  		if (pci->num_ob_windows > ++i) {
->  			atu.index = i;
->  			atu.type = PCIE_ATU_TYPE_IO;
-> -			atu.parent_bus_addr = pp->io_base;
-> +			atu.parent_bus_addr = pp->io_base - pci->parent_bus_offset;
->  			atu.pci_addr = pp->io_bus_addr;
->  			atu.size = pp->io_size;
->
-> @@ -921,7 +921,7 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
->  	atu.size = resource_size(pci->pp.msg_res);
->  	atu.index = pci->pp.msg_atu_index;
->
-> -	atu.parent_bus_addr = pci->pp.msg_res->start;
-> +	atu.parent_bus_addr = pci->pp.msg_res->start - pci->parent_bus_offset;
->
->  	ret = dw_pcie_prog_outbound_atu(pci, &atu);
->  	if (ret)
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-> index 985264c88b92..d9d2090f380c 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware.c
-> @@ -475,9 +475,6 @@ int dw_pcie_prog_outbound_atu(struct dw_pcie *pci,
->  	u32 retries, val;
->  	u64 limit_addr;
->
-> -	if (pci->ops && pci->ops->cpu_addr_fixup)
-> -		parent_bus_addr = pci->ops->cpu_addr_fixup(pci, parent_bus_addr);
-> -
->  	limit_addr = parent_bus_addr + atu->size - 1;
->
->  	if ((limit_addr & ~pci->region_limit) != (parent_bus_addr & ~pci->region_limit) ||
-> --
-> 2.34.1
->
+diff --git a/include/asm-generic/mcs_spinlock.h b/include/asm-generic/mcs_spinlock.h
+index 10cd4ffc6ba2..39c94012b88a 100644
+--- a/include/asm-generic/mcs_spinlock.h
++++ b/include/asm-generic/mcs_spinlock.h
+@@ -1,6 +1,12 @@
+ #ifndef __ASM_MCS_SPINLOCK_H
+ #define __ASM_MCS_SPINLOCK_H
+ 
++struct mcs_spinlock {
++	struct mcs_spinlock *next;
++	int locked; /* 1 if lock acquired */
++	int count;  /* nesting count, see qspinlock.c */
++};
++
+ /*
+  * Architectures can define their own:
+  *
+diff --git a/kernel/locking/mcs_spinlock.h b/kernel/locking/mcs_spinlock.h
+index 85251d8771d9..16160ca8907f 100644
+--- a/kernel/locking/mcs_spinlock.h
++++ b/kernel/locking/mcs_spinlock.h
+@@ -15,12 +15,6 @@
+ 
+ #include <asm/mcs_spinlock.h>
+ 
+-struct mcs_spinlock {
+-	struct mcs_spinlock *next;
+-	int locked; /* 1 if lock acquired */
+-	int count;  /* nesting count, see qspinlock.c */
+-};
+-
+ #ifndef arch_mcs_spin_lock_contended
+ /*
+  * Using smp_cond_load_acquire() provides the acquire semantics
+-- 
+2.47.1
+
 
