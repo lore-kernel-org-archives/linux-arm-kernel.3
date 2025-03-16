@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50B2C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 14:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C6FC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 14:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Tc/KJH+qtYUavPHzbi/9sG/C7pjG+2ryVkaTYFLi/Fs=; b=AmS2uNKytyrjQXqYpW+O2bX2bL
-	O6fa831pkndP29KRn/CFu+CVigL8RbU2U5wxFLyogzrCE1xjIZ5VC0otu3UBsrMV0xYVrqgn6/ht/
-	KyXSRVV2BGCR7642HSO4QZpp9p3UwGc0ZGaVXMy0gpcY6P5M2Dasv8vDosWW0uTPEwXsxp+09FcqA
-	niZu4LcGim+bTNfdCG3oSi8wLxkOCbkdVljYUkpHMFvwitsOZVqxIlVkR03wWFZG1OTDAQ4gPc0f1
-	f8z2VakEQAw6tGqtgyLGBPbRJ+vmll8bOCvFwj98sGNhlA2EGYCEtcGRlfPtyvvQhIPikLav6j77a
-	Wvg2dvCg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1aGDzIIB1SDMlvmmrHr6tMJYPRSKx1nQtrENem7E1/I=; b=eW8W6lVgc6N4M6INr4Q4WJ2dtr
+	mJJfBEO60O4TPMu9Qn+lquXMYFfcnX1ymw6SO6bipYVP6DMe+9Zn5B7pWUDg6Nf39d6EphZzkeQD4
+	cEIlUN89kzn6vMYSc/KOcLFYCe3uGk4SXQ5XjG1CJ4AEeVELbNfwU8VWnovsVXSXHbgOKgyzidJhO
+	LigF7vqpYEttqxVAMHnJqyf+FYHfh3gTrexbpZB1sBJBXOV6xMN9GkShFkWr5HiF+RX0CMR6WSES7
+	AQJPagwaJ5yArMNP0B9Cft3vKR6UBuaIxdViD021XHmyqxj3Qd+Zp1AHlJty2q82hyxOyE/f86+Ck
+	pKfKjO+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttp2x-00000000Glw-1PFD;
-	Sun, 16 Mar 2025 14:32:59 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1ttpBK-00000000HG3-2Ozp;
+	Sun, 16 Mar 2025 14:41:38 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttp1G-00000000Gh4-2jVE
+	id 1ttp9d-00000000HBt-2Sj0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Mar 2025 14:31:16 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43938828d02so2565175e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Mar 2025 07:31:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742135472; x=1742740272; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tc/KJH+qtYUavPHzbi/9sG/C7pjG+2ryVkaTYFLi/Fs=;
-        b=L0Xix3jJOlKcT83JkPiJWSW9FY9FoPamdbjmlCBz3Hh6w9QD+ex5FnRglXuUeLEnVM
-         k3fQhqYAHfS4+4yPvR41ypVLir1YEOdb4zTJ5oC4UD1ajemza4b5D36k9PyDjZH+63cl
-         aJtOyZl6oWS96/oDteivAUFr2Vq0xyYcrMjQNT+2hdnyGb1zQOHq/XmK1solgTR/iKjg
-         AXp3xD3XrPmkpSzt9Aiwieal5y5zHJE5VUp6o8Sd5F9FD7blQ034NRZtZkm/NIsA/0cq
-         B79yCNqrk57QjzN6ZHdu0Jb4DcYs+9Bk6F0Y+9eDZtwczhTAQKmgoAbPGwXh1MtIXlPw
-         Zo2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742135472; x=1742740272;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Tc/KJH+qtYUavPHzbi/9sG/C7pjG+2ryVkaTYFLi/Fs=;
-        b=DYJnS1DjfuRLL3IOpyL6uYZ8NjP9VIn0WPVIpLyyhQVOjyTBgEOBgkXp4mdHL83zlf
-         IQqBau6TjuZ31VF7Wy5mB9YJkVq4VpPiFNYTCPAiKmaPjlcbkasxmcloh3MUlLJGNSue
-         ziDsySVP8yBZ1Op7NEMLANN1N3WsqFLvFv0ml0B/j6ppzPQJGSJQQm86ZGlt+Forc7Ul
-         PRr3lg3uOZ2jImH4DEDjs69/1Sd9rbQDrBgPwE5Y8dxPpNwAFqySYkB9kZ5Z+sxbN1cU
-         Et17AgI43aUCOpH+pwmxo0qzWTTclKYnRqFicDUx6kg5m4eaf51461ypwaNG+zwArwOg
-         dzPw==
-X-Forwarded-Encrypted: i=1; AJvYcCVKK5mjWSMv54q85nBphCoOYe58srOinP2nyAEYTidkXuA16JwiK//9XzXQNWTPALy5cOCc8hAOY4iuX8G26crU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFGtXhv8Yubow0Fo2apVFVztI9InkteRMFsh8waCKvWzeRXcY5
-	trKPzO6Q11fZTeMvA1z1OMokZZ8Ez3uMg50hUlcp7jPzSmDRxFkSoheH1nimstA=
-X-Gm-Gg: ASbGncuqbSVTufHXHIjYAwiQIxE+jXehrXBnQE1abukzEdW3MmKwZi0UpoZFB4MQS//
-	QZR1FIW8uLSWMzpeL9HYggZ4gEfJn5GFmsCF3k1b79YC8xmec15jwE6F/3OGCcSUs9yDX/c/XjU
-	oy5MY5JCYq4MVsPDNal3RhGr3pecf0G8OKTAwRySmZ1Q1GAO7t5Bh/62s0CRqx+Dd8CP/y2GY0l
-	do4yftGvIDoEssY8MBx3YHAFaDauU8a3ejy+iKKZ8121DlNKBFHJp3Vb/8dlugECmIUulPF6Vbv
-	OdVvgC+ysfCQaa50JLprXUUIiJ1JJiqu3PyTxGczfNP/Nf1w0ynDDrRnLFcNbXNsZjnt
-X-Google-Smtp-Source: AGHT+IFi9JXkUWFEjeJAm1SkUmYzub/naf0VWY52i62TdEebnaMcewd6ZseRSkUbDf0UNDl+nNKnHQ==
-X-Received: by 2002:a05:6000:1786:b0:391:42f:7e83 with SMTP id ffacd0b85a97d-3971f51129emr3597689f8f.13.1742135472433;
-        Sun, 16 Mar 2025 07:31:12 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c8881539sm11919868f8f.46.2025.03.16.07.31.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Mar 2025 07:31:11 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] pinctrl: samsung: drivers for v6.15
-Date: Sun, 16 Mar 2025 15:31:07 +0100
-Message-ID: <20250316143108.17045-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Sun, 16 Mar 2025 14:39:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1742135987; bh=U24OhOAH6S/GRZS+90t754J6q5L5H+DV2q1WOFlNH+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KM0C25Ro+SWthMKvXdxMr6g1TRsO2C1SyQ0JpgCggXeI3LJeEEEzEwEebtXPWOsXJ
+	 uOILUUG1ZdFyjlKd+16ZtELgpcDtfPONXxIX5eXrPvFGrZP8YeZTmYc7bzqrwmr9zH
+	 lySNCkhzj6Lcmykraen3X97c8xmx1/teZNMEvzaxUUAkaHaPOrWc8WmmcSWZuS60F3
+	 p4hT534le2Gyi6TDsSIcW/fsltcxWqRggWq3NLEUnYJtxFaKJigp9IIujamrQRHXrn
+	 SXbknilmvKz9p7NVNS0WWfJh7SIvIFzsBqWa2hPl3Lr0T7IhHFTiKoSCysJV4U6bPt
+	 P/tCCAqphJpaw==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id BFB8C3A92E8;
+	Sun, 16 Mar 2025 14:39:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1742135987; bh=U24OhOAH6S/GRZS+90t754J6q5L5H+DV2q1WOFlNH+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KM0C25Ro+SWthMKvXdxMr6g1TRsO2C1SyQ0JpgCggXeI3LJeEEEzEwEebtXPWOsXJ
+	 uOILUUG1ZdFyjlKd+16ZtELgpcDtfPONXxIX5eXrPvFGrZP8YeZTmYc7bzqrwmr9zH
+	 lySNCkhzj6Lcmykraen3X97c8xmx1/teZNMEvzaxUUAkaHaPOrWc8WmmcSWZuS60F3
+	 p4hT534le2Gyi6TDsSIcW/fsltcxWqRggWq3NLEUnYJtxFaKJigp9IIujamrQRHXrn
+	 SXbknilmvKz9p7NVNS0WWfJh7SIvIFzsBqWa2hPl3Lr0T7IhHFTiKoSCysJV4U6bPt
+	 P/tCCAqphJpaw==
+Received: from [192.168.0.53] (89-109-51-30.dynamic.mts-nn.ru [89.109.51.30])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id 5C78839AE8A;
+	Sun, 16 Mar 2025 14:39:47 +0000 (UTC)
+Message-ID: <0f6e358a-c723-400c-a619-b2672a893b60@mleia.com>
+Date: Sun, 16 Mar 2025 16:39:45 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] nvmem: lpc18xx_eeprom: Convert to platform remove
+ callback returning void
+Content-Language: ru-RU
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de
+References: <a7ae0d780ac580ebfed59d197ae1e6486c74ed54.1709886922.git.u.kleine-koenig@pengutronix.de>
+From: Vladimir Zapolskiy <vz@mleia.com>
+In-Reply-To: <a7ae0d780ac580ebfed59d197ae1e6486c74ed54.1709886922.git.u.kleine-koenig@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20250316_143947_802041_B03B36BB 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message. 
+/bin/ln: failed to access 'reaver_cache/texts/20250316_143947_802041_B03B36BB': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_073114_737209_9F8106D7 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250316_143947_802041_B03B36BB 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+On 3/8/24 10:51, Uwe Kleine-König wrote:
+> The .remove() callback for a platform driver returns an int which makes
+> many driver authors wrongly assume it's possible to do error handling by
+> returning an error code. However the value returned is ignored (apart
+> from emitting a warning) and this typically results in resource leaks.
+> 
+> To improve here there is a quest to make the remove callback return
+> void. In the first step of this quest all drivers are converted to
+> .remove_new(), which already returns void. Eventually after all drivers
+> are converted, .remove_new() will be renamed to .remove().
+> 
+> Trivially convert this driver from always returning zero in the remove
+> callback to the void returning variant.
+> 
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
 
-are available in the Git repository at:
+Thank you for the change!
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tags/samsung-pinctrl-6.15
-
-for you to fetch changes up to 701d0e910955627734917c3587258aa7e73068bb:
-
-  pinctrl: samsung: add support for eint_fltcon_offset (2025-03-11 20:37:29 +0100)
-
-----------------------------------------------------------------
-Samsung pinctrl drivers changes for v6.15
-
-1. Add pin controller drivers for newly usptreamed Samsung Exynos2200
-   and Exynos7870.
-2. Correct filter configuration offset of some of Google GS101 SoC pin
-   banks, which later is supposed to be used during system
-   suspend/resume.
-
-----------------------------------------------------------------
-Ivaylo Ivanov (3):
-      dt-bindings: pinctrl: samsung: add exynos2200-wakeup-eint compatible
-      dt-bindings: pinctrl: samsung: add exynos2200 compatible
-      pinctrl: samsung: add exynos2200 SoC pinctrl configuration
-
-Kaustabh Chakraborty (3):
-      dt-bindings: pinctrl: samsung: add exynos7870-pinctrl compatible
-      dt-bindings: pinctrl: samsung: add exynos7870-wakeup-eint compatible
-      pinctrl: samsung: add support for exynos7870 pinctrl
-
-Peter Griffin (1):
-      pinctrl: samsung: add support for eint_fltcon_offset
-
- .../pinctrl/samsung,pinctrl-wakeup-interrupt.yaml  |   3 +
- .../bindings/pinctrl/samsung,pinctrl.yaml          |   2 +
- drivers/pinctrl/samsung/pinctrl-exynos-arm64.c     | 405 ++++++++++++++++++---
- drivers/pinctrl/samsung/pinctrl-exynos.h           |  41 +++
- drivers/pinctrl/samsung/pinctrl-samsung.c          |   5 +
- drivers/pinctrl/samsung/pinctrl-samsung.h          |   6 +
- 6 files changed, 413 insertions(+), 49 deletions(-)
+--
+Best wishes,
+Vladimir
 
