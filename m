@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64C9C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 04:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEDE4C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 04:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lVJp3+JT7y8+ub6buLRsxOUyy8d6vFpxA5yFbRAEMPI=; b=B3lGWl8vt/PbHS0pOn1Ftp5vHE
-	UatEOYuMWGND/8dPlhuU4G6UKNkXhHS0GlKibqdO51L7Nk171zQ1YOhVYY2olY9F+tDO8lI4qSgL1
-	uL7F75yLTSV34SxkeGXpp6rUnYadK1FrGkhargrVD4wYrnAcCIvvkb3dWQ3F4xPQbLtZB2XFOu2Fv
-	MilIuk9cTA8VTmTzlzTpyNIUSDNPdvFOzvlyflQziYVgn1Tqnspg7KlJfz+/x3iXgPynyssw4qd5U
-	ySkAz7e4purIX8yii9cwaWNXyHUEOVlaWWhdhuv6QpWkifW9eDMTrHOnuaMeAmTb6MUgbHnGCAvG8
-	+xUayFeA==;
+	bh=VFS019JG0RFjz5io9ra87jX+S2pDR+I2Zduhbgoaa20=; b=NpA15wZ37SRVtJQkn1vU0ad01U
+	5NxA3o+z4oJ5MqvBFEVny0eIBit0NPcUC14PdOi+B2yyiNP2iUHCOXyVhmxhwZP6/iMOwma+lGX1c
+	7iJXDFRIdZsjfMD02u/EfdL5W7iVsUOhsjm1aTXZgX/gnoo0DeAv/CReRHymdUy+mYqLv1QTb+MWW
+	vZfppniFBf416QzGj+/3wWAHozE2Ha/kfDPEfe0lei4UWhAIL+zx9c8KViNQ8OUR29TQsl9vBzGiV
+	bzRo9wabO+FBR/wMSnhFI1wVPfjzaaipWTTzrSnXD31l/wHN/+kZFmVul3EogyMQXYbgSAB7iusUp
+	j77szcpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttfi0-0000000HGMi-2B4J;
-	Sun, 16 Mar 2025 04:34:44 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1ttfje-0000000HGVW-0iAa;
+	Sun, 16 Mar 2025 04:36:26 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttfGH-0000000HCL3-2S6S
+	id 1ttfGI-0000000HCLm-2h36
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Mar 2025 04:06:06 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-43cfb6e9031so8918355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 21:06:05 -0700 (PDT)
+	Sun, 16 Mar 2025 04:06:08 +0000
+Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso6727445e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 21:06:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742097964; x=1742702764; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742097965; x=1742702765; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lVJp3+JT7y8+ub6buLRsxOUyy8d6vFpxA5yFbRAEMPI=;
-        b=dCUUcTv3uJXTXLjsg9Vz6Gq87VVDYDitkDMF74JhdHO4jp4nDRAbFUWKEEMMHwCQRI
-         q4paBW9+PkdtgyOvWfBEnj/u11991PoiZ1kh1zALdfUuE2i+UP1ZUbfNCeNxmEXmtJBu
-         X48rMFgDbQmt0vHZUhPHesftzQA9/5jYULK6ylXBscGA+8e3BSEy+lGI9Yil+E/M2uxa
-         0Fx5f+3GK+1fMAmSAurKs7hSuF5JYTR7aX27+ohGeQWv2nZVHvSKhITZBdUAHKD73pVi
-         D/N7AAtE0dxsiwuIzF9c4OI3G2fcbWK5LXnTNPhfEVBWiOA8PyUv1vhdp7KA0A3mZ3oe
-         7M+A==
+        bh=VFS019JG0RFjz5io9ra87jX+S2pDR+I2Zduhbgoaa20=;
+        b=FAx9zTK52Y/63/B4jkg8hZrn2dXcNVUeR345KM4a7eF8R1dUhTyUYwhy5dOvtruVj3
+         ywaBJiCsscLyU0j5gT1ru/B6K8n9l6LEcdXKi6tiSCsVqKfvR7tPNn3Jk9cegwduWsdk
+         j9OqSSxrVXMmN0psDZ+GvP+fPYtGbZWYVPyf+40kWhCwhy3hZstkp1ZKCtme+ll9quFx
+         eQ+qc49EEZSW0jcQ13nVoZj54oRys5xcahzmTRr/DHLXey4aaRv11/aSnf89IYSsYVyR
+         U6cV4ilmSFDym/A2KG0g7VqPoCtwL3136WfpROonC1S8rklwkaF4nGrUz6eRl7RvQOXz
+         g5tA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742097964; x=1742702764;
+        d=1e100.net; s=20230601; t=1742097965; x=1742702765;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lVJp3+JT7y8+ub6buLRsxOUyy8d6vFpxA5yFbRAEMPI=;
-        b=n3ge0Zcdj9Z4AmYciynduAjSwLsLCASaelj8fzEcRAkgySW0wuudDd87enfmCDlpH2
-         mkmkfQjHTl7O5ZZWwtEfhdpr49LpUtERUJ08kfG3Rrq9eL3a1bkZg2z5c9C5NQ8KbduM
-         IPCn1DZngTyGI3xZJcngOAAdSXua+IlCgaU7pdLAR2cwddeDx9nbiHJ2kSj5xWQhRYOo
-         gfr0GF1bZnsYPLBpX5MadwmAgW+Z7TWa+kXtkQiFs+Zm3AFavdtEwEBC1ZNmvY76cui7
-         ImPY/8TfJ+Apet6xi40fDdTuF134tGtHm8hA61GoQP8mksBtilAoWQCAwZL+6dw9IJqC
-         dKBg==
-X-Forwarded-Encrypted: i=1; AJvYcCWU9p6+J2v2fjGM01i+mPOgSOfUY5EVrFB6LHlOD3fknpOM8EY66GEaW8QRMFlAmjO3g7cQIFhSEK6nIZlwZe7z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfPL/8r1yRaQQ9yIXfgXWhQD1dYDE0xlTUDZezAyo+MXy6bUsj
-	fhZhohZP6NBfSEuKNG0nqjALM4I3lS5naNGEyCDbosX0fhzLNMry
-X-Gm-Gg: ASbGnctVa8oBDoPHytzzUwRffzCoMiWObw9LZFCDwhf2JENHqZVoIJ+GlbK3Cs64CZF
-	oeDfZJZ/BBbg+ZdVSn8JOTNgEFKffW4RbOrvIyX3Wj4aoDKmA0M+EtK2xx9DG8C359yv64yQnrA
-	qEX8V9yRCbEDoiwNtwtH9CQbkwrNc+zcXdhl+s7y6wDNxdAkGs82fAnA9M0bDseA1QA5bCcTZkr
-	RfxlvBNXUmbH+b0CI5b+NhXxaFapZLOTIuxc2wlNMpgJ8heLWzXK8xcbP3Xbd1uVIG0joA7hYyM
-	HpCigoD2kUtvUqmui183UaSqxzwceyNdeNg=
-X-Google-Smtp-Source: AGHT+IEqbu6eKdKbUR9hLIUzBRTM7W+fO2MaRKuwN5PjghpeobTfOg76MZ+yqvlOP3B3sgZbmvRoKw==
-X-Received: by 2002:a05:600c:3c89:b0:43c:ea36:9840 with SMTP id 5b1f17b1804b1-43d1ecd7926mr80182815e9.22.1742097964115;
-        Sat, 15 Mar 2025 21:06:04 -0700 (PDT)
-Received: from localhost ([2a03:2880:31ff:70::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d25593a94sm21073705e9.3.2025.03.15.21.06.03
+        bh=VFS019JG0RFjz5io9ra87jX+S2pDR+I2Zduhbgoaa20=;
+        b=D4MhQMsksmDexy5J+rtdFpAPYWO0gI8p4Unmc8J76x4KnieiPEF9I2KZJxCYP18Ve/
+         1RCJSZHlpoPV2yWrLGqcMBOH/ulLRouWBAknPf0qdLSpDvohbQ6dPqA9/29gmb0ILqpq
+         bYMxGJUoaA/rw5tKUEJXKqJPrIu/ktu47rPqmvtRWH5g2mI28gOmFxq6nreZbY0lSZG1
+         gMjaGyX8KlFcJqAMHJILmUviX8sbz8KeZ5ztxLC/kxd+zwHzooVcikpSTVPVkN3IaaVm
+         K4+oB/DBxSCLlHPSOnfrb054TpNKPPMw+1co7Ii+kpoEuUHGbDU/p3lB5BoBSe5oCcCU
+         XUvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVKcbFoDBlbeGB58fxyRkEITbWzYTY29kvM7bTUpNr/qc63FdyGaPC+mGlxTd31o7eaKQr5t1hUAWb/ExNbboEq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgR3gDMzGuROYtDi/mlaxOkSytwP5D/gxx/lr+wHq0H+edUt9M
+	Af1TvyFJbLQrcJ0+tT2Nl2DX8ndv66lbxHDzopir4/OtDn6giJcB
+X-Gm-Gg: ASbGncvt09SPx1De4qAi3lb0JiNC9SYroiyoV2dk4/cS69VPPlWe7xc/CLWC6kOc9FB
+	U5Q+C+YqdlhlqJ0AOTAj+0d6jcDVhnpjvgu0Xjd5a/rniPTQHIMG4QtmK7bQryPK7Cm06v0v+An
+	z1ifUBCVMs2WNvEejtMwwG+SjYOhJSGyMr4OJ4MaLav9V9QnM/seqzQC29WqaTIl4TiCHY4lrPX
+	6TNDA8pzPstSE9GWLrotUAZYwdMQ/Noe1AjEsVNqux38XoNKHAHyYcsSTS0IS9Y0e+U2BXGMLuU
+	eODwRdgs+4MqpiETTPEzF2ov87Hq5Fvbpg==
+X-Google-Smtp-Source: AGHT+IHBIpDn5I6oDUPVr9V5ItvG6mUgYbh8JUY0xjPJvkMd3lQIrG6tia0tYndOnZLCB6ubQR+rjQ==
+X-Received: by 2002:a05:600c:56c5:b0:43c:fffc:7886 with SMTP id 5b1f17b1804b1-43d1ef4b074mr78421855e9.8.1742097965220;
+        Sat, 15 Mar 2025 21:06:05 -0700 (PDT)
+Received: from localhost ([2a03:2880:31ff:1::])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d2010e618sm67780255e9.40.2025.03.15.21.06.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Mar 2025 21:06:03 -0700 (PDT)
+        Sat, 15 Mar 2025 21:06:04 -0700 (PDT)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -88,19 +88,19 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kkd@meta.com,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v4 16/25] rqspinlock: Add macros for rqspinlock usage
-Date: Sat, 15 Mar 2025 21:05:32 -0700
-Message-ID: <20250316040541.108729-17-memxor@gmail.com>
+Subject: [PATCH bpf-next v4 17/25] rqspinlock: Add entry to Makefile, MAINTAINERS
+Date: Sat, 15 Mar 2025 21:05:33 -0700
+Message-ID: <20250316040541.108729-18-memxor@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250316040541.108729-1-memxor@gmail.com>
 References: <20250316040541.108729-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4185; h=from:subject; bh=Yp6VTxKtpBDQhUgfKGSHMWzJmZu3deRDpy/hLhkjXfk=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBn1k3d7ne1febSzud04+mu0CKRHqx+H8Jq+gCO2ZsR MN8cyy6JAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ9ZN3QAKCRBM4MiGSL8RykcmD/ 9gTc/RWOMn5cBBm9fdR7z3Whng8H/b1v47vd75XWWl34N0yLT/YWBxTTQ+sPVZzGGuo6B9xsO7eKc9 SZp8I4okxcB2aM74N8m344h+WeCA3ZDdOAN1PStTNACyJB8JKCSwhxf5/MD4VnGmAAvRd7JcgDsl3T lkua13O2hBIxLJEBPb7jFRav4gDcQhaWZZY8+I8wIj4D2LsynzlcQxPMMg/IOGoojbmx1IZpibvTSS cOab748UkW42TGSTq4cdoSqNEyQkllc5IG3CoplNecSOYw91jN/9/nfpRQLlkeNk4MMkIpW1wkerkH stNypWjI3+zMxxxWOpnatrs1AhcbL9xdZy/yI6HeaBpRLCWE7EP2tyRtxMLNP0xZTzDUbhelU5s2xS ISufWNdpb9hhDr2p7Az4+QCAW0/IGguxT1YSSJ3VIvP0PSGYdPGn7h5UGMmLAsKRteUQPiIinHVfjq jswG4p2GalFrgmjtSAlgCOgfnnBgdFSBZ8KrUhAEDyoSkn3oC7EfkzE4RurRDNaK7Dla53h3swFtN6 ebHJiW8K6xEarRowvHg21BJJhRkrGgUz7TcTos8teOYQ7GScBu5AHx4/hAgO+A+G8EAYCC6p9bLmWT uhQX3Azu8Y8rim3+JoGB/tvJ9vAcTAUH3AyLU5MWGMfUmvqRvuAqdg2eMQjQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1896; h=from:subject; bh=TAwmD3mE9IWzqTEdxgzO+SkBgGc9QW4lOFTMCWQX6XQ=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBn1k3dm8uyglj3VmEv2htJ2FLhnf1JsYuPf2RZsbxU w2qldUiJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ9ZN3QAKCRBM4MiGSL8RytukD/ 9AxDBzDg2jelKivmQxOWC/3ddLF46czI6LpjRZJqkS8CF+Rtgtq1ntcZfd3DwB1YlWNi59wKsFGBnJ dvHyPQHl0wf8x/+YSIKnWOfRTtXXm7HO9EOcusWDuo7nYRoA6dOki8cc0dHPcr7GEZguYUvNkT0I48 RiCeb9ouXdF+9R7dZDI+htv3iB6XrR4vhmfLw+DsE6xSAwFvvJafz+GmaF+szclNho4RF6EOzxUl+s 9fggq12ESIsqk1CtgtcCSL6XBKYoZejR5xun8ldsowdPo5VU+FkBaYLjflcljs+9humS8ea8kzLQdP tBQO13yb3uzxTs0rzzQ5/m2QAPHnV4C/XBS1o7/1f/CZhhWnZfWCaezDqmj0DFHBrWFw2t2BYMKyOt pEej2vsoOJjeV8O2P9XN9/Iu3qJeRZnrOSzeuVMQefuxjD1W0fZFj6Xwgp1NI5FVcn/7XfvNSAOiu/ DO6EIdHh69dWmTxrN+gImrK3Wzp51GSrlSwfasmj7JZIFiKeByLszlkhWluDw0sXtGBsmACfkKy+sM T3FsOfpMqz/WkgyhFoHDnsNMix7+9iuhgQVHa+2cRw3AIbEwsgvPZpdR/BwhcqlQHmSCPw7fcEmu1a biNUSz51QbPHYHW/PBBsMPvZawZXKGycs82Q07EQPrq2bm8G4sFtEpjZMzyA==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_210605_635098_9EF3F1B5 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20250315_210606_688882_F0862DFE 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,118 +115,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce helper macros that wrap around the rqspinlock slow path and
-provide an interface analogous to the raw_spin_lock API. Note that
-in case of error conditions, preemption and IRQ disabling is
-automatically unrolled before returning the error back to the caller.
-
-Ensure that in absence of CONFIG_QUEUED_SPINLOCKS support, we fallback
-to the test-and-set implementation.
-
-Add some comments describing the subtle memory ordering logic during
-unlock, and why it's safe.
+Ensure that the rqspinlock code is only built when the BPF subsystem is
+compiled in. Depending on queued spinlock support, we may or may not end
+up building the queued spinlock slowpath, and instead fallback to the
+test-and-set implementation. Also add entries to MAINTAINERS file.
 
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- include/asm-generic/rqspinlock.h | 87 ++++++++++++++++++++++++++++++++
- 1 file changed, 87 insertions(+)
+ MAINTAINERS                | 2 ++
+ include/asm-generic/Kbuild | 1 +
+ kernel/bpf/Makefile        | 2 +-
+ 3 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/include/asm-generic/rqspinlock.h b/include/asm-generic/rqspinlock.h
-index a837c6b6abd9..23abd0b8d0f9 100644
---- a/include/asm-generic/rqspinlock.h
-+++ b/include/asm-generic/rqspinlock.h
-@@ -153,4 +153,91 @@ static __always_inline void release_held_lock_entry(void)
- 	this_cpu_dec(rqspinlock_held_locks.cnt);
- }
- 
-+#ifdef CONFIG_QUEUED_SPINLOCKS
-+
-+/**
-+ * res_spin_lock - acquire a queued spinlock
-+ * @lock: Pointer to queued spinlock structure
-+ *
-+ * Return:
-+ * * 0		- Lock was acquired successfully.
-+ * * -EDEADLK	- Lock acquisition failed because of AA/ABBA deadlock.
-+ * * -ETIMEDOUT - Lock acquisition failed because of timeout.
-+ */
-+static __always_inline int res_spin_lock(rqspinlock_t *lock)
-+{
-+	int val = 0;
-+
-+	if (likely(atomic_try_cmpxchg_acquire(&lock->val, &val, _Q_LOCKED_VAL))) {
-+		grab_held_lock_entry(lock);
-+		return 0;
-+	}
-+	return resilient_queued_spin_lock_slowpath(lock, val);
-+}
-+
-+#else
-+
-+#define res_spin_lock(lock) resilient_tas_spin_lock(lock)
-+
-+#endif /* CONFIG_QUEUED_SPINLOCKS */
-+
-+static __always_inline void res_spin_unlock(rqspinlock_t *lock)
-+{
-+	struct rqspinlock_held *rqh = this_cpu_ptr(&rqspinlock_held_locks);
-+
-+	if (unlikely(rqh->cnt > RES_NR_HELD))
-+		goto unlock;
-+	WRITE_ONCE(rqh->locks[rqh->cnt - 1], NULL);
-+unlock:
-+	/*
-+	 * Release barrier, ensures correct ordering. See release_held_lock_entry
-+	 * for details.  Perform release store instead of queued_spin_unlock,
-+	 * since we use this function for test-and-set fallback as well. When we
-+	 * have CONFIG_QUEUED_SPINLOCKS=n, we clear the full 4-byte lockword.
-+	 *
-+	 * Like release_held_lock_entry, we can do the release before the dec.
-+	 * We simply care about not seeing the 'lock' in our table from a remote
-+	 * CPU once the lock has been released, which doesn't rely on the dec.
-+	 *
-+	 * Unlike smp_wmb(), release is not a two way fence, hence it is
-+	 * possible for a inc to move up and reorder with our clearing of the
-+	 * entry. This isn't a problem however, as for a misdiagnosis of ABBA,
-+	 * the remote CPU needs to hold this lock, which won't be released until
-+	 * the store below is done, which would ensure the entry is overwritten
-+	 * to NULL, etc.
-+	 */
-+	smp_store_release(&lock->locked, 0);
-+	this_cpu_dec(rqspinlock_held_locks.cnt);
-+}
-+
-+#ifdef CONFIG_QUEUED_SPINLOCKS
-+#define raw_res_spin_lock_init(lock) ({ *(lock) = (rqspinlock_t)__ARCH_SPIN_LOCK_UNLOCKED; })
-+#else
-+#define raw_res_spin_lock_init(lock) ({ *(lock) = (rqspinlock_t){0}; })
-+#endif
-+
-+#define raw_res_spin_lock(lock)                    \
-+	({                                         \
-+		int __ret;                         \
-+		preempt_disable();                 \
-+		__ret = res_spin_lock(lock);	   \
-+		if (__ret)                         \
-+			preempt_enable();          \
-+		__ret;                             \
-+	})
-+
-+#define raw_res_spin_unlock(lock) ({ res_spin_unlock(lock); preempt_enable(); })
-+
-+#define raw_res_spin_lock_irqsave(lock, flags)    \
-+	({                                        \
-+		int __ret;                        \
-+		local_irq_save(flags);            \
-+		__ret = raw_res_spin_lock(lock);  \
-+		if (__ret)                        \
-+			local_irq_restore(flags); \
-+		__ret;                            \
-+	})
-+
-+#define raw_res_spin_unlock_irqrestore(lock, flags) ({ raw_res_spin_unlock(lock); local_irq_restore(flags); })
-+
- #endif /* __ASM_GENERIC_RQSPINLOCK_H */
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 3864d473f52f..c545cd149cd1 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4297,6 +4297,8 @@ F:	include/uapi/linux/filter.h
+ F:	kernel/bpf/
+ F:	kernel/trace/bpf_trace.c
+ F:	lib/buildid.c
++F:	arch/*/include/asm/rqspinlock.h
++F:	include/asm-generic/rqspinlock.h
+ F:	lib/test_bpf.c
+ F:	net/bpf/
+ F:	net/core/filter.c
+diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
+index 1b43c3a77012..8675b7b4ad23 100644
+--- a/include/asm-generic/Kbuild
++++ b/include/asm-generic/Kbuild
+@@ -45,6 +45,7 @@ mandatory-y += pci.h
+ mandatory-y += percpu.h
+ mandatory-y += pgalloc.h
+ mandatory-y += preempt.h
++mandatory-y += rqspinlock.h
+ mandatory-y += runtime-const.h
+ mandatory-y += rwonce.h
+ mandatory-y += sections.h
+diff --git a/kernel/bpf/Makefile b/kernel/bpf/Makefile
+index 410028633621..70502f038b92 100644
+--- a/kernel/bpf/Makefile
++++ b/kernel/bpf/Makefile
+@@ -14,7 +14,7 @@ obj-$(CONFIG_BPF_SYSCALL) += bpf_local_storage.o bpf_task_storage.o
+ obj-${CONFIG_BPF_LSM}	  += bpf_inode_storage.o
+ obj-$(CONFIG_BPF_SYSCALL) += disasm.o mprog.o
+ obj-$(CONFIG_BPF_JIT) += trampoline.o
+-obj-$(CONFIG_BPF_SYSCALL) += btf.o memalloc.o
++obj-$(CONFIG_BPF_SYSCALL) += btf.o memalloc.o rqspinlock.o
+ ifeq ($(CONFIG_MMU)$(CONFIG_64BIT),yy)
+ obj-$(CONFIG_BPF_SYSCALL) += arena.o range_tree.o
+ endif
 -- 
 2.47.1
 
