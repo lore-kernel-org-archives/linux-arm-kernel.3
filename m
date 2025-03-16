@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D57C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 08:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF7FC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 08:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M+0/h9aDFRntiTMtRd1I+pi0KOstzzZ2qm2E+XHDMy8=; b=Utofdo5cH6cYSBzOLBIxYUBv7E
-	wEqvMnl1El6hFLrpxMDIRuQbJIMCO8dVnULx0D0grfb22xW4IEzxc+kZUcL/egQEfD7FK7UnFwjAq
-	06EGFXfgTaN3os1bSDjLYEn66pnnv/HAlv1JM50w6ahoezOBBA+R3i3Aj9hmaxpoio7+RFgpmX+G3
-	uhvE+jbGqXQBm3iqrTNyhLT7U3e2mhgB39PdWdAfK03xxdWLSrIl12sJx+tI0UFmhQvb+zveJXodh
-	qriNOy0BSWieGGxufYHTTUynDwso8inQdhZlqRMY+Lfk9iWUgaaWIl5A3DLDIB4ZKVWezG0UHM1GE
-	tP1gvM0A==;
+	bh=Wn/xEAiDPHyUAW46bI9e3lgKHPnSpfIX/FyHwGUbOOE=; b=u/u2WpNk0p1ddhEZzdkRC4dV5X
+	Ye6tyna27yyJfH6zTHnE2PbjWKmuQKbSAIVZo5JHhfMwdoD/uUXxKWB+sx2+spgOrGTye6VInWf7n
+	vjucxqAeD/5Jg/KCShE70WR0SEn2iKiM91snlxmur4TRpd7RgkTj6pFcxmkmcopSD+kHHy2pq5DDk
+	SS10UFgSFW9OHUcXGt+6U4+EUUE1HH+IoP8m5JRmDoh59QbYjBLqa5NZp9XmTF0mxu7zgww1woMAu
+	+oBb3/0OClAQ3jlwGw60ns4ljk74IrVfEK+amXsm1TF+aK6Ag9uirNOJViB/QlpW783N/Fefp1tZz
+	O5gJgH9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttj0S-0000000HVVR-0Ne0;
-	Sun, 16 Mar 2025 08:06:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ttj2s-0000000HVnD-3i7T;
+	Sun, 16 Mar 2025 08:08:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttiyl-0000000HVFu-0ScO
+	id 1ttj1C-0000000HVeb-39XK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Mar 2025 08:04:16 +0000
+	Sun, 16 Mar 2025 08:06:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 579BB5C4833;
-	Sun, 16 Mar 2025 08:01:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE36C4CEDD;
-	Sun, 16 Mar 2025 08:04:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0A8405C46C0;
+	Sun, 16 Mar 2025 08:04:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 442FAC4CEDD;
+	Sun, 16 Mar 2025 08:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1742112253;
-	bh=qVy5NOTwJcQ1MJ4GLjQJ2T48TMRnNvNf0Pndm6ouJK4=;
+	s=korg; t=1742112405;
+	bh=27+d26U2EgjkRb+/BT+lpoDb+IcFbQOkCFlWNoVpp8k=;
 	h=Subject:To:Cc:From:Date:From;
-	b=15eLF/bQpivx1P1HrDkdqK51Fud3/Bj+JbYTzT0c2727iqGQq1GgI3ZBwfv1rHPqR
-	 2zaXZ9W0zPmfjglo0AjDK3l4krhtnlPNpIgboARPnotenzOSS/7OkUL9B5EcEJ/Szb
-	 5DpyXz3LfFUTakLB8dwpgwRPKU7j0WL8LT/GJRek=
-Subject: Patch "Fix mmu notifiers for range-based invalidates" has been added to the 6.12-stable tree
+	b=yTsydWovv4as9xpofeKGiUxd2SQNB6E/ZpLTfcH+rM70JM1xdsxNPh+EAEp95zfPj
+	 nABNoxMV+bl5ND7gx6lFQa1bbqxYlTckmGdmKZw/ZW6LNKaFsLy8FQcsqiBJD+u568
+	 hqjjqD1s3b5E3BoyEzne1JWKCfz3c2sP4V2XrGiE=
+Subject: Patch "Fix mmu notifiers for range-based invalidates" has been added to the 6.13-stable tree
 To: apopple@nvidia.com,catalin.marinas@arm.com,gregkh@linuxfoundation.org,iommu@lists.linux.dev,jgg@nvidia.com,jhubbard@nvidia.com,linux-arm-kernel@lists.infradead.org,linux-mm@kvack.org,nicolinc@nvidia.com,pjaroszynski@nvidia.com,rananta@google.com,robin.murphy@arm.com,sj@kernel.org,will@kernel.org
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Sun, 16 Mar 2025 09:02:06 +0100
-Message-ID: <2025031606-duh-scanning-bea0@gregkh>
+Date: Sun, 16 Mar 2025 09:02:17 +0100
+Message-ID: <2025031617-swept-encounter-c305@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
 X-stable: commit
 X-Patchwork-Hint: ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_010415_268518_ED6CCE35 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20250316_010646_887001_CBA6F4CB 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,12 +72,12 @@ This is a note to let you know that I've just added the patch titled
 
     Fix mmu notifiers for range-based invalidates
 
-to the 6.12-stable tree which can be found at:
+to the 6.13-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      fix-mmu-notifiers-for-range-based-invalidates.patch
-and it can be found in the queue-6.12 subdirectory.
+and it can be found in the queue-6.13 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -185,5 +185,5 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 Patches currently in stable-queue which might be from pjaroszynski@nvidia.com are
 
-queue-6.12/fix-mmu-notifiers-for-range-based-invalidates.patch
+queue-6.13/fix-mmu-notifiers-for-range-based-invalidates.patch
 
