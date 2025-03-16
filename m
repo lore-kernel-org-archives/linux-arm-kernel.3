@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF70C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 10:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA47C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 10:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXIkuebHdGPclApSeeLBv84hAoCpWBAnKkf+0bLWFs4=; b=RqTRz0Z7b+cWtnXbGGudn4XdC3
-	9P93gCpdpsTpV1B058HFi1mqWcWYDlM1NKugJ6yoeLC1Kx+ANUx6zQIlo8ky5+p+lqgYDJh2REC7F
-	9dt1hA3UlutytbhT4m3AsIOAOBT9k4FJmoKoxd/8+nFwPPBIIIeTe52pZ0IYiKfGE2ZFG/nQnW8q4
-	qLpGTwjMXZEzwSPMDg35ylKnIbwkKI24Yegz9t6+yY0sNuMq3vCVD5KFQrC43ueIcuHcaEWG/Os7v
-	6hvWkcf+F59qNKI09lMO0roen8kapecPs1Cp36XhDTWE1XGjuKnux32w4zJlUMSo/pBiHFZW4p1mf
-	bXhmelKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=44SpItRKUxFm28eFyI6gxiFicrK2oTdXvpvAM2e0nGk=; b=vUm4bjiNkvap1amxDDvMCdmBZz
+	3zaIXaF0D7duI4zyUaJupOzqfVbB4/yfhxmy+j0iUUL37ucXmYM/NOl9GRt5X7EUXFA11198CTwwj
+	Cu0z5Ak2JrMiiftCT+sZYj12os56+PRDEyZoh75ez51CuJx49o23Z7QzKq9MKuk+3wUcpuqtxKqQP
+	yK3dY3ntPDdAsFAcPJJbsjN+GKi3ii3W4wCseAIVRNKpXpzC02StkhgoNW9hmddNSeC3N/pcEqEzb
+	pumokz852JX311FqmoScryaqQMzukJh9NytSlocfgH2koiHld7CNcg5AZvoX6bLDHTYG3kwxhZkG+
+	0Idcd+nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttlK2-000000003We-2YCY;
-	Sun, 16 Mar 2025 10:34:22 +0000
-Received: from mail.ispras.ru ([83.149.199.84])
+	id 1ttlLh-000000003fk-1DbV;
+	Sun, 16 Mar 2025 10:36:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttlDO-000000002Y5-3Kks
+	id 1ttlIw-000000003Kv-3uSj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Mar 2025 10:27:33 +0000
-Received: from fedora.intra.ispras.ru (unknown [10.10.165.7])
-	by mail.ispras.ru (Postfix) with ESMTPSA id 9E475407617C;
-	Sun, 16 Mar 2025 10:27:26 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 9E475407617C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
-	s=default; t=1742120846;
-	bh=VXIkuebHdGPclApSeeLBv84hAoCpWBAnKkf+0bLWFs4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=flmqoWu9/6FXh9KvFbcbJteN2BAmTr4uZVg1NGnP+YkdMli6hCfU0tsS8DF4QLi0K
-	 QM92ZrqQPMuFQKqYeDIffMIFPPZZBnegys4lKFt/5jW6WXZDsZeIozDbcT8x8lx5Aa
-	 bjEYGm+IOWkL1fKYkGI9Y7rZ3QFW8dFLsULTtOjc=
-From: Fedor Pchelkin <pchelkin@ispras.ru>
-To: Peter Chen <peter.chen@kernel.org>,
-	Frank Li <Frank.li@nxp.com>
-Cc: Fedor Pchelkin <pchelkin@ispras.ru>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Sebastian Reichel <sre@kernel.org>,
-	Fabien Lahoudere <fabien.lahoudere@collabora.co.uk>,
-	linux-usb@vger.kernel.org,
-	imx@lists.linux.dev,
+	Sun, 16 Mar 2025 10:33:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2BA8BA48A3E;
+	Sun, 16 Mar 2025 10:27:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF78C4CEDD;
+	Sun, 16 Mar 2025 10:33:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742121193;
+	bh=SRVlez7jQA05YlqVbFTK28O6hKORV/BZnhg/jFT8c7g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QAjwDU6f+Pa8HwEv4iSGndES2e7YvkrvUPjECcMnxGLRfemdcbYv33UH6njk8aNWu
+	 Q22BWB7QzwY+MT5F62iLC5npSimS5BmHFlGi1N1cgJ/M4/b1wP6RxpYLY+ggHj0gng
+	 NI8SnFlCi0q3553EzmMmEzQmrderUuQLl6DhvwxjdOXbKNTLvMmAhUdIsENCeQizgZ
+	 1xy6FC0JFThMMOws0YL2ZFFua7qRQjZYT5HYTNjU94IJNCusokvsP4dQpgCW8jF8GM
+	 hp/uN3wLEglgXOrUefpouKEsSz5Bh0SywVC3fl7yTw4eGBmiIv6iV08D0ZpsvvL3C0
+	 uxA46e3hKlQBA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ttlIt-00Dy3A-3n;
+	Sun, 16 Mar 2025 10:33:11 +0000
+Date: Sun, 16 Mar 2025 10:33:10 +0000
+Message-ID: <86a59lnu3d.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Jones <andrew.jones@linux.dev>,
 	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
+	devel@daynix.com,
 	stable@vger.kernel.org
-Subject: [PATCH v2 3/3] usb: chipidea: ci_hdrc_imx: implement usb_phy_init() error handling
-Date: Sun, 16 Mar 2025 13:26:56 +0300
-Message-ID: <20250316102658.490340-4-pchelkin@ispras.ru>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250316102658.490340-1-pchelkin@ispras.ru>
-References: <20250316102658.490340-1-pchelkin@ispras.ru>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v5 0/5] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+In-Reply-To: <20250315-pmc-v5-0-ecee87dab216@daynix.com>
+References: <20250315-pmc-v5-0-ecee87dab216@daynix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, andrew.jones@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, devel@daynix.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_032731_018386_12F12B1E 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250316_033315_094381_3F57D959 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +93,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-usb_phy_init() may return an error code if e.g. its implementation fails
-to prepare/enable some clocks. And properly rollback on probe error path
-by calling the counterpart usb_phy_shutdown().
+On Sat, 15 Mar 2025 09:12:09 +0000,
+Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> 
+> Prepare vPMC registers for user-initiated changes after first run. This
+> is important specifically for debugging Windows on QEMU with GDB; QEMU
+> tries to write back all visible registers when resuming the VM execution
+> with GDB, corrupting the PMU state. Windows always uses the PMU so this
+> can cause adverse effects on that particular OS.
+> 
+> This series also contains patch "KVM: arm64: PMU: Set raw values from
+> user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}", which reverts semantic
+> changes made for the mentioned registers in the past. It is necessary
+> to migrate the PMU state properly on Firecracker, QEMU, and crosvm.
+> 
+> Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
+> ---
+> Changes in v5:
+> - Rebased.
+> - Link to v4: https://lore.kernel.org/r/20250313-pmc-v4-0-2c976827118c@daynix.com
+> 
+> Changes in v4:
+> - Reverted changes for functions implementing ioctls in patch
+>   "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
+> - Removed kvm_pmu_vcpu_reset().
+> - Reordered function calls in kvm_vcpu_reload_pmu() for better style.
+> - Link to v3: https://lore.kernel.org/r/20250312-pmc-v3-0-0411cab5dc3d@daynix.com
+> 
+> Changes in v3:
+> - Added patch "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
+> - Added an explanation of this path series' motivation to each patch.
+> - Explained why userspace register writes and register reset should be
+>   covered in patch "KVM: arm64: PMU: Reload when user modifies
+>   registers".
+> - Marked patch "KVM: arm64: PMU: Set raw values from user to
+>   PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" for stable.
+> - Reoreded so that patch "KVM: arm64: PMU: Set raw values from user to
+>   PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" would come first.
+> - Added patch "KVM: arm64: PMU: Call kvm_pmu_handle_pmcr() after masking
+>   PMCNTENSET_EL0".
+> - Added patch "KVM: arm64: Reload PMCNTENSET_EL0".
+> - Link to v2: https://lore.kernel.org/r/20250307-pmc-v2-0-6c3375a5f1e4@daynix.com
+> 
+> Changes in v2:
+> - Changed to utilize KVM_REQ_RELOAD_PMU as suggested by Oliver Upton.
+> - Added patch "KVM: arm64: PMU: Reload when user modifies registers"
+>   to cover more registers.
+> - Added patch "KVM: arm64: PMU: Set raw values from user to
+>   PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}".
+> - Link to v1: https://lore.kernel.org/r/20250302-pmc-v1-1-caff989093dc@daynix.com
+> 
+> ---
+> Akihiko Odaki (5):
+>       KVM: arm64: PMU: Set raw values from user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}
+>       KVM: arm64: PMU: Assume PMU presence in pmu-emul.c
+>       KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+>       KVM: arm64: PMU: Reload when user modifies registers
+>       KVM: arm64: PMU: Reload when resetting
+> 
+>  arch/arm64/kvm/arm.c            | 17 ++++++++-----
+>  arch/arm64/kvm/emulate-nested.c |  6 +++--
+>  arch/arm64/kvm/pmu-emul.c       | 56 +++++++++++------------------------------
+>  arch/arm64/kvm/reset.c          |  3 ---
+>  arch/arm64/kvm/sys_regs.c       | 52 ++++++++++++++++++++++----------------
+>  include/kvm/arm_pmu.h           |  4 +--
+>  6 files changed, 62 insertions(+), 76 deletions(-)
 
-Found by Linux Verification Center (linuxtesting.org).
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Fixes: be9cae2479f4 ("usb: chipidea: imx: Fix ULPI on imx53")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
----
- drivers/usb/chipidea/ci_hdrc_imx.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+	M.
 
-diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-index d942b3c72640..4f8bfd242b59 100644
---- a/drivers/usb/chipidea/ci_hdrc_imx.c
-+++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-@@ -484,7 +484,11 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 	    of_usb_get_phy_mode(np) == USBPHY_INTERFACE_MODE_ULPI) {
- 		pdata.flags |= CI_HDRC_OVERRIDE_PHY_CONTROL;
- 		data->override_phy_control = true;
--		usb_phy_init(pdata.usb_phy);
-+		ret = usb_phy_init(pdata.usb_phy);
-+		if (ret) {
-+			dev_err(dev, "Failed to init phy\n");
-+			goto err_clk;
-+		}
- 	}
- 
- 	if (pdata.flags & CI_HDRC_SUPPORTS_RUNTIME_PM)
-@@ -493,7 +497,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 	ret = imx_usbmisc_init(data->usbmisc_data);
- 	if (ret) {
- 		dev_err(dev, "usbmisc init failed, ret=%d\n", ret);
--		goto err_clk;
-+		goto phy_shutdown;
- 	}
- 
- 	data->ci_pdev = ci_hdrc_add_device(dev,
-@@ -502,7 +506,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 	if (IS_ERR(data->ci_pdev)) {
- 		ret = PTR_ERR(data->ci_pdev);
- 		dev_err_probe(dev, ret, "ci_hdrc_add_device failed\n");
--		goto err_clk;
-+		goto phy_shutdown;
- 	}
- 
- 	if (data->usbmisc_data) {
-@@ -536,6 +540,9 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 
- disable_device:
- 	ci_hdrc_remove_device(data->ci_pdev);
-+phy_shutdown:
-+	if (data->override_phy_control)
-+		usb_phy_shutdown(data->phy);
- err_clk:
- 	clk_disable_unprepare(data->clk_wakeup);
- err_wakeup_clk:
 -- 
-2.48.1
-
+Without deviation from the norm, progress is not possible.
 
