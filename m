@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E788C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 19:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1663BC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 19:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ileqFVBRvtJdVr8tErJr7A3nzPzqi0Kezboo4Q441CI=; b=3ZS/OEvgFLLmGRUiA3GbVvHNhB
-	zUibeMHg5R45gVUE+Dupn3uz7HB6Ki+bEEc+N78Zl4HfI3ry0nWMLqJVGWT6H1XrxMiV+CpVAANZW
-	ms/admxhbXKY8dUv/lLZRTJ/Q4DQRSJc4tLXcjrYMXoYSljRiNQXD1fdvv/y3hXKib1pAZeQ61V18
-	0fhIt0ot4EULeikp6yxzyU6FyUolIwYzwQYtkvRpNvT5R2inMhP8J1dnguM/tdg434jvk4SvB6D09
-	wht5/SUU3aEzGnHjqvAc89kRKSeAfxPFhzrqql2cY+acQ78laQ6cmk4Nsqi0KMKEQmo9RngaxFuj4
-	c+4JLCvg==;
+	bh=YKV+hWN9JpR1oWviShl5FW1hZNTpiT4lwbZMt2wB8jc=; b=mbk5vQMouVFLwgY2OUzYoTHUtj
+	0ac/x5IEzSBvgsDyf90ujwd3KO5wMaayBKI/hXjA4fHmRDPpbiR1veIGqdreWgL1L5VIr6lnsoooT
+	/Jq+a7pqCUGsYm9vW9+WALxCa6YL8v305tvzR4lgl2MQe18aeg6a9M6u23zM1OvTgE/em41aPSqTq
+	gzQdF+pxL8q07Y9tjblwH98zx2UhNPN+TA1Dynh/zGjFbuTg5Bqe5eFbjD623ePQZy93OrcFWZ0pG
+	TNaVjrKjY/TiCzBFti7YgWN6NekouoZTn596ttkzRjMiE5cmlaiBTy3D2OCfYwVwf/rIpJ6ddn6dv
+	5v5YR5mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tttLr-00000000WCo-18fM;
-	Sun, 16 Mar 2025 19:08:47 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1tttNV-00000000WR2-3MG9;
+	Sun, 16 Mar 2025 19:10:29 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tttAJ-00000000UOu-1xal;
-	Sun, 16 Mar 2025 18:56:52 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-39133f709f5so2195398f8f.0;
-        Sun, 16 Mar 2025 11:56:51 -0700 (PDT)
+	id 1tttAK-00000000UPc-2bLx;
+	Sun, 16 Mar 2025 18:56:53 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43948021a45so14782755e9.1;
+        Sun, 16 Mar 2025 11:56:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742151410; x=1742756210; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742151411; x=1742756211; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ileqFVBRvtJdVr8tErJr7A3nzPzqi0Kezboo4Q441CI=;
-        b=ZFJK05YFrI6XNndULK4g5v/lsgvP8ujX21yuZ2GMVKbJp2z5OFpwoDrkpnpoEOpZIC
-         yFrXvZ+CO9Uyok+zxpwtYyDW74ajd85ha1KBCn7tHA2Wk/c5FKjnlSxZXHJCA8ZI5ddA
-         BiSKmWfu1c4wHfKE0jwswfEGgsyK/sQsKfc9QW0YhKB+X1gtuZXa+OZ6BagKXiq30aXq
-         PBIarAOJPfEhDF3l5uYd4+v/izqRp9+8zHWm2zZxj01nk408dGjbjT50fR3R7Uwl98JG
-         ftq0SVzJ1hknF0IHvWg9bKy7kL5BnS9xyQ21K1N8CCofon6jmWdXDBPcMbTLUYJzT79Z
-         UFPQ==
+        bh=YKV+hWN9JpR1oWviShl5FW1hZNTpiT4lwbZMt2wB8jc=;
+        b=OaW98EFEMV7iaoILy2vk6q4f3eqHERWn+T2dh2TRHNZgjpWXg6E3wBADGlyJVMMdRt
+         Gw/9YKz19d9p0Vcl2P7RNBPyTRwJv9XUkmjH3XNS0l+lOlyDfIc1T6GotQDn1Xt6HP0z
+         f1nei6X6dOC5uD8uZvC3C4Vk1XLXAHgeFs4wmb6adsvoZ9s/k7x+ayCrzOBaOkSQEUVP
+         vatjecwAMkO/6kmuRETB3+Ob05vJQELh/bKs/U6GtkDQ4ZJdac1fT0notzM1AzFvvN+t
+         UXRWFAnJvXpXWjAqU54grBLpnCBwESoFfb8rsrVFBX4cmp3ZaK5FbzFFNl35blRQ/MmA
+         QQsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742151410; x=1742756210;
+        d=1e100.net; s=20230601; t=1742151411; x=1742756211;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ileqFVBRvtJdVr8tErJr7A3nzPzqi0Kezboo4Q441CI=;
-        b=HtExjOby7wXzf7xPTGMKyIhmg1RhAlYcw/Xiut1y4/k6Ewc4qM7/R5q54L3IX16QcZ
-         fqdF+Ya5AM5eZE40/Lvci6bPEq8CUsgC9pQu3HuyUZDCpL2zZ6X9VTxbJmNvh7ENxNkq
-         Jh+SEOTeiD58yU5hhdk2/xoRL0y+bjLqZGpNFivDsZuUs7PFTvqbUvN0zuc9bsgF+1pz
-         YYEx33AtMXv5THKC+q9fDWFe7KrRubMG/4dNgB2xBmxGEPbHLH2mqxVQDbjV9rHHu8jd
-         67HgO6XwKx9mf1kwVWduWAYxXbVY38Hdn9tEJA7wv3dPSC6gIVamGBlo1nmKJIZEzla/
-         CFqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUVMJ4AfTq2iRSHP9YvxFPcKT6HPDnaWfkubjdxoyXqu5KG5mfctPVeHO2k4Se2gaEMDgo2igiK2PM6S4A=@lists.infradead.org, AJvYcCUweBFG5ApFJYE7terk/R++M+e/5P0/3gdRrqxeKewmWk5njob34h/SJjJYwDnuio+j7gwKobb7aZHo+Gvz92fY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZRezFATkkpwB1N2LOObfSaqIc5I4NyravjvkDjS8L1sq+/oWn
-	YdAFNuxCmHdRPih1mB3tTLxXzD5lF7d3U4A3Ddg+tc3ln0Cn30na
-X-Gm-Gg: ASbGncugLHJ9KH0Hvv37LFZJZb2tBVMB/zzdz3V/AJqtkLs3IyifiNzZ7ep7nab67+3
-	2mzj6NFMIvpFiaPABw3nrOwnoB6sJXiV/e4LhiZCTzkhTJseYM2YquFshtU8mbRoUtuuHbb3qbU
-	J1KiTQoBLid1EnzoJduDZ1wicA8XdRkckz2X/rKPX7eyvTwmnFWNWDAOkB6Lf8bqkGL+arEZdHf
-	8ZheCSpQPg4oj1xDw/oY+080xp/rf/MFpMo/hKxebtNw5Puz4pd1cbH8eOGlIBedU4ocSf/ViU6
-	qI1ZWLxXshV9P//QUBYDQ5lwQT/umCs4Ng2ERnnkOm/2s3pFSuWQy7odRg==
-X-Google-Smtp-Source: AGHT+IHJ26+oZrdKRblSpHUYREjiIopohAi7e4Zi8nHStB+4J8T3y+CCblGsR2BG4HwURzM96IZoaw==
-X-Received: by 2002:a05:6000:18ac:b0:390:f9d0:5e4 with SMTP id ffacd0b85a97d-3971d9f0e26mr10803759f8f.21.1742151409707;
-        Sun, 16 Mar 2025 11:56:49 -0700 (PDT)
+        bh=YKV+hWN9JpR1oWviShl5FW1hZNTpiT4lwbZMt2wB8jc=;
+        b=AlDApRlNvWuq7MZ6aA9WMvPIyt47nq+lwdhV7yx0hvc6q5/ozst6ltMFINI6GH3zH3
+         Jg/Zw19OxvIsGGBqghmF3LeqmOtO33n+OTF19VYw7p3i/DVhXY4qqAFNo0gs9BMKx6HN
+         FrEn/a1b/+chsaC/YX5x4jKkF1oQHWp+kxBML+kQoU3/c/dI+S5xuBs/c12hwz3kZCkq
+         gd9U9OAw0dabuM3T3Xw/mdxoiSwfC7eLvKW43r38Qx3F2N+SfpxBxz/LkfxHlOsWJsgW
+         qu7PB2UgndnuHre2oDltXgCuSNiqaLGTRj7LXI74+Z00RRucArGyjsBSkQ83mDBImhkz
+         1CDw==
+X-Forwarded-Encrypted: i=1; AJvYcCUevLiez8HFTMiroS7844yf5JeHzw7CAMnOwfxddL8v5LjmSgc/+qlwnxdB1dEEnHs1UyPZfXPd/j8iFnc=@lists.infradead.org, AJvYcCWZWsD318312jwRHmEQswxwFNmbLHSK+TuKayADY8+lhRlmZAxLr8R2ulcizCb5daBVKYFTGoDdwT9oMahgDMUG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzglOUbzPRATsOBQHT3+HRoIYXUtlqn/A1wNu+QvQXUU4OsQQRV
+	REy59RXY+d//55aMq0fFk82WzIG0jebTEm05zjj9jJSK7OyjS5vu
+X-Gm-Gg: ASbGncvLOrW+oX8NjenKl52BaptAiqYZLJH+/lYVB0PWsoikIp2bCipUP2UuO0G7Z+l
+	kgsNDIFeZUzJnRh6g+PuUZ0KujR7e0L+AG8nqwEI3IvvlKuxqBqMSofeQAnDIleLsrdP2fh+wT1
+	IlVJSO8gk+tfQPabzhHb+zOx8YvPlhM7qZynOuo9C2UUGmsJPHxkJCelnZDEgpbhN5vOJ3MCOhW
+	tlItS+yHJWjJsAeIXkEFt6gmHezqKFFxsJA9E8B2uYG4U6gulGZeAs2vUu4Gnb1oXAamGOkuMBH
+	rxWlyeReQR9jF2v91WClEy+VGJuHACfFAMYrF4pamEBNHEJPLTOE6h7clIbCj/BOgu3t
+X-Google-Smtp-Source: AGHT+IHLZK3FCf/r7+5MKurX3pr5o4LJldkBwRRoPZ2/8ot7v5lwjboRWlnOjFSLvqToQ7g90WgAwg==
+X-Received: by 2002:a05:600c:3399:b0:43d:2230:300f with SMTP id 5b1f17b1804b1-43d2230311bmr92200575e9.0.1742151410666;
+        Sun, 16 Mar 2025 11:56:50 -0700 (PDT)
 Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1ffb6292sm84692335e9.1.2025.03.16.11.56.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1ffb6292sm84692335e9.1.2025.03.16.11.56.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Mar 2025 11:56:49 -0700 (PDT)
+        Sun, 16 Mar 2025 11:56:50 -0700 (PDT)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: sophgo@lists.linux.dev,
 	soc@lists.linux.dev
@@ -89,18 +89,19 @@ Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 6/7] arm64: Add SOPHGO SOC family Kconfig support
-Date: Sun, 16 Mar 2025 19:56:36 +0100
-Message-ID: <20250316185640.3750873-7-alexander.sverdlin@gmail.com>
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v5 7/7] arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+Date: Sun, 16 Mar 2025 19:56:37 +0100
+Message-ID: <20250316185640.3750873-8-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250316185640.3750873-1-alexander.sverdlin@gmail.com>
 References: <20250316185640.3750873-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_115651_523349_D6091176 
-X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-CacheID: sfid-20250316_115652_687751_FB4BA922 
+X-CRM114-Status: UNSURE (   8.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,9 +117,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-First user will be Aarch64 core within SG2000 SoC.
+Enable ARCH_SOPHGO, pinctrl (built-in, required to boot), ADC as module.
+This defconfig is able to boot from SD card on Milk-V Duo Module 01
+evalboard.
 
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 ---
 Changelog:
@@ -126,30 +129,47 @@ v5:
 v4:
 v3:
 v2:
-- shortened the help message (mirrored from RiscV ARCH now);
-- select ARCH_HAS_RESET_CONTROLLER instead of RESET_CONTROLLER;
-- moved CLK_SOPHGO_CV1800 selection into defconfig;
+- moved CLK_SOPHGO_CV1800 from Kconfig.platforms here;
 
- arch/arm64/Kconfig.platforms | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/configs/defconfig | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 8b76821f190f..af74bcc3c861 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -307,6 +307,12 @@ config ARCH_INTEL_SOCFPGA
- 	  Stratix 10 (ex. Altera), Stratix10 Software Virtual Platform,
- 	  Agilex and eASIC N5X.
- 
-+config ARCH_SOPHGO
-+	bool "Sophgo SoCs"
-+	select ARCH_HAS_RESET_CONTROLLER
-+	help
-+	  This enables support for Sophgo SoC platform hardware.
-+
- config ARCH_STM32
- 	bool "STMicroelectronics STM32 SoC Family"
- 	select GPIOLIB
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index bde1287ad9a7..9c01f5333f0f 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -66,6 +66,7 @@ CONFIG_ARCH_RENESAS=y
+ CONFIG_ARCH_ROCKCHIP=y
+ CONFIG_ARCH_SEATTLE=y
+ CONFIG_ARCH_INTEL_SOCFPGA=y
++CONFIG_ARCH_SOPHGO=y
+ CONFIG_ARCH_STM32=y
+ CONFIG_ARCH_SYNQUACER=y
+ CONFIG_ARCH_TEGRA=y
+@@ -652,6 +653,7 @@ CONFIG_PINCTRL_SM8450_LPASS_LPI=m
+ CONFIG_PINCTRL_SC8280XP_LPASS_LPI=m
+ CONFIG_PINCTRL_SM8550_LPASS_LPI=m
+ CONFIG_PINCTRL_SM8650_LPASS_LPI=m
++CONFIG_PINCTRL_SOPHGO_SG2000=y
+ CONFIG_GPIO_ALTERA=m
+ CONFIG_GPIO_DAVINCI=y
+ CONFIG_GPIO_DWAPB=y
+@@ -1409,6 +1411,7 @@ CONFIG_QCOM_HFPLL=y
+ CONFIG_CLK_GFM_LPASS_SM8250=m
+ CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
+ CONFIG_CLK_RENESAS_VBATTB=m
++CONFIG_CLK_SOPHGO_CV1800=y
+ CONFIG_HWSPINLOCK=y
+ CONFIG_HWSPINLOCK_QCOM=y
+ CONFIG_TEGRA186_TIMER=y
+@@ -1528,6 +1531,7 @@ CONFIG_QCOM_SPMI_VADC=m
+ CONFIG_QCOM_SPMI_ADC5=m
+ CONFIG_ROCKCHIP_SARADC=m
+ CONFIG_RZG2L_ADC=m
++CONFIG_SOPHGO_CV1800B_ADC=m
+ CONFIG_TI_ADS1015=m
+ CONFIG_TI_AM335X_ADC=m
+ CONFIG_IIO_CROS_EC_SENSORS_CORE=m
 -- 
 2.48.1
 
