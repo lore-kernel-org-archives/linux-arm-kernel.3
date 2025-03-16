@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6E2C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 04:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06620C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 04:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bm/TjLVsOIQb5qeMDxohaetZDngVOOW8hl6xb9zJkyk=; b=b2U2DTUC1z+eXyrQg3SGwXwaed
-	Qf0dnmA1FI40DVbymns56NZtMtzN7pCEBf6egnlfkpK3ZpXQ2YLYYjASOXI5DVxUTgCVEivAzCdsy
-	4XhOMchflAp/OHOhHr1XU1O7QMU2IWFnvjC+oGzAPV+paB0P8qUFhrm9/VABKHP6M3LQbRUCQCR14
-	rIt1emvztiAZqBkmP6fuJ2CtVEGb8a8Xm9OokjtjuIYfzhM6D6KAZgSzbz0/Trkzz+0O7bmVrkMb8
-	uvkFMOBsupqnv4v/cQTcRwvZ2hXI7w/k9TQPSGXFQZNAY8gBltmYU2lwkCDm7bT4NcXAMnkLJEkKM
-	gsWakLsw==;
+	bh=1VnxgBQ3rAJeGHFIGyB+ChpGIi/1tYmBGxWhiMsjK7I=; b=LODjpst1dolycWQYSOeexltXbY
+	BWuTuumSye3S9OR/5HhxLI5PzgqcACKgV1MpYsP48xLp+RVQLxYwn2QgIm7eDWrMYTZG7DC3CXDzu
+	3gaYTKQBu93903T8Nt/Z3HgQMW9aIZDZvRI8djiHd4jhbuGcXHGpIZPl8EejwzEfQd/ClEv4SrczY
+	GqmqLKtchqXWPazKC5TqdQ8UmchcGiRqLASLyucqdJmx/U9GX4IKzNi+AuGhHWZol9egogd6hiLKk
+	Bxj3kNkQoyXk5EBcHBHR977asMQtAkHDp8Mcxla2uv0WflI5VAdNIb4w0tZOWTHMPtSJvbZ5avcDZ
+	/yTPMLnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttfqE-0000000HH0a-0swl;
-	Sun, 16 Mar 2025 04:43:14 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1ttfrr-0000000HH9L-3mAI;
+	Sun, 16 Mar 2025 04:44:55 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttfGN-0000000HCPO-1iZB
+	id 1ttfGO-0000000HCQc-2wwp
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 16 Mar 2025 04:06:13 +0000
-Received: by mail-wr1-x441.google.com with SMTP id ffacd0b85a97d-39104c1cbbdso1885962f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 21:06:11 -0700 (PDT)
+Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso5885745e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Mar 2025 21:06:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742097970; x=1742702770; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742097971; x=1742702771; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bm/TjLVsOIQb5qeMDxohaetZDngVOOW8hl6xb9zJkyk=;
-        b=B8TGxkvpv+rw6/iOsaKx1rQowkBr5k9DJxVV8ZBfD/bDmhIRo+/9fLW72BzDU/eLtm
-         dd99FWOIjfIR+9azPF1cH/+UZG/PkG7whQM8PlaqQk1izGgA/JbcMMmrU6Evl5y+uJpt
-         vExgnMXjT1sPEJH2RwV0t7hZLtz2jZHfYhbuo032ZQ7QivGh30C+6ed1ThoXZ0/gt7Ct
-         NzQBs4GatXgUcaOt65Ex2SEeNgUE0i0f6rtQagkoNlbo7Hjc+cAvqsNVhaw625PlHpq3
-         8CpX1qibhJODY+JCCjPBvI4pQx9ZT5+5yZc5d4bAX+F3zRy5dquwCa5aen6BF+6s2Yf0
-         nFRQ==
+        bh=1VnxgBQ3rAJeGHFIGyB+ChpGIi/1tYmBGxWhiMsjK7I=;
+        b=DGasknkeUgABWJ0ivInfb5pHcwGHrSS160Qkaont6y+xonbuzxGJHYOdas6fUCnFHy
+         Upy+9wsSTnsZHdoRc62YiaWKkba9lNN2LLzDzg5dkUFCwlFBGWoVdx3M3Cd5vfVW4WgA
+         yqOg4tyFzO1MfcdpL/A7ClqgPfEstpo6EGFyObYQu5XfH4BJuKSrSK9hNbn3Ie95JqvI
+         RHxYMPtNUlOeLQRTSSVpa2IojbiTZNLdlJpSOzzK0ip+U5twml7xw1oPJTptpSRcnkxA
+         kZY7GUTbmOS8EQR/t+tQzXJOIiuaDaa2k+QrfEXWpuhhGZS0Qaz8rZ70WdLf9iLTTW7Y
+         Pg9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742097970; x=1742702770;
+        d=1e100.net; s=20230601; t=1742097971; x=1742702771;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bm/TjLVsOIQb5qeMDxohaetZDngVOOW8hl6xb9zJkyk=;
-        b=SeF5PVPsChay30Yi64OKaesyC+ugdRS+czscKX7/Ue0bTSSm5s0c1Nb+TDsUFukEsy
-         2aHFDgIXmDJ4jXzb2LEcILWCeWA/FF7SCdFmrjXuZW0Oa2z4CB6WYN8YmABI2dtondEl
-         ORLbva8r3WjK89Ni4z6LeBRTfxZPjXOF0/LyGOqKcbMiltuyfEiqR7wpwrkZ/THpin1m
-         0dwaV14U7SUn23SwRIhrgP///T3LBGMkmHev46mF2vaWG0bC4Pe7Ah28XI7JjOMOWP6h
-         IfzNZeWp8rRljQQgprYuBZT/dc+wapq+giYEiTnNkYmHz5HvhoI9jtIzJVRsFeF7BGul
-         Ul9A==
-X-Forwarded-Encrypted: i=1; AJvYcCUz4x0oYkqrkpTI8GdwIkmsI94e317/k5K7IEY61pGlX/XKlZFPh3ye+bobwssPJPLxecKAiY/Sk5zEoN+Wdy32@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywwj8mOKCxHjaWJ6GWGgEqk5ktUI6G+NtWDc0323zoTNJII29U5
-	GNVk2BvTmVGvenOE/LmLzNvaNcYfuSkTIM7q2JEhNZYmYsgs6S9+0nJlUQ2ojE0=
-X-Gm-Gg: ASbGncu3JeaqmaPtHTo36YBG09gHeatQwon3/vmteoEZsk03lpIBouu4oQU899QufjH
-	UZHm8OpaKtQQRGTac7PaOrbMuEaOv1AhOFyE2dleXgRlUDlp0wAELcurmmJhyePwalNN97R178y
-	Oz/Wnc726Kl1NKH1+3lJsTuOvqy9ryUl3urmBjcgl2flLQJ4hD4C81JXdF5n6zii10oAmLBuyt1
-	Qt3vi6Qwzih1EBfI1lZC7NP9Y41G6IWjYMkyfVbslqHki5MumS7jeU9ROMJ0uyLw8S3bHF7/BpW
-	6S0/NOrfMQwH8sIRnzd5Qsy+CpOHhX9mxy0=
-X-Google-Smtp-Source: AGHT+IGURbU24AaTjAxqIKJjqCn2mEjZeMLGKyXVZQ1FJ1WehOwHXfyeGE85aKEnu+FeFGs/jt2rrQ==
-X-Received: by 2002:adf:a39b:0:b0:397:5de8:6937 with SMTP id ffacd0b85a97d-3975de869d5mr7109406f8f.41.1742097970041;
-        Sat, 15 Mar 2025 21:06:10 -0700 (PDT)
+        bh=1VnxgBQ3rAJeGHFIGyB+ChpGIi/1tYmBGxWhiMsjK7I=;
+        b=vtkoN/D4aFJikbR8vTsD0KaCg/WqmiVnU4Ijy6wXE7iadKSS23js93rAMoBe+N3W5x
+         dcQaWgTypklsaVvJP20dKQRWuvIEFyElg//JjKndpvaETS0wXgfzcjLPp7O5sFiPBkn3
+         GoPokAfiqXCxIOx0gwVB4lBnZEHLAMhGcFxdbWC+Phd6JIaxBXT1+83ET29KbUqmwrJ4
+         Nf40+3pP4Ywuyi2sRsrNg6BOBPm1AfNCftYb9ywDSpwEFTTekP94rBNzCrdfxMIXGwtA
+         Z96tgOuWPskf/dNk4cM21DIMAqfV2WbnrZm1rmzsD+lpqm2mAK+TrzzrrbEMAwhIQ/t4
+         mlpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWzj8whWhQQwFWqlYND6VP+meeQ/q2whb/Ex0HdDjCDJfZBYbk2D+XwJI6jou89UHhNb5dVkHUWLxlBAUBTPdJE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGMagjT/bODJC5p0gSGD5zXnqhMadHPlswX/mm3N6luD0CvYcv
+	A8unWYShiQL+fBZWcMgdjef8ZqS7aKHpNpahIImFAYd5azIK0CPw
+X-Gm-Gg: ASbGnctAR1uYcoPr/LUST5WMjPG4GiAnI5ijG4bLvCIwM6iF5WAb7c7dKcJoTryjgTB
+	Xgoo1C+PJo9KwvLDR1zYkmy/kCbB1VU+YEbhtFEwPfrPnLi88TGVQHUmtpOMCsViKYiKUc1WWmh
+	6Ua+uP2laDTGAdAQXedUr76n56N1njbIJh6lYF2VbCVlLeM2NFCRZHyL0S05M0C8lL3Jsx3lJ1U
+	6VQUOZHyKvptc4NQW5OmWZFTfZlV6Wqd/f1o37yhZuheLHb7bP07Q8ELzo21bSzFUO7ZIXZ003K
+	8Qgraypaor3T72WE+209mH9DdzvMOW4K4oGPYGxxHXuoKA==
+X-Google-Smtp-Source: AGHT+IHykLJ5NvwHyRbYtDv/1bZEgjZY12X6M0CYxwI6OW/IzydFKfy0Lmd5AEeKjh0K2mfT3jL26Q==
+X-Received: by 2002:a7b:c2a9:0:b0:43b:bb72:1dce with SMTP id 5b1f17b1804b1-43d1806bfc6mr111911795e9.5.1742097971213;
+        Sat, 15 Mar 2025 21:06:11 -0700 (PDT)
 Received: from localhost ([2a03:2880:31ff:72::])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c82c2690sm10726584f8f.25.2025.03.15.21.06.09
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395cb7eb92csm11124023f8f.91.2025.03.15.21.06.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Mar 2025 21:06:09 -0700 (PDT)
+        Sat, 15 Mar 2025 21:06:10 -0700 (PDT)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -88,19 +88,19 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kkd@meta.com,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v4 21/25] bpf: Convert lpm_trie.c to rqspinlock
-Date: Sat, 15 Mar 2025 21:05:37 -0700
-Message-ID: <20250316040541.108729-22-memxor@gmail.com>
+Subject: [PATCH bpf-next v4 22/25] bpf: Introduce rqspinlock kfuncs
+Date: Sat, 15 Mar 2025 21:05:38 -0700
+Message-ID: <20250316040541.108729-23-memxor@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250316040541.108729-1-memxor@gmail.com>
 References: <20250316040541.108729-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3875; h=from:subject; bh=JAC4N7kXKK3pnjvfn/+uPUJ4VSIRwkWi681l7P20D6I=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBn1k3ePndVFVpKoLfCEr0LeaQTth201gHenOAJqnlp 4yxo4/+JAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ9ZN3gAKCRBM4MiGSL8RyqETD/ wPY/kdxYtWMwPuTaaDUV/B3x37peOYAWOdkQcKpbuywBe0gInjoXHOEs+9kkyNps+nUXY3V1aFV1sh HCKWqCMPO7iBeiB4f45fMwvNewTenIvKf+TNJluOSt/v1CzNEil4pBSqsDlCXmZr8B7JXHb796aCm+ 5WfEq7kYFsgD21IEcJQNF4uTNry5R1ceqOAZvdd4y1NmNljt/7G8QS0IJv3zlu/0+BIunPtpqFbpVP 5z55MtMIE1CGFkAHVq48XJVIB9TfWzMIoyD6LKaRKQbrABVSTvT2LTCRcJkvJFKXpEKGbuYcmjo0pK O1yf/FMseMc11MT7/8ZDm/ezGZao7FjQfCb3U94APSqklR8acBNVZlQeLBwTSY1KIAnQu5C4zjoEme yPoSD0GDwU1vuNhQZvVvL5JSlqw6LXR5JgtO2hm1HOvelVuwOon0Mimv8uG/tiH9K7vPJr83ZdKO6X G4BmtnD77NsUAbSGZsNDHKg0c8/kyezVplqtG2Su21wBajRyeNwORZRBpxsxuP6d6oi3H2Fw43nklC +4rCMj1HNzhTA2XLuXrVuqohGykMqtcQZZNUzk4T6xxGMDuQYGV53FMQZWK9zFKZckR/KT1y/gf3zD rVdO2lI+Ki076kbGMvCDeNlQEq7beSPEriiu/ij7C2wMIRHqnyK28WWFR79w==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5059; h=from:subject; bh=5BKl9hYgLyro6F1bzOCMfYjd/K5FyedLnNqGmCHan+A=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBn1k3e+fudrbbc/TgS+/ixztDuZ5UbJUeXYBElGNak SEdzC0OJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ9ZN3gAKCRBM4MiGSL8Ryqz4D/ oCflyjgtF5/HlKZj4F2D61xd+E+vDVH2+zf1tMkPdHH8lyU299BGDRQqY2WtOTwcBLUY9OqorBhQ8H rjwEGY2fs77qokXPHkKwGo9ZCV9KoFXcx2t1akp8zymB9tkkxVrbMvKrD4LJLkmJp4+0Gk0P4dmTT6 uL5NE4sFMWsPdIdSevyjlGvL/98JDGWrIzfqzVSbHA9M6AJbeyaL5upuniadERgB4b7/UNXbBeSzt4 ZLFS9zpB8NYwZecwzgOydM6/jWOQPjeh0pUyf8lwSq17ZzhYsHp2945rJhtVwSxt82T3WDRPib5MTU 7t4sgoBzUKN9xFg23oq0eZbuWRdF0BXps6RORdd5fgrSHtEYt5KHaSYff51NxW87b+eNlFzdKM57pA Pez01gQmSKdydkbA0jpu+VYH962Jkoigu2ho3Khwrr2JuWqOcAz+5Y/SnXDhbU8W/UpTH3SK2Wy4kF QMpW9/D0CW2bAdIgChF/jU9dRdCKMMLFH+OpADrQQfn4zvU7cWdzA/1BPNh0bLBYEX7K2va7cXSA+g uHGz5ivgqNl9TakLfq+7exi7BFGrnYDGJZ9qjvtAdu3EDnpEX3iX5MFWcOfOHBmWnOTiGMi5x2ks/7 zQL3CJIhr4Uc+LeK+wpPS9WJnwsrk8CuEMSTyIC9XeeQUQWEeb4pfptwOM1A==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250315_210611_472191_46125D39 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250315_210612_842050_BE294CF5 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,113 +115,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert all LPM trie usage of raw_spinlock to rqspinlock.
+Introduce four new kfuncs, bpf_res_spin_lock, and bpf_res_spin_unlock,
+and their irqsave/irqrestore variants, which wrap the rqspinlock APIs.
+bpf_res_spin_lock returns a conditional result, depending on whether the
+lock was acquired (NULL is returned when lock acquisition succeeds,
+non-NULL upon failure). The memory pointed to by the returned pointer
+upon failure can be dereferenced after the NULL check to obtain the
+error code.
 
-Note that rcu_dereference_protected in trie_delete_elem is switched over
-to plain rcu_dereference, the RCU read lock should be held from BPF
-program side or eBPF syscall path, and the trie->lock is just acquired
-before the dereference. It is not clear the reason the protected variant
-was used from the commit history, but the above reasoning makes sense so
-switch over.
+Instead of using the old bpf_spin_lock type, introduce a new type with
+the same layout, and the same alignment, but a different name to avoid
+type confusion.
 
-Closes: https://lore.kernel.org/lkml/000000000000adb08b061413919e@google.com
+Preemption is disabled upon successful lock acquisition, however IRQs
+are not. Special kfuncs can be introduced later to allow disabling IRQs
+when taking a spin lock. Resilient locks are safe against AA deadlocks,
+hence not disabling IRQs currently does not allow violation of kernel
+safety.
+
+__irq_flag annotation is used to accept IRQ flags for the IRQ-variants,
+with the same semantics as existing bpf_local_irq_{save, restore}.
+
+These kfuncs will require additional verifier-side support in subsequent
+commits, to allow programs to hold multiple locks at the same time.
+
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- kernel/bpf/lpm_trie.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+ include/asm-generic/rqspinlock.h |  7 +++
+ include/linux/bpf.h              |  1 +
+ kernel/bpf/rqspinlock.c          | 78 ++++++++++++++++++++++++++++++++
+ 3 files changed, 86 insertions(+)
 
-diff --git a/kernel/bpf/lpm_trie.c b/kernel/bpf/lpm_trie.c
-index e8a772e64324..be66d7e520e0 100644
---- a/kernel/bpf/lpm_trie.c
-+++ b/kernel/bpf/lpm_trie.c
-@@ -15,6 +15,7 @@
- #include <net/ipv6.h>
- #include <uapi/linux/btf.h>
- #include <linux/btf_ids.h>
-+#include <asm/rqspinlock.h>
- #include <linux/bpf_mem_alloc.h>
- 
- /* Intermediate node */
-@@ -36,7 +37,7 @@ struct lpm_trie {
- 	size_t				n_entries;
- 	size_t				max_prefixlen;
- 	size_t				data_size;
--	raw_spinlock_t			lock;
-+	rqspinlock_t			lock;
+diff --git a/include/asm-generic/rqspinlock.h b/include/asm-generic/rqspinlock.h
+index 23abd0b8d0f9..6d4244d643df 100644
+--- a/include/asm-generic/rqspinlock.h
++++ b/include/asm-generic/rqspinlock.h
+@@ -23,6 +23,13 @@ struct rqspinlock {
+ 	};
  };
  
- /* This trie implements a longest prefix match algorithm that can be used to
-@@ -342,7 +343,9 @@ static long trie_update_elem(struct bpf_map *map,
- 	if (!new_node)
- 		return -ENOMEM;
++/* Even though this is same as struct rqspinlock, we need to emit a distinct
++ * type in BTF for BPF programs.
++ */
++struct bpf_res_spin_lock {
++	u32 val;
++};
++
+ struct qspinlock;
+ #ifdef CONFIG_QUEUED_SPINLOCKS
+ typedef struct qspinlock rqspinlock_t;
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 0d7b70124d81..a6bc687d6300 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -30,6 +30,7 @@
+ #include <linux/static_call.h>
+ #include <linux/memcontrol.h>
+ #include <linux/cfi.h>
++#include <asm/rqspinlock.h>
  
--	raw_spin_lock_irqsave(&trie->lock, irq_flags);
-+	ret = raw_res_spin_lock_irqsave(&trie->lock, irq_flags);
-+	if (ret)
-+		goto out_free;
+ struct bpf_verifier_env;
+ struct bpf_verifier_log;
+diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
+index ad0fc35c647e..cf417a736559 100644
+--- a/kernel/bpf/rqspinlock.c
++++ b/kernel/bpf/rqspinlock.c
+@@ -15,6 +15,8 @@
  
- 	new_node->prefixlen = key->prefixlen;
- 	RCU_INIT_POINTER(new_node->child[0], NULL);
-@@ -356,8 +359,7 @@ static long trie_update_elem(struct bpf_map *map,
- 	 */
- 	slot = &trie->root;
+ #include <linux/smp.h>
+ #include <linux/bug.h>
++#include <linux/bpf.h>
++#include <linux/err.h>
+ #include <linux/cpumask.h>
+ #include <linux/percpu.h>
+ #include <linux/hardirq.h>
+@@ -690,3 +692,79 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ EXPORT_SYMBOL_GPL(resilient_queued_spin_lock_slowpath);
  
--	while ((node = rcu_dereference_protected(*slot,
--					lockdep_is_held(&trie->lock)))) {
-+	while ((node = rcu_dereference(*slot))) {
- 		matchlen = longest_prefix_match(trie, node, key);
- 
- 		if (node->prefixlen != matchlen ||
-@@ -442,8 +444,8 @@ static long trie_update_elem(struct bpf_map *map,
- 	rcu_assign_pointer(*slot, im_node);
- 
- out:
--	raw_spin_unlock_irqrestore(&trie->lock, irq_flags);
--
-+	raw_res_spin_unlock_irqrestore(&trie->lock, irq_flags);
-+out_free:
- 	if (ret)
- 		bpf_mem_cache_free(&trie->ma, new_node);
- 	bpf_mem_cache_free_rcu(&trie->ma, free_node);
-@@ -467,7 +469,9 @@ static long trie_delete_elem(struct bpf_map *map, void *_key)
- 	if (key->prefixlen > trie->max_prefixlen)
- 		return -EINVAL;
- 
--	raw_spin_lock_irqsave(&trie->lock, irq_flags);
-+	ret = raw_res_spin_lock_irqsave(&trie->lock, irq_flags);
-+	if (ret)
+ #endif /* CONFIG_QUEUED_SPINLOCKS */
++
++__bpf_kfunc_start_defs();
++
++#define REPORT_STR(ret) ({ ret == -ETIMEDOUT ? "Timeout detected" : "AA or ABBA deadlock detected"; })
++
++__bpf_kfunc int bpf_res_spin_lock(struct bpf_res_spin_lock *lock)
++{
++	int ret;
++
++	BUILD_BUG_ON(sizeof(rqspinlock_t) != sizeof(struct bpf_res_spin_lock));
++	BUILD_BUG_ON(__alignof__(rqspinlock_t) != __alignof__(struct bpf_res_spin_lock));
++
++	preempt_disable();
++	ret = res_spin_lock((rqspinlock_t *)lock);
++	if (unlikely(ret)) {
++		preempt_enable();
++		rqspinlock_report_violation(REPORT_STR(ret), lock);
 +		return ret;
- 
- 	/* Walk the tree looking for an exact key/length match and keeping
- 	 * track of the path we traverse.  We will need to know the node
-@@ -478,8 +482,7 @@ static long trie_delete_elem(struct bpf_map *map, void *_key)
- 	trim = &trie->root;
- 	trim2 = trim;
- 	parent = NULL;
--	while ((node = rcu_dereference_protected(
--		       *trim, lockdep_is_held(&trie->lock)))) {
-+	while ((node = rcu_dereference(*trim))) {
- 		matchlen = longest_prefix_match(trie, node, key);
- 
- 		if (node->prefixlen != matchlen ||
-@@ -543,7 +546,7 @@ static long trie_delete_elem(struct bpf_map *map, void *_key)
- 	free_node = node;
- 
- out:
--	raw_spin_unlock_irqrestore(&trie->lock, irq_flags);
-+	raw_res_spin_unlock_irqrestore(&trie->lock, irq_flags);
- 
- 	bpf_mem_cache_free_rcu(&trie->ma, free_parent);
- 	bpf_mem_cache_free_rcu(&trie->ma, free_node);
-@@ -592,7 +595,7 @@ static struct bpf_map *trie_alloc(union bpf_attr *attr)
- 			  offsetof(struct bpf_lpm_trie_key_u8, data);
- 	trie->max_prefixlen = trie->data_size * 8;
- 
--	raw_spin_lock_init(&trie->lock);
-+	raw_res_spin_lock_init(&trie->lock);
- 
- 	/* Allocate intermediate and leaf nodes from the same allocator */
- 	leaf_size = sizeof(struct lpm_trie_node) + trie->data_size +
++	}
++	return 0;
++}
++
++__bpf_kfunc void bpf_res_spin_unlock(struct bpf_res_spin_lock *lock)
++{
++	res_spin_unlock((rqspinlock_t *)lock);
++	preempt_enable();
++}
++
++__bpf_kfunc int bpf_res_spin_lock_irqsave(struct bpf_res_spin_lock *lock, unsigned long *flags__irq_flag)
++{
++	u64 *ptr = (u64 *)flags__irq_flag;
++	unsigned long flags;
++	int ret;
++
++	preempt_disable();
++	local_irq_save(flags);
++	ret = res_spin_lock((rqspinlock_t *)lock);
++	if (unlikely(ret)) {
++		local_irq_restore(flags);
++		preempt_enable();
++		rqspinlock_report_violation(REPORT_STR(ret), lock);
++		return ret;
++	}
++	*ptr = flags;
++	return 0;
++}
++
++__bpf_kfunc void bpf_res_spin_unlock_irqrestore(struct bpf_res_spin_lock *lock, unsigned long *flags__irq_flag)
++{
++	u64 *ptr = (u64 *)flags__irq_flag;
++	unsigned long flags = *ptr;
++
++	res_spin_unlock((rqspinlock_t *)lock);
++	local_irq_restore(flags);
++	preempt_enable();
++}
++
++__bpf_kfunc_end_defs();
++
++BTF_KFUNCS_START(rqspinlock_kfunc_ids)
++BTF_ID_FLAGS(func, bpf_res_spin_lock, KF_RET_NULL)
++BTF_ID_FLAGS(func, bpf_res_spin_unlock)
++BTF_ID_FLAGS(func, bpf_res_spin_lock_irqsave, KF_RET_NULL)
++BTF_ID_FLAGS(func, bpf_res_spin_unlock_irqrestore)
++BTF_KFUNCS_END(rqspinlock_kfunc_ids)
++
++static const struct btf_kfunc_id_set rqspinlock_kfunc_set = {
++	.owner = THIS_MODULE,
++	.set = &rqspinlock_kfunc_ids,
++};
++
++static __init int rqspinlock_register_kfuncs(void)
++{
++	return register_btf_kfunc_id_set(BPF_PROG_TYPE_UNSPEC, &rqspinlock_kfunc_set);
++}
++late_initcall(rqspinlock_register_kfuncs);
 -- 
 2.47.1
 
