@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA47C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 10:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C551C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Mar 2025 10:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=44SpItRKUxFm28eFyI6gxiFicrK2oTdXvpvAM2e0nGk=; b=vUm4bjiNkvap1amxDDvMCdmBZz
-	3zaIXaF0D7duI4zyUaJupOzqfVbB4/yfhxmy+j0iUUL37ucXmYM/NOl9GRt5X7EUXFA11198CTwwj
-	Cu0z5Ak2JrMiiftCT+sZYj12os56+PRDEyZoh75ez51CuJx49o23Z7QzKq9MKuk+3wUcpuqtxKqQP
-	yK3dY3ntPDdAsFAcPJJbsjN+GKi3ii3W4wCseAIVRNKpXpzC02StkhgoNW9hmddNSeC3N/pcEqEzb
-	pumokz852JX311FqmoScryaqQMzukJh9NytSlocfgH2koiHld7CNcg5AZvoX6bLDHTYG3kwxhZkG+
-	0Idcd+nA==;
+	bh=ffzijhZVfH5kiGfQcAgPWv79ALJ229rFLFS/1lcorW4=; b=kqW3SK6+wI1mgUY672OQBNrJM3
+	qpnhLKMd7QiSospctURPNwAE9JbwLQEOjubT8RXOji3Koc5x33b/uuhY2XmHpP2koBMmDsB301oqZ
+	JnWUnkVeCmE4pzvZWv3DPsfOFaoZpFhPFgSgA3Y/lKJK+2R11RhzpzspvSVkf5lRtaPhZO9FpCApM
+	b0xeZBEabxvGNVe/NAyzFyVaZ4/bx76Zt7UvYkuRhkxt3RKFrZaI+WfwKQG7RF/P/MCxWwyiOwdoH
+	0Y9sYmRjQPWUoSwvmdMYdKdenbQHC6VeXfQrGRPw+MNIB/bgwv7VcSEYL57w2DsVfA1CJOYcJzyP2
+	ed5592AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttlLh-000000003fk-1DbV;
-	Sun, 16 Mar 2025 10:36:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ttlPd-000000003z1-47Kg;
+	Sun, 16 Mar 2025 10:40:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttlIw-000000003Kv-3uSj
+	id 1ttlNy-000000003qt-13Nq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Mar 2025 10:33:16 +0000
+	Sun, 16 Mar 2025 10:38:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2BA8BA48A3E;
-	Sun, 16 Mar 2025 10:27:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF78C4CEDD;
-	Sun, 16 Mar 2025 10:33:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BE5065C0579;
+	Sun, 16 Mar 2025 10:36:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52991C4CEDD;
+	Sun, 16 Mar 2025 10:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742121193;
-	bh=SRVlez7jQA05YlqVbFTK28O6hKORV/BZnhg/jFT8c7g=;
+	s=k20201202; t=1742121505;
+	bh=ucfDcVDXjcWOKkPOItkoGktnegmxA36i+Qi8b/Jl410=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QAjwDU6f+Pa8HwEv4iSGndES2e7YvkrvUPjECcMnxGLRfemdcbYv33UH6njk8aNWu
-	 Q22BWB7QzwY+MT5F62iLC5npSimS5BmHFlGi1N1cgJ/M4/b1wP6RxpYLY+ggHj0gng
-	 NI8SnFlCi0q3553EzmMmEzQmrderUuQLl6DhvwxjdOXbKNTLvMmAhUdIsENCeQizgZ
-	 1xy6FC0JFThMMOws0YL2ZFFua7qRQjZYT5HYTNjU94IJNCusokvsP4dQpgCW8jF8GM
-	 hp/uN3wLEglgXOrUefpouKEsSz5Bh0SywVC3fl7yTw4eGBmiIv6iV08D0ZpsvvL3C0
-	 uxA46e3hKlQBA==
+	b=tzoUnGUJYmLLjkfW4T7p2RLqA4jzYzCkibx3MtvizJlWr+Cxzm9P761vIPHs9POf4
+	 ROTqpgwo0dXDjhaL0X2n3UekeGmt6n9kb7nzDztHvHcMatY+u+ttLRxecE//YGLa8R
+	 mylic3yWL5yS8fW78Q2hu2wHs0CPIqdztq6iHYrGmpv4Av0Ma6fSqMXg3rwzG4J/1b
+	 x6xNBqM+A+YchzEStpg+E4lC8ARnUVkKO1z+H/aL63GBm2mtRahe4pMcxAhCW/VDgh
+	 9GmdnZqGO/hDHq7qRJICGglt2PsRUbnhfPYwza60Z0Z1uRB+cHq8QWQE3YMFscOGeC
+	 dKIq8SYq61cIQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1ttlIt-00Dy3A-3n;
-	Sun, 16 Mar 2025 10:33:11 +0000
-Date: Sun, 16 Mar 2025 10:33:10 +0000
-Message-ID: <86a59lnu3d.wl-maz@kernel.org>
+	id 1ttlNv-00Dy89-3i;
+	Sun, 16 Mar 2025 10:38:23 +0000
+Date: Sun, 16 Mar 2025 10:38:21 +0000
+Message-ID: <868qp5ntuq.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <akihiko.odaki@daynix.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Jones <andrew.jones@linux.dev>,
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	devel@daynix.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v5 0/5] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
-In-Reply-To: <20250315-pmc-v5-0-ecee87dab216@daynix.com>
-References: <20250315-pmc-v5-0-ecee87dab216@daynix.com>
+	stable@vger.kernel.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Quentin Perret <qperret@google.com>
+Subject: Re: [PATCH] KVM: arm64: Tear down vGIC on failed vCPU creation
+In-Reply-To: <20250314133409.9123-1-will@kernel.org>
+References: <20250314133409.9123-1-will@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, andrew.jones@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, devel@daynix.com, stable@vger.kernel.org
+X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, oliver.upton@linux.dev, qperret@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_033315_094381_3F57D959 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20250316_033826_376974_7CBF5267 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +86,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 15 Mar 2025 09:12:09 +0000,
-Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+On Fri, 14 Mar 2025 13:34:09 +0000,
+Will Deacon <will@kernel.org> wrote:
 > 
-> Prepare vPMC registers for user-initiated changes after first run. This
-> is important specifically for debugging Windows on QEMU with GDB; QEMU
-> tries to write back all visible registers when resuming the VM execution
-> with GDB, corrupting the PMU state. Windows always uses the PMU so this
-> can cause adverse effects on that particular OS.
+> If kvm_arch_vcpu_create() fails to share the vCPU page with the
+> hypervisor, we propagate the error back to the ioctl but leave the
+> vGIC vCPU data initialised. Note only does this leak the corresponding
+> memory when the vCPU is destroyed but it can also lead to use-after-free
+> if the redistributor device handling tries to walk into the vCPU.
 > 
-> This series also contains patch "KVM: arm64: PMU: Set raw values from
-> user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}", which reverts semantic
-> changes made for the mentioned registers in the past. It is necessary
-> to migrate the PMU state properly on Firecracker, QEMU, and crosvm.
+> Add the missing cleanup to kvm_arch_vcpu_create(), ensuring that the
+> vGIC vCPU structures are destroyed on error.
 > 
-> Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
+> Cc: <stable@vger.kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Quentin Perret <qperret@google.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
 > ---
-> Changes in v5:
-> - Rebased.
-> - Link to v4: https://lore.kernel.org/r/20250313-pmc-v4-0-2c976827118c@daynix.com
 > 
-> Changes in v4:
-> - Reverted changes for functions implementing ioctls in patch
->   "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
-> - Removed kvm_pmu_vcpu_reset().
-> - Reordered function calls in kvm_vcpu_reload_pmu() for better style.
-> - Link to v3: https://lore.kernel.org/r/20250312-pmc-v3-0-0411cab5dc3d@daynix.com
+> It's hard to come up with a "Fixes:" tag for this. Prior to 3f868e142c0b
+> ("KVM: arm64: Introduce kvm_share_hyp()"), create_hyp_mappings() could
+> still have failed, although if you go back before 66c57edd3bc7 ("KVM:
+> arm64: Restrict EL2 stage-1 changes in protected mode") then it's
+> vanishingly unlikely.
 > 
-> Changes in v3:
-> - Added patch "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
-> - Added an explanation of this path series' motivation to each patch.
-> - Explained why userspace register writes and register reset should be
->   covered in patch "KVM: arm64: PMU: Reload when user modifies
->   registers".
-> - Marked patch "KVM: arm64: PMU: Set raw values from user to
->   PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" for stable.
-> - Reoreded so that patch "KVM: arm64: PMU: Set raw values from user to
->   PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" would come first.
-> - Added patch "KVM: arm64: PMU: Call kvm_pmu_handle_pmcr() after masking
->   PMCNTENSET_EL0".
-> - Added patch "KVM: arm64: Reload PMCNTENSET_EL0".
-> - Link to v2: https://lore.kernel.org/r/20250307-pmc-v2-0-6c3375a5f1e4@daynix.com
+>  arch/arm64/kvm/arm.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
 > 
-> Changes in v2:
-> - Changed to utilize KVM_REQ_RELOAD_PMU as suggested by Oliver Upton.
-> - Added patch "KVM: arm64: PMU: Reload when user modifies registers"
->   to cover more registers.
-> - Added patch "KVM: arm64: PMU: Set raw values from user to
->   PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}".
-> - Link to v1: https://lore.kernel.org/r/20250302-pmc-v1-1-caff989093dc@daynix.com
-> 
-> ---
-> Akihiko Odaki (5):
->       KVM: arm64: PMU: Set raw values from user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}
->       KVM: arm64: PMU: Assume PMU presence in pmu-emul.c
->       KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
->       KVM: arm64: PMU: Reload when user modifies registers
->       KVM: arm64: PMU: Reload when resetting
-> 
->  arch/arm64/kvm/arm.c            | 17 ++++++++-----
->  arch/arm64/kvm/emulate-nested.c |  6 +++--
->  arch/arm64/kvm/pmu-emul.c       | 56 +++++++++++------------------------------
->  arch/arm64/kvm/reset.c          |  3 ---
->  arch/arm64/kvm/sys_regs.c       | 52 ++++++++++++++++++++++----------------
->  include/kvm/arm_pmu.h           |  4 +--
->  6 files changed, 62 insertions(+), 76 deletions(-)
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index b8e55a441282..fa71cee02faa 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -466,7 +466,11 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>  	if (err)
+>  		return err;
+>  
+> -	return kvm_share_hyp(vcpu, vcpu + 1);
+> +	err = kvm_share_hyp(vcpu, vcpu + 1);
+> +	if (err)
+> +		kvm_vgic_vcpu_destroy(vcpu);
+> +
+> +	return err;
+>  }
+>  
+>  void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
 
 Reviewed-by: Marc Zyngier <maz@kernel.org>
 
