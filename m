@@ -4,78 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82ADCC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0856BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FjqsABZix1moSeU8RQR7pgSF9B7lHOGmA+zkeUwNAF8=; b=a9wthjcw5eOnwMbS6qDjd7NBGl
-	YYduaqc9dxR5vcQUera1zlxSk2zZJYTqB3QaDtBYLHCdQrGkUfEOxMy20jCit7iulaqV8oLMq/7mI
-	G6CInPXOGBSJpdB40dyPMY19xhlcGF0UG5IpkKHay7QuGKDu8nDl8uokr4fPJjjyT+7tdEpkIqq8N
-	ijzL21b6RpUAZE0m7SvAwYKcZmNfINite4zLwcDH77kXUHkkoDIw3dEhreYpVrjyY0yJnfTCuKREz
-	mbgMqocmubWdtAltuWXAR0y250kRaTJ2dQ0SctRBYmwc8qQyNuqTIB6xHkaBQ51lczWtuida3nfEs
-	iRQ0+mQw==;
+	bh=Zu/UuVa8l56THzmctYOFLIfzdtf3Qj6BSV2cUxuJUyk=; b=CCRTP7CBkvGd2qRw08f2bUVGzi
+	r8QsRh+kU2DQPs7QrAJdep396L1Cvh2j9pNFlbYUMqLPSKUTSyvlC2ic2BwjwrNUZqiT4U+JX0r4E
+	XJqMLQkcYdhXLLznj3p5TvMD4AXKtCUXIE3HRIpV1hC9iTDTbGEIk3pVR0C+NGQWGhq4tuuw2xeB6
+	rjiFOudJ8b5OBgegvHwNmAkNYPES0SJAxJz9QioMea41M3EyJ02ApdXyIcXQvynqFElsZCUFO1MqV
+	xGerszCLUOlMUErmXX1gH4lSdx/cMFh+C/nv+eE+bnmTpqzxiNGfqXLwaH0vu3daII/4M2Op6jsHn
+	WnsvPWJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBfX-000000030O7-1lsl;
-	Mon, 17 Mar 2025 14:42:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBMD-00000002unh-22qa;
-	Mon, 17 Mar 2025 14:22:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06A762573;
-	Mon, 17 Mar 2025 07:22:30 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D35C43F63F;
-	Mon, 17 Mar 2025 07:22:16 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org
-Subject: [PATCH 11/11] riscv: mm: Call PUD/P4D ctor in special kernel pgtable alloc
-Date: Mon, 17 Mar 2025 14:17:00 +0000
-Message-ID: <20250317141700.3701581-12-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250317141700.3701581-1-kevin.brodsky@arm.com>
-References: <20250317141700.3701581-1-kevin.brodsky@arm.com>
+	id 1tuBhN-000000030ly-33Ef;
+	Mon, 17 Mar 2025 14:44:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuBNn-00000002vV5-2p7m
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 14:24:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1BB4AA4493D;
+	Mon, 17 Mar 2025 14:18:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E5BC4CEE3;
+	Mon, 17 Mar 2025 14:23:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742221438;
+	bh=bGVpXdopmBe2cylHrDEfMEXNLompQYGUMWrvVrieX0k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KTkLWRKZ81fEfBmFQKPqM/O1sLvfmcbuBkWauO0JOZE4V256OeTKzeTu1A4co6wSX
+	 rr5t9A/nbmr9GDHwC7MwymfGJijiyInuq5IJr6T2XUdK5kVYyCDVHspkQTqjGcWzAk
+	 +WhpRoAGmZL/wPxMExPQwsN7VBzPkrBg+7hYKg/5iOlf5FXaozsmNVh98NgSaWuBl7
+	 sZ/crBdNlVbFGtEmIt0UIATp+HWxYBBQEvHGfCRFJKXLBlQgv8WAKKAydOdP3fo1cy
+	 3vlJHX5VgnQ5qZkykonx8VPqVVmmbtPW3pw68KpzAhTe6Yqs+tRaW7lP3zvcwDkqbj
+	 CssJmAJb/F1qg==
+Message-ID: <3a25e4f5-e017-4d30-92cc-62b9ebef1d5a@kernel.org>
+Date: Mon, 17 Mar 2025 15:23:52 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] firmware: samsung: add ACPM debugfs support
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: andre.draszik@linaro.org, peter.griffin@linaro.org,
+ willmcvicker@google.com, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250224-acpm-debugfs-v1-0-2418a3ea1b17@linaro.org>
+ <20250224-acpm-debugfs-v1-3-2418a3ea1b17@linaro.org>
+ <005424c2-7fb7-48db-b38c-c62f9f8b3897@kernel.org>
+ <696494b8-14e9-4b9b-bf26-2a94a915b2ec@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <696494b8-14e9-4b9b-bf26-2a94a915b2ec@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_072221_577555_04202C16 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250317_072359_854715_25DB63DE 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,55 +122,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Constructors for PUD/P4D-level pgtables were recently introduced.
-They should be called for all pgtables; make sure they are called
-for special kernel mappings created by create_pgd_mapping() too.
+On 12/03/2025 08:11, Tudor Ambarus wrote:
+> 
+>>> +		dev_info(acpm->dev, "[ACPM_FW] : %llu id:%u, %s, %x\n", time,
+>>> +			 log_entry->plugin_id, (char *)&msg, log_entry->data);
+>>
+>>
+>> I don't think these should be printed to dmesg - these are not system
+>> logs. You either return the contents to the caller's read() on debugfs
+>> entry or, if this is anyhow crashdump related, it goes to
+>> pstore/minidump once triggered. Or to ramoops.
+>>
+>> Depends what these logs are (so please also explain what do you find
+>> there in the commit msg).
+>>
+>> Maybe something like CHROMEOS_PSTORE?
+>>
+>> IOW, if enabled, this should go to ramoops/pstore unconditionally. For
+>> runtime debugging this should be returned somehow to the userspace
+>> reading the file. I think usually debugfs and sysfs is not expected to
+>> provide more than PAGE_SIZE data, so this second part has to be
+>> rethinked still.
+>>
+> 
+> This is a logging feature, it's not oops/panic related. These logs are
+> referred to as "block logs". A "block" is the start of a mailbox command
+> to its end, so it logs every ACPM mailbox command issued to the
+> firmware. After each end of a block, we see the state of all regulators,
+> frequencies and devices up/down extracted from the block.
+> 
+> These are indeed system logs, and using the dmesg ring buffer seems fine
+> as we typically care about the recent logs, we don't care if the ring
+> starts all over again.
 
-While at it also switch to using pagetable_alloc() like
-in alloc_{pte,pmd}_late().
+I claim these are not system logs, but firmware logs, thus dmesg ring
+buffer is not suitable for them. Where do the other vendors log remoteprocs?
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/riscv/mm/init.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index fb18940113f2..dc2715f3fd00 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -557,11 +557,11 @@ static phys_addr_t __init alloc_pud_fixmap(uintptr_t va)
- 
- static phys_addr_t __meminit alloc_pud_late(uintptr_t va)
- {
--	unsigned long vaddr;
-+	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL, 0);
- 
--	vaddr = __get_free_page(GFP_KERNEL);
--	BUG_ON(!vaddr);
--	return __pa(vaddr);
-+	BUG_ON(!ptdesc);
-+	pagetable_pud_ctor(ptdesc);
-+	return __pa((pud_t *)ptdesc_address(ptdesc));
- }
- 
- static p4d_t *__init get_p4d_virt_early(phys_addr_t pa)
-@@ -595,11 +595,11 @@ static phys_addr_t __init alloc_p4d_fixmap(uintptr_t va)
- 
- static phys_addr_t __meminit alloc_p4d_late(uintptr_t va)
- {
--	unsigned long vaddr;
-+	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL, 0);
- 
--	vaddr = __get_free_page(GFP_KERNEL);
--	BUG_ON(!vaddr);
--	return __pa(vaddr);
-+	BUG_ON(!ptdesc);
-+	pagetable_p4d_ctor(ptdesc);
-+	return __pa((p4d_t *)ptdesc_address(ptdesc));
- }
- 
- static void __meminit create_pud_mapping(pud_t *pudp, uintptr_t va, phys_addr_t pa, phys_addr_t sz,
--- 
-2.47.0
-
+Best regards,
+Krzysztof
 
