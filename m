@@ -4,106 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E080C35FF9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62791C28B30
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qZp/H4slk78IiHDNm1oAqEElmdRePMABQQlvBKJ8MF4=; b=zRNJ0DG9eNNObXRdeZuOixBt6s
-	wsS7de4lpKq6cr+jhWPOHzMAxM5PpnVWVBtwTBrB7dVOQmnWGx7knRhrpJQAcjsq3jKGCCtwuL8is
-	lC9pTPrpzO0OOsE9HHMuJ2+FmV9SnH9O1O+S2v2ONW7b3xxRsCHTik27eVv1kRmQpOtzxbeNr3PG1
-	C5xRZdxMxrtT7+6dE3vgcfuJuL1fi180zhAySQJtYPlxSHxU89cYQl/Emq9oaniuGMa2KAFjY9KUq
-	tH7+A+XEYro12v66tXYJ8CJPI78h0qukgu+DUckgC28A2q+dkNbjiP6LIBK6TyM9UQdUuBRLB5Ctn
-	yilVMPWw==;
+	bh=UiIEsYNxlG1fxPhrS4N852N2ZiB4pU++mVj7GjMFmGo=; b=Hoqk/5W39ggK4iGKhAhcLpef40
+	0utE43f//uRxm3Bt9Q5BF0MA8eq//GAWlMNE1vXTLQvZYqVVWWZFs5PhaxWW7b3wjrL3WvlqsK42k
+	BUdiX/hXy3VYUgj6hKEyhjQMLPc7n88uT7RggSI/KRKk2SJbwFkusXVuSbHPT445Q7QKqtQZtiF7O
+	bkbO7wtyAymRRHZi36C/7GjPFBQVH0svEVPDDH2AFfHbPDxC4C+kcWmP66DHlhC1hCbzzEylf3AQS
+	juKK/GJhGzgVZrOTbnUwYWknOuzksg3tzCxhiX7LmDGYQcsIocd/Ld7AyMSWdNzKHNp/CcJLEQtGG
+	58C7Ujkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCqq-00000003EQj-3lNp;
-	Mon, 17 Mar 2025 15:58:04 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tuCqr-00000003ER8-1pSM;
+	Mon, 17 Mar 2025 15:58:05 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCkj-00000003DQT-1FbG
+	id 1tuCo2-00000003Dxu-4B5a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 15:51:46 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-549a4a4400aso4826884e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 08:51:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742226703; x=1742831503; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qZp/H4slk78IiHDNm1oAqEElmdRePMABQQlvBKJ8MF4=;
-        b=lVK0Xex1hv1CeT+bFiyZ6TIcXcnaR27fDz3V+EiuKQLb2vbIczGON3N4dkZ3C4DqgM
-         w2GrwEk16cApB95SW4TYopHBfPHJaUoyXU7VpDNoRG/x3GWPbxatR2sRDl5tmuyuF90A
-         3yBH58rH4LRnTc5EwaWFTY9D9jujZvdOWQiNKwcqAvL+rJJOuKWGMSuV2QWC1oN/9Heu
-         3327h3AyCX25OdroHkWXCUB/o83yMOUkyL9jdCff5d5TDS07BkdRJ4gIm8Oo3D/fOON5
-         4JwcgEn23nGW1FXJwRbhOYttkB1whT7hH2tMOI4Ao9ly+6x7CuavvcG2uFILocQyCenl
-         dAqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742226703; x=1742831503;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qZp/H4slk78IiHDNm1oAqEElmdRePMABQQlvBKJ8MF4=;
-        b=Mv9tPBeGsXTL9HjnQAnakLzyJ/QPM+SFUp7+QptBrxglfWIoHsevVCpGbTDMW7SNrK
-         67ZmpEfuDnUDLofUwSE4s5fIqkmsUNUbC6JvsbECHNFjZKvmJJ43WVc2l8D21Cef2A0v
-         uR2375gcjlJy5aNJXDwJ+NsEXgVJbp5wPDqVOvztFQRM4FRauIVdf49oaF3JuvsUyoez
-         xhZSUH8btAwrQzezpNdmfirYYe+3oJSY5bHdqD6hC6eFSHLbdUb4RIhK/EpSNjzzOCP/
-         OlwpJCNbWonxn5aWxZ9MufHoSxf/J3c/aNt4aIPpvApmOes+D89WX1xYNB3Y4g0kdgAj
-         PJ6g==
-X-Forwarded-Encrypted: i=1; AJvYcCWEZXIR6W2pIYtIMDlY1+sCCOrVGTaj1hmmIAnJKfKuMKi9NnvxZit0H0VxiRLUXmshteDZ9ZB2c5JFo79OqPu5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBksfcr68PqssBjHxtNl5CvnyEfsvlSKU90HH7mOadoFoLgXV1
-	rk0I3gNfPhPJ1DA2GWutOrccOvThqzEdW47dzJnyX483AIjzXhd6
-X-Gm-Gg: ASbGncthpMHo+mtQra3L3RF691WY9NiwjYC0Ar15gsgGpCQFHlwoHBzeq3ardSoxsxr
-	KVqdnqbkBI9QMuFZPWW128/CKXg/tvuGenAPoP/AziQdAvB0hszevO+cqhLwUP8hdJeBwntMmkO
-	foo1iVmeOF8CdQRcYYn5ZVHnYwisItVL8kMwTNJcAZvBJFvMK1kgFZJY/YKBknNWHGFykOQQYhl
-	f/VPGDIJpGafFwG/6z/CzWOGZyKEk9bOYS44KEt8tEvPar3WcGTo7TUQ5pv50AvaTiInePZD5Fk
-	d3C6SULlkY/OF4C5X4fHiGshsReHdca5OpSt0fxDrUTdQZV4NDVYaNN+FdPm0A==
-X-Google-Smtp-Source: AGHT+IGvE83lD5O75qXN7tU8+BEUTnVmyQ+DR7gPnljh2efy53y9OxWZRbn1FAQt9KPWJXz11ev7ZQ==
-X-Received: by 2002:a05:6512:398a:b0:545:2335:6597 with SMTP id 2adb3069b0e04-54a03d02bcfmr277694e87.50.1742226703043;
-        Mon, 17 Mar 2025 08:51:43 -0700 (PDT)
-Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba7c0a39sm1359539e87.65.2025.03.17.08.51.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 08:51:42 -0700 (PDT)
-Date: Mon, 17 Mar 2025 17:51:38 +0200
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: [PATCH v8 07/10] MAINTAINERS: Add IIO ADC helpers
-Message-ID: <a94e347b7a1dde5329bd20a34f2be99c598bf5f5.1742225817.git.mazziesaccount@gmail.com>
-References: <cover.1742225817.git.mazziesaccount@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jMWN2jjOy9xOrAbO"
+	Mon, 17 Mar 2025 15:55:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tX3PXBZdks2rW38dehRKNZoCQsdWhSnd12swlPZ8pa3ylT6FLtbghPYp0mTWpWRmQ2FksLvlPmawPpbkkJVGlgvW2HZAX2aoTHbNiwaPSlQiTRPavy0kCdzhoVN8kLs3WzLSqqNU7o+MvgS4o6aMdpUo3B9/qWUEJGZ7x/yVJJFznaLUH18aKqAAahi6nq1DgSvJO8AWDUjlw/EZjKGu4UFT2SYqc9oKItfLQS29pjH/CF3GGbBMKnlJBWS9TdsCjUQ1sJSX3xE+ckcDiFR3F++cNS3hx90+V/JRGSS/XK8W0EkmCDRvlZXn4js6yMzokMoWx5toudsyrAPpC2KU9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UiIEsYNxlG1fxPhrS4N852N2ZiB4pU++mVj7GjMFmGo=;
+ b=KlXhY0DZRy+5NfGaKzG5TmDUH6CtOV+6ljC017JBnUmQz2uixsehgeObGCdd8GQkl9ZCPllOcGCg7L7WfWuL/23JL6TkZaat3RuUs+cokS2wkV1Ybfw1qYL++feoc53GbtAvBBQe2b+rDG4+r3edNlo4ZNK2jVydCImmJvEgH+Z0Bsrjxo0OThthhQwJr8QcvaJLmJzWBrPioGufQSRzv5QWr03R8cUftZmjJ8RdtXl0GGlqSunb8xhHinRkK35z28pE6fKn2az5wnUmWeqSHaVc371o4EZsOMMhX8KI+UhYkwcHPwChKuJvzwpqFakfCJOJhCr5qwTs6L/r0DQoaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UiIEsYNxlG1fxPhrS4N852N2ZiB4pU++mVj7GjMFmGo=;
+ b=Ukudm1j6iAHleuEzZs6KzmpR7VBxTb2/gQvU6xJ+EdaE/BsU4sEU/rEOcpbl+LwNRQR1IhDLu0lHCH0YeM8KTim8KSlY6Z2070l8f2k6XeHiAmtDHZFunKayueinWCZteofENo6meTTRT990+mdDQOHTP4CJuyVkh7r88Ef7XsnVm30FFhlILbpRi4zGfchOqSrF83JQAkJjpvqHNfIAqIJtrbay/L7ihx3xqyD8CQdCk/MkINAzzvIM+iMI1f44T+IKxPCH1qpwjx8xrzj3mwP9CieeDXwVI0Gr1xaElMQjOGpme4IShPOM2jv2hS2oSXRGeNH9dYLNxBtBh3uhuQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by AM9PR04MB8956.eurprd04.prod.outlook.com (2603:10a6:20b:40b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Mon, 17 Mar
+ 2025 15:55:05 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
+ 15:55:04 +0000
+Date: Mon, 17 Mar 2025 17:55:01 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: claudiu.manoil@nxp.com, xiaoning.wang@nxp.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, christophe.leroy@csgroup.eu,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 net-next 08/14] net: enetc: add RSS support for i.MX95
+ ENETC PF
+Message-ID: <20250317155501.4haweyhlrfozg7zr@skbuf>
+References: <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-9-wei.fang@nxp.com>
+ <20250311053830.1516523-9-wei.fang@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1742225817.git.mazziesaccount@gmail.com>
+In-Reply-To: <20250311053830.1516523-9-wei.fang@nxp.com>
+ <20250311053830.1516523-9-wei.fang@nxp.com>
+X-ClientProxiedBy: VI1PR07CA0215.eurprd07.prod.outlook.com
+ (2603:10a6:802:58::18) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|AM9PR04MB8956:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9133ceee-6b7a-4a96-2dc2-08dd656c155e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h6lWlKM/TgZO+1yh28lqnmZ9kIbHK8HZZcXDwLmXUvbE9fQYlzLhse0XAwLV?=
+ =?us-ascii?Q?pGjh+2pmsVSlH24ggeheVW8wvCZWQDjRWDehFTA0EumJwRwjuhNQKA1Fg7dp?=
+ =?us-ascii?Q?nNDo/RWuh6+rLoZFyav7m7d2gbOAmrqggr+HlOp6viLkygaqnejn9oELanGL?=
+ =?us-ascii?Q?GYsFCCvN06v+U8mTz1qyfh+bQ/pmk8FKeprsRr21BAZJXJMQzThzCC0NQzKS?=
+ =?us-ascii?Q?KEL9s32iBu5Lg+gSVQolB3PlIYww8rrLL2UHckP1LVvLE6CT4ptnfGVbIeAw?=
+ =?us-ascii?Q?/hYkY+rWy6OwmrcPYgYJth5ZgoTi0yb7tve13Tv+9tuwIzNC2JHmh7a+QIUm?=
+ =?us-ascii?Q?UEqTQ0n8o8h4LabaI1iUPQCsaaDxf5NvE6jZo+hOsRvoqaXMe8aOYsMfgvnW?=
+ =?us-ascii?Q?7yBYxf+sghlFFesJuksXWvKmXIrcvKqsuVxa7ibFkLFGSW71ojf2IcY/CajD?=
+ =?us-ascii?Q?OytaFbw57fGlip+MLua33Ga5Xd0RflS7qMuCUQtxv8GD+TeSfaBsPlUGcqWP?=
+ =?us-ascii?Q?99gb6WerpWiF6MuztcnTqC+QntC/lBvqCkxUaJdgrjtVa4OV3kkb1fOabtyj?=
+ =?us-ascii?Q?aVkd3q1i/e+/kJTwWJhzoRawSfysYFitPzS9Gr2zXZhmtohMsPZzDA4pzP/+?=
+ =?us-ascii?Q?jHRqfm5cffQwJEnWbltz6DHQ1j9xiZoOVBXLkrCd0ORX8fbuvPwEVzsyzp2S?=
+ =?us-ascii?Q?0c8gTHtZH5tI6SuavidYd2X1qzMnH5m0Vn9liiiBkBdBJXAb0DIOUqeQ7rWv?=
+ =?us-ascii?Q?UfQZCVK2BxD6NIPimBbQ4g7NRX/e3X/wIPHP51R4i7A5Ahu+jiyiJTkrMU4N?=
+ =?us-ascii?Q?ID1qOgoYpW2iv9L0P5Bam9Y84vq/a5d7vwnML9KgPs7C6Diy4LksUtvWtHUz?=
+ =?us-ascii?Q?GnMkSrelfCl/Ye4XdgPxVMLO/fzdH+DmpBT+IpdCv6VEwsq9UZRzTZ0R5a/8?=
+ =?us-ascii?Q?v9Um8+2EOBcy62QNfB45FmYaD3JnsOg2Zy2u4SVPX1mwbO58lLI2+gb1y61v?=
+ =?us-ascii?Q?KhB6cFQDaD3jw/oHoHN4PI0ZhlDsK1hL/UbZukVqGMUGbdVCaq4zYlveF26h?=
+ =?us-ascii?Q?vM/CUaY7hBcb/J2vvrMlFeFW/sKjbhW+k2qhMS6iwkHjZqar8YRZp8iBgBCA?=
+ =?us-ascii?Q?zsfK4l/shDgRS+RqKKmXq0aQXOVEhXFAUVyNrWD2f79hDjq5+0QkQ9UDuJmV?=
+ =?us-ascii?Q?Pl2posxjMJs2Tk6TB7hwP6wcjajydXkyr7003/6uIYn8xNelvEl74AeqcwOD?=
+ =?us-ascii?Q?L4/i8Gv7RSC7ydMZSKk9x3Fi+GnvucTT29ZZa65J/yEtnyGax38Kfs8GBhBF?=
+ =?us-ascii?Q?Tu9bynbeOHP32YL8RPWByHQOAxxHzYrMZSU33SrdsYgfoHCqIRLN+NAU6jmZ?=
+ =?us-ascii?Q?aPuIN23RDX/v4Zql14pUBqsx07ya?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zLenjKgGX9uVsCgVLCTuX1yxpWY3IOtj2AlfSONyIazCTnJfTcTcx9MOH2EW?=
+ =?us-ascii?Q?b59bf3i42z9AflWSap4qVdIilX/Ast6kw1r0T/WqKKkU/DUhnwZ89wFqHJ5S?=
+ =?us-ascii?Q?ZKV4OAY8OIuDOSlGPMyoTcsq72GOwp7VmwD2CcvauaXMKqh6UDVfjYYJooXF?=
+ =?us-ascii?Q?vCCIMuDCOnCxiVC50DE1QXf90aBLteoBWMXTM6nZuiTVNc2gZYBIMydj2Daw?=
+ =?us-ascii?Q?YLXCFpidJcqXf+nGG09KJL5n/KikVuBCo8xSX4vs5JRX3eV0HLTFzqnPf6wE?=
+ =?us-ascii?Q?lGbkvmUAh298hCNP7nk1dU/vyjtRC1S4Tjz38++ijT/0iFNSrYYhWZvKkMg1?=
+ =?us-ascii?Q?BVQ0slO2EHWaSYqvL0Nwa0WjJ4rHZhQu61IKl2nGk3rU8ZwCYbPEvoSWgAmS?=
+ =?us-ascii?Q?EAAG4gqE/QyOISYLW7GMSGjwJ8siQYsfvkDvGXM2GpwuWiry3JshhhWDKIu+?=
+ =?us-ascii?Q?8YN6MAHZClTWJ0fZbv2xEbZJqN4ReMhZwnLI8KLtv8Vm9TD/LIQi+0Vl7yVy?=
+ =?us-ascii?Q?uvGb3ty/3L8+3CIBgTsT4/oIhwWM7y1arz7wOh765HP9cpPyGwMVDB4ujaJd?=
+ =?us-ascii?Q?fT6AYKOWdL12fpr7qjZMX5GbjHGU44d0EBMpkqyTGMLzB/2Fr2WXZ8ZYwGK9?=
+ =?us-ascii?Q?T3r5pRgzmBX4v6ggAWreziK3kUV6T4Ehk+bS6c0dXn04rvLkdrdCO5VT45s4?=
+ =?us-ascii?Q?DVuXp6KWndaihE6fWhceKQjhJydMPvFzgJtXIdVCPAuCq1tQ0IE/qBRexpn/?=
+ =?us-ascii?Q?1gG2qPXnLDaAvmBTtzOwUQudYOh48TC8uCxqgVCUFBEFjrj/CxJ7vz/Y0uWL?=
+ =?us-ascii?Q?jgtgiXIFqX0L2l97f60DB07MAXsXJYwr0eUxhM4NeEgJlNuky+MltSBUHpdq?=
+ =?us-ascii?Q?D/SgxnUjgxM4xEvbm1R1D4Hh+uNxSejgZ1n171oNj/fq+eTNXR7jK0Kncnze?=
+ =?us-ascii?Q?4gY+n/Pzak3oYOUGBdRlchgI5UgXZ543c66w+hI6IrO97vcvSQgm7+84xbev?=
+ =?us-ascii?Q?yzKm7GZ63MgA5zemFP58P4/7ZD21826Is+G9cDL8BzTL3vFLkzot4LOi6j5m?=
+ =?us-ascii?Q?9gZcG6x0I66dH7uFSvGzvA43wABXX73Oj4rYZ3gMjL3v4cgSnHvttXE+vjLD?=
+ =?us-ascii?Q?EU/+mK5rl7MHbnrcoKp5UrZqYcTYeXP/ahZgT+QcezR6G7GI0inCIshdJwN8?=
+ =?us-ascii?Q?cVxVT9XULDD6nMw2lBcHj0WaA5x3rb+qzBX2aOw1t3LLnYyBedmKMsScOcyD?=
+ =?us-ascii?Q?P6KDHXqkzZzjcNpnMarMO7ahX4QzeyD+5Nvv5ZROKH3J7AJmlnA/p9RZCVo3?=
+ =?us-ascii?Q?uUZfD9vptP5Ez3MXeFy0VIfAHKJ5gagh+8Y81isgra9x8qhDOG7Fv7VG/ghp?=
+ =?us-ascii?Q?E8BhWmVa68QZsbiYbaXb8FMYOegr7PEP0RdEg7tEIwIFM0g1h/xWWx8L1J+C?=
+ =?us-ascii?Q?e3rCGim7Ppvby//jqEeKTUfWV0smPATlfjxV9jwE0Mwp6WQrAxCxnL4LtdEK?=
+ =?us-ascii?Q?Ey8EXVj7t5VjfRYJ3BLGe6VXGIfE0WhIycqDRT2fozdfi0whiWTHJYb44Oz0?=
+ =?us-ascii?Q?wU7YRkWKtcXeYpsTKD+vOtD7rEhyZ7tEl8eJwL04yYuCyVB/VwLBUD9AecJa?=
+ =?us-ascii?Q?hw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9133ceee-6b7a-4a96-2dc2-08dd656c155e
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2025 15:55:04.8105
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cWtGQg6SLfX6UdlVlvLHMXee92CoLHO3JeW/wYZ2A7B2hy4F016KrMyIgPVEb8mq5MKp8UFvxMeqaEshdRJgfg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8956
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_085145_341785_4C1E1C47 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250317_085511_189516_2DC4DCC6 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,61 +164,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Mar 11, 2025 at 01:38:24PM +0800, Wei Fang wrote:
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc.h b/drivers/net/ethernet/freescale/enetc/enetc.h
+> index a3ce324c716c..ecf79338cd79 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc.h
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc.h
+> @@ -543,6 +543,8 @@ void enetc_set_rss_key(struct enetc_si *si, const u8 *bytes);
+>  int enetc_get_rss_table(struct enetc_si *si, u32 *table, int count);
+>  int enetc_set_rss_table(struct enetc_si *si, const u32 *table, int count);
+>  int enetc_send_cmd(struct enetc_si *si, struct enetc_cbd *cbd);
+> +int enetc4_get_rss_table(struct enetc_si *si, u32 *table, int count);
+> +int enetc4_set_rss_table(struct enetc_si *si, const u32 *table, int count);
+>  
+>  static inline void *enetc_cbd_alloc_data_mem(struct enetc_si *si,
+>  					     struct enetc_cbd *cbd,
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+> index f991e1aae85c..53dbd5d71859 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+> @@ -693,6 +693,14 @@ static void enetc4_pf_set_rx_mode(struct net_device *ndev)
+>  	queue_work(si->workqueue, &si->rx_mode_task);
+>  }
+>  
+> +static int enetc4_pf_set_features(struct net_device *ndev,
+> +				  netdev_features_t features)
+> +{
+> +	enetc_set_features(ndev, features);
+> +
+> +	return 0;
+> +}
+> +
+>  static const struct net_device_ops enetc4_ndev_ops = {
+>  	.ndo_open		= enetc_open,
+>  	.ndo_stop		= enetc_close,
+> @@ -700,6 +708,7 @@ static const struct net_device_ops enetc4_ndev_ops = {
+>  	.ndo_get_stats		= enetc_get_stats,
+>  	.ndo_set_mac_address	= enetc_pf_set_mac_addr,
+>  	.ndo_set_rx_mode	= enetc4_pf_set_rx_mode,
+> +	.ndo_set_features	= enetc4_pf_set_features,
+>  };
+>  
+>  static struct phylink_pcs *
+> @@ -1108,6 +1117,8 @@ static void enetc4_pf_netdev_destroy(struct enetc_si *si)
+>  static const struct enetc_si_ops enetc4_psi_ops = {
+>  	.setup_cbdr = enetc4_setup_cbdr,
+>  	.teardown_cbdr = enetc4_teardown_cbdr,
+> +	.get_rss_table = enetc4_get_rss_table,
+> +	.set_rss_table = enetc4_set_rss_table,
+>  };
+>  
+>  static int enetc4_pf_wq_task_init(struct enetc_si *si)
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c b/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
+> index 4e5125331d7b..1a74b93f1fd3 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
+> @@ -299,3 +299,17 @@ int enetc_set_rss_table(struct enetc_si *si, const u32 *table, int count)
+>  	return enetc_cmd_rss_table(si, (u32 *)table, count, false);
+>  }
+>  EXPORT_SYMBOL_GPL(enetc_set_rss_table);
+> +
+> +int enetc4_get_rss_table(struct enetc_si *si, u32 *table, int count)
+> +{
+> +	return ntmp_rsst_query_or_update_entry(&si->ntmp.cbdrs,
+> +					       table, count, true);
+> +}
+> +EXPORT_SYMBOL_GPL(enetc4_get_rss_table);
+> +
+> +int enetc4_set_rss_table(struct enetc_si *si, const u32 *table, int count)
+> +{
+> +	return ntmp_rsst_query_or_update_entry(&si->ntmp.cbdrs,
+> +					       (u32 *)table, count, false);
+> +}
+> +EXPORT_SYMBOL_GPL(enetc4_set_rss_table);
 
---jMWN2jjOy9xOrAbO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I don't understand the logic for placing enetc4_get_rss_table() and
+enetc4_set_rss_table() in enetc_cbdr.c (built as part of fsl-enetc-core-y)?
+It's not core code, it's used only by NETC v4.
 
-Add undersigned as a maintainer for the IIO ADC helpers.
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
+> index 1a8fae3c406b..bc65135925b8 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
+> @@ -625,6 +625,24 @@ static int enetc_get_rxnfc(struct net_device *ndev, struct ethtool_rxnfc *rxnfc,
+>  	return 0;
+>  }
+>  
+> +static int enetc4_get_rxnfc(struct net_device *ndev, struct ethtool_rxnfc *rxnfc,
+> +			    u32 *rule_locs)
+> +{
+> +	struct enetc_ndev_priv *priv = netdev_priv(ndev);
+> +
+> +	switch (rxnfc->cmd) {
+> +	case ETHTOOL_GRXRINGS:
+> +		rxnfc->data = priv->num_rx_rings;
+> +		break;
+> +	case ETHTOOL_GRXFH:
+> +		return enetc_get_rsshash(rxnfc);
 
-Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
----
-Revision history:
-v2 =3D>
- - No changes
-RFC v1 =3D> v2:
- - New patch
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+These rxnfc commands seem implemented identically to the corresponding
+subset from enetc_get_rxnfc(). Rather than duplicating those, could you
+rather return -EOPNOTSUPP for the unsupported ones on NETC v4, and reuse
+enetc_get_rxnfc()?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8e0736dc2ee0..5b96fb864227 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -11208,6 +11208,13 @@ L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	drivers/media/rc/iguanair.c
-=20
-+IIO ADC HELPERS
-+M:	Matti Vaittinen <mazziesaccount@gmail.com>
-+L:	linux-iio@vger.kernel.org
-+S:	Maintained
-+F:	drivers/iio/adc/industrialio-adc.c
-+F:	include/linux/iio/adc-helpers.h
-+
- IIO BACKEND FRAMEWORK
- M:	Nuno Sa <nuno.sa@analog.com>
- R:	Olivier Moysan <olivier.moysan@foss.st.com>
---=20
-2.48.1
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int enetc_set_rxnfc(struct net_device *ndev, struct ethtool_rxnfc *rxnfc)
+>  {
+>  	struct enetc_ndev_priv *priv = netdev_priv(ndev);
+> @@ -685,22 +703,29 @@ static int enetc_get_rss_key_base(struct enetc_si *si)
+>  	return ENETC4_PRSSKR(0);
+>  }
+>  
+> +static void enetc_get_rss_key(struct enetc_si *si, const u8 *key)
+> +{
+> +	int base = enetc_get_rss_key_base(si);
+> +	struct enetc_hw *hw = &si->hw;
+> +	int i;
+> +
+> +	for (i = 0; i < ENETC_RSSHASH_KEY_SIZE / 4; i++)
+> +		((u32 *)key)[i] = enetc_port_rd(hw, base + i * 4);
+> +}
 
+I would have expected that this refactoring of code into
+enetc_get_rss_key() would be done as part of the previous change:
+"net: enetc: make enetc_set_rss_key() reusable".
 
---jMWN2jjOy9xOrAbO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfYRQoACgkQeFA3/03a
-ocXx1QgAlMDxwtisjRwLvP8KziloblMOlFslOnZ48Q2HXhA3yRy/A2Xx0ls1xQJp
-ChvCUhSiCnQbRqhx8R/4teE4qVQVNynkfbQ2Nv6S9/dc6O4SK7fPqRC0CKk8veFz
-bcVWJjuVASjtXvT1uzWgPJIgnDrLeURUNeLuWDEpI5QOcc2P9eiyNOM6gi4GJRNO
-v24yX4+JJ9+zC1x7o+er+8PvhFMfqNFQB8ne6YGKs8BobomFtN0OSNEaJB+9LUbr
-VopSHM181zpElcvGxK9KpROKKQYANHZTf5jMq43PS+rsiifxT3YjneZ2KmRO2OJ6
-RXM+hI/GkXu3MN8wUvzZ898RghADng==
-=dZAB
------END PGP SIGNATURE-----
-
---jMWN2jjOy9xOrAbO--
+> +
+>  static int enetc_get_rxfh(struct net_device *ndev,
+>  			  struct ethtool_rxfh_param *rxfh)
+>  {
+>  	struct enetc_ndev_priv *priv = netdev_priv(ndev);
+>  	struct enetc_si *si = priv->si;
+> -	struct enetc_hw *hw = &si->hw;
+> -	int err = 0, i;
+> +	int err = 0;
+>  
+>  	/* return hash function */
+>  	rxfh->hfunc = ETH_RSS_HASH_TOP;
+>  
+>  	/* return hash key */
+> -	if (rxfh->key && hw->port)
+> -		for (i = 0; i < ENETC_RSSHASH_KEY_SIZE / 4; i++)
+> -			((u32 *)rxfh->key)[i] = enetc_port_rd(hw,
+> -							      ENETC_PRSSK(i));
+> +	if (rxfh->key && enetc_si_is_pf(si))
+> +		enetc_get_rss_key(si, rxfh->key);
+>  
+>  	/* return RSS table */
+>  	if (rxfh->indir)
+> @@ -1249,6 +1274,11 @@ const struct ethtool_ops enetc4_pf_ethtool_ops = {
+>  	.set_wol = enetc_set_wol,
+>  	.get_pauseparam = enetc_get_pauseparam,
+>  	.set_pauseparam = enetc_set_pauseparam,
+> +	.get_rxnfc = enetc4_get_rxnfc,
+> +	.get_rxfh_key_size = enetc_get_rxfh_key_size,
+> +	.get_rxfh_indir_size = enetc_get_rxfh_indir_size,
+> +	.get_rxfh = enetc_get_rxfh,
+> +	.set_rxfh = enetc_set_rxfh,
+>  };
+>  
+>  void enetc_set_ethtool_ops(struct net_device *ndev)
 
