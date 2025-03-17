@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E67EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5012C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QeDvH9xy8MdxSFw3+qRu5pCEXHFm5eXNIhh36F4ITIU=; b=3RtflTXN6mGcQ3gQ1DhGSFwjkr
-	lACrGdKyRKK+xnRsNEjuPLl+ncJFuseKDvmzybH0/2sClrCsOi9x8KZzqiBl1SSDEhGBr8UnUqsBj
-	XgW2fPWByTPNvRYecyhyvRYSw5K9tKzD4AxKpFPGNRzMXuNXXXcJOQQkoPhIU9KFZ2rCmklLUjCDU
-	1mQ0YJPtAvBlUTreDVKTI4foaodJdDiYHD0UJDb+fudwLLT1ekd9QRngt2WSUE4mKo9OYvlC0595s
-	TighyYrIpwal/0294HbQ/ArbcnoOL/J7qDW0UuNoXOOGFiSexX3Mo8pJXFHsdDRKOncxEFsWeAO0p
-	YFmQrgTA==;
+	bh=eycY61Wk6wfvZBg4chYuMAQviSFft2VvOnLfN3NdZe0=; b=zskuMjM3138556vjDp8q1YG9sM
+	eGnClIarmCzD12zKfMoQy9pkq/aWFGuUJo3Gyh6A/d0A1pgTs9YoJm2op8lUkQhF+5Cw9Nf7/WWhZ
+	MP7ivVbY4w6Sb1GHAwQtNPPqhV6pKfuUD41aTv67h4E0Ur+BPbHvW1i/35JOAPqaAMdxUwzhEFpKY
+	I5qDcTYLU3/JyFHPMJebYO3stws2uXEAhTZi2gMFsK1fNSQtUI1MxekMtvjh+EYwI65drww5zoW+e
+	hwyWkw2cZJ9FHZFud1yCKHras+af30Qujbbf3ztTlfFf/o3vSy98gj4n+ZemysR5IbjDvWn0I7YKz
+	72XMyGvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu82C-00000002FOv-2IWP;
-	Mon, 17 Mar 2025 10:49:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tu83r-00000002Fl2-0oWV;
+	Mon, 17 Mar 2025 10:51:11 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7yl-00000002ESn-2fAn
+	id 1tu81Z-00000002FJ9-0fM0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 10:45:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DA9ED5C51BA;
-	Mon, 17 Mar 2025 10:43:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A966C4CEF0;
-	Mon, 17 Mar 2025 10:45:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742208354;
-	bh=LY3D1eEpzD7Ym5RE/679CwqLvo2anB0W3KM9H7hyeYk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=H1culFkbAWzr5SaiHTZ6vUxZ/zWcxviY6NVeRPaFwffxbeux4HZJGagdwHa90eNAd
-	 RiwMtfjHDwBTkW9My9xyIm2NJ/MjBF4D68YubCt7gCPLSmohbdntBevVja58Uo3Qq+
-	 yn9ahOEwhIxQuv1piLKBUKttk5q2lf9FTxc1r1Zz6uflQFkFiqI0kQRaQsEQfM9vA3
-	 M6eGMp4nVs+5wKOZ+gHEY8Rtkp6Y8dVSfB4mSMbCgUVFr0MbFhHakCJ4jJHeUtxny+
-	 XnRCcxObOoqEu57iiTNzjf2ZiNm+K+CBSeRG81Xd+hlfSvw5/nvfejVQzkqNGRAi6h
-	 ZQ0KI/+OV2V/A==
-Date: Mon, 17 Mar 2025 10:45:37 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Matti Vaittinen <mazziesaccount@gmail.com>, Matti Vaittinen
- <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen <lars@metafoo.de>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>, David
- Lechner <dlechner@baylibre.com>, Javier Carrasco
- <javier.carrasco.cruz@gmail.com>, Olivier Moysan
- <olivier.moysan@foss.st.com>, Guillaume Stols <gstols@baylibre.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>, Trevor Gamblin
- <tgamblin@baylibre.com>, Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v7 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
-Message-ID: <20250317104537.3a8819e5@jic23-huawei>
-In-Reply-To: <Z9frCUqRTD0i1Faq@smile.fi.intel.com>
-References: <cover.1741849323.git.mazziesaccount@gmail.com>
-	<df0b2b53affbef5ccb7219328cc15db3ba843737.1741849323.git.mazziesaccount@gmail.com>
-	<Z9LQ0O34EUM8WZku@smile.fi.intel.com>
-	<20250316094112.6731bd01@jic23-huawei>
-	<50b126c5-248e-4694-9782-4f28d6db5fce@gmail.com>
-	<Z9fUmo5wp3EcNWzm@smile.fi.intel.com>
-	<0db2a42f-d393-4e75-afbf-cf30c0e06cce@gmail.com>
-	<Z9frCUqRTD0i1Faq@smile.fi.intel.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Mon, 17 Mar 2025 10:48:50 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0c18e84eso8308785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 03:48:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742208527; x=1742813327; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=eycY61Wk6wfvZBg4chYuMAQviSFft2VvOnLfN3NdZe0=;
+        b=ACpS1iJqdvV0DX3wh13ILGpWpcPuHU0VQ5Ubqr6Ha7NSuik2Mr5CURXasmGhK4RdJJ
+         vAGpnw/PPATkIdcW0jzgu7R/jHgFhwNDsHaHwUfslKs33xeJ9Gtz7sRSGg3hgjzLsRdx
+         o2Tw7HJPiFoNtiIUGQUu6pLLqzI1mZqRljZ7xPcg2pbFqqCoyjfVafxe18eKHYiGjjpp
+         zVgrNjOFpAHK3tHvVnxp87YjIu5nPHndRhogctVy05wMA5dAcd+vgAyPZ8j9BrIGvmCw
+         2m3yrppqrBJ/+8KYGGFb7d3WJ8NhzWwlso3dld878rH/siF/lQEgwFSwarUJUoopjYEF
+         zYeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742208527; x=1742813327;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eycY61Wk6wfvZBg4chYuMAQviSFft2VvOnLfN3NdZe0=;
+        b=YWGGgtU/Gi+udP1xCdoQoMYGEMTCgwjOMUbr/YV/tePKgwUukv1Dd6dN9m67y0+X0L
+         m6VIeeDtYRA4WmrP53JXGuZEL2vCbCDbyJOAcsPmvOsB+4Q0pwBmqnhWSS25EGRPG5VV
+         p0bzDjf2DFqLXt+ehhCWdFlo5iQfcB5DPX4J/7w2fqYpUyvg+E84EKg7p2SijMxLCqXm
+         gGZ6YvmqbOTPuy667yf8CNR8DEj1S0ZIWR8ei6n5iS+jjlTX5t8QvTEpnQbcKnwIAyZn
+         JQKNflgleP1Nnx1LXhLVs0g6zv/RvqHG/Kk+ADZPJYHZh1x3tY92ySfzUssgG8zXod+c
+         hO0A==
+X-Forwarded-Encrypted: i=1; AJvYcCWhk+jqNLTkI2uD/AXAwaF/FSzw72UvT29bJFL20KyqxxuAVT9l6JOyYmzHYLyMxKB1E+gwN5hdt4YwIR+nwn6Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnXGhaZik5pwIfaRrbBiTTo8BL8O4UKxnmF/VtLIPaD8RTnhZS
+	TsqaFLq6qA7xCnq4JI2b35NbmkqqUqGNV5GgKHtEB/QlEmkGATEyRgejvlxaTvk=
+X-Gm-Gg: ASbGncs0rEoykOkYNGvt2S4nZcEnto+bd1tu72JbTlyVnfbednnKfohL0V3qAhdalg2
+	QgzHxo9HrTWIBj1S00XVtvWlkTY6uMJw6tr2zeefCf1syf+dYFIC9EA1fwm/CfiwvVnS/2y+8OX
+	8G2V5UngAEo1GmuTOlH358hJ30FVpfyqdMeGYjH35Hn3xDo+faWmVEe2SsRJWQhsLilCC92E7rp
+	4pP6HoIlpwopxG1np6XG2xxCTbLAOP163nN/6fQpxqOSJJpu5RqgaZyyV6O0TIIG8+fHo6KQulu
+	zAyiNz2cO4XacvaAI4mawSvbvSU8VP+1oL/TjqhlPZUKZiPkt7+KT84YUdXXS+UHHWAVePguZR/
+	jIlmOYDQMtTvLQMDm69s=
+X-Google-Smtp-Source: AGHT+IHwbJoYZqGiwb6co2hREAgWTQOaf/s4YEZo96aCVG79kC6hdFtxQajN7lHob6EAvFbTP7K5bA==
+X-Received: by 2002:a05:600c:3592:b0:43c:f44c:72b7 with SMTP id 5b1f17b1804b1-43d1ec86200mr141007775e9.14.1742208527614;
+        Mon, 17 Mar 2025 03:48:47 -0700 (PDT)
+Received: from ?IPV6:2a02:2f04:900a:ff00:eb98:2c37:6a77:39? ([2a02:2f04:900a:ff00:eb98:2c37:6a77:39])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1fe609a2sm100628115e9.30.2025.03.17.03.48.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Mar 2025 03:48:46 -0700 (PDT)
+Message-ID: <d2e162cd-b12b-47e2-9190-2ecce3489b9c@linaro.org>
+Date: Mon, 17 Mar 2025 10:48:45 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] firmware: exynos-acpm: silence EPROBE_DEFER error on
+ boot
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org>
+ <20250314-acpm-fixes-v1-2-ab03ca8e723f@linaro.org>
+ <638cf070-9fd1-416e-8172-75f189ab0dfe@linaro.org>
+Content-Language: en-US
+In-Reply-To: <638cf070-9fd1-416e-8172-75f189ab0dfe@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_034555_767944_D5870AEB 
-X-CRM114-Status: GOOD (  45.46  )
+X-CRM114-CacheID: sfid-20250317_034849_199014_FEE8A492 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +108,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Mar 2025 11:27:37 +0200
-Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
 
-> On Mon, Mar 17, 2025 at 10:42:07AM +0200, Matti Vaittinen wrote:
-> > On 17/03/2025 09:51, Andy Shevchenko wrote:  
-> > > On Mon, Mar 17, 2025 at 09:11:08AM +0200, Matti Vaittinen wrote:  
-> > > > On 16/03/2025 11:41, Jonathan Cameron wrote:  
-> > > > > On Thu, 13 Mar 2025 14:34:24 +0200
-> > > > > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:  
-> > > > > > On Thu, Mar 13, 2025 at 09:18:49AM +0200, Matti Vaittinen wrote:  
-> 
-> ...
-> 
-> > > > > > > +	num_channels = devm_iio_adc_device_alloc_chaninfo_se(dev,
-> > > > > > > +				&sun20i_gpadc_chan_template, -1, &channels);
-> > > > > > > +	if (num_channels < 0)
-> > > > > > > +		return num_channels;
-> > > > > > > +
-> > > > > > >    	if (num_channels == 0)
-> > > > > > >    		return dev_err_probe(dev, -ENODEV, "no channel children\n");  
-> > > > > > 
-> > > > > > Note, this what I would expected in your helper to see, i.e. separated cases
-> > > > > > for < 0 (error code) and == 0, no channels.
-> > > > > > 
-> > > > > > Also, are all users going to have this check? Usually in other similar APIs
-> > > > > > we return -ENOENT. And user won't need to have an additional check in case of
-> > > > > > 0 being considered as an error case too.  
-> > > > > In a few cases we'll need to do the dance the other way in the caller.
-> > > > > So specifically check for -ENOENT and not treat it as an error.
-> > > > > 
-> > > > > That stems from channel nodes being optionally added to drivers after
-> > > > > they have been around a while (usually to add more specific configuration)
-> > > > > and needing to maintain old behaviour of presenting all channels with default
-> > > > > settings.
-> > > > > 
-> > > > > I agree that returning -ENOENT is a reasonable way to handle this.  
-> > > > 
-> > > > I agree - but I'm going to use -ENODEV instead of -ENOENT because that's
-> > > > what the current callers return if they find no channels. That way the
-> > > > drivers can return the value directly without converting -ENOENT to -ENODEV.  
-> > > 
-> > > ENODEV can be easily clashed with other irrelevant cases,  
-> > 
-> > Can you please explain what cases?  
-> 
-> When it's a code path that returns the same error code for something different.
-> 
-> > > ENOENT is the correct
-> > > error code.  
-> > 
-> > I kind of agree if we look this from the fwnode perspective. But, when we
-> > look this from the intended user's perspective, I can very well understand
-> > the -ENODEV. Returning -ENODEV from ADC driver's probe which can't find any
-> > of the channels feels correct to me.  
-> 
-> Okay, it seems we have got yet another disagreement as I think this has to
-> be ENOENT. Because this is related to the firmware description and not real
-> hardware discovery path. If it is the latter, I may fully agree on ENODEV
-> choice. But AFAICS it's not the case here.
 
-I'd not rule so strongly but -ENOENT is fine and there should be no fall out from
-standardizing around that.
+On 3/17/25 10:26 AM, Tudor Ambarus wrote:
+> 
+> 
+> On 3/14/25 4:40 PM, André Draszik wrote:
+>> This driver emits error messages when client drivers are trying to get
+>> an interface handle to this driver here before this driver has
+>> completed _probe().
+>>
+>> Given this driver returns -EPROBE_DEFER in that case, this is not an
+>> error and shouldn't be emitted to the log, so just remove them.
+>>
+>> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
+>> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> 
+> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
-> 
-> > > If drivers return this instead of another error code, nothing bad
-> > > happen, it's not an ABI path, correct?  
-> > 
-> > I don't know if failure returned from a probe is an ABI. I still feel
-> > -ENODEV is correct value,  
-> 
-> And I have the opposite opinion. I think ENODEV is _incorrect_ choice
-> in this case.
-> 
-> > and I don't want to change it for existing users -
-> > and I think also new ADC drivers should use -ENODEV if they find no channels
-> > at all.  
-> 
-> Again, the problem is that you are trying to apply the error code for HW to the
-> information that comes from FW.
-> 
-> > Besides that I think -ENODEV to be right, changing it to -ENOENT for
-> > existing callers requires a buy-in from Jonathan (and/or) the driver
-> > maintainers.  
-> 
-> Yeah, will wait for Jonathan to judge, but I think you can find rationale above.
-
-The distinction between hardware not there (-ENODEV) and missing stuff in 
-FW (-ENOENT) seems reasonable to make. If anyone is relying on capturing
-a specific error code and doing anything much with it beyond logging
-for debug then they are very optimistic as this stuff is often
-not particularly stable over kernel versions. That sort of error code specific
-handling only makes sense very locally, not in probe() return values.
-
-Hence my preference here is switch to -ENOENT and we'll go with that for
-new code in general that hits this sort of problem.   I'd not consider
-older code returning -ENODEV buggy as such, just slightly less than
-ideal. So any changes for now probably belong in series touching the code
-for other reasons rather than a mass cleanup.
-
-Jonathan
+I see you kept the error message though for of_find_device_by_node()
+failure. You either get rid of that too, or maybe transform all to dev_dbg?
 
