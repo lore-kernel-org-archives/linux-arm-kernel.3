@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B131C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 06:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFF6C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 06:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/t696LxEbizTgZEO/Thjd7sK7TQiRojJYmJJpO8fsxc=; b=ZV4fBJTz5dQAc8gcYN5lv7j6Nv
-	uH0LaJCa+d/6Jk9NwOuB5Cvvv1MwDwQrjsyyYidNQNC9NA0UJWhfgRQ742Uwm2UM9DfcobnmU2sVQ
-	gFEIejDyBkYmeXURsDVVcJ4EmLnyxLyrxuMjiGAX/x2Y58f4R04AN5lwXWQG6GhHDciAKGQ9zjN1Y
-	ptlsaJupHEUHNQE69nZ/ZpTZBaYnlPl3XPIYtapquu9WH/9CnpP/aqytpFCKjpTBLIrKeh4lLdvJL
-	VfkTAfP82LViTNXfAYK2cQOyEg/b5wSv4uNxs5KaMhIx6+NdXz2CRKnJKKkA9KN5NdVZB/AEpPv/o
-	WRTytyBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V/eQJqVgbd3UXy9T88/l4rv0D+h5MVbR2tramUFNA08=; b=R54PqgOFYUjYzXl+rl04R7ejc0
+	vqUaX0aMfSeE/YO4xPdem4v0xzkzy2JsgzaLxQe7rYzvU1oPAPlcSj3tA3tmT78khR7WHpxUs5rNZ
+	tP8Rbsc4uQeT7R49hVE6Ky5mIFT+e3Ib9YRfH7E0/KzD++RnwhyV4UbKE+9Ri24F26RUHQVFLLtum
+	oTKkSL1z0s6S/zmeO/dlYmcHaNK7bXcAUn/IujHlTnsQgvuCyh1gRxEUhtbEz4HVKuHrJHxjgGu4m
+	vDfxJbf16Xe/8lOPIC+VdSsw0dQ1Tubw7edN5O/22xRFOvObU8fG0Hocy/nwUKPc13gJgF5E6r4st
+	JFYdeHTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu3Yx-00000001Kbb-1dbw;
-	Mon, 17 Mar 2025 06:02:59 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu3XG-00000001KIa-37iy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 06:01:15 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-226185948ffso7381595ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Mar 2025 23:01:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742191273; x=1742796073; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/t696LxEbizTgZEO/Thjd7sK7TQiRojJYmJJpO8fsxc=;
-        b=Il7SAQwmqpRImaDeelC12vE2kKymb9ELxhc/FjHbhp2ATRDzts+N/sxoHZqUbQt5Ql
-         RA2lykOzLbyC9sTmkqDjQ76k9I/5ce4a82ZBOn+lyYQ7dIhkjWkY/DHXP4mjDkRlSxjH
-         Ce4xadvmYAn+vVQVopAhzioDjCenxj/ufx7NIGMrdtmogc0p0gwGOlRLSwQ6pnpiRji/
-         qGZGgN6NS4n/2HzQm5AohOKhW4JId9bCedawyR5w9XfCiGEvNcERWLez+NDRL4AXq8QT
-         chcBShk3BwajPiWYvAHqDXWqgU2Qhkr2sVTm/7etWhi179i8d6bmg9nvpMT1aFIU72JO
-         1m9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742191273; x=1742796073;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/t696LxEbizTgZEO/Thjd7sK7TQiRojJYmJJpO8fsxc=;
-        b=DttoMpaq/84K2TJ5KOVaHXYGGVWf3o3AOt00wruPQxWeh77Ys6jx00hH99cBm2ah0E
-         3SJ2Tm61GGXfjOtxm4yg73X9bgf6Kn4t6/fXLt7o1aiqat3UnOHZusTNxAnC3cgtbDI4
-         ysdIybOI8tO9lTvKgJqmot9ddDOnCDEDlTnqvheF9WeADXCevDmNfLLsBiCa9ABZ0MTO
-         PtI676FJe30mIt7nfI1aS7YCUsOI7P1XpBQQLEUCwQRYUlvuoyXIMsU44lZ7o7pZgSM7
-         AjBUq43pTBqGasDPfJYnKSKKLwXFFF+Gg0Eea44JIop4u/+4kYNB86wj67VBf+Ug1AWm
-         jV1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWooWEA7p60EkQZSzxHBELcexlG5UpeRkN5a3oFqtJ8dLZYmECXseSD43ecLWJMS0Bg/mNz8rCJSDk8wnz4Cq9E@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyn+fL4bsXmuV8GJ+Z269NQ7+Ah+fPxOFj/ion2tfEQV9htoP+R
-	Q5xRij9nqUQUvh1ui0wJruq9QOj1y1Wx5rFzZNhVM+DlYudzAgAG6CwuE03tVF4=
-X-Gm-Gg: ASbGncvVa4yFHt6eV+mQGtkIdcGE8xU8nbSAMoGapAQTiKgxSuzi0kMIv3FxPivTRUV
-	OZDTHLmPqLkaN9SCL+PulJBa9K+d68kqP9TiDdatT95gwQfOTetXgLYxqX/CQrReZAL4BGzU6V5
-	dPp3KC8/LHwLJ2EfUycb+F2CYITt+VEuBnt6/IpicN5ESdI7IackliiraJI3GqvGQlawJ9S2h4N
-	pu7Oa/9Gd4rdNX4wVjvGm/WVe/wz0FA8DFNS4tX7Zjcts64zX00qo2AxX7QJ1i4T9ST4FMw4cOr
-	8eVhL45EoqFbSwM4edTawSssPpiaw98iLS6KcOR0byyvMg==
-X-Google-Smtp-Source: AGHT+IGZgTvwmbnlN60aL/w128MQKSBVf0ulmLghu2RqTVsFN9YIVHdgYTn08PK0fXwGZKBluWTVCg==
-X-Received: by 2002:a17:902:e74c:b0:223:3bf6:7e6a with SMTP id d9443c01a7336-225e0a40bb3mr160011395ad.12.1742191273540;
-        Sun, 16 Mar 2025 23:01:13 -0700 (PDT)
-Received: from localhost ([122.172.84.15])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bbeb94sm66648165ad.199.2025.03.16.23.01.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Mar 2025 23:01:12 -0700 (PDT)
-Date: Mon, 17 Mar 2025 11:31:10 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Jacky Bai <ping.bai@nxp.com>
-Cc: rafael@kernel.org, sudeep.holla@arm.com, ilia.lin@kernel.org,
-	tiny.windzz@gmail.com, wens@csie.org, jernej.skrabec@gmail.com,
-	samuel@sholland.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, linux-pm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH v3] cpufreq: Init cpufreq only for present CPUs
-Message-ID: <20250317060110.tvjat7ugmaceayyk@vireshk-i7>
-References: <20250313013928.529926-1-ping.bai@nxp.com>
+	id 1tu3ph-00000001NCn-2Qf5;
+	Mon, 17 Mar 2025 06:20:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tu3o0-00000001Mjo-1KM6;
+	Mon, 17 Mar 2025 06:18:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2595E13D5;
+	Sun, 16 Mar 2025 23:18:39 -0700 (PDT)
+Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.153])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6A6203F673;
+	Sun, 16 Mar 2025 23:18:23 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org
+Subject: [PATCH 0/2] mm/ptdump: Drop assumption that pxd_val() is u64
+Date: Mon, 17 Mar 2025 11:48:16 +0530
+Message-Id: <20250317061818.16244-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250313013928.529926-1-ping.bai@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_230114_831938_FDE83C6A 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250316_231832_446750_A65DDB9A 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,29 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13-03-25, 09:39, Jacky Bai wrote:
-> for_each_possible_cpu() is currently used to initialize cpufreq.
-> However, in cpu_dev_register_generic(), for_each_present_cpu()
-> is used to register CPU devices which means the CPU devices are
-> only registered for present CPUs and not all possible CPUs.
-> 
-> With nosmp or maxcpus=0, only the boot CPU is present, lead
-> to the cpufreq probe failure or defer probe due to no cpu device
-> available for not present CPUs.
-> 
-> Change for_each_possible_cpu() to for_each_present_cpu() in the
-> above cpufreq drivers to ensure it only registers cpufreq for
-> CPUs that are actually present.
-> 
-> Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> ---
->  - v3 changes:
->   - refine the changlog to drop the changed driver list.
+Last argument passed down in note_page() is u64 assuming pxd_val() returned
+value (all page table levels) is 64 bit - which might not be the case going
+ahead when D128 page tables is enabled on arm64 platform. Besides pxd_val()
+is very platform specific and its type should not be assumed in generic MM.
 
-Applied. Thanks.
+This series splits note_page() into individual page table level specific
+callbacks which accepts corresponding pxd_t page table entry as an argument
+instead and later all subscribing platforms could derive pxd_val() from the
+entries as required and proceed as before.
+
+Page table entry's value, mask and protection are represented with pteval_t
+not u64 that has been assumed while dumping the page table entries on arm64
+platform. Replace such u64 instances with pteval_t instead as expected.
+
+This series has been tested on arm64 platform but it does build on other
+relevant platforms (v6.14-rc7).
+
+Changes in V1:
+
+- Added note_page_flush() callback and implemented the same on all
+  subscribing platforms
+- Moved note_page() argument change from u64 to pteval_t on arm64 platform
+  from second patch to the first patch instead
+
+Changes in RFC:
+
+https://lore.kernel.org/all/20250310095902.390664-1-anshuman.khandual@arm.com/
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-mm@kvack.org
+
+Anshuman Khandual (2):
+  mm/ptdump: Split note_page() into level specific callbacks
+  arm64/ptdump: Replace u64 with pteval_t
+
+ arch/arm64/include/asm/ptdump.h | 24 ++++++++++++----
+ arch/arm64/mm/ptdump.c          | 50 ++++++++++++++++++++++++++++++---
+ arch/powerpc/mm/ptdump/ptdump.c | 46 ++++++++++++++++++++++++++++--
+ arch/riscv/mm/ptdump.c          | 46 ++++++++++++++++++++++++++++--
+ arch/s390/mm/dump_pagetables.c  | 46 ++++++++++++++++++++++++++++--
+ arch/x86/mm/dump_pagetables.c   | 39 ++++++++++++++++++++++++-
+ include/linux/ptdump.h          |  9 ++++--
+ mm/ptdump.c                     | 42 ++++++++++++++++++++-------
+ 8 files changed, 272 insertions(+), 30 deletions(-)
 
 -- 
-viresh
+2.25.1
+
 
