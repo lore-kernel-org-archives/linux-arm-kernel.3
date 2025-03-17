@@ -4,63 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5471C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1BAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xuKzqxXQuuudyoZS1yA8FZNGTyjI0RvfS078un9hEUk=; b=ipbvUdR5luML5xMFU+cQhjS21B
-	Sxqg8nlCyunWXsBMJBgNM82Gi7z8rX2+WkzXZYpwzkLF4TGP6Ak5lE30Wcyqkp3SZ0IVUPxsQP0+U
-	DJLhO6JFBJh2wZ9RBrawAX0dybofTD8gzMPuw58UTyyCj3vUQrLIfB29NQ18I/9J8j+IMf2lrC8qs
-	o0gpfBwT6UvHlPCaLfx3opasrDuM+8/9W++2eVn4KgZWYgaA/mW1CX0oEGjijt0KCDSnr7bniRtOm
-	U4iTQ/PW3Vrd1C1Rf5u2t5lnw4YFxTvjvZn2cV8V/pZZy/z1genBRdC9I3PX+qKIzeZRLyvi0Bgjh
-	F1wPrm5A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/8FRI6cy9CCt8b2M5LhQNzurCwCuZ436s4fIsfr2+0s=; b=e41bnabeGSyTZsssooqUkSWlSz
+	p2prbj5oO2IKHY8r4VJoNedFNuFmM2Ob/jlE8xzCi0HsR6EXG82tsKN/sKPctB3/FqLLocqhsY3Ar
+	UG2uU0/n5TysHQzrp9DWNvltJzoMCv3bytC4Wdn+nT3QJiD5WEdWbsGkc76YtE2bKKWTiDDJXEI2W
+	J+svNnZx9Z8qIPPPoaytYN5V/67xm7PuMHJ6pyGKQKItOBy31vJnC5Em9iGaDrfJu5W4qcmyaS/+X
+	oJlIsD9r1jHMmNXNAClcm/DUqkkkvA6knV08mkRfgGvtlyjEGRXPJJgHOj5IGQp6JD+Bs3WvTaYde
+	/1obqo3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5kK-00000001iTq-0nsp;
-	Mon, 17 Mar 2025 08:22:52 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5ic-00000001iB3-3AyY;
-	Mon, 17 Mar 2025 08:21:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=xuKzq
-	xXQuuudyoZS1yA8FZNGTyjI0RvfS078un9hEUk=; b=Mb9gDgLPOWJMzRTOAwR60
-	6lhkA+PBspsGBAcme3DUKgjd5IL5CkuckuTsLw68dzW1tDa0hcT1psbYLCpWPdRp
-	Nvv6SEV7YJvoWudVX9sAM8GqU3y4LonngTRtbVrb2L0VVgDHlrhsvGIlr4HhXhkU
-	tMbIxgXOciDXAsBPcUElQo=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wCXg9tg29dn5rCCTQ--.26560S2;
-	Mon, 17 Mar 2025 16:20:51 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: cristian.ciocaltea@collabora.com,
-	hjc@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH] drm/rockchip: dw_hdmi_qp: Fix io init for dw_hdmi_qp_rockchip_resume
-Date: Mon, 17 Mar 2025 16:20:39 +0800
-Message-ID: <20250317082047.564404-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tu5ly-00000001j0z-39mO;
+	Mon, 17 Mar 2025 08:24:34 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tu5jk-00000001iMh-0HpL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 08:22:17 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-30bfe0d2b6dso47003821fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 01:22:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742199734; x=1742804534; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/8FRI6cy9CCt8b2M5LhQNzurCwCuZ436s4fIsfr2+0s=;
+        b=Rs7PpcwBuSnUMCbdNSfH1WbpIoGCaiXc2d4sBVFWm2K9KVU+SqBkbBgOjlOobcv7mH
+         Hfkem6r2tmLhTxxUAN7+HrMYP+L88KCMf8mZeGwgpfkEdzmly5SBrmkUQWU0e8T15OK0
+         fDn4BR1ButMGnvlBo9YyyShEkrXjVufG9qKokoalZz2pR6yE4heovQAUd2jMduvewRZz
+         7tzS4SorbO0UA3fdO+y+sq4QpfObkOPgPeJQN1DkvgawmVjDolbqBkEWerSUZfRhXCTI
+         zb9AKsPmrVkzFrMrjAfYstqprC42aiwZ9PW6YlUsVMlTRLm9ZMFoy9w+Zy5W54MBlqYe
+         rVPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742199734; x=1742804534;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/8FRI6cy9CCt8b2M5LhQNzurCwCuZ436s4fIsfr2+0s=;
+        b=MqA7YsoejTRkdaWLz7o4dlk7smLeCistpVc3Zy00GwDxYVWsQbaF1MIk1gP7MtCok4
+         D46MUoFq4XbFkJUCgM2iBCJ0xYlBxuZr1HKS70Pc1D7I5yhE03Wrv1WvsMI4Cqb+Nqri
+         cDyiD4/YtfHHqijzCYnIjPbd0j/xze0aDRzOAsIDMO1m25Fi/ouBybf4vnyEHZRVvMnK
+         WLRAcUH/LX40S7H20NJfY2dwEtBEG83v6Jjz6TXj2FVNmCPk4N9UmFRCz4bhmxdGLH8N
+         712IlQvNTFloVfQLwUG/zRfIq8lXIxjdBuuzVdSi4luaAWPjnMoGxpHpK13jLgqKgg7G
+         q4Mw==
+X-Forwarded-Encrypted: i=1; AJvYcCUy2buq8DHgjPfpb6wXaD00EPBnGgc7pSyfOrkivkNBeYKgCeU2hGP9ZIXWGCrlOvbS+a6+W7VpQQyud/fZT4ej@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvAcNeFnebTVQrnoCfja+mJ92CyH2a0ZU/lkh6CwuGLf0J+24B
+	eU7/HFyxhr+wR63ruhMEww1rWfIamprV4QdQeBVPyiOYrIHv+rPp
+X-Gm-Gg: ASbGncuyrCGNBN++jd/3aur4XVRMvAmFRQ29h7Cee3HpjEVztw9agAxVG+L22VZ7NKH
+	T+ieINObC4IpKBaz7Tvj20K8nnvoFbufg5Ui1k9jAuC9Ocf6T4bhdNVKwZwfv0RPEbhpuSvYUMs
+	SDBxeby2qy17UzNce3Yft48irX8gPqfcJPD+fDppbQy9dICdFffCUzSxqZ49kJA+Wh4CqoRV1z0
+	YbgDbiIpfqlpsR5W3lAq7UbMo0aVQjqawpjTLNIwNl0xUMgKgWTtquKY1vvtqnMXKA3EEdNUgsf
+	vh4DCI+wANry18oHWJ/uagerM/iPbW0/fQCSd1wdOnziFCKvpt18cpj7jaxFFXXsUTg5zhq5QeB
+	lYaOqQIYsYWgBeV7YozdGON7rnQ==
+X-Google-Smtp-Source: AGHT+IHBKGlUlP46i1muxXD2BoUJCo9oeQCMBPNLoYtEWkTjbhR1aqc3+f20CvsiTwirEb5eGG/pEA==
+X-Received: by 2002:a2e:be06:0:b0:30c:1fc4:418e with SMTP id 38308e7fff4ca-30c4a8d225bmr66527681fa.26.1742199733797;
+        Mon, 17 Mar 2025 01:22:13 -0700 (PDT)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30c3f1c2233sm15370161fa.69.2025.03.17.01.22.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Mar 2025 01:22:13 -0700 (PDT)
+Message-ID: <66a93de8-f5a2-4ffd-9c97-c646934cc90d@gmail.com>
+Date: Mon, 17 Mar 2025 10:22:11 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCXg9tg29dn5rCCTQ--.26560S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zw48Kw17JF48CFy3Xr1UWrg_yoW8CF43p3
-	y3AryjkrWkGr4UXwn5A3Z2yFW2y3ZrJw4SqFWxKas2y3W09r1fGr93ua1rXrZxXF9rZF4a
-	krZ3t34fJa1UXaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jIyxiUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hkTXmfX1jmrPQAAsP
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 03/10] iio: adc: add helpers for parsing ADC nodes
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Lars-Peter Clausen <lars@metafoo.de>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
+ David Lechner <dlechner@baylibre.com>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Guillaume Stols <gstols@baylibre.com>,
+ Dumitru Ceclan <mitrutzceclan@gmail.com>,
+ Trevor Gamblin <tgamblin@baylibre.com>,
+ Matteo Martelli <matteomartelli3@gmail.com>,
+ Alisa-Dariana Roman <alisadariana@gmail.com>,
+ Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <cover.1741849323.git.mazziesaccount@gmail.com>
+ <c8899e8c535a1d93cd7588b7c160eb0fae5d26d2.1741849323.git.mazziesaccount@gmail.com>
+ <20250316093752.0eacaa16@jic23-huawei>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <20250316093752.0eacaa16@jic23-huawei>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_012107_119876_8340A5C1 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_012216_112971_63690BB7 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +120,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+On 16/03/2025 11:38, Jonathan Cameron wrote:
+> On Thu, 13 Mar 2025 09:18:18 +0200
+> Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+> 
+>> There are ADC ICs which may have some of the AIN pins usable for other
+>> functions. These ICs may have some of the AIN pins wired so that they
+>> should not be used for ADC.
+>>
+>> (Preferred?) way for marking pins which can be used as ADC inputs is to
+>> add corresponding channels@N nodes in the device tree as described in
+>> the ADC binding yaml.
+>>
+>> Add couple of helper functions which can be used to retrieve the channel
+>> information from the device node.
+> I suspect we'll need the addition of an optional trailing timestamp
+> channel at somepoint. But we can add that when we need it as only
+> matters for drivers doing iio_push_to_buffers_with_timestamp()
 
-Use cfg->ctrl_ops->io_init callback make it work for all platform.
+This is true. That'll enable using this for devices with buffers - which 
+is not possible right now as most buffer users do timestamps. I'll leave 
+adding the parameter to first buffered user though, but I think it's 
+good to say out loud this is doable :) Thanks!
 
-Fixes: 3f60dbd40d3f ("drm/rockchip: dw_hdmi_qp: Add platform ctrl callback")
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
----
+> Otherwise no additional comments from me.
 
- .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 23 +++----------------
- 1 file changed, 3 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 3d1dddb34603..631a7080862b 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -600,27 +600,10 @@ static void dw_hdmi_qp_rockchip_remove(struct platform_device *pdev)
- static int __maybe_unused dw_hdmi_qp_rockchip_resume(struct device *dev)
- {
- 	struct rockchip_hdmi_qp *hdmi = dev_get_drvdata(dev);
--	u32 val;
--
--	val = HIWORD_UPDATE(RK3588_SCLIN_MASK, RK3588_SCLIN_MASK) |
--	      HIWORD_UPDATE(RK3588_SDAIN_MASK, RK3588_SDAIN_MASK) |
--	      HIWORD_UPDATE(RK3588_MODE_MASK, RK3588_MODE_MASK) |
--	      HIWORD_UPDATE(RK3588_I2S_SEL_MASK, RK3588_I2S_SEL_MASK);
--	regmap_write(hdmi->vo_regmap,
--		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
--		     val);
--
--	val = HIWORD_UPDATE(RK3588_SET_HPD_PATH_MASK,
--			    RK3588_SET_HPD_PATH_MASK);
--	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON7, val);
-+	const struct rockchip_hdmi_qp_cfg *cfg;
- 
--	if (hdmi->port_id)
--		val = HIWORD_UPDATE(RK3588_HDMI1_GRANT_SEL,
--				    RK3588_HDMI1_GRANT_SEL);
--	else
--		val = HIWORD_UPDATE(RK3588_HDMI0_GRANT_SEL,
--				    RK3588_HDMI0_GRANT_SEL);
--	regmap_write(hdmi->vo_regmap, RK3588_GRF_VO1_CON9, val);
-+	cfg = of_device_get_match_data(dev);
-+	cfg->ctrl_ops->io_init(hdmi);
- 
- 	dw_hdmi_qp_resume(dev, hdmi->hdmi);
- 
--- 
-2.43.0
-
+Yours,
+	-- Matti
 
