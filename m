@@ -4,79 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97368C35FF8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EA7C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c6VrgwITeUy4vzKn7VyE9Zzzljiq2b10umU9vsp4HcQ=; b=dHF4fOk+FSNHePnha0ooauvmUs
-	9JlDEAVuEcVvGivXmFC4O20jBd8ZMuTH6kkVuqYxa2UmMXANCI6sNs1pJHunCGw0TF2x3ssReMmpg
-	IkRY8jOGxiiqnYeMhFJWmUAS7pHw8ddDvtXy0bnmk/OF1Bzbqntdwz1yYxl5bvAeBMmTxqIL51RYk
-	TKfTSkTQ40aJOhmW0tJCv28fh+5/jIWg4Uq6YKvjUnehLHCGop7qhhjvndcuiHCuhDuSIjItxKB5c
-	jmzPfthrmlgyGKC46qD4rRg3eq13GH3QHf2iH7WfbVs7szUHrsIGAm0mnk1ABYahNqGTcSinhp3Mw
-	baK2E+Qg==;
+	bh=P/JH4tjE3JKiFD+ZDbGTlUAfoHsPY0TuCFegAUu3Fao=; b=kydeHOzf4p0ackxOAWIsgk8JwU
+	eONZOEDr81Gk28PpyjQymEAiFDwfwfMCYSniV6S81/yYkaWEwT7tNLXoX8zR8MeXd2kc56D4UOi1i
+	D3GoSUxaMiC6GyEBEn4Sq0mGvV748jCJOP6bQMnt6Gjqpeix67TdtxPW5JJ6kzG3otJ3/DrMBxBz3
+	yZtCG0zH/qT2ejvsuHoTYgAZL5GScjI5Vea5jCpN/3AmPJCz0dSuEJiiJjkCYE4FpT8WG6abziMxR
+	bEKmaE42/Rb2y1bvcwE14Orpd+ixcF8eWumuUblBYHnShoaaaO/IVNlaLr6ve5wqg7IOJOFmyUgem
+	Mok4upwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu4vm-00000001aGI-37pk;
-	Mon, 17 Mar 2025 07:30:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tu4xR-00000001anO-24ob;
+	Mon, 17 Mar 2025 07:32:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu4iW-00000001WmX-1vx9;
-	Mon, 17 Mar 2025 07:16:59 +0000
+	id 1tu4u6-00000001Zj9-3HNY;
+	Mon, 17 Mar 2025 07:28:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A30095C53E9;
-	Mon, 17 Mar 2025 07:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A110EC4CEF9;
-	Mon, 17 Mar 2025 07:16:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 583E5A4653D;
+	Mon, 17 Mar 2025 07:23:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38DBC4CEEC;
+	Mon, 17 Mar 2025 07:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742195814;
-	bh=+POl+cmFoKPhYkGV3YX5zWEpHLNlNQsomdnoqKxuy2Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=K5u+/YZF9ntEnP4rRqgtZm7fn+XobY064azNj1tPFBySkBUhQ91vGq248wh4ps0jG
-	 G41YGrCSXuCvnCo6kG53qZn+yutS5t8Bgn/u4Pesv6BYLRlOm75cXYccB0MyNMIoft
-	 X1UZ0AlnF0H3pKNfgPetz4YsCHSMhd2YQmv8zBQ5NNlYEZ/TvjkxmdWpzQp/ZPAVrF
-	 D2Pt8WzRVqnOPySic5VhOEO7KCOwnJSvuMQBjT6B0f5Rn7c+aAZluvdATJm9P8hsmq
-	 QdNynfVS1yMFET6RehBr+4GEcqopGM2Oe0JjHsCQQpNpw2d1Yvk3PdtsK5rK0KOphB
-	 1jMmJzg0TYybA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 938DFC35FF3;
-	Mon, 17 Mar 2025 07:16:54 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Mon, 17 Mar 2025 15:16:56 +0800
-Subject: [PATCH 5/7] arm64: dts: add support for S6 based Amlogic BL209
+	s=k20201202; t=1742196533;
+	bh=KX8lPefXh51osUSwCR8m3OipolqZ4ExuJ1TF8HKpVZQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dYhCFNXhhkYaL60Kpf9UYUo4iRFxjKZqjwD9o5Pn33aXjjuLrzXGLz9szuGusVXWe
+	 VVSYy2jUAvk+UsxxXiCcrTtfHGyqZRDKOP3wnDQLQQaKxKTdT4UgrxFchW46huHO05
+	 fk5h9JW/bXjzJ9P5rnc/frChG3LFgNtwmog5UWaDzMBTpcY6iMeuV3Ub/LleAE+3Ho
+	 yE1Wk72qaDcTm9ebPLmvYuHClloyHylp3HZtnvGdTuOaVmwEoC4Z9XolA8V2rt+Gq6
+	 LXEsXcrmCW4rXPmI+cBYx8B8XsJHll7QwQeJV/weeo2ofjLE17iyRJ5QpMf9PqI3on
+	 MTSXjlm1p2Qcw==
+Message-ID: <4cec908c-1412-4e18-959d-b71c9ec21eb4@kernel.org>
+Date: Mon, 17 Mar 2025 08:28:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] arm64: dts: amlogic: Add A4 Reset Controller
+To: Kelvin Zhang <kelvin.zhang@amlogic.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Zelong Dong <zelong.dong@amlogic.com>
+References: <20250313-a4-a5-reset-v4-0-8076f684d6cf@amlogic.com>
+ <20250313-a4-a5-reset-v4-2-8076f684d6cf@amlogic.com>
+ <20250314-tested-husky-of-force-1ccdca@krzk-bin>
+ <3dceafbf-49d4-4084-bfae-74384e187941@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <3dceafbf-49d4-4084-bfae-74384e187941@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250317-s6-s7-basic-v1-5-d653384e41f3@amlogic.com>
-References: <20250317-s6-s7-basic-v1-0-d653384e41f3@amlogic.com>
-In-Reply-To: <20250317-s6-s7-basic-v1-0-d653384e41f3@amlogic.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742195812; l=5125;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=oaHHrXYztSUX5H9tDHb6+XL+HhxX9T90X3WIPyLsShA=;
- b=PQ30eNzSbUMN+efF01ZAa0kgUW/jaIejKIkNHePyU3v/mQJmlraWXuZOlUh/cVzVLZYrqgtv8
- o5gEJqKrfESDlIE64d6aW/G2prpBP/V75dMCkVPOkp+MgspZQ+/6pWR
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_001656_637799_31356D3B 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20250317_002854_958553_3FC611F3 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,192 +122,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+On 17/03/2025 03:49, Kelvin Zhang wrote:
+>>
+>> Why do you have on the bus devices with bus addressing and without it?
+>> What sort of bus is it?
+> 
+> Are you referring to the 'apb'?
+> If so, the 'apb' bus is defined in 
+> arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi.
+> 
+> apb: bus@fe000000 {
+>          compatible = "simple-bus";
+>          reg = <0x0 0xfe000000 0x0 0x480000>;
+>          #address-cells = <2>;
+>          #size-cells = <2>;
+>          ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
+> 
+>>
+>>>        periphs_pinctrl: pinctrl {
 
-Amlogic S6 is an advanced application processor designed for
-hybrid OTT/IP Set Top Box and high-end media box applications.
+Then what the heck is this?
 
-Add basic support for the S6 based Amlogic BL209 board, which describes
-the following components: CPU, GIC, IRQ, Timer and UART.
-These are capable of booting up into the serial console.
-
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/Makefile               |  1 +
- .../boot/dts/amlogic/amlogic-s6-s905x5-bl209.dts   | 42 ++++++++++
- arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        | 97 ++++++++++++++++++++++
- 3 files changed, 140 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-index 2fbda8419c65..a1ad8fa9999f 100644
---- a/arch/arm64/boot/dts/amlogic/Makefile
-+++ b/arch/arm64/boot/dts/amlogic/Makefile
-@@ -3,6 +3,7 @@ dtb-$(CONFIG_ARCH_MESON) += amlogic-a4-a113l2-ba400.dtb
- dtb-$(CONFIG_ARCH_MESON) += amlogic-a5-a113x2-av400.dtb
- dtb-$(CONFIG_ARCH_MESON) += amlogic-c3-c302x-aw409.dtb
- dtb-$(CONFIG_ARCH_MESON) += amlogic-c3-c308l-aw419.dtb
-+dtb-$(CONFIG_ARCH_MESON) += amlogic-s6-s905x5-bl209.dtb
- dtb-$(CONFIG_ARCH_MESON) += amlogic-t7-a311d2-an400.dtb
- dtb-$(CONFIG_ARCH_MESON) += amlogic-t7-a311d2-khadas-vim4.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-a1-ad401.dtb
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6-s905x5-bl209.dts b/arch/arm64/boot/dts/amlogic/amlogic-s6-s905x5-bl209.dts
-new file mode 100644
-index 000000000000..c45b22651798
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s6-s905x5-bl209.dts
-@@ -0,0 +1,42 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 Amlogic, Inc. All rights reserved.
-+ */
-+
-+/dts-v1/;
-+
-+#include "amlogic-s6.dtsi"
-+/ {
-+	model = "Amlogic S905X5 BL209 Development Board";
-+	compatible = "amlogic,bl209", "amlogic,s6";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	aliases {
-+		serial0 = &uart_b;
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x000000 0x0 0xe0000000>,
-+		      <0x1 0x000000 0x0 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* 27 MiB reserved for ARM Trusted Firmware */
-+		secmon_reserved: secmon@5000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x0 0x05000000 0x0 0x1b00000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&uart_b {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-new file mode 100644
-index 000000000000..a8c90245c42a
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-@@ -0,0 +1,97 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 Amlogic, Inc. All rights reserved.
-+ */
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/gpio/gpio.h>
-+/ {
-+	cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a510";
-+			reg = <0x0 0x0>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu1: cpu@100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a510";
-+			reg = <0x0 0x100>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu2: cpu@200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a510";
-+			reg = <0x0 0x200>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu3: cpu@300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a510";
-+			reg = <0x0 0x300>;
-+			enable-method = "psci";
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	xtal: xtal-clk {
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+		clock-output-names = "xtal";
-+		#clock-cells = <0>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		gic: interrupt-controller@ff200000 {
-+			compatible = "arm,gic-v3";
-+			#interrupt-cells = <3>;
-+			#address-cells = <0>;
-+			interrupt-controller;
-+			reg = <0x0 0xff200000 0 0x10000>,
-+			      <0x0 0xff240000 0 0x80000>;
-+			interrupts = <GIC_PPI 9 0xf04>;
-+		};
-+
-+		apb: bus@fe000000 {
-+			compatible = "simple-bus";
-+			reg = <0x0 0xfe000000 0x0 0x480000>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
-+
-+			uart_b: serial@7a000 {
-+				compatible = "amlogic,s6-uart",
-+					     "amlogic,meson-s4-uart";
-+				reg = <0x0 0x7a000 0x0 0x18>;
-+				interrupts = <GIC_SPI 169 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&xtal>, <&xtal>, <&xtal>;
-+				clock-names = "xtal", "pclk", "baud";
-+				status = "disabled";
-+			};
-+		};
-+	};
-+};
-
--- 
-2.37.1
+>>>                compatible = "amlogic,pinctrl-a4";
+>>>                #address-cells = <2>;
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> 
 
 
+Best regards,
+Krzysztof
 
