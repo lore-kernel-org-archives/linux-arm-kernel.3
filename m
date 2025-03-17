@@ -4,173 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4122BC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA1FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N5j5aEDSSa1lYZ5Py3H66qEi5A+PSFb42viyfMlXLA0=; b=gtQZQ0s1+XYhvTHLQaxFz1nKre
-	riL23fA1QQY1HfGKRwsJ0h6d21g7Za3d8R5E/jy5Pl2aPnWseNP4JXPA7Kf2eGf2mYzvhMhGtAJgk
-	CtVriFHOwGs1XuXZJlEG/M1/4Al+Zibs1UFHGdbRh0rcJRlQhwGC4exJMmctGASGDIBhYVAA+YixB
-	A8I92KM4aKajJV9LI3ufe3Rx/FtDdZ90eUxIgChCDYxXbBo/dqnQLv2N+qSaeILQhxmis86LjPeEW
-	W7ucRlUHgV5pIGldO6Kr6VHrmP0x+SCNIL6Cuysm0yLimOu/0GLg4YcGdNc8cef+VX0AY2ic4Go0t
-	cpOIql6w==;
+	bh=Y2HMNd51ebCLuc/+lI+FA2F7wifTN78z+y0do2Gb1hE=; b=cJgEyYLstMEuxcb7MhvBdyYr6c
+	113RQrHkS+i0Edj0yGK/qEeHqnpMyclTH/ZqYokX8OLX2Ufzi8SW/i4/dL2O0xivUYzDPrOaFoyfd
+	kH5Io3T05uF0ukDRpuzsbXdtossO+ukzj6W3Z3bk7KI+GYc3EQ8KYhuRvUbH74GI9veURyc54gRY6
+	mRaRLxzNwrrV6lUfEzoE800bRaRFsA4ch1N2JYYaaNnZ7w0nKE0cnZGyeQzGUbBeFiaCohgNO82Kp
+	zEDjQcEueyXJT9uHZSFWNCp/gp/gJXlUV6AT5ws8oNugZd6q3TxvCwNDdV86iGOWCxDiC4kxLYQdW
+	GksRjQWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7AI-000000020ZO-1oSZ;
-	Mon, 17 Mar 2025 09:53:46 +0000
-Received: from mail-sg2apc01on20704.outbound.protection.outlook.com ([2a01:111:f403:200f::704] helo=APC01-SG2-obe.outbound.protection.outlook.com)
+	id 1tu7Dh-000000021M0-12A4;
+	Mon, 17 Mar 2025 09:57:17 +0000
+Received: from mail-vi1eur02on20626.outbound.protection.outlook.com ([2a01:111:f403:2607::626] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu78a-000000020Cw-3tjj;
-	Mon, 17 Mar 2025 09:52:02 +0000
+	id 1tu7C1-0000000218h-09Yd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 09:55:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C8Gj9CELJYQqaLh11zsjPXI8bQclBT+Q4N5HbYh+dgVNjg9FypezlO5LN2JdIyYj8++Ul09p89PCsQ2Uo14ZWXkulCiZCkn8gNNQEIcUTcpItFg8PDKYKyKU14TUTaYc5tL8Gvslg3lQb8A03GAPL8wiMf1sV9xhGYBgpdN/HnZooLb0P0vFsenWYZ01iTcSX9sVsxWwVO9cAZDLsKlnLnR0cApxv0bEQgshoM6SPgU2Ez1GqPVGbaBiCbJrPvnMCmGllP9SKXyBIJIDLQxxuAK9LrXT68UP1A6T7sw2kx8RT0/UcK6W8RXNJ8H8eyCqup9BDZNKvgGh7LiGXs+1ug==
+ b=SL4kznU4RwSz0clZLWZq5SV7oKhdevzsAqPDgjP29760kZqVVeuWuYcCFGb1S/tpVOPr+eS5vi/am0oKykact0xhIIyacv5q3xsrtr7vfv+uwGmNW5WW+MjU9hpMeWgd1uIw9yw0XP3/AX+Xl7oLQIP1+EmeuAELQx59M5fvNfvL0Egekb/JiXdwt70brTHfsPZKKGRP/85u+YsPwhKLPeO5J7Lb/H+f5pNuMawla/urZrKupDpTtTtguhaSTMa5P+aRhg6XSMe2T33llBthwAojnBV5Oy5eixlulVhizmM/lw8YCV2gd/6ql9bMkNY9/qOdkIP4Dh1o7fmFUwZmTg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N5j5aEDSSa1lYZ5Py3H66qEi5A+PSFb42viyfMlXLA0=;
- b=Q4CJyMtAmspZ+fI9Je2kOg8NZHN/I240VkrBItcvk8CzuLEM/Pq/jH5Y3NsvU1J2lR7SbyyX7dhbbtnzEMoq01jMp0E9miWLtN/vm0MPo6VjU8kDkZ2/2FEAxcAphCcQi2rmWmoX0C/GpcRY0NAeA5km3+RQMPFkc5t32PGajhsXNsQ8DaPSPZLutbv4VtNvaCuSFZFbfz2b1YBvvEJJrWIsKYOe225ErqS+TQcyDZNez1M/eR2Lx3u15xs5O091NrKsdueqsOACTlv8MP3OvySeXF/8B7mrzsLinOzdje/HvAF0VMAFwKogfZn4Y2Oig17m9GMGVJMOXWy7lW4xqg==
+ bh=Y2HMNd51ebCLuc/+lI+FA2F7wifTN78z+y0do2Gb1hE=;
+ b=kKMSw4qbaSiNtVV0QEfPpbdvIaMDcMiT7uxJ5oim9dNx8o7mS1nYF6nin6JdXpb0Fs27a5pLt5aeooq4eQ/kYZxTewaU1+d//3pFaIsSwjEymZ1R6UNpXvsfXsaMHyiEixlPlzYy91IBhgTdwxcFv9I10lZ87Kf4ju7Gy9OMtQyLvHcPaiXwoNAQCBXN5G7ThrEC6d6e4XMvqWvd5M13x0cVZNSJcBOIv4fc2LkzD7u4hpjEub7kpd84WHJbGDjIdFX0EAwJCQeGeu9cetJ+aBXBqjHMwB6fejMrHSJBNeQSHDfn2ectCMuj7aMp8AvfTMkDTTWaLSaCi0jj4tFdkQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N5j5aEDSSa1lYZ5Py3H66qEi5A+PSFb42viyfMlXLA0=;
- b=c+lY5+q+b7CyHRr7uv7JqubNp3x30DfwdLc2z0J+CP48R+QJcuMapG4K8U1zOsjKAZPYj+Fa5fWXKMKgkdwgOvAMEphp6pcQHnzvTr5Q2TXnALUfDIC4DQC24c2ARBY5GWkp1WCStelRJzvJrMAgAOMuQIpfYRfutxFBO0bwKGX6RhZq9QgXN5h9pQwhByHZb4uvVnqlsN+x5mF4pcdN953Wkd1ulSfO1MNcXudY6Itr2U70ux582Ga7OQcBryWKZTtQVMyBUlPGc/JldlyJjBLcQxvdmO7VyOuLWe2T/OyVUMoFsy5XZpyRPz9TSSdBNqjPAcPZSdyWQxAKs99ZAA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by TYSPR03MB7885.apcprd03.prod.outlook.com (2603:1096:400:482::6) with
+ bh=Y2HMNd51ebCLuc/+lI+FA2F7wifTN78z+y0do2Gb1hE=;
+ b=FbEdxN+TLfdDOr5z3hGJJl5DxTkq/I95bbpua6vOENM3BPpQqxQV9FxvMw8KXhuuX2YVvMrkgJzwxC8oHe4v58Et6hG2BCTyoYCFdayQDw2gkISxRLvlrMhmz9iSaMhTXavD0i+p6JCOw2ksIUf1Gx5Esk+J4Mv9AQPxvmDUplCBFOjzGfx21Ms1haP0CJuJgc8Ps16oZ41KyyebW+vf3n2CHlBISX31xrxcrnoQjSDLn/7jlarDk0ydYsktwMNJFj28MJQl/QyoJpgawf3r8Tos6jJaIYIUJXmq3xuOIXMuqpEH/I2QFvbBd1alm/6qP42TWoKR1lWRUCqBjBFndA==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by PAXPR04MB8880.eurprd04.prod.outlook.com (2603:10a6:102:20f::15) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Mon, 17 Mar
- 2025 09:51:51 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123%4]) with mapi id 15.20.8511.026; Mon, 17 Mar 2025
- 09:51:51 +0000
-Message-ID: <bea10706-46db-4162-abc5-24e0051d4051@amlogic.com>
-Date: Mon, 17 Mar 2025 17:51:46 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] arm64: dts: amlogic: Add A4 Reset Controller
+ 2025 09:55:26 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
+ 09:55:26 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Clark Wang
+	<xiaoning.wang@nxp.com>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
+	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "christophe.leroy@csgroup.eu"
+	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v4 net-next 01/14] net: enetc: add initial netc-lib driver
+ to support NTMP
+Thread-Topic: [PATCH v4 net-next 01/14] net: enetc: add initial netc-lib
+ driver to support NTMP
+Thread-Index: AQHbkkpJSjcnE6eIUE+0uP7QMRa23rNxR0QAgACVlrCAALozgIAABn+AgAR7qACAAAK24A==
+Date: Mon, 17 Mar 2025 09:55:26 +0000
+Message-ID: <PAXPR04MB85102185D0A4C30F0688AA5488DF2@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-2-wei.fang@nxp.com>
+ <20250313163526.pqwp2wsfvio7avs6@skbuf>
+ <PAXPR04MB8510327277CFEAC750FE49F888D22@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20250314123715.fivq2cbczd4khxkk@skbuf>
+ <PAXPR04MB851027E5F830F08F3395083888D22@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20250317092808.jel2au3cgfwblaxk@skbuf>
+In-Reply-To: <20250317092808.jel2au3cgfwblaxk@skbuf>
+Accept-Language: en-US
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Kelvin Zhang <kelvin.zhang@amlogic.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- Zelong Dong <zelong.dong@amlogic.com>
-References: <20250313-a4-a5-reset-v4-0-8076f684d6cf@amlogic.com>
- <20250313-a4-a5-reset-v4-2-8076f684d6cf@amlogic.com>
- <20250314-tested-husky-of-force-1ccdca@krzk-bin>
- <3dceafbf-49d4-4084-bfae-74384e187941@amlogic.com>
- <4cec908c-1412-4e18-959d-b71c9ec21eb4@kernel.org>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <4cec908c-1412-4e18-959d-b71c9ec21eb4@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI1PR02CA0054.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::13) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|PAXPR04MB8880:EE_
+x-ms-office365-filtering-correlation-id: c416d48d-85aa-4e44-dc9a-08dd6539d7cb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?uqq4zlk0TXYxjWT3TlsLU1184dkZY+UEmPx9WvBoetY0O2PXXIRh0XScetAk?=
+ =?us-ascii?Q?br8Zdz8tNVi7qbyeUdJUIHkeZPdog/bnI5gVJKoaM//3Ves+sOj4cYq2cTQN?=
+ =?us-ascii?Q?zFwsf3kYRWZUGT+oHxCqOmruT2LqXUcSOOUsND1WLkh7ouefWS8fi3Jzc1lC?=
+ =?us-ascii?Q?uXR7CJk6nOoT2n19sw6vTkO0YfWL3upU0wU6OzG810WoakYcy5zIQ7PhqaiB?=
+ =?us-ascii?Q?WzNnhOd5lrVXvIkTHy2S02u3bwtaY6X6dROTtKyuw+dH8KNIv5J1aqLTslDr?=
+ =?us-ascii?Q?MpTZNSvEOmme00wNf5LXwssgGkgHCcyE2tzCyJaJt+sgTy8d1h75NruYOBzb?=
+ =?us-ascii?Q?b7ykIqBY6rjqKNJH7z2ZAr5QujtZ26MBro/2qT+g+zlRIoUDdT6gCavdulL4?=
+ =?us-ascii?Q?giB2x32FJeOp5zGF2/d9bGWsQ+QTSIBhBYAsxiWJRiY4b8MV75xYVIW5CI/s?=
+ =?us-ascii?Q?UH/tCWM6Vd8mC4a1kpUCRx5pNWQyX6kSKHZGjsY84J6zv/Np3s93hgm7nlCJ?=
+ =?us-ascii?Q?KZcaT7+PbImkXiYZm88qLsn07++JQ4bze1EB5UZ2C6D6iBnbi9jiDQ7sh195?=
+ =?us-ascii?Q?iYW13BSuPl06tJ1b2PpGIn4LQ7Lp+HHzihbRf/OdvXvoJElIld0zANNgCKfN?=
+ =?us-ascii?Q?rbErq9dNiB93AAwZSlPCp0DWiDnI8UgWatR0wbcMtCa1UqSuABmYFU6Gcnv4?=
+ =?us-ascii?Q?BBA3ONc4pzk508cDpGP+Ts/Gvzp7d9yUQ9Zli2+xhCsivs0Bm2VRuMsN333V?=
+ =?us-ascii?Q?5a7v9mQ5PiOVrEnWXisdcAv91ODd2RuBBhdveKRpsoqaa7qIHrM5jtj4w1dE?=
+ =?us-ascii?Q?WxWxyW5vP1RvlMZba2WZCzsa+0gDyrOfnp4/HWC2IaiG4I2g+dS4y8CMtZvm?=
+ =?us-ascii?Q?uVoccaRtZvdLp5Kf+x0ClgmfAiyeinI1PJUTEujRf0+YXYB5bVmk66t2J0Nn?=
+ =?us-ascii?Q?1l1db9uGF7CJV5f1lIYS0Jyw5DqqBojbC9I8mAViZODIWc0jWON7jBipmUJR?=
+ =?us-ascii?Q?rRaJfY9KuJ3lHSOdb40tGCP5Pw/es+VDzoK9CJkYs3uhBnO7HdALbvgocSn5?=
+ =?us-ascii?Q?JXwRM7fBMOthRU7/NacxsM8Kv/Ublex63t/SW3rlOUQUzv2p+xRqFrG4iqXs?=
+ =?us-ascii?Q?g7xpZjCA7QqYmwd2CoXpVFDodXEUrMhDvihbRt4dBdDKNvff9RBwwT2aIk+P?=
+ =?us-ascii?Q?fhGX0HlOdhFqosU3ddzyWU12z7Xls3YgoB0V3eCEydDoSpvt8D4WB7KkMskr?=
+ =?us-ascii?Q?CZ4bQJfSjlBajhIcUG1tM729ESIxTxRwhgB0yPngKSU4oQmDgrx2j93KRt6M?=
+ =?us-ascii?Q?v6xN3hyJpCn5gMbIl4SwNM8uqkpn54Y/IoeAKbCt1RBZ5wfkX7T0TH7SPGdt?=
+ =?us-ascii?Q?Mv1kYagDoecvt2gi13CRiR/3LnwEi6WFvt5kHRingn+cePk5HL66rWanUtgV?=
+ =?us-ascii?Q?kvfY2+YA5c10hBsv/fVbpC+8CM2LWwRI?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DlKTG5FAc9EPTnMcMhOlsXG6YRJJCPaB4jrw+55aU6lObSjRLmJM+sO2MKRV?=
+ =?us-ascii?Q?zk8YqGsdDPX/zNTV4sOy7UTi9e0gmSMyF7kR9q4qgx+B5mOgMp36cbj6PmZR?=
+ =?us-ascii?Q?QHTU7cFQLoZ++5gsYAQD81Z07cH5v1w/tvW1f2ABvDh8/+owm501cglj7oG7?=
+ =?us-ascii?Q?YzdIWy5GaMTyrf7dD6jcaM1eBPvL4AEDSaf4ZOnfS9sGGrLCZK10mqxMB2u8?=
+ =?us-ascii?Q?Npt44bziO47EKozD6j4XVqlGAKDfVkeoAAvdZIYEGGq0O6UEZqoJwQBMgKsD?=
+ =?us-ascii?Q?mlLPH5MWO7IyzQe1UAUvyUvErHBCa+o6PbfN0eYkxAAaS59sMKvt/1fY6sJw?=
+ =?us-ascii?Q?nYrKmJvsSr4dxKfs6PB69nI4mhU9k4stmy5gK4Do6jD41pDJgL60pKdCk17l?=
+ =?us-ascii?Q?T6WFyf8zyISUFkCwhWj4DArKw4pEUp/9bcaGeXO0gjnKigfhu2Lh0bYEIrxP?=
+ =?us-ascii?Q?SUcls+c76wEE4QFkidIJntH/yJDkN+F4rJjjE7N45DtKJ/m7PPaY9nbzWbS/?=
+ =?us-ascii?Q?N0jioiRPExiw2PykIwK9biuocARWHQ6hIKPqo1oZXiHF2P4aVzuSj3sKalPZ?=
+ =?us-ascii?Q?U8XeCHiCzKSQE8dhKEHaHC1VPWwoWAwm+LzwTfHjYMOv5YjU9vz6b1q6WJNK?=
+ =?us-ascii?Q?Q3JJqy51T2Xw2LtXsvBF2evklxB1shV3ye2eWX8Kg2GldeKjq+sSm3TqYuEQ?=
+ =?us-ascii?Q?ulMJw46Q6lMy1OrGPKRPRiJ++422tIgQ8DqMM47j3NbOo36mqAroRvWa7IiV?=
+ =?us-ascii?Q?r8fXGPsnlbwYCFXJndyLXR9odnOdlIG6byJBFbeGVT/uzTIDeraNrZWXeG3t?=
+ =?us-ascii?Q?8/73ZPscqLbojpSrkBMu5sT/v1mpakNFSrlSoTwf4s7DaDWScBIrFYUokXlS?=
+ =?us-ascii?Q?bmvBZo5hk3hbIMS0Gv5IMHOmZGjZgLBz381n/nrjtIsqAWPwzc2TJC7q/3fz?=
+ =?us-ascii?Q?MWgpoO5Irxt5bGt4dKkySP6cq42UWNXKG6naOoTMMPliW/TxFxrN4NY4alxy?=
+ =?us-ascii?Q?GJLum1vym420WaXqFFFYmvmaDMD1MKGCOrEKWjm16UY55QyvH5R4an1DGMGS?=
+ =?us-ascii?Q?fWi8iFYNyn0rYJ77iq7pQDbiGEQSw3Dkgp9QH839b9ZRvF7WC85YR4afDzGp?=
+ =?us-ascii?Q?GRNzN64spF/Q5CWTOtFLRSTm0ExGYr8RrUZ29Xx/ad++3kDzbuxd8o1eEQKL?=
+ =?us-ascii?Q?XHbStTdK+RCOXinuoBrQOW9WGRDfgZnG3L6akJ1kqdl3QvXTslChOaAL1tDK?=
+ =?us-ascii?Q?+NLgipuIQvNYSoO3iaB4TMY+uOjVtfkU2KMEcb2rWZLh5fXDy1AOVJfX8CnE?=
+ =?us-ascii?Q?Nfj4f+DqMwXztQbLE6C7QIGXYNCQy3Vga7yiIgfUaD+cxy/pVWOjhIyT34aT?=
+ =?us-ascii?Q?3sOXCv6CRZ2R6B/BG+tsmoQ6DkXRowDlE2JIumKW5Gfbr9Z3AnJhRZcRkhlp?=
+ =?us-ascii?Q?//ZaRAQZAxy+b74r5f4DAKfXsNp30hHsHbIdrITJdHOqaFQb3l2EVtKdlsqr?=
+ =?us-ascii?Q?l8GhuzSihpwIxGhQLUelNY+otZFYQSrz8feYJrR3NF+rvuWLvfGOVV8Qj9wd?=
+ =?us-ascii?Q?/GT8Z41xImE+UQFjRHI=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|TYSPR03MB7885:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40309c71-a31e-4b9b-9bbe-08dd6539573f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SEtnTWIxR09hMWVpWFBhMmNGendNZCtZbTNvd054Ukg2S2pxMitOVmFocDQ1?=
- =?utf-8?B?UEJsSXVsZEd3Z2ZYWG4xNG5CQjRHTjVlU1N3RGhRWFlSN3JNUWV4V2FEZHpM?=
- =?utf-8?B?eTYrVTI2NWNEVDhpbTVzS0hXTTU4L2I5R1k4R3RwR2hKcE1hQWtSQ21Zam04?=
- =?utf-8?B?cVNLV0hEWi9IK1JPUCtnTUVqTXNuMUQxckZ2SWgwMEk4TTI2RXpEQVdOZm8v?=
- =?utf-8?B?UjBjeHhPeHdJd2RVdU5uMGVUcVZNWFlrYUZLNFpLc3J1KzExcFlYdWFuQkUx?=
- =?utf-8?B?S1gvZkc5Uk9wbUx6TS9ZNGNQN2lwVGp0UTJGVXp1TEREYy85Q1VkYjhHSVJD?=
- =?utf-8?B?R3EycVlGQlMvUSt3Uk9TTVZaMkU5eWtLQ05CTmYzMjg5S2k0WEUzMEdRd1BZ?=
- =?utf-8?B?bytpQkx5K25ySS93MVdQQ0Q1a0NyYzdYeHNmeFhzR0h3VW5HR0lTeERCdGN6?=
- =?utf-8?B?bmhVbUJFZjF1WFZDNTV5RHpWclQ5eEd1eFdiVXdmVTI3WkpYdkVyQkFPcEtm?=
- =?utf-8?B?d3Rpcm5WNGFUMkhVY0g5d0FrZm0xRU9XekVYUXNaeWNzQUZ6TDUrY2dBdUxM?=
- =?utf-8?B?Q3FWQUxtNVRJY3J0RG9SWHRKL0ViYURJZW1MV1FRR0VDWTRTeUFzcXZxSkxk?=
- =?utf-8?B?cHE0aVJueCtCbU1YaU9kNXNzZGlUSlVTQk5walg3S3hob1Z0UUNLSU43bmhO?=
- =?utf-8?B?VzVHeHBGY3JwbzhhQ0FqeXlhRkdGbE1yUkdUMXZML0Q0SENMdmQ2QkxXTG1r?=
- =?utf-8?B?dFhmQWpPeG5mZHREV3ZSRGFXK0pxYXhLU2JNcXppb3lkaE5ZNS9nVXZVL0pk?=
- =?utf-8?B?WmRYTVA5cWNaTEcrb3JPSzh5c2V3Zm9wdkJtRmE5Y1RNS3dSRCsvV0FsKzhP?=
- =?utf-8?B?MmZPUlZscDhKSXhFdmt5OVIxVEVGQXl3VWEydFpPMGdHb0lXanRCaURBWWxm?=
- =?utf-8?B?c0EzQ3ExVTFNMzZNblFDZXd0MjF5dW9wbTBmN3o0ZWJpa1ZFSk9mcjJmMEZQ?=
- =?utf-8?B?bWNHM2dNaXJOeE5rWmZYQ2lSZXlCSWdxV09WTU5LQmFiamFac3lGWEx4Q0Fu?=
- =?utf-8?B?STlwY3VUM1pZNFp6ZU9NMjJrL3lad0tkZ05lZi81N3BSKzhjKzlUSkl0eXRn?=
- =?utf-8?B?cEFXQlJXQVI5bEJYVG40SE8yeVFHUWhpdWcrcTZ6RXZScVNjR0x4WS9DMkZq?=
- =?utf-8?B?b1BNUzlVQ1ExUzdTT2dzUkc2ZUpvQ3hUVGhldGoyWnU5Qmxmc3dHMEUyWEhi?=
- =?utf-8?B?eDhOZkhZamN2WW0yMnpncjRmVU84b3lPRkRkenA3N2RjUlQzTTB5UDJtQU9w?=
- =?utf-8?B?S3BsbmhzOE5USWZxTmJzU0ZwT1Y4bGsvQ2thU2N3ajJ0Rlo4SDdkMVB5OHJx?=
- =?utf-8?B?UVRxbi9IblFud20zMHd4UGE0WlVuSFdCWXk2Qzg1NmVCZTAzZTZCd0JlYmdz?=
- =?utf-8?B?WTd5WFgya09rL09ZTTQ3aVhqQmo5LzltQnMyNS92Q1g2RTVoSnBCcmNpc3Nn?=
- =?utf-8?B?QXF2RTZYcmFYZXpLbmZ4RWxzLzhOeVdST3ZUc0xvdDFVblJ1c2Zha3BNYytO?=
- =?utf-8?B?VDFyd0hEZXBEWDhBeW0wWDNzZXNlTkdyZWpCcVBQT3ZhSW02OTVvMVFuYy9G?=
- =?utf-8?B?a29LYzdDZlRzdVZEa0xTYU5NUmJKS1R5VlRzZkZ2L1ZGZjFmRUVDVTJhWHU2?=
- =?utf-8?B?L0wwbGYvb1MyZHZGTGNaWDNjMWd3Q1p3b0d5TGg5NUdOMDhjWkp5K0locXRs?=
- =?utf-8?B?YyswNGtGY2thcHRxbklWTVRXa1lwU2Q4TUJrbkpnV1RWTHJGbTdyYmg4bkN1?=
- =?utf-8?B?ZGdnZytZL1ZmWUl6MVpDTFNxWTVJbE55WVd2RGNHQW1NVXF6MUYrbFVBQVBy?=
- =?utf-8?Q?ht3rvzb1hkWYK?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RWFLU3RVQTBwdlBUQzg5c1dsdE9QQ3hDWkdSM1ZxYU1XYk9UYU1xLzVIWGtv?=
- =?utf-8?B?UU5Obk4yL1hvRzgyQ09ub3lxaFNxaGpKSjBreFE3WURrc3hib2FuZ2wwQzlk?=
- =?utf-8?B?R3BwbENNM1FnSE14SHJUN1l3bGUwSDJNNTZLeW9zdlA5NVVSRjljK1UzcHAr?=
- =?utf-8?B?LzNrRkc1dWlxeURiZzg3OVhXQnRsSjNidFNHdFBzdTlOTXphbGhFWThZaTNz?=
- =?utf-8?B?b0VSUXpldnRSdllEWUxQOExxQlNTK0hWNWI2d0tnQVJFOG5aem4zL2hEL1Ey?=
- =?utf-8?B?TDJwTkl1R0JSb2hUMGwxZkllK0ttd3UyVXdPREptSXNUNkdsWkJWRVlhN3RL?=
- =?utf-8?B?M2ZORXJLMzRqSG53MVFqY242TUNiL0hmMEp5SllMM3J2L2hROEVGVFlmUzFH?=
- =?utf-8?B?OWxQMnZ6dFkrMnpibzFOZzdxOXVlakZxQzdKUElkY1I0eklBd2xyeFhZbTZF?=
- =?utf-8?B?T2tOalkydDQrek9UZ2s2NDZyVkZLTnRxeDhKMWpuM0ZkMkhackZkNSsxWlNq?=
- =?utf-8?B?elREY3Q3VjM0VGpqK05aT2ZoUVFLb1QrSTBNdFJrdks5VE1weGlyVUU5NnJH?=
- =?utf-8?B?YXQ1Zy9QWlFwWDVOWHkzNHR6V3Q3ZG5JdzIzUkhwWUdUWHpGMTVVUDZ3ZGIv?=
- =?utf-8?B?ZmJFRWY2WEV3TkYwa2VqcGhRWC9Ub0tPUG1tTjBZZGhYZWNsRUpIRE9nbHlk?=
- =?utf-8?B?Vm5Tck9xZDUrdU5HaXEvdytQbmlQVTBBK0VGSGpMWVE3WG1OOXNLR2xYK3Uy?=
- =?utf-8?B?TnV5VUkwczJVc1B5LzczWjkwUUZSYmdnRFFjdTJZdUdRQ1FBOGJ1ODJPeTdD?=
- =?utf-8?B?bnc1T21ZdzVGVWYrdkltS1ozWnM3YzdrWlpmNUgrcHVNd2Fhc00wbUFxOWVF?=
- =?utf-8?B?N2treHJiejZhVjBCSmllbzd4VEtMRlM5RXJYWHF6Um9FNHh4akhaZGphTmtG?=
- =?utf-8?B?RVlhaGlMTmQxYXEzdW9LRzdndHhOZ05wTlA0d25zSlNhZFpLMFBTZUVRcUUx?=
- =?utf-8?B?WXJNcW10eFoxc2xzWWhqbXY0bVNYbXRxbDlJcDU0RlJiekJQMS9VUkRmWDlY?=
- =?utf-8?B?cW1jY3VIaGV3T0x1QlN4QStUMnUvQjVRcldHejhzRStUNklxTTFISW5rMUZ2?=
- =?utf-8?B?ZWpFb1dHcVc3eUlUWlJjZDVYY3VCYWRlTys1NlpIMFE2OFdQbk9tQ3lHL3o2?=
- =?utf-8?B?ODZubDRyck5TaDRvZWdtR1JyM0ZxRFFtUHpYdnNobmhEbE5UMnE3ZFNRK25o?=
- =?utf-8?B?NWlmWVkzL1NsRmZ2ZDFITGVieFA5eFQzR1BSVWVQMWNKNUxUSUQwd1ZnMnFh?=
- =?utf-8?B?aUxNSk5HTVR2VjlnS3hWZVpVNC83emZIeFJLVEV0YnUzcTlHZVBzRWMvL1ZX?=
- =?utf-8?B?UUVUSytEOGdkc1FuUVplRXFNMHJaQ1dDcjNJcVd5NjZuR0dZeGsyTlBjZ1VJ?=
- =?utf-8?B?Z0hSQnpvV0piamo4OUh2WFVHSWRzbDFSbVNFNThJSGI2U1Z1ck5EOTJ5ekpx?=
- =?utf-8?B?bGhnU0RqWmFDTllreWlnWGZHeTRBMW5Ed1h0T2FmMVFCWUh5ZFNtWjhuL3p0?=
- =?utf-8?B?d3dhVHhlbE94WjVNVE92d0FwWGNNL281bTBjSzZWNW50WktSL2JwcHJUSnpN?=
- =?utf-8?B?NHIzQjRmMHpDbzFScjBtaGpVNUZBeTBZMWdhTTRUUUliMUlleVdONGFTcUsr?=
- =?utf-8?B?VldWQnJobjVyck9wWXErbUN6YWdoOHRUbzZsR0h4TitaNUZUc1hqVlNGOGcv?=
- =?utf-8?B?aWJLUkwwcWFjRENmQ2syRTM5djlYRXM3Ym1uWHFMR3lsNXhCY2ZQbVZxUllQ?=
- =?utf-8?B?UFJmeXpyVVVxMWova20relU1MUM2SU5QUjdHVDA4VkFiSjk5Qy85OUZIRjMy?=
- =?utf-8?B?WDJWcjF3RVk1cDlXVkhqdXM5NkR2bU9WaXptb1BTSm16TUZEZ2JhaElXNytP?=
- =?utf-8?B?T2cyT2NFZHVjWUQrSEFKdFlrakVjSmdpazFzRVoxYW0xNXUxcXdrczRYVFpj?=
- =?utf-8?B?WVB3dFhoKytIZUlXSTRJdTNXQk5UTFhiWE9abktEWTZYV1Vla051MlI4eFVT?=
- =?utf-8?B?NjlsU0t5c1d1TGN4ckVvMlphRG92RkdINVcrYnNoK01NeVlIWVczQy9XVWFB?=
- =?utf-8?B?N1pPYitKdFh2SlEwaUFnZ3lYVnJKY09GRk9KWSsyaHU1d29odms4NUQ1NUdq?=
- =?utf-8?B?Mnc9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40309c71-a31e-4b9b-9bbe-08dd6539573f
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-OriginatorOrg: nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2025 09:51:50.9863
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c416d48d-85aa-4e44-dc9a-08dd6539d7cb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2025 09:55:26.4187
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OcZat5WpvEEMZC42AMI9Q1TDjVCG+bdv4Zv9D+JadYJoECesfLsD0Ndvgu2Vgz/oMtuHQnN8F0S5p/QAx0pSCxPxMMfCYgtqSciJuzYzpP8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7885
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wYI/qkwu4PQ2xqZRC38F1kBqqIBKBJ53bKyExulo08LowCl/+GB8M3iEUGk/D2ng/x+U1Hx7PuUGHwZG+SQt9Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8880
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_025200_985369_CCC2DD2F 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20250317_025533_081632_491D07D2 
+X-CRM114-Status: GOOD (  44.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,49 +174,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+> On Fri, Mar 14, 2025 at 03:48:21PM +0200, Wei Fang wrote:
+> > > I mean, I was just suggesting to group the macros with the macros, an=
+d
+> > > the struct fields with the struct fields. Mixing them together looks =
+a
+> > > bit messy to me. Even worse in the definition of "union netc_cbd" whi=
+ch
+> > > IMO needs to be reconsidered a bit (a hint given below).
+> >
+> > I think this is a matter of personal preference. I was inspired by some
+> > of Intel's structure definitions. I think this method allows me to quic=
+kly
+> > understand what fields the member consists of and what bits each field
+> > occupies.
+> (...)
+> > Thanks, but we have added fully NTMP support in downstream, it's a grea=
+t
+> > challenge for me to convert it to the 'packing' method. I don't think I=
+ have
+> > too much time to do this conversion. And I also need some time to figur=
+e
+> > out how to use it and whether it is worth doing so.
+>=20
+> Ok, I'm not forcing you to use pack_fields(), but given the fact that
+> bit field overlap is now something that has to be manually checked, and
+> a bug of this kind already exists in this set, you will have to wait for
+> me, or other reviewers, to go through the bit field definitions from the
+> entire set.
+>=20
+> > > And I agree with you, I also don't want ntmp_private.h to be exposed =
+to
+> > > the NTMP API consumers, and I wasn't suggesting that. I just want the
+> > > NTMP API to spare consumer drivers of the gory details, like for exam=
+ple
+> > > the buffer layout of a MAC filtering entry, reserved fields, things l=
+ike
+> > > that. What I was saying is to keep the buffer layout private to
+> > > ntmp_private.h, and expose a more abstract data structure to API
+> > > consumers.
+> >
+> > Sorry, I don't fully understand, for example, if we place the definitio=
+n
+> > of "struct maft_keye_data" in ntmp_private.h, how does the debugfs
+> > get the information from "struct maft_keye_data"? Add a helper function
+> > in the NTMP driver and export it to enetc driver? And how does
+> > enetc4_pf_add_si_mac_exact_filter() to set the mac address to "struct
+> > maft_keye_data", add another helper? If so, I think it is more complica=
+ted.
+>=20
+> Well, my complaint, which has to do with style and personal preference,
+> is that exposing packed data structures to NTMP API clients puts an
+> unnecessary burden on them. For example, NTMP users have to call
+> cpu_to_le16()
+> to populate data.cfge.si_bitmap. A bug in the packed layout will
+> potentially have to be fixed in multiple places. The two options for a
+> more high-level NTMP API that I see are:
+> - You expose pointers to the packed data structures, but API functions
+>   provide getters and setters, and the exact buffer layout is only known
+>   to the NTMP layer.
+> - The API functions expose "unpacked" data structures, which are more
+>   abstract and don't contain reserved fields and are in CPU native
+>   endianness, and the NTMP layer packs them to buffers, either using
+>   pack_fields() or manually.
+>=20
 
-On 2025/3/17 15:28, Krzysztof Kozlowski wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On 17/03/2025 03:49, Kelvin Zhang wrote:
->>>
->>> Why do you have on the bus devices with bus addressing and without it?
->>> What sort of bus is it?
->>
->> Are you referring to the 'apb'?
->> If so, the 'apb' bus is defined in
->> arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi.
->>
->> apb: bus@fe000000 {
->>           compatible = "simple-bus";
->>           reg = <0x0 0xfe000000 0x0 0x480000>;
->>           #address-cells = <2>;
->>           #size-cells = <2>;
->>           ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
->>
->>>
->>>>         periphs_pinctrl: pinctrl {
-> 
-> Then what the heck is this?
-> 
+Actually I did this is the original version, I mean in downstream kernel 6.=
+6
+tree. I add a "ntmp_mfe" in ntmp.h like below
 
-I will fix it and add the unit address to the pinctrl node.
+struct ntmp_mfe {
+	u8 mac[ETH_ALEN];
+	u16 si_bitmap;
+};
 
->>>>                 compatible = "amlogic,pinctrl-a4";
->>>>                 #address-cells = <2>;
->>>
->>> Best regards,
->>> Krzysztof
->>>
->>
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
-> _______________________________________________
-> linux-amlogic mailing list
-> linux-amlogic@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+And the conversion was done by the NTMP driver. But then I found that this =
+was
+very troublesome. We get data from kernel "struct A,B,C", then the enetc dr=
+iver
+converts them to "struct D", and finally the ntmp driver converts it to "st=
+ruct E".
+So I thought why don't we convert "struct A,B,C" to "struct E" from the beg=
+inning?
+After all, these data structures are only used by enetc and netc switch dri=
+vers, so
+in kernel 6.12, I changed it to the current way.
+
+> Claudiu, what do you think? I can withdraw the request to hide packed
+> MAFT (and other) struct definitions from include/linux/fsl/ntmp.h if you
+> think they're fine there.
+>=20
+> > > Thank you for posting the downstream layout of struct ntmp_priv which=
+ I
+> > > was already aware of. What I was saying is that the word "private" me=
+ans
+> > > an aspect of the implementation which is hidden from other code layer=
+s.
+> > > There's nothing "private" here if the NTMP layer has access to the
+> > > definition of this structure. I was asking whether you agree that it'=
+s
+> > > more adequate to name this structure "ntmp_client", since it represen=
+ts
+> > > the data associated with a consumer of the NTMP API - a NETC SI or (i=
+n
+> > > the future) the switch. Or some other name. But the word "private" se=
+ems
+> > > misused.
+> >
+> > Okay, it seems to make you feel confused, let me rename it later, how a=
+bout
+> > "ntmp_user"?
+>=20
+> "ntmp_user" works for me better than "ntmp_priv", thanks. Are you also
+> going to make the API functions from include/linux/fsl/ntmp.h take
+> "struct ntmp_user *" as first argument, rather than "struct netc_cbdrs *"=
+?
+
+I think we do not need to keep "struct netc_cbdrs", it can be integrated in=
+to
+"struct ntmp_user".
+
 
