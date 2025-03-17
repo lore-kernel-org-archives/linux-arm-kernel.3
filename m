@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5C2C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5471C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W5O/hxV8vbhDPZf+MT7E5Xer9GBrYGhbr052JbAP7DU=; b=AmYNGx3nVFBnOn87IM1Mwix6oo
-	QuXZni2Atr4arVsgsdrBBMucagVRR4C0eu3rcbajox4KD8YXw0hZfGyZnkn7uXPZn26QoDR7qwowB
-	p/5uZewVfllUimmPx0RJd102VlfvcQIvmwPxF08ZaAjez9CuYt6QrWNXYPBLsG+6TazGGBtl3/+7K
-	QbI8ocbRB0DDsvKNISXWtbiyvkpUmTDEFMa4RFyV+RatDFYMFmuIJZKNPUL4ZLWu50d9Ny8jdy1xh
-	AgSVJl+ouJ5Zdf4mgSf5AIiKp+ub8Exql3kIyIeMWZSzpVUVpWyYDrrDI5jxRYF2whwfhnJeLKx7E
-	ySfztRDg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xuKzqxXQuuudyoZS1yA8FZNGTyjI0RvfS078un9hEUk=; b=ipbvUdR5luML5xMFU+cQhjS21B
+	Sxqg8nlCyunWXsBMJBgNM82Gi7z8rX2+WkzXZYpwzkLF4TGP6Ak5lE30Wcyqkp3SZ0IVUPxsQP0+U
+	DJLhO6JFBJh2wZ9RBrawAX0dybofTD8gzMPuw58UTyyCj3vUQrLIfB29NQ18I/9J8j+IMf2lrC8qs
+	o0gpfBwT6UvHlPCaLfx3opasrDuM+8/9W++2eVn4KgZWYgaA/mW1CX0oEGjijt0KCDSnr7bniRtOm
+	U4iTQ/PW3Vrd1C1Rf5u2t5lnw4YFxTvjvZn2cV8V/pZZy/z1genBRdC9I3PX+qKIzeZRLyvi0Bgjh
+	F1wPrm5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5Ri-00000001fvc-1qJH;
-	Mon, 17 Mar 2025 08:03:38 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5Pq-00000001fWy-30sE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 08:01:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1742198502;
- bh=W5O/hxV8vbhDPZf+MT7E5Xer9GBrYGhbr052JbAP7DU=;
- b=Gui/HyAkSJBKk17vZ+ywSiZ72C2lVWSZIzHn2T6uMqfpF3PeMhiWk97Jmb1wgifsmuOsltR8K
- zE7ikMooM+jsBnrzyVs8IWZ5JG38GMbzm1DSnJFJxadOU0uEANqvt00bOjXt6KLhyIijHrfpRbM
- gLxYK5IkI1de3vMy4ZnMJGnuxWLO88E5VC7yH/Tgt+VGS5JIWmeS4Hi+enFV+HX9353Cq3gpY/C
- m8jETOA8DfONDRBe0eG9CeDVNyt9t9O4DCkEQyDRpY7EPsro/afH2xEpu91Pq+Py0mBha8PnaIR
- U69CFzzx3YHJkyD2wuicJOQlTS3eLBlJA/JZgo4Z4i3g==
-X-Forward-Email-ID: 67d7d6dac3abe04af7200682
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <da550920-bb2e-4032-82a9-1bf02aae9e17@kwiboo.se>
-Date: Mon, 17 Mar 2025 09:01:25 +0100
+	id 1tu5kK-00000001iTq-0nsp;
+	Mon, 17 Mar 2025 08:22:52 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tu5ic-00000001iB3-3AyY;
+	Mon, 17 Mar 2025 08:21:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=xuKzq
+	xXQuuudyoZS1yA8FZNGTyjI0RvfS078un9hEUk=; b=Mb9gDgLPOWJMzRTOAwR60
+	6lhkA+PBspsGBAcme3DUKgjd5IL5CkuckuTsLw68dzW1tDa0hcT1psbYLCpWPdRp
+	Nvv6SEV7YJvoWudVX9sAM8GqU3y4LonngTRtbVrb2L0VVgDHlrhsvGIlr4HhXhkU
+	tMbIxgXOciDXAsBPcUElQo=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wCXg9tg29dn5rCCTQ--.26560S2;
+	Mon, 17 Mar 2025 16:20:51 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: cristian.ciocaltea@collabora.com,
+	hjc@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH] drm/rockchip: dw_hdmi_qp: Fix io init for dw_hdmi_qp_rockchip_resume
+Date: Mon, 17 Mar 2025 16:20:39 +0800
+Message-ID: <20250317082047.564404-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] pinctrl: rockchip: Add support for RK3528
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "heiko@sntech.de" <heiko@sntech.de>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "ziyao@disroot.org" <ziyao@disroot.org>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250228064024.3200000-4-jonas@kwiboo.se>
- <20250317070002.707674-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250317070002.707674-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wCXg9tg29dn5rCCTQ--.26560S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Zw48Kw17JF48CFy3Xr1UWrg_yoW8CF43p3
+	y3AryjkrWkGr4UXwn5A3Z2yFW2y3ZrJw4SqFWxKas2y3W09r1fGr93ua1rXrZxXF9rZF4a
+	krZ3t34fJa1UXaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jIyxiUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hkTXmfX1jmrPQAAsP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_010143_102402_68E2E066 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20250317_012107_119876_8340A5C1 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+From: Andy Yan <andy.yan@rock-chips.com>
 
-On 2025-03-17 08:00, Chukun Pan wrote:
-> Hi,
-> 
->> Add gpio and pinctrl support for the 5 GPIO banks on RK3528.
-> 
-> https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/blob/rk3528/drivers/pinctrl/rockchip/pinctrl-rk3528.c#L204-L207
-> 
-> I noticed that there is a little difference between u-boot and kernel
-> pinctrl driver. Does kernel need to sync this changes from u-boot?
+Use cfg->ctrl_ops->io_init callback make it work for all platform.
 
-RK3568_SCHMITT_BITS_PER_PIN is defined as 2 and RK3528_SMT_BITS_PER_PIN
-as 1 so I think this code is correct, however I can probably update the
-U-Boot code to use similar pattern as in Linux driver before sending a
-new revision of the U-Boot series (probably after v6.15-rc1-dts).
+Fixes: 3f60dbd40d3f ("drm/rockchip: dw_hdmi_qp: Add platform ctrl callback")
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+---
 
-Regards,
-Jonas
+ .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 23 +++----------------
+ 1 file changed, 3 insertions(+), 20 deletions(-)
 
-> 
-> ```
-> diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
-> index 930c454e0cec..c77d9a6cd535 100644
-> --- a/drivers/pinctrl/pinctrl-rockchip.c
-> +++ b/drivers/pinctrl/pinctrl-rockchip.c
-> @@ -3070,6 +3070,7 @@ static int rockchip_get_schmitt(struct rockchip_pin_bank *bank, int pin_num)
->  
->  	data >>= bit;
->  	switch (ctrl->type) {
-> +	case RK3528:
->  	case RK3562:
->  	case RK3568:
->  		return data & ((1 << RK3568_SCHMITT_BITS_PER_PIN) - 1);
-> @@ -3100,6 +3101,7 @@ static int rockchip_set_schmitt(struct rockchip_pin_bank *bank,
->  
->  	/* enable the write to the equivalent lower bits */
->  	switch (ctrl->type) {
-> +	case RK3528:
->  	case RK3562:
->  	case RK3568:
->  		data = ((1 << RK3568_SCHMITT_BITS_PER_PIN) - 1) << (bit + 16);
-> ```
-> 
-> Thanks,
-> Chukun
-> 
-> --
-> 2.25.1
-> 
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index 3d1dddb34603..631a7080862b 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -600,27 +600,10 @@ static void dw_hdmi_qp_rockchip_remove(struct platform_device *pdev)
+ static int __maybe_unused dw_hdmi_qp_rockchip_resume(struct device *dev)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = dev_get_drvdata(dev);
+-	u32 val;
+-
+-	val = HIWORD_UPDATE(RK3588_SCLIN_MASK, RK3588_SCLIN_MASK) |
+-	      HIWORD_UPDATE(RK3588_SDAIN_MASK, RK3588_SDAIN_MASK) |
+-	      HIWORD_UPDATE(RK3588_MODE_MASK, RK3588_MODE_MASK) |
+-	      HIWORD_UPDATE(RK3588_I2S_SEL_MASK, RK3588_I2S_SEL_MASK);
+-	regmap_write(hdmi->vo_regmap,
+-		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
+-		     val);
+-
+-	val = HIWORD_UPDATE(RK3588_SET_HPD_PATH_MASK,
+-			    RK3588_SET_HPD_PATH_MASK);
+-	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON7, val);
++	const struct rockchip_hdmi_qp_cfg *cfg;
+ 
+-	if (hdmi->port_id)
+-		val = HIWORD_UPDATE(RK3588_HDMI1_GRANT_SEL,
+-				    RK3588_HDMI1_GRANT_SEL);
+-	else
+-		val = HIWORD_UPDATE(RK3588_HDMI0_GRANT_SEL,
+-				    RK3588_HDMI0_GRANT_SEL);
+-	regmap_write(hdmi->vo_regmap, RK3588_GRF_VO1_CON9, val);
++	cfg = of_device_get_match_data(dev);
++	cfg->ctrl_ops->io_init(hdmi);
+ 
+ 	dw_hdmi_qp_resume(dev, hdmi->hdmi);
+ 
+-- 
+2.43.0
 
 
