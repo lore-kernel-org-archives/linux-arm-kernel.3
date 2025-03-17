@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB792C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C09F6C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o+UbYltWTL9nsXjK30sfubrpExxRG1UfppgmpoTi2qk=; b=GBAv+TgD32WC6izZ6spH4PI1Rb
-	DgJB9uX4uMV5/wzZNMuwQx4IeuAOkihdxd/w6DsNbqzEcBiBSue3ejv+2+jJ2sISinla+Xh/FA6C2
-	dMMh2HKNQElBYusW6dxXXigbG5j6pd1JUjcAwdN0Tr4FTUn390ulmR097ywfKE47nv1bSmOJGp0BC
-	fALs5Yr9VM8R/firn9IK37Um8d0wL3MmGfa8oVNEXgWGKCh9B7OYRXIMSWgWaDZXLZQa+SgB13LWj
-	eYN3jD3pxv4QEv+/XtHaoK7nfmXRP/1XgkiJq14jMbXhZctVJFgTaJUkAAgjl+IN0iWcDjY9RzSOk
-	AALbXZIw==;
+	bh=Fo5GoDaPm0gIjYVqCGzA2mr+USoIG153jiLEzNpCVDE=; b=i5tjBlXwACsnJbnhMr0jdQ+ukJ
+	f9FC+8WchoXHr5HrNPppdLKhiyNoiuJPeQeCPlKSTWXjvFea8ErSCqjIrnpx3YoMagvK3qOc5Khn2
+	Yszyu3WNHael7nm92yi/n1OdcYJMI+VsY7hpnYsZ+ZAfmkHlggcX2N/ecn6T7n3mEcgyMLL1srVsl
+	h/h9HRaym57HK3ZAlE4nbTqj2dkoRc+XpCOsARmXMtE93LmOi48bEGv1i/xPklTJ51qrkd0SOyhqg
+	R7Uskr51Q+xNhO1jN8numYWccVl44YYfgwn9tu8VzcqVnKSWBDvI/gek35Rb3haHncveJc7ETQFN1
+	6aSH/HBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBVa-00000002xqG-2fg9;
-	Mon, 17 Mar 2025 14:32:02 +0000
+	id 1tuBXF-00000002yHl-3s8l;
+	Mon, 17 Mar 2025 14:33:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBLo-00000002uUI-0WF7;
-	Mon, 17 Mar 2025 14:21:57 +0000
+	id 1tuBLq-00000002uWR-2ej1;
+	Mon, 17 Mar 2025 14:21:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C87A25DC;
-	Mon, 17 Mar 2025 07:22:02 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24CC326BE;
+	Mon, 17 Mar 2025 07:22:07 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 64BEE3F63F;
-	Mon, 17 Mar 2025 07:21:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F102B3F63F;
+	Mon, 17 Mar 2025 07:21:53 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -65,17 +65,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH 05/11] sparc64: mm: Call ctor/dtor for kernel PTEs
-Date: Mon, 17 Mar 2025 14:16:54 +0000
-Message-ID: <20250317141700.3701581-6-kevin.brodsky@arm.com>
+Subject: [PATCH 06/11] mm: Skip ptlock_init() for kernel PMDs
+Date: Mon, 17 Mar 2025 14:16:55 +0000
+Message-ID: <20250317141700.3701581-7-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250317141700.3701581-1-kevin.brodsky@arm.com>
 References: <20250317141700.3701581-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_072156_197265_53E5FDFA 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250317_072158_716191_7903496C 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,74 +90,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic implementation of pte_{alloc_one,free}_kernel now calls
-the [cd]tor, without initialising the ptlock needlessly as
-pagetable_pte_ctor() skips it for init_mm.
+Split page table locks are not used for pgtables associated to
+init_mm, at any level. pte_alloc_kernel() does not call
+ptlock_init() as a result. There is however no separate alloc/free
+functions for kernel PMDs, and pmd_ptlock_init() is called
+unconditionally. When ALLOC_SPLIT_PTLOCKS is true (e.g. 32-bit
+architectures or if CONFIG_PREEMPT_RT is selected), this results in
+unnecessary dynamic memory allocation every time a kernel PMD is
+allocated.
 
-Align sparc64 with the generic implementation by ensuring
-pagetable_pte_[cd]tor() are called for kernel PTEs. As a result
-the kernel and user alloc/free functions have the same
-implementation, and since pgtable_t is defined as pte_t *, we can
-have both call a common helper.
+Now that pagetable_pmd_ctor() is passed the associated mm, we can
+easily remove this overhead by skipping pmd_ptlock_init() if the
+pgtable is associated to init_mm. No special-casing is needed on the
+dtor path, as ptlock_free() is already called unconditionally for
+all levels. (ptlock_free() is a no-op unless a ptlock was allocated
+for the given PTP.)
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/sparc/mm/init_64.c | 27 +++++++++++++--------------
- 1 file changed, 13 insertions(+), 14 deletions(-)
+ include/linux/mm.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-index cd60a0a8ca0e..0a1b2b1adad4 100644
---- a/arch/sparc/mm/init_64.c
-+++ b/arch/sparc/mm/init_64.c
-@@ -2882,18 +2882,7 @@ void __flush_tlb_all(void)
- 			     : : "r" (pstate));
- }
- 
--pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
--{
--	struct page *page = alloc_page(GFP_KERNEL | __GFP_ZERO);
--	pte_t *pte = NULL;
--
--	if (page)
--		pte = (pte_t *) page_address(page);
--
--	return pte;
--}
--
--pgtable_t pte_alloc_one(struct mm_struct *mm)
-+static pte_t *__pte_alloc_one(struct mm_struct *mm)
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index ee31ffd7ead2..4759da9cd633 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -3125,7 +3125,7 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
+ static inline bool pagetable_pmd_ctor(struct mm_struct *mm,
+ 				      struct ptdesc *ptdesc)
  {
- 	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL | __GFP_ZERO, 0);
- 
-@@ -2906,9 +2895,14 @@ pgtable_t pte_alloc_one(struct mm_struct *mm)
- 	return ptdesc_address(ptdesc);
- }
- 
--void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
-+pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
- {
--	free_page((unsigned long)pte);
-+	return __pte_alloc_one(mm);
-+}
-+
-+pgtable_t pte_alloc_one(struct mm_struct *mm)
-+{
-+	return __pte_alloc_one(mm);
- }
- 
- static void __pte_free(pgtable_t pte)
-@@ -2919,6 +2913,11 @@ static void __pte_free(pgtable_t pte)
- 	pagetable_free(ptdesc);
- }
- 
-+void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
-+{
-+	__pte_free(pte);
-+}
-+
- void pte_free(struct mm_struct *mm, pgtable_t pte)
- {
- 	__pte_free(pte);
+-	if (!pmd_ptlock_init(ptdesc))
++	if (mm != &init_mm && !pmd_ptlock_init(ptdesc))
+ 		return false;
+ 	ptdesc_pmd_pts_init(ptdesc);
+ 	__pagetable_ctor(ptdesc);
 -- 
 2.47.0
 
