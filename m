@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6E0C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B5FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O7tsua7AFG90WQXGlJ1hwi2xLc5O7X0Zx7bCkq4Ql/4=; b=vAdFCORbFJiGsh/N8wUTaDeS6O
-	qm1QEHOn5fWbRkPpqNIXxg2C51rEhP3khw+wvYD1YkH46jChME97Mu/EaSYb+H3o/A9tIa6QzMSm2
-	5mMxIGXwv7QGMOUMi+WbLtp9QNbKUZcTs6b4AT8RWS6RKPstyuivFiFbpFmecy1e67RpieHU3dLmW
-	9vWttxT+KFNgNrSkkmghUd17jTjCpMAxjq8/NHs5geZZ1R1Os4aivI/9+A0gVbr9tb8yNczPYr4aZ
-	cWrXve7gz9LcIQivttTdKgiS21mWxJsJr90TeYZ/Hk2Kd5tXGw8lgpTXjiC0i/26o/Bap3nzc6TJG
-	l/dKN82A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Yb1bmwpZfvOX6yMK1i3HHBS8ZlfwQU6J5gT+QGlyLNY=; b=Pfxnz7VlZD9kagMQhaW/N5k/89
+	FYPgxGpWDcDv4QKpBGWMaW/bHmbvV0WY3B4bb+qZW75nZoTsTkCVWEd/j9KgQq/SoKq5iGkMmv9vi
+	9xJErrEe6TmkH+xOjL2cvZ/nMCF+YXOYymmxSD17OAuYIFxdL40uSOgPUBeWMAoQbw6/wB88GEYyA
+	ol97oic9g8H1l3cOKnlmyvJaE8PI3PAxrdeaIKCrOqmtqUTSD5gGDjmJOEqEMxhJWQhSOPzF/q5L1
+	S1+dwwdn/4GEolT1VsGVfJjG2L8YI3nUaO2nV+DFSn3uwHcGjz58dEAHg2W/XbBXBvmPm7/qjQ2Eg
+	DGfBPnnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8Uw-00000002MuG-3MJa;
-	Mon, 17 Mar 2025 11:19:10 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1tu8Wb-00000002N9A-2OeA;
+	Mon, 17 Mar 2025 11:20:53 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8S8-00000002MKj-1utK
+	id 1tu8Uk-00000002Mrb-1eg8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 11:16:18 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZGXRt548lztQq3;
-	Mon, 17 Mar 2025 19:14:34 +0800 (CST)
-Received: from dggemv704-chm.china.huawei.com (unknown [10.3.19.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0197D140159;
-	Mon, 17 Mar 2025 19:16:03 +0800 (CST)
-Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 17 Mar 2025 19:16:02 +0800
-Received: from [10.67.120.218] (10.67.120.218) by
- kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 17 Mar 2025 19:16:02 +0800
-Subject: Re: [PATCH] coresight: Fixes device's owner field for registered
- using coresight_init_driver()
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, <james.clark@arm.com>,
-	<anshuman.khandual@arm.com>
-References: <20240918035327.9710-1-hejunhao3@huawei.com>
- <e2194d2a-0f51-4e59-a1ca-b4563b3389ec@arm.com>
- <c3744062-f7c1-82df-2fa1-591da3b2dc5e@huawei.com>
- <1a030491-5bc6-4122-baed-faf123f0f872@arm.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <yangyicong@huawei.com>,
-	<prime.zeng@hisilicon.com>
-From: hejunhao <hejunhao3@huawei.com>
-Message-ID: <2a681949-3053-8ae6-597b-49b16e1e87af@huawei.com>
-Date: Mon, 17 Mar 2025 19:16:01 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+	Mon, 17 Mar 2025 11:18:59 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5e78378051aso791871a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 04:18:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742210336; x=1742815136; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yb1bmwpZfvOX6yMK1i3HHBS8ZlfwQU6J5gT+QGlyLNY=;
+        b=sPs5mB/gMx1B0yBRr5kNA9NzYdxiYJNyjI6eJUIn091WTLYKgDuYEiaO7TdGbGH0RR
+         avANfHVD1h5YT06/o6jktHdF5I/oDSNEbdvrY4blzf3kgr0icuiYlyCm2nA9o5YxMupY
+         OpYQ1JUWFC6oIFVmhRhDNk6IV+ZkkWrPaFiruzbmqThn18Kc4bH1uR01/7SxK7z355Nc
+         DAOam+NeyOOqByz7CJPLuEYmidblj4kNK3dh2CI+wrQCGnnQbUjat0Km92Xk8SohlZQJ
+         9fHzRRwy1Qjl+gREcVghvzzBui/CVR6liU0Nv8jCdwd7TJAh9TNB+jN1wcbIkrW8619a
+         KGiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742210336; x=1742815136;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Yb1bmwpZfvOX6yMK1i3HHBS8ZlfwQU6J5gT+QGlyLNY=;
+        b=fb3LIbHnNDGsfjNwmKq+pjz5GUwPMSLH1Oygh0OoYOEysVuc6oFi0lwHohUCNSDVaF
+         dq22KjBZJr0BA5UFMFJ+i5CQgh4qHx7R4v9e8LmeXQfdUHA8CvKZCwaS3XCLOdnIRGa/
+         +KO6Mn6Jg9XcchEhKVtl4McIAR3rcRXFNCNoLPAR6HbrYaeAy6WzPGC4BAtyDbCodMpf
+         DhccUMQOxOMIipp/nyl+T4JqsJRYz4bzw4Klq1ZRQC0JfUOKGLv4fY+ROvfAAUQvm7Kc
+         mgMu6YSiPVBHSk0kHnsbIFpIoI5xMPzeHaia+s/ah4FJwBqdn1EydBMFvJ8t7dR2FumY
+         mfew==
+X-Forwarded-Encrypted: i=1; AJvYcCXKeD3Li2dlmqq33Zd4ah9c5CWw8fnMrLUPXB24oOy6OgJJJd4ThUWAJcEwTQh39ucnk15jt6QC3CAeHoiMapQL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ/m0q7crhNXL9d+7Qq8CXDn2vszRJE8yYYauyNPZRq4RVZ0Ae
+	GINZmTxe1FFBdGUHIW+S1hlsHcn1flf53fJErBAQcjGp00MBtfWoo6GCD5CrGnk=
+X-Gm-Gg: ASbGncsnQle6lm2vd5AfgggxurCt3DEG1m9qmHOFNL8VkhFO6z+7qrhD0cFxemfIpAC
+	Ll2fU4Ln13WcNpEmkfo0AOvFqz+Fo+pxd3bgcW/fjxrtA6/Hky3ah4U4O57j5hxib7QBFm9b0xN
+	kZ2keYGibzT+FupEl2ZN/FvhGFggWC8ySxJHZLjeyBYq7vpUI0Ju1XXfuypZVDXG2RzBIoW7g6W
+	Jevz2G971ECWRvWm8L7WKQN1VHW+87f5c3hpmSuqfhHsPN1jIgPL8DApjj2HsI3eiXw53k72xfH
+	XQ4RORsk3pGD/YsMhVIk2v3UQsjlypAqLY+rSLeRjF3CoBJPU6/+9bM6ZA==
+X-Google-Smtp-Source: AGHT+IGfG0kMUMy8OCD9zOa9XSNGd00YZZiW8tI8Vc7MTZK1U10MgZJVD9O1t41p31Vck9HevRFDYQ==
+X-Received: by 2002:a05:6402:3592:b0:5e4:d192:86c5 with SMTP id 4fb4d7f45d1cf-5e8a10edf48mr4164494a12.9.1742210336553;
+        Mon, 17 Mar 2025 04:18:56 -0700 (PDT)
+Received: from krzk-bin.. ([178.197.198.86])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816973b87sm5851428a12.23.2025.03.17.04.18.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Mar 2025 04:18:56 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] ARM: dts: nxp: Align NAND controller node name with bindings
+Date: Mon, 17 Mar 2025 12:18:53 +0100
+Message-ID: <20250317111853.43708-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <1a030491-5bc6-4122-baed-faf123f0f872@arm.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.218]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemn500004.china.huawei.com (7.202.194.145)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_041616_869625_FCA988A6 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20250317_041858_434850_B15A9355 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,242 +103,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+Bindings expect NAND controller device nodes to be named
+"nand-controller".
 
+Cc: Fabio Estevam <festevam@gmail.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ arch/arm/boot/dts/nxp/imx/imx25.dtsi | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx35.dtsi | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx51.dtsi | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx53.dtsi | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
-On 2025/3/14 18:38, Suzuki K Poulose wrote:
-> Hi
->
-> On 14/03/2025 07:44, hejunhao wrote:
->> Hi Suzuki,
->>
->> Could you confirm if this patch was queued in coresight/next or 
->> upstream of the mainline?
->>
->> I couldn't find it in: kernel/git/coresight/linux.git or Kernel 
->> v6.14.0- rc4.
->>
->> Maybe am I missing some information?
->
-> Apologies, I missed queueing this. That said, I have a minor comment 
-> on the patch below.
->
->>
->> Best regards,
->> Junhao.
->>
->>
->> On 2024/9/18 16:29, Suzuki K Poulose wrote:
->>> On 18/09/2024 04:53, Junhao He wrote:
->>>> The coresight_init_driver() of the coresight-core module is called 
->>>> from
->>>> the sub coresgiht device (such as tmc/stm/funnle/...) module. It calls
->>>> amba_driver_register() and Platform_driver_register(), which are macro
->>>> functions that use the coresight-core's module to initialize the 
->>>> caller's
->>>> owner field.  Therefore, when the sub coresight device calls
->>>> coresight_init_driver(), an incorrect THIS_MODULE value is captured.
->>>>
->>>> The sub coesgiht modules can be removed while their callbacks are
->>>> running, resulting in a general protection failure.
->>>>
->>>> Add module parameter to coresight_init_driver() so can be called
->>>> with the module of the callback.
->>>>
->>>> Fixes: 075b7cd7ad7d ("coresight: Add helpers registering/removing 
->>>> both AMBA and platform drivers")
->>>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
->>>
->>> Thanks for the fix, looks good to me. I will queue this for v6.13
->>>
->>> Suzuki
->>>
->>>> ---
->>>>   drivers/hwtracing/coresight/coresight-catu.c       | 2 +-
->>>>   drivers/hwtracing/coresight/coresight-core.c       | 6 +++---
->>>>   drivers/hwtracing/coresight/coresight-cpu-debug.c  | 3 ++-
->>>>   drivers/hwtracing/coresight/coresight-funnel.c     | 3 ++-
->>>>   drivers/hwtracing/coresight/coresight-replicator.c | 3 ++-
->>>>   drivers/hwtracing/coresight/coresight-stm.c        | 2 +-
->>>>   drivers/hwtracing/coresight/coresight-tmc-core.c   | 2 +-
->>>>   drivers/hwtracing/coresight/coresight-tpiu.c       | 2 +-
->>>>   include/linux/coresight.h                          | 2 +-
->>>>   9 files changed, 14 insertions(+), 11 deletions(-)
->>>>
->>>> diff --git a/drivers/hwtracing/coresight/coresight-catu.c 
->>>> b/drivers/ hwtracing/coresight/coresight-catu.c
->>>> index bfea880d6dfb..337668f9cfd4 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-catu.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-catu.c
->>>> @@ -702,7 +702,7 @@ static int __init catu_init(void)
->>>>   {
->>>>       int ret;
->>>>   -    ret = coresight_init_driver("catu", &catu_driver, 
->>>> &catu_platform_driver);
->>>> +    ret = coresight_init_driver("catu", &catu_driver, 
->>>> &catu_platform_driver, THIS_MODULE);
->>>>       tmc_etr_set_catu_ops(&etr_catu_buf_ops);
->>>>       return ret;
->>>>   }
->>>> diff --git a/drivers/hwtracing/coresight/coresight-core.c 
->>>> b/drivers/ hwtracing/coresight/coresight-core.c
->>>> index 9fc6f6b863e0..c546a417836c 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-core.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-core.c
->>>> @@ -1399,17 +1399,17 @@ module_init(coresight_init);
->>>>   module_exit(coresight_exit);
->>>>     int coresight_init_driver(const char *drv, struct amba_driver 
->>>> *amba_drv,
->>>> -              struct platform_driver *pdev_drv)
->>>> +              struct platform_driver *pdev_drv, struct module *owner)
->>>>   {
->>>>       int ret;
->>>>   -    ret = amba_driver_register(amba_drv);
->>>> +    ret = __amba_driver_register(amba_drv, owner);
->>>>       if (ret) {
->>>>           pr_err("%s: error registering AMBA driver\n", drv);
->>>>           return ret;
->>>>       }
->>>>   -    ret = platform_driver_register(pdev_drv);
->>>> +    ret = __platform_driver_register(pdev_drv, owner);
->>>>       if (!ret)
->>>>           return 0;
->>>>   diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/ 
->>>> drivers/hwtracing/coresight/coresight-cpu-debug.c
->>>> index 75962dae9aa1..cc599c5ef4b2 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
->>>> @@ -774,7 +774,8 @@ static struct platform_driver 
->>>> debug_platform_driver = {
->>>>     static int __init debug_init(void)
->>>>   {
->>>> -    return coresight_init_driver("debug", &debug_driver, 
->>>> &debug_platform_driver);
->>>> +    return coresight_init_driver("debug", &debug_driver, 
->>>> &debug_platform_driver,
->>>> +                     THIS_MODULE);
->
-> minor nit:
->
-> Could we make the coresight_init_driver() a static inline or even a
-> macro to automatically add the THIS_MODULE param ?
->
-> Something like:
->
-> #define coresight_init_driver(name, amba_drv, pdev_drv)
->     coresight_init_driver_owner(name, amba_drv, pdev_drv, THIS_MODULE)
->
-> I could respin this and queue the change.
->
->
-
-Yes, thanks for the review.  Will fix in next version.
-
-
-
->
->
->>>>   }
->>>>     static void __exit debug_exit(void)
->>>> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/ 
->>>> drivers/hwtracing/coresight/coresight-funnel.c
->>>> index 5a819c8970fb..8f451b051ddc 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-funnel.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
->>>> @@ -433,7 +433,8 @@ static struct amba_driver dynamic_funnel_driver 
->>>> = {
->>>>     static int __init funnel_init(void)
->>>>   {
->>>> -    return coresight_init_driver("funnel", &dynamic_funnel_driver, 
->>>> &funnel_driver);
->>>> +    return coresight_init_driver("funnel", &dynamic_funnel_driver, 
->>>> &funnel_driver,
->>>> +                     THIS_MODULE);
->>>>   }
->>>>     static void __exit funnel_exit(void)
->>>> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/ 
->>>> drivers/hwtracing/coresight/coresight-replicator.c
->>>> index 3e55be9c8418..f7607c72857c 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-replicator.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
->>>> @@ -438,7 +438,8 @@ static struct amba_driver 
->>>> dynamic_replicator_driver = {
->>>>     static int __init replicator_init(void)
->>>>   {
->>>> -    return coresight_init_driver("replicator", 
->>>> &dynamic_replicator_driver, &replicator_driver);
->>>> +    return coresight_init_driver("replicator", 
->>>> &dynamic_replicator_driver, &replicator_driver,
->>>> +                     THIS_MODULE);
->>>>   }
->>>>     static void __exit replicator_exit(void)
->>>> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/ 
->>>> hwtracing/coresight/coresight-stm.c
->>>> index 117dbb484543..403eea8f95d4 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-stm.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-stm.c
->>>> @@ -1046,7 +1046,7 @@ static struct platform_driver 
->>>> stm_platform_driver = {
->>>>     static int __init stm_init(void)
->>>>   {
->>>> -    return coresight_init_driver("stm", &stm_driver, 
->>>> &stm_platform_driver);
->>>> +    return coresight_init_driver("stm", &stm_driver, 
->>>> &stm_platform_driver, THIS_MODULE);
->>>>   }
->>>>     static void __exit stm_exit(void)
->>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/ 
->>>> drivers/hwtracing/coresight/coresight-tmc-core.c
->>>> index b54562f392f3..e31e36635394 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
->>>> @@ -742,7 +742,7 @@ static struct platform_driver 
->>>> tmc_platform_driver = {
->>>>     static int __init tmc_init(void)
->>>>   {
->>>> -    return coresight_init_driver("tmc", &tmc_driver, 
->>>> &tmc_platform_driver);
->>>> +    return coresight_init_driver("tmc", &tmc_driver, 
->>>> &tmc_platform_driver, THIS_MODULE);
->>>>   }
->>>>     static void __exit tmc_exit(void)
->>>> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c 
->>>> b/drivers/ hwtracing/coresight/coresight-tpiu.c
->>>> index b048e146fbb1..f9ecd05cbe5c 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
->>>> @@ -318,7 +318,7 @@ static struct platform_driver 
->>>> tpiu_platform_driver = {
->>>>     static int __init tpiu_init(void)
->>>>   {
->>>> -    return coresight_init_driver("tpiu", &tpiu_driver, 
->>>> &tpiu_platform_driver);
->>>> +    return coresight_init_driver("tpiu", &tpiu_driver, 
->>>> &tpiu_platform_driver, THIS_MODULE);
->>>>   }
->>>>     static void __exit tpiu_exit(void)
->>>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->>>> index f09ace92176e..e6c26952ddc2 100644
->>>> --- a/include/linux/coresight.h
->>>> +++ b/include/linux/coresight.h
->>>> @@ -660,7 +660,7 @@ coresight_find_output_type(struct 
->>>> coresight_platform_data *pdata,
->>>>                  union coresight_dev_subtype subtype);
->>>>     int coresight_init_driver(const char *drv, struct amba_driver 
->>>> *amba_drv,
->>>> -              struct platform_driver *pdev_drv);
->>>> +              struct platform_driver *pdev_drv, struct module 
->>>> *owner);
->>>>     void coresight_remove_driver(struct amba_driver *amba_drv,
->>>>                    struct platform_driver *pdev_drv);
->>>
->>>
->>> .
->>>
->>
->
->
-> .
->
+diff --git a/arch/arm/boot/dts/nxp/imx/imx25.dtsi b/arch/arm/boot/dts/nxp/imx/imx25.dtsi
+index 9cfff2151b7e..82601a4b7b4b 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx25.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx25.dtsi
+@@ -611,7 +611,7 @@ bus@80000000 {
+ 			reg = <0x80000000 0x3b002000>;
+ 			ranges;
+ 
+-			nfc: nand@bb000000 {
++			nfc: nand-controller@bb000000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <1>;
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx35.dtsi b/arch/arm/boot/dts/nxp/imx/imx35.dtsi
+index 30beb39e0162..111d7c0331f5 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx35.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx35.dtsi
+@@ -363,7 +363,7 @@ emi@80000000 { /* External Memory Interface */
+ 			reg = <0x80000000 0x40000000>;
+ 			ranges;
+ 
+-			nfc: nand@bb000000 {
++			nfc: nand-controller@bb000000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <1>;
+ 				compatible = "fsl,imx35-nand", "fsl,imx25-nand";
+diff --git a/arch/arm/boot/dts/nxp/imx/imx51.dtsi b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
+index 8323e3a56a1f..f42903c9cf0d 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx51.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
+@@ -595,7 +595,7 @@ weim: memory-controller@83fda000 {
+ 				status = "disabled";
+ 			};
+ 
+-			nfc: nand@83fdb000 {
++			nfc: nand-controller@83fdb000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <1>;
+ 				compatible = "fsl,imx51-nand";
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53.dtsi b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
+index faac7cc249d0..0c38c37dd142 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
+@@ -775,7 +775,7 @@ audmux: audmux@63fd0000 {
+ 				status = "disabled";
+ 			};
+ 
+-			nfc: nand@63fdb000 {
++			nfc: nand-controller@63fdb000 {
+ 				compatible = "fsl,imx53-nand";
+ 				reg = <0x63fdb000 0x1000 0xf7ff0000 0x10000>;
+ 				interrupts = <8>;
+-- 
+2.43.0
 
 
