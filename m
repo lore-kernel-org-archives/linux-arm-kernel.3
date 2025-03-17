@@ -4,95 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C33F5C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F681C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jN0+M4gX8uMSJYT62hKxDE04ZoXl8RCCMboFMq8K3LM=; b=BzqFuPMWiUp88NLWFUEE960/if
-	SlWXpQLSqOo40WmOodsZoO8G5IgdVs6BGtDFuJ1BY7C6Lz7eJlhDx7Fp0Rzwcl2WtYlYi7fN+27Ir
-	D1uMQv09+os7/I1ktpY6qPF13ArU4gshlCl7YZF4W0EKHzjFjOeBIsSP0lGjBit6fp5RAGWR9J27h
-	5/6AIHrWu6brkhIr6cIrn5qCyA0WLsYsSV/HlSGZcQFHTvHPWXIWyQDqftJZ33io9hB878SX+icHg
-	m6x3PtASlwm6/qv7bF8j/OeM/49nxT8QypFk+MTk2Wy/3qqf2ryHKw13xSk/AFf+6bP+pLY/c+akM
-	h2zShrVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uVsaatfJlC8cdki2A8ulnlCzTsVHshj/mrJPTStGR7M=; b=c9aYkpOP8l+7gqUkakDypq9Gty
+	jiEx65HmW648fzPf8IXFYYMRVFnnnMgJBBhW7R4zD7Thssvn1cIjAGRu45ERZpiDfSNxQP4Vy5oXX
+	GfW0SmkB4czg22GGkS1vDXdi0rc8pkalDRPa1rjQMg3ZHPuBiBimVYmxJhLy/0bbKYSh0o+9t1nt5
+	TwZ6jMdco9WNlbzkWOvmxGhb1w5nSoYBHQAsC40cQ0AWmeMGJIUVbWQHInbP6nGV6U6X9ytXj4BGJ
+	9TQnhbimHZHezL18op2uGhM2JBefQHhKnyoDxQwFu/PjPDJnCy/CAE24o9svKHuJ2geMU6aVZ+s8D
+	fdgEB9uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8nc-00000002QnG-1uuU;
-	Mon, 17 Mar 2025 11:38:28 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8lv-00000002QTi-1UyX
+	id 1tu8pH-00000002R56-1Jvj;
+	Mon, 17 Mar 2025 11:40:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tu8nJ-00000002QiW-0QLH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 11:36:44 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso14015725e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 04:36:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742211401; x=1742816201; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jN0+M4gX8uMSJYT62hKxDE04ZoXl8RCCMboFMq8K3LM=;
-        b=Ad8xefjkgsTSsclvQNe4ITj4DVsi4mW52JiUqqGTRcF6i9ogcZ7eFQLChd+La5Btf8
-         nZEydTdQ64sCEGfb1lG6LlBCSn6eN+f7Ii0WlF8fkXqZSndk0gBVlygclA4B+KiVpA/I
-         mBbcyJbxGQCEHPpv/97fY9TIq7kmSazlsMxkhc8gzmrr2AxDa6+S9yka/OTUTIySdfI8
-         vZ/fPsGQNGp8xkSgWGZbcSp9oyIFez87bSzoww8YWq6jJGBefWtvaYz+E1g3n/7VCWsv
-         7TsKhooNfKE1QzS5qvUWB8ELQNEZ2RhQyjh5YX0mLvDiUGYWYtLfr0lDLo4eFwMh/DJG
-         uBzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742211401; x=1742816201;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jN0+M4gX8uMSJYT62hKxDE04ZoXl8RCCMboFMq8K3LM=;
-        b=T9MTomlGHQoady1ORZISNWZoVNYNHqeDghIQ9VDNWuGCDJJXGMVtC8Hh2jt2UcCgae
-         ojCOUFojKWtQDB/d7BlJUvZEUVpdigGrTEYMYu0UCySqSJszlSp1SaqM6jTjar4xN+8k
-         Qi4VoRDpsI0eOfoaAEQty7au5EL+l8p8I5SOEq1cMk4TBGkgv0PjoDw92634YktrWLlX
-         COtEndlZYMQvEW83Ff1Ebh46laJ29h2C+fFJbSn88zSPko30fgEyfkcmXHZn/k22JZp2
-         Z3ZZq/p8xIvMLHH4hNgZeizTDRMNCFcWYdG63hZa8UPr/ijzbSZdE8/6gZdKTfPQj8TX
-         pVNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVrTArVTOEmiFKQe/jM/JdkbFxVSoJ5cmzDGbMCRX5Mae+NzrJOxiibbJsh0VOm92GymhHV6q9Zdv/fM5ZD59II@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+K+SX+CoAWxzNesB+/itMoXl19qSYuPy5rePl4cJBVGLnIAyL
-	XDiydKlpvQfM2BWNWa4VOiYKW7z9C2llx8Bi1RIvWVax9vgAyx8nDrv95Cs+3Wk=
-X-Gm-Gg: ASbGnct9lLnuyvQe68vFEDPxF59QLGSpEC25hYSr5l7toDSfw+cTmAAr1Uier6rpbjt
-	HhYJDwOezmsTAJFZd+/75xwbGS2fLRRRx3rcKZvXBSoKZvfL+/ZNrMllSIemR7EyM5tC9u2tGKk
-	Qit9sK9GIOAC4SmiJL/oMgvHpNdrU0dQDZNi15Z4qvfOgpBhSP7rmtQl8yabfLs39eZ6CWwi+Bu
-	MrP3vFxKUaRW2ciPtkLGHiqVvj0gxv4k/DMSmXtfAHrIyhUumYPoCJKrEilW2DVl8B1GCmZF+V2
-	75eazyZ9c7dD37yQKEcl9dJQQwqD5Rt9hBKI6wsK7jCus2IEJF69pA==
-X-Google-Smtp-Source: AGHT+IGpe6gVPMzyOS93xBARTNQJHQXaN3m0Z+9TNyPFS5vYkYlGiqRdgGrs5Bmtix92MgU8E4mTig==
-X-Received: by 2002:a05:600c:358c:b0:43c:f513:958a with SMTP id 5b1f17b1804b1-43d1ecc3969mr122779395e9.13.1742211401582;
-        Mon, 17 Mar 2025 04:36:41 -0700 (PDT)
-Received: from [192.168.1.247] ([145.224.67.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395cb7ec14bsm14651972f8f.100.2025.03.17.04.36.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 04:36:41 -0700 (PDT)
-Message-ID: <c6a86373-64be-4101-a08a-74aa302bf64c@linaro.org>
-Date: Mon, 17 Mar 2025 11:36:40 +0000
+	Mon, 17 Mar 2025 11:38:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DB3413D5;
+	Mon, 17 Mar 2025 04:38:16 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4BECB3F694;
+	Mon, 17 Mar 2025 04:38:00 -0700 (PDT)
+Date: Mon, 17 Mar 2025 11:37:57 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Roman Kisel <romank@linux.microsoft.com>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+	catalin.marinas@arm.com, conor+dt@kernel.org,
+	dan.carpenter@linaro.org, dave.hansen@linux.intel.com,
+	decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+	joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com,
+	kys@microsoft.com, lenb@kernel.org, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, maz@kernel.org, mingo@redhat.com,
+	oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
+	ssengar@linux.microsoft.com, sudeep.holla@arm.com,
+	suzuki.poulose@arm.com, tglx@linutronix.de, wei.liu@kernel.org,
+	will@kernel.org, yuzenghui@huawei.com, devicetree@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, x86@kernel.org, apais@microsoft.com,
+	benhill@microsoft.com, bperkins@microsoft.com,
+	sunilmut@microsoft.com
+Subject: Re: [PATCH hyperv-next v6 02/11] arm64: hyperv: Use SMCCC to detect
+ hypervisor presence
+Message-ID: <Z9gJlQgV3hm1kxY0@J2N7QTR9R3.cambridge.arm.com>
+References: <20250315001931.631210-1-romank@linux.microsoft.com>
+ <20250315001931.631210-3-romank@linux.microsoft.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] coresight: Convert disclaim functions to take a
- struct cs_access
-To: Leo Yan <leo.yan@arm.com>
-Cc: lcherian@marvell.com, coresight@lists.linaro.org,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250211103945.967495-1-james.clark@linaro.org>
- <20250211103945.967495-3-james.clark@linaro.org>
- <20250313145456.GR9682@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250313145456.GR9682@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250315001931.631210-3-romank@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_043643_422425_9DD8A5BD 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250317_043809_255466_1834E864 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +79,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 13/03/2025 2:54 pm, Leo Yan wrote:
-> On Tue, Feb 11, 2025 at 10:39:38AM +0000, James Clark wrote:
+On Fri, Mar 14, 2025 at 05:19:22PM -0700, Roman Kisel wrote:
+> The arm64 Hyper-V startup path relies on ACPI to detect
+> running under a Hyper-V compatible hypervisor. That
+> doesn't work on non-ACPI systems.
 > 
-> [...]
+> Hoist the ACPI detection logic into a separate function. Then
+> use the vendor-specific hypervisor service call (implemented
+> recently in Hyper-V) via SMCCC in the non-ACPI case.
 > 
->>   static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
->>   {
->> -       return coresight_read_claim_tags(csdev) != 0;
->> +       return coresight_read_claim_tags(&csdev->access) != 0;
->>   }
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+> ---
+>  arch/arm64/hyperv/mshyperv.c | 43 +++++++++++++++++++++++++++++++-----
+>  1 file changed, 38 insertions(+), 5 deletions(-)
 > 
-> Likewise other claim functions, can coresight_is_claimed_any() change its
-> argument type from struct coresight_device to struct csdev_access?
-> 
-> Thanks,
-> Leo
+> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+> index 2265ea5ce5ad..c5b03d3af7c5 100644
+> --- a/arch/arm64/hyperv/mshyperv.c
+> +++ b/arch/arm64/hyperv/mshyperv.c
+> @@ -27,6 +27,41 @@ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+>  	return 0;
+>  }
+>  
+> +static bool __init hyperv_detect_via_acpi(void)
+> +{
+> +	if (acpi_disabled)
+> +		return false;
+> +#if IS_ENABLED(CONFIG_ACPI)
+> +	/*
+> +	 * Hypervisor ID is only available in ACPI v6+, and the
+> +	 * structure layout was extended in v6 to accommodate that
+> +	 * new field.
+> +	 *
+> +	 * At the very minimum, this check makes sure not to read
+> +	 * past the FADT structure.
+> +	 *
+> +	 * It is also needed to catch running in some unknown
+> +	 * non-Hyper-V environment that has ACPI 5.x or less.
+> +	 * In such a case, it can't be Hyper-V.
+> +	 */
+> +	if (acpi_gbl_FADT.header.revision < 6)
+> +		return false;
+> +	return strncmp((char *)&acpi_gbl_FADT.hypervisor_id, "MsHyperV", 8) == 0;
+> +#else
+> +	return false;
+> +#endif
+> +}
+> +
 
-I only wanted to change the ones that I had to. I think we should 
-prioritize passing csdev as much as possible in the coresight framework 
-to make everything consistent. Otherwise it's extra churn for no 
-benefit, and if we need something from csdev here in the future we'll 
-have to change this one back again.
+The 'acpi_disabled' variable doesn't exist for !CONFIG_ACPI, so its use
+prior to the ifdeffery looks misplaced.
 
+Usual codestyle is to avoid ifdeffery if possible, using IS_ENABLED().
+Otherwise, use a stub, e.g.
+
+| #ifdef CONFIG_ACPI
+| static bool __init hyperv_detect_via_acpi(void)
+| {
+| 	if (acpi_disabled)
+| 		return false;
+| 	
+| 	if (acpi_gbl_FADT.header.revision < 6)
+| 		return false;
+| 	
+| 	return strncmp((char *)&acpi_gbl_FADT.hypervisor_id, "MsHyperV", 8) == 0;
+| }
+| #else
+| static inline bool hyperv_detect_via_acpi(void) { return false; }
+| #endif
+
+Mark.
+
+> +static bool __init hyperv_detect_via_smccc(void)
+> +{
+> +	uuid_t hyperv_uuid = UUID_INIT(
+> +		0x4d32ba58, 0x4764, 0xcd24,
+> +		0x75, 0x6c, 0xef, 0x8e,
+> +		0x24, 0x70, 0x59, 0x16);
+> +
+> +	return arm_smccc_hyp_present(&hyperv_uuid);
+> +}
+> +
+>  static int __init hyperv_init(void)
+>  {
+>  	struct hv_get_vp_registers_output	result;
+> @@ -35,13 +70,11 @@ static int __init hyperv_init(void)
+>  
+>  	/*
+>  	 * Allow for a kernel built with CONFIG_HYPERV to be running in
+> -	 * a non-Hyper-V environment, including on DT instead of ACPI.
+> +	 * a non-Hyper-V environment.
+> +	 *
+>  	 * In such cases, do nothing and return success.
+>  	 */
+> -	if (acpi_disabled)
+> -		return 0;
+> -
+> -	if (strncmp((char *)&acpi_gbl_FADT.hypervisor_id, "MsHyperV", 8))
+> +	if (!hyperv_detect_via_acpi() && !hyperv_detect_via_smccc())
+>  		return 0;
+>  
+>  	/* Setup the guest ID */
+> -- 
+> 2.43.0
+> 
 
