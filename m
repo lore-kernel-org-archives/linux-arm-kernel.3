@@ -4,55 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E69C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 12:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB0DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 12:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sZJwoKByOXaN+QwKZelUR1P4bPjSFByCcwIXy3GUpLw=; b=ZXuXfmWHhvOh6HJ3J51X1fsvPb
-	Iv76Jg501+Z+o/VhfSHkdjM9H9sC9TKD/yN+InIFeyociFChCG2bMYY5tOt0v2TAVtH6J77TA9/pm
-	OtA/M2QpRiErvl9qH9gnIB+OiiU1UcJSndu4z56857OcuIXfhMWiaNqKD/FPeEUYl8oTsPtAletmx
-	V5Cnk3A4svJyHqODC9IADwHEgpsQDeWRzrrrqHTUmQClpzVjsdPbt4NAYOJzLxdZwj9dtbkLnGXFy
-	t3miPstPzwYLkiWDfFYN3fvVxlaz9I46BTC7GuFdcDIXWIj281CJ6Cnvyy8Q7i/rLYzrAlqe2r9/2
-	l6LrMCuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ayfAvjYeqJrgYUP6e8kHW/UxkKYEhMvbiKhityi9Os8=; b=GzjjW6Ys4OpXynhxrBLGjqXcJZ
+	kUgPD/5HuN32D5ixt0XQ4hasgImXNfFpO4V1F/R+hSBfZGUdAmVfGd5N4XLBPs6lJTTTVM6cF4k1X
+	nYL6tDHhau/EmgcmHeOb4fl547PS1JmvH6t96z3Dz0O46h9o6EYj+Pkij5AqOIyLds8IqsMxPi5iu
+	fctb3oqFMnzMXrIeL+gceymQP7t7K6p45nzRz+n1N5VEOHZ0hpsZ0EkUDMxULspu4LGNEgk4g6uMB
+	bfRtk3huIQmxcz2eMSz8rQkrpjcPWAlBjVW0ZTt4i0rmOtpgs4BeO5OTOUpLaWJr8kaIQv+uqKaCU
+	dffEKDPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu9Ky-00000002Wuz-26rj;
-	Mon, 17 Mar 2025 12:12:56 +0000
-Received: from smtp-190d.mail.infomaniak.ch ([185.125.25.13])
+	id 1tu9eP-00000002ZxT-0SQt;
+	Mon, 17 Mar 2025 12:33:01 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu9Fx-00000002VdX-2z2f
+	id 1tu9cj-00000002Zm5-0AhA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 12:07:48 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10:40ca:feff:fe05:0])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4ZGYd86jb1zL3x;
-	Mon, 17 Mar 2025 13:07:40 +0100 (CET)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4ZGYd82pBvzKht;
-	Mon, 17 Mar 2025 13:07:40 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Mon, 17 Mar 2025 13:07:26 +0100
-Subject: [PATCH 1/2] arm64: dts: rockchip: Enable HDMI audio output for
- RK3588 Jaguar
+	Mon, 17 Mar 2025 12:31:18 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-225e3002dffso37850335ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 05:31:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742214676; x=1742819476; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ayfAvjYeqJrgYUP6e8kHW/UxkKYEhMvbiKhityi9Os8=;
+        b=efMonaHpKnfuy1f2tK2ywXqOwCZCI119NjuSrXm7AvgsJVNBCJEtS38bNeMQ7FdfT+
+         tEI41euSxqdnYoSThUEt9v9CN93a4HTAO0tDmYG67D4y8hOpbyCZt6ZOhNturrDCjhru
+         9eLOp54qChno1CuuwXCG/szSADhEnw9sTgHTtajiu46T4U+Eiy729kFAsUEVXiZcheth
+         7oEVempbUrONLTqvO8ZV6bWHbCI24srYh4HLdou3RPnN+myXSgCL/tawtlr7ErtrJqZW
+         ExJ9NwoMrtmf7o9nWzNrLNQ0DTi6OO8sYEV8B1iiqLCRuIJnrjuHQl9N3WNcAMa1mHQp
+         mqew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742214676; x=1742819476;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ayfAvjYeqJrgYUP6e8kHW/UxkKYEhMvbiKhityi9Os8=;
+        b=eYEuEnRVzWirwvkq6JzAkOuNhZmFR9Vc+gPcRnSlwkHlP4fTxvCcib0skBg5efvmAA
+         GK4TOQnqT4ArohyXlIwbteeQpqOsCspa95fqf9f+AtcExWXah5Zife2pjDs9nl6+z/b8
+         zgvgQKpWNBPaBWiah1rQdKwYZb7nWQbbq5K5vdiBDu807bj3shtgRV96Sg/U5Mqq/IHq
+         DKY0qKDZ3y9n5u4erv021nowKTIOXIalC9DyfP5cE+u4W71igCMaE2TmZjyyp4w6RD+u
+         vrZ3Sju7rvVsU5Xxo0XeuepSY2hkLbl3lAPABapJAr5tj3TWBBjqZBasuJhAiEjSQyvS
+         SuFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWcRAnVSc+LcptUnd13kHPwDeCBXnSG2mSUPtM5ZYSaufkNl92WdCogvhyfok7tzWe7K3KBIBLvaNDH+rsQJN6O@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMTLj1NVH9wpjpQVaf7TdnQRALmesdKQUXtKxR+kOLiUECxqVq
+	i+WXs2R2I7EPbTwgrbr3+gKV/7qiRfQbh13dB0JpkYZAO0plviq2IbO4GA==
+X-Gm-Gg: ASbGncu7fb8ceo3LHTb+cLOglud2zasia7WG3qBO87edNzA2y3ev0u2xZt4qTe9Hx3I
+	lEx/FAPnp0LkNUP+6sn35ewLXkAvUd+YgQVPIWjUOOm7+6FXYnCHp4cYG+biJGLNUmQIF3sIc70
+	U7DJcfmla37R+BkZ4vuU8/wFkbS780u7arTq7a2/epQ0xUqPdxWenJNbAEu9qXGOwK1yEvut583
+	BdpAl+li1Tm9d3j8Ai2HVH8TFChMMVvvRSc9KMSWOMN1r4bTfRyz+s5IHCgoAqTgGCsVyieqETp
+	p6VSbSJ35LuMy32S1KD6uHOIBKu+oALVW6q0Bs1emXcJkbtYsCIWx7wxGqVBYt9sF2kBVA==
+X-Google-Smtp-Source: AGHT+IFBtkqKjbPIxs74ySsOilsqF1P2xvhpvPrvuUqdkVbilTl2fTrYL0Yhw+mVbxLGQg7+wV+loA==
+X-Received: by 2002:a05:6a21:6002:b0:1ee:e785:a082 with SMTP id adf61e73a8af0-1f5c11275d7mr14213711637.1.1742214675611;
+        Mon, 17 Mar 2025 05:31:15 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:93b8:613c:dd7d:1b25])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af56e9e0f3esm5871892a12.22.2025.03.17.05.31.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Mar 2025 05:31:14 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	hector.palacios@digi.com,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH v3] ARM: dts: imx51-digi-connectcore-som: Fix MMA7455 compatible
+Date: Mon, 17 Mar 2025 09:31:09 -0300
+Message-Id: <20250317123109.2216509-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250317-tsd-rk3588-hdmi-audio-v1-1-0b8ceb9597a6@cherry.de>
-References: <20250317-tsd-rk3588-hdmi-audio-v1-0-0b8ceb9597a6@cherry.de>
-In-Reply-To: <20250317-tsd-rk3588-hdmi-audio-v1-0-0b8ceb9597a6@cherry.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_050745_879333_4F9EA333 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_053117_077082_FDE37670 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,44 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+From: Fabio Estevam <festevam@denx.de>
 
-HDMI audio is available on the RK3588 Jaguar HDMI TX port, so let's
-enable it.
+The "fsl,mma7455l" compatible string is not documented anywhere.
 
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+MMA7455L is the exact same device as the MMA7455, with the exception that
+it is lead-free. Use the documented compatible string.
+
+Signed-off-by: Fabio Estevam <festevam@denx.de>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes since v2:
+- Explain why it is safe to change the compatible string.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-index 9fceea6c1398e92114dcb735cf2babb7d05d67a5..ebe77cdd24e803b00fb848dc81258909472290f1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-@@ -303,6 +303,10 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
-+&hdmi0_sound {
-+	status = "okay";
-+};
-+
- &hdptxphy0 {
- 	status = "okay";
- };
-@@ -512,6 +516,10 @@ regulator-state-mem {
- 	};
- };
- 
-+&i2s5_8ch {
-+	status = "okay";
-+};
-+
- &mdio0 {
- 	rgmii_phy: ethernet-phy@6 {
- 		/* KSZ9031 or KSZ9131 */
+ arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi
+index dc72a2d14960..1980f751f161 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx51-digi-connectcore-som.dtsi
+@@ -165,7 +165,7 @@ &i2c2 {
+ 	mma7455l@1d {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_mma7455l>;
+-		compatible = "fsl,mma7455l";
++		compatible = "fsl,mma7455";
+ 		reg = <0x1d>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <7 IRQ_TYPE_LEVEL_HIGH>, <6 IRQ_TYPE_LEVEL_HIGH>;
 -- 
-2.48.1
+2.34.1
 
 
