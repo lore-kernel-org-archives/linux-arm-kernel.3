@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24491C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 21:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2968DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 21:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RSGCHKCFM/SKDqv72fs+p/ZaA05OeObGBlBfO75wcyI=; b=0EZY43J86eY6XpxcIhaGaA85BW
-	vfDDd0LbR2hwrZQo9I630KDbxWQAAO+LzRF2n3YoO6rUWunyc9iuUHofzgq9OeXXA+Kbanv4W6at6
-	RCbVcTPzcQ6TINfLp8wjfPHFrkBH3/iM1zhQ9pI9bvE+mbSnvh/gxiCfJFbHH8oVcfqPTRr6CGI4W
-	AYxQbHl6y9uXYtHSCrPGmRLgqtrtocahHR8PnmshS3EpPrE+4VlGNg/c6JPAJ+Uc0AAfFDbTFL9G0
-	wbUt+xAVgwJ/LZp1VNh3jpY7WnvtHU/CdD67m0kAP7MngXWnFoiDUY4+3pX2M+RPQd5cMiJLeHMkr
-	+vxRO0Hg==;
+	bh=ewpKNshFBS1pGdHpPMbo/Sgtgy9vH2MjEKkjJzB9Ygk=; b=brIUwi1e5jGgnGiPkNAzw8ZjVc
+	KRCdf0EGOzBvGSQK0CIAlmOAiNAjNRajOab4ZffS93PPhGdPW4tInVwJWBWbmKl22EYOkV7Qm5gb+
+	t2XS+so0fvS2H5yDWgRl93bLAqtAsexQENc4pNEXs+U00OJC8UNzRkc34Mn711HHff6uBxGcTNpEP
+	ATptH1tth72awhiWGADkYW4lTlCfkOtUYl9/YfJG6jiURuLGaMqpOpbtH53N6pbT7w+MPlAkylVEt
+	HkA2AhyTQWy1vUl9zP8JZJm+Bx8hTjU/0o4OBKEPQPpgBoiGl70wuQ8y83fsdGLm89QAqzDVUYcVd
+	xpgfZIRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuIA5-000000043A4-2w4H;
-	Mon, 17 Mar 2025 21:38:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuIJg-000000044F0-2KIl;
+	Mon, 17 Mar 2025 21:48:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuI8P-000000042y6-2bez
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 21:36:34 +0000
+	id 1tuIHz-00000004474-1MJv;
+	Mon, 17 Mar 2025 21:46:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 403D2A48D7F;
-	Mon, 17 Mar 2025 21:31:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF7ABC4CEE3;
-	Mon, 17 Mar 2025 21:36:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B34FE5C5729;
+	Mon, 17 Mar 2025 21:44:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1062BC4CEE3;
+	Mon, 17 Mar 2025 21:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742247392;
-	bh=7oJ67FGuy24OY5JnIvvaiToTkGVyKeKv7Zed5BlGRqA=;
+	s=k20201202; t=1742247986;
+	bh=0accdJFRM4wuKrCBKOEVJXqhkfwUSg1V628c8C8UWIQ=;
 	h=From:To:Cc:Subject:Date:From;
-	b=YwO+IchAy9nQp7J4ocK+lwOzNtG2/E7BCoqYK9kByGm8YBWx0B/wOehOeEDT3g5C7
-	 iw1VDnzhyNoUg+wRIF8IHLAvc+DlD9k5J+F+aJ6fUKKf3pWNNBJDHvQH03aGX4u4Kz
-	 Cy1zPVzF64PNbV+4LguSQfYOYgpvqAs/AohhKrDJLkdGEKT8rHZr7zPAxFCLxgXZjH
-	 p1CW3YYKWDp5gGMJeDUcYI4vgI733eJy6nCponWYZzpk8yq/1pQY9PjHrko/Bh+sbb
-	 /cstzWe0SbRGcL34Nsiy+SIbAEyu2kmlc/XCGNOLrXuA0SBimKlHqTZ8YROz7elJ+K
-	 z0Eg0UjrSrRXw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
+	b=F9FWQx+R1+a3U7blCqh9czAaCATGyXzaqFTDP4g7fsXwNs+voCN7aea68gmBqXxFh
+	 RdgerCAYsM9gyIzuj70E0/Eje5jb6vsQeOfCmlJxRIsF1iYjT+TVEYvRG8UFIYamMk
+	 SbxUlahQ3qTQyp4jUi8ErTaF0whBgCR7rl1qfbLVvMiSTOuGTBwpYRe6WqnAzyK7Ui
+	 Dm4GRXl2Ko6ZrCqBvi9tc70BDTbZg95PCguKmRXm9kMeVcoW/iIt3B1A0TTpqufCtw
+	 XRTFP3G11drz7jQBC8LUrmFLWMyxsSHkF7LLqk7kqVEVJ44khmr7ZABYszDVQRboCU
+	 PCn57/m6S5s4w==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sanjay Chitroda <quic_ckantibh@quicinc.com>
-Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v6.15
-Date: Mon, 17 Mar 2025 16:36:30 -0500
-Message-ID: <20250317213630.2029212-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.48.1
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] media: dt-bindings: mediatek,vcodec-encoder: Drop assigned-clock properties
+Date: Mon, 17 Mar 2025 16:46:20 -0500
+Message-ID: <20250317214621.794674-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_143633_721499_7A672272 
-X-CRM114-Status: UNSURE (   6.55  )
+X-CRM114-CacheID: sfid-20250317_144627_417307_F00BFEA8 
+X-CRM114-Status: UNSURE (   7.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,35 +79,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The assigned-clock properties are always allowed on nodes with
+'clocks' and generally not required. Additionally the mt8183 doesn't
+define them, so they must not be required in that case.
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../devicetree/bindings/media/mediatek,vcodec-encoder.yaml  | 6 ------
+ 1 file changed, 6 deletions(-)
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+index 110e8f5f1f9e..ebc615584f92 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+@@ -41,10 +41,6 @@ properties:
+     minItems: 1
+     maxItems: 5
+ 
+-  assigned-clocks: true
+-
+-  assigned-clock-parents: true
+-
+   iommus:
+     minItems: 1
+     maxItems: 32
+@@ -78,8 +74,6 @@ required:
+   - clocks
+   - clock-names
+   - iommus
+-  - assigned-clocks
+-  - assigned-clock-parents
+ 
+ allOf:
+   - if:
+-- 
+2.47.2
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.15
-
-for you to fetch changes up to adbbdcf4b2d6556721b580385ba387baca5c26ee:
-
-  ARM: dts: qcom: ipq4018: Switch to undeprecated qcom,calibration-variant (2025-03-03 22:36:52 -0600)
-
-----------------------------------------------------------------
-Qualcomm Arm32 DeviceTree updates for v6.15
-
-Cleanup indentation issues and a deprecated WiFi property.
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      ARM: dts: qcom: ipq4018: Switch to undeprecated qcom,calibration-variant
-
-Sanjay Chitroda (1):
-      ARM: dts: qcom: Fix indentation errors
-
- arch/arm/boot/dts/qcom/qcom-apq8074-dragonboard.dts | 4 ++--
- arch/arm/boot/dts/qcom/qcom-ipq4018-ap120c-ac.dtsi  | 2 +-
- arch/arm/boot/dts/qcom/qcom-ipq4018-jalapeno.dts    | 4 ++--
- arch/arm/boot/dts/qcom/qcom-ipq4019-ap.dk07.1.dtsi  | 2 +-
- arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi            | 2 +-
- 5 files changed, 7 insertions(+), 7 deletions(-)
 
