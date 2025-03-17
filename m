@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB2CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E6EC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8jNzh4wPsc/2+sERlQmcDT54HRK5zRLKBArFjwQQ8DQ=; b=Ai/0pCl8nS6uraB0o4+NIqjl3O
-	cVgSx/rOP2MP7XrArilwa8lstMBGUmhaOAyVPQpNexODvn6VAM7i/TbmiIRm0lWTPimitC9hyaia/
-	jmQKkDC3+91WmEHlxUBiAdM4tTBygrFlfDoBx1iGuoQ8iqCs+0b8Jhd8TDEvaBhZDqYxW2wpFhYh/
-	rO6vW1AQRiNtrvcUQlmZ2QYQq7RrL5hwxdYsFfaefew7KvZ2xTPlGds2Tc4tVaUFzw1wCigVyxtfg
-	6kg1f5dtO4BFGZfXV0FFVhFWTzaolr1ztu3wMZdVNyYtj0SeMesK+4MPbGAinBRu7z5VgSrOcY/62
-	lr+SOAow==;
+	bh=dtpDF4LCM5OBZjUURemHi6I53UMKp/PEczf10l0EmfU=; b=NAGNuJ1FWfg/xEHBOosUdvuFQs
+	aFZfDY2to4hNMFTVMHNlHfB1LH/BsD3MBnrDco1t5hgjk1DFHUIzHmtwNgD5C61SnvMQsexLFeSF4
+	cFp4osI8KgigB0siv6babnKQrLIWgSHPViYW3xvl/MJtcgeuOoP0WrG2oPzi4WnCACjtn+N/AU3tG
+	XbM7fZ+lwYzXkLcdFzMsw1gVThMNnihHRJEHiaJ9a6hSscT5SrkUNA7XGnIAeIzjgONs8JE+JLZ3n
+	yLfNohq16PEw8yD0rdBm9iH9PT1Pk3Hsjo/5hYf3PmWU7AXc5sZbrVfM1YbTYho6+EIV+pgh9JYJD
+	aaRjEjKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuC5W-000000035oD-1XPK;
-	Mon, 17 Mar 2025 15:09:10 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1tuC7B-0000000361d-07RJ;
+	Mon, 17 Mar 2025 15:10:53 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBsG-000000032rP-19yU
+	id 1tuBt3-0000000334I-1lz6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 14:55:29 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3f682a2c3c8so2585726b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 07:55:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742223327; x=1742828127; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8jNzh4wPsc/2+sERlQmcDT54HRK5zRLKBArFjwQQ8DQ=;
-        b=nAbXOpFV3e082lnwoDxcnPNCcc6J0VeFA5KAYyYnormzS7BDqn5GCn9jR9P95O0tYE
-         H4rijua/VUix13jQprhNZak7VYlQCfT2YPVEyc0cQ4ZIa0/1aL5SbfPYCtOGO0AFjZS0
-         4j1LI6d/cfbJTS/8fl6blQ/32LrRHnCxxtYDQO1+G4Qye6Ms5x7SeDNVODLRcgXu/z0C
-         yR9QEQdnVwBW4Oue9x94YW1jdDvQOhLrIGTuqgSsV8YgynxZT14XCq+3TtpbZ6SYv4UJ
-         4FVE4ppHYQBgjK8SMNd1AdLveIWDRENnYpYyynvOI6IjbYQg6VGV7T/c2y6Umeg5qbI+
-         qutA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742223327; x=1742828127;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8jNzh4wPsc/2+sERlQmcDT54HRK5zRLKBArFjwQQ8DQ=;
-        b=TkD0aPC9K+YSPT97JGPEomQ0e40rwfucNZ8Nd8uRp8/bPdcw6Iu9CFt9yeP+Qj9uMR
-         ZP1mt3clSmFlkNgL1gSw3OEjtZMdfMd8NZAAN7Sj54EG1YqQQo0sdAdqgT3Y0iPw/tD9
-         rJe/qhKEli4Z/S387zlGPlMkByPBj+R9nxtGEM9o51oUhB5O82bp2eOJbEtDqECTN6u/
-         DpOlNCmVUSZ6DA2jXU66gP6cbgZMaNMfox+XSU9DUZSQEKj4HFzsafAiKRAXlaoKmwo5
-         WebDDrla4rSJa7SbWL7q6cf4n2IY7sN7j1lb+OzMevGvkGGXSU414WF8bWdUk4eKxrov
-         vVTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXr9qbSpmMe1ZFgYpEz/7La3IS9WdO1QtbqSe/OrB2nJqGLDl2QGxVTLDysigsbnwZV/fsyOjD1D2lRyZ8J3UJA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkEJbtYWtK6wYBZKBTXuiabAIRPpVbdPdf62zgxKUEM8+Ud+iC
-	1AKtxUPRM8sYJCOCqFz4W0jV+SZ0gg9hNC4aTLFBKWf6aQUeESRnpWvk9H24ROgK3Elp9079YMl
-	c347aQwFmMPhRosGAox/vQI15GRkNL+Adw0AwhQ==
-X-Gm-Gg: ASbGncu+D2pTeRwYRFEZCjV7LH3tNLWbzj93aqFhLwb4I5nzOXwuc3VLJigR5u0asoE
-	aInOJBe80xR7yqs42th0IrTEk5R/GU0Ppo73QeSW3EJ8HaLbP75s25bLDUrV+qsjAxPS6DsR6ue
-	nQAnhhij33qd8KhC2OwDUP4v08CeNNp5cZ74G/o+0=
-X-Google-Smtp-Source: AGHT+IG7IjY16t5eI+Uq4mhx6crav2fOJBQfWeSG630jb10M49QIM1vSar09EM0x1tUf2BaE+e0vaoly2VXwdW756V0=
-X-Received: by 2002:a05:6808:999:b0:3fa:c549:cfee with SMTP id
- 5614622812f47-3fdee27903emr4770583b6e.6.1742223327241; Mon, 17 Mar 2025
- 07:55:27 -0700 (PDT)
+	Mon, 17 Mar 2025 14:56:19 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BCFCD44208;
+	Mon, 17 Mar 2025 14:56:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742223372;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dtpDF4LCM5OBZjUURemHi6I53UMKp/PEczf10l0EmfU=;
+	b=j6ctwHsDmHzyLfcyPxHdOFcwr5JZAU/soF26rObmPq/Yp+oQA16mp4ed8gKJqotQIrdgNC
+	9CVFbl63PpbKUIYjQK40Zw/kqvxrHq4jMGNokctx0KsAGs6PbkOrNs2Dz6s5myBz48fkiq
+	Qs27La7lZQKiO8lGgt+FAK1c7YmM87UW9wptD2IE2kUMHQ9q9S34kQrUNK0V2NdayxTNIE
+	98YvbP2hPlmodfgjFn3XIJdu8q0ziGagVhk6nhv+kHyYxhngWSFg9ZivFDoO1yCZZ254L4
+	b3fW5C6X3FOhqWDmL9sfh/4gbd4Ke7ImLgdBeCpng6FiNKGBA/QpVYB2Bc0KRw==
+Date: Mon, 17 Mar 2025 15:56:07 +0100
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, Stefan Agner
+ <stefan@agner.ch>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, Jagan
+ Teki <jagan@amarulasolutions.com>, Marek Szyprowski
+ <m.szyprowski@samsung.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Anusha Srivatsa <asrivats@redhat.com>, Paul
+ Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>,
+ =?UTF-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Hui Pu
+ <Hui.Pu@gehealthcare.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 00/11] drm/bridge: add devm_drm_bridge_alloc() with
+ bridge refcount
+Message-ID: <20250317155607.68cff522@booty>
+In-Reply-To: <20250314-daft-woodoo-cheetah-e029c5@houat>
+References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
+ <20250314-daft-woodoo-cheetah-e029c5@houat>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
- <20250314-ufs-dma-coherent-v1-2-bdf9f9be2919@linaro.org> <931e5e0b07d598912712b091d99a636b796fe19f.camel@linaro.org>
-In-Reply-To: <931e5e0b07d598912712b091d99a636b796fe19f.camel@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 17 Mar 2025 14:55:15 +0000
-X-Gm-Features: AQ5f1Jq4uxqhD4QuKFFVh-mTPnz4ZIKWFOQ5G2m93FuUYrfiK5B9xukpdzF4pCI
-Message-ID: <CADrjBPoESd7D4H80prCtFXTGaWOg-HV_ovNdwZ4G7Y8n-hFdsQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] scsi: ufs: dt-bindings: exynos: add dma-coherent
- property for gs101
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, 
-	Bart Van Assche <bvanassche@acm.org>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	kernel-team@android.com, willmcvicker@google.com, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufeelkeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnheptdeljeejuddvudetffdtudelfedugfduledtueffuedufefgudegkeegtdeihedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhms
+ hhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhm
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_075528_319044_0926BC15 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250317_075617_614186_D5C4CDA0 
+X-CRM114-Status: GOOD (  45.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +95,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9
+Hello Maxime,
 
-On Fri, 14 Mar 2025 at 15:59, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
- wrote:
->
-> Hi Pete,
->
-> On Fri, 2025-03-14 at 15:38 +0000, Peter Griffin wrote:
-> > dma-coherent property is required for gs101 as ufs-exynos enables
-> > sharability.
-> >
-> > Fixes: 438e23b61cd4 ("scsi: ufs: dt-bindings: exynos: Add gs101 compati=
-ble")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> > ---
-> >  Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.y=
-aml b/Documentation/devicetree/bindings/ufs/samsung,exynos-
-> > ufs.yaml
-> > index 720879820f6616a30cae2db3d4d2d22e847666c4..5dbb7f6a8c354b82685c521=
-e70655e106f702a8d 100644
-> > --- a/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml
-> > +++ b/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml
-> > @@ -96,6 +96,8 @@ allOf:
-> >          clock-names:
-> >            minItems: 6
-> >
-> > +        dma-coherent: true
-> > +
->
-> This is allowed globally already in this file. Did you meant to make it '=
-required'?
+On Fri, 14 Mar 2025 19:21:01 +0100
+Maxime Ripard <mripard@kernel.org> wrote:
 
-I hadn't noticed it was already handled further up in the yaml. In
-which case this patch can be dropped entirely.
+> Hi,
+> 
+> On Fri, Mar 14, 2025 at 11:31:13AM +0100, Luca Ceresoli wrote:
+> > This series improves the way DRM bridges are allocated and
+> > initialized and makes them reference-counted. The goal of reference
+> > counting is to avoid use-after-free by drivers which got a pointer
+> > to a bridge and keep it stored and used even after the bridge has
+> > been deallocated.
+> > 
+> > The overall goal is supporting Linux devices with a DRM pipeline
+> > whose final components can be hot-plugged and hot-unplugged,
+> > including one or more bridges. For more details see the big picture
+> > [0].
+> > 
+> > DRM bridge drivers will have to be adapted to the new API, which is
+> > pretty simple for most cases. Refcounting will have to be adopted
+> > on the two sides: all functions returning a bridge pointer and all
+> > code obtaining such a pointer. This series has just an overview of
+> > some of those conversions, because for now the main goal is to
+> > agree on the API.
+> > 
+> > Series layout:
+> > 
+> >  1. Add the new API and refcounting:
+> > 
+> >     drm/bridge: add devm_drm_bridge_alloc()
+> >     drm/bridge: add support for refcounting
+> > 
+> >  2. get/put the reference in basic operations in the bridge core:
+> > 
+> >     drm/bridge: get/put the bridge reference in
+> > drm_bridge_add/remove() drm/bridge: get/put the bridge reference in
+> > drm_bridge_attach/detach()
+> > 
+> >  3. as an example of changes for bridge consumers, get a reference
+> > for the bridge returned by drm_bridge_chain_get_first_bridge(),
+> > have it put by all callers (all users will be covered later on
+> > separately):
+> > 
+> >     drm/bridge: add a cleanup action for scope-based
+> > drm_bridge_put() invocation drm/bridge: get the bridge returned by
+> > drm_bridge_chain_get_first_bridge() drm/mxsfb: put the bridge
+> > returned by drm_bridge_chain_get_first_bridge() drm/atomic-helper:
+> > put the bridge returned by drm_bridge_chain_get_first_bridge()
+> > drm/probe-helper: put the bridge returned by
+> > drm_bridge_chain_get_first_bridge()
+> > 
+> >  4. convert a few bridge drivers (bridge providers) to the new API:
+> > 
+> >     drm/bridge: ti-sn65dsi83: use dynamic lifetime management
+> >     drm/bridge: samsung-dsim: use dynamic lifetime management
+> > 
+> > This work was formerly a part of my v6 DRM bridge hotplug
+> > series[0], now split as a standalone series with many improvements,
+> > hence the "v7" version number.  
+> 
+> Except for one patch where I had comments, I think the series is in
+> excellent shape. We're still missing a couple of things to close this
+> topic though:
+> 
+>   - Converting the other bridge iterators/accessors to take / put the
+> references
 
-Thanks,
+I sent a couple in this series as you had asked, to show how conversion
+looks like. But I have a large part of this conversion partially done
+already, and it is the largest part of the refcounting work in terms of
+touched files due to the large number of drivers using the iterators
+and accessors. Here are the functions to convert:
 
-Peter
+ A) drm_bridge_chain_get_first_bridge
+ B) drm_bridge_get_prev_bridge
+ C) drm_bridge_get_next_bridge
+ D) drm_for_each_bridge_in_chain
+ E) drm_bridge_connector_init
+ F) of_drm_find_bridge
+
+A) is present in this series as an example but I don't think it should
+be applied until all bridge drivers are converted to
+drm_bridge_alloc(). Otherwise for not-yet-converted bridge drivers we'd
+have drm_bridge_get/put() operating on an uninitialized kref, and
+__drm_bridge_free() called on non-refcounted bridges, so I think we'd
+see fireworks.
+
+In the previous iteration I used drm_bridge_is_refcounted() in
+drm_bridge_get/put() to allow a progressive migration, but if we want
+to convert everything in a single run we need to first convert all
+bridges to drm_bridge_alloc() and then convert all accessors.
+
+The same reasoning applies to patches 3-4 which add get/put to
+drm_bridge_add/remove() and _attach/detach().
+
+B) to E) are ready in my work branch, about 20 patches in total.
+Indeed item E) is a special case but it is handled there too.
+
+Item F) is the beast, because of the reverse call graph of
+of_drm_find_bridge() which includes drm_of_find_panel_or_bridge() and
+then *_of_get_bridge(), each having a few dozen callers, and leading
+to the panel_bridge topic. I have converted maybe half of the users of
+accessors in F), it's 35 patches but it's the easy half and I still need
+to tackle to hardest ones.
+
+>   - Mass converting the drivers to devm_drm_bridge_alloc
+
+Again I sent a couple in this series as you had asked, to show how
+conversion looks like for the typical bridge driver. There are ~70
+drivers to convert in total and I think most will be easy as the two
+examples presented here.
+
+I think this should be merged entirely before merging any accessor
+changes, as explained above.
+
+>   - Documenting somewhere (possibly in drm_bridge_init?) that it
+> really shouldn't be used anymore
+
+I'm afraid there is no drm_bridge_init(), bridge drivers just do
+[devm_]kzalloc and set fields explicitly. So I don't think there is a
+place to document this.
+
+However I used to have a documentation patch until v6 [0], and I think
+it should be revived and resent at some point, after removing the
+"legacy mode" as we are converting all drivers at once. BTW I also have
+a kunittest patch that should be revived. Do you still prefer me to
+resend these two patches as a separate series, waiting after the API in
+this series is applied?
+
+Overall, I think this could be the path forward, let me know if
+youthink it should be done differently:
+
+ A. have patches 1 and 2 of this series applied
+    (why not, even patches 10-11)
+ B. after (A), send series to convert all bridge drivers to new API
+    (includes patches 10-11 of this series if not applied already)
+ C. after (A), send documentation and kunittest patches
+ D. after (B), add get/put to drm_bridge_add/remove() + attach/detech()
+    (patches 3-4 in this series)
+ E. after (B), send series to convert accessors (including patches 5-9
+    in this series which convert drm_bridge_chain_get_first_bridge()
+    and its users)
+
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-18-9d6f2c9c3058@bootlin.com/
+
+Luca
+
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
