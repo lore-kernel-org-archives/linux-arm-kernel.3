@@ -4,96 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2AEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 16:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D972C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 16:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=90p/gyewha7L8Rk4Ti90vHNRSV/6c+K4x5DC5VWwfGA=; b=xps9g7LXOaW/7gfCRYgypTNrf7
-	zJelwAaJS+OAiSwHNwjGNi+mO+B/JvI8yBQ5vASs2FOfWPj4sPoJCYKQfhjo1GNRNI9KDkKHGv9k/
-	V8UY3oHvRcXXmN2vgxq/MEgIFceyZWl1Pn9RsOD2QD4Wyo65f5M93EcnsHK2T4ge7LP/opx7TKHgB
-	nOK0wVtfqSk5myjYPesiV9kbGYdoL0ZqBJ9s8j7kBbkQyqoPqU+oudVzWZfxet5wbOPfR1N6yay90
-	c2IOiLCE7jclcJbGKUDKGcL5uIcw1VNmu3bu+oIWvlxrbnsV64YwW6CGpPWvk9c3UwaJ0SOD5PEWZ
-	an6kkiiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gdNCS/9xpAatRym4N52MXBKwvX2+E0sdkGs47955xoE=; b=g31QTWJeIFYQWPb5f3985Z2bg6
+	nkefXBeBp4IXAThPo5v1VOWH90nZERcmfT1CBqk103Re3iRAXONPFD/pq1jQ+XtmfboieIN61cHXe
+	Ft0yuITBqPIxTT6kr7dtCEGx/WSFGpGwDFmYQU8DPFoI/du8YE/4KuAYAkmthZfsO8L4vh8+rhNPH
+	QUwmRIqLGQDv2yK7Pot4TatP7ADjhnWbHb0EfhxIaRT1iPHw69Jrz+cLl00N9Is1JNwmn+22+fxht
+	dooA/htaqlcoysgWlChn2Q9LdCYOWf0uQeZUBW+Wv1Am2/O9G3G0Do7gtDSWY34cwGwRQ+3ezTXcg
+	AWtmnTpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCwk-00000003Fu8-1Gkh;
-	Mon, 17 Mar 2025 16:04:10 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tuCyP-00000003GHl-2jVW;
+	Mon, 17 Mar 2025 16:05:53 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCu7-00000003FHX-0TEd
+	id 1tuCvb-00000003FfW-3bLr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 16:01:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742227287; x=1773763287;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rJe8kVKyH077ow1Mw00nxnv3bgj5DDeZ/UYwSoiFKZk=;
-  b=HU1wwn5hAJ5BqXIjBcRfpf0L8qTyFGTpsPuSA83pYk/NQQQcuK+1aN16
-   M47bU1I5cX4PIdJR1OUoGEExXIJCn+ZD5zITTx8fS0wJBpoCJHU3sF08o
-   OVymJ9+BhCfqUbMNNxNZv5jSMwmHQkT6GaRQx+OX0eFo9IlmEOXDiVhLt
-   yz4GVUttSzIvji0hFE+FmmpQxQ0cwWDU5cQq1U1Z6yvYwJJWQ0bBDZShA
-   6uw7EQNUvmACMFIgoIUw9oUB+3YfW7gLL3zFFQVqout7K3fkpVyhp95we
-   HSuXxJMnosE+xqHjmia4pe85RqQTgEe4RVn2uCFXa3XQIL6RlfAPbplgE
-   g==;
-X-CSE-ConnectionGUID: yP+dQA3vQRSdhzmXBXK3aw==
-X-CSE-MsgGUID: Y+W9SVSmREOf9D63mc3KjA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11376"; a="54703321"
-X-IronPort-AV: E=Sophos;i="6.14,254,1736841600"; 
-   d="scan'208";a="54703321"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 09:01:14 -0700
-X-CSE-ConnectionGUID: 63yQND79Scmjk8NuLdValg==
-X-CSE-MsgGUID: DHM8kifPQZSKZYZM2QSPpA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,254,1736841600"; 
-   d="scan'208";a="122479989"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 09:01:08 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tuCtk-00000003Lvv-0VD0;
-	Mon, 17 Mar 2025 18:01:04 +0200
-Date: Mon, 17 Mar 2025 18:01:03 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v8 03/10] iio: adc: add helpers for parsing ADC nodes
-Message-ID: <Z9hHP3vdCm0WFoyH@smile.fi.intel.com>
-References: <cover.1742225817.git.mazziesaccount@gmail.com>
- <e556f152a9cff2ff61e7b7a4b42feffb400cb1f9.1742225817.git.mazziesaccount@gmail.com>
+	Mon, 17 Mar 2025 16:03:01 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2242aca53efso32505ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 09:02:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1742227379; x=1742832179; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gdNCS/9xpAatRym4N52MXBKwvX2+E0sdkGs47955xoE=;
+        b=HdAiF5I/qO7ts5qst5Tju+4ktGvfOGdx66SxV8YH4ZYN8W5G0rvrxJ3K7uBDVpmjmP
+         oRMd3OuT429RcKBAIvAhvbuJxNlyZS9hx3JU/doX+En1Mn9XQ+g+TSI/Q/YcTw104BxJ
+         /p8yvPQ1VgbJEC2/N3XEkSMhmqnyjtYKlBu/x4AMkmUGZLFKlvLBJjw6dPk7NLIMKLOP
+         14jaMT16qrel66LH8iTkXVf6hVtM9KjdtL5/uK3vUyxzZymZBxVqpPKNroKrD5ATDCOz
+         yGmo3ITg9f/8LN7Hq5qDqUYlTZ7O/WwB5XRBscqNLWau11jiCS+66BiIuPp82YCFZpP4
+         DiDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742227379; x=1742832179;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gdNCS/9xpAatRym4N52MXBKwvX2+E0sdkGs47955xoE=;
+        b=ehOZ/dwH3fGDmLRSVTs+/suG2kkUKhIU2hRYcvRcbGBQE2jpkFb68ahOvCW75HemdI
+         QakAll4+aM57FzDRjbubA+peHYjKTcEzRQMnN6a9iN2HVsB26gqPOWw0iGOROg3VkSKa
+         JVfb+zZpTqwAIurLfoLi1WGvPp/A/9gij7X1tG0sGBARTF2VVEyOF6tU7hHvz/SFMI9k
+         VhHy0GBC+oNWcR6OApXnEhBEphv/kHhFsrLi2P40kx0WF4TQZWfcbdUt3IYLXd+NCD1w
+         Jw2Vob9F6yUlqEMoW1TFB9B55bXCvgOum3Ir/iGNoECw4rSjQBMh8hYlKbvsTLVJ6mC6
+         jVbw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlW3ZQuH4VmnYDAWo+3pHpq5Knz7QtRHvAsDQ7JzjvuziFhezA3YMcg6aOSRH30JXiOROjMSiaV2xtp+6e6w5T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9h4NlTK32OMCTe3Q40xhGCk9WvdFMyQ9dYrkLzWSHIlbgiEBG
+	M0sJNC9V1kMoQvc4FZfeTF1YmQYenhSfItnfwFYB3j2TXT0QnBoShW9vfAQGAxj0IXYPA2vY+L3
+	NLLzjcyYoH5noFR68Pcc+oLTGhKH7wpSQY8P1
+X-Gm-Gg: ASbGncsit8bmZF5BX+FAWBitcG082c1c0NpnOva+XWuaxK9hkTBqYYjLdaZL+mCPG0/
+	TrB2RIY/2R7uZiCa6ewdzrdaPnFTN8cP2TsyK6DERhEyrT7xta8LRJeEBB/Cz93OTkvIlB7kIPr
+	dp2oycPQVKT8BVf1K6953kWIQU9pSsR0SVpts7oaDMJoV/yRPWD07n4lYTGRkLSZXJNQ==
+X-Google-Smtp-Source: AGHT+IEAppDzcZL7Ur9e3WhyGOknJuCY0ReRk7mbdSSM7RQwqO4SXSEZA07LmyI7g7KSUW3hkf9jLmbIDMKxl1QjBCo=
+X-Received: by 2002:a17:902:d4cd:b0:215:9ab0:402 with SMTP id
+ d9443c01a7336-225f3eb40e6mr4553645ad.18.1742227378594; Mon, 17 Mar 2025
+ 09:02:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e556f152a9cff2ff61e7b7a4b42feffb400cb1f9.1742225817.git.mazziesaccount@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20250313033121.758978-1-irogers@google.com> <Z9TT3tGq4TJ76Tm9@google.com>
+In-Reply-To: <Z9TT3tGq4TJ76Tm9@google.com>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 17 Mar 2025 09:02:47 -0700
+X-Gm-Features: AQ5f1JoehPZ6D2gVoX5jyHNVwuzvDD6lGQqw81zka_NheY0KMJFzGwsbZr_YsSk
+Message-ID: <CAP-5=fVhd7=r+T6iL+ZgLi6YmDUzmDq-FEdZD1XHHYzm7KtBtw@mail.gmail.com>
+Subject: Re: [PATCH v2] perf libunwind: Fixup conversion perf_sample->user_regs
+ to a pointer
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	Yunseong Kim <yskelg@gmail.com>, James Clark <james.clark@linaro.org>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Arnaldo Carvalho de Melo <acme@redhat.com>, Andi Kleen <ak@linux.intel.com>, 
+	Charlie Jenkins <charlie@rivosinc.com>, John Garry <john.g.garry@oracle.com>, 
+	Leo Yan <leo.yan@linux.dev>, Michael Petlan <mpetlan@redhat.com>, 
+	Tavian Barnes <tavianator@tavianator.com>, Veronika Molnarova <vmolnaro@redhat.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_090127_199208_D019B1C2 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250317_090259_898796_4C9295C4 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,24 +104,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 05:50:49PM +0200, Matti Vaittinen wrote:
-> There are ADC ICs which may have some of the AIN pins usable for other
-> functions. These ICs may have some of the AIN pins wired so that they
-> should not be used for ADC.
-> 
-> (Preferred?) way for marking pins which can be used as ADC inputs is to
-> add corresponding channels@N nodes in the device tree as described in
-> the ADC binding yaml.
-> 
-> Add couple of helper functions which can be used to retrieve the channel
-> information from the device node.
+On Fri, Mar 14, 2025 at 6:12=E2=80=AFPM Namhyung Kim <namhyung@kernel.org> =
+wrote:
+>
+> On Wed, Mar 12, 2025 at 08:31:21PM -0700, Ian Rogers wrote:
+> > From: Arnaldo Carvalho de Melo <acme@redhat.com>
+> >
+> > The dc6d2bc2d893a878 ("perf sample: Make user_regs and intr_regs option=
+al") misses
+> > the changes to a file, resulting in this problem:
+> >
+> >   $ make LIBUNWIND=3D1 -C tools/perf O=3D/tmp/build/perf-tools-next ins=
+tall-bin
+> >   <SNIP>
+> >     CC      /tmp/build/perf-tools-next/util/unwind-libunwind-local.o
+> >     CC      /tmp/build/perf-tools-next/util/unwind-libunwind.o
+> >   <SNIP>
+> >   util/unwind-libunwind-local.c: In function =E2=80=98access_mem=E2=80=
+=99:
+> >   util/unwind-libunwind-local.c:582:56: error: =E2=80=98ui->sample->use=
+r_regs=E2=80=99 is a pointer; did you mean to use =E2=80=98->=E2=80=99?
+> >     582 |         if (__write || !stack || !ui->sample->user_regs.regs)=
+ {
+> >         |                                                        ^
+> >         |                                                        ->
+> >   util/unwind-libunwind-local.c:587:38: error: passing argument 2 of =
+=E2=80=98perf_reg_value=E2=80=99 from incompatible pointer type [-Wincompat=
+ible-pointer-types]
+> >     587 |         ret =3D perf_reg_value(&start, &ui->sample->user_regs=
+,
+> >         |                                      ^~~~~~~~~~~~~~~~~~~~~~
+> >         |                                      |
+> >         |                                      struct regs_dump **
+> > <SNIP>
+> >   =E2=AC=A2 [acme@toolbox perf-tools-next]$ git bisect bad
+> >   dc6d2bc2d893a878e7b58578ff01b4738708deb4 is the first bad commit
+> >   commit dc6d2bc2d893a878e7b58578ff01b4738708deb4 (HEAD)
+> >   Author: Ian Rogers <irogers@google.com>
+> >   Date:   Mon Jan 13 11:43:45 2025 -0800
+> >
+> >       perf sample: Make user_regs and intr_regs optional
+> >
+> > Detected using:
+> >
+> >   make -C tools/perf build-test
+> >
+> > Fixes: dc6d2bc2d893a878 ("perf sample: Make user_regs and intr_regs opt=
+ional")
+> > Cc: Adrian Hunter <adrian.hunter@intel.com>
+> > Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+> > Cc: Andi Kleen <ak@linux.intel.com>
+> > Cc: Charlie Jenkins <charlie@rivosinc.com>
+> > Cc: Ian Rogers <irogers@google.com>
+> > Cc: Ingo Molnar <mingo@redhat.com>
+> > Cc: James Clark <james.clark@linaro.org>
+> > Cc: John Garry <john.g.garry@oracle.com>
+> > Cc: Kan Liang <kan.liang@linux.intel.com>
+> > Cc: Leo Yan <leo.yan@linux.dev>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Cc: Michael Petlan <mpetlan@redhat.com>
+> > Cc: Namhyung Kim <namhyung@kernel.org>
+> > Cc: Peter Zijlstra <peterz@infradead.org>
+> > Cc: Tavian Barnes <tavianator@tavianator.com>
+> > Cc: Veronika Molnarova <vmolnaro@redhat.com>
+> > Cc: coresight@lists.linaro.org
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > Reviewed-by: Ian Rogers <irogers@google.com>
+>
+> I think you need to add your own Signed-off-by in this case.
+> I'll change it for you, ok?
 
-LGTM now, thanks!
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Sure.
 
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Thanks,
+Ian
 
