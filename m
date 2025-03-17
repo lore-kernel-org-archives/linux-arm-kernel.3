@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1059EC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 16:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10883C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 16:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=T3Q78GCQxaQzQ0+b/W0JORUc7kRo1vxatGamr7JrCU8=; b=UN/SBls8hS4DJf
-	/qZtpQKGFA53K7BlxcXJPsBSqym0zrgo9QhazUYJNC4NB9aMAu37eCL1eHYqEz585iWENJdVoVR94
-	5oUuyDyHjVr3oFxjBG4De98PWJwnnh0khGNBY86ienrVbOdy5y0PaUy+iAf+v99IyGTz1lCUc2Igg
-	q1Mzl0ae5PPY7mwi0mJOvo3XHPLf2xbUABa+R45Xbw6MIMv6TkybB/GMfEILA2fMU3nA2U8yLGGL6
-	ykCTwo1EjyJ41C4Z1pAuqi5bU8X0mna8skmBkLSi6R7EXRuWREjT2L2lGCNXHfwAiKxKAsLhp7P0x
-	29Hri+CgjtHNjpe0t70w==;
+	List-Owner; bh=x1BZ14L05I3ekMDBepYo6Uyru8+RK3QutqbPs+6O6Dc=; b=bG8rDjn5QDXjdg
+	BEGnf6LrjZmhzrSi1Wc4hP3jSa9HYRkJycJsAcv/Jy/iBGh8979kt/fIX/KcC31i3QSOuW3RkebSS
+	qOVjR1/ugwG6VWB1eftuSuHubCKNgDFLD4Qm7agONDEldJsrTFZAI5/1qc4BeWLaYstpgBLfjO6/P
+	ovTzFYUeHyuqBRbIvoPRjABcXpEVhNQk6Ajnd1u9dG//nMbYLevfks9L38gqMBQPgDlrcZRNn0+Rt
+	5LbgZM6y47wN8gggOjwEvBpWYdC0YZ17S7x5Nl5Ril/aWjcP3Vz4MvH8sJKvCSdfzzun1Ghe6M3fP
+	6P3BScVGChTBamU6DfsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuD7k-00000003IRl-0DsZ;
-	Mon, 17 Mar 2025 16:15:32 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tuDA4-00000003Ioz-1sP4;
+	Mon, 17 Mar 2025 16:17:56 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuD62-00000003ICG-1t9g
+	id 1tuD8N-00000003IbM-0gGj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 16:13:47 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3912baafc58so4017402f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 09:13:46 -0700 (PDT)
+	Mon, 17 Mar 2025 16:16:13 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-399676b7c41so652661f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 09:16:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742228025; x=1742832825; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742228169; x=1742832969; darn=lists.infradead.org;
         h=content-transfer-encoding:organization:autocrypt:content-language
          :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=T3Q78GCQxaQzQ0+b/W0JORUc7kRo1vxatGamr7JrCU8=;
-        b=G7HBRWHWjtXDKz8VG+79N6WTKrNpwrKEkeh+cOwoLYJ0H34p/bZ3H46FStKg9+GlFA
-         +OVgCaCiTAXaISTJQvlEo77/aZUywiMZT3g6hZOrGeZWN/hn5VPWPpLBbrvrVKUkqzSZ
-         gtGQ6CKEXzBrFnXoWkWPgCBHY6alt6O0EFqbbdZOiuhd34zqEIRZQbS7UfFfek7Nti9y
-         NfDite+snvHgskASr3DBnG057UkRh4ywf8kFDgPl9PnvVV0/n3lMokbS9fCt94TjT22T
-         6UuGzI56t25ef4n9hcESq8WBN1zXZK6cJQdu9admaKzPcYDiDdQGW1KagogyCqFbK9Ev
-         OgqA==
+        bh=x1BZ14L05I3ekMDBepYo6Uyru8+RK3QutqbPs+6O6Dc=;
+        b=FvWHmcWzQssCpTWW4Y4OtI2jLCx6uenG60+kXUeuoh51upfsUXS2RE44dgFHrgmDCD
+         MoVKHp84EznnOnQUz7AytVKkY/J1oxm/GCzOrWLwTKlD+f83WKTwG7JaL4WKg/aPXOyz
+         MitHrTsScZEc25ixgnqqENqwjC/CQatNAL1K364riQwlHXKR1hYqsV0R0BPdlzTcayPe
+         lCwSwjK/i+IJZ54ly4rkZQw8EdvZGwp2LgUL0pPgHTm2uf6eJf/9E1W6HIbAocSJdh6j
+         C/pINcSaYQPL7LwIfL2e/COYcQHCyg+oCMMjZLZaCclZXw9H2yvuSi7qb+omr5N2gE9D
+         GDuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742228025; x=1742832825;
+        d=1e100.net; s=20230601; t=1742228169; x=1742832969;
         h=content-transfer-encoding:organization:autocrypt:content-language
          :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=T3Q78GCQxaQzQ0+b/W0JORUc7kRo1vxatGamr7JrCU8=;
-        b=mcOpbw3ZW5Poad4LUDBx0ep66g+OxSZYvTODoG5x8zPSVRfb640JkN+x6zFNo0yRy5
-         Z6Xfi8INRAEbTo09j3yMEZkjRA+mN5FDvpO9xVjy3tc5wfE4loUfU6gd1ILb1IcktIWL
-         JxusyjCog3igeAH3UIGGgf8biYAgmg7/rHCxAPyslVsUgKh58zm3FS1Hzx7F34YPC4fG
-         OTDqKVHY84JvP2GLz6t1mTGXlYFW6jxdbwPXr+AwtLA3+3ZO2aulOsH0gm9p36vNB/bG
-         xuH9Os5EkcopBLJhXQmymoV7AYRmccZ7mIWk4k7u4G1HH70T6++j6HoRCZ+fx/4jAerU
-         eFVg==
-X-Forwarded-Encrypted: i=1; AJvYcCUOBYg9OF3Lfp5N1nSuoVx/j5tINbg8qctJXJ7i1PHVAfOjJ687lj+a32RsGrU8AQ9mtf39KTXBzqD0j2ENUuWn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEphme9jzOEg670hJ/ZWe0sIJx++ykciOjScH7bvyFpC5U/Dns
-	UKoArw/BuIegJii7CCpQ+auSkf/2P7nh1iZR7O+gbnAvl2IAisSCEv+XWiJTPmlZlI16qC5J3XP
-	i
-X-Gm-Gg: ASbGncvB2gCrhLqjBkF0Fx+rMTHXH8BltRUnqUydkQ/HcDBhghoF7h0oK+6LGaSFFNg
-	mVb+ziKoIlNtxMh2Oc/whXSZOeGzJVTRbjd5oK+JhYgbgkm6eau1fxniccHzx5t03nKSLT2XWFr
-	eDlhOoJ4YBPCiVckXz3snqP6ZRYOEBWMHHBVDsngmxq5L54ansQZX0y40tjnK3a/27wVGRBBPIK
-	/RP4bg5OPgOVR0xVQBawRCbDeZGOwZ0dS2dRYZtps/x+szhBuItZ31I/dmrzNn5N0jbhu/CeQqQ
-	Tps6GFNpFKnB9O3IAS1gB1w94vhsirh9Ns1ER+6TzKhXcjASQvGZInY55dD7Ms/aq0BwvN+1MO+
-	vMC/uhkG4tXrZfcIZGX+J+HRFyaDq4V29
-X-Google-Smtp-Source: AGHT+IEgKKfqkoMTMNNyJOIvZMFmniBpdMldb9buXiNIZUZe25GcX5FBNKsqJaRSJPGODxAdF1Pg/A==
-X-Received: by 2002:adf:a456:0:b0:390:df83:1f5d with SMTP id ffacd0b85a97d-3971f4116ecmr12318997f8f.35.1742228024672;
-        Mon, 17 Mar 2025 09:13:44 -0700 (PDT)
+        bh=x1BZ14L05I3ekMDBepYo6Uyru8+RK3QutqbPs+6O6Dc=;
+        b=mhiExJByaFhj1BBJy6+vXxZ5I4yT4J6XZygvSecAbMUAFh1OHvNiz1W1djLVVgD3aI
+         sqpDQ3+PAzOJJHTKIwMxyYFkLLogxRaS3kGxetH2T5QdSkQsMKyvWwHC9l6+TXk70BZa
+         4li11LA7rwVPEelM9KcZuol1t4y/B+L3Vjs4CI5Njygb86mbeLIscqj6fav9YEuThRpV
+         +lPYolId1MVvbA+hbmEOAOsFhspIrj5yO0vD9fxy5dr+h8pJRk++FMqZ6vEF8kYZirqT
+         jliYBLrIcjzXoUvAJlUzWWnsDEF46EWP8BdblUZ/si8i2wFFGOm6XANV/nJAovy6IUrr
+         lDEA==
+X-Forwarded-Encrypted: i=1; AJvYcCULcA9/rsn0T8yF41BscamTQpM0TOXbIPogj0lr6MegfP0bAg2eqvh1TrITy9L19bBrkUpUcopFVFu7zYoxZ5S2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhY+jWTB25s4B6meMQaHGXte5q8l2WdxzMWuOzuKFNNBmS1WE3
+	Km54mCLYbK8+w71o702zWQYWwGhU6TOUHdlqOIhyDITsewuphzpgQOrnDozX4lA=
+X-Gm-Gg: ASbGncvSGxlx9Dr1tbFxR6xq6m12mIG+svfE25l3ZqrapQuV4DetNCp8okWnBfsG5V7
+	BeeZ7gHZrpO7cZ9jQ7k4wtHVimhlCt2mBT7jtH+vFewEXnRtB2hWR+Kw4Yg4WzbhB8vi/jG6lk3
+	lNyj6tOvxRmgb5lnSsurY54dnuZvxIcv2BzwkEKt+UJWKf9QivC4UOo0A2B8HWHQMnR97EE/2DI
+	DsqMvOa8M8j/YoABIt4kUuNfkf/IoCX5LIytSCJ8THUy6FnshbWw5ywgq2mTPGKBJCynuqg91bL
+	T73fjaI/pughnz0UYT1uCHUbaB/NMD6J3u+GpEeuSouPR5Dtv+n03S0GvQMX3FEQI9tM0R6QSHh
+	pvWlCcWlbQPa8gLLiAyorTA==
+X-Google-Smtp-Source: AGHT+IFWv27SmF7MzpnXo9R7iPDAj+6RqTUsIDH67v/ftmpxSj1WYnFVQKvecSP4MshBViBQNaeQDg==
+X-Received: by 2002:a05:6000:178e:b0:38f:5057:5810 with SMTP id ffacd0b85a97d-3971decdc97mr17309093f8f.25.1742228169534;
+        Mon, 17 Mar 2025 09:16:09 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:3d9:2080:1a77:b55f:a550:458c? ([2a01:e0a:3d9:2080:1a77:b55f:a550:458c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1fe0636dsm108830115e9.11.2025.03.17.09.13.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3978ef9a23bsm11136752f8f.15.2025.03.17.09.16.09
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 09:13:44 -0700 (PDT)
-Message-ID: <41ced8db-caeb-4deb-9193-9802fc603180@linaro.org>
-Date: Mon, 17 Mar 2025 17:13:43 +0100
+        Mon, 17 Mar 2025 09:16:09 -0700 (PDT)
+Message-ID: <eeaa8d3b-4fc3-4dae-92b8-0fc590e1a070@linaro.org>
+Date: Mon, 17 Mar 2025 17:16:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: [GIT PULL] amlogic ARM64 DT updates for v6.15
+Subject: [GIT PULL] Amlogic drivers updates for v6.15
 To: soc@kernel.org, arm@kernel.org
 Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Language: en-US, fr
@@ -107,8 +106,9 @@ Organization: Linaro
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_091346_494619_1CC98F66 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250317_091611_208054_DD08AF53 
+X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,9 +126,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-Here's a changeset for Amlogic ARM64 DT, also switching to the new PWM bindings,
-adding pinctrl support for Amlogic A4 SoC with a brand new binding style then
-finally gpio_intc node for Amlogic A4 & A5 SoCs.
+Here's the GPIO interrupt controller bindings & driver, acked by Thomas to be
+merged via the Amlogic tree along the DT changes.
 
 Thanks,
 Neil
@@ -139,87 +138,22 @@ The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
 are available in the Git repository at:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm64-dt-for-v6.15
+   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-drivers-for-v6.15
 
-for you to fetch changes up to 454e0353b226a47f3c3369b17c7a4893f74e29cd:
+for you to fetch changes up to bbd6fcc76b39502767e213ad24a349205cf75e96:
 
-   arm64: dts: Add gpio_intc node for Amlogic A5 SoCs (2025-03-17 08:38:58 +0100)
-
-----------------------------------------------------------------
-Amlogic ARM64 DT changes for v6.15:
-- Add pinctrl support for Amlogic A4 SoC with new bindings
-- switch to the new PWM controller binding
-- Add gpio_intc node for Amlogic A4 & A5 SoCs
+   irqchip: Add support for Amlogic A4 and A5 SoCs (2025-03-17 08:38:24 +0100)
 
 ----------------------------------------------------------------
-Martin Blumenstingl (3):
-       arm64: dts: amlogic: gx: switch to the new PWM controller binding
-       arm64: dts: amlogic: axg: switch to the new PWM controller binding
-       arm64: dts: amlogic: g12: switch to the new PWM controller binding
+Amlogic drivers changes for v6.15:
+- GPIO interrupt controller support for Amlogic A4 and A5 SoCs
 
-Neil Armstrong (1):
-       Merge branch 'ib-amlogic-a4' of git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl into HEAD
+----------------------------------------------------------------
+Xianwei Zhao (2):
+       dt-bindings: interrupt-controller: Add support for Amlogic A4 and A5 SoCs
+       irqchip: Add support for Amlogic A4 and A5 SoCs
 
-Xianwei Zhao (7):
-       dt-bindings: pinctrl: Add support for Amlogic A4 SoC
-       pinctrl: pinconf-generic: Add API for pinmux propertity in DTS file
-       pinctrl: Add driver support for Amlogic SoCs
-       MAINTAINERS: Add an entry for Amlogic pinctrl driver
-       arm64: dts: amlogic: a4: add pinctrl node
-       arm64: dts: Add gpio_intc node for Amlogic A4 SoCs
-       arm64: dts: Add gpio_intc node for Amlogic A5 SoCs
-
-  .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       |  126 +++
-  MAINTAINERS                                        |    8 +
-  arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  139 +++
-  arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |   12 +
-  arch/arm64/boot/dts/amlogic/meson-axg.dtsi         |   24 +-
-  arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi  |   33 +-
-  arch/arm64/boot/dts/amlogic/meson-g12a-fbx8am.dts  |    4 -
-  .../boot/dts/amlogic/meson-g12a-radxa-zero.dts     |    4 -
-  arch/arm64/boot/dts/amlogic/meson-g12a-sei510.dts  |    4 -
-  arch/arm64/boot/dts/amlogic/meson-g12a-u200.dts    |    2 -
-  arch/arm64/boot/dts/amlogic/meson-g12a-x96-max.dts |    4 -
-  .../dts/amlogic/meson-g12b-a311d-libretech-cc.dts  |    2 -
-  .../boot/dts/amlogic/meson-g12b-bananapi-cm4.dtsi  |    4 -
-  .../boot/dts/amlogic/meson-g12b-bananapi.dtsi      |    4 -
-  .../boot/dts/amlogic/meson-g12b-khadas-vim3.dtsi   |    4 -
-  arch/arm64/boot/dts/amlogic/meson-g12b-odroid.dtsi |    4 -
-  .../boot/dts/amlogic/meson-g12b-radxa-zero2.dts    |    8 -
-  arch/arm64/boot/dts/amlogic/meson-g12b-w400.dtsi   |    6 -
-  .../boot/dts/amlogic/meson-gx-libretech-pc.dtsi    |    6 -
-  .../arm64/boot/dts/amlogic/meson-gx-p23x-q20x.dtsi |    2 -
-  arch/arm64/boot/dts/amlogic/meson-gx.dtsi          |    8 +-
-  .../boot/dts/amlogic/meson-gxbb-nanopi-k2.dts      |    2 -
-  .../boot/dts/amlogic/meson-gxbb-nexbox-a95x.dts    |    2 -
-  arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi   |    2 -
-  .../boot/dts/amlogic/meson-gxbb-vega-s95.dtsi      |    2 -
-  arch/arm64/boot/dts/amlogic/meson-gxbb-wetek.dtsi  |    2 -
-  arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |   25 +
-  .../boot/dts/amlogic/meson-gxl-s805x-p241.dts      |    2 -
-  .../amlogic/meson-gxl-s905w-jethome-jethub-j80.dts |    2 -
-  .../dts/amlogic/meson-gxl-s905x-hwacom-amazetv.dts |    2 -
-  .../dts/amlogic/meson-gxl-s905x-khadas-vim.dts     |    2 -
-  .../dts/amlogic/meson-gxl-s905x-nexbox-a95x.dts    |    2 -
-  .../boot/dts/amlogic/meson-gxl-s905x-p212.dtsi     |    2 -
-  arch/arm64/boot/dts/amlogic/meson-gxl.dtsi         |   25 +
-  .../boot/dts/amlogic/meson-gxm-khadas-vim2.dts     |    4 -
-  arch/arm64/boot/dts/amlogic/meson-gxm-rbox-pro.dts |    2 -
-  .../dts/amlogic/meson-libretech-cottonwood.dtsi    |    6 -
-  arch/arm64/boot/dts/amlogic/meson-sm1-ac2xx.dtsi   |    6 -
-  .../arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi |    2 -
-  .../boot/dts/amlogic/meson-sm1-khadas-vim3l.dts    |    2 -
-  arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi  |    2 -
-  arch/arm64/boot/dts/amlogic/meson-sm1-sei610.dts   |    6 -
-  drivers/pinctrl/meson/Kconfig                      |   11 +
-  drivers/pinctrl/meson/Makefile                     |    1 +
-  drivers/pinctrl/meson/pinctrl-amlogic-a4.c         | 1053 ++++++++++++++++++++
-  drivers/pinctrl/pinconf-generic.c                  |  130 +++
-  drivers/pinctrl/pinconf.h                          |    4 +
-  include/dt-bindings/pinctrl/amlogic,pinctrl.h      |   46 +
-  include/linux/pinctrl/pinconf-generic.h            |    4 +
-  49 files changed, 1636 insertions(+), 123 deletions(-)
-  create mode 100644 Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-  create mode 100644 drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-  create mode 100644 include/dt-bindings/pinctrl/amlogic,pinctrl.h
+  .../amlogic,meson-gpio-intc.yaml                   | 19 ++++++++-
+  drivers/irqchip/irq-meson-gpio.c                   | 48 +++++++++++++++++-----
+  2 files changed, 55 insertions(+), 12 deletions(-)
 
