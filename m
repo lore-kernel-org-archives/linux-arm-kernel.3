@@ -4,126 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A5FC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FD2C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 19:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9YporYfSyQzR9fHjG0FSGyAoboGZe4a/zGZZOFS0qU=; b=GM0cLWWRK+eyy1fDSXY8nloEjP
-	PJsgVawDdpU+URJT9y1ndiJJHp0St/RVP9lN7J+MHdk6diKogrRFfEu9BNVGhv325sf+fGgm2hDo8
-	uFRqO7yrC47SaavGruonQRzHYRZwwKLI4RhV2KnX7PORF2evhObVl7YYXfBnB/t6GrQLbxyVwkzqt
-	nhDPzzRs7Oiijw7IN0J6LCNlAgeSUfRw8w1R+5FahYZnoIeWFMcD+rYQFohLk4XDq07X51zcWK8cr
-	0PQKNWg0JNIKcmIn8jRd7Ye8SLkDS2v9/Hw3iraLPXpzofv0EN5ADfyga/8mIo0263nSskPmqWOHZ
-	yyYsotXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yQDBp5VUuXQxeHvKepRV8hD89886c1C3X6r4opw27cM=; b=37oG/M7gA/d0/I6/+TtW2PXO4o
+	KwCI68TJQn3hGn/YeGGneGTJ8SpqeV5NPt4UR4pGZx6QzxqLPLPGvMcavKSZ7ss7HEY2sQ5TMXhI4
+	j9w5bOdsr0Jbtpy/ZAdRmOyJwDk1N4jWahSmW+X3bFItpZ1Owr4fe/t72O0e56oIlGzdHgI9BZZ3V
+	yRe23GWDt4DUEoc5LuZPCQtSjQKB310xHgT1jx2F0SHEL07GKSonN4lzU3KavclkyYAhCKw21yGsy
+	LFLdVy5V/I4+TSz/e0eqJViSvblGgyVZfE8HPP4vnhxRL5VV4Ud8eWYx445u3p+Vkzmj8vKY18HzN
+	n46jtZ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFcz-00000003l09-16fG;
-	Mon, 17 Mar 2025 18:55:57 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1tuFia-00000003lvz-0V64;
+	Mon, 17 Mar 2025 19:01:44 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFXn-00000003k7w-48vS
+	id 1tuFgt-00000003lc4-0bAL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 18:50:37 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3f556b90790so1326916b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:50:35 -0700 (PDT)
+	Mon, 17 Mar 2025 19:00:00 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aaecf50578eso885944066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:59:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1742237435; x=1742842235; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=y9YporYfSyQzR9fHjG0FSGyAoboGZe4a/zGZZOFS0qU=;
-        b=ThabSwf2mUhzK1l7HxThXLb7owkaAhg9XreL+cCfK3P9SBMfugrsnI7hiRDo9QTx85
-         sFfXD+6GDPPMVFdX3kbAKTUOOVEEnsnuKmClJuW9pHTeXSI+4f9Pi2BFbPd4lgJ+HT+R
-         mcwaTv6+r6mV+GbAOYIp2e/CYuzM7tfdqXrHw=
+        d=gmail.com; s=20230601; t=1742237997; x=1742842797; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yQDBp5VUuXQxeHvKepRV8hD89886c1C3X6r4opw27cM=;
+        b=YYTA8iH5C8xhmsMxFfRHl/dN06yNZBZvis5EWyoz64blUu97XzRQ0XrHv25JsWCA1L
+         bb5lqwEZZHX/MALRDe4s2PVRCqH2ixf7W/1hMnBm+datFdOrYJBh4JILa3NFN1WS7bPC
+         JhZLzNynTw2eGQBF1YizgP3cbcTJRMUzvd/ucThMNJic1wuq/QIhp0iWYne/ziv50HSs
+         k/k64LJi5QOZOqC3UwATBCV0kKlf45LOrZ4v9tBm1aK8ulz26RRq9/FqA2WA+rjtMLtz
+         bsF3doQEkvD90foF6vvhMFd/nSk3hsJ5O/TeSfwMeKmNyh/epztp3MpaJiyvHPtqNYTK
+         onFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742237435; x=1742842235;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1742237997; x=1742842797;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=y9YporYfSyQzR9fHjG0FSGyAoboGZe4a/zGZZOFS0qU=;
-        b=BVVjCcYgSD9olFyNLBoZxTYYS+51j5QUbmwtQ0ttX7jBHdWq/enXb0V/uB9MgYzAx1
-         7Qg4l6JmoBfSBJTBa7LbqwF8Ym9XREzMsr+aQE2T/KlGJlAYSns/PHvki2Uhyy4awr8M
-         9AufFkWpag+3L5kD7OXneyPCmnBefePhPnagtah2wqn/hITit1B6LtvXS/rE5vWwAC8i
-         j9qpWZ928llMPK9ERemyhwQ+KyH2uu2vGEl2n2fUQ5N6V+JEjipTqhgZXMiJIXem6wY9
-         K2Sbb9Crz/nnVhYmHd+T9s0jN/62NgNVwVQqtHHQ3Auc5fyW7azxHZxJx83zZer9MCOP
-         iUIA==
-X-Forwarded-Encrypted: i=1; AJvYcCVmaxFQXVEk3elWlSwcoYyYNlWQ1zPPAjozUJ1s2DT+Uqz5bOkQnsvWX2NHlGAsadF2B2FgYmXm8Bzrlpqk97tj@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpix3MZGxxuL+t3I2i1vAwNsLqxwYM7BsKqhq37rWjy1N9SFM7
-	zCHOuUD4L2VgUR5mcbph0lIuuPjM3eYduLg3bMB/BNG6Zde7MMG9SxlJnlrozg==
-X-Gm-Gg: ASbGncvCTZ//ApQ/FjY9OTJNd1cyek5rQ7Hxy5c+PptM9u/RuASFiuNkfNS1hhS9Cnf
-	XeBhF/UcYPXogwngP2Au0qg1j78Wcq0irWLmOoM2QgEUgbq1f/bpCd3iCZgcnkzVPrJ8SWmdZK4
-	hbtTelJKy9VCM3P34X18/w0eWZ2qdoFPSDu8zWINuFUW/8xphiQ8s2uHeYgb+hJwrfTy8tNPjzz
-	FZnj6afNWmxo3yXMeOsj9QA+7Wehkk++XCBro0LHt9H15xi3Z5zEK8ivunLNZUuE3v7uuliQD3F
-	aicqvL0O5ImePD+OSi00qpTAhfBkSipXwz7djaXmNoPfAf2E/w5/sG2GEQsuCB6iLVtD/BJUtj1
-	1mc2LUheP
-X-Google-Smtp-Source: AGHT+IGxL8qq8K6CPc1NqDH20ecuw/Yp8JNEr5ICv2xc9Jo0XclrfeIZlq6cbKg4apj7kSkvgGBfPw==
-X-Received: by 2002:a05:6808:2289:b0:3fc:11a6:7433 with SMTP id 5614622812f47-3fdf0646c85mr6999830b6e.36.1742237434979;
-        Mon, 17 Mar 2025 11:50:34 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3fcd452130fsm1887803b6e.14.2025.03.17.11.50.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 11:50:33 -0700 (PDT)
-Message-ID: <60ee6fd4-1cc6-4d77-8359-9215e1d604c3@broadcom.com>
-Date: Mon, 17 Mar 2025 11:50:31 -0700
+        bh=yQDBp5VUuXQxeHvKepRV8hD89886c1C3X6r4opw27cM=;
+        b=TFkL8MH4Kft8Bn/k/RZlDkPeYVk5YwEy3cTcR4r+g7JLgVmwTe5glWi9zXMeWNzpeR
+         yTu3QbFsJkaFciQJuUKluIrjBVmsF4AuzDACkJY2iy0fv0dUeB65nU39QLya4eUTWyn6
+         KqogJHmpWTUNdOeHyN8NbOP2mwkMO/EeH0U89NJCh57UFS6cHaPw8iDB6xQcR9LtqmHB
+         vXNfRWcbt1x85k5sliLhSrWeaQITjkBifjnvs3MaF/7MGqZR1kNcX8NDnE0uAcALMV5+
+         XB6sr/cNmUpgY3unOfk5+ScOjVqVERueOr//u0Y6zDa6Ef9QPd0sXGMiB5Xr8N3Hndod
+         ym+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXuGeLKc4R+wRHoeFD/EeagBv+Fh9f/hSl/NE1csBRRzlKhI0UZ10Yoc+bQWvt696kbETakKdJLlupwsMklIkaW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzkq/3/mMJfLysmiKK2mW4CrJco0kYWiTjG6rQEItYwX6O1+R2U
+	tuSWmCRUZmzvruloI9hHsMMr0T1NicIjGpK0m9aPQIz2n3nztuai
+X-Gm-Gg: ASbGnctPXtVtkc06dCh71BEAlcXLgERpQ6eyUmMejFSwj+Myxq+oJYz530f/En1kJIO
+	2tpRP3r61eWToJt43meKT63F8L/xL/SjAFPvTT9lnudhkvJjSQj8eZvjUXHzwEyzm+LYGjCrRfu
+	uNWTvdW+ooGK6fDpBjlnzpitwNAyEoWl6jfLoSbmt+svQEAYOEHdVpyeXCxYHAQOxAzlXrE99I2
+	CbvA8QWtIsAPER8paFFlL5cR3iy6mHJDKulvvVfwGKBgQtjIO/48ZUlXtohcZWWLUvJNcny07Oc
+	IHa+7IC7zIsBv9wOlMJCjIEMDRnXu7ZsUHSYn6DUZcvuJUoEBbU3Vl5nJqaOzlL/QU7k09sfq1F
+	gl7rJXflTnN0EdaGkNHyRsZvVJydPUCTvdhrYOYGKzrw=
+X-Google-Smtp-Source: AGHT+IFI1RWc9drtLC1fsHugfGd+lXgvlP4qcKYD8ut0s0vnKJhFgSJfeW2USHvPBOFlVUHFJkS8tA==
+X-Received: by 2002:a17:906:99c4:b0:ac2:b8ce:90d5 with SMTP id a640c23a62f3a-ac38d514ff5mr69895366b.44.1742237997088;
+        Mon, 17 Mar 2025 11:59:57 -0700 (PDT)
+Received: from alb3rt0-ThinkPad-P15-Gen-1 (host-95-252-211-62.retail.telecomitalia.it. [95.252.211.62])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3147e7f11sm704655566b.42.2025.03.17.11.59.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Mar 2025 11:59:56 -0700 (PDT)
+Date: Mon, 17 Mar 2025 19:59:54 +0100
+From: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: shawnguo@kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: OCOTP and DWMAC builtin modules are needed for imx93-11x11-evk
+ kernel dev via TFTP and NFS
+Message-ID: <Z9hxKlrrqW4QyzdJ@alb3rt0-ThinkPad-P15-Gen-1>
+References: <Z9fhuVltKwqgHdLp@alb3rt0-ThinkPad-P15-Gen-1>
+ <935028c6-ce56-46e0-96ff-46fa91c8f66a@linaro.org>
+ <Z9hkDqcKG1xOmIB5@alb3rt0-ThinkPad-P15-Gen-1>
+ <ef163f08-35f9-4d1d-8082-c826c6cd0aa0@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH][next] PCI: brcmstb: make const read-only arrays static
-To: Colin Ian King <colin.i.king@gmail.com>,
- Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- linux-pci@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250317143456.477901-1-colin.i.king@gmail.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250317143456.477901-1-colin.i.king@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ef163f08-35f9-4d1d-8082-c826c6cd0aa0@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_115036_064823_0FC04BB4 
-X-CRM114-Status: UNSURE (   6.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_115959_184848_7AE75741 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,14 +101,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/17/25 07:34, Colin Ian King wrote:
-> Don't populate the const read-only arrays data and regs on the stack at
-> run time, instead make them static.
+On Mon, Mar 17, 2025 at 07:12:55PM +0100, Krzysztof Kozlowski wrote:
+> On 17/03/2025 19:03, Alberto Merciai wrote:
+> > On Mon, Mar 17, 2025 at 05:07:26PM +0100, Krzysztof Kozlowski wrote:
+> >> On 17/03/2025 09:47, Alberto Merciai wrote:
+> >>> While playing with linux-next and imx93-11x11-evk via NFS and TFTP
+> >>> I found that the dwmac-imx, nvmem-imx-ocotp-ele drivers by default are
+> >>> not builtin then the I was not able to reach userland. 
+> >>>
+> >>> The following configs were needed to reach my goal:
+> >>> CONFIG_DWMAC_IMX8=y
+> >>> CONFIG_STMMAC_ETH=y
+> >>> CONFIG_NVMEM_IMX_OCOTP_ELE=y
+> >>>
+> >>> is that something expected?
+> >>
+> >> You mean they are disabled or you just did not put them inside your
+> >> initramfs?
+> >>
+> >> Best regards,
+> >> Krzysztof
+> > 
+> > Hello,
+> > 
+> > By default they are enabled as external modules, then until we don't
 > 
-> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+> So everything is as expected...
+> 
+> > reach userland they are not loaded thus eth and all the mechanism behind
+> > that are out.
+> > 
+> > I'm not using initramfs just tftp and NFS as follows:
+> 
+> All arm64 platforms are supposed to use initramfs on defconfig with
+> necessary modules.
+Thanks a lot, I was not aware of that.
+Do you have any reference?
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+> > setenv loaddtb "tftp 0x80400000 imx93-11x11-evk.dtb"
+> > setenv loadkernel "tftp 0x83000000 Image"
+> > setenv netargs "setenv bootargs console=ttyLP0,115200 root=/dev/nfs ip=dhcp nfsroot=192.168.1.3:/tftp/root,v3,tcp"
+> > setenv bootcmd "run loaddtb; run loadkernel; run netargs; booti 0x83000000 - 0x80400000;"
+> > 
+> > Do you think that initramfs can solve that?
+> 
+> Yes, that's the entire point of initramfs.
+Let's proceed in that way :)
+
+> > 
+> > To be honest I was expecting to have a builtin driver for eth by
+> 
+> No, why? We built as much as possible as modules in defconfig. Otherwise
+> it would be impossible to actually boot that image because several arm64
+> platforms have limitations of boot partition size.
+Cool! Now is clear.
+
+> Best regards,
+> Krzysztof
+
+Thanks,
+Alberto
 
 
