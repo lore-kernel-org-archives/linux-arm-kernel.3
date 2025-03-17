@@ -4,108 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1BAC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A2CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/8FRI6cy9CCt8b2M5LhQNzurCwCuZ436s4fIsfr2+0s=; b=e41bnabeGSyTZsssooqUkSWlSz
-	p2prbj5oO2IKHY8r4VJoNedFNuFmM2Ob/jlE8xzCi0HsR6EXG82tsKN/sKPctB3/FqLLocqhsY3Ar
-	UG2uU0/n5TysHQzrp9DWNvltJzoMCv3bytC4Wdn+nT3QJiD5WEdWbsGkc76YtE2bKKWTiDDJXEI2W
-	J+svNnZx9Z8qIPPPoaytYN5V/67xm7PuMHJ6pyGKQKItOBy31vJnC5Em9iGaDrfJu5W4qcmyaS/+X
-	oJlIsD9r1jHMmNXNAClcm/DUqkkkvA6knV08mkRfgGvtlyjEGRXPJJgHOj5IGQp6JD+Bs3WvTaYde
-	/1obqo3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=umuvK91DZgNUVvUrd/naQBA7f7ASrvoD/6ljA2wUXb0=; b=4UHO2iQv3QoMk03qYVj3kPhnXo
+	FwTZtfwirLlIAaGKoo/KKV4ioDJd+VPSMX4e4vsU+PLVy8hL5qwiJOXixX+7m1qBVAUFhvX7CARDp
+	9BKp2Qpf2ki99qq0FkoEWUmtpWOlAScQNCyE97R+F6dKEJK3Hhz9M1NSueMKWpesJ2sdQfIWQ54c1
+	7vbh+MS8gfvrMVnh8pJqE4OUYsFoZBiaIMuqZDiv+sYz2/2++zcvfgF5TCgvQVNFm0I76ISeaNUrc
+	U/G69L1yoI0IGpJCVRvWtmKbkLbwiSMfWfmR+YDUFfHwA7fdJ0TOYkiPcbhq7y3BIyWh9Jgb0Gbl9
+	L3lbgjvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5ly-00000001j0z-39mO;
-	Mon, 17 Mar 2025 08:24:34 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1tu5sE-00000001kMT-31SP;
+	Mon, 17 Mar 2025 08:31:02 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5jk-00000001iMh-0HpL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 08:22:17 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-30bfe0d2b6dso47003821fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 01:22:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742199734; x=1742804534; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/8FRI6cy9CCt8b2M5LhQNzurCwCuZ436s4fIsfr2+0s=;
-        b=Rs7PpcwBuSnUMCbdNSfH1WbpIoGCaiXc2d4sBVFWm2K9KVU+SqBkbBgOjlOobcv7mH
-         Hfkem6r2tmLhTxxUAN7+HrMYP+L88KCMf8mZeGwgpfkEdzmly5SBrmkUQWU0e8T15OK0
-         fDn4BR1ButMGnvlBo9YyyShEkrXjVufG9qKokoalZz2pR6yE4heovQAUd2jMduvewRZz
-         7tzS4SorbO0UA3fdO+y+sq4QpfObkOPgPeJQN1DkvgawmVjDolbqBkEWerSUZfRhXCTI
-         zb9AKsPmrVkzFrMrjAfYstqprC42aiwZ9PW6YlUsVMlTRLm9ZMFoy9w+Zy5W54MBlqYe
-         rVPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742199734; x=1742804534;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/8FRI6cy9CCt8b2M5LhQNzurCwCuZ436s4fIsfr2+0s=;
-        b=MqA7YsoejTRkdaWLz7o4dlk7smLeCistpVc3Zy00GwDxYVWsQbaF1MIk1gP7MtCok4
-         D46MUoFq4XbFkJUCgM2iBCJ0xYlBxuZr1HKS70Pc1D7I5yhE03Wrv1WvsMI4Cqb+Nqri
-         cDyiD4/YtfHHqijzCYnIjPbd0j/xze0aDRzOAsIDMO1m25Fi/ouBybf4vnyEHZRVvMnK
-         WLRAcUH/LX40S7H20NJfY2dwEtBEG83v6Jjz6TXj2FVNmCPk4N9UmFRCz4bhmxdGLH8N
-         712IlQvNTFloVfQLwUG/zRfIq8lXIxjdBuuzVdSi4luaAWPjnMoGxpHpK13jLgqKgg7G
-         q4Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCUy2buq8DHgjPfpb6wXaD00EPBnGgc7pSyfOrkivkNBeYKgCeU2hGP9ZIXWGCrlOvbS+a6+W7VpQQyud/fZT4ej@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvAcNeFnebTVQrnoCfja+mJ92CyH2a0ZU/lkh6CwuGLf0J+24B
-	eU7/HFyxhr+wR63ruhMEww1rWfIamprV4QdQeBVPyiOYrIHv+rPp
-X-Gm-Gg: ASbGncuyrCGNBN++jd/3aur4XVRMvAmFRQ29h7Cee3HpjEVztw9agAxVG+L22VZ7NKH
-	T+ieINObC4IpKBaz7Tvj20K8nnvoFbufg5Ui1k9jAuC9Ocf6T4bhdNVKwZwfv0RPEbhpuSvYUMs
-	SDBxeby2qy17UzNce3Yft48irX8gPqfcJPD+fDppbQy9dICdFffCUzSxqZ49kJA+Wh4CqoRV1z0
-	YbgDbiIpfqlpsR5W3lAq7UbMo0aVQjqawpjTLNIwNl0xUMgKgWTtquKY1vvtqnMXKA3EEdNUgsf
-	vh4DCI+wANry18oHWJ/uagerM/iPbW0/fQCSd1wdOnziFCKvpt18cpj7jaxFFXXsUTg5zhq5QeB
-	lYaOqQIYsYWgBeV7YozdGON7rnQ==
-X-Google-Smtp-Source: AGHT+IHBKGlUlP46i1muxXD2BoUJCo9oeQCMBPNLoYtEWkTjbhR1aqc3+f20CvsiTwirEb5eGG/pEA==
-X-Received: by 2002:a2e:be06:0:b0:30c:1fc4:418e with SMTP id 38308e7fff4ca-30c4a8d225bmr66527681fa.26.1742199733797;
-        Mon, 17 Mar 2025 01:22:13 -0700 (PDT)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30c3f1c2233sm15370161fa.69.2025.03.17.01.22.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 01:22:13 -0700 (PDT)
-Message-ID: <66a93de8-f5a2-4ffd-9c97-c646934cc90d@gmail.com>
-Date: Mon, 17 Mar 2025 10:22:11 +0200
+	id 1tu5qX-00000001k96-2J5s;
+	Mon, 17 Mar 2025 08:29:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1742200143; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=MPDA5DZeNkMr9rXs6kPXA0kyKfA3zFfmllIuxWqruuD2wYlhBnAUVAhIWdsgn0V5fVWmqDXCPwDpCdU89wXd1DuXrYRLeiW5SkvSE0GfZwNIyjqF+tOa7cTrg1+q1WUK6Rbd3peDTmZ1ygGmc2EfqlkjdxU+7MlYCammRuwMvcE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1742200143; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=umuvK91DZgNUVvUrd/naQBA7f7ASrvoD/6ljA2wUXb0=; 
+	b=muW4EKoqaUzjoOkFOGYoy7iBogtgRbYu/H95/L89kSh6fH4eyUbg94LXK0qmTmINYLVIgskYARjT6KX0SpJ6JJDxhYFqAqpVC2S/4YLWAmfHx3BdsxXfWOZ6nLaqI+PtffZNGVysLVRYG36UvdSdsvzG2fPTsIeCSGErCCMsFSY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742200143;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=umuvK91DZgNUVvUrd/naQBA7f7ASrvoD/6ljA2wUXb0=;
+	b=SfnqWs2ylGqsqOU2b0RitTxMEVjKYpCIaFFF+tZNh/FiAGGcLn2QYDT1/U6KEU3v
+	661KUzgcStvEt2+xhC/z6ZclltMc3urBBG+an/enoLsPa5zajUDDozoLu32LiWUCoHA
+	vtY6RzL6jrfEjWBJrJs3tXJbi6rpTwowpnUXqJ9I=
+Received: by mx.zohomail.com with SMTPS id 1742200141185867.5196911777422;
+	Mon, 17 Mar 2025 01:29:01 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Ye Zhang <ye.zhang@rock-chips.com>,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 3/6] thermal: rockchip: Support RK3576 SoC in the thermal
+ driver
+Date: Mon, 17 Mar 2025 09:28:55 +0100
+Message-ID: <4994384.31r3eYUQgx@workhorse>
+In-Reply-To: <6c355664-50dd-4efd-94b7-9d93c02d3e80@kwiboo.se>
+References: <20250228-rk3576-tsadc-upstream-v3-0-4bfbb3b699b9@collabora.com>
+ <20250228-rk3576-tsadc-upstream-v3-3-4bfbb3b699b9@collabora.com>
+ <6c355664-50dd-4efd-94b7-9d93c02d3e80@kwiboo.se>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 03/10] iio: adc: add helpers for parsing ADC nodes
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Lars-Peter Clausen <lars@metafoo.de>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>,
- Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>,
- Ramona Alexandra Nechita <ramona.nechita@analog.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1741849323.git.mazziesaccount@gmail.com>
- <c8899e8c535a1d93cd7588b7c160eb0fae5d26d2.1741849323.git.mazziesaccount@gmail.com>
- <20250316093752.0eacaa16@jic23-huawei>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20250316093752.0eacaa16@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_012216_112971_63690BB7 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250317_012917_648877_5F4FEC31 
+X-CRM114-Status: GOOD (  28.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,31 +85,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2025 11:38, Jonathan Cameron wrote:
-> On Thu, 13 Mar 2025 09:18:18 +0200
-> Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+On Saturday, 15 March 2025 09:20:07 Central European Standard Time Jonas 
+Karlman wrote:
+> Hi Nicolas,
+
+Hi Jonas,
+
 > 
->> There are ADC ICs which may have some of the AIN pins usable for other
->> functions. These ICs may have some of the AIN pins wired so that they
->> should not be used for ADC.
->>
->> (Preferred?) way for marking pins which can be used as ADC inputs is to
->> add corresponding channels@N nodes in the device tree as described in
->> the ADC binding yaml.
->>
->> Add couple of helper functions which can be used to retrieve the channel
->> information from the device node.
-> I suspect we'll need the addition of an optional trailing timestamp
-> channel at somepoint. But we can add that when we need it as only
-> matters for drivers doing iio_push_to_buffers_with_timestamp()
+> On 2025-02-28 21:06, Nicolas Frattaroli wrote:
+> > From: Ye Zhang <ye.zhang@rock-chips.com>
+> > 
+> > The RK3576 SoC has six TS-ADC channels: TOP, BIG_CORE, LITTLE_CORE,
+> > DDR, NPU and GPU.
+> > 
+> > Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> > [ported to mainline, reworded commit message]
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> > 
+> >  drivers/thermal/rockchip_thermal.c | 42
+> >  ++++++++++++++++++++++++++++++++++++++ 1 file changed, 42 insertions(+)
+> > 
+> > diff --git a/drivers/thermal/rockchip_thermal.c
+> > b/drivers/thermal/rockchip_thermal.c index
+> > a8ad85feb68fbb7ec8d79602b16c47838ecb3c00..bec1930bebd87859a7e519cfc9f05e1
+> > 0b1c31e87 100644 --- a/drivers/thermal/rockchip_thermal.c
+> > +++ b/drivers/thermal/rockchip_thermal.c
+> > @@ -1061,6 +1061,22 @@ static void rk_tsadcv3_tshut_mode(int chn, void
+> > __iomem *regs,> 
+> >  	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
+> >  
+> >  }
+> > 
+> > +static void rk_tsadcv4_tshut_mode(int chn, void __iomem *regs,
+> > +				  enum tshut_mode mode)
+> > +{
+> > +	u32 val_gpio, val_cru;
+> > +
+> > +	if (mode == TSHUT_MODE_GPIO) {
+> > +		val_gpio = TSADCV2_INT_SRC_EN(chn) | 
+TSADCV2_INT_SRC_EN_MASK(chn);
+> > +		val_cru = TSADCV2_INT_SRC_EN_MASK(chn);
+> > +	} else {
+> > +		val_cru = TSADCV2_INT_SRC_EN(chn) | 
+TSADCV2_INT_SRC_EN_MASK(chn);
+> > +		val_gpio = TSADCV2_INT_SRC_EN_MASK(chn);
+> > +	}
+> > +	writel_relaxed(val_gpio, regs + TSADCV3_HSHUT_GPIO_INT_EN);
+> > +	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
+> > +}
+> 
+> This function is identical to rk_tsadcv3_tshut_mode() in mainline.
+> 
+> Should the v3 function be renamed to v4 in mainline to match vendor
+> kernel to avoid confusion?
 
-This is true. That'll enable using this for devices with buffers - which 
-is not possible right now as most buffer users do timestamps. I'll leave 
-adding the parameter to first buffered user though, but I think it's 
-good to say out loud this is doable :) Thanks!
+Good catch. Yes, I'll add a patch to rename the function before introducing 
+new changes in v4, and get rid of the duplicate function.
 
-> Otherwise no additional comments from me.
+> 
+> > +
+> > 
+> >  static const struct rockchip_tsadc_chip px30_tsadc_data = {
+> >  
+> >  	/* cpu, gpu */
+> >  	.chn_offset = 0,
+> > 
+> > @@ -1284,6 +1300,28 @@ static const struct rockchip_tsadc_chip
+> > rk3568_tsadc_data = {> 
+> >  	},
+> >  
+> >  };
+> > 
+> > +static const struct rockchip_tsadc_chip rk3576_tsadc_data = {
+> > +	/* top, big_core, little_core, ddr, npu, gpu */
+> > +	.chn_offset = 0,
+> > +	.chn_num = 6, /* six channels for tsadc */
+> > +	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC 
+*/
+> > +	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
+> > +	.tshut_temp = 95000,
+> 
+> Here the default is GPIO and 95 deg, in DT node the default is override
+> to CRU and 120 deg.
+> 
+> Any reason that is not the default here?
 
-Yours,
-	-- Matti
+No reason, other than that this is what most Rockchip SoCs seem to do. RK3588 
+does the same thing. The hardware power-on-reset state is to not have any 
+tshut, so whatever the "default" should be is entirely made up by the driver 
+in either case.
+
+For the sake of being consistent, I'll keep it the same in v4, as RK3588 does. 
+Otherwise, we'll have RK3576 and RK3588 do different things. If someone wants 
+to change the default, then ideally this would be done in a follow-up series 
+to make it consistent for all SoCs.
+
+If that's alright with you, then I'll send out a v4.
+
+> 
+> Regards,
+> Jonas
+> 
+
+Regards,
+Nicolas Frattaroli
+
+> > +	.initialize = rk_tsadcv8_initialize,
+> > +	.irq_ack = rk_tsadcv4_irq_ack,
+> > +	.control = rk_tsadcv4_control,
+> > +	.get_temp = rk_tsadcv4_get_temp,
+> > +	.set_alarm_temp = rk_tsadcv3_alarm_temp,
+> > +	.set_tshut_temp = rk_tsadcv3_tshut_temp,
+> > +	.set_tshut_mode = rk_tsadcv4_tshut_mode,
+> > +	.table = {
+> > +		.id = rk3588_code_table,
+> > +		.length = ARRAY_SIZE(rk3588_code_table),
+> > +		.data_mask = TSADCV4_DATA_MASK,
+> > +		.mode = ADC_INCREMENT,
+> > +	},
+> > +};
+> > +
+> > 
+> >  static const struct rockchip_tsadc_chip rk3588_tsadc_data = {
+> >  
+> >  	/* top, big_core0, big_core1, little_core, center, gpu, npu */
+> >  	.chn_offset = 0,
+> > 
+> > @@ -1342,6 +1380,10 @@ static const struct of_device_id
+> > of_rockchip_thermal_match[] = {> 
+> >  		.compatible = "rockchip,rk3568-tsadc",
+> >  		.data = (void *)&rk3568_tsadc_data,
+> >  	
+> >  	},
+> > 
+> > +	{
+> > +		.compatible = "rockchip,rk3576-tsadc",
+> > +		.data = (void *)&rk3576_tsadc_data,
+> > +	},
+> > 
+> >  	{
+> >  	
+> >  		.compatible = "rockchip,rk3588-tsadc",
+> >  		.data = (void *)&rk3588_tsadc_data,
+
+
+
+
 
