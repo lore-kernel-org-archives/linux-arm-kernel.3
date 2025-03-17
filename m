@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A2CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06C0C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 08:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=umuvK91DZgNUVvUrd/naQBA7f7ASrvoD/6ljA2wUXb0=; b=4UHO2iQv3QoMk03qYVj3kPhnXo
-	FwTZtfwirLlIAaGKoo/KKV4ioDJd+VPSMX4e4vsU+PLVy8hL5qwiJOXixX+7m1qBVAUFhvX7CARDp
-	9BKp2Qpf2ki99qq0FkoEWUmtpWOlAScQNCyE97R+F6dKEJK3Hhz9M1NSueMKWpesJ2sdQfIWQ54c1
-	7vbh+MS8gfvrMVnh8pJqE4OUYsFoZBiaIMuqZDiv+sYz2/2++zcvfgF5TCgvQVNFm0I76ISeaNUrc
-	U/G69L1yoI0IGpJCVRvWtmKbkLbwiSMfWfmR+YDUFfHwA7fdJ0TOYkiPcbhq7y3BIyWh9Jgb0Gbl9
-	L3lbgjvw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vZpwCqyal2yZ/D/V87pj7HXtLXlEnZX3Z27GM43nCTs=; b=5BxrlUpxQetBdG3f1gVQYP6LC5
+	FhC/M9UPVQF6olEWV+hIWiAp+t82DHe1D/DSA1UMPrMRht/BB083l0Dgx7orzU9EoDjPks6toc1N2
+	5zCmnyCEN74l6Urv3mqzML++gtzNKICEMjmU758I2BfuU+ADB3JGxmZW3sRWI7BA2lvHzjc9Ugwh9
+	AGJa0aVkyVOleTfRhA0/6XSqdM30aFd8u5qL0wMpOvG29cx+N0bOR+Gjeu6GB6tWTtKocowEjUOze
+	mvFQSMGWh/Z8irEGxfsPbGHTiEzZQyJDFqRgTEh4NsbwRhC+z5kJu31nDg43mMgqJ3JCe9GuEDPvM
+	0PGLwE/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5sE-00000001kMT-31SP;
-	Mon, 17 Mar 2025 08:31:02 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tu61F-00000001mJv-1wyw;
+	Mon, 17 Mar 2025 08:40:21 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5qX-00000001k96-2J5s;
-	Mon, 17 Mar 2025 08:29:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1742200143; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MPDA5DZeNkMr9rXs6kPXA0kyKfA3zFfmllIuxWqruuD2wYlhBnAUVAhIWdsgn0V5fVWmqDXCPwDpCdU89wXd1DuXrYRLeiW5SkvSE0GfZwNIyjqF+tOa7cTrg1+q1WUK6Rbd3peDTmZ1ygGmc2EfqlkjdxU+7MlYCammRuwMvcE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1742200143; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=umuvK91DZgNUVvUrd/naQBA7f7ASrvoD/6ljA2wUXb0=; 
-	b=muW4EKoqaUzjoOkFOGYoy7iBogtgRbYu/H95/L89kSh6fH4eyUbg94LXK0qmTmINYLVIgskYARjT6KX0SpJ6JJDxhYFqAqpVC2S/4YLWAmfHx3BdsxXfWOZ6nLaqI+PtffZNGVysLVRYG36UvdSdsvzG2fPTsIeCSGErCCMsFSY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742200143;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=umuvK91DZgNUVvUrd/naQBA7f7ASrvoD/6ljA2wUXb0=;
-	b=SfnqWs2ylGqsqOU2b0RitTxMEVjKYpCIaFFF+tZNh/FiAGGcLn2QYDT1/U6KEU3v
-	661KUzgcStvEt2+xhC/z6ZclltMc3urBBG+an/enoLsPa5zajUDDozoLu32LiWUCoHA
-	vtY6RzL6jrfEjWBJrJs3tXJbi6rpTwowpnUXqJ9I=
-Received: by mx.zohomail.com with SMTPS id 1742200141185867.5196911777422;
-	Mon, 17 Mar 2025 01:29:01 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Ye Zhang <ye.zhang@rock-chips.com>,
- devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/6] thermal: rockchip: Support RK3576 SoC in the thermal
- driver
-Date: Mon, 17 Mar 2025 09:28:55 +0100
-Message-ID: <4994384.31r3eYUQgx@workhorse>
-In-Reply-To: <6c355664-50dd-4efd-94b7-9d93c02d3e80@kwiboo.se>
-References: <20250228-rk3576-tsadc-upstream-v3-0-4bfbb3b699b9@collabora.com>
- <20250228-rk3576-tsadc-upstream-v3-3-4bfbb3b699b9@collabora.com>
- <6c355664-50dd-4efd-94b7-9d93c02d3e80@kwiboo.se>
+	id 1tu5zY-00000001ltx-16av;
+	Mon, 17 Mar 2025 08:38:37 +0000
+X-UUID: 33566200030b11f0a1e849db4cc18d44-20250317
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=vZpwCqyal2yZ/D/V87pj7HXtLXlEnZX3Z27GM43nCTs=;
+	b=JG/M7x/wqa9JqK0MO7G1EOj9iBmPBhCWnrd2HN4x033E2lqzRf0ovGkp7HM5aZRGjQs/8VaI+QisG7aEu3QDariIumsPlIRv8IFriKSWFiSgIhXPmFPAM4RaAzNXUMwjDQQCECMGu8+9HSgVBnGI7VSpYXXgLRhtXWp50tNIoUQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:f5189685-1c92-4b07-85c8-dde573646841,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:600a788c-f5b8-47d5-8cf3-b68fe7530c9a,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 33566200030b11f0a1e849db4cc18d44-20250317
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <jjian.zhou@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2086121830; Mon, 17 Mar 2025 01:38:28 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 17 Mar 2025 16:38:25 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 17 Mar 2025 16:38:25 +0800
+From: Jjian Zhou <jjian.zhou@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Chen-Yu Tsai
+	<wenst@chromium.org>, Jjian Zhou <jjian.zhou@mediatek.com>
+Subject: [PATCH RFC v2 0/3] add VCP mailbox and IPC driver
+Date: Mon, 17 Mar 2025 16:38:06 +0800
+Message-ID: <20250317083822.891-1-jjian.zhou@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_012917_648877_5F4FEC31 
-X-CRM114-Status: GOOD (  28.08  )
+X-CRM114-CacheID: sfid-20250317_013836_306425_784A9C2B 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,151 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Saturday, 15 March 2025 09:20:07 Central European Standard Time Jonas 
-Karlman wrote:
-> Hi Nicolas,
+The VCP mailbox has 5 groups. Each group has corresponding interrupts,
+registers, and 64 slots (each slot is 4 bytes). Since different features
+share one of the mailbox groups, the VCP mailbox needs to establish a
+send table and a receive table. The send table is used to record the
+feature ID, mailbox ID, and the number of slots occupied. The receive table
+is used to record the feature ID, mailbox ID, the number of slots occupied,
+and the receive options. The API setup_mbox_table in mtk-vcp-ipc.c calculates
+the slot offset and pin index for each feature ID based on the mailbox ID and
+slot number in the send and receive tables (several slots form a pin, and
+each pin can trigger an interrupt). These descriptions are written in the
+mtk-vcp-ipc.c file -- we call it the IPC layer.
 
-Hi Jonas,
+We have two questions:
+How should we describe the mailbox and IPI?
+Can the intermediate IPC layer be rewritten as a virtual mailbox layer?
 
-> 
-> On 2025-02-28 21:06, Nicolas Frattaroli wrote:
-> > From: Ye Zhang <ye.zhang@rock-chips.com>
-> > 
-> > The RK3576 SoC has six TS-ADC channels: TOP, BIG_CORE, LITTLE_CORE,
-> > DDR, NPU and GPU.
-> > 
-> > Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-> > [ported to mainline, reworded commit message]
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> > 
-> >  drivers/thermal/rockchip_thermal.c | 42
-> >  ++++++++++++++++++++++++++++++++++++++ 1 file changed, 42 insertions(+)
-> > 
-> > diff --git a/drivers/thermal/rockchip_thermal.c
-> > b/drivers/thermal/rockchip_thermal.c index
-> > a8ad85feb68fbb7ec8d79602b16c47838ecb3c00..bec1930bebd87859a7e519cfc9f05e1
-> > 0b1c31e87 100644 --- a/drivers/thermal/rockchip_thermal.c
-> > +++ b/drivers/thermal/rockchip_thermal.c
-> > @@ -1061,6 +1061,22 @@ static void rk_tsadcv3_tshut_mode(int chn, void
-> > __iomem *regs,> 
-> >  	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
-> >  
-> >  }
-> > 
-> > +static void rk_tsadcv4_tshut_mode(int chn, void __iomem *regs,
-> > +				  enum tshut_mode mode)
-> > +{
-> > +	u32 val_gpio, val_cru;
-> > +
-> > +	if (mode == TSHUT_MODE_GPIO) {
-> > +		val_gpio = TSADCV2_INT_SRC_EN(chn) | 
-TSADCV2_INT_SRC_EN_MASK(chn);
-> > +		val_cru = TSADCV2_INT_SRC_EN_MASK(chn);
-> > +	} else {
-> > +		val_cru = TSADCV2_INT_SRC_EN(chn) | 
-TSADCV2_INT_SRC_EN_MASK(chn);
-> > +		val_gpio = TSADCV2_INT_SRC_EN_MASK(chn);
-> > +	}
-> > +	writel_relaxed(val_gpio, regs + TSADCV3_HSHUT_GPIO_INT_EN);
-> > +	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
-> > +}
-> 
-> This function is identical to rk_tsadcv3_tshut_mode() in mainline.
-> 
-> Should the v3 function be renamed to v4 in mainline to match vendor
-> kernel to avoid confusion?
+Example of send and recve table:
+Operation | mbox_id | ipi_id | msg_size | align_size | slot_ofs | pin_index |  notes
+send          0          0       18          18           0          0
+recv          0          1       18          18          18          9
+send          1         15        8           8           0          0
+send          1         16       18          18           8          4
+send          1          9        2           2          26         13
+recv          1         15        8           8          28         14       ack of send ipi_id=15
+recv          1         17       18          18          36         18
+recv          1         10        2           2          54         27       ack of send ipi_id=2
+send          2         11       18          18           0          0
+send          2          2        2           2          18          9
+send          2          3        3           4          20         10
+send          2         32        2           2          24         12
+recv          2         12       18          18          26         13
+recv          2          5        1           2          44         22
+recv          2          2        1           2          46         23
 
-Good catch. Yes, I'll add a patch to rename the function before introducing 
-new changes in v4, and get rid of the duplicate function.
+Recv ipi_id=2 is the ack of send ipi_id=2(The ipi_id=15 is the same.)
 
-> 
-> > +
-> > 
-> >  static const struct rockchip_tsadc_chip px30_tsadc_data = {
-> >  
-> >  	/* cpu, gpu */
-> >  	.chn_offset = 0,
-> > 
-> > @@ -1284,6 +1300,28 @@ static const struct rockchip_tsadc_chip
-> > rk3568_tsadc_data = {> 
-> >  	},
-> >  
-> >  };
-> > 
-> > +static const struct rockchip_tsadc_chip rk3576_tsadc_data = {
-> > +	/* top, big_core, little_core, ddr, npu, gpu */
-> > +	.chn_offset = 0,
-> > +	.chn_num = 6, /* six channels for tsadc */
-> > +	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC 
-*/
-> > +	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
-> > +	.tshut_temp = 95000,
-> 
-> Here the default is GPIO and 95 deg, in DT node the default is override
-> to CRU and 120 deg.
-> 
-> Any reason that is not the default here?
+Jjian Zhou (3):
+  mailbox: mediatek: Add mtk-vcp-mailbox driver
+  firmware: mediatek: Add vcp ipc protocol interface
+  dt-bindings: mailbox: mtk,vcp-mbox: add mtk vcp-mbox document
 
-No reason, other than that this is what most Rockchip SoCs seem to do. RK3588 
-does the same thing. The hardware power-on-reset state is to not have any 
-tshut, so whatever the "default" should be is entirely made up by the driver 
-in either case.
+ .../bindings/mailbox/mtk,mt8196-vcp-mbox.yaml |  49 ++
+ drivers/firmware/Kconfig                      |   9 +
+ drivers/firmware/Makefile                     |   1 +
+ drivers/firmware/mtk-vcp-ipc.c                | 481 ++++++++++++++++++
+ drivers/mailbox/Kconfig                       |   9 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/mtk-vcp-mailbox.c             | 179 +++++++
+ include/linux/firmware/mediatek/mtk-vcp-ipc.h | 151 ++++++
+ include/linux/mailbox/mtk-vcp-mailbox.h       |  34 ++
+ 9 files changed, 915 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/mtk,mt8196-vcp-mbox.yaml
+ create mode 100644 drivers/firmware/mtk-vcp-ipc.c
+ create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
+ create mode 100644 include/linux/firmware/mediatek/mtk-vcp-ipc.h
+ create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
 
-For the sake of being consistent, I'll keep it the same in v4, as RK3588 does. 
-Otherwise, we'll have RK3576 and RK3588 do different things. If someone wants 
-to change the default, then ideally this would be done in a follow-up series 
-to make it consistent for all SoCs.
-
-If that's alright with you, then I'll send out a v4.
-
-> 
-> Regards,
-> Jonas
-> 
-
-Regards,
-Nicolas Frattaroli
-
-> > +	.initialize = rk_tsadcv8_initialize,
-> > +	.irq_ack = rk_tsadcv4_irq_ack,
-> > +	.control = rk_tsadcv4_control,
-> > +	.get_temp = rk_tsadcv4_get_temp,
-> > +	.set_alarm_temp = rk_tsadcv3_alarm_temp,
-> > +	.set_tshut_temp = rk_tsadcv3_tshut_temp,
-> > +	.set_tshut_mode = rk_tsadcv4_tshut_mode,
-> > +	.table = {
-> > +		.id = rk3588_code_table,
-> > +		.length = ARRAY_SIZE(rk3588_code_table),
-> > +		.data_mask = TSADCV4_DATA_MASK,
-> > +		.mode = ADC_INCREMENT,
-> > +	},
-> > +};
-> > +
-> > 
-> >  static const struct rockchip_tsadc_chip rk3588_tsadc_data = {
-> >  
-> >  	/* top, big_core0, big_core1, little_core, center, gpu, npu */
-> >  	.chn_offset = 0,
-> > 
-> > @@ -1342,6 +1380,10 @@ static const struct of_device_id
-> > of_rockchip_thermal_match[] = {> 
-> >  		.compatible = "rockchip,rk3568-tsadc",
-> >  		.data = (void *)&rk3568_tsadc_data,
-> >  	
-> >  	},
-> > 
-> > +	{
-> > +		.compatible = "rockchip,rk3576-tsadc",
-> > +		.data = (void *)&rk3576_tsadc_data,
-> > +	},
-> > 
-> >  	{
-> >  	
-> >  		.compatible = "rockchip,rk3588-tsadc",
-> >  		.data = (void *)&rk3588_tsadc_data,
-
-
-
+-- 
+2.45.2
 
 
