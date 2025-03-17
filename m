@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBF2C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96F8C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vW45Eevfr0UBpOE/gxMFRs6QWIzi9YcGFWpOxweiOQ0=; b=y37x9pvVaTOkP0u8w8E1tTpqPi
-	AM80epouzHEmlDLm9P++VdSxHShes+mhUA2aWsqvs/Q98cdNUrSbD8uzXFd6PMZeqE5rifsmD1OPZ
-	4p4uLV2kFgQS9T42neCB1sj8qQNbLqxd42pi0wjw9DZzgEwKXIxQ/9MnpXWaSJlVBFRyi/p/mrUu8
-	IO81l9vYUqXzTc5dttDn0crj/bUJZ17T8bzsW6IG+Gfo30R6rcrp9cVZQCmH2a2Nd7zOuzx2GcZlF
-	/8bdEQQ03JH+1Dekmsn1DwyybZtrJLb2fijrOCGeygLmbfzyK2HEmUWeQTYLmEzJM49qIym/2OaEh
-	6d3Jh3vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cxa0F0xN4ZRdIBH8WPHg9yoO97a+pHmZwYuPPKE8ufU=; b=4ZOy5Qa6ylg0NT89DMY2o8KmQj
+	J2m5RT7B091yytLvCDf1eA8cBnLnRAjlK+5FeVcT4cWg/IaXMqFs9GQS6M6VOXEXa8MJdQ319AGR2
+	QMj6CKTCPLCAmAPOlLhE29CF30G8TuTIfkijSrT5khdm72emvNFGviG7nrFGRNb4JWU7sfvKtNsk3
+	A+CUancnDZNqhQzIc92i/C4hZzFwFknNOwtCwdS6wN4Di8ZA8uEvTID2eD113k2lrcD8/cw8Z2RNp
+	Zbh54DrLdAW2VEvHiZGWnlsPAa51hQhqXxHY5FWwD45rUIxm2V4VMiQ3mdjzDOOH/eNLg91rZIUGF
+	RSsyIjoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuB8t-00000002rK0-38sE;
-	Mon, 17 Mar 2025 14:08:35 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tuBAw-00000002sND-19zO;
+	Mon, 17 Mar 2025 14:10:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuAug-00000002oeD-1Yo1
+	id 1tuB8l-00000002r33-0Deh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 13:53:56 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 7735FA02E3;
-	Mon, 17 Mar 2025 14:53:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=vW45Eevfr0UBpOE/gxMFRs6QWIzi9YcGFWpOxweiOQ0=; b=
-	Tr2NgHJAnGKpz9P0iyFjnrROvAJyRjVeWKR9vlIQaJKhiPEFUrelC8+I9yzOoiGI
-	3Ws2+hWl9K58e4Rg1v0W/PxXLJQ4NxVI6T7iP1ek+TTudAWc1c4pGnmt3ARadCOE
-	v9chae1nxG56/rAMnKAGsDiVjgcChUT22/q0vPkH1Pms+zucbNJdmr8pYa8hskzN
-	2ha3KNPcn4z8W5WRGrQ0Shg7hA+ZqtcsFCZNi6kEERIjwghckmKubPIe5qkzCONF
-	R+ysD4VmglioFko0tF5aRtYqtnyUUC12lq4JON/M4Rvl6fx7+YwOlUSG3A7KsHm4
-	x3x7RbXYAo7+BZ/uOB2u2CZPPwemSKGhvYmjBkrbCIOa2xqM9CmS90JcjRSl6Zab
-	aEnPdts8ERakkAqylGyHE6NYrXquACPMd8I5KydCDh5GBFA6YfAIiUFiPdmnuRze
-	aDnv1KPQFqtywWzrWbNT10/mzAfTwJemyb1+GEYLQi4avksOR/nJnoBdzfBDI3/h
-	84qbOMe6Vn0sTV/vSTQcreA2Q1wEL9LtmDN2LfpQj0UtCiih5hSdk+99UTBYju/g
-	QURzWniqfeGv3b5YfMgPbIVhymPQULQOhhvQjkkHmkdNEluZ2pLW40Dv76vcOXey
-	lkCmzigsGLKv1JEhTln3bmMHKu9cSnYmX+OsfbWSErY=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: 
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Mark Brown
-	<broonie@kernel.org>, Vinod Koul <vkoul@kernel.org>, "Rafael J . Wysocki"
-	<rafael@kernel.org>, Len Brown <len.brown@intel.com>, Pavel Machek
-	<pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Nicolas
- Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Varshini Rajendran
-	<varshini.rajendran@microchip.com>, Alexander Dahl <ada@thorsis.com>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<dmaengine@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 0/2] Add `devm_dma_request_chan()` to simplify probe path in atmel-quadspi.c
-Date: Mon, 17 Mar 2025 14:53:36 +0100
-Message-ID: <20250317135340.382532-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.1
+	Mon, 17 Mar 2025 14:08:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0B7FAA4027F;
+	Mon, 17 Mar 2025 14:02:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CEBFC4CEE3;
+	Mon, 17 Mar 2025 14:08:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742220505;
+	bh=FEPHIwDyK7Tr4mXhiKsjBTrxFWaEJhWGW9kE0joAnEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IHDA0cUyq4XAc4DX4FKFkAV+J5U7Vgze+OeF+RN+Rt9t8HKtTLr0usCZiG7B9lUX2
+	 78RL7UkwQ6Ov8pRrumSCoWar33zkK0eKVIfpnJ/4M++v9DTmAF1beUrmZr4Y9hnmIj
+	 j2Fo9wQGCb78kV7p4a+OOqe2+ZIoEj2A/B2+8zsoMReBtSGZBGTuB8WxOPz9wJ8T+n
+	 eIvkXDMfzs613KUYOSzoh7/89JTYJIpZCcOZXtXcdeLfDZ/ggfSCiH2j+Il1Ly62of
+	 ewmP9do4wnTyN2jHObK3NFFuhC1bYIpfo7uZhnHmNTgMZhXCwQfxB46a/k91jsq+IU
+	 VunRAG9oVd/AQ==
+Date: Mon, 17 Mar 2025 15:08:16 +0100
+From: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
+To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+Cc: andersson@kernel.org, mturquette@baylibre.com, sboyd@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de, 
+	richardcochran@gmail.com, geert+renesas@glider.be, lumag@kernel.org, heiko@sntech.de, 
+	biju.das.jz@bp.renesas.com, quic_tdas@quicinc.com, nfraprado@collabora.com, 
+	elinor.montmasson@savoirfairelinux.com, ross.burton@arm.com, javier.carrasco@wolfvision.net, 
+	ebiggers@google.com, quic_anusha@quicinc.com, linux-arm-msm@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, quic_varada@quicinc.com, 
+	quic_srichara@quicinc.com
+Subject: Re: [PATCH v12 4/6] clk: qcom: Add NSS clock Controller driver for
+ IPQ9574
+Message-ID: <65gl7d6qd55xrdm3as3pnqevpmakin3k4jzyocehq7wq7565jj@x35t2inlykop>
+References: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
+ <20250313110359.242491-5-quic_mmanikan@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1742219629;VERSION=7985;MC=71617524;ID=155895;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD948526D7460
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250313110359.242491-5-quic_mmanikan@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_065354_873493_1A17F13F 
-X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-CacheID: sfid-20250317_070827_174697_70A13D27 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,44 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The probe function of the atmel-quadspi driver got quite convoluted,
-especially since the addition of SAMA7G5 support, that was forward-ported
-from an older vendor kernel. To alleivate this - and similar problems in
-the future - an effort was made to migrate as many functions as possible,
-to their devm_ managed counterparts. Patch 1 adds the new
-`devm_dma_request_chan()` function. Patch 2 then uses this APIs to
-simplify the probe() function.
+On Thu, Mar 13, 2025 at 04:33:57PM +0530, Manikanta Mylavarapu wrote:
 
-Change in v4:
-* split PM imbalance fix [1] and DMA cleanup [this series]
+> +static struct clk_rcg2 nss_cc_clc_clk_src = {
+> +	.cmd_rcgr = 0x28604,
+> +	.mnd_width = 0,
+> +	.hid_width = 5,
+> +	.parent_map = nss_cc_parent_map_6,
+> +	.freq_tbl = ftbl_nss_cc_clc_clk_src,
+> +	.clkr.hw.init = &(const struct clk_init_data) {
+> +		.name = "nss_cc_clc_clk_src",
+> +		.parent_data = nss_cc_parent_data_6,
+> +		.num_parents = ARRAY_SIZE(nss_cc_parent_data_6),
+> +		.ops = &clk_rcg2_ops,
+> +	},
+> +};
 
-This series is to be applied after the PM imbalance fix [1].
+This structure definition gets repeated many times in this driver,
+with only slight changes. (This also happens in other qualcomm clock
+drivers.)
 
-[1]
-https://lore.kernel.org/linux-kernel/20250317093445.361821-1-csokas.bence@prolan.hu/
+Would it be possible to refactor it into a macro, to avoid the
+insane code repetition?
 
-Links to previous versions:
-pre-series:
-https://lore.kernel.org/linux-kernel/20241222141427.819222-1-csokas.bence@prolan.hu/
-https://lore.kernel.org/linux-kernel/20250114222851.1023194-1-csokas.bence@prolan.hu/
-v1:
-https://lore.kernel.org/linux-kernel/20250115160244.1102881-1-csokas.bence@prolan.hu/
-v2:
-https://lore.kernel.org/linux-kernel/20250124085221.766303-8-csokas.bence@prolan.hu/
-v3:
-https://lore.kernel.org/linux-kernel/20250207124802.165408-1-csokas.bence@prolan.hu/
-
-Bence Csókás (2):
-  dma: Add devm_dma_request_chan()
-  spi: atmel-quadspi: Use `devm_dma_request_chan()`
-
- drivers/dma/dmaengine.c     | 30 +++++++++++++++++++++++++
- drivers/spi/atmel-quadspi.c | 44 ++++++++++---------------------------
- include/linux/dmaengine.h   |  7 ++++++
- 3 files changed, 48 insertions(+), 33 deletions(-)
-
--- 
-2.48.1
-
-
+Marek
 
