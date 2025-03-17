@@ -4,62 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36E7C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 16:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2AEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 16:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gsv8Qc7UiYDeIZ2IpN9vTEPun/MAdbfewO7+8Sds62c=; b=tkzkqKmMaMbjJgtiorXy0MRqFF
-	o0Uj1OjJzlCy7iWAjSqE3H+uf7BGReXV6K2lwPWCU2bFZwAJh6hRPS27bTF5uB+izelJf55D1y8y4
-	xPqSOriMhHk1epOpZv+jqa+IdBoIjwzLSKp0sRzbdqx8jdTN75sZt6yBL0OE1P+q7ZwSkhZUHqNe1
-	UbYP+yFAS82GqThfk4UkufDeYb9DZ+r7fwbRyHWvHJ7SVDS16kJODZo9dWhuRV2dlC0SFir/ww24p
-	edKTGm/vGr49znNzBkOgb6AGss9cKTtO1yXrCy98H0FMSTeSA70VWmmBGM/LeUF/4+NTvi0PPU+R/
-	68iQVBsQ==;
+	bh=90p/gyewha7L8Rk4Ti90vHNRSV/6c+K4x5DC5VWwfGA=; b=xps9g7LXOaW/7gfCRYgypTNrf7
+	zJelwAaJS+OAiSwHNwjGNi+mO+B/JvI8yBQ5vASs2FOfWPj4sPoJCYKQfhjo1GNRNI9KDkKHGv9k/
+	V8UY3oHvRcXXmN2vgxq/MEgIFceyZWl1Pn9RsOD2QD4Wyo65f5M93EcnsHK2T4ge7LP/opx7TKHgB
+	nOK0wVtfqSk5myjYPesiV9kbGYdoL0ZqBJ9s8j7kBbkQyqoPqU+oudVzWZfxet5wbOPfR1N6yay90
+	c2IOiLCE7jclcJbGKUDKGcL5uIcw1VNmu3bu+oIWvlxrbnsV64YwW6CGpPWvk9c3UwaJ0SOD5PEWZ
+	an6kkiiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCv5-00000003FUf-2JgF;
-	Mon, 17 Mar 2025 16:02:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuCwk-00000003Fu8-1Gkh;
+	Mon, 17 Mar 2025 16:04:10 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCtN-00000003F8y-0wrc
+	id 1tuCu7-00000003FHX-0TEd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 16:00:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DAFBBA4553F;
-	Mon, 17 Mar 2025 15:55:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB868C4CEE3;
-	Mon, 17 Mar 2025 16:00:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742227240;
-	bh=6gCzBdireTSrb2J2K5TYgOMaQEFeUZq4N8TbdhjQzUw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tKaOvtderv0mRKnIyHN94Xe50MKGc3Na1bhk7ei9JUG5zy2yfXJndNmD73/RzH59O
-	 0JlFX/EGA/b0eSKiELoIpZfsY/zZ/L+7D9lRdrkTbZ7EbwRSQDUKFyWPzSfMvOHNDY
-	 mUsVu3Vo2jQueI0jHLzEQHSR9ksk8mWaPcXjJfifsHZYsmKOC/0kUd+e6YeidXWSIv
-	 oquBJR3HyaHmjQuabsm8bVye/B+Wi20Tb6GZOeLjFzuvNuczah/H8tpgYeqyjMK59s
-	 cobZzrCt6QITHVd/6VkAmhpLwQMFbJKnB3Ff+3vAwSVCAFffN/mT/XdDnVl6evNOXQ
-	 GgjQmdukBgjRA==
-Date: Mon, 17 Mar 2025 16:00:35 +0000
-From: Will Deacon <will@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com,
-	maz@kernel.org, rananta@google.com
-Subject: Re: [GIT PULL] arm64 fixes for -rc7
-Message-ID: <20250317160034.GA12267@willie-the-truck>
-References: <20250314160458.GA9438@willie-the-truck>
- <CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com>
+	Mon, 17 Mar 2025 16:01:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742227287; x=1773763287;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rJe8kVKyH077ow1Mw00nxnv3bgj5DDeZ/UYwSoiFKZk=;
+  b=HU1wwn5hAJ5BqXIjBcRfpf0L8qTyFGTpsPuSA83pYk/NQQQcuK+1aN16
+   M47bU1I5cX4PIdJR1OUoGEExXIJCn+ZD5zITTx8fS0wJBpoCJHU3sF08o
+   OVymJ9+BhCfqUbMNNxNZv5jSMwmHQkT6GaRQx+OX0eFo9IlmEOXDiVhLt
+   yz4GVUttSzIvji0hFE+FmmpQxQ0cwWDU5cQq1U1Z6yvYwJJWQ0bBDZShA
+   6uw7EQNUvmACMFIgoIUw9oUB+3YfW7gLL3zFFQVqout7K3fkpVyhp95we
+   HSuXxJMnosE+xqHjmia4pe85RqQTgEe4RVn2uCFXa3XQIL6RlfAPbplgE
+   g==;
+X-CSE-ConnectionGUID: yP+dQA3vQRSdhzmXBXK3aw==
+X-CSE-MsgGUID: Y+W9SVSmREOf9D63mc3KjA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11376"; a="54703321"
+X-IronPort-AV: E=Sophos;i="6.14,254,1736841600"; 
+   d="scan'208";a="54703321"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 09:01:14 -0700
+X-CSE-ConnectionGUID: 63yQND79Scmjk8NuLdValg==
+X-CSE-MsgGUID: DHM8kifPQZSKZYZM2QSPpA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,254,1736841600"; 
+   d="scan'208";a="122479989"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 09:01:08 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tuCtk-00000003Lvv-0VD0;
+	Mon, 17 Mar 2025 18:01:04 +0200
+Date: Mon, 17 Mar 2025 18:01:03 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v8 03/10] iio: adc: add helpers for parsing ADC nodes
+Message-ID: <Z9hHP3vdCm0WFoyH@smile.fi.intel.com>
+References: <cover.1742225817.git.mazziesaccount@gmail.com>
+ <e556f152a9cff2ff61e7b7a4b42feffb400cb1f9.1742225817.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <e556f152a9cff2ff61e7b7a4b42feffb400cb1f9.1742225817.git.mazziesaccount@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_090041_325735_728D7A79 
-X-CRM114-Status: GOOD (  20.17  )
+X-CRM114-CacheID: sfid-20250317_090127_199208_D019B1C2 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +108,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-
-On Fri, Mar 14, 2025 at 10:34:57AM -1000, Linus Torvalds wrote:
-> On Fri, 14 Mar 2025 at 06:05, Will Deacon <will@kernel.org> wrote:
-> >
-> > Summary in the tag, but the main one is a horrible macro fix for our
-> > TLB flushing code which resulted in over-invalidation on the MMU
-> > notifier path.
+On Mon, Mar 17, 2025 at 05:50:49PM +0200, Matti Vaittinen wrote:
+> There are ADC ICs which may have some of the AIN pins usable for other
+> functions. These ICs may have some of the AIN pins wired so that they
+> should not be used for ADC.
 > 
-> From a quick look, that macro is still quite broken. Maybe not in ways
-> that matter, but still...
+> (Preferred?) way for marking pins which can be used as ADC inputs is to
+> add corresponding channels@N nodes in the device tree as described in
+> the ADC binding yaml.
 > 
-> In particular, the 'stride' argument is used multiple times, and
-> without parentheses.
-> 
-> The 'lpa' argument is also used multiple times, and the input to that
-> is typically something like kvm_lpa2_is_enabled(), so I think it
-> potentially generates lots of pointless duplicate code with that
-> BUG_ON() in system_supports_lpa2() -> cpus_have_final_cap().
-> 
-> Maybe the compiler figures it out. But that macro is bad, bad, bad.
-> When it looks like a function, it should act like a function, and not
-> evaluate its arguments multiple times.
-> 
-> The most immediate bug may have been fixed, but not the actual real
-> horror of that thing.
+> Add couple of helper functions which can be used to retrieve the channel
+> information from the device node.
 
-Yes, the minimal fix for -rc7 avoids explicitly mutating the macro
-arguments but we still have the multiple-evaluation problem you point
-out above.
+LGTM now, thanks!
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-Ideally, this function would be rewritten as a 'static inline' but it
-was moved from C code into a macro as part of 360839027a6e ("arm64: tlb:
-Refactor the core flush algorithm of __flush_tlb_range") because we need
-to propagate the 'op' argument down to the low-level asm where it's
-stringified as part of the instruction mnemonic.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-I'll have a crack at reworking things to take a 'const char *' instead,
-but it won't be for 6.14 as it'll be reasonably invasive.
 
-Will
 
