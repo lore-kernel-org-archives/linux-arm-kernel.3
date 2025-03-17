@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BEF4C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 958EFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEBbZMuK7OXxaJSao4EKWfZ44UXf7uN/ZmWU7nnmgv8=; b=k3RH6GSW+7pDJoZvOTqFNJRYeL
-	bP8nTGBKt99ubu259apQlTcgGlsTqmUrm4DvXxHhIX9Mkks+9Ej8nHhQyN1dTRj/S9OIP+Md7eouJ
-	lgYonchJcQXBsi0+Z767zVAGJW3QJODVp0Bxdm6HiiMmDWEG4tfLFFuWHi1ZFpyFrPesuymExkJPt
-	nNXvg+5G35wBtdWJe2GrPvZ7uSVHvDZ+aZCJWGL9HIiwYjwfOVIzWflor9XbzlPG0uBg3pm0UiQmB
-	LGhSwAIZYka814EEeynN1f6eJlboEHO0cf3qaJFe1IO3UCVBqdgr5VIJPi+DlFf8T5UxoJj1Q67E5
-	Hzk/1xpg==;
+	bh=/BkpJ0cTKq4ChrXalGvhAQpS6e0Bp2XA+877e60Q9Ds=; b=qzN251+r95foA/u20nhx+PKBZy
+	sYIZmc1NEcdQGzHm32mpIIQQgQSg1g79nL52c8mejfU8F2ANekloiq2ZPEPsjHtIMMowl/6UwvYeC
+	AeoKqrkirKd4bRo8VsgZWk+ocUh7Q4G/kPRpMuWzSt2yjoGZawBRb/N0feCitbuG3bbvyD/SAlFBF
+	hNifF/xSiTPLcICV5CHSBpDLN5Z/t033r7HTt0L6/xCbKptlH72rCmhyJkmBZga9q4vR7h7WhnPii
+	qNJdHJAsvl64xSjfliunRyOcwK68ecrUHXSxITyXzslx+kMdrR16JD2EBra05fvuYl6GEZqDSGvhG
+	YRNRnttw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBSG-00000002wsw-3zoF;
-	Mon, 17 Mar 2025 14:28:36 +0000
+	id 1tuBTw-00000002xPQ-1XMS;
+	Mon, 17 Mar 2025 14:30:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBLc-00000002uKq-3Zuh;
-	Mon, 17 Mar 2025 14:21:46 +0000
+	id 1tuBLh-00000002uQP-1nRs;
+	Mon, 17 Mar 2025 14:21:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67A932573;
-	Mon, 17 Mar 2025 07:21:53 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 005532576;
+	Mon, 17 Mar 2025 07:21:58 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FEA43F63F;
-	Mon, 17 Mar 2025 07:21:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC9AA3F63F;
+	Mon, 17 Mar 2025 07:21:44 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -65,17 +65,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH 03/11] m68k: mm: Call ctor/dtor for kernel PTEs
-Date: Mon, 17 Mar 2025 14:16:52 +0000
-Message-ID: <20250317141700.3701581-4-kevin.brodsky@arm.com>
+Subject: [PATCH 04/11] powerpc: mm: Call ctor/dtor for kernel PTEs
+Date: Mon, 17 Mar 2025 14:16:53 +0000
+Message-ID: <20250317141700.3701581-5-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250317141700.3701581-1-kevin.brodsky@arm.com>
 References: <20250317141700.3701581-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_072144_933584_9F20D593 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250317_072149_593029_ED75838C 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,38 +91,70 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The generic implementation of pte_{alloc_one,free}_kernel now calls
-the [cd]tor. Align the m68k/ColdFire implementation of those
-functions by calling the [cd]tor explicitly.
+the [cd]tor, without initialising the ptlock needlessly as
+pagetable_pte_ctor() skips it for init_mm.
+
+On powerpc, all functions related to PTE allocation are implemented
+by common helpers, which are passed a boolean to differentiate user
+from kernel pgtables. This patch aligns the powerpc implementation
+with the generic one by calling pagetable_pte_[cd]tor()
+unconditionally in those helpers.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/m68k/include/asm/mcf_pgalloc.h | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/powerpc/mm/pgtable-frag.c | 30 +++++++++++++-----------------
+ 1 file changed, 13 insertions(+), 17 deletions(-)
 
-diff --git a/arch/m68k/include/asm/mcf_pgalloc.h b/arch/m68k/include/asm/mcf_pgalloc.h
-index 465a71101b7d..fc5454d37da3 100644
---- a/arch/m68k/include/asm/mcf_pgalloc.h
-+++ b/arch/m68k/include/asm/mcf_pgalloc.h
-@@ -7,7 +7,7 @@
- 
- static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
+diff --git a/arch/powerpc/mm/pgtable-frag.c b/arch/powerpc/mm/pgtable-frag.c
+index 387e9b1fe12c..77e55eac16e4 100644
+--- a/arch/powerpc/mm/pgtable-frag.c
++++ b/arch/powerpc/mm/pgtable-frag.c
+@@ -56,19 +56,17 @@ static pte_t *__alloc_for_ptecache(struct mm_struct *mm, int kernel)
  {
--	pagetable_free(virt_to_ptdesc(pte));
-+	pagetable_dtor_free(virt_to_ptdesc(pte));
- }
+ 	void *ret = NULL;
+ 	struct ptdesc *ptdesc;
++	gfp_t gfp = PGALLOC_GFP;
  
- extern const char bad_pmd_string[];
-@@ -19,6 +19,10 @@ static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
- 
- 	if (!ptdesc)
- 		return NULL;
+-	if (!kernel) {
+-		ptdesc = pagetable_alloc(PGALLOC_GFP | __GFP_ACCOUNT, 0);
+-		if (!ptdesc)
+-			return NULL;
+-		if (!pagetable_pte_ctor(mm, ptdesc)) {
+-			pagetable_free(ptdesc);
+-			return NULL;
+-		}
+-	} else {
+-		ptdesc = pagetable_alloc(PGALLOC_GFP, 0);
+-		if (!ptdesc)
+-			return NULL;
++	if (!kernel)
++		gfp |= __GFP_ACCOUNT;
++
++	ptdesc = pagetable_alloc(gfp, 0);
++	if (!ptdesc)
++		return NULL;
 +	if (!pagetable_pte_ctor(mm, ptdesc)) {
 +		pagetable_free(ptdesc);
 +		return NULL;
-+	}
+ 	}
  
- 	return ptdesc_address(ptdesc);
+ 	atomic_set(&ptdesc->pt_frag_refcount, 1);
+@@ -124,12 +122,10 @@ void pte_fragment_free(unsigned long *table, int kernel)
+ 
+ 	BUG_ON(atomic_read(&ptdesc->pt_frag_refcount) <= 0);
+ 	if (atomic_dec_and_test(&ptdesc->pt_frag_refcount)) {
+-		if (kernel)
+-			pagetable_free(ptdesc);
+-		else if (folio_test_clear_active(ptdesc_folio(ptdesc)))
+-			call_rcu(&ptdesc->pt_rcu_head, pte_free_now);
+-		else
++		if (kernel || !folio_test_clear_active(ptdesc_folio(ptdesc)))
+ 			pte_free_now(&ptdesc->pt_rcu_head);
++		else
++			call_rcu(&ptdesc->pt_rcu_head, pte_free_now);
+ 	}
  }
+ 
 -- 
 2.47.0
 
