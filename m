@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9C7C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 21:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9AC2C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 21:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSZJLW97BnTzAu8NS31UcxSB955MIJF2br4GBQsYj5I=; b=zcREs4p5zKRBlWV66ZJfcwk4sN
-	3YJm6QlbEEp1IAAyT+8HVBcPO18dwbUkyirVior3BofB0XfpJ776H5VANIqVrYskocbfFfMD8lqqn
-	l6YMQyufB9nkW70czhNTbAjdqdYmR/XcIqkPPpI5bCjWD21QG/LxCpD9ii8C3doKhRruG7sxbEAHv
-	QJhrjO9gbRIHcPt0FS4MFVlHqozT1eOduGZAsAA97N0csTE93yaorLIBCCd5si7JdnhqR7Pf/H5+/
-	J/IgAENteiEfYcoURJqO9IfwlX+T9Su/s7WRKtLHo43la9gqI/qfInk+IFHMynphmpis/PY7VhRFv
-	nJM4xjvw==;
+	bh=1KEzBGiOEBUQrq92XgFiEIjAFYjTrWz0MBZo0bROysE=; b=V1NH0BzXGwH1ff5A6BJTL8PFLq
+	aS78LfaVdsfdvnMrDoW3vgtHn3++4tgPbyLWqKxVzL27HCaYbenHYg5SOCeW+JpVmg8njDmsBx6bM
+	2r2RL3tPvHKXTqkmDkZwyZVXpLEhJmPAYvjL1TfzU1GgFcz2MMStoARlb23gcbNwEL70HSY31+kXc
+	e0U8FoN4RQmvPpZOyhR9VzkihOXedsesuTZTci/zGK2qGT9/BYVmvoMBbC3nZwR/b61vYUQrLvfBN
+	N1TELZylWamo1W9KU23XjUuClFmK7ajjkmeYUiamNzNDyEznckQh4H918m5jIdoO/C4D0AlPsQXol
+	pruQ0Ufw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuI0B-0000000427X-3G2S;
-	Mon, 17 Mar 2025 21:28:03 +0000
+	id 1tuI1p-000000042NP-2ALk;
+	Mon, 17 Mar 2025 21:29:45 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuHyU-000000041uq-33Ph
+	id 1tuHzY-000000041zy-0Uen
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 21:26:20 +0000
+	Mon, 17 Mar 2025 21:27:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 365AE5C564D;
-	Mon, 17 Mar 2025 21:24:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 153D3C4CEEF;
-	Mon, 17 Mar 2025 21:26:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0EC455C5720;
+	Mon, 17 Mar 2025 21:25:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02828C4CEED;
+	Mon, 17 Mar 2025 21:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742246777;
-	bh=e14NawIhXbX+rpgKdFPfVEzD7XfiMfMMeC3WCU8SXTU=;
+	s=k20201202; t=1742246842;
+	bh=z6q9Yf8R8e67nexnPrspZoEOpoHL0DbFkk7kRkc46xA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JMvaMsnbPJ8uauQ8F3z8KXAnLMkpC+5wZSCYWXdVAbffN+VMLD7kcQ+QymC8RNkBG
-	 LWAtAglEZTtV0IfmJevbJRpwp5DltHIZTT9jYUO30DpV3dltp36ITMp4mA2gAIoDbK
-	 aFPTLhS220mZteiM69TPYxS0EXxAnngA315K/HuWjOSYtpK6tELUkhT8PsC3dX7qdW
-	 Sp4LIUF2EYoOGSo/uvoGPvjB0BD1fcQ1sLlesKrGii7uNBoG6M/agH9NmaPL59/aZW
-	 qPj7efURhvh7DzI7O0Cmp/JJA87UrXUQ+GNsxCUv6Quv4PsDyU9RthOs/WqwTpAP7v
-	 VNE6rrqAz4uOw==
-Date: Mon, 17 Mar 2025 21:26:12 +0000
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>, joey.gouly@arm.com,
-	kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com
-Subject: Re: [PATCH 0/4] arm64: mitigate CVE-2024-7881 in the absence of
- firmware mitigation
-Message-ID: <20250317212611.GA12724@willie-the-truck>
-References: <20250128155428.210645-1-mark.rutland@arm.com>
- <174197730164.734861.6726211221092480832.b4-ty@arm.com>
+	b=II67G/Jdr5TfcE01THKWrfcwC/dnbFzFkjhZ/KsoAq2A9DhzXqWXp9a0/SwpXk4M4
+	 tyr6h2Sy2vrO+CkZC+u7/Q8EucIo3X0V/EGyPnEsSAaIMy/EfuZTmK1p/wKnfP2qEn
+	 YLagUIHnGVRuaViHS6pGD7YUqZHRXtRI6wUsxGRL77z67hJw8JpEr85uEV2Qb95ehw
+	 V06Fcf3zKRi1BReiHq+PIsLz7s7EsBC/Av59tamayb0Clb0/aIuq4zFMkD16YkZZ61
+	 9u/ZYqndehxwtCUPEf2t+vqeCmRI8thPtzOaVSO+7vgGsdGsnrxqIBeH1FSn9/0eNB
+	 XwDkQ0FOmKqQg==
+Date: Mon, 17 Mar 2025 21:27:20 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, mhklinux@outlook.com,
+	ltykernel@gmail.com, stanislav.kinsburskiy@gmail.com,
+	linux-acpi@vger.kernel.org, eahariha@linux.microsoft.com,
+	jeff.johnson@oss.qualcomm.com, kys@microsoft.com,
+	haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+	catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, daniel.lezcano@linaro.org, joro@8bytes.org,
+	robin.murphy@arm.com, arnd@arndb.de, jinankjain@linux.microsoft.com,
+	muminulrussell@gmail.com, skinsburskii@linux.microsoft.com,
+	mrathor@linux.microsoft.com, ssengar@linux.microsoft.com,
+	apais@linux.microsoft.com, gregkh@linuxfoundation.org,
+	vkuznets@redhat.com, prapal@linux.microsoft.com,
+	anrayabh@linux.microsoft.com, rafael@kernel.org, lenb@kernel.org,
+	corbet@lwn.net
+Subject: Re: [PATCH v6 00/10] Introduce /dev/mshv root partition driver
+Message-ID: <Z9iTuJRSnKAD5t15@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <174197730164.734861.6726211221092480832.b4-ty@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_142618_851489_992D3118 
-X-CRM114-Status: GOOD (  28.21  )
+X-CRM114-CacheID: sfid-20250317_142724_247963_5E77A048 
+X-CRM114-Status: GOOD (  30.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +86,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 06:37:25PM +0000, Catalin Marinas wrote:
-> On Tue, 28 Jan 2025 15:54:24 +0000, Mark Rutland wrote:
-> > On some CPUs from Arm Ltd, it is possible for unprivileged code to cause
-> > a hardware prefetcher to form an address using the contents of a memory
-> > location which is accessible by privileged accesses in the active
-> > translation regime, potentially leaking the contents of this memory
-> > location via a side channel. This has been assigned CVE-2024-7881:
-> > 
-> >   https://developer.arm.com/Arm%20Security%20Center/Arm%20CPU%20Vulnerability%20CVE-2024-7881
-> > 
-> > [...]
+On Fri, Mar 14, 2025 at 12:28:46PM -0700, Nuno Das Neves wrote:
+> This series introduces support for creating and running guest virtual
+> machines while running on the Microsoft Hypervisor[0] as root partition.
+> This is done via an IOCTL interface accessed through /dev/mshv, similar to
+> /dev/kvm. Another series introducing this support was previously posted in
+> 2021[1], and versions 1-4 of this series were posted in 2023[2].
 > 
-> Applied to arm64 (for-next/leaky-prefetcher), thanks!
+> Patches 1-4 are small refactors and additions to Hyper-V code.
+> Patches 5-6 just export some definitions needed by /dev/mshv.
+> Patches 7-9 introduce some functionality and definitions in common code, that
+> are specific to the driver.
+> Patch 10 contains the driver code.
 > 
-> There hasn't been much review (thanks Oliver for looking at the KVM
-> bits) and there's some implied work that can go on top of this series.
-> But the patches looked fine to me, so I queued them. Mark or others,
-> please shout if you'd like them dropped, they are on a branch.
+> -----------------
+> [0] "Hyper-V" is more well-known, but it really refers to the whole stack
+>     including the hypervisor and other components that run in Windows
+>     kernel and userspace.
+> [1] Previous /dev/mshv patch series (2021) and discussion:
+> https://lore.kernel.org/linux-hyperv/1632853875-20261-1-git-send-email-nunodasneves@linux.microsoft.com/
+> [2] v4 (2023):
+> https://lore.kernel.org/linux-hyperv/1696010501-24584-1-git-send-email-nunodasneves@linux.microsoft.com/
+> 
+> -----------------
+> Changes since v5:
+> * Rework patch 1:
+>  1. Introduce hv_status_printk() logging macros which print the raw HV_STATUS_
+>     code along with string [Roman Kisel]
+>  2. Iterate over an array of data items to get the string and errno for the
+>     hv_result_to_*() functions. [Michael Kelley]
+>  3. Use hv_status_printk() to log errors in hyperv/irqdomain.c and
+>     hyperv-iommu.c [Easwar Hariharan]
+> * Minor cleanup, improvements, and commit wording changes in patches 2, 3, 4, 6
+>   [Roman Kisel, Easwar Hariharan, Michael Kelley]
+> * Fix issues with declaration and lifecycle of hv_synic_eventring_tail in patch
+>   7 [Michael Kelley]
+> * Improve detail and clarity of commit message in patch 8 [Michael Kelley]
+> * Minor cleanups in patch 9 - uapi types -> kernel types, #ifdef CONFIG_X86_64
+>   -> CONFIG_X86 for consistency, fix HVCALL_* ordering, remove redundant
+>   __packed, use explicit enum value [Stanislav Kinsburskii, Easwar Hariharan,
+>   Michael Kelley, Tianyu Lan]
+> * Minor fixes and cleanup in patch 10 [Michael Kelley]
+> * Add MODULE_DESCRIPTION() to patch 10 [Jeff Johnson]
+> 
+> Changes since v4:
+> * Slim down the IOCTL interface significantly, via several means:
+>   1. Use generic "passthrough" call MSHV_ROOT_HVCALL to replace many ioctls.
+>   2. Use MSHV_* versions of some of the HV_* definitions.
+>   3. Move hv headers out of uapi altogether, into include/hyperv/, see:
+> https://lore.kernel.org/linux-hyperv/1732577084-2122-1-git-send-email-nunodasneves@linux.microsoft.com/
+> * Remove mshv_vtl module altogther, it will be posted in followup series
+>   * Also remove the parent "mshv" module which didn't serve much purpose
+> * Update and refactor parts of the driver code for clarity, extensibility
+> 
+> Changes since v3 (summarized):
+> * Clean up the error and debug logging:
+>   1. Add a set of macros vp_*() and partition_*() which call the equivalent
+>      dev_*(), passing the device from the partition struct
+>      * The new macros also print the partition and vp ids to aid debugging
+> 	   and reduce repeated code
+>   2. Use dev_*() (mostly via the new macros) instead of pr_*() *almost*
+>   everywhere - in interrupt context we can't always get the device struct
+>   3. Remove pr_*() logging from hv_call.c and mshv_root_hv_call.c
+> 
+> Changes since v2 (summarized):
+> * Fix many checkpatch.pl --strict style issues
+> * Initialize status in get/set registers hypercall helpers
+> * Add missing return on error in get_vp_signaled_count
+> 
+> Changes since v1 (summarized):
+> * Clean up formatting, commit messages
+> 
+> Nuno Das Neves (9):
+>   hyperv: Log hypercall status codes as strings
+>   arm64/hyperv: Add some missing functions to arm64
+>   hyperv: Introduce hv_recommend_using_aeoi()
+>   acpi: numa: Export node_to_pxm()
+>   Drivers: hv: Export some functions for use by root partition module
+>   Drivers: hv: Introduce per-cpu event ring tail
+>   x86: hyperv: Add mshv_handler() irq handler and setup function
+>   hyperv: Add definitions for root partition driver to hv headers
+>   Drivers: hv: Introduce mshv_root module to expose /dev/mshv to VMMs
+> 
+> Stanislav Kinsburskii (1):
+>   x86/mshyperv: Add support for extended Hyper-V features
 
-I'm really not comfortable with this series and would prefer to see it
-dropped while we continue the discussion, especially as it's causing
-minor conflicts with the KVM/arm64 tree in -next.
+Series applied to hyperv-next. Thanks.
 
-The series is pitched a bit like an erratum workaround, but the overall
-problem that a memory-dependent prefetcher can bypass permission checks
-is fairly general and, even if nobody else gets this wrong, I doubt that
-it's the last time Arm will mess it up. So, while the EL3 mitigation may
-be Arm-specific, I don't think the rest of it really is. That's
-especially true given the sorry state of spectre mitigations on
-third-party derivatives of Arm designs, such as the Qualcomm Kryo parts,
-and the fact that we provide userspace with a mechanism today for
-querying the state of those mitigations via sysfs.
+I had to fix one minor compilation issue in patch 10, but nothing major.
 
-The immediate question, then, is whether this broken behaviour is
-prohibited by CSV3. The text in the latest Arm ARM just refers to
-"Data loaded under speculation", so it's not entirely clear whether that
-applies to a prefetcher. If it *does*, then I can see the argument for
-treating this like an erratum, but then we should zap CSV3 and treat
-these parts as being affected by meltdown. On the other hand, if CSV3
-is not intended to cover these prefetchers, then we probably need to
-add a new "CVE-2024-7881" entry to /sys/devices/system/cpu/vulnerabilities.
+I also folded the following patch to a previous patch that introduced
+MSHV_ROOT (not in this series).
 
-As it stands with this patch series, userspace has no way to know about
-the problem. kpti gets silently enabled in dmesg:
 
-  | CPU features: detected: Kernel page table isolation (KPTI)
+diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
+index 794e88e9dc6b..3118d5472fab 100644
+--- a/drivers/hv/Kconfig
++++ b/drivers/hv/Kconfig
+@@ -57,7 +57,7 @@ config HYPERV_BALLOON
+ 
+ config MSHV_ROOT
+ 	tristate "Microsoft Hyper-V root partition support"
+-	depends on HYPERV
++	depends on HYPERV && (X86_64 || ARM64)
+ 	depends on !HYPERV_VTL_MODE
+ 	# The hypervisor interface operates on 4k pages. Enforcing it here
+ 	# simplifies many assumptions in the root partition code.
 
-but the contents of the vulnerabilities directory is pretty misleading:
-
-  gather_data_sampling: Not affected
-  ghostwrite: Not affected
-  itlb_multihit: Not affected
-  l1tf: Not affected
-  mds: Not affected
-  meltdown: Not affected
-  mmio_stale_data: Not affected
-  reg_file_data_sampling: Not affected
-  retbleed: Not affected
-  spec_rstack_overflow: Not affected
-  spec_store_bypass: Mitigation: Speculative Store Bypass disabled via prctl
-  spectre_v1: Mitigation: __user pointer sanitization
-  spectre_v2: Mitigation: CSV2, BHB
-  srbds: Not affected
-  tsx_async_abort: Not affected
-
-The meltdown entry doesn't even mention that KPTI has been enabled.
-
-If we decide to go with a new entry for this, then we also need to
-change the default behaviour along the lines of Doug's Spectre-BHB
-changes queued on for-next/spectre-bhb-assume-vulnerable so that we
-assume vulnerable if we don't know better. To do otherwise will result
-in false assurances to userspace on derivative and third-party
-implementations.
-
-To be clear: I'm not at all against mitigating this problem and
-advertising the status of that mitigation. I *am* against quietly
-handling it like a CPU erratum whilst simultaneously telling userspace
-that meltdown is not a problem regardless of the mitigation state.
-
-Will
+Wei.
 
