@@ -4,155 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFDCC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 19:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAB0C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 19:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCISel3hkwiVaJS3a/reiyc9jqJDCVc+lNGcKizqMfg=; b=2tAtsxM/r7Vj5i30ReZ7zq0YKO
-	9XVUeNlwkNwbcFk4NNU/udbShnPJLv/B1YNZZYquoDLU6kJng5kYs8WThDqWpyIqe23eyA+ItX8hR
-	hz6/I2tz1y98KYcDI4krWrCyBeSQoUXeKZnJGJcvem4ko934uMh82vaRmDjpq7fEszfAe1T8ujiwj
-	CIN3n4VMEOzaUREtH+tSHl4qAi5pU7ambAZqL27HUSMWEyX2MVhixA8rzhTI6GKOYoec/pvpXtPmi
-	4XIa37FuJG1XgZhm9an3T0aWXhVNg1K1y2ZDxFkoQG8lV6wlNMHnwc8Nh0tYHjym7RRr5lLTI8+VN
-	sdR96esg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JOqaDJDHAZCYLY5MtsJdCgvb/t1kkuNI1yHHTX79QaY=; b=JUIBbE7DHIaQYb0/SwHvqoTDzx
+	1NarVJkn4iHxYJmIEsZs24uBGDoxn85Ssgcm0qk/FJ/Ed+j/R/hdK/AZAjFjq3NLV4IxNQPIH4D+i
+	/ZYZvhCDE6yDbf3T8vWYrZooppLIHol9ewUJXIErxC2PghcJRpn7m+Q12IwWImm3JB5bCSOG3NcUD
+	6eABjL8isL2BXHdjcItEfhj5bNxFe3QXGdJb82y9Gi11lKc91cIUPsQfLZrd39fPFwlFFGAkRRWzV
+	w/c8xN72YgSJ7zGPQJY9xRoYy23yeOcpc/GJinUi0i48b5pGdjAp6vKd3jamNO/HKt8YCCk/tUs2L
+	YXIDfOAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuG92-00000003odN-44vz;
-	Mon, 17 Mar 2025 19:29:04 +0000
-Received: from mail-bn8nam12on20629.outbound.protection.outlook.com ([2a01:111:f403:2418::629] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tuGE1-00000003p7J-3zgS;
+	Mon, 17 Mar 2025 19:34:13 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuG7M-00000003oTY-10Ms
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 19:27:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ihsr+03IH52ESHwV4kq204IXNp57kaFY2QDChhQysDQOCBEvOlr+CySQTVffBOqtFBqrkzuiCq36gcN6H4OsWgz9DoaOCnN/j1S8n2HK0d5n5aUb89REAMIKO4iUGhLA4VZ/zdAIwTjKXbbh473ddUWPa1HGB3NLVuCc9MlaYDCUDRzPsxP92WZwiYZ7aXN/EN4PyTeKS0zywbUwjQH8oUQ3egDGmR/4KmPe+KL+yHKUecfsqO1uhoe+ph+gMic/TjrCMVcs/Xr/tPRZl626bgo19KIdVXL5RfOa6TE4iX9NMh9ekCzHcb94YPHnNbwmepc3xFjRKwMmR3/SCapGcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OCISel3hkwiVaJS3a/reiyc9jqJDCVc+lNGcKizqMfg=;
- b=rnRG9dZNtneTBVLwnT2/qZ/ETOdVwRRfCc1ubLDf+cW9cb6ZA6p5r+apAn7o1JSPkTrpvCl1u6Y52r6l0So9iw25jzk5J12/1VicBpM1xRsxNgxoPGAKnNWy1b3ipRUKFXqTCrd9dURtg7Sv2wKypMS7HwAH77qHRtpx1fZerTMF0+8HnGBLe/fUvhw1ocR8lCve2PDf9IUOKIWcMI75CWoEATW9g5KiJiQD0mftwIiOgSX7zTUYRu6O6HlCu4/VNV+vV9ppOEUs3hxoG4Nw7jTlw3utSkXN4MrraDMCGstS46TCErPQh+rxSMGLZHMKEPEjDYEPCyYr+ZcKBqHzGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OCISel3hkwiVaJS3a/reiyc9jqJDCVc+lNGcKizqMfg=;
- b=Xp/opmnkZInS0EjLmFD/J5uLmIL9BSzO2PANHU56xNX96tFR/+S9nYMpnguxWPSOeBVKQ7+YbWSLKNt2lOTTmmY0xmMLGk+tpJFy1HQs+qwFNfMSd+2GgepO2LTA5WhQX//lKQ8HeNY3WB5qEZOkJkYTLGtDAoxUghN28V1vWXChN2g4VDls7cbKDfUub9nUQNbje+nkabDTz6/8Ica/xVl2U0PXCAhFhVn01D1kupTvUHsSwEseUg4oTgfIhzjsA0mBKty0uZVubDO1IcwSHNkmpoaFVMlFdKyTToLNxa1vzfnQ4S3ePO6l6ZC2yl9udPOWB0JAykchuYeWj4fdrA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DM4PR12MB6327.namprd12.prod.outlook.com (2603:10b6:8:a2::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8511.28; Mon, 17 Mar 2025 19:27:14 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
- 19:27:14 +0000
-Date: Mon, 17 Mar 2025 16:27:13 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, kevin.tian@intel.com, corbet@lwn.net,
-	joro@8bytes.org, suravee.suthikulpanit@amd.com,
-	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	praan@google.com, patches@lists.linux.dev
-Subject: Re: [PATCH v8 12/14] iommu/arm-smmu-v3: Introduce struct
- arm_smmu_vmaster
-Message-ID: <20250317192713.GS9311@nvidia.com>
-References: <cover.1740504232.git.nicolinc@nvidia.com>
- <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
- <20250311155714.GC5138@willie-the-truck>
- <Z9B2LMIi+88hlfza@Asurada-Nvidia>
- <20250317154423.GI9311@nvidia.com>
- <Z9huquCf7YuzIjqx@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z9huquCf7YuzIjqx@Asurada-Nvidia>
-X-ClientProxiedBy: BL0PR01CA0027.prod.exchangelabs.com (2603:10b6:208:71::40)
- To CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+	id 1tuGCL-00000003ots-2UfV;
+	Mon, 17 Mar 2025 19:32:31 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id E2D7D20EE2;
+	Mon, 17 Mar 2025 20:32:22 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id Klr-IQrCaiIq; Mon, 17 Mar 2025 20:32:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1742239941; bh=B4jwl0WVdNyiDxiDK2zQ1UII/t747CndkJIkJf5pMZo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=d+lALgQxiwiBjzkXVtX93zc1e7IH0yKSIzJra1oo0VkQQ9UOnKGZGIc0VhT2kcyjV
+	 181EYxP4sjZyT9aa5W4ZtZK05KfuqtO+mTykbSyKgUDNBfJyupB53G0RZkwGByzuCt
+	 67T3zCqzyTIjcB8mPapSIw+oSRd8mVywn61D6kBSuo7rPao8ElnOt8YAHwpPi1BAl6
+	 f04Rwfm1hcfUVHTgktzMmzi2DI5Wm6veWCg1PVco/wwfPFlRX6SzbQAaGE+/81srn3
+	 KSfqtwLndmddnW8Q7Tndl7eDC1oDKVHs5dZ8wpf/cjLGFKJubdVOSWGhzH7F+jrm4d
+	 WL7BR+GXZ1JRA==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Tue, 18 Mar 2025 01:01:41 +0530
+Subject: [PATCH RESEND v2 1/3] phy: exynos5-usbdrd: use GENMASK and
+ FIELD_PREP for Exynos5 PHY registers
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM4PR12MB6327:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a99180d-1cd4-40cf-fd57-08dd6589b8e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zOKeFSYGbrsg10BCaHKXI4x6IbhfB3AklnWwdMzzq5sqIP8uiPInemDJRwxu?=
- =?us-ascii?Q?YJyJQ/u3vTegr8x4VDmCp9ahFxW2GBHudwxAAhQQyuUPEtZejQbFidmzAndT?=
- =?us-ascii?Q?3dI7eXZtBo1bncvDr5e6CP/GufUpF6YpKdFfta8ofq2ch02jjssQ6eP1rglr?=
- =?us-ascii?Q?VUgdkM4RotK3UcIBQ9jSckkA4jy6svL5hQ/nSyQUnjc6Cn4SetwHRJNDeMXQ?=
- =?us-ascii?Q?SidjupZyHXZ8hJcbxTZKBz6PhpWfFb/Taxx4XsLdry4eBhAZ+mqkbdrJA2C7?=
- =?us-ascii?Q?1JyQ2/zP7dWKgM7FC3q47e4ibKvZxHDu9X7gpTlIAVN6+EgtEVJadlefHWO3?=
- =?us-ascii?Q?didj1MKiJ6JNYFUiLcg4DYl3Tj4tVBWEm5/FZt7Nwg9A5PsTgKf0CTwFblME?=
- =?us-ascii?Q?ugd0s5nQQmF4pujPMCdXlQnahcJ4Hkfxl6+oFl3IuEwFudGqbphEJAr7SI0f?=
- =?us-ascii?Q?gqwZKviVp9GBPMd5TjlmhfN/UZpZQD7zQLkvW7L12jrVH5KADq0dHyqdiozo?=
- =?us-ascii?Q?JQ5pYee2PwKvune2R8bKYNQxslZ38N4tufm68PKoqw4V/qLTHxeS1ZnGDqzK?=
- =?us-ascii?Q?g0J9OUA0Z3aHcGJ/P+syzF7HMbIKr0nNOStfaYaY4AlaLMAZyEIeoi1PysfN?=
- =?us-ascii?Q?YfkL3Owt+i71yITwHCNiW/QnbjbLJcrN4/7wwrRcexHFZrlgodw9TQ3WoW0j?=
- =?us-ascii?Q?EAENayXzyIZFCCVFH2mdF57urBoRNibmiqIfD6pWd24A3n5z59LNQvHK7tGv?=
- =?us-ascii?Q?xTbaLxt3Ap5m8LzNdQ+Fm/terBmXPbFltK5RHdyEfX4+/aBVNTsxs1IIq2Kp?=
- =?us-ascii?Q?6ckSsEdkxMbGeI/tLHkt7NeCQZDby8QtI2r2yVJm/MXKViTw0jjeOzOPdXZ1?=
- =?us-ascii?Q?GNoqZW9mDxuU3wXeDi/UwFIbJMO0i3ebLSjCSYWfqaW3KBj3W86W7V6Brolx?=
- =?us-ascii?Q?ZAUqyHbkn46MqdsP7WEsrOfdAM/aJFUUcArl3Pu8kZkreg64rh/Qg1MD65Xf?=
- =?us-ascii?Q?po1D3DH0YzOiCvdtKiWIp3uGeRe77miqs6sC9B5GrOS/63zGa9idAMQgFt1K?=
- =?us-ascii?Q?F3ZX9rgjS7anaMX0VJGK6eFMYnPnjFWFI4C+iEzg5ZlfEJ078QgjbIGMzYT8?=
- =?us-ascii?Q?rpcF6dKL/K+JRw5gGdpQJMKFGfkXmy1WDMST9TKf3N0GezRwzjZoZXro4vC3?=
- =?us-ascii?Q?8xFiLGEbCvDZuDWrNT/7nDfYbxNBi/kpCavGaUMU2mOEmoFdjm+iBAYdn0e4?=
- =?us-ascii?Q?oW+Cjt+jiPRB1LZmsSiKqxsowK6poYtAowCl1xg03c7n1VTd/zFuzw409Uj+?=
- =?us-ascii?Q?JuTLUcb+t03KEVFANQ7gTqKDbjg0zm0LYtb/2kUXSmrk4Bnizwyb6O5zoRJx?=
- =?us-ascii?Q?D3pJeFctOEvbe5IHhIodGn0qt5Jh?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kGOlxqFF5e2QA+AdVJPCqdzbNscnCalPhq25r8Q5UYZEp1Iw/DhuUo9aXQn6?=
- =?us-ascii?Q?obgZD3v2PLyACybmfEGlfGFvdNfBYwfKPbtt+mpfzlu5g03ZqT9AUfH0rjr9?=
- =?us-ascii?Q?4x2Xe9zs5u/aDxyM/ojPWC2po4D7yuWkrN8+wsgwNZPHZE4Op02jncgfsEiJ?=
- =?us-ascii?Q?JbB1Ga22ebEPy5w83D4Nq/uY/LkzjqDNU7B6daP41i81zbl7S72B9eckPOWS?=
- =?us-ascii?Q?1j1We73aKANOF3hMRCxlTEqDnWWcB6cd14+HgGsFgMZ9UEi9jLlBjJAKdN1E?=
- =?us-ascii?Q?QnjOfR1AE8p21grD5Wh3bCTdf+G2TP7x0/UJVGFBzH7LTDqnukK0yB736r8p?=
- =?us-ascii?Q?J/nIZcCD5kDYPknBI33XBR7flHcnJA1dk8hGE1ntyzEngNFDGJYg4j0dTq0l?=
- =?us-ascii?Q?EDbybzQs8gDicsCPYDVI7gMAflPOoj8aO+55xuawl+x2DaZ5x0CL7Nqs9Her?=
- =?us-ascii?Q?JguQsoX0nJMJS875p4FciM6Weave3u0vR28MKLf83R8ahikPjA693u1iCC7Y?=
- =?us-ascii?Q?Z/h/x37SBqlYBTHAdxDGTj04Xy87sD6eUDqLjcK/PLVadtQrK6wees+i5sHf?=
- =?us-ascii?Q?LRZB/iupGKO9Gur1ywVKpqe0+aBpdrVjOjSBpGu28NJr3dCadtroKqV6ZDy8?=
- =?us-ascii?Q?WUIpPahE9Zy0+21GLBUFKc+ulcUPS1yh4qd54gqTdqf2C+BaaZIlNKIH5Ip9?=
- =?us-ascii?Q?PSa5Up4WnqIAm+gU08Hz44pcxIc8sNdd8qqCr0Qe5CId0jS0v+2eV21cRHW5?=
- =?us-ascii?Q?JLHGRQ4L2CPa1Pavpf4SRGWe+VHd8TjtLouHbwSeUk1emrpnbo6pjobvxhAB?=
- =?us-ascii?Q?19/iTm14T0oxySxCaOve5WZTsJTcoZ93p46TcLbLwou3TS6SHxcVtD5p/Ut4?=
- =?us-ascii?Q?yBjwVY2gp7Dd4R14d+E2jHMXt/1AfuO8yoVH4D4I5PQt0FkJAZX8TJI6tv8Y?=
- =?us-ascii?Q?KgEzlAkaqj2DrrJevWlZg7bI0Ji7o5YaI9glT3mXxAKcEm+L3zzDeFpxcUFh?=
- =?us-ascii?Q?5YuK3bGOPlQO3+Uotqdl/QgI887pNYhadhbDpYS3QQAbTpkJC47IvnKYQ709?=
- =?us-ascii?Q?k7Y4IH3Y2vdvCuQUv/ib6+3ogbUu+oM/zw6nvIp/Vgfmz8texorCKcSe95Ne?=
- =?us-ascii?Q?EE2ZBwOPQABHDCbbDeIaUE4euKJUfDdYoByyDPtMTCFkSfltsUqqxu9QcdOF?=
- =?us-ascii?Q?/QhnXK7xQGF+ngB2SyAav6Fs3DapzmpUoB2WrSh7vd4BEDm3gzxtLhv+Necu?=
- =?us-ascii?Q?UdIw7FgqJ43p1FKTzLHy5YUjM/KukM+hLtiwjnwWc9Xni+kHB47e2C9lJpKJ?=
- =?us-ascii?Q?6SOMzVnUXlIJoMnTfKeSFQAdco142kORiGqXmSYLymeTIimM3AUWoLn0G/Ax?=
- =?us-ascii?Q?wJHplep/+O3UkLLkcFBluPEGMRd3dGUev2X9hdzsBOT+Du/iC2VzdyM98Amf?=
- =?us-ascii?Q?bgmsCx5xwVecVqfppnZIY3hnafF2O3r8YwuLmqQBMTMyX/Pqebo8oHp/dtdd?=
- =?us-ascii?Q?w+rwDKiWPyIDJrybub+gJFdFaM2voAKQ50hvJG8S2or/UOrye3riHRLnWfIk?=
- =?us-ascii?Q?B7hXjxyiCUnXIuHyKxlwxH40tRRgSTRQsKfyJIzq?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a99180d-1cd4-40cf-fd57-08dd6589b8e8
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2025 19:27:14.5142
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Liv6s+sWPg7ip2bwyzRpP1TxPvkpcaiKPskDkXxI9MSiz/XTLxjxWU7acsZTiBYE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6327
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250318-exynos7870-usbphy-v2-1-551433b1b27c@disroot.org>
+References: <20250318-exynos7870-usbphy-v2-0-551433b1b27c@disroot.org>
+In-Reply-To: <20250318-exynos7870-usbphy-v2-0-551433b1b27c@disroot.org>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1742239924; l=12252;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=B4jwl0WVdNyiDxiDK2zQ1UII/t747CndkJIkJf5pMZo=;
+ b=sEiBOi5qgNE89zBCWZNJA0KW79IUjzp2ETCT7Ce8FjYKavaMV+Ag2fL2DaoSFPAGOByQfLPmu
+ fnW8NtYkf+bDXM7UNrVE2Q4MZ4bnrRDk6vzvdr5lboA/Zl2x3SuUfxu
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_122720_273440_7999B04A 
-X-CRM114-Status: GOOD (  28.47  )
+X-CRM114-CacheID: sfid-20250317_123229_908724_9BC9575E 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,71 +87,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 11:49:14AM -0700, Nicolin Chen wrote:
-> On Mon, Mar 17, 2025 at 12:44:23PM -0300, Jason Gunthorpe wrote:
-> > On Tue, Mar 11, 2025 at 10:43:08AM -0700, Nicolin Chen wrote:
-> > > > > +int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
-> > > > > +				    struct arm_smmu_nested_domain *nested_domain)
-> > > > > +{
-> > > > > +	struct arm_smmu_vmaster *vmaster;
-> > > > > +	unsigned long vsid;
-> > > > > +	int ret;
-> > > > > +
-> > > > > +	iommu_group_mutex_assert(state->master->dev);
-> > > > > +
-> > > > > +	/* Skip invalid vSTE */
-> > > > > +	if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
-> > > > > +		return 0;
-> > > > 
-> > > > Ok, and we don't need to set 'state->vmaster' in this case because we
-> > > > only report stage-1 faults back to the vSMMU?
-> > > 
-> > > This is a good question that I didn't ask myself hard enough..
-> > > 
-> > > I think we should probably drop it. An invalid STE should trigger
-> > > a C_BAD_STE event that is in the supported vEVENT list. I'll run
-> > > some test before removing this line from v9.
-> > 
-> > It won't trigger C_BAD_STE, recall Robin was opposed to thatm so we have this:
-> > 
-> > static void arm_smmu_make_nested_domain_ste(
-> > 	struct arm_smmu_ste *target, struct arm_smmu_master *master,
-> > 	struct arm_smmu_nested_domain *nested_domain, bool ats_enabled)
-> > {
-> > 	unsigned int cfg =
-> > 		FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0]));
-> > 
-> > 	/*
-> > 	 * Userspace can request a non-valid STE through the nesting interface.
-> > 	 * We relay that into an abort physical STE with the intention that
-> > 	 * C_BAD_STE for this SID can be generated to userspace.
-> > 	 */
-> > 	if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
-> > 		cfg = STRTAB_STE_0_CFG_ABORT;
-> > 
-> > So, in the case of a non-valid STE, and a device access, the HW will
-> > generate one of the translation faults and that will be forwarded.
-> > 
-> > Some software component will have to transform those fault events into
-> > C_BAD_STE for the VM.
-> 
-> Hmm, double checked the spec. It does say that C_BAD_STE would be
-> triggered:
-> 
-> " V, bit [0] STE Valid.
->   [...]
->   Device transactions that select an STE with this field configured
->   to 0 are terminated with an abort reported back to the device and
->   a C_BAD_STE event is recorded."
-> 
-> I also did a hack test unsetting the V bit in the kernel. Then, the
-> HW did report C_BAD_STE (0x4) back to the VM (via vEVENTQ).
+Most Exynos850 and Exynos9 (GS101) DRD PHY registers use GENMASK for masks
+and FIELD_PREP for writing values to registers.
 
-Yes, I expect that C_BAD_STE will forward just fine.
+Rewrite the register definitions which don't follow this approach to follow
+it as much as possible. This patch doesn't introduce any fixes or
+functional changes, it's merely an attempt to introduce some uniformity and
+consistency in the driver code.
 
-But, as above, it should never be generated by HW because the
-hypervisor kernel will never install a bad STE, we detect that and
-convert it to abort.
+The CRPORT SuperSpeed control registers have been exempted from this
+change. Since the writing of register values do not require any masking
+operations, implementing it would unnecessarily complicate things.
 
-Jason
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 147 ++++++++++++++++---------------
+ 1 file changed, 75 insertions(+), 72 deletions(-)
+
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index 817fddee03927c943c3705ec38aba81b9b6a0975..534ccea9379539a1250e192660d169e47a5b193e 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -39,8 +39,7 @@
+ /* Exynos5: USB 3.0 DRD PHY registers */
+ #define EXYNOS5_DRD_LINKSYSTEM			0x04
+ #define LINKSYSTEM_XHCI_VERSION_CONTROL		BIT(27)
+-#define LINKSYSTEM_FLADJ_MASK			(0x3f << 1)
+-#define LINKSYSTEM_FLADJ(_x)			((_x) << 1)
++#define LINKSYSTEM_FLADJ			GENMASK(6, 1)
+ 
+ #define EXYNOS5_DRD_PHYUTMI			0x08
+ #define PHYUTMI_OTGDISABLE			BIT(6)
+@@ -51,30 +50,27 @@
+ 
+ #define EXYNOS5_DRD_PHYCLKRST			0x10
+ #define PHYCLKRST_EN_UTMISUSPEND		BIT(31)
+-#define PHYCLKRST_SSC_REFCLKSEL_MASK		(0xff << 23)
+-#define PHYCLKRST_SSC_REFCLKSEL(_x)		((_x) << 23)
+-#define PHYCLKRST_SSC_RANGE_MASK		(0x03 << 21)
+-#define PHYCLKRST_SSC_RANGE(_x)			((_x) << 21)
++#define PHYCLKRST_SSC_REFCLKSEL			GENMASK(30, 23)
++#define PHYCLKRST_SSC_RANGE			GENMASK(22, 21)
+ #define PHYCLKRST_SSC_EN			BIT(20)
+ #define PHYCLKRST_REF_SSP_EN			BIT(19)
+ #define PHYCLKRST_REF_CLKDIV2			BIT(18)
+-#define PHYCLKRST_MPLL_MULTIPLIER_MASK		(0x7f << 11)
+-#define PHYCLKRST_MPLL_MULTIPLIER_100MHZ_REF	(0x19 << 11)
+-#define PHYCLKRST_MPLL_MULTIPLIER_50M_REF	(0x32 << 11)
+-#define PHYCLKRST_MPLL_MULTIPLIER_24MHZ_REF	(0x68 << 11)
+-#define PHYCLKRST_MPLL_MULTIPLIER_20MHZ_REF	(0x7d << 11)
+-#define PHYCLKRST_MPLL_MULTIPLIER_19200KHZ_REF	(0x02 << 11)
+-#define PHYCLKRST_FSEL_PIPE_MASK		(0x7 << 8)
+-#define PHYCLKRST_FSEL_UTMI_MASK		(0x7 << 5)
+-#define PHYCLKRST_FSEL(_x)			((_x) << 5)
+-#define PHYCLKRST_FSEL_PAD_100MHZ		(0x27 << 5)
+-#define PHYCLKRST_FSEL_PAD_24MHZ		(0x2a << 5)
+-#define PHYCLKRST_FSEL_PAD_20MHZ		(0x31 << 5)
+-#define PHYCLKRST_FSEL_PAD_19_2MHZ		(0x38 << 5)
++#define PHYCLKRST_MPLL_MULTIPLIER		GENMASK(17, 11)
++#define PHYCLKRST_MPLL_MULTIPLIER_100MHZ_REF	0x19
++#define PHYCLKRST_MPLL_MULTIPLIER_50M_REF	0x32
++#define PHYCLKRST_MPLL_MULTIPLIER_24MHZ_REF	0x68
++#define PHYCLKRST_MPLL_MULTIPLIER_20MHZ_REF	0x7d
++#define PHYCLKRST_MPLL_MULTIPLIER_19200KHZ_REF	0x02
++#define PHYCLKRST_FSEL_PIPE			GENMASK(10, 8)
++#define PHYCLKRST_FSEL_UTMI			GENMASK(7, 5)
++#define PHYCLKRST_FSEL_PAD_100MHZ		0x27
++#define PHYCLKRST_FSEL_PAD_24MHZ		0x2a
++#define PHYCLKRST_FSEL_PAD_20MHZ		0x31
++#define PHYCLKRST_FSEL_PAD_19_2MHZ		0x38
+ #define PHYCLKRST_RETENABLEN			BIT(4)
+-#define PHYCLKRST_REFCLKSEL_MASK		(0x03 << 2)
+-#define PHYCLKRST_REFCLKSEL_PAD_REFCLK		(0x2 << 2)
+-#define PHYCLKRST_REFCLKSEL_EXT_REFCLK		(0x3 << 2)
++#define PHYCLKRST_REFCLKSEL			GENMASK(3, 2)
++#define PHYCLKRST_REFCLKSEL_PAD_REFCLK		0x2
++#define PHYCLKRST_REFCLKSEL_EXT_REFCLK		0x3
+ #define PHYCLKRST_PORTRESET			BIT(1)
+ #define PHYCLKRST_COMMONONN			BIT(0)
+ 
+@@ -83,22 +79,22 @@
+ #define PHYREG0_SSC_RANGE			BIT(20)
+ #define PHYREG0_CR_WRITE			BIT(19)
+ #define PHYREG0_CR_READ				BIT(18)
+-#define PHYREG0_CR_DATA_IN(_x)			((_x) << 2)
++#define PHYREG0_CR_DATA_IN			GENMASK(17, 2)
+ #define PHYREG0_CR_CAP_DATA			BIT(1)
+ #define PHYREG0_CR_CAP_ADDR			BIT(0)
+ 
+ #define EXYNOS5_DRD_PHYREG1			0x18
+-#define PHYREG1_CR_DATA_OUT(_x)			((_x) << 1)
++#define PHYREG0_CR_DATA_OUT			GENMASK(16, 1)
+ #define PHYREG1_CR_ACK				BIT(0)
+ 
+ #define EXYNOS5_DRD_PHYPARAM0			0x1c
+ #define PHYPARAM0_REF_USE_PAD			BIT(31)
+-#define PHYPARAM0_REF_LOSLEVEL_MASK		(0x1f << 26)
+-#define PHYPARAM0_REF_LOSLEVEL			(0x9 << 26)
++#define PHYPARAM0_REF_LOSLEVEL			GENMASK(30, 26)
++#define PHYPARAM0_REF_LOSLEVEL_VAL		0x9
+ 
+ #define EXYNOS5_DRD_PHYPARAM1			0x20
+-#define PHYPARAM1_PCS_TXDEEMPH_MASK		(0x1f << 0)
+-#define PHYPARAM1_PCS_TXDEEMPH			(0x1c)
++#define PHYPARAM1_PCS_TXDEEMPH			GENMASK(4, 0)
++#define PHYPARAM1_PCS_TXDEEMPH_VAL		0x1c
+ 
+ #define EXYNOS5_DRD_PHYTERM			0x24
+ 
+@@ -140,7 +136,7 @@
+ #define LINKCTRL_FORCE_PHYSTATUS		BIT(17)
+ #define LINKCTRL_FORCE_PIPE_EN			BIT(16)
+ #define LINKCTRL_FORCE_QACT			BIT(8)
+-#define LINKCTRL_BUS_FILTER_BYPASS(_x)		((_x) << 4)
++#define LINKCTRL_BUS_FILTER_BYPASS		GENMASK(7, 4)
+ 
+ #define EXYNOS850_DRD_LINKPORT			0x08
+ #define LINKPORT_HOST_NUM_U3			GENMASK(19, 16)
+@@ -497,29 +493,34 @@ exynos5_usbdrd_pipe3_set_refclk(struct phy_usb_instance *inst)
+ 	reg = readl(phy_drd->reg_phy + EXYNOS5_DRD_PHYCLKRST);
+ 
+ 	/* Use EXTREFCLK as ref clock */
+-	reg &= ~PHYCLKRST_REFCLKSEL_MASK;
+-	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
++	reg &= ~PHYCLKRST_REFCLKSEL;
++	reg |=	FIELD_PREP_CONST(PHYCLKRST_REFCLKSEL,
++				 PHYCLKRST_REFCLKSEL_EXT_REFCLK);
+ 
+ 	/* FSEL settings corresponding to reference clock */
+-	reg &= ~(PHYCLKRST_FSEL_PIPE_MASK |
+-		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
+-		 PHYCLKRST_SSC_REFCLKSEL_MASK);
++	reg &= ~(PHYCLKRST_FSEL_PIPE |
++		 PHYCLKRST_MPLL_MULTIPLIER |
++		 PHYCLKRST_SSC_REFCLKSEL);
+ 	switch (phy_drd->extrefclk) {
+ 	case EXYNOS5_FSEL_50MHZ:
+-		reg |= (PHYCLKRST_MPLL_MULTIPLIER_50M_REF |
+-			PHYCLKRST_SSC_REFCLKSEL(0x00));
++		reg |= (FIELD_PREP_CONST(PHYCLKRST_SSC_REFCLKSEL, 0x00) |
++			FIELD_PREP_CONST(PHYCLKRST_MPLL_MULTIPLIER,
++					 PHYCLKRST_MPLL_MULTIPLIER_50M_REF));
+ 		break;
+ 	case EXYNOS5_FSEL_24MHZ:
+-		reg |= (PHYCLKRST_MPLL_MULTIPLIER_24MHZ_REF |
+-			PHYCLKRST_SSC_REFCLKSEL(0x88));
++		reg |= (FIELD_PREP_CONST(PHYCLKRST_SSC_REFCLKSEL, 0x88) |
++			FIELD_PREP_CONST(PHYCLKRST_MPLL_MULTIPLIER,
++					 PHYCLKRST_MPLL_MULTIPLIER_24MHZ_REF));
+ 		break;
+ 	case EXYNOS5_FSEL_20MHZ:
+-		reg |= (PHYCLKRST_MPLL_MULTIPLIER_20MHZ_REF |
+-			PHYCLKRST_SSC_REFCLKSEL(0x00));
++		reg |= (FIELD_PREP_CONST(PHYCLKRST_SSC_REFCLKSEL, 0x00) |
++			FIELD_PREP_CONST(PHYCLKRST_MPLL_MULTIPLIER,
++					 PHYCLKRST_MPLL_MULTIPLIER_20MHZ_REF));
+ 		break;
+ 	case EXYNOS5_FSEL_19MHZ2:
+-		reg |= (PHYCLKRST_MPLL_MULTIPLIER_19200KHZ_REF |
+-			PHYCLKRST_SSC_REFCLKSEL(0x88));
++		reg |= (FIELD_PREP_CONST(PHYCLKRST_SSC_REFCLKSEL, 0x88) |
++			FIELD_PREP_CONST(PHYCLKRST_MPLL_MULTIPLIER,
++					 PHYCLKRST_MPLL_MULTIPLIER_19200KHZ_REF));
+ 		break;
+ 	default:
+ 		dev_dbg(phy_drd->dev, "unsupported ref clk\n");
+@@ -542,13 +543,14 @@ exynos5_usbdrd_utmi_set_refclk(struct phy_usb_instance *inst)
+ 	/* restore any previous reference clock settings */
+ 	reg = readl(phy_drd->reg_phy + EXYNOS5_DRD_PHYCLKRST);
+ 
+-	reg &= ~PHYCLKRST_REFCLKSEL_MASK;
+-	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
++	reg &= ~PHYCLKRST_REFCLKSEL;
++	reg |=	FIELD_PREP_CONST(PHYCLKRST_REFCLKSEL,
++				 PHYCLKRST_REFCLKSEL_EXT_REFCLK);
+ 
+-	reg &= ~(PHYCLKRST_FSEL_UTMI_MASK |
+-		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
+-		 PHYCLKRST_SSC_REFCLKSEL_MASK);
+-	reg |= PHYCLKRST_FSEL(phy_drd->extrefclk);
++	reg &= ~(PHYCLKRST_FSEL_UTMI |
++		 PHYCLKRST_MPLL_MULTIPLIER |
++		 PHYCLKRST_SSC_REFCLKSEL);
++	reg |= FIELD_PREP(PHYCLKRST_FSEL_UTMI, phy_drd->extrefclk);
+ 
+ 	return reg;
+ }
+@@ -598,8 +600,9 @@ static void exynos5_usbdrd_pipe3_init(struct exynos5_usbdrd_phy *phy_drd)
+ 
+ 	reg = readl(phy_drd->reg_phy + EXYNOS5_DRD_PHYPARAM1);
+ 	/* Set Tx De-Emphasis level */
+-	reg &= ~PHYPARAM1_PCS_TXDEEMPH_MASK;
+-	reg |=	PHYPARAM1_PCS_TXDEEMPH;
++	reg &= ~PHYPARAM1_PCS_TXDEEMPH;
++	reg |=	FIELD_PREP_CONST(PHYPARAM1_PCS_TXDEEMPH,
++				 PHYPARAM1_PCS_TXDEEMPH_VAL);
+ 	writel(reg, phy_drd->reg_phy + EXYNOS5_DRD_PHYPARAM1);
+ 
+ 	reg = readl(phy_drd->reg_phy + EXYNOS5_DRD_PHYTEST);
+@@ -620,7 +623,7 @@ exynos5_usbdrd_usbdp_g2_v4_ctrl_pma_ready(struct exynos5_usbdrd_phy *phy_drd)
+ 
+ 	reg = readl(regs_base + EXYNOS850_DRD_SECPMACTL);
+ 	reg &= ~SECPMACTL_PMA_REF_FREQ_SEL;
+-	reg |= FIELD_PREP(SECPMACTL_PMA_REF_FREQ_SEL, 1);
++	reg |= FIELD_PREP_CONST(SECPMACTL_PMA_REF_FREQ_SEL, 1);
+ 	/* SFR reset */
+ 	reg |= (SECPMACTL_PMA_LOW_PWR | SECPMACTL_PMA_APB_SW_RST);
+ 	reg &= ~(SECPMACTL_PMA_ROPLL_REF_CLK_SEL |
+@@ -749,14 +752,16 @@ static void exynos5_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
+ 
+ 	reg = readl(phy_drd->reg_phy + EXYNOS5_DRD_PHYPARAM0);
+ 	/* Set Loss-of-Signal Detector sensitivity */
+-	reg &= ~PHYPARAM0_REF_LOSLEVEL_MASK;
+-	reg |=	PHYPARAM0_REF_LOSLEVEL;
++	reg &= ~PHYPARAM0_REF_LOSLEVEL;
++	reg |=	FIELD_PREP_CONST(PHYPARAM0_REF_LOSLEVEL,
++				 PHYPARAM0_REF_LOSLEVEL_VAL);
+ 	writel(reg, phy_drd->reg_phy + EXYNOS5_DRD_PHYPARAM0);
+ 
+ 	reg = readl(phy_drd->reg_phy + EXYNOS5_DRD_PHYPARAM1);
+ 	/* Set Tx De-Emphasis level */
+-	reg &= ~PHYPARAM1_PCS_TXDEEMPH_MASK;
+-	reg |=	PHYPARAM1_PCS_TXDEEMPH;
++	reg &= ~PHYPARAM1_PCS_TXDEEMPH;
++	reg |=	FIELD_PREP_CONST(PHYPARAM1_PCS_TXDEEMPH,
++				 PHYPARAM1_PCS_TXDEEMPH_VAL);
+ 	writel(reg, phy_drd->reg_phy + EXYNOS5_DRD_PHYPARAM1);
+ 
+ 	/* UTMI Power Control */
+@@ -787,7 +792,7 @@ static int exynos5_usbdrd_phy_init(struct phy *phy)
+ 	 * See xHCI 1.0 spec, 5.2.4
+ 	 */
+ 	reg =	LINKSYSTEM_XHCI_VERSION_CONTROL |
+-		LINKSYSTEM_FLADJ(0x20);
++		FIELD_PREP_CONST(LINKSYSTEM_FLADJ, 0x20);
+ 	writel(reg, phy_drd->reg_phy + EXYNOS5_DRD_LINKSYSTEM);
+ 
+ 	reg = readl(phy_drd->reg_phy + EXYNOS5_DRD_PHYPARAM0);
+@@ -946,26 +951,24 @@ static int crport_handshake(struct exynos5_usbdrd_phy *phy_drd,
+ static int crport_ctrl_write(struct exynos5_usbdrd_phy *phy_drd,
+ 			     u32 addr, u32 data)
+ {
++	u32 val;
+ 	int ret;
+ 
+ 	/* Write Address */
+-	writel(PHYREG0_CR_DATA_IN(addr),
+-	       phy_drd->reg_phy + EXYNOS5_DRD_PHYREG0);
+-	ret = crport_handshake(phy_drd, PHYREG0_CR_DATA_IN(addr),
+-			       PHYREG0_CR_CAP_ADDR);
++	val = FIELD_PREP(PHYREG0_CR_DATA_IN, addr);
++	writel(val, phy_drd->reg_phy + EXYNOS5_DRD_PHYREG0);
++	ret = crport_handshake(phy_drd, val, PHYREG0_CR_CAP_ADDR);
+ 	if (ret)
+ 		return ret;
+ 
+ 	/* Write Data */
+-	writel(PHYREG0_CR_DATA_IN(data),
+-	       phy_drd->reg_phy + EXYNOS5_DRD_PHYREG0);
+-	ret = crport_handshake(phy_drd, PHYREG0_CR_DATA_IN(data),
+-			       PHYREG0_CR_CAP_DATA);
++	val = FIELD_PREP(PHYREG0_CR_DATA_IN, data);
++	writel(val, phy_drd->reg_phy + EXYNOS5_DRD_PHYREG0);
++	ret = crport_handshake(phy_drd, val, PHYREG0_CR_CAP_DATA);
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = crport_handshake(phy_drd, PHYREG0_CR_DATA_IN(data),
+-			       PHYREG0_CR_WRITE);
++	ret = crport_handshake(phy_drd, val, PHYREG0_CR_WRITE);
+ 
+ 	return ret;
+ }
+@@ -1134,7 +1137,7 @@ static void exynos850_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
+ 
+ 	/* Set VBUS Valid and D+ pull-up control by VBUS pad usage */
+ 	reg = readl(regs_base + EXYNOS850_DRD_LINKCTRL);
+-	reg |= LINKCTRL_BUS_FILTER_BYPASS(0xf);
++	reg |= FIELD_PREP_CONST(LINKCTRL_BUS_FILTER_BYPASS, 0xf);
+ 	writel(reg, regs_base + EXYNOS850_DRD_LINKCTRL);
+ 
+ 	if (!phy_drd->sw) {
+@@ -1151,19 +1154,19 @@ static void exynos850_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
+ 	reg &= ~SSPPLLCTL_FSEL;
+ 	switch (phy_drd->extrefclk) {
+ 	case EXYNOS5_FSEL_50MHZ:
+-		reg |= FIELD_PREP(SSPPLLCTL_FSEL, 7);
++		reg |= FIELD_PREP_CONST(SSPPLLCTL_FSEL, 7);
+ 		break;
+ 	case EXYNOS5_FSEL_26MHZ:
+-		reg |= FIELD_PREP(SSPPLLCTL_FSEL, 6);
++		reg |= FIELD_PREP_CONST(SSPPLLCTL_FSEL, 6);
+ 		break;
+ 	case EXYNOS5_FSEL_24MHZ:
+-		reg |= FIELD_PREP(SSPPLLCTL_FSEL, 2);
++		reg |= FIELD_PREP_CONST(SSPPLLCTL_FSEL, 2);
+ 		break;
+ 	case EXYNOS5_FSEL_20MHZ:
+-		reg |= FIELD_PREP(SSPPLLCTL_FSEL, 1);
++		reg |= FIELD_PREP_CONST(SSPPLLCTL_FSEL, 1);
+ 		break;
+ 	case EXYNOS5_FSEL_19MHZ2:
+-		reg |= FIELD_PREP(SSPPLLCTL_FSEL, 0);
++		reg |= FIELD_PREP_CONST(SSPPLLCTL_FSEL, 0);
+ 		break;
+ 	default:
+ 		dev_warn(phy_drd->dev, "unsupported ref clk: %#.2x\n",
+
+-- 
+2.48.1
+
 
