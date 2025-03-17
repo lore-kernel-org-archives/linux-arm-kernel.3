@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02830C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EEFFC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nSSLB3r5L5l2WHm3T8V1rB+aRqL74ziqrn6q0GpxVUg=; b=mvsIKdCnq/J2tYIsCYRxN+al1h
-	g0OtVY51boModr1yFpRZR4WUhOavQ7jj+Nu5b+gdb2NYfdkmlF60NuwsPUd8IykxlwR/1Q+Dl6RxM
-	I548jt9uOF2aHHFGFlNvyO5ViOyfmvnhDxdRpQ6L70D5WrM8bEjhrG99oqUOzBYDi91qO9medDyPb
-	y2LBIrxa5M/CgW4gwEYAwMSWsq/aBMjv+N/TCsjLZ2yeSeIolJyvxyyArHOk4n2CuZM6FOiMu8WEQ
-	ZivWETKV15gnroafLucemHhMK1IwTtuu9CBe20idvA8M4tDBxfrpqEDwg64zizCYWQ3xUdbN/A4Oc
-	MyzFx0Gw==;
+	bh=IN/XIQOFZsaQsG3NlzPEec8MNAZUwyS8e5k9emm1aR4=; b=WvqoyCxY62i1ZoSRVsZpbdzXkY
+	2bELSH13xbxgFVZBni9Z5pR7A7wVYy7tYbm9nlaiRiuE9hecEiSsBZ1eCz49nJWGo71YyoWQrTt+A
+	pgGoj6pYezNUGsf5ewYgfdxX0edh2b76BU+Cik8L43dQ55BR6BPQ6UF1WAxq2DJA/blVraRK1UKG/
+	EopOJPY9kwzRYiR/3AQt5Yxvm+QLLfy7YZn2NyY6HhFmFsSAN1158ZMLmSZSrbVuBym9liZzjM8y/
+	SAvYNvniQuVuvnFTwLCd/D4MWuem2zaTHi8dWyFr+QZRrrh0bPSZrVCiz7Ajgc+gKoX7u9Cgi/p7w
+	ntTraDWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuB8p-00000002rDI-41Of;
-	Mon, 17 Mar 2025 14:08:31 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tuB8s-00000002rI9-31j6;
+	Mon, 17 Mar 2025 14:08:34 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuArn-00000002o3f-11Ob;
-	Mon, 17 Mar 2025 13:50:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1742219443; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GafCc7Fxa1MfqQ0lEIoNsL/wwfdl1CVrTuLWlcGqoOgQ/IX87ZYfIU5BmrOxX0RsbX0UYSecVLEzikctmN6CAyxFstpadnKqtkj2YFvNRPfTTfYniHvbEISCyk2QE9wr0pEtZyDSwwdrqAty49EmfiQ5s50iFhDtqmRSyaj3zcE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1742219443; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=nSSLB3r5L5l2WHm3T8V1rB+aRqL74ziqrn6q0GpxVUg=; 
-	b=a/Y0at7ri8bNnLKTSGUK29UxEURiMk44rRiPMqV1uPF3DcowRMPPFAU985Hb8sgmYvvtLZDtGQwDePUzQR64N4wnGlIRdUUYcNgNMjbTtJvStKp0j3bEIzIr297yk60cZBVvgesLQojXYbzSvtawgxar0btoSpz0OA97fWEC5JU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742219443;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=nSSLB3r5L5l2WHm3T8V1rB+aRqL74ziqrn6q0GpxVUg=;
-	b=Qncnz0Zmr0rteXTB+aGTV/Un/ZgMLOFdqq+JAGo4HZqWQBjgg2Wous5e2MomILcg
-	vOXK3u0mVtfOX6LJ0qKy+RT4610lK1JrfZfS8HA76T2d0kVKRfssrkKlllSbQYNXCLZ
-	CTCnP2JFZOXxq83S0hgJCb6I+rYO+hptyw2Y5Dxk=
-Received: by mx.zohomail.com with SMTPS id 1742219442290840.7508153932768;
-	Mon, 17 Mar 2025 06:50:42 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 17 Mar 2025 14:49:31 +0100
-Subject: [PATCH v4 6/7] arm64: dts: rockchip: Add thermal trim OTP and
- tsadc nodes
+	id 1tuAug-00000002oea-1Yt6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 13:53:56 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id D3721A048F;
+	Mon, 17 Mar 2025 14:53:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=IN/XIQOFZsaQsG3NlzPE
+	ec8MNAZUwyS8e5k9emm1aR4=; b=r17N6AqkH2nrl776BcAgkfoOBfNYNWpMJyRT
+	tfm0nmskGT4MHAC6D7MpzCAQ6X1CEwHSOB25ZdyUs7XbHep22QON+HNzM+o7FRrD
+	f612rrVAcssZOrRHN7RTdLUna/Y/5zmGBZTs+EVgeuQD/knXpcerKcCWTWil9iiv
+	5qE7Hv8Q5R5tC+5d+scWEhRybWzLJogERi9OYZUqUv43rzcsadbpR3yytY0Rvehe
+	pTLsLS7dG7dUO/hhstcpq2VUffEvGikT7NG4QCL2ipWrfJUXK2A+HtL8/t7C/2BX
+	P8C5kNL0TCnIiL5xC79goz5unnYwctZmwwBiJwwOoDdu0s5QZh89CRzG7pdMSZGi
+	CcHSWgfSRwKIjxJtkSZeo9isIGhWnZqlN+pJ8a4o91tZLBGgJpyLe6QU4hu5mfep
+	W0WOn+U1g53KRHONKJQWJkotHbWWevRfxjvXMF8rm5pIubj2qCyHuRGYbnOUJa60
+	jUYkImHbHLZqR13zxshALb7gkOolehqbijBmFWurMNiX9NyBWn9s5qP5iivDVH9n
+	kEAGv74OOEOfZOqQ7BixsUDO06n6kqXhD5Yo33gfnj+x2/Wio56zjnBYhtTgg0yf
+	AaJXhhUfZCDp0+UzVeL7IxLj7R4EbW2AClT/Y0BVddMr567WVcNxsArdJ6Yp9ybt
+	4/RMeM4=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Mark Brown
+	<broonie@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, "Alexandre
+ Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+Subject: [PATCH v4 2/2] spi: atmel-quadspi: Use `devm_dma_request_chan()`
+Date: Mon, 17 Mar 2025 14:53:38 +0100
+Message-ID: <20250317135340.382532-3-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250317135340.382532-1-csokas.bence@prolan.hu>
+References: <20250317135340.382532-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250317-rk3576-tsadc-upstream-v4-6-c5029ce55d74@collabora.com>
-References: <20250317-rk3576-tsadc-upstream-v4-0-c5029ce55d74@collabora.com>
-In-Reply-To: <20250317-rk3576-tsadc-upstream-v4-0-c5029ce55d74@collabora.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Jonas Karlman <jonas@kwiboo.se>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
- kernel@collabora.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1742219632;VERSION=7985;MC=3462887496;ID=155900;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD948526D7460
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_065055_333988_CE46D156 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_065354_873273_54DA87CF 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,94 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks to Heiko's work getting OTP working on the RK3576, we can specify
-the thermal sensor trim values which are stored there now, and with my
-driver addition to rockchip_thermal, we can make use of these.
+Leave releasing of DMA channels up to the devm facilities. This way we can
+eliminate the rest of the "goto ladder".
 
-Add them to the devicetree for the SoC.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 57 ++++++++++++++++++++++++++++++++
- 1 file changed, 57 insertions(+)
+ drivers/spi/atmel-quadspi.c | 44 ++++++++++---------------------------
+ 1 file changed, 11 insertions(+), 33 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 250dca23ff4fc1ab3bd47366829c5dd1738057fe..6adfa0bfbe9e7ee03f4f516ff91b5c67e5c8346d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1600,6 +1600,30 @@ gpu_leakage: gpu-leakage@21 {
- 			log_leakage: log-leakage@22 {
- 				reg = <0x22 0x1>;
- 			};
-+			bigcore_tsadc_trim: bigcore-tsadc-trim@24 {
-+				reg = <0x24 0x2>;
-+				bits = <0 10>;
-+			};
-+			litcore_tsadc_trim: litcore-tsadc-trim@26 {
-+				reg = <0x26 0x2>;
-+				bits = <0 10>;
-+			};
-+			ddr_tsadc_trim: ddr-tsadc-trim@28 {
-+				reg = <0x28 0x2>;
-+				bits = <0 10>;
-+			};
-+			npu_tsadc_trim: npu-tsadc-trim@2a {
-+				reg = <0x2a 0x2>;
-+				bits = <0 10>;
-+			};
-+			gpu_tsadc_trim: gpu-tsadc-trim@2c {
-+				reg = <0x2c 0x2>;
-+				bits = <0 10>;
-+			};
-+			soc_tsadc_trim: soc-tsadc-trim@64 {
-+				reg = <0x64 0x2>;
-+				bits = <0 10>;
-+			};
- 		};
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index ddd12600a6f1..8a950a20b58a 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -1288,18 +1288,20 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 	struct atmel_qspi *aq = spi_controller_get_devdata(ctrl);
+ 	int ret;
  
- 		gic: interrupt-controller@2a701000 {
-@@ -2011,6 +2035,39 @@ tsadc: tsadc@2ae70000 {
- 			rockchip,hw-tshut-temp = <120000>;
- 			rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
- 			rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
-+			#address-cells = <1>;
-+			#size-cells = <0>;
+-	aq->rx_chan = dma_request_chan(&aq->pdev->dev, "rx");
++	aq->rx_chan = devm_dma_request_chan(&aq->pdev->dev, "rx");
+ 	if (IS_ERR(aq->rx_chan)) {
+ 		aq->rx_chan = NULL;
+ 		return dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->rx_chan),
+ 				     "RX DMA channel is not available\n");
+ 	}
+ 
+-	aq->tx_chan = dma_request_chan(&aq->pdev->dev, "tx");
++	aq->tx_chan = devm_dma_request_chan(&aq->pdev->dev, "tx");
+ 	if (IS_ERR(aq->tx_chan)) {
+ 		ret = dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->tx_chan),
+ 				    "TX DMA channel is not available\n");
+-		goto release_rx_chan;
++		aq->rx_chan = NULL;
++		aq->tx_chan = NULL;
++		return ret;
+ 	}
+ 
+ 	ctrl->dma_rx = aq->rx_chan;
+@@ -1310,20 +1312,6 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 		 dma_chan_name(aq->tx_chan), dma_chan_name(aq->rx_chan));
+ 
+ 	return 0;
+-
+-release_rx_chan:
+-	dma_release_channel(aq->rx_chan);
+-	aq->rx_chan = NULL;
+-	aq->tx_chan = NULL;
+-	return ret;
+-}
+-
+-static void atmel_qspi_dma_release(struct atmel_qspi *aq)
+-{
+-	if (aq->rx_chan)
+-		dma_release_channel(aq->rx_chan);
+-	if (aq->tx_chan)
+-		dma_release_channel(aq->tx_chan);
+ }
+ 
+ static const struct atmel_qspi_ops atmel_qspi_ops = {
+@@ -1428,14 +1416,13 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	/* Request the IRQ */
+ 	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0) {
+-		err = irq;
+-		goto dma_release;
+-	}
++	if (irq < 0)
++		return irq;
 +
-+			sensor@0 {
-+				reg = <0>;
-+				nvmem-cells = <&soc_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@1 {
-+				reg = <1>;
-+				nvmem-cells = <&bigcore_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@2 {
-+				reg = <2>;
-+				nvmem-cells = <&litcore_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@3 {
-+				reg = <3>;
-+				nvmem-cells = <&ddr_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@4 {
-+				reg = <4>;
-+				nvmem-cells = <&npu_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@5 {
-+				reg = <5>;
-+				nvmem-cells = <&gpu_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
- 		};
+ 	err = devm_request_irq(&pdev->dev, irq, atmel_qspi_interrupt,
+ 			       0, dev_name(&pdev->dev), aq);
+ 	if (err)
+-		goto dma_release;
++		return err;
  
- 		i2c9: i2c@2ae80000 {
-
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+@@ -1445,22 +1432,16 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	err = atmel_qspi_init(aq);
+ 	if (err)
+-		goto dma_release;
++		return err;
+ 
+ 	err = spi_register_controller(ctrl);
+ 	if (err)
+-		goto dma_release;
++		return err;
+ 
+ 	pm_runtime_mark_last_busy(&pdev->dev);
+ 	pm_runtime_put_autosuspend(&pdev->dev);
+ 
+ 	return 0;
+-
+-dma_release:
+-	if (aq->caps->has_dma)
+-		atmel_qspi_dma_release(aq);
+-
+-	return err;
+ }
+ 
+ static int atmel_qspi_sama7g5_suspend(struct atmel_qspi *aq)
+@@ -1510,9 +1491,6 @@ static void atmel_qspi_remove(struct platform_device *pdev)
+ 
+ 	ret = pm_runtime_get_sync(&pdev->dev);
+ 	if (ret >= 0) {
+-		if (aq->caps->has_dma)
+-			atmel_qspi_dma_release(aq);
+-
+ 		if (aq->caps->has_gclk) {
+ 			ret = atmel_qspi_sama7g5_suspend(aq);
+ 			if (ret)
 -- 
 2.48.1
+
 
 
