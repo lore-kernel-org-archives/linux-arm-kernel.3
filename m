@@ -4,94 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CDCC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E099C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vk8FOGphjAtBrbDVk0JfE+k0FaInbVBLe1YsUYKxuMQ=; b=Dt/pcX8mwn9CzM+/2jEv5PfC8c
-	YKrBR2tYD/+FUv1w357YLWOrkEdW8XJ8aBZnGFnHkIxr6Cj/Oo8PKflFnH8EOGXbODdH35X/N7jrs
-	hl0Q2GMJZElcXXhCAQU1Rra7/qf9sNgr6vNyCcRNlkQ96nAPyNM/OvReeUPBo+EXV9eOsU79chDYq
-	GulnIA5UMC99s4UAw9CAhhcG/6l/1uV6p0bd1lJkhOIBbNtsEBGFuoUQ5PMlMKreBJ1i3Xjs+4xH+
-	7rev84rWDhCrzBx/AKOg4bzALQX30AZ6AT9uvdRF7H3uWM2wB3SJgnOOltNlRLwxWxWAazlA78dFG
-	EDvz8FBQ==;
+	bh=6wLAwvtqG1ryj7tG4a1beOb/Rm7+CH+QpG7mQMG+2+w=; b=eNYqnFh1/UdUBmJbv9HIKEdHtO
+	u/XqKvqF82URunCYVTTAe2+sRTbYboAxccj0kKjB+mtN/FFofiTzM4A+Om2EDaTVM7VRIgQfD6Omc
+	XaQn5YvsBH9Xa7AKXSjmHK/WsE/Uob0Uq6ZehRQsErbDNZMz92c7535xo8ajJF18srqtZBuncyskO
+	i6iCJoJWytiRRZkbAG4KhY4B7UNEvi0isBjQ/GD36/hCGdaG/skGk45LvhHiATNelTTLXOzY9rtVv
+	6Rl0SNNdPBXJe1VnYMg5Ul//5L/SjEVQ5jYJFL0RpYiTvD52KnyCUjGEDEbzzrMFeIBy47JkRKubM
+	kDGlXiPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5CB-00000001dNW-1Eb8;
-	Mon, 17 Mar 2025 07:47:35 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tu5Dp-00000001dkE-1aI8;
+	Mon, 17 Mar 2025 07:49:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5A8-00000001cuq-04Tk
+	id 1tu5Ah-00000001d3Y-3SQ5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 07:45:29 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4394345e4d5so12277655e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 00:45:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742197526; x=1742802326; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vk8FOGphjAtBrbDVk0JfE+k0FaInbVBLe1YsUYKxuMQ=;
-        b=lo6C2f5ailWtWx1j+huqb1bNuunpVIrWlZptAnyMw3sY8IBCKE9NytTCQTmz4q+1ga
-         AoMLUXKr8Rh1lHHki9Ojf+NLLD//BxAE7QTfXQznTnnOuSpQvW3DraJVS658TO6JPi4+
-         uHhMW0mLn/YgmEWlCA7QWV7EwDkF56/Qrypx5H82baEacj2GIIbzbMXWgOJHw+DW8Dg1
-         Aagk1wFc4hwmM33yKEawDrgRBTJjYURpjKUmOksXuMulo0cTRAfA/pLvn50D0HvX1BMQ
-         YP/orqD1oUUvqsZ3kyZHTAJNIOeMp1265EIdci2NFTbd9UUnmC/L7s1KtEsITBGqhpTK
-         y2nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742197526; x=1742802326;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vk8FOGphjAtBrbDVk0JfE+k0FaInbVBLe1YsUYKxuMQ=;
-        b=UhXxaGIvwp05LE32vQGPLeCnK+MEn/XbQcLiNc3x27mk759V6DI6Ks8UH2gKZyedBH
-         vGZ5fsROqqJ/lyvV/Po/aEuLxOE7HchRRygldVf25ItCk5mLiC9hZ5ClHC70H2q7PLgu
-         2dGr2JXOM0vk2S0BxEyPAsMxVMe+ZsIqpHar2ZflvzmBM5JTnlOpBHnUzLEJ8dwf15cB
-         ohdeCW0Y4Niuz2/8Qtmn8ZAjNFveIGxcOQ7eGWdJKhiKP/jC9tOJo9lOxLpJUXQWjrGV
-         HFcu5vGw7WdLGU6OMOTAGMzcUP4anS7YCjLR3rcodPhTkywRXPszUL8/1u413l+J/ldd
-         E4mw==
-X-Forwarded-Encrypted: i=1; AJvYcCU/zBSgylHefIPMZkhJ/EYUwaCbaXGpYpsQUpXbsWO/85ka6kXkWW2ZyVnALlffqWHSZkUza7Ibs+a/4BpoE8x9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/Pc6GGb1gjn/8nIor5ZpiaXott0chmbUgArNrD0KPRnYP3ia4
-	IFSfJbGryiTEqbO4SEdwgjQ+q4nlsnVBuKuan3CF4d7h7+IcK2Vs05E9a46+roo=
-X-Gm-Gg: ASbGncty5x3Ye+hSHaqwBOPHJjETkb318zjj/2BE4fGxm5+DI/nrMm70DuztI+gY5EX
-	IRsPdwDRqswNiY0WriB4wLnihwcqt5zRdqbDs1S+Aiqss1a/9YhiPuBtI+rv9l1u0gox7V0+HQK
-	tHMPEjcJjGpboC7tv1BfG7hnQuNuFhjiJ5dDux4tVZY8bcSfKkyasT9g5dIg+3agZXfakevQBut
-	CWYAcsW3CxfSWmn+/kXsct7rf9XuMd3WtLvI96ijpUhz0nc54ukbR70gc2xCf3SAbarA1XYZNwQ
-	mvYOaSI1FrlzgUKjCW6OEW5f9cGjjKjUTh6hK94+eRRtVvWinGBpWa9wEeSzXC4ZPg==
-X-Google-Smtp-Source: AGHT+IG6OwIB09eeL1gfs5VuJzC5+gQBxu1FXFMWxkoy1MNMXoRRCuRseYNCRtOrnhIHeZxIA4bArA==
-X-Received: by 2002:a5d:598d:0:b0:391:3988:1c7c with SMTP id ffacd0b85a97d-3971ddd6086mr12870277f8f.24.1742197526437;
-        Mon, 17 Mar 2025 00:45:26 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c7df33aasm13884756f8f.2.2025.03.17.00.45.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 00:45:26 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <20250311-irqchip-gpio-a4-a5-v5-0-ca4cc276c18c@amlogic.com>
-References: <20250311-irqchip-gpio-a4-a5-v5-0-ca4cc276c18c@amlogic.com>
-Subject: Re: (subset) [PATCH v5 0/4] Add GPIO interrupt support for Amlogic
- A4 and A5 SoCs
-Message-Id: <174219752573.3092000.16919170480596322661.b4-ty@linaro.org>
-Date: Mon, 17 Mar 2025 08:45:25 +0100
+	Mon, 17 Mar 2025 07:46:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 22FE45C49A0;
+	Mon, 17 Mar 2025 07:43:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6047AC4CEE3;
+	Mon, 17 Mar 2025 07:45:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742197562;
+	bh=E/ATrqhvoWqVxOEgCo2VlQn8yYVwmdA17L8rJAlpqMw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qx2MvfYYWHOs0TXdinCtDhi37zof6hhV3lFSxgPcUlocrfn+giHOs9PqW4yvNN3CV
+	 MRSLPiMQIX+aLR/gZ2gDc+PkJW08Kcq7OUwovxWC33aFFqW/9UWgGINPZhpCTUn9lQ
+	 7TGWz/DFTvMuS61nKPHLCNdRjI4qBXtzCqY6hs9bomZnR9gX6wLOv0ltlGneIZgf39
+	 JzMj4Bouav1y4Ih533LZnRitFgWO2jwRo18DbzWdSDvFVyfc921z8aB0zMYbkzXAXb
+	 0nientZciDzfEyqxzY5N4h7oXIOINfre26il5FJfbogXpHDfDkOlTpa3g20lOo/48W
+	 pyNoQfJTFIMcw==
+Message-ID: <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
+Date: Mon, 17 Mar 2025 08:45:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+ AST2600-i2cv2
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
+ <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
+ <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
+ <OS8PR06MB75415E95342F26F576B5CF8AF2C22@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <50327725-f3b8-4a8b-94a2-85afccd2868a@kernel.org>
+ <OS8PR06MB7541B0DBC64B3EF6838DFE74F2CD2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
+ <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_004528_086719_C98ACA5E 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250317_004604_000716_F9D6A153 
+X-CRM114-Status: GOOD (  32.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,42 +137,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, 11 Mar 2025 11:08:26 +0800, Xianwei Zhao wrote:
-> This patch adds GPIO interrupt support for Amlogic A4 and A5 SoCs
+On 05/03/2025 10:35, Ryan Chen wrote:
+>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+>> AST2600-i2cv2
+>>
+>> On 27/02/2025 09:19, Ryan Chen wrote:
+>>>>
+>>>>
+>>>>> aspeed,enable-byte:
+>>>>> Force i2c controller use byte mode transfer. the byte mode transfer
+>>>>> will send i2c data each byte by byte, inlcude address read/write.
+>>>>
+>>>> Isn't this standard FIFO mode?
+>>> Yes, it is.
+>>>>
+>>>> Why anyone would need to enable byte mode for given board?
+>>> By default, it is buffer-mode, for performance, I don't want user enable
+>> byte-mode, it will increase CPU utilize.
+>>> But someone want to be force enable byte-mode, so I add properties.
+>>> https://patchwork.ozlabs.org/project/linux-aspeed/patch/20241007035235
+>>> .2254138-3-ryan_chen@aspeedtech.com/
+>>
+>>
+>> I don't see the reason why this would be a board property.
+>>
+>> I understood need for DMA because it is shared and only some of the
+>> controllers can use it. But why choice between buffer and FIFO depending on
+>> hardware?
 > 
+> By default, the I2C controller runs in buffer mode. Each i2c bus have 16bytes buffer to transmit data.
+> Enabling byte mode will increases CPU utilization, so it is not recommended. 
+> However, some user might require forcing byte mode, so I added this property to allow that.
+
+
+You are not answering the question. I asked why the choice depends on
+hardware and you answer "user might required".
+
+Do you understand that this is about hardware, not user choices?
+
+
+>>
+>>
+>>>>
+>>>>>
+>>>>>>
+>>>>>>> +      may require a DTS to manually allocate which controller can
+>>>>>>> + use
+>>>>>> DMA mode.
+>>>>>>> +      The "aspeed,enable-dma" property allows control of this.
+>>>>>>> +
+>>>>>>> +      In cases where one the hardware design results in a specific
+>>>>>>> +      controller handling a larger amount of data, a DTS would likely
+>>>>>>> +      enable DMA mode for that one controller.
+>>>>>>> +
+>>>>>>> +  aspeed,enable-byte:
+>>>>>>> +    type: boolean
+>>>>>>> +    description: |
+>>>>>>> +      I2C bus enable byte mode transfer.
+>>>>>>
+>>>>>> No, either this is expressed as lack of dma mode property or if you
+>>>>>> have three modes, then rather some enum (aspeed,transfer-mode ?)
+>>>>>
+>>>>> Thanks suggestion, I will using an enum property like
+>>>>> aspeed,transfer-mode
+>>>> instead.
+>>>>>>
+>>>>>>
+>>>>>>
+>>>>>>> +
+>>>>>>> +  aspeed,global-regs:
+>>>>>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>>>>>> +    description: The phandle of i2c global register node.
+>>>>>>
+>>>>>> For what? Same question as usual: do not repeat property name, but
+>>>>>> say what is this used for and what exactly it points to.
+>>>>>>
+>>>>>> s/i2c/I2C/ but then what is "I2C global register node"? This is how
+>>>>>> you call your device in datasheet?
+>>>>>>
+>>>>> I do descript in cover, should add into the yaml file ?
+>>>>
+>>>>
+>>>> Again, cover letter does not matter. Your hardware must be explained here.
+>>> Will add into commit.
+>>>>
+>>>>>
+>>>>> aspeed,global-regs:
+>>>>> This global register is needed, global register is setting for new
+>>>>> clock divide control, and new register set control.
+>>>>
+>>>> So this means you implement clock controller via syscon?
+>>> No, it is just mode switch. It also explain in cover. I will add it in commit.
+>>> The legacy register layout is mix controller/target register control together.
+>> The following is add more detail description about new register layout. And
+>> new feature set add for register.
+>>>>
+>>>>>
+>>>>>>
+>>>>>>> +
+>>>>>>>  required:
+>>>>>>>    - reg
+>>>>>>>    - compatible
+>>>>>>>    - clocks
+>>>>>>>    - resets
+>>>>>>>
+>>>>>>> +allOf:
+>>>>>>> +  - $ref: /schemas/i2c/i2c-controller.yaml#
+>>>>>>> +  - if:
+>>>>>>> +      properties:
+>>>>>>> +        compatible:
+>>>>>>> +          contains:
+>>>>>>> +            const: aspeed,ast2600-i2cv2
+>>>>>>
+>>>>>> NAK, undocumented compatible.
+>>>>>
+>>>>> Sorry, I should add what kind of document about this compatible?
+>>>>
+>>>> You cannot add new compatibles without documenting them.
+>>>> Documentation is in the form of DT schema and each compatible must be
+>>>> listed (in some
+>>>> way) in compatible property description.
+>>>
+>>> Sorry, do you mean, I add following in yaml or commit message?
+>>
+>> You need to list this in compatibles first.
 > 
+> I will add it in compatible in next submit.
+> 
+> 	enum:
+> 		-aspeed,ast2600-i2cv2
+>>
+>>>
+>>> This series add AST2600 i2cv2 new register set driver. The i2cv2 driver is new
+>> register set that have new clock divider option for more flexiable generation.
+>> And also have separate i2c controller and target register set for control, patch
+>> #2 is i2c controller driver only, patch #3 is add i2c target mode driver.
+>>
+>> All this describes driver, not hardware.
+> 
+> Sorry, the cover letter description the register. I will add int in commit message.
+> 
+> -Add new clock divider option for more flexible and accurate clock rate
+> generation -Add tCKHighMin timing to guarantee SCL high pulse width.
+> -Add support dual pool buffer mode, split 32 bytes pool buffer of each
+> device into 2 x 16 bytes for Tx and Rx individually.
+> -Increase DMA buffer size to 4096 bytes and support byte alignment.
+> -Re-define the base address of BUS1 ~ BUS16 and Pool buffer.
+> -Re-define registers for separating controller and target mode control.
+> -Support 4 individual DMA buffers for controller Tx and Rx,
+> target Tx and Rx.
+> 
+> And following is new register set for package transfer sequence.
+> -New Master operation mode:
+>  S -> Aw -> P
+>  S -> Aw -> TxD -> P
+>  S -> Ar -> RxD -> P
+>  S -> Aw -> RxD -> Sr -> Ar -> TxD -> P
+> -Bus SDA lock auto-release capability for new controller DMA command mode.
+> -Bus auto timeout for new controller/target DMA mode.
+> 
+> The following is two versus register layout.
+> Old:
+> {I2CD00}: Function Control Register
+> {I2CD04}: Clock and AC Timing Control Register
+> {I2CD08}: Clock and AC Timing Control Register
+> {I2CD0C}: Interrupt Control Register
+> {I2CD10}: Interrupt Status Register
+> {I2CD14}: Command/Status Register
+> {I2CD18}: Slave Device Address Register
+> {I2CD1C}: Pool Buffer Control Register
+> {I2CD20}: Transmit/Receive Byte Buffer Register
+> {I2CD24}: DMA Mode Buffer Address Register
+> {I2CD28}: DMA Transfer Length Register
+> {I2CD2C}: Original DMA Mode Buffer Address Setting
+> {I2CD30}: Original DMA Transfer Length Setting and Final Status
+> 
+> New Register mode
+> {I2CC00}: Master/Slave Function Control Register
+> {I2CC04}: Master/Slave Clock and AC Timing Control Register
+> {I2CC08}: Master/Slave Transmit/Receive Byte Buffer Register
+> {I2CC0C}: Master/Slave Pool Buffer Control Register
+> {I2CM10}: Master Interrupt Control Register
+> {I2CM14}: Master Interrupt Status Register
+> {I2CM18}: Master Command/Status Register
+> {I2CM1C}: Master DMA Buffer Length Register
+> {I2CS20}: Slave~ Interrupt Control Register
+> {I2CS24}: Slave~ Interrupt Status Register
+> {I2CS28}: Slave~ Command/Status Register
+> {I2CS2C}: Slave~ DMA Buffer Length Register
+> {I2CM30}: Master DMA Mode Tx Buffer Base Address
+> {I2CM34}: Master DMA Mode Rx Buffer Base Address
+> {I2CS38}: Slave~ DMA Mode Tx Buffer Base Address
+> {I2CS3C}: Slave~ DMA Mode Rx Buffer Base Address
+> {I2CS40}: Slave Device Address Register
+> {I2CM48}: Master DMA Length Status Register
+> {I2CS4C}: Slave  DMA Length Status Register
+> {I2CC50}: Current DMA Operating Address Status
+> {I2CC54}: Current DMA Operating Length  Status
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.15/arm64-dt)
+I don't understand anything from that and how is this relevant to our
+discussion.
 
-[3/4] arm64: dts: Add gpio_intc node for Amlogic A4 SoCs
-      https://git.kernel.org/amlogic/c/31c6bc1948b5a0a0d7679cf948351156608ec148
-[4/4] arm64: dts: Add gpio_intc node for Amlogic A5 SoCs
-      https://git.kernel.org/amlogic/c/454e0353b226a47f3c3369b17c7a4893f74e29cd
+> 
+>>
+>>>
+>>> The legacy register layout is mix controller/target register control together.
+>> The following is add more detail description about new register layout. And
+>> new feature set add for register.
+>>>
+>>> -Add new clock divider option for more flexible and accurate clock rate
+>> generation -Add tCKHighMin timing to guarantee SCL high pulse width.
+>>> -Add support dual pool buffer mode, split 32 bytes pool buffer of each device
+>> into 2 x 16 bytes for Tx and Rx individually.
+>>> -Increase DMA buffer size to 4096 bytes and support byte alignment.
+>>> -Re-define the base address of BUS1 ~ BUS16 and Pool buffer.
+>>> -Re-define registers for separating controller and target mode control.
+>>> -Support 4 individual DMA buffers for controller Tx and Rx, target Tx and Rx.
+>>
+>> Does it mean hardware changed on AST2600? 
+> No Hw change, it is different mode setting will have another mode register setting.
+> Mode setting is in global register, I will add in next commit message
 
-These changes has been applied on the intermediate git tree [1].
+Neither this.
 
-The v6.15/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
+So it seems you describe already existing and documented I2C, but for
+some reason you want second compatible. The problem is that you do not
+provide reason from the point of view of bindings.
 
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
+To summarize: what your users want - don't care. Start properly
+describing hardware and your SoC.
 
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
 
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
+> 
+> I2CG00: Device Master Mode Interrupt Status Register (I2CG0C[3]=1)
+> I2CG00: Device Master/Slave Mode Interrupt Status Register (I2CG0C[3]=0)
+> I2CG04: Device Slave Mode Interrupt Status Register
+> I2CG0C: Global Control Register
+> I2CG10: New Clock Divider Control Register (I2CG0C[1] = 1)
+> 
+>> Or these are different devices
+>> than aspeed,ast2600-i2c-bus? If this is not a different device, how one SoC can
+>> have two different flavors of same device in the same instance?
+> 
+> When global setting for new, will new register mapping, no setting will keep old register mapping.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
--- 
-Neil
+I cannot parse this.
 
+
+Best regards,
+Krzysztof
 
