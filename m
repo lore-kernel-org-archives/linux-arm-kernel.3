@@ -4,61 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7D0C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 13:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D77CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 13:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQDJSZlvsPxdtXrcfxhzYY3pnuTPlN7iObJIZ09ja6k=; b=AHVIOtGpDzgisYbl90U0CPSir+
-	2rUP/AEDjqk0Fj0SQy3BEHbEiX9pAuVgKIgJP3GETIwPL22Ho1LBIG+/mB53OO5BGhTLaEXRDy7J+
-	vruRAzsLm1eveIO0fgCqjz2zEGgbh9jREqSF2fvTh1pd6o4UryF81KTaeVcB1Dj6aF2HdBZhPoWSy
-	vjDeE4A0WbKqClkIe2G24ru45SHWsMvgY2M76gY69NaLx+BmJb1tJGP69EeJttjk+Tid6tjz7td9E
-	+wT29fwMvy9BcadtsoY62hDHcuUNtzutPOn0aBXqn7iudYLGG012y4Mtg4+e+3G3c/n6AgSzSN1jP
-	RIp/YjJw==;
+	bh=WF2KYbTKqz0q8RJ+p4kgLxi93q4uc92cOyU0JXspdQ8=; b=5DpIkgM4AMWEtDZo6R1vHM6r2i
+	SOzerQxj1Mc5UF1XTylkAxuu09TT+wZ12UYSnm2IDiueJhwIr2mBaVH8cdTEXLrAmKfQcfTt6wxUw
+	+fibm09j9evMPr4b5aS8FB86wacLPdbLpOcyRH3M8M6Y9FY0ZXl+lA2TrA7XLzfPBs1bQb0wcDdE8
+	3bM9JXs/BzvUWjGZc/2Ul1ROcNUKmRWF8fh1Y2PMeYuOAR1Q1phRqMKVV9U3KGsOP5gF13L1Gbm28
+	y1kOXsI3S7rlZgZO8Ym7oaKFcq454yvLp4S3kjIbdt/Zz4ofGKwZnT4470kzu7YZW9v3AFWsMn0iu
+	PtUuXczA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuAAJ-00000002fpl-1q9E;
-	Mon, 17 Mar 2025 13:05:59 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tuABy-00000002gBR-15ja;
+	Mon, 17 Mar 2025 13:07:42 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuA8c-00000002fTq-1C35
+	id 1tuA8i-00000002fVu-48io
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 13:04:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=QQDJSZlvsPxdtXrcfxhzYY3pnuTPlN7iObJIZ09ja6k=; b=lYp3UZUYsynZHh9SB8+AUqn7QV
-	AyCwpZ8gMkzuLmEHDZlx0CX1cJWd/yocolMKVYsRv55tey9MEQwUSpi36y3RIBZAPtPPkU3wUiSOx
-	ef+YKgM+xnNz05PyqngL0J8pWFoe17d+g4PUZE99fHXCZppS+aSBCwmUiLyNxV/j14aY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tuA8M-0068KE-SL; Mon, 17 Mar 2025 14:03:58 +0100
-Date: Mon, 17 Mar 2025 14:03:58 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
-	andrew@codeconstruct.com.au, ratbert@faraday-tech.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, BMC-SW@aspeedtech.com
-Subject: Re: [net-next 4/4] net: ftgmac100: add RGMII delay for AST2600
-Message-ID: <dc7296b2-e7aa-4cc3-9aa7-44e97ec50fc3@lunn.ch>
-References: <20250317025922.1526937-1-jacky_chou@aspeedtech.com>
- <20250317025922.1526937-5-jacky_chou@aspeedtech.com>
+	Mon, 17 Mar 2025 13:04:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742216662; x=1773752662;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=avWQm9+Lsd7mcdmmO95x7pXu+JK1GASjUd85GeEepD8=;
+  b=idFCwUGv7eWfK0SAh2tTtVmpediCLdj0h3JY+uj0VMrQGshgorRiGjTG
+   xfA7PVz2GU+dR2DgwVagJt88VLR90GkWWE0FwRQK7InaGSF5o7ITQS21n
+   R2Nxg3usEu86+MYypoAhod8VUW8+slTlZYAF5S+LJq78FRrs41Vysv4zC
+   +IFEcx5Y5HlfeRZiVd320BlKcyxCx09CFwWtWuXy33V8OTrrFE7/a4VOh
+   oDVmqxXi/+5tRGkwUzISMsoE7IgOLHa06BxN00kQQF0uYfE0q1SgtlZLB
+   lvA2D/QrYtZqvr26zafHA/2SWEiOkrBkRPv1BsBChOBA9tS/aKV8N0hok
+   A==;
+X-CSE-ConnectionGUID: dp9Z4rdOQD6K9Ob3GsDUHw==
+X-CSE-MsgGUID: fjTgleO/S3qelq5IIUMlRA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11376"; a="54305063"
+X-IronPort-AV: E=Sophos;i="6.14,254,1736841600"; 
+   d="scan'208";a="54305063"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 06:04:21 -0700
+X-CSE-ConnectionGUID: bbt9VKehS+WokJ9mNWpTwA==
+X-CSE-MsgGUID: eOV9Vg5bQQCyL3Ssi9Q+IA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,254,1736841600"; 
+   d="scan'208";a="127019800"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by fmviesa004.fm.intel.com with ESMTP; 17 Mar 2025 06:04:08 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tuA8P-000Ckv-1n;
+	Mon, 17 Mar 2025 13:04:02 +0000
+Date: Mon, 17 Mar 2025 21:02:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Jones <andrew.jones@linux.dev>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	devel@daynix.com, Akihiko Odaki <akihiko.odaki@daynix.com>
+Subject: Re: [PATCH v5 3/5] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+Message-ID: <202503172023.fzyJ3TMB-lkp@intel.com>
+References: <20250315-pmc-v5-3-ecee87dab216@daynix.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250317025922.1526937-5-jacky_chou@aspeedtech.com>
+In-Reply-To: <20250315-pmc-v5-3-ecee87dab216@daynix.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_060414_320858_6842F3F4 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20250317_060421_109815_DDAA254D 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +96,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	u32 rgmii_tx_delay, rgmii_rx_delay;
-> +	u32 dly_reg, tx_dly_mask, rx_dly_mask;
-> +	int tx, rx;
-> +
-> +	netdev = platform_get_drvdata(pdev);
-> +	priv = netdev_priv(netdev);
-> +
-> +	tx = of_property_read_u32(np, "tx-internal-delay-ps", &rgmii_tx_delay);
-> +	rx = of_property_read_u32(np, "rx-internal-delay-ps", &rgmii_rx_delay);
+Hi Akihiko,
 
-> +	if (!tx) {
+kernel test robot noticed the following build errors:
 
-The documentation for of_property_read_u32() says:
+[auto build test ERROR on 80e54e84911a923c40d7bee33a34c1b4be148d7a]
 
- * Return: 0 on success, -EINVAL if the property does not exist,
- * -ENODATA if property does not have a value, and -EOVERFLOW if the
- * property data isn't large enough.
+url:    https://github.com/intel-lab-lkp/linux/commits/Akihiko-Odaki/KVM-arm64-PMU-Set-raw-values-from-user-to-PM-C-I-NTEN-SET-CLR-PMOVS-SET-CLR/20250315-173731
+base:   80e54e84911a923c40d7bee33a34c1b4be148d7a
+patch link:    https://lore.kernel.org/r/20250315-pmc-v5-3-ecee87dab216%40daynix.com
+patch subject: [PATCH v5 3/5] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+config: arm64-randconfig-r122-20250317 (https://download.01.org/0day-ci/archive/20250317/202503172023.fzyJ3TMB-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20250317/202503172023.fzyJ3TMB-lkp@intel.com/reproduce)
 
-You need to handle EINVAL different to the other errors, which are
-real errors and should fail the probe.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503172023.fzyJ3TMB-lkp@intel.com/
 
-The commit message, and probably the binding needs to document what
-happens when the properties are not in the DT blob. This needs to be
-part of the bigger picture of how you are going to sort out the mess
-with existing .dts files listing 'rgmii' when in fact they should be
-'rgmii-id'.
+All errors (new ones prefixed by >>):
 
-> +		/* Use tx-internal-delay-ps as index to configure tx delay
-> +		 * into scu register.
-> +		 */
-> +		if (rgmii_tx_delay > 64)
-> +			dev_warn(&pdev->dev, "Get invalid tx delay value");
+   arch/arm64/kvm/sys_regs.c: In function 'set_pmu_evcntr':
+>> arch/arm64/kvm/sys_regs.c:975:9: error: implicit declaration of function 'kvm_pmu_set_counter_value_user'; did you mean 'kvm_pmu_set_counter_value'? [-Wimplicit-function-declaration]
+     975 |         kvm_pmu_set_counter_value_user(vcpu, idx, val);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |         kvm_pmu_set_counter_value
 
-Return EINVAL and fail the probe.
 
-	Andrew
+vim +975 arch/arm64/kvm/sys_regs.c
+
+   962	
+   963	static int set_pmu_evcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+   964				  u64 val)
+   965	{
+   966		u64 idx;
+   967	
+   968		if (r->CRn == 9 && r->CRm == 13 && r->Op2 == 0)
+   969			/* PMCCNTR_EL0 */
+   970			idx = ARMV8_PMU_CYCLE_IDX;
+   971		else
+   972			/* PMEVCNTRn_EL0 */
+   973			idx = ((r->CRm & 3) << 3) | (r->Op2 & 7);
+   974	
+ > 975		kvm_pmu_set_counter_value_user(vcpu, idx, val);
+   976		return 0;
+   977	}
+   978	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
