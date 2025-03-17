@@ -4,103 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA25C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E4AC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HalaitR3wNqHBLiZ26kGsVTmgpsmEjHSTSSRfu+eT1s=; b=ririj4/taEvlTEOgeDb1YGUX9v
-	GvwWkARHq860VXKs/4ewMljMcL1rsF8+bjNw9kfxxOA6LrCc08HBAQtqe6W6lhUVWiSAug1osWKiY
-	taoHwd18LIPA3akwWfn25daZ1pYEonE6Yd0iy/1r6pL9gYTR7VvR0V5FiWD6/g6hadz3eywgJiuai
-	MKxFH8m3ZFk9SFIPj9ATSsXtmLXavUVB9Gz+5o5r/sPoNacPGV1aTptWuTLpsXt0OfgfESVDIBMNS
-	PuKzxCzcpg7dg9Fo/hIfHHDeb/U+HMINa9GyDTc9gprSK0U/D05L6W+zytQLR6yG+YzyX0223NoZf
-	jvkzvGAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9ieS8Pl6lKwwCqMazJxamsOY+afGeucqj0mgpDAlt6g=; b=CMnRSFmTVkQwmsPYRai6Rodxfv
+	i8dxs4y7ibmNUtw1zwg+tfPCfvmqullByh3xf2d/awxbHeYfdmVfB3B2B8hHBK0cmDk1EFrNQJRWX
+	89TUC5l6n7D4Py8IizLYaRmiASxKV4Qo3l+LqnEapEEJOzVCgfDPHN6VWBrssifS6otjfmz4uhccw
+	gnxauDyBkgfZQYMSwrugXN4QCvt1LwDoBk3iWxSsa0d9EwBW2YCLaFN+jWquI4fCVvdVF2pgYRFwe
+	e3COaKXsiuXL9PJSe8x154ubeuo0fSDThxgztvoZFi1J81Iu0jR6uXx0AShD4XJ66SXrgzE7bBrGe
+	v1VQWBHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu4ei-00000001WHW-0IcN;
-	Mon, 17 Mar 2025 07:13:00 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tu4kD-00000001XH1-3rNV;
+	Mon, 17 Mar 2025 07:18:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu4cz-00000001Vv8-3yKI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 07:11:15 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5439a6179a7so4574723e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 00:11:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742195471; x=1742800271; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HalaitR3wNqHBLiZ26kGsVTmgpsmEjHSTSSRfu+eT1s=;
-        b=mDelOi28FKfG+fQwa0g9yrOW6fezXAJZpS2MIlCwio0bdK7bgffjfSN7lZs+z97Dgy
-         GcrUEjHEM/JT2fGEO+1YX920Fz5RWHoBDiOqy/QplrczgcV0wMYeUkrTBooIpsLTBvec
-         wJHb7los8tj6mVOvouoy9kUdimjUpOc/37fSH+7lsLc+b9PXpXKYvY7ddh5YHlD1JJqo
-         BqZnfZ6b2VrMRUDmBhGwhoBrBPrBbAQGMHQlXV7u/5GSUYZTZsWJ/IOjqyAVpOKqwzOE
-         w7mLeIrmw98R3whpPwhVFEppL8XCBoBNEBXk+K1a+RaBQI/sbtOyIta4WtZqBvqerqal
-         Rjsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742195471; x=1742800271;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HalaitR3wNqHBLiZ26kGsVTmgpsmEjHSTSSRfu+eT1s=;
-        b=EnDtjRGzCYG8qjMSA1SvEHkwjrFBZ+HwYm+kBiKXjmt2QxuLvIkBzg8kxXyRp5Cb+i
-         UoWfoHRHJBeZcLApI78d9OzIj6aCZ8xa0MdBZb+SSJctzCvEwA0JXGe+u3H8ya8pCUP1
-         j7MiQjP8c8E/Lc5TMY2Mt1D/PpeFlfbQMZCcW679RCO11wBSBn4l3hKWrcCyBFKS4r3f
-         l1LOHXN6aGCTf+bvEUwgYIAMX2m2vhoVIhGTLGPy3VqY81WIktplHj3ndWmUZzsqL51u
-         L69pN1Bh8m7djswLrxB4Q+FiZpvgRLfEreTuCuZwwvspaUysta/1qTbvz0GcbXGWIsbV
-         0w2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVyi3U0Srjj702S1VHTmlr7eIkFlq2dzpLWQvSVwIoGdiE89S61vS3kUJ0Z8rcJ21SKQKWvgZutYslx1K11sjys@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc+/rThTOwkisVTCSn65c78sLn1mXJAXpCoT8ttDr1A/EjJZKg
-	zcxuVfDzkyiWG99V5Q8W8u+7HyQY70AN4/LYhCLBaIHihhXytp9k
-X-Gm-Gg: ASbGncsPFmGUpRWmmVIuP5mnTU594Hzm9Fm/mby/N8VSdy9naxWKuv4FCUd+pYzeoen
-	quzA44gXFB42Je6gz9OBlUU8hI2PVaRjJC+2wJDZHLTHBJtS8fDzH/ZkdL53YVCPCZxbSMwHB+G
-	A7cJrHm0s2k6hcFqb/a6wkjq43wh2xzwjaGpq9mH/43lnhFjPvMR/JKDh5fNINnpd/2Ti/Nv8KP
-	G38uGU3AgmURvh01FgDr7kkUYBxg+OG/5Lx2W+pTxDpF8wBP8RfBt6C3jCKJVoRiOAATIXGGQgL
-	EtYhUN+4rD1AKbO3kqsnwLgQOA1rE3oPU1ttbtsrnhr4GNU/UeknrzmmIn83RROsZxWAHrUOVUT
-	AKx6TIazK/3pwsq0LttbZN+AhUQ==
-X-Google-Smtp-Source: AGHT+IGYn0VINpzgzh6MdKG0thylUkI/oz83FeKBKYjY8VACZiA9L37BUf8dAo+M8/olFMTjah+v2A==
-X-Received: by 2002:a05:6512:118a:b0:549:8f14:a839 with SMTP id 2adb3069b0e04-549c3f23817mr5553692e87.11.1742195471393;
-        Mon, 17 Mar 2025 00:11:11 -0700 (PDT)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba8a761asm1220851e87.229.2025.03.17.00.11.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 00:11:09 -0700 (PDT)
-Message-ID: <50b126c5-248e-4694-9782-4f28d6db5fce@gmail.com>
-Date: Mon, 17 Mar 2025 09:11:08 +0200
+	id 1tu4iW-00000001WmO-10wv;
+	Mon, 17 Mar 2025 07:16:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0C702A46D26;
+	Mon, 17 Mar 2025 07:11:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4DBD8C4CEEC;
+	Mon, 17 Mar 2025 07:16:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742195814;
+	bh=wL9gUnrlsPQNAWa/Td3yrEb1Mzg5Mf+QmQXD9OzX72w=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=ef+oFqegpteYd+UM3MsMEVF+QkF5iBAu9RBV02JpdRABpsFtdrILxzUzFMNt58Skz
+	 WHp3pq1KvvDwsnON6hggASuw6wYydh0iM9IlnaKrEMVolKCMLW7D+mlJI6QlTYA2bq
+	 B4pODHMApmXaxIwZULvAXSHw+p7s0iAp+UvHaB7c2/PKoSLZNVxC/qCpK7t1E0kecp
+	 l6zn0638rk9szP0o/lIL631lUGgVgG55pP6jsiHFFX/LXrrwOsExa5wIKwIpb4MSV+
+	 CyBqy/xHnQmg5CLyLqE0xYanFJbe9kH4zY2LI8HKDTjKRoYW8arJQ5yK4eNBhUytyQ
+	 EPERWtIQ3nxlQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 327E4C282EC;
+	Mon, 17 Mar 2025 07:16:54 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Subject: [PATCH 0/7] Baisc devicetree support for Amlogic S6 S7 and S7D
+Date: Mon, 17 Mar 2025 15:16:51 +0800
+Message-Id: <20250317-s6-s7-basic-v1-0-d653384e41f3@amlogic.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
-To: Jonathan Cameron <jic23@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Olivier Moysan <olivier.moysan@foss.st.com>,
- Guillaume Stols <gstols@baylibre.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>,
- Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1741849323.git.mazziesaccount@gmail.com>
- <df0b2b53affbef5ccb7219328cc15db3ba843737.1741849323.git.mazziesaccount@gmail.com>
- <Z9LQ0O34EUM8WZku@smile.fi.intel.com> <20250316094112.6731bd01@jic23-huawei>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20250316094112.6731bd01@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGPM12cC/x3MMQqAMAxA0atIZgNpi1a8ijjUGjVLlQZEKN7d4
+ viG/wsoZ2GFsSmQ+RaVM1WYtoF4hLQzyloNlmxH1hrUHtXjElQibo4oOhq85x5qcWXe5Plv0/y
+ +Hxwrow1dAAAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1742195812; l=2174;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=wL9gUnrlsPQNAWa/Td3yrEb1Mzg5Mf+QmQXD9OzX72w=;
+ b=DudI+EZbNWKj/cExJWHpLtrhBZq5G0gH1aBEaWY7T5W6Q5fTXxZpYlb0lsmNgLYJ4ScXYKMYM
+ 63/vxuVARWeAv3IcZip6ckG3PmaVmkDFz9zOOBC3vVCunosibV9eRy9
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_001114_027387_66DE9F60 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20250317_001656_422502_207BA227 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,63 +90,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2025 11:41, Jonathan Cameron wrote:
-> On Thu, 13 Mar 2025 14:34:24 +0200
-> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-> 
->> On Thu, Mar 13, 2025 at 09:18:49AM +0200, Matti Vaittinen wrote:
->>> The new devm_iio_adc_device_alloc_chaninfo_se() -helper is intended to
->>> help drivers avoid open-coding the for_each_node -loop for getting the
->>> channel IDs. The helper provides standard way to detect the ADC channel
->>> nodes (by the node name), and a standard way to convert the "reg"
->>> -properties to channel identification numbers, used in the struct
->>> iio_chan_spec. Furthermore, the helper can optionally check the found
->>> channel IDs are smaller than given maximum. This is useful for callers
->>> which later use the IDs for example for indexing a channel data array.
->>>
->>> The original driver treated all found child nodes as channel nodes. The
->>> new helper requires channel nodes to be named channel[@N]. This should
->>> help avoid problems with devices which may contain also other but ADC
->>> child nodes. Quick grep from arch/* with the sun20i-gpadc's compatible
->>> string didn't reveal any in-tree .dts with channel nodes named
->>> otherwise. Also, same grep shows all the in-tree .dts seem to have
->>> channel IDs between 0..num of channels.
->>>
->>> Use the new helper.
->>
->> ...
->>
->>> +	num_channels = devm_iio_adc_device_alloc_chaninfo_se(dev,
->>> +				&sun20i_gpadc_chan_template, -1, &channels);
->>> +	if (num_channels < 0)
->>> +		return num_channels;
->>> +
->>>   	if (num_channels == 0)
->>>   		return dev_err_probe(dev, -ENODEV, "no channel children\n");
->>
->> Note, this what I would expected in your helper to see, i.e. separated cases
->> for < 0 (error code) and == 0, no channels.
->>
->> Also, are all users going to have this check? Usually in other similar APIs
->> we return -ENOENT. And user won't need to have an additional check in case of
->> 0 being considered as an error case too.
-> In a few cases we'll need to do the dance the other way in the caller.
-> So specifically check for -ENOENT and not treat it as an error.
-> 
-> That stems from channel nodes being optionally added to drivers after
-> they have been around a while (usually to add more specific configuration)
-> and needing to maintain old behaviour of presenting all channels with default
-> settings.
-> 
-> I agree that returning -ENOENT is a reasonable way to handle this.
+Amlogic S6 S7 and S7D are application processors designed for
+hybrid OTT/IP Set Top Box and high-end media box applications.
 
-I agree - but I'm going to use -ENODEV instead of -ENOENT because that's 
-what the current callers return if they find no channels. That way the 
-drivers can return the value directly without converting -ENOENT to -ENODEV.
+Add the new S6 SoC/board device tree bindings.
+Add the new S7 SoC/board device tree bindings.
+Add the new S7D SoC/board device tree bindings.
 
-Yours,
-	-- Matti
+Add basic support for the S6 based Amlogic BL209 board, which describes
+the following components: CPU, GIC, IRQ, Timer and UART. These are capable of
+booting up into the serial console.
+
+Add basic support for the S7 based Amlogic BP201 board, which describes
+the following components: CPU, GIC, IRQ, Timer and UART. These are capable of
+booting up into the serial console.
+
+Add basic support for the S7D based Amlogic BM202 board, which describes
+the following components: CPU, GIC, IRQ, Timer and UART. These are capable of
+booting up into the serial console.
+
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Xianwei Zhao (7):
+      dt-bindings: arm: amlogic: add S6 support
+      dt-bindings: arm: amlogic: add S7 support
+      dt-bindings: arm: amlogic: add S7D support
+      dt-bindings: serial: amlogic,meson-uart: Add compatible string for S6/S7/S7D
+      arm64: dts: add support for S6 based Amlogic BL209
+      arm64: dts: add support for S7 based Amlogic BP201
+      arm64: dts: add support for S7D based Amlogic BM202
+
+ Documentation/devicetree/bindings/arm/amlogic.yaml | 18 ++++
+ .../bindings/serial/amlogic,meson-uart.yaml        |  3 +
+ arch/arm64/boot/dts/amlogic/Makefile               |  3 +
+ .../boot/dts/amlogic/amlogic-s6-s905x5-bl209.dts   | 42 +++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        | 97 +++++++++++++++++++++
+ .../boot/dts/amlogic/amlogic-s7-s805x3-bp201.dts   | 41 +++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        | 99 ++++++++++++++++++++++
+ .../boot/dts/amlogic/amlogic-s7d-s905x5m-bm202.dts | 41 +++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       | 99 ++++++++++++++++++++++
+ 9 files changed, 443 insertions(+)
+---
+base-commit: 73e4ffb27bb8a093d557bb2dac1a271474cca99c
+change-id: 20250221-s6-s7-basic-f300c30877e6
+
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
+
 
