@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646E6C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB2CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+fTK3txOlyskp4W/rEPx48F2NlCVYh8mb8E/EDT8nE=; b=1E44G+b5iDo2Pvdol6euYBC5tL
-	uAk2SKFrjjFMWu1/NFso39wiqkYPYSkyvMg+b8zTGtR1Fm3o4WIXzaNlZZxXSGkqQJh9Qj+eWLLmn
-	NcSnV0wJtUkux4mW9WePff1RWgZHdxEqXG+Ii7NrHuVlsNNLQb78gESe2SzYW0XWrdayEr7/AG8j+
-	uWbMr7Y+a6dGdvtlQ9ad5Rfce++Q9GXBjXxqe0WSEVIR88axo3FpoiEWweW1oRymaX7333aGqhagv
-	UWmZMfgS/qzHTptRM1Xn7+M9p+5QDhudhItnW+up8qfhUkA50zwRfwwA3UDFk1CMa5qY8gJrdmGpN
-	D0cod0rA==;
+	bh=8jNzh4wPsc/2+sERlQmcDT54HRK5zRLKBArFjwQQ8DQ=; b=Ai/0pCl8nS6uraB0o4+NIqjl3O
+	cVgSx/rOP2MP7XrArilwa8lstMBGUmhaOAyVPQpNexODvn6VAM7i/TbmiIRm0lWTPimitC9hyaia/
+	jmQKkDC3+91WmEHlxUBiAdM4tTBygrFlfDoBx1iGuoQ8iqCs+0b8Jhd8TDEvaBhZDqYxW2wpFhYh/
+	rO6vW1AQRiNtrvcUQlmZ2QYQq7RrL5hwxdYsFfaefew7KvZ2xTPlGds2Tc4tVaUFzw1wCigVyxtfg
+	6kg1f5dtO4BFGZfXV0FFVhFWTzaolr1ztu3wMZdVNyYtj0SeMesK+4MPbGAinBRu7z5VgSrOcY/62
+	lr+SOAow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuC3s-000000035Ue-2ZdF;
-	Mon, 17 Mar 2025 15:07:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tuC5W-000000035oD-1XPK;
+	Mon, 17 Mar 2025 15:09:10 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBsC-000000032q4-2ggl;
-	Mon, 17 Mar 2025 14:55:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1742223312; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cjLTeVl8RlyKIZ/QdHUaKerqGeDESqvOkY/+eZ1jwLu9GkcdQf9nAFXSzTcFe5GaouJMnNFfM9MYkeHXTCmyRUvsa97HpaTlrzmNNeno/JPQRPxACTV5pHpouCHIZ9ucj/7X3mRz3h9loSJl7HUC8seOo/VKBAiE1wzt3oTkumE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1742223312; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=E+fTK3txOlyskp4W/rEPx48F2NlCVYh8mb8E/EDT8nE=; 
-	b=DLm8UjqD4aE1K0wV4k+f9pNKFe4xCLFycMo456jtCnIjL6d1OaIaNnG3EjrzScQZeqZsWMwyARzy0QWX5hwAdJVHtboPAutcVU4mgNSx2QfVCYgkvcZnUVGzLyj0X+jvo3rsTx6BgMpxocj+uo/1EHpg9Jj+1WHxigoZWKMZ/B8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742223312;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=E+fTK3txOlyskp4W/rEPx48F2NlCVYh8mb8E/EDT8nE=;
-	b=NTUbiO3eOtOfXcGE3zsM5cHbMgB0FbalMDMywLJpMkWttRCmNSVmwmELrd075NR+
-	d+nhJvM0QIWACW6cmNPfP4ySjCR3mBBQVq4zzRe29hBTcnoykStHDCGe+EBdyrOOMuH
-	OBYnnLizQ64pJ5+CMdSzOMcm8sdpvt/2xCGvLB3A=
-Received: by mx.zohomail.com with SMTPS id 1742223301853895.315747173944;
-	Mon, 17 Mar 2025 07:55:01 -0700 (PDT)
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-To: dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Cc: boris.brezillon@collabora.com,
-	robh@kernel.org,
-	steven.price@arm.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	kernel@collabora.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	sjoerd@collabora.com,
-	angelogioacchino.delregno@collabora.com,
-	Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Subject: [PATCH v4 5/6] drm/panfrost: Force AARCH64_4K page table format on MediaTek MT8188
-Date: Mon, 17 Mar 2025 11:52:44 -0300
-Message-ID: <20250317145245.910566-6-ariel.dalessandro@collabora.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250317145245.910566-1-ariel.dalessandro@collabora.com>
-References: <20250317145245.910566-1-ariel.dalessandro@collabora.com>
+	id 1tuBsG-000000032rP-19yU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 14:55:29 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3f682a2c3c8so2585726b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 07:55:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742223327; x=1742828127; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8jNzh4wPsc/2+sERlQmcDT54HRK5zRLKBArFjwQQ8DQ=;
+        b=nAbXOpFV3e082lnwoDxcnPNCcc6J0VeFA5KAYyYnormzS7BDqn5GCn9jR9P95O0tYE
+         H4rijua/VUix13jQprhNZak7VYlQCfT2YPVEyc0cQ4ZIa0/1aL5SbfPYCtOGO0AFjZS0
+         4j1LI6d/cfbJTS/8fl6blQ/32LrRHnCxxtYDQO1+G4Qye6Ms5x7SeDNVODLRcgXu/z0C
+         yR9QEQdnVwBW4Oue9x94YW1jdDvQOhLrIGTuqgSsV8YgynxZT14XCq+3TtpbZ6SYv4UJ
+         4FVE4ppHYQBgjK8SMNd1AdLveIWDRENnYpYyynvOI6IjbYQg6VGV7T/c2y6Umeg5qbI+
+         qutA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742223327; x=1742828127;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8jNzh4wPsc/2+sERlQmcDT54HRK5zRLKBArFjwQQ8DQ=;
+        b=TkD0aPC9K+YSPT97JGPEomQ0e40rwfucNZ8Nd8uRp8/bPdcw6Iu9CFt9yeP+Qj9uMR
+         ZP1mt3clSmFlkNgL1gSw3OEjtZMdfMd8NZAAN7Sj54EG1YqQQo0sdAdqgT3Y0iPw/tD9
+         rJe/qhKEli4Z/S387zlGPlMkByPBj+R9nxtGEM9o51oUhB5O82bp2eOJbEtDqECTN6u/
+         DpOlNCmVUSZ6DA2jXU66gP6cbgZMaNMfox+XSU9DUZSQEKj4HFzsafAiKRAXlaoKmwo5
+         WebDDrla4rSJa7SbWL7q6cf4n2IY7sN7j1lb+OzMevGvkGGXSU414WF8bWdUk4eKxrov
+         vVTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXr9qbSpmMe1ZFgYpEz/7La3IS9WdO1QtbqSe/OrB2nJqGLDl2QGxVTLDysigsbnwZV/fsyOjD1D2lRyZ8J3UJA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkEJbtYWtK6wYBZKBTXuiabAIRPpVbdPdf62zgxKUEM8+Ud+iC
+	1AKtxUPRM8sYJCOCqFz4W0jV+SZ0gg9hNC4aTLFBKWf6aQUeESRnpWvk9H24ROgK3Elp9079YMl
+	c347aQwFmMPhRosGAox/vQI15GRkNL+Adw0AwhQ==
+X-Gm-Gg: ASbGncu+D2pTeRwYRFEZCjV7LH3tNLWbzj93aqFhLwb4I5nzOXwuc3VLJigR5u0asoE
+	aInOJBe80xR7yqs42th0IrTEk5R/GU0Ppo73QeSW3EJ8HaLbP75s25bLDUrV+qsjAxPS6DsR6ue
+	nQAnhhij33qd8KhC2OwDUP4v08CeNNp5cZ74G/o+0=
+X-Google-Smtp-Source: AGHT+IG7IjY16t5eI+Uq4mhx6crav2fOJBQfWeSG630jb10M49QIM1vSar09EM0x1tUf2BaE+e0vaoly2VXwdW756V0=
+X-Received: by 2002:a05:6808:999:b0:3fa:c549:cfee with SMTP id
+ 5614622812f47-3fdee27903emr4770583b6e.6.1742223327241; Mon, 17 Mar 2025
+ 07:55:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+References: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org>
+ <20250314-ufs-dma-coherent-v1-2-bdf9f9be2919@linaro.org> <931e5e0b07d598912712b091d99a636b796fe19f.camel@linaro.org>
+In-Reply-To: <931e5e0b07d598912712b091d99a636b796fe19f.camel@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Mon, 17 Mar 2025 14:55:15 +0000
+X-Gm-Features: AQ5f1Jq4uxqhD4QuKFFVh-mTPnz4ZIKWFOQ5G2m93FuUYrfiK5B9xukpdzF4pCI
+Message-ID: <CADrjBPoESd7D4H80prCtFXTGaWOg-HV_ovNdwZ4G7Y8n-hFdsQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] scsi: ufs: dt-bindings: exynos: add dma-coherent
+ property for gs101
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, 
+	Bart Van Assche <bvanassche@acm.org>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, 
+	kernel-team@android.com, willmcvicker@google.com, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_075524_729537_8BAE4364 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_075528_319044_0926BC15 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +102,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek MT8188 SoC has an ARM Mali-G57 MC3 GPU (Valhall-JM), which
-constantly faults with the current panfrost support.
+Hi Andr=C3=A9
 
-For instance, running `glmark2-es2-drm` benchmark test:
-```
-[   79.617461] panfrost 13000000.gpu: js fault, js=1, status=JOB_BUS_FAULT, head=0xaadc380, tail=0xaadc380
-[   80.119811] panfrost 13000000.gpu: gpu sched timeout, js=0, config=0x7300, status=0x58, head=0xaaca180, tail=0xaaca180, sched_job=000000002fd03ccc
-[   80.129083] panfrost 13000000.gpu: Unhandled Page fault in AS0 at VA 0x0000000000000000
-[   80.129083] Reason: TODO
-[   80.129083] raw fault status: 0x1C2
-[   80.129083] decoded fault status: SLAVE FAULT
-[   80.129083] exception type 0xC2: TRANSLATION_FAULT_2
-[   80.129083] access type 0x1: EXECUTE
-[   80.129083] source id 0x0
-```
+On Fri, 14 Mar 2025 at 15:59, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
+ wrote:
+>
+> Hi Pete,
+>
+> On Fri, 2025-03-14 at 15:38 +0000, Peter Griffin wrote:
+> > dma-coherent property is required for gs101 as ufs-exynos enables
+> > sharability.
+> >
+> > Fixes: 438e23b61cd4 ("scsi: ufs: dt-bindings: exynos: Add gs101 compati=
+ble")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> > ---
+> >  Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.y=
+aml b/Documentation/devicetree/bindings/ufs/samsung,exynos-
+> > ufs.yaml
+> > index 720879820f6616a30cae2db3d4d2d22e847666c4..5dbb7f6a8c354b82685c521=
+e70655e106f702a8d 100644
+> > --- a/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml
+> > +++ b/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml
+> > @@ -96,6 +96,8 @@ allOf:
+> >          clock-names:
+> >            minItems: 6
+> >
+> > +        dma-coherent: true
+> > +
+>
+> This is allowed globally already in this file. Did you meant to make it '=
+required'?
 
-Note that current panfrost mode (Mali LPAE - LEGACY) only allows to
-specify write-cache or implementation-defined as the caching policy,
-probably not matching the right configuration. As depicted in the source
-code:
+I hadn't noticed it was already handled further up in the yaml. In
+which case this patch can be dropped entirely.
 
-drivers/iommu/io-pgtable-arm.c:
-```
-* MEMATTR: Mali has no actual notion of a non-cacheable type, so the
-* best we can do is mimic the out-of-tree driver and hope that the
-* "implementation-defined caching policy" is good enough...
-```
+Thanks,
 
-Now that Panfrost supports AARCH64_4K page table format, let's enable it
-on Mediatek MT8188 and configure the cache/shareability policies
-properly.
-
-Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
----
- drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-index 0f3935556ac76..e854f290858f9 100644
---- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-@@ -824,6 +824,7 @@ static const struct panfrost_compatible mediatek_mt8188_data = {
- 	.num_pm_domains = ARRAY_SIZE(mediatek_mt8183_pm_domains),
- 	.pm_domain_names = mediatek_mt8183_pm_domains,
- 	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
-+	.gpu_quirks = BIT(GPU_QUIRK_FORCE_AARCH64_PGTABLE),
- };
- 
- static const char * const mediatek_mt8192_supplies[] = { "mali", NULL };
--- 
-2.47.2
-
+Peter
 
