@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731A0C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 03:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61BAC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 04:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qnwInVQxbKwG9LCg+xx1RmsFb5dT9RinSQ7qC0DlDk0=; b=ekNp5EwwUOr4Cd7IxWNEeTPGue
-	k/yfGJOqmTNDzjTn/7SkNFYQN0Vxeuwti2AR0JxQ7QlyIvebs7zB1a29U0ppX7ftkrhvPDjMu5RVx
-	GcaIDe0x8XDqdXodF/Bw5iWf8teKTs2xFFYe67F74fQELlT71MWH6Ufw/P6BsMq6/EAy+Ja9OPqHz
-	2Cjjc9xbqYHwB29y724UwiP+Vy2UTSp29/5FR+PZRufB14vfhw1z+++korgJI2sGlp52n0mv015Na
-	stq09ZPma/3SotAFPwau2nLIyL5FVe0SLaNIZ5acMVSMB2VaYRyaaiAZRZ1v45KQZrllWVYPEt8oy
-	L7eqvkNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vgKGpNBvK9Sk4tCd4YTOHPbSQP0l1EqaEPCcjolW7No=; b=NDe+Ox8b5W84NQ1T6gKOJ/cPDf
+	xmigXeAYZXftsyE7WGZ8bD013XlZWWl613D63H7tu7Atjs2MXy3d1ANhpYqhCL1cI6il5Dc54udbe
+	fkJqGcNgJMCjef+vP1c4h+qbBfmdpZdt1jrfVTGEMFZJuLwWo0ndM1LeTvoN7l6BHe5trwtrW5vQM
+	pRCNZHKhJuJUpORVvm3ucab6m2w24tIFRRJzxcji6Dps60jwYg/npBX74/6i6b6NYhVLGmt6ivqI6
+	UU2wx4uoeXGcL68shIMmC2Si7UdhL6Hy0rns6rdOnqd/d9bACOYQc66ianmPJXOHjhoMMQ3Qp8LTh
+	qG+h3KLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu1H6-000000014Wn-41V5;
-	Mon, 17 Mar 2025 03:36:24 +0000
-Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
+	id 1tu2AM-00000001B32-3mSu;
+	Mon, 17 Mar 2025 04:33:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu1FP-000000014Hy-42va
+	id 1tu28g-00000001AlD-2N0W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 03:34:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=201702; t=1742182473;
-	bh=qnwInVQxbKwG9LCg+xx1RmsFb5dT9RinSQ7qC0DlDk0=;
-	h=Date:From:To:Cc:Subject:From;
-	b=PmuR0G8dWg2ey8cBX4Kx9JKtQR8m6NwexRmLyqa9u6DM+FpVm5sP/uoISSj13cPUa
-	 N9GyE+uPRmNafwq4S1+nsrA8UaoGc74zOdxEzJDs2GNI9M4hZXnCMtJD5kkUCI0YT4
-	 Kkk2umFPf1Tuq9rYoIGR9RdIhjXYQ2Oq20C2++p7Dkm05dEOi2Xk8OsoDPukcsgYO/
-	 8qz9GZYoeYJoJ8rwke2vOU1Zi7J07evPqmxGqlG8cLy2iRPLPiECn2il3Br8UcJm8V
-	 3QEvFkqn2WeuWkXAfFXY3iuDqmHYzjWLtAfDijSnnWibFeRqyeEVWsSt+3530bkHfI
-	 sH159uglmW4vA==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4ZGLF43xpjz4wcQ;
-	Mon, 17 Mar 2025 14:34:32 +1100 (AEDT)
-Date: Mon, 17 Mar 2025 14:34:31 +1100
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: ARM <linux-arm-kernel@lists.infradead.org>, Hector Martin
- <marcan@marcan.st>, Janne Grunau <j@jannau.net>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, Linux Next Mailing List
- <linux-next@vger.kernel.org>, Nick Chan <towinchenmi@gmail.com>, Sven Peter
- <sven@svenpeter.dev>
-Subject: linux-next: manual merge of the backlight tree with the
- arm-soc-fixes tree
-Message-ID: <20250317143431.00ba29bc@canb.auug.org.au>
+	Mon, 17 Mar 2025 04:31:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B8E7C5C4CE0;
+	Mon, 17 Mar 2025 04:29:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B52AC4CEEC;
+	Mon, 17 Mar 2025 04:31:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742185904;
+	bh=Z0a2dhsGygTnIpjglItX4bKcLEMQVArwLyKFp0XhQ7I=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=J2Duf+l9JOfm66hAwT4GUElZZFPEiS5aUgZHtsKTCQxxJIYBZ8mmbA4euOKDQZm7d
+	 RujhJlwwh5UKJF1upR1yRrDlQ2eH7gzcXkoaNPO9gXQ4pq3NCNaxoeSppCdpm03CBK
+	 ksiJhW+a0Pw596ntBQRdv+xffFhcRmyYgdI8k9r016hyjuSEF9MkZyX3wQvDAwZe5Y
+	 t0Sg7NyZgFqgJTcg5NI/P+FSI9L7F+PoNxe8gQExzpaELQ/ZfPzrik7viwNv/nH/p0
+	 zOwYW3i3m52g+AEs2+GkBu5qo9fE8ttUPJ8rwXF2/lzz0Mq010mYiOT/purkAGt/2A
+	 UjsNYgBY5tG1A==
+Date: Sun, 16 Mar 2025 23:31:42 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/YAUj+LTCYJbqdQvoWeUpnul";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: kuba@kernel.org, krzk+dt@kernel.org, linux-kernel@vger.kernel.org, 
+ BMC-SW@aspeedtech.com, conor+dt@kernel.org, ratbert@faraday-tech.com, 
+ joel@jms.id.au, andrew@codeconstruct.com.au, devicetree@vger.kernel.org, 
+ pabeni@redhat.com, edumazet@google.com, netdev@vger.kernel.org, 
+ andrew+netdev@lunn.ch, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, davem@davemloft.net
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+In-Reply-To: <20250317025922.1526937-4-jacky_chou@aspeedtech.com>
+References: <20250317025922.1526937-1-jacky_chou@aspeedtech.com>
+ <20250317025922.1526937-4-jacky_chou@aspeedtech.com>
+Message-Id: <174218590293.2844402.7312672269180234107.robh@kernel.org>
+Subject: Re: [net-next 3/4] dt-bindings: net: ftgmac100: add rgmii delay
+ properties
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_203440_365404_20F811CD 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20250316_213146_643207_C47F2457 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +77,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/YAUj+LTCYJbqdQvoWeUpnul
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
 
-Hi all,
+On Mon, 17 Mar 2025 10:59:21 +0800, Jacky Chou wrote:
+> Add tx-internal-delay-ps and rx-internal-delay-ps to
+> configure the RGMII delay for MAC. According to
+> ethernet-controller.yaml, they use for RGMII TX and RX delay.
+> 
+> In Aspeed desgin, the RGMII delay is a number of ps as unit to
+> set delay, do not use one ps as unit. The values are different
+> from each MAC. So, here describes the property values
+> as index to configure corresponding scu register.
+> 
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> ---
+>  .../bindings/net/faraday,ftgmac100.yaml          | 16 +++++++++++++++-
+>  1 file changed, 15 insertions(+), 1 deletion(-)
+> 
 
-Today's linux-next merge of the backlight tree got a conflict in:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-  MAINTAINERS
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml:71:8: [warning] wrong indentation: expected 6 but found 7 (indentation)
+./Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml:78:8: [warning] wrong indentation: expected 6 but found 7 (indentation)
+./Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml:119:7: [error] no new line character at the end of file (new-line-at-end-of-file)
 
-between commit:
+dtschema/dtc warnings/errors:
 
-  4fa911d2d4cf ("MAINTAINERS: Add apple-spi driver & binding files")
+doc reference errors (make refcheckdocs):
 
-from the arm-soc-fixes tree and commit:
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250317025922.1526937-4-jacky_chou@aspeedtech.com
 
-  d1ebaf003a06 ("MAINTAINERS: Add entries for Apple DWI backlight controlle=
-r")
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-from the backlight tree.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
+pip3 install dtschema --upgrade
 
---=20
-Cheers,
-Stephen Rothwell
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-diff --cc MAINTAINERS
-index 55e367614f61,a576324807f5..000000000000
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@@ -2266,7 -2254,7 +2267,8 @@@ F:	drivers/nvmem/apple-efuses.
-  F:	drivers/pinctrl/pinctrl-apple-gpio.c
-  F:	drivers/pwm/pwm-apple.c
-  F:	drivers/soc/apple/*
- +F:	drivers/spi/spi-apple.c
-+ F:	drivers/video/backlight/apple_dwi_bl.c
-  F:	drivers/watchdog/apple_wdt.c
-  F:	include/dt-bindings/interrupt-controller/apple-aic.h
-  F:	include/dt-bindings/pinctrl/apple.h
-
---Sig_/YAUj+LTCYJbqdQvoWeUpnul
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmfXmEcACgkQAVBC80lX
-0Gymtwf/UK/EZUcoVy7B62NNMg/gGMWKpKRD30i9gltXYf4jNRcc8ZFUqx4Cf3GQ
-WlBxAxclgwwIbunV5y9tYkhHFZlfDfLwUZadyBD1xM25wY4p5+JRtEdcDgdAUn1m
-AOJFHNFXxAcN8VOqL+OF9rNb/+xtUuSl9UYBJMD/ksRX7sPM696OYmfGM1ODNnRf
-XWZztqGu7r+tthEE2KYsDOncJlNhIg/2AakByv0O4NaivOUpTePup9AfkL9T9rhA
-5tBsOu0LWGs0BbT9k0svlv97wcleDDkbZuIcVHfpLXWlFjX6W3qmdElJvj5LPdsM
-EHYD8l4pZv3z824Fsu3op2CMi9buvA==
-=iimz
------END PGP SIGNATURE-----
-
---Sig_/YAUj+LTCYJbqdQvoWeUpnul--
 
