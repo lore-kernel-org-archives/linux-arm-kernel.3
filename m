@@ -4,61 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30ED2C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30AFAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vhtf+O6571L5NvCf+/lUYx3qGvG7r+/V8Hl09YPXGb8=; b=w4XoD1vkeBs70w6cxwJBUIAFj4
-	AQDhFOek91lGg9LyZlqGprNPrOzrBNgirNn8iINmiPk/F0rIsL9eOzY9/QGdUusdFrYvFIC0xuMVL
-	YF5oqIsqy9aRhxqFg9loWDHq6dTXBKxhiSEjPuXu+OjD9paxvSXZUqFD8AGsQebAC/vz8G4bbTuCD
-	nIUPYDJ5037K0bP5rQ2nvjQZxljNWoBaTBnVf1wfmnr0j7flnHz3M5uJQOIIEIejNxE29W127IlJx
-	EEyaJSGYS7NIgd/ysDYRTVeFmdCoMIm2NTxnCxAwulZer3V1hv4PJBmqwvTETmMWHdI8WwZ+tTJxC
-	Mlp5FBuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CLaaNIFVMdx2mWYpN5COpnkx/9WEM+JFnDT824eRe4=; b=NS/bToARy0gRScGxCRTsQwurq2
+	6AYuTaNgX7IIOYdzYMdRv86HxpOhnkb+Ja2Xgzv8RriUSz990UQ0/EwqyQ5yvF4PHDK0LUmRDfq2w
+	yyZM8+h2VtXGR4s2dukgBN8Bm4lr2RnIw2SU/D7UEzee3be0ocuXiZhh2EN1hldk7XVH9hiJM2agr
+	7Op9hX/lPJNWdekB/sFgp/iWrEwhMPW1nY9mv2bvON6z71FWzrnN1XCAfAuvQVdrb+fKrUZE9iWak
+	u7L4uU8Pw+aozsXh4zjs5zKEO2CHTMMPH9uSWda/eP3JeCBTR/vAFhe/TacVjP8yzxatkEsPlgWKU
+	izG01ZOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7FM-000000021j0-05YK;
-	Mon, 17 Mar 2025 09:59:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7DM-000000021JO-1jnp
+	id 1tu7Il-000000022n8-1NZR;
+	Mon, 17 Mar 2025 10:02:31 +0000
+Received: from mail-db8eur05on2061b.outbound.protection.outlook.com ([2a01:111:f403:2614::61b] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tu7H3-000000022Fd-3nAV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 09:56:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34AF413D5;
-	Mon, 17 Mar 2025 02:57:04 -0700 (PDT)
-Received: from [172.18.154.215] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AB1E3F673;
-	Mon, 17 Mar 2025 02:56:48 -0700 (PDT)
-Message-ID: <2bd3aa0a-d700-46bf-81d1-a5fb0364d1e0@arm.com>
-Date: Mon, 17 Mar 2025 10:56:43 +0100
+	Mon, 17 Mar 2025 10:00:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RucYqQUWogWonhfPTBQsqouHwUleQboJG2FIu8p6TkyxhJLg+k40HUj6VWfgtKY22da3yZcJmQPEmq/SK5U61VKx5CaQAmGHDt3Cv2Fg9T1LU3NygKjDPQCLtP4ShnsYEMQs2024MeHznMzm0Hj7wcx/8EMPGYpHlV6b8eHz/BoFF31ZW0NdL4XOp4rX0FYQnPs0lXyidqzY+TUPT3nl9h1BMItd1unWcJlbPBiWf2Xbn5io9ASR+SwaEVnbRFvILZEtEOiaensgrODrfQ8uz5yTYaZE8/CcUlLEJcHMmUz8rEC9tJRdrI9Z9eeUu+O9t4Yp4K4iofSOHSyQBnplyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9CLaaNIFVMdx2mWYpN5COpnkx/9WEM+JFnDT824eRe4=;
+ b=hEAn25QuhI8iwuNFGKR87PqgQZlnkqDKMoBSwdZT85CgaRGWmCx37/9sEGCI+JzbeGhVUIfF0tDEICRylRtXuC+Qd9carXplfc40s7hcqvKnYsdQJdK1VrrzqVz97TbSyXVpIYWnj9U72L/6EULijBfpg/eVN8LOXfTb5DlsXb4xEiTxZYaflwpAlokGipsKIlEU4/Zbjuc+nDTcR42yneIjOizI2TqoSPQsaKNsgti+/nJPnUmstKIRvCQUXc/9nAbGeZl0kaK5UDLF/Y06saDSI8aI3Q0jdwdMJuQMptPiV0w+P4bWLAFqOsZjBmN+nsQsr08rSvXqk/Nraiupgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9CLaaNIFVMdx2mWYpN5COpnkx/9WEM+JFnDT824eRe4=;
+ b=ONukwLx1hm9Ha9p0BXX599ZgpKUHS126izaf8ADON1RoNsdZUfRGOgO+b0+rTMgkAuiw9Ke+OIT7YqpnzSYLvSxfasxBCDx57mvTW9wD3retFRx9Cgn/0JlQ4drkrrdbs3XUQrlI3y6UxiioKiGFKuciKF5WR76OQF7yBZsDRLmzk0pJfn4WScLO6h0HvqHmIos35b/jVDWT88lZ/dDBqUnTp8OUXF42HN4BTmZKW/ZF7QeiAWEVJ8OMfLsKT8Ant4lftHz8PcxQfxBcZ/vj51K7vJQy+pgMg+6HKjrShTtOtG8Twb/rcMUodBJfptD8fmbDGX08xuR6hwrYYeAcEQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by PAXPR04MB8176.eurprd04.prod.outlook.com (2603:10a6:102:1c9::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Mon, 17 Mar
+ 2025 10:00:40 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
+ 10:00:40 +0000
+Date: Mon, 17 Mar 2025 12:00:37 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v4 net-next 01/14] net: enetc: add initial netc-lib
+ driver to support NTMP
+Message-ID: <20250317100037.7o7r7gch433s5lq4@skbuf>
+References: <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-2-wei.fang@nxp.com>
+ <20250313163526.pqwp2wsfvio7avs6@skbuf>
+ <PAXPR04MB8510327277CFEAC750FE49F888D22@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20250314123715.fivq2cbczd4khxkk@skbuf>
+ <PAXPR04MB851027E5F830F08F3395083888D22@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20250317092808.jel2au3cgfwblaxk@skbuf>
+ <PAXPR04MB85102185D0A4C30F0688AA5488DF2@PAXPR04MB8510.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PAXPR04MB85102185D0A4C30F0688AA5488DF2@PAXPR04MB8510.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: VI1P195CA0075.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:802:59::28) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 2/4] arch_topology: Support SMT control for OF based
- system
-To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, sudeep.holla@arm.com, tglx@linutronix.de,
- peterz@infradead.org, mpe@ellerman.id.au,
- linux-arm-kernel@lists.infradead.org, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, pierre.gondois@arm.com
-Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, morten.rasmussen@arm.com, msuchanek@suse.de,
- gregkh@linuxfoundation.org, rafael@kernel.org, jonathan.cameron@huawei.com,
- prime.zeng@hisilicon.com, linuxarm@huawei.com, yangyicong@hisilicon.com,
- xuwei5@huawei.com, guohanjun@huawei.com, sshegde@linux.ibm.com
-References: <20250311075143.61078-1-yangyicong@huawei.com>
- <20250311075143.61078-3-yangyicong@huawei.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250311075143.61078-3-yangyicong@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|PAXPR04MB8176:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3e5677f-5aea-4049-c5ac-08dd653a92f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OjT80u0mPGzfNMxP1HucSk3g/Yj7EXian+LpA5/HpvFy5s8gJzFw+6kSh0jV?=
+ =?us-ascii?Q?lZKSnCp46YUE2Vt1lo+UmKFeHNk4Oad7rieeY+hdikafqUm98KJVS5XLgvYe?=
+ =?us-ascii?Q?6N3g6Wl4DpHbjU0D58lHoCly00aIcD34XI+Sb0eFSHeq3nYbRS3G8AgSD/cJ?=
+ =?us-ascii?Q?LINaPCLRm7TgNEzZ/25kgXvNf6DBPVEv4eW6koZjkmJtKEFgfYq4iIeejjQH?=
+ =?us-ascii?Q?NlWLbHkHz9inf+nX8BMYQ3uTZ/cWlrmv7qpDmLydxP5oegLIXeTnCvDzGn22?=
+ =?us-ascii?Q?c+Hm0kuxPONjpPqKSEwC/MeV5cF1WlpNyxMMHq5H/sheLpEIlPbsSmODU9aH?=
+ =?us-ascii?Q?eG+Tq0lzvf8NsUioFNuT1KmnK8a1MfEZPO98qZiXIEy4mLtNGNI/lpB006Ed?=
+ =?us-ascii?Q?Hi8OHhH3ZtEZAPKGXpY/6xXx2Xdk5GAvYJ7QbSQZqg9yI62sNF25OTyw88C8?=
+ =?us-ascii?Q?NS9cvu22/cg9xAMXeUJDx1IivW3FOZ7fZnqGHk+cGlhwOrQl4rA7WXMUDoUb?=
+ =?us-ascii?Q?YR0b6jZbe0gcO/bh977RDAUOrw5kw5oRoKaX44roIzm+NcYmB9e06DXyGUpa?=
+ =?us-ascii?Q?yamUvLF4bIYJpKsO92GZ75xBr1rNSJVNggRxDh8vo2vfNK4+wpOU6/e5P2yt?=
+ =?us-ascii?Q?MAnQssRTsBusU8Y2YhrTNaopbE6U/qmNohD9qgB0XeCEIVkuXXLFIiKvJ4Mb?=
+ =?us-ascii?Q?ogvyJWohkgEvwrjxN0TzAWUtmDW6qdsM8N2r0e4Yd4FBLhHJPPIHOuc211lV?=
+ =?us-ascii?Q?O5oORwNB+OxnFbpgaGNrkx1bb+bYJ8Q3magzrXKQC1W5MdscZl9ZAOGTvjSc?=
+ =?us-ascii?Q?0W0Nf9BVcD51SSNntP9d4seU+i2Shb6MwNU5z6JCSwxCQ+zqxU7DhGkbZEBk?=
+ =?us-ascii?Q?UufnsM2lpmtm2/p2cnX/WzFaWaqY254RgxQiunxn7Ep85ToDmGT8n9raa/VA?=
+ =?us-ascii?Q?xPqEEQHUHx2YWqg7eBXODiz5aY+0FpBcKKfDRkZVfhnnf/+EzL2b+5HirMGV?=
+ =?us-ascii?Q?KoA3WwKlU5nVtM5MV8xmAK57T9QjERzAe7G5omzb0uYtWN8GFJ/lWjEnFRx9?=
+ =?us-ascii?Q?ijJ3TWqJTlBHhmjgY61p4sXCuXwyMTe/DF3MV5ezEKrzNsTnqelGtq7eso43?=
+ =?us-ascii?Q?fgEx7bdfHrFPkTou3uAZeVO9q2ABNbAMZOK7AUZUmEhZzfSyYwiNoKQjt6IL?=
+ =?us-ascii?Q?MTfUlAS8Ppygww2ioeCJmGWJUQVJINvUOGCjzXgCu0OVo+sZpn0++lS6S0Cs?=
+ =?us-ascii?Q?ywQYv4SNyedze5PvPmIycyEXGKDXokj7rG9zKwMJEwveykSjhGI4mvCiOu20?=
+ =?us-ascii?Q?S3cBsPXX05w9uPkkWKqMPVKyiObqKHbE2jpUGNCpxjQpoO3M0k81LNU1yDWT?=
+ =?us-ascii?Q?lxkKIyqaPvF1RPUKi+q3EG+sr4St?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?atJnQHkTxlPcRKSG2ZGgTd18bdg0t3FR9TF9YDNBI9N3tPguTqSK4rA7/TXA?=
+ =?us-ascii?Q?RK+E7g9XJd2ukmBYfsuxGxuPN1+YETRmExeeO4dsc6AkWmFRmvWxsdVNNgNm?=
+ =?us-ascii?Q?8MT/qwYc0gXvElXs9obDO/52RJaZUR7NjwofwEVy27Cg287pypQqACghxLdv?=
+ =?us-ascii?Q?DqUCc2BSbQB5ZJBxG5VXQxD0XFeDSOThAkeHOU7u1FWqyDtA3+7JkZnHRga9?=
+ =?us-ascii?Q?DXgUTT43sE1EoJgWoiKI8a8dG1mvHq2uElV0VN90vgiOlkKMH8ojFGSlipM1?=
+ =?us-ascii?Q?048drxPkbs8Fefo85p3HkjPuIOlFgYb+L8nLpu62Q3KUCLrMj31DLj1OLCiI?=
+ =?us-ascii?Q?6UwR6PHbVeeCHgjzdgSACv4hyU6mNERJ2e5F5j0Qk8detATLcD2rMU13++Sa?=
+ =?us-ascii?Q?zV5gy3e79F6bR7RCQ0g+qSNMMAwTh5IZCSaXHbtl9qCVy1cN7Lthmp10mmR0?=
+ =?us-ascii?Q?Ux6VaJGYT6p9LQsKpCNqrfzOHpjDQxWoCf8QCuj6vmqSOpDJPLFMKuGNm1bA?=
+ =?us-ascii?Q?ta/j5BuAf4zCUW4fZgcRkFxlQr/lNpRuqBTpi5Jsj6QIfeP4Y9puWvFQ+P0E?=
+ =?us-ascii?Q?iaJ2Tb6g5L4uVpAQUY3F1r/e0DpasJGsJzmYeeo3Mb7GqwuV8cpPmo2gKHPY?=
+ =?us-ascii?Q?RTi+TVwqvJdpnbFFF/e3XoqifM//YtLHoYFyupGxv7PheAHf12v4BZsDN6GA?=
+ =?us-ascii?Q?e7YWVTZiHFuixvCG73jH6gQUs3IRPW4Q5zkrWlvNLehyMrInDsXccSclAAKl?=
+ =?us-ascii?Q?K8D8geDz2xND7tNqiT9kvlowAQ4OB3q8iA4hUudWyiW79+C+0zEdTEbQgWIH?=
+ =?us-ascii?Q?f4ZvcBWHHb+PEeeVd54bpNlm1k+wV5ozFEYySEVEX6PYvA3sXuT65esr5BTZ?=
+ =?us-ascii?Q?7uT4qBwU916OeQjUBtg0p/oe8qCyObFLf5jfWjw0h6+ad16G1hE7QEg+j8c7?=
+ =?us-ascii?Q?+hrhs+QUSSWXitPr//pnK9Z/+0todBgpwX50aSoANTnStXvb2GfpjnPMzFnt?=
+ =?us-ascii?Q?nPKdBeZxAo2+Mj4IUTrMhbT4ndNGap7HMLgEEYR91bNkOu0bxaYcDoZT4i6S?=
+ =?us-ascii?Q?qG4KBlBUpDKjzmT8suIOqI/X5adjXrK2niahL0eYoi1iuCpZE0MgAM9HejKE?=
+ =?us-ascii?Q?M1VMYXkqQE+Zg2Fsv5Net9X7bLLKYCbTMYC2uB6q63pxlmafIGbk1ebXlq0/?=
+ =?us-ascii?Q?ktJmXQj8J3tEIbODAHU1oysS42s+Z3gur4f7zUSNlz+fmf1nuna1PjHkMA83?=
+ =?us-ascii?Q?GkQJ5Senajqto1EuWlacNPJfTRvzY4t4kcXftAojd2zLrX/p1I7B05CQe+Y7?=
+ =?us-ascii?Q?PJLBW1VVArEhlzaBiDCYgg1GDbJCoTiF7Ae77TstQeMYdiESMvklcQU8r/On?=
+ =?us-ascii?Q?cJ2qtUzsEtec55+c/LEERYHIsX9N+1N2asarpd4S5AjwTrGL9YIaHlIt2zG/?=
+ =?us-ascii?Q?UkRyknINpHRXWklgV9rRgKXbWh8lKolQUlP+jspFay0HNPMe7wV8ZakzbpRg?=
+ =?us-ascii?Q?uhmTNVltN07ZAfOcbnhEyf1V8M1jtTUbeC9PG2s+ztgdutfMVPBpZ4LUPhX7?=
+ =?us-ascii?Q?leUt3AafAbjpy4pcP5sUVZSMz6ft3jb0hmIxEjs9d4g1HvMUP2tXPQF2k3hW?=
+ =?us-ascii?Q?oQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3e5677f-5aea-4049-c5ac-08dd653a92f6
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2025 10:00:40.8241
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XCVlAs9Lki/yqR71/jsYctM1OixoV2FPDcRWUiuh7aMFHITKr5EnqmdpfU1LkCBTKz90FSqrEsVTT7/45ph3Lg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8176
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_025656_562596_26247875 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250317_030045_950510_EDD7678E 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,89 +174,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2025 08:51, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On Mon, Mar 17, 2025 at 11:55:26AM +0200, Wei Fang wrote:
+> Actually I did this is the original version, I mean in downstream kernel 6.6
+> tree. I add a "ntmp_mfe" in ntmp.h like below
 > 
-> On building the topology from the devicetree, we've already gotten the
-> SMT thread number of each core. Update the largest SMT thread number
-> and enable the SMT control by the end of topology parsing.
+> struct ntmp_mfe {
+> 	u8 mac[ETH_ALEN];
+> 	u16 si_bitmap;
+> };
 > 
-> The framework's SMT control provides two interface to the users [1]
-> through /sys/devices/system/cpu/smt/control:
-> 1) enable SMT by writing "on" and disable by "off"
-> 2) enable SMT by writing max_thread_number or disable by writing 1
-> 
-> Both method support to completely disable/enable the SMT cores so both
-> work correctly for symmetric SMT platform and asymmetric platform with
-> non-SMT and one type SMT cores like:
-> core A: 1 thread
-> core B: X (X!=1) threads
-> 
-> Note that for a theoretically possible multiple SMT-X (X>1) core
-> platform the SMT control is also supported as expected but only
-> by writing the "on/off" method.
+> And the conversion was done by the NTMP driver. But then I found that this was
+> very troublesome. We get data from kernel "struct A,B,C", then the enetc driver
+> converts them to "struct D", and finally the ntmp driver converts it to "struct E".
+> So I thought why don't we convert "struct A,B,C" to "struct E" from the beginning?
+> After all, these data structures are only used by enetc and netc switch drivers, so
+> in kernel 6.12, I changed it to the current way.
 
-Here we still have a little misunderstanding. IMHO, even on such a
-system 2) would work too.
-
-My qemu example with SMT-1, SMT-2 and SMT-4 in one system from your v11:
-
-# cat /proc/schedstat | grep -v "^v\|^t" | awk '{print $1" "$2" "$3}'
-cpu0 0 0
-domain0 MC ff
-cpu1 0 0
-domain0 MC ff
-cpu2 0 0
-domain0 SMT 0c
-domain1 MC ff
-cpu3 0 0
-domain0 SMT 0c
-domain1 MC ff
-cpu4 0 0
-domain0 SMT f0
-domain1 MC ff
-cpu5 0 0
-domain0 SMT f0
-domain1 MC ff
-cpu6 0 0
-domain0 SMT f0
-domain1 MC ff
-cpu7 0 0
-domain0 SMT f0
-domain1 MC ff
-
-# cat /proc/cpuinfo | grep ^processor
-processor	: 0
-processor	: 1
-processor	: 2
-processor	: 3
-processor	: 4
-processor	: 5
-processor	: 6
-processor	: 7
-
-# echo 1 > /sys/devices/system/cpu/smt/control
-
-# cat /proc/cpuinfo | grep ^processor
-processor	: 0
-processor	: 1
-processor	: 2
-processor	: 4
-
-# echo 4 > /sys/devices/system/cpu/smt/control
-
-# cat /proc/cpuinfo | grep ^processor
-processor	: 0
-processor	: 1
-processor	: 2
-processor	: 3
-processor	: 4
-processor	: 5
-processor	: 6
-processor	: 7
-
-Whats doesn't work is to echoing a '2' but that's not
-'max_thread_number' of the system.
-
-[...]
+I understand. With pack_fields(), "struct E" (the packed representation
+of "struct D") doesn't explicitly exist, just an abstract type
+representing the u8 *buffer, and the struct packed_field_u8 array[]
+which is hidden inside the NTMP layer.
 
