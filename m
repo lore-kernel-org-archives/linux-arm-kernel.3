@@ -4,136 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3E9C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA977C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qKhoEkqZCXcPPxfM9H7ezBuzdyMwWiKlJTC0V69eh48=; b=XKQfOjgsZjKimiBXzj5HYUSSr2
-	Pz7xrO5a9KEd4Uy+acBO54FhzbXz011LYmGoM3aRs9FkCQDTKxtsbqMuM3GfCXXPYUj1Jw89C4S3e
-	zyNw1z+7BRZ6ScGef4ZB0sHOYVLt2f35uqQVeJ1usFNQQrrM5rZYyf480+3Jx0bLIoI6HBe/rV585
-	d+QquR5Ql2M+aXGdaBcw0b9mwM7hxxbgkDoHV+RhHmSauwSgrI9m9+S+UtvSIm/YXC+bodh/BBxDo
-	Ix9eYschVWH5wsLM1L0NmggZbh5hTNgcgs+5rIqn+lXdPhzPIsrGb9heOj+uaVakT+IN3XWtMsYUY
-	msBcv3Qw==;
+	bh=BSI4nkAsmBny9M9nUX8HduTDqwiT6kYM7Gikh0HUre0=; b=WallmbBGiU+6AkDNINQgY/rh4K
+	d8p78vCO/jC0iSc5ssW9IsVeyk+/UJ1dYShNp0nY/4qd/NSs+xEXcIYVayDC2IZaP8bom1vZ5OHmE
+	2w1VVqKwMUqcXIkhthlXmSHKOmh7xjfnV6tAnUhPNhftJaPtiUSip0meGAjD5jqhP0Dw5zCSot9Z0
+	1TVgfvmnGuSQP44f/TbSExu7yN1lTZxKk83/7U9PixTT607U8HCqro/3n98aVka2MkX8pT5gpjkGu
+	pCVw0hMZB71bI8SB+XjDMMm1Ee/VKRBKWlYwRjija3b0H8cGRVjgjIMeQiSkQtRVuRVsm08mmZ3NS
+	Fur+G11A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu6oT-00000001w3Z-2c6X;
-	Mon, 17 Mar 2025 09:31:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tu6q7-00000001wRy-1sut;
+	Mon, 17 Mar 2025 09:32:55 +0000
+Received: from mail-am6eur05on2061c.outbound.protection.outlook.com ([2a01:111:f403:2612::61c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu6lJ-00000001vG4-0EQo
+	id 1tu6lf-00000001vLi-1tE4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 09:27:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A25AE5C2C15;
-	Mon, 17 Mar 2025 09:25:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26A58C4CEE3;
-	Mon, 17 Mar 2025 09:27:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742203676;
-	bh=xX7lHGFYnpplLSbCZnNB6JktC5keaB3sAg4LSZJ5VdQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dJYt/3k016lB/8vi06XSanBCTpSfH2BWqga6pTd50rbE2MU/A6PFw/OCqXO4lpLe8
-	 glDrZnSBuQ7f4tIJoORMWwOjJqPk/rQefvmcAjcR/+b3UDzghnaBl4sCTkwIF14InH
-	 6hFHFDdDxPBm8D/YkpWbkhI9jgLdrhpFdqfIVTs7JoJ9mAV0xBjHHRyHm/ozfSICup
-	 KR5ykY+MrvkMnTLvNnn/qVQRTDbLRSDVFxGPOiba9ESYDDuN7dT/VCgWY50IG93ITl
-	 PibJq52FsdT0KMmRpkGFWFFPf1wWFVFwRzlwyDBECGzwY7/1SvO8XCkk7BK/3udQn/
-	 yQuGUeiSEUOVA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tu6lE-00EDv5-WB;
-	Mon, 17 Mar 2025 09:27:53 +0000
-Date: Mon, 17 Mar 2025 09:27:52 +0000
-Message-ID: <8634fcnh0n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ankit Agrawal <ankita@nvidia.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>,
-	"oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com"
-	<david@redhat.com>,
-	Aniket Agashe <aniketa@nvidia.com>,
-	Neo Jia
-	<cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta\
- (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>,
-	Andy
- Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John
- Hubbard <jhubbard@nvidia.com>,
-	Dan Williams <danw@nvidia.com>,
-	Zhi Wang
-	<zhiw@nvidia.com>,
-	Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke
-	<udhoke@nvidia.com>,
-	Dheeraj Nigam <dnigam@nvidia.com>,
-	Krishnakant Jaju
-	<kjaju@nvidia.com>,
-	"alex.williamson@redhat.com"
-	<alex.williamson@redhat.com>,
-	"sebastianene@google.com"
-	<sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com"
-	<yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com"
-	<gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com"
-	<tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"seanjc@google.com" <seanjc@google.com>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
-In-Reply-To: <SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
-References: <20250310103008.3471-1-ankita@nvidia.com>
-	<20250310103008.3471-2-ankita@nvidia.com>
-	<861pv5p0c3.wl-maz@kernel.org>
-	<SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
-	<86r033olwv.wl-maz@kernel.org>
-	<SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
-	<87tt7y7j6r.wl-maz@kernel.org>
-	<SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ankita@nvidia.com, jgg@nvidia.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, shahuang@redhat.com, lpieralisi@kernel.org, david@redhat.com, aniketa@nvidia.com, cjia@nvidia.com, kwankhede@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com, acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com, danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com, dnigam@nvidia.com, kjaju@nvidia.com, alex.williamson@redhat.com, sebastianene@google.com, coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org, ddutile@redhat.com, tabba@google.com, qperret@google.com, seanjc@google.com, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 17 Mar 2025 09:28:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RLcuf137j2qYxahqPpaY7iggveEdxquGrP1B4+/Hz3tdyRqFGpYZDX1mUMJkcsSB4snOKlbCv8aSkhApzMwjwxw5diTRzpyTjR6bvQ4Bv5NVcFNWzHUuszwa53rO4Km5NpckrTj5fB735BtjBfZDJSfqdxvE5uc/n53fFkciL5mYmcGFKidykkFfDkOnrldLf2HQEphLZNjOc+Kr4wfg8d7KicnyYdjqx+AUp0KcVLZ/AFl7ePvXyO2tT2sDEgCYLxPL3Ld6Me5YawriERlCg6J0415PVgEUCCxLw8ox9bNtf7fRdJJjwi///f3DKVsUfvsjPknR7JTyr83ZcLHZbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BSI4nkAsmBny9M9nUX8HduTDqwiT6kYM7Gikh0HUre0=;
+ b=iq/s+HzCUJ3BZoFA4D3XxS2xO71I10Ncz0GNNIO7Ym3EwHdKwgJhFhNEGppzdERywqjfL6ZZqb257xLno/KF1vt5/bbEboJ8n2cGbzeZe7wqV+Hnxz5nbYI4ZchxvwSF1NEKS9Y74dhPI0msl19zqgJBV9oljznuY6uhYbk9hG+K/VNY/gWqo94sR+dRumY+YSVRrCkqXp0UzyHnBt/InFqYUbb1bRCfeFhPzASU047s9oVK0XrHOxq28tk8QD84QGNwHIVclx5kqulm0isToTIRTqpp7mgRRI8XESC49nh6M2OOkq78Y8JBqgwBfRwSiBziyvBt+abCmq+wGcXBIw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BSI4nkAsmBny9M9nUX8HduTDqwiT6kYM7Gikh0HUre0=;
+ b=nnMGCy2LjUkfsvglImUKu7NF4jP/WV2QD5czP514A/XnnYHYpb5a9u736LVrcSSxf0Qe8TuYqW0gEElMTG9tn470rx+MuHr0BedckRX2MzR8Ckq6SvoZNrBRcvn1VG2d5UcX4aBVZxBu9tnIOM6xjNk/PEW5/KJU5fCTwaurHwjPEa8RBQUBbWTPi9RtS71qIRV7HgVZQr/eS/Gn40+XexIq04/ZEX+n064Q22d+V8U8OSuFvQcIdEQxpl5XJ0q8VcC/pWbi+woMlAhoDG0jqW3R6NSxbUFmGRqr2UOLhRNx/v6y0ZikqQpU3L83cnRhNEtn7ed9VPfK9Ts2YUU+KA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by PA1PR04MB10525.eurprd04.prod.outlook.com (2603:10a6:102:444::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Mon, 17 Mar
+ 2025 09:28:12 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
+ 09:28:12 +0000
+Date: Mon, 17 Mar 2025 11:28:08 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v4 net-next 01/14] net: enetc: add initial netc-lib
+ driver to support NTMP
+Message-ID: <20250317092808.jel2au3cgfwblaxk@skbuf>
+References: <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-2-wei.fang@nxp.com>
+ <20250313163526.pqwp2wsfvio7avs6@skbuf>
+ <PAXPR04MB8510327277CFEAC750FE49F888D22@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20250314123715.fivq2cbczd4khxkk@skbuf>
+ <PAXPR04MB851027E5F830F08F3395083888D22@PAXPR04MB8510.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PAXPR04MB851027E5F830F08F3395083888D22@PAXPR04MB8510.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: VI1PR09CA0160.eurprd09.prod.outlook.com
+ (2603:10a6:800:120::14) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|PA1PR04MB10525:EE_
+X-MS-Office365-Filtering-Correlation-Id: f52cd914-c145-4b49-175b-08dd6536095b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dMfwouWdgiKeAHzq4wAbpz4o4pKwIoUmSsPCgxuRacozjOUtlcFAvIYeS9C3?=
+ =?us-ascii?Q?PIVZaeFUdDlfX3D4xa+++s4+/eEUfmzYJM7oWPAayLMe9o0UugsVsFV32eeP?=
+ =?us-ascii?Q?JYeNQiLbCtYV/ZPrJcNF3oJtSmBaQaP1YBAU+38AH8rSdIMIIJhN6uiQh0QB?=
+ =?us-ascii?Q?8YdgCFWziND874XjAO+FTR57CveY1gsNpD/82GORWARLm53zWq12JUaV5f8t?=
+ =?us-ascii?Q?JS7c1OBbLtdpfLFCgzZQM927kyF/+LkdbuGqgHr97JWDxdr1OQTLSae5owbI?=
+ =?us-ascii?Q?+JLK81DygIH7Pex5Fz4yyseo6KSn/YD2GMarSGgA6XoYiftsNlCw5b125Nx5?=
+ =?us-ascii?Q?lcT0WiAo7EdCfhp/GvA47pgYP+av/bsRIYkLNrZ6upjwJoAzNP0dJzEZ0Qat?=
+ =?us-ascii?Q?uWlQ2UN7smmrTUI9XsdCxG7sG05L2iWYgFC+ev4ON0ZNCHW97pdXnSZpeVr4?=
+ =?us-ascii?Q?jpq1eYep3D/7PpSLC/Q9jon0swBCxaJDdCrqplE3bGMqJXcjWn4GvrMMmh3J?=
+ =?us-ascii?Q?vq3eVab+IHbTsKbfRB/wwgdqgQWZC65dxB+mNahgAa2bsg40ITKIw71vzHZO?=
+ =?us-ascii?Q?KdveFray+u2NhgD73H3vjANkNtIgwpk7VFpd6EjiFYrIzCzLfdnbmmNyA4Oo?=
+ =?us-ascii?Q?n9BmBjvwJ+1JnqtjfA9OlaavRA77goikhVG02PWu2M998QEp0NEO8kLsV2jq?=
+ =?us-ascii?Q?mMB2RdrRPfQT+nxflN1V43naj3h6LXQk4aHYWeUS0MTGA58//U9SiOXt7/4P?=
+ =?us-ascii?Q?FspybH3/VQ7Kw0iAc5+NA/JyaSp/0+TWUgd1OXCGrbMponz3ZT07u+uWcI6z?=
+ =?us-ascii?Q?lE2riJn1nGoEJrmH/Nw9KXXMl8QiDIF0n09sgA73Hxzfd3BR8eYPhAsFSowH?=
+ =?us-ascii?Q?383dp/xGUNJcJ0/SKbWrjIpwNIAbHk2838A1x3u88PtxhIg3Sc0GMIHFEekg?=
+ =?us-ascii?Q?4l4xCQm56LPzvIVhYtvSWArZGJZudwEjj1qtleLeFH0jYKtqKBmkwkbKGiGe?=
+ =?us-ascii?Q?sT3DNjBSjwxBS08bOxYQBKLS0GbdwSTRvFwKDflnS6dvsqIG2JYMxeNL0OAB?=
+ =?us-ascii?Q?RjEj13QYxVdzd4yyY/3dutMQnhpN8BvXP7I3J9ZDH+ernBDcOfChbM7GjQHB?=
+ =?us-ascii?Q?n3z1Q0yOtP11mY+kUG4wgHE8qA219xqcYnHJJCk6EVKQ+ibTWLTiNAWUXwaO?=
+ =?us-ascii?Q?2qKAoaesRz47fO2ZujrX4tN3s2vmMEairq4F0gIwys9s5qkKFkWq9LoIi+HT?=
+ =?us-ascii?Q?kfYQ6c4OZwSW4MNK2VT84+/oP7zW6BRrsVtjUHosUWkaQIlGBytFMRxuRVaJ?=
+ =?us-ascii?Q?ZVfK8FKaztuZ3fJORDmzn45nwmALmakg4/g8bsppCOtMceFKYWB59BaVg1/N?=
+ =?us-ascii?Q?QdXYwpsBlaY/F0EVWi91Afj/yqmG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JD25MsncrX1FcpiTCj+YsHWEmJDg8N1G7zm6ZIGDYN6gmZc1EOdMwIFmkb/v?=
+ =?us-ascii?Q?0TdjguoH/FQ8jdmRJSNKAX7hwXXU4aMDu5iYTxHNiqbVCw1n8eWtl+9N056y?=
+ =?us-ascii?Q?6gDwy6+JMT6SfcarbGMlBEJY9ud1qZay+31COFHbBvQw2o2N5U98ukdLoCv+?=
+ =?us-ascii?Q?TTnryZBFEHsMk7pZNLnXHmLJG7h9IYv3CfZJLlhFwg2Rdc6ZuyU6UQoesgYn?=
+ =?us-ascii?Q?DpvQYXEE25anHPDj7ts3JJx4/0pGJrpkfYwIlZjAwSkggSiIxX256wEvh6T7?=
+ =?us-ascii?Q?2bZ1fgG7BHftRqLRM5TMhBVYhazMWKo4Yt77RbmgZUnBF4KuhtNFo7OwK9+U?=
+ =?us-ascii?Q?TrxCkkvhRfYpBPFvEesTuigNrUzFaTB9ZdXG1coBrR5yTQ9bxrEQDMdgJE16?=
+ =?us-ascii?Q?lNDU1aNvt5Jy3u0H9RksUX9hJppqsAnNK/4vxspaRH+ZMSkFxkCFqtvFufgT?=
+ =?us-ascii?Q?7eH7JjWgsDDYZD21bfmcjoKf7eUAxawjKvp4h3Dx4icigJiUwv3uWob+TEJL?=
+ =?us-ascii?Q?uouqz8L8cNoJciTjYrGq6r2tty8rB1lmfSC0teUOCb9HfMrLHdAcXbeMNtF9?=
+ =?us-ascii?Q?UoVODxHEjUF07tLLNI4XzHJeFWVEQIhGHyT3imNB5kaRe+VvxZ8PMZa9xYnl?=
+ =?us-ascii?Q?t33QqLECtMsSOQMYY5kMMbYprf96xdIhErmKp7R1HgJVX7Ai4rJdKMK+0Rnv?=
+ =?us-ascii?Q?nU6uxT3vRjvjLTN5RHMwJH5OkuJezLxNdC1WxLG7N1Lk41FIOhJZQ4Orb+8X?=
+ =?us-ascii?Q?/2Y1n1w85eLNsi8SBytgv1hMLU2HTH6Zmq5TfSLkyK4UtGg/eC0yb1iXUQ5v?=
+ =?us-ascii?Q?6TwZq2OfV90VfjNCuLJqxbnScPVdjIqqWTPIh+EB7/WdquVLLImOaNdewc2c?=
+ =?us-ascii?Q?voCEbh8RbtNFoiWu2mkBodCjJyaur3+Koo+i1PKBaseoTAIYsqV/ljPsB++T?=
+ =?us-ascii?Q?SKDQK8ybCnD2z07pB6kUK7dGKOdW0a1verD9AlErUjwhm6pBSwSYUK/a/yRU?=
+ =?us-ascii?Q?bgGTedUF+wZz3jpThXf4Au+sKQH7WGqgxvC5e/8aZnaCEbj+5hV2wdC64uv7?=
+ =?us-ascii?Q?C9jBQmBEdj7QEoqihgUXpfXZiS4Ot4pqc5wgilYwP6xL6LS3n5ykt7uFt7BV?=
+ =?us-ascii?Q?ikQwl0uUNDh2BLD0/cGCz3VBbJRAKCXsOXKDy2OcM4QYFo+xzaDUGoKbn63f?=
+ =?us-ascii?Q?EtEaWbV0exbjaDafCSbDvkvO1yQcMpyKryboPuYD4UVLllscRZQlv4h7Gf9+?=
+ =?us-ascii?Q?6Vubio/8E8W28dINeI0v5udASvj/G6RPe3vaBLk7ZsgkqxXxo5cFc4Pa/bYE?=
+ =?us-ascii?Q?qRPGsWGtyhrWPWR9FdBuvm/52uxxzQiILoZvpB9rkFoBc1TLFCbLw8INhrch?=
+ =?us-ascii?Q?ND+xS3q2pakCzE/KaX5TEhi9OXLxxYUzRRqRHW9tH0u5pf7QmWMmE+jx8SJ2?=
+ =?us-ascii?Q?gyIHOdHIT5VME7YAoSOKdnakYCeshyR3bJaHz88BIfELAxYIlfzuLhRUJ2pM?=
+ =?us-ascii?Q?uen2h24STP6ym5xDXulR70RqHh+YVV5z3Y56QlyJhQ3rdv3hy4N1dBSCuQJv?=
+ =?us-ascii?Q?JsRxhs+0WUi4F0z1ySIurGKTSt2pWGXuhqipr18ctII1OpTgXfJLctX+T6n2?=
+ =?us-ascii?Q?iw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f52cd914-c145-4b49-175b-08dd6536095b
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2025 09:28:12.0086
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: J8LYSj/zDI1bC1+3Go0CKqVuAb4GOZne1JFnFjNALfYq8TGx0tjVX8Z2dNlAz5gpqQ0/OrzJG6GA1iMwwxNQ6A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10525
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_022757_176534_431EAAEF 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20250317_022819_518621_F44A7F95 
+X-CRM114-Status: GOOD (  35.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,39 +172,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Mar 2025 05:55:55 +0000,
-Ankit Agrawal <ankita@nvidia.com> wrote:
+Hi Wei,
+
+On Fri, Mar 14, 2025 at 03:48:21PM +0200, Wei Fang wrote:
+> > I mean, I was just suggesting to group the macros with the macros, and
+> > the struct fields with the struct fields. Mixing them together looks a
+> > bit messy to me. Even worse in the definition of "union netc_cbd" which
+> > IMO needs to be reconsidered a bit (a hint given below).
 > 
-> >> For my education, what is an accepted way to communicate this? Please let
-> >> me know if there are any relevant examples that you may be aware of.
-> >
-> > A KVM capability is what is usually needed.
+> I think this is a matter of personal preference. I was inspired by some
+> of Intel's structure definitions. I think this method allows me to quickly
+> understand what fields the member consists of and what bits each field
+> occupies.
+(...)
+> Thanks, but we have added fully NTMP support in downstream, it's a great
+> challenge for me to convert it to the 'packing' method. I don't think I have
+> too much time to do this conversion. And I also need some time to figure
+> out how to use it and whether it is worth doing so.
+
+Ok, I'm not forcing you to use pack_fields(), but given the fact that
+bit field overlap is now something that has to be manually checked, and
+a bug of this kind already exists in this set, you will have to wait for
+me, or other reviewers, to go through the bit field definitions from the
+entire set.
+
+> > And I agree with you, I also don't want ntmp_private.h to be exposed to
+> > the NTMP API consumers, and I wasn't suggesting that. I just want the
+> > NTMP API to spare consumer drivers of the gory details, like for example
+> > the buffer layout of a MAC filtering entry, reserved fields, things like
+> > that. What I was saying is to keep the buffer layout private to
+> > ntmp_private.h, and expose a more abstract data structure to API
+> > consumers.
 > 
-> I see. If IIUC, this would involve a corresponding Qemu (usermode) change
-> to fetch the new KVM cap. Then it could fail in case the FWB is not
-> supported with some additional conditions (so that the currently supported
-> configs with !FWB won't break on usermode). 
+> Sorry, I don't fully understand, for example, if we place the definition
+> of "struct maft_keye_data" in ntmp_private.h, how does the debugfs
+> get the information from "struct maft_keye_data"? Add a helper function
+> in the NTMP driver and export it to enetc driver? And how does
+> enetc4_pf_add_si_mac_exact_filter() to set the mac address to "struct
+> maft_keye_data", add another helper? If so, I think it is more complicated.
+
+Well, my complaint, which has to do with style and personal preference,
+is that exposing packed data structures to NTMP API clients puts an
+unnecessary burden on them. For example, NTMP users have to call cpu_to_le16()
+to populate data.cfge.si_bitmap. A bug in the packed layout will
+potentially have to be fixed in multiple places. The two options for a
+more high-level NTMP API that I see are:
+- You expose pointers to the packed data structures, but API functions
+  provide getters and setters, and the exact buffer layout is only known
+  to the NTMP layer.
+- The API functions expose "unpacked" data structures, which are more
+  abstract and don't contain reserved fields and are in CPU native
+  endianness, and the NTMP layer packs them to buffers, either using
+  pack_fields() or manually.
+
+Claudiu, what do you think? I can withdraw the request to hide packed
+MAFT (and other) struct definitions from include/linux/fsl/ntmp.h if you
+think they're fine there.
+
+> > Thank you for posting the downstream layout of struct ntmp_priv which I
+> > was already aware of. What I was saying is that the word "private" means
+> > an aspect of the implementation which is hidden from other code layers.
+> > There's nothing "private" here if the NTMP layer has access to the
+> > definition of this structure. I was asking whether you agree that it's
+> > more adequate to name this structure "ntmp_client", since it represents
+> > the data associated with a consumer of the NTMP API - a NETC SI or (in
+> > the future) the switch. Or some other name. But the word "private" seems
+> > misused.
 > 
-> The proposed code change is to map in S2 as NORMAL when vma flags
-> has VM_PFNMAP. However, Qemu cannot know that driver is mapping
-> with PFNMAP or not. So how may Qemu decide whether it is okay to
-> fail for !FWB or not?
+> Okay, it seems to make you feel confused, let me rename it later, how about
+> "ntmp_user"?
 
-This is not about FWB as far as userspace is concerned. This is about
-PFNMAP as non-device memory. If the host doesn't have FWB, then the
-"PFNMAP as non-device memory" capability doesn't exist, and userspace
-fails early.
-
-Userspace must also have some knowledge of what device it obtains the
-mapping from, and whether that device requires some extra host
-capability to be assigned to the guest.
-
-You can then check whether the VMA associated with the memslot is
-PFNMAP or not, if the memslot has been enabled for PFNMAP mappings
-(either globally or on a per-memslot basis, I don't really care).
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+"ntmp_user" works for me better than "ntmp_priv", thanks. Are you also
+going to make the API functions from include/linux/fsl/ntmp.h take
+"struct ntmp_user *" as first argument, rather than "struct netc_cbdrs *"?
 
