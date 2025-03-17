@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90329C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 19:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80B4C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 19:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t1WTao9NFteyfaYzewuSpHqVfQAMvgSzADPqoOBqbvc=; b=a/8wpa6lCw3cFiwkc47ebFqQ+M
-	OL6A+ckKh1ONilZAL/A4LeDhqZigOzLQtN7NxWNkEQ1zCBLJRWxtYzG11d6W3Z0osr36fog11Xw3K
-	cFTjdmgj3M1kHupm7v8F7IfBaYTiJraEUo6bGwb8cVIGhRljODVRYbMjb+KsWxSX6CNmeYLeQVBKi
-	13pZ3qR/rX9YCF/jQLPaxvts0F1z8GaiJCbin0LuhFSEWMgYPY39boigxgLHl8Ha3L7HeYORV+PmQ
-	S7XC8IkRHJFAliajGAKNuF3BU3UJQ323L23bANIwIbBYGyLvD3Rkq0M/S7IxUnuNIB0lPdkFo0dwm
-	wlNzNvlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=l93wArIHwMbKZzTlKp79U6l/s1MePAH2nttgkdnBA04=; b=KTfE5QGXnWNxr2
+	TEx96q+HCqu8MGKMakJ1HwzOPxZ6fD6HaYhb3D6ahf6p0sW5BOCM3ybu2v/tlwB9l2cjr6NuBjCS7
+	IQ5fJK6gebqabEhDnfHV+ilXnFhlM4Ub95SAC3iUKl1JxJidJQDB+FExnwfklr1Fckolc6bmSNSMG
+	MqnyLOVXUIuzHRQ8kjmTd29lAvgaQCVWQuAh5x61new7O7QBrfIhtzlgNmvfq5GwelVJYC98krA4t
+	viWcUs4ZmY0gloTbrScEk/MUu9MGWFKodJyISriruhBDN/BIdxOEcgaC50PdAQaPj01CjItM9QrZC
+	U94cojAqnFGgeYHcQ5Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuGQ8-00000003qpY-1Y0l;
-	Mon, 17 Mar 2025 19:46:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tuGRm-00000003qx5-0FRN;
+	Mon, 17 Mar 2025 19:48:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuGOD-00000003qUe-27y3
+	id 1tuGP8-00000003qgF-02DI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 19:44:46 +0000
+	Mon, 17 Mar 2025 19:45:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 051235C3CE2;
-	Mon, 17 Mar 2025 19:42:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45DB4C4CEE3;
-	Mon, 17 Mar 2025 19:44:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 57C265C3CE2;
+	Mon, 17 Mar 2025 19:43:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF366C4CEE3;
+	Mon, 17 Mar 2025 19:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742240684;
-	bh=OiQVuvTN1/XflXpR3RqcHCaJ640D1uHI1i9Ur7T7qKs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=LOa737wrjHepnbxep326FXIDSAcB2rL++PYLUj/AszMLNZHv7tdoRhUNrX9QZrleC
-	 A0dKbD1XhZRR5Kv2Fi+eBXALlamDgHb3ExZfje4E09ZLXgLCzdM/CMLltD/YSV7Pql
-	 e7ZJ5fJgFeVAZJVt/ZwuHnhroS4ZRwlm5COLLNnvU8vbZJXfoyHcuiETR0b9hB60XY
-	 aFKci0gMNcgOLFIieuVYhfo08wg0yLhvo7tpxm4rMSU2JW1PuIIf5br0HavPhfuvHQ
-	 PCMfyIH4pXJC7Kvc1Ss6nyRrHrpCcUm6EDHLoZdJDiFJf2sqKkQp++J2gbgdnaGf5p
-	 pRfeDmX1+CpwQ==
-Date: Mon, 17 Mar 2025 14:44:43 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1742240740;
+	bh=1WzhvgIhcGV1q7kZBpy9Ec9bjhHmsqVZLv/kd7yp1q0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=eUsdAvVOPMgsXKbTzQUTL36vzp1Qs0h9NK+Ehjw3ZIEJ/7teihEPkt9+9FI9nMFS7
+	 AYk8WZMrpWXpyqXw7DkpQjgWrsKjDgf0PNyJdwR8K15Kp1CRHvyChDSEe4uo/dSAEV
+	 91pJButJgu6oTf4Wp7ynQuv2wZIw25vxMHgkkk3HhF9fTthyasaY330CXwyPkMLdlL
+	 uzPttE8z//O5y0Xl9sbKgDri3oASzQY6RMokDfMSL9VJEGaOF0laKqJ6qi+9ihoUzU
+	 Ix39jL4Mkl08VimFD6WDnZNG4h5IgRU8jVpmK4x68ytP18488Onu0Ium4YRYK70awJ
+	 Rmjo3EdnXZT1w==
+Date: Mon, 17 Mar 2025 14:45:39 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Tony Lindgren <tony@atomide.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC NOT TESTED 0/2] PCI: dra7xx: Try to clean up
+ dra7xx_pcie_cpu_addr_fixup()
+Message-ID: <20250317194539.GA969005@bhelgaas>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
- Abhinav Kumar <quic_abhinavk@quicinc.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- Georgi Djakov <djakov@kernel.org>, James Clark <james.clark@linaro.org>, 
- Bjorn Andersson <andersson@kernel.org>, Andy Gross <andy.gross@linaro.org>, 
- Simona Vetter <simona@ffwll.ch>, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@linux.dev>, Andy Gross <agross@codeaurora.org>, 
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- Konrad Dybcio <konradybcio@kernel.org>, David Airlie <airlied@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- coresight@lists.linaro.org, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- "Ivan T. Ivanov" <ivan.ivanov@linaro.org>, 
- Mike Leach <mike.leach@linaro.org>, Maxime Ripard <mripard@kernel.org>, 
- linux-kernel@vger.kernel.org, Rob Clark <robdclark@gmail.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Heidelberg <david@ixit.cz>, 
- freedreno@lists.freedesktop.org, Sean Paul <sean@poorly.run>, 
- linux-arm-msm@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Kumar Gala <galak@codeaurora.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-In-Reply-To: <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
-References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
- <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
-Message-Id: <174224068328.474126.11922746474259386307.robh@kernel.org>
-Subject: Re: [PATCH 4/9] dt-bindings: arm:
- qcom,coresight-static-replicator: add optional clocks
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250317184427.7wkcr7jwu53r5jog@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_124445_663054_46B25B5F 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250317_124542_092871_E60666D7 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 17 Mar 2025 19:44:39 +0200, Dmitry Baryshkov wrote:
-> As most other CoreSight devices the replicator can use either of the
-> optional clocks (or both). Document those optional clocks in the schema.
+On Tue, Mar 18, 2025 at 12:14:27AM +0530, Manivannan Sadhasivam wrote:
+> On Mon, Mar 17, 2025 at 12:30:08PM -0500, Bjorn Helgaas wrote:
+> > On Thu, Mar 13, 2025 at 11:35:21AM +0530, Manivannan Sadhasivam wrote:
+> > > On Wed, Mar 05, 2025 at 11:20:21AM -0500, Frank Li wrote:
+> > > > This patches basic on
+> > > > https://lore.kernel.org/imx/20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com/
+> > > > 
+> > > > I have not hardware to test.
+> > > > 
+> > > > Look for driver owner, who help test this and start move
+> > > > forward to remove cpu_addr_fixup() work.
+> > > 
+> > > If you remove cpu_addr_fixup() callback, it will break backwards
+> > > compatibility with old DTs.
+> > 
+> > Do you have any pointers to DTs that will be broken?  Or to
+> > commits where they were fixed?
 > 
-> Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
->  .../bindings/arm/arm,coresight-static-replicator.yaml          | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
+> Any patch that fixes issues in DT and then makes the required
+> changes in the driver without accounting for the old DTs will break
+> backwards compatibility.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Right, I guess the rule is that if we have patches that fix DT issues,
+we should apply them as soon as possible.
 
-yamllint warnings/errors:
+And later if we ever have confidence that unfixed DTs no longer exist
+(or if we can identify and work around them in the kernel), we can
+remove the .cpu_addr_fixup().
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml: properties:clock-names: 'enum' should not be valid under {'enum': ['const', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'minimum', 'maximum', 'multipleOf', 'pattern']}
-	hint: Scalar and array keywords cannot be mixed
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Bjorn
 
