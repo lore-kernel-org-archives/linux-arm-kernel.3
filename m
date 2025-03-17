@@ -4,155 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4472DC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:46:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D640FC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uEcjsd3wijmq3a8c+wEVG39qKMo6JcztjhYTYEyxOsg=; b=KIlMsawnWxdWMJvIE1wbzm1uYp
-	o+UHgt7UVDByIurLfSqFniSpqSWcUbqnlLRhqv/HGO5aoK0uGdSNFyus2m06OCteuzloPdYgvVfHb
-	fBKSiNigArJmQrQq3ex6Vo8wlFDNuctTkw32WxfQKRqZcyscXBgeZTJQTYpOjSe0mQGo4tbqHnxwk
-	3gwhUbGDQuA/jJxKdaKAAjr/psEeHSG0wcTBHuemH3mvfHqJeLVZ2vAmmPnwOqjevXmVaEU8sUMRo
-	i7MCHQwNUB6evnBussYrWkIyWO6aerLqXlcMkdqreucLskMk7rQaJ4P+AJPth9AuKoLvVE7cexLqE
-	Jp3zkZgQ==;
+	bh=zU3hKPINr7QjLa/9u8VCMKZheNEA+eJosA8qF1wcCvk=; b=JsoNy3Kdlt787cwXNFr7w08ja+
+	A3SxG6EwOJALlypCQXuynerItr6t2aCNSh4UIDAMiymcjvxgrrjZaAxaC+qpCW3pRHYjyNqJO5NjE
+	SoQ8Ijq1UvNNnZozFPp4eJ+bziq1juG51hRd5BTtCu9x7tF50BsY35+3kQSUst4ykk3TsyKcw3qAt
+	AdHKd0JFo+mzbz9QcT9NdgoAh47+6wZ0ziLg6GR5f9p+Fl+XDFR5/5cnRFyE8SoSpQqkS5mitmGLx
+	qqtzIaaGps9C4I54b5zq5sK0yXKz5jgvvb9gJ38JdBYJupCbGkdLMB5vGywWOffhU9syd7VXsr3BE
+	P4PaiHpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCfN-00000003CRU-3X5A;
-	Mon, 17 Mar 2025 15:46:13 +0000
-Received: from mail-mw2nam12on2060a.outbound.protection.outlook.com ([2a01:111:f403:200a::60a] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tuCqq-00000003EQE-1Sp4;
+	Mon, 17 Mar 2025 15:58:04 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCdg-00000003CBO-3NqS
+	id 1tuCkL-00000003DMl-1NrH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 15:44:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uQpLn/Erel9/sJTa/8MEHIqyhJd/4w8/9i48OEJg5Go0S7F9jV4dnYPAXTDKmzKgu1hd15GoiLs857GOxfByEVay1d0kwwZzdT12r2ZKs3lySkbAHSEXWk2GYU6TywQUV9hzy5S1PtG88W4/x/p6Imr2N9lrp6iMb2dNUXbJUqgnJvSRENnbAe/+0RqabD+rOhxXWL+q4soUoWdbghuLo+bykjrODvn/VZdmZ0r62u1ft+8C9JaxJBOvoTU+DWaZ2CRr3i78LnLnm7IDCITuaVjcVpT45pprGZhF9LHSdWzLSi+MyePKG1V4bYVcKVW6HxQs08L6chW259a/UinOeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uEcjsd3wijmq3a8c+wEVG39qKMo6JcztjhYTYEyxOsg=;
- b=uByEAb4XxinrhN+2q6HWQRMUY2wuojBnhT4dhnBqtvBIMT3OPPVua7zDj/ZYCUCmZ6x8vU+3YwSy5Gnvr+zPYj90BVMlV8PKdMgF1dJa923uiPRiAaLd76kAVpYZuXWywct35lJ4bkBbhmzAIoXqXRZM1uS6Fe3aX6HYF2t48db8i4XIZQfs1OvJoS7NgcymCc91XH9zOjpvR/KMZ2nQUtILIsejGohMZH6vihRhkPgL2EnkV5BzyLZML/V6L6avsHOFc5kDBNBX6dL92+1B/3Rgelw++chV960hhkZhlG5EWWIWX+1inJVskxtTtjH57aZlfbp+OfrzqrcYD+xu2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uEcjsd3wijmq3a8c+wEVG39qKMo6JcztjhYTYEyxOsg=;
- b=OEP8971HkLdL09YbxIjwy9cn3+eJdnscfprUJICAX5Lw4aW2HHEW8F9RvD1ygsoePd6lAZVXPhpLdHgKEhWFPtHAjqCwtAd30s9ytNhzb6YYhsVEaIwaW8J4c8aIupx9MGeeglrevvPeDzeylEqUHtiloaUxdafG8Ve97dUvl3+e+C8YNnp1dOchFuwJzdKpNZBAh2DzcGaPwrsg1TFxMgMlSbT8uPiyBm88Edtp410MQbNt5yvKsZXtgG6G/3Rh08ClgC2c+KD1D2YEDFomc83LkQEflT4sUBzhbiZ7XtzAtAaZxBsiFbHC+u0fTUUkWbJDt1gW73oaEY07Lf8txw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SJ1PR12MB6316.namprd12.prod.outlook.com (2603:10b6:a03:455::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Mon, 17 Mar
- 2025 15:44:24 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
- 15:44:23 +0000
-Date: Mon, 17 Mar 2025 12:44:23 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, kevin.tian@intel.com, corbet@lwn.net,
-	joro@8bytes.org, suravee.suthikulpanit@amd.com,
-	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	praan@google.com, patches@lists.linux.dev
-Subject: Re: [PATCH v8 12/14] iommu/arm-smmu-v3: Introduce struct
- arm_smmu_vmaster
-Message-ID: <20250317154423.GI9311@nvidia.com>
-References: <cover.1740504232.git.nicolinc@nvidia.com>
- <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
- <20250311155714.GC5138@willie-the-truck>
- <Z9B2LMIi+88hlfza@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z9B2LMIi+88hlfza@Asurada-Nvidia>
-X-ClientProxiedBy: MN0P222CA0016.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:208:531::14) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Mon, 17 Mar 2025 15:51:22 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5499c8fa0f3so4779481e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 08:51:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742226679; x=1742831479; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zU3hKPINr7QjLa/9u8VCMKZheNEA+eJosA8qF1wcCvk=;
+        b=PYFDc26G0dUqO9HcBM14LnQkDAB09xrEo9ZTNVEuUyYlBzlsjj7wQ/0PB/9u0ZALX7
+         PbfeT+i6rzcBLYRuCJjxNh5wrD9eWpAVvwthpERrWDtttrxFma/PC5Qt23ugw/8DDeCz
+         7k5lHk7yBJU3Y9hSpHcrVLbp8zEBaVynZYIFhZerYK0ykpUgsckdM1hMEXZJiR2IeeC5
+         tcCSzekZHZk0mqwopayfiQ39gvzdyFunPBvLYpIG7DCtd1FsYPgdjJvxC2xKoMa7yJlS
+         hZUE/hRpQeJqxCXnZY4bHch2s8VRjYhvyA/vw7ZyKen//0ZcNb3eZX4NJacmVGj2suvL
+         aXLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742226679; x=1742831479;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zU3hKPINr7QjLa/9u8VCMKZheNEA+eJosA8qF1wcCvk=;
+        b=HyptpIfppy4ZhmwLOa7fHOWkiPBzKodrPmsEwd917JbTJnYEc6mz+SmDeQT40c+AAC
+         tOKoAFe2IrfDWlTn8oCOZ/Uyqt+zR/GL716BiS5fZ1wVXPpkOAkGkdy/eq3pDBXTIfiu
+         9U9pq1MYfHVX47gJlQDnuwmLdwxIDFveXIuGFvUQx1Htfcyg0rfoqWo3Z1xukxR/9542
+         nvzOGUqbjb90vTcHA1spl3AwDTjRIxQg+9kEYAk3z9kRZgD75g9TQ9HntHuFf9acpAcI
+         UFxt6Spbmzz/y8VuV3tebb0S+l6ESSeeCGXm4v47+YaqMDUnqt+xLJSEmFhTfPpytczP
+         B3bw==
+X-Forwarded-Encrypted: i=1; AJvYcCVo79RVs8IchcQmi35LQYgKB7ZUFUjV3USLKBI/EafR7CWLQ33SvQL30qrG7btn1TzFWMkAPtKyvSWUmerXMU/S@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWTyYvjKEHKnXsXP1HbQDkKDUFTrPMgr2l7XJC9AU3OMwGmh78
+	NibASy+wQri/lqs6Py5HJpLVMKVBrmbbu8q4vXzmze7XRjCq/+EF
+X-Gm-Gg: ASbGnctBMFiQErMsL53SJwUlJB4osgfINr/9jPW4xkc4Bj0V2XbhXjyfHwBrMsgx1ZA
+	O1ccG0u/Ij+Xu/Q1HlyXIjBkCGpxr1uPy6exGqGqylQOyIK/wYyBn8oYMyjHjz6VUHan5zXbmmp
+	OSZZI368jBZ7S/1bnpEzOm2UYoIZABK+T2T5rrobwThnMQ5icNW7OgVAex7d32PzXw+KfsKiPVR
+	8oM4fLxGuyBXLMvypxxCdGody3+3/RE/7LD77+ERaInEurw16juouY77GIlcS7ZyfViJUHOjCQp
+	4Laqk4jLi8dAdi9WQr2Qwcpfxgf27ANrQ/Voao8Jdrg2ev1zxTs=
+X-Google-Smtp-Source: AGHT+IFO6FurpLKdrrzNJjWZBW6Q6qLTQzj/6D7yUMiIDBFfxDiNKsnCqwySTDoIxxnnxKjOsr4OWQ==
+X-Received: by 2002:a05:6512:130c:b0:545:c7d:1790 with SMTP id 2adb3069b0e04-549c3900894mr6947244e87.22.1742226679087;
+        Mon, 17 Mar 2025 08:51:19 -0700 (PDT)
+Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba864ed4sm1385479e87.128.2025.03.17.08.51.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Mar 2025 08:51:18 -0700 (PDT)
+Date: Mon, 17 Mar 2025 17:51:14 +0200
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: [PATCH v8 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
+Message-ID: <78d33ea9a795abdb2c5a4c606d48593e827ca59e.1742225817.git.mazziesaccount@gmail.com>
+References: <cover.1742225817.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ1PR12MB6316:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86188aee-f6f7-43e8-20c3-08dd656a9760
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?e29XWDx+sMc77zi47XenRjQ+odk++NVgjR3VB79ZgXthMqeLX+zgoJPwn55r?=
- =?us-ascii?Q?BripOkeHjiPP1DLJlBHpKlNew+rD+5MM781Pm2+eAmdSFpIBsXt5nSR38SZV?=
- =?us-ascii?Q?x/2AG0vUMuCYm2Ljm1dockctDknZCX+6ky/jBwHyA+1GMx6XINXiBWLSEAcA?=
- =?us-ascii?Q?0azYw5d9wszDG+J7xM1hIq1rB5odq5fk5enOJ8O3HxpEFF5Kdt3pSnQ2TByI?=
- =?us-ascii?Q?XiwUZVL9AjhuzQ8giYiEiRpqbj1/Avthg0/HylKhJhWMNGwHyUp9adVdhiW7?=
- =?us-ascii?Q?YeyVeuHO6ilLh9EVmrmhWZYlaouzYlel89m4YrxSoeofPGVSu/N99AayrsR/?=
- =?us-ascii?Q?Zbvc6JwcYaoiFlI10RlRlzZNPyNtKlMYlfUNL3A2rHMmVNZb4wpbbpwbEXAN?=
- =?us-ascii?Q?E/vHt/VW5AVXw2nVJieeF0RQPdP//16kubO2FpoKhqHpprfyrXN7NLtjfXf+?=
- =?us-ascii?Q?lyh1OwzcaiIhLHFMbggsjasonEeZ9LzJtZ4fpoaQl3Tjo0082k5DdVV/RClv?=
- =?us-ascii?Q?cDRWtQN002dfYHZ6x8HiKCBezplK8+ftJ0PD2WsloE57UnKT3907hNTqnOXH?=
- =?us-ascii?Q?YSomaezXriK/+FAK1WmzCE2YJdrq9kvRjgYjUBUw7twfK5GV3mfldEmyb3iM?=
- =?us-ascii?Q?ho1TnmCrgnWpeqokBWdUVUjt+QY4K+v1DlZqZ1b03rMsIOtMMbzjdIUOw5Zv?=
- =?us-ascii?Q?LJQq7Oa1IrWAtVv5xTWefvySYi3sSync2DDTr4J0oUrI9mqqunlm8bjRwqTq?=
- =?us-ascii?Q?b/IjBPyHkDp43BAjzkfXq6Z7vz+Q3lb481A146n9KZ0Dkf8AfDXIVbBJdleO?=
- =?us-ascii?Q?pdLNccjwNTkY8CwrjEV/K202yBdKH3H6OSD5R3D2lDc0cvY08WMuFvJNdhl/?=
- =?us-ascii?Q?9k083Unasv0UqBg4qm0jLegYmQ88OmqTuW5NE912qDN4lvqYuZeXLN02oFJY?=
- =?us-ascii?Q?ZNt+XmdnIfv/ynQ85l1CGxOq8Ir33nRmzZDe4RWXGD9C+4GC++M4ZsIFLuDY?=
- =?us-ascii?Q?g6b+dAa1gT/Z7BBrJkS4wLt5XaGEIgZTixBmwftaW4SsHuQz5+J3W/2VJA4q?=
- =?us-ascii?Q?AGSpV5EMCWX370vwcrKmmCMAljx4YHF0J3GGe4pKyB4CJJAIXxEJMQm2H/m1?=
- =?us-ascii?Q?2jVNYQK+e80hzqQGnM4zOtgmQJqOmsNB7knrp/18iTekLHIIkGbdzOidE711?=
- =?us-ascii?Q?mmTlE+l6Uf9lHylioXnBzDbf9B5CtdmBWejZJkV8WvDUZPj7dgk8wyhkfGaW?=
- =?us-ascii?Q?khSeNbO/aLL73xkMxOWVNQIlCvnf3FfdJPtMMmDzdydl5sggSaKmUau/Rn+B?=
- =?us-ascii?Q?LYmusyRkwx09HUFUMcs9tDS0dhW+NH7wdefoae366sl686Jf80l12Y/TiK18?=
- =?us-ascii?Q?bvFnc6mjh2H//D2Za7ugeaEmSIbd?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5WA6SxbOAzPvfQMGNrOh+4/tlVH2ZG+2Liegxmoc1hcOQ9eWKsuRtcGQxyCN?=
- =?us-ascii?Q?Y7f7OxyiCYuj9oYlF91rCk/XLWxzkOKSBnv2swQeRh73zrgoHH2LPqGwT1Fi?=
- =?us-ascii?Q?V2dXPEZ1fTeW2GJcoFx2eMKdhXQfu+perabAkwS2fkk6dgrOmcqaTyyk2Kkr?=
- =?us-ascii?Q?86OgHrdbz2KyGo10iL7D0m0B5Qur0NchY4p0iG+rWulDXMBOXWG3LTpktODS?=
- =?us-ascii?Q?00R8vi5STQpY52OZyAyDOguHKTJGTUQlvow17TCeZRg170Y42diqPzknLP2h?=
- =?us-ascii?Q?l9dRcO9vWhro1fcubBtp/i8FDjp1CBTG8lrVo3onO9JMPZB4AUpUjmZdkKOx?=
- =?us-ascii?Q?+pXmzEuzPGVdXuPsQQ5crDjbydQQD92vhG9WtmnDRdmvelbnT+UwwAMcFQNt?=
- =?us-ascii?Q?JnGOfjazLKmVVnT1HjaGMCTycJiq5A54tWxFbc8hFBXurtC3mNhCzbRe/lCv?=
- =?us-ascii?Q?maW05J8QPTi/W/74T1wpLLEiSkK86VxdAJNarshbjDeFgA+CZ7X3XraMqxV1?=
- =?us-ascii?Q?3R1iTEw/M418vdHyuZSZO3Ka100c2xtWEJRkPoWQCFDqf29vcFrfqthuudMa?=
- =?us-ascii?Q?AImRdqv/SWO93EEPP8zYcWTRQutLf6DzZoAJvh/a++iwxLLk57/OWIScgQZ6?=
- =?us-ascii?Q?nv8i+zBVBV/tIXMNS/6yLSFhIECxVAxUnyn65Q4blDdO+zdCGk54TC7WVpvz?=
- =?us-ascii?Q?/PC9f8Udf6yYR3zqrPiAh1G2BWZgSQkhwf3I8jqdo813U7EDXC/B+tsL1b3B?=
- =?us-ascii?Q?Cy3tjRlYv/MWgWtpqzqRW+uJjEOhHBgDvMleC0kVUTOwTGjuLzkmEubYkLmO?=
- =?us-ascii?Q?8zuJH/U0gWx8p5P8gsQl5Cj0hYEqIrtq/wIOxVoDKbRI0egYFIqxNoRVZdf0?=
- =?us-ascii?Q?EzCtR89Ek/rbWN7ABgDUQ6A753QOxL679mRmFZUO57ttAuipPKxr1/zWiA9X?=
- =?us-ascii?Q?LBjnlvYfGm+Giaen1qXr0TmYZtgYmmNoegUXOiQMvIfEEZ8AxafafS5Zlp1d?=
- =?us-ascii?Q?XkP6Gji+nOXHkhlnafwYjWQsQN/61++yyaqD332kZme+TRcgwrNz8mzrjT8O?=
- =?us-ascii?Q?Gjwoizwd9q6rXJvIFbaR49GpcJbxEQ0/DJj1QRIg30Vx7lgzkT+tyfYhP47v?=
- =?us-ascii?Q?TADUopxOFsdHVuylDm9S8xlT87CQoJx7IJnION95IckFhSZu6FFdkalA5uYm?=
- =?us-ascii?Q?VqhGtpxKGv4XOyPg5eei89WFhzWKfKa3qzlQBPlVuawUNxqrs5PZ/Hwt+46s?=
- =?us-ascii?Q?1ZY234OgHsVo6X6fQE0cNorcljxen6aH5Y1xwmJVE/doBmK1JwEprriAU4ZM?=
- =?us-ascii?Q?rdWebPYW1g5Nca4nuYHtwLLc8mr83BGhVYEF7xtDc3o8Om33rKrxXgBKz8IS?=
- =?us-ascii?Q?MvFpmnkItdnNkRwZXi8VXNCfy48Vdgl14VHzXmZ2HLix9xM/zYQb2M3HYk8E?=
- =?us-ascii?Q?HExYAgDW1z/8aUZtlqLbD0hDLnCra+oTYEI6uZYT80OOLfLjM7KK7eWbaeTH?=
- =?us-ascii?Q?0kcB9gciU3xatul4a3bJm3+VU6lbQin2rsGS9m0XpZN66+9pYzGajWniusL6?=
- =?us-ascii?Q?2eOe1y4VqXTgIqgpvNBS2OZQrmh0Gsr5zl+SqVUH?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86188aee-f6f7-43e8-20c3-08dd656a9760
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2025 15:44:23.8994
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PYnyYQOGovTwJ2XMAeGRjxZhCbLHBrPyypr7TJKt1W9I2/nsamT9oEbeTZy3nEjy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6316
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="KMNdhR1bTFQS085O"
+Content-Disposition: inline
+In-Reply-To: <cover.1742225817.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_084428_839981_7C56022A 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20250317_085121_370410_8900BCEC 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,55 +112,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 10:43:08AM -0700, Nicolin Chen wrote:
-> > > +int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
-> > > +				    struct arm_smmu_nested_domain *nested_domain)
-> > > +{
-> > > +	struct arm_smmu_vmaster *vmaster;
-> > > +	unsigned long vsid;
-> > > +	int ret;
-> > > +
-> > > +	iommu_group_mutex_assert(state->master->dev);
-> > > +
-> > > +	/* Skip invalid vSTE */
-> > > +	if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
-> > > +		return 0;
-> > 
-> > Ok, and we don't need to set 'state->vmaster' in this case because we
-> > only report stage-1 faults back to the vSMMU?
-> 
-> This is a good question that I didn't ask myself hard enough..
-> 
-> I think we should probably drop it. An invalid STE should trigger
-> a C_BAD_STE event that is in the supported vEVENT list. I'll run
-> some test before removing this line from v9.
 
-It won't trigger C_BAD_STE, recall Robin was opposed to thatm so we have this:
+--KMNdhR1bTFQS085O
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-static void arm_smmu_make_nested_domain_ste(
-	struct arm_smmu_ste *target, struct arm_smmu_master *master,
-	struct arm_smmu_nested_domain *nested_domain, bool ats_enabled)
-{
-	unsigned int cfg =
-		FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0]));
+The new devm_iio_adc_device_alloc_chaninfo_se() -helper is intended to
+help drivers avoid open-coding the for_each_node -loop for getting the
+channel IDs. The helper provides standard way to detect the ADC channel
+nodes (by the node name), and a standard way to convert the "reg"
+-properties to channel identification numbers, used in the struct
+iio_chan_spec. Furthermore, the helper can optionally check the found
+channel IDs are smaller than given maximum. This is useful for callers
+which later use the IDs for example for indexing a channel data array.
 
-	/*
-	 * Userspace can request a non-valid STE through the nesting interface.
-	 * We relay that into an abort physical STE with the intention that
-	 * C_BAD_STE for this SID can be generated to userspace.
-	 */
-	if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
-		cfg = STRTAB_STE_0_CFG_ABORT;
+The original driver treated all found child nodes as channel nodes. The
+new helper requires channel nodes to be named channel[@N]. This should
+help avoid problems with devices which may contain also other but ADC
+child nodes. Quick grep from arch/* with the sun20i-gpadc's compatible
+string didn't reveal any in-tree .dts with channel nodes named
+otherwise. Also, same grep shows all the in-tree .dts seem to have
+channel IDs between 0..num of channels.
 
-So, in the case of a non-valid STE, and a device access, the HW will
-generate one of the translation faults and that will be forwarded.
+Use the new helper.
 
-Some software component will have to transform those fault events into
-C_BAD_STE for the VM.
+Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
 
-I imagined userspace would do this, but it could be done in the kernel
-too. Regardless, I think Will is right and the the viommu should be
-set even in this case to capture the events.
+---
+NOTE: This change now drops a print "no channel children" which used to
+be printed if no channel nodes were found. It also changes the return
+value from -ENODEV to -ENOENT.
 
-Jason
+Revision history:
+v7 =3D> v8:
+ - drop explicit "no channels check". It is now done inside the
+   devm_iio_adc_device_alloc_chaninfo_se().
+v6 =3D> v7:
+ - Fix function name in the commit message
+v5 =3D> v6:
+ - Commit message typofix
+v4 =3D> v5:
+ - Drop the diff-channel stuff from the commit message
+v3 =3D> v4:
+ - Adapt to 'drop diff-channel support' changes to ADC-helpers
+ - select ADC helpers in the Kconfig
+v2 =3D> v3:
+ - New patch
+
+I picked the sun20i-gpadc in this series because it has a straightforward
+approach for populating the struct iio_chan_spec. Everything else except
+the .channel can use 'template'-data.
+
+This makes the sun20i-gpadc well suited to be an example user of this new
+helper. I hope this patch helps to evaluate whether these helpers are worth
+the hassle.
+
+The change is compile tested only!! Testing before applying is highly
+appreciated (as always!). Also, even though I tried to audit the dts
+files for the reg-properties in the channel nodes, use of references
+didn't make it easy. I can't guarantee I didn't miss anything.
+---
+ drivers/iio/adc/Kconfig            |  1 +
+ drivers/iio/adc/sun20i-gpadc-iio.c | 39 +++++++++++-------------------
+ 2 files changed, 15 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index e4933de0c366..0993008a1586 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -1357,6 +1357,7 @@ config SUN4I_GPADC
+ config SUN20I_GPADC
+ 	tristate "Allwinner D1/T113s/T507/R329 and similar GPADCs driver"
+ 	depends on ARCH_SUNXI || COMPILE_TEST
++	select IIO_ADC_HELPER
+ 	help
+ 	  Say yes here to build support for Allwinner (D1, T113, T507 and R329)
+ 	  SoCs GPADC. This ADC provides up to 16 channels.
+diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gp=
+adc-iio.c
+index 136b8d9c294f..2428ea69d676 100644
+--- a/drivers/iio/adc/sun20i-gpadc-iio.c
++++ b/drivers/iio/adc/sun20i-gpadc-iio.c
+@@ -15,6 +15,7 @@
+ #include <linux/property.h>
+ #include <linux/reset.h>
+=20
++#include <linux/iio/adc-helpers.h>
+ #include <linux/iio/iio.h>
+=20
+ #define SUN20I_GPADC_DRIVER_NAME	"sun20i-gpadc"
+@@ -149,36 +150,23 @@ static void sun20i_gpadc_reset_assert(void *data)
+ 	reset_control_assert(rst);
+ }
+=20
++static const struct iio_chan_spec sun20i_gpadc_chan_template =3D {
++	.type =3D IIO_VOLTAGE,
++	.indexed =3D 1,
++	.info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW),
++	.info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE),
++};
++
+ static int sun20i_gpadc_alloc_channels(struct iio_dev *indio_dev,
+ 				       struct device *dev)
+ {
+-	unsigned int channel;
+-	int num_channels, i, ret;
++	int num_channels;
+ 	struct iio_chan_spec *channels;
+=20
+-	num_channels =3D device_get_child_node_count(dev);
+-	if (num_channels =3D=3D 0)
+-		return dev_err_probe(dev, -ENODEV, "no channel children\n");
+-
+-	channels =3D devm_kcalloc(dev, num_channels, sizeof(*channels),
+-				GFP_KERNEL);
+-	if (!channels)
+-		return -ENOMEM;
+-
+-	i =3D 0;
+-	device_for_each_child_node_scoped(dev, node) {
+-		ret =3D fwnode_property_read_u32(node, "reg", &channel);
+-		if (ret)
+-			return dev_err_probe(dev, ret, "invalid channel number\n");
+-
+-		channels[i].type =3D IIO_VOLTAGE;
+-		channels[i].indexed =3D 1;
+-		channels[i].channel =3D channel;
+-		channels[i].info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW);
+-		channels[i].info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE);
+-
+-		i++;
+-	}
++	num_channels =3D devm_iio_adc_device_alloc_chaninfo_se(dev,
++				&sun20i_gpadc_chan_template, -1, &channels);
++	if (num_channels < 0)
++		return num_channels;
+=20
+ 	indio_dev->channels =3D channels;
+ 	indio_dev->num_channels =3D num_channels;
+@@ -271,3 +259,4 @@ module_platform_driver(sun20i_gpadc_driver);
+ MODULE_DESCRIPTION("ADC driver for sunxi platforms");
+ MODULE_AUTHOR("Maksim Kiselev <bigunclemax@gmail.com>");
+ MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("IIO_DRIVER");
+--=20
+2.48.1
+
+
+--KMNdhR1bTFQS085O
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfYRPIACgkQeFA3/03a
+ocXzMQgAk9GKibU0YJ5K0EXd9JTmbwFlG/TohUel6DTYOTzSxaUzIcMAHgIsZqbm
+ETPxR/mDiYEyLKOD9O6F+Tod6Kgpdol+YKzLEzx+LZPlmvvDzOixjsUdGT+BYLvZ
+pEnQiLHbcF+6SatCJ/vCEyM/dJ99ztt8hRw/m1KxpUTLuCxBGpVBT1ouq7x4vDj+
+XRNKcyZj9Y3lcTFf9W8TVuRZs9kh9Eb1rURFq7bbEqCYuuvdcmL0WMS5ne9GUVxT
+QbuWpDKOd4pNQD9q6HyRtFySY4a+3Vbsd3lkeGEifKw+ESZgpytny4RhxX9dllnh
+LT34DSm7XQXUzPtbuDBAP0jcirqfrg==
+=2vYw
+-----END PGP SIGNATURE-----
+
+--KMNdhR1bTFQS085O--
 
