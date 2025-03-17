@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2E2C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507E2C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gMs0KQ2xoYfGwipz0GcDyzvKZDx/2Bps5YmVJfONNew=; b=oaHW5IF5bIZsWmUDU8dT8ToVDZ
-	DczsJUv7e+ecsJ3119a1mSpBhIrryFJvoNrLQYXBMq8nqvJWJi4B1kVzzsNB4sucmTR+ReVTBr2Ll
-	EaL7E+IMKLJLaAcuS+9uOkM+0gYhHWPU5uf/50XgXHcwDuMbNlpIOlUCtk+z4TkyQV322sz2gy+4i
-	s4bQx1u84aACCCJ0eGkMFUgGJDNuFHu0FxGudgFnz85DdSDqUMmu1z62MU25cZfIBnIbJ0MGuB+iq
-	BAHs6sU+GeyX3RyaW8FnosNceNwzOc2BWrQKBzF3T7xup6B4h4bpEBbTO3E65YauUP8oSjhHswwaT
-	/3vMy4nw==;
+	bh=1wisE1E0m0Tt6AlZMGeAlpoHq0nK3KnMLSI9efK5urE=; b=tv4VGtVzk+nzRB0Z+sN18QAnG5
+	ZjsvKqvKtAuCzI4mzyn+DE/fnCb0hGrN9FXgKUtRnPrwGW++0l0542p8QLV3oJs8L4eQc6Wzme/BX
+	RFcZz1niTrAk3ULTWcS6cRrjQEss7t/lqKsFOX4TT1v2tD50ZD51wZQobg/9LNzKRbtTcqIAaL2Ua
+	Jt3FpZ+WiZwkFPUs/gd9s9AWAdbXzMzbVtk7UkuSuN3Mw/VQ9Uyx5XH5PmaJfEO2EQ1PzXN9vCHco
+	d+w4LTyM2WlI5wVorF+6v9gMAvfo9BDcbeH7KokuJOZqcKFTynoJ+oPfreThnvnlryvt0SEMOzEoA
+	He36iQhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuEwg-00000003eSP-1Rwu;
-	Mon, 17 Mar 2025 18:12:14 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1tuEyL-00000003egC-0PUN;
+	Mon, 17 Mar 2025 18:13:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuEok-00000003dAc-44mT
+	id 1tuEua-00000003dyf-1ZYM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 17 Mar 2025 18:10:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1wisE1E0m0Tt6AlZMGeAlpoHq0nK3KnMLSI9efK5urE=; b=ZaQzD8kgF3To9zvma6I2iXHmkr
+	nOPMpqT47S69wojNrZNFA3nOA7OHUjlEvGk/kecNw4OaWZlueooSZpZylsG/7DQ1FhP8KY0JdqP40
+	Z2vJJ2FIfWkuH5QyYQKxQN1NeKy958J0JUKyYVukHCNXyTN3K/fhkCCdJbR7zWgXEfT6YDi0+Q3x5
+	ZGum/KwnUWED13b/aN6jKLBuvnocgA7Nt/UFYg4qlMvOUdp9TWB3zpghLZkKfjB9xz6Pi7K76uBuu
+	IjVROOk1OLfwRTfN8SpCcjb3Lre7mxdQQz/fBp0yOqakHRaruPwS5giObOQSwK1DjNdRboqg7KsFi
+	8pQiHgOQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuEuV-00000003Y4p-2LDR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 18:04:04 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ac2a9a74d9cso969930166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:04:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742234641; x=1742839441; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gMs0KQ2xoYfGwipz0GcDyzvKZDx/2Bps5YmVJfONNew=;
-        b=Nd3OmiNGyAE00NASWYm2JZecCO2AOCg59UdDw9aoi/q74Jdmka95Jhrbbj2HyLLciM
-         kCPgEg4LfVS3mDwhqkhcLFMhK/faWjWlAqIoA6X7VCLoTni6xIIfLHzpkXXjsJZQz2RG
-         1BBWkmo21GBZkiAoKKMrO9IPmU1ElKN4goxww3RQHcBkPOKbmOYvOPPgWwK3Alb3Zr9S
-         oPb5mK5Z8n2d406e0bGCbv1dPL7gQjQq/zCJRAAd3mwoSrLSSqmqur/Lg2nfXfKBwW7y
-         /dlOFxZ53nozSuTYsg206m6X/QrdDUAfCVbrHqb202jDysdVqLmnUkB3X1e6rG6WOTn1
-         Fjkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742234641; x=1742839441;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gMs0KQ2xoYfGwipz0GcDyzvKZDx/2Bps5YmVJfONNew=;
-        b=btoxXjqiw9KnEWuBEr34mvOmG+9GDqp9n6S2JWfUO3C/Uy2QyaZbuf9xE6b5qtNLnf
-         rlQ5byfnTQsEFIPQRVhzzsQfskL+rWlW+OF5+wzIv7Z4BZa7oSB1GlrrJJ3YQjXTk+sv
-         Lbmf8JQQL/gADodYbQp4Rcu2NmdLGwFruQHMmsi8E9M+qTVR4c/ybgaBESMUtYpKPUyM
-         9VKdvU2WQHvRV6vO3BHosz5QnptqqXVwO68Ev7eqnABi5m5zs09xnEkiLVMTvIZxXWSq
-         wtbCdOpj7hlTJSY3foUgyie4bW5SeqqfGnbYzvGVETCzAfKs01WdKtZ9e9WHFgPvb0L6
-         qx+A==
-X-Forwarded-Encrypted: i=1; AJvYcCU8/gLNKDwKhVka7OPLvij0TuqoF3Kxwz4qfIuUlM50LB6YBZgs5llu4OsnnTLdLbKdp6/PDNPrOuB/VyOHSYqC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIF2P+Lwy85E7GIGa6gEATDnjfkf0kQi3eMUF9YFTu8Y9hJ5x2
-	6Q0cDwIoliYzesTeopJp/3/1iLWh50fpDsAjRH0U7nr83zDrC9SefuvsUQ==
-X-Gm-Gg: ASbGncvXvenZr4bqHUZdiwDE/ewTKeeJDAl7kgcblXBzg6FA0IcC/83kMAXT5xENszO
-	ByOazjArHrrGzp3hQhGrN0ukuJYeNy6dGN1BZGndj23smz1WyDVCveS0AepTo1CLC31fasw8Dpu
-	MfaBGisZXxBqP8DA76nqJUxwoiaYQZayYYo/J4JW95fgXnGI0nRWCoklh7o+ngDmz7qnclsFcsU
-	Ci1bqtLQBSkIsMg6rI7gKGuhuU3+QLetV+jRzQuDdK8NYr5SPnSPonP+QerM2GFJEOMfFxjxXRw
-	oC3vl7DtsPiNggYA1pXZ4AVCabJ5baeMDyeS2hxfQd2c79rs8PaTW219Ov/sOp3rAQHRnu59/sn
-	UFB8AEgT4m/i2v9TF0pXTX7YT9G1LWdL5V0jBPXZSf/wsgMoqUTnKAQ==
-X-Google-Smtp-Source: AGHT+IEqHcYMxvD4RWbMqL7gZkeMlgl4L7sidotxxKm051Mjf5HVCCNTwf97wRSQF+aZjoUe1nGS6g==
-X-Received: by 2002:a17:906:6a0a:b0:ac2:b414:ba2a with SMTP id a640c23a62f3a-ac330376bb6mr1524996566b.37.1742234641045;
-        Mon, 17 Mar 2025 11:04:01 -0700 (PDT)
-Received: from alb3rt0-ThinkPad-P15-Gen-1 (host-95-252-211-62.retail.telecomitalia.it. [95.252.211.62])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3149cdec8sm705009766b.112.2025.03.17.11.04.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 11:04:00 -0700 (PDT)
-Date: Mon, 17 Mar 2025 19:03:58 +0100
-From: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: shawnguo@kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: OCOTP and DWMAC builtin modules are needed for imx93-11x11-evk
- kernel dev via TFTP and NFS
-Message-ID: <Z9hkDqcKG1xOmIB5@alb3rt0-ThinkPad-P15-Gen-1>
-References: <Z9fhuVltKwqgHdLp@alb3rt0-ThinkPad-P15-Gen-1>
- <935028c6-ce56-46e0-96ff-46fa91c8f66a@linaro.org>
+	Mon, 17 Mar 2025 18:10:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9974313D5;
+	Mon, 17 Mar 2025 11:09:58 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60AA13F63F;
+	Mon, 17 Mar 2025 11:09:49 -0700 (PDT)
+Date: Mon, 17 Mar 2025 18:09:45 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: lcherian@marvell.com, coresight@lists.linaro.org,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 5/7] coresight: Clear self hosted claim tag on probe
+Message-ID: <20250317180945.GK2487211@e132581.arm.com>
+References: <20250211103945.967495-1-james.clark@linaro.org>
+ <20250211103945.967495-6-james.clark@linaro.org>
+ <20250313160409.GS9682@e132581.arm.com>
+ <6be400e2-a464-4714-acf4-328dade883a9@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <935028c6-ce56-46e0-96ff-46fa91c8f66a@linaro.org>
+In-Reply-To: <6be400e2-a464-4714-acf4-328dade883a9@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_110403_013154_17DD0A88 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20250317_180959_871616_40322A23 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +85,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 05:07:26PM +0100, Krzysztof Kozlowski wrote:
-> On 17/03/2025 09:47, Alberto Merciai wrote:
-> > While playing with linux-next and imx93-11x11-evk via NFS and TFTP
-> > I found that the dwmac-imx, nvmem-imx-ocotp-ele drivers by default are
-> > not builtin then the I was not able to reach userland. 
+On Mon, Mar 17, 2025 at 03:05:41PM +0000, James Clark wrote:
+
+[...]
+
+> > >   /*
+> > > - * coresight_disclaim_device_unlocked : Clear the claim tag for the device.
+> > > + * Clear the claim tag for the device.
+> > > + * Returns an error if the device wasn't already claimed.
+> > > + */
+> > > +int coresight_reset_claim(struct csdev_access *csa)
+> > > +{
+> > > +       int ret;
+> > > +
+> > > +       CS_UNLOCK(csa->base);
+> > > +       ret = coresight_reset_claim_unlocked(csa);
+> > > +       CS_LOCK(csa->base);
+> > > +       return ret;
+> > > +}
+> > > +EXPORT_SYMBOL_GPL(coresight_reset_claim);
 > > 
-> > The following configs were needed to reach my goal:
-> > CONFIG_DWMAC_IMX8=y
-> > CONFIG_STMMAC_ETH=y
-> > CONFIG_NVMEM_IMX_OCOTP_ELE=y
+> > Maybe my question is overlapping with Mike's comment.
 > > 
-> > is that something expected?
+> > Callers never check the return values from coresight_reset_claim(). I am
 > 
-> You mean they are disabled or you just did not put them inside your
-> initramfs?
+> I can remove the return value if it's confusing. The thought process was
+> probably that it could be useful somewhere in the future, and
+> coresight_reset_claim_unlocked() returns something anyway so might as well
+> pass it up.
 > 
-> Best regards,
-> Krzysztof
+> > wandering if coresight_reset_claim() can directly call
+> > coresight_clear_self_claim_tag() for _trying_ to clear self-host tag in
+> > probe phase. Any self claim tag issues will be deferred to detect until
+> > enable the component.
+> > 
+> 
+> Maybe, the spec does a read before setting which I assumed should be done
+> for clearing as well.
 
-Hello,
+If you mean PSCI doc, the flow for claiming tag is a handshake between
+self-host software and external debugger, this is why a read is
+required.
 
-By default they are enabled as external modules, then until we don't
-reach userland they are not loaded thus eth and all the mechanism behind
-that are out.
+For a cleaning up, it is not about syncing with external debugger.  And
+writing bit 0 to TRCCLAIMCLR will not impact external debugger.  So I
+don't think a read prior to cleaning self claim tag is needed.
 
-I'm not using initramfs just tftp and NFS as follows:
-setenv loaddtb "tftp 0x80400000 imx93-11x11-evk.dtb"
-setenv loadkernel "tftp 0x83000000 Image"
-setenv netargs "setenv bootargs console=ttyLP0,115200 root=/dev/nfs ip=dhcp nfsroot=192.168.1.3:/tftp/root,v3,tcp"
-setenv bootcmd "run loaddtb; run loadkernel; run netargs; booti 0x83000000 - 0x80400000;"
+> As in to not touch anything if it's in use externally.
+> It doesn't specifically describe any clearing sequence, but if we assume
+> it's ok to blindly clear self hosted flag even when it's in use then yes we
+> can directly call coresight_clear_self_claim_tag().
 
-Do you think that initramfs can solve that?
-
-To be honest I was expecting to have a builtin driver for eth by
-default, so that NFS and TFTP can be turned on without caring about the rest.
-But for sure I'm missing something  there :)
+As a result, directly calling coresight_clear_self_claim_tag() works
+for me.
 
 Thanks,
-Alberto
+Leo
 
