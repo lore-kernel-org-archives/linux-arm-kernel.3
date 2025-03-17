@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9865AC35FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74268C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0MRP8E59VPrW9BJa8fwxR1Ce1vlUeKZy/qNLxYH6ouM=; b=rGhRfaNQfQfbq7mkd6w/uBALt2
-	q8dNIdQgRg24fMtAQEifE4ykQPsoMeXKgpprOxm1bAjFwyIvKFTztFnuhIMfP9JqJpBa9/TNIdKE/
-	d10KsqUejNvLr2EqjVZwSVjZzjWCWHbWKf1Q1ZdmjNeuLkUb1a0cdArkfokOlmBvEUbYi0FKRafOF
-	LosGPUNNp9J3I5+oyijUsvCmMqXffrK9zPYgQMDnJmNX0U7C/0zySWqgiex+NE5Fymn0d9UPF4OLY
-	woq9A6q6NwFGEYIzk7Z/5Jva9g5T6LZe/6PAvldmI10KESt1AMkuMJSaXW11AwRW+D5VEEuj6dImE
-	f/Z3LPWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w2PUHcSecse+pehFOqz8LoEZY+5oNJsWhoVGSb9IYhM=; b=Dd26ReaMJjmkaahiOTAKFhEypN
+	lhoima179SMi3WWpqUsP2zQLGUwRMgOC5oFX21Qe3Q0whMv2K2/4ruE8VSDYBWRjo0PyzQTLHPoxd
+	/yBNUaKQ8VElPHIv1wpjiBmaDLuYYVsQRJBzz2Ns86fUaAqbN6CQOapme8iOuM9AAqa6+d2MmUtyd
+	1WK+0CfRwZJ2NClS2kwsTkLbMJzaG+ubo6Pvo3Tk3OdBo0EJvdq2EYngFLxfIDGHPIG10kh1cziGv
+	z2+zJzkLMOtlSvHF6gmeEn3PwVH0e2gy/UrfmOV8r+N+WqAvIzVGdxLxkGEaJze/Han0AhHEIFvs/
+	FboeKzuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBrf-000000032aV-18Pa;
-	Mon, 17 Mar 2025 14:54:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tuBtv-000000033Hm-3GX6;
+	Mon, 17 Mar 2025 14:57:11 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBmT-000000031tU-0gME
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 14:49:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A0E75C1850;
-	Mon, 17 Mar 2025 14:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C92CFC4CEE3;
-	Mon, 17 Mar 2025 14:49:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742222967;
-	bh=s8CehdpXkTqOO0ErPHHVLt5yyez+Ks7PrRBqfbCNRVc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mhuPfWlsqazTRYpvIDa7gC+hDui8usQNP3ZO8OPLyucvwyE0ZVVFJWHL4ywTVRv57
-	 2Gw0LV8SGvedmVCfNXvGG7KLTPbDqjE6PHeE81IVIylmhCxUUy9G0aWyAQ0c1D25fA
-	 fh52Txl2pW84GIYvEcyAk48V/i7wefc2xxX6XKRDHVXdEiURyBX2dHpMWtuz5r9faj
-	 xiJh6vfra8WmJf51d3wZ1JSlrWN2aBlAcEQK9DIMPOopREGHudRjPcicgJ5XnJJD7A
-	 kl46n5Ta27Jp0zZo3JxLm5PO204jVJ5eaAhepGbPwaneDeX27LLpDXvfM3zVBR/axc
-	 +pXyz7bIKQwAw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tuBmP-00EL5V-ET;
-	Mon, 17 Mar 2025 14:49:25 +0000
-Date: Mon, 17 Mar 2025 14:49:24 +0000
-Message-ID: <86y0x3n24r.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Akihiko Odaki <akihiko.odaki@daynix.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	oe-kbuild-all@lists.linux.dev,
+	id 1tuBre-000000032Zq-2STM;
+	Mon, 17 Mar 2025 14:54:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1742223275; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=M1VNdrAj5oc9FpRE6pFNkZ4u0JB4zbIPDuYhAuq7Ix2zKDlpOp3dHgrw4FiBPhcnOGf6Wz9GzkA9s5IyFOpjIuyBGac6DFi5cVGptceqMa0lUmHB7++DlPY6md3ac12/C2P0kLpRtju91o7KeRL835xWGQQffDODqIcTiichgpE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1742223275; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=w2PUHcSecse+pehFOqz8LoEZY+5oNJsWhoVGSb9IYhM=; 
+	b=kTrKYomtic4qkvQ27g5u/wSJv60IzY8NWyZisxqxCo1s5gXeo7Lz7maGNq2oAQKDwqnB0VvNPV2V8+bpERJozMwQOwbKjs0PfPkuVpsIqozq7Odt7+LhdTopGZaBPVJXIynr9dva9sZcoh3DjkeOI9qpFVoZKA1Yz2nS/rRVHVE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742223275;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=w2PUHcSecse+pehFOqz8LoEZY+5oNJsWhoVGSb9IYhM=;
+	b=Lm6le1K+gNlNVDiix2eq3N357e3nBMmoZy+how0rlLpqnYfRfCoJDavOZAnZZUWI
+	P0oFPC9Ko0Xui9Y5iY3KGnbCso3xn85Do5l+e4UsBMFZ3dFNFZ4opzuhTFOWSTLwwMR
+	1pL9gYJ1bM9PHh89QsdFkMpCbcU9J1a+ek+8Vv3g=
+Received: by mx.zohomail.com with SMTPS id 1742223273794544.7426387763203;
+	Mon, 17 Mar 2025 07:54:33 -0700 (PDT)
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+To: dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Cc: boris.brezillon@collabora.com,
+	robh@kernel.org,
+	steven.price@arm.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	kernel@collabora.com,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	devel@daynix.com
-Subject: Re: [PATCH v5 3/5] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
-In-Reply-To: <202503172023.fzyJ3TMB-lkp@intel.com>
-References: <20250315-pmc-v5-3-ecee87dab216@daynix.com>
-	<202503172023.fzyJ3TMB-lkp@intel.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lkp@intel.com, akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, andrew.jones@linux.dev, oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, devel@daynix.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	sjoerd@collabora.com,
+	angelogioacchino.delregno@collabora.com,
+	Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Subject: [PATCH v4 0/6] drm/panfrost: Add support for AARCH64_4K page table format
+Date: Mon, 17 Mar 2025 11:52:39 -0300
+Message-ID: <20250317145245.910566-1-ariel.dalessandro@collabora.com>
+X-Mailer: git-send-email 2.47.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_074929_311199_5EA10199 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20250317_075450_676423_62C8A532 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +88,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Mar 2025 13:02:47 +0000,
-kernel test robot <lkp@intel.com> wrote:
-> 
-> Hi Akihiko,
-> 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on 80e54e84911a923c40d7bee33a34c1b4be148d7a]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Akihiko-Odaki/KVM-arm64-PMU-Set-raw-values-from-user-to-PM-C-I-NTEN-SET-CLR-PMOVS-SET-CLR/20250315-173731
-> base:   80e54e84911a923c40d7bee33a34c1b4be148d7a
-> patch link:    https://lore.kernel.org/r/20250315-pmc-v5-3-ecee87dab216%40daynix.com
-> patch subject: [PATCH v5 3/5] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
-> config: arm64-randconfig-r122-20250317 (https://download.01.org/0day-ci/archive/20250317/202503172023.fzyJ3TMB-lkp@intel.com/config)
-> compiler: aarch64-linux-gcc (GCC) 14.2.0
-> reproduce: (https://download.01.org/0day-ci/archive/20250317/202503172023.fzyJ3TMB-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202503172023.fzyJ3TMB-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
->    arch/arm64/kvm/sys_regs.c: In function 'set_pmu_evcntr':
-> >> arch/arm64/kvm/sys_regs.c:975:9: error: implicit declaration of function 'kvm_pmu_set_counter_value_user'; did you mean 'kvm_pmu_set_counter_value'? [-Wimplicit-function-declaration]
->      975 |         kvm_pmu_set_counter_value_user(vcpu, idx, val);
->          |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->          |         kvm_pmu_set_counter_value
-> 
-> 
-> vim +975 arch/arm64/kvm/sys_regs.c
-> 
->    962	
->    963	static int set_pmu_evcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
->    964				  u64 val)
->    965	{
->    966		u64 idx;
->    967	
->    968		if (r->CRn == 9 && r->CRm == 13 && r->Op2 == 0)
->    969			/* PMCCNTR_EL0 */
->    970			idx = ARMV8_PMU_CYCLE_IDX;
->    971		else
->    972			/* PMEVCNTRn_EL0 */
->    973			idx = ((r->CRm & 3) << 3) | (r->Op2 & 7);
->    974	
->  > 975		kvm_pmu_set_counter_value_user(vcpu, idx, val);
->    976		return 0;
->    977	}
->    978	
-> 
+Hi all,
 
-Looks like a case of missing stub definitions when
-CONFIG_HW_PERF_EVENTS isn't selected.
+This is a new iteration on Panfrost support for AARCH64_4K page table
+format. The main reason behind this patchset is that MediaTek MT8188 SoC
+(ARM Mali-G57 MC3 GPU) constantly faults due to the actual Panfrost cache
+configuration.
 
-	M.
+Currently, Panfrost only supports MMU configuration in "LEGACY" (as Bifrost
+calls it) mode, a (modified) version of LPAE "Large Physical Address
+Extension", which in Linux we've called "mali_lpae".
+
+This patchset adds support for conditionally enabling AARCH64_4K page table
+format. To achieve that, a "GPU optional quirks" field was added to
+`struct panfrost_features` with the related flag.
+
+Note that, in order to enable AARCH64_4K mode, the GPU variant must have
+the HW_FEATURE_AARCH64_MMU feature flag present.
+
+The patchset only enables the new format on Mediatek MT8188 and MT8192,
+which have been tested on a Mediatek Genio 700 EVK (MT8390) and Mediatek
+Genio 1200 EVK (MT8395) boards respectively.
+
+Thanks!
+
+Changes in v4:
+* Fixed panfrost_mmu_cfg_init() return value on warning.
+
+Changes in v3:
+* Fixed error handling in panfrost_mmu_ctx_create().
+
+Changes in v2:
+* Dropped panfrost_mmu_enable/disable unification.
+* Rename gpu_configs as gpu_quirks.
+* Added error handling on page table not properly aligned.
+* Enabled AARCH64_4K format on MediaTek MT8192 as well.
+* Minor fixes.
+
+Changes in v1:
+* Added "Set IOMMU_CACHE flag" patch.
+* Replaced `panfrost_mmu->enable()` function pointer by `cfg` struct
+prepared during init time.
+* Made mali_lpae/aarch64_4k name more clear.
+* Added GPU_CONFIG_AARCH64_4K flag to enable AARCH64_4K page table
+  format.
+* Enabled AARCH64_4K mode only on mediatek-mt8188.
+
+Ariel D'Alessandro (6):
+  drm/panfrost: Set IOMMU_CACHE flag
+  drm/panfrost: Use GPU_MMU_FEATURES_VA_BITS/PA_BITS macros
+  drm/panfrost: Set HW_FEATURE_AARCH64_MMU feature flag on Bifrost
+    models
+  drm/panfrost: Add support for AARCH64_4K page table format
+  drm/panfrost: Force AARCH64_4K page table format on MediaTek MT8188
+  drm/panfrost: Force AARCH64_4K page table format on MediaTek MT8192
+
+ drivers/gpu/drm/panfrost/panfrost_device.h   |  16 ++
+ drivers/gpu/drm/panfrost/panfrost_drv.c      |   2 +
+ drivers/gpu/drm/panfrost/panfrost_features.h |   3 +
+ drivers/gpu/drm/panfrost/panfrost_mmu.c      | 150 +++++++++++++++++--
+ drivers/gpu/drm/panfrost/panfrost_regs.h     |  36 +++++
+ 5 files changed, 196 insertions(+), 11 deletions(-)
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.2
+
 
