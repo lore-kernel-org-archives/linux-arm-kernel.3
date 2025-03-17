@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010A9C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 12:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818B0C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 13:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNJJvO2bu+Nx0yChJk+GIzP3W85ueiBmXIziZPYbCvI=; b=zvQZojXv2jmE7iEgvL3CNLdYpD
-	AEQHokD/SjPoBf2k4u5fHnMZX8UXSmRjzYEjMQOA9lBqhxBpSrldamhX4SVrzr3VXB1zwMwBMJU9A
-	n/jYCBfGYSOlkMnHLdln5u4uNdQGlUosDDWho8aH8gQO0iHjyvoOs5W6oW/ai6kydkKM7N/L664UL
-	IaquJROYERc9eRM19vgMXL3DddCdU3oyE/UpGrVz73TRC9V96NNBEQlBgXqjO/BumfPmMcQw46sqF
-	aNxIY9ZqdfxugCGaQniE3QD6SdHQJqoagBwl6oQWW5jKub/pYp228k2DAoJNEZ6Ue9eacOJCwEPzG
-	hlE4i0KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AgJsb4qyuR7PFP1uT/ah1Ty4VxBxIKGlmaHkh9dxIPw=; b=DjeX2qUBDDWcBYStNhnfq9lR2k
+	c6HVJ6Omjm9EmQ7NBEDJW0Xg9Vq+qgsvWNbfnx9ipQ358nZaEVU7w8oZH6AWgiXhgy/lf78/f75pS
+	HaayEghe/CWrVpL7fNGgXmvDkEyFMZhmYfa9wTYOKIubNc263wcB1DhxAW5Q2R6UC6e1h739x25dx
+	Hammte0ZyUejF4h8g0q7VyHlpBql4FYcvzNix8sK4NJIJGQGCCLrXcgHkjmR70Tp9yew804E4B6tE
+	0Mae228P1PpJe3ie3JF8Okl8smwSXeBWGE6InO4Wim19kNDtjdSEGsGkbotCvyKlOFpFwN3Y8/itU
+	qXbCLfaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuA2z-00000002eIS-2o6d;
-	Mon, 17 Mar 2025 12:58:25 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tuA4e-00000002ebK-1Xxl;
+	Mon, 17 Mar 2025 13:00:08 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu9sQ-00000002cXm-0EhR
+	id 1tu9tj-00000002cmx-3RCo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 12:47:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=iNJJvO2bu+Nx0yChJk+GIzP3W85ueiBmXIziZPYbCvI=; b=Wic+sbb/02D7n4JVfpFeqLE3P+
-	pJCxgsOJ6q1oubgXB2N9KrMuybB2/ntIuk9/EJjFchfkwKbMrUbp4KIE0AcSdg2AAdT6RG4KINigM
-	gQ+E6izf3ww2MqXiXoSl3Jk9LjpaF/LKWWSZJp9CQVDESAe0RJ4G1QfFqlIua3aGlPkw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tu9sC-00683V-Of; Mon, 17 Mar 2025 13:47:16 +0100
-Date: Mon, 17 Mar 2025 13:47:16 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
-	andrew@codeconstruct.com.au, ratbert@faraday-tech.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, BMC-SW@aspeedtech.com
-Subject: Re: [net-next 1/4] ARM: dts: aspeed-g6:add scu to mac for RGMII delay
-Message-ID: <be284777-978d-470a-b38c-2f79a1d76134@lunn.ch>
-References: <20250317025922.1526937-1-jacky_chou@aspeedtech.com>
- <20250317025922.1526937-2-jacky_chou@aspeedtech.com>
+	Mon, 17 Mar 2025 12:48:53 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ZGZSr2rM8z2Ccln;
+	Mon, 17 Mar 2025 20:45:32 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 727A91400FD;
+	Mon, 17 Mar 2025 20:48:45 +0800 (CST)
+Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 17 Mar 2025 20:48:45 +0800
+Received: from localhost.localdomain (10.90.30.45) by
+ kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 17 Mar 2025 20:48:44 +0800
+From: Junhao He <hejunhao3@huawei.com>
+To: <suzuki.poulose@arm.com>, <james.clark@arm.com>,
+	<anshuman.khandual@arm.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>
+Subject: [PATCH v2] coresight: Fixes device's owner field for registered using coresight_init_driver()
+Date: Mon, 17 Mar 2025 20:41:06 +0800
+Message-ID: <20250317124106.271374-1-hejunhao3@huawei.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250317025922.1526937-2-jacky_chou@aspeedtech.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.30.45]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemn500004.china.huawei.com (7.202.194.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_054730_096107_E55B717E 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_054852_244424_C0E096AD 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,11 +73,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 10:59:19AM +0800, Jacky Chou wrote:
-> The RGMII delay of AST2600 MAC is configured in SCU
-> register, so add scu regmap into mac node.
+The coresight_init_driver() of the coresight-core module is called from
+the sub coresgiht device (such as tmc/stm/funnle/...) module. It calls
+amba_driver_register() and Platform_driver_register(), which are macro
+functions that use the coresight-core's module to initialize the caller's
+owner field.  Therefore, when the sub coresight device calls
+coresight_init_driver(), an incorrect THIS_MODULE value is captured.
 
-Don't you need to add the scu to the binding?
+The sub coesgiht modules can be removed while their callbacks are
+running, resulting in a general protection failure.
 
-	Andrew
+User a macro to automatically add the THIS_MODULE param to
+coresight_init_driver() to fix this.
+
+Fixes: 075b7cd7ad7d ("coresight: Add helpers registering/removing both AMBA and platform drivers")
+Signed-off-by: Junhao He <hejunhao3@huawei.com>
+---
+Changes in v2:
+- even a macro to automatically add the THIS_MODULE param for coresight_init_driver();
+- Link to v1: https://lore.kernel.org/lkml/c3744062-f7c1-82df-2fa1-591da3b2dc5e@huawei.com/T/
+---
+ drivers/hwtracing/coresight/coresight-core.c | 11 ++++++-----
+ include/linux/coresight.h                    |  7 +++++--
+ 2 files changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 0a9380350fb5..abf2e4fd4de0 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1486,18 +1486,19 @@ static void __exit coresight_exit(void)
+ module_init(coresight_init);
+ module_exit(coresight_exit);
+ 
+-int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
+-			  struct platform_driver *pdev_drv)
++int coresight_init_driver_owner(const char *drv, struct amba_driver *amba_drv,
++				struct platform_driver *pdev_drv,
++				struct module *owner)
+ {
+ 	int ret;
+ 
+-	ret = amba_driver_register(amba_drv);
++	ret = __amba_driver_register(amba_drv, owner);
+ 	if (ret) {
+ 		pr_err("%s: error registering AMBA driver\n", drv);
+ 		return ret;
+ 	}
+ 
+-	ret = platform_driver_register(pdev_drv);
++	ret = __platform_driver_register(pdev_drv, owner);
+ 	if (!ret)
+ 		return 0;
+ 
+@@ -1505,7 +1506,7 @@ int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
+ 	amba_driver_unregister(amba_drv);
+ 	return ret;
+ }
+-EXPORT_SYMBOL_GPL(coresight_init_driver);
++EXPORT_SYMBOL_GPL(coresight_init_driver_owner);
+ 
+ void coresight_remove_driver(struct amba_driver *amba_drv,
+ 			     struct platform_driver *pdev_drv)
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 17276965ff1d..b07455956f7a 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -689,8 +689,11 @@ coresight_find_output_type(struct coresight_platform_data *pdata,
+ 			   enum coresight_dev_type type,
+ 			   union coresight_dev_subtype subtype);
+ 
+-int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
+-			  struct platform_driver *pdev_drv);
++int coresight_init_driver_owner(const char *drv, struct amba_driver *amba_drv,
++				struct platform_driver *pdev_drv, struct module *owner);
++
++#define coresight_init_driver(name, amba_drv, pdev_drv)	\
++	coresight_init_driver_owner(name, amba_drv, pdev_drv, THIS_MODULE)
+ 
+ void coresight_remove_driver(struct amba_driver *amba_drv,
+ 			     struct platform_driver *pdev_drv);
+-- 
+2.33.0
+
 
