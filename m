@@ -4,105 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA75C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 06:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17320C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 06:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqR/8Lr9ciR42DrxgBAE2S1qm0VN83ZWpi0qtm9sFxM=; b=a3uz9/JEZ7GzXgQJuTfnIWvwnV
-	mFcNQj9Owsa5Tjzc2L6muvNfdSxWuVMpiPYV9gARTJI2LUlX9nYXccXWcV3IrXUm+DDmYhHOZd5NG
-	2XaaLSG+WvpRXLOWvl9n1edNNAMNoDykS9UPfEQFEkSJmOvATYZhHIyk/XjSx0VIfNO4NlWSbdJ+B
-	XoA96R8r9+5o2yKlqzNxelZDOC+pESpmH4gk/47JGsoGr1FnWpvg5PaKGFcBYMzk0nRb9QRh9d5uS
-	BjlCf0PBvtovak7iHZvXLNGcTjOrFNanYltwH+TWQYjVP0+r28jMnZW/KdRog35Pk6XCMbCOyI1Z4
-	6aGAt0tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9rAQCusrCG7Qwv2iRTC9s6IA6VInp/OHO+NCM3hZLDU=; b=h/3Lik0wPmN3sSWB6sotP2xc+a
+	j0dRFSkiPxALCxq9Z0PXc8qWW7GeIbWLCkQZDXoxlg8oCupVu2xEDvPWcbXF7lvOJlJkAfwTnf3Af
+	bT6NhTWQxB4WiyO8Q7KTiRu0Rxl0Q0kgMvVDwvrtmVub/nKwk8fvwL8pkye7BROHnCl+YWJ85Vcaj
+	+bLczizOJt3IUNAtOSdfSTVvVNU3PEoi0ZYsRyhYUv7S0/LCiCHe0KbcxpZRgLFPH9x6etaZNHkga
+	HtMXJNtqsT26qHSQ4gbwcoqVGCripKYq8+w4+5X0KvxyW/dbJ8AeISiIc4Tw4QU4Ax4pViI+ksycd
+	aUuVXMGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu4Aw-00000001QpI-3i4W;
-	Mon, 17 Mar 2025 06:42:14 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tu4Ik-00000001Ru0-1LSs;
+	Mon, 17 Mar 2025 06:50:18 +0000
+Received: from mail-bn8nam11on20630.outbound.protection.outlook.com ([2a01:111:f403:2414::630] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu49F-00000001QTs-1kFx
+	id 1tu4H3-00000001Rcv-2rkA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 06:40:30 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52GNUWCF026414;
-	Mon, 17 Mar 2025 06:40:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XqR/8Lr9ciR42DrxgBAE2S1qm0VN83ZWpi0qtm9sFxM=; b=ZFif/tmqasEFFMf8
-	70g3dhdk6nwemn7jTCLnU2t5Ez8NR1eaF+E7Uv6hDKiDQ4TDxGpCtMxF8oD5KFg/
-	b/f3CZBvzsyDaUmFl+FHsqRRlZfRVmIHB1+z2cga0fIGQRlcyLLQAZMU2rw6Ex6Q
-	Q6t8nT+qa4jmtrN0ehu0Z4Ql1FFUJ4S7Kfs43fC1DGqDMEX6H5flvVL0vvLIM8Tv
-	QdpUGlxV2BXMWgOLtMk/uXTNKDToVLVzk93QJDg2OGRIzh7t3UPVgXvueXE3XGyw
-	1YrSeinynUASIRQ1k0DdO76FnTwOt7ivbvbKDvgC/1N8fAykVX1Ppi3s1IeozuEt
-	lUsHiw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45d1u8bp5j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 17 Mar 2025 06:40:22 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52H6eLiI015440
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 17 Mar 2025 06:40:21 GMT
-Received: from [10.217.216.178] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 16 Mar
- 2025 23:40:16 -0700
-Message-ID: <fce2fe9e-5c1b-4fa9-b6ca-0a4ab5133e5a@quicinc.com>
-Date: Mon, 17 Mar 2025 12:10:13 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/10] clk: qcom: clk-alpha-pll: Add support for
- dynamic update for slewing PLLs
-To: Bjorn Andersson <andersson@kernel.org>
-CC: Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
-	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Ajit Pandey
-	<quic_ajipan@quicinc.com>,
-        Imran Shaik <quic_imrashai@quicinc.com>,
-        "Jagadeesh Kona" <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250313-qcs615-v5-mm-cc-v6-0-ebf4b9a5e916@quicinc.com>
- <20250313-qcs615-v5-mm-cc-v6-1-ebf4b9a5e916@quicinc.com>
- <r6xikx2idlzwc4xl7doap3v5ug3a6qtg65jwqjuekiv7tvbwzn@5nk4c7nl2zws>
+	Mon, 17 Mar 2025 06:48:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FhH5HQbK8EPykdekYUb6UVfRrSTPeAzwh9BftYl+b4ZlWNIShX4/qllrV05vdhCXF4W7dt4zh/dUEZwMypsl+hwT2nnwhFcSOvkg67RjSlToiKotPnjkrx1g1k7oCbOTegCBGsmY2t9FOlezYM44IvgSc9wK+PGVxSENE8JKG/fqqi8RRPwrXsrHmiWZLx16Rl7+RiqIH0CkTk7m7+hogFFs2OoY+vFzZ5glH3xapAHQ7TPrGExJe9fYR2myQeR314cc6hJlBCM/vDgF+T5pHt3PBeRYNaa6ByVKscCMtP2ISe/hztUxzelqMSAPkJH60Fc8uA5kBXY7qq9QMVZmIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9rAQCusrCG7Qwv2iRTC9s6IA6VInp/OHO+NCM3hZLDU=;
+ b=atHEPyMn0f31FMY7G5IspDEro+oCYnJmw7ydWt1jrGu9HzeYacBG6365Bl6YgLgWVKr3geL97aXuIXGTreljYDn1eqclIolqZk1fBJBEP7Eq9E3LqxUgC6NF5R7NghEMihY93ODJuU/DQAliD/DOQvIvxK+agCMvmUI+gaOfUirbGIgzNC6DBRnEq43PMVaFETRA/ZnpDBqmO7ZaXw97O83iZKIDVZCwviGFRR46clTT+E5h7ONutdxl8RnQBshzZq4sZerMGIMNkmH2EfNkny+o/kvIya3bPHf39nJ3/Az+DLj3J8DGuqjJvP55WMTl42sfxU+ExvK/8wTWSfObKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9rAQCusrCG7Qwv2iRTC9s6IA6VInp/OHO+NCM3hZLDU=;
+ b=Imx244sQUXeVDzNr1esrU3RA7GOOyGsRBAT8jsLV6LRf6hxMWtFx4S00sYJq/MSIHdyxa4346ZPFi8zqhssH/qy8yt4ZWiDtd1cHpD4nqNN2adVF2/wz9exznrhUMberc2PvpV7UvOmJcShvErlbyYz0xoRBdEH127degq0WoYU=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by CH1PR12MB9648.namprd12.prod.outlook.com (2603:10b6:610:2b0::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Mon, 17 Mar
+ 2025 06:48:26 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%7]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
+ 06:48:26 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>
+CC: Vinod Koul <vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
+	Marek Vasut <marex@denx.de>, =?iso-8859-1?Q?Uwe_Kleine-K=F6nig?=
+	<u.kleine-koenig@baylibre.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "Katakam, Harini" <harini.katakam@amd.com>
+Subject: RE: [PATCH] dmaengine: xilinx_dma: Set dma_device directions
+Thread-Topic: [PATCH] dmaengine: xilinx_dma: Set dma_device directions
+Thread-Index: AQHblOfyPgreEFaTb06QsgCB79kDoLN25v/w
+Date: Mon, 17 Mar 2025 06:48:26 +0000
+Message-ID: <MN0PR12MB59531CAA16616476F2E09EFBB7DF2@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20250314134849.703819-1-thomas.gessler@brueckmann-gmbh.de>
+In-Reply-To: <20250314134849.703819-1-thomas.gessler@brueckmann-gmbh.de>
+Accept-Language: en-US
 Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <r6xikx2idlzwc4xl7doap3v5ug3a6qtg65jwqjuekiv7tvbwzn@5nk4c7nl2zws>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: jpL48WS3wXSe3L4YA7eOeVEzoPGbocVe
-X-Authority-Analysis: v=2.4 cv=c42rQQ9l c=1 sm=1 tr=0 ts=67d7c3d6 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=p-S28tgwJCCmrtNokHgA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: jpL48WS3wXSe3L4YA7eOeVEzoPGbocVe
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-17_02,2025-03-17_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 spamscore=0
- bulkscore=0 lowpriorityscore=0 mlxscore=0 adultscore=0 malwarescore=0
- impostorscore=0 mlxlogscore=999 priorityscore=1501 suspectscore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503170047
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=03b9c761-dbee-48d6-8dff-f76a09c92cd5;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-03-17T06:47:09Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|CH1PR12MB9648:EE_
+x-ms-office365-filtering-correlation-id: 3cd6430a-243a-483d-ed57-08dd651fb841
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?+kZYloj2KDdg5Wxvn8JsfWNK5A3Q6A48Km4kya97pqVtzxuebCxDJC0pPb?=
+ =?iso-8859-1?Q?hFuw7lodWbelJqm4uquQASsjItMSh7jXCcHQxRQcIZCwZtJFaZBiNJIEKq?=
+ =?iso-8859-1?Q?53uCXz4RPU6ktFJ4aJkl2jv2XbLnsdKfAX2qbPsdIq/gYwiiax18f40bfo?=
+ =?iso-8859-1?Q?7ZOXXEJtTTZ2KXpIOlER+BAkALbvHF37RZW4sH98FYB1sjonPqAZN6Tfc5?=
+ =?iso-8859-1?Q?P9UzSRuDvb5zAvwhG85aaeaASanm7jJFMJcSi8DK5JMbRjJ9D3/8274JvE?=
+ =?iso-8859-1?Q?6BhP/rPEnWSScjlJlRgUuB7sCAnMZCv6fplSUH+qF3zXf2oRYDCvg8iWfB?=
+ =?iso-8859-1?Q?3iM7My+kVsOucv0IzPFwCU0SYFzHj+Sljyt0uMUqVHvVIHIstQfs9bwAIX?=
+ =?iso-8859-1?Q?+ULPi6DxfPYJhRDMIeNLU7L2vQ6wjhKEtSq74Ylc7LCvdOaNI7r8SppURE?=
+ =?iso-8859-1?Q?AUykV5W2e2faB0vUffxzMEsJt/cFeoILkUY8NmOzG/SCqhfO5tCovIyoaC?=
+ =?iso-8859-1?Q?OlJmLyBuF+mCfifHvHv9yyIEkOdO9TUOT6YGU18rynZd0SSGYC8BRla4sz?=
+ =?iso-8859-1?Q?wemO3N0SeF8K7UIjDRhVkhDd7pN8/c/RY3C3H0mHm8VFVrkFTvEt6en7OJ?=
+ =?iso-8859-1?Q?rb++8jRxYVhGSnifWJmBSb3bOFu99OIz81qnzxXDyNobXRGDH6H1XVxfst?=
+ =?iso-8859-1?Q?mtFUns21dKTWmxYfqLfkK7ziviX1+pCwi3ZDGG4CY0yLJjP+RFk98IQ71C?=
+ =?iso-8859-1?Q?VzjR864l45DJgOgkqMB3SihJwed7VTKRX5QCMj00ZCbOES6+UkP+Tsaxzu?=
+ =?iso-8859-1?Q?X3lLYpqobETX4dIHB1Pyr6x2eTxkLElIMKmS6uZlLwd4KLXvU9KGwyNCdI?=
+ =?iso-8859-1?Q?6WLKcy04gpCo8Iy+pTJPNIBitq4j24Hl3Sk+mhcJoPIrhO4dczv0dgsSZE?=
+ =?iso-8859-1?Q?6EvrcYZAKj3keQymd8sZgt42J7xPBi9xTDdLCzVss/qZpeKLp/t16CIo76?=
+ =?iso-8859-1?Q?T8Hww85bAvdxgR3edvqcYN0IDfJGEvsagTRh51sBgZ5U9yAN56PYF7rm6C?=
+ =?iso-8859-1?Q?X311HfhLE2OZ0nHslO/vl3Ykuv0MHU9x/yImZd0NaK5/W3dKGwVk2J1L/W?=
+ =?iso-8859-1?Q?x1dXSWxKI4tDdnnJ2hG+e7/AarSSCOeqO0i/DseoljDEfyF+oDPSQCn5zH?=
+ =?iso-8859-1?Q?zOONl29hiwXd02SitEPOvB0H8YdKUe+61p/jBWuStKC0lBT0VVR6b2tm8/?=
+ =?iso-8859-1?Q?5TG1rcMjyvuRSksEjPSbWA1560Q7dWGovKQuQIoLpI9gJ+n/AZs89TpacG?=
+ =?iso-8859-1?Q?PS0imMV9lqHoIakFgiouMsW8r0AEl+Q7Zw8iXCfpxTN3sgYD8OrQk7sEtq?=
+ =?iso-8859-1?Q?e1PcsCbBpcmSbD1BWtHPrL18N+jUNj4xvC9Ec0rIwsLOXpGr7FX69cU4qx?=
+ =?iso-8859-1?Q?XhHF8upZg+DuRuoXUpwkf8uiaP7iQJOzQXD58aR64tgx8hrJa37DlP2YFA?=
+ =?iso-8859-1?Q?E5augB7mZeB3XbhUT2UjsK?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?8xBIS/w2UI9acpJOeek5rlT4iBQuiMp+K8BwXLmPM0TbecU7xO1J1yFQGr?=
+ =?iso-8859-1?Q?v+ydjT+l1BEwjLDGdjQtSql5Lu8ep8++PbPg7TrELl61bfKLIquA0Q0h6A?=
+ =?iso-8859-1?Q?UK8pP+xthRutS1aBT3IG/5M5LvIsn4ckUWHTAXkUVQYbRfWfijxAF7xHmF?=
+ =?iso-8859-1?Q?f9Qr+sM8KE/dpWldgSURpAH9nMUjXKGglI5LwzdUKOhUqCkppeaHKkeIbk?=
+ =?iso-8859-1?Q?PFRdsm08aPNghdE1/ekSzeboMyyiwONbV+F/8MsjQxTYDhXQ8JROClcH+/?=
+ =?iso-8859-1?Q?KOjAyP2DNYwgb1ALGR2YUC/kEKvcVbbrKrIpnmEPOs0GWD1egEn9n9pCsH?=
+ =?iso-8859-1?Q?srJdzCKTG9kYYlEJQuOQOVrEO97EcqlN53HqP1Vf1+CShZnQ7o4UAPwmxg?=
+ =?iso-8859-1?Q?v5IjzFF5+Qlr2yFGwaqz9VAdjdr5c/pr53DJJSAGLYoe5ij6wTVkKpXsgM?=
+ =?iso-8859-1?Q?0LCN+Zp780VVzaoKCYT9zy2Dlgs/KxGY1Z2ZQ4eHpEHzp7tHbmnhIZuKJo?=
+ =?iso-8859-1?Q?HgN1ezJVmO8wE+4dHeGLS7rEY1pEMYG7EcF0E9wMvTqyNXV6qBhYaMWXJw?=
+ =?iso-8859-1?Q?TYiaKC02dhKVE3OGibCJzVaeAjxsjNVFfVQb6EANDdLyGYxg1kYyuYQQ9m?=
+ =?iso-8859-1?Q?dT+bKnmjHZYSM/mjfsYkHaqCUYyFn53PedQxkXchDTXD1fvpj2w05QnITf?=
+ =?iso-8859-1?Q?lilgff68lAoYRTivfaoDSsXnwQI9nrauvolHQevILeiiH7qCJtqZpu+zoN?=
+ =?iso-8859-1?Q?JnaOmPsHeDP2W2996w9Fo2vP6jDY/t4GKeq7AietEXf17lAo9mE5i1ja3H?=
+ =?iso-8859-1?Q?mBNPRibCwviOG+Apuk7QtWEn8EsqL3atIeuDiSWJ3t9wH3tykg2Y+UtyRO?=
+ =?iso-8859-1?Q?0HLoYrYhVANMtj+2HzWUGx/osCreikNikhg78epUBqZskW8Ec+Vaj7sMMj?=
+ =?iso-8859-1?Q?jck7BMRykiWEJkAztFtv9AoAq1XfG6JJ9+iKcnrU3PJe/NJYR+o8lKllsF?=
+ =?iso-8859-1?Q?Bwtk7BcsWSf/3GsVsc6U98E1LzEBteQmnt2eyw77KVuF000OccYQK/NZIU?=
+ =?iso-8859-1?Q?hywB4f9qxjSZEcAqj8yuyR2qV2QxNHFyUidCjmss8MA2XspJ/sQZU7lntQ?=
+ =?iso-8859-1?Q?Ce4TYfHu5rusQG2XdSyZwZu3jLIp3rqulj8IKeRslQcYIaY+zCw6VT9Vm4?=
+ =?iso-8859-1?Q?9tGWvnbz7h5eVc9hLFjfxHJLlK2vxjBWdJ/9bD4L19egxsKvYkGeShPF+7?=
+ =?iso-8859-1?Q?fXbltiJTlKPGJw0Fr6jJHJem48ArEWo4vT6e/yk3MRTsxZ/gswz77BRDnL?=
+ =?iso-8859-1?Q?NpzAdtUcT3JFbNkSS+whfv6coyGIJ+B0GCVNtot7vJmZneHSBoq/cTFVwd?=
+ =?iso-8859-1?Q?T7h8cfeaXK+wQEnktzfhEioJj/QYyHwdNQ8GFULejGGpumGgUSHu6qFsfP?=
+ =?iso-8859-1?Q?jrfhf9FYX4crs1ZM58T5yD4q4TWwMPhJoArSTgpslcjxlYXY3WlHAzxFP4?=
+ =?iso-8859-1?Q?+pDtdx463HqEGMBRloduXzmzU+TrRuR1hu93237ikt7o2nvL3wr3pkDOOf?=
+ =?iso-8859-1?Q?2mwJm7twN5LCKEcb6BSGslNc54w2JvYp3w0b+a2OfMxFz42T7lUPDn7Ps5?=
+ =?iso-8859-1?Q?3Tkqdw7Us78kE=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3cd6430a-243a-483d-ed57-08dd651fb841
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2025 06:48:26.5945
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: cFqBDStgucpMCSVKvvxlWXWMEaL9uVSkp9g9e59Lgr0avvyyyqpiGao8OI8XZR0t
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9648
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_234029_470299_9BEAB22A 
-X-CRM114-Status: GOOD (  34.13  )
+X-CRM114-CacheID: sfid-20250316_234833_784730_5BB11636 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,249 +168,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[AMD Official Use Only - AMD Internal Distribution Only]
 
+> -----Original Message-----
+> From: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
+> Sent: Friday, March 14, 2025 7:19 PM
+> To: dmaengine@vger.kernel.org
+> Cc: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>; Vinod Koul
+> <vkoul@kernel.org>; Simek, Michal <michal.simek@amd.com>; Marek Vasut
+> <marex@denx.de>; Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
+> Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: [PATCH] dmaengine: xilinx_dma: Set dma_device directions
+>
+> Coalesce the direction bits from the enabled TX and/or RX channels into
+> the directions bit mask of dma_device. Without this mask set,
+> dma_get_slave_caps() in the DMAEngine fails, which prevents the driver
+> from being used with an IIO DMAEngine buffer.
+>
+> Signed-off-by: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
 
-On 3/14/2025 5:09 AM, Bjorn Andersson wrote:
-> On Thu, Mar 13, 2025 at 12:29:38PM +0530, Taniya Das wrote:
->> The alpha PLLs which slew to a new frequency at runtime would require
->> the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
->> which can support the slewing of the PLL to a new frequency.
->>
->> Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
->> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
->> ---
->>  drivers/clk/qcom/clk-alpha-pll.c | 170 +++++++++++++++++++++++++++++++++++++++
->>  drivers/clk/qcom/clk-alpha-pll.h |   1 +
->>  2 files changed, 171 insertions(+)
->>
->> diff --git a/drivers/clk/qcom/clk-alpha-pll.c b/drivers/clk/qcom/clk-alpha-pll.c
->> index cec0afea8e446010f0d4140d4ef63121706dde47..7d784db8b7441e886d94ded1d3e3258dda46674c 100644
->> --- a/drivers/clk/qcom/clk-alpha-pll.c
->> +++ b/drivers/clk/qcom/clk-alpha-pll.c
->> @@ -2960,3 +2960,173 @@ const struct clk_ops clk_alpha_pll_regera_ops = {
->>  	.set_rate = clk_zonda_pll_set_rate,
->>  };
->>  EXPORT_SYMBOL_GPL(clk_alpha_pll_regera_ops);
->> +
->> +static int clk_alpha_pll_slew_update(struct clk_alpha_pll *pll)
->> +{
->> +	int ret;
->> +	u32 val;
->> +
->> +	regmap_update_bits(pll->clkr.regmap, PLL_MODE(pll), PLL_UPDATE, PLL_UPDATE);
->> +	regmap_read(pll->clkr.regmap, PLL_MODE(pll), &val);
->> +
->> +	ret = wait_for_pll_update(pll);
->> +	if (ret)
->> +		return ret;
->> +	/*
->> +	 * Hardware programming mandates a wait of at least 570ns before polling the LOCK
->> +	 * detect bit. Have a delay of 1us just to be safe.
->> +	 */
->> +	mb();
->> +	udelay(1);
->> +
->> +	return wait_for_pll_enable_lock(pll);
->> +}
->> +
->> +static int clk_alpha_pll_slew_set_rate(struct clk_hw *hw, unsigned long rate,
->> +					unsigned long parent_rate)
->> +{
->> +	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
->> +	unsigned long freq_hz;
->> +	const struct pll_vco *curr_vco, *vco;
->> +	u32 l, alpha_width = pll_alpha_width(pll);
->> +	u64 a;
->> +
->> +	freq_hz =  alpha_pll_round_rate(rate, parent_rate, &l, &a, alpha_width);
-> 
-> Double space here.
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
 
-Sure, needs a fix.
-
-> 
->> +	if (freq_hz != rate) {
->> +		pr_err("alpha_pll: Call clk_set_rate with rounded rates!\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	curr_vco = alpha_pll_find_vco(pll, clk_hw_get_rate(hw));
->> +	if (!curr_vco) {
->> +		pr_err("alpha pll: not in a valid vco range\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	vco = alpha_pll_find_vco(pll, freq_hz);
->> +	if (!vco) {
->> +		pr_err("alpha pll: not in a valid vco range\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	/*
->> +	 * Dynamic pll update will not support switching frequencies across
->> +	 * vco ranges. In those cases fall back to normal alpha set rate.
->> +	 */
->> +	if (curr_vco->val != vco->val)
->> +		return clk_alpha_pll_set_rate(hw, rate, parent_rate);
->> +
->> +	a = a << (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
-> 
-> Above this function is written to deal with both alpha bitwidths, but
-> here it's assumed to only be one of the cases.
-> 
-> It would be nice to get this cleaned up somehow, because we now have
-> this shift 6 times in slightly different forms.
-> 
-
-I will check if I can clean up.
-
->> +
->> +	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), a);
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), a >> 32);
-> 
-> In a number of places in the driver alpha_width is compared to 32 bits
-> to see if this should be written or not. Perhaps that's not applicable
-> here, but again, if so then why is it dynamic above?
-> 
-> 
-> Also, how about upper_32_bits() and lower_32_bits() to make it clear
-> what's going on here?
-> 
-
-Sure.
-
-
->> +
->> +	/* Ensure that the write above goes through before proceeding. */
-> 
-> That's not what mb() does.
-> 
-> Regards,
-> Bjorn
-> 
->> +	mb();
->> +
->> +	if (clk_hw_is_enabled(hw))
->> +		return clk_alpha_pll_slew_update(pll);
->> +
->> +	return 0;
->> +}
->> +
->> +/*
->> + * Slewing plls should be bought up at frequency which is in the middle of the
->> + * desired VCO range. So after bringing up the pll at calibration freq, set it
->> + * back to desired frequency(that was set by previous clk_set_rate).
->> + */
->> +static int clk_alpha_pll_calibrate(struct clk_hw *hw)
->> +{
->> +	unsigned long calibration_freq, freq_hz;
->> +	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
->> +	struct clk_hw *parent;
->> +	const struct pll_vco *vco;
->> +	u32 l, alpha_width = pll_alpha_width(pll);
->> +	int rc;
->> +	u64 a;
->> +
->> +	parent = clk_hw_get_parent(hw);
->> +	if (!parent) {
->> +		pr_err("alpha pll: no valid parent found\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	vco = alpha_pll_find_vco(pll, clk_hw_get_rate(hw));
->> +	if (!vco) {
->> +		pr_err("alpha pll: not in a valid vco range\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	/*
->> +	 * As during slewing plls vco_sel won't be allowed to change, vco table
->> +	 * should have only one entry table, i.e. index = 0, find the
->> +	 * calibration frequency.
->> +	 */
->> +	calibration_freq = (pll->vco_table[0].min_freq + pll->vco_table[0].max_freq) / 2;
->> +
->> +	freq_hz = alpha_pll_round_rate(calibration_freq, clk_hw_get_rate(parent),
->> +					&l, &a, alpha_width);
->> +	if (freq_hz != calibration_freq) {
->> +		pr_err("alpha_pll: call clk_set_rate with rounded rates!\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	/* Setup PLL for calibration frequency */
->> +	a <<= (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
->> +
->> +	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), a);
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), a >> 32);
->> +
->> +	regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_VCO_MASK << PLL_VCO_SHIFT,
->> +				vco->val << PLL_VCO_SHIFT);
->> +
->> +	/* Bringup the pll at calibration frequency */
->> +	rc = clk_alpha_pll_enable(hw);
->> +	if (rc) {
->> +		pr_err("alpha pll calibration failed\n");
->> +		return rc;
->> +	}
->> +
->> +	/*
->> +	 * PLL is already running at calibration frequency.
->> +	 * So slew pll to the previously set frequency.
->> +	 */
->> +	freq_hz = alpha_pll_round_rate(clk_hw_get_rate(hw),
->> +			clk_hw_get_rate(parent), &l, &a, alpha_width);
->> +
->> +	pr_debug("pll %s: setting back to required rate %lu, freq_hz %ld\n",
->> +		clk_hw_get_name(hw), clk_hw_get_rate(hw), freq_hz);
->> +
->> +	/* Setup the PLL for the new frequency */
->> +	a <<= (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
->> +
->> +	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), a);
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), a >> 32);
->> +
->> +	regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_ALPHA_EN, PLL_ALPHA_EN);
->> +
->> +	return clk_alpha_pll_slew_update(pll);
->> +}
->> +
->> +static int clk_alpha_pll_slew_enable(struct clk_hw *hw)
->> +{
->> +	int rc;
->> +
->> +	rc = clk_alpha_pll_calibrate(hw);
->> +	if (rc)
->> +		return rc;
->> +
->> +	return clk_alpha_pll_enable(hw);
->> +}
->> +
->> +const struct clk_ops clk_alpha_pll_slew_ops = {
->> +	.enable = clk_alpha_pll_slew_enable,
->> +	.disable = clk_alpha_pll_disable,
->> +	.recalc_rate = clk_alpha_pll_recalc_rate,
->> +	.round_rate = clk_alpha_pll_round_rate,
->> +	.set_rate = clk_alpha_pll_slew_set_rate,
->> +};
->> +EXPORT_SYMBOL(clk_alpha_pll_slew_ops);
->> diff --git a/drivers/clk/qcom/clk-alpha-pll.h b/drivers/clk/qcom/clk-alpha-pll.h
->> index 79aca8525262211ae5295245427d4540abf1e09a..1d19001605eb10fd8ae8041c56d951e928cbbe9f 100644
->> --- a/drivers/clk/qcom/clk-alpha-pll.h
->> +++ b/drivers/clk/qcom/clk-alpha-pll.h
->> @@ -204,6 +204,7 @@ extern const struct clk_ops clk_alpha_pll_rivian_evo_ops;
->>  #define clk_alpha_pll_postdiv_rivian_evo_ops clk_alpha_pll_postdiv_fabia_ops
->>  
->>  extern const struct clk_ops clk_alpha_pll_regera_ops;
->> +extern const struct clk_ops clk_alpha_pll_slew_ops;
->>  
->>  void clk_alpha_pll_configure(struct clk_alpha_pll *pll, struct regmap *regmap,
->>  			     const struct alpha_pll_config *config);
->>
->> -- 
->> 2.48.1
->>
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c
+> index 108a7287f4cd..641aaf0c0f1c 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -3205,6 +3205,10 @@ static int xilinx_dma_probe(struct platform_device
+> *pdev)
+>               }
+>       }
+>
+> +     for (i =3D 0; i < xdev->dma_config->max_channels; i++)
+> +             if (xdev->chan[i])
+> +                     xdev->common.directions |=3D xdev->chan[i]->directi=
+on;
+> +
+>       if (xdev->dma_config->dmatype =3D=3D XDMA_TYPE_VDMA) {
+>               for (i =3D 0; i < xdev->dma_config->max_channels; i++)
+>                       if (xdev->chan[i])
+> --
+> 2.43.0
 
 
