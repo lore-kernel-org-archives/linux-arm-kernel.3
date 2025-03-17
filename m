@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986CEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 17:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355E8C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 17:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVVBjR0mSZEIXZn2jj+yPFFn+SpqZ/2BXJvya8/hhRQ=; b=hz3m3kXEBhKtQsM6djxC7zujXs
-	142zdKR3qDw5FMo1qJeyGBwJ3Jl0+fRiLiyUBoWnG5y80azMdlae4Zx7/IrhnTPEa571dFd5vSfBg
-	Yu6aHezxG0RcD/w8IpYCnehys3G5wUEX8WsOZGzcrS2RvhZHlI9pI/gvq5dZqCy76V/xi0A6KVnsy
-	qtXI6gGuB541//chRNSTGX7zJtYMEL/t8UaOZU/p2YUsmIPgMUvt9Zpq4lJAMrTSeqJnhUaUtHtUJ
-	qHxzUp3iRX2vzeIDeNVkD7Z+vbIiqRYmTH7IaQQJvVxCxugg2wSezsjeiIv9Q/sYzh+Atyd8zyz5D
-	Qod61mLQ==;
+	bh=PBKO3+sFdf3j+9DusQSeJkY76BUx4yGl9KDAQjeRCo8=; b=YQ8Wip/HCI3q1mx+I40qD8OZwP
+	XP68Kq9Ya/FsKxYi4h1FMPXDCH9kOteoQdWqmiWyRXMep4FiV56EIFYKbOSgLz5Xnc8mDO9sE1hqE
+	sRMZJjOaAc430EwOkm+zvtGXyyHKqhagX/gTEQ7hwns220RhoyaxG8IStfB3/Mu+FqRSYUkp/krD8
+	It6X7m2jm/BGWJjnIrtD4FfVl0oZtP2sEWFPReqe5fIj+ZgSgNztRYLnAEcidzvcXLWuvHFcoPe83
+	9e0PKr/MLAUWhCkYadK64RDE8wr3qV+RkG26dR7Ew5bMYSNcZEyaTHBnKH4cPIonnGwgPIKA5L4Qs
+	wNK8OEhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuDzd-00000003UNl-2X59;
-	Mon, 17 Mar 2025 17:11:13 +0000
+	id 1tuE1J-00000003UqE-1HiY;
+	Mon, 17 Mar 2025 17:12:57 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuDvd-00000003T23-1ddM
+	id 1tuDwE-00000003TCn-2ek3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 17:07:06 +0000
+	Mon, 17 Mar 2025 17:07:44 +0000
 Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id F377E2033444;
-	Mon, 17 Mar 2025 10:07:02 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com F377E2033444
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7BFBB2033444;
+	Mon, 17 Mar 2025 10:07:41 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7BFBB2033444
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1742231223;
-	bh=pVVBjR0mSZEIXZn2jj+yPFFn+SpqZ/2BXJvya8/hhRQ=;
+	s=default; t=1742231261;
+	bh=PBKO3+sFdf3j+9DusQSeJkY76BUx4yGl9KDAQjeRCo8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MU0M1OS/SvjdiBbQjAOJYZVPoksU5Sb1yCAuzxLUPv37SeuxHwFF7pbmInik5NNNf
-	 ujAGpzMt6UzTDHpp2h9YUMIjgxST9XFEazJyWc/ho17h+5D8kAGPqKrOHOkNjLv0Ub
-	 nO3vFYqx3hqhVWLCI6WxBr/n/WIQUkrc9WLiqbi4=
-Message-ID: <9c3f2492-823e-4548-8ad3-6aeb9c86d528@linux.microsoft.com>
-Date: Mon, 17 Mar 2025 10:07:02 -0700
+	b=XSBhoPpsdkLkmTk3qErtq7Cuq1UaChiFkw6kXGiD9sH8+hspF1i5lsiqiYkjwRCBB
+	 iVqT5cJe8xu+9gjgWPR9s5bH/kyVP+cnsNNF6iCaun/zsXbZKBgMHGCF5/NSR3KwU5
+	 ysZtQjFJVoI5LvU9qesC/3ZFeWH6kGQ7Jq/AFHfI=
+Message-ID: <091001a7-7398-4f5f-b9b6-d220a5a226cb@linux.microsoft.com>
+Date: Mon, 17 Mar 2025 10:07:41 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v6 11/11] PCI: hv: Get vPCI MSI IRQ domain
- from DeviceTree
-To: Bjorn Helgaas <helgaas@kernel.org>
+Subject: Re: [PATCH hyperv-next v6 07/11] dt-bindings: microsoft,vmbus: Add
+ interrupt and DMA coherence properties
+To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
  catalin.marinas@arm.com, conor+dt@kernel.org, dan.carpenter@linaro.org,
  dave.hansen@linux.intel.com, decui@microsoft.com, haiyangz@microsoft.com,
@@ -60,15 +60,17 @@ Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
  linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-pci@vger.kernel.org, x86@kernel.org, apais@microsoft.com,
  benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
-References: <20250315184903.GA848938@bhelgaas>
+References: <20250315001931.631210-1-romank@linux.microsoft.com>
+ <20250315001931.631210-8-romank@linux.microsoft.com>
+ <20250316-versed-trogon-of-serendipity-bf7ea7@krzk-bin>
 Content-Language: en-US
 From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <20250315184903.GA848938@bhelgaas>
+In-Reply-To: <20250316-versed-trogon-of-serendipity-bf7ea7@krzk-bin>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_100705_492835_5A4ADD05 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250317_100742_701501_6696F53D 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,145 +87,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 3/15/2025 11:49 AM, Bjorn Helgaas wrote:
-> On Fri, Mar 14, 2025 at 05:19:31PM -0700, Roman Kisel wrote:
->> The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
->> arm64. It won't be able to do that in the VTL mode where only DeviceTree
->> can be used.
->>
->> Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
->> case, too.
->>
->> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+On 3/16/2025 10:36 AM, Krzysztof Kozlowski wrote:
+> On Fri, Mar 14, 2025 at 05:19:27PM -0700, Roman Kisel wrote:
+>>   
+>> +  dma-coherent: true
+>> +
+>> +  interrupts:
 > 
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+>> +    maxItems: 1
+>> +    description: |
+>> +      This interrupt is used to report a message from the host.
 > 
-> Looks good to me; trivial whitespace comment below.
+> These could be just two lines:
+> 
+> items:
+>    - description: Interrupt used to report a message from the host.
+> 
+> (and note that just like we do not use "This" in commit msg, there is
+> really no benefit of using it in hardware descruption for simple
+> statements)
 > 
 
-Thanks a bunch!! I'll fix that the whitespace (and remove the unused
-variable the robot noticed).
+Appreciate your help very much!! Will fix the formatting.
 
->> ---
->>   drivers/pci/controller/pci-hyperv.c | 73 ++++++++++++++++++++++++++---
->>   1 file changed, 67 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
->> index 6084b38bdda1..cbff19e8a07c 100644
->> --- a/drivers/pci/controller/pci-hyperv.c
->> +++ b/drivers/pci/controller/pci-hyperv.c
->> @@ -50,6 +50,7 @@
->>   #include <linux/irqdomain.h>
->>   #include <linux/acpi.h>
->>   #include <linux/sizes.h>
->> +#include <linux/of_irq.h>
->>   #include <asm/mshyperv.h>
->>   
->>   /*
->> @@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct irq_domain *domain,
->>   	int ret;
->>   
->>   	fwspec.fwnode = domain->parent->fwnode;
->> -	fwspec.param_count = 2;
->> -	fwspec.param[0] = hwirq;
->> -	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
->> +	if (is_of_node(fwspec.fwnode)) {
->> +		/* SPI lines for OF translations start at offset 32 */
->> +		fwspec.param_count = 3;
->> +		fwspec.param[0] = 0;
->> +		fwspec.param[1] = hwirq - 32;
->> +		fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
->> +	} else {
->> +		fwspec.param_count = 2;
->> +		fwspec.param[0] = hwirq;
->> +		fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
->> +	}
->>   
->>   	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
->>   	if (ret)
->> @@ -887,10 +896,47 @@ static const struct irq_domain_ops hv_pci_domain_ops = {
->>   	.activate = hv_pci_vec_irq_domain_activate,
->>   };
->>   
->> +#ifdef CONFIG_OF
->> +
->> +static struct irq_domain *hv_pci_of_irq_domain_parent(void)
->> +{
->> +	struct device_node *parent;
->> +	struct irq_domain *domain;
->> +
->> +	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
->> +	if (!parent)
->> +		return NULL;
->> +	domain = irq_find_host(parent);
->> +	of_node_put(parent);
->> +
->> +	return domain;
->> +}
->> +
->> +#endif
->> +
->> +#ifdef CONFIG_ACPI
->> +
->> +static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
->> +{
->> +	struct irq_domain *domain;
->> +	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
->> +
->> +	if (acpi_irq_model != ACPI_IRQ_MODEL_GIC)
->> +		return NULL;
->> +	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
->> +	if (!gsi_domain_disp_fn)
->> +		return NULL;
->> +	return irq_find_matching_fwnode(gsi_domain_disp_fn(0),
->> +				     DOMAIN_BUS_ANY);
->> +}
->> +
->> +#endif
->> +
->>   static int hv_pci_irqchip_init(void)
->>   {
->>   	static struct hv_pci_chip_data *chip_data;
->>   	struct fwnode_handle *fn = NULL;
->> +	struct irq_domain *irq_domain_parent = NULL;
->>   	int ret = -ENOMEM;
->>   
->>   	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL);
->> @@ -907,9 +953,24 @@ static int hv_pci_irqchip_init(void)
->>   	 * way to ensure that all the corresponding devices are also gone and
->>   	 * no interrupts will be generated.
->>   	 */
->> -	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
->> -							  fn, &hv_pci_domain_ops,
->> -							  chip_data);
->> +#ifdef CONFIG_ACPI
->> +	if (!acpi_disabled)
->> +		irq_domain_parent = hv_pci_acpi_irq_domain_parent();
->> +#endif
->> +#if defined(CONFIG_OF)
->> +	if (!irq_domain_parent)
->> +		irq_domain_parent = hv_pci_of_irq_domain_parent();
->> +#endif
->> +	if (!irq_domain_parent) {
->> +		WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
->> +		ret = -EINVAL;
->> +		goto free_chip;
->> +	}
->> +
->> +	hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
->> +		irq_domain_parent, 0, HV_PCI_MSI_SPI_NR,
->> +		fn, &hv_pci_domain_ops,
->> +		chip_data);
+> Regardless:
 > 
-> This is a different style of indenting the parameters than other
-> similar cases in this file, which line up parameters on subsequent
-> lines under the open parenthesis.
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
->>   	if (!hv_msi_gic_irq_domain) {
->>   		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
->> -- 
->> 2.43.0
->>
+> Best regards,
+> Krzysztof
+> 
 
 -- 
 Thank you,
