@@ -4,91 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B5FC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8081C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Yb1bmwpZfvOX6yMK1i3HHBS8ZlfwQU6J5gT+QGlyLNY=; b=Pfxnz7VlZD9kagMQhaW/N5k/89
-	FYPgxGpWDcDv4QKpBGWMaW/bHmbvV0WY3B4bb+qZW75nZoTsTkCVWEd/j9KgQq/SoKq5iGkMmv9vi
-	9xJErrEe6TmkH+xOjL2cvZ/nMCF+YXOYymmxSD17OAuYIFxdL40uSOgPUBeWMAoQbw6/wB88GEYyA
-	ol97oic9g8H1l3cOKnlmyvJaE8PI3PAxrdeaIKCrOqmtqUTSD5gGDjmJOEqEMxhJWQhSOPzF/q5L1
-	S1+dwwdn/4GEolT1VsGVfJjG2L8YI3nUaO2nV+DFSn3uwHcGjz58dEAHg2W/XbBXBvmPm7/qjQ2Eg
-	DGfBPnnQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YxM/FLWFV9174sn06eaQ2+vi0HNR43hFiVbvA3YtroI=; b=xhwH3k8cmItROMz8ntZT4n4v7B
+	0dd3XnVGNg1OOkFz7dtP9RKZWSLI48id+9Z0N6ZGXDtnj3b9XZO1TqNVlRoAs4VNOGl5DIMufdiUA
+	MyhUg1zMGLbWsDUC9UHQymx6CHbyTyRm4183joxaz/SB0/jiqGfYQDmuNw5UywYkTVqDQnqxwIxwO
+	LqoUCpH7jyw3vQBfHR2K2Htb2yVCUY2gNdsnzmYj7NBeUPygE0/nnxm2iV6pls2+pplxavmFiO64w
+	8tCJ96ShLEktTCBolBu5rNNSqBCXPywdfLIh31fzBu/l+iOnZFWXve4lu505bKFVEH4/gO9YGgM9O
+	WukKhZ3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8Wb-00000002N9A-2OeA;
-	Mon, 17 Mar 2025 11:20:53 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tu8YF-00000002NPY-3L7F;
+	Mon, 17 Mar 2025 11:22:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8Uk-00000002Mrb-1eg8
+	id 1tu8Vl-00000002N4L-3g4y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 11:18:59 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5e78378051aso791871a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 04:18:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742210336; x=1742815136; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yb1bmwpZfvOX6yMK1i3HHBS8ZlfwQU6J5gT+QGlyLNY=;
-        b=sPs5mB/gMx1B0yBRr5kNA9NzYdxiYJNyjI6eJUIn091WTLYKgDuYEiaO7TdGbGH0RR
-         avANfHVD1h5YT06/o6jktHdF5I/oDSNEbdvrY4blzf3kgr0icuiYlyCm2nA9o5YxMupY
-         OpYQ1JUWFC6oIFVmhRhDNk6IV+ZkkWrPaFiruzbmqThn18Kc4bH1uR01/7SxK7z355Nc
-         DAOam+NeyOOqByz7CJPLuEYmidblj4kNK3dh2CI+wrQCGnnQbUjat0Km92Xk8SohlZQJ
-         9fHzRRwy1Qjl+gREcVghvzzBui/CVR6liU0Nv8jCdwd7TJAh9TNB+jN1wcbIkrW8619a
-         KGiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742210336; x=1742815136;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Yb1bmwpZfvOX6yMK1i3HHBS8ZlfwQU6J5gT+QGlyLNY=;
-        b=fb3LIbHnNDGsfjNwmKq+pjz5GUwPMSLH1Oygh0OoYOEysVuc6oFi0lwHohUCNSDVaF
-         dq22KjBZJr0BA5UFMFJ+i5CQgh4qHx7R4v9e8LmeXQfdUHA8CvKZCwaS3XCLOdnIRGa/
-         +KO6Mn6Jg9XcchEhKVtl4McIAR3rcRXFNCNoLPAR6HbrYaeAy6WzPGC4BAtyDbCodMpf
-         DhccUMQOxOMIipp/nyl+T4JqsJRYz4bzw4Klq1ZRQC0JfUOKGLv4fY+ROvfAAUQvm7Kc
-         mgMu6YSiPVBHSk0kHnsbIFpIoI5xMPzeHaia+s/ah4FJwBqdn1EydBMFvJ8t7dR2FumY
-         mfew==
-X-Forwarded-Encrypted: i=1; AJvYcCXKeD3Li2dlmqq33Zd4ah9c5CWw8fnMrLUPXB24oOy6OgJJJd4ThUWAJcEwTQh39ucnk15jt6QC3CAeHoiMapQL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ/m0q7crhNXL9d+7Qq8CXDn2vszRJE8yYYauyNPZRq4RVZ0Ae
-	GINZmTxe1FFBdGUHIW+S1hlsHcn1flf53fJErBAQcjGp00MBtfWoo6GCD5CrGnk=
-X-Gm-Gg: ASbGncsnQle6lm2vd5AfgggxurCt3DEG1m9qmHOFNL8VkhFO6z+7qrhD0cFxemfIpAC
-	Ll2fU4Ln13WcNpEmkfo0AOvFqz+Fo+pxd3bgcW/fjxrtA6/Hky3ah4U4O57j5hxib7QBFm9b0xN
-	kZ2keYGibzT+FupEl2ZN/FvhGFggWC8ySxJHZLjeyBYq7vpUI0Ju1XXfuypZVDXG2RzBIoW7g6W
-	Jevz2G971ECWRvWm8L7WKQN1VHW+87f5c3hpmSuqfhHsPN1jIgPL8DApjj2HsI3eiXw53k72xfH
-	XQ4RORsk3pGD/YsMhVIk2v3UQsjlypAqLY+rSLeRjF3CoBJPU6/+9bM6ZA==
-X-Google-Smtp-Source: AGHT+IGfG0kMUMy8OCD9zOa9XSNGd00YZZiW8tI8Vc7MTZK1U10MgZJVD9O1t41p31Vck9HevRFDYQ==
-X-Received: by 2002:a05:6402:3592:b0:5e4:d192:86c5 with SMTP id 4fb4d7f45d1cf-5e8a10edf48mr4164494a12.9.1742210336553;
-        Mon, 17 Mar 2025 04:18:56 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816973b87sm5851428a12.23.2025.03.17.04.18.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 04:18:56 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] ARM: dts: nxp: Align NAND controller node name with bindings
-Date: Mon, 17 Mar 2025 12:18:53 +0100
-Message-ID: <20250317111853.43708-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Mon, 17 Mar 2025 11:20:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 481AF5C55CB;
+	Mon, 17 Mar 2025 11:17:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8402C4CEE3;
+	Mon, 17 Mar 2025 11:19:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742210400;
+	bh=NL8hqZlWmJ1BLFXZudCF1REiKP5Vko3UsnzNY6m/lh8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tL5bz9T/spuP4D9VQSLV20t349zOQbW79wzt7qcgSDPt142gVRkTXI/hfOcMPSTCf
+	 4/8d7Q8hPc31eRf41ss4AR3ejKXwxCGbiqB4xg34N2uQKURcUTpETd8oqvoaA3BDaf
+	 +MbV1h0nC/qvfrJVAADH+4PVkn65/sps4/3GkAgI/kM2ynM5LFjOBuPlLziVOLW3XA
+	 IMFVIjzPwq+swf+d3eRDUP2WDIPwu5bnGhjtzp9FsYWE2kOW5C0JFLsL6IK31EOeY8
+	 rgVsAJch+2UMFMf2NvaFe//miI5dtHLZbE/hG3bHonRiHSmjn19I/Lgktp+aVgHhuX
+	 1Um2dTFaFn35A==
+Message-ID: <a6e78d47-4961-4669-8149-4ed35f3a2c9c@kernel.org>
+Date: Mon, 17 Mar 2025 12:19:54 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: imx31: Use nand-controller as node name
+To: Fabio Estevam <festevam@gmail.com>, shawnguo@kernel.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ Fabio Estevam <festevam@denx.de>
+References: <20250220130345.2375204-1-festevam@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250220130345.2375204-1-festevam@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_041858_434850_B15A9355 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20250317_042002_040946_AE6C27D3 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +118,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bindings expect NAND controller device nodes to be named
-"nand-controller".
+On 20/02/2025 14:03, Fabio Estevam wrote:
+> From: Fabio Estevam <festevam@denx.de>
+> 
+> According to mxc-nand.yaml, the correct node name must be
+> 'nand-controller'.
+> 
+> Change it accordingly to fix the following dt-schema warning:
+> 
+> $nodename:0: 'nand@b8000000' does not match '^nand-controller(@.*)?'
+> 
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
+> ---
+>  arch/arm/boot/dts/nxp/imx/imx31.dtsi | 2 +-
 
-Cc: Fabio Estevam <festevam@gmail.com>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm/boot/dts/nxp/imx/imx25.dtsi | 2 +-
- arch/arm/boot/dts/nxp/imx/imx35.dtsi | 2 +-
- arch/arm/boot/dts/nxp/imx/imx51.dtsi | 2 +-
- arch/arm/boot/dts/nxp/imx/imx53.dtsi | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+Sending one fix per each node name is quite a churn, so please fix all
+files in given vendor at once.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx25.dtsi b/arch/arm/boot/dts/nxp/imx/imx25.dtsi
-index 9cfff2151b7e..82601a4b7b4b 100644
---- a/arch/arm/boot/dts/nxp/imx/imx25.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx25.dtsi
-@@ -611,7 +611,7 @@ bus@80000000 {
- 			reg = <0x80000000 0x3b002000>;
- 			ranges;
- 
--			nfc: nand@bb000000 {
-+			nfc: nand-controller@bb000000 {
- 				#address-cells = <1>;
- 				#size-cells = <1>;
- 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx35.dtsi b/arch/arm/boot/dts/nxp/imx/imx35.dtsi
-index 30beb39e0162..111d7c0331f5 100644
---- a/arch/arm/boot/dts/nxp/imx/imx35.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx35.dtsi
-@@ -363,7 +363,7 @@ emi@80000000 { /* External Memory Interface */
- 			reg = <0x80000000 0x40000000>;
- 			ranges;
- 
--			nfc: nand@bb000000 {
-+			nfc: nand-controller@bb000000 {
- 				#address-cells = <1>;
- 				#size-cells = <1>;
- 				compatible = "fsl,imx35-nand", "fsl,imx25-nand";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx51.dtsi b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
-index 8323e3a56a1f..f42903c9cf0d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx51.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
-@@ -595,7 +595,7 @@ weim: memory-controller@83fda000 {
- 				status = "disabled";
- 			};
- 
--			nfc: nand@83fdb000 {
-+			nfc: nand-controller@83fdb000 {
- 				#address-cells = <1>;
- 				#size-cells = <1>;
- 				compatible = "fsl,imx51-nand";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx53.dtsi b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
-index faac7cc249d0..0c38c37dd142 100644
---- a/arch/arm/boot/dts/nxp/imx/imx53.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
-@@ -775,7 +775,7 @@ audmux: audmux@63fd0000 {
- 				status = "disabled";
- 			};
- 
--			nfc: nand@63fdb000 {
-+			nfc: nand-controller@63fdb000 {
- 				compatible = "fsl,imx53-nand";
- 				reg = <0x63fdb000 0x1000 0xf7ff0000 0x10000>;
- 				interrupts = <8>;
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
