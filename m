@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA3BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C77C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oR3+sjzXfF1kJu70R/WOS6OhxjSB2FVGl0MhcctQyD8=; b=VWLlTRxbPTV3LfW/3ACfXkapgN
-	oST1PVKa09KxEMXKZE1b1HSUAT9XwQPFcp3Jtli6COwvm29eUMWVLG2fmO9cHAeDiz0zmAabEoBye
-	W2u9tst+MkLCXOayceBp+dxqIHdvkIFn03SZofxZ2Fu3Y4Mxzf0nFf5afly4oGiP5vWvXCaI3hGVA
-	GpFu6tiDTqE2pZ2oU3i6/Yv0ElnuT2ijqdQ+fzG8+Fiojhibe5OHjIbKZxA6p8VG4quK56W9N6wwC
-	gPDUy8ULgRUcQtN/dJ79bt+ZlqO5CxaiuCUY05+AEOJ3JWzTgcayppyCa9ARjuGXDpLB6IFQG1bEy
-	qmgLDBZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4HtlwG/3nglKjTrCQsmz2WEQCe1tt4B+0V3113CDo7Q=; b=XYsqPXjKtcHbpium0WkP8X257a
+	0eNocM6AJXcUdc2VPRzUNz9WPpjQ6AXVrA12PuAYp5yT0erPcR06A14SjnFm1fvCVL6WDAUrOUYct
+	lcKlrkatGRI912u7wGPrwXY2pChQJk0CNHm7FJVc54r40c9EF5F4++BeUXRDklCeagIGo1LE+kkX+
+	EdvtuqJieFkP/REFJtBZMH+iGPpFwO+OrumgbaaLIVEERrrdtXsQjhv3t7kQJWn0rsP6HDr/UDeWR
+	BWYYtL8q3gx6pUWxXWbCQ2gDlQtbiOhGHyovh0AdHaYIbm9q/Ln9lQ8FtCzGbYA4uCwXLMcSErbYZ
+	JEJl1Thw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFTh-00000003jUa-1IVp;
-	Mon, 17 Mar 2025 18:46:21 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tuFW3-00000003jlQ-0DAy;
+	Mon, 17 Mar 2025 18:48:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFS0-00000003jJ9-0kUh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 18:44:37 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22622ddcc35so20447075ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:44:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742237075; x=1742841875; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=oR3+sjzXfF1kJu70R/WOS6OhxjSB2FVGl0MhcctQyD8=;
-        b=J46PPw31gleYwrDRlR99/NAsadJgeg21YYqY1ZvjczgB0Kmvs1Yf7EVVukrnbvULex
-         fzlPtqddWRQsxekzmUCbMt/GXS/sIK8OeGXzsGzTLAb3gQiPib1EJj2J5CKGAz/dorJT
-         3ldI26Kr1jw9NPurMWreBxdjp0WPxxrc9ycR8Nn5FK0rcS2y0cS05VuE3eDNIoeNh0HL
-         rIX3o+xSqOx+D3U4McSWhCKCMDao5HBS0dUcgWRGcG6jTXPVaM6VJwBA28GOFXYHPbua
-         4HFpNB6qYbcQY3PEVC5fAVsm771KWnBJS1LZMLUq/RbYsNk94kkAnKop7Dd9rJumjqJf
-         cNag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742237075; x=1742841875;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oR3+sjzXfF1kJu70R/WOS6OhxjSB2FVGl0MhcctQyD8=;
-        b=B5MsF3XrvkQPBQ03KbQKQORHbZLbA1+kt1q6336WVR1cnV7FHLXvYM1bw78mb0j2ge
-         9no858VGDXP4rZApW5pNW+tP7NMldg5HnVByuWjEfR2/MK2Un+13I38zgeqTaSoHkdvP
-         nNNcqRnTMdOHNSfukbGSLcutdfoGo46j/dQ+uHrOyDHpVOCrV5VfbG6bNsinOY2BwsYt
-         eMgZn8v7wFM/SEI9ot/cTW8MVxPMFDrrMSFLQB6CDMcYTbHzUadNtVf8sjCe1tG1vXY0
-         s1c63CabAh/4FZNE7gjavwxb94u8B5LH6hyFWRzFAvquUSe3migMAzfpc9pUUie80sb6
-         Un+w==
-X-Forwarded-Encrypted: i=1; AJvYcCV2zilI/DhZfolRy0dB9UA/s98PB3skqf8FneHQSryxpmwm+7HfvEeNi2g7z4CFhsuWUrjpnxhwrlf+l2n6XXTz@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxj+YACbvKDFXeEMbZUvqNgU4bZbyO/0lRLLWdrYVuAalyJM10
-	/Z4fVMCqkOJ6kIq6u4Io4Cr7dfVLRNyZVX0VdAeOSaQwhSgNGGOcQY7WEvCe3Q==
-X-Gm-Gg: ASbGncswMp31GWEXbiY4Lavg2mp7F6DecQmL+EHzqwE3ElipmAyQG4jZOHnWBpcFEVG
-	ljZJfA9yF/awRlOcyzZBiIh9CIUfcBSS8EvSa4pagTc37y6ccgwBFgaK4+dl9CmRB6QD3QSGMWc
-	BDhi5rifphLSv1Ud+ioaUWy2mDVwDT4zSViSt65NX6QK801xEnYGJ2oFXA5hGZZ7H/5YcXBJOQF
-	y0eOR4GeRHIc1bvBQBIppqcb+PTHGPrTapbQwi5uSVItwYhVX2negjiqMTDa44nrF5EFeiWQdxT
-	fpiGsgkRIxy55WuiAsHSGODXjUofpAYeBILeFMa7lV2L++Ak4y67eWL9xl1p6dNWyA==
-X-Google-Smtp-Source: AGHT+IGISBTwHnOEY2bEJPR+BTe1q1qlpEiRYXNfbcGJ9ZaqciEpkdDRztt/9NPlZLzrMm9yu+GByw==
-X-Received: by 2002:a17:902:e5c7:b0:215:94eb:adb6 with SMTP id d9443c01a7336-2262c5edffemr7634215ad.40.1742237074779;
-        Mon, 17 Mar 2025 11:44:34 -0700 (PDT)
-Received: from thinkpad ([120.60.130.16])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c68884fcsm79360525ad.16.2025.03.17.11.44.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 11:44:34 -0700 (PDT)
-Date: Tue, 18 Mar 2025 00:14:27 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Tony Lindgren <tony@atomide.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC NOT TESTED 0/2] PCI: dra7xx: Try to clean up
- dra7xx_pcie_cpu_addr_fixup()
-Message-ID: <20250317184427.7wkcr7jwu53r5jog@thinkpad>
-References: <20250313060521.kjue4la47xd7g4te@thinkpad>
- <20250317173008.GA933389@bhelgaas>
+	id 1tuFUM-00000003jZK-3LZv;
+	Mon, 17 Mar 2025 18:47:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67B53A48CB3;
+	Mon, 17 Mar 2025 18:41:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8ACC4CEE3;
+	Mon, 17 Mar 2025 18:46:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742237221;
+	bh=HxVzpYI9x47IeMZvH4BdX9GwVI0Qz5knIVuS0Jconhw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=GrAqfi7cD/H+cHzZ6RtlF3OKQfeRomkwTolDpEuIefSPVxQLcYNW8IYOTwCO8WYvh
+	 0J2WN84vnd1hJ1ntjXIaGtoq+4UcqpZOjyC2XCj2ZWGRWUM+CWqjndBuSUYXsZDfpf
+	 KNfEqAC47MfDUhXU27pAahMVS+txpg3AZd9o3lONjqaeR2k021kCT6zTE02DixQPB6
+	 CFZq6njrOi1JA8X3L+UsLeDPNHrRd/DYFhqlHTE4wuDmB0/6ypqRuSp4J+iB/nj+bg
+	 Hz/UHqHFqu/B0+/TpgjNNZYpqZe76mq3dSCEEi33VfaBhWuR12AC/DMMIjPMaBxLq/
+	 5gJV6ykYWE3Kg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Zoran Zhan <zoran.zhan@mediatek.com>
+In-Reply-To: <20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com>
+References: <20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com>
+Subject: Re: [PATCH 0/3] Allow retrieving accessory detection reference on
+ MT8188
+Message-Id: <174223721831.287878.9212541577191425735.b4-ty@kernel.org>
+Date: Mon, 17 Mar 2025 18:46:58 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250317173008.GA933389@bhelgaas>
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_114436_220196_34F89B23 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20250317_114702_902620_96F977D2 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +81,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 12:30:08PM -0500, Bjorn Helgaas wrote:
-> On Thu, Mar 13, 2025 at 11:35:21AM +0530, Manivannan Sadhasivam wrote:
-> > On Wed, Mar 05, 2025 at 11:20:21AM -0500, Frank Li wrote:
-> > > This patches basic on
-> > > https://lore.kernel.org/imx/20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com/
-> > > 
-> > > I have not hardware to test.
-> > > 
-> > > Look for driver owner, who help test this and start move forward to remove
-> > > cpu_addr_fixup() work.
-> > 
-> > If you remove cpu_addr_fixup() callback, it will break backwards
-> > compatibility with old DTs.
+On Fri, 14 Feb 2025 12:14:28 -0300, Nícolas F. R. A. Prado wrote:
+> This series enables the MT8188-MT6359 sound driver to retrieve the
+> MT6359 ACCDET sound component from a mediatek,accdet DT property, which
+> allows detecting jack insertion/removal.
 > 
-> Do you have any pointers to DTs that will be broken?  Or to commits
-> where they were fixed?
+> Patch 1 describes the new property in the binding. Patch 2 implements
+> the sound component retrieval in the common MTK soundcard driver. Patch
+> 3 updates the MT8188-MT6359 sound driver to register the audio jack and
+> initialize the ACCDET driver for detection, if the property is present.
 > 
+> [...]
 
-Any patch that fixes issues in DT and then makes the required changes in the
-driver without accounting for the old DTs will break backwards compatibility.
+Applied to
 
-> > You should fix the existing DTs and continue carrying the callback
-> > for a while.
-> 
-> Any insight into where these existing DTs are used and how long
-> they're likely to live?
-> 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-There is no fixed rule in this afaik. Just like we continue to support old
-hardwares, we need to continue supporting old DTs for some time. The best we can
-do is provide some warning so that users can update their DTBs. Then we can get
-rid of the old DT support in the driver after some time.
+Thanks!
 
-That's why I asked Frank to add the warning previously.
+[1/3] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add mediatek,accdet
+      commit: 3fec903f2cb18805b1ef22a0e310498020c1f15e
+[2/3] ASoC: mediatek: common: Handle mediatek,accdet property
+      commit: cf536e2622e2b0a60c99e799995b6e9acf539c17
+[3/3] ASoC: mediatek: mt8188-mt6359: Add headset jack detect support
+      (no commit info)
 
-- Mani
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
--- 
-மணிவண்ணன் சதாசிவம்
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
