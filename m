@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9B1C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36E7C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 16:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=06QGEsbiDHTPlITpRCkSEygiFBtZganqjlJySZAtEPM=; b=0HrHuYdR0//buiyJzIs1RZzib/
-	yla9GvO6NFtDy7Z0aETpmJsJwjrEEvy3Tl7iBE5s4kZ8pCYv/SIyx2C7rZxHirGHxxSgOTwnR7qze
-	91Pa78dvcvYyPeZUIyzvNK+RjsWFE77VaT7ll21kKALlikCcKzCmrTb9CuaJU7QBjn/FYoSF1OBcg
-	3VpNT6uLZ2BqLEgPMFZL1L3es5t9wuZVfVowo/jjLWEEkyzVLWZrFX6+ntQ7WoELAnu/AMtE9Z/v1
-	p0BmC6dZyz2kRP+12/d+4BFoqlMgkbc+sPDr/JyixajA/z8mLHAZuDKbKzr0SyF7hJF/NMJrlzDjx
-	xbVZ0sqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gsv8Qc7UiYDeIZ2IpN9vTEPun/MAdbfewO7+8Sds62c=; b=tkzkqKmMaMbjJgtiorXy0MRqFF
+	o0Uj1OjJzlCy7iWAjSqE3H+uf7BGReXV6K2lwPWCU2bFZwAJh6hRPS27bTF5uB+izelJf55D1y8y4
+	xPqSOriMhHk1epOpZv+jqa+IdBoIjwzLSKp0sRzbdqx8jdTN75sZt6yBL0OE1P+q7ZwSkhZUHqNe1
+	UbYP+yFAS82GqThfk4UkufDeYb9DZ+r7fwbRyHWvHJ7SVDS16kJODZo9dWhuRV2dlC0SFir/ww24p
+	edKTGm/vGr49znNzBkOgb6AGss9cKTtO1yXrCy98H0FMSTeSA70VWmmBGM/LeUF/4+NTvi0PPU+R/
+	68iQVBsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCsX-00000003EuT-0ZR8;
-	Mon, 17 Mar 2025 15:59:49 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1tuCv5-00000003FUf-2JgF;
+	Mon, 17 Mar 2025 16:02:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCqq-00000003EPh-0Q5b
+	id 1tuCtN-00000003F8y-0wrc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 15:58:05 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2ff6cf448b8so4647921a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 08:58:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742227083; x=1742831883; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=06QGEsbiDHTPlITpRCkSEygiFBtZganqjlJySZAtEPM=;
-        b=llHAOInjzuuegrvu9hjD//5RQ6QvdlnxopgXfrD7TIUCUA4QupIN/guCmzLMrx3/uo
-         w5KmXQRhrZr+3/IFI9TwQuQVLV3EpHqIrhWOJyw/VAe5vGN/wMW90jYCAnHceNi60/PJ
-         GLznekkhl8bkDMIEUBzxfNGtCGDLB+E2Nmd9PWjyboOJSViF3P/12JhtYqYuvuh8BY2S
-         nn2SWB9Ed4lzi+l47Y5FuUT5GBCNdOX9SDa9eLC2G2PU/f0hQj0XdMsvmIPPdkjm5Tn7
-         5a76/SBe5JzXx2us84dYAf36QAE4YBF1j34oexQKlBvz+JShEQi/7OePW1Zy/q09RVYC
-         2Neg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742227083; x=1742831883;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=06QGEsbiDHTPlITpRCkSEygiFBtZganqjlJySZAtEPM=;
-        b=b4ssw5wphzt7XqFPZHIiPz97KwqaeUnhGoeA/I/sIQHLiExIcmwLXjs8J9jp3BfBlz
-         Q+bOIKmnpdxXTCE+ofSInArtVwRcN+dJeE6lgyBGbdRZgX25OqU9VFhiJkpVjLU5zQtX
-         EqgMMwD0zvIOG/5/OZv8HMLm/VrPnT4yUpM1bAjbP+II6jygYKetCYYIPMue44klKCeI
-         JqjptQfqr0Mt52DNhcWLmBfn6bw+/SxSUOTENROaVJAx+W+Y6BbYReqtOFXpH+rHASat
-         o9ezU+bqzst4pYbLSIvpfc/1jTzDyUVuWQhxFVsaIvisUECXqP475/YhQKgrqOHWrLV6
-         44Og==
-X-Forwarded-Encrypted: i=1; AJvYcCVd2ljqSdGs3Yr5wamsYCsVhF7n2tUuTQxLe2ap9kXYaClq8NxYyfGdEoNwkeb29fne+LrLnQHFVGHysiq9cxaY@lists.infradead.org
-X-Gm-Message-State: AOJu0YykRW907DnNKXzZczouWsdCh8eG04Q78yHQj/k6VTluFkgauvyA
-	+ALqXTRybW/XgBw2+PxKFYv8wxorZDK14SjLcQI0jk9vdp/Ylrx1RaIkIfKhdlbPzMlSfbjX9Ab
-	7YP20R97ftwqCd7KOm7AOzuSYFVs=
-X-Gm-Gg: ASbGncuWS/nFEL6xWHbrHNnK/2Q8GsMidtE68ZreGjHkEO/89cSof1ww58kM4zOvMpz
-	TFfItjqJkWsbW/pATrahnPxXXDWHDzgJJIo58v9682ULjl+EtLUBbdfOAIHLoU7td0TEzh8wwUx
-	Dulc+l98GrKNSWUvVwfMhhEIMxepM=
-X-Google-Smtp-Source: AGHT+IG3Ayo9k0yRtjHNBCfqhmNJz3asFcvcSqQ3hdNGSq7kkzqBge1sZkHTYixEYa/8f6gTrblik9jUofUotL/jY/U=
-X-Received: by 2002:a17:90b:17c5:b0:2fe:b735:87da with SMTP id
- 98e67ed59e1d1-3019e7a3ce7mr409937a91.0.1742227082981; Mon, 17 Mar 2025
- 08:58:02 -0700 (PDT)
+	Mon, 17 Mar 2025 16:00:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DAFBBA4553F;
+	Mon, 17 Mar 2025 15:55:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB868C4CEE3;
+	Mon, 17 Mar 2025 16:00:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742227240;
+	bh=6gCzBdireTSrb2J2K5TYgOMaQEFeUZq4N8TbdhjQzUw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tKaOvtderv0mRKnIyHN94Xe50MKGc3Na1bhk7ei9JUG5zy2yfXJndNmD73/RzH59O
+	 0JlFX/EGA/b0eSKiELoIpZfsY/zZ/L+7D9lRdrkTbZ7EbwRSQDUKFyWPzSfMvOHNDY
+	 mUsVu3Vo2jQueI0jHLzEQHSR9ksk8mWaPcXjJfifsHZYsmKOC/0kUd+e6YeidXWSIv
+	 oquBJR3HyaHmjQuabsm8bVye/B+Wi20Tb6GZOeLjFzuvNuczah/H8tpgYeqyjMK59s
+	 cobZzrCt6QITHVd/6VkAmhpLwQMFbJKnB3Ff+3vAwSVCAFffN/mT/XdDnVl6evNOXQ
+	 GgjQmdukBgjRA==
+Date: Mon, 17 Mar 2025 16:00:35 +0000
+From: Will Deacon <will@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com,
+	maz@kernel.org, rananta@google.com
+Subject: Re: [GIT PULL] arm64 fixes for -rc7
+Message-ID: <20250317160034.GA12267@willie-the-truck>
+References: <20250314160458.GA9438@willie-the-truck>
+ <CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250317133306.2003909-1-daniel.baluta@nxp.com>
- <20250317133306.2003909-3-daniel.baluta@nxp.com> <5873285.DvuYhMxLoT@steina-w>
-In-Reply-To: <5873285.DvuYhMxLoT@steina-w>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 17 Mar 2025 17:58:07 +0200
-X-Gm-Features: AQ5f1JrRqDM8p6JEGxBqM22DUaeaV1igcAM-i6by99ARfroWOHqb4YOLD6MREdU
-Message-ID: <CAEnQRZCsCYbQU8uxpFeyLmji65VRoO0rckRcoyc3frd2_B_KqQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/5] arm64: dts: imx8mp: Add mu2 root clock
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: shawnguo@kernel.org, robh@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, festevam@gmail.com, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org, frank.li@nxp.com, 
-	aisheng.dong@nxp.com, laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, 
-	iuliana.prodan@nxp.com, a.fatoum@pengutronix.de, mathieu.poirier@linaro.org, 
-	linux-remoteproc@vger.kernel.org, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_085804_143896_C02C6CE8 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250317_090041_325735_728D7A79 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,33 +74,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 5:30=E2=80=AFPM Alexander Stein
-<alexander.stein@ew.tq-group.com> wrote:
->
-> Am Montag, 17. M=C3=A4rz 2025, 14:33:03 CET schrieb Daniel Baluta:
-> > Enable MU2 node and add mu2 root clock.
-> > MU2 is used to communicate with DSP core.
-> >
-> > Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
-> > Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> > Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boo=
-t/dts/freescale/imx8mp.dtsi
-> > index 3b725fe442d0..5b443fbeded8 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > @@ -1253,7 +1253,7 @@ mu2: mailbox@30e60000 {
-> >                               reg =3D <0x30e60000 0x10000>;
-> >                               interrupts =3D <GIC_SPI 136 IRQ_TYPE_LEVE=
-L_HIGH>;
-> >                               #mbox-cells =3D <2>;
-> > -                             status =3D "disabled";
->
-> There is no need to enable MU2 if the DSP is disabled by default, no?
+Hi Linus,
 
-True, I can enable it only when needed. Will fix in next version.
+On Fri, Mar 14, 2025 at 10:34:57AM -1000, Linus Torvalds wrote:
+> On Fri, 14 Mar 2025 at 06:05, Will Deacon <will@kernel.org> wrote:
+> >
+> > Summary in the tag, but the main one is a horrible macro fix for our
+> > TLB flushing code which resulted in over-invalidation on the MMU
+> > notifier path.
+> 
+> From a quick look, that macro is still quite broken. Maybe not in ways
+> that matter, but still...
+> 
+> In particular, the 'stride' argument is used multiple times, and
+> without parentheses.
+> 
+> The 'lpa' argument is also used multiple times, and the input to that
+> is typically something like kvm_lpa2_is_enabled(), so I think it
+> potentially generates lots of pointless duplicate code with that
+> BUG_ON() in system_supports_lpa2() -> cpus_have_final_cap().
+> 
+> Maybe the compiler figures it out. But that macro is bad, bad, bad.
+> When it looks like a function, it should act like a function, and not
+> evaluate its arguments multiple times.
+> 
+> The most immediate bug may have been fixed, but not the actual real
+> horror of that thing.
+
+Yes, the minimal fix for -rc7 avoids explicitly mutating the macro
+arguments but we still have the multiple-evaluation problem you point
+out above.
+
+Ideally, this function would be rewritten as a 'static inline' but it
+was moved from C code into a macro as part of 360839027a6e ("arm64: tlb:
+Refactor the core flush algorithm of __flush_tlb_range") because we need
+to propagate the 'op' argument down to the low-level asm where it's
+stringified as part of the instruction mnemonic.
+
+I'll have a crack at reworking things to take a 'const char *' instead,
+but it won't be for 6.14 as it'll be reasonably invasive.
+
+Will
 
