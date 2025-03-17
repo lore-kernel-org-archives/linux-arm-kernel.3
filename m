@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C83C35FFB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC889C36001
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K9zMkwN9kcmbmbtozN4rjO8EwIi3Eu7trBbtVwfG27Y=; b=OHgEY9BAp88s2I3H0r9YvtVVfF
-	Pm+zP/TN61bY2Ox+v3IfM4u8yLnwuscOUrwNgW/2xboTy2F7NDuiSQ3WI5nvHS8oHCfTmqzMN2Whx
-	Xr5PPTT/Isw+um6+wmSoy7vNNPYeT12DcKbZXFD7l+klptJtylLsxS+xDYJEluqcVoqLQhhTbM5RW
-	/GsXjQLXXyLE6IQ3FjIA2DtepnggIkgNYFZWSiap7WfOR9jQlSHW/B1pgphpMRUNSA/E7Q/rrkwk/
-	C/SPmju4F6nUvhaVhDxAWQpiuI1ghqaJsx0cGqDKmdEBTaD76E/2MyznkDod4A0DXwVdxDAe0rGiu
-	Pt0AHcWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cWGtW43TgLnA9XLRjmVYZyHmW1immnR6brlslYhRp80=; b=pxTidUGi5FpIZ66yLgyIuYeBkO
+	a5FYA5Re2iZYKRrAi1msbXOgoUQrtU8S4HgLzpM6nU698S1JJpurrXlVzx90cl9Y4+nY7NNC/XWTM
+	v9qA3ezaBSPu4MIoaoPzpVOwe/9ZtoX4KZRs2YYrZSOoctXyPibTJkCsRrB92a/MoC+xR5CoLm4x5
+	etBCzRQ0ysEhscpcS9dkKZNP3IKItLohVwF9hvXk8QRYk7Lo2EKXeOiyJKBnlbikKS0AswAZghYs7
+	IofkdU0ORBmVaAazL4S47e+4OJVmV0MAzF6DWjxFJgROotbYIHFID808XqZVVSRkkQoySXDkNYKed
+	s4L9qSzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuB8e-00000002qyt-3f14;
-	Mon, 17 Mar 2025 14:08:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tuB8k-00000002r49-3hoJ;
+	Mon, 17 Mar 2025 14:08:26 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuAeG-00000002lNk-02lK;
-	Mon, 17 Mar 2025 13:36:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1742218616; x=1773754616;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=uUzD2tKx/yOkzia97EwCKxdMZuH21Iwtc+D4U9gO9Ys=;
-  b=ClHjXDJVZ0pgTetglU0ak9cdVicvRoa+CVPpW5fNCDasV+DbIOiUhyLn
-   Uv4KXLOv1U2aLMjATwN+Gper1GSo4qKolZGzeqJq348e+7GBzQ6GOb4Kg
-   yNb14MNZzi6+swcyVvJgNqMweoZPeWD86lb300O+WJTIAChtu21W633A/
-   xEGczq1PkOZXJ/rwsxMJ0rC2vh80PY48N/EXy3Mi03KXbDQBXiyhlqqy3
-   dWDL1mimWSFLMYNHZEZ8dSxV/NmDrAQGy1Isv+/Vyc1mSSwv3sZg7HW2Z
-   ulMkpTikOIPGEkSo7YbNMDFtFAZ+POnEL2ODbSYJsIODDNgfRPn7RN5ot
-   w==;
-X-CSE-ConnectionGUID: wbEqb9OZQ2CrxMjUvyeqZg==
-X-CSE-MsgGUID: vfBAesImS76EIy4wVtfOmw==
-X-IronPort-AV: E=Sophos;i="6.14,254,1736838000"; 
-   d="scan'208";a="39256375"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Mar 2025 06:36:45 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 17 Mar 2025 06:36:24 -0700
-Received: from [10.40.56.22] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Mon, 17 Mar 2025 06:36:19 -0700
-From: Nayab Sayed <nayabbasha.sayed@microchip.com>
-Date: Mon, 17 Mar 2025 19:01:08 +0530
-Subject: [PATCH RESEND] dt-bindings: mtd: atmel,dataflash: convert txt to
- yaml
+	id 1tuArW-00000002nzF-1iqL;
+	Mon, 17 Mar 2025 13:50:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1742219427; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=H1/BIELGrcSV2RkcjqcFWnyCJynKfr2bfz3LVadEFFE6GN52IQNRH5Rd1BfjwtSx8qhdqdo34FKMN8dOINWKOQvJXd85Sv8AbIjvr+KVWbscoKpFjM4sIiPjz0JX8jH/80h9zwn7OZSpkzB4jy6KGCCR0Tj6oRa4x83c2RYK7c0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1742219427; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=cWGtW43TgLnA9XLRjmVYZyHmW1immnR6brlslYhRp80=; 
+	b=dA7bukRLyuHRswe7QSIqVsrLQbKeMxvuOKrrlI09gn8fBan6iFcBbbH00T3AwP5dGwneRyogt3ThcWStGTAohPyvit/BCOy3ajS1foceBszAQXuvds7l5fq6QhpP7RA/e8oVC3AyOSrb0bYcZKS5nwyf4s5JHlbpaDcucXAw71M=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742219427;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=cWGtW43TgLnA9XLRjmVYZyHmW1immnR6brlslYhRp80=;
+	b=UjzBxYjQ+WxkrbzyzgoOyUADq5vbSDAMRzCgcoCOVJeeD3cyFvh8UjgB25kqnHZe
+	jzte+0ajnSg16286ZAsl4vZlYGOvAB3g7sQEYB5311r97ybRgUfSZvu3mccfM7Zfh4A
+	5OlDNHkDmEFIVoQaTYHwgyhs+uF2EyyYL5C/stBo=
+Received: by mx.zohomail.com with SMTPS id 1742219425926664.8954147028828;
+	Mon, 17 Mar 2025 06:50:25 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Mon, 17 Mar 2025 14:49:27 +0100
+Subject: [PATCH v4 2/7] dt-bindings: rockchip-thermal: Add RK3576
+ compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250317-atmel-dataflash-v1-1-1a3247f40299@microchip.com>
-X-B4-Tracking: v=1; b=H4sIABsk2GcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDY0Nz3cSS3NQc3ZTEksS0nMTiDF1LE8Pk1KRkSxOjxFQloK6CotS0zAq
- widFKQa7Brn4uSrG1tQByJOstaQAAAA==
-To: Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger
-	<richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>
-CC: <linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Nayab Sayed" <nayabbasha.sayed@microchip.com>
-X-Mailer: b4 0.14.1
+Message-Id: <20250317-rk3576-tsadc-upstream-v4-2-c5029ce55d74@collabora.com>
+References: <20250317-rk3576-tsadc-upstream-v4-0-c5029ce55d74@collabora.com>
+In-Reply-To: <20250317-rk3576-tsadc-upstream-v4-0-c5029ce55d74@collabora.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ kernel@collabora.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_063656_231311_94B32A37 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250317_065038_501385_0A313359 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,105 +86,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert atmel-dataflash.txt into atmel,dataflash.yaml
+Add a new compatible for the thermal sensor device on the RK3576 SoC.
 
-Signed-off-by: Nayab Sayed <nayabbasha.sayed@microchip.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../devicetree/bindings/mtd/atmel,dataflash.yaml   | 55 ++++++++++++++++++++++
- .../devicetree/bindings/mtd/atmel-dataflash.txt    | 17 -------
- 2 files changed, 55 insertions(+), 17 deletions(-)
+ Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/mtd/atmel,dataflash.yaml b/Documentation/devicetree/bindings/mtd/atmel,dataflash.yaml
-new file mode 100644
-index 000000000000..8c72fa346e36
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mtd/atmel,dataflash.yaml
-@@ -0,0 +1,55 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mtd/atmel,dataflash.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Atmel DataFlash
-+
-+maintainers:
-+  - Nayab Sayed <nayabbasha.sayed@microchip.com>
-+
-+description:
-+  The Atmel DataFlash is a low pin-count serial interface sequential access
-+  Flash memory, compatible with SPI standard. The device tree may optionally
-+  contain sub-nodes describing partitions of the address space.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - atmel,at45db321d
-+              - atmel,at45db041e
-+              - atmel,at45db642d
-+              - atmel,at45db021d
-+          - const: atmel,at45
-+          - const: atmel,dataflash
-+      - items:
-+          - const: atmel,at45
-+          - const: atmel,dataflash
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+allOf:
-+  - $ref: mtd.yaml#
-+  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    spi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        flash@1 {
-+            compatible = "atmel,at45db321d", "atmel,at45", "atmel,dataflash";
-+            reg = <1>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/mtd/atmel-dataflash.txt b/Documentation/devicetree/bindings/mtd/atmel-dataflash.txt
-deleted file mode 100644
-index 1889a4db5b7c..000000000000
---- a/Documentation/devicetree/bindings/mtd/atmel-dataflash.txt
-+++ /dev/null
-@@ -1,17 +0,0 @@
--* Atmel Data Flash
--
--Required properties:
--- compatible : "atmel,<model>", "atmel,<series>", "atmel,dataflash".
--
--The device tree may optionally contain sub-nodes describing partitions of the
--address space. See partition.txt for more detail.
--
--Example:
--
--flash@1 {
--	#address-cells = <1>;
--	#size-cells = <1>;
--	compatible = "atmel,at45db321d", "atmel,at45", "atmel,dataflash";
--	spi-max-frequency = <25000000>;
--	reg = <1>;
--};
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index b717ea8261ca24ebaf709f410ec6372de1366b8a..49ceed68c92ce5a32ed8d4f39bd88fd052de0e80 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -21,6 +21,7 @@ properties:
+       - rockchip,rk3368-tsadc
+       - rockchip,rk3399-tsadc
+       - rockchip,rk3568-tsadc
++      - rockchip,rk3576-tsadc
+       - rockchip,rk3588-tsadc
+       - rockchip,rv1108-tsadc
+ 
 
----
-base-commit: 4701f33a10702d5fc577c32434eb62adde0a1ae1
-change-id: 20250317-atmel-dataflash-941cebc942ae
-
-Best regards,
 -- 
-Nayab Sayed <nayabbasha.sayed@microchip.com>
+2.48.1
 
 
