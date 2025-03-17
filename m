@@ -4,81 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826C1C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA3BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EnTcDDxnlcu92lmsvpNmrd7wbvCxZ/y02TWD+ryTtug=; b=eBn7OOIaV0h+UQo/8yMGoiCwOD
-	FNREiFxHDlEkZZfzTa0xNBkKi00NP2MMytYfVrk3il5v+bujHtTc6Mqd+xSSy9Ow0+qvvmVc1zwan
-	zywSrxV77qngzGS52fgB4M0JqsAe/pcdlBPJMay/UajNKkFPAtrXFNjMSGlINEoL1jv/0qNX95l0h
-	sE3QyDTpE5RJkd3R0SHmshy8+ffjlWvgh/Z72Mb992ZCz1CfdHeXf4/mF7rYdy2W+lhnZu1pnHVB1
-	sthLo+wxFm6b1vPgxikAqWWHais6QLAj42VWjfCblOGZGWrDfQCLegqJONyKiTys5ZZ4ZQIXw/ZhW
-	91KoNzdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oR3+sjzXfF1kJu70R/WOS6OhxjSB2FVGl0MhcctQyD8=; b=VWLlTRxbPTV3LfW/3ACfXkapgN
+	oST1PVKa09KxEMXKZE1b1HSUAT9XwQPFcp3Jtli6COwvm29eUMWVLG2fmO9cHAeDiz0zmAabEoBye
+	W2u9tst+MkLCXOayceBp+dxqIHdvkIFn03SZofxZ2Fu3Y4Mxzf0nFf5afly4oGiP5vWvXCaI3hGVA
+	GpFu6tiDTqE2pZ2oU3i6/Yv0ElnuT2ijqdQ+fzG8+Fiojhibe5OHjIbKZxA6p8VG4quK56W9N6wwC
+	gPDUy8ULgRUcQtN/dJ79bt+ZlqO5CxaiuCUY05+AEOJ3JWzTgcayppyCa9ARjuGXDpLB6IFQG1bEy
+	qmgLDBZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFMo-00000003in6-0orX;
-	Mon, 17 Mar 2025 18:39:14 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tuFTh-00000003jUa-1IVp;
+	Mon, 17 Mar 2025 18:46:21 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFL6-00000003iVN-02RT
+	id 1tuFS0-00000003jJ9-0kUh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 18:37:29 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3018e2d042bso1577365a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:37:27 -0700 (PDT)
+	Mon, 17 Mar 2025 18:44:37 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22622ddcc35so20447075ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:44:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742236647; x=1742841447; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EnTcDDxnlcu92lmsvpNmrd7wbvCxZ/y02TWD+ryTtug=;
-        b=pr7CSMFMWSwHic7s5lmVc/ehKCR8nvxgF5UvOnCceAiw+CDVguQxWIRMLDt+dsXQPu
-         Uh58kQKKcpjWtN35zfA6uLxTCL1160ZewZT53Wf4RyvyzyyPQeBz2SiWfpWHm1XiCDCm
-         YP5obZ7zvI31GHAXYjk1VZ44PrijAEqZ21ybMDffu5nochgVU5+DAVGJZr7Ly6qnAffZ
-         EC0j6UW71D2Efmjq0C2GHNT86WmcFUELakkIdJbY1vao3kqvEmQQhmwR0asS35CaFtMG
-         PB4L/pab+3Q2tcLJLtUMMqJjIjfHwYUmtxqhPZaYBDqpnpBLwTNZnT44dWaI9L6LqUj2
-         i+Qw==
+        d=linaro.org; s=google; t=1742237075; x=1742841875; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=oR3+sjzXfF1kJu70R/WOS6OhxjSB2FVGl0MhcctQyD8=;
+        b=J46PPw31gleYwrDRlR99/NAsadJgeg21YYqY1ZvjczgB0Kmvs1Yf7EVVukrnbvULex
+         fzlPtqddWRQsxekzmUCbMt/GXS/sIK8OeGXzsGzTLAb3gQiPib1EJj2J5CKGAz/dorJT
+         3ldI26Kr1jw9NPurMWreBxdjp0WPxxrc9ycR8Nn5FK0rcS2y0cS05VuE3eDNIoeNh0HL
+         rIX3o+xSqOx+D3U4McSWhCKCMDao5HBS0dUcgWRGcG6jTXPVaM6VJwBA28GOFXYHPbua
+         4HFpNB6qYbcQY3PEVC5fAVsm771KWnBJS1LZMLUq/RbYsNk94kkAnKop7Dd9rJumjqJf
+         cNag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742236647; x=1742841447;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EnTcDDxnlcu92lmsvpNmrd7wbvCxZ/y02TWD+ryTtug=;
-        b=d+yzBRscH1kpE/3wsW+bSz3JPz3B4E5Dgu3ewwLX82YipnL67DlzQYuj8XsJCFtbAn
-         VxjIpaLSVrBqMrUiVKsLZBzyvxgqGRtT/WfInNokGFm6UJH8nMO9t8mh5kfLEBAoMUgk
-         ogcaeH7WOKI7VDHbI9bD6C6QmhZhy9yodH5SUOAL+PUMy/qdz6+yxKfQna8MCYt1+41+
-         DJpzt8Swsenq4l9H3++6qKVYiqT1UVrQMUhU74I/hExG6JMYYH+zzqOT6ezvNCEPNNRA
-         l7FCbJd6s3N2aKGrNIao7ahfCXv56sTB3E+q0qzl7U9a9eFOYYGQ+XPPzJQhLqxDZVQV
-         zdiA==
-X-Forwarded-Encrypted: i=1; AJvYcCUyg4lzcAnkFp1/nZysttIS7KM68H81ZouUAumT9qy6Y9N5Md/vPfhl73MGR33vZkLA7iP5An+S8jT6HJtowoVd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxy+bSyOiKZMNIaR7vruX6b9LwyGR//1X6rwpZBmbvQ8yAue4iD
-	2+NREsRNbfdnHx4Y4uLeYlWUag7p4S1NXG/8qmc5+e1K24S7g295dWmGmcQ8PS/1lM8jzh92uRj
-	52CdtWJmkYdalxAi2KkcjRVuTzmLlvs7E/7A2lA==
-X-Gm-Gg: ASbGncuXt/rNZjY5igUKONM5komL72S0FKL/jaCpr3E9V+8k+TOmjMIZ0BK6lYlckqT
-	OCJ+fZWz8cr0EcMB4l19ZWY9en0Pcl8umdFch7eGeHvMJYcwFQw7wo2BjyNCOc4YEfEFcROr4GH
-	hKZ71vmqrkGqvvAmeihxiQA2DAdpvwDR3FtCE/JQ==
-X-Google-Smtp-Source: AGHT+IEhoXE3G6cQ5PsnTmHbL5R88MWeJjXOzzkHY7nsry3gktOpZ2t5U93aL61v6oxrZzlHHYJm0XVXQXeQDtBLhAg=
-X-Received: by 2002:a17:90b:1807:b0:2fe:d766:ad95 with SMTP id
- 98e67ed59e1d1-30151cd2f55mr17924347a91.9.1742236647100; Mon, 17 Mar 2025
- 11:37:27 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742237075; x=1742841875;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oR3+sjzXfF1kJu70R/WOS6OhxjSB2FVGl0MhcctQyD8=;
+        b=B5MsF3XrvkQPBQ03KbQKQORHbZLbA1+kt1q6336WVR1cnV7FHLXvYM1bw78mb0j2ge
+         9no858VGDXP4rZApW5pNW+tP7NMldg5HnVByuWjEfR2/MK2Un+13I38zgeqTaSoHkdvP
+         nNNcqRnTMdOHNSfukbGSLcutdfoGo46j/dQ+uHrOyDHpVOCrV5VfbG6bNsinOY2BwsYt
+         eMgZn8v7wFM/SEI9ot/cTW8MVxPMFDrrMSFLQB6CDMcYTbHzUadNtVf8sjCe1tG1vXY0
+         s1c63CabAh/4FZNE7gjavwxb94u8B5LH6hyFWRzFAvquUSe3migMAzfpc9pUUie80sb6
+         Un+w==
+X-Forwarded-Encrypted: i=1; AJvYcCV2zilI/DhZfolRy0dB9UA/s98PB3skqf8FneHQSryxpmwm+7HfvEeNi2g7z4CFhsuWUrjpnxhwrlf+l2n6XXTz@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywxj+YACbvKDFXeEMbZUvqNgU4bZbyO/0lRLLWdrYVuAalyJM10
+	/Z4fVMCqkOJ6kIq6u4Io4Cr7dfVLRNyZVX0VdAeOSaQwhSgNGGOcQY7WEvCe3Q==
+X-Gm-Gg: ASbGncswMp31GWEXbiY4Lavg2mp7F6DecQmL+EHzqwE3ElipmAyQG4jZOHnWBpcFEVG
+	ljZJfA9yF/awRlOcyzZBiIh9CIUfcBSS8EvSa4pagTc37y6ccgwBFgaK4+dl9CmRB6QD3QSGMWc
+	BDhi5rifphLSv1Ud+ioaUWy2mDVwDT4zSViSt65NX6QK801xEnYGJ2oFXA5hGZZ7H/5YcXBJOQF
+	y0eOR4GeRHIc1bvBQBIppqcb+PTHGPrTapbQwi5uSVItwYhVX2negjiqMTDa44nrF5EFeiWQdxT
+	fpiGsgkRIxy55WuiAsHSGODXjUofpAYeBILeFMa7lV2L++Ak4y67eWL9xl1p6dNWyA==
+X-Google-Smtp-Source: AGHT+IGISBTwHnOEY2bEJPR+BTe1q1qlpEiRYXNfbcGJ9ZaqciEpkdDRztt/9NPlZLzrMm9yu+GByw==
+X-Received: by 2002:a17:902:e5c7:b0:215:94eb:adb6 with SMTP id d9443c01a7336-2262c5edffemr7634215ad.40.1742237074779;
+        Mon, 17 Mar 2025 11:44:34 -0700 (PDT)
+Received: from thinkpad ([120.60.130.16])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c68884fcsm79360525ad.16.2025.03.17.11.44.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Mar 2025 11:44:34 -0700 (PDT)
+Date: Tue, 18 Mar 2025 00:14:27 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Tony Lindgren <tony@atomide.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC NOT TESTED 0/2] PCI: dra7xx: Try to clean up
+ dra7xx_pcie_cpu_addr_fixup()
+Message-ID: <20250317184427.7wkcr7jwu53r5jog@thinkpad>
+References: <20250313060521.kjue4la47xd7g4te@thinkpad>
+ <20250317173008.GA933389@bhelgaas>
 MIME-Version: 1.0
-References: <7hcygyb3yi.fsf@baylibre.com>
-In-Reply-To: <7hcygyb3yi.fsf@baylibre.com>
-From: Kevin Hilman <khilman@baylibre.com>
-Date: Mon, 17 Mar 2025 11:37:15 -0700
-X-Gm-Features: AQ5f1JpIDMTdEuLdnoZ9Sgoh0AJoi8JyKOnu1RuLyl2dlsvLYLw5n8ugF-DlDxU
-Message-ID: <CAOi56cVkwwsRQo-KQbME-Nmc2HemjmFEDn4_oaGcg9Te_MU_hg@mail.gmail.com>
-Subject: Re: [GIT PULL] arm/omap: drivers: updates for v6.14
-To: soc@kernel.org
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250317173008.GA933389@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_113728_048721_B01D59C3 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250317_114436_220196_34F89B23 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +109,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Mon, Mar 17, 2025 at 12:30:08PM -0500, Bjorn Helgaas wrote:
+> On Thu, Mar 13, 2025 at 11:35:21AM +0530, Manivannan Sadhasivam wrote:
+> > On Wed, Mar 05, 2025 at 11:20:21AM -0500, Frank Li wrote:
+> > > This patches basic on
+> > > https://lore.kernel.org/imx/20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com/
+> > > 
+> > > I have not hardware to test.
+> > > 
+> > > Look for driver owner, who help test this and start move forward to remove
+> > > cpu_addr_fixup() work.
+> > 
+> > If you remove cpu_addr_fixup() callback, it will break backwards
+> > compatibility with old DTs.
+> 
+> Do you have any pointers to DTs that will be broken?  Or to commits
+> where they were fixed?
+> 
 
-On Tue, Jan 7, 2025 at 3:26=E2=80=AFPM Kevin Hilman <khilman@baylibre.com> =
-wrote:
->
-> The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b=
-37:
->
->   Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git ta=
-gs/omap-for-v6.14/drivers-signed
->
-> for you to fetch changes up to 6ef4ea3c944b9fc5d78317d1172cdcd10f9724f1:
->
->   Input: tsc2007 - accept standard properties (2024-12-10 16:17:30 -0800)
->
-> ----------------------------------------------------------------
-> arm/omap: drivers: updates for v6.14
->
-> ----------------------------------------------------------------
-> Andreas Kemnade (1):
->       Input: tsc2007 - accept standard properties
->
->  drivers/input/touchscreen/tsc2007.h      | 2 ++
->  drivers/input/touchscreen/tsc2007_core.c | 5 ++---
->  2 files changed, 4 insertions(+), 3 deletions(-)
+Any patch that fixes issues in DT and then makes the required changes in the
+driver without accounting for the old DTs will break backwards compatibility.
 
-It seems this PR was missed for v6.14.  Could you still take this one
-for the v6.15 window?
+> > You should fix the existing DTs and continue carrying the callback
+> > for a while.
+> 
+> Any insight into where these existing DTs are used and how long
+> they're likely to live?
+> 
 
-Thanks,
+There is no fixed rule in this afaik. Just like we continue to support old
+hardwares, we need to continue supporting old DTs for some time. The best we can
+do is provide some warning so that users can update their DTBs. Then we can get
+rid of the old DT support in the driver after some time.
 
-Kevin
+That's why I asked Frank to add the warning previously.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
