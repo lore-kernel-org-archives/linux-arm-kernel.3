@@ -4,81 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77249C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD4BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rYoO63O9hT+LgEGrGAhIiJ0zo/hJCz6kwWX13GuFt04=; b=Ilb/+5HneucqEXOhiQpYDdPfBU
-	+gLiOg7RkmPh2CppvezjNBoftxlk3fIEpqmD2vhlfmag0+Du9JIVnt44U8h5sctAytpA2RNJTeGuN
-	+BAfogCYqoaEFDr7C0E91LCPRmuNirk9s2Jt56SkVZ0zVlgrVw+Fh9Q/kPHNIYbwAlR3KCacWNpln
-	PP6TjAyfHULMglCU5iVH07ZQSYossFw1725sV3ooIB+/67mYyVB5XSniqNF3ZyWeH8Kbyv105UZCx
-	b5e5xYEEAqC1IxFojnq+ebKgTppSrsmpgX9y5To5cFpMNRgv6pR5pV5Dm3kRYmVHnBqB9LeC/+DBI
-	EkI3F0gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zttFgSzh/V7CZedBfp/FFz3XtmP0Zf59IPwSE3Xgtmg=; b=MeM7zVRFPXG4JFmSQ1Go8s0Atb
+	t8h7JDlnTv6wkuCBzjEsbqeZRSVQUsZ20nxFBSnZLCUoPpKNvJqRgMtzx6HxCH5/ityzeSQQxi7WQ
+	gLSULxXzD1fNo3f+27Ax07cp5NxFrSx7goxGIASDMGCcWzOFb2B297SgWBKDajNfTm6+xYCCYYnXd
+	qE3+s/Ti7qQiNxir6MP7ixmBnhBjYAszrzPo0QY/bNCjK61c+3fcfgB4od+gs0Y4qNYUVa0L5NZqF
+	Z61qrmEcxv9pI/Vhp03jm9P2kllzvPPJ10dO3gOV5MrBGUDTjfldVC3mG3l9/djWj5V2Ma/m9Xogq
+	rdwmkaxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFCe-00000003h7q-0zBz;
-	Mon, 17 Mar 2025 18:28:44 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFA2-00000003gvH-3cFC
+	id 1tuFFc-00000003hNl-28CU;
+	Mon, 17 Mar 2025 18:31:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuFDv-00000003hHQ-0qd9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 18:26:03 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-3014678689aso2977360a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:26:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742235962; x=1742840762; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=rYoO63O9hT+LgEGrGAhIiJ0zo/hJCz6kwWX13GuFt04=;
-        b=eDDxqTevtIcgv09Y32gViFFz3tM4F5+rB1BFB/oSv1X6afqGnZ8F3KxBvoih8IrM1j
-         Ud7SnxXBERpiYlGpmqxp0ovCrnacBcfN4NsVPMAoI2RQ5gFflDgNo5Pv7aAbBbu6SdI8
-         wi5esnL13PuMhdh3lHXMvXJqVYTMUnmJTWM9RZI6vu0TngFXmmmd+Rx83sISqsW+qIoo
-         ELjaxsdeD2uDz6zi+iau905UEv0yQUgL0dKPHZFxeu3lHTOy+mmmg2uXKhGP7a8c91Kj
-         4K3nCG2HUQiZIx+BblWI6BPHVA+62bMbGVcoKpIPuaEuS3WKVavkdf9evSgaMREHqLjU
-         A36g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742235962; x=1742840762;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rYoO63O9hT+LgEGrGAhIiJ0zo/hJCz6kwWX13GuFt04=;
-        b=uoffoyYZ5n0e0qweX5lHscHEKFBhM2uXWpomWK+c/w2S1kzvD1IsWoX2UowePwmx4W
-         FHaO5KMAtlf2+nLaY+YGT4saUbHKPVMfTU0hkl7mwKcN4Z7VCoqUuQnryb/P2TKgwbjy
-         lSDlOGEQnB3V5nPmecchJqA21Tz8cl8C3eC8QpSyKdA4Ha7kCTd6ZROigr5fQFynHnOX
-         WRWB2qtBaWkZA4N8DhUX8BuZFJCrJ6c5cM8V0A0usAYRjuylsFAUmgINzEvHkLgolnKb
-         xhi9Z+rFx9Ua51Gnm5+1ZUh0/iZGyUJ5eX0Odx+nfjI3EOkgcMncv9bjDWorntdgwADo
-         jRUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWGC0yoZ/OPNN9/QnXi1lSkYr6RascFQLOG3vyCbuem0uhA99PyiFqowMYiiYTl8HXz/J6G1MdSaiv2fYr+AVVd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVo6y/HG+S6Ghmz8sCO45crobS/+ApeJ0TbUjUlIRGYpmevsPe
-	KwEqvNueetQzsOuZy/ZAqsNiq9kDRgmqExlZysPgw53VigbNb6ElcI02y1MMe7uaJunfCAZlp1m
-	HXxrqpw==
-X-Gm-Gg: ASbGncuAfLMgHrMo4NN1KruvRkhB1GItMtPaIw/VpCOcw1ZRii8VBBpK+4NaKHKR79g
-	egHA+BbV0esiPloWEhEr22mlowUft/1kRnFPJ6arcGUEp8XmR0F3LDkNqcCKFRAIDSMiwNslQLx
-	HtMnsYHe81QfL+ZUyCosy6Emx9agsSQ+l5QbEqp14hjRJwoY5AGDMy3NQSUhICf4PB6r4yeBBVw
-	rUjtYthEJDxrLR47BZiqyf+4GaxHTGXZ0MMngzchLfxwaXTpK+GHzXghwcWnXw92Jre+R35MWBA
-	ce65lWWxk3rsI6rHp66ex93PvyK/slBRzCVZjUqlo30=
-X-Google-Smtp-Source: AGHT+IGDo7UUMQx0KC2YYaD2K5Kwkp8RdeTOtJ+4dyeCTYAd0srXw/4KjI/PQ4Ty5nvijUZdv54Y0g==
-X-Received: by 2002:a17:90b:2cc8:b0:2ff:7ad4:77b1 with SMTP id 98e67ed59e1d1-30151cb4ab1mr17747816a91.2.1742235962013;
-        Mon, 17 Mar 2025 11:26:02 -0700 (PDT)
-Received: from localhost ([97.126.182.119])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-301534f47e4sm6410538a91.3.2025.03.17.11.26.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 11:26:01 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: soc@kernel.org
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] ARM: OMAP1: defconfig updates for v6.15
-Date: Mon, 17 Mar 2025 11:26:01 -0700
-Message-ID: <7hcyefqzt2.fsf@baylibre.com>
+	Mon, 17 Mar 2025 18:30:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19E7D13D5;
+	Mon, 17 Mar 2025 11:30:11 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D57943F63F;
+	Mon, 17 Mar 2025 11:30:01 -0700 (PDT)
+Date: Mon, 17 Mar 2025 18:29:57 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: lcherian@marvell.com, coresight@lists.linaro.org,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 2/7] coresight: Convert disclaim functions to take a
+ struct cs_access
+Message-ID: <20250317182957.GL2487211@e132581.arm.com>
+References: <20250211103945.967495-1-james.clark@linaro.org>
+ <20250211103945.967495-3-james.clark@linaro.org>
+ <20250313145456.GR9682@e132581.arm.com>
+ <c6a86373-64be-4101-a08a-74aa302bf64c@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c6a86373-64be-4101-a08a-74aa302bf64c@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_112602_904539_2E85447F 
-X-CRM114-Status: UNSURE (   5.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_113003_286771_9314D8B5 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,25 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+On Mon, Mar 17, 2025 at 11:36:40AM +0000, James Clark wrote:
+> 
+> 
+> On 13/03/2025 2:54 pm, Leo Yan wrote:
+> > On Tue, Feb 11, 2025 at 10:39:38AM +0000, James Clark wrote:
+> > 
+> > [...]
+> > 
+> > >   static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
+> > >   {
+> > > -       return coresight_read_claim_tags(csdev) != 0;
+> > > +       return coresight_read_claim_tags(&csdev->access) != 0;
+> > >   }
+> > 
+> > Likewise other claim functions, can coresight_is_claimed_any() change its
+> > argument type from struct coresight_device to struct csdev_access?
+> 
+> I only wanted to change the ones that I had to. I think we should prioritize
+> passing csdev as much as possible in the coresight framework to make
+> everything consistent. Otherwise it's extra churn for no benefit, and if we
+> need something from csdev here in the future we'll have to change this one
+> back again.
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+The function coresight_is_claimed_any() has been deleted in a later
+patch.  So this is fine for me.
 
-are available in the Git repository at:
+In theory, claim tags are low level operations and don't need a
+CoreSight device context, I prefer we can keep them as simple as
+possible.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.15/soc-signed
+With this series, we can see coresight_claim_device() and
+coresight_disclaim_device() are inconsistent for their parameters:
+one is using "struct coresight_device *" and another is
+"struct csdev_access *".  Maybe we just proceed to use csdev_access
+for all claim tag functions?
 
-for you to fetch changes up to c2a5f8c4f28ffea8c93d10e509c5a6e61172cdca:
+If later we need to use a CoreSight device context when operating
+claim tags, it means we might have different scenarios and we can
+handle that separately.
 
-  ARM: OMAP1: select CONFIG_GENERIC_IRQ_CHIP (2025-02-05 16:31:37 -0800)
-
-----------------------------------------------------------------
-ARM: OMAP1: defconfig updates for v6.15
-
-----------------------------------------------------------------
-Arnd Bergmann (1):
-      ARM: OMAP1: select CONFIG_GENERIC_IRQ_CHIP
-
- arch/arm/mach-omap1/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Thanks,
+Leo
 
