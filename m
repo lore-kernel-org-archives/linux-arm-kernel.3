@@ -4,69 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC2CC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 00:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20076C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 01:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fAGt0LGgvh2CTmO4opasnT3lsd36sdAL3KaucUM6oTQ=; b=uD3isGOrE7VWKuXZzehVGbJvbd
-	NBCwJekuuuNFESlQIxdTX4fPBJpA8zVeNJNZd+OT/YZkx0Bos9hTvzVk0NH5th8iMztwMs3cheEYm
-	2UtyQpUvECrwVmNkRDr8kqS2s8MY8Fj2hIQUeddyMCOMCn00zlu7cZLh9MMNloXH4i3xEnsgPlX5f
-	8MN16+s/Maroc/E13KuXcdgSbwiRAYZ0bFNedr/eSih8ry4dngeb4wPj4kAGkD0rimrOywr0l7Vi/
-	bMbwPVjG6JjkACC3hMRMnYLt/uKl/xyzCNSB1VLLnO/NlMa4q0NNcvkq0dgxYELyLW5iTwKksDhuA
-	JGfggopA==;
+	bh=RIet347e3GWnzM1H4Y30FN8VVgKlGoW5rVSE091wsH4=; b=Ft7/ZZjNQg4sDWN29o8uKN1MlA
+	/5l+mGNm7e+YMrjcyfXmgCTPg5t3AYd8QL1uZkchIoZdfXHPVSk+4Sb2jtMQjXEUQeza8Y82109iY
+	uAmUeMm7QiSjrPcahJresLJfPhtpiTF31oqQ5ALEZCipCJWQ4RG8hBIESYXa5ujB2WmkV2xmbDnAr
+	mlq2X1ifuqMmLnZEuIc+/0up7kRyHQNpu4tB5bbIj9ctf3MK/duBnaD8nCcEMHOi2KgJA9mhl5o+/
+	KKMxDyuxGQE9imhQ1nBf58XhosLde19194OZ7JEqsKa99afiaLXJyPNS7pXiG9+UYffWJ9gaHgQPM
+	IVU7QGHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttxwI-00000000jzS-3Ubr;
-	Mon, 17 Mar 2025 00:02:42 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1ttyyy-00000000oM9-1gPf;
+	Mon, 17 Mar 2025 01:09:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttxua-00000000jpd-1Wn1
+	id 1ttyxI-00000000oDP-44WH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 00:00:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1742169655;
- bh=fAGt0LGgvh2CTmO4opasnT3lsd36sdAL3KaucUM6oTQ=;
- b=g+Hl/NzABBHSc+iBc8nRGvbopmG45Rou92daA2r/Loy7TAeAgnuQDFYjFwgV6CEmr0Vo7lqA5
- QSbI2D6BuPYtH4/xGFuIHzyymDaiaEza6Sc2401DxIHyNAlwPnXOAwxYsjI5x6Yy4KRUmqgECP8
- 5MWfCqe5k+Ygye6eU+Tc4yyvIztzN0Ry15GBEmi/a5rYJ388kqvX59BohEm++u/cqcNoS+ZzZT2
- WMC6jkcaRx0MYuf3nHP3s1lcKXtHl303272pAbqkKsCUx8MJ2ESk1sUycxTNA3RsD5/RuzqJS64
- 6B8OScr39i6dHr/pGDuMG36LgxUzyjbhPfCvTZzSZfYw==
-X-Forward-Email-ID: 67d76630255865abb78c04f1
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <05ddd536-cf14-4ae0-b092-51a0c536f16e@kwiboo.se>
-Date: Mon, 17 Mar 2025 01:00:42 +0100
+	Mon, 17 Mar 2025 01:07:50 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52GMnG6v022761;
+	Mon, 17 Mar 2025 01:07:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	RIet347e3GWnzM1H4Y30FN8VVgKlGoW5rVSE091wsH4=; b=c/gFpKfGHk+HO73/
+	Z7psbsYTlv+5MfHzvaWmaDyslGGNcohkyumBR+GqKdJ9I2S/HjmPkN9hguaLvuSF
+	/rE40kiiuFSy6iRIzvaEojJycqH8ghsfBjnyaeM4AzxXiedGaFNHuu4GPDky0Hpy
+	fx65umNRCN9FHjdFR1W5c/MaT2IurX4IoKj2MwmFxAo90Nt9NL71UUStyllItNE/
+	zLuqrM4hMkHK1YWgCfQIrLR5eT4PKiVZEuTMY5ARBINnv946mvelijbTdTqn53Q5
+	tkn3guecSKqs9b+YapgIOmVb8pKb0o3cfGXge8FtyVya6I3UpUQ4FzUlLVgrrQmV
+	IJTs1w==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45d2qm2vjx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 17 Mar 2025 01:07:39 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52H17Nvv013921
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 17 Mar 2025 01:07:23 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 16 Mar
+ 2025 18:07:20 -0700
+Message-ID: <f4d4a369-427b-4fb3-9d49-84f2a0f45aff@quicinc.com>
+Date: Mon, 17 Mar 2025 09:07:08 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: nvmem: rockchip,otp: Add support for
- rk3562 and rk3568
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20250227110804.2342976-1-kever.yang@rock-chips.com>
+Subject: Re: [PATCH next] Coresight: Fix a NULL vs IS_ERR() bug in probe
+To: Dan Carpenter <dan.carpenter@linaro.org>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander
+ Shishkin <alexander.shishkin@linux.intel.com>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <kernel-janitors@vger.kernel.org>
+References: <dab039b9-d58a-41be-92f0-ff209cfabfe2@stanley.mountain>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250227110804.2342976-1-kever.yang@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <dab039b9-d58a-41be-92f0-ff209cfabfe2@stanley.mountain>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: Y-L46RjjSH9nusEJriuMfgahcfNtLGCc
+X-Proofpoint-GUID: Y-L46RjjSH9nusEJriuMfgahcfNtLGCc
+X-Authority-Analysis: v=2.4 cv=DLWP4zNb c=1 sm=1 tr=0 ts=67d775db cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8 a=G3qhXeVNgz9aKr77KdUA:9
+ a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-16_08,2025-03-14_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
+ impostorscore=0 adultscore=0 malwarescore=0 suspectscore=0 spamscore=0
+ lowpriorityscore=0 clxscore=1011 mlxlogscore=999 phishscore=0 bulkscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503170006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_170056_900498_6BAFF33B 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250316_180749_067017_1C2602A1 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,148 +107,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kever,
 
-On 2025-02-27 12:08, Kever Yang wrote:
-> Add compatible entry for the otp controller in rk3562 and rk3568, add schema
-> for different clock names for new entry.
+
+On 3/14/2025 6:55 PM, Dan Carpenter wrote:
+> The devm_platform_get_and_ioremap_resource() function doesn't
+> return NULL, it returns error pointers.  Update the checking to
+> match.
 > 
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> Fixes: f78d206f3d73 ("Coresight: Add Coresight TMC Control Unit driver")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 > ---
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> Changes in v2:
-> - Update the commit message and add maxItems in schema.
-> 
->  .../bindings/nvmem/rockchip,otp.yaml          | 53 ++++++++++++++++---
->  1 file changed, 46 insertions(+), 7 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
-> index a44d44b32809..7572f4a1d73b 100644
-> --- a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
-> +++ b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
-> @@ -14,6 +14,8 @@ properties:
->      enum:
->        - rockchip,px30-otp
->        - rockchip,rk3308-otp
-> +      - rockchip,rk3562-otp
-> +      - rockchip,rk3568-otp
->        - rockchip,rk3588-otp
->  
->    reg:
-> @@ -25,19 +27,15 @@ properties:
->  
->    clock-names:
->      minItems: 3
-> -    items:
-> -      - const: otp
-> -      - const: apb_pclk
-> -      - const: phy
-> -      - const: arb
-> +    maxItems: 4
->  
->    resets:
->      minItems: 1
-> -    maxItems: 3
-> +    maxItems: 4
->  
->    reset-names:
->      minItems: 1
-> -    maxItems: 3
-> +    maxItems: 4
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> index da35d8b4d579..c6bafc96db96 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> @@ -204,8 +204,8 @@ static int ctcu_probe(struct platform_device *pdev)
+>   	dev->platform_data = pdata;
+>   
+>   	base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
+> -	if (!base)
+> -		return -ENOMEM;
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+>   
+>   	drvdata->apb_clk = coresight_get_enable_apb_pclk(dev);
+>   	if (IS_ERR(drvdata->apb_clk))
 
-For clock-names above and reset-names we could possible skip the
-min/max-items, e.g. something like:
+Thanks for fix it. Looks good to me.
 
-  clock-names: true
-  reset-names: true
+Reviewed-by: Jie Gan <quic_jiegan@quicinc.com>
 
-and then only keep the items prop in the different conditions below.
-
->  
->  required:
->    - compatible
-> @@ -62,12 +60,45 @@ allOf:
->        properties:
->          clocks:
->            maxItems: 3
-> +        clock-names:
-> +          items:
-> +            - const: otp
-> +            - const: apb_pclk
-> +            - const: phy
->          resets:
->            maxItems: 1
->          reset-names:
->            items:
->              - const: phy
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3562-otp
-> +              - rockchip,rk3568-otp
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 4
-> +          maxItems: 4
-> +        clock-names:
-> +          items:
-> +            - const: usr
-
-Why do we not use the name "otp" here ? For px30 and rk3308 the clock is
-named clk_otp_usr and we still use the "otp" name.
-
-> +            - const: sbpi
-> +            - const: apb_pclk
-> +            - const: phy
-> +        resets:
-> +          minItems: 4
-> +          maxItems: 4
-> +        reset-names:
-> +          items:
-> +            - const: usr
-
-Same here.
-
-This needs to be rebased to also include rk3576 clock-names.
-
-I prepared a FIXUP commit at [1] with the suggested changes, feel free
-to squash any changes you agree with in a v3.
-
-I am planing to send out a OTP series for RK3528, and that will depend
-on next revision of this series :-)
-
-[1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250314-rk3528/
-
-Regards,
-Jonas
-
-> +            - const: sbpi
-> +            - const: apb
-> +            - const: phy
-> +
->    - if:
->        properties:
->          compatible:
-> @@ -78,8 +109,16 @@ allOf:
->        properties:
->          clocks:
->            minItems: 4
-> +          maxItems: 4
-> +        clock-names:
-> +          items:
-> +            - const: otp
-> +            - const: apb_pclk
-> +            - const: phy
-> +            - const: arb
->          resets:
->            minItems: 3
-> +          maxItems: 3
->          reset-names:
->            items:
->              - const: otp
+Jie
 
 
