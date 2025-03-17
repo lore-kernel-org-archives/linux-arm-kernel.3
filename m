@@ -4,112 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8F8C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025D3C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PYNT5W7k9qrGacx32xyOs3nCqgoX78YjRwXNGPhE7oc=; b=Aqsx+1rmP7Jq8ByRe9QO16HiVN
-	qBbZAli92a4bZXzkPvk5F2ZbDtjjNT4/TAXSIGGDCHCc4can8CNdFD7UvY/GbwGLKpCZ4DBPaOSKw
-	qqQ9WE1ND0ZWZ11qxy7WkYkF8FbeK+PK9x4hSvuVC9J1NKEg+HY447mmf9MzErG5xTydWCOUcAMLk
-	v95in8xMaTuWHv4ZjZv7jHVdi9JJoTjdPLE75t4aQ0/X4t7J2OANaPY/w5n3V2t2So3Yv4di6wqXQ
-	s8BaYPBFKZ7GFgCJ5Ylv99XFXdbL+OYNz1CtdyMTp6JYRcHvt9h3n7QxaAKV2DbUfPGxZeTP9tVxa
-	zYbZ9qqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ptpIHHYVlj8cQ+aMjzJcOoBsPGgPk4DT7i1v/90W4MI=; b=CVxZAoweu73hXUJCLTXNn5vrjS
+	cuyue41ymTH60jDFO/JagCPBwnkx58OSQsUuZxh4pWU8CC7mM2ViFAGSmDCgwKWtLfOLs3UOBd9i4
+	xJDsQ+eBUp2CNFA9BqX1JybLzxTi+3rUG4tKucWPz8egMtKgGA02qGDHDXKLnCjHsYPYYebuc95xn
+	vaWApbMdmL7hi3AQGrmrLKsYdb7ie4H4qfZeQ608BYzIYPG9JEM0c+ywSn1HiN6Ejqdz9GCvKoCjY
+	pT6p6IpF45EpnU081BOPBjxqW7PJjWC179qd6NnYJzYDtBY1pEM6JdN7lORK3kYHSIBpi7SVFg8OL
+	65kcqXgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5FU-00000001e3H-0q9j;
-	Mon, 17 Mar 2025 07:51:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tu5I9-00000001eLW-42vv;
+	Mon, 17 Mar 2025 07:53:45 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5Cn-00000001daO-18Hf
+	id 1tu5GU-00000001eDP-1lH6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 07:48:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 937135C53F4;
-	Mon, 17 Mar 2025 07:45:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9291C4CEE3;
-	Mon, 17 Mar 2025 07:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742197692;
-	bh=KjEjCRWjGNUgorUM3FO45c9F+8XdtpMQj4ibjxBvrn4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lDacJ6RS7JKBMCBCZNMg/7tXdU990R6/Q6wNzeGwNkVyKu/6mP33IIJ++MCT2Ipch
-	 wiYg7ODYjie0LA0mZBcUD49VpyBHTL7AST/YGjr+BzKSqqwRBA/9EAFtZjR/t96Ae1
-	 Tqq3842wDnqy0NA2QBtSm3YiXNt64bW6Xu0YgFDLAjKyJ4X12dRMLRavQQaamOXyeJ
-	 hFlB0Y/u2108bNEawwotFgltNNs2MnkQ3/irKuOJ9hGhMoy+l875bc666gDIHHzSd+
-	 7V+zOjAoVMqOCnc7TR/Sl5oLOdcaUv2x4NVr5H2NSC24zDVVYdS2wA49tlCP2cxYYE
-	 FC0+GjST0Ykwg==
-Message-ID: <fec0a1c8-251b-491e-893d-11a8186a2128@kernel.org>
-Date: Mon, 17 Mar 2025 08:48:03 +0100
+	Mon, 17 Mar 2025 07:52:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742197922; x=1773733922;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZHa6ERJ7NFArEGUz2GyKEAKlA9PEk/2XjeW1JUGRc4Q=;
+  b=ILlSOgq1GXMA1rw9MxMGunF+5p1yHt7xk/LcohkqJdTeBgSx/JBSjuZM
+   pEIRfqRGvJqnxb144/gQt8C8eVwyo/yWFZgL7AR8moaJiSFCXsgitwFQ1
+   NhQ/L8ldhunIZckZzV6ZNNdTRefBBpopuC+PXcSu6TrLdNWEyaLtE+dYq
+   JixG0atp7GfOAyUHmzubuQGNBldmypC1BVx10RdIkao07HcMxkoM2ZpsV
+   Bp9jNUtp7PvDfrMR+49CgytW7jgqn8yqT5wq9hehkueQE5WTvlRSovMMZ
+   Zb9dbYRHQtW/5Vu/ZKwnfpNpqbfOu8C/7V1xiPMJll1OEHTqPrP0/uKsC
+   Q==;
+X-CSE-ConnectionGUID: muYqZp4jTji8fyPYxdWXtw==
+X-CSE-MsgGUID: KLQwRE7sS5O9xDZhCaBjLw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11375"; a="68638747"
+X-IronPort-AV: E=Sophos;i="6.14,253,1736841600"; 
+   d="scan'208";a="68638747"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 00:52:01 -0700
+X-CSE-ConnectionGUID: vBGt1R1iRZmxKRlgsciK1g==
+X-CSE-MsgGUID: ZjVdBA2qRUKjxLSCoLq+qg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,253,1736841600"; 
+   d="scan'208";a="122375993"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 00:51:57 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tu5GM-00000003FCZ-2dgX;
+	Mon, 17 Mar 2025 09:51:54 +0200
+Date: Mon, 17 Mar 2025 09:51:54 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Lars-Peter Clausen <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v7 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
+Message-ID: <Z9fUmo5wp3EcNWzm@smile.fi.intel.com>
+References: <cover.1741849323.git.mazziesaccount@gmail.com>
+ <df0b2b53affbef5ccb7219328cc15db3ba843737.1741849323.git.mazziesaccount@gmail.com>
+ <Z9LQ0O34EUM8WZku@smile.fi.intel.com>
+ <20250316094112.6731bd01@jic23-huawei>
+ <50b126c5-248e-4694-9782-4f28d6db5fce@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 2/3] i2c: aspeed: support AST2600 i2c new register
- mode driver
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- kernel test robot <lkp@intel.com>
-Cc: Ryan Chen <ryan_chen@aspeedtech.com>, benh@kernel.crashing.org,
- joel@jms.id.au, andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
- linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- oe-kbuild-all@lists.linux.dev
-References: <20250224055936.1804279-3-ryan_chen@aspeedtech.com>
- <202502280902.U0gLDhve-lkp@intel.com> <Z8GuOT5bJL7CdXX6@smile.fi.intel.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Z8GuOT5bJL7CdXX6@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <50b126c5-248e-4694-9782-4f28d6db5fce@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_004813_429483_320FD059 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20250317_005202_472937_8299E123 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,42 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2025 13:38, Andy Shevchenko wrote:
-> On Fri, Feb 28, 2025 at 09:28:59AM +0800, kernel test robot wrote:
->> Hi Ryan,
->>
->> kernel test robot noticed the following build warnings:
->>
->> [auto build test WARNING on andi-shyti/i2c/i2c-host]
->> [also build test WARNING on linus/master v6.14-rc4 next-20250227]
->> [If your patch is applied to the wrong git tree, kindly drop us a note.
->> And when submitting patch, we suggest to use '--base' as documented in
->> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->>
->> url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-bindings-i2c-aspeed-support-for-AST2600-i2cv2/20250224-140221
->> base:   https://git.kernel.org/pub/scm/linux/kernel/git/andi.shyti/linux.git i2c/i2c-host
->> patch link:    https://lore.kernel.org/r/20250224055936.1804279-3-ryan_chen%40aspeedtech.com
->> patch subject: [PATCH v16 2/3] i2c: aspeed: support AST2600 i2c new register mode driver
->> config: mips-allyesconfig (https://download.01.org/0day-ci/archive/20250228/202502280902.U0gLDhve-lkp@intel.com/config)
->> compiler: mips-linux-gcc (GCC) 14.2.0
->> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250228/202502280902.U0gLDhve-lkp@intel.com/reproduce)
->>
->> If you fix the issue in a separate patch/commit (i.e. not just a new version of
->> the same patch/commit), kindly add following tags
->> | Reported-by: kernel test robot <lkp@intel.com>
->> | Closes: https://lore.kernel.org/oe-kbuild-all/202502280902.U0gLDhve-lkp@intel.com/
->>
->> All warnings (new ones prefixed by >>):
+On Mon, Mar 17, 2025 at 09:11:08AM +0200, Matti Vaittinen wrote:
+> On 16/03/2025 11:41, Jonathan Cameron wrote:
+> > On Thu, 13 Mar 2025 14:34:24 +0200
+> > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+> > > On Thu, Mar 13, 2025 at 09:18:49AM +0200, Matti Vaittinen wrote:
+
+...
+
+> > > > +	num_channels = devm_iio_adc_device_alloc_chaninfo_se(dev,
+> > > > +				&sun20i_gpadc_chan_template, -1, &channels);
+> > > > +	if (num_channels < 0)
+> > > > +		return num_channels;
+> > > > +
+> > > >   	if (num_channels == 0)
+> > > >   		return dev_err_probe(dev, -ENODEV, "no channel children\n");
+> > > 
+> > > Note, this what I would expected in your helper to see, i.e. separated cases
+> > > for < 0 (error code) and == 0, no channels.
+> > > 
+> > > Also, are all users going to have this check? Usually in other similar APIs
+> > > we return -ENOENT. And user won't need to have an additional check in case of
+> > > 0 being considered as an error case too.
+> > In a few cases we'll need to do the dance the other way in the caller.
+> > So specifically check for -ENOENT and not treat it as an error.
+> > 
+> > That stems from channel nodes being optionally added to drivers after
+> > they have been around a while (usually to add more specific configuration)
+> > and needing to maintain old behaviour of presenting all channels with default
+> > settings.
+> > 
+> > I agree that returning -ENOENT is a reasonable way to handle this.
 > 
-> My gosh, this is valid report. But it looks like a preexisted issue.
-> Can somebody fix this, please?
+> I agree - but I'm going to use -ENODEV instead of -ENOENT because that's
+> what the current callers return if they find no channels. That way the
+> drivers can return the value directly without converting -ENOENT to -ENODEV.
+
+ENODEV can be easily clashed with other irrelevant cases, ENOENT is the correct
+error code. If drivers return this instead of another error code, nothing bad
+happen, it's not an ABI path, correct?
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-That was three weeks ago and still no responses from Aspeed or
-contributors from here.
-
-I think this tells a lot about aspeedtech.com patchsets on the list.
-
-Best regards,
-Krzysztof
 
