@@ -4,96 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB1DC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 384BEC3DA4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMfowKBMnXKcm1mHwfTnIc3m4wrvseXvS07OkG54pgY=; b=oaFgs0JD5z0tt4X8AsdbeXr1DU
-	56/q7MFhnQB54f0tv2jWF24ijuXoLktsNtcRZqWjC0HItzVJpyx47W50gTu04D3eXuLdpXOA27gpB
-	ypudvUMw7e3RwmAtDD9hClrJCLCmXVVKiMvC7TRjkOy9t7N0ASV2IFroZ9p5dW4adMkx7JFcXnHAn
-	5vyCPVsuQ6LkGtBmqcYasv71LbO28e8/meFvjry6UIucnrxDEIIKInK87UKsPOvsRpOFD9Eb148mI
-	wtiNcS7KvJdunx7Q4h/4LoBp6NPsknz2l+hFm6FCJcAzwbm4gtTVn4SlS6YvAYf3Bu+Y52GOYhdXH
-	czwBw1mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=al8wnAmuDO2/DLx09V9y9yBu3gEmPV4ysG+iELaYbqw=; b=aW+mDEY7u2702l
+	cyBLcNWqVd2Vs/Yq4srVOFsPrw0sZmfoOqlg1D4eePsOfiVdGjHNPEAnOhXQAOrJ8A4ZquVd2kP9C
+	gNaI6C0RZmbqo2nW8oULEEyu9M1rxxDwCsNyRoxJ09Ag+fmyc2zNQHdUmgXSUTzSOS3l0T4HiibFg
+	I0za8AcDRLZ0RvqZiJHSWeTUV2Zhwy0K5GH/12rDBBDYDPVGrUovTt4mTIgs+D/U9F1ojDN73AtTa
+	HYhsazSQ67SPBneaiwi2cx8bdrZolZESH9odlpD+BJOBgnxl7e8GB0dD67CAWQ2oIilULyD7Kt5Kf
+	EwkF8wyRr6IcwrDAv1Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFHj-00000003hbO-2Kt7;
-	Mon, 17 Mar 2025 18:33:59 +0000
+	id 1tuFHk-00000003hc1-0RW9;
+	Mon, 17 Mar 2025 18:34:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuEGc-00000003YuW-1wsI
+	id 1tuEI5-00000003Z4H-1yb0
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Mar 2025 17:28:46 +0000
+	Mon, 17 Mar 2025 17:30:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=YMfowKBMnXKcm1mHwfTnIc3m4wrvseXvS07OkG54pgY=; b=EziF/7sc0UBdNnRI11fgtOGLev
-	/oDkxrtafbxUYvtYdyp3MrNAlyNOzDdXnJwc8k44OukChVMUq5H10QM4heIXGP7Q/as2GS1joYSr+
-	mH4lPjFx4xr0oSBEvKDOryOXdeMM7V3HCuC163kM3wDGRGPe6JQAlq1d8/xFas30m2XxY/pjP6mBF
-	srwECdN2XvjLOUC7ccKVDgaVuf51qIL13HImof1TdzDAj2qUb2eNfLm1XyAtVNF2Zj5CvmRvk8+ob
-	hV2Sm4qASUAULIj5k0rM+6xfZ7A3GSXmPd3CZJIqhsHkCI4ODj4gKWtXEqHsFcsyaSdf2nRt1fa5J
-	h1IYu+oQ==;
-Received: from linux.microsoft.com ([13.77.154.182])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuEGZ-00000003WBC-0rue
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:References;
+	bh=al8wnAmuDO2/DLx09V9y9yBu3gEmPV4ysG+iELaYbqw=; b=Yk/TyvP2PD9fUZCPjLmnEtEUtu
+	UY8W/d/5mQg9G7A7uKox35EQAh69zscSPWEiWITRkGCgIKM1jxPS2Gc3/ELozB4d3nQyVrC2k+IsR
+	CAj3zbC8/z4qofGsV//bKYx1KM1ZxnBOBML0g/TYIPI7NxHGc4CN7h+rZsIUaGgbxxLop+qhUTwst
+	faTMYtpRTgU+bxFkaMvgOE+9dNXuutk80msjfn4ULLicxLx3obYHosdwrydZjrMbDPrzv/8OB49G9
+	APS2ns/IucTKAJmhBsquwygK3lo7Z+nKq/DIjyZ5t2fngaOe+4XY/P4QeJS0bDUXFjPEaXQpraGml
+	wTE01N3A==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuEI2-00000003WE4-0wr6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 17:28:45 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 55E892033444;
-	Mon, 17 Mar 2025 10:28:38 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 55E892033444
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1742232518;
-	bh=YMfowKBMnXKcm1mHwfTnIc3m4wrvseXvS07OkG54pgY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qW//4OF7eJr0KsFfmdhpzFvcdq0RAq9/HGXEIVUGIiz0XlLXWifohTbu+e6MEtFZG
-	 k/KtMNYFCdC8M3ybw+MkjaOtxWZOJDsFbqgALENs2EiKm0gd6js37TYj0kU3wDxAFC
-	 w03VOm4OQbzyTqPvS78AfTHSYqjGmXqnza+N3+wk=
-Message-ID: <238beef1-16d3-4c72-ac7f-7d578ab8fc3d@linux.microsoft.com>
-Date: Mon, 17 Mar 2025 10:28:38 -0700
+	Mon, 17 Mar 2025 17:30:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 584875C2BCA;
+	Mon, 17 Mar 2025 17:27:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD60C4CEE3;
+	Mon, 17 Mar 2025 17:30:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742232609;
+	bh=srOc0Uaub0/6YRvw1cYQN4PBXQGkUPQK1F4bq+yDgG0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=M9PMCKWa0bj+/nVaCIFk0FoMJUZXz5fwtB08nGvANg8fa+tSb/Ui2IPjY/nYC53QS
+	 9LeFzkfiX0lRYjdvjLwxnErliWj5zXn/A8puoJwJ+86QqeGn8dn9YfOXu8wk/BZYVM
+	 +oL0FLW3uHGXVApJZKpCPgLRzIF4Chld9ncJVtPoilruw6RyTTwBx7+FMtXfa+J+79
+	 nmBcAwHoEP8VzAyKpT7bi52exvbI+Qgdh1rBrVUo2pD4K4XL47rb6BFuK8rO5P1F1S
+	 ryNweBX/Kr3+ht+twGVZsqzfJMQ5ez6Bq/26XLYdPdbYeenBf8pP9KmwBQvOCXQ29y
+	 QagecCswBBEzQ==
+Date: Mon, 17 Mar 2025 12:30:08 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Tony Lindgren <tony@atomide.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC NOT TESTED 0/2] PCI: dra7xx: Try to clean up
+ dra7xx_pcie_cpu_addr_fixup()
+Message-ID: <20250317173008.GA933389@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v6 01/11] arm64: kvm, smccc: Introduce and use
- API for detecting hypervisor presence
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com, bhelgaas@google.com, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, Dan Carpenter <dan.carpenter@linaro.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, Dexuan Cui <decui@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Joey Gouly <joey.gouly@arm.com>, krzk+dt@kernel.org,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Oliver Upton <oliver.upton@linux.dev>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- ssengar@linux.microsoft.com, Sudeep Holla <sudeep.holla@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Wei Liu <wei.liu@kernel.org>,
- Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-References: <20250315001931.631210-1-romank@linux.microsoft.com>
- <20250315001931.631210-2-romank@linux.microsoft.com>
- <96bc4caf-b79a-4111-bafa-a7662260f4be@linux.microsoft.com>
- <50ec2615-97cf-423d-bfe6-f65092a14348@app.fastmail.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <50ec2615-97cf-423d-bfe6-f65092a14348@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250313060521.kjue4la47xd7g4te@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_172843_566378_C01F668C 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20250317_173014_466675_576B5DBA 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,34 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/15/2025 6:12 AM, Arnd Bergmann wrote:
-> On Sat, Mar 15, 2025, at 01:27, Roman Kisel wrote:
->> On 3/14/2025 5:19 PM, Roman Kisel wrote:
->>
->> While the change is Acked, here is the caveat maybe.
->>
->> This patch produces warnings wtih sparse and CHECK_ENDING.
->> That said, the kernel build produces a whole lot more other warnings
->> from building with sparse by itself and/or with CHECK_ENDING.
->>
->> I am not sure how to proceed with that, thinking I should
->> not add warnings yet at the same time there are many others.
->> Not certain if folks take these signals as fyi or blockers.
+On Thu, Mar 13, 2025 at 11:35:21AM +0530, Manivannan Sadhasivam wrote:
+> On Wed, Mar 05, 2025 at 11:20:21AM -0500, Frank Li wrote:
+> > This patches basic on
+> > https://lore.kernel.org/imx/20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com/
+> > 
+> > I have not hardware to test.
+> > 
+> > Look for driver owner, who help test this and start move forward to remove
+> > cpu_addr_fixup() work.
 > 
-> It would be best not to add warnigns. There is slow progress on
-> fixing all the endianess warnings and I hope this can eventually
-> complete, so even if there are many existing ones please try to
-> keep new code clean.
-> 
+> If you remove cpu_addr_fixup() callback, it will break backwards
+> compatibility with old DTs.
 
-Will fix the warnings, appreciate providing the guidance!
+Do you have any pointers to DTs that will be broken?  Or to commits
+where they were fixed?
 
->       Arnd
+> You should fix the existing DTs and continue carrying the callback
+> for a while.
 
--- 
-Thank you,
-Roman
+Any insight into where these existing DTs are used and how long
+they're likely to live?
 
+Bjorn
 
