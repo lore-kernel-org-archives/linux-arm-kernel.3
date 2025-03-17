@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD4BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:31:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B36C35FF8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zttFgSzh/V7CZedBfp/FFz3XtmP0Zf59IPwSE3Xgtmg=; b=MeM7zVRFPXG4JFmSQ1Go8s0Atb
-	t8h7JDlnTv6wkuCBzjEsbqeZRSVQUsZ20nxFBSnZLCUoPpKNvJqRgMtzx6HxCH5/ityzeSQQxi7WQ
-	gLSULxXzD1fNo3f+27Ax07cp5NxFrSx7goxGIASDMGCcWzOFb2B297SgWBKDajNfTm6+xYCCYYnXd
-	qE3+s/Ti7qQiNxir6MP7ixmBnhBjYAszrzPo0QY/bNCjK61c+3fcfgB4od+gs0Y4qNYUVa0L5NZqF
-	Z61qrmEcxv9pI/Vhp03jm9P2kllzvPPJ10dO3gOV5MrBGUDTjfldVC3mG3l9/djWj5V2Ma/m9Xogq
-	rdwmkaxg==;
+	bh=LBkKHAzTqa+xksRRazDieHBfGhfHpGzD6yxGXylUmA0=; b=HCbkYpuyW3HiIJaeLxOa2Bhzpv
+	FqAu6pLIgTx3K7PyYI2dKssV6aNYkMLJuKX1acLwxmVvUmYbGdTWoIsMbBu81vZMG4bV6nY6Wkfgt
+	nUudElzXHxfbwBEUeJ2Wv8KVsNUKlZJr05siqX3JxUxXEWJiXhpPrPlJE1VmNEH8/pwof0rTTpBn5
+	4FMnFmYJSHnF+GV+/+YXDheTFnXghCCQeg/8s/WfHS9/a165S8n+rXj7ZJ4l+1T8LUrD9qCqkAti1
+	iAuNVqf+G9A/XcV8OTXh5WNoZA7KpHEHj1rD3e6hlhoGxB1GdcHfl50gDZvSZ9M3U6X6H9ejIWnq6
+	OKqnmuiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFFc-00000003hNl-28CU;
-	Mon, 17 Mar 2025 18:31:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuFDv-00000003hHQ-0qd9
+	id 1tuFHj-00000003haz-05wQ;
+	Mon, 17 Mar 2025 18:33:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuEDE-00000003YVt-2HDN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 18:30:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19E7D13D5;
-	Mon, 17 Mar 2025 11:30:11 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D57943F63F;
-	Mon, 17 Mar 2025 11:30:01 -0700 (PDT)
-Date: Mon, 17 Mar 2025 18:29:57 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: lcherian@marvell.com, coresight@lists.linaro.org,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mon, 17 Mar 2025 17:25:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 78CF25C5576;
+	Mon, 17 Mar 2025 17:22:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91C5DC4CEEF;
+	Mon, 17 Mar 2025 17:25:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742232314;
+	bh=momHyGXw+AovseM4wvJIW2+gQCMWVLHanY3SYEvfQ8w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fMvqPTAWX6/bdN4s35mnfMNzXCT0nS4WZFkNB/KnTGQO3iHR34AsnbMNLi7/i0K8d
+	 h3FRtqIhwBUs2gLMCpo8OSH9B9lRDfelaS77Mkb2PbJcb+HmQWeisE3AT5ra1Ub5R2
+	 qSxKZUrEbVKxvOSMgrWdzW66AMR1t9vih69ZLSPuqYJ2wgfu6CT4hPLaQyAeeEy5ov
+	 kg2ngncAiDEvGNBOYrNnkK9e7M61+HM1+YEAAOhnlQlOPU+cb85htlJYXZLo/iKiiD
+	 0b9pevrbpOh7e32Z1XETr/EZfu6OJ5xJGfrrICUSgIE+SqA63j8ch0MUdUJ0JO9ndS
+	 XZ+lvmzmjylfA==
+Date: Mon, 17 Mar 2025 17:25:09 +0000
+From: Simon Horman <horms@kernel.org>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 2/7] coresight: Convert disclaim functions to take a
- struct cs_access
-Message-ID: <20250317182957.GL2487211@e132581.arm.com>
-References: <20250211103945.967495-1-james.clark@linaro.org>
- <20250211103945.967495-3-james.clark@linaro.org>
- <20250313145456.GR9682@e132581.arm.com>
- <c6a86373-64be-4101-a08a-74aa302bf64c@linaro.org>
+	Dan Carpenter <dan.carpenter@linaro.org>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v1 1/1] stmmac: intel: Fix warning message for
+ return value in intel_tsn_lane_is_available()
+Message-ID: <20250317172509.GH688833@kernel.org>
+References: <20250310050835.808870-1-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c6a86373-64be-4101-a08a-74aa302bf64c@linaro.org>
+In-Reply-To: <20250310050835.808870-1-yong.liang.choong@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_113003_286771_9314D8B5 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250317_102516_654488_82C56BA7 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 11:36:40AM +0000, James Clark wrote:
+On Mon, Mar 10, 2025 at 01:08:35PM +0800, Choong Yong Liang wrote:
+> Fix the warning "warn: missing error code? 'ret'" in the
+> intel_tsn_lane_is_available() function.
 > 
+> The function now returns 0 to indicate that a TSN lane was found and
+> returns -EINVAL when it is not found.
 > 
-> On 13/03/2025 2:54 pm, Leo Yan wrote:
-> > On Tue, Feb 11, 2025 at 10:39:38AM +0000, James Clark wrote:
-> > 
-> > [...]
-> > 
-> > >   static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
-> > >   {
-> > > -       return coresight_read_claim_tags(csdev) != 0;
-> > > +       return coresight_read_claim_tags(&csdev->access) != 0;
-> > >   }
-> > 
-> > Likewise other claim functions, can coresight_is_claimed_any() change its
-> > argument type from struct coresight_device to struct csdev_access?
-> 
-> I only wanted to change the ones that I had to. I think we should prioritize
-> passing csdev as much as possible in the coresight framework to make
-> everything consistent. Otherwise it's extra churn for no benefit, and if we
-> need something from csdev here in the future we'll have to change this one
-> back again.
+> Fixes: a42f6b3f1cc1 ("net: stmmac: configure SerDes according to the interface mode")
+> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 
-The function coresight_is_claimed_any() has been deleted in a later
-patch.  So this is fine for me.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-In theory, claim tags are low level operations and don't need a
-CoreSight device context, I prefer we can keep them as simple as
-possible.
-
-With this series, we can see coresight_claim_device() and
-coresight_disclaim_device() are inconsistent for their parameters:
-one is using "struct coresight_device *" and another is
-"struct csdev_access *".  Maybe we just proceed to use csdev_access
-for all claim tag functions?
-
-If later we need to use a CoreSight device context when operating
-claim tags, it means we might have different scenarios and we can
-handle that separately.
-
-Thanks,
-Leo
 
