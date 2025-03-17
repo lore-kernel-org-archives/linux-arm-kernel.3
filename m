@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025D3C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7277C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 07:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptpIHHYVlj8cQ+aMjzJcOoBsPGgPk4DT7i1v/90W4MI=; b=CVxZAoweu73hXUJCLTXNn5vrjS
-	cuyue41ymTH60jDFO/JagCPBwnkx58OSQsUuZxh4pWU8CC7mM2ViFAGSmDCgwKWtLfOLs3UOBd9i4
-	xJDsQ+eBUp2CNFA9BqX1JybLzxTi+3rUG4tKucWPz8egMtKgGA02qGDHDXKLnCjHsYPYYebuc95xn
-	vaWApbMdmL7hi3AQGrmrLKsYdb7ie4H4qfZeQ608BYzIYPG9JEM0c+ywSn1HiN6Ejqdz9GCvKoCjY
-	pT6p6IpF45EpnU081BOPBjxqW7PJjWC179qd6NnYJzYDtBY1pEM6JdN7lORK3kYHSIBpi7SVFg8OL
-	65kcqXgw==;
+	bh=PP5ZjBbMb4rni+tuZHNcnT/n1v2QA3RZnXHRssAeFG0=; b=O5mQzKtJ6iWN4hAEVvQjnde2JF
+	2vGHDCALVfVdNO4RDX0HXxRPvceyYngp/VLw0GtZPaAv1JgAI66oVzRgWFc6Crmu4xak4yS8tdwei
+	Za9W4nB+fXTN3pP3jQ2nnk/EFd4dQm79nq3b4S4n1pgclYr+AtkIGYe//JIoiFVoVv81JILSwm6V1
+	sQxaQSiask3aGgUmRW67k7mTUUerAhRGxazPhgdc/cQBKEIL0HAyA9XQNnBSReW7bYT/alNz93plY
+	kFRhTN6UddRjiH4ZuFbrsGC9pFtPuUy5E9Ed5sx8drcdvl5cqkCHqfCv4VRQrTV3FXhXL7cEBfA95
+	53ik9rBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5I9-00000001eLW-42vv;
-	Mon, 17 Mar 2025 07:53:45 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1tu5Ng-00000001fBR-02lM;
+	Mon, 17 Mar 2025 07:59:28 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu5GU-00000001eDP-1lH6
+	id 1tu5M0-00000001epw-0ZRl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 07:52:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742197922; x=1773733922;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZHa6ERJ7NFArEGUz2GyKEAKlA9PEk/2XjeW1JUGRc4Q=;
-  b=ILlSOgq1GXMA1rw9MxMGunF+5p1yHt7xk/LcohkqJdTeBgSx/JBSjuZM
-   pEIRfqRGvJqnxb144/gQt8C8eVwyo/yWFZgL7AR8moaJiSFCXsgitwFQ1
-   NhQ/L8ldhunIZckZzV6ZNNdTRefBBpopuC+PXcSu6TrLdNWEyaLtE+dYq
-   JixG0atp7GfOAyUHmzubuQGNBldmypC1BVx10RdIkao07HcMxkoM2ZpsV
-   Bp9jNUtp7PvDfrMR+49CgytW7jgqn8yqT5wq9hehkueQE5WTvlRSovMMZ
-   Zb9dbYRHQtW/5Vu/ZKwnfpNpqbfOu8C/7V1xiPMJll1OEHTqPrP0/uKsC
-   Q==;
-X-CSE-ConnectionGUID: muYqZp4jTji8fyPYxdWXtw==
-X-CSE-MsgGUID: KLQwRE7sS5O9xDZhCaBjLw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11375"; a="68638747"
-X-IronPort-AV: E=Sophos;i="6.14,253,1736841600"; 
-   d="scan'208";a="68638747"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 00:52:01 -0700
-X-CSE-ConnectionGUID: vBGt1R1iRZmxKRlgsciK1g==
-X-CSE-MsgGUID: ZjVdBA2qRUKjxLSCoLq+qg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,253,1736841600"; 
-   d="scan'208";a="122375993"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 00:51:57 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tu5GM-00000003FCZ-2dgX;
-	Mon, 17 Mar 2025 09:51:54 +0200
-Date: Mon, 17 Mar 2025 09:51:54 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Lars-Peter Clausen <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v7 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
-Message-ID: <Z9fUmo5wp3EcNWzm@smile.fi.intel.com>
-References: <cover.1741849323.git.mazziesaccount@gmail.com>
- <df0b2b53affbef5ccb7219328cc15db3ba843737.1741849323.git.mazziesaccount@gmail.com>
- <Z9LQ0O34EUM8WZku@smile.fi.intel.com>
- <20250316094112.6731bd01@jic23-huawei>
- <50b126c5-248e-4694-9782-4f28d6db5fce@gmail.com>
+	Mon, 17 Mar 2025 07:57:45 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-72a145521d6so2968586a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 00:57:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742198262; x=1742803062; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=PP5ZjBbMb4rni+tuZHNcnT/n1v2QA3RZnXHRssAeFG0=;
+        b=GIdKu7Nv5Gmimj2/Mkb+6cxZ0sUEked3BDx8RuVr5JzYAkpCvkXSYDvmCzvl/a0Dt5
+         FeAk2KP0EASkC0976f2uxQenC3aYBtZMr+u7UePM5NsNkMf9WspjwS6zg4i3iuVL5BqK
+         LbVBfngWMJNDjTfy8MaMFNewgElTSxdd3proZ2lWcuN23BbFOOPFIm8nsW909V4h0zD2
+         kuxOcaOMk2SYCfTeJgZBVb/prWKrqsgmFziVuFzWiJd4GSZ4+dF1QLoNS5ZMEUFyXf8V
+         5PYSryrCf+40oY0DR8xxXV4D2vEnux3uyd6kfld1zWYUgdCe42H0Piyga897ngn8/Lh9
+         GfOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742198262; x=1742803062;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PP5ZjBbMb4rni+tuZHNcnT/n1v2QA3RZnXHRssAeFG0=;
+        b=UvTLuHepxnFL7Lr9EZWjDuhjUzQLotHUYvkWxvE15GSQs3lpKzE7aarSi2qIp0zRl2
+         N24wlTQRFnfXYW/KsImoQLNady7JxhNlC7PVYVNj8xSDAWVaOeEiNg31v3WkSJ3AmGKg
+         F8l6MkpNcGTrZb634wv/nwolNmh9OxX9me3racggxcOB4EJUP8SDaximsZN+xDm2Z36G
+         CSRogOoDr20nY1oyhKJsancUxCPv7j/mUXE/nglSU+NC9Xsb82cn7/NizgGHZW0YFYeO
+         iIaWFyLTRWWBb4KOvNLtOXXA2TpC2QEvDOKjKMSuj3XYqLmsGaUZ5hhNXXg+o/ntL1A5
+         42aA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLtTc1F5ec9k7z2cQn49UT5MasRPbBBD8JZZbE/Rnt/xBjU1GunWS8NoRo9iO4B8YXQHpc3WnSDv+57XKpNvuw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1D35+jSaKi6R0lnq0Oc5FQGe8q7MGKla8fEzskJPjTDWyUFDO
+	UtKhj1djTH5255Ek51ikM6FmsQDQwddQ+Gd/EeYNBt2WCEXg5r/bGSiSMIrPVMVF+GTKMV7dUFL
+	DmyB8V/diV2M5vO+aLuVCImWljbvSfRXDcPKvqg==
+X-Gm-Gg: ASbGncuQ9vJ6xs4ZTSL9vgOn3eLqCQOjqQKATcjDDcvoxgJeRoHLxknLKHoiKBxZmpy
+	GnPDOFJKdUFWqQjjRib4kSDjuHz8D2IZ34EkDaVyCFNocLfBiACzq7oVE0T0oPvL8Q/UW+/CQTN
+	frQPcT9uNuQ/66qxFJtgqMveQu3odp
+X-Google-Smtp-Source: AGHT+IFXhiV5/jjRM3lIL1BjJLxFk/oc1h/PBdMxRCXg6fQlEslHNKm2pE2ASn+LBLRiqcHrD7Lf49zKnfDqLjjJWKY=
+X-Received: by 2002:a05:6830:441f:b0:72b:782a:56d7 with SMTP id
+ 46e09a7af769-72bbc5222a2mr5673623a34.23.1742198260554; Mon, 17 Mar 2025
+ 00:57:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <50b126c5-248e-4694-9782-4f28d6db5fce@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20250314-ufs-dma-coherent-v1-0-bdf9f9be2919@linaro.org> <0d7a8cad-adfc-4cac-bcc6-65d1f9c86b43@acm.org>
+In-Reply-To: <0d7a8cad-adfc-4cac-bcc6-65d1f9c86b43@acm.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Mon, 17 Mar 2025 07:57:30 +0000
+X-Gm-Features: AQ5f1JrHrLaWNOaDw_CRYMU3X3v2oxo4LzPuW31oNjLmnPoqXZ9Expwo9ns7s28
+Message-ID: <CADrjBPrU1Prw9NmWrVQff+X6VTY4PXEr_BH2Z0DuAr=uiaOsGQ@mail.gmail.com>
+Subject: Re: [PATCH 0/2] Add dma-coherent for gs101 UFS dt node
+To: Bart Van Assche <bvanassche@acm.org>
+Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, 
+	"Martin K. Petersen" <martin.petersen@oracle.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, 
+	kernel-team@android.com, willmcvicker@google.com, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_005202_472937_8299E123 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250317_005744_204383_0191F781 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,49 +99,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 09:11:08AM +0200, Matti Vaittinen wrote:
-> On 16/03/2025 11:41, Jonathan Cameron wrote:
-> > On Thu, 13 Mar 2025 14:34:24 +0200
-> > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-> > > On Thu, Mar 13, 2025 at 09:18:49AM +0200, Matti Vaittinen wrote:
+Hi Bart,
 
-...
+Thanks for the review.
 
-> > > > +	num_channels = devm_iio_adc_device_alloc_chaninfo_se(dev,
-> > > > +				&sun20i_gpadc_chan_template, -1, &channels);
-> > > > +	if (num_channels < 0)
-> > > > +		return num_channels;
-> > > > +
-> > > >   	if (num_channels == 0)
-> > > >   		return dev_err_probe(dev, -ENODEV, "no channel children\n");
-> > > 
-> > > Note, this what I would expected in your helper to see, i.e. separated cases
-> > > for < 0 (error code) and == 0, no channels.
-> > > 
-> > > Also, are all users going to have this check? Usually in other similar APIs
-> > > we return -ENOENT. And user won't need to have an additional check in case of
-> > > 0 being considered as an error case too.
-> > In a few cases we'll need to do the dance the other way in the caller.
-> > So specifically check for -ENOENT and not treat it as an error.
-> > 
-> > That stems from channel nodes being optionally added to drivers after
-> > they have been around a while (usually to add more specific configuration)
-> > and needing to maintain old behaviour of presenting all channels with default
-> > settings.
-> > 
-> > I agree that returning -ENOENT is a reasonable way to handle this.
-> 
-> I agree - but I'm going to use -ENODEV instead of -ENOENT because that's
-> what the current callers return if they find no channels. That way the
-> drivers can return the value directly without converting -ENOENT to -ENODEV.
+On Fri, 14 Mar 2025 at 16:01, Bart Van Assche <bvanassche@acm.org> wrote:
+>
+> On 3/14/25 8:38 AM, Peter Griffin wrote:
+> > ufs-exynos driver enables the shareability option for gs101 which
+> > means the descriptors need to be allocated as cacheable.
+>
+> Shouldn't that code be modified such that the shareability option is
+> only set if the dma-coherent property is present in the device tree?
 
-ENODEV can be easily clashed with other irrelevant cases, ENOENT is the correct
-error code. If drivers return this instead of another error code, nothing bad
-happen, it's not an ABI path, correct?
+Yes, I plan to add an extra patch that does what you describe into the
+v2 of the UFS fixes series [1] likely later today.
 
--- 
-With Best Regards,
-Andy Shevchenko
+I sent this out separately for Krzysztof's Exynos DT tree in the hope
+he will pick it up in the next -rc as this patch fixes how the driver
+is configured today, and is also still the configuration we want once
+the driver changes land. I should have made that a bit clearer in the
+cover letter :)
 
+Thanks,
 
+Peter
+
+[1] https://lore.kernel.org/linux-scsi/20250226220414.343659-1-peter.griffin@linaro.org/
 
