@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918EDC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B42DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bzvtd/vhZp03AeLcq3w4TqXtf5We5BXq0EDS3aEITVY=; b=w7p0BRNFgsOAu2X5HZpMAIRHBR
-	HIeMzTR3XRCtsrlF8IGTivl6GOwnl7duXo1uL1syOIxq2rKecioVcDdn5uP/KhawLGJhqEclEjb2p
-	k0xvjrAY1ltxDV3uQ8uEAYwSMy5hMDUflZHjysVmAlp2DEpadw0eqFCLax5C/JHLgyxVNi74m60i0
-	R+kohq19ZAEeRAXnOAOxgSf94FRycStEgCJFB9Vv8hMhJKZudKDxrukbXgvZ8kJLX+XCXpbmyQNTn
-	od7UXXX2t9uEKgi0eZeVOpAV95m7AVXkL2uWzRXXBJ/FHSViXAavU49fDzCqomTBoL+UzF7dS10gg
-	/MOv6cTQ==;
+	bh=nkyt0LQ6+PWNMydY4CY0uDodtVkrVIBAaQP66/+/Z98=; b=ph628BQu8F7KuHMjQGTuC9pVHe
+	96JgCxYXfVGLj0OofaWyinAAIEZr8MO4f3Leq1Kgi9Z9CM1BmyRzrVMBfGphCKf356V5gThlwfJQ8
+	F1JZJkiufeqb/cJWkdlE9nCyMiIqxjxqbkGHW4QhfL1SUP93O2eprc/Y51yO9a1cZkgYWmMQAA+WR
+	dSR8mf0VwW0rFD2IDiEb2PWKo944yNGULd3rm64NxJqvLvphw4qgG+bZhALV5PHWtyLMSJrIYJr9C
+	XygpKcFzjm4ztEqt7IvHbeCBh4Cdpm8gdJb8OoXYOyDMl37Buqs4RvbeVFDghIGyZNQwCzaYjQNlR
+	IDUICITA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7tx-00000002D98-0GTp;
-	Mon, 17 Mar 2025 10:40:57 +0000
+	id 1tu7vZ-00000002Dbg-4984;
+	Mon, 17 Mar 2025 10:42:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7lF-00000002ATB-02Mt
+	id 1tu7lF-00000002AVK-1aGS
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 17 Mar 2025 10:31:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA9DB22FA;
-	Mon, 17 Mar 2025 03:32:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E854F2576;
+	Mon, 17 Mar 2025 03:32:05 -0700 (PDT)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BB323F673;
-	Mon, 17 Mar 2025 03:31:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4982B3F673;
+	Mon, 17 Mar 2025 03:31:56 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Mon, 17 Mar 2025 10:31:22 +0000
-Subject: [PATCH v2 2/5] firmware: arm_scmi: Refactor device matching logic
- to eliminate duplication
+Date: Mon, 17 Mar 2025 10:31:24 +0000
+Subject: [PATCH v2 4/5] firmware: arm_scmi: Assign correct parent to
+ arm-scmi platform device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250317-b4-scmi_minor_cleanup-v2-2-f4be99bd9864@arm.com>
+Message-Id: <20250317-b4-scmi_minor_cleanup-v2-4-f4be99bd9864@arm.com>
 References: <20250317-b4-scmi_minor_cleanup-v2-0-f4be99bd9864@arm.com>
 In-Reply-To: <20250317-b4-scmi_minor_cleanup-v2-0-f4be99bd9864@arm.com>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Sudeep Holla <sudeep.holla@arm.com>, 
  Cristian Marussi <cristian.marussi@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3252; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=das9EqDKBZfkwRTCcRMlY6ZRJ43jXpNz8KtuySsJ6qI=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBn1/oX/bDNN6C4OIcuzQDIH8p91pkEVI67HPAN/
- vlg5PqJOeGJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ9f6FwAKCRAAQbq8MX7i
- mCmRD/91EUqn0e5HHr299UU4qQo8JTS92BhxmGSjlM3JhRUrGRsLUWP1eQUN3LmTaIpHBou9Ebm
- ZDXdsInfZazZYiZXTjMhHx8sk0leJqewwu5XUshKn7zX1vyWiT8sZgkKwE0yyAPvJkLt7tB8nzr
- R7KF6mQM9N1YyLfNRJaVDhwXtf7U7QGVbPQLxYUmZZbj6K927KFil/ecXDlhMY540nY5pavtF44
- MkwmekOjWz8/3iZuojsBpGvHBntZl/QO7uKzqAXLWXSEJFOBfPVWRyDkrD6NOMAwxo/G3giIUhF
- HhCVnLyQNCqt1g9+XbKKifXT/A1dKMbq0uv2UZVyfqiTEy7N48E7IAMKskxpwhbu8XdiccfHT4M
- thzORyH7uqNl3rMkRkgfZUW4IMeQ4M5aszRltf13Z2jjkZQpP+IpC8tjBHdWv31BzGHFvg2IrX7
- ApuGphOsEEFBa9UcRXe90N7C1W15wdLFnatNztq34L7eT7qadgyfLhzL281Mr4qCtuXP6w1uRaJ
- GykV5jkRAe4EwCVIy5lTkljp59OOkvU7GxF/77AmJgsp1Tpz753KgIwkVDJssyxSbBgnlvVh2b5
- flssMoWVuCzwbAb3YScQLA4IyPe0VUGq8eHZFe18+/LDXrMVLtNLa0yk5O3h8sdw+zBVdcPPRE8
- OzVVylSi6KhnZcA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1404; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=mZZiNnV+dVw+v9KoptYJu4F6GYbaOFq2eVdf689ZBD4=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBn1/oXyNMrXg9MnZVuIKmNMGEYZ4lnH674QgePH
+ UGbz08fcQmJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ9f6FwAKCRAAQbq8MX7i
+ mGU1D/sHfBvDC7UistySWK57S4vengY/pgahfQwNwjYmXCgjIqLNZPi4MQfhiA+gsTy2cR+ZjAN
+ jcJa1FxtzTUZvuGli502xsMomnHpcPaLUwptgXxxOfwy3dsxK9fxUTNodN0Cw/iq/+JTr1zfV9T
+ 0MMMWgODB2KcuSfBR/BjgXZAuDfgSTZmqPYDtH2MB7N3dim8tSI1gC/zKvphLusxCGglkOVQTDH
+ 5axyAgB84u4ZFyRZn1h7/epyWEE9MUzrf/3M2gkOQreGCcWPJyyxPYWRZ66vauw0gfmtL42wTuG
+ HDoEcs8gk6XKdRfof7iXLT4HdHqWkYtv52sOPT78xzcZ/ZkXdZODHozJe1Ac6VhUK9Hwx+rnSgQ
+ OzzWBjfYvn4LRGLuoilv0PTSjEiQWnsRvdQmkjQ9U+oSgZBloSDLc8iRq8RgEsyquere6sn3laq
+ +zjD35IOARKxj0m2gwhZuVylyecbr8C1H+cr5kTHt4HSFGWCFzYF3LoenEJjRKWnP5tu/T2xJU/
+ ehFrT/11fF4l3cZ1G26IZy9ZSlnavPJDPWrCJcstv6Pl1nTtZqm5a22t+TFo78SS5ncZqfbA3TF
+ wvyX37/oy3UXj4fyFZgSycCwww3a6IP5QdG4lKjxPEXT/Hz82M36MJ2pvmlTTx8OFiRoTcX6DJS
+ wSUhgD5WxGJMeLQ==
 X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
  fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_033157_178109_373B8D0C 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250317_033157_548126_2133EDAE 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,98 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the device matching logic is duplicated in two functions:
-  - scmi_dev_match() used by the scmi_bus to match scmi_devices with
-    scmi_drivers.
-  - scmi_child_dev_find() used to check for the presence of a device
-    with the same name and protocol_id to avoid adding duplicates to
-    the bus.
+With the decoupling of transport drivers from the SCMI core, the
+"arm-scmi" platform device is now created dynamically from the probed
+transport driver.
 
-Refactor the code to eliminate the redundant matching logic and
-consolidates the functionality for better maintainability and efficiency.
+Currently, this "arm-scmi" platform device is added to the root of
+the platform bus since no parent is assigned. However, the transport
+platform device, created from the "firmware:scmi" node in the device
+tree, should be considered its parent.
+
+Ensure that the parent device is correctly set for the "arm-scmi"
+platform device, aligning it with the correct transport hierarchy.
+This will be more useful on systems with multiple transport and/or
+SCMI firmware instances as the hierarchy is maintained correctly.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/firmware/arm_scmi/bus.c | 43 +++++++++++++++++++----------------------
- 1 file changed, 20 insertions(+), 23 deletions(-)
+ drivers/firmware/arm_scmi/common.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 050a5ff5dc96a7df58edff5faeb8c1ec6228b97d..a30fd8e05e423e226a63833f309d8d30c400fabd 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -206,52 +206,49 @@ scmi_protocol_table_unregister(const struct scmi_device_id *id_table)
- 		scmi_protocol_device_unrequest(entry);
- }
- 
--static const struct scmi_device_id *
--scmi_dev_match_id(struct scmi_device *scmi_dev, const struct scmi_driver *scmi_drv)
-+static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
-+				      const struct scmi_device_id *id_table)
- {
--	const struct scmi_device_id *id = scmi_drv->id_table;
-+	if (!id_table || !id_table->name)
-+		return 0;
- 
--	if (!id)
--		return NULL;
--
--	for (; id->protocol_id && id->name; id++)
--		if (id->protocol_id == scmi_dev->protocol_id &&
--		    !strcmp(id->name, scmi_dev->name))
--			return id;
-+	for (; id_table->protocol_id && id_table->name; id_table++)
-+		if (id_table->protocol_id == scmi_dev->protocol_id &&
-+		    !strcmp(id_table->name, scmi_dev->name))
-+			return 1;
-+	return 0;
-+}
- 
--	return NULL;
-+static int scmi_dev_match_id(struct scmi_device *scmi_dev,
-+			     const struct scmi_driver *scmi_drv)
-+{
-+	return scmi_dev_match_by_id_table(scmi_dev, scmi_drv->id_table);
- }
- 
- static int scmi_dev_match(struct device *dev, const struct device_driver *drv)
- {
- 	const struct scmi_driver *scmi_drv = to_scmi_driver(drv);
- 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
--	const struct scmi_device_id *id;
--
--	id = scmi_dev_match_id(scmi_dev, scmi_drv);
--	if (id)
--		return 1;
- 
--	return 0;
-+	return scmi_dev_match_id(scmi_dev, scmi_drv);
- }
- 
- static int scmi_match_by_id_table(struct device *dev, const void *data)
- {
--	struct scmi_device *sdev = to_scmi_dev(dev);
-+	struct scmi_device *scmi_dev = to_scmi_dev(dev);
- 	const struct scmi_device_id *id_table = data;
- 
--	return sdev->protocol_id == id_table->protocol_id &&
--		(id_table->name && !strcmp(sdev->name, id_table->name));
-+	return scmi_dev_match_by_id_table(scmi_dev, id_table);
- }
- 
- static struct scmi_device *scmi_child_dev_find(struct device *parent,
- 					       int prot_id, const char *name)
- {
--	struct scmi_device_id id_table;
-+	struct scmi_device_id id_table[2] = { 0 };
- 	struct device *dev;
- 
--	id_table.protocol_id = prot_id;
--	id_table.name = name;
-+	id_table[0].protocol_id = prot_id;
-+	id_table[0].name = name;
- 
- 	dev = device_find_child(parent, &id_table, scmi_match_by_id_table);
- 	if (!dev)
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 10ea7962323e43e03e7c5636c56d707803d4ea55..dab758c5fdea3aa34188ef7d424ba8a43ada46d8 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -475,6 +475,7 @@ static int __tag##_probe(struct platform_device *pdev)			       \
+ 	if (ret)							       \
+ 		goto err;						       \
+ 									       \
++	spdev->dev.parent = dev;					       \
+ 	ret = platform_device_add(spdev);				       \
+ 	if (ret)							       \
+ 		goto err;						       \
 
 -- 
 2.34.1
