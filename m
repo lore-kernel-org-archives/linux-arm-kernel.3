@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD673C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F69C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vg2HPDJGw50++nt9f+gnQ911MKt1QN60boipCB0LDgE=; b=LeX41xf8/8CMzt9Oh9uciTVsk/
-	qVccQ5Ky7hyKBk7bjUU8WdI6EMuNL0zq1XaIw70w5W3O7sVpBVFMDqEsjQpQUxpa83D2+t8a1SGGo
-	XDhnYRX8HZmAHFK+2meVzKVpOibQloOE/q1B7PUjYnCqs7eCVGVebelMW5yTaahVA6HkrzKvCNvFN
-	xB9yXkluMBPE3rrMh1yaCnJcpEk16kUHKcYUzGwbQqrFx+CfHXkp4JoPN6J5ROIu0C8/QGSsj2/96
-	+hPDL5kO5+8IK00kouaAW4ZakPqGoJQsmR0vjIiWn+tPuuh0M3boYAxuIcjOIDabuNRFDp652eGDE
-	RrlQC9Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tO+8ygNTKCIQIyKWLVf7vwwm+ioBOh0zCOnmpBG5osY=; b=bJAk3o5XLtWn9EvdPLQTDfRUFa
+	O7sfbSzED/skaDkT8SmjLZ4miJDvtD8IDA5ay7zNPQCOxYi2VqHea5XSSqa1rxO6R5zW1PNLI2mZw
+	//ldZMoM2B2G9thsOd+GEr+KlTwiBCa0eafd27I+fIYP8+78MgjF1t90Si2kD9LUplCG1fIEviC24
+	HVIaRhLP40khAjXF9kGORLjEGGAx4OeW1qZQyWRkqrXSGu+piE4kqX0dx8VPKJ/6PKlWX7wjPBTjx
+	tOY4/1muZa+939Cb3PHtAmuLdCH0AWLjhSfBaAM6cGjm2VMVrvhVfJ0rz7lSiW448v6+Wa54mQyhL
+	2ci5GGhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu6rm-00000001wlq-0mTo;
-	Mon, 17 Mar 2025 09:34:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu6mG-00000001vUn-1EZw;
-	Mon, 17 Mar 2025 09:28:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E81913D5;
-	Mon, 17 Mar 2025 02:29:02 -0700 (PDT)
-Received: from [10.57.84.137] (unknown [10.57.84.137])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F070E3F694;
-	Mon, 17 Mar 2025 02:28:49 -0700 (PDT)
-Message-ID: <16c12c3f-f2c2-45fa-9db6-4dfaeb002059@arm.com>
-Date: Mon, 17 Mar 2025 09:28:48 +0000
+	id 1tu6tQ-00000001xE2-229H;
+	Mon, 17 Mar 2025 09:36:20 +0000
+Received: from mail-vk1-f182.google.com ([209.85.221.182])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tu6nz-00000001vwf-2dsr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 09:30:44 +0000
+Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-523dc190f95so1962496e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 02:30:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742203841; x=1742808641;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tO+8ygNTKCIQIyKWLVf7vwwm+ioBOh0zCOnmpBG5osY=;
+        b=FPNtdngERqrQBGsT6L7Pztl72apD3qdRv4GIjm64NuUSVzauMWI0ejHUsNkq0zAj+V
+         Edj3r8bgy3vDnA3DIFFa3Y6dTewLdeL4XER8cq8UOslN+8Fz42fcNn8psdjxMpSKy+S0
+         DPq2LdIjEXMjEtAETj5pyitBvWlG958/O4a3DVXYKz5qmLEm4hufBM9YwcU3/V7nfj95
+         qnXrllgp7XUFsW02mixj1hRu1OI/o+Tn9R8fOHUPZWlY/7/oJlTXRLDcE8fy/QqRUegc
+         CjmhN8d/l3Bo1SlFhadzy8i7yIwICalC+pPoI246KnK2HVN9pqZefd/rcriqTdGVbRSM
+         ts4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUf4IsO/NpcAbVhFDK46Uq1SwS+9o0RqxBsqjztegXQVY6Xpq+5Om1VbP19ftUYADEHkXeGm9vrbS+r26u6Wr0n@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywn7NsblzYMeA1dnv155Bw4XjTABF9dwWwTDHD8J1js4lT3V0pL
+	k85Io9h4BG09VBdgcR2H9OvvSdF6IwLTYa8205AxPOeVeFqZC/x3yJXXnDF0
+X-Gm-Gg: ASbGncvU+douPE3uQgulh/g20LUIYKq3t64/AA88s4DX8oAWPJZ339pw7Pw1ljvmyPf
+	8qr4+s2ljZtlWGvYL0/1TVUKE5WKd2QQb60y+J/RVPWRVFgmhz+5NWc0HVgzG3X3eRUWtj6iTZi
+	T8tJ+qLO2MtCbdzJloEOjk9nxb6H+nG6ony7bXr7vTEaUvr5dD6GF6tfmMEr6cJwSSEeoIMznuv
+	r4j3BDcEb64dVsdMJw6rZAgzrFKxpmpJ+r9gDdlB0PNm3lNv6JFPuOn5v5G612GktNGqp55bWs/
+	8Lo+e2IDVWRiTRK5kAz/hgWnXigSpPeYD5p7y5LtMuxY2XBliBm7ZgeNbzMQrcy4LWp+3AidTcD
+	fjBNcSoX7IWMDjLS9mL2ZWQ==
+X-Google-Smtp-Source: AGHT+IEBa4BLXV2S9+BibrU+zp6u6y9ljXsbFOCWg7GJcZpd7fxAy5QI/GakxdkcZHAbtu8mgDo9zA==
+X-Received: by 2002:a05:6102:50a4:b0:4bb:9b46:3f87 with SMTP id ada2fe7eead31-4c38313e5b1mr4930555137.6.1742203841697;
+        Mon, 17 Mar 2025 02:30:41 -0700 (PDT)
+Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com. [209.85.221.178])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-86d90d68a38sm1599040241.2.2025.03.17.02.30.41
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Mar 2025 02:30:41 -0700 (PDT)
+Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-523dc190f95so1962482e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 02:30:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWVZSxMQ3mt6359wzIMxlTwVvv714k8C1CKk50E3Cq9CF9pZ/orOZn2r8UUc84nRuJATGCpe6H0SFDIZX/tEAUC@lists.infradead.org
+X-Received: by 2002:a05:6102:3054:b0:4c1:a395:c57b with SMTP id
+ ada2fe7eead31-4c38322a2b6mr7410200137.24.1742203840941; Mon, 17 Mar 2025
+ 02:30:40 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64/ptdump: Replace u64 with pteval_t
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, Marc Zyngier <maz@kernel.org>
-References: <20250317061818.16244-1-anshuman.khandual@arm.com>
- <20250317061818.16244-3-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250317061818.16244-3-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <3e4fca228eb049d54a1ae520104558505dbdf803.1741179629.git.geert+renesas@glider.be>
+In-Reply-To: <3e4fca228eb049d54a1ae520104558505dbdf803.1741179629.git.geert+renesas@glider.be>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 17 Mar 2025 10:30:28 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVPcDZsMsjc8WdVC7vnt_BPVNwiXyB+AEzO04f2eq5cmg@mail.gmail.com>
+X-Gm-Features: AQ5f1JrYGHnVLahgA4qk6HO6NQ4eGzBN5PdOXMYhEYNuD-wyDKiqL3N1q7ViLb0
+Message-ID: <CAMuHMdVPcDZsMsjc8WdVC7vnt_BPVNwiXyB+AEzO04f2eq5cmg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779f4: Add UFS tuning parameters
+ in E-FUSE
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_022856_437273_E3CBB6D4 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20250317_023043_664069_C9CAE9B5 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,78 +95,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2025 06:18, Anshuman Khandual wrote:
-> Page table entry's value, mask and protection are represented with pteval_t
-> data type format not u64 that has been assumed while dumping the page table
-> entries. Replace all such u64 instances with pteval_t instead as required.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/include/asm/ptdump.h | 8 ++++----
->  arch/arm64/mm/ptdump.c          | 2 +-
->  2 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-> index e5da9ce8a515..476a870489b9 100644
-> --- a/arch/arm64/include/asm/ptdump.h
-> +++ b/arch/arm64/include/asm/ptdump.h
-> @@ -24,8 +24,8 @@ struct ptdump_info {
->  };
->  
->  struct ptdump_prot_bits {
-> -	u64		mask;
-> -	u64		val;
-> +	pteval_t	mask;
-> +	pteval_t	val;
+On Wed, 5 Mar 2025 at 14:35, Geert Uytterhoeven <geert+renesas@glider.be> wrote:
+> Describe the location in the E-FUSE block of the PLL and AFE tuning
+> parameters for the Universal Flash Storage controller.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Given Ard's suggestion of using "ptdesc" as a generic term for PTDESC_SHIFT (or
-PTDESC_ORDER, or whatever we ended up calling it), I wonder if it would be
-cleaner to do the same with the types? We could have a ptdesc_t, which is
-typedef'ed as u64 (or u128), then pteval_t, pmdval_t, ..., could all be
-typedef'ed as ptdesc_t. Then for code that just wants a generic pgtable
-descriptor value, we can use that type to indicate that it can be at any level.
+Thanks, will queue in renesas-devel for v6.16.
 
-Thanks,
-Ryan
+Gr{oetje,eeting}s,
 
->  	const char	*set;
->  	const char	*clear;
->  };
-> @@ -34,7 +34,7 @@ struct ptdump_pg_level {
->  	const struct ptdump_prot_bits *bits;
->  	char name[4];
->  	int num;
-> -	u64 mask;
-> +	pteval_t mask;
->  };
->  
->  /*
-> @@ -51,7 +51,7 @@ struct ptdump_pg_state {
->  	const struct mm_struct *mm;
->  	unsigned long start_address;
->  	int level;
-> -	u64 current_prot;
-> +	pteval_t current_prot;
->  	bool check_wx;
->  	unsigned long wx_pages;
->  	unsigned long uxn_pages;
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index fd1610b4fd15..a5651be95868 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
->  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
->  	struct ptdump_pg_level *pg_level = st->pg_level;
->  	static const char units[] = "KMGTPE";
-> -	u64 prot = 0;
-> +	pteval_t prot = 0;
->  
->  	/* check if the current level has been folded dynamically */
->  	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
+                        Geert
 
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
