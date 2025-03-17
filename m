@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99015C35FF8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC67C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 09:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=asAG8ifzS5TnfNYFFs+T/MgOzmKtZDts70S39RMV0cA=; b=dhzc21EZNdZ6ld3UCHfe9QsPb2
-	mBptA8A+LtJ/fuYvKqSfI3qHQ8M3vw3tVObrlRtwsbh0FhXTu1gN4sQYZUqaJ0PjCQDoZn6oveEHf
-	/GlaQUDKVhnAX8/N6a6Ty9DgIv1jYu6eCwtb4j0x8Q3HOXy4I4Jzr0EQT56E3C5v+oIwLUyMHm1SQ
-	QJi2O9WYq4A4QR9RYngTCYfY6PZL9+TJ2YQkFjyjX7bmsScFn1BTDB4qoNZM5NgxJfoteW1YWvA0/
-	1Vqy1lY3UKnEbg8LHzpRfOJRRIMhgKM32OJ6SMtczD/6Vk/n5eyd2zd0f39Pn2MDW6Gois6I9idHd
-	3ppXR9SA==;
+	bh=H7t7YylDfQ+sX922tfXt+mLXdwCmvufbUwYxF/bosqI=; b=pod1rDm1i9oXB6dXz+X9aY8yEf
+	vp/VlbQhSL1z0U/0SDFUnaZiwdlY9RH+51HV63de4iT22E+qi2VTR38mk2gO3unZyjhGwqwDEcx9x
+	Knple15vAB4EJBu6YAzkpPm3sUMXvobCQzmamolSVsIVXFDPgXtQxu271HsrghvnbqULOl+faC6fs
+	tT9UUzy1SsdTB+3C/7UG1v88I+5TbVNpsb6g/2BihcXewzydcgmg/+fKpi9+cAsv1VVF0LInFoLmH
+	ludSjYF4x8p5/80+JaGNBI0CehTNuI0DbYNU1opsHzPx3Ixv7AJEGuTYu/aPozT4tqeeFUKEDVr+Q
+	ob4enlhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu6My-00000001qeR-2aEB;
-	Mon, 17 Mar 2025 09:02:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tu6Od-00000001r18-1vdC;
+	Mon, 17 Mar 2025 09:04:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu6IQ-00000001pqM-10oV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 08:58:07 +0000
+	id 1tu6Kh-00000001qCw-3gpK;
+	Mon, 17 Mar 2025 09:00:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DF743A488BF;
-	Mon, 17 Mar 2025 08:52:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0826C4CEE3;
-	Mon, 17 Mar 2025 08:57:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 57F7BA46D29;
+	Mon, 17 Mar 2025 08:54:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB69CC4CEE3;
+	Mon, 17 Mar 2025 09:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742201885;
-	bh=asAG8ifzS5TnfNYFFs+T/MgOzmKtZDts70S39RMV0cA=;
+	s=k20201202; t=1742202026;
+	bh=W3D20CMMDeTVehzFoOsspP1Xy3fZIs1JN+w4F2wuzL0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MKkRhJUPmchxA6hSveaUHu6pkQzR3C5mkEqIr1ZmoljpP4zv/kDgmJQvK08zMcVuZ
-	 VTS/mzi97Kd/e1CUXX08vwh98V54+omgy8vll9vNytEZkTDPFJlfVIDtYbqS3zcATr
-	 1h2j7lCWc0JqWkKme5W8a0DRQUeQ3jqpM0lqkteY9Zec2BKVJg8QRCZMO52smCewUB
-	 aL1TkOfIEyeDIf2m9rW2P8EqahhSjPmc+ssV5k5WUjY4yLZ7cZ+10OaiTnRzmrb9L+
-	 /C4vrKAfZZQ0IwJ5UZEODGTPxbg3a52baXI8FTSaEYp7MvyT4Wecmq85rOdHRcGGJv
-	 sCKW18R2qviFQ==
-Message-ID: <e0d80130-ab5e-4e0b-8d74-ccc94d084192@kernel.org>
-Date: Mon, 17 Mar 2025 09:57:57 +0100
+	b=tkaO8/yjry0qQlrMCfP3KBKh3c6fbLV44Qk/aD37apAwhxmCpmwnSzy4TGcBaNMUM
+	 2Pk90jQtZnxhS02R2faTN31pPgsEWZEqpoewaQq3BUzsKn3fHHaeYJekvp52Rhlszl
+	 g7Xt4IC8Kxa5Je2Tp/7MWanJ45Ga7H1kAatP3v3d92lCvjMIbJMIFRBflVu/RVk2MX
+	 bXF5/QbcjFjzRGnnqsCY67R7CSYNtE2zw/sX6pWudxHgvfks5dSKCyUAM3k4BHhiwj
+	 ms4oxsUSeiXVJfvBTfUQaiVzF1i/uwPBCNrWJlSN01RB8i0R+5WxEeKopP8vr4RwGF
+	 CHUL19Fi+3ZiQ==
+Message-ID: <df592920-cdf3-40fe-8357-2fbdfc0afd78@kernel.org>
+Date: Mon, 17 Mar 2025 10:00:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 2/3] i2c: aspeed: support AST2600 i2c new register
- mode driver
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: kernel test robot <lkp@intel.com>,
- "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "oe-kbuild-all@lists.linux.dev" <oe-kbuild-all@lists.linux.dev>
-References: <20250224055936.1804279-3-ryan_chen@aspeedtech.com>
- <202502280902.U0gLDhve-lkp@intel.com> <Z8GuOT5bJL7CdXX6@smile.fi.intel.com>
- <fec0a1c8-251b-491e-893d-11a8186a2128@kernel.org>
- <Z9fWhGDrUbAmGRl0@smile.fi.intel.com>
- <OS8PR06MB7541B15342ED1C92579AE18DF2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Subject: Re: [PATCH RFC v2 3/3] dt-bindings: mailbox: mtk,vcp-mbox: add mtk
+ vcp-mbox document
+To: Jjian Zhou <jjian.zhou@mediatek.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ Chen-Yu Tsai <wenst@chromium.org>
+References: <20250317083822.891-1-jjian.zhou@mediatek.com>
+ <20250317083822.891-4-jjian.zhou@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,12 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <OS8PR06MB7541B15342ED1C92579AE18DF2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+In-Reply-To: <20250317083822.891-4-jjian.zhou@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_015806_414125_C4F64C54 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250317_020028_065377_C449E0F5 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,64 +124,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2025 09:51, Ryan Chen wrote:
->> Subject: Re: [PATCH v16 2/3] i2c: aspeed: support AST2600 i2c new register
->> mode driver
->>
->> On Mon, Mar 17, 2025 at 08:48:03AM +0100, Krzysztof Kozlowski wrote:
->>> On 28/02/2025 13:38, Andy Shevchenko wrote:
->>>> On Fri, Feb 28, 2025 at 09:28:59AM +0800, kernel test robot wrote:
->>>>> Hi Ryan,
->>>>>
->>>>> kernel test robot noticed the following build warnings:
->>>>>
->>>>> [auto build test WARNING on andi-shyti/i2c/i2c-host] [also build
->>>>> test WARNING on linus/master v6.14-rc4 next-20250227] [If your
->>>>> patch is applied to the wrong git tree, kindly drop us a note.
->>>>> And when submitting patch, we suggest to use '--base' as documented
->>>>> in
->>>>> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->>>>>
->>>>> url:
->> https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-bindings-i2c-asp
->> eed-support-for-AST2600-i2cv2/20250224-140221
->>>>> base:
->> https://git.kernel.org/pub/scm/linux/kernel/git/andi.shyti/linux.git i2c/i2c-host
->>>>> patch link:
->> https://lore.kernel.org/r/20250224055936.1804279-3-ryan_chen%40aspeedtec
->> h.com
->>>>> patch subject: [PATCH v16 2/3] i2c: aspeed: support AST2600 i2c new
->>>>> register mode driver
->>>>> config: mips-allyesconfig
->>>>> (https://download.01.org/0day-ci/archive/20250228/202502280902.U0gL
->>>>> Dhve-lkp@intel.com/config)
->>>>> compiler: mips-linux-gcc (GCC) 14.2.0 reproduce (this is a W=1
->>>>> build):
->>>>> (https://download.01.org/0day-ci/archive/20250228/202502280902.U0gL
->>>>> Dhve-lkp@intel.com/reproduce)
->>>>>
->>>>> If you fix the issue in a separate patch/commit (i.e. not just a
->>>>> new version of the same patch/commit), kindly add following tags
->>>>> | Reported-by: kernel test robot <lkp@intel.com>
->>>>> | Closes:
->>>>> | https://lore.kernel.org/oe-kbuild-all/202502280902.U0gLDhve-lkp@i
->>>>> | ntel.com/
->>>>>
->>>>> All warnings (new ones prefixed by >>):
->>>>
->>>> My gosh, this is valid report. But it looks like a preexisted issue.
->>>> Can somebody fix this, please?
->>>
->>>
->>> That was three weeks ago and still no responses from Aspeed or
->>> contributors from here.
->>>
->>> I think this tells a lot about aspeedtech.com patchsets on the list.
->>
-> Sorry, I don't aware this is my patches issue, could you tell me what build instruction can reproduce this?
+On 17/03/2025 09:38, Jjian Zhou wrote:
+> This patch adds document for mediatek vcp mbox.
+> 
+> Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
+> ---
+>  .../bindings/mailbox/mtk,mt8196-vcp-mbox.yaml | 49 +++++++++++++++++++
 
-Everything is explained in the email. You do not need two people
-explaining the report, just read the report.
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+
+>  1 file changed, 49 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/mtk,mt8196-vcp-mbox.yaml
+
+Filename based on compatible. You already got this comment. Copy paste
+your filename here:
+
+<here goes filename>
+
+and here your compatible:
+
+<here goes compatible>
+
+Are the the same?
 
 Best regards,
 Krzysztof
