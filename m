@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03601C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA53C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mvPPPRDaspsoA4k2Dj6ph9FjCMOMwv56adQmuxz0BxQ=; b=x30FVOqyda79U2QTfpJycaM+hG
-	SbnboBY1QoeY2xuSk23tmPmSu98KpFuAgFlirkuyh4ojhkt1owJ+Y6hKgxXdbyvovEKoAgiVCo72z
-	d5aCxsvbAovbFhmncxlyWT1+1o6x6hOqH/mjLeJXp4qopwcrs0B71Vo289OAS2alfjPF0O8xNEFiq
-	p2i3wpmLlDOBUUdXECsb3StgwSEWgDSqIje+7WrtaJXw4oxeoxqODjqJ9jZ3tGJP4++YmnQcmwIq4
-	tFacmkh5WZx9vXnqfc3Zd+Ob0odpkBmcQxKPeuXLrQRoCIa3XgN85HOlorwkcedFOrBMco6n4QVyd
-	V0hlJsFA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fmWIS0wLHvOfDdrgbj8ORSE1eJQwOVhMX/zX7anGKW4=; b=w+ejZzRreons8MFhbHqppZdcaU
+	kc/ZqypLDiDWmb1h0t889VFk9e169q+KKmBvT9oj81u/UuK+kv/3J/g6SZ9OuU/0o8f4JReVBTtPc
+	R6Un25P0iy8PCNT3ptvr1m2QwnU/fFctH8rTItt0SlXpgpLre3SdgiwFPOibw7tO3KzrLCDHRypzN
+	LB5N1rTwbY4nhSS912A+KFGDC04YRDyIpl4fmGkzK65Zinw81DrWCqt1vTXv5CpoPe3YcBkzyPP8f
+	Qo3CdVqwpAKLtwfNUx72BTWLxckMqK0JL88gqamTt9NYBoDSPcxnlSPxAbtpdjSW6QtW20du7D3oC
+	qUhIgjaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7jY-00000002A3t-2Fmv;
-	Mon, 17 Mar 2025 10:30:12 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7gG-000000028vN-0HqE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 10:26:49 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-399672634beso281296f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 03:26:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742207206; x=1742812006; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mvPPPRDaspsoA4k2Dj6ph9FjCMOMwv56adQmuxz0BxQ=;
-        b=i/1AWoeCb8Taenbtc7dGVRZFcP+84qKmBkhtsuwExUhEcRKVxNQYdRypRY4HWaWpiA
-         6ka3glmNAeTYVXMlFMSnmmTA/ia5gVzo0+Ur5joVOmM0O4qh+NZfOZ+BWbgOmhp1Ol30
-         1WTlf/TXpxYKdYtnC+77bDNa5UPgQB1lvdE7lh8RmOFgl1p0658Cc90/ggryHZ6M60co
-         rUvW0kWF6Sh+XL/gIs4j3GAyxSdFk3BofjQuSq8LzZ3ThTaRQtMDrTeVm7lnflMuNs55
-         AmE8WxThchKLFR1l/m5vgAARiyJbDw3MAaqksLKLw7lX1A8t9B9NtKO+Y/fEVFTgcP7b
-         xXNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742207206; x=1742812006;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mvPPPRDaspsoA4k2Dj6ph9FjCMOMwv56adQmuxz0BxQ=;
-        b=QBES7KHT0h5bx6QzSSefDhunYw4UE/YTHHePw0h4CKkRgmwlFJNMyCmkTgOTKpbOde
-         jNlZ+0sv3HNfqeMx4ECbxlIxVXodmfswWZC72/1pAPEQRoO9fmhSunaXjZy/5m257VTB
-         FqprGWJiqqhAJkHTfcsNkXW4nxdwI2dqw/bs6rK9v4jWj6UG5pBQNUhnA8z1uGcAjw3J
-         EMHkzpvz/fQGZoP2alleW6D62zBWuTwiKRr7YrzK5BfseVszPZKzYFMeMxkwsx34S9CE
-         6s1c5HsjC+mTwYf6eUrc2vavoZHijZfhe/bJ/cH8PVe515QuCWuAPfUi8Ve6FR1cSjEy
-         PAOw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6B70GDODzouJZ/jgVooSkSbLnci8TEo/NjcbaBxw5EmNoYRkfK3slRxtA5cHOhkHx05zX1p/AtR5ydu40vL43@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuyZu0AOVWClIdzS/0xnCCl3Aj6Y5TX9DTjvi7DQeDV4igVg5m
-	2djSA0/5J46xFKM4XT7VIG+/Ei5kAGMzZfLfJbrFF7YYHZ/M5ILWZyiLxjNApto=
-X-Gm-Gg: ASbGncunKgnLWJFJkEZeZLhHFbLKflCAC/ZhgS0fCAR61UXdYU9Sg3s23mDWty+JiY6
-	78MdiGbBDz02TK4i7kpUNjKOLfXvElLECisS/cygM6i87mPUAwPIhGpet9rlRsgTYBiAMIoB4CL
-	S6cfgO83k3OL5fKWR0jvlMiIfY++aYXcAxV7SKnpL/UuQqp23P16igEUdaNOYHZ6Exzb2Y6ZEmC
-	seC3Ir4P7ibkcKcjFEF3jJ5z7EckELrGUFET3CHfYM+AtGTVb9T8MiMu6GuClXrZEMFjSJk7ue4
-	mcFaqaC1FQSfd6ldZPrq182AiYyxRfo/plSzHd6ziwKPSbTqJ6ajaIdOsTWRYe2/dKhOGR0HdB2
-	+aRjv7ZUngSjfW5SuhXM=
-X-Google-Smtp-Source: AGHT+IEl2lf5EodXDcMOp4zSumpDeUgpvHv7ZiCprUcc+z1261XnZYzYUr5LHoaWJbWt0CgfV/KCKA==
-X-Received: by 2002:a05:6000:2cf:b0:390:f116:d220 with SMTP id ffacd0b85a97d-3971c97ba0cmr10611286f8f.17.1742207206352;
-        Mon, 17 Mar 2025 03:26:46 -0700 (PDT)
-Received: from ?IPV6:2a02:2f04:900a:ff00:eb98:2c37:6a77:39? ([2a02:2f04:900a:ff00:eb98:2c37:6a77:39])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c7df3506sm14950791f8f.11.2025.03.17.03.26.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 03:26:45 -0700 (PDT)
-Message-ID: <638cf070-9fd1-416e-8172-75f189ab0dfe@linaro.org>
-Date: Mon, 17 Mar 2025 10:26:44 +0000
+	id 1tu7lC-00000002ASc-3IIx;
+	Mon, 17 Mar 2025 10:31:54 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tu7hp-000000029Xm-0D8D;
+	Mon, 17 Mar 2025 10:28:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=fmWIS
+	0wLHvOfDdrgbj8ORSE1eJQwOVhMX/zX7anGKW4=; b=SqekagC72tCKT25KHSmS4
+	/+b/w+C575D1N98h4BDUoxjOxnTCMxhJz4/JPOgO//WZqLyL2LezzhFK4lhH9+ng
+	XzK09N4vXHxDZpHOogN3tAa/TN2/mpv3caiedJldEyp/q8pNoY4wuUXTccxfdjKu
+	Ci4hDKUATluwrmqbDmq0dk=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wBnuTwy+ddnhLtwTQ--.47861S2;
+	Mon, 17 Mar 2025 18:28:06 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: cristian.ciocaltea@collabora.com,
+	hjc@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: [PATCH v2] drm/rockchip: dw_hdmi_qp: Fix io init for dw_hdmi_qp_rockchip_resume
+Date: Mon, 17 Mar 2025 18:27:53 +0800
+Message-ID: <20250317102757.565679-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] firmware: exynos-acpm: silence EPROBE_DEFER error on
- boot
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org>
- <20250314-acpm-fixes-v1-2-ab03ca8e723f@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20250314-acpm-fixes-v1-2-ab03ca8e723f@linaro.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wBnuTwy+ddnhLtwTQ--.47861S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZFWfXFWrGr45XFWxGrWUtwb_yoW8Kw45pw
+	4UAa4jkrWkGr47Xrn8ZFnrArW2k3W7Jw4SqFWxKa4vv3W0qrn3KF93Wa1rXr43ZF9xuF4a
+	krWvy34fJF4UXFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j7uc_UUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0h4TXmfX95EooAAAsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_032648_124999_4922D6B0 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_032825_502541_8464344A 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,18 +75,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andy Yan <andy.yan@rock-chips.com>
 
+Use cfg->ctrl_ops->io_init callback make it work for all platform.
+And it's also gets rid of code duplication
 
-On 3/14/25 4:40 PM, André Draszik wrote:
-> This driver emits error messages when client drivers are trying to get
-> an interface handle to this driver here before this driver has
-> completed _probe().
-> 
-> Given this driver returns -EPROBE_DEFER in that case, this is not an
-> error and shouldn't be emitted to the log, so just remove them.
-> 
-> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+Fixes: 3f60dbd40d3f ("drm/rockchip: dw_hdmi_qp: Add platform ctrl callback")
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+
+Changes in v2:
+- Store the ctrl_ops in struct rockchip_hdmi_qp
+
+ .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 23 +++----------------
+ 1 file changed, 3 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index 3d1dddb34603..7d531b6f4c09 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -94,6 +94,7 @@ struct rockchip_hdmi_qp {
+ 	struct gpio_desc *enable_gpio;
+ 	struct delayed_work hpd_work;
+ 	int port_id;
++	const struct rockchip_hdmi_qp_ctrl_ops *ctrl_ops;
+ };
+ 
+ struct rockchip_hdmi_qp_ctrl_ops {
+@@ -461,6 +462,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 		return -ENODEV;
+ 	}
+ 
++	hdmi->ctrl_ops = cfg->ctrl_ops;
+ 	hdmi->dev = &pdev->dev;
+ 	hdmi->port_id = -ENODEV;
+ 
+@@ -600,27 +602,8 @@ static void dw_hdmi_qp_rockchip_remove(struct platform_device *pdev)
+ static int __maybe_unused dw_hdmi_qp_rockchip_resume(struct device *dev)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = dev_get_drvdata(dev);
+-	u32 val;
+ 
+-	val = HIWORD_UPDATE(RK3588_SCLIN_MASK, RK3588_SCLIN_MASK) |
+-	      HIWORD_UPDATE(RK3588_SDAIN_MASK, RK3588_SDAIN_MASK) |
+-	      HIWORD_UPDATE(RK3588_MODE_MASK, RK3588_MODE_MASK) |
+-	      HIWORD_UPDATE(RK3588_I2S_SEL_MASK, RK3588_I2S_SEL_MASK);
+-	regmap_write(hdmi->vo_regmap,
+-		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
+-		     val);
+-
+-	val = HIWORD_UPDATE(RK3588_SET_HPD_PATH_MASK,
+-			    RK3588_SET_HPD_PATH_MASK);
+-	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON7, val);
+-
+-	if (hdmi->port_id)
+-		val = HIWORD_UPDATE(RK3588_HDMI1_GRANT_SEL,
+-				    RK3588_HDMI1_GRANT_SEL);
+-	else
+-		val = HIWORD_UPDATE(RK3588_HDMI0_GRANT_SEL,
+-				    RK3588_HDMI0_GRANT_SEL);
+-	regmap_write(hdmi->vo_regmap, RK3588_GRF_VO1_CON9, val);
++	hdmi->ctrl_ops->io_init(hdmi);
+ 
+ 	dw_hdmi_qp_resume(dev, hdmi->hdmi);
+ 
+-- 
+2.43.0
+
 
