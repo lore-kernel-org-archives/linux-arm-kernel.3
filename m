@@ -4,69 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE52C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75017C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 15:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E28zglszNSgNs5nxBqGH9ihoTQywx6FCChBvwXjU3Lc=; b=cdCGWZZXgHPG7Y0MQ7si/xGPtM
-	HYDq0f8gNsW1Ezuv6rFIDNFrMnV5J3F8jgYr9vb81MifQfs6IBecEmpnvh7Kx6gp6x88z4gXhHaC1
-	6lJIgrcu3YNsTX9woNtti2Nj6GIN/SR6p//BKlZQDJed6hdTTB4hlofgs95jbLMTGT5T4YCFHifQ8
-	9NdATlFaeG8AbtgeT6ExHJWai7I72AxuqYeFuersuxXqVj/r6+dbz5KoP2wSU10+rZ3nWNK7i7r0T
-	4TqXSBJhiXHkc5zw0OrgpKEDhfEHNun8HfscHO7JG+nPRZf+0vVQm84++D+HBNHs/7hy4KVBnbUu2
-	wc4l4EHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KipOP6WZevqOmUSTSh474YO5ixrB7kPV1cCaZGSd0cc=; b=UJOotkPmdju5PRMzo6mWE18rZ3
+	tmpDu1e7rxIdbZ78CqiR2cDR8Vbd2AjjIDBkUOR3H8mL/tHtrSxzRqXOKwSNGsjQ7+HQAKs1uWECs
+	5YUn4bCCr6yvrWhDZvNP0A65kpEtcWH3nubsjfS8NOKvHlQfTSHzQ8NEmi5/PXxbBHSlyFWD5kglc
+	vbj5Kl4aL6EXEyy9ZGzTZYo54HK8CT3xrc4G2RIj6nYScZ0vnJNMR9qnws5Q1wJ6yMHzxdmu4K8rH
+	sZ7sa0i7BsagoFLJyfHmT08+lXg7BtGzF50PZqvJq2Cy+rLgXZW6SF0Dmruh2XO/bOIdgqGvD9uFY
+	7/9GPmwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCSF-000000039sF-32je;
-	Mon, 17 Mar 2025 15:32:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuCQZ-000000039Tg-0umr;
-	Mon, 17 Mar 2025 15:30:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3164013D5;
-	Mon, 17 Mar 2025 08:31:03 -0700 (PDT)
-Received: from [10.57.84.137] (unknown [10.57.84.137])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 421503F694;
-	Mon, 17 Mar 2025 08:30:49 -0700 (PDT)
-Message-ID: <70349335-84ee-4bca-a3d6-d7cf3c05b92b@arm.com>
-Date: Mon, 17 Mar 2025 15:30:47 +0000
+	id 1tuCTv-00000003AFy-09a0;
+	Mon, 17 Mar 2025 15:34:23 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuCQc-000000039TO-0RdU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 15:30:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1742225457; x=1773761457;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=KipOP6WZevqOmUSTSh474YO5ixrB7kPV1cCaZGSd0cc=;
+  b=VsVHQIYbkrcd171jFdX+gvyzahQSPz/kdLCHHDsK+114AiLeWyButnEo
+   kQcCJcarrgIFn21BN/I1Y0MIGLfNDNyfBQXo8/4hTFMjj8K+hxxPS1yV9
+   +Kup7bLIVfLUvZbfj5yo73bnYYdOj4OCbIeITwryf1y5RGA//gf/VVsIo
+   uDVl3e3qnlSd2bUEHFr/yptj0t0i88QSIm5gHhJvrceBWEg4Os5h3uSZK
+   gTMvmOOWHwKci2xz2gfxCvOOVB1F1lSFYaRNGj0F+mbRALqEWbiWp3wcV
+   pPIfTDTNzBha84QUbL1QHmaTSOSkz9vlZSfdqrHK5PLjGr5zVRDu9Zl6X
+   g==;
+X-CSE-ConnectionGUID: 8oKGuws+Tk+2dnMvWspdJQ==
+X-CSE-MsgGUID: ZUbpwkqrR8O5ARb/CW7m0g==
+X-IronPort-AV: E=Sophos;i="6.14,254,1736809200"; 
+   d="scan'208";a="43000310"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 17 Mar 2025 16:30:52 +0100
+X-CheckPoint: {67D8402D-3-903EAEAC-E04C76C8}
+X-MAIL-CPID: D69F11ED0F4E03A24B6BC23DFFFEA6EF_5
+X-Control-Analysis: str=0001.0A006397.67D84023.003C,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B47A1648CF;
+	Mon, 17 Mar 2025 16:30:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1742225448;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KipOP6WZevqOmUSTSh474YO5ixrB7kPV1cCaZGSd0cc=;
+	b=Uq5zOxs0Q2Oh2zzZOxB4inAAzXeHVrTzt2nX709skPbcWUDR9LYBoiUiAYyf52iv2YweG5
+	JkLN6VCZjNG8ALhUIQovwtDil5XYyo96mm4Yxbz1Z/LE9/s1fn6eFgm+MrMDIu+xriBYNn
+	8f6sVJQ3EztaveLY8jMPucGHgQHW8GEmi7SOL/EWp972DQyRggo5MmHRUv/+YE0AEig3Ag
+	BIK+aNKm9A/LxUAabR4O3mapr8jb0kyL3GTWJEgLDYpVURN8x05NjMBX4K72V2duHca+7p
+	a9vaGfhs2e4JvYhdHosyBG4cdHddSLC1Avxty8JerPZw6RCV8C07fcF7zpkZpw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: shawnguo@kernel.org, robh@kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, krzk+dt@kernel.org,
+ conor+dt@kernel.org, festevam@gmail.com, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, frank.li@nxp.com, aisheng.dong@nxp.com,
+ daniel.baluta@gmail.com, laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com,
+ iuliana.prodan@nxp.com, a.fatoum@pengutronix.de, mathieu.poirier@linaro.org,
+ linux-remoteproc@vger.kernel.org, Daniel Baluta <daniel.baluta@nxp.com>,
+ Peng Fan <peng.fan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
+Subject: Re: [PATCH v5 2/5] arm64: dts: imx8mp: Add mu2 root clock
+Date: Mon, 17 Mar 2025 16:30:46 +0100
+Message-ID: <5873285.DvuYhMxLoT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250317133306.2003909-3-daniel.baluta@nxp.com>
+References: <20250317133306.2003909-1-daniel.baluta@nxp.com>
+ <20250317133306.2003909-3-daniel.baluta@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/11] Always call constructor for kernel page tables
-Content-Language: en-GB
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Mark Rutland <mark.rutland@arm.com>, Matthew Wilcox <willy@infradead.org>,
- Michael Ellerman <mpe@ellerman.id.au>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, Qi Zheng
- <zhengqi.arch@bytedance.com>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org
-References: <20250317141700.3701581-1-kevin.brodsky@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250317141700.3701581-1-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_083055_304379_BDC42AA2 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250317_083058_633477_8029F575 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +101,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2025 14:16, Kevin Brodsky wrote:
-> The complications in those special pgtable allocators beg the question:
-> does it really make sense to treat efi_mm and init_mm differently in
-> e.g. apply_to_pte_range()? Maybe what we really need is a way to tell if
-> an mm corresponds to user memory or not, and never use split locks for
-> non-user mm's. Feedback and suggestions welcome!
+Am Montag, 17. M=E4rz 2025, 14:33:03 CET schrieb Daniel Baluta:
+> Enable MU2 node and add mu2 root clock.
+> MU2 is used to communicate with DSP core.
+>=20
+> Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/=
+dts/freescale/imx8mp.dtsi
+> index 3b725fe442d0..5b443fbeded8 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -1253,7 +1253,7 @@ mu2: mailbox@30e60000 {
+>  				reg =3D <0x30e60000 0x10000>;
+>  				interrupts =3D <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>;
+>  				#mbox-cells =3D <2>;
+> -				status =3D "disabled";
 
-The difference in treatment is whether or not the ptl is taken, right? So the
-real question is when calling apply_to_pte_range() for efi_mm, is there already
-a higher level serialization mechanism that prevents racy accesses? For init_mm,
-I think this is handled implicitly because there is no way for user space to
-cause apply_to_pte_range() for an arbitrary piece of kernel memory. Although I
-can't even see where apply_to_page_range() is called for efi_mm.
+There is no need to enable MU2 if the DSP is disabled by default, no?
 
-FWIW, contpte.c has mm_is_user() which is used by arm64.
+Best regards
+Alexander
 
-Thanks,
-Ryan
+> +				clocks =3D <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_MU2_ROOT>;
+>  			};
+> =20
+>  			i2c5: i2c@30ad0000 {
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
