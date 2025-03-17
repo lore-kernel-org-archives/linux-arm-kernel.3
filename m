@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9CDC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 21:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9C7C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 21:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3yLdj0cmrC6cmm5my+2tCW7QYb/awxmk6AZD+bYmv5I=; b=OnIeJ0UEo3pFZ66ho8LFEwk50s
-	JAZP8yMG6slJThhAZumFtUrD6rjjbgzssn0CSW9JRlo+LTD6vq4TZXl3cDbz6/3SGHPGDszDafO7+
-	rjJrb747Nc2OOgsgL7yuU0WTEZ3DIWWaP0MCOpMZpQ9Ec+wcw8OCpveCx7m7VZ1sUjgMiG1QvYvhT
-	lMYBuzmdi40FXsQhhwGfgw05B+FwN8R+50be1LxFKw0YX/RirvQIqUlat0zFUvSqfVUzFyGrsnkx1
-	RexXLAkeyPT3NZHj2AA27Q0z4u4LhNmhtiCye2pW18IxGDFxzLvjroTpN59w/rVYIvb9iaRRuIN5L
-	PiDLlGyg==;
+	bh=OSZJLW97BnTzAu8NS31UcxSB955MIJF2br4GBQsYj5I=; b=zcREs4p5zKRBlWV66ZJfcwk4sN
+	3YJm6QlbEEp1IAAyT+8HVBcPO18dwbUkyirVior3BofB0XfpJ776H5VANIqVrYskocbfFfMD8lqqn
+	l6YMQyufB9nkW70czhNTbAjdqdYmR/XcIqkPPpI5bCjWD21QG/LxCpD9ii8C3doKhRruG7sxbEAHv
+	QJhrjO9gbRIHcPt0FS4MFVlHqozT1eOduGZAsAA97N0csTE93yaorLIBCCd5si7JdnhqR7Pf/H5+/
+	J/IgAENteiEfYcoURJqO9IfwlX+T9Su/s7WRKtLHo43la9gqI/qfInk+IFHMynphmpis/PY7VhRFv
+	nJM4xjvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuHty-000000041Vi-0nnB;
-	Mon, 17 Mar 2025 21:21:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tuI0B-0000000427X-3G2S;
+	Mon, 17 Mar 2025 21:28:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuHsH-000000041Nz-3MWx;
-	Mon, 17 Mar 2025 21:19:54 +0000
+	id 1tuHyU-000000041uq-33Ph
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 21:26:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E9E455C4CA0;
-	Mon, 17 Mar 2025 21:17:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B8C8C4CEE3;
-	Mon, 17 Mar 2025 21:19:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 365AE5C564D;
+	Mon, 17 Mar 2025 21:24:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 153D3C4CEEF;
+	Mon, 17 Mar 2025 21:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742246392;
-	bh=sJ6V7jkkaFv6f6/KnI1DYggtxUE5WU7pJdhow50px1E=;
+	s=k20201202; t=1742246777;
+	bh=e14NawIhXbX+rpgKdFPfVEzD7XfiMfMMeC3WCU8SXTU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EWCv+zb65t1erf7mNp1n3wlDSg7N1Ehr3MtQYr69qMkJx4fNJ9PsNwrjwE69hGJ3Q
-	 y0c6PtQGJ9sZOHq564nBFC53Y03F56F5/t5PKQfLk7/EFiuvUKHPH4Lg3xMu6WHEkN
-	 MP41himlDFtUSaLWdxHAH8lIBoz/00EqeX9VaIMZ59jFuxig/TycEOxsPy43dq7WEN
-	 /XUwcJQWoGM6q4JMjDTiMcbE4nADwtjGimkee72dcNZZkRhPfjEgo17vQB2AQ1OqYO
-	 dCtrOhP7C0RKkIYVtstp3RjOjs2YTICgixi7y9HsuY7KnSkdy16WlvZ8zz8G0cKaNn
-	 ZOaRpmBdUssrA==
-Date: Mon, 17 Mar 2025 18:19:50 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
- the build
-Message-ID: <Z9iR9iocSKg0SPph@x1>
-References: <20250308003209.234114-1-irogers@google.com>
- <Z9KFLGpenwOP32q3@google.com>
- <Z9M24AJzui9lFbGo@x1>
- <Z9M9-YhDJg3NgiUy@x1>
- <Z9NEX3j_1RUvaFI0@x1>
- <Z9PCjQ8PhOadVGQ8@google.com>
- <Z9RjHpEJGWtj8PAM@x1>
- <Z9iKhwoj1GXvH4c9@x1>
+	b=JMvaMsnbPJ8uauQ8F3z8KXAnLMkpC+5wZSCYWXdVAbffN+VMLD7kcQ+QymC8RNkBG
+	 LWAtAglEZTtV0IfmJevbJRpwp5DltHIZTT9jYUO30DpV3dltp36ITMp4mA2gAIoDbK
+	 aFPTLhS220mZteiM69TPYxS0EXxAnngA315K/HuWjOSYtpK6tELUkhT8PsC3dX7qdW
+	 Sp4LIUF2EYoOGSo/uvoGPvjB0BD1fcQ1sLlesKrGii7uNBoG6M/agH9NmaPL59/aZW
+	 qPj7efURhvh7DzI7O0Cmp/JJA87UrXUQ+GNsxCUv6Quv4PsDyU9RthOs/WqwTpAP7v
+	 VNE6rrqAz4uOw==
+Date: Mon, 17 Mar 2025 21:26:12 +0000
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>, joey.gouly@arm.com,
+	kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH 0/4] arm64: mitigate CVE-2024-7881 in the absence of
+ firmware mitigation
+Message-ID: <20250317212611.GA12724@willie-the-truck>
+References: <20250128155428.210645-1-mark.rutland@arm.com>
+ <174197730164.734861.6726211221092480832.b4-ty@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z9iKhwoj1GXvH4c9@x1>
+In-Reply-To: <174197730164.734861.6726211221092480832.b4-ty@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_141953_947196_E0090DD8 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250317_142618_851489_992D3118 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,152 +76,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 05:48:10PM -0300, Arnaldo Carvalho de Melo wrote:
-> On Fri, Mar 14, 2025 at 02:10:54PM -0300, Arnaldo Carvalho de Melo wrote:
-> > On Thu, Mar 13, 2025 at 10:45:49PM -0700, Namhyung Kim wrote:
-> > > On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrote:
-> > > > On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wrote:
-> > > > > Still building, but noticed this on x86_64:
-> > > > > 
-> > > > > 105: perf trace enum augmentation tests                              : FAILED!
-> > > > > 106: perf trace BTF general tests                                    : FAILED!
-> > > > > 107: perf trace exit race                                            : Ok
-> > > > > 108: perf trace record and replay                                    : FAILED!
-> > > > > 
-> > > > > 
-> > > > > The first doesn´t help that much with verbose mode, haven't checked if
-> > > > > before this series it was failing :-\
-> > > > > 
-> > > > > root@x1:~# perf test -vvv 105
-> > > > > 105: perf trace enum augmentation tests:
-> > > > > --- start ---
-> > > > > test child forked, pid 19411
-> > > > > Checking if vmlinux exists
-> > > > > Tracing syscall landlock_add_rule
-> > > > > ---- end(-1) ----
-> > > > > 105: perf trace enum augmentation tests                              : FAILED!
-> > > > > root@x1:~#
- 
-> This one is now ok:
- 
->      0.004 ( 0.000 ms): perf/200342 landlock_add_rule(ruleset_fd: 11, rule_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffd649bd0d0, flags: 45) = -1 EINVAL (Invalid argument)
-> root@number:~# perf test enum
-> 105: perf trace enum augmentation tests                              : Ok
-> root@number:~#
- 
-> now looking at:
- 
-> root@number:~# perf test -vvvvvvvvv 106
-> 106: perf trace BTF general tests:
-> --- start ---
-> test child forked, pid 200467
-> Checking if vmlinux BTF exists
-> Testing perf trace's string augmentation
-> String augmentation test failed
-> ---- end(-1) ----
-> 106: perf trace BTF general tests                                    : FAILED!
-> root@number:~#
- 
-> No clue from the test, reading its source code now to see where it is
-> failing to try and reproduce the problem.
+On Fri, Mar 14, 2025 at 06:37:25PM +0000, Catalin Marinas wrote:
+> On Tue, 28 Jan 2025 15:54:24 +0000, Mark Rutland wrote:
+> > On some CPUs from Arm Ltd, it is possible for unprivileged code to cause
+> > a hardware prefetcher to form an address using the contents of a memory
+> > location which is accessible by privileged accesses in the active
+> > translation regime, potentially leaking the contents of this memory
+> > location via a side channel. This has been assigned CVE-2024-7881:
+> > 
+> >   https://developer.arm.com/Arm%20Security%20Center/Arm%20CPU%20Vulnerability%20CVE-2024-7881
+> > 
+> > [...]
+> 
+> Applied to arm64 (for-next/leaky-prefetcher), thanks!
+> 
+> There hasn't been much review (thanks Oliver for looking at the KVM
+> bits) and there's some implied work that can go on top of this series.
+> But the patches looked fine to me, so I queued them. Mark or others,
+> please shout if you'd like them dropped, they are on a branch.
 
-root@number:~# rm -f /tmp/1234567 ; touch /tmp/1234567 ; perf trace -e renameat* --max-events=1 -- mv /tmp/1234567 /tmp/abcdefg
-         ? (         ): mv/200698  ... [continued]: renameat2())                                        = -1 EEXIST (File exists)
-root@number:~# 
+I'm really not comfortable with this series and would prefer to see it
+dropped while we continue the discussion, especially as it's causing
+minor conflicts with the KVM/arm64 tree in -next.
 
-At this point it works:
+The series is pitched a bit like an erratum workaround, but the overall
+problem that a memory-dependent prefetcher can bypass permission checks
+is fairly general and, even if nobody else gets this wrong, I doubt that
+it's the last time Arm will mess it up. So, while the EL3 mitigation may
+be Arm-specific, I don't think the rest of it really is. That's
+especially true given the sorry state of spectre mitigations on
+third-party derivatives of Arm designs, such as the Qualcomm Kryo parts,
+and the fact that we provide userspace with a mechanism today for
+querying the state of those mitigations via sysfs.
 
-⬢ [acme@toolbox perf-tools-next]$ git log -1
-commit 58f4f294b358861adaee68dfd19da1060058ec27 (HEAD)
-Author: James Clark <james.clark@linaro.org>
-Date:   Mon Jan 6 16:42:58 2025 +0000
+The immediate question, then, is whether this broken behaviour is
+prohibited by CSV3. The text in the latest Arm ARM just refers to
+"Data loaded under speculation", so it's not entirely clear whether that
+applies to a prefetcher. If it *does*, then I can see the argument for
+treating this like an erratum, but then we should zap CSV3 and treat
+these parts as being affected by meltdown. On the other hand, if CSV3
+is not intended to cover these prefetchers, then we probably need to
+add a new "CVE-2024-7881" entry to /sys/devices/system/cpu/vulnerabilities.
 
-    perf test trace_btf_general: Fix shellcheck warning
+As it stands with this patch series, userspace has no way to know about
+the problem. kpti gets silently enabled in dmesg:
 
+  | CPU features: detected: Kernel page table isolation (KPTI)
 
-root@number:~# rm -f /tmp/1234567 ; touch /tmp/1234567 ; perf trace -e renameat* --max-events=1 -- mv /tmp/1234567 /tmp/abcdefg
-     0.000 ( 0.006 ms): mv/218282 renameat2(olddfd: CWD, oldname: "/tmp/1234567", newdfd: CWD, newname: "/tmp/abcdefg", flags: NOREPLACE) = -1 EEXIST (File exists)
-root@number:~#
+but the contents of the vulnerabilities directory is pretty misleading:
 
-Seems like some transient problem on this test machine, didn't manage to
-bisect and now everything seems to work:
+  gather_data_sampling: Not affected
+  ghostwrite: Not affected
+  itlb_multihit: Not affected
+  l1tf: Not affected
+  mds: Not affected
+  meltdown: Not affected
+  mmio_stale_data: Not affected
+  reg_file_data_sampling: Not affected
+  retbleed: Not affected
+  spec_rstack_overflow: Not affected
+  spec_store_bypass: Mitigation: Speculative Store Bypass disabled via prctl
+  spectre_v1: Mitigation: __user pointer sanitization
+  spectre_v2: Mitigation: CSV2, BHB
+  srbds: Not affected
+  tsx_async_abort: Not affected
 
-Well, not always :-\
+The meltdown entry doesn't even mention that KPTI has been enabled.
 
-root@number:~# perf test 105 106 107 108 
-105: perf trace enum augmentation tests                              : Ok
-106: perf trace BTF general tests                                    : Ok
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# perf test 105 106 107 108 
-105: perf trace enum augmentation tests                              : Ok
-106: perf trace BTF general tests                                    : Ok
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# perf test 105 106 107 108 
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : FAILED!
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# perf test 105 106 107 108 
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : FAILED!
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# perf test 105 106 107 108 
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : FAILED!
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# perf test 105 106 107 108 
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : FAILED!
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# perf test 105 106 107 108 
-105: perf trace enum augmentation tests                              : Ok
-106: perf trace BTF general tests                                    : FAILED!
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# for test in 105 106 107 108 ; do perf test $test ; done
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : FAILED!
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# for test in 105 106 107 108 ; do perf test $test ; done
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : FAILED!
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~#
+If we decide to go with a new entry for this, then we also need to
+change the default behaviour along the lines of Doug's Spectre-BHB
+changes queued on for-next/spectre-bhb-assume-vulnerable so that we
+assume vulnerable if we don't know better. To do otherwise will result
+in false assurances to userspace on derivative and third-party
+implementations.
 
-So, overall, I think this should land and we should continue trying to
-figure out how to find out about the above failure cases, probably the
-perf trace cases, since they do set up BPF programs, etc should be done
-serially?
+To be clear: I'm not at all against mitigating this problem and
+advertising the status of that mitigation. I *am* against quietly
+handling it like a CPU erratum whilst simultaneously telling userspace
+that meltdown is not a problem regardless of the mitigation state.
 
-Doesn't seem to be the case:
-
-root@number:~# for test in 105 106 107 108 ; do perf test --sequential $test ; done
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : Ok
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# for test in 105 106 107 108 ; do perf test --sequential $test ; done
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : Ok
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# perf test --sequential 105 106 107 108
-105: perf trace enum augmentation tests                              : FAILED!
-106: perf trace BTF general tests                                    : Ok
-107: perf trace exit race                                            : Ok
-108: perf trace record and replay                                    : Ok
-root@number:~# 
-
-But then if that is the case it needs some love and care to deal with
-other BPF users in the system, being more graceful in the face of
-errors.
-
-- Arnaldo
+Will
 
