@@ -4,160 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FF2C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7937CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 10:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mNHCjfb/DtDw4J4SakbzoCjCysgITVRQ/YBjTaifNk=; b=ZHL41dRna3hhLLpFJ7sF5vC53y
-	oMIUFGLjtdrfrgvOMkSG1801OivZ1H+QCMRiWQuGvs/GMNkh6s0RCIxZcKbSP36lf8ufMUf6Ls3t8
-	YTQkKeBP4EmVHY9ohtQQJRa1j0n8WdlG03TRPXDBUvT5srUxwCRI15vTKbyt81YpwtdfqdMY1jnMJ
-	D7XhCy8OQzFbZ2vbzikE2bpL2A0Y3S4H+jtlz8/1NZQGd5GjrPqfqTTX55rIw33IduipWt0qtXcV2
-	p40S5soyRZQMf5yiFGaLHqfZs8CVDuLM+YemfxoaDfqBgMuXMLYUKuVGN8wf9+BeA2wehzl7ME5G2
-	9qhEZUBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l3u1bGlfHbPacN1nCsyuTjD60f8Tzd91LwsrgmDR5xo=; b=HZr20nYSK6dPilt7Q7ulBt6BoS
+	dyx9ZOz5w16x5aU7UxyKVDvo525SsZy2LrtxCn+xWl+fYjeVd4r1dyhHlOrdhhsT6Fgkp4ijL5WD2
+	rDtRE1f2D9tBevO5NhMnBhLPPT6M9ZSZ4FcEeLAhYno4scaJOTjVuwJKirEdY3VcWEXaDRDCqdXi3
+	uKBKO3/nxElxXFzbKcqJoycjDD2jdStXQW+5uLO/+1M2hFQydxubFHb4Rs3Yn3Vzsn2SVeEfpF3gu
+	1Myjl9aUjXzw0KmYfNBzqlz+C51yPCS0uUgfFXqndZeCROdtzEB3qdjtLApUh3DKYc8LTFtR1PlqI
+	a0+OpcjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7KQ-000000023DS-0SVx;
-	Mon, 17 Mar 2025 10:04:14 +0000
-Received: from mail-dbaeur03on20613.outbound.protection.outlook.com ([2a01:111:f403:260d::613] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tu7Pd-000000024J2-0WG7;
+	Mon, 17 Mar 2025 10:09:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu7HI-000000022JB-19q2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 10:01:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NS5stbffiZy/5onXF2Ot205YgTNJtVXeE71qPqQUIR2zT1DwRuQCdBhI+qU8qGkSyLeLg2DmO16Vl/EVW97+N198Zg4twjMpi4i2mHKfM0L45TyRU7rtrv97uVFqm0qGi5uCjd/ySbd+0NMvMa8JMPFZBYoXF74S2KgTnEW7aSdMQIkMUMurmM2YV5IyjA8jGtVeAnRrTllXl+zDf2P8wvBV/255tA5zNEhqQOWLcy+RO8FO7nafY2MT6Rpf1BNr7dRY+dIoQGt1o2IBTtFrZiNvaKD/5laulWtsbrlXvugkEg5M5hopGpBNqGYBxVMlZ5HUrF+jpJSM3LzQesmHZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+mNHCjfb/DtDw4J4SakbzoCjCysgITVRQ/YBjTaifNk=;
- b=h9UpVyPvfyypV2AN/mg+TwqC9jzrLHPdUjxcnfcIo6x0Myf2AURvMWSaZ7b2NEcRb9GyfP9fjKZ/cXYZeZnTCg/urLEe7/U3fyz2+v1yXc5BztxVMYm6jTb40Lx+qF5PPN6aSZm/6FEKtCsf36jQdC0SiESGBUhU4PYN6D2mxU9zuU20RjCXCYWvbuv+Hp9qmBV33eL5gHoA7ZTC1/C2La8YoU7Ji9U1Vj4WSbW2iEfPL+mnAmyBoAkgWhoEl0YFZAJz00WyqEsauFcx4TbkCP6JLlDimUHRGFO7y3IcbBlcuZA/ptdJgAOzOwhlOzzIT6uyqqvXQz10+AjM274jzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+mNHCjfb/DtDw4J4SakbzoCjCysgITVRQ/YBjTaifNk=;
- b=kq0Ifo9Hqcc9q0h/2dE+3jkOJ5aKxCtYhwhm0bDLzcPCPv9zMnlwxOfzXfYqQj16iZhnNzMhKHDOVz7KWMvhCYATztF4yX+96Gz+Fi5aaS+Iq2/4d29+E5BVnhG72gDyccttPV+6QSfPvZ45DK3YdWj7zttfp2OliNgfHSWkQe2x2yixO4pSS57gIQG8iMskwhaiLx78crjyazh1mJJ9Q6GDO38NtnyCbynIufCHdZvs5X+2CfsWQX/tkxBbqTS2/SdAsTH5lDmxA62YsXPBU8wGuGHZNsLE0fJ27CqVsmIS242M3XUuOxZ4WCJxa8sKUHwxQJoIDHvc8uBin1bldw==
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by PA4PR04MB7760.eurprd04.prod.outlook.com (2603:10a6:102:c5::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Mon, 17 Mar
- 2025 10:00:56 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8534.031; Mon, 17 Mar 2025
- 10:00:56 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Clark Wang
-	<xiaoning.wang@nxp.com>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
-	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "christophe.leroy@csgroup.eu"
-	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v4 net-next 03/14] net: enetc: move generic MAC filterng
- interfaces to enetc-core
-Thread-Topic: [PATCH v4 net-next 03/14] net: enetc: move generic MAC filterng
- interfaces to enetc-core
-Thread-Index: AQHbkkpOrze484r8D0W5Y5Kfclxt2rN3HWEQgAAD5vA=
-Date: Mon, 17 Mar 2025 10:00:56 +0000
-Message-ID: <PAXPR04MB85106C0A4AB17B67A5A4982F88DF2@PAXPR04MB8510.eurprd04.prod.outlook.com>
-References: <20250311053830.1516523-1-wei.fang@nxp.com>
- <20250311053830.1516523-1-wei.fang@nxp.com>
- <20250311053830.1516523-4-wei.fang@nxp.com>
- <20250311053830.1516523-4-wei.fang@nxp.com>
- <20250317094259.b6mwygvr75lxgkwh@skbuf>
-In-Reply-To: <20250317094259.b6mwygvr75lxgkwh@skbuf>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|PA4PR04MB7760:EE_
-x-ms-office365-filtering-correlation-id: fefc91fb-ee1d-4bc5-1e20-08dd653a9c83
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?lhPl9hBgydR9JJJHA6Nxzk/U0BsqHRoM6Cb/IibbySEvdbbJJPB6/uhrk9v+?=
- =?us-ascii?Q?l4Nc9DHI/BV4+LzXEzOTWiu8n1JMVXA+X4NwF4A1NApnwZUue6sgO+DZqr7N?=
- =?us-ascii?Q?Zlv00HKYqHi1O5jrsFjaB/8+kGZr26lBIUDshMC2EsMlWM/yqSgesr+BL/rS?=
- =?us-ascii?Q?T6F2iBlIGuqxB/MY1td+lkTktL9rINUUASWQq6claEAvzKlr92z0uv1A5fRK?=
- =?us-ascii?Q?tdLOmQNZLe15yl4k1dCpkBSd2fUIfwXJDFju/Ah1C0TbOVxAo3j6F71ViMHv?=
- =?us-ascii?Q?gJSOL2RCtHA35N9DAt0HnZ+H/m4j17cJqGREINQnI9GCpsUHI4mHx+0N+zGj?=
- =?us-ascii?Q?Wt7UKNWlP0ZrMAdYb5IFnuYALMpuavqPq4yKPivuhhQCH9loNtnfMJaCakOl?=
- =?us-ascii?Q?3yZ6ef8g4BDuhrIpHZIR/Go8a67uvugK9zX8SQFtDRayDGVcBcVWeGw+FLl3?=
- =?us-ascii?Q?e5wtOp/fzIymRSNOgLLYNFSxs+7Ihwt2YhxCYZbv4Bh7tTc8cbk0F9frgBha?=
- =?us-ascii?Q?ygsOnWxooTOhTVfKwD2GNPKnAnhk4DJTX/QZFDGbuLUY1B901p/gI2qsFZyH?=
- =?us-ascii?Q?N8XirvTIjMdVpuxq32a+qLSbClHFVL/1PWhfco8ri1xRw4yvY1/YQpqXwfiY?=
- =?us-ascii?Q?ts4PSXCZW4TDAU0R2JaPnkDFCij+uotvIZrMHSF2CZgrFyXNfEMKkm3BJZZ8?=
- =?us-ascii?Q?IizPm2p7WdGez1tkjEPWXLyXLqbVCfmspAPF84DSJSNeFV+/aWgSQO8JF4K6?=
- =?us-ascii?Q?92/AlNLZoW8NcdAXAdFchTsnvnTXTcpDvpiq7kSPUOc1mJl6lbrp1dk7b8jx?=
- =?us-ascii?Q?fxEy/yFw6PrVJdrJA9JlnOIH726Y3YMjldGOES2crLtpT0GakhxdGffC+n1y?=
- =?us-ascii?Q?F7UxxBKEg3dx7WZRPXum/t3n525usgvHG3ebKD4oMap44RlNnIEWgiOk9+lX?=
- =?us-ascii?Q?fupwS3PfI9gKlpwJFZr2Pj0nBjVyvxrjqw0z3vgwrVNwQO9zabupkvEjEuts?=
- =?us-ascii?Q?k3Ahb6zis5lhq+AaGltpxgHrmkJ8jrkbm2iaDHIhE+GSzchh2DpQMFoZ1GBt?=
- =?us-ascii?Q?VhB0oP/0quo4IATVyMMqORtesWDNgQfEO9YIcRpXwr9v49hU90YiH0X48HDm?=
- =?us-ascii?Q?ewHhLAFOvjcL61N+uoQKJG6ugdZAhT7V7m4QjqJmZPKHqV5JnWE/kRhwWAAl?=
- =?us-ascii?Q?XrVR7z1J4QuSa1r1xiVKn06fVVfyH5Dg4pAtsMY6yfXcZyty5UFbyycvP3oS?=
- =?us-ascii?Q?A04mOqlT1Bgyn63927oybRP0SeIw+IAOqnug4YaSP6LNk6OjYQ1I09LKDdZj?=
- =?us-ascii?Q?aW2A1Z5Qjyijy0oE0N7pLWXvemGvAuQ+rW454EOvSt0fAA72E+oCmz7aydII?=
- =?us-ascii?Q?TOqXEJWyAp/1nw+HPOS2Uv28nRyCglRW1t1djS+ION1Xri6KzsmCtIhmAZ5W?=
- =?us-ascii?Q?4oyfu9F2du3Z2R3GLapYzhXmxSsjUuDP?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?KVK4V5/pnIO2dqxQFwYbpu7AdmMy1+3ni+cgcpGLR/ASmF7G8qQZqPeEqckv?=
- =?us-ascii?Q?hY0U6iQ4fXbf7WyNyhJlwSVzu/ATOXi/Ne77xp0lSne0B46qlC10jqTJLIxX?=
- =?us-ascii?Q?zmgJ3X4LwtrIibpiKfknSxgMR0Idt7sTEgDyH7vJe5hbhCWkOBfeam5XzqG8?=
- =?us-ascii?Q?Qq5vTiZr4JSJ/RR04xZxT7ct6uOZv/VhWEdQOusqDG4YqK6XxDKjF4bVle8+?=
- =?us-ascii?Q?OrJajVDfOnmw47AZDDY1Zi8J6B0fm16MGIw25i/l15cfKx04q+Io2aKtIwAl?=
- =?us-ascii?Q?hgwTrjRvA7rgZBELSGlc0z3Zgxwtq3/b54z+9UYGSHrobUXEphIWOyPXYv5J?=
- =?us-ascii?Q?mUyNuuhy8qUNtZszFwV82vr0DO6tS95d7apln1lww3gXAvJk8/6Eo2GB1LJW?=
- =?us-ascii?Q?tNxdvUIqMoeGSAqgXhrJpfJfT2HFDk3NULrts8T3Pq7UxmOgH0jNB9v1Olrq?=
- =?us-ascii?Q?IyYknXOEOlUu2QQI+emEI+2GN5c0OjqgAqrwzbpMxycc1evjXy0s/9xMrtdY?=
- =?us-ascii?Q?SuohftfOvVQYl319O7xzb5F4rDbehr0wVyPDGBZ7OwE63F4xoSlXEC+hGawK?=
- =?us-ascii?Q?Kqp8b4kARxcfrg/Bjw6Jd1nkEGbHrthFyZFBXUmME9xSo34k0sB9M0bYaahb?=
- =?us-ascii?Q?awW5QUOK1pEmGkBLjlsSuMlWVnz9XM8iEvWTUgs11iMgPbfWffwuatSglLW0?=
- =?us-ascii?Q?N4ytH3dhLfCWTwH294vFV4hqqlpFjuh7HM88emWygn4pY1QpHH748Y+qjNMw?=
- =?us-ascii?Q?LuU97uu5GrvON1KEnaRYhnG+3yss3ZFO/OQE4qBsgm/pj1BNyZS2g8t2MVEE?=
- =?us-ascii?Q?w4ugu1hq4WPToqDPhRsxRciJtSSPcjroAAACdz3Pr4FoyxshJ46RLUI1qdbz?=
- =?us-ascii?Q?0fdZydZdkxzi3fHlW0N/YWYoo4Bba2e9NFqZaPXri6tOT4XMy+C2yhB9RBHV?=
- =?us-ascii?Q?QQQJf6+hQs18x045uoN0+uL9Z/CZgu6r31XPvahVE3Rs2j86HwsfrvJmGoAO?=
- =?us-ascii?Q?r5UVRRGW/KUGjL1qB6mfwRyF5VOL6ldC8LZw/Fq0XjY9uD5xSCu5K2odGF8G?=
- =?us-ascii?Q?/e400Y8z0OcTPLBhc34pQNp+jKiIQ3saOuC0BoBz8PaBNLzeMGMgtj+LIAlP?=
- =?us-ascii?Q?VxMzRy/9X0y/wApWpDg/ql0PCmtMJOsfnzXRxKJOGw1k3YMoISApBXY4v8pi?=
- =?us-ascii?Q?d0B80ta5rOoFcTf43oEGAZpHCPDOhZ7jh2Vl3CkNoHTUALzWIZFH9UNUUB66?=
- =?us-ascii?Q?VGvJKXBiLwzfjGLkrnY3J/ut26yH1rq9gipSVHOv+6sGansMi9z1ZkuFIwh6?=
- =?us-ascii?Q?qxt4MeqJmzt8D+zvpO6k/yawxXkfKBVIzhtQw9rfvXq45rNZu3huJW0JFr6T?=
- =?us-ascii?Q?aQRPr6uhgF1i+TZBA9X2EzynpeG1ikv4GSX8a0sAUScKGz7K48tA1yu8Hunn?=
- =?us-ascii?Q?9Hw9z7TIanwn1j06JPCUAhzzxt9ET8ss7KxXDQtyWGgC3+Q4yHyssY1pKAZk?=
- =?us-ascii?Q?8JeUx5G2dxcaZeRgbqoqN7r/4+gwpFDbmshtvcwksyJRF6iRAHJbXJQC1fpu?=
- =?us-ascii?Q?1IKKbECGBQEnnKSa+FQ=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tu7Nu-000000023mF-2ERA;
+	Mon, 17 Mar 2025 10:07:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1742206068;
+	bh=8lS5hmgPL3TYuQclYZ9vfPxIWeswa/Pdrh0fXPBcwWA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DEPD6TQb2muBQx4U2eHrGHZLYQx3/7kW6Fli7xueDlalRM/j9T8zhrj/vuRfyUy3B
+	 EW2VLZvytpoeGtcJkbhKJrPDlZ870TCWsvtom80M6Ai3BOkLBDUgnpnFnbpTYgP+s9
+	 x9vEqQWUyO+AwmMjAGX7hszhkKEI/ecu3gUrNtzZNWMrPXJEVz31GshUMquLPrQZYg
+	 3KSL9ajKzChu9PJGectraGgPEM9apNi6JuKASwlWkwBamNEVXRBvGwI2PEtBifXf0C
+	 EvKs962aMsWgUHm+2a7BQLFSImlkAjQG3x+YUtPKidztC2TUQVXHXMiJLcw1dAJSda
+	 1SfI6F9mH3nRg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2619217E0385;
+	Mon, 17 Mar 2025 11:07:48 +0100 (CET)
+Message-ID: <375d5281-41f5-49e8-ac20-d58931c0c1f9@collabora.com>
+Date: Mon, 17 Mar 2025 11:07:47 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fefc91fb-ee1d-4bc5-1e20-08dd653a9c83
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2025 10:00:56.4408
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: h500DtXXxvmRJXrlaTbMUyaNJgQS2P4xJZ0j/AL9GFbix/WXbgPW92wok7FL/MFYl+1FW7ZqWHlwgTAWaKm5+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7760
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 0/3] add VCP mailbox and IPC driver
+To: Jjian Zhou <jjian.zhou@mediatek.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ Chen-Yu Tsai <wenst@chromium.org>
+References: <20250317083822.891-1-jjian.zhou@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250317083822.891-1-jjian.zhou@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_030100_352026_C83B3127 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250317_030750_745837_5863CDEA 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,42 +79,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> title: s/filterng/filtering/
->=20
-> On Tue, Mar 11, 2025 at 01:38:19PM +0800, Wei Fang wrote:
-> > Although only ENETC PF can access the MAC address filter table, the tab=
-le
-> > entries can specify MAC address filtering for one or more SIs based on
-> > SI_BITMAP, which means that the table also supports MAC address filteri=
-ng
-> > for VFs.
-> >
-> > Currently, only the ENETC v1 PF driver supports MAC address filtering. =
-In
-> > order to add the MAC address filtering support for the ENETC v4 PF driv=
-er
-> > and VF driver in the future, the relevant generic interfaces are moved =
-to
-> > the enetc-core driver. At the same time, the struct enetc_mac_filter is
-> > moved from enetc_pf to enetc_si, because enetc_si is a structure shared=
- by
-> > PF and VFs. This lays the basis for i.MX95 ENETC PF and VFs to support
-> > MAC address filtering.
-> >
-> > Signed-off-by: Wei Fang <wei.fang@nxp.com>
-> > ---
->=20
-> For this series I don't see any VF implementation of ndo_set_rx_mode().
-> I don't think you have to move struct enetc_mac_filter from struct enetc_=
-pf
-> to struct enetc_si, so please don't do that until there is a justificatio=
-n
-> for it that is contained in the same patch set, and the two can be
-> evaluated together.
+Il 17/03/25 09:38, Jjian Zhou ha scritto:
+> The VCP mailbox has 5 groups. Each group has corresponding interrupts,
+> registers, and 64 slots (each slot is 4 bytes). Since different features
+> share one of the mailbox groups, the VCP mailbox needs to establish a
+> send table and a receive table. The send table is used to record the
+> feature ID, mailbox ID, and the number of slots occupied. The receive table
+> is used to record the feature ID, mailbox ID, the number of slots occupied,
+> and the receive options. The API setup_mbox_table in mtk-vcp-ipc.c calculates
+> the slot offset and pin index for each feature ID based on the mailbox ID and
+> slot number in the send and receive tables (several slots form a pin, and
+> each pin can trigger an interrupt). These descriptions are written in the
+> mtk-vcp-ipc.c file -- we call it the IPC layer.
+> 
+> We have two questions:
+> How should we describe the mailbox and IPI?
+> Can the intermediate IPC layer be rewritten as a virtual mailbox layer?
+> 
 
-Okay, I will keep them in "struct enetc_pf". :)
->=20
-> Moving enetc_add_mac_addr_ht_filter() and enetc_reset_mac_addr_filter()
-> to enetc.c seems fine.
+So, for this remote processor messaging system you have:
+  - Dynamic channel allocation
+    - Each channel has its own endpoint
+    - Each channel has its own interrupt
+  - Data send operation
+    - Both with and without ACK indication from the remote processor
+    - To channel -> endpoint
+  - Data receive operation
+    - From channel <- endpoint
+    - When interrupt fires
+    - Could use polling to avoid blocking in a few cases
+  - A custom message structure not adhering to any standard
+
+Check drivers/rpmsg/ :-)
+
+On MediaTek platforms, there are many IPI to handle in many subsystems for
+all of the remote processors that are integrated in the SoC and, at this
+point, you might as well just aggregate all of the inter processor communication
+stuff in one place, having an API that is made just exactly for that, instead
+of keeping to duplicate the IPI stuff over and over (and yes I know that for each
+remote processor the TX/RX is slightly different).
+
+If you aggregate the IPI messaging in one place, maintenance is going to be easier,
+and we stop getting duplication... more or less like it was done with the mtk_scp
+IPI and mtk-vcodec .. and that's also something that is partially handled as RPMSG
+because, well, it is a remote processor messaging driver.
+
+Just to make people understand *how heavily* MediaTek SoCs rely on IPI, there's
+a *partial* list of SoC IPs that use IPI communcation:
+
+thermal, ccu, ccd, tinysys, vcp, atsp, sspm, slbc, mcupm, npu, mvpu, aps, mdla,
+qos, audio, cm_mgr.... and... again, it's a partial list!
+
+That said... any other opinion from anyone else?
+
+Cheers,
+Angelo
+
+> Example of send and recve table:
+> Operation | mbox_id | ipi_id | msg_size | align_size | slot_ofs | pin_index |  notes
+> send          0          0       18          18           0          0
+> recv          0          1       18          18          18          9
+> send          1         15        8           8           0          0
+> send          1         16       18          18           8          4
+> send          1          9        2           2          26         13
+> recv          1         15        8           8          28         14       ack of send ipi_id=15
+> recv          1         17       18          18          36         18
+> recv          1         10        2           2          54         27       ack of send ipi_id=2
+> send          2         11       18          18           0          0
+> send          2          2        2           2          18          9
+> send          2          3        3           4          20         10
+> send          2         32        2           2          24         12
+> recv          2         12       18          18          26         13
+> recv          2          5        1           2          44         22
+> recv          2          2        1           2          46         23
+> 
+> Recv ipi_id=2 is the ack of send ipi_id=2(The ipi_id=15 is the same.)
+> 
+> Jjian Zhou (3):
+>    mailbox: mediatek: Add mtk-vcp-mailbox driver
+>    firmware: mediatek: Add vcp ipc protocol interface
+>    dt-bindings: mailbox: mtk,vcp-mbox: add mtk vcp-mbox document
+> 
+>   .../bindings/mailbox/mtk,mt8196-vcp-mbox.yaml |  49 ++
+>   drivers/firmware/Kconfig                      |   9 +
+>   drivers/firmware/Makefile                     |   1 +
+>   drivers/firmware/mtk-vcp-ipc.c                | 481 ++++++++++++++++++
+>   drivers/mailbox/Kconfig                       |   9 +
+>   drivers/mailbox/Makefile                      |   2 +
+>   drivers/mailbox/mtk-vcp-mailbox.c             | 179 +++++++
+>   include/linux/firmware/mediatek/mtk-vcp-ipc.h | 151 ++++++
+>   include/linux/mailbox/mtk-vcp-mailbox.h       |  34 ++
+>   9 files changed, 915 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/mailbox/mtk,mt8196-vcp-mbox.yaml
+>   create mode 100644 drivers/firmware/mtk-vcp-ipc.c
+>   create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
+>   create mode 100644 include/linux/firmware/mediatek/mtk-vcp-ipc.h
+>   create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
+> 
+
+
 
 
