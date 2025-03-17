@@ -4,111 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F56C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2E2C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 18:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MzxT2e/1eJk/FLQ+z6SIGo3gYKC2SmKVBiMJMl5+j/U=; b=YErYe/Alra2oTIeZbmh5Byc/ag
-	QpJnZ90pMeJBPnoN9z7coji8TE1wrv2kxh1yn0SvxbdlCErgyOmIkxAd407wOQtJmd61opBcmJPxU
-	7KSrr3toNK3HF4GV7sDVGYt3ITODHs8Xmi9zBDYRLbpUes78o0HdInie+DLWKVhdMBikHYEO1ME3q
-	MCfeCHV8R34Ei5NXyee5KgrjX3rXtNTt4CJHSCslpOZX2FcYX4t4+peqLP2XSUOu8lxFpCakLhOOa
-	cyKHtaJnHGMmh57lAV8kVyCjSFTCLLoxt9NVU/9YuUsjes7ePUqGqceaqwxApjnR/Ld1wHKnCwGyq
-	8Nn0OmIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gMs0KQ2xoYfGwipz0GcDyzvKZDx/2Bps5YmVJfONNew=; b=oaHW5IF5bIZsWmUDU8dT8ToVDZ
+	DczsJUv7e+ecsJ3119a1mSpBhIrryFJvoNrLQYXBMq8nqvJWJi4B1kVzzsNB4sucmTR+ReVTBr2Ll
+	EaL7E+IMKLJLaAcuS+9uOkM+0gYhHWPU5uf/50XgXHcwDuMbNlpIOlUCtk+z4TkyQV322sz2gy+4i
+	s4bQx1u84aACCCJ0eGkMFUgGJDNuFHu0FxGudgFnz85DdSDqUMmu1z62MU25cZfIBnIbJ0MGuB+iq
+	BAHs6sU+GeyX3RyaW8FnosNceNwzOc2BWrQKBzF3T7xup6B4h4bpEBbTO3E65YauUP8oSjhHswwaT
+	/3vMy4nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuEv1-00000003e3K-2pKF;
-	Mon, 17 Mar 2025 18:10:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tuEwg-00000003eSP-1Rwu;
+	Mon, 17 Mar 2025 18:12:14 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuEjN-00000003cJK-0Sl1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Mar 2025 17:58:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=MzxT2e/1eJk/FLQ+z6SIGo3gYKC2SmKVBiMJMl5+j/U=; b=J6g/HaGjJpC76KVtX5a81wj8Ok
-	yznEOoVf+9zDG0mYXnKQKxYCXpXDek3sM+oWY5tA6vKp8WmQRgr/KgdyI8S/hzwpnc2/HBAsNQrWt
-	cIQYcuLOnkoVS/PgNf3kMq6sOmCw0/XKSlIb19ukJGbT+VQV6CYdR/2ZdSjz7RfyeqzyQKtBoXpw+
-	jTCZ8FPF4AbT7Lol9yFyEm/giKQb0u4H4PKP9LMUJaXDlYEVcicQLxdSzw1VA7IhM7fg7hTQBeZyf
-	+wtFAjEvQfsHjFlPvucJ5IZdoq+GQgBnO0Dtj8JCw/F4MPtZzjO1o+NpH9q1pC3JXuq8yx7lc2gb1
-	h5IcfW9Q==;
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuEjJ-00000003Xh0-16pV
+	id 1tuEok-00000003dAc-44mT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 17:58:27 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id C3ED82540237;
-	Mon, 17 Mar 2025 13:58:18 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Mon, 17 Mar 2025 13:58:18 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1742234298; x=1742320698; bh=Mz
-	xT2e/1eJk/FLQ+z6SIGo3gYKC2SmKVBiMJMl5+j/U=; b=hjjc1uJg4PhsiEgWQo
-	OMxm2CMBEPIrx/7vOWkwvPEKqHphiLNsP3CnkWd47JEOY7ho+E7ExZOhZLu5lmbf
-	eUOXNYD/eck3CGcXxYwL11jXZMhRhKJ5TFqH+PFB7z5hhJYluq35YjEr2OwJbLdN
-	DwzWZvmuHHwYCJN1gbpPv2AE2Oyahus4g7wgwktg6M79KNPze8r93gPgsP639ZGV
-	nMdsoUTLESP3RzqFI4tnPROJ/q46SXG5AGESIrmwBRQznx2YpEXAi/VV8ktM630v
-	a50yPkNGZ2COsQP6f6Rt5VFSQCVemvQG//FF8MLdRWXduwQ8Yy/Cnk37sCDhVUlu
-	mCQA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1742234298; x=1742320698; bh=MzxT2e/1eJk/FLQ+z6SIGo3gYKC2
-	SmKVBiMJMl5+j/U=; b=zFGUb18klaAUN6qg1l1KJEqdHuyRxcYzBrf0N1mDdwM9
-	17ng2JJU3x1fyE4nXuVaWYEh/iLMNDVSjRxivLX8RfI/F6zVhjZm6k7OJQkiX8lg
-	KZVuGksu3bOC4o4y70AzyyEmz9snpOLVVrrv9tPpuqzk+2myrJ74GmOpdEfKJZ1b
-	MhAbZao9561K8tYffhmR4YnFUJZdOPVy500620tDLVhPiCz/cOAXS1t+oV3HWdJr
-	P2R4nMhdzl9gyKi7kGLiUk97F5BctQ4jVb8HHkd9fiMVx2AYA8LRm+3iWFEQhBfE
-	wvfQ75IY87SqohpWMuHT8XrDldExc9wpeybdT69P4Q==
-X-ME-Sender: <xms:umLYZ_KK0XxyakjqPhEU3Xf0QIZlkwtxDYJSdSwR5z1a7WjlyEjsbw>
-    <xme:umLYZzKxG6NTm7ySlKS_0j40uFUUsBQlQyjEmhvQ4piG3syxXtNW2ylbX_ZL46JtJ
-    EK2V5g-89uoYOY4z5Y>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugedtudekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkffutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhepteetgfejvdfgtdeiteelvedvieduieekteeludet
-    gfdtuedtuddvtefgvdduuedtnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhith
-    hhuhgsrdgtohhmpdhpvghnghhuthhrohhnihigrdguvgenucevlhhushhtvghrufhiiigv
-    pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsg
-    gprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtohhrvhgr
-    lhgusheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinh
-    hugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhr
-    tghpthhtohepshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlih
-    hnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:umLYZ3u2dQHKYAb_Ye6xaZ7SZAutcFRFp71Ae_2oe6djLi1aNpzDtw>
-    <xmx:umLYZ4agWIkeWprDC-sIYQNgyIfU0YN0mhgf9-IQ9UebcYIii2OSPw>
-    <xmx:umLYZ2aBwIbjvwwKdGbbRKgxUGFL3EpHbnn2B-nWu9n9v3BZzeIp9Q>
-    <xmx:umLYZ8BYJ5PKZ9qb-kDvY2an5H50MC4_MQd2LndvjddwkRFxybT6jw>
-    <xmx:umLYZ2EWmmHjfDiOT7jzCg1f0DWTq8c1OHxnwe699l35U5C9klh-mWPZ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 3761A2220072; Mon, 17 Mar 2025 13:58:18 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 17 Mar 2025 18:04:04 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ac2a9a74d9cso969930166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 11:04:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742234641; x=1742839441; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gMs0KQ2xoYfGwipz0GcDyzvKZDx/2Bps5YmVJfONNew=;
+        b=Nd3OmiNGyAE00NASWYm2JZecCO2AOCg59UdDw9aoi/q74Jdmka95Jhrbbj2HyLLciM
+         kCPgEg4LfVS3mDwhqkhcLFMhK/faWjWlAqIoA6X7VCLoTni6xIIfLHzpkXXjsJZQz2RG
+         1BBWkmo21GBZkiAoKKMrO9IPmU1ElKN4goxww3RQHcBkPOKbmOYvOPPgWwK3Alb3Zr9S
+         oPb5mK5Z8n2d406e0bGCbv1dPL7gQjQq/zCJRAAd3mwoSrLSSqmqur/Lg2nfXfKBwW7y
+         /dlOFxZ53nozSuTYsg206m6X/QrdDUAfCVbrHqb202jDysdVqLmnUkB3X1e6rG6WOTn1
+         Fjkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742234641; x=1742839441;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gMs0KQ2xoYfGwipz0GcDyzvKZDx/2Bps5YmVJfONNew=;
+        b=btoxXjqiw9KnEWuBEr34mvOmG+9GDqp9n6S2JWfUO3C/Uy2QyaZbuf9xE6b5qtNLnf
+         rlQ5byfnTQsEFIPQRVhzzsQfskL+rWlW+OF5+wzIv7Z4BZa7oSB1GlrrJJ3YQjXTk+sv
+         Lbmf8JQQL/gADodYbQp4Rcu2NmdLGwFruQHMmsi8E9M+qTVR4c/ybgaBESMUtYpKPUyM
+         9VKdvU2WQHvRV6vO3BHosz5QnptqqXVwO68Ev7eqnABi5m5zs09xnEkiLVMTvIZxXWSq
+         wtbCdOpj7hlTJSY3foUgyie4bW5SeqqfGnbYzvGVETCzAfKs01WdKtZ9e9WHFgPvb0L6
+         qx+A==
+X-Forwarded-Encrypted: i=1; AJvYcCU8/gLNKDwKhVka7OPLvij0TuqoF3Kxwz4qfIuUlM50LB6YBZgs5llu4OsnnTLdLbKdp6/PDNPrOuB/VyOHSYqC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIF2P+Lwy85E7GIGa6gEATDnjfkf0kQi3eMUF9YFTu8Y9hJ5x2
+	6Q0cDwIoliYzesTeopJp/3/1iLWh50fpDsAjRH0U7nr83zDrC9SefuvsUQ==
+X-Gm-Gg: ASbGncvXvenZr4bqHUZdiwDE/ewTKeeJDAl7kgcblXBzg6FA0IcC/83kMAXT5xENszO
+	ByOazjArHrrGzp3hQhGrN0ukuJYeNy6dGN1BZGndj23smz1WyDVCveS0AepTo1CLC31fasw8Dpu
+	MfaBGisZXxBqP8DA76nqJUxwoiaYQZayYYo/J4JW95fgXnGI0nRWCoklh7o+ngDmz7qnclsFcsU
+	Ci1bqtLQBSkIsMg6rI7gKGuhuU3+QLetV+jRzQuDdK8NYr5SPnSPonP+QerM2GFJEOMfFxjxXRw
+	oC3vl7DtsPiNggYA1pXZ4AVCabJ5baeMDyeS2hxfQd2c79rs8PaTW219Ov/sOp3rAQHRnu59/sn
+	UFB8AEgT4m/i2v9TF0pXTX7YT9G1LWdL5V0jBPXZSf/wsgMoqUTnKAQ==
+X-Google-Smtp-Source: AGHT+IEqHcYMxvD4RWbMqL7gZkeMlgl4L7sidotxxKm051Mjf5HVCCNTwf97wRSQF+aZjoUe1nGS6g==
+X-Received: by 2002:a17:906:6a0a:b0:ac2:b414:ba2a with SMTP id a640c23a62f3a-ac330376bb6mr1524996566b.37.1742234641045;
+        Mon, 17 Mar 2025 11:04:01 -0700 (PDT)
+Received: from alb3rt0-ThinkPad-P15-Gen-1 (host-95-252-211-62.retail.telecomitalia.it. [95.252.211.62])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3149cdec8sm705009766b.112.2025.03.17.11.04.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Mar 2025 11:04:00 -0700 (PDT)
+Date: Mon, 17 Mar 2025 19:03:58 +0100
+From: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: shawnguo@kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: OCOTP and DWMAC builtin modules are needed for imx93-11x11-evk
+ kernel dev via TFTP and NFS
+Message-ID: <Z9hkDqcKG1xOmIB5@alb3rt0-ThinkPad-P15-Gen-1>
+References: <Z9fhuVltKwqgHdLp@alb3rt0-ThinkPad-P15-Gen-1>
+ <935028c6-ce56-46e0-96ff-46fa91c8f66a@linaro.org>
 MIME-Version: 1.0
-Date: Mon, 17 Mar 2025 18:57:57 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-Message-Id: <860b2eaa-1aea-45e0-8bf5-3645b3840966@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.14, part 2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <935028c6-ce56-46e0-96ff-46fa91c8f66a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_175825_953282_FEB7146E 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20250317_110403_013154_17DD0A88 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,173 +99,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 7eb172143d5508b4da468ed59ee857c6e5e01da6:
+On Mon, Mar 17, 2025 at 05:07:26PM +0100, Krzysztof Kozlowski wrote:
+> On 17/03/2025 09:47, Alberto Merciai wrote:
+> > While playing with linux-next and imx93-11x11-evk via NFS and TFTP
+> > I found that the dwmac-imx, nvmem-imx-ocotp-ele drivers by default are
+> > not builtin then the I was not able to reach userland. 
+> > 
+> > The following configs were needed to reach my goal:
+> > CONFIG_DWMAC_IMX8=y
+> > CONFIG_STMMAC_ETH=y
+> > CONFIG_NVMEM_IMX_OCOTP_ELE=y
+> > 
+> > is that something expected?
+> 
+> You mean they are disabled or you just did not put them inside your
+> initramfs?
+> 
+> Best regards,
+> Krzysztof
 
-  Linux 6.14-rc5 (2025-03-02 11:48:20 -0800)
+Hello,
 
-are available in the Git repository at:
+By default they are enabled as external modules, then until we don't
+reach userland they are not loaded thus eth and all the mechanism behind
+that are out.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.14-2
+I'm not using initramfs just tftp and NFS as follows:
+setenv loaddtb "tftp 0x80400000 imx93-11x11-evk.dtb"
+setenv loadkernel "tftp 0x83000000 Image"
+setenv netargs "setenv bootargs console=ttyLP0,115200 root=/dev/nfs ip=dhcp nfsroot=192.168.1.3:/tftp/root,v3,tcp"
+setenv bootcmd "run loaddtb; run loadkernel; run netargs; booti 0x83000000 - 0x80400000;"
 
-for you to fetch changes up to 45d5fe1c53baaed1fb3043f45d1e15ebb4bbe86a:
+Do you think that initramfs can solve that?
 
-  ARM: davinci: da850: fix selecting ARCH_DAVINCI_DA8XX (2025-03-14 18:24:05 +0100)
+To be honest I was expecting to have a builtin driver for eth by
+default, so that NFS and TFTP can be turned on without caring about the rest.
+But for sure I'm missing something  there :)
 
-----------------------------------------------------------------
-soc: fixes for 6.14, part 2
-
-The majority of the last fixes are for devicetree files. This address two
-important regressions for the Qualcomm SMMU and the Raspberry Pi 4 USB
-controller, as well as a larger number of patches fixing minor mistakes
-in board specific files for Rockchips, i.MX, starfive and broadcom.
-
-The non-DT changes are
-
- - A fix for an old boot regression on Renesas shmobile chips
-
- - Another boot time regression for for the Qualcomm PDR SoC driver,
-   among a few other Qualcomm firmware driver fixes for efivars
-   and tzmem.
-
- - Minor Kconfig fixes for davinci and OMAP1
-
- - Minor code fixes for sparx5 reset controllers, OMAP memory controller,
-   i.MX SCU, cpufreq and SoC drivers and a Hisilicon SoC driver.
-
- - One more update to the Asahi maintainers, adding Neal Gompa as a
-   reviewer
-
-----------------------------------------------------------------
-Alexander Stein (1):
-      arm64: dts: freescale: tqma8mpql: Fix vqmmc-supply
-
-Arnd Bergmann (12):
-      Merge tag 'arm-soc/for-6.14/devicetree-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
-      Merge tag 'arm-soc/for-6.14/devicetree-arm64-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
-      Merge tag 'imx-fixes-6.14' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into arm/fixes
-      Merge tag 'riscv-dt-fixes-for-v6.14-rc6' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into arm/fixes
-      ARM: OMAP1: select CONFIG_GENERIC_IRQ_CHIP
-      Merge tag 'arm-soc/for-6.14/devicetree-fixes-part2' of https://github.com/Broadcom/stblinux into arm/fixes
-      Merge tag 'v6.14-rockchip-dtsfixes2' of https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
-      Merge tag 'asahi-soc-maintainers-6.14-fixes' of https://github.com/AsahiLinux/linux into arm/fixes
-      Merge tag 'qcom-arm64-fixes-for-6.14' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
-      Merge tag 'qcom-drivers-fixes-for-6.14' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
-      Merge tag 'renesas-fixes-for-v6.14-tag1' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes
-      Merge tag 'reset-fixes-for-v6.14' of git://git.pengutronix.de/pza/linux into arm/fixes
-
-Chester A. Unal (2):
-      ARM: dts: BCM5301X: Fix switch port labels of ASUS RT-AC5300
-      ARM: dts: BCM5301X: Fix switch port labels of ASUS RT-AC3200
-
-Dan Carpenter (1):
-      firmware: qcom: scm: Fix error code in probe()
-
-David Lechner (1):
-      ARM: davinci: da850: fix selecting ARCH_DAVINCI_DA8XX
-
-Dragan Simic (2):
-      arm64: dts: rockchip: Add avdd HDMI supplies to RockPro64 board dtsi
-      arm64: dts: rockchip: Add missing PCIe supplies to RockPro64 board dtsi
-
-E Shattow (1):
-      riscv: dts: starfive: Fix a typo in StarFive JH7110 pin function definitions
-
-Geert Uytterhoeven (1):
-      ARM: shmobile: smp: Enforce shmobile_smp_* alignment
-
-Hector Martin (1):
-      MAINTAINERS: Add apple-spi driver & binding files
-
-Heiko Stuebner (2):
-      arm64: dts: rockchip: remove supports-cqe from rk3588 jaguar
-      arm64: dts: rockchip: remove supports-cqe from rk3588 tiger
-
-Horatiu Vultur (1):
-      reset: mchp: sparx5: Fix for lan966x
-
-Huisong Li (1):
-      soc: hisilicon: kunpeng_hccs: Fix incorrect string assembly
-
-Jianfeng Liu (1):
-      arm64: dts: rockchip: slow down emmc freq for rock 5 itx
-
-Joe Hattori (1):
-      firmware: imx-scu: fix OF node leak in .probe()
-
-Johan Hovold (1):
-      firmware: qcom: uefisecapp: fix efivars registration race
-
-Justin Klaassen (1):
-      arm64: dts: rockchip: fix u2phy1_host status for NanoPi R4S
-
-Konrad Dybcio (1):
-      Revert "arm64: dts: qcom: sdm845: Affirm IDR0.CCTW on apps_smmu"
-
-Krzysztof Kozlowski (1):
-      soc: qcom: pmic_glink: Drop redundant pg assignment before taking lock
-
-Neal Gompa (1):
-      MAINTAINERS: Add myself (Neal Gompa) as a reviewer for ARM Apple support
-
-Peng Fan (1):
-      soc: imx8m: Unregister cpufreq and soc dev in cleanup path
-
-Phil Elwell (3):
-      ARM: dts: bcm2711: PL011 UARTs are actually r1p5
-      arm64: dts: bcm2712: PL011 UARTs are actually r1p5
-      ARM: dts: bcm2711: Don't mark timer regs unconfigured
-
-Quentin Schulz (2):
-      arm64: dts: rockchip: fix pinmux of UART0 for PX30 Ringneck on Haikou
-      arm64: dts: rockchip: fix pinmux of UART5 for PX30 Ringneck on Haikou
-
-Roger Quadros (1):
-      memory: omap-gpmc: drop no compatible check
-
-Saranya R (1):
-      soc: qcom: pdr: Fix the potential deadlock
-
-Stefan Eichenberger (3):
-      ARM: dts: imx6qdl-apalis: Fix poweroff on Apalis iMX6
-      arm64: dts: freescale: imx8mp-verdin-dahlia: add Microphone Jack to sound card
-      arm64: dts: freescale: imx8mm-verdin-dahlia: add Microphone Jack to sound card
-
-Stefan Wahren (1):
-      ARM: dts: bcm2711: Fix xHCI power-domain
-
-Yao Zi (1):
-      arm64: dts: rockchip: Remove undocumented sdmmc property from lubancat-1
-
- MAINTAINERS                                        |  3 +++
- arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi        |  5 -----
- arch/arm/boot/dts/broadcom/bcm2711.dtsi            | 12 +++++-----
- .../boot/dts/broadcom/bcm4709-asus-rt-ac3200.dts   |  8 +++----
- .../boot/dts/broadcom/bcm47094-asus-rt-ac5300.dts  |  8 +++----
- arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi      | 10 ++++-----
- arch/arm/mach-davinci/Kconfig                      |  1 +
- arch/arm/mach-omap1/Kconfig                        |  1 +
- arch/arm/mach-shmobile/headsmp.S                   |  1 +
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  2 +-
- .../boot/dts/freescale/imx8mm-verdin-dahlia.dtsi   |  6 ++---
- .../arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi | 16 ++++---------
- .../boot/dts/freescale/imx8mp-verdin-dahlia.dtsi   |  6 ++---
- arch/arm64/boot/dts/qcom/sdm845.dtsi               |  1 -
- .../boot/dts/rockchip/px30-ringneck-haikou.dts     | 12 ++++++++++
- .../arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi |  2 +-
- arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi | 14 ++++++++++++
- arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts |  1 -
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts     |  1 -
- arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts |  3 +--
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi     |  1 -
- arch/riscv/boot/dts/starfive/jh7110-pinfunc.h      |  2 +-
- drivers/firmware/imx/imx-scu.c                     |  1 +
- drivers/firmware/qcom/qcom_qseecom_uefisecapp.c    | 18 +++++++--------
- drivers/firmware/qcom/qcom_scm.c                   |  4 ++--
- drivers/memory/omap-gpmc.c                         | 20 -----------------
- drivers/reset/reset-microchip-sparx5.c             | 19 +++++++++++-----
- drivers/soc/hisilicon/kunpeng_hccs.c               |  4 ++--
- drivers/soc/imx/soc-imx8m.c                        | 26 ++++++++++++++++++++--
- drivers/soc/qcom/pdr_interface.c                   |  8 +------
- drivers/soc/qcom/pmic_glink.c                      |  2 +-
- 31 files changed, 119 insertions(+), 99 deletions(-)
+Thanks,
+Alberto
 
