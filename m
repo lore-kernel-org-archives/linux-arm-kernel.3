@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FCBC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 19:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90329C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 19:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nca+yjlOeLq6HDcA1WmI6PC/RnpXa5Aw/dsS8wslEos=; b=OmYm3z8omHY8RH442x2Ig8TVOa
-	yFArSM1b2khjzRVUdGya/ZJlnMNCa/GG1cv0OdJpfi6h2UuUH6Abe5pae7QrVPhgcKcpxMlzSVstx
-	4/1GYWkBOQglWnYCsLov0gok0TWC/L1fk+5Ytpt7eEyLdaazJTjvkSdLKYVKehB7xDvT62hWK/wMK
-	Tpqpw7CpcKJ9sFARmVZajSwpGP7Hbo6wZeLbTfqtfagrwzCjG8BBxdHpzArFYXyve17M9MEV6gxwj
-	xa48BG7U1iLgJ06Fa1vQ7Ky0icwWi+WDXt3FyCn8x0jNr0y0Is+Qs1h6C+d2zGEXMoWK+IPTm6Fyi
-	MEVuNU9Q==;
+	bh=t1WTao9NFteyfaYzewuSpHqVfQAMvgSzADPqoOBqbvc=; b=a/8wpa6lCw3cFiwkc47ebFqQ+M
+	OL6A+ckKh1ONilZAL/A4LeDhqZigOzLQtN7NxWNkEQ1zCBLJRWxtYzG11d6W3Z0osr36fog11Xw3K
+	cFTjdmgj3M1kHupm7v8F7IfBaYTiJraEUo6bGwb8cVIGhRljODVRYbMjb+KsWxSX6CNmeYLeQVBKi
+	13pZ3qR/rX9YCF/jQLPaxvts0F1z8GaiJCbin0LuhFSEWMgYPY39boigxgLHl8Ha3L7HeYORV+PmQ
+	S7XC8IkRHJFAliajGAKNuF3BU3UJQ323L23bANIwIbBYGyLvD3Rkq0M/S7IxUnuNIB0lPdkFo0dwm
+	wlNzNvlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuGOT-00000003qYg-1ZiZ;
-	Mon, 17 Mar 2025 19:45:01 +0000
+	id 1tuGQ8-00000003qpY-1Y0l;
+	Mon, 17 Mar 2025 19:46:44 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuGMm-00000003qIK-08Q2;
-	Mon, 17 Mar 2025 19:43:17 +0000
+	id 1tuGOD-00000003qUe-27y3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 19:44:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6CCE35C05A4;
-	Mon, 17 Mar 2025 19:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6D6DC4CEE3;
-	Mon, 17 Mar 2025 19:43:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 051235C3CE2;
+	Mon, 17 Mar 2025 19:42:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45DB4C4CEE3;
+	Mon, 17 Mar 2025 19:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742240595;
-	bh=t//6P/q0t8jIMHBT9W/8mr8iVb+RwiE/dM2UG+3+3rs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bJY6pWHAHjA8xrZ/5+VUjB1jqkwWQCAceb0D2Kx7WuOa/IeJcN7gAg8gWrxfY0F1U
-	 SQZR5hMLDYoUm3n3eaILBNSY9qtWVg0N9pX7wa3so9kHRslCGuR3KWEY0Pk9v6L4/R
-	 Pk6sPCllY/LZHOwZiQshkmDf7C6W+czCc5B5pWBzEyKE66h+B/12eIcXSNG7gQ02OX
-	 m2Mkk7MVV+5O3/at5i9/MO48RkGLWyWcXIActOkWOt1ZX2GuZnQTGMx4OaiF4GThWu
-	 Mt3ks+Uhjwnvj62d3ra1dt7drBybKMgcoW1xBqFO77B66t/jFOTmo0LhKw1uDI72XB
-	 HUCK9E2oZZBOQ==
-Date: Mon, 17 Mar 2025 19:43:09 +0000
-From: Simon Horman <horms@kernel.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Wu <david.wu@rock-chips.com>, Yao Zi <ziyao@disroot.org>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] net: stmmac: dwmac-rk: Add GMAC support for RK3528
-Message-ID: <20250317194309.GL688833@kernel.org>
-References: <20250309232622.1498084-1-jonas@kwiboo.se>
+	s=k20201202; t=1742240684;
+	bh=OiQVuvTN1/XflXpR3RqcHCaJ640D1uHI1i9Ur7T7qKs=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=LOa737wrjHepnbxep326FXIDSAcB2rL++PYLUj/AszMLNZHv7tdoRhUNrX9QZrleC
+	 A0dKbD1XhZRR5Kv2Fi+eBXALlamDgHb3ExZfje4E09ZLXgLCzdM/CMLltD/YSV7Pql
+	 e7ZJ5fJgFeVAZJVt/ZwuHnhroS4ZRwlm5COLLNnvU8vbZJXfoyHcuiETR0b9hB60XY
+	 aFKci0gMNcgOLFIieuVYhfo08wg0yLhvo7tpxm4rMSU2JW1PuIIf5br0HavPhfuvHQ
+	 PCMfyIH4pXJC7Kvc1Ss6nyRrHrpCcUm6EDHLoZdJDiFJf2sqKkQp++J2gbgdnaGf5p
+	 pRfeDmX1+CpwQ==
+Date: Mon, 17 Mar 2025 14:44:43 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309232622.1498084-1-jonas@kwiboo.se>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Georgi Djakov <djakov@kernel.org>, James Clark <james.clark@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, Andy Gross <andy.gross@linaro.org>, 
+ Simona Vetter <simona@ffwll.ch>, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@linux.dev>, Andy Gross <agross@codeaurora.org>, 
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ Konrad Dybcio <konradybcio@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ coresight@lists.linaro.org, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ "Ivan T. Ivanov" <ivan.ivanov@linaro.org>, 
+ Mike Leach <mike.leach@linaro.org>, Maxime Ripard <mripard@kernel.org>, 
+ linux-kernel@vger.kernel.org, Rob Clark <robdclark@gmail.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Heidelberg <david@ixit.cz>, 
+ freedreno@lists.freedesktop.org, Sean Paul <sean@poorly.run>, 
+ linux-arm-msm@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Kumar Gala <galak@codeaurora.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+In-Reply-To: <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
+References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
+ <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
+Message-Id: <174224068328.474126.11922746474259386307.robh@kernel.org>
+Subject: Re: [PATCH 4/9] dt-bindings: arm:
+ qcom,coresight-static-replicator: add optional clocks
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_124316_123032_E0F00D73 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20250317_124445_663054_46B25B5F 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +93,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 11:26:10PM +0000, Jonas Karlman wrote:
-> The Rockchip RK3528 has two Ethernet controllers, one 100/10 MAC to be
-> used with the integrated PHY and a second 1000/100/10 MAC to be used
-> with an external Ethernet PHY.
+
+On Mon, 17 Mar 2025 19:44:39 +0200, Dmitry Baryshkov wrote:
+> As most other CoreSight devices the replicator can use either of the
+> optional clocks (or both). Document those optional clocks in the schema.
 > 
-> This series add initial support for the Ethernet controllers found in
-> RK3528 and initial support to power up/down the integrated PHY.
+> Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> ---
+>  .../bindings/arm/arm,coresight-static-replicator.yaml          | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> This series depends on v2 of the "net: stmmac: dwmac-rk: Validate GRF
-> and peripheral GRF during probe" [1] cleanup series.
-> 
-> 
-> Changes in v2:
-> - Restrict the minItems: 4 change to rockchip,rk3528-gmac
-> - Add initial support to power up/down the integrated PHY in RK3528
-> - Split device tree changes into a separate series
-> 
-> [1] https://lore.kernel.org/r/20250308213720.2517944-1-jonas@kwiboo.se/
 
-Hi Jonas,
+My bot found errors running 'make dt_binding_check' on your patch:
 
-This patchset looks reasonable to me. However it will need
-to be reposted once it's dependencies ([1]) are present in net-next.
+yamllint warnings/errors:
 
-And on the topic of process:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml: properties:clock-names: 'enum' should not be valid under {'enum': ['const', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'minimum', 'maximum', 'multipleOf', 'pattern']}
+	hint: Scalar and array keywords cannot be mixed
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
 
-* As this is a patch-set for net-next it would be best to
-  target it accordingly:
+doc reference errors (make refcheckdocs):
 
-  Subject: [PATCH net-next] ...
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com
 
-* Please post patches for net/net-next which have dependencies as RFCs.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-For more information on Netdev processes please take a look at
-https://docs.kernel.org/process/maintainer-netdev.html
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
--- 
-pw-bot: deferred
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
