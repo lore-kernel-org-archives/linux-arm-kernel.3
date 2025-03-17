@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479D8C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F718C35FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 14:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hFOCizEr8N/f/zyzF34xXsk1q9rFbz4vtYpa+GCbMgA=; b=azq5wd+hljIBWv
-	fjEwBslo8m4FEUZzWt75e4TExyTImq+ZIOL96G1Yn49/1v4i/M3oMw/URYO6K8mkaXYABHeCP2xY8
-	Hvs5+HAdahzhTqrkAJ6eG9G5v0QKPLD7tEy4lHvrUSCoXzyTOCRA6foC7Jp9kJw1n2DrKQ0x8QXp7
-	1TgqsjvVT7KYEAdvgL6LyOq9PSAMKgLMNOvIP9UcSkkiR1vr/ExmBNGI64mskybYtPmjRGcm6q1j4
-	BAX5LgFRBddmgnf3B+qyC9MHfsVAumX9+vNShT/rNJvdYTonp9uFlh/YVXl6A5XQliVYPoPHT5eRK
-	OkMDiEdP/nZOti95+hfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0y+IXRtOGUuwzsJoN3S9YJvvYyr0XaYWwMXgH7wVjWQ=; b=P6cguxohVjJExU96eeCUOGD/n9
+	gFuizpDp9Q6eDN2ZfPxRfz1H65mfmYnwkBXMhh4qs0bExvKXmE93gDcLnnZsm+XikWnaQs42jp+uh
+	Rb7iHl7h6TOEgZnE7U5iH5v1SaoZ51EQ5V++m9f2gWQPFGoZMshI8Hy9B5iO7cNcnQmqHwQDrwSAj
+	hiGEK1cK07WskGAVX9HiB6u9dVEiyb/fkmkW0x4OkThKyhYpycRKu7xc0ZP2plPwbLjxU6dc5/hZd
+	aJliJNr1sTZXFFKIJUe4MKs/KKOeywXqxk14bnNzXSCC4Szsnfg1pquacSPY1F0JSFmlboZbXhsf4
+	50HqqNYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuB8j-00000002r2g-2rHD;
-	Mon, 17 Mar 2025 14:08:25 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tuB8f-00000002qz0-1m2c;
+	Mon, 17 Mar 2025 14:08:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuArT-00000002nyM-3HTD;
-	Mon, 17 Mar 2025 13:50:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1742219421; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EzW72ULl+qWDuCMsJTe7HHiCMVb1tnZbhOp5d6jQ0tMcuIB+okRA1B6MJ/RZtEYRqCoD6KYXyUMulM2fibYk7noRdgVG+JYhpeGE/VpssBuYl4WKXE/KWwl3YccLNGVj2/hDMqhombWIaRX7OnwygK4enYRb12Zsy7FehixIAJE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1742219421; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=hFOCizEr8N/f/zyzF34xXsk1q9rFbz4vtYpa+GCbMgA=; 
-	b=YUMoI6F9bhGh/knaOJr6rQ/EzQ0mgon61hd3PdCi5WVaETuW7U1p/w8qnthg6HlJkYql0iSmUgzAhENmClM2hGTH2Sk0H5EDjllbbzasWmE1IJjwRzxBab7onn7vFIJ8+rWH9PQ8EurU2zXV63UzxnEzBSUul4VVXXlUpZ3CAKE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742219421;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=hFOCizEr8N/f/zyzF34xXsk1q9rFbz4vtYpa+GCbMgA=;
-	b=PAmsjSVmaBA0IKCgveaJlt2DYbwEV7yrrEl1amzLoSRuXZ30UJYdEmLeXPIFhWhA
-	wMXqRyesEipcdV5ZGiEB7krLdCNT4CdUdla2Hwht7Z8AidBZY0Rh64sF5QKQEYaAAXg
-	YMJytYAjxFiqQ3kpwXmqbyv6erkREFjcOPZ3cCHE=
-Received: by mx.zohomail.com with SMTPS id 1742219418102452.57343009704164;
-	Mon, 17 Mar 2025 06:50:18 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH v4 0/7] RK3576 thermal sensor support, including OTP trim
- adjustments
-Date: Mon, 17 Mar 2025 14:49:25 +0100
-Message-Id: <20250317-rk3576-tsadc-upstream-v4-0-c5029ce55d74@collabora.com>
+	id 1tuAjC-00000002mP9-429F
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Mar 2025 13:42:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8E292A439C2;
+	Mon, 17 Mar 2025 13:36:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EE17C4CEE3;
+	Mon, 17 Mar 2025 13:41:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742218921;
+	bh=rxBK+exLlmQrBgzS50qfGyuXyHclaFKF/gy++D/RJ90=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AmYTo/LjS8t9HCVE8OFLqgo93wwQhYvPyr4+Xg1+QDsKD09OWS3vnUNEMYOq96YWV
+	 Ox6fYtl3w9WwIiIJsWNhhqw5qGnd8qH2ZdtewVwaBSBCK5VStYXDdfrdBKt07p9Fcd
+	 TlR08gl3xkmea4dIhA7T+1fEm/e/IzZkv3vx0vvOI3CsmYmNJaYxmG3D2ozLeXzn9G
+	 NlhheSLicbJl5g86Nuamby8ueWOtpE1m842QHkyu8vPneGbr58lj3S10oeYG5ig5le
+	 OzAE1uAbcPLw/5H+0dAfZKESOw8BWJwJNW9lgNjUAh+fN0ol0jGiyG5A7uHak/mhBG
+	 S8Aj1jWoZ4XjA==
+Message-ID: <2dc9de96-234c-4c5f-9f72-8e1d0e8a8c86@kernel.org>
+Date: Mon, 17 Mar 2025 14:41:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] ARM: dts: imx51-digi-connectcore-som: Fix MMA7455
+ compatible
+To: Fabio Estevam <festevam@gmail.com>, shawnguo@kernel.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ hector.palacios@digi.com, Fabio Estevam <festevam@denx.de>
+References: <20250317123109.2216509-1-festevam@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250317123109.2216509-1-festevam@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGUo2GcC/3XPTW7DIBAF4KtYrEvEj41NVr1H1QWDxw1qbFIgK
- FXku5eQLKKoXj6k983jSiIGh5HsmysJmF10fimhfWuIPZjlC6kbSyaCiY4J3tHwLbte0RTNaOn
- 5FFNAM9MemeVaTr0aDCndU8DJXar78XnPAX/OhU/3RwImIrV+nl3aNwteEq0nJG/JrXBwMfnwW
- 3dlXhuPCWpjQuaUUYVWKy2FMLx9t/54NOCD2ZU7Vc3iSRJbn8miStADYyMO2v4nyWdp2JJkkVq
- YACQorUG/Suu6/gHO38GFgwEAAA==
-X-Change-ID: 20250215-rk3576-tsadc-upstream-7e0c193f768a
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Jonas Karlman <jonas@kwiboo.se>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
- kernel@collabora.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Ye Zhang <ye.zhang@rock-chips.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_065035_878356_0C3663E0 
-X-CRM114-Status: GOOD (  26.85  )
+X-CRM114-CacheID: sfid-20250317_064203_130191_F3885FB9 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,126 +119,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the RK3576's thermal sensor.
+On 17/03/2025 13:31, Fabio Estevam wrote:
+> From: Fabio Estevam <festevam@denx.de>
+> 
+> The "fsl,mma7455l" compatible string is not documented anywhere.
+> 
+> MMA7455L is the exact same device as the MMA7455, with the exception that
+> it is lead-free. Use the documented compatible string.
+> 
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
-The sensor has six channels, providing measurements for the package
-temperature, the temperature of the big cores, the temperature of the
-little cores, and the GPU, NPU and DDR controller.
-
-In addition to adding support for the sensor itself, the series also
-adds support for reading thermal trim values out of the device tree.
-Most of this functionality is not specific to this SoC, but needed to be
-implemented to make the sensors a little more accurate in order to
-investigate whether the TRM swapped GPU and DDR or downstream swapped
-GPU and DDR in terms of channel IDs, as downstream disagrees with what's
-in the TRM, and the difference is so small and hard to pin down with
-testing that the constant offset between the two sensors was a little
-annoying for me to deal with.
-
-I ended up going with the channel assignment the TRM lists, as I see the
-DDR sensor get a larger deviation from baseline temperatures during memory
-stress tests (stress-ng --memrate 8 --memrate-flush) than what the TRM
-claims is the GPU sensor but downstream claims is the DDR sensor. Input
-from Rockchip engineers on whether the TRM is right or wrong welcome.
-
-The trim functionality is only used by RK3576 at the moment. Code to
-handle other SoCs can rely on the shared otp reading and perhaps even
-the IP revision specific function, but may need its own IP revision
-specific functions added as well. Absent trim functionality in other
-SoCs should not interfere with the modified common code paths.
-
-Patch 1 is a cleanup patch for the rockchip thermal driver, where a
-function was confusingly named.
-
-Patch 2 adds the RK3576 compatible to the bindings.
-
-Patch 3 adds the basic thermal nodes required to get temperature
-readings and device throttling to the rk3576.dtsi device tree.
-
-Patch 4 adds support for this SoC's thermal chip to the driver. It is a
-port of the downstream commit adding support for this.
-
-Patch 5 adds some documentation for imminent additional functionality to
-the binding, namely the trim value stuff.
-
-Patch 6 adds the requisite OTP cells and tsadc nodes to the SoC's device
-tree, conforming with the bindings modified in Patch 5.
-
-Patch 7 adds support for reading these OTP values in the
-rockchip_thermal driver, and makes use of them. The code is mostly new
-upstream code written by me, using downstream code as reference.
-
-For the record, here's a listing of SoCs that implement the OTP trim
-functionality in some variation, with a legend that is as follows:
-- A = chip-wide trim value
-- B = trim_base value
-- C = trim_base_frac value
-- D = per-channel trim value
-- E = compatible is either in mainline or in this series
-
-The list is as follows:
-- RK3502 (A____)
-- RK3528 (A____)
-- RK3562 (ABC__)
-- RK3566 (_BCDE)
-- RK3568 (_BCDE)
-- RK3576 (___DE) <- the only one we're adding OTP trim for here atm
-- RV1126 (AB___)
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
-Changes in v4:
-- driver: added a patch to rename tsadcv3_tshut_mode to
-  tsadcv4_tshut_mode, as per Jonas' suggestion, and drop the duplicated
-  function from the RK3576 support patch.
-- Link to v3: https://lore.kernel.org/r/20250228-rk3576-tsadc-upstream-v3-0-4bfbb3b699b9@collabora.com
-
-Changes in v3:
-- Changed bindings back to using patternProperties, as per Rob's
-  suggestions
-- Adjusted dts changes to comply with the new schema
-- Link to v2: https://lore.kernel.org/r/20250225-rk3576-tsadc-upstream-v2-0-6eb7b00de89c@collabora.com
-
-Changes in v2:
-- As per Rob's request, the bindings now only feature the new properties
-  depending on the compatible. Since the combination is slightly
-  different for each SoC anyway, this makes future work easier too.
-- The different channels are now explicitly named, instead of giving
-  them patternProperties names. This is once again per-compatible.
-- As per Sebastian's suggestion, unified trim_l and trim_h into just one
-  nvmem cell in the bindings, device tree and driver. I did this after
-  verifying that downstream has no SoC where trim_l and trim_h are ever
-  non-contiguous, including for SoCs upstream does not (yet) support.
-- Rebased on top of next-20250225 and dropped Heiko's OTP patchset as a
-  dependency as it was merged.
-- Added a handy overview of which SoCs use which part of the OTP trim
-  functionality in the cover letter
-- Reintroduced an accidentally removed dev_dbg in the function 
-  rockchip_thermal_set_trips
-- Link to v1: https://lore.kernel.org/r/20250216-rk3576-tsadc-upstream-v1-0-6ec969322a14@collabora.com
-
----
-Nicolas Frattaroli (6):
-      thermal: rockchip: rename rk_tsadcv3_tshut_mode
-      dt-bindings: rockchip-thermal: Add RK3576 compatible
-      arm64: dts: rockchip: Add thermal nodes to RK3576
-      dt-bindings: thermal: rockchip: document otp thermal trim
-      arm64: dts: rockchip: Add thermal trim OTP and tsadc nodes
-      thermal: rockchip: support reading trim values from OTP
-
-Ye Zhang (1):
-      thermal: rockchip: Support RK3576 SoC in the thermal driver
-
- .../bindings/thermal/rockchip-thermal.yaml         |  62 +++++
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 221 +++++++++++++++++-
- drivers/thermal/rockchip_thermal.c                 | 251 +++++++++++++++++++--
- 3 files changed, 511 insertions(+), 23 deletions(-)
----
-base-commit: 40a111d0a777f60b71369d835cfe46308a212235
-change-id: 20250215-rk3576-tsadc-upstream-7e0c193f768a
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
--- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-
+Krzysztof
 
