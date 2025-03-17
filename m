@@ -4,92 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12160C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB74C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Mar 2025 11:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDzJ2VOAzEbHd4YJavbMDLDdsevX9sVYERz7dfOZXGw=; b=fuezpOH2xZQlRGmtBxTgdjKsNr
-	jE3Zr6HzEMGJlzzZcifGlIDkCuL8J6ej9rrnpH8Tdx2eYJFp0cCAX/5QIO/GduSu1/b1FRY1YohCD
-	g1kw6pbGgohvcYc9IPKlgBNwwxTVPRzi6U5xRQiiAzlgfkquGT1pN4tzkVB1sYomt+Lr4pLoz0lvd
-	fv2E9kpRy28BwtE1XDWCbSjGKyPvVq0Cu1ByTbgW0JCbxJ5SewnNOv/8J/TARlvu6Cx+BrHxsdKdn
-	r8KRSM8cAOw91RVQwmeob1v7jnQXrHoJw1Bm6TFmm/IyVsNdYEW6KSCCax3bacN3dQ5wI1dI6hV1r
-	AF9SRSEQ==;
+	bh=MR6V4/Niwov3dT1lKEaWV6Yp8Zy1voFzaQ1D9zoTY3k=; b=uVF5iUe6Ahwrkaf7rzkeoPLPp1
+	ZbdntNJF9Sku0/oEOxMJkjrNfBORdw2KCBv3sJ+ONuYaSjPK3bK+LST4rE2Axu75qLb0Br55bZgJ3
+	bGGoruKa5XhJelv81vqYtYpYr5JU722Z8ZLwOjZ1Y+Vqc/EzQ8IVVqAojod5MzDmZ7Hel5p3sZHir
+	wadCxuMdqWhzNl8Jvk2IZCC6tL4K6K8U4a1KiqS8VE4+O9it+5rMxEndwcqfo6vf9g75uzuSxSxpB
+	QTbCZ168FgyjMycOTc4avOLY84WUPCHxYqpwBz2ZPaUunVjpBMAxEVX10uaundz0gxwcdU4HS+hEF
+	UqmMLvfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8Re-00000002MHK-12Om;
-	Mon, 17 Mar 2025 11:15:46 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tu8TJ-00000002MWf-08v1;
+	Mon, 17 Mar 2025 11:17:29 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu8N5-00000002LOi-25T6
+	id 1tu8N6-00000002LOu-23iR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Mar 2025 11:11:07 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso12232055e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 04:11:03 -0700 (PDT)
+	Mon, 17 Mar 2025 11:11:09 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3912d2c89ecso3908039f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 04:11:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742209862; x=1742814662; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742209863; x=1742814663; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=eDzJ2VOAzEbHd4YJavbMDLDdsevX9sVYERz7dfOZXGw=;
-        b=OQv1EdpIeelh319NlAdzBYUdmQB2v6sEUBG7E4U8aXNAznfJneMLAuyqhcE/xeuJ3f
-         FjCDq63lHQNGJ6TnrLs94jOnSiec6Eup3+fmVdfiyV7QBce/WR5RtyjiWeSfKqDoPyUx
-         jbF2Ef4Jan1WaDTg5DGQ1CcJQUmLqV+lTqclgeX6l7Yc74FNOupHolM2egIlxEcq64ZS
-         +LPNbT7XHavf6SGDEoFATrqw80vW3NiMovj77ks7IwLnuWKhs6z0UHcEyJBfcu88ekiA
-         ybI0VOdGeaH0L5VOZLydeQuy1xANGaGaAbnw8Xj05ZKAK1ew59Go9q4osisf74bb4Ifr
-         qzKQ==
+        bh=MR6V4/Niwov3dT1lKEaWV6Yp8Zy1voFzaQ1D9zoTY3k=;
+        b=GnTm0RXGdpztTrBb4kqVT8vmbKCEmaYgmmaiVguLo85ZuwyLrf8uYVHjyxF5lSw0T2
+         fexrOEDWHkkTiB8B2mZg94o4kJ1AcHt63vSQi9zAJyHIRzJvcsVv/+Y+yh7WK6GSWLPO
+         BABgMMzt71xqYdSmDk6u2tkKVNHt+jMZvZ6tLUBFYYjy6b13XO8qQnYrkkBEhxaH6RyV
+         B8Z+r6ejcmsW9f/QajwYHh8V7yN3ER6tro3Q26+2xr1lq+KhkfjpGbqmi9whF5wS2THw
+         g4z+42CjSB8CU946lIxYVhahWqcdXAIOgGbIPhVRsSxuAYHOzIYiRtr/gdUug0zZK++z
+         bF9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742209862; x=1742814662;
+        d=1e100.net; s=20230601; t=1742209863; x=1742814663;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eDzJ2VOAzEbHd4YJavbMDLDdsevX9sVYERz7dfOZXGw=;
-        b=LXlzXZl+Gsaz31E9GO4ZH+WKzjjNqUZK7+XUKDj3CkPMWvgi9s9bRTR1kvbHBfBrFx
-         SaLd1BjfL48dMSlj5iC2Z/GFaI4bdW/Wq6/LgD1wM5sn7D/FTx+u1PPYF8xjtBr+6akg
-         VV/OO6950nI+aJwPbiHLRr6SPWg5cnQiBMycCttsg953QydgsqHstYDrp5j4nxJa34IX
-         UwjUoKYZTuJxu68GPXvmB/olM94CqunopFRILjprlvO/OANa4UPlg4/58bQCFBL7C+ft
-         K27MdzArQImKlXFkf2/q1fTWiD/uSzT08g+NC3b6pkevfFazBFYSwizBdLlNSDnCNHvx
-         LVFg==
-X-Gm-Message-State: AOJu0Yw56HeNF6uMvUHgPcDCdco4J+V3Ev2BAqMhDbpJdQEV9WvYOhUJ
-	sLnhFQsRSKVdj2qT0bNDktUQdqTVulSGid0+xVil0ktDpcokr3YdqWG3qPcXAbQ=
-X-Gm-Gg: ASbGncuDlFlvHBjyfUHvRIPQkvYTPD3O7hj5MHOoT/Xzlhnv+eHkngFqynah9Br80Ee
-	CxZsS7uHr7Aaz4JaCkqEmbJndyoLT0Vj/ijTn9dEtpsp5lpAKid+r23dNsMBnUVdpo5ohgkM3J8
-	5WNjQZVUUb71PsClmtd4TCMq/thgUQkTz+VuA9zFc0OBQjXU62NKoEUQUNNd5cuCq2hwwZjqhQ1
-	j3WdKevRe2TBObFh+GlteFaBmg4be/b5oYaGKasMUQz72QbS7eLS0SRL4CJ2LDk7dbUXHsfFdON
-	LCA/GFPX0gm1fRbRs01FAYSwW1cGBplG6XUT+66DXFSJYJbALhKUKA==
-X-Google-Smtp-Source: AGHT+IE03/gw38YLSXA2yKf2gnc0bYqatqbU69Cuyezj6/XGCnmhURjlT9yMf7Kvkxg1rjJbu9xTyQ==
-X-Received: by 2002:a05:600c:4ed2:b0:439:4b23:9e8e with SMTP id 5b1f17b1804b1-43d1f1d2bb6mr120674475e9.3.1742209861923;
-        Mon, 17 Mar 2025 04:11:01 -0700 (PDT)
-Received: from [192.168.1.247] ([145.224.67.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1fe294b5sm102277455e9.21.2025.03.17.04.11.00
+        bh=MR6V4/Niwov3dT1lKEaWV6Yp8Zy1voFzaQ1D9zoTY3k=;
+        b=fBbC6UXBWCLKCBkfUwwKELd1aq2uXkGaw3xCrHoBwUl+dE5IyaN23C/ZACgmGJL3QP
+         Gj51dILcZTNharxMYDBBZgTxVnk+2v2SUuwzgvE8pbQ5p83yNOn3mdT9f7UaNtJ7z65F
+         rmuzEOR6vC2I7dEGn/44cRmxSq/+dmfiTWeLZWs0t7fFlohYXixJbF/D8JQwDYGy1L18
+         LKHQfIhhx6YggpV+u4eI5TZcMjqRnpCUCYvU6u79BMn0l+m/Pa5w0QBr29VNTUdaGse6
+         9kQnr+SDE4k5uvH3td68Aa0ET+FeVpsT22dxOQ0CpzRHbhjkm+eRDZyJ2B3d7vYZ1mz6
+         51NQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCUjFOiWULEJiHXm6WZSZHY/z71Qnv4U7xhzLq7cgHr2WL4qe7dtT0OyZkgBHoROQZNak9V30elRq2dXAMqd8x@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcMhIl2/8PLcNsr5YCUayLxf5IyCsgPFx1FIb6K4nAK59enxdy
+	tbJZNBdCjohHTjpwXVcQsXV5RgkcTclC0+Jqac4lAIEtdSjuZBmH2r4KP2aQclw=
+X-Gm-Gg: ASbGncsKhBTjBrWKFW8MfxXZ8wsfBYw92NYW+/Za8qO4x0zxC1bFThtySO8poBpNdkI
+	i8QvLVGgrQ54TyGQLezpU1eJ2SKMzUmjiF4epuh89yywzl4k57ykzTqNfBYf0QUCnN5DFAif/GL
+	UNTJWh4A6lrMJC2RiRuTM8cMDw7qXgbp+XVLMIcNGirJmgSrqhQ0/nFx+7KlJaxChDObcqT7nd+
+	2Z/IHTnPRv6X57vCLUu4Yj0X9rYs3UbhbTM2WofZ2222B+N4428V+4fo4WY4A3h1Rv8MQCCEPtL
+	NP3D2v0fhAxXXhOv8+EM8XN/6M6j5E0G/2JDkSfqFE4SyJZb9YCTPjIcJb+/j4vnKz1PBAeGg9W
+	eoxO5C40KAL5ig3qCUag=
+X-Google-Smtp-Source: AGHT+IE476SO8H91edeKXZBTAyLprfXCwLhm85dorgsKMjTo5H3Yf/EGW9XVvxTRoJ7VcbN4UEacig==
+X-Received: by 2002:a05:6000:1ace:b0:391:41c9:7a87 with SMTP id ffacd0b85a97d-3971fdc6db1mr13823999f8f.51.1742209862843;
+        Mon, 17 Mar 2025 04:11:02 -0700 (PDT)
+Received: from ?IPV6:2a02:2f04:900a:ff00:eb98:2c37:6a77:39? ([2a02:2f04:900a:ff00:eb98:2c37:6a77:39])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395cb318af0sm14702121f8f.73.2025.03.17.04.11.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 04:11:01 -0700 (PDT)
-Message-ID: <4cfcb9d8-3187-4ed7-8951-d54d781b4bd9@linaro.org>
-Date: Mon, 17 Mar 2025 11:11:00 +0000
+        Mon, 17 Mar 2025 04:11:02 -0700 (PDT)
+Message-ID: <75f49e65-5a8a-4a52-bed9-31be4a76d536@linaro.org>
+Date: Mon, 17 Mar 2025 11:11:01 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] arm64/sysreg: Sort sysreg by encoding
-To: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
-References: <20250115162600.2153226-1-james.clark@linaro.org>
- <20250115162600.2153226-4-james.clark@linaro.org>
- <20250313215840.GC8101@willie-the-truck>
+Subject: Re: [PATCH 3/3] firmware: exynos-acpm: convert to dev_err_probe() in
+ client API
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org>
+ <20250314-acpm-fixes-v1-3-ab03ca8e723f@linaro.org>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250313215840.GC8101@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250314-acpm-fixes-v1-3-ab03ca8e723f@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_041103_555770_CF5108D2 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20250317_041104_560327_D3E85F43 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,61 +108,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 13/03/2025 9:58 pm, Will Deacon wrote:
-> On Wed, Jan 15, 2025 at 04:25:57PM +0000, James Clark wrote:
->> It's mostly been sorted by sysreg encoding, but not 100%. Sort it so
->> new entries can be added without wondering where to put them.
->>
->> The following python script was used to sort, keeping the top level
->> SysregFields and comments next to their current Sysreg entries by
->> splitting on "EndSysreg":
->>
->>    # cat arch/arm64/tools/sysreg | python3 sort.py > sorted-sysreg
->>    import sys, re
->>    def key(block):
->>            reg = r"\w+\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)"
->>            match = re.search(reg, block)
->>            sort_val = ''.join(f"{int(n):02d}" for n in match.groups())
->>            return (sort_val, block)
->>    sysreg = sys.stdin.read().split("\nEndSysreg\n")[:-1]
->>    sysreg = sorted(sysreg, key=key)
->>    print("\nEndSysreg\n".join(sysreg) + "\nEndSysreg")
->>
->> Tested by diffing sorted outputs:
->>
->>    $ diff <(sort arch/arm64/include/generated/asm/sysreg-defs.h)  \
->>           <(sort before-sysreg-defs.h) -s
->>
->>    Files /dev/fd/63 and /dev/fd/62 are identical
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   arch/arm64/tools/sysreg | 1006 +++++++++++++++++++--------------------
->>   1 file changed, 503 insertions(+), 503 deletions(-)
+On 3/14/25 4:40 PM, André Draszik wrote:
+> dev_err_probe() exists to simplify code and unify error messages by
+> using its message template.
 > 
-> This looks like unnecessary pain for backporting...
+> Convert the remaining dev_err() in acpm_get_by_phandle() to
+> dev_err_probe().
 > 
-> What do we gain from sorting this?
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+>  drivers/firmware/samsung/exynos-acpm.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
 > 
-> Will
+> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+> index 48f1e3cacaa709ae703115169df138b659ddae44..03f907a95c6acd66d89cd8af2f52e7c6dadf492a 100644
+> --- a/drivers/firmware/samsung/exynos-acpm.c
+> +++ b/drivers/firmware/samsung/exynos-acpm.c
+> @@ -701,12 +701,14 @@ static const struct acpm_handle *acpm_get_by_phandle(struct device *dev,
+>  
+>  	link = device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUPPLIER);
+>  	if (!link) {
+> -		dev_err(&pdev->dev,
+> -			"Failed to create device link to consumer %s.\n",
+> -			dev_name(dev));
+> +		int ret = -EINVAL;
+> +
+> +		dev_err_probe(&pdev->dev, ret,
+> +			      "Failed to create device link to consumer %s.\n",
+> +			      dev_name(dev));
+>  		platform_device_put(pdev);
+>  		module_put(pdev->dev.driver->owner);
+> -		return ERR_PTR(-EINVAL);
+> +		return ERR_PTR(ret);
+>  	}
+>  
+>  	return &acpm->handle;
+> 
 
-It's from the discussion here [1]. But yeah backporting wasn't mentioned 
-as a possible issue, it's something to think about.
-
-The summary is:
-
-  * I added one out of order because it wasn't obvious from the unsorted
-    file that they were supposed to be in order
-  * To avoid more of the same review comments and save time I wanted to
-    put a "keep this file sorted" comment
-  * But the comment wasn't ok because the file wasn't already sorted, so
-    we ended up with sorting it
-
-To be fair adding a "keep it sorted" comment is a bit awkward because 
-there are sometimes multiple places you can insert something if it's not 
-already fully sorted.
-
-[1]: 
-https://lore.kernel.org/all/996c7843-7f51-49a0-9122-e688e37f9902@sirena.org.uk/
-
+The clients are indeed expected to call this method in their probe
+method. Shall we make such assumption? I'm in the middle here, but I
+don't mind if this gets queued:
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
