@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D15FEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 23:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE56BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 23:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rsyWzi3KnCZDSIQ4SscmiQvCbCr+L8MktGb1FOBdF5k=; b=l288d1ydfkjyWzynGnnr8R57pE
-	XMhH7Jga5kUvgXQIj7F1PzmSMAws1yp5Zkk/yMkLFfcFP2Io9oL3sD0b1FsbphLXj0JSeE20ntMuI
-	QBj9GhyYX7SYq3QoY1A/ZoI4sYeBJ+IKFw2NSA3yQ7+5l6vUdfYaELTwOjzTYqwCa7aFAuWIfy+L8
-	Ak+Jl6IrJXpSefOldVYfkJS7ItyB7yErX7R7TG8IH8ZRqSluOfYTydx/1iNMMmSGN0l8uA3A/ZY82
-	d2JxGAwdo1P2HDFizHbBT+M7jfnGYGa0aXNCnIy24sr9bJI+PjaHbAc1lQskRawkJEX0cwb6L4t7L
-	vqBz1tlQ==;
+	bh=fmCr9y/zny2ubL+q+EvXUgJdImEUCfchERMe1C0cWbE=; b=bQcIz5zDEtwRI2+TgPzRiNXgua
+	mex7O5J0oTifZDk/VzN/AxoxWd1zM2yXifwk1RHk9/yU7pYob2ml2B3BG5fSGz8tB8pbsMurn4V+S
+	GJzaSvgvIyp+MSpgCdry8AkCU1kdspaAdceF30ADg6GyJ11jxOUiagACMUdqAFuxUGTLpcSWjNj4Z
+	aXign30O1a3hrzOCuU4My7Kf1VW6pD5zJzmcBwG+BW+RxPwxedHFPq3nK7ocZvNXUIxU7vgJOdSyE
+	bDFJTGWKJj7hf17eFNn2cJT++N4UdW2uPBKvlucp63C6qWraG3g5vlLbt1SXea/+5gphM+B62IkJr
+	aiZQNlXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tug1y-00000007KM2-43FO;
-	Tue, 18 Mar 2025 23:07:30 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tug3d-00000007Kif-2cm9;
+	Tue, 18 Mar 2025 23:09:13 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tufve-00000007J5u-2HJk
+	id 1tufvg-00000007J78-3ZsJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 23:00:59 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2235189adaeso2532255ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 16:00:58 -0700 (PDT)
+	Tue, 18 Mar 2025 23:01:02 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-22409077c06so156875215ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 16:01:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742338858; x=1742943658; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742338860; x=1742943660; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rsyWzi3KnCZDSIQ4SscmiQvCbCr+L8MktGb1FOBdF5k=;
-        b=U04tUF4Mb57tf/ywpxSI6DdfuYXrVnRU7R3x1Jne3UfHDSgRFenuGue1HSUaxLe/+n
-         nl9pEaBUQ4kOezPEj/Z7aooKdVtRaXCIoOUH+1HMNhV/wlGO8poOz38EZgMgcnI5Cpb8
-         +YXWec0DmdRCSogV6rpo+3BZS2CztIQnlejFm5HJfNfO0zQAyuCCrprsrRCJ0bJHJUrB
-         BYipd7oSjbKeIYywnC93TXRaXK72GWLaz51yfrnUQTTPJPdfxUgNg9XRqEoS9IIt9v+L
-         6Rry3ps6+JaK243grPkL50lXqLQqep5CB9e1fYd0WcQ02My65i9pNRMl71GpyZarfiHh
-         MnVA==
+        bh=fmCr9y/zny2ubL+q+EvXUgJdImEUCfchERMe1C0cWbE=;
+        b=pW3633zksDIbiuEf/YgTkH+GGabHlUHH9C7KdIIn8bgN+f78swWnuHtQbnwI7agyAa
+         qEOi1RYbwWw1uBrOf+2NW68tewEA30BMBspK2tlK8YUJt/DNz0KEVLcaBIhfzRRbo2D6
+         eiX+kzFNUw1xma6MgNORSz4ZqSrpn71JK5NaclsWiAcQeNeRe1LVpHxkBeKINSQEoSyA
+         grl8OMk0TCnb/dBh14jTTG/BS74diXAsIZXpycmXEsHX2GlRpiXBWDw+wb6HvoJdv9eG
+         hhm22IpnZyn58Oxx/I6nNM4/Ek/wY449kmrfBXuKPCrC+NrM5saYG6jJELwX1kLnReyk
+         6l2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742338858; x=1742943658;
+        d=1e100.net; s=20230601; t=1742338860; x=1742943660;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rsyWzi3KnCZDSIQ4SscmiQvCbCr+L8MktGb1FOBdF5k=;
-        b=Uw+7F6Ujz5wezhLAlBBN6y4oNQt6Wg2JlU1kdz6FQKskyc17iBMLwqJW5+4sUABGXT
-         8MsXWDDP3J2h+1bIxeDs6tXalaNIba3bI7G6BotQoVi5dY29tjMRIwIzxJcNaHE2lAd3
-         CTjbOYPsfxnlmhND/MtFxlTjzSmzWASQE25Hhn0J1K9dzNp2i629svTnJVBtR4b/ZT3D
-         OjOzGoiDkGqPQIuAR1g3N5hjSfgjn2xRAaOydV7VovvbtaQnIfz4gNHFXXKlit0LYGCy
-         N5FrvxqweFbblUjA1ujPqJ4nxNjxwoEasW30xmzporUfBjeN1iCeZOacItiFpgPgc52Y
-         ufOA==
-X-Forwarded-Encrypted: i=1; AJvYcCXdCoKGJE+KFlPMH+lgu7S9/LTe1NvOQuyUL0ahV6OnLp40mnU70f0M/1nfzPl/jyDCR01ysKLoU3+c0Ht2qyrk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjcvAGnaaqgvdtcjWIxxJoEsPEJxKjnT6IhNF52xLrOjjx7j78
-	0FK+4rMoHflQ37D+xKfNAKT3CF/xmyLLZdGiIit4dPtFj/OhVt2TWNXHaQKyhhU=
-X-Gm-Gg: ASbGncvrhTBzwRR5YR1JmplIcPP7A/ei72AMGOAJ67B89UVicOD0NEHwgVF9L2hhaeo
-	KMObtTjeMa3ilqJmeQiF7zK8O9two4z3hlpgDGbCcdsmR6uoj9qiPo37GgNNCgR70b7iwrVixyL
-	gmDMiaZLyHag4PrfNguYzrsTT63P17dtNdBKNy1U0FFA9Lhbr61vHkw3QrCpAmfz9E3xQ2Nyi8a
-	OlLGO8vM6nF8TazFT1tWO9JGgeeqD3WAfI4Amnm/4NAKvFk84BKs8lJbRtOtp/bPh7fNR9HMUOZ
-	XNL4NxECkHs8XZuTwREMscYMjyljVd3QsxqiP5+uhW3yz21uSUmJjI6PQFeaITq6SEDQ8n9JlnM
-	wyUVDaOQ=
-X-Google-Smtp-Source: AGHT+IHUNJViFXE4mZINOgNDoCllQmqZOnocHLrF3VCSwCnt9Ce0i+DvhytxOw5IATvfS/lSW8+VYA==
-X-Received: by 2002:a17:903:2301:b0:220:cfb7:56eb with SMTP id d9443c01a7336-226491f957dmr7833935ad.26.1742338857707;
-        Tue, 18 Mar 2025 16:00:57 -0700 (PDT)
+        bh=fmCr9y/zny2ubL+q+EvXUgJdImEUCfchERMe1C0cWbE=;
+        b=bU7cHazF4xu4m9s+YMeKRjF7Tt+IEUjb+I6Df99L3cdd5+O/FcDxfMsgwUWo+I7URt
+         ulbJm1RzfTXpU7tZ5XEy1rTs2YvH8rQ2HRDb7MXqn12ehWSFl1FfXTKAxC53ccb9ZmZY
+         m12SG+84TZZ3DZpjq+VjGO5HjoxUjg6LRFFqI/NSN2lOXIWkP1lbXG3NHHuiAbjQ6VRi
+         qA2B5RlFKNKbB1h+cXDlY9wJcZMYrAgttYkqnZML/TNltg6NMliAZ84ndq3McPb2OtlG
+         HHgcNBLk6U+61+AQIx4L9spe+UeAThbYmzlaJLNNmRzQGpsvZs++VZvoLoidkqEJ7Tfr
+         Pm8g==
+X-Forwarded-Encrypted: i=1; AJvYcCVbeMVrOMBWgFC0QOztnpn1PY1ZrEtDcQgl8GEt5EDm5ziGi800EfV21dBrYmv0+3PNX5GUVUko3f7p5st9HgTP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbXSKVG3ytXvAxCHzPF+TZhfnMihabS5zCXYXK7tzZH0/LU6uj
+	cJwfvoOvAtOWV2483olzY5gGHaKe8Rlys19Ce+oHBqn4E8m1waKzZRvynsh8gl4=
+X-Gm-Gg: ASbGncvMM5QXhZWCcdK0U9GY/yEihb1NGEpX6B9xoxO98JsdNG+3s1oDkTNNrJA9o1c
+	lRPpKogCnsccQd6jKf0/C/RhW+uj2PmVwewu1fAJCJ0s5zLYkDK5rB4eiN3iMu0MMcIU+tAGf3n
+	DAh72KPM/grVuCGqqj9vaqt8vcD/4VW0W6R1YrQeb52ZV6IhRS0aVmfSEes49GePApfeR75Hzvl
+	fgJMJY735cKPRmOr2BMGpVp1mIIzlM8PNn30ezX3fOKJpMaoIJQ42gU3V+5bE+mxX3QvCErB52y
+	ygROCzKXJ8uHz5mHWpQzy60951NwUGAxLfWal78QCYFp4PSwXvzKFEAhPFFJhn9/XESbz9IwGpy
+	3Di6llbVy+fq4oQAHfw==
+X-Google-Smtp-Source: AGHT+IHoN+lflWvy8IsxGNjvVcOT3P03WGhfooUosnPSGHOlgyWeNcf/Uk7lY1kmD1/bWRv0OH1Aeg==
+X-Received: by 2002:a17:902:f647:b0:224:f12:3734 with SMTP id d9443c01a7336-22649a43b2amr6644945ad.30.1742338860084;
+        Tue, 18 Mar 2025 16:01:00 -0700 (PDT)
 Received: from dev-linux.. (syn-076-088-115-008.res.spectrum.com. [76.88.115.8])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6ba6f14sm100739465ad.111.2025.03.18.16.00.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6ba6f14sm100739465ad.111.2025.03.18.16.00.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 16:00:56 -0700 (PDT)
+        Tue, 18 Mar 2025 16:00:59 -0700 (PDT)
 From: Sukrut Bellary <sbellary@baylibre.com>
 To: Kevin Hilman <khilman@baylibre.com>,
 	Russell King <linux@armlinux.org.uk>,
@@ -91,17 +91,17 @@ Cc: Sukrut Bellary <sbellary@baylibre.com>,
 	linux-omap@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH 2/4] pmdomain: ti: Fix STANDBY handling of PER power domain
-Date: Tue, 18 Mar 2025 16:00:40 -0700
-Message-Id: <20250318230042.3138542-3-sbellary@baylibre.com>
+Subject: [PATCH 3/4] ARM: dts: am335x: Set wakeup-source for UART0
+Date: Tue, 18 Mar 2025 16:00:41 -0700
+Message-Id: <20250318230042.3138542-4-sbellary@baylibre.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250318230042.3138542-1-sbellary@baylibre.com>
 References: <20250318230042.3138542-1-sbellary@baylibre.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_160058_579832_78407B8F 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250318_160100_894488_3E5D25C4 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,49 +116,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per AM335x TRM[1](section 8.1.4.3 Power mode), in case of STANDBY,
-PER domain should be ON. So, fix the PER power domain handling on standby.
+On am335x evm[1], UART0(UART1-HW) has a wakeup capability.
+Set wakeup-source, which will be used in the omap serial driver to enable
+the device wakeup capability.
 
-[1] https://www.ti.com/lit/ug/spruh73q/spruh73q.pdf
+[1] https://www.ti.com/tool/TMDXEVM3358
+[2] AM335x TRM - https://www.ti.com/lit/ug/spruh73q/spruh73q.pdf
 
 Signed-off-by: Sukrut Bellary <sbellary@baylibre.com>
 ---
- drivers/pmdomain/ti/omap_prm.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/ti/omap/am335x-evm.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pmdomain/ti/omap_prm.c b/drivers/pmdomain/ti/omap_prm.c
-index b8ceb3c2b81c..7e36e675a8c6 100644
---- a/drivers/pmdomain/ti/omap_prm.c
-+++ b/drivers/pmdomain/ti/omap_prm.c
-@@ -18,7 +18,9 @@
- #include <linux/pm_domain.h>
- #include <linux/reset-controller.h>
- #include <linux/delay.h>
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-evm.dts b/arch/arm/boot/dts/ti/omap/am335x-evm.dts
+index 61bf8bcd4c4e..20222f82f21b 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-evm.dts
++++ b/arch/arm/boot/dts/ti/omap/am335x-evm.dts
+@@ -388,7 +388,7 @@ AM33XX_PADCONF(AM335X_PIN_UART0_RTSN, PIN_INPUT_PULLDOWN, MUX_MODE2) /* uart0_rt
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pins>;
 -
-+#if IS_ENABLED(CONFIG_SUSPEND)
-+#include <linux/suspend.h>
-+#endif
- #include <linux/platform_data/ti-prm.h>
++	wakeup-source;
+ 	status = "okay";
+ };
  
- enum omap_prm_domain_mode {
-@@ -88,6 +90,7 @@ struct omap_reset_data {
- #define OMAP_PRM_HAS_RSTST	BIT(1)
- #define OMAP_PRM_HAS_NO_CLKDM	BIT(2)
- #define OMAP_PRM_RET_WHEN_IDLE	BIT(3)
-+#define OMAP_PRM_ON_WHEN_STANDBY	BIT(4)
- 
- #define OMAP_PRM_HAS_RESETS	(OMAP_PRM_HAS_RSTCTRL | OMAP_PRM_HAS_RSTST)
- 
-@@ -404,7 +407,8 @@ static const struct omap_prm_data am3_prm_data[] = {
- 		.name = "per", .base = 0x44e00c00,
- 		.pwrstctrl = 0xc, .pwrstst = 0x8, .dmap = &omap_prm_noinact,
- 		.rstctrl = 0x0, .rstmap = am3_per_rst_map,
--		.flags = OMAP_PRM_HAS_RSTCTRL, .clkdm_name = "pruss_ocp"
-+		.flags = OMAP_PRM_HAS_RSTCTRL | OMAP_PRM_ON_WHEN_STANDBY,
-+		.clkdm_name = "pruss_ocp",
- 	},
- 	{
- 		.name = "wkup", .base = 0x44e00d00,
 -- 
 2.34.1
 
