@@ -4,89 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FFEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 21:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A72BAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 21:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=huRWnbUSFIOrYn2QxkW4BG9y2bRatI4h8QE+NxAGfCE=; b=mOp3A+FaUaON8R7VKpEf9KMxJV
-	lolUUc+1gK/zWXRAaYNtCo8W9uSo7GMfCc8PfD1T8U1sdVOswNP9ADGinBZLEDfyD/OIqUXamr2mG
-	cDqFxvQIAUmjjeChf62W9ZlNnMKpuytwIMUo0/YzYrEWpPLDAJkPcGQhpffjBY/v+JHwKx6Vg7LvO
-	LPkO2YnI3ZkIMOcMs1AK2ndPAD073jPIiKTKQCBOAY8O8ZNaRAcKNq3pkLTLFRgZdrsgmcbS1xqh0
-	3m/KOg4++MS/8m7Wvs/w3T9bTImfJir1pCmB0zw46Ct/2YewtiXUTzlBPgfEqOSKtiSc3vZkarKU+
-	XTQKTXNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1AADZSfOJp1nqwWbAo5LBvnECeULh4CN3wu8KY8UPqc=; b=UPpHxTcpvkszs5n+7rFkzILhXh
+	zZQZ2jxdNaJZBKWPHFLsH1cCiuLZk2w4F4r7RsC3vBrf7Z5Jx+wXDFayVMOuC5TDlY1Hhd00RLYtM
+	OwfLqAqMt5F0PYm03FcW/3ZGuVJeCEyOHcroADx6A7LFBomxjFa1iy1f6ZkC42tKL6jDm2cRMci23
+	6URWDM24MuObMlyhqSgIy9RDMMpVhUYu+Hsf4nVp1/ataM89aHNSWu+ai3yHolmeObH4Hx+Su/n5d
+	/dqblaB+CgOiUUn2zWqi0/hikVwaZhj9nP0/n6wpYVssZAPB6fD5YlfFGywePUxHg0DpJf5M0sLLq
+	HJI1ASgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuenT-00000007A8r-2mgx;
-	Tue, 18 Mar 2025 21:48:27 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tuep9-00000007ARB-1UPJ;
+	Tue, 18 Mar 2025 21:50:11 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tueh6-0000000795l-49Bd
+	id 1tuejd-000000079Wv-3VEy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 21:41:54 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e5cbd8b19bso1472a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 14:41:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742334111; x=1742938911; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=huRWnbUSFIOrYn2QxkW4BG9y2bRatI4h8QE+NxAGfCE=;
-        b=g0rg3e1wOXEJ8yHEnzk071XVpitdG9TDfV6ZSTh80m3CzV9BQAKzA/ZEqMEnlBm8qG
-         Vc6TEGr2HTrmH30gPyddqCH9Q0M8eA5u0NmgvKi/GRZl6XEhTLFzti04e9ggPZOB4DqK
-         ur1DYaGIjYMzFcS3wsL72P/QNjT/UpGUQITcUOcigzuYnZpthUI1/mLT9h+m/BpRHatq
-         JNn9nafTkIA9QryP+HbZupqKJmWpuXVpq6N2iY0gxlr+oMfx39QUW2VAkvyQHSLIMXSz
-         Y7zSb6ylOXaT+x0lPKh5JnC3DZZHOVqXs5NF6AgVmVmthAR+93fWInc9ShyvYunB9jSK
-         gr4Q==
+	Tue, 18 Mar 2025 21:44:31 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52IHCRxm003826
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 21:44:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=1AADZSfOJp1nqwWbAo5LBvnE
+	CeULh4CN3wu8KY8UPqc=; b=J4DEoCaJzOk2VyeY5U33+eaH07Vb4XSJW1StC9Jy
+	ykt/CDU29tYbROqazvA/NfwJCPVLCfsAMabfxoMyYDsWGoqmRsLXSeKShPqpcwki
+	/abMPu2sHFTsJCTx3DEFyiIby/RmD/lweeAGjCJvnQzHo7gnltZW4iyWDzDsP/Sg
+	dNM21EC3bp1CX3EyRktIkG53OVCXiiquwT4tpbkkCggLMG3zdorsxzbcpd5HBhtl
+	yqoYZJUITMTDB065MF2NqtTDV5K8Aoz1TEJT5exag9p3Gyg6LvfCMKuRTzGESRDo
+	IIcDBhsuHlnT/7hY/xaLUjS5Y6tPvEarTBNZJn04ourB/A==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45fd1dgk8a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 21:44:28 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c0a3ff7e81so1130685285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 14:44:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742334111; x=1742938911;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=huRWnbUSFIOrYn2QxkW4BG9y2bRatI4h8QE+NxAGfCE=;
-        b=FcMdfzvmRBz3DkH6pqw7lYr+5DfYDlSKhWb5rPDdsBKTdFRE+AFJ8bSuYMfqvhjF4k
-         wWQq8AyoploeRPONf3nRcUMpCFN2rKiyMOLSTqCC3zmPPFlwQi3/wyMBRjxtYFG9O9vD
-         KLi/W0wIEIq2zz8LXdhkJ8SysZEHSQDgG1lE3lJz1skNB3j9P49lHP/kO3ug40RGxIi2
-         g+EIUHDLTlPF+YxlcJ8E00k2V0wzyEVHYHuaVNdpUnBitAnBxO5tuwk7G+RmRENJJkvX
-         3zUVMKFHGbHin7hgQkhAzIYeRHPw0Bb0LNAxL22KZifs+G5LmUUwaPWM4VsnA5nwuD1x
-         xjEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWnG/T0w+5/O2fqrPT8HRBhdCOP3BgiMIvDPCx/JHpiSGeHfmuGGLxPVMMOOXAcHp5qiZ4w37ZaA758U8try/Xu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcotK7KGN17DTSJICXrGCoRNcmblktaDQPvrRF6IDWaNDSY0xo
-	qSOIDWJkp6e1StFWPfX+HGSLPcGmlDPjNQpuqAOexZSsGy9SaNbMiANogWoHoSfsxSZCFL3uwy+
-	Dh37gtRNMcHIGiiV7ierK57qmsTuqLxMZv5WW
-X-Gm-Gg: ASbGncuH4AgDd17Np4u79fXARLN3ZwjcQftVTO1WzV2ERN3PvlTd2KXJozyJrUmMlMM
-	A+TjkBph+qXlCP/3J1SuVvbM8kU4difWhBDLMACtqetyGVO/okYSodPhGPgPQ5OFV+2qCS2oiH5
-	J1wnlbTCOhy6BBQYL/6r79NkD4Pw810e5QUCOHTRKYZcbiarcRZhZdMio=
-X-Google-Smtp-Source: AGHT+IEE7SnidIPRfD/tsQUEwB4S5fYvYHXaK7pjnnRSY2/bfQtUnICoMM+NMzU+Q4G5iu99RUJkJd34epkaV7xV8uM=
-X-Received: by 2002:a05:6402:2072:b0:5e6:15d3:ffe7 with SMTP id
- 4fb4d7f45d1cf-5eb81ca377cmr5954a12.7.1742334110577; Tue, 18 Mar 2025 14:41:50
- -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742334267; x=1742939067;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1AADZSfOJp1nqwWbAo5LBvnECeULh4CN3wu8KY8UPqc=;
+        b=LCfaBFWBkXvcgDWryOSkNOKRo4rqPTc3VUgVSnrNph8DFCo53CD/1AyNFTRs/Q2BLy
+         WV9QRwyZXBJypKU0iCChSGGPSPe6fHsffhRkGvYOAdc9FPcW31MTuFNufX+9OQv0MGuE
+         5NS/IbJlN4Dvo+gIlhKxEZHvWpgaV4oe41PAO/05NjRkjgde1LiuQdGaNLgs6tqQRKk2
+         /LgZ3Yk/uFYgN89iIiczjDiYaEgByTl/Aku05K01p6yVPjVKhcecTKE657dsujHIDpuB
+         TZKkxT0nUHfvAREkxsDIJwTHDLmagU8+2vsLMQM4EGwPgOHOsz26Fx+0LGlcz2BxuHaI
+         C3/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU4M131jErLyDtAJzAU+0aAAQWvoLBkNxrefzGErlInWsPFhvG/nlNFF1t6MGXaFXT1YUfducmadwAFVmpGvlQn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4Sqv5uNqOj3VdgcQ1oJnum5BBR1MloF8u49gKCa5EMQlD2pY4
+	66aK2g0jhD57TRhv+wVrp4te/i93bQKzZrpvMtZmiEPjeGt00JzZ5etx7YnzXrQ0BO89UTdCC47
+	T+ltm0zqjArmS2kOTjj82zqInvfKMwkJKKD4rt5oT4Ds3kDLAq03AcGG4KB87acGBWtMLz9eucQ
+	==
+X-Gm-Gg: ASbGncthVc+/F0K/a6Xt6F024LNqjgSd6CZVvtr7FiKUkEFqdF7UwAP0YSYa2yAF1nX
+	7ZrjeGwjGXarTRpP0BU5VwYmAr+hxDiouy9rRtALW/vjdOyrIsj2n1209u9A6dBu/YYHXFbZsFb
+	qzcVDBf6+IIqS1hdnJRW0mFV1WNDCryHtvLFYNMjn1FQPzRya+Vxk10VPc3VjbxUTRqlSyYtZgK
+	6agg9FfNCtpe8AIS9nYwAjd9/JiHtfhD2Y7VnmATN2JeKwBTMvwH6QhwG+hKiIgvRygm19Jvfdv
+	A8nMl3VaQeLhGVYtV6pBjjWyeCTmjT5OkSBsC+YHvW1a/OMYQ0eNu3XGHUyPnntazMq9UnhMXef
+	PSt0=
+X-Received: by 2002:a05:620a:4482:b0:7c5:5a51:d2c0 with SMTP id af79cd13be357-7c5a84a2371mr32781785a.52.1742334267642;
+        Tue, 18 Mar 2025 14:44:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE6UtxUCzUOH9lP3JjinEPv01rFFWt5zsaCfHfEx/eMPLwAv0vPpL/ftuphg+XNF8apY83cqw==
+X-Received: by 2002:a05:620a:4482:b0:7c5:5a51:d2c0 with SMTP id af79cd13be357-7c5a84a2371mr32777485a.52.1742334267258;
+        Tue, 18 Mar 2025 14:44:27 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30c3f100c39sm21020321fa.48.2025.03.18.14.44.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 14:44:25 -0700 (PDT)
+Date: Tue, 18 Mar 2025 23:44:23 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+        Kumar Gala <galak@codeaurora.org>, Andy Gross <agross@codeaurora.org>,
+        "Ivan T. Ivanov" <ivan.ivanov@linaro.org>,
+        Andy Gross <andy.gross@linaro.org>, Georgi Djakov <djakov@kernel.org>,
+        David Heidelberg <david@ixit.cz>, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/9] dt-bindings: arm: qcom,coresight-static-replicator:
+ add optional clocks
+Message-ID: <3ibbttdnygwsikfm2anusyrg6zoghhlj5sfom2f4ujc434dg22@xa6x5igbrbmf>
+References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
+ <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
+ <7b0af57c-a38c-4c30-9bb7-efe511d6bd1d@arm.com>
+ <klcggfxrhjqty4rktx24xmnosqnwzsbyfzgv5ea6okqbffyswn@5yei6276hlla>
+ <eeff769a-ff81-4017-9738-98ad130980a9@arm.com>
 MIME-Version: 1.0
-References: <20250308023314.3981455-1-pcc@google.com> <202503071927.1A795821A@keescook>
- <Z88jbhobIz2yWBbJ@arm.com>
-In-Reply-To: <Z88jbhobIz2yWBbJ@arm.com>
-From: Peter Collingbourne <pcc@google.com>
-Date: Tue, 18 Mar 2025 14:41:39 -0700
-X-Gm-Features: AQ5f1JoCSww36ZPRvbJPagyRsMZce1-_UGQToveMTebIsOSwVuNrh895PUcBWPA
-Message-ID: <CAMn1gO6Zy1W0M_JsHcX6pcOp8cb7=uWUScf3WGxKTRm=AjXKKA@mail.gmail.com>
-Subject: Re: [PATCH] string: Disable read_word_at_a_time() optimizations if
- kernel MTE is enabled
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Kees Cook <kees@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Andy Shevchenko <andy@kernel.org>, 
-	Andrey Konovalov <andreyknvl@gmail.com>, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	Mark Rutland <mark.rutland@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eeff769a-ff81-4017-9738-98ad130980a9@arm.com>
+X-Proofpoint-ORIG-GUID: tTTOPQjhUGtoOWmcJwCxQq7n2I_tWeTK
+X-Proofpoint-GUID: tTTOPQjhUGtoOWmcJwCxQq7n2I_tWeTK
+X-Authority-Analysis: v=2.4 cv=T52MT+KQ c=1 sm=1 tr=0 ts=67d9e93c cx=c_pps a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=EUspDBNiAAAA:8 a=J51RNj2YpcLuybvcX6kA:9 a=CjuIK1q_8ugA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-18_10,2025-03-17_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 adultscore=0
+ impostorscore=0 priorityscore=1501 bulkscore=0 mlxscore=0 clxscore=1015
+ mlxlogscore=999 lowpriorityscore=0 phishscore=0 spamscore=0 malwarescore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503180157
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_144153_025367_E1C369B0 
-X-CRM114-Status: GOOD (  36.82  )
+X-CRM114-CacheID: sfid-20250318_144429_995589_0A20BB87 
+X-CRM114-Status: GOOD (  28.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +143,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 10:37=E2=80=AFAM Catalin Marinas
-<catalin.marinas@arm.com> wrote:
->
-> On Fri, Mar 07, 2025 at 07:36:31PM -0800, Kees Cook wrote:
-> > On Fri, Mar 07, 2025 at 06:33:13PM -0800, Peter Collingbourne wrote:
-> > > The optimized strscpy() and dentry_string_cmp() routines will read 8
-> > > unaligned bytes at a time via the function read_word_at_a_time(), but
-> > > this is incompatible with MTE which will fault on a partially invalid
-> > > read. The attributes on read_word_at_a_time() that disable KASAN are
-> > > invisible to the CPU so they have no effect on MTE. Let's fix the
-> > > bug for now by disabling the optimizations if the kernel is built
-> > > with HW tag-based KASAN and consider improvements for followup change=
-s.
-> >
-> > Why is faulting on a partially invalid read a problem? It's still
-> > invalid, so ... it should fault, yes? What am I missing?
->
-> read_word_at_a_time() is used to read 8 bytes, potentially unaligned and
-> beyond the end of string. The has_zero() function is then used to check
-> where the string ends. For this uses, I think we can go with
-> load_unaligned_zeropad() which handles a potential fault and pads the
-> rest with zeroes.
+On Tue, Mar 18, 2025 at 01:37:23PM +0000, Suzuki K Poulose wrote:
+> On 18/03/2025 12:19, Dmitry Baryshkov wrote:
+> > On Tue, Mar 18, 2025 at 10:38:17AM +0000, Suzuki K Poulose wrote:
+> > > On 17/03/2025 17:44, Dmitry Baryshkov wrote:
+> > > 
+> > > nit: Subject:
+> > > 
+> > > s/qcom,coresight-static-replicator/arm,coresight-static-replicator
+> > > 
+> > > > As most other CoreSight devices the replicator can use either of the
+> > > > optional clocks (or both). Document those optional clocks in the schema.
+> > > > 
+> > > > Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
+> > > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> > > > ---
+> > > >    .../bindings/arm/arm,coresight-static-replicator.yaml          | 10 ++++++++++
+> > > >    1 file changed, 10 insertions(+)
+> > > > 
+> > > > diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> > > > index a6f793ea03b6c193fc0ff72a45e0249a63a2ba3c..56e64067ed3d63c5e293a0840858f13428bacb45 100644
+> > > > --- a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> > > > +++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> > > > @@ -30,6 +30,16 @@ properties:
+> > > >      power-domains:
+> > > >        maxItems: 1
+> > > > +  clocks:
+> > > > +    minItems: 1
+> > > > +    maxItems: 2
+> > > > +
+> > > 
+> > > For the static replicator, you don't have an APB clock, as they can't be
+> > > programmed. It may have an ATB clock. So minItems 0, maxItems: 1
+> > 
+> > It can, see qcom-apq8064.dtsi
+> > 
+> > Also minItems:0 doesn't make sense to me. I'd rather keep this as an
+> > optional property rather than requiring an empty set.
+> 
+> Interesting, that must be atclk in fact. Because a static replicator
+> only manages ATB transactions. It doesn't have an APB interface.
 
-Agreed, strscpy() should be using load_unaligned_zeropad() if
-available. We can also disable the code that checks for page
-boundaries if load_unaligned_zeropad() is available.
+Ack. Unfortunately there are platforms (and grepping revealed more than
+just APQ8064) that list the apb_pclk. We have to support those DTs :-(
 
-The only other use of read_word_at_a_time() is the one in
-dentry_string_cmp(). At the time that I sent the patch I hadn't
-noticed the comment in dentry_string_cmp() stating that its argument
-to read_word_at_a_time() is aligned. Since calling
-read_word_at_a_time() is fine if the pointer is aligned but partially
-invalid (not possible with MTE but it is possible with SW KASAN which
-uses a 1:1 shadow mapping), I left this user as-is. In other words, I
-didn't make read_word_at_a_time() arch-specific as in Vincenzo's
-series.
+> 
+> I am not an expert in DTB schema. But the point is the clocks are optional.
 
-I sent a v2 with my patch to switch strscpy() over to using
-load_unaligned_zeropad() if available, as well as the patch adding
-tests from Vincenzo's series (which had some issues that I fixed).
+This is handled by not listing the 'clocks' / 'clock-names' under the
+'required' list.
 
-Peter
+> 
+> Suzuki
+> 
+> 
+> > 
+> > > 
+> > > Suzuki
+> > > 
+> > > 
+> > > 
+> > > > +  clock-names:
+> > > > +    minItems: 1
+> > > > +    enum:
+> > > > +      - apb_pclk
+> > > > +      - atclk
+> > > > +
+> > > >      in-ports:
+> > > >        $ref: /schemas/graph.yaml#/properties/ports
+> > > >        additionalProperties: false
+> > > > 
+> > > 
+> > 
+> 
 
-> > > Signed-off-by: Peter Collingbourne <pcc@google.com>
-> > > Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4=
-bf98ada827fdf755548
-> > > Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
-> > > Cc: stable@vger.kernel.org
-> > > ---
-> > >  fs/dcache.c  | 2 +-
-> > >  lib/string.c | 3 ++-
-> > >  2 files changed, 3 insertions(+), 2 deletions(-)
-> >
-> > Why are DCACHE_WORD_ACCESS and HAVE_EFFICIENT_UNALIGNED_ACCESS separate
-> > things? I can see at least one place where it's directly tied:
-> >
-> > arch/arm/Kconfig:58:    select DCACHE_WORD_ACCESS if HAVE_EFFICIENT_UNA=
-LIGNED_ACCESS
->
-> DCACHE_WORD_ACCESS requires load_unaligned_zeropad() which handles the
-> faults. For some reason, read_word_at_a_time() doesn't expect to fault
-> and it is only used with HAVE_EFFICIENT_UNALIGNED_ACCESS. I guess arm32
-> only enabled load_unaligned_zeropad() on hardware that supports
-> efficient unaligned accesses (v6 onwards), hence the dependency.
->
-> > Would it make sense to sort this out so that KASAN_HW_TAGS can be taken
-> > into account at the Kconfig level instead?
->
-> I don't think we should play with config options but rather sort out the
-> fault path (load_unaligned_zeropad) or disable MTE temporarily. I'd go
-> with the former as long as read_word_at_a_time() is only used for
-> strings in conjunction with has_zero(). I haven't checked.
->
-> --
-> Catalin
+-- 
+With best wishes
+Dmitry
 
