@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 299CBC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7D4C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pjkzx95YrIHu1im/ERsuV/sJCTyvMl2w3ogiWL8ueNg=; b=SymfvaVxCiDQA6ONpYzgzr1Yaj
-	6c9fClN/by2H9I4D2IrtlX7L5nYoOZrHJhrcaKtiFAd6rbOORV1cgbzBd3idAxk5bqdkpwC6Y6yej
-	UmfTE+oSbGfcxrhHS5w+m9uhveuX8HUrQwE8HBuxo8RXK9fGd/XlxK9Q6AoXEPr0hcnbiaTSpxPuF
-	h7+2aLWYLehK7EMvDOAdyVyUaBbcdR62sz3P8tZQhdYkVb314bOknStwS8NQYe3OK+IquU110V0Bc
-	GerxxE3xG/6iStwH3oL7YUhx+9fLEA7Cey2TKd6HWAfrGM+POqkvo7FhViSEhNfaIMuATyUI/8iuI
-	+olv2Rkg==;
+	bh=qVUpvtTBLHRQ7RrqjSGWWvP5ToHEThWrbkH7ADEWZ7k=; b=iEI6lKGQqE8SdWIqeGpYjEc4ky
+	1Tj8Gfk9aHHzgIFaIgTY+NHkCIyPz1ra/wS2q35urwmoM6uM2PBk4xSWzPQfD0vrik9H1FjUANxS0
+	aejid7S7i2mq5uLZyaN0+ijV3r7kRI9Rv4ohSTYugqDqZpRvDG8YkumKODEGDuFElcwh5oTAekuRv
+	QiWY5ZL2y1yKcL1eYuLqAKy81bUQ+2UyOHGb9yWco4rvGOhymtXDtWz1cjtRw6UAHntyZ2f1vFJPC
+	gZsTa2TQZiUVFauuIwBvoo3xe1XjWgEAX3SXosvgxSQI5jgUDv3S3DQ48oPHLnMGI4hYU2d+sCSlH
+	lA6CpA7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuTr0-00000005QwZ-2SFO;
-	Tue, 18 Mar 2025 10:07:22 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1tuTwO-00000005SDl-3p2Q;
+	Tue, 18 Mar 2025 10:12:56 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuTkI-00000005Peb-2uHB;
-	Tue, 18 Mar 2025 10:00:29 +0000
-Received: from amadeus-Vostro-3710.lan (unknown [116.25.94.202])
-	by smtp.qiye.163.com (Hmail) with ESMTP id eac37608;
-	Tue, 18 Mar 2025 18:00:21 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Yao Zi <ziyao@disroot.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: [PATCH 3/3] arm64: dts: rockchip: Add UART DMA support for RK3528
-Date: Tue, 18 Mar 2025 18:00:10 +0800
-Message-Id: <20250318100010.2253408-4-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250318100010.2253408-1-amadeus@jmu.edu.cn>
-References: <20250318100010.2253408-1-amadeus@jmu.edu.cn>
+	id 1tuTuh-00000005RlP-1731
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 10:11:12 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5498c742661so5970493e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 03:11:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742292669; x=1742897469; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qVUpvtTBLHRQ7RrqjSGWWvP5ToHEThWrbkH7ADEWZ7k=;
+        b=pFPCHaGAXSnKHNYzkr08/UjZ9BtWBLQQumFJckLn61WqCrJMAxAKo+iVkalqnarNTZ
+         9EHqTi23FWehAcqW6vz1vrI0b0nzJ57K2UkIP6kcrhX7Fpy5luwWGapZTy5ZFfbwWrDS
+         r2KMgBO+Lap+LlEaP98JW/K4TuUuIB8TFKFB0CQjpB4hdeAxP7/3fBR+tXDbJ+Nz9STS
+         a2q8TcHkuH93uF6Du7t1XzhXgbLfxm9pSy0NxrQMVVJ2suozSpI2mantK1hbotuYbx+V
+         cOCR6Ke7GEvSE5shqzy4nsQcqAPvfNe4B1HjBgj6W1bd9qrLZevAN9FBSg0pfde5qjDt
+         rt2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742292669; x=1742897469;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qVUpvtTBLHRQ7RrqjSGWWvP5ToHEThWrbkH7ADEWZ7k=;
+        b=VhCLe3xel1lQEP36uxVnctn1s04304QpT1EZM1aU91zJwJZzV+5Sg+sE5Aw/TtAKxV
+         wykpRqIcZF7jYlGBt021o8zx5J2n6iK5FoJIdbwgrNYc3MckLt3o35K+gXR+G/eFp5G4
+         hOUpOvGP9+bBgmOdSh3Nn68AOBInDHB9+O8t3XPb/5qrrYNo9tPqHKwh+1sDeXcf7I9G
+         iGLMvSoQ8RIuqzQx9f00BkIOEFTIOgufW1DHDJRlMJRdU/kdFYSrUIa+BpDNK8TX6BSY
+         pSSA19H466QEgVTpSCjeCit/N6u7WmOfXX3mUP5ONprzJ59R7c4NZLav8xjAQXnW6lYI
+         gpUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXaqvzr/QF5GRzTrjGdWj1j7kCxr92Xp/BdDVa1NEiajfkpFwIB2j6XMM20/0wV++UKdnTrnwXtdsMa41hr6q7F@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyxrEpM5HOAulOLm8/jdyF2zjmBV7EPey7E8ecuS0uvITrcvDD
+	DS4qypwvLvQv0JWTwTtMOCAFN33TxRmQfLFp/GhIxipbGaAYwUc33WCeDKBOSmOUpWFd1x6uRvm
+	nKoX2qItzY+xDUOBjRg0wxfSNdv3ZHDgvehI02tHUiHXX9yYkJCc=
+X-Gm-Gg: ASbGncuhHORqQQCbu4tQkm8b4WwOSORryB8Bs0Bi+kxzg6m9sbgbfntMKw1GL0S02rt
+	nBV//qizggKExB9JJYrHxEKJLJyQ8ERaArexHGwGFtut2o/HDDv2bpbBs0863tRhMy2gVXOXHuU
+	SC8v3LsIgcHqMXto81gFX3YeZRSQ==
+X-Google-Smtp-Source: AGHT+IGaqrncYYUr4sfyRfLFzOEWIoUn1i0mOansd4z1qNbCCAzVBUKQPVLdXhHFFByp6tsLCBEDJwkAWjabnBVbVpk=
+X-Received: by 2002:a05:6512:3b99:b0:549:b0f3:439f with SMTP id
+ 2adb3069b0e04-54a03ba664emr2114093e87.25.1742292668868; Tue, 18 Mar 2025
+ 03:11:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaSU5KVkkeT0sdQ09PTh8fT1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk9VSUtJWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
-	tLWQY+
-X-HM-Tid: 0a95a8b26f5f03a2kunmeac37608
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MAg6HRw5TTJILksVKA4rGAgq
-	MjEKFB5VSlVKTE9JSUJJS0lKQklIVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	TVVJTlVCT1VJS0lZV1kIAVlBSUJKQzcG
+References: <20250316143108.17045-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250316143108.17045-1-krzysztof.kozlowski@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 18 Mar 2025 11:10:57 +0100
+X-Gm-Features: AQ5f1JpKJfFS7YVV371lRPx1Y2xc562AW9pLo6dBt2VW6OJo1Hlc7eGeR9sMzjI
+Message-ID: <CACRpkdac0zZtB=85Y+Fu=TYwf9qTjNog90-P4SBjQ-oB7X5Vag@mail.gmail.com>
+Subject: Re: [GIT PULL] pinctrl: samsung: drivers for v6.15
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_030026_924287_011164AF 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20250318_031111_309982_2E83EB99 
+X-CRM114-Status: UNSURE (   9.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,83 +97,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The UART ports on RK3528 have DMA capability, describe it.
-Flow control is optional, so dma-names are not added.
+On Sun, Mar 16, 2025 at 3:31=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+> The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f0=
+5b:
+>
+>   Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+>
+> are available in the Git repository at:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tag=
+s/samsung-pinctrl-6.15
+>
+> for you to fetch changes up to 701d0e910955627734917c3587258aa7e73068bb:
+>
+>   pinctrl: samsung: add support for eint_fltcon_offset (2025-03-11 20:37:=
+29 +0100)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index ad77e0ef70f2..1af0d036cf32 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -375,6 +375,7 @@ uart0: serial@ff9f0000 {
- 			clocks = <&cru SCLK_UART0>, <&cru PCLK_UART0>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 8>, <&dmac 9>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -386,6 +387,7 @@ uart1: serial@ff9f8000 {
- 			clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 10>, <&dmac 11>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -397,6 +399,7 @@ uart2: serial@ffa00000 {
- 			clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 12>, <&dmac 13>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -408,6 +411,7 @@ uart3: serial@ffa08000 {
- 			clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 14>, <&dmac 15>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -419,6 +423,7 @@ uart4: serial@ffa10000 {
- 			clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 16>, <&dmac 17>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -430,6 +435,7 @@ uart5: serial@ffa18000 {
- 			clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 18>, <&dmac 19>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -441,6 +447,7 @@ uart6: serial@ffa20000 {
- 			clocks = <&cru SCLK_UART6>, <&cru PCLK_UART6>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 20>, <&dmac 21>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -452,6 +459,7 @@ uart7: serial@ffa28000 {
- 			clocks = <&cru SCLK_UART7>, <&cru PCLK_UART7>;
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
-+			dmas = <&dmac 22>, <&dmac 23>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
--- 
-2.25.1
+Pulled in, thanks for taking care of the Samsung drivers!
 
+Yours,
+Linus Walleij
 
