@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB93C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3365C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jb82ha75Ky9xw2N283lhpcRhhXBYeZoPwyZVdHllL3Q=; b=mV9xOF2tDWoWB/VZvKZdi0JePb
-	ieOfNdZp5W6+byu5dyeLEA47ds7bEC7YAsE9LJ7WqaE68SwkGpjk19deCGcF8P1PiW6LSjo4xnvNp
-	TTxQSNFl+tNuVOLDPaAdRvgxerIHTjqNycg9J5uX499dbyBiRTdZ1/1X+7boQxBsBNhhrJkVMgKse
-	/zG4Zb6437fYc4qfOigvoafyj27EaRntHW7HkwAuTWZaeZKZTwLpLKr5xSnYAjWtmBHGXW6ndKe6F
-	NQIM0gupY4AvtkNE4FPSOm9BbsDsdmaGGe618/olTNbIB25EcQ6waiFKyV8XrfUjig9I854+v0tV2
-	JrifcJeA==;
+	bh=+0TfWQQDrrrcjqtfAwAttx4TskIZOaRrt8FvjBc9hW0=; b=B1+0BsPfhjp0AskV3xBBMY7Fej
+	C/Ol2Mtz1BKfLTir2rfiNL9d0WFPvPDWAoL3pXFtXMB3DK59AInYOnOEkOc/WwE3uJnzfRYBLdovS
+	gZy3YpDujCLooPCNablYzvJVE6Kx6C3rj+ksldRttdJq0NVjo0cNlv44u4TokirTb+CYMWILiUv7K
+	SXGysA1FMB3Oa645Eujmg4ESOr+A6lWtp7Z7pm4RQ3RTtdyNVxTrJaGE6sc5Bc03yl2TAMUrN9PfJ
+	zKwb3D+jfdaxYPD7We+YU+UdnoHb5tK2eneBTEBBh3LF+252KGuJe1lAIhaifxtxx6+raPptY4YYf
+	k0exagIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVfv-00000005p5A-3x8n;
-	Tue, 18 Mar 2025 12:04:03 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tuVhc-00000005pUw-0US5;
+	Tue, 18 Mar 2025 12:05:48 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVa2-00000005npu-0zBQ;
-	Tue, 18 Mar 2025 11:57:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8ADACA43555;
-	Tue, 18 Mar 2025 11:52:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DA00C4CEFC;
-	Tue, 18 Mar 2025 11:57:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742299076;
-	bh=CIhTjH9kKlO1VYGiipc2V9drjBD3Ayt0OkD0U7KRb6w=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VNZz+D/dtbyshE97W4HnLDn48vAHhWJ1qM3mL/ZcYLXzJCavmJHa91JYiiOlMNJbz
-	 3UQHEcUGagflvTa1naQQ3WhxL7VDkHEqM2S7CkzCA9R2QNMrKsOF/87TV8TeAU7pag
-	 JnyeHsFK4NM+n6Sd6iwRDBgTTtsst7XHqqi+SMHGvuW0tYLqcabFNOqlgCauzVkD73
-	 FEV87vVnNi6+5cugxgHyXPjIWm09qmE4hdd7e5vWrscoz4DVCqYqP4MsFlrfEg/D+e
-	 hisoP8e3IL/aZBRIfu7TRQITKlDjGtX7HEA5nLU4mGdskuoLTKP3Pn1CaVYbWjJBBQ
-	 A9XO+vMkI9ejg==
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5e677f59438so8669595a12.2;
-        Tue, 18 Mar 2025 04:57:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUExeOBmX/zLWPoouMBtGnTVddztDmbYXPLoFTsi7WZLz5+CATmFVCCgaNQnK2T6h397YmsbmAN2L0/YQwFkBFA4w==@lists.infradead.org, AJvYcCVJ4YiEq5+eSYPmP0EgeqmaGnSQjR/2uE3lVhucTc6hmPQdyL/svUXPKvfCyhEznqz+Skzwj0PhRks1MxC4L29P@lists.infradead.org, AJvYcCXslvRvQkMR98QPyAYPldX1YMfC4z23AKiRIGiWLqQhvMAvm71kcQnE/VGtksAupbh8HHEv87/IuSnyGbY=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1Pf89FOYPXveyy6ftxVh7S8BxYXHCOolvbd2yMyg3PA20TgLm
-	wdwE119l5ymHgl/lT08tYc0lpNektVHrXa11hLB1wdH5mZ/KG353wFL3c3kHz4BeUnKR4K+wRvA
-	wkreDi+OoaBXZgX+Kfb5qbG8c1fg=
-X-Google-Smtp-Source: AGHT+IHWKrMLWQmDlK3EXFGkIz3JuWrB7n/PbIZxnJSxvCf68cavwFPKlU+WgeLv6v2/CTfArLyeiik7sHtiA+Oo+58=
-X-Received: by 2002:a17:907:1009:b0:ac3:3f10:e8e3 with SMTP id
- a640c23a62f3a-ac33f10ed5cmr1299294766b.1.1742299074804; Tue, 18 Mar 2025
- 04:57:54 -0700 (PDT)
+	id 1tuVcD-00000005o9V-1GO1;
+	Tue, 18 Mar 2025 12:00:15 +0000
+Received: from amadeus-Vostro-3710.lan (unknown [116.25.94.202])
+	by smtp.qiye.163.com (Hmail) with ESMTP id eaf1c5d3;
+	Tue, 18 Mar 2025 20:00:09 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Rob Herring <robh@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v2 2/2] arm64: dts: rockchip: Enable regulators for Radxa E20C
+Date: Tue, 18 Mar 2025 20:00:03 +0800
+Message-Id: <20250318120003.2340652-3-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250318120003.2340652-1-amadeus@jmu.edu.cn>
+References: <20250318120003.2340652-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
- <20250115-fix-riscv-rt_group_sched-v4-4-607606fe73a5@coelacanthus.name> <t2dustbykx2qd24wazjeiw5hch5nwr6z2ewmaf4srg6r2grwrf@rdw47chzkef2>
-In-Reply-To: <t2dustbykx2qd24wazjeiw5hch5nwr6z2ewmaf4srg6r2grwrf@rdw47chzkef2>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Tue, 18 Mar 2025 19:57:44 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4fTGs-7EXE0EcR=P6GqHF2fokRE-kEte+cDmhjy=FYsA@mail.gmail.com>
-X-Gm-Features: AQ5f1Jo4W5NNqo2SfcBdxKCe2OFxQs4im7DaCODl6wEw6MnCM3-sp2pnyba2ZAw
-Message-ID: <CAAhV-H4fTGs-7EXE0EcR=P6GqHF2fokRE-kEte+cDmhjy=FYsA@mail.gmail.com>
-Subject: Re: [PATCH v4 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from bcm2835/tegra/omap2plus
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Celeste Liu <uwu@coelacanthus.name>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, WANG Xuerui <kernel@xen0n.name>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Russell King <linux@armlinux.org.uk>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Tony Lindgren <tony@atomide.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
-	Roger Quadros <rogerq@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>, 
-	Thierry Reding <treding@nvidia.com>, soc@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZGB9JVktKHkkdS0gZTE5MTVYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk9VSUtJWVdZFhoPEhUdFFlBWU9LSFVKS0lIQktDVUpLS1VKQl
+	kG
+X-HM-Tid: 0a95a920204f03a2kunmeaf1c5d3
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NAw6Lyo*PzIDUUtKIVYKKx00
+	HxYaFDJVSlVKTE9JSUJCSUpLTk9OVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	TVVJTlVCT1VJS0lZV1kIAVlBSU1CSTcG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_045758_404349_EDC9A886 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20250318_050013_510733_39C8BA41 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,63 +76,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 7, 2025 at 3:19=E2=80=AFAM Thierry Reding <thierry.reding@gmail=
-.com> wrote:
->
-> On Wed, Jan 15, 2025 at 04:41:23AM +0800, Celeste Liu wrote:
-> > Commit 673ce00c5d6c ("ARM: omap2plus_defconfig: Add support for distros
-> > with systemd") said it's because of recommendation from systemd. But
-> > systemd changed their recommendation later.[1]
-> >
-> > For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierar=
-chy it
-> > needs an RT budget assigned, otherwise the processes in it will not be =
-able to
-> > get RT at all. The problem with RT group scheduling is that it requires=
- the
-> > budget assigned but there's no way we could assign a default budget, si=
-nce the
-> > values to assign are both upper and lower time limits, are absolute, an=
-d need to
-> > be sum up to < 1 for each individal cgroup. That means we cannot really=
- come up
-> > with values that would work by default in the general case.[2]
-> >
-> > For cgroup v2, it's almost unusable as well. If it turned on, the cpu c=
-ontroller
-> > can only be enabled when all RT processes are in the root cgroup. But i=
-t will
-> > lose the benefits of cgroup v2 if all RT process were placed in the sam=
-e cgroup.
-> >
-> > Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doe=
-sn't
-> > support it.
-> >
-> > [1]: https://github.com/systemd/systemd/commit/f4e74be1856b3ac058acbf1b=
-e321c31d5299f69f
-> > [2]: https://bugzilla.redhat.com/show_bug.cgi?id=3D1229700
-> >
-> > Tested-by: Stefan Wahren <wahrenst@gmx.net>
-> > Acked-by: Kevin Hilman <khilman@baylibre.com>
-> > Acked-by: Thierry Reding <treding@nvidia.com>
-> > Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
-> > ---
-> >  arch/arm/configs/bcm2835_defconfig   | 1 -
-> >  arch/arm/configs/omap2plus_defconfig | 1 -
-> >  arch/arm/configs/tegra_defconfig     | 1 -
-> >  3 files changed, 3 deletions(-)
->
-> Hi Arnd,
->
-> is this something that you could pick up? I think so far only the RISC-V
-> patch was picked up, but nobody seems to feel responsible for the ARM
-> patch here.
-I will take the LoongArch patch, but may be squashed to another one
-about config file update.
+Enable pwm and fixed regulators for Radxa E20C. The pwm regulator is
+used to power the CPU and GPU. Note that the LPDDR4 voltage is 1.1V.
 
-Huacai
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 72 +++++++++++++++++++
+ 1 file changed, 72 insertions(+)
 
->
-> Thierry
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+index 57a446b5cbd6..159b55aa970d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+@@ -100,6 +100,16 @@ vcc_3v3: regulator-3v3-vcc {
+ 		vin-supply = <&vcc5v0_sys>;
+ 	};
+ 
++	vcc_ddr: regulator-vcc-ddr {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_ddr";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1100000>;
++		regulator-max-microvolt = <1100000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
+ 	vcc5v0_sys: regulator-5v0-vcc-sys {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc5v0_sys";
+@@ -108,6 +118,56 @@ vcc5v0_sys: regulator-5v0-vcc-sys {
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+ 	};
++
++	vdd_0v9: regulator-0v9-vdd {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_0v9";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <900000>;
++		regulator-max-microvolt = <900000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vdd_arm: regulator-vdd-arm {
++		compatible = "pwm-regulator";
++		pwms = <&pwm1 0 5000 1>;
++		pwm-supply = <&vcc5v0_sys>;
++		regulator-name = "vdd_arm";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <746000>;
++		regulator-max-microvolt = <1201000>;
++		regulator-settling-time-up-us = <250>;
++	};
++
++	vdd_logic: regulator-vdd-logic {
++		compatible = "pwm-regulator";
++		pwms = <&pwm2 0 5000 1>;
++		pwm-supply = <&vcc5v0_sys>;
++		regulator-name = "vdd_logic";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <705000>;
++		regulator-max-microvolt = <1006000>;
++		regulator-settling-time-up-us = <250>;
++	};
++};
++
++&cpu0 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu1 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu2 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu3 {
++	cpu-supply = <&vdd_arm>;
+ };
+ 
+ &pinctrl {
+@@ -132,6 +192,18 @@ wan_led_g: wan-led-g {
+ 	};
+ };
+ 
++&pwm1 {
++	pinctrl-0 = <&pwm1m0_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&pwm2 {
++	pinctrl-0 = <&pwm2m0_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
+ &saradc {
+ 	vref-supply = <&vcc_1v8>;
+ 	status = "okay";
+-- 
+2.25.1
+
 
