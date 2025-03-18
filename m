@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C9AC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617D1C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6sb7WWpK/eIZmNqYlPEkwi7g9bmdjRdBS2xGKsLKs8=; b=WkqE912tlURyMQMdrgSUPzYjva
-	fx+dpbhZ/BMXcMeeYUlcVurH3cdDY5eLm+0Yp6ek2Ag91nb7oUtvOH0Kw2fXjiZHVW2xtBzS9sWhH
-	2hqcx4502oFZYQ6mm9k6Wj50zj+MaRvhThvkFoKh8iyiZxbnx4W4BZBvOJfKj3APXI2dOlrLxzPDn
-	KGwJzDF+cD+Wou6AoYwUoNz2lOny1AF1jSgqYwdaJCK22uY3YEJfTGCYhpP7n0zmv06nmn6BJ75LH
-	+0HkQfHDcQLtQuEYP7aDXgKNsLN/rHkSPRXaky/HsgaNf1ozrOcNuRUp2+v/PO9eumc2nK9iAntOY
-	QgNCYm5w==;
+	bh=p6WgKHelgX9JOsT4r9mI8xTUND7NkMENhri1IGeItcA=; b=HlLxeqL1enxv6wDDYoS+ONyhZM
+	WDUr957kSVIi1UIZfjgOH+KNlSF2aOCxusRtsr7EtHNofn53Qv6mJa//xxzW8rH8hGGWq6sgP8kYb
+	LJwTnl76GnxqZf//aOeezhrQL6nty9CSCZu+O1WHUUka5TJ+ZlqsDGXUsng8/UqAPkLuh+EildiBt
+	O3G7CGtgKqOBTtgBGLrcquVJ0Ig45Z1HnLgy3x0AjN7z+kaUa2IK5stKU5Uez3OfExGKN8fePCq05
+	bKV0K8yUTRvTxhb2MCaWsrnSvv9KyHAoJr1kzBit4RIz3sXj61glEHqAa/NHfoeibRSYNyVykNJLu
+	wFzc4TIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZEH-00000006Pse-0zqT;
-	Tue, 18 Mar 2025 15:51:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tuZNu-00000006Rgw-264C;
+	Tue, 18 Mar 2025 16:01:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZAY-00000006P8S-0Db6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 15:47:55 +0000
+	id 1tuZMD-00000006RNQ-22gY;
+	Tue, 18 Mar 2025 15:59:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 744945C424B;
-	Tue, 18 Mar 2025 15:45:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08C7C4CEDD;
-	Tue, 18 Mar 2025 15:47:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E9BB8A48A95;
+	Tue, 18 Mar 2025 15:54:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58FD2C4CEDD;
+	Tue, 18 Mar 2025 15:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742312873;
-	bh=sD58zLcw1T6P8NiMUNq1sVXKAK5W9zvgQDpdOg2n0YE=;
+	s=k20201202; t=1742313596;
+	bh=wnqlTyxAgZ8CuVhXT9duPOO4NgjQBjimZKlWtsOUGPY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oGA4YBl+hzKVuvM/XqteBDWWK3b6pIavAqDW2+cK9UD9m1xGSZsXCjxkcKNxZo3w+
-	 Tk/Ufcoc4skZ/mDTLKBug0+5qNsXtv0YB9t32+HEKcW+BGajMQSviBMY5HjJcQ5M8L
-	 qMRzug9ByKKSpMDTakbTrJlTOqoDMuwPYZGxPwL71bMS1wAD4Uny6PZDUCHm4Ckr9X
-	 V81MI3EvYLo5/nx+BkM3U8NiK79tmbBg9GUBn2HGN6D2HusssZ8S3E1XAiDq2NAvXF
-	 F4KAOKtMOI923jaVvp/DXpIrB5EOivAeJ+wWTINT0pSdBfytn05v7kaiuufwE99T+T
-	 s9l+MGxUEXo1Q==
-Date: Tue, 18 Mar 2025 15:47:47 +0000
+	b=WVHlHUakLlfN9xeuBYO1EJf+5CyU+WJKRkilNy467a1BnupPF2HSzG6De1fpXKFV+
+	 ix9jYHBoyySgyb6uel1Y6KTQEzU4+Rwm0HghzRyuSjF71hbCSnTEGnernC5xUEtu10
+	 +UeOIc/V5TKw7+jkC51H/NeBuaIOzIXiqjJlwYzUGV3n3dFHQ9MxYqNWDakJi0E6hg
+	 3eBuUyUh9Yz/C8EPNMpPnQhIe07ID+3WJ5N3wJyQiVpq4Skm6z+pxWjAjp5DobEjiB
+	 6Jrg3x/R+DiIvD5NG4zUjWrrB/2tNu1hT+SvmfpVy3qQGAt9drIa3KhZDqAUmDABl/
+	 j7eCAm37AJZIQ==
+Date: Tue, 18 Mar 2025 15:59:47 +0000
 From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Connor Abbott <cwabbott0@gmail.com>, Rob Clark <robdclark@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v4 4/5] iommu/arm-smmu-qcom: Make set_stall work when the
- device is on
-Message-ID: <20250318154746.GB13829@willie-the-truck>
-References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
- <20250304-msm-gpu-fault-fixes-next-v4-4-be14be37f4c3@gmail.com>
- <20250311181151.GD5216@willie-the-truck>
- <CACu1E7Gg3WpQASADAdediRzFz2wEXAnfD7tg05XkiXZQp=X8fQ@mail.gmail.com>
- <20250312124907.GB6181@willie-the-truck>
- <CACu1E7Hm=DWDC2aFdBRkT8f=8gKXJPpif_uEOA9iFZcyT-uCfQ@mail.gmail.com>
- <394571e1-f86d-472c-91dc-4377d512bfbe@arm.com>
+To: Alessandro Carminati <acarmina@redhat.com>
+Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Kees Cook <keescook@chromium.org>,
+	Daniel Diaz <daniel.diaz@linaro.org>,
+	David Gow <davidgow@google.com>,
+	Arthur Grillo <arthurgrillo@riseup.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Alessandro Carminati <alessandro.carminati@gmail.com>,
+	Jani Nikula <jani.nikula@intel.com>,
+	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org,
+	Linux Kernel Functional Testing <lkft@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v4 07/14] arm64: Add support for suppressing warning
+ backtraces
+Message-ID: <20250318155946.GC13829@willie-the-truck>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <20250313114329.284104-8-acarmina@redhat.com>
+ <20250313122503.GA7438@willie-the-truck>
+ <CAGegRW5r3V2-_44-X353vS-GZwDYG=SVwc6MzSGE8GdFQuFoKA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <394571e1-f86d-472c-91dc-4377d512bfbe@arm.com>
+In-Reply-To: <CAGegRW5r3V2-_44-X353vS-GZwDYG=SVwc6MzSGE8GdFQuFoKA@mail.gmail.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_084754_202917_5B1D3F1D 
-X-CRM114-Status: GOOD (  29.86  )
+X-CRM114-CacheID: sfid-20250318_085957_658954_21487E57 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +101,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 01:36:55PM +0000, Robin Murphy wrote:
-> On 12/03/2025 1:30 pm, Connor Abbott wrote:
-> > On Wed, Mar 12, 2025 at 8:49 AM Will Deacon <will@kernel.org> wrote:
-> > > On Tue, Mar 11, 2025 at 04:01:00PM -0400, Connor Abbott wrote:
-> > > > On Tue, Mar 11, 2025 at 2:11 PM Will Deacon <will@kernel.org> wrote:
-> > > > > On Tue, Mar 04, 2025 at 11:56:50AM -0500, Connor Abbott wrote:
-> > > > > > +     /*
-> > > > > > +      * If the device is on and we changed the setting, update the register.
-> > > > > > +      */
-> > > > > > +     if (stall_changed && pm_runtime_get_if_active(smmu->dev) > 0) {
-> > > > > > +             spin_lock_irqsave(&smmu_domain->cb_lock, flags);
-> > > > > > +
-> > > > > > +             u32 reg = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR);
-> > > > > > +
-> > > > > > +             if (enabled)
-> > > > > > +                     reg |= ARM_SMMU_SCTLR_CFCFG;
-> > > > > > +             else
-> > > > > > +                     reg &= ~ARM_SMMU_SCTLR_CFCFG;
-> > > > > > +
-> > > > > > +             arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR, reg);
-> > > > > 
-> > > > > Are you sure you don't need TLB invalidation for this to take effect? I
-> > > > > think some fields in the SCTLR can be cached in the TLB but you'll need
-> > > > > to check whether or not that applies to CFCFG.
-> > > > > 
-> > > > 
-> > > > I think it should be fine because CFCFG only controls behavior when
-> > > > there's a context fault and there can't be TLB entries for entries
-> > > > that cause a context fault: "The architecture permits the caching of
-> > > > any translation table entry that has been returned from memory without
-> > > > a fault and that does not, as a result of that entry, cause a
-> > > > Translation Fault or an Access Flag fault."
-> > > 
-> > > Ok, but what about other types of fault? For example, a permission fault
-> > > or an address size fault?
-> > > 
-> > I'm not sure, but the pseudocode for context faults mentions
-> > resampling CFCFG after a fault happens ("We have a fault and must
-> > resample FSR, CFCFG and HUPCF") so I don't think it would be legal to
-> > cache it. Also in practice this does seem to work. Does that answer
-> > it?
+On Thu, Mar 13, 2025 at 05:40:59PM +0100, Alessandro Carminati wrote:
+> On Thu, Mar 13, 2025 at 1:25 PM Will Deacon <will@kernel.org> wrote:
+> >
+> > On Thu, Mar 13, 2025 at 11:43:22AM +0000, Alessandro Carminati wrote:
+> > > diff --git a/arch/arm64/include/asm/bug.h b/arch/arm64/include/asm/bug.h
+> > > index 28be048db3f6..044c5e24a17d 100644
+> > > --- a/arch/arm64/include/asm/bug.h
+> > > +++ b/arch/arm64/include/asm/bug.h
+> > > @@ -11,8 +11,14 @@
+> > >
+> > >  #include <asm/asm-bug.h>
+> > >
+> > > +#ifdef HAVE_BUG_FUNCTION
+> > > +# define __BUG_FUNC  __func__
+> > > +#else
+> > > +# define __BUG_FUNC  NULL
+> > > +#endif
+> > > +
+> > >  #define __BUG_FLAGS(flags)                           \
+> > > -     asm volatile (__stringify(ASM_BUG_FLAGS(flags)));
+> > > +     asm volatile (__stringify(ASM_BUG_FLAGS(flags, %c0)) : : "i" (__BUG_FUNC));
+> >
+> > Why is 'i' the right asm constraint to use here? It seems a bit odd to
+> > use that for a pointer.
 > 
-> FWIW I checked with the former MMU-500 design lead, and although he doesn't
-> remember the exact details he's pretty confident that they wouldn't have
-> cached anything fault-related, so at least from our side I'd consider this
-> OK.
+> I received this code as legacy from a previous version.
+> In my review, I considered the case when HAVE_BUG_FUNCTION is defined:
+> Here, __BUG_FUNC is defined as __func__, which is the name of the
+> current function as a string literal.
+> Using the constraint "i" seems appropriate to me in this case.
+> 
+> However, when HAVE_BUG_FUNCTION is not defined:
+> __BUG_FUNC is defined as NULL. Initially, I considered it literal 0,
+> but after investigating your concern, I found:
+> 
+> ```
+> $ echo -E "#include <stdio.h>\n#include <stddef.h>\nint main()
+> {\nreturn 0;\n}" | aarch64-linux-gnu-gcc -E -dM - | grep NULL
+> #define NULL ((void *)0)
+> ```
+> 
+> I realized that NULL is actually a pointer that is not a link time
+> symbol, and using the "i" constraint with NULL may result in undefined
+> behavior.
+> 
+> Would the following alternative definition for __BUG_FUNC be more convincing?
+> 
+> ```
+> #ifdef HAVE_BUG_FUNCTION
+>     #define __BUG_FUNC __func__
+> #else
+>     #define __BUG_FUNC (uintptr_t)0
+> #endif
+> ```
+> Let me know your thoughts.
 
-Thanks for checking, Robin.
-
-Connor -- please can you stick some of the above in a comment prior
-to the CFCFG munging so I don't "rediscover" the problem in the future?
+Thanks for the analysis; I hadn't noticed this specific issue, it just
+smelled a bit fishy. Anyway, the diff above looks better, thanks.
 
 Will
 
