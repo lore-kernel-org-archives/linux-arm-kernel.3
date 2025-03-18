@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B148C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:19:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5551C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5b//BkNIqes2hUhYdYRenDT4oNgUr9ZBFQ1l0UOe2I=; b=UhJyzZEEz3f/bkVcLhe8NMPD/Z
-	RuTxxZAKiyag1fYTMXfc2oeyZ+ZmrE77LxsANy31X2UaAi2rrrXOHyfuuikz7vteyXAaXCFbDP7UL
-	e3dAsrem+fQkfLuJA7xJEcQ6WKOKGGFIVQJVgcbZRovJisUwIg1k26rF9KrxgbPk1SzTZJeggBoXs
-	zS2FMq4bK4QtWmgVPRKNiEgbqx7j9u3NUPuNOn2hLjfW3k3f2SGUNXpVYTXzAh4gqWjbVlEt+JxT2
-	YgPA+a6wPK+hjACMN9oV2YLOIq2GQ0tLMuibG6pulpIhfO2IglxpEDQOCNZHWIXYXkVGJNuNWc/x/
-	29uzDY5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k/AxgIgt8vecfvtvzMLhuv/34eYNrWZI3TyC35mHmZw=; b=Hee+Xs+7iME/QU9zytPcGJGqXO
+	kE5cLf8igniIqC4NOuPJeRrZwI78qZlg60fl3zEgfn3eWjLpBzhn2fYBriHkeV6RZEnLDhsAusOSi
+	JJz4tZerXRNanbgNtW7rGzFZjDtZ5A0sBxf7X1EXDl+S9N2OsQ3saB10DdaCAYlusXZBJnFQDZ4HK
+	led1GWNNQ0rnpZ58IIWOtAi6iqNpdaOD5MGMUfIcnwIwv/2KqvsbaKYslHLDQpb/0DLNag/rVB4nK
+	Urv/oQwN1KXwhnX3DAZWoPC7aESCdBBM4qx2eAnhPNa9ulMDOMaZuOuSb4kxw7x2miaml8Omyab5Z
+	fJDv6HHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZfF-00000006Uqk-14dK;
-	Tue, 18 Mar 2025 16:19:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuZgw-00000006VYg-0pEO;
+	Tue, 18 Mar 2025 16:21:22 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZdX-00000006UON-26GO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 16:17:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2EC00A48A64;
-	Tue, 18 Mar 2025 16:12:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83D34C4CEDD;
-	Tue, 18 Mar 2025 16:17:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742314670;
-	bh=+fa8DsdkVEv2EwfFN1t5sni/y+6veh77iQj6yymkA8Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nKuiv4fqNVq8iSizhXj59I6aunnpkEoeQzB6FQxsxzyV68p0P/5FlST6roMo6um2g
-	 ZaqgOZ61tv2fpOwxMiTpqxIG7pZF6KvXpEijVZtqvsCFe84fC3mExU4ZN0Gt/zR2BY
-	 UWdGqBcfKODPmCxO1mu9MEf1Qrm9ve2Kjwv2b56FIHTMsOVdiHLZzdsslcnLZsC8dn
-	 JPD7eUJ+/MAPez89CCF1g6TdJjl8a6lsmyEY8IVPp/ZNpf4s8KWr3Vg5kWjcWIPTt8
-	 tS7JoD8BiLkm2N6A7D7wccy5YHvDjOTby3QQkH+ctda4BlTUj+9x7OxBqYgRmgxsfc
-	 3zsYLSsdA+2wQ==
-Date: Tue, 18 Mar 2025 16:17:46 +0000
-From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH Resend] perf/arm-cmn: Remove CMN-600 DTC domain special
- case
-Message-ID: <20250318161744.GB13981@willie-the-truck>
-References: <67985e39f53b56385d79a4f1264cf7f9cacedb58.1742308248.git.robin.murphy@arm.com>
+	id 1tuZf5-00000006Uoe-1sor;
+	Tue, 18 Mar 2025 16:19:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id ED1EF444D6;
+	Tue, 18 Mar 2025 16:19:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742314765;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k/AxgIgt8vecfvtvzMLhuv/34eYNrWZI3TyC35mHmZw=;
+	b=IhggZrELsy2jktQSttbwimH0C/+Ti+xR7lRFIi8W9GwEmfzp5Cb9a7r+puX9C5lr/dcm/j
+	riQmWafNX5Kdvv1eLT/cPa/BkRQ2O276+H+ynspd0ISlLF5kwSycQCGec/BICzeTVJUlvh
+	M1SRHc+FuR6tH64h80rrN2tDBdalQUYew2zYQeFJnWmkRSd/3RGMmeyjvmpk0KVCS1jqOP
+	HwlQUFW91l9rOxiRyE2vDyoX98aGpo5ZMlDBY1/gvtgecdzzwbxXonEpu9MnWYuIc4p/3b
+	b89R8hWNtP+MPUo/HJM7NWxgUfoXBaYAYbQ7egQpmlEqLeh+5WqFZR1McoZ8Bw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Nayab Sayed <nayabbasha.sayed@microchip.com>
+Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250317-atmel-dataflash-v1-1-1a3247f40299@microchip.com>
+References: <20250317-atmel-dataflash-v1-1-1a3247f40299@microchip.com>
+Subject: Re: [PATCH RESEND] dt-bindings: mtd: atmel,dataflash: convert txt
+ to yaml
+Message-Id: <174231476490.980483.3190469118057006004.b4-ty@bootlin.com>
+Date: Tue, 18 Mar 2025 17:19:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <67985e39f53b56385d79a4f1264cf7f9cacedb58.1742308248.git.robin.murphy@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugedvledtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevjghfuffkffggtgfgofesthekredtredtjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehieffhfeulefgtdeltefgleevgffgheduledvheduudelgfehlefgheeivedvgeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduledvrdduieekrdegvddrgeeingdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedufedprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhmthgusehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvhhig
+ hhnvghshhhrsehtihdrtghomhdprhgtphhtthhopehrihgthhgrrhgusehnohgurdgrthdprhgtphhtthhopehnrgihrggssggrshhhrgdrshgrhigvugesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_091751_601253_A5749810 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20250318_091927_629107_B56E8BFF 
+X-CRM114-Status: UNSURE (   4.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +84,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin,
-
-On Tue, Mar 18, 2025 at 02:32:10PM +0000, Robin Murphy wrote:
-> The special case for trying to infer the DTC domain for DTC-adjacent
-> nodes on CMN-600 is fragile and buggy - currently resulting in subtly
-> messed up DTC counter allocation - and the theoretical benefit it
-> offers to a tiny minority of use-cases arguably doesn't outweigh the
-> inconsistency it offers to others anyway. Just get rid of it.
+On Mon, 17 Mar 2025 19:01:08 +0530, Nayab Sayed wrote:
+> Convert atmel-dataflash.txt into atmel,dataflash.yaml
 > 
-> Fixes: ab33c66fd8f1 ("perf/arm-cmn: Enable per-DTC counter allocation")
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  drivers/perf/arm-cmn.c | 7 -------
->  1 file changed, 7 deletions(-)
+> 
 
-You've got "Resend" in the subject, but I can't seem to find the original
-posting :/
+Applied to mtd/next, thanks!
 
-Please can you point me at it? I just want to make sure that I'm not
-missing patches, as you're unlikely to be the only person affected if
-that is the case.
+[1/1] dt-bindings: mtd: atmel,dataflash: convert txt to yaml
+      commit: 48a29721c967da1af657279fa696d6c386bdd5ca
 
-Cheers,
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
 
-Will
+Kind regards,
+Miquèl
+
 
