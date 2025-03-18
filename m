@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1D2C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:30:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AA3C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fn6o9sruIXfwvCI8WMCUouk1Y9QTIiAVEqwCsNznX/A=; b=igzDo0zWG9CEPzukg0VcA/Rsbw
-	WURPHQ+zrQEJUCkHPnJKt8vlPNZlF799S9SozeaX5RGzIwee0wGkX8GubB3XUBeYyOLJ3RY4jZ4sA
-	2+Da7Yqlqf1eNt/G8rqKYuRHcsNpfRAdxOffhTLFK78QMttEaNlIiSh8WmSBjJC4PIuYtUobu+iNn
-	AAkggRSwa5XZTT+SjP21a9KJVrUAPOU/ZRhYtBjXupfbJLj/koqN7MKBlxJuHyDyNwDH9Yt+1xqDf
-	AlJ0glqsLlcCNzx1qa48xc8hweQs8TPGBO1kMg1nWcvCCMPpaSlU0kPxJ0lAwceE4btsP8xEEezwk
-	FWDEsWrg==;
+	bh=KQvm5ggtbOCQSK3nymPppIX80f9DFkotxhkHRb0WarA=; b=ZVC0d7C2q/FoTbIWMK+p2VeO53
+	g6WHJaQ8fuCAgDNxqAQfhITnklH5rR+z2gG1AXpOviAKEovz9JCnOpup1rb0+Tb+kOC0kIDGG+L9P
+	6vq0eYWjdK1WAkR+2vGWJMz13j0/kBWEqGdxWY5syCtUkHsnqAu/7RQxwKboHMzHbhFumlzeYKOLp
+	MY8Z9RG2lTILCNVlkQvT8i17wYBbCqLrJkJnY/hgFDFqEgdhqs55JnWrKTx+4eRLDPi1SbLwLep3U
+	I3Ep/o/GmnapHOvyXFey9cIOcb/IbXpzGJeAI1si+bM4mSt8NIyt5PYLd65Fjs70xp0ufWeGCgx2Q
+	8scxXnhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuW5G-00000005t3G-1xiO;
-	Tue, 18 Mar 2025 12:30:14 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tuW6v-00000005tBv-12QP;
+	Tue, 18 Mar 2025 12:31:57 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuW20-00000005seB-0740
+	id 1tuW2Z-00000005ska-40mU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 12:26:53 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52IAWsXP010361
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:26:51 GMT
+	Tue, 18 Mar 2025 12:27:29 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52I8hklZ025995
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:27:27 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=fn6o9sruIXfwvCI8WMCUouk1
-	Y9QTIiAVEqwCsNznX/A=; b=KUyifBEdxAy+bNjktmMLxn1q0cz885B8NnY82uZV
-	BXPTBeBzaz+rjyOpCifm8s04bgwGhH6WFTRw031xNMOkFSKCqeivFf/hXTnAECC8
-	JCYrzC0pzigFX2h1ZhI3NaZP+ALy0/o+xN7zXMwPzFkpJXpn24todpgOz9XTsHA7
-	b5ILmsHdrOVkqjh8ZTf/XfqiytLlM+tvqLqJTGsZHSxIMmeh5xIhHEqykGtP+k9v
-	sqCfqI+xO46ERt9zeG2tN9FxJ0/XBrAQp/dcQaKr5WBQYZP2x1UUHmTBAdI3ObQj
-	BE6RB5aO7zh4oJtZQGCAjPgpq0d2inE5ox0J7bPeYJ9bqg==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45exx31rn9-1
+	:references:subject:to; s=qcppdkim1; bh=KQvm5ggtbOCQSK3nymPppIX8
+	0f9DFkotxhkHRb0WarA=; b=SeypgvoU+gdG6Ukfr5ZLaqvd25tu9MhRZNXFTSl4
+	seQBRzEzA46hOlTpxNKZQxvO6mO2aXUQP1ahTXVzSee1Gz+hx/j7tYaClPsI6ZVi
+	+UGaIDLoa8NpPDojLo5HxurMTRHe8elKNUv05mlGGJ2GKjYZZwnxcmy6r6tUqNpP
+	HuQ3y5gllvp5OOSdEI6wUdYOdLBOY2Oy5PPyEyzgkrEu4/sH7NBQZBkfYm2RYPc8
+	YeMFxZlEkGj7288wLpTyKCU6rkCR7xBDFcYjTt6MtNuCUd2tETe9/fGvnkelBagI
+	TL+M4GdLDN43HyM6GEGCvCCvP19k5VBpV89aXEXRTq+9zg==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45d1t4r6y4-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:26:51 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4765f7bbe1bso96400781cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 05:26:51 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:27:26 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6e8ec18a29aso70853586d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 05:27:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742300810; x=1742905610;
+        d=1e100.net; s=20230601; t=1742300846; x=1742905646;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fn6o9sruIXfwvCI8WMCUouk1Y9QTIiAVEqwCsNznX/A=;
-        b=nHq20UCCWOP+gC/BFzM1GOnLdgL7Qq3jynCY9+qrnArGiPeVyHzR/byPbtTC6x23ox
-         0UVsHk7tpMNbnRNivDcw2pe2uKyK+1b7qtuXtwvS/e5ISMVBCB1zk6DALmJo3aE3NxTs
-         ElaNX1lBE3N1qD22ayeFQKL+YxokaDMvlYFzxKz+57ko+LMXIp1LEtej/A64BB1gpj4j
-         PAq8NNWxhB8ijRjlTK7Yj3nWYzjyQWB0S6eoytbc6YoK2i7bR78jAdW0ibJUOmSJjIzv
-         c48XVrzVEJdkaMySUWOIKzIbdM8eo7geY9GCbN9a3CFBoZ4xV7xJyzkSW4PHmZ2A5QRX
-         yY8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVr1Nmghn4YlCoMreT1d1jjuFvcZ0AFIBLMCm6lYQnP8Wf2OreVt0oQlhO00Ojk+mgzIQVeQauutGQJRdO9QPwW@lists.infradead.org
-X-Gm-Message-State: AOJu0YydAOkYT4IiggVJ1ctj8ROLCG1CElQHrQNR6rhQFo2ztxKFghDY
-	9imAy9xbKgcBeKPKk5ndXGj3SyKQ65glugqNu1vXGLUPmocC+7JHVe80GhMwVjTpXY/N2kvJygc
-	51JfJtozhDUwO6l3Yo3MyGdCVYrt2/BDNIaGDQbTmx9C4WuOR3ZqhicHlcOv4Tl2K+T3eOKzkIA
+        bh=KQvm5ggtbOCQSK3nymPppIX80f9DFkotxhkHRb0WarA=;
+        b=OXSg1y8+A11zu8dXsCCeHRMWeSuWAslajloIzXCXfSbLLcv5ti2h1q23B/RpCYHsw6
+         7JoQPF+hBFfX8QlU7uG/URgvFjU3ARONGVg/a98REb7rMvVULnXZ0/yPabtn2UXZZ/zQ
+         brOTF/jPqgPhOyV7wzvbiZTyjQKu6m2d2VMoudkcfL2K6F1fUccOT+xbS7q9SmOIsf8m
+         +d4N1fXFaROsANbuVQ6GHGqnbjMjal6EU1So7WRv6ZkIGBdFSjLaCcQa65C5MUhVNSfe
+         fgfYibmq9Z4DYi4rccOB6ANUs/nirVUcvA3jQmLa8J6l/9L0VBN8+6tgee4eTj9EL/ai
+         OUzA==
+X-Forwarded-Encrypted: i=1; AJvYcCUgrg5jpKDoIsuvOCsduIIZDH07qfdLq5G+0KAFtrxNN870bIVh5pguU+nZdARxacnDmZKZc5YFLXpQSDzKooVF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yya1clTM3kU1f29U4CVrgURvd65iYKwG+fpXUwxFJHmr8N0yzMD
+	Nt/l2j1/glBOwwXtU+LVSsuRekJ0kCJK3pNLNJ84guOnMETcdVgKrvwItGjD08YT1qcXjpxUbTG
+	xkwarJHAttED/BzzUKMSqnYRWJIvyJ7vLCo+ZUv5iJ/f6EmbbySaX2tJBYeeiGSSuzr3YvCZrYQ
 	==
-X-Gm-Gg: ASbGncsI7saIHu+nwOi6kV3Hwymlqs4L1rOSCA5CthasocphjCD8+BD25Z5MSiOxHbG
-	WincFXmhdeQogcPSwfYwyx4lgt5iVy8o9Tm8EqCb0UaCLZeXUvd4Yg/+MOrCxWHX4IMCctx+pHD
-	mP7gS0IeieZ5LRS1Hs4ty8llktCoV5OETJWrmcVx1K7TutBZ/NlariSnRVjIfEQi/CxJ3XFqvey
-	q6s0rzbE28dWQF0YAK52FYM+DCBgZxhlXpcMSJGY58ffzU9VBQjeF3lqKpr+sEMF19kbGBN/yF/
-	A0gRWkDW8B+XkVuYsBgob5w2t28Dj0rGVsgp1cx+1Q7xY2/ScOeMp6g2MUk77K963UTQgSQ7Mho
-	6TSo=
-X-Received: by 2002:ac8:574d:0:b0:476:7327:382b with SMTP id d75a77b69052e-476c814a05emr237383281cf.16.1742300810265;
-        Tue, 18 Mar 2025 05:26:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFcR9xUHBK9TFXZWSwLWT2FsKGFofnO2SkdyZ7fM94gEY42uE07dGuuS4gCqZY8gVYIkurgsg==
-X-Received: by 2002:ac8:574d:0:b0:476:7327:382b with SMTP id d75a77b69052e-476c814a05emr237382801cf.16.1742300809924;
-        Tue, 18 Mar 2025 05:26:49 -0700 (PDT)
+X-Gm-Gg: ASbGnctxzowPXw0MZcrroTDqevwyPEY6IopeuUwZcq3xufzEvpHh8ECygLQ7TOth6sr
+	1AL5AqELmXFODIP5sm1G4Qy/uhT6Ltiz0FOeAhVC4cSixcwG4ZscS4Vfaxcle7ARXZgJ2qRKqVh
+	lM75JlhbeMjQ4JxwIXbUNXX+P0twVDcce16zc4jV/WDVcJgoPURG9ZeFs9ZedmE4YhuIKtyBFIA
+	xjoN/HGvEdX1g+D0A3brrRb9BkIkS4CmbdGWYhYZnXQ5eg3wL9Q2cnOcE4Et7edm6GmOu5LtHLl
+	z3AFheLoHLZ4XH3AtA8bd+3vbtud8xMeZPZWJ+mPaH9D5wSmsSys0UOCQjoKUr+c+VSsOszQNsp
+	YAFk=
+X-Received: by 2002:a05:6214:202e:b0:6e6:6c7f:111a with SMTP id 6a1803df08f44-6eaeaaecabamr227559506d6.40.1742300846237;
+        Tue, 18 Mar 2025 05:27:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHwR7+iJ5oOeO+aBGprQHwdADJEmV6itZoPrskcrm0NWrJsFokzpnQutdgU3GCkevB+AxS3LQ==
+X-Received: by 2002:a05:6214:202e:b0:6e6:6c7f:111a with SMTP id 6a1803df08f44-6eaeaaecabamr227559086d6.40.1742300845903;
+        Tue, 18 Mar 2025 05:27:25 -0700 (PDT)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba7bee7fsm1638070e87.54.2025.03.18.05.26.47
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba88332dsm1627986e87.181.2025.03.18.05.27.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 05:26:48 -0700 (PDT)
-Date: Tue, 18 Mar 2025 14:26:46 +0200
+        Tue, 18 Mar 2025 05:27:25 -0700 (PDT)
+Date: Tue, 18 Mar 2025 14:27:23 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>,
@@ -106,31 +106,31 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
         coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 8/9] ARM: dts: qcom: apq8064: use new compatible for SPS
- SIC device
-Message-ID: <p4hda4puovabvqnf3unge2rifzu37hgim2k4fnvdpbekhojzq5@cx7j4hrspzdy>
+Subject: Re: [PATCH 9/9] ARM: dts: qcom: apq8064: move replicator out of soc
+ node
+Message-ID: <nr5xdpt5sm6xwghcjwmwv4higr2saddewaifwdi7ysztyvh56i@26omyq26f4cy>
 References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
- <20250317-fix-nexus-4-v1-8-655c52e2ad97@oss.qualcomm.com>
- <e26284b1-217b-4afe-af40-ae65cb7ee646@oss.qualcomm.com>
+ <20250317-fix-nexus-4-v1-9-655c52e2ad97@oss.qualcomm.com>
+ <d0c03e76-8b61-4cc6-8839-448fbb64d4e9@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <e26284b1-217b-4afe-af40-ae65cb7ee646@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=b+uy4sGx c=1 sm=1 tr=0 ts=67d9668b cx=c_pps a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=EUspDBNiAAAA:8 a=q9XyVQKgEbIbea8yYzIA:9 a=CjuIK1q_8ugA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-ORIG-GUID: Q_W-qqDKoMNoofrIpuyEtT3UoNKWASrU
-X-Proofpoint-GUID: Q_W-qqDKoMNoofrIpuyEtT3UoNKWASrU
+In-Reply-To: <d0c03e76-8b61-4cc6-8839-448fbb64d4e9@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=VLPdn8PX c=1 sm=1 tr=0 ts=67d966af cx=c_pps a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=EUspDBNiAAAA:8 a=zvJQgSryfyOLS6Et4DYA:9 a=CjuIK1q_8ugA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-ORIG-GUID: YumvfEjpO25bKd_2LzUWv2Y7r3jeCDZA
+X-Proofpoint-GUID: YumvfEjpO25bKd_2LzUWv2Y7r3jeCDZA
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-18_06,2025-03-17_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 phishscore=0
- bulkscore=0 clxscore=1015 mlxlogscore=501 priorityscore=1501 mlxscore=0
- lowpriorityscore=0 malwarescore=0 impostorscore=0 adultscore=0
- suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0
+ priorityscore=1501 clxscore=1015 mlxscore=0 lowpriorityscore=0
+ phishscore=0 mlxlogscore=946 impostorscore=0 suspectscore=0 malwarescore=0
+ bulkscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
  definitions=main-2503180092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_052652_075904_97F4F28D 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20250318_052728_119304_CACFC0A1 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,41 +145,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 01:13:23PM +0100, Konrad Dybcio wrote:
+On Tue, Mar 18, 2025 at 01:15:16PM +0100, Konrad Dybcio wrote:
 > On 3/17/25 6:44 PM, Dmitry Baryshkov wrote:
-> > Use new SoC-specific compatible to the SPS SIC in addition to the
-> > "syscon" compatible and rename the node to follow the purpose of it.
+> > The CoreSight replicator device isn't a part of the system MMIO bus, as
+> 
+> the static kind, anyway - the dynamic ones are
+> 
+> > such it should not be a part of the soc node. Follow the example of
+> > other platforms and move it out of the soc bus to the top-level.
 > > 
+> > Fixes: 7a5c275fd821 ("ARM: dts: qcom: Add apq8064 CoreSight components")
 > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 > > ---
-> >  arch/arm/boot/dts/qcom/qcom-apq8064.dtsi | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >  arch/arm/boot/dts/qcom/qcom-apq8064.dtsi | 66 ++++++++++++++++----------------
+> >  1 file changed, 33 insertions(+), 33 deletions(-)
 > > 
 > > diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi b/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
-> > index 522387700fc8ce854c0995636998d2d4237e33df..a106f9f984fcb51dea1fff1515e6f290b36ccf99 100644
+> > index a106f9f984fcb51dea1fff1515e6f290b36ccf99..acd94f3ba0350c5dcdd8f80885ee643d8cbddac7 100644
 > > --- a/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
 > > +++ b/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
-> > @@ -402,8 +402,8 @@ saw3_vreg: regulator {
-> >  			};
+> > @@ -278,6 +278,39 @@ scm {
 > >  		};
+> >  	};
 > >  
-> > -		sps_sic_non_secure: sps-sic-non-secure@12100000 {
-> > -			compatible = "syscon";
-> > +		sps_sic_non_secure: interrupt-controller@12100000 {
+> > +	replicator {
+> > +		compatible = "arm,coresight-static-replicator";
+> > +
+> > +		clocks = <&rpmcc RPM_QDSS_CLK>;
+> > +		clock-names = "apb_pclk";
+> > +
+> > +		out-ports {
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +
+> > +			port@0 {
+> > +				reg = <0>;
+> > +				replicator_out0: endpoint {
 > 
-> The register that the consumer of this points to doesn't seem to exist..
+> Please take the artistic liberty to add a newline before subnodes and re-sort
+> the in/out-ports to make them alphabetical
 
-It does, although it is marked as reserved. And this matches msm-3.4:
-
-                .smsm_int.out_bit_pos =  1,
-                .smsm_int.out_base = (void __iomem *)MSM_SIC_NON_SECURE_BASE,
-                .smsm_int.out_offset = 0x4094,
-
-#define MSM_SIC_NON_SECURE_BASE IOMEM(0xFA600000)
-#define MSM_SIC_NON_SECURE_PHYS 0x12100000
-#define MSM_SIC_NON_SECURE_SIZE SZ_64K
-
-I don't think anybody tried bringing up dsps on APQ8064 though.
+Ack
 
 -- 
 With best wishes
