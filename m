@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 153C9C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 09:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D72C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 09:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72TkmXAQKpNdaC3LctP26eLEn0NO+2H1jjo03xTka6c=; b=fG22wISeJwID4SxPghFOHnO7LC
-	/iAWIsN2RyW6LlB+eG9JTTVYxstxOQp6/J+Ix2MmHfr6tNWB0jxNG3gynsDpUNU62bMiPJWACqpey
-	m41NYgB63FQuMMo5KivhauluQw2Z/Iq+P6z5PRRt9z6+XhKgcrQjsZO4ElD2QUbR143GRYcB+Kt+z
-	HgcEhJ3Q1RBRO9SXoarNGa0p3azldKN9VRnKFawNAd9uRj3CE8yC5bWZksgx7KhtcdeCbdx8xs39c
-	SYZrYzySDShql4pRWDpeE7Iwx9xBqMJ+Pka7UFvwyiN9TPJT6ZNrJMU7IbYwMmcQA+8Z6kydbmk5Z
-	ptgkCdHw==;
+	bh=nq/kIeUvsYchRSsvL9vFcgKb/afGEMrUOIv8NQ6uWoc=; b=f4hbwXHXCzqlRH32dlRHvs0lS+
+	BTX11diUI7MY2LoSSY6WxvA8g+QPNE0xGNA6u7pspr6m9FaHgN59BTrgaLyR4AbDUJZVvKUs+BxO8
+	YKRGrrJe5oDf9Xi/boo4k9vwvDHoEfsKnjQWqL/jdd/ZsUgS9tN2cxOVzGu90MR8HWUxQw1COsmmq
+	lmfLfAUIxr0VE2rSWfPR0X3amZs8yJk/Q/JTXx3fJONgHX3/t1c2HoXmUju6OanGQSVZfHTzw11gN
+	851EaX12uitOS3zo6Ta4T9FCXwE1cyytLwAdErPgJRqiNzKrEjZSsc9mwbWnmIAuHuzK5tlq4khgI
+	3tkjQlxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuSst-00000005GeS-145O;
-	Tue, 18 Mar 2025 09:05:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tuSuZ-00000005H55-25HS;
+	Tue, 18 Mar 2025 09:06:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuSlS-00000005FEM-0CS6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 08:57:35 +0000
+	id 1tuSo2-00000005Fen-32si;
+	Tue, 18 Mar 2025 09:00:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BEED6A48EAA;
-	Tue, 18 Mar 2025 08:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E64C4CEE9;
-	Tue, 18 Mar 2025 08:57:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 26CD65C4067;
+	Tue, 18 Mar 2025 08:57:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39682C4CEDD;
+	Tue, 18 Mar 2025 09:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742288253;
-	bh=3zZk2oCWReReEzN/FmUmB+RAWcgx2Mhojm2zZi/STT0=;
+	s=k20201202; t=1742288413;
+	bh=o20ut9XPOkaNXkg3oPkImXLLeuOtRdZe6gxpLMXe7nA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ktGyBXciC594TVYC9ZEiklSReBim0xQwZ2XL0nQGjGSegs+uk7vYOkyFkn8YfnnGz
-	 BUSqfhEbK7FsRxadCt7CrLA32GDSfinUelXKmzGDOz97UQcZC442hSR13Swj6OkgZ1
-	 ZS70MORtXSFkUiT2sPTW09uDZpoBArBvXBhD8s0oGs2Qcgqx6urnK6AmbMrlisngOU
-	 1mzvaiZy9iW3aAaRhrn/7I2SUJqOvj9vfAFeMa+VLVCU1c6hrbhKBBWrcKtSLZNuEi
-	 4yEfqrsiaxwh+uKnNAntfDbTRdX9KM9LGyicL7iw8LkPXUpFSGlhAVf94jVOodjtqv
-	 7Kxg+cFf0s6zg==
-Message-ID: <81ce5a24-70b4-4dc7-af1c-3a193c5033e8@kernel.org>
-Date: Tue, 18 Mar 2025 09:57:26 +0100
+	b=nUC1aYqxE32yuLQiBOfJVqeep+n0p9I13eIjpcTPMX1841y0vGtwbi0lT5VIOO43a
+	 M6ESSv8Hdod1/nLKxga/OQwSyC7kpF3TIBwme+H4x/f6RzX3b/ogVo1ZUxacYEINRL
+	 dCVqJ0QfEDjsMaC2Vh6w8zdrg7f1d0Y1z2cxAxxrzyws1QUNV1G/f1RvuN+Hc4wc5Q
+	 BxxaCQ9N6tAEO31vyglnKwnV8+KrveFohxYByeAJ4qsbvMV+CTBTe7Y3WCh56nlfdN
+	 YEwUPDDPjfMU/XTjMsnrIENfRA9FaH4+a3b6sfIkXvcGvLAlv1cGoz6pnRTAq4IY8+
+	 mgVOjISfgYozQ==
+Message-ID: <12f5049d-02e1-4c80-9289-b2dfb1e136a8@kernel.org>
+Date: Tue, 18 Mar 2025 10:00:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] watchdog: s3c2410_wdt: Fix PMU register bits for
- ExynosAutoV920 SoC
-To: sw617.shin@samsung.com, alim.akhtar@samsung.com, wim@linux-watchdog.org,
- linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
- 'Kyunghwan Seo' <khwan.seo@samsung.com>
-References: <9c94a771-b3e6-4ba4-9b7f-dcd93b53f924@kernel.org>
- <CGME20250318005143epcas2p40ebb1954bed8890aaf8d0a641f710423@epcas2p4.samsung.com>
- <20250318004411.695786-1-sw617.shin@samsung.com>
- <658c00e2-e8ef-4997-bb91-9620e97bafae@kernel.org>
- <000001db97e0$f2ef9e60$d8cedb20$@samsung.com>
+Subject: Re: [PATCH RFC v3 2/3] firmware: mediatek: Add vcp ipc protocol
+ interface
+To: =?UTF-8?B?SmppYW4gWmhvdSAo5ZGo5bu6KQ==?= <Jjian.Zhou@mediatek.com>,
+ "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "wenst@chromium.org" <wenst@chromium.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20250317110331.2776-1-jjian.zhou@mediatek.com>
+ <20250317110331.2776-3-jjian.zhou@mediatek.com>
+ <d3f8fbe3-c061-4d34-a5a3-09cbf676bc4c@kernel.org>
+ <f3b6a690f73e8f5a5370a587d0b1671e96e8b5b2.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <000001db97e0$f2ef9e60$d8cedb20$@samsung.com>
+In-Reply-To: <f3b6a690f73e8f5a5370a587d0b1671e96e8b5b2.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_015734_226555_E23F97FF 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250318_020014_885162_B678C17B 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,17 +131,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2025 09:37, sw617.shin@samsung.com wrote:
->> Why do you send patches which were applied?
+On 18/03/2025 09:32, Jjian Zhou (周建) wrote:
+>>> +
+>>> +     return IPI_ACTION_DONE;
+>>> +}
+>>> +EXPORT_SYMBOL(mtk_vcp_ipc_send);
 >>
->> Best regards,
->> Krzysztof
+>> Drop export - no users
+>>
+>> Anyway, every export must be GPL.
 > 
-> I can't see this patch in -next yet.
-> Could you please advise me where it is? Then, I will check again.
-> If there are any missing parts that I need to handle on my end,
-> please let me know.
-I don't think you tried enough.
+> The Video Companion Processor (VCP) driver (currently being prepared
+> for submission to the community) will call it.
+> 
+
+It does not work like that. You must post the users NOW.
+
+NAK
+
+
+...
+
+>> Check goes immediately after declaration. I doubt it is useful in the
+>> first place as this cannot even happen...
+>>
+>>
+>>> +             dev_err(dev, "No platform data available\n");
+>>
+>> No, drop. Cannot happen or fix your drivers. Who provides the
+>> platdata here?
+> 
+> The VCP driver will call platform_device_register_data to register the
+> structure data. mtk_vcp_ipc_probe will be triggered by vcp_probe. This
+> structure data is the structure we described in the cover letter.
+
+
+Comment is still valid.
 
 Best regards,
 Krzysztof
