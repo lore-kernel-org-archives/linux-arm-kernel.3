@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1231DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507A0C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n26jTGw7a6IhILTyNcvgMrK+JzqQ4j06C8HKLqJCV74=; b=zO0t51GICLrXbj6MpPxHfkPzn0
-	/NCMLtJ6tE8MojvlWf8qCtoA1PxUcU5jtsSoLuM3+DJwsfEfBVLQaR8QQmmw9fdeMc+QCKHsBHL26
-	0PKwk3Y+yO05OOZnPI7PFP6PJ8eRVsgbA/PK2/WFQPMZ1yfhPNwNpQ06my07vu03WtwEjldXRL2Rk
-	OGzs5CyZOkPnR/W8OJgymoIF1tELGSajmgUt+zx+lZqf38+CLT1pbXtWTfkXmq8CH5uVi3HfUvH85
-	1isorBuB6xUhjxSlBXtD/jVm8ul6IQIprnmL48x02m3Dfa+l0MFpCtHfzBFhg+zn65OUnH5IcpQwb
-	bDhf+lHg==;
+	bh=wMDKkTfkJ0wKCc7/gnzhaycZkLn3ynm1HthZlvBwHJw=; b=IKrg9QkPhk8pgJugVWFO/ZAX25
+	ilHtwpsA1+bxSxU3sDt6fHphWk/6txkBxESh+C+g5KGFrOJ/4Yx4mkNBBtBVpwtuDcyatjrPHOmvO
+	wKnJCCEsfok3cPCKAb/k7gcqjhqzOPHbfqkgwizTOZSwj37y059YnXJX8fja4uuqmTlJ9giatI60W
+	m7MoTTnoeoxEFhqbybjU8jmHoLSqIMr8sbSAl6sTg2GXhf7hZmivSsHFkrluIrv7dUbbOmqa9ZPKr
+	FXGYeEpVAmLTMfmnUkdysBnIUbLS3UgUAF4L+mtdg9OYcFn71XmZV7fUao8tCFjA34TC9bXC7AHSo
+	LsYK1y1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXPh-000000065jZ-1fJI;
-	Tue, 18 Mar 2025 13:55:25 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tuXRM-0000000661Q-07pz;
+	Tue, 18 Mar 2025 13:57:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXMX-000000065AM-070P
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 13:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=n26jTGw7a6IhILTyNcvgMrK+JzqQ4j06C8HKLqJCV74=; b=fQLghR0hnNj09MYO1OaK/dfY6v
-	ylVyfUE/zF0CnFLmbUo9xYGBNcXicjT40z9zwR4JF9C4nynTcfi8NPoCw57QcHCRhbV2S4grPzd01
-	FVZmMGl3btj03Ymp0Wrg1ggotEGAwBnCJDHro067VRhx9kd2Mgx2Cmg4NDzXbi9/QDr8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tuXMG-006GWG-39; Tue, 18 Mar 2025 14:51:52 +0100
-Date: Tue, 18 Mar 2025 14:51:52 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"joel@jms.id.au" <joel@jms.id.au>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	id 1tuXNV-000000065OL-2p2j;
+	Tue, 18 Mar 2025 13:53:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D3A895C57BA;
+	Tue, 18 Mar 2025 13:50:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13131C4CEF1;
+	Tue, 18 Mar 2025 13:53:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742305988;
+	bh=JPDR0w/YOEw1Llnb5VuhVxqbXWyVgpVHr44qHu0QbSg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gwm1AgIt9fYXFQOGLZbDqLKc0zA7MQmSCDZfYZSv66mjMeVIOUmgQvR7ELKU9mjkT
+	 PJNlhF6ICeEMz5rbCgzcfqtSW0MrlfTcFj2Z/hfLajg4NobWokz7XnNQekteaOaphS
+	 n8WyWgoOnIvv4ikITjfp79lQcj5mLy4wYeDgSuRvG2o+guBNTg6DzAfsWdmSqoTOfY
+	 motBfd9/kTwCRklxwgdJAy3XfZBBUtspRGo2qKW/VOiPoSltM/bCtO8HOF/q5jxSg3
+	 dV6WbTurGrFtnDbuRaMKd6Pi4nUNHwGrYmSrqx7klo5UZjBTdFcdzOIvgK8bY8kKZ5
+	 o7Hn5i+QayETg==
+Date: Tue, 18 Mar 2025 14:53:06 +0100
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Shayne Chen =?utf-8?B?KOmZs+i7kuS4nik=?= <Shayne.Chen@mediatek.com>
+Cc: Sean Wang <Sean.Wang@mediatek.com>, "nbd@nbd.name" <nbd@nbd.name>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
 	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	BMC-SW <BMC-SW@aspeedtech.com>
-Subject: Re: =?utf-8?B?5Zue6KaGOiDlm57opoY=?= =?utf-8?Q?=3A?= [net-next 4/4]
- net: ftgmac100: add RGMII delay for AST2600
-Message-ID: <5b448c6b-a37d-4028-a56d-2953fc0e743a@lunn.ch>
-References: <20250317025922.1526937-1-jacky_chou@aspeedtech.com>
- <20250317025922.1526937-5-jacky_chou@aspeedtech.com>
- <20250317095229.6f8754dd@fedora.home>
- <Z9gC2vz2w5dfZsum@shell.armlinux.org.uk>
- <SEYPR06MB51347CD1AB5940641A77427D9DDF2@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <c3c02498-24a3-4ced-8ba3-5ca62b243047@lunn.ch>
- <SEYPR06MB5134C8128FCF57D37F38CEFF9DDE2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	Bo Jiao =?utf-8?B?KOeEpuazoik=?= <Bo.Jiao@mediatek.com>,
+	Chui-hao Chiu =?utf-8?B?KOmCseWegua1qSk=?= <Chui-hao.Chiu@mediatek.com>
+Subject: Re: [PATCH 02/21] wifi: mt76: mt7996: Add
+ mt7996_mcu_sta_mld_setup_tlv() and mt7996_mcu_sta_eht_mld_tlv()
+Message-ID: <Z9l6woY4TYKe2olT@lore-desk>
+References: <20250312-b4-mt7996-mlo-p2-v1-0-015b3d6fd928@kernel.org>
+ <20250312-b4-mt7996-mlo-p2-v1-2-015b3d6fd928@kernel.org>
+ <9efb42f0948b23cc127dc5c5d9e31791f80219ef.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="S+U/CWieHPnttq0l"
 Content-Disposition: inline
-In-Reply-To: <SEYPR06MB5134C8128FCF57D37F38CEFF9DDE2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+In-Reply-To: <9efb42f0948b23cc127dc5c5d9e31791f80219ef.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_065209_067994_EBA66157 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20250318_065309_768129_9564FA8B 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,42 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 05:34:08AM +0000, Jacky Chou wrote:
-> Hi Andrew,
-> 
-> Thank you for your reply.
-> 
-> > > The RGMII delay of AST2600 has a lot of steps can be configured.
-> > 
-> > Are they uniformly space? Then it should be a simple formula to calculate? Or
-> > a lookup table?
-> 
-> There are fixed delay values by step. I list below.
-> AST2600 MAC0/1 one step delay = 45 ps
-> AST2600 MAC2/3 one step delay = 250 ps
 
-That is messy.
+--S+U/CWieHPnttq0l
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> I calculate all step and emulate them.
-> The dt-binding will be like below.
-> rx-internal-delay-ps:
->     description:
->       Setting this property to a non-zero number sets the RX internal delay
->       for the MAC. ... skip ...
->     enum:
->       [45, 90, 135, 180, 225, 250, 270, 315, 360, 405, 450, 495, 500, 540, 585, 630, 675, 
->        720, 750, 765, 810, 855, 900, 945, 990, 1000, 1035, 1080, 1125, 1170, 1215, 1250, 
->        1260, 1305, 1350, 1395, 1440, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 
->        3750, 4000, 4250, 4500, 4750, 5000, 5250, 5500, 5750, 6000, 6250, 6500, 6750, 7000, 
->        7250, 7500, 7750, 8000]
+[...]
+> > link_sta);
+> > +
+> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (sta->mlo && conn_state =
+!=3D CONN_STATE_DISCONNECT)
+>=20
+> The latter check seems already to be handled by:
+> if (conn_state =3D=3D CONN_STATE_DISCONNECT)
+>     goto out;
 
-Can the hardware do 0 ps?
+ack, I will fix it.
 
-So this list is a superset of both 45ps and 250ps steps?
+Regards,
+Lorenzo
 
-Lets see what the DT Maintainers say, but it could be you need two
-different compatibles for mac0/1 to mac2/3 because they are not
-actually compatible! You can then have a list per compatible.
+>=20
+> > {
+> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 mt7=
+996_mcu_sta_mld_setup_tlv(dev, skb, sta);
+> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 mt7=
+996_mcu_sta_eht_mld_tlv(dev, skb, sta);
+> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 }
+> > =A0=A0=A0=A0=A0=A0=A0 }
+> >=20
+> > =A0=A0=A0=A0=A0=A0=A0 ret =3D mt7996_mcu_add_group(dev, link_conf->vif,=
+ sta);
+> >=20
+>=20
 
-	Andrew
+--S+U/CWieHPnttq0l
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ9l6wgAKCRA6cBh0uS2t
+rPt9AQDihoHV63IGKsFzYLkd0lQwgYU6Bnkt/voMu9V/EK0mAAEArLSYGDDloAlr
+f1S4dgIRZVeLcDjQ4bfrWoXfBjaBvQI=
+=+rQ0
+-----END PGP SIGNATURE-----
+
+--S+U/CWieHPnttq0l--
 
