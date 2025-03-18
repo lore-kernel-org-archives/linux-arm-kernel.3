@@ -4,66 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA2AC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C58C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mDhvZS20eLXaKld5OnUktRnrq8yN830WLvxutVCN3aw=; b=RaFal9HgNuL0eajleYz0EBM1Gg
-	CUyjKDQLN4qwKBPzKXgYROHtB32e1MnWNj1QxMNUnVW5gcwmVtiLEkjw3QABvXXko7eVVWESrN+cv
-	XYvmFCfYxsF9JFcCvbL+W9VwswqSivh8DdbBVwhStqgPK+CFO8iZmnr3o2K8Nat+dRbdj71b9hvr2
-	5lGl8DGtzMKsVJqdBwolZdPWYDuWPbMZHJebEwCSxX+khD1vYEhNdpRXYVZcGs/nLQQls1QQSz3tV
-	gUKxLv8QGFme1f5RabjF0xVmTcT3MmQJed7ZrCo/mN+lFY69HKdT595cmwsg+g4AA1AsYrbnKCar3
-	jYKth/eg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b1O+uLM1JS3SDRUPJkFsjl9GIuvpMT2cD+4v/3zBEAA=; b=IddGgeGaAMR/arJwt68vqYIR7D
+	3+sSeBAz9+wrEQ4AsyA7oGKkDUOHT+8NMXLdfXHQj7y0z3C8bbEvAWkTsRSlD06GmqqvERxoKAgY4
+	Qm0KWopWPG5NZXYHlTTANNmj4HzF9czOARCiE2Coh9ugjx+pzYlYLiQKFZU7XUOBJOjJOT9o95gs3
+	HN+rpNDcetfba4BIlzn9AGt2KeL+kpwNZXBYDH8BxloP+cWg35wjvDPa9IOPKUZLSLjgff1ks0My8
+	XlrZjfj34gORKqflmZlxHo5dv05SaaPLX4hmcjYn859je8HUpEMIHlD7Sy0BEoCESv+r8SAa1Dgh6
+	IOPLqWAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuYmb-00000006Kv8-0l0b;
-	Tue, 18 Mar 2025 15:23:09 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tuYoJ-00000006LCt-1DDW;
+	Tue, 18 Mar 2025 15:24:55 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuYkt-00000006Kff-1qlF;
-	Tue, 18 Mar 2025 15:21:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742311281;
-	bh=ikl3rkeQnLiGTEwhtDsuQZ0Era+RRUfSI1GQRsd5rKk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KQh2Uzj1upplFHfwz9hQ9ANnArlYejbPYiBBTXjp95CU3QcRfhQ7UOVPI+NyYIGwb
-	 DZVhoYSMC7aYHKs03qhCjF3RTaJME3UWdWy/jNPUalGTlyuXDsA0YgMS4RKTJPHapv
-	 pY3raIGtiua01SNHB8ME9PjAYwjRcx8Tnj99dShYuekQJgwTCde22Mx4vMOJCGH5F2
-	 3AWykmi5mHEcBj/mWBB/hoiRJbLFEFgyZM5ulCAYs3ToqEjQrZmkLCdV7lY7VfJFD0
-	 3uixhy/3/2OZ7r18GPZdrz3LUQztRlSTNkpVkaNvzp7o3hbhdKNUkNpO3BMUIwMGxj
-	 xci45pvz6E/ow==
-Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8DD9517E0E8D;
-	Tue, 18 Mar 2025 16:21:19 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH] iommu/rockchip: Add flush_iotlb_all ops
-Date: Tue, 18 Mar 2025 11:20:49 -0400
-Message-ID: <20250318152049.14781-1-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.49.0
+	id 1tuYm5-00000006Kr0-3LPg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 15:22:39 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3014678689aso4487467a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 08:22:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742311356; x=1742916156; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=b1O+uLM1JS3SDRUPJkFsjl9GIuvpMT2cD+4v/3zBEAA=;
+        b=CqaLsj4tVriFwst/AN0f2t2ZwkUB1t8K/Lgl7rlWKCqf4z5WEjh9iHE5bmUcjEUz4K
+         qm+GwMLW+XHDyvikutu3lA2pWokOSRnGrHEwuKQ7NbDWCpSsQCe2vjtUaxe6cxJCd70V
+         dTnRJp5ObLbnQ+7WM5NQNva/F+YqJ4ns40/0AdZGXVhFhy6YJMc2exI01w3uxwQnbgXJ
+         XsLTC1fU6Gk0IPleHsUgVaY42VBVTcbUJHJYK7b3DLQTUNnxzDe/FoReGwKJJ04w63Yj
+         x0cnlkgUxvOI4dJd6/ZkG/Ykj5dc0NCu2KCHjSKY7iIYB5nv78lvpQsZSeVs/LJsN2Gv
+         323g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742311356; x=1742916156;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b1O+uLM1JS3SDRUPJkFsjl9GIuvpMT2cD+4v/3zBEAA=;
+        b=FsOOgWRs1N37Gjbmv6UKfpR1QD0RbkBkP95tjLBWdv/qup9+nY2rhRvsVT//lKw8Qa
+         r7zP9MeSDygITmKPzwiP9kWSDVZiB5qJC3dte5o1XMzyvwfpbGPl3gGHLQzOMUyyWZs4
+         G2CiwLIgZbsyI3tbK1jh4sLrwoJO24wtof3raIuEaSij+hIwAqAK41C6NpAH77Gliiyj
+         KcQUNjVq1++Ft1+xX7ES7h2ku22F6HCWuhvSTCgaPZS2pabD1xDoIMWvAFpBipNztsyz
+         8zpfiLN4taiVPUlGpTyyq5gC+9g0LpAz8yuWbjUi1Ohq3Y1EKVDhue6yc18mEWbMFyDU
+         xTyg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSH/pw4Dx8kqFnYXKL0cqFSG3Nax8S22F84XMLUL3pF8W/ZCz1X4jW8PtvSKuOSEW+K8UHgAquTucITBwI+WTm@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz3x1pRYFfQ1h5EwRHSCfq2sqnVVSeDYCcS7eq36Y5WPF6n4Ll
+	SyY1o9VATGAW9wmmn2Eec65pT9Tg/6cgxMgUR3ydf8vegI5fpOtb
+X-Gm-Gg: ASbGncuPvDn4PuV8bJfp0ECjARq2vy2D4BQ9H1K86uqZzPVpFfi2iizPaGc8zqcs6F0
+	0g54fIy3WvcPw4tWBvHvd22swvhQnjoclJO9R2l9Ob6iDVcMwjE7qiSXjkfb27eLS2CKAwB9vwB
+	zvxmjNOztJScSv8BI6NhJD5D4EcMZgkRkJB1pWK0r4VSmzVxKj8c54QjM28N0R5QEjqi1VbxYzr
+	3ROTJ3xnoN33b75nANXPhhjaJIQ+0+kXd76NTdhqU0nW7fMkkfGfRWnJRFKiQjPAUziOapxkT+c
+	ul2pJJg5eXR7M+ay2cB8PxZgklYjrbs8qXZkXyxioviB1clPwuK8fMyEF+heLygBWpmtnsPzgxA
+	iL8OXpLs78WLWIonk6jtV0ZkN5tXX
+X-Google-Smtp-Source: AGHT+IHGHiOrC+gOvwxsNgQjXSm+TIRcVXspSDyBsDPgTboUtiOiWHemH4dUn+FSAC6hrpVwEjhvPw==
+X-Received: by 2002:a17:90b:1d48:b0:2f9:cf97:56ac with SMTP id 98e67ed59e1d1-301a5489ee0mr5080905a91.0.1742311356544;
+        Tue, 18 Mar 2025 08:22:36 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-301a39efc5bsm1492988a91.0.2025.03.18.08.22.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Mar 2025 08:22:36 -0700 (PDT)
+Message-ID: <7afcd224-1154-4e2f-b383-10f6a89fdae0@roeck-us.net>
+Date: Tue, 18 Mar 2025 08:22:34 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/3] dt-bindings: hwmon: Add Microchip emc2305 support
+To: florin.leotescu@oss.nxp.com, Jean Delvare <jdelvare@suse.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
+ linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: viorel.suman@nxp.com, carlos.song@nxp.com,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>,
+ Frank Li <Frank.Li@nxp.com>
+References: <20250318085444.3459380-1-florin.leotescu@oss.nxp.com>
+ <20250318085444.3459380-2-florin.leotescu@oss.nxp.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20250318085444.3459380-2-florin.leotescu@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_082123_629901_327E2A1C 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20250318_082237_841191_3BF92592 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,91 +151,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Karlman <jonas@kwiboo.se>
+On 3/18/25 01:54, florin.leotescu@oss.nxp.com wrote:
+> From: Florin Leotescu <florin.leotescu@nxp.com>
+> 
+> Introduce yaml schema for Microchip emc2305 pwm fan controller.
+> 
+> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>   .../bindings/hwmon/microchip,emc2305.yaml     | 113 ++++++++++++++++++
+>   1 file changed, 113 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> new file mode 100644
+> index 000000000000..e61ef97e63af
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> @@ -0,0 +1,113 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +
+> +$id: http://devicetree.org/schemas/hwmon/microchip,emc2305.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip EMC2305 SMBus compliant PWM fan controller
+> +
+> +maintainers:
+> +  - Michael Shych <michaelsh@nvidia.com>
+> +
+> +description:
+> +  Microchip EMC2301/2/3/5 pwm controller which supports
+> +  up to five programmable fan control circuits.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - microchip,emc2305
+> +      - items:
+> +          - enum:
+> +              - microchip,emc2303
+> +              - microchip,emc2302
+> +              - microchip,emc2301
+> +          - const: microchip,emc2305
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 0
+> +
+> +  '#pwm-cells':
+> +    const: 3
+> +    description: |
+> +      Number of cells in a PWM specifier.
+> +      - cell 0: The PWM frequency
+> +      - cell 1: The PWM polarity: 0 or PWM_POLARITY_INVERTED
+> +      - cell 2: The PWM output config:
+> +           - 0 (Open-Drain)
+> +           - 1 (Push-Pull)
+> +
+> +
+> +patternProperties:
+> +  '^fan@[0-4]$':
+> +    $ref: fan-common.yaml#
+> +    unevaluatedProperties: false
+> +    properties:
+> +      reg:
+> +        description:
+> +          The fan number used to determine the associated PWM channel.
+> +
+> +    required:
+> +      - reg
+> +      - pwms
 
-On some Rockchip cores (like the vdpu34x video decoder), the IOMMU device
-is inside the the device that uses it.
+Is it necessary to make 'pwms' mandatory ? The current code works
+just fine with defaults.
 
-The IOMMU device can still be driven by the iommu driver, but when an
-error occurs in the main device (e.g. a decoding error that resets the
-decoder), the IOMMU device will also be reseted.
-In such situation, the IOMMU driver and the hardware are out of sync and
-IOMMU errors will start popping up.
-
-To avoid that, add a flush_iotlb_all function that will let the main drivers
-(e.g. rkvdec) tell the IOMMU driver to write all its cached mappings into
-the IOMMU hardware when such an error occured.
-
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- drivers/iommu/rockchip-iommu.c | 45 ++++++++++++++++++++++++++++++----
- 1 file changed, 40 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 323cc665c357..7086716cb8fc 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -899,6 +899,40 @@ static size_t rk_iommu_unmap(struct iommu_domain *domain, unsigned long _iova,
- 	return unmap_size;
- }
- 
-+static void rk_iommu_flush_iotlb_all(struct iommu_domain *domain)
-+{
-+	struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
-+	struct list_head *pos;
-+	unsigned long flags;
-+	int i, ret;
-+
-+	spin_lock_irqsave(&rk_domain->iommus_lock, flags);
-+	list_for_each(pos, &rk_domain->iommus) {
-+		struct rk_iommu *iommu = list_entry(pos, struct rk_iommu, node);
-+
-+		ret = pm_runtime_get_if_in_use(iommu->dev);
-+		if (!ret || WARN_ON_ONCE(ret < 0))
-+			continue;
-+
-+		if (WARN_ON(clk_bulk_enable(iommu->num_clocks, iommu->clocks)))
-+			continue;
-+
-+		rk_iommu_enable_stall(iommu);
-+		for (i = 0; i < iommu->num_mmu; i++) {
-+			rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR,
-+				rk_ops->mk_dtentries(rk_domain->dt_dma));
-+			rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
-+			rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
-+		}
-+		rk_iommu_enable_paging(iommu);
-+		rk_iommu_disable_stall(iommu);
-+
-+		clk_bulk_disable(iommu->num_clocks, iommu->clocks);
-+		pm_runtime_put(iommu->dev);
-+	}
-+	spin_unlock_irqrestore(&rk_domain->iommus_lock, flags);
-+}
-+
- static struct rk_iommu *rk_iommu_from_dev(struct device *dev)
- {
- 	struct rk_iommudata *data = dev_iommu_priv_get(dev);
-@@ -1172,11 +1206,12 @@ static const struct iommu_ops rk_iommu_ops = {
- 	.pgsize_bitmap = RK_IOMMU_PGSIZE_BITMAP,
- 	.of_xlate = rk_iommu_of_xlate,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
--		.attach_dev	= rk_iommu_attach_device,
--		.map_pages	= rk_iommu_map,
--		.unmap_pages	= rk_iommu_unmap,
--		.iova_to_phys	= rk_iommu_iova_to_phys,
--		.free		= rk_iommu_domain_free,
-+		.attach_dev		= rk_iommu_attach_device,
-+		.map_pages		= rk_iommu_map,
-+		.unmap_pages		= rk_iommu_unmap,
-+		.flush_iotlb_all	= rk_iommu_flush_iotlb_all,
-+		.iova_to_phys		= rk_iommu_iova_to_phys,
-+		.free			= rk_iommu_domain_free,
- 	}
- };
- 
--- 
-2.49.0
+Thanks,
+Guenter
 
 
