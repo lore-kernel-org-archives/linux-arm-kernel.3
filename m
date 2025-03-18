@@ -4,95 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E120BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F1DC35FF8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SXreAV2ANUNLXOCGHNmgwnuxR6Y0ADaUa6Mv3KQ5Clk=; b=hSQqCqxChX2ehcE2mPApvZ5PRz
-	xFc65WTF4lH7UTDqVqv19mvVb2USOvwK/+A6j5OoYsoy26gI4NrSNV2ZqfUPiNtKHusTuW4QaJtMo
-	dd1IQd1HUFIuys2zkGnqkf6DllfNGkyfRvB7o/cVPTa4m8yCHZ12p856r7A2WbvbtLnnkCsVqkFh/
-	5qoCz4nnbPULjeLM0wTOWzJoIgMXvgICn5i1mBAXnQ72//2t62HtcXcB6iAWPdRqtB1z+uoz0MgIq
-	BIYSBQrPdpaMIJWSIWsuHlmLP+xMd4amZNeSb2lHH7LVJi9BcSAjkOs67W25PHjXJ5UjROsqJTbnI
-	Ng4MIVMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UAEZys5wOPUk2jbwZot4PTd5CxE8viW8h6Oq3fXiwbI=; b=oLAh2VkONlNwN2mqR4jPGYdkTQ
+	j+yoRunWdge1tMs1e6mUQnRpwNyXDJ6s/FcclLkDpLjVtP0AQWoXd/KRG6RORvZlhx5z6dB3b6fCf
+	01eochD4ecbn9coFFKmaruNMaCQonBbtldrB32aIKkvdTZaPRnybRLxJOV6RvsFFM1iYkBkErKyco
+	1JkEecsf+MfZmQ6J2GMQG8sPsX4+3UJbHCE6cXDLebbxMGGPCllvyUMB85Yj2msMUp/A8Es+jmX6C
+	JjR7+CxVkvSx594z2h/zaABkq8jD367jWuc7XsoCiAor6D0taQzBaazZxbm9F1xfba5sovUejIqFl
+	9QiTdx0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudsu-000000073My-1703;
-	Tue, 18 Mar 2025 20:50:00 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudrD-0000000736u-06Kf
+	id 1tudua-000000073gu-00l9;
+	Tue, 18 Mar 2025 20:51:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tudrq-000000073AZ-1o79
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 20:48:16 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-399676b7c41so1669502f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 13:48:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742330893; x=1742935693; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=SXreAV2ANUNLXOCGHNmgwnuxR6Y0ADaUa6Mv3KQ5Clk=;
-        b=GD9k211zC1QmfEjgfMjGlz8xp3RA11ib5Cq5K/x88wqLFDy+YM22URlTQi+zRFke+f
-         8FNVg8xeQglRjtoWWilMrOYh3M0lTc7t3tU92xdZZlQTTcjnSwtJHWUCIT0nmFUVGbIJ
-         KcVT00tG0pTaLIWlLK+e5dEsR3W1YHvvyL2+DCTMXY/i1qjcfrYJ5M7M1+ADOUgCSN4V
-         dXqx5DRkA8RbM8MvL70V7mZTQNLAKU0K4TO/0qh8tIuv4kuGNQsIEASNpdKhKni1/uMy
-         QS5xUElCye6rh5vxt3caF5O/d2QUMFPQBvWPD6xZypFdfx26+IN7oO320NRFuTKRmHOf
-         7vfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742330893; x=1742935693;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SXreAV2ANUNLXOCGHNmgwnuxR6Y0ADaUa6Mv3KQ5Clk=;
-        b=mBNfXdvHqVun5BKUIG0suQ9K56gtcDGKO0sXSw2WB06ZQS6DHypEL26AhWtqrEEkzP
-         NKoKdcvzPbdEi4nblpAqu6ZetlfTLiHgMqcCUcfczQuDsungBrLMLAzgG2EVfPoqITY6
-         jUu2RkQCSecm/q3UWc9jS6QWq9461e1GjpX2ZidHcZHsDTU84SVAwi2c35adwCWci+BP
-         dIPhHKBHKQRn9gsuDbsDNv68nCBmPV/VkGmBq/kMnhjJHtBbE3hXFHE3yLt3Pshocpw3
-         WFUXvE4L3W00yTHb6MSIg2scWl1jeAts60eS1okbxRc4ZAwbHNwGw3OLE41Bpl+00dz3
-         1yUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUOcfOKIwiKKTfn9khXjuApe750CJjz6XL38kCojf4EYF+Jm00vQScmccQVqT9h8RiRHWeU9rbcy0e/QvHH0KXj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvq469lSH5jkCKcUPBoKGL1JUMWpYN4o1frQRgZCkhD6UuZ9tJ
-	BaRI/dSXhIaLDnafRveq3nnAwsWBdbHag3jGB/Okq7KKD2pQa2rt0QG9c26x2dq6gJj8WbxNHdG
-	e
-X-Gm-Gg: ASbGncvPHjyTe4mJs1Rms1Fs3cumx0FcW+R1E47AT8p4F0CP2hX+EIfyqYRMkcyxgFr
-	WgyHGzmBHhdXHMo9hvK0b4N72bF1Xjl+Pd+UDeAdF4wktQJE7khA4Ybs6hnz9QevIgSiE2cwOCD
-	byva/MwdvW0DhPmeDaiX40W3aXN/5FoR58uxmBOn5Zzkgruh32ISTmOD17vlpK/XpzlacMzZjk9
-	M4aOiX/LuT2IC6Mi86dTf3QpwnruRjESq3q1uUn11tdp9DJLQ3vIrqDVRSxuQ5dK5wxp54AYrTk
-	l9MDvnUF1xC63Aw+WKYgyK2zjZybfnpumSVFRhvgzwBKxEZn
-X-Google-Smtp-Source: AGHT+IGFPGJRCtLFFy23VSE/m+QckBBrVhU9c3ZgD9sj7uRUJ9l394Djfqcd3htbbBE+Wcpd5jsTmg==
-X-Received: by 2002:a05:6000:1448:b0:38f:3c01:fb1f with SMTP id ffacd0b85a97d-399739cb086mr153384f8f.30.1742330893184;
-        Tue, 18 Mar 2025 13:48:13 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1fe294b5sm144621675e9.21.2025.03.18.13.48.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 13:48:12 -0700 (PDT)
-Message-ID: <632522cbc66e456f3b12e884c6c140b38e101aa6.camel@linaro.org>
-Subject: Re: [PATCH 2/3] firmware: exynos-acpm: silence EPROBE_DEFER error
- on boot
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Krzysztof Kozlowski
-	 <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Will McVicker
-	 <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski
-	 <krzysztof.kozlowski@linaro.org>
-Date: Tue, 18 Mar 2025 20:48:11 +0000
-In-Reply-To: <d2e162cd-b12b-47e2-9190-2ecce3489b9c@linaro.org>
-References: <20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org>
-	 <20250314-acpm-fixes-v1-2-ab03ca8e723f@linaro.org>
-	 <638cf070-9fd1-416e-8172-75f189ab0dfe@linaro.org>
-	 <d2e162cd-b12b-47e2-9190-2ecce3489b9c@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.53.2-1 
+	Tue, 18 Mar 2025 20:48:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E7DF13D5;
+	Tue, 18 Mar 2025 13:48:59 -0700 (PDT)
+Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 97D0A3F694;
+	Tue, 18 Mar 2025 13:48:50 -0700 (PDT)
+From: Jeremy Linton <jeremy.linton@arm.com>
+To: linux-trace-kernel@vger.kernel.org
+Cc: linux-perf-users@vger.kernel.org,
+	mhiramat@kernel.org,
+	oleg@redhat.com,
+	peterz@infradead.org,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	kan.liang@linux.intel.com,
+	thiago.bauermann@linaro.org,
+	broonie@kernel.org,
+	yury.khrustalev@arm.com,
+	kristina.martsenko@arm.com,
+	liaochang1@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jeremy Linton <jeremy.linton@arm.com>
+Subject: [PATCH 0/7] arm64: Enable UPROBES with GCS
+Date: Tue, 18 Mar 2025 15:48:34 -0500
+Message-ID: <20250318204841.373116-1-jeremy.linton@arm.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_134815_065407_CD71A6E2 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20250318_134854_513489_735DCF1F 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-03-17 at 10:48 +0000, Tudor Ambarus wrote:
->=20
->=20
-> On 3/17/25 10:26 AM, Tudor Ambarus wrote:
-> >=20
-> >=20
-> > On 3/14/25 4:40 PM, Andr=C3=A9 Draszik wrote:
-> > > This driver emits error messages when client drivers are trying to ge=
-t
-> > > an interface handle to this driver here before this driver has
-> > > completed _probe().
-> > >=20
-> > > Given this driver returns -EPROBE_DEFER in that case, this is not an
-> > > error and shouldn't be emitted to the log, so just remove them.
-> > >=20
-> > > Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
-> > > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> >=20
-> > Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->=20
-> I see you kept the error message though for of_find_device_by_node()
-> failure. You either get rid of that too, or maybe transform all to dev_db=
-g?
+Currently uprobes and the Arm Guarded Control Stack (GCS) feature are
+exclusive of each other. This restriction needs to be lifted in order
+to utilize GCS for generic Linux distro images where the expectation
+is that core debugging features like uprobes work.
 
-Thanks Tudor. Seems I missed that, I'll remove it, too.
+This series adds some user accessors to read/push/pop the userspace
+shadow stack. It then utilizes those functions in the uprobe paths
+as needed to synchronize GCS with the changes in control flow at
+probe locations. 
 
+Along the way we fix a bug in the core gcs task handling and export
+some uprobe quality of life functionality for use in arch specific code.
 
-Cheers,
-A.
+The KCONFIG restriction is then dropped.
+
+Jeremy Linton (7):
+  arm64/gcs: task_gcs_el0_enable() should use passed task
+  arm64: probes: Break ret out from bl/blr
+  arm64: uaccess: Add additional userspace GCS accessors
+  arm64: probes: Add GCS support to bl/blr/ret
+  arm64: uprobes: Add GCS support to uretprobes
+  uprobes: Allow the use of uprobe_warn() in arch code
+  arm64: Kconfig: Remove GCS restrictions on UPROBES
+
+ arch/arm64/Kconfig                       |  1 -
+ arch/arm64/include/asm/gcs.h             |  2 +-
+ arch/arm64/include/asm/uaccess.h         | 42 ++++++++++++++++++++++++
+ arch/arm64/kernel/probes/decode-insn.c   |  7 ++--
+ arch/arm64/kernel/probes/simulate-insn.c | 42 +++++++++++++++++++++---
+ arch/arm64/kernel/probes/simulate-insn.h |  3 +-
+ arch/arm64/kernel/probes/uprobes.c       | 34 +++++++++++++++++++
+ include/linux/uprobes.h                  |  1 +
+ kernel/events/uprobes.c                  |  2 +-
+ 9 files changed, 122 insertions(+), 12 deletions(-)
+
+-- 
+2.48.1
+
 
