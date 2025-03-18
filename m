@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F31CC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 861C8C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DEgzWr2E2NAy7FDuPhBSzhgvxiM8c4iYHbXwNyOFveY=; b=PfMz2xskU1Sv4w6dsGBPVOg3P2
-	zP4U1LG0Lt0+Ybm4+qmz5WfbtT+huOvXa1dl+oGrIKtYVGE+v5kRlSyt5DFD5zbQcarx5FHZHcinQ
-	xqgIuf9e4n1viRqxcgPx8XGD2Ojt8eGWANg2Z9Bl6JL4hRAd3UTOqommGFXTtPNOoh5G1dCeoNm4s
-	fsbOxBo/gIiX4lH4jrnsmQ06TcEIuqsoCRYe94CYH50uykFioqQVGm/1QNblMZHp6dpkgC6Bf61WA
-	i7T59AKhIU94IScMipty9YbfYk+7vNvSYW2+nEWqs1Lv1z8Wdqepz0Qg2idBj48p8TIUp0IeBBwjQ
-	Kg/4FBFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2T2kVjVJTomMfDSeGvL/4MwKDplmr/KjUcacd7YzXgQ=; b=aeToW2HXXYv8rZo/AY2WF6DgCP
+	7sW170y3iFsQ1VM1BCVQlqP1xaV1sKE13IzOg0sZYXCudid+Wi1pjHMhFALBZj6ODJJNXEFz5KnHx
+	fRC4FjvkYNrq88kxKvqRdbBsiLXfF7YuQWninN0zimQHhlV7BBBWoX99Cbbwb6jY3G4xyUOu+D8Sx
+	w5B35pxElrsZlDUt2FTiB312oD69XMBxiJ2RzvGkUpc0gNKsJOaXq9ojQHImHqb57R3IWWukRHZvL
+	P35wOx6F6iJH15TcwfBBiodez+kYi2Z2Cxe32BnwWPCKKsFy9bdh+F3WIjJDnMNgBfBkjmRb6h2ei
+	tldZOm6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXDi-000000063UC-34VY;
-	Tue, 18 Mar 2025 13:43:02 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuWvo-000000060gp-0fSf
+	id 1tuXFN-000000063jT-28rI;
+	Tue, 18 Mar 2025 13:44:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuX0g-000000061cM-2uvb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 13:24:33 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43cf327e9a2so26616265e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 06:24:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742304270; x=1742909070; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=DEgzWr2E2NAy7FDuPhBSzhgvxiM8c4iYHbXwNyOFveY=;
-        b=BExRlWu4j+28iBPfO3zOdCUL5gr6O8PL1x++t9uXr2s16hQt07DgZitaoXB1lQdaNu
-         xOD6dygBCGFaI3LqAymiz004HSlXpVDrXtx/xNavf0d0/6e2B2ZzThDK8iyOSNbZuZ79
-         9Pp+RMA3/Lsx9sWkmDshD40jwIPbFYRM/jmbgWH05IQG0ICSCYSR9Xz9CaXSmei5CYmU
-         xikLj8r6EJWkZ9erOPj4RQwqpHf179cQToofh7F9o4ZBPEWx8B8o3mP3Dzc9qLF70s7m
-         6jNyMyX/LxQ4TpX/2ryInU/dTxRN+GX5Cf0+NwRhZxxPI5y0mlr+B8eH9AjHimBN3+zk
-         O8IA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742304270; x=1742909070;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DEgzWr2E2NAy7FDuPhBSzhgvxiM8c4iYHbXwNyOFveY=;
-        b=T069LiYjup4DgmRm1n04lZLafLbBJTf7aCOQDGcmQiiirLkP3VEBSU79O0YEG5vGSb
-         3vahENTHn5X46nOapXLM420MNhC5S5j8un2IEqpatzYfFjhjrcrVK3QgnLjeFLZXjkOP
-         FiV45e3jjqgVJrn30SQVKjPkMbK1fAlf5RAaVKzqg9qbN+6/VNT3u1nKaocGwfNiqjWO
-         1cBolDanqypxfaxD6XUrmU6GK+eQZqLoqGeoWkXu7kv+BibcjIUhQN3/F/UTQ+mhRLfJ
-         +vhsFhvUbGnma4xxhIehwzfe/+/VYeQpk3N+U5IIw1V7q5Vc/IZWl2ij9YkSCduD3WTW
-         wPlQ==
-X-Gm-Message-State: AOJu0YzMJCBKU/OizQQrUgi+/DYBQQygZRjWnQLjK9x1/g9oFSFI3jqL
-	lCVThNwZ2LoJZ413g+5UzYlNJkm0GkYEpRv/tYz6776T9S7pLxaqp3jXuh8xXtUgUQrBug/L5ez
-	zGFPSxjgXWyY6+6bKWxKgDSaWgGQE1ntSS3yG2QRr6dCQy/79MFpymFysia45WpK5z8Qsee9PE4
-	QDwyTwlmSJmVoxYeBoKvCvzXyGcs81ATA1p39wC9y3
-X-Google-Smtp-Source: AGHT+IG88/y2gUxFHhZYjd0nXNVh9L0hGC3+X2VVnSItfQsqi/IKCNxpAkyqMZIO+vJlAmNrXHgC/TLn
-X-Received: from wmbes18.prod.google.com ([2002:a05:600c:8112:b0:43b:c7e5:66e0])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3ca6:b0:43c:f8fc:f6a6
- with SMTP id 5b1f17b1804b1-43d3b9865c2mr25721555e9.9.1742304270191; Tue, 18
- Mar 2025 06:24:30 -0700 (PDT)
-Date: Tue, 18 Mar 2025 14:24:22 +0100
-Mime-Version: 1.0
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6366; i=ardb@kernel.org;
- h=from:subject; bh=hrpsKvpCDfcxtB4oZkUT6QqF+MEdOioUp4OeO1ExQqs=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIf1mCZvJcoufl57vnFTjEG+c+XVH492zdVylekv8Oxnsj
- Rx+dB3vKGVhEONgkBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABPhu8zIsH/SoVfT3F+KmDBP
- 3plybImVemfvRMYWbU6P55v4v6ruD2VkOKrd4HbzkWuKRYThDtNN13xLN64OMQ5Ot/LKXLLQxmw xMwA=
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250318132421.3155799-2-ardb+git@google.com>
-Subject: [PATCH] arm64/fpsimd: Avoid unnecessary per-CPU buffers for EFI
- runtime calls
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-efi@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	mark.rutland@arm.com, broonie@kernel.org, Ard Biesheuvel <ardb@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 18 Mar 2025 13:29:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 615B013D5;
+	Tue, 18 Mar 2025 06:29:40 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A79783F673;
+	Tue, 18 Mar 2025 06:29:28 -0700 (PDT)
+Date: Tue, 18 Mar 2025 13:29:19 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Sibi Sankar <quic_sibis@quicinc.com>, sudeep.holla@arm.com,
+	dmitry.baryshkov@linaro.org, maz@kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	konradybcio@kernel.org
+Subject: Re: [RFC V6 2/2] firmware: arm_scmi: Add quirk to bypass SCP fw bug
+Message-ID: <Z9l1L1WICMYXSoIu@pluto>
+References: <20250226024338.3994701-1-quic_sibis@quicinc.com>
+ <20250226024338.3994701-3-quic_sibis@quicinc.com>
+ <Z77M5iXHQsdMptWm@hovoldconsulting.com>
+ <Z77W-fKBUqAALZKJ@hovoldconsulting.com>
+ <759226e1-05aa-4ca2-b2f5-7f1a84dc427f@stanley.mountain>
+ <Z77l1NflYXTnRyg0@hovoldconsulting.com>
+ <Z8AjhHsVT9ZQTtZX@pluto>
+ <Z8WKQJcPTQDIXaKD@hovoldconsulting.com>
+ <Z9kr5ABbqO27_BM-@hovoldconsulting.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z9kr5ABbqO27_BM-@hovoldconsulting.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_062432_202078_F25BE8ED 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250318_062934_821266_AAFBDFD3 
+X-CRM114-Status: GOOD (  37.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,203 +75,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Tue, Mar 18, 2025 at 09:16:36AM +0100, Johan Hovold wrote:
+> Hi Cristian,
 
-The EFI specification has some elaborate rules about which runtime
-services may be called while another runtime service call is already in
-progress. In Linux, however, for simplicity, all EFI runtime service
-invocations are serialized via the efi_runtime_lock semaphore.
+Hi Johan,
 
-This implies that calls to the helper pair arch_efi_call_virt_setup()
-and arch_efi_call_virt_teardown() are serialized too, and are guaranteed
-not to nest.  Furthermore, the arm64 arch code has its own spinlock to
-serialize use of the EFI runtime stack, of which only a single instance
-exists.
+> 
+> On Mon, Mar 03, 2025 at 11:53:52AM +0100, Johan Hovold wrote:
+> > On Thu, Feb 27, 2025 at 08:34:44AM +0000, Cristian Marussi wrote:
+> > > On Wed, Feb 26, 2025 at 10:58:44AM +0100, Johan Hovold wrote:
+> > 
+> > > > Something like that, yes. :) I didn't try to implement it, but it seems
+> > > > like it should be possible implement this is a way that keeps the quirk
+> > > > handling isolated.
+> > > 
+> > > I hope next week to have a better look at this, in tne meantime just a
+> > > few considerations....
+> > > 
+> > > Sooner or later we should have introduced some sort of quirk framework
+> > > in SCMI to deal systematically with potentially out-of-spec FW, but as
+> > > in the name, it should be some sort of framework where you have a table of
+> > > quirks, related activation conditions and a few very well isolated points
+> > > where the quirks are placed and take action if enabled...this does not
+> > > seem the case here where instead an ad-hoc param is added to the function
+> > > that needs to be quirked...this does not scale and will make the codebase
+> > > a mess IMHO...
+> > 
+> > Sounds good. At least we have a good understanding now of how this
+> > particular firmware is broken so it would be great if you could use
+> > this as a test case for the implementation.
+> > 
+> > In summary, we need to force the use of a fast channel for
+> > PERF_LEVEL_GET on these machines, or possibly fall back to the current
+> > behaviour of only using the domain attribute to determine whether the
+> > fast channels should be initialised.
+> > 
+> > The latter may allow for a less intrusive implementation even if we'd
+> > still see:
+> > 
+> > 	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:0] - ret:-95. Using regular messaging.
+> > 	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:1] - ret:-95. Using regular messaging.
+> > 	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:2] - ret:-95. Using regular messaging.
+> > 
+> > when not supported for all messages (e.g. with the current firmware).
+> 
+> > > Anyway, after all of this babbling, I know, talk is cheap :D...so now I will shut
+> > > up and see if I can prototype something generic to deal with quirks, possibly
+> > > next week...
+> 
+> Have you made any progress on the quirk framework prototyping?
+> 
 
-This all means that the FP/SIMD and SVE state preserve/restore logic in
-__efi_fpsimd_begin() and __efi_fpsimd_end() are also serialized, and
-only a single instance of the associated per-CPU variables can ever be
-in use at the same time. There is therefore no need at all for per-CPU
-variables here, and they can all be replaced with singleton instances.
-This saves a non-trivial amount of memory on systems with many CPUs.
+I have not forgot, tried a few things, but nothing really to post as of
+now...dont wnat to rush either .... I was hoping to push something out at
+the end of this next merge window...
 
-To be more robust against potential future changes in the core EFI code
-that may invalidate the reasoning above, move the invocations of
-__efi_fpsimd_begin() and __efi_fpsimd_end() into the critical section
-covered by the efi_rt_lock spinlock.
+> Do you need any input from Sibi on the protocol versioning for that?
+>
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/kernel/efi.c    |  4 +--
- arch/arm64/kernel/fpsimd.c | 54 ++++++++++++++++++--------------------
- 2 files changed, 27 insertions(+), 31 deletions(-)
+No I am fine, I am planning anyway for something generic enough to be
+easy then to plug your own quirks separately...
 
-diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-index 1d25d8899dbf..250e9d7c08a7 100644
---- a/arch/arm64/kernel/efi.c
-+++ b/arch/arm64/kernel/efi.c
-@@ -169,14 +169,14 @@ static DEFINE_RAW_SPINLOCK(efi_rt_lock);
- void arch_efi_call_virt_setup(void)
- {
- 	efi_virtmap_load();
--	__efi_fpsimd_begin();
- 	raw_spin_lock(&efi_rt_lock);
-+	__efi_fpsimd_begin();
- }
- 
- void arch_efi_call_virt_teardown(void)
- {
--	raw_spin_unlock(&efi_rt_lock);
- 	__efi_fpsimd_end();
-+	raw_spin_unlock(&efi_rt_lock);
- 	efi_virtmap_unload();
- }
- 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 2b601d88762d..788cc3ad6101 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -180,12 +180,12 @@ static inline void set_sve_default_vl(int val)
- 	set_default_vl(ARM64_VEC_SVE, val);
- }
- 
--static void __percpu *efi_sve_state;
-+static u8 *efi_sve_state;
- 
- #else /* ! CONFIG_ARM64_SVE */
- 
- /* Dummy declaration for code that will be optimised out: */
--extern void __percpu *efi_sve_state;
-+extern u8 *efi_sve_state;
- 
- #endif /* ! CONFIG_ARM64_SVE */
- 
-@@ -1131,15 +1131,15 @@ static void __init sve_efi_setup(void)
- 	if (!sve_vl_valid(max_vl))
- 		goto fail;
- 
--	efi_sve_state = __alloc_percpu(
--		SVE_SIG_REGS_SIZE(sve_vq_from_vl(max_vl)), SVE_VQ_BYTES);
-+	efi_sve_state = kmalloc(SVE_SIG_REGS_SIZE(sve_vq_from_vl(max_vl)),
-+				GFP_KERNEL);
- 	if (!efi_sve_state)
- 		goto fail;
- 
- 	return;
- 
- fail:
--	panic("Cannot allocate percpu memory for EFI SVE save/restore");
-+	panic("Cannot allocate memory for EFI SVE save/restore");
- }
- 
- void cpu_enable_sve(const struct arm64_cpu_capabilities *__always_unused p)
-@@ -1973,10 +1973,10 @@ EXPORT_SYMBOL_GPL(kernel_neon_end);
- 
- #ifdef CONFIG_EFI
- 
--static DEFINE_PER_CPU(struct user_fpsimd_state, efi_fpsimd_state);
--static DEFINE_PER_CPU(bool, efi_fpsimd_state_used);
--static DEFINE_PER_CPU(bool, efi_sve_state_used);
--static DEFINE_PER_CPU(bool, efi_sm_state);
-+static struct user_fpsimd_state efi_fpsimd_state;
-+static bool efi_fpsimd_state_used;
-+static bool efi_sve_state_used;
-+static bool efi_sm_state;
- 
- /*
-  * EFI runtime services support functions
-@@ -2009,18 +2009,16 @@ void __efi_fpsimd_begin(void)
- 		 * If !efi_sve_state, SVE can't be in use yet and doesn't need
- 		 * preserving:
- 		 */
--		if (system_supports_sve() && likely(efi_sve_state)) {
--			char *sve_state = this_cpu_ptr(efi_sve_state);
-+		if (system_supports_sve() && efi_sve_state != NULL) {
- 			bool ffr = true;
- 			u64 svcr;
- 
--			__this_cpu_write(efi_sve_state_used, true);
-+			efi_sve_state_used = true;
- 
- 			if (system_supports_sme()) {
- 				svcr = read_sysreg_s(SYS_SVCR);
- 
--				__this_cpu_write(efi_sm_state,
--						 svcr & SVCR_SM_MASK);
-+				efi_sm_state = svcr & SVCR_SM_MASK;
- 
- 				/*
- 				 * Unless we have FA64 FFR does not
-@@ -2030,19 +2028,18 @@ void __efi_fpsimd_begin(void)
- 					ffr = !(svcr & SVCR_SM_MASK);
- 			}
- 
--			sve_save_state(sve_state + sve_ffr_offset(sve_max_vl()),
--				       &this_cpu_ptr(&efi_fpsimd_state)->fpsr,
--				       ffr);
-+			sve_save_state(efi_sve_state + sve_ffr_offset(sve_max_vl()),
-+				       &efi_fpsimd_state.fpsr, ffr);
- 
- 			if (system_supports_sme())
- 				sysreg_clear_set_s(SYS_SVCR,
- 						   SVCR_SM_MASK, 0);
- 
- 		} else {
--			fpsimd_save_state(this_cpu_ptr(&efi_fpsimd_state));
-+			fpsimd_save_state(&efi_fpsimd_state);
- 		}
- 
--		__this_cpu_write(efi_fpsimd_state_used, true);
-+		efi_fpsimd_state_used = true;
- 	}
- }
- 
-@@ -2054,12 +2051,10 @@ void __efi_fpsimd_end(void)
- 	if (!system_supports_fpsimd())
- 		return;
- 
--	if (!__this_cpu_xchg(efi_fpsimd_state_used, false)) {
-+	if (!efi_fpsimd_state_used) {
- 		kernel_neon_end();
- 	} else {
--		if (system_supports_sve() &&
--		    likely(__this_cpu_read(efi_sve_state_used))) {
--			char const *sve_state = this_cpu_ptr(efi_sve_state);
-+		if (system_supports_sve() && efi_sve_state_used) {
- 			bool ffr = true;
- 
- 			/*
-@@ -2068,7 +2063,7 @@ void __efi_fpsimd_end(void)
- 			 * streaming mode.
- 			 */
- 			if (system_supports_sme()) {
--				if (__this_cpu_read(efi_sm_state)) {
-+				if (efi_sm_state) {
- 					sysreg_clear_set_s(SYS_SVCR,
- 							   0,
- 							   SVCR_SM_MASK);
-@@ -2082,14 +2077,15 @@ void __efi_fpsimd_end(void)
- 				}
- 			}
- 
--			sve_load_state(sve_state + sve_ffr_offset(sve_max_vl()),
--				       &this_cpu_ptr(&efi_fpsimd_state)->fpsr,
--				       ffr);
-+			sve_load_state(efi_sve_state + sve_ffr_offset(sve_max_vl()),
-+				       &efi_fpsimd_state.fpsr, ffr);
- 
--			__this_cpu_write(efi_sve_state_used, false);
-+			efi_sve_state_used = false;
- 		} else {
--			fpsimd_load_state(this_cpu_ptr(&efi_fpsimd_state));
-+			fpsimd_load_state(&efi_fpsimd_state);
- 		}
-+
-+		efi_fpsimd_state_used = false;
- 	}
- }
- 
--- 
-2.49.0.rc1.451.g8f38331e32-goog
+> We'd really like to enable cpufreq on this platform and ideally in 6.15.
+> I think that should be possible given that we now understand in what
+> ways the firmware is broken and what is needed to handle it even if we
+> still need to decide on how best to implement this.
+> 
 
+v6.15 seems hard/impossible even using the original Sibi patch 
+given the usual upstreaming-timeline of the SCMI stack where everything has
+to be usually reviewed and accepted by rc4/rc5.....so both Sibi initial
+patch and my own babbling were alreaady sort of late.
+
+Thanks,
+Cristian
 
