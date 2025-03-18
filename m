@@ -4,160 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17417C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEBDC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g4Z9HDh3qSMJe/SZWV1bn8G3m6v58josMsFdpJgAhMA=; b=nVEZUGa3pks+D9IO+G/eTZh5Bg
-	I3GkNezJroZhLYSXf7yqR9YyGZH5stHxsJKHF9xBYLQ5rwrwKIcAgBovP1X6rUDuepf+/q7Rubh01
-	KtzfvLpyH+4tJKs3FBxw5ZBcuVJV3caUBKfxR43j+gfXavXrsvTccZ525LB9E+z472azFJsUj5WTG
-	qQZRFUU3vyZJWKF1cDAyXbEz1lo/tMQ3/MYZL4NOKwCsP7iLb7vtqGeRW2UatTLJcIKUG/aGF8rAv
-	xyhOq8yZmSsXByq8wUCT5CrzWarRYvMyatZFsSGGEbCIoTlRxiYdrSmUr5qlYRpJt8/eeUFWdnzld
-	wdfs8BCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Mime-Version:Message-Id:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O6jYOEZJ3OW4S4UgPo7ewxZ2AGniQHsoCOaT7n3A/Yw=; b=M0onccQVL9omUSWJ+lbMgQhdw8
+	pntuL09u5/BAoAzfXEW8l1ws5z/y4oyHrV4yp5AZVim/075Byt+Y0f4EvLa7D2vYTjfEf7Z/KEUoC
+	dutMlyaHXPz4Gta33RiiaKNOSMDH2bHGcmPsqq1EUP32cwCakP4xkXtf+qO30ZRI1N3aKt/tFIKrh
+	YM4lP9kibZoRKueVf8c/ULEVAkFOBp/fWCsjNoCYIB4hdqpYsnm+rV1Dtd//KyEYnlAEJYeLtJt8N
+	G5JiGRisRZeHeWSebRHx9Rb0B8TCq6R8aF4lfeNDEV/Mcd8qB350xKyRtXLROF92I4v7xf1o6CbYn
+	LLfkjU9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNqG-00000004XS1-2Um1;
-	Tue, 18 Mar 2025 03:42:12 +0000
-Received: from mail-vi1eur05on20625.outbound.protection.outlook.com ([2a01:111:f403:2613::625] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tuNru-00000004XvJ-3gTZ;
+	Tue, 18 Mar 2025 03:43:54 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNdU-00000004Vnd-240k
+	id 1tuNgK-00000004W5b-3y9Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 03:29:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wz2N/mjNwqZO5OJeYgd8/kdAkR+XojmR+TUCF3eDI/Osvoxdm7LBeGPXI6unrewlvUR/R4fpVcsZ67BRjuHCLl4CxuydgFKxVh4+CP76pdPFiYjmzQV7+HZKFKv54l+F5+qS1lHHvuwQykHZ79oolYl2butXpB4C0tP8pDTJkwyTnj1aKA2cm1UaBRCaj+K14OcGZQFac0tVXrdOjbNw1xUfl1FmufsMsy+1JGbTu6FAUN8Yh8WKg23+x4/q3l/xTVZKsL7K/n5nQQvvol9F+c/v8Bjims6vRjpTjKIAitHdvIcPaXkrF6NGEuwqldnV7vOWmwLbvOeJDHMBJQsczw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g4Z9HDh3qSMJe/SZWV1bn8G3m6v58josMsFdpJgAhMA=;
- b=J4HGDovwrCvt+rPo04dbgVPctTtfSHDW7MI6A3R9yVQxlBER9bDpdAzsFA0jH7Q+jT66VmVIg7aFDZ3kjS2xJSrZXhmziDMMvpU/DjwpI8NnushOtfSre9drN/vM+2o2zD+fwkueK0zgYVQDqS2GPkrKmAOe3/IO7JhCB+sng3sjDmg2AdFBNL5nmaxTKSsVyJUtPiSh/noUIkgeTNdXr4tghoZg9R049aWIcSJdztYoJm03cJPkldIqzV/RFJCu2829IpclmiIX050fwnl6eEihbJrCUnAxQF9WSDmOKUDsj3OrJakqc6F04CwI+7mCbhDl9NUuwM0+FgKEaKs1UQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g4Z9HDh3qSMJe/SZWV1bn8G3m6v58josMsFdpJgAhMA=;
- b=k3oHiuDhBjb2FXh9o+ub7NvZFg4os60RVlG2AixCsoRTJ3H8NDQGdF6ScPw0kMpu9vJupd1kKMMFAcWZ0YBWvXIpXtVLAFzCqn/lGVgX1t1gO5/GA5HakiSiW37alszYjjwRtjOUT0WrQgPFyG3OfuOKUqlJjspLepJWbJRD/LDQqqi83JzGu6vGOgqxnVm9Lr4bKezCq3uSijuqvuIj3+lXCCiDT04PaJhilIO9Z0g6ZL+59k2x05D79c73Jt0cph6yk/J2L25ClvcIfhawk+zJDgQXg+HAzUppPeBqxyw6v/XMwXbUXl595gQNMVKne/O1cYsq0e+9QSlw48BOvA==
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by AS8PR04MB7958.eurprd04.prod.outlook.com (2603:10a6:20b:2a5::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Tue, 18 Mar
- 2025 03:28:56 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8534.031; Tue, 18 Mar 2025
- 03:28:56 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Clark Wang
-	<xiaoning.wang@nxp.com>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
-	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "christophe.leroy@csgroup.eu"
-	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v4 net-next 05/14] net: enetc: add debugfs interface to
- dump MAC filter
-Thread-Topic: [PATCH v4 net-next 05/14] net: enetc: add debugfs interface to
- dump MAC filter
-Thread-Index: AQHbkkpT5OYUzDZlrUy9J4OCxmUCobN3cswmgADSSwA=
-Date: Tue, 18 Mar 2025 03:28:56 +0000
-Message-ID: <PAXPR04MB8510F67EFC80DFCC7B9F13B588DE2@PAXPR04MB8510.eurprd04.prod.outlook.com>
-References: <20250311053830.1516523-1-wei.fang@nxp.com>
- <20250311053830.1516523-1-wei.fang@nxp.com>
- <20250311053830.1516523-6-wei.fang@nxp.com>
- <20250311053830.1516523-6-wei.fang@nxp.com>
- <20250317144843.wp432pgodn4vjejf@skbuf>
-In-Reply-To: <20250317144843.wp432pgodn4vjejf@skbuf>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|AS8PR04MB7958:EE_
-x-ms-office365-filtering-correlation-id: 9ce5ce88-2709-445d-5ea8-08dd65cd03ec
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?qFjxWO43xl39mFcHDRBuzZmLq4cMasOvMUyDyHBDKUSeGkBrkCus43JJEsit?=
- =?us-ascii?Q?Ydve0Vpw9icoNosU6+/MABaXsiN+vfzMrtd/vmVKYdkzZ1cpPML7xuj+EShF?=
- =?us-ascii?Q?xWOlif/w8HPGFSkSnk1t6ursM/Z6bYcgYy6YXtnnxugVY+to644nG1WBHeQZ?=
- =?us-ascii?Q?vNd0KTl8ZSW96cyIKk3dMeR2mRKpnEAcxhoGsHF6f+jMahc2olrMoGMyjJQU?=
- =?us-ascii?Q?3ssvUz1is7YXj9V9nfaHqcQm85RsR45qMA/1U7HTS8HJtMVk46GXyHJg8Bme?=
- =?us-ascii?Q?mDxPWXxUWKTGYqHA47hQw/CyT/K87obYvVAMDbhA8lk4AmQ64JOlStioAbFf?=
- =?us-ascii?Q?k4afImdMPdA4unqEd+PtkzKodfQNlqPkx+QA1IF5LP0Aak3uSTSyKrhjH9Ow?=
- =?us-ascii?Q?INtG8z7G9Ae6ohKL/A3YqaOOXGCSWrbDKjYJOJZ8PeBTzvNwiudwPERLzyyk?=
- =?us-ascii?Q?c3OJiCHMrrKZdyEfPmXAv/DUMrENeXqeRgk0tk9fncrSKcAQbxdiPVaiR9QT?=
- =?us-ascii?Q?51706g0XZenwYwnG+Pvn9HLNUTVThki2mEIrVJEBQObL3+LPoVwYxi+afQJR?=
- =?us-ascii?Q?YCNp+d5CL9wDEmemCuMNtrwzQWyc2/orOzvGlnFO/EVk6Ae0s/C5ZS6ubd6e?=
- =?us-ascii?Q?m2MLN2j04fimBChIiqj7MZB9g4daayujSNlwTwQA4bOD/y10T0INSbzsGoWn?=
- =?us-ascii?Q?sPPZBg/LBNrQD5eXWxwdvOmD5LMGYYkXmFNt0fmMI0NmV1EFOXZo3Nc1v/Nt?=
- =?us-ascii?Q?ZidR0UiIdhG65NIjTEPBUfHAiNQZqi6A92tW5X2KUoyt2DvBk3ZBRVsNTEJT?=
- =?us-ascii?Q?t/A7mcmBoWV+id8Q054WTKuyqJohp/Gq+cQr0VbZi0llB9McAWLqeNL4UYgp?=
- =?us-ascii?Q?zD4KXJBhJMFpKlysetzg7Oc8fJrg7brcpPekrj7LbpwmXQn68Yp8B+9N3ubP?=
- =?us-ascii?Q?hhSAFC1TmvMgazlRw6v2+TG3badDkj/Q/rxE30lmtNrNVUCKxGVyfYi/61KT?=
- =?us-ascii?Q?Q1Bmz00LV4Yk0QPDQKCPyhwaiCF46QoS90PbZoQxLrlBMrfI+Pn6zygrQSWu?=
- =?us-ascii?Q?2drbwqwvsAVkviiMLfKWtol66udlFWOBS3AcOmtSXbDplai8zEOLhhy6CajF?=
- =?us-ascii?Q?mHTH/Zu/0IgGBdjQsYc32XGocO0Zp6HZZjhSkxgVOaHNGhBDrVYKc3nZo+gY?=
- =?us-ascii?Q?V/qHG4CCHW+Io1w6NH6Pd9lHR2Dwu5wPC9r/ev7PDY2kura8/tKz2T6eY4kf?=
- =?us-ascii?Q?6WDdBdPr/U2QIhTY3+CR+gcQ2C3kK43rp+pGmmgnZEVc7uKYUePhpfL735qe?=
- =?us-ascii?Q?zaXTjpGXF1BopYJ+MlsU6XHg668J24sXswa8voCoKHlNnIODueZ2hoOrIjhu?=
- =?us-ascii?Q?SCXwfnN27DFjy5sGvF1H+oQk0Bm0M5bgNSmw/OBHMHrCKuv6uHAQcqhgxG01?=
- =?us-ascii?Q?GHoDSzE/tRnBYnjSnJnvTm9m5za5TK5u?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?F6U4IkAj4kZa8BTSkKvEU+iyuOoSSLZcQkiwakxNOx7FF5mcjmmnp3CHFX6m?=
- =?us-ascii?Q?Ajzr5vFn9v23/lvubar+yHbH0cOC3kfUdE6732NAIrKsaBE7LvIfJmmAGYk6?=
- =?us-ascii?Q?SqPfQ17nKEJPARynCStk2/QQxWZ5f+ZAr6ZOIlyOmuKzLoo9gAYs42E2ttMb?=
- =?us-ascii?Q?K9ksogDHv/rHOeyXsxFBr7GmS0FF77F4bzDdmb6EdTQ5N34J+waN0sDSjTfs?=
- =?us-ascii?Q?hM6Ca1wr6k2uhAbwQAFoKk18lHNwmZffZxuz28JBogfv5nm4ykvQ83RcQYt7?=
- =?us-ascii?Q?+kNrczojZjyphDco6DZbn7bKV2rfBRipaqgnodEW/bNuQ7VC+JYkyca8Vvd9?=
- =?us-ascii?Q?96V/KPwDwd4tXNq2l8ZqqZkYPEvErbEyu1/ZS3+k2roGN5mrrcJ+Q0PWdvI6?=
- =?us-ascii?Q?4IVFyWUX3uXPbmgtud28KIs4/0y3WPKsGginfMOA4R1C+Xoy0fQYnljPayng?=
- =?us-ascii?Q?lAH8cs/PVw94aJT46gk149lNVzVYMii3+1ZwK1p7w+vkbGKFKyaqzYdlu7VZ?=
- =?us-ascii?Q?s3bFpL0ImF6qenrSVPXAU5Tmt604vHXfFZy2q8zh+A7F8IXT8xcpMk8Er/5C?=
- =?us-ascii?Q?6D0tQbpHRmjSMXnuxwnusCrYmUsq1eb3T+mwT9wDeZ7pvPFDvzXwbqjPADrR?=
- =?us-ascii?Q?yqnA6Wt9ILh8V5rfof5lliUinvwiLSnzViXrCmj/D9DZpBxKtpvQi+ryyn72?=
- =?us-ascii?Q?uGYXWkSmy6EkLxh8ZArbPA5mqLDnAcaTJgrFHlLPGiNrZbbmFGd3pEs27iFK?=
- =?us-ascii?Q?yPbUwYfpNQdOMMttz8HO5kEGc03oruLno0DXH2PequAfWXs++35X54n2bxgU?=
- =?us-ascii?Q?PCBGAcydEwM4lK7hwdGoLV4hspZdXutFZU+YVoX72hiTtzWuiz54+DQaHU+t?=
- =?us-ascii?Q?svImUT4Bu2oDHqZOnXPmQ17jj5sss72R4S721qklecFPOPaDnAyMpcDfj2yO?=
- =?us-ascii?Q?Cs0AQTpWrDalgiXtRDlmEhrZwGNiHRobAd+JGYpToOF/SSd8mnJ4OuuAO02I?=
- =?us-ascii?Q?Wl/hzU5w8ha/76POKaxGQhjtNVYURCkaZb7hKl+tgGihiR08Zfds0LwUJymu?=
- =?us-ascii?Q?GsMFTBblJElE4xMHNqnchrLHs7+VDM1HJllIXjllTxorg5RN5vzr+dKr0ZjO?=
- =?us-ascii?Q?zDjd7AC84S22UW/Sx9dgKxp/pBiaJeU4CWNwbgGxBTSg33GLuO/+4o7cejlZ?=
- =?us-ascii?Q?TScARji7nZbBOhoZe4RgzoQ6NzsCcR57hdmY8cij2DOJn7yrPD/AVS7MC6eA?=
- =?us-ascii?Q?+z5EM8Gbo6zMFMJuLT81gdiYtfkXUETiw/fvufHvibS6uhd4zVOTfelRv9KK?=
- =?us-ascii?Q?vkiNCW9zALNOmtvyhKcFaQNQygzBQ0XDipB+yLV7Whgb63kHZBcKXocqNQue?=
- =?us-ascii?Q?yq3H8XBpU6ao6yuQ3yc9amrqpeCDuDmamEy9FWxfDa3L9IqnK2Lzix7Nt+Ia?=
- =?us-ascii?Q?Fg0lG43/dM4d5qAl7rhEp1puX5Bf6mtzIJ5Dk39DVn/RCOQHR98NCtGtwuEH?=
- =?us-ascii?Q?4a7mQaYFQodlPQUSd8fu2zrFUVZ1tFFd+7jpsI2efKXcbBq5N76qUakQLmMn?=
- =?us-ascii?Q?RMET1B+uD+a6CmZEKb0=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ce5ce88-2709-445d-5ea8-08dd65cd03ec
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2025 03:28:56.4419
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: FBth9J24Qxn7T3NcOx+ZJDST87ChMh73irWVZkjHkXl2QEmuHQOlcpGusGkQFbgfKRGPY6Xf4HsH8Hyrxr9ADw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7958
+	Tue, 18 Mar 2025 03:31:59 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f2bdb560ecso72600277b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 20:31:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1742268715; x=1742873515; darn=lists.infradead.org;
+        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=O6jYOEZJ3OW4S4UgPo7ewxZ2AGniQHsoCOaT7n3A/Yw=;
+        b=r2pDACKysSz+B0MrrNXJTuJFtxM3hu5+tLF4IJI8aAatJ48dPNN5l0zgW9FpgSP6Kr
+         OKSGIanab7QEpP6wtI/l1z+0LfwvR6k12x1XLQXSXBb1lZKpEKQkucs9X23f8vmjbVI/
+         JsyJ0T/W8EDxacnEWR5mKoimlTppdVha/d6ImgkzKk9pthVVCbGoTIU03y4uXzKFKjF2
+         ogdE7e/zPLdNzR1HAVl9HtfFyH1d7CAQCQNN2NUlhWNShI27qJbD3L8iL1Adnqe/gnkJ
+         ktRIk1K0vpRBt4JSrD+lypOIoKXuef0WGstM2wnz4QjStqNfExuhpC+FmXCAugky9VtT
+         f7ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742268715; x=1742873515;
+        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=O6jYOEZJ3OW4S4UgPo7ewxZ2AGniQHsoCOaT7n3A/Yw=;
+        b=W+e5nLtm9sAR8A2sERCuIfN3EATduq0xiVi7ugucRikZv4CFAu9NQGJmb0tVEC3Xdp
+         wS8qEkumsmoCAR90EsxZnRvrjJWB8sPPtAIo2v6VAd+uHqxGPQdYLyD7tijXOogBCxkE
+         FOI9cY5olnrdssS/enQAd/1c4PYJiMqxxoscEANo5YgGcyLy3AicEhfY/C5QIZceIHRv
+         LW7K6ZLT9HGm/F3AYGmWOLAoSEhdfkCTbFRUilxC9NXBaUOVP7Np21+d9ehQgbVqbOBu
+         eLiLxUvM03xqFVXdYqvVJxnkw7brkV8akWlDnl8jbzxRSF4uV76FK0EHrsrw3Ng+dJFF
+         69Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCV6Z3kKTPEy9sbtichoJhX5HtSTCpytoDyyBpMld6rQI3wTMWG1lwaYQ38DO/LQLzIa9wWylMwIuirJzt9WeOkp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvro2JmtzrYZFTUutHpLfqHijK80Yr57BAew1TFOuyWrnHeb7l
+	0v6zSHkIWZhVvWa0r7EyKhLKDUzR3iMW5b57mVaaRjJBJ1xtW/BrhVgXpVeK1KeFDpQx+R5MrP+
+	gzvcOVA==
+X-Google-Smtp-Source: AGHT+IGWLXi0Ulvos+ECuvLqqq6W6YPJYqsOKusGddCdZkUuPPupyRUAOCc5cJVqolHmWqyG8r4jrkj2Nift
+X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:ef29:15ce:a42a:b69f])
+ (user=irogers job=sendgmr) by 2002:a05:690c:6c85:b0:6fe:ec98:e8ae with SMTP
+ id 00721157ae682-6ff45b894femr271357b3.0.1742268715224; Mon, 17 Mar 2025
+ 20:31:55 -0700 (PDT)
+Date: Mon, 17 Mar 2025 20:31:37 -0700
+Message-Id: <20250318033150.119174-1-irogers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
+Subject: [PATCH v6 00/13] perf: Support multiple system call tables in the build
+From: Ian Rogers <irogers@google.com>
+To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
+	Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_202900_537747_9B1250EF 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20250317_203157_008312_71DED35D 
+X-CRM114-Status: GOOD (  22.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,107 +100,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Tue, Mar 11, 2025 at 01:38:21PM +0800, Wei Fang wrote:
-> > diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_debugfs.c
-> > b/drivers/net/ethernet/freescale/enetc/enetc4_debugfs.c
-> > new file mode 100644
-> > index 000000000000..3a660c80344a
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/freescale/enetc/enetc4_debugfs.c
-> > @@ -0,0 +1,93 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/* Copyright 2025 NXP */
-> > +
-> > +#include <linux/device.h>
-> > +#include <linux/debugfs.h>
-> > +#include <linux/seq_file.h>
-> > +
-> > +#include "enetc_pf.h"
-> > +#include "enetc4_debugfs.h"
-> > +
-> > +#define is_en(x)	(x) ? "Enabled" : "Disabled"
->=20
-> str_enabled_disabled()
+This work builds on the clean up of system call tables and removal of
+libaudit by Charlie Jenkins <charlie@rivosinc.com>.
 
-Oh, good, I wondered if there was a general implementation in
-the kernel, but I did not find one due to my limited knowledge.
-Thanks!
+The system call table in perf trace is used to map system call numbers
+to names and vice versa. Prior to these changes, a single table
+matching the perf binary's build was present. The table would be
+incorrect if tracing say a 32-bit binary from a 64-bit version of
+perf, the names and numbers wouldn't match.
 
->=20
-> > +
-> > +static void enetc_show_si_mac_hash_filter(struct seq_file *s, int i)
-> > +{
-> > +	struct enetc_si *si =3D s->private;
-> > +	struct enetc_hw *hw =3D &si->hw;
-> > +	u32 hash_h, hash_l;
-> > +
-> > +	hash_l =3D enetc_port_rd(hw, ENETC4_PSIUMHFR0(i));
-> > +	hash_h =3D enetc_port_rd(hw, ENETC4_PSIUMHFR1(i));
-> > +	seq_printf(s, "SI %d unicast MAC hash filter: 0x%08x%08x\n",
-> > +		   i, hash_h, hash_l);
->=20
-> Maybe the ":" separator between the high and low 32 bits is clearer than =
-"x".
+Change the build so that a single system call file is built and the
+potentially multiple tables are identifiable from the ELF machine type
+of the process being examined. To determine the ELF machine type, the
+executable's maps are searched and the associated DSOs ELF headers are
+read. When this fails and when live, /proc/pid/exe's ELF header is
+read. Fallback to using the perf's binary type when unknown.
 
-I want it to be presented as a full 64-bit entry. If it is in the format
-of "%08x:%08x", it may be difficult to understand which is the high
-32-bit and which is the low 32-bit.
+Remove some runtime types used by the system call tables and make
+equivalents generated at build time.
 
->=20
-> > +
-> > +	hash_l =3D enetc_port_rd(hw, ENETC4_PSIMMHFR0(i));
-> > +	hash_h =3D enetc_port_rd(hw, ENETC4_PSIMMHFR1(i));
-> > +	seq_printf(s, "SI %d multicast MAC hash filter: 0x%08x%08x\n",
-> > +		   i, hash_h, hash_l);
-> > +}
-> > +
-> > +static int enetc_mac_filter_show(struct seq_file *s, void *data) {
-> > +	struct maft_entry_data maft_data;
-> > +	struct enetc_si *si =3D s->private;
-> > +	struct enetc_hw *hw =3D &si->hw;
-> > +	struct maft_keye_data *keye;
-> > +	struct enetc_pf *pf;
-> > +	int i, err, num_si;
-> > +	u32 val;
-> > +
-> > +	pf =3D enetc_si_priv(si);
-> > +	num_si =3D pf->caps.num_vsi + 1;
-> > +
-> > +	val =3D enetc_port_rd(hw, ENETC4_PSIPMMR);
-> > +	for (i =3D 0; i < num_si; i++) {
-> > +		seq_printf(s, "SI %d Unicast Promiscuous mode: %s\n",
-> > +			   i, is_en(PSIPMMR_SI_MAC_UP(i) & val));
-> > +		seq_printf(s, "SI %d Multicast Promiscuous mode: %s\n",
-> > +			   i, is_en(PSIPMMR_SI_MAC_MP(i) & val));
-> > +	}
-> > +
-> > +	/* MAC hash filter table */
-> > +	for (i =3D 0; i < num_si; i++)
-> > +		enetc_show_si_mac_hash_filter(s, i);
-> > +
-> > +	if (!pf->num_mfe)
-> > +		return 0;
-> > +
-> > +	/* MAC address filter table */
-> > +	seq_puts(s, "Show MAC address filter table\n");
->=20
-> The word "show" seems superfluous.
+v6: Incorporate Namhyung's fixes:
+    https://lore.kernel.org/lkml/Z9PCjQ8PhOadVGQ8@google.com/
+    https://lore.kernel.org/lkml/Z9YHCzINiu4uBQ8B@google.com/
+    Which highlighted an issue with syscall pointers becoming
+    stale. Add a patch 12 to make the syscall table a table of
+    pointers that don't move so that struct syscalls don't move. Add a
+    patch 13 fixing a BTF memory leak.
 
-Okay, will remove it.
+v5: Add byte swap to dso__e_machine and fix comment as suggested by
+    Namhyung.
 
->=20
-> > +	for (i =3D 0; i < pf->num_mfe; i++) {
-> > +		memset(&maft_data, 0, sizeof(maft_data));
-> > +		err =3D ntmp_maft_query_entry(&si->ntmp.cbdrs, i, &maft_data);
-> > +		if (err)
-> > +			return err;
-> > +
-> > +		keye =3D &maft_data.keye;
-> > +		seq_printf(s, "Entry %d, MAC: %pM, SI bitmap: 0x%04x\n", i,
-> > +			   keye->mac_addr, le16_to_cpu(maft_data.cfge.si_bitmap));
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +DEFINE_SHOW_ATTRIBUTE(enetc_mac_filter);
+v4: Add reading the e_machine from the thread's maps dsos, only read
+    from /proc/pid/exe on failure and when live as requested by
+    Namhyung. Add patches to add dso comments and remove unused
+    dso_data variables that are unused without libunwind.
+
+v3: Add Charlie's reviewed-by tags. Incorporate feedback from Arnd
+    Bergmann <arnd@arndb.de> on additional optional column and MIPS
+    system call numbering. Rebase past Namhyung's global system call
+    statistics and add comments that they don't yet support an
+    e_machine other than EM_HOST.
+
+v2: Change the 1 element cache for the last table as suggested by
+    Howard Chu, add Howard's reviewed-by tags.
+    Add a comment and apology to Charlie for not doing better in
+    guiding:
+    https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
+    After discussion on v1 and he agreed this patch series would be
+    the better direction.
+
+Ian Rogers (13):
+  perf dso: Move libunwind dso_data variables into ifdef
+  perf dso: kernel-doc for enum dso_binary_type
+  perf syscalltbl: Remove syscall_table.h
+  perf trace: Reorganize syscalls
+  perf syscalltbl: Remove struct syscalltbl
+  perf dso: Add support for reading the e_machine type for a dso
+  perf thread: Add support for reading the e_machine type for a thread
+  perf trace beauty: Add syscalltbl.sh generating all system call tables
+  perf syscalltbl: Use lookup table containing multiple architectures
+  perf build: Remove Makefile.syscalls
+  perf syscalltbl: Mask off ABI type for MIPS system calls
+  perf trace: Make syscall table stable
+  perf trace: Fix BTF memory leak
+
+ tools/perf/Makefile.perf                      |  10 +-
+ tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
+ .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
+ tools/perf/arch/alpha/include/syscall_table.h |   2 -
+ tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
+ .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
+ tools/perf/arch/arc/include/syscall_table.h   |   2 -
+ tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
+ .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
+ tools/perf/arch/arm/include/syscall_table.h   |   2 -
+ tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
+ .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
+ tools/perf/arch/arm64/include/syscall_table.h |   8 -
+ tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
+ .../csky/entry/syscalls/Makefile.syscalls     |   3 -
+ tools/perf/arch/csky/include/syscall_table.h  |   2 -
+ .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
+ .../entry/syscalls/Makefile.syscalls          |   3 -
+ .../arch/loongarch/include/syscall_table.h    |   2 -
+ tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
+ .../mips/entry/syscalls/Makefile.syscalls     |   5 -
+ tools/perf/arch/mips/include/syscall_table.h  |   2 -
+ tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
+ .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
+ .../perf/arch/parisc/include/syscall_table.h  |   8 -
+ tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
+ .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
+ .../perf/arch/powerpc/include/syscall_table.h |   8 -
+ tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
+ .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
+ tools/perf/arch/riscv/include/syscall_table.h |   8 -
+ tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
+ .../s390/entry/syscalls/Makefile.syscalls     |   5 -
+ tools/perf/arch/s390/include/syscall_table.h  |   2 -
+ tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
+ .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
+ tools/perf/arch/sh/include/syscall_table.h    |   2 -
+ tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
+ .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
+ tools/perf/arch/sparc/include/syscall_table.h |   8 -
+ tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
+ .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
+ tools/perf/arch/x86/include/syscall_table.h   |   8 -
+ tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
+ .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
+ .../perf/arch/xtensa/include/syscall_table.h  |   2 -
+ tools/perf/builtin-trace.c                    | 333 ++++++++++++------
+ tools/perf/scripts/Makefile.syscalls          |  61 ----
+ tools/perf/scripts/syscalltbl.sh              |  86 -----
+ tools/perf/trace/beauty/syscalltbl.sh         | 274 ++++++++++++++
+ tools/perf/util/dso.c                         |  89 +++++
+ tools/perf/util/dso.h                         |  62 ++++
+ tools/perf/util/symbol-elf.c                  |  27 --
+ tools/perf/util/syscalltbl.c                  | 148 ++++----
+ tools/perf/util/syscalltbl.h                  |  22 +-
+ tools/perf/util/thread.c                      |  80 +++++
+ tools/perf/util/thread.h                      |  14 +-
+ 57 files changed, 835 insertions(+), 541 deletions(-)
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
+ delete mode 100644 tools/perf/scripts/Makefile.syscalls
+ delete mode 100755 tools/perf/scripts/syscalltbl.sh
+ create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
+
+-- 
+2.49.0.rc1.451.g8f38331e32-goog
+
 
