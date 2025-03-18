@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B82C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 21:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF443C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 21:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rgOWX/caTQEpSy74g7C3irmu+Wx+6MgnIj1smWvtFLQ=; b=YoOBxAZ6RBqlbUFHTfdhdXostE
-	exaqd8pzVn5B+XSE3aeCvwHi5WXZKEHc1QdnH5fKeLHu4ChCjx5UHHL08yYF1CJ5cdo/gGd7d+zwB
-	8v6iRCQ6EeZbPzYXVBT5+J49Wtc9NnxpxL05Q1P3ZFDiTvJHFAumy1dh+261zLp5mAEt+3sLeyKtz
-	VXLw+o78z18QVpjDI80h9WeY3xFU7vxsbdx8kHkn0dB6inZbmF8oH17LizvpYvJu4bSawaXO+qZC6
-	SrxvHZZLZkVE/qkycE4f5Wm8dpxZOE3dKSNGf1mf/Hb/GcqrSHwXZhVw7wiu4/Jqpk2cUtccQV0cL
-	kUlLpl7g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SVuGYqyOCxrx0bxlw72g6Yb20FtXoXWThattOhk1oP4=; b=H0Sub9/OqMuYEPCMXWVaWHK5Ve
+	+71JFvV8RlEk0+TBRBR9UjaQPxmDL3pftQMweZf5vxJNJEox8pFEihlKMtf8KMZCkEg7PtxifhCLL
+	eiHuPsJ7dU8/FjqHhu3fwXCCZw7txOzofzQx1HXB+c8k9hWHWhVIP7WeGhmGqEkkYZJfOXf1v8G/4
+	9c5cJ2kOJlUxIKmBy9/SyWzOjETCc+1gePzxTOlfYtuxDJBDIIRi42IJfPASZG/cS5LNaKtB8/Tdk
+	7fGzAKvvWRRcNkRuUzKK+u9fKYcbbP3VxIx3MofsJtWjVqsnfPYBO5nB/BgwhfaCclSbVFaLo3aJN
+	l/p+eEvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tueEg-000000076BS-3kcb;
-	Tue, 18 Mar 2025 21:12:30 +0000
-Received: from algol.kleine-koenig.org ([162.55.41.232])
+	id 1tueGL-000000076Kp-3rej;
+	Tue, 18 Mar 2025 21:14:13 +0000
+Received: from algol.kleine-koenig.org ([2a01:4f8:c010:8611::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tueBK-000000075sd-2rdp;
+	id 1tueBK-000000075se-2x8a;
 	Tue, 18 Mar 2025 21:09:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kleine-koenig.org;
 	s=2022; t=1742332140;
-	bh=cyacAfqmvzmGifPcVn2et0hLqOF5XeQd/o4G2u+UMsQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=APKiW5A9lGSxNcsdXVAfFOBYot3HPfcuoaaiNjWd5MGPO0rke82qbMypVck8PkZY9
-	 te8BGIP4aeX5xFLeOxq3Ej+6VbQIvEc9t1+qoV6FyUcSltc6AoWxRowHOn5Da6Hf4g
-	 /GmTG9jKqfT+/5QdlyRQh7T+8GyeVroFQP5dyB5YXDZCSyxb6DyTmOB9IWrJoaRBRh
-	 RFjOqUTL+xPWVROJs722gICHnb4siyRGbn4TO50ljBfgmkJ4I/KOWJgrUdTYBzLVVU
-	 LK9w0ua0u0bQYPjSMQNDWNBNAwIn8t3Q9bs3uQv9L4IGDoN9YbU/Bc+Oeegi0LblgS
-	 Vk3VKSyoBivCQ==
+	bh=2HK9IF+akkeuRsTijfaoaW9JXFacNDKLeDLibhYgLkg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=jrYsdF20um1Z/S1pc6mMQNAdNXnVFC5IViGthUP67uj7YFI42MIZOdFRc4VPK+0R9
+	 8v0pB++/Vtm7nyUrwSLqxHpl9LqNb7XzL11D3gQcdJa5miU7FWX3IW4dW4h0rvjR/N
+	 GaFDKj05sqnDHQNm48y4TH0SHbCaNOi4y+9AQmpiv8JTK/X5ijzPgvnAyC4E0KM+6F
+	 uYcGD11EgqXdj5jVzlWxv4urGwl5Zz/DuioJKhX6obV1ZzM2AhZHFWkl7INoNS2PJe
+	 7K80SAzQtPjYAVZM7QPyfSh9fi7CUzB0yXCNxM+mmDSXg25g4o1vMJ7b1C2zIfPmBX
+	 TaeBrLEz2UBHQ==
 Received: by algol.kleine-koenig.org (Postfix, from userid 1000)
-	id BD9B5FC59B1; Tue, 18 Mar 2025 22:09:00 +0100 (CET)
+	id F33AAFC59B3; Tue, 18 Mar 2025 22:09:00 +0100 (CET)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>
 To: Heiko Stuebner <heiko@sntech.de>,
 	Andrew Lunn <andrew@lunn.ch>
@@ -47,19 +47,20 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org
-Subject: [PATCH v2 0/2] arm64: dts: rockchip: Improve gmac phy setup for QNAP-TS433
-Date: Tue, 18 Mar 2025 22:08:44 +0100
-Message-ID: <cover.1742331667.git.ukleinek@kernel.org>
+Subject: [PATCH v2 1/2] arm64: dts: rockchip: Correct gmac phy address
+Date: Tue, 18 Mar 2025 22:08:45 +0100
+Message-ID: <6b8ef7e37e646f4cd399ceb2f46017644d76da9d.1742331667.git.ukleinek@kernel.org>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <cover.1742331667.git.ukleinek@kernel.org>
+References: <cover.1742331667.git.ukleinek@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=815; i=uwe@kleine-koenig.org; h=from:subject:message-id; bh=cyacAfqmvzmGifPcVn2et0hLqOF5XeQd/o4G2u+UMsQ=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn2eDdq5Iz2G8UD63/OAkq+umAAF9HZzcChXowU cLacVz3FLWJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ9ng3QAKCRCPgPtYfRL+ TuQqB/9XcEvLaGuEWwkeXwRmPJCJKZvGpIH5H2iA0BwBrmxDBTTS4agp7DhRy/sUpzFLyZOj66D brfnZj7Sj7cLzC5Z1qa3dEpz3evfUAA9opEGEP6OotAwXS/wppIa3m/iZ8pBxoMVRYIRAD7A759 IwnjN6ThSd+5XvogjhBfA/Qv670pxh+iP3rlZ+1frTNW57n/0CnwLCF2HhfkVVCL5kglrT3FZQ/ KpyZLp0hVzYvhT4mpOJ6vgwtZjKP2BLEJtHhgWZumOEsfvmC4IP6LhDWy0vAp48SmK1jpHvi3Js hhTqEUJ5tf7Jpd/18zHPW2aH4SsJjTJKQwZEguYl/m4HuyAu
+X-Developer-Signature: v=1; a=openpgp-sha256; l=857; i=uwe@kleine-koenig.org; h=from:subject:message-id; bh=2HK9IF+akkeuRsTijfaoaW9JXFacNDKLeDLibhYgLkg=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn2eDgCA8hjGYQffJnJk4imvIDUZ/G4YlTrfvun cBiJ595uCuJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ9ng4AAKCRCPgPtYfRL+ TiGYCACl4ARWpmgEnSX7vX8yLNRMwbUVrv5AQHzBKBvj6wIEXSp1r3WtgNECRXTapeTlOsWig6T 1LyqbUeCRX7ECmZUFSUQMp4iGztVmahm7VyuZ71O8sO3GLsasAudArdUiCoUmRg1sqxPU/7yRq0 Tu38BXnLq21WM+DKDpTQaFzi14PyVqGYe/VqyGKhkxN26pVneRnYHqJFwNaZtuOVaRBaPJQFcoz HdT3NZrIXkkx3Dp8XXMirWwoNUZkMkpiEk2olWb//L4JyBc8d2R/QF29mfPDbt/Xg18DsvajTWV VQjg1AaQiWWcKSMsTcp26FX7Xzz+nbvrTRyRClhyCObqYLc4
 X-Developer-Key: i=uwe@kleine-koenig.org; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_140902_864820_456EDEBA 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250318_140902_917208_C3EB4EE1 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The Motorcomm Phy can be talked to on mdio broadcast address 0, but the
+actuall address is 3. Adapt the reg property and node name accordingly.
 
-as suggested by Heiko I split the patch to improve the phy setup of the
-gmac ethernet into two patches. The initial patch can be found at
-https://lore.kernel.org/linux-arm-kernel/20250318184550.47642-2-uwe@kleine-koenig.org/ .
+Signed-off-by: Uwe Kleine-König <uwe@kleine-koenig.org>
+---
+ arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Heiko also suggested to add Fixes tags. I'm unsure these are justified
-because while these patches are an improvement the old devicetree is
-working fine. I suggest Heiko to add the tags if he feels strongly
-enough about these.
-
-Best regards
-Uwe
-
-Uwe Kleine-König (2):
-  arm64: dts: rockchip: Correct gmac phy address
-  arm64: dts: rockchip: Add gmac phy reset GPIO
-
- .../arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
-
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts b/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
+index 7bd32d230ad2..70e88769e21c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
+@@ -481,9 +481,10 @@ eeprom@56 {
+ };
+ 
+ &mdio0 {
+-	rgmii_phy0: ethernet-phy@0 {
++	rgmii_phy0: ethernet-phy@3 {
++		/* Motorcomm YT8521 phy */
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+-		reg = <0x0>;
++		reg = <0x3>;
+ 	};
+ };
+ 
 -- 
 2.47.1
 
