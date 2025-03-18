@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF532C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E25C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zpMoor3dBxgu172XtLCnpvR9tyAyuKLKTcHfjZ0A4I4=; b=ULX21n+9Lmkcun0qkGd8D+L7Lf
-	IBnIT+oan31eNFp9RcOmN2fD3swGq7ekFUH2ixedvuHxLE7/+l4mHEo2nREb+uZ0tK2Y8r5Kum0yE
-	fOk3BXCX95nYMBfG6HFYRcVCt54gwq7zETIPzaxWKYgeaMVpBjniCfkVBOLW6n/PLb/F+kOUYukfC
-	OoySSGU6XD4Hf+/l+PSPX/zpgbV0a2U3abmvKFEg1qdB2pJ3si0+cqtiMOj9M0oQJiHiUbY668+Kw
-	GxCaVV3xgHwWxM9B5lGi2BdRbMAvuaIVeEnMwUJ96vbjkd1bIk4ZfTA2Jz/jhRllnpGk3hSQj0Zrj
-	kUQaRr0Q==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BzKG5OpPSCXmvp33n0D6FbVOcTSlxn5kZp/Q/3rkA7g=; b=mPbgRbtIVUCgXqYuc2Za26msvB
+	8k8/MtJkn8GKlVxZbTF+3igm5xsBP5w5Q2/VdXTZZKgjmxiBdvHNVVMiIxAa3c0U6uzZktoZVxmb/
+	rYRBq23jzIqYzdQVduETGd47DQFwlwiqs9Fq54liqjFpcMGuwWmj9CXyKeT+yKWC4zUZXt1WZYx48
+	DOjVD6IC5ZEDc6CEC5ZXERrZo50WHgxeK0e+lreAPRz0x/8CL4PK+9c94df7OeC1hSAH8i3ASowBi
+	oOQmYzaOzXTMRNYlllkKnO7/2o6s5zd0DrhIllyInJJULwQNGrkz1FK0QittYKjXx9RHi1EJLit6C
+	QiCVYVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUug-00000005fnf-3ULu;
-	Tue, 18 Mar 2025 11:15:14 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1tuUwM-00000005gRl-2tD2;
+	Tue, 18 Mar 2025 11:16:58 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUlq-00000005dw7-2aIZ;
-	Tue, 18 Mar 2025 11:06:07 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2ff187f027fso5683220a91.1;
-        Tue, 18 Mar 2025 04:06:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742295965; x=1742900765; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zpMoor3dBxgu172XtLCnpvR9tyAyuKLKTcHfjZ0A4I4=;
-        b=ESLQnkYDvKxdLFsHDsPd1os0llDS6a5uk/JANz7ZsRgriTFGf3ss5BcEtiZ7ZRxntC
-         pxgEo+4oi7nTekEPtnSa886m61MAP84QETywJL9Zl737IVexteizST8DpNxhlSadS9Tr
-         sCFGp83UpR0e5DM4xWOREQSuYbsux/tPScGF2jtIk0/TZefBdOXfVW1cD5YeB+GXwLRZ
-         7uvwbJlVQD9ILntXx2JCSvxfNK+8Eu6AlTxjWQJsEu8iZT1ulfBlqzoLaIlLBEfr9OUs
-         wCsIuF+QqjbBQuGae4eB9ifcqiw/IYR6WEoy+emwuib6dkVXvfnxssmPzTFwiJ8iwfHR
-         iaew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742295965; x=1742900765;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zpMoor3dBxgu172XtLCnpvR9tyAyuKLKTcHfjZ0A4I4=;
-        b=qvqDLsabB3uwRG3lzWGuSmJfH/ZxZXqVD9aUuwE3nvVd77vtf1xM+Zgj8CmZi0V5h7
-         hD5nWfAXAOZgEhQJEDPWmQ7h02cIZW/fWw1xo/F8511svHMP/eCMD/Dw3yHv0Ne6jmm1
-         2Cqto3o+DGec3EelTRBpyjEPRo5tUzh70VzUkY92IgIrKeCPIsKPwHphZ02q0E4JAkeG
-         Y3ced3FXUfZLG1MZ50cLy+xrERfZIGamR8rtmAdWsS0IqBmI0UtILjxzjyNZCzKlPuAw
-         8TnzgHRLxRrSMJpUj+6JcTYZRG9h9L14abO96+0OGDeRJJ5hyNd/ZVw0WMoZOs3bO1wZ
-         tcIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVCLrfqoUz/K7umC7qYIj5NUg0XnnLSyEJTdHBUn2ivNMKXKu7lCWHa0CbucUInmVayfAdGe+KJGzyz+6UcIUFb@lists.infradead.org, AJvYcCVnU+O59MLsHdrS2Vp9AlQ5y7bdtLmTK8HK29ZS3wlnDwiT7Eel+zBjWi3SWZ+gtmu4YzozOKRNwXNd5aVahFw=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJR78hpBgrRxq/Kgu5csTZP9h2EJBg6LPDeVcf1IrWm9P8Zb8b
-	/pSDng882CvxWcwKDxCU0Hbas5kMEiVhzWxwD+YR0TqJKF0dyxKr
-X-Gm-Gg: ASbGncsNeKPn3BCn6RdEtKxQLzBqlGpDu68jbirW+XE4P28wyG0yCLBuVGOiL0XyG1e
-	o8DjtCfW/u0gdcT7pyhwJsLRlhbnnPrXR6VBsiqqYx8H18Nnbi9RPDByPtRRLurPBRS+qLLu9ac
-	DocI4xhtue7axLyp2DpNLPWpSqjwScNgyrcjUeWFttNzDUzP5v0tz8C7eq88n3/sccXYOTqNi39
-	/+R/xFI/pMcvc1/AI6d0FkGcRUZ3F/3CD0XAfyYMIh/xbBu4mwc5kFDa7NuNaVuzw+6Mm0lknX7
-	cQvWRbAK5E9jKtF9W5Cu4fSjk2OsDMRf0+y1nmnbXlPfbiSZ2h01ZuZPZ0XVfiSvYcg4Md2B9eD
-	SLrM=
-X-Google-Smtp-Source: AGHT+IERa90JABWCDbih4/KSJyahmNphPCQsBv4vNHzGIf8QKc+5jhhkS4+jqZA/ZsgnGvidqB83cA==
-X-Received: by 2002:a17:90a:e7c4:b0:2ff:53d6:2b82 with SMTP id 98e67ed59e1d1-301a5bde7f8mr2666252a91.11.1742295965236;
-        Tue, 18 Mar 2025 04:06:05 -0700 (PDT)
-Received: from localhost.localdomain ([183.242.254.176])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-301539ed283sm8775205a91.18.2025.03.18.04.06.00
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 18 Mar 2025 04:06:04 -0700 (PDT)
-From: Miaoqian Lin <linmq006@gmail.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Fullway Wang <fullwaywang@outlook.com>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: linmq006@gmail.com
-Subject: [PATCH] media: mtk-vcodec: Fix reference count leak in mtk_vcodec_fw_scp_init
-Date: Tue, 18 Mar 2025 19:05:53 +0800
-Message-Id: <20250318110556.903-1-linmq006@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1tuUsP-00000005fUQ-1FTr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 11:12:54 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZH8HW4vxNz6LDCB;
+	Tue, 18 Mar 2025 19:09:27 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8F53214050C;
+	Tue, 18 Mar 2025 19:12:44 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 18 Mar
+ 2025 12:12:43 +0100
+Date: Tue, 18 Mar 2025 11:12:42 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+CC: Saravana Kannan <saravanak@google.com>, Bjorn Andersson
+	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, "Shawn
+ Guo" <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>,
+	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-arm-msm@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH 1/3] of: reserved_mem: Add functions to parse
+ "memory-region"
+Message-ID: <20250318111242.00007457@huawei.com>
+In-Reply-To: <20250317232426.952188-2-robh@kernel.org>
+References: <20250317232426.952188-1-robh@kernel.org>
+	<20250317232426.952188-2-robh@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_040606_651279_4C281901 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250318_041253_482551_75659086 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +80,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scp_get() returns a reference that needs to be released with scp_put().
-Add missing scp_put() before returning error in mtk_vcodec_fw_scp_init().
+On Mon, 17 Mar 2025 18:24:21 -0500
+"Rob Herring (Arm)" <robh@kernel.org> wrote:
 
-Fixes: 53dbe0850444 ("media: mtk-vcodec: potential null pointer deference in SCP")
-Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
----
- .../platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c      | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+> Drivers with "memory-region" properties currently have to do their own
+> parsing of "memory-region" properties. The result is all the drivers
+> have similar patterns of a call to parse "memory-region" and then get
+> the region's address and size. As this is a standard property, it should
+> have common functions for drivers to use. Add new functions to count the
+> number of regions and retrieve the region's address as a resource.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  drivers/of/of_reserved_mem.c    | 77 +++++++++++++++++++++++++++++++++
+>  include/linux/of_reserved_mem.h | 26 +++++++++++
+>  2 files changed, 103 insertions(+)
+> 
+> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
+> index 75e819f66a56..fd50038dff76 100644
+> --- a/drivers/of/of_reserved_mem.c
+> +++ b/drivers/of/of_reserved_mem.c
+> @@ -12,6 +12,7 @@
+>  #define pr_fmt(fmt)	"OF: reserved mem: " fmt
+>  
+>  #include <linux/err.h>
+> +#include <linux/ioport.h>
+>  #include <linux/libfdt.h>
+>  #include <linux/of.h>
+>  #include <linux/of_fdt.h>
+> @@ -740,3 +741,79 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
+>  	return NULL;
+>  }
+>  EXPORT_SYMBOL_GPL(of_reserved_mem_lookup);
+> +
+> +/**
+> + * of_reserved_mem_region_to_resource() - Get a reserved memory region as a resource
+> + * @np:		node containing 'memory-region' property
+> + * @idx:	index of 'memory-region' property to lookup
+> + * @res:	Pointer to a struct resource to fill in with reserved region
+> + *
+> + * This function allows drivers to lookup a node's 'memory-region' property
+> + * entries by index and return a struct resource for the entry.
+> + *
+> + * Returns 0 on success with @res filled in. Returns -ENODEV if 'memory-region'
+> + * is missing or unavailable, -EINVAL for any other error.
+> + */
+> +int of_reserved_mem_region_to_resource(const struct device_node *np, unsigned int idx, struct resource *res)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
-index ff23b225db70..11ab3bc60217 100644
---- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
-+++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
-@@ -71,7 +71,6 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(void *priv, enum mtk_vcodec_fw_use
- 		pr_err("Invalid fw_use %d (use a reasonable fw id here)\n", fw_use);
- 		return ERR_PTR(-EINVAL);
- 	}
--
- 	scp = scp_get(plat_dev);
- 	if (!scp) {
- 		dev_err(&plat_dev->dev, "could not get vdec scp handle");
-@@ -79,8 +78,10 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(void *priv, enum mtk_vcodec_fw_use
- 	}
+Maybe wrap?
  
- 	fw = devm_kzalloc(&plat_dev->dev, sizeof(*fw), GFP_KERNEL);
--	if (!fw)
-+	if (!fw) {
-+		scp_put(scp);
- 		return ERR_PTR(-ENOMEM);
-+	}
- 	fw->type = SCP;
- 	fw->ops = &mtk_vcodec_rproc_msg;
- 	fw->scp = scp;
--- 
-2.39.5 (Apple Git-154)
+> +{
 
 
