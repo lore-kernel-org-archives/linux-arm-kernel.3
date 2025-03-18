@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA69C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1231DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FtMafZqMPfzvDo4rR5fJSjqimAk9/WCkx9aaadGh0kk=; b=j3Ul4E9kJ0OUw0Eu2Dx2wyf6uV
-	nTDonVGGYF5fRhmkiGCW2Q3jRuUpd/LO50yvIUiJ9DRhMLQZkpnZLfiWHkTFdF5IBhndlQDqIp/ut
-	g7+7b8gMZQxis/IUkI3DEScgDCYpnSNJd9jiiRmCXnI4P/l+orxZFqtQS4qFKLIxU+HyCC97rX6Kb
-	86aYw2qMZstYMFMBUjd59NpWAw9otDnwincnt9P7JOEwOWIB6R1tP1Mau55KWHmWLTZDhZ86Cae0l
-	bd12gGkIANFNOuGS6iF4qXYsLkehhNc88gc09AEeteDubCZr1T+XuIN7kDShHb5Wy5Qqce0yhuYxt
-	QMRHIONA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n26jTGw7a6IhILTyNcvgMrK+JzqQ4j06C8HKLqJCV74=; b=zO0t51GICLrXbj6MpPxHfkPzn0
+	/NCMLtJ6tE8MojvlWf8qCtoA1PxUcU5jtsSoLuM3+DJwsfEfBVLQaR8QQmmw9fdeMc+QCKHsBHL26
+	0PKwk3Y+yO05OOZnPI7PFP6PJ8eRVsgbA/PK2/WFQPMZ1yfhPNwNpQ06my07vu03WtwEjldXRL2Rk
+	OGzs5CyZOkPnR/W8OJgymoIF1tELGSajmgUt+zx+lZqf38+CLT1pbXtWTfkXmq8CH5uVi3HfUvH85
+	1isorBuB6xUhjxSlBXtD/jVm8ul6IQIprnmL48x02m3Dfa+l0MFpCtHfzBFhg+zn65OUnH5IcpQwb
+	bDhf+lHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXO2-000000065TV-2Lrj;
-	Tue, 18 Mar 2025 13:53:42 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1tuXPh-000000065jZ-1fJI;
+	Tue, 18 Mar 2025 13:55:25 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXKm-000000064mI-3Y5S
+	id 1tuXMX-000000065AM-070P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 13:50:22 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43943bd1409so22310475e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 06:50:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742305819; x=1742910619; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=FtMafZqMPfzvDo4rR5fJSjqimAk9/WCkx9aaadGh0kk=;
-        b=K2jcv1A2EhpIKmZNO479zz5HdJSzMGyLy309o1f+0zjYK6zsYhx5iTxi5XsW57gr6g
-         ZToJmwyUM4C01Mxfy8U+GNrQTsROHE5z9m+GL8/WCJsOHKTecQ13AbWR9ZV0moWMNAnK
-         OmWg7tlgDAUyQKnXdByz1t4MxgX3uP43YAMqe5pA+q6fQM8VybiqtqM+Zx+7BPo6+yO0
-         sJLMVhkfoNvtoxdIXL0ZIEXJi2Qpj851Xw3QUeaHVcsgNP6fUXxeDcYzB26KrH8l6hnn
-         7VI9vKljBUc85h96VIATf3MyuiNhi6gi/i4WGh7PqV3h6ICnDklbOxEVwtlRA4/treFQ
-         1hQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742305819; x=1742910619;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FtMafZqMPfzvDo4rR5fJSjqimAk9/WCkx9aaadGh0kk=;
-        b=CrbeUk1wNFWngyh0t5m1xBfwWixn2shaSLq1L2Y4WaspdbpALZQgXxGaTNcYxzyh/Y
-         1iVv2N5cxUA3qCCM9wu20RQ0DSKvLsasspi4gTEAJ2n3K7aHToDerCOMbnC9Ukkipvck
-         JqA37yWaTmaH6hrWe8u5CpjMw59rAkwasZZgCY+2FxjHyBBjUIC0yZqhTGJPrBgig/Lp
-         aLth604VvhEKJX6Wy7pxy0ilyLwaIC2+n1zZkgtgATicf5AvCil1xgxLoawAHSFl3zQg
-         HpDhedutyYq0X4aaPIv21/YsBWVdXbTi0yhvXVbpdQ9MEhtA9B33+EuE+rIPC9tlG7iQ
-         cQfg==
-X-Gm-Message-State: AOJu0YwGw+cp8X1sp0lSNk5LgPWGhir2MC03B47nCRU7Ga3Q4wTs3pGu
-	j+sQSlvz23StXLPZVRUvV2zwpz46DcglqdpTHRdcKI/AezimxGuabrh5b8rPukhegCvADRB7MEF
-	R+YkijapHuc60Ah8DJ9DfKWxif9Z6tC7D7TLr89BvoPWd6H1saM296LrfN26buxOJj/Bh5VdDIe
-	hxVBAotSVImlq2SZVsUJafspb4Pvt014ZSwWqXXWEg
-X-Google-Smtp-Source: AGHT+IE79FRgBeu+Pd28yFO/3OUB8VMtDSdNPY3fX6aeehx4Uy+gDWysGn6zxPBsC/G0GhgU2vzOjL3/
-X-Received: from wmsp8.prod.google.com ([2002:a05:600c:1d88:b0:43c:ec26:c3a3])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:524c:b0:43c:fdbe:4398
- with SMTP id 5b1f17b1804b1-43d3b951a42mr22112405e9.6.1742305818969; Tue, 18
- Mar 2025 06:50:18 -0700 (PDT)
-Date: Tue, 18 Mar 2025 14:49:50 +0100
-Mime-Version: 1.0
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4397; i=ardb@kernel.org;
- h=from:subject; bh=bGzQLy9WRTnMXFtHsUDKduzSWc8UIET77tU2uFX1yJU=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIf1m5T81sftG7/fXia2sXW8leF8jXqom4pXSwVsTKp/HX
- JRpnOXZUcrCIMbBICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACai/Jvhf9w89z8iqTfME98z
- xk5ylD3mc6EmxO8Ev2quev7jiwbuZxgZnscWGC7o8A3RjT0d77evrmr2pab/Ux5qPdGOdrwR8Os DCwA=
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250318134949.3194334-2-ardb+git@google.com>
-Subject: [RFC PATCH] arm64/mm: Remove randomization of the linear map
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Kees Cook <kees@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 18 Mar 2025 13:52:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=n26jTGw7a6IhILTyNcvgMrK+JzqQ4j06C8HKLqJCV74=; b=fQLghR0hnNj09MYO1OaK/dfY6v
+	ylVyfUE/zF0CnFLmbUo9xYGBNcXicjT40z9zwR4JF9C4nynTcfi8NPoCw57QcHCRhbV2S4grPzd01
+	FVZmMGl3btj03Ymp0Wrg1ggotEGAwBnCJDHro067VRhx9kd2Mgx2Cmg4NDzXbi9/QDr8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tuXMG-006GWG-39; Tue, 18 Mar 2025 14:51:52 +0100
+Date: Tue, 18 Mar 2025 14:51:52 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: =?utf-8?B?5Zue6KaGOiDlm57opoY=?= =?utf-8?Q?=3A?= [net-next 4/4]
+ net: ftgmac100: add RGMII delay for AST2600
+Message-ID: <5b448c6b-a37d-4028-a56d-2953fc0e743a@lunn.ch>
+References: <20250317025922.1526937-1-jacky_chou@aspeedtech.com>
+ <20250317025922.1526937-5-jacky_chou@aspeedtech.com>
+ <20250317095229.6f8754dd@fedora.home>
+ <Z9gC2vz2w5dfZsum@shell.armlinux.org.uk>
+ <SEYPR06MB51347CD1AB5940641A77427D9DDF2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <c3c02498-24a3-4ced-8ba3-5ca62b243047@lunn.ch>
+ <SEYPR06MB5134C8128FCF57D37F38CEFF9DDE2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB5134C8128FCF57D37F38CEFF9DDE2@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_065020_894856_691AE585 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20250318_065209_067994_EBA66157 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,123 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Tue, Mar 18, 2025 at 05:34:08AM +0000, Jacky Chou wrote:
+> Hi Andrew,
+> 
+> Thank you for your reply.
+> 
+> > > The RGMII delay of AST2600 has a lot of steps can be configured.
+> > 
+> > Are they uniformly space? Then it should be a simple formula to calculate? Or
+> > a lookup table?
+> 
+> There are fixed delay values by step. I list below.
+> AST2600 MAC0/1 one step delay = 45 ps
+> AST2600 MAC2/3 one step delay = 250 ps
 
-Since commit
+That is messy.
 
-  97d6786e0669 ("arm64: mm: account for hotplug memory when randomizing the linear region")
+> I calculate all step and emulate them.
+> The dt-binding will be like below.
+> rx-internal-delay-ps:
+>     description:
+>       Setting this property to a non-zero number sets the RX internal delay
+>       for the MAC. ... skip ...
+>     enum:
+>       [45, 90, 135, 180, 225, 250, 270, 315, 360, 405, 450, 495, 500, 540, 585, 630, 675, 
+>        720, 750, 765, 810, 855, 900, 945, 990, 1000, 1035, 1080, 1125, 1170, 1215, 1250, 
+>        1260, 1305, 1350, 1395, 1440, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 
+>        3750, 4000, 4250, 4500, 4750, 5000, 5250, 5500, 5750, 6000, 6250, 6500, 6750, 7000, 
+>        7250, 7500, 7750, 8000]
 
-the decision whether or not to randomize the placement of the system's
-DRAM inside the linear map is based on the capabilities of the CPU
-rather than how much memory is present at boot time. This change was
-necessary because memory hotplug may result in DRAM appearing in places
-that are not covered by the linear region at all (and therefore
-unusable) if the decision is solely based on the memory map at boot.
+Can the hardware do 0 ps?
 
-In the Android GKI kernel, which requires support for memory hotplug,
-and is built with a reduced virtual address space of only 39 bits wide,
-randomization of the linear map never happens in practice as a result.
-And even on arm64 kernels built with support for 48 bit virtual
-addressing, the wider PArange of recent CPUs means that linear map
-randomization is slowly becoming a feature that only works on systems
-that will soon be obsolete.
+So this list is a superset of both 45ps and 250ps steps?
 
-So let's just remove this feature. We can always bring it back in an
-improved form if there is a real need for it.
+Lets see what the DT Maintainers say, but it could be you need two
+different compatibles for mac0/1 to mac2/3 because they are not
+actually compatible! You can then have a list per compatible.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Kees Cook <kees@kernel.org>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/kernel/image-vars.h     |  1 -
- arch/arm64/kernel/kaslr.c          |  2 --
- arch/arm64/kernel/pi/kaslr_early.c |  4 ----
- arch/arm64/mm/init.c               | 20 --------------------
- 4 files changed, 27 deletions(-)
-
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index ef3a69cc398e..80e0fd6e7651 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -51,7 +51,6 @@ PROVIDE(__pi_arm64_use_ng_mappings	= arm64_use_ng_mappings);
- PROVIDE(__pi_cavium_erratum_27456_cpus	= cavium_erratum_27456_cpus);
- #endif
- PROVIDE(__pi__ctype			= _ctype);
--PROVIDE(__pi_memstart_offset_seed	= memstart_offset_seed);
- 
- PROVIDE(__pi_init_idmap_pg_dir		= init_idmap_pg_dir);
- PROVIDE(__pi_init_idmap_pg_end		= init_idmap_pg_end);
-diff --git a/arch/arm64/kernel/kaslr.c b/arch/arm64/kernel/kaslr.c
-index 1da3e25f9d9e..c9503ed45a6c 100644
---- a/arch/arm64/kernel/kaslr.c
-+++ b/arch/arm64/kernel/kaslr.c
-@@ -10,8 +10,6 @@
- #include <asm/cpufeature.h>
- #include <asm/memory.h>
- 
--u16 __initdata memstart_offset_seed;
--
- bool __ro_after_init __kaslr_is_enabled = false;
- 
- void __init kaslr_init(void)
-diff --git a/arch/arm64/kernel/pi/kaslr_early.c b/arch/arm64/kernel/pi/kaslr_early.c
-index 0257b43819db..e0e018046a46 100644
---- a/arch/arm64/kernel/pi/kaslr_early.c
-+++ b/arch/arm64/kernel/pi/kaslr_early.c
-@@ -18,8 +18,6 @@
- 
- #include "pi.h"
- 
--extern u16 memstart_offset_seed;
--
- static u64 __init get_kaslr_seed(void *fdt, int node)
- {
- 	static char const seed_str[] __initconst = "kaslr-seed";
-@@ -53,8 +51,6 @@ u64 __init kaslr_early_init(void *fdt, int chosen)
- 			return 0;
- 	}
- 
--	memstart_offset_seed = seed & U16_MAX;
--
- 	/*
- 	 * OK, so we are proceeding with KASLR enabled. Calculate a suitable
- 	 * kernel image offset from the seed. Let's place the kernel in the
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index ccdef53872a0..b3add829d681 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -277,26 +277,6 @@ void __init arm64_memblock_init(void)
- 		}
- 	}
- 
--	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
--		extern u16 memstart_offset_seed;
--		u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
--		int parange = cpuid_feature_extract_unsigned_field(
--					mmfr0, ID_AA64MMFR0_EL1_PARANGE_SHIFT);
--		s64 range = linear_region_size -
--			    BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
--
--		/*
--		 * If the size of the linear region exceeds, by a sufficient
--		 * margin, the size of the region that the physical memory can
--		 * span, randomize the linear region as well.
--		 */
--		if (memstart_offset_seed > 0 && range >= (s64)ARM64_MEMSTART_ALIGN) {
--			range /= ARM64_MEMSTART_ALIGN;
--			memstart_addr -= ARM64_MEMSTART_ALIGN *
--					 ((range * memstart_offset_seed) >> 16);
--		}
--	}
--
- 	/*
- 	 * Register the kernel text, kernel data, initrd, and initial
- 	 * pagetables with memblock.
--- 
-2.49.0.rc1.451.g8f38331e32-goog
-
+	Andrew
 
