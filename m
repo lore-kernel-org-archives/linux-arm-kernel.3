@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D44C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BEC3C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zO3ZzM+RurQ0HVvhTyBHJz7UiXcbKFmS1I/Hti/J8oU=; b=oVHvSquhDmb0thSAY8g/NgkxUc
-	/lHKv07y2o0OAHDtBX3tXMfOwvGN2TNjN1V253B24f9P7+jgtSjuIuxxD579SvXm9MHY1PTZprAOg
-	rYIRAl8EOYPNhh3KA1RsvFOaK8r6Ux5gHB4mb74XVEDSMgzZ5Z/x78zVNit35xLIHGXRT/bW/wy1S
-	O5CQ0bQlLmoQqlkYsAhAetq5Wzb7M1VLag9vFD6nVXlMCZ4Y4infG7KiXDnKp+1OxQGj/C8AOAJU4
-	WWHApsNqGxC6hHSl5UMwYIN+meqmnXGCRUFKdh1Opdr7OzQxmZn44XbmAc77Itj/ukutqztyFDup5
-	SZ8C+kow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=71bezMcj6oTYgdvShxp6IE1G2GbKCrGpkhEqic0PU3w=; b=Psn/9qGfoWQgB5AvVZs7DJIzTs
+	iWLDjD7YCG/iJb8IJq5geSOrG37VoeV0zbMaGc74lt/uERq9qfmbGtkKSM/a7cDlRjzUfqfWUiwd6
+	VJankVYntGGdmESOAdsvFpCP4ZxnRlOB2Qylm6TzJLHNfrvcem51ZO62b2chrSS4nu54LgMmcD3AF
+	Pf5BbnOE3PEPKN8+TZhbjc7jYSYKhZSQYv6v5HSUNwgAJEoPsIt2V3ZFSRIBubFmpjG4bxWAQUYlT
+	ntMhuciF6w+gr/7awBGtFZXUMs3aZHuZESkD/GxbaxP1pCoUpqLPWKVkoUTUKlcUYq5QM5cAfyNEZ
+	fSKCE7Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tua3c-00000006a3b-38nH;
-	Tue, 18 Mar 2025 16:44:48 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1tua5I-00000006aRf-075u;
+	Tue, 18 Mar 2025 16:46:32 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZl4-00000006WXP-0WCg
+	id 1tuZoQ-00000006XB8-2izC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 16:25:39 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43d025a52c2so25180195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 09:25:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742315136; x=1742919936; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zO3ZzM+RurQ0HVvhTyBHJz7UiXcbKFmS1I/Hti/J8oU=;
-        b=DdRKUCt7IbEVEsZtxH2/IsXmQLB9WOJbc+d2PjEzLJj8+P7CqFvidKASu+0r0jwWZd
-         af+AAWZM6RZ4vYbenXJy28ClvUbhKsW4CH9kdPSatIkmhkKRH5urbexSeq9zl8H0jL5x
-         2k8GZ58NWRMSJxvd0W1yv5FX3eo++Alq/Ha7O0d9Yn2p0Ltd7cpNbcyVWyD+2eDI+g5B
-         I2Z4c9lySIwLjqLPDvapwFeUnF9Gn+NQ9YfGBsanmRn5OAnwBDS06+8mgOLwlLEvcRRf
-         XODhU9iVyV359WiWw7z6XLrZ3N7XxJBs/PJKy22y9EwsC/u7qWd6WfZiknSQmL8XZqrA
-         Ej+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742315136; x=1742919936;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zO3ZzM+RurQ0HVvhTyBHJz7UiXcbKFmS1I/Hti/J8oU=;
-        b=wWSLCvLdXzYBB9tO4iB6bWTVw4Vs0Ty1S0wWDuKZdnuSipunfTK20G3frR4vuJrpJC
-         TDyxcfqurprpIXyFwJeUSE/82oPnxUc7ReWd86YiguKY5thHlTRh5P1XiDg2XeIgdOap
-         CnOmJQsGZdS1vtaAGKAgqJ/IEXEuniwlWQqdzwVmPfTffTFMVUNE0FN/+95AJUQg8nev
-         N/vuucw7j57Q3h1KGk83XvnGyEUuDgjuKNAtNKRwYepaiJF8CEB2t+UX4e5LZCPk44Ck
-         /686EgB45B2CKl4QJW0hb5hknb9YazzX/3k6rUbHEGi3ffFHwvXvabSaL7bQdF3qXpTj
-         h6Tg==
-X-Forwarded-Encrypted: i=1; AJvYcCWcFOPopHU410L4E7v+L0E8XrP2nHXUgcTIDhaJouHdxJMzd3GBWsmbR2HfW/K9fykRNT3lSQMo+iC3M+IhnJW9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLCB3xr4rsoNG0K3WL3wrzyTsutnXgVDcyREOTGboiFUzJMU2B
-	/KWOPhkLTc2BFqlR1ps4dvdEAMuNt35Y+lbjknq6clgzgo1DSztYml5o4uVyYMZvnSZdXwmz3c7
-	kUmWbp2JZNjne4RUTkAyEerMkWg==
-X-Google-Smtp-Source: AGHT+IHi1UgeMel0/A+rXKxvMkXf6AY2s0C2/6FsLbf6+yhSlW/MgJVCp1Jp/o/iLc/G34hYG7cfGijEvYJBHA3IS0U=
-X-Received: from wmbbd27.prod.google.com ([2002:a05:600c:1f1b:b0:43d:4055:98e3])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:470e:b0:43b:d0fe:b8ac with SMTP id 5b1f17b1804b1-43d3b9dc569mr30076925e9.30.1742315136406;
- Tue, 18 Mar 2025 09:25:36 -0700 (PDT)
-Date: Tue, 18 Mar 2025 16:25:10 +0000
-In-Reply-To: <20250318162510.3280359-1-sebastianene@google.com>
-Mime-Version: 1.0
-References: <20250318162510.3280359-1-sebastianene@google.com>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250318162510.3280359-4-sebastianene@google.com>
-Subject: [PATCH v3 3/3] KVM: arm64: Release the ownership of the hyp rx buffer
- to Trustzone
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org, 
-	oliver.upton@linux.dev, sebastianene@google.com, snehalreddy@google.com, 
-	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
-	will@kernel.org, yuzenghui@huawei.com
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Andrei Homescu <ahomescu@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 18 Mar 2025 16:29:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6CE29A48B7F;
+	Tue, 18 Mar 2025 16:23:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F165C4CEDD;
+	Tue, 18 Mar 2025 16:29:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742315345;
+	bh=CQkTVR5W6jN8FTtFT51uf7uIVr+B3UlEoOqBrGiOb7M=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=A8rC+aMSvzneKuAVXqlowQjEw7mMOE4/yL/vfEaKET0LPR91ma51QNlLHPWtzcks4
+	 +dq6bkEy+qPOMq+nSVqZfAhnu2PUvSgT0+JRElYe88LOBhKHlpK6/UMiQXeQ8rG53G
+	 DyLSHfS8W91e5XoTwH8PC994bEn/K3fIdRiRUokhrL1wSn/p8j3pMRx0zEeL1Tr2jl
+	 Ooo1+6t0v/OjdAZIKud3IuNVceS+qBJG3ET+pwwpfnYRCArE7Y6JVce2E2frm191CL
+	 T6NGdX83EMKP881E9Swm086+ITvUeXiXjUsCqWtdwFuHsKdGVxoHFb4EH0EWjzk4om
+	 PrPEX6+lUYaIw==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Frank Li <Frank.li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>, 
+ Iuliana Prodan <iuliana.prodan@nxp.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250311163255.2664-1-laurentiumihalcea111@gmail.com>
+References: <20250311163255.2664-1-laurentiumihalcea111@gmail.com>
+Subject: Re: (subset) [PATCH v5 0/3] add sof support on imx95
+Message-Id: <174231534280.179247.7213620173027724495.b4-ty@kernel.org>
+Date: Tue, 18 Mar 2025 16:29:02 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_092538_160124_B34919D4 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20250318_092906_770176_964A4A1A 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the release FF-A call to notify Trustzone that the hypervisor
-has finished copying the data from the buffer shared with Trustzone to
-the non-secure partition.
+On Tue, 11 Mar 2025 12:32:52 -0400, Laurentiu Mihalcea wrote:
+> Add sof support on imx95. This series also includes some changes to
+> the audio-graph-card2 binding required for the support.
+> 
 
-Reported-by: Andrei Homescu <ahomescu@google.com>
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 9 ++++++---
- include/linux/arm_ffa.h       | 3 +++
- 2 files changed, 9 insertions(+), 3 deletions(-)
+Applied to
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 6df6131f1107..ac898ea6274a 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -749,6 +749,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 	DECLARE_REG(u32, uuid3, ctxt, 4);
- 	DECLARE_REG(u32, flags, ctxt, 5);
- 	u32 count, partition_sz, copy_sz;
-+	struct arm_smccc_res _res;
- 
- 	hyp_spin_lock(&host_buffers.lock);
- 	if (!host_buffers.rx) {
-@@ -765,11 +766,11 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 
- 	count = res->a2;
- 	if (!count)
--		goto out_unlock;
-+		goto release_rx;
- 
- 	if (hyp_ffa_version > FFA_VERSION_1_0) {
- 		/* Get the number of partitions deployed in the system */
--		if (flags & 0x1)
-+		if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
- 			goto out_unlock;
- 
- 		partition_sz  = res->a3;
-@@ -781,10 +782,12 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 	copy_sz = partition_sz * count;
- 	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
- 		ffa_to_smccc_res(res, FFA_RET_ABORTED);
--		goto out_unlock;
-+		goto release_rx;
- 	}
- 
- 	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
-+release_rx:
-+	ffa_rx_release(&_res);
- out_unlock:
- 	hyp_spin_unlock(&host_buffers.lock);
- }
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 850577edadbc..32e235a2bedf 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -223,6 +223,9 @@ extern const struct bus_type ffa_bus_type;
- /* The FF-A 1.0 partition structure lacks the uuid[4] */
- #define FFA_1_0_PARTITON_INFO_SZ	(8)
- 
-+/* Return the count of partitions deployed in the system */
-+#define PARTITION_INFO_GET_RETURN_COUNT_ONLY	(1)
-+
- /* FFA transport related */
- struct ffa_partition_info {
- 	u16 id;
--- 
-2.49.0.rc1.451.g8f38331e32-goog
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[1/3] ASoC: dt-bindings: support imx95's CM7 core
+      commit: 811944a790451169876947a89338d2b86ff9fe5b
+[2/3] ASoC: dt-bindings: audio-graph-card2: add widgets and hp-det-gpios support
+      commit: ed92f40eccc801bd0e5dfd78b1058072638471f1
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
