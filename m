@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F98CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41C4C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktzMOZYNlwNiDxoE8omHkFi9oPhb83P0wnx9jkyg590=; b=mosi3uYHgm4gNPOxV+i1nyoeS8
-	x3hILijj4jYHfDffQvvgSazofoNpjmdjVXVw2yiFouvf3uqx/6d7yJpf0CynxWYC0zAz2hq7w2MGf
-	MHxzgPhFA8qVUs0ZD7vZazr/HBLWZFKh5xt/zLsIAcPIxcUnBwGn8TjLa+EuxhzWzb+3TkhbmoYyc
-	6+1pz3Kd5VWz2Fquza9ZzWHiLexK4N1joksH4LlFLoSMIGmKjkKKGvm5dUITEFsdZfsDk5CDqLNz5
-	XIF8UkLoXGVXzQIMokBsbVWQjxRAftGu79UZ/gvajlAszos/ByPL+EJ1lNKJaPlbojoSz7vNHx1g8
-	F30OhFyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nkv4hTOrWEP1mAK28D1kEzJd6tzvvXvQPHgbpNeN9YY=; b=wtnd8sPQFL7WP9M8UmbZnsGJCi
+	kUAQd0hqM/6F3iMBrkEuSoC2ypGgdcNl5kQAnhTcc8KMe5/QtyDUFZfdvbpOwV9SNMvLMXlN4l4aF
+	aACE7fIAH/YVX8bZBNWC8WEXBlHsooqPNqnECAz0WCgRse1EWGl4dlpvyGD5cz/4vfLtpjlX+ZDmo
+	sJzeT9EFFB7hkpqEUb9le/G3xAn3xUJB+v+TBmPsC4VziHBO5oFXJKLL3u07N3dgFzI5cTXnDB9At
+	3hxwVsqj5tB1WmOCYM6jNxFyzTcDJGWkAiDrwKJjxDeV0kPqMg6UGtS8kqmTptEBtA0kCAGru9miU
+	WHoAhjAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZwz-00000006Yqv-1Dz2;
-	Tue, 18 Mar 2025 16:37:57 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tuZye-00000006ZCR-2NQo;
+	Tue, 18 Mar 2025 16:39:40 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZi8-00000006VtE-1v5j
+	id 1tuZkx-00000006WUZ-3ANl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 16:22:37 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-390effd3e85so4863809f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 09:22:36 -0700 (PDT)
+	Tue, 18 Mar 2025 16:25:32 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43cf172ff63so22440445e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 09:25:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742314955; x=1742919755; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ktzMOZYNlwNiDxoE8omHkFi9oPhb83P0wnx9jkyg590=;
-        b=yAGHp1Kg8/oH07UZo1f0fDXa0dRQCe5ypDzWksJXvaz0PNIrb31BYDZcwcIW1yJzaD
-         DfhxJtqKCVwETvL3fLkwhzZmLWG6ZFw9SfvfyfK0dq0JeM/sH+/2v0q0Nw3LO3ZgNAJN
-         AE28EXDnAcvkL/QFFuTEyySXNEuanvLXMbAMuUeN9hayHcy7BKcf+OFrpji0tJZehx5O
-         1KSPOeAq+sjymzFfqyOJz31HgTslipHgJ+jAYh5enFrwCNdV54gDEcjmdfWhts59pTMt
-         u1Ym3FXIveuU8blGBjh4z6DWv9l93UuwJdPdsEk9a25fAvqUk095IgphTdld8Wp2vCG9
-         fQzg==
+        d=google.com; s=20230601; t=1742315130; x=1742919930; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=nkv4hTOrWEP1mAK28D1kEzJd6tzvvXvQPHgbpNeN9YY=;
+        b=Pq+CfcFeWCDs4HwtNL7rSdprrhxXMU8vGFeSVPFCzaECbXfqRQL/geqxmxem6UMtKr
+         xXtqVaY9OKFXC2j1Sp3ID+SSK2GEuNXa7es5WsXyxVhLDlBmd2CwhOUfZ2HkeVzWiUFi
+         1iDAj6Rd5nl44vt9QhvKpEc7owzels2NmlOHZ31+EFjfEfhjlzfn+a8SYjVxjqq2hERP
+         WQulFLSj6wLcGq46AlrhlVki+is1FyiPo/cfipLALfRBJ2SzUnoezVsMhPXPYptQOUyj
+         shQyz8vQrv8/tZl2Ywy0p6r/odmz7eh2Q5w4y/Iv44EhXHbej0XEazNmHbDu9/SPORYw
+         WkLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742314955; x=1742919755;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ktzMOZYNlwNiDxoE8omHkFi9oPhb83P0wnx9jkyg590=;
-        b=j7nR0uWh1rTwXRkw/It9J9Hga+TPz/LCxSqmM8XIKH6CqVgvsck0bwfP5rCBm0HDH9
-         XLybrwkfla04ph83LMuRvtGZ252DGkva0XWsYs05lX1N9oZBxOR3MvkoO2Nc76Y4LFgD
-         4WjGCO856nsv6dxEzn5eIro2wCggcpKCAQGLMGaDJXubtXWVriChsSf67cv6+Vq9GyoU
-         RYKYwYcQQPaGCC9UIVkSe00kM0sc6DiGWI1j2b3mX0v19jUwM4dzXoD7sFdBA7b64J0p
-         JTu4UIit1/5UeYN7gsID35n7wkTyHSDHxkkjQQTYs9v4mxj0QyMn+6Tr665pk6Jwtm3g
-         xy3g==
-X-Forwarded-Encrypted: i=1; AJvYcCWRm3+TOc+9QuHSD4QiaZjDSkSfIVQDBqV03HyEhb0sGHk7roFfwTYK/UDVYXtAlLO7EVFvCTLgWFTuuYdbVXSk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHP7NMRiUskzS52T21LfyQB/3F0/O7w95XG/Ul9Nop3vjFaT17
-	z+71x/JfZVVzjz0m3E+fVX3aCjDrayDp+/OcHlHozgRazKH39fzHdJs2VqdPPXB0PfAeAKgBTuL
-	j
-X-Gm-Gg: ASbGncu4gqIan5s/og5CLOTx+KIILO4C8i0Q4ENApVd2hzzx4y+0mkvV44nWTnwV5xv
-	hAzk5yvq8S8sqpqxOQDHOM48xM723QKmJjVLXfBPLoXZB3ET7IM5nhboZprfQ76ioS9vIsb5OR6
-	HkQLBFirzxE11isKq3YSk0GSicoaXmOOS7gh+FXWLauXdmvthNpam+imKdRvcFZZLrUafs1mcMu
-	PHs/2Kc5C4895xpXrJyLlZqxSLOvX4MUWsrUlS/Yhx7Tp00cC4Te6RzFc4eRNKBtx8sAyTrIklb
-	mG0h3dcRZ5JZVoIIlREjtkpG9vpe4GvadVaK94ZmYYclG6Q=
-X-Google-Smtp-Source: AGHT+IGJ+MGp/aQ7ouZ/3tsk70ncM8V1wNpnssWoc4eHTIu28PpPLIFGuzYHt7Mmu48slGPW7y2ccA==
-X-Received: by 2002:a5d:5e0c:0:b0:390:fe4b:70b9 with SMTP id ffacd0b85a97d-3971daeb6cdmr13373876f8f.21.1742314954910;
-        Tue, 18 Mar 2025 09:22:34 -0700 (PDT)
-Received: from pop-os.lan ([145.224.67.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c8975ae2sm18914732f8f.51.2025.03.18.09.22.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 09:22:34 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Tue, 18 Mar 2025 16:22:02 +0000
-Subject: [PATCH v2 8/8] coresight: Remove extern from function declarations
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250318-james-coresight-claim-tags-v2-8-e9c8a9cde84e@linaro.org>
-References: <20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org>
-In-Reply-To: <20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Suzuki.Poulose@arm.com, 
- leo.yan@arm.com
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.14.0
+        d=1e100.net; s=20230601; t=1742315130; x=1742919930;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nkv4hTOrWEP1mAK28D1kEzJd6tzvvXvQPHgbpNeN9YY=;
+        b=oQmvqKvl7LFU6jSBFhK5BsiLBw33JfOSvLWJOH9ENoxUcegoXyqiBHa7KSgo+zXkUy
+         2b8ILo1RyRD0NpYSHfZgJ3MMrQvuicm/VEItscCXZ1BO2RaXKjjuIyFemMsu0CCsC8M3
+         2Mbb0hWUXIxkObTzzxqI5txxc2NNafhrEnABBkLImgaUQJMxcXU2TPbCpPYJMg2/Je3q
+         b2PxwaKDydRSqh26Kb25IdmenTJogPGjpiIccoOnv8YbcuSvFybI5uIPyxbASPTMoBI0
+         M+XlNlp6dt1ogEUCAsh+Ne9kITzQCgb8rgBeou+aaHy1Q0KzbYmnckLCF9aPa6I5u+hv
+         67TA==
+X-Forwarded-Encrypted: i=1; AJvYcCXY7rvOEiFH4u3aOUv6vPaB45HHINn69LCxDjmlwH6rn6IqhAvUi8HT7pswIS7bGeyE8A0zLHtJX45rck8NzQri@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdZytBdaIXHc1TkpgvzriMGd6kA7ty0APNZDYeYLJigl+loVGH
+	cyG+/PEUJBF3nBUKdmFV85HLB9CNN8iSMqdfJDBEPWdDLY5VI4M4GmsLsvv7OfQXnpumORi3y96
+	lAsWQT9I3vWlghTJ2MhNfq1Al5A==
+X-Google-Smtp-Source: AGHT+IENQSIN9p8sk8M/fR1ObxL5U7dDuJO08/B2zEw9mK4FB92c5Di/ycqjo4nkJ+gmvyvHR+E0wirYkTH4pVs9RFQ=
+X-Received: from wmbbe15.prod.google.com ([2002:a05:600c:1e8f:b0:43d:1d5:26e6])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3ca0:b0:43b:c95f:fd9 with SMTP id 5b1f17b1804b1-43d3b94ff9fmr30314205e9.5.1742315129825;
+ Tue, 18 Mar 2025 09:25:29 -0700 (PDT)
+Date: Tue, 18 Mar 2025 16:25:07 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
+Message-ID: <20250318162510.3280359-1-sebastianene@google.com>
+Subject: [PATCH v3 0/3] KVM: arm64: Separate the hyp FF-A buffers init from
+ the host
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org, 
+	oliver.upton@linux.dev, sebastianene@google.com, snehalreddy@google.com, 
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	will@kernel.org, yuzenghui@huawei.com
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_092236_497826_980F3DFA 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250318_092531_790770_52D3D32F 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,116 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Function declarations are extern by default so remove the extra noise
-and inconsistency.
+Hello,
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- drivers/hwtracing/coresight/coresight-priv.h | 14 +++++------
- include/linux/coresight.h                    | 35 ++++++++++++++--------------
- 2 files changed, 23 insertions(+), 26 deletions(-)
+This moves the initialization of the hypervisor FF-A buffers
+away from the host FF-A map calling path. If the hypervisor
+cannot map the buffers with Trustzone, it rejects any FF-A call
+when it runs under protected mode. 
+Other than that it moves the definitions of the ffa_to_linux_err
+map from the arm_ffa driver to the ffa header so that the hyp code
+can make use of it.
 
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 6e8cf55aee0a..ce91e0fbb497 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -60,10 +60,8 @@ struct cs_off_attribute {
- 	u32 off;
- };
- 
--extern ssize_t coresight_simple_show32(struct device *_dev,
--				     struct device_attribute *attr, char *buf);
--extern ssize_t coresight_simple_show_pair(struct device *_dev,
--				     struct device_attribute *attr, char *buf);
-+ssize_t coresight_simple_show32(struct device *_dev, struct device_attribute *attr, char *buf);
-+ssize_t coresight_simple_show_pair(struct device *_dev, struct device_attribute *attr, char *buf);
- 
- #define coresight_simple_reg32(name, offset)				\
- 	(&((struct cs_off_attribute[]) {				\
-@@ -160,8 +158,8 @@ void coresight_path_assign_trace_id(struct coresight_path *path,
- 				   enum cs_mode mode);
- 
- #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
--extern int etm_readl_cp14(u32 off, unsigned int *val);
--extern int etm_writel_cp14(u32 off, u32 val);
-+int etm_readl_cp14(u32 off, unsigned int *val);
-+int etm_writel_cp14(u32 off, u32 val);
- #else
- static inline int etm_readl_cp14(u32 off, unsigned int *val) { return 0; }
- static inline int etm_writel_cp14(u32 off, u32 val) { return 0; }
-@@ -172,8 +170,8 @@ struct cti_assoc_op {
- 	void (*remove)(struct coresight_device *csdev);
- };
- 
--extern void coresight_set_cti_ops(const struct cti_assoc_op *cti_op);
--extern void coresight_remove_cti_ops(void);
-+void coresight_set_cti_ops(const struct cti_assoc_op *cti_op);
-+void coresight_remove_cti_ops(void);
- 
- /*
-  * Macros and inline functions to handle CoreSight UCI data and driver
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 00134a80d358..8cb07c132b01 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -671,28 +671,27 @@ static inline void coresight_set_mode(struct coresight_device *csdev,
- 	local_set(&csdev->mode, new_mode);
- }
- 
--extern struct coresight_device *
--coresight_register(struct coresight_desc *desc);
--extern void coresight_unregister(struct coresight_device *csdev);
--extern int coresight_enable_sysfs(struct coresight_device *csdev);
--extern void coresight_disable_sysfs(struct coresight_device *csdev);
--extern int coresight_timeout(struct csdev_access *csa, u32 offset,
--			     int position, int value);
-+struct coresight_device *coresight_register(struct coresight_desc *desc);
-+void coresight_unregister(struct coresight_device *csdev);
-+int coresight_enable_sysfs(struct coresight_device *csdev);
-+void coresight_disable_sysfs(struct coresight_device *csdev);
-+int coresight_timeout(struct csdev_access *csa, u32 offset, int position, int value);
- typedef void (*coresight_timeout_cb_t) (struct csdev_access *, u32, int, int);
--extern int coresight_timeout_action(struct csdev_access *csa, u32 offset,
--					int position, int value,
--					coresight_timeout_cb_t cb);
-+int coresight_timeout_action(struct csdev_access *csa, u32 offset, int position, int value,
-+			     coresight_timeout_cb_t cb);
-+int coresight_claim_device(struct coresight_device *csdev);
-+int coresight_claim_device_unlocked(struct coresight_device *csdev);
- 
--extern int coresight_claim_device(struct coresight_device *csdev);
--extern int coresight_claim_device_unlocked(struct coresight_device *csdev);
-+int coresight_claim_device(struct coresight_device *csdev);
-+int coresight_claim_device_unlocked(struct coresight_device *csdev);
- void coresight_clear_self_claim_tag(struct csdev_access *csa);
- void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa);
--extern void coresight_disclaim_device(struct coresight_device *csdev);
--extern void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
--extern char *coresight_alloc_device_name(struct coresight_dev_list *devs,
-+void coresight_disclaim_device(struct coresight_device *csdev);
-+void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
-+char *coresight_alloc_device_name(struct coresight_dev_list *devs,
- 					 struct device *dev);
- 
--extern bool coresight_loses_context_with_cpu(struct device *dev);
-+bool coresight_loses_context_with_cpu(struct device *dev);
- 
- u32 coresight_relaxed_read32(struct coresight_device *csdev, u32 offset);
- u32 coresight_read32(struct coresight_device *csdev, u32 offset);
-@@ -705,8 +704,8 @@ void coresight_relaxed_write64(struct coresight_device *csdev,
- 			       u64 val, u32 offset);
- void coresight_write64(struct coresight_device *csdev, u64 val, u32 offset);
- 
--extern int coresight_get_cpu(struct device *dev);
--extern int coresight_get_static_trace_id(struct device *dev, u32 *id);
-+int coresight_get_cpu(struct device *dev);
-+int coresight_get_static_trace_id(struct device *dev, u32 *id);
- 
- struct coresight_platform_data *coresight_get_platform_data(struct device *dev);
- struct coresight_connection *
+*** Changelog ***
+
+v2 -> this version:
+
+- dropped the "Map the hypervisor FF-A buffers on ffa init" patch
+- added ack & reviewed-by tags
+- don't release the ownership of the RX buffer if the flag from
+ FFA_GET_PARTITION is (1)
+
+v1 -> v2:
+
+Split the patch that maps the ff-a buffers of ffa init and introduce
+"Move the ffa_to_linux definition to the ffa header".
+
+Thanks,
+
+
+Sebastian Ene (3):
+  KVM: arm64: Use the static initializer for the version lock
+  firmware: arm_ffa: Move the ffa_to_linux definition to the ffa header
+  KVM: arm64: Release the ownership of the hyp rx buffer to Trustzone
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c     | 12 +++++++-----
+ drivers/firmware/arm_ffa/driver.c | 24 ------------------------
+ include/linux/arm_ffa.h           | 27 +++++++++++++++++++++++++++
+ 3 files changed, 34 insertions(+), 29 deletions(-)
 
 -- 
-2.34.1
+2.49.0.rc1.451.g8f38331e32-goog
 
 
