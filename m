@@ -4,120 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4A7C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA09C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9s1MLqZ99Jjf0BTVsynVNUuDrFuTR6hcyH+PJ/kt3J0=; b=GdwiSHTErTGSYZWNOzyob1VW0Q
-	szeWf7FDHYoGDlrAMdvKfQu5zYG4GIiNTWav6DNS9Yf4Z+Z8CVSUKvo48JVJ7t7GfxTVREKs7GLge
-	iGJ7J8MKzesbo6XevriRc8F827vkmlD5xLmXzkp5UGRMQwQ1lMx24q4NwuRp3/t7o+6am8PmbnHeD
-	UkZdVHcfIcnHemZklREhHee66koCXrvjtlM3Tz7xw2kSl2/lrzydHhUg7Vc+hUWE+EXdi2HxCqejG
-	uZ0m9PFaf841GimF1ndOT/35J5XbYNC0GBeQjfhAiZhvBgnYvhhb6aKM/b27WcZqQvEw17cVEPdrD
-	VtIiEYig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ffeju9dab3SjXkQBFykek/FOXIdiqaUl5qwjSDR5rA=; b=3NFNAGG1re8wuKMBbF43OQuQ/N
+	Qq6CrBez91TH/mB0KmYWZK5dEIMKt1JUgr8y9nYKAAzLTQ8ePZE7lDedwky672PXBKRGqbfuvYioY
+	lhSPlit2JhgH2APsw2DzG0BCwgluNlfMuz2HLfM/9VtgFTMp2Lxyp+nxTaqcch03aiXipaLX373jg
+	7LZtrXQidX8BJDvj/qwnBwNlLaqmc0k4jCvVos2Q4TuQLp7MmdiltAUI3AhDuSDhAn+oNtPiZtvn5
+	FGsvHLphiTwNMbEF1cRHLPxYrc9JGX9Ri0lxeWrm3CDceXL6bfQnoOjwsitC16SjcdkqNqtAm791R
+	SjfjToJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUEt-00000005W9b-1slW;
-	Tue, 18 Mar 2025 10:32:03 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tuUGY-00000005WVO-1WHe;
+	Tue, 18 Mar 2025 10:33:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuU7C-00000005Ucz-2nhB
+	id 1tuUBI-00000005VU3-3tUW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 10:24:07 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cf628cb14so19323395e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 03:24:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742293444; x=1742898244; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9s1MLqZ99Jjf0BTVsynVNUuDrFuTR6hcyH+PJ/kt3J0=;
-        b=RMCqdeiZmX8j6Uwwh1+E2CjwwCjXRssv7nOwo9GKX38oV4Dgb3viNv6kWKyMv4f8pA
-         Fmto1blpfGgy7U8HyfSsPBywSL1sag4utAGsczVzhKZkAU6O4twqotAtFLq/bx4lfxEF
-         SRkUUyP8A9pNu2iruCj3r5YoJvmDxX++PzRRVZBv21PBYTsEOEES61KmPpLtc87LRjFl
-         mYWhRuvKYijrlB8I1Iufe1WwN5c39AB0c68cICv5cRVTZNJJahgnkbhbFg1EXYgNGxPV
-         UjCZ5rGZ/qUV+8jfDSMLq7/2TgU26gj1Ox7BFmuLasg+YfiZ0c+OXwdDyK2QCS5qUPHH
-         Ye2Q==
+	Tue, 18 Mar 2025 10:28:22 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52I9FEWD013188
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 10:28:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/ffeju9dab3SjXkQBFykek/FOXIdiqaUl5qwjSDR5rA=; b=CrzOBCL9BxGuCYdy
+	PpGccRQNdJtgOuoSTI/Hxt7LPk/WA9gBrjFthfC2CSnlkedNUFOAIQeylhFYkELM
+	qSU4ZieuRaJ0KBbwkUh9UWU7fGBLzaMciBFljU47noP9N8wlo1/Y48/AZb+UEsxa
+	KH+nk9N6ls9ub7jHZ6vfeGP4lbFMfQ+lVXB+dhZLdMMfVoV2+nLclgns145fmsqD
+	Vr6o+a2+X5RVhDsAshIHwQH9OO8si0E3pFSLpD5/zf7D+UtJ3cj83WdoxlrEdWpA
+	nx/ZAdBVvKxM6qky/sSXxpijIGy0HjvKr+9aJX4k4bZqSDPW8Y/G/0h4PyUGJnJh
+	4gW9jw==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45d1sxysvr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 10:28:18 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-476695e930bso12345461cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 03:28:18 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742293444; x=1742898244;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=9s1MLqZ99Jjf0BTVsynVNUuDrFuTR6hcyH+PJ/kt3J0=;
-        b=NDH+wxiGEgG3ibA6k4VxWcuwqjz50fVqsXoF52E8vVnJhDRHC3Dp+i6eHVYNFAhUTv
-         r40ZpkMDVehk6LJHKJFGssgePacGaPW5b6Q94Lv7L3dSH0ZtzD42BBHS0p6nF76WKqbB
-         Y4OMcYvgQcViwx4mch1McLiNutHPzX3d64GXRiRXUdllqKQQTSCaoobay/8KIX1YER/b
-         O9k5NlQU9muFeytAeEw9c4m5hOcnVSZVsl4JNlZzIVT5ksTWxZGPGboT5WOf5CDjoBCp
-         /SBmP82hb4XUP+YhNxEBLrgYUA333abNaVP83BAVYUzZIked2YwSySnUGpNG8ebohrIx
-         R5CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWh8+j7IG69B7LbECNdnBoe8ASwBx72+neUJERVsdsMNCXPeLlb8LQl8Miqbkuwkith2lyzqWl25jI9Qq00PmKh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVgw/Q6RfWgF3TaC95KJYDojgIqPzqZVpYm9TiRQtrIYVOChiG
-	oxgrnt4imb3aIEvckp4CzQnvEHXt/cXuAiO5Tp1hjTycdaKcayt4+GFqPAsoXHs=
-X-Gm-Gg: ASbGncuq+8HvW5A2JTF2K6m9lSBLEcKTI7lQhKdeiCS+T5J2uTIl85pvIkjMzIm6QW2
-	jg27PXwpG2SAr7H32+yePOAGboQzSUwP0YLltccqqcTzPAmBAsiAjjNhkbOj/H6iETcibTdKv1q
-	qa6BlrGklAUomFAbhCtwq8xeovGqdsKTckvQH33AlpfpOIeoSIxRHuvoqnudWEIy/qu+HDKwPDT
-	OYKyWfjcvqDEIRVfJ5vcFSubCkYKqAwrJgY/2kNotv9wH9DHDe3z0t7+by6OgMM4Yyv/HcMfP30
-	ZIRAkiz31m7kUyrEf1NHOu/UyNJx417zV+KjsvX9MJWI+rhqR/dgiiHj+HF0QAPnHVD+Vk3m8XW
-	sDDT2EApDrPWyEUDI1Ma4lQ==
-X-Google-Smtp-Source: AGHT+IHtzyqVRAga6Hl6uXNlyniza06JK+93mCeNwBJWGNRf6bcJIa0OCbOvW1yls2I+teoXyKiouQ==
-X-Received: by 2002:a05:6000:1566:b0:38d:ae1e:2f3c with SMTP id ffacd0b85a97d-3996bb560d6mr2356028f8f.25.1742293444284;
-        Tue, 18 Mar 2025 03:24:04 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:eac1:f2d4:84a8:c5ff? ([2a01:e0a:3d9:2080:eac1:f2d4:84a8:c5ff])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c83b6a10sm17870384f8f.36.2025.03.18.03.24.03
+        d=1e100.net; s=20230601; t=1742293697; x=1742898497;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/ffeju9dab3SjXkQBFykek/FOXIdiqaUl5qwjSDR5rA=;
+        b=DjchAGxg6sVWqzdbpabOGLFqqCJPFh5HHyyxjZoemJWMqNYP/OtoXgpM03cwU7qBSK
+         QLTLrvn78QgNPc/68Ja4WC9QxZESeCG8aO0R95tYe7PVp25JCffscCZAwyYj6tMacu7f
+         bW063brko9CTjG5is0PIp56Ojx6FCkNDu+s7gGyEGfU9t4XlylmJiz0/04Z6dccx6jIM
+         k1wAlxSGapF809vC9PBIbaRRfPaQt3nc880XlxojuZXErC06dM4TWIlNIFAqrL5hehA4
+         Pj67sak22QcI0qWG7Iy1Br3Th1GYDzb6rLEIwdoEe+Pckzjr3EFVEJ7gUsiHyF+YGC7A
+         I8eQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXMmIIPdxRnTgeZYNg9VJduTG1f4xSEk4+1+uG66FnYh9/0KiKSPeI9gFksJULFIgfwQN42wdtnhGRnRyO9R5sj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeIspBSpKPgb5HmVayahQEPTHfh/VpSWHvaddXzx/uZnp28VIR
+	mAjQTftxX0iFH6FNtf4N5xfyIt2M1FOiF7tLVApi7gfr70Wv46ZIHIVR1CyL1pNxsMHf2M8z5lh
+	7dzFoxEUz3xuDmVO9qxuHJMEK7HmaZV/QZIWFYH+bonewzsoiAUsJamaBEvqop/bAULyv9xd5DQ
+	==
+X-Gm-Gg: ASbGncvXjItD0i+VArjtUwpOezIXlOceAgVnMvctP+yKY5Dyt9IcnYxil7R3imzuRDn
+	K7EY3Bx7qgcG+koiSJ8tpIVy0LXkloWtkXfOrMc7WsmS9h8FE1jCDOWWvXZj8dQBBVCp9ZEmHCl
+	QAIxT+y52GanucPcnNcnk+yXBfI0X6MpSBDWXdrZyyWrNecLixor2MICRCvy5924jeqWa+V97YO
+	buD36JavRiz91MkTNLnT0sxOND2TlKt4BZS6pNVEdldY3TQatk0n71HmpvQxUw7M4GWJ4QAAmaO
+	kAhb0GFohfSOFCCXLrNVsF8g6TtlHjTdwqRK1gxunk969xDWG/46oqOSmtQbVASOnz5SYQ==
+X-Received: by 2002:a05:6214:252a:b0:6e4:4034:5ae8 with SMTP id 6a1803df08f44-6eaeaa5893emr88167876d6.5.1742293697518;
+        Tue, 18 Mar 2025 03:28:17 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHbWrHKNAmWpMHc+BHfClrKrXHiIT6z2F6YxU0JPnsWruAuabzkJG8LsnO7K1C+4bw9HqrCrw==
+X-Received: by 2002:a05:6214:252a:b0:6e4:4034:5ae8 with SMTP id 6a1803df08f44-6eaeaa5893emr88167666d6.5.1742293697087;
+        Tue, 18 Mar 2025 03:28:17 -0700 (PDT)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac31485d046sm814425666b.83.2025.03.18.03.28.13
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Mar 2025 03:24:03 -0700 (PDT)
-Message-ID: <61a0eb6c-aa15-4316-9e4b-929c3cad13c9@linaro.org>
-Date: Tue, 18 Mar 2025 11:24:03 +0100
+        Tue, 18 Mar 2025 03:28:16 -0700 (PDT)
+Message-ID: <f1848598-c8d7-4c17-8a40-3a6828c32dbe@oss.qualcomm.com>
+Date: Tue, 18 Mar 2025 11:28:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 2/2] arm64: dts: amlogic: Add Ugoos AM3
-To: j.ne@posteo.net, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-References: <20250314-ugoos-am3-v2-0-422104b0cec5@posteo.net>
- <20250314-ugoos-am3-v2-2-422104b0cec5@posteo.net>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250314-ugoos-am3-v2-2-422104b0cec5@posteo.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 4/9] dt-bindings: arm: qcom,coresight-static-replicator:
+ add optional clocks
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan <leo.yan@linux.dev>, Kumar Gala <galak@codeaurora.org>,
+        Andy Gross <agross@codeaurora.org>,
+        "Ivan T. Ivanov" <ivan.ivanov@linaro.org>,
+        Andy Gross
+ <andy.gross@linaro.org>, Georgi Djakov <djakov@kernel.org>,
+        David Heidelberg <david@ixit.cz>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
+ <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 4UdkQWWfJbA9CEATwTE5A-IfPv5K_i96
+X-Proofpoint-ORIG-GUID: 4UdkQWWfJbA9CEATwTE5A-IfPv5K_i96
+X-Authority-Analysis: v=2.4 cv=XKcwSRhE c=1 sm=1 tr=0 ts=67d94ac2 cx=c_pps a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=EUspDBNiAAAA:8 a=iEn_WmSgXS-yHfNkfEQA:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-18_05,2025-03-17_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ mlxlogscore=999 priorityscore=1501 clxscore=1015 phishscore=0
+ impostorscore=0 adultscore=0 mlxscore=0 malwarescore=0 suspectscore=0
+ spamscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503180076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_032406_703282_6DA3681D 
-X-CRM114-Status: GOOD (  25.28  )
+X-CRM114-CacheID: sfid-20250318_032821_091761_A029CE66 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,169 +148,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2025 00:11, J. Neuschäfer via B4 Relay wrote:
-> From: "J. Neuschäfer" <j.ne@posteo.net>
+On 3/17/25 6:44 PM, Dmitry Baryshkov wrote:
+> As most other CoreSight devices the replicator can use either of the
+> optional clocks (or both). Document those optional clocks in the schema.
 > 
-> The Ugoos AM3 is a small set-top box based on the Amlogic S912 SoC,
-> with a board design that is very close to the Q20x development boards.
-> The MMC max-frequency properties are copied from the downstream device
-> tree.
-> 
->    https://ugoos.com/ugoos-am3-16g
-> 
-> The following functionality has been tested and is known to work:
->   - debug serial port
->   - "update" button inside the case
->   - USB host mode, on all three ports
->   - HDMI video/audio output
->   - eMMC, MicroSD, and SDIO WLAN
->   - S/PDIF audio output
->   - Ethernet
->   - Infrared remote control input
-> 
-> The following functionality doesn't seem to work:
->   - USB role switching and device mode on the "OTG" port
->   - case LED
-> 
-> Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
+> Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 > ---
+>  .../bindings/arm/arm,coresight-static-replicator.yaml          | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> V2:
-> - Fix vendor name in patch subject
-> - Remove incorrect override of SDIO pwrseq reset line
-> ---
->   arch/arm64/boot/dts/amlogic/Makefile               |  1 +
->   .../arm64/boot/dts/amlogic/meson-gx-p23x-q20x.dtsi |  2 +-
->   .../arm64/boot/dts/amlogic/meson-gxm-ugoos-am3.dts | 91 ++++++++++++++++++++++
->   3 files changed, 93 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-> index 2fbda8419c65a3056410ac45ca3ddaceb69ea4f5..bf2bc14528bfa27e8d6ae2730085fc356d6c6dd8 100644
-> --- a/arch/arm64/boot/dts/amlogic/Makefile
-> +++ b/arch/arm64/boot/dts/amlogic/Makefile
-> @@ -76,6 +76,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-q200.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-q201.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-rbox-pro.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-s912-libretech-pc.dtb
-> +dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-gx-p23x-q20x.dtsi b/arch/arm64/boot/dts/amlogic/meson-gx-p23x-q20x.dtsi
-> index 45ccddd1aaf0546632c81a52c8917a923beae883..4223b26f7d0f3aa47e42e9434d24f73b20441981 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-gx-p23x-q20x.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-gx-p23x-q20x.dtsi
-> @@ -97,7 +97,7 @@ sdio_pwrseq: sdio-pwrseq {
->   		clock-names = "ext_clock";
->   	};
->   
-> -	cvbs-connector {
-> +	cvbs_connector: cvbs-connector {
->   		compatible = "composite-video-connector";
->   
->   		port {
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-ugoos-am3.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-ugoos-am3.dts
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ba871f3f53bb99b47b325bae228b59b722c5123b
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/amlogic/meson-gxm-ugoos-am3.dts
-> @@ -0,0 +1,91 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025 J. Neuschäfer <j.ne@posteo.net>
-> + *
-> + * Debug UART (3.3V, 115200 baud) at the corner of the board:
-> + *   (4) (3) (2) [1]
-> + *   Vcc RXD TXD GND
-> + */
+> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> index a6f793ea03b6c193fc0ff72a45e0249a63a2ba3c..56e64067ed3d63c5e293a0840858f13428bacb45 100644
+> --- a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> @@ -30,6 +30,16 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 2
 > +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/amlogic,meson-g12a-gpio-intc.h>
-> +
-> +#include "meson-gxm.dtsi"
-> +#include "meson-gx-p23x-q20x.dtsi"
-> +
-> +/ {
-> +	compatible = "ugoos,am3", "amlogic,s912", "amlogic,meson-gxm";
-> +	model = "Ugoos AM3";
-> +
-> +	adc-keys {
-> +		compatible = "adc-keys";
-> +		io-channels = <&saradc 0>;
-> +		io-channel-names = "buttons";
-> +		keyup-threshold-microvolt = <1710000>;
-> +
-> +		button-function {
-> +			label = "Update";
-> +			linux,code = <KEY_VENDOR>;
-> +			press-threshold-microvolt = <10000>;
-> +		};
-> +	};
-> +};
-> +
-> +&cvbs_connector {
-> +	/* Not used on this board */
-> +	status = "disabled";
-> +};
-> +
-> +&ethmac {
-> +	pinctrl-0 = <&eth_pins>;
-> +	pinctrl-names = "default";
-> +
-> +	/* Select external PHY by default */
-> +	phy-handle = <&external_phy>;
-> +
-> +	amlogic,tx-delay-ns = <2>;
-> +
-> +	/* External PHY is in RGMII */
-> +	phy-mode = "rgmii";
-> +
-> +	status = "okay";
-> +};
-> +
-> +&external_mdio {
-> +	external_phy: ethernet-phy@0 {
-> +		/* Realtek RTL8211F (0x001cc916) */
-> +		reg = <0>;
-> +
-> +		reset-assert-us = <10000>;
-> +		reset-deassert-us = <80000>;
-> +		reset-gpios = <&gpio GPIOZ_14 GPIO_ACTIVE_LOW>;
-> +
-> +		interrupt-parent = <&gpio_intc>;
-> +		/* MAC_INTR on GPIOZ_15 */
-> +		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +};
-> +
-> +&i2c_B {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c_b_pins>;
-> +
-> +	rtc: rtc@51 {
-> +		compatible = "haoyu,hym8563";
-> +		reg = <0x51>;
-> +		#clock-cells = <0>;
-> +	};
-> +};
-> +
-> +/* WLAN: Atheros 10k (QCA9377) */
-> +&sd_emmc_a {
-> +	max-frequency = <200000000>;
-> +};
-> +
-> +/* eMMC */
-> +&sd_emmc_c {
-> +	max-frequency = <100000000>;
-> +};
-> 
+> +  clock-names:
+> +    minItems: 1
+> +    enum:
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+I believe this should either be items: if 0/1/2 is allowed, or
+minItems should be dropped if 0/1 is allowed, but the former seems
+to be the intention
+
+Konrad
+
+> +      - apb_pclk
+> +      - atclk
+> +
+>    in-ports:
+>      $ref: /schemas/graph.yaml#/properties/ports
+>      additionalProperties: false
+> 
 
