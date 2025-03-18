@@ -4,113 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E8AC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 09:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3721FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 09:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eInU4xGBu0Mt8Lm17X6zPVhTvmNik5PGbnkQOxA+YU=; b=vbDUrwzwTdsi11++IDjQRDltzC
-	rF4mdaTgzQ1M6pFIlsGGcl9yBfslHMfA1moXZje6dv5+rhigDKzi3RqRA6bFhBX7aDCgiEmzfKnfX
-	VJkzJkFsPkEcXSjqJ3a3VglBBjPiIboQQIPAUb6TJcUWo8JeiWDrXVcl6fZj1YfKQ1HD0pxeu93GO
-	0vo5FdkKLLsA/g0Ke0YJi/VT2vuYA+XBBCADTQSAZLL71Ua6imeNhFa36vFBCy9209+9QJGTmu4Ux
-	OwC6yGS1AfM/VNLDAduiWKoaIRAGg1PeyzFr5FabQUgJvrw0bu2GzHE+fgZC7BPeA5OZBkrf6l4kY
-	QNliAAhg==;
+	bh=OPGatL01ExZ24i45lY0rMlpY7oN3Ks0HXK0aNDMHin4=; b=qF5CaxDgiS/Mjcqj5pg7nCli32
+	ZMjtLzjhzIRRYHdFd3fYxsODuKxXeu9b2CikFzeQ3vcd3YE1BtCX+pUEzEBrbiVQHOoulgoOr5epg
+	MdN1AndYsXGSIHWuz9J7+ZSNrFFuGNpQx0+NYMwGHDbcYqsdEaj+5r4m8PSS3/OdJjE8qg/dyoU+c
+	P96sJUnFOpOz28pcBzAI3XORXCp9bRcOTifui3jRcQq1VnradFYNV79EC98j9RGGyZm8GYfcWvr2a
+	y2leodl2ZBMUzZPuGEv0be41njre2c1LnfgGXHT169qI5lvLgpmy8j9UyZKIloEGPneBUHtfBKh01
+	rayjmAGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuTX0-00000005Mwb-17Sl;
-	Tue, 18 Mar 2025 09:46:42 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tuTax-00000005Nal-1iOe;
+	Tue, 18 Mar 2025 09:50:47 +0000
+Received: from mail-am7eur03on20603.outbound.protection.outlook.com ([2a01:111:f403:260e::603] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuTVJ-00000005MeJ-1FZw
+	id 1tuTZF-00000005NKn-41Za
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 09:44:58 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e614da8615so10463606a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 02:44:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1742291095; x=1742895895; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4eInU4xGBu0Mt8Lm17X6zPVhTvmNik5PGbnkQOxA+YU=;
-        b=M+HVzBkCMkncStudZ+noTKg9qcoz50WTzEyH6wPDjetUIVr+gJpzkZYkPD3yHKsjZy
-         AiY+5c5JGxLsdD+k8uvDlWBM7ZWzrYJGZFKrn2NzHYk6aXMlQWalng43MO/1+LHUhVy7
-         Onn7RAZvUFSx3rut6/EuD0z6r2+FkLjvh7yJ6vyxii4yDoeP0bCLaqYaPgrpraLbtZmO
-         BDIP0DJ4J9YoWCuAOKioFzGPWwT+4inXZzZQJt5Sjf1F8ch6rRRzZ57JWKx/VYpMyNHz
-         u3ruCGPyaRRNlrwmZFxXmjgQQy6R12j39IHLjpaSNEDohvyCxPr4zYDEimnGrZPsESJh
-         lkxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742291095; x=1742895895;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4eInU4xGBu0Mt8Lm17X6zPVhTvmNik5PGbnkQOxA+YU=;
-        b=t6XmZlQ/G/6yhiS8MFI04Cfokmq5V/ZG1j+ZEEhxYwftil13Sl7MZRwMpdQBLz8B2M
-         a3HARpioQk6ard7KdpW1iouaB5a9WcAhCIR8bk5dbPOpLY9d96jHU1nuGz4+oB25XVOZ
-         +CjhFErpw/xlztVt6CLM+ShrarqtJa+H6CL945/dDsvPbZHuCglrDD4vqtVzo6ZwZ030
-         o/Gks4Kq1WoIQjwJ57Q9UZvqLcrUcue2lbB77OPIMgvMZpM89HO7RsT4NgP6fyUPTKr7
-         t5yK7JUUfdGromAIN3qDk8UaoAeNhL0RTDs4El1lL1VjN/l38n+LKVTojSRT0w01hagM
-         fPlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUe7p1nQykd1f5MfjrI7yWlD8lVHuVl1ZEiR3HLz5RgthNxA+lgAaoX0t4PheykL4W249IkfeWq7pPSbJ9KaP1n@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWQgFfs1k+8Sn9jGzY6h47BovgjSsKDNJMwjNrugEgcELu2oEp
-	ER1C0jfVsHTwS5HPHddYu8iOnO2GZJukjFavictKx2c9I9sO3fRTRMBSL8W3mSs=
-X-Gm-Gg: ASbGnct2NUQzFNm0q/cAm+53cnk93zY2JCJS3x2lgLaf9F8FmJjImV8KIyYOuPsK+Ov
-	3YvHJLeFxr5r2sNrrGFwgZ2+cBX6ivnALhBCHBdPc7taO/OYYmWx98myLmfg/t5bGWSLpEJXcU+
-	/cNiZzavFXjPaCXy4bULjyeYd5TxSdBotJMO+a8OBv+XS5PKNV9ngMg1DheTun5wr6mKPmm28cn
-	LcxhfZeNFqewMTQ7ieHuZ/5sH+fj/f/vKoFdzQC4cA69wQbNO+7xD1fNOwiAnCxP0ar67Bcdmud
-	vP0NfvG9MsBlyVpMvOPp+1KJ8QFoWVUDkq9MN1j5e9zxyHSiyU2PVS7phigdculM5UZqop65aO1
-	wIxSsoOEWktfOGHQ=
-X-Google-Smtp-Source: AGHT+IF5nVWbdkGdXhT8Rbx0xwnOfVzY2zNtg2VYzomJ4pLfS9zkgHWMH1EzA7usUUR4N2OG/B9QfA==
-X-Received: by 2002:a05:6402:3491:b0:5e6:102a:c30 with SMTP id 4fb4d7f45d1cf-5eb1efcbee0mr3044112a12.2.1742291094785;
-        Tue, 18 Mar 2025 02:44:54 -0700 (PDT)
-Received: from localhost (host-80-117-53-131.retail.telecomitalia.it. [80.117.53.131])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e8169bca53sm7562109a12.46.2025.03.18.02.44.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 02:44:54 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 18 Mar 2025 10:46:07 +0100
-To: Krzysztof Wilczynski <kw@linux.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 08/11] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <Z9lA31gBjpIRHm6y@apocalypse>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <d1362766e3e966f78591129de918046a4b892c18.1738963156.git.andrea.porta@suse.com>
- <20250314083730.GC234496@rocinante>
+	Tue, 18 Mar 2025 09:49:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i9350VS8Dh881rl/SMUp5U0KySVRLMQGlqOgziQpjzew0mUCMPK7h7cKW6ofDtWLj5ca+62JIPTFFJYnGrzmVxN6cbbadvuMiBJchFTamteMaw3T6rH4sfyDKlp+BWVxruFP2J239V1jD5Lanbb3byDACuWawPoBnHdPobGOOis+0XHNGij26f88CWtAxR13/cDdgDoA2263p6uyuNrhSUvDdn35OFAITIXHsBB1H04oeXfrQc31FNFf9/RjxTM4Tx8RiCUseh6voYU5IaFgUYKDsjt4Dt8P+h4WNQW7agPYcvXXe1vvWMVR4wDNacukVpNrG/QcOku0RZBQzmlI1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OPGatL01ExZ24i45lY0rMlpY7oN3Ks0HXK0aNDMHin4=;
+ b=H3elKciyNjeZTR8SFwu8fSHscyMj3eaX7WK2GvSr6RhgsjUy5VX5EUCAmWHFhi4OdUojpERSs/WBvSB07+dMpiRqP9lAXWWHXG5i9GoSrjhNxoFBoFpmtEO0M+eVMpmWExEE8fXucZdG+n1rF1Wzac49bnbfRkPArvVw419jdgU/UNRgGbTpakMWH/czXUgVY9Nku9j1/zYQqdVNVECsrFE6zmj8GGL8wMdIJ+arBHj/vLLkx3nQk0Irtd6ZVaBYV1/t88eramaucAN0ziJFHktRZPdBh6GZzLOAQtUnUNOjhOKgL3/5OOXk2amu2QYILzolnFZV8mer4JoJPKQr9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OPGatL01ExZ24i45lY0rMlpY7oN3Ks0HXK0aNDMHin4=;
+ b=i8ZMlqPbbZeoAcJldsiLYzk1Eb8GTA9p45hLwlM2Q6VPG+CIKtk+8OzU9uaC76Xw0xWILBrzPw0kTQFWhJuQrTBkC7j8HrP7zhMO8AyABlLRaTrJyNUO6B8jW3DMteA1HbwaSHvR9mISoyu/hKWUIN/i34a1CnlPmBp9P0ycUyHuktg3brSvcUYeEWUkELXm5i0sN+8pdCFSoVpTplUAcedjBKuVqjN58oxhELbIIm4Kuv6vW07zDNXiGjmbk/fKuIPzgF0NceX5iH/pid5IfKrolhxPIsgujdiwjZI7ekmn96W+o5bJT8IJ3tmwB67vp7hc/p4OVptV4vwFXXo62w==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by VI1PR04MB9761.eurprd04.prod.outlook.com (2603:10a6:800:1df::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Tue, 18 Mar
+ 2025 09:48:57 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8534.031; Tue, 18 Mar 2025
+ 09:48:57 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Clark Wang
+	<xiaoning.wang@nxp.com>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
+	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "christophe.leroy@csgroup.eu"
+	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v4 net-next 04/14] net: enetc: add MAC filter for i.MX95
+ ENETC PF
+Thread-Topic: [PATCH v4 net-next 04/14] net: enetc: add MAC filter for i.MX95
+ ENETC PF
+Thread-Index: AQHbkkpRhix/9HtGrU2JdGOiDPyx/7N3ajqAgAC+YcCAAINOAIAAAj2g
+Date: Tue, 18 Mar 2025 09:48:57 +0000
+Message-ID: <PAXPR04MB85109D85826511330E80EC4E88DE2@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-5-wei.fang@nxp.com>
+ <20250317141807.2zobsefxl5vnqdet@skbuf>
+ <PAXPR04MB8510EECE1FDDA893811EC28B88DE2@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20250318092928.6e2tspaf4rfyn32c@skbuf>
+In-Reply-To: <20250318092928.6e2tspaf4rfyn32c@skbuf>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|VI1PR04MB9761:EE_
+x-ms-office365-filtering-correlation-id: 6e145a37-1f58-4b5a-85cc-08dd66021a2e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?p0CxoBOhqY26zwTqQmLWrznWvuFMoVe4qQ231O4122B97mN9dCJAUaAhIJQ5?=
+ =?us-ascii?Q?M/1N4fF/R4gcmjKi17Xmo1JQ/m+ZjYOm6gAjFQN1/CNsspGHasp+kL+Lh5Tn?=
+ =?us-ascii?Q?TUSHDRbC9I7BclbDI4QcSZdEZPbmL8IRheZmRxWYbES+cy8Q9QbfrGI6AKaU?=
+ =?us-ascii?Q?GJ+Cr9jMDETxdkYv8N9y77eWJfDWQiUM6ZL8f6f0VEvw8H32EUfOGOPOC3QY?=
+ =?us-ascii?Q?nHkYiJ3k+Ui4iwWplvMpyzMwPVyrvQ3UR98868lGtc6ouStS+qQ0gduF8T5r?=
+ =?us-ascii?Q?2svDZu5BAHEk3r2CmtiLyDswDw8QIWUYUgiQfAVHye695YaqKqgPy/sah/wv?=
+ =?us-ascii?Q?96lXqiNreEfCZVTyFCcLL+cyqREJ+tGyyA/w3dGvHCCi+TMtt2XTAV9C2t+c?=
+ =?us-ascii?Q?vNUK8yEHMUdtdu1iEz2xutLSXufgrNCqai4KjKUJVDPRifqZUrrpZAiZdg/6?=
+ =?us-ascii?Q?eZi9pKILVCQeJyvNrqeZ8dRDVT5TYtGLQek25gVkjWVnqErYuLvXdn62+c6a?=
+ =?us-ascii?Q?5ofpF65gswsaW7f2qPDP7AYe1QilmXZ/rKMI0xYRvB8TPMYAM1rNVEWHR9Fo?=
+ =?us-ascii?Q?bIzhCTjv5QPOFPwNfS9UQEKTlz0smNRnsQuVH39uXxRn1Aw+EELCs33z/iJ7?=
+ =?us-ascii?Q?hjU2BVWV0COhR54xhWoPjHgfkaRw2Tof+SE1f+BGHnClsT8H/LbUXjkYt6Ld?=
+ =?us-ascii?Q?dADkODa2BILaWh6hTRAa/x0TTmsxaA78wYALbxo6a/Yx/VhtcJKWRAgUZvr5?=
+ =?us-ascii?Q?Ikgb5ko2TQM/WxMalDDIZm32fQQZjto8peKWbEn+xVCh5zOv0Gj7wfjmTMf6?=
+ =?us-ascii?Q?DjPpk1z+c8gEtd9CHeNLJ+yqnnneF4x7Pbiaajheah5KZljjtX0rvQq87/29?=
+ =?us-ascii?Q?RxbG58oRVx9knRtSOTEooTWzajeN8hNeqfdmsH+9lpa8sn+b3FVOP/MqN3f8?=
+ =?us-ascii?Q?T+8BtcYYkGZ3V7jABrQcig5h1HW1eXs/lbmlfihlIK46RLH3xB4Ca7h1+96y?=
+ =?us-ascii?Q?oFHOwHtoNGjKFL6C2OZc5u1bHcifKBWL7r+QRElHy+ZKdid4dtYnUABnlnvi?=
+ =?us-ascii?Q?3riKCPqf56mVIJGzPtNnohNsV7W1rJD7wZc9Q0J4Oee3osbfCV4DCnhmwb2s?=
+ =?us-ascii?Q?06cRdHFQrjBQoQC1ej+rkWQQSCZRRHdOtLvHx4CAi+yqHBiSu0XC6jryRQzS?=
+ =?us-ascii?Q?tAlyR+vThRHwInN3gYdPi/PKtbGeh4UF19tpapmXNuzzOVo2s8QfvuLhmTr8?=
+ =?us-ascii?Q?3/NGaTOGCoGn/2eqsB36uuTiklliIRmYIhM/3seG5d6Re636GbcwOIdzEoMd?=
+ =?us-ascii?Q?e/uoDLvviW5qmjn8vHIMZl8FsRNjcKyuMhMwDXGk7Gh18brNl9ZpSx4rHfqL?=
+ =?us-ascii?Q?MGelsfmL4N07JfhrZdhGq1+n7OL+hpmoslTNGfZztj/P1+HXx/pQR9ZtqxRv?=
+ =?us-ascii?Q?0cGmdg6jJsdMZdyM613IZSK3Q5X/l+so?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?TfF17mrpefeRAELv8w0XNHxGp1FyQy6EK/2Rv0N/RHbXnrEiCMb8fGbzIBSW?=
+ =?us-ascii?Q?UA3sZG0i5jfgjV6r5JuZBnNtCaBVNV4JifmOUOSScHwrNLA6s/CmlIfb6Czk?=
+ =?us-ascii?Q?aVu882jN4SLd8a7uRHQXd6OfFflySeeXbQtYUMcNxIt/mrrv5u6sGRh7z+SS?=
+ =?us-ascii?Q?4e9p1C3gLMkq1B2E5NW2DxjhLIDsZk0hvtq97ZW6oomwkum4mBwnJivKXnwW?=
+ =?us-ascii?Q?Ey9b1/OJL8GZYNkIMo0NykVUKQjqt5xu4iHEMqQ2Njln7pcyGB34xglHZvVa?=
+ =?us-ascii?Q?qIqQihhaTvGUougVJdEzsIJdmz/qSuPEps2NQ1O12lIKM/pvJCe50erWYj7c?=
+ =?us-ascii?Q?+ShpDtAZlUwodPy8cTF8g3FHeL5dhynyML0ZVmdI60fwEICQmvf9EHNLZskJ?=
+ =?us-ascii?Q?Rh/jCZkbikcpSrTYYEZnHUc925s24hyPxLM+BB3JAgg2LpEUnWRhS7+avKQ0?=
+ =?us-ascii?Q?IbbZbNXzWpol3AOZWfUh6I6QufEnB/Q7YV6d38RepzzKqYPB6zw6Lw9VKfME?=
+ =?us-ascii?Q?gYXKF4ZkJkHFwpkthkSwXNfGQWFwg1vH6CPiHtQM9fsYltxYfui8Tt/Ry3mo?=
+ =?us-ascii?Q?N2T5Bsxb2Yp8FMRBhIpbfSmdajdAJWgSpZ/rbuEaR4dBW8hpU/Sg43hExb8m?=
+ =?us-ascii?Q?HjaE4IQOB/noRjpHnRguMs3D1ozUyKJKQiTLAdGUQcM80sbiAIm8oNJ1zPuE?=
+ =?us-ascii?Q?XqktkhRAAmu4bfLba8BZjabyn3EB+e4r1RFUV5OFwGfenXEEi2A0TLXDiZdw?=
+ =?us-ascii?Q?F3yEnjabkYzIxRBtH9ZbzTrt0cHMjvQfyi5vDrPTnCGCmnnF+oUgRS3k6sle?=
+ =?us-ascii?Q?78i5i0PEitv4okgrddnTNnw6l5SDW7me4+ph1erdrDSRCGcFhCGhJ+0/fdHZ?=
+ =?us-ascii?Q?rqviWE28sFsAzc6BokkBtPEfGIBo4CKZslAMYTESoqoDfVzGciVSzGE8PGGK?=
+ =?us-ascii?Q?2i0Y1yxd/eQC3l7Sil8dbXligoBwhLyb+m+vMDQkXq7dXjfSskINhXqIXavM?=
+ =?us-ascii?Q?5rmNXIPRjQTDQQCpbI7R+P4c+HZodZ96mdaJLplEklWcR4Q2mlBSKbuC2dwb?=
+ =?us-ascii?Q?ni7U21WSsCplX/aozZG4/jr+Vj/1BCKt0fSWk9ZujYZcy/8EIf9eGNo3BLeg?=
+ =?us-ascii?Q?1Bzjp2WWpCveIa0m5v03QcKiAhWRp4ZL6oWS7bWkbj9WCOD/dqpHVJjcEmzb?=
+ =?us-ascii?Q?PPdROpTscnqoTZteCsRIMaaiudWJMW6utO3toytjsjl9MJG6oXtwg1wOgEUv?=
+ =?us-ascii?Q?cr6Mq4g8tBR0ifYyYHQkoBz23w+AzDN3zpQbDDp7Vg83LlsU7IGtJoEWY3BR?=
+ =?us-ascii?Q?tQ0ia21OOZ4ML9GXCXdos3DPG5wUtb8VLzK6kxOzFUjpPX6bNRjamYeSOgMf?=
+ =?us-ascii?Q?Pk/4h7sDUtBKL5nLT2ZRUuIJTnZ1DiXoyu24FL237qKyFhoTjdxvRf80uVYT?=
+ =?us-ascii?Q?C60tX1B00NTf7/EsA7K9PzGgkcBqiJpO6naojMVtiCzHOVq2gXKha7oNNzHB?=
+ =?us-ascii?Q?sRNf77WZbt27zYEHmYmjqoB9GaWwhymD4vd47hXMFzqQqMtUzp4G+pStdpNz?=
+ =?us-ascii?Q?Guyf5G4L3qSugLTdADs=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250314083730.GC234496@rocinante>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e145a37-1f58-4b5a-85cc-08dd66021a2e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2025 09:48:57.1297
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: TsOFVy6eWwFbrFbcQcTAWEOugnLvVYQIoAIJXLfAcbl8uCp8m5n3lMuUY9UW4wn8PIUcFCtacyVwbJZPUKeA6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9761
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_024457_336849_0B82B309 
-X-CRM114-Status: GOOD (  36.40  )
+X-CRM114-CacheID: sfid-20250318_024902_162510_4FCAA64A 
+X-CRM114-Status: GOOD (  49.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,148 +172,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+> On Tue, Mar 18, 2025 at 05:19:51AM +0200, Wei Fang wrote:
+> > You are right, but I'm afraid of the Coverity will report an issue, bec=
+ause the
+> > pf->mac_list and pf->num_mfe are protected by the mac_list_lock in othe=
+r
+> > functions. And enetc4_pf_destroy_mac_list() will be called in other fun=
+ction
+> > in the subsequent patches. I don't think it is unnecessary.
+>=20
+> Sorry, but I can only take the presented code at face value. If the
+> Coverity tool signals an issue, you can still triage it and explain why
+> it is a false positive. Or, if it is a real issue, you can add locking
+> and provide a good justification for it. But the justification is
+> missing now.
+>=20
+> > So for your question about Rx packet loss, although it is a very corner
+> > case, the solution I can think of is that we can use temporary MAC hash
+> > filters before deleting MAFT entries and delete them after adding the
+> > MAFT entries. Can you accept this proposal?
+>=20
+> That sounds good. I'm thinking, for each MAC address filter, maybe you
+> need an information whether it is programmed to hardware as an exact
+> match filter or a hash filter, and make use of that functionality here:
+> temporarily make all filters be hash-based ones, and then see how many
+> you can convert to exact matches. With something like this, it should
+> also be easier to maximize the use of the exact match table. Currently,
+> AFAIU, if you have 5 MAC address filters, they will all be stored as hash
+> filters, even if 4 of them could have been exact matches. Maybe that can
+> also be improved with such extra information.
+>=20
 
-On 17:37 Fri 14 Mar     , Krzysztof Wilczynski wrote:
-> Hello,
-> 
-> Even though this is not for the PCI sub-system directly, I had a very brief
-> look over the code.  I hope you don't mind.
+Currently, I don't want to make the driver too complicated, I think if the =
+number
+of MACs exceeds the MAFT's capability, we just use hash filter. Otherwise, =
+we
+use MAFT.
 
-Highly appreciated, thanks!
+> > > > +static int enetc4_pf_set_mac_exact_filter(struct enetc_pf *pf, int=
+ type)
+> > > > +{
+> > > > +	int max_num_mfe =3D pf->caps.mac_filter_num;
+> > > > +	struct net_device *ndev =3D pf->si->ndev;
+> > > > +	struct enetc_mac_addr *mac_tbl;
+> > > > +	struct netdev_hw_addr *ha;
+> > > > +	u8 si_mac[ETH_ALEN];
+> > > > +	int mac_cnt =3D 0;
+> > > > +	int err;
+> > > > +
+> > > > +	mac_tbl =3D kcalloc(max_num_mfe, sizeof(*mac_tbl), GFP_KERNEL);
+> > >
+> > > Can't you know ahead of time, based on netdev_uc_count(), whether you
+> > > will have space for exact match filters, and avoid unnecessary
+> > > allocations if not? enetc_mac_list_is_available() seems way too late.
+> >
+> > I can add a check before alloc mac_tbl, but enetc_mac_list_is_available=
+()
+> > is still needed, because enetc4_pf_add_si_mac_exact_filter() is a commo=
+n
+> > function for all Sis, not only for PSI.
+>=20
+> From the way in which the discussion is progressing in the replies
+> above, it sounds to me like maybe this logic will change a bit more.
+>=20
+> > > > +static int enetc4_pf_wq_task_init(struct enetc_si *si)
+> > > > +{
+> > > > +	char wq_name[24];
+> > > > +
+> > > > +	INIT_WORK(&si->rx_mode_task, enetc4_pf_do_set_rx_mode);
+> > > > +	snprintf(wq_name, sizeof(wq_name), "enetc-%s",
+> pci_name(si->pdev));
+> > > > +	si->workqueue =3D create_singlethread_workqueue(wq_name);
+> > > > +	if (!si->workqueue)
+> > > > +		return -ENOMEM;
+> > > > +
+> > > > +	return 0;
+> > > > +}
+> > >
+> > > Naming scheme is inconsistent here: the function is called "pf" but
+> > > takes "si" as argument. Same for enetc4_pf_do_set_rx_mode() where the
+> > > rx_mode_task is part of the station interface structure.
+> >
+> > So change 'pf' to 'psi'?
+>=20
+> Sounds better.
+>=20
+> > > > +	struct hlist_head mac_list; /* MAC address filter table */
+> > >
+> > > One thing I don't understand is why, given this implementation and
+> > > final effect, you even bother to keep the mac_list persistently in
+> > > struct enetc_pf. You have:
+> > >
+> > > enetc4_pf_do_set_rx_mode()
+> > > -> enetc4_pf_flush_si_mac_exact_filter(ENETC_MAC_FILTER_TYPE_ALL)
+> > >    -> hlist_for_each_entry_safe(&pf->mac_list)
+> > >       -> enetc_mac_list_del_entry()
+> > >
+> > > which practically deletes all &pf->mac_list elements every time.
+> > > So why even store them persistently in the first place? Why not just
+> > > create an on-stack INIT_HLIST_HEAD() list?
+> >
+> > The enetc4_pf_add_si_mac_exact_filter() and
+> > enetc4_pf_add_si_mac_exact_filter() are used for all Sis, but only
+> > PF can access MAFT, and PSI and VSIs may share the same MAFT
+> > entry, so we need to store them in struct enetc_pf. Although we
+> > have not added VFs support yet, for such shared functions, we
+> > should design its implementation from the beginning, rather than
+> > modifying them when we add the VFs support.
+>=20
+> Ok. We need to find a way in which the code also makes sense today
+> (who knows how much time will pass until VSIs are also supported in the
+> mainline kernel - we all hope "as soon as possible" but have to plan for
+> the worst). I don't disagree with the existence of &pf->mac_list,
+> but it seems slightly inconsistent with the fact that you rebuild it
+> (for now, completely, but I understand that it the future it will be
+> just partially) each time ndo_set_rx_mode() is called.
+>=20
+> Are you aware of __dev_uc_sync() / __dev_mc_sync()? They are helpers
 
-> 
-> As such, a few nit picks, nothing blocking.
-> 
-> > +# RaspberryPi RP1 misc device
-> 
-> Would this be better if it matched the "tristate" description below?
+All I can say that I have been saw them in kernel, but I did not spend time
+to study them.
 
-Ack.
-
-> 
-> > +config MISC_RP1
-> > +	tristate "RaspberryPi RP1 PCIe support"
-> > +	depends on OF_IRQ && OF_OVERLAY && PCI_MSI && PCI_QUIRKS
-> > +	select PCI_DYNAMIC_OF_NODES
-> > +	help
-> > +	  Support the RP1 peripheral chip found on Raspberry Pi 5 board.
-> > +
-> > +	  This device supports several sub-devices including e.g. Ethernet
-> > +	  controller, USB controller, I2C, SPI and UART.
-> > +
-> > +	  The driver is responsible for enabling the DT node once the PCIe
-> > +	  endpoint has been configured, and handling interrupts.
-> > +
-> > +	  This driver uses an overlay to load other drivers to support for
-> > +	  RP1 internal sub-devices.
-> 
-> > +/* the dts overlay is included from the dts directory so
-> 
->   /*
->    * The dts overlay is included from the dts directory so
-> 
-> To make the code comment match rest of the style.
-
-Ack.
-
-> 
-> > +/*
-> > + * Copyright (c) 2018-24 Raspberry Pi Ltd.
-> > + * All rights reserved.
-> 
->   Copyright (c) 2018-2025 Raspberry Pi Ltd.
-> 
-> To spell the current year fully, plus update it to 2025 already.
-> 
-> I would also add an extra newline here to split the two apart a bit.
-
-Ack.
-
-> 
-> > +	if (pci_resource_len(pdev, 1) <= 0x10000) {
-> > +		dev_err(&pdev->dev,
-> > +			"Not initialised - is the firmware running?\n");
-> > +		return -EINVAL;
-> > +	}
-> 
-> The American spelling in the above might be better.  But I don't have
-> strong opinions here.  It seems more popular in error messages.
-
-I agree.
-
-> 
-> > +	err = pci_alloc_irq_vectors(pdev, RP1_INT_END, RP1_INT_END,
-> > +				    PCI_IRQ_MSIX);
-> > +	if (err < 0) {
-> > +		return dev_err_probe(&pdev->dev, err,
-> > +				     "pci_alloc_irq_vectors failed");
-> 
-> Missing a new line at the end, but also...
-> 
->   return dev_err_probe(&pdev->dev, err,
-> 		       "Failed to allocate MSI-X vectors\n");
-
-Ack.
-
-> 
-> Or, something like this over this the function name.  Perhaps exposing
-> error code could be useful to the end user? If so then something like this:
-> 
->   return dev_err_probe(&pdev->dev, err,
-> 		       "Failed to allocate MSI-X vectors, err=%d\n", err);
-
-dev_err_probe() should already print the err code, no need to add it.
-
-> 
-> Here and other errors where appropriate.
-
-I've changed dev_err() to dev_err_probe() in cases where the error code
-is not evident (i.e. hardcoded) from the source.
-
-> 
-> > +	for (i = 0; i < RP1_INT_END; i++) {
-> > +		unsigned int irq = irq_create_mapping(rp1->domain, i);
-> > +
-> > +		if (!irq) {
-> > +			dev_err(&pdev->dev, "failed to create irq mapping\n");
-> 
->   dev_err(&pdev->dev, "Failed to create IRQ mapping\n");
-> 
-> To make the error message capitalisation consistent.
-
-Ack.
-
-> 
-> > +static const struct pci_device_id dev_id_table[] = {
-> > +	{ PCI_DEVICE(PCI_VENDOR_ID_RPI, PCI_DEVICE_ID_RPI_RP1_C0), },
-> > +	{ 0, }
-> 
->   { }
-> 
-> Would probably be sufficient.
-
-Ack.
-
-> 
-> > +MODULE_AUTHOR("Phil Elwell <phil@raspberrypi.com>");
-> > +MODULE_AUTHOR("Andrea della Porta <andrea.porta@suse.com>");
-> > +MODULE_DESCRIPTION("RP1 wrapper");
-> 
->   RaspberryPi RP1 misc device
-> 
-> To match the Kconfig comment in the above description or the one from the
-> "tristate" also in Kconfig.
-
-Ack.
-
-> 
-> Thank you for all the work here!
-
-Thank you so much for your review!
-
-Andrea
-
-> 
-> 	Krzysztof
+> with explicit sync/unsync callbacks per address, so you don't have to
+> manually walk using netdev_for_each_uc_addr() / netdev_for_each_mc_addr()
+> each time, and instead act only on the delta. I haven't thought this
+> suggestion through, but with you mentioning future VSI mailbox support
+> for MAC filtering, maybe it is helpful if the PSI's MAC filters are also
+> structured in this way.
 
