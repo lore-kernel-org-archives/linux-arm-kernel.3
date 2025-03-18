@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F73CC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C42CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkVrUy7dh9MWqjeRA1kzGCzqyCmmuRbOfHYZ5gEfZu8=; b=SakBvTdpGopZ3jGJ/PMHVnYhmM
-	tTAOi723touqlMKP0fAuK3tGzK/WlG4IjHgTnrgO2m8woiqqsmHKGmG+i/3oIXq9E3hl/EDwL4BHs
-	KZsXt/7+YXr0+fKCq2XaTxSowwZRiKxDZ/bORz4e0Qk9nhzgFKyk5k+dwNRSxNAjvPGfTaY+x0xmY
-	Ev0Ho+e3TGTKmTbLUIIPnskgKWofjH+8S1J470MdR9QGPqnr0RlsosqY+2vjIQUwlY4tmQ1Wb41Xt
-	gWpsIBMScfRSCQmgfibm6Vb85uH65nnGnuog5yMAZQTEQTMHWlc81oeTzmeClhYXMh6rhoxxbfI92
-	ATwfx6zA==;
+	bh=FXV8fyWOIB5d8pszONNeCd2Yzm5WQYWD3gzQuLxBiPw=; b=1HYi2yB1FeggDzGO8J4LSdGki8
+	PHnEe0jYeVTLwVZigiII9os6HDjWHF+vjzoxaCyC+wvdhYrOF33RTVLk3/GpeGIWDPpJdwuG5J5xZ
+	B7MuIA61kutLTMxjAfq6qvq+VzygLxZ0pjrLctVfkPIlvj7gmPBre7vuBK1I7bPU3VHPLNTxBwcyD
+	KWH1JCB9frsXjuck1FJk2Y8UkA7iNn/WAEz8Vi3XTQq0HBDc7jt0rjPtEicGqrs9flgPLnEdMWS1U
+	nGe4uw+6UUFTvHiYnfKVUIidki599znhTEgbGjql0X3NTKSplaw98v877OGQyrXYq7VRLxPS9pqrW
+	DkiV4pBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVSe-00000005mag-10zi;
-	Tue, 18 Mar 2025 11:50:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tuVUJ-00000005mmL-0t7s;
+	Tue, 18 Mar 2025 11:52:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVOk-00000005ln2-0hO8;
-	Tue, 18 Mar 2025 11:46:19 +0000
+	id 1tuVOm-00000005lny-31DR;
+	Tue, 18 Mar 2025 11:46:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 689DB5C57EF;
-	Tue, 18 Mar 2025 11:44:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84918C4CEDD;
-	Tue, 18 Mar 2025 11:46:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7D276A48F8B;
+	Tue, 18 Mar 2025 11:40:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C9BFC4CEE3;
+	Tue, 18 Mar 2025 11:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742298377;
-	bh=5bdfNHNW+EoJKgsImeaU1ELqKAI9RB+ut6VPZYTxSaY=;
+	s=k20201202; t=1742298379;
+	bh=DCr2QpGbgPQw5gBmGdkCjX3bRDvZZMiE3YTraB6GULE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dnJg0tI1RHrQUFNIGYqSCDRHEBb8kmU7NXfRpd1yHY9RldMoknRO9txFvGJBrm+9i
-	 U3S+wYU6zSEdA6IPrFFPhhLncMYbInYbUgniDhnCLbf7AlmNeyGEKEJ9OfYE7ZQ9M4
-	 AdkpRg3WrFBLDqRysfPleQYCb/72T6oKw4BvquInKFv6V/GlfrwB1kDD7dLuJjA3KE
-	 Hpz19NKbDM+GG8yGABbbUcxo7bsp2fK1ciHG4vM3L8w8O9d7Rh8HLW8fg+533V9oDL
-	 An687yny/E9ghZ84OHVGAIdRgEzE1DIjlYukf7YcbSBJMB66p85UyBd4yJp+RjCPW3
-	 EQ+wZtMZOUWYw==
+	b=Te31cvkxgm1OC0ygqentt4hfJVDMpbqGU6XN9WM/QgVrhshyKV2EPy2l6uhTaB8Fy
+	 ZPHGW0Tu3cXt93oFNCDkjuKfmVg9uXLIIu1sc7pnZyQbuIlh6T/0rUxWwO+5kQJ/D4
+	 uAfzhPB/WsnDV8eudDpkdhQYWg97CLNnQdAiID0VTmUDBtYdtlOPuRHlgL5MWaeYS5
+	 MsFx31Jcr0YBnC5n89hAEGMuwr+3qz9lQ0emYDtxfgr/b8Z+aXchmsKaUePLBYqaoT
+	 KNAfpXXUGi9Yq0GOXJT6ZbGW8vod831j87d7PKNOA89oV0mRNnTqvBt99lVec+fOfU
+	 kwfLx7iv5aB4Q==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 18 Mar 2025 12:46:05 +0100
-Subject: [PATCH net-next v2 1/7] net: mvneta: Add metadata support for xdp
+Date: Tue, 18 Mar 2025 12:46:06 +0100
+Subject: [PATCH net-next v2 2/7] net: mvpp2: Add metadata support for xdp
  mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250318-mvneta-xdp-meta-v2-1-b6075778f61f@kernel.org>
+Message-Id: <20250318-mvneta-xdp-meta-v2-2-b6075778f61f@kernel.org>
 References: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
 In-Reply-To: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
 To: Marcin Wojtas <marcin.s.wojtas@gmail.com>, 
@@ -77,8 +77,8 @@ Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
  Michal Kubiak <michal.kubiak@intel.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_044618_290771_DCF44EAA 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250318_044620_902801_44D7EE27 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,54 +93,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set metadata size building the skb from xdp_buff in mvneta driver
-mvneta sets xdp headroom to:
+Set metadata size building the skb from xdp_buff in mvpp2 driver
+mvpp2 driver sets xdp headroom to:
 
-MVNETA_MH_SIZE + MVNETA_SKB_HEADROOM
+MVPP2_MH_SIZE + MVPP2_SKB_HEADROOM
 
 where
 
-MVNETA_MH_SIZE 2
-MVNETA_SKB_HEADROOM max(NET_SKB_PAD, XDP_PACKET_HEADROOM)
+MVPP2_MH_SIZE 2
+MVPP2_SKB_HEADROOM min(max(XDP_PACKET_HEADROOM, NET_SKB_PAD), 224)
 
 so the headroom is large enough to contain xdp_frame and xdp metadata.
+Please note this patch is just compiled tested.
 
 Reviewed-by: Michal Kubiak <michal.kubiak@intel.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/marvell/mvneta.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-index 44b18c57390927e37eac267632cace656bb5526e..147571fdada378e430fd96f2fb4a7e7870b784a2 100644
---- a/drivers/net/ethernet/marvell/mvneta.c
-+++ b/drivers/net/ethernet/marvell/mvneta.c
-@@ -2342,7 +2342,7 @@ mvneta_swbm_rx_frame(struct mvneta_port *pp,
- 	prefetch(data);
- 	xdp_buff_clear_frags_flag(xdp);
- 	xdp_prepare_buff(xdp, data, pp->rx_offset_correction + MVNETA_MH_SIZE,
--			 data_len, false);
-+			 data_len, true);
- }
+diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+index f166dc4e650372d66e248601a5c948819e1dcd79..54a235366a01bdba526a1956f27836bcdee210ae 100644
+--- a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
++++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+@@ -3915,13 +3915,13 @@ static int mvpp2_rx(struct mvpp2_port *port, struct napi_struct *napi,
  
- static void
-@@ -2396,6 +2396,7 @@ mvneta_swbm_build_skb(struct mvneta_port *pp, struct page_pool *pool,
- 		      struct xdp_buff *xdp, u32 desc_status)
- {
- 	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
-+	u32 metasize = xdp->data - xdp->data_meta;
- 	struct sk_buff *skb;
- 	u8 num_frags;
+ 	while (rx_done < rx_todo) {
+ 		struct mvpp2_rx_desc *rx_desc = mvpp2_rxq_next_desc_get(rxq);
++		u32 rx_status, timestamp, metasize = 0;
+ 		struct mvpp2_bm_pool *bm_pool;
+ 		struct page_pool *pp = NULL;
+ 		struct sk_buff *skb;
+ 		unsigned int frag_size;
+ 		dma_addr_t dma_addr;
+ 		phys_addr_t phys_addr;
+-		u32 rx_status, timestamp;
+ 		int pool, rx_bytes, err, ret;
+ 		struct page *page;
+ 		void *data;
+@@ -3983,7 +3983,7 @@ static int mvpp2_rx(struct mvpp2_port *port, struct napi_struct *napi,
+ 			xdp_init_buff(&xdp, PAGE_SIZE, xdp_rxq);
+ 			xdp_prepare_buff(&xdp, data,
+ 					 MVPP2_MH_SIZE + MVPP2_SKB_HEADROOM,
+-					 rx_bytes, false);
++					 rx_bytes, true);
  
-@@ -2410,6 +2411,8 @@ mvneta_swbm_build_skb(struct mvneta_port *pp, struct page_pool *pool,
+ 			ret = mvpp2_run_xdp(port, xdp_prog, &xdp, pp, &ps);
  
- 	skb_reserve(skb, xdp->data - xdp->data_hard_start);
- 	skb_put(skb, xdp->data_end - xdp->data);
-+	if (metasize)
-+		skb_metadata_set(skb, metasize);
- 	skb->ip_summed = mvneta_rx_csum(pp, desc_status);
+@@ -3999,6 +3999,8 @@ static int mvpp2_rx(struct mvpp2_port *port, struct napi_struct *napi,
+ 				ps.rx_bytes += rx_bytes;
+ 				continue;
+ 			}
++
++			metasize = xdp.data - xdp.data_meta;
+ 		}
  
- 	if (unlikely(xdp_buff_has_frags(xdp)))
+ 		if (frag_size)
+@@ -4038,6 +4040,8 @@ static int mvpp2_rx(struct mvpp2_port *port, struct napi_struct *napi,
+ 
+ 		skb_reserve(skb, MVPP2_MH_SIZE + MVPP2_SKB_HEADROOM);
+ 		skb_put(skb, rx_bytes);
++		if (metasize)
++			skb_metadata_set(skb, metasize);
+ 		skb->ip_summed = mvpp2_rx_csum(port, rx_status);
+ 		skb->protocol = eth_type_trans(skb, dev);
+ 
 
 -- 
 2.48.1
