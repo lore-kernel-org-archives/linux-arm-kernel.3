@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B12C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 08:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89368C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 08:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T8g3BGN/mHpuPfK1H4SEVNvXxea99G16e6oOkBugydQ=; b=2pTyoUZXpFO4A0cN9j6ZUb8Jpi
-	PvIkkJPu3f0u0vFLPfUvfJe3Rm1TO80afCV11ijxo29oOHHDLDJ9HzoXfpTfTbcAQ5Jdk39LKDuUc
-	C9w9e2Mm3qmXeYCIZnZXvOGMHjnr5JnE3v6se0OTaM+dGjWnajRLY0wS4bHIU5O0JxZ+GbFhw7rzG
-	MJpUAKeTJYyq9tayU+UqDxJkg5j8JjGhgrw1z9UahndK0v/07BslqirCn1QO5IDuuP6ih8iAU5ddx
-	D7JoiYGFQg3Q3rQZr1FltVc7uHGGqC7f0QMEAchF3oHtiIMCfQoAK/eFpsXq8x8DzFVMU4lbOeFgG
-	Ebnd2now==;
+	bh=7zATNOB+RN3GRdRq8GAz0vH7sY1Yh90UPf+hvtUwtFk=; b=yME00/n8/i2RyLeHf2waNJy0JF
+	W+vYB5TBYQx3gTZPWvsbsaDhcqh9N0k2fBSZG5DEMDtzKBgj8MG1vQ4Hh4KUzDG/9ej4G3ZDFVom6
+	bcVEca1QMySFLxjYKIgz0cg5C8Yah2B+VWiyed3NFohL/g628Mz5WCt93/HW/vt09dOfYOV06LZJO
+	DEY+lAFKASiAEG99jMyLlWYmEDIH83HOCOZh0bKmJR4OPeYgnZjHndH3XlktOLKvmLWdys62aiVD/
+	IWra9cdSPBMPvhGiJFUgA2ibUV0anpbXNX7yMwdqmvAGEgaFQaZ7UVjkddZNcphMbImv7LUPSaT1P
+	TkBCIuHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRyf-000000055mg-0iTe;
-	Tue, 18 Mar 2025 08:07:09 +0000
-Received: from mx-rz-3.rrze.uni-erlangen.de ([2001:638:a000:1025::16])
+	id 1tuS0K-000000056Jt-3XUy;
+	Tue, 18 Mar 2025 08:08:52 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRrS-0000000548A-0ffG
+	id 1tuRuq-000000054yg-1tVu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 07:59:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1742284770; bh=T8g3BGN/mHpuPfK1H4SEVNvXxea99G16e6oOkBugydQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From:To:CC:
-	 Subject;
-	b=keevS7WotUTlE4uv/uI0BB9M4xxOkfuah7+yI24TqsIPktTPJvCGGObVIIW6jeZKP
-	 w/bt5U30Oj42lmLjgCWzHND/darszlQnzkm2TfzKKC+5r8+zbw9gW/2+jMj1r8WoJN
-	 GWRd9JqWh62APoSyejo2Ue2ELzZ0R2JZChH0j3j5Gac6QGaEneNPA6B1S4KPi+9Ymt
-	 yq1OYftJSwHLFuepJ7+09KW9dPLsPrN4xGbBORAPBGx98UMms/frWVgz3oxRkMuf8t
-	 uCDu2K54M6rBVztc9Rrz/SOMocwXb+IlFyT1Lw80YIgT51+KovX1JWNEK+/fOk+RjO
-	 cQLLlEgHw199w==
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-3.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4ZH44K5yb4z1xqh;
-	Tue, 18 Mar 2025 08:59:29 +0100 (CET)
-X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 2a02:8071:7900:bc0:c583:a400:7f8d:5e80
-Received: from localhost (unknown [IPv6:2a02:8071:7900:bc0:c583:a400:7f8d:5e80])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX1/njMYOnHzLTANywgVWOWsVTWqW358Unx4=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4ZH44G1Xjqz1yjk;
-	Tue, 18 Mar 2025 08:59:26 +0100 (CET)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Eduard Zingerman <eddyz87@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>,  Daniel Borkmann
- <daniel@iogearbox.net>,  Andrii Nakryiko <andrii@kernel.org>,  Martin
- KaFai Lau <martin.lau@linux.dev>,  Song Liu <song@kernel.org>,  Yonghong
- Song <yonghong.song@linux.dev>,  John Fastabend
- <john.fastabend@gmail.com>,  KP Singh <kpsingh@kernel.org>,  Stanislav
- Fomichev <sdf@fomichev.me>,  Hao Luo <haoluo@google.com>,  Jiri Olsa
- <jolsa@kernel.org>,  Puranjay Mohan <puranjay@kernel.org>,  Xu Kuohai
- <xukuohai@huaweicloud.com>,  Catalin Marinas <catalin.marinas@arm.com>,
-  Will Deacon <will@kernel.org>,  Hari Bathini <hbathini@linux.ibm.com>,
-  Christophe Leroy <christophe.leroy@csgroup.eu>,  Naveen N Rao
- <naveen@kernel.org>,  Madhavan Srinivasan <maddy@linux.ibm.com>,  Michael
- Ellerman <mpe@ellerman.id.au>,  Nicholas Piggin <npiggin@gmail.com>,
-  Mykola Lysenko <mykolal@fb.com>,  Shuah Khan <shuah@kernel.org>,
-  Henriette Herzog <henriette.herzog@rub.de>,  Cupertino Miranda
- <cupertino.miranda@oracle.com>,  Matan Shachnai <m.shachnai@gmail.com>,
-  Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,  Shung-Hsi Yu
- <shung-hsi.yu@suse.com>,  Daniel Xu <dxu@dxuuu.xyz>,  bpf@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  linuxppc-dev@lists.ozlabs.org,  linux-kselftest@vger.kernel.org,  George
- Guo <guodongtai@kylinos.cn>,  WANG Xuerui <git@xen0n.name>,  Tiezhu Yang
- <yangtiezhu@loongson.cn>,  Maximilian Ott <ott@cs.fau.de>,  Milan Stephan
- <milan.stephan@fau.de>
-Subject: Re: [PATCH bpf-next 09/11] bpf: Return PTR_ERR from push_stack()
-In-Reply-To: <9083b52fd4a2d7a5a0473e858042c277c883f8b0.camel@gmail.com>
-	(Eduard Zingerman's message of "Mon, 17 Mar 2025 02:19:08 -0700")
-References: <20250313172127.1098195-1-luis.gerhorst@fau.de>
-	<20250313174149.1113165-1-luis.gerhorst@fau.de>
-	<20250313174149.1113165-4-luis.gerhorst@fau.de>
-	<9083b52fd4a2d7a5a0473e858042c277c883f8b0.camel@gmail.com>
-User-Agent: mu4e 1.12.8; emacs 29.4
-Date: Tue, 18 Mar 2025 08:59:24 +0100
-Message-ID: <87r02uu5ur.fsf@fau.de>
+	Tue, 18 Mar 2025 08:03:13 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-225d66a4839so64688035ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 01:03:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742284991; x=1742889791; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=7zATNOB+RN3GRdRq8GAz0vH7sY1Yh90UPf+hvtUwtFk=;
+        b=naKWgR3Wgrl+2Pu2RFsPhF7zAhopGlmupWZ6nEuU/tPNtDyFcwNGmq3QkiQrO3OHYp
+         7p1kzY5k7rx6Oe6rbyMTon5oVLJF3ICuErbks4GxTkEyajAvoE+L6Zp07m6X/5s6CQXQ
+         34/MstC+GQj8cdwpbBIaefuvgor0ZgaSyRyFtRm3vQyjIJGqhtGpsXa25Bq6BNXx0JaQ
+         suOB840Y7ws+ISSmqICqE8aazzVBkfpKpVrQ950Hdhd/bTduEG16Cr19YO9XkfYdciQr
+         1xib0E+JSBZuhz69hP5fjkuoIcaQ3NGSVF2o3btDNBCnOANMUqtUk3Eft7B+R4wqnTm6
+         IcNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742284991; x=1742889791;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7zATNOB+RN3GRdRq8GAz0vH7sY1Yh90UPf+hvtUwtFk=;
+        b=fbCJYuX6C1qPGNU0quNvzoJnNnO7y38gR9Qn/9llSep6q61Y2+pIolxMpJ//TUViFY
+         C0eJRJTb+vGPFFe2n9mbx+Tufu7U16xot9FFuu0FpqGNPTsJj5M5mkXIdC+9p7uXFYAf
+         vU7zl5X8s9K0oFTwvzjQPB79hoQViPi5Cnrlyk9S3jOsqop4EotzxR2xveRW1/Uln/A0
+         YSULbNIgokvj+kCGIoQNmV4xea5BGuldfsbVr9iK2qE0sV+QhWazmjcr2V2vYEwy7L6q
+         nGdBKTLMI7qdo0qALK4hZIl4RwLn2LaqIsqGwZIgBj+1RkTePoQ0dzMFRtXo+Ec8KMGT
+         tFUg==
+X-Forwarded-Encrypted: i=1; AJvYcCVl802LVTZC33ErR0tJE3VZjv58R/Ymd2MhQDwjBesXcu85DRd1Jx/hSs0LeFZlbnB2TGa1sTFNLMH2XxXUnlot@lists.infradead.org
+X-Gm-Message-State: AOJu0YzX+xfto+KqS94/NwOo+oOEk+NASZP2UE3m4TYlBeegYAVhAE9D
+	YXuPVb8pTMxWt4WZy/Yng0mbgbDQdKFo9uxVjwuP0aWg6Ytkh8C46doSrtWX+Q==
+X-Gm-Gg: ASbGncum83WNMLmDtX8G0znoRm+q57uF88OMOE8iCnH0xuk5qx0meWgL9kwkVw8zDHi
+	ttM/p+IhL7tsEkXtyrw8/tOg4Rwdwk/kTnZpXD3OcMh4h+LqdDpBgVHrCy3aqHDs3u/zc9uvLLX
+	rhjW0urDyRoeZgXFVdjSRFPnrx7FRJyrWxYuQfNViLQgep7W8ydCb62je9ZTrLDTEvgCL0/gbe4
+	rriSLP4TsjxWSqapgNEJfchLXncI71C2qP+Leu+I0fpsPa6wW3ARsLx9MVNUttaqV+lIuFZRRmY
+	k3cBROsBodlmZbXl8/rN1MNC/yX9OvX24zq1IOTJSCypzUXFMmNIr5+5
+X-Google-Smtp-Source: AGHT+IFQI50pcGaomE3YOZGMmALp0D+8DIQDQoTe6NaI/OMfzJ9nJAe8ts6tZPm5ugXC7xjglM9V7A==
+X-Received: by 2002:aa7:9902:0:b0:736:4c3d:2cba with SMTP id d2e1a72fcca58-73757932a76mr2891234b3a.9.1742284991535;
+        Tue, 18 Mar 2025 01:03:11 -0700 (PDT)
+Received: from thinkpad ([120.56.195.170])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-737116b1103sm8934019b3a.167.2025.03.18.01.03.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 01:03:10 -0700 (PDT)
+Date: Tue, 18 Mar 2025 13:33:04 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	bhelgaas@google.com, vigneshr@ti.com, kishon@kernel.org,
+	cassel@kernel.org, wojciech.jasko-EXT@continental-corporation.com,
+	thomas.richard@bootlin.com, bwawrzyn@cisco.com,
+	linux-pci@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH 3/4] PCI: cadence-ep: Introduce cdns_pcie_ep_disable
+ helper for cleanup
+Message-ID: <20250318080304.jsmrxqil6pn74nzh@thinkpad>
+References: <20250307103128.3287497-1-s-vadapalli@ti.com>
+ <20250307103128.3287497-4-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250307103128.3287497-4-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_005942_630558_EE23F5EB 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250318_010312_498770_46271843 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Eduard Zingerman <eddyz87@gmail.com> writes:
+On Fri, Mar 07, 2025 at 04:01:27PM +0530, Siddharth Vadapalli wrote:
+> Introduce the helper function cdns_pcie_ep_disable() which will undo the
+> configuration performed by cdns_pcie_ep_setup(). Also, export it for use
+> by the existing callers of cdns_pcie_ep_setup(), thereby allowing them
+> to cleanup on their exit path.
+> 
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+>  drivers/pci/controller/cadence/pcie-cadence-ep.c | 10 ++++++++++
+>  drivers/pci/controller/cadence/pcie-cadence.h    |  5 +++++
+>  2 files changed, 15 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence-ep.c b/drivers/pci/controller/cadence/pcie-cadence-ep.c
+> index eeb2afdd223e..85bec57fa5d9 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence-ep.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence-ep.c
+> @@ -646,6 +646,16 @@ static const struct pci_epc_ops cdns_pcie_epc_ops = {
+>  	.get_features	= cdns_pcie_ep_get_features,
+>  };
+>  
+> +void cdns_pcie_ep_disable(struct cdns_pcie_ep *ep)
+> +{
+> +	struct device *dev = ep->pcie.dev;
+> +	struct pci_epc *epc = to_pci_epc(dev);
+> +
 
-> Could you please point me to a location, where exact error code
-> returned by updated push_stack() matters?
-> I checked push_stack() callgraph (in the attachment), but can't find
-> anything.
+pci_epc_deinit_notify()
 
-Only with the final patch 11 ("bpf: Fall back to nospec for spec path
-verification") applied, the error code should matter. Then, the error
-code either matches `state->speculative &&
-error_recoverable_with_nospec(err)` in do_check() if it was EINVAL (in
-this case we heuristically avoided nested speculative path verification
-but have to add a nospec), or we continue to raise the error (e.g.,
-ENOMEM) from do_check().
+- Mani
 
-Or is your question on this part from the commit message of patch 9?
-
-  This changes the sanitization-case to returning -ENOMEM. However, this
-  is more fitting as -EFAULT would indicate a verifier-internal bug.
-
-This was referring to the sanitize_speculative_path() calls in
-check_cond_jmp_op(). For that case, the error should also only be used
-in do_check() with patch 11 applied. However, regarding this, EFAULT and
-ENOMEM are treated the same (they both don't satisfy
-error_recoverable_with_nospec()), therefore this change is primarily
-made to not complicate the code.
-
-I just became aware that there is some special handling of EFAULT as
-discussed in c7a897843224 ("bpf: don't leave partial mangled prog in
-jit_subprogs error path"). I will have look into this in detail to make
-sure changing push_stack() from EFAULT to ENOMEM is OK.
-
-Hope this answers your question.
-
-Adding some of these details to v2 won't hurt I guess.
+-- 
+மணிவண்ணன் சதாசிவம்
 
