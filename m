@@ -4,111 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD71FC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 19:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD30C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 19:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VehFZeMVxeEcvxBcB6BdQEKU+LkAx8OrL+503rmhaFI=; b=CVlXiVJg0LhKfXNbI+Bf0rYTH+
-	PuoHlSXaAIIZwDTPHPsSBYA8Rb7T/wauNvlRWVN5C5TCFUGN6BgTyYOxs6X1rx0BoY/gI7Dhkh3mu
-	+mZtwnHNmVmi5DMHF6xmdeoainYeScyvobUtrg2MeEU9dG22Fca1w2cfj5Pahtf3OKgp48ZGavX7o
-	K2Q8zuYKhFni0RB87BEeppXhTRJsrPjRDK7BcxRuvaP2T8L2+XtR6MfCh+GWMDuwEO3lqi0K35cib
-	jRMERUQ782+KPkZW8daAkDHlNXqbCcjHmIjUjaSZodGbIVwljvGS5fgdtqRibV6JiP2eApAMEKvEn
-	Jt1n8AeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Azz7whBTenxG92fkFLvM3E+yjOlKC75QID7t7cCW1c=; b=pbtVJQzQAf+gLXg7qXqii/8kHW
+	Tnc9ZCT7cBVgyA4LamKeVaflElIcsh9YpxDGaHGTM3vdA65XXTuVeqTiBUTQp8gbMhLnCVlzeEFKe
+	hWe0Mn+whiRsIsmg3Lf9XAYnpFx16lob/bnMe9mgDLe2vVCydYl1H/5TvAzUEkSqyqWwav4ykyxRZ
+	jjpc0yVQ9Cxsfe4hCDp3xrBwIRlA+95n1ZPwMmaz33ncORmLWzB6NXSThKMMW5j3oCLUwtwpz7cuV
+	/QkASznNGir5uVwtduUX4r6xzC7cZ/uhlAWDnjwxQkd3HCN4uGWcKW2Icjk22mq2+e3YJBQI0W383
+	aO7SzBoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tucwX-00000006xJK-1xxl;
-	Tue, 18 Mar 2025 19:49:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tud3L-00000006xva-3SqM;
+	Tue, 18 Mar 2025 19:56:43 +0000
+Received: from mail-westus2azolkn19010006.outbound.protection.outlook.com ([52.103.10.6] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tucuq-00000006xBb-1zEQ
+	id 1tud1d-00000006xfy-2j5o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 19:47:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D53915C5927;
-	Tue, 18 Mar 2025 19:45:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D797C4CEDD;
-	Tue, 18 Mar 2025 19:47:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742327275;
-	bh=dFS4pl/4sy8BZRtwnSnognCsKFnhbc5h4Elykdy92aw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sMI6rMYzCjhn0kSukwMOEzlshenueJLzySVgYPx599Xjiw7OGx33J9MKvTlgM2Rn3
-	 os32xddBS7q5gfJYm0SDxmli1vrZktT8XQ82irpNyrvzTzDWEQ2+JSRmIJjkLHb3xc
-	 n3f+GFkIgrUnnw+/hlIRYRw06hIuX0WrhBYi9Puw7V9QXNW8xJBAPlMUAaxAOMlHF/
-	 NJyzxwvwKW1newvOSOMSc8jqy1pYCkDat0ybewUD0gvuxj3HmLwZhvu0+91+aOnwSS
-	 Zuy+Ql3Se/k1sFRJCjRaRnqGSzTwdqeVQbxEFGZBuxAujGOIqQ9F9NP4XQoYQQRY4X
-	 RmwFKQuKu20vA==
-Message-ID: <5ff8d26d-65bd-4b99-90b1-ae01f0ee9eb7@kernel.org>
-Date: Tue, 18 Mar 2025 20:47:47 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/5] pinctrl: samsung: refactor drvdata suspend &
- resume callbacks
-To: Peter Griffin <peter.griffin@linaro.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- andre.draszik@linaro.org, tudor.ambarus@linaro.org, willmcvicker@google.com,
- semen.protsenko@linaro.org, kernel-team@android.com, jaewon02.kim@samsung.com
-References: <20250312-pinctrl-fltcon-suspend-v5-0-d98d5b271242@linaro.org>
- <20250312-pinctrl-fltcon-suspend-v5-2-d98d5b271242@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+	Tue, 18 Mar 2025 19:54:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kyMN+MGpw/dzI1d4Hdg1HtzU+TRmB0xw1nmmhoxgM746Oy8XV5X2vHTouVWifhSTCtQSDlMLsKJYI5qbrkQiE9j5wOi1polJenCcMFcCdBj3avIH8ZRVOG9TjZ9DbgBKk1dONbf13pBJOni9bMm+EbIRWEYjZZbkyxz2e4GBwE793QTYWP/0nxhxsHObfA37SMzGqrOWEP576Fg42Ydmr7r65tVVWGAxRkkQN5ScVJOlk33nJVnhOxQhZZYtdLSdktfgu+Loly83HC661rdhn/d+aUCHrFp2H9aIJUWq8Q4fxEP44QTTnWEHH9wP+F1YwBosDe1Suv+IAJBAN449Cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8Azz7whBTenxG92fkFLvM3E+yjOlKC75QID7t7cCW1c=;
+ b=Hq0J/071Kczqit5R9E87Uno7kW0evAeVOkkJNoNVAjjJImtNQ1VgUg91G4NWQrPR8ewcz4Yda9WEaH9dtK9CNIUfWAvyzYJS4oFPL0Sxae25rxOESJgYKA4jOiNAzxjTJZjJOX+gdfoeWwifZRrA5IFktTi2tHoj0FkbZiCG+uKEhhVRV9q1w0Vsh9FNFKJiyCerAalCJgWlq/9mItuntAS/0EPjp4Z+1XZpJjO/ZfppoaLRWyr6WXQRimx16SD0mL3s5IkSWiSRNZ7eJgE8W6B1njd/aqMvzoz7LioAyEyiwly8jO2fUaHb7GKg2qJB5AhcsT3SMOL3HoCOhAG03A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8Azz7whBTenxG92fkFLvM3E+yjOlKC75QID7t7cCW1c=;
+ b=ScpAvU4ySkR0fT6tvI9diiFliaXUDluzHemSOWZHFV8ndKZpYGAbq+6gf85ySmVOf5dRn043IIoyR0AXHeET4LI09KN5vVdCylhV2fSidVYqKp3Dlhd/l9AlvgJyFjmRGzMSL1+xX2NoT2uM9bxxpSdipnqzD9/hwTVhw7u8AG/OlmpxJdHS2d3BOEm54vAK8npPS+mNzw5oiLFcswWmcsVmmU6HsYss2pP+YRPexN8fgp/uIQqwXJhRfCf45G3pGm3Pvyre5sFQiLb/wLJ5JdUQp4PJLafxOizLvDgQVJlL/SeIdJERTbubSVa/X5dysvtQeVtfP/VaR+caqDcFKA==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by SA6PR02MB10479.namprd02.prod.outlook.com (2603:10b6:806:40a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Tue, 18 Mar
+ 2025 19:54:49 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%3]) with mapi id 15.20.8534.031; Tue, 18 Mar 2025
+ 19:54:49 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "ltykernel@gmail.com" <ltykernel@gmail.com>,
+	"stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"eahariha@linux.microsoft.com" <eahariha@linux.microsoft.com>,
+	"jeff.johnson@oss.qualcomm.com" <jeff.johnson@oss.qualcomm.com>
+CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
+	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
+	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
+	<hpa@zytor.com>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+	"joro@8bytes.org" <joro@8bytes.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "arnd@arndb.de" <arnd@arndb.de>,
+	"jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+	"muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+	"skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+	"mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+	"apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"vkuznets@redhat.com" <vkuznets@redhat.com>, "prapal@linux.microsoft.com"
+	<prapal@linux.microsoft.com>, "anrayabh@linux.microsoft.com"
+	<anrayabh@linux.microsoft.com>, "rafael@kernel.org" <rafael@kernel.org>,
+	"lenb@kernel.org" <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+Subject: RE: [PATCH v6 10/10] Drivers: hv: Introduce mshv_root module to
+ expose /dev/mshv to VMMs
+Thread-Topic: [PATCH v6 10/10] Drivers: hv: Introduce mshv_root module to
+ expose /dev/mshv to VMMs
+Thread-Index: AQHblRdnpUjohn3xT068AvEhHN692rN5UJDA
+Date: Tue, 18 Mar 2025 19:54:49 +0000
+Message-ID: <SN6PR02MB4157261B9C4AA8CF89A30317D4DE2@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1741980536-3865-11-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1741980536-3865-11-git-send-email-nunodasneves@linux.microsoft.com>
+Accept-Language: en-US
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250312-pinctrl-fltcon-suspend-v5-2-d98d5b271242@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SA6PR02MB10479:EE_
+x-ms-office365-filtering-correlation-id: e3c641c2-6fb1-449e-8cd4-08dd6656bde9
+x-microsoft-antispam: BCL:0;ARA:14566002|15080799006|461199028|8062599003|19110799003|8060799006|12121999004|102099032|3412199025|440099028|41001999003|12091999003;
+x-microsoft-antispam-message-info: =?us-ascii?Q?YrldPbDzPpYwGCsSnAS7yxEXueU9lT8Kr8EYhqz7L1QFaDQtArT6sLAwDDMh?=
+ =?us-ascii?Q?Io4CovbCakQRX1Ub8hORvnhvznAIzpxCPlQZy5t3afVWZdf+Ncs8DK/nIdee?=
+ =?us-ascii?Q?omGZDzq/ShEfHuC+px6tPrUNIRGmKKdgCbz9cB3phBioga1ZvRB2WE5/VeT8?=
+ =?us-ascii?Q?/2nTxRJ0IHB33Ti9RbuBBf1vBZVCKA7bRFlr9JXEOlfUfgqS9jJNQhlcTp1N?=
+ =?us-ascii?Q?TkV8hFMlDuBcuBuHH34aKGeOowhD3bpPax8VG7M1a+Yls53TcC1fEScItOQi?=
+ =?us-ascii?Q?/Vm/GlSNT8QtU5QTgY71+lpDiWELubKaOigRU6XYnzPYiw2FX6UZ6VqfJ2v5?=
+ =?us-ascii?Q?qrYnNsIkt1M+eSXr81IEvT2fuJidgQinyAUEewh63Qmh1WYut+R+rvl4Sz39?=
+ =?us-ascii?Q?pgLuwsZCvodH2icsRiviUmVgS+PKqyuioUbAezJ+V0phXV1YhRLYSrphxC0e?=
+ =?us-ascii?Q?jwiwZRMqngTXibP/3PgWTXUm+unWK3z76gJhTL3XaPlU4PlZXmtX4X7do3xZ?=
+ =?us-ascii?Q?UPSKhUI3xkKqqxYwusoVcVGeoh3ToBilU6s+/orPFgDxukZ/erCOc6QfbyBm?=
+ =?us-ascii?Q?OKyMvprE9T3DnTEAaBO/TEiDQHgDMdeiyDQRgqb0oZvYlaDKhu7YksxGUlRc?=
+ =?us-ascii?Q?Zzbx02kxO+3ubgt98WQO6UrQOoNjR7aZaAyEwCTgrifm/RhS7gzhdzd2y2Wn?=
+ =?us-ascii?Q?Zdqn7voFu9tvQBUkdyD45yXe8nUReN8jiube2pFLST+oYYmW7XX+KR7WVafv?=
+ =?us-ascii?Q?RMxrU1gpv3Hp2w55IlMzIyY+EhH33nkqxGYY8UhdA0w/0kvUg+Sd+XpXSMC7?=
+ =?us-ascii?Q?bwhuEuDAOjj3VBcN8OvfvPWB+pB+Kv2v9Uj/x4cKwr6tSl6lk8mcxAc7kTOz?=
+ =?us-ascii?Q?+KIGh3+Qmc5ftFo3P6CqEYJNmRdQNdNiS9afnjMz4g84T4wr8B9xPL+IfUCq?=
+ =?us-ascii?Q?J028JS20Y0qGyes+hZziCRxFgyW5gWTVOFTQ3feROjDwOrIgJFYYUKOGCbAb?=
+ =?us-ascii?Q?Y9bkfRkDl2jgEq9YHb0CsXvI7pGCR1HBtjo88pS/Vh5kH4r8cbd3ZGVJwKw+?=
+ =?us-ascii?Q?bq9H8IqNo/PgLlz1Ec3XwKpWnJ5+eAb7mE9QL2QtrrC98W74Ld+ZctgmOM1b?=
+ =?us-ascii?Q?m2E7Q1Y+ClEKry54tRCnvXy8apvs8NdcttuFfU9BjK0WXOAd5yd8drObAuZZ?=
+ =?us-ascii?Q?xTgHMlQjIJbeK6Az?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JrtVrplUvHztfOP81Hi6dCa3Lc88rqoNqBRj2pEvIXNHD+cTtrfBGl/80/FO?=
+ =?us-ascii?Q?I7B9FsLIDefiXCfX7JYFYxHoLacKRbxTc/78dcv6hDiKKoKMPbl1c1L3VVJB?=
+ =?us-ascii?Q?idV9YYPk1WNSb8PRhljzql6ZnyjMsa7MK8H4ffS/wbMQ/Ee6GEfZKUtHOjgu?=
+ =?us-ascii?Q?fy97hi7KT8QjRzRjTRlbbJ+Gw76z+8zEWXOpkyWZ5sutEdsCLLTwMxUhoLbE?=
+ =?us-ascii?Q?C85WRvfNNRYwUGUj4ozm9XETtXLZT2G6zQ3qlYhJ1aVgili3yB3Mzs177tQL?=
+ =?us-ascii?Q?V5YHB85kldBrXg+/n1KOYvANvydGdGnrMDJAF0eXZizk/FweXFO79bM++b5l?=
+ =?us-ascii?Q?W+1qsvdzopLYX2NSt1p2CaabF2YzeBJ7KYTQTk5s85Ai6g4r6RY00i+u1yH4?=
+ =?us-ascii?Q?icrTXol+1h7rsxEiQz/zXZk7AL6noAraT8vWtHGT5O6LxLZqjdDen6mdc4qE?=
+ =?us-ascii?Q?1KwY8uJJkaAmRM8K9N89ehD0o17nTItPpQTno0HHPrHXSMgdjPt2JkH17Fp7?=
+ =?us-ascii?Q?MBqTvw8aI2gqBbAq5tXg7yIturLpLXsh015D1z9Bra4U0ecuW6zK0K3oYhMG?=
+ =?us-ascii?Q?ToPwj7VmAgepIpcVb7pkJq1iG4CExf0bF9MzC5Cjl+PajSui2tJtN8wC0WAA?=
+ =?us-ascii?Q?wAoJ+nckRKVOSSYisEw+9T0Ib5+aPDEPQe/z1UVfL13e/lYzvse5aAw6ELsJ?=
+ =?us-ascii?Q?wHFlOEdE0c58Bqvo8MQ2IikG1DDiCeQTnJfQObz33bZpO7rcU9BHLR8mZJtO?=
+ =?us-ascii?Q?SA+zhvT3TGPzUNwJpK7OHmzIYPLcIOdHuqY+m8Z7KBKz8SkXae58HH/txe7U?=
+ =?us-ascii?Q?ybeMtT8twDHfQ1thWJ5tTiI0KLC2AJjOAtsE8OsknT2eO4O6YQkM6pDzXGth?=
+ =?us-ascii?Q?MWGWfa0I0Jx6W0PFHyRxyV4rZm5KIohRdtG4ETs2kSuuSLPmOoWoRlEB6ZnG?=
+ =?us-ascii?Q?1U40kIa/7JxO6TniG79Ec6XS0LRzvVPZa5sZVRcwz0V/rj/bUlIyqo/TrXlX?=
+ =?us-ascii?Q?rhgYbaEsIdTbhex4buMwCl+TuAhAbEDumP4QIe/FN3I1UIGx9z20MV0PxgJ3?=
+ =?us-ascii?Q?pg4NJkKoX2IRuy2dvjd17QJkvkYXCexaL5sIt4cmRsqnWSdHjqv5DY837ObK?=
+ =?us-ascii?Q?20fe6rrSIupmkIVxpaoUecpmWs1MyZK4b7GUwEqeGApkR05louzeKVfFqdVE?=
+ =?us-ascii?Q?pW6lNLVc4JpoaYLHfF1eylPSPEV0xbIkiaxnEXVcx/ZWgg9qyjY2jT1AcSs?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3c641c2-6fb1-449e-8cd4-08dd6656bde9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2025 19:54:49.5880
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR02MB10479
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_124756_605952_E8EEDEB8 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20250318_125457_727618_793CBC25 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,85 +175,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/03/2025 22:58, Peter Griffin wrote:
-> Move the call of drvdata->suspend()/resume into the loop which is
-> iterating drvdata for each bank.
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, March=
+ 14, 2025 12:29 PM
+>
+> Provide a set of IOCTLs for creating and managing child partitions when
+> running as root partition on Hyper-V. The new driver is enabled via
+> CONFIG_MSHV_ROOT.
+>=20
 
-
-Side effect is that now each drvdata->suspend will be called before
-saving registers. Please mention it here and this lead me to one more
-comment.
-
-> This allows the clk_enable() and clk_disable() logic to be removed
-
-
-For suspend path - yes. For resume path - nothing changed, because
-drvdata->resume(drvdata) was called with clock enabled.
-
-> from each callback, and also avoids iterating the same loop again
-> in the next function.
-
-...
-
-> diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/samsung/pinctrl-samsung.c
-> index 963060920301ec90affb2ee6d758d3d602ffb4a9..375634d8cc79d6533603e3eed562452181e2ee25 100644
-> --- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-> +++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-> @@ -1349,6 +1349,9 @@ static int __maybe_unused samsung_pinctrl_suspend(struct device *dev)
->  		const u8 *widths = bank->type->fld_width;
->  		enum pincfg_type type;
->  
-> +		if (drvdata->suspend)
-> +			drvdata->suspend(bank);
-
-Here suspend() is called before saving common register state (was
-*after*)...
-
+[snip]
+=20
 > +
->  		/* Registers without a powerdown config aren't lost */
->  		if (!widths[PINCFG_TYPE_CON_PDN])
->  			continue;
-> @@ -1373,8 +1376,6 @@ static int __maybe_unused samsung_pinctrl_suspend(struct device *dev)
->  
->  	clk_disable(drvdata->pclk);
->  
-> -	if (drvdata->suspend)
-> -		drvdata->suspend(drvdata);
->  	if (drvdata->retention_ctrl && drvdata->retention_ctrl->enable)
->  		drvdata->retention_ctrl->enable(drvdata);
->  
-> @@ -1406,9 +1407,6 @@ static int __maybe_unused samsung_pinctrl_resume(struct device *dev)
->  		return ret;
->  	}
->  
-> -	if (drvdata->resume)
-> -		drvdata->resume(drvdata);
-> -
->  	for (i = 0; i < drvdata->nr_banks; i++) {
->  		struct samsung_pin_bank *bank = &drvdata->pin_banks[i];
->  		void __iomem *reg = bank->pctl_base + bank->pctl_offset;
-> @@ -1416,6 +1414,9 @@ static int __maybe_unused samsung_pinctrl_resume(struct device *dev)
->  		const u8 *widths = bank->type->fld_width;
->  		enum pincfg_type type;
->  
-> +		if (drvdata->resume)
-> +			drvdata->resume(bank);
+> +int
+> +hv_call_clear_virtual_interrupt(u64 partition_id)
+> +{
+> +	unsigned long flags;
 
-But this is not symmetrically reversed now - resume() is before
-restoring from saved state.
+This local variable is now unused and will generate a compile warning.
 
-Maybe this change is intentional, but then it should be expressed in
-commit msg and in commit why this was chosen.
+> +	int status;
+> +
+> +	status =3D hv_do_fast_hypercall8(HVCALL_CLEAR_VIRTUAL_INTERRUPT,
+> +				       partition_id);
+> +
+> +	return hv_result_to_errno(status);
+> +}
+> +
+> +int
+> +hv_call_create_port(u64 port_partition_id, union hv_port_id port_id,
+> +		    u64 connection_partition_id,
+> +		    struct hv_port_info *port_info,
+> +		    u8 port_vtl, u8 min_connection_vtl, int node)
+> +{
+> +	struct hv_input_create_port *input;
+> +	unsigned long flags;
+> +	int ret =3D 0;
+> +	int status;
+> +
+> +	do {
+> +		local_irq_save(flags);
+> +		input =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
+> +		memset(input, 0, sizeof(*input));
+> +
+> +		input->port_partition_id =3D port_partition_id;
+> +		input->port_id =3D port_id;
+> +		input->connection_partition_id =3D connection_partition_id;
+> +		input->port_info =3D *port_info;
+> +		input->port_vtl =3D port_vtl;
+> +		input->min_connection_vtl =3D min_connection_vtl;
+> +		input->proximity_domain_info =3D hv_numa_node_to_pxm_info(node);
+> +		status =3D hv_do_hypercall(HVCALL_CREATE_PORT, input, NULL);
+> +		local_irq_restore(flags);
+> +		if (hv_result_success(status))
+> +			break;
+> +
+> +		if (hv_result(status) !=3D HV_STATUS_INSUFFICIENT_MEMORY) {
+> +			ret =3D hv_result_to_errno(status);
+> +			break;
+> +		}
+> +		ret =3D hv_call_deposit_pages(NUMA_NO_NODE, port_partition_id, 1);
+> +
+> +	} while (!ret);
+> +
+> +	return ret;
+> +}
+> +
+> +int
+> +hv_call_delete_port(u64 port_partition_id, union hv_port_id port_id)
+> +{
+> +	union hv_input_delete_port input =3D { 0 };
+> +	unsigned long flags;
 
-I guess you decided to do that way only because of code:
-	if (!widths[PINCFG_TYPE_CON_PDN])
+Unused local variable.
 
-This code should be symmetrically reversed, otherwise it just raises
-questions. For saving register state, it does not really matter, but in
-general if we assume driver-specific suspend callback is run the last,
-then driver-specific resume callback should be first, no?
+> +	int status;
+> +
+> +	input.port_partition_id =3D port_partition_id;
+> +	input.port_id =3D port_id;
+> +	status =3D hv_do_fast_hypercall16(HVCALL_DELETE_PORT,
+> +					input.as_uint64[0],
+> +					input.as_uint64[1]);
+> +
+> +	return hv_result_to_errno(status);
+> +}
+> +
+> +int
+> +hv_call_connect_port(u64 port_partition_id, union hv_port_id port_id,
+> +		     u64 connection_partition_id,
+> +		     union hv_connection_id connection_id,
+> +		     struct hv_connection_info *connection_info,
+> +		     u8 connection_vtl, int node)
+> +{
+> +	struct hv_input_connect_port *input;
+> +	unsigned long flags;
+> +	int ret =3D 0, status;
+> +
+> +	do {
+> +		local_irq_save(flags);
+> +		input =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
+> +		memset(input, 0, sizeof(*input));
+> +		input->port_partition_id =3D port_partition_id;
+> +		input->port_id =3D port_id;
+> +		input->connection_partition_id =3D connection_partition_id;
+> +		input->connection_id =3D connection_id;
+> +		input->connection_info =3D *connection_info;
+> +		input->connection_vtl =3D connection_vtl;
+> +		input->proximity_domain_info =3D hv_numa_node_to_pxm_info(node);
+> +		status =3D hv_do_hypercall(HVCALL_CONNECT_PORT, input, NULL);
+> +
+> +		local_irq_restore(flags);
+> +		if (hv_result_success(status))
+> +			break;
+> +
+> +		if (hv_result(status) !=3D HV_STATUS_INSUFFICIENT_MEMORY) {
+> +			ret =3D hv_result_to_errno(status);
+> +			break;
+> +		}
+> +		ret =3D hv_call_deposit_pages(NUMA_NO_NODE,
+> +					    connection_partition_id, 1);
+> +	} while (!ret);
+> +
+> +	return ret;
+> +}
+> +
+> +int
+> +hv_call_disconnect_port(u64 connection_partition_id,
+> +			union hv_connection_id connection_id)
+> +{
+> +	union hv_input_disconnect_port input =3D { 0 };
+> +	unsigned long flags;
 
+Unused local variable.
 
-Best regards,
-Krzysztof
+> +	int status;
+> +
+> +	input.connection_partition_id =3D connection_partition_id;
+> +	input.connection_id =3D connection_id;
+> +	input.is_doorbell =3D 1;
+> +	status =3D hv_do_fast_hypercall16(HVCALL_DISCONNECT_PORT,
+> +					input.as_uint64[0],
+> +					input.as_uint64[1]);
+> +
+> +	return hv_result_to_errno(status);
+> +}
+> +
+> +int
+> +hv_call_notify_port_ring_empty(u32 sint_index)
+> +{
+> +	union hv_input_notify_port_ring_empty input =3D { 0 };
+> +	unsigned long flags;
+
+Unused.
+
+> +	int status;
+> +
+> +	input.sint_index =3D sint_index;
+> +	status =3D hv_do_fast_hypercall8(HVCALL_NOTIFY_PORT_RING_EMPTY,
+> +				       input.as_uint64);
+> +
+> +	return hv_result_to_errno(status);
+> +}
+> +
+> +int hv_call_map_stat_page(enum hv_stats_object_type type,
+> +			  const union hv_stats_object_identity *identity,
+> +			  void **addr)
+> +{
+> +	unsigned long flags;
+> +	struct hv_input_map_stats_page *input;
+> +	struct hv_output_map_stats_page *output;
+> +	u64 status, pfn;
+> +	int ret;
+> +
+> +	do {
+> +		local_irq_save(flags);
+> +		input =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
+> +		output =3D *this_cpu_ptr(hyperv_pcpu_output_arg);
+> +
+> +		memset(input, 0, sizeof(*input));
+> +		input->type =3D type;
+> +		input->identity =3D *identity;
+> +
+> +		status =3D hv_do_hypercall(HVCALL_MAP_STATS_PAGE, input, output);
+> +		pfn =3D output->map_location;
+> +
+> +		local_irq_restore(flags);
+> +		if (hv_result(status) !=3D HV_STATUS_INSUFFICIENT_MEMORY) {
+> +			if (hv_result_success(status))
+> +				break;
+
+If this "break" is taken, "ret" may be uninitialized and the return value i=
+s
+stack garbage. This bug was also in v5 and I didn't notice it in my
+previous review.
+
+> +			return hv_result_to_errno(status);
+> +		}
+> +
+> +		ret =3D hv_call_deposit_pages(NUMA_NO_NODE,
+> +					    hv_current_partition_id, 1);
+> +		if (ret)
+> +			return ret;
+> +	} while (!ret);
+> +
+> +	*addr =3D page_address(pfn_to_page(pfn));
+> +
+> +	return ret;
+> +}
+> +
+> +int hv_call_unmap_stat_page(enum hv_stats_object_type type,
+> +			    const union hv_stats_object_identity *identity)
+> +{
+> +	unsigned long flags;
+> +	struct hv_input_unmap_stats_page *input;
+> +	u64 status;
+> +
+> +	local_irq_save(flags);
+> +	input =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
+> +
+> +	memset(input, 0, sizeof(*input));
+> +	input->type =3D type;
+> +	input->identity =3D *identity;
+> +
+> +	status =3D hv_do_hypercall(HVCALL_UNMAP_STATS_PAGE, input, NULL);
+> +	local_irq_restore(flags);
+> +
+> +	return hv_result_to_errno(status);
+> +}
+> +
+> +int hv_call_modify_spa_host_access(u64 partition_id, struct page **pages=
+,
+> +				   u64 page_struct_count, u32 host_access,
+> +				   u32 flags, u8 acquire)
+> +{
+> +	struct hv_input_modify_sparse_spa_page_host_access *input_page;
+> +	u64 status;
+> +	int done =3D 0;
+> +	unsigned long irq_flags, large_shift =3D 0;
+> +	u64 page_count =3D page_struct_count;
+> +	u16 code =3D acquire ? HVCALL_ACQUIRE_SPARSE_SPA_PAGE_HOST_ACCESS :
+> +			     HVCALL_RELEASE_SPARSE_SPA_PAGE_HOST_ACCESS;
+> +
+> +	if (page_count =3D=3D 0)
+> +		return -EINVAL;
+> +
+> +	if (flags & HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE) {
+> +		if (!HV_PAGE_COUNT_2M_ALIGNED(page_count))
+> +			return -EINVAL;
+> +		large_shift =3D HV_HYP_LARGE_PAGE_SHIFT - HV_HYP_PAGE_SHIFT;
+> +		page_count >>=3D large_shift;
+> +	}
+> +
+> +	while (done < page_count) {
+> +		ulong i, completed, remain =3D page_count - done;
+> +		int rep_count =3D min(remain,
+> +				HV_MODIFY_SPARSE_SPA_PAGE_HOST_ACCESS_MAX_PAGE_COUNT);
+> +
+> +		local_irq_save(irq_flags);
+> +		input_page =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
+> +
+> +		memset(input_page, 0, sizeof(*input_page));
+> +		/* Only set the partition id if you are making the pages
+> +		 * exclusive
+> +		 */
+> +		if (flags & HV_MODIFY_SPA_PAGE_HOST_ACCESS_MAKE_EXCLUSIVE)
+> +			input_page->partition_id =3D partition_id;
+> +		input_page->flags =3D flags;
+> +		input_page->host_access =3D host_access;
+> +
+> +		for (i =3D 0; i < rep_count; i++) {
+> +			u64 index =3D (done + i) << large_shift;
+> +
+> +			if (index >=3D page_struct_count)
+> +				return -EINVAL;
+> +
+> +			input_page->spa_page_list[i] =3D
+> +						page_to_pfn(pages[index]);
+> +		}
+> +
+> +		status =3D hv_do_rep_hypercall(code, rep_count, 0, input_page,
+> +					     NULL);
+> +		local_irq_restore(irq_flags);
+> +
+> +		completed =3D hv_repcomp(status);
+> +
+> +		if (!hv_result_success(status))
+> +			return hv_result_to_errno(status);
+> +
+> +		done +=3D completed;
+> +	}
+> +
+> +	return 0;
+> +}
+
+Stopping here because that's where I stopped in Part 1 of my v5 review
+of this patch.
+
+Michael
 
