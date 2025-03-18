@@ -4,56 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DF2C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F73CC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iNe/0RWbQacivjz70zQH+VnaP0nkNic13oVHlfxMdAk=; b=kX8gNrMimn/00D
-	eENMrEAqWKDpgsuHaPUdb4eBM8dsNKfq5YsecKsqHj24C5wn3rqHAMlZtsPHtJBjyWzKRuR1YAP4g
-	ztr+k9A4oGopKL9/4Ix7ezHSbvHK127IC6qGyx7EF3Ppcl5eqPOxK7OBN0OnXiETLZrGt4nwjSyHQ
-	5ROyIT7VFs3OidvCEcWs6qEC2cghB16BeFj06dAyVOR3TRb+EVJoHdYjxUtEKYb+QkI/aT3VdWrRi
-	JzJF9iJVVajTNtpITx8RV3fIlpPYOEdMdA+zY6u4qJMCArVrQN87Msh2IdP5eRvjFibWrkUVjxMyk
-	DKG+E2SKu4bLTrSqmncg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qkVrUy7dh9MWqjeRA1kzGCzqyCmmuRbOfHYZ5gEfZu8=; b=SakBvTdpGopZ3jGJ/PMHVnYhmM
+	tTAOi723touqlMKP0fAuK3tGzK/WlG4IjHgTnrgO2m8woiqqsmHKGmG+i/3oIXq9E3hl/EDwL4BHs
+	KZsXt/7+YXr0+fKCq2XaTxSowwZRiKxDZ/bORz4e0Qk9nhzgFKyk5k+dwNRSxNAjvPGfTaY+x0xmY
+	Ev0Ho+e3TGTKmTbLUIIPnskgKWofjH+8S1J470MdR9QGPqnr0RlsosqY+2vjIQUwlY4tmQ1Wb41Xt
+	gWpsIBMScfRSCQmgfibm6Vb85uH65nnGnuog5yMAZQTEQTMHWlc81oeTzmeClhYXMh6rhoxxbfI92
+	ATwfx6zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVQz-00000005mGi-0ssR;
-	Tue, 18 Mar 2025 11:48:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuVSe-00000005mag-10zi;
+	Tue, 18 Mar 2025 11:50:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVOh-00000005lma-1WcU;
-	Tue, 18 Mar 2025 11:46:16 +0000
+	id 1tuVOk-00000005ln2-0hO8;
+	Tue, 18 Mar 2025 11:46:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1829EA48E7A;
-	Tue, 18 Mar 2025 11:40:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF1F5C4CEEF;
-	Tue, 18 Mar 2025 11:46:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 689DB5C57EF;
+	Tue, 18 Mar 2025 11:44:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84918C4CEDD;
+	Tue, 18 Mar 2025 11:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742298374;
-	bh=Wbt+cMfNuda8a8GObInFe/jXMq6FMLgwE5BGIkGdW8w=;
-	h=From:Subject:Date:To:Cc:From;
-	b=FyRRBtiy3eE2pXRRsGVl2QciJzEzUqLf77qlVZGsB6PS5eu2gTI+cmjziqBaBW75A
-	 9x6Z7ZlmUYcNaBSvTwRyWMu145OWD03vb77HTd0z0pzSpeFs8iyM1LQeaTxmFQJ7Bp
-	 VtReMp70OIErmAC5XUueVATCgOFx1Fg/WxOrCmmI248/4H/PgfE3XAjsVZFz/o6GmW
-	 qtuX3GFdPRBU7ZJuh7YmUlo44G5z/IqBrp74u3Ssa6hqsReW4kPbvs/kaeoJeRYN3f
-	 NhJXRNrY93/UAhAzDXGAXkcBm153I7ThToQZcF9oZoLUbziJxfV+lU/SCVVP9ShRyt
-	 rc041qQICrxoQ==
+	s=k20201202; t=1742298377;
+	bh=5bdfNHNW+EoJKgsImeaU1ELqKAI9RB+ut6VPZYTxSaY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dnJg0tI1RHrQUFNIGYqSCDRHEBb8kmU7NXfRpd1yHY9RldMoknRO9txFvGJBrm+9i
+	 U3S+wYU6zSEdA6IPrFFPhhLncMYbInYbUgniDhnCLbf7AlmNeyGEKEJ9OfYE7ZQ9M4
+	 AdkpRg3WrFBLDqRysfPleQYCb/72T6oKw4BvquInKFv6V/GlfrwB1kDD7dLuJjA3KE
+	 Hpz19NKbDM+GG8yGABbbUcxo7bsp2fK1ciHG4vM3L8w8O9d7Rh8HLW8fg+533V9oDL
+	 An687yny/E9ghZ84OHVGAIdRgEzE1DIjlYukf7YcbSBJMB66p85UyBd4yJp+RjCPW3
+	 EQ+wZtMZOUWYw==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next v2 0/7] net: xdp: Add missing metadata support for
- some xdp drvs
-Date: Tue, 18 Mar 2025 12:46:04 +0100
-Message-Id: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
+Date: Tue, 18 Mar 2025 12:46:05 +0100
+Subject: [PATCH net-next v2 1/7] net: mvneta: Add metadata support for xdp
+ mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPxc2WcC/2WNyw7CIBREf6W5azE8qhZX/ofpgsClJVpooCE1D
- f8ubeLK3ZxJ5swGCaPDBPdmg4jZJRd8BX5qQI/KD0icqQyc8gsVjJIpe1wUWc1Mpj0IpEZ1aNt
- WdlBXc0Tr1sP47CuPLi0hfo6DzPb252J/rswIJeKqLdNS3iTFxwujx/c5xAH6UsoXJkY/La8AA
- AA=
-X-Change-ID: 20250310-mvneta-xdp-meta-3e0da8ef4498
+Message-Id: <20250318-mvneta-xdp-meta-v2-1-b6075778f61f@kernel.org>
+References: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
+In-Reply-To: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
 To: Marcin Wojtas <marcin.s.wojtas@gmail.com>, 
  Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -80,9 +77,8 @@ Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
  Michal Kubiak <michal.kubiak@intel.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_044615_536502_2E058CA4 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250318_044618_290771_DCF44EAA 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,42 +93,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce missing metadata support for some xdp drivers setting metadata
-size building the skb from xdp_buff.
-Please note most of the drivers are just compile tested.
+Set metadata size building the skb from xdp_buff in mvneta driver
+mvneta sets xdp headroom to:
 
+MVNETA_MH_SIZE + MVNETA_SKB_HEADROOM
+
+where
+
+MVNETA_MH_SIZE 2
+MVNETA_SKB_HEADROOM max(NET_SKB_PAD, XDP_PACKET_HEADROOM)
+
+so the headroom is large enough to contain xdp_frame and xdp metadata.
+
+Reviewed-by: Michal Kubiak <michal.kubiak@intel.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v2:
-- Improve commit logs for each patch specifying xdp headroom size for
-  each modified driver.
-- Link to v1: https://lore.kernel.org/r/20250311-mvneta-xdp-meta-v1-0-36cf1c99790e@kernel.org
+ drivers/net/ethernet/marvell/mvneta.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
----
-Lorenzo Bianconi (7):
-      net: mvneta: Add metadata support for xdp mode
-      net: mvpp2: Add metadata support for xdp mode
-      net: netsec: Add metadata support for xdp mode
-      net: octeontx2: Add metadata support for xdp mode
-      net: ethernet: mediatek: Add metadata support for xdp mode
-      net: mana: Add metadata support for xdp mode
-      net: ti: cpsw: Add metadata support for xdp mode
+diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
+index 44b18c57390927e37eac267632cace656bb5526e..147571fdada378e430fd96f2fb4a7e7870b784a2 100644
+--- a/drivers/net/ethernet/marvell/mvneta.c
++++ b/drivers/net/ethernet/marvell/mvneta.c
+@@ -2342,7 +2342,7 @@ mvneta_swbm_rx_frame(struct mvneta_port *pp,
+ 	prefetch(data);
+ 	xdp_buff_clear_frags_flag(xdp);
+ 	xdp_prepare_buff(xdp, data, pp->rx_offset_correction + MVNETA_MH_SIZE,
+-			 data_len, false);
++			 data_len, true);
+ }
+ 
+ static void
+@@ -2396,6 +2396,7 @@ mvneta_swbm_build_skb(struct mvneta_port *pp, struct page_pool *pool,
+ 		      struct xdp_buff *xdp, u32 desc_status)
+ {
+ 	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
++	u32 metasize = xdp->data - xdp->data_meta;
+ 	struct sk_buff *skb;
+ 	u8 num_frags;
+ 
+@@ -2410,6 +2411,8 @@ mvneta_swbm_build_skb(struct mvneta_port *pp, struct page_pool *pool,
+ 
+ 	skb_reserve(skb, xdp->data - xdp->data_hard_start);
+ 	skb_put(skb, xdp->data_end - xdp->data);
++	if (metasize)
++		skb_metadata_set(skb, metasize);
+ 	skb->ip_summed = mvneta_rx_csum(pp, desc_status);
+ 
+ 	if (unlikely(xdp_buff_has_frags(xdp)))
 
- drivers/net/ethernet/marvell/mvneta.c                  |  5 ++++-
- drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c        |  8 ++++++--
- drivers/net/ethernet/marvell/octeontx2/nic/otx2_txrx.c | 13 +++++++++----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c            |  7 +++++--
- drivers/net/ethernet/microsoft/mana/mana_bpf.c         |  2 +-
- drivers/net/ethernet/microsoft/mana/mana_en.c          |  4 ++++
- drivers/net/ethernet/socionext/netsec.c                |  7 +++++--
- drivers/net/ethernet/ti/cpsw.c                         |  6 +++++-
- drivers/net/ethernet/ti/cpsw_new.c                     |  6 +++++-
- 9 files changed, 44 insertions(+), 14 deletions(-)
----
-base-commit: aedfbe251e1c56034cb6ffd87eabe5895b31ae5d
-change-id: 20250310-mvneta-xdp-meta-3e0da8ef4498
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.48.1
 
 
