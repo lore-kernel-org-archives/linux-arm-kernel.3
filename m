@@ -4,111 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645D4C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 19:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A28C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 19:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWrzL4QCwly4FbSY6qr6pJ3hXey8TEcbQifZmKoT680=; b=lPFEK5eQIn2vBD7Ys1hdisM7Uj
-	1+UKcu17wU0PAet0IBl45xqG3rlZRNZNuUkVD/aZQRwLY3ot3onfxaU51NppGs9wU0C0aasPAaarb
-	n5crMTRpAn5JxZTfBj8WFVC2vxlAHL8MNbpNJGZs7PcCAzNMNiwESoDeJnslN27z8v5nYsHUvn3O2
-	vyQhSNPhJtrZlge6+PN0/9uSssRDxcBORD3SwaTNLUEnwOcwAnKd8kbC6fZ1yl2QPYpRws3theDEl
-	JujW8YALIFESl9Tnwd1RLGkh62zfOCmpyyudzONPR8rXoj3DgLKO53QF6NHmYELxcXqVwC/Zk3/vs
-	hqetpKEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D/T920A32rbyZA6cdVFBZ76jV2OTCg7TneFl2r+1b4g=; b=Q8YSV9ouILKMg/t8RK0f86e3pu
+	500S6attHY8ZJUfx5XVVSshoE/ZWOP0x9FLsJxbKOiuT3v9XHYJukvWt4agWoueUldYgFzhsywiC6
+	hoYZGOO3II3ZZM/OlO728ftwYB7nGtzUzMwVC6grqvZlc2iG0H98h9C+uOWIAwWWtHtlH3+rR/8dQ
+	nB+8wH4EgXuIDPUg+88Pd6YeG6Iw18SJQ+pFWyZ5zQBwT7Ttrdw+B3hJM+ZL9+CM97XtCdBE6pAxP
+	fdX3aoaEzPnp9Sj/GxPGF06fR/DKyKnz4g64BB0E6vuFBxoP371gYlihlg2IhCogb6rR179HntNnI
+	EPOaY1iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tucZD-00000006ukO-3dE5;
-	Tue, 18 Mar 2025 19:25:35 +0000
+	id 1tuccs-00000006vNH-2iER;
+	Tue, 18 Mar 2025 19:29:22 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tucXX-00000006uas-3kIx
+	id 1tucbB-00000006v9k-1vy0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 19:23:53 +0000
+	Tue, 18 Mar 2025 19:27:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 76AF25C00DE;
-	Tue, 18 Mar 2025 19:21:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21CCBC4CEDD;
-	Tue, 18 Mar 2025 19:23:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742325831;
-	bh=aEaSGfzM9ylAw097c2HqkTs7HwbH+PzXcdB1WlxBoug=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=f3eJiPil8JHds6pfyZPMkQujCckTxMnqcqWu3Ld1+OJBYSUnSQoMvn7KzMMpzWPaP
-	 JHSoURDgjzi5BUwvhFkrp20XiTb50Rlc+Nx2KGKl1YVr7qDXfjW9KwSCbouP+nlRnO
-	 Ezd9BEEu+0R7Na2lsBPnjMEqHFsxF77R7q12LLW+YLO3QM2giHCA690qgRtzX8NcZl
-	 OSo6gVCNt3ydw0UFafxSZ8BYNWAeLxsYU1u1Y4nfAQ01wWSXrCHPdcIHn9TlXNL8oH
-	 ICKRcUlAHZ1kaLBicWT4eiVRFsz4YeEcPD7v5aZ2CaRbXY+uJL2BDVlkFhYf6K9p81
-	 AP702Jzq34oVg==
-Message-ID: <801a9754-cd57-42c6-9569-16d9a99bfed9@kernel.org>
-Date: Tue, 18 Mar 2025 20:23:44 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTP id E5CD45C4365;
+	Tue, 18 Mar 2025 19:25:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8352C4CEEE;
+	Tue, 18 Mar 2025 19:27:29 +0000 (UTC)
+Date: Tue, 18 Mar 2025 19:27:27 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Marc Zyngier <maz@kernel.org>, Ankit Agrawal <ankita@nvidia.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"seanjc@google.com" <seanjc@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <Z9nJH38Em9XEx3U7@arm.com>
+References: <861pv5p0c3.wl-maz@kernel.org>
+ <SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <86r033olwv.wl-maz@kernel.org>
+ <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <87tt7y7j6r.wl-maz@kernel.org>
+ <SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <8634fcnh0n.wl-maz@kernel.org>
+ <Z9h98RhunemcFhhz@arm.com>
+ <86wmcmn0dp.wl-maz@kernel.org>
+ <20250318125527.GP9311@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] firmware: exynos-acpm: convert to dev_err_probe() in
- client API
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org>
- <20250314-acpm-fixes-v1-3-ab03ca8e723f@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250314-acpm-fixes-v1-3-ab03ca8e723f@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250318125527.GP9311@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_122352_030170_0B50242A 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20250318_122737_579755_4609F2C3 
+X-CRM114-Status: GOOD (  32.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,41 +104,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2025 17:40, André Draszik wrote:
-> dev_err_probe() exists to simplify code and unify error messages by
-> using its message template.
+On Tue, Mar 18, 2025 at 09:55:27AM -0300, Jason Gunthorpe wrote:
+> On Tue, Mar 18, 2025 at 09:39:30AM +0000, Marc Zyngier wrote:
+> > The memslot must also be created with a new flag ((2c) in the taxonomy
+> > above) that carries the "Please map VM_PFNMAP VMAs as cacheable". This
+> > flag is only allowed if (1) is valid.
+> > 
+> > This results in the following behaviours:
+> > 
+> > - If the VMM creates the memslot with the cacheable attribute without
+> >   (1) being advertised, we fail.
+> > 
+> > - If the VMM creates the memslot without the cacheable attribute, we
+> >   map as NC, as it is today.
 > 
-> Convert the remaining dev_err() in acpm_get_by_phandle() to
-> dev_err_probe().
+> Is that OK though?
 > 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
->  drivers/firmware/samsung/exynos-acpm.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
+> Now we have the MM page tables mapping this memory as cachable but KVM
+> and the guest is accessing it as non-cached.
+
+I don't think we should allow this.
+
+> I thought ARM tried hard to avoid creating such mismatches? This is
+> why the pgprot flags were used to drive this, not an opt-in flag. To
+> prevent userspace from forcing a mismatch.
+
+We have the vma->vm_page_prot when the memslot is added, so we could use
+this instead of additional KVM flags. If it's Normal Cacheable and the
+platform does not support FWB, reject it. If the prot bits say
+cacheable, it means that the driver was ok with such mapping. Some extra
+checks for !MTE or MTE_PERM.
+
+As additional safety, we could check this again in user_mem_abort() in
+case the driver played with the vm_page_prot field in the meantime (e.g.
+in the .fault() callback).
+
+I'm not particularly keen on using the vm_page_prot but we probably need
+to do this anyway to avoid aliases as we can't fully trust the VMM. The
+alternative is a VM_* flag that says "cacheable everywhere" and we avoid
+the low-level attributes checking.
+
+> > What this doesn't do is *automatically* decide for the VMM what
+> > attributes to use. The VMM must know what it is doing, and only
+> > provide the memslot flag when appropriate. Doing otherwise may eat
+> > your data and/or take the machine down (cacheable mapping on a device
+> > can be great fun).
 > 
-> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-> index 48f1e3cacaa709ae703115169df138b659ddae44..03f907a95c6acd66d89cd8af2f52e7c6dadf492a 100644
-> --- a/drivers/firmware/samsung/exynos-acpm.c
-> +++ b/drivers/firmware/samsung/exynos-acpm.c
-> @@ -701,12 +701,14 @@ static const struct acpm_handle *acpm_get_by_phandle(struct device *dev,
->  
->  	link = device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUPPLIER);
->  	if (!link) {
-> -		dev_err(&pdev->dev,
-> -			"Failed to create device link to consumer %s.\n",
-> -			dev_name(dev));
-> +		int ret = -EINVAL;
-> +
-> +		dev_err_probe(&pdev->dev, ret,
-> +			      "Failed to create device link to consumer %s.\n",
-> +			      dev_name(dev));
+> Again, this is why we followed the VMA flags. The thing creating the
+> VMA already made this safety determination when it set pgprot
+> cachable. We should not allow KVM to randomly make any PGPROT
+> cachable!
 
-I do not see how it is simpler. Three lines (statement) is now 5 lines
-with two statements.
+Can this be moved to kvm_arch_prepare_memory_region() and maybe an
+additional check in user_mem_abort()?
 
-What's more important, dev_err_probe is supposed to be used only in
-probe context, while this could be called in other contexts.
+Thinking some more about a KVM capability that the VMM can check, I'm
+not sure what it can do with this. The VMM simply maps something from a
+device and cannot probe the cacheability - that's a property of the
+device that's not usually exposed to user by the driver. The VMM just
+passes this vma to KVM. As with the Normal NC, we tried to avoid
+building device knowledge into the VMM (and ended up with
+VM_ALLOW_ANY_UNCACHED since the VFIO driver did not allow such user
+mapping and probably wasn't entirely safe either).
 
-Best regards,
-Krzysztof
+I assume with the cacheable pfn mapping, the whole range covered by the
+vma is entirely safe to be mapped as such in user space.
+
+-- 
+Catalin
 
