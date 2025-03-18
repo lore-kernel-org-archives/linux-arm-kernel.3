@@ -4,56 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F626C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 22:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8827CC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 22:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kV2dCWqh30wK5eomOYuM1ivS9aep8Oxf9tocWiaMXy4=; b=ToQYPBqtpDG62SmU5lJsMHT4e2
-	CUvEeYkJrxdNAf2oZ4p8iARZTptj/LmfEHZz2fNUqoTlN0JGlvwzAnD2z+B+TzkMWoVXs/aAcb2PG
-	IQUezjea5g5yGHzUh0TyNm6Nr4Zg8uWWiiAZgTE9VOKMbUE3MY8UOUcr4wgEctO5WE/7TkxsH+v4O
-	tzp+xAl/9iJ7rSBt/OqbjwpuT6HDUDLIanqfGvdlJ14uBHfWtF+oNWHn/pNZzmHNFXBEO32tVQmlW
-	KwUwP3gIH0KfZX/ReDGmcC38G0BXbvLRecYeMhb9dm+XCnlIs3UGbfCYrmF9jrwWshuqsLumEiZmI
-	I/YrdU8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ov5qJaVEuCCVtw6x3/0UOGURayPaMzelE4ZiNKhZLFg=; b=0AKTZJ3+cq0Kx4bwXas3imXlaQ
+	Bl+KYe7+My1wKpW3CDKiTwhfS8eT4MVfSIvPQAr9GB9kWiHWElEqyh/vk8mNcBfEtbTdbpMCmNJxA
+	PyAY+t3E+pxZ77AkaqLFt0LRzjicRS3yOQsaZ1W8cdUYnUu1JJ+PrEnKEoGD8zY46kSyPoTlL0Tt8
+	bUSIsrAr7nRFWGElQUkMlqEOL7yiplPOnh0cBlxSSxSawjVpqjS2Sd3SE3Z/upxV8tBbpSbx7cekB
+	StMCP7OAwqrERLMxzfFFPEA4T5YDEiq5OZWobrAt6jvGm4qFqqXLmGOL2C+n3kiJf7laUT74ckLBk
+	CAfyA6/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tufnF-00000007I6W-2vHH;
-	Tue, 18 Mar 2025 22:52:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tufu2-00000007IsX-3L2M;
+	Tue, 18 Mar 2025 22:59:18 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tufla-00000007HqP-1eat
+	id 1tufsM-00000007IkL-0DZo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 22:50:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3011615BB;
-	Tue, 18 Mar 2025 22:50:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 601FBC4CEE9;
-	Tue, 18 Mar 2025 22:50:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742338233;
-	bh=c4bsVe+5uL9D6uBKzHJO71coGq992rq3ehHjhbm4ZO4=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=TxRsJ2Nwag6309asbOZC3fzbTIIkz6FiBRP5612KDJkVMfcmjUHRFhiHSoGe63NzB
-	 QnSrAHR5WTT6/rOSny96TnP0KVrS7HKtcABULGkvLuzBdwT9uzPxJFZ1kgI3SIFY+l
-	 B/pfSUjPIHl+ZKU6IdwM+Ly/o0bZoAJKtwH5l21igPdgXR2NLP1B1+G633bGdCas3a
-	 +I4DYgOhHcSFrKWf7TZYKXZ39Woimk6n9VsO46V2APqdm37McEA8Mv1tM/FX5Qz90d
-	 lzsquBJaVkX5O5WB/gBHf/qFK5Y4Z3imxIXMpmIJq3fIHDjm8AXkAEoIlPE1cb5nIp
-	 MeB2r2YbGnUsw==
-Message-ID: <ef86ccad056bc03af7f01d5696787766.sboyd@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	Tue, 18 Mar 2025 22:57:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742338654; x=1773874654;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Ab0mjpny9YV3cDgaOEiBxiCSt5kA5wyfbzdqOnZMbfM=;
+  b=FSAwpcmj4eb5CWQU8i7yxwJnHdNC78dhpt9GDChvPQYYB9YH3W3WLh/g
+   rXqSLtArNQRS8LU0nm8mOvUDCh4SCMiZcx0ixLsnuTnRswVKqCcAj3Wn3
+   BtF02izob3iUugDJiVP6FWrh1pLh1kecopvhxKOUn4760oICbHbTdS4OU
+   8l3If+1Nmy7v0Dh4rmkPXGDEaY5iwnAych8hU+doK1lnFexA2EHoBaGou
+   kIj1tP3OwTtyN3gkdPc0m92eDeE15u1jZUGkDVgREMS2agHaUQqr4MzvY
+   jw1w/9QqdJ6bR7ZDlgUr9QVA6yg1WHquD4DM5j7wVVKwjuBIa+0sZIA0Q
+   Q==;
+X-CSE-ConnectionGUID: Z1OrkMGQTi2470ywXpMfEA==
+X-CSE-MsgGUID: iYK412WnSOqArf90XqDRSQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11377"; a="60899297"
+X-IronPort-AV: E=Sophos;i="6.14,258,1736841600"; 
+   d="scan'208";a="60899297"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2025 15:57:29 -0700
+X-CSE-ConnectionGUID: LkmWyGn/TXCsM8/yBE1esg==
+X-CSE-MsgGUID: jjNBGmTXT6Cr8oaTnsh5vw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,258,1736841600"; 
+   d="scan'208";a="159556524"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 18 Mar 2025 15:57:25 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tufs6-000EE2-2N;
+	Tue, 18 Mar 2025 22:57:19 +0000
+Date: Wed, 19 Mar 2025 06:56:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Peter Hilber <quic_philber@quicinc.com>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowang@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev, Trilok Soni <quic_tsoni@quicinc.com>,
+	Peter Hilber <quic_philber@quicinc.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
+	netdev@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
+	"Ridoux, Julien" <ridouxj@amazon.com>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Parav Pandit <parav@nvidia.com>,
+	Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
+	Cornelia Huck <cohuck@redhat.com>, Simon Horman <horms@kernel.org>,
+	virtio-dev@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 2/4] virtio_rtc: Add PTP clocks
+Message-ID: <202503190602.IElWB74j-lkp@intel.com>
+References: <20250313173707.1492-3-quic_philber@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <65gl7d6qd55xrdm3as3pnqevpmakin3k4jzyocehq7wq7565jj@x35t2inlykop>
-References: <20250313110359.242491-1-quic_mmanikan@quicinc.com> <20250313110359.242491-5-quic_mmanikan@quicinc.com> <65gl7d6qd55xrdm3as3pnqevpmakin3k4jzyocehq7wq7565jj@x35t2inlykop>
-Subject: Re: [PATCH v12 4/6] clk: qcom: Add NSS clock Controller driver for IPQ9574
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: andersson@kernel.org, mturquette@baylibre.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org, catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de, richardcochran@gmail.com, geert+renesas@glider.be, lumag@kernel.org, heiko@sntech.de, biju.das.jz@bp.renesas.com, quic_tdas@quicinc.com, nfraprado@collabora.com, elinor.montmasson@savoirfairelinux.com, ross.burton@arm.com, javier.carrasco@wolfvision.net, ebiggers@google.com, quic_anusha@quicinc.com, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, quic_varada@quicinc.com, quic_srichara@quicinc.com
-To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, Marek =?utf-8?q?Beh=C3=BAn?= <kabel@kernel.org>
-Date: Tue, 18 Mar 2025 15:50:31 -0700
-User-Agent: alot/0.12.dev8+g17a99a841c4b
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250313173707.1492-3-quic_philber@quicinc.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250318_155734_165942_EEF9AA2F 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,54 +102,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Marek Beh=C3=BAn (2025-03-17 07:08:16)
-> On Thu, Mar 13, 2025 at 04:33:57PM +0530, Manikanta Mylavarapu wrote:
->=20
-> > +static struct clk_rcg2 nss_cc_clc_clk_src =3D {
-> > +     .cmd_rcgr =3D 0x28604,
-> > +     .mnd_width =3D 0,
-> > +     .hid_width =3D 5,
-> > +     .parent_map =3D nss_cc_parent_map_6,
-> > +     .freq_tbl =3D ftbl_nss_cc_clc_clk_src,
-> > +     .clkr.hw.init =3D &(const struct clk_init_data) {
-> > +             .name =3D "nss_cc_clc_clk_src",
-> > +             .parent_data =3D nss_cc_parent_data_6,
-> > +             .num_parents =3D ARRAY_SIZE(nss_cc_parent_data_6),
-> > +             .ops =3D &clk_rcg2_ops,
-> > +     },
-> > +};
->=20
-> This structure definition gets repeated many times in this driver,
-> with only slight changes. (This also happens in other qualcomm clock
-> drivers.)
->=20
-> Would it be possible to refactor it into a macro, to avoid the
-> insane code repetition?
->=20
+Hi Peter,
 
-We have this discussion every couple years or so. The short answer is
-no. The long answer is that it makes it harder to read because we don't
-know what argument to the macro corresponds to the struct members.
+kernel test robot noticed the following build warnings:
 
-It could probably use the CLK_HW_INIT_PARENTS_DATA macro though.
+[auto build test WARNING on 9d8960672d63db4b3b04542f5622748b345c637a]
 
-static struct clk_rcg2 nss_cc_clc_clk_src =3D {
-     .cmd_rcgr =3D 0x28604,
-     .mnd_width =3D 0,
-     .hid_width =3D 5,
-     .parent_map =3D nss_cc_parent_map_6,
-     .freq_tbl =3D ftbl_nss_cc_clc_clk_src,
-     .clkr.hw.init =3D CLK_HW_INIT_PARENTS_DATA("nss_cc_clc_clk_src",
-                                              nss_cc_parent_data_6,
-					      &clk_rcg2_ops, 0),
-     },
-};
+url:    https://github.com/intel-lab-lkp/linux/commits/Peter-Hilber/virtio_rtc-Add-module-and-driver-core/20250314-014130
+base:   9d8960672d63db4b3b04542f5622748b345c637a
+patch link:    https://lore.kernel.org/r/20250313173707.1492-3-quic_philber%40quicinc.com
+patch subject: [PATCH v6 2/4] virtio_rtc: Add PTP clocks
+config: sparc-allyesconfig (https://download.01.org/0day-ci/archive/20250319/202503190602.IElWB74j-lkp@intel.com/config)
+compiler: sparc64-linux-gcc (GCC) 7.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250319/202503190602.IElWB74j-lkp@intel.com/reproduce)
 
-but then we lose the const. Oh well.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503190602.IElWB74j-lkp@intel.com/
 
-The whole qcom clk driver probably needs an overhaul to just have
-descriptors that populate a bunch of clks that are allocated at probe
-time so that the memory footprint is smaller if you have multiple clk
-drivers loaded and so that we can probe the driver again without
-unloading the whole kernel module.
+All warnings (new ones prefixed by >>):
+
+   drivers/virtio/virtio_rtc_driver.c: In function 'viortc_probe':
+>> drivers/virtio/virtio_rtc_driver.c:665:23: warning: '/variant ' directive output may be truncated writing 9 bytes into a region of size between 6 and 15 [-Wformat-truncation=]
+       "Virtio PTP type %d/variant %d", clock_type,
+                          ^~~~~~~~~
+   drivers/virtio/virtio_rtc_driver.c:665:4: note: directive argument in the range [0, 2147483647]
+       "Virtio PTP type %d/variant %d", clock_type,
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/virtio/virtio_rtc_driver.c:664:2: note: 'snprintf' output between 28 and 46 bytes into a destination of size 32
+     snprintf(ptp_clock_name, PTP_CLOCK_NAME_LEN,
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       "Virtio PTP type %d/variant %d", clock_type,
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       leap_second_smearing);
+       ~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +665 drivers/virtio/virtio_rtc_driver.c
+
+   641	
+   642	/*
+   643	 * init, deinit
+   644	 */
+   645	
+   646	/**
+   647	 * viortc_init_ptp_clock() - init and register PTP clock
+   648	 * @viortc: device data
+   649	 * @vio_clk_id: virtio_rtc clock id
+   650	 * @clock_type: virtio_rtc clock type
+   651	 * @leap_second_smearing: virtio_rtc leap second smearing
+   652	 *
+   653	 * Context: Process context.
+   654	 * Return: Positive if registered, zero if not supported by configuration,
+   655	 *         negative error code otherwise.
+   656	 */
+   657	static int viortc_init_ptp_clock(struct viortc_dev *viortc, u16 vio_clk_id,
+   658					 u8 clock_type, u8 leap_second_smearing)
+   659	{
+   660		struct device *dev = &viortc->vdev->dev;
+   661		char ptp_clock_name[PTP_CLOCK_NAME_LEN];
+   662		struct viortc_ptp_clock *vio_ptp;
+   663	
+   664		snprintf(ptp_clock_name, PTP_CLOCK_NAME_LEN,
+ > 665			 "Virtio PTP type %d/variant %d", clock_type,
+   666			 leap_second_smearing);
+   667	
+   668		vio_ptp = viortc_ptp_register(viortc, dev, vio_clk_id, ptp_clock_name);
+   669		if (IS_ERR(vio_ptp)) {
+   670			dev_err(dev, "failed to register PTP clock '%s'\n",
+   671				ptp_clock_name);
+   672			return PTR_ERR(vio_ptp);
+   673		}
+   674	
+   675		viortc->clocks_to_unregister[vio_clk_id] = vio_ptp;
+   676	
+   677		return !!vio_ptp;
+   678	}
+   679	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
