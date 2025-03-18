@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545B8C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 07:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8234CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 07:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/rZQhCoWbIUnKu/sFgaZ71o4glu3cDnYRCu8bXWw6MM=; b=FhuBz7bfX1/Fpf+fXcS8FENQSb
-	mqdGsYe+Ln8nPTbHGMJzaNk9pFq336lzJvQXhVCzxXgxIXkf38Mc33FzBXUhYwsSbY55bh5WQCua+
-	67RBa1xVhGl9a/xhK+vytrGU4h66x6nodZMP28aC3D724tvO/oR8aeD7JZBPa7kUUfZoVVX/YEnSa
-	vyowJ0b1ipoCwACprO0wIICK/rlAIRDHrlaFXUIBWqwrb5bNjlMxDdqQZuYn1wqqTVuTpL+n+XgPw
-	746FQLkXMOShR02uVKRFG5oRcwgOFmzK3uPn0vy1kQlHIsgy4zOQKuAxnhgQIc9drsZqRPGmf/Dza
-	o9dQaFJg==;
+	bh=jWrMS2E9QYXZY9pdhNCF0HOXXjsJMXuxwB3vzbSAhC8=; b=tahD5ReS85vi5h3LKUAIDO11D7
+	wEQyytiyCix07EaY1dztMjb5RlnMJYmBLzx6D8NJjUN1CYmFlw3rw1KRZ+SZRWc7+0L7fk4yLZRsL
+	eVgBIaiNB4nzRspCqt9pFDpZ/N33+GGRctluF7rurMrrO66rSN3kjagn47KD2Xo58exnTRMJJTH+9
+	hLzOz+GBs7PugLH8tDlsT/iRynf2oLcmpveaNVK1a9wLvCYOkPw/CZSemHE/k6vhj0UqzejH5OmuP
+	cpVxXrfS0Wl2D5tkOyejPfB0l7zvlcsOSqV3NOmQqJvosWoAaup9dr5im9f/4JDD5kqq0CbnzkcbQ
+	jaqdeF1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRDC-00000004ti3-3Gsi;
-	Tue, 18 Mar 2025 07:18:06 +0000
+	id 1tuRGU-00000004uJA-3lbp;
+	Tue, 18 Mar 2025 07:21:30 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRBW-00000004tVS-1xI0
+	id 1tuREo-00000004tu7-12LB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 07:16:23 +0000
+	Tue, 18 Mar 2025 07:19:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DFFCDA48C23;
-	Tue, 18 Mar 2025 07:10:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB8DEC4CEDD;
-	Tue, 18 Mar 2025 07:16:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C6B58A48C23;
+	Tue, 18 Mar 2025 07:14:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACE75C4CEDD;
+	Tue, 18 Mar 2025 07:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742282181;
-	bh=LU6JclCBLUaoQuSonflokixNYds3pgNH+xAd19ZpkQo=;
+	s=k20201202; t=1742282385;
+	bh=1XSF49bWXlA7q+fO9byqRvsu3JfBmcFWtJOPNETfSCg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=un2cPy5tA8UXpJPlo9ZW9Cl8TG4/P5SD9Ez8PghonDabkYBau6EBhmH0RdEwxa7CS
-	 7qBMvOGmly3ZcFJqA7ewEzr2V8cHex29IcLVN4DkMMInU7om33QkDt215gfCZaA1+V
-	 v1u8gRYTGlLtvfIAwPe3lugbtf2ZWc/6+4u8ry/g1idim3IXbvtPl1H3JP7LJCvg6y
-	 dN4A7oZWnRmV19CpVsG4Nr4uniLxpclrT3TFt3KSOBuHtx8kGbBnaERtAn0r3oyn/H
-	 oMa9fEdkLrur/Q0KP11GE1T0nJN0Nt+wLMudHuEgnQSSreGNrb2rahCKjE3LxD6joq
-	 3NF0P7W/bNhiA==
-Message-ID: <f2899540-f9ac-4013-a703-25800429f97d@kernel.org>
-Date: Tue, 18 Mar 2025 08:16:11 +0100
+	b=neBeT5paGNkLh1r/l/+1+SLHjjCpSLUdy7a8YIRGK3FgPOMEtGlx5WYTuoKsyGUGK
+	 77JBtNsKm0Sgx9V38qHl/OzFHFvG2RBpgqABbeol5XBkDriICXvc57UwBqOplm1Fve
+	 /hvVXuEtt1OUjhKi+WzbXT9M4h2JgsWrYl0vaE6BisFvYrFgE4r02jDDrKsS8a26yb
+	 B7g04DTZ3TOxy99oFn9KCnIxuySfT3yJG7ryLPCUn9gW7aQMrhAJ/Bjjf8CKPQTZ9+
+	 CeknKf3dkqRLDNR9SM4hqPkG6fb78v3UHW+A1qJnnFBJZx8OQelrmdFuK8LQNOApbM
+	 9i/3VXuqiDkBg==
+Message-ID: <658c00e2-e8ef-4997-bb91-9620e97bafae@kernel.org>
+Date: Tue, 18 Mar 2025 08:19:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] media: dt-bindings: Add qcom,qcs8300-camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>
-Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org,
- mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250214094747.2483058-1-quic_vikramsa@quicinc.com>
- <20250214094747.2483058-2-quic_vikramsa@quicinc.com>
- <20250223-observant-auspicious-basilisk-d78ba9@krzk-bin>
- <66c35bce-c657-4c12-ad02-58c995ae385a@quicinc.com>
+Subject: Re: [PATCH v2] watchdog: s3c2410_wdt: Fix PMU register bits for
+ ExynosAutoV920 SoC
+To: Sangwook Shin <sw617.shin@samsung.com>, alim.akhtar@samsung.com,
+ wim@linux-watchdog.org, linux@roeck-us.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Kyunghwan Seo <khwan.seo@samsung.com>
+References: <9c94a771-b3e6-4ba4-9b7f-dcd93b53f924@kernel.org>
+ <CGME20250318005143epcas2p40ebb1954bed8890aaf8d0a641f710423@epcas2p4.samsung.com>
+ <20250318004411.695786-1-sw617.shin@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <66c35bce-c657-4c12-ad02-58c995ae385a@quicinc.com>
+In-Reply-To: <20250318004411.695786-1-sw617.shin@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_001622_638123_A485A18D 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250318_001946_417870_F30AE3AA 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,32 +122,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2025 06:52, Vikram Sharma wrote:
+On 18/03/2025 01:44, Sangwook Shin wrote:
+> From: Kyunghwan Seo <khwan.seo@samsung.com>
 > 
-> On 2/23/2025 5:03 PM, Krzysztof Kozlowski wrote:
->> On Fri, Feb 14, 2025 at 03:17:46PM +0530, Vikram Sharma wrote:
->>> +properties:
->>> +  compatible:
->>> +    const: qcom,qcs8300-camss
->>> +
->>> +  reg:
->>> +    maxItems: 21
->>> +
->>> +  reg-names:
->>> +    items:
->>> +      - const: csid_wrapper
->> Why different order of entries than sm8550?
+> Fix the PMU register bits for the ExynosAutoV920 SoC.
+> This SoC has different bit information compared to its previous
+> version, ExynosAutoV9, and we have made the necessary adjustments.
 > 
-> Hi Krzysztof,
+> rst_stat_bit:
+>     - ExynosAutoV920 cl0 : 0
+>     - ExynosAutoV920 cl1 : 1
 > 
-> Thanks for your review.
-> I did this change to address a comment from Bryan on another series.
-> https://lore.kernel.org/linux-arm-msm/e152ff78-caa5-493a-88da-96a6670eb2a2@linaro.org/
+> cnt_en_bit:
+>     - ExynosAutoV920 cl0 : 8
+>     - ExynosAutoV920 cl1 : 8
 > 
-> Please suggest if I should keep the order same as sm8550?
-If you chosen the same order as x1e80100 then it is fine, but that file
-is not merged so it is your responsibility to track any differences and
-be sure whatever you send is always in sync with x1e.
+> Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
+> Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+> Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
+> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+> ---
+> v1 -> v2: Restore previous email history and tags.
+> 
+
+Why do you send patches which were applied?
 
 Best regards,
 Krzysztof
