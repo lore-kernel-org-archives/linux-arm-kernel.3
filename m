@@ -4,141 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC7EC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0BDC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 16:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RX5YGFbVgU4B7bQVgIXWTMqxSJNIzkC7ef+oNs3DsRY=; b=Iw7PAIwLgKzPKssP/Gxtbicazm
-	v2MBMgFKPPCY2ClohF48lKzxqfvKGZdxjLwR/nH+ti4/9yk8NH/53mDqLBjGaUlN9FhHFsEPfyR4e
-	JbLqE+8kJO7/Qy2vBemhXp1Gf/LkbWaWdgC0Rsw4Uv9A9kkp1EL1WvbzZuKhcO8xBp+KG12jF5E8M
-	lCcSHbzuCpT+0JJKQ/vGF+GtownpXaKjX7i8tcZv5QNxnMV5zFcbbB2SRRdS3u3rWBPi7WmBouBBG
-	dfeReYW5o6gSUFblBHzYphr2OhCgWoMUG4Us3AFF3rVWWIbGX44VNBz/YgcJ1laU5wBD6L5l6YTlm
-	pLOC+/fw==;
+	bh=pplgf49EeMY5aJzogCPpyLcjItxm5BZZyX/5W6kCRLU=; b=YBGlvPekwntJZaWLfCLOihshdR
+	7B33ytCrgqt8ZqTzeAsm209tW3F54V6HODiecLCe7/i3dTw2MvSEgvzkafCfq9f5T79NK7xDbXbzp
+	XKeAYmRJ33Ei6CdmsfAmNErS1nypZc1RoxPPfiToJ76ZoopJDHOzQzCVBbIPEGlWQreNetFHtngLu
+	2bjwUVc4yrV7ylaMPMk36Nqpg+RU4bqvpv4h/417m1rqrJ5Izs3aCli42vfkFbW4BVKH7t2md1ogB
+	dQPzOR0dMarGxKnxSIq3lWgW/FzdwdnaS8JuXV16hrvX/GdhggxIPcTnsRHXWQei48t1TK2+8Dnke
+	uGk9e1tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tua8b-00000006aoh-3tPY;
-	Tue, 18 Mar 2025 16:49:57 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tuaAH-00000006avg-0BIA;
+	Tue, 18 Mar 2025 16:51:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZwa-00000006Ykf-33v2
+	id 1tuZxm-00000006Z5g-2ZrM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 16:37:34 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3018c9c6b5fso3772967a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 09:37:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742315852; x=1742920652; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=RX5YGFbVgU4B7bQVgIXWTMqxSJNIzkC7ef+oNs3DsRY=;
-        b=N1agnaglKME2k5YVBfFamylGG2OKxqES+5js/ck9ise1HGI77hAEpDdPZ6uaWYoD8m
-         /4hjbkSHpN1aIXEPdmv4Cq1QbgJTmDkcQSB3Q18W060QvyJX1hNOM5YzCwndveGcbZCu
-         Knefgy/VQ7cq5CGu7SvN3fnIB+X5+p6GBMRGS0Aafha6iJKpo/H4CcnT3VJN0oDBTS9L
-         27xq3wz0rhZtDfZFwkJLNuyQ+/9ASCGC2jmmgL4kzAL82ausLr8XjayxfUKM5WYKtvpx
-         UxiqpvyJzCILBSwyIwxS04bhdpkO/qQAGbwkdKNoudQpKlQFTe6JL9noHP4sv9uzJynL
-         M6Ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742315852; x=1742920652;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RX5YGFbVgU4B7bQVgIXWTMqxSJNIzkC7ef+oNs3DsRY=;
-        b=sV29+4Cp1D6QJ0/3X2M+ESshnpwsbpEpob8+p7gNl7R2yePkTBQ2KRyfSyY/zqB8lJ
-         5D/Uu8HKxRQLyK1dUyU29WAlK5ubZxwosP1/b5NuNUKaWKK3Q95xgl305eNOMw1g3LKx
-         gwKghMqZLUsBS2Z7A8P/G1Vseg/DxyPWwBmdMoxdFHF3vemDaRAW29EPOcyJPNxYlIoY
-         F0ipQfGWOjI0wXi0g5rUFXXbC4kl1f7oQGUbBF+wgbKxUPfOL8Bv0Bzwhz0+SV9AePH8
-         W795Knxj6zLBCvKExnVwJTxsRjEceK6xTxmiDypxVWfFRjE7q/5u6FcnVUtB0m/3rErK
-         GzWg==
-X-Forwarded-Encrypted: i=1; AJvYcCUCnH0tlRdvOncuLPT8L+YtiRSy+TV7bEytUCezB2z+mXamsOHqwIXXR76UF6M5rTqZ+bBhuq49p+7LdEoqjXAK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXVtsQ26w0bn8foyE169+z/yEnILzqYEi5yAm/56kzGymvzXTo
-	Z9QAbJEGvGMxbNfg0+T3THS0wlP9CTuMz90tszxOUnZKQpbqL0Gv
-X-Gm-Gg: ASbGncux65wJFYYA8FjUUNwVYHT+TpWudSZomuYSIBdiL727NAoOyNant3WRi3pYL2R
-	YItoVhgQd7jurxGHUtJ1vuVwl7nqCDRrEEyGLca+WUmYxZ/im9BHo/WbOpsUS9iHdNYnMfJO1vl
-	NrkodaamqGYsLE0mR9hccZs4a1YG0BdBWOhakOJmAz19rHScm/VWlYzRSvi+Qcrm33N2nEl2LdM
-	DLmeyOlrBeJ4fmWmFStt1qkKbrr7aZRKUfWidVCTvY/HlXej40xhwVQqTEIJs84XXqBrAMmllYz
-	xBOthbI26tcqKfWKjwpvGqKUA9u0Wy+eP/eWwbxQzsOvWx8cQUyUcMW09vEg0ixBOZrwAlvzoNb
-	S6rEom4m+z0eryXJV1g==
-X-Google-Smtp-Source: AGHT+IEz2mE1n6qLna/bcwWtLqNzBsV58RfTXND5Fpx8ZSvD076I5rzelZDBeEfv4UsqUmvwKng7lw==
-X-Received: by 2002:a17:90b:1b47:b0:2ee:e113:815d with SMTP id 98e67ed59e1d1-301a5b14938mr4268197a91.8.1742315851830;
-        Tue, 18 Mar 2025 09:37:31 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30153532d7asm8443252a91.21.2025.03.18.09.37.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Mar 2025 09:37:31 -0700 (PDT)
-Message-ID: <ca734f66-593f-4e7c-bc76-e343a7eb88d7@roeck-us.net>
-Date: Tue, 18 Mar 2025 09:37:29 -0700
+	Tue, 18 Mar 2025 16:38:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B42F5C4351;
+	Tue, 18 Mar 2025 16:36:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F093C4CEDD;
+	Tue, 18 Mar 2025 16:38:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742315925;
+	bh=8AhF7NEi5ZxcJCJVdewacbeZc7Bx4GBTxdrQ9XQ2IBM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YtHD6qqO1I3quggwsnNgcFDxP+cUDkCIT3Z0Qj0vQao7fI6eb993XHouXI+n5JVIs
+	 HP/HfUE66+5l07c69/uKaYklw049D+4KJljxj4mLbOnVJ8kmnE9nRD5RfuclnljWZe
+	 sQLjVQD05Z0ctPJ430HOlHDKDhsBOH/imxwzkLpJQrTyh90wIK7TIRxPEpftds0kJ/
+	 wuSAMgZqqVtbnHf+9x9PIAdulPvgpxN4CMBMPZgOTQ1rOVRcsyz7ph+JzEYkUdahRN
+	 GQ6mTQpX6QnPcrv46pPZ7EwDtDKWL1QgO7uwFyQTIqRQoj3k9j0DsTZ1b4KvUZHff5
+	 xrP6qndco2MhQ==
+Message-ID: <8762dea1-3a0d-4bc8-aacd-fc8a2b5e2714@kernel.org>
+Date: Tue, 18 Mar 2025 17:38:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: hwmon: Add Microchip emc2305 support
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: florin.leotescu@oss.nxp.com, Jean Delvare <jdelvare@suse.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
- linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, viorel.suman@nxp.com, carlos.song@nxp.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>,
- Frank Li <Frank.Li@nxp.com>
-References: <20250318085444.3459380-1-florin.leotescu@oss.nxp.com>
- <20250318085444.3459380-2-florin.leotescu@oss.nxp.com>
- <7afcd224-1154-4e2f-b383-10f6a89fdae0@roeck-us.net>
- <CAEnQRZBmYdLh29ha1FKz8=CbxjFBFFTgDkjrEmwTxW2WcxodfA@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IOWbnuimhjog5Zue6KaGOiBbbmV0LW5leHQgNC80XSBuZXQ6IGZ0?=
+ =?UTF-8?Q?gmac100=3A_add_RGMII_delay_for_AST2600?=
+To: Andrew Lunn <andrew@lunn.ch>, Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "edumazet@google.com" <edumazet@google.com>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>, "joel@jms.id.au"
+ <joel@jms.id.au>, "andrew@codeconstruct.com.au"
+ <andrew@codeconstruct.com.au>,
+ "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ BMC-SW <BMC-SW@aspeedtech.com>
+References: <20250317025922.1526937-1-jacky_chou@aspeedtech.com>
+ <20250317025922.1526937-5-jacky_chou@aspeedtech.com>
+ <20250317095229.6f8754dd@fedora.home>
+ <Z9gC2vz2w5dfZsum@shell.armlinux.org.uk>
+ <SEYPR06MB51347CD1AB5940641A77427D9DDF2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <c3c02498-24a3-4ced-8ba3-5ca62b243047@lunn.ch>
+ <SEYPR06MB5134C8128FCF57D37F38CEFF9DDE2@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <5b448c6b-a37d-4028-a56d-2953fc0e743a@lunn.ch>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
- RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
- nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
- 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
- gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
- IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
- kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
- VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
- jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
- BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
- ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
- CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAlVcphcFCRmg06EACgkQyx8mb86fmYFg0RAA
- nzXJzuPkLJaOmSIzPAqqnutACchT/meCOgMEpS5oLf6xn5ySZkl23OxuhpMZTVX+49c9pvBx
- hpvl5bCWFu5qC1jC2eWRYU+aZZE4sxMaAGeWenQJsiG9lP8wkfCJP3ockNu0ZXXAXwIbY1O1
- c+l11zQkZw89zNgWgKobKzrDMBFOYtAh0pAInZ9TSn7oA4Ctejouo5wUugmk8MrDtUVXmEA9
- 7f9fgKYSwl/H7dfKKsS1bDOpyJlqhEAH94BHJdK/b1tzwJCFAXFhMlmlbYEk8kWjcxQgDWMu
- GAthQzSuAyhqyZwFcOlMCNbAcTSQawSo3B9yM9mHJne5RrAbVz4TWLnEaX8gA5xK3uCNCeyI
- sqYuzA4OzcMwnnTASvzsGZoYHTFP3DQwf2nzxD6yBGCfwNGIYfS0i8YN8XcBgEcDFMWpOQhT
- Pu3HeztMnF3HXrc0t7e5rDW9zCh3k2PA6D2NV4fews9KDFhLlTfCVzf0PS1dRVVWM+4jVl6l
- HRIAgWp+2/f8dx5vPc4Ycp4IsZN0l1h9uT7qm1KTwz+sSl1zOqKD/BpfGNZfLRRxrXthvvY8
- BltcuZ4+PGFTcRkMytUbMDFMF9Cjd2W9dXD35PEtvj8wnEyzIos8bbgtLrGTv/SYhmPpahJA
- l8hPhYvmAvpOmusUUyB30StsHIU2LLccUPPOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
- 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
- pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
- J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
- pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
- 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
- ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
- I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
- nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
- HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
- JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAlVcpi8FCRmg08MACgkQyx8mb86fmYHNRQ/+
- J0OZsBYP4leJvQF8lx9zif+v4ZY/6C9tTcUv/KNAE5leyrD4IKbnV4PnbrVhjq861it/zRQW
- cFpWQszZyWRwNPWUUz7ejmm9lAwPbr8xWT4qMSA43VKQ7ZCeTQJ4TC8kjqtcbw41SjkjrcTG
- wF52zFO4bOWyovVAPncvV9eGA/vtnd3xEZXQiSt91kBSqK28yjxAqK/c3G6i7IX2rg6pzgqh
- hiH3/1qM2M/LSuqAv0Rwrt/k+pZXE+B4Ud42hwmMr0TfhNxG+X7YKvjKC+SjPjqp0CaztQ0H
- nsDLSLElVROxCd9m8CAUuHplgmR3seYCOrT4jriMFBtKNPtj2EE4DNV4s7k0Zy+6iRQ8G8ng
- QjsSqYJx8iAR8JRB7Gm2rQOMv8lSRdjva++GT0VLXtHULdlzg8VjDnFZ3lfz5PWEOeIMk7Rj
- trjv82EZtrhLuLjHRCaG50OOm0hwPSk1J64R8O3HjSLdertmw7eyAYOo4RuWJguYMg5DRnBk
- WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
- HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <CAEnQRZBmYdLh29ha1FKz8=CbxjFBFFTgDkjrEmwTxW2WcxodfA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <5b448c6b-a37d-4028-a56d-2953fc0e743a@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_093732_768822_A9BD6B69 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20250318_093846_770086_63FCFB27 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,104 +141,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/18/25 08:33, Daniel Baluta wrote:
-> On Tue, Mar 18, 2025 at 5:22 PM Guenter Roeck <linux@roeck-us.net> wrote:
+On 18/03/2025 14:51, Andrew Lunn wrote:
+> On Tue, Mar 18, 2025 at 05:34:08AM +0000, Jacky Chou wrote:
+>> Hi Andrew,
 >>
->> On 3/18/25 01:54, florin.leotescu@oss.nxp.com wrote:
->>> From: Florin Leotescu <florin.leotescu@nxp.com>
->>>
->>> Introduce yaml schema for Microchip emc2305 pwm fan controller.
->>>
->>> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
->>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->>> ---
->>>    .../bindings/hwmon/microchip,emc2305.yaml     | 113 ++++++++++++++++++
->>>    1 file changed, 113 insertions(+)
->>>    create mode 100644 Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
->>> new file mode 100644
->>> index 000000000000..e61ef97e63af
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
->>> @@ -0,0 +1,113 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +
->>> +$id: http://devicetree.org/schemas/hwmon/microchip,emc2305.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Microchip EMC2305 SMBus compliant PWM fan controller
->>> +
->>> +maintainers:
->>> +  - Michael Shych <michaelsh@nvidia.com>
->>> +
->>> +description:
->>> +  Microchip EMC2301/2/3/5 pwm controller which supports
->>> +  up to five programmable fan control circuits.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    oneOf:
->>> +      - enum:
->>> +          - microchip,emc2305
->>> +      - items:
->>> +          - enum:
->>> +              - microchip,emc2303
->>> +              - microchip,emc2302
->>> +              - microchip,emc2301
->>> +          - const: microchip,emc2305
->>> +
->>> +  reg:
->>> +    maxItems: 1
->>> +
->>> +  '#address-cells':
->>> +    const: 1
->>> +
->>> +  '#size-cells':
->>> +    const: 0
->>> +
->>> +  '#pwm-cells':
->>> +    const: 3
->>> +    description: |
->>> +      Number of cells in a PWM specifier.
->>> +      - cell 0: The PWM frequency
->>> +      - cell 1: The PWM polarity: 0 or PWM_POLARITY_INVERTED
->>> +      - cell 2: The PWM output config:
->>> +           - 0 (Open-Drain)
->>> +           - 1 (Push-Pull)
->>> +
->>> +
->>> +patternProperties:
->>> +  '^fan@[0-4]$':
->>> +    $ref: fan-common.yaml#
->>> +    unevaluatedProperties: false
->>> +    properties:
->>> +      reg:
->>> +        description:
->>> +          The fan number used to determine the associated PWM channel.
->>> +
->>> +    required:
->>> +      - reg
->>> +      - pwms
+>> Thank you for your reply.
 >>
->> Is it necessary to make 'pwms' mandatory ? The current code works
->> just fine with defaults.
+>>>> The RGMII delay of AST2600 has a lot of steps can be configured.
+>>>
+>>> Are they uniformly space? Then it should be a simple formula to calculate? Or
+>>> a lookup table?
+>>
+>> There are fixed delay values by step. I list below.
+>> AST2600 MAC0/1 one step delay = 45 ps
+>> AST2600 MAC2/3 one step delay = 250 ps
 > 
-> The code adding OF support is added just in the next patch, so the
-> current code isn't event
-> probed when trying to use dts.
+> That is messy.
 > 
-> Or am I missing something?
+>> I calculate all step and emulate them.
+>> The dt-binding will be like below.
+>> rx-internal-delay-ps:
+>>     description:
+>>       Setting this property to a non-zero number sets the RX internal delay
+>>       for the MAC. ... skip ...
+>>     enum:
+>>       [45, 90, 135, 180, 225, 250, 270, 315, 360, 405, 450, 495, 500, 540, 585, 630, 675, 
+>>        720, 750, 765, 810, 855, 900, 945, 990, 1000, 1035, 1080, 1125, 1170, 1215, 1250, 
+>>        1260, 1305, 1350, 1395, 1440, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 
+>>        3750, 4000, 4250, 4500, 4750, 5000, 5250, 5500, 5750, 6000, 6250, 6500, 6750, 7000, 
+>>        7250, 7500, 7750, 8000]
 > 
+> Can the hardware do 0 ps?
+> 
+> So this list is a superset of both 45ps and 250ps steps?
 
-The patch introducing devicetree support to the driver doesn't evaluate
-the pwm property. That makes it quite obvious that, from driver perspective,
-it isn't needed. I don't immediately see why it would add value to _force_
-users to provide pwm frequency, polarity, and the output configuration
-if the defaults work just fine.
+git grep multipleOf:
 
-Guenter
+e.g.
+oneOf:
+ - minimum: 45
+   maximum: ...
+   multipleOf: 45
+ - minimum: 1500
+   maximum: ...
+   multipleOf: 250
 
+> 
+> Lets see what the DT Maintainers say, but it could be you need two
+> different compatibles for mac0/1 to mac2/3 because they are not
+> actually compatible! You can then have a list per compatible.
+If this is the only, *only* difference, then just go with vendor
+property matching register value... but oh, wait, how person reading and
+writing the DTS would understand if "0x2" means 90 ps or 1750 ps? I
+don't see how the original binding was helping here in total. Just
+moving the burden from driver developer to DTS developer. :/
+
+If different instances are not the same, means the devices are not the
+same, so two compatibles seem reasonable.
+
+Best regards,
+Krzysztof
 
