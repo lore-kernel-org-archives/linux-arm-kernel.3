@@ -4,96 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127E1C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C9AC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6Ipmc6ilCbSYurjtaIb/33JjbYe+per91vNl3/7Nh8=; b=KGCy5ZKyWxMTQ7gG74Udwy5z4F
-	kvy6QPy8A2yaeh+9K9oipyVdHzt+iHtpC9GKrQFefLkClM/wApjyLoMyS80QXh6qRLOcBSa8rGKtn
-	IQJURfKN8uCcPDWTqYJ3hPtuZERzCUL4/0Tr1oBiGoNXWkXBQ51uaI4xO80145aMJEVgszTNveEwR
-	m8JkWugVilm0PYTcWV0ly8rPwD9HA4x0LQQ+MwWsei4IQBMtqGb6NvBpNKtqzUL0YKiWEA9OxPOh9
-	+oK1QEa2XIM/+lwo/SxKk8Dx+FNyihBXrzF6rfO+vLLNMKORRsAosKClNU5uIgPepnk9398MCdtvs
-	nplT4jhg==;
+	bh=U6sb7WWpK/eIZmNqYlPEkwi7g9bmdjRdBS2xGKsLKs8=; b=WkqE912tlURyMQMdrgSUPzYjva
+	fx+dpbhZ/BMXcMeeYUlcVurH3cdDY5eLm+0Yp6ek2Ag91nb7oUtvOH0Kw2fXjiZHVW2xtBzS9sWhH
+	2hqcx4502oFZYQ6mm9k6Wj50zj+MaRvhThvkFoKh8iyiZxbnx4W4BZBvOJfKj3APXI2dOlrLxzPDn
+	KGwJzDF+cD+Wou6AoYwUoNz2lOny1AF1jSgqYwdaJCK22uY3YEJfTGCYhpP7n0zmv06nmn6BJ75LH
+	+0HkQfHDcQLtQuEYP7aDXgKNsLN/rHkSPRXaky/HsgaNf1ozrOcNuRUp2+v/PO9eumc2nK9iAntOY
+	QgNCYm5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZEH-00000006PtK-3Yn3;
+	id 1tuZEH-00000006Pse-0zqT;
 	Tue, 18 Mar 2025 15:51:45 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZC4-00000006PT9-1pXc
+	id 1tuZAY-00000006P8S-0Db6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 15:49:29 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e8be1bdb7bso6044740a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 08:49:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742312966; x=1742917766; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=L6Ipmc6ilCbSYurjtaIb/33JjbYe+per91vNl3/7Nh8=;
-        b=MYLEEy9XDfCIR2YHSwbsfP+/31mmXkk/Tvvz9hQzRYZwki4KOxGkU65TZgRJWBDLHW
-         ENqurxbYmrNCGWeyhIA1KSe+MJxA8zRbR5kZMstji8SJZbXLXhPkxPyGuD0ZdK5gUheA
-         BIXrHAQXlsR1a1g1Yuw/YATsiesb0IkwH62KCFujvJy5fLRCaoMdwCwYRY14DALuTohZ
-         y/zTksf+Wtu8a5G4qMHrNsTUYhL63VnNGVZBA+akj14ljBnGZ9neA4IypMXZMMtHN3p9
-         TqnlBeL7QQY7VGL6S5+Vt3vfxVj4lGSAF4rHVVtO0MDrMHbYqSY5ggdLGhtatuEnkyvk
-         evZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742312966; x=1742917766;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=L6Ipmc6ilCbSYurjtaIb/33JjbYe+per91vNl3/7Nh8=;
-        b=Hc9nZKzQwesvwaIMOdvqqTkpgeYTPIpn6bDnHkNgjHpRmv/6M8wSmAKbwGBJsUEmR+
-         2Hyifre0AZxD2cToKD/cp86lkfmMuL+W9eKbZC1DjNN3rSsV7A6KJ/tnbJmEMGT5Avqs
-         8IU2BL03rXXrTMedtbyo3ggc2nCt1uCp/M2CrbvukUyazNoLqJrrk6LiLAX+ARDCyXF/
-         chAwlqIz5CP2723hqB6RsbEfNYznYRA//pPuZSBV+c3Qg0W0N+iSx0XXvijsYdPSnRGg
-         4V3UbEWfInwDZ8QW7fBNxrNYwsL0gcN5D3ySzdolK9MCCNCtsDLDUSEL4sxx0aMQSWDI
-         mAuA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzSRUI5xdYbaJT5IutEo8gTEgSdKCqeB9yG1z7rVFk290pcL2XeW+p2ljRZHuDP38CUxqDu0CUX+rIBTCpMPfb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTwhK640xvzABgzMTHTsD1ZENNwreOVH8Rn5whXVhnzt59FEaY
-	cORPT3W3s79Z11J91uCm+D6F3/OKirUy42Lx1PbaHxAY/btwTcjd
-X-Gm-Gg: ASbGncsjxsM8BPkxSkGDPxYNEnDo5hitD4rTTsGoONEzBRxmGunon1AWEDEcWP/vFxp
-	RE9TtJkDezTRfwJbck2Z3TB5Bc47JyfL6uHz9zez1AtkwrghGVbe/r17Ur2zHTch4yepM9zYcpH
-	SIrdhebnnQU0nsgCrIrg+ytvEYWDmZwZQWMIx71NX4Mv4foJ4ccub0VpnWh/xMDUKRl6oaAnkII
-	GsfPzAtEQGUDjbVgiHK1sEYCkklgAKl8olunzps9LcSbzxZPo+obWDaLm+gpNhX0q4Y1YUCtTyz
-	6Yv/FpBF+iuTJc8qjc/KUTqVokJu8QixKbdl8b/kB3e1dV4cg6N1MssGOtjZ1ef1JyuI9DFC5pD
-	BZIq+nxwCJUOiN7MR/RTzrB0/DjQdri7CNfpkmuFxf7mGHg==
-X-Google-Smtp-Source: AGHT+IHMLkaV8uHFQVg2vHrzXkQR9/w+ti4OyBuv1b8SAJBLiHJR2w6USAKnVcw7fN1kQSv+zr3g9g==
-X-Received: by 2002:a17:906:da8c:b0:ac1:e332:b1f5 with SMTP id a640c23a62f3a-ac38d552e43mr506689066b.37.1742312966212;
-        Tue, 18 Mar 2025 08:49:26 -0700 (PDT)
-Received: from alb3rt0-ThinkPad-P15-Gen-1 (host-95-251-108-181.retail.telecomitalia.it. [95.251.108.181])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3147f0f5dsm885226766b.63.2025.03.18.08.49.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 08:49:25 -0700 (PDT)
-Date: Tue, 18 Mar 2025 16:49:23 +0100
-From: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH] arm64: dtsi: imx93: add alias id for bbnsm_rtc
-Message-ID: <Z9mWA5ldMDqZcVf5@alb3rt0-ThinkPad-P15-Gen-1>
-References: <20250306193014.490091-1-Frank.Li@nxp.com>
- <116096172.nniJfEyVGO@steina-w>
+	Tue, 18 Mar 2025 15:47:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 744945C424B;
+	Tue, 18 Mar 2025 15:45:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08C7C4CEDD;
+	Tue, 18 Mar 2025 15:47:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742312873;
+	bh=sD58zLcw1T6P8NiMUNq1sVXKAK5W9zvgQDpdOg2n0YE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oGA4YBl+hzKVuvM/XqteBDWWK3b6pIavAqDW2+cK9UD9m1xGSZsXCjxkcKNxZo3w+
+	 Tk/Ufcoc4skZ/mDTLKBug0+5qNsXtv0YB9t32+HEKcW+BGajMQSviBMY5HjJcQ5M8L
+	 qMRzug9ByKKSpMDTakbTrJlTOqoDMuwPYZGxPwL71bMS1wAD4Uny6PZDUCHm4Ckr9X
+	 V81MI3EvYLo5/nx+BkM3U8NiK79tmbBg9GUBn2HGN6D2HusssZ8S3E1XAiDq2NAvXF
+	 F4KAOKtMOI923jaVvp/DXpIrB5EOivAeJ+wWTINT0pSdBfytn05v7kaiuufwE99T+T
+	 s9l+MGxUEXo1Q==
+Date: Tue, 18 Mar 2025 15:47:47 +0000
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Connor Abbott <cwabbott0@gmail.com>, Rob Clark <robdclark@gmail.com>,
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v4 4/5] iommu/arm-smmu-qcom: Make set_stall work when the
+ device is on
+Message-ID: <20250318154746.GB13829@willie-the-truck>
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+ <20250304-msm-gpu-fault-fixes-next-v4-4-be14be37f4c3@gmail.com>
+ <20250311181151.GD5216@willie-the-truck>
+ <CACu1E7Gg3WpQASADAdediRzFz2wEXAnfD7tg05XkiXZQp=X8fQ@mail.gmail.com>
+ <20250312124907.GB6181@willie-the-truck>
+ <CACu1E7Hm=DWDC2aFdBRkT8f=8gKXJPpif_uEOA9iFZcyT-uCfQ@mail.gmail.com>
+ <394571e1-f86d-472c-91dc-4377d512bfbe@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <116096172.nniJfEyVGO@steina-w>
+In-Reply-To: <394571e1-f86d-472c-91dc-4377d512bfbe@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_084928_482984_9DC5187D 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20250318_084754_202917_5B1D3F1D 
+X-CRM114-Status: GOOD (  29.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,56 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 11:19:13AM +0100, Alexander Stein wrote:
-> Hi,
+On Tue, Mar 18, 2025 at 01:36:55PM +0000, Robin Murphy wrote:
+> On 12/03/2025 1:30 pm, Connor Abbott wrote:
+> > On Wed, Mar 12, 2025 at 8:49â€¯AM Will Deacon <will@kernel.org> wrote:
+> > > On Tue, Mar 11, 2025 at 04:01:00PM -0400, Connor Abbott wrote:
+> > > > On Tue, Mar 11, 2025 at 2:11â€¯PM Will Deacon <will@kernel.org> wrote:
+> > > > > On Tue, Mar 04, 2025 at 11:56:50AM -0500, Connor Abbott wrote:
+> > > > > > +     /*
+> > > > > > +      * If the device is on and we changed the setting, update the register.
+> > > > > > +      */
+> > > > > > +     if (stall_changed && pm_runtime_get_if_active(smmu->dev) > 0) {
+> > > > > > +             spin_lock_irqsave(&smmu_domain->cb_lock, flags);
+> > > > > > +
+> > > > > > +             u32 reg = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR);
+> > > > > > +
+> > > > > > +             if (enabled)
+> > > > > > +                     reg |= ARM_SMMU_SCTLR_CFCFG;
+> > > > > > +             else
+> > > > > > +                     reg &= ~ARM_SMMU_SCTLR_CFCFG;
+> > > > > > +
+> > > > > > +             arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR, reg);
+> > > > > 
+> > > > > Are you sure you don't need TLB invalidation for this to take effect? I
+> > > > > think some fields in the SCTLR can be cached in the TLB but you'll need
+> > > > > to check whether or not that applies to CFCFG.
+> > > > > 
+> > > > 
+> > > > I think it should be fine because CFCFG only controls behavior when
+> > > > there's a context fault and there can't be TLB entries for entries
+> > > > that cause a context fault: "The architecture permits the caching of
+> > > > any translation table entry that has been returned from memory without
+> > > > a fault and that does not, as a result of that entry, cause a
+> > > > Translation Fault or an Access Flag fault."
+> > > 
+> > > Ok, but what about other types of fault? For example, a permission fault
+> > > or an address size fault?
+> > > 
+> > I'm not sure, but the pseudocode for context faults mentions
+> > resampling CFCFG after a fault happens ("We have a fault and must
+> > resample FSR, CFCFG and HUPCF") so I don't think it would be legal to
+> > cache it. Also in practice this does seem to work. Does that answer
+> > it?
 > 
-> Am Donnerstag, 6. März 2025, 20:30:14 CET schrieb Frank Li:
-> > From: Joy Zou <joy.zou@nxp.com>
-> > 
-> > Add rtc0 alias to set bbnsm_rtc as the default rtc.
-> > 
-> > Signed-off-by: Joy Zou <joy.zou@nxp.com>
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx93.dtsi | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
-> > index 56766fdb0b1e5..7d9aa15ebf5d0 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx93.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
-> > @@ -34,6 +34,7 @@ aliases {
-> >  		mmc0 = &usdhc1;
-> >  		mmc1 = &usdhc2;
-> >  		mmc2 = &usdhc3;
-> > +		rtc0 = &bbnsm_rtc;
-> 
-> IMHO this is a board property, not SoC property.
-> 
-> Best regards
-> Alexander
-> 
-> >  		serial0 = &lpuart1;
-> >  		serial1 = &lpuart2;
-> >  		serial2 = &lpuart3;
-> > 
-> 
-> 
-> -- 
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> http://www.tq-group.com/
-> 
-> 
-> 
-I agree with Alexander, furthermore if we look to others dtsi we don't
-create this relationship at soc level even if we have rtc there, is not?
+> FWIW I checked with the former MMU-500 design lead, and although he doesn't
+> remember the exact details he's pretty confident that they wouldn't have
+> cached anything fault-related, so at least from our side I'd consider this
+> OK.
 
-for example:
-arch/arm64/boot/dts/freescale/imx8mp.dtsi
-arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+Thanks for checking, Robin.
 
-Regards,
-Alberto
+Connor -- please can you stick some of the above in a comment prior
+to the CFCFG munging so I don't "rediscover" the problem in the future?
+
+Will
 
