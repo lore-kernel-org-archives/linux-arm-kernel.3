@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A22C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 17:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6D9C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 17:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1saP1T1nzHuCjyKVSUVS2boo2PeAl+CyeEndMT6M6qU=; b=10z35+Rdrne/HNeJA4u4TTgagO
-	FNQjSx1UfQuw+6mlrCq+Hh1fPA2SrLFjabIwyganR0PTG5C6X9fPpkau+1AQuVn4WzjwkXeWj7zQt
-	07w4HJqjfm6286CDc2XiqDA7W2ZJwNHyqdL4KGWf1Ke1upRa6CfgPoLTFxkVxoIjOF16o+1ALpICb
-	VvsgufINDZVBUWDvc0l3WVBqU5feC3APIYh5vdPiqC7AhSxYCrx/TQAAzI1nQfvaRLBNO3JSrY9KP
-	T4thWtZM2wCSGUh4rX+HaC4/X1HZ7nLZADMWUdRiNm6EbZc+o2WDjDYRt9JBCWcpklvWlMoUcnq4y
-	7cLX7mdA==;
+	bh=pD7RUUHJI003EUwPN3gVqGhc0IamRvgxA9BcNnZKI3M=; b=bvcGWOWLFh8mN38LsskLLYy33B
+	0/m868blNSAs9m0d635SxDXHznTuCTAwQDxFG50j0KbrtwcvO0vOmJUbiJjxmxZmzMM9tKDCZuD0t
+	TUkduM5zB3KV56VEDQpnD+XfHusp0X2M7WKM9Jbl+BBi2tQBv1zOXhEU1LVEX34GO6f/LWHexNTAX
+	S2t6W3t96WRszRtkB3lxSDKnw3Zj0YQ9IzoEdXnNW3nSdnGLZlxgMwkIsuTzUZp3wZd8W6t9mkrEu
+	NgfsBTHk0CEutOKer7f6Pxoj8desIPvPFqvp9R2VT5gC4Ku92+xkxJqK5XKMbDf4HrR6vg0i7cE+i
+	nhHUdgGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuawm-00000006i3M-0YFz;
-	Tue, 18 Mar 2025 17:41:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuayQ-00000006iJs-3HoQ;
+	Tue, 18 Mar 2025 17:43:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuav4-00000006hrY-39O2
+	id 1tuavZ-00000006hvV-07J3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 17:40:03 +0000
+	Tue, 18 Mar 2025 17:40:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 553D4A48CA1;
-	Tue, 18 Mar 2025 17:34:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49B1AC4CEE3;
-	Tue, 18 Mar 2025 17:40:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 81EA15C5872;
+	Tue, 18 Mar 2025 17:38:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEC27C4CEDD;
+	Tue, 18 Mar 2025 17:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742319601;
-	bh=qoLQwFpyolz3QhRAjnozqvOcSs62LeQ0H5auHHLjAS0=;
+	s=k20201202; t=1742319632;
+	bh=cUYQCkESwWasI7h0pS1MGj7Wb8ODx2zDhK2nrfIcw9A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P9m1skF02kF6FLgsYcmawsXo4/NPefeN9w/jHmarRraWZRznDnWAHhHMY8QKa7ZXd
-	 n3jCTwbNmtPnHiMT8E8N/4nFHK473Sl42Gaxcvh45R12tzpRJG0yT1zQXAuqaT0pXS
-	 IojCmCYMruf6pjUQpyKMQnzQcNF48jo4iTEG9FEo18Uxy9FE+Dise2qdqts/iyD1o1
-	 x3EdyLWa3QtQKwss7HHlizayTr1pEauF2FEbEJThoKG4GZyOBzqri3RewwwwatdEHn
-	 qVyXpto+Yc/jnxgpLRr694eR56BdUpoZ3orCjIFXKDZ5KTDhs89GVDqBmhjjJ5pjiL
-	 u3xY+nqu3Q7iA==
-Date: Tue, 18 Mar 2025 12:40:00 -0500
+	b=jXh9oDS4ma/dF9t+gI30B7iGD1BB8HaFWilQ2nNDj+NT41/5m1G4lzjmyGzTdfse+
+	 tlYjXkSA00ucDQHWwvzE9fosNBNqmrQvV1weeWrhzKI5/JsGoHBYO91E9uOJvO7I+d
+	 OSLFAk1wxCpa2p/DI4nUn+8+EkUcMOn6WnyUOZ7172BfF3a7W83p4WnqR8oEokGUxc
+	 QyFCj0GJSpC2bbTR0qIrjKIvkY0yHQy1FAJ73tn7XtSGrwZBBNzYtegyPq2P6xbb7G
+	 p3il3c6vMxxlFlfxGai4s/qRj8x3hPkmqYUXd02V2ndEaCV/iBai69h7Jz9CMAInPJ
+	 FgYBWY3fFzWYw==
+Date: Tue, 18 Mar 2025 12:40:30 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Georgi Djakov <djakov@kernel.org>,
-	James Clark <james.clark@linaro.org>, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	David Heidelberg <david@ixit.cz>, Leo Yan <leo.yan@linux.dev>,
-	devicetree@vger.kernel.org, coresight@lists.linaro.org,
-	Lee Jones <lee@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
+Cc: Georgi Djakov <djakov@kernel.org>, coresight@lists.linaro.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	David Heidelberg <david@ixit.cz>, linux-kernel@vger.kernel.org,
+	Leo Yan <leo.yan@linux.dev>, Lee Jones <lee@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Subject: Re: [PATCH v2 02/10] dt-bindings: soc: qcom: qcom,rpm: add missing
- clock/-names properties
-Message-ID: <174231959987.3278245.15510321850308863529.robh@kernel.org>
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v2 03/10] dt-bindings: arm:
+ arm,coresight-static-replicator: add optional clocks
+Message-ID: <174231962960.3279035.17499878913808619235.robh@kernel.org>
 References: <20250318-fix-nexus-4-v2-0-bcedd1406790@oss.qualcomm.com>
- <20250318-fix-nexus-4-v2-2-bcedd1406790@oss.qualcomm.com>
+ <20250318-fix-nexus-4-v2-3-bcedd1406790@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250318-fix-nexus-4-v2-2-bcedd1406790@oss.qualcomm.com>
+In-Reply-To: <20250318-fix-nexus-4-v2-3-bcedd1406790@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_104002_855152_17F743C0 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20250318_104033_109217_58DFE26D 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,15 +84,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 18 Mar 2025 15:21:55 +0200, Dmitry Baryshkov wrote:
-> Qualcomm MSM8660 and IPQ0864 platforms use additional clock for the RPM
-> device. Document it in the schema.
+On Tue, 18 Mar 2025 15:21:56 +0200, Dmitry Baryshkov wrote:
+> As most other CoreSight devices the replicator can use either of the
+> optional clocks. Document those optional clocks in the schema.
+> Additionally document the one-off case of Zynq-7000 platforms which uses
+> apb_pclk and two additional debug clocks.
 > 
-> Fixes: aa0c4b815045 ("mfd: devicetree: bindings: Add Qualcomm RPM DT binding")
+> Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
 > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 > ---
->  Documentation/devicetree/bindings/soc/qcom/qcom,rpm.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
+>  .../bindings/arm/arm,coresight-static-replicator.yaml       | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
