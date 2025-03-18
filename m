@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5181C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB39C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKiwCh+kgf9JA1AIAuAPy6jZ7U52Vg1O0TtpMPovvjI=; b=iTw7LeZ+PcwG0Pb7cE9ViquOzO
-	CPiRedH6nQeDtSdDaVn/r69MHTyfxb+C32iyYgfCPJLBkg+3INO1fv2BB4VoYryGhC+BLMo79UhIp
-	itXIAjw0BJ7s5ZY+8cXKUu/CXf58MY6/4OCdKIMQ/7Wdsf9wMT7QXUHH4sisNfBzBgSdkBt+zKEvy
-	4x8DxpBhTfC7LatAHKPDqTW/MK53dPihhI9ACU0m0PrxAfdB43RKVUaXJZplK7c+a/SBECKTp+5qn
-	jYjgwlcqVkQkBtMXXKFKUysMGM+Ly6eCMugYFo1bsVXnosfJ4ASQkTaLYcD3z0ZiNb53TVduYhVC6
-	p73tt7Mw==;
+	bh=6K3rMkGKwZc5jvMd/z4ZpGe61fYCEZVXizmE07X2kg8=; b=b02X5Y1CNpSfybrPEYIVwhYBoA
+	qU65jYFeqwaZC8isnRKbYcYa+F0lkSoW//SBm7VUuQarcywjkv3uYkmy62kUHUK1/YdAvqGyxFZPR
+	KvMNZ2wnui2IMOLnitPI/4d6Qu0H3Guy6pYp3tfoiUijwNw8CEp3NaBsVxUS31eeN/wfwMBKf3uoo
+	7djT6tekwXtFEdRK2vTYzpQbAX60A0fy3QdGY4tAEHoOFNs/SF8Umh7e82C/4n8NnnJ5w8aNz4P8e
+	AC92ADcHUwNUQDS5vgmL9FHp+Jfm0ePP6r0kFFUcfKgBWJJdK3JUmMo2tNNv2QBqratl6JYsAKSWK
+	nviCutJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNT4-00000004Uti-2cAQ;
-	Tue, 18 Mar 2025 03:18:14 +0000
+	id 1tuNUj-00000004V1s-1cgR;
+	Tue, 18 Mar 2025 03:19:57 +0000
 Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNK3-00000004TIU-1qCJ
+	id 1tuNKB-00000004TJp-0uUg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 03:08:56 +0000
+	Tue, 18 Mar 2025 03:09:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742267335; x=1773803335;
+  t=1742267343; x=1773803343;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=AWpN+xiHkAhuQT/Giv0YAd9A+nXM81GdPln2EKw69PM=;
-  b=PqPtPlGMGJYMtgyGB33UbpJ8ujkPfgTuXH6LnKXjhTKnfpz6cfFpHZqU
-   rVtzEjtRhG8DL4l0bhA5G/2d8wWvkPBbiBmOpTKjsAT4oEX2LgJlghRw2
-   1hwaK+k7d9bGIc2jAPlmxpxc8/aGsX2sonxIW0WDY6uZbFyIq4tAsCSiD
-   el8yMXAfdkcurue8r4RLJWSCHWO5mpBgGlwKnlq0HbVD9rvHr9pyNIL1g
-   bZH3VT2HxiH3qy67t6+KgmhnmxcCLhLV493XGvpnqzHtR0Elsm7/u8Cg5
-   J6+xnyJRuB4XDv+fNXYkxVJLsVMYIWY7RVq0YNURUzgnSbmPsnZ2PHPFX
-   Q==;
-X-CSE-ConnectionGUID: ZvOmUHzpSyi5PJEz+rbHYw==
-X-CSE-MsgGUID: Q+82fg9dQseKS4zztSJhIw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11376"; a="54382947"
+  bh=cRb+CbjWo0ZjK0e4vuvO/MeSF/KtBDAkMvyjIUZVP0Y=;
+  b=FRMVhL9av5aicfXTQLX/RisbwJ4+NZr5yI3ScPkoA9o0Z/PpbL122O2e
+   hFsoltAKCUxYs0skfeJ8mqCGnkJ+ou/uf3VrJ4kVj/It0gr3l5oq/3w3F
+   qVeW5BM6STr9prXVNHUnujBPNThUNfswFbZYhpsEQ35Nda6saSGzL5V+y
+   2GxQObc3HeIiJE5fW5gbYCLoEioN0JqwSdkQJd/mvf416x8mlQiQYm8u7
+   8NovkdVX5y4RE2ZG9uqzMzfUbvD4HmGUfbVZeXlc8nmwimvkHyfP3Rm1R
+   HcForriTEliyDshW0fw6FzyUdTIQRMSnPWs5DTnHWvd+HyeU1Bb5c5xpv
+   g==;
+X-CSE-ConnectionGUID: JqQ2K6mQRDGPrWG46JF2CQ==
+X-CSE-MsgGUID: k+4HfLJoQTOnte8OY+Wd+g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11376"; a="54382978"
 X-IronPort-AV: E=Sophos;i="6.14,255,1736841600"; 
-   d="scan'208";a="54382947"
+   d="scan'208";a="54382978"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 20:08:54 -0700
-X-CSE-ConnectionGUID: rAy/euR8RPWl7XtzUuAgVw==
-X-CSE-MsgGUID: cjeo7cnwTzSqJBBQqBbJnA==
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 20:09:02 -0700
+X-CSE-ConnectionGUID: 6ScQ+CC6QASbNGSWqJ1K2Q==
+X-CSE-MsgGUID: 8G7UL6nyQd65/FtNHfjpZQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.14,255,1736841600"; 
-   d="scan'208";a="126313797"
+   d="scan'208";a="126313814"
 Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by fmviesa003.fm.intel.com with ESMTP; 17 Mar 2025 20:08:47 -0700
+  by fmviesa003.fm.intel.com with ESMTP; 17 Mar 2025 20:08:55 -0700
 From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
@@ -91,17 +91,17 @@ To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
 	Serge Semin <fancer.lancer@gmail.com>
-Subject: [PATCH iwl-next v10 04/14] igc: rename xdp_get_tx_ring() for non-xdp usage
-Date: Mon, 17 Mar 2025 23:07:32 -0400
-Message-Id: <20250318030742.2567080-5-faizal.abdul.rahim@linux.intel.com>
+Subject: [PATCH iwl-next v10 05/14] igc: rename I225_RXPBSIZE_DEFAULT and I225_TXPBSIZE_DEFAULT
+Date: Mon, 17 Mar 2025 23:07:33 -0400
+Message-Id: <20250318030742.2567080-6-faizal.abdul.rahim@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250318030742.2567080-1-faizal.abdul.rahim@linux.intel.com>
 References: <20250318030742.2567080-1-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_200855_512951_197A95F6 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250317_200903_299179_CD5835CA 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,69 +116,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Renamed xdp_get_tx_ring() function to a more generic name for use in
-upcoming frame preemption patches.
+Rename RX and TX packet buffer size macros in preparation for an
+upcoming patch that will refactor buffer size handling using FIELD_PREP
+and GENMASK.
+
+Changes:
+- Rename I225_RXPBSIZE_DEFAULT to IGC_RXPBSIZE_EXP_BMC_DEFAULT.
+  The EXP_BMC suffix explicitly indicates Express and BMC buffer
+  default values, improving readability and reusability for the
+  upcoming changes, while also better reflecting the current buffer
+  allocations.
+- Rename I225_TXPBSIZE_DEFAULT to IGC_TXPBSIZE_DEFAULT.
+
+These registers apply to both i225 and i226, so using the IGC prefix
+aligns with existing macro naming conventions.
 
 Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 ---
- drivers/net/ethernet/intel/igc/igc.h      | 2 +-
- drivers/net/ethernet/intel/igc/igc_main.c | 9 ++++-----
- 2 files changed, 5 insertions(+), 6 deletions(-)
+ drivers/net/ethernet/intel/igc/igc_defines.h | 7 ++++---
+ drivers/net/ethernet/intel/igc/igc_main.c    | 4 ++--
+ drivers/net/ethernet/intel/igc/igc_tsn.c     | 2 +-
+ 3 files changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/igc/igc.h b/drivers/net/ethernet/intel/igc/igc.h
-index cd1d7b6c1782..ba7c55d2dc85 100644
---- a/drivers/net/ethernet/intel/igc/igc.h
-+++ b/drivers/net/ethernet/intel/igc/igc.h
-@@ -737,7 +737,7 @@ struct igc_nfc_rule *igc_get_nfc_rule(struct igc_adapter *adapter,
- 				      u32 location);
- int igc_add_nfc_rule(struct igc_adapter *adapter, struct igc_nfc_rule *rule);
- void igc_del_nfc_rule(struct igc_adapter *adapter, struct igc_nfc_rule *rule);
--
-+struct igc_ring *igc_get_tx_ring(struct igc_adapter *adapter, int cpu);
- void igc_ptp_init(struct igc_adapter *adapter);
- void igc_ptp_reset(struct igc_adapter *adapter);
- void igc_ptp_suspend(struct igc_adapter *adapter);
+diff --git a/drivers/net/ethernet/intel/igc/igc_defines.h b/drivers/net/ethernet/intel/igc/igc_defines.h
+index 8e449904aa7d..b6744ece64f0 100644
+--- a/drivers/net/ethernet/intel/igc/igc_defines.h
++++ b/drivers/net/ethernet/intel/igc/igc_defines.h
+@@ -396,9 +396,10 @@
+ #define IGC_RCTL_PMCF		0x00800000 /* pass MAC control frames */
+ #define IGC_RCTL_SECRC		0x04000000 /* Strip Ethernet CRC */
+ 
+-#define I225_RXPBSIZE_DEFAULT	0x000000A2 /* RXPBSIZE default */
+-#define I225_TXPBSIZE_DEFAULT	0x04000014 /* TXPBSIZE default */
+-#define IGC_RXPBS_CFG_TS_EN	0x80000000 /* Timestamp in Rx buffer */
++/* RXPBSIZE default value for Express and BMC buffer */
++#define IGC_RXPBSIZE_EXP_BMC_DEFAULT	0x000000A2
++#define IGC_TXPBSIZE_DEFAULT		0x04000014 /* TXPBSIZE default */
++#define IGC_RXPBS_CFG_TS_EN		0x80000000 /* Timestamp in Rx buffer */
+ 
+ #define IGC_TXPBSIZE_TSN	0x04145145 /* 5k bytes buffer for each queue */
+ 
 diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-index 472f009630c9..99123eef610b 100644
+index 99123eef610b..6f0110e3ac22 100644
 --- a/drivers/net/ethernet/intel/igc/igc_main.c
 +++ b/drivers/net/ethernet/intel/igc/igc_main.c
-@@ -2464,8 +2464,7 @@ static int igc_xdp_init_tx_descriptor(struct igc_ring *ring,
- 	return -ENOMEM;
- }
+@@ -7156,8 +7156,8 @@ static int igc_probe(struct pci_dev *pdev,
+ 	}
  
--static struct igc_ring *igc_xdp_get_tx_ring(struct igc_adapter *adapter,
--					    int cpu)
-+struct igc_ring *igc_get_tx_ring(struct igc_adapter *adapter, int cpu)
- {
- 	int index = cpu;
+ 	/* configure RXPBSIZE and TXPBSIZE */
+-	wr32(IGC_RXPBS, I225_RXPBSIZE_DEFAULT);
+-	wr32(IGC_TXPBS, I225_TXPBSIZE_DEFAULT);
++	wr32(IGC_RXPBS, IGC_RXPBSIZE_EXP_BMC_DEFAULT);
++	wr32(IGC_TXPBS, IGC_TXPBSIZE_DEFAULT);
  
-@@ -2489,7 +2488,7 @@ static int igc_xdp_xmit_back(struct igc_adapter *adapter, struct xdp_buff *xdp)
- 	if (unlikely(!xdpf))
- 		return -EFAULT;
+ 	timer_setup(&adapter->watchdog_timer, igc_watchdog, 0);
+ 	timer_setup(&adapter->phy_info_timer, igc_update_phy_info, 0);
+diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.c b/drivers/net/ethernet/intel/igc/igc_tsn.c
+index 1e44374ca1ff..498741d83ca6 100644
+--- a/drivers/net/ethernet/intel/igc/igc_tsn.c
++++ b/drivers/net/ethernet/intel/igc/igc_tsn.c
+@@ -136,7 +136,7 @@ static int igc_tsn_disable_offload(struct igc_adapter *adapter)
+ 	int i;
  
--	ring = igc_xdp_get_tx_ring(adapter, cpu);
-+	ring = igc_get_tx_ring(adapter, cpu);
- 	nq = txring_txq(ring);
+ 	wr32(IGC_GTXOFFSET, 0);
+-	wr32(IGC_TXPBS, I225_TXPBSIZE_DEFAULT);
++	wr32(IGC_TXPBS, IGC_TXPBSIZE_DEFAULT);
+ 	wr32(IGC_DTXMXPKTSZ, IGC_DTXMXPKTSZ_DEFAULT);
  
- 	__netif_tx_lock(nq, cpu);
-@@ -2566,7 +2565,7 @@ static void igc_finalize_xdp(struct igc_adapter *adapter, int status)
- 	struct igc_ring *ring;
- 
- 	if (status & IGC_XDP_TX) {
--		ring = igc_xdp_get_tx_ring(adapter, cpu);
-+		ring = igc_get_tx_ring(adapter, cpu);
- 		nq = txring_txq(ring);
- 
- 		__netif_tx_lock(nq, cpu);
-@@ -6779,7 +6778,7 @@ static int igc_xdp_xmit(struct net_device *dev, int num_frames,
- 	if (unlikely(flags & ~XDP_XMIT_FLAGS_MASK))
- 		return -EINVAL;
- 
--	ring = igc_xdp_get_tx_ring(adapter, cpu);
-+	ring = igc_get_tx_ring(adapter, cpu);
- 	nq = txring_txq(ring);
- 
- 	__netif_tx_lock(nq, cpu);
+ 	if (igc_is_device_id_i226(hw))
 -- 
 2.34.1
 
