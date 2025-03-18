@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E43C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4322C35FF8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1sMx/P6rvXZQfj+O4YcXxMquCMUQe8GP2E9TP/qDKbA=; b=fiQzN+6pHQ7NqtiMEzKoxtUD1m
-	4sx5SVlIHizWZdzsnkReNenMA31EsVR6/DYUB3Umd+Z3Vnu4vabrOqe5K+KzFzccUSsMlpdC747t8
-	diO7qv157jPw0fvESk/oA8DmFBZCa6TOTQSJoKHpsrlGYRse332vvE7rHnOixo8Jvm2tLLxx63+8R
-	FMpTPjNaBxb44V1i2vWzUjJV9fbiB1ExTCCayx6wWG1m7bVbcxmUO2YNRegwBcNxcUqbd3v6DV0Xe
-	KfXJBxgioEZ/J52Ff+5jUCOMEIWn1SjZRbwHJMBbYmZDKGGrT9aGHuUseyehQj9P6p3LO2L1TFCsa
-	N2w391Mg==;
+	bh=8Orzrzb5Xv8OUMWXV2/WXZZUb3AsUmFkbKj6Z55VkWA=; b=K8G0IzFqiEw4ummdYDeCogsyAB
+	/LTtJtcUFb5DtTBdqdfldtsqgBMdUCVMz5UQpk6WQtBVb7TBkTAHWRhRFdaSKXPpDiDYz/JIQeOSh
+	F3MF1eSrphmfG/I7c6WJbP4um+0UGpDh9teXDdh+6gJCexyd2obgsQkOcMLVEpprXPQtp1JqB8WUy
+	MgvTBRF9QfFTLJ4cQbOaJ7MS+OJWSO4eakBsCESR6DjRkPtiP1zxjxtH81z2gMwbwGforCdNCfYxQ
+	L+bv+T7WQ/B6i0HQPZhmMFsmJVJy8BwEakTxEiLhi3i6tYI4SrTRepByoHA421esEC+qSKR9hlhP6
+	4sWjqOew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudzZ-000000074Jb-0Kn5;
-	Tue, 18 Mar 2025 20:56:53 +0000
+	id 1tue1D-000000074XK-3CJq;
+	Tue, 18 Mar 2025 20:58:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudrr-000000073Ad-441h
+	id 1tudrs-000000073CM-1MZv
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Mar 2025 20:48:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1606B1515;
-	Tue, 18 Mar 2025 13:49:02 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4141B1BB2;
+	Tue, 18 Mar 2025 13:49:04 -0700 (PDT)
 Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2386E3F694;
-	Tue, 18 Mar 2025 13:48:53 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 501D23F694;
+	Tue, 18 Mar 2025 13:48:55 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -57,17 +57,17 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH 2/7] arm64: probes: Break ret out from bl/blr
-Date: Tue, 18 Mar 2025 15:48:36 -0500
-Message-ID: <20250318204841.373116-3-jeremy.linton@arm.com>
+Subject: [PATCH 4/7] arm64: probes: Add GCS support to bl/blr/ret
+Date: Tue, 18 Mar 2025 15:48:38 -0500
+Message-ID: <20250318204841.373116-5-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250318204841.373116-1-jeremy.linton@arm.com>
 References: <20250318204841.373116-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_134856_086713_C5C3393B 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20250318_134856_427194_F8BF093F 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,77 +82,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare for GCS by breaking RET out into its own function, where
-it makes more sense to encapsulate the new behavior independent
-from the branch instructions.
+The arm64 probe simulation doesn't currently have logic in place
+to deal with GCS and this results in core dumps if probes are inserted
+at control flow locations. Fix-up bl, blr and ret to manipulate the
+shadow stack as needed.
 
 Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
 ---
- arch/arm64/kernel/probes/decode-insn.c   |  7 ++++---
- arch/arm64/kernel/probes/simulate-insn.c | 10 +++++++++-
- arch/arm64/kernel/probes/simulate-insn.h |  3 ++-
- 3 files changed, 15 insertions(+), 5 deletions(-)
+ arch/arm64/kernel/probes/simulate-insn.c | 28 ++++++++++++++++++++----
+ 1 file changed, 24 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
-index 6438bf62e753..4137cc5ef031 100644
---- a/arch/arm64/kernel/probes/decode-insn.c
-+++ b/arch/arm64/kernel/probes/decode-insn.c
-@@ -108,9 +108,10 @@ arm_probe_decode_insn(u32 insn, struct arch_probe_insn *api)
- 	    aarch64_insn_is_bl(insn)) {
- 		api->handler = simulate_b_bl;
- 	} else if (aarch64_insn_is_br(insn) ||
--	    aarch64_insn_is_blr(insn) ||
--	    aarch64_insn_is_ret(insn)) {
--		api->handler = simulate_br_blr_ret;
-+		aarch64_insn_is_blr(insn)) {
-+		api->handler = simulate_br_blr;
-+	} else if (aarch64_insn_is_ret(insn)) {
-+		api->handler = simulate_ret;
- 	} else {
- 		/*
- 		 * Instruction cannot be stepped out-of-line and we don't
 diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
-index 4c6d2d712fbd..09a0b36122d0 100644
+index 09a0b36122d0..1fc9bb69b1eb 100644
 --- a/arch/arm64/kernel/probes/simulate-insn.c
 +++ b/arch/arm64/kernel/probes/simulate-insn.c
-@@ -126,7 +126,7 @@ simulate_b_cond(u32 opcode, long addr, struct pt_regs *regs)
+@@ -13,6 +13,7 @@
+ #include <asm/traps.h>
+ 
+ #include "simulate-insn.h"
++#include "asm/gcs.h"
+ 
+ #define bbl_displacement(insn)		\
+ 	sign_extend32(((insn) & 0x3ffffff) << 2, 27)
+@@ -49,6 +50,18 @@ static inline u32 get_w_reg(struct pt_regs *regs, int reg)
+ 	return lower_32_bits(pt_regs_read_reg(regs, reg));
  }
  
- void __kprobes
--simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs)
-+simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
- {
- 	int xn = (opcode >> 5) & 0x1f;
- 
-@@ -138,6 +138,14 @@ simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs)
- 		set_x_reg(regs, 30, addr + 4);
- }
- 
-+void __kprobes
-+simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
++static inline void update_lr(struct pt_regs *regs, long addr)
 +{
-+	int xn = (opcode >> 5) & 0x1f;
++	int err = 0;
 +
-+	instruction_pointer_set(regs, get_x_reg(regs, xn));
++	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
++		push_user_gcs(addr + 4,	 &err);
++		if (err)
++			force_sig(SIGSEGV);
++	}
++	procedure_link_pointer_set(regs, addr + 4);
 +}
 +
- void __kprobes
- simulate_cbz_cbnz(u32 opcode, long addr, struct pt_regs *regs)
+ static bool __kprobes check_cbz(u32 opcode, struct pt_regs *regs)
  {
-diff --git a/arch/arm64/kernel/probes/simulate-insn.h b/arch/arm64/kernel/probes/simulate-insn.h
-index efb2803ec943..9e772a292d56 100644
---- a/arch/arm64/kernel/probes/simulate-insn.h
-+++ b/arch/arm64/kernel/probes/simulate-insn.h
-@@ -11,7 +11,8 @@
- void simulate_adr_adrp(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_b_cond(u32 opcode, long addr, struct pt_regs *regs);
--void simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs);
-+void simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs);
-+void simulate_ret(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_cbz_cbnz(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_tbz_tbnz(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_ldr_literal(u32 opcode, long addr, struct pt_regs *regs);
+ 	int xn = opcode & 0x1f;
+@@ -107,9 +120,8 @@ simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs)
+ {
+ 	int disp = bbl_displacement(opcode);
+ 
+-	/* Link register is x30 */
+ 	if (opcode & (1 << 31))
+-		set_x_reg(regs, 30, addr + 4);
++		update_lr(regs, addr);
+ 
+ 	instruction_pointer_set(regs, addr + disp);
+ }
+@@ -133,17 +145,25 @@ simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
+ 	/* update pc first in case we're doing a "blr lr" */
+ 	instruction_pointer_set(regs, get_x_reg(regs, xn));
+ 
+-	/* Link register is x30 */
+ 	if (((opcode >> 21) & 0x3) == 1)
+-		set_x_reg(regs, 30, addr + 4);
++		update_lr(regs, addr);
+ }
+ 
+ void __kprobes
+ simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
+ {
++	u64 ret_addr;
++	int err = 0;
+ 	int xn = (opcode >> 5) & 0x1f;
+ 
+ 	instruction_pointer_set(regs, get_x_reg(regs, xn));
++
++	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
++		ret_addr = pop_user_gcs(&err);
++		if (err || ret_addr != procedure_link_pointer(regs))
++			force_sig(SIGSEGV);
++	}
++
+ }
+ 
+ void __kprobes
 -- 
 2.48.1
 
