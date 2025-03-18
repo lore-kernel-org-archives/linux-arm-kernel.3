@@ -4,83 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66ED0C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 07:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46653C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 07:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AY4nrcK+Zp55l8IKfUmGd4cDhlQMOGx6qxnOrnPzDs0=; b=FiNc5HKPckYYcEitop2UdbfbaD
-	5511zSSmoy1FzSV8oCQQt67WdGPEASmT98fN6nejMhpstUsdiF0xfBU43SVx58BRkU6CmVVGpVh7Z
-	21mwalJshVjGw9rG1+1/Uc1qT8OSPJen1pDY3u+OlTVjonmNUYZsxyoKxDqaHZCqTZTZux6UEt5OE
-	aRDuWLnD0BDSjyZWMwfi5c4CYcEGhRCbuV7FukLYLOZcsP1N8Hl+9YxiSg41I4YWIzhVyZwHEjniT
-	p8AONdkDYzIIH4RJaMdVXqcV8f3XiIPVrLyw+zdumepjdAbeiwy4y2+XmOY4l/NfptruLphr/wlEB
-	If1yNzjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/5KVGOst+i3EqYlF+Sx7sAtMWBsKlTUEKDgYGkLY1j4=; b=cK661//i67XgTPWAosQVvn8+hH
+	fxYV9l3PnZDkvYlmxd5qHavuUBUpQLiOrSqLGRi1UYnnjSFh0uB4XsdfdNPTBMePq7cLzfiNQPlOg
+	xi0XdO5orNS2RQ4nV82a1NNoyl6temNtaDBimrSgDNeHhj2d1FMa+Bla8Yr7ZaPhWBUhLG/N3dzjO
+	J1HrcGc8JMuMcMHAvbxlMOu3M5Q1gYZ1VE7ZxKi8TXM16ugRLRv7eJtbm5/ufmOUnHt8i1eOjEI+4
+	LY3x5N0D1ApMg+ADmnaYs3aCa6y9Huhyf7qtgpV0jIFGqumsYeRNCmmyiLOjL8epC+AZ3YuZJGJSK
+	75JTt/uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuReG-0000000509n-1PPL;
-	Tue, 18 Mar 2025 07:46:04 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1tuRgL-000000051h6-2xZ6;
+	Tue, 18 Mar 2025 07:48:13 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRcU-00000004z7z-1uxg
+	id 1tuReb-000000050Z4-1Ong
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 07:44:17 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-307c13298eeso60509801fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 00:44:13 -0700 (PDT)
+	Tue, 18 Mar 2025 07:46:26 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22438c356c8so91306405ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 00:46:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1742283852; x=1742888652; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AY4nrcK+Zp55l8IKfUmGd4cDhlQMOGx6qxnOrnPzDs0=;
-        b=UFTNRMDTEGRx8VcvQBGcgxj8eZ62uh0L5DMarQjteWRfUCSAMzEEGS7fRC1c+W46Mx
-         DatoafNQpobsFwIE0Ezra2cJ9HU9UMmc98G8jpvITIcKzgOkxkU4hx0P+XGImjq0ffu4
-         d5T9GFfnAp0TgQCnUeW8dODGCdq4PYnCLAsg0=
+        d=linaro.org; s=google; t=1742283984; x=1742888784; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/5KVGOst+i3EqYlF+Sx7sAtMWBsKlTUEKDgYGkLY1j4=;
+        b=leDhxfV/BSPTZUG9V/VnAsAGHoyYcuHOJ4vTV7ewoT+BLBA4B8H/TxiA8lbfMqZOcX
+         PVN26UGqB1Z+GSfGGfEtmzdnFndFbuMQ5zHj14bA00QfHVEwe6gSm/7APEBcTv1GRTt+
+         dFK2w9JTd7BnPngVoXRHoebWbJFxu+hfkUPYVcAqYdZYW9i1OCTRDtjJZeAMK0NG66+s
+         wNNnkdT0Ou/Z9XcsuJvxoD5Rs3lh6Sr8k2DL7VNNo7ZCEV7LpSb2ZHOEzsUJtpGv9Suz
+         EdQ97wjblM8FigXTtKc7sd4CsIXiUT8jQ2UaMPZcsgMOdT6Pvc0ISRE++w2jj8SF7/o2
+         nXsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742283852; x=1742888652;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AY4nrcK+Zp55l8IKfUmGd4cDhlQMOGx6qxnOrnPzDs0=;
-        b=gfUiwiVkL2L5NHup93CapiQLstKOu8AkzfGPkFlbVuHetgdXqyPnEUWBpOBkedfDUx
-         PyJsE0rtAFSdbWJmXSLbuaSODIi6ot8XmGbCIqtJ0+hmj28PiIqEesylqux4hymuMBvv
-         yRkXRh0UWMP36QEW4Uuidyke30xZZe/j7KWUoj6gJ0qfYVeghgegzpskrJMeNGpQhnvi
-         zB6U2dBsLsOVXD23EUHMknvt25WpXDT2WCd+T9U4TqKUNHaPWsLPXPt3DljMKf5rRBql
-         9MyN2Cwca137CUA4u+X5NNWiz/Jvzhnvwu4rWPdKxfOtxmWtmwe8FIwXRSRZsVdJBaAD
-         caGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXBTJcJN88ENJ1DzXhiO41Xk6E1ydY2GVeFxLHE6Dtd4n2x318JgeDsKBajr9WLPR+B9b8w7QeE6S0p5OYUblrX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6ZVIev9LyKugPtjq6xH6xvMPQdCU219tAhHsrlS31Q+xg8p/C
-	2IIyMC7qqaBX6qcrXtjwK4cdA5oxFOIb3e/KBuutmMo/HSZTNpZN7QMEt3KpxczX51atNsvQx7g
-	ww9AYzPdmowKSj+6BfQN7sQDLq7VITTvJpH/W
-X-Gm-Gg: ASbGncujHWEYrTCVWm8vP9mh1pLBsitl/Zi2DGhKry3T+Fv3KWEeO3oG+uXU2qHMHiq
-	p6h0FewkKCYYBf59qr5I1aVbfJQ1WcMR4Dn11sd7eaoBBbtZ6Lq2drpd91DnimJ8ObXe+uP0Ylt
-	u4F70VmNi0GhSfT27NKubr65f7TBkpwiIpacuxa/Re8mmFRSifqkmK1g==
-X-Google-Smtp-Source: AGHT+IF+773ci4UoV+sGzHQYu4ESZ9jtnDsvpdSF2LHhzTO4GxyVaJ4Tz3KvEFLSLVW7uYN+ywJG4Jl3VDfydU66Nlg=
-X-Received: by 2002:a05:651c:1a0a:b0:308:ee65:7f44 with SMTP id
- 38308e7fff4ca-30cd95ccf10mr18564791fa.8.1742283851907; Tue, 18 Mar 2025
- 00:44:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742283984; x=1742888784;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/5KVGOst+i3EqYlF+Sx7sAtMWBsKlTUEKDgYGkLY1j4=;
+        b=HgN8QDMTHpczM9uVb+27EmudzB+iaQa3uGB5AxIDHky72qgdXc2FpC+CwZZXExNjaZ
+         +5b2uHzqU9iQrdECA8SgBRHu4GthzNOgt9/m/WABMRfnz7rfrXDDIt6YSFXNqzwyW8+B
+         Pd1aBuEsAnNycBPsc3dPNR3Kh9l8bVe/l8dpcwHtuyO7ZBFpEA90cbatdW3wQC80vKaj
+         SuiiRBIzXEEdogKBHqJumsi4jIQMXyIQrHeFQagkeXQandEim0Rz8rxI6VIbkbIU0z9b
+         9IkD2mM8EBU567J5hW0DWY6PIzaOj65/9ditl4JvALSgukFJOzKP3Gi5VRfgCPrD/nwW
+         uWlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYSbSyYQq71YqTZNjFTFYjBsMrH+gUf1+ErlG/OOWwg7GUdXfzgzcFqB1nDFvD2Lz5nIJvvmPJrGEoS7qxxGwJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEwQDnJCUmOQyVrwzHliR3mWxi4g8J7fl57qLpqjBVB9jgKt6b
+	xDtGCSBp6/NlYzB4foaAC5jU2f1UZBygS5BdfKA2kGG6wUFeg7LehA9gVAqxvg==
+X-Gm-Gg: ASbGncsDRIVBBp2h6+IZdHdxGjTM/L30RAQukE4yeGP6C1PXKgl7r2Ig2bIoggp/jze
+	n2pnyZOY/9MNm8OLynMfYgxgGi5YPWFtkeR72xQ5j5e7X8z+Z5qF7WqF9g8aPd5yV/1DBWhUPKX
+	zJwGUum8j5+1CxUd7JgkXcSCDvarim+yVdzIS63rEpRYtlpbHopfeY2Wh8hMWsX/QLTf4Vux9je
+	PbOUfFz/nyhXMKBL4I0XTUFvihqUjvLXMA8b7PYSc0cuQDR3TzWhu/QOAJHdrEmAryXPdkIWPTV
+	2/WUvmMC4HRH8Qm5xf2Q7C8IdrZx2wZbGyIKus40O6B/EW4xtv7WnLMq6tR1D1N8iyQ=
+X-Google-Smtp-Source: AGHT+IGk7Wbvv+p+ljwVovByJjOFoHfppHTP1+cVpoZmuorSMChPEuewTXvxnqB++I9G1ZambQYJAA==
+X-Received: by 2002:a05:6a00:2309:b0:736:41ec:aaad with SMTP id d2e1a72fcca58-73722382f9bmr19932531b3a.14.1742283984406;
+        Tue, 18 Mar 2025 00:46:24 -0700 (PDT)
+Received: from thinkpad ([120.56.195.170])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-737116b3de4sm9153147b3a.179.2025.03.18.00.46.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 00:46:23 -0700 (PDT)
+Date: Tue, 18 Mar 2025 13:16:18 +0530
+From: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.li@nxp.com>,
+	Hongxing Zhu <hongxing.zhu@nxp.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kw@linux.com" <kw@linux.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the hardcodes
+Message-ID: <20250318074618.tqbnr7nv665fk25n@thinkpad>
+References: <b425a7c7a7d6508daf23fe7046864a498029a7ac.camel@pengutronix.de>
+ <20250313160648.GA736867@bhelgaas>
 MIME-Version: 1.0
-References: <20250317083822.891-1-jjian.zhou@mediatek.com> <375d5281-41f5-49e8-ac20-d58931c0c1f9@collabora.com>
-In-Reply-To: <375d5281-41f5-49e8-ac20-d58931c0c1f9@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 18 Mar 2025 15:44:00 +0800
-X-Gm-Features: AQ5f1JoL_4-3vsBbckwxOs1U7jI_JX94-Mf3iV6qaZp6QY7f8KVlHZilsseLfY4
-Message-ID: <CAGXv+5G4KRbv=qcKurn5u300XPp4KNovmUD9OBfX7mKk57tucg@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 0/3] add VCP mailbox and IPC driver
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Jjian Zhou <jjian.zhou@mediatek.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250313160648.GA736867@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_004414_522276_4A619A02 
-X-CRM114-Status: GOOD (  37.45  )
+X-CRM114-CacheID: sfid-20250318_004625_379678_38CAF30C 
+X-CRM114-Status: GOOD (  49.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,172 +114,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 6:07=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Il 17/03/25 09:38, Jjian Zhou ha scritto:
-> > The VCP mailbox has 5 groups. Each group has corresponding interrupts,
-> > registers, and 64 slots (each slot is 4 bytes). Since different feature=
-s
-> > share one of the mailbox groups, the VCP mailbox needs to establish a
-> > send table and a receive table. The send table is used to record the
-> > feature ID, mailbox ID, and the number of slots occupied. The receive t=
-able
-> > is used to record the feature ID, mailbox ID, the number of slots occup=
-ied,
-> > and the receive options. The API setup_mbox_table in mtk-vcp-ipc.c calc=
-ulates
-> > the slot offset and pin index for each feature ID based on the mailbox =
-ID and
-> > slot number in the send and receive tables (several slots form a pin, a=
-nd
-> > each pin can trigger an interrupt). These descriptions are written in t=
-he
-> > mtk-vcp-ipc.c file -- we call it the IPC layer.
-> >
-> > We have two questions:
-> > How should we describe the mailbox and IPI?
-> > Can the intermediate IPC layer be rewritten as a virtual mailbox layer?
-> >
->
-> So, for this remote processor messaging system you have:
->   - Dynamic channel allocation
->     - Each channel has its own endpoint
+On Thu, Mar 13, 2025 at 11:06:48AM -0500, Bjorn Helgaas wrote:
+> On Thu, Mar 13, 2025 at 09:54:25AM +0100, Lucas Stach wrote:
+> > Am Mittwoch, dem 12.03.2025 um 10:22 -0400 schrieb Frank Li:
+> > > On Wed, Mar 12, 2025 at 09:28:02AM +0100, Lucas Stach wrote:
+> > > > Am Mittwoch, dem 12.03.2025 um 04:05 +0000 schrieb Hongxing Zhu:
+> > > > > > -----Original Message-----
+> > > > > > From: Bjorn Helgaas <helgaas@kernel.org>
+> > > > > > Sent: 2025年3月11日 23:55
+> > > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > > > > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> > > > > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.org;
+> > > > > > kw@linux.com; manivannan.sadhasivam@linaro.org; bhelgaas@google.com;
+> > > > > > s.hauer@pengutronix.de; festevam@gmail.com; devicetree@vger.kernel.org;
+> > > > > > linux-pci@vger.kernel.org; imx@lists.linux.dev; kernel@pengutronix.de;
+> > > > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> > > > > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the
+> > > > > > hardcodes
+> > > > > > 
+> > > > > > On Tue, Mar 11, 2025 at 01:11:04AM +0000, Hongxing Zhu wrote:
+> > > > > > > > -----Original Message-----
+> > > > > > > > From: Bjorn Helgaas <helgaas@kernel.org>
+> > > > > > > > Sent: 2025年3月10日 23:11
+> > > > > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > > > > > > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> > > > > > > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.org;
+> > > > > > > > kw@linux.com; manivannan.sadhasivam@linaro.org;
+> > > > > > bhelgaas@google.com;
+> > > > > > > > s.hauer@pengutronix.de; festevam@gmail.com;
+> > > > > > > > devicetree@vger.kernel.org; linux-pci@vger.kernel.org;
+> > > > > > > > imx@lists.linux.dev; kernel@pengutronix.de;
+> > > > > > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> > > > > > > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the
+> > > > > > > > hardcodes
+> > > > > > > > 
+> > > > > > > > On Wed, Feb 26, 2025 at 10:42:56AM +0800, Richard Zhu wrote:
+> > > > > > > > > Use the domain number replace the hardcodes to uniquely identify
+> > > > > > > > > different controller on i.MX8MQ platforms. No function changes.
+> > > > > > > > > 
+> > > > > > > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > > > > > > > ---
+> > > > > > > > >  drivers/pci/controller/dwc/pci-imx6.c | 14 ++++++--------
+> > > > > > > > >  1 file changed, 6 insertions(+), 8 deletions(-)
+> > > > > > > > > 
+> > > > > > > > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > > > b/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > > > index 90ace941090f..ab9ebb783593 100644
+> > > > > > > > > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > > > @@ -41,7 +41,6 @@
+> > > > > > > > >  #define IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE	BIT(11)
+> > > > > > > > >  #define IMX8MQ_GPR_PCIE_VREG_BYPASS		BIT(12)
+> > > > > > > > >  #define IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE	GENMASK(11,
+> > > > > > 8)
+> > > > > > > > > -#define IMX8MQ_PCIE2_BASE_ADDR			0x33c00000
+> > > > > > > > > 
+> > > > > > > > >  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
+> > > > > > > > >  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
+> > > > > > > > > @@ -1474,7 +1473,6 @@ static int imx_pcie_probe(struct
+> > > > > > > > > platform_device
+> > > > > > > > *pdev)
+> > > > > > > > >  	struct dw_pcie *pci;
+> > > > > > > > >  	struct imx_pcie *imx_pcie;
+> > > > > > > > >  	struct device_node *np;
+> > > > > > > > > -	struct resource *dbi_base;
+> > > > > > > > >  	struct device_node *node = dev->of_node;
+> > > > > > > > >  	int i, ret, req_cnt;
+> > > > > > > > >  	u16 val;
+> > > > > > > > > @@ -1515,10 +1513,6 @@ static int imx_pcie_probe(struct
+> > > > > > > > platform_device *pdev)
+> > > > > > > > >  			return PTR_ERR(imx_pcie->phy_base);
+> > > > > > > > >  	}
+> > > > > > > > > 
+> > > > > > > > > -	pci->dbi_base = devm_platform_get_and_ioremap_resource(pdev,
+> > > > > > 0,
+> > > > > > > > &dbi_base);
+> > > > > > > > > -	if (IS_ERR(pci->dbi_base))
+> > > > > > > > > -		return PTR_ERR(pci->dbi_base);
+> > > > > > > > 
+> > > > > > > > This makes me wonder.
+> > > > > > > > 
+> > > > > > > > IIUC this means that previously we set controller_id to
+> > > > > > > > 1 if the first item in devicetree "reg" was 0x33c00000,
+> > > > > > > > and now we will set controller_id to 1 if the devicetree
+> > > > > > > > "linux,pci-domain" property is 1.  This is good, but I
+> > > > > > > > think this new dependency on the correct
+> > > > > > > > "linux,pci-domain" in devicetree should be mentioned in
+> > > > > > > > the commit log.
+> > > > > > > > 
+> > > > > > > > My bigger worry is that we no longer set pci->dbi_base
+> > > > > > > > at all.  I see that the only use of pci->dbi_base in
+> > > > > > > > pci-imx6.c was to determine the controller_id, but this
+> > > > > > > > is a DWC-based driver, and the DWC core certainly uses
+> > > > > > > > pci->dbi_base.  Are we sure that none of those DWC core
+> > > > > > > > paths are important to pci-imx6.c?
+> > > > > > >
+> > > > > > > Thanks for your concerns.  Don't worry about the
+> > > > > > > assignment of pci->dbi_base.  If pci-imx6.c driver doesn't
+> > > > > > > set it. DWC core driver would set it when
+> > > > > > >  dw_pcie_get_resources() is invoked.
+> > > > > > 
+> > > > > > Great, thanks!  Maybe we can amend the commit log to mention
+> > > > > > that and the new "linux,pci-domain" dependency.
+> > > > >
+> > > > > How about the following updates of the commit log?
+> > > > > 
+> > > > > Use the domain number replace the hardcodes to uniquely
+> > > > > identify different controller on i.MX8MQ platforms. No
+> > > > > function changes.  Please make sure the " linux,pci-domain" is
+> > > > > set for i.MX8MQ correctly, since  the controller id is relied
+> > > > > on it totally.
+> > > > > 
+> > > > This breaks running a new kernel on an old DT without the
+> > > > linux,pci-domain property, which I'm absolutely no fan of. We
+> > > > tried really hard to keep this way around working in the i.MX
+> > > > world.
+> > > 
+> > > 8MQ already add linux,pci-domain since Jan, 2021
+> > > 
+> > > commit c0b70f05c87f3b09b391027c6f056d0facf331ef
+> > > Author: Peng Fan <peng.fan@nxp.com>
+> > > Date:   Fri Jan 15 11:26:57 2021 +0800
+> > > 
+> > > Only missed is pcie-ep side, which have not been used at all boards dts
+> > > file in upstream.
+> > 
+> > I wasn't aware of this. 2021 is quite a while ago, so I suspect that
+> > nobody is going to run a new kernel with a DT this old. I retract my
+> > objection.
+> 
+> Sounds good, thanks, Lucas.  We really do want to avoid breaking old
+> DTs, so I appreciate your highlighting of it.  Even if we believe none
+> of them will break, I think it's worth mentioning the
+> 'linux,pci-domain' dependency and the commit that added it to the
+> .dtsi in the commit log.
+> 
 
-The rpmsg model has:
+If there is a dependency, then it should be added to the binding. Only that will
+ensure that the DTs will have the dependent property present.
 
-- device -> the remote processor
-- channel
-- endpoint
+- Mani
 
-However here for the VCP and possibly all the coprocessors using the
-tinysys model, channel and endpoint are basically the same. If we
-consider the "channel" to be the storage plus the interrupt vector,
-and the "endpoint" to be the function running on the remote processor
-servicing a given IPI ID, then it's always one endpoint per channel.
-
-IMHO rpmsg gives too much latitude to make things confusing here.
-
-rpmsg also requires the remote processor to support name service
-announcements, which really doesn't exist. The endpoints and how
-they map to the various hardware mailbox interrupt vectors and
-storage is statically allocated, and thus needs to be described
-in the driver.
-
->     - Each channel has its own interrupt
->   - Data send operation
->     - Both with and without ACK indication from the remote processor
->     - To channel -> endpoint
->   - Data receive operation
->     - From channel <- endpoint
->     - When interrupt fires
->     - Could use polling to avoid blocking in a few cases
->   - A custom message structure not adhering to any standard
->
-> Check drivers/rpmsg/ :-)
-
-While discussing this internally, I felt like that wasn't a really
-correct model. IIUC rpmsg was first created to allow userspace to
-pass messages to the remote processor. Then somehow devices were
-being created on top of those channels.
-
-Also, the existing mtk_rpmsg driver seemed a bit weird, like requiring
-a DT node for each rpmsg endpoint.
-
-That's why I thought mailboxes made more sense, as the terminology mapped
-better. As a result I never brought up rpmsg in the discussion.
-
-Perhaps that could be improved with better documentation for the MediaTek
-specific implementation.
-
-> On MediaTek platforms, there are many IPI to handle in many subsystems fo=
-r
-> all of the remote processors that are integrated in the SoC and, at this
-> point, you might as well just aggregate all of the inter processor commun=
-ication
-> stuff in one place, having an API that is made just exactly for that, ins=
-tead
-> of keeping to duplicate the IPI stuff over and over (and yes I know that =
-for each
-> remote processor the TX/RX is slightly different).
->
-> If you aggregate the IPI messaging in one place, maintenance is going to =
-be easier,
-> and we stop getting duplication... more or less like it was done with the=
- mtk_scp
-> IPI and mtk-vcodec .. and that's also something that is partially handled=
- as RPMSG
-> because, well, it is a remote processor messaging driver.
->
-> Just to make people understand *how heavily* MediaTek SoCs rely on IPI, t=
-here's
-> a *partial* list of SoC IPs that use IPI communcation:
->
-> thermal, ccu, ccd, tinysys, vcp, atsp, sspm, slbc, mcupm, npu, mvpu, aps,=
- mdla,
-> qos, audio, cm_mgr.... and... again, it's a partial list!
-
-Indeed, the newest chip has become quite complicated.
-
-> That said... any other opinion from anyone else?
-
-I tried to describe why I thought a virtual mailbox was better.
-
-
-Thanks
-ChenYu
-
-> Cheers,
-> Angelo
->
-> > Example of send and recve table:
-> > Operation | mbox_id | ipi_id | msg_size | align_size | slot_ofs | pin_i=
-ndex |  notes
-> > send          0          0       18          18           0          0
-> > recv          0          1       18          18          18          9
-> > send          1         15        8           8           0          0
-> > send          1         16       18          18           8          4
-> > send          1          9        2           2          26         13
-> > recv          1         15        8           8          28         14 =
-      ack of send ipi_id=3D15
-> > recv          1         17       18          18          36         18
-> > recv          1         10        2           2          54         27 =
-      ack of send ipi_id=3D2
-> > send          2         11       18          18           0          0
-> > send          2          2        2           2          18          9
-> > send          2          3        3           4          20         10
-> > send          2         32        2           2          24         12
-> > recv          2         12       18          18          26         13
-> > recv          2          5        1           2          44         22
-> > recv          2          2        1           2          46         23
-> >
-> > Recv ipi_id=3D2 is the ack of send ipi_id=3D2(The ipi_id=3D15 is the sa=
-me.)
-> >
-> > Jjian Zhou (3):
-> >    mailbox: mediatek: Add mtk-vcp-mailbox driver
-> >    firmware: mediatek: Add vcp ipc protocol interface
-> >    dt-bindings: mailbox: mtk,vcp-mbox: add mtk vcp-mbox document
-> >
-> >   .../bindings/mailbox/mtk,mt8196-vcp-mbox.yaml |  49 ++
-> >   drivers/firmware/Kconfig                      |   9 +
-> >   drivers/firmware/Makefile                     |   1 +
-> >   drivers/firmware/mtk-vcp-ipc.c                | 481 +++++++++++++++++=
-+
-> >   drivers/mailbox/Kconfig                       |   9 +
-> >   drivers/mailbox/Makefile                      |   2 +
-> >   drivers/mailbox/mtk-vcp-mailbox.c             | 179 +++++++
-> >   include/linux/firmware/mediatek/mtk-vcp-ipc.h | 151 ++++++
-> >   include/linux/mailbox/mtk-vcp-mailbox.h       |  34 ++
-> >   9 files changed, 915 insertions(+)
-> >   create mode 100644 Documentation/devicetree/bindings/mailbox/mtk,mt81=
-96-vcp-mbox.yaml
-> >   create mode 100644 drivers/firmware/mtk-vcp-ipc.c
-> >   create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
-> >   create mode 100644 include/linux/firmware/mediatek/mtk-vcp-ipc.h
-> >   create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
-> >
->
->
->
+-- 
+மணிவண்ணன் சதாசிவம்
 
