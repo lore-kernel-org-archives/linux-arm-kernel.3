@@ -4,128 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 069F9C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AEAC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQHq2hCTlCvty8OK/ZzDJdJz20qlST0ei05aCL2P84s=; b=Tgb1Yzb4poeNwIr2MQBeXNcBux
-	MhCZy+Rt3Wftw5wwBsViMFPo3HBBK7AB6VlzxLFyVUpV0UGQzwg3EK8OBS3aVBqQATjAvc34/bOmh
-	OaXdqKsw3Iw2nKB/J3Ewl3KhT+bc5zlWxUvyOFRkx1RX/a3aJJBHYEwtrlJobVi1p3eiiK0TCTlYq
-	PaLiyj7OPYViTnCtHe8L17OAONsh5X5PRhEgHEI/kwKWqgoScdt3A+1crWToI/s3UQRDmRprsgu1w
-	nueOw7dON1zNTAI1wQPk9yIG7N0yi3POle2ZglpZh8tNuoSorpyMabHrOBCNiIARzu+QvmOWv/Z/U
-	b8BS3JYA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lg8LoqKtUOQ739XZEjBctrLRozivGbRQMx/pQxNulCA=; b=VwzfrkRM07wOI8RyCvz/yQn5nq
+	EGyuT77BIoM/++rSGwmz55rU41OzF4CF7R1NQekVqunHO80qEhDPbBJ39L5vQtadW4lfSt3Apz0u9
+	zvYQCj8MTNzKEBbg+s2Fj+tLXZBL3quXcpROOLRa/yaAHme9+Zquu22FeKZp5Xmu+ATgLbXfSK+NU
+	GapFODRCTS8OUanKuwAAMnxs6RmVhB6uMz1RUAcVQG1GeaOpnTfQxuXjYAKWr81edRUH4sMKiQ9Lx
+	N9F/5NWArp1ge7UUmtscktgM7kiFgNkWr1ioTOk2RmFgNwGKbMRtrX/wve/QfYUar/E8lD7AHEmzK
+	IRURiHYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUXn-00000005baN-1qvE;
-	Tue, 18 Mar 2025 10:51:35 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUUO-00000005axZ-1NVb
+	id 1tuUZR-00000005blX-0nK1;
+	Tue, 18 Mar 2025 10:53:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuUUc-00000005b0O-35Vw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 10:48:05 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso22622775e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 03:48:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742294882; x=1742899682; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lQHq2hCTlCvty8OK/ZzDJdJz20qlST0ei05aCL2P84s=;
-        b=YHEH8KBmzjR5aQlursociZ1f95zdzdkCp+4mdBNoRQRMn+pYiKHoWFJN1XI1iWaB61
-         m5jwklBOuATMLLLYCPMxz1QqIHeTUdDYWjYVNXo4vOaMTXbm5/SE3JaDi01F6v3quimY
-         RJG+hBqpYLs2Ikqer79h9xpkjCsc3CyGhgr9rNIXWyAsa1/aucwl2NRTTaUyuO6y4tvR
-         0WlSWCFX0MxCSY4zLW8xF/SfS6nqTa3HyUP+g9WtlmWOz3wQRC7x2M/gxl4aFnhT1uqv
-         0WwlsIFhbR7+OUn3pdP40MpO+dbI6NK9CJ9mQCF9rfxznTkNmM6kitCEegXlMkntBF//
-         PH1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742294882; x=1742899682;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=lQHq2hCTlCvty8OK/ZzDJdJz20qlST0ei05aCL2P84s=;
-        b=vKRK+YrL64U0QV1BrMcnrChRVYYuzGuaCxD7ysH+lq3laIuIDcJzOBokOh/zNLiGbS
-         0sRSqQrKzVCn9FYBXEnH45Q69SrrNjhtXVkn08QCgoz0ltAk2Z/Vfux72ZlKuo6LI6rB
-         X0+VUCMK5AnlzIDBRCrc064dxGmhw3jOdo92D1nXCWtPrIvNZ8bytGT4UTov8KI/PDK8
-         np/HAHu9Qc+tIwt8yxt9F6GUMLxmk0Uh4vsvBRD1rwdLzt8R6dfoGLCiRmwfrNE3+JcV
-         4OOEw7qLSpxcdMopMj5q0f3+iQ7uZO8fEK9JJeDfWnhVQivUMN7+Y7TtXSl6hVWDFlca
-         LQFg==
-X-Forwarded-Encrypted: i=1; AJvYcCXzFl+zr75VhqBYaPEbBBa5urf2xlhXaz1XQEuDvE3DGChJg8WnuN547N+UfQGYTBQHrU3GRiQSDGF7KehS3nDK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzPykuB7x9fK0nRlsif8YD96SQYos3XS1xd6NYJolv0ygvNlbb
-	58fEi+tuKV+5iNMlZgS4q/yHeTTI2+x0njP4EbY++gV/Hqc+c9GGrTdkUq5DKCg=
-X-Gm-Gg: ASbGncug0sEzJhBT1g+SpFUYRBtIPokwZCWXOw39qnJyppfdeXqS/AGO981ohN90A6j
-	xKYwhit6GjeQYO0iL9m+qbJbqNYBQp7WQsapgi/zU+iaJLyR+IfNLzSXQhqKh5AEWGC2GNF/7he
-	8vg7rpPw0aIvYrZxxdGdR4R7D3sB9PjCXu+rS9biHgMnetgn6asZgaKrhoVGqaVKfUQvOECFfpT
-	SFWMw3VPcqD3ed9AYEXYPpPulbUo8M5m3aETok/7DFtJ8AsEMQL9n7C7WPO19wnm/6ZuQB5nhzq
-	9u4a+Mk4QXvJ0ZfZ3CJUKWEpx/hAEj5bhOEDewJwgL7I0LFbxSl3mYbs9XzhRcYuDoi4Y0tfkYX
-	XByB24QqcV9DHgNNsoIHNsw==
-X-Google-Smtp-Source: AGHT+IEvqQm0L33zdjtiaR0kLcpkjVK78vmD/D0qYWBavdIvwJwnojSo58SFbe1jRfiwWGTyvooy4Q==
-X-Received: by 2002:a05:600c:1d85:b0:43c:fe15:41e1 with SMTP id 5b1f17b1804b1-43d3fca93dfmr2270645e9.4.1742294882536;
-        Tue, 18 Mar 2025 03:48:02 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:eac1:f2d4:84a8:c5ff? ([2a01:e0a:3d9:2080:eac1:f2d4:84a8:c5ff])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d1ffc4173sm131457905e9.20.2025.03.18.03.48.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Mar 2025 03:48:02 -0700 (PDT)
-Message-ID: <a2ecebf5-9d37-49ad-9422-f984d1da8c57@linaro.org>
-Date: Tue, 18 Mar 2025 11:48:01 +0100
+	Tue, 18 Mar 2025 10:48:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BB0B13D5;
+	Tue, 18 Mar 2025 03:48:26 -0700 (PDT)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 431D63F63F;
+	Tue, 18 Mar 2025 03:48:17 -0700 (PDT)
+Message-ID: <15720521-7ee3-4945-a0bd-2b166682d4c9@arm.com>
+Date: Tue, 18 Mar 2025 10:48:16 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 3/3] remoteproc: Use of_reserved_mem_region_* functions
- for "memory-region"
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Saravana Kannan <saravanak@google.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250317232426.952188-1-robh@kernel.org>
- <20250317232426.952188-4-robh@kernel.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250317232426.952188-4-robh@kernel.org>
+Subject: Re: [PATCH] arm: coresight: Finish removal of Coresight support in
+ arch/arm/kernel
+To: James Clark <james.clark@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org
+Cc: Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>
+References: <20250210112927.623872-1-james.clark@linaro.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250210112927.623872-1-james.clark@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_034804_386778_7D881920 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250318_034818_867967_16771D9C 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,58 +63,188 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 10/02/2025 11:29, James Clark wrote:
+> Commit 184901a06a36 ("ARM: removing support for etb/etm in
+> "arch/arm/kernel/"") removed asm/hardware/coresight.h which is included
+> by this file. Therefore this is dead code so delete it.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-On 18/03/2025 00:24, Rob Herring (Arm) wrote:
-> Use the newly added of_reserved_mem_region_to_resource() and
-> of_reserved_mem_region_count() functions to handle "memory-region"
-> properties.
-> 
-> The error handling is a bit different in some cases. Often
-> "memory-region" is optional, so failed lookup is not an error. But then
-> an error in of_reserved_mem_lookup() is treated as an error. However,
-> that distinction is not really important. Either the region is available
-> and usable or it is not. So now, it is just
-> of_reserved_mem_region_to_resource() which is checked for an error.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
 > ---
-> For v6.16
+>   arch/arm/include/asm/cti.h | 160 -------------------------------------
+>   1 file changed, 160 deletions(-)
+>   delete mode 100644 arch/arm/include/asm/cti.h
 > 
->   drivers/remoteproc/imx_dsp_rproc.c        | 44 ++++++---------
->   drivers/remoteproc/imx_rproc.c            | 65 ++++++++-------------
->   drivers/remoteproc/qcom_q6v5_adsp.c       | 24 +++-----
->   drivers/remoteproc/qcom_q6v5_mss.c        | 60 +++++++-------------
->   drivers/remoteproc/qcom_q6v5_pas.c        | 69 ++++++++---------------
->   drivers/remoteproc/qcom_q6v5_wcss.c       | 25 ++++----
->   drivers/remoteproc/qcom_wcnss.c           | 23 +++-----
->   drivers/remoteproc/rcar_rproc.c           | 36 +++++-------
->   drivers/remoteproc/st_remoteproc.c        | 39 ++++++-------
->   drivers/remoteproc/stm32_rproc.c          | 42 ++++++--------
->   drivers/remoteproc/ti_k3_dsp_remoteproc.c | 28 ++++-----
->   drivers/remoteproc/ti_k3_m4_remoteproc.c  | 28 ++++-----
->   drivers/remoteproc/ti_k3_r5_remoteproc.c  | 28 ++++-----
->   drivers/remoteproc/xlnx_r5_remoteproc.c   | 49 ++++++----------
->   14 files changed, 213 insertions(+), 347 deletions(-)
-> 
-<snip>
-
-I get:
-ERROR: modpost: "devm_ioremap_resource_wc" [drivers/remoteproc/qcom_q6v5_adsp.ko] undefined!
-ERROR: modpost: "devm_ioremap_resource_wc" [drivers/remoteproc/qcom_q6v5_pas.ko] undefined!
-ERROR: modpost: "devm_ioremap_resource_wc" [drivers/remoteproc/qcom_wcnss_pil.ko] undefined!
-ERROR: modpost: "devm_ioremap_resource_wc" [drivers/remoteproc/ti_k3_dsp_remoteproc.ko] undefined!
-ERROR: modpost: "devm_ioremap_resource_wc" [drivers/remoteproc/ti_k3_m4_remoteproc.ko] undefined!
-ERROR: modpost: "devm_ioremap_resource_wc" [drivers/remoteproc/ti_k3_r5_remoteproc.ko] undefined!
-
-when building with arm64 defconfig. I guess a proper:
-EXPORT_SYMBOL(devm_ioremap_resource_wc)
-is missing.
-
-Neil
+> diff --git a/arch/arm/include/asm/cti.h b/arch/arm/include/asm/cti.h
+> deleted file mode 100644
+> index f8500e5d6ea8..000000000000
+> --- a/arch/arm/include/asm/cti.h
+> +++ /dev/null
+> @@ -1,160 +0,0 @@
+> -/* SPDX-License-Identifier: GPL-2.0 */
+> -#ifndef __ASMARM_CTI_H
+> -#define __ASMARM_CTI_H
+> -
+> -#include	<asm/io.h>
+> -#include	<asm/hardware/coresight.h>
+> -
+> -/* The registers' definition is from section 3.2 of
+> - * Embedded Cross Trigger Revision: r0p0
+> - */
+> -#define		CTICONTROL		0x000
+> -#define		CTISTATUS		0x004
+> -#define		CTILOCK			0x008
+> -#define		CTIPROTECTION		0x00C
+> -#define		CTIINTACK		0x010
+> -#define		CTIAPPSET		0x014
+> -#define		CTIAPPCLEAR		0x018
+> -#define		CTIAPPPULSE		0x01c
+> -#define		CTIINEN			0x020
+> -#define		CTIOUTEN		0x0A0
+> -#define		CTITRIGINSTATUS		0x130
+> -#define		CTITRIGOUTSTATUS	0x134
+> -#define		CTICHINSTATUS		0x138
+> -#define		CTICHOUTSTATUS		0x13c
+> -#define		CTIPERIPHID0		0xFE0
+> -#define		CTIPERIPHID1		0xFE4
+> -#define		CTIPERIPHID2		0xFE8
+> -#define		CTIPERIPHID3		0xFEC
+> -#define		CTIPCELLID0		0xFF0
+> -#define		CTIPCELLID1		0xFF4
+> -#define		CTIPCELLID2		0xFF8
+> -#define		CTIPCELLID3		0xFFC
+> -
+> -/* The below are from section 3.6.4 of
+> - * CoreSight v1.0 Architecture Specification
+> - */
+> -#define		LOCKACCESS		0xFB0
+> -#define		LOCKSTATUS		0xFB4
+> -
+> -/**
+> - * struct cti - cross trigger interface struct
+> - * @base: mapped virtual address for the cti base
+> - * @irq: irq number for the cti
+> - * @trig_out_for_irq: triger out number which will cause
+> - *	the @irq happen
+> - *
+> - * cti struct used to operate cti registers.
+> - */
+> -struct cti {
+> -	void __iomem *base;
+> -	int irq;
+> -	int trig_out_for_irq;
+> -};
+> -
+> -/**
+> - * cti_init - initialize the cti instance
+> - * @cti: cti instance
+> - * @base: mapped virtual address for the cti base
+> - * @irq: irq number for the cti
+> - * @trig_out: triger out number which will cause
+> - *	the @irq happen
+> - *
+> - * called by machine code to pass the board dependent
+> - * @base, @irq and @trig_out to cti.
+> - */
+> -static inline void cti_init(struct cti *cti,
+> -	void __iomem *base, int irq, int trig_out)
+> -{
+> -	cti->base = base;
+> -	cti->irq  = irq;
+> -	cti->trig_out_for_irq = trig_out;
+> -}
+> -
+> -/**
+> - * cti_map_trigger - use the @chan to map @trig_in to @trig_out
+> - * @cti: cti instance
+> - * @trig_in: trigger in number
+> - * @trig_out: trigger out number
+> - * @channel: channel number
+> - *
+> - * This function maps one trigger in of @trig_in to one trigger
+> - * out of @trig_out using the channel @chan.
+> - */
+> -static inline void cti_map_trigger(struct cti *cti,
+> -	int trig_in, int trig_out, int chan)
+> -{
+> -	void __iomem *base = cti->base;
+> -	unsigned long val;
+> -
+> -	val = __raw_readl(base + CTIINEN + trig_in * 4);
+> -	val |= BIT(chan);
+> -	__raw_writel(val, base + CTIINEN + trig_in * 4);
+> -
+> -	val = __raw_readl(base + CTIOUTEN + trig_out * 4);
+> -	val |= BIT(chan);
+> -	__raw_writel(val, base + CTIOUTEN + trig_out * 4);
+> -}
+> -
+> -/**
+> - * cti_enable - enable the cti module
+> - * @cti: cti instance
+> - *
+> - * enable the cti module
+> - */
+> -static inline void cti_enable(struct cti *cti)
+> -{
+> -	__raw_writel(0x1, cti->base + CTICONTROL);
+> -}
+> -
+> -/**
+> - * cti_disable - disable the cti module
+> - * @cti: cti instance
+> - *
+> - * enable the cti module
+> - */
+> -static inline void cti_disable(struct cti *cti)
+> -{
+> -	__raw_writel(0, cti->base + CTICONTROL);
+> -}
+> -
+> -/**
+> - * cti_irq_ack - clear the cti irq
+> - * @cti: cti instance
+> - *
+> - * clear the cti irq
+> - */
+> -static inline void cti_irq_ack(struct cti *cti)
+> -{
+> -	void __iomem *base = cti->base;
+> -	unsigned long val;
+> -
+> -	val = __raw_readl(base + CTIINTACK);
+> -	val |= BIT(cti->trig_out_for_irq);
+> -	__raw_writel(val, base + CTIINTACK);
+> -}
+> -
+> -/**
+> - * cti_unlock - unlock cti module
+> - * @cti: cti instance
+> - *
+> - * unlock the cti module, or else any writes to the cti
+> - * module is not allowed.
+> - */
+> -static inline void cti_unlock(struct cti *cti)
+> -{
+> -	__raw_writel(CS_LAR_KEY, cti->base + LOCKACCESS);
+> -}
+> -
+> -/**
+> - * cti_lock - lock cti module
+> - * @cti: cti instance
+> - *
+> - * lock the cti module, so any writes to the cti
+> - * module will be not allowed.
+> - */
+> -static inline void cti_lock(struct cti *cti)
+> -{
+> -	__raw_writel(~CS_LAR_KEY, cti->base + LOCKACCESS);
+> -}
+> -#endif
 
 
