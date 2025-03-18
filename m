@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836F8C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 08:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A63C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 08:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jyAj1sMnFmpv7z/AYCkEXsUWaZpIiwdeycOR3SOgEQ=; b=b2Rw0GZlesA7VPnR4ezDafLo5n
-	zEOv1Fe5hhZZ+cwOWVJCWpTkzAFJySHwRmRt0oUD8nBkUPngsJZuo2APbA/cRwK7sdXtcYTru8u2T
-	OP3F08XcxzCs1KpVCnluaL1YaqxMJzAt1UjK8cDMB5SuZTCAyH2UrZHoCUXeMI/jI3OC1yC3ImmC5
-	cgnT6uKOCgRN4ZRRefTem6QUUhbvo5rMpNbXYNM5z++urMgmsmAIgKRcUGs9TdvoksFuN6u+ZRVC4
-	ZdPEYc903oxnXKxcIWatpO5rDtQVPAFP6GzTZ3J7DfQt0b2iY3o/c6y7iK0Q8XTKwadV+8bS1MTu6
-	LfEwtpgA==;
+	bh=PYexzvxuekgqLHatZlFwTRRdX07yMrz0UyQigczwDJc=; b=DutbGPNUI3P/E9gHeP9mN6s1lx
+	UxGGrNR5zcpLXUnCW062OpuD2TPIZGism7P1pnvu69/AFMDow67jV1vYyMiLbX0/S/GWkFlR0r86y
+	2h6EomqZhXS4PmQV4Hs4vvES8xpPjn6NTe1+i4N22fMJTMNL462lisMeCwJUzxSuGW3F2imXgvBvS
+	+4UjVLyNJPG0IA/8ZqPyzd9xqBHASendgE6SOBNjo1notQQgJ5Opy4cR1SnY/IqmR4+W8jtmToNoz
+	mbRF+IqPcLDDlWHaLWPkN6A8Wep7Ow8od2frToWPu8Pq8e4TiLQwBCCJ+lk+17PY7FnEhIRzaUJfr
+	GNnF+icw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRtg-000000054gU-37Ig;
-	Tue, 18 Mar 2025 08:02:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tuRvL-0000000556j-1ksP;
+	Tue, 18 Mar 2025 08:03:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRnw-000000053Lr-1QsJ
+	id 1tuRog-000000053U2-156R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 07:56:05 +0000
+	Tue, 18 Mar 2025 07:56:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 85E055C5734;
-	Tue, 18 Mar 2025 07:53:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21198C4CEDD;
-	Tue, 18 Mar 2025 07:56:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DDAE8A48D26;
+	Tue, 18 Mar 2025 07:51:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D20C4CEDD;
+	Tue, 18 Mar 2025 07:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742284563;
-	bh=LtjsmPhSNisv7I5z84pcT0c3tUyrHI8gEhlKPZozsJA=;
+	s=k20201202; t=1742284609;
+	bh=PYexzvxuekgqLHatZlFwTRRdX07yMrz0UyQigczwDJc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Sr1P8L7sxm7dCokDBaNlASRuyiiwrimV8VPr8U/+wda6RR6MQ4kdCL44tBGs2L8FV
-	 ESAmxY+3mx5DXMXWwTWE4gOaAC8xN4Lnjp49rXvl3zyVpPafGNV5ZcKHoDmQqNRXYc
-	 DXqN5528GxdBI5rB1cZmg3c7gWpW/vi8HV/m0qK1vTwO0pRGCn+4Lgz3RKGH5CqeVe
-	 WBS1TbqAmwYozArJWE+f0ZtGrrdTZkPXPkFDXe+/AKOqYn16LD08EXeRg0wYe+5DU7
-	 BagVlaCmP5ntnHCx+NcBJBrQ8SZer/LT+M/xafox9ODbTLTjTje0kjwrHZT9MPxI2h
-	 DtX4hHEtyxoSQ==
-Date: Tue, 18 Mar 2025 08:55:59 +0100
+	b=eyTu0yHpjLaLbKHHy1oBYw211KKL360J3Zo8yI7ETyJaJBKbn+Vs1enJVqm2EYwMh
+	 NbRu3/jX1Neqtgl+/2MSX/yl/jcqAPI6bXks684f9G2NCQJKW3gyQYi02deDaLuNcE
+	 N6dzclk1qoT0eo0efN1Qeo+MqlmCGGPQZpQpHI/ujmfBwF3IKWGLKZf/n70JiCAXzd
+	 DmgEiR22g6ai2EC4hjqxudQR+SrcMyzQhxdZXJO4CGLuqkhyRpZJH0IxanUVe3P1rA
+	 NSmerndGOAvd2/KJVD+SDW2e0VGHcVLn9nFPSf4NuOm5WyDncQKkaPCT90toW4pjQ7
+	 06FIxy+InJqVw==
+Date: Tue, 18 Mar 2025 08:56:46 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, 
@@ -61,17 +61,19 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	David Heidelberg <david@ixit.cz>, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
 	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/9] dt-bindings: display/msm: describe SFPB device
-Message-ID: <20250318-adventurous-cherubic-coua-eecbbc@krzk-bin>
+Subject: Re: [PATCH 3/9] dt-bindings: soc: qcom: add Smart Peripheral System
+ Interrupt Controller
+Message-ID: <20250318-dandelion-aardwolf-of-radiance-695fd9@krzk-bin>
 References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
- <20250317-fix-nexus-4-v1-2-655c52e2ad97@oss.qualcomm.com>
+ <20250317-fix-nexus-4-v1-3-655c52e2ad97@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250317-fix-nexus-4-v1-2-655c52e2ad97@oss.qualcomm.com>
+In-Reply-To: <20250317-fix-nexus-4-v1-3-655c52e2ad97@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_005604_462636_A39DB9E9 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20250318_005650_357993_BBFE427D 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 07:44:37PM +0200, Dmitry Baryshkov wrote:
-> Add DT schema for the MultiMedia SubSystem System FPB device, which
-> provides several registers to control interface between multimedia
-> devices (primarily display) and system busses.
-> 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
->  .../devicetree/bindings/display/msm/qcom,sfpb.yaml | 39 ++++++++++++++++++++++
-
-Filename: qcom,apq8064-mmss-sfpb.yaml
-
->  1 file changed, 39 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/msm/qcom,sfpb.yaml b/Documentation/devicetree/bindings/display/msm/qcom,sfpb.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..7ca105c97edd2f305527c58ae89b9b0cf22d3c8c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/msm/qcom,sfpb.yaml
-> @@ -0,0 +1,39 @@
+On Mon, Mar 17, 2025 at 07:44:38PM +0200, Dmitry Baryshkov wrote:
+> +++ b/Documentation/devicetree/bindings/soc/qcom/qcom,sps-sic.yaml
+> @@ -0,0 +1,38 @@
 > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/display/msm/qcom,sfpb.yaml#
+> +$id: http://devicetree.org/schemas/soc/qcom/qcom,sps-sic.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Qualcomm MultiMedia SubSystem System FPB
-> +
-> +maintainers:
-> +  - Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> +  - Rob Clark <robdclark@gmail.com>
-> +
-> +description:
-> +  The SFPB provides several registers controlling the multimedia attachment to
-> +  the system busses.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: qcom,apq8064-mmss-sfpb
-> +      - const: syscon
+> +title: Qualcomm Smart Peripheral System Interrupt Controller
 
-Why this cannot be part of standard syscon bindings file? Looks simple
-enough.
+Interrupt controller should have interrupt-cells. Or this is not
+interrupt controller...
+
+Anyway same comments as for previous patch.
 
 Best regards,
 Krzysztof
