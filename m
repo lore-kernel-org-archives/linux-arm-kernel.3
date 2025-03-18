@@ -4,102 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46653C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 07:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A36CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 07:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5KVGOst+i3EqYlF+Sx7sAtMWBsKlTUEKDgYGkLY1j4=; b=cK661//i67XgTPWAosQVvn8+hH
-	fxYV9l3PnZDkvYlmxd5qHavuUBUpQLiOrSqLGRi1UYnnjSFh0uB4XsdfdNPTBMePq7cLzfiNQPlOg
-	xi0XdO5orNS2RQ4nV82a1NNoyl6temNtaDBimrSgDNeHhj2d1FMa+Bla8Yr7ZaPhWBUhLG/N3dzjO
-	J1HrcGc8JMuMcMHAvbxlMOu3M5Q1gYZ1VE7ZxKi8TXM16ugRLRv7eJtbm5/ufmOUnHt8i1eOjEI+4
-	LY3x5N0D1ApMg+ADmnaYs3aCa6y9Huhyf7qtgpV0jIFGqumsYeRNCmmyiLOjL8epC+AZ3YuZJGJSK
-	75JTt/uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rf5qZHxtK3mCKSr6NpOLubF8ArBJB08AFgLuR4bU4a4=; b=mibrnsTQgf/WVeDq9N4wlZydpw
+	CVW+AIPE50VCtn6yRasJ333hSHX3J6gfC1VsU18Z8Bp9drWAtWB9OpqXsVZ3Noj197wSkQ0UmfHad
+	rIlgwpw79XijQ11AYJqrYhJCx9Vbb/424/3lVecO2Lb6ETPgeChS5KFc5erTSgQPPG18fwbBg5wnE
+	KBP5jFW53PBm7G0/lQrzlsb3r1azkibToT29DOsGMg1owtSxhsYl71HQMU7tc7fESj/rbuR/qlWtg
+	QsmobEKGZSpPh22N0F98M+5v+m4eXEtAlrL9ZpnuReDOBBMPi4UJRJOxHWNb2dd/e6Q2r7c3R4gt8
+	Z3IOU2GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRgL-000000051h6-2xZ6;
-	Tue, 18 Mar 2025 07:48:13 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tuRi1-000000052CK-2Div;
+	Tue, 18 Mar 2025 07:49:57 +0000
+Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuReb-000000050Z4-1Ong
+	id 1tuRfy-000000051Sh-0mLW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 07:46:26 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22438c356c8so91306405ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 00:46:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742283984; x=1742888784; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/5KVGOst+i3EqYlF+Sx7sAtMWBsKlTUEKDgYGkLY1j4=;
-        b=leDhxfV/BSPTZUG9V/VnAsAGHoyYcuHOJ4vTV7ewoT+BLBA4B8H/TxiA8lbfMqZOcX
-         PVN26UGqB1Z+GSfGGfEtmzdnFndFbuMQ5zHj14bA00QfHVEwe6gSm/7APEBcTv1GRTt+
-         dFK2w9JTd7BnPngVoXRHoebWbJFxu+hfkUPYVcAqYdZYW9i1OCTRDtjJZeAMK0NG66+s
-         wNNnkdT0Ou/Z9XcsuJvxoD5Rs3lh6Sr8k2DL7VNNo7ZCEV7LpSb2ZHOEzsUJtpGv9Suz
-         EdQ97wjblM8FigXTtKc7sd4CsIXiUT8jQ2UaMPZcsgMOdT6Pvc0ISRE++w2jj8SF7/o2
-         nXsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742283984; x=1742888784;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/5KVGOst+i3EqYlF+Sx7sAtMWBsKlTUEKDgYGkLY1j4=;
-        b=HgN8QDMTHpczM9uVb+27EmudzB+iaQa3uGB5AxIDHky72qgdXc2FpC+CwZZXExNjaZ
-         +5b2uHzqU9iQrdECA8SgBRHu4GthzNOgt9/m/WABMRfnz7rfrXDDIt6YSFXNqzwyW8+B
-         Pd1aBuEsAnNycBPsc3dPNR3Kh9l8bVe/l8dpcwHtuyO7ZBFpEA90cbatdW3wQC80vKaj
-         SuiiRBIzXEEdogKBHqJumsi4jIQMXyIQrHeFQagkeXQandEim0Rz8rxI6VIbkbIU0z9b
-         9IkD2mM8EBU567J5hW0DWY6PIzaOj65/9ditl4JvALSgukFJOzKP3Gi5VRfgCPrD/nwW
-         uWlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVYSbSyYQq71YqTZNjFTFYjBsMrH+gUf1+ErlG/OOWwg7GUdXfzgzcFqB1nDFvD2Lz5nIJvvmPJrGEoS7qxxGwJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEwQDnJCUmOQyVrwzHliR3mWxi4g8J7fl57qLpqjBVB9jgKt6b
-	xDtGCSBp6/NlYzB4foaAC5jU2f1UZBygS5BdfKA2kGG6wUFeg7LehA9gVAqxvg==
-X-Gm-Gg: ASbGncsDRIVBBp2h6+IZdHdxGjTM/L30RAQukE4yeGP6C1PXKgl7r2Ig2bIoggp/jze
-	n2pnyZOY/9MNm8OLynMfYgxgGi5YPWFtkeR72xQ5j5e7X8z+Z5qF7WqF9g8aPd5yV/1DBWhUPKX
-	zJwGUum8j5+1CxUd7JgkXcSCDvarim+yVdzIS63rEpRYtlpbHopfeY2Wh8hMWsX/QLTf4Vux9je
-	PbOUfFz/nyhXMKBL4I0XTUFvihqUjvLXMA8b7PYSc0cuQDR3TzWhu/QOAJHdrEmAryXPdkIWPTV
-	2/WUvmMC4HRH8Qm5xf2Q7C8IdrZx2wZbGyIKus40O6B/EW4xtv7WnLMq6tR1D1N8iyQ=
-X-Google-Smtp-Source: AGHT+IGk7Wbvv+p+ljwVovByJjOFoHfppHTP1+cVpoZmuorSMChPEuewTXvxnqB++I9G1ZambQYJAA==
-X-Received: by 2002:a05:6a00:2309:b0:736:41ec:aaad with SMTP id d2e1a72fcca58-73722382f9bmr19932531b3a.14.1742283984406;
-        Tue, 18 Mar 2025 00:46:24 -0700 (PDT)
-Received: from thinkpad ([120.56.195.170])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-737116b3de4sm9153147b3a.179.2025.03.18.00.46.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 00:46:23 -0700 (PDT)
-Date: Tue, 18 Mar 2025 13:16:18 +0530
-From: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.li@nxp.com>,
-	Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kw@linux.com" <kw@linux.com>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the hardcodes
-Message-ID: <20250318074618.tqbnr7nv665fk25n@thinkpad>
-References: <b425a7c7a7d6508daf23fe7046864a498029a7ac.camel@pengutronix.de>
- <20250313160648.GA736867@bhelgaas>
+	Tue, 18 Mar 2025 07:47:52 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1742284066;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rf5qZHxtK3mCKSr6NpOLubF8ArBJB08AFgLuR4bU4a4=;
+	b=idJSt6aL5RAJe0a7zDM+Ky/FAFqk8PDtJOrD9qwYXfp2wHIiLaoRkaFaAJBUQbyBuxF1jl
+	t3nKzAOtAxb6dM2QJ5pnAw3RxGjfI9EPjFUlLdMPAvvOHa6cOgTjV09Nvmyqnva57ch8RN
+	tA85gUndW9J8a4bZz7CcO60t4iV8Txg=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev,
+	Will Deacon <will@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Subject: Re: [PATCH] KVM: arm64: Tear down vGIC on failed vCPU creation
+Date: Tue, 18 Mar 2025 00:47:36 -0700
+Message-Id: <174228404857.1652170.4192050516109561246.b4-ty@linux.dev>
+In-Reply-To: <20250314133409.9123-1-will@kernel.org>
+References: <20250314133409.9123-1-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250313160648.GA736867@bhelgaas>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_004625_379678_38CAF30C 
-X-CRM114-Status: GOOD (  49.98  )
+X-CRM114-CacheID: sfid-20250318_004750_647341_3CC498E4 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,147 +73,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 11:06:48AM -0500, Bjorn Helgaas wrote:
-> On Thu, Mar 13, 2025 at 09:54:25AM +0100, Lucas Stach wrote:
-> > Am Mittwoch, dem 12.03.2025 um 10:22 -0400 schrieb Frank Li:
-> > > On Wed, Mar 12, 2025 at 09:28:02AM +0100, Lucas Stach wrote:
-> > > > Am Mittwoch, dem 12.03.2025 um 04:05 +0000 schrieb Hongxing Zhu:
-> > > > > > -----Original Message-----
-> > > > > > From: Bjorn Helgaas <helgaas@kernel.org>
-> > > > > > Sent: 2025年3月11日 23:55
-> > > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > > > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > > > > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.org;
-> > > > > > kw@linux.com; manivannan.sadhasivam@linaro.org; bhelgaas@google.com;
-> > > > > > s.hauer@pengutronix.de; festevam@gmail.com; devicetree@vger.kernel.org;
-> > > > > > linux-pci@vger.kernel.org; imx@lists.linux.dev; kernel@pengutronix.de;
-> > > > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > > > > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the
-> > > > > > hardcodes
-> > > > > > 
-> > > > > > On Tue, Mar 11, 2025 at 01:11:04AM +0000, Hongxing Zhu wrote:
-> > > > > > > > -----Original Message-----
-> > > > > > > > From: Bjorn Helgaas <helgaas@kernel.org>
-> > > > > > > > Sent: 2025年3月10日 23:11
-> > > > > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > > > > > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > > > > > > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.org;
-> > > > > > > > kw@linux.com; manivannan.sadhasivam@linaro.org;
-> > > > > > bhelgaas@google.com;
-> > > > > > > > s.hauer@pengutronix.de; festevam@gmail.com;
-> > > > > > > > devicetree@vger.kernel.org; linux-pci@vger.kernel.org;
-> > > > > > > > imx@lists.linux.dev; kernel@pengutronix.de;
-> > > > > > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > > > > > > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the
-> > > > > > > > hardcodes
-> > > > > > > > 
-> > > > > > > > On Wed, Feb 26, 2025 at 10:42:56AM +0800, Richard Zhu wrote:
-> > > > > > > > > Use the domain number replace the hardcodes to uniquely identify
-> > > > > > > > > different controller on i.MX8MQ platforms. No function changes.
-> > > > > > > > > 
-> > > > > > > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > > > > > > ---
-> > > > > > > > >  drivers/pci/controller/dwc/pci-imx6.c | 14 ++++++--------
-> > > > > > > > >  1 file changed, 6 insertions(+), 8 deletions(-)
-> > > > > > > > > 
-> > > > > > > > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > > > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > > > > index 90ace941090f..ab9ebb783593 100644
-> > > > > > > > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > > > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > > > > @@ -41,7 +41,6 @@
-> > > > > > > > >  #define IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE	BIT(11)
-> > > > > > > > >  #define IMX8MQ_GPR_PCIE_VREG_BYPASS		BIT(12)
-> > > > > > > > >  #define IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE	GENMASK(11,
-> > > > > > 8)
-> > > > > > > > > -#define IMX8MQ_PCIE2_BASE_ADDR			0x33c00000
-> > > > > > > > > 
-> > > > > > > > >  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
-> > > > > > > > >  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
-> > > > > > > > > @@ -1474,7 +1473,6 @@ static int imx_pcie_probe(struct
-> > > > > > > > > platform_device
-> > > > > > > > *pdev)
-> > > > > > > > >  	struct dw_pcie *pci;
-> > > > > > > > >  	struct imx_pcie *imx_pcie;
-> > > > > > > > >  	struct device_node *np;
-> > > > > > > > > -	struct resource *dbi_base;
-> > > > > > > > >  	struct device_node *node = dev->of_node;
-> > > > > > > > >  	int i, ret, req_cnt;
-> > > > > > > > >  	u16 val;
-> > > > > > > > > @@ -1515,10 +1513,6 @@ static int imx_pcie_probe(struct
-> > > > > > > > platform_device *pdev)
-> > > > > > > > >  			return PTR_ERR(imx_pcie->phy_base);
-> > > > > > > > >  	}
-> > > > > > > > > 
-> > > > > > > > > -	pci->dbi_base = devm_platform_get_and_ioremap_resource(pdev,
-> > > > > > 0,
-> > > > > > > > &dbi_base);
-> > > > > > > > > -	if (IS_ERR(pci->dbi_base))
-> > > > > > > > > -		return PTR_ERR(pci->dbi_base);
-> > > > > > > > 
-> > > > > > > > This makes me wonder.
-> > > > > > > > 
-> > > > > > > > IIUC this means that previously we set controller_id to
-> > > > > > > > 1 if the first item in devicetree "reg" was 0x33c00000,
-> > > > > > > > and now we will set controller_id to 1 if the devicetree
-> > > > > > > > "linux,pci-domain" property is 1.  This is good, but I
-> > > > > > > > think this new dependency on the correct
-> > > > > > > > "linux,pci-domain" in devicetree should be mentioned in
-> > > > > > > > the commit log.
-> > > > > > > > 
-> > > > > > > > My bigger worry is that we no longer set pci->dbi_base
-> > > > > > > > at all.  I see that the only use of pci->dbi_base in
-> > > > > > > > pci-imx6.c was to determine the controller_id, but this
-> > > > > > > > is a DWC-based driver, and the DWC core certainly uses
-> > > > > > > > pci->dbi_base.  Are we sure that none of those DWC core
-> > > > > > > > paths are important to pci-imx6.c?
-> > > > > > >
-> > > > > > > Thanks for your concerns.  Don't worry about the
-> > > > > > > assignment of pci->dbi_base.  If pci-imx6.c driver doesn't
-> > > > > > > set it. DWC core driver would set it when
-> > > > > > >  dw_pcie_get_resources() is invoked.
-> > > > > > 
-> > > > > > Great, thanks!  Maybe we can amend the commit log to mention
-> > > > > > that and the new "linux,pci-domain" dependency.
-> > > > >
-> > > > > How about the following updates of the commit log?
-> > > > > 
-> > > > > Use the domain number replace the hardcodes to uniquely
-> > > > > identify different controller on i.MX8MQ platforms. No
-> > > > > function changes.  Please make sure the " linux,pci-domain" is
-> > > > > set for i.MX8MQ correctly, since  the controller id is relied
-> > > > > on it totally.
-> > > > > 
-> > > > This breaks running a new kernel on an old DT without the
-> > > > linux,pci-domain property, which I'm absolutely no fan of. We
-> > > > tried really hard to keep this way around working in the i.MX
-> > > > world.
-> > > 
-> > > 8MQ already add linux,pci-domain since Jan, 2021
-> > > 
-> > > commit c0b70f05c87f3b09b391027c6f056d0facf331ef
-> > > Author: Peng Fan <peng.fan@nxp.com>
-> > > Date:   Fri Jan 15 11:26:57 2021 +0800
-> > > 
-> > > Only missed is pcie-ep side, which have not been used at all boards dts
-> > > file in upstream.
-> > 
-> > I wasn't aware of this. 2021 is quite a while ago, so I suspect that
-> > nobody is going to run a new kernel with a DT this old. I retract my
-> > objection.
+On Fri, 14 Mar 2025 13:34:09 +0000, Will Deacon wrote:
+> If kvm_arch_vcpu_create() fails to share the vCPU page with the
+> hypervisor, we propagate the error back to the ioctl but leave the
+> vGIC vCPU data initialised. Note only does this leak the corresponding
+> memory when the vCPU is destroyed but it can also lead to use-after-free
+> if the redistributor device handling tries to walk into the vCPU.
 > 
-> Sounds good, thanks, Lucas.  We really do want to avoid breaking old
-> DTs, so I appreciate your highlighting of it.  Even if we believe none
-> of them will break, I think it's worth mentioning the
-> 'linux,pci-domain' dependency and the commit that added it to the
-> .dtsi in the commit log.
+> Add the missing cleanup to kvm_arch_vcpu_create(), ensuring that the
+> vGIC vCPU structures are destroyed on error.
 > 
+> [...]
 
-If there is a dependency, then it should be added to the binding. Only that will
-ensure that the DTs will have the dependent property present.
+Applied to next, thanks!
 
-- Mani
+[1/1] KVM: arm64: Tear down vGIC on failed vCPU creation
+      https://git.kernel.org/kvmarm/kvmarm/c/250f25367b58
 
--- 
-மணிவண்ணன் சதாசிவம்
+--
+Best,
+Oliver
 
