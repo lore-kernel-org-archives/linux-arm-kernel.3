@@ -4,135 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED88EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 04:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BCFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 04:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g15Jwk2XBtRD52urtHvgO/HW52gaj7b5k3Qau8Py9vQ=; b=b8liIZnmUzMSk9iH/7BVr7/j3L
-	TtUrDF4Qp+mRDUusJyeQsSI1NkIxS/qwVJUh6SfgfS59KyXEH4X0gVMvLoeids+xzo0f0V+atBzjF
-	BtWQov2YnpdF4yuEhSZXZQGAQVY7yF7jRGIbCrdbFKj/aKxTJHtkua71DVklfa30jnC/VWAE8Mv7E
-	WP42TMk/HjpGhYk0BRImoxSEyl+lps99zaOcHgiuQYdCw8kyBcmEL/uKGDIzA0CKfUTTrm8Hu/LzI
-	jV3P+YZ5027vZ5iZN8AczCvvIgjizMxPImh7kWJSWnAmS9FtUroYq7yaTC7ZcCzmkzCMoaEK9OT9t
-	/2o4Oyaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rwck3yq1zfX0/VzN1MDQ+NCBErVzByOdr+S/IgfqxhI=; b=UtKstxHwugOz0hEodWqzMd6MSO
+	YWlAFLl8e6Mk47DNgWfnwZ2ddY8kOjAS6rMxZR33IyEh3Dbb+UPVmBsc3nd9sO19bCUyJrgt4E2Ac
+	YXxhbYEjxaNiwIfaPcp23/Nx9K+4zO3AhPzgTKEng5F3/yjKpCjAxK9KtgZ32Ef4UMhXKv4rvIsiu
+	vJgWLlDhFqijTDq1vVi25RQ+xClv7aCDcVwCpHghQJw1SyhzvKhYCokruqKwdaV88F7O2bY+xvUED
+	xqyPEbFrT0IC8nzHmXCmBJzyswUPp9TvlilMoLUotrfbs2fCu75tYK2D+Pz1ijTHw+/5bpUVp9xBY
+	XgKjg3Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuOau-00000004dOt-1eX5;
-	Tue, 18 Mar 2025 04:30:24 +0000
-Received: from mail-bn1nam02on20615.outbound.protection.outlook.com ([2a01:111:f403:2407::615] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuOZA-00000004dIk-0baX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 04:28:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L5Z+gPWouWOG4fWa42BB8ocw1UQCyYGvRFQ5pH5q8NdvST6hmqWQIyKkit8xCHO14F2EPHY4O/20CuJ3kDamZLk3GF8vjkyHfpYGXO2DjBfjhfg0TWea1Opi4P2SE4dHP3VmlMoshvIYmrl+q+UPn2XzqQjkxb8S3IjLCKcZ6ip5WFPnVxRjEFaRoQB50TFEhzhSNpt7rDBAcyCxEkkbqHKYXlZpAY5pO65iNWAnJ4D7kieHCe4AwU+ul4J6soHBSjjtfjDQKk9LSOYWSiQ4Bul+c5iCt+YuS6hIaCX1YQcVYCc/2XUBP6Bz/3Hnmzm7ybyosv8Qsl8uLU0kjS3KRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g15Jwk2XBtRD52urtHvgO/HW52gaj7b5k3Qau8Py9vQ=;
- b=qAKvltXpXRqt72ADZSnzF0W9WSrAF33djCJaFpSvAAT2440QWSnnm3EGRPyXx/XjmpfNduD6Q1nldAKX0UJAGMrsDyUZTMTYsx+b1JzBXnAsJDi/xBT7bPbjUVEe1ayR5rhZZPX7G93YDr9d7QpAebZYN/bdhMandVDj3d2jvMQRSSt1mSxOoai4t99rw3NetfQ3gpA9F+iRlPfu9MnctR788xOT3pyC6vyEWTEdB1Oax5nZXN2gPkrEQ4IuvN6gX3ZxkaV2Epi+qSu7NxTeCivfCiFeYMyf+xxjX4XEx2y6d0/WJHT/Bd8zsTkQLrJVuGY5tuOjNtW13pqKHX6beg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g15Jwk2XBtRD52urtHvgO/HW52gaj7b5k3Qau8Py9vQ=;
- b=GKeAbDuDenxxZq9glXp5jB5KBfHF63kP0E8MtaWZqwG/CKJvUE01wErV2AnkAdsziyDeRe+y4wVOfPwjPe7/1Kgukzlh3+2tZqa7sN884393JKFQcz95q2myB7UapDsDmdsViwt7k4i5ji2/d0ds+8GUnJ+rSSzCzPIblfuNvRA=
-Received: from CH2PR18CA0023.namprd18.prod.outlook.com (2603:10b6:610:4f::33)
- by CH0PR12MB8507.namprd12.prod.outlook.com (2603:10b6:610:189::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Tue, 18 Mar
- 2025 04:12:50 +0000
-Received: from CH3PEPF00000017.namprd21.prod.outlook.com
- (2603:10b6:610:4f:cafe::b4) by CH2PR18CA0023.outlook.office365.com
- (2603:10b6:610:4f::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.33 via Frontend Transport; Tue,
- 18 Mar 2025 04:12:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- CH3PEPF00000017.mail.protection.outlook.com (10.167.244.122) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8583.3 via Frontend Transport; Tue, 18 Mar 2025 04:12:50 +0000
-Received: from BMCDEV-TH5.amd.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 17 Mar
- 2025 23:12:48 -0500
-From: Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>
-To: <devicetree@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
-	<joel@jms.id.au>, <andrew@codeconstruct.com.au>
-CC: <robh+dt@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, Rajaganesh Rathinasabapathi
-	<Rajaganesh.Rathinasabapathi@amd.com>, Supreeth Venkatesh
-	<supreeth.venkatesh@amd.com>
-Subject: [PATCH v3 2/2] ARM:dts:aspeed: Initial device tree for AMD Onyx Platform
-Date: Mon, 17 Mar 2025 23:12:24 -0500
-Message-ID: <20250318041224.1693323-2-Rajaganesh.Rathinasabapathi@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250318041224.1693323-1-Rajaganesh.Rathinasabapathi@amd.com>
-References: <20250318041224.1693323-1-Rajaganesh.Rathinasabapathi@amd.com>
+	id 1tuOk9-00000004e0m-2qCx;
+	Tue, 18 Mar 2025 04:39:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuOiS-00000004dtJ-02WE;
+	Tue, 18 Mar 2025 04:38:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 300C2152B;
+	Mon, 17 Mar 2025 21:38:16 -0700 (PDT)
+Received: from [10.163.44.33] (unknown [10.163.44.33])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B992E3F63F;
+	Mon, 17 Mar 2025 21:38:00 -0700 (PDT)
+Message-ID: <392723e2-da82-4bdb-bebe-ed1c982d0d5f@arm.com>
+Date: Tue, 18 Mar 2025 10:07:56 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64/ptdump: Replace u64 with pteval_t
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, Marc Zyngier <maz@kernel.org>
+References: <20250317061818.16244-1-anshuman.khandual@arm.com>
+ <20250317061818.16244-3-anshuman.khandual@arm.com>
+ <16c12c3f-f2c2-45fa-9db6-4dfaeb002059@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <16c12c3f-f2c2-45fa-9db6-4dfaeb002059@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
- (10.181.40.145)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000017:EE_|CH0PR12MB8507:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0497d183-3f4a-45fc-f23b-08dd65d325e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0ZEEOgvylSbiozPbS3VPnx7inNQdoxwafgud+wod4cZHMNHG0CgurXCSldKc?=
- =?us-ascii?Q?MJWqJ9hoGIIIm8fb0yWoD/qPYq9M4CqkX9240XhcDmPDOp8e5mklD26lCdom?=
- =?us-ascii?Q?edSWopH2ugXOrz5I5pe6Gs3UiSA6EhCCjzyjbdTjqfmNeLofp1y6Tg6xxbys?=
- =?us-ascii?Q?h1SFzN1ObUun80rohckbsMSa7/VBMMhHfGm1QJ6jY4KMaP6gWFJR/2SJirlF?=
- =?us-ascii?Q?/zmium0xPogikEwli4zxWc5cRso/5BnWmmuRdQISH1CS0zir6FJfyKUzzLTe?=
- =?us-ascii?Q?BHdm/TL9xuLU1MELgmLuX5uBh+QLOl66Hk2DbziCix0w4MGpCxhZY9gq9g27?=
- =?us-ascii?Q?f5dHNSDsozzGaGU3/C4f3VdXqLA+J+0DrAptRFFUVSQ2vju8KLivHVcUXTu/?=
- =?us-ascii?Q?+rawO8LyrvIHleqV0Ecgwj4GBG8ZQiJSdKgyfWCbDB4UyZCVkVmdrXADrkgz?=
- =?us-ascii?Q?Lrlg06mhPbIMif9E+YNy7lon+NjyvCTBQtdWp4rp9sXbC3S40l7VqioKCLRu?=
- =?us-ascii?Q?fQ+SnLGjQziPAHtmtwmTrMj+461KSkJCzjzPIkpu6D7kzVM1vLgk8jwxOPxK?=
- =?us-ascii?Q?pRiN9tQp0jP8NEIMWPvXxEBV2VjTD/6PyA8C7gC55FW9AG5u6kwiRpHSv0Fr?=
- =?us-ascii?Q?ISAqqTZcscXyoNZTPfutnbs/hm1R+Q0kGQ8sr3tEUJvn1D9yBY5CyDmJJVqM?=
- =?us-ascii?Q?H3sc4YoXwPYsUm13q26t7aps9ZjTr2NDOr8Ujup37TaspNJmtyl4CtAA2y+1?=
- =?us-ascii?Q?7WfUq7rRZfb+Y0EjzUlgh5upg7HSZ3jLHYjSP0PLXq/LAFRZqQl9xafy0gGc?=
- =?us-ascii?Q?ueTrL/7fjUOzw50KzkH3GMDhGx8FGwAL3oejQayAm0VljTRiMlSDt/urHT6m?=
- =?us-ascii?Q?pf2rMZZ81x9Y9pHOAO7TykSqvmwJIK5JmFx94YEcjhZxw7fa04doeNQZ3i6g?=
- =?us-ascii?Q?reZzgxL+p5xiCTIgU/k/KTiW7Ef/koP7w+JcsPEyRlzQxIpnlT+IOB10r8jW?=
- =?us-ascii?Q?i7+7+CqNhSt2dM3UCo9VOa4u0dh3DyM+EC1zlhqD3fXK5xMIWHVyP+vO5KxK?=
- =?us-ascii?Q?pyEAA2K5Djw9e5vI+uZ3A8790czQAfjGdJ7FTfeY93sOHV0hkqO5NcHz4+YZ?=
- =?us-ascii?Q?ni7qJOV3Zgl7DuxX73dm30gtwUeNzj8jgHFuy1pVi3/I6trtciGsxY4Tt1me?=
- =?us-ascii?Q?19/ZeWIk2sN2ROQ4OUQ7iUNhHxZGnt/s/cFkjJ0y3A56PoQqFtqygsHK7Zat?=
- =?us-ascii?Q?IiGyk5yqDx/OwBZu54wQ3YuqntUP2g114tHemtYCLY4yWIOd97Ph7n93cgS4?=
- =?us-ascii?Q?wzAoNeAW/yqhEpW2rqap38OlXVywBjxif+Dg+R4y3Qqmpe0AD6gNkTKPbQOc?=
- =?us-ascii?Q?8FEv2a09YYx9jEAYlc74A02qId6sVAD43W5p7AJuILIaxg3VQ6Xde0wrUJ/w?=
- =?us-ascii?Q?8kRyyc5P+gzwqgB7k8m36mqC4eNArfTZKxC0USVoVoJpmEIGjgaWAeswygyq?=
- =?us-ascii?Q?baJVsx8ahohbjko=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2025 04:12:50.4119
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0497d183-3f4a-45fc-f23b-08dd65d325e4
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000017.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8507
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_212836_222601_FA65E24B 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250317_213812_147722_1E8D1072 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,153 +75,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree and makefile updates for
-AMD Onyx platform.
 
-AMD Onyx platform is an AMD customer reference board with an Aspeed
-ast2600 BMC manufactured by AMD.
-It describes I2C devices, UARTs, MAC, FMC, etc.
-present on AMD Onyx platform.
 
-Signed-off-by: Supreeth Venkatesh <supreeth.venkatesh@amd.com>
-Signed-off-by: Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>
----
-Changes since v1:
-* Incorporate review comments
-* Update commit message
-* Remove vmalloc and earlyprintk
+On 3/17/25 14:58, Ryan Roberts wrote:
+> On 17/03/2025 06:18, Anshuman Khandual wrote:
+>> Page table entry's value, mask and protection are represented with pteval_t
+>> data type format not u64 that has been assumed while dumping the page table
+>> entries. Replace all such u64 instances with pteval_t instead as required.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/include/asm/ptdump.h | 8 ++++----
+>>  arch/arm64/mm/ptdump.c          | 2 +-
+>>  2 files changed, 5 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+>> index e5da9ce8a515..476a870489b9 100644
+>> --- a/arch/arm64/include/asm/ptdump.h
+>> +++ b/arch/arm64/include/asm/ptdump.h
+>> @@ -24,8 +24,8 @@ struct ptdump_info {
+>>  };
+>>  
+>>  struct ptdump_prot_bits {
+>> -	u64		mask;
+>> -	u64		val;
+>> +	pteval_t	mask;
+>> +	pteval_t	val;
+> 
+> Given Ard's suggestion of using "ptdesc" as a generic term for PTDESC_SHIFT (or
+> PTDESC_ORDER, or whatever we ended up calling it), I wonder if it would be
+> cleaner to do the same with the types? We could have a ptdesc_t, which is
+> typedef'ed as u64 (or u128), then pteval_t, pmdval_t, ..., could all be
+> typedef'ed as ptdesc_t. Then for code that just wants a generic pgtable
+> descriptor value, we can use that type to indicate that it can be at any level.
 
-Changes since v2:
-* Address review comments
-* Fix checkpatch warnings
-* Remove bootargs
----
- arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../boot/dts/aspeed/aspeed-bmc-amd-onyx.dts   | 102 ++++++++++++++++++
- 2 files changed, 103 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts
+Something like the following ? Will cross check again if this might have
+missed something which could be converted as ptdesc_t as well.
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index 2e5f4833a073..1e6a130377b8 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-ast2600-evb.dtb \
- 	aspeed-bmc-amd-daytonax.dtb \
- 	aspeed-bmc-amd-ethanolx.dtb \
-+	aspeed-bmc-amd-onyx.dtb \
- 	aspeed-bmc-ampere-mtjade.dtb \
- 	aspeed-bmc-ampere-mtjefferson.dtb \
- 	aspeed-bmc-ampere-mtmitchell.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts
-new file mode 100644
-index 000000000000..6f3334995398
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts
-@@ -0,0 +1,102 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+// Copyright (c) 2021 - 2024 AMD Inc.
-+// Author: Supreeth Venkatesh <supreeth.venkatesh@amd.com>
+diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
+index 6d6d4065b0cb..686541e986e3 100644
+--- a/arch/arm64/include/asm/pgtable-types.h
++++ b/arch/arm64/include/asm/pgtable-types.h
+@@ -11,11 +11,13 @@
+ 
+ #include <asm/types.h>
+ 
+-typedef u64 pteval_t;
+-typedef u64 pmdval_t;
+-typedef u64 pudval_t;
+-typedef u64 p4dval_t;
+-typedef u64 pgdval_t;
++typedef u64 ptdesc_t;
 +
-+/dts-v1/;
-+
-+#include "aspeed-g6.dtsi"
-+#include <dt-bindings/gpio/aspeed-gpio.h>
-+
-+/ {
-+	model = "AMD Onyx BMC";
-+	compatible = "amd,onyx-bmc", "aspeed,ast2600";
-+
-+	aliases {
-+		serial0 = &uart1;
-+		serial4 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = serial4:115200n8;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x80000000>;
-+	};
-+
-+};
-+
-+&mdio0 {
-+	status = "okay";
-+	ethphy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0>;
-+	};
-+};
-+
-+&mac3 {
-+	status = "okay";
-+	phy-mode = "rgmii";
-+	phy-handle = <&ethphy0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii4_default>;
-+};
-+
-+&fmc {
-+	status = "okay";
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		status = "okay";
-+		#include "openbmc-flash-layout-128.dtsi"
-+	};
-+};
-+
-+//Host Console
-+&uart1 {
-+	status = "okay";
-+};
-+
-+//BMC Console
-+&uart5 {
-+	status = "okay";
-+};
-+
-+&gpio0 {
-+gpio-line-names =
-+	/*A0-A7*/	"","","","","","","","",
-+	/*B0-B7*/	"","","","","MON_POST_COMPLETE","P0_PRESENT_L","","",
-+	/*C0-C7*/	"","","","","","","","",
-+	/*D0-D7*/	"","","","","","","","",
-+	/*E0-E7*/	"","","","","","","","",
-+	/*F0-F7*/	"","","","","","","","",
-+	/*G0-G7*/	"","","","","","","","",
-+	/*H0-H7*/	"","ASSERT_WARM_RST_BTN_L","ASSERT_SOC_RST_BTN_L","","","","","",
-+	/*I0-I7*/	"","","","","","","","P0_I3C_APML_ALERT_L",
-+	/*J0-J7*/	"","","","","","","","",
-+	/*K0-K7*/	"","","","","","","","",
-+	/*L0-L7*/	"","","","","","","","",
-+	/*M0-M7*/	"","","","","","","","",
-+	/*N0-N7*/	"","","","","","","PSP_SOFT_FUSE_NOTIFY","ASSERT_BMC_READY",
-+	/*O0-O7*/	"","","HDT_SEL","HDT_XTRIG5","HDT_XTRIG6","JTAG_TRST_N","","",
-+	/*P0-P7*/	"MON_RST_BTN_L","ASSERT_RST_BTN_L","MON_PWR_BTN_L","ASSERT_PWR_BTN_L",
-+					"HPM_FPGA_LOCKOUT","ASSERT_NMI_BTN_L","MON_PWR_GOOD","",
-+	/*Q0-Q7*/	"","","HDT_DBREQ_L","","BIOS_SPD_MUX_CTRL_RELEASED_L","","","",
-+	/*R0-R7*/	"","","","","","","","",
-+	/*S0-S7*/	"","","","","","","P0_DIMM_AF_ERROR","P0_DIMM_GL_ERROR",
-+	/*T0-T7*/	"","","","","","","","",
-+	/*U0-U7*/	"","","","","","","","",
-+	/*V0-V7*/	"","","","","","","","",
-+	/*W0-W7*/	"","","","","","","","",
-+	/*X0-X7*/	"","","","","","","","",
-+	/*Y0-Y7*/	"","","","","","","","",
-+	/*Z0-Z7*/	"","","","","","","","";
-+};
-+
-+&i2c7 {
-+	status = "okay";
-+	mbeeprom@50 {
-+		compatible = "atmel,24c256";
-+		reg = <0x50>;
-+	};
-+};
++typedef ptdesc_t pteval_t;
++typedef ptdesc_t pmdval_t;
++typedef ptdesc_t pudval_t;
++typedef ptdesc_t p4dval_t;
++typedef ptdesc_t pgdval_t;
+ 
+ /*
+  * These are used to make use of C type-checking..
+@@ -46,7 +48,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
+ #define pgd_val(x)	((x).pgd)
+ #define __pgd(x)	((pgd_t) { (x) } )
+ 
+-typedef struct { pteval_t pgprot; } pgprot_t;
++typedef struct { ptdesc_t pgprot; } pgprot_t;
+ #define pgprot_val(x)	((x).pgprot)
+ #define __pgprot(x)	((pgprot_t) { (x) } )
+ 
+diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+index e5da9ce8a515..9548813bc877 100644
+--- a/arch/arm64/include/asm/ptdump.h
++++ b/arch/arm64/include/asm/ptdump.h
+@@ -24,8 +24,8 @@ struct ptdump_info {
+ };
+ 
+ struct ptdump_prot_bits {
+-	u64		mask;
+-	u64		val;
++	ptdesc_t	mask;
++	ptdesc_t	val;
+ 	const char	*set;
+ 	const char	*clear;
+ };
+@@ -34,7 +34,7 @@ struct ptdump_pg_level {
+ 	const struct ptdump_prot_bits *bits;
+ 	char name[4];
+ 	int num;
+-	u64 mask;
++	ptdesc_t mask;
+ };
+ 
+ /*
+@@ -51,7 +51,7 @@ struct ptdump_pg_state {
+ 	const struct mm_struct *mm;
+ 	unsigned long start_address;
+ 	int level;
+-	u64 current_prot;
++	ptdesc_t current_prot;
+ 	bool check_wx;
+ 	unsigned long wx_pages;
+ 	unsigned long uxn_pages;
+diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+index 1d25d8899dbf..42e281c07c2f 100644
+--- a/arch/arm64/kernel/efi.c
++++ b/arch/arm64/kernel/efi.c
+@@ -29,7 +29,7 @@ static bool region_is_misaligned(const efi_memory_desc_t *md)
+  * executable, everything else can be mapped with the XN bits
+  * set. Also take the new (optional) RO/XP bits into account.
+  */
+-static __init pteval_t create_mapping_protection(efi_memory_desc_t *md)
++static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
+ {
+ 	u64 attr = md->attribute;
+ 	u32 type = md->type;
+@@ -83,7 +83,7 @@ static __init pteval_t create_mapping_protection(efi_memory_desc_t *md)
+ 
+ int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
+ {
+-	pteval_t prot_val = create_mapping_protection(md);
++	ptdesc_t prot_val = create_mapping_protection(md);
+ 	bool page_mappings_only = (md->type == EFI_RUNTIME_SERVICES_CODE ||
+ 				   md->type == EFI_RUNTIME_SERVICES_DATA);
+ 
+diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+index e57b043f324b..a00f57c73d81 100644
+--- a/arch/arm64/kernel/pi/map_kernel.c
++++ b/arch/arm64/kernel/pi/map_kernel.c
+@@ -159,7 +159,7 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
+ static void __init remap_idmap_for_lpa2(void)
+ {
+ 	/* clear the bits that change meaning once LPA2 is turned on */
+-	pteval_t mask = PTE_SHARED;
++	ptdesc_t mask = PTE_SHARED;
+ 
+ 	/*
+ 	 * We have to clear bits [9:8] in all block or page descriptors in the
+diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+index 2b69e3beeef8..30c6bc50844f 100644
+--- a/arch/arm64/kernel/pi/map_range.c
++++ b/arch/arm64/kernel/pi/map_range.c
+@@ -30,7 +30,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 		      int level, pte_t *tbl, bool may_use_cont, u64 va_offset)
+ {
+ 	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
+-	pteval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
++	ptdesc_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
+ 	int lshift = (3 - level) * (PAGE_SHIFT - 3);
+ 	u64 lmask = (PAGE_SIZE << lshift) - 1;
+ 
+@@ -87,7 +87,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 	}
+ }
+ 
+-asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, pteval_t clrmask)
++asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, ptdesc_t clrmask)
+ {
+ 	u64 ptep = (u64)pg_dir + PAGE_SIZE;
+ 	pgprot_t text_prot = PAGE_KERNEL_ROX;
+diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
+index c91e5e965cd3..91dcb5b6bbd1 100644
+--- a/arch/arm64/kernel/pi/pi.h
++++ b/arch/arm64/kernel/pi/pi.h
+@@ -33,4 +33,4 @@ void map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 
+ asmlinkage void early_map_kernel(u64 boot_status, void *fdt);
+ 
+-asmlinkage u64 create_init_idmap(pgd_t *pgd, pteval_t clrmask);
++asmlinkage u64 create_init_idmap(pgd_t *pgd, ptdesc_t clrmask);
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 07aeab8a7606..c86c348857c4 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -83,7 +83,7 @@ arch_initcall(adjust_protection_map);
+ 
+ pgprot_t vm_get_page_prot(unsigned long vm_flags)
+ {
+-	pteval_t prot;
++	ptdesc_t prot;
+ 
+ 	/* Short circuit GCS to avoid bloating the table. */
+ 	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index fd1610b4fd15..280e850f1688 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+ 	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+ 	struct ptdump_pg_level *pg_level = st->pg_level;
+ 	static const char units[] = "KMGTPE";
+-	u64 prot = 0;
++	ptdesc_t prot = 0;
+ 
+ 	/* check if the current level has been folded dynamically */
+ 	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
 -- 
-2.34.1
+2.25.1
 
+> 
+> Thanks,
+> Ryan
+> 
+>>  	const char	*set;
+>>  	const char	*clear;
+>>  };
+>> @@ -34,7 +34,7 @@ struct ptdump_pg_level {
+>>  	const struct ptdump_prot_bits *bits;
+>>  	char name[4];
+>>  	int num;
+>> -	u64 mask;
+>> +	pteval_t mask;
+>>  };
+>>  
+>>  /*
+>> @@ -51,7 +51,7 @@ struct ptdump_pg_state {
+>>  	const struct mm_struct *mm;
+>>  	unsigned long start_address;
+>>  	int level;
+>> -	u64 current_prot;
+>> +	pteval_t current_prot;
+>>  	bool check_wx;
+>>  	unsigned long wx_pages;
+>>  	unsigned long uxn_pages;
+>> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+>> index fd1610b4fd15..a5651be95868 100644
+>> --- a/arch/arm64/mm/ptdump.c
+>> +++ b/arch/arm64/mm/ptdump.c
+>> @@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+>>  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+>>  	struct ptdump_pg_level *pg_level = st->pg_level;
+>>  	static const char units[] = "KMGTPE";
+>> -	u64 prot = 0;
+>> +	pteval_t prot = 0;
+>>  
+>>  	/* check if the current level has been folded dynamically */
+>>  	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
+> 
 
