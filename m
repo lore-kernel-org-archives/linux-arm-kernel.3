@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADDFC35FF8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9885FC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 10:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uPWXl/8RURSQVhDBgDdVe10bQmZPe5kSiQ4uVWsO9Y8=; b=cpzx/uXd31NJhBn8Naxz2VXxrf
-	iviyBcht5AgldNuSE8Upj05rMBvmP1EhCUc7PieEY4Kew5fWZNvPnzSpqT2fyyCQN5UeEPi8QY39M
-	63ERRsrlpMZ95NLo9uJUqsGcNMsn+5e+rzGp/YCgxAm9omjSVUlZ1HoW4dMPNmsJTTacR5eYK0vXi
-	Z/HKJrjKxQm1OdnYGN2lOis7SMa9ZZlvdqMeepmcTwtZJBFtNvzhUUWLwGqGSr5w73dShoWGY6GMS
-	QNMZzPUHE9+5PpoX+ig4Xs9xKwUUvo6T5ely2YFDJ3uwa0pmQbspHoHxKh40J1iW3aYyCr+pq1Q+1
-	LxoMO5Aw==;
+	bh=xJcZ5SDFjX+juN//zvaUH65nPHT7KsSjhYn8IXXtq1g=; b=PI8MdQ3xa0+6IrSjJAYULJMT1i
+	i1JtPtOiAI1UjW//QTvP4TaU8UGePCEk4l6FZpQtCpelSWcQ3VQ3ucdVNqjri8laM5TINP8Vi2JiU
+	3kO1QOsvu8qc97qn5wkZZUienA8rQn9Po5T/iQi72j/n75efbWgK2pzO+y/oEYycfoqiYcD4Al1SZ
+	Y/Dd4SmUIf+bMxBPRAWDkw8dJRug1NwaJICOvQsc0PTndVi2GBoMG3zJnmyFkSLa/KBERTenwT9/5
+	FUlCvxDP4Rt4M5ttfB1cBS53lvimwpDXO15qKqpRH35al2v5y1aclABEeku2wUpHILO2BmChmPL+r
+	NI+OzwZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUID-00000005Wpe-0DkO;
-	Tue, 18 Mar 2025 10:35:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUCt-00000005VnU-08dO
+	id 1tuUMm-00000005Xj7-2JnC;
+	Tue, 18 Mar 2025 10:40:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuUL3-00000005XO5-3wEo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 10:30:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C49A6A48F38;
-	Tue, 18 Mar 2025 10:24:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06808C4CEDD;
-	Tue, 18 Mar 2025 10:29:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742293798;
-	bh=GEyWmAuKyt53yQnLXeprXRpXd8Gr1UAJGEAO81CNlf4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GVGPsRCQwFTEZngbGzaWWnmzTfiuq8UjnKK4UDTZdjXfAsl20tqkt8barAi2UL7Ys
-	 /RU7IQ8xNTkjEUpxWLc4C9gJL0DJNUb2JQQrnaj1I2xa56mMx7Fdd/gFFHUgUGAZRb
-	 taNX+CJYV2ZWJ/kI+GXpD/nixiDsnALdQ6BQuRM7kedN0epHn+kjXQih0IpYtLVzTR
-	 /sXBojLHIjxtpi/SHjFRHhQT4cXXvuGbSEFStQiO52dvS+kBzy2FrMWOnTUR1JBwgd
-	 1bDoWdOWmsfbiwfuKu4FpW7oVoEK16ER/YndH5Zm8r6P3dUj0E336n2r7IiRMSQ4yA
-	 sv6ERxCxK/1Vw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFE0380DBE8;
-	Tue, 18 Mar 2025 10:30:34 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 18 Mar 2025 10:38:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 190C813D5;
+	Tue, 18 Mar 2025 03:38:31 -0700 (PDT)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A597F3F63F;
+	Tue, 18 Mar 2025 03:38:18 -0700 (PDT)
+Message-ID: <7b0af57c-a38c-4c30-9bb7-efe511d6bd1d@arm.com>
+Date: Tue, 18 Mar 2025 10:38:17 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3] net: ethernet: ti: am65-cpsw: Fix NAPI registration
- sequence
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174229383352.4118139.13974344587777019051.git-patchwork-notify@kernel.org>
-Date: Tue, 18 Mar 2025 10:30:33 +0000
-References: <20250311154259.102865-1-s-vadapalli@ti.com>
-In-Reply-To: <20250311154259.102865-1-s-vadapalli@ti.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, rogerq@kernel.org, horms@kernel.org,
- alexander.sverdlin@siemens.com, dan.carpenter@linaro.org, c-vankar@ti.com,
- jpanis@baylibre.com, npitre@baylibre.com, vigneshr@ti.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/9] dt-bindings: arm: qcom,coresight-static-replicator:
+ add optional clocks
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Clark <robdclark@gmail.com>,
+ Abhinav Kumar <quic_abhinavk@quicinc.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+ Kumar Gala <galak@codeaurora.org>, Andy Gross <agross@codeaurora.org>,
+ "Ivan T. Ivanov" <ivan.ivanov@linaro.org>, Andy Gross
+ <andy.gross@linaro.org>, Georgi Djakov <djakov@kernel.org>,
+ David Heidelberg <david@ixit.cz>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
+ <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250317-fix-nexus-4-v1-4-655c52e2ad97@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_032959_132458_E8E02488 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250318_033826_017690_BD43A3AC 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +85,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On 17/03/2025 17:44, Dmitry Baryshkov wrote:
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+nit: Subject:
 
-On Tue, 11 Mar 2025 21:12:59 +0530 you wrote:
-> From: Vignesh Raghavendra <vigneshr@ti.com>
+s/qcom,coresight-static-replicator/arm,coresight-static-replicator
+
+> As most other CoreSight devices the replicator can use either of the
+> optional clocks (or both). Document those optional clocks in the schema.
 > 
-> Registering the interrupts for TX or RX DMA Channels prior to registering
-> their respective NAPI callbacks can result in a NULL pointer dereference.
-> This is seen in practice as a random occurrence since it depends on the
-> randomness associated with the generation of traffic by Linux and the
-> reception of traffic from the wire.
+> Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> ---
+>   .../bindings/arm/arm,coresight-static-replicator.yaml          | 10 ++++++++++
+>   1 file changed, 10 insertions(+)
 > 
-> [...]
+> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> index a6f793ea03b6c193fc0ff72a45e0249a63a2ba3c..56e64067ed3d63c5e293a0840858f13428bacb45 100644
+> --- a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> @@ -30,6 +30,16 @@ properties:
+>     power-domains:
+>       maxItems: 1
+>   
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 2
+> +
 
-Here is the summary with links:
-  - [net,v3] net: ethernet: ti: am65-cpsw: Fix NAPI registration sequence
-    https://git.kernel.org/netdev/net/c/5f079290e591
+For the static replicator, you don't have an APB clock, as they can't be 
+programmed. It may have an ATB clock. So minItems 0, maxItems: 1
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Suzuki
 
+
+
+> +  clock-names:
+> +    minItems: 1
+> +    enum:
+> +      - apb_pclk
+> +      - atclk
+> +
+>     in-ports:
+>       $ref: /schemas/graph.yaml#/properties/ports
+>       additionalProperties: false
+> 
 
 
