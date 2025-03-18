@@ -4,91 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7919EC35FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 04:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4AA3C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 04:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0QBY2Nw3ByVw59Pz+Hx1wvCamLOjPFqTULRDEzwjio=; b=PeN/MheHlFBbhdDDe2nSsMQCU/
-	kykXEc+528m+0ojFPlSyJ5I82NRFgUkLKM8JRmRJ4CbKtipytEao0dT3Eh3bIxi3p1nS1/Qu6DZJQ
-	LbQKKp1r7uq5fMtH4wdio6j4XIozvapvnthy84jtBg/eKEXGItc8VtiGeFDuKN9SHjZ82snXQs4EQ
-	lAjpGWor9rg06yA++fiEOvTNdaiTVN9IbCP4I0ZcriZk+hryGmvhecnY+W4M9GxXEe/gt6uNPTPvH
-	PATh+dWAIGb5snAgLTA8l4aE+yjoePRAwK0H8bxdAYzV2SebrQ7D0LDftCvvOx4Qawe+qMllZ2K2Q
-	+6e+FIKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TX84Y6pPK9YOw1FeEOyRUN9cFVqfhBUGf9QAX8ddxMs=; b=p5zwtA6ZcRHnwODQuKZS1zKRw7
+	qzW0knr8DqQxkvRbLQvXOobEcZTBlXK2BdFylpXawXBoPEsxvigfq9HoeGvOJjp6gr0VVUZDmzjzP
+	fu0idwGUw5dEQpE6ap3X7shfa0smpW3INmkavvYjBKzdvuTDrewEvSKGUrCIyQLKRS+rcPotrSLhM
+	Gv4SWa06ykD7kO/PKTnEy8oTU0C1rE8brDeSQd0jZniKhyHCR6yIAD42L4AKSCYqABpWMS0ycNDmA
+	oRx/3DsarL4rFW+ppVljhYL8uiFMXJ9G3JC2wanOGY36NrertECbzuAIGd+dat1xn2iQamTj15eKJ
+	/m43Yn1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuOEY-00000004bUH-36jy;
-	Tue, 18 Mar 2025 04:07:18 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1tuOLX-00000004cSj-2vKo;
+	Tue, 18 Mar 2025 04:14:31 +0000
+Received: from mail-dm6nam10on20629.outbound.protection.outlook.com ([2a01:111:f403:2413::629] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNgY-00000004WCp-1D19
+	id 1tuOJq-00000004cL8-2kzv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 03:32:13 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e64124940abso3754070276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 20:32:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742268729; x=1742873529; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=B0QBY2Nw3ByVw59Pz+Hx1wvCamLOjPFqTULRDEzwjio=;
-        b=LHhDfaApK0I6wuKNGe8TTkxjGOjaB9L6dOH0QJI7gpOgcwuC1WJoIISucct3B4H+u5
-         NH2UCK/dutd7ZJzKPe0yhLAv/dx6h4Vd220/AeKi6NJe2WNVY7Zo0EeYOKdBQ+IbJCwF
-         hMebQ/dUepEDGehU3hfxmbMrYtmeWM0fZEIhKoKNexKIjJm6P5GCSAdOzmHmjjyaEZxh
-         XVzzXpsbPF64VqVkaGXa0BOShu7B6gqie6hWZMW4CeHJwBhogzG/NuNcd0gvTtmh+KHj
-         oIpMFWKVh5ys5M5yjxGWJgxJUGKW1tTQL3ctQJMEKAjtjD/MpMYovcBfnQCb903HGyfN
-         6LSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742268729; x=1742873529;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=B0QBY2Nw3ByVw59Pz+Hx1wvCamLOjPFqTULRDEzwjio=;
-        b=qdWwAXoPA6FyU/Ml3zwVR7gRXkk6p1jKgzvKIEDwKSFPJdB7jEcpFyF9St9rMJDUKM
-         k4ULWR3R5vGjZzH9kjN7UvA+yTywnFTfcSc3lKupn4QdBT/ltwQdY5oULNmQjJ2myXY0
-         8IH0WpMkPLtKQmFDhEoUb8o6oY4uAxVPGF3FmEq0uvG6EV/zzWierLPgjbtqzVYg97bx
-         uV8IGMctssrQLF4ky8ZjccAJ9QPiYrR96SqML5CHc+Ty+Nki/3dWHhIMFLt/ck8jboAW
-         0OYL56wBYcyGBzcWRDwRW/u5mQ7TGc5seSYUUAij5OVz+MF70/IIiKe7f4EMYX/p2Q52
-         Yidg==
-X-Forwarded-Encrypted: i=1; AJvYcCVivowQtfXZeYzNwwguwgWTClYlWPGrM3LkVkYixHb3fAG5Fdn2SHTwWl/Xnr5jUYqNBIPNgYD5/vrc4AHLbOTV@lists.infradead.org
-X-Gm-Message-State: AOJu0YykfAJ2XN3fqaYxCABYxYvJsCpREOXj89XkmgTuRwg1mm+LlJbi
-	xiUzUq7JSgHZ/ffLHvBllZCkz5kVXFxkSQ4C+X1m7CH1A7uVRQSAe+kx3oAqSfmEuumLVvBKb1l
-	tlVPCrw==
-X-Google-Smtp-Source: AGHT+IH3ZsA45Hh6AC985okMNJU3GA2gN9GLs2pTd3dhMU9xuvlE/Rp3C8qkGUhbDsx6HENWoPY55aGi1xZ6
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:ef29:15ce:a42a:b69f])
- (user=irogers job=sendgmr) by 2002:a25:ae94:0:b0:e5d:a3bd:890a with SMTP id
- 3f1490d57ef6-e63f64c348fmr7905276.1.1742268729109; Mon, 17 Mar 2025 20:32:09
- -0700 (PDT)
-Date: Mon, 17 Mar 2025 20:31:43 -0700
-In-Reply-To: <20250318033150.119174-1-irogers@google.com>
-Message-Id: <20250318033150.119174-7-irogers@google.com>
-Mime-Version: 1.0
-References: <20250318033150.119174-1-irogers@google.com>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v6 06/13] perf dso: Add support for reading the e_machine type
- for a dso
-From: Ian Rogers <irogers@google.com>
-To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 18 Mar 2025 04:12:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OSjyEiteeiyFijaQnhs4lnoBt6ebhAKwKMUntmEySWaEhdjmjpFI5tEEngXw7mQKuOQv9mvxgQxK1B/8miqRLe/IUBDv7VkGYKU9SEpjhjksuTmpmLqq/rghFqUHesrwJaQvf6kJTHe55U1t6Im+yfH9F4IERMUbSByLLFJYvkYQ/349QeDTwenNme77Va7YHb/X94EhgVoa1vUSok9/8CmWTFouFogkWwZVRhdesnO4khKuhRmDXIB9EyB2LFnZEJDQKzLb8HBXQgl/Rp/eFy0X60YrNTH5VwEapsf6q+qvKjIp320+qMWSsSVAx3qaoOa8cMwIsYl72PdE4aI9tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TX84Y6pPK9YOw1FeEOyRUN9cFVqfhBUGf9QAX8ddxMs=;
+ b=QBa8xFYW2aFTfwScBi6jE0R7Y7fxJz1Mha5Wrv7enG4lBFQJr/0tYfhzAYxFNNklr7UWJR3Pgv+dHdby4IqNp2B75FSn6bmgrb8e6sNLUJPCCFz9DEk1i9960Pp7dtaYGRbjrIOpJz9LS3bPZXEN/56UoItAJskonwyqg/p/zIPbkcXWxLtDgnoewxsOGQS9h8Liysi09TaUVHO4qs7wKL91auccyzV+KtiyYeXvczRy6/B2wkc0lxXbybGSEu2KTBoN+biE1U2FikssGzGXxI6VKG3abCs5mrAlMDrVmcidDbVLvIO9IOKe9V0VQaRGo/QFaKzOJeuNTxkNBCTwRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TX84Y6pPK9YOw1FeEOyRUN9cFVqfhBUGf9QAX8ddxMs=;
+ b=VVEOkfOc6clBq0Q4z+TvhRpeUwQgfS2TpdYLagAviFFjVMOFOoyLJBEWEp9Chy3cXfMTmuXb+5TYPne7KW/Y2s9gl7SNMI8ntGCatwRni/aOiLfJYNQ7bPr0MqnSXNC/NQmHOOJv3TJ+x0G2wC6b4aOBcevEfCGYyOe4ZA90wAg=
+Received: from CH2PR18CA0019.namprd18.prod.outlook.com (2603:10b6:610:4f::29)
+ by SA1PR12MB6918.namprd12.prod.outlook.com (2603:10b6:806:24d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Tue, 18 Mar
+ 2025 04:12:39 +0000
+Received: from CH3PEPF00000017.namprd21.prod.outlook.com
+ (2603:10b6:610:4f:cafe::32) by CH2PR18CA0019.outlook.office365.com
+ (2603:10b6:610:4f::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.33 via Frontend Transport; Tue,
+ 18 Mar 2025 04:12:39 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ CH3PEPF00000017.mail.protection.outlook.com (10.167.244.122) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8583.3 via Frontend Transport; Tue, 18 Mar 2025 04:12:39 +0000
+Received: from BMCDEV-TH5.amd.com (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 17 Mar
+ 2025 23:12:36 -0500
+From: Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>
+To: <devicetree@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+	<joel@jms.id.au>, <andrew@codeconstruct.com.au>
+CC: <robh+dt@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, Rajaganesh Rathinasabapathi
+	<Rajaganesh.Rathinasabapathi@amd.com>
+Subject: [PATCH v3 1/2] dt-bindings: arm: aspeed: Add AMD Onyx BMC compatible
+Date: Mon, 17 Mar 2025 23:12:23 -0500
+Message-ID: <20250318041224.1693323-1-Rajaganesh.Rathinasabapathi@amd.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000017:EE_|SA1PR12MB6918:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6089fc30-d8cd-47b5-b687-08dd65d31f8f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OoUqffC+1iONBoFnQxaarbTpyzWbUe0wuUAbj4EN7aPZHCY0iICTe8GgPvPu?=
+ =?us-ascii?Q?lKD9nlmRsCIC9o95AzcG2NKfz1sL9jQaRebIJYckNyFQFnUixGsoPaHfCa3P?=
+ =?us-ascii?Q?yQS9GwxrZ1xqEDDOou8/CgG9t9nZ5NDM1Kip6DeoVs55AtQZUWmc0wwhgdyf?=
+ =?us-ascii?Q?snSKUc+QbtnN3uhwTpniroDAvzmFshX75TAxdMtUSJd/MUHkhJvu7YqbPpJ2?=
+ =?us-ascii?Q?EuMeLQYb+emGy2Uj0G9SWTmWxSzZNXcRcjCtx3hEsmHjfdK0YbN2t7k7Rrl4?=
+ =?us-ascii?Q?/sq1Sezo/YcUiBmHpq563spwBO4aDbBkhjeKr9p7/HEUHIWjSt8kabhTFF/H?=
+ =?us-ascii?Q?ImjPiRW2pliHn9ZuYYzSok5KgL1hNgR6C/qb74yybWruSTAyCbE6gNgtTeBR?=
+ =?us-ascii?Q?LstD7w0NKEHCpK+F03gD01Om5zPd2cAXx8DKhV6LTlcesgOFgaBXh5WS5IK8?=
+ =?us-ascii?Q?I7wsvmhBJPf835axQIj/McwSo3C9wSM1fH9rszRhQQp0othhp8RaOJzXjKZg?=
+ =?us-ascii?Q?eHCN+nw8FYIJxZ/r4NWui1DqilJppAE+2ZlPWAmRAcpn6ZWqpBmp/Z9lgjT7?=
+ =?us-ascii?Q?qjPrceLbpHb0Z+My7yeead40MjwGh9NF+zX0Ln/IDEqgGro7UanrZnnFN+Aa?=
+ =?us-ascii?Q?TBRhSxb2lO4yoJajeVY6jTH1Dg//+H4hY/ZZCEGRRNtSZcE1Ohyu9aySKNOB?=
+ =?us-ascii?Q?PPGNglBbezvZJ7v8aYf+uf8vQirI/q3Odk0wATQ9t3MBcLjOOYdMtxv30D4Y?=
+ =?us-ascii?Q?jIwvL1wu4GZFee8j2rmcYPGdR5Obsa3GfzFsBznw5Q/inuBpQ51nkVoQJ3DQ?=
+ =?us-ascii?Q?rg9Mc4vf7XDXTbF7YGSD8F2Rx70ZTb5dRjpALSfrU1qu+W5tAyV2pAZYspWC?=
+ =?us-ascii?Q?O3EuDOQ1uvgElxltrhjX1dVRJhGjHgtIb47CK9hZp6ZJhawvC6zahEoaifsk?=
+ =?us-ascii?Q?PirzTuJ00aCKFgVvI/Ag+sPg33fakPKt7Ta7O7l69fg2SRwvQ+kcIh3LfpLh?=
+ =?us-ascii?Q?gyyAqlfxq8jT1mpp/ysWgE0HpdC0cHjFNQmxtj9EDBbV5KMgdODXYVBveLBW?=
+ =?us-ascii?Q?qzDNiunqYPdzIqlc1F939gUCJYO6mA40U1A34A+alXsy0tpxsH98lejxlOs7?=
+ =?us-ascii?Q?eEvwKX19YZcXKqvbJ0Ps6n/KrRaxYKr1MrVbt1eqs5h91E6uQjzPQd+2eH6U?=
+ =?us-ascii?Q?OG1Z4jvFrFTgZdNxqgQG8wEK8fiQg+9zrN4IbnyiU/JoUcf6kmbi5zGI9R1p?=
+ =?us-ascii?Q?VA5rjSoDdz5LCGXLqioMf/4W86kMCCBF+Fyn00wJuwx27rMXQDqDPZLou3l2?=
+ =?us-ascii?Q?sBrbwnJGuxlLhjQlezAHhNsxUWbBS00ZM/SNxOAc3+ynF1L2wiy8Ptvta+MJ?=
+ =?us-ascii?Q?8eM8oEGwTKKB5jpLJldRi8lE4IXZ9d09UiKzpBTR8/MihRtoKhZEwbpp0CX0?=
+ =?us-ascii?Q?XLlaAuT+kQxxyrVJ+sJvPtJtHuekBaBfJET5xeF9z8v1ZScW2/gv+/79IApR?=
+ =?us-ascii?Q?SSKIN0r6wldQ1Ds=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2025 04:12:39.7870
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6089fc30-d8cd-47b5-b687-08dd65d31f8f
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000017.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_203210_327834_10545048 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250317_211246_703199_1A7521ED 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,187 +145,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For ELF file dsos read the e_machine from the ELF header. For kernel
-types assume the e_machine matches the perf tool. In other cases
-return EM_NONE.
+Document new AMD Onyx BMC board compatibles
 
-When reading from the ELF header use DSO__SWAP that may need
-dso->needs_swap initializing. Factor out dso__swap_init to allow this.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>
 ---
- tools/perf/util/dso.c        | 89 ++++++++++++++++++++++++++++++++++++
- tools/perf/util/dso.h        |  3 ++
- tools/perf/util/symbol-elf.c | 27 -----------
- 3 files changed, 92 insertions(+), 27 deletions(-)
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-index 7576e8e24838..45da63d7315b 100644
---- a/tools/perf/util/dso.c
-+++ b/tools/perf/util/dso.c
-@@ -1173,6 +1173,68 @@ ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
- 	return data_read_write_offset(dso, machine, offset, data, size, true);
- }
- 
-+uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
-+{
-+	uint16_t e_machine = EM_NONE;
-+	int fd;
-+
-+	switch (dso__binary_type(dso)) {
-+	case DSO_BINARY_TYPE__KALLSYMS:
-+	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
-+	case DSO_BINARY_TYPE__VMLINUX:
-+	case DSO_BINARY_TYPE__GUEST_VMLINUX:
-+	case DSO_BINARY_TYPE__GUEST_KMODULE:
-+	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
-+	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
-+	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
-+	case DSO_BINARY_TYPE__KCORE:
-+	case DSO_BINARY_TYPE__GUEST_KCORE:
-+	case DSO_BINARY_TYPE__BPF_PROG_INFO:
-+	case DSO_BINARY_TYPE__BPF_IMAGE:
-+	case DSO_BINARY_TYPE__OOL:
-+	case DSO_BINARY_TYPE__JAVA_JIT:
-+		return EM_HOST;
-+	case DSO_BINARY_TYPE__DEBUGLINK:
-+	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
-+	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
-+	case DSO_BINARY_TYPE__GNU_DEBUGDATA:
-+	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
-+	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
-+	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
-+	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
-+	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
-+	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
-+		break;
-+	case DSO_BINARY_TYPE__NOT_FOUND:
-+	default:
-+		return EM_NONE;
-+	}
-+
-+	pthread_mutex_lock(&dso__data_open_lock);
-+
-+	/*
-+	 * dso__data(dso)->fd might be closed if other thread opened another
-+	 * file (dso) due to open file limit (RLIMIT_NOFILE).
-+	 */
-+	try_to_open_dso(dso, machine);
-+	fd = dso__data(dso)->fd;
-+	if (fd >= 0) {
-+		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
-+		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
-+		if (dso__needs_swap(dso) == DSO_SWAP__UNSET) {
-+			unsigned char eidata;
-+
-+			if (pread(fd, &eidata, sizeof(eidata), EI_DATA) == sizeof(eidata))
-+				dso__swap_init(dso, eidata);
-+		}
-+		if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
-+		    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine))
-+			e_machine = DSO__SWAP(dso, uint16_t, e_machine);
-+	}
-+	pthread_mutex_unlock(&dso__data_open_lock);
-+	return e_machine;
-+}
-+
- /**
-  * dso__data_read_addr - Read data from dso address
-  * @dso: dso object
-@@ -1528,6 +1590,33 @@ void dso__put(struct dso *dso)
- 		RC_CHK_PUT(dso);
- }
- 
-+int dso__swap_init(struct dso *dso, unsigned char eidata)
-+{
-+	static unsigned int const endian = 1;
-+
-+	dso__set_needs_swap(dso, DSO_SWAP__NO);
-+
-+	switch (eidata) {
-+	case ELFDATA2LSB:
-+		/* We are big endian, DSO is little endian. */
-+		if (*(unsigned char const *)&endian != 1)
-+			dso__set_needs_swap(dso, DSO_SWAP__YES);
-+		break;
-+
-+	case ELFDATA2MSB:
-+		/* We are little endian, DSO is big endian. */
-+		if (*(unsigned char const *)&endian != 0)
-+			dso__set_needs_swap(dso, DSO_SWAP__YES);
-+		break;
-+
-+	default:
-+		pr_err("unrecognized DSO data encoding %d\n", eidata);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
- void dso__set_build_id(struct dso *dso, struct build_id *bid)
- {
- 	RC_CHK_ACCESS(dso)->bid = *bid;
-diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-index fcb2898e0f49..0459d4e41b14 100644
---- a/tools/perf/util/dso.h
-+++ b/tools/perf/util/dso.h
-@@ -735,6 +735,8 @@ bool dso__sorted_by_name(const struct dso *dso);
- void dso__set_sorted_by_name(struct dso *dso);
- void dso__sort_by_name(struct dso *dso);
- 
-+int dso__swap_init(struct dso *dso, unsigned char eidata);
-+
- void dso__set_build_id(struct dso *dso, struct build_id *bid);
- bool dso__build_id_equal(const struct dso *dso, struct build_id *bid);
- void dso__read_running_kernel_build_id(struct dso *dso,
-@@ -823,6 +825,7 @@ int dso__data_file_size(struct dso *dso, struct machine *machine);
- off_t dso__data_size(struct dso *dso, struct machine *machine);
- ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
- 			      u64 offset, u8 *data, ssize_t size);
-+uint16_t dso__e_machine(struct dso *dso, struct machine *machine);
- ssize_t dso__data_read_addr(struct dso *dso, struct map *map,
- 			    struct machine *machine, u64 addr,
- 			    u8 *data, ssize_t size);
-diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
-index 3fa92697c457..fbf6d0f73af9 100644
---- a/tools/perf/util/symbol-elf.c
-+++ b/tools/perf/util/symbol-elf.c
-@@ -1174,33 +1174,6 @@ int filename__read_debuglink(const char *filename, char *debuglink,
- 
- #endif
- 
--static int dso__swap_init(struct dso *dso, unsigned char eidata)
--{
--	static unsigned int const endian = 1;
--
--	dso__set_needs_swap(dso, DSO_SWAP__NO);
--
--	switch (eidata) {
--	case ELFDATA2LSB:
--		/* We are big endian, DSO is little endian. */
--		if (*(unsigned char const *)&endian != 1)
--			dso__set_needs_swap(dso, DSO_SWAP__YES);
--		break;
--
--	case ELFDATA2MSB:
--		/* We are little endian, DSO is big endian. */
--		if (*(unsigned char const *)&endian != 0)
--			dso__set_needs_swap(dso, DSO_SWAP__YES);
--		break;
--
--	default:
--		pr_err("unrecognized DSO data encoding %d\n", eidata);
--		return -EINVAL;
--	}
--
--	return 0;
--}
--
- bool symsrc__possibly_runtime(struct symsrc *ss)
- {
- 	return ss->dynsym || ss->opdsec;
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 01333ac111fb..98f92c16e342 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -74,6 +74,7 @@ properties:
+       - description: AST2600 based boards
+         items:
+           - enum:
++              - amd,onyx-bmc
+               - ampere,mtjefferson-bmc
+               - ampere,mtmitchell-bmc
+               - aspeed,ast2600-evb
 -- 
-2.49.0.rc1.451.g8f38331e32-goog
+2.34.1
 
 
