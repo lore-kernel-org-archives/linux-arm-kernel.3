@@ -4,91 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDE1C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 06:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545B8C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 07:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qwcG0nkjUDlN5Bh/rhj3k2ZPiTcT+O714WWyKryB05o=; b=PTFjHAueNBBi/1tut20G93vq6b
-	5JKcDHE4I60NrC1iFxk8hugQjtsR76/NVIpVNqG3TetYVCfNoHkn8E19dRi7MZsXY/gPEv0G3igFA
-	X5pUqvmwdc0STi7CuPtz875PruVNWZjSh0UPNn+X38+xXAJylOh+NdelzbdHcuCXHR1jlL7aiBhOS
-	vPbJVUTF6xI1Q0toVy144Jm2PuUiEpjXwuqj6+8cNRTBs2XrZn2/3heIfCEFypga6YeKBdwpzmozl
-	9w9IPoCcatXDE/SmBuw+CvYe5e984EKZDD0I5AP+8F3hYoS7QscRGttr+ACvpxhYghHC6/HJsmzTl
-	0zB8zLzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/rZQhCoWbIUnKu/sFgaZ71o4glu3cDnYRCu8bXWw6MM=; b=FhuBz7bfX1/Fpf+fXcS8FENQSb
+	mqdGsYe+Ln8nPTbHGMJzaNk9pFq336lzJvQXhVCzxXgxIXkf38Mc33FzBXUhYwsSbY55bh5WQCua+
+	67RBa1xVhGl9a/xhK+vytrGU4h66x6nodZMP28aC3D724tvO/oR8aeD7JZBPa7kUUfZoVVX/YEnSa
+	vyowJ0b1ipoCwACprO0wIICK/rlAIRDHrlaFXUIBWqwrb5bNjlMxDdqQZuYn1wqqTVuTpL+n+XgPw
+	746FQLkXMOShR02uVKRFG5oRcwgOFmzK3uPn0vy1kQlHIsgy4zOQKuAxnhgQIc9drsZqRPGmf/Dza
+	o9dQaFJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuQtp-00000004rvY-3GyL;
-	Tue, 18 Mar 2025 06:58:05 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tuRDC-00000004ti3-3Gsi;
+	Tue, 18 Mar 2025 07:18:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuQs8-00000004rmk-3rtz
+	id 1tuRBW-00000004tVS-1xI0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 06:56:22 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ac29af3382dso862963666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 23:56:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742280979; x=1742885779; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qwcG0nkjUDlN5Bh/rhj3k2ZPiTcT+O714WWyKryB05o=;
-        b=hmdtaheqaU2yZJb6RIiodqkU7LHr6s4frQSQUiNIQxNzNp8Gv2NQBy9G6/TQ9ItuiP
-         ibnGwxcq6we14D6Yyu+6lnkiaDE1eQ+99S1rRDkt+kySRqnvceJKP+4F1441u8u7gueC
-         pUIH6oyc27SO2g0zehOvHmXvT/v8txaRXfPt0p70FGEZEgKLQ9tYgM+YEmwh3wMk6PBi
-         6SXRp/MwMshBmB0vpUDLvXP2lOKNM3nOw7pLQ02eu/x728C+lY+2rQ60YPA24JBfKdSe
-         KVfTOdGRkCSCZTNs4MLQFrKE+6ZmJ1jauYgEkcZ0WizKoG3kf2zeIy42c2kLvkwz1zaq
-         CJkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742280979; x=1742885779;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qwcG0nkjUDlN5Bh/rhj3k2ZPiTcT+O714WWyKryB05o=;
-        b=rEZ285xHzvxsddXu57pVPCqkf8t6n3NGgEMPURsHxBLZROn+vpf0go+kliDehH1bXW
-         4JvszQoAX8Q3v0gDD5GPFhefT2UITdiJQeB2G71Be+e3thLveq4lUeKKDHR90dFQfS/G
-         n9pml88jRxEmNhyv9zw+mp3Km5rhgxUOD5hfTI+kkPoFPRTIIzhm2e85QJ1ykQ/SFsN0
-         U04n5q/LIgVuCKFlC0+vu9QyrI2ZpYpocljxGg6G++XtGu5RaZDIshKpZ//FdFrfFnjn
-         bV0VqUVCoH5ovTt5WRiuO8RQUyNZkEwILewjtn4MP9AnqsnMIaBGpDoILUjb6Rw5kXWo
-         ldog==
-X-Forwarded-Encrypted: i=1; AJvYcCVc4pKiCeBAcVzmIbE2CTPAmFijK6C4LzpoT84pXRIg81EKAAVNfIcihbVuCW22z5Gs5LTmvdSZPl3krJnWLAQ5@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo+nq7yaquECohNeyKGEmFgcI/oNgoSGWctkS+4Tr0fVaKD8NN
-	C4TRGtIUiDR1+WD/9fY40hVNmnuSuFgnMNUxskRl4AT9fcxdksEGjxsExQ==
-X-Gm-Gg: ASbGncuXNiAiJlD7rjUS6JQAC+TMDM/iBLA13tlcFZ8+2KXiH0TIWdA87WfujLOb8Pf
-	JaJF6Yz02DI/96qMbzEsVM79Pm8E2KqMwzrCLgKpJVAM8/jjIvA5NJWWCPJBF+E2HI8Y+9rensI
-	daVlCylccwdrV49zKZKwc0OVBRWQI9pbMcguve/PxY+09HUPwBHXmPjQo4EAqDNm7aZQAIics60
-	LyMYRjE2Z2lZlkIzNJzOqQQckjtWwB1TYVGLzlamYFX170YOtlbwI6VsPhg8Sddqs2Cyu9dFOLC
-	XgOmMY2AUIoRM+9bZKOprJIXKBJ5I/Bgi6JbUYFzK6WufTij0fe1TVFRb4PrxgiaZ0fB+xcuyQu
-	wJXNNCraRHsclVLO48/+lXBnE/tYlgkaz4wIMz1CYFCUjjg==
-X-Google-Smtp-Source: AGHT+IEFPFabopy2MYvkvMtlIv02ESYxo7QfPaSYD2btK+WSLZa3CANNpz53pkWjwY2mwptKmEPudQ==
-X-Received: by 2002:a17:907:96a1:b0:ac1:effd:f2ea with SMTP id a640c23a62f3a-ac3302d1dc1mr1648297366b.24.1742280978900;
-        Mon, 17 Mar 2025 23:56:18 -0700 (PDT)
-Received: from alb3rt0-ThinkPad-P15-Gen-1 (host-95-251-108-181.retail.telecomitalia.it. [95.251.108.181])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac38f091c7bsm106906766b.38.2025.03.17.23.56.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 23:56:17 -0700 (PDT)
-Date: Tue, 18 Mar 2025 07:56:15 +0100
-From: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: shawnguo@kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: OCOTP and DWMAC builtin modules are needed for imx93-11x11-evk
- kernel dev via TFTP and NFS
-Message-ID: <Z9kZD0vEsrrIftk5@alb3rt0-ThinkPad-P15-Gen-1>
-References: <Z9fhuVltKwqgHdLp@alb3rt0-ThinkPad-P15-Gen-1>
- <935028c6-ce56-46e0-96ff-46fa91c8f66a@linaro.org>
- <Z9hkDqcKG1xOmIB5@alb3rt0-ThinkPad-P15-Gen-1>
- <ef163f08-35f9-4d1d-8082-c826c6cd0aa0@linaro.org>
- <Z9hxKlrrqW4QyzdJ@alb3rt0-ThinkPad-P15-Gen-1>
- <88c66c98-7ea3-4172-9c99-405fe449cc5b@linaro.org>
+	Tue, 18 Mar 2025 07:16:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DFFCDA48C23;
+	Tue, 18 Mar 2025 07:10:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB8DEC4CEDD;
+	Tue, 18 Mar 2025 07:16:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742282181;
+	bh=LU6JclCBLUaoQuSonflokixNYds3pgNH+xAd19ZpkQo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=un2cPy5tA8UXpJPlo9ZW9Cl8TG4/P5SD9Ez8PghonDabkYBau6EBhmH0RdEwxa7CS
+	 7qBMvOGmly3ZcFJqA7ewEzr2V8cHex29IcLVN4DkMMInU7om33QkDt215gfCZaA1+V
+	 v1u8gRYTGlLtvfIAwPe3lugbtf2ZWc/6+4u8ry/g1idim3IXbvtPl1H3JP7LJCvg6y
+	 dN4A7oZWnRmV19CpVsG4Nr4uniLxpclrT3TFt3KSOBuHtx8kGbBnaERtAn0r3oyn/H
+	 oMa9fEdkLrur/Q0KP11GE1T0nJN0Nt+wLMudHuEgnQSSreGNrb2rahCKjE3LxD6joq
+	 3NF0P7W/bNhiA==
+Message-ID: <f2899540-f9ac-4013-a703-25800429f97d@kernel.org>
+Date: Tue, 18 Mar 2025 08:16:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <88c66c98-7ea3-4172-9c99-405fe449cc5b@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] media: dt-bindings: Add qcom,qcs8300-camss
+To: Vikram Sharma <quic_vikramsa@quicinc.com>
+Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
+ hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
+ catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250214094747.2483058-1-quic_vikramsa@quicinc.com>
+ <20250214094747.2483058-2-quic_vikramsa@quicinc.com>
+ <20250223-observant-auspicious-basilisk-d78ba9@krzk-bin>
+ <66c35bce-c657-4c12-ad02-58c995ae385a@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <66c35bce-c657-4c12-ad02-58c995ae385a@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_235620_957958_D2161398 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20250318_001622_638123_A485A18D 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +125,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 08:14:30PM +0100, Krzysztof Kozlowski wrote:
-> On 17/03/2025 19:59, Alberto Merciai wrote:
-> >>>
-> >>> By default they are enabled as external modules, then until we don't
-> >>
-> >> So everything is as expected...
-> >>
-> >>> reach userland they are not loaded thus eth and all the mechanism behind
-> >>> that are out.
-> >>>
-> >>> I'm not using initramfs just tftp and NFS as follows:
-> >>
-> >> All arm64 platforms are supposed to use initramfs on defconfig with
-> >> necessary modules.
-> > Thanks a lot, I was not aware of that.
-> > Do you have any reference?
-> Reference for what? initramfs?
+On 18/03/2025 06:52, Vikram Sharma wrote:
 > 
-> I am using meta-qcom initramfs:
-> https://github.com/krzk/yocto-qcom
-> with copy_modules argument:
+> On 2/23/2025 5:03 PM, Krzysztof Kozlowski wrote:
+>> On Fri, Feb 14, 2025 at 03:17:46PM +0530, Vikram Sharma wrote:
+>>> +properties:
+>>> +  compatible:
+>>> +    const: qcom,qcs8300-camss
+>>> +
+>>> +  reg:
+>>> +    maxItems: 21
+>>> +
+>>> +  reg-names:
+>>> +    items:
+>>> +      - const: csid_wrapper
+>> Why different order of entries than sm8550?
 > 
-> https://github.com/krzk/tools/blob/7c0d1cacad06aa0cae8c2983ae26889471a9aaa6/linux/build.sh#L543
+> Hi Krzysztof,
 > 
-> And here is how I append stuff, but simple `cat` one cpio archive to
-> another cpio archive would work as well, just be sure some paths are not
-> symlinks (/bin /usr/bin) because then `cat` has issues:
+> Thanks for your review.
+> I did this change to address a comment from Bryan on another series.
+> https://lore.kernel.org/linux-arm-msm/e152ff78-caa5-493a-88da-96a6670eb2a2@linaro.org/
 > 
-> https://github.com/krzk/tools/blob/7c0d1cacad06aa0cae8c2983ae26889471a9aaa6/linux/build.sh#L504
-> 
-> Best regards,
-> Krzysztof
-Really appreciate, Thanks a lot!
+> Please suggest if I should keep the order same as sm8550?
+If you chosen the same order as x1e80100 then it is fine, but that file
+is not merged so it is your responsibility to track any differences and
+be sure whatever you send is always in sync with x1e.
+
+Best regards,
+Krzysztof
 
