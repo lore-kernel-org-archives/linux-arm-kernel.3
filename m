@@ -4,92 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B255C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17417C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xzsGjBDZ3uOi/9IBR3NoAthzrrDc884LFnPwtHEO8r8=; b=0bmzzDUXCG+AGr4bW2kwghXlf2
-	sEyzjVcteVefUhNjQKD+kncCPaiEkDQkSz0f4pXGu/AdBrD/g+ByBR8TtqP2iLydhPCTyjyX6A7Xi
-	65vwXPyV9h91klHdzb/hz+e8kzhWg8NygDgMJ/Q7v5kWtpVl4UttfQsIo6aRtbcCy5Wi+NoSyTq/+
-	kUlqLoTb0mZBC1WyOrCYuTG+YhJwH1LvPdGVjzCPu+1tez4BaUY5AINmc7cwRHHUoBm2m5uyEEAeB
-	59WyzFTBO1CsJL+LhlEx5kCZ9Kywf8DMC0CkByNw3y0jkiFqPHh2yi7KHP4aKxzNVfhWr1GqeFKrm
-	InTx349A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g4Z9HDh3qSMJe/SZWV1bn8G3m6v58josMsFdpJgAhMA=; b=nVEZUGa3pks+D9IO+G/eTZh5Bg
+	I3GkNezJroZhLYSXf7yqR9YyGZH5stHxsJKHF9xBYLQ5rwrwKIcAgBovP1X6rUDuepf+/q7Rubh01
+	KtzfvLpyH+4tJKs3FBxw5ZBcuVJV3caUBKfxR43j+gfXavXrsvTccZ525LB9E+z472azFJsUj5WTG
+	qQZRFUU3vyZJWKF1cDAyXbEz1lo/tMQ3/MYZL4NOKwCsP7iLb7vtqGeRW2UatTLJcIKUG/aGF8rAv
+	xyhOq8yZmSsXByq8wUCT5CrzWarRYvMyatZFsSGGEbCIoTlRxiYdrSmUr5qlYRpJt8/eeUFWdnzld
+	wdfs8BCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNoc-00000004XIk-3mJQ;
-	Tue, 18 Mar 2025 03:40:30 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1tuNqG-00000004XS1-2Um1;
+	Tue, 18 Mar 2025 03:42:12 +0000
+Received: from mail-vi1eur05on20625.outbound.protection.outlook.com ([2a01:111:f403:2613::625] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNZ8-00000004VPz-42Mu
+	id 1tuNdU-00000004Vnd-240k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 03:24:32 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3018e2d042bso2038371a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 20:24:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742268269; x=1742873069; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xzsGjBDZ3uOi/9IBR3NoAthzrrDc884LFnPwtHEO8r8=;
-        b=MpJi2zSmkz32P91cP17/MzHrByPe+drCP4eV2ngSpyE/PsQtWqsaIK7SHt/dSBaoK7
-         xumxFDjiEDpgygOlT02QC5IeHJh5UyuvJjWEztYpZ+Ul68lXAGXan2DPdCJZT36Pv497
-         OsXJSTz/L1wGA+loPd2/IoUVico6gPQqq3qHkgaQY8LS8376TWzrw8yuWQHZtE0T3wVs
-         ss+k66UEyBvmzUHioBtTTU2PJSG5158lTdEDOuH4+J2g+JGBVHZ81fs4v7BBRCtE5PLo
-         ht0++EpN0+6q9GzUJphDnz0m7jBqhJJL1FSXEKABAvU7/w24yHue9BJlRKXN3BBo6K1m
-         QeTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742268269; x=1742873069;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xzsGjBDZ3uOi/9IBR3NoAthzrrDc884LFnPwtHEO8r8=;
-        b=udFSw18kbM6WUMhJt0UDVO+EH/Xz8TGmJDkXn+u4TtrbGMaOihdlePunzPz0AWYYVn
-         dolr6zEWRtjokrkZmVYimUn1Zql85N/suSXCMBLvT1mO0UectdM9oIC6ovC44FmGAIbF
-         uaGhjRsdE6PoL0UQMTltq9Ic2oA/Vuy61cjJHzbHsMtPvKENck08qWmRyTy6KYzUOk8U
-         ZzBZHO/zcRkH3bkPEQ2DjnDoz5W3kB/hm/oX/yc/nWV4vMcl6gTcwfDVpts0NLE8Y/ig
-         2FgTlhBFHRtLw3Xq/DLFb9KUMevWUrjO1NdfVxdeSN9YvU01gbqmIaqaKPobPEc8b70G
-         xHrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVJDZNALYB+znUsNZIZOau0VgmuK+Sjw7VU4sIUIpapHXLndPwDXSL6vgKaWudluxyLgRDcW8NmnOemzyQG2EXq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/wp4Aiko1Qjdhpvl83BUf2jBNGOxq/3y/ctDlzAxY9nh5cfOE
-	vE68fzYC8iXudXj9sswiiAEMJN4V/bmTr53WTytYqViW/476s0fnxx05evGJ+ZY=
-X-Gm-Gg: ASbGnctxK1efLBZPIYN83w56jLiMTLvJgAgJQiU7feHdbL87kbx6aITYoWGv3NPKUAH
-	Bx4utm7zwrj0PYF/lEv7z/RAogqOldom+m3xJAgvZLrNqpIGYltZiL2wtoJiZxcGLgmcY42bADs
-	qjR7HH8+S3mO60EXoBDubKjo3F4GekRn/HT2b6IOOKbpj5gJG76tO5v6I+HlTWB9347qUCha55P
-	ALMt+LbVJpsI+uA5IgtGkC5QNvyM2Wh/b5JoJfNriFTBIEOu9dKQ6xxDPnI0Sk7UkL1g5hiXo+o
-	olBDrVQuCMAWuyl6GEXY00IRqdKHVoB5/uSV+w==
-X-Google-Smtp-Source: AGHT+IEvQZr1NDuupnwhk0WVzDIWEjDBiyCz7Lf8A5Y9iUiBLq47O6z6JgLA8D0IgZ7PxP69ke1QsQ==
-X-Received: by 2002:a05:6a21:600f:b0:1f3:4427:74ae with SMTP id adf61e73a8af0-1f5c122df38mr18511704637.25.1742268269508;
-        Mon, 17 Mar 2025 20:24:29 -0700 (PDT)
-Received: from gmail.com ([116.237.135.88])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73711694e56sm8666125b3a.130.2025.03.17.20.24.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 20:24:29 -0700 (PDT)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Ong Boon Leong <boon.leong.ong@intel.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH net v2] net: stmmac: Fix accessing freed irq affinity_hint
-Date: Tue, 18 Mar 2025 11:24:23 +0800
-Message-ID: <20250318032424.112067-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 18 Mar 2025 03:29:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wz2N/mjNwqZO5OJeYgd8/kdAkR+XojmR+TUCF3eDI/Osvoxdm7LBeGPXI6unrewlvUR/R4fpVcsZ67BRjuHCLl4CxuydgFKxVh4+CP76pdPFiYjmzQV7+HZKFKv54l+F5+qS1lHHvuwQykHZ79oolYl2butXpB4C0tP8pDTJkwyTnj1aKA2cm1UaBRCaj+K14OcGZQFac0tVXrdOjbNw1xUfl1FmufsMsy+1JGbTu6FAUN8Yh8WKg23+x4/q3l/xTVZKsL7K/n5nQQvvol9F+c/v8Bjims6vRjpTjKIAitHdvIcPaXkrF6NGEuwqldnV7vOWmwLbvOeJDHMBJQsczw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g4Z9HDh3qSMJe/SZWV1bn8G3m6v58josMsFdpJgAhMA=;
+ b=J4HGDovwrCvt+rPo04dbgVPctTtfSHDW7MI6A3R9yVQxlBER9bDpdAzsFA0jH7Q+jT66VmVIg7aFDZ3kjS2xJSrZXhmziDMMvpU/DjwpI8NnushOtfSre9drN/vM+2o2zD+fwkueK0zgYVQDqS2GPkrKmAOe3/IO7JhCB+sng3sjDmg2AdFBNL5nmaxTKSsVyJUtPiSh/noUIkgeTNdXr4tghoZg9R049aWIcSJdztYoJm03cJPkldIqzV/RFJCu2829IpclmiIX050fwnl6eEihbJrCUnAxQF9WSDmOKUDsj3OrJakqc6F04CwI+7mCbhDl9NUuwM0+FgKEaKs1UQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g4Z9HDh3qSMJe/SZWV1bn8G3m6v58josMsFdpJgAhMA=;
+ b=k3oHiuDhBjb2FXh9o+ub7NvZFg4os60RVlG2AixCsoRTJ3H8NDQGdF6ScPw0kMpu9vJupd1kKMMFAcWZ0YBWvXIpXtVLAFzCqn/lGVgX1t1gO5/GA5HakiSiW37alszYjjwRtjOUT0WrQgPFyG3OfuOKUqlJjspLepJWbJRD/LDQqqi83JzGu6vGOgqxnVm9Lr4bKezCq3uSijuqvuIj3+lXCCiDT04PaJhilIO9Z0g6ZL+59k2x05D79c73Jt0cph6yk/J2L25ClvcIfhawk+zJDgQXg+HAzUppPeBqxyw6v/XMwXbUXl595gQNMVKne/O1cYsq0e+9QSlw48BOvA==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by AS8PR04MB7958.eurprd04.prod.outlook.com (2603:10a6:20b:2a5::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Tue, 18 Mar
+ 2025 03:28:56 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8534.031; Tue, 18 Mar 2025
+ 03:28:56 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Clark Wang
+	<xiaoning.wang@nxp.com>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
+	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "christophe.leroy@csgroup.eu"
+	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v4 net-next 05/14] net: enetc: add debugfs interface to
+ dump MAC filter
+Thread-Topic: [PATCH v4 net-next 05/14] net: enetc: add debugfs interface to
+ dump MAC filter
+Thread-Index: AQHbkkpT5OYUzDZlrUy9J4OCxmUCobN3cswmgADSSwA=
+Date: Tue, 18 Mar 2025 03:28:56 +0000
+Message-ID: <PAXPR04MB8510F67EFC80DFCC7B9F13B588DE2@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-6-wei.fang@nxp.com>
+ <20250311053830.1516523-6-wei.fang@nxp.com>
+ <20250317144843.wp432pgodn4vjejf@skbuf>
+In-Reply-To: <20250317144843.wp432pgodn4vjejf@skbuf>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|AS8PR04MB7958:EE_
+x-ms-office365-filtering-correlation-id: 9ce5ce88-2709-445d-5ea8-08dd65cd03ec
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?qFjxWO43xl39mFcHDRBuzZmLq4cMasOvMUyDyHBDKUSeGkBrkCus43JJEsit?=
+ =?us-ascii?Q?Ydve0Vpw9icoNosU6+/MABaXsiN+vfzMrtd/vmVKYdkzZ1cpPML7xuj+EShF?=
+ =?us-ascii?Q?xWOlif/w8HPGFSkSnk1t6ursM/Z6bYcgYy6YXtnnxugVY+to644nG1WBHeQZ?=
+ =?us-ascii?Q?vNd0KTl8ZSW96cyIKk3dMeR2mRKpnEAcxhoGsHF6f+jMahc2olrMoGMyjJQU?=
+ =?us-ascii?Q?3ssvUz1is7YXj9V9nfaHqcQm85RsR45qMA/1U7HTS8HJtMVk46GXyHJg8Bme?=
+ =?us-ascii?Q?mDxPWXxUWKTGYqHA47hQw/CyT/K87obYvVAMDbhA8lk4AmQ64JOlStioAbFf?=
+ =?us-ascii?Q?k4afImdMPdA4unqEd+PtkzKodfQNlqPkx+QA1IF5LP0Aak3uSTSyKrhjH9Ow?=
+ =?us-ascii?Q?INtG8z7G9Ae6ohKL/A3YqaOOXGCSWrbDKjYJOJZ8PeBTzvNwiudwPERLzyyk?=
+ =?us-ascii?Q?c3OJiCHMrrKZdyEfPmXAv/DUMrENeXqeRgk0tk9fncrSKcAQbxdiPVaiR9QT?=
+ =?us-ascii?Q?51706g0XZenwYwnG+Pvn9HLNUTVThki2mEIrVJEBQObL3+LPoVwYxi+afQJR?=
+ =?us-ascii?Q?YCNp+d5CL9wDEmemCuMNtrwzQWyc2/orOzvGlnFO/EVk6Ae0s/C5ZS6ubd6e?=
+ =?us-ascii?Q?m2MLN2j04fimBChIiqj7MZB9g4daayujSNlwTwQA4bOD/y10T0INSbzsGoWn?=
+ =?us-ascii?Q?sPPZBg/LBNrQD5eXWxwdvOmD5LMGYYkXmFNt0fmMI0NmV1EFOXZo3Nc1v/Nt?=
+ =?us-ascii?Q?ZidR0UiIdhG65NIjTEPBUfHAiNQZqi6A92tW5X2KUoyt2DvBk3ZBRVsNTEJT?=
+ =?us-ascii?Q?t/A7mcmBoWV+id8Q054WTKuyqJohp/Gq+cQr0VbZi0llB9McAWLqeNL4UYgp?=
+ =?us-ascii?Q?zD4KXJBhJMFpKlysetzg7Oc8fJrg7brcpPekrj7LbpwmXQn68Yp8B+9N3ubP?=
+ =?us-ascii?Q?hhSAFC1TmvMgazlRw6v2+TG3badDkj/Q/rxE30lmtNrNVUCKxGVyfYi/61KT?=
+ =?us-ascii?Q?Q1Bmz00LV4Yk0QPDQKCPyhwaiCF46QoS90PbZoQxLrlBMrfI+Pn6zygrQSWu?=
+ =?us-ascii?Q?2drbwqwvsAVkviiMLfKWtol66udlFWOBS3AcOmtSXbDplai8zEOLhhy6CajF?=
+ =?us-ascii?Q?mHTH/Zu/0IgGBdjQsYc32XGocO0Zp6HZZjhSkxgVOaHNGhBDrVYKc3nZo+gY?=
+ =?us-ascii?Q?V/qHG4CCHW+Io1w6NH6Pd9lHR2Dwu5wPC9r/ev7PDY2kura8/tKz2T6eY4kf?=
+ =?us-ascii?Q?6WDdBdPr/U2QIhTY3+CR+gcQ2C3kK43rp+pGmmgnZEVc7uKYUePhpfL735qe?=
+ =?us-ascii?Q?zaXTjpGXF1BopYJ+MlsU6XHg668J24sXswa8voCoKHlNnIODueZ2hoOrIjhu?=
+ =?us-ascii?Q?SCXwfnN27DFjy5sGvF1H+oQk0Bm0M5bgNSmw/OBHMHrCKuv6uHAQcqhgxG01?=
+ =?us-ascii?Q?GHoDSzE/tRnBYnjSnJnvTm9m5za5TK5u?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?F6U4IkAj4kZa8BTSkKvEU+iyuOoSSLZcQkiwakxNOx7FF5mcjmmnp3CHFX6m?=
+ =?us-ascii?Q?Ajzr5vFn9v23/lvubar+yHbH0cOC3kfUdE6732NAIrKsaBE7LvIfJmmAGYk6?=
+ =?us-ascii?Q?SqPfQ17nKEJPARynCStk2/QQxWZ5f+ZAr6ZOIlyOmuKzLoo9gAYs42E2ttMb?=
+ =?us-ascii?Q?K9ksogDHv/rHOeyXsxFBr7GmS0FF77F4bzDdmb6EdTQ5N34J+waN0sDSjTfs?=
+ =?us-ascii?Q?hM6Ca1wr6k2uhAbwQAFoKk18lHNwmZffZxuz28JBogfv5nm4ykvQ83RcQYt7?=
+ =?us-ascii?Q?+kNrczojZjyphDco6DZbn7bKV2rfBRipaqgnodEW/bNuQ7VC+JYkyca8Vvd9?=
+ =?us-ascii?Q?96V/KPwDwd4tXNq2l8ZqqZkYPEvErbEyu1/ZS3+k2roGN5mrrcJ+Q0PWdvI6?=
+ =?us-ascii?Q?4IVFyWUX3uXPbmgtud28KIs4/0y3WPKsGginfMOA4R1C+Xoy0fQYnljPayng?=
+ =?us-ascii?Q?lAH8cs/PVw94aJT46gk149lNVzVYMii3+1ZwK1p7w+vkbGKFKyaqzYdlu7VZ?=
+ =?us-ascii?Q?s3bFpL0ImF6qenrSVPXAU5Tmt604vHXfFZy2q8zh+A7F8IXT8xcpMk8Er/5C?=
+ =?us-ascii?Q?6D0tQbpHRmjSMXnuxwnusCrYmUsq1eb3T+mwT9wDeZ7pvPFDvzXwbqjPADrR?=
+ =?us-ascii?Q?yqnA6Wt9ILh8V5rfof5lliUinvwiLSnzViXrCmj/D9DZpBxKtpvQi+ryyn72?=
+ =?us-ascii?Q?uGYXWkSmy6EkLxh8ZArbPA5mqLDnAcaTJgrFHlLPGiNrZbbmFGd3pEs27iFK?=
+ =?us-ascii?Q?yPbUwYfpNQdOMMttz8HO5kEGc03oruLno0DXH2PequAfWXs++35X54n2bxgU?=
+ =?us-ascii?Q?PCBGAcydEwM4lK7hwdGoLV4hspZdXutFZU+YVoX72hiTtzWuiz54+DQaHU+t?=
+ =?us-ascii?Q?svImUT4Bu2oDHqZOnXPmQ17jj5sss72R4S721qklecFPOPaDnAyMpcDfj2yO?=
+ =?us-ascii?Q?Cs0AQTpWrDalgiXtRDlmEhrZwGNiHRobAd+JGYpToOF/SSd8mnJ4OuuAO02I?=
+ =?us-ascii?Q?Wl/hzU5w8ha/76POKaxGQhjtNVYURCkaZb7hKl+tgGihiR08Zfds0LwUJymu?=
+ =?us-ascii?Q?GsMFTBblJElE4xMHNqnchrLHs7+VDM1HJllIXjllTxorg5RN5vzr+dKr0ZjO?=
+ =?us-ascii?Q?zDjd7AC84S22UW/Sx9dgKxp/pBiaJeU4CWNwbgGxBTSg33GLuO/+4o7cejlZ?=
+ =?us-ascii?Q?TScARji7nZbBOhoZe4RgzoQ6NzsCcR57hdmY8cij2DOJn7yrPD/AVS7MC6eA?=
+ =?us-ascii?Q?+z5EM8Gbo6zMFMJuLT81gdiYtfkXUETiw/fvufHvibS6uhd4zVOTfelRv9KK?=
+ =?us-ascii?Q?vkiNCW9zALNOmtvyhKcFaQNQygzBQ0XDipB+yLV7Whgb63kHZBcKXocqNQue?=
+ =?us-ascii?Q?yq3H8XBpU6ao6yuQ3yc9amrqpeCDuDmamEy9FWxfDa3L9IqnK2Lzix7Nt+Ia?=
+ =?us-ascii?Q?Fg0lG43/dM4d5qAl7rhEp1puX5Bf6mtzIJ5Dk39DVn/RCOQHR98NCtGtwuEH?=
+ =?us-ascii?Q?4a7mQaYFQodlPQUSd8fu2zrFUVZ1tFFd+7jpsI2efKXcbBq5N76qUakQLmMn?=
+ =?us-ascii?Q?RMET1B+uD+a6CmZEKb0=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ce5ce88-2709-445d-5ea8-08dd65cd03ec
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2025 03:28:56.4419
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FBth9J24Qxn7T3NcOx+ZJDST87ChMh73irWVZkjHkXl2QEmuHQOlcpGusGkQFbgfKRGPY6Xf4HsH8Hyrxr9ADw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7958
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_202430_999284_E556E01A 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250317_202900_537747_9B1250EF 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +172,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The cpumask should not be a local variable, since its pointer is saved
-to irq_desc and may be accessed from procfs.
-To fix it, use the persistent mask cpumask_of(cpu#).
+> On Tue, Mar 11, 2025 at 01:38:21PM +0800, Wei Fang wrote:
+> > diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_debugfs.c
+> > b/drivers/net/ethernet/freescale/enetc/enetc4_debugfs.c
+> > new file mode 100644
+> > index 000000000000..3a660c80344a
+> > --- /dev/null
+> > +++ b/drivers/net/ethernet/freescale/enetc/enetc4_debugfs.c
+> > @@ -0,0 +1,93 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +/* Copyright 2025 NXP */
+> > +
+> > +#include <linux/device.h>
+> > +#include <linux/debugfs.h>
+> > +#include <linux/seq_file.h>
+> > +
+> > +#include "enetc_pf.h"
+> > +#include "enetc4_debugfs.h"
+> > +
+> > +#define is_en(x)	(x) ? "Enabled" : "Disabled"
+>=20
+> str_enabled_disabled()
 
-Cc: stable@vger.kernel.org
-Fixes: 8deec94c6040 ("net: stmmac: set IRQ affinity hint for multi MSI vectors")
-Signed-off-by: Qingfang Deng <dqfext@gmail.com>
----
-v2: use cpumask_of()
+Oh, good, I wondered if there was a general implementation in
+the kernel, but I did not find one due to my limited knowledge.
+Thanks!
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
+>=20
+> > +
+> > +static void enetc_show_si_mac_hash_filter(struct seq_file *s, int i)
+> > +{
+> > +	struct enetc_si *si =3D s->private;
+> > +	struct enetc_hw *hw =3D &si->hw;
+> > +	u32 hash_h, hash_l;
+> > +
+> > +	hash_l =3D enetc_port_rd(hw, ENETC4_PSIUMHFR0(i));
+> > +	hash_h =3D enetc_port_rd(hw, ENETC4_PSIUMHFR1(i));
+> > +	seq_printf(s, "SI %d unicast MAC hash filter: 0x%08x%08x\n",
+> > +		   i, hash_h, hash_l);
+>=20
+> Maybe the ":" separator between the high and low 32 bits is clearer than =
+"x".
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b22417167cac..ec63452187d0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3667,7 +3667,6 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	enum request_irq_err irq_err;
--	cpumask_t cpu_mask;
- 	int irq_idx = 0;
- 	char *int_name;
- 	int ret;
-@@ -3796,9 +3795,8 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 			irq_idx = i;
- 			goto irq_error;
- 		}
--		cpumask_clear(&cpu_mask);
--		cpumask_set_cpu(i % num_online_cpus(), &cpu_mask);
--		irq_set_affinity_hint(priv->rx_irq[i], &cpu_mask);
-+		irq_set_affinity_hint(priv->rx_irq[i],
-+				      cpumask_of(i % num_online_cpus()));
- 	}
- 
- 	/* Request Tx MSI irq */
-@@ -3821,9 +3819,8 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
- 			irq_idx = i;
- 			goto irq_error;
- 		}
--		cpumask_clear(&cpu_mask);
--		cpumask_set_cpu(i % num_online_cpus(), &cpu_mask);
--		irq_set_affinity_hint(priv->tx_irq[i], &cpu_mask);
-+		irq_set_affinity_hint(priv->tx_irq[i],
-+				      cpumask_of(i % num_online_cpus()));
- 	}
- 
- 	return 0;
--- 
-2.43.0
+I want it to be presented as a full 64-bit entry. If it is in the format
+of "%08x:%08x", it may be difficult to understand which is the high
+32-bit and which is the low 32-bit.
 
+>=20
+> > +
+> > +	hash_l =3D enetc_port_rd(hw, ENETC4_PSIMMHFR0(i));
+> > +	hash_h =3D enetc_port_rd(hw, ENETC4_PSIMMHFR1(i));
+> > +	seq_printf(s, "SI %d multicast MAC hash filter: 0x%08x%08x\n",
+> > +		   i, hash_h, hash_l);
+> > +}
+> > +
+> > +static int enetc_mac_filter_show(struct seq_file *s, void *data) {
+> > +	struct maft_entry_data maft_data;
+> > +	struct enetc_si *si =3D s->private;
+> > +	struct enetc_hw *hw =3D &si->hw;
+> > +	struct maft_keye_data *keye;
+> > +	struct enetc_pf *pf;
+> > +	int i, err, num_si;
+> > +	u32 val;
+> > +
+> > +	pf =3D enetc_si_priv(si);
+> > +	num_si =3D pf->caps.num_vsi + 1;
+> > +
+> > +	val =3D enetc_port_rd(hw, ENETC4_PSIPMMR);
+> > +	for (i =3D 0; i < num_si; i++) {
+> > +		seq_printf(s, "SI %d Unicast Promiscuous mode: %s\n",
+> > +			   i, is_en(PSIPMMR_SI_MAC_UP(i) & val));
+> > +		seq_printf(s, "SI %d Multicast Promiscuous mode: %s\n",
+> > +			   i, is_en(PSIPMMR_SI_MAC_MP(i) & val));
+> > +	}
+> > +
+> > +	/* MAC hash filter table */
+> > +	for (i =3D 0; i < num_si; i++)
+> > +		enetc_show_si_mac_hash_filter(s, i);
+> > +
+> > +	if (!pf->num_mfe)
+> > +		return 0;
+> > +
+> > +	/* MAC address filter table */
+> > +	seq_puts(s, "Show MAC address filter table\n");
+>=20
+> The word "show" seems superfluous.
+
+Okay, will remove it.
+
+>=20
+> > +	for (i =3D 0; i < pf->num_mfe; i++) {
+> > +		memset(&maft_data, 0, sizeof(maft_data));
+> > +		err =3D ntmp_maft_query_entry(&si->ntmp.cbdrs, i, &maft_data);
+> > +		if (err)
+> > +			return err;
+> > +
+> > +		keye =3D &maft_data.keye;
+> > +		seq_printf(s, "Entry %d, MAC: %pM, SI bitmap: 0x%04x\n", i,
+> > +			   keye->mac_addr, le16_to_cpu(maft_data.cfge.si_bitmap));
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +DEFINE_SHOW_ATTRIBUTE(enetc_mac_filter);
 
