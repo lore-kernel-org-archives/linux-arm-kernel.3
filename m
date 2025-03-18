@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C833DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B934DC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LF0sGt9EDJCDjiIIHIH3LVrPZZWzR7DEzbi0LwhJr4s=; b=1xFDnT+3cPGh+jhjN/cq1PyxtE
-	OOfvk5fRZKr/qVEA0h+foDX3sMEAs6qgqxXmuuVDSP2rMoZ+O838x6THeIKDpXrkgQvm040gWTU36
-	1Slytbw+lwPNCB53ktslTtNDRVU3Jgj+f3APtGe4LNuL40pY+HdD7aw/bMLPIGf9k3jaYdb+nWRvc
-	kxKxFW1AcKzSTgG1vwVW7HZjSxHV+qciHA+i2x4HngjCiHxKvFdLSx1nra1drbjC0DwAKB1Ginhwi
-	R7JMMKx+m5gcDeDO1lmoqmTRke0i91gnYEZyqRRFQIfKyzYlsT96RfmynLTrqX4Y5MFG3tleiiD5Z
-	e3old6TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sqbu9gQjyZy8iUMkpMxIp3/bFSdrF3gE88x1/GX5gR4=; b=dzMQSE5QYG5SeFa4LdeT5ro92/
+	wEzqLoIkI7NgesrhFKR2Xo93we22l9HAzySsjLGPXreOgvg1K8uRW9xUM1N/sMhWZXH9Wwou9e6ii
+	beNJz7n4YV2oQOKMel0NYqevyiK02CLTkkNrZhZ0gWpIGMlyVfpM2MOrmDBroqakPDlDuoQxZdbBn
+	WCxppMarcvsyKpQ23HjhqIgbfAEL5C+ETpPsOF0pWHgWp8FjuajtNv6XGsC8zlUu9hRuTSPH1N/Hs
+	NxS48alel78Tbb3gwOw0e4/AEUJKBLtOgLgsCEXtS/WYMzgzZ+Ef03d/4/gDez3SOEY0dNJfk2YsM
+	KqSu03Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVcb-00000005oFO-3kxj;
-	Tue, 18 Mar 2025 12:00:37 +0000
+	id 1tuVeG-00000005ogX-0mlu;
+	Tue, 18 Mar 2025 12:02:20 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVOz-00000005lri-3bct;
-	Tue, 18 Mar 2025 11:46:35 +0000
+	id 1tuVP1-00000005lsN-418L
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 11:46:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 99A64A48F8A;
-	Tue, 18 Mar 2025 11:41:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A68BC4CEDD;
-	Tue, 18 Mar 2025 11:46:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B1261A48F83;
+	Tue, 18 Mar 2025 11:41:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1B31C4CEDD;
+	Tue, 18 Mar 2025 11:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742298392;
-	bh=tn+hq/0Bcb87RovOeP5Bt+IfR0Zp29EmcXvKf0cZpUk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qjjG1njZTUG9rTBF7/APH6lBgtwgCIYSgX0FQiQLgna6AbPIzk+CTTlZZSa1gerVt
-	 Rp/KCVp7JDwwYy504ZHF+lk8Wu+9lzNNTYVo04k8zZKdBZ+JIa/YjbKycMcjpuNqz6
-	 iJCeFzES9xKg7DgrNR2Z884Lhz4irjZHKm4KorN1QgF+iIO2TmK2MCbzrwoTIRIzrp
-	 nnVxKIPAmMV3tJjqP42kQPoUI3rlLapeeJaWXuYs0oSfUpnEgAPl7E6wwkpW6Ku8/0
-	 EoklRCPx8CWC4gJmymjnaLAx1yUNE/tVzSdImFL0iKRYWWFOeOP7bYHT4XCHXqZ+Jv
-	 BAiaHx489kSFg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 18 Mar 2025 12:46:11 +0100
-Subject: [PATCH net-next v2 7/7] net: ti: cpsw: Add metadata support for
- xdp mode
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250318-mvneta-xdp-meta-v2-7-b6075778f61f@kernel.org>
-References: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
-In-Reply-To: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
-To: Marcin Wojtas <marcin.s.wojtas@gmail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
- Masahisa Kojima <kojima.masahisa@socionext.com>, 
- Sunil Goutham <sgoutham@marvell.com>, Geetha sowjanya <gakula@marvell.com>, 
- Subbaraya Sundeep <sbhatta@marvell.com>, hariprasad <hkelam@marvell.com>, 
- Bharat Bhushan <bbhushan2@marvell.com>, Felix Fietkau <nbd@nbd.name>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- "K. Y. Srinivasan" <kys@microsoft.com>, 
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
- Dexuan Cui <decui@microsoft.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
- Roger Quadros <rogerq@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-hyperv@vger.kernel.org, linux-omap@vger.kernel.org, 
- Michal Kubiak <michal.kubiak@intel.com>
-X-Mailer: b4 0.14.2
+	s=k20201202; t=1742298395;
+	bh=RVZ4oNZHRKsyA+Vc/2YPc3LAGOmEPF93TejIVjz5dcg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=D+vbsHtj7g+ePNxCBw74gZETVj0v85SMcMG+Cn2aBLmNh/at33tHecIvhz0/ZkC9w
+	 nX21jpsfqNCQutkq5aVjgBVp/eJBzudvxJVx3vsorSAuj+xUf2nPcmRlagnOZzFz8o
+	 qafBL56j89uvgW3XWjiuRWYio12JIMH1tp/ExDfV6/t/lNzvPryq2X6Jpr8IwRSLrf
+	 yZMTk/6VG0ooepeFCcx89EJl3Q/IxE532C/m6Tz5O2wpx1cQgptaFaROpM5aDn4B/N
+	 UwI9hE2PuhHkvZTR2hYiGJ/vyfVWwXZ5wR8LSrs1Tfs2ieVxV/B/pdA8rXut5MfiF2
+	 gRlaYMcZbNL3w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tuVOy-00EesV-Fq;
+	Tue, 18 Mar 2025 11:46:32 +0000
+Date: Tue, 18 Mar 2025 11:46:31 +0000
+Message-ID: <86tt7qmui0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@android.com,
+	rananta@google.com
+Subject: Re: [GIT PULL] arm64 fixes for -rc7
+In-Reply-To: <20250317160034.GA12267@willie-the-truck>
+References: <20250314160458.GA9438@willie-the-truck>
+	<CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com>
+	<20250317160034.GA12267@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com, rananta@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_044634_034718_00952879 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250318_044636_136221_460DCDA5 
+X-CRM114-Status: GOOD (  36.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,99 +89,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set metadata size building the skb from xdp_buff in cpsw/cpsw_new
-drivers. ti cpsw and cpsw_new drivers set xdp headroom at least to
-CPSW_HEADROOM_NA:
+On Mon, 17 Mar 2025 16:00:35 +0000,
+Will Deacon <will@kernel.org> wrote:
+> 
+> Hi Linus,
+> 
+> On Fri, Mar 14, 2025 at 10:34:57AM -1000, Linus Torvalds wrote:
+> > On Fri, 14 Mar 2025 at 06:05, Will Deacon <will@kernel.org> wrote:
+> > >
+> > > Summary in the tag, but the main one is a horrible macro fix for our
+> > > TLB flushing code which resulted in over-invalidation on the MMU
+> > > notifier path.
+> > 
+> > From a quick look, that macro is still quite broken. Maybe not in ways
+> > that matter, but still...
+> > 
+> > In particular, the 'stride' argument is used multiple times, and
+> > without parentheses.
+> > 
+> > The 'lpa' argument is also used multiple times, and the input to that
+> > is typically something like kvm_lpa2_is_enabled(), so I think it
+> > potentially generates lots of pointless duplicate code with that
+> > BUG_ON() in system_supports_lpa2() -> cpus_have_final_cap().
+> > 
+> > Maybe the compiler figures it out. But that macro is bad, bad, bad.
+> > When it looks like a function, it should act like a function, and not
+> > evaluate its arguments multiple times.
+> > 
+> > The most immediate bug may have been fixed, but not the actual real
+> > horror of that thing.
+> 
+> Yes, the minimal fix for -rc7 avoids explicitly mutating the macro
+> arguments but we still have the multiple-evaluation problem you point
+> out above.
+> 
+> Ideally, this function would be rewritten as a 'static inline' but it
+> was moved from C code into a macro as part of 360839027a6e ("arm64: tlb:
+> Refactor the core flush algorithm of __flush_tlb_range") because we need
+> to propagate the 'op' argument down to the low-level asm where it's
+> stringified as part of the instruction mnemonic.
+> 
+> I'll have a crack at reworking things to take a 'const char *' instead,
+> but it won't be for 6.14 as it'll be reasonably invasive.
 
-CPSW_HEADROOM_NA max(XDP_PACKET_HEADROOM, NET_SKB_PAD) + NET_IP_ALIGN
+I had a go at the 'const char *' approach, but couldn't make it work
+reliably without making it very invasive.
 
-so the headroom is large enough to contain xdp_frame and xdp metadata.
-Please note this patch is just compiled tested.
+I ended up with a slightly bigger hammer (see below) that survived
+booting on a test box and running a couple of VMs. I wouldn't trust it
+with anything more important than that though.
 
-Reviewed-by: Michal Kubiak <michal.kubiak@intel.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/ti/cpsw.c     | 6 +++++-
- drivers/net/ethernet/ti/cpsw_new.c | 6 +++++-
- 2 files changed, 10 insertions(+), 2 deletions(-)
+	M.
 
-diff --git a/drivers/net/ethernet/ti/cpsw.c b/drivers/net/ethernet/ti/cpsw.c
-index 0cb6fa6e5b7d4fb9703633f0d67a7e95e6e7d8aa..a984b7d84e5e5917b83547c862924ccd30d83601 100644
---- a/drivers/net/ethernet/ti/cpsw.c
-+++ b/drivers/net/ethernet/ti/cpsw.c
-@@ -351,6 +351,7 @@ static void cpsw_rx_handler(void *token, int len, int status)
- 	int			ret = 0, port, ch = xmeta->ch;
- 	int			headroom = CPSW_HEADROOM_NA;
- 	struct net_device	*ndev = xmeta->ndev;
-+	u32			metasize = 0;
- 	struct cpsw_priv	*priv;
- 	struct page_pool	*pool;
- 	struct sk_buff		*skb;
-@@ -400,7 +401,7 @@ static void cpsw_rx_handler(void *token, int len, int status)
- 			size -= CPSW_RX_VLAN_ENCAP_HDR_SIZE;
- 		}
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 8104aee4f9a08..0ff635cf8abf5 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -393,45 +393,93 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+  *    operations can only span an even number of pages. We save this for last to
+  *    ensure 64KB start alignment is maintained for the LPA2 case.
+  */
++typedef void (*tlbi_level_fn_t)(u64, int);
++typedef void (*tlbi_fn_t)(u64);
++
++#define __TLBI_LEVEL_FN(t, s)						\
++static inline void tlbi_level_##t##s(u64 addr, int level)		\
++{									\
++	__tlbi_level(t##s, addr, level);				\
++}									\
++static inline void tlbi_user_level_##t##s(u64 addr, int level)		\
++{									\
++	__tlbi_user_level(t##s, addr, level);				\
++}
++
++#define __TLBI_FN(t, s)							\
++static inline void tlbi_##t##s(u64 addr)				\
++{									\
++	__tlbi(t##s, addr);						\
++}									\
++static inline void tlbi_user_##t##s(u64 addr)				\
++{									\
++	__tlbi_user(t##s, addr);					\
++}
++
++#define TLBI_FNS(t)					\
++	__TLBI_FN(t, )					\
++	__TLBI_FN(t, is)				\
++	__TLBI_FN(r##t, )				\
++	__TLBI_FN(r##t, is)				\
++	__TLBI_LEVEL_FN(t, )				\
++	__TLBI_LEVEL_FN(t, is)				\
++	__TLBI_LEVEL_FN(r##t, )				\
++	__TLBI_LEVEL_FN(r##t, is)
++
++/* These are the TLBI instructions we allow for range operation */
++TLBI_FNS(ipas2e1)
++TLBI_FNS(vae1)
++TLBI_FNS(vale1)
++TLBI_FNS(vaale1)
++
++static __always_inline
++void __flush_tlb_range_by_op(tlbi_level_fn_t il, tlbi_level_fn_t iul,
++			     tlbi_fn_t ri, tlbi_fn_t riu,
++			     u64 start, u64 pages, int stride,
++			     u16 asid, int tlb_level,
++			     bool tlbi_user, bool lpa2)
++{
++	int num = 0;
++	int scale = 3;
++	int shift = lpa2 ? 16 : PAGE_SHIFT;
++	unsigned long addr;
++
++	while (pages > 0) {
++		if (!system_supports_tlb_range() ||
++		    pages == 1 ||
++		    (lpa2 && start != ALIGN(start, SZ_64K))) {
++			addr = __TLBI_VADDR(start, asid);
++			il(addr, tlb_level);
++			if (tlbi_user)
++				iul(addr, tlb_level);
++			start += stride;
++			pages -= stride >> PAGE_SHIFT;
++			continue;
++		}
++
++		num = __TLBI_RANGE_NUM(pages, scale);
++		if (num >= 0) {
++			addr = __TLBI_VADDR_RANGE(start >> shift, asid,
++						scale, num, tlb_level);
++			ri(addr);
++			if (tlbi_user)
++				riu(addr);
++			start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT;
++			pages -= __TLBI_RANGE_PAGES(num, scale);
++		}
++		scale--;
++	}
++}
++
+ #define __flush_tlb_range_op(op, start, pages, stride,			\
+-				asid, tlb_level, tlbi_user, lpa2)	\
+-do {									\
+-	typeof(start) __flush_start = start;				\
+-	typeof(pages) __flush_pages = pages;				\
+-	int num = 0;							\
+-	int scale = 3;							\
+-	int shift = lpa2 ? 16 : PAGE_SHIFT;				\
+-	unsigned long addr;						\
+-									\
+-	while (__flush_pages > 0) {					\
+-		if (!system_supports_tlb_range() ||			\
+-		    __flush_pages == 1 ||				\
+-		    (lpa2 && __flush_start != ALIGN(__flush_start, SZ_64K))) {	\
+-			addr = __TLBI_VADDR(__flush_start, asid);	\
+-			__tlbi_level(op, addr, tlb_level);		\
+-			if (tlbi_user)					\
+-				__tlbi_user_level(op, addr, tlb_level);	\
+-			__flush_start += stride;			\
+-			__flush_pages -= stride >> PAGE_SHIFT;		\
+-			continue;					\
+-		}							\
+-									\
+-		num = __TLBI_RANGE_NUM(__flush_pages, scale);		\
+-		if (num >= 0) {						\
+-			addr = __TLBI_VADDR_RANGE(__flush_start >> shift, asid, \
+-						scale, num, tlb_level);	\
+-			__tlbi(r##op, addr);				\
+-			if (tlbi_user)					\
+-				__tlbi_user(r##op, addr);		\
+-			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
+-			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
+-		}							\
+-		scale--;						\
+-	}								\
+-} while (0)
++			     asid, tlb_level, tlbi_user, lpa2)		\
++	__flush_tlb_range_by_op(tlbi_level_##op, tlbi_user_level_##op,	\
++				tlbi_r##op, tlbi_user_r##op,		\
++				start, pages, stride, asid,		\
++				tlb_level, tlbi_user, lpa2)
  
--		xdp_prepare_buff(&xdp, pa, headroom, size, false);
-+		xdp_prepare_buff(&xdp, pa, headroom, size, true);
+ #define __flush_s2_tlb_range_op(op, start, pages, stride, tlb_level) \
+-	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, false, kvm_lpa2_is_enabled());
++	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, false, kvm_lpa2_is_enabled())
  
- 		port = priv->emac_port + cpsw->data.dual_emac;
- 		ret = cpsw_run_xdp(priv, ch, &xdp, page, port, &len);
-@@ -408,6 +409,7 @@ static void cpsw_rx_handler(void *token, int len, int status)
- 			goto requeue;
- 
- 		headroom = xdp.data - xdp.data_hard_start;
-+		metasize = xdp.data - xdp.data_meta;
- 
- 		/* XDP prog can modify vlan tag, so can't use encap header */
- 		status &= ~CPDMA_RX_VLAN_ENCAP;
-@@ -423,6 +425,8 @@ static void cpsw_rx_handler(void *token, int len, int status)
- 
- 	skb_reserve(skb, headroom);
- 	skb_put(skb, len);
-+	if (metasize)
-+		skb_metadata_set(skb, metasize);
- 	skb->dev = ndev;
- 	if (status & CPDMA_RX_VLAN_ENCAP)
- 		cpsw_rx_vlan_encap(skb);
-diff --git a/drivers/net/ethernet/ti/cpsw_new.c b/drivers/net/ethernet/ti/cpsw_new.c
-index 3da1c131335df1ff79b32ce0e3ea5200a2e53f4b..5b5b52e4e7a757a14965fe6df41935aed547111f 100644
---- a/drivers/net/ethernet/ti/cpsw_new.c
-+++ b/drivers/net/ethernet/ti/cpsw_new.c
-@@ -293,6 +293,7 @@ static void cpsw_rx_handler(void *token, int len, int status)
- 	struct page_pool *pool;
- 	struct sk_buff *skb;
- 	struct xdp_buff xdp;
-+	u32 metasize = 0;
- 	int ret = 0;
- 	dma_addr_t dma;
- 
-@@ -345,13 +346,14 @@ static void cpsw_rx_handler(void *token, int len, int status)
- 			size -= CPSW_RX_VLAN_ENCAP_HDR_SIZE;
- 		}
- 
--		xdp_prepare_buff(&xdp, pa, headroom, size, false);
-+		xdp_prepare_buff(&xdp, pa, headroom, size, true);
- 
- 		ret = cpsw_run_xdp(priv, ch, &xdp, page, priv->emac_port, &len);
- 		if (ret != CPSW_XDP_PASS)
- 			goto requeue;
- 
- 		headroom = xdp.data - xdp.data_hard_start;
-+		metasize = xdp.data - xdp.data_meta;
- 
- 		/* XDP prog can modify vlan tag, so can't use encap header */
- 		status &= ~CPDMA_RX_VLAN_ENCAP;
-@@ -368,6 +370,8 @@ static void cpsw_rx_handler(void *token, int len, int status)
- 	skb->offload_fwd_mark = priv->offload_fwd_mark;
- 	skb_reserve(skb, headroom);
- 	skb_put(skb, len);
-+	if (metasize)
-+		skb_metadata_set(skb, metasize);
- 	skb->dev = ndev;
- 	if (status & CPDMA_RX_VLAN_ENCAP)
- 		cpsw_rx_vlan_encap(skb);
+ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
+ 		unsigned long end, unsigned long pages, unsigned long stride)
 
 -- 
-2.48.1
-
+Without deviation from the norm, progress is not possible.
 
