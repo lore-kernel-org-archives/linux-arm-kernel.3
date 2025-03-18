@@ -4,158 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58690C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 08:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D42C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 08:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vf/Sg30DdSzKq6EdE/zjvyymlQILv685rLnwn6NEfww=; b=0K8fv7bRBjtFhxM//+MxZp1hbI
-	OK1No7fWBU+l9oXHXD0Q66qvTul1mF1EcU4tRPN7vs9EQcWcZ2qnoT2ZVj69XcjlIWiKsw1NwdMd1
-	kOxq2H3iUfyeTTDARmkmzQ+ygJA+hpnC3Fr9MZi+d8eTgPeBkfZetobaPaAfZ4n8GmZg0Hn+mcNng
-	O2zomBo7RmK9s9GFCZ/fERGCLGymxUlhAiE/yBPnHL9PPgttjB5S4IjJm0TL8JM7HpmCxG4qPyhwP
-	E+niKpk9JAWC1ufkCpYzaO4M67FyrATdVs7yvMy3jQLFPs8UiX8mtP1brquYdBPByHDS/X8CU+8BS
-	6aF0aF0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Bx3hlLUPA7P25RPEJWCUY5OcL9K6BpDlbii0s1hppY=; b=qv7RRxg2XxNe2zxUuk2e87hd+v
+	yTCeC3pTSQLo8cKa3lDOJDVSIETU5Ns10Wz9Fyny+VZI1oGKS053ZeqZPHErw3OxaVf8e/8S1xZ+X
+	bHvLjfp1qrYrVXnPmpgtpdD8jpbdINHL3YySNApNZlATGypKjdgGM8FTQe7ZjkN7fS2Led7bQPFc/
+	QnnsVvD5KaQiPZQkfLWpU4r0LVtFxi0SiN7EhyOdsft5XgaAp5TDDtXFngwYBnAfMY0vTOL/AGKyF
+	Glo4zfZY9ANuiDSt9ySebmY+tHX8BR8lnE3mL6EYBGJ1MJjInx35mgheSkzKkiwu6b47EEVs/6Cpd
+	25Mxvydw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuS3f-000000057Hg-19X2;
-	Tue, 18 Mar 2025 08:12:19 +0000
-Received: from mail-am6eur05on2062e.outbound.protection.outlook.com ([2a01:111:f403:2612::62e] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tuS5K-000000057yq-02tN;
+	Tue, 18 Mar 2025 08:14:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRzz-000000056CZ-1r0w
+	id 1tuS1Q-000000056dj-3dwi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 08:08:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f9JFDYTybqNTReYsCTOoWlsgJEOzRfVfpyw8ztpmo2du66DiJsU4ixa+o5ohBlEYcszk++Y4e4r24HmaP24GWmHbrnvvSYpQoVQFZbSxNjcJgwAbaBA242ce1kuCrKRqao7H83lcRQxaC4SKEUiXxtDzYkKFHzkJceLXFvYDrf44r7wmJyA9C38azuU+1JFG/8KnQtK8L6InqeI0BGWSm9f0C9RLvD4ysEeLjaVxpb9jJzZDzt9hL1i5xBANEV1A1uYtqv/KSSLqSS02OYMk/DMFrFN30BwbAWUG7yHsQZueghuaqUXELHMNpgIhlchUDSVHaJYlw6tK0EvDL4Y64Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vf/Sg30DdSzKq6EdE/zjvyymlQILv685rLnwn6NEfww=;
- b=XRRsMvVkcK4Mt3ihoplG1zmXJ2225Ll03VGHwXG3i9F6awzd6w/jhXqBwaYE4DYIS2Qx7AeEKYyG5jUR3l3kVQQusPIFxYe4iTpxfrrYM6BUeIxYgoPv25Oqz9b2qfC41q/kPkDHkrJF3YjBIhJ4Gm321RqYhjJbgBCtJ9q5XMCIRKNzQzEEtusHk5WkEbUqKTyISwOxk3DWYm54JRJoGT9A8XriH9uVa6X8lEuMV2iRcf4GmsgFSeO80mjrLHx3Y+44jnjd2l/zoXRI/AgcLeauhCJNy2wg1ajHi1j51PosaANCD7mfffEmSMgQJmeGdkf0gqOACZdoPX64XzuyNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vf/Sg30DdSzKq6EdE/zjvyymlQILv685rLnwn6NEfww=;
- b=eeJo78vqvjnNtJLCN9PX86bIhUxyx5tV2bW5mQH5mOBWeJi4hnxknwrx947UGrB3JBEHVF6fkPPju/9h98lOb12ZpQaKJCphNV0CQXUP2NueRVFo4Bu5R+wlvj/hylRzMeFE7L9o8hG3319Gus23dZ27bDrfzYXa909WgHLXuuyZrJOi3OtjKCZzrHroyx9ujESvyA3L4hmdXIh1onNyDXPxfYda2Z6v+SYaGbz8qCf2kyqncBx4JPdE/li2feaN2z6p/6sZ/D74VRHoA9BVIkQmoedAf56y1smysqeE5xnADXRRow5P2cv8bd4xluNlIBvYcEHoZNPZJa1TUtOtIQ==
-Received: from AS8PR04MB8849.eurprd04.prod.outlook.com (2603:10a6:20b:42c::17)
- by AS8PR04MB8724.eurprd04.prod.outlook.com (2603:10a6:20b:42b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Tue, 18 Mar
- 2025 08:08:24 +0000
-Received: from AS8PR04MB8849.eurprd04.prod.outlook.com
- ([fe80::d8e2:1fd7:2395:b684]) by AS8PR04MB8849.eurprd04.prod.outlook.com
- ([fe80::d8e2:1fd7:2395:b684%7]) with mapi id 15.20.8534.031; Tue, 18 Mar 2025
- 08:08:24 +0000
-From: Claudiu Manoil <claudiu.manoil@nxp.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>
-CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v4 net-next 04/14] net: enetc: add MAC filter for i.MX95
- ENETC PF
-Thread-Topic: [PATCH v4 net-next 04/14] net: enetc: add MAC filter for i.MX95
- ENETC PF
-Thread-Index: AQHbkkpRqqFwb4ec7kKZ1OPwN45O47N3ajqAgAEnwbA=
-Date: Tue, 18 Mar 2025 08:08:24 +0000
-Message-ID: <AS8PR04MB8849FBA73A50F0D553F1AF1B96DE2@AS8PR04MB8849.eurprd04.prod.outlook.com>
-References: <20250311053830.1516523-1-wei.fang@nxp.com>
- <20250311053830.1516523-5-wei.fang@nxp.com>
- <20250317141807.2zobsefxl5vnqdet@skbuf>
-In-Reply-To: <20250317141807.2zobsefxl5vnqdet@skbuf>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8849:EE_|AS8PR04MB8724:EE_
-x-ms-office365-filtering-correlation-id: 315b0c63-985d-4be0-5b8f-08dd65f40e43
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?IcUFAAQ+moWadLc6pG3NGSKoIW+VganW4gJgNJ9CEsezqftbJ2XxPxOgvfbf?=
- =?us-ascii?Q?XrEgMsf7hip4cUqlwLj3200s8nbgU+7ejTUbULHc219YYihcn0O2Cwx/B1kN?=
- =?us-ascii?Q?t0BglVAKtdsiy5Tk6i+i5b1Drz+t/MCSejRR3/2noFl8bju3qbtACfeoUXXc?=
- =?us-ascii?Q?Pxn67fT1Yg1kEn+bdr8YcQhXATzXm7ot9WYQN3K1ctrQcKUUQKkW1lbMBiau?=
- =?us-ascii?Q?s8+NY4XVlo3EPkE6orzJE5c+8CObuQx7S7K6pL20mj6DigoRQ/LugZfqy+5y?=
- =?us-ascii?Q?wXMBai469Jcv9/5yl7rVJm+HFP8rJTwcYM6H1qjtoqLdX3bGDtB4FaXAKx3u?=
- =?us-ascii?Q?N+stlpd7CvlCCIBj1HJ3Ypz6mD1VbuRlyDNdqhf0WUOUwZAUkVAgnW9BWY/P?=
- =?us-ascii?Q?nwQszZt09csayyg/IyoP963IVdQo89atnrX084+ybdp15lxP1J542/CsCCru?=
- =?us-ascii?Q?uE/jJLPt+LlEWHAYv5J+DZMo3Q2TJSuq9C5ajuE8oQABxlf/UmcmY+8LOSxV?=
- =?us-ascii?Q?VvEaIUEGfPD5AhiWiUA/F5uwd8CBaMyXv6kmUn8TO7rys3hR0cWnNsh7ZBVX?=
- =?us-ascii?Q?Vp5S4FFvQHza/nKOb1Hj62PDCfXj0EWPdIEEZBQFhmhm6ludIRY7e+3PO9aO?=
- =?us-ascii?Q?RZCHVKDn0eYgdICpQCouDICvi5OvZjkHuguz/ZLSuO/3Od7edOdEDDBNAugc?=
- =?us-ascii?Q?r/KMgbcRB4Y2VkJbNLhd4GDdLcq9IwX+VapKViCkfeep9BkXfcTKr8Jbty8Y?=
- =?us-ascii?Q?VxVfOZqUGSo7k7JnjDHvvEZq2Rm7OKAUvKo9hJyMskyPBVkUonMBjlrsO0OS?=
- =?us-ascii?Q?ewjXLKsfe+dg5XzEF92WpTTstpg6BxFQ6ck0a01nU25MI7vyO/Z/kyC0Rnsz?=
- =?us-ascii?Q?1uDSUxfvfiFRoBLgPSDGCpORnRu7miHmv9AO96YS0VqHddDsXPyPXvRaH12n?=
- =?us-ascii?Q?P1wyH9W7T1j+pgvi5FZ82T1woqusVprTQu45z9mm6U2SzHdi/CQSLYFLD9rp?=
- =?us-ascii?Q?MRAF54QbQFAVdSDEfjcL/J3HPcAd51I28aZmhzmc8GAHU8vNqXm8gUTK55Vz?=
- =?us-ascii?Q?t2iuJqyFl33aOXwYGUxxkKFuQXWkLtnEiyyhOXYb0fAXROhN0D0tFsHCOv9j?=
- =?us-ascii?Q?pA1nzUgmeV73/fMZ0JLY/3o09PTELz9orfjplrgWLd7qzP7U4T90bAHSTs/N?=
- =?us-ascii?Q?ppmSd2Tz4ZqjORHUTWTSypMrEP6lF9Wg1ldprlHmfdEq6GFVBBlJi2YgLw4Y?=
- =?us-ascii?Q?AUwYcmVYGnHwqR/LvdUl2J90U08NMhhnK+sZ4gE7t7WyKhuGRAR+4ytxluQQ?=
- =?us-ascii?Q?/gxM2RgyaGZIaKx5JdlcGoEnpLKu1ma/N2KD8ttMRWHr6PgMox3ZTr45yEun?=
- =?us-ascii?Q?uT4VUJWhb1cBDEjuotPWSm1yNzo9/nzLOM75K9BptmMDgFGdaLBVFIidcP6D?=
- =?us-ascii?Q?tjWSbb1/3ixh0x7h+imNll67Mqlmwlxd?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8849.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?0/kD3wpjXq6EDdjeJxoRB6xZeRCrGa+7qPihoUIcXzDfFWkLykO8lRJOpiDG?=
- =?us-ascii?Q?4XnB9eI54LJu6kjYYSSGSyRr6xeNF2vDncOqgDay3DX58UW1ukYXHm8V1sF6?=
- =?us-ascii?Q?ag5CR1rBv1leQi7RP28xVG4EWU7mxNzcNNqtfQmDWnV7GxFkCo4wX2R/F+Ul?=
- =?us-ascii?Q?/q+YJv7s7EdlIwM6goBLAJG+VC5SJxG+h0Bx43SNeEGMqhamb4A3/pFVvcbU?=
- =?us-ascii?Q?81+Xwabf1VzZU9qp0YTDdgRU16N1On8yiQWv/DlkISMs+27ZoBt5fDKTrq+j?=
- =?us-ascii?Q?Uiy5q0t6fZz0OeFgnPHTT6owZmc6fM8bEOj5RVbsUsB+CkSaMtiRf9RjLrPX?=
- =?us-ascii?Q?kUrLA8wHXXzvVqAWewblI0MW5HIxanL6IUFstluEgKsjLid8DUuof8WckaIF?=
- =?us-ascii?Q?NLcpvSGMj8FOV83GHJy5/x1pDjao5fcvjOirFECR9CtmzkvvI2Q7d42ejkcF?=
- =?us-ascii?Q?y1/R6y1KGAEWW0AwNGjpH529dpFMztgwp1lyHV+nuOixD5zSQIFVvLZ9pgkB?=
- =?us-ascii?Q?rMIrzsn1UpG9KDcQZgu/WZHxP7kZRAQN8/zYICAcyqUjArIetWHYNcGv6JD4?=
- =?us-ascii?Q?4ypE/ROiCV5rPeTg+PALa1mU/NIzSVyWnqfcn4VfbVFbChOrU/21Q/dEJT4N?=
- =?us-ascii?Q?fcQa+V95I40poYmkFjxtvHQm/YkDF5/gqVKQBAwMLQc/3JCRK3eqoExGD3ON?=
- =?us-ascii?Q?Q5LEH7SOS18RIg2u8pq3iCp+SwZ2S2IsTMr8yD2EC8nNvqJ7aVjs2HF6OpgD?=
- =?us-ascii?Q?cP93qdgTX8opRdhQG7tJj6ts2KbVq5aTGOUMmkdAZJA9i2cCDwceU/LzDwwO?=
- =?us-ascii?Q?LFSFTwRxIPipJI/5umxqmTesCNpnqsm0RMA5+qrJFBO/hFrIdRX1cAi/Unah?=
- =?us-ascii?Q?tAEF6VRSpxSj9i9RGwofT5L8IzHcnN+hJSGgCDDDehkjkST3iB5hChLf39lj?=
- =?us-ascii?Q?1QCUbURMrtZOE15uI/QU8kxUNqEyDRRvjk/oVPeUqFieRM4/ujL9L9A/cvKt?=
- =?us-ascii?Q?CGYasFZeC90/h4SqcInihaCSCJlKkVmfdZIvjsdeXgzLnj3k3HOp/8RftmwE?=
- =?us-ascii?Q?ej2eo++u4dzmS+ivMlmGEdBFfeu7SyJ4G+i0DGxsk4pmHymGDHrabxOYr9FH?=
- =?us-ascii?Q?cu20US4VjwphJbzmJZjV+kz0aw11Y8byCGXGQJKiXzQhuLTRBIZl1+jxGv9f?=
- =?us-ascii?Q?xAe2jt6wITS+DUQVG1lcHCr4u1IoMfXbBkWvRBaE9peRE0rK+gmC7jWF3C8S?=
- =?us-ascii?Q?R0DCHoRmjgu8vUNNPJJqiVG5n83eXN6pXFVV/o2NExwlIjFs88gQ2waD1iLz?=
- =?us-ascii?Q?hJgpV2q1medXYAO2xo9t6i2Q36aXuQcqqBgUjalwR9bKYJ93erQEL9nhE5+7?=
- =?us-ascii?Q?/kijO5a3zsZfC43//hgeUUDZwolj9/jYqvIgmHA5spG78lmKAeZ1N/JUrTn8?=
- =?us-ascii?Q?jNu8SuxxqRLva7WyDQPJ30piTqXTkajEIlxT8dd/PV0z7HUEjLoSoVk//rQQ?=
- =?us-ascii?Q?jzonP9iRXJ4P8fjdkYSx4zvIJKX4VAN9jH2StfUXU5xv117DQnk1k4ndExRU?=
- =?us-ascii?Q?xwdeZQypko1DgaUDNN16uVBDFL8U+eX3NNB4wRiq?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 18 Mar 2025 08:10:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 496A85C5820;
+	Tue, 18 Mar 2025 08:07:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE585C4CEDD;
+	Tue, 18 Mar 2025 08:09:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742285399;
+	bh=e4UkUqezG5Edul9MR9g7cuOdXGh4POpZl16i1wixQDQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ZWjcObUZxhGiH4eIk1yWPqxDOE5HkuArp5QehkKNI6dRN9NBC7+htVOdEkVXhhUqS
+	 yZ6t/6zxWh4M7++33uZERs75I4qJMmZPg8rwPACrkP9AU768Y1BajdVFGn1B3rIf1i
+	 soZ/X1MkWoTqesRTXq6KABjtY/9szNg13Ap6lHIgA3poaB7NOYCji+pgbeQNfR5/5c
+	 Kip0rplrjKD66t39hV4AEzqv6WZK9WqPtC8W7YyGQLuTSk/J12P5UQbaeZ0Sz044VV
+	 io4OfxejnSAQToQbHLpCUAwXUYoiNp0DdFwKqiK2QE9QSgJnYHGfB2HB92nWEy53/Y
+	 /u4vLPFKKK1aw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70E85380DBE8;
+	Tue, 18 Mar 2025 08:10:36 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8849.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 315b0c63-985d-4be0-5b8f-08dd65f40e43
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2025 08:08:24.1875
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: v4FzrLMzkJNVaWzGfeu9r2zaprPJ45gwbm6cAEvSk9x6AxIm8/EpSROL5u7Yf5jcH1FUj41YcM+VeHAK1ap3tg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8724
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v5 00/13] net: phy: Rework linkmodes handling in a
+ dedicated file
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174228543527.4071400.14783355936899188267.git-patchwork-notify@kernel.org>
+Date: Tue, 18 Mar 2025 08:10:35 +0000
+References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
+In-Reply-To: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, andrew@lunn.ch, kuba@kernel.org, edumazet@google.com,
+ pabeni@redhat.com, linux@armlinux.org.uk, hkallweit1@gmail.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ christophe.leroy@csgroup.eu, herve.codina@bootlin.com, f.fainelli@gmail.com,
+ vladimir.oltean@nxp.com, kory.maincent@bootlin.com, o.rempel@pengutronix.de,
+ horms@kernel.org, romain.gantois@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_010831_480963_45599B1F 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250318_011001_023177_5461331E 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,46 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-> -----Original Message-----
-> From: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Sent: Monday, March 17, 2025 4:18 PM
-[...]
-> Subject: Re: [PATCH v4 net-next 04/14] net: enetc: add MAC filter for i.M=
-X95
-> ENETC PF
->=20
-> On Tue, Mar 11, 2025 at 01:38:20PM +0800, Wei Fang wrote:
-[...]
-> > +static void enetc4_pf_destroy_mac_list(struct enetc_pf *pf)
-> > +{
-> > +	struct enetc_mac_list_entry *entry;
-> > +	struct hlist_node *tmp;
-> > +
-> > +	mutex_lock(&pf->mac_list_lock);
->=20
-> The mutex_lock() usage here should raise serious questions. This is
-> running right before mutex_destroy(). So if there were any concurrent
-> attempt to acquire this lock, that concurrent code would have been broken
-> any time it would have lost arbitration, by the fact that it would
-> attempt to acquire a destroyed mutex.
->=20
-> But there's no such concurrent thread, because we run after destroy_workq=
-ueue()
-> which flushes those concurrent calls and prevents new ones. So the mutex
-> usage here is not necessary.
->=20
-> [ same thing with mutex_init() immediately followed by mutex_lock().
->   It is an incorrect pattern most of the time. ]
->=20
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-This is not as bad as it seems. In the final version of the code, mutex 'ma=
-c_list_lock'
-serializes the access btw the thread programming the filter for the PF inst=
-ance,
-and the threads programming the filter on behalf of underlying VFs (trigger=
-ed by async
-request from VF). But since VF support is not included in this patch set (a=
-s Wei
-already mentioned) the lock can/should be added later, with the VF patches.
+On Fri,  7 Mar 2025 18:35:57 +0100 you wrote:
+> Hello everyone,
+> 
+> This is V5 of the phy_caps series. In a nutshell, this series reworks the way
+> we maintain the list of speed/duplex capablities for each linkmode so that we
+> no longer have multiple definition of these associations.
+> 
+> That will help making sure that when people add new linkmodes in
+> include/uapi/linux/ethtool.h, they don't have to update phylib and phylink as
+> well, making the process more straightforward and less error-prone.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v5,01/13] net: ethtool: Export the link_mode_params definitions
+    https://git.kernel.org/netdev/net-next/c/79f88a584e35
+  - [net-next,v5,02/13] net: phy: Use an internal, searchable storage for the linkmodes
+    https://git.kernel.org/netdev/net-next/c/d8c838a57ce2
+  - [net-next,v5,03/13] net: phy: phy_caps: Move phy_speeds to phy_caps
+    https://git.kernel.org/netdev/net-next/c/8c8c4a87933d
+  - [net-next,v5,04/13] net: phy: phy_caps: Move __set_linkmode_max_speed to phy_caps
+    https://git.kernel.org/netdev/net-next/c/4823ed060919
+  - [net-next,v5,05/13] net: phy: phy_caps: Introduce phy_caps_valid
+    https://git.kernel.org/netdev/net-next/c/87b22ce31235
+  - [net-next,v5,06/13] net: phy: phy_caps: Implement link_capabilities lookup by linkmode
+    https://git.kernel.org/netdev/net-next/c/dbcd85b05c5b
+  - [net-next,v5,07/13] net: phy: phy_caps: Allow looking-up link caps based on speed and duplex
+    https://git.kernel.org/netdev/net-next/c/fc81e257d19f
+  - [net-next,v5,08/13] net: phy: phy_device: Use link_capabilities lookup for PHY aneg config
+    https://git.kernel.org/netdev/net-next/c/c7ae89c6b4d5
+  - [net-next,v5,09/13] net: phylink: Use phy_caps_lookup for fixed-link configuration
+    https://git.kernel.org/netdev/net-next/c/de7d3f87be3c
+  - [net-next,v5,10/13] net: phy: drop phy_settings and the associated lookup helpers
+    https://git.kernel.org/netdev/net-next/c/ce60fef7fecc
+  - [net-next,v5,11/13] net: phylink: Add a mapping between MAC_CAPS and LINK_CAPS
+    https://git.kernel.org/netdev/net-next/c/3bea75002a05
+  - [net-next,v5,12/13] net: phylink: Convert capabilities to linkmodes using phy_caps
+    https://git.kernel.org/netdev/net-next/c/4ca5b8a258b6
+  - [net-next,v5,13/13] net: phylink: Use phy_caps to get an interface's capabilities and modes
+    https://git.kernel.org/netdev/net-next/c/3bd87f3b4405
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
