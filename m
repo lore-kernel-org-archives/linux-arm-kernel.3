@@ -4,90 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC13BC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 19:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E396C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 19:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=19z1Kk5mXf9SmqNPxTrWbr2dcMvFexRCx2f5g7HF46k=; b=Q8qWtPbzdi8U7usOomkY+tOEn/
-	wZo9/fvnW99qLsEYTTlw4VUUMzvtlsbfC4Dn3d50MKOGpchuaXNXGDoRLEXoVzkqTR+Y7pYAYoJPA
-	0qNUNULSiM7tyoMnTK8ehrMzQA8edt1hfgVMBpyoacs1vpEOrVvrH3k5S88mfQcJjqIYhVTx+Rq91
-	wbbYGn3SBAp1WGXK+ne+ZaaYnN8HQDfNiZP/LuwaCX5WzKtjDJqUd69y8+wFNFrDWEGGJhZkeXTSD
-	1P6tPU7fImv+B/o24FNB9FgZ2Ly0kLw612ZtQz7PYULThC0k2a0IMaoDkf9LRtpoU9TCkFU6BgAIW
-	jVgSrDWg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xLs+LXq8C98//OO0HbKq7CS3xV3X6jR9yyM2sWWpf8E=; b=XpGX0IP1NNlLD161+h7c18Tfo/
+	Xp8e5GtF6PPgaDS2Nig8PXLrd/BTYGarVBvQN4M0EWH0MfubBwkphvp41FB5TMXy/A3eMiz9bKPl/
+	Absa9tx3JJi1XanACuaV/x+E+V1JjlghiOz53qrWbmRbuuTiWpZQZXKYqDRk36UZV7erISKpWgfpa
+	ltUYbX+GNbCGDyLCrp71+Hv3pB38fy8/rwNPWaJdvDBd94JSf6m5cGwpcm2oAnn0yWMxC7d30OBSz
+	dFjnqgsN9oTo5qZw6ZOx8U7wjSclnXat8GmjSaW3QniaFlsQtEjszFbmrUrQFvdCTE7lK99S6PcZw
+	8ofNE1Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuci1-00000006vo5-3PTj;
-	Tue, 18 Mar 2025 19:34:41 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tuckn-00000006w5I-3uvF;
+	Tue, 18 Mar 2025 19:37:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tucel-00000006va0-3kus
+	id 1tucj5-00000006vw4-3VKh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 19:31:21 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22349bb8605so135051255ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:31:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wbinvd.org; s=wbinvd; t=1742326279; x=1742931079; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=19z1Kk5mXf9SmqNPxTrWbr2dcMvFexRCx2f5g7HF46k=;
-        b=eqSD333XtdfSh22Xfd9PJ4Pzi3naFJYKSqORwSjZ6IqeoB2LzhvaOtPpTuz0omgLBf
-         G0Ml2H3A2EnzixA32Wg5kxsQAi0TTwNWbVSyy88Hpv68AI/su0T86wliy2/6gcnslY8O
-         plabT5wfY75Lb5iPCEw3urnpvaYhgTLzwfCS2D/Lp928wjR5FDjxHeBD6WQckOcp1P6v
-         k5PBcEn9m9fj79eY+HkGY5zTS46kxK8Y1x6jWfqJQq3ebarSs+1VNZqihwdS0TAGzPRb
-         wEFFke+JLsvo+AVIQAVJAJ4wbRumanZqGmrg/UWaJZ3XXQErPFOPIeK+1qdysRbH3Kf7
-         nlFw==
+	Tue, 18 Mar 2025 19:35:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1742326546;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xLs+LXq8C98//OO0HbKq7CS3xV3X6jR9yyM2sWWpf8E=;
+	b=GKxe4kvhCV+LQ+Em0XiyTZCPY+HRIpAiW3lAp8MkdAvwmWxwdX5fvV5ERlJt6z4u8CB12p
+	M7B2MqO8acYAY/jvqMxTC4hNNVHRAN/dw7CTj8PqzAmiUD60Y79DttVgBGySuQnA6ggCTu
+	/K6rmH78fTL7JHuBP93gDOWSgTCwJsA=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-586-Y0EChJViMwGn-dn_bPccqQ-1; Tue, 18 Mar 2025 15:35:43 -0400
+X-MC-Unique: Y0EChJViMwGn-dn_bPccqQ-1
+X-Mimecast-MFC-AGG-ID: Y0EChJViMwGn-dn_bPccqQ_1742326542
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-39142ce2151so2801854f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:35:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742326279; x=1742931079;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=19z1Kk5mXf9SmqNPxTrWbr2dcMvFexRCx2f5g7HF46k=;
-        b=v1mOoMQ5eHUCY5vi2PO5G1BKnrmiCnt//t2RtO+eg2pCF9CjhQJdKJhOIQ17Ssk669
-         OeXt04Jg77Z9OjRP2d9qBBPXcC0kS8EAtAzmVz9UC2IYmcRhy6HNgdYw90reViYc37sS
-         dQ3HjrdyNSB7sWjEwGkiqBfjfMfRsgUAjfROw+rzBJIDl/0dr55tkhgbUqNnuoHj07KL
-         YJ+v/iAdX0hoIQg1bdKcKx0Ck+7Io4l1UTXQWbKgdr6f130gmN1QiaQX9n1CQaHU4UGK
-         XmagNbg9sc5yx6HEsSnl1+J2paNUgCFuDKKh6H2V6jspSd8ErIJ/CkBSserL5f8E+yAg
-         dRLA==
-X-Forwarded-Encrypted: i=1; AJvYcCWoPM/yXxEjPHA3ghYv2PT3KTqynaz6/WSMWknko1fcrJ+P92EqculUa3La1excHOhkYPObMJmvLr59JT1Lbay2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzb3UNM9O6CnEUSsWjf7zRhEU8tpLywHUTJw7OTYTknGIufiese
-	g0EQp9Hyqf/aO7HOLxR3Vgs0aAv+Pnbw+Erge7MqZwVvnfyjHOQnuia00DgqIYY=
-X-Gm-Gg: ASbGncvjbOgc0CLh2kRbOKDEUR8nM1AduE31duHMTjYMWIhKMzafEdOpXysfsC8Pp4U
-	Z6krxWb3iMDCmbTAFjBJfiRJrr69O3UdHGKj6/ebzMTEfSX85JCSkp6QSv3ObvITuXjWzofiEul
-	jDGxzZB8TUv4ineZK7zHHEJ2gFgYuPT+KoRoZkn+rc3Yvj68FayGC1RgEU483yoRTXZIF8hrWVC
-	kyqhKIiQAmdG752u2KpHGBkyk+SBZscgp48xzfIOVRMaECseaond+hClv7kOY2EU3JahL78lF2k
-	qn/WvDoCd68Ybwsn8Ncvoyi+mWRbLH7XqlmVxH75CNsNQyY=
-X-Google-Smtp-Source: AGHT+IGtg/Gus/fPA/C0wTqoGIQvSoUpP0NE5t1Cbk1OIUeB6Lmwk6dhW0m3CZ42u0xM6Wx6yXDp7A==
-X-Received: by 2002:a17:90b:4c45:b0:2ee:d63f:d73 with SMTP id 98e67ed59e1d1-301b9fcbbc1mr589133a91.11.1742326278694;
-        Tue, 18 Mar 2025 12:31:18 -0700 (PDT)
-Received: from mozart.vkv.me ([2001:5a8:4680:a100:1c4a:720d:c0fa:efac])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3015363217dsm8638407a91.32.2025.03.18.12.31.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 12:31:18 -0700 (PDT)
-From: Calvin Owens <calvin@wbinvd.org>
-To: linux-kernel@vger.kernel.org
-Cc: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Amitkumar Karwar <amitkumar.karwar@nxp.com>,
-	Neeraj Kale <neeraj.sanjaykale@nxp.com>,
-	linux-bluetooth@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH][QUESTION] bluetooth: Remove duplicated h4_recv_buf() in header
-Date: Tue, 18 Mar 2025 12:31:12 -0700
-Message-ID: <2b612e2c1f4fa697b47b5dd9b72f1949d7c206f5.1742324401.git.calvin@wbinvd.org>
-X-Mailer: git-send-email 2.47.2
+        d=1e100.net; s=20230601; t=1742326542; x=1742931342;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xLs+LXq8C98//OO0HbKq7CS3xV3X6jR9yyM2sWWpf8E=;
+        b=S5oQP/PeCX52xEyi/d8mSWDJzKNYT77DWfLYZTPS3BuaTqF6ifu+UPGc5ggN+xC3mK
+         7go/rd+qSDXRjScQLRQMkHGTaCXP2mkAG6ilQkLzSDl2mGhKgXbhXRoFrHVtx3Fkf9rN
+         H2cSQhMmP9+CwyTTW5DEo0ScfQt+U8bg1aRw2fyHxNK5Ipp+aUr+3iH5yAl12ZIpWZcK
+         EP+q8ZWodC9ocy0Q0b7U0NCg5eu7udsoo5PQ71Qalcg4hfIp9hrM7AdcUDg/deIYxYJZ
+         KaJdEVBGv9GW5qayh/Aqd0szQF7JBza7qb19R0YrpJxTb4iPB6caakj+aFefrV2ALlDk
+         TNSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUedOSAD9m0W7nEgYWcntB9hWMJ9cUZ0sZHepcfHSQuw3wLLq8dwjGs2WucvQZE3O5A9pPrWF6zApvCKSX2CpvW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzO2TGTmsRI/7vu0lH6573mAnFca/ZYBtuyapbnL21Fde3mt1uR
+	A4q8EkSyK7EIt3IvGZJZRLpROKbMlf4d9VvluVMSr2iIQOdg8umSJI6hwSLDGoVo/4D78rxjECt
+	D29C3pimhn3N9sdcdUWcQ3H+P1AMuhBIshu8bs1zFEptI4+D/U4edjHq7BC/uiaRwhKYNjmtA
+X-Gm-Gg: ASbGnctCSap1NWMzU/zdEjPzAijpk/lztYzDoxei8tTWhiRW2t0Q7bxmFT8Ma4/lv2y
+	kVmRGh59YClMHP8dU9RwOySp7KVnvMg6vOvbcNZq1ceTMF0+bHdGT1ZA7vYyW4js+g6eCtzYE8/
+	RvbdWkiecIYHwH3/lLaHEPqeELgPqCaRXulh7Cn21AM+N6wADl8mQSflG7ALC9P9YC/m+ZL8MJh
+	MiV9+u51CiuWIiZzs165QXzVFXNwYbuFoQRPWBmZM+renzpijWyUTTRA3boIJ5ECeovU9MI0359
+	9RaHu7BS3pLa/2MSvJU2MZ7bXp6VBduVYWrMPkeQk7iW4UgOmP/efL7uWJSTO6OTvKODnOG+9vO
+	y4eoIS1Xc5YpA5siGyUKpZKbMkLurXCg0sOkxw4JMSDk=
+X-Received: by 2002:a5d:5886:0:b0:391:47d8:de3e with SMTP id ffacd0b85a97d-39973b0a885mr27238f8f.46.1742326541937;
+        Tue, 18 Mar 2025 12:35:41 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGZ1yPH0fDVPiavpoowLztyi/zjpyp6XUZXcFalnE3ESvYjVfIFP6FPmuLR2D4oULPZhko2Ow==
+X-Received: by 2002:a5d:5886:0:b0:391:47d8:de3e with SMTP id ffacd0b85a97d-39973b0a885mr27214f8f.46.1742326541578;
+        Tue, 18 Mar 2025 12:35:41 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c72d:2500:94b5:4b7d:ad4a:fd0b? (p200300cbc72d250094b54b7dad4afd0b.dip0.t-ipconnect.de. [2003:cb:c72d:2500:94b5:4b7d:ad4a:fd0b])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3978ef9a23bsm14708842f8f.15.2025.03.18.12.35.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Mar 2025 12:35:40 -0700 (PDT)
+Message-ID: <ed25f5a6-dad6-4b5e-b42b-58e6ced6c7a2@redhat.com>
+Date: Tue, 18 Mar 2025 20:35:38 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Jason Gunthorpe <jgg@nvidia.com>
+Cc: Marc Zyngier <maz@kernel.org>, Ankit Agrawal <ankita@nvidia.com>,
+ "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+ "joey.gouly@arm.com" <joey.gouly@arm.com>,
+ "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+ "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+ "shahuang@redhat.com" <shahuang@redhat.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+ Kirti Wankhede <kwankhede@nvidia.com>,
+ "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+ Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+ Alistair Popple <apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>,
+ Dan Williams <danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>,
+ Matt Ochs <mochs@nvidia.com>, Uday Dhoke <udhoke@nvidia.com>,
+ Dheeraj Nigam <dnigam@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>,
+ "alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+ "sebastianene@google.com" <sebastianene@google.com>,
+ "coltonlewis@google.com" <coltonlewis@google.com>,
+ "kevin.tian@intel.com" <kevin.tian@intel.com>,
+ "yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+ <ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "ddutile@redhat.com" <ddutile@redhat.com>,
+ "tabba@google.com" <tabba@google.com>,
+ "qperret@google.com" <qperret@google.com>,
+ "seanjc@google.com" <seanjc@google.com>,
+ "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <861pv5p0c3.wl-maz@kernel.org>
+ <SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <86r033olwv.wl-maz@kernel.org>
+ <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <87tt7y7j6r.wl-maz@kernel.org>
+ <SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <8634fcnh0n.wl-maz@kernel.org> <Z9h98RhunemcFhhz@arm.com>
+ <86wmcmn0dp.wl-maz@kernel.org> <20250318125527.GP9311@nvidia.com>
+ <Z9nJH38Em9XEx3U7@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZgEEwEIAEICGwMGCwkIBwMCBhUIAgkKCwQW
+ AgMBAh4BAheAAhkBFiEEG9nKrXNcTDpGDfzKTd4Q9wD/g1oFAl8Ox4kFCRKpKXgACgkQTd4Q
+ 9wD/g1oHcA//a6Tj7SBNjFNM1iNhWUo1lxAja0lpSodSnB2g4FCZ4R61SBR4l/psBL73xktp
+ rDHrx4aSpwkRP6Epu6mLvhlfjmkRG4OynJ5HG1gfv7RJJfnUdUM1z5kdS8JBrOhMJS2c/gPf
+ wv1TGRq2XdMPnfY2o0CxRqpcLkx4vBODvJGl2mQyJF/gPepdDfcT8/PY9BJ7FL6Hrq1gnAo4
+ 3Iv9qV0JiT2wmZciNyYQhmA1V6dyTRiQ4YAc31zOo2IM+xisPzeSHgw3ONY/XhYvfZ9r7W1l
+ pNQdc2G+o4Di9NPFHQQhDw3YTRR1opJaTlRDzxYxzU6ZnUUBghxt9cwUWTpfCktkMZiPSDGd
+ KgQBjnweV2jw9UOTxjb4LXqDjmSNkjDdQUOU69jGMUXgihvo4zhYcMX8F5gWdRtMR7DzW/YE
+ BgVcyxNkMIXoY1aYj6npHYiNQesQlqjU6azjbH70/SXKM5tNRplgW8TNprMDuntdvV9wNkFs
+ 9TyM02V5aWxFfI42+aivc4KEw69SE9KXwC7FSf5wXzuTot97N9Phj/Z3+jx443jo2NR34XgF
+ 89cct7wJMjOF7bBefo0fPPZQuIma0Zym71cP61OP/i11ahNye6HGKfxGCOcs5wW9kRQEk8P9
+ M/k2wt3mt/fCQnuP/mWutNPt95w9wSsUyATLmtNrwccz63XOwU0EVcufkQEQAOfX3n0g0fZz
+ Bgm/S2zF/kxQKCEKP8ID+Vz8sy2GpDvveBq4H2Y34XWsT1zLJdvqPI4af4ZSMxuerWjXbVWb
+ T6d4odQIG0fKx4F8NccDqbgHeZRNajXeeJ3R7gAzvWvQNLz4piHrO/B4tf8svmRBL0ZB5P5A
+ 2uhdwLU3NZuK22zpNn4is87BPWF8HhY0L5fafgDMOqnf4guJVJPYNPhUFzXUbPqOKOkL8ojk
+ CXxkOFHAbjstSK5Ca3fKquY3rdX3DNo+EL7FvAiw1mUtS+5GeYE+RMnDCsVFm/C7kY8c2d0G
+ NWkB9pJM5+mnIoFNxy7YBcldYATVeOHoY4LyaUWNnAvFYWp08dHWfZo9WCiJMuTfgtH9tc75
+ 7QanMVdPt6fDK8UUXIBLQ2TWr/sQKE9xtFuEmoQGlE1l6bGaDnnMLcYu+Asp3kDT0w4zYGsx
+ 5r6XQVRH4+5N6eHZiaeYtFOujp5n+pjBaQK7wUUjDilPQ5QMzIuCL4YjVoylWiBNknvQWBXS
+ lQCWmavOT9sttGQXdPCC5ynI+1ymZC1ORZKANLnRAb0NH/UCzcsstw2TAkFnMEbo9Zu9w7Kv
+ AxBQXWeXhJI9XQssfrf4Gusdqx8nPEpfOqCtbbwJMATbHyqLt7/oz/5deGuwxgb65pWIzufa
+ N7eop7uh+6bezi+rugUI+w6DABEBAAHCwXwEGAEIACYCGwwWIQQb2cqtc1xMOkYN/MpN3hD3
+ AP+DWgUCXw7HsgUJEqkpoQAKCRBN3hD3AP+DWrrpD/4qS3dyVRxDcDHIlmguXjC1Q5tZTwNB
+ boaBTPHSy/Nksu0eY7x6HfQJ3xajVH32Ms6t1trDQmPx2iP5+7iDsb7OKAb5eOS8h+BEBDeq
+ 3ecsQDv0fFJOA9ag5O3LLNk+3x3q7e0uo06XMaY7UHS341ozXUUI7wC7iKfoUTv03iO9El5f
+ XpNMx/YrIMduZ2+nd9Di7o5+KIwlb2mAB9sTNHdMrXesX8eBL6T9b+MZJk+mZuPxKNVfEQMQ
+ a5SxUEADIPQTPNvBewdeI80yeOCrN+Zzwy/Mrx9EPeu59Y5vSJOx/z6OUImD/GhX7Xvkt3kq
+ Er5KTrJz3++B6SH9pum9PuoE/k+nntJkNMmQpR4MCBaV/J9gIOPGodDKnjdng+mXliF3Ptu6
+ 3oxc2RCyGzTlxyMwuc2U5Q7KtUNTdDe8T0uE+9b8BLMVQDDfJjqY0VVqSUwImzTDLX9S4g/8
+ kC4HRcclk8hpyhY2jKGluZO0awwTIMgVEzmTyBphDg/Gx7dZU1Xf8HFuE+UZ5UDHDTnwgv7E
+ th6RC9+WrhDNspZ9fJjKWRbveQgUFCpe1sa77LAw+XFrKmBHXp9ZVIe90RMe2tRL06BGiRZr
+ jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <Z9nJH38Em9XEx3U7@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: oBhn-UQZuKTmr-ORm9Dbh7nPhKMgIL_f19qLnlMDJoE_1742326542
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_123119_945494_C504FF97 
-X-CRM114-Status: GOOD (  27.73  )
+X-CRM114-CacheID: sfid-20250318_123547_952517_DD0A5AFA 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,219 +196,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+On 18.03.25 20:27, Catalin Marinas wrote:
+> On Tue, Mar 18, 2025 at 09:55:27AM -0300, Jason Gunthorpe wrote:
+>> On Tue, Mar 18, 2025 at 09:39:30AM +0000, Marc Zyngier wrote:
+>>> The memslot must also be created with a new flag ((2c) in the taxonomy
+>>> above) that carries the "Please map VM_PFNMAP VMAs as cacheable". This
+>>> flag is only allowed if (1) is valid.
+>>>
+>>> This results in the following behaviours:
+>>>
+>>> - If the VMM creates the memslot with the cacheable attribute without
+>>>    (1) being advertised, we fail.
+>>>
+>>> - If the VMM creates the memslot without the cacheable attribute, we
+>>>    map as NC, as it is today.
+>>
+>> Is that OK though?
+>>
+>> Now we have the MM page tables mapping this memory as cachable but KVM
+>> and the guest is accessing it as non-cached.
+> 
+> I don't think we should allow this.
+> 
+>> I thought ARM tried hard to avoid creating such mismatches? This is
+>> why the pgprot flags were used to drive this, not an opt-in flag. To
+>> prevent userspace from forcing a mismatch.
+> 
+> We have the vma->vm_page_prot when the memslot is added, so we could use
+> this instead of additional KVM flags.
 
-In the course of other debugging, I've discovered that h4_recv_buf() is
-almost completely duplicated in an inline header definiton, and I don't
-understand why.
+I thought we try to avoid messing with the VMA when adding memslots; 
+because KVM_CAP_SYNC_MMU allows user space for changing the VMAs 
+afterwards without changing the memslot?
 
-I'd like to clean this up: see the patch below for an explanation.
+include/uapi/linux/kvm.h:#define KVM_CAP_SYNC_MMU 16  /* Changes to host 
+mmap are reflected in guest */
 
-Does anybody who was around at the time remember any more details about
-this? Or failing that, perhaps somebody with access to the bpa10x
-hardware can test it with the core function?
-
-Thanks,
-Calvin
-
----8<---
-From: Calvin Owens <calvin@wbinvd.org>
-Subject: [PATCH] bluetooth: Remove duplicated h4_recv_buf() in header
-
-The "h4_recv.h" header contains a duplicate h4_recv_buf() that is nearly
-but not quite identical to the h4_recv_buf() in hci_h4.c.
-
-This duplicated header was added in commit 07eb96a5a7b0 ("Bluetooth:
-bpa10x: Use separate h4_recv_buf helper"). Unfortunately, there was no
-discussion about it on the list at the time:
-
-    https://lore.kernel.org/all/20180320181855.37297-1-marcel@holtmann.org/
-    https://lore.kernel.org/all/20180324091954.73229-2-marcel@holtmann.org/
-
-This is the diff between the two implementations as they exist today:
-
-    --- /home/calvinow/orig.c	2025-03-10 14:43:18.383882623 -0700
-    +++ /home/calvinow/copy.c	2025-03-10 14:42:57.109953576 -0700
-    @@ -1,117 +1,100 @@
-     {
-    -	struct hci_uart *hu = hci_get_drvdata(hdev);
-    -	u8 alignment = hu->alignment ? hu->alignment : 1;
-    -
-     	/* Check for error from previous call */
-     	if (IS_ERR(skb))
-     		skb = NULL;
-
-     	while (count) {
-     		int i, len;
-
-    -		/* remove padding bytes from buffer */
-    -		for (; hu->padding && count > 0; hu->padding--) {
-    -			count--;
-    -			buffer++;
-    -		}
-    -		if (!count)
-    -			break;
-    -
-     		if (!skb) {
-     			for (i = 0; i < pkts_count; i++) {
-     				if (buffer[0] != (&pkts[i])->type)
-     					continue;
-
-     				skb = bt_skb_alloc((&pkts[i])->maxlen,
-     						   GFP_ATOMIC);
-     				if (!skb)
-     					return ERR_PTR(-ENOMEM);
-
-     				hci_skb_pkt_type(skb) = (&pkts[i])->type;
-     				hci_skb_expect(skb) = (&pkts[i])->hlen;
-     				break;
-     			}
-
-     			/* Check for invalid packet type */
-     			if (!skb)
-     				return ERR_PTR(-EILSEQ);
-
-     			count -= 1;
-     			buffer += 1;
-     		}
-
-     		len = min_t(uint, hci_skb_expect(skb) - skb->len, count);
-     		skb_put_data(skb, buffer, len);
-
-     		count -= len;
-     		buffer += len;
-
-     		/* Check for partial packet */
-     		if (skb->len < hci_skb_expect(skb))
-     			continue;
-
-     		for (i = 0; i < pkts_count; i++) {
-     			if (hci_skb_pkt_type(skb) == (&pkts[i])->type)
-     				break;
-     		}
-
-     		if (i >= pkts_count) {
-     			kfree_skb(skb);
-     			return ERR_PTR(-EILSEQ);
-     		}
-
-     		if (skb->len == (&pkts[i])->hlen) {
-     			u16 dlen;
-
-     			switch ((&pkts[i])->lsize) {
-     			case 0:
-     				/* No variable data length */
-     				dlen = 0;
-     				break;
-     			case 1:
-     				/* Single octet variable length */
-     				dlen = skb->data[(&pkts[i])->loff];
-     				hci_skb_expect(skb) += dlen;
-
-     				if (skb_tailroom(skb) < dlen) {
-     					kfree_skb(skb);
-     					return ERR_PTR(-EMSGSIZE);
-     				}
-     				break;
-     			case 2:
-     				/* Double octet variable length */
-     				dlen = get_unaligned_le16(skb->data +
-     							  (&pkts[i])->loff);
-     				hci_skb_expect(skb) += dlen;
-
-     				if (skb_tailroom(skb) < dlen) {
-     					kfree_skb(skb);
-     					return ERR_PTR(-EMSGSIZE);
-     				}
-     				break;
-     			default:
-     				/* Unsupported variable length */
-     				kfree_skb(skb);
-     				return ERR_PTR(-EILSEQ);
-     			}
-
-     			if (!dlen) {
-    -				hu->padding = (skb->len + 1) % alignment;
-    -				hu->padding = (alignment - hu->padding) % alignment;
-    -
-     				/* No more data, complete frame */
-     				(&pkts[i])->recv(hdev, skb);
-     				skb = NULL;
-     			}
-     		} else {
-    -			hu->padding = (skb->len + 1) % alignment;
-    -			hu->padding = (alignment - hu->padding) % alignment;
-    -
-     			/* Complete frame */
-     			(&pkts[i])->recv(hdev, skb);
-     			skb = NULL;
-     		}
-     	}
-
-     	return skb;
-     }
-
-It seems fairly obvious from the above that, if alignment is one,
-hu->padding is always zero, and in that case the two functions behave
-strictly identically.
-
-Since that is the case for every driver except hci_nokia, clean this up
-and let them use the core function. I've done some light testing on
-btnxpuart, so far everything seems to work.
-
-I would love to eliminate the duplicate function entirely, but I don't
-have access to hardware for bpa10x. Since bpa10x breaking was the
-original justification for the change, I've left it there for now. I'm
-hoping somebody else can shed more light on this.
-
-Cc: Marcel Holtmann <marcel@holtmann.org>
-Signed-off-by: Calvin Owens <calvin@wbinvd.org>
----
- drivers/bluetooth/btmtksdio.c | 2 +-
- drivers/bluetooth/btmtkuart.c | 2 +-
- drivers/bluetooth/btnxpuart.c | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index bd5464bde174..47d1073fb4a4 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -29,7 +29,7 @@
- #include <net/bluetooth/bluetooth.h>
- #include <net/bluetooth/hci_core.h>
- 
--#include "h4_recv.h"
-+#include "hci_uart.h"
- #include "btmtk.h"
- 
- #define VERSION "0.1"
-diff --git a/drivers/bluetooth/btmtkuart.c b/drivers/bluetooth/btmtkuart.c
-index c97e260fcb0c..aeb111a0f242 100644
---- a/drivers/bluetooth/btmtkuart.c
-+++ b/drivers/bluetooth/btmtkuart.c
-@@ -27,7 +27,7 @@
- #include <net/bluetooth/bluetooth.h>
- #include <net/bluetooth/hci_core.h>
- 
--#include "h4_recv.h"
-+#include "hci_uart.h"
- #include "btmtk.h"
- 
- #define VERSION "0.2"
-diff --git a/drivers/bluetooth/btnxpuart.c b/drivers/bluetooth/btnxpuart.c
-index aa5ec1d444a9..e6db563088cb 100644
---- a/drivers/bluetooth/btnxpuart.c
-+++ b/drivers/bluetooth/btnxpuart.c
-@@ -21,7 +21,7 @@
- #include <net/bluetooth/bluetooth.h>
- #include <net/bluetooth/hci_core.h>
- 
--#include "h4_recv.h"
-+#include "hci_uart.h"
- 
- #define MANUFACTURER_NXP		37
- 
 -- 
-2.47.2
+Cheers,
+
+David / dhildenb
 
 
