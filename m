@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02795C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F371C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 13:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35TBaT2+83Cg64d1PZlPRf7THWnfYz9oGJDXX9UMi2U=; b=bL0pC4VUN/KF/MLC9c+qqOowls
-	8ZCMrAxu29kNMDc4LPeRDyZYbA4Aq6Z237KGiui/qy1pHip4TEIA+CAsC9qOmUBp22eNZXu5bJJoo
-	Os2nlTCs4Q3CpRSwuiSG1XziPphWZb6JF96R/HnPAnYCPJwmvEwiFbqObR0VScGHGT0Z98dLdyoUx
-	qgsGWF5aVmIgiF9s/HHxqTncbbOh6MpePXGPOROEgWAGMi4aDUcC43c+UPica7SWg2DyaRrs5F6d4
-	8z2fxUxKLPqAO1pOGIBgPTC01pE+kbYJWrkcyP7h/FP1mexekKP80sq680l4hBCAid0Hu8OEU0WwG
-	fE8D6XLQ==;
+	bh=90Qa8a9JOpfX6xK3iRiQYBwU2Lz8sFA7p1khs43FFPw=; b=G9m0NDHAo8vvwvU6psVCQ7/9o1
+	BwVyV/4uRyjlWCPYPCtLdhvSp+mu4407vx+20o8iheZ6sq0PYq5Nr80O1FWto75Uo8pKH9gZXAAQV
+	Yi67A6UmwWUjT4e6M4xkkXCDUq7egdmcB2V8YA6NWJ513AKQ4I/Uh2GdcSCvkZBNWmVqzFlgDvUTt
+	mVu6UdAesTkPdLwBSS1OTXGYts8xM++w998uFDbhIcCTkI1tsugwJFLm6IkiNKnUpN6wor43Tz+VE
+	QtKM1+ESrwGfRrX1wA9wfLXTeBitKxRCSuf4oCZOVWrviCChPFUS9lrSRWB8FmVo9QGzeNfx7+Wxj
+	3txyzxLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuX3M-000000061rI-23Wg;
-	Tue, 18 Mar 2025 13:32:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tuX52-000000062CE-166Y;
+	Tue, 18 Mar 2025 13:34:04 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuWtX-000000060MO-1QlE
+	id 1tuWtZ-000000060My-32tY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 13:22:13 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52I8plWS020489
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 13:22:10 GMT
+	Tue, 18 Mar 2025 13:22:14 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52IA4jTr027057
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 13:22:13 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	35TBaT2+83Cg64d1PZlPRf7THWnfYz9oGJDXX9UMi2U=; b=aFInx84sQ8RRn8rX
-	+ebrdMyeQtsOLzwuTjX0ks8vlW3s+vxGHb90WdnsqD3N07FmkHk9PLBfdw/0IiEH
-	XBi3E9HYqs+hNndU9Jb9LR8rRgY3Wb36SAyRhjOMa0zYt9k7sIfGwazM/541imZL
-	+h3fGB83LUrRRNLUSuo7eHkoBjJqgbGSrr/JQOs63l9o4XLUDguPhxgbDcOKGsCQ
-	ocZRBTABb4AdK1kjPCIqH4Pl1JUbXkjSjMf4MZD16nYWHD8YYlrcb98F5XETw0j2
-	JF4JEcbywHZRhnE++nuXGk4/IK9VKDAKV1U66Eguzqp7AVQV0Ah8iF0z8WY57FD4
-	aqim+Q==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45d1t4re2u-1
+	90Qa8a9JOpfX6xK3iRiQYBwU2Lz8sFA7p1khs43FFPw=; b=EIt/uQwplWImJTR8
+	9zCTrhS/qn82m3ayFhZvwjwBOyGJllUs94349vVEZZ4WpiezGeTrlxwrgEhlUPI3
+	uoHOiCUwLh7qOAJhRgLzJefe15yvBE7JAMfLUR5M6oQov8V7Do0lLgc1gD5WW8GJ
+	44Srqgdv8zgxmKOq3LEaSnEybTtBZfDGLe41LTglVDxahqnO3ZFH5q+Jl2wsxQOo
+	9lkx5FjbsD5TvIkr0HSmD637LXhLN6CEblgV8J87pskJT4OQXxZkyBRD3VKlrD6p
+	JkJFF+XC6IgaDHJgUM9it2UXjKjR03ov2/b6UF/DakvjqKXqLyH46AGlltGkPoyj
+	CWA5Ig==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45exwtj1g1-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 13:22:10 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6e8fb5a7183so101571356d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 06:22:10 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 13:22:13 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-476664bffbeso110030621cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 06:22:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742304129; x=1742908929;
+        d=1e100.net; s=20230601; t=1742304132; x=1742908932;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=35TBaT2+83Cg64d1PZlPRf7THWnfYz9oGJDXX9UMi2U=;
-        b=eXsAnKFfSwHzSawh6rB7vKzQMjA3pcKJOYlAX+9SFUeIzzf/a+1LOninbF8ma5vZks
-         OyS80b+BYEwec37ZPfPmP5ZX/jh+YbGHIHIbvI6mvJqFv3TLqnon59May1cCRzmABQTc
-         qf4jqOuH+TC82oVUYfjuKDh01OYqtURw6xKWCXoWT+3CMQYWCMhTl2yM757WdKL3DQ3j
-         tkT9Xo+6MQJGbf4xGyQGOX+CIrHLu2Q4QKauadE1SVPAZ9dhzEAT+jfzYBl5hCr74uoh
-         MCtArFd9OPnO8IUTspXVlKdgLYoMy4o/AYAcgRtWR/hu3zwgw/KTh+00om3jI+ebu9Aw
-         W80Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXPa2qHPY9/OG2VJEyrX1KyPa236POt00TC4tGHNilONIlAboedcnGkmi/+j5jaXPJYwthYVRk3hhoGTOCqyLpG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYXhAehte6T8AyB2eNU3/pSNHDvOOe2Je+5IML4DrYvxykwhPA
-	IWVd0nfrdFkNPTAd+XwHaf/pRdz7JYD8WnanyS2ald7UERqWQfZRvFzikx60Y2R0VGKTXVi8i6A
-	SMmueXOFiLlhDbGyHV/e1EryZfKX0/KUK40gu3qF04O75A5VtcxvrEY7N14HBi4LHR1g5iERxGA
+        bh=90Qa8a9JOpfX6xK3iRiQYBwU2Lz8sFA7p1khs43FFPw=;
+        b=m7rHs2Ja/0wsFM4u+LvT6/aT9DAutItdnSTsIuoYi1+8bzEMXmNHLFgvaBckb4swmu
+         k0IdkTQ6ZTDKyqNY/V2XiMBDZDw9UmucoQ3jnjptUORvQKakrcUDmATNxzrHgFChpppx
+         DEKufmjVf+VCsHLaVFM2Mq4TiEX/OlVvR43C4NSl9WGHDgxgSf7obLWGhxMlWyK2Su8e
+         pDUWWaVjRQgjTUZ03WKZgy5kvsBEtqhkw0cgU9kFZSiuTOw4u9YeKtdQo1YUWny1f/X0
+         4uQov5wB1khLtkPBUcL+nOnbVu/LvQAwVCK4Mxf1a+1uJv2b77CrnAJpH0NuauatPYwh
+         w5OQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWxd+xn+85VPfreHy0ATxSaNnK6Ie67shtFpsmhwA6W86g8YhinFzs/nNxoyTwMqFexgwQuTHmAZJSKe7nR49az@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjx3EKbsvSOslwquTLuOpBhVK+S2xSdg3HkHz2hC8NK+VQKDlk
+	jgHgXOfU3y3/uHL4TtcQVHMlGZkt2bH/yR53cs0BnrQgpJAIXp25/DtXoHSzezWtCtMe/w4vObf
+	4ABXiZUxULIqh9jg9R00MTtYXjcbAOlMd/ETmzUxnIQsk41YAHiwVw2aQKNzjQ8EdNKZpIjNcdQ
 	==
-X-Gm-Gg: ASbGnctUwcm/DbD2bKiPha+y8JFvAo5ghketbDYxWAQrMGtbocDldqO8s3BVyaEZ0NF
-	+3aHkcXOpk1MYyr2IltPVlnokq7dPVTC8dcH2h/4lj5lSkNcOcpbxY4dsk5NL1YC6F4yIiGqR2x
-	QOK67vDhJWlkCUJyxj4BzoEniE8wwtPMfLQd/Upd60G51mlYPE4NrQT8iNdv5mJolfTiI6l0zUZ
-	PzqAH2z9C6lKKU8EYSC74gMwyUIJcSzBVVzVylOv3+w/LRLVoXTaVFFkEIR/7qntEwYK+JHWc8j
-	pw2Y3F8oAUyCYGo295rbd2VO7z09W8mae2CU52JilsVH0s3bgbjUBvtj+mXWuoYDAOevQkxZ0Am
-	75wSE9tKrkN+0veiY0HUOmpm4Mw8a
-X-Received: by 2002:a05:6214:e6d:b0:6e6:5e15:d94f with SMTP id 6a1803df08f44-6eaeaa8e068mr235422016d6.27.1742304129531;
-        Tue, 18 Mar 2025 06:22:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEid2bgsa5C6EGyKhom1hcOzDqdCNsgC6lqLPAGPrirEYmAM0zizkPcxE56W3DH8hIcoDwtMQ==
-X-Received: by 2002:a05:6214:e6d:b0:6e6:5e15:d94f with SMTP id 6a1803df08f44-6eaeaa8e068mr235421536d6.27.1742304129179;
-        Tue, 18 Mar 2025 06:22:09 -0700 (PDT)
+X-Gm-Gg: ASbGncvpxjNLa9WlJFwzrwaz3b9CrLDgxH2/wvZ7HTW8hsSYwpukqKQdI55FYQvx7Zl
+	SjFfcKQrRdJ7TfXLa5D/pu5d1oO5BYcAdZNd6hm28oDabv3o0TtKVsGanBKUbgwFlE/Qpfj6twe
+	zJgijOoLGL4nxYYw/mPeD78FEFRNyz+g2ZCxXYbeHqnBImBXjr5mK5DF/N/F/nTxBf0H1fSYs2E
+	hFkO1m9I0HIAWbYTVTVEgZnCWLObc9KfFtTN4DlIDvZRDBr9zfYCvLdwW9yvGNV2PUNX42HgJSL
+	pgqummbzTJnjn06jZ4fyDyAjVD9xnyX2wz3Z7AmvbxbfR7bb7GrTcVLjcz+TBD3q0rhFg67D0In
+	fWL/XQLkMH0smwwtuADrUF9f9vwNX
+X-Received: by 2002:a05:622a:13ce:b0:476:a74d:f23b with SMTP id d75a77b69052e-476c81edf41mr217060281cf.48.1742304132084;
+        Tue, 18 Mar 2025 06:22:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG3cOhI/uaSCyn0dHPO8pflDCmqzgUPHvz/xK7Lgn/iw9/ohToEyaGvfEydfUSRss7Lc4O3yg==
+X-Received: by 2002:a05:622a:13ce:b0:476:a74d:f23b with SMTP id d75a77b69052e-476c81edf41mr217059861cf.48.1742304131746;
+        Tue, 18 Mar 2025 06:22:11 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba8a79c4sm1664831e87.226.2025.03.18.06.22.07
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba8a79c4sm1664831e87.226.2025.03.18.06.22.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 06:22:07 -0700 (PDT)
+        Tue, 18 Mar 2025 06:22:10 -0700 (PDT)
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Tue, 18 Mar 2025 15:21:58 +0200
-Subject: [PATCH v2 05/10] dt-bindings: mfd: syscon: add
- qcom,apq8064-mmss-sfpb
+Date: Tue, 18 Mar 2025 15:21:59 +0200
+Subject: [PATCH v2 06/10] ARM: dts: qcom: apq8064: add missing clocks to
+ the timer node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250318-fix-nexus-4-v2-5-bcedd1406790@oss.qualcomm.com>
+Message-Id: <20250318-fix-nexus-4-v2-6-bcedd1406790@oss.qualcomm.com>
 References: <20250318-fix-nexus-4-v2-0-bcedd1406790@oss.qualcomm.com>
 In-Reply-To: <20250318-fix-nexus-4-v2-0-bcedd1406790@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -101,33 +101,34 @@ Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
         linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1118;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=945;
  i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=tLjVCeidA4XxC4ytznLkRf3RhpABAtXsV1uxmWtljSw=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBn2XN19yjeAE/FrJ460aVoGzoua8M7KKbdxkvWW
- fkAut7kGcGJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ9lzdQAKCRCLPIo+Aiko
- 1XkSCACU5gFpR9GRidct5OYxUCvwTTBl0VvkrjXfm5OyvOGome0NlRe7kBR4WWFfsG3BbUej+0u
- YfikvKIAqKMeHbRXXm9lBNvHZAV47bNHobS3PLJ2gOB9yBgYrLBUOFYNh4Mr8U/JK+3LaQMfSpk
- U83YvM/skgqyHhikgZ1kgXhwoiWiyN3ZeWviiP+MfTkU+JyUNQjkvR5HXmmI7TU2DqgYnCdj/QO
- qvrPliGG++ZGYITm7rxp/0k6V0PVtGXtonhIROkIM+LsYdZp2tpTqlZTfPd/t8oL5PjjQOTQW7/
- 9cYvA32EgCddLLgZJ3FGfMNC+hxG3N1Mi/s+01T/BaKQ6Cqc
+ bh=A5b+7PiOzdnEsoIXhJtEDtIF4/+zzwMq2jbAcRXdx6A=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBn2XN1GNH7XEZ/cKYsIbOrr56agd3ol4ShkdTzA
+ NU7LHgC1bGJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ9lzdQAKCRCLPIo+Aiko
+ 1QSVCACCx/SRir78Lqxpwe2gj/DnNHmZ78WE7r/CnzspxSjw6HD62EeTXRvoWunYl67EbK+lxae
+ 64Mnsdd3r+qo/eI9qE+skbsKEG32/VGJy+58d/98ZTbBcy923r08CiicvsR+kDNCcdNHobyjaI3
+ u+qm3Utr1pOvTz+Lh0RrCNCd3Zb8wmb3Vmomvo9w341VTwIIG2PXGmLs7RBm1Ppm3uhUYhcYza1
+ 0r6Wd/Qgq8ripF/dL25lQlAAIFSPt/IJzptrL24gjyLddCjdBadIdNqM78ErystrwTtLVpfSffV
+ WUWaN337ADz2EGHX3c7Pxfz3ePYNK2SHrpSHBmbjiW4RzhUM
 X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Authority-Analysis: v=2.4 cv=VLPdn8PX c=1 sm=1 tr=0 ts=67d97382 cx=c_pps a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=EUspDBNiAAAA:8 a=Gjla_oY5Z_Fy-GYXBTcA:9 a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-ORIG-GUID: bwx3qSnnfMxWDmKP9S3_DcfXsFbCleDb
-X-Proofpoint-GUID: bwx3qSnnfMxWDmKP9S3_DcfXsFbCleDb
+X-Proofpoint-GUID: Q7MlF2TOVrRuHSQZ9B7_QslAGXk1HNBC
+X-Proofpoint-ORIG-GUID: Q7MlF2TOVrRuHSQZ9B7_QslAGXk1HNBC
+X-Authority-Analysis: v=2.4 cv=UoJjN/wB c=1 sm=1 tr=0 ts=67d97385 cx=c_pps a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=EUspDBNiAAAA:8 a=ZANWpg7mVWKCtM2BIo8A:9 a=QEXdDO2ut3YA:10 a=mjqSHpV9Z7kWhFShES6D:22
+ a=dawVfQjAaf238kedN5IG:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-18_06,2025-03-17_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0
- priorityscore=1501 clxscore=1015 mlxscore=0 lowpriorityscore=0
- phishscore=0 mlxlogscore=957 impostorscore=0 suspectscore=0 malwarescore=0
- bulkscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 malwarescore=0
+ impostorscore=0 bulkscore=0 priorityscore=1501 mlxlogscore=907
+ phishscore=0 adultscore=0 clxscore=1015 spamscore=0 suspectscore=0
+ lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
  definitions=main-2503180099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_062211_506467_0070942C 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250318_062213_760865_A2805C07 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,33 +143,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compat string for Qualcomm MultiMedia SubSystem System FPB.
+In order to fix DT schema warning and describe hardware properly, add
+missing sleep clock to the timer node.
 
+Fixes: f335b8af4fd5 ("ARM: dts: qcom: Add initial APQ8064 SoC and IFC6410 board device trees")
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+ arch/arm/boot/dts/qcom/qcom-apq8064.dtsi | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index 0d2530bd05b8c114232926e3ba8b0fed99e276f9..60f153cb57d56b00813cf65070fc4636141c5b52 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -95,6 +95,7 @@ select:
-           - mstar,msc313-pmsleep
-           - nuvoton,ma35d1-sys
-           - nuvoton,wpcm450-shm
-+          - qcom,apq8064-mmss-sfpb
-           - qcom,apq8064-sps-sic
-           - rockchip,px30-qos
-           - rockchip,rk3036-qos
-@@ -196,6 +197,7 @@ properties:
-           - mstar,msc313-pmsleep
-           - nuvoton,ma35d1-sys
-           - nuvoton,wpcm450-shm
-+          - qcom,apq8064-mmss-sfpb
-           - qcom,apq8064-sps-sic
-           - rockchip,px30-qos
-           - rockchip,rk3036-qos
+diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi b/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
+index 5f1a6b4b764492486df1a2610979f56c0a37b64a..ba99e794dcd2236f65f2f3d8c49213cfdaee5f6e 100644
+--- a/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
++++ b/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
+@@ -326,6 +326,8 @@ timer@200a000 {
+ 				     <GIC_PPI 3 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_EDGE_RISING)>;
+ 			reg = <0x0200a000 0x100>;
+ 			clock-frequency = <27000000>;
++			clocks = <&sleep_clk>;
++			clock-names = "sleep";
+ 			cpu-offset = <0x80000>;
+ 		};
+ 
 
 -- 
 2.39.5
