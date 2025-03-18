@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3520C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 17:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF3FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 17:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rv2cgmWeDpgTRXs3pcSTXnSyFEBSkNMNxViatRStrqI=; b=vJzRZOJuea3B7Iy7hYg+Nn/v1e
-	LvXDHioOQOhHdYOWg2yANWjke+sCp5Wga0Awy0qm7pVwJMHiOPr7Hpj7Pr6mORYOGDcH5fo+JnRYK
-	Noau+ZVVk8DFQz1vBa6axz3toKWyPmF7l4vmQgX3LFmjpkWqDhTucNuXf9vhce4WV6reCxUoUBYcg
-	QTlJfo3SiuTkvO6ECd4aiFIOff0UoedixKOWha3Xz9bP4bM6KARLS01KYc00B2pN9N8ABX5jGeXvm
-	dOMJdY3pT8SKb/ooq3mpwj6G2jfs6cJ3XILyM16a+Ao7HX6eVCVU6cacw1TfrNhtNXiw11KMZMUQf
-	ASnF+spQ==;
+	bh=2MNs0cdBY9zIg/KEv1bZR2T/kB5zy4h4OTL0rpYmXjk=; b=KJxcFXulGhG1xhXW5o5wAwvbng
+	IG1ZI2ZDTvpDewaNxjPwb3Iu/PQgn4xBuxB2iA8D48guQ5stONPxZ1FUXC1F03jqEf0r+0SujawNv
+	vYwczlYKNWXSNTma9DcdfdFS2hdtFwMnY2Gp9QKyc8gFEuH7HyyM68Rs2r3tBt/qEZh/Khmb9YoRA
+	mfMVv4lM+w30c6ya1O+pZxJ5AGpc5SWy/JU4h3MGng11opSBzEDmCFKJytLkqcLj/5wVpkzyStlQm
+	VOeLyG4dJRJ/NdqmhLZzHUnOKwWBBc8SkQCxO/nmx04wXGpF+GGPb2nYgOY4+sFdhySBJxiazZRXi
+	pZv/fN7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuaSJ-00000006dRt-07ZT;
-	Tue, 18 Mar 2025 17:10:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuaPx-00000006dB9-1lGL
+	id 1tuaZa-00000006eaG-2I8O;
+	Tue, 18 Mar 2025 17:17:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuaXt-00000006eFb-39Nx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 17:07:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E61E65C58DA;
-	Tue, 18 Mar 2025 17:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 501DEC4CEDD;
-	Tue, 18 Mar 2025 17:07:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742317672;
-	bh=ClveRfCHzxpsa3h6WnfKVB/u2POf/KIKNL1rIjfPHD8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=m8DO/VWdfaesHQ5jT69BoVvNtsn228iyk8FyWouLmx6BqE6Dpf/ZmT1F1QIOMLXMd
-	 5wHGTGrwLlL62BrnRxM3tyc1SMiNPxET5U7HXjKMXeUxeiwCwbHDvGv0Ain3bm99az
-	 ETpLdjwARCwR+E5xDYcZmNIlaruV5mCCQxPh8UJWKs/ZuYS2jDMP7UZ4HOeR5X/j+P
-	 DhMKJhomyUxcf06pTekpfMFAkQ1oT+zwKJbyJG1Sy1oLJH7vBg/hlhau2HnZQumt4X
-	 mSULDDO4k6SBxHXpjSLzbtWvejh8jDR5DQ7xoR30zsKURxg3nIwOGx6tA7w2r5rXkG
-	 /vB3aDvmpWhpw==
-Date: Tue, 18 Mar 2025 12:07:51 -0500
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	Tue, 18 Mar 2025 17:16:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31080113E;
+	Tue, 18 Mar 2025 10:16:11 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 51F8E3F673;
+	Tue, 18 Mar 2025 10:16:02 -0700 (PDT)
+Date: Tue, 18 Mar 2025 17:15:57 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Li Huafei <lihuafei1@huawei.com>
+Cc: namhyung@kernel.org, acme@kernel.org, leo.yan@linux.dev,
+	james.clark@linaro.org, mark.rutland@arm.com,
+	john.g.garry@oracle.com, will@kernel.org, irogers@google.com,
+	mike.leach@linaro.org, peterz@infradead.org, mingo@redhat.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	kjain@linux.ibm.com, mhiramat@kernel.org,
+	atrajeev@linux.vnet.ibm.com, sesse@google.com,
+	adrian.hunter@intel.com, kan.liang@linux.intel.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 1/7] perf annotate: Handle arm64 load and store
+ instructions
+Message-ID: <20250318171557.GA2860028@e132581.arm.com>
+References: <20250314162137.528204-1-lihuafei1@huawei.com>
+ <20250314162137.528204-2-lihuafei1@huawei.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-aspeed@lists.ozlabs.org, andrew@codeconstruct.com.au, 
- linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
- linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
- devicetree@vger.kernel.org, joel@jms.id.au, conor+dt@kernel.org, 
- robh+dt@kernel.org
-To: Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>
-In-Reply-To: <20250318041224.1693323-1-Rajaganesh.Rathinasabapathi@amd.com>
-References: <20250318041224.1693323-1-Rajaganesh.Rathinasabapathi@amd.com>
-Message-Id: <174231753965.3228114.9624277631612711787.robh@kernel.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: aspeed: Add AMD Onyx BMC
- compatible
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250314162137.528204-2-lihuafei1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_100753_547691_2F0D4567 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250318_101605_865993_AED0A64E 
+X-CRM114-Status: GOOD (  30.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,118 +72,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Huafei,
 
-On Mon, 17 Mar 2025 23:12:23 -0500, Rajaganesh Rathinasabapathi wrote:
-> Document new AMD Onyx BMC board compatibles
-> 
-> Signed-off-by: Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>
+On Sat, Mar 15, 2025 at 12:21:31AM +0800, Li Huafei wrote:
+> Add ldst_ops to handle load and store instructions in order to parse
+> the data types and offsets associated with PMU events for memory access
+> instructions. There are many variants of load and store instructions in
+> ARM64, making it difficult to match all of these instruction names
+> completely. Therefore, only the instruction prefixes are matched. The
+> prefix 'ld|st' covers most of the memory access instructions, 'cas|swp'
+> matches atomic instructions, and 'prf' matches memory prefetch
+> instructions.
+
+Thanks a lot for working on this!
+
+> Signed-off-by: Li Huafei <lihuafei1@huawei.com>
 > ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  tools/perf/arch/arm64/annotate/instructions.c | 67 ++++++++++++++++++-
+>  1 file changed, 66 insertions(+), 1 deletion(-)
 > 
+> diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
+> index d465d093e7eb..c212eb7341bd 100644
+> --- a/tools/perf/arch/arm64/annotate/instructions.c
+> +++ b/tools/perf/arch/arm64/annotate/instructions.c
+> @@ -6,7 +6,8 @@
+>  
+>  struct arm64_annotate {
+>  	regex_t call_insn,
+> -		jump_insn;
+> +		jump_insn,
+> +		ldst_insn; /* load and store instruction */
+>
+>  };
+>  
+>  static int arm64_mov__parse(struct arch *arch __maybe_unused,
+> @@ -67,6 +68,57 @@ static struct ins_ops arm64_mov_ops = {
+>  	.scnprintf = mov__scnprintf,
+>  };
+>  
+> +static int arm64_ldst__parse(struct arch *arch __maybe_unused,
+> +			     struct ins_operands *ops,
+> +			     struct map_symbol *ms __maybe_unused,
+> +			     struct disasm_line *dl __maybe_unused)
+> +{
+> +	char *s, *target;
+> +
+> +	/*
+> +	 * The part starting from the memory access annotation '[' is parsed
+> +	 * as 'target', while the part before it is parsed as 'source'.
+> +	 */
+> +	target = s = strchr(ops->raw, '[');
+> +	if (!s)
+> +		return -1;
 
+I am wandering if this is sufficient for handling different load /
+store instructions.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+A simple case is an instruction "ldr x1, [x2]", the handling above
+should can work well.  How about instructions below with offsets:
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+    ldr     x2, [x0, #968]
+    ldr     w3, [x25], #4
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Could you also confirm if the parsing can fit the pattern for
+load/store pair instructions?
 
-  pip3 install dtschema --upgrade
+    ldp     x29, x30, [sp], #16
 
+The instruction loads paired 64-bit data into two registers.
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250318041224.1693323-1-Rajaganesh.Rathinasabapathi@amd.com:
+> +	while (s > ops->raw && *s != ',')
+> +		--s;
+> +
+> +	if (s == ops->raw)
+> +		return -1;
+> +
+> +	*s = '\0';
+> +	ops->source.raw = strdup(ops->raw);
+>
+> +
+> +	*s = ',';
+> +	if (!ops->source.raw)
+> +		return -1;
+> +
+> +	ops->target.raw = strdup(target);
+> +	if (!ops->target.raw) {
+> +		zfree(ops->source.raw);
+> +		return -1;
+> +	}
+> +	ops->target.mem_ref = true;
+> +
+> +	return 0;
+> +}
+> +
+> +static int ldst__scnprintf(struct ins *ins, char *bf, size_t size,
+> +			   struct ins_operands *ops, int max_ins_name)
+> +{
+> +	return scnprintf(bf, size, "%-*s %s,%s", max_ins_name, ins->name,
+> +			 ops->source.name ?: ops->source.raw,
+> +			 ops->target.name ?: ops->target.raw);
+> +}
+> +
+> +static struct ins_ops arm64_ldst_ops = {
+> +	.parse	   = arm64_ldst__parse,
+> +	.scnprintf = ldst__scnprintf,
+> +};
+> +
+>  static struct ins_ops *arm64__associate_instruction_ops(struct arch *arch, const char *name)
+>  {
+>  	struct arm64_annotate *arm = arch->priv;
+> @@ -77,6 +129,8 @@ static struct ins_ops *arm64__associate_instruction_ops(struct arch *arch, const
+>  		ops = &jump_ops;
+>  	else if (!regexec(&arm->call_insn, name, 2, match, 0))
+>  		ops = &call_ops;
+> +	else if (!regexec(&arm->ldst_insn, name, 2, match, 0))
+> +		ops = &arm64_ldst_ops;
+>  	else if (!strcmp(name, "ret"))
+>  		ops = &ret_ops;
+>  	else
+> @@ -107,6 +161,15 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  		      REG_EXTENDED);
+>  	if (err)
+>  		goto out_free_call;
+> +	/*
+> +	 * The ARM64 architecture has many variants of load/store instructions.
+> +	 * It is quite challenging to match all of them completely. Here, we
+> +	 * only match the prefixes of these instructions.
+> +	 */
+> +	err = regcomp(&arm->ldst_insn, "^(ld|st|cas|prf|swp)",
+> +		      REG_EXTENDED);
 
-Error: arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts:20.25-31 syntax error
-FATAL ERROR: Unable to parse input tree
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:461: arch/arm/boot/dts/aspeed] Error 2
-make[2]: Target 'arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: aspeed/aspeed-bmc-amd-onyx.dtb] Error 2
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-spc621d8hm3.dtb: /ahb/apb@1e780000/pwm-tacho-controller@1e786000: failed to match any schema with compatible: ['aspeed,ast2500-pwm-tacho']
-make: *** [Makefile:248: __sub-make] Error 2
-make: Target 'aspeed/aspeed-bmc-microsoft-olympus.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-delta-ahe50dc.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-palmetto.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-ast2500-evb.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-quanta-s6q.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-romulus.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-sbp1.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-inspur-fp5280g2.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-minipack.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-mowgli.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-witherspoon.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-vegman-sx20.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-tacoma.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-lanyang.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-vegman-rx20.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-fuji.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-everest.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-bytedance-g220a.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-cmm.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-blueridge-4u.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-asrock-e3c246d4i.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-ast2600-evb-a1.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-amd-onyx.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-supermicro-x11spi.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-vegman-n110.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-vesnin.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-bletchley.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-ast2600-evb.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-inventec-transformers.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-rainier.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-tyan-s8036.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ampere-mtjade.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-asrock-x570d4u.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-yosemite4.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-blueridge.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-asrock-spc621d8hm3.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-inventec-starscream.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-rainier-1s4u.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-yamp.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-rainier-4u.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-catalina.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-amd-ethanolx.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-bonnell.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-inspur-on5263m5.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ampere-mtjefferson.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-asus-x4tf.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-nicole.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-intel-s2600wf.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-wedge40.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-lenovo-hr855xg2.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-asrock-e3c256d4i.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-lenovo-hr630.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-asrock-romed8hm3.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-quanta-q71l.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-tyan-s7106.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-yosemitev2.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-wedge100.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-elbert.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-amd-daytonax.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-qcom-dc-scm-v1.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ufispace-ncplite.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-opp-zaius.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-portwell-neptune.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ampere-mtmitchell.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-fuji.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-minerva.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-galaxy100.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-harma.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-inspur-nf5280m6.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-wedge400.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-arm-stardragon4800-rep2.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-ibm-system1.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-greatlakes.dtb' not remade because of errors.
-make: Target 'aspeed/aspeed-bmc-facebook-tiogapass.dtb' not remade because of errors.
+As a first step, it is fine for me to support these memory types.
 
+After I review the whole series, I might go back to check if we can
+support other memory instructions (e.g. SVE, Memory Copy and
+Memory Set instructions, etc).  At least, we need to avoid any
+barriers for extending these instructions.
 
+Thanks,
+Leo
 
-
-
+> +	if (err)
+> +		goto out_free_jump;
+>  
+>  	arch->initialized = true;
+>  	arch->priv	  = arm;
+> @@ -117,6 +180,8 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  	arch->e_flags = 0;
+>  	return 0;
+>  
+> +out_free_jump:
+> +	regfree(&arm->jump_insn);
+>  out_free_call:
+>  	regfree(&arm->call_insn);
+>  out_free_arm:
+> 
+> -- 
+> 2.25.1
+> 
 
