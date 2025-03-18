@@ -4,94 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8699EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 05:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD88C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 05:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DioCaqQk0CryK0PbM4g67zBKbEP75bAXPCKEk2n/rJE=; b=a/nc0/uLVnhJbgvy0c7wWEf29o
-	muCtQ23e/ANkvFIz7rj3mlL0FryNF5cVcjwzUyAaMvHaA/jbR9exCOYTs2oUP0EIt+E9nDRi+0C0V
-	7eD86ACZiuS1O3gef6V5ENoHkWVKhwG6otRRFttpFBSZP7W9RR8tCEoYMnc9w/FWiZFt2YDu1vfDy
-	TeBmDCWUjVQWTUboKsQaV0wKiZmrQGarxsTLvao4+/4yyMlPCMeucT8c1fhtX0lhgWmHOeodjX+8y
-	ZYCJYDD1L1B7RO1Gfk3eEKY9sXxmYj3n6/yctpkp/V0wKh6XFeLc26ScR+Ftg6TQqU5qoxqRtWCf6
-	opbQG5EQ==;
+	bh=4bRckNhjjE5iZo3QBeEySwPoVgurOwdH1LnDXB/YAYM=; b=mFBQ32EHLSbaGKQ7EAGCsaaLJP
+	mG3vmiffaUUsnfSaJ32x2DCK2KMVCKnp54mCkwk0EOaqtStIMTDvpA8sGY5jkruJ+XgefN6iWWYWv
+	skTrrYBAxfJTrhqsdzfQZ41cv+45AKAuyjEy4RZD2I1+3dsfng+Jg/OeWZVDSrVNUK36TIUkzmAZl
+	Tn++cnJvnWpQ8fvZrznSifgos1AhwB545flQVUjt5IqRgzS1cFW2L3ueAG962lD7UrEsDsH+JRwR/
+	H1fkLCCUBme4CJEji9vwvveYJYBfsTNl6fk3q9Vhyc7H3eh/0npndycB4Ly79zzGdQM5lk60l0UF1
+	kLh09Fdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuPh3-00000004jwM-1JX3;
-	Tue, 18 Mar 2025 05:40:49 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuPfL-00000004jZu-392T;
-	Tue, 18 Mar 2025 05:39:05 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52HKpnst011320;
-	Tue, 18 Mar 2025 05:38:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=DioCaq
-	Qk0CryK0PbM4g67zBKbEP75bAXPCKEk2n/rJE=; b=A/MKBvxgMO+AjzBPdR4piH
-	owaMe0gV3nyCYKcmUF4Yj+5e6/Bdeu9UXzwC6Gw1dYD58EjPhnMs7chyToN+bM+b
-	pQQpOJJ/XTt5fTzyw6LhxwN1TLrFThrThelJlrFntLVcfKeKpKOErV429PFpC1Rm
-	4UR9pH9AUK9h15sDrQff0CdGqUqvJiCxUEp88Yf6QPiRDIRuXp3c3DL7/m7BQLVl
-	JrrbQRFTtH7gKZ5Wz6m9DW6rRxJTnp5R4LPv87yqr9oCNm3EN8MnNbdUOIpJyNng
-	1C9PH0F0/lFG91tesMaz1oETViSSodDKGOrLfuy9vllD8j1MJw4PQu+7mqT/H9kw
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45eu55sphd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Mar 2025 05:38:54 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 52I4BjAD001076;
-	Tue, 18 Mar 2025 05:38:54 GMT
-Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 45dp3khxqp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Mar 2025 05:38:54 +0000
-Received: from smtpav01.dal12v.mail.ibm.com (smtpav01.dal12v.mail.ibm.com [10.241.53.100])
-	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 52I5crwj33358338
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Mar 2025 05:38:53 GMT
-Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 19E955805D;
-	Tue, 18 Mar 2025 05:38:53 +0000 (GMT)
-Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D726F58057;
-	Tue, 18 Mar 2025 05:38:47 +0000 (GMT)
-Received: from [9.66.75.14] (unknown [9.66.75.14])
-	by smtpav01.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 18 Mar 2025 05:38:47 +0000 (GMT)
-Message-ID: <67bff00d-eca7-41bd-ad9c-7ee6d5dac040@linux.ibm.com>
-Date: Tue, 18 Mar 2025 11:08:45 +0530
+	id 1tuPwM-00000004llP-3dea;
+	Tue, 18 Mar 2025 05:56:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuPue-00000004lYG-43V0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 05:54:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD1A0152B;
+	Mon, 17 Mar 2025 22:54:59 -0700 (PDT)
+Received: from [10.163.44.33] (unknown [10.163.44.33])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B70BA3F63F;
+	Mon, 17 Mar 2025 22:54:48 -0700 (PDT)
+Message-ID: <9abeecc3-2b19-43ba-8619-ea286d54db8e@arm.com>
+Date: Tue, 18 Mar 2025 11:24:45 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 00/11] Support page table check on PowerPC
-To: Andrew Donnellan <ajd@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org
-Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me
-References: <20250211161404.850215-1-ajd@linux.ibm.com>
+Subject: Re: [PATCH 0/2] arm64/mm/hotplug: Drop some redundant WARN_ON()
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
+References: <20250221094449.1188427-1-anshuman.khandual@arm.com>
 Content-Language: en-US
-From: Madhavan Srinivasan <maddy@linux.ibm.com>
-In-Reply-To: <20250211161404.850215-1-ajd@linux.ibm.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250221094449.1188427-1-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 9pxqW5-JFDH7ipa2HtNalmErx99yR2nv
-X-Proofpoint-GUID: 9pxqW5-JFDH7ipa2HtNalmErx99yR2nv
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-18_02,2025-03-17_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 bulkscore=0
- mlxlogscore=999 priorityscore=1501 adultscore=0 suspectscore=0
- impostorscore=0 mlxscore=0 lowpriorityscore=0 clxscore=1011 phishscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502280000 definitions=main-2503180037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_223903_903324_BD108D58 
-X-CRM114-Status: GOOD (  28.13  )
+X-CRM114-CacheID: sfid-20250317_225453_053708_9A4CCD55 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,138 +66,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/11/25 9:43 PM, Andrew Donnellan wrote:
-> Support page table check on all PowerPC platforms. This works by
-> serialising assignments, reassignments and clears of page table
-> entries at each level in order to ensure that anonymous mappings
-> have at most one writable consumer, and likewise that file-backed
-> mappings are not simultaneously also anonymous mappings.
+On 2/21/25 15:14, Anshuman Khandual wrote:
+> This series drops some redundant WARN_ON() tests which are not required any
+> more while unmapping and freeing up kernel page table pages during a memory
+> hot remove operation.
 > 
-> In order to support this infrastructure, a number of stubs must be
-> defined for all powerpc platforms. Additionally, seperate set_pte_at()
-> and set_pte_at_unchecked(), to allow for internal, uninstrumented mappings.
+> This series applies on v6.14-rc3
 > 
-> (This series was written by Rohan McLure, who has left IBM and is no longer
-> working on powerpc - I've taken far too long to pick this up and finally
-> send it.)
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
 > 
-
-For powerpc changes
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
-
-> v13:
->  * Rebase on mainline
->  * Don't use set_pte_at_unchecked() for early boot purposes (Pasha)
+> Anshuman Khandual (2):
+>   arm64/mm/hotplug: Drop redundant [pgd|p4d]_present()
+>   arm64/mm/hotplug: Replace pxx_present() with pxx_valid()
 > 
-> v12:
->  * Rename commits that revert changes to instead reflect that we are
->    reinstating old behaviour due to it providing more flexibility
->  * Add return line to pud_pfn() stub
->  * Instrument ptep_get_and_clear() for nohash
-> Link: https://lore.kernel.org/linuxppc-dev/20240402051154.476244-1-rmclure@linux.ibm.com/
-> 
-> v11:
->  * The pud_pfn() stub, which previously had no legitimate users on any
->    powerpc platform, now has users in Book3s64 with transparent pages.
->    Include a stub of the same name for each platform that does not
->    define their own.
->  * Drop patch that standardised use of p*d_leaf(), as already included
->    upstream in v6.9.
->  * Provide fallback definitions of p{m,u}d_user_accessible_page() that
->    do not reference p*d_leaf(), p*d_pte(), as they are defined after
->    powerpc/mm headers by linux/mm headers.
->  * Ensure that set_pte_at_unchecked() has the same checks as
->    set_pte_at().
-> Link: https://lore.kernel.org/linuxppc-dev/20240328045535.194800-14-rmclure@linux.ibm.com/ 
-> 
-> v10:
->  * Revert patches that removed address and mm parameters from page table
->    check routines, including consuming code from arm64, x86_64 and
->    riscv.
->  * Implement *_user_accessible_page() routines in terms of pte_user()
->    where available (64-bit, book3s) but otherwise by checking the
->    address (on platforms where the pte does not imply whether the
->    mapping is for user or kernel)
->  * Internal set_pte_at() calls replaced with set_pte_at_unchecked(), which
->    is identical, but prevents double instrumentation.
-> Link: https://lore.kernel.org/linuxppc-dev/20240313042118.230397-9-rmclure@linux.ibm.com/T/
-> 
-> v9:
->  * Adapt to using the set_ptes() API, using __set_pte_at() where we need
->    must avoid instrumentation.
->  * Use the logic of *_access_permitted() for implementing
->    *_user_accessible_page(), which are required routines for page table
->    check.
->  * Even though we no longer need p{m,u,4}d_leaf(), still default
->    implement these to assist in refactoring out extant
->    p{m,u,4}_is_leaf().
->  * Add p{m,u}_pte() stubs where asm-generic does not provide them, as
->    page table check wants all *user_accessible_page() variants, and we
->    would like to default implement the variants in terms of
->    pte_user_accessible_page().
->  * Avoid the ugly pmdp_collapse_flush() macro nonsense! Just instrument
->    its constituent calls instead for radix and hash.
-> Link: https://lore.kernel.org/linuxppc-dev/20231130025404.37179-2-rmclure@linux.ibm.com/
-> 
-> v8:
->  * Fix linux/page_table_check.h include in asm/pgtable.h breaking
->    32-bit.
-> Link: https://lore.kernel.org/linuxppc-dev/20230215231153.2147454-1-rmclure@linux.ibm.com/
-> 
-> v7:
->  * Remove use of extern in set_pte prototypes
->  * Clean up pmdp_collapse_flush macro
->  * Replace set_pte_at with static inline function
->  * Fix commit message for patch 7
-> Link: https://lore.kernel.org/linuxppc-dev/20230215020155.1969194-1-rmclure@linux.ibm.com/
-> 
-> v6:
->  * Support huge pages and p{m,u}d accounting.
->  * Remove instrumentation from set_pte from kernel internal pages.
->  * 64s: Implement pmdp_collapse_flush in terms of __pmdp_collapse_flush
->    as access to the mm_struct * is required.
-> Link: https://lore.kernel.org/linuxppc-dev/20230214015939.1853438-1-rmclure@linux.ibm.com/
-> 
-> v5:
-> Link: https://lore.kernel.org/linuxppc-dev/20221118002146.25979-1-rmclure@linux.ibm.com/
-> 
-> Rohan McLure (11):
->   mm/page_table_check: Reinstate address parameter in
->     [__]page_table_check_pud_set()
->   mm/page_table_check: Reinstate address parameter in
->     [__]page_table_check_pmd_set()
->   mm/page_table_check: Provide addr parameter to
->     page_table_check_pte_set()
->   mm/page_table_check: Reinstate address parameter in
->     [__]page_table_check_pud_clear()
->   mm/page_table_check: Reinstate address parameter in
->     [__]page_table_check_pmd_clear()
->   mm/page_table_check: Reinstate address parameter in
->     [__]page_table_check_pte_clear()
->   mm: Provide address parameter to p{te,md,ud}_user_accessible_page()
->   powerpc: mm: Add pud_pfn() stub
->   powerpc: mm: Implement *_user_accessible_page() for ptes
->   powerpc: mm: Use set_pte_at_unchecked() for internal usages
->   powerpc: mm: Support page table check
-> 
->  arch/arm64/include/asm/pgtable.h             | 18 +++---
->  arch/powerpc/Kconfig                         |  1 +
->  arch/powerpc/include/asm/book3s/32/pgtable.h | 12 +++-
->  arch/powerpc/include/asm/book3s/64/pgtable.h | 62 +++++++++++++++---
->  arch/powerpc/include/asm/nohash/pgtable.h    | 13 +++-
->  arch/powerpc/include/asm/pgtable.h           | 19 ++++++
->  arch/powerpc/mm/book3s64/hash_pgtable.c      |  4 ++
->  arch/powerpc/mm/book3s64/pgtable.c           | 17 +++--
->  arch/powerpc/mm/book3s64/radix_pgtable.c     |  9 ++-
->  arch/powerpc/mm/pgtable.c                    | 12 ++++
->  arch/riscv/include/asm/pgtable.h             | 18 +++---
->  arch/x86/include/asm/pgtable.h               | 20 +++---
->  include/linux/page_table_check.h             | 67 ++++++++++++--------
->  include/linux/pgtable.h                      | 10 +--
->  mm/page_table_check.c                        | 39 +++++++-----
->  15 files changed, 225 insertions(+), 96 deletions(-)
+>  arch/arm64/mm/mmu.c | 14 +++++---------
+>  1 file changed, 5 insertions(+), 9 deletions(-)
 > 
 
+Gentle ping, any updates on this series ? This simplifies WARN_ON()
+checks during memory hotplug operation, after subsequent changes to
+page table helpers such as pxd_present() etc.
 
