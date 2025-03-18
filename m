@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343CFC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F214C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bfK6+5yvZwS++ZL1M3GTppwzhzu/JkYKf0pRnfCHdYY=; b=0Zd4+2B5uKUjG4XMpPPmUzXi1D
-	vDpXkQOTNhQovz/h3jWkXRMASk9aRFyxaPY4oBfJ3BEmpUUnWMQHpQUKnXGom4EyQSoA+NaHlHr1e
-	8eWhjUMexBUy81epRYjmaA11XLCRoPHfaMmZOqHRwgMu7PZN5oVsSZP0OQ+R1Iq8MYWHDT9LlZU43
-	DyPD9fotjsoZN2av6EzjUQ5G6ebR+YyTGl62ijLQfTccAsuCZN3GLhEhMaRfFUZw9Ns9Clp0c2Cwk
-	U7O9TeDxmTfDRC4A8d/SrjLMUAhIXoxEUxVRTyNSaj/n8CbApxbAD0m8EmmsVoL4u+KaNYhhLXHo5
-	hjYOsDdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jfIx/dOVNK3Zui69zoqhnyuZ295+o15UNvhExnoCsjM=; b=I1SqJq0eTOYi4dfRWJoeD4cw+L
+	wehZA+xxQ1zt13Mvcuvb2JxIKQrOMWAZNJSFXQ6RMFITxwz6A0DZHOmZ7Hddl95KaEXn/tW3qxEhV
+	ddfdesTH4SEiWWfoQLjvlWdUbo1yZzYYjMKiflX+WTcr6zm81UOIpZcPzFd63gsjnG7tNeVkmlw7+
+	uDPzZkBxWNnIJFkuckFU2hMZXd0A0o3Y+dAId4m/DCYKiUl3bASnmH6LDaC9PRQlonWFft/CQr/S0
+	UR0k9rT0BtPFA/f36bBYh9+1lBawysMGaxbar76CLkgKM1OMjYgeuPW75oJcbWEyObxpZxDyLAh0O
+	2W7GhUfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuddS-00000007289-32iP;
-	Tue, 18 Mar 2025 20:34:02 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tudi8-000000072RI-2b8G;
+	Tue, 18 Mar 2025 20:38:52 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudbk-0000000722L-43NI
+	id 1tudgS-000000072M6-07Ad
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 20:32:18 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-390f5f48eafso3926861f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 13:32:16 -0700 (PDT)
+	Tue, 18 Mar 2025 20:37:09 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfa7e7f54so247065e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 13:37:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742329935; x=1742934735; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bfK6+5yvZwS++ZL1M3GTppwzhzu/JkYKf0pRnfCHdYY=;
-        b=MrNNTGCLbbugcqqeYN4JkGUHvrXafgaqNHdRmNTRi3zfwLZR2UeYeetF44f2fsADJA
-         e5bbbP+X7llSAXP537pqUCpgwlEzr/kyWYCPP3rbU4fkMfFcG/7yR1bvRJMybXV2u0Ms
-         XB92j3Mf2PUftcUxFzEFoKyxW2hn5sXv3NDSMg+juVwUvoUtiUf/3o7eA5CWlWy/smrV
-         2E0CmLwCw5bD1BKuogeC0UtKsVTbKIMotqiXLJjXjMh5hyNxCoLDCFsfc6IBCNEd0aYV
-         9jsWilQxg/8nhu3d5VypyFeTifNOb9DczoOS/ZIs6eweL77XpOANXKKqhwwPEgjya08P
-         fUgg==
+        d=linaro.org; s=google; t=1742330226; x=1742935026; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=jfIx/dOVNK3Zui69zoqhnyuZ295+o15UNvhExnoCsjM=;
+        b=MWkmo4kL52p2LptvrF8cP5AtPL3NRaQ45x2onbtDMHFYGzQIQETcJJNk4g4Y/lZ+7v
+         F8VvHNm3kqe6IfiG0MjpEOD6DqzsT8slUHGLAIMvt8tt28mh00ZU6cxmkT9b122Qrv6T
+         6P6qjMqvfzEp86lqSbEd8PrCg4xuR6wr47NOY8AT3ToSVv/D77rvuQK7F9kztCsIqdRU
+         rwRJSIXPhR8QiQ944kxGmGMVHCkbvbrnquTW93HQTU+mr4BmGBs5Gne/J279LZMdcTJd
+         TIkV3J2bv2FAt8tcXkVNNJ4J/SYRoL80WX4Nh05FTzecqKXnZjCoddjBu2Hqey94ZRo1
+         r+Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742329935; x=1742934735;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bfK6+5yvZwS++ZL1M3GTppwzhzu/JkYKf0pRnfCHdYY=;
-        b=kQIu1FgGyB4aANHLAP1lSEFT7uJT17hS8wQBYf8nQ1jR38ycvO35kul8N+XCgt2TwJ
-         iBbu4b+jjvPtcl3r4Gu39CBIUHDI1mtDgS5ZWaaQBBg4M9B1W6BEHTUZ/59L1BAC6goF
-         9snS8CSCeE5kwkBjBks6H8q4QN7uxi/6hBQlUck9LrvF7m1ZaGm2Ekg3wO5kJHM4BtdE
-         BLQkSR2cs2MfvlW1gKtTVFmXK9bm9o6PCPXSdawnj183xdLNhFBLsAg5thrm42mA6qPG
-         iAwghNV/sKbZdVb8TlLCHqrJsK1ZI0kcSrsmA2tqB6gZ/BDKw1Y8+DuJ77t9RkN4Uwuq
-         3SOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWy1ecykoq4SF6FrAXYJa4a0Bq46vIwugd1Gs8WvM9wNAMp+teUhfJzdJFYd85cY6zU4SArddmZThk+u8y0Bnd9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyC6/fk5eUCfv6RMa4X4cR2zl75mqkW/uRWSRbO9bOpKW+f/BA9
-	ZhNLNJ9hFNYmU3VfxB2UjneTTLvQdL9rkOQVBW1tNnjT2CeXIWRMAUNiucJEQHXDM+dqWYAvebv
-	GD3iVbAr0Y+F7GyD3rm3ID/Pvxe0=
-X-Gm-Gg: ASbGncsjXHJA4za4NMfw25+N8QG/ZTzNZq40woQRahEDAyajYsvGoE27gK0OG+eewJf
-	4ArPG/20i5MzwoL17bY9LgJHZG3ex1FwOtIhDW9iXgrlLEUVyU8Maa6bGrwKJmgGmJtwwTrRqE1
-	Gzgl++a2fgMB9QjFXjiMeajasBuGTZiUf3IUm9h+aAviw+wM+9bHxe
-X-Google-Smtp-Source: AGHT+IGDSk690Dg2444bFHp255MxioGMVwnjaLZCAO/imq8VEe/4OCDb9UNwHAv0cZbd4BRQHTm4rkFt3vxht35PQpw=
-X-Received: by 2002:a5d:47ca:0:b0:391:2f2f:818 with SMTP id
- ffacd0b85a97d-399739bbc6cmr184160f8f.9.1742329934452; Tue, 18 Mar 2025
- 13:32:14 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250316040541.108729-1-memxor@gmail.com>
-In-Reply-To: <20250316040541.108729-1-memxor@gmail.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Tue, 18 Mar 2025 13:32:02 -0700
-X-Gm-Features: AQ5f1JobP-bE03Krm6-jbM9LaJhqeVyXw4w6hFEVc9Q5_eCpxQmJX24-8FItlbA
-Message-ID: <CAADnVQ+Q+meSfHmang0QYjsbBJsNG5rJXifUxrRXC0GNQKUcnQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v4 00/25] Resilient Queued Spin Lock
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Martin KaFai Lau <martin.lau@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, Barret Rhoden <brho@google.com>, 
-	Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, kkd@meta.com, 
-	Kernel Team <kernel-team@meta.com>
+        d=1e100.net; s=20230601; t=1742330226; x=1742935026;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jfIx/dOVNK3Zui69zoqhnyuZ295+o15UNvhExnoCsjM=;
+        b=KX2VqN8UYqFoBGtlT0owf4ZAs86DP1pDE5VJ6JmbsHfvj2wxnC3TT5BaTwJwP8T6Wa
+         YR8DviDYavGXl4C8HAIKwmwemXKKBovur7WTviIn159jBff3CftwGQ59QOm5v2KCzkQt
+         hR+8pyUJD+EnSoitSAkS/n+lBK+0QsH6EUnmGbDY8+/yeunFQX0avB5qfliLJjVnfTPy
+         8cyCmhwKsoHWQyJJ0VBjuTFWwHhHBCSHBkLZzxCxW/IqGLojLcdT12hnXanF4/bqeXBE
+         nyKbggH2PjpGf/yL2z607/OjgIDgLuH8+KX/+Olg+zDvlYQl/Urn8K+hqlum9r9PxyWg
+         Dk/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWNGYJevEeJXz18U+kJ24ACG4InfdYesADYeoZBnTUY8nQk/AniqUw3Czqo2RnYeIyxgh4L3mCpo4raVN2T8Udo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1L4+O/E+1TI5LPfKKb6gt1YyATXMIGhNmbKvvDSMlHPmA3tZv
+	6hT8gKknjtNSJ9Cn4RHRhoVGDHqIF1M/rbJaXuOWncZfwYv0j83no/Df/NPl0j4=
+X-Gm-Gg: ASbGncujgx/OsDvKrO/FcSCheelOZSL7j/NVWmvYFY42wTGFK+1KD5ijx0M4oO64R51
+	Df+UPGbFjlnUdiMUbTQTL2kbDhyP/4FkCZuW/gYMkuR4En1fZBq5+ljVi1tRzEPy2evcdAg5xH2
+	atoXeed06dgxMWAYSSRhincSqiUTQ5f7sMyXRM+TADA/NLaX0L32I3SS78eT8lUEyYEXFwiA726
+	+KXxJ13fxaaVooOXZMxFCayEuqb+PJtMEEyEpznzccr//uh645+6ggSq4E+/cL5u2+bSatfejDV
+	9q+2Ewbi3Xi7WOgXKAsXB+A+LoKSemAX642/kaqnFAdU2DZ1
+X-Google-Smtp-Source: AGHT+IGKaVnWmA6ubAmSh6+AGtDNLhVaSjlQLGrz3oxVZZzlKeEgo0GAHVg/nYm/WzGxiXM4Eel1zA==
+X-Received: by 2002:a05:600c:1c9b:b0:439:4c1e:d810 with SMTP id 5b1f17b1804b1-43d43034b2bmr1001245e9.9.1742330226048;
+        Tue, 18 Mar 2025 13:37:06 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d33f5771dsm54780805e9.38.2025.03.18.13.37.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 13:37:05 -0700 (PDT)
+Message-ID: <2d38d2f242bbcce452f6c29f4ee79aa9c5703b7d.camel@linaro.org>
+Subject: Re: [PATCH 3/3] firmware: exynos-acpm: convert to dev_err_probe()
+ in client API
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Tudor Ambarus
+	 <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Will McVicker
+	 <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski
+	 <krzysztof.kozlowski@linaro.org>
+Date: Tue, 18 Mar 2025 20:37:04 +0000
+In-Reply-To: <801a9754-cd57-42c6-9569-16d9a99bfed9@kernel.org>
+References: <20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org>
+	 <20250314-acpm-fixes-v1-3-ab03ca8e723f@linaro.org>
+	 <801a9754-cd57-42c6-9569-16d9a99bfed9@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.53.2-1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_133217_006181_72C5CCC1 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250318_133708_080760_DE661320 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,23 +105,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 15, 2025 at 9:05=E2=80=AFPM Kumar Kartikeya Dwivedi
-<memxor@gmail.com> wrote:
->
-> Changelog:
-> ----------
-> v3 -> v4
-> v4: https://lore.kernel.org/bpf/20250303152305.3195648-1-memxor@gmail.com
->
->  * Fix bisectability problem by reordering locktorture commit before
->    Makefile commit.
->  * Add EXPORT_SYMBOL_GPL to all used symbols and variables by consumers.
->  * Skip BPF selftest when nrprocs < 2.
->  * Fix kdoc to describe return value for res_spin_lock, slowpath.
->  * Move kernel/locking/rqspinlock.{c,h} to kernel/bpf/rqspinlock.{c,h}.
+Hi Krzysztof,
 
-Applied to bpf-next/res_spin_lock and /for-next branches.
+On Tue, 2025-03-18 at 20:23 +0100, Krzysztof Kozlowski wrote:
+> On 14/03/2025 17:40, Andr=C3=A9 Draszik wrote:
+> > dev_err_probe() exists to simplify code and unify error messages by
+> > using its message template.
+> >=20
+> > Convert the remaining dev_err() in acpm_get_by_phandle() to
+> > dev_err_probe().
+> >=20
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > ---
+> > =C2=A0drivers/firmware/samsung/exynos-acpm.c | 10 ++++++----
+> > =C2=A01 file changed, 6 insertions(+), 4 deletions(-)
+> >=20
+> > diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/=
+samsung/exynos-acpm.c
+> > index 48f1e3cacaa709ae703115169df138b659ddae44..03f907a95c6acd66d89cd8a=
+f2f52e7c6dadf492a 100644
+> > --- a/drivers/firmware/samsung/exynos-acpm.c
+> > +++ b/drivers/firmware/samsung/exynos-acpm.c
+> > @@ -701,12 +701,14 @@ static const struct acpm_handle *acpm_get_by_phan=
+dle(struct device *dev,
+> > =C2=A0
+> > =C2=A0	link =3D device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUP=
+PLIER);
+> > =C2=A0	if (!link) {
+> > -		dev_err(&pdev->dev,
+> > -			"Failed to create device link to consumer %s.\n",
+> > -			dev_name(dev));
+> > +		int ret =3D -EINVAL;
+> > +
+> > +		dev_err_probe(&pdev->dev, ret,
+> > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to create device link to con=
+sumer %s.\n",
+> > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_name(dev));
+>=20
+> I do not see how it is simpler. Three lines (statement) is now 5 lines
+> with two statements.
 
-bpf queue_stack, ringbuf, and various local storage-s need to
-be converted to res_spin_lock in follow ups.
+This was part of some patches converting to scoped cleanup, and
+there it was shorter. Shouldn't have taken this change out of
+that context...
+
+> What's more important, dev_err_probe is supposed to be used only in
+> probe context, while this could be called in other contexts.
+
+True. dev_err_probe is nice though in that it gives us unified
+error messages.
+
+Happy to drop for now.
+
+Cheers,
+A.
+
 
