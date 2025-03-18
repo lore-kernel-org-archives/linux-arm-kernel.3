@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0278C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 05:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE34C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 05:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=; b=xzXuKqxI8V88IbUgBz76O9OC3C
-	W/nT/QnYPNy9K2W5XBdeI3KCX+kcIuwwC1QiVi+0gUWKa8t8cDK4KFJKrdgE/D4/T6GGHHzurESIG
-	+MphVeGAJQUzO6JyuoHS+l5O+mX1+rTySJvW1UMOae4Lrt8YDgnU7YjieUhGJ99cBAh+N8maDVGbP
-	8uIc9jCwo1Dz5XNCoXbIjXYRQiKPlutgyXnrqNkyyA5JYWjr3AaOdrX0pgHcpWhsiow8oZrXf4NNE
-	Et1QiiHOrlXal9sBCFWWAsuwPypDjdr0W46Buci5w0nJbIcAN7WuJpEzUNEowNFBc/9U5d03rApPE
-	+w2fS4NQ==;
+	bh=91LKckxn206QSCaYEQn5crEKBGBeBMVmLqN08/7YChQ=; b=RjWU2hA4/wnU3s9KRNFCVSKgMU
+	OIjUrD4kjsu1UukxVNpdpJrCAg+vzqzfww9ZhmNAAsXxLXKMtoDh3Y4cWiug768AvGvU2PXrO8GKt
+	9hZsKQpBWI2q8dFrcwXtAClNqzEYAFXiKgsX04TlTi/e69C0KsRw4QGE6JW3XUcwzkymfSWGKbUUJ
+	8hcoJlS9iqPzStC7sHqUm9B2Rczunt9Ar5yJZI3ipU8HRCOjKDwzKOAO/JsV6Wd0lNP0ot6As5f5j
+	MEF22VX5eLhZ1gGb2f3yYBRgV4O9gLOorVyveFft0AwzEdm9gmQwW2LY60f1TOo6oMJKiamb4eLvb
+	tYNvNU0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuP7R-00000004gGc-1XLh;
-	Tue, 18 Mar 2025 05:04:01 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1tuP7S-00000004gH5-0jrQ;
+	Tue, 18 Mar 2025 05:04:02 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNgT-00000004WAS-3mhV
+	id 1tuNgi-00000004WJe-1W2q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 03:32:12 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e549b6c54a0so8244337276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 20:32:05 -0700 (PDT)
+	Tue, 18 Mar 2025 03:32:22 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6fef68ecc8eso75933307b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Mar 2025 20:32:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742268725; x=1742873525; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742268739; x=1742873539; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=;
-        b=UUUBnTg+tll5JBK8+0RdpLkxJZxELKYqtArmP4FF32QLHMMaFM4F84ykE8Tol5DgKo
-         NpPwDVlkj2zg6Ly+BxwdZ+g7cKK3XTmzHbRKPhVbLO2zGb1vrlrd8ShzCDUQ8gYkc/9H
-         i0RJ0OMUMpoN2Uctg69vASzTQSYMySg8x2Wcg/LIuOSYdVW3sOZYzu0RQSYQAZpxq1WW
-         nl18v6RgvhK3HjA44vyqDOd7QMwJ32mnlznYIfYk4NcOMeLklFh6ANUAj1CJb7+7ozcW
-         0lC7NgNxynpd9KnPG0Bn47Le2PUQtOmo/UOLae70/WlFRtMcb08knDnA0WDb+9FRke7S
-         SpJw==
+        bh=91LKckxn206QSCaYEQn5crEKBGBeBMVmLqN08/7YChQ=;
+        b=w8i7gAlqULfrg8gsxZXkKJLVVjEIm65xHC6EfA4pqqrYOMWoS11J9JlrLApaMEzYaX
+         cHo79qoRjxXMzTB/gktbKtn1JnZB5YnaI2/HllaSffvUnHixaWR04X+gBtN8qOhkDKCj
+         G/vr3oWHbFLl/IhqkKaxigxK8ifFhM+T1cPtgHjMFABWUtlbrCaJ5yljCljuI8xRfLSL
+         SQAfSeBtNz/4eYlnEWAawoWCr7KFBvruQu2efEGXyZu2+ojXnZQNETar+lPZpQQ3qXVg
+         SNsrzc1ObBXUVoB/9XPguIgKl+uYLeqqvZqUK7FqSo0198SqzwwU8+cEdmL00mLDdHqM
+         mBZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742268725; x=1742873525;
+        d=1e100.net; s=20230601; t=1742268739; x=1742873539;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=;
-        b=koPBCXvIF4lG+bCcF/kqbqMA+GaVvp7SyT7RML4wUx5ie3V21j/Rqpqel9IQTevuqy
-         Ddzp80M5MzkEsfQHNfmYi1M2nszEZPvZWWeGPFXhrMSbuiG/imuMInzp1Z57VI4JdpP+
-         9Cl6T9TxhQfsBZh0VxyotDvMKWXvAhpW2iMJVS+BmFLau73WXrXo6B238HyxReVD9nst
-         2JvGx1EohGGLEqApRWpO1dT8Wyp1vuhdHqAJrPJ6oHguevdnYZPiNCP6RZGe3nxUeqKC
-         g0MXOelM4tzHHxQZPgELu1y/T/zXHaTi8xhwNMIYdIvj8de3T6YQwqTclVckaNggKO3d
-         RqrA==
-X-Forwarded-Encrypted: i=1; AJvYcCVyp0G8M5w2ul37K4o6lPE2rPGYbi2zMj7E1O9Rp4ydFV6lelwfxopQlNBha7c/MpZUSYEuuubiHjR5FRsMHU9r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzB9va8obyfG3++Ag8zugEy4+JX/FtH7qmfFHzy4UWxMQKiIKE7
-	Si6ErBOlESy5iWGI7eP+GAioGWT17YUMPm7BT+th8cBm4Cz0xZcB21Gn9SLc2/3WYchZBxO4vfM
-	16OlmXQ==
-X-Google-Smtp-Source: AGHT+IHOHld8kAja2ZTsy6PQxGq+xeGKdTx0PIpDQifHvtvLRIbXlfuclsCYVeCW3FCQzME9t5A22A910VYs
+        bh=91LKckxn206QSCaYEQn5crEKBGBeBMVmLqN08/7YChQ=;
+        b=dcI9nCCDKLb84y69Olkt+4mr9n6w30eu7Jd/pMovwpUX8bfPMQ6CAqtkbDa7eK6v++
+         hMRkKYZGToireK5RZKOQWKfMecY7JEtXCXpDcPy6lAdVXfnSj4cHBT7A+BBF8TEGGMSq
+         pDxvdKB21yds0IGgO3jAtehguviSfFdiZi/jCLiVKXCsVCeQumPx5sS8pf2x3V7k8HyY
+         QBU0+VQHDF+NWuMpEF5RPcyIuEzGkT+CP/43hZB7glvdKrsBw1gTMFHGK8LLUOzK0I4a
+         8FW1P6ijcPlKn3rQ8Vgatj7R8KPii/x72S0myC4kwscmyUtu3V9pxV/XWIAPdNKq2wtY
+         aWSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXYY+aNb0bN58OTO7mBg6U1B5FWjnwbMWOctAYfrTBOgO09fsf2d4heHJ0CqaCfwzAcw6fLIHPh1d7wc18/0uM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDhQ3vg0DG9sG1br4kV9aZdKNf+TfQkRqLEiGX0xhufD1xniVL
+	HJzZHFk/ZAOII6Q144aMP30N29m8xvW4UHyGIrgKA+YHhTn6RcShANJsSc0Tel+9fWzjIrYZBzw
+	yi/pcuQ==
+X-Google-Smtp-Source: AGHT+IE01BuOdl6SSADWDTOVAVAJU5oYdYRSRBizgDgB4Uh207j6fCeiTBH440hsegoqJU55+Q+m1A/IlNMi
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:ef29:15ce:a42a:b69f])
- (user=irogers job=sendgmr) by 2002:a25:6ac4:0:b0:e63:ef1a:f7d8 with SMTP id
- 3f1490d57ef6-e63f65be366mr6867276.5.1742268724494; Mon, 17 Mar 2025 20:32:04
- -0700 (PDT)
-Date: Mon, 17 Mar 2025 20:31:41 -0700
+ (user=irogers job=sendgmr) by 2002:a05:690c:48c9:b0:6f9:7fdc:6c8b with SMTP
+ id 00721157ae682-6ff4609ab1dmr455317b3.8.1742268738972; Mon, 17 Mar 2025
+ 20:32:18 -0700 (PDT)
+Date: Mon, 17 Mar 2025 20:31:47 -0700
 In-Reply-To: <20250318033150.119174-1-irogers@google.com>
-Message-Id: <20250318033150.119174-5-irogers@google.com>
+Message-Id: <20250318033150.119174-11-irogers@google.com>
 Mime-Version: 1.0
 References: <20250318033150.119174-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v6 04/13] perf trace: Reorganize syscalls
+Subject: [PATCH v6 10/13] perf build: Remove Makefile.syscalls
 From: Ian Rogers <irogers@google.com>
 To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -86,8 +86,8 @@ To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	Arnd Bergmann <arnd@arndb.de>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_203205_942249_F56738B7 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20250317_203220_411618_5CBF6406 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,434 +102,535 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Identify struct syscall information in the syscalls table by a machine
-type and syscall number, not just system call number. Having the
-machine type means that 32-bit system calls can be differentiated from
-64-bit ones on a machine capable of both. Having a table for all
-machine types and all system call numbers would be too large, so
-maintain a sorted array of system calls as they are encountered.
+Now a single beauty file is generated and used by all architectures,
+remove the per-architecture Makefiles, Kbuild files and previous
+generator script.
+
+Note: there was conversation with Charlie Jenkins
+<charlie@rivosinc.com> and they'd written an alternate approach to
+support multiple architectures:
+https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
+It would have been better to have helped Charlie fix their series (my
+apologies) but they agreed that the approach taken here was likely
+best for longer term maintainability:
+https://lore.kernel.org/lkml/Z6Jk_UN9i69QGqUj@ghost/
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 Reviewed-by: Howard Chu <howardchu95@gmail.com>
 Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- tools/perf/builtin-trace.c | 197 +++++++++++++++++++++++++------------
- 1 file changed, 132 insertions(+), 65 deletions(-)
+ tools/perf/Makefile.perf                      |  1 -
+ tools/perf/arch/alpha/entry/syscalls/Kbuild   |  2 -
+ .../alpha/entry/syscalls/Makefile.syscalls    |  5 --
+ tools/perf/arch/arc/entry/syscalls/Kbuild     |  2 -
+ .../arch/arc/entry/syscalls/Makefile.syscalls |  3 -
+ tools/perf/arch/arm/entry/syscalls/Kbuild     |  4 -
+ .../arch/arm/entry/syscalls/Makefile.syscalls |  2 -
+ tools/perf/arch/arm64/entry/syscalls/Kbuild   |  3 -
+ .../arm64/entry/syscalls/Makefile.syscalls    |  6 --
+ tools/perf/arch/csky/entry/syscalls/Kbuild    |  2 -
+ .../csky/entry/syscalls/Makefile.syscalls     |  3 -
+ .../perf/arch/loongarch/entry/syscalls/Kbuild |  2 -
+ .../entry/syscalls/Makefile.syscalls          |  3 -
+ tools/perf/arch/mips/entry/syscalls/Kbuild    |  2 -
+ .../mips/entry/syscalls/Makefile.syscalls     |  5 --
+ tools/perf/arch/parisc/entry/syscalls/Kbuild  |  3 -
+ .../parisc/entry/syscalls/Makefile.syscalls   |  6 --
+ tools/perf/arch/powerpc/entry/syscalls/Kbuild |  3 -
+ .../powerpc/entry/syscalls/Makefile.syscalls  |  6 --
+ tools/perf/arch/riscv/entry/syscalls/Kbuild   |  2 -
+ .../riscv/entry/syscalls/Makefile.syscalls    |  4 -
+ tools/perf/arch/s390/entry/syscalls/Kbuild    |  2 -
+ .../s390/entry/syscalls/Makefile.syscalls     |  5 --
+ tools/perf/arch/sh/entry/syscalls/Kbuild      |  2 -
+ .../arch/sh/entry/syscalls/Makefile.syscalls  |  4 -
+ tools/perf/arch/sparc/entry/syscalls/Kbuild   |  3 -
+ .../sparc/entry/syscalls/Makefile.syscalls    |  5 --
+ tools/perf/arch/x86/entry/syscalls/Kbuild     |  3 -
+ .../arch/x86/entry/syscalls/Makefile.syscalls |  6 --
+ tools/perf/arch/xtensa/entry/syscalls/Kbuild  |  2 -
+ .../xtensa/entry/syscalls/Makefile.syscalls   |  4 -
+ tools/perf/scripts/Makefile.syscalls          | 61 ---------------
+ tools/perf/scripts/syscalltbl.sh              | 76 -------------------
+ 33 files changed, 242 deletions(-)
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/scripts/Makefile.syscalls
+ delete mode 100755 tools/perf/scripts/syscalltbl.sh
 
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 092c5f6404ba..bdfd3d5128b7 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -66,6 +66,7 @@
- #include "syscalltbl.h"
- #include "../perf.h"
- #include "trace_augment.h"
-+#include "dwarf-regs.h"
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index f949ec72f3d2..f3cd8de15d1a 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -339,7 +339,6 @@ ifeq ($(filter feature-dump,$(MAKECMDGOALS)),feature-dump)
+ FEATURE_TESTS := all
+ endif
+ endif
+-include $(srctree)/tools/perf/scripts/Makefile.syscalls
+ include Makefile.config
+ endif
  
- #include <errno.h>
- #include <inttypes.h>
-@@ -86,6 +87,7 @@
- 
- #include <linux/ctype.h>
- #include <perf/mmap.h>
-+#include <tools/libc_compat.h>
- 
- #ifdef HAVE_LIBTRACEEVENT
- #include <event-parse.h>
-@@ -149,7 +151,10 @@ struct trace {
- 	struct perf_tool	tool;
- 	struct syscalltbl	*sctbl;
- 	struct {
-+		/** Sorted sycall numbers used by the trace. */
- 		struct syscall  *table;
-+		/** Size of table. */
-+		size_t		table_size;
- 		struct {
- 			struct evsel *sys_enter,
- 				*sys_exit,
-@@ -1454,22 +1459,37 @@ static const struct syscall_fmt *syscall_fmt__find_by_alias(const char *alias)
- 	return __syscall_fmt__find_by_alias(syscall_fmts, nmemb, alias);
- }
- 
--/*
-- * is_exit: is this "exit" or "exit_group"?
-- * is_open: is this "open" or "openat"? To associate the fd returned in sys_exit with the pathname in sys_enter.
-- * args_size: sum of the sizes of the syscall arguments, anything after that is augmented stuff: pathname for openat, etc.
-- * nonexistent: Just a hole in the syscall table, syscall id not allocated
-+/**
-+ * struct syscall
-  */
- struct syscall {
-+	/** @e_machine: The ELF machine associated with the entry. */
-+	int e_machine;
-+	/** @id: id value from the tracepoint, the system call number. */
-+	int id;
- 	struct tep_event    *tp_format;
- 	int		    nr_args;
-+	/**
-+	 * @args_size: sum of the sizes of the syscall arguments, anything
-+	 * after that is augmented stuff: pathname for openat, etc.
-+	 */
-+
- 	int		    args_size;
- 	struct {
- 		struct bpf_program *sys_enter,
- 				   *sys_exit;
- 	}		    bpf_prog;
-+	/** @is_exit: is this "exit" or "exit_group"? */
- 	bool		    is_exit;
-+	/**
-+	 * @is_open: is this "open" or "openat"? To associate the fd returned in
-+	 * sys_exit with the pathname in sys_enter.
-+	 */
- 	bool		    is_open;
-+	/**
-+	 * @nonexistent: Name lookup failed. Just a hole in the syscall table,
-+	 * syscall id not allocated.
-+	 */
- 	bool		    nonexistent;
- 	bool		    use_btf;
- 	struct tep_format_field *args;
-@@ -2107,22 +2127,21 @@ static int syscall__set_arg_fmts(struct syscall *sc)
- 	return 0;
- }
- 
--static int trace__read_syscall_info(struct trace *trace, int id)
-+static int syscall__read_info(struct syscall *sc, struct trace *trace)
- {
- 	char tp_name[128];
--	struct syscall *sc;
--	const char *name = syscalltbl__name(trace->sctbl, id);
-+	const char *name;
- 	int err;
- 
--	if (trace->syscalls.table == NULL) {
--		trace->syscalls.table = calloc(trace->sctbl->syscalls.max_id + 1, sizeof(*sc));
--		if (trace->syscalls.table == NULL)
--			return -ENOMEM;
--	}
--	sc = trace->syscalls.table + id;
- 	if (sc->nonexistent)
- 		return -EEXIST;
- 
-+	if (sc->name) {
-+		/* Info already read. */
-+		return 0;
-+	}
-+
-+	name = syscalltbl__name(trace->sctbl, sc->id);
- 	if (name == NULL) {
- 		sc->nonexistent = true;
- 		return -EEXIST;
-@@ -2145,15 +2164,16 @@ static int trace__read_syscall_info(struct trace *trace, int id)
- 	 */
- 	if (IS_ERR(sc->tp_format)) {
- 		sc->nonexistent = true;
--		return PTR_ERR(sc->tp_format);
-+		err = PTR_ERR(sc->tp_format);
-+		sc->tp_format = NULL;
-+		return err;
- 	}
- 
- 	/*
- 	 * The tracepoint format contains __syscall_nr field, so it's one more
- 	 * than the actual number of syscall arguments.
- 	 */
--	if (syscall__alloc_arg_fmts(sc, IS_ERR(sc->tp_format) ?
--					RAW_SYSCALL_ARGS_NUM : sc->tp_format->format.nr_fields - 1))
-+	if (syscall__alloc_arg_fmts(sc, sc->tp_format->format.nr_fields - 1))
- 		return -ENOMEM;
- 
- 	sc->args = sc->tp_format->format.fields;
-@@ -2442,13 +2462,69 @@ static size_t syscall__scnprintf_args(struct syscall *sc, char *bf, size_t size,
- 	return printed;
- }
- 
-+static void syscall__init(struct syscall *sc, int e_machine, int id)
-+{
-+	memset(sc, 0, sizeof(*sc));
-+	sc->e_machine = e_machine;
-+	sc->id = id;
-+}
-+
-+static void syscall__exit(struct syscall *sc)
-+{
-+	if (!sc)
-+		return;
-+
-+	zfree(&sc->arg_fmt);
-+}
-+
-+static int syscall__cmp(const void *va, const void *vb)
-+{
-+	const struct syscall *a = va, *b = vb;
-+
-+	if (a->e_machine != b->e_machine)
-+		return a->e_machine - b->e_machine;
-+
-+	return a->id - b->id;
-+}
-+
-+static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, int id)
-+{
-+	struct syscall key = {
-+		.e_machine = e_machine,
-+		.id = id,
-+	};
-+	struct syscall *sc, *tmp;
-+
-+	if (trace->syscalls.table) {
-+		sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-+			     sizeof(struct syscall), syscall__cmp);
-+		if (sc)
-+			return sc;
-+	}
-+
-+	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
-+			   sizeof(struct syscall));
-+	if (!tmp)
-+		return NULL;
-+
-+	trace->syscalls.table = tmp;
-+	sc = &trace->syscalls.table[trace->syscalls.table_size++];
-+	syscall__init(sc, e_machine, id);
-+	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(struct syscall),
-+	      syscall__cmp);
-+	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-+		     sizeof(struct syscall), syscall__cmp);
-+	return sc;
-+}
-+
- typedef int (*tracepoint_handler)(struct trace *trace, struct evsel *evsel,
- 				  union perf_event *event,
- 				  struct perf_sample *sample);
- 
--static struct syscall *trace__syscall_info(struct trace *trace,
--					   struct evsel *evsel, int id)
-+static struct syscall *trace__syscall_info(struct trace *trace, struct evsel *evsel,
-+					   int e_machine, int id)
- {
-+	struct syscall *sc;
- 	int err = 0;
- 
- 	if (id < 0) {
-@@ -2473,28 +2549,20 @@ static struct syscall *trace__syscall_info(struct trace *trace,
- 
- 	err = -EINVAL;
- 
--	if (id > trace->sctbl->syscalls.max_id) {
--		goto out_cant_read;
--	}
+diff --git a/tools/perf/arch/alpha/entry/syscalls/Kbuild b/tools/perf/arch/alpha/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/alpha/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls b/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 690168aac34d..000000000000
+--- a/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
 -
--	if ((trace->syscalls.table == NULL || trace->syscalls.table[id].name == NULL) &&
--	    (err = trace__read_syscall_info(trace, id)) != 0)
--		goto out_cant_read;
+-syscall_abis_64  +=
 -
--	if (trace->syscalls.table && trace->syscalls.table[id].nonexistent)
--		goto out_cant_read;
-+	sc = trace__find_syscall(trace, e_machine, id);
-+	if (sc)
-+		err = syscall__read_info(sc, trace);
- 
--	return &trace->syscalls.table[id];
+-syscalltbl = $(srctree)/tools/perf/arch/alpha/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/arc/entry/syscalls/Kbuild b/tools/perf/arch/arc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/arc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 391d30ab7a83..000000000000
+--- a/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
 -
--out_cant_read:
--	if (verbose > 0) {
-+	if (err && verbose > 0) {
- 		char sbuf[STRERR_BUFSIZE];
--		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err, str_error_r(-err, sbuf, sizeof(sbuf)));
--		if (id <= trace->sctbl->syscalls.max_id && trace->syscalls.table[id].name != NULL)
--			fprintf(trace->output, "(%s)", trace->syscalls.table[id].name);
-+
-+		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err,
-+			str_error_r(-err, sbuf, sizeof(sbuf)));
-+		if (sc && sc->name)
-+			fprintf(trace->output, "(%s)", sc->name);
- 		fputs(" information\n", trace->output);
- 	}
--	return NULL;
-+	return err ? NULL : sc;
- }
- 
- struct syscall_stats {
-@@ -2643,14 +2711,6 @@ static void *syscall__augmented_args(struct syscall *sc, struct perf_sample *sam
- 	return NULL;
- }
- 
--static void syscall__exit(struct syscall *sc)
--{
--	if (!sc)
--		return;
+-syscall_abis_32 += arc time32 renameat stat64 rlimit
+diff --git a/tools/perf/arch/arm/entry/syscalls/Kbuild b/tools/perf/arch/arm/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9d777540f089..000000000000
+--- a/tools/perf/arch/arm/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
 -
--	zfree(&sc->arg_fmt);
+-syscall_abis_32 += oabi
+-syscalltbl = $(srctree)/tools/perf/arch/arm/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/arm/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/arm64/entry/syscalls/Kbuild b/tools/perf/arch/arm64/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/arm64/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index e7e78c2d1c02..000000000000
+--- a/tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 +=
+-syscall_abis_64 += renameat rlimit memfd_secret
+-
+-syscalltbl = $(srctree)/tools/perf/arch/arm64/entry/syscalls/syscall_%.tbl
+diff --git a/tools/perf/arch/csky/entry/syscalls/Kbuild b/tools/perf/arch/csky/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/csky/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls b/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index ea2dd10d0571..000000000000
+--- a/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += csky time32 stat64 rlimit
+diff --git a/tools/perf/arch/loongarch/entry/syscalls/Kbuild b/tools/perf/arch/loongarch/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/loongarch/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls b/tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 47d32da2aed8..000000000000
+--- a/tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_64 +=
+diff --git a/tools/perf/arch/mips/entry/syscalls/Kbuild b/tools/perf/arch/mips/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/mips/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/mips/entry/syscalls/Makefile.syscalls b/tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 9ee914bdfb05..000000000000
+--- a/tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_64 += n64
+-
+-syscalltbl = $(srctree)/tools/perf/arch/mips/entry/syscalls/syscall_n64.tbl
+diff --git a/tools/perf/arch/parisc/entry/syscalls/Kbuild b/tools/perf/arch/parisc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/parisc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index ae326fecb83b..000000000000
+--- a/tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32  +=
+-syscall_abis_64  +=
+-
+-syscalltbl = $(srctree)/tools/perf/arch/parisc/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/powerpc/entry/syscalls/Kbuild b/tools/perf/arch/powerpc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/powerpc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index e35afbc57c79..000000000000
+--- a/tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += nospu
+-syscall_abis_64 += nospu
+-
+-syscalltbl = $(srctree)/tools/perf/arch/powerpc/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/riscv/entry/syscalls/Kbuild b/tools/perf/arch/riscv/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/riscv/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls b/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 9668fd1faf60..000000000000
+--- a/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += riscv memfd_secret
+-syscall_abis_64 += riscv rlimit memfd_secret
+diff --git a/tools/perf/arch/s390/entry/syscalls/Kbuild b/tools/perf/arch/s390/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/s390/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls b/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 9762d7abf17c..000000000000
+--- a/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_64 += renameat rlimit memfd_secret
+-
+-syscalltbl = $(srctree)/tools/perf/arch/s390/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/sh/entry/syscalls/Kbuild b/tools/perf/arch/sh/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/sh/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/sh/entry/syscalls/Makefile.syscalls b/tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 25080390e4ed..000000000000
+--- a/tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 +=
+-syscalltbl = $(srctree)/tools/perf/arch/sh/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/sparc/entry/syscalls/Kbuild b/tools/perf/arch/sparc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/sparc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 212c1800b644..000000000000
+--- a/tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32  +=
+-syscall_abis_64  +=
+-syscalltbl = $(srctree)/tools/perf/arch/sparc/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/x86/entry/syscalls/Kbuild b/tools/perf/arch/x86/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/x86/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls b/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index db3d5d6d4e56..000000000000
+--- a/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += i386
+-syscall_abis_64 +=
+-
+-syscalltbl = $(srctree)/tools/perf/arch/x86/entry/syscalls/syscall_%.tbl
+diff --git a/tools/perf/arch/xtensa/entry/syscalls/Kbuild b/tools/perf/arch/xtensa/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/xtensa/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls b/tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index d4aa2358460c..000000000000
+--- a/tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32  +=
+-syscalltbl = $(srctree)/tools/perf/arch/xtensa/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/scripts/Makefile.syscalls b/tools/perf/scripts/Makefile.syscalls
+deleted file mode 100644
+index 8bf55333262e..000000000000
+--- a/tools/perf/scripts/Makefile.syscalls
++++ /dev/null
+@@ -1,61 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-# This Makefile generates headers in
+-# tools/perf/arch/$(SRCARCH)/include/generated/asm from the architecture's
+-# syscall table. This will either be from the generic syscall table, or from a
+-# table that is specific to that architecture.
+-
+-PHONY := all
+-all:
+-
+-obj := $(OUTPUT)arch/$(SRCARCH)/include/generated/asm
+-
+-syscall_abis_32  := common,32
+-syscall_abis_64  := common,64
+-syscalltbl := $(srctree)/tools/scripts/syscall.tbl
+-
+-# let architectures override $(syscall_abis_%) and $(syscalltbl)
+--include $(srctree)/tools/perf/arch/$(SRCARCH)/entry/syscalls/Makefile.syscalls
+-include $(srctree)/tools/build/Build.include
+--include $(srctree)/tools/perf/arch/$(SRCARCH)/entry/syscalls/Kbuild
+-
+-systbl := $(srctree)/tools/perf/scripts/syscalltbl.sh
+-
+-syscall-y   := $(addprefix $(obj)/, $(syscall-y))
+-
+-# Remove stale wrappers when the corresponding files are removed from generic-y
+-old-headers := $(wildcard $(obj)/*.h)
+-unwanted    := $(filter-out $(syscall-y),$(old-headers))
+-
+-quiet_cmd_remove = REMOVE  $(unwanted)
+-      cmd_remove = rm -f $(unwanted)
+-
+-quiet_cmd_systbl = SYSTBL  $@
+-      cmd_systbl = $(CONFIG_SHELL) $(systbl) \
+-		   $(if $(systbl-args-$*),$(systbl-args-$*),$(systbl-args)) \
+-		   --abis $(subst $(space),$(comma),$(strip $(syscall_abis_$*))) \
+-		   $< $@
+-
+-all: $(syscall-y)
+-	$(if $(unwanted),$(call cmd,remove))
+-	@:
+-
+-$(obj)/syscalls_%.h: $(syscalltbl) $(systbl) FORCE
+-	$(call if_changed,systbl)
+-
+-targets := $(syscall-y)
+-
+-# Create output directory. Skip it if at least one old header exists
+-# since we know the output directory already exists.
+-ifeq ($(old-headers),)
+-$(shell mkdir -p $(obj))
+-endif
+-
+-PHONY += FORCE
+-
+-FORCE:
+-
+-existing-targets := $(wildcard $(sort $(targets)))
+-
+--include $(foreach f,$(existing-targets),$(dir $(f)).$(notdir $(f)).cmd)
+-
+-.PHONY: $(PHONY)
+diff --git a/tools/perf/scripts/syscalltbl.sh b/tools/perf/scripts/syscalltbl.sh
+deleted file mode 100755
+index a39b3013b103..000000000000
+--- a/tools/perf/scripts/syscalltbl.sh
++++ /dev/null
+@@ -1,76 +0,0 @@
+-#!/bin/sh
+-# SPDX-License-Identifier: GPL-2.0
+-#
+-# Generate a syscall table header.
+-#
+-# Each line of the syscall table should have the following format:
+-#
+-# NR ABI NAME [NATIVE] [COMPAT]
+-#
+-# NR       syscall number
+-# ABI      ABI name
+-# NAME     syscall name
+-# NATIVE   native entry point (optional)
+-# COMPAT   compat entry point (optional)
+-
+-set -e
+-
+-usage() {
+-	echo >&2 "usage: $0 [--abis ABIS] INFILE OUTFILE" >&2
+-	echo >&2
+-	echo >&2 "  INFILE    input syscall table"
+-	echo >&2 "  OUTFILE   output header file"
+-	echo >&2
+-	echo >&2 "options:"
+-	echo >&2 "  --abis ABIS        ABI(s) to handle (By default, all lines are handled)"
+-	exit 1
 -}
 -
- static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
- 			    union perf_event *event __maybe_unused,
- 			    struct perf_sample *sample)
-@@ -2662,7 +2722,7 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
- 	int augmented_args_size = 0;
- 	void *augmented_args = NULL;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	struct thread_trace *ttrace;
- 
- 	if (sc == NULL)
-@@ -2736,7 +2796,7 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
- 	struct thread_trace *ttrace;
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	char msg[1024];
- 	void *args, *augmented_args = NULL;
- 	int augmented_args_size;
-@@ -2811,7 +2871,7 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1, callchain_ret = 0, printed = 0;
- 	int alignment = trace->args_alignment;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	struct thread_trace *ttrace;
- 
- 	if (sc == NULL)
-@@ -3164,7 +3224,7 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
- 
- 	if (evsel == trace->syscalls.events.bpf_output) {
- 		int id = perf_evsel__sc_tp_uint(evsel, id, sample);
--		struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 
- 		if (sc) {
- 			fprintf(trace->output, "%s(", sc->name);
-@@ -3673,7 +3733,7 @@ static struct bpf_program *trace__find_syscall_bpf_prog(struct trace *trace, str
- 
- static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 
- 	if (sc == NULL)
- 		return;
-@@ -3684,20 +3744,20 @@ static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
- 
- static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 	return sc ? bpf_program__fd(sc->bpf_prog.sys_enter) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
- }
- 
- static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 	return sc ? bpf_program__fd(sc->bpf_prog.sys_exit) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
- }
- 
- static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigned int *beauty_array)
- {
- 	struct tep_format_field *field;
--	struct syscall *sc = trace__syscall_info(trace, NULL, key);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 	const struct btf_type *bt;
- 	char *struct_offset, *tmp, name[32];
- 	bool can_augment = false;
-@@ -3779,13 +3839,14 @@ static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigne
- 	return -1;
- }
- 
--static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *sc)
-+static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *_sc)
- {
-+	struct syscall sc = *_sc; /* Copy as trace__syscall_info may invalidate pointer. */
- 	struct tep_format_field *field, *candidate_field;
- 	/*
- 	 * We're only interested in syscalls that have a pointer:
- 	 */
--	for (field = sc->args; field; field = field->next) {
-+	for (field = sc.args; field; field = field->next) {
- 		if (field->flags & TEP_FIELD_IS_POINTER)
- 			goto try_to_find_pair;
- 	}
-@@ -3795,15 +3856,16 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- try_to_find_pair:
- 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
- 		int id = syscalltbl__id_at_idx(trace->sctbl, i);
--		struct syscall *pair = trace__syscall_info(trace, NULL, id);
-+		/* calling trace__syscall_info() may invalidate '_sc' */
-+		struct syscall *pair = trace__syscall_info(trace, NULL, sc.e_machine, id);
- 		struct bpf_program *pair_prog;
- 		bool is_candidate = false;
- 
--		if (pair == NULL || pair == sc ||
-+		if (pair == NULL || pair->id == sc.id ||
- 		    pair->bpf_prog.sys_enter == trace->skel->progs.syscall_unaugmented)
- 			continue;
- 
--		for (field = sc->args, candidate_field = pair->args;
-+		for (field = sc.args, candidate_field = pair->args;
- 		     field && candidate_field; field = field->next, candidate_field = candidate_field->next) {
- 			bool is_pointer = field->flags & TEP_FIELD_IS_POINTER,
- 			     candidate_is_pointer = candidate_field->flags & TEP_FIELD_IS_POINTER;
-@@ -3870,7 +3932,7 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 				goto next_candidate;
- 		}
- 
--		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc->name);
-+		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc.name);
- 		return pair_prog;
- 	next_candidate:
- 		continue;
-@@ -3945,7 +4007,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 	 */
- 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
- 		int key = syscalltbl__id_at_idx(trace->sctbl, i);
--		struct syscall *sc = trace__syscall_info(trace, NULL, key);
-+		struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 		struct bpf_program *pair_prog;
- 		int prog_fd;
- 
-@@ -3966,7 +4028,11 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 		pair_prog = trace__find_usable_bpf_prog_entry(trace, sc);
- 		if (pair_prog == NULL)
- 			continue;
+-# default unless specified by options
+-abis=
 -
-+		/*
-+		 * Get syscall info again as find usable entry above might
-+		 * modify the syscall table and shuffle it.
-+		 */
-+		sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 		sc->bpf_prog.sys_enter = pair_prog;
- 
- 		/*
-@@ -4761,7 +4827,10 @@ static size_t syscall__dump_stats(struct trace *trace, FILE *fp,
- 			pct = avg ? 100.0 * stddev_stats(&stats->stats) / avg : 0.0;
- 			avg /= NSEC_PER_MSEC;
- 
--			sc = &trace->syscalls.table[entry->syscall];
-+			sc = trace__syscall_info(trace, /*evsel=*/NULL, EM_HOST, entry->syscall);
-+			if (!sc)
-+				continue;
-+
- 			printed += fprintf(fp, "   %-15s", sc->name);
- 			printed += fprintf(fp, " %8" PRIu64 " %6" PRIu64 " %9.3f %9.3f %9.3f",
- 					   n, stats->nr_failures, entry->msecs, min, avg);
-@@ -5218,12 +5287,10 @@ static int trace__config(const char *var, const char *value, void *arg)
- 
- static void trace__exit(struct trace *trace)
- {
--	int i;
+-while [ $# -gt 0 ]
+-do
+-	case $1 in
+-	--abis)
+-		abis=$(echo "($2)" | tr ',' '|')
+-		shift 2;;
+-	-*)
+-		echo "$1: unknown option" >&2
+-		usage;;
+-	*)
+-		break;;
+-	esac
+-done
 -
- 	strlist__delete(trace->ev_qualifier);
- 	zfree(&trace->ev_qualifier_ids.entries);
- 	if (trace->syscalls.table) {
--		for (i = 0; i <= trace->sctbl->syscalls.max_id; i++)
-+		for (size_t i = 0; i < trace->syscalls.table_size; i++)
- 			syscall__exit(&trace->syscalls.table[i]);
- 		zfree(&trace->syscalls.table);
- 	}
+-if [ $# -ne 2 ]; then
+-	usage
+-fi
+-
+-infile="$1"
+-outfile="$2"
+-
+-sorted_table=$(mktemp /tmp/syscalltbl.XXXXXX)
+-grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | sort -n > $sorted_table
+-
+-echo "static const char *const syscall_num_to_name[] = {" > $outfile
+-# the params are: nr abi name entry compat
+-# use _ for intentionally unused variables according to SC2034
+-while read nr _ name _ _; do
+-	echo "	[$nr] = \"$name\"," >> $outfile
+-done < $sorted_table
+-echo "};" >> $outfile
+-
+-echo "static const uint16_t syscall_sorted_names[] = {" >> $outfile
+-
+-# When sorting by name, add a suffix of 0s upto 20 characters so that system
+-# calls that differ with a numerical suffix don't sort before those
+-# without. This default behavior of sort differs from that of strcmp used at
+-# runtime. Use sed to strip the trailing 0s suffix afterwards.
+-grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | awk '{printf $3; for (i = length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > $sorted_table
+-while read name nr; do
+-	echo "	$nr,	/* $name */" >> $outfile
+-done < $sorted_table
+-echo "};" >> $outfile
+-
+-rm -f $sorted_table
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
 
