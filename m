@@ -4,68 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D678AC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 14:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A3E8C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 14:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XC0+NEt4RiiKbO7UF3Yxoh9abRm3XV6mRGNVJCoycpI=; b=vAkP5RkHj+9Z53lgusErffeBqV
-	xkNtLz6pGaEFQXRQ+FxoMUVM0eJOa2mQaj1y3C7plWrMAUBYzHOEZ9y8vIsm5RWPikM4VDurVfN1J
-	qSat79oVulv+0HdLeQL9vsyOv9YE+X0FrivtX17XJDpt+k0mpQGCttmyZANIwVmYGhIz8Jl0cfdyA
-	owEikT8KYldL81hubUym9j8L9rK9fnOX1MuF5YT63eCdedMfktkgzndVR7TZsvAnFk2Xtz8Q3uWNA
-	/gMqBsMIqQq0DQhSekNcO0j26NiQEVt4cFAS/7dBrnP4KZ52RPJtTh9k/GQPYfC9fa1qhwRjcF9v2
-	4THgH1jw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oS4cP/37BKCIxr7wTECjEXBITtQEyQd6aYA2V5M7cZg=; b=4+lIHtXRDHY6nL7Es7poJJay9V
+	GZByqUoEZhL97kl7/claxR1eR7yMvqz+Cv8HwvJhGBeZKmJcvVA6w73akRMZwiGdQ3u8Yt6wjrkrj
+	xDa5HfUu7QVqdloxEDoBOtLnCOexMIY98To6GUfq0X3n1IK1qgnfi70TX/HuBrwYHuNjB1yOymkKB
+	ZloV2xlr97ZW/2nlJCaK+/y4X8XpVulvIV1kmXwmVPDoAgE2qwMivcZ+oLC8c0F7rnmobyPRNEIUy
+	s1rHMgpFo/XIY/HgwWDBfz/qJJqu1fTWPFTg/kVR/LDOeEejdAiK5t3AI1u9YBOtA8Xhfno/RIsQL
+	M6mUrq3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXto-00000006BD0-2CgF;
-	Tue, 18 Mar 2025 14:26:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXor-00000006ADg-0Cc0;
-	Tue, 18 Mar 2025 14:21:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742307683;
-	bh=DlTALxhnX1WzQznDtq8NeSAib+9haWmUV8E0yQEGDc4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KhDI9DBXFlIC2GO3+W6xzD9tsjvysmhhYIc+vB+keu4md9fXlwTSNN4CksQ8fRMTl
-	 zXwvLnNHqzHqdGDsuZ9fjcgD/0qrG7V+40I63YqSxeZpVkroSWG4j2tDva1KtU3mcN
-	 E5toQgEr5RwPfvPfuFv/hteWGM0Hc2p4WpGsUVQIIDBoxs3sBCHbERCNtwecdrsLm0
-	 ZSeo6csHIPCbHDRGzJW3ZXLejGyvelgQ9Eb+yz0K92U8T8Z3hu5ldPzf8enVT+dbRD
-	 sgzuE/Vbz/iVoNUYTF1L1zXDbUz/eccgz3ikGnghE06aZAnh+iPV9Gfs1yXPXRPokt
-	 7JXxZGlh3AMAQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 906DA17E0B25;
-	Tue, 18 Mar 2025 15:21:22 +0100 (CET)
-Message-ID: <2b666683-47f9-44b5-bae9-109764e60690@collabora.com>
-Date: Tue, 18 Mar 2025 15:21:21 +0100
+	id 1tuY19-00000006C3C-0CqN;
+	Tue, 18 Mar 2025 14:34:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuXzR-00000006Bqg-18JL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 14:32:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02E4313D5;
+	Tue, 18 Mar 2025 07:32:28 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B08503F694;
+	Tue, 18 Mar 2025 07:32:18 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH Resend] perf/arm-cmn: Remove CMN-600 DTC domain special case
+Date: Tue, 18 Mar 2025 14:32:10 +0000
+Message-Id: <67985e39f53b56385d79a4f1264cf7f9cacedb58.1742308248.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] platform/chrome: Add support for Google Spherion in
- HW prober
-To: Laura Nao <laura.nao@collabora.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com, bleung@chromium.org,
- tzungbi@kernel.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- chrome-platform@lists.linux.dev, nfraprado@collabora.com,
- kernel@collabora.com
-References: <20250318102259.189289-1-laura.nao@collabora.com>
- <20250318102259.189289-2-laura.nao@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250318102259.189289-2-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_072125_237381_FE015A2F 
-X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-CacheID: sfid-20250318_073221_351110_4B81F59A 
+X-CRM114-Status: UNSURE (   8.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,14 +62,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 18/03/25 11:22, Laura Nao ha scritto:
-> Add a new compatible entry for "google,spherion" to the hardware prober
-> platform list, using the same I2C component prober and trackpad data as
-> "google,hana".
-> 
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+The special case for trying to infer the DTC domain for DTC-adjacent
+nodes on CMN-600 is fragile and buggy - currently resulting in subtly
+messed up DTC counter allocation - and the theoretical benefit it
+offers to a tiny minority of use-cases arguably doesn't outweigh the
+inconsistency it offers to others anyway. Just get rid of it.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Fixes: ab33c66fd8f1 ("perf/arm-cmn: Enable per-DTC counter allocation")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index ef959e66db7c..582f0c0e1783 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2166,13 +2166,6 @@ static int arm_cmn_init_dtcs(struct arm_cmn *cmn)
+ 
+ 	cmn->xps = arm_cmn_node(cmn, CMN_TYPE_XP);
+ 
+-	if (cmn->part == PART_CMN600 && cmn->num_dtcs > 1) {
+-		/* We do at least know that a DTC's XP must be in that DTC's domain */
+-		dn = arm_cmn_node(cmn, CMN_TYPE_DTC);
+-		for (int i = 0; i < cmn->num_dtcs; i++)
+-			arm_cmn_node_to_xp(cmn, dn + i)->dtc = i;
+-	}
+-
+ 	for (dn = cmn->dns; dn->type; dn++) {
+ 		if (dn->type == CMN_TYPE_XP)
+ 			continue;
+-- 
+2.39.2.101.g768bb238c484.dirty
 
 
