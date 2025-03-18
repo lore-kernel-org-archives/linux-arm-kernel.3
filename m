@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C213C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 23:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C503BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 23:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PnbLxDMWbVDlEpTCXqz7a4gZe51CrxPsR3b6bqVyzmI=; b=d3shRNISfh1a+16s3PXNiOsXnb
-	vftuMSGwZ5IidcOI/Y5tUXLOPMJ7gKMN4dzeJYjya4qVmmadPrerCtsYV917i3BZ7ZjKfnYBoxNqF
-	EVaaKFDuWGOQAhB53SWfl0H+TLT//F8p9EjeS7GBciQP6ONrB7Vho2vkIlSKNCXegPTnN5Oon7FCO
-	pSy39qqjV/kCzxobZjtzp8t+mAx+S9o16KN67diK5psUXnpxmOhwQmxtCJQbB/DbGoHupkfujgJL8
-	r2FwA+fP39sTLc7qz05gO6QgsUaqILKmqxbpDvHnwhwBIXgWL9jw9chuuvkPos9SAtoclWy/OdPSH
-	V90XYAkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9waQFPkUXJUsfwE90tbtlsqX4D6x8wAx76HDuLM+Jt0=; b=TEaF1D2VB2hKKFOSRzvfad3qYa
+	KtbaNArLKUMZ6nZXlGi4hJ/oDtaiNQsJpGHWAHBk9wdCHA+514Jv8bHljO0XZt7yrjp3rTJPOALhX
+	H2BVY7Hf0+Y7LyXYYl+pyvE03Oq02acOl/o35sho1zCpJv1nZwPmJp4e7I3ny6GlrlRSR8w6RNmgm
+	OIww99+9IvnAKKL7SskLQqRVOCP4xdtUzIKrGFzKOoNpNm/KzN4AG1U6gmQO4HEXVZolvBg6uQ7JV
+	RPG7edzP6syBtBfR+d8XLr39cS0IPEfAElnR8W5UZlqx1qadVLHWElWiJ30J34cUC1IW4gfGhXGI9
+	kaP/qHSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tugUH-00000007PkL-2rXn;
-	Tue, 18 Mar 2025 23:36:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tugXh-00000007QaA-3FRh;
+	Tue, 18 Mar 2025 23:40:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tugSY-00000007PLO-3QcC;
-	Tue, 18 Mar 2025 23:34:59 +0000
+	id 1tugW1-00000007QC1-0dLL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 23:38:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10979A48D97;
-	Tue, 18 Mar 2025 23:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3461C4CEE9;
-	Tue, 18 Mar 2025 23:34:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A177615B7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 23:38:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9979C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 23:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742340897;
-	bh=pMn93BCYx8Yd/sNKAxUy368DN98GPccSOpgU0WBYfvk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ma8z723PtjSDzA2o+p77HmCpTJX4ju6WX+CjS6LUcxG96CpWq32+ZfhY03OVdZfxP
-	 SqKNCq35x5v7tsPOfZk1UZWc/yR5hUCAZOhyRu0SX4PuASaXrMhyOXcj9a6mxsE0X4
-	 v6LM0d0mnjjVgklNNskiyKXvuHHtGZt8OLibTuDWSzuCJMcxywDRqUju9giscYQhU5
-	 Q2lJK/0ZqX92Vh7zurs+49Bnvs0XW2o/6CeO5KvqPffQXRObGesnQIcEBHFICqXnk/
-	 HP03ZRR3JdFb3n2PiowiQXCu/8XXXDvcXuM2qqIqzeqD7/0EDwIHsJRS0PLzrJOQND
-	 u6/KFxAn9xSRw==
-Date: Wed, 19 Mar 2025 00:34:53 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Zoie Lin <zoie.lin@mediatek.com>
-Cc: Qii Wang <qii.wang@mediatek.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Project_Global_Chrome_Upstream_Group@mediatek.com, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, teddy.chen@mediatek.com, 
-	joseph-cc.chang@mediatek.com, leilk.liu@mediatek.com
-Subject: Re: [PATCH v5 1/1] i2c: mediatek: add runtime PM operations and bus
- regulator control
-Message-ID: <fqicrglyug7gmkmysok7hilhmkyhxmnkztzv4iffgry6xce6t3@2i6b2ihfu4rb>
-References: <20250314145407.2900190-1-zoie.lin@mediatek.com>
+	s=k20201202; t=1742341112;
+	bh=0sQP/zy1cL6eeBuTAfDEdObSUHX4VZnFu6uuqYNdUys=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=lPqP93NexOCo/mjC1/g/fOcLQOVUb76koBw1Ka7hIA0/3JHOV890jSy/D3AZi1U/F
+	 koO9S519NLnhqA2/IeE4tzt8xG4MX+Ix7Ic9dLC12U3S98BbN31+Z+sWOM0t0jKRto
+	 foQ4UA3oht4OY55+u34YvsB5QA4BTvs4baT0zTruJ7em2WD2XgbNwO3VzFfle6ZuiB
+	 z/MBe+sQArwn2XJrcMXN3xYl1yNF6OEmrPkpLrYKFcbJa+QftYA6sOAmXsw340PUHv
+	 cPQTfNOkGmo3bSsPA/uqdB/N3j5BuLeisYuyQH7CQAhYeOUWJK9x2AeyGZ1TXZ2Ujo
+	 C6oW3505FbwRA==
+Received: by mail-il1-f169.google.com with SMTP id e9e14a558f8ab-3cf8e017abcso27666625ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 16:38:31 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yxf0QNIFmdSuhof/T/Y4k4zlZl5LBQTbXnWH46KB2kUB/uPgnYN
+	hAjcUTxAXjfGBKc1oKPQKBR9e13kI6Zy7nhRGCfCjmJ+X71JUiVWdrZnGvKQVJI8D74dccqxO6h
+	2faFsH1AMzVxJ2WQ0qWTnIfTg9Sg=
+X-Google-Smtp-Source: AGHT+IHS3zxaZCTk4uR7+SQt6Hjo61e5reTYmle1fxQ8GKm4FJb/GLNLIm9puqPCgCkzg8mO2W7H5OI9Xo6AifIFdRk=
+X-Received: by 2002:a05:6e02:1d17:b0:3d3:ced4:db9b with SMTP id
+ e9e14a558f8ab-3d586b22364mr6299555ab.5.1742341111256; Tue, 18 Mar 2025
+ 16:38:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250314145407.2900190-1-zoie.lin@mediatek.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_163458_918425_0C0B6E74 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+References: <20250308012742.3208215-1-song@kernel.org> <20250308012742.3208215-2-song@kernel.org>
+ <iajk7zuxy7fun7f7sv52ydhq7siqub3ec2lmguomdd3fhdw4s2@cwyfihj3gvpn>
+ <CAPhsuW4A73c0AjpUwSRJ4o-4E6wpA9c5L0xWaxvHkJ3m+BLGVA@mail.gmail.com> <ox4c6flgu7mzkvyontbz2budummiu7e6icke7xl3msmuj2q2ii@xb5mvqcst2vg>
+In-Reply-To: <ox4c6flgu7mzkvyontbz2budummiu7e6icke7xl3msmuj2q2ii@xb5mvqcst2vg>
+From: Song Liu <song@kernel.org>
+Date: Tue, 18 Mar 2025 16:38:20 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW4BEDU=ZJavnofZtygGcQ9AJ5F2jJiuV6-nsnbZD+Gg-Q@mail.gmail.com>
+X-Gm-Features: AQ5f1JrnxVeS0Z8vx1n1BCVHGIXjcVuS53wswCJJXs_3YpwJGWyuN8X5JtywC-A
+Message-ID: <CAPhsuW4BEDU=ZJavnofZtygGcQ9AJ5F2jJiuV6-nsnbZD+Gg-Q@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
+	indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com, 
+	irogers@google.com, joe.lawrence@redhat.com, mark.rutland@arm.com, 
+	peterz@infradead.org, roman.gushchin@linux.dev, rostedt@goodmis.org, 
+	will@kernel.org, kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +85,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zoie,
+On Tue, Mar 18, 2025 at 4:00=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org=
+> wrote:
+>
+> On Tue, Mar 18, 2025 at 01:14:40PM -0700, Song Liu wrote:
+> > >
+> > > See for example all the error conditions in the x86 version of
+> > > arch_stack_walk_reliable() and in arch/x86/kernel/unwind_frame.c.
+> >
+> > I guess I missed this part:
+> >
+> > diff --git i/arch/arm64/kernel/stacktrace.c w/arch/arm64/kernel/stacktr=
+ace.c
+> > index 69d0567a0c38..3bb8e3ea4c4b 100644
+> > --- i/arch/arm64/kernel/stacktrace.c
+> > +++ w/arch/arm64/kernel/stacktrace.c
+> > @@ -268,6 +268,8 @@ kunwind_next(struct kunwind_state *state)
+> >         case KUNWIND_SOURCE_TASK:
+> >         case KUNWIND_SOURCE_REGS_PC:
+> >                 err =3D kunwind_next_frame_record(state);
+> > +               if (err && err !=3D -ENOENT)
+> > +                       state->common.unreliable =3D true;
+> >                 break;
+> >         default:
+> >                 err =3D -EINVAL;
+>
+> I still see some issues:
+>
+>   - do_kunwind() -> kunwind_recover_return_address() can fail
+>
+>   - do_kunwind() -> consume_state() can fail
 
-On Fri, Mar 14, 2025 at 10:53:43PM +0800, Zoie Lin wrote:
-> Introduce support for runtime PM operations in
-> the I2C driver, enabling runtime suspend and resume functionality.
-> 
-> Although in most platforms, the bus power of i2c is always
-> on, some platforms disable the i2c bus power in order to meet
-> low power request.
-> 
-> This implementation includes bus regulator control to facilitate
-> proper handling of the bus power based on platform requirements.
-> 
-> Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
+Great points! I have got the following:
 
-merged to i2c/i2c-host.
+diff --git i/arch/arm64/kernel/stacktrace.c w/arch/arm64/kernel/stacktrace.=
+c
+index 69d0567a0c38..852e4b322209 100644
+--- i/arch/arm64/kernel/stacktrace.c
++++ w/arch/arm64/kernel/stacktrace.c
+@@ -139,6 +139,7 @@ kunwind_recover_return_address(struct kunwind_state *st=
+ate)
+                                                (void *)state->common.fp);
+                if (state->common.pc =3D=3D orig_pc) {
+                        WARN_ON_ONCE(state->task =3D=3D current);
++                       state->common.unreliable =3D true;
+                        return -EINVAL;
+                }
+                state->common.pc =3D orig_pc;
+@@ -268,6 +269,8 @@ kunwind_next(struct kunwind_state *state)
+        case KUNWIND_SOURCE_TASK:
+        case KUNWIND_SOURCE_REGS_PC:
+                err =3D kunwind_next_frame_record(state);
++               if (err && err !=3D -ENOENT)
++                       state->common.unreliable =3D true;
+                break;
+        default:
+                err =3D -EINVAL;
+@@ -404,12 +407,16 @@ static __always_inline bool
+ arch_kunwind_reliable_consume_entry(const struct kunwind_state
+*state, void *cookie)
+ {
+        struct kunwind_reliable_consume_entry_data *data =3D cookie;
++       bool ret;
+
+        if (state->common.unreliable) {
+                data->unreliable =3D true;
+                return false;
+        }
+-       return data->consume_entry(data->cookie, state->common.pc);
++       ret =3D data->consume_entry(data->cookie, state->common.pc);
++       if (!ret)
++               data->unreliable =3D true;
++       return ret;
+ }
+
+ noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn
+consume_entry,
+
+
+>   - even in the -ENOENT case the unreliable bit has already been set
+>     right before the call to kunwind_next_frame_record_meta().
+
+For this one, do you mean we set state->common.unreliable, but
+failed to propagate it to data.unreliable?
 
 Thanks,
-Andi
+Song
 
