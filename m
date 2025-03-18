@@ -4,90 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A1CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 09:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 153C9C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 09:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bcaaxFP1F23l0PdiW65JYiPYj/NqcM8962Z2DTxPBxc=; b=0qoLLijf50Ova+7UeCMp2vJAv0
-	Cv3/Yq5YYNSAwCvs44YO5/RrKBccZmZIfO+oFV2ymEJx1Ny5BPPe/X7bmY3o73Hpb7uyqXpY95ooo
-	eWF6qy1Tc+TOG9dYvfJrqDzEba/hBTzNz8ZRdJYEcPbo+63GJc6y8n5vp2miIRZop9KcxUU5uabxV
-	7REOIir6nBB5+N6Mb8AtzxxnuFGS6CINGGAPTeBszYdC2zYoLiX42Hz30zRBs9BYWHyloyLVEkH5b
-	m2/Uir8mWYgC2V35vvMrDBkqoiFpSE0mnMo9RTgtPCCJ8gmEradd1HNC/5W8rWFOBymtI6KE988qE
-	CSez1+QA==;
+	bh=72TkmXAQKpNdaC3LctP26eLEn0NO+2H1jjo03xTka6c=; b=fG22wISeJwID4SxPghFOHnO7LC
+	/iAWIsN2RyW6LlB+eG9JTTVYxstxOQp6/J+Ix2MmHfr6tNWB0jxNG3gynsDpUNU62bMiPJWACqpey
+	m41NYgB63FQuMMo5KivhauluQw2Z/Iq+P6z5PRRt9z6+XhKgcrQjsZO4ElD2QUbR143GRYcB+Kt+z
+	HgcEhJ3Q1RBRO9SXoarNGa0p3azldKN9VRnKFawNAd9uRj3CE8yC5bWZksgx7KhtcdeCbdx8xs39c
+	SYZrYzySDShql4pRWDpeE7Iwx9xBqMJ+Pka7UFvwyiN9TPJT6ZNrJMU7IbYwMmcQA+8Z6kydbmk5Z
+	ptgkCdHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuSrE-00000005GCq-2w2k;
-	Tue, 18 Mar 2025 09:03:32 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tuSst-00000005GeS-145O;
+	Tue, 18 Mar 2025 09:05:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuSjb-00000005Eu0-3ZJG
+	id 1tuSlS-00000005FEM-0CS6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 08:55:40 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ff615a114bso4047531a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 01:55:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742288139; x=1742892939; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bcaaxFP1F23l0PdiW65JYiPYj/NqcM8962Z2DTxPBxc=;
-        b=FpMitZvjVb1eU64Ac86GOqPA+gHxWQSLHGsnt5y3I2G/0aFIdKHtV4YEWDXKf8bikx
-         QIEFyU5dtvqwbWaGgLhUFgxn+03ejNzVR47ieBB0rX+UWCR58adVg3qe54DskCNkfdsb
-         0/RTrWP/4NCcD4ti8TrGfYbiDbB8I5HOHB4DPupuDVdmH+3EYKYGzGzckvUzPk9y4oj6
-         8nMamWOUfS9MIIDV+RbIwtCHZyJB8WLbeE7rrYZVgJ0V9LXnFk+hc6N+wgtnRN2guX80
-         oDV5DjdF/lIgRYM9cPyCNKSR79kz76pi5R+hfvdgUCdgxiU3/9qhQIP1eeSdEO46j7HD
-         L0cQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742288139; x=1742892939;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bcaaxFP1F23l0PdiW65JYiPYj/NqcM8962Z2DTxPBxc=;
-        b=GgQKRVGn7hHAfitwPyL9I+mJKQU37PJ+otSj8jti1TLLGcTh0SF4H2CR4jfczZc0RU
-         t2qR42SUb5ovH8G6m88ECsaOVmyHYVUu1bIQV8y6fZPcg1X1maYxK9Czue9giPzvAkZx
-         dhYjjetM9Kv2S6oSVpgtBXULNetgcOo4ls4HBoJfPM05PSUUBnW2iegYJPb8glIGuTa8
-         Ii0rP9i+Z9xIKaKHR2kIkpbVUgIxV/URK06aHRgd/CUoTp7ird8N6lMrUjDwbDzj35SI
-         JbGtS9XHOWPCPjzDakd0gmmLX9But55npJU+YlH+dGezgJ6eAfF0Uq+vFqpKZnFuDqxk
-         eJHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXQveQ7zV0HOMEA2vznnlcnfGyT4+ukpSjjYdHTgYXWOv5xbAIxbRBSCYfzzIzBTatll47efZ4aM/iClWWSn6zD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7RRASPRbi2WnpkwarrwI6dVf5c/NIm0KhPFupTTeg+7pQ5LVg
-	zotSqz4bXdmD1UkET0eqxKDvESd2wJwFcy0kBtAngoQpc+IPXLvVaNM7nXpuWCNI5+646mxcJhC
-	pBwEGcRZnvUyzOJk6PJxk6S7+cco=
-X-Gm-Gg: ASbGncvb/mgig4j/lEgn226Lq6oLLwfIjkKlTLGJWehVrVWZiYA2c6tseqvwy+bVzcC
-	HJrHgV0ulK/SEt8oMkuYAhPgX5ohfROVcRNfv4RdkIzVtXjRobfOpMjYR/tb/fhv6I2zKYM9Wbl
-	Je1G5bVK/69b2Hd5b+j6w+Fdo=
-X-Google-Smtp-Source: AGHT+IGzUXTMu6+0f6gQ8j7WPO24H14DLLXfhIDYppHhvCBnMdLnrdfvlyQcetDDzARbEXc2mLoN0e/rL5Gkqv0Y5W8=
-X-Received: by 2002:a17:90b:2250:b0:2fa:603e:905c with SMTP id
- 98e67ed59e1d1-301a5b0441dmr2305847a91.2.1742288138990; Tue, 18 Mar 2025
- 01:55:38 -0700 (PDT)
+	Tue, 18 Mar 2025 08:57:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BEED6A48EAA;
+	Tue, 18 Mar 2025 08:52:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E64C4CEE9;
+	Tue, 18 Mar 2025 08:57:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742288253;
+	bh=3zZk2oCWReReEzN/FmUmB+RAWcgx2Mhojm2zZi/STT0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ktGyBXciC594TVYC9ZEiklSReBim0xQwZ2XL0nQGjGSegs+uk7vYOkyFkn8YfnnGz
+	 BUSqfhEbK7FsRxadCt7CrLA32GDSfinUelXKmzGDOz97UQcZC442hSR13Swj6OkgZ1
+	 ZS70MORtXSFkUiT2sPTW09uDZpoBArBvXBhD8s0oGs2Qcgqx6urnK6AmbMrlisngOU
+	 1mzvaiZy9iW3aAaRhrn/7I2SUJqOvj9vfAFeMa+VLVCU1c6hrbhKBBWrcKtSLZNuEi
+	 4yEfqrsiaxwh+uKnNAntfDbTRdX9KM9LGyicL7iw8LkPXUpFSGlhAVf94jVOodjtqv
+	 7Kxg+cFf0s6zg==
+Message-ID: <81ce5a24-70b4-4dc7-af1c-3a193c5033e8@kernel.org>
+Date: Tue, 18 Mar 2025 09:57:26 +0100
 MIME-Version: 1.0
-References: <20250317232426.952188-1-robh@kernel.org> <20250317232426.952188-4-robh@kernel.org>
-In-Reply-To: <20250317232426.952188-4-robh@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 18 Mar 2025 10:57:11 +0200
-X-Gm-Features: AQ5f1JoW0JUop4WUBf11_vConfYpr4BhM02aAcWePKMPfEFMJ9UWB8ZNiBwcNWg
-Message-ID: <CAEnQRZA7jEA0V4T1JSam-vV-GcBAbynP0PCfQsyejScwdgd3pg@mail.gmail.com>
-Subject: Re: [PATCH 3/3] remoteproc: Use of_reserved_mem_region_* functions
- for "memory-region"
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Saravana Kannan <saravanak@google.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] watchdog: s3c2410_wdt: Fix PMU register bits for
+ ExynosAutoV920 SoC
+To: sw617.shin@samsung.com, alim.akhtar@samsung.com, wim@linux-watchdog.org,
+ linux@roeck-us.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ 'Kyunghwan Seo' <khwan.seo@samsung.com>
+References: <9c94a771-b3e6-4ba4-9b7f-dcd93b53f924@kernel.org>
+ <CGME20250318005143epcas2p40ebb1954bed8890aaf8d0a641f710423@epcas2p4.samsung.com>
+ <20250318004411.695786-1-sw617.shin@samsung.com>
+ <658c00e2-e8ef-4997-bb91-9620e97bafae@kernel.org>
+ <000001db97e0$f2ef9e60$d8cedb20$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <000001db97e0$f2ef9e60$d8cedb20$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_015539_886797_1D68885C 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250318_015734_226555_E23F97FF 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,23 +123,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 1:25=E2=80=AFAM Rob Herring (Arm) <robh@kernel.org>=
- wrote:
->
-> Use the newly added of_reserved_mem_region_to_resource() and
-> of_reserved_mem_region_count() functions to handle "memory-region"
-> properties.
->
-> The error handling is a bit different in some cases. Often
-> "memory-region" is optional, so failed lookup is not an error. But then
-> an error in of_reserved_mem_lookup() is treated as an error. However,
-> that distinction is not really important. Either the region is available
-> and usable or it is not. So now, it is just
-> of_reserved_mem_region_to_resource() which is checked for an error.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+On 18/03/2025 09:37, sw617.shin@samsung.com wrote:
+>> Why do you send patches which were applied?
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> I can't see this patch in -next yet.
+> Could you please advise me where it is? Then, I will check again.
+> If there are any missing parts that I need to handle on my end,
+> please let me know.
+I don't think you tried enough.
 
-For IMX part:
-
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Best regards,
+Krzysztof
 
