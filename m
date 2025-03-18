@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52618C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127E1C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxbzKraClaTFrRzQSEPz8b03iRr+XTuiYJ3jiE+lJK0=; b=UfGIv8Cqf84m8GSgzXmFGsFetr
-	sVOh//Uiows94Wo+bhCjo7ndtypY0vv9t8Yg8e8crE4/T2Y9tO2E80x/BEk4yYsZDNPaeJ/uCzb0o
-	Lst4MoWsas/omvWzMFxMqaPlmmuEv8/t2GjG16uZm7h7OS+V9an78Rqna1Qfm1Fi6oK7TXfQ6AOl0
-	vlgxfBUPOphr0FnJ1zGZYYzwbfIuezSB9kXlJ0O88Id1BwfEiO7oYnFx8MxBPgoSrh2xDXi5h7D1r
-	TNX7eDYNJW8znAN1qn0xnr+SQ8YSb8htfVA+Z2sB0J6vQbTQrB06XTptjsSOgJun2AcrA/6BG7BfL
-	rAN6uAww==;
+	bh=L6Ipmc6ilCbSYurjtaIb/33JjbYe+per91vNl3/7Nh8=; b=KGCy5ZKyWxMTQ7gG74Udwy5z4F
+	kvy6QPy8A2yaeh+9K9oipyVdHzt+iHtpC9GKrQFefLkClM/wApjyLoMyS80QXh6qRLOcBSa8rGKtn
+	IQJURfKN8uCcPDWTqYJ3hPtuZERzCUL4/0Tr1oBiGoNXWkXBQ51uaI4xO80145aMJEVgszTNveEwR
+	m8JkWugVilm0PYTcWV0ly8rPwD9HA4x0LQQ+MwWsei4IQBMtqGb6NvBpNKtqzUL0YKiWEA9OxPOh9
+	+oK1QEa2XIM/+lwo/SxKk8Dx+FNyihBXrzF6rfO+vLLNMKORRsAosKClNU5uIgPepnk9398MCdtvs
+	nplT4jhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZAu-00000006PBq-36b6;
-	Tue, 18 Mar 2025 15:48:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tuZEH-00000006PtK-3Yn3;
+	Tue, 18 Mar 2025 15:51:45 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZ9C-00000006Oqr-3i8O
+	id 1tuZC4-00000006PT9-1pXc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 15:46:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0B0D35C58BF;
-	Tue, 18 Mar 2025 15:44:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DFE2C4CEDD;
-	Tue, 18 Mar 2025 15:46:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742312788;
-	bh=JnY/ZKE/gr3SlMwGWRDFKvd5Yy5TdFOI6fug+T1XPi8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KavZQkFgOk09Jw4FXDndLh0E2IgQB0RgcPfNcjgeajLCMBIpmVU7G0mi0i5yPg1eB
-	 n60klv1ZVpIHY50jAbD9urEfZAhYp5mx6q8MQoIgdYlNWI5L1eB4XmPdLNvKAaAI2f
-	 loiTcD60OhvtpDwY5w13YIaxrkxlP8oqIRPZMu/CCDyg/hf8NyOY435TTbSSw/wCUy
-	 eE66wwC7ieU9ZuIDzRQzfR0SJSozicIELOMaSrSRyimZVsXFc/E60JpmvJgDhP68bX
-	 GEcEYpkiHr8yNAyLXqSNbFRvlJV+JTvbFk/qiB5nmxaiHMkF3lgNrRH3HZ6HSan2iL
-	 8JmYSzomY3qcA==
-Date: Tue, 18 Mar 2025 15:46:22 +0000
-From: Will Deacon <will@kernel.org>
-To: Rob Clark <robdclark@gmail.com>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Connor Abbott <cwabbott0@gmail.com>, Joerg Roedel <joro@8bytes.org>,
-	Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
- context fault
-Message-ID: <20250318154622.GA13829@willie-the-truck>
-References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
- <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
- <20250311180553.GB5216@willie-the-truck>
- <CACu1E7GzCiO2b7AFJSDC+pN2VD9VaD2aYz_GGymM3-xAUqd__A@mail.gmail.com>
- <20250312130525.GC6181@willie-the-truck>
- <CAF6AEGvqYithLFAKpfdkw35DEsUZ8rBt25-oWz3r=kaLt+RbQw@mail.gmail.com>
- <20250312164735.GA6561@willie-the-truck>
- <CAF6AEGskyoemQDrTXh=ewf61e-hVzWMjmqe=nX2J-65W5-M6Zw@mail.gmail.com>
- <2d47815d-6bee-4d1f-8b60-854763794bf6@arm.com>
- <CAF6AEGvhixYvXghvD+itnSDjr7bO4i3Ls0Y-kXC-ohFN=CS0PQ@mail.gmail.com>
+	Tue, 18 Mar 2025 15:49:29 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e8be1bdb7bso6044740a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 08:49:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742312966; x=1742917766; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=L6Ipmc6ilCbSYurjtaIb/33JjbYe+per91vNl3/7Nh8=;
+        b=MYLEEy9XDfCIR2YHSwbsfP+/31mmXkk/Tvvz9hQzRYZwki4KOxGkU65TZgRJWBDLHW
+         ENqurxbYmrNCGWeyhIA1KSe+MJxA8zRbR5kZMstji8SJZbXLXhPkxPyGuD0ZdK5gUheA
+         BIXrHAQXlsR1a1g1Yuw/YATsiesb0IkwH62KCFujvJy5fLRCaoMdwCwYRY14DALuTohZ
+         y/zTksf+Wtu8a5G4qMHrNsTUYhL63VnNGVZBA+akj14ljBnGZ9neA4IypMXZMMtHN3p9
+         TqnlBeL7QQY7VGL6S5+Vt3vfxVj4lGSAF4rHVVtO0MDrMHbYqSY5ggdLGhtatuEnkyvk
+         evZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742312966; x=1742917766;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=L6Ipmc6ilCbSYurjtaIb/33JjbYe+per91vNl3/7Nh8=;
+        b=Hc9nZKzQwesvwaIMOdvqqTkpgeYTPIpn6bDnHkNgjHpRmv/6M8wSmAKbwGBJsUEmR+
+         2Hyifre0AZxD2cToKD/cp86lkfmMuL+W9eKbZC1DjNN3rSsV7A6KJ/tnbJmEMGT5Avqs
+         8IU2BL03rXXrTMedtbyo3ggc2nCt1uCp/M2CrbvukUyazNoLqJrrk6LiLAX+ARDCyXF/
+         chAwlqIz5CP2723hqB6RsbEfNYznYRA//pPuZSBV+c3Qg0W0N+iSx0XXvijsYdPSnRGg
+         4V3UbEWfInwDZ8QW7fBNxrNYwsL0gcN5D3ySzdolK9MCCNCtsDLDUSEL4sxx0aMQSWDI
+         mAuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUzSRUI5xdYbaJT5IutEo8gTEgSdKCqeB9yG1z7rVFk290pcL2XeW+p2ljRZHuDP38CUxqDu0CUX+rIBTCpMPfb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTwhK640xvzABgzMTHTsD1ZENNwreOVH8Rn5whXVhnzt59FEaY
+	cORPT3W3s79Z11J91uCm+D6F3/OKirUy42Lx1PbaHxAY/btwTcjd
+X-Gm-Gg: ASbGncsjxsM8BPkxSkGDPxYNEnDo5hitD4rTTsGoONEzBRxmGunon1AWEDEcWP/vFxp
+	RE9TtJkDezTRfwJbck2Z3TB5Bc47JyfL6uHz9zez1AtkwrghGVbe/r17Ur2zHTch4yepM9zYcpH
+	SIrdhebnnQU0nsgCrIrg+ytvEYWDmZwZQWMIx71NX4Mv4foJ4ccub0VpnWh/xMDUKRl6oaAnkII
+	GsfPzAtEQGUDjbVgiHK1sEYCkklgAKl8olunzps9LcSbzxZPo+obWDaLm+gpNhX0q4Y1YUCtTyz
+	6Yv/FpBF+iuTJc8qjc/KUTqVokJu8QixKbdl8b/kB3e1dV4cg6N1MssGOtjZ1ef1JyuI9DFC5pD
+	BZIq+nxwCJUOiN7MR/RTzrB0/DjQdri7CNfpkmuFxf7mGHg==
+X-Google-Smtp-Source: AGHT+IHMLkaV8uHFQVg2vHrzXkQR9/w+ti4OyBuv1b8SAJBLiHJR2w6USAKnVcw7fN1kQSv+zr3g9g==
+X-Received: by 2002:a17:906:da8c:b0:ac1:e332:b1f5 with SMTP id a640c23a62f3a-ac38d552e43mr506689066b.37.1742312966212;
+        Tue, 18 Mar 2025 08:49:26 -0700 (PDT)
+Received: from alb3rt0-ThinkPad-P15-Gen-1 (host-95-251-108-181.retail.telecomitalia.it. [95.251.108.181])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3147f0f5dsm885226766b.63.2025.03.18.08.49.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 08:49:25 -0700 (PDT)
+Date: Tue, 18 Mar 2025 16:49:23 +0100
+From: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH] arm64: dtsi: imx93: add alias id for bbnsm_rtc
+Message-ID: <Z9mWA5ldMDqZcVf5@alb3rt0-ThinkPad-P15-Gen-1>
+References: <20250306193014.490091-1-Frank.Li@nxp.com>
+ <116096172.nniJfEyVGO@steina-w>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAF6AEGvhixYvXghvD+itnSDjr7bO4i3Ls0Y-kXC-ohFN=CS0PQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <116096172.nniJfEyVGO@steina-w>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_084631_006566_3EE09072 
-X-CRM114-Status: GOOD (  32.77  )
+X-CRM114-CacheID: sfid-20250318_084928_482984_9DC5187D 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,78 +108,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 12, 2025 at 01:20:45PM -0700, Rob Clark wrote:
-> On Wed, Mar 12, 2025 at 11:01â€¯AM Robin Murphy <robin.murphy@arm.com> wrote:
-> >
-> > On 12/03/2025 5:23 pm, Rob Clark wrote:
-> > > On Wed, Mar 12, 2025 at 9:47â€¯AM Will Deacon <will@kernel.org> wrote:
-> > >>
-> > >> On Wed, Mar 12, 2025 at 07:59:52AM -0700, Rob Clark wrote:
-> > >>> On Wed, Mar 12, 2025 at 6:05â€¯AM Will Deacon <will@kernel.org> wrote:
-> > >>>> On Tue, Mar 11, 2025 at 06:36:38PM -0400, Connor Abbott wrote:
-> > >>>>> On Tue, Mar 11, 2025 at 2:06â€¯PM Will Deacon <will@kernel.org> wrote:
-> > >>>>>> On Tue, Mar 04, 2025 at 11:56:47AM -0500, Connor Abbott wrote:
-> > >>>>>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > >>>>>>> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e3be0bfba75eea1d5de23117de 100644
-> > >>>>>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > >>>>>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > >>>>>>> @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
-> > >>>>>>>                                      struct arm_smmu_context_fault_info *cfi)
-> > >>>>>>>   {
-> > >>>>>>>        cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
-> > >>>>>>> +     cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
-> > >>>>>>>        cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
-> > >>>>>>> -     cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
-> > >>>>>>> +     cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
-> > >>>>>>> +     cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
-> > >>>>>>
-> > >>>>>> We already have an implementation hook (->get_fault_info()) which the
-> > >>>>>> qcom SMMU driver can override with qcom_adreno_smmu_get_fault_info().
-> > >>>>>> That thing dumps these registers already so if we're moving that into
-> > >>>>>> the core SMMU driver, let's get rid of the hook and move everybody over
-> > >>>>>> rather than having it done in both places.
-> > >>>>>
-> > >>>>> As you probably saw, the next commit moves over
-> > >>>>> qcom_adreno_smmu_get_fault_info() to use this. The current back door
-> > >>>>> used by drm/msm to access these functions is specific to adreno_smmu
-> > >>>>> and there isn't an equivalent interface to allow it to call a generic
-> > >>>>> SMMU function so it isn't possible to move it entirely to the core. At
-> > >>>>> least not without a bigger refactoring that isn't justified for this
-> > >>>>> series that is just trying to fix things.
-> > >>>>
-> > >>>> Ok :(
-> > >>>>
-> > >>>>>>>        cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
-> > >>>>>>> +     cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
-> > >>>>>>
-> > >>>>>> I think the CONTEXTIDR register is stage-1 only, so we shouldn't dump
-> > >>>>>> it for stage-2 domains.
-> > >>>>>>
-> > >>>>> Does it matter if we read the register though, as long as users are
-> > >>>>> aware of this and don't use its value for anything?
-> > >>>>
-> > >>>> I think the contents are "UNKNOWN", so it could be hugely confusing even
-> > >>>> if they just got logged someplace. Why is it difficult to avoid touching
-> > >>>> it for stage-2?
-> > >>>>
-> > >>> Fwiw, we are only ever using stage-1
-> > >>
-> > >> Sure, but this is in arm-smmu.c which is used by other people and supports
-> > >> both stages.
-> > >
-> > > Sure, but no one else is using this field in the fault-info.  So maybe
-> > > the addition of a comment in the struct would be enough if it isn't
-> > > going to cause an SError/etc to read it for S2 cb?
-> >
-> > Any worthwhile comment isn't going to be significantly shorter or
-> > clearer than 1 extra line of "if (smmu_domain->stage ==
-> > ARM_SMMU_DOMAIN_S1)"...
+On Fri, Mar 07, 2025 at 11:19:13AM +0100, Alexander Stein wrote:
+> Hi,
 > 
-> Just that smmu_domain isn't passed to
-> arm_smmu_read_context_fault_info(), so it would add some extra churn
-> on top of that one extra line
+> Am Donnerstag, 6. März 2025, 20:30:14 CET schrieb Frank Li:
+> > From: Joy Zou <joy.zou@nxp.com>
+> > 
+> > Add rtc0 alias to set bbnsm_rtc as the default rtc.
+> > 
+> > Signed-off-by: Joy Zou <joy.zou@nxp.com>
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx93.dtsi | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> > index 56766fdb0b1e5..7d9aa15ebf5d0 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx93.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> > @@ -34,6 +34,7 @@ aliases {
+> >  		mmc0 = &usdhc1;
+> >  		mmc1 = &usdhc2;
+> >  		mmc2 = &usdhc3;
+> > +		rtc0 = &bbnsm_rtc;
+> 
+> IMHO this is a board property, not SoC property.
+> 
+> Best regards
+> Alexander
+> 
+> >  		serial0 = &lpuart1;
+> >  		serial1 = &lpuart2;
+> >  		serial2 = &lpuart3;
+> > 
+> 
+> 
+> -- 
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+> 
+> 
+> 
+I agree with Alexander, furthermore if we look to others dtsi we don't
+create this relationship at soc level even if we have rtc there, is not?
 
-Churn is what we do best in this driver :)
+for example:
+arch/arm64/boot/dts/freescale/imx8mp.dtsi
+arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
 
-Will
+Regards,
+Alberto
 
