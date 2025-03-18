@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E9CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC005C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 03:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ij3VUskXFIGFRtoXzGBVOSnN2Qj7W10EcqQtu6jvq4k=; b=MTts0yQPFxVSP1xpJNqf3l2q6A
-	/Ldz1QyEeOm1sCFEO+SrC7Fe4RPhGZ7hSOAQSq8m66ufembTcLN4B2RW/SBELloIhUOyFJSs8NxBz
-	fbDvQ84UZYwGBziiGnqhuFtO6g7Nl2Fkp+eLzoi17nTB0rD4oCYfZdNyoQJ3w25fUSXVh6bD6AXF7
-	gJoMxT547mdEGmnQPm5wEDRMjtMegqK4tKqrWoOKlFRGDnOIpovmKxnJuTcV9dQo84ge5im+n7gFE
-	UTMvVNrzMqCJfobYosusVwkZl7n+LSrYl/vxpX52dcMxgD7LPg+CVwClsAkc5vX2txlPV4mxPstm+
-	7Y8fcEjQ==;
+	bh=OGuP0Zf5v9LAWiWjhofja0rkRPQoYCbKBEe7YJ7DCdo=; b=2gS7f/YTTPcZZDqFz3qjsCQg4A
+	rCLhiDbEk3XXkmeM6dw6VvnmGH3/Mpov+uoKWsrpyjWQj5g9W4Tf9JM7d+9oOyLWZ+GuL7b1XXCG3
+	RaCm+nTuBOnUyhnfhHMJUDDeJh2VZe0IfV7Of97eB7F4NYyeAoRqBvuXmlnzO9QLEbSIY90P+KupF
+	tJHEqC6TqMdHwSrA3GPqTuksOoN7DNgG1xCn9JW4qz9BeNUDGR1o087gEUJzP7hC4yvgGHgjl1ZQO
+	jTDY1WdSe41mzzHbiregUzCBJ5a9GVmrHpt7eOXzy051KDEHyF7hGeqAwzJ9OXiG/PbYrXi6e+XBu
+	2uu1lLrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNgJ-00000004W5G-2Lgj;
-	Tue, 18 Mar 2025 03:31:55 +0000
+	id 1tuNhy-00000004WaQ-1gFI;
+	Tue, 18 Mar 2025 03:33:38 +0000
 Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuNL4-00000004TTl-1y6X
+	id 1tuNLC-00000004TVY-0pLq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 03:09:59 +0000
+	Tue, 18 Mar 2025 03:10:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742267398; x=1773803398;
+  t=1742267406; x=1773803406;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=eqmri3Iwl67FhzCmnSw7Lyi9yy0ti1/vr/CkBiBk4bg=;
-  b=Mu4H9LEKti4B/1nEZdGHn9lRQuLvjMZLzSBHPWIrKw/BmwUbMaekGdjA
-   HG14CY1Gb+gf7bUovJh8LoarlnJ/B8tYhsxOTWuYRH/Yj180qmT0SMYF9
-   asAL8hhaO3gKDGbazLzAuaOoVoErVVX+ZueX1Ejg8OI21YrERYaCEiLke
-   lulYixveJqmPDmVfzN7cRzSFm/cSqJgSpUUGB9u3KgEDeKdXfQXVLi459
-   W8gKZiUfjkEtEWFG5yGP2xV2iYmg7HPhUU+gsUZLFQhPeA4Hvzw+WcJWi
-   6MaB/wvD9EYG/W3rMB42DMt6NXnBDElzlmN4Z8AaaOTH0CHXlQl7wsKPO
-   A==;
-X-CSE-ConnectionGUID: O9xcCkEqR42ONUVWHfetvg==
-X-CSE-MsgGUID: RIruqS80QC+X91rb6GgI2Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11376"; a="54383224"
+  bh=0isZ6zpvYikdgV/NzKrMVcv5aGLqnoGvYP3OSYye2YU=;
+  b=dp/Re1TAYNTySbe2PdZhx6XXjP4FbXAbdKnCtwfai0l2Sh7L4n/6Kgsd
+   FX5hT050EDlvN+3w5u8OSSNbJzFNgmXpC46InuFz5BEmQ7ht4KdzGpO/M
+   C3JPOjhwpK6MVF2cfcyVMLvR3hiUA0efL6KMFks8Vh44YDSVse3UUC5qH
+   fhumhe3lIrX9HxLIaf3byWn55wBOJKITZF0ZKZoJRK7xRKkw1JZMfjyTG
+   wXYgIZNCJVy25eySQD6+fWY/gtatldlnP/Wvai/AVdD/o19oDiV4Dvyna
+   JTQCf7vaAR4h5bwVgVVO/lSGGbVnhkywJvIshu4LvYkENqZFTMmP/W26O
+   w==;
+X-CSE-ConnectionGUID: iAn+JE7yRQGURl7HI8RQ0w==
+X-CSE-MsgGUID: o4hUl2klTK66s/tj/z2iog==
+X-IronPort-AV: E=McAfee;i="6700,10204,11376"; a="54383258"
 X-IronPort-AV: E=Sophos;i="6.14,255,1736841600"; 
-   d="scan'208";a="54383224"
+   d="scan'208";a="54383258"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 20:09:57 -0700
-X-CSE-ConnectionGUID: YnI1J2mKQ2ielu1L2PHNDA==
-X-CSE-MsgGUID: 22AG3oJXQ4yLx1T4dZ6HFQ==
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2025 20:10:05 -0700
+X-CSE-ConnectionGUID: 5FibIxdTT+a3rSLWBjSJaQ==
+X-CSE-MsgGUID: UnUGj4uJS+uGDEJtg6FShg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.14,255,1736841600"; 
-   d="scan'208";a="126313953"
+   d="scan'208";a="126313965"
 Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by fmviesa003.fm.intel.com with ESMTP; 17 Mar 2025 20:09:50 -0700
+  by fmviesa003.fm.intel.com with ESMTP; 17 Mar 2025 20:09:58 -0700
 From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
@@ -91,18 +91,17 @@ To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
 	Serge Semin <fancer.lancer@gmail.com>
-Subject: [PATCH iwl-next v10 12/14] igc: block setting preemptible traffic class in taprio
-Date: Mon, 17 Mar 2025 23:07:40 -0400
-Message-Id: <20250318030742.2567080-13-faizal.abdul.rahim@linux.intel.com>
+Subject: [PATCH iwl-next v10 13/14] igc: add support to get MAC Merge data via ethtool
+Date: Mon, 17 Mar 2025 23:07:41 -0400
+Message-Id: <20250318030742.2567080-14-faizal.abdul.rahim@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250318030742.2567080-1-faizal.abdul.rahim@linux.intel.com>
 References: <20250318030742.2567080-1-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_200958_552171_8DF9A3E3 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_201006_282388_8CA57897 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,30 +116,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since preemptible tc implementation is not ready yet, block it from being
-set in taprio. The existing code already blocks it in mqprio.
+Implement "ethtool --show-mm" callback for IGC.
+
+Tested with command:
+$ ethtool --show-mm enp1s0.
+  MAC Merge layer state for enp1s0:
+  pMAC enabled: on
+  TX enabled: on
+  TX active: on
+  TX minimum fragment size: 64
+  RX minimum fragment size: 60
+  Verify enabled: on
+  Verify time: 128
+  Max verify time: 128
+  Verification status: SUCCEEDED
+
+Verified that the fields value are retrieved correctly.
 
 Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 ---
- drivers/net/ethernet/intel/igc/igc_main.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/net/ethernet/intel/igc/igc_ethtool.c | 14 ++++++++++++++
+ drivers/net/ethernet/intel/igc/igc_tsn.h     |  1 +
+ 2 files changed, 15 insertions(+)
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-index 71c377cb7a88..fc945c5b7c70 100644
---- a/drivers/net/ethernet/intel/igc/igc_main.c
-+++ b/drivers/net/ethernet/intel/igc/igc_main.c
-@@ -6486,6 +6486,10 @@ static int igc_save_qbv_schedule(struct igc_adapter *adapter,
- 	if (!validate_schedule(adapter, qopt))
- 		return -EINVAL;
+diff --git a/drivers/net/ethernet/intel/igc/igc_ethtool.c b/drivers/net/ethernet/intel/igc/igc_ethtool.c
+index 529654ccd83f..fd4b4b332309 100644
+--- a/drivers/net/ethernet/intel/igc/igc_ethtool.c
++++ b/drivers/net/ethernet/intel/igc/igc_ethtool.c
+@@ -1782,6 +1782,19 @@ static int igc_ethtool_set_eee(struct net_device *netdev,
+ 	return 0;
+ }
  
-+	/* preemptible isn't supported yet */
-+	if (qopt->mqprio.preemptible_tcs)
-+		return -EOPNOTSUPP;
++static int igc_ethtool_get_mm(struct net_device *netdev,
++			      struct ethtool_mm_state *cmd)
++{
++	struct igc_adapter *adapter = netdev_priv(netdev);
++	struct igc_fpe_t *fpe = &adapter->fpe;
 +
- 	igc_ptp_read(adapter, &now);
++	ethtool_mmsv_get_mm(&fpe->mmsv, cmd);
++	cmd->tx_min_frag_size = fpe->tx_min_frag_size;
++	cmd->rx_min_frag_size = IGC_RX_MIN_FRAG_SIZE;
++
++	return 0;
++}
++
+ static int igc_ethtool_set_mm(struct net_device *netdev,
+ 			      struct ethtool_mm_cfg *cmd,
+ 			      struct netlink_ext_ack *extack)
+@@ -2101,6 +2114,7 @@ static const struct ethtool_ops igc_ethtool_ops = {
+ 	.get_link_ksettings	= igc_ethtool_get_link_ksettings,
+ 	.set_link_ksettings	= igc_ethtool_set_link_ksettings,
+ 	.self_test		= igc_ethtool_diag_test,
++	.get_mm			= igc_ethtool_get_mm,
+ 	.set_mm			= igc_ethtool_set_mm,
+ };
  
- 	if (igc_tsn_is_taprio_activated_by_user(adapter) &&
+diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.h b/drivers/net/ethernet/intel/igc/igc_tsn.h
+index 58fe5f0773d7..c2a77229207b 100644
+--- a/drivers/net/ethernet/intel/igc/igc_tsn.h
++++ b/drivers/net/ethernet/intel/igc/igc_tsn.h
+@@ -4,6 +4,7 @@
+ #ifndef _IGC_TSN_H_
+ #define _IGC_TSN_H_
+ 
++#define IGC_RX_MIN_FRAG_SIZE		60
+ #define SMD_FRAME_SIZE			60
+ 
+ enum igc_txd_popts_type {
 -- 
 2.34.1
 
