@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF0DBC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 14:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3771C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 14:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=waw2BSc2rK4fE6vHftqqmjjVsYKGU+32Y8VhnQZmzyA=; b=TUbAKNl/PGA485Ce3x3t3Io7Uu
-	YFi6/IIed9PDFjOyiIF9IdRbggLgIumorALgy7P5OqewgUbGLLsgUp/7aNqYoHZplIZYiuebJJCdE
-	XUcNe1RMBqL28D4uyoVh0I3D8ImcCvbS2K3SW2UydcwNXQwiRxdQ7MMm+e4LGok2fyITYJTrE3noI
-	5rWDVqJxcRG8Iux9pMKveQ1AXYBEao8leT4tbl8vFosDVs4ehElvViD0PEmE4dK7qt3NWB9Fq4A5d
-	a3Ni4GfOvmkSp9zucfIjfHrE4RTojwZrfjKDcnNb+i3VEBiGdyZQHn/AbNvpL9Enw2eL8fldnASLJ
-	On9TS9mA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Vu9UWMHYAo+WREfVqGn05FQGVJkuqzIWhw2WmRdXFc=; b=azj8oGX0XDCLkmoJ7wcHE+827a
+	BhLfDODvKGzFn+4rd8E47Lfn0FJLfzNM9uQoXWCzJx3CfDev/vqkC2qlYugrox2ar39a/MmyQz+Ck
+	YdltDncuMZEiCURJxwP4xknZRGzc1Ea1FYbCWEQ+3ZFvumMxD00vIP6tkvk73mbYAzCRzmPc4nzva
+	otUZMnbOoulllFvq2IRC9RBxOz3hTPZyX7NEFeXNZgPajQS4vlHSOBukdOIeWxXFN0Fv/+v+ulhi+
+	fWfwJ1ZXkknyjmvUq8sPG8sVIDFx+XNFBJVD+1aA7w3s9pfIOJiLrpV3HRcYnuFo1g/ULsxbMdqxM
+	Tvc2kxrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXqU-00000006AXy-1b5m;
-	Tue, 18 Mar 2025 14:23:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tuXs9-00000006ApB-0Kax;
+	Tue, 18 Mar 2025 14:24:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuXom-00000006ACf-1bpF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 14:21:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E1E605C0F79;
-	Tue, 18 Mar 2025 14:19:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ADEBC4CEE3;
-	Tue, 18 Mar 2025 14:21:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742307679;
-	bh=Ih+kjkB7HKftfOjJe1nJYGQMWvErtDZ2Ypbjozb7+Yg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tTOZSFIYyX4n2viWiXOPRLbe7cOlKQoYEyx4++tXXnSh11s2TIgIG9lTrVI/dOW0T
-	 CqNIrmtree5/5qmJp22ICP3ZbHhS79vd816AstF39zWWRz8skAc2mboh7dyE8lKRCU
-	 BIa07t42gaVyx2LIG8htwSy8y7FiSwFDUqbDvlWWdw6TBJQyn+kYJG4iQs+wyOCz45
-	 0/0C0XPuLXI+4wGkfq0GZ57h057HQ83ELNJERjyHuXMNaOizlrvqvzs8GDm/o0khpy
-	 ciqrOrpMHNLOq2eJHUQRO/HYeg2yJLvpQcPyb+yjyjHsAPZNX6yKOiIMgn9KikRyQc
-	 dCGwl0xt/RhxA==
-Date: Tue, 18 Mar 2025 14:21:13 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH] arm64/fpsimd: Avoid unnecessary per-CPU buffers for EFI
- runtime calls
-Message-ID: <5c025dd9-8a4a-4ebb-a2ae-ef55538cd39a@sirena.org.uk>
-References: <20250318132421.3155799-2-ardb+git@google.com>
+	id 1tuXoq-00000006ADR-357h;
+	Tue, 18 Mar 2025 14:21:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1742307682;
+	bh=R1uBNBSVuYoXGI+w/jGLsCwuPYjh6hh6pbgZVbgBndk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MPx7Op0GztK8XDA43dN7d9m9g8obqpG4VPaQyhXd3Wl3l63svvb8erQsNCqAkJ1u2
+	 MvooMn7k6FmeqtVm5AELGh767VevQUwQq8sY/nsrzLz0FCZVJuUJMDpODZuedGLjG4
+	 s/P3ilp+tqDk8w7DinMJPePdGw252accAnez0PnFr+L7ViRN8Di/Jj2W7Y//8ZGQZ0
+	 NocnTStQZGqAJFsJ8sFTDSNDdcUwGC5hebX9diyn17HFnmmlupDbOOw6f1NiWFQrLB
+	 BI+Od0udujNoSt5YXyIhaLaoHJahUpWeEHHF/LfFDUbcuauHFn6x4ztckbPdyY8mFo
+	 3+HzCvYiCWO9Q==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8AC4817E0848;
+	Tue, 18 Mar 2025 15:21:21 +0100 (CET)
+Message-ID: <79fc072f-9fea-4810-bd9d-3539ebb70ca3@collabora.com>
+Date: Tue, 18 Mar 2025 15:21:20 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="D4TwUy0V5R+g16wD"
-Content-Disposition: inline
-In-Reply-To: <20250318132421.3155799-2-ardb+git@google.com>
-X-Cookie: Swim at your own risk.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: mediatek: mt8192-asurada-spherion: Mark
+ trackpads as fail-needs-probe
+To: Laura Nao <laura.nao@collabora.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, bleung@chromium.org,
+ tzungbi@kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ chrome-platform@lists.linux.dev, nfraprado@collabora.com,
+ kernel@collabora.com
+References: <20250318102259.189289-1-laura.nao@collabora.com>
+ <20250318102259.189289-3-laura.nao@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250318102259.189289-3-laura.nao@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_072120_462973_51A86C0D 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250318_072124_926472_45063007 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +81,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 18/03/25 11:22, Laura Nao ha scritto:
+> Different Spherion variants use different trackpads on the same I2C2
+> bus. Instead of enabling all of them by default, mark them as
+> "fail-needs-probe" and let the implementation determine which one is
+> actually present.
+> 
+> Additionally, move the trackpad pinctrl entry back to the individual
+> trackpad nodes.
+> 
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
 
---D4TwUy0V5R+g16wD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-On Tue, Mar 18, 2025 at 02:24:22PM +0100, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->=20
-> The EFI specification has some elaborate rules about which runtime
-> services may be called while another runtime service call is already in
-> progress. In Linux, however, for simplicity, all EFI runtime service
-> invocations are serialized via the efi_runtime_lock semaphore.
 
-> This implies that calls to the helper pair arch_efi_call_virt_setup()
-> and arch_efi_call_virt_teardown() are serialized too, and are guaranteed
-> not to nest.  Furthermore, the arm64 arch code has its own spinlock to
-> serialize use of the EFI runtime stack, of which only a single instance
-> exists.
-
-> This all means that the FP/SIMD and SVE state preserve/restore logic in
-> __efi_fpsimd_begin() and __efi_fpsimd_end() are also serialized, and
-> only a single instance of the associated per-CPU variables can ever be
-> in use at the same time. There is therefore no need at all for per-CPU
-> variables here, and they can all be replaced with singleton instances.
-> This saves a non-trivial amount of memory on systems with many CPUs.
-
-That makes life a lot easier all round, and like you say the memory
-savings are nice.
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
-
-> -		if (system_supports_sve() && likely(efi_sve_state)) {
-> -			char *sve_state =3D this_cpu_ptr(efi_sve_state);
-> +		if (system_supports_sve() && efi_sve_state !=3D NULL) {
-
-The change does remove a bunch of these likely() annotations, though the
-chances that they were ever having an impact seem minimal.
-
---D4TwUy0V5R+g16wD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfZgVkACgkQJNaLcl1U
-h9CldQf9FlFtjzkirikfCb0Vd42eMQeijVyahtTwrU87pGcUvnxsvvAWDpXfP9G/
-hWwlxfclGwHVdBTWm3gbvS/iuUTR8oL1SDlw9/dIPjgO8AWVsx62UWZGQjC0llLm
-2ZIAlszTrGNMwuygljlt34KnKUucNXAis9CDXwfX+rfs2/SHXLH0YjBA390NqSUx
-I3UJJvAJperIRdmf1fvGY91OZX4Hmj46NtOXOIcB53Edi0RPTGBEFe015XNLUOe3
-CcHduHg2hOWWIPnoDk/6NxP1KbG6Z2yQ7fwwFRk37NFlg3stm1y1YozeqX3wtJLy
-bybq3apM5TvtBtPrmfcCYYZnO6qEXw==
-=tgZs
------END PGP SIGNATURE-----
-
---D4TwUy0V5R+g16wD--
 
