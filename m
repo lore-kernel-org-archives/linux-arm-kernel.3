@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F1DC35FF8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BB6C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UAEZys5wOPUk2jbwZot4PTd5CxE8viW8h6Oq3fXiwbI=; b=oLAh2VkONlNwN2mqR4jPGYdkTQ
-	j+yoRunWdge1tMs1e6mUQnRpwNyXDJ6s/FcclLkDpLjVtP0AQWoXd/KRG6RORvZlhx5z6dB3b6fCf
-	01eochD4ecbn9coFFKmaruNMaCQonBbtldrB32aIKkvdTZaPRnybRLxJOV6RvsFFM1iYkBkErKyco
-	1JkEecsf+MfZmQ6J2GMQG8sPsX4+3UJbHCE6cXDLebbxMGGPCllvyUMB85Yj2msMUp/A8Es+jmX6C
-	JjR7+CxVkvSx594z2h/zaABkq8jD367jWuc7XsoCiAor6D0taQzBaazZxbm9F1xfba5sovUejIqFl
-	9QiTdx0w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dje7yu2o2xu35YnX3iiPNS4Xl0oKOBZCXBJ+UL9gaiY=; b=uCYP9Mdy38npTGMHaRxrtnGcl2
+	usgBJBvZEzzgjizF+6xd7f8ZW/QIVwr2VMYapzgfE4ImT1piFdvhv8G8wnETd3MnGCHWp3LdjxLUm
+	b8VIw86Za39RmNw5P3G98HqXUgb2XRlU8U3N5TpmHEukRjqrOzYHrUbJW5TcJ0q5nWGzfoXnJ8Msz
+	Qx4UUsEN0d02McKBJe1d/8TnbFnCisKJ1g4ZJqgyV7EEptg2Jw8FYg66MhUh9CxL8yQT8dM3NqlG/
+	6y17wP8wjKKoJckUc/bwfFM1+hm4FoaAVPNH66a0rIyoYQsUQSCiezXjUWlWclYPyavghFLg8gKNB
+	8i+rIhdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudua-000000073gu-00l9;
-	Tue, 18 Mar 2025 20:51:44 +0000
+	id 1tudwF-000000073zM-2nR0;
+	Tue, 18 Mar 2025 20:53:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudrq-000000073AZ-1o79
+	id 1tudrr-000000073Ab-05fx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 20:48:56 +0000
+	Tue, 18 Mar 2025 20:48:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E7DF13D5;
-	Tue, 18 Mar 2025 13:48:59 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6B8B150C;
+	Tue, 18 Mar 2025 13:49:00 -0700 (PDT)
 Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 97D0A3F694;
-	Tue, 18 Mar 2025 13:48:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E67FB3F694;
+	Tue, 18 Mar 2025 13:48:51 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -57,15 +57,17 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH 0/7] arm64: Enable UPROBES with GCS
-Date: Tue, 18 Mar 2025 15:48:34 -0500
-Message-ID: <20250318204841.373116-1-jeremy.linton@arm.com>
+Subject: [PATCH 1/7] arm64/gcs: task_gcs_el0_enable() should use passed task
+Date: Tue, 18 Mar 2025 15:48:35 -0500
+Message-ID: <20250318204841.373116-2-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250318204841.373116-1-jeremy.linton@arm.com>
+References: <20250318204841.373116-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_134854_513489_735DCF1F 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250318_134855_095973_E1872623 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently uprobes and the Arm Guarded Control Stack (GCS) feature are
-exclusive of each other. This restriction needs to be lifted in order
-to utilize GCS for generic Linux distro images where the expectation
-is that core debugging features like uprobes work.
+Mark Rutland noticed that the task parameter is ignored and
+'current' is being used instead. Since this is usually
+what its passed, it hasn't yet been causing problems but likely
+will as the code gets more testing.
 
-This series adds some user accessors to read/push/pop the userspace
-shadow stack. It then utilizes those functions in the uprobe paths
-as needed to synchronize GCS with the changes in control flow at
-probe locations. 
+Fixes: fc84bc5378a8 ("arm64/gcs: Context switch GCS state for EL0")
+Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+---
+ arch/arm64/include/asm/gcs.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Along the way we fix a bug in the core gcs task handling and export
-some uprobe quality of life functionality for use in arch specific code.
-
-The KCONFIG restriction is then dropped.
-
-Jeremy Linton (7):
-  arm64/gcs: task_gcs_el0_enable() should use passed task
-  arm64: probes: Break ret out from bl/blr
-  arm64: uaccess: Add additional userspace GCS accessors
-  arm64: probes: Add GCS support to bl/blr/ret
-  arm64: uprobes: Add GCS support to uretprobes
-  uprobes: Allow the use of uprobe_warn() in arch code
-  arm64: Kconfig: Remove GCS restrictions on UPROBES
-
- arch/arm64/Kconfig                       |  1 -
- arch/arm64/include/asm/gcs.h             |  2 +-
- arch/arm64/include/asm/uaccess.h         | 42 ++++++++++++++++++++++++
- arch/arm64/kernel/probes/decode-insn.c   |  7 ++--
- arch/arm64/kernel/probes/simulate-insn.c | 42 +++++++++++++++++++++---
- arch/arm64/kernel/probes/simulate-insn.h |  3 +-
- arch/arm64/kernel/probes/uprobes.c       | 34 +++++++++++++++++++
- include/linux/uprobes.h                  |  1 +
- kernel/events/uprobes.c                  |  2 +-
- 9 files changed, 122 insertions(+), 12 deletions(-)
-
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index f50660603ecf..5bc432234d3a 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -58,7 +58,7 @@ static inline u64 gcsss2(void)
+ 
+ static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ {
+-	return current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
++	return task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
+ }
+ 
+ void gcs_set_el0_mode(struct task_struct *task);
 -- 
 2.48.1
 
