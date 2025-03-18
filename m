@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BB6C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF6CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 20:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dje7yu2o2xu35YnX3iiPNS4Xl0oKOBZCXBJ+UL9gaiY=; b=uCYP9Mdy38npTGMHaRxrtnGcl2
-	usgBJBvZEzzgjizF+6xd7f8ZW/QIVwr2VMYapzgfE4ImT1piFdvhv8G8wnETd3MnGCHWp3LdjxLUm
-	b8VIw86Za39RmNw5P3G98HqXUgb2XRlU8U3N5TpmHEukRjqrOzYHrUbJW5TcJ0q5nWGzfoXnJ8Msz
-	Qx4UUsEN0d02McKBJe1d/8TnbFnCisKJ1g4ZJqgyV7EEptg2Jw8FYg66MhUh9CxL8yQT8dM3NqlG/
-	6y17wP8wjKKoJckUc/bwfFM1+hm4FoaAVPNH66a0rIyoYQsUQSCiezXjUWlWclYPyavghFLg8gKNB
-	8i+rIhdw==;
+	bh=X8Ek7k+Rz2CzuVNkNqbywRPz5Ym7LjB5bE+jfSo4GpE=; b=DDnCgmZxZijOD2IzxRj/OQ6uMO
+	ZOvkG9GJr7aA7ctzkYzMi8VSIsPeSEHoVmXfkeS5iVdL9B8m/ICfvd/rWJiom+QO/ltCBIX4srPrf
+	x3UAS7Ac92xPzC23js6NnRfhjsM0qEd6+YRxsS/wsNbleXZs4Nf7xWLL0cBC8OfxrCSeSFfmnrCQU
+	QaqdI0/gD4uGNUZuz5rEFwaH5Ghe/J7W68Ri+AgvmMSo4++uK6lk9tfhw9M5qvCoSrcXFj26SKkE7
+	kpAuZTJuDjsbb5l2WcRe0bGrBsFLrQQzSsW00FPwY/2KbKaSlwrxpux7S7cnn8QgbnayfBqJBNANx
+	o3io9CkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudwF-000000073zM-2nR0;
-	Tue, 18 Mar 2025 20:53:27 +0000
+	id 1tudxu-0000000748W-1Lfs;
+	Tue, 18 Mar 2025 20:55:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tudrr-000000073Ab-05fx
+	id 1tudrr-000000073B7-0Syx
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Mar 2025 20:48:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6B8B150C;
-	Tue, 18 Mar 2025 13:49:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 344CD1A2D;
+	Tue, 18 Mar 2025 13:49:03 -0700 (PDT)
 Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E67FB3F694;
-	Tue, 18 Mar 2025 13:48:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 371503F694;
+	Tue, 18 Mar 2025 13:48:54 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -57,17 +57,17 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH 1/7] arm64/gcs: task_gcs_el0_enable() should use passed task
-Date: Tue, 18 Mar 2025 15:48:35 -0500
-Message-ID: <20250318204841.373116-2-jeremy.linton@arm.com>
+Subject: [PATCH 3/7] arm64: uaccess: Add additional userspace GCS accessors
+Date: Tue, 18 Mar 2025 15:48:37 -0500
+Message-ID: <20250318204841.373116-4-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250318204841.373116-1-jeremy.linton@arm.com>
 References: <20250318204841.373116-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_134855_095973_E1872623 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20250318_134855_193334_C99CD9EF 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark Rutland noticed that the task parameter is ignored and
-'current' is being used instead. Since this is usually
-what its passed, it hasn't yet been causing problems but likely
-will as the code gets more testing.
+Uprobes need more advanced read, push, and pop userspace
+GCS functionality. Implement those features using the
+existing gcsstr() and copy_from_user().
 
-Fixes: fc84bc5378a8 ("arm64/gcs: Context switch GCS state for EL0")
 Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
 ---
- arch/arm64/include/asm/gcs.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/include/asm/uaccess.h | 42 ++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
-diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index f50660603ecf..5bc432234d3a 100644
---- a/arch/arm64/include/asm/gcs.h
-+++ b/arch/arm64/include/asm/gcs.h
-@@ -58,7 +58,7 @@ static inline u64 gcsss2(void)
+diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
+index 5b91803201ef..c77ab09a01c2 100644
+--- a/arch/arm64/include/asm/uaccess.h
++++ b/arch/arm64/include/asm/uaccess.h
+@@ -20,6 +20,7 @@
  
- static inline bool task_gcs_el0_enabled(struct task_struct *task)
- {
--	return current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
-+	return task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
+ #include <asm/asm-extable.h>
+ #include <asm/cpufeature.h>
++#include <asm/gcs.h>
+ #include <asm/mmu.h>
+ #include <asm/mte.h>
+ #include <asm/ptrace.h>
+@@ -539,6 +540,47 @@ static inline void put_user_gcs(unsigned long val, unsigned long __user *addr,
+ 	uaccess_ttbr0_disable();
  }
  
- void gcs_set_el0_mode(struct task_struct *task);
++static __always_inline unsigned long __must_check
++copy_from_user(void *to, const void __user *from, unsigned long n);
++
++static inline u64 load_user_gcs(unsigned long __user *addr, int *err)
++{
++	unsigned long ret;
++	u64 load;
++
++	if (!access_ok((char __user *)addr, sizeof(load))) {
++		*err = -EFAULT;
++		return 0;
++	}
++
++	gcsb_dsync();
++	ret = copy_from_user(&load, addr, sizeof(load));
++	if (ret != 0)
++		*err = ret;
++	return load;
++}
++
++static inline void push_user_gcs(unsigned long val, int *err)
++{
++	u64 gcspr = read_sysreg_s(SYS_GCSPR_EL0);
++
++	gcspr -= sizeof(u64);
++	put_user_gcs(val, (unsigned long __user *)gcspr, err);
++	if (!*err)
++		write_sysreg_s(gcspr, SYS_GCSPR_EL0);
++}
++
++static inline u64 pop_user_gcs(int *err)
++{
++	u64 gcspr = read_sysreg_s(SYS_GCSPR_EL0);
++	u64 read_val;
++
++	read_val = load_user_gcs((unsigned long __user *)gcspr, err);
++	if (!*err)
++		write_sysreg_s(gcspr + sizeof(u64), SYS_GCSPR_EL0);
++
++	return read_val;
++}
+ 
+ #endif /* CONFIG_ARM64_GCS */
+ 
 -- 
 2.48.1
 
