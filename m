@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E25C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD498C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BzKG5OpPSCXmvp33n0D6FbVOcTSlxn5kZp/Q/3rkA7g=; b=mPbgRbtIVUCgXqYuc2Za26msvB
-	8k8/MtJkn8GKlVxZbTF+3igm5xsBP5w5Q2/VdXTZZKgjmxiBdvHNVVMiIxAa3c0U6uzZktoZVxmb/
-	rYRBq23jzIqYzdQVduETGd47DQFwlwiqs9Fq54liqjFpcMGuwWmj9CXyKeT+yKWC4zUZXt1WZYx48
-	DOjVD6IC5ZEDc6CEC5ZXERrZo50WHgxeK0e+lreAPRz0x/8CL4PK+9c94df7OeC1hSAH8i3ASowBi
-	oOQmYzaOzXTMRNYlllkKnO7/2o6s5zd0DrhIllyInJJULwQNGrkz1FK0QittYKjXx9RHi1EJLit6C
-	QiCVYVGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vj4pnAv1lJriMVGawRz5JjDM9OZDa0vt2boAwaSGN9M=; b=w6VegEJeigmi5jSSgpsZ0lX7nn
+	14x1QBmrx7kLnWh6AjONFuvfFArhpVpaayiVE3SuSiFLZaXO1L+WWlfDHMe5rdcM2lxpTyXEUUGYX
+	++BoRJBfDADAP7JRq1AlxWolf9QuGkF6ZK0+7pVm6Ctc3CsfKfznWsLVUeDgWCpn3y281kWhQB7+x
+	NH5uG0ZkeMkyLfIuDUj8yv6iNyesWtaID5JqaraaRmYInNXcu1J4s3T5+seSZWQabStYmQah5UlY6
+	UypKtx6CTar9eiQDE0KUVTIm7CiS1r88gr7qzZNHhNHXon7Pi9TxGxqm5hTQOGEeLIoHIvBwGSoJ6
+	JyCG0z9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUwM-00000005gRl-2tD2;
-	Tue, 18 Mar 2025 11:16:58 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUsP-00000005fUQ-1FTr
+	id 1tuUyM-00000005h9z-35H7;
+	Tue, 18 Mar 2025 11:19:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuUwP-00000005gTK-1Qh5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 11:12:54 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZH8HW4vxNz6LDCB;
-	Tue, 18 Mar 2025 19:09:27 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8F53214050C;
-	Tue, 18 Mar 2025 19:12:44 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 18 Mar
- 2025 12:12:43 +0100
-Date: Tue, 18 Mar 2025 11:12:42 +0000
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-CC: Saravana Kannan <saravanak@google.com>, Bjorn Andersson
-	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, "Shawn
- Guo" <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
-Subject: Re: [PATCH 1/3] of: reserved_mem: Add functions to parse
- "memory-region"
-Message-ID: <20250318111242.00007457@huawei.com>
-In-Reply-To: <20250317232426.952188-2-robh@kernel.org>
-References: <20250317232426.952188-1-robh@kernel.org>
-	<20250317232426.952188-2-robh@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 18 Mar 2025 11:17:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2685113D5;
+	Tue, 18 Mar 2025 04:17:09 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A6BC3F694;
+	Tue, 18 Mar 2025 04:16:59 -0700 (PDT)
+Date: Tue, 18 Mar 2025 11:16:54 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64/mm/hotplug: Drop redundant [pgd|p4d]_present()
+Message-ID: <Z9lWJsA2hg2UKZ0T@J2N7QTR9R3>
+References: <20250221094449.1188427-1-anshuman.khandual@arm.com>
+ <20250221094449.1188427-2-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221094449.1188427-2-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_041253_482551_75659086 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20250318_041701_458295_4DF6DEA3 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,55 +65,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Mar 2025 18:24:21 -0500
-"Rob Herring (Arm)" <robh@kernel.org> wrote:
+On Fri, Feb 21, 2025 at 03:14:48PM +0530, Anshuman Khandual wrote:
+> [pgd|p4d]_present() are inverse to their corresponding [pgd|p4d]_none().
 
-> Drivers with "memory-region" properties currently have to do their own
-> parsing of "memory-region" properties. The result is all the drivers
-> have similar patterns of a call to parse "memory-region" and then get
-> the region's address and size. As this is a standard property, it should
-> have common functions for drivers to use. Add new functions to count the
-> number of regions and retrieve the region's address as a resource.
+Maybe their implementations happen to be inverse today, but the semantic
+of pXX_present() is not the inverse of the semantic of pXX_none(). In
+general, !pXX_none() does not imply pXX_present().
+
+> So [pgd|p4d]_present() test right after corresponding [pgd|p4d]_none()
+> inverse test does not make sense. Hence just drop these redundant
+> checks.
+
+I think the checks make sense in abstract, even if they're redundant
+today
+
+Is there any reason to remove these specific case?
+
+Surely the compiler optimizes these out when they're redundant?
+
+Mark.
+
 > 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
->  drivers/of/of_reserved_mem.c    | 77 +++++++++++++++++++++++++++++++++
->  include/linux/of_reserved_mem.h | 26 +++++++++++
->  2 files changed, 103 insertions(+)
+>  arch/arm64/mm/mmu.c | 4 ----
+>  1 file changed, 4 deletions(-)
 > 
-> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-> index 75e819f66a56..fd50038dff76 100644
-> --- a/drivers/of/of_reserved_mem.c
-> +++ b/drivers/of/of_reserved_mem.c
-> @@ -12,6 +12,7 @@
->  #define pr_fmt(fmt)	"OF: reserved mem: " fmt
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index b4df5bc5b1b8..66906c45c7f6 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -952,7 +952,6 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
+>  		if (p4d_none(p4d))
+>  			continue;
 >  
->  #include <linux/err.h>
-> +#include <linux/ioport.h>
->  #include <linux/libfdt.h>
->  #include <linux/of.h>
->  #include <linux/of_fdt.h>
-> @@ -740,3 +741,79 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
->  	return NULL;
+> -		WARN_ON(!p4d_present(p4d));
+>  		unmap_hotplug_pud_range(p4dp, addr, next, free_mapped, altmap);
+>  	} while (addr = next, addr < end);
 >  }
->  EXPORT_SYMBOL_GPL(of_reserved_mem_lookup);
-> +
-> +/**
-> + * of_reserved_mem_region_to_resource() - Get a reserved memory region as a resource
-> + * @np:		node containing 'memory-region' property
-> + * @idx:	index of 'memory-region' property to lookup
-> + * @res:	Pointer to a struct resource to fill in with reserved region
-> + *
-> + * This function allows drivers to lookup a node's 'memory-region' property
-> + * entries by index and return a struct resource for the entry.
-> + *
-> + * Returns 0 on success with @res filled in. Returns -ENODEV if 'memory-region'
-> + * is missing or unavailable, -EINVAL for any other error.
-> + */
-> +int of_reserved_mem_region_to_resource(const struct device_node *np, unsigned int idx, struct resource *res)
-
-Maybe wrap?
- 
-> +{
-
+> @@ -978,7 +977,6 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+>  		if (pgd_none(pgd))
+>  			continue;
+>  
+> -		WARN_ON(!pgd_present(pgd));
+>  		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+>  	} while (addr = next, addr < end);
+>  }
+> @@ -1114,7 +1112,6 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
+>  		if (p4d_none(p4d))
+>  			continue;
+>  
+> -		WARN_ON(!p4d_present(p4d));
+>  		free_empty_pud_table(p4dp, addr, next, floor, ceiling);
+>  	} while (addr = next, addr < end);
+>  
+> @@ -1153,7 +1150,6 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
+>  		if (pgd_none(pgd))
+>  			continue;
+>  
+> -		WARN_ON(!pgd_present(pgd));
+>  		free_empty_p4d_table(pgdp, addr, next, floor, ceiling);
+>  	} while (addr = next, addr < end);
+>  }
+> -- 
+> 2.30.2
+> 
 
