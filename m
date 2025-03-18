@@ -4,114 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80395C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA748C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 11:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=is8WhR9m8WQE+4k9i/DT+FdMHQKk7RaZk/UQmejRp3g=; b=XNRgv89PZhglvWK6+sKosk7hcS
-	yNyn98Y4JGjP9MngMnpmys23hkonM4vZHV5QdosfkiweMat5T1DXdrk7RKibTvwGEtYeLKLk1Vd16
-	NDn4hf139zShF8KOyN58bHWfaj5LZJoYKbJV8s6ODB4DBvHzzRvAc1HohKEzuSfEkMAbqYOaKwH6W
-	RkZJ1nlRF7Uyjmjap64jOOIcz+aSOrZgZ56bpBZizhOQ8kUk9yFhwbgey1vWhvTV+5U78awUuGuMV
-	XF8IYtg9tf6wmyR0ocsvLzXolrCn9GZSuHH2diNEZHNnCjkrOuj8CgqGzpo2qo8e6ZrQHz6xMwR2m
-	AdePaWIA==;
+	bh=+6eRMsycQCwnvUIb7YBuRBaRFSAMCS6WfElJU0fnob0=; b=HbHxObZ2Vzz4yi2N0JYMqI8oEg
+	deWlH0JoiubzO2wqIxJIVGvkc6UQKOOXY1HQDjYnqsryPq+Xnj354G4u3A6aPzKkryucigVnEtGxr
+	RK+c79qXkFcYqVNoK44MOGD9nmHIQ6mJb8VJ67v9oHcxE/WdoTtACOiRnV7+W6BoNT71jxSi05jIQ
+	aAiRYNMZGjnQsNeMnOy/lJtl5Nin9Q3lqsFA0UQM6r5qwNlWJu+8je5rZr0wMKOXQjEVwVh/W0OO9
+	oy7whCJVgbk+EHx7nKg1gpZWMBMc8Ys+z4GKYY1T/A7CoQdEdJkldZur/G5znl+FhCDbSYNjPlXXi
+	KHe2l+WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUrM-00000005fGB-0NWX;
-	Tue, 18 Mar 2025 11:11:48 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tuUt1-00000005fZj-3Jxf;
+	Tue, 18 Mar 2025 11:13:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUjq-00000005dYM-0XN2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 11:04:03 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-abf3d64849dso903083266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 04:04:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1742295840; x=1742900640; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=is8WhR9m8WQE+4k9i/DT+FdMHQKk7RaZk/UQmejRp3g=;
-        b=J4voJzbGJOtqL6hV4uhfcUPfG1a8VLKp54HFzKPLIJULiTzs4AGrrusg9XHabBW5tz
-         +Bdv1K4szN4TnElKuMP85xV+5YqW82TZvu7GG5A0quJ5+zW2tiYXyq3I4k67cN67tEiQ
-         oL3jNJR5VZGkU7WbjvmuiNEWGhQh30z4F7fn3mdpxfUcqzaG3ItQV98pQowQ2aC8WWg9
-         wx4eYhAYfVjdNaaknbnKLXynQebYxXApne4cGHTUKC7RgItAgbxZbtde9uLxd+mLWOKK
-         VaHIOTNRPzjPhaqpAiLUbI4nangob93xzphR1WcKhGnyOlIE57AGWFWAQoTXSFVL4Tu4
-         pDww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742295840; x=1742900640;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=is8WhR9m8WQE+4k9i/DT+FdMHQKk7RaZk/UQmejRp3g=;
-        b=N3Gmkk1M0MI16rzEPcLE+2H6/rS6JrFXMIH1TvttYv6zqSwIioaj1JoFrtO6py2304
-         YI/e6vtRNS2uuh95eMTPORjbn85FUJtfDYdY6oD6GbFVjRSJUuWSWJVLmLNCJTj2NtW6
-         1kNjNXTyXEYyScNcnAkk6zfV0FjMdr9wrrteZobcFwV5x4muO+3xQPsvfmydgtwvYNot
-         dWB9o4Fy588NNVEQoo4ffF1EfHajBYAYSo/tOSNIQQwSefaPMBLXMAs/NUNwnCSpsF8X
-         z87Vm6UDE7h8SVJnjicFwHrXvA91oZcKWdhsZFHZj8RI6CeC0lWSY7yqQDXd82kzdXyq
-         J/dQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxYFI8G4e8wg5O2sissF2DO2hc1m8mqSB9PixaXVUCLd0Jcyy92AzyK66a4w/8UiScAgEJAYcnsGicoUOAd82A@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjlxAD4pKxuwHyJyr2d4f1VIVxmDC0d1QKtcbHeIhtv6N/Lp+9
-	FVv1h5+VyE34fTyzvrjfQku4H5srgW/Y4EVQKqf+85Ixl0leZdrimTSka+mwZoc=
-X-Gm-Gg: ASbGncsabeTVcNRWtF6C9OekCyzU8KdDcWJVpMQf4R3xeksPenMUi3B2hdu1LjuTYRo
-	L2KgFFNOOLuNFgyJRoUP3hTd996fyNkonFBSrOJ7MAPbSgwoD8PuevEEADBFcSH2fxVeIDbW9wS
-	bJ4R1MA6fmNKxjt0x9SX1b10yBAjKfvHLxkGY1319i3aOt88fMQRHUuSVC22v+8kgfV30FHIJtr
-	FhC4Oljr3jLmiNcsj98Wcf68S9GsS60kkVer5CSeS0XFf9olhiRvjOLNMUeHwZi4QXwxr03v1LC
-	btXHMhBFzcn0Gzg5Z2wI0oB33VW0eMWYYKowP0ZfFErpTuhp0VzcKRBBzBZRX4Is1rwHWzKLx9L
-	m74jFiSalw7mYzpU=
-X-Google-Smtp-Source: AGHT+IHSFIas9nSr0GTvP8XDNoyPypRdkL0u01Zf6bNvQk2jQCXUoByUBqIy6f605R78yLU5u1JN+Q==
-X-Received: by 2002:a17:907:3e0d:b0:ac1:de84:dec0 with SMTP id a640c23a62f3a-ac3302d3694mr1426644966b.26.1742295840401;
-        Tue, 18 Mar 2025 04:04:00 -0700 (PDT)
-Received: from localhost (host-80-117-53-131.retail.telecomitalia.it. [80.117.53.131])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3146aea4csm828388566b.33.2025.03.18.04.03.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 04:03:59 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 18 Mar 2025 12:05:12 +0100
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Stefan Wahren <wahrenst@gmx.net>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 08/11] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <Z9lTaKsbLND4i3Ir@apocalypse>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <d1362766e3e966f78591129de918046a4b892c18.1738963156.git.andrea.porta@suse.com>
- <87525350-b432-40b3-927c-60cd74228ea4@gmx.net>
- <Z7dnnW4npJmfOVE0@apocalypse>
+	id 1tuUlq-00000005dw5-0uzR;
+	Tue, 18 Mar 2025 11:06:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 085515C4A1D;
+	Tue, 18 Mar 2025 11:03:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D9C8C4CEDD;
+	Tue, 18 Mar 2025 11:06:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742295964;
+	bh=+6eRMsycQCwnvUIb7YBuRBaRFSAMCS6WfElJU0fnob0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FZYeGP3ChLjFgxxPhXwyrzj+8hdudeUK9TYlMtJjGSLAVE9l7b23fy6AlOGY3cXco
+	 JxmfMzVCnaC8910yJDVJNyWc9cVokzjiSUhLJ9Nwbn3O0bxJNoUovv6P8rxYZkGqUW
+	 8vxI26ywb35jSaW/zqOold5OFSPC3VgWsJPF46QKs3hueJrNGXj/MHgxylHyWs/90j
+	 gcF0O9bB1CgoEohptMg4SEViZ5T3Sa50+WsOO+APy9ZU2ApxdGL0RC3xjifQ7u/F5s
+	 60UVEROqpuCVkYO1fQXx5oetwtG8O03iJJf3018VZ4xMcN/cI+pX2Ms/28vDZz3R1V
+	 2DKF4AiY4dA2A==
+Date: Tue, 18 Mar 2025 12:06:01 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Masahisa Kojima <kojima.masahisa@socionext.com>,
+	Sunil Goutham <sgoutham@marvell.com>,
+	Geetha sowjanya <gakula@marvell.com>,
+	Subbaraya Sundeep <sbhatta@marvell.com>,
+	hariprasad <hkelam@marvell.com>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, netdev@vger.kernel.org,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-hyperv@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH net-next 0/7] net: xdp: Add missing metadata support for
+ some xdp drvs
+Message-ID: <Z9lTmfyUsY3lqr1m@lore-desk>
+References: <20250311-mvneta-xdp-meta-v1-0-36cf1c99790e@kernel.org>
+ <6259af5f-f518-4f88-ada9-31c3425ce6ed@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7FKbPnYNhz7Z7bep"
 Content-Disposition: inline
-In-Reply-To: <Z7dnnW4npJmfOVE0@apocalypse>
+In-Reply-To: <6259af5f-f518-4f88-ada9-31c3425ce6ed@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_040402_167200_C33467DD 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20250318_040606_312573_E93F9F94 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,35 +99,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
 
-On 18:34 Thu 20 Feb     , Andrea della Porta wrote:
-> Hi Stefan,
-> 
-> On 15:21 Sat 08 Feb     , Stefan Wahren wrote:
-> > Hi Andrea,
-> > 
-> > Am 07.02.25 um 22:31 schrieb Andrea della Porta:
-> > > +		msix_cfg_set(rp1, hwirq, MSIX_CFG_IACK_EN);
-> > > +		rp1->level_triggered_irq[hwirq] = true;
-> > > +	break;
-> > > +	case IRQ_TYPE_EDGE_RISING:
-> > > +		msix_cfg_clr(rp1, hwirq, MSIX_CFG_IACK_EN);
-> > > +		rp1->level_triggered_irq[hwirq] = false;
-> > > +		break;
-> > > +	default:
-> > > +		return -EINVAL;
-> > It would be nice to document why only IRQ_TYPE_LEVEL_HIGH and
-> > IRQ_TYPE_EDGE_RISING are supported. In case it's a software limitation,
-> > this function would be a good place. In case this is a hardware
-> > limitation this should be in the binding.
-> 
-> All ints are level-triggered. I guess I should add a short comment in
-> the bindings.
-> 
+--7FKbPnYNhz7Z7bep
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Quick errata: s/level-triggered/active high/
+> On 3/11/25 1:18 PM, Lorenzo Bianconi wrote:
+> > Introduce missing metadata support for some xdp drivers setting metadata
+> > size building the skb from xdp_buff.
+> > Please note most of the drivers are just compile tested.
+>=20
+> I'm sorry, but you should at very least report explicitly on per patch
+> basis which ones have been compile tested.
+>=20
+> Even better, please additionally document in each patch why/how the
+> current headroom is large enough.
 
-Thanks,
-Andrea
+ack, I will do in v2.
+
+Regards,
+Lorenzo
+
+>=20
+> Thanks,
+>=20
+> Paolo
+>=20
+
+--7FKbPnYNhz7Z7bep
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ9lTmQAKCRA6cBh0uS2t
+rDqfAQDOJNpxheA0LSnvOCTN+kPvwHBu5AGV2ArPeTAp70kJ3QD/apFRSAbfIcY1
+1f9jJDVDMRYLq6bmd+WcgF6DA0c7JwE=
+=n3M4
+-----END PGP SIGNATURE-----
+
+--7FKbPnYNhz7Z7bep--
 
