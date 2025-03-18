@@ -4,70 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9DDC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEE2C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 12:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=64IIiCxSmb90ZQ6fmueb4xJ3WQaFIC2OATzJjR0a98k=; b=hEPFf5y7gHcAhMb0B06EINxxg7
-	NY1lITD9P32FZWDBqPnAIizOr+zFYr3WrYpR5Kwu8GgiLBfTAXVKkw8KfTCIeNMvA5E1BdPh0FKYv
-	2nSinye2YGECP++vK1SGvZSSvF+KY8Q9Ngl6fb7U8XyR//CsFs64DbE1SNNiI2YS2ov191hpVLD7Y
-	I81YXc4xAZqKFGgdTdSYA1uiPI9+eKJxovVUBZ5VIlrg6PzSkwmBENtXzcmgJYzPf5lUyCVr+o5ge
-	RuoTpOPVD6wc98DWbUhg4oUz6YRCmVGmfbw8bilIpX0reakDH7aw0+AqejvSooxA0/r5JLDMwLxNQ
-	pn7FMhJQ==;
+	bh=kBlzBdfbGBXQZj0t5rIkzUhCArX3NpjNQoG/8nV0x44=; b=lTx4SLWn+qJIzcidYQ8s5F7ix7
+	JuhCmqkWo12JlUtr4+UjjbDe9yJG1alC24rCa1In2/8gQvPu3qW8yUqH/T7nEoqu6geQWrF1H+rOv
+	aZANkvrLnuFkwLKjh4791krANVN2LYTXdF0YjpLnfgD1MVQF/E7f56/vDVJaQ+g7stQY5jWZRF06r
+	668NvUwfICs8KIcq9uql5Sqsah5HkzT48XBOpzISdnJAw0r4B5lcVXrXL6cSIm1rwxMKjXAIAlv0D
+	ZccDvusJoR2AJH4CyuDbgDGigPukoI2UM73M8TXBj10cD0r+BNUTUgF8cSmqB72jdLf1tTxvRQMr6
+	MwLxbVrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVte-00000005rUK-0faz;
-	Tue, 18 Mar 2025 12:18:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVq3-00000005qke-0zkR;
-	Tue, 18 Mar 2025 12:14:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E278013D5;
-	Tue, 18 Mar 2025 05:14:38 -0700 (PDT)
-Received: from [10.57.85.104] (unknown [10.57.85.104])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AF4D3F673;
-	Tue, 18 Mar 2025 05:14:22 -0700 (PDT)
-Message-ID: <e79f9aa9-ce1b-4d42-8a61-aebaae1744fc@arm.com>
-Date: Tue, 18 Mar 2025 13:14:18 +0100
+	id 1tuVvJ-00000005rpH-08mk;
+	Tue, 18 Mar 2025 12:19:57 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuVqv-00000005r1M-1azF
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Mar 2025 12:15:26 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52IAbX05010322
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:15:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kBlzBdfbGBXQZj0t5rIkzUhCArX3NpjNQoG/8nV0x44=; b=fZBJi8cTewc/hnHh
+	XlCpzNGxV2zM+UyAEaj1hwbgD0b6O0kw9E0ymVXaPwJ2qYYjwabCx6svQ3eytUjW
+	2zAqHgRbx5DQu7cd1sBM+maB8OwWD86BI9DxQA3Z8gefFhMsJbiiSODv5fhEiUtx
+	WbSN4ZzyNfndiEatnAWVG3rJbJU5k4oR7R13W/NrLZcH2UeKFAcQSgLzoW5n+YpS
+	vvKNViR6JLGyGNsi6VN+RMPt+RGzShbvZdBDBNbe5dDDid8AY08JfimOYtoE4DaP
+	GFDmqw1hQo9jjdHr9pCQPxvKMTHRG3Wh2vn4jt2MjbazsD10FdKo8XvpqirrI6qb
+	bkl1mg==
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45exx31qk9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 12:15:24 +0000 (GMT)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6ead1d6fd54so12175086d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 05:15:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742300123; x=1742904923;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kBlzBdfbGBXQZj0t5rIkzUhCArX3NpjNQoG/8nV0x44=;
+        b=DiEKQ6ZfagKR4UTFYcSnY3YJzVzsgu0OmdlfTx70qjrYIdwsOQETNyoIKeiUuUXHhR
+         9qITIXH6D19gK71YudKIUD0EwYQ5bIokNQL+sHm71hOBZhpR+vMEG4+HSuDHyQo9gjlP
+         Yp9xTtmpUrFNpWSVuUNo3mxJdqAKTQQ0H5LDVWjCocf1gFhKx08hjAtDStwQZ2SQJeQF
+         y+Haw1M7aBJS5bmf7IfxF6H1Zm2OYOY6nsQYNfYPvvdIwXEGBhDgr8epYrFoiFnUvAY4
+         DOvOJEyniSBRcoXVCqXb0DMZIvb161w8RdpUd9di8/NkdL+sZ5dcGWyWXsE4R2fr/y0n
+         kN0g==
+X-Forwarded-Encrypted: i=1; AJvYcCVFdTtgkC4oXXewABZR+RDTVmYdL+aSBtV4TWSqYsr+8EqPPF+TS51i7apvejX5fdDc9fyOgj99BK48fD/xii2N@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9X7zw21T9YK/CkbADRYOK9PhjIfTKpO0rjdMvHDixrwKAJjnB
+	1zzvDId92+VfUGyPeEnidB0M+18tZG0ABxgkWgdjykXZt91mAJujk6BdblIsX36Ie8GubQGBcW4
+	lSBuOhWixZL6KGHuaNFfrbJcAbL6uYAax2+F2fpDzRhkm4xUDDCibE/a9P1ect40eV5PBWJaGBA
+	==
+X-Gm-Gg: ASbGncuRgOSJKGGZLUwhyDew6ZHU3dbK2ce4cJTk7q3j9AMkem5P/dVlH7DLPSvDcUn
+	woKmViLpcJEuFsxftSFE6oPJlzAlBzzGXnnpbu22Jhs83fGYZGw73cJMmGizSv9hgVlTbh4F0v/
+	nJLiv6BeF37pnDrfzG9nTO33OM6ZNPS+C+UGTn6C8zfym/Q/ut/T86lKujI92QELv1cDU3U6D/N
+	/5JD31jPDARBwkCstd0Dt3aHKf49E9LHt7m/tTQoJ1XAMIowP+6xXAkV4pxXpELvc7hRfhbscrJ
+	93QryMTKfuru4MepkNF7fOOFyf0NOpaPt/gQq71n9UnrWM/IiAmEpX7oj6DVuh0/WJ2pAg==
+X-Received: by 2002:a05:622a:5b8a:b0:474:e4bd:834 with SMTP id d75a77b69052e-476c812bcc7mr89745221cf.2.1742300123022;
+        Tue, 18 Mar 2025 05:15:23 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFY6u8VngElRtMZG5ciHl9cEYAqvDvzQnu/JRBYF2zIHLFOqy1SOhpbhhUVqwSAHmZkXc07xw==
+X-Received: by 2002:a05:622a:5b8a:b0:474:e4bd:834 with SMTP id d75a77b69052e-476c812bcc7mr89744801cf.2.1742300122546;
+        Tue, 18 Mar 2025 05:15:22 -0700 (PDT)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3149cf133sm843129366b.106.2025.03.18.05.15.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Mar 2025 05:15:22 -0700 (PDT)
+Message-ID: <d0c03e76-8b61-4cc6-8839-448fbb64d4e9@oss.qualcomm.com>
+Date: Tue, 18 Mar 2025 13:15:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/11] Always call constructor for kernel page tables
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Mark Rutland <mark.rutland@arm.com>, Matthew Wilcox <willy@infradead.org>,
- Michael Ellerman <mpe@ellerman.id.au>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, Qi Zheng
- <zhengqi.arch@bytedance.com>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org
-References: <20250317141700.3701581-1-kevin.brodsky@arm.com>
- <70349335-84ee-4bca-a3d6-d7cf3c05b92b@arm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <70349335-84ee-4bca-a3d6-d7cf3c05b92b@arm.com>
+Subject: Re: [PATCH 9/9] ARM: dts: qcom: apq8064: move replicator out of soc
+ node
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan <leo.yan@linux.dev>, Kumar Gala <galak@codeaurora.org>,
+        Andy Gross <agross@codeaurora.org>,
+        "Ivan T. Ivanov" <ivan.ivanov@linaro.org>,
+        Andy Gross
+ <andy.gross@linaro.org>, Georgi Djakov <djakov@kernel.org>,
+        David Heidelberg <david@ixit.cz>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20250317-fix-nexus-4-v1-0-655c52e2ad97@oss.qualcomm.com>
+ <20250317-fix-nexus-4-v1-9-655c52e2ad97@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250317-fix-nexus-4-v1-9-655c52e2ad97@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=b+uy4sGx c=1 sm=1 tr=0 ts=67d963dc cx=c_pps a=UgVkIMxJMSkC9lv97toC5g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=EUspDBNiAAAA:8 a=DN3WPcqzEyWCdw6-I6oA:9 a=QEXdDO2ut3YA:10
+ a=1HOtulTD9v-eNWfpl4qZ:22
+X-Proofpoint-ORIG-GUID: 66oFgwdCsBMzN6spTWVp7n36wtHDw8LD
+X-Proofpoint-GUID: 66oFgwdCsBMzN6spTWVp7n36wtHDw8LD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-18_06,2025-03-17_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 phishscore=0
+ bulkscore=0 clxscore=1015 mlxlogscore=999 priorityscore=1501 mlxscore=0
+ lowpriorityscore=0 malwarescore=0 impostorscore=0 adultscore=0
+ suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503180090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_051431_322781_065E8843 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250318_051525_431851_6BBA31E5 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +151,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2025 16:30, Ryan Roberts wrote:
-> On 17/03/2025 14:16, Kevin Brodsky wrote:
->> The complications in those special pgtable allocators beg the question:
->> does it really make sense to treat efi_mm and init_mm differently in
->> e.g. apply_to_pte_range()? Maybe what we really need is a way to tell if
->> an mm corresponds to user memory or not, and never use split locks for
->> non-user mm's. Feedback and suggestions welcome!
-> The difference in treatment is whether or not the ptl is taken, right? So the
-> real question is when calling apply_to_pte_range() for efi_mm, is there already
-> a higher level serialization mechanism that prevents racy accesses? For init_mm,
-> I think this is handled implicitly because there is no way for user space to
-> cause apply_to_pte_range() for an arbitrary piece of kernel memory. Although I
-> can't even see where apply_to_page_range() is called for efi_mm.
+On 3/17/25 6:44 PM, Dmitry Baryshkov wrote:
+> The CoreSight replicator device isn't a part of the system MMIO bus, as
 
-The commit I mentioned above, 61444cde9170 ("ARM: 8591/1: mm: use fully
-constructed struct pages for EFI pgd allocations"), shows that
-apply_to_page_range() is called from efi_set_mapping_permissions(), and
-this indeed hasn't changed. It is itself called from efi_virtmap_init().
-I would expect that no locking at all is necessary here, since the
-mapping has just been created and surely isn't used yet. Now the
-question is where exactly init_mm is special-cased in this manner. I can
-see that walk_page_range() does something similar, there may be more
-cases. And the other question is whether those functions are ever used
-on special mm's, aside from efi_set_mapping_permissions().
-> FWIW, contpte.c has mm_is_user() which is used by arm64.
+the static kind, anyway - the dynamic ones are
 
-Interesting! But not pretty, that's basically checking that the mm is
-not &init_mm or &efi_mm... which wouldn't work for a generic
-implementation. It feels like adding some attribute to mm_struct
-wouldn't hurt. It looks like we've run out of MMF_* flags though :/
+> such it should not be a part of the soc node. Follow the example of
+> other platforms and move it out of the soc bus to the top-level.
+> 
+> Fixes: 7a5c275fd821 ("ARM: dts: qcom: Add apq8064 CoreSight components")
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> ---
+>  arch/arm/boot/dts/qcom/qcom-apq8064.dtsi | 66 ++++++++++++++++----------------
+>  1 file changed, 33 insertions(+), 33 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi b/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
+> index a106f9f984fcb51dea1fff1515e6f290b36ccf99..acd94f3ba0350c5dcdd8f80885ee643d8cbddac7 100644
+> --- a/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
+> +++ b/arch/arm/boot/dts/qcom/qcom-apq8064.dtsi
+> @@ -278,6 +278,39 @@ scm {
+>  		};
+>  	};
+>  
+> +	replicator {
+> +		compatible = "arm,coresight-static-replicator";
+> +
+> +		clocks = <&rpmcc RPM_QDSS_CLK>;
+> +		clock-names = "apb_pclk";
+> +
+> +		out-ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			port@0 {
+> +				reg = <0>;
+> +				replicator_out0: endpoint {
 
-- Kevin
+Please take the artistic liberty to add a newline before subnodes and re-sort
+the in/out-ports to make them alphabetical
+
+Konrad
 
