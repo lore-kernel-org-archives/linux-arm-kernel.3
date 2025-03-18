@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA07C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52618C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Mar 2025 15:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cg01GAKhpZSgbu+ff26UMaPA6A3CZokLlmN6f8k3fMQ=; b=T3+iVmH2Ebk4iYhhZFtlWH7Uue
-	8/JehmONdVo8JDPwIlvF6rm0a1IO1Kb1W59fsWVKEmK4bC0fQXG3WIGJoZx3x36RdJfNc4mqU+qaK
-	jMyMMHlFAr6I3Y2TlCkoHYdvlflwWIlvHTJYgW1F9FSwTkA846RlTabaYhYU77Ov0EY8ORQCLFhjZ
-	GkwpNzYOQ3CkNVHukOSCkrVFK5/uvpvJ2Ww4JeWz1JRIWnJUns11w4OmZRNLqR0G1ekGYYPz3648I
-	a1uURBTzINvWtD9BVAwmAOSoBCoSfGn/LTuoT9MTKTkgqsBxv5K3DkuYQNDJxNkSWPpfQo6z216fw
-	K3/LG8gQ==;
+	bh=VxbzKraClaTFrRzQSEPz8b03iRr+XTuiYJ3jiE+lJK0=; b=UfGIv8Cqf84m8GSgzXmFGsFetr
+	sVOh//Uiows94Wo+bhCjo7ndtypY0vv9t8Yg8e8crE4/T2Y9tO2E80x/BEk4yYsZDNPaeJ/uCzb0o
+	Lst4MoWsas/omvWzMFxMqaPlmmuEv8/t2GjG16uZm7h7OS+V9an78Rqna1Qfm1Fi6oK7TXfQ6AOl0
+	vlgxfBUPOphr0FnJ1zGZYYzwbfIuezSB9kXlJ0O88Id1BwfEiO7oYnFx8MxBPgoSrh2xDXi5h7D1r
+	TNX7eDYNJW8znAN1qn0xnr+SQ8YSb8htfVA+Z2sB0J6vQbTQrB06XTptjsSOgJun2AcrA/6BG7BfL
+	rAN6uAww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZ5a-00000006OJ8-01AB;
-	Tue, 18 Mar 2025 15:42:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tuZAu-00000006PBq-36b6;
+	Tue, 18 Mar 2025 15:48:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuZ3r-00000006O10-3coJ
+	id 1tuZ9C-00000006Oqr-3i8O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Mar 2025 15:41:00 +0000
+	Tue, 18 Mar 2025 15:46:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F34685C58FF;
-	Tue, 18 Mar 2025 15:38:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 867C7C4CEDD;
-	Tue, 18 Mar 2025 15:40:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B0D35C58BF;
+	Tue, 18 Mar 2025 15:44:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DFE2C4CEDD;
+	Tue, 18 Mar 2025 15:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742312458;
-	bh=8XU+uzlDIVHp8KPdPZ+SQ58qTW7pc8uMOtHULNZO6zY=;
+	s=k20201202; t=1742312788;
+	bh=JnY/ZKE/gr3SlMwGWRDFKvd5Yy5TdFOI6fug+T1XPi8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GaRF461uLgkFESqexYg+JyYJMVoKk5NVmQR7HipojvNON3b7EmXQ/MgTOZZXIrj/n
-	 TklI1rzC65IMk6/Bh4u0wwQfRquGxxdKAqbzvqiEv1QLeU2poojlDmVtE+yK0krYag
-	 DY4pcVj6FJa9zOduwD346Hp5rLoKkgldHkPSjCSbkg1o6uFIn4Rny07ogHt0dJn4Ww
-	 NuLMpvLTwcCrmknhC2aHFplU/4nsaOR7L1TVrYhhC6KdeAgrF1m5Dq1ShyjJIlJJYZ
-	 h+LSeTYbOfu5mEQL7x5NYVGru0KQ40gOO4rSIdm0yED7zr5CHi2bNvvnnh3x0NzziO
-	 v3B0EFuEDtgBg==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1tuZ3q-000000006vp-47Uz;
-	Tue, 18 Mar 2025 16:40:59 +0100
-Date: Tue, 18 Mar 2025 16:40:58 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	Sibi Sankar <quic_sibis@quicinc.com>, sudeep.holla@arm.com,
-	dmitry.baryshkov@linaro.org, maz@kernel.org,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	konradybcio@kernel.org
-Subject: Re: [RFC V6 2/2] firmware: arm_scmi: Add quirk to bypass SCP fw bug
-Message-ID: <Z9mUCmQW7L3yx7qt@hovoldconsulting.com>
-References: <20250226024338.3994701-1-quic_sibis@quicinc.com>
- <20250226024338.3994701-3-quic_sibis@quicinc.com>
- <Z77M5iXHQsdMptWm@hovoldconsulting.com>
- <Z77W-fKBUqAALZKJ@hovoldconsulting.com>
- <759226e1-05aa-4ca2-b2f5-7f1a84dc427f@stanley.mountain>
- <Z77l1NflYXTnRyg0@hovoldconsulting.com>
- <Z8AjhHsVT9ZQTtZX@pluto>
- <Z8WKQJcPTQDIXaKD@hovoldconsulting.com>
- <Z9kr5ABbqO27_BM-@hovoldconsulting.com>
- <Z9l1L1WICMYXSoIu@pluto>
+	b=KavZQkFgOk09Jw4FXDndLh0E2IgQB0RgcPfNcjgeajLCMBIpmVU7G0mi0i5yPg1eB
+	 n60klv1ZVpIHY50jAbD9urEfZAhYp5mx6q8MQoIgdYlNWI5L1eB4XmPdLNvKAaAI2f
+	 loiTcD60OhvtpDwY5w13YIaxrkxlP8oqIRPZMu/CCDyg/hf8NyOY435TTbSSw/wCUy
+	 eE66wwC7ieU9ZuIDzRQzfR0SJSozicIELOMaSrSRyimZVsXFc/E60JpmvJgDhP68bX
+	 GEcEYpkiHr8yNAyLXqSNbFRvlJV+JTvbFk/qiB5nmxaiHMkF3lgNrRH3HZ6HSan2iL
+	 8JmYSzomY3qcA==
+Date: Tue, 18 Mar 2025 15:46:22 +0000
+From: Will Deacon <will@kernel.org>
+To: Rob Clark <robdclark@gmail.com>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Connor Abbott <cwabbott0@gmail.com>, Joerg Roedel <joro@8bytes.org>,
+	Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
+ context fault
+Message-ID: <20250318154622.GA13829@willie-the-truck>
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+ <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
+ <20250311180553.GB5216@willie-the-truck>
+ <CACu1E7GzCiO2b7AFJSDC+pN2VD9VaD2aYz_GGymM3-xAUqd__A@mail.gmail.com>
+ <20250312130525.GC6181@willie-the-truck>
+ <CAF6AEGvqYithLFAKpfdkw35DEsUZ8rBt25-oWz3r=kaLt+RbQw@mail.gmail.com>
+ <20250312164735.GA6561@willie-the-truck>
+ <CAF6AEGskyoemQDrTXh=ewf61e-hVzWMjmqe=nX2J-65W5-M6Zw@mail.gmail.com>
+ <2d47815d-6bee-4d1f-8b60-854763794bf6@arm.com>
+ <CAF6AEGvhixYvXghvD+itnSDjr7bO4i3Ls0Y-kXC-ohFN=CS0PQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <Z9l1L1WICMYXSoIu@pluto>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAF6AEGvhixYvXghvD+itnSDjr7bO4i3Ls0Y-kXC-ohFN=CS0PQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_084059_955964_968CE29B 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20250318_084631_006566_3EE09072 
+X-CRM114-Status: GOOD (  32.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,41 +90,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 01:29:19PM +0000, Cristian Marussi wrote:
-> On Tue, Mar 18, 2025 at 09:16:36AM +0100, Johan Hovold wrote:
-
-> > Have you made any progress on the quirk framework prototyping?
+On Wed, Mar 12, 2025 at 01:20:45PM -0700, Rob Clark wrote:
+> On Wed, Mar 12, 2025 at 11:01 AM Robin Murphy <robin.murphy@arm.com> wrote:
+> >
+> > On 12/03/2025 5:23 pm, Rob Clark wrote:
+> > > On Wed, Mar 12, 2025 at 9:47 AM Will Deacon <will@kernel.org> wrote:
+> > >>
+> > >> On Wed, Mar 12, 2025 at 07:59:52AM -0700, Rob Clark wrote:
+> > >>> On Wed, Mar 12, 2025 at 6:05 AM Will Deacon <will@kernel.org> wrote:
+> > >>>> On Tue, Mar 11, 2025 at 06:36:38PM -0400, Connor Abbott wrote:
+> > >>>>> On Tue, Mar 11, 2025 at 2:06 PM Will Deacon <will@kernel.org> wrote:
+> > >>>>>> On Tue, Mar 04, 2025 at 11:56:47AM -0500, Connor Abbott wrote:
+> > >>>>>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > >>>>>>> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e3be0bfba75eea1d5de23117de 100644
+> > >>>>>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > >>>>>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > >>>>>>> @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
+> > >>>>>>>                                      struct arm_smmu_context_fault_info *cfi)
+> > >>>>>>>   {
+> > >>>>>>>        cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
+> > >>>>>>> +     cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
+> > >>>>>>>        cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
+> > >>>>>>> -     cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> > >>>>>>> +     cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> > >>>>>>> +     cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
+> > >>>>>>
+> > >>>>>> We already have an implementation hook (->get_fault_info()) which the
+> > >>>>>> qcom SMMU driver can override with qcom_adreno_smmu_get_fault_info().
+> > >>>>>> That thing dumps these registers already so if we're moving that into
+> > >>>>>> the core SMMU driver, let's get rid of the hook and move everybody over
+> > >>>>>> rather than having it done in both places.
+> > >>>>>
+> > >>>>> As you probably saw, the next commit moves over
+> > >>>>> qcom_adreno_smmu_get_fault_info() to use this. The current back door
+> > >>>>> used by drm/msm to access these functions is specific to adreno_smmu
+> > >>>>> and there isn't an equivalent interface to allow it to call a generic
+> > >>>>> SMMU function so it isn't possible to move it entirely to the core. At
+> > >>>>> least not without a bigger refactoring that isn't justified for this
+> > >>>>> series that is just trying to fix things.
+> > >>>>
+> > >>>> Ok :(
+> > >>>>
+> > >>>>>>>        cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
+> > >>>>>>> +     cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
+> > >>>>>>
+> > >>>>>> I think the CONTEXTIDR register is stage-1 only, so we shouldn't dump
+> > >>>>>> it for stage-2 domains.
+> > >>>>>>
+> > >>>>> Does it matter if we read the register though, as long as users are
+> > >>>>> aware of this and don't use its value for anything?
+> > >>>>
+> > >>>> I think the contents are "UNKNOWN", so it could be hugely confusing even
+> > >>>> if they just got logged someplace. Why is it difficult to avoid touching
+> > >>>> it for stage-2?
+> > >>>>
+> > >>> Fwiw, we are only ever using stage-1
+> > >>
+> > >> Sure, but this is in arm-smmu.c which is used by other people and supports
+> > >> both stages.
+> > >
+> > > Sure, but no one else is using this field in the fault-info.  So maybe
+> > > the addition of a comment in the struct would be enough if it isn't
+> > > going to cause an SError/etc to read it for S2 cb?
+> >
+> > Any worthwhile comment isn't going to be significantly shorter or
+> > clearer than 1 extra line of "if (smmu_domain->stage ==
+> > ARM_SMMU_DOMAIN_S1)"...
 > 
-> I have not forgot, tried a few things, but nothing really to post as of
-> now...dont wnat to rush either .... I was hoping to push something out at
-> the end of this next merge window...
-> 
-> > Do you need any input from Sibi on the protocol versioning for that?
-> 
-> No I am fine, I am planning anyway for something generic enough to be
-> easy then to plug your own quirks separately...
+> Just that smmu_domain isn't passed to
+> arm_smmu_read_context_fault_info(), so it would add some extra churn
+> on top of that one extra line
 
-Sounds good, thanks.
+Churn is what we do best in this driver :)
 
-> > We'd really like to enable cpufreq on this platform and ideally in 6.15.
-> > I think that should be possible given that we now understand in what
-> > ways the firmware is broken and what is needed to handle it even if we
-> > still need to decide on how best to implement this.
-> 
-> v6.15 seems hard/impossible even using the original Sibi patch 
-> given the usual upstreaming-timeline of the SCMI stack where everything has
-> to be usually reviewed and accepted by rc4/rc5.....so both Sibi initial
-> patch and my own babbling were alreaady sort of late.
-
-Yes, sorry, I wasn't referring to Sibi's SCMI patches, but the
-devicetree changes needed to enable cpufreq on these platforms (that
-will go through the qcom tree).
-
-It may be a little late for that too, but with an understanding of the
-problem and a quirk implementation around the corner, we could enable
-cpufreq as long as we make sure that Sibi's per-channel FC fix (that
-addresses the FC warnings) is not merged without the quirk in place (to
-avoid the crashes).
-
-Johan
+Will
 
