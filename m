@@ -4,99 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 188C5C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 10:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDDBC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 10:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IqT9EgtacH1pGzAa8bINKY6LuDFSP+bccvn9tGaRagA=; b=koS9MQ+3dFQLrfEazYlKhwXJgz
-	2xJf+VO2yZmhKkyL79Hs6u/S40r2BjWnP1pIipblr3WcqMJqtUxhj+1UnBeMABw5yu+D3n8q1gyHi
-	XKs1GNZDxpOE1zz8UrDqaDiYcQyADTmLHCDYjdNVvuZW8Euxg0d1JRtAWowUatbgJVxwza+CJDb6E
-	Kb3kGjA2kEcXG07+CXtNm/GKoHiJMIPaCmD9yKlHwOoXADvlPAKm8Qstrm4doP3XnpOSrv0poDxUE
-	8ApgNWQ1V+K5GNneKTYyrAxlrc29gWIkpS9CcDArr/+reZMVuJl2Xc41vS41Yb1SiUnZwUinK72v3
-	zz4310eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zy1J4wxCILEpjEj6qgGPZ/dzo8hPBVUSehdt+nTpsyU=; b=0ffHyMCYHUfgbM0R10FNhsrxtr
+	5EDbwe+PylPBNLUkUK3RW9zzvy6upQSeH6wobuyhio83gn8Tf/76cyxO0JiZf6zv+3bzzy47KbFoa
+	n+ft34yjCSOrcB6HWIrVQdszGdOFmisOqp/aA3+ThnD4cOlSKHUXxweLrLmtTjGa6pIDMQboH3NZK
+	tzCPyMerkeFBh6EIQGzJiKfxihTPmEqIKMep8hjH1V0jTJz4qCP/03hxABLF0SSoIMmY1gqEQv0Lg
+	XCCC75whwTSxfzDwN57Tp0M3hqyrxHTKkTkdtkwOlu8hJoF3pl2Le5lx8BAS0gilmxRwwVlq5Nwhm
+	5DdiNxXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuqh1-00000008fNK-1U5f;
-	Wed, 19 Mar 2025 10:30:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuqfJ-00000008fAJ-2QF4
+	id 1tuqig-00000008fWL-0Thb;
+	Wed, 19 Mar 2025 10:32:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuqfq-00000008fFv-2ocv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 10:28:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1742380128;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IqT9EgtacH1pGzAa8bINKY6LuDFSP+bccvn9tGaRagA=;
-	b=JeESyd7q/lA++orEdcHXXBf5V6Y44ID6APCo1vgRFoZEJV+udeor7sG38albvim491F+DK
-	p4jF4f5F1VZ/ESHxIEdvqY9fgED2C9NYDiahuty0flVO3x497Aj/1M+Wf8HuCD2Qy/MU0a
-	8xA1Nc1Rau4dFOG+xX371XuESc/XGUw=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-173-ZY5rDnB4N6iTFLjzOGbTTg-1; Wed, 19 Mar 2025 06:28:47 -0400
-X-MC-Unique: ZY5rDnB4N6iTFLjzOGbTTg-1
-X-Mimecast-MFC-AGG-ID: ZY5rDnB4N6iTFLjzOGbTTg_1742380126
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-225974c6272so10933105ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 03:28:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742380126; x=1742984926;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IqT9EgtacH1pGzAa8bINKY6LuDFSP+bccvn9tGaRagA=;
-        b=j4vaD8J3OYxy+ymj1MLmstvz48ZnRrq4mYQ0n1gKIcfkRtQs5yncN6QMoBP1gnnv0h
-         r2iYdwGhna9WjxvkFPQddwDO5pyHagDpAXVaybHIBDCmtcZo6+UFMdaf/ggFt0gHKMuL
-         waadGzcCHbKMufP36yyD88oMZEkdnYjMk7+jRFWtQC9BpNpJWGdA4GGS+SgNK0LtigoH
-         kO8Kn8upIRwf4HWkr0Orbgqd68JLBvt/JW8M9D1mGNRSWHCNNnoNpqQqQoYWNqd96kEG
-         eaBUNuEQCTndeSyK54hdf2pYEpy4PI9SXP+LQO1Goi8e1etlzS0YyiRM6llGiTfXlFRm
-         pp6g==
-X-Forwarded-Encrypted: i=1; AJvYcCX39+VMc1A8hXG1IRtgeV8cZnQEQAL49sPFWCV1uvzgI8Cb3375OcxmfBlyPEI6TPycygpnJCM5CpF9VHplZPnX@lists.infradead.org
-X-Gm-Message-State: AOJu0YymTuOI1DOg3JAv76k4oIC8Cvi4Vx0knp9QbwWOo4IKxCnludjg
-	aJ/wvQhXC1fRGuAUwcn1WO/WlXwbLb250uHHTjXwJys9T7yzKIj0m2yN0LWrcNZ4sAyLmMjW1sZ
-	+GFW8MhOcIHYNLoWXCnqNEmxtBZC2HYieY3rIDwkU86PJXHISkkm7hFgWBqBFOw8fFJh/XgiY
-X-Gm-Gg: ASbGncsjjk4XRAOR5UW084fwj//yAf7vkL6v8ZbrK/39THAvLmv9C8jLNlKxAGRzp7P
-	I6WUYszJ2EiuAKxMPxjY24UZcPKtvDz4PT9cUk034cnxgPuUtYQ7EM9cRFzhP8r3Q3AIsaHi+n5
-	JCa9vIsrje5wj1gPnmsVsfUOF9zV8rVP7nU0oZh8dN5SPUH6XGEebR0z+vi/NVf9wem+6ga/BIZ
-	pTW4bnQesUk2mbb65yOKrs70H0b/2evhhWa54pLu2xOa1CY8wDpGlLpPOow2iByFlPvzcGDVhHm
-	wqgRWSYgOn3+pZpYaA==
-X-Received: by 2002:a17:902:d550:b0:223:5187:a886 with SMTP id d9443c01a7336-22648f0cba4mr43831055ad.22.1742380125924;
-        Wed, 19 Mar 2025 03:28:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF115S9F7K8/VY/uIVVLVdYu52ScoDkva9X27jsROIn1MQLuwsTdtxucZqN9UFjhuGUvr6o3w==
-X-Received: by 2002:a17:902:d550:b0:223:5187:a886 with SMTP id d9443c01a7336-22648f0cba4mr43830585ad.22.1742380125494;
-        Wed, 19 Mar 2025 03:28:45 -0700 (PDT)
-Received: from [192.168.68.55] ([180.233.125.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bbe960sm109981735ad.200.2025.03.19.03.28.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Mar 2025 03:28:44 -0700 (PDT)
-Message-ID: <28cb8360-7fb0-46f0-b05f-5114f1974cf3@redhat.com>
-Date: Wed, 19 Mar 2025 20:28:38 +1000
+	Wed, 19 Mar 2025 10:29:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B52412FC;
+	Wed, 19 Mar 2025 03:29:27 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14C713F694;
+	Wed, 19 Mar 2025 03:29:16 -0700 (PDT)
+Date: Wed, 19 Mar 2025 10:29:14 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 6.13 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+Message-ID: <Z9qcem7BVeuRd5XD@J2N7QTR9R3>
+References: <20250312-stable-sve-6-13-v1-0-c7ba07a6f4f7@kernel.org>
+ <20250312-stable-sve-6-13-v1-8-c7ba07a6f4f7@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: psci: Fix refcount leak in psci_dt_init
-To: Miaoqian Lin <linmq006@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Will Deacon <will@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250318151712.28763-1-linmq006@gmail.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250318151712.28763-1-linmq006@gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5FHnvdm_EBZNaV63VTcryNNuVUQB6c6tgBXMXPPhke4_1742380126
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250312-stable-sve-6-13-v1-8-c7ba07a6f4f7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_032849_693630_AD05B6F5 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250319_032922_756104_97BFD3C0 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,55 +70,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Miaoqian,
+On Wed, Mar 12, 2025 at 11:49:16PM +0000, Mark Brown wrote:
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 7262983c75fbc18ab44f52753bff1dd9167a68d3..84326765c66087d992a517a19fea94b04c39c994 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -5,6 +5,7 @@
+>   */
+>  
+>  #include <hyp/adjust_pc.h>
+> +#include <hyp/switch.h>
+>  
+>  #include <asm/pgtable-types.h>
+>  #include <asm/kvm_asm.h>
+> @@ -178,8 +179,12 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+>  		sync_hyp_vcpu(hyp_vcpu);
+>  		pkvm_put_hyp_vcpu(hyp_vcpu);
+>  	} else {
+> +		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
+> +
+>  		/* The host is fully trusted, run its vCPU directly. */
+> -		ret = __kvm_vcpu_run(host_vcpu);
+> +		fpsimd_lazy_switch_to_guest(vcpu);
+> +		ret = __kvm_vcpu_run(vcpu);
+> +		fpsimd_lazy_switch_to_host(vcpu);
+>  	}
 
-On 3/19/25 1:17 AM, Miaoqian Lin wrote:
-> Fix a reference counter leak in psci_dt_init() where of_node_put(np) was
-> missing after of_find_matching_node_and_match() when np is unavailable.
-> 
-> Fixes: bff60792f994 ("arm64: psci: factor invocation code to drivers")
-> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
-> ---
->   drivers/firmware/psci/psci.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
-> 
+As Gavin noted [1] for the v6.12 backport, the addition of kern_hyp_va()
+is not correct, since 'host_vcpu' has already been converted to a hyp VA
+at this point.
 
-I'm wandering if the fix tag is correct enough because !of_device_is_available(np)
-wasn't added by bff60792f994.
+[1] https://lore.kernel.org/linux-arm-kernel/019afc2d-b047-4e33-971c-7debbbaec84d@redhat.com/#t
 
-> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> index a1ebbe9b73b1..38ca190d4a22 100644
-> --- a/drivers/firmware/psci/psci.c
-> +++ b/drivers/firmware/psci/psci.c
-> @@ -804,8 +804,10 @@ int __init psci_dt_init(void)
->   
->   	np = of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
->   
-> -	if (!np || !of_device_is_available(np))
-> +	if (!np || !of_device_is_available(np)) {
-> +		of_node_put(np);
->   		return -ENODEV;
-> +	}
-
-The fix looks good to me. The duplicated of_node_put() can be avoided with
-a 'out' tag added, something like below.
-
-	if (!np || !of_device_is_available(np)) {
-		ret = -ENODEV;
-		goto out;
-	}
-
-	:
-
-out:
-	of_node_put(np);
-	return ret;
-
->   
->   	init_fn = (psci_initcall_t)matched_np->data;
->   	ret = init_fn(np);
-
-Thanks,
-Gavin
-
+Mark.
 
