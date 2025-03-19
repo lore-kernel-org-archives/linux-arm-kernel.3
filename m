@@ -4,57 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 013CAC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 11:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77B0C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 11:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfaT2WGBuF061yHSG9c1TIbt6nQOkqvYePlAs9M5CcM=; b=LkkyysBfLoGpKb1EqKftYCoipi
-	fiWT55RSyeMhcXBxL9FEr6jnh/PUWxU6SEHlHTATonUIJwyVXEio4X4pzVjAV1lyFEY5nwVfpIpHB
-	Wq1LSMVyFA2/4P9QGrxQG5AdX0lz+F6EVTmfZW1z9k38GaiP9+Ma+F96ZLg7JmcoibHzM7IJR6LKJ
-	DMhSC4k2PN1LeslGikH2DBneN3hcv+wV6erxU4VK/gKjkUfLZ2quMuy+mOC0BlT1Rji9M3vgpnI24
-	FGPE1JNgAsL+eIWYwfxq6MglSuTV8XKsDiQaLrEzm+OhtgWGpNRrq6bLoiAfkgAZBh8jjQEBKnzQQ
-	hIYzkKEQ==;
+	bh=qd8nRsZF6Yw0K5tcFXmJtOt488HGqm91ExyAKxD5eVs=; b=tCZr513PajPkqcbJ2QyA+QQ0Bp
+	k/HO8NicvCrRU+TvHwBMfjIAsCpxs6y/dfdh1AFYZGdHF5uzypvojmocomSMGR7lcAwyGDK8WU9F0
+	yQETkuu9jEZVvTOzshYqyKseOLqY3wcsx8tUNTZaxkwDYiUmBVqKbsMq2Qix5PKAfg1dUHXLDARx9
+	hFoehMW2aymZIkuW/mWDorseF/72ffi4LqwdGTXHia05juxT89hJr1NstXaKMy8IbFm+s8GWOMMSj
+	IkwEVPBNDzyL1S8TMgpIyOocS0TrKfDXiE3IWIlDC+qKqDR20pywn7fE6l5TA4H4eiXIyaY50SkAu
+	LP/e7xeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1turti-00000008sWO-20Br;
-	Wed, 19 Mar 2025 11:47:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1turlg-00000008rAD-1dvH
+	id 1turvN-00000008shG-0W6K;
+	Wed, 19 Mar 2025 11:49:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1turne-00000008rSh-3WkC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 11:39:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CC4E113E;
-	Wed, 19 Mar 2025 04:39:35 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8329F3F673;
-	Wed, 19 Mar 2025 04:39:25 -0700 (PDT)
-Date: Wed, 19 Mar 2025 11:39:22 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Miaoqian Lin <linmq006@gmail.com>, Gavin Shan <gshan@redhat.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Will Deacon <will@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+	Wed, 19 Mar 2025 11:41:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9AFEE6166C;
+	Wed, 19 Mar 2025 11:41:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93B42C4CEE9;
+	Wed, 19 Mar 2025 11:41:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742384489;
+	bh=sCG7TrMV7r+MbaFZ5m1n+E4AY94m6bjL2vVmlHoGurI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=o1TZS1u/fD93AsTsWRKod/hxrQg8n6q5DkGeeKkHUB+MUnvSaFvXiLppI2hZH62JO
+	 N5uDsJzd48C2Ftf11jf871UG6PXsAHJnQLz7u1FUDNBtWq8msGXh8iNnnTaUJceKSl
+	 YXOVHPMnikCw5WFLe0qvY3L3mClWfc8sVX+a1dt44HcbkvOyJyQU7zOO/18AjDpXgN
+	 AG468J0bxaudk9VH5hLbdLzx3JsYoymWoqIYQF5K7cKf1j7EbMqsHh2H1AVtkpKhu4
+	 KuyQk5UdnENU8WqEam1cbuplXnMxE3nL9WnJVDvcdg65SvsHm9S0HEwz65ut78/J0c
+	 ZyfvIgcWmEJcQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1turnb-00F3HT-H5;
+	Wed, 19 Mar 2025 11:41:27 +0000
+Date: Wed, 19 Mar 2025 11:41:27 +0000
+Message-ID: <86msdhmemw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] firmware: psci: Fix refcount leak in psci_dt_init
-Message-ID: <Z9qs6r_eaQ0qLx9B@bogus>
-References: <20250318151712.28763-1-linmq006@gmail.com>
- <28cb8360-7fb0-46f0-b05f-5114f1974cf3@redhat.com>
- <Z9qgmTbeLh0cCULw@bogus>
- <Z9qmglbXw0xILaet@J2N7QTR9R3>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z9qmglbXw0xILaet@J2N7QTR9R3>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_043928_475763_5125AAA8 
-X-CRM114-Status: GOOD (  15.16  )
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com
+Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
+In-Reply-To: <aabd71eb-286b-475c-a30e-d5cf5c4f2769@daynix.com>
+References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
+	<Z9pze3J2_zrTk_yC@linux.dev>
+	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
+	<86plidmjwh.wl-maz@kernel.org>
+	<bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
+	<86o6xxmg87.wl-maz@kernel.org>
+	<aabd71eb-286b-475c-a30e-d5cf5c4f2769@daynix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,48 +98,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 11:12:02AM +0000, Mark Rutland wrote:
-> On Wed, Mar 19, 2025 at 10:46:49AM +0000, Sudeep Holla wrote:
-> > On Wed, Mar 19, 2025 at 08:28:38PM +1000, Gavin Shan wrote:
+On Wed, 19 Mar 2025 11:26:18 +0000,
+Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
 > 
-> > Any reason why we can't move to the new scoped usage like below?
-> 
-> > diff --git i/drivers/firmware/psci/psci.c w/drivers/firmware/psci/psci.c
-> > index a1ebbe9b73b1..a4269078b2a2 100644
-> > --- i/drivers/firmware/psci/psci.c
-> > +++ w/drivers/firmware/psci/psci.c
-> > @@ -797,12 +797,11 @@ static const struct of_device_id psci_of_match[] __initconst = {
+> On 2025/03/19 20:07, Marc Zyngier wrote:
+> > On Wed, 19 Mar 2025 10:26:57 +0000,
+> >>
+> > But that'd be a new ABI, which again would require buy-in from
+> > userspace.  Maybe there is scope for an all CPUs, cycle-counter only
+> > PMUv3 exposed to the guest, but that cannot be set automatically, as
+> > we would otherwise regress existing setups.
 > > 
-> >  int __init psci_dt_init(void)
-> >  {
-> > -       struct device_node *np;
-> >         const struct of_device_id *matched_np;
-> >         psci_initcall_t init_fn;
-> >         int ret;
-> > -
-> > -       np = of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
-> > +       struct device_node *np __free(device_node) =
-> > +               of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
-> > 
-> >         if (!np || !of_device_is_available(np))
-> >                 return -ENODEV;
-> > @@ -810,7 +809,6 @@ int __init psci_dt_init(void)
-> >         init_fn = (psci_initcall_t)matched_np->data;
-> >         ret = init_fn(np);
-> > 
-> > -       of_node_put(np);
-> >         return ret;
-> >  }
+> > At this stage, and given that you need to change userspace, I'm not
+> > sure what the best course of action is.
 > 
-> IIUC the bug has existed since before the scoped helpers were
-> introduced, so for the sake of keeping the backport simple I reckon we
-> should take Miaoqian Lin's patch as-is, and we can consider moving to
-> the scoped helpers as a later cleanup.
+> Having an explicit flag for the userspace is fine for QEMU, which I
+> care. It can flip the flag if and only if threads are not pinned to
+> one PMU and the machine is a new setup.
 > 
+> I also wonder what regression you think setting it automatically causes.
 
-Agreed.
+The current behaviour is that if you don't specify anything other than
+creating a PMUv3 (without KVM_ARM_VCPU_PMU_V3_SET_PMU), you get *some*
+PMU, and userspace is responsible for running the vcpu on CPUs that
+will implement that PMU. When if does, all the counters, all the
+events are valid. If it doesn't, nothing counts, but the
+counters/events are still valid.
+
+If you now add this flag automatically, the guest doesn't see the full
+PMU anymore. Only the cycle counter. That's the regression.
+
+Thanks,
+
+	M.
 
 -- 
-Regards,
-Sudeep
+Without deviation from the norm, progress is not possible.
 
