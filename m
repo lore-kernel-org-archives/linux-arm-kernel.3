@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C755EC35FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 13:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 662F5C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 13:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYRfn1th0UJODk6Q3SDeKN8ucu2Aq+kCO/mYannEF5s=; b=Dt0wL/WEqn58VJ/ituRev08R8t
-	5ySJ7FLJS4SkkhbcStBFumiuJvw/563OTwvZcZ/M4lFXWqoQa6LKlc3fbDN4g0kVsx4WqnE6D6epU
-	EQNoZ514x6TKdDkzOO/L6ig1Wj6N6LNsYMclKQyFJ2liD34Tu+OO2Nmop0IC52JTmR01dLZ5F8Jao
-	aR0kzgq3VmUjP0elU1NdTShfAoFBi++wT/OFkL6974YPP5VtAU9D2E3lNHMXqgwNk9xX65OFV0sFW
-	cw2QZZVVZ1h6Q541i3PCXlN8SZ2A+TITQjasmI6cckzysfzX3+zS/sQa55ez0XdVBwLtbsWJkJHcz
-	dX9a++5Q==;
+	bh=UmbLkE3G+lImWSxYzI2cmejiT0+MhXgUb4SICK3ekoU=; b=Pmrx1Qfazehu60VKmfYScupwYf
+	TesHy2cevSlxTKdHrQFe836KYpb5EdpiiplXm6MWPz7Tj7VayuffsP99DuDdHGyOEzodjDTZEULA/
+	wPAPjl6MVWXDxto6MAKe8mS9Fe07IyxUbcbOyOHu5RI1V5KbJF8t8xpGgfm0WVC+v+Yepm4/ppKCt
+	yvF+teQqpkuisirXIlejMxAUDT8stUEuxeJfZNqxcJZdka/5BUBsKEuWIH9FMbUuhtTPluDo3X3CC
+	J8iV8uTpLOPY6EvYwgtla7tK90UgQ0KvBshc6atZmVJen/wHJj4s0wGgUGZI3Juuyq0qC+E425UdZ
+	q19OlSXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tutRM-000000095Gm-3o8g;
-	Wed, 19 Mar 2025 13:26:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tutZ8-0000000966N-3hVi;
+	Wed, 19 Mar 2025 13:34:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tutPE-000000094mx-11Tm
+	id 1tutXS-000000095sN-0s6i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 13:24:25 +0000
+	Wed, 19 Mar 2025 13:32:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C10CE5C5A98;
-	Wed, 19 Mar 2025 13:22:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D71F8C4CEE9;
-	Wed, 19 Mar 2025 13:24:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E80FF6161B;
+	Wed, 19 Mar 2025 13:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 162F6C4CEE9;
+	Wed, 19 Mar 2025 13:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742390663;
-	bh=x7BqLBdqa0Pofxy9h5kGhmOuImsx3iazNrFoBrSorSY=;
+	s=k20201202; t=1742391173;
+	bh=UmbLkE3G+lImWSxYzI2cmejiT0+MhXgUb4SICK3ekoU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dY0uhdBn28SH0CjpOoq/FAsOG2uKdYmM1HX81wMJugzVl73UsBe9PEmGw+EsyY039
-	 CGFfZbV2Sri5OVqUc8x6VGNTz+girkqdKFB8KuiIKqV7VfEBO6s/kq/vQHKHZa8d8+
-	 yoOeQcejJVgrYDV/l1QUyyZ1leb7PXxORwlGJjrY+8wCtqaMm1JsJywG/pJxQPIj6l
-	 E4xmnc7cV3HS9O9QMbTkwAV7CvfgLrpdq9EKy6LNZFQrOfGBtcN9KIkjlBYX4E8tcX
-	 +p4zFuluOehct4IwB5f9EAVzj58JvyG5pxOvnIwmXIQpR8AU+K3h2F0WuXBCkyhXsp
-	 lkTSPI+tUefEw==
-Date: Wed, 19 Mar 2025 13:24:15 +0000
+	b=i7PLjoNxeXyFkfFCxWxuKAMNTkMr/JU4cjlgnUl2p2aguKdlqPxjfHItXppQNIUI3
+	 duMcWd5cWAXRyaQXEARjGbGhnwSR0KLNoasHbonncomc1z4o+4T1sFuOYSxB5q5TL/
+	 iW37NWP134MUaADIHdvPS4eK7+9yMtqw04sUHt9a6Ygu/ojfo0rL+fRJDBfPUNqoJh
+	 THs27D1urlu6dx/g8WyQmBxBsDvpSEezWPRxnP9B3tKF/NF1UJkpl/rGM1mImruYXL
+	 Ilob95CevsfCaO8pS0pDdVaheWEmVpYYjSxNTvNOQ3ul4u7rZHlSIas1HuOwsw4Wra
+	 Jyel91WjgMh/g==
+Date: Wed, 19 Mar 2025 13:32:46 +0000
 From: Mark Brown <broonie@kernel.org>
 To: Jeremy Linton <jeremy.linton@arm.com>
 Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
@@ -54,20 +54,16 @@ Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
 	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
 	liaochang1@huawei.com, catalin.marinas@arm.com, will@kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/7] arm64: uaccess: Add additional userspace GCS
- accessors
-Message-ID: <50a0920d-3e3d-4e96-b68a-a7a0d78c3695@sirena.org.uk>
+Subject: Re: [PATCH 6/7] uprobes: Allow the use of uprobe_warn() in arch code
+Message-ID: <07499f3e-b730-444e-bd52-75bfaefef84f@sirena.org.uk>
 References: <20250318204841.373116-1-jeremy.linton@arm.com>
- <20250318204841.373116-4-jeremy.linton@arm.com>
+ <20250318204841.373116-7-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Lrxbu3I30TVdgrcC"
+	protocol="application/pgp-signature"; boundary="K9lkjfOgLHeIEjyd"
 Content-Disposition: inline
-In-Reply-To: <20250318204841.373116-4-jeremy.linton@arm.com>
+In-Reply-To: <20250318204841.373116-7-jeremy.linton@arm.com>
 X-Cookie: Chairman of the Bored.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_062424_324287_473EF0DB 
-X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +79,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---Lrxbu3I30TVdgrcC
+--K9lkjfOgLHeIEjyd
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Mar 18, 2025 at 03:48:37PM -0500, Jeremy Linton wrote:
+On Tue, Mar 18, 2025 at 03:48:40PM -0500, Jeremy Linton wrote:
+> The uprobe_warn function is limited to the uprobe core,
+> but the functionality is useful to report arch specific errors.
+>=20
+> Drop the static so it can be used in those code paths.
 
-> +static inline u64 load_user_gcs(unsigned long __user *addr, int *err)
-> +{
-> +	unsigned long ret;
-> +	u64 load;
-> +
-> +	if (!access_ok((char __user *)addr, sizeof(load))) {
-> +		*err = -EFAULT;
-> +		return 0;
-> +	}
-> +
-> +	gcsb_dsync();
-> +	ret = copy_from_user(&load, addr, sizeof(load));
-> +	if (ret != 0)
-> +		*err = ret;
-> +	return load;
-> +}
+=2E..and also make use of it in the arm64 code.
 
-A GCS load done by the hardware will verify that we are loading from GCS
-memory (the accesses are marked as AccessType_GCS in the pseudocode
-which is then validated in for example S1CheckPermissions()).  Sadly
-there's no equivalent of GCSSTR so we'd need to do the permission check
-ourselves to match this behaviour.
-
---Lrxbu3I30TVdgrcC
+--K9lkjfOgLHeIEjyd
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfaxX4ACgkQJNaLcl1U
-h9B6kAf/aWTyBGHINz3SHkUd7B2qgPUiRdB16ns0/PHI44Me7B9WwzgUi4S60ku3
-k9adlWzZXOVABsny7iREC/F24FgqxbT1hBSK/TXZPGJvubnkOahLXD7iXkANnMhh
-lbnr++1qFc9tXTMuq3sFmGZA8u+RgavrZ1x7WdTkVQ/PkrY1tIOefK9+ut0RydD5
-T7inRjdUC1ee6CorJqprrnC/G/VIi/lgg+DlpkDWW1teV49ASSim7nIhlZ4U+JVQ
-Di39GgQj5uQyndh4r7fp1YuRBd5SyhjrWTce/XX06ctkUug6aZndsirvSKdQJQQL
-0slQcyJA5dGCPUeUuvDRv2ghKhJ/1g==
-=QTs9
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfax30ACgkQJNaLcl1U
+h9AkFQf/Y1q2Feg+KwP4cXtEJ9+aNY2Xsphb3PTa2oMFU3s3huFK2zT+Tw0wXrpB
+T6eywqTDqWTMi2JY07llFmpN77P3NCk/wKxM3P1wnrf4+u06SthNy8nbKyXGRL+q
+fljp81T5af2/Flj/OBFBGthbD7Dw8zRZjfn9TO1jR28NjsxcuARf7x1cX0pzQpTm
+GH9CJKjInhK3LpzmCHbMvj7l4bJ/P+bBATxHsvboTgnazmAlPN/KjEI4NlBzObhP
+n9nPZrAMVyMf4qF6q+BCOWs2rGEZ21PQFVzVzZoP8BeSwqwyq0VLvlvr7P5qQktq
+gJJDd73z2qAdKnm1HXmzg61mBGQifQ==
+=ChsK
 -----END PGP SIGNATURE-----
 
---Lrxbu3I30TVdgrcC--
+--K9lkjfOgLHeIEjyd--
 
