@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103BBC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBCDC35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5goDERUrPXPyZzmCy7lw+XwkgPNVdvQxkY1QQaRiqA=; b=tW434LPfDXgIjasqIqBZ5MGoyr
-	USfrB4ObP/tTLBGv6N4mMCFhS6lj1HvcmnPcmgSs8akG4/7Kp+YsUOCAdES1yO/pZGXNZh9sNkEHx
-	F1IxmwkkLEEesYmQlzLpAM/On+YrqXRrd1fQMke/K2qsCVBWBDni5GSMfw3PGb7Ym7SNzJo6hqypB
-	YHsegV7iqASsjDZT86tbR+roTVOLpmKfCPliUQq73baiqiMfo/v2DWtAdhiHPUJIs37O4uWuo0t/b
-	xsy8L2JDlpv0TVEw6JkC0ex7/19DGFQQA/4D1p6+ax6jhhdPu6EPFOHBkNR7XlAgfvgjEGFdI0K5l
-	0PoAjNhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OiH+giKVjjHb4nMitfkxCsx1jEHHhU2+p+caJgN/xL0=; b=0otAaRZ+S7fpUmclri9z7sTL/j
+	nfUIKHLiwfj6XiftCTg+DPcJf9WpMhcQNKkz0nQDtl6oyhAAwrDNlpTCyhR/ZS/rvZxYjasjw+S3s
+	A+6hDvXtFrlsKB5SQ1+ui5ZuPGL43AXRFX6riRalhhGNeLVZ+NPCQ2b8Ldi+Ku56Kq1N0Lq26dGVZ
+	BtaiIIwro2W+wIwBh5HBkUPORdNBGH9K/6wj6Yi0z/LBXY1GevqGs5Q9IHJPp37g9litxmljioepV
+	MSbEeu7a1Stes7uk+CHu/Vj8QK6y8I5R2/RP++7tA6zAtANUOrbqewdrAuXTOMOHzZHRDPDamNhpQ
+	q9W3ppzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupQA-00000008RFT-3fCU;
-	Wed, 19 Mar 2025 09:09:06 +0000
-Received: from mx-rz-2.rrze.uni-erlangen.de ([131.188.11.21])
+	id 1tupTI-00000008Rh0-34Yw;
+	Wed, 19 Mar 2025 09:12:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupOA-00000008QpG-2PG1
+	id 1tupRc-00000008RSS-1YbW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 09:07:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1742375193; bh=/5goDERUrPXPyZzmCy7lw+XwkgPNVdvQxkY1QQaRiqA=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From:To:CC:
-	 Subject;
-	b=lzSXVoxAZAnJzDEK3eE3Aj534D+oBP149HbMd5Pg72Qe/WLAC3uoTnpjRsVzsIYox
-	 TnYOSHjKGuB3gHkkqfdQ1OTs1uRRT/tls2LiJQviOSpmAsToF0tuXQxoPh+Knvua7E
-	 mnx3iG4H8d2/gugEFKL5yNykGUx0uN36jMW5M6pViwJaZ6mLY7uXMFkK7fy8K2/NJ2
-	 HC8FUqCub2ttWnDa7p1wJy6j+33lnqdVUeBHkXu/261LFECZL0AkRC091jFVzXJD6m
-	 84+ErL1QGP+WFgpl2uMQHur82B8hea9fHUY3oayifgIcBEHmBmbvegaOhKfZ7ZLv/9
-	 IlIezQeTcmibw==
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4ZHjWF1N6dzPkVl;
-	Wed, 19 Mar 2025 10:06:33 +0100 (CET)
-X-Virus-Scanned: amavisd-new at boeck1.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 2a02:8071:7900:bc0:c583:a400:7f8d:5e80
-Received: from localhost (unknown [IPv6:2a02:8071:7900:bc0:c583:a400:7f8d:5e80])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX18CrB7ddj49FWVqrSeQ4eIWyZV3PfQwQ7Q=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4ZHjW86Bk0zPjtK;
-	Wed, 19 Mar 2025 10:06:28 +0100 (CET)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend
- <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao
- Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas
- <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao
- <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah
- Khan <shuah@kernel.org>,
-	Henriette Herzog <henriette.herzog@rub.de>, Cupertino Miranda
- <cupertino.miranda@oracle.com>,
-	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev
- <dimitar.kanaliev@siteground.com>,
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf
- <bpf@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML
- <linux-kernel@vger.kernel.org>,
-	ppc-dev <linuxppc-dev@lists.ozlabs.org>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- George Guo <guodongtai@kylinos.cn>,
-	WANG Xuerui <git@xen0n.name>, Tiezhu Yang <yangtiezhu@loongson.cn>,
- Maximilian Ott <ott@cs.fau.de>,
-	Milan Stephan <milan.stephan@fau.de>
-Subject: Re: [PATCH bpf-next 11/11] bpf: Fall back to nospec for spec path
- verification
-In-Reply-To: <CAADnVQKL-NwxigMWM+U=n5ZXPG+xHYzSTEv0Rq8Y91m45eRJDw@mail.gmail.com>
-	(Alexei Starovoitov's message of "Tue, 18 Mar 2025 19:40:44 -0700")
-References: <20250313172127.1098195-1-luis.gerhorst@fau.de>
-	<20250313175312.1120183-1-luis.gerhorst@fau.de>
-	<20250313175312.1120183-2-luis.gerhorst@fau.de>
-	<CAADnVQKL-NwxigMWM+U=n5ZXPG+xHYzSTEv0Rq8Y91m45eRJDw@mail.gmail.com>
-User-Agent: mu4e 1.12.8; emacs 29.4
-Date: Wed, 19 Mar 2025 10:06:27 +0100
-Message-ID: <87cyedie3w.fsf@fau.de>
+	Wed, 19 Mar 2025 09:10:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C11F615A5;
+	Wed, 19 Mar 2025 09:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A2FC4CEE9;
+	Wed, 19 Mar 2025 09:10:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742375435;
+	bh=5A4dbLDyV/nTRWUH8Ca3qmdXR5GKU+r9taWr3MHSIYY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H+++vtEmBuPYGgUbdW1qWKiJKlcvRuuuD/MQozqvIyAvUKwV5jumG/klNi86i/nwH
+	 GJQ8JYEG0P+fIVPC98fYuGmx3tcujYxE6a2FZZLOvP8zvh616R6MSF0ys2Dr2LGgB8
+	 qQDOnu8VX4DtkRfvWNqk1lXCrqIlwI1fxVeh5YGYn93L8lpVEFoGPghSgESrwC26bF
+	 K2LjNkO7WhTSgjB20TF1/bkAhsyCz6mAqSnKwbqHte0tVca/lDG8AJ2tDxWvNfGEFl
+	 7QXIcGKAUWMeJtkQRWO++bqrwcCfe6HrgLCXo4ipxFsic2cCfWXHjOnySOF+isDfNz
+	 UqspsmHjd/U2w==
+Date: Wed, 19 Mar 2025 10:10:26 +0100
+From: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, 
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, andersson@kernel.org, mturquette@baylibre.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de, 
+	richardcochran@gmail.com, geert+renesas@glider.be, lumag@kernel.org, heiko@sntech.de, 
+	biju.das.jz@bp.renesas.com, quic_tdas@quicinc.com, nfraprado@collabora.com, 
+	elinor.montmasson@savoirfairelinux.com, ross.burton@arm.com, javier.carrasco@wolfvision.net, 
+	ebiggers@google.com, quic_anusha@quicinc.com, linux-arm-msm@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, quic_varada@quicinc.com, 
+	quic_srichara@quicinc.com
+Subject: Re: [PATCH v12 4/6] clk: qcom: Add NSS clock Controller driver for
+ IPQ9574
+Message-ID: <qf36kofpouii3m5bdihy5fizmsnnd7pzxltuhorynql57ivvey@uxplo7joejsd>
+References: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
+ <20250313110359.242491-5-quic_mmanikan@quicinc.com>
+ <65gl7d6qd55xrdm3as3pnqevpmakin3k4jzyocehq7wq7565jj@x35t2inlykop>
+ <ef86ccad056bc03af7f01d5696787766.sboyd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_020702_762349_409D7EAE 
-X-CRM114-Status: GOOD (  31.17  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ef86ccad056bc03af7f01d5696787766.sboyd@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,180 +82,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alexei Starovoitov <alexei.starovoitov@gmail.com> writes:
+On Tue, Mar 18, 2025 at 03:50:31PM -0700, Stephen Boyd wrote:
+> Quoting Marek Behún (2025-03-17 07:08:16)
+> > On Thu, Mar 13, 2025 at 04:33:57PM +0530, Manikanta Mylavarapu wrote:
+> > 
+> > > +static struct clk_rcg2 nss_cc_clc_clk_src = {
+> > > +     .cmd_rcgr = 0x28604,
+> > > +     .mnd_width = 0,
+> > > +     .hid_width = 5,
+> > > +     .parent_map = nss_cc_parent_map_6,
+> > > +     .freq_tbl = ftbl_nss_cc_clc_clk_src,
+> > > +     .clkr.hw.init = &(const struct clk_init_data) {
+> > > +             .name = "nss_cc_clc_clk_src",
+> > > +             .parent_data = nss_cc_parent_data_6,
+> > > +             .num_parents = ARRAY_SIZE(nss_cc_parent_data_6),
+> > > +             .ops = &clk_rcg2_ops,
+> > > +     },
+> > > +};
+> > 
+> > This structure definition gets repeated many times in this driver,
+> > with only slight changes. (This also happens in other qualcomm clock
+> > drivers.)
+> > 
+> > Would it be possible to refactor it into a macro, to avoid the
+> > insane code repetition?
+> > 
+> 
+> We have this discussion every couple years or so. The short answer is
+> no. The long answer is that it makes it harder to read because we don't
+> know what argument to the macro corresponds to the struct members.
+> 
+> It could probably use the CLK_HW_INIT_PARENTS_DATA macro though.
+> 
+> static struct clk_rcg2 nss_cc_clc_clk_src = {
+>      .cmd_rcgr = 0x28604,
+>      .mnd_width = 0,
+>      .hid_width = 5,
+>      .parent_map = nss_cc_parent_map_6,
+>      .freq_tbl = ftbl_nss_cc_clc_clk_src,
+>      .clkr.hw.init = CLK_HW_INIT_PARENTS_DATA("nss_cc_clc_clk_src",
+>                                               nss_cc_parent_data_6,
+> 					      &clk_rcg2_ops, 0),
+>      },
+> };
+> 
+> but then we lose the const. Oh well.
+> 
+> The whole qcom clk driver probably needs an overhaul to just have
+> descriptors that populate a bunch of clks that are allocated at probe
+> time so that the memory footprint is smaller if you have multiple clk
+> drivers loaded and so that we can probe the driver again without
+> unloading the whole kernel module.
 
-> On Thu, Mar 13, 2025 at 10:57=E2=80=AFAM Luis Gerhorst <luis.gerhorst@fau=
-.de> wrote:
->> With increased limits this allows applying mitigations to large BPF
->> progs such as the Parca Continuous Profiler's prog. However, this
->> requires a jump-seq limit of 256k. In any case, the same principle
->> should apply to smaller programs therefore include it even if the limit
->> stays at 8k for now. Most programs in [1] only require a limit of 32k.
->
-> Do you mean that without this change the verifier needs 256k
-> jmp limit to load Parca's prog as unpriv due to speculative
-> path exploration with push_stack ?
->
-
-Only with this change Parca is loadable when manually enabling Spectre
-defenses for privileged programs and setting the following limits:
-- BPF_COMPLEXITY_LIMIT_JMP_SEQ=3D256k
-- BPF_COMPLEXITY_LIMIT_SPEC_V1_VERIFICATION=3D128k
-- BPF_COMPLEXITY_LIMIT_INSNS=3D32M
-
->
-> And this change uses 4k as a trade-off between prog runtime
-> and verification time ?
->
-
-Yes, this change uses 4k to limited nested speculative path exploration.
-At the top-level (i.e., on architectural paths), spawned speculative
-paths are still explored.
-
->
-> But tracing progs use bpf_probe_read_kernel(), so they're never going
-> to be unpriv.
->
-
-I'm sorry this was not clear. Parca is only used as an example here
-to test whether this improves expressiveness in general.
-
-If you do not see this as a favorable tradeoff (because of the code
-complexity), I think it would be acceptable to drop the last patch for
-now. The biggest improvements is already achieved with the other patches
-as evident from the selftests. I can do a more exhaustive analysis on
-patch 11 later.
-
->
->> @@ -2010,6 +2011,19 @@ static struct bpf_verifier_state *push_stack(stru=
-ct bpf_verifier_env *env,
->>         struct bpf_verifier_stack_elem *elem;
->>         int err;
->>
->> +       if (!env->bypass_spec_v1 &&
->> +           cur->speculative &&
->
-> Should this be
-> (cur->speculative || speculative)
-> ?
-
-No, I think it will be unsafe to add `|| speculative` here. If we were
-to return -EINVAL from push_stack() when pushing a speculative path from
-a non-speculative path (e.g., in check_cond_jmp_op() through
-sanitize_speculative_path()), this will cause do_check() to add an
-lfence before the jump-op.
-
-Here's a minimal example program:
-
-	A =3D true
-	B =3D true
-	if A goto e
-	f()
-	if B goto e
-	unsafe()
-e:	exit
-
-There are the following speculative and non-speculative paths
-(`cur->speculative` and `speculative` referring to the value of the
-push_stack() parameters):
-
-- A =3D true
-- B =3D true
-- if A goto e
-  - A && !cur->speculative && !speculative
-    - exit
-  - !A && !cur->speculative && speculative
-    - f()
-    - if B goto e
-      - B && cur->speculative && !speculative
-        - exit
-      - !B && cur->speculative && speculative
-        - unsafe()
-
-`|| speculative` might cause us to only add an lfence before `if A goto
-e`, which would not be sufficient. Intel recommends adding the lfence
-after the jump [1].
-
->
-> In general I'm not convinced that the approach is safe.
->
-> This recoverable EINVAL means that exploration under speculation
-> stops early, but there could be more branches and they won't be
-> sanitized with extra lfence.
-> So speculative execution can still happen at later insns.
->
-
-`goto process_bpf_exit` only causes us to stop analyzing this particular
-path, not the rest of the program.
-
-This is based on the assumption, that the lfence stops the CPU from ever
-reaching those branches (if they are not reachable through other means).
-
->
-> Similar concern in patch 7:
-> + if (state->speculative && cur_aux(env)->nospec)
-> +   goto process_bpf_exit;
->
-> One lfence at this insn doesn't stop speculation until the program end.
-> Only at this insn. The rest of the code is free to speculate.
->
-
-Taking the program above as an example, this allows us to stop before
-f() if an lfence was inserted there.
-
-Fully patched program would be:
-
-	A =3D true
-	B =3D true
-	if A goto e
-	lfence
-	f()
-	if B goto e
-	unsafe()
-e:	exit
-
-In this example, all instructions after the lfence are dead code (and
-with the lfence they are also dead code speculatively).
-
-I believe this is in line with Intel's guidance [1]:
-
-	An LFENCE instruction or a serializing instruction will ensure that
-	no later instructions execute, even speculatively, until all prior
-	instructions complete locally. Developers might prefer LFENCE over a
-	serializing instruction because LFENCE may have lower latency.
-	Inserting an LFENCE instruction after a bounds check prevents later
-	operations from executing before the bound check completes.
-
-With regards to the example, this implies that `if B goto e` will not
-execute before `if A goto e` completes. Once `if A goto e` completes,
-the CPU should find that the speculation was wrong and continue with
-`exit`.
-
-If there is any other path that leads to `if B goto e` (and therefore
-`unsafe()`) without going through `if A goto e`, then an lfence might of
-course still be needed there. However, I assume this other path will be
-explored separately and therefore be discovered by the verifier even if
-the exploration discussed here stops at the lfence. If this assumption
-is wrong, please let me know.
-
->
-> The refactoring in patches 1-3 is nice.
-> Patches 4-5 are tricky and somewhat questionable, but make sense.
-> Patch 7 without early goto process_bpf_exit looks correct too,
-> Patch 8 is borderline. Feels like it's opening the door for
-> new vulnerabilities and space to explore for security researchers.
-> We disabled unpriv bpf by default and have no intentions to enable it.
-> Even if we land the whole thing the unpriv will stay disabled.
-> So trade offs don't appear favorable.
->
-
-Thank you very much for having a look. Let me know whether the above
-resolves your concern.
-
-In any case, should I separate patches 1-3 into another series?
-
-[1] https://www.intel.com/content/www/us/en/developer/articles/technical/so=
-ftware-security-guidance/technical-documentation/runtime-speculative-side-c=
-hannel-mitigations.html
-    ("Managed Runtime Speculative Execution Side Channel Mitigations")
+Okay then, in that case just ignore me :)
 
