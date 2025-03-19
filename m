@@ -4,104 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA87C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 21:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245A7C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 21:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+rvv/CD9vxLz7lV/reT4sf6e2D22+QxuR3L49Wvlok=; b=d8tmCA7vARAIxU0snJ7E7pG3sf
-	hCPiCh444831VchbP0vW0H5fiw87QKZpWGHX0tSRLcVZPDtnG9YqS/uG18FFE7nwi82vyxsNXMrDO
-	l4RrEy0BUwbUxVdhxbya8wD8dDi9I3e7hqrwiAZGdTN5UF+YyMeX7t+xADvr//E1BSf+/eRSn/wJ0
-	qipvhZ6wvEVwnGX5BVXhWo7eofVbd+6yteaeWN12UVNl5brOZ9EsM0dMFnbekSgisWOUvz67Wbfy4
-	jZEw35s3UYTqibC0sf9mFXhZ4hTXIJ43dEjSlY8ixdVoogrtLgqmsstkgg8Ft82V0VL5RB6raZQm4
-	OrhmDMZg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FqbXCZvyQxvHk4OQsYWk5/e/QqQ45H2Nw1iCaGYJEa0=; b=AKl5V/vPYlyW0E6MVjnt3WTAwk
+	SlBMn9egugvfZv7cN5/uDMJ8dAHAtCpTfMjen6KHzXSCAdPT0bCRHCTOHzpWRZyAWJiUNBmfYpAoi
+	pfUdlKPMwdx7/1cxIOPb6zk/bscXfrYvLvlzSlnioAKMufvQvwLGrRYFSynLmjM5VrBy4Z5TVwFFV
+	qCbwIhbAy2diGfyeAgUSP615nyN8mFd7UoBtEU+Sc66z9RWLpsgaxgim6DY2Q+a2GkqBmzEnzHSrC
+	4H2swWEiGo9oPhmIele+JTzkynvGl47gK1Nv9MCkUWKazWgvGJ9qBYQ6YrcqLV+K46vJgZrw6wjBD
+	uTw9Rxgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv0k5-0000000A81e-0dIK;
-	Wed, 19 Mar 2025 21:14:25 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
+	id 1tv18u-0000000AAtH-14BY;
+	Wed, 19 Mar 2025 21:40:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv0hm-0000000A7kk-26vU
+	id 1tv17B-0000000AAZz-2YZ0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 21:12:03 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfout.stl.internal (Postfix) with ESMTP id A598011400E4;
-	Wed, 19 Mar 2025 17:12:01 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Wed, 19 Mar 2025 17:12:01 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1742418721;
-	 x=1742505121; bh=W+rvv/CD9vxLz7lV/reT4sf6e2D22+QxuR3L49Wvlok=; b=
-	CVMaodeoCrj9PJuR/Fn7jstiwU0oDDK4F07puUGNRMN3FsD/+Usnx6DUpzs+qVT0
-	ffTf4tnjQ6ojHHQFr3aMk6MTnimJdCM+H/z/1j9IQ+ePE3BO2Blg9nh6YFFvZXs4
-	WyrAJTGRjEfJkdaaIh1G4Oe0KznzP/nz7ASjuVt3kl3qT0vdNsa1bd60TsCy3/1d
-	aDdlDVNa3x7vFHcAdwgZJJE58ygDR5ZQF0GIBFqHedgjT7+OGXi0Hd7DykDxW1dF
-	j3mPRLSD0/4ZA4afCF7zUvI1K5dpAINIkNbZvfMNuPEPnHatH5iARuuq/tBKZ7O8
-	l8txlm5B8fp70wMFi4uRBg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742418721; x=
-	1742505121; bh=W+rvv/CD9vxLz7lV/reT4sf6e2D22+QxuR3L49Wvlok=; b=Z
-	oaMtmrsjcpU/JSQ2BB4JFcVkE78+aCeNBpZbP7KA+mwwWcf8VNQdjwuix7sCFUsV
-	ck8YwhaS+WzMc5SgnKrgN7shVxlkkKs9oWFOUKUMiCud2u1gBg4QkBcn4pgsTo1A
-	VLFp2a6Y9NGHcERFG80SLyjnqp1Em9+q58ZRlCdOJi5ZeW2I83RdboQtpfJ2Ewbw
-	uIM2Q9Mn2S/a/cxrN+t0qIh0RDIMUf3TWLlzTXsAH8yARcVmhQmOlpgLNySyonFv
-	UCRHmjOoUv1Zj+f7WmIIFBqxjancnE4JcFFPlpLwmBcNkptXlGa04JYtc3LG+D3E
-	4C3Em/gUtaJGRD/SDTLjw==
-X-ME-Sender: <xms:ITPbZ9Jzs85nCNESZ2qdgR0JP32GmPT47YfEh7RIKCgZ9lL0z3p7BA>
-    <xme:ITPbZ5IYBWZm0JmnCon87fJ9bTx4m-RW1070wOj2qI2Sm_EuP6nyenbXh1S6XVyw7
-    CjJPHXSeeUXp_CT7kE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeeifeejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgepudenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    jedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghnuggvrhhsshhonheskhgvrh
-    hnvghlrdhorhhgpdhrtghpthhtoheprghrmheskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    ohepshhotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriiihshiithhofhdrkh
-    hoiihlohifshhkiheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidqrghr
-    mhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
-    epqhhuihgtpggtkhgrnhhtihgshhesqhhuihgtihhntgdrtghomhdprhgtphhtthhopehl
-    ihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:ITPbZ1v6Nj6qRgtdx62zADek5hLjortgoTmChHNRlt5EYY0XEK3bBw>
-    <xmx:ITPbZ-bGHd1BcWZa3HZS2lnGezc1oMlqeLienbaf8FDvNHJhU324tA>
-    <xmx:ITPbZ0YYrPIUhuPTY_F3M3l_PDBxVcRF3dkdRryRgLDHeXP0UJxVVw>
-    <xmx:ITPbZyDWg4bCf4b0hEkAAPG4cCluN3OQJudocg554wP6mejhQ7bfEA>
-    <xmx:ITPbZ5NxDck9wB0wRFkTwR-pS_ds0AdxuwbyppQmCmmzOteK9NVggMfP>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1BF412220072; Wed, 19 Mar 2025 17:12:01 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Mar 2025 21:38:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 139BB4352E;
+	Wed, 19 Mar 2025 21:38:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4031FC4CEE4;
+	Wed, 19 Mar 2025 21:38:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742420296;
+	bh=CHbeGKtiOcjgUDiBD5Y2J8NFeMr77PuocseHhs6qAsI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=c6Fm9HRR+4odFsCyCiBiNY3tiO7VQFcmHm7vcY53k4+USjAVqfEwBy7K9MDjYZM8r
+	 p78/4M0fY+qLB/c9qFVmY3p3TY57M82R/k3A5lUvGnYM5hIFlz2RCavJkYLliXb/AQ
+	 aR9JDA6yILTZ9s+i8i5U0svs4giTrtJQWSoG09WWDn3jWnwrFP3n88gTmfYYu9bh2X
+	 dUXekZdqRLOUKVZqoB9s2ouf8dgU/zIM9hrlrvFTqAp7z6M7qWuV+cOTO62T4eh+I0
+	 B82mfqzpFJ3Z9VGaaSOYxR1nXK1g2d9WCdAiDkra+g8mdqlqNQLx5TSjmfSNiB/YW7
+	 jf6+1evMS83aw==
+From: Song Liu <song@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-toolchains@vger.kernel.org,
+	live-patching@vger.kernel.org
+Cc: indu.bhagat@oracle.com,
+	puranjay@kernel.org,
+	wnliu@google.com,
+	irogers@google.com,
+	joe.lawrence@redhat.com,
+	jpoimboe@kernel.org,
+	mark.rutland@arm.com,
+	peterz@infradead.org,
+	roman.gushchin@linux.dev,
+	rostedt@goodmis.org,
+	will@kernel.org,
+	kernel-team@meta.com,
+	song@kernel.org
+Subject: [PATCH v2 0/2] arm64: livepatch: Enable livepatch without sframe
+Date: Wed, 19 Mar 2025 14:37:05 -0700
+Message-ID: <20250319213707.1784775-1-song@kernel.org>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-X-ThreadId: T49c643150bbb3781
-Date: Wed, 19 Mar 2025 22:11:36 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Bjorn Andersson" <andersson@kernel.org>, arm <arm@kernel.org>,
- soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
- "Sanjay Chitroda" <quic_ckantibh@quicinc.com>
-Message-Id: <e817e828-7ffa-4114-b957-35552cb16cc3@app.fastmail.com>
-In-Reply-To: <20250317213630.2029212-1-andersson@kernel.org>
-References: <20250317213630.2029212-1-andersson@kernel.org>
-Subject: Re: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v6.15
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_141202_604834_776FE1D1 
-X-CRM114-Status: UNSURE (   7.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250319_143817_666703_D1081838 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,19 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025, at 22:36, Bjorn Andersson wrote:
-> ----------------------------------------------------------------
-> Qualcomm Arm32 DeviceTree updates for v6.15
->
-> Cleanup indentation issues and a deprecated WiFi property.
->
-> ----------------------------------------------------------------
-> Krzysztof Kozlowski (1):
->       ARM: dts: qcom: ipq4018: Switch to undeprecated qcom,calibration-variant
+There are recent efforts to enable livepatch for arm64, with sframe [1] or
+without sframe [2]. This set tries to enable livepatch without sframe. Some
+of the code, however, are from [1].
 
-Same as for the arm64 changes, let's skip this one for 6.15 and
-do it properly next time. The branch in its current form is
-clearly broken as it removes the properties that the driver expects.
+Although the sframe implementation is more promising in longer term, it
+suffers from the following issues:
 
-     Arnd
+  1. sframe is not yet supported in llvm;
+  2. There is still bug in binutil [3], so that we cannot yet use sframe
+     with gcc;
+  3. sframe unwinder hasn't been fully verified in the kernel.
+
+On the other hand, arm64 processors have become more and more important in
+the data center world. Therefore, it is getting critical to support
+livepatching of arm64 kernels.
+
+With recent change in arm64 unwinder [4], it is possible to reliably
+livepatch arm64 kernels without sframe. This is because we do not need
+arch_stack_walk_reliable() to get reliable stack trace in all scenarios.
+Instead, we only need arch_stack_walk_reliable() to detect when the
+stack trace is not reliable, then the livepatch logic can retry the patch
+transition at a later time.
+
+Given the increasing need of livepatching, and relatively long time before
+sframe is fully ready (for both gcc and clang), we would like to enable
+livepatch without sframe.
+
+Thanks!
+
+[1] https://lore.kernel.org/live-patching/20250127213310.2496133-1-wnliu@google.com/
+[2] https://lore.kernel.org/live-patching/20250129232936.1795412-1-song@kernel.org/
+[3] https://sourceware.org/bugzilla/show_bug.cgi?id=32589
+[4] https://lore.kernel.org/linux-arm-kernel/20241017092538.1859841-1-mark.rutland@arm.com/
+
+Changes v1 => v2:
+
+1. Rework arch_stack_walk_reliable().
+
+v1: https://lore.kernel.org/live-patching/20250308012742.3208215-1-song@kernel.org/
+
+Song Liu (2):
+  arm64: Implement arch_stack_walk_reliable
+  arm64: Implement HAVE_LIVEPATCH
+
+ arch/arm64/Kconfig                   |  3 ++
+ arch/arm64/include/asm/thread_info.h |  4 +-
+ arch/arm64/kernel/entry-common.c     |  4 ++
+ arch/arm64/kernel/stacktrace.c       | 70 +++++++++++++++++++++-------
+ 4 files changed, 64 insertions(+), 17 deletions(-)
+
+--
+2.47.1
 
