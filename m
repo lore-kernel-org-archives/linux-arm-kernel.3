@@ -4,57 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC463C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 12:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB8CC35FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 12:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9A0nRJZyImgfZelDYVNznpovHLycNtzQfn64oNPZOA=; b=oOFQWQx3rZ+nyAQ52sTNM6AF5R
-	mug3GikcjcEAElcwHAM3qXE2yjYbBUiRqx0J8T6sxbUaZPdxbJnczMMs3W4j203u2X6CKhfrCWOey
-	zSxizS3hf/5KboqfrA37eMuWbkU7ZhQOnnHXHzqjpxvCxZ+z5H+8vwZBJHRbvnFOV9dX9JDfvUCQC
-	iGcMHBOdYAKfFbGIsZcZNftNBaIBlYmwxADLRHxYMpAHuRWAYKwJVovfw62E6QF7chCGKUDphywgS
-	OVoN80dPMQ4kpRkJnELp9bk6Ts6KFYcJvyGNxNnDJ2/OZswD631ZVT7UMbMs/E7MrpfcFr/Dy94q4
-	km3RuiNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YqwTqw0LkuMJVhI7nUbav86stM0t9airgBDOJOw1FA0=; b=1EG0M3AekscPTyOa53WqdmbFNI
+	vDSPk2VRSnX4ZoQgZgS1fG7U6cSQfMcASu/YJeGSfEB7mLjGNwwNzC9ncLwRKpVdY7KRoKiyLTjme
+	u+N551nBDcSqvviB3ezGnkr/epLRd48ty+c48ugaNmJnfAcQI1dBfOe5EHSueNY/2ZPm35HfWZuNF
+	3vyYY0wtL3irHtNI+bHbS+NLe9XZpMCsR1CGvZI8wkJ0dHE6zHuJw421mAG0gAb/QcFY9XnVMsqCi
+	VX8taryaoJPqNCXeUwCvfGH03nr4r+l3xR8Hhh/GktxTdYTYyLheDfBdUG8WgWe+pIpHWhRvEzuxf
+	Q7uYRw8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tus7Q-00000008uSc-1t4l;
-	Wed, 19 Mar 2025 12:01:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tus5j-00000008u8x-0deO
+	id 1tus96-00000008ugV-0o8L;
+	Wed, 19 Mar 2025 12:03:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tus6u-00000008uJi-3Tzc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 12:00:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C7D5113E;
-	Wed, 19 Mar 2025 05:00:16 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0F3B3F694;
-	Wed, 19 Mar 2025 05:00:06 -0700 (PDT)
-Message-ID: <cc68d43f-4719-4f57-a38c-fb5afe8d29cc@arm.com>
-Date: Wed, 19 Mar 2025 12:00:05 +0000
+	Wed, 19 Mar 2025 12:01:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1742385683;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YqwTqw0LkuMJVhI7nUbav86stM0t9airgBDOJOw1FA0=;
+	b=NXDvWyI0NARvPK45AQ/FkuKuh3DzupTfbcVNO/Gf0hf+YU1Isy3A5KtVv+DMJ7eMdLWsZU
+	dyQ/v1+ht5taOjPQpaCiUliwLjdYMzWdnQeSKuVTn8bTnlgZye78O4V9wniMOpaxB3S5cs
+	I3glfQyoVd7uHu1ISRt0pYxKsg28vjQ=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-554-Ep91YsP_MAa5nA-2OQLbTA-1; Wed,
+ 19 Mar 2025 08:01:16 -0400
+X-MC-Unique: Ep91YsP_MAa5nA-2OQLbTA-1
+X-Mimecast-MFC-AGG-ID: Ep91YsP_MAa5nA-2OQLbTA_1742385673
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EC50F180AF69;
+	Wed, 19 Mar 2025 12:01:11 +0000 (UTC)
+Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.226.12])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 5D85E1801751;
+	Wed, 19 Mar 2025 12:01:02 +0000 (UTC)
+Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Wed, 19 Mar 2025 13:00:39 +0100 (CET)
+Date: Wed, 19 Mar 2025 13:00:29 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrii Nakryiko <andrii.nakryiko@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Tong Tiangen <tongtiangen@huawei.com>
+Subject: Re: [PATCH v2 3/3] kernel/events/uprobes: uprobe_write_opcode()
+ rewrite
+Message-ID: <20250319120028.GA26879@redhat.com>
+References: <20250318221457.3055598-1-david@redhat.com>
+ <20250318221457.3055598-4-david@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/8] coresight: Convert tag clear function to take a
- struct cs_access
-To: James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, leo.yan@arm.com
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org>
- <20250318-james-coresight-claim-tags-v2-2-e9c8a9cde84e@linaro.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250318-james-coresight-claim-tags-v2-2-e9c8a9cde84e@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250318221457.3055598-4-david@redhat.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_050011_283707_D2184F2A 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20250319_050124_941326_79E29687 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,99 +104,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2025 16:21, James Clark wrote:
-> The self hosted claim tag will be reset on device probe in a later
-> commit. We'll want to do this before coresight_register() is called so
-> won't have a coresight_device and have to use cs_access instead.
-> 
-> Also make them public and create locked and unlocked versions for
-> later use.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
+On 03/18, David Hildenbrand wrote:
+>
+> +	if (unlikely(!folio_test_anon(folio))) {
+> +		VM_WARN_ON_ONCE(is_register);
+> +		goto out;
+> +	}
 
-minor nit:
+Don't we need folio_put() before "goto out" ?
 
-The restructuring looks a bit confusing. Could we start with :
+Other than that, for this series:
 
-coresight_{set,clear}_self_claim_tag_unlocked in Patch 1. Rather
-than rename what we renamed in patch 1 again here.
-
-
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 17 +++++++++++++----
->   include/linux/coresight.h                    |  3 ++-
->   2 files changed, 15 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 3f1c996d668a..9ff601e2415a 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -151,12 +151,21 @@ static inline void coresight_set_self_claim_tag(struct coresight_device *csdev)
->   	isb();
->   }
->   
-> -static inline void coresight_clear_self_claim_tag(struct coresight_device *csdev)
-> +void coresight_clear_self_claim_tag(struct csdev_access *csa)
->   {
-> -	csdev_access_relaxed_write32(&csdev->access, CORESIGHT_CLAIM_SELF_HOSTED,
-> +	CS_UNLOCK(csa->base);
-
-This looks to be hard coding MMIO based access ? Should we abstract it 
-based on the csdev_access_** ?
-
-
-Suzuki
-
-
-> +	coresight_clear_self_claim_tag_unlocked(csa);
-> +	CS_LOCK(csa->base);
-> +}
-> +EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
-> +
-> +void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
-> +{
-> +	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
->   				     CORESIGHT_CLAIMCLR);
->   	isb();
->   }
-> +EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
->   
->   /*
->    * coresight_claim_device_unlocked : Claim the device for self-hosted usage
-> @@ -180,7 +189,7 @@ int coresight_claim_device_unlocked(struct coresight_device *csdev)
->   	if (coresight_is_claimed_self_hosted(csdev))
->   		return 0;
->   	/* There was a race setting the tag, clean up and fail */
-> -	coresight_clear_self_claim_tag(csdev);
-> +	coresight_clear_self_claim_tag_unlocked(&csdev->access);
->   	return -EBUSY;
->   }
->   EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
-> @@ -211,7 +220,7 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
->   		return;
->   
->   	if (coresight_is_claimed_self_hosted(csdev))
-> -		coresight_clear_self_claim_tag(csdev);
-> +		coresight_clear_self_claim_tag_unlocked(&csdev->access);
->   	else
->   		/*
->   		 * The external agent may have not honoured our claim
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index d79a242b271d..00134a80d358 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -685,7 +685,8 @@ extern int coresight_timeout_action(struct csdev_access *csa, u32 offset,
->   
->   extern int coresight_claim_device(struct coresight_device *csdev);
->   extern int coresight_claim_device_unlocked(struct coresight_device *csdev);
-> -
-> +void coresight_clear_self_claim_tag(struct csdev_access *csa);
-> +void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa);
->   extern void coresight_disclaim_device(struct coresight_device *csdev);
->   extern void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
->   extern char *coresight_alloc_device_name(struct coresight_dev_list *devs,
-> 
-
-
+Acked-by: Oleg Nesterov <oleg@redhat.com>
 
 
