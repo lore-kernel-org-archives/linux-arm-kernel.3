@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0FBC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 11:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2080C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 11:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oc66l7/d0Jjz8FMmOmNrv+ltKHYwWToN6Hiwa3da7k0=; b=rti8BUISM5koNShVuqpVLNSHOd
-	rXVmUqoa27QZtiYTWMjM0U+6pRNTf42D8X8zeQTS8qA1eQ0X+3UG1QzdJ6eBYVlXZtqg+z1TDQ7Qk
-	SznhPRlrac0s8aLo1yKrakpK4GExSOPUHNyZbNBRghNayc9HM1SULINgws3g6q1ArmUBxm/wEPGtK
-	SFEjmDijsk1EuwK4DldFKWs47H5pVdaL9lKQ+3AHKQ5950/0/KAxBB4SPOSoW3uFVlDLt7kJ86Egy
-	Cs625H8ox5fkzq6LDSgWZ3vKiygK8Qz+c7CWwdKuhHW78tXKaP3G/5W9O9wPqQ25+zGuPQZBr4NzP
-	BIViVWbQ==;
+	bh=23Zzwx8dQ7ApD2OL+JFkf/rOuLI+b6JbK1FtVimJKeY=; b=TyYGKAOZN86fO9yKIAugDPHqQf
+	hMvD4OtvMTYssXX0qw6fr6WNGX7WKr05HXMAYZrvbAhdWUw9GYobRdlPh8K2tZRVaRFKJA3XCfeWE
+	ugRL+d/o8oV+Ji14soLzNUw19MKJ5rdm3A2z0rzPwPIBnkJLQT/CkGXFcbhTBni3+rBk+FRmwNXZE
+	6J8phQd6TeqBpoXXdB/qW2S6NS2lf6vOVN8NXElRV8wDU7KNiqJLG0APOaMLzA3Ym438NHEjyoFtq
+	N/SLaA0zaOFhLk0uU/YAW9wMIjiI8q8DECbGEyqjfvGRSG7+2ED0NyPKI2Zb0pepN3lawmasZzNoG
+	V/VaX1iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1turoi-00000008rbz-054g;
-	Wed, 19 Mar 2025 11:42:36 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1turqN-00000008rsW-34ZJ;
+	Wed, 19 Mar 2025 11:44:19 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1turlJ-00000008r6a-1ggV
-	for linux-arm-kernel@lists.infradead.org;
+	id 1turlJ-00000008r6U-3eUk;
 	Wed, 19 Mar 2025 11:39:06 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-224171d6826so37657895ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 04:39:05 -0700 (PDT)
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cf0d787eeso45738055e9.3;
+        Wed, 19 Mar 2025 04:39:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1742384344; x=1742989144; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Oc66l7/d0Jjz8FMmOmNrv+ltKHYwWToN6Hiwa3da7k0=;
-        b=SNi0hnWOwz/orclfMcHkyxc6OZeEN9qRkPHWSFw723ssujMzKA3TwsS4i9omnDF69K
-         bY23hSoHx2dAmMwKueTZceWCMxx2Mpg3yX3ZLurVHnKWgy+spCTdWxvORZncbeActkGq
-         gvhJtXAYuSUCC0KfJZsZz8Qxf65b5tHv2lev4g98xe7rP12eZLWFJVyz1Up6twwlRo76
-         ya2hzZttqrv7vyoLyR5GN4a1WBDmcKGlNLQ1m7YVf1A+zlSn4wJzSY9EBrSnyPV41Lyk
-         +fFtW+Olsp34zkYub3R1sjvN/ifHv8J3jwfg7RfKU/IdebqL+9BByxAB23xReO0xA0YC
-         0sJA==
+        d=gmail.com; s=20230601; t=1742384343; x=1742989143; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=23Zzwx8dQ7ApD2OL+JFkf/rOuLI+b6JbK1FtVimJKeY=;
+        b=KVb/gkrCX44MO+X34swsPVnesg4da0tT+n3oVNerLCRQhwL+lI5CiYryPla1nWbvG3
+         AJFsNSqcmF92AXBLeRvqOTGL4v7yr2DjIP2YdA1pqwmEM85NPFkuWZPt89QM/2br1AOF
+         uoVy+j7nSxEhXSnuvuJBk+m6dVdj9psm4qG0dxtAyZOUcgbu66c+IWTkrMrqSm+EMLsP
+         7vD/BDl5dopEp9QatCBicgFtFwUh4K/UzBDNrP89b8l4oTpsSckw/vTAj1GsLZtYaam1
+         2c8U/ev4E3Kr/HuaPTcUjqE/0Kc2DHLmyOqOIaL4XI26drvlWHvtLMyhw+26QE25R+kP
+         OYwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742384344; x=1742989144;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Oc66l7/d0Jjz8FMmOmNrv+ltKHYwWToN6Hiwa3da7k0=;
-        b=to55TPHGX7+lXXcNRsGsFzh5KO0T/p8YUrbwW4ZH0Vhvkq4OEozgU/E1HR+22TGXCA
-         Rp8ngHz46EhzVbkfUArbyKvlU4977MILctkwfEbbPtvY1ZgNK4t/drKL4wFuewIR+J7q
-         p94fmKlsVofwq9ctSKJtLYF2r1EU237mrzMiWnXcY4toVLNnmbRC2l5rsG+cysMwiO7t
-         4cq2n2utlp4ITV78WLx2aWkAgxvTkhygWjnYECGeFoVfGarvTdLjkpy19Cqfqll1qBMR
-         U1CVKZK2QhmRioqn/iIUWsgLvsdU6r5hcX12UF2avZsJ+sPgYdkb7U72JWvb3VMIxW/v
-         jM0A==
-X-Gm-Message-State: AOJu0Yz0pS/oR6CNlhQIQEaLB3An5EIhp8DhzdV/uzSEzKexTsNcB9zK
-	+ofhRc96DYjvZKgAXWjSb7ACpT6HYN8ktehvCLB5dYGKcW4E7PSqWf9wiqT4LpE=
-X-Gm-Gg: ASbGncvoQrZ6V+Y9yjQtipTPcn72tO0P09pi6s0lCXXFFncvlkKKbT/bO8RNvz0Caka
-	CCvc/hppqOCUHUJ3V6uo823H+pPQC+ypMmF8Y5bx4G3OJxqkuh7EkHWcUXa0gwtV9WQ7lUaTB6t
-	j2PvU2DBNaZTX4DwN4JPxBLm6CfQXquyfpoVTr9o2hW4xFonp/QnxXGtCpwb2flD1Cy8+kZeyGQ
-	f4RxPCODI5Yh0xyl9xqvGZv2u/BCvQi05doBJGDWMqHQwx6LRSlDMQOUC+ntFOcAS6t/wDW8aDK
-	/H8cANhPWSl0t7CzECLJaWe1dAzl1yMpE9pmjfHA80cOV4Pf
-X-Google-Smtp-Source: AGHT+IGSv0AJ8KwpE6fQl4DpNJB/7VkQwjj59TCcKQRqKU8wam5+t3NXf5mYBQBcpLosGuAKvIYqVA==
-X-Received: by 2002:a17:903:1790:b0:224:283f:a9ef with SMTP id d9443c01a7336-2264981d654mr33063775ad.6.1742384344597;
-        Wed, 19 Mar 2025 04:39:04 -0700 (PDT)
-Received: from localhost ([157.82.207.107])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-225c6bd5ce5sm111657845ad.252.2025.03.19.04.39.02
+        d=1e100.net; s=20230601; t=1742384343; x=1742989143;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=23Zzwx8dQ7ApD2OL+JFkf/rOuLI+b6JbK1FtVimJKeY=;
+        b=UQAnKofrag9zHbqHx2Thb7W8JJSdF54D97aBv5TCxOJNgVW0JWT3EKb0tRr+OrRCqT
+         r592qANqGEs2S2HS2dydRhjeqiAozHKZDX7jYhnqYnRLiubYgluBp86f37NkpcyIdiYo
+         iWrGzownw1+Ecp9ZSjK3uVzExJuEeJdUZKkHnk64Fw/7SW/xtgFPXFqPryWt3/pa26KT
+         wQALZWJvh/F79l3KQSWllJefNiX2kFz5zLfSuTLkmVBZ3Xs66/ACtwlSbxrJLX0gk5TS
+         qSFTRzYqK6aPf/nPClIECYsDhF0850s5TC2t94C44EKnVQjPxyy6gthZoD31YSwVJ2va
+         SrMw==
+X-Forwarded-Encrypted: i=1; AJvYcCV8MeSqDfjKNhz5pjs/Hfwfm+N0xXEPWsEcz1Il3nRh9xGymcqSRvk/oUOrkD3rkCcO8Sv5VycM5e1D@lists.infradead.org, AJvYcCVKOEhbMqxv/CxbilHqO9D6an2SLgUdczo6EpEPLVq7BMH51OKEEdRy0f33gEoxP59A9qp6iFd7vMg8kbOZkBGK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyk0WM21lcIgieFns9Wn76btQOgllBm7nZDw683MPJiKsg+HNau
+	B9/j/yiJNTOLfnnsiw/M4THgTSxiI+hQ7xocsO1Pk6cqHBYoFoXHwBMW0A==
+X-Gm-Gg: ASbGnctvs6sHzIuEvNgt7xxrKzoLFsFrubfyuAq6vtdzvS42ttRokWiUxK6F18AAASI
+	ugh4HMy0pwYjZIahPsTdccZr4ttsrSRWSyOEQaj+JeXFC6/7xmBUCU3PfFp5VU9mW0gb1MMUKGc
+	fONH/RK4dFST789z+msPMPcRj+eqLUpSgvfb+QKDzGxSD+CEJY3t4bwCCGZdFH+CUza69xBhZ6o
+	+9EE9m7kJoD6fgKDp1JGZm4/FTu/YCfcfGYyyq01Vs7uWfvrkwQkdrmkXOyGa7+JemUPEN5G189
+	O6fGleo0G3yW+MSWXp4v/wJz79f/5vJNnE7EDrEX49ec5VKuBguUTE2jfXi1Hd5mWA6RtwbP90v
+	QFMdTobbKjb453ybHTcN/128=
+X-Google-Smtp-Source: AGHT+IG/uReUa1PFDrYRs3h2HIwVSGTu7IcnjWIZm5iEXhoFmvhyCo2Cbk7y/wuCyXozf5+5PQwOzQ==
+X-Received: by 2002:a05:600c:a4c:b0:43c:f63c:babb with SMTP id 5b1f17b1804b1-43d4378163cmr13761135e9.1.1742384343101;
+        Wed, 19 Mar 2025 04:39:03 -0700 (PDT)
+Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d3ae04a94sm23904475e9.0.2025.03.19.04.39.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Mar 2025 04:39:04 -0700 (PDT)
-From: Akihiko Odaki <akihiko.odaki@daynix.com>
-Date: Wed, 19 Mar 2025 20:38:55 +0900
-Subject: [PATCH 1/2] KVM: arm64: Trace values with kvm_sys_access
+        Wed, 19 Mar 2025 04:39:02 -0700 (PDT)
+Message-ID: <8e8bbcde-8ed4-4239-ad96-6cffd8b9d65c@gmail.com>
+Date: Wed, 19 Mar 2025 13:39:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] phy: phy-snps-eusb2: make repeater optional
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-6-ivo.ivanov.ivanov1@gmail.com>
+ <sxrae5pmykx6ul2y7uc24fss2kdeezkkom7ev7mavt3fbc6ckv@tghyp3whuxnu>
+Content-Language: en-US
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <sxrae5pmykx6ul2y7uc24fss2kdeezkkom7ev7mavt3fbc6ckv@tghyp3whuxnu>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250319-trace-v1-1-0fff03204efa@daynix.com>
-References: <20250319-trace-v1-0-0fff03204efa@daynix.com>
-In-Reply-To: <20250319-trace-v1-0-0fff03204efa@daynix.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, devel@daynix.com, 
- Akihiko Odaki <akihiko.odaki@daynix.com>
-X-Mailer: b4 0.15-dev-edae6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_043905_445936_C0D7AC58 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20250319_043905_913508_684A9659 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,91 +107,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tracing values written to or read from system registers.
+On 3/19/25 13:08, Dmitry Baryshkov wrote:
+> On Sun, Feb 23, 2025 at 02:22:24PM +0200, Ivaylo Ivanov wrote:
+>> Some platforms initialize their eUSB2 to USB repeater in the previous
+>> stage bootloader and leave it in a working state for linux. Make the
+>> repeater optional in order to allow for reusing that state until
+>> proper repeater drivers are introduced.
+> Generally "works as it is setup by the bootloader" is a very invalid
+> justification. Please don't do that. We should not be depending on the
+> way the bootlader sets up the devices, unless that _really_ makes sense.
 
-Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
----
- arch/arm64/kvm/sys_regs.c          | 24 ++++++++++++++----------
- arch/arm64/kvm/trace_handle_exit.h |  6 ++++--
- 2 files changed, 18 insertions(+), 12 deletions(-)
+It does, doesn't it? We still don't even have i2c up on Exynos2200, so bringing up
+the repeater before this patchset gets merged is a no-go. Either way, we should
+follow what bindings say. I will change the commit description a bit.
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 14f66c7a4545..362e2758d101 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -3994,23 +3994,27 @@ static void perform_access(struct kvm_vcpu *vcpu,
- 			   struct sys_reg_params *params,
- 			   const struct sys_reg_desc *r)
- {
--	trace_kvm_sys_access(*vcpu_pc(vcpu), params, r);
-+	bool skip;
- 
- 	/* Check for regs disabled by runtime config */
- 	if (sysreg_hidden(vcpu, r)) {
- 		kvm_inject_undefined(vcpu);
--		return;
-+		skip = false;
-+	} else {
-+		/*
-+		 * Not having an accessor means that we have configured a trap
-+		 * that we don't know how to handle. This certainly qualifies
-+		 * as a gross bug that should be fixed right away.
-+		 */
-+		BUG_ON(!r->access);
-+
-+		/* Skip instruction if instructed so */
-+		skip = r->access(vcpu, params, r);
- 	}
- 
--	/*
--	 * Not having an accessor means that we have configured a trap
--	 * that we don't know how to handle. This certainly qualifies
--	 * as a gross bug that should be fixed right away.
--	 */
--	BUG_ON(!r->access);
-+	trace_kvm_sys_access(*vcpu_pc(vcpu), params, r);
- 
--	/* Skip instruction if instructed so */
--	if (likely(r->access(vcpu, params, r)))
-+	if (likely(skip))
- 		kvm_incr_pc(vcpu);
- }
- 
-diff --git a/arch/arm64/kvm/trace_handle_exit.h b/arch/arm64/kvm/trace_handle_exit.h
-index f85415db7713..b0308d95304d 100644
---- a/arch/arm64/kvm/trace_handle_exit.h
-+++ b/arch/arm64/kvm/trace_handle_exit.h
-@@ -88,6 +88,7 @@ TRACE_EVENT(kvm_sys_access,
- 
- 	TP_STRUCT__entry(
- 		__field(unsigned long,			vcpu_pc)
-+		__field(u64,				regval)
- 		__field(bool,				is_write)
- 		__field(const char *,			name)
- 		__field(u8,				Op0)
-@@ -99,6 +100,7 @@ TRACE_EVENT(kvm_sys_access,
- 
- 	TP_fast_assign(
- 		__entry->vcpu_pc = vcpu_pc;
-+		__entry->regval = params->regval;
- 		__entry->is_write = params->is_write;
- 		__entry->name = reg->name;
- 		__entry->Op0 = reg->Op0;
-@@ -109,10 +111,10 @@ TRACE_EVENT(kvm_sys_access,
- 		__entry->Op2 = reg->Op2;
- 	),
- 
--	TP_printk("PC: %lx %s (%d,%d,%d,%d,%d) %s",
-+	TP_printk("PC: %lx %s (%d,%d,%d,%d,%d) %llx %s",
- 		  __entry->vcpu_pc, __entry->name ?: "UNKN",
- 		  __entry->Op0, __entry->Op1, __entry->CRn,
--		  __entry->CRm, __entry->Op2,
-+		  __entry->CRm, __entry->Op2, __entry->regval,
- 		  __entry->is_write ? "write" : "read")
- );
- 
+Best regards,
+Ivaylo
 
--- 
-2.48.1
+>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> ---
+>>  drivers/phy/phy-snps-eusb2.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/phy/phy-snps-eusb2.c b/drivers/phy/phy-snps-eusb2.c
+>> index 4e5914a76..dcc69c00a 100644
+>> --- a/drivers/phy/phy-snps-eusb2.c
+>> +++ b/drivers/phy/phy-snps-eusb2.c
+>> @@ -461,7 +461,7 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
+>>  		return dev_err_probe(dev, ret,
+>>  				     "failed to get regulator supplies\n");
+>>  
+>> -	phy->repeater = devm_of_phy_get_by_index(dev, np, 0);
+>> +	phy->repeater = devm_of_phy_optional_get(dev, np, 0);
+>>  	if (IS_ERR(phy->repeater))
+>>  		return dev_err_probe(dev, PTR_ERR(phy->repeater),
+>>  				     "failed to get repeater\n");
+>> -- 
+>> 2.43.0
+>>
 
 
