@@ -4,72 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 338EEC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 19:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE6EC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 19:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OJj+NdXkHIXBePnFJJA83VwGqHVwR2wqCNHnWezrofs=; b=u7CeTld18YL71EyEjM7tATeJD+
-	nFj5vHnMi/gn2fXgvsO4rNjzyEYZg57YE3Bs3rde9ExRqto/3aQb46iPS+otw6YBSdnNeeCj1xMBr
-	n/QYoDWhvc5657gw9Iio37gNGtGHYh8GJFn8InW971fFj/5dMC8OQrJXrhvpaTGW88tuCga1Kof1p
-	5MkarfBtZCEZmfDV8/LyfEb8aTYN5Spei8fsq+gMdSA2WPiDfOlG2osMLy4tUdfZueiWfeKI5nwtg
-	fXF7rsb72FQTcmUrX6YRC2DiV90cYNGxoV6rRKEuJO3lD01imnYfSCYE3qYpJgzqK0M+c0JSr9TQs
-	5FVR8ARg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9adPPHfx2VYZl8FjDjZm7DVVat/2qBLkYQutmwbeNMc=; b=0Z8749SuN6ydT/oFL/wDKNugN7
+	q2OkMYzp6Pd+CsN50oAyzeKBjdxaymJLTFxi6zYSAjNNI2XppC00Rj0av+X2xkDmVTI6DC9o5PtHX
+	GQ6OCs4FGST9jj9wBMS++VQ9xFDbF0AM7wvT/lsQuUFoAkCtpxHsLIq52vycy18HsOhgTSeI/RtSp
+	Apbfsw3feCZp1aMqioT/gkgAYg5kC05rV/32VUTpM2NJh6vsf8i0Og6CLsctTnqSZg4FqOXCmriEV
+	dgw8O+EObBt1tqyOPKvbYMW8/4iCP68AjLVzvnfATcyj7/8UO+aEOrfu70kM6YJCbXS+0WKh818nk
+	9J2wgVyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuyuG-00000009wHj-3LEN;
-	Wed, 19 Mar 2025 19:16:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tuz1s-00000009xil-0IQZ;
+	Wed, 19 Mar 2025 19:24:40 +0000
+Received: from mail-mw2nam04on20626.outbound.protection.outlook.com ([2a01:111:f403:240a::626] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuynC-00000009uwx-3eyf
+	id 1tuz08-00000009xDs-3i9I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 19:09:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AA563682F6
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 19:09:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9854AC4CEF2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 19:09:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742411369;
-	bh=RBPLjNUl3VIgCUwL55Iwq9ZNU4VRiwiiacFlXXNL+W4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Hrl4k9IiaQWTGXLYNzGsGpVTwiTprR2dpXOBSflWxjmlY5daYNpEp2lxZCnbKFk6+
-	 ZzayEYLw74sTmo4+R9dFMWxnxK7hcPlTLxZwC9JwDAhXBj7owLhB2sHv6rLse3U7m1
-	 UAnVW2Jfe3BqAsxAjVPhhcvoekd9AfL8TncAAchtMXRFMpFhylqEb/o0SW8b6C8ylR
-	 XstlzHb0ZxXsLYJjR40rm+8mbLqKI+uL5wGu+NLuNUZmmJqvaMZp9lXXaWkhW4/qW6
-	 LAkb6YXBVO8dY4KjlHP1NNkNpFdkJKCaJESNJvwqyhuefufYmSwXH1H79M5YyZlOgr
-	 zhpTX1/krz0JQ==
-Received: by mail-il1-f169.google.com with SMTP id e9e14a558f8ab-3cfce97a3d9so9665ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 12:09:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXJ3lmDvgWQdJiEp51zXa6ZcfnmuzjgbZhvsRC5unD+5NHp7NYtQhGJ8tkEYfr0IBBvcfuQFE7aQne9YSLnVzIg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7bEoK4yNHtrsaEdop5SKqr5K465UxPPbwcATEksK0vOhSwrSx
-	KJu62KuodrlnQnRDfvWfKFm+iEDHJ0uSBVE4kJi6xmB+raX2WkNYWWL/rXe8eUayWYrh6olewjk
-	LX5bwRhgL6h5yYEr1ZusJ6xmK7Og=
-X-Google-Smtp-Source: AGHT+IFtVevrkFABOINXScOOgA9AGRqqqvUFyxFC0ELSxsLQH4NufJFrZAaqO6/fSKhNBd99jfQ6k4rNWb/XcuksXcE=
-X-Received: by 2002:a05:6e02:330a:b0:3d4:4134:521a with SMTP id
- e9e14a558f8ab-3d586b4d53cmr48877015ab.12.1742411368864; Wed, 19 Mar 2025
- 12:09:28 -0700 (PDT)
+	Wed, 19 Mar 2025 19:22:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UtylBa9qk+uMmnpDDyoaTUZc7wc4v7sEYC9S9SS0G9EXYla00jVE/HKnRbU6KjgHqoiV89HISF6PPmJ6SXmr8ZQh20W0Xm7HmwFgmqGWJw8CIbPUqfdnMew+cMZADXGdOJ/5eD+gowIF0arevPmURHoDE7fk+n78jgaqRwUtigd6UC2nurgl9+768ZuRkv0nu4X9XzSkQbW6X5H/N4qtRKTeCzcHrHr6slPiaS7TMBRPezKioOex4HL3IH3MsdzTAmHjbJzkkG+4V1YbaPjbtdgJlvAymLwhvG/DB5Np3QpyzJCXl9hKZAw1lIlex/1Y3TeI085JOdaXki69Y3RnRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9adPPHfx2VYZl8FjDjZm7DVVat/2qBLkYQutmwbeNMc=;
+ b=PeyBAXGnyVNu+HtyRM6bVOon/jtr/y4xrNGwqwof2o+ZrCm/358UOGb5GdKQr4imqswF0XFOvjz16Esbam6aZA6F5pKGdEV12IaXml4WpJAFrOMvnRmV+riG/krxYQeXhBt3s4Z/TYGI1SrP1HvIx0lN1mZ8bMeIN61flG3WoXoRO7QKrLBD7+Obem4a6G+KnfgZBsft9OEX6BaDnF5Nl4mzMy7DzCr/RxNp8XWkvKbmJkGWl+21uVAR1vPEyEnuxyHqHpGhRphFinzEXiHNELKxmm5Xazh+UXyDAQY2JfyUSJ5v+rfGbhLUDXwNwG9HWeCvec9GS8sEauDI+VVlqg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9adPPHfx2VYZl8FjDjZm7DVVat/2qBLkYQutmwbeNMc=;
+ b=GD7ZjrFQ15/mvg4dFkGUbEi75p3KNspVU5ia3UjRZ1VPoRujSYmgWyIGGfaJy7Pe5mYcN5XtqnISiMzjXxTQ5lFZFHGb/8ZkFQyBw5xFNIwBU1kvGOc+J4CT4DdvtdThUvi6bZ9wgMuhJz5dImATEcZvflpy2KsiwYl41elfhf/4hWYjijOccnnO/f7x0DxUz0Fb5WuJ8LeCIDH8CJQXp4n+h4Zb4l+ykaI7LPHTYZTWKziqBkkYC16ygUDd35C6CWquCHeEeIntgKXTnmJoDTk/YUkY7+xGI9/AW1TfVzMnJiBk8pHqHsIOHJ3bPGJktghE5xQIph0ATtBAFf/rpw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS5PPF5C5D42165.namprd12.prod.outlook.com (2603:10b6:f:fc00::64f) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Wed, 19 Mar
+ 2025 19:22:48 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.034; Wed, 19 Mar 2025
+ 19:22:48 +0000
+Date: Wed, 19 Mar 2025 16:22:46 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+	Ankit Agrawal <ankita@nvidia.com>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"seanjc@google.com" <seanjc@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <20250319192246.GQ9311@nvidia.com>
+References: <SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <8634fcnh0n.wl-maz@kernel.org>
+ <Z9h98RhunemcFhhz@arm.com>
+ <86wmcmn0dp.wl-maz@kernel.org>
+ <20250318125527.GP9311@nvidia.com>
+ <Z9nJ42PllG8a7AY7@linux.dev>
+ <20250318230909.GD9311@nvidia.com>
+ <Z9pryQwy2iwa2bpJ@linux.dev>
+ <20250319170429.GK9311@nvidia.com>
+ <Z9sItt8BIgvbBY8M@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z9sItt8BIgvbBY8M@arm.com>
+X-ClientProxiedBy: BL0PR02CA0013.namprd02.prod.outlook.com
+ (2603:10b6:207:3c::26) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <ifqn5txrr25ffky7lxtnjtb4b2gekq5jy4fmbiwtwfvofb4wgw@py7v7xpzaqxa> <20250319183757.404779-1-wnliu@google.com>
-In-Reply-To: <20250319183757.404779-1-wnliu@google.com>
-From: Song Liu <song@kernel.org>
-Date: Wed, 19 Mar 2025 12:09:17 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW7Zz9EaW3+gtp2Ut-8DVB4F=Dacr2btJ8gL0OA4T6bQzA@mail.gmail.com>
-X-Gm-Features: AQ5f1JrvMc2DSMYvOGWV-yPMqfIA-IEZUbcWWmGIrNbqZw7eyyDT2c8uUkJ79Rc
-Message-ID: <CAPhsuW7Zz9EaW3+gtp2Ut-8DVB4F=Dacr2btJ8gL0OA4T6bQzA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
-To: Weinan Liu <wnliu@google.com>
-Cc: jpoimboe@kernel.org, indu.bhagat@oracle.com, irogers@google.com, 
-	joe.lawrence@redhat.com, kernel-team@meta.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
-	mark.rutland@arm.com, peterz@infradead.org, puranjay@kernel.org, 
-	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS5PPF5C5D42165:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4144b879-c15d-4fda-a088-08dd671b6edb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i1dwqeUDukyP3yJ8y6uMNc3PbJ2dr+ueLQJJnjkAkqeRQxMASPLOJj4q7iJj?=
+ =?us-ascii?Q?/idihp8+tR4gpryBvFr1Mvhv6jaa+/vbZcVGzZIezDEpSaxvdRqXfn5nsAik?=
+ =?us-ascii?Q?CjsZ1jtdveR/abaylF96kFh0ks2M/M4czWwPQ+5D8Ej0PqJV2fpltyBLddNq?=
+ =?us-ascii?Q?cjzaS2CIB5Ga9ZrRjVCFyafwGN9xubzjbud7VpqRvG/2JKqQvRNSXaf2aQHH?=
+ =?us-ascii?Q?IOwPVlVPSTjJIoqYzek1nQIA9BZvPVoH2A99UL+JVaOxtwT40PR36MFvBoVs?=
+ =?us-ascii?Q?mKtQukNG5S7uWi3/DkkYfqgkxFq4nMyi/rMvvuLVO+T7/hc09kxE+cL0mjI7?=
+ =?us-ascii?Q?XoEp2yEbDObxVBHanid0YX3BaMf68NnVnYTsXbqGWNyI2rYeB/4+jMyx2ZaR?=
+ =?us-ascii?Q?6LBEaLWL1nVKZ/DZAKKUAmgg1OO8mr5h5DAXnIN7/hPFFuKc2vUM5X9uTsai?=
+ =?us-ascii?Q?Vl7t200I/ce6GbHQK7xtnCFfQg09vSI++FS8D5C6KOdSIYsMqHUVZdUvFiBV?=
+ =?us-ascii?Q?RtBWpkcSVM0IK2VO3CXO6NrWhRKth6jPTuXKcvwL2M5t1DD8VDYRdW2OOOxM?=
+ =?us-ascii?Q?bAHPQr2sWxhJHmAGY4qxMD7A11yUD9kjSBoDD+V0sPHy8/sdDpjNf7Bj1kfu?=
+ =?us-ascii?Q?iTW5hganGYg1RxFMMRj0FpBjo/TNU3V576eq14kBYCfBYaFQb6sNLGxSOKR3?=
+ =?us-ascii?Q?xWoGkWMWgOwiywitHtEIrXjEPIvF4BRd8zE6jIVszYMwoQ89WBSt3RN/ooW8?=
+ =?us-ascii?Q?BgZn4xvqbSljXs93jj5kT0pw2Yq6hb293IwsgjF02Z/mzC1lNnj8T1WGqC0J?=
+ =?us-ascii?Q?x66faj32aU46uvPUsXHX9RzzptdI4bc3WduM4BeEawL5s2Z4MXziSD+c3NLT?=
+ =?us-ascii?Q?s+ZkEGPfAcBQiiC9SMBCQ5iQ75g96h5UY0Ats7GDCKYGOBIH5QVm2OzQzGyl?=
+ =?us-ascii?Q?rN9ouZ0wJa8zrw1g6REaqrrH1UtGT/NVeWALbXQRfxDr94/LNFW00A/WAOJI?=
+ =?us-ascii?Q?ItszhG360p+VT9WICKsO+/zL3h1JeyNy2maPHMpSohJ/IcO5BF9R23qgPTHy?=
+ =?us-ascii?Q?0xk1mA320I+WGySZLatOk8ByYgXAZelykDNtEbITaVbCI7VJnvfddXAH5oam?=
+ =?us-ascii?Q?LGASIdpHTzquqvWMmS91GKtWhgnseb8UlktvJe0XwcwSRsbPO2JOv2C8g4kI?=
+ =?us-ascii?Q?b3jj3nF2aRzqaMt5+EXAZl+tZJmiQsIgBoR+NXHHgjPXISOlNdVnIMmioh9+?=
+ =?us-ascii?Q?w/iZREZ+vuRVQazQ3yLw/rJR9m1TRgCfvcn2WBMJjNiYMq2jpR7PZQhz6SwS?=
+ =?us-ascii?Q?VYOiBi548ziZx0hAtiBM5zrsBd6w0gR294UiwHsXPSu24U7FZ+wjihMRohlM?=
+ =?us-ascii?Q?EWrvMUTkb4jKFvOZrX4lZdnrq4ON?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GCSOj0I0Bi98JtRvlDRVWH2c7swRrI8PiK6OcByO13H3QLWFL+JZmfSIP6VR?=
+ =?us-ascii?Q?WAZYE/G6WYD3GKBm8VCvMncBAwhiYaU3X+LrkBuwtjVOJMulF08rOr7KHufO?=
+ =?us-ascii?Q?q9A2K738Md4/vZwGt5yvXS2XhZGHJF4N2N1HwnfcZuwTvfTS1fiHlpAXOUO6?=
+ =?us-ascii?Q?/A+qy8n9qOiVztT+vEozEnI9bnytsA1hRatWfG2IBlwoW4BZu39bxrsSDLnE?=
+ =?us-ascii?Q?uBnhvjAVnk9PIBjAgyKjPBgr2kH9YF1ji76qY+RroX+l4cUkA7nmzDd/Oj7t?=
+ =?us-ascii?Q?LWv6DFEyh27kcTUw0LGMGvkgKvGQMfeO8KzMJT838GdrvDDhFPKo4wlI5aPx?=
+ =?us-ascii?Q?KjDCGUl/Dz/AjWu6S/ieQhF6iLYYgf8xfhpLQcBR8pBko7nFrH8ZfsBhxOj+?=
+ =?us-ascii?Q?jRduR4ODFc9xKfk80AEqOD4da7z+TR9N+e8PPz4l94WCCoBvFIZi0x7e3ob7?=
+ =?us-ascii?Q?x3TzZLEKS/uU0lLM9l8CYCnq5OHIaO17sqyN9iOKDxLq+1fWbldgMfCLIeZZ?=
+ =?us-ascii?Q?KZGOaP8kqQTphzEMK5iagbv82UHZAs5pmVsGSb6Er5EyUibQL1Rt54Ksp1iw?=
+ =?us-ascii?Q?JYLhM+BSNKaNtOBLOn/hzFcACRuCx+FLxsGrB5j/2gZlCb2TZ2GoSl6axmkQ?=
+ =?us-ascii?Q?pdplGXN5ZWHjyVioJ3IiOn+iRtRssbIGWm7JNfN4ZmY7xEFr85/GFT1pWifH?=
+ =?us-ascii?Q?xQIwy02ara3rjVI20WIPapodzdfG8l/tHizIkmKKPKYn4yNT9dptV/ie3rty?=
+ =?us-ascii?Q?to5Mg+mJxdkX3avih2MgAIVagnb3pq9WTp3t0O7GE3QFCdT7Qgn4nDvVzclZ?=
+ =?us-ascii?Q?S6cLRpdtXTZ0ZUVaWv4u1RsqhHdRqBsAhJRNluKn511xYfQGtWa8p7hMUxKQ?=
+ =?us-ascii?Q?sdaI/nNUY/EnnFQGYpBnOZ9/1QPNsFuhSe/RqH5olwsCA8GG32oD0Uk5HKbI?=
+ =?us-ascii?Q?4t6XrQeAjQeZc0qte6ZAg0tYzT4hfPSRr+gyyQGF//pUKERz0bq7xQxNiEVL?=
+ =?us-ascii?Q?QMrgXCxOq9bag8omP9lROzWTYeOl58My0R0PCfhALF+3PKdOeFdyUY3gZwb8?=
+ =?us-ascii?Q?6YgOx40BJdPnrzUpeAIxynTLvnFenPU/prkfPuwXUr55VSMLQniX69H5cVaE?=
+ =?us-ascii?Q?RJg/QFxd6kkeeKZR4dq6NSFzd5vW2yl6KTfTSJLvx/OuuqZK6OLn/x1TSxax?=
+ =?us-ascii?Q?8XM3kmBioDvz38lNGa02NDBUgoJMI1AzHiGsfnuUEeydJzQpD3GHgik+mMYv?=
+ =?us-ascii?Q?2gv7BlmHQ3bN+dhmIBhIvEyE7OVFNB9pPO9HAf1uHKanJoWP+W0DnTHVNDy6?=
+ =?us-ascii?Q?KdmSvH5XLLHCCPbr46LJ1Sg3HZKmJrsCUFef6v1pchapQ8Sm55Nh7mcbj+Jl?=
+ =?us-ascii?Q?1pdlQ7VQYfaRMhu4KZi6e2LNKFobuSYEfrbI9yaQ6utQJeAKJKagrAuhQLYT?=
+ =?us-ascii?Q?jbx0Dn27Ws/hvf6SrEJqii+jMDMzfCQlsMcQFD6yOHPUusVHcJXG7/Ueeolm?=
+ =?us-ascii?Q?8e0E90t7YLoEDAZ47IgR5YdgWlsMVxfGC6jgVWSuLfWMmq/vqgFN7FsAxdCt?=
+ =?us-ascii?Q?U0kSwve36YLYt/qiP50=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4144b879-c15d-4fda-a088-08dd671b6edb
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2025 19:22:48.0988
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: slmjaGHBiOC3y7LGLjffTjdC626EXzTJRYQOgl3WG0L6dL6zzxqvnNyOofziEoa6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF5C5D42165
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250319_122252_922773_663E2700 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,67 +198,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 11:38=E2=80=AFAM Weinan Liu <wnliu@google.com> wrot=
-e:
->
-> On Tue, Mar 18, 2025 at 10:39=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.=
-org> wrote:
-> >
-> > On Tue, Mar 18, 2025 at 08:58:52PM -0700, Song Liu wrote:
-> > > On a closer look, I think we also need some logic in unwind_find_stac=
-k()
-> > > so that we can see when the unwinder hits the exception boundary. For
-> > > this reason, we may still need unwind_state.unreliable. I will look i=
-nto
-> > > fixing this and send v2.
-> >
-> > Isn't that what FRAME_META_TYPE_PT_REGS is for?
-> >
-> > Maybe it can just tell kunwind_stack_walk() to set a bit in
-> > kunwind_state which tells kunwind_next_frame_record_meta() to quit the
-> > unwind early for the FRAME_META_TYPE_PT_REGS case.  That also has the
-> > benefit of stopping the unwind as soon as the exception is encounterd.
-> >
->
-> After reviewing the code flow, it seems like we should treat all -EINVALI=
-D
-> cases or `FRAME_META_TYPE_PT_REGS` cases as unreliable unwinds.
+On Wed, Mar 19, 2025 at 06:11:02PM +0000, Catalin Marinas wrote:
+> On Wed, Mar 19, 2025 at 02:04:29PM -0300, Jason Gunthorpe wrote:
+> > On Wed, Mar 19, 2025 at 12:01:29AM -0700, Oliver Upton wrote:
+> > > You have a very good point that KVM is broken for cacheable PFNMAP'd
+> > > crap since we demote to something non-cacheable, and maybe that
+> > > deserves fixing first. Hopefully nobody notices that we've taken away
+> > > the toys...
+> > 
+> > Fixing it is either faulting all access attempts or mapping it
+> > cachable to the S2 (as this series is trying to do)..
+> 
+> As I replied earlier, it might be worth doing both - fault on !FWB
+> hardware (or rather reject the memslot creation), cacheable S2
+> otherwise.
 
-Agreed with this: all -EINVALID cases or `FRAME_META_TYPE_PT_REGS`
-should be unreliable, IIUC.
+I have no objection, Ankit are you able to make a failure patch?
 
->
-> Would a simplification like the one below work?
-> Or we can return a special value for success cases in kunwind_next_regs_p=
-c()
->
-> ```
-> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrac=
-e.c
-> index 69d0567a0c38..0eb69fa6161a 100644
-> --- a/arch/arm64/kernel/stacktrace.c
-> +++ b/arch/arm64/kernel/stacktrace.c
-> @@ -296,7 +296,8 @@ do_kunwind(struct kunwind_state *state, kunwind_consu=
-me_fn consume_state,
->                 if (!consume_state(state, cookie))
->                         break;
->                 ret =3D kunwind_next(state);
-> -               if (ret < 0)
-> +               if (ret < 0 || state->source =3D=3D KUNWIND_SOURCE_REGS_P=
-C)
-> +                       state->common.unreliable =3D true;
-
-I am current leaning toward not using common.unreliable. It seems to add
-unnecessary complexity here. But I may change my mind later on.
-
-Thanks,
-Song
-
->                         break;
->         }
->  }
-> ```
->
-> --
-> Weinan
+Jason
 
