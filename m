@@ -4,55 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 241C2C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 10:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE6DC35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 11:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WrSjhCJ6HHbsHOBTQK/mH+kyhCPLPygv6j3GE2pda8M=; b=IM3j3W4lTmZeEQlMRvBZG0XLgR
-	T3MeQzg+atiew/oCR7yuqSkqZqhAYasW08qKNFtGwLRRJ+BNJP4tIfFKb2WtThP9ipDvk9VWnFbWT
-	XcuWp+ol1Dg8oIl2ExxUR7vDnvcZAYxVP/5OS4HBD39pksuYQukLlLuzrTvRe2TG0IaW40JJETHJu
-	wlMAlrdffqjV12QmLBA1+MpE/qikWxDoBp58j3hZI0Y5G+OV1GbL9CWWetkVR2CrSlTsw5vFamfit
-	ULfzgr3/6dx/tvalqSr59LgbDMnCLaRrhR6yP/ch+ZQebJ4skY7xiQ3jNOiNU6qtmJ2lbFQYPHz7x
-	gF4vzbRw==;
+	bh=2Z96658O7y0mOkLDTjvoCiuTqFTBn/ZYXpyU7GOrW+Q=; b=ZOXv+/t8USjvBhp8Yc/fh2fGSB
+	pcK0/B12sWc3Jdf53OPZ6qTHIRrjrvMJ273oDhGxXIgD+IAHpEIWC49mFo+xjwHbOHH+4Vo7ypLOW
+	O513i/brdYuQ15lkx/BIrJEEAM+iWMMUbOfmeUisAJhY1vcn1l/h/abypeHDGauAGQhW2Cy9togoj
+	7K7AvvUkV4TrzZtzggfTX6xIL4IrsN3vIW21m1xRbfCf1kw8DEHMmH7Sa/hPJO42r5Cg/lcu0Qn22
+	Znua3+SV1DobWeBFCZLSuGFUAWSrHyRYvqfqnOhHE2LRXPYwsC8qii+p3L75Inm7tb77s4SBHxx0c
+	LQ4H7Q+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuqzQ-00000008hyZ-01P8;
-	Wed, 19 Mar 2025 10:49:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuqwo-00000008hb9-4C2K
+	id 1turI8-00000008l1D-3mr5;
+	Wed, 19 Mar 2025 11:08:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1turGQ-00000008kZZ-0lvy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 10:46:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8156C12FC;
-	Wed, 19 Mar 2025 03:47:02 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9061B3F694;
-	Wed, 19 Mar 2025 03:46:52 -0700 (PDT)
-Date: Wed, 19 Mar 2025 10:46:49 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Miaoqian Lin <linmq006@gmail.com>, Gavin Shan <gshan@redhat.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Will Deacon <will@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+	Wed, 19 Mar 2025 11:07:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8DED45C44DF;
+	Wed, 19 Mar 2025 11:04:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E5D7C4CEEA;
+	Wed, 19 Mar 2025 11:07:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742382429;
+	bh=NGYewGFAoe+wqdt5qJjLt/O2xNzItgc+8v51gZhI0yM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uWaC89D95JcTYDPeq2Hv3aMwogaWlfE5GWVGOm5Qsc+oWambCRHyVhwHdj9g+ViRa
+	 0f+muqMjHQ5VtzcFUlRU7b3wm+O02mBaLK/JYEywHxWw2lbL/C57S4oRCMr2bZrpV/
+	 zaVlbBC4GLZrBTGOY57D9Ej1E/Ak6HuZ3x6uUL/vAj/UQYi7wr3AWkLKGjDCSeGPLw
+	 soxjDmKOxkjNSZnjY/llhsVzY/I16oAs/uy7RzFjJPd+ZbNOFMF3Ucg+l7GrbG/rQM
+	 pSZztDLvGU7QVARq4BySPo+rThFgkZtmH6w1hUvjkHGcNMr3m1maMv6y4TtdqmbXPo
+	 rJ3EATpmeDIaw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1turGM-00F2Ky-DE;
+	Wed, 19 Mar 2025 11:07:06 +0000
+Date: Wed, 19 Mar 2025 11:07:04 +0000
+Message-ID: <86o6xxmg87.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: psci: Fix refcount leak in psci_dt_init
-Message-ID: <Z9qgmTbeLh0cCULw@bogus>
-References: <20250318151712.28763-1-linmq006@gmail.com>
- <28cb8360-7fb0-46f0-b05f-5114f1974cf3@redhat.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <28cb8360-7fb0-46f0-b05f-5114f1974cf3@redhat.com>
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com
+Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
+In-Reply-To: <bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
+References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
+	<Z9pze3J2_zrTk_yC@linux.dev>
+	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
+	<86plidmjwh.wl-maz@kernel.org>
+	<bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_034655_129935_5AD53C15 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20250319_040710_336502_FA20F389 
+X-CRM114-Status: GOOD (  44.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,86 +99,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 08:28:38PM +1000, Gavin Shan wrote:
-> Hi Miaoqian,
+On Wed, 19 Mar 2025 10:26:57 +0000,
+Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
 > 
-> On 3/19/25 1:17 AM, Miaoqian Lin wrote:
-> > Fix a reference counter leak in psci_dt_init() where of_node_put(np) was
-> > missing after of_find_matching_node_and_match() when np is unavailable.
+> >> It should also be the reason why the perf program creates an event for
+> >> each PMU. tools/perf/Documentation/intel-hybrid.txt has more
+> >> descriptions.
 > > 
-> > Fixes: bff60792f994 ("arm64: psci: factor invocation code to drivers")
-> > Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
-> > ---
-> >   drivers/firmware/psci/psci.c | 4 +++-
-> >   1 file changed, 3 insertions(+), 1 deletion(-)
-> > 
+> > But perf on non-Intel behaves pretty differently. ARM PMUs behaves
+> > pretty differently, because there is no guarantee of homogeneous
+> > events.
 > 
-> I'm wandering if the fix tag is correct enough because !of_device_is_available(np)
-> wasn't added by bff60792f994.
-> 
-> > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> > index a1ebbe9b73b1..38ca190d4a22 100644
-> > --- a/drivers/firmware/psci/psci.c
-> > +++ b/drivers/firmware/psci/psci.c
-> > @@ -804,8 +804,10 @@ int __init psci_dt_init(void)
-> >   	np = of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
-> > -	if (!np || !of_device_is_available(np))
-> > +	if (!np || !of_device_is_available(np)) {
-> > +		of_node_put(np);
-> >   		return -ENODEV;
-> > +	}
-> 
-> The fix looks good to me. The duplicated of_node_put() can be avoided with
-> a 'out' tag added, something like below.
-> 
-> 	if (!np || !of_device_is_available(np)) {
-> 		ret = -ENODEV;
-> 		goto out;
-> 	}
-> 
-> 	:
-> 
-> out:
-> 	of_node_put(np);
-> 	return ret;
-> 
-> >   	init_fn = (psci_initcall_t)matched_np->data;
-> >   	ret = init_fn(np);
-> 
+> It works in the same manner in this particular aspect (i.e., "perf
+> stat -e cycles -a" creates events for all PMUs).
 
-Any reason why we can't move to the new scoped usage like below?
+But it then becomes a system-wide counter, and that's not what KVM
+needs to do.
+
+> >> Allowing to enable more than one counter and/or an event type other
+> >> than the cycle counter is not the goal. Enabling another event type
+> >> may result in a garbage value, but I don't think it's worse than the
+> >> current situation where the count stays zero; please tell me if I miss
+> >> something.
+> >> 
+> >> There is still room for improvement. Returning a garbage value may not
+> >> be worse than returning zero, but counters and event types not
+> >> supported by some cores shouldn't be advertised as available in the
+> >> first place. More concretely:
+> >> 
+> >> - The vCPU should be limited to run only on cores covered by PMUs when
+> >> KVM_ARM_VCPU_PMU_V3 is set.
+> > 
+> > That's userspace's job. Bind to the desired PMU, and run. KVM will
+> > actively prevent you from running on the wrong CPU.
+> > 
+> >> - PMCR_EL0.N advertised to the guest should be the minimum of ones of
+> >> host PMUs.
+> > 
+> > How do you find out? CPUs can be hot-plugged on long after a VM has
+> > started, bringing in a new PMU, with a different number of counters.
+> > 
+> >> - PMCEID0_EL0 and PMCEID1_EL0 advertised to the guest should be the
+> >> result of the AND operations of ones of host PMUs.
+> > 
+> > Same problem.
+> 
+> I guess special-casing the cycle counter is the only option if the
+> kernel is going to deal with this.
+
+Indeed. I think Oliver's idea is the least bad of them all, but man,
+this is really ugly.
+
+> >> Special-casing the cycle counter may make sense if we are going to fix
+> >> the advertised values of PMCR_EL0.N, PMCEID0_EL0, and
+> >> PMCEID1_EL0. PMCR_EL0.N as we can simply return zero for these
+> >> registers. We can also prevent enabling a counter that returns zero or
+> >> a garbage value.
+> >> 
+> >> Do you think it's worth fixing these registers? If so, I'll do that by
+> >> special-casing the cycle counter.
+> > 
+> > I think this is really going in the wrong direction.
+> > 
+> > The whole design of the PMU emulation is that we expose a single,
+> > architecturally correct PMU implementation. This is clearly
+> > documented.
+> > 
+> > Furthermore, userspace is being given all the relevant information to
+> > place vcpus on the correct physical CPUs. Why should we add this sort
+> > of hack in the kernel, creating a new userspace ABI that we will have
+> > to support forever, when usespace can do the correct thing right now?
+> > 
+> > Worse case, this is just a 'taskset' away, and everything will work.
+> 
+> It's surprisingly difficult to do that with libvirt; of course it is a
+> userspace problem though.
+
+Sorry, I must admit I'm completely ignorant of libvirt. I tried it
+years ago, and concluded that 95% of what I needed was adequately done
+with a shell script...
+
+> > Frankly, I'm not prepared to add more hacks to KVM for the sake of the
+> > combination of broken userspace and broken guest.
+> 
+> The only counter argument I have in this regard is that some change is
+> also needed to expose all CPUs to Windows guest even when the
+> userspace does its best. It may result in odd scheduling, but still
+> gives the best throughput.
+
+But that'd be a new ABI, which again would require buy-in from
+userspace.  Maybe there is scope for an all CPUs, cycle-counter only
+PMUv3 exposed to the guest, but that cannot be set automatically, as
+we would otherwise regress existing setups.
+
+At this stage, and given that you need to change userspace, I'm not
+sure what the best course of action is.
+
+Thanks,
+
+	M.
 
 -- 
-Regards,
-Sudeep
-
--->8
-
-diff --git i/drivers/firmware/psci/psci.c w/drivers/firmware/psci/psci.c
-index a1ebbe9b73b1..a4269078b2a2 100644
---- i/drivers/firmware/psci/psci.c
-+++ w/drivers/firmware/psci/psci.c
-@@ -797,12 +797,11 @@ static const struct of_device_id psci_of_match[] __initconst = {
-
- int __init psci_dt_init(void)
- {
--       struct device_node *np;
-        const struct of_device_id *matched_np;
-        psci_initcall_t init_fn;
-        int ret;
--
--       np = of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
-+       struct device_node *np __free(device_node) =
-+               of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
-
-        if (!np || !of_device_is_available(np))
-                return -ENODEV;
-@@ -810,7 +809,6 @@ int __init psci_dt_init(void)
-        init_fn = (psci_initcall_t)matched_np->data;
-        ret = init_fn(np);
-
--       of_node_put(np);
-        return ret;
- }
-
+Without deviation from the norm, progress is not possible.
 
