@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D323C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 15:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF73C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 16:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6odEtpsbLUs835q3V1F9htFlGcWFQ+wEDjb2L+ALX80=; b=U1rbKDzqEZroOUF2BLDUuB2EuC
-	6LlXnQy+oGRySZsQuJcGjKVoOKASjj8YL9psSY831HhVJpb24AOYUdiI08crMRQA9RjpvYv5H0D4m
-	iaXUynfO3cFwiABYVyIhCFYx3gKPe9qI5JZQr95UvdicEJremApSHSQGxYcsfI1B3Adr2CmgDj70h
-	Jt7awShkwen1jGpSSXmXwilHqQ8PshuKzt7yxObHr+5g8WVah+xsutOjVSWnOl8iU8faK+IMukiyb
-	c4szdF/QQtenxyTtoPI+2t7UJsHaWl8uLH9NaGex1qbsCGS9iAo4FlugF1LVnCOoTa+xYgqfIWqGF
-	N4DwnBsg==;
+	bh=B6OrrIwwbuMhGA436NkYd0VFsMvWc87a2n0y8ItVmBk=; b=2jkoGvgsbBy6zuGpMRbIHg7Age
+	SdIWQVirHYvrWnI3Z0v+QBRfmEjHSzXJ5RoDe2C72CwhJVRpQlyjLipvZgJWhTv8M70fwBTmCGgzx
+	fGRYYHQSugYUGL/QNgLpzk1WNXJLSWaVMoNNpsrY3GwTBeRBNCO7XXmxT3Q1ompBH3XHOEKt6vDUQ
+	CRLsRNAI+1seR8FEurvLhii8mAGpoxpwrS9NKC3xMzYKO1ic50itTMWwDsDI3VI5n3+V/F7I8RjRg
+	cvOGMxEf01lbynvkVz0647sn8KHy3/JuMRXOeh4Xf2QY6iuM41Cp4kTq+4NmRGxxaBe5l/dGH/C1I
+	u67ZF9qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuvcL-00000009RWi-3kAv;
-	Wed, 19 Mar 2025 15:46:05 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tuw7w-00000009Wfb-0JEO;
+	Wed, 19 Mar 2025 16:18:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuvWc-00000009Psm-42IC
+	id 1tuw6D-00000009WMN-2Llo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 15:40:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=6odEtpsbLUs835q3V1F9htFlGcWFQ+wEDjb2L+ALX80=; b=dYaZwAuKzjhW3ZNTaXcIQCJ+k3
-	iwLZzorpQDDaAyO/kmFL7XmMhmEGHfatWWzfcgfuXU/jGuELtOAuRpmVvjoc76qc1hdkeSLn7ifeg
-	l+jurutCvlp6IFNR97ie6mCjgcxpu8WB7me7nKLDSciOcoK8FEmVSnyk2SCRBNVtf6dw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tuvWP-006NhH-ND; Wed, 19 Mar 2025 16:39:57 +0100
-Date: Wed, 19 Mar 2025 16:39:57 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Felipe Balbi <balbi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
-	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
- MBa62xx carrier board Device Trees
-Message-ID: <c277cc6b-6624-44df-94ff-45b341859b62@lunn.ch>
-References: <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
- <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
- <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
- <e16076d16349e929af82fa987a658bff1d9804c4.camel@ew.tq-group.com>
- <a2a2f201-73a4-4a99-baef-0d593a88c872@lunn.ch>
- <309052f3f69950fe43390505cc7254aee8c8f5c6.camel@ew.tq-group.com>
- <2953e10c-0a57-4d49-b831-3864a07eefd5@lunn.ch>
- <e6ee878f655c31473bca54e4187d9006a19158b1.camel@ew.tq-group.com>
- <262ff436-2334-43bb-a998-ab48f06ea0e3@lunn.ch>
- <570d9c2a25b437ab75f14104b354027210809028.camel@ew.tq-group.com>
+	Wed, 19 Mar 2025 16:16:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5CDF55C541A;
+	Wed, 19 Mar 2025 16:14:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 861A1C4CEE4;
+	Wed, 19 Mar 2025 16:16:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742401016;
+	bh=xnDMEd3oDLdDyqilpxe7B268wCPcK5IAlUmeX80LEN0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Am+CbsLWZVQEa12XMDxSuzyntXruJiE5MR3Cebx1u1THPmr/6TyF2BtIPaeBI9IXj
+	 3t30Df+b0rQp+UlY0FOwRk6CvkY0CwfQW2g6ku+RqJ505Iti8pAyKbGEc43dvkXaAO
+	 1cMoLK4kEzUSD/gB9IbAdLjv+nWTUJUo6Xcl1FvbxBH3usbwlFziLG7ff6yP+k7oqa
+	 6DsLot8nu46ZD5VcqEshL6C0nQNC3OVRuRMcIkEL9daIEQcjyxi4V2vBhNegC0znLa
+	 E0cQZyyqLQ2g5bGSBV9ysedz0dNqmm+1d84yNfYbtQUtxx304qOmNmTcB7J/Bdt/R4
+	 WDHPS3/vW8inQ==
+Date: Wed, 19 Mar 2025 17:16:53 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Anusha Srivatsa <asrivats@redhat.com>, Paul Kocialkowski <paulk@sys-base.io>, 
+	Dmitry Baryshkov <lumag@kernel.org>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, 
+	Hui Pu <Hui.Pu@gehealthcare.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 00/11] drm/bridge: add devm_drm_bridge_alloc() with
+ bridge refcount
+Message-ID: <20250319-stylish-lime-mongoose-0a18ad@houat>
+References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
+ <20250314-daft-woodoo-cheetah-e029c5@houat>
+ <20250317155607.68cff522@booty>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="zuzyymlcqte4eo4x"
 Content-Disposition: inline
-In-Reply-To: <570d9c2a25b437ab75f14104b354027210809028.camel@ew.tq-group.com>
+In-Reply-To: <20250317155607.68cff522@booty>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_084011_001006_435DAA43 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20250319_091657_686593_236E0F8D 
+X-CRM114-Status: GOOD (  60.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,50 +87,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > > Fixing MAC drivers to interpret the values without
-> > > "id" to mean that there is a delay on the PCB will break existing Device Trees,
-> > > so that's no good.
-> > 
-> > You need to look at it broken driver by broken driver. I _think_ the
-> > Aspeed case can be fixed. Others we need to look at the details. Maybe
-> > in some cases we do need to add a warning to the device tree binding
-> > the driver is FUBAR and has special, broken meaning for 'rgmii'.
-> 
-> I don't know about Aspeed (maybe you're mixing something up, or I'm not aware of
-> something?) - in the case of the TI driver I'm dealing with, this is indeed
-> possible to fix up because the MAC always adds a delay, it is not configurable.
 
-The Aspeed driver also gets RGMII delays wrong. And there is an
-ongoing discussion about how to fix it. The discussions there probably
-apply to most drivers which get RGMII delays wrong. Following the
-discussions on how RGMII is broken in other places might help you fix
-the TI driver.
+--zuzyymlcqte4eo4x
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 00/11] drm/bridge: add devm_drm_bridge_alloc() with
+ bridge refcount
+MIME-Version: 1.0
 
-> The whole point of my suggestions is to allow fixing the drivers while staying
-> compatible with old, broken Device Trees. If we could add a property 'phy-mode-
-> is-fubar' to old Device Trees, we could just fix them instead - but we can only
-> fix in-tree DTS, and it will only have an effect on systems that update their
-> DTBs with their kernel, so I believe this simply isn't an option because of
-> backwards compat guarantees for Device Trees.
+On Mon, Mar 17, 2025 at 03:56:07PM +0100, Luca Ceresoli wrote:
+> Hello Maxime,
+>=20
+> On Fri, 14 Mar 2025 19:21:01 +0100
+> Maxime Ripard <mripard@kernel.org> wrote:
+>=20
+> > Hi,
+> >=20
+> > On Fri, Mar 14, 2025 at 11:31:13AM +0100, Luca Ceresoli wrote:
+> > > This series improves the way DRM bridges are allocated and
+> > > initialized and makes them reference-counted. The goal of reference
+> > > counting is to avoid use-after-free by drivers which got a pointer
+> > > to a bridge and keep it stored and used even after the bridge has
+> > > been deallocated.
+> > >=20
+> > > The overall goal is supporting Linux devices with a DRM pipeline
+> > > whose final components can be hot-plugged and hot-unplugged,
+> > > including one or more bridges. For more details see the big picture
+> > > [0].
+> > >=20
+> > > DRM bridge drivers will have to be adapted to the new API, which is
+> > > pretty simple for most cases. Refcounting will have to be adopted
+> > > on the two sides: all functions returning a bridge pointer and all
+> > > code obtaining such a pointer. This series has just an overview of
+> > > some of those conversions, because for now the main goal is to
+> > > agree on the API.
+> > >=20
+> > > Series layout:
+> > >=20
+> > >  1. Add the new API and refcounting:
+> > >=20
+> > >     drm/bridge: add devm_drm_bridge_alloc()
+> > >     drm/bridge: add support for refcounting
+> > >=20
+> > >  2. get/put the reference in basic operations in the bridge core:
+> > >=20
+> > >     drm/bridge: get/put the bridge reference in
+> > > drm_bridge_add/remove() drm/bridge: get/put the bridge reference in
+> > > drm_bridge_attach/detach()
+> > >=20
+> > >  3. as an example of changes for bridge consumers, get a reference
+> > > for the bridge returned by drm_bridge_chain_get_first_bridge(),
+> > > have it put by all callers (all users will be covered later on
+> > > separately):
+> > >=20
+> > >     drm/bridge: add a cleanup action for scope-based
+> > > drm_bridge_put() invocation drm/bridge: get the bridge returned by
+> > > drm_bridge_chain_get_first_bridge() drm/mxsfb: put the bridge
+> > > returned by drm_bridge_chain_get_first_bridge() drm/atomic-helper:
+> > > put the bridge returned by drm_bridge_chain_get_first_bridge()
+> > > drm/probe-helper: put the bridge returned by
+> > > drm_bridge_chain_get_first_bridge()
+> > >=20
+> > >  4. convert a few bridge drivers (bridge providers) to the new API:
+> > >=20
+> > >     drm/bridge: ti-sn65dsi83: use dynamic lifetime management
+> > >     drm/bridge: samsung-dsim: use dynamic lifetime management
+> > >=20
+> > > This work was formerly a part of my v6 DRM bridge hotplug
+> > > series[0], now split as a standalone series with many improvements,
+> > > hence the "v7" version number. =20
+> >=20
+> > Except for one patch where I had comments, I think the series is in
+> > excellent shape. We're still missing a couple of things to close this
+> > topic though:
+> >=20
+> >   - Converting the other bridge iterators/accessors to take / put the
+> > references
+>=20
+> I sent a couple in this series as you had asked, to show how conversion
+> looks like. But I have a large part of this conversion partially done
+> already, and it is the largest part of the refcounting work in terms of
+> touched files due to the large number of drivers using the iterators
+> and accessors. Here are the functions to convert:
+>=20
+>  A) drm_bridge_chain_get_first_bridge
+>  B) drm_bridge_get_prev_bridge
+>  C) drm_bridge_get_next_bridge
+>  D) drm_for_each_bridge_in_chain
+>  E) drm_bridge_connector_init
+>  F) of_drm_find_bridge
+>=20
+> A) is present in this series as an example but I don't think it should
+> be applied until all bridge drivers are converted to
+> drm_bridge_alloc(). Otherwise for not-yet-converted bridge drivers we'd
+> have drm_bridge_get/put() operating on an uninitialized kref, and
+> __drm_bridge_free() called on non-refcounted bridges, so I think we'd
+> see fireworks.
+>=20
+> In the previous iteration I used drm_bridge_is_refcounted() in
+> drm_bridge_get/put() to allow a progressive migration, but if we want
+> to convert everything in a single run we need to first convert all
+> bridges to drm_bridge_alloc() and then convert all accessors.
+>=20
+> The same reasoning applies to patches 3-4 which add get/put to
+> drm_bridge_add/remove() and _attach/detach().
 
-So you need the TI driver to accept the broken 'rgmii', and the
-correct 'rgmii-id'. You say the MAC hardware always adds the delay. So
+Agreed.
 
-1) Patch the driver to test for 'rgmii', and issues a warning that the
-   DT is wrong and needs updating.
+> B) to E) are ready in my work branch, about 20 patches in total.
+> Indeed item E) is a special case but it is handled there too.
+>=20
+> Item F) is the beast, because of the reverse call graph of
+> of_drm_find_bridge() which includes drm_of_find_panel_or_bridge() and
+> then *_of_get_bridge(), each having a few dozen callers, and leading
+> to the panel_bridge topic. I have converted maybe half of the users of
+> accessors in F), it's 35 patches but it's the easy half and I still need
+> to tackle to hardest ones.
 
-2) Add the missing masking of the value passed to the PHY. Since the
-   MAC driver is adding the delays, it needs to modify the
-   phy_interface_t passed to phy_connect(), masking out the delays the
-   MAC is adding. This is an established procedure for MACs which
-   implement the delays, rather than ask the PHY to do it. It then
-   becomes possible to use the correct 'rgmii-id' value.
+One thing to keep in mind is that, while it's not correct, if the bridge
+has been allocated with devm_drm_bridge_alloc, it's not worse either. If
+you're not getting a reference to your pointer, the point is buggy,
+sure, but it's just as buggy as before, and in the same situations.
 
-3) Patch the TI .dts files to use the correct rgmii-id. That makes the
-   warnings added in 1) go away.
+So we can make that gradually if it's more convenient.
 
-This is a lot simpler than the Aspeed case, but the basic discussion
-taking place with the Aspeed driver would give you useful background.
+One way to solve it would be that, for example, of_drm_find_bridge is
+oddly named according to our convention and it would make more sense to
+be called drm_of_find_bridge().
 
-	Andrew
+So maybe we can just create drm_of_find_bridge() that takes a reference,
+make of_drm_find_bridge() deprecated in favour of drm_of_find_bridge(),
+add a TODO, and call it a day. People will gradually switch to the new
+API over time.
+
+> >   - Mass converting the drivers to devm_drm_bridge_alloc
+>=20
+> Again I sent a couple in this series as you had asked, to show how
+> conversion looks like for the typical bridge driver. There are ~70
+> drivers to convert in total and I think most will be easy as the two
+> examples presented here.
+>=20
+> I think this should be merged entirely before merging any accessor
+> changes, as explained above.
+
+Agreed.
+
+> >   - Documenting somewhere (possibly in drm_bridge_init?) that it
+> > really shouldn't be used anymore
+>=20
+> I'm afraid there is no drm_bridge_init(), bridge drivers just do
+> [devm_]kzalloc and set fields explicitly. So I don't think there is a
+> place to document this.
+
+Oh, right.
+
+Then, drm_bridge_add() would be a good candidate too to mention that
+bridges must be allocated using devm_drm_bridge_alloc().
+
+> However I used to have a documentation patch until v6 [0], and I think
+> it should be revived and resent at some point, after removing the
+> "legacy mode" as we are converting all drivers at once. BTW I also have
+> a kunittest patch that should be revived. Do you still prefer me to
+> resend these two patches as a separate series, waiting after the API in
+> this series is applied?
+
+Both options work for me.
+
+> Overall, I think this could be the path forward, let me know if
+> youthink it should be done differently:
+>=20
+>  A. have patches 1 and 2 of this series applied
+>     (why not, even patches 10-11)
+
+I had some comments on patch 2, but it's ok for me on principle.
+
+>  B. after (A), send series to convert all bridge drivers to new API
+>     (includes patches 10-11 of this series if not applied already)
+>  C. after (A), send documentation and kunittest patches
+>  D. after (B), add get/put to drm_bridge_add/remove() + attach/detech()
+>     (patches 3-4 in this series)
+>  E. after (B), send series to convert accessors (including patches 5-9
+>     in this series which convert drm_bridge_chain_get_first_bridge()
+>     and its users)
+
+Sounds like a plan.
+
+Maxime
+
+--zuzyymlcqte4eo4x
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ9rt8QAKCRAnX84Zoj2+
+dpRkAYDyfJjZ9ehu+S5iLIu/iYFb5O41BAyd4X0ZxJYo+tvcvfATmXEOhoTLNTb8
+n3EjAwABf0KaSbw1P0Md0k9OqZLM6C1VpOctYVm+foj/msMaoLN2L5tDCWvYWRh5
++tfPevPTjA==
+=Dl6X
+-----END PGP SIGNATURE-----
+
+--zuzyymlcqte4eo4x--
 
