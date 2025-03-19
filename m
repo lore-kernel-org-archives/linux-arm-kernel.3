@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DA3C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 21:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C540FC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 21:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9X1F/xfetnSLnkEq2u6eu/eFYJz8Nx38UqeZ/11Mabw=; b=VW2Yn4FgcXW2UTksBqEM9BNn8w
-	v6hHPWLjKTZnK7duqjoUJdKlNmuv8ByeCNQIWwqbb4pZ2l9D8shot34salINfEEqCwoJl18CC29n5
-	sp6OXgBAfAESxG3QrCPImjyNxF2RfIG8bivMlqni67+fiBr9PCwYUckjvmQ5nGg98kqC64XUtrkhN
-	qEif7wayED5IbEDh/dwGYP13brOramokEk7iSSBAyaVZKqqCYNYRhXisW3sEzlTVHFVvRZyhtFWcO
-	D8ZQdWZvSUqqh903q3ZNfGpZzLUSoU0nx6L8flS//ml+Kzirp0KySd9ysiAP2iRZ12bOLYBmKL/w1
-	mZwBOhIg==;
+	bh=L6J1WZQlQ4jkkHrsEJmiDwnkEgm0ftZ58Eh+fnNyjbU=; b=Y4/Coi6owRVi9y8haBoLsCL9vS
+	kSsGQhqOA7uwc+MU1KgpFgzJdqdh0YgMtSl8lF+U7darwWGKKmlk36LmSbXbRD218Vo2OZ3eAGsGd
+	w2+btmEWf4qcsmI3amP9yo6pgCmocW96kIgYqcr2FBGwpKz5aVxEaVClZX4wf2wDsvHGr1u2JsFMe
+	O1PFclNE8BFJoMIwtjewB1UMYrOhe0aw9SPaNi+QJxMUPkxWzHim8OcEoG0opel3/GvFLvJmajQMs
+	/qcx3+2nav+XLEbNhREGCjkI5+sYBCkkFxqNfuypu15UJJ0Guq7UtFjptX10q7x3m2IS2ZlBrWTaR
+	O1OFEk0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1Ld-0000000ACrn-0W70;
-	Wed, 19 Mar 2025 21:53:13 +0000
+	id 1tv1NI-0000000ADB1-3Lma;
+	Wed, 19 Mar 2025 21:54:56 +0000
 Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1Df-0000000ABOr-2Fhx
+	id 1tv1Dg-0000000ABP8-289a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 21:45:00 +0000
+	Wed, 19 Mar 2025 21:45:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1742420697; bh=9X1F/xfetnSLnkEq2u6eu/eFYJz8Nx38UqeZ/11Mabw=;
- b=PrpEdFnJp//gQfd7JpFPrQKuM1MW/gVLWJyzBpyLbFWwsLVc01ANB4Kjc8+2mcQ0YioIWm41L
- 5eTrDU1EZkUiOG34zqAvda1bCN6cNr9R9vrSksZ+S0so6k90579flt6i+5Tr4of0F4+ym55GkL3
- tQH7bzpNcatJJCDj3wel6jI0+p6KpNKvTrYiFdPysFx53gcgDpJpqtJEvZC9WXfUHExYt+H1tJP
- A/KlVJ0/VEfNbCcqq/cHbfqRNiPm+xJ+WUmCcKHVDEGmDAVjOriamis0J8qhbt/EVcpn2MGxsNy
- IxftLmeFX3P+uSaIRvgzCkkzyR1Kg/hzIjkfVjwmas0w==
-X-Forward-Email-ID: 67db3ac9cf4d592372b9942d
+ t=1742420700; bh=L6J1WZQlQ4jkkHrsEJmiDwnkEgm0ftZ58Eh+fnNyjbU=;
+ b=Bbo6+hkEs4kdagKW+XAHNuJnIGxuAqYE59naa+krvs6zpVZMd6vkZRqyLFnYNcdDg4r2Qe06T
+ 7CVxDnbVIx7ghbggYayx6sbEFju03j9eBWQe1TA22D0Dj8LUw1vKB2zrMH+MYnqyX8LSAfl/BeS
+ usR4t960s4j0VtZPWXTvuvTAfFan75ul6d5TAzBjZJMxTQ5PYygq5E021krrXQj8xCuVBGUZlB+
+ sgPvCbRwm7gtjD56M/BhYD70hHIVxKERbEkpWIsrdZKUeNHvrpWlMW6SQpbk88Q1s8lVUwa9HEL
+ hc4NNOUcE9vVeDNgvv0riz3ZU/aKIwFhMOHOtX5InLMQ==
+X-Forward-Email-ID: 67db3acecf4d592372b99442
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  149.28.215.223
 X-Forward-Email-Version: 0.4.40
@@ -52,7 +52,8 @@ To: Heiko Stuebner <heiko@sntech.de>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
 Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -65,17 +66,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next v3 4/5] net: stmmac: dwmac-rk: Add integrated_phy_powerdown operation
-Date: Wed, 19 Mar 2025 21:44:08 +0000
-Message-ID: <20250319214415.3086027-5-jonas@kwiboo.se>
+Subject: [PATCH net-next v3 5/5] net: stmmac: dwmac-rk: Add initial support for RK3528 integrated PHY
+Date: Wed, 19 Mar 2025 21:44:09 +0000
+Message-ID: <20250319214415.3086027-6-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250319214415.3086027-1-jonas@kwiboo.se>
 References: <20250319214415.3086027-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_144459_607347_C9CB29B9 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20250319_144500_578900_486F659A 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,9 +95,8 @@ Rockchip RK3528 (and RV1106) has a different integrated PHY compared to
 the integrated PHY on RK3228/RK3328. Current powerup/down operation is
 not compatible with the integrated PHY found in these newer SoCs.
 
-Add a new integrated_phy_powerdown operation and change the call chain
-for integrated_phy_powerup to prepare support for the integrated PHY
-found in these newer SoCs.
+Add operations to powerup/down the integrated PHY found in RK3528.
+Use helpers that can be used by other GMAC variants in the future.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
@@ -104,103 +104,80 @@ Changes in v3:
 - No change
 Changes in v2:
 - New patch
+
+This is enough to power up the integrated PHY on RK3528 for MDIO/MII.
+However, a PHY driver is still missing and I do not have any RK3528
+board that make use of this MAC and PHY, so something that can be
+improved upon in the future.
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 26 +++++++++++--------
- 1 file changed, 15 insertions(+), 11 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 0321befed0d3..3673abd65302 100644
+index 3673abd65302..700858ff6f7c 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -33,6 +33,7 @@ struct rk_gmac_ops {
- 	void (*set_clock_selection)(struct rk_priv_data *bsp_priv, bool input,
- 				    bool enable);
- 	void (*integrated_phy_powerup)(struct rk_priv_data *bsp_priv);
-+	void (*integrated_phy_powerdown)(struct rk_priv_data *bsp_priv);
- 	bool php_grf_required;
- 	bool regs_valid;
- 	u32 regs[];
-@@ -104,11 +105,8 @@ struct rk_priv_data {
- #define RK_GRF_CON2_MACPHY_ID		HIWORD_UPDATE(0x1234, 0xffff, 0)
- #define RK_GRF_CON3_MACPHY_ID		HIWORD_UPDATE(0x35, 0x3f, 0)
+@@ -134,6 +134,35 @@ static void rk_gmac_integrated_ephy_powerdown(struct rk_priv_data *priv)
+ 		reset_control_assert(priv->phy_reset);
+ }
  
--static void rk_gmac_integrated_phy_powerup(struct rk_priv_data *priv)
-+static void rk_gmac_integrated_ephy_powerup(struct rk_priv_data *priv)
- {
--	if (priv->ops->integrated_phy_powerup)
--		priv->ops->integrated_phy_powerup(priv);
--
- 	regmap_write(priv->grf, RK_GRF_MACPHY_CON0, RK_MACPHY_CFG_CLK_50M);
- 	regmap_write(priv->grf, RK_GRF_MACPHY_CON0, RK_GMAC2PHY_RMII_MODE);
++#define RK_FEPHY_SHUTDOWN		GRF_BIT(1)
++#define RK_FEPHY_POWERUP		GRF_CLR_BIT(1)
++#define RK_FEPHY_INTERNAL_RMII_SEL	GRF_BIT(6)
++#define RK_FEPHY_24M_CLK_SEL		(GRF_BIT(8) | GRF_BIT(9))
++#define RK_FEPHY_PHY_ID			GRF_BIT(11)
++
++static void rk_gmac_integrated_fephy_powerup(struct rk_priv_data *priv,
++					     unsigned int reg)
++{
++	reset_control_assert(priv->phy_reset);
++	usleep_range(20, 30);
++
++	regmap_write(priv->grf, reg,
++		     RK_FEPHY_POWERUP |
++		     RK_FEPHY_INTERNAL_RMII_SEL |
++		     RK_FEPHY_24M_CLK_SEL |
++		     RK_FEPHY_PHY_ID);
++	usleep_range(10000, 12000);
++
++	reset_control_deassert(priv->phy_reset);
++	usleep_range(50000, 60000);
++}
++
++static void rk_gmac_integrated_fephy_powerdown(struct rk_priv_data *priv,
++					       unsigned int reg)
++{
++	regmap_write(priv->grf, reg, RK_FEPHY_SHUTDOWN);
++}
++
+ #define PX30_GRF_GMAC_CON1		0x0904
  
-@@ -129,7 +127,7 @@ static void rk_gmac_integrated_phy_powerup(struct rk_priv_data *priv)
+ /* PX30_GRF_GMAC_CON1 */
+@@ -993,12 +1022,24 @@ static void rk3528_set_clock_selection(struct rk_priv_data *bsp_priv,
  	}
  }
  
--static void rk_gmac_integrated_phy_powerdown(struct rk_priv_data *priv)
-+static void rk_gmac_integrated_ephy_powerdown(struct rk_priv_data *priv)
- {
- 	regmap_write(priv->grf, RK_GRF_MACPHY_CON0, RK_MACPHY_DISABLE);
- 	if (priv->phy_reset)
-@@ -368,6 +366,8 @@ static void rk3228_integrated_phy_powerup(struct rk_priv_data *priv)
- {
- 	regmap_write(priv->grf, RK3228_GRF_CON_MUX,
- 		     RK3228_GRF_CON_MUX_GMAC_INTEGRATED_PHY);
++static void rk3528_integrated_phy_powerup(struct rk_priv_data *bsp_priv)
++{
++	rk_gmac_integrated_fephy_powerup(bsp_priv, RK3528_VO_GRF_MACPHY_CON0);
++}
 +
-+	rk_gmac_integrated_ephy_powerup(priv);
- }
- 
- static const struct rk_gmac_ops rk3228_ops = {
-@@ -375,7 +375,8 @@ static const struct rk_gmac_ops rk3228_ops = {
- 	.set_to_rmii = rk3228_set_to_rmii,
- 	.set_rgmii_speed = rk3228_set_rgmii_speed,
- 	.set_rmii_speed = rk3228_set_rmii_speed,
--	.integrated_phy_powerup =  rk3228_integrated_phy_powerup,
-+	.integrated_phy_powerup = rk3228_integrated_phy_powerup,
-+	.integrated_phy_powerdown = rk_gmac_integrated_ephy_powerdown,
- };
- 
- #define RK3288_GRF_SOC_CON1	0x0248
-@@ -601,6 +602,8 @@ static void rk3328_integrated_phy_powerup(struct rk_priv_data *priv)
- {
- 	regmap_write(priv->grf, RK3328_GRF_MACPHY_CON1,
- 		     RK3328_MACPHY_RMII_MODE);
++static void rk3528_integrated_phy_powerdown(struct rk_priv_data *bsp_priv)
++{
++	rk_gmac_integrated_fephy_powerdown(bsp_priv, RK3528_VO_GRF_MACPHY_CON0);
++}
 +
-+	rk_gmac_integrated_ephy_powerup(priv);
- }
- 
- static const struct rk_gmac_ops rk3328_ops = {
-@@ -608,7 +611,8 @@ static const struct rk_gmac_ops rk3328_ops = {
- 	.set_to_rmii = rk3328_set_to_rmii,
- 	.set_rgmii_speed = rk3328_set_rgmii_speed,
- 	.set_rmii_speed = rk3328_set_rmii_speed,
--	.integrated_phy_powerup =  rk3328_integrated_phy_powerup,
-+	.integrated_phy_powerup = rk3328_integrated_phy_powerup,
-+	.integrated_phy_powerdown = rk_gmac_integrated_ephy_powerdown,
- };
- 
- #define RK3366_GRF_SOC_CON6	0x0418
-@@ -1802,16 +1806,16 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 
- 	pm_runtime_get_sync(dev);
- 
--	if (bsp_priv->integrated_phy)
--		rk_gmac_integrated_phy_powerup(bsp_priv);
-+	if (bsp_priv->integrated_phy && bsp_priv->ops->integrated_phy_powerup)
-+		bsp_priv->ops->integrated_phy_powerup(bsp_priv);
- 
- 	return 0;
- }
- 
- static void rk_gmac_powerdown(struct rk_priv_data *gmac)
- {
--	if (gmac->integrated_phy)
--		rk_gmac_integrated_phy_powerdown(gmac);
-+	if (gmac->integrated_phy && gmac->ops->integrated_phy_powerdown)
-+		gmac->ops->integrated_phy_powerdown(gmac);
- 
- 	pm_runtime_put_sync(&gmac->pdev->dev);
- 
+ static const struct rk_gmac_ops rk3528_ops = {
+ 	.set_to_rgmii = rk3528_set_to_rgmii,
+ 	.set_to_rmii = rk3528_set_to_rmii,
+ 	.set_rgmii_speed = rk3528_set_rgmii_speed,
+ 	.set_rmii_speed = rk3528_set_rmii_speed,
+ 	.set_clock_selection = rk3528_set_clock_selection,
++	.integrated_phy_powerup = rk3528_integrated_phy_powerup,
++	.integrated_phy_powerdown = rk3528_integrated_phy_powerdown,
+ 	.regs_valid = true,
+ 	.regs = {
+ 		0xffbd0000, /* gmac0 */
 -- 
 2.49.0
 
