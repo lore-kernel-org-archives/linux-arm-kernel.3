@@ -4,57 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588C1C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DC9C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URT+ol7yr7IkqsLZIejgOopr/T23HsqDn4mFBZGFxiA=; b=cXTztU8o7YEwLBMSz9CrQ6WhTq
-	KwZUq5wMgeObqk40q1WCPtJIv5OyjtIgMcCw3lYMTmhS2Q2n9S4O/SwOi1vdBsDab+BSDlBG5wZY4
-	catJcVDeJz6UEfc7svFsYilk2ycb+4MaJ2tDHWtLDQ8JK+e6EaXDmfOXfImKU2C0mcIzke23maSq4
-	i1bJG6kDqJ9qA+C5S59ZtBO9f1qUyrca+FaxrNnrLDT9Sqgn4LB+ZD5oFTJdefXyF4c8jKa/zdmfM
-	N3ZbMJNwDKIhH3pCPlqJl0X6YItCE8oq2bZ8hM1i7gKWJthWIkiOLdNUlCRfneh5oZuD+S5Kk4jiO
-	POQa6fxQ==;
+	bh=WjxLAdM8gRP30Rp+Ttx0oXJVSr1bKdyw/D3cp2bGhlU=; b=d4jQG4O+mx8nx8g3pThb4VJu6m
+	h+1r5nGw1jNFMSvclJ8DBrU79PwcK7vJhOhgWoMA9S5PKbGNlEe+IemukHaD3JAuNIFl9WdJreiZc
+	KMdZ+CfQLSzKyP6kVSlZSQHtYo3hM6vwyeg5NCydvy0ufLHfCs4hoAOa8U6+vQK1Jp+aFfHL/+0l2
+	KACBBM4uSLUwl3hnapoTPp7G6EjWCQ0yDG2G21QDlSu/hTJuNuWgIUDcivXOYpDM6pxUiMP/ljqhl
+	xlUetQjXpUSQ6Yxdot3DeFqGRBrK3gzLBYcXORhOHCIFa85Ze9XCQEFjnt1k3QrKlwH7V4pGkTCDr
+	O4Go/RRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupWc-00000008SFv-23tt;
-	Wed, 19 Mar 2025 09:15:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupUY-00000008Rt8-45Kw
+	id 1tupYV-00000008SZK-0n0Q;
+	Wed, 19 Mar 2025 09:17:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tupWo-00000008SIk-0F1a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 09:13:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87ED812FC;
-	Wed, 19 Mar 2025 02:13:46 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E22B13F63F;
-	Wed, 19 Mar 2025 02:13:37 -0700 (PDT)
-Date: Wed, 19 Mar 2025 09:13:33 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	Wed, 19 Mar 2025 09:15:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 28677615CF;
+	Wed, 19 Mar 2025 09:15:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17242C4CEE9;
+	Wed, 19 Mar 2025 09:15:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742375757;
+	bh=VFcDyvuCt7vsiepWpgHUSSaWYSKC23V508SsmP0qre4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HLOT7lcfwBmNcUq6yIpkjNGivfFTHjfKPA+fnS/O5DEy/y9kDJ0uI4fC46Nq9AFn7
+	 +03a0nRHPbzHmeVXOZ34ICCWO8Xz0RvMSBwxvUKI7njmmPi2sXccF3YS3dKfAHFR+M
+	 Nj9N25i9iKzlglAz9Tzhxioza/En8gpwYFF+KRbzgznpNh+WUx0NbOfEdNiqiIpfca
+	 l7rTGKW9MX8/b/FcaMf2gGRMMuVPVH6eguCe9NLVFCcVAmJa2e7sIUVbsERDD9u2Hw
+	 cqIuJ0P9NJFJi/lB5AQHoK+cX+Q/d2BGkOKH/zMNqxPiQMoDf8hOVGYofERf/ADOvi
+	 /5afcVh01qMrA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tupWk-00EzPO-L3;
+	Wed, 19 Mar 2025 09:15:54 +0000
+Date: Wed, 19 Mar 2025 09:15:54 +0000
+Message-ID: <86r02tmldh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Mark Brown <broonie@kernel.org>, Gavin Shan <gshan@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 6/8] coresight: Clear self hosted claim tag on probe
-Message-ID: <20250319091333.GG2860028@e132581.arm.com>
-References: <20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org>
- <20250318-james-coresight-claim-tags-v2-6-e9c8a9cde84e@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250318-james-coresight-claim-tags-v2-6-e9c8a9cde84e@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_021339_103435_CBA2F3EA 
-X-CRM114-Status: GOOD (  20.14  )
+	stable@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 6.12 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+In-Reply-To: <019afc2d-b047-4e33-971c-7debbbaec84d@redhat.com>
+References: <20250314-stable-sve-6-12-v1-0-ddc16609d9ba@kernel.org>
+	<20250314-stable-sve-6-12-v1-8-ddc16609d9ba@kernel.org>
+	<019afc2d-b047-4e33-971c-7debbbaec84d@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gregkh@linuxfoundation.org, broonie@kernel.org, gshan@redhat.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, mark.rutland@arm.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,137 +91,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 04:22:00PM +0000, James Clark wrote:
-> This can be left behind from a crashed kernel after a kexec so clear it
-> when probing each device. Clearing the self hosted bit even when claimed
-> externally is harmless, so do it unconditionally.
+On Wed, 19 Mar 2025 00:26:14 +0000,
+Gavin Shan <gshan@redhat.com> wrote:
 > 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-
-Just a note from me.
-
-I'd expect it would be a rare case that users enable a Arm CoreSight
-trace in a dump-capture kernel, as the second kernel is for dumping
-CoreSight trace data but it is not necessarily to enable CoreSight
-components.
-
-This patch is not only helpful for crash kernel case, it can dismiss
-quirks caused by insane hardware reset cases.
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-
-> ---
->  drivers/hwtracing/coresight/coresight-catu.c       | 1 +
->  drivers/hwtracing/coresight/coresight-cti-core.c   | 2 ++
->  drivers/hwtracing/coresight/coresight-etb10.c      | 2 ++
->  drivers/hwtracing/coresight/coresight-etm3x-core.c | 1 +
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 ++
->  drivers/hwtracing/coresight/coresight-funnel.c     | 1 +
->  drivers/hwtracing/coresight/coresight-replicator.c | 1 +
->  drivers/hwtracing/coresight/coresight-tmc-core.c   | 1 +
->  8 files changed, 11 insertions(+)
+> Hi Mark,
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-> index fa170c966bc3..deaacfd875af 100644
-> --- a/drivers/hwtracing/coresight/coresight-catu.c
-> +++ b/drivers/hwtracing/coresight/coresight-catu.c
-> @@ -558,6 +558,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
->  	catu_desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU;
->  	catu_desc.ops = &catu_ops;
->  
-> +	coresight_clear_self_claim_tag(&catu_desc.access);
->  	drvdata->csdev = coresight_register(&catu_desc);
->  	if (IS_ERR(drvdata->csdev))
->  		ret = PTR_ERR(drvdata->csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-> index 80f6265e3740..8fb30dd73fd2 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-> @@ -931,6 +931,8 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->  	cti_desc.ops = &cti_ops;
->  	cti_desc.groups = drvdata->ctidev.con_groups;
->  	cti_desc.dev = dev;
-> +
-> +	coresight_clear_self_claim_tag(&cti_desc.access);
->  	drvdata->csdev = coresight_register(&cti_desc);
->  	if (IS_ERR(drvdata->csdev)) {
->  		ret = PTR_ERR(drvdata->csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-> index 7948597d483d..2bfcb669aa84 100644
-> --- a/drivers/hwtracing/coresight/coresight-etb10.c
-> +++ b/drivers/hwtracing/coresight/coresight-etb10.c
-> @@ -772,6 +772,8 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
->  	desc.pdata = pdata;
->  	desc.dev = dev;
->  	desc.groups = coresight_etb_groups;
-> +
-> +	coresight_clear_self_claim_tag(&desc.access);
->  	drvdata->csdev = coresight_register(&desc);
->  	if (IS_ERR(drvdata->csdev))
->  		return PTR_ERR(drvdata->csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> index cfd463ac715c..1c6204e14422 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> @@ -764,6 +764,7 @@ static void etm_init_arch_data(void *info)
->  	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
->  	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
->  
-> +	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
->  	etm_set_pwrdwn(drvdata);
->  	etm_clr_pwrup(drvdata);
->  	CS_LOCK(drvdata->csa.base);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index e5972f16abff..52c9aa56e8b9 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1372,6 +1372,8 @@ static void etm4_init_arch_data(void *info)
->  	drvdata->nrseqstate = FIELD_GET(TRCIDR5_NUMSEQSTATE_MASK, etmidr5);
->  	/* NUMCNTR, bits[30:28] number of counters available for tracing */
->  	drvdata->nr_cntr = FIELD_GET(TRCIDR5_NUMCNTR_MASK, etmidr5);
-> +
-> +	coresight_clear_self_claim_tag_unlocked(csa);
->  	etm4_cs_lock(drvdata, csa);
->  	cpu_detect_trace_filtering(drvdata);
->  }
-> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-> index 0541712b2bcb..7249cc356ccb 100644
-> --- a/drivers/hwtracing/coresight/coresight-funnel.c
-> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
-> @@ -255,6 +255,7 @@ static int funnel_probe(struct device *dev, struct resource *res)
->  		drvdata->base = base;
->  		desc.groups = coresight_funnel_groups;
->  		desc.access = CSDEV_ACCESS_IOMEM(base);
-> +		coresight_clear_self_claim_tag(&desc.access);
->  	}
->  
->  	dev_set_drvdata(dev, drvdata);
-> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-> index ee7ee79f6cf7..b2acd4535c74 100644
-> --- a/drivers/hwtracing/coresight/coresight-replicator.c
-> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
-> @@ -284,6 +284,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
->  	desc.pdata = dev->platform_data;
->  	desc.dev = dev;
->  
-> +	coresight_clear_self_claim_tag(&desc.access);
->  	drvdata->csdev = coresight_register(&desc);
->  	if (IS_ERR(drvdata->csdev)) {
->  		ret = PTR_ERR(drvdata->csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index a7814e8e657b..a09579eff3fd 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -869,6 +869,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
->  	dev->platform_data = pdata;
->  	desc.pdata = pdata;
->  
-> +	coresight_clear_self_claim_tag(&desc.access);
->  	drvdata->csdev = coresight_register(&desc);
->  	if (IS_ERR(drvdata->csdev)) {
->  		ret = PTR_ERR(drvdata->csdev);
+> On 3/14/25 10:35 AM, Mark Brown wrote:
+> > From: Mark Rutland <mark.rutland@arm.com>
+> > 
+> > [ Upstream commit 59419f10045bc955d2229819c7cf7a8b0b9c5b59 ]
+> > 
+> > In non-protected KVM modes, while the guest FPSIMD/SVE/SME state is live on the
+> > CPU, the host's active SVE VL may differ from the guest's maximum SVE VL:
+> > 
+> > * For VHE hosts, when a VM uses NV, ZCR_EL2 contains a value constrained
+> >    by the guest hypervisor, which may be less than or equal to that
+> >    guest's maximum VL.
+> > 
+> >    Note: in this case the value of ZCR_EL1 is immaterial due to E2H.
+> > 
+> > * For nVHE/hVHE hosts, ZCR_EL1 contains a value written by the guest,
+> >    which may be less than or greater than the guest's maximum VL.
+> > 
+> >    Note: in this case hyp code traps host SVE usage and lazily restores
+> >    ZCR_EL2 to the host's maximum VL, which may be greater than the
+> >    guest's maximum VL.
+> > 
+> > This can be the case between exiting a guest and kvm_arch_vcpu_put_fp().
+> > If a softirq is taken during this period and the softirq handler tries
+> > to use kernel-mode NEON, then the kernel will fail to save the guest's
+> > FPSIMD/SVE state, and will pend a SIGKILL for the current thread.
+> > 
+> > This happens because kvm_arch_vcpu_ctxsync_fp() binds the guest's live
+> > FPSIMD/SVE state with the guest's maximum SVE VL, and
+> > fpsimd_save_user_state() verifies that the live SVE VL is as expected
+> > before attempting to save the register state:
+> > 
+> > | if (WARN_ON(sve_get_vl() != vl)) {
+> > |         force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
+> > |         return;
+> > | }
+> > 
+> > Fix this and make this a bit easier to reason about by always eagerly
+> > switching ZCR_EL{1,2} at hyp during guest<->host transitions. With this
+> > happening, there's no need to trap host SVE usage, and the nVHE/nVHE
+> > __deactivate_cptr_traps() logic can be simplified to enable host access
+> > to all present FPSIMD/SVE/SME features.
+> > 
+> > In protected nVHE/hVHE modes, the host's state is always saved/restored
+> > by hyp, and the guest's state is saved prior to exit to the host, so
+> > from the host's PoV the guest never has live FPSIMD/SVE/SME state, and
+> > the host's ZCR_EL1 is never clobbered by hyp.
+> > 
+> > Fixes: 8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+> > Fixes: 2e3cf82063a00ea0 ("KVM: arm64: nv: Ensure correct VL is loaded before saving SVE state")
+> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> > Reviewed-by: Mark Brown <broonie@kernel.org>
+> > Tested-by: Mark Brown <broonie@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Fuad Tabba <tabba@google.com>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Oliver Upton <oliver.upton@linux.dev>
+> > Cc: Will Deacon <will@kernel.org>
+> > Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+> > Link: https://lore.kernel.org/r/20250210195226.1215254-9-mark.rutland@arm.com
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
+> > ---
+> >   arch/arm64/kvm/fpsimd.c                 | 30 -----------------
+> >   arch/arm64/kvm/hyp/entry.S              |  5 +++
+> >   arch/arm64/kvm/hyp/include/hyp/switch.h | 59 +++++++++++++++++++++++++++++++++
+> >   arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 13 ++++----
+> >   arch/arm64/kvm/hyp/nvhe/switch.c        | 33 +++++++++++++++---
+> >   arch/arm64/kvm/hyp/vhe/switch.c         |  4 +++
+> >   6 files changed, 103 insertions(+), 41 deletions(-)
+> > 
 > 
-> -- 
-> 2.34.1
+> [...]
 > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index 4e757a77322c9efc59cdff501745f7c80d452358..1c8e2ad32e8c396fc4b11d5fec2e86728f2829d9 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -5,6 +5,7 @@
+> >    */
+> >     #include <hyp/adjust_pc.h>
+> > +#include <hyp/switch.h>
+> >     #include <asm/pgtable-types.h>
+> >   #include <asm/kvm_asm.h>
+> > @@ -176,8 +177,12 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+> >   		sync_hyp_vcpu(hyp_vcpu);
+> >   		pkvm_put_hyp_vcpu(hyp_vcpu);
+> >   	} else {
+> > +		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
+> > +
+> >   		/* The host is fully trusted, run its vCPU directly. */
+> > -		ret = __kvm_vcpu_run(host_vcpu);
+> > +		fpsimd_lazy_switch_to_guest(vcpu);
+> > +		ret = __kvm_vcpu_run(vcpu);
+> > +		fpsimd_lazy_switch_to_host(vcpu);
+> >   	}
+> >   
+> 
+> @host_vcpu should have been hypervisor's linear mapping address in v6.12. It looks
+> incorrect to assume it's a kernel's linear mapping address and convert it (@host_vcpu)
+> to the hypervisor's linear address agin, if I don't miss anything.
+
+host_vcpu is passed as a parameter to the hypercall, and is definitely
+a kernel address.
+
+However, at this stage, we have *already* converted it to a HYP VA:
+
+https://web.git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm64/kvm/hyp/nvhe/hyp-main.c?h=linux-6.12.y#n147
+
+The result is that this change is turning a perfectly valid HYP VA
+into... something. Odds are that the masking/patching will not mess up
+the address, but this is completely buggy anyway. In general,
+kern_hyp_va() is not an idempotent operation.
+
+Thanks for noticing that something was wrong.
+
+Broonie, can you please look into this?
+
+Greg, it may be more prudent to unstage this series from 6.12-stable
+until we know for sure this is the only problem.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
