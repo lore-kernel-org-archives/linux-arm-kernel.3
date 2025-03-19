@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE17AC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 18:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C63C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 18:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsvBxlf2VOaZb8vxBRnigpz+ulSEZ9VYrnq1SuZdcic=; b=gUPQcJC9tiFM8M63ez/S1LjuaQ
-	OdCzrzRubF7KTyyeQ89KyWkTzY3bmkQWh5GFJW1Ol1FW0hTSV4Eh62p5sFNO7aPEYR4QJ/SB4mXVT
-	v01P/UxftPiDC5+0895hMtsQtDwrwWJ5s3V3jLg/LPfq9iN3JoHGW+P4w+f4AuuFc4BdOivu916DG
-	Q4p2Kbb927XdF+YhENg8LkcUDv/Agty3oTi+yQ5pt/aXM+Zh0BJBRLrpRq2ISBrTcKZ7KUWOyoDIy
-	1L5pNnV68Dk4w+icx1PEdzr8caYA8Bn5Aq817HJLHCPJrXHToRvSPBv+wVtiCDCQDDV6LUoQUkOGD
-	s2z18r7Q==;
+	bh=d/iho82c/kOAISY+k8XGBmfYyPY8Eih6REIVbJGut5U=; b=v73Kz60EZ4o9hUKIef4HaMYD8N
+	qJqQ5XIE4yd76DWlOG4xAMfrIQwFWQuHkxDhVSq/GLEUqvz3GuvgdNAySNFlU4HsNYsBCQiN/ZaLJ
+	bljZzzfQEh+ROR/7AgiQtVDrDZA00mEcupkO6PfB7WUBLWb7znKEbyp+Hcx3ixreLv/4mefx7R264
+	OsRUKWz4f4hMHcXz5kt/aUWVIuMEBaSL8TcaRIrW9GyaZFis08A2lgtEpVuHzd9xz3BpVocq1Z4yQ
+	2Eyd8YYhI/ZCVMHrN4vKre+/Zhp+3lUi+YNbODc/ZNKPEKxRSO6NzLpP0g56X086jilffyLRhXDO2
+	PAYYRt8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuyKP-00000009rQ6-2qjZ;
-	Wed, 19 Mar 2025 18:39:45 +0000
-Received: from mail-oa1-x49.google.com ([2001:4860:4864:20::49])
+	id 1tuyM5-00000009raa-1Ms6;
+	Wed, 19 Mar 2025 18:41:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuyIj-00000009rFI-0LxU
+	id 1tuyJO-00000009rKU-2bVQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 18:38:02 +0000
-Received: by mail-oa1-x49.google.com with SMTP id 586e51a60fabf-2c2451f5cc8so5374909fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 11:37:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742409479; x=1743014279; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zsvBxlf2VOaZb8vxBRnigpz+ulSEZ9VYrnq1SuZdcic=;
-        b=TXe50iPIARHLHgtlrIPcqzPUwn64uzsa+VumwFwtXoEf1rpq8VGNoW2tq4Rz/QWAuT
-         wnrJjVzGu4KHh2swV+AVCedj/0F3eBDvvF3GFzD+OrvhAlHnplrGJsAkL7+Tw5Vfsy8g
-         P7lA0dQQLDWcFlhw7AYJcpqI4f6f2iSeD/qZx9/BHSDoQlqe3o8UqIF/y2KZuzzvBtGl
-         VX6Pve4eJ/LAMjAzKDTt6MuvyBYeHbxhb+q3uAs3zvR9tzLVEDQPxV2lYa6fPxyY40+c
-         ImQXKE4xNfbc3gNSXX5y7ODZwOPcr09RHvZM3FxILYVhUtQIFBqX9QXkwFN2SDpse68O
-         InQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742409479; x=1743014279;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=zsvBxlf2VOaZb8vxBRnigpz+ulSEZ9VYrnq1SuZdcic=;
-        b=qqnfvJN1gyN87T3ciNjWzVOCyoHpht3UXuXUXKjWber3+KB9N9GWP++wayrzUhtgfc
-         /ZHZueCPBu4W4suSLhhOXGqkg96XUGkjScj37ACp4JTrOj/+YEn2MI7312O9YT0CH4Gp
-         yvGBVyqKIoi0rkI3CtUKe//onSUttYqbA+RGgWqPIGBlTgYVzvhNSSmUrbxkG50SLxTB
-         iClQZZwCy1ZtzOR/Ps9FbVccjCdVuzpKSagW3MgZW6lRnfskgtipaiMF/jgAQopHcKdv
-         RR+PhgPKDNrxAcPho+yKkEqxf/AgIZuMTpIsPUjp9b244prMAh2qecdQBy4XuW0oG9LU
-         lRJg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQAU63pG4JPQ5FwRjDQeXO7sPSMI2fBl+miXiTQIIopROmqszt2bIdAqQDEahQ9pDwVIr4/f/aCQUsjsXtHEdS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAE8ClVoW6UDjLT0iR+Y1uCFX0l2s+f4/PGz3gyNHW5le4iKmW
-	v07olbbw0cJ6g9TU7SvCrsbcvSAXHIZq0kNZmKpDE09kZv7f77gxdZTuSAZksyqw6V7zrOD4+Q=
-	=
-X-Google-Smtp-Source: AGHT+IEBFA4Sa9YRWk85bQR5JAziUVGfY3Rr0Wgmbdq2OL7Uy5LWKzyqkOQ+Gg3mIXPA8ssbkLAA0pQ5ug==
-X-Received: from oacpy22.prod.google.com ([2002:a05:6871:e416:b0:2bc:6860:2684])
- (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6870:8984:b0:2bc:8c86:ea31
- with SMTP id 586e51a60fabf-2c762fc74d6mr174282fac.20.1742409479208; Wed, 19
- Mar 2025 11:37:59 -0700 (PDT)
-Date: Wed, 19 Mar 2025 18:37:56 +0000
-In-Reply-To: <ifqn5txrr25ffky7lxtnjtb4b2gekq5jy4fmbiwtwfvofb4wgw@py7v7xpzaqxa>
-Mime-Version: 1.0
-References: <ifqn5txrr25ffky7lxtnjtb4b2gekq5jy4fmbiwtwfvofb4wgw@py7v7xpzaqxa>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250319183757.404779-1-wnliu@google.com>
-Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
-From: Weinan Liu <wnliu@google.com>
-To: jpoimboe@kernel.org
-Cc: indu.bhagat@oracle.com, irogers@google.com, joe.lawrence@redhat.com, 
-	kernel-team@meta.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-toolchains@vger.kernel.org, 
-	live-patching@vger.kernel.org, mark.rutland@arm.com, peterz@infradead.org, 
-	puranjay@kernel.org, roman.gushchin@linux.dev, rostedt@goodmis.org, 
-	song@kernel.org, will@kernel.org, wnliu@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_113801_119608_D70CCF47 
-X-CRM114-Status: GOOD (  16.54  )
+	Wed, 19 Mar 2025 18:38:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7CE7E6814E;
+	Wed, 19 Mar 2025 18:38:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B2F4C4CEE4;
+	Wed, 19 Mar 2025 18:38:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742409521;
+	bh=xxc1VsGnvFXqzw9zxTVKLq0ZNRg09z107d4U6coGVOE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cP/s+lF8HISnXacs9ZPUuzigjGTgQ1p+XwdHZHgTAzH9gt3CJUABlgR426eWV4Yw7
+	 KJKH+LG8vUAJzLDYQwCrwRVFrTKjKN/JEcKYuQc8QXtvu7+VOIt72ic+2ePQk/LDr+
+	 dm9AyCDaRdkqQ9AGemNrE/VEawK3KZP+cePFOGWAj7X7eHUhDJtggVFg4Qzy032X4C
+	 pzVMtAtk/EOpX/RWukuuvzZt3LCXbpRrcbd9lN5PfqxIuoLTdFG6tAGSWcG7gTkyCA
+	 e/DAavfGqxgVV1Jxx49/u0qrgU/izRFICLPc5KCtRq9DE5SSF1lDrqBUYFVQYPjiIK
+	 Yd+Rj4Zu08Dww==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tuyJL-00FBqr-6X;
+	Wed, 19 Mar 2025 18:38:39 +0000
+Date: Wed, 19 Mar 2025 18:38:38 +0000
+Message-ID: <86ldt0n9w1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com
+Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
+In-Reply-To: <cd7b4528-34a3-4d87-9711-acc2c2e6f6e1@daynix.com>
+References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
+	<Z9pze3J2_zrTk_yC@linux.dev>
+	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
+	<86plidmjwh.wl-maz@kernel.org>
+	<bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
+	<86o6xxmg87.wl-maz@kernel.org>
+	<aabd71eb-286b-475c-a30e-d5cf5c4f2769@daynix.com>
+	<86msdhmemw.wl-maz@kernel.org>
+	<cd7b4528-34a3-4d87-9711-acc2c2e6f6e1@daynix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,52 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 10:39=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.or=
-g> wrote:
->
-> On Tue, Mar 18, 2025 at 08:58:52PM -0700, Song Liu wrote:
-> > On a closer look, I think we also need some logic in unwind_find_stack(=
-)
-> > so that we can see when the unwinder hits the exception boundary. For
-> > this reason, we may still need unwind_state.unreliable. I will look int=
-o
-> > fixing this and send v2.
->
-> Isn't that what FRAME_META_TYPE_PT_REGS is for?
->
-> Maybe it can just tell kunwind_stack_walk() to set a bit in
-> kunwind_state which tells kunwind_next_frame_record_meta() to quit the
-> unwind early for the FRAME_META_TYPE_PT_REGS case. =C2=A0That also has th=
-e
-> benefit of stopping the unwind as soon as the exception is encounterd.
->
+On Wed, 19 Mar 2025 11:51:21 +0000,
+Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> 
+> On 2025/03/19 20:41, Marc Zyngier wrote:
+> > On Wed, 19 Mar 2025 11:26:18 +0000,
+> > Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> >> 
+> >> On 2025/03/19 20:07, Marc Zyngier wrote:
+> >>> On Wed, 19 Mar 2025 10:26:57 +0000,
+> >>>> 
+> >>> But that'd be a new ABI, which again would require buy-in from
+> >>> userspace.  Maybe there is scope for an all CPUs, cycle-counter only
+> >>> PMUv3 exposed to the guest, but that cannot be set automatically, as
+> >>> we would otherwise regress existing setups.
+> >>> 
+> >>> At this stage, and given that you need to change userspace, I'm not
+> >>> sure what the best course of action is.
+> >> 
+> >> Having an explicit flag for the userspace is fine for QEMU, which I
+> >> care. It can flip the flag if and only if threads are not pinned to
+> >> one PMU and the machine is a new setup.
+> >> 
+> >> I also wonder what regression you think setting it automatically causes.
+> > 
+> > The current behaviour is that if you don't specify anything other than
+> > creating a PMUv3 (without KVM_ARM_VCPU_PMU_V3_SET_PMU), you get *some*
+> > PMU, and userspace is responsible for running the vcpu on CPUs that
+> > will implement that PMU. When if does, all the counters, all the
+> > events are valid. If it doesn't, nothing counts, but the
+> > counters/events are still valid.
+> > 
+> > If you now add this flag automatically, the guest doesn't see the full
+> > PMU anymore. Only the cycle counter. That's the regression.
+> 
+> What about setting the flag automatically when a user fails to pin
+> vCPUs to CPUs that are covered by one PMU? There would be no change if
+> a user correctly pins vCPUs as it is. Otherwise, they will see a
+> correct feature set advertised to the guest and the cycle counter
+> working.
 
-After reviewing the code flow, it seems like we should treat all -EINVALID
-cases or `FRAME_META_TYPE_PT_REGS` cases as unreliable unwinds.
+How do you know that the affinity is "correct"? VCPU affinity can be
+changed at any time. I, for one, do not want my VMs to change
+behaviour because I let the vcpus bounce around as the scheduler sees
+fit.
 
-Would a simplification like the one below work?
-Or we can return a special value for success cases in kunwind_next_regs_pc(=
-)=20
+Honestly, this is not a can of worm I want to open. We already have a
+pretty terrible userspace API for the PMU, let's not add to the
+confusion. *If* we are going down the road of presenting a dumbed-down
+PMU to the guest, it has to be an explicit buy-in from userspace.
 
-```
-diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.=
-c
-index 69d0567a0c38..0eb69fa6161a 100644
---- a/arch/arm64/kernel/stacktrace.c
-+++ b/arch/arm64/kernel/stacktrace.c
-@@ -296,7 +296,8 @@ do_kunwind(struct kunwind_state *state, kunwind_consume=
-_fn consume_state,
- 		if (!consume_state(state, cookie))
- 			break;
- 		ret =3D kunwind_next(state);
--		if (ret < 0)
-+		if (ret < 0 || state->source =3D=3D KUNWIND_SOURCE_REGS_PC)
-+			state->common.unreliable =3D true;
- 			break;
- 	}
- }
-```
+	M.
 
---
-Weinan
+-- 
+Without deviation from the norm, progress is not possible.
 
