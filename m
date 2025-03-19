@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A83C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 14:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F25C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 14:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8RxMnWWsFYazqDi5ausaz27iCUKurnoSgUaIXr1DG4=; b=gX/vlWW5uuVYF69suWxFjKcNFb
-	O8EfWxirSHDoQ235iyfwH2iz8KFGNWmuw0KEpBp6oItjKymj3SQm3b3mpUvDrVRyXi0bwk1WO3Qck
-	qEa/cOdvnGX6BMd1H8hOPczwm789zQq3jgHGXxx6NLE5Z2bd2kTepKzYu1Tozx19lgZHZvwN/RapQ
-	O3td185HUMX6TpSk2eDM/ySF5q1ZqRMcqkEvOZfAsJJtxOFh94vynZa0J3PwWI28kjt0x2XZbffuy
-	4eYk4LcykpkIE4sDjcPTbi7fQB1nIekZh4ywpa3rDloxDhXeXCqQtdq0XR8gzPtP8nQ8J165gQDmN
-	WCFXQcIw==;
+	bh=vEEkoiFhJTTNltysI4HnUNrjjey/OwLRpiIq5KPrSIs=; b=fMd/XR8bqq75cMlMgduQXXEyzH
+	hSlvLePd5F/x8JsbFZiZv3uT9BOHruFyIoO8/KizLsb/i05XPrJZBKrFRG4QAQG8BUzHxsPSDoaKA
+	mDaXmLx1kYzFfmBH8KTxmqcoZfc4vRq3eymyPa3h71tIUqNIaDMrA7MVSdCQz/wYDkSu9GKkVM53u
+	hGXFqJY7DQ45VmKvwkOG9vjssznemvZYUmZ+kI4Hj8Br7Mx8BZA3vQF2NLGBUExKTY83jpLElBjaE
+	YdmFC5yQ5eSMh7Ad0sQWNDdOE2AM+CWTurlCBWGbl7AclxtUm+vT+15zLFFyyCHzq7CWNkej+YAOW
+	XlvV3y6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuuP5-00000009Cvf-1NcK;
-	Wed, 19 Mar 2025 14:28:19 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuuMG-00000009CTG-2B7u;
-	Wed, 19 Mar 2025 14:25:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742394322;
-	bh=dFq9WrBtYmONyZNM0GrXKYpn3Y8FJf3WJUh0aWFuRDI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XEaBF0Zw5wjvy+eBCil3EcYkJF2wSPeFtX1kPSWyGjhnxBDElCHihextQz/qmFjc8
-	 /wrYmrpDXW58niMFnfxdg7iyC0fd7TagGcq2Phgp3JcGgh3wamxXZ+hMxCxYpiI3ys
-	 /j4rEt17Bsf4qH5OHPs2xpAZKlkZgeed5yib6nF/Mb77Y8FT4XS83pgviijv+i2MId
-	 TGT7GNwykxbXkQUDzRk6yfu9PB+7+DYlBuX5EJIEMhApA0zQin2wtfDnE/jS40scjd
-	 03WgDdnp1pqnqi/QMUGcMRm6BEYDQsi5r3TJCYp5u0ve8/Hl08Ja8ULWMPavOR3kvI
-	 GQy1jOiW5CnmQ==
-Received: from notapiano (unknown [70.107.117.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4313B17E0599;
-	Wed, 19 Mar 2025 15:25:20 +0100 (CET)
-Date: Wed, 19 Mar 2025 11:25:18 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Tinghan Shen <tinghan.shen@mediatek.com>,
-	Olivia Wen <olivia.wen@mediatek.com>, kernel@collabora.com,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: mediatek: Add missing
- minItems for 8192/8195
-Message-ID: <7ab084b8-e77a-4881-a6a6-057b89613fb4@notapiano>
-References: <20250318-scp-dual-core-mt8390-v1-0-8733e192cc73@collabora.com>
- <20250318-scp-dual-core-mt8390-v1-1-8733e192cc73@collabora.com>
- <3fa1573d-e3b4-434c-867d-38fa69ad3a8e@linaro.org>
+	id 1tuuQk-00000009DEz-1LR2;
+	Wed, 19 Mar 2025 14:30:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuuNP-00000009Cg6-46LN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Mar 2025 14:26:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E07B0FEC;
+	Wed, 19 Mar 2025 07:26:42 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B0373F673;
+	Wed, 19 Mar 2025 07:26:31 -0700 (PDT)
+Date: Wed, 19 Mar 2025 14:26:26 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
+	acme@kernel.org, namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
+	broonie@kernel.org, yury.khrustalev@arm.com,
+	kristina.martsenko@arm.com, liaochang1@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/7] arm64/gcs: task_gcs_el0_enable() should use passed
+ task
+Message-ID: <Z9rUEtZtNXhVnarO@J2N7QTR9R3>
+References: <20250318204841.373116-1-jeremy.linton@arm.com>
+ <20250318204841.373116-2-jeremy.linton@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <3fa1573d-e3b4-434c-867d-38fa69ad3a8e@linaro.org>
+In-Reply-To: <20250318204841.373116-2-jeremy.linton@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_072524_706403_DADFDD9C 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20250319_072636_057425_C6674CC8 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +72,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 08:16:37AM +0100, Krzysztof Kozlowski wrote:
-> On 18/03/2025 23:22, Nícolas F. R. A. Prado wrote:
-> > Both MT8192 and MT8195 have an L1TCM memory, so it should be described
-> > in reg, and therefore reg's minItems should be 3, as is already implicit
-> > by reg-names. Override minItems to 3 for MT8192 and MT8195.
+On Tue, Mar 18, 2025 at 03:48:35PM -0500, Jeremy Linton wrote:
+> Mark Rutland noticed that the task parameter is ignored and
+> 'current' is being used instead. Since this is usually
+> what its passed, it hasn't yet been causing problems but likely
+> will as the code gets more testing.
+
+Are we sure nothing is relying upon the bug?
+
+For example, in copy_thread_gcs():
+
+copy_thread_gcs(p, ...) {
+	...
+	gcs = gcs_alloc_thread_stack(p, ...) {
+		...
+		if (!task_gcs_el0_enabled(p))
+			return 0;
+		...
+		< actually allocate here >
+	}
+	...
+	p->thread.gcs_el0_mode = current->thread.gcs_el0_mode;
+	...
+}
+
+Either that later assignment is redundant, or copy_thread_gcs() was
+accidentally relying upon task_gcs_el0_enabled() reading from 'current'
+rather than 'p', and this change opens up another bug...
+
+Mark.
+
 > 
-> I think that was the original intention already, because reg-names are
-> expecting min 3 items. Basically you just correct the missing lower
-> constraint.
-
-Yes, exactly, that's what I meant by "is already implicit by reg-names".
-
+> Fixes: fc84bc5378a8 ("arm64/gcs: Context switch GCS state for EL0")
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> ---
+>  arch/arm64/include/asm/gcs.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> > 
-> > Fixes: 6b55b1e2fd7f ("dt-bindings: remoteproc: mediatek: Support MT8195 dual-core SCP")
-> > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> > ---
-> >  Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> > index adc6b3f36fde49eb3fa7ed3f08b0fa9e7f331162..ee33c233e44f3d51f0851b35697a24208c87f68a 100644
-> > --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> > +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> > @@ -185,6 +185,7 @@ allOf:
-> >      then:
-> >        properties:
-> >          reg:
-> > +          minItems: 3
-> >            maxItems: 3
+> diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+> index f50660603ecf..5bc432234d3a 100644
+> --- a/arch/arm64/include/asm/gcs.h
+> +++ b/arch/arm64/include/asm/gcs.h
+> @@ -58,7 +58,7 @@ static inline u64 gcsss2(void)
+>  
+>  static inline bool task_gcs_el0_enabled(struct task_struct *task)
+>  {
+> -	return current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
+> +	return task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
+>  }
+>  
+>  void gcs_set_el0_mode(struct task_struct *task);
+> -- 
+> 2.48.1
 > 
-> maxItems can be dropped.
-
-Sure, I can send a patch for that in the next version.
-
-Thanks,
-Nícolas
 
