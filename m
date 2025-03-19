@@ -4,82 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A56B7C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 10:41:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2B8C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 10:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VOJRXhgr4IvDYXXr3sLTtCmEn5aq6QJfPwnK5S28w5g=; b=LvBECRmrgYby+qLsyBjWfDQ6cI
-	lovhMeoKXC74mxIQSQ3BJecPCKXRvPRdOTheL8Z3SJRvcafQwahpCrLPxfcJrMgNp3q1ETl/iXS/X
-	AJh49ksR3CtbcAPcoofkp2pcsOFkHtEoOsa3revsJLocMG14nNXfetrNDOupVdycH38WbTzLXuaMW
-	hYVMoRx+1xs9NVDvXPNlFdohAZ+zfqK0ZDwQU6SCtDIcnNmCWm1pAdkN1i1LizjrtUCtFrDJpspAy
-	GcAwhcI5ppdLrHXDahcxl8aFEMih25Y1TioM9TyDF2UwUwFtzxlvT2U9/KC5oq+nq400FiRQ8YkYk
-	y23JRvHQ==;
+	bh=0xp8wZXae5VanysmSaTD4UwbCcT2o03h21ZLo1WcA20=; b=QVHbrndSofIKiRHybeV9o16ZI/
+	QKNMTWHPU7/jWkU/8syaFd5syjXGhkMRX5mTueVCXgIaRNfT5dc+W74qDxguFqiat+0LyBla+CXBP
+	1bv7FqEb6m+xGL0Y6GT2cp3i8NJAPlJqD2diGgchIKIW5HDgK51Y4xiWiGURo1xaRGdawNsDGWAx3
+	6clgeRYlkS1h/P7rfGr1UXT/yT9yDplbM+35gqqWHwdJWE1tucprOMqmhFqY1tbb5v8EEHFmtuS7F
+	1u32WWUuTKP3dl4YS595QN0U9YCuyYoNQBGOkfFfNwvvtUjAJrFAfR0qNmdFT+b0Qpn/KWpuYZU6j
+	xi2mReOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuqri-00000008grd-0Zkl;
-	Wed, 19 Mar 2025 10:41:38 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tuqxl-00000008hmj-1WCH;
+	Wed, 19 Mar 2025 10:47:53 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuqoA-00000008gWF-0FHH
+	id 1tuqvz-00000008hSY-3glx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 10:37:59 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52JAbbc6298165
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 19 Mar 2025 05:37:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1742380657;
-	bh=VOJRXhgr4IvDYXXr3sLTtCmEn5aq6QJfPwnK5S28w5g=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=THaB1MxklKFszLt4uo+Kcwpd94AavvnNOGhhcEhJYjf7HeEli37mE7XGxcIM5PddP
-	 PhqRLc2PVxBzS/ZtsWybKw5gTZeqC9S9AG3jFOls1SupDnC8/fbBO0qmkOrGa00zwu
-	 kGzn+Z1n82sVRFvkRcapG88nFiMezHT3q0am6Mzs=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52JAbb5l088419
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 19 Mar 2025 05:37:37 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 19
- Mar 2025 05:37:36 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 19 Mar 2025 05:37:36 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52JAbZv4021781;
-	Wed, 19 Mar 2025 05:37:36 -0500
-Date: Wed, 19 Mar 2025 16:07:35 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kw@linux.com>, <robh@kernel.org>, <bhelgaas@google.com>,
-        <vigneshr@ti.com>, <kishon@kernel.org>, <cassel@kernel.org>,
-        <wojciech.jasko-EXT@continental-corporation.com>,
-        <thomas.richard@bootlin.com>, <bwawrzyn@cisco.com>,
-        <linux-pci@vger.kernel.org>, <linux-omap@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>
-Subject: Re: [PATCH 3/4] PCI: cadence-ep: Introduce cdns_pcie_ep_disable
- helper for cleanup
-Message-ID: <20250319103735.a45aa5trofo2c2fc@uda0492258>
-References: <20250307103128.3287497-1-s-vadapalli@ti.com>
- <20250307103128.3287497-4-s-vadapalli@ti.com>
- <20250318080304.jsmrxqil6pn74nzh@thinkpad>
- <20250318081239.rvbk3rqud7wcj5pj@uda0492258>
- <20250319103217.aaoxpzk2baqna5vc@thinkpad>
+	Wed, 19 Mar 2025 10:46:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1742381163; x=1773917163;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=0xp8wZXae5VanysmSaTD4UwbCcT2o03h21ZLo1WcA20=;
+  b=eojFYqSuJD2cWrg1gI88GDk1kJ6BbRmTG//wO0jrU35nO2L1soqwH+Ea
+   keUTSV/Pu4zo3PYfrirSxrWrlu45tJmr/dDA0UNboLzH/SWFlb9/QIxsf
+   W/kHCHzII0z7bHguBJxfhuFzN6KUj4W752bDYtv6o+3eusFWVoh6jzhSU
+   uLnN8LeOeB82FiGBRV3/yclMYm7moY68z5Thz79wC89kHyOBF3MNZz42g
+   580j8G0+2SEe+qqTP+8AbTf1LaF119CWO9D8mgJCqCCK8N8yXig3xH4xd
+   3NHcplfR0iNpDaYHGKOMq+cjE3i47xTv38IDOc8nvEqj0GuAGn726iNwp
+   A==;
+X-CSE-ConnectionGUID: n4PRbILrSsGE8eU7TLjslg==
+X-CSE-MsgGUID: aqLRDqtmTYCviUseDgPqXw==
+X-IronPort-AV: E=Sophos;i="6.14,259,1736809200"; 
+   d="scan'208";a="43043019"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 19 Mar 2025 11:45:59 +0100
+X-CheckPoint: {67DAA067-6-7141A0B0-E6EDEC14}
+X-MAIL-CPID: EC45CA4B4EB15768664355E4B2B4000F_3
+X-Control-Analysis: str=0001.0A006377.67DAA05D.0079,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4DF8C1609D8;
+	Wed, 19 Mar 2025 11:45:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1742381154;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0xp8wZXae5VanysmSaTD4UwbCcT2o03h21ZLo1WcA20=;
+	b=BZ8UaIc4rW62iANkjv4y+02NULdJxO4IRwZ4rbF7c7WmHf+n63Bxqh4uH9ppGL+AfxAXKA
+	wrvl8zaUx37mzY1TNvUN+SghpXZnyqlvbYmlMUbOkjZNfnI9kp2Ro8hflLB1trlKUz+aZd
+	snV9IgsiDXw3jTUR0ZWRM2FozRxN8xBOHOPrWWW0dWuR2IBRfIx3+EDHAsDYtSuMv/IfgI
+	+dpRzcoc02RxmwS2kmDcH7bKqbES6xO9pAOR3+eFC0cw3OMLOnlGRtJayd2tfbGadoqwbx
+	+DDaH9Bjv272T1UVxJvGE+eD8miYo48momsoNaHzXIi4H3KImosrWzLLsEta+Q==
+Message-ID: <e6ee878f655c31473bca54e4187d9006a19158b1.camel@ew.tq-group.com>
+Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
+ MBa62xx carrier board Device Trees
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Felipe Balbi <balbi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>, Hari
+ Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
+Date: Wed, 19 Mar 2025 11:45:51 +0100
+In-Reply-To: <2953e10c-0a57-4d49-b831-3864a07eefd5@lunn.ch>
+References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
+	 <95ff66ca2c89f69d893c2ce9eed9a0c677633c7b.1733737487.git.matthias.schiffer@ew.tq-group.com>
+	 <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
+	 <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
+	 <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
+	 <e16076d16349e929af82fa987a658bff1d9804c4.camel@ew.tq-group.com>
+	 <a2a2f201-73a4-4a99-baef-0d593a88c872@lunn.ch>
+	 <309052f3f69950fe43390505cc7254aee8c8f5c6.camel@ew.tq-group.com>
+	 <2953e10c-0a57-4d49-b831-3864a07eefd5@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250319103217.aaoxpzk2baqna5vc@thinkpad>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_033758_274646_C6F4A550 
-X-CRM114-Status: GOOD (  32.05  )
+X-CRM114-CacheID: sfid-20250319_034604_422944_A963FF0D 
+X-CRM114-Status: GOOD (  34.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,67 +111,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 04:02:17PM +0530, Manivannan Sadhasivam wrote:
-> On Tue, Mar 18, 2025 at 01:42:39PM +0530, Siddharth Vadapalli wrote:
-> > On Tue, Mar 18, 2025 at 01:33:04PM +0530, Manivannan Sadhasivam wrote:
-> > 
-> > Hello Mani,
-> > 
-> > > On Fri, Mar 07, 2025 at 04:01:27PM +0530, Siddharth Vadapalli wrote:
-> > > > Introduce the helper function cdns_pcie_ep_disable() which will undo the
-> > > > configuration performed by cdns_pcie_ep_setup(). Also, export it for use
-> > > > by the existing callers of cdns_pcie_ep_setup(), thereby allowing them
-> > > > to cleanup on their exit path.
-> > > > 
-> > > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > > > ---
-> > > >  drivers/pci/controller/cadence/pcie-cadence-ep.c | 10 ++++++++++
-> > > >  drivers/pci/controller/cadence/pcie-cadence.h    |  5 +++++
-> > > >  2 files changed, 15 insertions(+)
-> > > > 
-> > > > diff --git a/drivers/pci/controller/cadence/pcie-cadence-ep.c b/drivers/pci/controller/cadence/pcie-cadence-ep.c
-> > > > index eeb2afdd223e..85bec57fa5d9 100644
-> > > > --- a/drivers/pci/controller/cadence/pcie-cadence-ep.c
-> > > > +++ b/drivers/pci/controller/cadence/pcie-cadence-ep.c
-> > > > @@ -646,6 +646,16 @@ static const struct pci_epc_ops cdns_pcie_epc_ops = {
-> > > >  	.get_features	= cdns_pcie_ep_get_features,
-> > > >  };
-> > > >  
-> > > > +void cdns_pcie_ep_disable(struct cdns_pcie_ep *ep)
-> > > > +{
-> > > > +	struct device *dev = ep->pcie.dev;
-> > > > +	struct pci_epc *epc = to_pci_epc(dev);
-> > > > +
-> > > 
-> > > pci_epc_deinit_notify()
-> > 
-> > I had initially planned to add this, but I noticed that it is not
-> > invoked by dw_pcie_ep_deinit() within
-> > drivers/pci/controller/dwc/pcie-designware-ep.c
-> > Since cdns_pcie_ep_disable() is similar to dw_pcie_ep_deinit(), I
-> > decided to drop it. Current callers of pci_epc_deinit_notify() are:
-> > drivers/pci/controller/dwc/pcie-qcom-ep.c
-> > drivers/pci/controller/dwc/pcie-tegra194.c
-> > while there are many more users of dw_pcie_ep_deinit() that don't invoke
-> > pci_epc_deinit_notify().
-> > 
-> > While I don't intend to justify dropping pci_epc_deinit_notify() in the
-> > cleanup path, I wanted to check if this should be added to
-> > dw_pcie_ep_deinit() as well. Or is it the case that dw_pcie_ep_deinit()
-> > is different from cdns_pcie_ep_disable()? Please let me know.
-> > 
-> 
-> Reason why it was not added to dw_pcie_ep_deinit() because, deinit_notify() is
-> supposed to be called while performing the resource cleanup with active refclk.
-> 
-> Some plaforms (Tegra, Qcom) depend on refclk from host. So if deinit_notify() is
-> called when there is no refclk, it will crash the endpoint SoC. But since
-> cadence endpoint platforms seem to generate their own refclk, you can call
-> deinit_notify() during deinit phase.
+On Tue, 2024-12-10 at 20:54 +0100, Andrew Lunn wrote:
+>=20
+> On Tue, Dec 10, 2024 at 10:56:41AM +0100, Matthias Schiffer wrote:
+> > On Mon, 2024-12-09 at 17:14 +0100, Andrew Lunn wrote:
+> > >=20
+> > > > Not our board, but the AM62 SoC. From the datasheet:
+> > > >=20
+> > > > "TXC is delayed internally before being driven to the RGMII[x]_TXC =
+pin. This
+> > > > internal delay is always enabled." So enabling the TX delay on the =
+PHY side
+> > > > would result in a double delay.
+> > >=20
+> > > phy-mode describes the board. If the board does not have extra long
+> > > clock lines, phy-mode should be rgmii-id.
+> > >=20
+> > > The fact the MAC is doing something which no other MAC does should be
+> > > hidden away in the MAC driver, as much as possible.
+> >=20
+> > Isn't it kind of a philosophical question whether a delay added by the =
+SoC
+> > integration is part of the MAC or not? One could also argue that the MA=
+C IP core
+> > is always the same, with some SoCs adding the delay and others not. (I =
+don't
+> > know if there are actually SoCs with the same IP core that don't add a =
+delay;
+> > I'm just not a big fan of hiding details in the driver that could easil=
+y be
+> > described by the Device Tree, thus making the driver more generic)
+>=20
+> It is more about, what does phy-mode =3D "rgmii"; mean? It means the
+> board provides the delay via extra long clock lines. Except for when
+> some random MAC driver has a completely different meaning, it is not
+> documented it means something else, you have to read the sources and
+> the mailing lists, to find out what this particularly MAC driver is
+> doing for phy-mode =3D "rgmii".
+>=20
+> Do we really want that. Or should we define that phy-mode =3D "rgmii"
+> means the PCB provides the delay. End of story, no exceptions. And
+> that "rgmii-id" means the MAC/PHY pair need to provide the delay? End
+> of story, no exceptions.
 
-Thank you for the clarification. I will add pci_epc_deinit_notify() to
-cdns_pcie_ep_disable() in the v2 series.
 
-Regards,
-Siddharth.
+Hi Andrew,
+
+I've just thought about this issue again. As mentioned, a number of MAC
+drivers(*) implement what is described here:
+
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/Documentation/devicetree/bindings/net/ethernet-controller.yaml?h=3Dv6.13#n=
+77
+
+
+That is, the delay is either added by the PHY or the MAC; having a delay on=
+ the
+PCB is simply not supported. Fixing MAC drivers to interpret the values wit=
+hout
+"id" to mean that there is a delay on the PCB will break existing Device Tr=
+ees,
+so that's no good.
+
+As a first step, I'd update the docs to describe the intended behavior, but
+mention that some drivers implement it wrong. The question is how to deal w=
+ith
+the wrong behavior going forward. I see the following options, but none spa=
+rk
+joy for me...
+
+- Keep current driver behavior forever where fixing it would break existing
+  Device Trees
+- Deprecate all existing "rgmii*" values because of their inconsistent
+  implementation, come up with new ones. Seems like a huge pain to add supp=
+ort
+  for in all MAC drivers and other code that deals with PHY modes...
+- Introduce an additional DTS flag next to phy-mode to express that the
+  phy-mode is supposed to be interpreted correctly
+
+Do you have any suggestions?
+
+Best,
+Matthias
+
+
+
+(*) At a glance, at least the following MAC drivers appear to configure a d=
+elay,
+making it impossible to support delays on the PCB with the current
+implementation:
+- renesas/ravb_main.c
+- stmicro/stmmac/dwmac-* (some variants)
+- ti/cpsw-phy-sel.c (incomplete; does not distinguish between RX and TX del=
+ays)=20
+- Some other MAC drivers check for specific PHY_INTERFACE_MODE_RGMII* value=
+s,
+  which also doesn't seem completely correct
+
+
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
