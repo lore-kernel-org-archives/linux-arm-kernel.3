@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DE7C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417B1C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2t1e8lDHeeC+VhrMMM1rV8xRnNEpcJgqStNn0Vw4SWI=; b=HIkrci/9PQrvrtbYU+ghYGdUNR
-	Z5ZLEhqK+vbBlr9We5S/m/opc7RdyglKabLmKo4CT1EDarlxtzvpWdOmCHsR8d8K30BwUue0uvEA8
-	/Rz36zTt/7HJoQfs6sUXld5LJBydRfyW8hZayBlC2ceOxUibq4tIso4Z8UmAW567xLUONW/IUrpi/
-	CUBfmZH1AcsfhwWCzikSD2c7W3ZkotKipsNQMi5swK967QlE54aavOeTTOSL9BA71ncP/NlucQjPd
-	096QeI37i29OHAeXGkvnz6mF7EuTMoRRTOkjQZS3JSJG5mR1Edzt106d72cukF2loRrGEuG8m9E1a
-	WObf4NVA==;
+	bh=w2XqsxBfEStQaOCaRcZuCXd94NPuhOER/mwaluYTki4=; b=G1o3y3Kb99tGqN1ZGtyVP6e+Z/
+	UYNa9Q2Mu9AUmIVDBoPV7kwwOx8T/UtNUFG9Y8pVZZfy5F8I09OM7d0YKLhfoFSM0gKFxJQP71Pfy
+	oLeSS6IpQy7wzu0v8L3AAy5rnTZ3IoVb9uNOifY8TdnPe4UNaTe8XbkwXTLa1EkTcui4q7OxQTMWg
+	tqzpO4H7dmKm6nYvxuyvyq1snV/tio+3KAMrXAL8fR/mJfWb7s4dUDmjOEgkyOIoErXwtAt2nsemW
+	LoDee7Y2Wqxt8ys5XXLpTHnY5fXo31SxRxTLeclrAxGh2eGkPP/eHbh3xkELS5TyfLTyuAE6tOWLh
+	IpYNEt7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunjQ-00000008DHs-0b0O;
-	Wed, 19 Mar 2025 07:20:52 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tunl4-00000008DP7-3qrJ;
+	Wed, 19 Mar 2025 07:22:35 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunh2-00000008D2o-0hTD
+	id 1tunfO-00000008Ckx-07rX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 07:18:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43d46491946so65445e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 00:18:23 -0700 (PDT)
+	Wed, 19 Mar 2025 07:16:43 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43ba8bbeae2so5624775e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 00:16:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742368702; x=1742973502; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742368600; x=1742973400; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=2t1e8lDHeeC+VhrMMM1rV8xRnNEpcJgqStNn0Vw4SWI=;
-        b=j27X2VEIbZzF3VcsE18enz0vxY24Dim9GIC2HWKZlmzZOZbYTeev9yOzVla3sisPHV
-         igVi3tR3cxVHSk02W0h9SMwg8pPFQQSnwS6igKeeMy0IplbC7oomDahhbTGx8RKFCfvT
-         ZWoorPBsuzIyCyhRpRwodLVv4o3LgmuLO3uBAyqGJH1zr88s2bXYJJXms6U8tJXb9oU/
-         WVz0GMHoxbVvCZcpPgbWTSh6gFxFmnrWE0qH7gBV/U7PrTqYXHiMwkGITIQ892qnp90a
-         HRnJ4hROD1c8La/tPoJEdK5Nf8tQnZXF1JL0hmOMCoHyfTHXJgpjdU6N3s6S8895tARR
-         G4cw==
+        bh=w2XqsxBfEStQaOCaRcZuCXd94NPuhOER/mwaluYTki4=;
+        b=HVy/Pke1PMVoFXsidy/PVNcS1XZNuDqE4RyAKN+Rv7G0MuahW2YalhTRV4B6T8hybQ
+         /atjzIESYrbyG2dCRrb6lHSxWteE/RLOTbkj6h7Y1c9WGuqKuDLihve9DeU3EJmNZ47Y
+         r5VD/zQGtTeg2ElSNHBu6t64usnJO5tR6daFeEpuvDQFP2k1eXrQk+hZhbWLZFe4WFCR
+         lUv20ogA+kbj1NoPN2f8vWMCUldp2gczmzrOI1MRyYYQi2oQwyPGLQ8AbcXl1t3gTFzy
+         GyCMZsLABuYyCSb/KEJv4dveAhAiq/ZM8+z4XZ9E4A3nlfbpqM0MHz2x7pmVNPP+29RA
+         DbWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742368702; x=1742973502;
+        d=1e100.net; s=20230601; t=1742368600; x=1742973400;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2t1e8lDHeeC+VhrMMM1rV8xRnNEpcJgqStNn0Vw4SWI=;
-        b=MBZ4LA1Py4FRBpWLj3NAVTKGpfIPK38IyWbDMRVSxU8UOEAjjtGILJ3xS6I62owk/f
-         W/cmxKvVJ9297nRS5NPM6AP5ZU8uz+LtUg41ZkyMHAzm6zaCxkYOx3XBbMBOQVDw2PE5
-         MwGTZnKdsZ/zHefdGYf1hFWpQWoHf/tfDDItgQ0SNJIHEYqsuzkU0g81ADP5Kp6WsBcN
-         jE9qmKefU93otc4JBb5SPNJoBWKrsjCsOPUaX28VUZ2wYZtbkG8q3OVcEVHIHV9kM/Pc
-         y5F8vA758wbLweUDxCcBErLgf5HPLzta+Xyc2q6aCxTOyH/WBCrLIzK5BOeAOZQHpgLu
-         EZzw==
-X-Forwarded-Encrypted: i=1; AJvYcCUSJ18AKU8+l7uHX3Dca6YMOQSxxNxK042b1TfMAuaAVv1ovWW4VqBHXYFSkQrlf7VMTOcDSREl4lbyiIC5CeS8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz81WUTvBYXXxIng6NdZUhMPwMWvjRIZCpAzp7Bka2Mp13Si8eg
-	udL4OX1thGpYGPWsdecUW8eYQZ/Dr4hD9ei4FYOmhHw3BkEIiq/qq/roacJEd8c=
-X-Gm-Gg: ASbGnct7j4tJ5yyufnqWvb/6oh0l06ANuT1HWq/QJ15VCJnwjN3POdxG615XopHZm6e
-	FexGXY0VoK1oLYW5W5nhzHuLagDH4TD4wb17C4LrZrBvTxdx9x1phN5P9ndkKGD9Aqmxp5WYox9
-	phaSCiHtY//cVSj+1AweGp84tz4zo65r6hamqcjXFAIYeUwDMcaFmYA67wkORk1Bds51UAiwEq7
-	fmh66iqAQDN/41yKYa1s+KwICqkSssosmGmonBZgGlgMnHbSih2musppaphmL4pxBYHSXHUGCyE
-	wgOWPdg2L11w/FmK77umEFU2Fec5xLZPCfVhkzncbJ7AR4GSnUr4yyOaU0hTp0Q=
-X-Google-Smtp-Source: AGHT+IE8IxeWFwFlKpP8Jw2vDUuTM92MTiYoo+wRg9VD1zFAykda6SI5zvDb5BcQatEeBZe+hwdHQA==
-X-Received: by 2002:a05:600c:1553:b0:439:9fde:da76 with SMTP id 5b1f17b1804b1-43d44bd7e25mr2942125e9.0.1742368702376;
-        Wed, 19 Mar 2025 00:18:22 -0700 (PDT)
+        bh=w2XqsxBfEStQaOCaRcZuCXd94NPuhOER/mwaluYTki4=;
+        b=eO/f6NxEZDAm8qDRswLcmi5zWmEW8PG9+fAI0e4zxdN+uXpJ7qxFD4X6XbfcI+6BLi
+         hy4j4AjEK5nt9B5TtuhRZxclWbIDLDVVhZwNQFTI4re8LPNi0ecLElnxhOrLPFgUclyr
+         V6lLYl0ZS91jGiPxX4VkA/GWBM0esxRneRuSz+e/xkTWN4SlNei5MFP/JSYT8t3mOSnp
+         ZSyqBRXIWJ+RIJAYjBrCRiGv/LQGVIshoqmHEgQe1PMJwZ8218t/Ov144OmR2kLlEZG6
+         hRgfuoFV+ven0MiZ8lAlsreeLs5wasxIkgffUFKjDW7+vG/bZUfzDwI8whiUsJx1lA3c
+         R5MQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXxVjKIH6J6bD81lL/b8fC3pgU9Jb5GmZx3XeLvQgLpsvQTza+VxlbGuu8ZIXood2bQ+tFfXhiXHo33KYWQfBO6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyseqJxXCAPr/IJhYp45wpQ4njGgjmuM8XHeFPFZCv3ovgrzw/d
+	XAlN2VRG8avftQ6EKcWHAZC6EyabUrO4Z+Yb+m64H1qs4j72cqfxZoEr4FXHp1A=
+X-Gm-Gg: ASbGncvJEXGH6kxV2kydJFYpCMQvHenVpxUk1uWdXo88QaBXpDNDh+okLO/GbCu2QTF
+	ZS3mKj3/Go1DXkL437wrwYscHJX57AZHDMZPawS3q7VKQrp6jTxgqRv0h72WsfHvR89LvqK1V2G
+	KR4eufsazU5MqFIe/HLvgLvRaxhh5Af48Z7cWftKJp0L1tu8uhbYHLMdg5lNj1lBa5kF9mp6dmO
+	gilEoKPxPGWCFZJQb7EGSe224JR8DnEAZB94bWCpG2cQy8uuHEl2l+GwR2kmZa2AHQGxdTVYbOz
+	vq9gTAFuIHykvIPy7SLgRJEjro47yZuc48bTQhdHeUQ3nIsd82uLEEz7my0Cr38=
+X-Google-Smtp-Source: AGHT+IFcR8TM0tkwiPvEfeHGXy8syzRhG6/CVprTPhxIrgtzOfrmtiAen0c0L7irAhuDeNCxuXOBYg==
+X-Received: by 2002:a5d:5f82:0:b0:391:42f:7e83 with SMTP id ffacd0b85a97d-39973b2cb14mr527211f8f.13.1742368599911;
+        Wed, 19 Mar 2025 00:16:39 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395cb7eb876sm20048778f8f.83.2025.03.19.00.18.20
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395cb318a96sm20469405f8f.69.2025.03.19.00.16.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Mar 2025 00:18:21 -0700 (PDT)
-Message-ID: <3f147dbd-c4a7-4cf5-911c-1d9263f5067c@linaro.org>
-Date: Wed, 19 Mar 2025 08:18:19 +0100
+        Wed, 19 Mar 2025 00:16:39 -0700 (PDT)
+Message-ID: <3fa1573d-e3b4-434c-867d-38fa69ad3a8e@linaro.org>
+Date: Wed, 19 Mar 2025 08:16:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] dt-bindings: remoteproc: mediatek: Remove l1tcm for
- dual-core MT8188 SCP
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: mediatek: Add missing
+ minItems for 8192/8195
 To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
  Bjorn Andersson <andersson@kernel.org>,
  Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -87,7 +87,7 @@ Cc: kernel@collabora.com, linux-remoteproc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20250318-scp-dual-core-mt8390-v1-0-8733e192cc73@collabora.com>
- <20250318-scp-dual-core-mt8390-v1-2-8733e192cc73@collabora.com>
+ <20250318-scp-dual-core-mt8390-v1-1-8733e192cc73@collabora.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -134,12 +134,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20250318-scp-dual-core-mt8390-v1-2-8733e192cc73@collabora.com>
+In-Reply-To: <20250318-scp-dual-core-mt8390-v1-1-8733e192cc73@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_001824_198329_C4654063 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250319_001642_076864_F85E7108 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,16 +155,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 18/03/2025 23:22, Nícolas F. R. A. Prado wrote:
-> The SCP present on MT8188 does not have an L1TCM memory region, but the
-> binding incorrectly requires one for the dual-core description of the
-> MT8188 SCP. Remove that requirement. Also update the minimum number of
-> reg and reg-names to 1, since as this is a multi-core SCP with no
-> L1TCM memory, only the CFG memory region is present in the parent node.
-> 
-> Fixes: 91e0d560b9fd ("dt-bindings: remoteproc: mediatek: Support MT8188 dual-core SCP")
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> Both MT8192 and MT8195 have an L1TCM memory, so it should be described
+> in reg, and therefore reg's minItems should be 3, as is already implicit
+> by reg-names. Override minItems to 3 for MT8192 and MT8195.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I think that was the original intention already, because reg-names are
+expecting min 3 items. Basically you just correct the missing lower
+constraint.
+
+> 
+> Fixes: 6b55b1e2fd7f ("dt-bindings: remoteproc: mediatek: Support MT8195 dual-core SCP")
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> index adc6b3f36fde49eb3fa7ed3f08b0fa9e7f331162..ee33c233e44f3d51f0851b35697a24208c87f68a 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> @@ -185,6 +185,7 @@ allOf:
+>      then:
+>        properties:
+>          reg:
+> +          minItems: 3
+>            maxItems: 3
+
+maxItems can be dropped.
+
 
 Best regards,
 Krzysztof
