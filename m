@@ -4,116 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE73EC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 08:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CF3C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eOg4hsElVt+ZwY890gF3Xmtfbx0346CIVgYgtOctNmE=; b=rY3AOTtF6/ayAF4j8l42ae3RI2
-	fbod3g3khjkRlZ+R3pizIquGDCMRVzxgAxWycg0cmB5fD0kZaCWkRECXczXLOXoLDP7dR5nuYPyln
-	ueEVScC9gIrgtbu8wD4G1BjTTIT+Dov+Ms8V15ZaxEdeQvC4ZpyEHkIBQY29UaayeipCTIOXW2WwZ
-	Y4XA1CLbRS6HKbdqqOFeABVhdhPr5Nq2/dLBOW3RYxC5lDUQ0qzhLZ/OjTX9bP62Raha+u7vzBjX6
-	X616obrLQ2XMf19QXGBwqXlzLP4PWyIOgtmUBuxHBS4lOi5z8UuX9xkK08iJ3OoJzQb6zg4KHZqNd
-	CKRgnnrg==;
+	bh=oZJFFFU75xnAfcL8zLuM4V6jHSfHq6sIXUl/50bulpc=; b=EginqqSEPEKrf9i/pm8gBGLk71
+	Fa+pHVltB7GXiLFZSZwv+g4p3iMQOzGhBQvOxksia65uWil/0rvI3dVZcOneRkfgGn7z4yZ1A3P8c
+	e+dC4vAwI0udOAZGcAksGSxRDANXcWHbDVuUr9jAxW/gsnuWlR4Lp705ovkj5nVttF2PRy7ixeR/I
+	8AGnclDrTJZoaCsmyXkRIb4EJwKw58ZKDfTMTX/utHrNjqoLvX6gskcYnWwMYTH1bE26ujXBPb+UQ
+	/yoSiee9tuyvd2TCGup68LFBJwMNo1YImaMiXAueveACKdjE9bOjkIyqkTr8XmiQp2KOB6w1MnNjv
+	DRKD8o2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tup8i-00000008Ol5-0kGx;
-	Wed, 19 Mar 2025 08:51:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tupKU-00000008QHa-0HS4;
+	Wed, 19 Mar 2025 09:03:14 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tup70-00000008ONU-0149;
-	Wed, 19 Mar 2025 08:49:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85175A48B20;
-	Wed, 19 Mar 2025 08:43:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19523C4CEEE;
-	Wed, 19 Mar 2025 08:49:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742374156;
-	bh=Pc7OmAP3/6l/+cxajU8JvnMaWhla1SM9/gpPoX+sfco=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QbX6Gb+Tvc18mdaUN9Dv0/p1p67bkNJmde/JkHRT47eo8FfBRYcvodDiB98XkoQKm
-	 eDegnXfrMmMbCMxzScBI1s0PTSPxkmruJfNrU4H5aKI5Dxa5aIXJDlYAiVPOEESodU
-	 Tnc2wjZrDXs7IAjJLg2cUC9zT4H7Wag7cMq607c2danXI1rOivcKzfSrJiM/cw9VgS
-	 SLX/HnGK6Wn4i/7Hp4Wy3VF+ZoBjgCSlIBbIWF9pfyy1mrRDWfui+8NlMBAi51kjIM
-	 bH+4wbHlNZKdIixqVdUiq94zui3vjtRUvynFirr+X3ylnUAIxyJCmLfFBqxbksGYwu
-	 DyNeaaJmvqyxg==
-Message-ID: <7bb26735-bd68-426a-ab0e-ec8379b39bdf@kernel.org>
-Date: Wed, 19 Mar 2025 09:49:06 +0100
+	id 1tupIn-00000008PuL-0qoH;
+	Wed, 19 Mar 2025 09:01:30 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52J4lfPp013111;
+	Wed, 19 Mar 2025 09:01:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	oZJFFFU75xnAfcL8zLuM4V6jHSfHq6sIXUl/50bulpc=; b=jPK/w8GxtQuXHbR/
+	THyDFV+bjrPVEyCfjqnsr6kVT6Qb8xvw1dkTqSVcw54F+9D5EdKroUBYLswzFReX
+	qcIG4oHmI8Chq2+eYPDqPi7iRT0e7/2QWdR2Zq+dEa59eceEb8tFbml1PBZB1oSq
+	PiBAYrAcwVCcI4hGavpNQUW555lyNfOcZmeLxJrTJ679/7pb4KhoQ5VglYpWEjBo
+	mtJ49UR8FdAuWUbmnFi38PYunzDCSlrV3EAUfUETHF6a8kR1Ea5y1nKyhhpj9ilB
+	KZh5DZDcXO1/K11k68vKRxaol1zdp/qGuOJp3k63g00hKWc2ihfV71nJUXSKVtTC
+	UdYSgA==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45exwtmtb3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 19 Mar 2025 09:01:08 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52J918qf015779
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 19 Mar 2025 09:01:08 GMT
+Received: from [10.46.162.103] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 19 Mar
+ 2025 02:01:07 -0700
+Message-ID: <9cf88cda-cf9c-9dbd-d586-5463ce2a0cfc@quicinc.com>
+Date: Wed, 19 Mar 2025 02:01:07 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/6] arm64: dts: amlogic: Add Amlogic S4 Audio
-To: Jiebing Chen <jiebing.chen@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
-References: <20250319-audio_drvier-v4-0-686867fad719@amlogic.com>
- <20250319-audio_drvier-v4-6-686867fad719@amlogic.com>
- <20250319-quizzical-coyote-of-assurance-d4c91d@krzk-bin>
- <6c1ca29e-37e4-488c-b3a3-f61aad7f8dcf@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v3 1/1] scsi: ufs: core: add device level exception
+ support
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <6c1ca29e-37e4-488c-b3a3-f61aad7f8dcf@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
+To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
+        "avri.altman@wdc.com" <avri.altman@wdc.com>,
+        "quic_cang@quicinc.com"
+	<quic_cang@quicinc.com>,
+        "quic_nitirawa@quicinc.com"
+	<quic_nitirawa@quicinc.com>,
+        "manivannan.sadhasivam@linaro.org"
+	<manivannan.sadhasivam@linaro.org>,
+        "bvanassche@acm.org"
+	<bvanassche@acm.org>,
+        "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
+        "minwoo.im@samsung.com" <minwoo.im@samsung.com>,
+        "martin.petersen@oracle.com"
+	<martin.petersen@oracle.com>
+CC: "beanhuo@micron.com" <beanhuo@micron.com>,
+        "ebiggers@google.com"
+	<ebiggers@google.com>,
+        "gwendal@chromium.org" <gwendal@chromium.org>,
+        "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+        "AngeloGioacchino
+ Del Regno" <angelogioacchino.delregno@collabora.com>,
+        "quic_ziqichen@quicinc.com" <quic_ziqichen@quicinc.com>,
+        "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+        "keosung.park@samsung.com" <keosung.park@samsung.com>,
+        "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>,
+        "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>,
+        "James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+References: <6109425449ac4d18249ce7254e4fa1252138a94a.1742369183.git.quic_nguyenb@quicinc.com>
+ <61570104d58cef22716fefe459c0c45670108aad.camel@mediatek.com>
+From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
+In-Reply-To: <61570104d58cef22716fefe459c0c45670108aad.camel@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: vr39mJyDo-GZa-ntTDHhauSuOWF0_4ug
+X-Proofpoint-ORIG-GUID: vr39mJyDo-GZa-ntTDHhauSuOWF0_4ug
+X-Authority-Analysis: v=2.4 cv=UoJjN/wB c=1 sm=1 tr=0 ts=67da87d4 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=RWTcRH6CgHNVpisSJ_IA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-19_03,2025-03-17_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 malwarescore=0
+ impostorscore=0 bulkscore=0 priorityscore=1501 mlxlogscore=999
+ phishscore=0 adultscore=0 clxscore=1015 spamscore=0 suspectscore=0
+ lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503190061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_014918_174982_896DB6EF 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250319_020129_253639_77A9186E 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,62 +135,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2025 09:46, Jiebing Chen wrote:
->>> +     tdmif_b: audio-controller-1 {
->>> +             compatible = "amlogic,axg-tdm-iface";
->>> +             #sound-dai-cells = <0>;
->>> +             sound-name-prefix = "TDM_B";
->>> +             clocks = <&clkc_audio AUD_CLKID_MST_A_SCLK>,
->>> +                      <&clkc_audio AUD_CLKID_MST_B_LRCLK>,
->>> +                      <&clkc_audio AUD_CLKID_MST_B_MCLK>;
->>> +             clock-names = "sclk", "lrclk","mclk";
->>> +     };
->>> +
->>> +     tdmif_c: audio-controller-2 {
->>> +             compatible = "amlogic,axg-tdm-iface";
->>> +             #sound-dai-cells = <0>;
->>> +             sound-name-prefix = "TDM_C";
->>> +             clocks = <&clkc_audio AUD_CLKID_MST_C_SCLK>,
->>> +                      <&clkc_audio AUD_CLKID_MST_C_LRCLK>,
->>> +                      <&clkc_audio AUD_CLKID_MST_C_MCLK>;
->>> +             clock-names = "sclk", "lrclk","mclk";
->>> +     };
->>> +
->>>        timer {
->>>                compatible = "arm,armv8-timer";
->>>                interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->>> @@ -101,7 +135,6 @@ apb4: bus@fe000000 {
->>>                        #address-cells = <2>;
->>>                        #size-cells = <2>;
->>>                        ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
->>> -
->> Why? What is happening in this patch - why are you changing so many
->> other pieces?
+On 3/19/2025 12:56 AM, Peter Wang (王信友) wrote:
+> Hi Bao,
 > 
-> Hi, Krzysztof
-> 
-> for last versions ,it it not match the amlogic,axg-tdm-iface.yaml
+> Could use atomic_t for counter protect?
+Hi Peter,
+Are you suggesting to convert the dev_lvl_exception_count type from u32 
+to atomic_t type? Because the value of dev_lvl_exception_count is 
+returned to the user space via the device_lvl_exception_count_show() 
+using the sysfs_emit() function, keeping the dev_lvl_exception_count as 
+u32 data type probably works better in terms of the format.
 
-It is not what is happening here. Read replies and patches again.
-
-> 
-> so we must be change the order, otherwise a warning will be thrown，we 
-> copy the dts config from merged dts
-> 
-> the old order not meet the dt-binding rule, Another change, we only add 
-> the audio clock reg
-> 
-> + compatible = "amlogic,s4-audio-clkc"; + reg = <0x0 0x0 0x0 0xd8>,
-> 
-> add <0x0 0xE80 0x0 0x10>;
-> 
-> We have not made any changes to the rest
-
-How is this even remotely related to my comment?
-
-It's still a NAK for reasons stated later which you decided to ignore.
-
-
-Best regards,
-Krzysztof
+Thanks, Bao
 
