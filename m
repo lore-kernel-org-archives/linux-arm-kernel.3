@@ -4,177 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3AB4C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 11:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC463C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 12:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgAnZy40SGeffOzc3UEV2JJtgpsYJnjm9SRfktYn3Pk=; b=b0E90NcrWKrR3HPais5v9gWYKu
-	wa/GFUrAsL035kx/CLWTLu67uAiQEMe+5VIyIaFJPYpPE35YvdTDk+knBTqfv65Lak3fBj753QI+E
-	0rr5GDHet6LIXk52yg6zOL/Zp4tXQ+EIPOiuSpbTpGV9ajkZhEmlgZj6nLWjYAL/8nsOd/Cmp7DYK
-	Q7YyzCGIO9EBzV3LMyRU3q+XdZVdRn3D4jPE2vk6eVNyJzL7SyyOSwH/JZopqqsnT1EBcNM+X/lzf
-	NieEUS/jhykb0nKrvLD96X3S3ifct/7ezkVTy/YsZO8RZfi7q9z7UEpZFoUBFWBLgyuQgEZ6FKaKN
-	HJbQYrVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w9A0nRJZyImgfZelDYVNznpovHLycNtzQfn64oNPZOA=; b=oOFQWQx3rZ+nyAQ52sTNM6AF5R
+	mug3GikcjcEAElcwHAM3qXE2yjYbBUiRqx0J8T6sxbUaZPdxbJnczMMs3W4j203u2X6CKhfrCWOey
+	zSxizS3hf/5KboqfrA37eMuWbkU7ZhQOnnHXHzqjpxvCxZ+z5H+8vwZBJHRbvnFOV9dX9JDfvUCQC
+	iGcMHBOdYAKfFbGIsZcZNftNBaIBlYmwxADLRHxYMpAHuRWAYKwJVovfw62E6QF7chCGKUDphywgS
+	OVoN80dPMQ4kpRkJnELp9bk6Ts6KFYcJvyGNxNnDJ2/OZswD631ZVT7UMbMs/E7MrpfcFr/Dy94q4
+	km3RuiNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tus2d-00000008tdL-25Cm;
-	Wed, 19 Mar 2025 11:56:59 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tus0v-00000008tO0-1tsu
+	id 1tus7Q-00000008uSc-1t4l;
+	Wed, 19 Mar 2025 12:01:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tus5j-00000008u8x-0deO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 11:55:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FuWYO/gPDC0lOVWSpz1wQf2LMJ+ZVQoCV6EqFbTz5RddteFd/31f3mh3tFvfapAeDfCbZD44Su6xkwZgesY1KUcwWKDELOlzPXS5FDeOE6AVDWkY9dmiUm49QbLbInuKtoa56C6kDT130YVxp6vXVJ1gJDo4NGnYjuqKgP+L+E2jYgtRt4LuGJQvETw/zfiIrDzd1z16ujLHBThVtlxdcImbJoYB2PCAj5PWmzvdnVFhbHc9FG9SPvbMJmJvZ4lPmdakGb8IjrjvvXGRZUthkml8o/BWcCQYkkr17jYBvpLrWQqRWdQRzDj/7vQEc9uLmA9hoKozRODNqihral49Bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GgAnZy40SGeffOzc3UEV2JJtgpsYJnjm9SRfktYn3Pk=;
- b=B29e2yfxRDwxyd4f1JF3STnthlK26tuORPhUQSW10ZcbTiF6H95l9caIaVKwStP6OYV3NO8hGAhZmt0d2dV3kzce/ltn/lt47QvBr52h8oS0noXlCC/lv+ZtvVqVHgrKI69fDTplF1AeuxnZGcUYbLH+1UZ9AnoI8RVroYTyYks3Ang7fQu5JKX4D08f5Yao94yJq82G/01UB2H74l1jMSlWW+fsndZuZ0c4G9kymNqDVbKraqvCnLErbo+gH6vq1H9Wo0T4KUPsab0xot3K2lwNHW/CJYtfBf8RxxffeW2uVYeXgSFmlUksslZd6IKRuiAnhe4OOyQN717NaY6gzA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GgAnZy40SGeffOzc3UEV2JJtgpsYJnjm9SRfktYn3Pk=;
- b=GBaJ895hHLlK8eK4qogLHaNx5WODlQZWVX/DwXRmWGi/RZR6DsvBt3Q3XJz6xADCXNQSL8SygXYps76WVALTOCXiw1AGNC6pZxhxqm0AH73nJsQTBRXllL3V84zm4jFpNdR4MXTImU3awjykPo5SSDg/u9xS/EOU2/Ti3s5+aXuFehQmrbepFhslPOADTih896+uO1uPg6TAnPfCY/vgdXK643GVujq87Qs5CjIMhSe4DDJSiznHojHaXkYPCUqjlAyZ+ypjOTs1lW2UCMjNkoHTmp1a8voj5lxVmW8RIYX4i3br9HJi2ZlUFHx2ay9sngDCBrDxlZ/c2eSINyIcHw==
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by PAXPR04MB8701.eurprd04.prod.outlook.com (2603:10a6:102:21c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.31; Wed, 19 Mar
- 2025 11:54:57 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db%4]) with mapi id 15.20.8534.031; Wed, 19 Mar 2025
- 11:54:57 +0000
-From: "Florin Leotescu (OSS)" <florin.leotescu@oss.nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "Florin Leotescu (OSS)"
-	<florin.leotescu@oss.nxp.com>
-CC: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
-	"linux-hwmon@vger.kernel.org" <linux-hwmon@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Viorel Suman
-	<viorel.suman@nxp.com>, Carlos Song <carlos.song@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "festevam@gmail.com" <festevam@gmail.com>, Florin
- Leotescu <florin.leotescu@nxp.com>, Frank Li <frank.li@nxp.com>
-Subject: RE: [PATCH v5 1/3] dt-bindings: hwmon: Add Microchip emc2305 support
-Thread-Topic: [PATCH v5 1/3] dt-bindings: hwmon: Add Microchip emc2305 support
-Thread-Index: AQHbmMW8Q28MT9cR4kuOYH4VYVqiGQ==
-Date: Wed, 19 Mar 2025 11:54:57 +0000
-Message-ID: <DU7PR04MB111631E2E5B074A306033D001FFD92@DU7PR04MB11163.eurprd04.prod.outlook.com>
-References: <20250318085444.3459380-1-florin.leotescu@oss.nxp.com>
- <20250318085444.3459380-2-florin.leotescu@oss.nxp.com>
- <20250319-optimistic-positive-peacock-cc26b1@krzk-bin>
-In-Reply-To: <20250319-optimistic-positive-peacock-cc26b1@krzk-bin>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DU7PR04MB11163:EE_|PAXPR04MB8701:EE_
-x-ms-office365-filtering-correlation-id: 6f82039a-adbc-4c8c-f5c8-08dd66dcdf08
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?RG9nWGtiYXMzRG5DdTZVeGtDa0hrVHBqWkI2RlhXV1M5bG9DUkVoY0JEMEpy?=
- =?utf-8?B?ODF3S1BhSUpvUXZYZXg4MjZadzBYTmJORTdpR0l1WXIwcUJaWmZUR2JPUXlm?=
- =?utf-8?B?c092SU5iQ2JhMzNNdU9qMEVCakhGUFZuZW4waEdWY2VLTTJ3K3c4NlZSb2Q1?=
- =?utf-8?B?eTNTbDdoUy9Yc1Fhc0UzR1FoeVh2bG1iMzJQRWgvMDV3OE9aYTlHWDVodTdl?=
- =?utf-8?B?elg5WDNjY1Npd1M1d0dMNEltMGdpeGNBWEFHbWN5VmJNY3Jzc3NoK29jc2Rl?=
- =?utf-8?B?bkJoQXo1SFZWNCtSZXNXaHlLTVc2S0QwZDEyd2F3YUJ1NzZYYTFoQWhKNkdm?=
- =?utf-8?B?czNIemp0SEc4MmVuODRFNWtrcGdZNVBWTFNVY1hTaGlQVUl6Sk9SUHNjTlI3?=
- =?utf-8?B?SmpIVzVJQ3dQR2QvMmw5ZmxtejZsSnB6NmZ4QXZWVmNGODlNa1VBY2NWZndq?=
- =?utf-8?B?NjdQOERNL2ZXWE1xRDJDMm9OYnBvd0ppTm9tbytNcWR3NTRML3hXZ1pTRTh2?=
- =?utf-8?B?aHAveDREWElCd2NDYU1VOE9POUE0L001cFMra005cng4SGpxZUxvMTlrTUw2?=
- =?utf-8?B?NjdhZlB3OWRKZTFFb1pnKy9EZmVQN29YZ1hGQUlQS2g4WTdpKy9vZHJncTdu?=
- =?utf-8?B?ZDVQLytPQ1Z5d0hvazdOa2pLZWgveDFxZzhEUDRIbGRuaXRCK1hjcDYyUDBK?=
- =?utf-8?B?ejVXQ2t1N3Zxa21saTdHNUppUWxZU082Q1NHVXplaVV0RHM2WGFxZThOYXBL?=
- =?utf-8?B?K09KcmdkYVBTdmtaQUsxMWUwUVU3ZWJmUUhkSjNvckhVVlNrdkJQVUpvQ0x3?=
- =?utf-8?B?d3hZRWlGSklmZURSUWxxc0VPY3c2ZktGWGtxYWxsRlp3ZmhiUW9JM29BdHEy?=
- =?utf-8?B?RVVNOEo2Rzd0OVZEdjh5dmJBbm5Ld0ROdFNlZDNPYnJQVmcyTkdFa21lR1BF?=
- =?utf-8?B?bm96K2pjbEIrbVpSTjdyU2VTdXVVOVV0aVE1VVkydFhUQ2FvbFVrWmxLSFFL?=
- =?utf-8?B?QU0rbGk1bVBiRGhrQ0ZzT0FmYzVpYUc5dVZ4QmxMbStzb0ltTGF4akFWcEQx?=
- =?utf-8?B?Z1dVS0JBSXpseHQ1V1cyWHdNZ2VSOGRCMzNBOEtjVFJhZGV2ZlF5OTYvSTJR?=
- =?utf-8?B?ZzJJOXBzWmFsSHNDWHduT2VKRWlZSGc2eVNvbzVqclRyZ2hlNnE2SDFUeUM3?=
- =?utf-8?B?ZXFITG5XMkgxRkJHR3NuWmFBaVQrY2NETjZXYTVhWVg2cW91RXZPQnVMUU5I?=
- =?utf-8?B?UUV2VkNQbkExVVMwV0ZONEwyd1htSHFNRXVMS0Vyc2x2TEhQUks2K250QmVn?=
- =?utf-8?B?T0V4dFBiTG1ERVJwVzVqM003WXJFN2hiR0VXdzBia25Bd0dMMExndWhlUjhl?=
- =?utf-8?B?clI2NCtHRHUyMTZPNldmUERjc1h2WmozZ0MwcW5tU29oMnROZzhJVWtEOG5h?=
- =?utf-8?B?a2R6S1dzUTlNb2g5ZEJMcVFvQ1dtMEkxZjdRa1VRSU5lZWt5b1FHZSs5Zmhl?=
- =?utf-8?B?SjYxdC9WQmFBaUlzQ0Q4bEMvY2RNMVBqZ29ZMFVVYkFtUXRrcEhUZGZwYXgz?=
- =?utf-8?B?U2tyL0Z6b0hFV3BRdkVPWHJ1OWlFc2w1NFRjZlEzL3pqUDRmNTh6S0Rzb0NG?=
- =?utf-8?B?Y1RGTkNSU1o2SWRNS3JDWlVtZUNGY2lMdERzUEZ4TFFPM2xjeENIcmNSZm8y?=
- =?utf-8?B?U3NhS0l6Vk9MVXB3cFVRUkIxbkFoRS9sTTc5WVpNZkVWN1RjcWRvSmk4N3Nx?=
- =?utf-8?B?MmQ0SEhBVzkrd2MycTdkQlM3QTAxUjlkMHI4T3hheUl1bmpvME1UMHZQV1hx?=
- =?utf-8?B?Qm5JZnZJeXhiNmhNMEFJb1R2MlQ3Mzk5a2pRaUc1OGM0YmVyaSszSDRrWGxZ?=
- =?utf-8?B?WlRwMDdiUThqNGR3VzlXTWRzYzZFUENtUHFZMXpxeVFIMVE9PQ==?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TE1YNU1wU1VLTEZBVitwY1NjbkdESUtaUmhqcUxnemtBMTBveGZEc0svbWw0?=
- =?utf-8?B?anM5NnZ6K1FFUWd5OEtPUDlleUVPdU9pSUh1bjVsdlNQOW4wTlhTT0M5NUg1?=
- =?utf-8?B?b0J0MWFnQm1sdUo5UnptUDhmVnFubVE3MXZUOGJORzg5NklMZDM0aG1DSlRF?=
- =?utf-8?B?KzdYakQxbEFkYTlJaHRwSVZYUFZCbkFsWTBxVnp3MWxWa0ZIbEIrTXFVVUo4?=
- =?utf-8?B?bzRhdDVxZ1RJTlp5c2FHODlzTzltbG8rOE9PTXJ0anY3VnFwNEJqMnpCOXpz?=
- =?utf-8?B?bWVkemhRdlJBWGFlckV2Q3MvSkxtV1NrV1JCVVAraU9iU2ZKWGJER2U3SlNW?=
- =?utf-8?B?S2tiemxUU3ZWdndQdHRwY1p4TllXOWhvbC9ZZkMzRnZGTnBNczV5TE5rRldU?=
- =?utf-8?B?TDVEY2pzU3dLbDBndGZOUGtZQmNqbWF4RmZTVkV5SDRQeWdEMXR3YkhzS0FG?=
- =?utf-8?B?eTRSY2FBWTZjYzFCR2J3di9ZZnRMVjdjc2xGeHRBNWh5WUZSMHIwdVZpbXA3?=
- =?utf-8?B?dzZ3WURhc0lTeDdNbXNIVWw4Z0kwb1luV3VETlhaR2FDLzRrQlFJSnpVeEhj?=
- =?utf-8?B?TkJadVcwRUJhZ0Q2VUppUWZkYnpsZTlnRnNHcTNOalg0SzQ4WnVxNTdhclNM?=
- =?utf-8?B?TnFxdnlyT05hSWQxYnp5MkRhS0lTR3hydVZkbXZNV1h0cE8rNWlGWGttMmFt?=
- =?utf-8?B?TzI3Z3NvVzZCT1JNcjBqSjRyT21STG1iK2QrSkxQck8vSXU0UEhmcDg0UXY0?=
- =?utf-8?B?L2xTcVI2MTRUYUdaSjdzd28rQ1ovbXJmQjBSMXk2cG9STm5odVFSbHlIUFR1?=
- =?utf-8?B?MFNWRm9wZmY3Z21IYlpCM2RVUVd0a2V4ZWZZbTQrOTFuU0xrZUJweFU5LzdB?=
- =?utf-8?B?ZXkwYkRSYS9qaHJ1MHBiSlRoaytXaEI4U0wvU0hMMTFsQjhBb2laTUdBODNs?=
- =?utf-8?B?T29ueU9NQ2F5YlVVQXE1K2I3REZwK3d3c1orMTdBOVphN1lEWDd6ZnlHbGEy?=
- =?utf-8?B?aDUwaTRKV0xaQW5kcmh3SlcvV3dOVWNkcVIrT3Vvd2NocHQ5enNKRGF3UVQw?=
- =?utf-8?B?OEhrNXIrMVVSL3QvSXhpZXc0ZVY3TDZYK0h4U1NzOCs5cXV2eFQzMkRwa1k3?=
- =?utf-8?B?YVVOblhtQjFpL2RkVWMxYTAxQ21ZTzJ1Z3A0MlI4NHlmUUxDZmJpRkV3MFJJ?=
- =?utf-8?B?R2M4ZkRUL0VENFpnbFpueU9TMmI2TjVVaGcxWmN6OURKaEcyNk5mbmZ2WjJu?=
- =?utf-8?B?UThZeGZtbVQ4TFpvMVNCdlNRMU5UUE1CK2JYazBRV0RPV2ZDcWs3ZTU3N0Zx?=
- =?utf-8?B?QnF6WFdrSk1HRUk5OGRUR2xOS0ZjYS9HNGZCU29JQUlBZG9yNDRhRFk2SGZl?=
- =?utf-8?B?cVNRNGlocks2TEZVcmpIa1FLb3AzdXFGZzNSVTNrdk9Yd0cvMEdzZ2NkRXpK?=
- =?utf-8?B?alZLb0Y4RnhhMUtHM3NHTGxOQUFuZXI5QVJVNmxxMWEyM3doT2VwNCtLVUFR?=
- =?utf-8?B?MnRUUG1lY1JyWm01K2xHNnV3S0pBUnU2R2VCQXBHZXRJbW1halRTUDB4OHNQ?=
- =?utf-8?B?WDArZ0xxUEFQdXpkbDBNRXlnTG9pMGZlMHJWRnhqcGlocFh2SDFKSWtGRlRv?=
- =?utf-8?B?NURnZWJ5dVkwY0htMG5tT0RjN0pGN2dYMUNYdW1MYXBwUHNTaXpPK2tVb0hz?=
- =?utf-8?B?bVNJek1EMExKZzQyaThHbTBOQTVva04wc3pWM0lVWDBhUXBoVk9WWFBlaHlk?=
- =?utf-8?B?dkpac1lvNndrVHFIMCtZclJlREZibU5zQnhWZzdiMW5INS9YNzF2NWdRczFB?=
- =?utf-8?B?elBUVHZCK2JobVJ4Y2VVUkF2eWphL1Y0TjJOWkcwcjg0bFRRaEQ1cGlldnh5?=
- =?utf-8?B?NGgvZjRLbzJoMjc5bWlHblRrOXNsQTJpejlZZVBibi9MVzl0NmVEdytoOUJo?=
- =?utf-8?B?UXNzeVg3dTU4aXJocFROSmJ2WmRvcGtURVJtZ3o3aTlDMEdrSG9JMi9sZXZO?=
- =?utf-8?B?RVhNQ3VoWGt0eTFTc1J6eUtzVFllMmtrZS9Sb3RJeXY4TThEc2tUUThzcnFv?=
- =?utf-8?B?dkNqNW1TY2w3QWtMblgrbUcyRFUvczRDZm0xcWN2TTIzcHhlMnhmQU1mcitC?=
- =?utf-8?Q?F52ZEXAFZrDJM5MhcJF99WngF?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 19 Mar 2025 12:00:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C7D5113E;
+	Wed, 19 Mar 2025 05:00:16 -0700 (PDT)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0F3B3F694;
+	Wed, 19 Mar 2025 05:00:06 -0700 (PDT)
+Message-ID: <cc68d43f-4719-4f57-a38c-fb5afe8d29cc@arm.com>
+Date: Wed, 19 Mar 2025 12:00:05 +0000
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f82039a-adbc-4c8c-f5c8-08dd66dcdf08
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Mar 2025 11:54:57.7092
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: XEBxy8gB6PXniy4o8HyeBU6isKJIdrPipM2K3CrDWFfHeIe+loQfJiJmAJCZDi9OCWyZcJq4juosWLv/SaZ6qA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8701
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/8] coresight: Convert tag clear function to take a
+ struct cs_access
+To: James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, leo.yan@arm.com
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org>
+ <20250318-james-coresight-claim-tags-v2-2-e9c8a9cde84e@linaro.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250318-james-coresight-claim-tags-v2-2-e9c8a9cde84e@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_045513_486116_D0523D47 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250319_050011_283707_D2184F2A 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,55 +69,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pj5PbiBUdWUsIE1hciAxOCwgMjAyNSBhdCAxMDo1NDo0MkFNICswMjAwLCBmbG9yaW4ubGVvdGVz
-Y3VAb3NzLm54cC5jb20gd3JvdGU6DQo+PiBGcm9tOiBGbG9yaW4gTGVvdGVzY3UgPGZsb3Jpbi5s
-ZW90ZXNjdUBueHAuY29tPg0KPj4gDQo+PiBJbnRyb2R1Y2UgeWFtbCBzY2hlbWEgZm9yIE1pY3Jv
-Y2hpcCBlbWMyMzA1IHB3bSBmYW4gY29udHJvbGxlci4NCj4+IA0KPj4gU2lnbmVkLW9mZi1ieTog
-RmxvcmluIExlb3Rlc2N1IDxmbG9yaW4ubGVvdGVzY3VAbnhwLmNvbT4NCj4+IFJldmlld2VkLWJ5
-OiBGcmFuayBMaSA8RnJhbmsuTGlAbnhwLmNvbT4NCj4+IC0tLQ0KPj4gIC4uLi9iaW5kaW5ncy9o
-d21vbi9taWNyb2NoaXAsZW1jMjMwNS55YW1sICAgICB8IDExMyArKysrKysrKysrKysrKysrKysN
-Cj4+ICAxIGZpbGUgY2hhbmdlZCwgMTEzIGluc2VydGlvbnMoKykNCj4+ICBjcmVhdGUgbW9kZSAx
-MDA2NDQgDQo+PiBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaHdtb24vbWljcm9j
-aGlwLGVtYzIzMDUueWFtbA0KPj4gDQo+PiBkaWZmIC0tZ2l0IA0KPj4gYS9Eb2N1bWVudGF0aW9u
-L2RldmljZXRyZWUvYmluZGluZ3MvaHdtb24vbWljcm9jaGlwLGVtYzIzMDUueWFtbCANCj4+IGIv
-RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2h3bW9uL21pY3JvY2hpcCxlbWMyMzA1
-LnlhbWwNCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0DQo+PiBpbmRleCAwMDAwMDAwMDAwMDAuLmU2
-MWVmOTdlNjNhZg0KPj4gLS0tIC9kZXYvbnVsbA0KPj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZp
-Y2V0cmVlL2JpbmRpbmdzL2h3bW9uL21pY3JvY2hpcCxlbWMyMzA1LnlhbWwNCj4+IEBAIC0wLDAg
-KzEsMTEzIEBADQo+PiArIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAtb25seSBP
-UiBCU0QtMi1DbGF1c2UpICVZQU1MIDEuMg0KPj4gKy0tLQ0KPj4gKw0KDQo+IE5vIGJsYW5rIGxp
-bmUgaGVyZS4gVXNlIGV4aXN0aW5nIGNvZGUgYXMgdGVtcGxhdGUuIElmIHlvdSBmaW5kIHN1Y2gg
-Y29kZSwgc2hhcmUgc28gd2UgY2FuIGZpeCBpdC4NCg0KVGhhbmtzISAgIEkgd2lsbCByZW1vdmUg
-aXQuDQoNCklkZW50aWZpZWQgc2ltaWxhciBibGFuayBsaW5lIG9uIHRoZSBmb2xsb3dpbmcgZHQt
-YmluZGluZyBmaWxlczoNCg0KMSBhZGksYWQ3NDF4LnlhbWwNCjIgYWRpLGFkbTEyNzUueWFtbA0K
-MyBhZGksbHRjMjk5MS55YW1sDQo0IG1heGltLG1heDIwNzMwLnlhbWwNCjUgbWF4aW0sbWF4NjYz
-OS55YW1sDQo2IG1heGltLG1heDY2NTAueWFtbA0KNyBudXZvdG9uLG5jdDY3NzUueWFtbA0KOCBu
-dXZvdG9uLG5jdDczNjMueWFtbA0KOSBudXZvdG9uLG5jdDc4MDIueWFtbA0KMTAgdGksYWRjMTI4
-ZDgxOC55YW1sDQoxMSB0aSxhZHM3ODI4LnlhbWwNCjEyIHRpLGluYTJ4eC55YW1sDQoxMyB0aSxs
-bTg3LnlhbWwNCjE0IHRpLHRtcDUxMy55YW1sDQoxNSB0aSx0cHMyMzg2MS55YW1sDQoxNiB3aW5i
-b25kLHc4Mzc4MWQueWFtbA0KDQo+PiArJGlkOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvc2NoZW1h
-cy9od21vbi9taWNyb2NoaXAsZW1jMjMwNS55YW1sIw0KPj4gKyRzY2hlbWE6IGh0dHA6Ly9kZXZp
-Y2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1sIw0KPj4gKw0KPj4gK3RpdGxlOiBNaWNy
-b2NoaXAgRU1DMjMwNSBTTUJ1cyBjb21wbGlhbnQgUFdNIGZhbiBjb250cm9sbGVyDQo+PiArDQo+
-PiArbWFpbnRhaW5lcnM6DQo+PiArICAtIE1pY2hhZWwgU2h5Y2ggPG1pY2hhZWxzaEBudmlkaWEu
-Y29tPg0KPj4gKw0KPj4gK2Rlc2NyaXB0aW9uOg0KPj4gKyAgTWljcm9jaGlwIEVNQzIzMDEvMi8z
-LzUgcHdtIGNvbnRyb2xsZXIgd2hpY2ggc3VwcG9ydHMNCj4+ICsgIHVwIHRvIGZpdmUgcHJvZ3Jh
-bW1hYmxlIGZhbiBjb250cm9sIGNpcmN1aXRzLg0KPj4gKw0KPj4gK3Byb3BlcnRpZXM6DQo+PiAr
-ICBjb21wYXRpYmxlOg0KPj4gKyAgICBvbmVPZjoNCj4+ICsgICAgICAtIGVudW06DQo+PiArICAg
-ICAgICAgIC0gbWljcm9jaGlwLGVtYzIzMDUNCj4+ICsgICAgICAtIGl0ZW1zOg0KPj4gKyAgICAg
-ICAgICAtIGVudW06DQo+PiArICAgICAgICAgICAgICAtIG1pY3JvY2hpcCxlbWMyMzAzDQo+PiAr
-ICAgICAgICAgICAgICAtIG1pY3JvY2hpcCxlbWMyMzAyDQo+PiArICAgICAgICAgICAgICAtIG1p
-Y3JvY2hpcCxlbWMyMzAxDQo+PiArICAgICAgICAgIC0gY29uc3Q6IG1pY3JvY2hpcCxlbWMyMzA1
-DQo+PiArDQo+PiArICByZWc6DQo+PiArICAgIG1heEl0ZW1zOiAxDQo+PiArDQo+PiArICAnI2Fk
-ZHJlc3MtY2VsbHMnOg0KPj4gKyAgICBjb25zdDogMQ0KPj4gKw0KPj4gKyAgJyNzaXplLWNlbGxz
-JzoNCj4+ICsgICAgY29uc3Q6IDANCj4+ICsNCj4+ICsgICcjcHdtLWNlbGxzJzoNCj4+ICsgICAg
-Y29uc3Q6IDMNCj4+ICsgICAgZGVzY3JpcHRpb246IHwNCj4+ICsgICAgICBOdW1iZXIgb2YgY2Vs
-bHMgaW4gYSBQV00gc3BlY2lmaWVyLg0KPj4gKyAgICAgIC0gY2VsbCAwOiBUaGUgUFdNIGZyZXF1
-ZW5jeQ0KPj4gKyAgICAgIC0gY2VsbCAxOiBUaGUgUFdNIHBvbGFyaXR5OiAwIG9yIFBXTV9QT0xB
-UklUWV9JTlZFUlRFRA0KPj4gKyAgICAgIC0gY2VsbCAyOiBUaGUgUFdNIG91dHB1dCBjb25maWc6
-DQo+PiArICAgICAgICAgICAtIDAgKE9wZW4tRHJhaW4pDQo+PiArICAgICAgICAgICAtIDEgKFB1
-c2gtUHVsbCkNCj4+ICsNCj4+ICsNCg0KPiBKdXN0IG9uZSBibGFuayBsaW5lDQoNCk9rLCBJJ2xs
-IHJlbW92ZSBpdC4gVGhhbmsgeW91IQ0KDQo+IFJldmlld2VkLWJ5OiBLcnp5c3p0b2YgS296bG93
-c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+DQoNCkJlc3QgcmVnYXJkcywNCkZs
-b3Jpbg0KDQo=
+On 18/03/2025 16:21, James Clark wrote:
+> The self hosted claim tag will be reset on device probe in a later
+> commit. We'll want to do this before coresight_register() is called so
+> won't have a coresight_device and have to use cs_access instead.
+> 
+> Also make them public and create locked and unlocked versions for
+> later use.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+
+minor nit:
+
+The restructuring looks a bit confusing. Could we start with :
+
+coresight_{set,clear}_self_claim_tag_unlocked in Patch 1. Rather
+than rename what we renamed in patch 1 again here.
+
+
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c | 17 +++++++++++++----
+>   include/linux/coresight.h                    |  3 ++-
+>   2 files changed, 15 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 3f1c996d668a..9ff601e2415a 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -151,12 +151,21 @@ static inline void coresight_set_self_claim_tag(struct coresight_device *csdev)
+>   	isb();
+>   }
+>   
+> -static inline void coresight_clear_self_claim_tag(struct coresight_device *csdev)
+> +void coresight_clear_self_claim_tag(struct csdev_access *csa)
+>   {
+> -	csdev_access_relaxed_write32(&csdev->access, CORESIGHT_CLAIM_SELF_HOSTED,
+> +	CS_UNLOCK(csa->base);
+
+This looks to be hard coding MMIO based access ? Should we abstract it 
+based on the csdev_access_** ?
+
+
+Suzuki
+
+
+> +	coresight_clear_self_claim_tag_unlocked(csa);
+> +	CS_LOCK(csa->base);
+> +}
+> +EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
+> +
+> +void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
+> +{
+> +	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
+>   				     CORESIGHT_CLAIMCLR);
+>   	isb();
+>   }
+> +EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
+>   
+>   /*
+>    * coresight_claim_device_unlocked : Claim the device for self-hosted usage
+> @@ -180,7 +189,7 @@ int coresight_claim_device_unlocked(struct coresight_device *csdev)
+>   	if (coresight_is_claimed_self_hosted(csdev))
+>   		return 0;
+>   	/* There was a race setting the tag, clean up and fail */
+> -	coresight_clear_self_claim_tag(csdev);
+> +	coresight_clear_self_claim_tag_unlocked(&csdev->access);
+>   	return -EBUSY;
+>   }
+>   EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
+> @@ -211,7 +220,7 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
+>   		return;
+>   
+>   	if (coresight_is_claimed_self_hosted(csdev))
+> -		coresight_clear_self_claim_tag(csdev);
+> +		coresight_clear_self_claim_tag_unlocked(&csdev->access);
+>   	else
+>   		/*
+>   		 * The external agent may have not honoured our claim
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index d79a242b271d..00134a80d358 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -685,7 +685,8 @@ extern int coresight_timeout_action(struct csdev_access *csa, u32 offset,
+>   
+>   extern int coresight_claim_device(struct coresight_device *csdev);
+>   extern int coresight_claim_device_unlocked(struct coresight_device *csdev);
+> -
+> +void coresight_clear_self_claim_tag(struct csdev_access *csa);
+> +void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa);
+>   extern void coresight_disclaim_device(struct coresight_device *csdev);
+>   extern void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
+>   extern char *coresight_alloc_device_name(struct coresight_dev_list *devs,
+> 
+
+
+
 
