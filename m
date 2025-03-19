@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85AA7C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 19:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 338EEC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 19:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:To:Cc:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0cOK72YPcxWKVeGOnpXw6RBXM4cFEe8takUzoN19ryU=; b=e4aSBfKzUjHIK67pjfeZdzwR7C
-	8BlgdSaD79JTW/JGWv0nqEhl9e8eT+qkioQrO0TuJJRcXb76Y4AWpYq8/E14NOeulkmoAf4FdGO94
-	0hsk00pFJYgBJehL0u46tAqZ7xxlDHu/yE8GZmg0b/f92FU+HRbXolCoLlDz92xHIa2yvGIjyblCb
-	I830nrCd+yrXx2A6wAkcec5Td9jwjHM7OglRfGtIpuERrCJ7UZYovPiX739quVfbgqIAWoFpp7isz
-	xEZ1bPBM/XQkFEH4WjlDbE6OwM6dRLyjFR1mEGWOfXVgK0UEmXAuUoN0JHJBkgILw3uI/yDwtFAR1
-	7MGS1k+w==;
+	bh=OJj+NdXkHIXBePnFJJA83VwGqHVwR2wqCNHnWezrofs=; b=u7CeTld18YL71EyEjM7tATeJD+
+	nFj5vHnMi/gn2fXgvsO4rNjzyEYZg57YE3Bs3rde9ExRqto/3aQb46iPS+otw6YBSdnNeeCj1xMBr
+	n/QYoDWhvc5657gw9Iio37gNGtGHYh8GJFn8InW971fFj/5dMC8OQrJXrhvpaTGW88tuCga1Kof1p
+	5MkarfBtZCEZmfDV8/LyfEb8aTYN5Spei8fsq+gMdSA2WPiDfOlG2osMLy4tUdfZueiWfeKI5nwtg
+	fXF7rsb72FQTcmUrX6YRC2DiV90cYNGxoV6rRKEuJO3lD01imnYfSCYE3qYpJgzqK0M+c0JSr9TQs
+	5FVR8ARg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuysb-00000009vsU-034H;
-	Wed, 19 Mar 2025 19:15:05 +0000
-Received: from out-172.mta1.migadu.com ([95.215.58.172])
+	id 1tuyuG-00000009wHj-3LEN;
+	Wed, 19 Mar 2025 19:16:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuymV-00000009ur0-2Rbt
+	id 1tuynC-00000009uwx-3eyf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 19:08:49 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1742411324;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0cOK72YPcxWKVeGOnpXw6RBXM4cFEe8takUzoN19ryU=;
-	b=H9jZ2K359uzwubWOxZhqIFjkympFHVgXw5gcPFu9B68z4JZ5NU/UPq93ekLtarpywymBUO
-	8Rdj4Esfp7xlRsID+5eX6VzXtUCEVES0wXeKgg9FrlFhyv6RUDjTAw+2mDKY6Z+VWe39RU
-	8H1eD5LhrVkEgF0iMpx16orixM6K1AgljRayCn/DlFPdjwa0y6Ht59EhEAYtAMJdo4CacU
-	GFAdR4pm/PG8NSwWnKjc+Lx98VS1ik8xTuWL6KgZ3YQEc0EK9hnNaX3mbVMpYHAnEIg5kE
-	nMbSTrv/OXZ6qQ9D/LNmrsroh8A8eO28KaHujgtscjt3QEmnKsKDPvHhceXXfw==
+	Wed, 19 Mar 2025 19:09:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AA563682F6
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 19:09:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9854AC4CEF2
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 19:09:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742411369;
+	bh=RBPLjNUl3VIgCUwL55Iwq9ZNU4VRiwiiacFlXXNL+W4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Hrl4k9IiaQWTGXLYNzGsGpVTwiTprR2dpXOBSflWxjmlY5daYNpEp2lxZCnbKFk6+
+	 ZzayEYLw74sTmo4+R9dFMWxnxK7hcPlTLxZwC9JwDAhXBj7owLhB2sHv6rLse3U7m1
+	 UAnVW2Jfe3BqAsxAjVPhhcvoekd9AfL8TncAAchtMXRFMpFhylqEb/o0SW8b6C8ylR
+	 XstlzHb0ZxXsLYJjR40rm+8mbLqKI+uL5wGu+NLuNUZmmJqvaMZp9lXXaWkhW4/qW6
+	 LAkb6YXBVO8dY4KjlHP1NNkNpFdkJKCaJESNJvwqyhuefufYmSwXH1H79M5YyZlOgr
+	 zhpTX1/krz0JQ==
+Received: by mail-il1-f169.google.com with SMTP id e9e14a558f8ab-3cfce97a3d9so9665ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 12:09:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXJ3lmDvgWQdJiEp51zXa6ZcfnmuzjgbZhvsRC5unD+5NHp7NYtQhGJ8tkEYfr0IBBvcfuQFE7aQne9YSLnVzIg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7bEoK4yNHtrsaEdop5SKqr5K465UxPPbwcATEksK0vOhSwrSx
+	KJu62KuodrlnQnRDfvWfKFm+iEDHJ0uSBVE4kJi6xmB+raX2WkNYWWL/rXe8eUayWYrh6olewjk
+	LX5bwRhgL6h5yYEr1ZusJ6xmK7Og=
+X-Google-Smtp-Source: AGHT+IFtVevrkFABOINXScOOgA9AGRqqqvUFyxFC0ELSxsLQH4NufJFrZAaqO6/fSKhNBd99jfQ6k4rNWb/XcuksXcE=
+X-Received: by 2002:a05:6e02:330a:b0:3d4:4134:521a with SMTP id
+ e9e14a558f8ab-3d586b4d53cmr48877015ab.12.1742411368864; Wed, 19 Mar 2025
+ 12:09:28 -0700 (PDT)
+MIME-Version: 1.0
+References: <ifqn5txrr25ffky7lxtnjtb4b2gekq5jy4fmbiwtwfvofb4wgw@py7v7xpzaqxa> <20250319183757.404779-1-wnliu@google.com>
+In-Reply-To: <20250319183757.404779-1-wnliu@google.com>
+From: Song Liu <song@kernel.org>
+Date: Wed, 19 Mar 2025 12:09:17 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW7Zz9EaW3+gtp2Ut-8DVB4F=Dacr2btJ8gL0OA4T6bQzA@mail.gmail.com>
+X-Gm-Features: AQ5f1JrvMc2DSMYvOGWV-yPMqfIA-IEZUbcWWmGIrNbqZw7eyyDT2c8uUkJ79Rc
+Message-ID: <CAPhsuW7Zz9EaW3+gtp2Ut-8DVB4F=Dacr2btJ8gL0OA4T6bQzA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
+To: Weinan Liu <wnliu@google.com>
+Cc: jpoimboe@kernel.org, indu.bhagat@oracle.com, irogers@google.com, 
+	joe.lawrence@redhat.com, kernel-team@meta.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
+	mark.rutland@arm.com, peterz@infradead.org, puranjay@kernel.org, 
+	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 19 Mar 2025 19:08:17 +0000
-Message-Id: <D8KH97UKHPJW.300OTP897K3KO@postmarketos.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Ferass El Hafidi" <funderscore@postmarketos.org>
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
- "Artur Weber" <aweber.kernel@gmail.com>, "Karl Chan"
- <exxxxkc@getgoogleoff.me>, "Christian Hewitt" <christianshewitt@gmail.com>
-To: "Ferass El Hafidi" <funderscore@postmarketos.org>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Kevin Hilman" <khilman@baylibre.com>, "Jerome
- Brunet" <jbrunet@baylibre.com>, "Martin Blumenstingl"
- <martin.blumenstingl@googlemail.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, <linux-amlogic@lists.infradead.org>
-Subject: Re: [PATCH v4 0/2] Add support for Xiaomi Mi TV Stick
-References: <20250203174346.13737-1-funderscore@postmarketos.org>
-In-Reply-To: <20250203174346.13737-1-funderscore@postmarketos.org>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_120847_768554_3B922F4B 
-X-CRM114-Status: UNSURE (   4.70  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,11 +84,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Wed, Mar 19, 2025 at 11:38=E2=80=AFAM Weinan Liu <wnliu@google.com> wrot=
+e:
+>
+> On Tue, Mar 18, 2025 at 10:39=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.=
+org> wrote:
+> >
+> > On Tue, Mar 18, 2025 at 08:58:52PM -0700, Song Liu wrote:
+> > > On a closer look, I think we also need some logic in unwind_find_stac=
+k()
+> > > so that we can see when the unwinder hits the exception boundary. For
+> > > this reason, we may still need unwind_state.unreliable. I will look i=
+nto
+> > > fixing this and send v2.
+> >
+> > Isn't that what FRAME_META_TYPE_PT_REGS is for?
+> >
+> > Maybe it can just tell kunwind_stack_walk() to set a bit in
+> > kunwind_state which tells kunwind_next_frame_record_meta() to quit the
+> > unwind early for the FRAME_META_TYPE_PT_REGS case.  That also has the
+> > benefit of stopping the unwind as soon as the exception is encounterd.
+> >
+>
+> After reviewing the code flow, it seems like we should treat all -EINVALI=
+D
+> cases or `FRAME_META_TYPE_PT_REGS` cases as unreliable unwinds.
 
-Superseded by v5:
-https://lore.kernel.org/all/20250319190150.31529-2-funderscore@postmarketos=
-.org/
+Agreed with this: all -EINVALID cases or `FRAME_META_TYPE_PT_REGS`
+should be unreliable, IIUC.
 
-Thanks.
+>
+> Would a simplification like the one below work?
+> Or we can return a special value for success cases in kunwind_next_regs_p=
+c()
+>
+> ```
+> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrac=
+e.c
+> index 69d0567a0c38..0eb69fa6161a 100644
+> --- a/arch/arm64/kernel/stacktrace.c
+> +++ b/arch/arm64/kernel/stacktrace.c
+> @@ -296,7 +296,8 @@ do_kunwind(struct kunwind_state *state, kunwind_consu=
+me_fn consume_state,
+>                 if (!consume_state(state, cookie))
+>                         break;
+>                 ret =3D kunwind_next(state);
+> -               if (ret < 0)
+> +               if (ret < 0 || state->source =3D=3D KUNWIND_SOURCE_REGS_P=
+C)
+> +                       state->common.unreliable =3D true;
+
+I am current leaning toward not using common.unreliable. It seems to add
+unnecessary complexity here. But I may change my mind later on.
+
+Thanks,
+Song
+
+>                         break;
+>         }
+>  }
+> ```
+>
+> --
+> Weinan
 
