@@ -4,163 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CAB2C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5920C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xed8YsT/EBMWZhoaHPJhl1vmxTCUUnjxFB839JI3Mo=; b=K4Snq+UJaULtAOpK8xYAN+hOIO
-	SS0ko64/kflRevu+zUy8/sTy1f+QWdQRg7C7erJ7ZAqD+slhiX/8BVj4qUlHaPtMRehZeqrl1uxDd
-	USWjfHMg4fryFlBI4JL+60iS6tZNT3+K86qgDLoB6FyFtqcuNve6P7zumrybOqSubYjRoVeVcOE22
-	uGFenCmNE5szOVDe9Uj/dwRz3JGbGWCRYvD186l/71VaX8kSXTka7koUuL+jEntefEHszAGeHZiat
-	y7Jg1mEOzGjzTWCPOpLSmeUXVNvjZ2WqFGC3woGLVfS6zfA04o+f0xdb4GrdCU+wRijf5wKl4akvV
-	CNXcAUSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A4O8PI5SymyzH2mP51VHoBeIrKkmfpWSyi8Ona00XiQ=; b=Ax1IYTgFU8wnaRVwf8B7gwga2U
+	/5BWSFFeLTTcmYtkpXzg1r9Dju51tgxVPQLOU7moq78CEeQu3coHuhPhpRgbmr0/J1PI6Ms/uCK76
+	hMGBxlqhGzC97eohoieyRrK/HB8jpQAdpiknULl/AZPt67gN+SmE9fxrNteg8ijitrRnWxH3Irs2E
+	59v2xlaT4pl2G6Ocu0sAVCbzboG2tXXBuv1X/ln5F/hATWKUjX/l8HRZpDJk02sa9DUQV/9/MAGFE
+	tUTjvGqAIfKe9HvxUIjTwZ8L0L6/1k46SiZj4tSx+z52+qAUIhLmfiYFdsjScMUxHxozGE29K4+ee
+	Uj6Oop5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuq9T-00000008aRC-35BN;
-	Wed, 19 Mar 2025 09:55:55 +0000
-Received: from mail-vi1eur03on20608.outbound.protection.outlook.com ([2a01:111:f403:260c::608] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1tuqB9-00000008apr-1fBA;
+	Wed, 19 Mar 2025 09:57:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupzZ-00000008Y92-0Wlb
+	id 1tuq1a-00000008Yeb-3I6s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 09:45:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ywf/Cd57Vl561vazgiI6/gj6fl3l4+4+o1wbq6XUU8e7IHq22smVxnkBTUfvQ/enuiuMNtVotVtDqXuRjlU2f1n8Jp+GichAgHpODEwkgVsp+cM37j/QmFZO1xz49g5t+OqJQ9wxrVVziWgMHDaeQE/UI7q/dREV5xwE42V8SrK3wjFSgX8upJ/olm62l/YNANQCvfmMD9XVxaUzmnFbFAdIclshrVHm6F3zB9OTbbrspDdVoTTNs6FK6MkT5UwFqSrHfrP/H0kAxiYbUjPmWnuX/psj0X2l4pXA5i4ERh0TynreUwU3jdJQYsBFC8pahmy7vy1MX8E5krJu9ap/vA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2xed8YsT/EBMWZhoaHPJhl1vmxTCUUnjxFB839JI3Mo=;
- b=pwITypbbCDxrvs6oLBCmFhQnng8F+lnFPjZkTBpDtmHBXl2vtlEoko4L8EXXOvnSFb0NT8Ov75mNiW0x2FOaEPlMMS+GVGj6CR2v35JSniR8hy5kQjw73/z52nfPFGZyu0saB8K6OzzBwGPy+p6qqcEZstcXYJ7iPMNMmLMvwWKrrMob8Xl/rIaWWJ8qPDP+z9LsuTpZFB6KP0+WH0XDSqNn0RVLMg7kPvcs4JGHKxrwI80DO0XT6ZX7FzfmNpRgsPYXcnoU07IOiJ7m3kWsTe67mUVFxWPrL8+zcmU3Vu34A0oTN9uRdtclCRA2cAlsyG8NmnBgLnpQa8We+fuQKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2xed8YsT/EBMWZhoaHPJhl1vmxTCUUnjxFB839JI3Mo=;
- b=CreRkCy3pWPB/TlCehq70tFKPUCLva9MIfE+A6O9jGGiCKtJuc/H3CbPLS9IN1KWwMYhAevYKMPz7mKlz7N/GDH6khEz0HacNiZyZ1fNmRfAzOq5g8qAyL2NbZArQdxQPXi388PoBYniIPeeWNSftdgoDMgDmHN4Xa15LW2+MjjC7iADzKPqDKxpCrUDo1wk9iM5zlOpYeGVkBAx22RbbNIVaYeq+NYdqusIHWi1BB0KXhsCgduzSK8HQG7olsXKoSQ69C66Ye6TTYcDzXIhtNmZLVE7CAoeTBW85qIhAG5Zf0oqY2pOei7lr+cv1FzAXGpsi5/gKZClxpqsvQsjLA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by AM8PR04MB7346.eurprd04.prod.outlook.com (2603:10a6:20b:1d9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.34; Wed, 19 Mar
- 2025 09:45:37 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8534.031; Wed, 19 Mar 2025
- 09:45:37 +0000
-From: Daniel Baluta <daniel.baluta@nxp.com>
-To: shawnguo@kernel.org,
-	robh@kernel.org
-Cc: s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Wed, 19 Mar 2025 09:47:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 27FC1A49035;
+	Wed, 19 Mar 2025 09:42:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5636BC4CEE9;
+	Wed, 19 Mar 2025 09:47:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742377665;
+	bh=Ga6cduPK1BfqQQXpM0waODB2tzqbv9oLz7vtZxZm8aQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gfGVzs7IKAMTErRW/2ZplDVJsHrNvg6XSLRMTgjCg6rx5JQE3N8SWqNxmeWwWy5Sa
+	 yBYIlgGrsINtDKM14KZEWKt6T7c6w95rW82e/MQ62AclsdvfmrfjnAjyyVkrt2zZIb
+	 UYv1BdPPBThNS9NA5ExrYH3hM/n1KLY9+4aoYswLrrt3C0zHTEoTl3Z9Z3z56FBuxc
+	 Hh6E5l2VBWFKf0VCy5ryegzF8IsCHntfktyj1J1pJRqF232egwSuqf2geG+VQ0Pw2d
+	 ULXEjaimy8jrmS7kCDQhA+bMdMwn1uXp6VAVQqG5xTCk2L8WA+c/U/iEZhCMxaEks0
+	 aGrzAStxQ6ZYg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tuq1W-00F0Nh-Vv;
+	Wed, 19 Mar 2025 09:47:43 +0000
+Date: Wed, 19 Mar 2025 09:47:42 +0000
+Message-ID: <86plidmjwh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	frank.li@nxp.com,
-	aisheng.dong@nxp.com,
-	daniel.baluta@gmail.com,
-	laurentiu.mihalcea@nxp.com,
-	shengjiu.wang@nxp.com,
-	iuliana.prodan@nxp.com,
-	a.fatoum@pengutronix.de,
-	mathieu.poirier@linaro.org,
-	linux-remoteproc@vger.kernel.org,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v6 5/5] arm64: dts: Add dsp rproc related mem regions
-Date: Wed, 19 Mar 2025 11:46:21 +0200
-Message-ID: <20250319094621.2353442-6-daniel.baluta@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250319094621.2353442-1-daniel.baluta@nxp.com>
-References: <20250319094621.2353442-1-daniel.baluta@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM0PR10CA0069.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:15::22) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|AM8PR04MB7346:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c1a674a-9f15-42ff-8f8a-08dd66cacda5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kKGCYQ6v+v/eQeXCrmUOTsJhCnofCzqDKEknBKJi/V1rVMdggKY+l3cL9mSd?=
- =?us-ascii?Q?qnTup++enMGHj3WabKpinZNr/1Mf9zy2DbIgkLThESUDoPXhWuceiBxIS2+r?=
- =?us-ascii?Q?HTCoXbsWVJptm1u4JmFpMAqFO0XhQzTQbx+AH2ArXy5lM16ZjC1hqywOrHLC?=
- =?us-ascii?Q?ampEKSDv/tUFTU7852yCH+ttyYX+51u/U8OkrhHVH4hoLyoAyJENCj0Bv6Wy?=
- =?us-ascii?Q?11YTxPI1GkKB8EOg7jJ4Az0lpdLuptTg5QUxo94+SYN2kGRkdUYIZb3X+01/?=
- =?us-ascii?Q?kVTo/96lWtX0DQXfXOxgn9YfkMgmVXK7sHf8qUpy7RImxNj8rLHBcbWYy3kg?=
- =?us-ascii?Q?SRrbIXN9UEixv7I79S9gDvs/YhhFht5zyqm3ez/5I3IjB9GZFQzGG2ZZ9hxo?=
- =?us-ascii?Q?zQELGDU3E3va+PogIV5XAeUUf7LXxycVT7gaL+X4y4RZw2fLv3qzd/bNyaxt?=
- =?us-ascii?Q?TArThpXcXD8rdcdrf4rhpfw4Yp7lVZRItyVT4qTLVXBtJb4CboQgEF/9C9Ri?=
- =?us-ascii?Q?icCvYZMI7lo8XjavOFcopqqip0clWComRx4bD4vXbY1vFZeX1G1YU/tn36DQ?=
- =?us-ascii?Q?etKDn106gloGmaSzUkjfDE/Wev6QFdiiwDH7zxN/hukJyEtcRLxj9RbRNtoP?=
- =?us-ascii?Q?72qsgatqw1v4x6p5TtdupPyxjLpco++D3XmotNdjpSs7E5PuPMhSFcURDjxn?=
- =?us-ascii?Q?2W6QSo6u/eRI1MIOryNHcc+WEjPXEagav1z5M86zF6DFqB3vENhMnrkg/mO7?=
- =?us-ascii?Q?h1EXwUbKbAVjR9Wb0MWVc7B+MLzn2YZAjvTQX2svk1F66Z7vI7QSbHhW0rm6?=
- =?us-ascii?Q?h2Ax69hyQ0is1UeSEh/EFh0jJg/wEJzO51NyOTSATlPPRALycMOT/8a8m/Pf?=
- =?us-ascii?Q?3Wof2qfVgy2DtrJEgIF88mt1PujYKgX+SJ8Efdsvdosua9cHybY28VUHnSQa?=
- =?us-ascii?Q?Qg/EYMTVO9wAZQEQSNw3KJzkGSbtUx3L4tmdvW2T4fiOFAhffar+tFiX5Cp2?=
- =?us-ascii?Q?E+DjWB7FEo2WcuFLWz9Z9UmTJUeuDhZOc3Axpe9JNHOxsofOfRO0h0ehQ47L?=
- =?us-ascii?Q?KK8gWJvpnqInigHyPUuX7ptMrNM1Af/jLiHiCugBcYVG+8ms+1YMZZ+P0Lwt?=
- =?us-ascii?Q?kXXLAr7HtEEFQQlU7PsKgfHh5gISw9/rYf3YYeeEmHzx/NQW8uoPuMf8/cET?=
- =?us-ascii?Q?kU8W0c4IPb2Eegf5zhZPpujIxP/g/AZH/uDdzYXOEbnSMY2mAkRtCfDTd++V?=
- =?us-ascii?Q?MWiBolUZgiGVPRdf15GBgfzS5sgAOigiCiAokItPlyOSeL+Hjtv1voB3dIAq?=
- =?us-ascii?Q?VsmMsK05Tl5l2JvDnG1REhfMttbqCmjnxDLdSxjIMMbMZkBsWynbJUTVIJ5h?=
- =?us-ascii?Q?Btg5ZBdxh5STnxberSeCMRwqzymD94NDmNbFxCYQvIzt1xNp9trJsJ/0gMgg?=
- =?us-ascii?Q?UC68SYBIc/VrjiyqFK0yLNaBdDiRt3JG?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EJxMgPcce7lDHpuld+KSjjhYvo82IlyOSPY98jdmximG77sf4DlpNru62s2/?=
- =?us-ascii?Q?sQSP+hzeTiF50N13s4nu/VyhJDOMjUaQHrKh32FYKaGC54rAsT9LMbN/qinq?=
- =?us-ascii?Q?0YBU0CfYqjoKhJbGWnxpm4bTVHCpTDj6/eUAUpxCF0cnu3RjM/vnslXdQ/C8?=
- =?us-ascii?Q?QKV76CC0Dhf6rAi95O/c9L97W92TuxQMup9VHvI5EbxMUMWLz4t3JCcKlcs3?=
- =?us-ascii?Q?CBg3YOzQFk2rVXB9+e2BMDVXOQHWu2AjYWo8TmDF7X9azmpBpwrU2GPOlCqX?=
- =?us-ascii?Q?brqyvzjxGOvlYffmAjZcTxdvJmprGKvh1cDwZ+BJYVdGZacApJ4fOJoSn749?=
- =?us-ascii?Q?C0patFJtIDuPAS0LuF6g7qFfGVcKwI9adk9iiblabMqAkeULgoDec/WFPnd+?=
- =?us-ascii?Q?QP8dT0FPWBzgFj/lP+QFnayOW4bQYLfS3UX0e+2NY11Dla3i2Q7rE7CQPUGH?=
- =?us-ascii?Q?ghFa+PRi5hckBzv9PePNneedrI5MAjoFifovDWmWTRq4ibkkwDaJU8E+H51P?=
- =?us-ascii?Q?b0AliFjVh7vTsTZpfv07DXFP2BMVs5/CpLKcKG+v3CbNPAIz/giGw5QXNcG1?=
- =?us-ascii?Q?MaE4EYs12o60o5CbLhKNakPCF1kpg1sc2Z97XrJ4wLoa0oZVBymLTht+sMoH?=
- =?us-ascii?Q?UOrvj8p5XrMa9fMVuIo4RVWKg4oe2skg4EP5WfrojkqTm1+l+cJhNbJ1dkbh?=
- =?us-ascii?Q?FgR+9z2i4AsSNHmNt3mFRIiFN53NMJVvMqFPFX6hs49UDJg/PgRrKTFQhUfg?=
- =?us-ascii?Q?XDKNP2gEYPZTfBIXYgOlQMVL8y4mU5V+1qtzH1E6Hy3mmhgIVB6oTg4g5VqV?=
- =?us-ascii?Q?Es+M/LJSj/XT8WmQDuaCqTwt/txSCiJ+8UdumQsqGlZ//V4rqspDBo2Pnpwr?=
- =?us-ascii?Q?S8zMsz3rw1IVBcxOCnvHRWZS5yOZQAYQ3CbbZx+MMr41b7NMQXfSbXmFVaRq?=
- =?us-ascii?Q?W4OimC9h7ZCu+vPe76w8vM/BddjL7tri0P6XpgwR2HGRcIhmWJAhum+2FZTB?=
- =?us-ascii?Q?q//10rp+4VDy1JXVFNN2eAmdfyy16xWKMD+rqVxdvRQYsmMcQv5DsdKXOeHb?=
- =?us-ascii?Q?PYit9GlmHEnDHiEaOYklZDEEpwso2mL7fTzQDZ/Jve0CxYfp+1Nigcmqj2Td?=
- =?us-ascii?Q?LaQfnIneS5kwHyEV5wBTBzVoVtAm3WHbB4vUEF+5vCl9GQrhDinVlGoeXApM?=
- =?us-ascii?Q?em1sciScLusn7aDSUg11kl2M1oyVFUAO90NT1MBq5to9p0ItQkpyBZGZs6CM?=
- =?us-ascii?Q?wdKX9yaVH4As4amPdJpWx0OmzMgLpwjij4idfgdJsy3EB1EQQ5PsOolXmsz9?=
- =?us-ascii?Q?p2ukrI+m+09bCGOVYkvBjF+mF1LQUUfbnVubTkxoOYWEsh0BVNeKQWxwSkaV?=
- =?us-ascii?Q?h6lrdLG0C1mC7qI+bysxm5IGH/TfzjOvDv34L5nPIe/JQv1tVRvo3lyEvsWw?=
- =?us-ascii?Q?Kg9oYM8L3FSfPXl89vU0LbGOd+hZQz0DbwobONLQZEhAFQvT3aZm9aKanHeH?=
- =?us-ascii?Q?M9SIg0ckBIDIV/UcC5dDjSOvIAAoTV7O3OLw3rqFEtmrAazsdaNptVYsZsfZ?=
- =?us-ascii?Q?O0OtBnjBlSI2xxjeZO5bVllrdG2QC/z7IMoaP+Tz?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c1a674a-9f15-42ff-8f8a-08dd66cacda5
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2025 09:45:37.7762
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WSuomIXvxzgkcxAXHjGqPQik57D+ySO2h83F/hpnNAf1/oq2IO8IqV/9ov63cvPZvT/NY12BiVQhYyvReXEvnw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7346
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com
+Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
+In-Reply-To: <e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
+References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
+	<Z9pze3J2_zrTk_yC@linux.dev>
+	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_024541_164393_EED5E466 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250319_024746_977422_10606844 
+X-CRM114-Status: GOOD (  51.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,41 +97,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With imx8mp-evk board we are now configuring 'dsp' node for rproc usage,
-so add rproc specific memory regions.
+On Wed, 19 Mar 2025 08:37:29 +0000,
+Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> 
+> On 2025/03/19 16:34, Oliver Upton wrote:
+> > Hi Akihiko,
+> > 
+> > On Wed, Mar 19, 2025 at 03:33:46PM +0900, Akihiko Odaki wrote:
+> >> Problem
+> >> -------
+> >> 
+> >> arch/arm64/kvm/pmu-emul.c used to have a comment saying the follows:
+> >>> The observant among you will notice that the supported_cpus
+> >>> mask does not get updated for the default PMU even though it
+> >>> is quite possible the selected instance supports only a
+> >>> subset of cores in the system. This is intentional, and
+> >>> upholds the preexisting behavior on heterogeneous systems
+> >>> where vCPUs can be scheduled on any core but the guest
+> >>> counters could stop working.
+> >> 
+> >> Despite the reference manual says counters may not continuously
+> >> incrementing, Windows is not robust enough to handle stopped PMCCNTR_EL0
+> >> and crashes with a division-by-zero error and it also crashes when the
+> >> PMU is not present.
+> >> 
+> >> To avoid such a problem, the userspace should pin the vCPU threads to
+> >> pCPUs supported by one host PMU when initializing the vCPUs or specify
+> >> the host PMU to use with KVM_ARM_VCPU_PMU_V3_SET_PMU after the
+> >> initialization. However, QEMU/libvirt can pin vCPU threads only after the
+> >> vCPUs are initialized. It also limits the pCPUs the guest can use even
+> >> for VMMs that support proper pinning.
+> >> 
+> >> Solution
+> >> --------
+> >> 
+> >> Ideally, Windows should fix the division-by-zero error and QEMU/libvirt
+> >> should support pinning better, but neither of them are going to happen
+> >> anytime soon.
+> >> 
+> >> To allow running Windows on QEMU/libvirt or with heterogeneous cores,
+> >> combine all host PMUs necessary to cover the cores vCPUs can run and
+> >> keep PMCCNTR_EL0 working.
+> > > I'm extremely uneasy about making this a generalized solution. PMUs are
+> > deeply tied to the microarchitecture of a particular implementation, and
+> > that isn't something we can abstract away from the guest in KVM.
+> > 
+> > For example, you could have an event ID that counts on only a subset of
+> > cores, or better yet an event that counts something completely different
+> > depending on where a vCPU lands.> > I do appreciate the issue that you're trying to solve.
+> > 
+> > The good news though is that the fixed PMU cycle counter is the only
+> > thing guaranteed to be present in any PMUv3 implementation. Since
+> > that's the only counter Windows actually needs, perhaps we could
+> > special-case this in KVM.
+> > 
+> > I have the following (completely untested) patch, do you want to give it
+> > a try? There's still going to be observable differences between PMUs
+> > (e.g. CPU frequency) but at least it should get things booting.
+> 
+> I don't think it will work, unfortunately. perf_init_event() binds a
+> perf event to a particular PMU so the event will stop working when the
+> thread migrates away.
+> 
+> It should also be the reason why the perf program creates an event for
+> each PMU. tools/perf/Documentation/intel-hybrid.txt has more
+> descriptions.
 
-Also, enable dsp node because it is ready to be used.
+But perf on non-Intel behaves pretty differently. ARM PMUs behaves
+pretty differently, because there is no guarantee of homogeneous
+events.
 
-Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+> 
+> Allowing to enable more than one counter and/or an event type other
+> than the cycle counter is not the goal. Enabling another event type
+> may result in a garbage value, but I don't think it's worse than the
+> current situation where the count stays zero; please tell me if I miss
+> something.
+> 
+> There is still room for improvement. Returning a garbage value may not
+> be worse than returning zero, but counters and event types not
+> supported by some cores shouldn't be advertised as available in the
+> first place. More concretely:
+> 
+> - The vCPU should be limited to run only on cores covered by PMUs when
+> KVM_ARM_VCPU_PMU_V3 is set.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index d2fdb420f2d3..9ab3ee93a35b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -309,6 +309,16 @@ &aud2htx {
- 	status = "okay";
- };
- 
-+&dsp_reserved {
-+	status = "okay";
-+};
-+
-+&dsp {
-+	memory-region = <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
-+			<&dsp_vdev0vring1>, <&dsp_reserved>;
-+	status = "okay";
-+};
-+
- &eqos {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_eqos>;
+That's userspace's job. Bind to the desired PMU, and run. KVM will
+actively prevent you from running on the wrong CPU.
+
+> - PMCR_EL0.N advertised to the guest should be the minimum of ones of
+> host PMUs.
+
+How do you find out? CPUs can be hot-plugged on long after a VM has
+started, bringing in a new PMU, with a different number of counters.
+
+> - PMCEID0_EL0 and PMCEID1_EL0 advertised to the guest should be the
+> result of the AND operations of ones of host PMUs.
+
+Same problem.
+
+> 
+> Special-casing the cycle counter may make sense if we are going to fix
+> the advertised values of PMCR_EL0.N, PMCEID0_EL0, and
+> PMCEID1_EL0. PMCR_EL0.N as we can simply return zero for these
+> registers. We can also prevent enabling a counter that returns zero or
+> a garbage value.
+>
+> Do you think it's worth fixing these registers? If so, I'll do that by
+> special-casing the cycle counter.
+
+I think this is really going in the wrong direction.
+
+The whole design of the PMU emulation is that we expose a single,
+architecturally correct PMU implementation. This is clearly
+documented.
+
+Furthermore, userspace is being given all the relevant information to
+place vcpus on the correct physical CPUs. Why should we add this sort
+of hack in the kernel, creating a new userspace ABI that we will have
+to support forever, when usespace can do the correct thing right now?
+
+Worse case, this is just a 'taskset' away, and everything will work.
+
+Frankly, I'm not prepared to add more hacks to KVM for the sake of the
+combination of broken userspace and broken guest.
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
