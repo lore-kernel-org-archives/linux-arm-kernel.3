@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D97C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 14:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FCECC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 14:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CA8i50LRXySSnq9O4752aSrUJVnRatE8qCQ0iqDdKyo=; b=eb9EtE3amFxxNBZsAnNedyObyX
-	Z3wZH31SdxjxctfK1T4ryPbfF3SehHh70jnxNDtI0qGvz37sFU09d6Nco6uEt0/Uz12E/aKbL/H6x
-	/cSL/n1MbGKPY4enOeWnTuhYd6K8BSAPAWVs4jQ3yMgpsHAXAmQR0AAt4VUkj+m7Qf4J/Z8+CFkgM
-	DHfwnTTHdngBmKlpqTGlh+YOoJYGfWpV9oHGmHo5nNJZ/9c/1zVjVuSKTh18N4Hd8PMX9puCnx7RW
-	Cib+ah01MyPT8Tu11LWHjul1jUR0ULbWnT7gA8TfKPSFGq8QyOLhH19pua1z8LkdI/MceGaAtBbNs
-	u9p20haQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TaRdUsCqaO2uAd088jfh+UPpUOgEEGgnOs3e0EtfwWk=; b=nU1Qzyy0pjpdG8ycTV/2wyue9O
+	xzLwyB1A90odyJLUxCHxMxlqnvM4/5kck9f0M0E0pnAZ87tRpsY0KfYyAU6RBmzBKm+4CeuST4/LT
+	5bBPW4tIWsOdkTEcw92oWgixNIpeRCWkmmkT68g2kP1n6VwaUt/HC1w/nk9vOHebLvnuXSKeHEZLO
+	C4huaxuFgVR/xOrO1YBBG6GHdG/txpjqAgOWGVxLjgpT7QCcPDTdiruRWnhdsq+SMD3bBgVqr2xb+
+	yCsXxLL6s21NgezX9vf/8brEyrfeL7chd696vW2SbMV0Su3ynuqSE09dFW6t+Q7lIkg5xOrvY6ils
+	s4yo4E0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuuFw-00000009BHN-3iem;
-	Wed, 19 Mar 2025 14:18:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuuHy-00000009Bef-2LyB;
+	Wed, 19 Mar 2025 14:20:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuuEF-00000009B3c-46MO
+	id 1tuuGG-00000009BMY-39TB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 14:17:09 +0000
+	Wed, 19 Mar 2025 14:19:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C0872A4910D;
-	Wed, 19 Mar 2025 14:11:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E6DFC4CEE4;
-	Wed, 19 Mar 2025 14:17:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9785CA48C0D;
+	Wed, 19 Mar 2025 14:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33884C4CEE4;
+	Wed, 19 Mar 2025 14:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742393826;
-	bh=SZgZgjOKi8q48V+T+EuPhMfJGe10Z7y4FRnPXxKBK/g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ul+QWaPXdGOmm/uqkJGFNkNPjj9Qnm9bJR8CrPr/KVsEDZfxvDA8ejiJkALbfsUC6
-	 wLKpt2ujWKp7NuFh+18eZb0wUMzjnMnJlqHHD1xVpbwmHEktopZdw5hJfD5kL+LkLd
-	 H7bi7J5zwoaYOOret/fifvn7Ga/zZ85Unszj8fwjrPhiKdZQaAinqoXW1ggVC8llae
-	 EBJxb5RzhBHnIsBb7wiJV7vwUz5mdzu81es56IzC1EgxruNe9WTJ813my4PPL4+Xb8
-	 9Hl3yYV36hrWwL94UWRC/JXs6d6N23fT6eFnyB0dRUcLXW4Eiop5FiRYrtxVuSVF3U
-	 4gno9LzUFSIRQ==
-Date: Wed, 19 Mar 2025 14:17:02 +0000
-From: Simon Horman <horms@kernel.org>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: Sai Krishna <saikrishnag@marvell.com>,
-	Meghana Malladi <m-malladi@ti.com>,
-	Diogo Ivo <diogo.ivo@siemens.com>, Paolo Abeni <pabeni@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>,
-	Roger Quadros <rogerq@kernel.org>
-Subject: Re: [PATCH net] net: ti: icssg-prueth: Add lock to stats
-Message-ID: <20250319141702.GF280585@kernel.org>
-References: <20250314102721.1394366-1-danishanwar@ti.com>
+	s=k20201202; t=1742393951;
+	bh=9ApM2Yr8qFcdHesbkDhT7WqN3ZLUjNfLaL0DDOHFqo8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=H5iwi2OqONoPlsDTIcFW1OC2i4YYHy4xn6Qgg6U1RTQeaeR8d50ntRfwQD6GmXWMx
+	 Kk9+trbXHFshZXeeNLPertcklC/nJxwfaWGdLxuP5zeRDTx8lPu1xuiBYZuCeZ6VSL
+	 leJWDwfzJZhg2/bWD4aHrrEueiNLhO5iZZpBia/3DWtFYURiWVy6fMhH9J06HVkK51
+	 ozo/rzwkrb5fp/xIdkvIrwSNuEmlF02xHAeLpusjKYEFnejn07uRmz22sBDlUbtB6H
+	 WbLxEblsI+YknKb/nmM46/brPUZGeTd2wzmxhi58S42SbFg1bQC73excr2y0t8Zfu2
+	 WW8jGuIiSu9/Q==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Cc: Abel Vesa <abel.vesa@linaro.org>,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: defconfig: Enable USB retimer and redriver
+Date: Wed, 19 Mar 2025 09:19:08 -0500
+Message-ID: <174239394606.2278051.11144638961266854595.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250318-xelite-retimer-redriver-v1-1-b3e85a37d294@oss.qualcomm.com>
+References: <20250318-xelite-retimer-redriver-v1-1-b3e85a37d294@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250314102721.1394366-1-danishanwar@ti.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_071708_076468_801CE415 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250319_071912_853525_16BF8720 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +77,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 03:57:21PM +0530, MD Danish Anwar wrote:
-> Currently the API emac_update_hardware_stats() reads different ICSSG
-> stats without any lock protection.
-> 
-> This API gets called by .ndo_get_stats64() which is only under RCU
-> protection and nothing else. Add lock to this API so that the reading of
-> statistics happens during lock.
-> 
-> Fixes: c1e10d5dc7a1 ("net: ti: icssg-prueth: Add ICSSG Stats")
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> ---
-> NOTE: This was suggested by Jakub Kicinski <kuba@kernel.org> [1] to get
-> this as bug fix in net during upstreaming of FW Stats for ICSSG driver
-> This patch doesn't depend on [1] and can be applied cleanly on net/main
-> 
-> [1] https://lore.kernel.org/all/20250306165513.541ff46e@kernel.org/
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+On Tue, 18 Mar 2025 22:11:37 -0500, Bjorn Andersson wrote:
+> Several boards based on the Qualcomm X Elite platform uses the NXP
+> PTN3222 USB redriver and the Parade PS883x USB Type-C retimer. Without
+> these USB, and in some cases display, doesn't probe successfully, so
+> enable them.
+> 
+> 
 
+Applied, thanks!
+
+[1/1] arm64: defconfig: Enable USB retimer and redriver
+      commit: dd20903cc09ac40e71096370a9564e6523e87c22
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
