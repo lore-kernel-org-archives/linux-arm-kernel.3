@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F41EFC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 23:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7E4C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 23:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DNRFscnB6st75VlP5l/AWMrHj29aeG/hnrOOIAo5HAs=; b=ArxNc3ri+SCTqoG30ustkEGETz
-	wg4vO88Idna7+31h6bdD5FPjG9+7f8V10irqK3G2/Voqwqp1jL7QzeR8pSe3xhSXjxd4FwKPvnjSK
-	jLJ0XgOeMFgEKt3tlgxg+CtWmsQcHOWYEXY7jAgRwuOLEZt3SGL5iJhP6o0m5fRU+EsbGD0l5wqwQ
-	p/tBQhHiilTJOerzdYvUn9APnF66kUQZsd3TbS67gqCCO0icMvJYYH2R1V3Hkr1b75jxdD1DQ+SNw
-	bZbdUU6egC/VKnfS23amD1PsrHRoBdN196AZ+OLuGv7ZBmLG7y2wUZE6Pm1EZHYZoyFzyTQv9sCBg
-	fIP6mcsA==;
+	bh=vCRtMt/0zKGXpQ7zY4COT3UtWsb5ugKGd4EAhHhlNDE=; b=naM97uhzPHI/c7WjtT7JThqJIj
+	pzL0d+sAaYc8lRu2m6sBuG7XPeYQf8MKs2tp3+g0cKtu2UUoMc7f2EyHcmsFRwlWSRqeNG+QFOrO2
+	otdQ/0C0GvAKxCBvmz3uwVoCar3tZbHi1hS5qjD5iFtUiIGQ0Oub+zORmgwSrNIu5VXC0ZTWqBZVW
+	Cm+VIzi8RHG+4bOwQk+kXGKB/za+3NrCTGEOIlRXu2BTJ4LAF3+JVmnAr3+lmairA2HO6V5r9PeRA
+	26RUSSaTOnV4D5oyKBUBmXr6A9wLoXZ/XpYXxi1/DL66w0vHF3J7bVFbqkIwrdxP1gYNAaMXFEnho
+	xASblEGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv2aO-0000000AOfY-12UK;
-	Wed, 19 Mar 2025 23:12:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tv2c3-0000000AP7c-168d;
+	Wed, 19 Mar 2025 23:14:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv2Yf-0000000AO64-473m;
-	Wed, 19 Mar 2025 23:10:47 +0000
+	id 1tv2Yg-0000000AO6b-3nVQ;
+	Wed, 19 Mar 2025 23:10:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C5C942B8B;
-	Wed, 19 Mar 2025 23:10:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991ECC4CEE4;
-	Wed, 19 Mar 2025 23:10:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A22A2A48B51;
+	Wed, 19 Mar 2025 23:05:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89E28C4CEE4;
+	Wed, 19 Mar 2025 23:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742425843;
-	bh=L6HRrJPe/oD/P33omcYeeISqRniz4IThgwzvXP5TlNA=;
+	s=k20201202; t=1742425845;
+	bh=hpem3UEpjL9zg0df1KCgbi91SjPixiAmgIzpZt1KUJg=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ix6gZjFuakS6xfWCWprsg52TMUp9Ym+v6mx/x2FIEZyyrLuhxYAmH/XHlLpF2vqeO
-	 wmASTT8Eah9zofiT9Lz8xNDgnywYqQFWntdh8PE/PDULvrZJy0SJ+pLqU8fn5hoZcm
-	 SM7homPHBiiXMoknIkuIW56wUyN3xX0UbO8MvLdZkgpKFlcf1tz4kxq8bn4XxSqlLR
-	 5/blFlLYjkRfXuO+qPMTC48fVDW/dpuDEfuygfRdDBY0J3ygm+AqetldtUsyYIeMFE
-	 mVeui53KLVAvFrt9bQuT5Vsa0QjkFuZ/BoVNxC4YDz3+Mpbkf0/PANa0+/DvnmYr55
-	 vWrlMRY0AiAWQ==
-Date: Wed, 19 Mar 2025 18:10:42 -0500
+	b=Wrgt/+Cu7qJjwLfGyMrE5m390d+gbteLAjKaxp7899EkxuXYaUzs3o357/afeEo2I
+	 sNea93qPS9XMTYzjNX16xtSCWnp1IZD9m0e+1f9kSTvJa79v3D8D5EQmpYVnHP6xeg
+	 leFvxd9RuBzF+zGHCXZ07MdrJ4hgrp00T4UPMq49J2AGybnTVxfCfWbMdvcKbUUqBu
+	 OozrPjc5+2ug9gvQRSzzHV0z5Uu9AA/2se8ukJ5/lnkwrZ9AQmO/dAY20iEz4q0ChP
+	 /R5CXDqRTYNXAAbsw/KF0Xcnko/nK1bTni/lrIMM0NVFvEZJc/kxjA10AXYjzUP+v3
+	 V12O2lP/89qUA==
+Date: Wed, 19 Mar 2025 18:10:44 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Kevin Hilman <khilman@baylibre.com>, Artur Weber <aweber.kernel@gmail.com>, 
- Christian Hewitt <christianshewitt@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, ~postmarketos/upstreaming@lists.sr.ht, 
- Conor Dooley <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Karl Chan <exxxxkc@getgoogleoff.me>, 
- Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, 
- linux-amlogic@lists.infradead.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- devicetree@vger.kernel.org
-To: Ferass El Hafidi <funderscore@postmarketos.org>
-In-Reply-To: <20250319190150.31529-2-funderscore@postmarketos.org>
-References: <20250319190150.31529-2-funderscore@postmarketos.org>
-Message-Id: <174242564139.2499881.5985170981835885510.robh@kernel.org>
-Subject: Re: [PATCH v5 0/2] Add support for Xiaomi Mi TV Stick
+Cc: Jerome Brunet <jbrunet@baylibre.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, jian.xu@amlogic.com, zhe.wang@amlogic.com, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ devicetree@vger.kernel.org, linux-sound@vger.kernel.org, 
+ shuai.li@amlogic.com, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, linux-clk@vger.kernel.org, 
+ Liam Girdwood <lgirdwood@gmail.com>, linux-amlogic@lists.infradead.org, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: jiebing chen <jiebing.chen@amlogic.com>
+In-Reply-To: <20250319-audio_drvier-v4-0-686867fad719@amlogic.com>
+References: <20250319-audio_drvier-v4-0-686867fad719@amlogic.com>
+Message-Id: <174242564271.2499930.16784872359354582008.robh@kernel.org>
+Subject: Re: [PATCH v4 0/6] Add support for S4 audio
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_161046_063091_DD7BDB60 
-X-CRM114-Status: GOOD (  27.23  )
+X-CRM114-CacheID: sfid-20250319_161047_079924_63F94680 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,86 +81,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 19 Mar 2025 19:01:48 +0000, Ferass El Hafidi wrote:
-> This patch series aims to add initial support for the Xiaomi Mi TV
-> Stick.
+On Wed, 19 Mar 2025 15:04:43 +0800, jiebing chen wrote:
+> Add s4 audio base driver.
 > 
-> Xiaomi Mi TV Stick is a small Amlogic-based Android TV stick released in
-> 2020, and known as `xiaomi-aquaman` internally (in the downstream kernel,
-> u-boot, ...)
-> Its specifications are as follows:
->  * Amlogic S805Y SoC (believed to be mostly identical to S805X)
->  * 8 GB eMMC
->  * 1 GB of RAM
->  * Wi-Fi + Bluetooth
->  * Android TV 9, upgradable to Android TV 10
->  * Google-certified
+> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> ---
+> Changes in v4:
+> - fix dtb check warning
+> - add maxItems of power domain for dt-bindings
+> - fixed audio clock pads regmap base and reg offset
+> - use dapm widget to control tocodec bclk and mclk enable
+> - Link to v3: https://lore.kernel.org/r/20250228-audio_drvier-v3-0-dbfd30507e4c@amlogic.com
 > 
-> There are multiple variants:
->  * 1. Green PCB, manufactured in 2020, known UART pinout (helpfully
->    labeled on the board)
->  * 2. Blue PCB, not much documentation about it, presumably manufactured
->    between 2021 and 2023
->  * 3. Green PCB, manufactured in 2023/2024, known UART pinout, some layout
->    changes compared to the 2020 variant
+> Changes in v3:
+> - remove g12a tocodec switch event
+> - Modify the incorrect title for dt-bindings
+> - Link to v2: https://lore.kernel.org/r/20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com
 > 
-> Among these variants, there are many boards using multiple different
-> Wi-Fi chips.  Supporting all of them is out of scope for this patch
-> series.  However, there has been some work identifying Wi-Fi/Bluetooth
-> since v4.  Some variants use a Realtek module while others use an
-> Amlogic module.
+> Changes in v2:
+> - remove tdm pad control and change tocodec base on g12a
+> - change hifipll rate to support 24bit
+> - add s4 audio clock
+> - Link to v1: https://lore.kernel.org/r/20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com
 > 
-> As of the time of writing this has only been tested on the 3rd variant.
-> It is believed that software-wise all three work mostly the same (if we
-> don't count Wi-Fi/BT), but testing on the other variants would still be
-> appreciated.  Sadly, booting Mainline linux is slightly more
-> challenging on some versions of the original firmware.
+> ---
+> jiebing chen (6):
+>       dt-bindings: clock: meson: Add audio power domain for s4 soc
+>       dt-bindings: clock: axg-audio: Add mclk and sclk pad clock ids
+>       dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
+>       ASoC: meson: g12a-toacodec: Add s4 tocodec driver
+>       clk: meson: axg-audio: Add the mclk pad div for s4 chip
+>       arm64: dts: amlogic: Add Amlogic S4 Audio
 > 
-> The devicetree is based on the Amlogic P241 DTS.
+>  .../bindings/clock/amlogic,axg-audio-clkc.yaml     |  20 +-
+>  .../bindings/sound/amlogic,g12a-toacodec.yaml      |   1 +
+>  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 219 ++++++++++
+>  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 372 ++++++++++++++++-
+>  drivers/clk/meson/axg-audio.c                      | 441 ++++++++++++++++++++-
+>  drivers/clk/meson/axg-audio.h                      |   6 +
+>  include/dt-bindings/clock/axg-audio-clkc.h         |  11 +
+>  sound/soc/meson/g12a-toacodec.c                    |  46 +++
+>  8 files changed, 1111 insertions(+), 5 deletions(-)
+> ---
+> base-commit: 6ecd20965bdc21b265a0671ccf36d9ad8043f5ab
+> change-id: 20250110-audio_drvier-07a5381c494b
 > 
-> Changes since v4 [1]:
->  * add Acked-by from krzk
->  * Wi-Fi on sd_emmc_b
-> 
-> Changes since v3 [2]:
->  * typo fix (`vbus-supply` in `&usb`)
-> 
-> Changes since v2 [3]:
->  * fix SoB/From mismatch
-> 
-> Changes since v1 [4]:
->  * remove useless nodes: cvbs-connector, ethmac, internal_phy, ir
->  * add `amlogic,s805y` DT binding section
->  * add S805Y dtsi: meson-gxl-s805y.dtsi
->  * adjust DT `model` to "Xiaomi Mi TV Stick (Aquaman)"
->  * explain the changes being done a bit more in the commit message for
->    the DT patch
->  * drop `clocks` and `clock-names` from pwm_ef (background: [5])
->  * change sound `model` to "XIAOMI-AQUAMAN"
-> 
-> More information is available on the postmarketOS wiki page [6].
-> 
-> [1]: https://lore.kernel.org/all/20250203174346.13737-1-funderscore@postmarketos.org/
-> [2]: https://lore.kernel.org/all/20250203091453.15751-1-funderscore@postmarketos.org/
-> [3]: https://lore.kernel.org/all/20250201193044.28856-1-funderscore@postmarketos.org/
-> [4]: https://lore.kernel.org/all/20250131200319.19996-1-funderscore@postmarketos.org/
-> [5]: https://lore.kernel.org/linux-amlogic/20241227212514.1376682-1-martin.blumenstingl@googlemail.com/
-> 
-> 
-> Ferass El Hafidi (2):
->   dt-bindings: arm: amlogic: add S805Y and Mi TV Stick
->   arm64: dts: amlogic: add support for xiaomi-aquaman/Mi TV Stick
-> 
->  .../devicetree/bindings/arm/amlogic.yaml      |   7 +
->  arch/arm64/boot/dts/amlogic/Makefile          |   1 +
->  .../meson-gxl-s805y-xiaomi-aquaman.dts        | 292 ++++++++++++++++++
->  .../boot/dts/amlogic/meson-gxl-s805y.dtsi     |  10 +
->  4 files changed, 310 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
->  create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
-> 
+> Best regards,
 > --
-> 2.47.1
+> jiebing chen <jiebing.chen@amlogic.com>
 > 
 > 
 > 
@@ -177,106 +148,90 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250319190150.31529-2-funderscore@postmarketos.org:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250319-audio_drvier-v4-0-686867fad719@amlogic.com:
 
-Error: arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts:243.1-2 syntax error
-FATAL ERROR: Unable to parse input tree
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/amlogic] Error 2
-make[2]: Target 'arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: amlogic/meson-gxl-s805y-xiaomi-aquaman.dtb] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-make: Target 'amlogic/meson-gxl-s905x-hwacom-amazetv.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-sml5442tw.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-phicomm-n1.dtb' not remade because of errors.
-make: Target 'amlogic/meson-s4-s805x2-aq222.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905w-p281.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-s912-libretech-pc.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-sei510.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-q200.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-khadas-vim.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxlx-s905l-p271.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-mecool-kiii-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-vega-s96.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-fbx8am.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-bananapi-cm4-cm4io.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-c3-c308l-aw419.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-s400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-nexbox-a1.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-dreambox-one.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-khadas-vim2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-wetek-core2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-radxa-zero.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-vega-s95-telos.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-libretech-cc-v2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-a311d-khadas-vim3.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-jethome-jethub-j100.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-gsking-x.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-vega-s95-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-q201.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-p230.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-a311d-bananapi-m2s.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-wetek-play2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-mecool-kii-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-jethome-jethub-j110-rev-2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-odroidc2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-gt1-ultimate.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-x96-max.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-libretech-pc.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-p231.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-x96-air.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-vero4k.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-vega-s95-meta.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905w-tx3-mini.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-minix-neo-u9h.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s805x-libretech-ac.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-a95xf3-air-gbit.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-khadas-vim3l.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-vero4k-plus.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-h96-max.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-bananapi-cm4-mnt-reform2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-p212.dtb' not remade because of errors.
-make: Target 'amlogic/meson-a1-ad401.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-go-ultra.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-radxa-zero2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-x96-air-gbit.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-dreambox-two.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-bananapi-m5.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-u200.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-rbox-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-p201.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-a95xf3-air.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-a4-a113l2-ba400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s805y-xiaomi-aquaman.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-bananapi-m2-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-p200.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-odroid-c4.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-s922x-bananapi-m2s.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-sei610.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-odroid-hc4.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-n2l.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-libretech-cc.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-c3-c302x-aw409.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-nexbox-a95x.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-a311d-libretech-cc.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-t7-a311d2-khadas-vim4.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905w-jethome-jethub-j80.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-s905d3-libretech-cc.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-a5-a113x2-av400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-wetek-hub.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-s922x-khadas-vim3.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-t7-a311d2-an400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-kii-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-n2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-a1-ad402.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-nexbox-a95x.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-jethome-jethub-j110-rev-3.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-n2-plus.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-gtking-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-ugoos-am6.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s805x-p241.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-gtking.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-nanopi-k2.dtb' not remade because of errors.
+arch/arm64/boot/dts/amlogic/meson-g12a-sei510.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: sound: 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'#clock-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm64/boot/dts/amlogic/meson-axg-s400.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12a-fbx8am.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4-cm4io.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-dreambox-one.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12a-radxa-zero.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-a311d-khadas-vim3.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-axg-jethome-jethub-j100.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-gsking-x.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-a311d-bananapi-m2s.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-axg-jethome-jethub-j110-rev-2.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12a-x96-max.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-x96-air.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-a95xf3-air-gbit.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4-mnt-reform2.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-h96-max.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-khadas-vim3l.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-odroid-go-ultra.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-x96-air-gbit.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-dreambox-two.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-bananapi-m5.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-a95xf3-air.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12a-u200.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-bananapi-m2-pro.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-sei610.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-odroid-c4.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-s922x-bananapi-m2s.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2l.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-s922x-khadas-vim3.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-sm1-s905d3-libretech-cc.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-axg-jethome-jethub-j110-rev-3.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-gtking-pro.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2-plus.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-gtking.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-g12b-ugoos-am6.dtb: clock-controller@0: reg: [[0, 0, 0, 180]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
 
 
 
