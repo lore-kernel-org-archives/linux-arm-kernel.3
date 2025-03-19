@@ -4,102 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226AAC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 21:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA9DC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 21:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIV1jl6V2fZlix63bFp4nlCTMLgC0hAJC1UlPpspvig=; b=dFEBL2kM89hoCCm4GKke2fnNrt
-	aAPnLHMVD81Ay7qe02fXi04F9KSXuk9e+MAdBRUZDcco18eZR73llKKf+8uc2DJ9dXMzJpX85S3gg
-	+qinZAHs64s0HApXyZNP3NeiV3lSXSNipy4FAveRgXBsMjVgOlKO9pftbSRY+ryttgzU7cpWZLOQW
-	rwSsQMcO4ICEuMt3WfQcoCsfBn6zo7qGCLfliYJ4EZmwhWeWbeik2mJLmMQDg7oAyoBxDn+KFO0nS
-	4IPN0PdCOYi1zGL/+iEtT/vQq3GsNlU/k5uwY3+56fpZCOf7Mqn3N5aD/VNczjdIPuLyJygS1i2HJ
-	UNaSrAGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n8xNWERaIEY3t44CdV5gdS76hxjc40sM+pkTx8sfr/Y=; b=NoFbabHQOFmkkuV6zShrI+chmG
+	XCXQDU6DubM1+mPD+7/bze7uzpNIIETuRB7ayyxECYiVUe5QW42/7S8IXlUwTuamdQSoosXAEWhus
+	QlgXQYRsY70yDZxkJZtH6O8S1hPtfhzfwcFnGD2gndJosTPjzfvxvmhLV65EqnKgXfc7WF1x0F5VV
+	EfLGsz6Q/dhYxApKWo17jKmB3t36x9UAASIlyEnmKzXCUDoKPJcMalVC6i/JUFFXlRox8y9uQEPLg
+	qjlEo27rUu1x0P2Mu/TMszdbdyBWEm1MDXcZa5A7vBQ5LzfgjE1zKVPBQfYvP9nIw0eOSgHJMj6Zl
+	GLqHXDGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1Ox-0000000ADX9-1z5J;
-	Wed, 19 Mar 2025 21:56:39 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1tv1Qc-0000000ADse-18eN;
+	Wed, 19 Mar 2025 21:58:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1Ex-0000000ABcW-3IS2
+	id 1tv1HF-0000000ABy6-1oOv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 21:46:21 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 5824925401B2;
-	Wed, 19 Mar 2025 17:46:18 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Wed, 19 Mar 2025 17:46:18 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1742420778;
-	 x=1742507178; bh=NIV1jl6V2fZlix63bFp4nlCTMLgC0hAJC1UlPpspvig=; b=
-	eAKQXDztmvO28zcR3zDMxe9omF5+kZdnh93neULpzO3AOzG2tkCkjMc9fsTMWfDs
-	4qRxP17m9ImvKjz+4bDDLnHeh2cVuNev80WAr1y8TGNedm4BJ10w59tgbVf0YC3k
-	ZyGCOPjEHGv7o93B1v87wkYSoXULyKy4qHf6lnIMPC6i9HjEILdE7el4ubUZgXSG
-	3xN/VpEM1MT15my+nwJprokD6Fk8B/fUIqBWSQDusZBp6xEZCw1mOmGItAGGHbmP
-	3Tpx/5Bp8HHOoifKhzk+DOrWubK7MxNdpOCZNbUsXPihehy3/Y7cSf6MpTGDfpVG
-	YNuFgzeijoqkZ21+XWl6Mw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742420778; x=
-	1742507178; bh=NIV1jl6V2fZlix63bFp4nlCTMLgC0hAJC1UlPpspvig=; b=y
-	yGiBfHms1axUwQxMcMRsZYFpYxCvenPcokpYVW5oOV0yvA73QmKaC8BuurTy4e9a
-	5TRxA2kQ3dSPAWDy3wLb/hh7w4d5/sQLm8d3Wq3UwmxLIJQ/00Apd4ptdzwrXvCV
-	ZxUcPENBezQRn6xy7FihnmHz8841B8D4POG8kh9s4idXyUG6zB4QhCegGBwpz2vU
-	Sxkb//wwEYf9E6ZyEW1li+ntKNxM6RqBWxzFNGxUJ1avyshVdqu3Ogy/V1vrvecF
-	nhxkbFWLIqkl5+CYEJmOb6UaIl2/Y5hExN3bVZe3b6YKkxuRKaA15oDqAdPqpDD2
-	3LzZDBYxTlr6yuY5BvMkQ==
-X-ME-Sender: <xms:KTvbZ_FP79bCtSPAr5O0UKHiysXybUM1bmwMjjMOgPAIJPgVj86Xzw>
-    <xme:KTvbZ8Wr2X0hYkerR8U2xHYOYyJdJjJvVO-bXfIQyv524RvJUAkIdo790-HrfZlE3
-    zp9jemQvxkik3Fnt8U>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeeigeegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    iedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepghhlrghrohhquhgvsegsrgihlh
-    hisghrvgdrtghomhdprhgtphhtthhopehkrhhishhtoheskhgvrhhnvghlrdhorhhgpdhr
-    tghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgrug
-    gvrggurdhorhhgpdhrtghpthhtoheprghfugesthhirdgtohhmpdhrtghpthhtohepnhhm
-    sehtihdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvg
-    hrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:KTvbZxJ5_UxHkfnazQSQz6Im7JqvN3lyZjge0OIHfn5R0pgqqxCQow>
-    <xmx:KTvbZ9EkLgDyA7IG31TjHc-KqiNUgFu77yb4bH8Poc_2yVEM6hjSCg>
-    <xmx:KTvbZ1U3qfMhl4t4LYzBiQkX6oL19nVdQ_pfuFtsl77iK9wfaQzGUQ>
-    <xmx:KTvbZ4OJBQDTW_q8jEgr8trulU3oqVsvIE_AgWUUZJkdiiaCk84u-w>
-    <xmx:KjvbZzdNDkZpcl3g21IIa6UX_Sz61HSXPFaqrTe7R6PShid2Y1QcFxgF>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CFC152220073; Wed, 19 Mar 2025 17:46:17 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Mar 2025 21:48:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 53D6361158;
+	Wed, 19 Mar 2025 21:48:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C465EC4CEE4;
+	Wed, 19 Mar 2025 21:48:33 +0000 (UTC)
+Date: Wed, 19 Mar 2025 21:48:31 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+	Ankit Agrawal <ankita@nvidia.com>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"seanjc@google.com" <seanjc@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <Z9s7r2JocpoM_t-m@arm.com>
+References: <8634fcnh0n.wl-maz@kernel.org>
+ <Z9h98RhunemcFhhz@arm.com>
+ <86wmcmn0dp.wl-maz@kernel.org>
+ <20250318125527.GP9311@nvidia.com>
+ <Z9nJ42PllG8a7AY7@linux.dev>
+ <20250318230909.GD9311@nvidia.com>
+ <Z9pryQwy2iwa2bpJ@linux.dev>
+ <20250319170429.GK9311@nvidia.com>
+ <Z9sItt8BIgvbBY8M@arm.com>
+ <20250319192246.GQ9311@nvidia.com>
 MIME-Version: 1.0
-X-ThreadId: Te367c4c16dcaf1bf
-Date: Wed, 19 Mar 2025 22:45:57 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Guillaume La Roque" <glaroque@baylibre.com>,
- "Nishanth Menon" <nm@ti.com>, "Tero Kristo" <kristo@kernel.org>
-Cc: "Andrew Davis" <afd@ti.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <c506a805-9221-4afe-8d98-af0ca97a1fd2@app.fastmail.com>
-In-Reply-To: <20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com>
-References: <20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com>
-Subject: Re: [PATCH v2] firmware: config: ti-sci: Default set to ARCH_K3 for the ti sci
- driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_144619_885370_9EB6FF33 
-X-CRM114-Status: GOOD (  14.40  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250319192246.GQ9311@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,29 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025, at 14:31, Guillaume La Roque wrote:
-> With ARCH_K3=y we cannot enable TI_SCI_PROTOCOL=m because
-> ARCH_K3 selects TI_SCI_PROTOCOL.
->
-> Modify the logic to enable TI_SCI_PROTOCOL by default when ARCH_K3=y
-> allowing us to submit a future patch to remove select on ARCH_K3 without
-> breaking existing users.
->
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
-> ---
-> Link to comment done on last serie [1] we come back on first version of
-> series[2] to not use imply but set deps on ARCH_K3 in driver directly.
-> An other patch will be sent to update Kconfig.platform when this patch
-> is merged.
+On Wed, Mar 19, 2025 at 04:22:46PM -0300, Jason Gunthorpe wrote:
+> On Wed, Mar 19, 2025 at 06:11:02PM +0000, Catalin Marinas wrote:
+> > On Wed, Mar 19, 2025 at 02:04:29PM -0300, Jason Gunthorpe wrote:
+> > > On Wed, Mar 19, 2025 at 12:01:29AM -0700, Oliver Upton wrote:
+> > > > You have a very good point that KVM is broken for cacheable PFNMAP'd
+> > > > crap since we demote to something non-cacheable, and maybe that
+> > > > deserves fixing first. Hopefully nobody notices that we've taken away
+> > > > the toys...
+> > > 
+> > > Fixing it is either faulting all access attempts or mapping it
+> > > cachable to the S2 (as this series is trying to do)..
+> > 
+> > As I replied earlier, it might be worth doing both - fault on !FWB
+> > hardware (or rather reject the memslot creation), cacheable S2
+> > otherwise.
+> 
+> I have no objection, Ankit are you able to make a failure patch?
 
-I just merged the patch and hadn't seen the earlier discussion,
-just two small notes from me:
+I'd wait until the KVM maintainers have their say.
 
-- thanks for doing it this way instead of the backwards 'imply'
-- there is really no need to split it into two steps, since the
-  change to the Kconfig.platforms file logically goes with this
-  one and I would merge both through the SoC tree, having it
-  as a single patch would make sense.
-
-        Arnd
+-- 
+Catalin
 
