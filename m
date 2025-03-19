@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB35C35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 04:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24713C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 04:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i81vfxx6rnbOmwz/BGTkep+/cjFf5C0tzqdntf/uZX0=; b=DMLrZM0vJxkYBu0n8PlViA5adp
-	tAd1jH3Lfz8bLn3FPbwyPEYEJ+riEc601OCc8fUVRRLx4T24ramv6sEieHHl1P33vzkysM3V0ZVvI
-	EW6D2URNP6WI8BBV6aGA9lvt/zvFH6XoyQHUCQYTKWO/4PVRAm2OfP6UBRo5Is+IX//K8M5Pt6Y9e
-	dOwX6pjOXNOvaMxmv82V7TGE8EMXwXIz2kY5wBRKTMl2KEKdtn+tcyGcsxMOVbnPSzWfZAFVHWfGg
-	TYw7CKD7SxKEMAYzU2CrC5ubR11xIfvKFyjm1fIuohkHICzs8IyMqroFSxCX+LRGpR2xNlEGQg5dE
-	HEvM9tQA==;
+	bh=bZnm8PUwSbbaRIS2I4Y7DkEdXZ5o/1IW7fPXlQxrNvg=; b=RqYFUHFHw0/5SaCIqOOo0t/kLZ
+	MsuXkC6u7yR66tt1zE5IzmcubMTfuHVWeJXXD66z8Pym+g6LXJC+b3NrY/wjHq7G2xMnavNOEwPhH
+	keRRMwu8tmBia/ejvDZYpoCtncE0IgANO3ZgyXNGtDyDUC3BpdHucgwa5SAIObsqewftP8FQwAl7y
+	VrxT8+QhAw3bgkTjggxEXyaXz39oY+qziG8JnxAVFD/DygIbt0hnvuy64RfEnblzHT5vaWrVVjxk/
+	sE0BdiVMOBjTAsIuQ6KHzJVETXlftf6Gp0MbmY+4FL4O5aR+4L9LwJKXIHYwmXy/fVv8oyoMVN7xY
+	MfQDY1Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuktw-00000007xpU-0XxE;
-	Wed, 19 Mar 2025 04:19:32 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuksF-00000007xfE-2Afm
+	id 1tukze-00000007yMh-0aJm;
+	Wed, 19 Mar 2025 04:25:26 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tukxx-00000007yAS-0TQT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 04:17:48 +0000
-Received: from [100.65.32.26] (unknown [20.236.10.120])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 834772025373;
-	Tue, 18 Mar 2025 21:17:45 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 834772025373
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1742357866;
-	bh=i81vfxx6rnbOmwz/BGTkep+/cjFf5C0tzqdntf/uZX0=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=BBdngRFjrm3qc8p3g6SsP6YR+S/l76EJSt+6UA9xAvo2M1xlEwANRzngSNQMKNQbI
-	 cTdh29l+lduUf0ovrmFq6mD+e4+hi6eBh9M1vDbP9QZmnxv8RWuOSzRQTDwnauV4Yb
-	 49k43AlBkgAET9m0J04z5EQLbb/kzxPuW8ODh9FM=
-Message-ID: <06d2ad24-7554-4e7c-86f7-9e22828cb725@linux.microsoft.com>
-Date: Tue, 18 Mar 2025 21:17:52 -0700
+	Wed, 19 Mar 2025 04:23:42 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30bfed67e08so69014581fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 21:23:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1742358219; x=1742963019; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bZnm8PUwSbbaRIS2I4Y7DkEdXZ5o/1IW7fPXlQxrNvg=;
+        b=XCdCBTOxJiqubOa85+9P3M+K7KP5jxrGz+PF+y3whlKhfVgiwDPnsgl6jTk5XO5eGJ
+         cPI+Pkx7ejETJbV3dHjsw9BXzJZGG7kTZhHCPLvoli6XS8q/OEYgd/xb+YRu1RxMQE26
+         b8+LgwE9G8GhV5lYM1O8PANkrDxfccux2lGsQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742358219; x=1742963019;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bZnm8PUwSbbaRIS2I4Y7DkEdXZ5o/1IW7fPXlQxrNvg=;
+        b=YLtzNlX/2wCmwaHXKUygjt92jRIHt6ntZF0To1lqV5TDmkbcNu/IikQ5HV9ADLaqDH
+         61x+mydAPLUzUhvxzHBNQwYCmNxdN581m0PwAmYHf39o7J25suoBVxYGH0+KYXeHiVmU
+         fJcNh5QjDHUB+vmn1764YRtDrT5YTcQ/39UJkMR1/ydm2QIltq3/bRUqI/2zori/ChXc
+         ozsAh/3BUXYb42NrrjvV1AfWPMRSKc2RQM+uZMVzn6xm4i7LuixeY7l20QhxztWUauxT
+         8ffKu6ahZgyoNaWFxi/y9xnTa00D1FFSPFRDQl1EkJkwi5hMCpXeRE7/qqrEwPhLBWue
+         JVTg==
+X-Forwarded-Encrypted: i=1; AJvYcCXyeR9lmvGoJkOzoHpjuJvvnRn37ojS3EaaI0NfSNv+r5OTruQQYpr2LMFJQ2di36mMPoAtwflAnYKIL0ln8gQN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxz6ysvZeAC4QuwgNr37z6EBABDHHCYXmTmdd5CWj9SLck+HF0d
+	SXrjDFEe01jTgsPvi8K3mbZnaN+LKWjVYEBxVob/AkoDpQFxJxMGfp2W4JXdQ6gyLMEC2gV2rID
+	pkdaZrUP8lPWgwgYcXCyHTFxSqFICeHpVZvvd
+X-Gm-Gg: ASbGncsL09+J+1G8yOEx15M6dE6qkSCTXbVW357h9zZ1rIMoPL4h26kLjN8x6tWtzF0
+	DzEEZHOR4hcfSTPh2toeRTJ5/9PMiQi0JssWEHTBZ3rJH7UVGjVkFXxGDWIBmfeWvuquXV0I/jP
+	MH1Pac6ChSRobbdOZBriJdQrzRRmndY+4WI+/7VMtzloJWEoLjG48iUA==
+X-Google-Smtp-Source: AGHT+IFHjBg03r/3RVZ9aaB5Mk4M+GMF/ZItUsDYbR7cSHqYL8Hm2MnfjLcQTNBGrm46WGoX9JDBGpNCtwc078vB7uE=
+X-Received: by 2002:a05:6512:2507:b0:549:3b4f:4b39 with SMTP id
+ 2adb3069b0e04-54acb195bd5mr361603e87.10.1742358219093; Tue, 18 Mar 2025
+ 21:23:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, mhklinux@outlook.com, ltykernel@gmail.com,
- stanislav.kinsburskiy@gmail.com, linux-acpi@vger.kernel.org,
- jeff.johnson@oss.qualcomm.com, eahariha@linux.microsoft.com,
- kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
- decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
- joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
- ssengar@linux.microsoft.com, apais@linux.microsoft.com,
- gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
- anrayabh@linux.microsoft.com, rafael@kernel.org, lenb@kernel.org,
- corbet@lwn.net
-Subject: Re: [PATCH v6 01/10] hyperv: Log hypercall status codes as strings
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1741980536-3865-2-git-send-email-nunodasneves@linux.microsoft.com>
-From: Easwar Hariharan <eahariha@linux.microsoft.com>
-Content-Language: en-US
-In-Reply-To: <1741980536-3865-2-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250318102259.189289-1-laura.nao@collabora.com> <20250318102259.189289-2-laura.nao@collabora.com>
+In-Reply-To: <20250318102259.189289-2-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 19 Mar 2025 12:23:27 +0800
+X-Gm-Features: AQ5f1Jos7SspTJtPnVw7V5hzjUHHfb4ilgg6YTkdTM2SmwYmpJB2tPacgIw_Nsk
+Message-ID: <CAGXv+5HZBS-L=BSPcy+QJAwJE--wB1AvG-xnxu+sf1FttYtV=g@mail.gmail.com>
+Subject: Re: [PATCH 1/2] platform/chrome: Add support for Google Spherion in
+ HW prober
+To: Laura Nao <laura.nao@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+	bleung@chromium.org, tzungbi@kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev, 
+	nfraprado@collabora.com, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_211747_584645_D3B5DAC9 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250318_212341_176733_BFE06491 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,29 +96,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/14/2025 12:28 PM, Nuno Das Neves wrote:
-> Introduce hv_status_printk() macros as a convenience to log hypercall
-> errors, formatting them with the status code (HV_STATUS_*) as a raw hex
-> value and also as a string, which saves some time while debugging.
-> 
-> Create a table of HV_STATUS_ codes with strings and mapped errnos, and
-> use it for hv_result_to_string() and hv_result_to_errno().
-> 
-> Use the new hv_status_printk()s in hv_proc.c, hyperv-iommu.c, and
-> irqdomain.c hypercalls to aid debugging in the root partition.
-> 
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+On Tue, Mar 18, 2025 at 6:28=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
+>
+> Add a new compatible entry for "google,spherion" to the hardware prober
+> platform list, using the same I2C component prober and trackpad data as
+> "google,hana".
+>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+
 > ---
->  arch/x86/hyperv/irqdomain.c    |   6 +-
->  drivers/hv/hv_common.c         | 129 ++++++++++++++++++++++++---------
->  drivers/hv/hv_proc.c           |  10 +--
->  drivers/iommu/hyperv-iommu.c   |   4 +-
->  include/asm-generic/mshyperv.h |  13 ++++
->  5 files changed, 118 insertions(+), 44 deletions(-)
-> 
-
-Looks good to me.
-
-Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
+>  drivers/platform/chrome/chromeos_of_hw_prober.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/platform/chrome/chromeos_of_hw_prober.c b/drivers/pl=
+atform/chrome/chromeos_of_hw_prober.c
+> index c6992f5cdc76..019578bc7ad0 100644
+> --- a/drivers/platform/chrome/chromeos_of_hw_prober.c
+> +++ b/drivers/platform/chrome/chromeos_of_hw_prober.c
+> @@ -84,6 +84,10 @@ static const struct hw_prober_entry hw_prober_platform=
+s[] =3D {
+>                 .compatible =3D "google,hana",
+>                 .prober =3D chromeos_i2c_component_prober,
+>                 .data =3D &chromeos_i2c_probe_hana_trackpad,
+> +       }, {
+> +               .compatible =3D "google,spherion",
+> +               .prober =3D chromeos_i2c_component_prober,
+> +               .data =3D &chromeos_i2c_probe_hana_trackpad,
+>         },
+>  };
+>
+> --
+> 2.39.5
+>
+>
 
