@@ -4,138 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C51C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B3AC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wamUso4b1WGimo/sIrO/N6kBi2SFz6qid5Yg0KAIl8s=; b=VoleNzJ+Kof6QQWSQ2JTZ+UN8L
-	kQODZhHU5GEWt8FFqRRoJp3XOVlYlVCx7UwIShaUAOCIAMHSw81+bBy9+0gB1aZkG0Hgj1RLB4xQc
-	enZ59PZsFFYepzOotQCZWepxrYxQoZJOj9Tqi0C4P7ZZZjO8mDTNS89RLfGnyqUCG7UkPvYzpkZSb
-	L4vCTOIPLC6SJ/J3pI3JjFqb7+7dD0OMbjXgJoiAR3mr94y6FrFruI2Whg+W4tUFntpoLRczo+wGq
-	QEfaofRa2njXzsKWFVivRARCHAO87LDl9yS0MjmGRDr0b2ayPWVcOil3Ne1jQLEsSH5bcMyvFwguE
-	KT7J13Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U6gWK+M6E76cWduPWoRETDNIACF2LoLtMNI00DYmoBU=; b=mXLKqA27sERSrYlZm4uecJqiYE
+	OSsbTFifCCSd4O0+L6CSoRhGZNQ3yfaZd/kzeKrVZMVxJymU9iFtUDQIeqE8Qd+QGvYQbg6GsJLds
+	DuXWDNQqxsqy/DO9uA6ab7A5DCqOX39T004DmXuXYFGspTq5CqwUxZZsVEegK1R6lo+TLa2/S/ha/
+	frgrX3AFLatP35JBj4yIBOxbP2fPIAPtf5gaGdVNbOBIU0dUPEQYB1zf5+5Ui6MnYyF8HId9uZ//7
+	uQkA+iNPFHvOm6xYiKubewxtVTvhS7KsNepx3HXiSf4ayKc3chvC/pnCqr65fgCM7KOHKkpFrwayN
+	g4heFVHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupqY-00000008VlQ-1TCG;
-	Wed, 19 Mar 2025 09:36:22 +0000
-Received: from mail-psaapc01on20720.outbound.protection.outlook.com ([2a01:111:f403:200e::720] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tupsD-00000008WAz-1Jk6;
+	Wed, 19 Mar 2025 09:38:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuple-00000008UQn-0IBt
+	id 1tupll-00000008UUx-3T7F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 09:31:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UCnwOM0joVNX+SZhCIhil4tXaMqZe6JvTe+ihdw+qAkfIfWeWu/omLwyQXhg6NWDOKaroV17+QZABP3Jzi3D3uHNUzFdgT+KqCR4WIr1bKq75G5KDwaogs4g7OXz24KkIXE6buWe22VxWioHFq82Ld6fz67jZ7hXsHS6dmm2OE2adu9ITGkL1KNcxqQapmYd1kxcMTj/JZPR2+ZvWfSQT5+st/Bam1t5Hg4EBNTN7C4OPFrh6IQxW3KzpwRGwmjhadG8DY5WM3hq9q8XXpBA698/mNWzgVcYyCOIhhuIBwWc+vAOBMChPGxLuofknBH80ZHcUGI90Js7Ws6p6OelUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wamUso4b1WGimo/sIrO/N6kBi2SFz6qid5Yg0KAIl8s=;
- b=ov81ySNK/dNPNv/KUp+CHWC36oCOU/ncwYlBwYfdEaFmxoXrPKdWvwFW3lu3RHe2QTqOTE7dJ7BDLXoBlZ2QPN4fmVkKCKqsciLsu876I7et8S9Nwe//9UEZPKu/n3XKDfNLSKvuHV1B88M+RwcSWXujTzphtPPhBaFH99zY7ovmcG1+vffpA0jb89oJvqh7W+OAe6kxDY+EUtPqLGJ5a+Cvzsh5qTgIw4YoyI09fglwqS0RCI5jXIJ8UzQXOWSczBK/k2GrXjhD+pINjEulWMF28XdhYn4EJTzInPF7uCVm1/C8XN/E0ivCATJBOQ6XSE1V4bTyVfSRG+VaoDvbxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=bootlin.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR01CA0036.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::22) by TYSPR06MB6900.apcprd06.prod.outlook.com
- (2603:1096:400:46e::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Wed, 19 Mar
- 2025 09:31:09 +0000
-Received: from SG1PEPF000082E7.apcprd02.prod.outlook.com
- (2603:1096:4:192:cafe::b8) by SI2PR01CA0036.outlook.office365.com
- (2603:1096:4:192::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.34 via Frontend Transport; Wed,
- 19 Mar 2025 09:31:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E7.mail.protection.outlook.com (10.167.240.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.20 via Frontend Transport; Wed, 19 Mar 2025 09:31:08 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 05C224160CA0;
-	Wed, 19 Mar 2025 17:31:07 +0800 (CST)
-Date: Wed, 19 Mar 2025 17:31:01 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kw@linux.com" <kw@linux.com>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"vigneshr@ti.com" <vigneshr@ti.com>,
-	"kishon@kernel.org" <kishon@kernel.org>,
-	"cassel@kernel.org" <cassel@kernel.org>,
-	"wojciech.jasko-EXT@continental-corporation.com" <wojciech.jasko-EXT@continental-corporation.com>,
-	"thomas.richard@bootlin.com" <thomas.richard@bootlin.com>,
-	"bwawrzyn@cisco.com" <bwawrzyn@cisco.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"srk@ti.com" <srk@ti.com>
-Subject: Re: [PATCH 0/4] Loadable Module support for PCIe Cadence and J721E
-Message-ID: <Z9qO1f5MgNcwO5A4@nchen-desktop>
-References: <20250307103128.3287497-1-s-vadapalli@ti.com>
- <Z9pffxeXHVOsoi4O@nchen-desktop>
- <20250319062534.ollh3s5t7znf5zqs@uda0492258>
+	Wed, 19 Mar 2025 09:31:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 233D25C4B52;
+	Wed, 19 Mar 2025 09:29:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C3BEC4CEEA;
+	Wed, 19 Mar 2025 09:31:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742376684;
+	bh=IRPy6rdQAf8FH/TYZqrfLoaXvOKxAtAADXQKa7/vbmg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lch0q9mJZEHRTrKV1pGlv6crfvvguqWqaywvDVeUuQ5Kri/RQi8b2Ng3Eqgt1rPn4
+	 ZZ8M7tEMphO9VPKS6Gc23v9o+U+lmU6hEF2Bri3hGhISPU0q2v3Yv5UejnpU6e/Ixi
+	 3DEzK7AFej9W0dReVe42kwP2V6V4aoRCJk9ULHh1g2TSnNNNvxJv9gZyzJeiFmCoYi
+	 iZUY8TV7GjKp1PSAu3NJTeDAOdg3fT2ruJdaA/+iRA3Mq1+RgQrp298d5bfb7nMXTY
+	 /5k4SD5GYQTJcpEIizD/mXD7nUlIhawj+knyrHbdTbB32VCZ65fHaPvvmXFwDsMiA9
+	 WHZomiqtTKm7g==
+From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+To: tglx@linutronix.de
+Cc: maz@kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 14/57] irqdomain: arm: Switch to irq_domain_create_*()
+Date: Wed, 19 Mar 2025 10:29:07 +0100
+Message-ID: <20250319092951.37667-15-jirislaby@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250319092951.37667-1-jirislaby@kernel.org>
+References: <20250319092951.37667-1-jirislaby@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250319062534.ollh3s5t7znf5zqs@uda0492258>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E7:EE_|TYSPR06MB6900:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9dc306cf-f9af-4ae5-b6ac-08dd66c8c776
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tgIQtoKrlMmWie5lenXMooAs9Whn9Kl8+q3easyt1ueI0+VfKxE/aKMP+44F?=
- =?us-ascii?Q?yMNOtYrJ68h/dWFWFdDRN67bAb8TvxU/iBw2H1xVKc5fUk7qzyQRZNqpE9ZU?=
- =?us-ascii?Q?g4d0s5zbclW23H5wfjY6a7VzUBytaZ9p4yXLJ7rEaVkh/zsDoTwExHrtvdKr?=
- =?us-ascii?Q?brTmnhIcsBU7bzEcEIqP4u7tS5GeB0di9ZcBDhaKny1O2Ca9E3k5NsFB9rUS?=
- =?us-ascii?Q?q97Gn34Kq2JqTkiPyH24L910/n1vZyrWwD4K1w0w7g86J4dZaIc8kiD94Mct?=
- =?us-ascii?Q?lpeWZ0eMCrlnZSRxXt3SbBPq+IEwkzF/rTjw3LbkygG4qRjKhe7jxqati7+A?=
- =?us-ascii?Q?adsymHpb2YDTeZD3qKfgiz4lWgWTmyyl84+fnQXX+xn+bQKN00AGngQr/Vr7?=
- =?us-ascii?Q?ssb2wYvea3YTy14U3IVCgkBBGfR56jD4utXPEbt/usHZ6TU4PB+NqmjDQod7?=
- =?us-ascii?Q?lrb4O6mSjbj8ZAF/rwjd9x3WXVPq4KUX1OJg7QWKCfT+6qUKEcnAD+U2/1rN?=
- =?us-ascii?Q?8Caxq1pW9gJXgCGxqePcvbxDisnNevCNE22YuhRfsemJRkYtf0hnN+SzQJuG?=
- =?us-ascii?Q?Kl7xH9bKOuYPo12Q2o3tD6pb+bnShiDFh5LhMh6iWyGtE//xwQxbe8nkYaZn?=
- =?us-ascii?Q?dxaj6cDGkt1RpKyI70Zsf3UnEXmf5S1CdZhKokN6sJir68PHdbOmxbxqrKu4?=
- =?us-ascii?Q?yqUDUrQ0P2Q+++0yyLt1Bf3ibEdetN3jxHLwU5CNU9LM6w3j7XWvWdmT6rmt?=
- =?us-ascii?Q?jP4m61SzJOuegpze/36XlfOZYgjeFWFk5WUo8MbLsF4k/asmSzsZ5z6Kn89T?=
- =?us-ascii?Q?J3hMDS89o4bPrVn+Qax/pv2WzSEbvTlxrIGfutk7giAZzcXLxIXUhSjxSOhy?=
- =?us-ascii?Q?+wOVKcT1fmm9SI9NWYbrkEniCBdLQZrNROn8wFHZe1ni3wVz4zA/cz03uC+l?=
- =?us-ascii?Q?yzxWGBXJQs71Bi3rCV3r4jIY35bufniJTTigHQEfCPCp2rQ8uXUHHsbxoMZv?=
- =?us-ascii?Q?XC8S8qxPeMgNSP8VizuQiXUT9+watp4aXLZLEr6+fBhvRey62TQ+SIhiC2q5?=
- =?us-ascii?Q?OYkykyRU1odGA1v21wmg5L6Tq6+y0PoRqGaoMzkkaeseonRX0uSEkayO4lbP?=
- =?us-ascii?Q?+cLGKSy1ggF+I+ogs6D7+eHRS6PZYeqm0fVoScoIYY2dcK6c0VEP8iFcHfNS?=
- =?us-ascii?Q?ftUrckhM3DYoALUdFuqYjPxkclQUc1UBIK534a6aIGKhKgZ0oc0E61pUauy8?=
- =?us-ascii?Q?0KBbaUOtt4z26Bqqli+aFMxgNTEiHCS0q3E7mr4w/AuA9WYZkAcNSwaf5OTH?=
- =?us-ascii?Q?2bZoKk/FabjcGiXhXlYaSnkGcz77YaNY1vDEBiR6doFS1i9kZa/CSCKw+Aat?=
- =?us-ascii?Q?04WYV5bCnSaVddm1IAR8KS2QgwUR5MGO2QyUrjOHR3kU3prSXRdHO9hAa0Br?=
- =?us-ascii?Q?wnvj4MSbtHFNXJuBLIv0iL2WoTC+dq6kB05+BRdvkdfZenaFSt25CHDzos+N?=
- =?us-ascii?Q?CpB52NGxutAXfVo=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2025 09:31:08.0541
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9dc306cf-f9af-4ae5-b6ac-08dd66c8c776
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E7.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6900
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_023118_124179_CA2A60AA 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20250319_023125_949307_7DA55339 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,59 +92,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-03-19 14:25:34, Siddharth Vadapalli wrote:
-> > >
-> > > Hello,
-> > >
-> > > This series enables support to build the PCIe Cadence Controller drivers
-> > > and the PCI J721E Application/Wrapper/Glue driver as Loadable Kernel
-> > > Modules. The motivation for this series is that PCIe is not a necessity
-> > > for booting the SoC, due to which it doesn't have to be a built-in
-> > > module. Additionally, the defconfig doesn't enable the PCIe Cadence
-> > > Controller drivers and the PCI J721E driver, due to which PCIe is not
-> > > supported by default. Enabling the configs as of now (i.e. without this
-> > > series) will result in built-in drivers i.e. a bloated Linux Image for
-> > > everyone who doesn't have the PCIe Controller.
-> >
-> > If the user doesn't enable PCIe controller device through DTS/ACPI,
-> > that's doesn't matter.
-> 
-> The Linux Image for arm64 systems built using:
-> arch/arm64/configs/defconfig
-> will not have support for the Cadence PCIe Controller and the PCIe J721e
-> driver, because these configs aren't enabled.
-> 
-> >
-> > > @@ -209,6 +209,12 @@ CONFIG_NFC=m
-> > >  CONFIG_NFC_NCI=m
-> > >  CONFIG_NFC_S3FWRN5_I2C=m
-> > >  CONFIG_PCI=y
-> > > +CONFIG_PCI_J721E=m
-> > > +CONFIG_PCI_J721E_HOST=m
-> > > +CONFIG_PCI_J721E_EP=m
-> > > +CONFIG_PCIE_CADENCE=m
-> > > +CONFIG_PCIE_CADENCE_HOST=m
-> > > +CONFIG_PCIE_CADENCE_EP=m
-> >
-> > The common Cadence configuration will be select if the glue layer's
-> > configuration is select according to Kconfig.
-> >
-> > Please do not set common configuration as module, some user may need
-> > it as build-in like dw's. Considering the situation, the rootfs is at
-> > NVMe.
-> 
-> The common configuration at the moment is "DISABLED" i.e. no support for
-> the Cadence Controller at all. Which "user" are you referring to? This
-> series was introduced since having the drivers built-in was pushed back at:
+irq_domain_add_*() interfaces are going away as being obsolete now.
+Switch to the preferred irq_domain_create_*() ones. Those differ in the
+node parameter: They take more generic struct fwnode_handle instead of
+struct device_node. Therefore, of_fwnode_handle() is added around the
+original parameter.
 
-We are using Cadence controller, and prepare upstream radxa-o6 board
-whose rootfs is at PCIe NVMe.
+Note some of the users can likely use dev->fwnode directly instead of
+indirect of_fwnode_handle(dev->of_node). But dev->fwnode is not
+guaranteed to be set for all, so this has to be investigated on case to
+case basis (by people who can actually test with the HW).
 
-You could build driver as module for TI glue layer, but don't force
-other vendors using module as well, see dwc as an example please.
+Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>
+Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+Cc: Tony Lindgren <tony@atomide.com>
+Cc: Andreas Kemnade <andreas@kemnade.info>
+Cc: Kevin Hilman <khilman@baylibre.com>
+Cc: Roger Quadros <rogerq@kernel.org>
+Cc: Daniel Mack <daniel@zonque.org>
+Cc: Haojian Zhuang <haojian.zhuang@gmail.com>
+Cc: Robert Jarzmik <robert.jarzmik@free.fr>
+Cc: Andrew Lunn <andrew@lunn.ch>
+Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ arch/arm/common/sa1111.c             |  6 +++---
+ arch/arm/mach-exynos/suspend.c       |  5 ++---
+ arch/arm/mach-imx/avic.c             |  4 ++--
+ arch/arm/mach-imx/gpc.c              |  5 ++---
+ arch/arm/mach-imx/tzic.c             |  4 ++--
+ arch/arm/mach-omap1/irq.c            |  3 +--
+ arch/arm/mach-omap2/omap-wakeupgen.c |  5 ++---
+ arch/arm/mach-pxa/irq.c              |  5 ++---
+ arch/arm/plat-orion/gpio.c           | 12 ++++++------
+ 9 files changed, 22 insertions(+), 27 deletions(-)
 
+diff --git a/arch/arm/common/sa1111.c b/arch/arm/common/sa1111.c
+index 9846f30990f7..02eda44a6faa 100644
+--- a/arch/arm/common/sa1111.c
++++ b/arch/arm/common/sa1111.c
+@@ -416,9 +416,9 @@ static int sa1111_setup_irq(struct sa1111 *sachip, unsigned irq_base)
+ 	writel_relaxed(~0, irqbase + SA1111_INTSTATCLR0);
+ 	writel_relaxed(~0, irqbase + SA1111_INTSTATCLR1);
+ 
+-	sachip->irqdomain = irq_domain_add_linear(NULL, SA1111_IRQ_NR,
+-						  &sa1111_irqdomain_ops,
+-						  sachip);
++	sachip->irqdomain = irq_domain_create_linear(NULL, SA1111_IRQ_NR,
++						     &sa1111_irqdomain_ops,
++						     sachip);
+ 	if (!sachip->irqdomain) {
+ 		irq_free_descs(sachip->irq_base, SA1111_IRQ_NR);
+ 		return -ENOMEM;
+diff --git a/arch/arm/mach-exynos/suspend.c b/arch/arm/mach-exynos/suspend.c
+index cac4e82f6c82..150a1e56dcae 100644
+--- a/arch/arm/mach-exynos/suspend.c
++++ b/arch/arm/mach-exynos/suspend.c
+@@ -209,9 +209,8 @@ static int __init exynos_pmu_irq_init(struct device_node *node,
+ 		return -ENOMEM;
+ 	}
+ 
+-	domain = irq_domain_add_hierarchy(parent_domain, 0, 0,
+-					  node, &exynos_pmu_domain_ops,
+-					  NULL);
++	domain = irq_domain_create_hierarchy(parent_domain, 0, 0, of_fwnode_handle(node),
++					     &exynos_pmu_domain_ops, NULL);
+ 	if (!domain) {
+ 		iounmap(pmu_base_addr);
+ 		pmu_base_addr = NULL;
+diff --git a/arch/arm/mach-imx/avic.c b/arch/arm/mach-imx/avic.c
+index cf6546ddc7a3..3067c06b4b8e 100644
+--- a/arch/arm/mach-imx/avic.c
++++ b/arch/arm/mach-imx/avic.c
+@@ -201,8 +201,8 @@ static void __init mxc_init_irq(void __iomem *irqbase)
+ 	WARN_ON(irq_base < 0);
+ 
+ 	np = of_find_compatible_node(NULL, NULL, "fsl,avic");
+-	domain = irq_domain_add_legacy(np, AVIC_NUM_IRQS, irq_base, 0,
+-				       &irq_domain_simple_ops, NULL);
++	domain = irq_domain_create_legacy(of_fwnode_handle(np), AVIC_NUM_IRQS, irq_base, 0,
++					  &irq_domain_simple_ops, NULL);
+ 	WARN_ON(!domain);
+ 
+ 	for (i = 0; i < AVIC_NUM_IRQS / 32; i++, irq_base += 32)
+diff --git a/arch/arm/mach-imx/gpc.c b/arch/arm/mach-imx/gpc.c
+index 5909088d5482..2e633569d2f8 100644
+--- a/arch/arm/mach-imx/gpc.c
++++ b/arch/arm/mach-imx/gpc.c
+@@ -245,9 +245,8 @@ static int __init imx_gpc_init(struct device_node *node,
+ 	if (WARN_ON(!gpc_base))
+ 	        return -ENOMEM;
+ 
+-	domain = irq_domain_add_hierarchy(parent_domain, 0, GPC_MAX_IRQS,
+-					  node, &imx_gpc_domain_ops,
+-					  NULL);
++	domain = irq_domain_create_hierarchy(parent_domain, 0, GPC_MAX_IRQS, of_fwnode_handle(node),
++					     &imx_gpc_domain_ops, NULL);
+ 	if (!domain) {
+ 		iounmap(gpc_base);
+ 		return -ENOMEM;
+diff --git a/arch/arm/mach-imx/tzic.c b/arch/arm/mach-imx/tzic.c
+index 8b3d98d288d9..50a5668e65d2 100644
+--- a/arch/arm/mach-imx/tzic.c
++++ b/arch/arm/mach-imx/tzic.c
+@@ -175,8 +175,8 @@ static int __init tzic_init_dt(struct device_node *np, struct device_node *p)
+ 	irq_base = irq_alloc_descs(-1, 0, TZIC_NUM_IRQS, numa_node_id());
+ 	WARN_ON(irq_base < 0);
+ 
+-	domain = irq_domain_add_legacy(np, TZIC_NUM_IRQS, irq_base, 0,
+-				       &irq_domain_simple_ops, NULL);
++	domain = irq_domain_create_legacy(of_fwnode_handle(np), TZIC_NUM_IRQS, irq_base, 0,
++					  &irq_domain_simple_ops, NULL);
+ 	WARN_ON(!domain);
+ 
+ 	for (i = 0; i < 4; i++, irq_base += 32)
+diff --git a/arch/arm/mach-omap1/irq.c b/arch/arm/mach-omap1/irq.c
+index 9b587ecebb1c..bb1bc060ecd8 100644
+--- a/arch/arm/mach-omap1/irq.c
++++ b/arch/arm/mach-omap1/irq.c
+@@ -220,8 +220,7 @@ void __init omap1_init_irq(void)
+ 	omap_l2_irq = irq_base;
+ 	omap_l2_irq -= NR_IRQS_LEGACY;
+ 
+-	domain = irq_domain_add_legacy(NULL, nr_irqs, irq_base, 0,
+-				       &irq_domain_simple_ops, NULL);
++	domain = irq_domain_create_legacy(NULL, nr_irqs, irq_base, 0, &irq_domain_simple_ops, NULL);
+ 
+ 	pr_info("Total of %lu interrupts in %i interrupt banks\n",
+ 		nr_irqs, irq_bank_count);
+diff --git a/arch/arm/mach-omap2/omap-wakeupgen.c b/arch/arm/mach-omap2/omap-wakeupgen.c
+index 6f0d6120c174..a66b1dc61571 100644
+--- a/arch/arm/mach-omap2/omap-wakeupgen.c
++++ b/arch/arm/mach-omap2/omap-wakeupgen.c
+@@ -585,9 +585,8 @@ static int __init wakeupgen_init(struct device_node *node,
+ 		wakeupgen_ops = &am43xx_wakeupgen_ops;
+ 	}
+ 
+-	domain = irq_domain_add_hierarchy(parent_domain, 0, max_irqs,
+-					  node, &wakeupgen_domain_ops,
+-					  NULL);
++	domain = irq_domain_create_hierarchy(parent_domain, 0, max_irqs, of_fwnode_handle(node),
++					     &wakeupgen_domain_ops, NULL);
+ 	if (!domain) {
+ 		iounmap(wakeupgen_base);
+ 		return -ENOMEM;
+diff --git a/arch/arm/mach-pxa/irq.c b/arch/arm/mach-pxa/irq.c
+index d9cadd97748a..5bfce8aa4102 100644
+--- a/arch/arm/mach-pxa/irq.c
++++ b/arch/arm/mach-pxa/irq.c
+@@ -147,9 +147,8 @@ pxa_init_irq_common(struct device_node *node, int irq_nr,
+ 	int n;
+ 
+ 	pxa_internal_irq_nr = irq_nr;
+-	pxa_irq_domain = irq_domain_add_legacy(node, irq_nr,
+-					       PXA_IRQ(0), 0,
+-					       &pxa_irq_ops, NULL);
++	pxa_irq_domain = irq_domain_create_legacy(of_fwnode_handle(node), irq_nr, PXA_IRQ(0), 0,
++						  &pxa_irq_ops, NULL);
+ 	if (!pxa_irq_domain)
+ 		panic("Unable to add PXA IRQ domain\n");
+ 	irq_set_default_domain(pxa_irq_domain);
+diff --git a/arch/arm/plat-orion/gpio.c b/arch/arm/plat-orion/gpio.c
+index 595e9cb33c1d..a15f47450084 100644
+--- a/arch/arm/plat-orion/gpio.c
++++ b/arch/arm/plat-orion/gpio.c
+@@ -602,12 +602,12 @@ void __init orion_gpio_init(int gpio_base, int ngpio,
+ 			       IRQ_NOREQUEST, IRQ_LEVEL | IRQ_NOPROBE);
+ 
+ 	/* Setup irq domain on top of the generic chip. */
+-	ochip->domain = irq_domain_add_legacy(NULL,
+-					      ochip->chip.ngpio,
+-					      ochip->secondary_irq_base,
+-					      ochip->secondary_irq_base,
+-					      &irq_domain_simple_ops,
+-					      ochip);
++	ochip->domain = irq_domain_create_legacy(NULL,
++						 ochip->chip.ngpio,
++						 ochip->secondary_irq_base,
++						 ochip->secondary_irq_base,
++						 &irq_domain_simple_ops,
++						 ochip);
+ 	if (!ochip->domain)
+ 		panic("%s: couldn't allocate irq domain (DT).\n",
+ 		      ochip->chip.label);
 -- 
+2.49.0
 
-Best regards,
-Peter
 
