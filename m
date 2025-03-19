@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D910FC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 19:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79739C35FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 19:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/HZQ3Zahl7KcvExRpxIJjr5IKy9aN8frbDhjqdWNxw=; b=0xWbJ+YjwY+zAXV/SJF7M8uFaY
-	ipubmQEChFh0saxfJbP+EwGHz1GqM/hBiR9UayRYaFcONKJa2q+fi5fdJ21Iem/iTIiqM61gNAp12
-	2knik2xgJ239RMUyXK3yE/u9ezZWLVqT+3ph03zoBejahsEKZWXJPjfFpjkphFUBGXVISeXoYBuE9
-	3f16YK3P2f9aKJfGI6oFVX5rDTqQBypNLAdL2gdfPP2PHnYfX8ZexjU9n0/iMrHxccohKRPfuj+z9
-	d+tgf1egauKRJS2piKsYRMfRwyHFXQlZBsPcsjDtc1eDITnUjpwINlGM6Nt/q3oBBPtLlHKsNLJMm
-	Uk62gXHw==;
+	bh=zbmHU6yoDwVXekz4tTQKe7pROirEewngkxi6bRGCAYU=; b=prjBLw0F5Y2DD0MX0FCUTgfiHh
+	hOdXmHP22yxEqyOK1iRl1IKMWBTzNTcs/eKF7uH2+ld8iLWcisGqZzylYVBfwgwQlOO9t6L4aJ0Gx
+	rZk/PobIuVJSsGJM7OZjxWq/QRIpRg6I2psqwtNfZiJB0bw+kE6MZY5373VDf8bTlMe9iJd2rS3Tv
+	73Q9awPcpi2yDJg+r1tsD0gQ9bb7DatY4/sJxDZG3jdihBlqMnvhc7js45jrFy9TDOQihXsAJ0d5j
+	flfw/xmiJ/mJyIZGAzD/gROnNi3X9RwHMPVALEtNHgNKyw+9gfJdsDX7Aml01kdSPRwKDsMKOtMAA
+	uu/Q+xog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuz3X-00000009y6k-2yyk;
-	Wed, 19 Mar 2025 19:26:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tuz7r-00000009yuH-2iMU;
+	Wed, 19 Mar 2025 19:30:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuz0a-00000009xMh-1tna
+	id 1tuz6A-00000009yc3-2AuV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 19:23:21 +0000
+	Wed, 19 Mar 2025 19:29:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5C5DB5C6144;
-	Wed, 19 Mar 2025 19:21:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FD5FC4CEE9;
-	Wed, 19 Mar 2025 19:23:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C1A8682F4;
+	Wed, 19 Mar 2025 19:29:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E0A4C4CEE9;
+	Wed, 19 Mar 2025 19:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742412199;
-	bh=r/XHbPpCDJg8LK6akBmJpvgVHJpTE1lx9iFi1+FW9MU=;
+	s=k20201202; t=1742412545;
+	bh=ZzMX55IjDIprWqceWohngFCM6EBQHJSx4FKfnv2T0Ac=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DJcjSaFg1WzjsfwN3S18h/TNsv+xT7Mfh/G3Ev/9JixtH5vs/cqkDaL5bIq0bSPp8
-	 CVGw9HXbJNMdxd0hCCo41zii/BvmkX9CbQ8tKJ1revkGZxxa/VlFf4P25TYt+xiJob
-	 4mI9hyx1WBLYCFfuv276gPhY3WqUZz5twwHydHId59OIiv1SLO6v1b6s207i2iKVvL
-	 roAKJa9XUgMVWf3hMsavNsfosOoQDpwdFOfw5kWZV1yWG2gnhyc6Fzvhvya0yEzahb
-	 nXziJePKSbeQQAjtDLL/yMzmb1OsTUzF1+VJtBTfa8ygzxaZ7455C7bccnu4BoCp4Z
-	 n2Zf1cERFJOlA==
-Message-ID: <b75a5c14-f399-45e2-80f3-923e7afe78ab@kernel.org>
-Date: Wed, 19 Mar 2025 20:23:11 +0100
+	b=pzO/WD9dL5W+fwp7FqW8OjOYtwusOt0EiiKi7IrOJ8q9ngMf6Kq3cwcm/WCzb3xDq
+	 bxseUheWXp5G01aDdO3IfNGmWpaN/Sg7jRw2UBA1ezdzcVPY3kz+1z7iD9IQ2iIWkt
+	 utGAd7YoEcVwmy+kyqB2rC5u3tHkX1MtT3ZpxSay1C2Ut9wFA4A+ZIRcuLUOMdJhpo
+	 cx8xbmJNjvJtufT9nODAFx2t0a4VmeYnSgcg3tAXO9up2Pquh7OadHBtgMk5SL08Il
+	 4g85Qv9OOygkFUK0cu5vUrThgvQI3hPFrdbe0xMOOj90pw7ueY7lK4Tzc0iW4iOpgs
+	 Uryed/e1F8ksg==
+Message-ID: <44f2387b-0a86-46cc-a5d2-950dd688b207@kernel.org>
+Date: Wed, 19 Mar 2025 20:28:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: Add Initial device tree for AMD
- Onyx Platform
-To: Rajaganesh Rathinasabapathi <rrathina@amd.com>,
- Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>,
- devicetree@vger.kernel.org, openbmc@lists.ozlabs.org, joel@jms.id.au,
- andrew@codeconstruct.com.au
-Cc: robh+dt@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+Subject: Re: [PATCH v2] ARM: dts: aspeed: Add device tree for Nvidia's
+ GB200NVL BMC
+To: Willie Thai <wthai@nvidia.com>
+Cc: andrew@codeconstruct.com.au, andrew@lunn.ch, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, dkodihalli@nvidia.com, gpiccoli@igalia.com,
+ joel@jms.id.au, kees@kernel.org, krzk+dt@kernel.org, leohu@nvidia.com,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, jothayot@amd.com,
- Supreeth Venkatesh <supreeth.venkatesh@amd.com>
-References: <20250318174730.1921983-1-Rajaganesh.Rathinasabapathi@amd.com>
- <20250318174730.1921983-2-Rajaganesh.Rathinasabapathi@amd.com>
- <af75c352-0010-4c58-b8bc-ac0d02337d1a@kernel.org>
- <8c7be61d-d5e4-4f7f-a995-06cf856a84ae@amd.com>
+ linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+ maryang@nvidia.com, openbmc@lists.ozlabs.org, pmenzel@molgen.mpg.de,
+ robh@kernel.org, tingkaic@nvidia.com, tony.luck@intel.com
+References: <93bb3092-7f49-4a7f-ac97-3cf1a62ac39d@kernel.org>
+ <20250319112451.4171471-1-wthai@nvidia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +103,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <8c7be61d-d5e4-4f7f-a995-06cf856a84ae@amd.com>
+In-Reply-To: <20250319112451.4171471-1-wthai@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_122320_580277_2CC8D0D6 
-X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,115 +120,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2025 17:41, Rajaganesh Rathinasabapathi wrote:
-> On 3/18/25 23:44, Krzysztof Kozlowski wrote:
->> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
+On 19/03/2025 12:24, Willie Thai wrote:
+>>> +
+>>> +// Enable Primary flash on FMC for bring up activity
+>>> +&fmc {
+>>> +	status = "okay";
+>>> +	flash@0 {
+>>> +		status = "okay";
 >>
+>> Nothing improved.
 >>
->> On 18/03/2025 18:47, Rajaganesh Rathinasabapathi wrote:
->>> Add initial device tree and makefile updates for
->>> AMD Onyx platform.
->>>
->>> AMD Onyx platform is an AMD customer reference board with an Aspeed
->>> ast2600 BMC manufactured by AMD.
->>> It describes I2C devices, UARTs, MAC, FMC, etc.
->>> present on AMD Onyx platform.
->>>
->>> Signed-off-by: Supreeth Venkatesh <supreeth.venkatesh@amd.com>
->>> Signed-off-by: Rajaganesh Rathinasabapathi <Rajaganesh.Rathinasabapathi@amd.com>
->>> ---
->>> Changes since v1:
->>> * Incorporate review comments
->>
->> Which ones? I do not see my comments addressed and if you do not list
->> them, I treat it as a clear sign you do not care.
+>> Respond to comment instead of ignoring it.
 >>
 > 
-> Understood, will list them in next patch submission.
->>> * Update commit message
->>> * Remove vmalloc and earlyprintk
->>>
->>> Changes since v2:
->>> * Address review comments
->>
->> Which ones? This has to be specific
->>
-> Got it, will add details and fix in next patch.
-> 
->>> * Fix checkpatch warnings
->>> * Remove bootargs
->>>
->>> Changes since v3:
->>> * Fix stdout-path
->>> * Change commit summary
->>> ---
->>>  arch/arm/boot/dts/aspeed/Makefile             |   1 +
->>>  .../boot/dts/aspeed/aspeed-bmc-amd-onyx.dts   | 102 ++++++++++++++++++
->>>  2 files changed, 103 insertions(+)
->>>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts
->>>
->>> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
->>> index 2e5f4833a073..1e6a130377b8 100644
->>> --- a/arch/arm/boot/dts/aspeed/Makefile
->>> +++ b/arch/arm/boot/dts/aspeed/Makefile
->>> @@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
->>>       aspeed-ast2600-evb.dtb \
->>>       aspeed-bmc-amd-daytonax.dtb \
->>>       aspeed-bmc-amd-ethanolx.dtb \
->>> +     aspeed-bmc-amd-onyx.dtb \
->>>       aspeed-bmc-ampere-mtjade.dtb \
->>>       aspeed-bmc-ampere-mtjefferson.dtb \
->>>       aspeed-bmc-ampere-mtmitchell.dtb \
->>> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts
->>> new file mode 100644
->>> index 000000000000..32509a651183
->>> --- /dev/null
->>> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-amd-onyx.dts
->>> @@ -0,0 +1,102 @@
->>> +// SPDX-License-Identifier: GPL-2.0+
->>> +// Copyright (c) 2021 - 2024 AMD Inc.
->>> +// Author: Supreeth Venkatesh <supreeth.venkatesh@amd.com>
->>> +
->>> +/dts-v1/;
->>> +
->>> +#include "aspeed-g6.dtsi"
->>> +#include <dt-bindings/gpio/aspeed-gpio.h>
->>> +
->>> +/ {
->>> +     model = "AMD Onyx BMC";
->>> +     compatible = "amd,onyx-bmc", "aspeed,ast2600";
->>> +
->>> +     aliases {
->>> +             serial0 = &uart1;
->>> +             serial4 = &uart5;
->>> +     };
->>> +
->>> +     chosen {
->>> +             stdout-path = "serial4:115200n8";
->>> +     };
->>> +
->>> +     memory@80000000 {
->>> +             device_type = "memory";
->>> +             reg = <0x80000000 0x80000000>;
->>> +     };
->>> +
->>> +};
->> How did you address comment here from v1 which was responded with "ACK"?
->>
->> What else what exactly fixed and what not?
->>
->> Best regards,
->> Krzysztof
-> 
-> Thanks for the comments.
-> I will add 'Acked-by' and in next patch submission. 
-> 
+> The property was disabled here: https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi#L172
 
+I see, thanks.
 
-What? Where did you get it from? Are you sure you understand submitting
-patches document regarding this section?
-
-Read the comment given on v1 instead of some random actions.
 
 Best regards,
 Krzysztof
