@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8B7C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 15:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E783C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 15:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vhd9OLP19nHpcre+78tpM1P6tFgF3pG7vpM2folBU5Q=; b=iTbn5nDVUUXXp8Pjk4swMpd5Ho
-	haii0auaF8xV6M8qbFAiA1rYfdM7t4hUo+0MQbvoUPvBgR0w3g67NUqvKxbi+vh3C1ogBNqG+9yYV
-	aT5vmFIQmyR/fPTkSLB+6vS1ppB6rtzKQcOC5FtsyxAd+nn0q9o5fYn7/xfLhubsURfGch/7+5R1b
-	DpImwzJe/42iyemH58J3wkBs9mqj/iTH1qFZEp8NmQV1qB59ZvI14RGgSeS+i5jimXzKLrHy6Wiwm
-	KxLWA4qLHyg3chTcMzwm7EZu6jhaNJwBir/gZ3SbrCIBmRvnnzXuvq24hhU1QMM3CKgomyfbTSVSu
-	jGbWq4lw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zNv4YENHPmtSPb1F94zL2vQ71swaDzySWvLHzeXUzS4=; b=Au3VqhIQL/dHRRUy71SgWt7NCF
+	Z+eIenrLolvzpl9SZUWZktMlsUHapglvXhqlIu2OmGMkJGOXhZSk0/46EE/Bs9r1nZYnL+nh0ivak
+	A1sVNrSQM5ijKIfNc3JZLy2Vz9NuD7EaxH/YN+Z9fa83XnOJBGcxbmw8KEOTUORvWpmg2vYne+GwO
+	YqeDr6HT/CJ5+7SihhqCRQbVACd2a+P7qnk6xkMgaQe8yp/xX2Y5G+vnVPwgMSI2ZzggZzh8Fz/7S
+	gKYwst1oFCq/4tiBOUAbCFOt16/+GjTs8zJuW/P1dKAiigMAEX6VO2nRy6P3w+tAh2O4WumLciPqA
+	MJD0IFfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuv6G-00000009KsL-1TV8;
-	Wed, 19 Mar 2025 15:12:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuuzm-00000009Jh7-4AOv
+	id 1tuv7w-00000009LCS-0BRE;
+	Wed, 19 Mar 2025 15:14:40 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuv0g-00000009JpQ-0VeA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 15:06:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA3051655;
-	Wed, 19 Mar 2025 08:06:22 -0700 (PDT)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A210E3F694;
-	Wed, 19 Mar 2025 08:06:10 -0700 (PDT)
-From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-To: ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	yang@os.amperecomputing.com,
-	corbet@lwn.net,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	jean-philippe@linaro.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	akpm@linux-foundation.org,
-	ardb@kernel.org,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	maz@kernel.org,
-	james.morse@arm.com,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	baohua@kernel.org,
-	david@redhat.com,
-	ioworker0@gmail.com,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	mshavit@google.com,
-	jsnitsel@redhat.com,
-	smostafa@google.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Wed, 19 Mar 2025 15:07:11 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43cf848528aso38834785e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 08:07:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hifiphile-com.20230601.gappssmtp.com; s=20230601; t=1742396828; x=1743001628; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zNv4YENHPmtSPb1F94zL2vQ71swaDzySWvLHzeXUzS4=;
+        b=gcsbGeEUGdfcH3k6ykjeZoXT934rynHVguNvwnBMpAjqbM/aJ9u0sEjABiQK76ZCBw
+         lSf4qDgv9OPDufKcLFYVmjdWbOlA5+1pwGRBRdIAjgsHWR+MguD0vScHMhd/5facO6N6
+         yLufEN1p1wbwowsjFQaCpJ2K5wXTWEVObR5r5NR0GqP79XPk4XMZIuG/fvZQ3EbsTMJ4
+         2xus0z9W8NVwageAy5qrC1p/l9S4J+E1C0TDhuxkXAyjYePHJlOz4HU0/ByxbPR+U0vU
+         4sClsKAokm8TkzNw+gvNcb9kAxJTRs/N0q07c4vTbnUQovYf2Kw+6vbukbDOqlIosia1
+         7apQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742396828; x=1743001628;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zNv4YENHPmtSPb1F94zL2vQ71swaDzySWvLHzeXUzS4=;
+        b=iA8pMnaw4XCfwA1v2C/Ez1NsPj8zUcHiij8dosXWIMXVhagIMjOLmd3SqO3QaorzH8
+         Z8X3Ks95LejVTzZqPnR04h7WnfXHisnLXSFG5CM78B4DlSW5d5MKqZNPw+ArYPMRCxBe
+         qJDUuM9pHHpZHx/Kbkbm1ohVideRRQht3hnKOTfg7MXzJogjz4yax//UgMDJyyTEGZrw
+         U1P9ypo40vIEf4wUAjXy+E4cI7KGi1U8fHR9i1nBXqgl3t0WNM+l1YL2i+TLBBlaXV/S
+         aPsLQm62h0sVKM7WyLYSXuWFHLt0MNLGg6OvPg9vtxLLijmFuYr7eF3wwdi/VCxG8sgM
+         QOdA==
+X-Forwarded-Encrypted: i=1; AJvYcCWFYPRTYN92NN3ykOmQlXLmnvKFj7lFe58Trq6X/Sq8wSoOVKrZ346Rqj61J/otid0Hi9HjQLW3DP0fIoJ2ge2D@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJRm3El2HNdYf5RVqXi86E1mWF5zqTDDgQMA0hYJWg0Ad2kxUd
+	gSYxzAtBag7n30OAXeYVFzVUBVn8urxmhq6vjuaiBDqd8Paxtry3XyBs3uRvjm0=
+X-Gm-Gg: ASbGnct3jE7H25OEFFw7VH3I4fBbMklAaVfCUVPyI1++if4oGnH9T2VWZ0dINbiXrhA
+	1XhMHixriVQIVuo12WIA/BcqGyym/A4VVx3/bquDweFYC4hh+EtlS82bhLVY+HbpQ0bAlZBrqWp
+	oO5ruvE0Vat9OKt4Qdg7lPFnSLbyLv5fNcDHruFM1rzK6uwbZcCVql2cSKoqiS2cLJVFpWCk+On
+	uKXaERRuv6Ly4Hqnq+E54yPc9UzEzQNxldvAGZ1P2aMVwtoCPBKqkxNTYBcQ5A/7GhjuQnrvPLc
+	NXtJW7NXxz8LUE8rhwq6KD5ToV/07KLXLO77sD9OLWgtDw==
+X-Google-Smtp-Source: AGHT+IG1T0wpdC2jhhxGsViaMerXWFKA7E61APRJ0hjnELjvuOcDSh7XS5SLOgX4CwPT1xf8fTb5ZQ==
+X-Received: by 2002:a5d:47c9:0:b0:391:2a9a:478c with SMTP id ffacd0b85a97d-399739c81bfmr2840201f8f.23.1742396827667;
+        Wed, 19 Mar 2025 08:07:07 -0700 (PDT)
+Received: from localhost.localdomain ([78.199.60.143])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-395c7df33aasm20875247f8f.2.2025.03.19.08.07.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Mar 2025 08:07:07 -0700 (PDT)
+From: Zixun LI <admin@hifiphile.com>
+X-Google-Original-From: Zixun LI <zli@ogga.fr>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Zixun LI <admin@hifiphile.com>,
+	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev
-Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v4 3/3] arm64/mm: Elide tlbi in contpte_convert() under BBML2
-Date: Wed, 19 Mar 2025 15:05:34 +0000
-Message-ID: <20250319150533.37440-5-miko.lenczewski@arm.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: atmel - add CRYPTO_ALG_KERN_DRIVER_ONLY flag to atmel-aes, atmel-sha, atmel-tdes drivers
+Date: Wed, 19 Mar 2025 16:06:56 +0100
+Message-ID: <20250319150657.2698916-1-zli@ogga.fr>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250319150533.37440-2-miko.lenczewski@arm.com>
-References: <20250319150533.37440-2-miko.lenczewski@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_080615_070319_E6FD96B7 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250319_080710_359879_094B0B92 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +101,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When converting a region via contpte_convert() to use mTHP, we have two
-different goals. We have to mark each entry as contiguous, and we would
-like to smear the dirty and young (access) bits across all entries in
-the contiguous block. Currently, we do this by first accumulating the
-dirty and young bits in the block, using an atomic
-__ptep_get_and_clear() and the relevant pte_{dirty,young}() calls,
-performing a tlbi, and finally smearing the correct bits across the
-block using __set_ptes().
+From: Zixun LI <admin@hifiphile.com>
 
-This approach works fine for BBM level 0, but with support for BBM level
-2 we are allowed to reorder the tlbi to after setting the pagetable
-entries. We expect the time cost of a tlbi to be much greater than the
-cost of clearing and resetting the PTEs. As such, this reordering of the
-tlbi outside the window where our PTEs are invalid greatly reduces the
-duration the PTE are visibly invalid for other threads. This reduces the
-likelyhood of a concurrent page walk finding an invalid PTE, reducing
-the likelyhood of a fault in other threads, and improving performance
-(more so when there are more threads).
+This patch introduces the CRYPTO_ALG_KERN_DRIVER_ONLY flag to the
+atmel-aes, atmel-sha, and atmel-tdes drivers. This flag is set for
+hardware accelerated ciphers accessible through a kernel driver only,
+which is the case of these drivers.
 
-Because we support via allowlist only bbml2 implementations that never
-raise conflict aborts and instead invalidate the tlb entries
-automatically in hardware, we can avoid the final flush altogether.
-Avoiding flushes is a win.
-
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Zixun LI <admin@hifiphile.com>
 ---
- arch/arm64/mm/contpte.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/crypto/atmel-aes.c  | 5 +++--
+ drivers/crypto/atmel-sha.c  | 6 ++++--
+ drivers/crypto/atmel-tdes.c | 3 ++-
+ 3 files changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index 55107d27d3f8..77ed03b30b72 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -68,7 +68,8 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
- 			pte = pte_mkyoung(pte);
- 	}
+diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
+index 90dcae7049b7..8a6ee5ac9956 100644
+--- a/drivers/crypto/atmel-aes.c
++++ b/drivers/crypto/atmel-aes.c
+@@ -1948,7 +1948,8 @@ static struct skcipher_alg aes_xts_alg = {
+ 	.base.cra_driver_name	= "atmel-xts-aes",
+ 	.base.cra_blocksize	= AES_BLOCK_SIZE,
+ 	.base.cra_ctxsize	= sizeof(struct atmel_aes_xts_ctx),
+-	.base.cra_flags		= CRYPTO_ALG_NEED_FALLBACK,
++	.base.cra_flags		= CRYPTO_ALG_NEED_FALLBACK |
++						  CRYPTO_ALG_KERN_DRIVER_ONLY,
  
--	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
-+	if (!system_supports_bbml2_noabort())
-+		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+ 	.min_keysize		= 2 * AES_MIN_KEY_SIZE,
+ 	.max_keysize		= 2 * AES_MAX_KEY_SIZE,
+@@ -2471,7 +2472,7 @@ static void atmel_aes_unregister_algs(struct atmel_aes_dev *dd)
  
- 	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
- }
+ static void atmel_aes_crypto_alg_init(struct crypto_alg *alg)
+ {
+-	alg->cra_flags |= CRYPTO_ALG_ASYNC;
++	alg->cra_flags |= CRYPTO_ALG_ASYNC | CRYPTO_ALG_KERN_DRIVER_ONLY;
+ 	alg->cra_alignmask = 0xf;
+ 	alg->cra_priority = ATMEL_AES_PRIORITY;
+ 	alg->cra_module = THIS_MODULE;
+diff --git a/drivers/crypto/atmel-sha.c b/drivers/crypto/atmel-sha.c
+index 3622120add62..40f6ed5b20ee 100644
+--- a/drivers/crypto/atmel-sha.c
++++ b/drivers/crypto/atmel-sha.c
+@@ -1254,7 +1254,8 @@ static int atmel_sha_cra_init(struct crypto_tfm *tfm)
+ static void atmel_sha_alg_init(struct ahash_alg *alg)
+ {
+ 	alg->halg.base.cra_priority = ATMEL_SHA_PRIORITY;
+-	alg->halg.base.cra_flags = CRYPTO_ALG_ASYNC;
++	alg->halg.base.cra_flags = CRYPTO_ALG_ASYNC |
++							   CRYPTO_ALG_KERN_DRIVER_ONLY;
+ 	alg->halg.base.cra_ctxsize = sizeof(struct atmel_sha_ctx);
+ 	alg->halg.base.cra_module = THIS_MODULE;
+ 	alg->halg.base.cra_init = atmel_sha_cra_init;
+@@ -2043,7 +2044,8 @@ static void atmel_sha_hmac_cra_exit(struct crypto_tfm *tfm)
+ static void atmel_sha_hmac_alg_init(struct ahash_alg *alg)
+ {
+ 	alg->halg.base.cra_priority = ATMEL_SHA_PRIORITY;
+-	alg->halg.base.cra_flags = CRYPTO_ALG_ASYNC;
++	alg->halg.base.cra_flags = CRYPTO_ALG_ASYNC |
++							   CRYPTO_ALG_KERN_DRIVER_ONLY;
+ 	alg->halg.base.cra_ctxsize = sizeof(struct atmel_sha_hmac_ctx);
+ 	alg->halg.base.cra_module = THIS_MODULE;
+ 	alg->halg.base.cra_init	= atmel_sha_hmac_cra_init;
+diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
+index 099b32a10dd7..3a6a890172cd 100644
+--- a/drivers/crypto/atmel-tdes.c
++++ b/drivers/crypto/atmel-tdes.c
+@@ -898,7 +898,8 @@ static int atmel_tdes_init_tfm(struct crypto_skcipher *tfm)
+ static void atmel_tdes_skcipher_alg_init(struct skcipher_alg *alg)
+ {
+ 	alg->base.cra_priority = ATMEL_TDES_PRIORITY;
+-	alg->base.cra_flags = CRYPTO_ALG_ASYNC;
++	alg->base.cra_flags = CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_KERN_DRIVER_ONLY;
+ 	alg->base.cra_ctxsize = sizeof(struct atmel_tdes_ctx);
+ 	alg->base.cra_module = THIS_MODULE;
+ 
 -- 
 2.48.1
 
