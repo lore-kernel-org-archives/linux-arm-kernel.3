@@ -4,123 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CF3C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14AFEC35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZJFFFU75xnAfcL8zLuM4V6jHSfHq6sIXUl/50bulpc=; b=EginqqSEPEKrf9i/pm8gBGLk71
-	Fa+pHVltB7GXiLFZSZwv+g4p3iMQOzGhBQvOxksia65uWil/0rvI3dVZcOneRkfgGn7z4yZ1A3P8c
-	e+dC4vAwI0udOAZGcAksGSxRDANXcWHbDVuUr9jAxW/gsnuWlR4Lp705ovkj5nVttF2PRy7ixeR/I
-	8AGnclDrTJZoaCsmyXkRIb4EJwKw58ZKDfTMTX/utHrNjqoLvX6gskcYnWwMYTH1bE26ujXBPb+UQ
-	/yoSiee9tuyvd2TCGup68LFBJwMNo1YImaMiXAueveACKdjE9bOjkIyqkTr8XmiQp2KOB6w1MnNjv
-	DRKD8o2g==;
+	bh=dhfmhsW+i263CPGxl5ZbKPZxA7KWrhbh+yl1EcVWbs8=; b=gvY7jXcilCsWtx4pdcoTnOwfjV
+	1SUpukU44xB5wuDB0Sjw5SozCUcowxYeMKco0n4kEm69PjqdpI/tHUxA5PmrqK0d7xL8oqZahBWDZ
+	YIBLX5kBN3GO4CPFtWXK9mkvo2blabeT2lGM6kbF1pr/wvySzh9PM8K5TRfFeh47Fz3+U2+y7jtLM
+	qMn4zv1BKsCg/XtT46sWQq5ZQpQe3Be0DA/SbCmpPqQDN0uI/EQ+mHTDhXGjt4izPyNWnaJREUtcz
+	6q1MnJkM/WIqIsWHLRN0E2yfi0cN0LQUNavkUqGKGP434PZH8CGCZvwxaHUPGL0iEHAugUoQE0nmj
+	Vks/9mgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupKU-00000008QHa-0HS4;
-	Wed, 19 Mar 2025 09:03:14 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tupM7-00000008QT0-3LaO;
+	Wed, 19 Mar 2025 09:04:55 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupIn-00000008PuL-0qoH;
-	Wed, 19 Mar 2025 09:01:30 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52J4lfPp013111;
-	Wed, 19 Mar 2025 09:01:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	oZJFFFU75xnAfcL8zLuM4V6jHSfHq6sIXUl/50bulpc=; b=jPK/w8GxtQuXHbR/
-	THyDFV+bjrPVEyCfjqnsr6kVT6Qb8xvw1dkTqSVcw54F+9D5EdKroUBYLswzFReX
-	qcIG4oHmI8Chq2+eYPDqPi7iRT0e7/2QWdR2Zq+dEa59eceEb8tFbml1PBZB1oSq
-	PiBAYrAcwVCcI4hGavpNQUW555lyNfOcZmeLxJrTJ679/7pb4KhoQ5VglYpWEjBo
-	mtJ49UR8FdAuWUbmnFi38PYunzDCSlrV3EAUfUETHF6a8kR1Ea5y1nKyhhpj9ilB
-	KZh5DZDcXO1/K11k68vKRxaol1zdp/qGuOJp3k63g00hKWc2ihfV71nJUXSKVtTC
-	UdYSgA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45exwtmtb3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 19 Mar 2025 09:01:08 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52J918qf015779
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 19 Mar 2025 09:01:08 GMT
-Received: from [10.46.162.103] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 19 Mar
- 2025 02:01:07 -0700
-Message-ID: <9cf88cda-cf9c-9dbd-d586-5463ce2a0cfc@quicinc.com>
-Date: Wed, 19 Mar 2025 02:01:07 -0700
+	id 1tupJz-00000008QDl-1TCD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Mar 2025 09:02:45 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52J92arR2837347
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 19 Mar 2025 04:02:36 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1742374956;
+	bh=dhfmhsW+i263CPGxl5ZbKPZxA7KWrhbh+yl1EcVWbs8=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=Dhg1JDMXRpPhxzYrjNdzhVNSp7yTR0IJ1MsAGt4QERkayKpJIsFzjnKB9HEUKTe2C
+	 k4/Y/rwrxDhBeD+yF/NTv93GNRcQibursRg2ftdH6IVD1HdE0ZfZEr7gcrxdS9Rizt
+	 UUrj2SMbzd8zzE+xRALXs8Lcd3+DC5rYOz0Aw7xE=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52J92aET023442
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 19 Mar 2025 04:02:36 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 19
+ Mar 2025 04:02:36 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 19 Mar 2025 04:02:36 -0500
+Received: from [10.24.69.37] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52J92Jco075062;
+	Wed, 19 Mar 2025 04:02:21 -0500
+Message-ID: <f39d80fc-3600-4c2c-b09c-980288f86fa2@ti.com>
+Date: Wed, 19 Mar 2025 14:32:10 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v3 1/1] scsi: ufs: core: add device level exception
- support
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
+ K3 devices
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20241128140825.263216-1-n-francis@ti.com>
+ <20241128140825.263216-2-n-francis@ti.com>
+ <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
+ <837d329b-bcdd-4c3b-b508-e916b110ce25@ti.com>
+ <e57dfc3e-b702-4803-b776-20c6dbd98fef@kernel.org>
+ <8e58b093-1c64-45b9-a9d3-9835a3bbc4fd@ti.com>
+ <1da4e402-62f3-4bad-9129-1f5a08148987@kernel.org>
 Content-Language: en-US
-To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
-        "avri.altman@wdc.com" <avri.altman@wdc.com>,
-        "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>,
-        "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>,
-        "manivannan.sadhasivam@linaro.org"
-	<manivannan.sadhasivam@linaro.org>,
-        "bvanassche@acm.org"
-	<bvanassche@acm.org>,
-        "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-        "minwoo.im@samsung.com" <minwoo.im@samsung.com>,
-        "martin.petersen@oracle.com"
-	<martin.petersen@oracle.com>
-CC: "beanhuo@micron.com" <beanhuo@micron.com>,
-        "ebiggers@google.com"
-	<ebiggers@google.com>,
-        "gwendal@chromium.org" <gwendal@chromium.org>,
-        "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
-        "AngeloGioacchino
- Del Regno" <angelogioacchino.delregno@collabora.com>,
-        "quic_ziqichen@quicinc.com" <quic_ziqichen@quicinc.com>,
-        "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
-        "keosung.park@samsung.com" <keosung.park@samsung.com>,
-        "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>,
-        "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>,
-        "James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-References: <6109425449ac4d18249ce7254e4fa1252138a94a.1742369183.git.quic_nguyenb@quicinc.com>
- <61570104d58cef22716fefe459c0c45670108aad.camel@mediatek.com>
-From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
-In-Reply-To: <61570104d58cef22716fefe459c0c45670108aad.camel@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: vr39mJyDo-GZa-ntTDHhauSuOWF0_4ug
-X-Proofpoint-ORIG-GUID: vr39mJyDo-GZa-ntTDHhauSuOWF0_4ug
-X-Authority-Analysis: v=2.4 cv=UoJjN/wB c=1 sm=1 tr=0 ts=67da87d4 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=RWTcRH6CgHNVpisSJ_IA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-19_03,2025-03-17_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 malwarescore=0
- impostorscore=0 bulkscore=0 priorityscore=1501 mlxlogscore=999
- phishscore=0 adultscore=0 clxscore=1015 spamscore=0 suspectscore=0
- lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503190061
+From: Neha Malcom Francis <n-francis@ti.com>
+In-Reply-To: <1da4e402-62f3-4bad-9129-1f5a08148987@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_020129_253639_77A9186E 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250319_020243_498823_50D59076 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,16 +94,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/2025 12:56 AM, Peter Wang (王信友) wrote:
-> Hi Bao,
-> 
-> Could use atomic_t for counter protect?
-Hi Peter,
-Are you suggesting to convert the dev_lvl_exception_count type from u32 
-to atomic_t type? Because the value of dev_lvl_exception_count is 
-returned to the user space via the device_lvl_exception_count_show() 
-using the sysfs_emit() function, keeping the dev_lvl_exception_count as 
-u32 data type probably works better in terms of the format.
+Hi Krzysztof,
 
-Thanks, Bao
+On 19/03/25 13:16, Krzysztof Kozlowski wrote:
+> On 13/03/2025 12:14, Neha Malcom Francis wrote:
+>> Hi Krzysztof
+>>
+>> On 29/11/24 14:45, Krzysztof Kozlowski wrote:
+>>> On 29/11/2024 08:43, Neha Malcom Francis wrote:
+>>>>>> +
+>>>>>> +  power-domains:
+>>>>>> +    maxItems: 1
+>>>>>> +
+>>>>>> +  ti,bist-instance:
+>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>> +    description:
+>>>>>> +      the BIST instance in the SoC represented as an integer
+>>>>>
+>>>>> No instance indices are allowed. Drop.
+>>>>>
+>>>>
+>>>> Question on this, this is not a property that is driven by software but rather 
+>>>> indicates which register sequences have to be picked up for triggering this test 
+>>>> from this instance. So I don't see how I can workaround this without getting 
+>>>> this number. Or maybe call it ID rather than instance?
+>>>
+>>> I don't understand how the device operates, so what is exactly behind
+>>> some sequences of registers for triggering this test. You described
+>>> property as index or ID of one instance of the block. That's not what we
+>>> want in the binding. That's said maybe other, different hardware
+>>> characteristic is behind, who knows. Or maybe it's about callers... or
+>>> maybe that's not hardware property at all, but runtime OS, who knows.
+>>>
+>>
+>> Sorry for such a late reply, but I was hoping to get more details on
+>> this "ID" and never got back to the thread...
+>>
+>> The best way I can describe is this device (BIST) runs a safety
+>> diagnostic test on a bunch of processors/blocks (let's call them
+>> targets). There's a mapping between the instance of this device and the
+>> targets it will run the test. This ID was essentially letting the BIST
+>> driver know which are these targets.
+> 
+> 
+> So you want to configure some target? Then this is your property. If you
+> want to configure 'foo' difference in DT, you do not write 'bar'...
+> 
+
+So the difficulty in doing this is, what I mentioned in the earlier
+email just copying it over again:
+
+"Yet another way would be the BIST points out the targets it controls via
+their phandles in its node... but this approach would trigger the probe
+of these targets before the test runs on them. And in hardware, the test
+must run only one before the device is used, else we see indefinite
+behavior."
+
+Property that has a list of strings (targets) instead of phandles maybe?
+Would that be acceptable?
+
+> Anyway, no clue, original emails are long time not in my inbox. Context
+> disappeared also long time ago.
+> 
+
+Completely understand, delay from my end, sorry!
+
+> 
+> Best regards,
+> Krzysztof
+
+-- 
+Thanking You
+Neha Malcom Francis
 
