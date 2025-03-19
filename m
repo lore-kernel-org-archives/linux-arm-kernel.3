@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8C1C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27417C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYBB1gLljjd0hidTNTtZp8oGZO50Eej+ZCyqdEHP4Qo=; b=N5Gb7T4EK25/3q8nXDuCg1+mwS
-	gP0m8dGTipOZcIu08ds1Ol1g4AQqRZ4l5zKWnWadbXES9zZTouQW/R4RgjLAAZDR0Bz7Z2LBphlpk
-	+uq5s58i9QgzpBZ4+7ismnWIntm3UfEoFcTZOnjriPLSjFNfTB403KZpYmEubcom1pu2FZgDv8nXB
-	WbTQOl4tNawcvbV8RcveU4G8sVoiikT8Ez4hO0xNDwt8h3KGp/rg/ebov6+bHbX2dGZ6z68tJN035
-	YNatA/HVkb5SjkdKfeaB0AFRO/4G0C5T4M0EXQC3bvcEGuhlL1Rl94k3vqdoRm7t4KOJYIoa/Qu+9
-	hGc7QVpg==;
+	bh=gB63OBnAdjEE2tNtqe2iOoOTPeAE7P89/CAi/FdSDcs=; b=1audAIYKsRG93O67b6uJWDiwCa
+	U8hgrPEevdAxvp3jOW+0PbU47pi/H0oRZce9iu1enN2MWW5eTmgppSzK7EsOeVcXvjquFaQJz/pL5
+	jKnVyPiacUzPuKxMnyy2i4dTSNR7I6CSegjo4iLzHRTEa+DembstkRID6m8OvJ9aUB0XS7LXOHNC8
+	OY8U4uLY2nbk0Qat2PVHHv+mrOjEmJJ3Xdu0cnqpkkgsYNvzbnz+781PU9fDMn5WSRpdxiyOCNak2
+	DCVp5+EuaqYwbQhf/TFhtvy+UmuiaLMgxGH2OGDN2UBYQMkRwv/syeu2Iu4QU1wbuYohaXmiYwaim
+	iu4Kjfdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuo8B-00000008GAa-1FdM;
-	Wed, 19 Mar 2025 07:46:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tuoA9-00000008GRS-46mc;
+	Wed, 19 Mar 2025 07:48:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuo6U-00000008FsA-1RR8
+	id 1tuo8S-00000008GGJ-3WkU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 07:44:43 +0000
+	Wed, 19 Mar 2025 07:46:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 887875C593C;
-	Wed, 19 Mar 2025 07:42:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CF0C4CEE9;
-	Wed, 19 Mar 2025 07:44:34 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 72B8DA48FC5;
+	Wed, 19 Mar 2025 07:41:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 614FCC4CEE9;
+	Wed, 19 Mar 2025 07:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742370281;
-	bh=I9pxaUwFBnmqpKrVCrtrgKssCeJt8+261lf2JEMgj0E=;
+	s=k20201202; t=1742370403;
+	bh=R/+mKgYJYtnUQdwRx76WkNRfBcHpmYchsod3jVqFMbA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hu0ro54M0uEiznylhsFc0mRAqUFPAoB8iT7mPI7his9qJxzDd0AQY57/gHyIs+ae/
-	 ypdqOMU+fcgj9otvpr5GBQBUI5vFY2kGI+9gerJfpcPXjgo/b/ZQo7FpNSXqmsC+hi
-	 MVB3GVLe5khEugmPEtU+9raheBvAgL8nzzKTC/9n0S9PMouRPbIFYQB5Oj3v7j84if
-	 b42afG+E+7rui4EtzSbHzOGcQwIn8oTVAxTi9y0UwB7XUK4E9Lzp1WiJjjgCWXZ528
-	 gB75lfgd9DqnsYdfjDOq83j0lop1rnhURnB7OWcRZawa1YmoSicldVXMIEI28ZOQSJ
-	 TKAuoe1uOFsLA==
-Message-ID: <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
-Date: Wed, 19 Mar 2025 08:44:32 +0100
+	b=FlKi5P/I/oiAqvN4MxYZtAVlEdyAcFhVuiF4iI1I702vBGhW5zonhSlT4QbrgVxkW
+	 tpGjayw/seegFnXDZzBvWcrmSS93zBjzAahw7t0KSRYEhOvGSj2O1OqjgCMbbTzx7l
+	 Px4QDBspQ5K9K0oME5sJMs26mmVGvPDC6q8wKGYbkzL9fjh27erTym1fjZ3JRvRG3e
+	 0DVcQUIN0/GzctujuJJ3970Zt+1nE1qtB0S2/340rp9VmAOoTfWlbI7qDl01RiV0RE
+	 MLGhaSEOgKHjmF2rJSAESWsaAej932mLYtltX5s8kJ+aDKtLGQCqd93KICNE77JsOE
+	 b0OqTwZP9EpjQ==
+Message-ID: <1da4e402-62f3-4bad-9129-1f5a08148987@kernel.org>
+Date: Wed, 19 Mar 2025 08:46:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mo Elbadry <elbadrym@google.com>
-References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
- <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
- <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
- <OS8PR06MB75415E95342F26F576B5CF8AF2C22@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <50327725-f3b8-4a8b-94a2-85afccd2868a@kernel.org>
- <OS8PR06MB7541B0DBC64B3EF6838DFE74F2CD2@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
- <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
- <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
+ K3 devices
+To: Neha Malcom Francis <n-francis@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, u-kumar1@ti.com
+References: <20241128140825.263216-1-n-francis@ti.com>
+ <20241128140825.263216-2-n-francis@ti.com>
+ <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
+ <837d329b-bcdd-4c3b-b508-e916b110ce25@ti.com>
+ <e57dfc3e-b702-4803-b776-20c6dbd98fef@kernel.org>
+ <8e58b093-1c64-45b9-a9d3-9835a3bbc4fd@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -120,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+In-Reply-To: <8e58b093-1c64-45b9-a9d3-9835a3bbc4fd@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_004442_500390_5798BE4D 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250319_004645_012193_B6F0B3B4 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,25 +124,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2025 10:21, Ryan Chen wrote:
->> Neither this.
->>
->> So it seems you describe already existing and documented I2C, but for some
->> reason you want second compatible. The problem is that you do not provide
->> reason from the point of view of bindings.
->>
->> To summarize: what your users want - don't care. Start properly describing
->> hardware and your SoC.
+On 13/03/2025 12:14, Neha Malcom Francis wrote:
+> Hi Krzysztof
 > 
-> OK, for ast2600 i2c controller have two register mode setting.
-> One, I call it is old register setting, that is right now i2c-aspeed.c .compatible = "aspeed,ast2600-i2c-bus",
-> And there have a global register that can set i2c controller as new mode register set. 
-> That I am going to drive. That I post is all register in new an old register list.
+> On 29/11/24 14:45, Krzysztof Kozlowski wrote:
+>> On 29/11/2024 08:43, Neha Malcom Francis wrote:
+>>>>> +
+>>>>> +  power-domains:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  ti,bist-instance:
+>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>> +    description:
+>>>>> +      the BIST instance in the SoC represented as an integer
+>>>>
+>>>> No instance indices are allowed. Drop.
+>>>>
+>>>
+>>> Question on this, this is not a property that is driven by software but rather 
+>>> indicates which register sequences have to be picked up for triggering this test 
+>>> from this instance. So I don't see how I can workaround this without getting 
+>>> this number. Or maybe call it ID rather than instance?
+>>
+>> I don't understand how the device operates, so what is exactly behind
+>> some sequences of registers for triggering this test. You described
+>> property as index or ID of one instance of the block. That's not what we
+>> want in the binding. That's said maybe other, different hardware
+>> characteristic is behind, who knows. Or maybe it's about callers... or
+>> maybe that's not hardware property at all, but runtime OS, who knows.
+>>
 > 
-> For example, 
-> Global register [2] = 0 => i2c present as old register set
-> Global register [2] = 1 => i2c present as new register set
-It's the same device though, so the same compatible.
+> Sorry for such a late reply, but I was hoping to get more details on
+> this "ID" and never got back to the thread...
+> 
+> The best way I can describe is this device (BIST) runs a safety
+> diagnostic test on a bunch of processors/blocks (let's call them
+> targets). There's a mapping between the instance of this device and the
+> targets it will run the test. This ID was essentially letting the BIST
+> driver know which are these targets.
+
+
+So you want to configure some target? Then this is your property. If you
+want to configure 'foo' difference in DT, you do not write 'bar'...
+
+Anyway, no clue, original emails are long time not in my inbox. Context
+disappeared also long time ago.
+
 
 Best regards,
 Krzysztof
