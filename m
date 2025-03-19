@@ -4,99 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FECC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74171C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xpzhMPP4+wAcr/1ayDu21ECN7kPl3XYHDwtky8EYnxc=; b=nGQ2NSuyisr22x/QE7LsLfCUpw
-	Qi/LHztw1a1vmkvV3bpWsVvwAwxWLJHwyz49xmMkoOyFSlqd3lzC8ARh0a8rpih8F/JlEjRIMih5L
-	i4IS2oTJFuB9/yxJZB0zE54kxo9xNM3abHwhtvdDKgDMB5QVg6pz/sfV165E/5zWBDaBhCUxNk+xW
-	AnffPk8pGo8UB1HkQH73V07pFLGgbCPXNmivXI9c9LAjjzJYkei+EftGGbArMoxeeZzPuf4plHFmt
-	tKb2PCA5wmWbWulxijp3WQXI/h4rgjGCTjaglKkNnCqPOBw1cOW7LfAycM4/f/OUp30YSClg3Y5os
-	b0qKTyBQ==;
+	bh=jiAfj4IElgBqEg5+PLChSU4IpIj1nxRfVkLGRm2D6Bk=; b=xgFTnOIhuXsw6Lrxxybl6Zuvwq
+	QaTwVFdZr/ArMvHL74fWw9T4HBms9W1xTjZ+PNtmmNsneXrnfpLPTCndlqjznxf9yd+JRT4wkrKjF
+	1i3tP+VgpIik2lUPmW8HfuxlXEMlseIj8Y1DIJXYOPsS8IsW2lyWvsQS+V7nu6hqJ7XnI8iPXSZIA
+	34a5lQIh0unZP26D1R2ytNfiQ9V5yk+Q0iXExIPzPweUpcJtte7dcAxThUR/OIefB4VzBwvhxCvbv
+	ZvIb0LdhJ2ZHFkqGPk9NS/K+9Wk8ZP25exPeL4KHapusIJMWjIZV1rgmjFiu5dK4Au2bvyoyjnNuc
+	ghtHDNkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunSi-00000008Ayq-0mfe;
-	Wed, 19 Mar 2025 07:03:36 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1tunVW-00000008BDo-3yWp;
+	Wed, 19 Mar 2025 07:06:30 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunQz-00000008Ao4-2MAa
+	id 1tunTp-00000008B5M-2JhV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 07:01:51 +0000
-Date: Wed, 19 Mar 2025 00:01:29 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1742367703;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xpzhMPP4+wAcr/1ayDu21ECN7kPl3XYHDwtky8EYnxc=;
-	b=OcPcgCftbfrf3MAtuJ9yqeGyaxJLEAaieLSg1kFV5cbjph59KwejwaNLXjnQ7JMjdl1Upk
-	W5msd0+6R3mPihXlOvRQE/0Hj07vRrfghJnIm24YG6kPfyXuRd4/F3pw4YSw71A+qRF7Bf
-	5b6kDJeHQJKBTUA/ZVfpSw7+iz7c9QY=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ankit Agrawal <ankita@nvidia.com>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com" <david@redhat.com>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	Krishnakant Jaju <kjaju@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"seanjc@google.com" <seanjc@google.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <Z9pryQwy2iwa2bpJ@linux.dev>
-References: <86r033olwv.wl-maz@kernel.org>
- <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
- <87tt7y7j6r.wl-maz@kernel.org>
- <SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
- <8634fcnh0n.wl-maz@kernel.org>
- <Z9h98RhunemcFhhz@arm.com>
- <86wmcmn0dp.wl-maz@kernel.org>
- <20250318125527.GP9311@nvidia.com>
- <Z9nJ42PllG8a7AY7@linux.dev>
- <20250318230909.GD9311@nvidia.com>
+	Wed, 19 Mar 2025 07:04:46 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2ff6ae7667dso8327550a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 00:04:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742367885; x=1742972685; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jiAfj4IElgBqEg5+PLChSU4IpIj1nxRfVkLGRm2D6Bk=;
+        b=bx+eS7O5im8tQbqqdgrMl2IRmMXhv1i3EKdaK2ay2oiVe7xpmb81m+uA8xh0PdQV6+
+         FQacR6oEuorKQa4J5GY3+ozb1zplmqv3HzlVzihVl1XnOFezr2yzk6vP75GmMxn0VmT6
+         yYMFYuqlJddo92gxo5FNH8GFo48pbpKW7k4XEvJ0B2RbiyJb7ldQJ6I/VlfS4WnVKuQB
+         1VJA4LsYqia3JkY0UHMFxwwG1rSM/E4//63MptTOUTJy6Y13z/DgXxU/11/Bm2WY9y2+
+         77mdxMVIkYqAYNgkOCmfevKE+5yCFca3a/G+ysE+X3t0+xYvWYR67rnbvUYmPyPVx7s+
+         8Phw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742367885; x=1742972685;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jiAfj4IElgBqEg5+PLChSU4IpIj1nxRfVkLGRm2D6Bk=;
+        b=G6ZRDRXaJ7NWOXPQHqI9gLZJpk6sQJCtaVvmjthXG5gkoeC3Nz2qfw5ZMqmu4AcOrW
+         ayF81G5Uabtc+GpEy7ssfnX1AlrC8zGkuOTq9Q8UNyX+e8WZPL8jGpPTkwnmgXKUc3TA
+         5+TzufU9MMptLI0nZ7JLTOn/Ro64DtuJIbfB8dZrWxmvOOgdeAJdYNY1gwvLX7BoFs9f
+         p41t14tsQ9s3NPoGBmq6Jpj0mJNga1aqzkm1o7EKnhe2ff980M5B0B4DgrsFCs2YSnDw
+         PPmDvHCyL9ucIlTbTNmJQLeV1A6fcQix7WJaeV5FCYxdzsP2x1JxIkp3KAWzGXpeYlvO
+         MkXA==
+X-Forwarded-Encrypted: i=1; AJvYcCWtvnUDpyP6pF2rG9cOkVmfEhp3h4zaJq3zo0dq0pnvyBvIWt9/lG3lh1Dz5KX2lG+iVcnB8GZu6YQwO4UmNs+5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH/IAl4u/9D4Q7WaVFw4aCUHbERLE1KWJ0fvcTi6R5xQtDI8Sh
+	7bZEjl5KEmdQmjwWCkORLmHFwzgrLYS3MmN0ppSU/hEIMIsq30PPdNguKsJVDCwKUNA0wbPNY0a
+	NfdZdh52jG55LNjSSXsHvu+muPgc=
+X-Gm-Gg: ASbGncshHi1meZjmXHEfqL5Om86pOb/gyZCvi6DER+xhH/I9gtwD5rBFrGN8sbF1nky
+	RTIjoA37G9zntAxN+bWIY/vXSMMT2K6x4CSn1wlmNDec4bIylgb0yz5LHXQg80lB7ew9kDV3Dax
+	zGURI1nS9NtLhJc23OGoZqOtM=
+X-Google-Smtp-Source: AGHT+IF7sF+rEHN+McOd/gdhxtrQC1m+FhYZvpf4dWKwkOdb9hKSjw3U2gTtL2CCTwVJ/KBH2mS5pciMbrLsv3G0xEU=
+X-Received: by 2002:a17:90b:4c4e:b0:2ee:d193:f3d5 with SMTP id
+ 98e67ed59e1d1-301bde41b97mr2645278a91.7.1742367884632; Wed, 19 Mar 2025
+ 00:04:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250318230909.GD9311@nvidia.com>
-X-Migadu-Flow: FLOW_OUT
+References: <20250318085444.3459380-1-florin.leotescu@oss.nxp.com>
+ <20250318085444.3459380-2-florin.leotescu@oss.nxp.com> <7afcd224-1154-4e2f-b383-10f6a89fdae0@roeck-us.net>
+ <CAEnQRZBmYdLh29ha1FKz8=CbxjFBFFTgDkjrEmwTxW2WcxodfA@mail.gmail.com> <ca734f66-593f-4e7c-bc76-e343a7eb88d7@roeck-us.net>
+In-Reply-To: <ca734f66-593f-4e7c-bc76-e343a7eb88d7@roeck-us.net>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Wed, 19 Mar 2025 09:06:17 +0200
+X-Gm-Features: AQ5f1JqTh1OKvsFHXWbBK7NlMP4RU0DewPez1R29Ybz774cJu_EpcSsA7szRxbU
+Message-ID: <CAEnQRZDf_ko2p50EwR6q=dfkwdqE=c7fZe0jO2JdSmbaDa=j3Q@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: hwmon: Add Microchip emc2305 support
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: florin.leotescu@oss.nxp.com, Jean Delvare <jdelvare@suse.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	viorel.suman@nxp.com, carlos.song@nxp.com, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, festevam@gmail.com, 
+	Florin Leotescu <florin.leotescu@nxp.com>, Frank Li <Frank.Li@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_000150_232889_27960449 
-X-CRM114-Status: GOOD (  33.29  )
+X-CRM114-CacheID: sfid-20250319_000445_610666_D4588550 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,75 +99,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 08:09:09PM -0300, Jason Gunthorpe wrote:
-> > It's far more problematic the other way around, e.g. the host knows that
-> > something needs a Device-* attribute and the VM has done something
-> > cacheable. The endpoint for that PA could, for example, fall over when
-> > lines pulled in by the guest are written back, which of course can't
-> > always be traced back to the offending VM.
-> > 
-> > OTOH, if the host knows that a PA is cacheable and the guest does
-> > something non-cacheable, you 'just' have to deal with the usual
-> > mismatched attributes problem as laid out in the ARM ARM.
-> 
-> I think the issue is that KVM doesn't do that usual stuff (ie cache
-> flushing) for memory that doesn't have a struct page backing.
+> >> Is it necessary to make 'pwms' mandatory ? The current code works
+> >> just fine with defaults.
+> >
+> > The code adding OF support is added just in the next patch, so the
+> > current code isn't event
+> > probed when trying to use dts.
+> >
+> > Or am I missing something?
+> >
+>
+> The patch introducing devicetree support to the driver doesn't evaluate
+> the pwm property. That makes it quite obvious that, from driver perspective,
+> it isn't needed. I don't immediately see why it would add value to _force_
+> users to provide pwm frequency, polarity, and the output configuration
+> if the defaults work just fine.
+>
 
-Indeed, I clearly paged that out. What I said is how we arrived at the
-Device-* v. Normal-NC distinction.
 
-> So nothing in the hypervisor does any cache flushing and I belive you
-> end up with a situation where the VMM could have zero'd this cachable
-> memory using cachable stores to sanitize it across VMs and then KVM
-> can put that memory into the VM as uncached and the VM could then
-> access stale non-zeroed data from a prior VM. Yes? This is a security
-> problem.
-
-Pedantic, but KVM only cares about cache maintenance in response to the
-primary MM, not the VMM. After a stage-2 mapping has been established
-userspace cannot expect KVM to do cache maintenance on its behalf.
-
-You have a very good point that KVM is broken for cacheable PFNMAP'd
-crap since we demote to something non-cacheable, and maybe that
-deserves fixing first. Hopefully nobody notices that we've taken away
-the toys...
-
-> So I think the logic we want here in the fault handler is to:
->   Get the mm's PTE
->   If it is cachable:
->     Check if it has a struct page:
->        Yes - KVM flushes it and can use a non-FWB path
->        No - KVM either fails to install it, or installs it using FWB
->            to force cachability. KVM never allows degrading cachable
-> 	   to non-cachable when it can't do flushing.
->   Not cachable:
->     Install it with Normal-NC as was previously discussed and merged
-
-We still need to test the VMA flag here to select Normal-NC v. Device.
-
-> > Userspace should be stating intentions on the memslot with the sort of
-> > mapping that it wants to create, and a memslot flag to say "I allow
-> > cacheable mappings" seems to fit the bill.
-> 
-> I'm not sure about this, I don't see that the userspace has any
-> choice. As above, KVM has to follow whatever is in the PTEs, the
-> userspace can't ask for something different here. At best you could
-> make non-struct page cachable memory always fail unless the flag is
-> given - but why?
-> 
-> It seems sufficient for fast fail to check if the VMA has PFNMAP and
-> pgprot cachable then !FEAT_FWB fails the memslot. There is no real
-> recovery from this, the VMM is doing something that cannot be
-> supported.
-
-I'm less worried about recovery and more focused on userspace being
-able to understand what happened. Otherwise we may get folks complaining
-about the ioctl failing "randomly" on certain machines.
-
-But we might need to just expose the FWB-ness of the MMU to userspace
-since it can already encounter mismatched attributes when poking struct
-page-backed guest memory.
-
-Thanks,
-Oliver
+Got your point now! Thanks.
 
