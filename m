@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BC5C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:42:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8C1C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:46:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OReKKcfOJkNp0kmi489WA/dv8ioDXf0PJNSDqJ933OM=; b=n1D+Z1GNqgddbSVpNXgUeVcsn4
-	kIa+5ewsiSb2v2fXIWlhFIzWJ3ey8mt4fVEY8B4YOzFkhFehN0SS2/nAbEsbi7yfU24sJD6cQYLXz
-	pg84O6cobqZ7ZyNp6GsFDpiPq/yhsohFwSMh4YMl7KTT9+gBwSX9XlneqX4LvdxPCVJGMoxmJv1pr
-	UeIbUreNHwc1KL5P9peHvxl5RQ4C6c/LKwSkP6bofedTmIb94m4iN6D/ArFILWUMFsx1AvClqzWZC
-	ltbRR8R6E84eo+NT95F5IANbMXb19CftN9gdlc8PPj3GeNFJkOvIiSeFMKl5CNLr2gNFNgmuLQK2Y
-	eWUaLywA==;
+	bh=JYBB1gLljjd0hidTNTtZp8oGZO50Eej+ZCyqdEHP4Qo=; b=N5Gb7T4EK25/3q8nXDuCg1+mwS
+	gP0m8dGTipOZcIu08ds1Ol1g4AQqRZ4l5zKWnWadbXES9zZTouQW/R4RgjLAAZDR0Bz7Z2LBphlpk
+	+uq5s58i9QgzpBZ4+7ismnWIntm3UfEoFcTZOnjriPLSjFNfTB403KZpYmEubcom1pu2FZgDv8nXB
+	WbTQOl4tNawcvbV8RcveU4G8sVoiikT8Ez4hO0xNDwt8h3KGp/rg/ebov6+bHbX2dGZ6z68tJN035
+	YNatA/HVkb5SjkdKfeaB0AFRO/4G0C5T4M0EXQC3bvcEGuhlL1Rl94k3vqdoRm7t4KOJYIoa/Qu+9
+	hGc7QVpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuo4Q-00000008FXe-1bbZ;
-	Wed, 19 Mar 2025 07:42:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tuo8B-00000008GAa-1FdM;
+	Wed, 19 Mar 2025 07:46:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuo22-00000008F9v-2kMc;
-	Wed, 19 Mar 2025 07:40:08 +0000
+	id 1tuo6U-00000008FsA-1RR8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Mar 2025 07:44:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3BBF7A48FC8;
-	Wed, 19 Mar 2025 07:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B4F4C4CEE9;
-	Wed, 19 Mar 2025 07:39:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 887875C593C;
+	Wed, 19 Mar 2025 07:42:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CF0C4CEE9;
+	Wed, 19 Mar 2025 07:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742370005;
-	bh=tKIbx2+7UEC6SU/Ci8glYFwYES+rjaNTdcbdH+R6TS4=;
+	s=k20201202; t=1742370281;
+	bh=I9pxaUwFBnmqpKrVCrtrgKssCeJt8+261lf2JEMgj0E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iTC2J7vI9gdw4qI2bdHDiMSymEqGhCe2EaCZpTpfQ2DERnFKR7kQs4qTvHQnTr7Tf
-	 Ng+DPcHm19bSxSO0miPkBpWLO9gbiq1xESNFLalNDHqTCSKQCmbd3l20qsrxk52w7E
-	 1h+0v7377B0cpcqmfluYlpWf/kC4rT5P6xGzjjlq9e/M9/O33V9w2INM76kL2Cdj/P
-	 BfD+wdg8rSDUGHcoR4q3cB/LF3zf9aViOVfjBrvSYFhbuZWGQRR9UO2pkjT8JYGzm5
-	 f2jqjFYo3VhcjJWuf2wRJ3A6viyEJjxq4lLg20lqwORpgH2hKficXCrNhSLVw+6SiB
-	 w0dToPGlDelcA==
-Message-ID: <cd445f29-ea01-4e57-b1b7-4e9c3bfbcc8f@kernel.org>
-Date: Wed, 19 Mar 2025 08:39:52 +0100
+	b=hu0ro54M0uEiznylhsFc0mRAqUFPAoB8iT7mPI7his9qJxzDd0AQY57/gHyIs+ae/
+	 ypdqOMU+fcgj9otvpr5GBQBUI5vFY2kGI+9gerJfpcPXjgo/b/ZQo7FpNSXqmsC+hi
+	 MVB3GVLe5khEugmPEtU+9raheBvAgL8nzzKTC/9n0S9PMouRPbIFYQB5Oj3v7j84if
+	 b42afG+E+7rui4EtzSbHzOGcQwIn8oTVAxTi9y0UwB7XUK4E9Lzp1WiJjjgCWXZ528
+	 gB75lfgd9DqnsYdfjDOq83j0lop1rnhURnB7OWcRZawa1YmoSicldVXMIEI28ZOQSJ
+	 TKAuoe1uOFsLA==
+Message-ID: <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
+Date: Wed, 19 Mar 2025 08:44:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/13] dt-bindings: phy: Add documentation for Airoha
- AN7581 USB PHY
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Daniel Danzberger <dd@embedd.com>,
- Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linus.walleij@linaro.org>,
- Nikita Shubin <nikita.shubin@maquefel.me>, Guo Ren <guoren@kernel.org>,
- Yangyu Chen <cyy@cyyself.name>, Ben Hutchings <ben@decadent.org.uk>,
- Felix Fietkau <nbd@nbd.name>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-usb@vger.kernel.org,
- upstream@airoha.com
-References: <20250309132959.19045-1-ansuelsmth@gmail.com>
- <20250309132959.19045-10-ansuelsmth@gmail.com>
- <4f16d239-f540-45d5-b67a-767b09f1c70c@kernel.org>
- <67d0862f.df0a0220.375bd.6b15@mx.google.com>
- <4a9ac302-dfbe-4d76-a634-a445957c313c@kernel.org>
- <67d95979.050a0220.166852.25e6@mx.google.com>
+Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+ AST2600-i2cv2
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mo Elbadry <elbadrym@google.com>
+References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
+ <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
+ <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
+ <OS8PR06MB75415E95342F26F576B5CF8AF2C22@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <50327725-f3b8-4a8b-94a2-85afccd2868a@kernel.org>
+ <OS8PR06MB7541B0DBC64B3EF6838DFE74F2CD2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
+ <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
+ <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,12 +120,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <67d95979.050a0220.166852.25e6@mx.google.com>
+In-Reply-To: <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_004006_832904_8099F2F0 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250319_004442_500390_5798BE4D 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,75 +140,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2025 12:31, Christian Marangi wrote:
-> On Sun, Mar 16, 2025 at 06:01:02PM +0100, Krzysztof Kozlowski wrote:
->> On 11/03/2025 19:51, Christian Marangi wrote:
->>>>
->>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>> +    enum: [0, 1]
->>>>
->>>> I don't understand why do you need index property here (which are
->>>> usually not allowed).
->>>>
->>>
->>> Eh... As said in the description this is really to differentiate the 2
->>> different physical port...
->>>
->>> Each port have a dedicated oscillator for calibration and these
->>> calibration are identified by an offset (all placed one after another in
->>> a separate register space).
+On 17/03/2025 10:21, Ryan Chen wrote:
+>> Neither this.
 >>
->> So different oscillators? Then describe the oscillator and its differences.
+>> So it seems you describe already existing and documented I2C, but for some
+>> reason you want second compatible. The problem is that you do not provide
+>> reason from the point of view of bindings.
 >>
->> Different programing model? Different compatible.
->>
->> Other difference? Depending what is the difference.
->>
->> But there is no such thing as "different port ID" based on your
->> description above. You just claimed that they are different, but you do
->> not put that difference to hardware description. Instead you encode that
->> difference in the drivers and it should be opposite. The DTS, so the
->> hardware description, should tell you the difference. And I am sorry,
->> but in 99% of cases "I am the first phy" and "I am the second" is not
->> the actual difference we are interested in.
->>
+>> To summarize: what your users want - don't care. Start properly describing
+>> hardware and your SoC.
 > 
-> Ok to make it as clear as possible. (hope I don't contraddict with the
-> previous statement) (actually yes the "separate register space statement
-> was wrong and sorry for the confusion")
+> OK, for ast2600 i2c controller have two register mode setting.
+> One, I call it is old register setting, that is right now i2c-aspeed.c .compatible = "aspeed,ast2600-i2c-bus",
+> And there have a global register that can set i2c controller as new mode register set. 
+> That I am going to drive. That I post is all register in new an old register list.
 > 
-> - 2 USB port
-> - USB 2.0 needs to be calibrated with an oscillator
-> - Each USB port have his own dedicated oscillator somewhere in the HW
-> - Each USB port have at the same offset a register to SELECT the
->   oscillator. This register refer to the same oscillator selection in
->   the HW.
->   
->   Example:
->   reg 0x1fac0100 MASK 27:26 can be set to source out of oscillator 0,1,2
->   reg 0x1fae0100 MASK 27:26 can be set to source out of oscillator 0,1,2
-
-So that's your difference between devices - you choose the oscillator.
-
-> 
->   Both register refer to the same oscillators in hardware (hence each
->   port should select the correct one)
->   Selecting oscillator 0 for both USB port is problematic.
-> 
-> With this in mind is it ok if I describe this with something like
-> 
-> airoha,usb2-monitor-clk-sel = <AIROHA_USB2_MONCLK_SEL0>;
-> 
-> and some dt-bindings include
-> 
-> #define AIROHA_USB2_MONCLK_SEL0 0
-> #define AIROHA_USB2_MONCLK_SEL1 1
-> #define AIROHA_USB2_MONCLK_SEL2 2
-> #define AIROHA_USB2_MONCLK_SEL3 3
-> 
-> Or an enum of string like "osc0", "osc1", "osc2"...?
-
-Both are fine.
+> For example, 
+> Global register [2] = 0 => i2c present as old register set
+> Global register [2] = 1 => i2c present as new register set
+It's the same device though, so the same compatible.
 
 Best regards,
 Krzysztof
