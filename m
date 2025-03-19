@@ -4,103 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B84EC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BC5C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owwDzzKUpGneXk0r6P0900oOLRuhEZkHOZ3jJ6/2920=; b=QrFoVmIPO8IoIFe9eLAmvAIeIw
-	erh0OHL1jMepo0uOKz4HD1/LqDiptonF/yasV3nikdViQGPXkg3JfVf34WmJmcrNVmt4VeiQpCwRE
-	MP3glgXx0DEGI2EVoH4btwM9PQkDdZe+0ffprr2i1gdfRNotGjxikbDbekB6/NN7amgV7nFhhmJZX
-	+Sue8q7JZ+6zizLn8A/XmXViQhQ+o+GpAP/Edr1tNnudcPOttR3dKsonTLCw03HWbY77UIErPL7DI
-	muAuZPYZH5+OI+yzkqfibjtkO6CLdcIJDYRxAU5GWrdk4GBaNBhqFnhUg/j4RFGTJp0pbmv0he1dC
-	nDvDJkqA==;
+	bh=OReKKcfOJkNp0kmi489WA/dv8ioDXf0PJNSDqJ933OM=; b=n1D+Z1GNqgddbSVpNXgUeVcsn4
+	kIa+5ewsiSb2v2fXIWlhFIzWJ3ey8mt4fVEY8B4YOzFkhFehN0SS2/nAbEsbi7yfU24sJD6cQYLXz
+	pg84O6cobqZ7ZyNp6GsFDpiPq/yhsohFwSMh4YMl7KTT9+gBwSX9XlneqX4LvdxPCVJGMoxmJv1pr
+	UeIbUreNHwc1KL5P9peHvxl5RQ4C6c/LKwSkP6bofedTmIb94m4iN6D/ArFILWUMFsx1AvClqzWZC
+	ltbRR8R6E84eo+NT95F5IANbMXb19CftN9gdlc8PPj3GeNFJkOvIiSeFMKl5CNLr2gNFNgmuLQK2Y
+	eWUaLywA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuo2l-00000008FHh-2Za4;
-	Wed, 19 Mar 2025 07:40:51 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+	id 1tuo4Q-00000008FXe-1bbZ;
+	Wed, 19 Mar 2025 07:42:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunzr-00000008EnQ-1zdF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 07:37:52 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-2c11ddc865eso2187540fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 00:37:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742369870; x=1742974670; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=owwDzzKUpGneXk0r6P0900oOLRuhEZkHOZ3jJ6/2920=;
-        b=F5DQVChOA4xuomDMEwkdrsEzbTZH09JUj+IgIhiqj4t4HoTJvs3qFHQrRPPSf/IAuq
-         mlXOSA4g8qGmXz935DAXUVu6Xq7nFC3VpI9dUJGF6UMeo7+8d/vgSvzgaLtpq7br48Ar
-         PNA8N3w9SWYBnwauiHxf8f16ovusshY2z5lFURlB5VBBzZvblivO5POJo2khFjOZ5hgC
-         s51F4h7lCm+Yg0RLU6fwBodHyeKoHvcccPad3bPZUzKSZ+9bEYu7NzUsjd2W41bwwOi4
-         QPZ/t2i+NNqx+1wS83fRelFisN5U6Fd68Gq4jBu5wSWeYoF7Z87dNwSPb+gBilgp83nX
-         vqEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742369870; x=1742974670;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=owwDzzKUpGneXk0r6P0900oOLRuhEZkHOZ3jJ6/2920=;
-        b=sv7If0Z6gLvOJG/fYLQ1m29xEMhK+cdcFE8WXibEyuYF/k/u8YCWksHhz7RJdwlO5u
-         Vz4AT2V47Da22aUee4wZY6sYeLPH6G8h3Invk3D0TkP3qGCATfBgVzZh+PD0vcIXIwsj
-         V0YWKtErMeomX6XPnrBRo7hqOrst2RpOwtlOrhRIaasz9+95Jn7w3uF3gOEA2RYSjNZK
-         ChEHOJBm3VmUGNWoY7n3/TYZPWFA2BWTevKiWvDI2KOJITY7pCaN0hguV3hivpXI0ct+
-         E72lzAXALSJSVJZYoM5fxqz2rLFbJ6ysbhWDvn9jkmeNsvjIAsSXAYjFuZhxesWj/Ozq
-         xMxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWjUNVpFztjfH1rxBjYB8awX6LxlvF9XzfHfJvULB7DaaQXkTuwHRQC49OfuooHpRKChiYA+DfekJYzDf47sIaG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGBCp5bgQLPv9K87IKkWKVvCHvQQl3nkFSN294d2NnsnjgTOKR
-	W9G0Kjw66MpY7OcfkLV8Yz4i5xDXa8jjrwWPjmaLlRHmViWgTgzfWsKLxEJTpRUiGodbbwD894+
-	3YYpakK7+FHijtgm2y+F1FCO3MEltxG9FreLvuw==
-X-Gm-Gg: ASbGncvkwL2rbS3/Uh+ifryG0m1YHgz/z98mwByAfW4TEdEtRORQL7uQaiqjDayoFxg
-	pGtHgRYKOD8649V6HDiDm+Z8B23i6jGZcqhW5HlXAHonK8c7AR9N4PnNL+5vybHejABDF7fQG7d
-	QNPRHdWcwRvm00ExzdNfTEHo+3mYE=
-X-Google-Smtp-Source: AGHT+IHhlr0ebpnI7ur3lSLDToxyweC0Ao9NnSXnP3sZR4rKFcxyBq8t5/yasVPUDL7hE6LOxReMuAl1+DoeTa0xu40=
-X-Received: by 2002:a05:6871:710:b0:29e:290f:7aea with SMTP id
- 586e51a60fabf-2c745785fb8mr1233815fac.34.1742369869734; Wed, 19 Mar 2025
- 00:37:49 -0700 (PDT)
+	id 1tuo22-00000008F9v-2kMc;
+	Wed, 19 Mar 2025 07:40:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3BBF7A48FC8;
+	Wed, 19 Mar 2025 07:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B4F4C4CEE9;
+	Wed, 19 Mar 2025 07:39:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742370005;
+	bh=tKIbx2+7UEC6SU/Ci8glYFwYES+rjaNTdcbdH+R6TS4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iTC2J7vI9gdw4qI2bdHDiMSymEqGhCe2EaCZpTpfQ2DERnFKR7kQs4qTvHQnTr7Tf
+	 Ng+DPcHm19bSxSO0miPkBpWLO9gbiq1xESNFLalNDHqTCSKQCmbd3l20qsrxk52w7E
+	 1h+0v7377B0cpcqmfluYlpWf/kC4rT5P6xGzjjlq9e/M9/O33V9w2INM76kL2Cdj/P
+	 BfD+wdg8rSDUGHcoR4q3cB/LF3zf9aViOVfjBrvSYFhbuZWGQRR9UO2pkjT8JYGzm5
+	 f2jqjFYo3VhcjJWuf2wRJ3A6viyEJjxq4lLg20lqwORpgH2hKficXCrNhSLVw+6SiB
+	 w0dToPGlDelcA==
+Message-ID: <cd445f29-ea01-4e57-b1b7-4e9c3bfbcc8f@kernel.org>
+Date: Wed, 19 Mar 2025 08:39:52 +0100
 MIME-Version: 1.0
-References: <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
- <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
- <CAHUa44Gs0D1fBD0=+EDgcQUMeDv4knci9trUkYEc1J98qFV7HQ@mail.gmail.com>
- <CAFA6WYOuTwRPEh3L7+hMyARB_E73xmp+OwhKyS-r4+ryS7=9sw@mail.gmail.com>
- <20250214164856.0d2ead8a@collabora.com> <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
- <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
- <CAFA6WYMLLLSuz3y5J+DuRFAGrmwpZoWax5sasfAUhXoQXmrNNA@mail.gmail.com>
- <CAPj87rN7J6u9NsviAdw8=OenEYc8t719Lds6u6-BhFKrtkLZ-A@mail.gmail.com>
- <CAHUa44FkG1NAWpoW8UVBywv44XW_mjAJa32PcC9mcmiOLdiRqw@mail.gmail.com>
- <Z8avsigZJ4vqmiA4@sumit-X1> <32c29526416c07c37819aedabcbf1e562ee98bf2.camel@ndufresne.ca>
-In-Reply-To: <32c29526416c07c37819aedabcbf1e562ee98bf2.camel@ndufresne.ca>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Wed, 19 Mar 2025 08:37:38 +0100
-X-Gm-Features: AQ5f1JoBpDEcbO9dlVRTjtWYtOyjNLGsFkNPj_PW0jLG2Dag8-4LN8wDdyWmUJE
-Message-ID: <CAHUa44E11jYFrAFrZmNVTpLJ-XDs45QyTr-_DbeWBOQ0DjHPkQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: Sumit Garg <sumit.garg@kernel.org>, Daniel Stone <daniel@fooishbar.org>, 
-	Boris Brezillon <boris.brezillon@collabora.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Media Mailing List <linux-media@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 09/13] dt-bindings: phy: Add documentation for Airoha
+ AN7581 USB PHY
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Daniel Danzberger <dd@embedd.com>,
+ Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linus.walleij@linaro.org>,
+ Nikita Shubin <nikita.shubin@maquefel.me>, Guo Ren <guoren@kernel.org>,
+ Yangyu Chen <cyy@cyyself.name>, Ben Hutchings <ben@decadent.org.uk>,
+ Felix Fietkau <nbd@nbd.name>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-usb@vger.kernel.org,
+ upstream@airoha.com
+References: <20250309132959.19045-1-ansuelsmth@gmail.com>
+ <20250309132959.19045-10-ansuelsmth@gmail.com>
+ <4f16d239-f540-45d5-b67a-767b09f1c70c@kernel.org>
+ <67d0862f.df0a0220.375bd.6b15@mx.google.com>
+ <4a9ac302-dfbe-4d76-a634-a445957c313c@kernel.org>
+ <67d95979.050a0220.166852.25e6@mx.google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <67d95979.050a0220.166852.25e6@mx.google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_003751_567393_6C72D350 
-X-CRM114-Status: GOOD (  72.40  )
+X-CRM114-CacheID: sfid-20250319_004006_832904_8099F2F0 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,241 +136,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 18/03/2025 12:31, Christian Marangi wrote:
+> On Sun, Mar 16, 2025 at 06:01:02PM +0100, Krzysztof Kozlowski wrote:
+>> On 11/03/2025 19:51, Christian Marangi wrote:
+>>>>
+>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>> +    enum: [0, 1]
+>>>>
+>>>> I don't understand why do you need index property here (which are
+>>>> usually not allowed).
+>>>>
+>>>
+>>> Eh... As said in the description this is really to differentiate the 2
+>>> different physical port...
+>>>
+>>> Each port have a dedicated oscillator for calibration and these
+>>> calibration are identified by an offset (all placed one after another in
+>>> a separate register space).
+>>
+>> So different oscillators? Then describe the oscillator and its differences.
+>>
+>> Different programing model? Different compatible.
+>>
+>> Other difference? Depending what is the difference.
+>>
+>> But there is no such thing as "different port ID" based on your
+>> description above. You just claimed that they are different, but you do
+>> not put that difference to hardware description. Instead you encode that
+>> difference in the drivers and it should be opposite. The DTS, so the
+>> hardware description, should tell you the difference. And I am sorry,
+>> but in 99% of cases "I am the first phy" and "I am the second" is not
+>> the actual difference we are interested in.
+>>
+> 
+> Ok to make it as clear as possible. (hope I don't contraddict with the
+> previous statement) (actually yes the "separate register space statement
+> was wrong and sorry for the confusion")
+> 
+> - 2 USB port
+> - USB 2.0 needs to be calibrated with an oscillator
+> - Each USB port have his own dedicated oscillator somewhere in the HW
+> - Each USB port have at the same offset a register to SELECT the
+>   oscillator. This register refer to the same oscillator selection in
+>   the HW.
+>   
+>   Example:
+>   reg 0x1fac0100 MASK 27:26 can be set to source out of oscillator 0,1,2
+>   reg 0x1fae0100 MASK 27:26 can be set to source out of oscillator 0,1,2
 
-On Tue, Mar 18, 2025 at 7:38=E2=80=AFPM Nicolas Dufresne <nicolas@ndufresne=
-.ca> wrote:
->
-> Le mardi 04 mars 2025 =C3=A0 13:15 +0530, Sumit Garg a =C3=A9crit :
-> > On Tue, Mar 04, 2025 at 08:17:23AM +0100, Jens Wiklander wrote:
-> > > Hi Daniel,
-> > >
-> > > On Fri, Feb 21, 2025 at 3:12=E2=80=AFPM Daniel Stone <daniel@fooishba=
-r.org> wrote:
-> > > >
-> > > > Hi Sumit,
-> > > >
-> > > > On Fri, 21 Feb 2025 at 11:24, Sumit Garg <sumit.garg@linaro.org> wr=
-ote:
-> > > > > On Tue, 18 Feb 2025 at 21:52, Daniel Stone <daniel@fooishbar.org>=
- wrote:
-> > > > > > dma-heaps was created to solve the problem of having too many
-> > > > > > 'allocate $n bytes from $specialplace' uAPIs. The proliferation=
- was
-> > > > > > painful and making it difficult for userspace to do what it nee=
-ded to
-> > > > > > do. Userspace doesn't _yet_ make full use of it, but the soluti=
-on is
-> > > > > > to make userspace make full use of it, not to go create entirel=
-y
-> > > > > > separate allocation paths for unclear reasons.
-> > > > > >
-> > > > > > Besides, I'm writing this from a platform that implements SVP n=
-ot via
-> > > > > > TEE. I've worked on platforms which implement SVP without any T=
-EE,
-> > > > > > where the TEE implementation would be at best a no-op stub, and=
- at
-> > > > > > worst flat-out impossible.
-> > > > >
-> > > > > Can you elaborate the non-TEE use-case for Secure Video Path (SVP=
-) a
-> > > > > bit more? As to how the protected/encrypted media content pipelin=
-e
-> > > > > works? Which architecture support does your use-case require? Is =
-there
-> > > > > any higher privileged level firmware interaction required to perf=
-orm
-> > > > > media content decryption into restricted memory? Do you plan to
-> > > > > upstream corresponding support in near future?
-> > > >
-> > > > You can see the MTK SVP patches on list which use the MTK SMC to me=
-diate it.
-> > > >
-> > > > There are TI Jacinto platforms which implement a 'secure' area
-> > > > configured statically by (IIRC) BL2, with static permissions define=
-d
-> > > > for each AXI endpoint, e.g. CPU write + codec RW + dispc read. I've
-> > > > heard of another SoC vendor doing the same, but I don't think I can
-> > > > share those details. There is no TEE interaction.
-> > > >
-> > > > I'm writing this message from an AMD laptop which implements
-> > > > restricted content paths outside of TEE. I don't have the full pict=
-ure
-> > > > of how SVP is implemented on AMD systems, but I do know that I don'=
-t
-> > > > have any TEE devices exposed.
-> > > >
-> > > > > Let me try to elaborate on the Secure Video Path (SVP) flow requi=
-ring
-> > > > > a TEE implementation (in general terms a higher privileged firmwa=
-re
-> > > > > managing the pipeline as the kernel/user-space has no access
-> > > > > permissions to the plain text media content):
-> > > > >
-> > > > > - [...]
-> > > >
-> > > > Yeah, I totally understand the TEE usecase. I think that TEE is a g=
-ood
-> > > > design to implement this. I think that TEE should be used for SVP
-> > > > where it makes sense.
-> > > >
-> > > > Please understand that I am _not_ arguing that no-one should use TE=
-E for SVP!
-> > > >
-> > > > > > So, again, let's
-> > > > > > please turn this around: _why_ TEE? Who benefits from exposing =
-this as
-> > > > > > completely separate to the more generic uAPI that we specifical=
-ly
-> > > > > > designed to handle things like this?
-> > > > >
-> > > > > The bridging between DMA heaps and TEE would still require user-s=
-pace
-> > > > > to perform an IOCTL into TEE to register the DMA-bufs as you can =
-see
-> > > > > here [1]. Then it will rather be two handles for user-space to ma=
-nage.
-> > > >
-> > > > Yes, the decoder would need to do this. That's common though: if yo=
-u
-> > > > want to share a buffer between V4L2 and DRM, you have three handles=
-:
-> > > > the V4L2 buffer handle, the DRM GEM handle, and the dmabuf you use =
-to
-> > > > bridge the two.
-> > > >
-> > > > > Similarly during restricted memory allocation/free we need anothe=
-r
-> > > > > glue layer under DMA heaps to TEE subsystem.
-> > > >
-> > > > Yep.
-> > > >
-> > > > > The reason is simply which has been iterated over many times in t=
-he
-> > > > > past threads that:
-> > > > >
-> > > > >     "If user-space has to interact with a TEE device for SVP use-=
-case
-> > > > > then why it's not better to ask TEE to allocate restricted DMA-bu=
-fs
-> > > > > too"
-> > > >
-> > > > The first word in your proposition is load-bearing.
-> > > >
-> > > > Build out the usecase a little more here. You have a DRMed video
-> > > > stream coming in, which you need to decode (involving TEE for this
-> > > > usecase). You get a dmabuf handle to the decoded frame. You need to
-> > > > pass the dmabuf across to the Wayland compositor. The compositor ne=
-eds
-> > > > to pass it to EGL/Vulkan to import and do composition, which in tur=
-n
-> > > > passes it to the GPU DRM driver. The output of the composition is i=
-n
-> > > > turn shared between the GPU DRM driver and the separate KMS DRM
-> > > > driver, with the involvement of GBM.
-> > > >
-> > > > For the platforms I'm interested in, the GPU DRM driver needs to
-> > > > switch into protected mode, which has no involvement at all with TE=
-E -
-> > > > it's architecturally impossible to have TEE involved without moving
-> > > > most of the GPU driver into TEE and destroying performance. The
-> > > > display hardware also needs to engage protected mode, which again h=
-as
-> > > > no involvement with TEE and again would need to have half the drive=
-r
-> > > > moved into TEE for no benefit in order to do so. The Wayland
-> > > > compositor also has no interest in TEE: it tells the GPU DRM driver
-> > > > about the protected status of its buffers, and that's it.
-> > > >
-> > > > What these components _are_ opinionated about, is the way buffers a=
-re
-> > > > allocated and managed. We built out dmabuf modifiers for this useca=
-se,
-> > > > and we have a good negotiation protocol around that. We also really
-> > > > care about buffer placement in some usecases - e.g. some display/co=
-dec
-> > > > hardware requires buffers to be sourced from contiguous memory, oth=
-er
-> > > > hardware needs to know that when it shares buffers with another
-> > > > device, it needs to place the buffers outside of inaccessible/slow
-> > > > local RAM. So we built out dma-heaps, so every part of the componen=
-t
-> > > > in the stack can communicate their buffer-placement needs in the sa=
-me
-> > > > way as we do modifiers, and negotiate an acceptable allocation.
-> > > >
-> > > > That's my starting point for this discussion. We have a mechanism t=
-o
-> > > > deal with the fact that buffers need to be shared between different=
- IP
-> > > > blocks which have their own constraints on buffer placement, avoidi=
-ng
-> > > > the current problem of having every subsystem reinvent their own
-> > > > allocation uAPI which was burying us in impedance mismatch and
-> > > > confusion. That mechanism is dma-heaps. It seems like your starting
-> > > > point from this discussion is that you've implemented a TEE-centric
-> > > > design for SVP, and so all of userspace should bypass our existing
-> > > > cross-subsystem special-purpose allocation mechanism, and write
-> > > > specifically to one implementation. I believe that is a massive ste=
-p
-> > > > backwards and an immediate introduction of technical debt.
-> > > >
-> > > > Again, having an implementation of SVP via TEE makes a huge amount =
-of
-> > > > sense. Having _most_ SVP implementations via TEE still makes a lot =
-of
-> > > > sense. Having _all_ SVP implementations eventually be via TEE would
-> > > > still make sense. But even if we were at that point - which we aren=
-'t
-> > > > - it still doesn't justify telling userspace 'use the generic dma-h=
-eap
-> > > > uAPI for every device-specific allocation constraint, apart from SV=
-P
-> > > > which has a completely different way to allocate some bytes'.
-> > >
-> > > I must admit that I don't see how this makes a significant difference=
-,
-> > > but then I haven't hacked much in the stacks you're talking about, so
-> > > I'm going to take your word for it.
-> > >
-> > > I've experimented with providing a dma-heap replacing the TEE API. Th=
-e
-> > > implementation is more complex than I first anticipated, adding about
-> > > 400 lines to the patch set.
-> >
-> > I did anticipated this but let's give it a try and see if DMA heaps
-> > really adds any value from user-space point of view. If it does then it
-> > will be worth the maintenence overhead.
-> >
-> > > From user space, it looks like another
-> > > dma-heap. I'm using the names you gave earlier,
-> > > protected,secure-video, protected,trusted-ui, and
-> > > protected,secure-video-record. However, I wonder if we shouldn't use
-> > > "restricted" instead of "protected" since we had agreed to call it
-> > > restricted memory earlier.
-> >
-> > Let's stick with "restricted" memory buffer references only.
->
-> Until now, we didn't have a standard to balance our naming choice, we
-> simply wanted to move away from "secure" which didn't mean much, and
-> restricted met our needs. I think the discussion is worth having again,
-> now that there is a standard that decided toward "protected". Matchcing
-> the Khronos standard means reducing a lot of confusion.
->
-> https://docs.vulkan.org/guide/latest/protected.html
+So that's your difference between devices - you choose the oscillator.
 
-Yeah, that's fine with me. I don't mind changing the name again as
-long as we progress. The latest version of the patchset is here [1].
-I've published a demo and changed the patchset to provide a heap
-interface instead of a special interface in the TEE subsystem for
-memory allocations as requested. I'm interested in feedback on the
-patches in general, but in particular, on how the heap interface is
-provided.
+> 
+>   Both register refer to the same oscillators in hardware (hence each
+>   port should select the correct one)
+>   Selecting oscillator 0 for both USB port is problematic.
+> 
+> With this in mind is it ok if I describe this with something like
+> 
+> airoha,usb2-monitor-clk-sel = <AIROHA_USB2_MONCLK_SEL0>;
+> 
+> and some dt-bindings include
+> 
+> #define AIROHA_USB2_MONCLK_SEL0 0
+> #define AIROHA_USB2_MONCLK_SEL1 1
+> #define AIROHA_USB2_MONCLK_SEL2 2
+> #define AIROHA_USB2_MONCLK_SEL3 3
+> 
+> Or an enum of string like "osc0", "osc1", "osc2"...?
 
-[1] https://lore.kernel.org/lkml/20250305130634.1850178-1-jens.wiklander@li=
-naro.org/
+Both are fine.
 
-Cheers,
-Jens
+Best regards,
+Krzysztof
 
