@@ -4,105 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 394ECC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1018DC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XDjpxOJZM1EOF9vpn7+ybNe5SgMoSN9gTtg0XUDzI9s=; b=eW7sZtn9HGF+4M44K1VTm9fr0b
-	WTd2/Bov787QTxZ9MmMvEskKtNlifyd4GXIkvjfc8CJcJNbwnItb5PUNkKJQWRTlBsTgSHs644CVe
-	3EJ6wQfZtAWO+N/hv48XnGnayP0lS5jDIaW46nlDlQqHP1DkTZJv7fTioWqWGqUsDJUHoTxFhdU6D
-	PZziweudC5GuR9kjWYWXlAgdl6u+lkjaRCXdykX4CgksSl+ZTDczMT0ylGAe9PpmQer2J+FID8Pyr
-	JGBnTDagz7auFwvQ3rsbeFlR5UNAo67P0wylhPtfDdzZMxAPVX9Oov+/0Up1XeSYoHUOb+bOTE2f5
-	cFqygosg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hVzS1cKjgXiIBmmhKBquRUyIr9x4Sbg/Puy66Jc/XtY=; b=KMG5ywMlIkruX+I49fldMWwsGD
+	ZrkLCk4xPDhQRn7l3G4h1uzvwsU1M15KGxnlL4YFkolG1d4cdPArcuE+gDGnTlqsoAdv3QqHQd0tG
+	KAs0j5dhyrhw4o1Xs55K99/e7NZEv3hn2q+kp+ZFmlmlLXKde9inrFvJ4mJMfoEZA8IYQPo+E9UBl
+	RmQM2DiXtp96xt6tTPamyfkPHWBa0kjDCcB8pbjP1B/8dgKH5q/xPQSu+vUQWzOGAJtRA2u7ob2SV
+	EdeEav2igxxalVantmyFyLH6C5hPb2ZHKJI9ry5Uh63gtSxZGSYMTHNV1j9cNnAUSlUFhXdv2QDy+
+	YlfNFHdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunuE-00000008EBt-46ml;
-	Wed, 19 Mar 2025 07:32:02 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tunyN-00000008Eay-37ZJ;
+	Wed, 19 Mar 2025 07:36:19 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunsX-00000008Dt5-11HA;
-	Wed, 19 Mar 2025 07:30:18 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52J4lmKD001868;
-	Wed, 19 Mar 2025 07:29:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:message-id:mime-version:subject:to; s=
-	qcppdkim1; bh=XDjpxOJZM1EOF9vpn7+ybNe5SgMoSN9gTtg0XUDzI9s=; b=Cd
-	t2DdFt7i6gkXU+FmmH0QJclljLtJoPYKODv1jCiXW9n2lL0OnKb8sfG6FfpOQwt4
-	SsNgOTIqYnPkcF/mZjDrL+NiHby6fQ24n6GnyZA2t7dRnBPV0QW2DlwMhHofzbwS
-	d4Oev4cJpgxFOGI/pDhZR+aiFQbQsQPHMQVhvGfVyidFvpZPLKSEvwaVGPHNnAgh
-	FfA6OtT6pVJGGWO5QT4+zadLR4CYXXcM1YGGjr4cNF1RMTYhjLeg0jlvEFLj5Jdc
-	2B8ZfBQvisUXJKODzPdhUZJdOlan71KUJgj+qFbkavNur8Aoajx725gb1incDuOm
-	sFUPfSqxWLxxf+zMVbSQ==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45etmbw20k-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 19 Mar 2025 07:29:55 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52J7Ts1T011972
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 19 Mar 2025 07:29:54 GMT
-Received: from stor-berry.qualcomm.com (10.80.80.8) by
- nasanex01a.na.qualcomm.com (10.52.223.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 19 Mar 2025 00:29:53 -0700
-From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
-To: <quic_cang@quicinc.com>, <quic_nitirawa@quicinc.com>, <bvanassche@acm.org>,
-        <avri.altman@wdc.com>, <peter.wang@mediatek.com>,
-        <manivannan.sadhasivam@linaro.org>, <minwoo.im@samsung.com>,
-        <adrian.hunter@intel.com>, <martin.petersen@oracle.com>
-CC: <linux-scsi@vger.kernel.org>, "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>,
-        Matthias Brugger
-	<matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Bean Huo <beanhuo@micron.com>, Ziqi Chen <quic_ziqichen@quicinc.com>,
-        Keoseong Park
-	<keosung.park@samsung.com>,
-        Gwendal Grignou <gwendal@chromium.org>,
-        Al Viro
-	<viro@zeniv.linux.org.uk>, Eric Biggers <ebiggers@google.com>,
-        open list
-	<linux-kernel@vger.kernel.org>,
-        "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
-        "moderated
- list:ARM/Mediatek SoC support:Keyword:mediatek"
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v3 1/1] scsi: ufs: core: add device level exception support
-Date: Wed, 19 Mar 2025 00:29:30 -0700
-Message-ID: <6109425449ac4d18249ce7254e4fa1252138a94a.1742369183.git.quic_nguyenb@quicinc.com>
-X-Mailer: git-send-email 2.7.4
+	id 1tunwg-00000008EQa-1YS8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Mar 2025 07:34:36 +0000
+Date: Wed, 19 Mar 2025 00:34:19 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1742369671;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hVzS1cKjgXiIBmmhKBquRUyIr9x4Sbg/Puy66Jc/XtY=;
+	b=ncfmaFx0/mTHHJGzal1ucHChoQgst0wOX9bqBOQI2NbZZkS9AxVV3nu8BZo6rHB9KLw2Ew
+	WnbG1juHt47MAPrqg6uXRvD9hKpq/uO/HDvsuBP6F1w1bysitWkEILnJJPHfOSpnHSMmNo
+	5JOQKnx71oSPTJgG9vPG6tyCy7/SEFg=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com
+Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
+Message-ID: <Z9pze3J2_zrTk_yC@linux.dev>
+References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: AdW9AjD1xapFs3n7P1qc-1QpXizhRUKk
-X-Proofpoint-GUID: AdW9AjD1xapFs3n7P1qc-1QpXizhRUKk
-X-Authority-Analysis: v=2.4 cv=aMLwqa9m c=1 sm=1 tr=0 ts=67da7273 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=mpaa-ttXAAAA:8 a=_c5fG4JWzXF7GHI2WLAA:9
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-19_02,2025-03-17_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 spamscore=0 clxscore=1011 phishscore=0 mlxscore=0
- suspectscore=0 malwarescore=0 mlxlogscore=999 bulkscore=0 adultscore=0
- lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503190050
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_003017_506161_CDEE6058 
-X-CRM114-Status: GOOD (  29.52  )
+X-CRM114-CacheID: sfid-20250319_003434_721960_A3F4DC6E 
+X-CRM114-Status: GOOD (  28.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,353 +74,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ufs device JEDEC specification version 4.1 adds support for the
-device level exception events. To support this new device level
-exception feature, expose two new sysfs nodes below to provide
-the user space access to the device level exception information.
-/sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_count
-/sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_id
+Hi Akihiko,
 
-The device_lvl_exception_count sysfs node reports the number of
-device level exceptions that have occurred since the last time
-this variable is reset. Writing a value of 0 will reset it.
-The device_lvl_exception_id reports the exception ID which is the
-qDeviceLevelExceptionID attribute of the device JEDEC specifications
-version 4.1 and later. The user space application can query these
-sysfs nodes to get more information about the device level exception.
+On Wed, Mar 19, 2025 at 03:33:46PM +0900, Akihiko Odaki wrote:
+> Problem
+> -------
+> 
+> arch/arm64/kvm/pmu-emul.c used to have a comment saying the follows:
+> > The observant among you will notice that the supported_cpus
+> > mask does not get updated for the default PMU even though it
+> > is quite possible the selected instance supports only a
+> > subset of cores in the system. This is intentional, and
+> > upholds the preexisting behavior on heterogeneous systems
+> > where vCPUs can be scheduled on any core but the guest
+> > counters could stop working.
+> 
+> Despite the reference manual says counters may not continuously
+> incrementing, Windows is not robust enough to handle stopped PMCCNTR_EL0
+> and crashes with a division-by-zero error and it also crashes when the
+> PMU is not present.
+> 
+> To avoid such a problem, the userspace should pin the vCPU threads to
+> pCPUs supported by one host PMU when initializing the vCPUs or specify
+> the host PMU to use with KVM_ARM_VCPU_PMU_V3_SET_PMU after the
+> initialization. However, QEMU/libvirt can pin vCPU threads only after the
+> vCPUs are initialized. It also limits the pCPUs the guest can use even
+> for VMMs that support proper pinning.
+> 
+> Solution
+> --------
+> 
+> Ideally, Windows should fix the division-by-zero error and QEMU/libvirt
+> should support pinning better, but neither of them are going to happen
+> anytime soon.
+> 
+> To allow running Windows on QEMU/libvirt or with heterogeneous cores,
+> combine all host PMUs necessary to cover the cores vCPUs can run and
+> keep PMCCNTR_EL0 working.
 
-Signed-off-by: Bao D. Nguyen <quic_nguyenb@quicinc.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+I'm extremely uneasy about making this a generalized solution. PMUs are
+deeply tied to the microarchitecture of a particular implementation, and
+that isn't something we can abstract away from the guest in KVM.
+
+For example, you could have an event ID that counts on only a subset of
+cores, or better yet an event that counts something completely different
+depending on where a vCPU lands.
+
+I do appreciate the issue that you're trying to solve.
+
+The good news though is that the fixed PMU cycle counter is the only
+thing guaranteed to be present in any PMUv3 implementation. Since
+that's the only counter Windows actually needs, perhaps we could
+special-case this in KVM.
+
+I have the following (completely untested) patch, do you want to give it
+a try? There's still going to be observable differences between PMUs
+(e.g. CPU frequency) but at least it should get things booting.
+
+Thanks,
+Oliver
+
 ---
-Changes in v3:
-1. Add protection for hba->dev_lvl_exception_count accesses in different
-contexts (Bart's comment).
-
-Changes in v2:
-1. Addressed Mani's comments:
-   - Update the documentation of dev_lvl_exception_count to read/write.
-   - Rephrase the description of the Documentation and commit text.
-   - Remove the export of ufshcd_read_device_lvl_exception_id().
-2. Addressed Bart's comments:
-   - Rename dev_lvl_exception sysfs node to dev_lvl_exception_count.
-   - Update the documentation of the sysfs nodes.
-   - Skip comment about sysfs_notify() being used in interrupt
-     context because Avri already addressed it.
----
- Documentation/ABI/testing/sysfs-driver-ufs | 27 +++++++++++++
- drivers/ufs/core/ufs-sysfs.c               | 57 +++++++++++++++++++++++++++
- drivers/ufs/core/ufshcd-priv.h             |  1 +
- drivers/ufs/core/ufshcd.c                  | 63 ++++++++++++++++++++++++++++++
- include/uapi/scsi/scsi_bsg_ufs.h           |  9 +++++
- include/ufs/ufs.h                          |  5 ++-
- include/ufs/ufshcd.h                       |  5 +++
- 7 files changed, 166 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/ABI/testing/sysfs-driver-ufs b/Documentation/ABI/testing/sysfs-driver-ufs
-index ae01912..6a6c35a 100644
---- a/Documentation/ABI/testing/sysfs-driver-ufs
-+++ b/Documentation/ABI/testing/sysfs-driver-ufs
-@@ -1604,3 +1604,30 @@ Description:
- 		prevent the UFS from frequently performing clock gating/ungating.
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index a1bc10d7116a..913a7bab50b5 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -724,14 +724,21 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+ 		return;
  
- 		The attribute is read/write.
+ 	memset(&attr, 0, sizeof(struct perf_event_attr));
+-	attr.type = arm_pmu->pmu.type;
 +
-+What:		/sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_count
-+What:		/sys/bus/platform/devices/*.ufs/device_lvl_exception_count
-+Date:		March 2025
-+Contact:	Bao D. Nguyen <quic_nguyenb@quicinc.com>
-+Description:
-+		This attribute is applicable to ufs devices compliant to the JEDEC
-+		specifications version 4.1 or later. The device_lvl_exception_count
-+		is a counter indicating the number of times the device level exceptions
-+		have occurred since the last time this variable is reset.
-+		Writing a 0 value to this attribute will reset the device_lvl_exception_count.
-+		If the device_lvl_exception_count reads a positive value, the user
-+		application should read the device_lvl_exception_id attribute to know more
-+		information about the exception.
-+		This attribute is read/write.
-+
-+What:		/sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_id
-+What:		/sys/bus/platform/devices/*.ufs/device_lvl_exception_id
-+Date:		March 2025
-+Contact:	Bao D. Nguyen <quic_nguyenb@quicinc.com>
-+Description:
-+		Reading the device_lvl_exception_id returns the qDeviceLevelExceptionID
-+		attribute of the ufs device JEDEC specification version 4.1. The definition
-+		of the qDeviceLevelExceptionID is the ufs device vendor specific implementation.
-+		Refer to the device manufacturer datasheet for more information
-+		on the meaning of the qDeviceLevelExceptionID attribute value.
-+		The attribute is read only.
-diff --git a/drivers/ufs/core/ufs-sysfs.c b/drivers/ufs/core/ufs-sysfs.c
-index 90b5ab6..4cd2e0b 100644
---- a/drivers/ufs/core/ufs-sysfs.c
-+++ b/drivers/ufs/core/ufs-sysfs.c
-@@ -466,6 +466,59 @@ static ssize_t critical_health_show(struct device *dev,
- 	return sysfs_emit(buf, "%d\n", hba->critical_health_count);
- }
- 
-+static ssize_t device_lvl_exception_count_show(struct device *dev,
-+					       struct device_attribute *attr,
-+					       char *buf)
-+{
-+	struct ufs_hba *hba = dev_get_drvdata(dev);
-+
-+	if (hba->dev_info.wspecversion < 0x410)
-+		return -EOPNOTSUPP;
-+
-+	return sysfs_emit(buf, "%u\n", hba->dev_lvl_exception_count);
-+}
-+
-+static ssize_t device_lvl_exception_count_store(struct device *dev,
-+						struct device_attribute *attr,
-+						const char *buf, size_t count)
-+{
-+	struct ufs_hba *hba = dev_get_drvdata(dev);
-+	unsigned long flags;
-+	unsigned int value;
-+
-+	if (kstrtouint(buf, 0, &value))
-+		return -EINVAL;
-+
-+	/* the only supported usecase is to reset the dev_lvl_exception_count */
-+	if (value)
-+		return -EINVAL;
-+
-+	spin_lock_irqsave(hba->host->host_lock, flags);
-+	hba->dev_lvl_exception_count = 0;
-+	spin_unlock_irqrestore(hba->host->host_lock, flags);
-+
-+	return count;
-+}
-+
-+static ssize_t device_lvl_exception_id_show(struct device *dev,
-+					    struct device_attribute *attr,
-+					    char *buf)
-+{
-+	struct ufs_hba *hba = dev_get_drvdata(dev);
-+	u64 exception_id;
-+	int err;
-+
-+	ufshcd_rpm_get_sync(hba);
-+	err = ufshcd_read_device_lvl_exception_id(hba, &exception_id);
-+	ufshcd_rpm_put_sync(hba);
-+
-+	if (err)
-+		return err;
-+
-+	hba->dev_lvl_exception_id = exception_id;
-+	return sysfs_emit(buf, "%llu\n", exception_id);
-+}
-+
- static DEVICE_ATTR_RW(rpm_lvl);
- static DEVICE_ATTR_RO(rpm_target_dev_state);
- static DEVICE_ATTR_RO(rpm_target_link_state);
-@@ -479,6 +532,8 @@ static DEVICE_ATTR_RW(wb_flush_threshold);
- static DEVICE_ATTR_RW(rtc_update_ms);
- static DEVICE_ATTR_RW(pm_qos_enable);
- static DEVICE_ATTR_RO(critical_health);
-+static DEVICE_ATTR_RW(device_lvl_exception_count);
-+static DEVICE_ATTR_RO(device_lvl_exception_id);
- 
- static struct attribute *ufs_sysfs_ufshcd_attrs[] = {
- 	&dev_attr_rpm_lvl.attr,
-@@ -494,6 +549,8 @@ static struct attribute *ufs_sysfs_ufshcd_attrs[] = {
- 	&dev_attr_rtc_update_ms.attr,
- 	&dev_attr_pm_qos_enable.attr,
- 	&dev_attr_critical_health.attr,
-+	&dev_attr_device_lvl_exception_count.attr,
-+	&dev_attr_device_lvl_exception_id.attr,
- 	NULL
- };
- 
-diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
-index 10b4a19..d0a2c96 100644
---- a/drivers/ufs/core/ufshcd-priv.h
-+++ b/drivers/ufs/core/ufshcd-priv.h
-@@ -94,6 +94,7 @@ int ufshcd_exec_raw_upiu_cmd(struct ufs_hba *hba,
- 			     enum query_opcode desc_op);
- 
- int ufshcd_wb_toggle(struct ufs_hba *hba, bool enable);
-+int ufshcd_read_device_lvl_exception_id(struct ufs_hba *hba, u64 *exception_id);
- 
- /* Wrapper functions for safely calling variant operations */
- static inline const char *ufshcd_get_var_name(struct ufs_hba *hba)
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index 4e1e214..5674f4a 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -6013,6 +6013,43 @@ static void ufshcd_bkops_exception_event_handler(struct ufs_hba *hba)
- 				__func__, err);
- }
- 
-+int ufshcd_read_device_lvl_exception_id(struct ufs_hba *hba, u64 *exception_id)
-+{
-+	struct utp_upiu_query_response_v4_0 *upiu_resp;
-+	struct ufs_query_req *request = NULL;
-+	struct ufs_query_res *response = NULL;
-+	int err;
-+
-+	if (hba->dev_info.wspecversion < 0x410)
-+		return -EOPNOTSUPP;
-+
-+	ufshcd_hold(hba);
-+	mutex_lock(&hba->dev_cmd.lock);
-+
-+	ufshcd_init_query(hba, &request, &response,
-+			  UPIU_QUERY_OPCODE_READ_ATTR,
-+			  QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID, 0, 0);
-+
-+	request->query_func = UPIU_QUERY_FUNC_STANDARD_READ_REQUEST;
-+
-+	err = ufshcd_exec_dev_cmd(hba, DEV_CMD_TYPE_QUERY, QUERY_REQ_TIMEOUT);
-+
-+	if (err) {
-+		dev_err(hba->dev, "%s: failed to read device level exception %d\n",
-+			__func__, err);
-+		goto out;
++	if (pmc->idx == ARMV8_PMU_CYCLE_IDX) {
++		attr.type = PERF_TYPE_HARDWARE;
++		attr.config = PERF_COUNT_HW_CPU_CYCLES;
++	} else {
++		attr.type = arm_pmu->pmu.type;
++		attr.config = eventsel;
 +	}
 +
-+	upiu_resp = (struct utp_upiu_query_response_v4_0 *)response;
-+	*exception_id = get_unaligned_be64(&upiu_resp->value);
-+
-+out:
-+	mutex_unlock(&hba->dev_cmd.lock);
-+	ufshcd_release(hba);
-+
-+	return err;
-+}
-+
- static int __ufshcd_wb_toggle(struct ufs_hba *hba, bool set, enum flag_idn idn)
- {
- 	u8 index;
-@@ -6215,6 +6252,7 @@ static void ufshcd_rpm_dev_flush_recheck_work(struct work_struct *work)
-  */
- static void ufshcd_exception_event_handler(struct work_struct *work)
- {
-+	unsigned long flags;
- 	struct ufs_hba *hba;
- 	int err;
- 	u32 status = 0;
-@@ -6240,6 +6278,13 @@ static void ufshcd_exception_event_handler(struct work_struct *work)
- 		sysfs_notify(&hba->dev->kobj, NULL, "critical_health");
- 	}
+ 	attr.size = sizeof(attr);
+ 	attr.pinned = 1;
+ 	attr.disabled = !kvm_pmu_counter_is_enabled(pmc);
+ 	attr.exclude_user = !kvm_pmc_counts_at_el0(pmc);
+ 	attr.exclude_hv = 1; /* Don't count EL2 events */
+ 	attr.exclude_host = 1; /* Don't count host events */
+-	attr.config = eventsel;
  
-+	if (status & hba->ee_drv_mask & MASK_EE_DEV_LVL_EXCEPTION) {
-+		spin_lock_irqsave(hba->host->host_lock, flags);
-+		hba->dev_lvl_exception_count++;
-+		spin_unlock_irqrestore(hba->host->host_lock, flags);
-+		sysfs_notify(&hba->dev->kobj, NULL, "device_lvl_exception_count");
-+	}
-+
- 	ufs_debugfs_exception_event(hba, status);
- }
- 
-@@ -8139,6 +8184,22 @@ static void ufshcd_temp_notif_probe(struct ufs_hba *hba, const u8 *desc_buf)
- 	}
- }
- 
-+static void ufshcd_device_lvl_exception_probe(struct ufs_hba *hba, u8 *desc_buf)
-+{
-+	u32 ext_ufs_feature;
-+
-+	if (hba->dev_info.wspecversion < 0x410)
-+		return;
-+
-+	ext_ufs_feature = get_unaligned_be32(desc_buf +
-+				DEVICE_DESC_PARAM_EXT_UFS_FEATURE_SUP);
-+	if (!(ext_ufs_feature & UFS_DEV_LVL_EXCEPTION_SUP))
-+		return;
-+
-+	hba->dev_lvl_exception_count = 0;
-+	ufshcd_enable_ee(hba, MASK_EE_DEV_LVL_EXCEPTION);
-+}
-+
- static void ufshcd_set_rtt(struct ufs_hba *hba)
- {
- 	struct ufs_dev_info *dev_info = &hba->dev_info;
-@@ -8339,6 +8400,8 @@ static int ufs_get_device_desc(struct ufs_hba *hba)
- 
- 	ufs_init_rtc(hba, desc_buf);
- 
-+	ufshcd_device_lvl_exception_probe(hba, desc_buf);
-+
  	/*
- 	 * ufshcd_read_string_desc returns size of the string
- 	 * reset the error value
-diff --git a/include/uapi/scsi/scsi_bsg_ufs.h b/include/uapi/scsi/scsi_bsg_ufs.h
-index 8c29e49..8b61dff 100644
---- a/include/uapi/scsi/scsi_bsg_ufs.h
-+++ b/include/uapi/scsi/scsi_bsg_ufs.h
-@@ -143,6 +143,15 @@ struct utp_upiu_query_v4_0 {
- 	__be32 reserved;
- };
- 
-+struct utp_upiu_query_response_v4_0 {
-+	__u8 opcode;
-+	__u8 idn;
-+	__u8 index;
-+	__u8 selector;
-+	__be64 value;
-+	__be32 reserved;
-+} __attribute__((__packed__));
-+
- /**
-  * struct utp_upiu_cmd - Command UPIU structure
-  * @exp_data_transfer_len: Data Transfer Length DW-3
-diff --git a/include/ufs/ufs.h b/include/ufs/ufs.h
-index 8a24ed5..1c47136 100644
---- a/include/ufs/ufs.h
-+++ b/include/ufs/ufs.h
-@@ -180,7 +180,8 @@ enum attr_idn {
- 	QUERY_ATTR_IDN_AVAIL_WB_BUFF_SIZE       = 0x1D,
- 	QUERY_ATTR_IDN_WB_BUFF_LIFE_TIME_EST    = 0x1E,
- 	QUERY_ATTR_IDN_CURR_WB_BUFF_SIZE        = 0x1F,
--	QUERY_ATTR_IDN_TIMESTAMP		= 0x30
-+	QUERY_ATTR_IDN_TIMESTAMP		= 0x30,
-+	QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID     = 0x34,
- };
- 
- /* Descriptor idn for Query requests */
-@@ -390,6 +391,7 @@ enum {
- 	UFS_DEV_EXT_TEMP_NOTIF		= BIT(6),
- 	UFS_DEV_HPB_SUPPORT		= BIT(7),
- 	UFS_DEV_WRITE_BOOSTER_SUP	= BIT(8),
-+	UFS_DEV_LVL_EXCEPTION_SUP       = BIT(12),
- };
- #define UFS_DEV_HPB_SUPPORT_VERSION		0x310
- 
-@@ -419,6 +421,7 @@ enum {
- 	MASK_EE_TOO_LOW_TEMP		= BIT(4),
- 	MASK_EE_WRITEBOOSTER_EVENT	= BIT(5),
- 	MASK_EE_PERFORMANCE_THROTTLING	= BIT(6),
-+	MASK_EE_DEV_LVL_EXCEPTION       = BIT(7),
- 	MASK_EE_HEALTH_CRITICAL		= BIT(9),
- };
- #define MASK_EE_URGENT_TEMP (MASK_EE_TOO_HIGH_TEMP | MASK_EE_TOO_LOW_TEMP)
-diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
-index e3909cc..ad90a43 100644
---- a/include/ufs/ufshcd.h
-+++ b/include/ufs/ufshcd.h
-@@ -968,6 +968,9 @@ enum ufshcd_mcq_opr {
-  * @pm_qos_req: PM QoS request handle
-  * @pm_qos_enabled: flag to check if pm qos is enabled
-  * @critical_health_count: count of critical health exceptions
-+ * @dev_lvl_exception_count: count of device level exceptions since last reset
-+ * @dev_lvl_exception_id: vendor specific information about the
-+ * device level exception event.
-  */
- struct ufs_hba {
- 	void __iomem *mmio_base;
-@@ -1138,6 +1141,8 @@ struct ufs_hba {
- 	bool pm_qos_enabled;
- 
- 	int critical_health_count;
-+	u32 dev_lvl_exception_count;
-+	u64 dev_lvl_exception_id;
- };
- 
- /**
--- 
-2.7.4
-
+ 	 * Filter events at EL1 (i.e. vEL2) when in a hyp context based on the
 
