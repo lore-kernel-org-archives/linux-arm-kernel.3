@@ -4,85 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5920C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E507C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4O8PI5SymyzH2mP51VHoBeIrKkmfpWSyi8Ona00XiQ=; b=Ax1IYTgFU8wnaRVwf8B7gwga2U
-	/5BWSFFeLTTcmYtkpXzg1r9Dju51tgxVPQLOU7moq78CEeQu3coHuhPhpRgbmr0/J1PI6Ms/uCK76
-	hMGBxlqhGzC97eohoieyRrK/HB8jpQAdpiknULl/AZPt67gN+SmE9fxrNteg8ijitrRnWxH3Irs2E
-	59v2xlaT4pl2G6Ocu0sAVCbzboG2tXXBuv1X/ln5F/hATWKUjX/l8HRZpDJk02sa9DUQV/9/MAGFE
-	tUTjvGqAIfKe9HvxUIjTwZ8L0L6/1k46SiZj4tSx+z52+qAUIhLmfiYFdsjScMUxHxozGE29K4+ee
-	Uj6Oop5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+wPWYe9eR/3ZvAgQvDxg3SYoxP/A+rutkYayuMKJSKU=; b=nyP+nl6p9i/GDZryOyW3FzFl5t
+	bM7XcpUSnmuXRVaP6SkyjVkqzo25Jk7x+JcmITy20zLM5LGUP8hD+UiEqbzqjd5ixW87X5lLM6ZPX
+	2JSYjzQYDdHbEor98gLVTC05NV6wAQTYe/vnNiWA/R6t8u2wmHu0s/MA/eyqQmghfFxTuZs4xIG9Q
+	Pd6fnUZa8F7zKwOiRLUALT9pBafdkbzgN6bABgD1q8k4tpjS86iuZmKmmure/22obsbsrmHWWdfbA
+	kGcJyPGkiap1WlFmdC9hL2bYSakzf+EvKxGNB1q6duB4VkBebyYVycd2MEu08mkpCGY4T8QTA2fM+
+	L0v29IUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuqB9-00000008apr-1fBA;
-	Wed, 19 Mar 2025 09:57:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuqCo-00000008bF5-4Aui;
+	Wed, 19 Mar 2025 09:59:22 +0000
+Received: from [195.187.100.5] (helo=ni.piap.pl)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuq1a-00000008Yeb-3I6s
+	id 1tuq5Y-00000008ZWT-3Tzl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 09:47:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 27FC1A49035;
-	Wed, 19 Mar 2025 09:42:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5636BC4CEE9;
-	Wed, 19 Mar 2025 09:47:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742377665;
-	bh=Ga6cduPK1BfqQQXpM0waODB2tzqbv9oLz7vtZxZm8aQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=gfGVzs7IKAMTErRW/2ZplDVJsHrNvg6XSLRMTgjCg6rx5JQE3N8SWqNxmeWwWy5Sa
-	 yBYIlgGrsINtDKM14KZEWKt6T7c6w95rW82e/MQ62AclsdvfmrfjnAjyyVkrt2zZIb
-	 UYv1BdPPBThNS9NA5ExrYH3hM/n1KLY9+4aoYswLrrt3C0zHTEoTl3Z9Z3z56FBuxc
-	 Hh6E5l2VBWFKf0VCy5ryegzF8IsCHntfktyj1J1pJRqF232egwSuqf2geG+VQ0Pw2d
-	 ULXEjaimy8jrmS7kCDQhA+bMdMwn1uXp6VAVQqG5xTCk2L8WA+c/U/iEZhCMxaEks0
-	 aGrzAStxQ6ZYg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tuq1W-00F0Nh-Vv;
-	Wed, 19 Mar 2025 09:47:43 +0000
-Date: Wed, 19 Mar 2025 09:47:42 +0000
-Message-ID: <86plidmjwh.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <akihiko.odaki@daynix.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	devel@daynix.com
-Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
-In-Reply-To: <e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
-References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
-	<Z9pze3J2_zrTk_yC@linux.dev>
-	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 19 Mar 2025 09:51:54 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id 2DEF8C40828A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 10:51:45 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 2DEF8C40828A
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Subject: ARM64 GICv3 IRQ handling on i.MX8MP
+Date: Wed, 19 Mar 2025 10:51:45 +0100
+Message-ID: <m3y0x1e4b2.fsf@t19.piap.pl>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_024746_977422_10606844 
-X-CRM114-Status: GOOD (  51.94  )
+X-CRM114-CacheID: sfid-20250319_025153_032547_4EDB16BD 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,133 +56,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Mar 2025 08:37:29 +0000,
-Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
-> 
-> On 2025/03/19 16:34, Oliver Upton wrote:
-> > Hi Akihiko,
-> > 
-> > On Wed, Mar 19, 2025 at 03:33:46PM +0900, Akihiko Odaki wrote:
-> >> Problem
-> >> -------
-> >> 
-> >> arch/arm64/kvm/pmu-emul.c used to have a comment saying the follows:
-> >>> The observant among you will notice that the supported_cpus
-> >>> mask does not get updated for the default PMU even though it
-> >>> is quite possible the selected instance supports only a
-> >>> subset of cores in the system. This is intentional, and
-> >>> upholds the preexisting behavior on heterogeneous systems
-> >>> where vCPUs can be scheduled on any core but the guest
-> >>> counters could stop working.
-> >> 
-> >> Despite the reference manual says counters may not continuously
-> >> incrementing, Windows is not robust enough to handle stopped PMCCNTR_EL0
-> >> and crashes with a division-by-zero error and it also crashes when the
-> >> PMU is not present.
-> >> 
-> >> To avoid such a problem, the userspace should pin the vCPU threads to
-> >> pCPUs supported by one host PMU when initializing the vCPUs or specify
-> >> the host PMU to use with KVM_ARM_VCPU_PMU_V3_SET_PMU after the
-> >> initialization. However, QEMU/libvirt can pin vCPU threads only after the
-> >> vCPUs are initialized. It also limits the pCPUs the guest can use even
-> >> for VMMs that support proper pinning.
-> >> 
-> >> Solution
-> >> --------
-> >> 
-> >> Ideally, Windows should fix the division-by-zero error and QEMU/libvirt
-> >> should support pinning better, but neither of them are going to happen
-> >> anytime soon.
-> >> 
-> >> To allow running Windows on QEMU/libvirt or with heterogeneous cores,
-> >> combine all host PMUs necessary to cover the cores vCPUs can run and
-> >> keep PMCCNTR_EL0 working.
-> > > I'm extremely uneasy about making this a generalized solution. PMUs are
-> > deeply tied to the microarchitecture of a particular implementation, and
-> > that isn't something we can abstract away from the guest in KVM.
-> > 
-> > For example, you could have an event ID that counts on only a subset of
-> > cores, or better yet an event that counts something completely different
-> > depending on where a vCPU lands.> > I do appreciate the issue that you're trying to solve.
-> > 
-> > The good news though is that the fixed PMU cycle counter is the only
-> > thing guaranteed to be present in any PMUv3 implementation. Since
-> > that's the only counter Windows actually needs, perhaps we could
-> > special-case this in KVM.
-> > 
-> > I have the following (completely untested) patch, do you want to give it
-> > a try? There's still going to be observable differences between PMUs
-> > (e.g. CPU frequency) but at least it should get things booting.
-> 
-> I don't think it will work, unfortunately. perf_init_event() binds a
-> perf event to a particular PMU so the event will stop working when the
-> thread migrates away.
-> 
-> It should also be the reason why the perf program creates an event for
-> each PMU. tools/perf/Documentation/intel-hybrid.txt has more
-> descriptions.
+Hi,
 
-But perf on non-Intel behaves pretty differently. ARM PMUs behaves
-pretty differently, because there is no guarantee of homogeneous
-events.
+I'm looking at the i.MX8MP I2C transfers to an image sensor (Sony IMX290
+and 462) and I find the following interesting. I wonder about the time
+spent before the IRQ handler is called. This is mostly mainline v6.13
+kernel (not any of the NXP branches).
 
-> 
-> Allowing to enable more than one counter and/or an event type other
-> than the cycle counter is not the goal. Enabling another event type
-> may result in a garbage value, but I don't think it's worse than the
-> current situation where the count stays zero; please tell me if I miss
-> something.
-> 
-> There is still room for improvement. Returning a garbage value may not
-> be worse than returning zero, but counters and event types not
-> supported by some cores shouldn't be advertised as available in the
-> first place. More concretely:
-> 
-> - The vCPU should be limited to run only on cores covered by PMUs when
-> KVM_ARM_VCPU_PMU_V3 is set.
+The i.MX8MP uses drivers/i2c/busses/i2c-imx.c driver:
 
-That's userspace's job. Bind to the desired PMU, and run. KVM will
-actively prevent you from running on the wrong CPU.
+request_irq(irq, i2c_imx_isr, IRQF_SHARED, pdev->name, i2c_imx);
 
-> - PMCR_EL0.N advertised to the guest should be the minimum of ones of
-> host PMUs.
+As I can see, this means i2c_imx_isr() will be called by el1h_64_irq()
+(constructed with the entry_handler macro). el1h_64_irq() is the
+ultimate hardware interrupt:
 
-How do you find out? CPUs can be hot-plugged on long after a VM has
-started, bringing in a new PMU, with a different number of counters.
+Call trace:
+ i2c_imx_isr
+ __handle_irq_event_percpu
+ handle_irq_event
+ handle_fasteoi_irq
+ generic_handle_domain_irq
+ gic_handle_irq
+ call_on_irq_stack
+ do_interrupt_handler
+ el1_interrupt
+ el1h_64_irq_handler
+ el1h_64_irq
+ cpuidle_enter_state
 
-> - PMCEID0_EL0 and PMCEID1_EL0 advertised to the guest should be the
-> result of the AND operations of ones of host PMUs.
+Now I put some debugging GPIO outputs (very short) in both i2c_imx_isr()
+and el1h_64_irq_handler() and this is what I'm getting:
 
-Same problem.
+- the CPU gets from el1h_64_irq_handler() to i2c_imx_isr() in less than
+  20 us (sometimes < 3 us).
 
-> 
-> Special-casing the cycle counter may make sense if we are going to fix
-> the advertised values of PMCR_EL0.N, PMCEID0_EL0, and
-> PMCEID1_EL0. PMCR_EL0.N as we can simply return zero for these
-> registers. We can also prevent enabling a counter that returns zero or
-> a garbage value.
->
-> Do you think it's worth fixing these registers? If so, I'll do that by
-> special-casing the cycle counter.
+- but, it usually takes like 350 us to get from the end of I2C byte
+  transfer to the actual el1h_64_irq_handler(). This is the case when
+  the CPU is only slightly loaded.
 
-I think this is really going in the wrong direction.
+- sometimes el1h_64_irq_handler() is called within 2 us after the
+  end of transfer. This appears to be much more frequent when I put
+  4 busy shell loops on the CPU.
 
-The whole design of the PMU emulation is that we expose a single,
-architecturally correct PMU implementation. This is clearly
-documented.
+- especially with the busy loops, the I2C IRQs appear to work in some
+  sort of polled mode as well - the el1h_64_irq_handler() isn't called
+  before i2c_imx_isr(). This is fast, though - ca. 1 us after the end
+  of transfer.
 
-Furthermore, userspace is being given all the relevant information to
-place vcpus on the correct physical CPUs. Why should we add this sort
-of hack in the kernel, creating a new userspace ABI that we will have
-to support forever, when usespace can do the correct thing right now?
+Why do the times between the hardware event and the actual call of
+el1h_64_irq_handler() vary so much? Is this some sort of power saving
+issue? Maybe I can prevent it when e.g. the I2C xfer is ongoing?
 
-Worse case, this is just a 'taskset' away, and everything will work.
+BTW it appears the I2C transfer times are much better now (in comparison
+with the old 5.15.71 Freescale/NXP branch), most probably thanks to a
+recent patch by Stefan Eichenberger (5f5c2d4579ca683 "i2c: imx: prevent
+rescheduling in non dma mode"). Still, I2C is (in this case) 400 kHz (or
+so) and the IRQ delays make it much slower.
 
-Frankly, I'm not prepared to add more hacks to KVM for the sake of the
-combination of broken userspace and broken guest.
+Could that be caused by the ATF/TEE?
 
-	M.
+Obviously, the "polled" mode isn't a problem - only the 350 us delay is.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
 
--- 
-Without deviation from the norm, progress is not possible.
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
