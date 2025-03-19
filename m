@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A49C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68364C35FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bmc22h/BMWjxiwjJ1yBZ85fSqhdi58U8C9mzYMf4x18=; b=459n8AN2n8sMuNA06Ynhbq2/PU
-	NSZA6w93dxUj/6foDzxOXRE0xAyrx/csxiT1TBNezdjb73zGkflJTfsxTV7FWWxuUqKt6TK5yLMZu
-	faYb7fQHRGkGlTf08gpdQjYsZXbz7TaKSkx7qM12NGyurdI/gSJx4BxiSw7CXQRcK7NpKplht+rqt
-	fpatI5jlPGERmuiRPaDfcToNpqHPd3JHA5T9r8EvQYEqdVwVTWVyJQJ4tsINmKckUbu/7w7B8iTM+
-	KCnOZpLH/eFaGulCULjgmxcx5l3PH4d+QtL4UKEG96PObf1m4CeiyT4VfIsLYe2EfoRuQhc4fR7v3
-	V6ObiJHQ==;
+	bh=v1eGmQWoQGN9Dkax1HXc1+f2DIdudnDU/1Bx3UVDXHM=; b=yOLnpEShqNit2P+BtpfhJSVkKp
+	Ix+2nYHU4gl+SOSz1zzAFZRvwyIB0ys2I350yj3MQ8OIasw0kKhP0VzZ/qSNo6ASmN/xQFZDD8iUV
+	+G9A4rU9JmWTNoN90Kg+jrPguT3HGKMC+lW6C5xZLKyYOWRpwRBv3UMsMCIIv3khlVaI03gKz0T1f
+	nX+n4A6sBdWm8Z5n/MN6oTqvOodnEaJ+actEFQJioo+jT04rPrEGRV2SpW68aO6Wt0oiVNRvNCrua
+	BHGorsjzmJ7huuA/rhwMhNg8PMT/ACHVesP5hUgPMYvVrLCwdIImFzMajh78X+yzy4e+eXn6VuMTe
+	BEZGPDGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tukDr-00000007uVb-2qMD;
-	Wed, 19 Mar 2025 03:36:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tukCB-00000007uKD-0v1k
+	id 1tukFW-00000007um5-1gVt;
+	Wed, 19 Mar 2025 03:37:46 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tukDM-00000007uQh-3ZKH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 03:34:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB43512FC;
-	Tue, 18 Mar 2025 20:34:25 -0700 (PDT)
-Received: from [10.162.16.153] (a077893.blr.arm.com [10.162.16.153])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E7843F63F;
-	Tue, 18 Mar 2025 20:34:11 -0700 (PDT)
-Message-ID: <5cbaefa8-e51f-415f-a9b3-4841e69bb3fa@arm.com>
-Date: Wed, 19 Mar 2025 09:04:08 +0530
+	Wed, 19 Mar 2025 03:35:34 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e50bae0f5bso5980a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 20:35:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1742355331; x=1742960131; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v1eGmQWoQGN9Dkax1HXc1+f2DIdudnDU/1Bx3UVDXHM=;
+        b=MsIgFV4b/nQsHwDvT/f+WhWMMZHNlfnyQacx7MjjBQAPfHTD1o+OMkPDL/UcKlXU0Z
+         QjjBnAeLPLb0cA37NCPnodtX4YtlcA7mKi0865PRWYf7y+PE4cef+rGkgJdbA3ydOnJP
+         yYCv197VvsMbiqvF0ToXFCJ3bVNt4fvs5vLAaHTehy22xXemMVcngiFW1aTsVluvsLZZ
+         RKcxh+gq0q3fBPSOmqdsFWGfHca7Gqszu4MIDNQas1ZPwFqnxJbpMSN9ey9A+7os9yDD
+         qIvbmhxU2CbvV7uDEfSPVN1l2QQI3nvrSXshPb7Iij2Y6Z28iPfGK712F9k97LGUhjH8
+         Tf+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742355331; x=1742960131;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=v1eGmQWoQGN9Dkax1HXc1+f2DIdudnDU/1Bx3UVDXHM=;
+        b=ssOGPOhxHHG7d3didhJLy+SlcMoYui3YHWhqi3ESmYuP4AP08fW7/oWnKbIJpzTo0x
+         VrRIh4fX9CQ36p6SpuPQQsZeT+xujQTpw/L8GMh8gYoKzL5qlCPh45LAohwWkEZkArgF
+         BKGVjC/ioRzSkyamm3Nl5cHODSMvYHz8ej5zCUyzoQy2B0BsslfxBbpoENNX5SPfFfBC
+         FAHmK4MlLd4saNHnNiCSGUxACZKpE2V2wfZ3KAsd6dvN5EIzjDG9Se0qwiy0rZUwo+fZ
+         gJDLlG67hyicPqPc6pK4vQvfGr6Ffnll6Zfo2HJrZPyo1zCSKys4j5vEQLv0yR8fTuKe
+         vpCg==
+X-Forwarded-Encrypted: i=1; AJvYcCXOX50FqFqxz8QB5zuJ41ndieAiLazCX7TQTW6rmTZjJAppdqrqY32DkrmDzCK1n2xXKvXZ2beA0UjktaeoBqSS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcIvDvao0Yf1k7P/q6tkkZFViWxfMdnQTMu0DAIV1Z5mp3tM21
+	MxAFowImi64kOjnkfo+dLaOizrxTSkFIYOFn8qlRrugwQqJtFqVwXFkOe3KMDCfVUZ0AqwFi6cG
+	Yag8pDVsd87JwI1LIo/0nk4bT7lEfqOClHsB7
+X-Gm-Gg: ASbGncs7N8jYoXiDumQWoEKlKFoIfRNxSGX45Qc71tX9wx9ueumbYeHnOpX7d8bSZw6
+	qDeG7gZWNYcpZsYGJeeUagt/ez2TYSMA/DDzyjf0ghI7hlW1MdRE0oHiQfWYtxakdWxtY+EAn2M
+	nefK9Ku602XcMI3Fd84CAWzb9PuifaTKqzZ+EpfghjThAKgsJbT3v3od00ZnOy/cm1Uw==
+X-Google-Smtp-Source: AGHT+IEt+19WG9IHzZ81Mv9euoAb/rztC5JqY4WZb1WW6DcgrlMezNBnKgRxYmL642WrrToMiGpcBZS+CqAISTXPMYI=
+X-Received: by 2002:aa7:c1da:0:b0:5e5:c024:ec29 with SMTP id
+ 4fb4d7f45d1cf-5eb7e96330cmr62254a12.0.1742355330636; Tue, 18 Mar 2025
+ 20:35:30 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/8] bits: introduce fixed-type genmasks
-To: Yury Norov <yury.norov@gmail.com>, linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Lucas De Marchi <lucas.demarchi@intel.com>,
- Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrew Morton <akpm@linux-foundation.org>,
- linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, Andi Shyti <andi.shyti@linux.intel.com>,
- David Laight <David.Laight@aculab.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jani Nikula <jani.nikula@intel.com>
-References: <20250305-fixed-type-genmasks-v4-0-1873dcdf6723@wanadoo.fr>
- <20250305-fixed-type-genmasks-v4-3-1873dcdf6723@wanadoo.fr>
- <Z8hsRJvpjYoqh9RG@thinkpad> <Z9oiEkQEcHhA0a80@thinkpad>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Z9oiEkQEcHhA0a80@thinkpad>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250318214035.481950-1-pcc@google.com> <20250318214035.481950-2-pcc@google.com>
+ <202503181957.55A0E0A@keescook>
+In-Reply-To: <202503181957.55A0E0A@keescook>
+From: Peter Collingbourne <pcc@google.com>
+Date: Tue, 18 Mar 2025 20:35:19 -0700
+X-Gm-Features: AQ5f1Jq3z05plokQ9oy7A8yZz95pSsT-oxsin3iEVaTMKIK56JFI_UIbnlyp_vI
+Message-ID: <CAMn1gO7TG0xXMFNFXTm9W8n4hdit9Yr40m4jvFCjdv9fGiU5iw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] string: Add load_unaligned_zeropad() code path to sized_strscpy()
+To: Kees Cook <kees@kernel.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Shevchenko <andy@kernel.org>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_203419_353016_14EB629C 
-X-CRM114-Status: GOOD (  33.16  )
+X-CRM114-CacheID: sfid-20250318_203532_912947_CC781D46 
+X-CRM114-Status: GOOD (  34.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,197 +99,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/25 07:16, Yury Norov wrote:
-> + Catalin Marinas, ARM maillist
-> 
-> Hi Catalin and everyone,
+On Tue, Mar 18, 2025 at 8:06=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+>
+> On Tue, Mar 18, 2025 at 02:40:32PM -0700, Peter Collingbourne wrote:
+> > The call to read_word_at_a_time() in sized_strscpy() is problematic
+> > with MTE because it may trigger a tag check fault when reading
+> > across a tag granule (16 bytes) boundary. To make this code
+> > MTE compatible, let's start using load_unaligned_zeropad()
+> > on architectures where it is available (i.e. architectures that
+> > define CONFIG_DCACHE_WORD_ACCESS). Because load_unaligned_zeropad()
+> > takes care of page boundaries as well as tag granule boundaries,
+> > also disable the code preventing crossing page boundaries when using
+> > load_unaligned_zeropad().
+> >
+> > Signed-off-by: Peter Collingbourne <pcc@google.com>
+> > Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4bf=
+98ada827fdf755548
+> > Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
+> > Cc: stable@vger.kernel.org
+> > ---
+> > v2:
+> > - new approach
+> >
+> >  lib/string.c | 13 ++++++++++---
+> >  1 file changed, 10 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/lib/string.c b/lib/string.c
+> > index eb4486ed40d25..b632c71df1a50 100644
+> > --- a/lib/string.c
+> > +++ b/lib/string.c
+> > @@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, =
+size_t count)
+> >       if (count =3D=3D 0 || WARN_ON_ONCE(count > INT_MAX))
+> >               return -E2BIG;
+> >
+> > +#ifndef CONFIG_DCACHE_WORD_ACCESS
+> >  #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+>
+> I would prefer this were written as:
+>
+> #if !defined(CONFIG_DCACHE_WORD_ACCESS) && \
+>     defined(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)
+>
+> Having 2 #ifs makes me think there is some reason for having them
+> separable. But the logic here is for a single check.
 
-Hello Yury,
+There is indeed a reason for having two: there's an #else in the
+middle (which pertains to CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+only).
 
-> 
-> Anshuman Khandual asked me to merge GENMASK_U128() saying it's
-> important for ARM to stabilize API. While it's a dead code, I
-> accepted his patch as he promised to add users shortly.
-> 
-> Now it's more than half a year since that. There's no users,
-> and no feedback from Anshuman.
+>
+> >       /*
+> >        * If src is unaligned, don't cross a page boundary,
+> > @@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src=
+, size_t count)
+> >       /* If src or dest is unaligned, don't do word-at-a-time. */
+> >       if (((long) dest | (long) src) & (sizeof(long) - 1))
+> >               max =3D 0;
+> > +#endif
+> >  #endif
+>
+> (Then no second #endif needed)
+>
+> >
+> >       /*
+> > -      * read_word_at_a_time() below may read uninitialized bytes after=
+ the
+> > -      * trailing zero and use them in comparisons. Disable this optimi=
+zation
+> > -      * under KMSAN to prevent false positive reports.
+> > +      * load_unaligned_zeropad() or read_word_at_a_time() below may re=
+ad
+> > +      * uninitialized bytes after the trailing zero and use them in
+> > +      * comparisons. Disable this optimization under KMSAN to prevent
+> > +      * false positive reports.
+> >        */
+> >       if (IS_ENABLED(CONFIG_KMSAN))
+> >               max =3D 0;
+> > @@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src,=
+ size_t count)
+> >       while (max >=3D sizeof(unsigned long)) {
+> >               unsigned long c, data;
+> >
+> > +#ifdef CONFIG_DCACHE_WORD_ACCESS
+> > +             c =3D load_unaligned_zeropad(src+res);
+> > +#else
+> >               c =3D read_word_at_a_time(src+res);
+> > +#endif
+> >               if (has_zero(c, &data, &constants)) {
+> >                       data =3D prep_zero_mask(c, data, &constants);
+> >                       data =3D create_zero_mask(data);
+>
+> The rest seems good. Though I do wonder: what happens on a page boundary
+> for read_word_at_a_time(), then? We get back zero-filled remainder? Will
+> that hide a missing NUL terminator? As in, it's not actually there
+> because of the end of the page/granule, but a zero was put in, so now
+> it looks like it's been terminated and the exception got eaten? And
+> doesn't this hide MTE faults since we can't differentiate "overran MTE
+> tag" from "overran granule while over-reading"?
 
-My apologies to have missed your email earlier. Please find response
-for the earlier email below as well.
+Correct. The behavior I implemented seems good enough for now IMO (and
+at least good enough for backports). If we did want to detect this
+case, we would need an alternative to "load_unaligned_zeropad" that
+would do something other than fill the unreadable bytes with zeros in
+the fault handler. For example, it could fill them with all-ones. That
+would prevent the loop from being terminated by the tag check fault,
+and we would proceed to the next granule, take another tag check fault
+which would recur in the fault handler and cause the bug to be
+detected.
 
-> 
-> Can you please tell if you still need the macro? I don't want to
-> undercut your development, but if you don't need 128-bit genmasks
-> there's no reason to have a dead code in the uapi.
-
-The code base specifically using GENMASK_U128() has not been posted
-upstream (probably in next couple of months or so) till now, except
-the following patch which has been not been merged and still under
-review and development.
-
-https://lore.kernel.org/lkml/20240801054436.612024-1-anshuman.khandual@arm.com/
-
-> 
-> Thanks,
-> Yury
-> 
-> On Wed, Mar 05, 2025 at 10:22:47AM -0500, Yury Norov wrote:
->> + Anshuman Khandual <anshuman.khandual@arm.com>
->>
->> Anshuman,
->>
->> I merged your GENMASK_U128() because you said it's important for your
->> projects, and that it will get used in the kernel soon.
->>
->> Now it's in the kernel for more than 6 month, but no users were added.
->> Can you clarify if you still need it, and if so why it's not used?
-
-We would need it but although the code using GENMASK_U128() has not been
-posted upstream.
-
->>
->> As you see, people add another fixed-types GENMASK() macros, and their
->> implementation differ from GENMASK_U128().
-
-I will take a look. Is GENMASK_U128() being problematic for the this new
-scheme ?
-
->>
->> My second concern is that __GENMASK_U128() is declared in uapi, while
->> the general understanding for other fixed-type genmasks is that they
->> are not exported to users. Do you need this macro to be exported to
->> userspace? Can you show how and where it is used there?
-
-No, not atleast right now.
-
-These were moved into uapi subsequently via the following commit.
-
-21a3a3d015aee ("tools headers: Synchronize {uapi/}linux/bits.h with the kernel sources")
-
-But in general GENMASK_U128() is needed for generating 128 bit page table
-entries, related flags and masks whether in kernel or in user space for
-writing kernel test cases etc.
-
->>
->> Thanks,
->> Yury
->>
->>
->> On Wed, Mar 05, 2025 at 10:00:15PM +0900, Vincent Mailhol via B4 Relay wrote:
->>> From: Yury Norov <yury.norov@gmail.com>
->>>
->>> Add __GENMASK_t() which generalizes __GENMASK() to support different
->>> types, and implement fixed-types versions of GENMASK() based on it.
->>> The fixed-type version allows more strict checks to the min/max values
->>> accepted, which is useful for defining registers like implemented by
->>> i915 and xe drivers with their REG_GENMASK*() macros.
->>>
->>> The strict checks rely on shift-count-overflow compiler check to fail
->>> the build if a number outside of the range allowed is passed.
->>> Example:
->>>
->>> 	#define FOO_MASK GENMASK_U32(33, 4)
->>>
->>> will generate a warning like:
->>>
->>> 	../include/linux/bits.h:41:31: error: left shift count >= width of type [-Werror=shift-count-overflow]
->>> 	   41 |          (((t)~0ULL - ((t)(1) << (l)) + 1) & \
->>> 	      |                               ^~
->>>
->>> Signed-off-by: Yury Norov <yury.norov@gmail.com>
->>> Signed-off-by: Lucas De Marchi <lucas.demarchi@intel.com>
->>> Acked-by: Jani Nikula <jani.nikula@intel.com>
->>> Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
->>> ---
->>> Changelog:
->>>
->>>   v3 -> v4:
->>>
->>>     - The v3 is one year old. Meanwhile people started using
->>>       __GENMASK() directly. So instead of generalizing __GENMASK() to
->>>       support different types, add a new GENMASK_t().
->>>
->>>     - replace ~0ULL by ~_ULL(0). Otherwise, __GENMASK_t() would fail
->>>       in asm code.
->>>
->>>     - Make GENMASK_U8() and GENMASK_U16() return an unsigned int. In
->>>       v3, due to the integer promotion rules, these were returning a
->>>       signed integer. By casting these to unsigned int, at least the
->>>       signedness is kept.
->>> ---
->>>  include/linux/bitops.h |  1 -
->>>  include/linux/bits.h   | 33 +++++++++++++++++++++++++++++----
->>>  2 files changed, 29 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/include/linux/bitops.h b/include/linux/bitops.h
->>> index c1cb53cf2f0f8662ed3e324578f74330e63f935d..9be2d50da09a417966b3d11c84092bb2f4cd0bef 100644
->>> --- a/include/linux/bitops.h
->>> +++ b/include/linux/bitops.h
->>> @@ -8,7 +8,6 @@
->>>  
->>>  #include <uapi/linux/kernel.h>
->>>  
->>> -#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
->>>  #define BITS_TO_LONGS(nr)	__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(long))
->>>  #define BITS_TO_U64(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u64))
->>>  #define BITS_TO_U32(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u32))
->>> diff --git a/include/linux/bits.h b/include/linux/bits.h
->>> index 5f68980a1b98d771426872c74d7b5c0f79e5e802..f202e46d2f4b7899c16d975120f3fa3ae41556ae 100644
->>> --- a/include/linux/bits.h
->>> +++ b/include/linux/bits.h
->>> @@ -12,6 +12,7 @@
->>>  #define BIT_ULL_MASK(nr)	(ULL(1) << ((nr) % BITS_PER_LONG_LONG))
->>>  #define BIT_ULL_WORD(nr)	((nr) / BITS_PER_LONG_LONG)
->>>  #define BITS_PER_BYTE		8
->>> +#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
->>>  
->>>  /*
->>>   * Create a contiguous bitmask starting at bit position @l and ending at
->>> @@ -25,14 +26,38 @@
->>>  
->>>  #define GENMASK_INPUT_CHECK(h, l) BUILD_BUG_ON_ZERO(const_true((l) > (h)))
->>>  
->>> -#define GENMASK(h, l) \
->>> -	(GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
->>> -#define GENMASK_ULL(h, l) \
->>> -	(GENMASK_INPUT_CHECK(h, l) + __GENMASK_ULL(h, l))
->>> +/*
->>> + * Generate a mask for the specified type @t. Additional checks are made to
->>> + * guarantee the value returned fits in that type, relying on
->>> + * shift-count-overflow compiler check to detect incompatible arguments.
->>> + * For example, all these create build errors or warnings:
->>> + *
->>> + * - GENMASK(15, 20): wrong argument order
->>> + * - GENMASK(72, 15): doesn't fit unsigned long
->>> + * - GENMASK_U32(33, 15): doesn't fit in a u32
->>> + */
->>> +#define GENMASK_t(t, h, l)				\
->>> +	(GENMASK_INPUT_CHECK(h, l) +			\
->>> +	 (((t)~ULL(0) - ((t)1 << (l)) + 1) &		\
->>> +	  ((t)~ULL(0) >> (BITS_PER_TYPE(t) - 1 - (h)))))
->>> +
->>> +#define GENMASK(h, l) GENMASK_t(unsigned long,  h, l)
->>> +#define GENMASK_ULL(h, l) GENMASK_t(unsigned long long, h, l)
->>>  
->>>  /*
->>>   * Missing asm support
->>>   *
->>> + * __GENMASK_U*() depends on BITS_PER_TYPE() which would not work in the asm
->>> + * code as BITS_PER_TYPE() relies on sizeof(), something not available in
->>> + * asm. Nethertheless, the concept of fixed width integers is a C thing which
->>> + * does not apply to assembly code.
->>> + */
->>> +#define GENMASK_U8(h, l) ((unsigned int)GENMASK_t(u8,  h, l))
->>> +#define GENMASK_U16(h, l) ((unsigned int)GENMASK_t(u16, h, l))
->>> +#define GENMASK_U32(h, l) GENMASK_t(u32, h, l)
->>> +#define GENMASK_U64(h, l) GENMASK_t(u64, h, l)
->>> +
->>> +/*
->>>   * __GENMASK_U128() depends on _BIT128() which would not work
->>>   * in the asm code, as it shifts an 'unsigned __int128' data
->>>   * type instead of direct representation of 128 bit constants
->>>
->>> -- 
->>> 2.45.3
->>>
+Peter
 
