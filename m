@@ -4,76 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28451C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 22:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC4DC36001
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 22:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQTW6kko3l1QQi4CrjFmnxLazuKyJeyp8e+1LMaThqU=; b=wD1jVQM8v9lMTMaOhE+52+lmI8
-	e7QdrLN+OLj5W6zCAQ4K51Z2uERVCAMw8tzuJjtCtT1/GzojyvBpqPk9MjkjsdpU/yOnLqoOVWe7+
-	yLv4Yodi+L0EmMBYoQLIv6+VckvT2pmBTl8l/6dRybhs1F1+S7a6yfBkpV1+tEU72H0yEdH8nsrZe
-	BxG2UWiEQIIZ7Tl/MIAvAc589FbmqTHHsprz0CcwDUc5D6TToILoCgf03fI56rSqRTHu+vzxcbczf
-	eKXWcNIhgdVNB5x3bs9fDx/XkyCvw8Mim0iz1B0d61TIRC+GRJG9/PHwEikajxYJOhuIwVtrNt9Lg
-	6V8iVQ3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4wEEUuOXU/4c78WOKPAs88Y7ud2TxrGsHh+sX8lWUM=; b=OG6q+9SXexwgYusXhLotVpFPAX
+	Adkg1VD5aKzgy4Re6pKQYtc3AMOvIEwFEQ826bziAmD+siM9jNnfiEFCrLxAxkXn/7Yn10/ROO9Rn
+	qACDi97+Ky8m6Izy7ahIBai8RO6O6HmS+CTOZ619wFci/7/yMoZT63065dvjzhNK+72s5JMX9mvoP
+	J/BrGP/BSDTnirTAqzLfb5XWNQhFCD5NtSGGgTpCVHlk2DrjjKj7nzXHPiKSudg/KXxmTsCQ4RHIB
+	AKV2YHqx+uAJunZD3s8g7GXxBCSoJYODCPuERIrj6Mu3xKwqUE7fSI5nOFG663ki2F3K2jhrTZAuV
+	N2BjIknA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1sv-0000000AHnC-0roE;
-	Wed, 19 Mar 2025 22:27:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1tv1ua-0000000AI3r-3yoL;
+	Wed, 19 Mar 2025 22:29:20 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1nc-0000000AH6v-2iO3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 22:22:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A205A437DC;
-	Wed, 19 Mar 2025 22:22:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6922DC4CEE4;
-	Wed, 19 Mar 2025 22:22:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742422928;
-	bh=xqfK+KqTEmnvRkw96spNfhu/mnuaNMYujybAAL7pUSE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i12ijldI5N0ICNvlgfikLn9YZT+PfpoaQYGzVCqV5QVQakxF/kzqU2Lqv2CAB6IHV
-	 oukxy6WIyS2CbLWL7kxfJdMzkQu7gqAxRZOAa1p2mfOrX+2GDDmeDGZqVjp/kO/OLY
-	 lwEEla+OizUzPM7ncFgeV1l4jIsIX4q4G8RT1EJZzEiZKhwLbsiVu+L39WLQHfLziX
-	 5bZhlsYi0RShAQ0VdBbdCe0vn/QJAWYr/WEw/0VnTz19eLmx/UXR9f4QnnLZ+9C87U
-	 7MKDh9fs6qsNuxlXnfxJaI1+lKuR+cSMWr2KN6CCJDgb4WPeN3wUpXKgXYd3V8OUrd
-	 1bYWGngG+fTXg==
-Date: Wed, 19 Mar 2025 16:22:04 -0600
-From: Keith Busch <kbusch@kernel.org>
-To: Peter Xu <peterx@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Gavin Shan <gshan@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, x86@kernel.org,
-	Ingo Molnar <mingo@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Alistair Popple <apopple@nvidia.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Sean Christopherson <seanjc@google.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Jason Gunthorpe <jgg@nvidia.com>, Borislav Petkov <bp@alien8.de>,
-	Zi Yan <ziy@nvidia.com>, Axel Rasmussen <axelrasmussen@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	Yan Zhao <yan.y.zhao@intel.com>, Will Deacon <will@kernel.org>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Alex Williamson <alex.williamson@redhat.com>
-Subject: Re: [PATCH v2 18/19] mm/arm64: Support large pfn mappings
-Message-ID: <Z9tDjOk-JdV_fCY4@kbusch-mbp.dhcp.thefacebook.com>
-References: <20240826204353.2228736-1-peterx@redhat.com>
- <20240826204353.2228736-19-peterx@redhat.com>
+	id 1tv1oO-0000000AHGG-1QWV;
+	Wed, 19 Mar 2025 22:22:57 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-226185948ffso1356345ad.0;
+        Wed, 19 Mar 2025 15:22:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1742422975; x=1743027775; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l4wEEUuOXU/4c78WOKPAs88Y7ud2TxrGsHh+sX8lWUM=;
+        b=LP5yqdDnTGViLOY7oYFQCihQMtB7QItqiFeNmAiIl9AEZ0nFSxcNm31gTqz/Sj7NBT
+         ZZRTsPcRh/k8+32s01DmhUoTs7M8B8qjRQzs7EICB8QDY/SCQ4rRFz2suUsk4kSTT+ze
+         g86TXa6I6UuFJSBE37nTuLt1tiKmrWZMQkGdVxupnG5gtrVCC9hHIwo4aZP1G1V3ZU1F
+         TmWj0DUGrVb/P8AAQRWr6noXN0vnC6tBU+tiqTBQOy+ua4AC20lzBrvgv+6rSqoWNmlC
+         K3T9Qz69P0rVgh3nbe0f2EzpNTlO31+F1Ym/6kZkIEP74PPgbXu4v4q6wsnSwI05aNYn
+         5IZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742422975; x=1743027775;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l4wEEUuOXU/4c78WOKPAs88Y7ud2TxrGsHh+sX8lWUM=;
+        b=fOC847Y0Yc+i/Ni6dNddEkOSlRsmxh8TyRd6mbLfoKCeUSZ5gHcB6gi6LOqlfW9bOV
+         reuSs9JzB/A+nAqYc5qJ9qUw+19cQqmfxUoSy+NJFMe8hB+hmjMNEDsomDQHcfL60TxG
+         SdggKeNuJ3SjH7gJu7eilF9hxDQjlmsn+hCKaC9T6fNkV2FLkyYDUXeAHE883m5h5yqx
+         7BX6k574xnTMVI6VTX2d0WKaGWnaTX3sOHrmkIdtU3Q/8WtHMYybWOVcPwYIXAE8MnBq
+         ACHkyaalJOauaLTYe/UIN76F6w5IM/SFOiLZvXQoAbI0CCNleGLCoEI166bSjmMR1sg1
+         B8tg==
+X-Forwarded-Encrypted: i=1; AJvYcCXMiRUBuicVAD4vuSg1b9Ntsi7p09Vdw5HQWMHWZZgnex2ipxZAzSyO0Wg0YaDHgX5oJaCW9I+oyHGZlA6+Si02/A==@lists.infradead.org, AJvYcCXpPfbU2O4XdIpQ8JdCxLP9pepYf6rLIytl7EGPScQV9HxI60JKOMNQGRQRKYEdNMOXOdFVogQ8pOPPsYeR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWKYQr+byFzV8slmT2tAFQ7EW7u14yF4wuqsBIz0uP6pbZYgwD
+	dyFUd5pZDpKuT5kli7bqEwNZ8r35xSngoWF5XBx7PQis8suyESPmsz75xe+/w8S4kGpy+a/b71x
+	eQtTkQtjwsCP949s2oZX10Eia2bf1f+iE
+X-Gm-Gg: ASbGncu0QhH/BknfJWp3bty60O14+FHoz6nl3Ou9aLhg/uGfLFNxeX+EbzoDY0Y5MlL
+	vlXtzPt71/gR+9aDZGwPk/KNmZNn1hHHM/Tw6l3M1E9lCWWwvbNhxzSDJdxaAGFPI0Aj9/4fGWp
+	4cYce7guMkAnAbJ1IZi75E+fi9sUVULHi784bN2Tgxg5ZS60njAUP9o51tdGc=
+X-Google-Smtp-Source: AGHT+IHnrwxeln/RnbLA2XRvBCju7XzJvLA6h2ZrJXAkHwZQxFkrUVqTHCcEQJIqR6TUDRWTL3skUv6t2g4Q+MafzCQ=
+X-Received: by 2002:a17:902:ecc4:b0:224:249f:9723 with SMTP id
+ d9443c01a7336-22649a67f83mr47754205ad.51.1742422975243; Wed, 19 Mar 2025
+ 15:22:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240826204353.2228736-19-peterx@redhat.com>
+References: <20250314-ugoos-am3-v2-0-422104b0cec5@posteo.net> <20250314-ugoos-am3-v2-1-422104b0cec5@posteo.net>
+In-Reply-To: <20250314-ugoos-am3-v2-1-422104b0cec5@posteo.net>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Wed, 19 Mar 2025 23:22:44 +0100
+X-Gm-Features: AQ5f1JoWIv58AbGKUJz6nPSYBcTrHvuaOG-LcZ2pVsz1-w1fQQqOt643bLXrSYM
+Message-ID: <CAFBinCA8Sk8rKt7zZBEgCdRh4J_fktapo56RtVJOC4myCJ1qeQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: amlogic: Add Ugoos AM3
+To: j.ne@posteo.net
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_152208_700859_C81B0998 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250319_152256_395220_525F93C0 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,14 +98,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 26, 2024 at 04:43:52PM -0400, Peter Xu wrote:
-> +#ifdef CONFIG_ARCH_SUPPORTS_PUD_PFNMAP
-> +#define pud_special(pte)	pte_special(pud_pte(pud))
-> +#define pud_mkspecial(pte)	pte_pud(pte_mkspecial(pud_pte(pud)))
-> +#endif
-
-Sorry for such a late reply, but this looked a bit weird as I'm doing
-some backporting. Not that I'm actually interested in this arch, so I
-can't readily test this, but I believe the intention was to name the
-macro argument "pud", not "pte".
+On Fri, Mar 14, 2025 at 12:11=E2=80=AFAM J. Neusch=C3=A4fer via B4 Relay
+<devnull+j.ne.posteo.net@kernel.org> wrote:
+>
+> From: "J. Neusch=C3=A4fer" <j.ne@posteo.net>
+>
+> The Ugoos AM3 is a small set-top box based on the Amlogic S912 SoC.
+>
+>   https://ugoos.com/ugoos-am3-16g
+>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: J. Neusch=C3=A4fer <j.ne@posteo.net>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
