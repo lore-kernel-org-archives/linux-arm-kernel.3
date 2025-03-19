@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DFEC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC28CC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J7uJC7/wnNtUu5pJ4qQt6a1rT5FvciTWgegURwHTTr0=; b=a/SufdiNvS4RRp2gkgI6TccmC7
-	dDFSmdkHE7GiulAGe8Hi/L+UtIgwGT2NTkTt6HcIbI4h9J2FrCDN12b7inkHoI7KHx+ZOwfR2rNkD
-	JexXJyfKrr1TUE4BzDFwElKIJiZwUGSh6ttMbwqSp2jL7qCD8BWIRfmMuq5F5Ki2gZo1q6q28H/gU
-	rRXgQcpDDefsJQoYgl3exYA8bPksAcpfA4kWbW6+IWonetV6L+C77dkieVvXxFBgavCN5203RlqrF
-	Ofuia3XEa6aMqBiBmGLZhYfzMJiWYAHTWemwOVETDK/VOvYyMRyBXlXzmdFvUnoUYceI1wrTr0Fyb
-	xf80dwlw==;
+	bh=KUPUHkJioUtE81ZsDkMXvltzeWnfkq7PCX4NoRG/jRo=; b=KLd2XvXE9h78pdPQr3eVMxVjy8
+	byQOV0pFQZcHDQe8VGI3X7W7mAF4iNMozmw6amw27BHeC8ItWEqSEcnU++kv7YE/gussnSC6d0xji
+	FiWzs+wCDDMI+sjJHJAHUy88P21kenEM9owEevFjEdHSe4dsoC0VKZuMbk5LNsUJ7gsUucCZWQIVA
+	omhWuumCqkROsBJV2+F+9QI8PAjqYOst7fEEDh56mMh6i6qxfYi7GofARTLaIVtbhbXb9s8yjB1U3
+	x5aYBpGjW0MKZzovc8Z32Ne8OS0djzyx8RJQuR5jYUPtSQaaA/cZQzCzjeKsRKeq2ZNZwW1jSBwYo
+	5wegilkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunXO-00000008BbZ-0d1T;
-	Wed, 19 Mar 2025 07:08:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tunZ3-00000008BrD-1QaN;
+	Wed, 19 Mar 2025 07:10:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunVh-00000008BF7-0vLU;
+	id 1tunVh-00000008BF8-38e0;
 	Wed, 19 Mar 2025 07:06:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61D1D61145;
+	by tor.source.kernel.org (Postfix) with ESMTP id 927BD6157E;
 	Wed, 19 Mar 2025 07:06:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 17C15C4CEEA;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2929CC4CEF3;
 	Wed, 19 Mar 2025 07:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1742368000;
-	bh=tvgPwCRWbi/ALkXQMLlct6LyeXt6Qqe+tJZSRrxXF0I=;
+	bh=ng6uI31FAjjiJ3zN2b6BFVRcHb6da/jG3bCOtov0xR8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=W8JXI4ps/GpodZ9fu7N4s22fdmV9+leBQrvBov4qjUUvvZ7JzgZIEMcPGcLSxUavI
-	 bhO8Z05FLZAzpMKLWq9tazy0NcrsHvb5dA0C41XggqZWbV2TdlKyAOy9nDYzD4Ltw9
-	 LUVXlxbDnaz9aKjZDLStMOcsHL8T6c8pvwqBsIQ7YXYX79cIQRywWiDFBGXqA1r80w
-	 vJ3Xuzlwq9Y0RAXrS0PtE7RTLPJPCMaz6nvdH02L5I9n50ooRcHrNUJtvmIk2RpoUy
-	 jHYJ+3YXxotJafv9eVK/Z7AsZ2oNd22AhtvM283Y5IYM5uY0g2qQV+Wd+GvPanE410
-	 GTquB86c6Sueg==
+	b=OM3a5m6MGTdUoVvOTXhy1bS4dIMWp6F/udMJY2+UWRJjKi2S5CkNL53KwSyAxK7wA
+	 qNVyUYTsOihrHlvYRJp/fjAlNU2rTUwRLnYWTmaHw5rmBfsAuBaYpjkvD7iz+lmEOW
+	 XFXvVZR8cGAFBWdWyta3u4VldZM/6PoKxxNCbL+Oym2tUdM1h+UKDXQwyBD0Hw5xtl
+	 9hTHw4R2UJ1MI7oKc0/ApXxaMdA/x1pSpfbRcmG26sl4V9fg5WoAjZ+1cxca+7ss9i
+	 hVdf2IypM2r9iXepsXAeSb+uRrGEErVeHEqBAaho9JIZHoyTvvGU0bc5TyavKi3zEa
+	 0ywAE4Wui5o4g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ED0E8C35FFC;
-	Wed, 19 Mar 2025 07:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 158FAC36000;
+	Wed, 19 Mar 2025 07:06:40 +0000 (UTC)
 From: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
-Date: Wed, 19 Mar 2025 15:04:44 +0800
-Subject: [PATCH v4 1/6] dt-bindings: clock: meson: Add audio power domain
- for s4 soc
+Date: Wed, 19 Mar 2025 15:04:45 +0800
+Subject: [PATCH v4 2/6] dt-bindings: clock: axg-audio: Add mclk and sclk
+ pad clock ids
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250319-audio_drvier-v4-1-686867fad719@amlogic.com>
+Message-Id: <20250319-audio_drvier-v4-2-686867fad719@amlogic.com>
 References: <20250319-audio_drvier-v4-0-686867fad719@amlogic.com>
 In-Reply-To: <20250319-audio_drvier-v4-0-686867fad719@amlogic.com>
 To: Jerome Brunet <jbrunet@baylibre.com>, 
@@ -69,11 +69,11 @@ Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
  jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com, 
  jiebing chen <jiebing.chen@amlogic.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742367997; l=1779;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1742367998; l=1189;
  i=jiebing.chen@amlogic.com; s=20250110; h=from:subject:message-id;
- bh=LILue2hV/0RBI1wyR/+9esvdXN1gHROx+an1AXnFBQ0=;
- b=5p4uPDUvvHQ9UwyB7WW54kKulEkuralm/Z3oOIisosXjHg1ryW9BuqvlnKrqjlbFOTuCyxTtp
- ZB7idtOCV1MAQgWuF9mAAU56S+UpnvWu8ImxLz9HLy4nvtUq8rlKrrr
+ bh=88wOt7PQOZgMOfEb+IdY8ro91DFKMHUEezQLsKjA1uk=;
+ b=6Awv4/sDOi7d1kZRycDwvlAIG2BhCFEPQVdcZp/+CrCD9WlyCulaecrQOOQeDq2oWsyHTEvbD
+ Y7YxtQ0YX73CzSXzx3Q9SOCFf1ZOmVczivxGSAzhtrdXuBT1btxixwv
 X-Developer-Key: i=jiebing.chen@amlogic.com; a=ed25519;
  pk=6rFvvF45A84pLNRy03hfUHeROxHCnZ+1KAGw/DoqKic=
 X-Endpoint-Received: by B4 Relay for jiebing.chen@amlogic.com/20250110 with
@@ -96,71 +96,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: jiebing chen <jiebing.chen@amlogic.com>
 
-Audio power domain found on S4 device.it need to enable before audio work.
+Add clock IDs for the mclk pads found on s4 SoCs
 
 Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
 ---
- .../bindings/clock/amlogic,axg-audio-clkc.yaml       | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+ include/dt-bindings/clock/axg-audio-clkc.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-index fd7982dd4ceab82389167079c2258a9acff51a76..50a5cbb6eb64873dd5aa55f6f1a63e9e97542760 100644
---- a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-+++ b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-@@ -21,6 +21,7 @@ properties:
-       - amlogic,axg-audio-clkc
-       - amlogic,g12a-audio-clkc
-       - amlogic,sm1-audio-clkc
-+      - amlogic,s4-audio-clkc
+diff --git a/include/dt-bindings/clock/axg-audio-clkc.h b/include/dt-bindings/clock/axg-audio-clkc.h
+index 607f23b83fa7287fe0403682ebf827e2df26a1ce..75dde05343d1fa74304ee21c9ec0541a8f51b15e 100644
+--- a/include/dt-bindings/clock/axg-audio-clkc.h
++++ b/include/dt-bindings/clock/axg-audio-clkc.h
+@@ -162,5 +162,16 @@
+ #define AUD_CLKID_EARCRX_DMAC_SEL	182
+ #define AUD_CLKID_EARCRX_DMAC_DIV	183
+ #define AUD_CLKID_EARCRX_DMAC		184
++#define AUD_CLKID_TDM_MCLK_PAD0_SEL     185
++#define AUD_CLKID_TDM_MCLK_PAD1_SEL     186
++#define AUD_CLKID_TDM_MCLK_PAD0_DIV     187
++#define AUD_CLKID_TDM_MCLK_PAD1_DIV     188
++#define AUD_CLKID_TDM_MCLK_PAD2         189
++#define AUD_CLKID_TDM_MCLK_PAD2_SEL     190
++#define AUD_CLKID_TDM_MCLK_PAD2_DIV     191
++#define AUD_CLKID_TDM_SCLK_PAD3		192
++#define AUD_CLKID_TDM_SCLK_PAD4		193
++#define AUD_CLKID_TDM_LRCLK_PAD3	194
++#define AUD_CLKID_TDM_LRCLK_PAD4	195
  
-   '#clock-cells':
-     const: 1
-@@ -29,7 +30,7 @@ properties:
-     const: 1
- 
-   reg:
--    maxItems: 1
-+    maxItems: 2
- 
-   clocks:
-     minItems: 1
-@@ -100,6 +101,9 @@ properties:
-   resets:
-     description: internal reset line
- 
-+  power-domains:
-+      maxItems: 1
-+
- required:
-   - compatible
-   - '#clock-cells'
-@@ -116,12 +120,26 @@ allOf:
-             enum:
-               - amlogic,g12a-audio-clkc
-               - amlogic,sm1-audio-clkc
-+              - amlogic,s4-audio-clkc
-     then:
-       required:
-         - '#reset-cells'
-     else:
-       properties:
-         '#reset-cells': false
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - amlogic,s4-audio-clkc
-+    then:
-+      required:
-+        - power-domains
-+
-+    else:
-+      properties:
-+        power-domains: false
- 
- additionalProperties: false
- 
+ #endif /* __AXG_AUDIO_CLKC_BINDINGS_H */
 
 -- 
 2.43.0
