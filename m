@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514F6C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 15:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FB7C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 15:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xvO2MTCEp0zB1O4o3Tqb0ypgsyFb3UygQBlr47/GWsw=; b=2sWJfALeTk2Hdaa+FcFSaVBHC1
-	wUJJEHEo9zl5cguB50ofIoCyAxoAPOe8aJqMxuSl8bwfVjCMWbN94Yginv/Tv0kB923Xc7W8rs3fc
-	QW2u4OOH9pTCQcP+mLB1aRqmrfAgGbVdWM4Z8Sv6R2lDpg7YXJG8H/+1fSFu0E1xellLxzdCGfzKx
-	i+eLt5qoUYsbt1Gd5uXCYpmeGfHn2ZUa+Wn939+JwM3TBO35U30+Kg5rmRfgUkvt5fzONRIkYxmq5
-	2WniiVNdqcz7O1P0Fqjdr7laemZ1/LAQsmtlHWNV25RKGGzNr5GAPm/S0c1hCk4UmgmJiG2fGlDbs
-	f7Yx04fg==;
+	bh=MFAUALr8nAtye3+ZWjuqCa8ix3cqHAZ7WDjEfM5Mp+M=; b=fmyAsigCTfKdpgMjnTj2pUcTQK
+	+OTJefQfGWVZwb736mR4+PvZxuZhB7vhivlExi84//djdWJjXruFCl9T/FS9bkqtp5bbJ4UR5cYoe
+	VGp+pdZ5p7XpK4lXivIlHGasexLrscJUBty2seqILNIFCCxgaY+ZqBN3zwoU2+pK4LaHZEYZe9Vpo
+	Dl1ctEhItPPu6FbTpXSXh6JETKiQ82mYUJMHL+IsfHIis2Z2Bdw46cQeny6s73r/OVjrQISck4Xl8
+	9cBERZudbvhi8drge/wTl4bBJTjymZ6oEyndrqSQklIJc6GxouXzSP05dqIsb1DwTYdMtjfwhr9RO
+	OxBt6eOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuvTz-00000009PSx-01cn;
-	Wed, 19 Mar 2025 15:37:27 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tuvVe-00000009Pi0-3FzX;
+	Wed, 19 Mar 2025 15:39:10 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuvNK-00000009O0T-3pUb
+	id 1tuvNM-00000009O13-1oT6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 15:30:36 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so28326265e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 08:30:34 -0700 (PDT)
+	Wed, 19 Mar 2025 15:30:38 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so31570055e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 08:30:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742398233; x=1743003033; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742398235; x=1743003035; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xvO2MTCEp0zB1O4o3Tqb0ypgsyFb3UygQBlr47/GWsw=;
-        b=P5Gr/2aQAce+dB5IJusz84KmgQpO4Vt3IjtMjX5WI3ryn7ek8Ygtg1qTJ/vEHwJ/G7
-         Xet3DK/EQIrXryInH/XkxHE8X4NL+rrcJk/krDs8nkAlTYObCQmzpx+xezxkM/hjwtx7
-         bCBrk1NSppr9QUL4yqZMfAANZ3Eh5JgT/pIebLS9FhcaD3vw6PaG5PNS0wZysFocZHbB
-         DTzhQnQ9inMlHR1r3Pn2oTatuVwEBQDtos/55k72gNqdsuzLF5e2U/oTDJUkXkb0Ogvf
-         RDALTdHUUbFo3vDfxFiSHmxCmjKbTreYjjdM5GglQz5DGfs+lBx94G4w/SVOudA/IH9j
-         5hTg==
+        bh=MFAUALr8nAtye3+ZWjuqCa8ix3cqHAZ7WDjEfM5Mp+M=;
+        b=A4/TnCB160+AU1wa6iOErnsbc1Q3eWucWiFboZk7RIkleWrbQEhMGuZuIZbFUlgUub
+         +49CKlD/bV/RXfWfSLCOZRdPPXFLEch2iXNxJTIAvpULoQtN8nnW5JfdOrErRe/7V5W6
+         cGA+PCycFTg+nouPVrBH7z0bd74izwhujUv6xTbblRQbK2i4ZjOZChelq/lDHZd+LUjL
+         ysodvZSTfQCTvASAH3jBXCDUEGdUwUM7KMcMJs5DDSSeR1qhPEzZoovceY+OiELlpj3a
+         u3wfzBjPSsmq3Gkggk6c/vybQZTA/46HvArJFFInMI1BIlWPo1BtOHAWGfvSHyv2r+Mm
+         6Ceg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742398233; x=1743003033;
+        d=1e100.net; s=20230601; t=1742398235; x=1743003035;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xvO2MTCEp0zB1O4o3Tqb0ypgsyFb3UygQBlr47/GWsw=;
-        b=U02GviKCp1D5gMkLmvE462TG91nFhUZ9J37IhD/2f1c/b5QsUwhjChL/zcxrJ4wrdm
-         X8oY+bpUol/sRG8YcBFt0cEwC2DoCyFCElJDgh2rUKVo34GLvINnhhxd7sTgzZPiad53
-         P2RcvxoznC0S/8RmeZm9RnWZ7PzshC0u//sGmEkK5I6771Z0ulu4F8c3z8GYGIWFhbZI
-         nw03CUmLn7szOA4EAG+qd6QXlkkIL9Kl4odJAATHImcfZCdeo/bxbiwkpX6JVE/4zPbx
-         SFr6VNBmTFNOWiTvZIvxvCmrN9IO7MPL9wRNvsEA1dDPcrPO6xoq5VN32tkAp3zyaytO
-         0U6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV3nNUMR9OruNtwDeu7WozoDZyxZavhJ4l93b4YU14uW1pO3pFdhQFXYoWXnBiMUNaVuCaYnaDVi56B0b+XGj1t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx98akmv4Q++Uvwez3SRcf0CXPs9kPeB7useHaeXBonRwfu9gQU
-	1J4bhUxEfgPk82rHCpxu4/yJJrq4SsvdvJCm48bWAw/2n2U4SN84h1GuurYyXCU=
-X-Gm-Gg: ASbGnctSV1Myww7V1WmASfzPrRKxGWjSXkXA6O86yidymwSMUGcpcwFQhtwkZeemk37
-	LZ2QOzA+rXsXKMdw79lOFmLBJ4Bll4bzhjGx51kW1B/Z5Oa4EX968QnBEUttOBIOaE3KQYXFBlx
-	us51TZ3htQlUSysr97vieoH+PCHDOJpVUPDeD8KO+tRq4HUELkZ5w7DwS6X/y+gG8eLbiMX9v12
-	8JVvIxZWiBOarszZ+leP1GR0/rQX1wbR+6ZyCgnUcgJF4fMZJUc13ecqKjEyW9OB6HOups5MCm2
-	/8hMz0Bm4W2cm7MVKITHZp7pCloLRWpeFJHYbq7dkd1/L3Eq+hdLDrhMublpu28MhrUUnnCNtxn
-	T
-X-Google-Smtp-Source: AGHT+IEck0zvlF4mA6c/4a1WmAWWk69t4E90tBTeEQDggA6Dvagy19sFXvzCIF2qVQD5IG+HaMrWDA==
-X-Received: by 2002:a05:600c:4f86:b0:43d:42b:e186 with SMTP id 5b1f17b1804b1-43d4378b49bmr26833505e9.8.1742398233118;
-        Wed, 19 Mar 2025 08:30:33 -0700 (PDT)
+        bh=MFAUALr8nAtye3+ZWjuqCa8ix3cqHAZ7WDjEfM5Mp+M=;
+        b=X3PVHKrIRYKR93R1Ka4FyD2hYgdDo66AMt8OaYWkb9AI4VQPABdraYl6bimfyQmPCl
+         nelWcP94yO/JR1JBZLZtA1R3S4yAMUGVXj92ebjG6w5nBc5LOJkYHX0jJrpMIn247h8X
+         kZCVomm5yksMbcDAdGzw9ZYLJiUe36TUewA96JfmzRCTXMaQIlw0dD6uOwrOGKDJMRA1
+         +WZodWibG3ZJxxLQ2UaJG18sILAssB1pBLM3AQ9MzY2Uoc9E7x9s1Lkyt9NDZrEHFAgy
+         hgbHaaqd9hoZrq78+qNjqU4aYtiIPyfddeH1gZuexSwFdjBRxdf4GLdMQQ4fl+2qm/oK
+         4s9A==
+X-Forwarded-Encrypted: i=1; AJvYcCVjJc184pFmVi+f4QWCW1fbQ5tcisYvs1o/j8y7G91cMySVzeBwXOy2bqoNfa8YntcuULlZQGuxbf7T4wAc4Ck/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKRmIgTKFS/vc1mV3K9LIaAYxEc95C1XEEC/EFk4QSn7b0b52l
+	oTNFnMWX7AC031H0gdn28tGYrPC54LoA7QzUuYkIV4LHLC9bqQnTHOcAR8t3Ze4=
+X-Gm-Gg: ASbGncsd59epFDJxrBiUJB8avKwkw4ecLXk2fV2s1HAbeWxUpblOiTyOX1hqTYZ5o/K
+	7MgVJ/5DeV/1IJEaFLoeqmyGppxTpimA5V+YgloT2QFpGyfXAsBi/kdzlmX1HG63lx0hr/JcZWr
+	CKrbAuKMTrETYOkR7KNlAdkHFquidzG1pYdO38xgseDcxSesVr9DI65RzRiPfeQgiGbU2QLC4rv
+	WMVigzBM8Rpj0yGCNXdokB38Keq5U1M0jkM9pyf3VE8Zu8DrPcQc9T6+b+wT6uZ/ypoqoRU5UJH
+	E4iB2ts0VbZub8GUoJjwdXzIsNhgtEtykkBtaj+VANNsIHg1dW9k1dNdjmx5CURzZ9g2x6ZTmtd
+	73c7GBKdHbzw=
+X-Google-Smtp-Source: AGHT+IEHXtC0EIKTh5C5yDLtKnopzR+kKj3o5MrwB8zEIjbuESCbAMxGj1QGIrHhGz+ceqR8jXdneA==
+X-Received: by 2002:a05:600c:3509:b0:43d:79:ae1b with SMTP id 5b1f17b1804b1-43d437a9541mr31446495e9.14.1742398234649;
+        Wed, 19 Mar 2025 08:30:34 -0700 (PDT)
 Received: from gpeter-l.roam.corp.google.com ([212.105.145.136])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43fdaca8sm22590635e9.28.2025.03.19.08.30.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43fdaca8sm22590635e9.28.2025.03.19.08.30.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Mar 2025 08:30:32 -0700 (PDT)
+        Wed, 19 Mar 2025 08:30:34 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 19 Mar 2025 15:30:20 +0000
-Subject: [PATCH v2 3/7] scsi: ufs: exynos: disable iocc if dma-coherent
- property isn't set
+Date: Wed, 19 Mar 2025 15:30:21 +0000
+Subject: [PATCH v2 4/7] scsi: ufs: exynos: ensure consistent phy reference
+ counts
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250319-exynos-ufs-stability-fixes-v2-3-96722cc2ba1b@linaro.org>
+Message-Id: <20250319-exynos-ufs-stability-fixes-v2-4-96722cc2ba1b@linaro.org>
 References: <20250319-exynos-ufs-stability-fixes-v2-0-96722cc2ba1b@linaro.org>
 In-Reply-To: <20250319-exynos-ufs-stability-fixes-v2-0-96722cc2ba1b@linaro.org>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -92,26 +92,26 @@ Cc: linux-scsi@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  andre.draszik@linaro.org, Peter Griffin <peter.griffin@linaro.org>, 
  stable@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2684;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1228;
  i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=Jb70gmFrO795pq6l4lVz8akO7b7EaG1IPq1SXiJvoDo=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBn2uMQZjsaOtKjGo7lobraBsTsDeP+7mpJ30581
- SJ5trpIFZCJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCZ9rjEAAKCRDO6LjWAjRy
- ukYxEACIl1Ea5bUkcLZGzc6ZA0OO/h7+Se39yd6wIuAMUSpmswvUV3Qb0bAsYwxo3+GplmGD4NC
- GE0K+EJwXJuPeUC/bM5ws5vvl3Ju9VuaX1q4tdZQsTbxv+b6Zkh+Xecklhh0JbEe5a+M9cB0ck1
- kcSm4RaJv/yfB/lfK4pKQhEBXXnORI/uRSVOylkEJt5gQydTgTACqAfeAdtvjnkRortPSkWWouh
- 16SPfnBNlmtgTfvG0oqjMupL1ahKe7xKGiCZiV1X3XMIiQpHO3/wAphY6NQXltTyPWK327QWomm
- /nlVikpDZgWmlV3R3bqfvMZYe4XLX1nYDy2gwi3Nt6mQUCLundOtLwLz6l1M+1T++1nZsaD7fD+
- 5Vw7NKpj1PHyr5Yo4XT9B33Ee/qzk41FZYpKyAecvFYKOfL3/yXTk90uWYYSUJsL3E75OVNuhhf
- hneoGmsPvUdFJj5PULxpS41lQJoZX6Iy6vCHrD0dzYZ1LvJj/6MWlbpT9FMl4Gd1QdM6D+L/+VE
- xZgKHQ0B6p0p82l+KF4ix/ccLMRt9zCxMgSHLekM23BMkxVjNl6QBKV1J9+iZoZM8JyucNtpKNp
- wvMMpaHQI2jWkUPHCVJKfszB/96IMvpxk2DJk5m19jR8BRYl0hdfT4NtIC2kUY2/R1BTJmispT3
- F7l81PGxEltoqgw==
+ bh=3SI4bC7ybL3N2FRvbuwPacvlxHEWeD8IolpWQSN1KPw=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBn2uMR7Gt6GMiUHhQ9tNeB1ryvfLXf0f6hKBg7Z
+ AIUaxYvoPqJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCZ9rjEQAKCRDO6LjWAjRy
+ uhgZD/44yhmeYZZzFKVFFjq28rha6NHqeREb1/qoxysPC7HrGnjsYlpYk7SLWHWWcyjtwhG/gMt
+ O1lVZxIDu8c7fSHM8+Z80aiXDkcsmEARfOUrD7rvRCij6LS61K5swgmRoawpJUwVvovpsoSW0g5
+ ABdLqjCx+iqyCQMidJfzV25UAHL4ymc/kVXCFeiVTBnnTndKQIathuUUcIEm/D2p1t+jRbp1ouj
+ psGLVwlAg4zg8pKpXLOUq9qzcfjC45NB8RsIepMMqtHXKaJISGMHXLd5hVa/TNrEeTA/cPK42UC
+ gzzSTMDl+u11SC4wzQJW1pGjPumuXTS5esnkGul/VvG0fkXHdp3YuGBE3rnUUwFqjGqOmH5yoXs
+ Y70vVU28KnxP2Fnhhl1lONhMkR2STrszNmC6huHjeZtsh4TFCSmXHmLJh0xpisMoQmlN/30pOcl
+ RRN4m1DK7nUiauvbcCVaPdj5P6RmbOYJtDqUCqON9M/eQo7wP4JYkQZi5YQHNXvOx1YZ7jHq5jc
+ mfPzh2Tq80p/hi0O56Kgz0Ehub3xxNXIikH/CGYwVORuo/Gmg8U1YYHcER1HhltRaAp1JQPrDw/
+ c1f/EAeGILL0PZnv5PKrNi3kkPLIv224YLEkUbnDCaWb9v3eW95YQeb7mFh8wcQGHiwEF+mqTl6
+ hymvqaPAm/4Doyw==
 X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
  fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_083034_956966_755B9C39 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20250319_083036_503508_579E0097 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,76 +126,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If dma-coherent property isn't set then descriptors are non-cacheable
-and the iocc shareability bits should be disabled. Without this UFS
-can end up in an incompatible configuration and suffer from random
-cache related stability issues.
+ufshcd_link_startup() can call ufshcd_vops_link_startup_notify()
+multiple times when retrying. This causes the phy reference count
+to keep increasing and the phy to not properly re-initialize.
 
-Suggested-by: Bart Van Assche <bvanassche@acm.org>
-Fixes: cc52e15397cc ("scsi: ufs: ufs-exynos: Support ExynosAuto v9 UFS")
+If the phy has already been previously powered on, first issue a
+phy_power_off() and phy_exit(), before re-initializing and powering
+on again.
+
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-Cc: Chanho Park <chanho61.park@samsung.com>
+Fixes: 3d73b200f989 ("scsi: ufs: ufs-exynos: Change ufs phy control sequence")
 Cc: stable@vger.kernel.org
 ---
- drivers/ufs/host/ufs-exynos.c | 17 +++++++++++++----
- drivers/ufs/host/ufs-exynos.h |  3 ++-
- 2 files changed, 15 insertions(+), 5 deletions(-)
+ drivers/ufs/host/ufs-exynos.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index f393d42a659f821225e67e3e5d323478456ca3af..61b03e493cc1ddba17179a9f22e5b59ece02458b 100644
+index 61b03e493cc1ddba17179a9f22e5b59ece02458b..34e16e198830d086cbdb6cb0b027ca92687b2ae6 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -214,8 +214,8 @@ static int exynos_ufs_shareability(struct exynos_ufs *ufs)
- 	/* IO Coherency setting */
- 	if (ufs->sysreg) {
- 		return regmap_update_bits(ufs->sysreg,
--					  ufs->shareability_reg_offset,
--					  ufs->iocc_mask, ufs->iocc_mask);
-+					  ufs->iocc_offset,
-+					  ufs->iocc_mask, ufs->iocc_val);
+@@ -962,6 +962,12 @@ static int exynos_ufs_phy_init(struct exynos_ufs *ufs)
  	}
  
- 	return 0;
-@@ -1173,13 +1173,22 @@ static int exynos_ufs_parse_dt(struct device *dev, struct exynos_ufs *ufs)
- 		ufs->sysreg = NULL;
- 	else {
- 		if (of_property_read_u32_index(np, "samsung,sysreg", 1,
--					       &ufs->shareability_reg_offset)) {
-+					       &ufs->iocc_offset)) {
- 			dev_warn(dev, "can't get an offset from sysreg. Set to default value\n");
--			ufs->shareability_reg_offset = UFS_SHAREABILITY_OFFSET;
-+			ufs->iocc_offset = UFS_SHAREABILITY_OFFSET;
- 		}
- 	}
- 
- 	ufs->iocc_mask = ufs->drv_data->iocc_mask;
-+	/*
-+	 * no 'dma-coherent' property means the descriptors are
-+	 * non-cacheable so iocc shareability should be disabled.
-+	 */
-+	if (of_dma_is_coherent(dev->of_node))
-+		ufs->iocc_val = ufs->iocc_mask;
-+	else
-+		ufs->iocc_val = 0;
+ 	phy_set_bus_width(generic_phy, ufs->avail_ln_rx);
 +
- 	ufs->pclk_avail_min = PCLK_AVAIL_MIN;
- 	ufs->pclk_avail_max = PCLK_AVAIL_MAX;
- 
-diff --git a/drivers/ufs/host/ufs-exynos.h b/drivers/ufs/host/ufs-exynos.h
-index 17696b3768debd641188b5089585b6d303de7451..a345809af79dc528ad518d3572fe8be034341ee0 100644
---- a/drivers/ufs/host/ufs-exynos.h
-+++ b/drivers/ufs/host/ufs-exynos.h
-@@ -231,8 +231,9 @@ struct exynos_ufs {
- 	ktime_t entry_hibern8_t;
- 	const struct exynos_ufs_drv_data *drv_data;
- 	struct regmap *sysreg;
--	u32 shareability_reg_offset;
-+	u32 iocc_offset;
- 	u32 iocc_mask;
-+	u32 iocc_val;
- 
- 	u32 opts;
- #define EXYNOS_UFS_OPT_HAS_APB_CLK_CTRL		BIT(0)
++	if (generic_phy->power_count) {
++		phy_power_off(generic_phy);
++		phy_exit(generic_phy);
++	}
++
+ 	ret = phy_init(generic_phy);
+ 	if (ret) {
+ 		dev_err(hba->dev, "%s: phy init failed, ret = %d\n",
 
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
