@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A15FAC35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 23:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A596C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 23:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzAx7zrshxa9otOXRhlSkfMjSVGU/IxrZ5CXiIP9CSA=; b=Dud+HrmdSsLv5vnKO8s+GtRFCo
-	dmmZ/gXlszWlaUok9iwah4FPJGruzSOLiUOJ+HUX7rq0ZmP7PHfR/YlyCJ/lpvAakDaKeT/dqSzSn
-	nGTb4QivFExLfXi3xRGevrf9NqXQb2d5Ibjje0T3EhBUxBHP8+52I6uynHUIQEObcRiSnO/BokCqT
-	WAUZtTDsPN8/HCavceMNuohEB+8uo3LJPUQ1f7+V4Kiklrj0hiNDCE9co+kU9SEw0xV1PB4h9WSK1
-	hgsSbcwnw50Sop+KgeDD8eQbbDSHBZJjGqHQiP0o7MXtrvOZSXlE0jkig8o1ZLvX3zSYQE+kXmYO7
-	vMLZiKiA==;
+	bh=Rw+f9/0oWfJPL5BafdAk8H8AdIxBBtfNNmHXGxv1VA4=; b=qEd01xR1H/FVMIl7xQZEXEkJah
+	Tk2QNph6siTJCYPdqKaOvVJSdshJF6Knat8T1SEf1pQ1xaWZJpASSi6GfocRcA+Xv43EbqboueqOy
+	79qQ4Lbi00q7EOpLKunXmh7BV+iGxT7XJW1EXzQoafLSV2lShOuyces6Xlry5KFPYgSUajmSMNzv/
+	RUuUZccBhlNxtzEu1F5whNevj9sM/XQNCvgrRpmaQrbsuBy4QGJUtOPLGjeioR0ieOp0QPtpIYO10
+	Lgf9wZwxql6wgN9WuWxMdf3+uyFkfClPMrLqT4na5XK/UVpuWt/XCS0IEeM4WHdL5HBn0abWFcJON
+	sEygQubw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv32V-0000000AVmZ-0UoP;
-	Wed, 19 Mar 2025 23:41:35 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1tv3AU-0000000AYcc-1851;
+	Wed, 19 Mar 2025 23:49:50 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv30m-0000000AVOQ-3b9Q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 23:39:49 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-476a1acf61eso2148221cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 16:39:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1742427587; x=1743032387; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RzAx7zrshxa9otOXRhlSkfMjSVGU/IxrZ5CXiIP9CSA=;
-        b=atafuyg733M0RMjKXeDmVOM8uTuKGYjRpAPUtmScHc2/jj29hNH55MKN9RmpbJUXX6
-         PVBbHMoASMcQ2C86Mc7XBgpYXG4E5B4vSfgPONCg4t9uYM32uFesycL83vEqHepkAg4L
-         kzmJemOmNzRRD6aQK1kLg2yxm9MB9SEZwvwZLd5/8hQFqTTT6Kin8lmcrSj0Gq7tP4u9
-         eV/0mQITSQ7awoUff6U4qTgFeTiyURccKf4n5ScmrPTi4A0AjgpE7Y8GIFwX0Y78Cg7B
-         Jg8cyp56MJtzi/KHlbFIVAJz2LqwD7ydK6IrjsFHZ90KlFNovz+Qw5vfQKt5fIg5pwNQ
-         JKYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742427587; x=1743032387;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RzAx7zrshxa9otOXRhlSkfMjSVGU/IxrZ5CXiIP9CSA=;
-        b=a47fGKdW37VIVf3F6CMSK+9YF8irkyPkvS0Vja1GH4bkpY1ohJlXoN4CwRJohGY0PQ
-         RtyH0Mrh2Ya4Zu02RYOvUrVfoNnt0etfI+5ZYyD0eLKauJ8Ci7vLoiQL0Kph3Rik6MX9
-         nUHBb31I71J3B5y5IhogCC34OuY0REKfJSADEBuBwrnMeoIgNXMDbGPnpRUFAgoPbabQ
-         hExoPYtTo9DrHQw3KTn7di/yakg/uPE2CLrXLvfQyNnWTNRPlr9BN6carVv0cB43owBC
-         UcxLiSxInvs6KATZ5SwqkdIViVT7Be1gGEHblN8UwWafEOmmAREshylL+jlfpo3QB6nI
-         +KkA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdzVoCStwmSsYhHp3qNIbh+HcQ3T4X/USy8O3QsaW3Vnfy+48nrrRGYAxRths1F0wQTlUme7sfEpZhcFoRqzoT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmOao4Qc9g7ll0ZkkNFhAdUqkkijH2sAjyarvDDMKdtvxSKOY5
-	1n50mW7FH+ZUNKfTTFKQrByVMaPD6wnq9Ij0Uj8ecz6WMWZFSHZJpWipqN+XuCs=
-X-Gm-Gg: ASbGncsbaVdHyNpyJyMo5IoGQrnnbqlZmvgtouTiJSXo8adNiYA6ZuvggCQDMT+sxZz
-	idslKasGG2+Ey6LtOJgDnRXMJ+yk6RN6E+WnPqKkq7o5Fd9HGsRXIPs9XcKnd7dIzl+08QEQSCA
-	nlzaJCoiADXjni0uju3lcAHVkSVka+5/wfYeT+Llf/gi1vVDLQyEskF7D4/n8q9wwBzmkNeK+7k
-	HEfpO5AWpl4NjJ0c/HLjgoV2+hou2J9LC2DW5CMxru9qhAix4Zmukog5LeLnPduCM3HLqiJ4963
-	hqt1UoSt2MM9kc1SwpMYqwUaTKxi7pQP1n/rXlA9Ew1hrRqrVruAQ+KdP7VoK/jSfXklTEnqMRz
-	VB+Gbp7sll3QgL3Bzng==
-X-Google-Smtp-Source: AGHT+IF9kl9P6XYnhoEMvEZ3lKapz4eUtSUPO4gWdTGr+ps6RPA96Wz7D0zijkf/bw2551v0mV3avg==
-X-Received: by 2002:a05:622a:418f:b0:476:7b0b:3110 with SMTP id d75a77b69052e-4770831f8f5mr94450601cf.20.1742427587653;
-        Wed, 19 Mar 2025 16:39:47 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-476bb82bf6bsm85415621cf.78.2025.03.19.16.39.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Mar 2025 16:39:47 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tv30k-00000000clb-27LO;
-	Wed, 19 Mar 2025 20:39:46 -0300
-Date: Wed, 19 Mar 2025 20:39:46 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Cc: kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com,
-	kevin.tian@intel.com, alex.williamson@redhat.com, maz@kernel.org,
-	oliver.upton@linux.dev, will@kernel.org, robin.murphy@arm.com,
-	nicolinc@nvidia.com, jean-philippe@linaro.org,
-	jonathan.cameron@huawei.com
-Subject: Re: [RFC PATCH v3 4/5] iommu/arm-smmu-v3-iommufd: Use KVM VMID for
- s2 stage
-Message-ID: <20250319233946.GF126678@ziepe.ca>
-References: <20250319173202.78988-1-shameerali.kolothum.thodi@huawei.com>
- <20250319173202.78988-5-shameerali.kolothum.thodi@huawei.com>
+	id 1tv38l-0000000AXfg-30UR;
+	Wed, 19 Mar 2025 23:48:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Rw+f9/0oWfJPL5BafdAk8H8AdIxBBtfNNmHXGxv1VA4=; b=EGRGJb6HMeCSbau9OQWDTncAhJ
+	+O9UgyhkLxHvEy0KVDW/TZ/D/E+dfg5Ob3QYk3Qg/LqL2SWkdKV/VUja+GYPrCn/geobH/wM9kmqS
+	3d0yUMw3dK9rEihAFBKaSni2xJZYvUkC1l+rBNMk/+YcOyyb8Y+DjAtOqSF9ktdgbIOZ1/HujUhX0
+	u3KJmC8dxsNAQIk04ONAsCT87Jh/yfhUJY+QDqez/buP1Z0WF8w5OqD3L9fdt8Y4ymU7pTeR6jKSs
+	cC0mJtq+zeyrHykhlgwpGdsGWMmmrIk94WXWcUNnzxm09jYtPHJAP5XbDEClru/9TH58yIPdlMmpc
+	sodb0RoQ==;
+Received: from i53875bc6.versanet.de ([83.135.91.198] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tv38b-0001z5-GP; Thu, 20 Mar 2025 00:47:53 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>
+Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] arm64: dts: rockchip: Add pwm nodes for RK3528
+Date: Thu, 20 Mar 2025 00:47:52 +0100
+Message-ID: <2499436.jE0xQCEvom@phil>
+In-Reply-To: <0d638134-0c0d-4918-af47-e23d2ead3bf3@kwiboo.se>
+References: <20250318120003.2340652-1-amadeus@jmu.edu.cn>
+ <20250318120003.2340652-2-amadeus@jmu.edu.cn>
+ <0d638134-0c0d-4918-af47-e23d2ead3bf3@kwiboo.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250319173202.78988-5-shameerali.kolothum.thodi@huawei.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_163948_893828_7FFC8BCF 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250319_164803_774968_2DCB8F89 
+X-CRM114-Status: GOOD (  25.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +75,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 05:32:01PM +0000, Shameer Kolothum wrote:
-> +static int arm_vsmmu_alloc_vmid(struct arm_smmu_device *smmu, struct kvm *kvm,
-> +				bool *kvm_used)
-> +{
-> +#ifdef CONFIG_KVM
-> +	/*
-> +	 * There can only be one allocator for VMIDs active at once. If BTM is
-> +	 * turned on then KVM's allocator always supplies the VMID, and the
-> +	 * VMID is matched by CPU invalidation of the KVM S2. Right now there
-> +	 * is no API to get an unused VMID from KVM so this also means BTM systems
-> +	 * cannot support S2 without an associated KVM.
-> +	 */
-> +	if ((smmu->features & ARM_SMMU_FEAT_BTM)) {
-> +		int vmid;
-> +
-> +		if (!kvm || !kvm_get_kvm_safe(kvm))
-> +			return -EOPNOTSUPP;
+Am Donnerstag, 20. M=C3=A4rz 2025, 00:26:14 MEZ schrieb Jonas Karlman:
+> Hi Chukun,
+>=20
+> On 2025-03-18 13:00, Chukun Pan wrote:
+> > Add pwm nodes for RK3528. The PWM core on RK3528 is the same as
+> > RK3328, but the driver does not support interrupts yet.
+>=20
+> The device tree should describe the hardware, not what the driver
+> support, so interrupts should probably be included.
+>=20
+> However, looking closer at TRM for i.e. RK3328, RK3568 and RK3588 it
+> look like the following description is not a true description of the
+> hardware.
+>=20
+> Each PWM controller seem to support 4 channels, here (and for older RK
+> SoCs) we instead describe each channel and not the controller.
 
-Isn't kvm_get_kvm_safe() in modular KVM code most of the time? You can't
-call it like this right?
+Yep, that is something that did go wrong in the very early days.
+And all other Rockchip socs also have the same issue - even back
+to the rk3066.
 
-Per my prior comments, I'm a little nervous to make drivers keep track
-of this refcount instead of the core code but this does seem like it
-could work..
+So yes, at some point we should overhaul the thing.
 
-I also think you should block using the S2 without a viommu & KVM in
-BTM mode.. Maybe like this:
+But I think this is more involved, as right now everything is aimed
+at the current single-channel status quo.
 
-@@ -2938,8 +2938,16 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev)
-                cdptr = arm_smmu_alloc_cd_ptr(master, IOMMU_NO_PASID);
-                if (!cdptr)
-                        return -ENOMEM;
--       } else if (arm_smmu_ssids_in_use(&master->cd_table))
--               return -EBUSY;
-+       } else {
-+               if (arm_smmu_ssids_in_use(&master->cd_table))
-+                       return -EBUSY;
-+               /*
-+                * S2 cannot be used when BTM is turned on without a VIOMMU and
-+                * VMID shared with KVM
-+                */
-+               if (smmu->features & ARM_SMMU_FEAT_BTM)
-+                       return -EOPNOTSUPP;
-+       }
 
-That more closely matches how this will eventually work when the VMID
-allocation is properly made to be local to the viommu.
+Heiko
 
-Jason
+
+> Maybe something like following would better represent the hardware:
+>=20
+> 	pwm0: pwm@ffa90000 {
+> 		compatible =3D "rockchip,rk3528-pwm";
+> 		reg =3D <0x0 0xffa90000 0x0 0x10000>;
+> 		clocks =3D <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> 		clock-names =3D "pwm", "pclk";
+> 		interrupts =3D <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>,
+> 			     <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
+> 	};
+>=20
+> 	pwm1: pwm@ffa98000 {
+> 		compatible =3D "rockchip,rk3528-pwm";
+> 		reg =3D <0x0 0xffa98000 0x0 0x10000>;
+> 		clocks =3D <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> 		clock-names =3D "pwm", "pclk";
+> 		interrupts =3D <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
+> 			     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
+> 	};
+>=20
+> Regards,
+> Jonas
+>=20
+> >=20
+> > Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> > ---
+> >  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 80 ++++++++++++++++++++++++
+> >  1 file changed, 80 insertions(+)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot=
+/dts/rockchip/rk3528.dtsi
+> > index 1af0d036cf32..621fc19ac0b3 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > @@ -465,6 +465,86 @@ uart7: serial@ffa28000 {
+> >  			status =3D "disabled";
+> >  		};
+> > =20
+> > +		pwm0: pwm@ffa90000 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa90000 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		pwm1: pwm@ffa90010 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa90010 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		pwm2: pwm@ffa90020 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa90020 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		pwm3: pwm@ffa90030 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa90030 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		pwm4: pwm@ffa98000 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa98000 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		pwm5: pwm@ffa98010 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa98010 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		pwm6: pwm@ffa98020 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa98020 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> > +		pwm7: pwm@ffa98030 {
+> > +			compatible =3D "rockchip,rk3528-pwm",
+> > +				     "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xffa98030 0x0 0x10>;
+> > +			clocks =3D <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> > +			clock-names =3D "pwm", "pclk";
+> > +			#pwm-cells =3D <3>;
+> > +			status =3D "disabled";
+> > +		};
+> > +
+> >  		saradc: adc@ffae0000 {
+> >  			compatible =3D "rockchip,rk3528-saradc";
+> >  			reg =3D <0x0 0xffae0000 0x0 0x10000>;
+>=20
+>=20
+
+
+
+
 
