@@ -4,95 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D932C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 23:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D04C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 23:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gseEEcgxR2PUFeV7iG/jei3VTxYiomeFsvivAthjJ6c=; b=2W794rvdfHO3jrBa7SWcuiEhLn
-	sD3CEsNJsRi0Xdq+xZ2BrwhbB8kpd08YTG67SVyb0q9XRg7YN46177o6nY8ouoJksTjQUmHs3duCv
-	AxwSZcOjQEvmci6smGISGaUgz6KVtJqh/Hj94KuwMwinLdbIVUHlfbe4LeXM+0E9YpulxFlwYkGHi
-	zgsUWpMrg01+/4kRTrM7UK4kY1XyHp3OfmKHQGvA5Zd7FfTF983zQr8dwo/6ShdsDQNty1greCShv
-	tjNXCOMzGBjw8RLDyAUsRUoTSeY19u8FDfy0Z1n7SVQJxaO7Pkq7TC4CPRIFiUj9XNHamwzqMyvFb
-	9pYglVUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AdS7FLVx5vWQEjep5ijpHift5baLZ1L+Dub51QJXBpg=; b=Wd61f+YLkngAkn6MRgrKJg8BnY
+	9DuAZEnyvIWxkBNKAjyT0+euMnwpmhUp4KMnkNbLp20tcg6CoBTPcf9O5pEe3nx7HId2N2OvOiy+N
+	OFcolmNlXJEp0CE4kwXqvZjWM9ophV9FSDeY13zbPCB8h2a+wbWUvkYBzi5S5DBu8OmbuUiojv9Gi
+	FDbnzzz3ypJLq7BuxoNmfOkFpgVKymuKpjPEDCZkvneKjRdWn+Lhxpyg2CLdnD48kEPyovqWaOrs8
+	aIFBO9CtTdzoVcOZmqfTW/eOTJnXwPFOq7TvrZZbaVk/fv1Xugam1DF8E6gKrb2BFNtIO0tRbQQuG
+	oS5jbajA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv2sp-0000000ATIG-0PdI;
-	Wed, 19 Mar 2025 23:31:35 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1tv2uU-0000000ATlM-1Q0i;
+	Wed, 19 Mar 2025 23:33:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv2qB-0000000ASaX-2GY3
+	id 1tv2rv-0000000AT2j-3F1M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 23:28:52 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6e8fce04655so1599556d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 16:28:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1742426930; x=1743031730; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gseEEcgxR2PUFeV7iG/jei3VTxYiomeFsvivAthjJ6c=;
-        b=cQzk8L84He9+3CGbSOKWPiWRmMw9erHd2WX1ntx39XvoWpk0vZCl6yDqCMqkZoirc1
-         3B52e4d/xUIFkSoE3gixKzRNMMQcgdakPiTDJ7RpzgXBvtPv7nCPgmOamOP1qh38PpZB
-         cK/BGY3LCkmOoIzEquJNQzI5T70CAkzbWxlhOkEeDLZ0GHTBOxMk010Rqf09IDTHu66i
-         JlJPu7v4OggEcccimpMDf72JeZTbx/nZPuuRLCqxLygaUSj6z3+YuByrYhpTLHkZiMh0
-         qTKQGTtTMvZ9HafwBfO0wdKQJz5e15LAlsV9rIGOcSj+j28pnnoO29Z/GzTdJDPdY5Aj
-         D4SA==
+	Wed, 19 Mar 2025 23:30:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1742427038;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AdS7FLVx5vWQEjep5ijpHift5baLZ1L+Dub51QJXBpg=;
+	b=Y4Rabb6wZtV0d/fK0MYuzCVoUdUsVO4TfW0ULno+ltr0ORaj/V/nN21xoDl/lUZJTI2SBO
+	0SmPoU6Ijrv/LYCPJfJPf0rRG8rR8jQzQFjKHt710w7WVoKDIlDZ1hWhyo47OuTgy0Z382
+	RE0l+2hw416m7N4vhTI+qElGT1r4YZs=
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
+ [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-86-Bfmy8MxjNh20zDT0vOAhWw-1; Wed, 19 Mar 2025 19:30:37 -0400
+X-MC-Unique: Bfmy8MxjNh20zDT0vOAhWw-1
+X-Mimecast-MFC-AGG-ID: Bfmy8MxjNh20zDT0vOAhWw_1742427036
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-2ff798e8c3bso287859a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 16:30:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742426930; x=1743031730;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gseEEcgxR2PUFeV7iG/jei3VTxYiomeFsvivAthjJ6c=;
-        b=n/oWZkj7Dxc6KGuvaw5awBRkVZlcL4MA2afLCaDQ2O20OtT6fubsIbj9ZZbwzoVHdQ
-         4d+MF0BRx3NbL/49Rj20Aoeqkl6D+BtP2CQYQKyl3AcVaYmgOf09gO6eVaogS22U+pwk
-         fH5gC65AdbjC6jvDCelBQfNYTs15oeBmz3i5IyiXcrIQsammdrWb6oLZZ/zTe409jE1n
-         31f/orxXnc+JcrnMejmt3GrY3N33kzp/dZtYl4aN/aqebY0+4sVTXglVK0JwPRn+IL8A
-         1JiJQRnwrEh0ie5aMYCG2LYCBVi4q0dh/7zpYiOgpl0PYimDOBuqt8T2+EU69p4neoeB
-         Hf+g==
-X-Forwarded-Encrypted: i=1; AJvYcCWPPtVVDtx/ANAcOe6OqfkjDLUNzT92So6L8Ly7weK7oj02W0KfRWBKPayzPcG4ejoJAe6sc56/Bj94s8MvnxxN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2IFKNq3diuejaKemANO9nLY8O8dVuZPc45nNa9gpcOLaVvwcD
-	7VvDVqSA1qGd7/Nv7WY6BUVDatxd3OgLxOwYPzKfaNOzrOWbVkM/MbpL3opHjS0=
-X-Gm-Gg: ASbGncuV9gxZnnXUMEeW43e3Qzu0uP5TW7ClIL2tj1ZcMRY895JY3Hu5X85WZXE7LN1
-	LviO8hslLtqIMNoZfeGqan3nebyM0aEDNJq6wUJAswyNoaudI4ziFK5A143Kw8SmaaVECQzNsON
-	t+JkxceU7xQ3StH64i51rwETPujRFjz1Hy0KZRq7CIICtNzhMb3Wxkl4Km/HbAOW/aUNcySgxzk
-	X71HH5chyEoz0dJU+lG7eFkwEj2g2iTVrUnVghRQE9N5oofanIUkqYT3QZVyXcugpMVdp96dpJ7
-	yiRCpa+LMwEZHhUHHaMK7Or2ALT9aNYh0pep1cpms2/g8gQQ8wJ8N2CvHIqSvbBerN33RtCp9JU
-	OhcxALFVUhWetF+iLIg==
-X-Google-Smtp-Source: AGHT+IGbrUJL++VHjNdJiRp2wbmBFeF1zO3i2g8SKEiaH6sIBdq4CqOBZ41CKMhKYzBCvXB+fzodAg==
-X-Received: by 2002:a05:6214:4111:b0:6e4:2e5f:c03b with SMTP id 6a1803df08f44-6eb293a5ef9mr61501766d6.22.1742426930195;
-        Wed, 19 Mar 2025 16:28:50 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6eade24ea1dsm85642276d6.65.2025.03.19.16.28.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Mar 2025 16:28:49 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tv2q8-00000000cbM-47kn;
-	Wed, 19 Mar 2025 20:28:48 -0300
-Date: Wed, 19 Mar 2025 20:28:48 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Cc: kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com,
-	kevin.tian@intel.com, alex.williamson@redhat.com, maz@kernel.org,
-	oliver.upton@linux.dev, will@kernel.org, robin.murphy@arm.com,
-	nicolinc@nvidia.com, jean-philippe@linaro.org,
-	jonathan.cameron@huawei.com
-Subject: Re: [RFC PATCH v3 2/5] iommufd/device: Associate a kvm pointer to
- iommufd_device
-Message-ID: <20250319232848.GD126678@ziepe.ca>
-References: <20250319173202.78988-1-shameerali.kolothum.thodi@huawei.com>
- <20250319173202.78988-3-shameerali.kolothum.thodi@huawei.com>
+        d=1e100.net; s=20230601; t=1742427036; x=1743031836;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AdS7FLVx5vWQEjep5ijpHift5baLZ1L+Dub51QJXBpg=;
+        b=ZDXHtQ1W5VF8NcZF11sK11Bq95NBvDphv+BHs5gF8n94n7mFkbbFZC794Oa0ClPGcg
+         3zNtACI71Y+cEOhwM5wHeSWkj6Tsz8cL/FbJ/hXrqVJhM60+svp0S27LJkXhGXLkckdQ
+         LM9+E9cJXC7Dmm6B7cDc7eb4UPL9kXpwVH9yeV+nloANZbMxbXEjTn3owNN8ejGas5If
+         DXbuT2FoVb1r9CEh1GGAdr5XJlmqDqdfCSKOV9uBSay2U7Xkv7tmbRPoDR9nkU0gm5bQ
+         DfuD5Ck1AFH8s0mvzGPAVfod8IqQWKb5WbV5PW+3hpTeMo7AtpabyC/et0MVUblk7DFr
+         bGLg==
+X-Forwarded-Encrypted: i=1; AJvYcCW9RLoYuAUYJgkkcEcdVlILR582bKAbU3km9jOYtfKXKT3DW8tPB486sw1qj8dHn/czil4V1C9jlnEpiPKpJ9no@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMqcZDy+RE7VGDZwj/RxbC/eBEnjxxcOUz5a69HQmBmHDdzXxA
+	J4t+ODvHu62i/kIzdDuc/B6AhmOBKNIKERzB0TuuOh7DzGEJa6RSOjXUrNjONYblc0oxplxiGpG
+	i/9xK3Kq2DcTOHKzmoOREoUZRMmX/J/4nlPlooQLVwcPnfU3qwSHelXKZcez6TLBKKaLxTqG3
+X-Gm-Gg: ASbGncvu570AJ6FkDwNCgloN3BPQnRBQan9+d4jSLimJD5K1lFz8K515vTbn5XDQ/BD
+	K4yHuMz1pZ38L8t0SaUkh4CNxf/e8hsHralTjO646ptXR9uFiXw8iaH0q+fHDlQI64779AXvqwk
+	/H2K4p9D8QrEh7nRfY8ZniFjgfnRuRL2UyUXZl69kyPnk2zi2ETtRphThBrmHnYHopoUqtdh7y1
+	F4BLlVrjHu86GE/EOtU4s/lK4lywSz/FVJ9eES+bD8t6Uj9118euKJgFhqb0pt9wiUDzEZJtaNN
+	1/0TEjNX3WQbqAuFlQ==
+X-Received: by 2002:a17:90b:3805:b0:2ee:b875:6d30 with SMTP id 98e67ed59e1d1-301d50b4d42mr1546788a91.9.1742427035823;
+        Wed, 19 Mar 2025 16:30:35 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFfGpU5/Zo7T40O8hlX1URy075Hogo7VH/jVO2K2J+g+NugytWfq459WPEgAQ6GAnakfdnuvQ==
+X-Received: by 2002:a17:90b:3805:b0:2ee:b875:6d30 with SMTP id 98e67ed59e1d1-301d50b4d42mr1546755a91.9.1742427035497;
+        Wed, 19 Mar 2025 16:30:35 -0700 (PDT)
+Received: from [192.168.68.55] ([180.233.125.167])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-301bf5b809bsm2548637a91.36.2025.03.19.16.30.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Mar 2025 16:30:34 -0700 (PDT)
+Message-ID: <c69921bb-79a0-4644-a19d-9693d1dd638e@redhat.com>
+Date: Thu, 20 Mar 2025 09:30:30 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250319173202.78988-3-shameerali.kolothum.thodi@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: psci: Fix refcount leak in psci_dt_init
+To: Miaoqian Lin <linmq006@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Will Deacon <will@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250318151712.28763-1-linmq006@gmail.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250318151712.28763-1-linmq006@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: fw5rh7ltj5lo49n-mJH4YKaI7sSc8T5Dq3Qj-aa35tg_1742427036
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_162851_751639_ECAAF07D 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20250319_163039_887746_B20EFB8E 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,23 +111,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 05:31:59PM +0000, Shameer Kolothum wrote:
-> Add a struct kvm * to iommufd_device_bind() fn and associate it
-> with idev if bind is successful.
+On 3/19/25 1:17 AM, Miaoqian Lin wrote:
+> Fix a reference counter leak in psci_dt_init() where of_node_put(np) was
+> missing after of_find_matching_node_and_match() when np is unavailable.
 > 
-> Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> Fixes: bff60792f994 ("arm64: psci: factor invocation code to drivers")
+> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
 > ---
->  drivers/iommu/iommufd/device.c          | 5 ++++-
->  drivers/iommu/iommufd/iommufd_private.h | 2 ++
->  drivers/vfio/iommufd.c                  | 2 +-
->  include/linux/iommufd.h                 | 4 +++-
->  4 files changed, 10 insertions(+), 3 deletions(-)
+>   drivers/firmware/psci/psci.c | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
+> 
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+With the fix tag corrected to the one, suggested by Mark.
 
-I'd probably explain more in the commit message that this is to allow
-VFIO to pass the KVM to iommufd so it can later be associated with
-downstream objects like the viommu.
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Jason
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index a1ebbe9b73b1..38ca190d4a22 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -804,8 +804,10 @@ int __init psci_dt_init(void)
+>   
+>   	np = of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
+>   
+> -	if (!np || !of_device_is_available(np))
+> +	if (!np || !of_device_is_available(np)) {
+> +		of_node_put(np);
+>   		return -ENODEV;
+> +	}
+>   
+>   	init_fn = (psci_initcall_t)matched_np->data;
+>   	ret = init_fn(np);
+
 
