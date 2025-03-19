@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF28EC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 05:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E05AC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 05:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGnh5R7F2nGjibuMN1IiOugHr5YAQ01+XconQh81ims=; b=QoUL9ZWODds2Eqpa0R8jR+r6F7
-	7nBFi5Y9giydP8pntrz7iVrIeUPAFyxn3WWgnvwZ6IDvSONdOpWjsfcuNvwuSZ7QW8chXdj5A3nUH
-	garmvF/TaDdePIbARG4ieW6VSnaGFBOZNh3wrMJnSBUwrQyZWCtu/26AkRPzQ1q4XpoWi2cnCO/sN
-	/yhnhIBXMf0+aLqfwdV3pMbMFDwUKyrFkqRB+ZtM9fswMvdQlQGqSfiLq0iC0N7UmUecxkboiZk8/
-	grLIkK2VE+PfK4AkjkBszC+9wrKbspfergd6ZglSFrQQXiUsnKVAi0AbXR1Ehcg8mLIK124M2mPCS
-	IgkUSUEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:To:From:Subject:References:Mime-Version:Message-Id:In-Reply-To:
+	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jXG/G1oeYM9b/alKQuuagGTfIpZAhQmz/i2palTHGhI=; b=djwVG3nLQ761hKisv4j6SMA4U5
+	fFN9/O17G++3g4PUIlbkLbu3mVYsvOun8QsUxNBiMM/+hsfvMTk4LC5TxDndFJgQM2PndaWTcdSjU
+	GiiRx1eekk4eBaUY0FQ4O2eaYsZe79e/wD1u0VaHk5IRv8H/dtfzDqvIybHRCh7WI5b9IxJqPYw8A
+	dIIEF13VsTwdjHchR/ffbWWoPShIrN5E8g5kWsqOB/aPHtbm6mCdIDhvm2xnw4vfdZMX//Dlado/p
+	yegC1ZJnrsRVqSE1XhApLnFHpLoB/UpAO67tahY75Ehb/bhfYCiL2fuDzF6qP6RKr9xdiVjXB13oU
+	Xsq7jbbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tum2C-0000000845n-1QVJ;
-	Wed, 19 Mar 2025 05:32:08 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1tum3q-000000084Gp-2uFB;
+	Wed, 19 Mar 2025 05:33:50 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tulf9-000000080xt-490g
+	id 1tuley-000000080rI-0ARJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 05:08:21 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e5740c858beso8736085276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 22:08:19 -0700 (PDT)
+	Wed, 19 Mar 2025 05:08:09 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f2c7746509so97307757b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 22:08:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742360899; x=1742965699; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jGnh5R7F2nGjibuMN1IiOugHr5YAQ01+XconQh81ims=;
-        b=k9tunLFDqk9h6GWFhNv1fYDO5wCFD3hfO+F7jEOk1p793CekG6UTZgd2IKaOauaP9z
-         9aot53nDKb9R/eObCurnIAyj868YjaBh3oPYwsxTF0MuyePGkVWaeMJvzzny6tw/hvkK
-         VXzfk0EfdO+squaH1LqYyCxVL54nULLo/Z0go7sV4DJSypEaYMIlIlIJHaze2uq3+Ltf
-         PZmOAFy1y6SdhSQ/CVGuwQ74aSn810UNT6jcYZETPL4PvYYUSj8GuneJVGEFdIILsyp6
-         yIzpC6RAyf8MIAOVsOfCUkmrGlApxEA5pi/UnXr1ZZZjkmvgk4neUth8dZ9BxSuR8ijr
-         PGAA==
+        d=google.com; s=20230601; t=1742360887; x=1742965687; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:from:subject:references:mime-version
+         :message-id:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jXG/G1oeYM9b/alKQuuagGTfIpZAhQmz/i2palTHGhI=;
+        b=gNs8073HhTFFyomE6I5/hO/NFnDrLC2cPNmu86x0GwOe53DcSVBmwq5PZuJWA24oBT
+         GuC7Dt3LTZyk2WwdKYs1QGUy8HqwndpPR4qhaecNbJAsC0oMZmHSo/MjiGC5PSBhcays
+         eKenHqfbcKaAM9UV4+4LVGg9mAdflM78GoZr97jexMxQLeao6Ro1eAd9s5Dwg/RcDwKy
+         HYdcyVW6f/54u2IgC5azmOC8GCRt9bK4ZCf89nxM4gj37v1Kg2pEhjUeX3kMkr4XJjRx
+         wx1lt2eZJ6HXUl7bF1ANF5E3MW1l0fp37osGUztcOw+zfHUhJ9eEg/pp3YbgBBMpuQFQ
+         IoqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742360899; x=1742965699;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jGnh5R7F2nGjibuMN1IiOugHr5YAQ01+XconQh81ims=;
-        b=fnQ8lh+zn0hpOFMEf8TxnSeVD6qaG5eU1AaDiEzRInRyi7njsgkDO8NrIlJGzmD7Ol
-         Iq1b8C9TCdGSI/jdWwvX3xaXAEgPhfo2Y5VXGT1LZjr0fkPuQf/JPtxUF8AXRXf7TlK0
-         NqkCeo1lzcOYn81hKw7+05/bu1zXqh0QxiOYwBw4DW/b2gnsul5utEkpaMsw3jMv9TeE
-         myBMbbhyHuHFM5Ko0sx+Vi6Rjhf9adsdgncb6VbOqcU4aLGIszLMTiyLTeeRTRM/NVf3
-         TrVTYMyc2/8AOvzeELxqk0dSOKsuQop0zirjiMrgNbRSPGNPf4+BxQQ3SHOG6ICirxHh
-         oX0g==
-X-Forwarded-Encrypted: i=1; AJvYcCWRUeNjyFIp6Ewpbq1tgmmj4Xpij99Fl6JzFyqtdmA7QzEuNKsVmApxg8/3JruIolyCmWkAVPFb9hTRdGMYzuy0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzryVMe/Y5iyqq/OGE1vM8co/5EOsg8Vbot0z2c7fc6kY2mrxzv
-	m2WyAHB5h9jBDK5WGLRlc+Lo0xtyfCL4altzOD9DoKe39lyDMEJ4Qt3O3MaoPuuW6w8B87qFyz5
-	A2rQe/Q==
-X-Google-Smtp-Source: AGHT+IHv1nfcfv3Ye5fOTqwhfAPWbuVvzkQzn8h4pmksBhQF9eFLTiSxCvjG8QByREOpkefDEY1DbG6A3hXY
+        d=1e100.net; s=20230601; t=1742360887; x=1742965687;
+        h=content-transfer-encoding:to:from:subject:references:mime-version
+         :message-id:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=jXG/G1oeYM9b/alKQuuagGTfIpZAhQmz/i2palTHGhI=;
+        b=kSFjZAf+O1d8cn0HhoV57sKhtiUi1u41KYjodK7p7p22I5DirMpalhdmL/aXICyjOj
+         aW6QoG2rQWUrRhKs3/4i8JjBILHlf44D8MRPmUesucEoPHyfGLeAKGJP+qj9x5zpg8+f
+         qUK0M9RJMBkX7NPB5EHqtuXS1EslyfNZnGsm1TGIz8u94Wrf6ti3iB0uZOBusYJdmF+A
+         1+eIodwj/94YnNKN757Ar9834LMUIG/lh2t1MJYnxfwEa5/vycBvjejseDYpzOrUFUFv
+         CeEE5qf6SV3trZd3JIh3MZ0UfpyWN/vAhgNVYRasJd83YOt1fhmJcbG2bYnzD0YQV/hD
+         AjnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW4W9zBLMippm8j7zUxItT8bviyH534R2RCJwpLsC/qoLFW5cZQv5LDypidqRd2W96ed6LZYMLLgyCgx2x5uQxc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrsZoRXa+2x8APLWRfXq4J/VwNp5WApmBIp7wy/24NPPGd8HVh
+	7oJwlRlmvDpaD1vSQ2jhJ4I7Zk1jBeSVXCRCsW3E7Ho9xum/ofCeiMVZIjNhleh0OJotrOIvYpv
+	ikDmeOw==
+X-Google-Smtp-Source: AGHT+IGfbivFYuMlSyVSguddaatmU/X+LBa+8+b7ZSnFdgYCi37H9xIH1R2JAv8LvsqW9+nMJDArTlk6qjei
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:8a11:10b5:af90:6031])
- (user=irogers job=sendgmr) by 2002:a25:dc03:0:b0:e63:699a:4e6b with SMTP id
- 3f1490d57ef6-e667b41463bmr514276.4.1742360898600; Tue, 18 Mar 2025 22:08:18
- -0700 (PDT)
-Date: Tue, 18 Mar 2025 22:07:41 -0700
+ (user=irogers job=sendgmr) by 2002:a05:690c:6ac4:b0:6fe:d1b3:850a with SMTP
+ id 00721157ae682-7009c142bb5mr13627b3.5.1742360886521; Tue, 18 Mar 2025
+ 22:08:06 -0700 (PDT)
+Date: Tue, 18 Mar 2025 22:07:36 -0700
 In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-Message-Id: <20250319050741.269828-15-irogers@google.com>
+Message-Id: <20250319050741.269828-10-irogers@google.com>
 Mime-Version: 1.0
 References: <20250319050741.269828-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v7 14/14] perf trace: Fix evlist memory leak
+Subject: [PATCH v7 09/14] perf syscalltbl: Use lookup table containing
+ multiple architectures
 From: Ian Rogers <irogers@google.com>
 To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -85,9 +88,10 @@ To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
 	Arnd Bergmann <arnd@arndb.de>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_220820_023691_C4E1599D 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250318_220808_095578_7567501D 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +106,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Leak sanitizer was reporting a memory leak in the "perf record and
-replay" test. Add evlist__delete to trace__exit, also ensure
-trace__exit is called after trace__record.
+Switch to use the lookup table containing all architectures rather
+than tables matching the perf binary.
+
+This fixes perf trace when executed on a 32-bit i386 binary on an
+x86-64 machine. Note in the following the system call names of the
+32-bit i386 binary as seen by an x86-64 perf.
+
+Before:
+```
+         ? (         ): a.out/447296  ... [continued]: munmap())           =
+                                =3D 0
+     0.024 ( 0.001 ms): a.out/447296 recvfrom(ubuf: 0x2, size: 4160585708, =
+flags: DONTROUTE|CTRUNC|TRUNC|DONTWAIT|EOR|WAITALL|FIN|SYN|CONFIRM|RST|ERRQ=
+UEUE|NOSIGNAL|WAITFORONE|BATCH|SOCK_DEVMEM|ZEROCOPY|FASTOPEN|CMSG_CLOEXEC|0=
+x91f80000, addr: 0xe30, addr_len: 0xffce438c) =3D 1475198976
+     0.042 ( 0.003 ms): a.out/447296 lgetxattr(name: "", value: 0x3, size: =
+34)                             =3D 4160344064
+     0.054 ( 0.003 ms): a.out/447296 dup2(oldfd: -134422744, newfd: 4)     =
+                                =3D -1 ENOENT (No such file or directory)
+     0.060 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: (struct io=
+vec){.iov_base =3D (void *)0x2e646c2f6374652f,.iov_len =3D (__kernel_size_t=
+)7307199665335594867,}, vlen: 557056, pos_h: 4160585708) =3D 3
+     0.074 ( 0.004 ms): a.out/447296 lgetxattr(name: "", value: 0x1, size: =
+2)                              =3D 4160237568
+     0.080 ( 0.001 ms): a.out/447296 lstat(filename: "", statbuf: 0x193f6) =
+                                =3D 0
+     0.089 ( 0.007 ms): a.out/447296 preadv(fd: 4294967196, vec: (struct io=
+vec){.iov_base =3D (void *)0x3833692f62696c2f,.iov_len =3D (__kernel_size_t=
+)3276497845987585334,}, vlen: 557056, pos_h: 4160585708) =3D 3
+     0.097 ( 0.002 ms): a.out/447296 close(fd: 3</proc/447296/status>)     =
+                                =3D 512
+     0.103 ( 0.002 ms): a.out/447296 lgetxattr(name: "", value: 0x1, size: =
+2050)                           =3D 4157935616
+     0.107 ( 0.007 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
+e: 0x5, size: 2066)             =3D 4158078976
+     0.116 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
+e: 0x1, size: 2066)             =3D 4159639552
+     0.121 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
+e: 0x3, size: 2066)             =3D 4160184320
+     0.129 ( 0.002 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
+e: 0x3, size: 50)               =3D 4160196608
+     0.138 ( 0.001 ms): a.out/447296 lstat(filename: "")                   =
+                                =3D 0
+     0.145 ( 0.002 ms): a.out/447296 mq_timedreceive(mqdes: 4291706800, u_m=
+sg_ptr: 0xf7f9ea48, msg_len: 134616640, u_msg_prio: 0xf7fd7fec, u_abs_timeo=
+ut: (struct __kernel_timespec){.tv_sec =3D (__kernel_time64_t)-578174027777=
+317696,.tv_nsec =3D (long long int)4160349376,}) =3D 0
+     0.148 ( 0.001 ms): a.out/447296 mkdirat(dfd: -134617816, pathname: " =
+=EF=BF=BD=EF=BF=BD=EF=BF=BD =EF=BF=BD=EF=BF=BD=EF=BF=BD=E2=96=92=EF=BF=BD=
+=EF=BF=BD=EF=BF=BD=E2=96=92=EF=BF=BD=EF=BF=BD=EF=BF=BD", mode: IFREG|ISUID|=
+IRUSR|IWGRP|0xf7fd0000) =3D 447296
+     0.150 ( 0.001 ms): a.out/447296 process_vm_writev(pid: -134617812, lve=
+c: (struct iovec){.iov_base =3D (void *)0xf7f9e9c8f7f9e4c0,.iov_len =3D (__=
+kernel_size_t)4160349376,}, liovcnt: 4160588048, rvec: (struct iovec){}, ri=
+ovcnt: 4160585708, flags: 4291707352) =3D 0
+     0.197 ( 0.004 ms): a.out/447296 capget(header: 4160184320, dataptr: 81=
+92)                             =3D 0
+     0.202 ( 0.002 ms): a.out/447296 capget(header: 1448669184, dataptr: 40=
+96)                             =3D 0
+     0.208 ( 0.002 ms): a.out/447296 capget(header: 4160577536, dataptr: 81=
+92)                             =3D 0
+     0.220 ( 0.001 ms): a.out/447296 getxattr(pathname: "", name: "c=EF=BF=
+=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD", value: 0xf7f77e34, size:=
+ 1)  =3D 0
+     0.228 ( 0.005 ms): a.out/447296 fchmod(fd: -134729728, mode: IRUGO|IWU=
+GO|IFREG|IFIFO|ISVTX|IXUSR|0x10000) =3D 0
+     0.240 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: 0x5658e008=
+, pos_h: 4160192052)            =3D 3
+     0.250 ( 0.008 ms): a.out/447296 close(fd: 3</proc/447296/status>)     =
+                                =3D 1436
+     0.260 ( 0.018 ms): a.out/447296 stat(filename: "", statbuf: 0xffce32ac=
+)                               =3D 1436
+     0.288 (1000.213 ms): a.out/447296 readlinkat(buf: 0xffce31d4, bufsiz: =
+4291703244)                       =3D 0
+```
+
+After:
+```
+         ? (         ): a.out/442930  ... [continued]: execve())           =
+                                =3D 0
+     0.023 ( 0.002 ms): a.out/442930 brk()                                 =
+                                =3D 0x57760000
+     0.052 ( 0.003 ms): a.out/442930 access(filename: 0xf7f5af28, mode: R) =
+                                =3D -1 ENOENT (No such file or directory)
+     0.059 ( 0.009 ms): a.out/442930 openat(dfd: CWD, filename: "/etc/ld.so=
+.cache", flags: RDONLY|CLOEXEC|LARGEFILE) =3D 3
+     0.078 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>)     =
+                                =3D 0
+     0.087 ( 0.007 ms): a.out/442930 openat(dfd: CWD, filename: "/lib/i386-=
+linux-", flags: RDONLY|CLOEXEC|LARGEFILE) =3D 3
+     0.095 ( 0.002 ms): a.out/442930 read(fd: 3</proc/442930/status>, buf: =
+0xffbdbb70, count: 512)         =3D 512
+     0.135 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>)     =
+                                =3D 0
+     0.148 ( 0.001 ms): a.out/442930 set_tid_address(tidptr: 0xf7f2b528)   =
+                                =3D 442930 (a.out)
+     0.150 ( 0.001 ms): a.out/442930 set_robust_list(head: 0xf7f2b52c, len:=
+ 12)                            =3D
+     0.196 ( 0.004 ms): a.out/442930 mprotect(start: 0xf7f03000, len: 8192,=
+ prot: READ)                    =3D 0
+     0.202 ( 0.002 ms): a.out/442930 mprotect(start: 0x5658e000, len: 4096,=
+ prot: READ)                    =3D 0
+     0.207 ( 0.002 ms): a.out/442930 mprotect(start: 0xf7f63000, len: 8192,=
+ prot: READ)                    =3D 0
+     0.230 ( 0.005 ms): a.out/442930 munmap(addr: 0xf7f10000, len: 103414) =
+                                =3D 0
+     0.244 ( 0.010 ms): a.out/442930 openat(dfd: CWD, filename: 0x5658d008)=
+                                =3D 3
+     0.255 ( 0.007 ms): a.out/442930 read(fd: 3</proc/442930/status>, buf: =
+0xffbdb67c, count: 4096)        =3D 1436
+     0.264 ( 0.018 ms): a.out/442930 write(fd: 1</dev/pts/4>, buf: , count:=
+ 1436)                          =3D 1436
+     0.292 (1000.173 ms): a.out/442930 clock_nanosleep(rqtp: { .tv_sec: 178=
+66546940376776704, .tv_nsec: 4159878336 }, rmtp: 0xffbdb59c) =3D 0
+  1000.478 (         ): a.out/442930 exit_group()                          =
+                                =3D ?
+```
 
 Signed-off-by: Ian Rogers <irogers@google.com>
+Reviewed-by: Howard Chu <howardchu95@gmail.com>
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- tools/perf/builtin-trace.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ tools/perf/util/syscalltbl.c | 89 ++++++++++++++++++++++++++----------
+ 1 file changed, 64 insertions(+), 25 deletions(-)
 
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 1d4ad5d19b10..a102748bd0c9 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -5339,6 +5339,8 @@ static void trace__exit(struct trace *trace)
- 		zfree(&trace->syscalls.table);
- 	}
- 	zfree(&trace->perfconfig_events);
-+	evlist__delete(trace->evlist);
-+	trace->evlist = NULL;
- #ifdef HAVE_LIBBPF_SUPPORT
- 	btf__free(trace->btf);
- 	trace->btf = NULL;
-@@ -5719,8 +5721,10 @@ int cmd_trace(int argc, const char **argv)
+diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+index 760ac4d0869f..4e6018e2e0b3 100644
+--- a/tools/perf/util/syscalltbl.c
++++ b/tools/perf/util/syscalltbl.c
+@@ -15,16 +15,39 @@
+ #include <string.h>
+ #include "string2.h"
+=20
+-#if __BITS_PER_LONG =3D=3D 64
+-  #include <asm/syscalls_64.h>
+-#else
+-  #include <asm/syscalls_32.h>
+-#endif
++#include "trace/beauty/generated/syscalltbl.c"
+=20
+-const char *syscalltbl__name(int e_machine __maybe_unused, int id)
++static const struct syscalltbl *find_table(int e_machine)
+ {
+-	if (id >=3D 0 && id <=3D (int)ARRAY_SIZE(syscall_num_to_name))
+-		return syscall_num_to_name[id];
++	static const struct syscalltbl *last_table;
++	static int last_table_machine =3D EM_NONE;
++
++	/* Tables only exist for EM_SPARC. */
++	if (e_machine =3D=3D EM_SPARCV9)
++		e_machine =3D EM_SPARC;
++
++	if (last_table_machine =3D=3D e_machine && last_table !=3D NULL)
++		return last_table;
++
++	for (size_t i =3D 0; i < ARRAY_SIZE(syscalltbls); i++) {
++		const struct syscalltbl *entry =3D &syscalltbls[i];
++
++		if (entry->e_machine !=3D e_machine && entry->e_machine !=3D EM_NONE)
++			continue;
++
++		last_table =3D entry;
++		last_table_machine =3D e_machine;
++		return entry;
++	}
++	return NULL;
++}
++
++const char *syscalltbl__name(int e_machine, int id)
++{
++	const struct syscalltbl *table =3D find_table(e_machine);
++
++	if (table && id >=3D 0 && id < table->num_to_name_len)
++		return table->num_to_name[id];
+ 	return NULL;
+ }
+=20
+@@ -41,38 +64,54 @@ static int syscallcmpname(const void *vkey, const void =
+*ventry)
+ 	return strcmp(key->name, key->tbl[*entry]);
+ }
+=20
+-int syscalltbl__id(int e_machine __maybe_unused, const char *name)
++int syscalltbl__id(int e_machine, const char *name)
+ {
+-	struct syscall_cmp_key key =3D {
+-		.name =3D name,
+-		.tbl =3D syscall_num_to_name,
+-	};
+-	const int *id =3D bsearch(&key, syscall_sorted_names,
+-				ARRAY_SIZE(syscall_sorted_names),
+-				sizeof(syscall_sorted_names[0]),
+-				syscallcmpname);
++	const struct syscalltbl *table =3D find_table(e_machine);
++	struct syscall_cmp_key key;
++	const uint16_t *id;
++
++	if (!table)
++		return -1;
++
++	key.name =3D name;
++	key.tbl =3D table->num_to_name;
++	id =3D bsearch(&key, table->sorted_names, table->sorted_names_len,
++		     sizeof(table->sorted_names[0]), syscallcmpname);
+=20
+ 	return id ? *id : -1;
+ }
+=20
+-int syscalltbl__num_idx(int e_machine __maybe_unused)
++int syscalltbl__num_idx(int e_machine)
+ {
+-	return ARRAY_SIZE(syscall_sorted_names);
++	const struct syscalltbl *table =3D find_table(e_machine);
++
++	if (!table)
++		return 0;
++
++	return table->sorted_names_len;
+ }
+=20
+-int syscalltbl__id_at_idx(int e_machine __maybe_unused, int idx)
++int syscalltbl__id_at_idx(int e_machine, int idx)
+ {
+-	return syscall_sorted_names[idx];
++	const struct syscalltbl *table =3D find_table(e_machine);
++
++	if (!table)
++		return -1;
++
++	assert(idx >=3D 0 && idx < table->sorted_names_len);
++	return table->sorted_names[idx];
+ }
+=20
+-int syscalltbl__strglobmatch_next(int e_machine __maybe_unused, const char=
+ *syscall_glob, int *idx)
++int syscalltbl__strglobmatch_next(int e_machine, const char *syscall_glob,=
+ int *idx)
+ {
+-	for (int i =3D *idx + 1; i < (int)ARRAY_SIZE(syscall_sorted_names); ++i) =
+{
+-		const char *name =3D syscall_num_to_name[syscall_sorted_names[i]];
++	const struct syscalltbl *table =3D find_table(e_machine);
++
++	for (int i =3D *idx + 1; table && i < table->sorted_names_len; ++i) {
++		const char *name =3D table->num_to_name[table->sorted_names[i]];
+=20
+ 		if (strglobmatch(name, syscall_glob)) {
+ 			*idx =3D i;
+-			return syscall_sorted_names[i];
++			return table->sorted_names[i];
  		}
  	}
- 
--	if ((argc >= 1) && (strcmp(argv[0], "record") == 0))
--		return trace__record(&trace, argc-1, &argv[1]);
-+	if ((argc >= 1) && (strcmp(argv[0], "record") == 0)) {
-+		err = trace__record(&trace, argc-1, &argv[1]);
-+		goto out;
-+	}
- 
- 	/* Using just --errno-summary will trigger --summary */
- 	if (trace.errno_summary && !trace.summary && !trace.summary_only)
--- 
+=20
+--=20
 2.49.0.rc1.451.g8f38331e32-goog
 
 
