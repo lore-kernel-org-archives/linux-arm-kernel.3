@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F07C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 14:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A83C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 14:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SV1ACe878lmcNnl5s8vqOkvgsmK9A/JbH1HH9hF0cZk=; b=2F8kmizuimhQmgxkEd1ycyNjG7
-	Lfd8iQFy6X59nrTYbvyd0swJuW4DW/GuNaUwxDPneOHZbGaYRk+yVvsOkQuUMgtwV0maCZ3Vd3W+f
-	dX5OaAnecaIF7SmnIhv/0BJ3JfmEcIuMBKt4vtPTHgTLzTcODQEpVahiBjtplGuLPXkneOTab1Vju
-	+DiArXWo26wVm07KkTzyDlgp+KRKp38fIPpAvH7zrjjxAnj7Z06s1SSO7+QrqS0BY85fzDlAKyy1B
-	/uY3alUCMVrMnGc7E/4vgweOVAP27A5vfJfDI8SmHHDk8XLppqTSEkvNBghGP4cJxf2Qq54eRaovv
-	7UGBOpKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p8RxMnWWsFYazqDi5ausaz27iCUKurnoSgUaIXr1DG4=; b=gX/vlWW5uuVYF69suWxFjKcNFb
+	O8EfWxirSHDoQ235iyfwH2iz8KFGNWmuw0KEpBp6oItjKymj3SQm3b3mpUvDrVRyXi0bwk1WO3Qck
+	qEa/cOdvnGX6BMd1H8hOPczwm789zQq3jgHGXxx6NLE5Z2bd2kTepKzYu1Tozx19lgZHZvwN/RapQ
+	O3td185HUMX6TpSk2eDM/ySF5q1ZqRMcqkEvOZfAsJJtxOFh94vynZa0J3PwWI28kjt0x2XZbffuy
+	4eYk4LcykpkIE4sDjcPTbi7fQB1nIekZh4ywpa3rDloxDhXeXCqQtdq0XR8gzPtP8nQ8J165gQDmN
+	WCFXQcIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuuNQ-00000009CgX-2lR0;
-	Wed, 19 Mar 2025 14:26:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tuuP5-00000009Cvf-1NcK;
+	Wed, 19 Mar 2025 14:28:19 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuuLi-00000009CN9-3zLo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 14:24:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 668EC5C0689;
-	Wed, 19 Mar 2025 14:22:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A545C4CEE9;
-	Wed, 19 Mar 2025 14:24:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742394290;
-	bh=V/SLhvo9gcRcf9Q62gLBwK9RH73pmO1Sb6lYQDSl+Wk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iXGLAktPqySm/IOVownGzFPBorVEpFDIFoz1zL57oLU4u2TXJasxt9ZojKLE28i7v
-	 wAu6Oyq0+zqM4HcZQ+yrSwM2CHwNTcp+i0s6Dbh2ktUODtabONDNspV6szP07pNu1q
-	 N5GL0bhfgqP07AXCIUGL5EDQL/N5jRGivHTNZqXIvVoQDCkHjM0RRkHmcD3riB2Gle
-	 XGer4OTQD9MvijoWPJYxfKrh2JQKB9Kwn3sZ0lBT/KupP+X8v0RTk+eB7BKIG4SuTR
-	 zGO4l7SrNxCVPDZ7SldoQZEQjFcMkRJzY2BqJAVFnJzwpypA2jhlhawXnF635mjoDi
-	 ON0MsVARpJIxA==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Alexey Minnekhanov <alexeymin@postmarketos.org>,
-	Rayyan Ansari <rayyan.ansari@linaro.org>,
-	Viken Dadhaniya <quic_vdadhani@quicinc.com>
-Subject: [GIT PULL] More Qualcomm driver updates for v6.15
-Date: Wed, 19 Mar 2025 09:24:47 -0500
-Message-ID: <20250319142448.2279164-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.48.1
+	id 1tuuMG-00000009CTG-2B7u;
+	Wed, 19 Mar 2025 14:25:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1742394322;
+	bh=dFq9WrBtYmONyZNM0GrXKYpn3Y8FJf3WJUh0aWFuRDI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XEaBF0Zw5wjvy+eBCil3EcYkJF2wSPeFtX1kPSWyGjhnxBDElCHihextQz/qmFjc8
+	 /wrYmrpDXW58niMFnfxdg7iyC0fd7TagGcq2Phgp3JcGgh3wamxXZ+hMxCxYpiI3ys
+	 /j4rEt17Bsf4qH5OHPs2xpAZKlkZgeed5yib6nF/Mb77Y8FT4XS83pgviijv+i2MId
+	 TGT7GNwykxbXkQUDzRk6yfu9PB+7+DYlBuX5EJIEMhApA0zQin2wtfDnE/jS40scjd
+	 03WgDdnp1pqnqi/QMUGcMRm6BEYDQsi5r3TJCYp5u0ve8/Hl08Ja8ULWMPavOR3kvI
+	 GQy1jOiW5CnmQ==
+Received: from notapiano (unknown [70.107.117.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4313B17E0599;
+	Wed, 19 Mar 2025 15:25:20 +0100 (CET)
+Date: Wed, 19 Mar 2025 11:25:18 -0300
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Tinghan Shen <tinghan.shen@mediatek.com>,
+	Olivia Wen <olivia.wen@mediatek.com>, kernel@collabora.com,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: mediatek: Add missing
+ minItems for 8192/8195
+Message-ID: <7ab084b8-e77a-4881-a6a6-057b89613fb4@notapiano>
+References: <20250318-scp-dual-core-mt8390-v1-0-8733e192cc73@collabora.com>
+ <20250318-scp-dual-core-mt8390-v1-1-8733e192cc73@collabora.com>
+ <3fa1573d-e3b4-434c-867d-38fa69ad3a8e@linaro.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <3fa1573d-e3b4-434c-867d-38fa69ad3a8e@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_072451_031734_43934DCE 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250319_072524_706403_DADFDD9C 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +86,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 19, 2025 at 08:16:37AM +0100, Krzysztof Kozlowski wrote:
+> On 18/03/2025 23:22, Nícolas F. R. A. Prado wrote:
+> > Both MT8192 and MT8195 have an L1TCM memory, so it should be described
+> > in reg, and therefore reg's minItems should be 3, as is already implicit
+> > by reg-names. Override minItems to 3 for MT8192 and MT8195.
+> 
+> I think that was the original intention already, because reg-names are
+> expecting min 3 items. Basically you just correct the missing lower
+> constraint.
 
-The following changes since commit 2e14c17a2e3d697bef6b5bf49b253d6e52f3d186:
+Yes, exactly, that's what I meant by "is already implicit by reg-names".
 
-  soc: qcom: Do not expose internal servreg_location_entry_ei array (2025-02-14 11:37:30 -0600)
+> 
+> > 
+> > Fixes: 6b55b1e2fd7f ("dt-bindings: remoteproc: mediatek: Support MT8195 dual-core SCP")
+> > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> > ---
+> >  Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> > index adc6b3f36fde49eb3fa7ed3f08b0fa9e7f331162..ee33c233e44f3d51f0851b35697a24208c87f68a 100644
+> > --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> > +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> > @@ -185,6 +185,7 @@ allOf:
+> >      then:
+> >        properties:
+> >          reg:
+> > +          minItems: 3
+> >            maxItems: 3
+> 
+> maxItems can be dropped.
 
-are available in the Git repository at:
+Sure, I can send a patch for that in the next version.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.15-2
-
-for you to fetch changes up to 65f330ade7daec740ed8dbdf33ccfbfcc5fbf5c8:
-
-  dt-bindings: power: qcom,kpss-acc-v2: add qcom,msm8916-acc compatible (2025-03-13 17:50:04 -0500)
-
-----------------------------------------------------------------
-More Qualcomm driver updates for v6.15
-
-Introduce Devicetree binding for providing board-specific firmware-name
-for the GENI serial engine block. Add SDM630/636 support in pd-mapper.
-Clean up and fix error handling in the SSC block bus driver.
-Add missing msm8916-acc compatible to resolve a number of Devicetree
-validation errors.
-
-----------------------------------------------------------------
-Alexey Minnekhanov (1):
-      soc: qcom: pd-mapper: Add support for SDM630/636
-
-Christophe JAILLET (2):
-      bus: qcom-ssc-block-bus: Remove some duplicated iounmap() calls
-      bus: qcom-ssc-block-bus: Fix the error handling path of qcom_ssc_block_bus_probe()
-
-Rayyan Ansari (1):
-      dt-bindings: power: qcom,kpss-acc-v2: add qcom,msm8916-acc compatible
-
-Viken Dadhaniya (1):
-      dt-bindings: qcom: geni-se: Add 'firmware-name' property for firmware loading
-
- .../bindings/power/qcom,kpss-acc-v2.yaml           |  4 ++-
- .../devicetree/bindings/soc/qcom/qcom,geni-se.yaml |  5 ++++
- drivers/bus/qcom-ssc-block-bus.c                   | 34 ++++++++++++----------
- drivers/soc/qcom/qcom_pd_mapper.c                  | 12 ++++++++
- 4 files changed, 39 insertions(+), 16 deletions(-)
+Thanks,
+Nícolas
 
