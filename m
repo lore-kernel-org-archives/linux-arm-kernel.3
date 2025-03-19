@@ -4,102 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85384C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 00:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BC0C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 00:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dcyfpPUqLHcmXEYYEMoAoUCuMRUkHggn/cuf/nj3QHo=; b=x534+JTi0DTxA5ZQ/VwM4y3r2h
-	6vubrLoErKoPDe6NV4szSvR7nL3bYZPCJTDgT92bsvLdGlRN0SGOZSEsejXIhmYDzTIyXgo6RWu1A
-	vwagZttp1yDFpIOueY5a29PouGInMe9hP67kNk8Kf3fQTCTjEJlDn+1tomD6TG/zQQZvGa2sE4+Xj
-	6b6El2C4AlC0HCTxrEH7ygs5inLy1aynmz059MpyhMH5uAB9ilQgfAdNg1liQKb1NMFVip3iMqeK/
-	IKcQfGaC1LuKG4J5DZV+IL0fBOzuB2ujI8s5WBfNPwmEo0B9oQ00KHqRcX5IHaqXrR5CE8dzt6A0D
-	Od2uIisw==;
+	bh=yzi5nB05C6YBwDVvPu1RQxP/gtmAUPKmVsdN1uMj47w=; b=lcjqjIsOg1QJ/LX/xSinZJ6b8X
+	ytCR2TBPII3O5jRFsTnURj6HI6q3eT3yxs7K81/DEt4TJnCA3dU6oAow1VCq59bPW5cma/6AVvXQo
+	ciRo3nNCrFElRVsLi/Bn1CrZbbfCAWPXRzQSe0/t4RzNwAUTjUYoIIIOc4/xmg7By5ZpK8VG0KDJt
+	xWm85DQ7Ra1jzP+c3LIyumNwSoLpP3KkxWTh3dseFdUQ11p00jjD/HttsgjYDuQJf2+yuS2Whys0j
+	WStvV15UZNk88O4aytvSxMj9h03EjnxByA7GewVvXoJ1/81OzQ6Wxyo4/B/anI/oAWnuizXeyJl3N
+	afSo4S+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuhI8-00000007Zfh-0f6S;
-	Wed, 19 Mar 2025 00:28:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuhGP-00000007ZA6-15Jr
+	id 1tuhPh-00000007btI-1FxS;
+	Wed, 19 Mar 2025 00:36:05 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuhNz-00000007bRW-2sTo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 00:26:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1742343986;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dcyfpPUqLHcmXEYYEMoAoUCuMRUkHggn/cuf/nj3QHo=;
-	b=AaaMBNqfNfra/blUHUTGh9najA1usa3WUQoqfpikZ+JNPwJu4pXWlQKHawTTS6H6KANE/U
-	5Goj+HqLJ/6Y5+jyqRSQc2BJA3iEuUfnSg0+om2FIS5Muw33/xVD8t6zX93Fhp5zZ8czZI
-	UZQQgCHb27TJi1Rv8L9j4XlDT506DGA=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-149-vvZdnv0vNs2JSPszTsfz3g-1; Tue, 18 Mar 2025 20:26:23 -0400
-X-MC-Unique: vvZdnv0vNs2JSPszTsfz3g-1
-X-Mimecast-MFC-AGG-ID: vvZdnv0vNs2JSPszTsfz3g_1742343982
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2242ca2a4a5so85314145ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 17:26:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742343982; x=1742948782;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dcyfpPUqLHcmXEYYEMoAoUCuMRUkHggn/cuf/nj3QHo=;
-        b=oDGvZQ/hnuqkEmK+Dd06CB7Ekh9rESzBjp2vL83bHtseaCyrSBCr1Ihc1jFKbZmBEO
-         CNH9sa+etDU39fInI+bjW/xSjsk9IIKv1D9QmLmn2aw8JKHpsDjJeFY064/p7ezqVFbn
-         OSDd1iOKuDDtx7GmO7bQ2u9R/PpO5+9DcEmflD/ZsFvCxzCglOm5N9i/cvfuXY0cwyox
-         Ip7b1K00DdbS+oXDecHlJjUqt/5zjbpQbg/LOnSoQcY76BjeCg2p627ZQs7k9HNEUOJN
-         LJliGfXJLquKtFpVMkPqz72AmJs034rnCQ6l3L2LeokyPZjFUS1M9gSfVXWGSQIaSLlu
-         Cmxw==
-X-Gm-Message-State: AOJu0YwBVfqNmx6R0KeAi2NODdblg407+KQg2Kl5RABKEgGAoSHDYduK
-	P3JryyVg1XJ/P5eoocAnFK12smLzOZp/+0/ZHFToADinFjE3I96CMQ8D9qMcVCk0BgCRQQbjfOX
-	yjT4tuesId89AgiC8UOQlP58RhopJxVi1ZB7ZxJ+j20lIkNfKNR7cKPebr/0uw7qD18GdV1Kw
-X-Gm-Gg: ASbGncv4S+gcbDnPdHxD3MIIh5zUJ5PfDzWUSYMfAblJeelfoVNooLcsjHJO7+3doU0
-	RdA9qc9P9mXkRDJGc9xK08sxbSywtd78i4VGdp77p8AMfi9ycL5HOhNIyL9sTEPkHSYLEXbjPlH
-	6/870dM6IGWRAXmAITmU4bljenQ75Yj7+VA4zr6Q7DuSu3Q16nEMJmIIEUg0gegJOJnlnMfckBF
-	TiuRjvaFJUZMsC1vISrWQcMGqMGvgUr4s6tj94GrHRI39z+BgtadUC6Ky4FaoDa+I4m0nicyOY4
-	5VaVCTl0Hogb1mjruw==
-X-Received: by 2002:a17:902:d2c6:b0:21f:bd66:cafa with SMTP id d9443c01a7336-226499365cbmr9077845ad.17.1742343982229;
-        Tue, 18 Mar 2025 17:26:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFM1JeJlzG9hcTXu6MosOqDs29giW5SOPOo+RoLQCTNH0YvRQ0etfbZb8zUKi40Yd9vIUSDww==
-X-Received: by 2002:a17:902:d2c6:b0:21f:bd66:cafa with SMTP id d9443c01a7336-226499365cbmr9077535ad.17.1742343981868;
-        Tue, 18 Mar 2025 17:26:21 -0700 (PDT)
-Received: from [192.168.68.55] ([180.233.125.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22647996c7asm3545705ad.20.2025.03.18.17.26.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Mar 2025 17:26:20 -0700 (PDT)
-Message-ID: <019afc2d-b047-4e33-971c-7debbbaec84d@redhat.com>
-Date: Wed, 19 Mar 2025 10:26:14 +1000
+	Wed, 19 Mar 2025 00:34:21 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 11715202536C;
+	Tue, 18 Mar 2025 17:34:17 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 11715202536C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1742344457;
+	bh=yzi5nB05C6YBwDVvPu1RQxP/gtmAUPKmVsdN1uMj47w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MPEdx/foH0ClIVHe99HYrM8kNT/GY9l6DlQLdC3XIxvKTglfj28cahW0GrOeiQTDq
+	 vmtNywGzZYdUctz6ZXCJJB62hFZgu8znbPPHu/nXLNYmziUih8dEr431cCSq9wQbSi
+	 Gv+oSB2KEOYANNgOtTG3sq8t3RFHiQ6IMoMrGcPY=
+Message-ID: <afd87eba-742f-4b67-9171-fd8486416b7b@linux.microsoft.com>
+Date: Tue, 18 Mar 2025 17:34:16 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.12 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
-To: Mark Brown <broonie@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>
-References: <20250314-stable-sve-6-12-v1-0-ddc16609d9ba@kernel.org>
- <20250314-stable-sve-6-12-v1-8-ddc16609d9ba@kernel.org>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250314-stable-sve-6-12-v1-8-ddc16609d9ba@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: __XPLQ9HFBMyZD7vt9FdQ72g3OFe58QCJ5W2aVOeYPw_1742343982
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v5 10/10] Drivers: hv: Introduce mshv_root module to
+ expose /dev/mshv to VMMs
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+ "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
+ "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
+ "muislam@microsoft.com" <muislam@microsoft.com>,
+ "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
+ <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-11-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB4157BE8AF5A1CDD39CF31124D4DF2@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157BE8AF5A1CDD39CF31124D4DF2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_172629_384509_B2ADB8AF 
-X-CRM114-Status: GOOD (  37.01  )
+X-CRM114-CacheID: sfid-20250318_173419_798670_2113CD4B 
+X-CRM114-Status: GOOD (  60.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,220 +106,640 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On 3/17/2025 4:51 PM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, February 26, 2025 3:08 PM
+<snip>
+>> +
+>> +/* TODO move this to another file when debugfs code is added */
+>> +enum hv_stats_vp_counters {			/* HV_THREAD_COUNTER */
+>> +#if defined(CONFIG_X86)
+>> +	VpRootDispatchThreadBlocked			= 201,
+>> +#elif defined(CONFIG_ARM64)
+>> +	VpRootDispatchThreadBlocked			= 94,
+>> +#endif
+>> +	VpStatsMaxCounter
+>> +};
+> 
+> Where do these "magic" numbers come from?  Are they matching something
+> in the Hyper-V host?
+> 
+They are part of the hypervisor ABI and really belong in hvhdk.h. These enums
+have many members which we use in another part of the code but which are omitted
+here.
 
-On 3/14/25 10:35 AM, Mark Brown wrote:
-> From: Mark Rutland <mark.rutland@arm.com>
-> 
-> [ Upstream commit 59419f10045bc955d2229819c7cf7a8b0b9c5b59 ]
-> 
-> In non-protected KVM modes, while the guest FPSIMD/SVE/SME state is live on the
-> CPU, the host's active SVE VL may differ from the guest's maximum SVE VL:
-> 
-> * For VHE hosts, when a VM uses NV, ZCR_EL2 contains a value constrained
->    by the guest hypervisor, which may be less than or equal to that
->    guest's maximum VL.
-> 
->    Note: in this case the value of ZCR_EL1 is immaterial due to E2H.
-> 
-> * For nVHE/hVHE hosts, ZCR_EL1 contains a value written by the guest,
->    which may be less than or greater than the guest's maximum VL.
-> 
->    Note: in this case hyp code traps host SVE usage and lazily restores
->    ZCR_EL2 to the host's maximum VL, which may be greater than the
->    guest's maximum VL.
-> 
-> This can be the case between exiting a guest and kvm_arch_vcpu_put_fp().
-> If a softirq is taken during this period and the softirq handler tries
-> to use kernel-mode NEON, then the kernel will fail to save the guest's
-> FPSIMD/SVE state, and will pend a SIGKILL for the current thread.
-> 
-> This happens because kvm_arch_vcpu_ctxsync_fp() binds the guest's live
-> FPSIMD/SVE state with the guest's maximum SVE VL, and
-> fpsimd_save_user_state() verifies that the live SVE VL is as expected
-> before attempting to save the register state:
-> 
-> | if (WARN_ON(sve_get_vl() != vl)) {
-> |         force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
-> |         return;
-> | }
-> 
-> Fix this and make this a bit easier to reason about by always eagerly
-> switching ZCR_EL{1,2} at hyp during guest<->host transitions. With this
-> happening, there's no need to trap host SVE usage, and the nVHE/nVHE
-> __deactivate_cptr_traps() logic can be simplified to enable host access
-> to all present FPSIMD/SVE/SME features.
-> 
-> In protected nVHE/hVHE modes, the host's state is always saved/restored
-> by hyp, and the guest's state is saved prior to exit to the host, so
-> from the host's PoV the guest never has live FPSIMD/SVE/SME state, and
-> the host's ZCR_EL1 is never clobbered by hyp.
-> 
-> Fixes: 8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
-> Fixes: 2e3cf82063a00ea0 ("KVM: arm64: nv: Ensure correct VL is loaded before saving SVE state")
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Reviewed-by: Mark Brown <broonie@kernel.org>
-> Tested-by: Mark Brown <broonie@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oliver.upton@linux.dev>
-> Cc: Will Deacon <will@kernel.org>
-> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-> Link: https://lore.kernel.org/r/20250210195226.1215254-9-mark.rutland@arm.com
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->   arch/arm64/kvm/fpsimd.c                 | 30 -----------------
->   arch/arm64/kvm/hyp/entry.S              |  5 +++
->   arch/arm64/kvm/hyp/include/hyp/switch.h | 59 +++++++++++++++++++++++++++++++++
->   arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 13 ++++----
->   arch/arm64/kvm/hyp/nvhe/switch.c        | 33 +++++++++++++++---
->   arch/arm64/kvm/hyp/vhe/switch.c         |  4 +++
->   6 files changed, 103 insertions(+), 41 deletions(-)
-> 
+For this patchset I put them here to avoid putting PascalCase definitions in the
+global namespace. I was undecided if we want to keep them like this (maybe keeping
+them out of hvhdk.h), or change them to linux style in a followup.
 
-[...]
-
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 4e757a77322c9efc59cdff501745f7c80d452358..1c8e2ad32e8c396fc4b11d5fec2e86728f2829d9 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -5,6 +5,7 @@
->    */
->   
->   #include <hyp/adjust_pc.h>
-> +#include <hyp/switch.h>
->   
->   #include <asm/pgtable-types.h>
->   #include <asm/kvm_asm.h>
-> @@ -176,8 +177,12 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
->   		sync_hyp_vcpu(hyp_vcpu);
->   		pkvm_put_hyp_vcpu(hyp_vcpu);
->   	} else {
-> +		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
-> +
->   		/* The host is fully trusted, run its vCPU directly. */
-> -		ret = __kvm_vcpu_run(host_vcpu);
-> +		fpsimd_lazy_switch_to_guest(vcpu);
-> +		ret = __kvm_vcpu_run(vcpu);
-> +		fpsimd_lazy_switch_to_host(vcpu);
->   	}
->   
-
-@host_vcpu should have been hypervisor's linear mapping address in v6.12. It looks
-incorrect to assume it's a kernel's linear mapping address and convert it (@host_vcpu)
-to the hypervisor's linear address agin, if I don't miss anything.
-
-https://web.git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm64/kvm/hyp/nvhe/hyp-main.c?h=linux-6.12.y
-
-Thanks,
-Gavin
-
->   out:
-> @@ -486,12 +491,6 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
->   	case ESR_ELx_EC_SMC64:
->   		handle_host_smc(host_ctxt);
->   		break;
-> -	case ESR_ELx_EC_SVE:
-> -		cpacr_clear_set(0, CPACR_ELx_ZEN);
-> -		isb();
-> -		sve_cond_update_zcr_vq(sve_vq_from_vl(kvm_host_sve_max_vl) - 1,
-> -				       SYS_ZCR_EL2);
-> -		break;
->   	case ESR_ELx_EC_IABT_LOW:
->   	case ESR_ELx_EC_DABT_LOW:
->   		handle_host_mem_abort(host_ctxt);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-> index ee74006c47bc44ca1d9bdf1ce7d4d8a41cf8e494..a1245fa838319544f3770a05a58eeed5233f0324 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-> @@ -40,6 +40,9 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
->   {
->   	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
->   
-> +	if (!guest_owns_fp_regs())
-> +		__activate_traps_fpsimd32(vcpu);
-> +
->   	if (has_hvhe()) {
->   		val |= CPACR_ELx_TTA;
->   
-> @@ -48,6 +51,8 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
->   			if (vcpu_has_sve(vcpu))
->   				val |= CPACR_ELx_ZEN;
->   		}
-> +
-> +		write_sysreg(val, cpacr_el1);
->   	} else {
->   		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
->   
-> @@ -62,12 +67,32 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
->   
->   		if (!guest_owns_fp_regs())
->   			val |= CPTR_EL2_TFP;
-> +
-> +		write_sysreg(val, cptr_el2);
->   	}
-> +}
->   
-> -	if (!guest_owns_fp_regs())
-> -		__activate_traps_fpsimd32(vcpu);
-> +static void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
-> +{
-> +	if (has_hvhe()) {
-> +		u64 val = CPACR_ELx_FPEN;
-> +
-> +		if (cpus_have_final_cap(ARM64_SVE))
-> +			val |= CPACR_ELx_ZEN;
-> +		if (cpus_have_final_cap(ARM64_SME))
-> +			val |= CPACR_ELx_SMEN;
-> +
-> +		write_sysreg(val, cpacr_el1);
-> +	} else {
-> +		u64 val = CPTR_NVHE_EL2_RES1;
-> +
-> +		if (!cpus_have_final_cap(ARM64_SVE))
-> +			val |= CPTR_EL2_TZ;
-> +		if (!cpus_have_final_cap(ARM64_SME))
-> +			val |= CPTR_EL2_TSM;
->   
-> -	kvm_write_cptr_el2(val);
-> +		write_sysreg(val, cptr_el2);
-> +	}
->   }
->   
->   static void __activate_traps(struct kvm_vcpu *vcpu)
-> @@ -120,7 +145,7 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
->   
->   	write_sysreg(this_cpu_ptr(&kvm_init_params)->hcr_el2, hcr_el2);
->   
-> -	kvm_reset_cptr_el2(vcpu);
-> +	__deactivate_cptr_traps(vcpu);
->   	write_sysreg(__kvm_hyp_host_vector, vbar_el2);
->   }
->   
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index 46c1f5caf007331cdbbc806a184e9b4721042fc0..496abfd3646b9858e95e06a79edec11eee3a5893 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -462,6 +462,8 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
->   
->   	sysreg_save_host_state_vhe(host_ctxt);
->   
-> +	fpsimd_lazy_switch_to_guest(vcpu);
-> +
->   	/*
->   	 * Note that ARM erratum 1165522 requires us to configure both stage 1
->   	 * and stage 2 translation for the guest context before we clear
-> @@ -486,6 +488,8 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
->   
->   	__deactivate_traps(vcpu);
->   
-> +	fpsimd_lazy_switch_to_host(vcpu);
-> +
->   	sysreg_restore_host_state_vhe(host_ctxt);
->   
->   	if (guest_owns_fp_regs())
+>> +
+>> +struct hv_stats_page {
+>> +	union {
+>> +		u64 vp_cntrs[VpStatsMaxCounter];		/* VP counters */
+>> +		u8 data[HV_HYP_PAGE_SIZE];
+>> +	};
+>> +} __packed;
+>> +
+>> +struct mshv_root mshv_root = {};
 > 
+> Initializer is unnecessary for global variables. They are already set to zero.
+> 
+Yep, I'll remove it.
 
+>> +
+>> +enum hv_scheduler_type hv_scheduler_type;
+>> +
+>> +/* Once we implement the fast extended hypercall ABI they can go away. */
+>> +static void __percpu **root_scheduler_input;
+>> +static void __percpu **root_scheduler_output;
+> 
+> The __percpu is probably in the wrong place like mentioned in earlier
+> patches in this series.
+> 
+Ack, will fix.
+
+<snip>
+>> +
+>> +static int mshv_ioctl_passthru_hvcall(struct mshv_partition *partition,
+>> +				      bool partition_locked,
+>> +				      void __user *user_args)
+>> +{
+>> +	u64 status;
+>> +	int ret, i;
+> 
+> 'ret' should be initialized to 0. There's a path through this function that
+> never sets 'ret' and the return value would be stack garbage.
+> 
+Thanks, will fix.
+
+<snip>
+>> +
+>> +/*
+>> + * Explicit guest vCPU suspend is asynchronous by nature (as it is requested by
+>> + * dom0 vCPU for guest vCPU) and thus it can race with "intercept" suspend,
+>> + * done by the hypervisor.
+>> + * "Intercept" suspend leads to asynchronous message delivery to dom0 which
+>> + * should be awaited to keep the VP loop consistent (i.e. no message pending
+>> + * upon VP resume).
+>> + * VP intercept suspend can't be done when the VP is explicitly suspended
+>> + * already, and thus can be only two possible race scenarios:
+>> + *   1. implicit suspend bit set -> explicit suspend bit set -> message sent
+>> + *   2. implicit suspend bit set -> message sent -> explicit suspend bit set
+>> + * Checking for implicit suspend bit set after explicit suspend request has
+>> + * succeeded in either case allows us to reliably identify, if there is a
+>> + * message to receive and deliver to VMM.
+>> + */
+>> +static long
+> 
+> For this function, why is the return type "long" instead of "int"?  Same
+> question for several other functions below.  "long" works, but it's another
+> case of being gratuitously atypical -- unless there's a reason.
+> 
+No good reason. It should just be an int.
+
+<snip>
+>> +
+>> +	switch (args.type) {
+>> +	case MSHV_VP_STATE_LAPIC:
+>> +		state_data.type = HV_GET_SET_VP_STATE_LAPIC_STATE;
+>> +		data_sz = HV_HYP_PAGE_SIZE;
+>> +		break;
+>> +	case MSHV_VP_STATE_XSAVE:
+> 
+> Just FYI, you can put a semicolon after the colon on the above line, which
+> adds a null statement, and then the C compiler will accept the definition
+> of local variable data_sz_64 without needing the odd-looking braces. 
+> 
+> See https://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement/19830820
+> 
+> I learn something new every day! :-)
+> 
+I didn't know that! But actually I prefer the braces because they clearly
+denote a new block scope for that case.
+
+>> +	{
+>> +		u64 data_sz_64;
+>> +
+>> +		ret = hv_call_get_partition_property(vp->vp_partition->pt_id,
+>> +						     HV_PARTITION_PROPERTY_XSAVE_STATES,
+>> +						     &state_data.xsave.states.as_uint64);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		ret = hv_call_get_partition_property(vp->vp_partition->pt_id,
+>> +						     HV_PARTITION_PROPERTY_MAX_XSAVE_DATA_SIZE,
+>> +						     &data_sz_64);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		data_sz = (u32)data_sz_64;
+>> +		state_data.xsave.flags = 0;
+>> +		/* Always request legacy states */
+>> +		state_data.xsave.states.legacy_x87 = 1;
+>> +		state_data.xsave.states.legacy_sse = 1;
+>> +		state_data.type = HV_GET_SET_VP_STATE_XSAVE;
+>> +		break;
+>> +	}
+>> +	case MSHV_VP_STATE_SIMP:
+>> +		state_data.type = HV_GET_SET_VP_STATE_SIM_PAGE;
+>> +		data_sz = HV_HYP_PAGE_SIZE;
+>> +		break;
+>> +	case MSHV_VP_STATE_SIEFP:
+>> +		state_data.type = HV_GET_SET_VP_STATE_SIEF_PAGE;
+>> +		data_sz = HV_HYP_PAGE_SIZE;
+>> +		break;
+>> +	case MSHV_VP_STATE_SYNTHETIC_TIMERS:
+>> +		state_data.type = HV_GET_SET_VP_STATE_SYNTHETIC_TIMERS;
+>> +		data_sz = sizeof(vp_state.synthetic_timers_state);
+>> +		break;
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	if (copy_to_user(&user_args->buf_sz, &data_sz, sizeof(user_args->buf_sz)))
+>> +		return -EFAULT;
+>> +
+>> +	if (data_sz > args.buf_sz)
+>> +		return -EINVAL;
+>> +
+>> +	/* If the data is transmitted via pfns, delegate to helper */
+>> +	if (state_data.type & HV_GET_SET_VP_STATE_TYPE_PFN) {
+>> +		unsigned long user_pfn = PFN_DOWN(args.buf_ptr);
+>> +		size_t page_count = PFN_DOWN(args.buf_sz);
+>> +
+>> +		return mshv_vp_ioctl_get_set_state_pfn(vp, state_data, user_pfn,
+>> +						       page_count, is_set);
+>> +	}
+>> +
+>> +	/* Paranoia check - this shouldn't happen! */
+>> +	if (data_sz > sizeof(vp_state)) {
+>> +		vp_err(vp, "Invalid vp state data size!\n");
+>> +		return -EINVAL;
+>> +	}
+> 
+> I don't understand the above check.  sizeof(vp_state) is relatively small since
+> it is effectively sizeof(hv_synthetic_timers_state), which is 200 bytes if I've
+> done the arithmetic correctly. But data_sz could be a full page (4096 bytes)
+> for the LAPIC, SIMP, and SIEFP cases, and the check would cause an error to
+> be returned.
+> 
+data_sz > sizeof(vp_state) is true if and only if the HV_GET_SET_VP_STATE_TYPE_PFN
+bit is set in state_data.type. This check ensures that invariant holds.
+
+See just above where we delegate to mshv_vp_ioctl_get_set_state_pfn() in that case.
+
+>> +
+>> +	if (is_set) {
+>> +		if (copy_from_user(&vp_state, (__user void *)args.buf_ptr, data_sz))
+>> +			return -EFAULT;
+>> +
+>> +		return hv_call_set_vp_state(vp->vp_index,
+>> +					    vp->vp_partition->pt_id,
+>> +					    state_data, 0, NULL,
+>> +					    sizeof(vp_state), (u8 *)&vp_state);
+> 
+> This is one of the cases where data from user space gets passed directly to
+> the hypercall. So user space is responsible for ensuring that reserved fields
+> are zero'ed and for otherwise ensuring a proper hypercall input. I just
+> wonder if user space really does this correctly.
+> 
+The interfaces that are 'passthrough' like this remove quite a bit of
+complexity from the kernel code and delegates it to userspace and the hypervisor.
+
+It is on userspace to ensure the parameters are valid, and it's on the
+hypervisor to check the fields and error if they are used improperly.
+
+Note the hypervisor still needs to check everything regardless of if it comes
+from the kernel or directly from userspace.
+
+>> +
+>> +static vm_fault_t mshv_vp_fault(struct vm_fault *vmf)
+>> +{
+>> +	struct mshv_vp *vp = vmf->vma->vm_file->private_data;
+>> +
+>> +	switch (vmf->vma->vm_pgoff) {
+>> +	case MSHV_VP_MMAP_OFFSET_REGISTERS:
+>> +		vmf->page = virt_to_page(vp->vp_register_page);
+>> +		break;
+>> +	case MSHV_VP_MMAP_OFFSET_INTERCEPT_MESSAGE:
+>> +		vmf->page = virt_to_page(vp->vp_intercept_msg_page);
+>> +		break;
+>> +	case MSHV_VP_MMAP_OFFSET_GHCB:
+>> +		if (is_ghcb_mapping_available())
+>> +			vmf->page = virt_to_page(vp->vp_ghcb_page);
+>> +		break;
+> 
+> If there's no GHCB mapping available, execution just continues with
+> vmf->page not set. Won't the later get_page() call fail? Perhaps this
+> should fail if there's no GHCB mapping available. Or maybe there's
+> more about how this works that I'm ignorant of. :-)
+> 
+Hmm, maybe this check should just be removed. If we got here it means
+the vmf->vma->vm_pgoff was already set in mmap(), so the page should be
+valid in that case.
+
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	get_page(vmf->page);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int mshv_vp_mmap(struct file *file, struct vm_area_struct *vma)
+>> +{
+>> +	struct mshv_vp *vp = file->private_data;
+>> +
+>> +	switch (vma->vm_pgoff) {
+>> +	case MSHV_VP_MMAP_OFFSET_REGISTERS:
+>> +		if (!vp->vp_register_page)
+>> +			return -ENODEV;
+>> +		break;
+>> +	case MSHV_VP_MMAP_OFFSET_INTERCEPT_MESSAGE:
+>> +		if (!vp->vp_intercept_msg_page)
+>> +			return -ENODEV;
+>> +		break;
+>> +	case MSHV_VP_MMAP_OFFSET_GHCB:
+>> +		if (is_ghcb_mapping_available() && !vp->vp_ghcb_page)
+>> +			return -ENODEV;
+>> +		break;
+> 
+> Again, if no GHCB mapping is available, should this return success?
+> 
+I think this should just check the vp->vp_ghcb_page is not NULL, like
+the other cases. is_ghcb_mapping_available() is already checked to
+decide whether to map the page in the first place. I'll change it.
+
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	vma->vm_ops = &mshv_vp_vm_ops;
+>> +	return 0;
+>> +}
+<snip>
+>> +
+>> +	input_vtl.as_uint8 = 0;
+> 
+> I see eight occurrences in this source code file where the above statement
+> occurs and there is no further modification. Perhaps declare a static
+> variable that is initialized properly, and use it as the input parameter to the
+> various functions.  A second static variable could have the use_target_vtl = 1
+> setting that is needed in three places.
+> 
+I was a bit doubtful, but I tried this and it removes quite a few lines without
+much tradeoff in readability. Thanks!
+
+>> +	ret = hv_call_map_vp_state_page(partition->pt_id, args.vp_index,
+>> +					HV_VP_STATE_PAGE_INTERCEPT_MESSAGE,
+>> +					input_vtl,
+>> +					&intercept_message_page);
+<snip>>> +static int mshv_init_async_handler(struct mshv_partition *partition)
+>> +{
+>> +	if (completion_done(&partition->async_hypercall)) {
+>> +		pt_err(partition,
+>> +		       "Cannot issue another async hypercall, while another one in progress!\n");
+> 
+> Two uses of word "another" in the error message is redundant.  Perhaps
+> 
+> 	"Cannot issue async hypercall while another one is in progress!"
+> 
+Thanks, I'll change it.
+
+<snip>>> +
+>> +	/* Reject overlapping regions */
+>> +	if (mshv_partition_region_by_gfn(partition, mem->guest_pfn) ||
+>> +	    mshv_partition_region_by_gfn(partition, mem->guest_pfn + nr_pages - 1) ||
+>> +	    mshv_partition_region_by_uaddr(partition, mem->userspace_addr) ||
+>> +	    mshv_partition_region_by_uaddr(partition, mem->userspace_addr + mem->size - 1))
+>> +		return -EEXIST;
+> 
+> Having to fully walk the partition region list four times for the above checks
+> isn't the most efficient approach, but I'm guessing that creating a region isn't
+> really a hot path so it doesn't matter. And I don't know how long the region list
+> typically is.
+> 
+Indeed, it seems wasteful at first but the list is usually only a few entries long,
+and regions are rarely added or removed (usually just at boot).
+
+<snip>>> +/* Called for unmapping both the guest ram and the mmio space */
+>> +static long
+>> +mshv_unmap_user_memory(struct mshv_partition *partition,
+>> +		       struct mshv_user_mem_region mem)
+>> +{
+>> +	struct mshv_mem_region *region;
+>> +	u32 unmap_flags = 0;
+>> +
+>> +	if (!(mem.flags & BIT(MSHV_SET_MEM_BIT_UNMAP)))
+>> +		return -EINVAL;
+>> +
+>> +	if (hlist_empty(&partition->pt_mem_regions))
+>> +		return -EINVAL;
+> 
+> Isn't the above check redundant, given the lookup by gfn that is
+> done immediately below?
+> 
+Yes, I'll remove it.
+
+>> +
+>> +	region = mshv_partition_region_by_gfn(partition, mem.guest_pfn);
+>> +	if (!region)
+>> +		return -EINVAL;
+<snip>>> +	case MSHV_GPAP_ACCESS_TYPE_ACCESSED:
+>> +		hv_type_mask = 1;
+>> +		if (args.access_op == MSHV_GPAP_ACCESS_OP_CLEAR) {
+>> +			hv_flags.clear_accessed = 1;
+>> +			/* not accessed implies not dirty */
+>> +			hv_flags.clear_dirty = 1;
+>> +		} else { // MSHV_GPAP_ACCESS_OP_SET
+> 
+> Avoid C++ style comments.
+> 
+Ack
+
+>> +			hv_flags.set_accessed = 1;
+>> +		}
+>> +		break;
+>> +	case MSHV_GPAP_ACCESS_TYPE_DIRTY:
+>> +		hv_type_mask = 2;
+>> +		if (args.access_op == MSHV_GPAP_ACCESS_OP_CLEAR) {
+>> +			hv_flags.clear_dirty = 1;
+>> +		} else { // MSHV_GPAP_ACCESS_OP_SET
+> 
+> Same here.
+> 
+Ack
+
+>> +			hv_flags.set_dirty = 1;
+>> +			/* dirty implies accessed */
+>> +			hv_flags.set_accessed = 1;
+>> +		}
+>> +		break;
+>> +	}
+>> +
+>> +	states = vzalloc(states_buf_sz);
+>> +	if (!states)
+>> +		return -ENOMEM;
+>> +
+>> +	ret = hv_call_get_gpa_access_states(partition->pt_id, args.page_count,
+>> +					    args.gpap_base, hv_flags, &written,
+>> +					    states);
+>> +	if (ret)
+>> +		goto free_return;
+>> +
+>> +	/*
+>> +	 * Overwrite states buffer with bitmap - the bits in hv_type_mask
+>> +	 * correspond to bitfields in hv_gpa_page_access_state
+>> +	 */
+>> +	for (i = 0; i < written; ++i)
+>> +		assign_bit(i, (ulong *)states,
+> 
+> Why the cast to ulong *?  I think this argument to assign_bit() is void *, in
+> which case the cast wouldn't be needed.
+> 
+It looks like assign_bit() and friends resolve to a set of functions which do
+take an unsigned long pointer, e.g.:
+
+__set_bit() -> generic___set_bit(unsigned long nr, volatile unsigned long *addr)
+set_bit() -> arch_set_bit(unsigned int nr, volatile unsigned long *p)
+etc...
+
+So a cast is necessary.
+
+> Also, assign_bit() does atomic bit operations. Doing such in a loop like
+> here will really hammer the hardware memory bus with atomic 
+> read-modify-write cycles. Use __assign_bit() instead, which does
+> non-atomic operations. You don't need atomic here as no other
+> threads are modifying the bit array.
+> 
+I didn't realize it was atomic. I'll change it to __assign_bit().
+
+>> +			   states[i].as_uint8 & hv_type_mask);
+> 
+> OK, so the starting contents of "states" is an array of bytes. The ending
+> contents is an array of bits. This works because every bit in the ending
+> bit array is set to either 0 or 1. Overlap occurs on the first iteration
+> where the code reads the 0th byte, and writes the 0th bit, which is part of
+> the 0th byte. The second iteration reads the 1st byte, and writes the 1st bit,
+> which doesn't overlap, and there's no overlap from then on.
+> 
+> Suppose "written" is not a multiple of 8. The last byte of "states" as an
+> array of bits will have some bits that have not been set to either 0 or 1 and
+> might be leftover garbage from when "states" was an array of bytes. That
+> garbage will get copied to user space. Is that OK? Even if user space knows
+> enough to ignore those bits, it seems a little dubious to be copying even
+> a few bits of garbage to user space.
+> 
+> Some comments might help here.
+> 
+This is a good point. The expectation is indeed that userspace knows which
+bits are valid from the returned "written" value, but I agree it's a bit
+odd to have some garbage bits in the last byte. How does this look (to be
+inserted here directly after the loop):
+
++       /* zero the unused bits in the last byte of the returned bitmap */
++       if (written > 0) {
++               u8 last_bits_mask;
++               int last_byte_idx;
++               int bits_rem = written % 8;
++
++               /* bits_rem == 0 when all bits in the last byte were assigned */
++               if (bits_rem > 0) {
++                       /* written > 0 ensures last_byte_idx >= 0 */
++                       last_byte_idx = ((written + 7) / 8) - 1;
++                       /* bits_rem > 0 ensures this masks 1 to 7 bits */
++                       last_bits_mask = (1 << bits_rem) - 1;
++                       states[last_byte_idx].as_uint8 &= last_bits_mask;
++               }
++       }
+
+The remaining bytes could be memset() to zero but I think it's fine to leave
+them.
+
+>> +
+>> +	args.page_count = written;
+>> +
+>> +	if (copy_to_user(user_args, &args, sizeof(args))) {
+>> +		ret = -EFAULT;
+>> +		goto free_return;
+>> +	}
+>> +	if (copy_to_user((void __user *)args.bitmap_ptr, states, bitmap_buf_sz))
+>> +		ret = -EFAULT;
+>> +
+>> +free_return:
+>> +	vfree(states);
+>> +	return ret;
+>> +}
+<snip>
+>> +static void
+>> +handle_bitset_message(const struct hv_vp_signal_bitset_scheduler_message *msg)
+>> +{
+>> +	int bank_idx, vps_signaled = 0, bank_mask_size;
+>> +	struct mshv_partition *partition;
+>> +	const struct hv_vpset *vpset;
+>> +	const u64 *bank_contents;
+>> +	u64 partition_id = msg->partition_id;
+>> +
+>> +	if (msg->vp_bitset.bitset.format != HV_GENERIC_SET_SPARSE_4K) {
+>> +		pr_debug("scheduler message format is not HV_GENERIC_SET_SPARSE_4K");
+>> +		return;
+>> +	}
+>> +
+>> +	if (msg->vp_count == 0) {
+>> +		pr_debug("scheduler message with no VP specified");
+>> +		return;
+>> +	}
+>> +
+>> +	rcu_read_lock();
+>> +
+>> +	partition = mshv_partition_find(partition_id);
+>> +	if (unlikely(!partition)) {
+>> +		pr_debug("failed to find partition %llu\n", partition_id);
+>> +		goto unlock_out;
+>> +	}
+>> +
+>> +	vpset = &msg->vp_bitset.bitset;
+>> +
+>> +	bank_idx = -1;
+>> +	bank_contents = vpset->bank_contents;
+>> +	bank_mask_size = sizeof(vpset->valid_bank_mask) * BITS_PER_BYTE;
+>> +
+>> +	while (true) {
+>> +		int vp_bank_idx = -1;
+>> +		int vp_bank_size = sizeof(*bank_contents) * BITS_PER_BYTE;
+>> +		int vp_index;
+>> +
+>> +		bank_idx = find_next_bit((unsigned long *)&vpset->valid_bank_mask,
+>> +					 bank_mask_size, bank_idx + 1);
+>> +		if (bank_idx == bank_mask_size)
+>> +			break;
+>> +
+>> +		while (true) {
+>> +			struct mshv_vp *vp;
+>> +
+>> +			vp_bank_idx = find_next_bit((unsigned long *)bank_contents,
+>> +						    vp_bank_size, vp_bank_idx + 1);
+>> +			if (vp_bank_idx == vp_bank_size)
+>> +				break;
+>> +
+>> +			vp_index = (bank_idx << HV_GENERIC_SET_SHIFT) + vp_bank_idx;
+> 
+> This would be clearer if just multiplied by bank_mask_size instead of shifting.
+> Since the compiler knows the constant value of bank_mask_size, it should generate
+> the same code as the shift.
+> 
+I agree, but it should be multiplied by vp_bank_size as that's the size of a bank
+in bits, as opposed bank_mask_size which is the size of the valid banks mask in bits.
+
+(They're both the same value though, 64).
+
+<snip>>> +
+>> +enum {
+>> +	MSHV_GPAP_ACCESS_TYPE_ACCESSED = 0,
+>> +	MSHV_GPAP_ACCESS_TYPE_DIRTY,
+>> +	MSHV_GPAP_ACCESS_TYPE_COUNT		/* Count of enum members */
+>> +};
+>> +
+>> +enum {
+>> +	MSHV_GPAP_ACCESS_OP_NOOP = 0,
+>> +	MSHV_GPAP_ACCESS_OP_CLEAR,
+>> +	MSHV_GPAP_ACCESS_OP_SET,
+>> +	MSHV_GPAP_ACCESS_OP_COUNT		/* Count of enum members */
+>> +};
+> 
+> Any reason these two enums explicitly set the first value to 0, while
+> earlier enums do not?  This is another case of there being a difference,
+> and me wondering if it's just gratuitous or if there's a specific reason.
+> Consistency is a good thing!
+> 
+No reason, I'll remove these assignments.
+
+<snip>>> +/* Partition fds created with MSHV_CREATE_PARTITION */
+>> +#define MSHV_INITIALIZE_PARTITION	_IO(MSHV_IOCTL, 0x00)
+>> +#define MSHV_CREATE_VP			_IOW(MSHV_IOCTL, 0x01, struct mshv_create_vp)
+>> +#define MSHV_SET_GUEST_MEMORY		_IOW(MSHV_IOCTL, 0x02, struct mshv_user_mem_region)
+>> +#define MSHV_IRQFD			_IOW(MSHV_IOCTL, 0x03, struct mshv_user_irqfd)
+>> +#define MSHV_IOEVENTFD			_IOW(MSHV_IOCTL, 0x04, struct mshv_user_ioeventfd)
+>> +#define MSHV_SET_MSI_ROUTING		_IOW(MSHV_IOCTL, 0x05, struct mshv_user_irq_table)
+>> +#define MSHV_GET_GPAP_ACCESS_BITMAP	_IOWR(MSHV_IOCTL, 0x06, struct mshv_gpap_access_bitmap)
+>> +/* Generic hypercall */
+>> +#define MSHV_ROOT_HVCALL		_IOWR(MSHV_IOCTL, 0x07, struct mshv_root_hvcall)
+> 
+> I really don't like having the ioctl numbers here overlap with the /dev/mshv ioctls.
+> There's just no need to overlap. But I realize changing it now is a big hassle.
+> 
+Fair enough, there isn't a real need for overlap between the different device IOCTLs.
+But, yes, I am going to leave them alone unless there's a really good reason.
+
+>> +
+>> +/*
+>> + ********************************
+>> + * VP APIs for child partitions *
+>> + ********************************
+>> + */
+>> +
+>> +#define MSHV_RUN_VP_BUF_SZ 256
+>> +
+>> +/*
+>> + * Map various VP state pages to userspace.
+>> + * Multiply the offset by PAGE_SIZE before being passed as the 'offset'
+>> + * argument to mmap().
+>> + * e.g.
+>> + * void *reg_page = mmap(NULL, PAGE_SIZE, PROT_READ|PROT_WRITE,
+>> + *                       MAP_SHARED, vp_fd,
+>> + *                       MSHV_VP_MMAP_OFFSET_REGISTERS * PAGE_SIZE);
+>> + */
+> 
+> This is interesting.  I would not have thought PAGE_SIZE is available
+> in the UAPI.  You must use something like the getpagesize() call. I know
+> the root partition can only run with a 4K page size, but the symbol
+> "PAGE_SIZE" is probably kernel code only.
+> 
+PAGE_SIZE here is meant to imply using whatever the system page size is,
+but I think it's probably better to be explicit in the example. I will
+change it to sysconf(_SC_PAGE_SIZE) as that seems to be the recommended way.
+
+While at it I realized there were some more references to PAGE_SIZE and
+HV_HYP_PAGE_SIZE in this file, but neither are defined in uapi.
+I'm going to add a new #define MSHV_HV_PAGE_SIZE which matches the
+hypervisor native page size of 0x1000 for these cases.
+
+This mmap() call is the only time where the system page size is needed
+instead of the Hyper-V page size.
+
+>> +enum {
+>> +	MSHV_VP_MMAP_OFFSET_REGISTERS,
+>> +	MSHV_VP_MMAP_OFFSET_INTERCEPT_MESSAGE,
+>> +	MSHV_VP_MMAP_OFFSET_GHCB,
+>> +	MSHV_VP_MMAP_OFFSET_COUNT
+>> +};
+>> +
+>> +/**
+>> + * struct mshv_run_vp - argument for MSHV_RUN_VP
+>> + * @msg_buf: On success, the intercept message is copied here. It can be
+>> + *           interpreted using the relevant hypervisor definitions.
+>> + */
+>> +struct mshv_run_vp {
+>> +	__u8 msg_buf[MSHV_RUN_VP_BUF_SZ];
+>> +};
+>> +
+>> +enum {
+>> +	MSHV_VP_STATE_LAPIC,		/* Local interrupt controller state (either arch) */
+>> +	MSHV_VP_STATE_XSAVE,		/* XSAVE data in compacted form (x86_64) */
+>> +	MSHV_VP_STATE_SIMP,
+>> +	MSHV_VP_STATE_SIEFP,
+>> +	MSHV_VP_STATE_SYNTHETIC_TIMERS,
+>> +	MSHV_VP_STATE_COUNT,
+>> +};
+>> +
+>> +/**
+>> + * struct mshv_get_set_vp_hvcall - arguments for MSHV_[GET,SET]_VP_STATE
+> 
+> s/hvcall/state/
+> 
+Ack
+
+<snip>
+Thanks for the comments
+Nuno
 
