@@ -4,70 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA04C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 13:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D20C35FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 13:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n8hPagKbPuB7fz3X5Lg3RtNaeLruTBVSj3aHYFgk1NE=; b=Yfa9ypAQUz9aWcOoeBUExb3J3+
-	JDBczHJSYcMUk0Qwmh2ebMnZqLPOiY0mEBj81zoyPIGCapGi6TwE9qYq9I9HATdzSEs8PYl5uYZGu
-	EsRBUE1cGdNeK6Y0WltYB6adi51zmenBK+2fSKWKxdxvfcjy52awKbhaYproecugHegedbakH6xU5
-	oVSSEjor2sxEFZB0WnRIhmtirxZiP/TraULa3iHZj0eGz4YfmeKi6KjDCPAs9Ke0i4Veeqgq2QigL
-	aQq/s0GO9OXj1AkQGUyg27BLxnKdtnPc16HA7YCM1wwB3ux1uHF+RnvCZR8V2hFZ8eDU0muxk6c25
-	aLkZAUJw==;
+	bh=pnOMottt6fk1LgijeAg4vrH/BOvWCdfZhb2TyVU4pKo=; b=oE2ArLwdMxueOqBNfAa7NU9JpS
+	RzZ1tUH/nYl0foB8IA5gOz09dzYrSu7Z6Z5V5j0QsvX+gQyp8RZFZhWsMODk4GuJbUJ9bSAzxRSXA
+	OowSLQ38aK0hJGp84V7Av4dHEYdCDYerLLY/5CmSv5+zxjftAwSOetebo/FXRch9gPaS8RS+TR9V8
+	erVHobT4GZfdF+yHfJTP+q+kuHm7b4Sctwu4DMmPgrC4vKJas9l3TY9YcM8c7ZJLA0CDW+r+fBeug
+	a3+lYn8BYEpwbT4L2Cy2kSFp0LdzvrcTFP2qbCzd7mfh2U4iATwIif/1+I0yYaOncgJrBdehfGZ/+
+	2WVcql0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tutG8-000000093jS-1DLl;
-	Wed, 19 Mar 2025 13:15:00 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tutPh-000000094ru-05Ta;
+	Wed, 19 Mar 2025 13:24:53 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tutDi-000000093O8-3ZbB
+	id 1tutNz-000000094aB-1iLw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 13:12:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9CCA3A48D4B;
-	Wed, 19 Mar 2025 13:07:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C931C113CF;
-	Wed, 19 Mar 2025 13:12:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742389949;
-	bh=n8hPagKbPuB7fz3X5Lg3RtNaeLruTBVSj3aHYFgk1NE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c+abxySmgb4KrrYS++Faii+ngdDbuQnepKCNH0eWm/3AxasnpSlOD+o55gBS2ziTp
-	 eW3HpEv3Dmi/vb++HC/wq6D761CMKQs3JU6OcyNFoZccZpc5r2HviaakBG+SFNgGPM
-	 Tnz0KiW/EOztzT5M+CqG6IFs6w61wAc6IEtboo4isx9K4u4+LWWbokF3hNTfxiWBBW
-	 MAAhzwy3Gyxvsm4A61Km6KNR/Og7i6rx9ZO+Zeso2frWa3NwvDdwo+MYfD4qDFpSMi
-	 SBtQm7hDwYDe7shG5qVc+AFlwYMAAx5oopYqTrGeOG8kmyo7YPmMU9B9sIgB/jguJZ
-	 lqe1+Ilkx0zHg==
-Date: Wed, 19 Mar 2025 13:12:22 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
-	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
-	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
-	liaochang1@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/7] arm64/gcs: task_gcs_el0_enable() should use passed
- task
-Message-ID: <979bd797-6f92-4195-989c-9a004d0d018c@sirena.org.uk>
-References: <20250318204841.373116-1-jeremy.linton@arm.com>
- <20250318204841.373116-2-jeremy.linton@arm.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1WyOTuvindCPGRH2"
+	Wed, 19 Mar 2025 13:23:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E5xy9zvPbOrwXr79OGDRFfbkU+9qkPL8nIVRuPswjcZvX10C0khJLnWoscRI+Dx4f+T+dDwSDYlYRNaAzICGmUHh4PPhOyV7H1QSm6yRQ003q13pL4kRQ85ByuCR0tWRDgBO/7FvKermpbiBgKrOSPxTCYj8O2O5vyzOcLe6sOb5ld4T1ymiIOOoK8N1vc6pEFjaDFufemNptLRHLJIT54i5XOiK34sIs74IGG/e7ammYTQiZcvP10bnh17xfe2g2/q04qOdjgSBagAGcqn/t6JfiwGHW50DeSAB5wBC4O1W8tKKbHjnPBnjFJx4tCZ5wYW9Yb4FiTz+vEu7XXnfXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pnOMottt6fk1LgijeAg4vrH/BOvWCdfZhb2TyVU4pKo=;
+ b=yDsqzD/xjE77zxJJyWuBJaeZGSuOjJxk9usdEnl8zCtQubRFBgG+HXG81bo56WJYBXoHKRJIMHha6hk8fe6khOwQr1nIQH2joHg/LRdat+gOqHKM+qIp8dBeXWJuMiV0E+KoC7XD7stHLhXYT8eNYEJWSTyfd+ohQ8+Nn0CGy7+U4JqxZ67s54Yr4lbyKb45/F8XpgZJfe2U+XCc2C2NSpIXQi+kDryfiJkmKA2FNsRLT/973LdcJJ9AE5OLiapapT0sW0TkumhUQJ3IDSYyOAYOGb5WUlgt+tTzBLCjAX9uden7vUl2nunGXDbdrz0PgFSRt7PCQyZ4fohZllCN7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pnOMottt6fk1LgijeAg4vrH/BOvWCdfZhb2TyVU4pKo=;
+ b=UATWJ8rto+LstMvnP/MMslu99lBH1Uqqe1h+JypksmSxMuAd37i2LEL+nrHSGeHrdN6E2mOSxQKqyVaHFU5JKRUqlALFJR1KzE+3L1zXwC+RB2Y7TLfLSTIydPwFQY7OCiHTsZHHKLLthW1843oXCt1cx70vA5cQp0Xom67RXc/OuJijtAp+8vh3Dl6WxEFPS329AFlAxOrESk1eTJHp/5RP3iYGZ9f6o/K0XnBEJRIgiAx8bwb7IP7IsUaxOA7G9Pg4bXmex5NbTaXurNxlP2GlrTPeIVYbKgQ6OJbkckYuRCIKuYtZXVvdqGWd6WbzH1GDGLdgH0VlKCkn0sPX3g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB9678.eurprd04.prod.outlook.com (2603:10a6:102:23c::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Wed, 19 Mar
+ 2025 13:23:03 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.031; Wed, 19 Mar 2025
+ 13:23:03 +0000
+Date: Wed, 19 Mar 2025 09:22:53 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v12 06/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
+ checking and debug
+Message-ID: <Z9rFLSf9bcGyJqiT@lizhi-Precision-Tower-5810>
+References: <20250315201548.858189-7-helgaas@kernel.org>
+ <20250318153820.GA1001146@bhelgaas>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250318204841.373116-2-jeremy.linton@arm.com>
-X-Cookie: Chairman of the Bored.
+In-Reply-To: <20250318153820.GA1001146@bhelgaas>
+X-ClientProxiedBy: PH1PEPF000132FC.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:518:1::2d) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB9678:EE_
+X-MS-Office365-Filtering-Correlation-Id: 358b4070-1292-4628-c3cc-08dd66e92cf4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|366016|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?d/ivKcuNEeYpQAPMvRun1d1mAj8lHPg3p7V8/GXtjPeneUjUSB4QiBq4Ezxd?=
+ =?us-ascii?Q?R7F5KIp+96hJnM/cXzP3D95kB5ABaMoWt1aJx3QvrBkQcbjfIslgR77kdZqz?=
+ =?us-ascii?Q?0hsS5M+7O68l55bKdDK/7+n9XAS336MErFqQX9AuiA8VsVqj3F/8Wgrm00AL?=
+ =?us-ascii?Q?2kTcgpcoi7V52kIkTDCG6mcy0oGM/35m98xvNIyESJZAb3tyjO6EgVxMAMNs?=
+ =?us-ascii?Q?hZmOOgOZYqY7fZhuCJljq9eCKvb1isjnxhO7KKd+fXTHl0OTz77NX6fU6Oao?=
+ =?us-ascii?Q?AlBmlBwe0bjGrnjrQaAeQhU/wXspCIYYeJcYM2zRfizAwisF478UMDHhkq6S?=
+ =?us-ascii?Q?oOlIiojKUnaF08ysdfnATPU4E/JKvFoQ3Pt17wcP7rv4QqQ48ju88qVISlgY?=
+ =?us-ascii?Q?4R2bjxqvOX4YAWbjDgLlvmfivCinmW2GTs5veRdqGjbb9dpzG74VRiwQyEdT?=
+ =?us-ascii?Q?wo2xS3c6b9vQSlOHOemfif5ueC3JqlrfRWv8LnmL0xycvIVtopIWoUfCe7ya?=
+ =?us-ascii?Q?DFHkQRUEo7lO/noB+ptEG7DCHjOYfG8w55FTJ12lhjDuQ6UgK9vnMFBfveCw?=
+ =?us-ascii?Q?4SlqhUcUUSWrzR5fjChYR8GX758pC41HyGFRi9gmjF5COpJ5aC1/XaWTXrDn?=
+ =?us-ascii?Q?GZ1spPpOfIcdd4OGnS2B28aaR4lJQ5j0fopQ3khtl0S7C2d9K62+ptQ0xtjf?=
+ =?us-ascii?Q?J4WfY8ElhDCM97uh1/9RKV1Y6JVsyktvPbCdwCe/7vTsd3s0l+pUhfn6hPT1?=
+ =?us-ascii?Q?nhpUer+6eiDoT8guXAuaTm9u4tD/G7mX9xu6Z2xE6lyIBe2etOZFGEYPQH6n?=
+ =?us-ascii?Q?xjHC3gE2dhqBv91HJiOB7W6YsHQmwtnIteqE39ThZVc35Rgi9OqaG/SZbp0E?=
+ =?us-ascii?Q?tU3BShcdHRs1kMgzGk2QZ0h0TaVGgD0C8yDckoawhyYn6UvMlXDzBz9KwVt9?=
+ =?us-ascii?Q?py0dp7mdzXwLgTvWNqIXUBuhLG3Zht2q1VGZZBOF4aSDpMgZ9BIiJ0YMz5/5?=
+ =?us-ascii?Q?K0/kaftYJ7FbZ5fF77yxZc7Sh8XJBjPFyYcuglvjOP0XRjDMAdwe1ZHise0t?=
+ =?us-ascii?Q?KdqeDzFwp+VRMgFXO+Vd2+3XgxlSmlFzOGYIVGlwgGJ3E2g73IYurKvOWSmY?=
+ =?us-ascii?Q?elXlbFKm3AlCKk5gdi4R/wqV9IpSkNxyKs0Mt/KURC2V4b20Qh0chPWwVzc5?=
+ =?us-ascii?Q?y8Rvb9/zSf3DaPtl8WW/aC25WY4YqnqSMueeqAYVKkDD3n1cOIy0w3E1rtBH?=
+ =?us-ascii?Q?wM/DBmyfn5Uh25V+tzMjP02Q6JF7a7EpHK8IS392vkI6ZIQNDNoH/0s0xyK3?=
+ =?us-ascii?Q?8FwnsbsYyJNvfwqXxJX7oAyLP9EhmRHYAr1E7xFOmllazb9KPkteLc8Hx+jN?=
+ =?us-ascii?Q?skm+Wh+Kn7h6uGW9Ey9vG5fmlqf8eojTRWQlL+NM51VYfay+CTrOIda/AGNl?=
+ =?us-ascii?Q?KjnmdwX36Vfhf3O9h3gHyNEFX2loW++z?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MipxnRwKea9x+cphvzKm78X/YC009Lg51Ce4etWhByENLnPavFYSKRs2R6Up?=
+ =?us-ascii?Q?h8btdFCp9E0ZDvJlhYxyBUq5Pb/VXOS2lhkxgTeAAdScSK9YzyDUIwHDry7C?=
+ =?us-ascii?Q?2HEyfJyAhRXwApe0OXnbGagKpRDozG/tT2eU/Xm9pnllILLv1+QCppyS+Jfo?=
+ =?us-ascii?Q?BrozL9iuR3AjIDe2qePkLK3ktHlS10WPUlNOk2gaYn1b6HFPZFFzxtxR7bPl?=
+ =?us-ascii?Q?W8lR8PFTUmGVA9eUNi0W16LPSgAYWoapVBr+hPFkI9VLjAbPisEFVb90+c9w?=
+ =?us-ascii?Q?3/k+sMPBGOdfuKgSPy7JrLRVsa3oSZ2fGLvFC5LmeEt7bH1u5moX07IKeHXg?=
+ =?us-ascii?Q?wvdkSXtQ22pjHKjbUclkLZJQ0tLnPMCIGSR9pIy7v9B15WNl/3vzOL5oNsNu?=
+ =?us-ascii?Q?Ht4ZMbIspYlY6isTPNY/NKp2/ynYjbB8gE3EN2TAeTVzVT8vA4vuSSmUgLEJ?=
+ =?us-ascii?Q?MmmHz0ew0mRFCNqbjYXF1V18Rr+IDP3IDUe9y7HLnjSvqjqqijNMWGOXZbLI?=
+ =?us-ascii?Q?Q75XAPvT4KF1MNT2z9AjvEubw534+MzxWx/RI3dMFP+vfl9RdkpoBNxserJk?=
+ =?us-ascii?Q?WNLtcrExKlP1s1voQtNwySmNKgfzz9Di18tp/rWfXtJ7DDr4RNbVDF7AHF3k?=
+ =?us-ascii?Q?Uhg+jX34oP11LWOkc2148QXUoBlmJL1rgYTj1yc4WjRYvPNkMSSvEUjBOWX3?=
+ =?us-ascii?Q?OP1OUwh31JxJeAmQxWw1VlkdgKDpEPNjx6+pvUqBKmmEmAUC5XeDQuyXEYyo?=
+ =?us-ascii?Q?LGkFMXLsHOmdIpjabpKW6UjpFG0a+oMplPgQGuK8OqjBcoVgO6fo7WjeXUrw?=
+ =?us-ascii?Q?AiT6VwmU7xCY93Xyy7/FJJ9f4iKZXjKt8MiPgd/otsHLZDhQnKVg2W/luVxU?=
+ =?us-ascii?Q?jO3VFVTHQ3S6b0QtwXjOEb+cBTYcIVo9+tiAAG0DkvwWg4yZ1BgdVK3u0XHa?=
+ =?us-ascii?Q?QMMgS6VRhDpZNgfCaRqzq22MkED2ja62B4F5sLN712r5LmI7QOTz5TWKM1sz?=
+ =?us-ascii?Q?XPn9xtrx7PSJq5C3eZgWzVmrigoKBdRCm64kAiwW2n18Nl1XsRjlbaFMxVrB?=
+ =?us-ascii?Q?EnEkMnA42Wz7h+/U3i1Xtu0d3TDudUdCQ4mNAUhpdBmTcl9ae3LTEHRSdu3p?=
+ =?us-ascii?Q?evaCWbZadctjLNUu98Ik1Ih5FNH8PZehf+dKc5dgkyyw+zbe9TB1hgUrw0ZJ?=
+ =?us-ascii?Q?XQqLm/+Mioo01NhK8UKSgtoUqNX+GmDewdwvl8X5avgpDtjp6ZyNNn5+jBtn?=
+ =?us-ascii?Q?wB1uf9rnIAAXFL7p4crXKGuza1+CUbp+iImVUEOA25fQBmAM7bqP8FfN0JhS?=
+ =?us-ascii?Q?ST5vnc28d7GB8bD8BNJiafP+U3N8T1CsBn4RzrTIdwm+Bj//Dqcq4iXo+TVj?=
+ =?us-ascii?Q?WikzW/ao1859idPQwAGN1dlYCq2tEocJ29FvMGK2mrFnNTcFRLsGi+PK6CqH?=
+ =?us-ascii?Q?5jJ1fhoWJr7rcMKIu5oeiBf0+H992Jnz/Ry++o+eoY4fD6mQLDl5hmhKafBl?=
+ =?us-ascii?Q?Y5HYNToGUlSRtbv81+PJE6lgYjKEEVXfnDjNLNCj2kHsSyMlf1+FNpPP3p48?=
+ =?us-ascii?Q?BRcpi8cLrwPx6S5mxmY=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 358b4070-1292-4628-c3cc-08dd66e92cf4
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2025 13:23:03.0103
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7WaemAZiMB5jwZBrt/8/mKg1pv8LHUsmqNZIonVcN39F+0xR9mWWoXdnSPdNP1Fq3ZKc585urax7Mh/Dhn76VA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_061230_951565_B754BFA1 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20250319_062307_451076_5AEC878A 
+X-CRM114-Status: GOOD (  28.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,33 +170,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Mar 18, 2025 at 10:38:20AM -0500, Bjorn Helgaas wrote:
+> On Sat, Mar 15, 2025 at 03:15:41PM -0500, Bjorn Helgaas wrote:
+> > From: Frank Li <Frank.Li@nxp.com>
+> >
+> > dw_pcie_parent_bus_offset() looks up the parent bus address of a PCI
+> > controller 'reg' property in devicetree.  If implemented, .cpu_addr_fixup()
+> > is a hard-coded way to get the parent bus address corresponding to a CPU
+> > physical address.
+> >
+> > Add debug code to compare the address from .cpu_addr_fixup() with the
+> > address from devicetree.  If they match, warn that .cpu_addr_fixup() is
+> > redundant and should be removed; if they differ, warn that something is
+> > wrong with the devicetree.
+> >
+> > If .cpu_addr_fixup() is not implemented, the parent bus address should be
+> > identical to the CPU physical address because we previously ignored the
+> > parent bus address from devicetree.  If the devicetree has a different
+> > parent bus address, warn about it being broken.
+>
+> > +++ b/drivers/pci/controller/dwc/pcie-designware.c
+> > @@ -1114,7 +1114,8 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
+> >  	struct device *dev = pci->dev;
+> >  	struct device_node *np = dev->of_node;
+> >  	int index;
+> > -	u64 reg_addr;
+> > +	u64 reg_addr, fixup_addr;
+> > +	u64 (*fixup)(struct dw_pcie *pcie, u64 cpu_addr);
+> >
+> >  	/* Look up reg_name address on parent bus */
+> >  	index = of_property_match_string(np, "reg-names", reg_name);
+> > @@ -1126,5 +1127,28 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
+> >
+> >  	of_property_read_reg(np, index, &reg_addr, NULL);
+> >
+> > +	fixup = pci->ops->cpu_addr_fixup;
+> > +	if (fixup) {
+> > +		fixup_addr = fixup(pci, cpu_phy_addr);
+> > +		if (reg_addr == fixup_addr) {
+> > +			dev_warn(dev, "%#010llx %s reg[%d] == %#010llx; %ps is redundant\n",
+>
+> On second thought, I think this one should be a dev_info(), not a
+> dev_warn().  We know the *current* devicetree describes the offset
+> correctly, but there may be other devicetrees that do not describe it,
+> and we need to keep .cpu_addr_fixup() for those other devicetrees.
+>
+> So there's nothing the current user can or should do about this.
 
---1WyOTuvindCPGRH2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Okay
 
-On Tue, Mar 18, 2025 at 03:48:35PM -0500, Jeremy Linton wrote:
-> Mark Rutland noticed that the task parameter is ignored and
-> 'current' is being used instead. Since this is usually
-> what its passed, it hasn't yet been causing problems but likely
-> will as the code gets more testing.
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
-
---1WyOTuvindCPGRH2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfawrUACgkQJNaLcl1U
-h9BglQf/V4W+8RCMCKLae1WNVlW6t1laAXA8fGzyIRqPpHvOyM4r1/FEClh5LLsW
-25z4xfwfAm58qvknNwr2f8qh1AltjRq7pTBqxYynX2pr9EVY71ZhX4QtuwAPMz1K
-c7kwvxvQjvMBgdhfL4/eS3J2nEVB0P+sesI3eflrcVLoHR7mGX4r2BhErXo6qXyk
-gtOemiHpwbzjLm4vV9q7lP4egKPMjSAwv3qe7LaNSTzYXBtUvUYZrTOTI8sMcLn3
-hEDf7oukp0WiDeAvVS0hW5UdtMnNAZPTmxaZ+jvp9QCXFQFLYLZ1oJiWfBOaDzpH
-QBt0vlj3s7lgFRbcxMqTKiDQCUdWYg==
-=oFyA
------END PGP SIGNATURE-----
-
---1WyOTuvindCPGRH2--
+Frank
+>
+> > +				 cpu_phy_addr, reg_name, index,
+> > +				 fixup_addr, fixup);
+> > +		} else {
+> > +			dev_warn(dev, "%#010llx %s reg[%d] != %#010llx fixed up addr; devicetree is broken\n",
+> > +				 cpu_phy_addr, reg_name,
+> > +				 index, fixup_addr);
+> > +			reg_addr = fixup_addr;
+> > +		}
+> > +	} else if (!pci->use_parent_dt_ranges) {
+> > +		if (reg_addr != cpu_phy_addr) {
+> > +			dev_warn(dev, "devicetree has incorrect translation; please check parent \"ranges\" property. CPU physical addr %#010llx, parent bus addr %#010llx\n",
+> > +				 cpu_phy_addr, reg_addr);
+> > +			return 0;
+> > +		}
+> > +	}
+> > +
+> > +	dev_info(dev, "%s parent bus offset is %#010llx\n",
+> > +		 reg_name, cpu_phy_addr - reg_addr);
+> >  	return cpu_phy_addr - reg_addr;
+> >  }
 
