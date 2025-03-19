@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68364C35FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CCFC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 04:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v1eGmQWoQGN9Dkax1HXc1+f2DIdudnDU/1Bx3UVDXHM=; b=yOLnpEShqNit2P+BtpfhJSVkKp
-	Ix+2nYHU4gl+SOSz1zzAFZRvwyIB0ys2I350yj3MQ8OIasw0kKhP0VzZ/qSNo6ASmN/xQFZDD8iUV
-	+G9A4rU9JmWTNoN90Kg+jrPguT3HGKMC+lW6C5xZLKyYOWRpwRBv3UMsMCIIv3khlVaI03gKz0T1f
-	nX+n4A6sBdWm8Z5n/MN6oTqvOodnEaJ+actEFQJioo+jT04rPrEGRV2SpW68aO6Wt0oiVNRvNCrua
-	BHGorsjzmJ7huuA/rhwMhNg8PMT/ACHVesP5hUgPMYvVrLCwdIImFzMajh78X+yzy4e+eXn6VuMTe
-	BEZGPDGA==;
+	bh=NKSll+AjFaXDsa3V404KP+oTDZ/84YQEiVw+vNnx8JY=; b=HfoGOssSdbF4nYBI9CVg3anrt/
+	o8BvzEdlO+vCPTYAdZ2rSHP2Ang40DXbVQ2REHkMFxVk0yhttj3Nr4wb8sr00pjg2Zszj86FOw9l0
+	Bj6lI4kocbEI4DSK1VzKSL0o3KBNvQnYRmaKhv55dhyNn3D6ja/U2qvjQ3KNL/KaQ2FbfiZ8g9Ivl
+	i33Fta4SW9dZnXf38ZFCVz8uyh19XYojkEVyBcVFn3JqIK+E+Te2jw/ZEmmIHtp/+vTCwvSCa/Dp7
+	gbe3uddtXjPNaYuDPZRUb0Nx9T/hXlpcFAVMFgGmoA/0gLEfKY7XdzSeW4zoMe6ecRXDegeda3cI9
+	8mCjibkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tukFW-00000007um5-1gVt;
-	Wed, 19 Mar 2025 03:37:46 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tukbp-00000007wOT-2mw9;
+	Wed, 19 Mar 2025 04:00:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tukDM-00000007uQh-3ZKH
+	id 1tuka9-00000007wA8-0nfu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 03:35:34 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e50bae0f5bso5980a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 20:35:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742355331; x=1742960131; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=v1eGmQWoQGN9Dkax1HXc1+f2DIdudnDU/1Bx3UVDXHM=;
-        b=MsIgFV4b/nQsHwDvT/f+WhWMMZHNlfnyQacx7MjjBQAPfHTD1o+OMkPDL/UcKlXU0Z
-         QjjBnAeLPLb0cA37NCPnodtX4YtlcA7mKi0865PRWYf7y+PE4cef+rGkgJdbA3ydOnJP
-         yYCv197VvsMbiqvF0ToXFCJ3bVNt4fvs5vLAaHTehy22xXemMVcngiFW1aTsVluvsLZZ
-         RKcxh+gq0q3fBPSOmqdsFWGfHca7Gqszu4MIDNQas1ZPwFqnxJbpMSN9ey9A+7os9yDD
-         qIvbmhxU2CbvV7uDEfSPVN1l2QQI3nvrSXshPb7Iij2Y6Z28iPfGK712F9k97LGUhjH8
-         Tf+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742355331; x=1742960131;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=v1eGmQWoQGN9Dkax1HXc1+f2DIdudnDU/1Bx3UVDXHM=;
-        b=ssOGPOhxHHG7d3didhJLy+SlcMoYui3YHWhqi3ESmYuP4AP08fW7/oWnKbIJpzTo0x
-         VrRIh4fX9CQ36p6SpuPQQsZeT+xujQTpw/L8GMh8gYoKzL5qlCPh45LAohwWkEZkArgF
-         BKGVjC/ioRzSkyamm3Nl5cHODSMvYHz8ej5zCUyzoQy2B0BsslfxBbpoENNX5SPfFfBC
-         FAHmK4MlLd4saNHnNiCSGUxACZKpE2V2wfZ3KAsd6dvN5EIzjDG9Se0qwiy0rZUwo+fZ
-         gJDLlG67hyicPqPc6pK4vQvfGr6Ffnll6Zfo2HJrZPyo1zCSKys4j5vEQLv0yR8fTuKe
-         vpCg==
-X-Forwarded-Encrypted: i=1; AJvYcCXOX50FqFqxz8QB5zuJ41ndieAiLazCX7TQTW6rmTZjJAppdqrqY32DkrmDzCK1n2xXKvXZ2beA0UjktaeoBqSS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcIvDvao0Yf1k7P/q6tkkZFViWxfMdnQTMu0DAIV1Z5mp3tM21
-	MxAFowImi64kOjnkfo+dLaOizrxTSkFIYOFn8qlRrugwQqJtFqVwXFkOe3KMDCfVUZ0AqwFi6cG
-	Yag8pDVsd87JwI1LIo/0nk4bT7lEfqOClHsB7
-X-Gm-Gg: ASbGncs7N8jYoXiDumQWoEKlKFoIfRNxSGX45Qc71tX9wx9ueumbYeHnOpX7d8bSZw6
-	qDeG7gZWNYcpZsYGJeeUagt/ez2TYSMA/DDzyjf0ghI7hlW1MdRE0oHiQfWYtxakdWxtY+EAn2M
-	nefK9Ku602XcMI3Fd84CAWzb9PuifaTKqzZ+EpfghjThAKgsJbT3v3od00ZnOy/cm1Uw==
-X-Google-Smtp-Source: AGHT+IEt+19WG9IHzZ81Mv9euoAb/rztC5JqY4WZb1WW6DcgrlMezNBnKgRxYmL642WrrToMiGpcBZS+CqAISTXPMYI=
-X-Received: by 2002:aa7:c1da:0:b0:5e5:c024:ec29 with SMTP id
- 4fb4d7f45d1cf-5eb7e96330cmr62254a12.0.1742355330636; Tue, 18 Mar 2025
- 20:35:30 -0700 (PDT)
+	Wed, 19 Mar 2025 03:59:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 44A2E61606
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 03:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAE79C4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 03:59:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742356743;
+	bh=nJdePGolDOxThuT4ThxqJ1hMOvDDzgOCApbzNq/083I=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=f62a7Y7eQEz8j24i1zwa4EnttCuxmn4ead+oTqajI3jCk6BrPUsMktAAG/S4RJoXB
+	 2y8C+Tw4Ab48scWnjlZy5UTpdde3/ri7v5V/0ArG+7z2VDMe3QBq2U/cZQONwSXx1k
+	 LgFxVBqvOd4tPrgIpHwNkRyhPKIKdnSQ7onxIDdEox50Z1qy+J9oIwpnCN1OHW5hrg
+	 ubtDzTk+bNlbjJohh61xOTTsmv6ZOajJFSTYTFhig6Q1iGIddZuA9Cq9U4kFNeknHq
+	 86FwywN5VdHHxuJpb/3vEA/wvKKTx09i9N7usXotXuT3kIAfSZBHei+hC6tCLHdMTG
+	 3m0sl7tp80vwQ==
+Received: by mail-il1-f177.google.com with SMTP id e9e14a558f8ab-3d442a77a03so18530855ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 20:59:03 -0700 (PDT)
+X-Gm-Message-State: AOJu0YwRAoVZd1oxEWaSdHkXXGpmbjRkXA6LinqhG6O/aaj0UceeCgdY
+	GdjS0Ggk95fcIKYeKF1Z2WVH70sVb0DztIu2CE1x/ElNShXmmP31pCIK3u9N2qXnXLnTZgbfEiy
+	MVc5C9jF5Lv1+liZIFFjVOx6OD5A=
+X-Google-Smtp-Source: AGHT+IGhlzOUomoHZuyt8hTr9krnohQDGxaTZPrFGMMN4mUZ/OdCXyZ4UpJNV9IGF0TuiKDCHyPwaobT5UyUdnL7UCY=
+X-Received: by 2002:a92:c246:0:b0:3d3:f64a:38b9 with SMTP id
+ e9e14a558f8ab-3d586ba4e4amr12677985ab.15.1742356743031; Tue, 18 Mar 2025
+ 20:59:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250318214035.481950-1-pcc@google.com> <20250318214035.481950-2-pcc@google.com>
- <202503181957.55A0E0A@keescook>
-In-Reply-To: <202503181957.55A0E0A@keescook>
-From: Peter Collingbourne <pcc@google.com>
-Date: Tue, 18 Mar 2025 20:35:19 -0700
-X-Gm-Features: AQ5f1Jq3z05plokQ9oy7A8yZz95pSsT-oxsin3iEVaTMKIK56JFI_UIbnlyp_vI
-Message-ID: <CAMn1gO7TG0xXMFNFXTm9W8n4hdit9Yr40m4jvFCjdv9fGiU5iw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] string: Add load_unaligned_zeropad() code path to sized_strscpy()
-To: Kees Cook <kees@kernel.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Andy Shevchenko <andy@kernel.org>, 
-	Andrey Konovalov <andreyknvl@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+References: <20250308012742.3208215-1-song@kernel.org> <20250308012742.3208215-2-song@kernel.org>
+ <iajk7zuxy7fun7f7sv52ydhq7siqub3ec2lmguomdd3fhdw4s2@cwyfihj3gvpn>
+ <CAPhsuW4A73c0AjpUwSRJ4o-4E6wpA9c5L0xWaxvHkJ3m+BLGVA@mail.gmail.com>
+ <ox4c6flgu7mzkvyontbz2budummiu7e6icke7xl3msmuj2q2ii@xb5mvqcst2vg>
+ <CAPhsuW4BEDU=ZJavnofZtygGcQ9AJ5F2jJiuV6-nsnbZD+Gg-Q@mail.gmail.com> <pym6gfbapfy6qlmduszjk6tf2oc2fv4rtxgwjgex7bwlgpfwvs@bkt7qfmf7rc4>
+In-Reply-To: <pym6gfbapfy6qlmduszjk6tf2oc2fv4rtxgwjgex7bwlgpfwvs@bkt7qfmf7rc4>
+From: Song Liu <song@kernel.org>
+Date: Tue, 18 Mar 2025 20:58:52 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW6_ZA+V_5JK+xy4v3pyQ-kaZzUooxO=4L+c95fHaW38ig@mail.gmail.com>
+X-Gm-Features: AQ5f1JqUKV77-11Llcj708ejD78WXiysKYghH5KgEYTc37jjnaWgIAoDKjabSdQ
+Message-ID: <CAPhsuW6_ZA+V_5JK+xy4v3pyQ-kaZzUooxO=4L+c95fHaW38ig@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
+	indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com, 
+	irogers@google.com, joe.lawrence@redhat.com, mark.rutland@arm.com, 
+	peterz@infradead.org, roman.gushchin@linux.dev, rostedt@goodmis.org, 
+	will@kernel.org, kernel-team@meta.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_203532_912947_CC781D46 
-X-CRM114-Status: GOOD (  34.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,114 +87,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 8:06=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+On Tue, Mar 18, 2025 at 6:03=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org=
+> wrote:
 >
-> On Tue, Mar 18, 2025 at 02:40:32PM -0700, Peter Collingbourne wrote:
-> > The call to read_word_at_a_time() in sized_strscpy() is problematic
-> > with MTE because it may trigger a tag check fault when reading
-> > across a tag granule (16 bytes) boundary. To make this code
-> > MTE compatible, let's start using load_unaligned_zeropad()
-> > on architectures where it is available (i.e. architectures that
-> > define CONFIG_DCACHE_WORD_ACCESS). Because load_unaligned_zeropad()
-> > takes care of page boundaries as well as tag granule boundaries,
-> > also disable the code preventing crossing page boundaries when using
-> > load_unaligned_zeropad().
+> On Tue, Mar 18, 2025 at 04:38:20PM -0700, Song Liu wrote:
+> > On Tue, Mar 18, 2025 at 4:00=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel=
+.org> wrote:
+> > >   - even in the -ENOENT case the unreliable bit has already been set
+> > >     right before the call to kunwind_next_frame_record_meta().
 > >
-> > Signed-off-by: Peter Collingbourne <pcc@google.com>
-> > Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4bf=
-98ada827fdf755548
-> > Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
-> > Cc: stable@vger.kernel.org
-> > ---
-> > v2:
-> > - new approach
-> >
-> >  lib/string.c | 13 ++++++++++---
-> >  1 file changed, 10 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/lib/string.c b/lib/string.c
-> > index eb4486ed40d25..b632c71df1a50 100644
-> > --- a/lib/string.c
-> > +++ b/lib/string.c
-> > @@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, =
-size_t count)
-> >       if (count =3D=3D 0 || WARN_ON_ONCE(count > INT_MAX))
-> >               return -E2BIG;
-> >
-> > +#ifndef CONFIG_DCACHE_WORD_ACCESS
-> >  #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+> > For this one, do you mean we set state->common.unreliable, but
+> > failed to propagate it to data.unreliable?
 >
-> I would prefer this were written as:
+> Hm, I hadn't noticed that.  That code is quite the maze.
 >
-> #if !defined(CONFIG_DCACHE_WORD_ACCESS) && \
->     defined(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)
+> It's unfortunate there are two separate 'unreliable' variables.  It
+> looks like consume_state() is the only way they get synced?
 >
-> Having 2 #ifs makes me think there is some reason for having them
-> separable. But the logic here is for a single check.
+> How does that work if kunwind_next() returns an error and skips
+> consume_state()?  Or if kunwind_recover_return_address() returns an
+> error to kunwind_next()?
+>
+> What I actually meant was the following:
+>
+>   do_kunwind()
+>     kunwind_next()
+>       kunwind_next_frame_record()
+>         state->common.unreliable =3D true;
+>         kunwind_next_frame_record_meta()
+>           return -ENOENT;
+>
+> Notice that in the success case (-ENOENT), unreliable has already been
+> set.
+>
+> Actually I think it would be much simpler to just propagate -ENOENT down
+> the call chain.  Then no 'unreliable' bits needed.
 
-There is indeed a reason for having two: there's an #else in the
-middle (which pertains to CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
-only).
+Yeah, I was thinking about something like this. This is actually quite
+similar to my original RFC version.
+
+On a closer look, I think we also need some logic in unwind_find_stack()
+so that we can see when the unwinder hits the exception boundary. For
+this reason, we may still need unwind_state.unreliable. I will look into
+fixing this and send v2.
+
+Thanks,
+Song
 
 >
-> >       /*
-> >        * If src is unaligned, don't cross a page boundary,
-> > @@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src=
-, size_t count)
-> >       /* If src or dest is unaligned, don't do word-at-a-time. */
-> >       if (((long) dest | (long) src) & (sizeof(long) - 1))
-> >               max =3D 0;
-> > +#endif
-> >  #endif
+> Like so (instead of original patch):
 >
-> (Then no second #endif needed)
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index c9fe3e7566a6..5713fad567c5 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -276,6 +276,7 @@ config ARM64
+>         select HAVE_SOFTIRQ_ON_OWN_STACK
+>         select USER_STACKTRACE_SUPPORT
+>         select VDSO_GETRANDOM
+> +       select HAVE_RELIABLE_STACKTRACE
+>         help
+>           ARM 64-bit (AArch64) Linux support.
 >
-> >
-> >       /*
-> > -      * read_word_at_a_time() below may read uninitialized bytes after=
- the
-> > -      * trailing zero and use them in comparisons. Disable this optimi=
-zation
-> > -      * under KMSAN to prevent false positive reports.
-> > +      * load_unaligned_zeropad() or read_word_at_a_time() below may re=
-ad
-> > +      * uninitialized bytes after the trailing zero and use them in
-> > +      * comparisons. Disable this optimization under KMSAN to prevent
-> > +      * false positive reports.
-> >        */
-> >       if (IS_ENABLED(CONFIG_KMSAN))
-> >               max =3D 0;
-> > @@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src,=
- size_t count)
-> >       while (max >=3D sizeof(unsigned long)) {
-> >               unsigned long c, data;
-> >
-> > +#ifdef CONFIG_DCACHE_WORD_ACCESS
-> > +             c =3D load_unaligned_zeropad(src+res);
-> > +#else
-> >               c =3D read_word_at_a_time(src+res);
-> > +#endif
-> >               if (has_zero(c, &data, &constants)) {
-> >                       data =3D prep_zero_mask(c, data, &constants);
-> >                       data =3D create_zero_mask(data);
+> @@ -2509,4 +2510,3 @@ endmenu # "CPU Power Management"
+>  source "drivers/acpi/Kconfig"
 >
-> The rest seems good. Though I do wonder: what happens on a page boundary
-> for read_word_at_a_time(), then? We get back zero-filled remainder? Will
-> that hide a missing NUL terminator? As in, it's not actually there
-> because of the end of the page/granule, but a zero was put in, so now
-> it looks like it's been terminated and the exception got eaten? And
-> doesn't this hide MTE faults since we can't differentiate "overran MTE
-> tag" from "overran granule while over-reading"?
-
-Correct. The behavior I implemented seems good enough for now IMO (and
-at least good enough for backports). If we did want to detect this
-case, we would need an alternative to "load_unaligned_zeropad" that
-would do something other than fill the unreadable bytes with zeros in
-the fault handler. For example, it could fill them with all-ones. That
-would prevent the loop from being terminated by the tag check fault,
-and we would proceed to the next granule, take another tag check fault
-which would recur in the fault handler and cause the bug to be
-detected.
-
-Peter
+>  source "arch/arm64/kvm/Kconfig"
+> -
+> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrac=
+e.c
+> index 1d9d51d7627f..e227da842bc3 100644
+> --- a/arch/arm64/kernel/stacktrace.c
+> +++ b/arch/arm64/kernel/stacktrace.c
+> @@ -277,22 +277,28 @@ kunwind_next(struct kunwind_state *state)
+>
+>  typedef bool (*kunwind_consume_fn)(const struct kunwind_state *state, vo=
+id *cookie);
+>
+> -static __always_inline void
+> +static __always_inline int
+>  do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state=
+,
+>            void *cookie)
+>  {
+> -       if (kunwind_recover_return_address(state))
+> -               return;
+> +       int ret;
+> +
+> +       ret =3D kunwind_recover_return_address(state);
+> +       if (ret)
+> +               return ret;
+>
+>         while (1) {
+>                 int ret;
+>
+>                 if (!consume_state(state, cookie))
+> -                       break;
+> +                       return -EINVAL;
+> +
+>                 ret =3D kunwind_next(state);
+> -               if (ret < 0)
+> -                       break;
+> +               if (ret)
+> +                       return ret;
+>         }
+> +
+> +       return -EINVAL;
+>  }
+>
+>  /*
+> @@ -324,7 +330,7 @@ do_kunwind(struct kunwind_state *state, kunwind_consu=
+me_fn consume_state,
+>                         : stackinfo_get_unknown();              \
+>         })
+>
+> -static __always_inline void
+> +static __always_inline int
+>  kunwind_stack_walk(kunwind_consume_fn consume_state,
+>                    void *cookie, struct task_struct *task,
+>                    struct pt_regs *regs)
+> @@ -352,7 +358,7 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
+>
+>         if (regs) {
+>                 if (task !=3D current)
+> -                       return;
+> +                       return -EINVAL;
+>                 kunwind_init_from_regs(&state, regs);
+>         } else if (task =3D=3D current) {
+>                 kunwind_init_from_caller(&state);
+> @@ -360,7 +366,7 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
+>                 kunwind_init_from_task(&state, task);
+>         }
+>
+> -       do_kunwind(&state, consume_state, cookie);
+> +       return do_kunwind(&state, consume_state, cookie);
+>  }
+>
+>  struct kunwind_consume_entry_data {
+> @@ -387,6 +393,25 @@ noinline noinstr void arch_stack_walk(stack_trace_co=
+nsume_fn consume_entry,
+>         kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs)=
+;
+>  }
+>
+> +noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn con=
+sume_entry,
+> +                       void *cookie, struct task_struct *task)
+> +{
+> +       int ret;
+> +       struct kunwind_consume_entry_data data =3D {
+> +               .consume_entry =3D consume_entry,
+> +               .cookie =3D cookie,
+> +       };
+> +
+> +       ret =3D kunwind_stack_walk(arch_kunwind_consume_entry, &data, tas=
+k, NULL);
+> +       if (ret) {
+> +               if (ret =3D=3D -ENOENT)
+> +                       return 0;
+> +               return ret;
+> +       }
+> +
+> +       return -EINVAL;
+> +}
+> +
+>  struct bpf_unwind_consume_entry_data {
+>         bool (*consume_entry)(void *cookie, u64 ip, u64 sp, u64 fp);
+>         void *cookie;
 
