@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960C5C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 22:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B488C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 22:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rB9s9VPJvR605hRqbfbYWWEdTsjP5s3VD85/JJVm1e8=; b=yL5aNdDbNKf2CXPvWGSBHQ7900
-	ZZCEWBLC5EOkRtvgV3p/UZIOqlOtU7qMsQfvUJQITwcdZxIb1GowK9Z4DSCsVOQOylgYWGeRiWJhx
-	6w+Crwvdvkb+/eSXntIWvVlzQlcZMQTRMOkvxDcE7QBwHG1a8cImkGk0voZylc1JUxG6SsN/cwfsS
-	UoC6akxrgVl1wQOEFUc0bgrZaepfpUOOiI7OAiNte3XXgiSs9SVBtuRDa0TBk/606pypTQ6CfYrD6
-	zzYxGLPDM3lS1DZf2weod3JFOjrGczbozA4S9iAW+QoZK8zHdrro0lG7Q+IzTdRM6HvQC0UTpYwv8
-	UfuOz15A==;
+	bh=2FlX2bXYTfLPxWNvFOZ2OVVRCbqnN5Q4yt/8rIDVkFQ=; b=fxlq+r25L90o/KpVcVFwXGSmS9
+	nMoOTGkzkS4Qg7evr58m9WPwJxia9cSHZr4dXYO2o/NY5WEoVrEkDOlrPQtdW5ZuqqLv8UudanBdx
+	CVe5Qmjf3cCj5YFdq5BBZ0mqabBbfhWhk0gL2At9y93/UBfIpi8oRyMAiu/NaSJfVqzR2EhGJhFH7
+	sM5zvhacpcZpP6Q85bFk8ophBpAwTdtXgIls6bXC4WOqbgGwQ3hd4u5oSErvETKUR9etLL85PnK48
+	0uRZRu4mAcaOaIXgE+nJg0dkhgTVFt1XECcpV+I+/MWCsR1R49d5UYoG1+tpJkM08LETPJmOo2J7h
+	M35WnP0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1kc-0000000AGjy-2YvC;
-	Wed, 19 Mar 2025 22:19:02 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tv1mH-0000000AGyN-19Zc;
+	Wed, 19 Mar 2025 22:20:45 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1K7-0000000ACVX-1e6J
+	id 1tv1K8-0000000ACWY-31RU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 21:51:40 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ac29af3382dso26362066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 14:51:39 -0700 (PDT)
+	Wed, 19 Mar 2025 21:51:41 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5e6f4b3ebe5so265106a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 14:51:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1742421098; x=1743025898; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1742421099; x=1743025899; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rB9s9VPJvR605hRqbfbYWWEdTsjP5s3VD85/JJVm1e8=;
-        b=gGbcvQACngKeiyZ/ybqFYo/A6FNyBAwh92Nbx5s2CDhXmQPGRI7HIdGtejELg5zd59
-         TuMmCoQBf1DYeTNmtOcNfZi1Js8oYk5XhqYNUk6pOA24eOF6dQRTB4ROINceO26NS15d
-         GPGfIS7DQuwPmU50kmsFh1TiYakwlyEGmIWXxmJfMvL5tv6WHzAjDE8ZGsLvZR+MJj5i
-         W5D6ADTPAh0RGSHzv2Yrf5LXx40XG2e+TIHn4mQao34MvNTe6z1LdUdDC4u+C2cu5G6I
-         F58Mw/2xgoPz5RjfZXEjQ00mBKu/6p8AMMgUFfAZ64MDW8Q9sEqHiYiI1nsC/KCazlGx
-         ctzQ==
+        bh=2FlX2bXYTfLPxWNvFOZ2OVVRCbqnN5Q4yt/8rIDVkFQ=;
+        b=OUBzw9H/uXNj3ep2lmw4VnLpkXEFHuSn5YKfyJZhxxM6jnic3H+WX5gAN7QjwcxDfE
+         ssDaHNPGj20wHoDwi81glVhGtyRGQ7CSSNK/+7KzBrPkZtIUrX1zJ4224UVtcap5Tftk
+         fTU6VBT09LAU0P5GnBBEYhYBhFZMs9FdBjY6Ae3lXxjE573A0pURDB9aDaYAUUPZGe9x
+         S50MWDubhQLBCY6xq7WN6HxqOh5MP+IG6QfXWGwMCagAxFvU0yI3Q/FlQQsAhCo5376y
+         xr8nrD8MKTOWW9eE09WI9F4JG2QrJbZ+bvz0oJhZFOZ3nEQNnp3paCNGdAdC98w16+WI
+         yjVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742421098; x=1743025898;
+        d=1e100.net; s=20230601; t=1742421099; x=1743025899;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rB9s9VPJvR605hRqbfbYWWEdTsjP5s3VD85/JJVm1e8=;
-        b=ravKWIdj8QEPioJCcpu86pHq27uTA3/OELhqiDVdW9qIj/NVYCQg9+9PsjMGA1rQ40
-         1+RwUQLSM5ILlDTyqJV+2Y134X+hH6VjKi7lpGD+AVt23/6Ex+lnurNvbpeRYwchq9+E
-         d1KluW00l7xJZUe7PZA+U63EymhCWKtCJySSG6wrI3+jsYDvg1VyaFiVjBFLtm6KeQI/
-         iWgrgBF1u5aspCs78TYaVy0HNq5+IJL85VsPTDiKv29LZD2sOBQtvbs1uxeB3g+mj+7C
-         GJKRP6PJKDwnaAsPHviagvdCWetbBMnUs/+Eq8jNhuUebhnc1vC2c4mnOr2nymcRpdut
-         uv1w==
-X-Forwarded-Encrypted: i=1; AJvYcCW4p/4BUs6elCQt8mcPjser1lhIltWF4hj2iEAtz493D0dg6BsNnEf0eK1QrZqOU/gwIRIjBi4M21YsHKroQOjU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4Z5T/+fuvv8bnf7bO3LkY7puZ2viBYxp26rG6mBJHO3M1dAcS
-	s5ImlF5MolTJLl5v6JNqxPM2Lr+L52edcsvV51JnrG9b4pT9AzC5Dh59RHboMxo=
-X-Gm-Gg: ASbGncuY0N7K76O5KdSxXhdgzbIOA1utc0+EAOHulEGY8dPIR2JgjtrcRJw4Qy9JXM2
-	/SWkWLSJAq28Ws47A/EIq+3Cu6OVoFPFKI1HIkPpJcPzn/emI9x9JmCUyNDsNCGEOjf/84UY981
-	hB08eoHpOcFIM5oYRiwk3n3ZGmZKVZYfruhyjSu3E+cVGyu+oaNnzXtsR6ZXL+Ms99gOVtwIj4S
-	8/JYweamHuRPzYO+/V45UFiJi80wbQRpfdOr3yxr6p1rqwAa8cboJm8g3thrfRNMztZjPKnQRBj
-	1WeVKZNp6RGwZczGZHGQW2oNy7eH+K8rAdg9u9nnGrxXp7QoSVXcdFzl/BujRlHTG8YAQZ6ntjv
-	Er/Eqip7vBA==
-X-Google-Smtp-Source: AGHT+IHsXCV0Z4XO+FTHe2MtBSqBnvYKMJqwPN2z2yjiElWrSE6yFE9vrDz/hzrfrSjNw1oWh2GCjg==
-X-Received: by 2002:a17:907:86a1:b0:ab7:bac4:b321 with SMTP id a640c23a62f3a-ac3ce064603mr127290766b.29.1742421097635;
-        Wed, 19 Mar 2025 14:51:37 -0700 (PDT)
+        bh=2FlX2bXYTfLPxWNvFOZ2OVVRCbqnN5Q4yt/8rIDVkFQ=;
+        b=ZwO8CjUIxUA3NhwXf6AP+DlpvwuX0zk4TI4DEkeGrRnEixdPI7YDA92f2JPSA63s70
+         v4WiRZwlDyk5iSl0gPOh1ausqc0hE20sGn5X2QqrSlm2pZXQCRD9jWQE5YnSGCrPwbFD
+         mP9tpXzso8/+AacV/OLF6u32d+4icTmWcz4mK3TO1QXPll4BYYtzmOPS70uTiF0rYYw5
+         vROS83GL9pGhPBYV5Z6xWcRmfxFIceeAgJLekY9D8FksKpMz47dBQhreb/hERHeC6Xpn
+         aTD+k8Gulgv0Uk15S6fCwAhGDNlTmUPJOWLn2/OYT/JZWPavzf/HgfxEuMXoX9lobMIA
+         lwMw==
+X-Forwarded-Encrypted: i=1; AJvYcCXtydHz6jgvTGWSLp9wsPr28Nh+SWBFVawlu30nytI/DSGmBmPHdXbs9kHbtglPDlMYIBWDFDdpjdtBHoVONUKJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYpt1DjHm35sh8vl2vCkpAttkRFSoxhMEKKiPiPhsmUdxTtyKD
+	ZYsP8jxkR+V9W63n2+t9QIBNCKiAMJ9NP+2pIoG+N3FBCuN/QQl6wsfGgctfKuc=
+X-Gm-Gg: ASbGnctcHXxgmJWlF+nI7Vjng9QJnMhWx616+ieDuMbvrlX+OOkapsSAHcdE62yZY4D
+	BSVXzM9qFSOIXIB/SioLiPzcpzYg4kXktH4VdQcge8xNjre02zQJQSrvWyEC0k/K4Kif2PYdXD7
+	CQBRymIK5o2K5E2148y/g4T00HZWfNazjSEHYY8gvDYACK+GczENY2m/4G/oQgDIwjZbKaWP0JA
+	MqwwuU6VVG0PBmpnFmvr9XKVcDqBlFYuFwKWPWCXM31s+ILEsvrqcCjpJ5QHR6Q7qSI0nA+cuPj
+	ffKnAQlhpi4O27vtsaGn6SrsLOx5RH9mXAz9dT7FEn+slUqCX3Yf4CHNPWO9bsvajICxWR/Fryq
+	CqY2aIrjYqw==
+X-Google-Smtp-Source: AGHT+IHnjg8ip47n0umRwsuHPNgFyT6zs/YGRrSkkBMrSE2e0JyIORLF+LT96OI94/1opTBkG6cz+w==
+X-Received: by 2002:a05:6402:d0d:b0:5e0:8ab6:65fa with SMTP id 4fb4d7f45d1cf-5eb80d4a3eemr4555608a12.19.1742421098973;
+        Wed, 19 Mar 2025 14:51:38 -0700 (PDT)
 Received: from localhost (host-87-4-238-14.retail.telecomitalia.it. [87.4.238.14])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3146aecbasm1051077266b.37.2025.03.19.14.51.36
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e8169b1623sm9678655a12.39.2025.03.19.14.51.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Mar 2025 14:51:37 -0700 (PDT)
+        Wed, 19 Mar 2025 14:51:38 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -106,17 +106,17 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Phil Elwell <phil@raspberrypi.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	kernel-list@raspberrypi.com
-Subject: [PATCH v8 11/13] arm64: dts: bcm2712: Add external clock for RP1 chipset on Rpi5
-Date: Wed, 19 Mar 2025 22:52:32 +0100
-Message-ID: <7c26a0b52e00a39930ba02f7552abdd1be4c828c.1742418429.git.andrea.porta@suse.com>
+Subject: [PATCH v8 12/13] arm64: defconfig: Enable RP1 misc/clock/gpio drivers
+Date: Wed, 19 Mar 2025 22:52:33 +0100
+Message-ID: <378f6ef859d7c23770b1532a370f4af97cc9a922.1742418429.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1742418429.git.andrea.porta@suse.com>
 References: <cover.1742418429.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_145139_428420_E9AD8D5F 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250319_145140_760314_1BDEF025 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,33 +131,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
-Add clk_rp1_xosc node to provide that.
+Select the RP1 drivers needed to operate the PCI endpoint containing
+several peripherals such as Ethernet and USB Controller. This chip is
+present on RaspberryPi 5.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/configs/defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index fbc56309660f..1850a575e708 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -16,6 +16,13 @@ chosen: chosen {
- 		stdout-path = "serial10:115200n8";
- 	};
- 
-+	clk_rp1_xosc: clock-50000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-output-names = "rp1-xosc";
-+		clock-frequency = <50000000>;
-+	};
-+
- 	/* Will be filled by the bootloader */
- 	memory@0 {
- 		device_type = "memory";
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..cc70793e97ef 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -618,6 +618,7 @@ CONFIG_PINCTRL_QCS615=y
+ CONFIG_PINCTRL_QCS8300=y
+ CONFIG_PINCTRL_QDF2XXX=y
+ CONFIG_PINCTRL_QDU1000=y
++CONFIG_PINCTRL_RP1=m
+ CONFIG_PINCTRL_SA8775P=y
+ CONFIG_PINCTRL_SC7180=y
+ CONFIG_PINCTRL_SC7280=y
+@@ -700,6 +701,7 @@ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
+ CONFIG_SENSORS_SL28CPLD=m
+ CONFIG_SENSORS_INA2XX=m
+ CONFIG_SENSORS_INA3221=m
++CONFIG_MISC_RP1=m
+ CONFIG_THERMAL_GOV_POWER_ALLOCATOR=y
+ CONFIG_CPU_THERMAL=y
+ CONFIG_DEVFREQ_THERMAL=y
+@@ -1289,6 +1291,7 @@ CONFIG_COMMON_CLK_CS2000_CP=y
+ CONFIG_COMMON_CLK_FSL_SAI=y
+ CONFIG_COMMON_CLK_S2MPS11=y
+ CONFIG_COMMON_CLK_PWM=y
++CONFIG_COMMON_CLK_RP1=m
+ CONFIG_COMMON_CLK_RS9_PCIE=y
+ CONFIG_COMMON_CLK_VC3=y
+ CONFIG_COMMON_CLK_VC5=y
 -- 
 2.35.3
 
