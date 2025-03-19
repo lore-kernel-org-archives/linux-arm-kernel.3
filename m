@@ -4,74 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE2DC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423FDC35FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZJBK+GxYsr4WqPoDOxGQQ9TJsnGeN82PCQ8kkn/0UVw=; b=rs1XhA9PpdpW/LNdX3Y3QznVll
-	+WOoMDifNha2WQP/Yt6abEBq8P/WOGmno6iAJj2g1gxeFV9I8Ia0EzoilR08tg2rJBH7mfZQoTcPj
-	ULFJS6yatKGjND5zZsTQqdyyATX/9L7xtgPADOyCqjVRYxunkHZIHBLajYPKf8up5eulE9j08vhez
-	IlJbNMjEEvOtDaaZO95DdlNvC+6vg4uM7B7gX5CqfzrB+UvRPRRSNJPDiw+GtBZmIDQ62/xALKpdX
-	8XzmR/TlkVLPV8dPwpoTFAPJgRz8v+VN3s7I/Ez6egcnP1Bn+7YQcnk06vMBgDlfebQg0gzAg1wTL
-	DM++Faqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9P5mVE9rcZVAhHrU2b7b3R9v9xwF3k2DzIypDiwkNSs=; b=K+LOAIOEIBqBm7Unp1ERB3duI/
+	3bB3i6OzATi08paGRpxMeZahF+BGe5qjW8cwn2RLSgcdG5Dn8kTbhmJpgydbYB8sVXFwtWYat+dNM
+	9/P8D7PsK/ULEhpZnnMJGNlqb8wDwjRqHGjdkWpOiEZZdibLHL4MeC3T3ygoYho9WclOugy71yyRH
+	PCNLZqHHrmQw6fArTwFwkUC4T/7aORLiaafyP0SFZUFBx30b04+HWN0Twx4gK28lPrKzXJstIeMKX
+	0CGt2EiKHdEet8rQIo2FsFwkF9ITqBAhpR840zA1YAxtf83pijOKaKA2n9aBnCRzk/whmsB5Q/nUI
+	j78wkd/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tujrv-00000007r9h-1nNd;
-	Wed, 19 Mar 2025 03:13:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tukAP-00000007typ-3Iom;
+	Wed, 19 Mar 2025 03:32:29 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tujqH-00000007r4E-1ice
+	id 1tuk8j-00000007tr8-006u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 03:11:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C68C6615EF;
-	Wed, 19 Mar 2025 03:11:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7D3AEC4CEDD;
-	Wed, 19 Mar 2025 03:11:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742353900;
-	bh=ypMMkKsvJ/Uf1JkZqtuKEEF9Wh2K7iXsnqGck2sa5Tc=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=QW+/Sk6TG/tyl45glLfkBo0I9mHv8we/xZ/4e7Nuza4pXnAvE1LLVgR65DO8ccfA/
-	 Q9ePt3tQaM7GITBXloHMavASTgxbpiuZ6wNOquijCmWbKZ/5tAvcLSOEWBBFignAFE
-	 YU9wz+/6K7R0yRujRXPbJTq55kIoKfo045+CDftZCBk2hSI/xghXfQAuvQ2L1YQgKV
-	 GThcAmjPIKcVLC9oPWh/rkDH2XKa+pogs3A9/p5sGG7eF1ic6+x2mshIesYz7ne4fE
-	 Mu6KB0hut4iiR27oGtpesckY9yHhQJJsEe7h804s7N2ZwET47ZWPud1BS7l8L+YOHb
-	 NObrOeeePxyew==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F86BC28B2F;
-	Wed, 19 Mar 2025 03:11:40 +0000 (UTC)
-From: Bjorn Andersson via B4 Relay <devnull+bjorn.andersson.oss.qualcomm.com@kernel.org>
-Date: Tue, 18 Mar 2025 22:11:37 -0500
-Subject: [PATCH] arm64: defconfig: Enable USB retimer and redriver
+	Wed, 19 Mar 2025 03:30:47 +0000
+Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250319033039epoutp02586070155438944559b2604b9d138f00~uFq1MJ9SZ1929319293epoutp02e
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 03:30:39 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250319033039epoutp02586070155438944559b2604b9d138f00~uFq1MJ9SZ1929319293epoutp02e
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1742355039;
+	bh=9P5mVE9rcZVAhHrU2b7b3R9v9xwF3k2DzIypDiwkNSs=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=cHTADKtU52hbFuQrIEmGhPziAbqq1XxXEuIH0CtWVzp2py9sGEVYPCIixY0Z238rt
+	 pje1E1fV06Sv7oVASwMlDvbHCxtFqXiGvNK4RDJdvSBA6VCDn1KNnYUcb4iEUpUS7L
+	 wHqeUbxMWl9NzSc1BhUg5dIVVNvIjT1OaDaIg29Y=
+Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
+	epcas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250319033038epcas1p19bf6bb3adc8be4e0366955a5d7cf4f95~uFq0mwiJz2149621496epcas1p1S;
+	Wed, 19 Mar 2025 03:30:38 +0000 (GMT)
+Received: from epsmges1p4.samsung.com (unknown [182.195.36.132]) by
+	epsnrtp4.localdomain (Postfix) with ESMTP id 4ZHZ3d5YBrz4x9Pv; Wed, 19 Mar
+	2025 03:30:37 +0000 (GMT)
+Received: from epcas1p2.samsung.com ( [182.195.41.46]) by
+	epsmges1p4.samsung.com (Symantec Messaging Gateway) with SMTP id
+	0A.64.24218.D5A3AD76; Wed, 19 Mar 2025 12:30:37 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas1p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250319033037epcas1p475273cf6fbc1c1acb71fd84b64711a1a~uFqzJQqFn1648116481epcas1p4K;
+	Wed, 19 Mar 2025 03:30:37 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250319033037epsmtrp16c341f21c0e1ba2071e2ae3a105832ba~uFqzIfnVT1703917039epsmtrp1m;
+	Wed, 19 Mar 2025 03:30:37 +0000 (GMT)
+X-AuditID: b6c32a38-580dc70000005e9a-fb-67da3a5d10be
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	5F.C1.18949.C5A3AD76; Wed, 19 Mar 2025 12:30:37 +0900 (KST)
+Received: from inkidae001 (unknown [10.113.221.213]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250319033036epsmtip2f5cd10a6e715c06c02f8803d401743d3~uFqy2EXsH0786807868epsmtip2X;
+	Wed, 19 Mar 2025 03:30:36 +0000 (GMT)
+From: =?utf-8?B?64yA7J246riwL1RpemVuIFBsYXRmb3JtIExhYihTUikv7IK87ISx7KCE7J6Q?=
+	<inki.dae@samsung.com>
+To: "'Wentao Liang'" <vulab@iscas.ac.cn>, <jani.nikula@linux.intel.com>,
+	<sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <krzk@kernel.org>, <alim.akhtar@samsung.com>
+Cc: <dri-devel@lists.freedesktop.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <20250306042720.2296-1-vulab@iscas.ac.cn>
+Subject: RE: [PATCH] drm/exynos/vidi: Remove redundant error handling in
+ vidi_get_modes()
+Date: Wed, 19 Mar 2025 12:30:36 +0900
+Message-ID: <000001db987f$479ece60$d6dc6b20$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250318-xelite-retimer-redriver-v1-1-b3e85a37d294@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAOg12mcC/x2MSQqAQBADvyJ9dkDH3a+IB3WiNrjRIyKIf7fxl
- BRU8pCHMDzVwUOCiz3vm0IcBjTM3TbBsFMmG9ksSuLS3Fj4hBGcvEI0nfClpbB9mqvgqtySrg/
- ByPf/3LTv+wG9RjTJaQAAAA==
-X-Change-ID: 20250318-xelite-retimer-redriver-72b46318d962
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, andersson@kernel.org
-Cc: Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742353900; l=1300;
- i=bjorn.andersson@oss.qualcomm.com; s=20250318; h=from:subject:message-id;
- bh=xRKqtaffSGX6Pjvc76vk0LWObAmQZMRTKBjP4UwTEzw=;
- b=Ilmlg9Ibvz3XH1u7sHItyqo0EvVlOztOyFwXe0QY5EL4PoQ3fG04ma3H4a+kPHGcJiDdNdsXI
- mtCbAkXJSrHDMh8WKqLwGa1D7rgtQzEq8O5nIjRiu3pOy0p6HnKDzu2
-X-Developer-Key: i=bjorn.andersson@oss.qualcomm.com; a=ed25519;
- pk=rD3O9C9Erg+mUPBRBNw91AGaIaDVqquHZbnn6N6xh6s=
-X-Endpoint-Received: by B4 Relay for
- bjorn.andersson@oss.qualcomm.com/20250318 with auth_id=362
-X-Original-From: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQI/yHXXKYbFaiJrYWOw9xvHUpbC7QI3gW3fsp+widA=
+Content-Language: ko
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Tf0xTVxjN7SvvtWrlWeu4I9ssT7cFMrDFwl4Z4JLV+RhugmQxmzG10pcH
+	o7/saxfUuRGyAUUyZFZXa0GGDKQhwRWFwlK2FbHg4grSCW6IS8A4KlQnavbjn5U+3PjvnHvP
+	d893vnuvABFfQRMFpQYLbTZodAS6it8zmJyWui/rF0b2re8VcniihUf+1tSDkqHH91GyfbwL
+	kMHgBYy8VjmPkZ6ZG3HkeL8LJR3BAR55JvIdRjpOzKFkx2c+/utrKN+TZj7V57yFUQPebkB5
+	3DaUahoppG4fC/Co7tZPqM8vugG16HmhQPh+WXYJrdHSZiltKDZqSw1MDpFfpH5DnZEpk6fK
+	leSrhNSg0dM5hGpnQeqbpbpox4T0Q43OGl0q0LAssSU322y0WmhpiZG15BC0SaszZZjSWI2e
+	tRqYNANtyZLLZOkZUeH+spLqodvAdC2+/I8hG1oBXKJaIBRAXAEjP17l14JVAjHuBfBs+C7C
+	kYcAXh9p5HHkCYCn7CHwtOSbvi7AbfgAbLjQgnFkDsCZygFkSYXiDJyrHY8dLMEnARy8a48R
+	BD8FoL/RxltSCfFMeOvvfnQJr8f3wp8W22KYj78IK7y12BIW4UoYPPEryuF1cOT0LH8JI/hG
+	2LvgQriepPCvO21xtUAQdcuCQx25nEQCz9iqYoEgPiWAlc5BPqdXwZ/t7jgOr4fhwEWMw4lw
+	rr4K4wqqAew81r1M6gDsnfYuq7bBjshXMTcET4Zd/Vs4t7Uw8rgutgxxEaypEnNqAl4Zm1ye
+	HYSjrQ0ohyk43zONHgdJzhXRnCuiOVdkcP5v1gz4bvAMbWL1DM3KTYr/LrzYqPeA2INOIb2g
+	ceFBmh/wBMAPoAAhJKIdsxOMWKTVHDpMm41qs1VHs36QER12A5K4odgY/REGi1quUMoUmelb
+	FaQ8U04kiEZ7PmXEOKOx0GU0baLNT+t4AmFiBW9XZ+7m6rzC987N7i3Cjnh2tygD7ee1k6+1
+	MXW9l5rsnmHJyZ2H1cTzN1bXNP8zkxKxzknfKW90jRWuyQtNF+5Kcliqw9nUfNqeA/uJ6+GP
+	+jprPDe/HLL7RZ7V7xonFUWbkD2Pku0P7p09TQTyHQ0PfT9MGNk8KBnd8L0+LHxJkrB77cvn
+	99nL8fDCdhDvqw8+d39q4eZb+Qy1YzHvSO/WevWEEo5tdAzEG7VH60xHWz++93bQNyVzGKBL
+	deB4UfFw/US5OOL2KunFgwmO37+402979PViZmg6VWU7pD+IBbepusHmywF5yISdTMq/eunZ
+	9kBy0eVz6a6yD/5ESwk+W6KRpyBmVvMvKZGs71kEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrDIsWRmVeSWpSXmKPExsWy7bCSvG6s1a10g10vmC1OXF/EZPFg3jY2
+	iytf37NZLL+8ntHi/PkN7BZnm96wW2x6fI3V4vKuOWwWM87vY7KY/W4/u8WMyS/ZLFa27mVx
+	4PHY+20Bi8fOWXfZPfbt2MzosWlVJ5vHvJOBHve7jzN5bF5S79G3ZRWjx+dNcgGcUVw2Kak5
+	mWWpRfp2CVwZ7UfvMxac5a/4eLSTrYFxDm8XIyeHhICJxMad6xm7GLk4hAR2M0qcb53A1MXI
+	AZSQkNiylQPCFJY4fLgYouQ5o0RP72I2kDibQKrE69V1IHERgUeMEh13OlhAHGaBGYwSa7dd
+	YoLoaGeU2L9lDjPINk4BM4m7v3aBdQsLREqcXqoPEmYRUJVo2NHFDmLzClhKnJ98mw3CFpQ4
+	OfMJC4jNLKAt8fTmUyhbXmL7W4iREgIKEj+fLmMFGSkiYCVxdKUdRImIxOzONuYJjMKzkEya
+	hWTSLCSTZiFpWcDIsopRMrWgODc9t9iwwCgvtVyvODG3uDQvXS85P3cTIzhCtbR2MO5Z9UHv
+	ECMTB+MhRgkOZiURXvcn19OFeFMSK6tSi/Lji0pzUosPMUpzsCiJ83573ZsiJJCeWJKanZpa
+	kFoEk2Xi4JRqYHKs5PxRXxPwXVtWsFc+7rm/c+6H0u9dO3e87Ho2R/zm/og1KafvB/y89UV2
+	t+aa013K227d+cF6+f+e/dx1y35xL5mfs+x1+cYo0WvaqsvmrbHoKDq6++QqgatvVfmmXeR7
+	8OHrDJsP4u0CEmkdj5nL4uZbFnSaG8ZWfL1qs9kl9ah1HLe5oed/Q5Uz3O8eR7stanplJ8N5
+	vYVr5fnTzftvHz+nx9mRecN6Y7pWvDnPvDv9dtUT+FSPzfx2+sq8G5m8b2RCFArz/t21COXO
+	et7jvvjXjeP3Vd2+uchbL1q/MvVr6L8Z2WUOmre4W8TmCagcW6l26f/5k2G1HMd0z2YdPLtt
+	V+JsRXtDF9Hzj3qUWIozEg21mIuKEwH8r8YXPwMAAA==
+X-CMS-MailID: 20250319033037epcas1p475273cf6fbc1c1acb71fd84b64711a1a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 101P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250306042753epcas1p3983510872a862109f7f72aff5d074ea3
+References: <CGME20250306042753epcas1p3983510872a862109f7f72aff5d074ea3@epcas1p3.samsung.com>
+	<20250306042720.2296-1-vulab@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250318_203045_719356_14E261BC 
+X-CRM114-Status: GOOD (  23.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +139,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: bjorn.andersson@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Hi,
 
-Several boards based on the Qualcomm X Elite platform uses the NXP
-PTN3222 USB redriver and the Parade PS883x USB Type-C retimer. Without
-these USB, and in some cases display, doesn't probe successfully, so
-enable them.
+> -----Original Message-----
+> From: Wentao Liang <vulab@iscas.ac.cn>
+> Sent: Thursday, March 6, 2025 1:27 PM
+> To: jani.nikula@linux.intel.com; inki.dae@samsung.com;
+> sw0312.kim@samsung.com; kyungmin.park@samsung.com; airlied@gmail.com;
+> simona@ffwll.ch; krzk@kernel.org; alim.akhtar@samsung.com
+> Cc: dri-devel@lists.freedesktop.org; linux-arm-kernel@lists.infradead.org;
+> linux-samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org; Wentao
+> Liang <vulab@iscas.ac.cn>
+> Subject: [PATCH] drm/exynos/vidi: Remove redundant error handling in
+> vidi_get_modes()
+> 
+> In the vidi_get_modes() function, if either drm_edid_dup() or
+> drm_edid_alloc() fails, the function will immediately return 0,
+> indicating that no display modes can be retrieved. However, in
+> the event of failure in these two functions, it is still necessary
+> to call the subsequent drm_edid_connector_update() function with
+> a NULL drm_edid as an argument. This ensures that operations such
+> as connector settings are performed in its callee function,
+> _drm_edid_connector_property_update. To maintain the integrity of
+> the operation, redundant error handling needs to be removed.
 
-Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
----
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+You are right. Merged.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index e8dfbe22db68d9aa24df5af0786a2eeb8f33bf3c..5bb8f09422a22116781169611482179b10798c14 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1153,6 +1153,7 @@ CONFIG_TYPEC_HD3SS3220=m
- CONFIG_TYPEC_MUX_FSA4480=m
- CONFIG_TYPEC_MUX_GPIO_SBU=m
- CONFIG_TYPEC_MUX_NB7VPQ904M=m
-+CONFIG_TYPEC_MUX_PS883X=m
- CONFIG_TYPEC_MUX_WCD939X_USBSS=m
- CONFIG_TYPEC_DP_ALTMODE=m
- CONFIG_MMC=y
-@@ -1573,6 +1574,7 @@ CONFIG_RESET_RZG2L_USBPHY_CTRL=y
- CONFIG_RESET_TI_SCI=y
- CONFIG_PHY_XGENE=y
- CONFIG_PHY_CAN_TRANSCEIVER=m
-+CONFIG_PHY_NXP_PTN3222=m
- CONFIG_PHY_SUN4I_USB=y
- CONFIG_PHY_CADENCE_TORRENT=m
- CONFIG_PHY_CADENCE_DPHY_RX=m
+Thanks,
+Inki Dae
 
----
-base-commit: c4d4884b67802c41fd67399747165d65c770621a
-change-id: 20250318-xelite-retimer-redriver-72b46318d962
-
-Best regards,
--- 
-Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+> 
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/gpu/drm/exynos/exynos_drm_vidi.c | 3 ---
+>  1 file changed, 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+> b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+> index fd388b1dbe68..a956cdb2f33a 100644
+> --- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+> +++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+> @@ -312,9 +312,6 @@ static int vidi_get_modes(struct drm_connector
+> *connector)
+>  	else
+>  		drm_edid = drm_edid_alloc(fake_edid_info,
+> sizeof(fake_edid_info));
+> 
+> -	if (!drm_edid)
+> -		return 0;
+> -
+>  	drm_edid_connector_update(connector, drm_edid);
+> 
+>  	count = drm_edid_connector_add_modes(connector);
+> --
+> 2.42.0.windows.2
 
 
 
