@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF685C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 08:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1687DC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 08:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vM+jjOAqv3w4Yg5VYDupa9rwayNbNn0h/epy5PUsloY=; b=1gJ+zO3R1KyFvy4fFMwr9cOfnP
-	DaEgdXroqBMIntFSLLrQLxLG2VJepy65LAWTPiZDh7rkM9b9Znh8novGadW5zbt3ifYCrsKOZGmzT
-	MrKa4jonQMJg2gs2Ycw6tRblIqzCSdJZtYtS9Wnzr0JHPMr85W3N1nk0OM/74yu1GA8dXYrtopzci
-	wN00wMRzpNVHQPTCo/i8ilnCsbYFxSAwJr7iB+ewQt5K2YLhe30KZIVn97jtyAEC8arKtHT9GYVyX
-	bNlz1HYexYINKBHNPz2Ro+c/JzgghCrW9vzlpA+CS72KaDQ026QmJuYt7mffT+LpLCyOMIhycy9nB
-	DxuWewPg==;
+	bh=uIebZrODv34fNnNuK4g9DQqUhb9zj6pkK0/4NOBts6E=; b=j3UORXWfgHaIEu2tnyP37q9mmO
+	5XoMkW47INQ2ildisf+4H6TG++MN0yNzgbNYbiYqog0hrx8pRZfMscfWVVJE8ZscoAlvAYsbZTsj/
+	XteqU3TYz+b7G/jCnKf7+IwhH84KEncMia3I4AtGOY+iD5KHSUKQMHFEd/13GrAbaQ55mShso8mbw
+	NdyC+cLGU/5a+lwUkPuainWbV0qMQeBRg3ccPS+V60YRhuryxmkC3ADqQ2sJmPP3stujTc67lxCKM
+	EQE9jZkoZ2TsFEsZQIkDHw89UZwSBacr6Wh5bSGm8vWcxPDy1fxsr3jM4HA7r1OZhoSVD7zpG/Y1n
+	jWUJ0X3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuonX-00000008Lih-2bAz;
-	Wed, 19 Mar 2025 08:29:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuol3-00000008LNk-1Fxj;
-	Wed, 19 Mar 2025 08:26:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 83F725C5A5A;
-	Wed, 19 Mar 2025 08:24:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42ACEC4CEEF;
-	Wed, 19 Mar 2025 08:26:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742372796;
-	bh=rU8+WkMYfMbYGpZkfzJ96Y2lKsnKTuKpexBprl+FdL0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iD1Q8F9SxEXHSwXQ1X2w7c3ld3gV/mL5RfjN7hAaqzoyXEImk03FucbmYTiLOF1/u
-	 g0fDh1IbMn0C8FwiWcxb/EVy9hblcEpfUSERUkgftXppqOrI26KCxrxi/f4encpSJE
-	 vVBtTaghWd6YD+YWKqSCoeI9lETXJDXCxyzYdAnXOZ0I09UGvtdtJ//Ch0jlfZb/cL
-	 VptXpjYUTop3ncVYD+Q6+AdCzFpDdTmlMGrhklmSFIIL51TDTpf7dwZGN3mIOHj4v9
-	 h6E6qIHTl4iiQ+29rBXbzKFnpGKPNtIP30R6+FpchxFascpfS0oQvCg5VleMat6kAr
-	 9tEn9ZYUSRPPw==
-Date: Wed, 19 Mar 2025 09:26:31 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: jiebing chen <jiebing.chen@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, jian.xu@amlogic.com, 
-	shuai.li@amlogic.com, zhe.wang@amlogic.com
-Subject: Re: [PATCH v4 6/6] arm64: dts: amlogic: Add Amlogic S4 Audio
-Message-ID: <20250319-quizzical-coyote-of-assurance-d4c91d@krzk-bin>
-References: <20250319-audio_drvier-v4-0-686867fad719@amlogic.com>
- <20250319-audio_drvier-v4-6-686867fad719@amlogic.com>
+	id 1tuopC-00000008Lrs-1FFN;
+	Wed, 19 Mar 2025 08:30:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuolh-00000008LUI-3bYV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Mar 2025 08:27:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7635312FC;
+	Wed, 19 Mar 2025 01:27:25 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFABE3F694;
+	Wed, 19 Mar 2025 01:27:16 -0700 (PDT)
+Date: Wed, 19 Mar 2025 08:27:15 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 4/8] coresight: Add claim tag warnings and debug
+ messages
+Message-ID: <20250319082715.GD2860028@e132581.arm.com>
+References: <20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org>
+ <20250318-james-coresight-claim-tags-v2-4-e9c8a9cde84e@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250319-audio_drvier-v4-6-686867fad719@amlogic.com>
+In-Reply-To: <20250318-james-coresight-claim-tags-v2-4-e9c8a9cde84e@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_012637_516962_A0420A14 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250319_012718_000354_3A26FD18 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,145 +70,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 03:04:49PM +0800, jiebing chen wrote:
-> Add basic audio driver support for the Amlogic S4 based
-> Amlogic AQ222 board. use hifipll pll (1179648000) to
-> support 768k sample rate and 24 bit (s24_le), 24bit sclk
-> is 48fs, use mpll0 (270950400) to support 705.6k sample
-> rate and 32bit, use mpll1 (338688000) to support 705.6k
-> and 24bit.
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
+On Tue, Mar 18, 2025 at 04:21:58PM +0000, James Clark wrote:
+> Add a dev_dbg() message so that external debugger conflicts are more
+> visible. There are multiple reasons for -EBUSY so a message for this
+> particular one could be helpful. Add errors for and enumerate all the
+> other cases that are impossible.
 > 
-> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-...
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-> +
-> +		dai-link-12 {
-> +			sound-dai = <&toacodec TOACODEC_OUT>;
-> +
-> +			codec {
-> +				sound-dai = <&acodec>;
-> +			};
-> +		};
-> +	};
-> +
-
-Do not add stray blank lines.
-
->  };
+> ---
+>  drivers/hwtracing/coresight/coresight-core.c | 51 +++++++++++++++++-----------
+>  drivers/hwtracing/coresight/coresight-priv.h |  5 ++-
+>  2 files changed, 36 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index e39043a9551f..5f08845faf0d 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -135,16 +135,6 @@ static inline u32 coresight_read_claim_tags(struct coresight_device *csdev)
+>  			 csdev_access_relaxed_read32(&csdev->access, CORESIGHT_CLAIMCLR));
+>  }
 >  
->  &pwm_ef {
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> index 957577d986c0675a503115e1ccbc4387c2051620..83edafc2646438e3e6b1945fa1c4b327254a4131 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> @@ -11,7 +11,11 @@
->  #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
->  #include <dt-bindings/power/meson-s4-power.h>
->  #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
+> -static inline bool coresight_is_claimed_self_hosted(struct coresight_device *csdev)
+> -{
+> -	return coresight_read_claim_tags(csdev) == CORESIGHT_CLAIM_SELF_HOSTED;
+> -}
 > -
-
-Why?
-
-> +#include <dt-bindings/clock/axg-audio-clkc.h>
-> +#include <dt-bindings/reset/amlogic,meson-axg-audio-arb.h>
-> +#include <dt-bindings/reset/amlogic,meson-g12a-audio-reset.h>
-> +#include <dt-bindings/sound/meson-g12a-toacodec.h>
-> +#include <dt-bindings/sound/meson-g12a-tohdmitx.h>
-
-Old style was correct.
-
->  / {
->  	cpus {
->  		#address-cells = <2>;
-> @@ -46,6 +50,36 @@ cpu3: cpu@3 {
->  		};
->  	};
->  
-> +	tdmif_a: audio-controller-0 {
-> +		compatible = "amlogic,axg-tdm-iface";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "TDM_A";
-> +		clocks = <&clkc_audio AUD_CLKID_MST_A_SCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_A_LRCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_A_MCLK>;
-> +		clock-names = "sclk", "lrclk","mclk";
-> +	};
-> +
-> +	tdmif_b: audio-controller-1 {
-> +		compatible = "amlogic,axg-tdm-iface";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "TDM_B";
-> +		clocks = <&clkc_audio AUD_CLKID_MST_A_SCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_B_LRCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_B_MCLK>;
-> +		clock-names = "sclk", "lrclk","mclk";
-> +	};
-> +
-> +	tdmif_c: audio-controller-2 {
-> +		compatible = "amlogic,axg-tdm-iface";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "TDM_C";
-> +		clocks = <&clkc_audio AUD_CLKID_MST_C_SCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_C_LRCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_C_MCLK>;
-> +		clock-names = "sclk", "lrclk","mclk";
-> +	};
-> +
->  	timer {
->  		compatible = "arm,armv8-timer";
->  		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> @@ -101,7 +135,6 @@ apb4: bus@fe000000 {
->  			#address-cells = <2>;
->  			#size-cells = <2>;
->  			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
+> -static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
+> -{
+> -	return coresight_read_claim_tags(csdev) != 0;
+> -}
 > -
-
-Why? What is happening in this patch - why are you changing so many
-other pieces?
-
->  			clkc_periphs: clock-controller@0 {
->  				compatible = "amlogic,s4-peripherals-clkc";
->  				reg = <0x0 0x0 0x0 0x49c>;
-> @@ -134,6 +167,17 @@ clkc_pll: clock-controller@8000 {
->  				#clock-cells = <1>;
->  			};
+>  static inline void coresight_set_self_claim_tag(struct coresight_device *csdev)
+>  {
+>  	csdev_access_relaxed_write32(&csdev->access, CORESIGHT_CLAIM_SELF_HOSTED,
+> @@ -180,18 +170,41 @@ EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
+>   */
+>  int coresight_claim_device_unlocked(struct coresight_device *csdev)
+>  {
+> +	int tag;
+> +	struct csdev_access *csa;
+> +
+>  	if (WARN_ON(!csdev))
+>  		return -EINVAL;
 >  
-> +			acodec: audio-controller@1a000 {
-> +				compatible = "amlogic,t9015";
-> +				reg = <0x0 0x1A000 0x0 0x14>;
-> +				#sound-dai-cells = <0>;
-> +				sound-name-prefix = "ACODEC";
-> +				clocks = <&clkc_periphs CLKID_ACODEC>;
-> +				clock-names = "pclk";
-> +				resets = <&reset RESET_ACODEC>;
-> +				AVDD-supply = <&vddio_ao1v8>;
-> +			};
+> -	if (coresight_is_claimed_any(csdev))
+> +	csa = &csdev->access;
+> +	tag = coresight_read_claim_tags(csdev);
 > +
->  			watchdog@2100 {
->  				compatible = "amlogic,s4-wdt", "amlogic,t7-wdt";
->  				reg = <0x0 0x2100 0x0 0x10>;
-> @@ -850,3 +894,327 @@ emmc: mmc@fe08c000 {
->  		};
->  	};
->  };
+> +	switch (tag) {
+> +	case CORESIGHT_CLAIM_FREE:
+> +		coresight_set_self_claim_tag(csdev);
+> +		if (coresight_read_claim_tags(csdev) == CORESIGHT_CLAIM_SELF_HOSTED)
+> +			return 0;
 > +
-> +&apb4 {
-> +	audio: bus@330000 {
-> +		compatible = "simple-bus";
-> +		reg = <0x0 0x330000 0x0 0x1000>;
-
-That's not a simple bus in such case.
-
-NAK
-
-
-Best regards,
-Krzysztof
-
+> +		/* There was a race setting the tag, clean up and fail */
+> +		coresight_clear_self_claim_tag_unlocked(csa);
+> +		dev_dbg(&csdev->dev, "Busy: Couldn't set self claim tag");
+>  		return -EBUSY;
+>  
+> -	coresight_set_self_claim_tag(csdev);
+> -	if (coresight_is_claimed_self_hosted(csdev))
+> -		return 0;
+> -	/* There was a race setting the tag, clean up and fail */
+> -	coresight_clear_self_claim_tag_unlocked(&csdev->access);
+> -	return -EBUSY;
+> +	case CORESIGHT_CLAIM_EXTERNAL:
+> +		/* External debug is an expected state, so log and report BUSY */
+> +		dev_dbg(&csdev->dev, "Busy: Claimed by external debugger");
+> +		return -EBUSY;
+> +
+> +	default:
+> +	case CORESIGHT_CLAIM_SELF_HOSTED:
+> +	case CORESIGHT_CLAIM_INVALID:
+> +		/*
+> +		 * Warn here because we clear a lingering self hosted tag
+> +		 * on probe, so other tag combinations are impossible.
+> +		 */
+> +		dev_err_once(&csdev->dev, "Invalid claim tag state: %x", tag);
+> +		return -EBUSY;
+> +	}
+>  }
+>  EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
+>  
+> @@ -220,7 +233,7 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
+>  	if (WARN_ON(!csdev))
+>  		return;
+>  
+> -	if (coresight_is_claimed_self_hosted(csdev))
+> +	if (coresight_read_claim_tags(csdev) == CORESIGHT_CLAIM_SELF_HOSTED)
+>  		coresight_clear_self_claim_tag_unlocked(&csdev->access);
+>  	else
+>  		/*
+> @@ -228,7 +241,7 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
+>  		 * and has manipulated it. Or something else has seriously
+>  		 * gone wrong in our driver.
+>  		 */
+> -		WARN_ON_ONCE(1);
+> +		dev_WARN_ONCE(&csdev->dev, 1, "External agent took claim tag");
+>  }
+>  EXPORT_SYMBOL_GPL(coresight_disclaim_device_unlocked);
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> index 38bb4e8b50ef..6e8cf55aee0a 100644
+> --- a/drivers/hwtracing/coresight/coresight-priv.h
+> +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> @@ -36,7 +36,10 @@ extern const struct device_type coresight_dev_type[];
+>   * See PSCI - ARM DEN 0022D, Section: 6.8.1 Debug and Trace save and restore.
+>   */
+>  #define CORESIGHT_CLAIM_MASK		GENMASK(1, 0)
+> -#define CORESIGHT_CLAIM_SELF_HOSTED	BIT(1)
+> +#define CORESIGHT_CLAIM_FREE		0
+> +#define CORESIGHT_CLAIM_EXTERNAL	1
+> +#define CORESIGHT_CLAIM_SELF_HOSTED	2
+> +#define CORESIGHT_CLAIM_INVALID		3
+>  
+>  #define TIMEOUT_US		100
+>  #define BMVAL(val, lsb, msb)	((val & GENMASK(msb, lsb)) >> lsb)
+> 
+> -- 
+> 2.34.1
+> 
 
