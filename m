@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A710FC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE2BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dX+b5dkCzHI7qs9K1pxSG/IA6mix1y1/JgVcfCigZ/o=; b=B0PwADq+JK95yiPhNgdenFu3H1
-	bojTn0aWOc9/XStwVSZx2u2RoYnzs79dMis0FrKN4eHVYxi1YymGezZ/MP/JuRHacXJf5frATwqN8
-	Ee7RwHu9v20WKGQohGA27HgrT9VTcoqsQXahzX/RFdtf5yfR0MaNDiq/WgmcDWg7kpuTdcQ7TrV7r
-	gJhLOMpLdeUGoKeRV0GA0AiTvRNvixt729QEhi4C7QB3+rclsQL/crJzqBNmKpyj6zqLG+fYHEzRE
-	qJxsnco1ctbs8KyEnY/Tb7xuY43/T0+xVAdkyIEftsYavUu6xwiKhAc4oBs7H3VTWIEoFvlyvm2Fx
-	qKzSUTHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ux++vUKtizBXRxMS1k10eDXBIrTgFeG6P4A+B1edTkc=; b=BlFYxz+vl9BpqxzRWnq4Og6qGi
+	IP7V2eFoCSOG53fEj4CEOTDDi8jzkMxwJl7FhUUOR1ggxCgbLOEB/NDmEtE7mmG9Z5jXE0ES9U2o0
+	KSnCcU6Fsou94P/W1kI26rKY/7aaGOzkO4CYWOhTtfINPDfJryS6LpQt5CInGBk2ZGh1PLUQRN2IM
+	PUQGzsROlBshwvyGeQTa0DR4U1+k1xuKmweZkFJR3bam9p5PpTWEqzuTxJAspedMILJmDcslx0Wo3
+	Cd/XKTpwoB8KD/eM/ysRpF5I+Fz/0r7ntCjmFCjuJ1rPm4qOdEWPkwiZ8cxiVqPA3QGFV/qLzWGqK
+	IZPP60iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tujgl-00000007qGj-239H;
-	Wed, 19 Mar 2025 03:01:51 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1tujmy-00000007qjf-2OFf;
+	Wed, 19 Mar 2025 03:08:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tujf3-00000007q5h-45eW
+	id 1tujlK-00000007qaA-20kV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 03:00:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1742353200; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=dX+b5dkCzHI7qs9K1pxSG/IA6mix1y1/JgVcfCigZ/o=;
-	b=kZmEptU/cq/02yAFKFw3UJfdVO75C10XGeQeXWmSy9m4SjK1Y+CKZFxTD+qQP6+WMY5ny0DxRItQLiy5xppZWhLOUla9GF80pttnIVB5F/e9zGN1wG8w09VWW9CXC3h6Eg08PZXImtOijAeel7osCsaebI9f6Uyw8nvwsD3hvAY=
-Received: from 30.246.160.93(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WRzjqK-_1742353198 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 19 Mar 2025 10:59:59 +0800
-Message-ID: <0a70f4ab-cd83-434d-8dd2-486d58e5599a@linux.alibaba.com>
-Date: Wed, 19 Mar 2025 10:59:57 +0800
+	Wed, 19 Mar 2025 03:06:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A37B3615DA;
+	Wed, 19 Mar 2025 03:06:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DC99C4CEE3;
+	Wed, 19 Mar 2025 03:06:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742353592;
+	bh=bSt/O7czoSNWFRcsE3rQTY00tKWSZJC7M7fXZe1tBRY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XUs5+gRN7F3D9wjM00iR5qUYJ+zg+KhgaBhp3hIjBKS7MmOnFRi5z4uyKZMByuzpT
+	 aRnLHnPrRFmw8TJD3EQ9k+RW4h8RwxCa62cAsI/eHS2et+ABobxSUuR51AjK8Qkkmx
+	 aTXLesTsTLkqQ0TyHDI6ckPdzTz7db3ZvW/Nbv9lOSP+4w+eqg/pLJD5mMykQEWnh2
+	 +g/1KVNEsR5ZjYg+2/frXjJkI7gO9Zr/97dD3MApFTAzH2nEFs6eoQtXFJbJIxt3kR
+	 GrWHMXbljMz8EcObP0y6RWAQ0vYec8y7uKu9SlDUyWi8TEW2Ilp4CmqKbnh1Zx6SnC
+	 ZePzyIlyjLcTA==
+Date: Tue, 18 Mar 2025 20:06:28 -0700
+From: Kees Cook <kees@kernel.org>
+To: Peter Collingbourne <pcc@google.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] string: Add load_unaligned_zeropad() code path to
+ sized_strscpy()
+Message-ID: <202503181957.55A0E0A@keescook>
+References: <20250318214035.481950-1-pcc@google.com>
+ <20250318214035.481950-2-pcc@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] selftests/pidfd: align stack to fix SP alignment
- exception
-To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: baolin.wang@linux.alibaba.com, tianruidong@linux.alibaba.com,
- brauner@kernel.org, shuah@kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20250312061557.28532-1-xueshuai@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20250312061557.28532-1-xueshuai@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_200006_655286_63E4FCDD 
-X-CRM114-Status: GOOD (  17.69  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250318214035.481950-2-pcc@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,60 +77,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ ARM maintainers for review.
-
-在 2025/3/12 14:15, Shuai Xue 写道:
-> The pidfd_test fails on the ARM64 platform with the following error:
+On Tue, Mar 18, 2025 at 02:40:32PM -0700, Peter Collingbourne wrote:
+> The call to read_word_at_a_time() in sized_strscpy() is problematic
+> with MTE because it may trigger a tag check fault when reading
+> across a tag granule (16 bytes) boundary. To make this code
+> MTE compatible, let's start using load_unaligned_zeropad()
+> on architectures where it is available (i.e. architectures that
+> define CONFIG_DCACHE_WORD_ACCESS). Because load_unaligned_zeropad()
+> takes care of page boundaries as well as tag granule boundaries,
+> also disable the code preventing crossing page boundaries when using
+> load_unaligned_zeropad().
 > 
->      Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
-> 
-> When exception-trace is enabled, the kernel logs the details:
-> 
->      #echo 1 > /proc/sys/debug/exception-trace
->      #dmesg | tail -n 20
->      [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
->      [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
->      [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
->      [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
->      [48628.713055] pc : 0000000000402100
->      [48628.713056] lr : 0000ffff98288f9c
->      [48628.713056] sp : 0000ffffde49daa8
->      [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
->      [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
->      [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
->      [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
->      [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
->      [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->      [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
->      [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
->      [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
->      [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
-> 
-> According to ARM ARM D1.3.10.2 SP alignment checking:
-> 
->> When the SP is used as the base address of a calculation, regardless of
->> any offset applied by the instruction, if bits [3:0] of the SP are not
->> 0b0000, there is a misaligned SP.
-> 
-> To fix it, align the stack with 16 bytes.
-> 
-> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> Signed-off-by: Peter Collingbourne <pcc@google.com>
+> Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4bf98ada827fdf755548
+> Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
+> Cc: stable@vger.kernel.org
 > ---
->   tools/testing/selftests/pidfd/pidfd_test.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> v2:
+> - new approach
 > 
-> diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
-> index c081ae91313a..ec161a7c3ff9 100644
-> --- a/tools/testing/selftests/pidfd/pidfd_test.c
-> +++ b/tools/testing/selftests/pidfd/pidfd_test.c
-> @@ -33,7 +33,7 @@ static bool have_pidfd_send_signal;
->   static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
->   {
->   	size_t stack_size = 1024;
-> -	char *stack[1024] = { 0 };
-> +	char *stack[1024] __attribute__((aligned(16))) = {0};
->   
->   #ifdef __ia64__
->   	return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
+>  lib/string.c | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
+> 
+> diff --git a/lib/string.c b/lib/string.c
+> index eb4486ed40d25..b632c71df1a50 100644
+> --- a/lib/string.c
+> +++ b/lib/string.c
+> @@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+>  	if (count == 0 || WARN_ON_ONCE(count > INT_MAX))
+>  		return -E2BIG;
+>  
+> +#ifndef CONFIG_DCACHE_WORD_ACCESS
+>  #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
 
+I would prefer this were written as:
+
+#if !defined(CONFIG_DCACHE_WORD_ACCESS) && \
+    defined(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)
+
+Having 2 #ifs makes me think there is some reason for having them
+separable. But the logic here is for a single check.
+
+>  	/*
+>  	 * If src is unaligned, don't cross a page boundary,
+> @@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+>  	/* If src or dest is unaligned, don't do word-at-a-time. */
+>  	if (((long) dest | (long) src) & (sizeof(long) - 1))
+>  		max = 0;
+> +#endif
+>  #endif
+
+(Then no second #endif needed)
+
+>  
+>  	/*
+> -	 * read_word_at_a_time() below may read uninitialized bytes after the
+> -	 * trailing zero and use them in comparisons. Disable this optimization
+> -	 * under KMSAN to prevent false positive reports.
+> +	 * load_unaligned_zeropad() or read_word_at_a_time() below may read
+> +	 * uninitialized bytes after the trailing zero and use them in
+> +	 * comparisons. Disable this optimization under KMSAN to prevent
+> +	 * false positive reports.
+>  	 */
+>  	if (IS_ENABLED(CONFIG_KMSAN))
+>  		max = 0;
+> @@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+>  	while (max >= sizeof(unsigned long)) {
+>  		unsigned long c, data;
+>  
+> +#ifdef CONFIG_DCACHE_WORD_ACCESS
+> +		c = load_unaligned_zeropad(src+res);
+> +#else
+>  		c = read_word_at_a_time(src+res);
+> +#endif
+>  		if (has_zero(c, &data, &constants)) {
+>  			data = prep_zero_mask(c, data, &constants);
+>  			data = create_zero_mask(data);
+
+The rest seems good. Though I do wonder: what happens on a page boundary
+for read_word_at_a_time(), then? We get back zero-filled remainder? Will
+that hide a missing NUL terminator? As in, it's not actually there
+because of the end of the page/granule, but a zero was put in, so now
+it looks like it's been terminated and the exception got eaten? And
+doesn't this hide MTE faults since we can't differentiate "overran MTE
+tag" from "overran granule while over-reading"?
+
+-- 
+Kees Cook
 
