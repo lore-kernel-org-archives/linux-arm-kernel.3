@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6989C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F0B2C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 09:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9WaWuQzWCBMf/i1JGXiTFCvQ0vQKm7G5pEWFUvxGmc=; b=sGTAf+3X3xnL6Tfix1HKX6x1yR
-	+/KMDpah+/CIFdvqKtEFa+9QLNdwnzCxfyXyDodaVz8ibcXgfx2uSWD4269gQ9Z9dj7DhyH145p3s
-	t8e3lOsyPxX5B1i2WRE2QXKzJpMMbMd0V7nceYw7MWxcUxVEL4vqOlG6fFWboEbBLc/KXT160vEvD
-	x6eJDIJtDRFjCWH8RPjhah3TLn4RP9X2qK1tJP4O+JcbM/fnNqz+lKlpzbb91ILBDWLCXVTpQ5ig9
-	lEppYh9zoAVbL+A+r160q6t8Yj7bYTd6qEQ6+i6B0iqXPKlroqkFGGs72Mt+ZphpIkXdNU6d1PQ8y
-	g0OF63sg==;
+	bh=gYN742BU4QoGAEOlciNNllSX/o+WfGmjoxd1QHyYyXc=; b=gCpVpfEMILFBNRi3TDzkMv5+Dd
+	rZS+jaBo5WUrTgUdC/cC6VfYr6FPRWFpOjyq/FyW+GcPsSURlXXehARZxrB6hzhiXLsOi55xUagm+
+	K99EdnUR61vN4z2yOU6Mu5br1BcEqBXVk8Pb/hLa159Lqk6paBnd6h8oZJLNtRN2YzEO2ZhMGJQsa
+	AekSXhRIFYXwGWyDW+qPSE1bH1T6UxbYP7YUxoVMHxOXPWneoCJ7wv14v+Wxd4UxNrin+52IZxKei
+	N2GV0GREx/kmNcO773xilLtmbaooxcTkAZCdwm6oz9/YPoV0JKRsr/G1BwXlCRMWsdUWHbh99lQUJ
+	2puCEzVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuptt-00000008WiZ-14Rn;
-	Wed, 19 Mar 2025 09:39:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tupvY-00000008X0E-0DnZ;
+	Wed, 19 Mar 2025 09:41:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupnQ-00000008Uz8-0da6
+	id 1tupnS-00000008Uzm-3Qj4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 09:33:08 +0000
+	Wed, 19 Mar 2025 09:33:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B714861559;
-	Wed, 19 Mar 2025 09:33:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D22C4CEEA;
-	Wed, 19 Mar 2025 09:33:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5BB895C5A7C;
+	Wed, 19 Mar 2025 09:30:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 324D0C4CEF0;
+	Wed, 19 Mar 2025 09:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742376785;
-	bh=lpe2nMjBH6bRGUp97awppdXuPJprE/OB2HYTkQFwj2g=;
+	s=k20201202; t=1742376790;
+	bh=lidN/QLL8lJclrXx9KsiwC+GwLwp1Sp0oSxXq93ZbfQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CS9SLPm3ODFm7grX0xT8oSAGpraaWE481ovNpwZZOPIHEcQZ10Zoi8cmasGql60us
-	 KFGXkSaL6cFW/8eNM9cVDTiSexUCg2LLTxXthv976G0uuA41tNbOCrdEOQtPhIPkX9
-	 DDRvHfvb03tE2DLHaga2iDgPDL9d8bHb5YTx9M5FA7gj8r2KDJU+avAvtmuzK67hqi
-	 x5BmMm3FLMpPcdToibK3SURlyUjyQhcQBehTSeiSP2N3wy2dl+hlI9Nt+jdQwHLoF6
-	 bIOzVa3TdWXCoKbBmls/FijoMCsYtLcpY4QY5gyLbqxQt9n82I86TSke8j9jyS8T7z
-	 3tzHfHsIMQzeg==
+	b=FJyKCYDsJp7yl/+479P7DpVX76p15OAjRaI0jRC0YbCy/GtuHNPKx/jxOA5lNJOd/
+	 I6dtTMeyPOxy4WjUrbFNtbDvf88RVHgUtb4XwevspfvXNEqwByb6eF5xZWh25Y5dVj
+	 LMtWq020UsOXFnZ3xlN3NWY2nf5EmuRwz7TwYY6KS86lJCGyB3zjLwt0EcqzhJS/cB
+	 0sS+NpfcksXilvhcHWjpA4AouTdeawd5KcDM7eKzkyQ6il5tghRgZK6R0hlXWDZW24
+	 KTee1eqqvzSA6OR2KHIPLALwZ6avJj8TOwOnAZ30PbvP/BIf7apK0f2tPyMLvUXINB
+	 7+LK4W7r1G2XA==
 From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
 To: tglx@linutronix.de
 Cc: maz@kernel.org,
 	linux-kernel@vger.kernel.org,
 	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 46/57] irqdomain: irqchip: Switch to irq_find_mapping()
-Date: Wed, 19 Mar 2025 10:29:39 +0100
-Message-ID: <20250319092951.37667-47-jirislaby@kernel.org>
+Subject: [PATCH v2 48/57] irqdomain: soc: Switch to irq_find_mapping()
+Date: Wed, 19 Mar 2025 10:29:41 +0100
+Message-ID: <20250319092951.37667-49-jirislaby@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250319092951.37667-1-jirislaby@kernel.org>
 References: <20250319092951.37667-1-jirislaby@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250319_023310_898632_8C818E57 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +80,36 @@ irq_linear_revmap() is deprecated, so remove all its uses and supersede
 them by an identical call to irq_find_mapping().
 
 Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>
-Cc: Gregory Clement <gregory.clement@bootlin.com>
-Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: linuxppc-dev@lists.ozlabs.org
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/irqchip/irq-armada-370-xp.c | 4 ++--
+ drivers/soc/fsl/qe/qe_ic.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/irqchip/irq-armada-370-xp.c b/drivers/irqchip/irq-armada-370-xp.c
-index e51612992735..67b672a78862 100644
---- a/drivers/irqchip/irq-armada-370-xp.c
-+++ b/drivers/irqchip/irq-armada-370-xp.c
-@@ -546,7 +546,7 @@ static void mpic_reenable_percpu(struct mpic *mpic)
- {
- 	/* Re-enable per-CPU interrupts that were enabled before suspend */
- 	for (irq_hw_number_t i = 0; i < MPIC_PER_CPU_IRQS_NR; i++) {
--		unsigned int virq = irq_linear_revmap(mpic->domain, i);
-+		unsigned int virq = irq_find_mapping(mpic->domain, i);
- 		struct irq_data *d;
+diff --git a/drivers/soc/fsl/qe/qe_ic.c b/drivers/soc/fsl/qe/qe_ic.c
+index e5831c298ad6..e4b6ff2cc76b 100644
+--- a/drivers/soc/fsl/qe/qe_ic.c
++++ b/drivers/soc/fsl/qe/qe_ic.c
+@@ -344,7 +344,7 @@ static unsigned int qe_ic_get_low_irq(struct qe_ic *qe_ic)
+ 	if (irq == 0)
+ 		return 0;
  
- 		if (!virq || !irq_percpu_is_enabled(virq))
-@@ -740,7 +740,7 @@ static void mpic_resume(void)
+-	return irq_linear_revmap(qe_ic->irqhost, irq);
++	return irq_find_mapping(qe_ic->irqhost, irq);
+ }
  
- 	/* Re-enable interrupts */
- 	for (irq_hw_number_t i = 0; i < mpic->domain->hwirq_max; i++) {
--		unsigned int virq = irq_linear_revmap(mpic->domain, i);
-+		unsigned int virq = irq_find_mapping(mpic->domain, i);
- 		struct irq_data *d;
+ /* Return an interrupt vector or 0 if no interrupt is pending. */
+@@ -360,7 +360,7 @@ static unsigned int qe_ic_get_high_irq(struct qe_ic *qe_ic)
+ 	if (irq == 0)
+ 		return 0;
  
- 		if (!virq)
+-	return irq_linear_revmap(qe_ic->irqhost, irq);
++	return irq_find_mapping(qe_ic->irqhost, irq);
+ }
+ 
+ static void qe_ic_cascade_low(struct irq_desc *desc)
 -- 
 2.49.0
 
