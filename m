@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE26C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 01:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1139DC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 01:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0uHbqZC+hQxjpI8j3d5PlbHEuGuWnyXXe+vZbNe5Dc=; b=f512xjbK8xKah+0t3Ta22aGZOM
-	injr2/n8C9WN83qbsr51Q4BvU4fwFLVL5YNI7K0KdLsMknxjEO1iKUfyXs+y8biG+3JyU3E0eCfbu
-	AxKtrg1dFzmUwAWy856t1Uh6CmaD7wEX1zJKhBKSzy98mxUvMRh158pB7nEOGbUBimN7/0R3M4cSL
-	A+Ph4tBEBQrvdJwn71XsbROU61ekId/lbyMqRhMJW/hAonkRDS1G+LsBP5lW2sDvKkOG/TFIbYTr/
-	UAUnkWnXM+ulwQhkX8lhrZICTbhNwdXFTVr/3lzDOsTdwNmpc779gBirMmKv1/fqVRwjk4dTvrK31
-	hr6yzwvA==;
+	bh=mQazujB/9yd1yOfFaq3YxlrN7+iuxbijBpN0gJtM4vU=; b=L5IBfllYlWDqKG9ETTfYIWOfYT
+	ARexype1NVCGY3eZVqhHNSgMyn0zgus0u4n+9Fgy7QE81PbFG3LRMax7Nn/dWJHNfQLse/7BC9PRI
+	HsyoIdZVz+J9KeY24DPfTeSWssZUGnqQghEsczrNLy+7UGoI5FcJEr4xFu9TvHw9gYH+162QsPXcz
+	TEmeDfkRxNZBt7ZtrRyTsb+pqamlusP6vuts5x2AKdCCQqHi0xEyly82s+CBfxm0ITl7rmJ4oEmLn
+	KR5T0wahid9+3OhxmJUZowPE/1aVrOm0GrAX0G2d9PV2e5+seTirqJHne30MfcqYEK6wEdeFcDjTA
+	UKOt52rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuhri-00000007iOQ-1Zns;
-	Wed, 19 Mar 2025 01:05:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tuiY4-00000007kfw-1GLA;
+	Wed, 19 Mar 2025 01:48:48 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuhq1-00000007i2b-409p
+	id 1tuiWM-00000007kWC-2G5H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 01:03:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62618615B0;
-	Wed, 19 Mar 2025 01:03:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1882C4CEDD;
-	Wed, 19 Mar 2025 01:03:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742346197;
-	bh=tPrURzCRqtqxEz8HWQbXFiAdcY7czjiPvG3bo9E4Fho=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZyOaLxBhfGDCCJtlIirn9aUPCbDBxyTUNaDhy3mFW0+3kXQiYQXXWtgJ60HSJoIUM
-	 QjUI3Ufrvwho+S+Zj+AGeravryB6jHpN7hKDlru1VfuV7wcx2CbM2dzch0YdBh1Zd2
-	 eEpeidvp4//kQJ6oZ/s58fTBgTGSWbL/TnHkY3lFEVZo3JxPm6PnAt9NqvqM8PEkr5
-	 C9qwHUIAEjNNiWYTvvUQir+hYNVZ3qOVU/orXdioAkjYcUhSv9R1DrDtqifwmS0V5H
-	 bB2AXb2ETODHdWnPjtocTOUoKdtbb+jqpQ3MVGgSRGLLhIxWEuz5A/Gpbmy5D07XdF
-	 ZRIwX6gCUeEAA==
-Date: Tue, 18 Mar 2025 18:03:13 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, indu.bhagat@oracle.com, 
-	puranjay@kernel.org, wnliu@google.com, irogers@google.com, joe.lawrence@redhat.com, 
-	mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev, 
-	rostedt@goodmis.org, will@kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
-Message-ID: <pym6gfbapfy6qlmduszjk6tf2oc2fv4rtxgwjgex7bwlgpfwvs@bkt7qfmf7rc4>
-References: <20250308012742.3208215-1-song@kernel.org>
- <20250308012742.3208215-2-song@kernel.org>
- <iajk7zuxy7fun7f7sv52ydhq7siqub3ec2lmguomdd3fhdw4s2@cwyfihj3gvpn>
- <CAPhsuW4A73c0AjpUwSRJ4o-4E6wpA9c5L0xWaxvHkJ3m+BLGVA@mail.gmail.com>
- <ox4c6flgu7mzkvyontbz2budummiu7e6icke7xl3msmuj2q2ii@xb5mvqcst2vg>
- <CAPhsuW4BEDU=ZJavnofZtygGcQ9AJ5F2jJiuV6-nsnbZD+Gg-Q@mail.gmail.com>
+	Wed, 19 Mar 2025 01:47:03 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2241053582dso25179555ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 18:47:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742348821; x=1742953621; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mQazujB/9yd1yOfFaq3YxlrN7+iuxbijBpN0gJtM4vU=;
+        b=bOs+2X8568kTBK/wWmHQ5LFL8QqveQhy1xnB1JN5leZsJjduqI6pST6R+qG9GJrJpW
+         EAzgRRoJ+wKGkcuptX7bQAZZBjn16SDQdJV+aN1m2GjKmVBrr7/vm+29yQ/lmEUUEZqO
+         V89Vzg1j+gJVsBui4hhV2UD7bBC3xuLszFGb4IGt+NV6+x/mw2RKuR0yHHaSKuzNNEeT
+         R7s5ShU9iiZUTdjIfCmQ4mmQZIDN7FqwvNThD2lSqAzMsc1HwfGhsm4SCJoG+yGrdGHP
+         PH0U96E/i1lhN7PLXnaZX2NiBbeZ0SuTFiPZQLKgdW2zrI2p0ahdvZ4eQFQ+3Tgrz08X
+         1zRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742348821; x=1742953621;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mQazujB/9yd1yOfFaq3YxlrN7+iuxbijBpN0gJtM4vU=;
+        b=qkd/UGj1TWlUYtt+y8cGvZVym1LvUHdRII07uaf3Fxbw/sgnlbgv5c5rkcg0Clm3tl
+         no6uQK4dODEwKUqp2Y/Es8HD/5VKcLUGU4GNFiK79p+QepHvySbLXoD+1AKdq7sQazti
+         LilgOHIGu32dNtG8jv39+h/2IoDZKumZzZb6eLHR8iW9pcLZv8T+sgcU1EAJ4pKOMLGJ
+         AyYVbTZfFqjlFdFFjb1gDfwaJfAICqo6D0pNyiHE4FAEXjdZkAxciUjeEWrLif9B43vj
+         lJ5yl+/cCYA11S082LldCU0GHQjynjcGJkKCKuhwItXA1KGXq99KfNDc1ujk312Q4DHw
+         KKTA==
+X-Gm-Message-State: AOJu0YxZ2xueNugXJELTKr2vKeFluXiZWqV6CXIWytxfSUPnhv2RXwl/
+	Bq0GwkVjxl/MCRwKZScETZX6EfQkruZ96wZ6iLLMy+YmwAeeNJdF95H0IUBb
+X-Gm-Gg: ASbGncskz9rKETd7r1PyxfRFeDkEsKNwea67SYWja4Wh5G6AjdBUSNxBZ0UmMFZhBvL
+	moAohmUAPzKN4P9eJqh54eeOYu+W4PP8Qs5NUhxAg+AL3kBGFhcP0i9NoGmG+PVNZsOkzIprIVW
+	27xj/HCkV5zcIIZ9XiZe/MueD34HpRSZczBEWJ1Iay4nu/t+Vs+qBMaGTvJw9f5OABqKbyrqTzE
+	yzCLzOMXHbJFvEsy8OFYHLFeJHzGi/LV2GpQ1VoQ1NOivKyr8klIScMKD31YHmEfWHlHu+2kQxa
+	KaK6224yLbdfxvxqRZ/u+ptG00PFRF5tdv8mDbv5uEllUE0q+S7t/ep5XunSBLqBNHQm
+X-Google-Smtp-Source: AGHT+IF0XB8fhv1p95uLw69R18eSu0Lwf8G2N3t1RKmk5WXiiexOrAeRINEjNr/ltlJBTDEzGkPmkg==
+X-Received: by 2002:a17:902:e803:b0:21f:74ec:1ff0 with SMTP id d9443c01a7336-22649a67f76mr13801815ad.32.1742348821049;
+        Tue, 18 Mar 2025 18:47:01 -0700 (PDT)
+Received: from localhost (maglev-oncall.nvidia.com. [216.228.125.128])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6888486sm101601915ad.11.2025.03.18.18.46.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 18:47:00 -0700 (PDT)
+Date: Tue, 18 Mar 2025 21:46:58 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: Lucas De Marchi <lucas.demarchi@intel.com>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	Andi Shyti <andi.shyti@linux.intel.com>,
+	David Laight <David.Laight@aculab.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Jani Nikula <jani.nikula@intel.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH v4 3/8] bits: introduce fixed-type genmasks
+Message-ID: <Z9oiEkQEcHhA0a80@thinkpad>
+References: <20250305-fixed-type-genmasks-v4-0-1873dcdf6723@wanadoo.fr>
+ <20250305-fixed-type-genmasks-v4-3-1873dcdf6723@wanadoo.fr>
+ <Z8hsRJvpjYoqh9RG@thinkpad>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPhsuW4BEDU=ZJavnofZtygGcQ9AJ5F2jJiuV6-nsnbZD+Gg-Q@mail.gmail.com>
+In-Reply-To: <Z8hsRJvpjYoqh9RG@thinkpad>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250318_184702_580200_C3A6120D 
+X-CRM114-Status: GOOD (  45.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,147 +113,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 04:38:20PM -0700, Song Liu wrote:
-> On Tue, Mar 18, 2025 at 4:00 PM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> >   - even in the -ENOENT case the unreliable bit has already been set
-> >     right before the call to kunwind_next_frame_record_meta().
++ Catalin Marinas, ARM maillist
+
+Hi Catalin and everyone,
+
+Anshuman Khandual asked me to merge GENMASK_U128() saying it's
+important for ARM to stabilize API. While it's a dead code, I
+accepted his patch as he promised to add users shortly.
+
+Now it's more than half a year since that. There's no users,
+and no feedback from Anshuman.
+
+Can you please tell if you still need the macro? I don't want to
+undercut your development, but if you don't need 128-bit genmasks
+there's no reason to have a dead code in the uapi.
+
+Thanks,
+Yury
+
+On Wed, Mar 05, 2025 at 10:22:47AM -0500, Yury Norov wrote:
+> + Anshuman Khandual <anshuman.khandual@arm.com>
 > 
-> For this one, do you mean we set state->common.unreliable, but
-> failed to propagate it to data.unreliable?
-
-Hm, I hadn't noticed that.  That code is quite the maze.
-
-It's unfortunate there are two separate 'unreliable' variables.  It
-looks like consume_state() is the only way they get synced?
-
-How does that work if kunwind_next() returns an error and skips
-consume_state()?  Or if kunwind_recover_return_address() returns an
-error to kunwind_next()?
-
-What I actually meant was the following:
-
-  do_kunwind()
-    kunwind_next()
-      kunwind_next_frame_record()
-        state->common.unreliable = true;
-	kunwind_next_frame_record_meta()
-	  return -ENOENT;
-
-Notice that in the success case (-ENOENT), unreliable has already been
-set.
-
-Actually I think it would be much simpler to just propagate -ENOENT down
-the call chain.  Then no 'unreliable' bits needed.
-
-Like so (instead of original patch):
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index c9fe3e7566a6..5713fad567c5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -276,6 +276,7 @@ config ARM64
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	select USER_STACKTRACE_SUPPORT
- 	select VDSO_GETRANDOM
-+	select HAVE_RELIABLE_STACKTRACE
- 	help
- 	  ARM 64-bit (AArch64) Linux support.
- 
-@@ -2509,4 +2510,3 @@ endmenu # "CPU Power Management"
- source "drivers/acpi/Kconfig"
- 
- source "arch/arm64/kvm/Kconfig"
--
-diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-index 1d9d51d7627f..e227da842bc3 100644
---- a/arch/arm64/kernel/stacktrace.c
-+++ b/arch/arm64/kernel/stacktrace.c
-@@ -277,22 +277,28 @@ kunwind_next(struct kunwind_state *state)
- 
- typedef bool (*kunwind_consume_fn)(const struct kunwind_state *state, void *cookie);
- 
--static __always_inline void
-+static __always_inline int
- do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state,
- 	   void *cookie)
- {
--	if (kunwind_recover_return_address(state))
--		return;
-+	int ret;
-+
-+	ret = kunwind_recover_return_address(state);
-+	if (ret)
-+		return ret;
- 
- 	while (1) {
- 		int ret;
- 
- 		if (!consume_state(state, cookie))
--			break;
-+			return -EINVAL;
-+
- 		ret = kunwind_next(state);
--		if (ret < 0)
--			break;
-+		if (ret)
-+			return ret;
- 	}
-+
-+	return -EINVAL;
- }
- 
- /*
-@@ -324,7 +330,7 @@ do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state,
- 			: stackinfo_get_unknown();		\
- 	})
- 
--static __always_inline void
-+static __always_inline int
- kunwind_stack_walk(kunwind_consume_fn consume_state,
- 		   void *cookie, struct task_struct *task,
- 		   struct pt_regs *regs)
-@@ -352,7 +358,7 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
- 
- 	if (regs) {
- 		if (task != current)
--			return;
-+			return -EINVAL;
- 		kunwind_init_from_regs(&state, regs);
- 	} else if (task == current) {
- 		kunwind_init_from_caller(&state);
-@@ -360,7 +366,7 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
- 		kunwind_init_from_task(&state, task);
- 	}
- 
--	do_kunwind(&state, consume_state, cookie);
-+	return do_kunwind(&state, consume_state, cookie);
- }
- 
- struct kunwind_consume_entry_data {
-@@ -387,6 +393,25 @@ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
- 	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs);
- }
- 
-+noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
-+			void *cookie, struct task_struct *task)
-+{
-+	int ret;
-+	struct kunwind_consume_entry_data data = {
-+		.consume_entry = consume_entry,
-+		.cookie = cookie,
-+	};
-+
-+	ret = kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, NULL);
-+	if (ret) {
-+		if (ret == -ENOENT)
-+			return 0;
-+		return ret;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- struct bpf_unwind_consume_entry_data {
- 	bool (*consume_entry)(void *cookie, u64 ip, u64 sp, u64 fp);
- 	void *cookie;
+> Anshuman,
+> 
+> I merged your GENMASK_U128() because you said it's important for your
+> projects, and that it will get used in the kernel soon.
+> 
+> Now it's in the kernel for more than 6 month, but no users were added.
+> Can you clarify if you still need it, and if so why it's not used?
+> 
+> As you see, people add another fixed-types GENMASK() macros, and their
+> implementation differ from GENMASK_U128().
+> 
+> My second concern is that __GENMASK_U128() is declared in uapi, while
+> the general understanding for other fixed-type genmasks is that they
+> are not exported to users. Do you need this macro to be exported to
+> userspace? Can you show how and where it is used there?
+> 
+> Thanks,
+> Yury
+> 
+> 
+> On Wed, Mar 05, 2025 at 10:00:15PM +0900, Vincent Mailhol via B4 Relay wrote:
+> > From: Yury Norov <yury.norov@gmail.com>
+> > 
+> > Add __GENMASK_t() which generalizes __GENMASK() to support different
+> > types, and implement fixed-types versions of GENMASK() based on it.
+> > The fixed-type version allows more strict checks to the min/max values
+> > accepted, which is useful for defining registers like implemented by
+> > i915 and xe drivers with their REG_GENMASK*() macros.
+> > 
+> > The strict checks rely on shift-count-overflow compiler check to fail
+> > the build if a number outside of the range allowed is passed.
+> > Example:
+> > 
+> > 	#define FOO_MASK GENMASK_U32(33, 4)
+> > 
+> > will generate a warning like:
+> > 
+> > 	../include/linux/bits.h:41:31: error: left shift count >= width of type [-Werror=shift-count-overflow]
+> > 	   41 |          (((t)~0ULL - ((t)(1) << (l)) + 1) & \
+> > 	      |                               ^~
+> > 
+> > Signed-off-by: Yury Norov <yury.norov@gmail.com>
+> > Signed-off-by: Lucas De Marchi <lucas.demarchi@intel.com>
+> > Acked-by: Jani Nikula <jani.nikula@intel.com>
+> > Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+> > ---
+> > Changelog:
+> > 
+> >   v3 -> v4:
+> > 
+> >     - The v3 is one year old. Meanwhile people started using
+> >       __GENMASK() directly. So instead of generalizing __GENMASK() to
+> >       support different types, add a new GENMASK_t().
+> > 
+> >     - replace ~0ULL by ~_ULL(0). Otherwise, __GENMASK_t() would fail
+> >       in asm code.
+> > 
+> >     - Make GENMASK_U8() and GENMASK_U16() return an unsigned int. In
+> >       v3, due to the integer promotion rules, these were returning a
+> >       signed integer. By casting these to unsigned int, at least the
+> >       signedness is kept.
+> > ---
+> >  include/linux/bitops.h |  1 -
+> >  include/linux/bits.h   | 33 +++++++++++++++++++++++++++++----
+> >  2 files changed, 29 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/include/linux/bitops.h b/include/linux/bitops.h
+> > index c1cb53cf2f0f8662ed3e324578f74330e63f935d..9be2d50da09a417966b3d11c84092bb2f4cd0bef 100644
+> > --- a/include/linux/bitops.h
+> > +++ b/include/linux/bitops.h
+> > @@ -8,7 +8,6 @@
+> >  
+> >  #include <uapi/linux/kernel.h>
+> >  
+> > -#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
+> >  #define BITS_TO_LONGS(nr)	__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(long))
+> >  #define BITS_TO_U64(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u64))
+> >  #define BITS_TO_U32(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u32))
+> > diff --git a/include/linux/bits.h b/include/linux/bits.h
+> > index 5f68980a1b98d771426872c74d7b5c0f79e5e802..f202e46d2f4b7899c16d975120f3fa3ae41556ae 100644
+> > --- a/include/linux/bits.h
+> > +++ b/include/linux/bits.h
+> > @@ -12,6 +12,7 @@
+> >  #define BIT_ULL_MASK(nr)	(ULL(1) << ((nr) % BITS_PER_LONG_LONG))
+> >  #define BIT_ULL_WORD(nr)	((nr) / BITS_PER_LONG_LONG)
+> >  #define BITS_PER_BYTE		8
+> > +#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
+> >  
+> >  /*
+> >   * Create a contiguous bitmask starting at bit position @l and ending at
+> > @@ -25,14 +26,38 @@
+> >  
+> >  #define GENMASK_INPUT_CHECK(h, l) BUILD_BUG_ON_ZERO(const_true((l) > (h)))
+> >  
+> > -#define GENMASK(h, l) \
+> > -	(GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+> > -#define GENMASK_ULL(h, l) \
+> > -	(GENMASK_INPUT_CHECK(h, l) + __GENMASK_ULL(h, l))
+> > +/*
+> > + * Generate a mask for the specified type @t. Additional checks are made to
+> > + * guarantee the value returned fits in that type, relying on
+> > + * shift-count-overflow compiler check to detect incompatible arguments.
+> > + * For example, all these create build errors or warnings:
+> > + *
+> > + * - GENMASK(15, 20): wrong argument order
+> > + * - GENMASK(72, 15): doesn't fit unsigned long
+> > + * - GENMASK_U32(33, 15): doesn't fit in a u32
+> > + */
+> > +#define GENMASK_t(t, h, l)				\
+> > +	(GENMASK_INPUT_CHECK(h, l) +			\
+> > +	 (((t)~ULL(0) - ((t)1 << (l)) + 1) &		\
+> > +	  ((t)~ULL(0) >> (BITS_PER_TYPE(t) - 1 - (h)))))
+> > +
+> > +#define GENMASK(h, l) GENMASK_t(unsigned long,  h, l)
+> > +#define GENMASK_ULL(h, l) GENMASK_t(unsigned long long, h, l)
+> >  
+> >  /*
+> >   * Missing asm support
+> >   *
+> > + * __GENMASK_U*() depends on BITS_PER_TYPE() which would not work in the asm
+> > + * code as BITS_PER_TYPE() relies on sizeof(), something not available in
+> > + * asm. Nethertheless, the concept of fixed width integers is a C thing which
+> > + * does not apply to assembly code.
+> > + */
+> > +#define GENMASK_U8(h, l) ((unsigned int)GENMASK_t(u8,  h, l))
+> > +#define GENMASK_U16(h, l) ((unsigned int)GENMASK_t(u16, h, l))
+> > +#define GENMASK_U32(h, l) GENMASK_t(u32, h, l)
+> > +#define GENMASK_U64(h, l) GENMASK_t(u64, h, l)
+> > +
+> > +/*
+> >   * __GENMASK_U128() depends on _BIT128() which would not work
+> >   * in the asm code, as it shifts an 'unsigned __int128' data
+> >   * type instead of direct representation of 128 bit constants
+> > 
+> > -- 
+> > 2.45.3
+> > 
 
