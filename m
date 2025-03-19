@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5474AC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 06:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FECC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 07:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUXnCyDASHK//JuPGYOT/cwmigfr8c30bsecRv8YH18=; b=2VMVPBCGLQAhB8LrL0xkIPS7+R
-	lXHRiJHRcdPSkzzxBPH2CCJ4WoxOfY9ygfWFVozLcYsBnoc2wB4/SZodl0mbCYeVfI28wSHJlywbC
-	jOMrKjG+K7GobzgdOYIdd6cKlyr7n+XIks4F/I6Ba++MA5Sh55lLz/UznV5zpnET8YblHgwWoSF8z
-	Kn+j5GJF4bjDaYfvIPFO0TQvueFit42LAJ2PKMnPTtRvhmPc2zrY57eT01/YzrJGeyCKc1erZJRM9
-	HiB0T9n/7JaNVOIiuqUqVFby2RQ3E9VjhfLSBobo0P3rKzJ/1D2oAcPcmbXgALX6eSTyZW+ZNJSQz
-	T7oGdvFQ==;
+	bh=xpzhMPP4+wAcr/1ayDu21ECN7kPl3XYHDwtky8EYnxc=; b=nGQ2NSuyisr22x/QE7LsLfCUpw
+	Qi/LHztw1a1vmkvV3bpWsVvwAwxWLJHwyz49xmMkoOyFSlqd3lzC8ARh0a8rpih8F/JlEjRIMih5L
+	i4IS2oTJFuB9/yxJZB0zE54kxo9xNM3abHwhtvdDKgDMB5QVg6pz/sfV165E/5zWBDaBhCUxNk+xW
+	AnffPk8pGo8UB1HkQH73V07pFLGgbCPXNmivXI9c9LAjjzJYkei+EftGGbArMoxeeZzPuf4plHFmt
+	tKb2PCA5wmWbWulxijp3WQXI/h4rgjGCTjaglKkNnCqPOBw1cOW7LfAycM4/f/OUp30YSClg3Y5os
+	b0qKTyBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tunEj-000000089mg-38M0;
-	Wed, 19 Mar 2025 06:49:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tunSi-00000008Ayq-0mfe;
+	Wed, 19 Mar 2025 07:03:36 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tum9n-000000084hk-0Pbo
+	id 1tunQz-00000008Ao4-2MAa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 05:39:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 21C8661145;
-	Wed, 19 Mar 2025 05:39:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2152C4CEEA;
-	Wed, 19 Mar 2025 05:39:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742362798;
-	bh=SSaYbMiudPMxmZdaaCLLVz0v1iCsVRHIWVKduwiZFO8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OPPNVaVB2tsCJjXcWL+hMpGUYU9Fm1O+ahyqX7WMS9b2LMRjm+Em3mDBtPLotCPFm
-	 83/dhNxzj0uUgOGKsqVz8uwkuCtJJuI/oND3GqMnRPsSHymHk2avYaTIMmWf1FsdAm
-	 Xqh2RMhImHrLsd23rUdrrQeeR6MpWBJKaoZYN+aAghG3Sl4XlEXL7pjQq1BFgyvppf
-	 +0SZvUqzhtJEIFYPesQiEV5aTQhY+EgPNrGCCWQ7OCSgoHiNn66cL4X2iIqjYsONyB
-	 RcSzTei6CidAkT32PVL8HZFM1Ft5wILBr3xqb9V5ee4d3dsBkS0d/9IqX5I0ASuD1R
-	 O+a6xCXbCtvVA==
-Date: Tue, 18 Mar 2025 22:39:54 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, indu.bhagat@oracle.com, 
-	puranjay@kernel.org, wnliu@google.com, irogers@google.com, joe.lawrence@redhat.com, 
-	mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev, 
-	rostedt@goodmis.org, will@kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH 1/2] arm64: Implement arch_stack_walk_reliable
-Message-ID: <ifqn5txrr25ffky7lxtnjtb4b2gekq5jy4fmbiwtwfvofb4wgw@py7v7xpzaqxa>
-References: <20250308012742.3208215-1-song@kernel.org>
- <20250308012742.3208215-2-song@kernel.org>
- <iajk7zuxy7fun7f7sv52ydhq7siqub3ec2lmguomdd3fhdw4s2@cwyfihj3gvpn>
- <CAPhsuW4A73c0AjpUwSRJ4o-4E6wpA9c5L0xWaxvHkJ3m+BLGVA@mail.gmail.com>
- <ox4c6flgu7mzkvyontbz2budummiu7e6icke7xl3msmuj2q2ii@xb5mvqcst2vg>
- <CAPhsuW4BEDU=ZJavnofZtygGcQ9AJ5F2jJiuV6-nsnbZD+Gg-Q@mail.gmail.com>
- <pym6gfbapfy6qlmduszjk6tf2oc2fv4rtxgwjgex7bwlgpfwvs@bkt7qfmf7rc4>
- <CAPhsuW6_ZA+V_5JK+xy4v3pyQ-kaZzUooxO=4L+c95fHaW38ig@mail.gmail.com>
+	Wed, 19 Mar 2025 07:01:51 +0000
+Date: Wed, 19 Mar 2025 00:01:29 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1742367703;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xpzhMPP4+wAcr/1ayDu21ECN7kPl3XYHDwtky8EYnxc=;
+	b=OcPcgCftbfrf3MAtuJ9yqeGyaxJLEAaieLSg1kFV5cbjph59KwejwaNLXjnQ7JMjdl1Upk
+	W5msd0+6R3mPihXlOvRQE/0Hj07vRrfghJnIm24YG6kPfyXuRd4/F3pw4YSw71A+qRF7Bf
+	5b6kDJeHQJKBTUA/ZVfpSw7+iz7c9QY=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ankit Agrawal <ankita@nvidia.com>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"seanjc@google.com" <seanjc@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <Z9pryQwy2iwa2bpJ@linux.dev>
+References: <86r033olwv.wl-maz@kernel.org>
+ <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <87tt7y7j6r.wl-maz@kernel.org>
+ <SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <8634fcnh0n.wl-maz@kernel.org>
+ <Z9h98RhunemcFhhz@arm.com>
+ <86wmcmn0dp.wl-maz@kernel.org>
+ <20250318125527.GP9311@nvidia.com>
+ <Z9nJ42PllG8a7AY7@linux.dev>
+ <20250318230909.GD9311@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAPhsuW6_ZA+V_5JK+xy4v3pyQ-kaZzUooxO=4L+c95fHaW38ig@mail.gmail.com>
+In-Reply-To: <20250318230909.GD9311@nvidia.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250319_000150_232889_27960449 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +111,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 08:58:52PM -0700, Song Liu wrote:
-> On a closer look, I think we also need some logic in unwind_find_stack()
-> so that we can see when the unwinder hits the exception boundary. For
-> this reason, we may still need unwind_state.unreliable. I will look into
-> fixing this and send v2.
+On Tue, Mar 18, 2025 at 08:09:09PM -0300, Jason Gunthorpe wrote:
+> > It's far more problematic the other way around, e.g. the host knows that
+> > something needs a Device-* attribute and the VM has done something
+> > cacheable. The endpoint for that PA could, for example, fall over when
+> > lines pulled in by the guest are written back, which of course can't
+> > always be traced back to the offending VM.
+> > 
+> > OTOH, if the host knows that a PA is cacheable and the guest does
+> > something non-cacheable, you 'just' have to deal with the usual
+> > mismatched attributes problem as laid out in the ARM ARM.
+> 
+> I think the issue is that KVM doesn't do that usual stuff (ie cache
+> flushing) for memory that doesn't have a struct page backing.
 
-Isn't that what FRAME_META_TYPE_PT_REGS is for?
+Indeed, I clearly paged that out. What I said is how we arrived at the
+Device-* v. Normal-NC distinction.
 
-Maybe it can just tell kunwind_stack_walk() to set a bit in
-kunwind_state which tells kunwind_next_frame_record_meta() to quit the
-unwind early for the FRAME_META_TYPE_PT_REGS case.  That also has the
-benefit of stopping the unwind as soon as the exception is encounterd.
+> So nothing in the hypervisor does any cache flushing and I belive you
+> end up with a situation where the VMM could have zero'd this cachable
+> memory using cachable stores to sanitize it across VMs and then KVM
+> can put that memory into the VM as uncached and the VM could then
+> access stale non-zeroed data from a prior VM. Yes? This is a security
+> problem.
 
--- 
-Josh
+Pedantic, but KVM only cares about cache maintenance in response to the
+primary MM, not the VMM. After a stage-2 mapping has been established
+userspace cannot expect KVM to do cache maintenance on its behalf.
+
+You have a very good point that KVM is broken for cacheable PFNMAP'd
+crap since we demote to something non-cacheable, and maybe that
+deserves fixing first. Hopefully nobody notices that we've taken away
+the toys...
+
+> So I think the logic we want here in the fault handler is to:
+>   Get the mm's PTE
+>   If it is cachable:
+>     Check if it has a struct page:
+>        Yes - KVM flushes it and can use a non-FWB path
+>        No - KVM either fails to install it, or installs it using FWB
+>            to force cachability. KVM never allows degrading cachable
+> 	   to non-cachable when it can't do flushing.
+>   Not cachable:
+>     Install it with Normal-NC as was previously discussed and merged
+
+We still need to test the VMA flag here to select Normal-NC v. Device.
+
+> > Userspace should be stating intentions on the memslot with the sort of
+> > mapping that it wants to create, and a memslot flag to say "I allow
+> > cacheable mappings" seems to fit the bill.
+> 
+> I'm not sure about this, I don't see that the userspace has any
+> choice. As above, KVM has to follow whatever is in the PTEs, the
+> userspace can't ask for something different here. At best you could
+> make non-struct page cachable memory always fail unless the flag is
+> given - but why?
+> 
+> It seems sufficient for fast fail to check if the VMA has PFNMAP and
+> pgprot cachable then !FEAT_FWB fails the memslot. There is no real
+> recovery from this, the VMM is doing something that cannot be
+> supported.
+
+I'm less worried about recovery and more focused on userspace being
+able to understand what happened. Otherwise we may get folks complaining
+about the ioctl failing "randomly" on certain machines.
+
+But we might need to just expose the FWB-ness of the MMU to userspace
+since it can already encounter mismatched attributes when poking struct
+page-backed guest memory.
+
+Thanks,
+Oliver
 
