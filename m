@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B30C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 17:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B302C35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 17:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=asej6lztkm0YVGl2y+2Y81qJK+/SWoZ+yvSKH0k2kak=; b=foewbNfM0ENf0XjiiqV/1nx8MI
-	fb31oo4/v0/9zOIhD1gFGsHLOHJkXU/zUUBUhg7q0xxtUHSDba1PK/M4tn2pqkWz/KpW5VR9zMEQe
-	0g/pfrlw9cLUAmgvme8jr3oEL1h1q49bfcPmShkaY4QkjE9Q8kYk53lsDfawR+bpjBv1AVVeDgX2O
-	fCIByJ5htEMg7F2kmWFUO7m81FlDvJ+mryKltd6xm+Bgye0rgpSB39zueSjwXs0i3QAHWtJNnhi4h
-	5bwNmfxAhjfgweClHFKKg3tWUEo8oH3Ky/EDPLwbS0qSIkL5e5e12QVHLPNK3VxXxrVSTcMn79NPA
-	pxjsgm5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D8sU3BbaYWUffS8/9m49EzwZHHhCUJM5yY4FWxDUPV8=; b=jo8JxPEhDBWcrUJ/4TLloyWkb7
+	yFCmznNjk/D7ilClQPYTmR1u3Uu5ZH76CrBmzdV5xD9QASMkLnIXwQYsgI0ORpTzp+hNw7Bs3h3Zn
+	3KkOGkFX1n+a2Rmvokv3udI30Eqd93Ea4YzeQmQyRtKcicK9E2YTlYlyI/+rwNajkvtuVkNE/orHM
+	FM2zOuhpoVaAc16Arw29pbzAlrTm47TzLqyzqtAkGyVGyj6BFccvwqQ/ZotUdRe5XyjyVubTjCwnP
+	9AuNyuWcF8FMISBatWdaSGKUDYedlmNzFhV8SA6IzKaZupPcmoHuvxzLKZF05YZJ+WU4mndvmVTXM
+	YMsKY0RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuxRY-00000009jyh-2MpJ;
-	Wed, 19 Mar 2025 17:43:04 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tuxTY-00000009kPg-3TPv;
+	Wed, 19 Mar 2025 17:45:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuxIJ-00000009ifU-0zdG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 17:33:32 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZHwhp0BxTz6K9Rq;
-	Thu, 20 Mar 2025 01:30:34 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id A323914050C;
-	Thu, 20 Mar 2025 01:33:29 +0800 (CST)
-Received: from A2303104131.china.huawei.com (10.203.177.241) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 19 Mar 2025 18:33:22 +0100
-From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-To: <kvmarm@lists.linux.dev>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <linuxarm@huawei.com>, <kevin.tian@intel.com>, <jgg@ziepe.ca>,
-	<alex.williamson@redhat.com>, <maz@kernel.org>, <oliver.upton@linux.dev>,
-	<will@kernel.org>, <robin.murphy@arm.com>, <nicolinc@nvidia.com>,
-	<jean-philippe@linaro.org>, <jonathan.cameron@huawei.com>
-Subject: [RFC PATCH v3 5/5] iommu/arm-smmu-v3: Enable broadcast TLB maintenance
-Date: Wed, 19 Mar 2025 17:32:02 +0000
-Message-ID: <20250319173202.78988-6-shameerali.kolothum.thodi@huawei.com>
-X-Mailer: git-send-email 2.12.0.windows.1
-In-Reply-To: <20250319173202.78988-1-shameerali.kolothum.thodi@huawei.com>
-References: <20250319173202.78988-1-shameerali.kolothum.thodi@huawei.com>
+	id 1tuxOa-00000009jcU-2xlL;
+	Wed, 19 Mar 2025 17:40:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6CE9DA4927B;
+	Wed, 19 Mar 2025 17:34:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A646C4CEE4;
+	Wed, 19 Mar 2025 17:39:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742405999;
+	bh=3iS1Nid3hVupIVK8yX+AtPOSA9VbgHfzJ6vsdb/SE9w=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=mipelKeXek0u7WEJJhh/0KMAGYRgGSyMkdw/pPEzcT4WMmww+U6Wd7D983rVPLsep
+	 VsN1304unfrt/5jh+/bS6tMK2hi23RzOGZQCIknhXjLCr3zJOwB0hnr4yulMqd+4pt
+	 bXochih0TaBQ5FF/W/J8Y9Z445F601/Qgn8hIdjUNAqlYQ4W2iW7HsT5NfubHt0JC5
+	 8ipu96Wknmc0c+SFNNZqnkts6s5GgdKo3JEwgBwkcx3fd8keXDFdH+c7+JMQQOx60i
+	 ckoJ9zze9a1wwZIv2gOLfDoOUXgtceqmrcEiAcUyijBICO23/HCl0HMOmSOgJlPmYg
+	 6DUu/9WHFXyKQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71042380CFFE;
+	Wed, 19 Mar 2025 17:40:36 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.203.177.241]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH RESEND net-next v2] net: stmmac: dwmac-rk: Provide FIFO sizes
+ for DWMAC 1000
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174240603529.1129938.15321664004147428078.git-patchwork-notify@kernel.org>
+Date: Wed, 19 Mar 2025 17:40:35 +0000
+References: <20250312163426.2178314-1-wens@kernel.org>
+In-Reply-To: <20250312163426.2178314-1-wens@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, heiko@sntech.de, wens@csie.org,
+ hayashi.kunihiko@socionext.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_103331_559958_F7C90719 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250319_104000_807340_0DF541BA 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,99 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Hello:
 
-The SMMUv3 can handle invalidation targeted at TLB entries with shared
-ASIDs. If the implementation supports broadcast TLB maintenance, enable it
-and keep track of it in a feature bit. The SMMU will then be affected by
-inner-shareable TLB invalidations from other agents.
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-In order to avoid over invalidation with stage-2 translation contexts,
-enable BTM only when SMMUv3 supports eiher S1 or both S1 & S2 transaltion
-contexts. In this way the default domain will use stage-1 and stage-2 will
-be only used for NESTED Domain setup.
+On Thu, 13 Mar 2025 00:34:26 +0800 you wrote:
+> From: Chen-Yu Tsai <wens@csie.org>
+> 
+> The DWMAC 1000 DMA capabilities register does not provide actual
+> FIFO sizes, nor does the driver really care. If they are not
+> provided via some other means, the driver will work fine, only
+> disallowing changing the MTU setting.
+> 
+> [...]
 
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-[Shameer: Enable BTM only if S1 is supported]
-Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 24 +++++++++++++++++++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
- 2 files changed, 23 insertions(+), 2 deletions(-)
+Here is the summary with links:
+  - [RESEND,net-next,v2] net: stmmac: dwmac-rk: Provide FIFO sizes for DWMAC 1000
+    https://git.kernel.org/netdev/net-next/c/d3c58b656c97
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index addc6308742b..06a13d78286a 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4119,11 +4119,14 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 	writel_relaxed(reg, smmu->base + ARM_SMMU_CR1);
- 
- 	/* CR2 (random crap) */
--	reg = CR2_PTM | CR2_RECINVSID;
-+	reg = CR2_RECINVSID;
- 
- 	if (smmu->features & ARM_SMMU_FEAT_E2H)
- 		reg |= CR2_E2H;
- 
-+	if (!(smmu->features & ARM_SMMU_FEAT_BTM))
-+		reg |= CR2_PTM;
-+
- 	writel_relaxed(reg, smmu->base + ARM_SMMU_CR2);
- 
- 	/* Stream table */
-@@ -4289,6 +4292,7 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- {
- 	u32 reg;
- 	bool coherent = smmu->features & ARM_SMMU_FEAT_COHERENCY;
-+	bool vhe = cpus_have_cap(ARM64_HAS_VIRT_HOST_EXTN);
- 
- 	/* IDR0 */
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR0);
-@@ -4341,7 +4345,7 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 
- 	if (reg & IDR0_HYP) {
- 		smmu->features |= ARM_SMMU_FEAT_HYP;
--		if (cpus_have_cap(ARM64_HAS_VIRT_HOST_EXTN))
-+		if (vhe)
- 			smmu->features |= ARM_SMMU_FEAT_E2H;
- 	}
- 
-@@ -4368,6 +4372,22 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 
- 	if (reg & IDR0_S2P)
- 		smmu->features |= ARM_SMMU_FEAT_TRANS_S2;
-+	/*
-+	 * If S1 is supported, verify that BTM can be enabled.  If S2 is available
-+	 * and BTM is enabled, S2 will be used exclusively for nested domains,
-+	 * ensuring a KVM VMID is obtained.
-+	 * BTM is beneficial when the CPU shares page tables with SMMUv3 (e.g., vSVA).
-+	 */
-+	if (reg & IDR0_S1P) {
-+		/*
-+		 * If the CPU is using VHE, but the SMMU doesn't support it, the SMMU
-+		 * will create TLB entries for NH-EL1 world and will miss the
-+		 * broadcasted TLB invalidations that target EL2-E2H world. Don't enable
-+		 * BTM in that case.
-+		 */
-+		if (reg & IDR0_BTM && (!vhe || reg & IDR0_HYP))
-+			smmu->features |= ARM_SMMU_FEAT_BTM;
-+	}
- 
- 	if (!(reg & (IDR0_S1P | IDR0_S2P))) {
- 		dev_err(smmu->dev, "no translation support!\n");
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 5890c233f73b..f554b6aa52c9 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -39,6 +39,7 @@ struct arm_smmu_device;
- #define IDR0_HTTU			GENMASK(7, 6)
- #define IDR0_HTTU_ACCESS		1
- #define IDR0_HTTU_ACCESS_DIRTY		2
-+#define IDR0_BTM			(1 << 5)
- #define IDR0_COHACC			(1 << 4)
- #define IDR0_TTF			GENMASK(3, 2)
- #define IDR0_TTF_AARCH64		2
+You are awesome, thank you!
 -- 
-2.47.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
