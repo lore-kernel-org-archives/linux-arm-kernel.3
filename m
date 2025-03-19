@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B6CC35FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 05:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFFFC35FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 05:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=; b=vg8Fa6zkToaKAzevGK3Clw1Drh
-	kkDiymwLFLNVPrlk4DrVncj20njTIdtLDT70PS/RRwwRqnnBaxCkm//XlaFkeT+DeSiAe1OxkXQDs
-	mwOCbqfJF6rbaAUCZyqnLIYrJdfnKHGCi3QeOr1iJuCDPCUHG71elK3DjTrWd4HUI0jA24qPDBrOf
-	VB5HlI5N4spJq+GfwPGeXMjxBOM24laaA+ajVItyPzs2mslAkqPT6B/XOs4XrEw19VF0UXJZldqsl
-	l7GYEstqoOMY5FKeg8cNrH7NAOGCrocmIaiSHgcb/ORIyscXBYZJXJZdIpiq1x18IZVi50JBQdNZW
-	S4oPEG0w==;
+	bh=lKH0UkDR+38jlOCF0RORoz/lpVr/5XMrklIeecAtae0=; b=3tCHjWE1aw4FzoiPUxmUCtOitH
+	PXA9MikaCetU1ZGTUHD1Qo2khyZC3h39b2XuPSC0Yuz5jV7VFLYoQv3Uc+R0TTTK8G/YPrCvnhgGF
+	nkXhw6vduHWdj0WTFDWvitXAEwlTdmyyDktFVzfdNQqKQ1EcpPjRbfEPkqXO2B+coJYu77M6/e1IS
+	Aos3/h6vEZvz14T3FZAP91p1tS8L2QJ6cAdXxFLhNHQPn/y6yR5xUF1SWkwFee/l3/1rPnNHHzULq
+	XlwWGJTm5XV4tzvaOdnmA2tM2tfb1J8UnCxlD+PU9RIOAU8DqrN+nKbam03fw+OWCsiYUpXO6a1qG
+	58QZU5CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tulod-000000082My-1ZJn;
-	Wed, 19 Mar 2025 05:18:07 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1tulqI-000000082aA-2yjC;
+	Wed, 19 Mar 2025 05:19:50 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tulem-000000080ji-0T1U
+	id 1tuleq-000000080mO-3q3j
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 05:08:01 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e634a124439so9674071276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 22:07:55 -0700 (PDT)
+	Wed, 19 Mar 2025 05:08:02 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e3a0f608b88so8148365276.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 22:08:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742360875; x=1742965675; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742360879; x=1742965679; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=;
-        b=jvQBhtOqXTLtyILfPO8D0wa3RO24tH27JIsZ4GiLKBCKeZ4/XU/x881hs+gIM/8BoI
-         KcFkZirYuKSGmi+c2FTDyaD2VfsBAt2w64riXWf55N4oVH4qSE2toBmBq/3idkB5zqDF
-         C4m4cVT2r8RV2wQrcX92YV7BrUypFBsMpqSlqbIpMgsiiTQ4J072OEp1fGBHaHzOUTGo
-         +iA/vj5ID2j244qy10ZzgXi6bapGcv07y/bSqHV+kyygl+af4WK6nQC+L/0kXCFOElji
-         dCCIVbbO9iLQd6Na807U1EfW1SX7U/GfuxgOL59M8ZUngYg0MOcNE9WoPaYgdDshMVHm
-         4ogA==
+        bh=lKH0UkDR+38jlOCF0RORoz/lpVr/5XMrklIeecAtae0=;
+        b=SDNsFBujRBnxq9wLPbhVXk8ijZjnPZ9pS6EX/XLwvoYqsoK/ZTKSZvKBut7EAUr4Hi
+         706eCllDODoxbyNDjeQPAvHxzspAG11fYzSp30RcTx460xT4Hyi3LivO8nX0vBRHL4tx
+         6jnGkhmAWanQ7XEt8Xe4hNDU106moge8oSsRjFeGXJjxC/K6ySLVumsy3MIqMZ+JDsOT
+         j7abE+RkQrVbEdyqo92t8XcSS963CBde7tCkkLJfnFPX/OWX5moMHFYS9uhon0RZfwHT
+         BF05Q+/KX+7dF3F3Dav4TOVe55K0O8le+lPVo8c4jMY3g7aK86dYOoavDh+SBoYE35kd
+         BHUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742360875; x=1742965675;
+        d=1e100.net; s=20230601; t=1742360879; x=1742965679;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=;
-        b=uVSf+Zx1cz6jvuJYCAi9MExU1pcEuwmTi+hMR90uWx5eBgel39npah+APp+ZuP4liC
-         ruKv2cRho0KZdGjPyKzL5fVwUj0OC+SaProrDT7+a9Ta5FS6eN4gQGcYhPvSQs1G71fQ
-         Fwfh3bRyWdv35w1Xiylz/6vHoImB/TkRevGGXqzcmR3KwS11/xYZ674CsZ6IplvVJ+Ya
-         WEAZL1iwXY7KNGR1TIHN5ErCWzwOZpUQIyP/0VR9t5LDHcwfkww8lk9KzTmc8fIrk6ey
-         SRjdjRfsnstJ8SC8IIVyiw8YDlKCuwZ8xuEiB/oInzQsLaT+l6GqZjtuP43NXOt4toou
-         q37g==
-X-Forwarded-Encrypted: i=1; AJvYcCW9wUHUW2QxceyzyEf1gdSK4IEZ78pJRoEd9x90JrA6HEwtsZHmrHbeblgoCwMgelUYXmYc8zIJkn7q3UErFr/E@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJB0WEI9Z/dXn9Q9MYC1Lx5BdDgKTRbb6LdCILKfz7tQm/G4tT
-	qjplIr6VDb4TOzJQ3TOM8Fzwh9d6jfg2NbefKiixgV0qC1ub5wg/v1CloRJEZRk9n/DLOOfSt/W
-	HYXoZjQ==
-X-Google-Smtp-Source: AGHT+IFUeD1q1mcBgOYS6b/K4PBymwrwksBbIlprzmhn8jIvW3OyAPriR4x65RqgffXv43hJ4u3eA1io7qGZ
+        bh=lKH0UkDR+38jlOCF0RORoz/lpVr/5XMrklIeecAtae0=;
+        b=VRAvaFFk452QKZn0aTDA1e7hUiTiOYlP5/ryajvwiAnpoOMRUKe/dQZT1mhJijbOW3
+         KVqYvnm/KOuEeOzNo45NMxpwtYJ2Nz9nVkHoFLD7dbgFAyY/fpb5mb63nQQjz2uGvoEv
+         zsrPp38URHq/jv48vAX8ziZ5GZwNsVWHKTfub4Pu6elD48vpVTxR4j5ocItUf70EM5fR
+         crKGaSRSCDTJYulHkfLMCcogzvcnkCX+HpMLWhg3YKkkUb7MjvEwVmC9XcLdOQre8z3Z
+         thvuj3eceRhIvApseOCmuyK1B3HefgdOidTMeZ0jda/Dt2uycwPWIowZQCm2uChksRGs
+         EeGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW6gABlkKJzt26EaZPNN1EPukj0DdGqZxNOfGgp1qbBzTmXoFcsyiT41+Hgvs5yK9uEPBG/vxvgflm9ZPb81QWu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZTriMbP0L28TyHjt0KJdyahiew4Jv0JFJJHINxYlULnWzWyOH
+	xR3EnOKIfMYZJ+q0JRXJNYvmUe89mEPNK/MvUkWHPpqU5EUAZkMGFtSN3a8T15cqAL7b45f3NGY
+	17SuHCw==
+X-Google-Smtp-Source: AGHT+IHW5zIoZNQ/PFJ4nieCzozKPWCoO+ogY5Jq02jaNhLsphiocOSJqBwzeG9L8zyDxjhIToN0yhyiQJB3
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:8a11:10b5:af90:6031])
- (user=irogers job=sendgmr) by 2002:a25:b183:0:b0:e60:8c57:d650 with SMTP id
- 3f1490d57ef6-e667b42f1edmr499276.4.1742360874651; Tue, 18 Mar 2025 22:07:54
+ (user=irogers job=sendgmr) by 2002:a25:c306:0:b0:e63:c603:37d2 with SMTP id
+ 3f1490d57ef6-e667b44294fmr573276.7.1742360879473; Tue, 18 Mar 2025 22:07:59
  -0700 (PDT)
-Date: Tue, 18 Mar 2025 22:07:31 -0700
+Date: Tue, 18 Mar 2025 22:07:33 -0700
 In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-Message-Id: <20250319050741.269828-5-irogers@google.com>
+Message-Id: <20250319050741.269828-7-irogers@google.com>
 Mime-Version: 1.0
 References: <20250319050741.269828-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v7 04/14] perf trace: Reorganize syscalls
+Subject: [PATCH v7 06/14] perf dso: Add support for reading the e_machine type
+ for a dso
 From: Ian Rogers <irogers@google.com>
 To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -86,8 +87,8 @@ To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	Arnd Bergmann <arnd@arndb.de>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_220756_147147_DD014DCE 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20250318_220800_957764_5261784F 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,434 +103,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Identify struct syscall information in the syscalls table by a machine
-type and syscall number, not just system call number. Having the
-machine type means that 32-bit system calls can be differentiated from
-64-bit ones on a machine capable of both. Having a table for all
-machine types and all system call numbers would be too large, so
-maintain a sorted array of system calls as they are encountered.
+For ELF file dsos read the e_machine from the ELF header. For kernel
+types assume the e_machine matches the perf tool. In other cases
+return EM_NONE.
+
+When reading from the ELF header use DSO__SWAP that may need
+dso->needs_swap initializing. Factor out dso__swap_init to allow this.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
-Reviewed-by: Howard Chu <howardchu95@gmail.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- tools/perf/builtin-trace.c | 197 +++++++++++++++++++++++++------------
- 1 file changed, 132 insertions(+), 65 deletions(-)
+ tools/perf/util/dso.c        | 89 ++++++++++++++++++++++++++++++++++++
+ tools/perf/util/dso.h        |  3 ++
+ tools/perf/util/symbol-elf.c | 27 -----------
+ 3 files changed, 92 insertions(+), 27 deletions(-)
 
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 092c5f6404ba..bdfd3d5128b7 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -66,6 +66,7 @@
- #include "syscalltbl.h"
- #include "../perf.h"
- #include "trace_augment.h"
-+#include "dwarf-regs.h"
- 
- #include <errno.h>
- #include <inttypes.h>
-@@ -86,6 +87,7 @@
- 
- #include <linux/ctype.h>
- #include <perf/mmap.h>
-+#include <tools/libc_compat.h>
- 
- #ifdef HAVE_LIBTRACEEVENT
- #include <event-parse.h>
-@@ -149,7 +151,10 @@ struct trace {
- 	struct perf_tool	tool;
- 	struct syscalltbl	*sctbl;
- 	struct {
-+		/** Sorted sycall numbers used by the trace. */
- 		struct syscall  *table;
-+		/** Size of table. */
-+		size_t		table_size;
- 		struct {
- 			struct evsel *sys_enter,
- 				*sys_exit,
-@@ -1454,22 +1459,37 @@ static const struct syscall_fmt *syscall_fmt__find_by_alias(const char *alias)
- 	return __syscall_fmt__find_by_alias(syscall_fmts, nmemb, alias);
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index e0111049f6b0..8619b6eea62d 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -1194,6 +1194,68 @@ ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
+ 	return data_read_write_offset(dso, machine, offset, data, size, true);
  }
  
--/*
-- * is_exit: is this "exit" or "exit_group"?
-- * is_open: is this "open" or "openat"? To associate the fd returned in sys_exit with the pathname in sys_enter.
-- * args_size: sum of the sizes of the syscall arguments, anything after that is augmented stuff: pathname for openat, etc.
-- * nonexistent: Just a hole in the syscall table, syscall id not allocated
-+/**
-+ * struct syscall
-  */
- struct syscall {
-+	/** @e_machine: The ELF machine associated with the entry. */
-+	int e_machine;
-+	/** @id: id value from the tracepoint, the system call number. */
-+	int id;
- 	struct tep_event    *tp_format;
- 	int		    nr_args;
-+	/**
-+	 * @args_size: sum of the sizes of the syscall arguments, anything
-+	 * after that is augmented stuff: pathname for openat, etc.
-+	 */
++uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
++{
++	uint16_t e_machine = EM_NONE;
++	int fd;
 +
- 	int		    args_size;
- 	struct {
- 		struct bpf_program *sys_enter,
- 				   *sys_exit;
- 	}		    bpf_prog;
-+	/** @is_exit: is this "exit" or "exit_group"? */
- 	bool		    is_exit;
-+	/**
-+	 * @is_open: is this "open" or "openat"? To associate the fd returned in
-+	 * sys_exit with the pathname in sys_enter.
-+	 */
- 	bool		    is_open;
-+	/**
-+	 * @nonexistent: Name lookup failed. Just a hole in the syscall table,
-+	 * syscall id not allocated.
-+	 */
- 	bool		    nonexistent;
- 	bool		    use_btf;
- 	struct tep_format_field *args;
-@@ -2107,22 +2127,21 @@ static int syscall__set_arg_fmts(struct syscall *sc)
- 	return 0;
- }
- 
--static int trace__read_syscall_info(struct trace *trace, int id)
-+static int syscall__read_info(struct syscall *sc, struct trace *trace)
- {
- 	char tp_name[128];
--	struct syscall *sc;
--	const char *name = syscalltbl__name(trace->sctbl, id);
-+	const char *name;
- 	int err;
- 
--	if (trace->syscalls.table == NULL) {
--		trace->syscalls.table = calloc(trace->sctbl->syscalls.max_id + 1, sizeof(*sc));
--		if (trace->syscalls.table == NULL)
--			return -ENOMEM;
--	}
--	sc = trace->syscalls.table + id;
- 	if (sc->nonexistent)
- 		return -EEXIST;
- 
-+	if (sc->name) {
-+		/* Info already read. */
-+		return 0;
++	switch (dso__binary_type(dso)) {
++	case DSO_BINARY_TYPE__KALLSYMS:
++	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
++	case DSO_BINARY_TYPE__VMLINUX:
++	case DSO_BINARY_TYPE__GUEST_VMLINUX:
++	case DSO_BINARY_TYPE__GUEST_KMODULE:
++	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
++	case DSO_BINARY_TYPE__KCORE:
++	case DSO_BINARY_TYPE__GUEST_KCORE:
++	case DSO_BINARY_TYPE__BPF_PROG_INFO:
++	case DSO_BINARY_TYPE__BPF_IMAGE:
++	case DSO_BINARY_TYPE__OOL:
++	case DSO_BINARY_TYPE__JAVA_JIT:
++		return EM_HOST;
++	case DSO_BINARY_TYPE__DEBUGLINK:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
++	case DSO_BINARY_TYPE__GNU_DEBUGDATA:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
++	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
++	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
++	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
++		break;
++	case DSO_BINARY_TYPE__NOT_FOUND:
++	default:
++		return EM_NONE;
 +	}
 +
-+	name = syscalltbl__name(trace->sctbl, sc->id);
- 	if (name == NULL) {
- 		sc->nonexistent = true;
- 		return -EEXIST;
-@@ -2145,15 +2164,16 @@ static int trace__read_syscall_info(struct trace *trace, int id)
- 	 */
- 	if (IS_ERR(sc->tp_format)) {
- 		sc->nonexistent = true;
--		return PTR_ERR(sc->tp_format);
-+		err = PTR_ERR(sc->tp_format);
-+		sc->tp_format = NULL;
-+		return err;
- 	}
- 
- 	/*
- 	 * The tracepoint format contains __syscall_nr field, so it's one more
- 	 * than the actual number of syscall arguments.
- 	 */
--	if (syscall__alloc_arg_fmts(sc, IS_ERR(sc->tp_format) ?
--					RAW_SYSCALL_ARGS_NUM : sc->tp_format->format.nr_fields - 1))
-+	if (syscall__alloc_arg_fmts(sc, sc->tp_format->format.nr_fields - 1))
- 		return -ENOMEM;
- 
- 	sc->args = sc->tp_format->format.fields;
-@@ -2442,13 +2462,69 @@ static size_t syscall__scnprintf_args(struct syscall *sc, char *bf, size_t size,
- 	return printed;
++	mutex_lock(dso__data_open_lock());
++
++	/*
++	 * dso__data(dso)->fd might be closed if other thread opened another
++	 * file (dso) due to open file limit (RLIMIT_NOFILE).
++	 */
++	try_to_open_dso(dso, machine);
++	fd = dso__data(dso)->fd;
++	if (fd >= 0) {
++		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
++		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
++		if (dso__needs_swap(dso) == DSO_SWAP__UNSET) {
++			unsigned char eidata;
++
++			if (pread(fd, &eidata, sizeof(eidata), EI_DATA) == sizeof(eidata))
++				dso__swap_init(dso, eidata);
++		}
++		if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
++		    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine))
++			e_machine = DSO__SWAP(dso, uint16_t, e_machine);
++	}
++	mutex_unlock(dso__data_open_lock());
++	return e_machine;
++}
++
+ /**
+  * dso__data_read_addr - Read data from dso address
+  * @dso: dso object
+@@ -1549,6 +1611,33 @@ void dso__put(struct dso *dso)
+ 		RC_CHK_PUT(dso);
  }
  
-+static void syscall__init(struct syscall *sc, int e_machine, int id)
++int dso__swap_init(struct dso *dso, unsigned char eidata)
 +{
-+	memset(sc, 0, sizeof(*sc));
-+	sc->e_machine = e_machine;
-+	sc->id = id;
-+}
++	static unsigned int const endian = 1;
 +
-+static void syscall__exit(struct syscall *sc)
-+{
-+	if (!sc)
-+		return;
++	dso__set_needs_swap(dso, DSO_SWAP__NO);
 +
-+	zfree(&sc->arg_fmt);
-+}
++	switch (eidata) {
++	case ELFDATA2LSB:
++		/* We are big endian, DSO is little endian. */
++		if (*(unsigned char const *)&endian != 1)
++			dso__set_needs_swap(dso, DSO_SWAP__YES);
++		break;
 +
-+static int syscall__cmp(const void *va, const void *vb)
-+{
-+	const struct syscall *a = va, *b = vb;
++	case ELFDATA2MSB:
++		/* We are little endian, DSO is big endian. */
++		if (*(unsigned char const *)&endian != 0)
++			dso__set_needs_swap(dso, DSO_SWAP__YES);
++		break;
 +
-+	if (a->e_machine != b->e_machine)
-+		return a->e_machine - b->e_machine;
-+
-+	return a->id - b->id;
-+}
-+
-+static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, int id)
-+{
-+	struct syscall key = {
-+		.e_machine = e_machine,
-+		.id = id,
-+	};
-+	struct syscall *sc, *tmp;
-+
-+	if (trace->syscalls.table) {
-+		sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-+			     sizeof(struct syscall), syscall__cmp);
-+		if (sc)
-+			return sc;
++	default:
++		pr_err("unrecognized DSO data encoding %d\n", eidata);
++		return -EINVAL;
 +	}
 +
-+	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
-+			   sizeof(struct syscall));
-+	if (!tmp)
-+		return NULL;
-+
-+	trace->syscalls.table = tmp;
-+	sc = &trace->syscalls.table[trace->syscalls.table_size++];
-+	syscall__init(sc, e_machine, id);
-+	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(struct syscall),
-+	      syscall__cmp);
-+	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-+		     sizeof(struct syscall), syscall__cmp);
-+	return sc;
++	return 0;
 +}
 +
- typedef int (*tracepoint_handler)(struct trace *trace, struct evsel *evsel,
- 				  union perf_event *event,
- 				  struct perf_sample *sample);
- 
--static struct syscall *trace__syscall_info(struct trace *trace,
--					   struct evsel *evsel, int id)
-+static struct syscall *trace__syscall_info(struct trace *trace, struct evsel *evsel,
-+					   int e_machine, int id)
+ void dso__set_build_id(struct dso *dso, struct build_id *bid)
  {
-+	struct syscall *sc;
- 	int err = 0;
+ 	RC_CHK_ACCESS(dso)->bid = *bid;
+diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+index 53e3b9b337e5..8c1e7cdbaefd 100644
+--- a/tools/perf/util/dso.h
++++ b/tools/perf/util/dso.h
+@@ -737,6 +737,8 @@ bool dso__sorted_by_name(const struct dso *dso);
+ void dso__set_sorted_by_name(struct dso *dso);
+ void dso__sort_by_name(struct dso *dso);
  
- 	if (id < 0) {
-@@ -2473,28 +2549,20 @@ static struct syscall *trace__syscall_info(struct trace *trace,
- 
- 	err = -EINVAL;
- 
--	if (id > trace->sctbl->syscalls.max_id) {
--		goto out_cant_read;
--	}
--
--	if ((trace->syscalls.table == NULL || trace->syscalls.table[id].name == NULL) &&
--	    (err = trace__read_syscall_info(trace, id)) != 0)
--		goto out_cant_read;
--
--	if (trace->syscalls.table && trace->syscalls.table[id].nonexistent)
--		goto out_cant_read;
-+	sc = trace__find_syscall(trace, e_machine, id);
-+	if (sc)
-+		err = syscall__read_info(sc, trace);
- 
--	return &trace->syscalls.table[id];
--
--out_cant_read:
--	if (verbose > 0) {
-+	if (err && verbose > 0) {
- 		char sbuf[STRERR_BUFSIZE];
--		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err, str_error_r(-err, sbuf, sizeof(sbuf)));
--		if (id <= trace->sctbl->syscalls.max_id && trace->syscalls.table[id].name != NULL)
--			fprintf(trace->output, "(%s)", trace->syscalls.table[id].name);
++int dso__swap_init(struct dso *dso, unsigned char eidata);
 +
-+		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err,
-+			str_error_r(-err, sbuf, sizeof(sbuf)));
-+		if (sc && sc->name)
-+			fprintf(trace->output, "(%s)", sc->name);
- 		fputs(" information\n", trace->output);
- 	}
--	return NULL;
-+	return err ? NULL : sc;
- }
+ void dso__set_build_id(struct dso *dso, struct build_id *bid);
+ bool dso__build_id_equal(const struct dso *dso, struct build_id *bid);
+ void dso__read_running_kernel_build_id(struct dso *dso,
+@@ -826,6 +828,7 @@ int dso__data_file_size(struct dso *dso, struct machine *machine);
+ off_t dso__data_size(struct dso *dso, struct machine *machine);
+ ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
+ 			      u64 offset, u8 *data, ssize_t size);
++uint16_t dso__e_machine(struct dso *dso, struct machine *machine);
+ ssize_t dso__data_read_addr(struct dso *dso, struct map *map,
+ 			    struct machine *machine, u64 addr,
+ 			    u8 *data, ssize_t size);
+diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
+index 3fa92697c457..fbf6d0f73af9 100644
+--- a/tools/perf/util/symbol-elf.c
++++ b/tools/perf/util/symbol-elf.c
+@@ -1174,33 +1174,6 @@ int filename__read_debuglink(const char *filename, char *debuglink,
  
- struct syscall_stats {
-@@ -2643,14 +2711,6 @@ static void *syscall__augmented_args(struct syscall *sc, struct perf_sample *sam
- 	return NULL;
- }
+ #endif
  
--static void syscall__exit(struct syscall *sc)
+-static int dso__swap_init(struct dso *dso, unsigned char eidata)
 -{
--	if (!sc)
--		return;
+-	static unsigned int const endian = 1;
 -
--	zfree(&sc->arg_fmt);
+-	dso__set_needs_swap(dso, DSO_SWAP__NO);
+-
+-	switch (eidata) {
+-	case ELFDATA2LSB:
+-		/* We are big endian, DSO is little endian. */
+-		if (*(unsigned char const *)&endian != 1)
+-			dso__set_needs_swap(dso, DSO_SWAP__YES);
+-		break;
+-
+-	case ELFDATA2MSB:
+-		/* We are little endian, DSO is big endian. */
+-		if (*(unsigned char const *)&endian != 0)
+-			dso__set_needs_swap(dso, DSO_SWAP__YES);
+-		break;
+-
+-	default:
+-		pr_err("unrecognized DSO data encoding %d\n", eidata);
+-		return -EINVAL;
+-	}
+-
+-	return 0;
 -}
 -
- static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
- 			    union perf_event *event __maybe_unused,
- 			    struct perf_sample *sample)
-@@ -2662,7 +2722,7 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
- 	int augmented_args_size = 0;
- 	void *augmented_args = NULL;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	struct thread_trace *ttrace;
- 
- 	if (sc == NULL)
-@@ -2736,7 +2796,7 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
- 	struct thread_trace *ttrace;
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	char msg[1024];
- 	void *args, *augmented_args = NULL;
- 	int augmented_args_size;
-@@ -2811,7 +2871,7 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1, callchain_ret = 0, printed = 0;
- 	int alignment = trace->args_alignment;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	struct thread_trace *ttrace;
- 
- 	if (sc == NULL)
-@@ -3164,7 +3224,7 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
- 
- 	if (evsel == trace->syscalls.events.bpf_output) {
- 		int id = perf_evsel__sc_tp_uint(evsel, id, sample);
--		struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 
- 		if (sc) {
- 			fprintf(trace->output, "%s(", sc->name);
-@@ -3673,7 +3733,7 @@ static struct bpf_program *trace__find_syscall_bpf_prog(struct trace *trace, str
- 
- static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
+ bool symsrc__possibly_runtime(struct symsrc *ss)
  {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 
- 	if (sc == NULL)
- 		return;
-@@ -3684,20 +3744,20 @@ static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
- 
- static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 	return sc ? bpf_program__fd(sc->bpf_prog.sys_enter) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
- }
- 
- static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 	return sc ? bpf_program__fd(sc->bpf_prog.sys_exit) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
- }
- 
- static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigned int *beauty_array)
- {
- 	struct tep_format_field *field;
--	struct syscall *sc = trace__syscall_info(trace, NULL, key);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 	const struct btf_type *bt;
- 	char *struct_offset, *tmp, name[32];
- 	bool can_augment = false;
-@@ -3779,13 +3839,14 @@ static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigne
- 	return -1;
- }
- 
--static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *sc)
-+static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *_sc)
- {
-+	struct syscall sc = *_sc; /* Copy as trace__syscall_info may invalidate pointer. */
- 	struct tep_format_field *field, *candidate_field;
- 	/*
- 	 * We're only interested in syscalls that have a pointer:
- 	 */
--	for (field = sc->args; field; field = field->next) {
-+	for (field = sc.args; field; field = field->next) {
- 		if (field->flags & TEP_FIELD_IS_POINTER)
- 			goto try_to_find_pair;
- 	}
-@@ -3795,15 +3856,16 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- try_to_find_pair:
- 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
- 		int id = syscalltbl__id_at_idx(trace->sctbl, i);
--		struct syscall *pair = trace__syscall_info(trace, NULL, id);
-+		/* calling trace__syscall_info() may invalidate '_sc' */
-+		struct syscall *pair = trace__syscall_info(trace, NULL, sc.e_machine, id);
- 		struct bpf_program *pair_prog;
- 		bool is_candidate = false;
- 
--		if (pair == NULL || pair == sc ||
-+		if (pair == NULL || pair->id == sc.id ||
- 		    pair->bpf_prog.sys_enter == trace->skel->progs.syscall_unaugmented)
- 			continue;
- 
--		for (field = sc->args, candidate_field = pair->args;
-+		for (field = sc.args, candidate_field = pair->args;
- 		     field && candidate_field; field = field->next, candidate_field = candidate_field->next) {
- 			bool is_pointer = field->flags & TEP_FIELD_IS_POINTER,
- 			     candidate_is_pointer = candidate_field->flags & TEP_FIELD_IS_POINTER;
-@@ -3870,7 +3932,7 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 				goto next_candidate;
- 		}
- 
--		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc->name);
-+		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc.name);
- 		return pair_prog;
- 	next_candidate:
- 		continue;
-@@ -3945,7 +4007,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 	 */
- 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
- 		int key = syscalltbl__id_at_idx(trace->sctbl, i);
--		struct syscall *sc = trace__syscall_info(trace, NULL, key);
-+		struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 		struct bpf_program *pair_prog;
- 		int prog_fd;
- 
-@@ -3966,7 +4028,11 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 		pair_prog = trace__find_usable_bpf_prog_entry(trace, sc);
- 		if (pair_prog == NULL)
- 			continue;
--
-+		/*
-+		 * Get syscall info again as find usable entry above might
-+		 * modify the syscall table and shuffle it.
-+		 */
-+		sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 		sc->bpf_prog.sys_enter = pair_prog;
- 
- 		/*
-@@ -4761,7 +4827,10 @@ static size_t syscall__dump_stats(struct trace *trace, FILE *fp,
- 			pct = avg ? 100.0 * stddev_stats(&stats->stats) / avg : 0.0;
- 			avg /= NSEC_PER_MSEC;
- 
--			sc = &trace->syscalls.table[entry->syscall];
-+			sc = trace__syscall_info(trace, /*evsel=*/NULL, EM_HOST, entry->syscall);
-+			if (!sc)
-+				continue;
-+
- 			printed += fprintf(fp, "   %-15s", sc->name);
- 			printed += fprintf(fp, " %8" PRIu64 " %6" PRIu64 " %9.3f %9.3f %9.3f",
- 					   n, stats->nr_failures, entry->msecs, min, avg);
-@@ -5218,12 +5287,10 @@ static int trace__config(const char *var, const char *value, void *arg)
- 
- static void trace__exit(struct trace *trace)
- {
--	int i;
--
- 	strlist__delete(trace->ev_qualifier);
- 	zfree(&trace->ev_qualifier_ids.entries);
- 	if (trace->syscalls.table) {
--		for (i = 0; i <= trace->sctbl->syscalls.max_id; i++)
-+		for (size_t i = 0; i < trace->syscalls.table_size; i++)
- 			syscall__exit(&trace->syscalls.table[i]);
- 		zfree(&trace->syscalls.table);
- 	}
+ 	return ss->dynsym || ss->opdsec;
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
 
