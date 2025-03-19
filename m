@@ -4,94 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E05AC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 05:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE94C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 05:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:From:Subject:References:Mime-Version:Message-Id:In-Reply-To:
-	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jXG/G1oeYM9b/alKQuuagGTfIpZAhQmz/i2palTHGhI=; b=djwVG3nLQ761hKisv4j6SMA4U5
-	fFN9/O17G++3g4PUIlbkLbu3mVYsvOun8QsUxNBiMM/+hsfvMTk4LC5TxDndFJgQM2PndaWTcdSjU
-	GiiRx1eekk4eBaUY0FQ4O2eaYsZe79e/wD1u0VaHk5IRv8H/dtfzDqvIybHRCh7WI5b9IxJqPYw8A
-	dIIEF13VsTwdjHchR/ffbWWoPShIrN5E8g5kWsqOB/aPHtbm6mCdIDhvm2xnw4vfdZMX//Dlado/p
-	yegC1ZJnrsRVqSE1XhApLnFHpLoB/UpAO67tahY75Ehb/bhfYCiL2fuDzF6qP6RKr9xdiVjXB13oU
-	Xsq7jbbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f0q7E5tM1S5F77jiBwtkLZDXXcMdao0HW+6E1Vs/98A=; b=SXDjvUMCPdi+GV
+	Sol8azthUpq3eILmsLjZPUskOzy+bfLay6x0IpGMcXUxD0MRBkagi7wpHSSZkMjuzhP62GEbwbpMy
+	pC0S8HL8weMHiA3X2ZOE7pnzlQUKKbJ8tCD5Tz/0JNf07YxtjFfso90AwI4PcY6qhFSb+EUXBk5ne
+	thruOPBUuhMdHOr3J/zRFVl2aDrAPjLO+CiJMkblhG7UWbu0EYJ6jsIn4UIk1OTR6opf0K7qrQOC0
+	Wc2/7QfM7e10xHUolWy3blebl5YieEWJ7yfgIcsVux7a/FGPwm/HN8V8fvxe+zIWq5jpbQsCevzqC
+	uGYgat2nurLgMAfyY4YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tum3q-000000084Gp-2uFB;
-	Wed, 19 Mar 2025 05:33:50 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1tumA0-000000084js-2fKx;
+	Wed, 19 Mar 2025 05:40:12 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuley-000000080rI-0ARJ
+	id 1tum8I-000000084ZV-2szp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 05:08:09 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f2c7746509so97307757b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 22:08:07 -0700 (PDT)
+	Wed, 19 Mar 2025 05:38:28 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e686d39ba2so12025859a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Mar 2025 22:38:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742360887; x=1742965687; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:from:subject:references:mime-version
-         :message-id:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jXG/G1oeYM9b/alKQuuagGTfIpZAhQmz/i2palTHGhI=;
-        b=gNs8073HhTFFyomE6I5/hO/NFnDrLC2cPNmu86x0GwOe53DcSVBmwq5PZuJWA24oBT
-         GuC7Dt3LTZyk2WwdKYs1QGUy8HqwndpPR4qhaecNbJAsC0oMZmHSo/MjiGC5PSBhcays
-         eKenHqfbcKaAM9UV4+4LVGg9mAdflM78GoZr97jexMxQLeao6Ro1eAd9s5Dwg/RcDwKy
-         HYdcyVW6f/54u2IgC5azmOC8GCRt9bK4ZCf89nxM4gj37v1Kg2pEhjUeX3kMkr4XJjRx
-         wx1lt2eZJ6HXUl7bF1ANF5E3MW1l0fp37osGUztcOw+zfHUhJ9eEg/pp3YbgBBMpuQFQ
-         IoqA==
+        d=linaro.org; s=google; t=1742362705; x=1742967505; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=f0q7E5tM1S5F77jiBwtkLZDXXcMdao0HW+6E1Vs/98A=;
+        b=sixWI71nwLCx0K8s8IN8jfABmKlKrGH4uE+Mfc+Qp7wics6/i3lmtGkk3/S1xs3RM+
+         tjTKtGnYdlGj7pBT6sHr+78i6dsHYQI943jJCvwbWCqOng1pqEK66Raznt3nfCAhjkyQ
+         JeZfjUBykMibeL33Foea1Hqwc3aTTe3RcYjYulUJWcsmzlrki6iBD99xmORlNXd89THR
+         aMTsNeE441nM38vuAi06uydondpBD1J6N/lV2C2S29OfPWh1YgDw9yXUVE2GKZr2/nc7
+         ebTnqkO6VjWdZhSRMnbWh99cCiHwSRsoyyQ5sk6dfbZ0fXXxllvM5L5GzH12PkcM+ILx
+         TkKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742360887; x=1742965687;
-        h=content-transfer-encoding:to:from:subject:references:mime-version
-         :message-id:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=jXG/G1oeYM9b/alKQuuagGTfIpZAhQmz/i2palTHGhI=;
-        b=kSFjZAf+O1d8cn0HhoV57sKhtiUi1u41KYjodK7p7p22I5DirMpalhdmL/aXICyjOj
-         aW6QoG2rQWUrRhKs3/4i8JjBILHlf44D8MRPmUesucEoPHyfGLeAKGJP+qj9x5zpg8+f
-         qUK0M9RJMBkX7NPB5EHqtuXS1EslyfNZnGsm1TGIz8u94Wrf6ti3iB0uZOBusYJdmF+A
-         1+eIodwj/94YnNKN757Ar9834LMUIG/lh2t1MJYnxfwEa5/vycBvjejseDYpzOrUFUFv
-         CeEE5qf6SV3trZd3JIh3MZ0UfpyWN/vAhgNVYRasJd83YOt1fhmJcbG2bYnzD0YQV/hD
-         AjnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW4W9zBLMippm8j7zUxItT8bviyH534R2RCJwpLsC/qoLFW5cZQv5LDypidqRd2W96ed6LZYMLLgyCgx2x5uQxc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrsZoRXa+2x8APLWRfXq4J/VwNp5WApmBIp7wy/24NPPGd8HVh
-	7oJwlRlmvDpaD1vSQ2jhJ4I7Zk1jBeSVXCRCsW3E7Ho9xum/ofCeiMVZIjNhleh0OJotrOIvYpv
-	ikDmeOw==
-X-Google-Smtp-Source: AGHT+IGfbivFYuMlSyVSguddaatmU/X+LBa+8+b7ZSnFdgYCi37H9xIH1R2JAv8LvsqW9+nMJDArTlk6qjei
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:8a11:10b5:af90:6031])
- (user=irogers job=sendgmr) by 2002:a05:690c:6ac4:b0:6fe:d1b3:850a with SMTP
- id 00721157ae682-7009c142bb5mr13627b3.5.1742360886521; Tue, 18 Mar 2025
- 22:08:06 -0700 (PDT)
-Date: Tue, 18 Mar 2025 22:07:36 -0700
-In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-Message-Id: <20250319050741.269828-10-irogers@google.com>
-Mime-Version: 1.0
-References: <20250319050741.269828-1-irogers@google.com>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v7 09/14] perf syscalltbl: Use lookup table containing
- multiple architectures
-From: Ian Rogers <irogers@google.com>
-To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20230601; t=1742362705; x=1742967505;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f0q7E5tM1S5F77jiBwtkLZDXXcMdao0HW+6E1Vs/98A=;
+        b=LxzSexK0HbX4orQeD9Cph5kLnxz5X1LSODhEKNNEmhAxgh8K0AD1AFfzH3gDpkdjvL
+         ++pm+7WEqlvpe+AB2uIaZOh4tyCtN4fQN5wNeO2Low8HJEJikRffkcShKEtwnnkRlf6k
+         G/254tq7rV5OUzgKxVoeaJr4iy4bqUB9T1qlFwCenz0//0zjSfts2p3xagfmPVK2+ec+
+         OslrzeiR1gCz8nqSbyQuHx8CnRP3tozZC52QPO6RXGOzcqCwrmMpZeR+Ha9iQzW02e/B
+         03C5XXLPp1y0qdsRA/VE47/iM1/B1pA5ShWaLlnLklPpnmC1xSiSmoJzXmuUQrp+QakC
+         O6yA==
+X-Forwarded-Encrypted: i=1; AJvYcCU0ayPgQiREbQH1AcKIf7Yd0KZNW3LW2zFYt9/U8mI2d1VIzGmNoWxmllxFv2DD7weEnI1jn6dWUi6cA/zTU28t@lists.infradead.org
+X-Gm-Message-State: AOJu0Yze77sUpDFhIgUrspzHzh61eYvSVfcrkDCALl8Ak3BmtJx9txGS
+	nIV0vYEx5XSUDv4FZqxnfQlNet2ZB0WOU7DyJ26x+lyBeYEsiNlGa0G7QURL+7o=
+X-Gm-Gg: ASbGncsCxg6TnYjIkKz+PZTHITz/Pynh59YwvJ8SwbbsKFOPMv8uRc3jHT9fSGM+mXS
+	owRNNTwJ92tPrZNQ3HC+bg+IaFGEivVpwko3CWVIXo60ppHcz+F+CSvplPuXPTlaXcDOMkBVxcB
+	J9a7weJHX9xo/eb9MzwsY16hsPw+H/LCNL5W9BOT/vffeWYQiQSnyJxYX3ycHrcsfkRoWo2f+ho
+	XW9dVTWeCI7KD5W2qf+RFJFst2z0PEl5p8/gi2j1pgVxc0zais8K1CQrhVoAVLGiNk5ncOlkj8w
+	04s5ASwzwiDTp8I4jWDc4D8H5bzKfOYgmlMTUnDtPMXyT386qVnQZhgKVjhBvmvWq1oy8HH4yE1
+	ATbvjbim169WNUh8+NzGXTXTXLeRF
+X-Google-Smtp-Source: AGHT+IETxQF0HlkGWOHJrycNWdW/ghv4ToDaVOtd9+KfaAEsUmmTturYaUcuKAjEXphuaG6v07nawQ==
+X-Received: by 2002:a05:6402:26d0:b0:5e5:e032:e820 with SMTP id 4fb4d7f45d1cf-5eb80cde046mr1054827a12.12.1742362704825;
+        Tue, 18 Mar 2025 22:38:24 -0700 (PDT)
+Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e81692e6d4sm8511817a12.9.2025.03.18.22.38.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 22:38:24 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH v2 0/2] firmware: exynos-acpm: read fix & reduce log
+ verbosity
+Date: Wed, 19 Mar 2025 05:38:22 +0000
+Message-Id: <20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAE5Y2mcC/22MTQ7CIBBGr9LMWgwFKsSV9zBdIE7bSRSawRBNw
+ 93Frl2+7+dtkJEJM5y7DRgLZUqxgTp0EBYfZxR0bwxKqkHq3ggf1qeY6I1ZaOOCHJyxJ2+hHVb
+ GvWj769h4ofxK/Nndpf+lfzWlF1L4m9TBO7RKT5cHRc/pmHiGsdb6BWOSCgOlAAAA
+X-Change-ID: 20250314-acpm-fixes-348c058476a7
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_220808_095578_7567501D 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20250318_223826_731742_BD6F6C4E 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,260 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch to use the lookup table containing all architectures rather
-than tables matching the perf binary.
+While trying to use the ACPM driver, I stubmbled across two issues:
 
-This fixes perf trace when executed on a 32-bit i386 binary on an
-x86-64 machine. Note in the following the system call names of the
-32-bit i386 binary as seen by an x86-64 perf.
+    * acpm_pmic_bulk_read() doesn't return the correct register values
+    * superfluous log messages during boot
 
-Before:
-```
-         ? (         ): a.out/447296  ... [continued]: munmap())           =
-                                =3D 0
-     0.024 ( 0.001 ms): a.out/447296 recvfrom(ubuf: 0x2, size: 4160585708, =
-flags: DONTROUTE|CTRUNC|TRUNC|DONTWAIT|EOR|WAITALL|FIN|SYN|CONFIRM|RST|ERRQ=
-UEUE|NOSIGNAL|WAITFORONE|BATCH|SOCK_DEVMEM|ZEROCOPY|FASTOPEN|CMSG_CLOEXEC|0=
-x91f80000, addr: 0xe30, addr_len: 0xffce438c) =3D 1475198976
-     0.042 ( 0.003 ms): a.out/447296 lgetxattr(name: "", value: 0x3, size: =
-34)                             =3D 4160344064
-     0.054 ( 0.003 ms): a.out/447296 dup2(oldfd: -134422744, newfd: 4)     =
-                                =3D -1 ENOENT (No such file or directory)
-     0.060 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: (struct io=
-vec){.iov_base =3D (void *)0x2e646c2f6374652f,.iov_len =3D (__kernel_size_t=
-)7307199665335594867,}, vlen: 557056, pos_h: 4160585708) =3D 3
-     0.074 ( 0.004 ms): a.out/447296 lgetxattr(name: "", value: 0x1, size: =
-2)                              =3D 4160237568
-     0.080 ( 0.001 ms): a.out/447296 lstat(filename: "", statbuf: 0x193f6) =
-                                =3D 0
-     0.089 ( 0.007 ms): a.out/447296 preadv(fd: 4294967196, vec: (struct io=
-vec){.iov_base =3D (void *)0x3833692f62696c2f,.iov_len =3D (__kernel_size_t=
-)3276497845987585334,}, vlen: 557056, pos_h: 4160585708) =3D 3
-     0.097 ( 0.002 ms): a.out/447296 close(fd: 3</proc/447296/status>)     =
-                                =3D 512
-     0.103 ( 0.002 ms): a.out/447296 lgetxattr(name: "", value: 0x1, size: =
-2050)                           =3D 4157935616
-     0.107 ( 0.007 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
-e: 0x5, size: 2066)             =3D 4158078976
-     0.116 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
-e: 0x1, size: 2066)             =3D 4159639552
-     0.121 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
-e: 0x3, size: 2066)             =3D 4160184320
-     0.129 ( 0.002 ms): a.out/447296 lgetxattr(pathname: "", name: "", valu=
-e: 0x3, size: 50)               =3D 4160196608
-     0.138 ( 0.001 ms): a.out/447296 lstat(filename: "")                   =
-                                =3D 0
-     0.145 ( 0.002 ms): a.out/447296 mq_timedreceive(mqdes: 4291706800, u_m=
-sg_ptr: 0xf7f9ea48, msg_len: 134616640, u_msg_prio: 0xf7fd7fec, u_abs_timeo=
-ut: (struct __kernel_timespec){.tv_sec =3D (__kernel_time64_t)-578174027777=
-317696,.tv_nsec =3D (long long int)4160349376,}) =3D 0
-     0.148 ( 0.001 ms): a.out/447296 mkdirat(dfd: -134617816, pathname: " =
-=EF=BF=BD=EF=BF=BD=EF=BF=BD =EF=BF=BD=EF=BF=BD=EF=BF=BD=E2=96=92=EF=BF=BD=
-=EF=BF=BD=EF=BF=BD=E2=96=92=EF=BF=BD=EF=BF=BD=EF=BF=BD", mode: IFREG|ISUID|=
-IRUSR|IWGRP|0xf7fd0000) =3D 447296
-     0.150 ( 0.001 ms): a.out/447296 process_vm_writev(pid: -134617812, lve=
-c: (struct iovec){.iov_base =3D (void *)0xf7f9e9c8f7f9e4c0,.iov_len =3D (__=
-kernel_size_t)4160349376,}, liovcnt: 4160588048, rvec: (struct iovec){}, ri=
-ovcnt: 4160585708, flags: 4291707352) =3D 0
-     0.197 ( 0.004 ms): a.out/447296 capget(header: 4160184320, dataptr: 81=
-92)                             =3D 0
-     0.202 ( 0.002 ms): a.out/447296 capget(header: 1448669184, dataptr: 40=
-96)                             =3D 0
-     0.208 ( 0.002 ms): a.out/447296 capget(header: 4160577536, dataptr: 81=
-92)                             =3D 0
-     0.220 ( 0.001 ms): a.out/447296 getxattr(pathname: "", name: "c=EF=BF=
-=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD", value: 0xf7f77e34, size:=
- 1)  =3D 0
-     0.228 ( 0.005 ms): a.out/447296 fchmod(fd: -134729728, mode: IRUGO|IWU=
-GO|IFREG|IFIFO|ISVTX|IXUSR|0x10000) =3D 0
-     0.240 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: 0x5658e008=
-, pos_h: 4160192052)            =3D 3
-     0.250 ( 0.008 ms): a.out/447296 close(fd: 3</proc/447296/status>)     =
-                                =3D 1436
-     0.260 ( 0.018 ms): a.out/447296 stat(filename: "", statbuf: 0xffce32ac=
-)                               =3D 1436
-     0.288 (1000.213 ms): a.out/447296 readlinkat(buf: 0xffce31d4, bufsiz: =
-4291703244)                       =3D 0
-```
+The patches attached are the result and hopefully self-explanatory.
 
-After:
-```
-         ? (         ): a.out/442930  ... [continued]: execve())           =
-                                =3D 0
-     0.023 ( 0.002 ms): a.out/442930 brk()                                 =
-                                =3D 0x57760000
-     0.052 ( 0.003 ms): a.out/442930 access(filename: 0xf7f5af28, mode: R) =
-                                =3D -1 ENOENT (No such file or directory)
-     0.059 ( 0.009 ms): a.out/442930 openat(dfd: CWD, filename: "/etc/ld.so=
-.cache", flags: RDONLY|CLOEXEC|LARGEFILE) =3D 3
-     0.078 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>)     =
-                                =3D 0
-     0.087 ( 0.007 ms): a.out/442930 openat(dfd: CWD, filename: "/lib/i386-=
-linux-", flags: RDONLY|CLOEXEC|LARGEFILE) =3D 3
-     0.095 ( 0.002 ms): a.out/442930 read(fd: 3</proc/442930/status>, buf: =
-0xffbdbb70, count: 512)         =3D 512
-     0.135 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>)     =
-                                =3D 0
-     0.148 ( 0.001 ms): a.out/442930 set_tid_address(tidptr: 0xf7f2b528)   =
-                                =3D 442930 (a.out)
-     0.150 ( 0.001 ms): a.out/442930 set_robust_list(head: 0xf7f2b52c, len:=
- 12)                            =3D
-     0.196 ( 0.004 ms): a.out/442930 mprotect(start: 0xf7f03000, len: 8192,=
- prot: READ)                    =3D 0
-     0.202 ( 0.002 ms): a.out/442930 mprotect(start: 0x5658e000, len: 4096,=
- prot: READ)                    =3D 0
-     0.207 ( 0.002 ms): a.out/442930 mprotect(start: 0xf7f63000, len: 8192,=
- prot: READ)                    =3D 0
-     0.230 ( 0.005 ms): a.out/442930 munmap(addr: 0xf7f10000, len: 103414) =
-                                =3D 0
-     0.244 ( 0.010 ms): a.out/442930 openat(dfd: CWD, filename: 0x5658d008)=
-                                =3D 3
-     0.255 ( 0.007 ms): a.out/442930 read(fd: 3</proc/442930/status>, buf: =
-0xffbdb67c, count: 4096)        =3D 1436
-     0.264 ( 0.018 ms): a.out/442930 write(fd: 1</dev/pts/4>, buf: , count:=
- 1436)                          =3D 1436
-     0.292 (1000.173 ms): a.out/442930 clock_nanosleep(rqtp: { .tv_sec: 178=
-66546940376776704, .tv_nsec: 4159878336 }, rmtp: 0xffbdb59c) =3D 0
-  1000.478 (         ): a.out/442930 exit_group()                          =
-                                =3D ?
-```
+This driver only exists in linux-next at the moment.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
-Reviewed-by: Howard Chu <howardchu95@gmail.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Cheers,
+Andre'
+
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- tools/perf/util/syscalltbl.c | 89 ++++++++++++++++++++++++++----------
- 1 file changed, 64 insertions(+), 25 deletions(-)
+Changes in v2:
+- collect Rb tag for 1st patch in series
+- also drop message from of_find_device_by_node() and simplify related
+  of_node_put() (Tudor)
+- drop patch 3 from original series, as not useful at this stage
+  (Krzysztof)
+- Link to v1: https://lore.kernel.org/r/20250314-acpm-fixes-v1-0-ab03ca8e723f@linaro.org
 
-diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-index 760ac4d0869f..4e6018e2e0b3 100644
---- a/tools/perf/util/syscalltbl.c
-+++ b/tools/perf/util/syscalltbl.c
-@@ -15,16 +15,39 @@
- #include <string.h>
- #include "string2.h"
-=20
--#if __BITS_PER_LONG =3D=3D 64
--  #include <asm/syscalls_64.h>
--#else
--  #include <asm/syscalls_32.h>
--#endif
-+#include "trace/beauty/generated/syscalltbl.c"
-=20
--const char *syscalltbl__name(int e_machine __maybe_unused, int id)
-+static const struct syscalltbl *find_table(int e_machine)
- {
--	if (id >=3D 0 && id <=3D (int)ARRAY_SIZE(syscall_num_to_name))
--		return syscall_num_to_name[id];
-+	static const struct syscalltbl *last_table;
-+	static int last_table_machine =3D EM_NONE;
-+
-+	/* Tables only exist for EM_SPARC. */
-+	if (e_machine =3D=3D EM_SPARCV9)
-+		e_machine =3D EM_SPARC;
-+
-+	if (last_table_machine =3D=3D e_machine && last_table !=3D NULL)
-+		return last_table;
-+
-+	for (size_t i =3D 0; i < ARRAY_SIZE(syscalltbls); i++) {
-+		const struct syscalltbl *entry =3D &syscalltbls[i];
-+
-+		if (entry->e_machine !=3D e_machine && entry->e_machine !=3D EM_NONE)
-+			continue;
-+
-+		last_table =3D entry;
-+		last_table_machine =3D e_machine;
-+		return entry;
-+	}
-+	return NULL;
-+}
-+
-+const char *syscalltbl__name(int e_machine, int id)
-+{
-+	const struct syscalltbl *table =3D find_table(e_machine);
-+
-+	if (table && id >=3D 0 && id < table->num_to_name_len)
-+		return table->num_to_name[id];
- 	return NULL;
- }
-=20
-@@ -41,38 +64,54 @@ static int syscallcmpname(const void *vkey, const void =
-*ventry)
- 	return strcmp(key->name, key->tbl[*entry]);
- }
-=20
--int syscalltbl__id(int e_machine __maybe_unused, const char *name)
-+int syscalltbl__id(int e_machine, const char *name)
- {
--	struct syscall_cmp_key key =3D {
--		.name =3D name,
--		.tbl =3D syscall_num_to_name,
--	};
--	const int *id =3D bsearch(&key, syscall_sorted_names,
--				ARRAY_SIZE(syscall_sorted_names),
--				sizeof(syscall_sorted_names[0]),
--				syscallcmpname);
-+	const struct syscalltbl *table =3D find_table(e_machine);
-+	struct syscall_cmp_key key;
-+	const uint16_t *id;
-+
-+	if (!table)
-+		return -1;
-+
-+	key.name =3D name;
-+	key.tbl =3D table->num_to_name;
-+	id =3D bsearch(&key, table->sorted_names, table->sorted_names_len,
-+		     sizeof(table->sorted_names[0]), syscallcmpname);
-=20
- 	return id ? *id : -1;
- }
-=20
--int syscalltbl__num_idx(int e_machine __maybe_unused)
-+int syscalltbl__num_idx(int e_machine)
- {
--	return ARRAY_SIZE(syscall_sorted_names);
-+	const struct syscalltbl *table =3D find_table(e_machine);
-+
-+	if (!table)
-+		return 0;
-+
-+	return table->sorted_names_len;
- }
-=20
--int syscalltbl__id_at_idx(int e_machine __maybe_unused, int idx)
-+int syscalltbl__id_at_idx(int e_machine, int idx)
- {
--	return syscall_sorted_names[idx];
-+	const struct syscalltbl *table =3D find_table(e_machine);
-+
-+	if (!table)
-+		return -1;
-+
-+	assert(idx >=3D 0 && idx < table->sorted_names_len);
-+	return table->sorted_names[idx];
- }
-=20
--int syscalltbl__strglobmatch_next(int e_machine __maybe_unused, const char=
- *syscall_glob, int *idx)
-+int syscalltbl__strglobmatch_next(int e_machine, const char *syscall_glob,=
- int *idx)
- {
--	for (int i =3D *idx + 1; i < (int)ARRAY_SIZE(syscall_sorted_names); ++i) =
-{
--		const char *name =3D syscall_num_to_name[syscall_sorted_names[i]];
-+	const struct syscalltbl *table =3D find_table(e_machine);
-+
-+	for (int i =3D *idx + 1; table && i < table->sorted_names_len; ++i) {
-+		const char *name =3D table->num_to_name[table->sorted_names[i]];
-=20
- 		if (strglobmatch(name, syscall_glob)) {
- 			*idx =3D i;
--			return syscall_sorted_names[i];
-+			return table->sorted_names[i];
- 		}
- 	}
-=20
---=20
-2.49.0.rc1.451.g8f38331e32-goog
+---
+André Draszik (2):
+      firmware: exynos-acpm: fix reading longer results
+      firmware: exynos-acpm: silence EPROBE_DEFER error on boot
+
+ drivers/firmware/samsung/exynos-acpm-pmic.c | 16 ++++++++--------
+ drivers/firmware/samsung/exynos-acpm.c      | 11 ++---------
+ 2 files changed, 10 insertions(+), 17 deletions(-)
+---
+base-commit: c4d4884b67802c41fd67399747165d65c770621a
+change-id: 20250314-acpm-fixes-348c058476a7
+
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
 
 
