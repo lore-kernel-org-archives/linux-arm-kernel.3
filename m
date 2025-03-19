@@ -4,130 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423FDC35FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A49C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 03:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9P5mVE9rcZVAhHrU2b7b3R9v9xwF3k2DzIypDiwkNSs=; b=K+LOAIOEIBqBm7Unp1ERB3duI/
-	3bB3i6OzATi08paGRpxMeZahF+BGe5qjW8cwn2RLSgcdG5Dn8kTbhmJpgydbYB8sVXFwtWYat+dNM
-	9/P8D7PsK/ULEhpZnnMJGNlqb8wDwjRqHGjdkWpOiEZZdibLHL4MeC3T3ygoYho9WclOugy71yyRH
-	PCNLZqHHrmQw6fArTwFwkUC4T/7aORLiaafyP0SFZUFBx30b04+HWN0Twx4gK28lPrKzXJstIeMKX
-	0CGt2EiKHdEet8rQIo2FsFwkF9ITqBAhpR840zA1YAxtf83pijOKaKA2n9aBnCRzk/whmsB5Q/nUI
-	j78wkd/w==;
+	bh=bmc22h/BMWjxiwjJ1yBZ85fSqhdi58U8C9mzYMf4x18=; b=459n8AN2n8sMuNA06Ynhbq2/PU
+	NSZA6w93dxUj/6foDzxOXRE0xAyrx/csxiT1TBNezdjb73zGkflJTfsxTV7FWWxuUqKt6TK5yLMZu
+	faYb7fQHRGkGlTf08gpdQjYsZXbz7TaKSkx7qM12NGyurdI/gSJx4BxiSw7CXQRcK7NpKplht+rqt
+	fpatI5jlPGERmuiRPaDfcToNpqHPd3JHA5T9r8EvQYEqdVwVTWVyJQJ4tsINmKckUbu/7w7B8iTM+
+	KCnOZpLH/eFaGulCULjgmxcx5l3PH4d+QtL4UKEG96PObf1m4CeiyT4VfIsLYe2EfoRuQhc4fR7v3
+	V6ObiJHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tukAP-00000007typ-3Iom;
-	Wed, 19 Mar 2025 03:32:29 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuk8j-00000007tr8-006u
+	id 1tukDr-00000007uVb-2qMD;
+	Wed, 19 Mar 2025 03:36:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tukCB-00000007uKD-0v1k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Mar 2025 03:30:47 +0000
-Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250319033039epoutp02586070155438944559b2604b9d138f00~uFq1MJ9SZ1929319293epoutp02e
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 03:30:39 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250319033039epoutp02586070155438944559b2604b9d138f00~uFq1MJ9SZ1929319293epoutp02e
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1742355039;
-	bh=9P5mVE9rcZVAhHrU2b7b3R9v9xwF3k2DzIypDiwkNSs=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=cHTADKtU52hbFuQrIEmGhPziAbqq1XxXEuIH0CtWVzp2py9sGEVYPCIixY0Z238rt
-	 pje1E1fV06Sv7oVASwMlDvbHCxtFqXiGvNK4RDJdvSBA6VCDn1KNnYUcb4iEUpUS7L
-	 wHqeUbxMWl9NzSc1BhUg5dIVVNvIjT1OaDaIg29Y=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250319033038epcas1p19bf6bb3adc8be4e0366955a5d7cf4f95~uFq0mwiJz2149621496epcas1p1S;
-	Wed, 19 Mar 2025 03:30:38 +0000 (GMT)
-Received: from epsmges1p4.samsung.com (unknown [182.195.36.132]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4ZHZ3d5YBrz4x9Pv; Wed, 19 Mar
-	2025 03:30:37 +0000 (GMT)
-Received: from epcas1p2.samsung.com ( [182.195.41.46]) by
-	epsmges1p4.samsung.com (Symantec Messaging Gateway) with SMTP id
-	0A.64.24218.D5A3AD76; Wed, 19 Mar 2025 12:30:37 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas1p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250319033037epcas1p475273cf6fbc1c1acb71fd84b64711a1a~uFqzJQqFn1648116481epcas1p4K;
-	Wed, 19 Mar 2025 03:30:37 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250319033037epsmtrp16c341f21c0e1ba2071e2ae3a105832ba~uFqzIfnVT1703917039epsmtrp1m;
-	Wed, 19 Mar 2025 03:30:37 +0000 (GMT)
-X-AuditID: b6c32a38-580dc70000005e9a-fb-67da3a5d10be
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	5F.C1.18949.C5A3AD76; Wed, 19 Mar 2025 12:30:37 +0900 (KST)
-Received: from inkidae001 (unknown [10.113.221.213]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250319033036epsmtip2f5cd10a6e715c06c02f8803d401743d3~uFqy2EXsH0786807868epsmtip2X;
-	Wed, 19 Mar 2025 03:30:36 +0000 (GMT)
-From: =?utf-8?B?64yA7J246riwL1RpemVuIFBsYXRmb3JtIExhYihTUikv7IK87ISx7KCE7J6Q?=
-	<inki.dae@samsung.com>
-To: "'Wentao Liang'" <vulab@iscas.ac.cn>, <jani.nikula@linux.intel.com>,
-	<sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <airlied@gmail.com>,
-	<simona@ffwll.ch>, <krzk@kernel.org>, <alim.akhtar@samsung.com>
-Cc: <dri-devel@lists.freedesktop.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <20250306042720.2296-1-vulab@iscas.ac.cn>
-Subject: RE: [PATCH] drm/exynos/vidi: Remove redundant error handling in
- vidi_get_modes()
-Date: Wed, 19 Mar 2025 12:30:36 +0900
-Message-ID: <000001db987f$479ece60$d6dc6b20$@samsung.com>
+	Wed, 19 Mar 2025 03:34:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB43512FC;
+	Tue, 18 Mar 2025 20:34:25 -0700 (PDT)
+Received: from [10.162.16.153] (a077893.blr.arm.com [10.162.16.153])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E7843F63F;
+	Tue, 18 Mar 2025 20:34:11 -0700 (PDT)
+Message-ID: <5cbaefa8-e51f-415f-a9b3-4841e69bb3fa@arm.com>
+Date: Wed, 19 Mar 2025 09:04:08 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/8] bits: introduce fixed-type genmasks
+To: Yury Norov <yury.norov@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: Lucas De Marchi <lucas.demarchi@intel.com>,
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, Andi Shyti <andi.shyti@linux.intel.com>,
+ David Laight <David.Laight@aculab.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jani Nikula <jani.nikula@intel.com>
+References: <20250305-fixed-type-genmasks-v4-0-1873dcdf6723@wanadoo.fr>
+ <20250305-fixed-type-genmasks-v4-3-1873dcdf6723@wanadoo.fr>
+ <Z8hsRJvpjYoqh9RG@thinkpad> <Z9oiEkQEcHhA0a80@thinkpad>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <Z9oiEkQEcHhA0a80@thinkpad>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQI/yHXXKYbFaiJrYWOw9xvHUpbC7QI3gW3fsp+widA=
-Content-Language: ko
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Tf0xTVxjN7SvvtWrlWeu4I9ssT7cFMrDFwl4Z4JLV+RhugmQxmzG10pcH
-	o7/saxfUuRGyAUUyZFZXa0GGDKQhwRWFwlK2FbHg4grSCW6IS8A4KlQnavbjn5U+3PjvnHvP
-	d893vnuvABFfQRMFpQYLbTZodAS6it8zmJyWui/rF0b2re8VcniihUf+1tSDkqHH91GyfbwL
-	kMHgBYy8VjmPkZ6ZG3HkeL8LJR3BAR55JvIdRjpOzKFkx2c+/utrKN+TZj7V57yFUQPebkB5
-	3DaUahoppG4fC/Co7tZPqM8vugG16HmhQPh+WXYJrdHSZiltKDZqSw1MDpFfpH5DnZEpk6fK
-	leSrhNSg0dM5hGpnQeqbpbpox4T0Q43OGl0q0LAssSU322y0WmhpiZG15BC0SaszZZjSWI2e
-	tRqYNANtyZLLZOkZUeH+spLqodvAdC2+/I8hG1oBXKJaIBRAXAEjP17l14JVAjHuBfBs+C7C
-	kYcAXh9p5HHkCYCn7CHwtOSbvi7AbfgAbLjQgnFkDsCZygFkSYXiDJyrHY8dLMEnARy8a48R
-	BD8FoL/RxltSCfFMeOvvfnQJr8f3wp8W22KYj78IK7y12BIW4UoYPPEryuF1cOT0LH8JI/hG
-	2LvgQriepPCvO21xtUAQdcuCQx25nEQCz9iqYoEgPiWAlc5BPqdXwZ/t7jgOr4fhwEWMw4lw
-	rr4K4wqqAew81r1M6gDsnfYuq7bBjshXMTcET4Zd/Vs4t7Uw8rgutgxxEaypEnNqAl4Zm1ye
-	HYSjrQ0ohyk43zONHgdJzhXRnCuiOVdkcP5v1gz4bvAMbWL1DM3KTYr/LrzYqPeA2INOIb2g
-	ceFBmh/wBMAPoAAhJKIdsxOMWKTVHDpMm41qs1VHs36QER12A5K4odgY/REGi1quUMoUmelb
-	FaQ8U04kiEZ7PmXEOKOx0GU0baLNT+t4AmFiBW9XZ+7m6rzC987N7i3Cjnh2tygD7ee1k6+1
-	MXW9l5rsnmHJyZ2H1cTzN1bXNP8zkxKxzknfKW90jRWuyQtNF+5Kcliqw9nUfNqeA/uJ6+GP
-	+jprPDe/HLL7RZ7V7xonFUWbkD2Pku0P7p09TQTyHQ0PfT9MGNk8KBnd8L0+LHxJkrB77cvn
-	99nL8fDCdhDvqw8+d39q4eZb+Qy1YzHvSO/WevWEEo5tdAzEG7VH60xHWz++93bQNyVzGKBL
-	deB4UfFw/US5OOL2KunFgwmO37+402979PViZmg6VWU7pD+IBbepusHmywF5yISdTMq/eunZ
-	9kBy0eVz6a6yD/5ESwk+W6KRpyBmVvMvKZGs71kEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrDIsWRmVeSWpSXmKPExsWy7bCSvG6s1a10g10vmC1OXF/EZPFg3jY2
-	iytf37NZLL+8ntHi/PkN7BZnm96wW2x6fI3V4vKuOWwWM87vY7KY/W4/u8WMyS/ZLFa27mVx
-	4PHY+20Bi8fOWXfZPfbt2MzosWlVJ5vHvJOBHve7jzN5bF5S79G3ZRWjx+dNcgGcUVw2Kak5
-	mWWpRfp2CVwZ7UfvMxac5a/4eLSTrYFxDm8XIyeHhICJxMad6xm7GLk4hAR2M0qcb53A1MXI
-	AZSQkNiylQPCFJY4fLgYouQ5o0RP72I2kDibQKrE69V1IHERgUeMEh13OlhAHGaBGYwSa7dd
-	YoLoaGeU2L9lDjPINk4BM4m7v3aBdQsLREqcXqoPEmYRUJVo2NHFDmLzClhKnJ98mw3CFpQ4
-	OfMJC4jNLKAt8fTmUyhbXmL7W4iREgIKEj+fLmMFGSkiYCVxdKUdRImIxOzONuYJjMKzkEya
-	hWTSLCSTZiFpWcDIsopRMrWgODc9t9iwwCgvtVyvODG3uDQvXS85P3cTIzhCtbR2MO5Z9UHv
-	ECMTB+MhRgkOZiURXvcn19OFeFMSK6tSi/Lji0pzUosPMUpzsCiJ83573ZsiJJCeWJKanZpa
-	kFoEk2Xi4JRqYHKs5PxRXxPwXVtWsFc+7rm/c+6H0u9dO3e87Ho2R/zm/og1KafvB/y89UV2
-	t+aa013K227d+cF6+f+e/dx1y35xL5mfs+x1+cYo0WvaqsvmrbHoKDq6++QqgatvVfmmXeR7
-	8OHrDJsP4u0CEmkdj5nL4uZbFnSaG8ZWfL1qs9kl9ah1HLe5oed/Q5Uz3O8eR7stanplJ8N5
-	vYVr5fnTzftvHz+nx9mRecN6Y7pWvDnPvDv9dtUT+FSPzfx2+sq8G5m8b2RCFArz/t21COXO
-	et7jvvjXjeP3Vd2+uchbL1q/MvVr6L8Z2WUOmre4W8TmCagcW6l26f/5k2G1HMd0z2YdPLtt
-	V+JsRXtDF9Hzj3qUWIozEg21mIuKEwH8r8YXPwMAAA==
-X-CMS-MailID: 20250319033037epcas1p475273cf6fbc1c1acb71fd84b64711a1a
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250306042753epcas1p3983510872a862109f7f72aff5d074ea3
-References: <CGME20250306042753epcas1p3983510872a862109f7f72aff5d074ea3@epcas1p3.samsung.com>
-	<20250306042720.2296-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_203045_719356_14E261BC 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20250318_203419_353016_14EB629C 
+X-CRM114-Status: GOOD (  33.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,60 +79,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> -----Original Message-----
-> From: Wentao Liang <vulab@iscas.ac.cn>
-> Sent: Thursday, March 6, 2025 1:27 PM
-> To: jani.nikula@linux.intel.com; inki.dae@samsung.com;
-> sw0312.kim@samsung.com; kyungmin.park@samsung.com; airlied@gmail.com;
-> simona@ffwll.ch; krzk@kernel.org; alim.akhtar@samsung.com
-> Cc: dri-devel@lists.freedesktop.org; linux-arm-kernel@lists.infradead.org;
-> linux-samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org; Wentao
-> Liang <vulab@iscas.ac.cn>
-> Subject: [PATCH] drm/exynos/vidi: Remove redundant error handling in
-> vidi_get_modes()
+On 3/19/25 07:16, Yury Norov wrote:
+> + Catalin Marinas, ARM maillist
 > 
-> In the vidi_get_modes() function, if either drm_edid_dup() or
-> drm_edid_alloc() fails, the function will immediately return 0,
-> indicating that no display modes can be retrieved. However, in
-> the event of failure in these two functions, it is still necessary
-> to call the subsequent drm_edid_connector_update() function with
-> a NULL drm_edid as an argument. This ensures that operations such
-> as connector settings are performed in its callee function,
-> _drm_edid_connector_property_update. To maintain the integrity of
-> the operation, redundant error handling needs to be removed.
+> Hi Catalin and everyone,
 
-You are right. Merged.
-
-Thanks,
-Inki Dae
+Hello Yury,
 
 > 
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-> ---
->  drivers/gpu/drm/exynos/exynos_drm_vidi.c | 3 ---
->  1 file changed, 3 deletions(-)
+> Anshuman Khandual asked me to merge GENMASK_U128() saying it's
+> important for ARM to stabilize API. While it's a dead code, I
+> accepted his patch as he promised to add users shortly.
 > 
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-> b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-> index fd388b1dbe68..a956cdb2f33a 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-> @@ -312,9 +312,6 @@ static int vidi_get_modes(struct drm_connector
-> *connector)
->  	else
->  		drm_edid = drm_edid_alloc(fake_edid_info,
-> sizeof(fake_edid_info));
-> 
-> -	if (!drm_edid)
-> -		return 0;
-> -
->  	drm_edid_connector_update(connector, drm_edid);
-> 
->  	count = drm_edid_connector_add_modes(connector);
-> --
-> 2.42.0.windows.2
+> Now it's more than half a year since that. There's no users,
+> and no feedback from Anshuman.
 
+My apologies to have missed your email earlier. Please find response
+for the earlier email below as well.
 
+> 
+> Can you please tell if you still need the macro? I don't want to
+> undercut your development, but if you don't need 128-bit genmasks
+> there's no reason to have a dead code in the uapi.
+
+The code base specifically using GENMASK_U128() has not been posted
+upstream (probably in next couple of months or so) till now, except
+the following patch which has been not been merged and still under
+review and development.
+
+https://lore.kernel.org/lkml/20240801054436.612024-1-anshuman.khandual@arm.com/
+
+> 
+> Thanks,
+> Yury
+> 
+> On Wed, Mar 05, 2025 at 10:22:47AM -0500, Yury Norov wrote:
+>> + Anshuman Khandual <anshuman.khandual@arm.com>
+>>
+>> Anshuman,
+>>
+>> I merged your GENMASK_U128() because you said it's important for your
+>> projects, and that it will get used in the kernel soon.
+>>
+>> Now it's in the kernel for more than 6 month, but no users were added.
+>> Can you clarify if you still need it, and if so why it's not used?
+
+We would need it but although the code using GENMASK_U128() has not been
+posted upstream.
+
+>>
+>> As you see, people add another fixed-types GENMASK() macros, and their
+>> implementation differ from GENMASK_U128().
+
+I will take a look. Is GENMASK_U128() being problematic for the this new
+scheme ?
+
+>>
+>> My second concern is that __GENMASK_U128() is declared in uapi, while
+>> the general understanding for other fixed-type genmasks is that they
+>> are not exported to users. Do you need this macro to be exported to
+>> userspace? Can you show how and where it is used there?
+
+No, not atleast right now.
+
+These were moved into uapi subsequently via the following commit.
+
+21a3a3d015aee ("tools headers: Synchronize {uapi/}linux/bits.h with the kernel sources")
+
+But in general GENMASK_U128() is needed for generating 128 bit page table
+entries, related flags and masks whether in kernel or in user space for
+writing kernel test cases etc.
+
+>>
+>> Thanks,
+>> Yury
+>>
+>>
+>> On Wed, Mar 05, 2025 at 10:00:15PM +0900, Vincent Mailhol via B4 Relay wrote:
+>>> From: Yury Norov <yury.norov@gmail.com>
+>>>
+>>> Add __GENMASK_t() which generalizes __GENMASK() to support different
+>>> types, and implement fixed-types versions of GENMASK() based on it.
+>>> The fixed-type version allows more strict checks to the min/max values
+>>> accepted, which is useful for defining registers like implemented by
+>>> i915 and xe drivers with their REG_GENMASK*() macros.
+>>>
+>>> The strict checks rely on shift-count-overflow compiler check to fail
+>>> the build if a number outside of the range allowed is passed.
+>>> Example:
+>>>
+>>> 	#define FOO_MASK GENMASK_U32(33, 4)
+>>>
+>>> will generate a warning like:
+>>>
+>>> 	../include/linux/bits.h:41:31: error: left shift count >= width of type [-Werror=shift-count-overflow]
+>>> 	   41 |          (((t)~0ULL - ((t)(1) << (l)) + 1) & \
+>>> 	      |                               ^~
+>>>
+>>> Signed-off-by: Yury Norov <yury.norov@gmail.com>
+>>> Signed-off-by: Lucas De Marchi <lucas.demarchi@intel.com>
+>>> Acked-by: Jani Nikula <jani.nikula@intel.com>
+>>> Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+>>> ---
+>>> Changelog:
+>>>
+>>>   v3 -> v4:
+>>>
+>>>     - The v3 is one year old. Meanwhile people started using
+>>>       __GENMASK() directly. So instead of generalizing __GENMASK() to
+>>>       support different types, add a new GENMASK_t().
+>>>
+>>>     - replace ~0ULL by ~_ULL(0). Otherwise, __GENMASK_t() would fail
+>>>       in asm code.
+>>>
+>>>     - Make GENMASK_U8() and GENMASK_U16() return an unsigned int. In
+>>>       v3, due to the integer promotion rules, these were returning a
+>>>       signed integer. By casting these to unsigned int, at least the
+>>>       signedness is kept.
+>>> ---
+>>>  include/linux/bitops.h |  1 -
+>>>  include/linux/bits.h   | 33 +++++++++++++++++++++++++++++----
+>>>  2 files changed, 29 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/include/linux/bitops.h b/include/linux/bitops.h
+>>> index c1cb53cf2f0f8662ed3e324578f74330e63f935d..9be2d50da09a417966b3d11c84092bb2f4cd0bef 100644
+>>> --- a/include/linux/bitops.h
+>>> +++ b/include/linux/bitops.h
+>>> @@ -8,7 +8,6 @@
+>>>  
+>>>  #include <uapi/linux/kernel.h>
+>>>  
+>>> -#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
+>>>  #define BITS_TO_LONGS(nr)	__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(long))
+>>>  #define BITS_TO_U64(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u64))
+>>>  #define BITS_TO_U32(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u32))
+>>> diff --git a/include/linux/bits.h b/include/linux/bits.h
+>>> index 5f68980a1b98d771426872c74d7b5c0f79e5e802..f202e46d2f4b7899c16d975120f3fa3ae41556ae 100644
+>>> --- a/include/linux/bits.h
+>>> +++ b/include/linux/bits.h
+>>> @@ -12,6 +12,7 @@
+>>>  #define BIT_ULL_MASK(nr)	(ULL(1) << ((nr) % BITS_PER_LONG_LONG))
+>>>  #define BIT_ULL_WORD(nr)	((nr) / BITS_PER_LONG_LONG)
+>>>  #define BITS_PER_BYTE		8
+>>> +#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
+>>>  
+>>>  /*
+>>>   * Create a contiguous bitmask starting at bit position @l and ending at
+>>> @@ -25,14 +26,38 @@
+>>>  
+>>>  #define GENMASK_INPUT_CHECK(h, l) BUILD_BUG_ON_ZERO(const_true((l) > (h)))
+>>>  
+>>> -#define GENMASK(h, l) \
+>>> -	(GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+>>> -#define GENMASK_ULL(h, l) \
+>>> -	(GENMASK_INPUT_CHECK(h, l) + __GENMASK_ULL(h, l))
+>>> +/*
+>>> + * Generate a mask for the specified type @t. Additional checks are made to
+>>> + * guarantee the value returned fits in that type, relying on
+>>> + * shift-count-overflow compiler check to detect incompatible arguments.
+>>> + * For example, all these create build errors or warnings:
+>>> + *
+>>> + * - GENMASK(15, 20): wrong argument order
+>>> + * - GENMASK(72, 15): doesn't fit unsigned long
+>>> + * - GENMASK_U32(33, 15): doesn't fit in a u32
+>>> + */
+>>> +#define GENMASK_t(t, h, l)				\
+>>> +	(GENMASK_INPUT_CHECK(h, l) +			\
+>>> +	 (((t)~ULL(0) - ((t)1 << (l)) + 1) &		\
+>>> +	  ((t)~ULL(0) >> (BITS_PER_TYPE(t) - 1 - (h)))))
+>>> +
+>>> +#define GENMASK(h, l) GENMASK_t(unsigned long,  h, l)
+>>> +#define GENMASK_ULL(h, l) GENMASK_t(unsigned long long, h, l)
+>>>  
+>>>  /*
+>>>   * Missing asm support
+>>>   *
+>>> + * __GENMASK_U*() depends on BITS_PER_TYPE() which would not work in the asm
+>>> + * code as BITS_PER_TYPE() relies on sizeof(), something not available in
+>>> + * asm. Nethertheless, the concept of fixed width integers is a C thing which
+>>> + * does not apply to assembly code.
+>>> + */
+>>> +#define GENMASK_U8(h, l) ((unsigned int)GENMASK_t(u8,  h, l))
+>>> +#define GENMASK_U16(h, l) ((unsigned int)GENMASK_t(u16, h, l))
+>>> +#define GENMASK_U32(h, l) GENMASK_t(u32, h, l)
+>>> +#define GENMASK_U64(h, l) GENMASK_t(u64, h, l)
+>>> +
+>>> +/*
+>>>   * __GENMASK_U128() depends on _BIT128() which would not work
+>>>   * in the asm code, as it shifts an 'unsigned __int128' data
+>>>   * type instead of direct representation of 128 bit constants
+>>>
+>>> -- 
+>>> 2.45.3
+>>>
 
