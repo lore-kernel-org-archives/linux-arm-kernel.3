@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA767C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9994C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hog5WJKdQRNrghmMt+l7WMrayTKcBJOBSMu352CQIkA=; b=L3XT68Jh/qquY/pwbOJVp6He3O
-	0tXHnQULmEX+CxiUfTqHQjc5HFGBe9aDnCQjuF6bYZJG46waJvJKnvSSAfiih/5d+GmsGBnOCfk03
-	YoOcluYejxJ+YcG/V17V4bqotCYYWNqMZITHkmMshsZDo9NzoKLo6zBLgVjdMQLHhLEN8EBpAUjhG
-	6im91p09qBjoZ2Jr2QfbHNiX/Z3ra2JT5yw8wWiE2YKd+wf1zS6IYK2re4vpZAvSM1OyfDDnM7aa2
-	1lUFLJBHY0zN6B6SuSqK78jw9COpu0W1321D113A5v4HJx/icsMsbYcBXmOqiye+plBZeHSbE37Bb
-	i4GwHyhw==;
+	bh=aRlSKlwPjz5OfI49MqhNhAWG0xXIoHSGK59j5+5+Zr4=; b=bgF95GAxfusOTTo3zCggrBw05H
+	GPkzQlvEbGcUf0FFgRY/FnAnv7CvCTsS5cBhrJY1GFhJoacZSbAuBVeG2F72fVCQ3LbnavoLYR1i9
+	HopDyPcfhhORBYyWG/Wtk3PeD45FxH6T888/Q7XkR1gllDDbDMRbHuSMTIzyGNPC5pdYP0EnjlOu9
+	8mFtKDvseCwbSc37+VlFStHpf8acDDw8aJLf+i+lb6hrj6PhrMSFfQ3YZEy4vfv30ng7jI8s8UgZO
+	eL6S33b2mUvXTzgzvTTNH1u3BTPPMuJ7KbCIHa/uGVU4LgsSklZM7dcCEN3WnWgOHw8Gzv6pjMlKV
+	7wKlrHjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFxn-0000000CEma-1YzS;
-	Thu, 20 Mar 2025 13:29:35 +0000
+	id 1tvFzT-0000000CFEK-2kyM;
+	Thu, 20 Mar 2025 13:31:19 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFno-0000000CD3E-49rE;
-	Thu, 20 Mar 2025 13:19:18 +0000
+	id 1tvFp7-0000000CDG4-2fPa;
+	Thu, 20 Mar 2025 13:20:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hog5WJKdQRNrghmMt+l7WMrayTKcBJOBSMu352CQIkA=; b=kwN3Y5+/hORg3RCEpzRsvLWeYp
-	znsHABKvqX9qgqmYYIcs8+ega7eNxTQDwRPTnTXYvsnoi2kKpxei5+l5Bs/IDP2T2FrueFLO9LTRd
-	ybhwA8NUitzpPI+ANS7Ku3ckqynsenojU/5piN3aVqVTEIEC7mep/9K8DJDPhw5DmJ/4=;
+	bh=aRlSKlwPjz5OfI49MqhNhAWG0xXIoHSGK59j5+5+Zr4=; b=NfN6pSB9tndSEmbKrcEDWBQ7VE
+	a3rhcdRX6VShAnN3x/dbyLefD+8TJqkLDiXi5d6YzibV36IF2c6QJjdbn+vRxdiDdMqkzE57BAKxH
+	SFkwOeDkzh09nnY8wLo63xOnVyl95cGmwf0YSSaPHNK8nI2jvVhqMZh7j38ODwYQjyBo=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1tvFnY-006Tir-Tj; Thu, 20 Mar 2025 14:19:00 +0100
-Date: Thu, 20 Mar 2025 14:19:00 +0100
+	id 1tvFot-006TkK-9J; Thu, 20 Mar 2025 14:20:23 +0100
+Date: Thu, 20 Mar 2025 14:20:23 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Jonas Karlman <jonas@kwiboo.se>
 Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -46,6 +46,7 @@ Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -54,18 +55,18 @@ Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v3 4/5] net: stmmac: dwmac-rk: Add
- integrated_phy_powerdown operation
-Message-ID: <682212d9-becb-4325-9b0f-541c96a9270d@lunn.ch>
+Subject: Re: [PATCH net-next v3 5/5] net: stmmac: dwmac-rk: Add initial
+ support for RK3528 integrated PHY
+Message-ID: <b918b36e-e4d8-48a6-bac8-6aacafe129b6@lunn.ch>
 References: <20250319214415.3086027-1-jonas@kwiboo.se>
- <20250319214415.3086027-5-jonas@kwiboo.se>
+ <20250319214415.3086027-6-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250319214415.3086027-5-jonas@kwiboo.se>
+In-Reply-To: <20250319214415.3086027-6-jonas@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_061917_034825_F7E00411 
-X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-CacheID: sfid-20250320_062037_669313_D41289B9 
+X-CRM114-Status: UNSURE (   9.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,14 +82,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 09:44:08PM +0000, Jonas Karlman wrote:
+On Wed, Mar 19, 2025 at 09:44:09PM +0000, Jonas Karlman wrote:
 > Rockchip RK3528 (and RV1106) has a different integrated PHY compared to
 > the integrated PHY on RK3228/RK3328. Current powerup/down operation is
 > not compatible with the integrated PHY found in these newer SoCs.
 > 
-> Add a new integrated_phy_powerdown operation and change the call chain
-> for integrated_phy_powerup to prepare support for the integrated PHY
-> found in these newer SoCs.
+> Add operations to powerup/down the integrated PHY found in RK3528.
+> Use helpers that can be used by other GMAC variants in the future.
 > 
 > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
