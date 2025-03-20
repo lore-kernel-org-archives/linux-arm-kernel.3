@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DFB1C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 20:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BB2C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 21:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPq8lUSAEHAPuEHZ0ESyH4azEVJ3R4HhviZNqVoKq20=; b=yBJStXxLEoftLyyskKDfR7nSmG
-	RfoAOzeXBSp5xYvHMA23JuI/qjTQ3E8OTWMIzNSULlWwtMP0Gvega+klMlhl58qXy9rUu0qW7dlOR
-	PXvDUfvPBtx8Ta0MhOO8CFvmuovU8/9maX7rmGsZ/9VvyyObCAM3mMh8Lp7FxwvSjNYQPCbM2Vm7Q
-	pS5xyhQRk41g1r4ImEfJWgGZ5LzYgHhGMfTRYBRNGP8K3mCFSbIMcvppnS1h4RGrT81ke12MbSeuc
-	jflJwWPBx+7v5U0g/HXeaZAoFC1qcpD4+fnG+WOSWZpWUxfJq0HYYvkHJPm+RhFzyXd5Uho/TpaMG
-	UW9NavuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cbk3jQRpbWZBJhAvhNYsKKIrxJtVHyaYhoxicKJbhbI=; b=d76ycAFRFwN1zMtzWjrxxJVMRl
+	lAvLy6SZ2vTxnfr3pk+a563Qk2AkUnVqe2ckul/A4fVtRhzC3Vpmfp39CWlMvCyfJcOMz0alj9Iz5
+	VHGws1qzk0jOWWvq6ofpcxY+0VyrafOaWzahQzb7ik1NfyiblR0sxKvmMI/eTHpRHropwX2UurP+Y
+	fmBEzvKHuh6MmVPkz86hnGoAF9RSGxKX3I9lL5Hv5gAtbRmwbuZpo57rOjotscOxI//IjRLm9ELD5
+	PderHmZ2/PSIXT0ekJuprkZcKgDXKKjWqOpmf+vBcX18wDfFeVUpitzcfBHjWt6pR4mpYdwgzqKPm
+	DI0X2H9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvMaV-0000000DAlH-37eG;
-	Thu, 20 Mar 2025 20:33:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tvN3z-0000000DDHW-3gvA;
+	Thu, 20 Mar 2025 21:04:27 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvMYo-0000000DAfb-0iFt
+	id 1tvN2H-0000000DD8T-3mqZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 20:32:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F98143CF1;
-	Thu, 20 Mar 2025 20:32:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41DFCC4CEDD;
-	Thu, 20 Mar 2025 20:32:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742502733;
-	bh=cnp33NkEi4UH3U5nL6OYRxVdAuacty7X9TFypMwuZc8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=c5Y7G1tvB/Ta8X0sil3in+E5BlgUQLGV605yIuYzK8co8+TfnSTkhayTb29bKddDk
-	 +jFC1pNEeqjwmuPrpSI/38CKKsGu9/CsI6AsdE4hKxzQyiKhrZWt7BfciBUYCeQ239
-	 5Yl3/plunvner2fZUkOkczdgYCQ7IMzhMaJ4ymXk3DmlodYr3I/Cghj1CmuKhUiBk5
-	 EftCKULjpQMvSx/J2e+2hIVtbn+WnBF7cr5uwnmo8QZNRsTnqTlepHwpofKa+7NwyS
-	 7ClZ0RQBUJkY8n5aytEXu0i9y6Vyws1VGr3XM9bf4TG+pUf75im+fJ0S+uHpDE1i5w
-	 qQWbPYtJiLnXA==
-Date: Thu, 20 Mar 2025 15:32:12 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 20 Mar 2025 21:02:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742504562; x=1774040562;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=9Yu/IcKZ+HW0miEpI8MazFPTTbzQQ642qRvaUz7Er3I=;
+  b=JeZAPYi6J5W5z+LOqdAzS5TOgg+D1//eqhVq8LflC0jEFsyFFZZ1JXQV
+   IccanzbbGmi+PL6FFjTp/U6oUqLEKX5QBXK2/rTnx4c6Z1hpNPgnhG46I
+   9jJmRYmsZ5m7Xzqr+vwBdRakOGXmk4RYnEkAoVP9NbzJOGLTYlHkAt4ah
+   Q5pYLGN/kmYMfVaN53aVXfigofusa9JiuGUUk89juFIZvl8UL51YhEP4f
+   1kTmIgsSUQt2/Aq8Ic2lsQMWunB15RgWZQhRlrZvKxwA9ouZntCx+mA4H
+   /bc+jyhVHfKKB8QsH5FbJ9Rn4iYbAovXzsqkI4uRkfqCay0i6FUFYZRP9
+   g==;
+X-CSE-ConnectionGUID: mh/K14DIT7m+qjpyD4idag==
+X-CSE-MsgGUID: CA5SkhRxSpaYTYJk2iO8lw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11379"; a="43491197"
+X-IronPort-AV: E=Sophos;i="6.14,262,1736841600"; 
+   d="scan'208";a="43491197"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2025 14:02:40 -0700
+X-CSE-ConnectionGUID: nXFITisySfCRV1iQdQ4WdQ==
+X-CSE-MsgGUID: CbZlzwNgQJurit+a8DQtvw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,262,1736841600"; 
+   d="scan'208";a="154099904"
+Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 20 Mar 2025 14:02:39 -0700
+Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tvN29-0000lP-2g;
+	Thu, 20 Mar 2025 21:02:35 +0000
+Date: Fri, 21 Mar 2025 05:02:10 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, arm@kernel.org,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: [soc:soc/drivers 22/24]
+ drivers/platform/cznic/turris-signing-key.c:25:55: warning: omitting the
+ parameter name in a function definition is a C23 extension
+Message-ID: <202503210450.AoOpbJXC-lkp@intel.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Alexandru Dadu <alexandru.dadu@imgtec.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michal Wilczynski <m.wilczynski@samsung.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, 
- Darren Etheridge <detheridge@ti.com>, 
- Alessio Belle <alessio.belle@imgtec.com>, Simona Vetter <simona@ffwll.ch>, 
- Vignesh Raghavendra <vigneshr@ti.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, Maxime Ripard <mripard@kernel.org>, 
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, Nishanth Menon <nm@ti.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Tero Kristo <kristo@kernel.org>, David Airlie <airlied@gmail.com>, 
- Randolph Sapp <rs@ti.com>, Frank Binns <frank.binns@imgtec.com>
-To: Matt Coster <matt.coster@imgtec.com>
-In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com>
-References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
- <20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com>
-Message-Id: <174250273222.1046427.15822439763542356679.robh@kernel.org>
-Subject: Re: [PATCH v4 01/18] dt-bindings: gpu: img: Future-proofing
- enhancements
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_133214_249097_5F7BDC91 
-X-CRM114-Status: GOOD (  31.72  )
+X-CRM114-CacheID: sfid-20250320_140241_984408_978806E2 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,103 +90,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
+head:   ba8755ab541fc629948233125db870d4dbf00a75
+commit: df94a2f1eb455b57dd01f9b64419e3163d44df7f [22/24] platform: cznic: turris-omnia-mcu: Add support for digital message signing with HW private key
+config: arm-randconfig-001-20250321 (https://download.01.org/0day-ci/archive/20250321/202503210450.AoOpbJXC-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250321/202503210450.AoOpbJXC-lkp@intel.com/reproduce)
 
-On Thu, 20 Mar 2025 11:32:11 +0000, Matt Coster wrote:
-> The first compatible strings added for the AXE-1-16M are not sufficient to
-> accurately describe all the IMG Rogue GPUs. The current "img,img-axe"
-> string refers to the entire family of Series AXE GPUs, but this is
-> primarily a marketing term and does not denote a level of hardware
-> similarity any greater than just "Rogue".
-> 
-> The more specific "img,img-axe-1-16m" string refers to individual AXE-1-16M
-> GPU. For example, unlike the rest of the Series AXE GPUs, the AXE-1-16M
-> only uses a single power domain.
-> 
-> The situation is actually slightly worse than described in the first
-> paragraph, since many "series" (such as Series BXS found in the TI AM68
-> among others and added later in this series) contain cores with both Rogue
-> and Volcanic architectures.
-> 
-> Besides attempting to move away from vague groupings defined only
-> by marketing terms, we want to draw a line between properties inherent to
-> the IP core and choices made by the silicon vendor at integration time.
-> For instance, the number of power domains is a property of the IP core,
-> whereas the decision to use one or multiple clocks is a vendor one.
-> 
-> In the original compatible strings, we must use "ti,am62-gpu" to constrain
-> both of these properties since the number of power domains cannot be fixed
-> for "img,img-axe".
-> 
-> Work is currently underway to add support for volcanic-based Imagination
-> GPUs, for which bindings will be added in "img,powervr-volcanic.yaml".
-> As alluded to previously, the split between rogue and volcanic cores is
-> non-obvious at times, so add a generic top-level "img,img-rogue" compatible
-> string here to allow for simpler differentiation in devicetrees without
-> referring back to the bindings.
-> 
-> The currently supported GPU (AXE-1-16M) only requires a single power
-> domain. Subsequent patches will add support for BXS-4-64 MC1, which has
-> two power domains. Add infrastructure now to allow for this.
-> 
-> Also allow the dma-coherent property to be added to IMG Rogue GPUs, which
-> are DMA devices. The decision for coherency is made at integration time and
-> this property should be applied wherever it accurately describes the
-> vendor integration.
-> 
-> Note that the new required properties for power domains are conditional on
-> the new base compatible string to avoid an ABI break.
-> 
-> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
-> ---
-> Changes in v4:
-> - Add img,img-rogue back to ti,am62-gpu compatible strings to allow
->   compatibility with older kernels
-> - Revert change to power-domains property and add proper constraint
-> - Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-1-143b3dbef02f@imgtec.com
-> Changes in v3:
-> - Remove unnecessary example
-> - Remove second power domain details, add these where they're used instead
-> - Avoid ABI breaks by limiting new required properties to new compatible
->   strings and making all binding changes in a single patch.
-> - Links to v2:
->   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com
->   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-3-3fd45d9fb0cf@imgtec.com
->   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-4-3fd45d9fb0cf@imgtec.com
-> ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 44 +++++++++++++++++++---
->  1 file changed, 39 insertions(+), 5 deletions(-)
-> 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503210450.AoOpbJXC-lkp@intel.com/
 
-My bot found errors running 'make dt_binding_check' on your patch:
+All warnings (new ones prefixed by >>):
 
-yamllint warnings/errors:
+>> drivers/platform/cznic/turris-signing-key.c:25:55: warning: omitting the parameter name in a function definition is a C23 extension [-Wc23-extensions]
+      25 | static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
+         |                                                       ^
+   drivers/platform/cznic/turris-signing-key.c:25:87: warning: omitting the parameter name in a function definition is a C23 extension [-Wc23-extensions]
+      25 | static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
+         |                                                                                       ^
+   2 warnings generated.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml: properties:power-domains: 'anyOf' conditional failed, one must be fixed:
-	'minItems' is not one of ['maxItems', 'description', 'deprecated']
-		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
-	'minItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
-	'maxItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
-	1 is less than the minimum of 2
-		hint: Arrays must be described with a combination of minItems/maxItems/items
-	hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
-	from schema $id: http://devicetree.org/meta-schemas/power-domain.yaml#
 
-doc reference errors (make refcheckdocs):
+vim +25 drivers/platform/cznic/turris-signing-key.c
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com
+0b28b7080ef5a3 Marek Behún 2025-02-04  24  
+0b28b7080ef5a3 Marek Behún 2025-02-04 @25  static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
+0b28b7080ef5a3 Marek Behún 2025-02-04  26  {
+0b28b7080ef5a3 Marek Behún 2025-02-04  27  	return 0;
+0b28b7080ef5a3 Marek Behún 2025-02-04  28  }
+0b28b7080ef5a3 Marek Behún 2025-02-04  29  
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+:::::: The code at line 25 was first introduced by commit
+:::::: 0b28b7080ef5a323c3afa3860c3d45d627629830 platform: cznic: Add keyctl helpers for Turris platform
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+:::::: TO: Marek Behún <kabel@kernel.org>
+:::::: CC: Arnd Bergmann <arnd@arndb.de>
 
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
