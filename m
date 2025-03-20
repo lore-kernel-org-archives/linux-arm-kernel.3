@@ -4,61 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCB3C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:33:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F91C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtBKSdvOQvyib+c2qIrCjDAyLhuVyW7tfARPoLikPeg=; b=zhkOGZCYhT3hbcuYEcB3Jdw9u2
-	t7G26PQ1RUHVNM43XIPc9DX0fcsi9PhCyrynVeYPn2jXSOwgotrQIJNXxKLFIl80+4pHmiscRDS5t
-	nFOV3WkSgdEv25OVT+7gf2tGYJofNoyPXA5mcE+sRBFHvVWHg6onkbQ1QvhWxyun9Vw5XambRrBhS
-	wvUqwda4CL2bmS0kh8tK1MWUU7quT64hB0jCiK1S+OO/F7QawNVlqx/OCTbTV9QLZF3GwpQR4j2oY
-	FbCFGt13ITOiNwS9mSRfAbKoTAHs8c+kTHZpvvyy5nuAGP7+MOBirC8dm/0auI+7YmH7I1NwiIBWH
-	DPKhR0Bw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2GhEP0iObycxxgMfhvUnZ9ov+e48SKG/yYCAdiHKKuU=; b=OMucA4JBmc9YXuAJX0xG6RP0m2
+	vAtCUXabtfkox3KimYaLixye8Sk5VSpwz5KqSy8QyLKtxB/qNUQga/ZY7vK16Zt9PdlhguuxNBurx
+	XRcKxyX+kig7dEF2GcpcleNm5os5qF1kots3uMRpFy/9OvMHtZ3hyjebuz7PmkxqGJLLbksc6gyGq
+	KoBGvFhydqty8pJlkiKlx/bOiFPAxZC9dePmDZWmrTaeKQvL/TMlUWRXxuUVVtkMD7oSVQqGFjxmx
+	pCd/HaTGqgPQVcTc9K4WUBgUd+n87qziUh/hs4QDDvOyoS5kXSicMZQdc0pAnK8is4u+KucD244Hv
+	/C2KpVMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvG19-0000000CFUW-1lSK;
-	Thu, 20 Mar 2025 13:33:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFsw-0000000CDno-34yV
+	id 1tvG2p-0000000CFiQ-0nkk;
+	Thu, 20 Mar 2025 13:34:47 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvFzs-0000000CFIp-1vJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 13:24:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90492113E;
-	Thu, 20 Mar 2025 06:24:38 -0700 (PDT)
-Received: from [10.57.69.2] (unknown [10.57.69.2])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 901E43F63F;
-	Thu, 20 Mar 2025 06:24:26 -0700 (PDT)
-Message-ID: <f9c5839e-5d55-497e-9df3-ab778c4eae72@arm.com>
-Date: Thu, 20 Mar 2025 13:24:25 +0000
+	Thu, 20 Mar 2025 13:31:46 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K8qApU025723;
+	Thu, 20 Mar 2025 14:31:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	2GhEP0iObycxxgMfhvUnZ9ov+e48SKG/yYCAdiHKKuU=; b=TsmNuXGS/snz4UFE
+	P68BI2sd+ASVIYb5eUGJ/71BUzcbD56/h2Vr21LC+gOz2McBMXUSk+7EG/uh9q0d
+	eE8Q3bMrLLrUDa2f6sax/g9rS1QpWmjQ/815M0P3VLasNkomG2Mb1FKaV5DHVDFK
+	OS3cxR5G59cP5IVsaVfe6kORjbjGpT3/oF0vRhViLSomzt1DdpRToVn7f78kyUH6
+	B+i0QpMNkF+jdBWi8aruybvG3I4DEe7/jjZxsMJvSM1yRQFSyYMs1qaSFV8TarQf
+	c3f5OIaNwIgElO5psBEBSqeCMD/cBFNurkh/iPbBcn7SXSbf4/wTRGLfyeDWOr/6
+	IItEXA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45fuc8p0ke-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Mar 2025 14:31:21 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D1FF640045;
+	Thu, 20 Mar 2025 14:29:59 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7496A8095E1;
+	Thu, 20 Mar 2025 14:28:53 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 20 Mar
+ 2025 14:28:52 +0100
+Message-ID: <1e3498a2-9279-4363-a0d9-8187933f6691@foss.st.com>
+Date: Thu, 20 Mar 2025 14:28:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- ryan.roberts@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- ardb@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
- james.morse@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
- baohua@kernel.org, david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev
-References: <20250319150533.37440-2-miko.lenczewski@arm.com>
- <20250319150533.37440-3-miko.lenczewski@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250319150533.37440-3-miko.lenczewski@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v5 4/8] memory: Add STM32 Octo Memory Manager driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250219080059.367045-1-patrice.chotard@foss.st.com>
+ <20250219080059.367045-5-patrice.chotard@foss.st.com>
+ <eaf1ecca-4fde-4128-8590-6013c3a13a04@kernel.org>
+ <8b1b7df5-07f4-4f95-88e7-4e95ee909ffd@foss.st.com>
+ <ac119dba-6e73-496c-97e1-d59ac0fe4a27@kernel.org>
+ <06244bfb-1bd0-4a07-a928-3d2e68a89259@foss.st.com>
+ <f508b96e-81c8-41bd-baca-ebd1b4419904@kernel.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <f508b96e-81c8-41bd-baca-ebd1b4419904@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-20_03,2025-03-20_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_062434_864019_2DC2EA46 
-X-CRM114-Status: GOOD (  36.35  )
+X-CRM114-CacheID: sfid-20250320_063145_013736_238A830A 
+X-CRM114-Status: GOOD (  39.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,238 +112,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2025 15:05, Mikołaj Lenczewski wrote:
-> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-> and this commit adds a dedicated BBML2 cpufeature to test against
-> support for, as well as a kernel commandline parameter to optionally
-> disable BBML2 altogether.
+
+
+On 3/19/25 08:37, Krzysztof Kozlowski wrote:
+> On 18/03/2025 14:40, Patrice CHOTARD wrote:
+>>
+>>
+>> On 3/13/25 08:33, Krzysztof Kozlowski wrote:
+>>> On 12/03/2025 15:23, Patrice CHOTARD wrote:
+>>>>>> +static int stm32_omm_disable_child(struct device *dev)
+>>>>>> +{
+>>>>>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>>>>>> +	struct reset_control *reset;
+>>>>>> +	int ret;
+>>>>>> +	u8 i;
+>>>>>> +
+>>>>>> +	for (i = 0; i < omm->nb_child; i++) {
+>>>>>> +		ret = clk_prepare_enable(omm->child[i].clk);
+>>>>>> +		if (ret) {
+>>>>>> +			dev_err(dev, "Can not enable clock\n");
+>>>>>> +			return ret;
+>>>>>> +		}
+>>>>>> +
+>>>>>> +		reset = of_reset_control_get_exclusive(omm->child[i].node, 0);
+>>>>>> +		if (IS_ERR(reset)) {
+>>>>>> +			dev_err(dev, "Can't get child reset\n");
+>>>>>
+>>>>> Why do you get reset of child? Parent is not suppposed to poke there.
+>>>>> You might not have the reset there in the first place and it would not
+>>>>> be an error.
+>>>>
+>>>> By ressetting child (OSPI), we ensure they are disabled and in a known state.
+>>>> See the comment below.
+>>>>
+>>>>>
+>>>>>
+>>>>>> +			return PTR_ERR(reset);
+>>>>>> +		};
+>>>>>> +
+>>>>>> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
+>>>>>> +		reset_control_assert(reset);
+>>>>>> +		udelay(2);
+>>>>>> +		reset_control_deassert(reset);
+>>>>>
+>>>>> No, the child should handle this, not parent.
+>>>>
+>>>> Octo Memory Manager can only be configured if both child are disabled.
+>>>> That's why here, parent handles this.
+>>>
+>>> So if device by any chance started and is doing some useful work, then
+>>> you cancel that work and reset it?
+>>
+>> stm32_omm_configure() is only called if we get access granted on both children.
+>> That means we are authorized to use these devices, so we can reset them.
+>>
+>>>
+>>> And what if child does not have reset line? Your binding allows that, so
+>>> how is it supposed to work then?
+>>
+>> Ah yes, you are right, the OSPI bindings need to be updated
+>> by requiring reset lines and the driver spi-stm32-ospi.c as well.
+>> I will send a fix for that.
+>>
+>> Thanks for pointing this.
+>>
+>>>
+>>> This also leads me to questions about bindings - if you need to assert
+>>> some reset, doesn't it mean that these resets are also coming through
+>>> this device so they are part of this device node?
+>>
+>> As we are able to retrieve children's reset from their respective node,
+>> if you don't mind, OMM bindings can be kept as it's currently.
 > 
-> This is a system feature as we might have a big.LITTLE architecture
-> where some cores support BBML2 and some don't, but we want all cores to
-> be available and BBM to default to level 0 (as opposed to having cores
-> without BBML2 not coming online).
+> But that is what the entire discussion is about - I do mind. I said it
+> already - you are not supposed to poke into child's node.
 > 
-> To support BBML2 in as wide a range of contexts as we can, we want not
-> only the architectural guarantees that BBML2 makes, but additionally
-> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
-> us having to prove that no recursive faults can be induced in any path
-> that uses BBML2, allowing its use for arbitrary kernel mappings.
-> Support detection of such CPUs.
+> If you need to toggle child's resources, then I claim these are your
+> resources as well.
+
+Hi Krzysztof 
+
+Ok i will update both OMM driver and bindings accordingly.
+
 > 
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-> ---
->   .../admin-guide/kernel-parameters.txt         |  3 +
->   arch/arm64/Kconfig                            | 11 +++
->   arch/arm64/include/asm/cpucaps.h              |  2 +
->   arch/arm64/include/asm/cpufeature.h           |  5 ++
->   arch/arm64/kernel/cpufeature.c                | 68 +++++++++++++++++++
->   arch/arm64/kernel/pi/idreg-override.c         |  2 +
->   arch/arm64/tools/cpucaps                      |  1 +
->   7 files changed, 92 insertions(+)
+>>
+>> And another information, on some MP2 SoCs family, there is only one 
+>> OSPI instance. So for these SoCs, there is no Octo Memory Manager.
+>>
+>>>
+>>>>
+>>>>>
+>>>>>> +
+>>>>>> +		reset_control_put(reset);
+>>>>>> +		clk_disable_unprepare(omm->child[i].clk);
+>>>>>> +	}
+>>>>>> +
+>>>>>> +	return 0;
+>>>>>> +}
+>>>>>> +
+>>>>>> +static int stm32_omm_probe(struct platform_device *pdev)
+>>>>>> +{
+>>>>>> +	struct platform_device *vdev;
+>>>>>> +	struct device *dev = &pdev->dev;
+>>>>>> +	struct stm32_omm *omm;
+>>>>>> +	struct clk *clk;
+>>>>>> +	int ret;
+>>>>>> +	u8 child_access_granted = 0;
+>>>>>
+>>>>> Keep inits/assignments together
+>>>>
+>>>> ok
+>>>>
+>>>>>
+>>>>>> +	u8 i, j;
+>>>>>> +	bool child_access[OMM_CHILD_NB];
+>>>>>> +
+>>>>>> +	omm = devm_kzalloc(dev, sizeof(*omm), GFP_KERNEL);
+>>>>>> +	if (!omm)
+>>>>>> +		return -ENOMEM;
+>>>>>> +
+>>>>>> +	omm->io_base = devm_platform_ioremap_resource_byname(pdev, "regs");
+>>>>>> +	if (IS_ERR(omm->io_base))
+>>>>>> +		return PTR_ERR(omm->io_base);
+>>>>>> +
+>>>>>> +	omm->mm_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "memory_map");
+>>>>>> +	if (IS_ERR(omm->mm_res))
+>>>>>> +		return PTR_ERR(omm->mm_res);
+>>>>>> +
+>>>>>> +	/* check child's access */
+>>>>>> +	for_each_child_of_node_scoped(dev->of_node, child) {
+>>>>>> +		if (omm->nb_child >= OMM_CHILD_NB) {
+>>>>>> +			dev_err(dev, "Bad DT, found too much children\n");
+>>>>>> +			ret = -E2BIG;
+>>>>>> +			goto err_clk_release;
+>>>>>> +		}
+>>>>>> +
+>>>>>> +		if (!of_device_is_compatible(child, "st,stm32mp25-ospi")) {
+>>>>>> +			ret = -EINVAL;
+>>>>>> +			goto err_clk_release;
+>>>>>> +		}
+>>>>>> +
+>>>>>> +		ret = stm32_omm_check_access(dev, child);
+>>>>>> +		if (ret < 0 && ret != -EACCES)
+>>>>>> +			goto err_clk_release;
+>>>>>> +
+>>>>>> +		child_access[omm->nb_child] = false;
+>>>>>> +		if (!ret) {
+>>>>>> +			child_access_granted++;
+>>>>>> +			child_access[omm->nb_child] = true;
+>>>>>> +		}
+>>>>>> +
+>>>>>> +		omm->child[omm->nb_child].node = child;
+>>>>>> +
+>>>>>> +		clk = of_clk_get(child, 0);
+>>>>>
+>>>>> Why are you taking children clock? And why with this API, not clk_get?
+>>>>
+>>>> I need children's clock to reset them.
+>>>
+>>>
+>>> The device driver should reset its device. It is not a discoverable bus,
+>>> that would explain power sequencing from the parent.
+>>>
+>>>> Why of_clk_get() usage is a problem here ? i can't get your point ?
+>>>
+>>> Because it is not the API which device drivers should use. You should
+>>> use clk_get or devm_clk_get.
+>>
+>>
+>> ok, i will update this part using clk_get().
+>>
+>>>
+>>>
+>>>>
+>>>>> This looks like mixing clock provider in the clock consumer.
+>>>>>
+>>>>>> +		if (IS_ERR(clk)) {
+>>>>>> +			dev_err(dev, "Can't get child clock\n");
+>>>>>
+>>>>> Syntax is always return dev_err_probe (or ret = dev_err_probe).
+>>>>
+>>>> ok
+>>>>
+>>>>>
+>>>>>> +			ret = PTR_ERR(clk);
+>>>>>> +			goto err_clk_release;
+>>>>>> +		};
+>>>>>> +
+>>>>>> +		omm->child[omm->nb_child].clk = clk;
+>>>>>> +		omm->nb_child++;
+>>>>>> +	}
+>>>>>> +
+>>>>>> +	if (omm->nb_child != OMM_CHILD_NB) {
+>>>>>> +		ret = -EINVAL;
+>>>>>> +		goto err_clk_release;
+>>>>>> +	}
+>>>>>> +
+>>>>>> +	platform_set_drvdata(pdev, omm);
+>>>>>> +
+>>>>>> +	pm_runtime_enable(dev);
+>>>>>> +
+>>>>>> +	/* check if OMM's resource access is granted */
+>>>>>> +	ret = stm32_omm_check_access(dev, dev->of_node);
+>>>>>> +	if (ret < 0 && ret != -EACCES)
+>>>>>> +		goto err_clk_release;
+>>>>>> +
+>>>>>> +	if (!ret && child_access_granted == OMM_CHILD_NB) {
+>>>>>> +		/* Ensure both OSPI instance are disabled before configuring OMM */
+>>>>>> +		ret = stm32_omm_disable_child(dev);
+>>>>>> +		if (ret)
+>>>>>> +			goto err_clk_release;
+>>>>>> +
+>>>>>> +		ret = stm32_omm_configure(dev);
+>>>>>> +		if (ret)
+>>>>>> +			goto err_clk_release;
+>>>>>> +	} else {
+>>>>>> +		dev_dbg(dev, "Octo Memory Manager resource's access not granted\n");
+>>>>>> +		/*
+>>>>>> +		 * AMCR can't be set, so check if current value is coherent
+>>>>>> +		 * with memory-map areas defined in DT
+>>>>>> +		 */
+>>>>>> +		ret = stm32_omm_set_amcr(dev, false);
+>>>>>> +		if (ret)
+>>>>>> +			goto err_clk_release;
+>>>>>> +	}
+>>>>>> +
+>>>>>> +	/* for each child, if resource access is granted and status "okay", probe it */
+>>>>>> +	for (i = 0; i < omm->nb_child; i++) {
+>>>>>> +		if (!child_access[i] || !of_device_is_available(omm->child[i].node))
+>>>>>
+>>>>> If you have a device available, why do you create one more platform device?
+>>>>>
+>>>>>> +			continue;
+>>>>>> +
+>>>>>> +		vdev = of_platform_device_create(omm->child[i].node, NULL, NULL);
+>>>>>
+>>>>> Why you cannot just populate the children?
+>>>>
+>>>> I can't use of_platform_populate(), by default it will populate all OMM's child.
+>>>> Whereas here, we want to probe only the OMM's child which match our criteria.  
+>>>
+>>>
+>>> Why wouldn't you populate everyone? The task of bus driver is not to
+>>> filter out DT. If you got such DT - with all device nodes - you are
+>>> expected to populate all of them. Otherwise, if you do not want all of
+>>> them, it is expected that firmware or bootloader will give you DT
+>>> without these nodes.
+>>
+>> We don't want to populate every child by default because we can get 
+>> cases where one child is shared between Cortex A and Cortex M.
 > 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index fb8752b42ec8..3e4cc917a07e 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -453,6 +453,9 @@
->   	arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
->   			32 bit applications.
->   
-> +	arm64.nobbml2	[ARM64] Unconditionally disable Break-Before-Make Level
-> +			2 support
-> +
->   	arm64.nobti	[ARM64] Unconditionally disable Branch Target
->   			Identification support
->   
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 940343beb3d4..49deda2b22ae 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2057,6 +2057,17 @@ config ARM64_TLB_RANGE
->   	  The feature introduces new assembly instructions, and they were
->   	  support when binutils >= 2.30.
->   
-> +config ARM64_BBML2_NOABORT
-> +	bool "Enable support for Break-Before-Make Level 2 detection and usage"
-> +	default y
-> +	help
-> +	  FEAT_BBM provides detection of support levels for break-before-make
-> +	  sequences. If BBM level 2 is supported, some TLB maintenance requirements
-> +	  can be relaxed to improve performance. We additonally require the
-> +	  property that the implementation cannot ever raise TLB Conflict Aborts.
-> +	  Selecting N causes the kernel to fallback to BBM level 0 behaviour
-> +	  even if the system supports BBM level 2.
+> But in such case DTB would not have that child enabled.
+> 
+>> That's why we must check if access is granted which ensure that 
+>> firewall semaphore is available (RIFSC semaphore in our case).
+> 
+> If you do not have access, means child is assigned to other processor,
+> right? In that case that child would not have been enabled in your DTB.
+> 
+> Fix your DTB instead of creating another layer of handling children
+> inside drivers.
 
-minor nit: Should we mention that the feature can be disabled at runtime 
-using a kernel parameter ?
+In fact, initially, we wanted to avoid to trigger Illegal Access in case user 
+didn't use correct DT, that's why, here, double checks have been implemented.
+But Ok, i will clean this part and simply populate children.
 
-> +
->   endmenu # "ARMv8.4 architectural features"
->   
->   menu "ARMv8.5 architectural features"
-> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-> index 0b5ca6e0eb09..2d6db33d4e45 100644
-> --- a/arch/arm64/include/asm/cpucaps.h
-> +++ b/arch/arm64/include/asm/cpucaps.h
-> @@ -23,6 +23,8 @@ cpucap_is_possible(const unsigned int cap)
->   		return IS_ENABLED(CONFIG_ARM64_PAN);
->   	case ARM64_HAS_EPAN:
->   		return IS_ENABLED(CONFIG_ARM64_EPAN);
-> +	case ARM64_HAS_BBML2_NOABORT:
-> +		return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT);
->   	case ARM64_SVE:
->   		return IS_ENABLED(CONFIG_ARM64_SVE);
->   	case ARM64_SME:
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index e0e4478f5fb5..108ef3fbbc00 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -866,6 +866,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
->   	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
->   }
->   
-> +static inline bool system_supports_bbml2_noabort(void)
-> +{
-> +	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
-> +}
-> +
->   int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
->   bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
->   
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index d561cf3b8ac7..1a4adcda267b 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2176,6 +2176,67 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->   	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->   }
->   
-> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
-> +{
-> +	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
-> +	 * as possible. This list is therefore an allow-list of known-good
-> +	 * implementations that both support bbml2 and additionally, fulfill the
-> +	 * extra constraint of never generating TLB conflict aborts when using
-> +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
-> +	 * kernel contexts difficult to prove safe against recursive aborts).
-> +	 *
-> +	 * Note that implementations can only be considered "known-good" if their
-> +	 * implementors attest to the fact that the implementation never raises
-> +	 * TLBI conflict aborts for bbml2 mapping granularity changes.
-> +	 */
-> +	static const struct midr_range supports_bbml2_noabort_list[] = {
-> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-> +		{}
-> +	};
-> +
-> +	return is_midr_in_range_list(cpu_midr, supports_bbml2_noabort_list);
-> +}
-> +
-> +static inline unsigned int cpu_read_midr(int cpu)
-> +{
-> +	WARN_ON_ONCE(!cpu_online(cpu));
-> +
-> +	return per_cpu(cpu_data, cpu).reg_midr;
-> +}
-> +
-> +static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
-> +{
-> +	if (!IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT))
-> +		return false;
-> +
-> +	if (scope & SCOPE_SYSTEM) {
-> +		int cpu;
-> +
-> +		/* We are a boot CPU, and must verify that all enumerated boot
+Thanks
+Patrice.
 
-minor nit: See Documentation/process/coding-style.rst,
-Section 8 Commenting.
-
-		/*
-		 * <multi-line comment>
-		 */
-
-> +		 * CPUs have MIDR values within our allowlist. Otherwise, we do
-> +		 * not allow the BBML2 feature to avoid potential faults when
-> +		 * the insufficient CPUs access memory regions using BBML2
-> +		 * semantics.
-> +		 */
-> +		for_each_online_cpu(cpu) {
-> +			if (!cpu_has_bbml2_noabort(cpu_read_midr(cpu)))
-> +				return false;
-> +		}
-> +	} else if (scope & SCOPE_LOCAL_CPU) {
-> +		/* We are a hot-plugged CPU, so must only check our MIDR.
-
-minot nit: same as above
-
-Rest looks good to me.
-
-Suzuki
-
-
-
-> +		 * If we have the correct MIDR, but the kernel booted on an
-> +		 * insufficient CPU, we will not use BBML2 (this is safe). If
-> +		 * we have an incorrect MIDR, but the kernel booted on a
-> +		 * sufficient CPU, we will not bring up this CPU.
-> +		 */
-> +		if (!cpu_has_bbml2_noabort(read_cpuid_id()))
-> +			return false;
-> +	}
-> +
-> +	return has_cpuid_feature(caps, scope);
-> +}
-> +
->   #ifdef CONFIG_ARM64_PAN
->   static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
->   {
-> @@ -2926,6 +2987,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->   		.matches = has_cpuid_feature,
->   		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
->   	},
-> +	{
-> +		.desc = "BBM Level 2 without conflict abort",
-> +		.capability = ARM64_HAS_BBML2_NOABORT,
-> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.matches = has_bbml2_noabort,
-> +		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, BBM, 2)
-> +	},
->   	{
->   		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
->   		.capability = ARM64_HAS_LPA2,
-> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-> index c6b185b885f7..803a0c99f7b4 100644
-> --- a/arch/arm64/kernel/pi/idreg-override.c
-> +++ b/arch/arm64/kernel/pi/idreg-override.c
-> @@ -102,6 +102,7 @@ static const struct ftr_set_desc mmfr2 __prel64_initconst = {
->   	.override	= &id_aa64mmfr2_override,
->   	.fields		= {
->   		FIELD("varange", ID_AA64MMFR2_EL1_VARange_SHIFT, mmfr2_varange_filter),
-> +		FIELD("bbm", ID_AA64MMFR2_EL1_BBM_SHIFT, NULL),
->   		{}
->   	},
->   };
-> @@ -246,6 +247,7 @@ static const struct {
->   	{ "rodata=off",			"arm64_sw.rodataoff=1" },
->   	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
->   	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
-> +	{ "arm64.nobbml2",		"id_aa64mmfr2.bbm=0" },
->   };
->   
->   static int __init parse_hexdigit(const char *p, u64 *v)
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 1e65f2fb45bd..b03a375e5507 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -14,6 +14,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
->   HAS_ADDRESS_AUTH_IMP_DEF
->   HAS_AMU_EXTN
->   HAS_ARMv8_4_TTL
-> +HAS_BBML2_NOABORT
->   HAS_CACHE_DIC
->   HAS_CACHE_IDC
->   HAS_CNP
-
+> 
+> 
+> Best regards,
+> Krzysztof
 
