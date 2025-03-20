@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 613BBC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 01:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C0AC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 01:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fJIWs/RmPeqP5oWmTUDu0YzJ84Cq5pt18XtxjnOkupA=; b=3xLqWKT3/x1LlIE/xSIzFcueF5
-	tZIV/693cPrIsyHuzT8h1BERK6aGaaMJ2MQI461JpXaLVm973EIaDzeFNrNqx+EkpL/X0l8hUvnF0
-	qR1BQDnm677ABzOZYIhdJewMwHi7f196u1xZ4t+0/Qmbkq8Ug4+mN2kokjAEbK2hE3cmIfpmLNLed
-	hfVQTj2Ie7zA7AyCYA6iWyh2dbvLymXfsDh9QNy1ARGNqrnRus4R/jUOA/3+eU7GE7oj02SIITRdj
-	iXUUnCrpHWvK0hjmVkFDN5CpRrCMasVvAJJosS7qLRKolC43aFkxOsqCxaEFT2RI+CPdALNVV/e3o
-	y/lmCOiw==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MyKsFNp8HnVmgjRlr9CxzqXpTdvZkVjeQqS6GTtSoj0=; b=hqJ49kEQ5F/MGF46qggShE/h8g
+	iTDGr6WzEYrrDhxMehMmGTcXLmWCHhacNg39djEQJxsMJyyZZVjCH13kQStRb32pzZ4GqCO3nb4B7
+	IaEKaPfYFAlQa8ND3DmryXkGEG0/XNQVDvRrRr4r9ga6L3l6mOfbgKHDABsbrDCagjNvcDPHy0sLp
+	VlvFBJqbOZ8LDN4Rr7jWF7HWRXeLfufXRxzVJOaEnGHfV0IwejM6uA6pm56ync7ja0lgP9lN6hF86
+	lxgrYGICuZy3FmvNqN+mFsJZiYBDEAiSK1Wi47T4Aq59PZuji7BQTvFL0q4im+OIhM70VtxM+ZOaB
+	uSSWVn4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv5AO-0000000AlRE-1WBm;
-	Thu, 20 Mar 2025 01:57:52 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tv5C3-0000000Am5P-22RX;
+	Thu, 20 Mar 2025 01:59:35 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv58c-0000000AkHX-1Tp3
+	id 1tv58d-0000000AkI6-1tkI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 01:56:03 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2240a7aceeaso3132105ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:01 -0700 (PDT)
+	Thu, 20 Mar 2025 01:56:04 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff7f9a0b9bso500894a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742435760; x=1743040560; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=fJIWs/RmPeqP5oWmTUDu0YzJ84Cq5pt18XtxjnOkupA=;
-        b=pVYrZjXDzQzZYtdCP0o+yA7p3fblaCgiZ8veUDL3llWyCqd2pn3mlu/77G2K+gqd81
-         pZ8ZEHe9wuw1Fc0LE7qH/XqRFzL9RXb3Oc2b5MqthE/THPAG5v8ZJ2gbpBemIpXPoeZp
-         vbZUlGav5hQUeFE/TEbltKDXI48MydRKcZXJN+58r3+V2aHsWsJgrPImQ1NBQmCIv6u/
-         sw7zmI8P7IaGIpBmVH62ryOhsUt+whemWzFiGjDqK8v0fiS8CGDtk+uZWXK0BZLo1tbd
-         X3/SnH4f8q/1aV27FZ2MYz4sEpxXOFUwwe/xsQaVPAtE32aGGhJZ1dPBfdZOMYso+We5
-         iX9g==
+        d=google.com; s=20230601; t=1742435762; x=1743040562; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MyKsFNp8HnVmgjRlr9CxzqXpTdvZkVjeQqS6GTtSoj0=;
+        b=UZw5ecLpbX1mRQDnVO+zxDFglR34oO918q7k846S3EaOzCKbCUxrlRoSRxRq5EuZgU
+         RpBrfhVo2kAYcrjbvfsNbyxLtp46PdVMgk8DTB7UZkYyJDezwLo++LTNvEVnmVoJy1XT
+         35wMJEq7vZXeOFCk3FDFWSFdGfzNsQrKpqic9TyQ1ZNtz0bgpQ5piCcJXOoBUYvtiMPy
+         BpJlZhoB43adbPCxDkKm1a3xhmUOjFgVN1fJyrs4YJMlT3el4sJScUsjAAiAHQnLa4uf
+         sOhmzTVuvrc9KjXxqat0A0NRrqEetZwSzWGYunt9xQ1SShlDa3fcL2Ur+Guhc0Gj598i
+         454A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742435760; x=1743040560;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fJIWs/RmPeqP5oWmTUDu0YzJ84Cq5pt18XtxjnOkupA=;
-        b=Eft7zIdqYtFMbMwyEV6RismwPKmFj0VSBSjCf9j9NG4u2n4NaO3afgEYHCqkQzN3T6
-         agUwmqiXu2v1OT+xPSwzrhxXeabQG9c0w35H52TRUZBkCfqCMtIzssLSxuxQcKCoXf3L
-         1duS2edM0FBKt+D6vwsaKTz8bkynhd9PUGhSH5aFwRB3XpKRHd37pRLJ81sgMxpox8rs
-         sF4n0uwyXt3IZeaOUJaMaY66JZAo6W1m1SdDKl0h8ctjrPuMKVyWbJWTBAhRTR+PcPn3
-         GOAgdHDDxWyewcFarbrkinOrooIDfqgb6fcrlI48EWzHmMeax/Rw5O28LBKzpe65ka85
-         slFA==
-X-Forwarded-Encrypted: i=1; AJvYcCXjsOvyHYQoWRP+glHgWfvztX3h5nbL0REGyNRLzhsmU70YWNcMDr6QskalcrTtaWvThVpndnOFAJjuN4m5Z58S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6hAIwg1LogVErJLXb/odl+9ehRjuAhN3andoAPkZrlKSCLMYW
-	xH0MCBwk26gWCASBS2FzKGin7e8Ds1iwNhsEheRLkybO66VLwfkCldWCJ+PzRA1aonDboiO8acV
-	lfuVi0J1LpyOblHrIMQ==
-X-Google-Smtp-Source: AGHT+IFSfjHWsJORGvzYZj6vDxkXyKih6HbHAx5dGbvbNQJB/0VzMeC+2VxQ6zbVq6wG2AlSOPhuB4IOuuaqL1wn
-X-Received: from pjbqj15.prod.google.com ([2002:a17:90b:28cf:b0:2ff:5df6:7e03])
+        d=1e100.net; s=20230601; t=1742435762; x=1743040562;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MyKsFNp8HnVmgjRlr9CxzqXpTdvZkVjeQqS6GTtSoj0=;
+        b=W8OqbFl56PNZGq/zzDypcQmZ+sp82s18td4NGKGW9S0+S5UZiA9tE5UhqeFFqfoXjk
+         r52HCRVYXQM7L64uHL7LW1w8OVggLCLfc21faMman5mZKfmIJrhiIBl6R+ALsMK4b3YK
+         qqbMXCjQM3A3D7Irn+TSpiKVQZoK3Dxu92gD9ZkKh+qhfQuU5qvNHi08lMHTWuOURWnT
+         M4TgadN8NjpuOMZPygzWwXff31lT1RJazf5JnW1/waVo5X1/c9Y8bU/sp3wjXQKyxqGD
+         g8KKVF4aKZqJdJNxplqv0ryGCWxUmK9I7btC3UECL1YzD08HrTgzm1jGTjNXHPt+1QA/
+         0n/A==
+X-Forwarded-Encrypted: i=1; AJvYcCVWJ8K0PMcEhueJQO2Tm+5RadhrM8utUDTm2QfztvOQjTJ1i/yKC+NQbS8+UPfg+AWNFskiMkLyjquIii2aognn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9d+k6VCVnaUcLK5ehktkSNjnI69fKs3bQ6LUh2CsWokJNYHJK
+	BVLtYixkcY6PUzlfDrzBlITWU1vDUbfPApbuUMjUuv2UwYuPzT5b9kk9N5pG5SLs9D1yXSJLjeC
+	f2sCOj0T8N81kVEM/Tw==
+X-Google-Smtp-Source: AGHT+IH4fNuT0QWlfSI42heq+dLpm/GFEXTXaL6bQRWMvudZOwxIJGtvzZFRNXPgaqxisIVnXeLUFEDTHfoI9HMH
+X-Received: from pjur6.prod.google.com ([2002:a17:90a:d406:b0:2ee:4a90:3d06])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:ebc3:b0:225:ac99:ae0d with SMTP id d9443c01a7336-2264992dd80mr101668955ad.10.1742435760550;
- Wed, 19 Mar 2025 18:56:00 -0700 (PDT)
-Date: Wed, 19 Mar 2025 18:55:35 -0700
+ 2002:a17:90b:4fc5:b0:2f6:d266:f462 with SMTP id 98e67ed59e1d1-301be20750dmr7815826a91.35.1742435761976;
+ Wed, 19 Mar 2025 18:56:01 -0700 (PDT)
+Date: Wed, 19 Mar 2025 18:55:36 -0700
+In-Reply-To: <20250320015551.2157511-1-changyuanl@google.com>
 Mime-Version: 1.0
+References: <20250320015551.2157511-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250320015551.2157511-1-changyuanl@google.com>
-Subject: [PATCH v5 00/16] kexec: introduce Kexec HandOver (KHO)
+Message-ID: <20250320015551.2157511-2-changyuanl@google.com>
+Subject: [PATCH v5 01/16] kexec: define functions to map and unmap segments
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org, 
@@ -79,11 +81,12 @@ Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
 	thomas.lendacky@amd.com, usama.arif@bytedance.com, will@kernel.org, 
 	devicetree@vger.kernel.org, kexec@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-mm@kvack.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
+	linux-mm@kvack.org, x86@kernel.org, steven chen <chenste@linux.microsoft.com>, 
+	Tushar Sugandhi <tusharsu@linux.microsoft.com>, Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_185602_389341_E3CBCB32 
-X-CRM114-Status: GOOD (  40.28  )
+X-CRM114-CacheID: sfid-20250319_185603_486921_ED0FC9CC 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,278 +101,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: steven chen <chenste@linux.microsoft.com>
 
-This is a next version of Alexander Graf and Mike Rapoport's
-"kexec: introduce Kexec HandOver (KHO)" series
-(https://lore.kernel.org/all/20250206132754.2596694-1-rppt@kernel.org/),
-with bitmaps for preserving folios and address ranges, new hashtable-based
-KHO state tree API, and reduced blackout window with kexec_file_load.
+Currently, the mechanism to map and unmap segments to the kimage
+structure is not available to the subsystems outside of kexec.  This
+functionality is needed when IMA is allocating the memory segments
+during kexec 'load' operation.  Implement functions to map and unmap
+segments to kimage.
 
-The patches are also available in git:
-https://github.com/googleprodkernel/linux-liveupdate/tree/kho/v5
+Implement kimage_map_segment() to enable mapping of IMA buffer source
+pages to the kimage structure post kexec 'load'.  This function,
+accepting a kimage pointer, an address, and a size, will gather the
+source pages within the specified address range, create an array of page
+pointers, and map these to a contiguous virtual address range.  The
+function returns the start of this range if successful, or NULL if
+unsuccessful.
 
-v4 -> v5:
-  - New: Preserve folios and address ranges in bitmaps [1]. Removed the
-    `mem` property.
-  - New: Hash table based API for manipulating the KHO state tree.
-  - Change the concept of "active phase" to "finalization phase". KHO
-    users can add/remove data into/from KHO DT anytime before the
-    finalization phase.
-  - Decouple kexec_file_load and KHO FDT creation. kexec_file_load can be
-    done before KHO FDT is created.
-  - Update the example usecase (reserve_mem) using the new KHO API,
-    replace underscores with dashes in reserve-mem fdt generation.
-  - Drop the YAMLs for now and add a brief description of KHO FDT before
-    KHO schema is stable.
-  - Move all sysfs interfaces to debugfs.
-  - Fixed the memblock test reported in [2].
-  - Incorporate fix for kho_locate_mem_hole() with !CONFIG_KEXEC_HANDOVER
-    [3] into "kexec: Add KHO support to kexec file loads".
+Implement kimage_unmap_segment() for unmapping segments
+using vunmap().
 
-[1] https://lore.kernel.org/all/20250212152336.GA3848889@nvidia.com/
-[2] https://lore.kernel.org/all/20250217040448.56xejbvsr2a73h4c@master/
-[3] https://lore.kernel.org/all/20250214125402.90709-1-sourabhjain@linux.ibm.com/
+Signed-off-by: Tushar Sugandhi <tusharsu@linux.microsoft.com>
+Signed-off-by: steven chen <chenste@linux.microsoft.com>
+Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+---
+ include/linux/kexec.h |  5 ++++
+ kernel/kexec_core.c   | 54 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 59 insertions(+)
 
-= Original cover letter =
-
-Kexec today considers itself purely a boot loader: When we enter the new
-kernel, any state the previous kernel left behind is irrelevant and the
-new kernel reinitializes the system.
-
-However, there are use cases where this mode of operation is not what we
-actually want. In virtualization hosts for example, we want to use kexec
-to update the host kernel while virtual machine memory stays untouched.
-When we add device assignment to the mix, we also need to ensure that
-IOMMU and VFIO states are untouched. If we add PCIe peer to peer DMA, we
-need to do the same for the PCI subsystem. If we want to kexec while an
-SEV-SNP enabled virtual machine is running, we need to preserve the VM
-context pages and physical memory. See "pkernfs: Persisting guest memory
-and kernel/device state safely across kexec" Linux Plumbers
-Conference 2023 presentation for details:
-
-  https://lpc.events/event/17/contributions/1485/
-
-To start us on the journey to support all the use cases above, this patch
-implements basic infrastructure to allow hand over of kernel state across
-kexec (Kexec HandOver, aka KHO). As a really simple example target, we use
-memblock's reserve_mem.
-With this patch set applied, memory that was reserved using "reserve_mem"
-command line options remains intact after kexec and it is guaranteed to
-reside at the same physical address.
-
-== Alternatives ==
-
-There are alternative approaches to (parts of) the problems above:
-
-  * Memory Pools [1] - preallocated persistent memory region + allocator
-  * PRMEM [2] - resizable persistent memory regions with fixed metadata
-                pointer on the kernel command line + allocator
-  * Pkernfs [3] - preallocated file system for in-kernel data with fixed
-                  address location on the kernel command line
-  * PKRAM [4] - handover of user space pages using a fixed metadata page
-                specified via command line
-
-All of the approaches above fundamentally have the same problem: They
-require the administrator to explicitly carve out a physical memory
-location because they have no mechanism outside of the kernel command
-line to pass data (including memory reservations) between kexec'ing
-kernels.
-
-KHO provides that base foundation. We will determine later whether we
-still need any of the approaches above for fast bulk memory handover of for
-example IOMMU page tables. But IMHO they would all be users of KHO, with
-KHO providing the foundational primitive to pass metadata and bulk memory
-reservations as well as provide easy versioning for data.
-
-== Overview ==
-
-We introduce a metadata file that the kernels pass between each other. How
-they pass it is architecture specific. The file's format is a Flattened
-Device Tree (fdt) which has a generator and parser already included in
-Linux. KHO is enabled in the kernel command line by `kho=on`. Drivers can
-add/remove data into/from KHO root state tree hash-table anytime. When the
-hash-table is converted to FDT (by kernel automatically in the case of
-kexec_file_load or by the userspace manually through debugfs kho/out/finalize),
-the kernel invokes callbacks to every driver that supports KHO to serialize
-its state. When the actual kexec happens, the fdt is part of the image
-set that we boot into. In addition, we keep a "scratch regions" available
-for kexec: A physically contiguous memory regions that is guaranteed to
-not have any memory that KHO would preserve. The new kernel bootstraps
-itself using the scratch regions and sets all handed over memory as in use.
-When drivers initialize that support KHO, they introspect the fdt and
-recover their state from it. This includes memory reservations, where the
-driver can either discard or claim reservations.
-
-== Limitations ==
-
-Currently KHO is only implemented for file based kexec. The kernel
-interfaces in the patch set are already in place to support user space
-kexec as well, but it is still not implemented it yet inside kexec tools.
-
-== How to Use ==
-
-To use the code, please boot the kernel with the "kho=on" command line
-parameter.
-KHO will automatically create scratch regions. If you want to set the
-scratch size explicitly you can use "kho_scratch=" command line parameter.
-For instance, "kho_scratch=16M,512M,256M" will reserve a 16 MiB low
-memory scratch area, a 512 MiB global scratch region, and 256 MiB
-per NUMA node scratch regions on boot.
-
-Make sure to have a reserved memory range requested with reserv_mem
-command line option. Then you invoke file based "kexec -l",
-
-  # kexec -l Image --initrd=initrd -s
-  # kexec -e
-
-The new kernel will boot up and contain the previous kernel's reserve_mem
-contents at the same physical address as the first kernel.
-
-Optionally, you can finalize the KHO FDT early by
-
-  # echo 1 > /sys/kernel/debug/kho/out/finalize
-
-which allows you to preview the FDT to be passed to the next kernel at
-/sys/kernel/debug/kho/out/fdt.
-
-== Changelog ==
-
-v3 -> v4:
-  - Major rework of scrach management. Rather than force scratch memory
-    allocations only very early in boot now we rely on scratch for all
-    memblock allocations.
-  - Use simple example usecase (reserv_mem instead of ftrace)
-  - merge all KHO functionality into a single kernel/kexec_handover.c file
-  - rename CONFIG_KEXEC_KHO to CONFIG_KEXEC_HANDOVER
-
-v2 -> v3:
-  - Fix make dt_binding_check
-  - Add descriptions for each object
-  - s/trace_flags/trace-flags/
-  - s/global_trace/global-trace/
-  - Make all additionalProperties false
-  - Change subject to reflect subsysten (dt-bindings)
-  - Fix indentation
-  - Remove superfluous examples
-  - Convert to 64bit syntax
-  - Move to kho directory
-  - s/"global_trace"/"global-trace"/
-  - s/"global_trace"/"global-trace"/
-  - s/"trace_flags"/"trace-flags"/
-  - Fix wording
-  - Add Documentation to MAINTAINERS file
-  - Remove kho reference on read error
-  - Move handover_dt unmap up
-  - s/reserve_scratch_mem/mark_phys_as_cma/
-  - Remove ifdeffery
-  - Remove superfluous comment
-
-v1 -> v2:
-  - Removed: tracing: Introduce names for ring buffers
-  - Removed: tracing: Introduce names for events
-  - New: kexec: Add config option for KHO
-  - New: kexec: Add documentation for KHO
-  - New: tracing: Initialize fields before registering
-  - New: devicetree: Add bindings for ftrace KHO
-  - test bot warning fixes
-  - Change kconfig option to ARCH_SUPPORTS_KEXEC_KHO
-  - s/kho_reserve_mem/kho_reserve_previous_mem/g
-  - s/kho_reserve/kho_reserve_scratch/g
-  - Remove / reduce ifdefs
-  - Select crc32
-  - Leave anything that requires a name in trace.c to keep buffers
-    unnamed entities
-  - Put events as array into a property, use fingerprint instead of
-    names to identify them
-  - Reduce footprint without CONFIG_FTRACE_KHO
-  - s/kho_reserve_mem/kho_reserve_previous_mem/g
-  - make kho_get_fdt() const
-  - Add stubs for return_mem and claim_mem
-  - make kho_get_fdt() const
-  - Get events as array from a property, use fingerprint instead of
-    names to identify events
-  - Change kconfig option to ARCH_SUPPORTS_KEXEC_KHO
-  - s/kho_reserve_mem/kho_reserve_previous_mem/g
-  - s/kho_reserve/kho_reserve_scratch/g
-  - Leave the node generation code that needs to know the name in
-    trace.c so that ring buffers can stay anonymous
-  - s/kho_reserve/kho_reserve_scratch/g
-  - Move kho enums out of ifdef
-  - Move from names to fdt offsets. That way, trace.c can find the trace
-    array offset and then the ring buffer code only needs to read out
-    its per-CPU data. That way it can stay oblivient to its name.
-  - Make kho_get_fdt() const
-
-Alexander Graf (9):
-  memblock: Add support for scratch memory
-  kexec: add Kexec HandOver (KHO) generation helpers
-  kexec: add KHO parsing support
-  kexec: add KHO support to kexec file loads
-  kexec: add config option for KHO
-  arm64: add KHO support
-  x86: add KHO support
-  memblock: add KHO support for reserve_mem
-  Documentation: add documentation for KHO
-
-Changyuan Lyu (1):
-  hashtable: add macro HASHTABLE_INIT
-
-Mike Rapoport (Microsoft) (5):
-  mm/mm_init: rename init_reserved_page to init_deferred_page
-  memblock: add MEMBLOCK_RSRV_KERN flag
-  memblock: introduce memmap_init_kho_scratch()
-  kexec: enable KHO support for memory preservation
-  x86/setup: use memblock_reserve_kern for memory used by kernel
-
-steven chen (1):
-  kexec: define functions to map and unmap segments
-
- .../admin-guide/kernel-parameters.txt         |   25 +
- Documentation/kho/concepts.rst                |   70 +
- Documentation/kho/fdt.rst                     |   62 +
- Documentation/kho/index.rst                   |   14 +
- Documentation/kho/usage.rst                   |  118 ++
- Documentation/subsystem-apis.rst              |    1 +
- MAINTAINERS                                   |    3 +-
- arch/arm64/Kconfig                            |    3 +
- arch/x86/Kconfig                              |    3 +
- arch/x86/boot/compressed/kaslr.c              |   52 +-
- arch/x86/include/asm/setup.h                  |    4 +
- arch/x86/include/uapi/asm/setup_data.h        |   13 +-
- arch/x86/kernel/e820.c                        |   18 +
- arch/x86/kernel/kexec-bzimage64.c             |   36 +
- arch/x86/kernel/setup.c                       |   41 +-
- arch/x86/realmode/init.c                      |    2 +
- drivers/of/fdt.c                              |   33 +
- drivers/of/kexec.c                            |   37 +
- include/linux/hashtable.h                     |    7 +-
- include/linux/kexec.h                         |   12 +
- include/linux/kexec_handover.h                |  202 ++
- include/linux/memblock.h                      |   41 +-
- kernel/Kconfig.kexec                          |   15 +
- kernel/Makefile                               |    1 +
- kernel/kexec_core.c                           |   58 +
- kernel/kexec_file.c                           |   19 +
- kernel/kexec_handover.c                       | 1755 +++++++++++++++++
- kernel/kexec_internal.h                       |   18 +
- mm/Kconfig                                    |    4 +
- mm/internal.h                                 |    2 +
- mm/memblock.c                                 |  303 ++-
- mm/mm_init.c                                  |   19 +-
- tools/testing/memblock/tests/alloc_api.c      |   22 +-
- .../memblock/tests/alloc_helpers_api.c        |    4 +-
- tools/testing/memblock/tests/alloc_nid_api.c  |   20 +-
- 35 files changed, 2988 insertions(+), 49 deletions(-)
- create mode 100644 Documentation/kho/concepts.rst
- create mode 100644 Documentation/kho/fdt.rst
- create mode 100644 Documentation/kho/index.rst
- create mode 100644 Documentation/kho/usage.rst
- create mode 100644 include/linux/kexec_handover.h
- create mode 100644 kernel/kexec_handover.c
-
-
-base-commit: a7f2e10ecd8f18b83951b0bab47ddaf48f93bf47
---
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index f0e9f8eda7a3..fad04f3bcf1d 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -467,6 +467,8 @@ extern bool kexec_file_dbg_print;
+ #define kexec_dprintk(fmt, arg...) \
+         do { if (kexec_file_dbg_print) pr_info(fmt, ##arg); } while (0)
+ 
++void *kimage_map_segment(struct kimage *image, unsigned long addr, unsigned long size);
++void kimage_unmap_segment(void *buffer);
+ #else /* !CONFIG_KEXEC_CORE */
+ struct pt_regs;
+ struct task_struct;
+@@ -474,6 +476,9 @@ static inline void __crash_kexec(struct pt_regs *regs) { }
+ static inline void crash_kexec(struct pt_regs *regs) { }
+ static inline int kexec_should_crash(struct task_struct *p) { return 0; }
+ static inline int kexec_crash_loaded(void) { return 0; }
++static inline void *kimage_map_segment(struct kimage *image, unsigned long addr, unsigned long size)
++{ return NULL; }
++static inline void kimage_unmap_segment(void *buffer) { }
+ #define kexec_in_progress false
+ #endif /* CONFIG_KEXEC_CORE */
+ 
+diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
+index c0bdc1686154..640d252306ea 100644
+--- a/kernel/kexec_core.c
++++ b/kernel/kexec_core.c
+@@ -867,6 +867,60 @@ int kimage_load_segment(struct kimage *image,
+ 	return result;
+ }
+ 
++void *kimage_map_segment(struct kimage *image,
++			 unsigned long addr, unsigned long size)
++{
++	unsigned long eaddr = addr + size;
++	unsigned long src_page_addr, dest_page_addr;
++	unsigned int npages;
++	struct page **src_pages;
++	int i;
++	kimage_entry_t *ptr, entry;
++	void *vaddr = NULL;
++
++	/*
++	 * Collect the source pages and map them in a contiguous VA range.
++	 */
++	npages = PFN_UP(eaddr) - PFN_DOWN(addr);
++	src_pages = kvmalloc_array(npages, sizeof(*src_pages), GFP_KERNEL);
++	if (!src_pages) {
++		pr_err("Could not allocate source pages array for destination %lx.\n", addr);
++		return NULL;
++	}
++
++	i = 0;
++	for_each_kimage_entry(image, ptr, entry) {
++		if (entry & IND_DESTINATION) {
++			dest_page_addr = entry & PAGE_MASK;
++		} else if (entry & IND_SOURCE) {
++			if (dest_page_addr >= addr && dest_page_addr < eaddr) {
++				src_page_addr = entry & PAGE_MASK;
++				src_pages[i++] =
++					virt_to_page(__va(src_page_addr));
++				if (i == npages)
++					break;
++				dest_page_addr += PAGE_SIZE;
++			}
++		}
++	}
++
++	/* Sanity check. */
++	WARN_ON(i < npages);
++
++	vaddr = vmap(src_pages, npages, VM_MAP, PAGE_KERNEL);
++	kvfree(src_pages);
++
++	if (!vaddr)
++		pr_err("Could not map segment source pages for destination %lx.\n", addr);
++
++	return vaddr;
++}
++
++void kimage_unmap_segment(void *segment_buffer)
++{
++	vunmap(segment_buffer);
++}
++
+ struct kexec_load_limit {
+ 	/* Mutex protects the limit count. */
+ 	struct mutex mutex;
+-- 
 2.48.1.711.g2feabab25a-goog
+
 
