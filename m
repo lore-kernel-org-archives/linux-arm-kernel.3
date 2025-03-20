@@ -4,63 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD88C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40963C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uS0J5Q0NpGK/8Ej+Is4EIeu1td4p5rakpsaoLc9CZ6k=; b=0n3gXn3plspePbdpLWC98yMeOP
-	qwbe9bnuFLxJbXN5pttG74Rx4TQrRj3ieF8d9snD7sj5AahMG6U05lO2h8gMdvjzMSUIDZou2uDn1
-	ZHfKPtYj5U7MATzX2L4jMYgKHK+tgxUvF+p+Jg2gSRWAsevFgDIzDFAXvOVLFEVQ2J1n/5aFcX3vf
-	PMrNZmedys/YW1kUfwqia6409AedKnUC8O1Pu6+QuyymCof1YoCgUeXZSRwZjj9Ss4ggbM/oIJVlr
-	APbE43pn8CvSXwLz3++T8e2fCirdbZ/9nvJqcKdBuEydWQF89WE/M9pTNq7I1Dbq6OlSg3YfYxpYK
-	24nDmJbQ==;
+	bh=6oM4sqHAKRpF7yAXn00rRZMmE1i8HKyjy17CxTC5mcI=; b=0sDNB442uK3Ev5Po4UjoS/A+iM
+	OnheoM680U1M0mfO7e240c1R0QdddPCcojgYuwoCD1ZCIaThX+yammR7vsYEQFekEP55LFnpW4FJo
+	enGMSJfDoJPX2lWKEObVp6cHfq8An0QP9G4OmHJv4CRp8BURdTyhKBENhEP8cmFfVEwjF7xX/ioSO
+	PNp2PGTU8WME8MOqsUMCjgNusu8BUL13Gqg0yUAQ5EZQq8xjoEgOV59mnOZb2d1e0uylP3YCVeAQc
+	CFIQtvHVFP7LXtrKstRMV55Owp23BpOjwlsztziTOn846vg6YxO6eBwppqjlVIn1GiJR5QHzf4LwF
+	hGzfmBKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJUb-0000000Cm1Y-31t9;
-	Thu, 20 Mar 2025 17:15:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJSt-0000000Clnf-3HDX
+	id 1tvJWH-0000000CmRp-1XfS;
+	Thu, 20 Mar 2025 17:17:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvJTo-0000000CluJ-2HxC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 17:13:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06E6A113E;
-	Thu, 20 Mar 2025 10:14:03 -0700 (PDT)
-Received: from e133081.arm.com (unknown [10.57.15.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91C333F673;
-	Thu, 20 Mar 2025 10:13:50 -0700 (PDT)
-Date: Thu, 20 Mar 2025 17:13:47 +0000
-From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: ryan.roberts@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
-	catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
-	ardb@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
-	maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
-	oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
-	ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com,
-	mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v4 1/3] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20250320171347.GA494995@e133081.arm.com>
-References: <20250319150533.37440-2-miko.lenczewski@arm.com>
- <20250319150533.37440-3-miko.lenczewski@arm.com>
- <f9c5839e-5d55-497e-9df3-ab778c4eae72@arm.com>
- <20250320170936.GB487465@e133081.arm.com>
- <952cc3ea-ca11-43a3-a8f4-36e3bbb1fa84@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <952cc3ea-ca11-43a3-a8f4-36e3bbb1fa84@arm.com>
+	Thu, 20 Mar 2025 17:14:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6CDE95C57AF;
+	Thu, 20 Mar 2025 17:12:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DEA8C4CEDD;
+	Thu, 20 Mar 2025 17:14:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742490891;
+	bh=ew/lN1IMKa0aN4Z0/QC36U+fh07ns9tUoom4T4BzL1w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HCZDSoOi7psL8Pcu5B/ZafcXvbi20EkUJ0p0RiZSbQktauCNAVk3odFQWGV5/ULbo
+	 TiulST5zMSgTkAPgyNHjmFOCXPEXeP2VY5zc/Kt4o91MkETAK36+hNUtWYc7mGWkN/
+	 PakuJe183abPtH17Sk42zYZt52eGxZkHULV9q0WNEHRwF4HKqaEviZqTgbADgI9swP
+	 4K5BkHbcBxznyKU6kvt7M3xGe6s2sNkZz/DH3pjSxoZbMvCWbNyTjt6Rn6Yst2tvsY
+	 uciBIRALwIL6PUiw1ZouhYpjtpvusJJo/hz/TBFJ9GXVynmxqtw6DC9rsAK5zwvPqb
+	 QCuI8F0wko3bQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tvJTk-00FWMt-M2;
+	Thu, 20 Mar 2025 17:14:48 +0000
+Date: Thu, 20 Mar 2025 17:14:48 +0000
+Message-ID: <86cyebmxo7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com
+Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
+In-Reply-To: <ba9cd6d2-1ee5-478a-8102-42b4dac411ce@daynix.com>
+References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
+	<Z9pze3J2_zrTk_yC@linux.dev>
+	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
+	<86plidmjwh.wl-maz@kernel.org>
+	<bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
+	<86o6xxmg87.wl-maz@kernel.org>
+	<aabd71eb-286b-475c-a30e-d5cf5c4f2769@daynix.com>
+	<86msdhmemw.wl-maz@kernel.org>
+	<cd7b4528-34a3-4d87-9711-acc2c2e6f6e1@daynix.com>
+	<86ldt0n9w1.wl-maz@kernel.org>
+	<Z9sSMJAlf7cQ5viu@linux.dev>
+	<0d84bc94-1c65-4737-a2eb-aa7f96a7d1e0@daynix.com>
+	<86iko4m5i4.wl-maz@kernel.org>
+	<ba9cd6d2-1ee5-478a-8102-42b4dac411ce@daynix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_101355_859792_C2AD4BC1 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20250320_101452_697961_9C7E078B 
+X-CRM114-Status: GOOD (  37.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,56 +108,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 05:11:25PM +0000, Suzuki K Poulose wrote:
-> On 20/03/2025 17:09, Mikołaj Lenczewski wrote:
-> > On Thu, Mar 20, 2025 at 01:24:25PM +0000, Suzuki K Poulose wrote:
-> > > On 19/03/2025 15:05, Mikołaj Lenczewski wrote:
-> > > > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> > > > index fb8752b42ec8..3e4cc917a07e 100644
-> > > > --- a/Documentation/admin-guide/kernel-parameters.txt
-> > > > +++ b/Documentation/admin-guide/kernel-parameters.txt
-> > > > @@ -453,6 +453,9 @@
-> > > >    	arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
-> > > >    			32 bit applications.
-> > > > +	arm64.nobbml2	[ARM64] Unconditionally disable Break-Before-Make Level
-> > > > +			2 support
-> > > > +
-> > > >    	arm64.nobti	[ARM64] Unconditionally disable Branch Target
-> > > >    			Identification support
-> > > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > > index 940343beb3d4..49deda2b22ae 100644
-> > > > --- a/arch/arm64/Kconfig
-> > > > +++ b/arch/arm64/Kconfig
-> > > > @@ -2057,6 +2057,17 @@ config ARM64_TLB_RANGE
-> > > >    	  The feature introduces new assembly instructions, and they were
-> > > >    	  support when binutils >= 2.30.
-> > > > +config ARM64_BBML2_NOABORT
-> > > > +	bool "Enable support for Break-Before-Make Level 2 detection and usage"
-> > > > +	default y
-> > > > +	help
-> > > > +	  FEAT_BBM provides detection of support levels for break-before-make
-> > > > +	  sequences. If BBM level 2 is supported, some TLB maintenance requirements
-> > > > +	  can be relaxed to improve performance. We additonally require the
-> > > > +	  property that the implementation cannot ever raise TLB Conflict Aborts.
-> > > > +	  Selecting N causes the kernel to fallback to BBM level 0 behaviour
-> > > > +	  even if the system supports BBM level 2.
-> > > 
-> > > minor nit: Should we mention that the feature can be disabled at runtime
-> > > using a kernel parameter ?
+On Thu, 20 Mar 2025 09:52:59 +0000,
+Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> 
+> On 2025/03/20 18:10, Marc Zyngier wrote:
+> > On Thu, 20 Mar 2025 06:03:35 +0000,
+> > Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> >> 
+> >> On 2025/03/20 3:51, Oliver Upton wrote:
+> >>> On Wed, Mar 19, 2025 at 06:38:38PM +0000, Marc Zyngier wrote:
+> >>>> On Wed, 19 Mar 2025 11:51:21 +0000, Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> >>>>> What about setting the flag automatically when a user fails to pin
+> >>>>> vCPUs to CPUs that are covered by one PMU? There would be no change if
+> >>>>> a user correctly pins vCPUs as it is. Otherwise, they will see a
+> >>>>> correct feature set advertised to the guest and the cycle counter
+> >>>>> working.
+> >>>> 
+> >>>> How do you know that the affinity is "correct"? VCPU affinity can be
+> >>>> changed at any time. I, for one, do not want my VMs to change
+> >>>> behaviour because I let the vcpus bounce around as the scheduler sees
+> >>>> fit.
+> >> 
+> >> Checking the affinity when picking the default PMU; the vCPU affinity
+> >> is the only thing that rules the choice of the default PMU even now.
+> >> 
+> >> Perhaps we may model the API as follows: introduce another "composite"
+> >> PMU that works on any core but only exposes the cycle counter. Robust
+> >> VMMs will choose it or one of hardware PMUs with
+> >> KVM_ARM_VCPU_PMU_V3_SET_PMU. KVM will choose the default PMU according
+> >> to the vCPU affinity at the point of KVM_ARM_VCPU_INIT otherwise. If
+> >> the affinity is covered by one hardware PMU, that PMU will be chosen
+> >> as the default. The "composite" PMU will be the default otherwise.
 > > 
-> > Yes, this sounds very reasonable, I should have thought of that. Will
-> > mention the commandline parameter in the kconfig option documentation.
+> > This makes no sense to me. A VCPU is always affine to a PMU, because
+> > we do not support configurations where only some CPUs have a PMU. This
+> > is an all-or-nothing situation.
 > 
-> And also may be mention this in the patch description and may be also
-> add the rationale for providing this tunable.
-> 
-> Cheers
-> Suzuki
-> 
+> At least isn't it fine to have the composite PMU with a new value for
+> KVM_ARM_VCPU_PMU_V3_SET_PMU?
 
-Will do! :)
+Not sure KVM_ARM_VCPU_PMU_V3_SET_PMU is the right hook (it takes a PMU
+'type', which is under control of the perf subsystem). But if we can
+find a value that is guaranteed to be unique, why not.
+
+> > More importantly, you keep suggesting the same "new default", and I
+> > keep saying NO.
+> > 
+> > My position is clear: if you want a *new* behaviour, you *must* add a
+> > new flag that the VMM explicitly provides to enable this CC-only PMU.
+> > No change in default behaviour at all.
+> > 
+> > I'm not going to move from that.
+> 
+> Why not? It will not break anything guaranteed to work in the past.
+
+It doesn't have to be guaranteed. It just has to *exist*. That's the
+Linux ABI for you.
+
+> Currently KVM only guarantees that the emulated PMU correctly counts
+> only when
+> 1) the vCPU affinity is contained by one PMU and
+> 2) it will not expand
+> 
+> Breaking these conditions will make the behavior of the emulated PMU
+> undefined. Now I'm proposing to remove 1).
+
+And I'm saying no to that. I'm also getting tired of arguing the same
+point on and on.
+
+We currently have two different behaviours:
+
+- either you explicitly set a PMU, and the affinity of this PMU
+  constraints the affinity of the vcpus. The vcpus are not allowed to
+  run outside of this affinity. Everything counts all the time.
+
+- or you don't explicitly set a PMU, and a default PMU will be picked
+  from the current affinity of the first vcpu. Your vcpus will be able
+  to run anywhere, but the virtual PMU will *only* count when the
+  vcpus are affine to the default PMU. When the vcpus are not affine
+  to default PMU, *nothing* counts.
+
+These two behaviours are ABI. They are not changing. They don't get
+relaxed, they don't get tightened, they stay just as they are,
+forever.
+
+You want a *third* behaviour, go ahead. Define it the way you want.
+But the behaviours described above will stay unchanged.
+
+I'm looking forward to your patches implementing it, but I am also
+done arguing on it.
+
+	M.
 
 -- 
-Kind regards,
-Mikołaj Lenczewski
+Without deviation from the norm, progress is not possible.
 
