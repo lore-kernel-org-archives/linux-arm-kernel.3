@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF7BC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 07:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3E0C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 08:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adcY5lpBYxhtgE0B4OVlvWzTIzNOH8BCNVpvQyPMMV4=; b=i9SlOrYBI/GAjrHC+h3pBZ22ns
-	D6ppCfoOOj5OtaDP+x4HSvryZRpzGzTQajYR9x34pK+LmNcD7MmhCuMrg4oVSdt9IOcwJ+oqnMZy0
-	+ExgdWJV+STGlDKKbP8cPxfV5EkvhRuqkHFXJivnr/j2hWHcDnEEvIwMiHXCug8B9+fHjWFAmGEeH
-	UyVlUGamCwnGkvvNuHNIPD5BSlMAg50tSy7SlyCLwvx6KFZEuZmmVeTmlW8AGmSuHuVH2AojJhlUi
-	I5t6VxdTeCRv/yruR3Y4Lnpb5QnyrkFBpnXwWfFcy4SsnF4SvkhOiDxk+AXhPe0MTowDY2prkeeSP
-	ras10tzA==;
+	bh=g1OpV8zWpbj+7Ou8L82phsl6jP0rOu0A+JvA0K4AelM=; b=hzi5D3yA6IlX00t4BSfxLY7URn
+	JhAuTQAY1FDl+3cGq23pqInYM5I0P8Z0P6o9QcoJM1/7EkIhYIUxXmikFLor4DAWylRnsaw2W47ja
+	qglbR3U5zcFDb68JMme0bDtHSHVYD1DRxQ4vZmhpIFb2i2ZtNaNTa/GvQpbacpZdWQZaLqxSzaDc/
+	Un8IVLb0sy9CeRxKOyaDjYp5aQEJAiKD8Q5cM9DOyaZvhRuPqMvdEeBLDiQ9trLH4ecClrsUM16Ip
+	24IZrBD6Z1rJx0SWKFAGvynLBmbE0xjp38PriMdzonTWgcxAk8W9TPSR4P3MH/t0yWZwXRETZBpKN
+	/tmyGcPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvAod-0000000BTPR-0Qte;
-	Thu, 20 Mar 2025 07:59:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvAmv-0000000BTJS-2vN0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 07:58:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 424FF43751
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 07:58:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99AF7C4CEEA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 07:58:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742457480;
-	bh=Ess/GFiXQnY/TJf5j8pZaKg+a4s6VGT+FXoCIdtSljY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LTvARj4Ns2d9QyrT1ya7RPJ0WCyjrQ2F+ebTYcZzc3PQh4FZwUFJg+iYm8PXWvzVi
-	 /wSZ3RywOLddXzanBd2Qij0dRnUWs7EAzB03L+8B5JlX+n6eiTJ+lg5T/H0uXDRaLF
-	 obhdhDfNtSR+1BsAlkJnf8YKFTE7X6gint44dg5IRhwuRabbg6PN5PFnTXdqENJS6/
-	 95wmNBccSi04IyWQEnrj+rwlkpSICO/dn8s4w213IXdEVxcn31MVXbU5c1NW57UHUa
-	 aaLx39jeLV3/Z8gSVxcHqzJT5THrbuGcYYI5CxB6oy1ADb0KSrS83/jLygoSKu+cg8
-	 2mfJUJUH5PUVQ==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-549946c5346so616132e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 00:58:00 -0700 (PDT)
-X-Gm-Message-State: AOJu0YzzclhD0luKXkvV1ciscELc4QhQ4ZokXMp8l1zpM73CPIC0sgRD
-	+AbNPgaEybmBH/vAtmbQeMlQ91u+Wk85GsTIu/WvmMHHEhQgento5AGLt1qeRLPuPIoD8OHtBZl
-	d4Umjh/5qwWNx/6m7d5SsXZECWDo=
-X-Google-Smtp-Source: AGHT+IHxMPNnW3ahoF6dyr61q+mJ5mQKb0REzmKIWVM/WDF7dR9vMAw2jTe0SRluNBmN6Nesu4NshFyCdDUXlanegeA=
-X-Received: by 2002:a05:6512:3ca8:b0:549:8fd0:bad8 with SMTP id
- 2adb3069b0e04-54acb1b83f6mr1925566e87.21.1742457478970; Thu, 20 Mar 2025
- 00:57:58 -0700 (PDT)
+	id 1tvAqI-0000000BTbf-3ATz;
+	Thu, 20 Mar 2025 08:01:30 +0000
+Received: from mail.8bytes.org ([85.214.250.239])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvAni-0000000BTMm-1biP;
+	Thu, 20 Mar 2025 07:58:51 +0000
+Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 4D23243205;
+	Thu, 20 Mar 2025 08:58:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1742457524;
+	bh=//jdBfnXwxoZZQ2/rQLQjvxB+8O3hzDtgcpEsDOaSFE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aP+qd4UWA/ptWrgYN0yl9WJNgNxr6zQkaY4qJCrqxnVFSjDX4+dHy9o467D+Fc2Mr
+	 PKouyAiZ7KGNXkipmD9vdHKH4LBqzPJqbhmmtlK8HtIWdK36EBk4L4+0briIhkLp9z
+	 zx9XexvVs4ekH4ZIocTRMlxHms7IrxiVwOhnCNvcNiyk2NsIYcfpMJLYXdGJpUO8qM
+	 Hp/SPk2FW14d7AEZJaOkYxBx9AzQZIXM9iHtaKviS51/ORxZWRsuEpq+Z1goSx8P01
+	 wpoGdn0LTpli76eLMMP+YLTSDqieqBStvAR5CIjM+QKnE1a+XVAHYZjKfbFAQq8pvR
+	 MqhU9uuXCig3w==
+Date: Thu, 20 Mar 2025 08:58:43 +0100
+From: Joerg Roedel <joro@8bytes.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: will@kernel.org, iommu@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, heiko@sntech.de
+Subject: Re: [PATCH 0/3] Rockchip IOMMU fixes
+Message-ID: <Z9vKs63e1s73MauO@8bytes.org>
+References: <cover.1741886382.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-References: <20250318134949.3194334-2-ardb+git@google.com>
-In-Reply-To: <20250318134949.3194334-2-ardb+git@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 20 Mar 2025 08:57:47 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHXAYt0xLnx4=+qiCbnuF5U+9dzwnds1yd+vhTtpP5v3Q@mail.gmail.com>
-X-Gm-Features: AQ5f1JruVvX2NW9k2AtKWjmGfECveHlfhMO7faRJZ8Td6Fub8xUy3jUEpJHaXeo
-Message-ID: <CAMj1kXHXAYt0xLnx4=+qiCbnuF5U+9dzwnds1yd+vhTtpP5v3Q@mail.gmail.com>
-Subject: Re: [RFC PATCH] arm64/mm: Remove randomization of the linear map
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Kees Cook <kees@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1741886382.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_005801_777374_2434CEE3 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20250320_005850_637439_7078D63A 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +72,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Mar 2025 at 14:50, Ard Biesheuvel <ardb+git@google.com> wrote:
->
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Since commit
->
->   97d6786e0669 ("arm64: mm: account for hotplug memory when randomizing the linear region")
->
-> the decision whether or not to randomize the placement of the system's
-> DRAM inside the linear map is based on the capabilities of the CPU
-> rather than how much memory is present at boot time. This change was
-> necessary because memory hotplug may result in DRAM appearing in places
-> that are not covered by the linear region at all (and therefore
-> unusable) if the decision is solely based on the memory map at boot.
->
-> In the Android GKI kernel, which requires support for memory hotplug,
-> and is built with a reduced virtual address space of only 39 bits wide,
-> randomization of the linear map never happens in practice as a result.
-> And even on arm64 kernels built with support for 48 bit virtual
-> addressing, the wider PArange of recent CPUs means that linear map
-> randomization is slowly becoming a feature that only works on systems
-> that will soon be obsolete.
->
-> So let's just remove this feature. We can always bring it back in an
-> improved form if there is a real need for it.
->
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Kees Cook <kees@kernel.org>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+On Thu, Mar 13, 2025 at 05:31:03PM +0000, Robin Murphy wrote:
+> Hi all,
+> 
+> I was expecting my DT probing change to flush out issues, and it seems
+> some weaknesses in rockchip-iommu were the first to show. The first two
+> patches here get things working again for me on my RK3399 NanoPC-T4
+> (with a console on HDMI exercising the VOP MMU), the 3rd patch just
+> finishes the cleanup since I was there and could test it.
+> 
+> Thanks,
+> Robin.
+> 
+> Robin Murphy (3):
+>   iommu/rockchip: Allocate per-device data sensibly
+>   iommu/rockchip: Register in a sensible order
+>   iommu/rockchip: Retire global dma_dev workaround
+> 
+>  drivers/iommu/rockchip-iommu.c | 61 +++++++++++++++-------------------
+>  1 file changed, 26 insertions(+), 35 deletions(-)
 
-Additional note based on an off-list discussion with Kees and the KSPP team:
-
-Initially, the randomization of the linear map was considered to be a
-layer of defense against the abuse of writable linear aliases of
-read-only mappings in the vmalloc range, such as module text and
-rodata. This has been addressed in the meantime, by mapping the linear
-region down to pages by default, and mapping linear aliases read-only
-if the vmalloc mapping is read-only.
-
-So considering that, and the fact that randomization of the linear map
-occurs rarely if at all on recent CPUs, I think we should go ahead and
-remove this feature.
+Applied, thanks.
 
