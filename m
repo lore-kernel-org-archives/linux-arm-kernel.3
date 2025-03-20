@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C34C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 05:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69755C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 06:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jltmC+5S8tP5VPksVdaHGC5AUJ0IOzcb691QfMXchVc=; b=o5rUkxKW4cmgECjZnjRq6KKa7b
-	zlF4Ug1yYY9YESrXcr55ANY/d3Fom5ATAw2Doc9CVLW4X36AMYKDE4ulLe8/iPVzo0z68cZOr6zji
-	XUdRJ35lE6JIE8kqA0qwPNGz24/rOo+eCI/zdmujFlA/bVxdl6D3+bj4LchsUNk5MyjgXAw6Erkoz
-	OA5ZP2PshpKY05wtIU3cnpHgD3flFF8FU4agsM/0ITy395V0iU1DP9pu2wtyTUFs+bWD7Pb8HYfNm
-	j6wmpRyTGaNvWdR0A6JFJ9FJubP6kxgmfV87TLMWmKMZCcf4sJmsmuy8vOLuIsEyjIe9nyUXLrnFJ
-	A/jKHfxw==;
+	bh=gG+cXLpACZTfy8CnVDyuxcD9fWiz60B2yzBDwXStl0U=; b=gXsvFSss9yvRnJZkz4UUE2w05w
+	/hlIb7XwBH5j+kmLHpZ02QoZw4U9QN4w/IcXjrTr1JBspX0Nu1f2pNjGw8tTsjf/N9eAflyURT/uA
+	M30602y7sE49txfDfTE7XYEssXwnR7Uzay3j/qRoehb46hGcpel76HoUfCdq8JDgf11nkPGm+OL62
+	9sFxnGaIQFcwS74jmTfGUbE5cP5uDZe4voWv6C7zLFcjbGhL8f5VuCfMDdyg+GiRDp3C6vK1CIyCD
+	jlMLRCkTPGGijvna529Mzn8jw/hAQEiyVRAgdMOQ7TUFi9f6g/AZdTzoBxH4i5HzqjNM8DYl25FWv
+	ZRgSFFlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv8vh-0000000BGkn-1Uso;
-	Thu, 20 Mar 2025 05:58:57 +0000
+	id 1tv8xQ-0000000BGxp-0aIh;
+	Thu, 20 Mar 2025 06:00:44 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv8sE-0000000BGHP-3iZ2
+	id 1tv8sH-0000000BGIG-1uEA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 05:55:24 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52JKFall013765;
-	Thu, 20 Mar 2025 05:55:10 GMT
+	Thu, 20 Mar 2025 05:55:26 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K3cEg9004571;
+	Thu, 20 Mar 2025 05:55:13 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=jltmC+5S8tP
-	5VPksVdaHGC5AUJ0IOzcb691QfMXchVc=; b=aZVU9P25B9UMawEMyMiIhNxU0WN
-	egMwJuzjMCd6oqCfNMD/nbsCq992WYQ0LEVlfJIlRMFWvekwRhjWn9uoYApQ2pFn
-	4E23O9mTGMZvpwfA41QrXwAE1/IZqKif3ugubIWLDkalSg6Vuy5mt5cYXp5wRiXT
-	R9OxJhYoPrvGmGjSnZaAgdOnu20e81HTZf8OkNH6dAVsyzYxbUMyYVR8wA0Ydf34
-	GkpD/4iiPPIKEz88UrHRsQvY03qmQN4hcp24M03zQ7QCBdsu7Sr+5I7yCMHrsOoJ
-	XnOf96lM3ukgUCfpaGshuKtJdV1y7i68AX77MpIWxkG5bsvKzGNsfLyVraw==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=gG+cXLpACZT
+	fy8CnVDyuxcD9fWiz60B2yzBDwXStl0U=; b=CGJRsWxkXpHTSH5mp6nfJRL3S01
+	+ukRZKr4xe+tnNYG9dVH9snGC1BlqpI5OzKhXCCUqV5s9mjCosxPrZkLekFZ3oXX
+	FnP9gX0Td6crQCboC5RXX26wg7GjnxQm6zzno+fBpWjkj71dNkH46xSyt16/T1OW
+	6SVGKhMhWRz29N6REIdAgccLs7NjPYbq/RjJ6KZwUklgZpQPmyUnDh7gffxhUkql
+	vHjhsQdR6/psrvzmkicGTL1EYUNOxF2Y+KAFD/0M5WxG4TiTTgL/HyK62iD99tpy
+	OmQzSJvraebf71BRvMCnDAGY4ju+cDJpMAWUDSKb3S//HC0fajWpoeWaZzQ==
 Received: from aptaippmta01.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45g4t414ea-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45exwx7p7f-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Mar 2025 05:55:10 +0000 (GMT)
+	Thu, 20 Mar 2025 05:55:12 +0000 (GMT)
 Received: from pps.filterd (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 52K5t8HU014352;
-	Thu, 20 Mar 2025 05:55:08 GMT
+	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 52K5tATa014368;
+	Thu, 20 Mar 2025 05:55:10 GMT
 Received: from pps.reinject (localhost [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 45dk529f4h-1
+	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 45dk529f4s-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Mar 2025 05:55:08 +0000
+	Thu, 20 Mar 2025 05:55:10 +0000
 Received: from APTAIPPMTA01.qualcomm.com (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 52K5t8ta014233;
-	Thu, 20 Mar 2025 05:55:08 GMT
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 52K5t8tc014233;
+	Thu, 20 Mar 2025 05:55:10 GMT
 Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 52K5t7gj014058
+	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 52K5t9BY014360
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Mar 2025 05:55:08 +0000
+	Thu, 20 Mar 2025 05:55:10 +0000
 Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 4635958)
-	id AB95C40BF4; Thu, 20 Mar 2025 13:55:06 +0800 (CST)
+	id DAC8740BF4; Thu, 20 Mar 2025 13:55:08 +0800 (CST)
 From: Wenbin Yao <quic_wenbyao@quicinc.com>
 To: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
         krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
@@ -66,9 +66,9 @@ To: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
         catalin.marinas@arm.com, will@kernel.org, quic_qianyu@quicinc.com,
         sfr@canb.auug.org.au, linux-arm-kernel@lists.infradead.org
 Cc: quic_wenbyao@quicinc.com
-Subject: [PATCH v1 1/3] arm64: defconfig: enable PCI Power Control for PCIe3
-Date: Thu, 20 Mar 2025 13:55:00 +0800
-Message-Id: <20250320055502.274849-2-quic_wenbyao@quicinc.com>
+Subject: [PATCH v1 2/3] arm64: dts: qcom: x1e80100: add bus topology for PCIe domain 3
+Date: Thu, 20 Mar 2025 13:55:01 +0800
+Message-Id: <20250320055502.274849-3-quic_wenbyao@quicinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
 References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
@@ -78,21 +78,21 @@ X-QCInternal: smtphost
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=HMPDFptv c=1 sm=1 tr=0 ts=67dbadbe cx=c_pps a=nuhDOHQX5FNHPW3J6Bj6AA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=8J9pHfFvgnT8GwhQ4KkA:9 a=yqDflvYcuAT_gElW2OLv:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: bk8VECaIQ6SlL6RWqqhmOHBW6cRNrSIQ
-X-Proofpoint-ORIG-GUID: bk8VECaIQ6SlL6RWqqhmOHBW6cRNrSIQ
+X-Proofpoint-ORIG-GUID: jAJmnuebdXgPMRuQ7AEFghltwy0xoHkP
+X-Authority-Analysis: v=2.4 cv=INICChvG c=1 sm=1 tr=0 ts=67dbadc0 cx=c_pps a=nuhDOHQX5FNHPW3J6Bj6AA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=R2ixBC5xtkv2JAc71vkA:9 a=sagSQ8oKcmm4XqVqbL8I:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: jAJmnuebdXgPMRuQ7AEFghltwy0xoHkP
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-20_01,2025-03-19_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0
- priorityscore=1501 mlxscore=0 clxscore=1011 bulkscore=0 impostorscore=0
- mlxlogscore=769 malwarescore=0 adultscore=0 suspectscore=0
- lowpriorityscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502280000 definitions=main-2503200035
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 adultscore=0
+ priorityscore=1501 lowpriorityscore=0 malwarescore=0 clxscore=1015
+ mlxlogscore=945 impostorscore=0 phishscore=0 mlxscore=0 spamscore=0
+ bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503200035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_225522_932272_C3110508 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250319_225525_499766_78A6A353 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +109,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Qiang Yu <quic_qianyu@quicinc.com>
 
-Enable the pwrctrl driver, which is utilized to manage the power supplies
-of the devices connected to the PCI slots. This ensures that the voltage
-rails of the x8 PCI slots on the X1E80100 - QCP can be correctly turned
-on/off if they are described under PCIe port device tree node.
+Add pcie3port node to represent the PCIe bridge of PCIe3 so that PCI slot
+voltage rails can be described under this node in the board's dts.
 
 Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
 Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/qcom/x1e80100.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 85ec2fba1..de86d1121 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -245,6 +245,7 @@ CONFIG_PCIE_LAYERSCAPE_GEN4=y
- CONFIG_PCI_ENDPOINT=y
- CONFIG_PCI_ENDPOINT_CONFIGFS=y
- CONFIG_PCI_EPF_TEST=m
-+CONFIG_PCI_PWRCTL_SLOT=y
- CONFIG_DEVTMPFS=y
- CONFIG_DEVTMPFS_MOUNT=y
- CONFIG_FW_LOADER_USER_HELPER=y
+diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+index 46b79fce9..32e8d400a 100644
+--- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
++++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+@@ -3287,6 +3287,16 @@ opp-128000000 {
+ 					opp-peak-kBps = <15753000 1>;
+ 				};
+ 			};
++			pcie3port: pcie@0 {
++				device_type = "pci";
++				compatible = "pciclass,0604";
++				reg = <0x0 0x0 0x0 0x0 0x0>;
++				bus-range = <0x01 0xff>;
++
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges;
++			};
+ 		};
+ 
+ 		pcie3_phy: phy@1be0000 {
 -- 
 2.34.1
 
