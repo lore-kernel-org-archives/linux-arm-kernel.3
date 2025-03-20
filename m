@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBCDC35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF8DC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4kp6PZK9UCnODotrskqGQqU9GRuiBhEKIwKM2do5MvA=; b=fCJvyOVSwHhvyZ/dOwGleHw5jQ
-	74rEXxUEuPFOJMTT/n4nzieUKbfldWIK/kA+2tBoN6nhRZPg7DkI6u4yoV2YpWyhhpYlkqsrHU5XX
-	jY4kqos+FDnuFyRWzLBVxaloxBQL7a7RTSR+WMByv7KgDCm0Od58baAzh10Dozco/8DUXiaaRv0Bp
-	QgP5cIe+kHJLhMccPAYP+VvABm8Rxy4utvTDCoVONqLEnnBUXU1raNOqOf+RAbmiiCCDVBr/FsZmz
-	CHWlwfiRs6EdC7S3VrmY//qLDoDXWxeFtJTVayS8CLTI7360FWmoSxVjp88XG4x4g5YJ+lAAvMRs9
-	YUZS6Ddw==;
+	bh=JDldgEKP21N20uoAtepE5Q3RPhmylKc6wagJ8mfYRwY=; b=zM5NnLgH6aCMPC7CnjLyVeTsSf
+	BgL5KwhJxgcif+4texEuP37LafRyWJpYBA8+Eh8QB66035442ejijTmyBYdTOG5sEZ9mc9eHaK/tA
+	asudDPmOSK0WpKFZUWeicZZ1aaiEt8W8HIJhumJ0PjxAATz+Gtd8NVdsyvFNu4hHcKipWuQzXjDC9
+	XKITVasgCrxyY0D58zoBdwsKjcwFwYbe9RvmTEHOCEMuGiSHAwCjOpblSYXub8Y67ujeClpIMGNst
+	cAzoYSfoT3EEL2oMyeBWtTlaLRLhquI46YnJaLCwhbcJcmEOfE3puuyFzGql/Vf/g/7+ErWdj8ua1
+	+lNuqZRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvH5y-0000000CQ0c-3c4v;
-	Thu, 20 Mar 2025 14:42:06 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tvH7e-0000000CQDw-2Q1C;
+	Thu, 20 Mar 2025 14:43:50 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGzJ-0000000COyc-3s2d
+	id 1tvGzL-0000000COzD-0tEp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 14:35:15 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43d0c18e84eso4121015e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 07:35:13 -0700 (PDT)
+	Thu, 20 Mar 2025 14:35:16 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43cec5cd73bso5706395e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 07:35:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742481312; x=1743086112; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742481314; x=1743086114; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4kp6PZK9UCnODotrskqGQqU9GRuiBhEKIwKM2do5MvA=;
-        b=GNHmTOqM2bke4QUCvGYXWIPvrwozSSYNlOUCOWqhXxtplDpIS54JlEBzxbCdJSeYji
-         RAegEQh6JzqwZTKe4jfIxylkHBxm1uJB9DOldT4ymRguludsU5+YBy9Kz4WqQ3H7glX0
-         ZjcVvrpVytjYTzeOqnUUzBRxXk4fl1Igzwv0Iqb5VrrxvaOabZyuywy+HC6y1yMjq45C
-         WY2XQSZUdRh6ba8nkEOKNRjSpiVOEHiAk60GzvCcSWYLu/7Cpq+EzGEbB3ZVklV3hkbu
-         inzt55o3YJjJv/eHKWA4vVD14bqSYlZRDAZjDLwxgxhTKCZmGYuALgiuZR5UnFC2daAI
-         3dQw==
+        bh=JDldgEKP21N20uoAtepE5Q3RPhmylKc6wagJ8mfYRwY=;
+        b=e0XiRh04/nKKmBGsW5NC9fEBzYiO4Cjns9Wf7Oc10VUwhiDeeT87mmpejML1Ya9Maw
+         X0MUQs2tPncXccXHnv0/OAqVR8u3zrfHyIW1ZSPZV0MvCDqbnVoZ2G8H9IWIOlfkGEEs
+         ez4BEe4fsumPDpcjK9U+AZ6N4DiK0V098g2iEakA/Tfg7hdkigx5P8XOJz6Qe3DDmP0b
+         Wxdt8wQ+52L7nk+WV7GGOV2+ql5jY5LRQaFziHJhHJxlbVtkELCxA5nortU0a/0E1Mvi
+         dqFghpBgySUYM32RVVCfKjVmZruvhz0vccjfdTQVnF/48ylLTpzlA5iAkxSH0eBrGzaO
+         Vl8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742481312; x=1743086112;
+        d=1e100.net; s=20230601; t=1742481314; x=1743086114;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4kp6PZK9UCnODotrskqGQqU9GRuiBhEKIwKM2do5MvA=;
-        b=li6zwDwItVrhZ/WPjZYzmN+jA10LL6VMtki88+GEilcJ+syXW7fiYr67YEBjDMPYwk
-         T47bCaE5Q6XbuqzEFoWfagdTW8SWuRDmvsX4xwDs+E/I5NL0H5ZStw0rkWUCer+k+leH
-         +KRJcu4m78v84g32mrDnRoeGV/7TsaR4W3b1D/hamOZPSVzwZyWum+TGmKTS6xsQAsBo
-         /9OFIo91GH6eW0VrxlueyDY8H6eH4RyEERJMM3caqoTj6DrjXQDemQKOtPAII5eToeAI
-         6HvcF8iha4KivZSpQNU/RiyDHB17c353u5ygNXwilE9ydVPqZ92B8lum2PlRUQUQP5Tu
-         yOGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXVw+XWTDeu8qBUcnUmUGEGRPv9WBq7mE9B9Uef5wZ97EsvS2esi6x9q8fvA0S37RNdMlBq3FmJ5/PNuwf4f11G@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyWGMkQPnIE/Z3IstKuEn3oQLb9r9IjHQ9y59HLqW3U6fMjuvP
-	YuNWb5/nUAPok6wPiFJI0ykQZULNn3XPOcqFShkhs/KtSPX4G4vR96/eYXxvIRU=
-X-Gm-Gg: ASbGncsrYB2/oC8IC/34reUOtE5fNoWsU+LRlHT+qStH6DvA7lU5EArs9SVLUj5EYOt
-	exoQUOK8Q7tc8J07yqDhmGmlv4BliyXAbAL2dLseKZdnxHMmgf8uApS+HeCnlQlprjEp+ZTb/yh
-	YbzTp5ptmX9F3plmvB+b7/YOYO2MqSafuqFpwvZ1m69BEOHoTkzTBRgMovcqBIokgAJWaNuJcUe
-	TjJ36i2qqCjwhC0/MkuDntbOX4bPTexkVh9c1q776gki1Md686MEYOgXnIQgq6ne0qLig7GfJh/
-	ilVGBUF0doJuxgxVtDipSygTsaYZxpyeKT+FzUhvs0FmslmOfrT7ue78/A==
-X-Google-Smtp-Source: AGHT+IFmrcBI2DQoGHhNMG/oOveaAvIU9OFj3V2xxyyRVCujgNDSKv3+LPqD2I6jWN8ZibhU8Dl2ZA==
-X-Received: by 2002:a05:600c:4ec8:b0:439:86fb:7340 with SMTP id 5b1f17b1804b1-43d495a5016mr28312935e9.30.1742481312490;
-        Thu, 20 Mar 2025 07:35:12 -0700 (PDT)
+        bh=JDldgEKP21N20uoAtepE5Q3RPhmylKc6wagJ8mfYRwY=;
+        b=Nuxnr2iMDUuPQTTKzkSmoupRBCQaDxLBs+TOypdL/D+VBUIlO9P+yEXO1/dXh4spab
+         ptrn5yw6KSzHWi6yvm/We+bhbf7HPq/3qAyCTYXiy2f8BdbDtXpI+thX0sd224hxLfAe
+         DF7UoqPg3BQ829Rsk4r+UgvhJGvw+c+wUnwEONVXQ0TramPqUouOXTyUrGGOYk55RUK5
+         az1YYxrtT9Qny9rPXTmp6upixjOGxLfWiFTWerdV2K7DaGXaXZgYhU1Jfz52AIL4Zy58
+         eXreCSQH62GYkOViFz7Rn7564PLiiM58CtsXQ4HKXVfAmb3Yo27PsffJkWIHGxIgPn/E
+         1mJw==
+X-Forwarded-Encrypted: i=1; AJvYcCUFeozQMd31ixrfwYV/iunUgproGu/TM4S4bnq+SdJwEHfL0w1PbAntU5qzgQstwHPh+SIXaiAmKRXzUt8o9TWv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfQrEWtBjsXkQ2bVoGfMTwlQkuFQX58qA1nzMgg8V5aWl+4H3o
+	xqGvnsO3z0L0t4D1fhOHkBeqoHdYb4b48U8r1tPVFL3D2oAnt3V/XTpnTxp++sw=
+X-Gm-Gg: ASbGncvPdGc6q0+DtuVBb3p/ymn/4t3F/+uNogC54r8sEh2XIrAFs5JfuIeuGSOjxMv
+	j4awKtYvJiUW6QGwIj+4ejNtegmeb7eGdgBmz1TKn2KcolfNCJYZh6XJRwxio5x+Gii3IGcs9v8
+	LJb7CqzeSzz4cTyx0NwS+NE5QcSl3BJwu1V0Mm9W+NtWbX9aOW8IMVIlLiVeXFFq29b1XIqhXAf
+	06Z65G68urK/BSmZBpRlPXCxJp1IHHoYDA9h6ZgDu8YyR2mWm0Hd3Cbr0CAJKpYMIINZA+A/AEy
+	YhuXmowlfRiDKB04mP+YrXY3Z2ql30zBFXpmtW4SDFnymxk=
+X-Google-Smtp-Source: AGHT+IFP4ya3uVnn9lss7Z9uy/QUwk8dHMMYU3s0EZOI0v9F/UhLzEo0uzWD2sePXj7PQ3GAwNSmkA==
+X-Received: by 2002:a05:600c:1da1:b0:43c:fe15:41d4 with SMTP id 5b1f17b1804b1-43d437c3379mr75983075e9.18.1742481313810;
+        Thu, 20 Mar 2025 07:35:13 -0700 (PDT)
 Received: from pop-os.lan ([145.224.67.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c83b6a27sm24238187f8f.31.2025.03.20.07.35.11
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c83b6a27sm24238187f8f.31.2025.03.20.07.35.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 07:35:12 -0700 (PDT)
+        Thu, 20 Mar 2025 07:35:13 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 20 Mar 2025 14:34:13 +0000
-Subject: [PATCH v3 4/7] coresight: etm3x: Convert raw base pointer to
- struct coresight access
+Date: Thu, 20 Mar 2025 14:34:14 +0000
+Subject: [PATCH v3 5/7] coresight: Clear self hosted claim tag on probe
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250320-james-coresight-claim-tags-v3-4-d3145c153820@linaro.org>
+Message-Id: <20250320-james-coresight-claim-tags-v3-5-d3145c153820@linaro.org>
 References: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
 In-Reply-To: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -88,8 +87,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_073513_987620_C0D861F3 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250320_073515_274749_ADEB1D37 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,188 +103,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is so that etm3x can use the new claim tag functions which take a
-csa pointer in a later commit.
+This can be left behind from a crashed kernel after a kexec so clear it
+when probing each device. Clearing the self hosted bit even when claimed
+externally is harmless, so do it unconditionally.
 
 Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-etm.h        |  6 ++---
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 27 +++++++++++-----------
- .../hwtracing/coresight/coresight-etm3x-sysfs.c    |  8 +++----
- 3 files changed, 20 insertions(+), 21 deletions(-)
+ drivers/hwtracing/coresight/coresight-catu.c       | 1 +
+ drivers/hwtracing/coresight/coresight-cti-core.c   | 2 ++
+ drivers/hwtracing/coresight/coresight-etb10.c      | 2 ++
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 1 +
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 ++
+ drivers/hwtracing/coresight/coresight-funnel.c     | 1 +
+ drivers/hwtracing/coresight/coresight-replicator.c | 1 +
+ drivers/hwtracing/coresight/coresight-tmc-core.c   | 1 +
+ 8 files changed, 11 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-index 171f1384f7c0..1d753cca2943 100644
---- a/drivers/hwtracing/coresight/coresight-etm.h
-+++ b/drivers/hwtracing/coresight/coresight-etm.h
-@@ -229,7 +229,7 @@ struct etm_config {
-  * @config:	structure holding configuration parameters.
-  */
- struct etm_drvdata {
--	void __iomem			*base;
-+	struct csdev_access		csa;
- 	struct clk			*atclk;
- 	struct coresight_device		*csdev;
- 	spinlock_t			spinlock;
-@@ -260,7 +260,7 @@ static inline void etm_writel(struct etm_drvdata *drvdata,
- 				"invalid CP14 access to ETM reg: %#x", off);
- 		}
- 	} else {
--		writel_relaxed(val, drvdata->base + off);
-+		writel_relaxed(val, drvdata->csa.base + off);
- 	}
- }
+diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
+index fa170c966bc3..deaacfd875af 100644
+--- a/drivers/hwtracing/coresight/coresight-catu.c
++++ b/drivers/hwtracing/coresight/coresight-catu.c
+@@ -558,6 +558,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
+ 	catu_desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU;
+ 	catu_desc.ops = &catu_ops;
  
-@@ -274,7 +274,7 @@ static inline unsigned int etm_readl(struct etm_drvdata *drvdata, u32 off)
- 				"invalid CP14 access to ETM reg: %#x", off);
- 		}
- 	} else {
--		val = readl_relaxed(drvdata->base + off);
-+		val = readl_relaxed(drvdata->csa.base + off);
- 	}
- 
- 	return val;
++	coresight_clear_self_claim_tag(&catu_desc.access);
+ 	drvdata->csdev = coresight_register(&catu_desc);
+ 	if (IS_ERR(drvdata->csdev))
+ 		ret = PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
+index 80f6265e3740..8fb30dd73fd2 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-core.c
++++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+@@ -931,6 +931,8 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+ 	cti_desc.ops = &cti_ops;
+ 	cti_desc.groups = drvdata->ctidev.con_groups;
+ 	cti_desc.dev = dev;
++
++	coresight_clear_self_claim_tag(&cti_desc.access);
+ 	drvdata->csdev = coresight_register(&cti_desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+ 		ret = PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+index 7948597d483d..2bfcb669aa84 100644
+--- a/drivers/hwtracing/coresight/coresight-etb10.c
++++ b/drivers/hwtracing/coresight/coresight-etb10.c
+@@ -772,6 +772,8 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
+ 	desc.groups = coresight_etb_groups;
++
++	coresight_clear_self_claim_tag(&desc.access);
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev))
+ 		return PTR_ERR(drvdata->csdev);
 diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index 8927bfaf3af2..cfd463ac715c 100644
+index cfd463ac715c..1c6204e14422 100644
 --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -86,9 +86,9 @@ static void etm_set_pwrup(struct etm_drvdata *drvdata)
- {
- 	u32 etmpdcr;
+@@ -764,6 +764,7 @@ static void etm_init_arch_data(void *info)
+ 	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
+ 	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
  
--	etmpdcr = readl_relaxed(drvdata->base + ETMPDCR);
-+	etmpdcr = readl_relaxed(drvdata->csa.base + ETMPDCR);
- 	etmpdcr |= ETMPDCR_PWD_UP;
--	writel_relaxed(etmpdcr, drvdata->base + ETMPDCR);
-+	writel_relaxed(etmpdcr, drvdata->csa.base + ETMPDCR);
- 	/* Ensure pwrup completes before subsequent cp14 accesses */
- 	mb();
- 	isb();
-@@ -101,9 +101,9 @@ static void etm_clr_pwrup(struct etm_drvdata *drvdata)
- 	/* Ensure pending cp14 accesses complete before clearing pwrup */
- 	mb();
- 	isb();
--	etmpdcr = readl_relaxed(drvdata->base + ETMPDCR);
-+	etmpdcr = readl_relaxed(drvdata->csa.base + ETMPDCR);
- 	etmpdcr &= ~ETMPDCR_PWD_UP;
--	writel_relaxed(etmpdcr, drvdata->base + ETMPDCR);
-+	writel_relaxed(etmpdcr, drvdata->csa.base + ETMPDCR);
- }
- 
- /**
-@@ -365,7 +365,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	struct etm_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
--	CS_UNLOCK(drvdata->base);
-+	CS_UNLOCK(drvdata->csa.base);
- 
- 	rc = coresight_claim_device_unlocked(csdev);
- 	if (rc)
-@@ -427,7 +427,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etm_clr_prog(drvdata);
- 
- done:
--	CS_LOCK(drvdata->base);
-+	CS_LOCK(drvdata->csa.base);
- 
- 	dev_dbg(&drvdata->csdev->dev, "cpu: %d enable smp call done: %d\n",
- 		drvdata->cpu, rc);
-@@ -549,7 +549,7 @@ static void etm_disable_hw(void *info)
- 	struct etm_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
--	CS_UNLOCK(drvdata->base);
-+	CS_UNLOCK(drvdata->csa.base);
- 	etm_set_prog(drvdata);
- 
- 	/* Read back sequencer and counters for post trace analysis */
-@@ -561,7 +561,7 @@ static void etm_disable_hw(void *info)
- 	etm_set_pwrdwn(drvdata);
- 	coresight_disclaim_device_unlocked(csdev);
- 
--	CS_LOCK(drvdata->base);
-+	CS_LOCK(drvdata->csa.base);
- 
- 	dev_dbg(&drvdata->csdev->dev,
- 		"cpu: %d disable smp call done\n", drvdata->cpu);
-@@ -574,7 +574,7 @@ static void etm_disable_perf(struct coresight_device *csdev)
- 	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
- 		return;
- 
--	CS_UNLOCK(drvdata->base);
-+	CS_UNLOCK(drvdata->csa.base);
- 
- 	/* Setting the prog bit disables tracing immediately */
- 	etm_set_prog(drvdata);
-@@ -586,7 +586,7 @@ static void etm_disable_perf(struct coresight_device *csdev)
- 	etm_set_pwrdwn(drvdata);
- 	coresight_disclaim_device_unlocked(csdev);
- 
--	CS_LOCK(drvdata->base);
-+	CS_LOCK(drvdata->csa.base);
- 
- 	/*
- 	 * perf will release trace ids when _free_aux()
-@@ -733,7 +733,7 @@ static void etm_init_arch_data(void *info)
- 	/* Make sure all registers are accessible */
- 	etm_os_unlock(drvdata);
- 
--	CS_UNLOCK(drvdata->base);
-+	CS_UNLOCK(drvdata->csa.base);
- 
- 	/* First dummy read */
- 	(void)etm_readl(drvdata, ETMPDSR);
-@@ -766,7 +766,7 @@ static void etm_init_arch_data(void *info)
- 
++	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
  	etm_set_pwrdwn(drvdata);
  	etm_clr_pwrup(drvdata);
--	CS_LOCK(drvdata->base);
-+	CS_LOCK(drvdata->csa.base);
+ 	CS_LOCK(drvdata->csa.base);
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index e5972f16abff..52c9aa56e8b9 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1372,6 +1372,8 @@ static void etm4_init_arch_data(void *info)
+ 	drvdata->nrseqstate = FIELD_GET(TRCIDR5_NUMSEQSTATE_MASK, etmidr5);
+ 	/* NUMCNTR, bits[30:28] number of counters available for tracing */
+ 	drvdata->nr_cntr = FIELD_GET(TRCIDR5_NUMCNTR_MASK, etmidr5);
++
++	coresight_clear_self_claim_tag_unlocked(csa);
+ 	etm4_cs_lock(drvdata, csa);
+ 	cpu_detect_trace_filtering(drvdata);
  }
+diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+index 0541712b2bcb..7249cc356ccb 100644
+--- a/drivers/hwtracing/coresight/coresight-funnel.c
++++ b/drivers/hwtracing/coresight/coresight-funnel.c
+@@ -255,6 +255,7 @@ static int funnel_probe(struct device *dev, struct resource *res)
+ 		drvdata->base = base;
+ 		desc.groups = coresight_funnel_groups;
+ 		desc.access = CSDEV_ACCESS_IOMEM(base);
++		coresight_clear_self_claim_tag(&desc.access);
+ 	}
  
- static int __init etm_hp_setup(void)
-@@ -827,8 +827,7 @@ static int etm_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
+ 	dev_set_drvdata(dev, drvdata);
+diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+index ee7ee79f6cf7..b2acd4535c74 100644
+--- a/drivers/hwtracing/coresight/coresight-replicator.c
++++ b/drivers/hwtracing/coresight/coresight-replicator.c
+@@ -284,6 +284,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
+ 	desc.pdata = dev->platform_data;
+ 	desc.dev = dev;
  
--	drvdata->base = base;
--	desc.access = CSDEV_ACCESS_IOMEM(base);
-+	desc.access = drvdata->csa = CSDEV_ACCESS_IOMEM(base);
++	coresight_clear_self_claim_tag(&desc.access);
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+ 		ret = PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index a7814e8e657b..a09579eff3fd 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -869,6 +869,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+ 	dev->platform_data = pdata;
+ 	desc.pdata = pdata;
  
- 	spin_lock_init(&drvdata->spinlock);
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-index b9006451f515..762109307b86 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-@@ -50,11 +50,11 @@ static ssize_t etmsr_show(struct device *dev,
- 
- 	pm_runtime_get_sync(dev->parent);
- 	spin_lock_irqsave(&drvdata->spinlock, flags);
--	CS_UNLOCK(drvdata->base);
-+	CS_UNLOCK(drvdata->csa.base);
- 
- 	val = etm_readl(drvdata, ETMSR);
- 
--	CS_LOCK(drvdata->base);
-+	CS_LOCK(drvdata->csa.base);
- 	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 	pm_runtime_put(dev->parent);
- 
-@@ -949,9 +949,9 @@ static ssize_t seq_curr_state_show(struct device *dev,
- 	pm_runtime_get_sync(dev->parent);
- 	spin_lock_irqsave(&drvdata->spinlock, flags);
- 
--	CS_UNLOCK(drvdata->base);
-+	CS_UNLOCK(drvdata->csa.base);
- 	val = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
--	CS_LOCK(drvdata->base);
-+	CS_LOCK(drvdata->csa.base);
- 
- 	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 	pm_runtime_put(dev->parent);
++	coresight_clear_self_claim_tag(&desc.access);
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+ 		ret = PTR_ERR(drvdata->csdev);
 
 -- 
 2.34.1
