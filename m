@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44DDC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 18:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CD0C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 18:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+vrRLTHRBCL4uIaUB6T1d63eoOxQezJink9Ji5tzgs=; b=Dhv2QRfBFIrCADEfw+zO7D2vkZ
-	mRfF/4wwylsm4/EQTaU/3xPR1VLRBMOL45Ir/fSTgKABJt1DiDiAdkKCO//O5+96vPAbPuqJuaIe8
-	SDrCjSmXa6XHyF5OuVh17aKEGvFRvT/2kMbwCTqEbV8Wczkmf7Tm6ViJ1xmXL1BwFlgUC8T6iaVfC
-	ERR0RbfXkBCdviWahiDwKJITqCM78k6prQhYIYy2+WCmgpoRT6BbQNqIKeVnPuTN7ouSE0gePiTTr
-	o2INo+L1h/lRGRk0Nn4I6nk/vcbq6BEWkQ2N7XwYJbNyYOaBM2L/eeExFggUpORuKzc+jPjIjDPKw
-	ErN2pKnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eduoFTZN5Pk/vcTpAqpS2KvclbCG/PrXXMojnsOilW8=; b=S4ZQ1Ng2E0mYGN3ISwQwj9ezcF
+	N8eKbJvDNgAxa2fhWvQhJhcpPWtEReiZYga1A26G4YDh6PNeU/Sqmq7J9yDrNb/QpPPvXjklukb0g
+	K5mIfpwGU6+7cI5WvDIWSbmY9FCsiiteNT0jp7FuiVBgydI6G10UGGFFSjFjvNRnngmezkU2HpgrQ
+	7W1zX1H3JNw691xWduszj40L5XDMA2DjvvJeVSIK2GIprgpt9t4XTBq5I7V723oyfn4C9uD4qhWHu
+	xRj4/83aqsklpgE03n4kwYa4abZEHuaJxZ/T91FCNFPI1J4SzJ0UgJ+ixf5hMGfLpmAij4c+TGPyY
+	JvcUyrow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvKFY-0000000CtYi-39GX;
-	Thu, 20 Mar 2025 18:04:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tvKcb-0000000Cwag-2HJn;
+	Thu, 20 Mar 2025 18:28:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvKDq-0000000CtMv-1TrZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 18:02:28 +0000
+	id 1tvKat-0000000CwOH-25zP;
+	Thu, 20 Mar 2025 18:26:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 95AFD5C6582
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 18:00:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44A49C4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 18:02:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4EA1644382;
+	Thu, 20 Mar 2025 18:26:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 691C4C4CEDD;
+	Thu, 20 Mar 2025 18:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742493744;
-	bh=y9R11PCeG0aC7T4yQOMfIHSqYCQ5IC3utAoKlffVDss=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FExZuvSgG7lQ0nphnU46uCB3BITIfCUTFx/gRRNQECKgcsiWtNME41GgHctBairTj
-	 L2E4xjss89M+TnVQmJP3gNRjnUYvu3j22ltM8HOhpjuVYuimADN8rrVXMdfbsEwg/o
-	 FedshALdXFQlmmCNDqhhTbjSuJm60rHbMJpBjvugGcJ75Z77+vWHqHsj1ileqG8Pb/
-	 WqFwlWO8YJmUHunQSgj7i4OOkw4X//d/uscB7e10Kegh3pry9R0esBPLI1F4sswS9F
-	 qyRVrIrrc1RN+zEOhuXNUCBBuH9upKVbOG96on8DouTIArXT0b80FQXG77FldV3Nth
-	 1Bvi4yL9YGukA==
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5e61da95244so1935643a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 11:02:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUpllQYN0hJdS2R+K/477C4r+5+81HmEExza+HNNLZQxUFy8gLZdu7GIY7dV0dq5DIgklgSlG4ynyBEvq7NruPB@lists.infradead.org
-X-Gm-Message-State: AOJu0YySfOkIAT6T8N6V1XtRj/iXzJ+8Xplu/RT6wn5HUmGDWjdp7aXi
-	OKLrhqRIBHzp+V6yl6sGzCNr9ihdmAhO762nwvKIH4VsJm1UHiMBw0naQOe8oPRWjt0/vf/nevS
-	s4W343UNr2GWOadFBreF84y0z6g==
-X-Google-Smtp-Source: AGHT+IHQN97QVgyFz09nfrYtWbO3Ru8zTNvSZPoniI5opPgH/pEzb20TQeGjO3i0k0wm7am1Inl8y3sD3mZZgGtCBU4=
-X-Received: by 2002:a05:6402:13d6:b0:5de:aa54:dc30 with SMTP id
- 4fb4d7f45d1cf-5ebcd40b7d9mr238445a12.5.1742493742665; Thu, 20 Mar 2025
- 11:02:22 -0700 (PDT)
+	s=k20201202; t=1742495174;
+	bh=WqjD83gS59KXnxcWN0xrv2Qy66XqwIZlhcsvnHNzlD0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=JYloGAYRUHZ9s4ndZMNiZ/YXTnxxxYiyDHj0Hp2VzGq3o+btOYbamd9ZiuFhWFMet
+	 ie3338Y/XRLdUCpjJyC3jborHQ/CXIIcVuOUVVK9U/rgIm5/VFx7Y1YS4wkFLVCDtw
+	 NxtFT5PZepI7IN/DrIOQSmiiHzyZN6y4L/goZn/FeHhICSNh+acqedzYpPcX+zCvRz
+	 zhiyJ8Z6cpsyttti+B/CqOcRvhgWw3QnIpYjK0Go3Z+AU3KMHdGzRyH2j6HzO8MXH/
+	 AjBZ8JDhSha0K3F92CqtjR4pU4dQ8OkZTVExZRrdd4MLrd7BZtl3cpcRusyzQ7ISi7
+	 Mu66NbJSYYULA==
+Date: Thu, 20 Mar 2025 13:26:13 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250317232426.952188-1-robh@kernel.org> <20250317232426.952188-4-robh@kernel.org>
- <26e72cb2-c355-4c40-bb98-fc0ff267bf4f@foss.st.com> <CAL_Jsq+7ZhMWgbFDvPB+3BG7YfiS9PweybOGNY3r=d40RbGHJA@mail.gmail.com>
- <130d61a8-6f03-46dc-94ca-f098bc09babc@foss.st.com>
-In-Reply-To: <130d61a8-6f03-46dc-94ca-f098bc09babc@foss.st.com>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 20 Mar 2025 13:02:11 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJZkEpx26=ro_y8hHA2x1Zm6z_SFOQHjQ-WzUa-gy+s0w@mail.gmail.com>
-X-Gm-Features: AQ5f1Jr2DWg_p_3pOGaFM-d8b9OA-WiVr1l9JRvSP10bkvbhKAdr3MGldt734ck
-Message-ID: <CAL_JsqJZkEpx26=ro_y8hHA2x1Zm6z_SFOQHjQ-WzUa-gy+s0w@mail.gmail.com>
-Subject: Re: [Linux-stm32] [PATCH 3/3] remoteproc: Use of_reserved_mem_region_*
- functions for "memory-region"
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Cc: Saravana Kannan <saravanak@google.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+ Felix Fietkau <nbd@nbd.name>, devicetree@vger.kernel.org, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-arm-kernel@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+ linux-clk@vger.kernel.org, Nikita Shubin <nikita.shubin@maquefel.me>, 
+ upstream@airoha.com, linux-mediatek@lists.infradead.org, 
+ Ben Hutchings <ben@decadent.org.uk>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Daniel Danzberger <dd@embedd.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-usb@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-phy@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, 
+ linux-kernel@vger.kernel.org
+To: Christian Marangi <ansuelsmth@gmail.com>
+In-Reply-To: <20250320130054.4804-1-ansuelsmth@gmail.com>
+References: <20250320130054.4804-1-ansuelsmth@gmail.com>
+Message-Id: <174249492019.658064.14719387276656076364.robh@kernel.org>
+Subject: Re: [PATCH v2 00/11] airoha: en7581: clk cleanup + USB support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_110226_473282_C501E75A 
-X-CRM114-Status: GOOD (  36.63  )
+X-CRM114-CacheID: sfid-20250320_112615_580850_91D82002 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,168 +85,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 4:23=E2=80=AFAM Arnaud POULIQUEN
-<arnaud.pouliquen@foss.st.com> wrote:
->
->
->
-> On 3/20/25 00:04, Rob Herring wrote:
-> > On Wed, Mar 19, 2025 at 10:26=E2=80=AFAM Arnaud POULIQUEN
-> > <arnaud.pouliquen@foss.st.com> wrote:
-> >>
-> >> Hello Rob,
-> >>
-> >> On 3/18/25 00:24, Rob Herring (Arm) wrote:
-> >>> Use the newly added of_reserved_mem_region_to_resource() and
-> >>> of_reserved_mem_region_count() functions to handle "memory-region"
-> >>> properties.
-> >>>
-> >>> The error handling is a bit different in some cases. Often
-> >>> "memory-region" is optional, so failed lookup is not an error. But th=
-en
-> >>> an error in of_reserved_mem_lookup() is treated as an error. However,
-> >>> that distinction is not really important. Either the region is availa=
-ble
-> >>> and usable or it is not. So now, it is just
-> >>> of_reserved_mem_region_to_resource() which is checked for an error.
-> >>>
-> >>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> >>> ---
-> >>> For v6.16
-> >>>
-> >
-> > [...]
-> >
-> >>> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/st=
-m32_rproc.c
-> >>> index b02b36a3f515..9d2bd8904c49 100644
-> >>> --- a/drivers/remoteproc/stm32_rproc.c
-> >>> +++ b/drivers/remoteproc/stm32_rproc.c
-> >>> @@ -213,52 +213,46 @@ static int stm32_rproc_prepare(struct rproc *rp=
-roc)
-> >>>  {
-> >>>       struct device *dev =3D rproc->dev.parent;
-> >>>       struct device_node *np =3D dev->of_node;
-> >>> -     struct of_phandle_iterator it;
-> >>>       struct rproc_mem_entry *mem;
-> >>> -     struct reserved_mem *rmem;
-> >>>       u64 da;
-> >>> -     int index =3D 0;
-> >>> +     int index =3D 0, mr =3D 0;
-> >>>
-> >>>       /* Register associated reserved memory regions */
-> >>> -     of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-> >>> -     while (of_phandle_iterator_next(&it) =3D=3D 0) {
-> >>> -             rmem =3D of_reserved_mem_lookup(it.node);
-> >>> -             if (!rmem) {
-> >>> -                     of_node_put(it.node);
-> >>> -                     dev_err(dev, "unable to acquire memory-region\n=
-");
-> >>> -                     return -EINVAL;
-> >>> -             }
-> >>> +     while (1) {
-> >>> +             struct resource res;
-> >>> +             int ret;
-> >>> +
-> >>> +             ret =3D of_reserved_mem_region_to_resource(np, mr++, &r=
-es);
-> >>> +             if (ret)
-> >>> +                     return 0;
-> >>>
-> >>> -             if (stm32_rproc_pa_to_da(rproc, rmem->base, &da) < 0) {
-> >>> -                     of_node_put(it.node);
-> >>> -                     dev_err(dev, "memory region not valid %pa\n",
-> >>> -                             &rmem->base);
-> >>> +             if (stm32_rproc_pa_to_da(rproc, res.start, &da) < 0) {
-> >>> +                     dev_err(dev, "memory region not valid %pR\n", &=
-res);
-> >>>                       return -EINVAL;
-> >>>               }
-> >>>
-> >>>               /*  No need to map vdev buffer */
-> >>> -             if (strcmp(it.node->name, "vdev0buffer")) {
-> >>> +             if (strcmp(res.name, "vdev0buffer")) {
-> >>
-> >> I tested your patches
-> >
-> > Thank you.
-> >
-> >> The update introduces a regression here. The strcmp function never ret=
-urns 0.
-> >> Indeed, it.node->name stores the memory region label "vdev0buffer," wh=
-ile
-> >> res.name stores the memory region name "vdev0buffer@10042000."
-> >>
-> >> Several remoteproc drivers may face the same issue as they embed simil=
-ar code.
-> >
-> > Indeed. I confused myself because node 'name' is without the
-> > unit-address, but this is using the full name. I've replaced the
-> > strcmp's with strstarts() to address this. I've updated my branch with
-> > the changes.
->
-> This is not enough as the remoteproc core function rproc_find_carveout_by=
-_name()
-> also compares the memory names. With the following additional fix, it is =
-working
-> on my STM32MP15-DK board.
->
-> @@ -309,11 +309,11 @@ rproc_find_carveout_by_name(struct rproc *rproc, co=
-nst
-> char *name, ...)
->         vsnprintf(_name, sizeof(_name), name, args);
->         va_end(args);
->
->         list_for_each_entry(carveout, &rproc->carveouts, node) {
->                 /* Compare carveout and requested names */
-> -               if (!strcmp(carveout->name, _name)) {
-> +               if (strstarts(carveout->name, _name)) {
->                         mem =3D carveout;
->                         break;
->                 }
->         }
->
-> I just wonder if would not be more suitable to address this using the
-> "memory-region-names" field.
 
-That would be better as you shouldn't really care what a provider node
-name is where-as "memory-region-names" is meaningful to the driver.
+On Thu, 20 Mar 2025 14:00:23 +0100, Christian Marangi wrote:
+> This series implement all the changes required to correctly handle
+> USB support for the Airoha EN7581 SoC.
+> 
+> The first few patch are cleanup for the clock driver and the
+> introduction of the SCU SSR SoC driver.
+> 
+> The SoC always support USB 2.0 but for USB 3.0 it needs additional
+> configuration for the Serdes port. Such port can be either configured
+> for USB usage or for PCIe lines or HSGMII and these are configured
+> in the SCU space.
+> 
+> The xHCI USB is based on the Mediatek implementation but the PHY
+> handling although conceptually similar, is indded different compared
+> to Mediatek due to SSR checks and different port power up.
+> 
+> The SSR driver expose an API to poll the current status of the Serdes
+> port and the USB PHY driver validates it. Refer to the specific commit
+> for additional info.
+> 
+> Consider that there is currently an inconsistency as AN7581 and
+> EN7581 refer to the same thing. This is due to the fact that
+> the SoC born under EcoNet but then was acquired by Airoha.
+> 
+> Changes v2:
+> - Drop changes for simple-mfd
+> - Rework PHY node structure to single node
+> - Drop port-id property in favor of serdes-port and
+>   usb2-monitor-clock-sel
+> - Make the SSR driver probe from the clock driver
+> 
+> Christian Marangi (11):
+>   clk: en7523: convert driver to regmap API
+>   clk: en7523: generalize register clocks function
+>   dt-bindings: clock: en7523: add Documentation for Airoha AN7581 SCU
+>     SSR
+>   soc: airoha: add support for configuring SCU SSR Serdes port
+>   clk: en7523: define and register SoC SCU SSR driver for EN7581
+>   soc: airoha: scu-ssr: expose API to read current Serdes Port mode
+>   dt-bindings: phy: Add documentation for Airoha AN7581 USB PHY
+>   phy: move Airoha PCIe PHY driver to dedicated directory
+>   phy: airoha: Add support for Airoha AN7581 USB PHY
+>   usb: host: add ARCH_AIROHA in XHCI MTK dependency
+>   arm64: dts: airoha: en7581: add USB nodes
+> 
+>  .../bindings/clock/airoha,en7523-scu.yaml     |  101 +-
+>  .../bindings/phy/airoha,an7581-usb-phy.yaml   |   83 ++
+>  MAINTAINERS                                   |   21 +-
+>  arch/arm64/boot/dts/airoha/en7581.dtsi        |   49 +
+>  drivers/clk/clk-en7523.c                      |  340 +++--
+>  drivers/phy/Kconfig                           |   11 +-
+>  drivers/phy/Makefile                          |    5 +-
+>  drivers/phy/airoha/Kconfig                    |   23 +
+>  drivers/phy/airoha/Makefile                   |    4 +
+>  drivers/phy/airoha/phy-airoha-pcie-regs.h     |  494 +++++++
+>  drivers/phy/airoha/phy-airoha-pcie.c          | 1290 +++++++++++++++++
+>  drivers/phy/airoha/phy-airoha-usb.c           |  571 ++++++++
+>  drivers/soc/Kconfig                           |    1 +
+>  drivers/soc/Makefile                          |    1 +
+>  drivers/soc/airoha/Kconfig                    |   18 +
+>  drivers/soc/airoha/Makefile                   |    3 +
+>  drivers/soc/airoha/airoha-scu-ssr.c           |  271 ++++
+>  drivers/usb/host/Kconfig                      |    2 +-
+>  .../dt-bindings/phy/airoha,an7581-usb-phy.h   |   11 +
+>  include/dt-bindings/soc/airoha,scu-ssr.h      |   11 +
+>  include/linux/clk/clk-en7523.h                |   10 +
+>  include/linux/soc/airoha/airoha-scu-ssr.h     |   34 +
+>  22 files changed, 3202 insertions(+), 152 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+>  create mode 100644 drivers/phy/airoha/Kconfig
+>  create mode 100644 drivers/phy/airoha/Makefile
+>  create mode 100644 drivers/phy/airoha/phy-airoha-pcie-regs.h
+>  create mode 100644 drivers/phy/airoha/phy-airoha-pcie.c
+>  create mode 100644 drivers/phy/airoha/phy-airoha-usb.c
+>  create mode 100644 drivers/soc/airoha/Kconfig
+>  create mode 100644 drivers/soc/airoha/Makefile
+>  create mode 100644 drivers/soc/airoha/airoha-scu-ssr.c
+>  create mode 100644 include/dt-bindings/phy/airoha,an7581-usb-phy.h
+>  create mode 100644 include/dt-bindings/soc/airoha,scu-ssr.h
+>  create mode 100644 include/linux/clk/clk-en7523.h
+>  create mode 100644 include/linux/soc/airoha/airoha-scu-ssr.h
+> 
+> --
+> 2.48.1
+> 
+> 
+> 
 
->
-> The drawback is that we would break compatibility with legacy boards...
 
-So not an option.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-I think I'll have to fix this within the reserved mem code storing the
-name or do something like the diff below. I'd like to avoid the
-former. Using the original device_node.name is also problematic
-because I want to get rid of it. We redundantly store the node name
-with and without the unit-address. There's a lot of places like this
-one where we hand out the pointer with no lifetime.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rp=
-roc.c
-index 1e949694d365..cdee87c6ffe0 100644
---- a/drivers/remoteproc/stm32_rproc.c
-+++ b/drivers/remoteproc/stm32_rproc.c
-@@ -239,7 +239,7 @@ static int stm32_rproc_prepare(struct rproc *rproc)
-                                                   resource_size(&res), da,
-                                                   stm32_rproc_mem_alloc,
-                                                   stm32_rproc_mem_release,
--                                                  res.name);
-+                                                  "%.*s",
-strchrnul(res.name, '@') - res.name, res.name);
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-                        if (mem)
-                                rproc_coredump_add_segment(rproc, da,
-@@ -249,7 +249,7 @@ static int stm32_rproc_prepare(struct rproc *rproc)
-                        mem =3D rproc_of_resm_mem_entry_init(dev, index,
-                                                           resource_size(&r=
-es),
-                                                           res.start,
--                                                          res.name);
-+                                                          "vdev0buffer");
-                }
+  pip3 install dtschema --upgrade
 
-                if (!mem) {
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/airoha/' for 20250320130054.4804-1-ansuelsmth@gmail.com:
+
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fab0000: compatible:0: 'mediatek,mtk-xhci' is not one of ['mediatek,mt2701-xhci', 'mediatek,mt2712-xhci', 'mediatek,mt7622-xhci', 'mediatek,mt7623-xhci', 'mediatek,mt7629-xhci', 'mediatek,mt7986-xhci', 'mediatek,mt7988-xhci', 'mediatek,mt8173-xhci', 'mediatek,mt8183-xhci', 'mediatek,mt8186-xhci', 'mediatek,mt8188-xhci', 'mediatek,mt8192-xhci', 'mediatek,mt8195-xhci', 'mediatek,mt8365-xhci']
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fab0000: compatible: ['mediatek,mtk-xhci'] is too short
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fad0000: compatible:0: 'mediatek,mtk-xhci' is not one of ['mediatek,mt2701-xhci', 'mediatek,mt2712-xhci', 'mediatek,mt7622-xhci', 'mediatek,mt7623-xhci', 'mediatek,mt7629-xhci', 'mediatek,mt7986-xhci', 'mediatek,mt7988-xhci', 'mediatek,mt8173-xhci', 'mediatek,mt8183-xhci', 'mediatek,mt8186-xhci', 'mediatek,mt8188-xhci', 'mediatek,mt8192-xhci', 'mediatek,mt8195-xhci', 'mediatek,mt8365-xhci']
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fad0000: compatible: ['mediatek,mtk-xhci'] is too short
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+
+
+
+
+
 
