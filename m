@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDCCC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA68C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+vyO/loypVAXfgbXfiAs9fDtNIAFBajvuLmXxHlNeQQ=; b=fSDOU+0LvI00qS5LF+2BBSE9TF
-	gJbeCH5K8enO3/IbkZNE6wNncr9OxaCD37n0FL3JcONOK0LXbJc0SgeopWDBASbr776L0Td8fV6H8
-	RR25w6WNZQHYOg99Qm/RKUzKnOqzi2y4DCNKkYk3vsap3nUHm/YDJWHcNcbz2Rwvr75C0x8LqWdGU
-	34Bcr4F1aQh48etNncQfqKwbJ9uUnz9SJnZV/f6o7Kc9EKD4TkoSXwkVdmkfgU48z5QkK6yIyShDF
-	oukO7t2qW6jyAJIa8+257wL7q+Xu57m6b+dKIIpuY98RsdVsxzz788BrVChofeOV+Nk36bofTR0Nc
-	BbT29wmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o2gc0uIp20vFRrnjWwjQL7GVMAiQPOp+xknJd1vKRXg=; b=x6BFBAz6dAfIWRihrjjfH9MIKp
+	OqGiC7yY9S2GoNhmN7J8GVN/nl1xJi/93OmWOOKh/mFNJA3hNGL7/K43A4F5L8syMXUvq+t3DQjie
+	yJyHpmwvHw13ybW36fqueIhFQEVTe2hwnPPp8zS49sqUyhoed1TtTV9NpPO5dEjMw4uTgYmlQYshS
+	jpKuL5pSHo8b+m1RfyMYPEQ7ZuKhPI5EriBfZMrCiSgLN32eEFpnc5iVQAWjVBP3Cprkwjg1z4+E0
+	a4WpbQdqTxvYBjLWLcHAUckpeUf1JLM6hOh2ayLrWd9DUNzN3uQFg4gI9q1I0KOHK6WqnSFZzOdA0
+	MK0XvRuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvO7a-0000000DKSZ-0PI3;
-	Thu, 20 Mar 2025 22:12:14 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1tvO9G-0000000DKvz-3Ct9;
+	Thu, 20 Mar 2025 22:13:58 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvO4L-0000000DJnO-23xN;
-	Thu, 20 Mar 2025 22:08:54 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1tvO4D-000000004Q0-2b5q;
-	Thu, 20 Mar 2025 22:08:45 +0000
-Date: Thu, 20 Mar 2025 22:08:42 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Zoie Lin <zoie.lin@mediatek.com>, Qii Wang <qii.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1tvO6f-0000000DKC3-3RYx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Mar 2025 22:11:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=o2gc0uIp20vFRrnjWwjQL7GVMAiQPOp+xknJd1vKRXg=; b=zL/WnoNqfYWh3Mti5728U+lclE
+	2m1aEpeUrW2f04ehkDtHsXEpjUzEhltqRDM5857u4bHpUaqps2fC02FG1C6QhAL23wyVfOeWfVQmq
+	dQC/Od8YASee8xAGz7FH9fG6OBKSDSRu7OsJsr54PW2LJDYuiD6AJJWGilAvZkyvMyXasQ8xAh6xW
+	H+KhiLVMAZurplAxKb+giGb+K6rlDPf15mSrZG/EA0x8GdBpDCBrUnMT64kd4ST4aNPrS+r8BPcM9
+	P369Zlx4RLutSYU+sZjkoa+1E8SqxiWfEQurT9icE5zxEjfPVWY6P0S4B/hZep4BP8+E6WlJURFkk
+	/5lLWd4w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56530)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tvO6Y-0008DL-1J;
+	Thu, 20 Mar 2025 22:11:10 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tvO6V-0006z8-0N;
+	Thu, 20 Mar 2025 22:11:07 +0000
+Date: Thu, 20 Mar 2025 22:11:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, teddy.chen@mediatek.com,
-	joseph-cc.chang@mediatek.com, leilk.liu@mediatek.com,
-	John Crispin <john@phrozen.org>
-Subject: Re: [PATCH v5 1/1] i2c: mediatek: add runtime PM operations and bus
- regulator control
-Message-ID: <Z9yR6pyg1mtqKynh@makrotopia.org>
-References: <20250314145407.2900190-1-zoie.lin@mediatek.com>
- <fqicrglyug7gmkmysok7hilhmkyhxmnkztzv4iffgry6xce6t3@2i6b2ihfu4rb>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/5] net: improve stmmac resume rx clocking
+Message-ID: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <fqicrglyug7gmkmysok7hilhmkyhxmnkztzv4iffgry6xce6t3@2i6b2ihfu4rb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_150853_679711_43325388 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20250320_151117_860054_6B08CD17 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,160 +83,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi,
-Hi Zoie,
+Hi,
 
-On Wed, Mar 19, 2025 at 12:34:53AM +0100, Andi Shyti wrote:
-> Hi Zoie,
-> 
-> On Fri, Mar 14, 2025 at 10:53:43PM +0800, Zoie Lin wrote:
-> > Introduce support for runtime PM operations in
-> > the I2C driver, enabling runtime suspend and resume functionality.
-> > 
-> > Although in most platforms, the bus power of i2c is always
-> > on, some platforms disable the i2c bus power in order to meet
-> > low power request.
-> > 
-> > This implementation includes bus regulator control to facilitate
-> > proper handling of the bus power based on platform requirements.
-> > 
-> > Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
-> 
-> merged to i2c/i2c-host.
+stmmac has had a long history of problems with resuming, illustrated by
+reset failure due to the receive clock not running.
 
-the change causes a crash during boot on MT7988 which typically uses
-one of its I2C busses to connect a Richtek RT5190A PMIC.
+Several attempts have been attempted over the years to address this
+issue, such as moving phylink_start() (now phylink_resume()) super
+early in stmmac_resume() in commit 90702dcd19c0 ("net: stmmac: fix MAC
+not working when system resume back with WoL a ctive.") However, this
+has the downside that stmmac_mac_link_up() can (and demonstrably is)
+called before or during the driver initialisation in another thread.
+This can cause issues as packets could begin to be queued, and the
+transmit/receive enable bits will be set before any initialisation has
+been done.
 
-[    1.465158] SError Interrupt on CPU3, code 0x00000000bf000002 -- SError
-[    1.465170] CPU: 3 UID: 0 PID: 40 Comm: kworker/u16:1 Not tainted 6.14.0-rc7-next-20250320+ #0 NONE 
-[    1.465178] Hardware name: SmartRG SDG-9000 (DT)
-[    1.465180] Workqueue: async async_run_entry_fn
-[    1.465194] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    1.465199] pc : mtk_i2c_transfer+0x27c/0x1108
-[    1.465208] lr : mtk_i2c_transfer+0x224/0x1108
-[    1.465212] sp : ffffffc0821538e0
-[    1.465213] x29: ffffffc0821538e0 x28: 0000000000000000 x27: ffffffc082153a00
-[    1.465220] x26: 00000000ffff8b62 x25: ffffffc080f3b000 x24: 0000000000000000
-[    1.465225] x23: 0000000000000001 x22: ffffff80c0ba7810 x21: 000000000000000f
-[    1.465230] x20: ffffffc082153a10 x19: ffffff80c9620080 x18: 0000000000000014
-[    1.465236] x17: 000000005f52c058 x16: 00000000c071d659 x15: 0000000013b9e9aa
-[    1.465241] x14: 00000000305bde35 x13: ffffff80c5f222e8 x12: ffffff80c5f222b0
-[    1.465246] x11: 0000000000001e20 x10: ffffffc0811097d8 x9 : 0000000000000001
-[    1.465251] x8 : ffffffc082153830 x7 : ffffffc0821538a0 x6 : ffffffc082153840
-[    1.465256] x5 : 000000000000ffed x4 : 0000000000000003 x3 : ffffffc080b798b0
-[    1.465260] x2 : 0000000000000000 x1 : ffffffc080b797d8 x0 : 0000000000000064
-[    1.465267] Kernel panic - not syncing: Asynchronous SError Interrupt
-[    1.465269] SMP: stopping secondary CPUs
-[    1.465281] Kernel Offset: disabled
-[    1.465282] CPU features: 0x0000,00000040,00000000,8200400b
-[    1.465286] Memory Limit: none
-[    1.466353] 
-[    1.466355] ================================
-[    1.466356] WARNING: inconsistent lock state
-[    1.466357] 6.14.0-rc7-next-20250320+ #0 Not tainted
-[    1.466360] --------------------------------
-[    1.466361] inconsistent {INITIAL USE} -> {IN-NMI} usage.
-[    1.466364] kworker/u16:1/40 [HC1[1]:SC0[0]:HE0:SE1] takes:
-[    1.466369] ffffff80c0357940 (&prz->buffer_lock){....}-{2:2}, at: buffer_size_add+0x68/0x84
-[    1.466384] {INITIAL USE} state was registered at:
-[    1.466386]   lock_acquire+0xf4/0x2d8
-[    1.466391]   _raw_spin_lock_irqsave+0x5c/0x80
-[    1.466399]   buffer_size_add+0x68/0x84
-[    1.466404]   persistent_ram_write+0x44/0x11c
-[    1.466410]   ramoops_pstore_write+0x150/0x1c4
-[    1.466415]   pstore_console_write+0x4c/0x5c
-[    1.466420]   console_flush_all+0x2ac/0x490
-[    1.466425]   console_unlock+0x68/0x144
-[    1.466430]   vprintk_emit+0x168/0x3ac
-[    1.466434]   vprintk_default+0x34/0x3c
-[    1.466439]   vprintk+0x24/0x2c
-[    1.466444]   _printk+0x48/0x50
-[    1.466448]   register_console+0x370/0x4c4
-[    1.466453]   pstore_register+0x18c/0x37c
-[    1.466457]   ramoops_probe+0x2e8/0x5c4
-[    1.466461]   platform_probe+0x64/0xbc
-[    1.466467]   really_probe+0xbc/0x388
-[    1.466470]   __driver_probe_device+0x78/0x154
-[    1.466474]   driver_probe_device+0x3c/0xd4
-[    1.466477]   __device_attach_driver+0xb0/0x144
-[    1.466480]   bus_for_each_drv+0x6c/0xb0
-[    1.466486]   __device_attach+0x9c/0x19c
-[    1.466489]   device_initial_probe+0x10/0x18
-[    1.466493]   bus_probe_device+0xa8/0xac
-[    1.466495]   device_add+0x58c/0x790
-[    1.466500]   of_device_add+0x4c/0x58
-[    1.466507]   of_platform_device_create_pdata+0x9c/0x118
-[    1.466512]   of_platform_default_populate_init+0x4c/0xf0
-[    1.466519]   do_one_initcall+0x64/0x324
-[    1.466524]   kernel_init_freeable+0x298/0x4f0
-[    1.466530]   kernel_init+0x1c/0x1c8
-[    1.466534]   ret_from_fork+0x10/0x20
-[    1.466538] irq event stamp: 3498
-[    1.466539] hardirqs last  enabled at (3497): [<ffffffc080ac0b78>] _raw_spin_unlock_irqrestore+0x54/0x74
-[    1.466546] hardirqs last disabled at (3498): [<ffffffc080ab43c4>] el1h_64_error_handler+0x20/0x48
-[    1.466551] softirqs last  enabled at (3392): [<ffffffc08004af28>] handle_softirqs+0x46c/0x484
-[    1.466558] softirqs last disabled at (3381): [<ffffffc080010170>] __do_softirq+0x10/0x18
-[    1.466562] 
-[    1.466562] other info that might help us debug this:
-[    1.466564]  Possible unsafe locking scenario:
-[    1.466564] 
-[    1.466565]        CPU0
-[    1.466566]        ----
-[    1.466567]   lock(&prz->buffer_lock);
-[    1.466570]   <Interrupt>
-[    1.466571]     lock(&prz->buffer_lock);
-[    1.466573] 
-[    1.466573]  *** DEADLOCK ***
-[    1.466573] 
-[    1.466575] 5 locks held by kworker/u16:1/40:
-[    1.466578]  #0: ffffff80c01b2148 ((wq_completion)async){+.+.}-{0:0}, at: process_one_work+0x1a8/0x610
-[    1.466588]  #1: ffffffc082153dd8 ((work_completion)(&entry->work)){+.+.}-{0:0}, at: process_one_work+0x1d0/0x610
-[    1.466598]  #2: ffffff80c7b3f908 (&dev->mutex){....}-{4:4}, at: __device_attach_async_helper+0x28/0xec
-[    1.466606]  #3: ffffff80c5f22068 (rt5190a_regulator:443:(&rt5190a_regmap_config)->lock){+.+.}-{4:4}, at: regmap_lock_mutex+0x10/0x18
-[    1.466617]  #4: ffffff80c9620100 (i2c_register_adapter){+.+.}-{4:4}, at: i2c_adapter_lock_bus+0x20/0x2c
-[    1.466629] 
-[    1.466629] stack backtrace:
-[    1.466630] CPU: 3 UID: 0 PID: 40 Comm: kworker/u16:1 Not tainted 6.14.0-rc7-next-20250320+ #0 NONE 
-[    1.466635] Hardware name: SmartRG SDG-9000 (DT)
-[    1.466637] Workqueue: async async_run_entry_fn
-[    1.466643] Call trace:
-[    1.466645]  show_stack+0x14/0x1c (C)
-[    1.466653]  dump_stack_lvl+0x30/0xc0
-[    1.466657]  dump_stack+0x14/0x1c
-[    1.466661]  print_usage_bug.part.0+0x26c/0x318
-[    1.466665]  lock_acquire+0x280/0x2d8
-[    1.466669]  _raw_spin_lock_irqsave+0x5c/0x80
-[    1.466676]  buffer_size_add+0x68/0x84
-[    1.466681]  persistent_ram_write+0x44/0x11c
-[    1.466687]  ramoops_pstore_write+0xc8/0x1c4
-[    1.466692]  pstore_dump+0x16c/0x300
-[    1.466697]  kmsg_dump_desc+0xc0/0x194
-[    1.466703]  panic+0x170/0x38c
-[    1.466708]  nmi_panic+0x50/0x64
-[    1.466712]  arm64_serror_panic+0x60/0x70
-[    1.466715]  do_serror+0x38/0x68
-[    1.466719]  el1h_64_error_handler+0x34/0x48
-[    1.466723]  el1h_64_error+0x70/0x74
-[    1.466727]  mtk_i2c_transfer+0x27c/0x1108 (P)
-[    1.466732]  __i2c_transfer+0x1f8/0x948
-[    1.466736]  i2c_transfer+0x90/0xe8
-[    1.466739]  regmap_i2c_read+0x48/0x70
-[    1.466744]  _regmap_raw_read+0x110/0x328
-[    1.466750]  regmap_raw_read+0x130/0x240
-[    1.466755]  rt5190a_probe+0x88/0x53c
-[    1.466761]  i2c_device_probe+0x154/0x2ec
-[    1.466764]  really_probe+0xbc/0x388
-[    1.466768]  __driver_probe_device+0x78/0x154
-[    1.466772]  driver_probe_device+0x3c/0xd4
-[    1.466776]  __device_attach_driver+0xb0/0x144
-[    1.466780]  bus_for_each_drv+0x6c/0xb0
-[    1.466785]  __device_attach_async_helper+0x80/0xec
-[    1.466790]  async_run_entry_fn+0x34/0x17c
-[    1.466794]  process_one_work+0x224/0x610
-[    1.466799]  worker_thread+0x1b4/0x348
-[    1.466804]  kthread+0x108/0x1d4
-[    1.466808]  ret_from_fork+0x10/0x20
+Another attempt is used by dwmac-socfpga.c in commit 2d871aa07136 ("net:
+stmmac: add platform init/exit for Altera's ARM socfpga") which
+pre-dates the above commit.
 
-Reverting commit 4b60b1b58696 (i2c: mediatek: add runtime PM operations
-and bus regulator control") fixes the issue.
+Neither of these two approaches consider the effect of EEE with a PHY
+that supports receive clock-stop and has that feature enabled (which
+the stmmac driver does enable). If the link is up, then there is the
+possibility for the receive path to be in low-power mode, and the PHY
+may stop its receive clock.
+
+This series addresses these issues by (each is not necessarily a
+separate patch):
+
+1) introducing phylink_prepare_resume(), which can be used by MAC
+   drivers to ensure that the PHY is resumed prior to doing any
+   re-initialisation work. This call is added to stmmac_resume().
+
+2) moving phylink_resume() after all re-initialisation has completed,
+   thereby ensuring that the hardware is ready to be enabled for
+   packet reception/transmission.
+
+3) with (1) and (2) addressed, the need for socfpga to have a private
+   work-around is no longer necessary, so it is removed.
+
+4) introducing phylink functions to block/unblock the receive clock-
+   stop at the PHY. As these require PHY access over the MDIO bus,
+   they can sleep, so are not suitable for atomic access.
+
+5) the stmmac hardware requires the receive clock to be running for
+   reset to complete. Depending on synthesis options, this requirement
+   may also extend to writing various registers as well, e.g. setting
+   the MAC address, writing some of the vlan registers, etc. Full
+   details are in the databook.
+
+   We add blocking/unblocking of the PHY receive clock-stop around
+   parts of the main stmmac driver where we have a context that we
+   can sleep. These are wrapped with the new phylink functions.
+
+   However, depending on synthesis options, there could be other
+   places where the net core calls the driver with a BH-disabled
+   context where we can't sleep, and thus can't block the PHY from
+   disabling its receive clock. These are documented with FIXME
+   comments.
+
+Given the last paragraph above, I am wondering whether a better
+approach would be to ensure that receive clock-stop is always disabled
+at the PHY with stmmac. From what I can see, implementations do not
+document to this level of detail, which makes it difficult to tell
+which registers require the receive clock to be running to behave
+correctly.
+
+This patch series has been tested on the Tegra194 Jetson Xavier NX
+board kindly donated by NVidia, with two additional patches that are
+pending in patchwork - the first is required to have EEE's LPI mode
+passed through to the MAC on this platform to allow testing under
+PHY clock-stop scenarios. The second is a bug fix for PHYLIB and
+makes "eee off" functional, but should not affect this series.
+
+All patches on top of net-next commit f749448ce9f1 ("Merge branch
+'net-mlx5-hw-steering-cleanups'")
+
+https://patchwork.kernel.org/project/netdevbpf/patch/E1ttnHW-00785s-Uq@rmk-PC.armlinux.org.uk/
+https://patchwork.kernel.org/project/netdevbpf/patch/E1ttmWN-0077Mb-Q6@rmk-PC.armlinux.org.uk/
+
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 18 -----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 46 ++++++++++--
+ drivers/net/phy/phylink.c                          | 84 ++++++++++++++++++++++
+ include/linux/phylink.h                            |  4 ++
+ 4 files changed, 129 insertions(+), 23 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
