@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D3EC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 07:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 805DCC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 07:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fmPdfR67O2wcc6/RI+Tc9AyY4rjn6JD2dOIfEvFlJnQ=; b=srgL/7W55SVj82/HjGhb75p2Ye
-	MYwRImZxFkQ00iRyn3eADv3ACOr1PJ5DvYIH4nxEfqVPdyu7FVOxYOTVBI7F67Vmz+s9e5dTdOGyK
-	Ta/GDmL9jvKp4CATm1/TtcbpY11qD9qosusz9sSNMAkXWPnGVNY6uWFGnT5j1/nO9vvv16d+WrYVC
-	YWYQbqwWe9vjbPohuffueLbq1CmowbA/yp3l+ix8nCerD01JxmkLSvXenR8Lf0vHlQG3S34S79Cnn
-	Lxqk4GPNAm9qBbBrEHrF5Cm+8a/ki1iCqxwUqCw5EdXKA8KRfgszxLEoU8gBtdn6zz7TgxyG+G1ii
-	USXp3tuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uIwzt+9VCsNE+L08cEPAM8E0m07suyLl/olOGPNabFU=; b=edD+26yIflVmw4UCOmSukh5w01
+	M1M+bM+WcMBPDIQ/ovBmZRPR546ZflvXr8QQVTVgu5p1m9RnMtplQ4oYjJJxFFs4V6WRaIZbggZ8h
+	+SlD9nr7Pawijxv1RUgLHwWMw2DpsjH8XQaigeBTiOBakNcEfhpR+o0BvXaNYtYXY/zojbZeNs9tM
+	e6ATTowEdzjzQ1zPycp6azHpmo28fbYf202ga1liZD5PJnM1kKyerOkWxGgiKo0W6qy/muKAbtXa6
+	+MDki8q/S5ODbED3rLg4fa2R6XU2qzNpAYC5ILa/AkLsrCczlFmlszxzmjTYwvlpVvlgHN8OTvDaP
+	8cngly6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvAcY-0000000BRbx-39wv;
-	Thu, 20 Mar 2025 07:47:18 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tvAgY-0000000BSX8-3Hih;
+	Thu, 20 Mar 2025 07:51:26 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvAWw-0000000BQwH-29nj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 07:41:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2E3C84436F;
-	Thu, 20 Mar 2025 07:41:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742456486;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fmPdfR67O2wcc6/RI+Tc9AyY4rjn6JD2dOIfEvFlJnQ=;
-	b=Fajab6ofQy9GQKOL1lDcWQfm/0zyroqQRlF4ltPWxT9DK3Kz2DXP4fiTBAuRaWBovUj2Cq
-	7Xs65a44MCIogTqhY9yE+Pbjp+uATyM3uGz8ZXBovdasbw4nY74FcibRBPw15cVC5B//HL
-	HoE79L729ZJJC2p0S2zTI6MKh5g6VFJAR5pV3gUeTNOpVL9Bk7zrb72rG67qGTRwhtUEmP
-	doGblm+y8jR0MsywXUhEFuv1zt7JHUkmCFEJPi/JlSYAhD2EBPzsvfS9haVYm4wtkorHyP
-	nZ64j9pnqZIyUM2/BSBuYi5mvWIKq1K7tmjyz/E7reZ1jTkV0dPNeOZ858B90w==
-Date: Thu, 20 Mar 2025 08:41:18 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, Stefan Agner
- <stefan@agner.ch>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, Jagan
- Teki <jagan@amarulasolutions.com>, Marek Szyprowski
- <m.szyprowski@samsung.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, Anusha Srivatsa <asrivats@redhat.com>, Paul
- Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>,
- =?UTF-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Hui Pu
- <Hui.Pu@gehealthcare.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 00/11] drm/bridge: add devm_drm_bridge_alloc() with
- bridge refcount
-Message-ID: <20250320084118.347bafc9@booty>
-In-Reply-To: <20250319-stylish-lime-mongoose-0a18ad@houat>
-References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
-	<20250314-daft-woodoo-cheetah-e029c5@houat>
-	<20250317155607.68cff522@booty>
-	<20250319-stylish-lime-mongoose-0a18ad@houat>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1tvAeq-0000000BRto-2oQo;
+	Thu, 20 Mar 2025 07:49:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EF1A55C118F;
+	Thu, 20 Mar 2025 07:47:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0A72C4CEDD;
+	Thu, 20 Mar 2025 07:49:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742456979;
+	bh=CuA49i30/31eyy2ImyzsQrPw/ocmxxknakwwfXAeSt0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=snS1grv8KtR8otHUudpGt37sgc1u2VrceAhX+ZFxSovi1HqKAm1OE7NRuF2nPjR4L
+	 auW1qKfYw3vIvn5+AcBSMWOJv6O7Z896sGVvssMBsUk0mx2XkbvxAVHjkNYiiRmVuj
+	 9UduaACNpOb9Og9PLSRuGxK/sspaJHfS0DJV2+sJDUpovUaheyJ7gVxzVkotQ5WP2R
+	 /gh+fRBeiEBBjN0cllZ5JM7F2hUEIG5KgYGoe/HOwQscrVbB8DTRbMoi+4kwcrkcvs
+	 KhKgIUNJRgad22N/A21ryTSgOUNrEx1Lnzojut2FRu+jG3mbSYKKs4++tq6I7LjVZs
+	 CLOeHT0LZmC4A==
+Date: Thu, 20 Mar 2025 08:49:36 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "hailong.fan" <hailong.fan@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, Bard Liao <yung-chuan.liao@linux.intel.com>, 
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>, Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, Jjian.Zhou@mediatek.com, Xiangzhi.Tang@mediatek.com
+Subject: Re: [PATCH 2/2] dt-bindings: dsp: mediatek: add mt8196 dsp document
+Message-ID: <20250320-divergent-soft-bird-bcd938@krzk-bin>
+References: <20250320031753.13669-1-hailong.fan@mediatek.com>
+ <20250320031753.13669-3-hailong.fan@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeejieegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrr
- hhordhorhhgpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnfgruhhrvghnthdrphhinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgvpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250320031753.13669-3-hailong.fan@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_004131_204416_A9F575EF 
-X-CRM114-Status: GOOD (  61.10  )
+X-CRM114-CacheID: sfid-20250320_004940_817913_FF194191 
+X-CRM114-Status: GOOD (  20.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,175 +81,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mazime,
-
-On Wed, 19 Mar 2025 17:16:53 +0100
-Maxime Ripard <mripard@kernel.org> wrote:
-
-> On Mon, Mar 17, 2025 at 03:56:07PM +0100, Luca Ceresoli wrote:
-> > Hello Maxime,
-> > 
-> > On Fri, 14 Mar 2025 19:21:01 +0100
-> > Maxime Ripard <mripard@kernel.org> wrote:
-> >   
-> > > Hi,
-> > > 
-> > > On Fri, Mar 14, 2025 at 11:31:13AM +0100, Luca Ceresoli wrote:  
-> > > > This series improves the way DRM bridges are allocated and
-> > > > initialized and makes them reference-counted. The goal of reference
-> > > > counting is to avoid use-after-free by drivers which got a pointer
-> > > > to a bridge and keep it stored and used even after the bridge has
-> > > > been deallocated.
-> > > > 
-> > > > The overall goal is supporting Linux devices with a DRM pipeline
-> > > > whose final components can be hot-plugged and hot-unplugged,
-> > > > including one or more bridges. For more details see the big picture
-> > > > [0].
-> > > > 
-> > > > DRM bridge drivers will have to be adapted to the new API, which is
-> > > > pretty simple for most cases. Refcounting will have to be adopted
-> > > > on the two sides: all functions returning a bridge pointer and all
-> > > > code obtaining such a pointer. This series has just an overview of
-> > > > some of those conversions, because for now the main goal is to
-> > > > agree on the API.
-> > > > 
-> > > > Series layout:
-> > > > 
-> > > >  1. Add the new API and refcounting:
-> > > > 
-> > > >     drm/bridge: add devm_drm_bridge_alloc()
-> > > >     drm/bridge: add support for refcounting
-> > > > 
-> > > >  2. get/put the reference in basic operations in the bridge core:
-> > > > 
-> > > >     drm/bridge: get/put the bridge reference in
-> > > > drm_bridge_add/remove() drm/bridge: get/put the bridge reference in
-> > > > drm_bridge_attach/detach()
-> > > > 
-> > > >  3. as an example of changes for bridge consumers, get a reference
-> > > > for the bridge returned by drm_bridge_chain_get_first_bridge(),
-> > > > have it put by all callers (all users will be covered later on
-> > > > separately):
-> > > > 
-> > > >     drm/bridge: add a cleanup action for scope-based
-> > > > drm_bridge_put() invocation drm/bridge: get the bridge returned by
-> > > > drm_bridge_chain_get_first_bridge() drm/mxsfb: put the bridge
-> > > > returned by drm_bridge_chain_get_first_bridge() drm/atomic-helper:
-> > > > put the bridge returned by drm_bridge_chain_get_first_bridge()
-> > > > drm/probe-helper: put the bridge returned by
-> > > > drm_bridge_chain_get_first_bridge()
-> > > > 
-> > > >  4. convert a few bridge drivers (bridge providers) to the new API:
-> > > > 
-> > > >     drm/bridge: ti-sn65dsi83: use dynamic lifetime management
-> > > >     drm/bridge: samsung-dsim: use dynamic lifetime management
-> > > > 
-> > > > This work was formerly a part of my v6 DRM bridge hotplug
-> > > > series[0], now split as a standalone series with many improvements,
-> > > > hence the "v7" version number.    
-> > > 
-> > > Except for one patch where I had comments, I think the series is in
-> > > excellent shape. We're still missing a couple of things to close this
-> > > topic though:
-> > > 
-> > >   - Converting the other bridge iterators/accessors to take / put the
-> > > references  
-> > 
-> > I sent a couple in this series as you had asked, to show how conversion
-> > looks like. But I have a large part of this conversion partially done
-> > already, and it is the largest part of the refcounting work in terms of
-> > touched files due to the large number of drivers using the iterators
-> > and accessors. Here are the functions to convert:
-> > 
-> >  A) drm_bridge_chain_get_first_bridge
-> >  B) drm_bridge_get_prev_bridge
-> >  C) drm_bridge_get_next_bridge
-> >  D) drm_for_each_bridge_in_chain
-> >  E) drm_bridge_connector_init
-> >  F) of_drm_find_bridge
-> > 
-> > A) is present in this series as an example but I don't think it should
-> > be applied until all bridge drivers are converted to
-> > drm_bridge_alloc(). Otherwise for not-yet-converted bridge drivers we'd
-> > have drm_bridge_get/put() operating on an uninitialized kref, and
-> > __drm_bridge_free() called on non-refcounted bridges, so I think we'd
-> > see fireworks.
-> > 
-> > In the previous iteration I used drm_bridge_is_refcounted() in
-> > drm_bridge_get/put() to allow a progressive migration, but if we want
-> > to convert everything in a single run we need to first convert all
-> > bridges to drm_bridge_alloc() and then convert all accessors.
-> > 
-> > The same reasoning applies to patches 3-4 which add get/put to
-> > drm_bridge_add/remove() and _attach/detach().  
+On Thu, Mar 20, 2025 at 11:17:25AM +0800, hailong.fan wrote:
+> This patch adds mt8196 dsp document. The dsp is used for Sound Open
+> Firmware driver node. It includes registers,  clocks, memory regions,
+> and mailbox for dsp.
 > 
-> Agreed.
+> Signed-off-by: hailong.fan <hailong.fan@mediatek.com>
+
+Don't use login as full name, but proper Latin-alphabet transcription or
+original name in UTF.
+
+This cannot be tested due to dependency, so limited review.
+
+> ---
+>  .../bindings/dsp/mediatek,mt8196-dsp.yaml     | 96 +++++++++++++++++++
+
+Don't grow dsp directory. Either this is remoteproc or some sound
+component, so place it accordingly.
+
+>  1 file changed, 96 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
 > 
-> > B) to E) are ready in my work branch, about 20 patches in total.
-> > Indeed item E) is a special case but it is handled there too.
-> > 
-> > Item F) is the beast, because of the reverse call graph of
-> > of_drm_find_bridge() which includes drm_of_find_panel_or_bridge() and
-> > then *_of_get_bridge(), each having a few dozen callers, and leading
-> > to the panel_bridge topic. I have converted maybe half of the users of
-> > accessors in F), it's 35 patches but it's the easy half and I still need
-> > to tackle to hardest ones.  
-> 
-> One thing to keep in mind is that, while it's not correct, if the bridge
-> has been allocated with devm_drm_bridge_alloc, it's not worse either. If
-> you're not getting a reference to your pointer, the point is buggy,
-> sure, but it's just as buggy as before, and in the same situations.
-> 
-> So we can make that gradually if it's more convenient.
+> diff --git a/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml b/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
+> new file mode 100644
+> index 000000000000..62bcd97bd0f4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
+> @@ -0,0 +1,96 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/dsp/mediatek,mt8196-dsp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Mediatek mt8196 DSP core
+> +
+> +maintainers:
+> +  - Hailong Fan <hailong.fan@mediatek.com>
+> +
+> +description: |
 
-I see your point, right. And definitely doing it in gradually will help.
+Do not need '|' unless you need to preserve formatting.
 
-> One way to solve it would be that, for example, of_drm_find_bridge is
-> oddly named according to our convention and it would make more sense to
-> be called drm_of_find_bridge().
-> 
-> So maybe we can just create drm_of_find_bridge() that takes a reference,
-> make of_drm_find_bridge() deprecated in favour of drm_of_find_bridge(),
-> add a TODO, and call it a day. People will gradually switch to the new
-> API over time.
+> +  Some boards from mt8196 contain a DSP core used for
 
-Thanks for the suggestion, I will certainly try this way when I get
-back to the accessor conversion work. While increasing the number of
-deprecated functions is not great, I'm starting to suspect a conversion
-of _all_ the of_drm_find_bridge() users at once is not realistic.
+Boards or MT8196? If boards, how is this related to SoC in the first
+place? Thus wrong compatible.
 
-> > >   - Documenting somewhere (possibly in drm_bridge_init?) that it
-> > > really shouldn't be used anymore  
-> > 
-> > I'm afraid there is no drm_bridge_init(), bridge drivers just do
-> > [devm_]kzalloc and set fields explicitly. So I don't think there is a
-> > place to document this.  
-> 
-> Oh, right.
-> 
-> Then, drm_bridge_add() would be a good candidate too to mention that
-> bridges must be allocated using devm_drm_bridge_alloc().
+> +  advanced pre- and post- audio processing.
+> +
+> +properties:
+> +  compatible:
+> +    const: mediatek,mt8196-dsp
 
-Sure. I'll add such a comment.
+If this is part of the SoC, then wrong description.
 
-> > Overall, I think this could be the path forward, let me know if
-> > youthink it should be done differently:
-> > 
-> >  A. have patches 1 and 2 of this series applied
-> >     (why not, even patches 10-11)  
-> 
-> I had some comments on patch 2, but it's ok for me on principle.
+> +
+> +  reg:
+> +    items:
+> +      - description: Address and size of the DSP Cfg registers
 
-Sorry, my wording was not clear. I really meant "have patches 1 and 2 of
-this series applied after the improvements proposed". So hopefully the
-v8 I'm sending today-ish. I'm going to send only patches 1, 2, 10 and
-11. The other patches are not meant to be merged now, so I'm resending
-them when appropriate.
+s/Address and size of the//
 
-Luca
+Write concise and accurate description. This cannot be anything else, so
+no need to state obvious.
 
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> +      - description: Address and size of the DSP SRAM
+> +      - description: Address and size of the DSP secure registers
+> +      - description: Address and size of the DSP bus registers
+> +
+> +  reg-names:
+> +    items:
+> +      - const: cfg
+> +      - const: sram
+> +      - const: sec
+> +      - const: bus
+> +
+> +  clocks:
+> +    items:
+> +      - description: mux for dsp clock
+> +      - description: 26M clock
+> +      - description: ADSP PLL clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: adsp_sel
+> +      - const: clk26m
+> +      - const: adsppll
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  mboxes:
+> +    items:
+> +      - description: mailbox for receiving audio DSP requests.
+> +      - description: mailbox for transmitting requests to audio DSP.
+> +
+> +  mbox-names:
+> +    items:
+> +      - const: rx
+> +      - const: tx
+> +
+> +  memory-region:
+> +    items:
+> +      - description: dma buffer between host and DSP.
+> +      - description: DSP system memory.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - clocks
+> +  - clock-names
+> +  - power-domains
+> +  - mbox-names
+> +  - mboxes
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/mt8196-clk.h>
+> +    #include <dt-bindings/power/mt8196-power.h>
+> +    adsp: adsp@1a000000 {
+
+Drop unused label
+
+> +        compatible = "mediatek,mt8196-dsp";
+> +        reg = <0x1a000000 0x5000>,
+> +              <0x1a210000 0x80000>,
+> +              <0x1a345000 0x300>,
+> +              <0x1a00f000 0x1000>;
+> +        reg-names = "cfg", "sram", "sec", "bus";
+> +        power-domains = <&scpsys MT8196_POWER_DOMAIN_ADSP_TOP_DORMANT>;
+> +        clocks = <&cksys_clk CLK_CK_ADSP_SEL>,
+> +                 <&cksys_clk CLK_CK_TCK_26M_MX9>,
+> +                 <&cksys_clk CLK_CK_ADSPPLL>;
+> +        clock-names = "adsp_sel",
+> +                      "clk26m",
+> +                      "adsppll";
+> +        mbox-names = "rx", "tx";
+> +        mboxes = <&adsp_mailbox0>, <&adsp_mailbox1>;
+
+Reverse order of mboxes and mbox-names properties. xxx-names follows the
+xxx.
+
+Best regards,
+Krzysztof
+
 
