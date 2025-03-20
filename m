@@ -4,149 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC665C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1C8C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FpkXsU7WYybWjNsw1WLpPHUoJ9KveqBPI/gawB0qkZA=; b=Wv465ey2oKXeDqy3N/FubxcqM6
-	o6HK37IpkabimBdQuW/1jw5IuM/Ad7P4vCnk58xSQ6OW8dqoavTYhPNXJdy/d8JYsvRKZJO4apge1
-	Zd4TYJ4p+A+XMZifYVukIyAACjzdz2SSeXQKdEqnGcP6Se7FhBvw/Z2N8BoI/0do/1YI9OO+azDzO
-	odVR0vaLLRwONX8TKWWaQkRbQEFZsWVYRLWe9zfFA09D7oD5xWmSNQfB/yw4B0P11rlz6l/fAxgwD
-	7p2YtbaXF+fuKDkJU56TnO8CC3rcLvVB6vnxa5LarAKx/BbY/EVNLXs3hNf3cwMyKHhJyglqC79hT
-	V9QAtsgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dpjy1IZYSrJhI5Gcp+CzlK5Z2X3XiZyOlcEiYFRuKT0=; b=SIYxIqlovOCm7tCBEJlY4nx/aR
+	wuTyhXIlRL3WLhgo7QNGALtTE54Fzwu6wl1VsDKlDI7TgpVAv6zKyqWhwJrjbhFMxpC8GFk8W4l5D
+	qmtjWhnQUzH7o2kw+2+698VlzBWo8teTQ+L+ZMkDHw3FxzdqeJ2EU2+AZyqoHxHakbCpe5Z1/+rmU
+	m36EuDK0ivni0NU1c7kYSmE7uqACqKUOXETFdlb/ZP3s21jvJj51HrXLie8QPRCf/u1e0g7jeqmVA
+	m8T0szpGPR/pfz/QY0cz4294nUYSnL0FAUJrr34H4oAd5wTj8OmlCiEljCshYy2sUKnjSdk+36urV
+	ud3FpBUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv5jX-0000000Aueg-2utT;
-	Thu, 20 Mar 2025 02:34:11 +0000
-Received: from mail-psaapc01on2072e.outbound.protection.outlook.com ([2a01:111:f403:200e::72e] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tv5lC-0000000Aunu-1R33;
+	Thu, 20 Mar 2025 02:35:54 +0000
+Received: from mail-sg2apc01on20721.outbound.protection.outlook.com ([2a01:111:f403:200f::721] helo=APC01-SG2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv5cX-0000000AtCS-3Jxl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 02:26:59 +0000
+	id 1tv5eq-0000000Atls-1g7f;
+	Thu, 20 Mar 2025 02:29:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sMeSyEb9yK+z7hgQ8oISFG/AICDiiE5+hpubcM7G1RLO+MoOFT/bEwwSWL8BwCa+CV8sjOts49Kvfot5MrfPEOaPXpJbmGlFzSM2KajzSZ5D4nPg/+adCRCfWZwgp0KZU7fKmFG9PtP6kEYenn/QYP0ut1jiEoH+hJJ4tEqech7wec/EdBVsH1DP9td/5GxTRnTN0Vtc54cV6iyT9H5miSW5kjEEjbAVusGFHj0nOWFKA87wJRBI+wP2EezCxjCc0Uvu/5GJp6O0cqsrJw80j6hudHFo+Vls8vKe9gJeZnYIcujKe3jci/++9vkZhQOE5jOzAqJSMDQXR+RAFEjk1Q==
+ b=bmFZ6pfb+6FCXxPi4KH6xrN3+tHD4a0eVZzkfia0HuDWQckn9jGa0ZBEXeI0UOHnowkiM89n1hm5XAhzYnuXOYa45kmfYdYgQRNuDlV1MDXVroTm4tkXC6KJTkHmhiKuJVBSHZF2EDDLDVjybtpmM1nQ/LDDG4FaGFEde9e+UQjd5IsTHoQDmsg8TQcdxXbxb6BcGwjzMCueAHIfnLRUO1g3OzBzJd4hIFuDRE3BqYVwXe4NyflQXj6ZDTc/66b03fvBk3veV86JrVsHT6unkzn/KvzVFKyfSgVWfggntaEey6TgpY59kUOKgHCE5v2X8WO7Xibe/S6OZDA/ySPqew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FpkXsU7WYybWjNsw1WLpPHUoJ9KveqBPI/gawB0qkZA=;
- b=xIwhCNXBjEYW+V61jNSPWkv2nnL9g8iDNmnUKC0gnesXcOShHbNDQBH4FRn+YEyQzVcHeVXOyJKzpOiwvzuhbQCVtxcocsmrWP5TybPqfxIKfAn4HnvaJTwHnOPRwRJ+/K61fnKdvwqvd+nVuYbR8V7VS5mfH9Sm4ojoeAZZHZlh4bwgE2YoVN810NtCzKs/WJevtYEfIl+p8BE/xtNFdZZNSkFzejVoXIsOHxCWUxP4DAWeWT21JtCPAOXh2FDg67a3qLlR8lTEUtnvimzpjmg35bxEOJBZuWSqRQ+t5aS73Q0GnsuBG+ydwjjs3IsjPNMVBwsixdbdrAvVZRf+Lg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=bootlin.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR01CA0183.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::16) by SEYPR06MB6522.apcprd06.prod.outlook.com
- (2603:1096:101:169::10) with Microsoft SMTP Server (version=TLS1_2,
+ bh=dpjy1IZYSrJhI5Gcp+CzlK5Z2X3XiZyOlcEiYFRuKT0=;
+ b=Bf7uq+AtGCE3+DcSFWeBLHjD6cRZ8qeO5sk2id4m6CML69i5hgdbhyo+RXysBWx/+znjtwI8c3TkBRAhLtqVj3Rw3p2pHkurfydGCMV4PNUrZky4HGUlG2R+FvayS1KcB/elwIOEY07/2An/3sMumuK8dkKlVznF+iBNucF7Pdp0ksJogjOQVG3q37kR2v8CMvMQti4hoNujeICefyIZNBq26pRAmE3qwlm/ke5jzJGgeSA7uQudy529WiNrr5R4qNxn1e+kKV8TqoAV1iOZs94Epvq5bvXspFy87jCVQfWDvJinJ6rtInrQaejXuBnpK/vgi89PNFbyKfM6fB7G6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dpjy1IZYSrJhI5Gcp+CzlK5Z2X3XiZyOlcEiYFRuKT0=;
+ b=BectWms62VHcK64hOSNzSWZG3UZsp2O6K699AE3jdgpIn+ePyAQl3Y8YSTV+FN4Fd+9bW6sSOQDtAyIIAcfpZDCXJEFIdcb/Hrz83yNirw55NunhYRMIZWTKLhbL9kRYJkdpHoOGry2nKnQKDh4Xj43kizOludf2Z/ieRM7lprozLYfbGG6VL9gSm6EMZE/W+t4diB6rTTc+3czQgJ72n0T7eBmySJDT8Rl/+t1qFufMOQzsDt3NmWPASVIqd3F/oTQTQ6EHKx3M97oTB87wMHasdB3ucAMCc5xQUpsTz9qyYOXK7WGvkf0L5Biu0AElq2zpZLmfdRuTEH/jv5hmgA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
+ by KL1PR03MB8821.apcprd03.prod.outlook.com (2603:1096:820:145::12) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.34; Thu, 20 Mar
- 2025 02:26:49 +0000
-Received: from HK3PEPF00000220.apcprd03.prod.outlook.com
- (2603:1096:4:189:cafe::ca) by SG2PR01CA0183.outlook.office365.com
- (2603:1096:4:189::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.35 via Frontend Transport; Thu,
- 20 Mar 2025 02:26:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF00000220.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.20 via Frontend Transport; Thu, 20 Mar 2025 02:26:47 +0000
-Received: from [172.16.64.208] (unknown [172.16.64.208])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id F25D74160CA0;
-	Thu, 20 Mar 2025 10:26:46 +0800 (CST)
-Message-ID: <2ac84de4-a421-4271-81e5-9b8489b37238@cixtech.com>
-Date: Thu, 20 Mar 2025 10:26:46 +0800
-MIME-Version: 1.0
+ 2025 02:29:13 +0000
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d]) by PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d%7]) with mapi id 15.20.8534.034; Thu, 20 Mar 2025
+ 02:29:13 +0000
+Message-ID: <8253157a-bc8e-4c6e-8697-2fdaf7193bc8@amlogic.com>
+Date: Thu, 20 Mar 2025 10:29:07 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] Loadable Module support for PCIe Cadence and J721E
-From: "hans.zhang" <hans.zhang@cixtech.com>
-To: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
- Peter Chen <peter.chen@cixtech.com>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com"
- <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "vigneshr@ti.com" <vigneshr@ti.com>, "kishon@kernel.org"
- <kishon@kernel.org>, "cassel@kernel.org" <cassel@kernel.org>,
- "wojciech.jasko-EXT@continental-corporation.com"
- <wojciech.jasko-EXT@continental-corporation.com>,
- "thomas.richard@bootlin.com" <thomas.richard@bootlin.com>,
- "bwawrzyn@cisco.com" <bwawrzyn@cisco.com>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "srk@ti.com" <srk@ti.com>
-References: <20250307103128.3287497-1-s-vadapalli@ti.com>
- <Z9pffxeXHVOsoi4O@nchen-desktop> <20250319062534.ollh3s5t7znf5zqs@uda0492258>
- <Z9qO1f5MgNcwO5A4@nchen-desktop> <20250319095511.hf3y2c6vbbnm3ien@thinkpad>
- <a8966792-fa0e-4e8e-aceb-427819ae4ef5@cixtech.com>
-Content-Language: en-US
-In-Reply-To: <a8966792-fa0e-4e8e-aceb-427819ae4ef5@cixtech.com>
+Subject: Re: [PATCH v4 2/6] dt-bindings: clock: axg-audio: Add mclk and sclk
+ pad clock ids
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
+References: <20250319-audio_drvier-v4-0-686867fad719@amlogic.com>
+ <20250319-audio_drvier-v4-2-686867fad719@amlogic.com>
+ <20250319-daffy-classy-kangaroo-023e1f@krzk-bin>
+ <9ae73d75-9c59-4255-8924-b456c86cbc01@amlogic.com>
+ <7084e271-8546-4a49-9eb8-ee3f647c529a@kernel.org>
+ <e5d3741d-0f4e-4f92-9b1c-04b114892330@amlogic.com>
+In-Reply-To: <e5d3741d-0f4e-4f92-9b1c-04b114892330@amlogic.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: SG2P153CA0002.APCP153.PROD.OUTLOOK.COM (2603:1096::12) To
+ PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF00000220:EE_|SEYPR06MB6522:EE_
-X-MS-Office365-Filtering-Correlation-Id: 42576c14-5678-4fa2-a671-08dd6756aa79
+X-MS-TrafficTypeDiagnostic: PUZPR03MB7135:EE_|KL1PR03MB8821:EE_
+X-MS-Office365-Filtering-Correlation-Id: 26a86e7d-81f4-4c1c-c6b9-08dd675700d6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TzU3QXVvdjUyL09tY2xuRXVYdjdKK1VqeDR1bXF1Vy9iWDM2bDU0dGVCaEtU?=
- =?utf-8?B?eFRIZzJ1b21HckxWREdNSE5LaUN6KzBlUDdlMG41SGVkeVptVVdsdFBZY0Ft?=
- =?utf-8?B?V1k0NTdYOC9rc3JDVmNsbmh5dDFITlY4NmhkVHE0NXp1em0wOFF4QzdXT0cz?=
- =?utf-8?B?TjlUc3pBb3Z5c2JVR1RoSndKbUJsSmxGbGk4VzNOZjhHTnpZUGxkemJXWEp4?=
- =?utf-8?B?OE1WeHdvbU1jeVlTbTJFV2NPOWZlZytGK255MWtreVhqOGNic1RRLzN4OWlx?=
- =?utf-8?B?TjZIOGRkeEtXaTNaeVNXdFFmYkZNZVBKYmhTYjhEZUl4QTJlN0xQN01tWHNC?=
- =?utf-8?B?T1RlMVZCTDV2bmtFYW94Um4yRFkyV1d0TzdDUWFPK1hGWXJuVDV4VzE5TnBp?=
- =?utf-8?B?WktWR0IxUFF6OWNMTXVNSTZwVlpYZzgra2NZTmk1TTVKbTBkUithcllJZU5a?=
- =?utf-8?B?VmlscE1OdHkxdkRaQ3kzWjlEM1dmZmh1ejlZczkrS2hPTm53YzVUdlBoWm5y?=
- =?utf-8?B?eUgwVWRhVWl2cnRYL1BJRE5LN1ZzNXhJR2VUbUVHdnBBVElzbGVUMGoybGtU?=
- =?utf-8?B?L2tUNlJYTWV0RnNoVEM0eDVoWUV1TUdoYXExYzhxa3p6VWZJYlo1T2dtTDZE?=
- =?utf-8?B?YlpDZlZIczE2bGNucG1zKzk0WUFNNjNxdEczaVFIMWpSbVpJTUNMTkJOMnRB?=
- =?utf-8?B?RXBiZzRLQVZFZ0k1VmlKM0VhSG5NZUdPeUlLZXBaSFJ6Vm1ibnR1Yzl2dVBX?=
- =?utf-8?B?cTZ4LzlsV3JZV0R4bDQvU01PVWxXdFE2aTBxM1AvL290dE1iSjEvekxKRjNi?=
- =?utf-8?B?YnZpbzJkRzZUNzNrZXJCTmtMS3FQUnlZQW9iUEx6bDhyMVovUGJQaG9YcUEv?=
- =?utf-8?B?MVpSTStMZ2doZEEreDVZNTE2TG1PbFc3ek4zV2YzV21Ra29Fa2p2bmhtN2pj?=
- =?utf-8?B?ZVZyMWx1dDkrb0VYbzUwR21NSzBRSFZKMXM0ZVg1NnJoTVl4cWZTS1hHemQr?=
- =?utf-8?B?UmRIQ1o4UngwemgzbG1jOEhaTDZhOE01aE5wNnc1ejhldjFwTkpRRFdySWI2?=
- =?utf-8?B?K2FxczAvS1huV0VDcWdMVnNkWVZqcFJLQWR0Q200blo5ellPYnNLUTVBckhW?=
- =?utf-8?B?UlA4V3JhK2pBdmhUZy9CdzJHUjBZNmIwWHRTdDRrVmdwRGg3aTd4MG9JVG1s?=
- =?utf-8?B?YzRGc0FWOFBIb0FvMThNZUVjVldtUVBBM08rUjFRRHBBTVlEWnh1U1QzeUkr?=
- =?utf-8?B?SWozUHJYVnJPQi9qM3BXcy9DbjJJbmtpS3FOZTNCT0NmeVZ1SCtrQmthRVF3?=
- =?utf-8?B?UjRDTEZHM3RzNGJLbjZRczJpZFlmL2orZ2JEbzU3bEljakFzNnBJdnZkcGM5?=
- =?utf-8?B?aXhBcWczTFl5UUoza3JyOTMvY0RFMFdvaVpFdEdqa1lzOG9YaFl5Nmxpall5?=
- =?utf-8?B?YWtuMEMxUVd6YitEYTUxUlBRTUNXNVo0clh6ejF4NDE0eThQL1BYdGVaQUpQ?=
- =?utf-8?B?ZmlvMTFCbFBsdDZMVlhMekc2ck1nVWJhWGVZYnlNUzdrNnN6UXhTSW54V2Nl?=
- =?utf-8?B?V3dsZGxoNG1RK1N2U003aHgvVkJoMElGdXJJeUg5TWlFUzA5VU5KaFVCaFFZ?=
- =?utf-8?B?a1Z1ajlyY0psc3JSbDYvTXpBbENTRjdMUFFGNjFMSlRoZXMxOS9SMVVkTFBS?=
- =?utf-8?B?VjJ5bllCcVVqd01USUZZeHFxUjE1b3NLTkpRZjJXZ0R5T1l1YUYxYkxVVkda?=
- =?utf-8?B?UFhNdCtTNzRxMVE2MVl2V0hRMTkyQWFDOHd2dTFCWVk3WFk5SGgwRHhsT0JY?=
- =?utf-8?B?S2RSb1hGOXV5eC9xbTR2dkpMU0Z6dkM1cU5lOWRMSUw5bGl1ZG92RmVoOVps?=
- =?utf-8?B?a3BpVUhONnIyNHp4TXViVkgrT0g0VW1WN0gxNlpHQ2dWcjAyL2RWRElpcjd3?=
- =?utf-8?B?L3hVcnNwVE1QT2lxLzFMeWFxMmNmVnptQVZrYTVCY041ZXNBYUthbXZUMVVZ?=
- =?utf-8?Q?Xjxn5klRYEPj+Fu6ss11Yh4DhcYoU0=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2025 02:26:47.8924
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UUZHTHNSTjkrRXowTUFLWUhuNStTZ1AxQXJwengyYkZJd29vNXF5SmMrTUtZ?=
+ =?utf-8?B?bE5JcHgreVhQZlllUk1sR09XWklja3pnQndWelFYdmpMQ2Zzci93TGhzUEdQ?=
+ =?utf-8?B?eEV2TEJjTHpnOXc3MXA2QkZBK3pJa0NLWnloTzBoa3h1ZGRuK2JzbVpwRWhM?=
+ =?utf-8?B?YkJYRTlVYjNsdHFFMCtVK2RvcW9ub3hmSnNDVVB4NlU1bFdaYUZuQXlNSlNF?=
+ =?utf-8?B?SmFWVzdJUE9OdGpVeFVVRGRvS3VCRkhxU2ZPSGwvemt0WGw5Z2t4WHY4dW96?=
+ =?utf-8?B?akhBK3JvMWVGV1BHR09oTU1jRHZnek5rTGlkOGJLK2Z2dVZObHFkMnovaUp2?=
+ =?utf-8?B?Tzd3SmFUWmZDSUMxQjJqaG1uRFNBK2ZYbVdONzl1WWFaRGhOdlkzeHdlaWxl?=
+ =?utf-8?B?dGhZZnE0ZHhxVkJsRDNtZFQ1bXlrYXloWHpBbFNGek90QUZyczJTU0E5d0pJ?=
+ =?utf-8?B?MSsraWJISWlZaGRnaUVrbm92TE9ZZW0xZ0ErMnE1Ry9IaHZ1VjAxQUdZWmIw?=
+ =?utf-8?B?MlFTMGZhSC9LV0J4WnhsQnNQVVJtVkY2Q01qUFpSaytHR3VqUmVvQ1FKaGdV?=
+ =?utf-8?B?TmNMZHRLWEVDWjVYcFVWbkcrQXhZVVlHVE5yc2Raa2RDQ2JrcG9DbFZmTTBJ?=
+ =?utf-8?B?TTEvK1NCZWhiRnRtSVVpT3pyMXVkK2VFVkk5UXR2R3VmUW52NUIzSHQ1R3h3?=
+ =?utf-8?B?dzhndDhua3ZMczJqMDkveFp4TDhCQjNQVkk2UkdFekNDQURybWxadkZNYUdC?=
+ =?utf-8?B?Q25teEk3STJkTzFxOGRhM3VLbERqazNVVWp6K1hQQ3ZETTVtRm1NbnRrR2l3?=
+ =?utf-8?B?eXpYRWdVdHRMS3JWbENNdEZvOEI4c0o1TWYzdTJkckU0TDlkcnBpMlIyMnJE?=
+ =?utf-8?B?SUNVL2VHYjZmdXZVd3JIdGxva2RKaWJZTTB4YXZESHJZYkFtWGtTZ1ZKRUt6?=
+ =?utf-8?B?VWZDZU00aWlwL1RuSkJvVmFJZ1JwSHVSc2ZXMTE4ZHMycUxudEtIcUZESTA3?=
+ =?utf-8?B?aEtSL2hxcUZOL1ZSbFBkakNsOWRvT0pRZ1JHZ3hXQ09qK3JKMnRhMC9FT3Br?=
+ =?utf-8?B?aFRqTzJpc3ZrOVRSQzFCMW1acC9FN204bVNkZk5KVm9RSStGaWlMK1ZCUk5a?=
+ =?utf-8?B?aDI3bjlBYnFUOFhvdHp2MmhKbkZrTDdOWVBVVUROWDUvaEZ6Rk1ZanJFdk9J?=
+ =?utf-8?B?aVJwK3VvQ2cvbWRkcGdWSWFGOFJxWWQzRzQ4S2JRZTdTenpBZ2xxQTNxQjlR?=
+ =?utf-8?B?WWxUY0N6YWFYY0pqS3lHZ0xadGVpWFZ0ZXFuVyt0RlhPbkpIV1pOckdMZFJL?=
+ =?utf-8?B?dWk5L2lUeG1sMkFqZFFTaWk4MUZPOEkrdXJYMHVIcHd0bW4ySmJvaU8xVkdP?=
+ =?utf-8?B?M0drUHk5V3JhT1hLQnlDT1NxOVZlczRWSWFXYW9ad2tNamZLaXpNQTd2ZENZ?=
+ =?utf-8?B?Z1J3VklhMWpXMGRSNkR5bVdJVUMvT2ZzSUpsNS9ITk9XVVViSXlESDFoS0ZF?=
+ =?utf-8?B?MzkwM3dYZnlvekJ3czRIakl1OFZDWWIvcjlKVE1vbmlGa3JGdi9HMncrQU9L?=
+ =?utf-8?B?a0l4RDdRNXUxLzVDekN3RGlmR2lWTWNqdDczeS9yZUxldGhPdCtqUWdIQlpt?=
+ =?utf-8?B?MnRoQlptTVducm82RGNjREJqeURCcVc0cmJXNW9JRWJkcmRlblZWWmdiQkxI?=
+ =?utf-8?B?U0JCaWgxaVZoUkRQTVYydmVldmt2bUwrcUQrMUhYWU5EbTd3VTlOR0ltVmk0?=
+ =?utf-8?B?TG1EVXBlTCtscGxadXM4Y2ZMTk5sWTk0YnJkMFFzZDZzZjk4Uk9lUlQxZnVJ?=
+ =?utf-8?Q?ZPLTDsptGA6X70GY8NgLlNqIb0z3KF8xAv9CQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB7135.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TS8xYzJkcFJFd05wNXRmNFFhc0U4RCtuYWpMTkhUem01bEEvbzhYQ2w4Z1lo?=
+ =?utf-8?B?VXZMTWMvbXZKQTE2NTNRNGJuQnk5dW42UVVxMU5ZSHEyQmgrTFZMdisvZXFr?=
+ =?utf-8?B?dGtFSUNKc0lyTEZMNmxVQ1ZSZEhWWTJpbi9QdXRBNEdXWExVbTRnR1ZZZEtn?=
+ =?utf-8?B?elQzMUdnZ084YlM5VzFoaW5xdlRTbEhHaWxEYUpFU3huMHZFajNlZHZkSlVT?=
+ =?utf-8?B?aWJudDU2Z1phYjl3V3ZrTUNOSDg2TFBpbTJpQnE3b1V1YmJpMHRDTnVieTJr?=
+ =?utf-8?B?TjhySTl1RWorVE9sT2dXbzZDeVBQd3FQWk5tNkhsdzZOSWN2dGVhaW9JTm1Q?=
+ =?utf-8?B?engwNklYSStjanlXa0NycEY5dzR6TVRoaHFhU3NGNVBqTTZPeHJrWlZVc3A0?=
+ =?utf-8?B?aEUvRDhRN3JMa3Vrcm1venArWGYyN3dIR0gzRGR0T2R1bkR4WHRvWUJncG9K?=
+ =?utf-8?B?ODhNMkdLMGhORGFmMlNieGJSMzV4dEFQMHh4WmkwT2FoZUxPNzlQS0FuRWdK?=
+ =?utf-8?B?Yzk1OStNQ2JzYlorVkFjcFJrZnlKNjZ2SlJHM085NHVGSUtjQ1NId3JIdXBF?=
+ =?utf-8?B?NzFtcndBZkh1ODRLTzFvcEZQQWNpZHlraHlXWHZvbnJmbHRFOFVCa0VOaWZz?=
+ =?utf-8?B?RTZlUmg1SDhqSTlVODdMZ0JISncxekVGRHJtcTJONFowWDlFTnFoaWNualB3?=
+ =?utf-8?B?SXFwMUlCSjlxUWRJNk55UzIzemRtNUlZWkdTRlNwQ0I1QTZDU2ZjekF2eUNE?=
+ =?utf-8?B?aWNpNE9jM3lGSU9IRGZtZk5Mclh0TjRzUlQycVRIWnhnTys1Skd5ZHZpZm15?=
+ =?utf-8?B?bmFXaXZqd3FlYXF1M3N1U0wzMDVoZmRJdVFOY0tyTUQ0MThidENlaDhOSVVk?=
+ =?utf-8?B?cVgrYVR4UVpTOWpHbHFucUI1ZUJXVS9DMEd4c2VPVGhQQmFicjBudG12cDAv?=
+ =?utf-8?B?amVSWHZlQ3BTRTJnZkZJV21jNG4vdmJWVUhrTm92UVhJRVpLaTVDVUtsNDZy?=
+ =?utf-8?B?V2VLUHNvN3BJZ0NWcGV6aS85UnNxZVpCbldsVXMwc0U1empuRitNYitQaktG?=
+ =?utf-8?B?eVhJalJ2YW9nWFdzaEpZWFJkNzdwZlZTNG9wRUVuUi9rQzE0VngxQkZaUXBI?=
+ =?utf-8?B?eUR3bVJuaFFHQTB2LzVGd1ZFam9LZGwxcnVYaEhzd2hnUUFEeDlmMS9iM0Zq?=
+ =?utf-8?B?OFA5OGZ4UktXV210NkkwSzJCdmpVRkFhMFJ0cHRXejVuZXJQK1hIdzl1aXQw?=
+ =?utf-8?B?bFlDVVVxVkVSZHROZ0ZRRXZKSkM2UDVLQ1dNa0RyMktTa3k2SmRJaEhzZ2s0?=
+ =?utf-8?B?bGl0dWZSQXoxdTl5QTAwOVBvV1JSa1Qvb1lKQ2V6NDM4M0JGQ0pRaUlveVQ2?=
+ =?utf-8?B?RWY1UlV0YXZMVVJqSnJISFBqcytleDh5ZnJDZ3FlM2JjRzAyY3BqSEZiSUhr?=
+ =?utf-8?B?VVNBNEhFWldXZWU5RDVpSitRck15TWxpbld5cGRGT2xFYVNwTDVHbTBRVUx1?=
+ =?utf-8?B?eWduMkh5YTd5Mk9URVlKS1RISlo2TW9NNG1pdk9lQ3UyeWRQOWg4dVFBcXhG?=
+ =?utf-8?B?T0xvUEwzQ01ld3R5WjFoWWpQY3dFMGh1ZDNIOW5uZ2U5U3R4MUR0ZmRUdjBY?=
+ =?utf-8?B?UCtRYVl6Y3NhbWhzanJJdlM1OWxhNG5BME41YjhpWk9TN0xiRU9naVJVbWNp?=
+ =?utf-8?B?dGZKMmFyV1JkMVpLMExXb1RQWm8ydXVXaEs4ZkVMRlV6SlB2MjRCUFprMUNW?=
+ =?utf-8?B?c0YyaVNFLzVxbTlneWdZcm9vbmxtdmdrRElMTUpDcW81WFV1QWlZNXRoSmUv?=
+ =?utf-8?B?SC9NWVBXQmFZb296SzVJdTAraXpocjdGVkdqd2VYL3QrdVJrL0lhRDJlZWJZ?=
+ =?utf-8?B?Tmw0ZVIwTXdxODNrRE52b2lxYnNXcUNzVU5hU3FFZ3Vma1ZtU3BaV0NQMDZK?=
+ =?utf-8?B?cG0yYWN4VDVQZ1NKV0MxaEZEcGg5WktMMnNUOURTeTFyTEMyZ0I5MHFrSzBH?=
+ =?utf-8?B?Vm9semw1RFk0NitEeDdRZG1kSU8veXgxbGV0NjR0ZFJCUzZjdm1POUZ1eE5B?=
+ =?utf-8?B?cDNuaUZCZlZpVlhYNjh0TCtSaGpZdmEyMjhranVxOCt1TGlwcGJHNmloVmts?=
+ =?utf-8?B?UllvYXhzNDlmMzFiWVZ3RGRIOHp1MTlTdmNhREtmREd6cmZWeGcrV29XQWFO?=
+ =?utf-8?B?SHc9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26a86e7d-81f4-4c1c-c6b9-08dd675700d6
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB7135.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2025 02:29:13.2758
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 42576c14-5678-4fa2-a671-08dd6756aa79
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF00000220.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB6522
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SqKaSYMSyLJoxLd8y5ObfcgqDTyVSfTq7Jf4uULqFX6jNGSu9yKhIcAOpuopPXV9UNsWe6/elLIh3tvu6yLjsBVq312TkG9d6ZIzIC9Lw1s=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8821
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_192657_831484_96F7E3B5 
-X-CRM114-Status: GOOD (  28.65  )
+X-CRM114-CacheID: sfid-20250319_192920_450240_1EBB0EE9 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,126 +188,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 2025/3/20 10:14, hans.zhang wrote:
-> EXTERNAL EMAIL
-> 
-> On 2025/3/19 17:55, manivannan.sadhasivam@linaro.org wrote:
->> EXTERNAL EMAIL
+在 2025/3/20 10:26, Jiebing Chen 写道:
+>
+> 在 2025/3/20 3:31, Krzysztof Kozlowski 写道:
+>> [ EXTERNAL EMAIL ]
 >>
->> On Wed, Mar 19, 2025 at 05:31:01PM +0800, Peter Chen wrote:
->>> On 25-03-19 14:25:34, Siddharth Vadapalli wrote:
->>>>>>
->>>>>> Hello,
->>>>>>
->>>>>> This series enables support to build the PCIe Cadence Controller 
->>>>>> drivers
->>>>>> and the PCI J721E Application/Wrapper/Glue driver as Loadable Kernel
->>>>>> Modules. The motivation for this series is that PCIe is not a 
->>>>>> necessity
->>>>>> for booting the SoC, due to which it doesn't have to be a built-in
->>>>>> module. Additionally, the defconfig doesn't enable the PCIe Cadence
->>>>>> Controller drivers and the PCI J721E driver, due to which PCIe is not
->>>>>> supported by default. Enabling the configs as of now (i.e. without 
->>>>>> this
->>>>>> series) will result in built-in drivers i.e. a bloated Linux Image 
->>>>>> for
->>>>>> everyone who doesn't have the PCIe Controller.
->>>>>
->>>>> If the user doesn't enable PCIe controller device through DTS/ACPI,
->>>>> that's doesn't matter.
+>> On 19/03/2025 11:09, Jiebing Chen wrote:
+>>> 在 2025/3/19 16:22, Krzysztof Kozlowski 写道:
+>>>> [You don't often get email from krzk@kernel.org. Learn why this is 
+>>>> important at https://aka.ms/LearnAboutSenderIdentification ]
 >>>>
->>>> The Linux Image for arm64 systems built using:
->>>> arch/arm64/configs/defconfig
->>>> will not have support for the Cadence PCIe Controller and the PCIe 
->>>> J721e
->>>> driver, because these configs aren't enabled.
+>>>> [ EXTERNAL EMAIL ]
 >>>>
+>>>> On Wed, Mar 19, 2025 at 03:04:45PM +0800, jiebing chen wrote:
+>>>>> Add clock IDs for the mclk pads found on s4 SoCs
 >>>>>
->>>>>> @@ -209,6 +209,12 @@ CONFIG_NFC=m
->>>>>>   CONFIG_NFC_NCI=m
->>>>>>   CONFIG_NFC_S3FWRN5_I2C=m
->>>>>>   CONFIG_PCI=y
->>>>>> +CONFIG_PCI_J721E=m
->>>>>> +CONFIG_PCI_J721E_HOST=m
->>>>>> +CONFIG_PCI_J721E_EP=m
->>>>>> +CONFIG_PCIE_CADENCE=m
->>>>>> +CONFIG_PCIE_CADENCE_HOST=m
->>>>>> +CONFIG_PCIE_CADENCE_EP=m
->>>>>
->>>>> The common Cadence configuration will be select if the glue layer's
->>>>> configuration is select according to Kconfig.
->>>>>
->>>>> Please do not set common configuration as module, some user may need
->>>>> it as build-in like dw's. Considering the situation, the rootfs is at
->>>>> NVMe.
+>>>>> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+>>>>> ---
+>>>>>    include/dt-bindings/clock/axg-audio-clkc.h | 11 +++++++++++
+>>>> This belongs to the binding patch, usually.
 >>>>
->>>> The common configuration at the moment is "DISABLED" i.e. no support 
->>>> for
->>>> the Cadence Controller at all. Which "user" are you referring to? This
->>>> series was introduced since having the drivers built-in was pushed 
->>>> back at:
->>>
->>> We are using Cadence controller, and prepare upstream radxa-o6 board
->>> whose rootfs is at PCIe NVMe.
->>>
+>>>> Anyway - do not ask us to do the work twice.
+>>>>
+>>>> <form letter>
+>>>> This is a friendly reminder during the review process.
+>>>>
+>>>> It looks like you received a tag and forgot to add it.
+>>>>
+>>>> If you do not know the process, here is a short explanation:
+>>>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+>>>> versions of patchset, under or above your Signed-off-by tag, unless
+>>>> patch changed significantly (e.g. new properties added to the DT
+>>>> bindings). Tag is "received", when provided in a message replied to 
+>>>> you
+>>>> on the mailing list. Tools like b4 can help here. However, there's no
+>>>> need to repost patches *only* to add the tags. The upstream maintainer
+>>>> will do that for tags received on the version they apply.
+>>>>
+>>>> Please read:
+>>>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577 
+>>>>
+>>>>
+>>>> If a tag was not added on purpose, please state why and what changed.
+>>>> </form letter>
+>>> thanks for your remind
+>> Are you going to do anything or you are going to ignore us?
+>
+> Sorry, I forget retrieving the tags and will check all comments 
+> carefully again. Thanks you!
+>
 >>
->> It doesn't matter. Only criteria AFAIK to build the driver as built-in in
->> defconfig is that it should be a depedency for console. For some time, 
->> storage
->> was also a dependency, but for sure PCIe is not.
->>
->> Moreover, CONFIG_BLK_DEV_NVME is built as a module in ARM64 defconfig. 
->> So it
->> doesn't matter if you build PCIe controller driver as a built-in or 
->> not. You
->> need to load the NVMe driver somehow.
->>
->> So please use initramfs.
->>
->>> You could build driver as module for TI glue layer, but don't force
->>> other vendors using module as well, see dwc as an example please.
->>>
->>
->> DWC is a bad example here. Only reason the DWC drivers are not 
->> loadable is due
->> to the in-built MSI controller implementation as irqchip. People tend 
->> to build
->> the irqchip controllers as always built-in for some known issues. Even 
->> then some
->> driver developers prefer to built them as loadable module but suppress 
->> unbind to
->> avoid rmmoding the module.
-> Hi Mani,
-> 
-> I think the MSI RTL module provided by Synopsys PCIe controller IP is
-> not a standard operation. The reason for this MSI module is probably to
-> be used by some cpus that do not have ITS(LPI interrupt) designed. Or
-> RISC-V SOC, etc. MSI is defined as an MSI/MSIX interrupt that starts
-> with a direct write memory access.
-> 
-> There are also SOC vendors that do not use the built-in MSI RTL module.
-> Instead, MSI/MSIX interrupts are transmitted directly to the GIC's ITS
-> module via the GIC V3/V4 interface. For example, RK3588, they do not use
-> the PCIe controller built-in MSI module. Some Qualcomm platforms also
-> modify the PCIe controller's built-in MSI modules to connect each of
-> them to 32 SPI interrupts to the GIC. I was under the impression that
-> the SDM845 was designed that way. The only explanation is that SPI
-> interrupts are faster than LPI interrupts without having to look up some
-> tables.
-> 
-> So the dwc driver can also compile to ko?
-
-Additional reason:
-
-Often in SOC design, the RTL designer does not understand the dwc-driver 
-behavior and causes some RTL bugs, and the software needs to workaround. 
-  As a result, the dwc driver of build-in cannot be used, and the dwc 
-driver needs to be modified, which will make it easier to compile the 
-dwc driver to module.
-
-Best regards,
-Hans
-
-
+>> Best regards,
+>> Krzysztof
 
