@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99034C28B30
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D172EC36006
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 16:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VQzvCjPUeOUJnukhemcSwQyPEPsAauix1Um9a/NqgjQ=; b=JKrl+j26EUqFcFj/DujCiASxBM
-	zmX8FDfVJXNBDicxAMuhWD8ks/8HOZmLetKmBxxQ+zzufj6Y7BvMha6+kspOSlBmlhgCN+yR9DWK9
-	R5MHJeWZJYSOa1pr4XtNI7qWLSnxWhYxNAYmIJPW3fudrYYoV+h7aOa7wabchA7BGSwXiHJXAJE0O
-	6St1MfltmL+INHFhAqNKW3iGyJSdFwQ+8edmAcoVDd2AJBmC27nu1zs9F/SgizbWp4iY0SaDPeCKw
-	Ec2Ug3c1BtQjSEut+64CGHc0HiFoq3tMXe9Ie4wgJ6fZ8IZxLINbM9mE5I5JQSeHUMy6/WvnvnipA
-	qciXkdLQ==;
+	bh=2C2x2YqAzE+wgdoLnExW9swbh2264Dz3KcOzm8hz2vw=; b=ay7/EY98D7rDdAzAraY6jTSSaz
+	UWgZP3okibZTtYKZzBdX9LFr8fVcLz3zSA5yEtrM0//wrmBsQ8o5XdCb1xlvy/yRYSrlEVxuW9mlO
+	VO4f/mQgFupMdX+ksnkXnweIyus88ZgpnwLGXyEY/vQqyQb+eABA7ZIoZMtYXwYjm6LnxRMR7gbA2
+	vaikjHLAP/CrWn97v6ZJJm87wnEcB5vr+ZqlFC3lN2+ezskONaxksaxF4VA5qg1uHlAC43KQRkulb
+	PgN9Ny9vER30TMZBpaZVEh+fFwIn9GB9ZXsgYxnNVu/TLsjkFj8UhWOFf55WHNGzZB3eRM+FIkgMy
+	Ceho1PUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvIM7-0000000CbrQ-1uTb;
-	Thu, 20 Mar 2025 16:02:51 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tvIM9-0000000CbtF-2rA4;
+	Thu, 20 Mar 2025 16:02:53 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvHlA-0000000CX3D-0hBp
+	id 1tvHlK-0000000CX4x-2n2F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 15:24:41 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22580c9ee0aso19764305ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 08:24:39 -0700 (PDT)
+	Thu, 20 Mar 2025 15:24:51 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2260c915749so12861225ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 08:24:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742484279; x=1743089079; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742484290; x=1743089090; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VQzvCjPUeOUJnukhemcSwQyPEPsAauix1Um9a/NqgjQ=;
-        b=hITxBX0k3dL/uADweIEMZjlN3iKuDuHfR60vd2hnSK6oeXi1SuRUxXKhzhewS/hEjN
-         3j+FDWxvUpZW4GVfNfw91QVLcEGnYbMNxpOZ7okS5ZlZ7U9+GqX0qtz1/Q/JVrEWP4Te
-         YKh+xG3pxBJKKAQKkTuSz37veCh8BhRm0ofceV1fTFPwZCpyHQbFvmPhf/JnALVJAa93
-         Ys5mtaNqLYqPS6Km9P84PUUDrwxO6nWp9Bj2Pe99QrP/6gvdkq9UP0pKyz63s/6nHDtm
-         82sRro+P8bDYbNMIw37MMRnyaJ4Ry3TFj5wxM7TceS1nW23PHeVwm2L2CJiD7bAVjGHn
-         64Ng==
+        bh=2C2x2YqAzE+wgdoLnExW9swbh2264Dz3KcOzm8hz2vw=;
+        b=G4BGCBIQfThkzAe2MjIKaUumQxxwGl3sFC2/3Y9qSBwvPsBiaxcA3JzTgXGdPkg8Of
+         kx1MxU/iy3BKnt4ZjTC7cfrB2nulpi62Vf/rDGJFJWrohl5Id69mWtUWn0y8hFx5ka2f
+         39RLv73TyDgP4Di9XXpyfMzZIo2MA32feHMomy2fvIrvrxGdR1xGv6/5V/rJVO0HR71a
+         TyaqCciGEc+OX8coS6mSbyQ9QFfpoc/yMbV27ux5oRr2i27lFwMrbRBMiaW9hx2DIhjI
+         rEqcdObHOBp1acgpyTu4f4MzwXICL1SqBHFRHtqrCWxDcilhVr6KbVXV7oBLBg0ZwpS7
+         MrAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742484279; x=1743089079;
+        d=1e100.net; s=20230601; t=1742484290; x=1743089090;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VQzvCjPUeOUJnukhemcSwQyPEPsAauix1Um9a/NqgjQ=;
-        b=DVKXzIyIDs5T384BSZVNw2GusnfMGpvFbHMScOrdz6r7S3YX7fbsChOEnd1E6WVOen
-         A6NFg3TJux3zaogpcPfyfw08qD/6B12Ng2Vk06J6WETtwm44zpkfCsLirTUcHQ9hAmlO
-         gKDJ6d4OrgmXqqxCxNuTTmFB6aW01pJJg9hkeU533zKoPkYQkmZ/WdG1jHhfAX8MCN3H
-         DwoSGNLL6giGDd2noJVOwhAh1BUUYnWYshoMq7Qh7x2ZWLp1p3ZfFJlvVk81+X27/xdJ
-         yUD/URsPyzuXN1lZkBZ9MrUkJmoC+vTTALHlAbDzZaB6WzzLm4YlEvlBZez30hz0iz+q
-         H4mA==
-X-Forwarded-Encrypted: i=1; AJvYcCUfazNG2PWkH9rMIqrLZZrZi+9iZK3JOemtCSCJn3NAtXBqOqypZJVXtHB8mTpG3mfGVZVbhc9O3zELFIiIYX96@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJSIx3ALav6eVqGkEcpm10wurYrNn5Gur4iKZwKhKPVlOGTqNP
-	xBa+i4xwhIu1zPHmIMLRkfiPgZ4hIu+yFlfP8jntpP3vmYMpsruH
-X-Gm-Gg: ASbGncut3WYLAEoX5+zzsJOhgJNOWIXDno3aOV0dSBCwQQfHZJvfC6/xw7I8TC3iTy/
-	90u4RDNeKvxj50qX1kTkd5CUw1btGpfjLSJ0LPkvOOVY5DJ+Pkf3/NlTqTpUJxxTTcs+PzuMZ8t
-	mVIsy3CWWglAMzwoEgp5in8/OSh9dGSWTkM2kAbrKBQCXXtd+yuvix8UBDenIfEuiojPrDcLTQP
-	CslNciUAIEQIsLg6HDFYxZz1k1hTX71hOJnir1xJzAPvuftVn4clHq1su6QusgMctV22oh69Unk
-	ykaMczIRzjKtPdv8DVBPUnsRy8JO2PLyShZh+P1sOrcOuA4Z9nYHmcFM+BNCa4j55XUX6bMJ1j3
-	o2J4LcQ+rkQlSDyaQ8pj0Lg==
-X-Google-Smtp-Source: AGHT+IEWWSWYQnuesBw9k5f26MYFCg+MyUeosBtDDwCduhJQbl6yXVq5xhb2uSlQ3VFKw1iUppK38Q==
-X-Received: by 2002:a17:903:2985:b0:224:1943:c5c with SMTP id d9443c01a7336-2265edbbb2bmr58534865ad.15.1742484279224;
-        Thu, 20 Mar 2025 08:24:39 -0700 (PDT)
+        bh=2C2x2YqAzE+wgdoLnExW9swbh2264Dz3KcOzm8hz2vw=;
+        b=K5vryBeV5clu1zXwYoVkbBLvISA1wMmFAU205csctRrE8vkse3C6gOJvKyOCJbW8oC
+         XGo9dLa2XJ4TQaa7Bxmix36qrqGKAZEI9UAbKenUx+j+WDk7RsawwhgoZa12ydhndyus
+         iSnArZcpMmsGz+amO7lISNT2y0JaDCup1NDEhKnVCkd1ylPAsZa+YTbOEAg1S62gytxs
+         N5nNO2YrAh1sIeB44B7UlYMCLG5NDgFTrDAdcY+VtOhTt779KVqKUyoeG5C05+ArWBBi
+         XL6rSR1qUJqlslWHeZnPqQwzFQ9gIQOoiJ2X8/Q5uWhYnfHR/78u88UJFNcgtABv+lYW
+         P0Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrQdIOV32FCe5TtHIIqtKWsTgvlvPT54fFtJTAKl8G5Akr/Icgf/u5LGKmWeG3GDdCGKaDgJnMwKVSftHhdjuw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV8Q7Nx+M7dcTkIG0ZqyYXCCxGKy7tXaqjyRhlFEDCLzwV26h1
+	TbsvhGZQCmsaV6u+meM8T3Ewkj9dtCarP/Hx6u3Rum8jkY1BhmNQ
+X-Gm-Gg: ASbGncvNhz2Y9cOqfGosqwBtxUqRcL0jYDmqWqvselT3EHRC5zsYyMDinOwccXK1n3z
+	NbSAqfwr2o87q6ByxBojgQAFGI4ymFe+OKT5Usl6KpgCr6r/tc7OQ/EHh8mqsEhYLIMxYVivAme
+	okKNsVY/4lAhh9PXOtT+eHTeQ6j7Azwf8mCCIDADpLaj84fOuLLzGb8GIhH+/RMsX11Ue9VSVs3
+	ik4wWpwGUn23vWJhlhKIYw9Obgi+Vq63U6tIt8uPLX0MLMJhtgzkFvxsFY/tUJy1qVpxxTvL3qg
+	7lC81LH8OdDFCxUFvDi517TOgEomewkrXsCaONNPgbWAWDVXfJkta2asHAsgiPXokdnBuS+P1Sc
+	iLYWs78rXVPMxZHEf5m+r/w==
+X-Google-Smtp-Source: AGHT+IElDPX6u20sc4jGPjSUZZw3qo1ZEYivqxwtIPDdkwEzTDmmDNvT5Nl4muFEx+julDo++r1G7g==
+X-Received: by 2002:a17:902:ce07:b0:223:5e54:c521 with SMTP id d9443c01a7336-2265ea35407mr58249745ad.0.1742484289793;
+        Thu, 20 Mar 2025 08:24:49 -0700 (PDT)
 Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd4a8fsm136905515ad.234.2025.03.20.08.24.36
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd4a8fsm136905515ad.234.2025.03.20.08.24.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 08:24:38 -0700 (PDT)
+        Thu, 20 Mar 2025 08:24:49 -0700 (PDT)
 From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Thu, 20 Mar 2025 23:21:54 +0800
-Subject: [PATCH v5 04/10] ARM: dts: aspeed: catalina: Add fan controller
- support
+Date: Thu, 20 Mar 2025 23:21:58 +0800
+Subject: [PATCH v5 08/10] ARM: dts: aspeed: catalina: Enable multi-master
+ on additional I2C buses
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250320-potin-catalina-dts-update-20250102-v5-4-e161be6583a7@gmail.com>
+Message-Id: <20250320-potin-catalina-dts-update-20250102-v5-8-e161be6583a7@gmail.com>
 References: <20250320-potin-catalina-dts-update-20250102-v5-0-e161be6583a7@gmail.com>
 In-Reply-To: <20250320-potin-catalina-dts-update-20250102-v5-0-e161be6583a7@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,16 +88,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
  Potin Lai <potin.lai.pt@gmail.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742484265; l=1019;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1742484265; l=1008;
  i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=tF3QpIdL5ecs+vvtM26gTlh5RwwxqroHT4QqK6Ir0Oo=;
- b=kiFXK8/gH/YJo/qFRHAElfjdPtoGC2XzQKFNmKfgU23jH0UyyUTD0SljFBP6KSEHH+MbMRgyc
- GBEZb9rT6+rBgUvAvOaS8LTT/r3wVhpMpx+DxUkuO6im9ysNBDbQLfC
+ bh=EUweIVFlYiMF8bhCySW4H9ia8wPetO4bJ+6FKYLTF4U=;
+ b=kSwteKt/arVVylSZep8fMc7WzfoOs3oC1D9o+m9HYvsgOQiQth90tnxsRf2VTGYVDfLpsy4mP
+ dIl4AtyZ4hDAbZWkIA0376ck9AuceRHGOiZ5GZ3b6BUT8stH+r6v5DK
 X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
  pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_082440_208901_54607D30 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250320_082450_705682_82E0F54B 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,35 +112,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree nodes for the MAX31790 fan controllers on the Power
-Distribution Board (PDB). These nodes enable fan speed control and
-monitoring, improving thermal management and system reliability.
+Update the device tree to enable `multi-master` mode on I2C buses shared
+between the host BMC and the NV module with HMC. This ensures proper bus
+arbitration and coordination in multi-master environments, preventing
+communication conflicts and improving reliability.
 
 Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index f5f47245796a..fd22add90449 100644
+index 1e1bcc9ac2f0..abf15d322605 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -466,6 +466,15 @@ i2c1mux0ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0x2>;
-+
-+			pwm@21{
-+				compatible = "maxim,max31790";
-+				reg = <0x21>;
-+			};
-+			pwm@27{
-+				compatible = "maxim,max31790";
-+				reg = <0x27>;
-+			};
- 		};
- 		i2c1mux0ch3: i2c@3 {
- 			#address-cells = <1>;
+@@ -815,6 +815,7 @@ ssif-bmc@10 {
+ 
+ &i2c12 {
+ 	status = "okay";
++	multi-master;
+ 
+ 	// Module 1 FRU EEPROM
+ 	eeprom@50 {
+@@ -825,6 +826,7 @@ eeprom@50 {
+ 
+ &i2c13 {
+ 	status = "okay";
++	multi-master;
+ 
+ 	// Module 0 FRU EEPROM
+ 	eeprom@50 {
 
 -- 
 2.31.1
