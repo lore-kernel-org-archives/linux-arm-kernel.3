@@ -4,96 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40963C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E71C8C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6oM4sqHAKRpF7yAXn00rRZMmE1i8HKyjy17CxTC5mcI=; b=0sDNB442uK3Ev5Po4UjoS/A+iM
-	OnheoM680U1M0mfO7e240c1R0QdddPCcojgYuwoCD1ZCIaThX+yammR7vsYEQFekEP55LFnpW4FJo
-	enGMSJfDoJPX2lWKEObVp6cHfq8An0QP9G4OmHJv4CRp8BURdTyhKBENhEP8cmFfVEwjF7xX/ioSO
-	PNp2PGTU8WME8MOqsUMCjgNusu8BUL13Gqg0yUAQ5EZQq8xjoEgOV59mnOZb2d1e0uylP3YCVeAQc
-	CFIQtvHVFP7LXtrKstRMV55Owp23BpOjwlsztziTOn846vg6YxO6eBwppqjlVIn1GiJR5QHzf4LwF
-	hGzfmBKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SxcpHL6JN0oeezTkg7NVy58dIuvVNMDJ2U1SuOSdwYU=; b=LEW7xX2kf0uFJsBn8C5fjBLXsM
+	PTowRbmuaza3pUC6JlPctx5qRLlBo2DhWZHyVfvBeOu1tju2fiSGcx4bzLLtPM30vjRaX68J3q+uI
+	wbjWx/ZtDdBGnWk4URwN1G8Of/aFF5qa0yO0zM7YtCj+RmhlGIGuE5MIwhtYR/MJAcMFExFM+5sLZ
+	oU9ew70724hdwTrMsSdi+W3LjLAVbfEB5Bp2nvK72lT1EBgzfPHPSY/y1HCYoouJ7dco7wHI3uKBU
+	CO89HTqoUPdSKqcc7YUPFlfmTNS7P2TKKwi6lszU2gXxl8yAqoxi7OfKp/RVYHchxH70FgSvvopBd
+	qOrKHgTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJWH-0000000CmRp-1XfS;
-	Thu, 20 Mar 2025 17:17:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tvJXx-0000000Cmgu-2Iby;
+	Thu, 20 Mar 2025 17:19:09 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJTo-0000000CluJ-2HxC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 17:14:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6CDE95C57AF;
-	Thu, 20 Mar 2025 17:12:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DEA8C4CEDD;
-	Thu, 20 Mar 2025 17:14:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742490891;
-	bh=ew/lN1IMKa0aN4Z0/QC36U+fh07ns9tUoom4T4BzL1w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HCZDSoOi7psL8Pcu5B/ZafcXvbi20EkUJ0p0RiZSbQktauCNAVk3odFQWGV5/ULbo
-	 TiulST5zMSgTkAPgyNHjmFOCXPEXeP2VY5zc/Kt4o91MkETAK36+hNUtWYc7mGWkN/
-	 PakuJe183abPtH17Sk42zYZt52eGxZkHULV9q0WNEHRwF4HKqaEviZqTgbADgI9swP
-	 4K5BkHbcBxznyKU6kvt7M3xGe6s2sNkZz/DH3pjSxoZbMvCWbNyTjt6Rn6Yst2tvsY
-	 uciBIRALwIL6PUiw1ZouhYpjtpvusJJo/hz/TBFJ9GXVynmxqtw6DC9rsAK5zwvPqb
-	 QCuI8F0wko3bQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tvJTk-00FWMt-M2;
-	Thu, 20 Mar 2025 17:14:48 +0000
-Date: Thu, 20 Mar 2025 17:14:48 +0000
-Message-ID: <86cyebmxo7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <akihiko.odaki@daynix.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	devel@daynix.com
-Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
-In-Reply-To: <ba9cd6d2-1ee5-478a-8102-42b4dac411ce@daynix.com>
-References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
-	<Z9pze3J2_zrTk_yC@linux.dev>
-	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
-	<86plidmjwh.wl-maz@kernel.org>
-	<bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
-	<86o6xxmg87.wl-maz@kernel.org>
-	<aabd71eb-286b-475c-a30e-d5cf5c4f2769@daynix.com>
-	<86msdhmemw.wl-maz@kernel.org>
-	<cd7b4528-34a3-4d87-9711-acc2c2e6f6e1@daynix.com>
-	<86ldt0n9w1.wl-maz@kernel.org>
-	<Z9sSMJAlf7cQ5viu@linux.dev>
-	<0d84bc94-1c65-4737-a2eb-aa7f96a7d1e0@daynix.com>
-	<86iko4m5i4.wl-maz@kernel.org>
-	<ba9cd6d2-1ee5-478a-8102-42b4dac411ce@daynix.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1tvJUF-0000000Clxw-0KbU;
+	Thu, 20 Mar 2025 17:15:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B8861443AB;
+	Thu, 20 Mar 2025 17:15:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742490914;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SxcpHL6JN0oeezTkg7NVy58dIuvVNMDJ2U1SuOSdwYU=;
+	b=J9IJpfJxCUQy4Nmv3ICqgxXGSZ6zv41jNmXAdsbdKwqXzLaMoy2ew7RCtXu5kef/Qj3UaF
+	2+zElCQGrOuVLtFPPGpzcf0ORi6zbAgThOr3jt8MSGqTewV8LkyAcFrOub33cnTGhHm4ar
+	+Yjt05/rZBHpbLjzJ0yMU4mJPyS1sVB0JlyPwtCLy0Rek9OG/1w4yvPoe0lqnNZN7Hy4ZH
+	iDkGER6Agr4nUeyy4ujo3PCO0lt28Nff7uJGFke26TRdk+V2mG5xX4NQNx6whIo35RVIvA
+	mOBc/Tkse0yiIsQ/+2DTBIftNn2i5pBmRhc9cRmwADMAw5PcFX20fwBKo1+lIA==
+Date: Thu, 20 Mar 2025 18:15:08 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+Cc: tglx@linutronix.de, maz@kernel.org, linux-kernel@vger.kernel.org,
+ Antoine Tenart <atenart@kernel.org>, Sven Peter <sven@svenpeter.dev>, Janne
+ Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Andrew
+ Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Linus Walleij
+ <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Anup Patel
+ <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Nishanth Menon
+ <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+ <ssantosh@kernel.org>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, asahi@lists.linux.dev,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 06/57] irqdomain: irqchip: Switch to
+ of_fwnode_handle()
+Message-ID: <20250320181508.132c4636@bootlin.com>
+In-Reply-To: <20250319092951.37667-7-jirislaby@kernel.org>
+References: <20250319092951.37667-1-jirislaby@kernel.org>
+	<20250319092951.37667-7-jirislaby@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeekjeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefledprhgtphhtthhopehjihhrihhslhgrsgihsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehmrgiisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvl
+ hdrohhrghdprhgtphhtthhopegrthgvnhgrrhhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhioh
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_101452_697961_9C7E078B 
-X-CRM114-Status: GOOD (  37.97  )
+X-CRM114-CacheID: sfid-20250320_101519_583203_F4215673 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,98 +98,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Mar 2025 09:52:59 +0000,
-Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+Hi Jiri,
+
+On Wed, 19 Mar 2025 10:28:59 +0100
+"Jiri Slaby (SUSE)" <jirislaby@kernel.org> wrote:
+
+> of_node_to_fwnode() is irqdomain's reimplementation of the "officially"
+> defined of_fwnode_handle(). The former is in the process of being
+> removed, so use the latter instead.
 > 
-> On 2025/03/20 18:10, Marc Zyngier wrote:
-> > On Thu, 20 Mar 2025 06:03:35 +0000,
-> > Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
-> >> 
-> >> On 2025/03/20 3:51, Oliver Upton wrote:
-> >>> On Wed, Mar 19, 2025 at 06:38:38PM +0000, Marc Zyngier wrote:
-> >>>> On Wed, 19 Mar 2025 11:51:21 +0000, Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
-> >>>>> What about setting the flag automatically when a user fails to pin
-> >>>>> vCPUs to CPUs that are covered by one PMU? There would be no change if
-> >>>>> a user correctly pins vCPUs as it is. Otherwise, they will see a
-> >>>>> correct feature set advertised to the guest and the cycle counter
-> >>>>> working.
-> >>>> 
-> >>>> How do you know that the affinity is "correct"? VCPU affinity can be
-> >>>> changed at any time. I, for one, do not want my VMs to change
-> >>>> behaviour because I let the vcpus bounce around as the scheduler sees
-> >>>> fit.
-> >> 
-> >> Checking the affinity when picking the default PMU; the vCPU affinity
-> >> is the only thing that rules the choice of the default PMU even now.
-> >> 
-> >> Perhaps we may model the API as follows: introduce another "composite"
-> >> PMU that works on any core but only exposes the cycle counter. Robust
-> >> VMMs will choose it or one of hardware PMUs with
-> >> KVM_ARM_VCPU_PMU_V3_SET_PMU. KVM will choose the default PMU according
-> >> to the vCPU affinity at the point of KVM_ARM_VCPU_INIT otherwise. If
-> >> the affinity is covered by one hardware PMU, that PMU will be chosen
-> >> as the default. The "composite" PMU will be the default otherwise.
-> > 
-> > This makes no sense to me. A VCPU is always affine to a PMU, because
-> > we do not support configurations where only some CPUs have a PMU. This
-> > is an all-or-nothing situation.
-> 
-> At least isn't it fine to have the composite PMU with a new value for
-> KVM_ARM_VCPU_PMU_V3_SET_PMU?
+> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
 
-Not sure KVM_ARM_VCPU_PMU_V3_SET_PMU is the right hook (it takes a PMU
-'type', which is under control of the perf subsystem). But if we can
-find a value that is guaranteed to be unique, why not.
+Reviewed-by: Herve Codina <herve.codina@bootlin.com>
+Acked-by: Herve Codina <herve.codina@bootlin.com> # irq-lan966x-oic
 
-> > More importantly, you keep suggesting the same "new default", and I
-> > keep saying NO.
-> > 
-> > My position is clear: if you want a *new* behaviour, you *must* add a
-> > new flag that the VMM explicitly provides to enable this CC-only PMU.
-> > No change in default behaviour at all.
-> > 
-> > I'm not going to move from that.
-> 
-> Why not? It will not break anything guaranteed to work in the past.
-
-It doesn't have to be guaranteed. It just has to *exist*. That's the
-Linux ABI for you.
-
-> Currently KVM only guarantees that the emulated PMU correctly counts
-> only when
-> 1) the vCPU affinity is contained by one PMU and
-> 2) it will not expand
-> 
-> Breaking these conditions will make the behavior of the emulated PMU
-> undefined. Now I'm proposing to remove 1).
-
-And I'm saying no to that. I'm also getting tired of arguing the same
-point on and on.
-
-We currently have two different behaviours:
-
-- either you explicitly set a PMU, and the affinity of this PMU
-  constraints the affinity of the vcpus. The vcpus are not allowed to
-  run outside of this affinity. Everything counts all the time.
-
-- or you don't explicitly set a PMU, and a default PMU will be picked
-  from the current affinity of the first vcpu. Your vcpus will be able
-  to run anywhere, but the virtual PMU will *only* count when the
-  vcpus are affine to the default PMU. When the vcpus are not affine
-  to default PMU, *nothing* counts.
-
-These two behaviours are ABI. They are not changing. They don't get
-relaxed, they don't get tightened, they stay just as they are,
-forever.
-
-You want a *third* behaviour, go ahead. Define it the way you want.
-But the behaviours described above will stay unchanged.
-
-I'm looking forward to your patches implementing it, but I am also
-done arguing on it.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Hervé
 
