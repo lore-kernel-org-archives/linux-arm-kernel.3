@@ -4,92 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29414C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66791C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCJAzpy8HDIbp+z+ImFUPsEWfbhdpXlMCt8uQ4lZYeA=; b=cGmY0oliqIqgByBWGIa+1ghgyT
-	/ISMhiHj3NFASmSTPsQiQCio5Qi/zafQOBpACKs/vfNADOXUq6fWmvw6O4Ouq1FNYD6r7pVbpezNA
-	wsVZvFwKUtI6irSzy0/txvwDoq2C+0O/Ncf8Xh6CPVaSFw51S1B1PpZ6bPMSfccs2uFg1IAn6Hq3/
-	MJipJP4B3f9IBFRmt/DIMZlneNjLEKCnEl9iBS1FGHaoLq+KXu5gx3vZ71vshVySOZ6m3Qo0ygVmd
-	sGq26aJLjeqkIUuu14b2fSDmNJdJR/2IiGAj1Us2VQ5Oq15pQB9NVBseZvoZv/beCfHk97sPJ6Tq+
-	zFTGsWrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=crexQWu4l57R3sbdMnceBIPuj5iuismgQR90iwJhOlw=; b=Q7lw4ItcotlsC8Iws+3t/hZ4yE
+	AFJhAD7jfuflXGNN8fl13HBtc8ssB5HuiQ3m2SUhyj0uAXpFukIoKAR8nsID/JRRU4SU6kaMmHgHE
+	tLiKfU5pUyocf+eVBKGBcsWfCIoSUqctJUO8aTRyi8tp4ew7f9fyDeAvm4rw2MJl4BdCSZ8JU8jOM
+	ak4bs9irKmIlWgx8z7Jvsdh+f18Ba3GQb5caydVQLvcPuD7qlOffUgOIZbAMc2Wf+KR34gWH2b8J4
+	6a8/AVlyVCpvfSJ5337dwOaTHBRQ2R45dwl5waTFVJGDGsbOisOi7lYnPPqU9jaLkSlNgYulpq8RZ
+	3QGUoncw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvC57-0000000BfqQ-09uJ;
-	Thu, 20 Mar 2025 09:20:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tvC9j-0000000BgPt-41nA;
+	Thu, 20 Mar 2025 09:25:39 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvC3O-0000000Bff2-2cLn
+	id 1tvC82-0000000BgG1-1tsL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 09:19:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DF5AF5C51AA;
-	Thu, 20 Mar 2025 09:16:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77B2AC4CEDD;
-	Thu, 20 Mar 2025 09:19:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742462345;
-	bh=DyYZu43SCOG8idqcMJJdyHd71H6vj85HgtLk8md7IhI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=g9tP5OaBBniNVKx/1th/Dn6r/KXDHr1v6Sn6QKGJfwbuaAnPrH/sIJd6ryyHFW6mD
-	 lXKRAgqhmTQjoin2lcilrtZUBL9zKTtRk4iaOVENNvWYxIXK+eql7BUsnZn3sYnWVX
-	 vwT92yDgc2KsrgfDENuN7Dk+7hezHcQ23+TYgVrYsA5tEI7lmDMp1+l5t1WJu2tTSg
-	 ZGJ3p8kSQHSMdfishJWD0TmTcnopLzmaLi3ElnS1BE0NAifgAVTiKAPf1WnAQSHpRk
-	 GEMHsL5OQMsMuubI5BMr1STWNZ7/rV6ykx4u12zT48FNl7CbYIMjfVl8j9M78Ps8Co
-	 dQiHRgwllnVng==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tvC3K-00FMaU-U3;
-	Thu, 20 Mar 2025 09:19:03 +0000
-Date: Thu, 20 Mar 2025 09:19:02 +0000
-Message-ID: <86h63om54p.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Akihiko Odaki <akihiko.odaki@daynix.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	devel@daynix.com
-Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
-In-Reply-To: <Z9sSMJAlf7cQ5viu@linux.dev>
-References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
-	<Z9pze3J2_zrTk_yC@linux.dev>
-	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
-	<86plidmjwh.wl-maz@kernel.org>
-	<bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
-	<86o6xxmg87.wl-maz@kernel.org>
-	<aabd71eb-286b-475c-a30e-d5cf5c4f2769@daynix.com>
-	<86msdhmemw.wl-maz@kernel.org>
-	<cd7b4528-34a3-4d87-9711-acc2c2e6f6e1@daynix.com>
-	<86ldt0n9w1.wl-maz@kernel.org>
-	<Z9sSMJAlf7cQ5viu@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, akihiko.odaki@daynix.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 20 Mar 2025 09:23:56 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K9HKHq023149;
+	Thu, 20 Mar 2025 10:23:39 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	crexQWu4l57R3sbdMnceBIPuj5iuismgQR90iwJhOlw=; b=SAdDYbMG9niyLueX
+	EmzCVR2UEw3l/kOQ0MwvxKZXvC+VsrRFslJFtNFw82j4ojfMLQ7c/92hs5wpdQZb
+	4pJLqvivmJP1npces5+rUxcaO0ZP3VD7BMgzU3HKp7ROvOQKo3UhrvVAfger3DYR
+	MG4YNVl28gSKPE6+LEulzoavrtjdTEz9mK/8Xpw48mBVW8GV8FKYTRiUbYxeNa85
+	aS+uag6Ka/MqzZ/37uKVx+RJDvG+1NW9JzBYrDDai9hCSaHR8ixkozxXbtNJmNXv
+	a1O013eA5hu5sFUBAG+IpUImoCNXg5hKNSAnPQLtGsak+EYIMDBetGbOgE+tP5m6
+	uCZcUw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45d1u84m7s-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Mar 2025 10:23:39 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BAD0D4005D;
+	Thu, 20 Mar 2025 10:22:13 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CEE927C1EF4;
+	Thu, 20 Mar 2025 10:21:28 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 20 Mar
+ 2025 10:21:28 +0100
+Received: from [10.252.18.22] (10.252.18.22) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 20 Mar
+ 2025 10:21:27 +0100
+Message-ID: <130d61a8-6f03-46dc-94ca-f098bc09babc@foss.st.com>
+Date: Thu, 20 Mar 2025 10:21:26 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH 3/3] remoteproc: Use
+ of_reserved_mem_region_* functions for "memory-region"
+To: Rob Herring <robh@kernel.org>
+CC: Saravana Kannan <saravanak@google.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        "Shawn
+ Guo" <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+        Fabio Estevam
+	<festevam@gmail.com>,
+        Patrice Chotard <patrice.chotard@foss.st.com>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+        <linux-arm-msm@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250317232426.952188-1-robh@kernel.org>
+ <20250317232426.952188-4-robh@kernel.org>
+ <26e72cb2-c355-4c40-bb98-fc0ff267bf4f@foss.st.com>
+ <CAL_Jsq+7ZhMWgbFDvPB+3BG7YfiS9PweybOGNY3r=d40RbGHJA@mail.gmail.com>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Organization: STMicroelectronics
+In-Reply-To: <CAL_Jsq+7ZhMWgbFDvPB+3BG7YfiS9PweybOGNY3r=d40RbGHJA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.252.18.22]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-20_03,2025-03-19_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_021906_750658_424FA85B 
-X-CRM114-Status: GOOD (  35.99  )
+X-CRM114-CacheID: sfid-20250320_022354_977600_1EE81AEA 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +118,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Mar 2025 18:51:28 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> On Wed, Mar 19, 2025 at 06:38:38PM +0000, Marc Zyngier wrote:
-> > On Wed, 19 Mar 2025 11:51:21 +0000, Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
-> > > What about setting the flag automatically when a user fails to pin
-> > > vCPUs to CPUs that are covered by one PMU? There would be no change if
-> > > a user correctly pins vCPUs as it is. Otherwise, they will see a
-> > > correct feature set advertised to the guest and the cycle counter
-> > > working.
-> > 
-> > How do you know that the affinity is "correct"? VCPU affinity can be
-> > changed at any time. I, for one, do not want my VMs to change
-> > behaviour because I let the vcpus bounce around as the scheduler sees
-> > fit.
-> > 
-> > Honestly, this is not a can of worm I want to open. We already have a
-> > pretty terrible userspace API for the PMU, let's not add to the
-> > confusion. *If* we are going down the road of presenting a dumbed-down
-> > PMU to the guest, it has to be an explicit buy-in from userspace.
-> 
-> I also have a very strong distaste for the crappy UAPI we have around a
-> 'default' PMU. At the same time I do recognize this hurts practical
-> usecases since some VMMs can't be bothered to configure the vPMU / vCPU
-> pinning correctly.
-> 
-> I'm at least willing to plug my nose and do the following:
-> 
->  1) When the VMM does not specify a vPMU type:
-> 
->    - We continue to present the 'default' PMU (including event counters)
->      to the VM
-> 
->    - KVM ensures that the fixed CPU cycle counter works on any PMUv3
->      implementation in the system, even if it is different from the
->      default
-> 
->    - Otherwise, event counters will only count on the default
->      implementation and will not count on different PMUs
 
-I think this is confusing. The CC is counting, but nothing else, and
-people using the cycle counters in conjunction with other events (a
-very common use case) will not be able to correlate things correctly.
-The current behaviour is, for all its sins, at least consistent.
+
+On 3/20/25 00:04, Rob Herring wrote:
+> On Wed, Mar 19, 2025 at 10:26 AM Arnaud POULIQUEN
+> <arnaud.pouliquen@foss.st.com> wrote:
+>>
+>> Hello Rob,
+>>
+>> On 3/18/25 00:24, Rob Herring (Arm) wrote:
+>>> Use the newly added of_reserved_mem_region_to_resource() and
+>>> of_reserved_mem_region_count() functions to handle "memory-region"
+>>> properties.
+>>>
+>>> The error handling is a bit different in some cases. Often
+>>> "memory-region" is optional, so failed lookup is not an error. But then
+>>> an error in of_reserved_mem_lookup() is treated as an error. However,
+>>> that distinction is not really important. Either the region is available
+>>> and usable or it is not. So now, it is just
+>>> of_reserved_mem_region_to_resource() which is checked for an error.
+>>>
+>>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>>> ---
+>>> For v6.16
+>>>
+> 
+> [...]
+> 
+>>> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+>>> index b02b36a3f515..9d2bd8904c49 100644
+>>> --- a/drivers/remoteproc/stm32_rproc.c
+>>> +++ b/drivers/remoteproc/stm32_rproc.c
+>>> @@ -213,52 +213,46 @@ static int stm32_rproc_prepare(struct rproc *rproc)
+>>>  {
+>>>       struct device *dev = rproc->dev.parent;
+>>>       struct device_node *np = dev->of_node;
+>>> -     struct of_phandle_iterator it;
+>>>       struct rproc_mem_entry *mem;
+>>> -     struct reserved_mem *rmem;
+>>>       u64 da;
+>>> -     int index = 0;
+>>> +     int index = 0, mr = 0;
+>>>
+>>>       /* Register associated reserved memory regions */
+>>> -     of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
+>>> -     while (of_phandle_iterator_next(&it) == 0) {
+>>> -             rmem = of_reserved_mem_lookup(it.node);
+>>> -             if (!rmem) {
+>>> -                     of_node_put(it.node);
+>>> -                     dev_err(dev, "unable to acquire memory-region\n");
+>>> -                     return -EINVAL;
+>>> -             }
+>>> +     while (1) {
+>>> +             struct resource res;
+>>> +             int ret;
+>>> +
+>>> +             ret = of_reserved_mem_region_to_resource(np, mr++, &res);
+>>> +             if (ret)
+>>> +                     return 0;
+>>>
+>>> -             if (stm32_rproc_pa_to_da(rproc, rmem->base, &da) < 0) {
+>>> -                     of_node_put(it.node);
+>>> -                     dev_err(dev, "memory region not valid %pa\n",
+>>> -                             &rmem->base);
+>>> +             if (stm32_rproc_pa_to_da(rproc, res.start, &da) < 0) {
+>>> +                     dev_err(dev, "memory region not valid %pR\n", &res);
+>>>                       return -EINVAL;
+>>>               }
+>>>
+>>>               /*  No need to map vdev buffer */
+>>> -             if (strcmp(it.node->name, "vdev0buffer")) {
+>>> +             if (strcmp(res.name, "vdev0buffer")) {
+>>
+>> I tested your patches
+> 
+> Thank you.
+> 
+>> The update introduces a regression here. The strcmp function never returns 0.
+>> Indeed, it.node->name stores the memory region label "vdev0buffer," while
+>> res.name stores the memory region name "vdev0buffer@10042000."
+>>
+>> Several remoteproc drivers may face the same issue as they embed similar code.
+> 
+> Indeed. I confused myself because node 'name' is without the
+> unit-address, but this is using the full name. I've replaced the
+> strcmp's with strstarts() to address this. I've updated my branch with
+> the changes.
+
+This is not enough as the remoteproc core function rproc_find_carveout_by_name()
+also compares the memory names. With the following additional fix, it is working
+on my STM32MP15-DK board.
+
+@@ -309,11 +309,11 @@ rproc_find_carveout_by_name(struct rproc *rproc, const
+char *name, ...)
+ 	vsnprintf(_name, sizeof(_name), name, args);
+ 	va_end(args);
+
+ 	list_for_each_entry(carveout, &rproc->carveouts, node) {
+ 		/* Compare carveout and requested names */
+-		if (!strcmp(carveout->name, _name)) {
++		if (strstarts(carveout->name, _name)) {
+ 			mem = carveout;
+ 			break;
+ 		}
+ 	}
+
+I just wonder if would not be more suitable to address this using the
+"memory-region-names" field.
+
+The drawback is that we would break compatibility with legacy boards...
+
+I let Mathieu and Bjorn review and comment
+
+
+Else with the fix in rproc_find_carveout_by_name(),
+
+-for the stm32_rproc:
+reviewed-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+tested-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+
+- for the st_remoteproc
+reviewed-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+
+Thanks,
+Arnaud
+
 
 > 
->  2) Implement your suggestion of a UAPI where the VMM can select a PMU
->     that only has the CPU cycle counter and works on any PMUv3
->     implementation.
-> 
-> Either way KVM will need to have some special case handling of the fixed
-> CPU cycle counter. That'd allow users to actually run Windows *now* and
-> provide a clear mechanism for userspace to present a less-broken vPMU if
-> it cares.
-
-Honestly, I don't care about one guest or another. My point is that if
-we are changing the behaviour of the PMU to deal with this sort of
-things, then it has to be a userspace buy-in.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+> Rob
 
