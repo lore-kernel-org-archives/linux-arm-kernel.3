@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57234C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34B9C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OoAJgmoiqR5OcyTiOap8hvnIqMB7yX0WU4s5LVRpJgc=; b=1j2MnBiLkYlz9BDI5jSs9n0jca
-	caeGm6YMo02kp/uBgxjN6qBVbFWIo2gHzI2P6qOr06hiXWMaLNFAna71j0RpgAFR/CJOzJQRCz0Hz
-	0v5g0Ne5wFLO4YGLLbuFES4Tvc7+70MIekJ6j3oZbREhQiSmdPCMo3TfcDXee/dnXe1acSgiec7oX
-	fHFLUJ2ZJCI7ExNIw2MpKczsN7HfpLPb7yYcgAUcegawpDRxjLcX5K0O+E7/9+gwbCL0pTsPTOLuZ
-	0GSQ2/BgEHYmFD92NoXXsrQS3jk7WI5uNTkAPKCXl7eYhWdRNxwsWxuk3vsDozdI3kO9yVmRo3HaJ
-	FbVj0wPg==;
+	bh=2sWM2kcnUK5OS4tpefAKNycEYEdbj45XoOmmPmFeHXc=; b=JOjoABLduhjZMEFenE9hCn1c6u
+	tUBqjkzt8qrABuhJAFj1jeiGz242a7L1o8kWjgMKiiBK2myQ78FaKl4bg9mTCvSJTr8pSREzD/YaK
+	aMUcCAgFA5m9OB7seDOEpNj1DG24UXpZx53maKeAyTIPqAygzdEVoI/Lwmy5MDBJ9Lk9y0YT6n8M/
+	ISgdF108anN498P18U92/0SQYHBSDwvLHm2HhV9hvw5B47AYw3BVwYPunUo8+Iun1eh5ZjWucyuLa
+	Uthsl8tt+7fMSOsD7rlkESiOs2x8d+P1uD33SktqDXhewtAtVnVJmXAKXKrg+DukSmWOnzlFNbd1X
+	8KjSB4TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvENw-0000000Bzag-3wIH;
-	Thu, 20 Mar 2025 11:48:28 +0000
+	id 1tvEPb-0000000Bzw4-2r3G;
+	Thu, 20 Mar 2025 11:50:11 +0000
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-0000000BxR9-27h1
+	id 1tvE8r-0000000BxR7-27Xs
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Mar 2025 11:32:57 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lY006831;
-	Thu, 20 Mar 2025 11:32:35 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K5Ntge021993;
+	Thu, 20 Mar 2025 11:32:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=O
-	oAJgmoiqR5OcyTiOap8hvnIqMB7yX0WU4s5LVRpJgc=; b=V+CkMAhEiax9J1jH4
-	3F6zWrCpSZESB2F0Y8o9+FywPMcUxuDayAgWfMmXYBUVpJrPs6Tii9lB5k1+jQtO
-	FwCkBFym7FWkwO1s1fNIMYVSbijlq9DVkoFRc2uVaVSn0Py9wF/FYWKCneQ+TTju
-	tcfB/61BOx+CG2KvIIS3pnytpKj5XruuI6bjwRYinIGsw6qSwIhLzt5xtIn7HE+m
-	3DZtM9lTOtMs8eO8UXoH3xCS3pZff5SkgRH0ojcqV45QPlfttL/ftURmVXFoEJWg
-	auoLCWKQXK6AHxuu/I7KYv67n9NZOMY+OPl9Wdq4Qwm3M+dVTzLJESaunYfcZ8Hk
-	u2dnA==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=2
+	sWM2kcnUK5OS4tpefAKNycEYEdbj45XoOmmPmFeHXc=; b=NqZOMXYHjZU9w62nK
+	GDK2UjWlP++mqDCMvuyn9GOT84+wVDEJt3Jc3SQ3CFhe6pRj/OMzBrWuNE7WLQaO
+	K/RaLA7xv8RZYVqaMUUXBHSV7HawCUAn5loUVOiOfISmmSe0o6y1I7Po+gW6U706
+	3rxHNbOcYl/PZIkBTcq3Pjbc9R1fV9Mu3jGcz88ZuX3S5WrEVPkqdPthdpzuF/Nj
+	QuW7ExjWPHdStSf6d4W/mOoAoGj4uPMkBX+RgUrLK8Txpr+po0qAv8yhcr9QTNcl
+	zpf5/ydEcS4x1GuVwqjcc3QE0mJ7J3poAfdWXdwZDOTVIVUvHtrHdEYfHeUH3vxD
+	o6WvA==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwga-1
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:35 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:30 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:34 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:28 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:24 +0000
-Subject: [PATCH v4 14/18] drm/imagination: Add RISC-V firmware processor
- support
+Date: Thu, 20 Mar 2025 11:32:18 +0000
+Subject: [PATCH v4 08/18] drm/imagination: Remove firmware enable_reg
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-14-d987cf4ca439@imgtec.com>
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-8-d987cf4ca439@imgtec.com>
 References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -79,27 +78,26 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
  Wilczynski" <m.wilczynski@samsung.com>,
         Alessio Belle
 	<alessio.belle@imgtec.com>,
-        Alexandru Dadu <alexandru.dadu@imgtec.com>,
-        "Sarah Walker" <sarah.walker@imgtec.com>
+        Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13638;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4388;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=M2D75Xug8m+YnpQY52wy9DfGM45BecGF0M4cL7UnGKY=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nP00qTXax6lrfqU189X5RnTFHVBafb7dRbbU7NWO
- Qm13BCV7ChlYRDjYJAVU2TZscJyhdofNS2JG7+KYeawMoEMYeDiFICJdHcyMszee7vGK1A79fzd
- uwwqCru79VQbtxS/2Db3h/Y5ef2evEeMDO/rV9Sd3JL/6tX6pPMKTE6Jj7/zSr7qY5u3e9uvph+
- sF9gA
+ bh=zspinsC/V9sAeyQBJpZd7CawZjK+6F8C1ZetDcURwDw=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nMk/9oJr6vHfcQP8i35e/Zibcjrpj+t+6ud97rOv
+ KdcceDf445SFgYxDgZZMUWWHSssV6j9UdOSuPGrGGYOKxPIEAYuTgGYiLQvwz+t9e/n80y/0x+v
+ 79LPZcouqHu4eYvYr4bPAnMPdxcd4VjL8D9XddZRz79Xv1gvvifTESr6dw+31vFfs15GOYhP2t2
+ 16xUPAA==
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: 390bnMQoHAQEWjgA41-unGVEQARzcrG9
-X-Proofpoint-ORIG-GUID: 390bnMQoHAQEWjgA41-unGVEQARzcrG9
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd3 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=2VUoiCX9Aw8U4Cr6FewA:9
+X-Proofpoint-GUID: tOcimysPUDsv8iPYyVCsMfP5nuiCm6NX
+X-Proofpoint-ORIG-GUID: tOcimysPUDsv8iPYyVCsMfP5nuiCm6NX
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcce cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=f_O7cd1dQeFu8-5Qt7YA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_043253_930781_5162DE60 
-X-CRM114-Status: GOOD (  28.49  )
+X-CRM114-CacheID: sfid-20250320_043253_882156_A67FF4FA 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,383 +112,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sarah Walker <sarah.walker@imgtec.com>
+After a previous commit ("drm/imagination: Mask GPU IRQs in threaded
+handler"), this register is now only used to enable firmware interrupts at
+start-of-day. This is, however, unnecessary since they are enabled by
+default.
 
-Newer PowerVR GPUs (such as the BXS-4-64 MC1) use a RISC-V firmware
-processor instead of the previous MIPS or META.
+In addition, the soon-to-be-added RISC-V firmware processors do not have
+an equivalent register.
 
-The current version of this patch depends on a patch[1] which exists in
-drm-misc-fixes, but has not yet made it back to drm-misc-next (the
-target of this patch). That patch adds the function pvr_vm_unmap_obj()
-which is used here.
-
-[1]: https://lore.kernel.org/r/20250226-hold-drm_gem_gpuva-lock-for-unmap-v2-1-3fdacded227f@imgtec.com
-
-Signed-off-by: Sarah Walker <sarah.walker@imgtec.com>
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v4:
-- Use pvr_vm_unmap_obj() in pvr_riscv_vm_unmap()
-- Fix formatting of pvr_riscv_fw_process() signature
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-14-143b3dbef02f@imgtec.com
+- None
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-8-143b3dbef02f@imgtec.com
 Changes in v3:
-- Don't enable debug module
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-17-3fd45d9fb0cf@imgtec.com
+- Reference a different commit removing use of enable/disable ops.
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-10-3fd45d9fb0cf@imgtec.com
 Changes in v2:
 - None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-17-4ed30e865892@imgtec.com
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-10-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/Makefile           |   1 +
- drivers/gpu/drm/imagination/pvr_fw.c           |  18 +--
- drivers/gpu/drm/imagination/pvr_fw.h           |  10 ++
- drivers/gpu/drm/imagination/pvr_fw_riscv.c     | 165 +++++++++++++++++++++++++
- drivers/gpu/drm/imagination/pvr_fw_startstop.c |  17 +++
- drivers/gpu/drm/imagination/pvr_rogue_riscv.h  |  41 ++++++
- 6 files changed, 244 insertions(+), 8 deletions(-)
+ drivers/gpu/drm/imagination/pvr_device.c  |  1 -
+ drivers/gpu/drm/imagination/pvr_fw.h      | 11 +----------
+ drivers/gpu/drm/imagination/pvr_fw_meta.c |  1 -
+ drivers/gpu/drm/imagination/pvr_fw_mips.c |  1 -
+ 4 files changed, 1 insertion(+), 13 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/Makefile b/drivers/gpu/drm/imagination/Makefile
-index 077e4762c7c383b6e339da1584c3865d830ef8d6..d748ad9d62e092ed7c3d772214ccd327818d507f 100644
---- a/drivers/gpu/drm/imagination/Makefile
-+++ b/drivers/gpu/drm/imagination/Makefile
-@@ -14,6 +14,7 @@ powervr-y := \
- 	pvr_fw.o \
- 	pvr_fw_meta.o \
- 	pvr_fw_mips.o \
-+	pvr_fw_riscv.o \
- 	pvr_fw_startstop.o \
- 	pvr_fw_trace.o \
- 	pvr_fw_util.o \
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
-index a69c3c306a1c1de0a9587c003e1e03e4604cca81..b1379ae46efd8139663c44aa1c3c565908b15aad 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw.c
-@@ -945,7 +945,7 @@ pvr_fw_init(struct pvr_device *pvr_dev)
- 	static const struct pvr_fw_defs *fw_defs[PVR_FW_PROCESSOR_TYPE_COUNT] = {
- 		[PVR_FW_PROCESSOR_TYPE_META] = &pvr_fw_defs_meta,
- 		[PVR_FW_PROCESSOR_TYPE_MIPS] = &pvr_fw_defs_mips,
--		[PVR_FW_PROCESSOR_TYPE_RISCV] = NULL,
-+		[PVR_FW_PROCESSOR_TYPE_RISCV] = &pvr_fw_defs_riscv,
- 	};
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index a47dd1dd82432f1d66ff90aca26b7b264f4068df..1e488a30c7840466574c7fc3648ab93edfb46354 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -311,7 +311,6 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
  
- 	u32 kccb_size_log2 = ROGUE_FWIF_KCCB_NUMCMDS_LOG2_DEFAULT;
-@@ -958,13 +958,6 @@ pvr_fw_init(struct pvr_device *pvr_dev)
+ 	/* Clear any pending events before requesting the IRQ line. */
+ 	pvr_fw_irq_clear(pvr_dev);
+-	pvr_fw_irq_enable(pvr_dev);
  
- 	fw_dev->defs = fw_defs[fw_dev->processor_type];
- 
--	/*
--	 * Not all firmware processor types are currently supported.
--	 * Once they are, this check can be removed.
--	 */
--	if (!fw_dev->defs)
--		return -EINVAL;
--
- 	err = fw_dev->defs->init(pvr_dev);
- 	if (err)
- 		return err;
-@@ -1470,6 +1463,15 @@ void pvr_fw_object_get_fw_addr_offset(struct pvr_fw_object *fw_obj, u32 offset,
- 	*fw_addr_out = pvr_dev->fw_dev.defs->get_fw_addr_with_offset(fw_obj, offset);
- }
- 
-+u64
-+pvr_fw_obj_get_gpu_addr(struct pvr_fw_object *fw_obj)
-+{
-+	struct pvr_device *pvr_dev = to_pvr_device(gem_from_pvr_gem(fw_obj->gem)->dev);
-+	struct pvr_fw_device *fw_dev = &pvr_dev->fw_dev;
-+
-+	return fw_dev->fw_heap_info.gpu_addr + fw_obj->fw_addr_offset;
-+}
-+
- /*
-  * pvr_fw_hard_reset() - Re-initialise the FW code and data segments, and reset all global FW
-  *                       structures
+ 	if (pvr_dev->has_safety_events)
+ 		pvr_device_safety_irq_clear(pvr_dev);
 diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index e120eae06bf78633b5bae79a77adac63aa5e06d3..1404dd492d7cd82d62dd407a780efcae34d9bf2d 100644
+index b7966bd574a924862b7877c175fa2b5d757d89db..29bae4bc244a243a6a95bcf838d924060cc043e2 100644
 --- a/drivers/gpu/drm/imagination/pvr_fw.h
 +++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -392,6 +392,7 @@ enum pvr_fw_processor_type {
+@@ -188,9 +188,6 @@ struct pvr_fw_defs {
+ 	 * processor backend in pvr_fw_funcs::init().
+ 	 */
+ 	struct {
+-		/** @enable_reg: FW interrupt enable register. */
+-		u32 enable_reg;
+-
+ 		/** @status_reg: FW interrupt status register. */
+ 		u32 status_reg;
  
+@@ -202,7 +199,7 @@ struct pvr_fw_defs {
+ 		 */
+ 		u32 clear_reg;
+ 
+-		/** @event_mask: Bitmask of events to listen for. */
++		/** @event_mask: Bitmask of events to listen for in the status_reg. */
+ 		u32 event_mask;
+ 
+ 		/** @clear_mask: Value to write to the clear_reg in order to clear FW IRQs. */
+@@ -412,12 +409,6 @@ struct pvr_fw_device {
+ #define pvr_fw_irq_clear(pvr_dev) \
+ 	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
+ 
+-#define pvr_fw_irq_enable(pvr_dev) \
+-	pvr_fw_irq_write_reg(pvr_dev, enable, (pvr_dev)->fw_dev.defs->irq.event_mask)
+-
+-#define pvr_fw_irq_disable(pvr_dev) \
+-	pvr_fw_irq_write_reg(pvr_dev, enable, 0)
+-
  extern const struct pvr_fw_defs pvr_fw_defs_meta;
  extern const struct pvr_fw_defs pvr_fw_defs_mips;
-+extern const struct pvr_fw_defs pvr_fw_defs_riscv;
  
- int pvr_fw_validate_init_device_info(struct pvr_device *pvr_dev);
- int pvr_fw_init(struct pvr_device *pvr_dev);
-@@ -478,6 +479,15 @@ pvr_fw_object_get_fw_addr(struct pvr_fw_object *fw_obj, u32 *fw_addr_out)
- 	pvr_fw_object_get_fw_addr_offset(fw_obj, 0, fw_addr_out);
- }
- 
-+u64
-+pvr_fw_obj_get_gpu_addr(struct pvr_fw_object *fw_obj);
-+
-+static __always_inline size_t
-+pvr_fw_obj_get_object_size(struct pvr_fw_object *fw_obj)
-+{
-+	return pvr_gem_object_size(fw_obj->gem);
-+}
-+
- /* Util functions defined in pvr_fw_util.c. These are intended for use in pvr_fw_<arch>.c files. */
- int
- pvr_fw_process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw, u8 *fw_code_ptr,
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv.c b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..fc13d483be9a3edd97cad3850e4edf312d5b16b6
---- /dev/null
-+++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-@@ -0,0 +1,165 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/* Copyright (c) 2024 Imagination Technologies Ltd. */
-+
-+#include "pvr_device.h"
-+#include "pvr_fw.h"
-+#include "pvr_fw_info.h"
-+#include "pvr_fw_mips.h"
-+#include "pvr_gem.h"
-+#include "pvr_rogue_cr_defs.h"
-+#include "pvr_rogue_riscv.h"
-+#include "pvr_vm.h"
-+
-+#include <linux/compiler.h>
-+#include <linux/delay.h>
-+#include <linux/firmware.h>
-+#include <linux/ktime.h>
-+#include <linux/types.h>
-+
-+#define ROGUE_FW_HEAP_RISCV_SHIFT 25 /* 32 MB */
-+#define ROGUE_FW_HEAP_RISCV_SIZE (1u << ROGUE_FW_HEAP_RISCV_SHIFT)
-+
-+static int
-+pvr_riscv_wrapper_init(struct pvr_device *pvr_dev)
-+{
-+	const u64 common_opts =
-+		((u64)(ROGUE_FW_HEAP_RISCV_SIZE >> FWCORE_ADDR_REMAP_CONFIG0_SIZE_ALIGNSHIFT)
-+		 << ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG0_SIZE_SHIFT) |
-+		((u64)MMU_CONTEXT_MAPPING_FWPRIV
-+		 << FWCORE_ADDR_REMAP_CONFIG0_MMU_CONTEXT_SHIFT);
-+
-+	u64 code_addr = pvr_fw_obj_get_gpu_addr(pvr_dev->fw_dev.mem.code_obj);
-+	u64 data_addr = pvr_fw_obj_get_gpu_addr(pvr_dev->fw_dev.mem.data_obj);
-+
-+	/* This condition allows us to OR the addresses into the register directly. */
-+	static_assert(ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG1_DEVVADDR_SHIFT ==
-+		      ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG1_DEVVADDR_ALIGNSHIFT);
-+
-+	WARN_ON(code_addr & ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG1_DEVVADDR_CLRMSK);
-+	WARN_ON(data_addr & ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG1_DEVVADDR_CLRMSK);
-+
-+	pvr_cr_write64(pvr_dev, ROGUE_RISCVFW_REGION_REMAP_CR(BOOTLDR_CODE),
-+		       code_addr | common_opts | ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG0_FETCH_EN_EN);
-+
-+	pvr_cr_write64(pvr_dev, ROGUE_RISCVFW_REGION_REMAP_CR(BOOTLDR_DATA),
-+		       data_addr | common_opts |
-+			       ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG0_LOAD_STORE_EN_EN);
-+
-+	/* Garten IDLE bit controlled by RISC-V. */
-+	pvr_cr_write64(pvr_dev, ROGUE_CR_MTS_GARTEN_WRAPPER_CONFIG,
-+		       ROGUE_CR_MTS_GARTEN_WRAPPER_CONFIG_IDLE_CTRL_META);
-+
-+	return 0;
-+}
-+
-+struct rogue_riscv_fw_boot_data {
-+	u64 coremem_code_dev_vaddr;
-+	u64 coremem_data_dev_vaddr;
-+	u32 coremem_code_fw_addr;
-+	u32 coremem_data_fw_addr;
-+	u32 coremem_code_size;
-+	u32 coremem_data_size;
-+	u32 flags;
-+	u32 reserved;
-+};
-+
-+static int
-+pvr_riscv_fw_process(struct pvr_device *pvr_dev, const u8 *fw,
-+		     u8 *fw_code_ptr, u8 *fw_data_ptr, u8 *fw_core_code_ptr, u8 *fw_core_data_ptr,
-+		     u32 core_code_alloc_size)
-+{
-+	struct pvr_fw_device *fw_dev = &pvr_dev->fw_dev;
-+	struct pvr_fw_mem *fw_mem = &fw_dev->mem;
-+	struct rogue_riscv_fw_boot_data *boot_data;
-+	int err;
-+
-+	err = pvr_fw_process_elf_command_stream(pvr_dev, fw, fw_code_ptr, fw_data_ptr,
-+						fw_core_code_ptr, fw_core_data_ptr);
-+	if (err)
-+		goto err_out;
-+
-+	boot_data = (struct rogue_riscv_fw_boot_data *)fw_data_ptr;
-+
-+	if (fw_mem->core_code_obj) {
-+		boot_data->coremem_code_dev_vaddr = pvr_fw_obj_get_gpu_addr(fw_mem->core_code_obj);
-+		pvr_fw_object_get_fw_addr(fw_mem->core_code_obj, &boot_data->coremem_code_fw_addr);
-+		boot_data->coremem_code_size = pvr_fw_obj_get_object_size(fw_mem->core_code_obj);
-+	}
-+
-+	if (fw_mem->core_data_obj) {
-+		boot_data->coremem_data_dev_vaddr = pvr_fw_obj_get_gpu_addr(fw_mem->core_data_obj);
-+		pvr_fw_object_get_fw_addr(fw_mem->core_data_obj, &boot_data->coremem_data_fw_addr);
-+		boot_data->coremem_data_size = pvr_fw_obj_get_object_size(fw_mem->core_data_obj);
-+	}
-+
-+	return 0;
-+
-+err_out:
-+	return err;
-+}
-+
-+static int
-+pvr_riscv_init(struct pvr_device *pvr_dev)
-+{
-+	pvr_fw_heap_info_init(pvr_dev, ROGUE_FW_HEAP_RISCV_SHIFT, 0);
-+
-+	return 0;
-+}
-+
-+static u32
-+pvr_riscv_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
-+{
-+	u32 fw_addr = fw_obj->fw_addr_offset + offset;
-+
-+	/* RISC-V cacheability is determined by address. */
-+	if (fw_obj->gem->flags & PVR_BO_FW_FLAGS_DEVICE_UNCACHED)
-+		fw_addr |= ROGUE_RISCVFW_REGION_BASE(SHARED_UNCACHED_DATA);
-+	else
-+		fw_addr |= ROGUE_RISCVFW_REGION_BASE(SHARED_CACHED_DATA);
-+
-+	return fw_addr;
-+}
-+
-+static int
-+pvr_riscv_vm_map(struct pvr_device *pvr_dev, struct pvr_fw_object *fw_obj)
-+{
-+	struct pvr_gem_object *pvr_obj = fw_obj->gem;
-+
-+	return pvr_vm_map(pvr_dev->kernel_vm_ctx, pvr_obj, 0, fw_obj->fw_mm_node.start,
-+			  pvr_gem_object_size(pvr_obj));
-+}
-+
-+static void
-+pvr_riscv_vm_unmap(struct pvr_device *pvr_dev, struct pvr_fw_object *fw_obj)
-+{
-+	struct pvr_gem_object *pvr_obj = fw_obj->gem;
-+
-+	pvr_vm_unmap_obj(pvr_dev->kernel_vm_ctx, pvr_obj,
-+			 fw_obj->fw_mm_node.start, fw_obj->fw_mm_node.size);
-+}
-+
-+static bool
-+pvr_riscv_irq_pending(struct pvr_device *pvr_dev)
-+{
-+	return pvr_cr_read32(pvr_dev, ROGUE_CR_IRQ_OS0_EVENT_STATUS) &
-+	       ROGUE_CR_IRQ_OS0_EVENT_STATUS_SOURCE_EN;
-+}
-+
-+static void
-+pvr_riscv_irq_clear(struct pvr_device *pvr_dev)
-+{
-+	pvr_cr_write32(pvr_dev, ROGUE_CR_IRQ_OS0_EVENT_CLEAR,
-+		       ROGUE_CR_IRQ_OS0_EVENT_CLEAR_SOURCE_EN);
-+}
-+
-+const struct pvr_fw_defs pvr_fw_defs_riscv = {
-+	.init = pvr_riscv_init,
-+	.fw_process = pvr_riscv_fw_process,
-+	.vm_map = pvr_riscv_vm_map,
-+	.vm_unmap = pvr_riscv_vm_unmap,
-+	.get_fw_addr_with_offset = pvr_riscv_get_fw_addr_with_offset,
-+	.wrapper_init = pvr_riscv_wrapper_init,
-+	.irq_pending = pvr_riscv_irq_pending,
-+	.irq_clear = pvr_riscv_irq_clear,
-+	.has_fixed_data_addr = false,
-+};
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_startstop.c b/drivers/gpu/drm/imagination/pvr_fw_startstop.c
-index 36cec227cfe3cf5b1e293f48b164bb1be1b0ea54..dcbb9903e791e600db22d334b2e9580057edc89b 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_startstop.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_startstop.c
-@@ -49,6 +49,14 @@ rogue_bif_init(struct pvr_device *pvr_dev)
- 
- 	pvr_cr_write64(pvr_dev, BIF_CAT_BASEX(MMU_CONTEXT_MAPPING_FWPRIV),
- 		       pc_addr);
-+
-+	if (pvr_dev->fw_dev.processor_type == PVR_FW_PROCESSOR_TYPE_RISCV) {
-+		pc_addr = (((u64)pc_dma_addr >> ROGUE_CR_FWCORE_MEM_CAT_BASE0_ADDR_ALIGNSHIFT)
-+			   << ROGUE_CR_FWCORE_MEM_CAT_BASE0_ADDR_SHIFT) &
-+			  ~ROGUE_CR_FWCORE_MEM_CAT_BASE0_ADDR_CLRMSK;
-+
-+		pvr_cr_write64(pvr_dev, FWCORE_MEM_CAT_BASEX(MMU_CONTEXT_MAPPING_FWPRIV), pc_addr);
-+	}
- }
- 
- static int
-@@ -114,6 +122,9 @@ pvr_fw_start(struct pvr_device *pvr_dev)
- 		(void)pvr_cr_read32(pvr_dev, ROGUE_CR_SYS_BUS_SECURE); /* Fence write */
- 	}
- 
-+	if (pvr_dev->fw_dev.processor_type == PVR_FW_PROCESSOR_TYPE_RISCV)
-+		pvr_cr_write32(pvr_dev, ROGUE_CR_FWCORE_BOOT, 0);
-+
- 	/* Set Rogue in soft-reset. */
- 	pvr_cr_write64(pvr_dev, ROGUE_CR_SOFT_RESET, soft_reset_mask);
- 	if (has_reset2)
-@@ -167,6 +178,12 @@ pvr_fw_start(struct pvr_device *pvr_dev)
- 	/* ... and afterwards. */
- 	udelay(3);
- 
-+	if (pvr_dev->fw_dev.processor_type == PVR_FW_PROCESSOR_TYPE_RISCV) {
-+		/* Boot the FW. */
-+		pvr_cr_write32(pvr_dev, ROGUE_CR_FWCORE_BOOT, 1);
-+		udelay(3);
-+	}
-+
- 	return 0;
- 
- err_reset:
-diff --git a/drivers/gpu/drm/imagination/pvr_rogue_riscv.h b/drivers/gpu/drm/imagination/pvr_rogue_riscv.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..9a070e24fa6a8bb44ff1e421ae6750cbf724d346
---- /dev/null
-+++ b/drivers/gpu/drm/imagination/pvr_rogue_riscv.h
-@@ -0,0 +1,41 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-+/* Copyright (c) 2024 Imagination Technologies Ltd. */
-+
-+#ifndef PVR_ROGUE_RISCV_H
-+#define PVR_ROGUE_RISCV_H
-+
-+#include "pvr_rogue_cr_defs.h"
-+
-+#include <linux/bitops.h>
-+#include <linux/sizes.h>
-+#include <linux/types.h>
-+
-+#define ROGUE_RISCVFW_REGION_SIZE SZ_256M
-+#define ROGUE_RISCVFW_REGION_SHIFT __ffs(ROGUE_RISCVFW_REGION_SIZE)
-+
-+enum rogue_riscvfw_region {
-+	ROGUE_RISCV_REGION__RESERVED_0 = 0,
-+	ROGUE_RISCV_REGION__RESERVED_1,
-+	ROGUE_RISCV_REGION_SOCIF,
-+	ROGUE_RISCV_REGION__RESERVED_3,
-+	ROGUE_RISCV_REGION__RESERVED_4,
-+	ROGUE_RISCV_REGION_BOOTLDR_DATA,
-+	ROGUE_RISCV_REGION_SHARED_CACHED_DATA,
-+	ROGUE_RISCV_REGION__RESERVED_7,
-+	ROGUE_RISCV_REGION_COREMEM,
-+	ROGUE_RISCV_REGION__RESERVED_9,
-+	ROGUE_RISCV_REGION__RESERVED_A,
-+	ROGUE_RISCV_REGION__RESERVED_B,
-+	ROGUE_RISCV_REGION_BOOTLDR_CODE,
-+	ROGUE_RISCV_REGION_SHARED_UNCACHED_DATA,
-+	ROGUE_RISCV_REGION__RESERVED_E,
-+	ROGUE_RISCV_REGION__RESERVED_F,
-+
-+	ROGUE_RISCV_REGION__COUNT,
-+};
-+
-+#define ROGUE_RISCVFW_REGION_BASE(r) ((u32)(ROGUE_RISCV_REGION_##r) << ROGUE_RISCVFW_REGION_SHIFT)
-+#define ROGUE_RISCVFW_REGION_REMAP_CR(r) \
-+	(ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG0 + (u32)(ROGUE_RISCV_REGION_##r) * 8U)
-+
-+#endif /* PVR_ROGUE_RISCV_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index 6d13864851fc2e83bdaa94f16435b97841e5de94..a51eec867884b24767f23b3b34cd7029cb660f48 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -548,7 +548,6 @@ const struct pvr_fw_defs pvr_fw_defs_meta = {
+ 	.wrapper_init = pvr_meta_wrapper_init,
+ 	.has_fixed_data_addr = pvr_meta_has_fixed_data_addr,
+ 	.irq = {
+-		.enable_reg = ROGUE_CR_META_SP_MSLVIRQENABLE,
+ 		.status_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
+ 		.clear_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
+ 		.event_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+index 0bed0257e2ab75f66d8b8966b2ceac6342396fb5..c810a67eeecf1016064e76baf534e31a44c859b5 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+@@ -243,7 +243,6 @@ const struct pvr_fw_defs pvr_fw_defs_mips = {
+ 	.wrapper_init = pvr_mips_wrapper_init,
+ 	.has_fixed_data_addr = pvr_mips_has_fixed_data_addr,
+ 	.irq = {
+-		.enable_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_ENABLE,
+ 		.status_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS,
+ 		.clear_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
+ 		.event_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
 
 -- 
 2.49.0
