@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBABC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53E5C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3MYeSpSZxVhep/CvpK3oOalaOT4hMGM0Eo/3INFl6Pg=; b=l5VSdsPKrbmKEAwRkWfx/rA0zK
-	fiCs9PMmGKpb0SsWgwUVlZxNVfBRBDTy1GFkYsXtp2j/ednKQQ2TMx1PCtXPtTOQCB3wziSPGi+UR
-	bokBDEbzwloKyv1NK45zHJkiAXLUDRP3TBGMzk6DW5dYS0Btdu7TyCjDjj8pr6hwxg0jzMPEz4r6d
-	qF/CznpA3d15pLyRBA3diJsOsr2t2alyFsXUlIi2rDTJBjjvtYzx0Xeb/Kup1Tren7nur3JFNRleO
-	Zi+rqBoYCKz9xjFFmUX2fgMlUC8D/04UPE9H89jJzwC5ZPBCBO1jPnGkBWJHJzEwy1BWzA3hMF9in
-	HDymbGcA==;
+	bh=P/0a701HR1QMAbwnoHEZabCPrgFFxLqUSJCXgOzYZho=; b=kGddZpoLBnGxTUth3Gct/UY7yD
+	Rgqj3yynttXuhIjkCptgbbMzyeD2O772RmtHB6qM+iCZM84RDc25uLnqCxppNQMw/D6VK2MCx9m2K
+	FiRYMs4RZfjNa3nVkXOjtZTjQA3a9yX5uZj7TrB/6DtmhCXMdhTaWL6mq866KXx5gzwHlsU6NWB54
+	LEhX7W70JXojh/GXWVewAvqLS2+IkNLPh9q9HFalOW1cuadD13HLvxbERBOEbc36gS7iH4bDZn6jJ
+	sqdJDPeBb9EsvDOuGin5g8Cf+hcf2jhXYY57Ml60APiuYfQNNNCRqZiKgzckpSchD1/Wp8cmMSBwA
+	WT+fL2Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEDu-0000000By5r-2p8x;
-	Thu, 20 Mar 2025 11:38:06 +0000
+	id 1tvEFa-0000000ByDc-22XM;
+	Thu, 20 Mar 2025 11:39:50 +0000
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-0000000BxR8-1sL5
+	id 1tvE8r-0000000BxR3-1sRw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 11:32:56 +0000
+	Thu, 20 Mar 2025 11:32:57 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lZ006831;
-	Thu, 20 Mar 2025 11:32:36 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lX006831;
+	Thu, 20 Mar 2025 11:32:34 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=3
-	MYeSpSZxVhep/CvpK3oOalaOT4hMGM0Eo/3INFl6Pg=; b=mydSwvevpt4+duvIs
-	GB78kG7ne3EDtVnhNtMQ8wbYml4dutBUL+PlVZ5y6GQWWEH2csAjoZ9L+ZLou/TS
-	YYq1iUqRzNEY7TnZFHeIdWrunFGf2GyORo3HUNWeiCkj10PItBAPXY0cM8Tf3e8+
-	lswuMYm5lO2QaBULgXH4N9wab91FalDz/HT8chxjghONIXvTQcfF8oDdskxVJA26
-	ZJeM38quYwgR/Y1G4AED+9yJ8TQ1JGQGc76p1skOe9qWBzpLY/teeTJ1XUgy9jXK
-	wMUJ8LCehzQvN+rIoP5Ty85PTNLcVClJ9SDQ0W8CwMaS1BRtrP1awebY212INtHM
-	S085g==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=P
+	/0a701HR1QMAbwnoHEZabCPrgFFxLqUSJCXgOzYZho=; b=mL8ZTro14F2k5oprR
+	1hh1/bEG+AxrWifv8Sf/k/IC4t8y2fQ/OeKAF+5xShZ1Su8P4ia7D2pBl9pygSkV
+	vt75yIkYEqHP8HwQ5comnchW6pXpqb3fJjmn25C1iX08ugLb8L4DSGn70atAo351
+	g7Ya5P0w3oVC/McOoKrTCS8iJK5u1D572yIXFM3Meg6NFbP/r3nNV6c94snUaVO8
+	o6cvGy92/ZgGFf7E/nPln+9575PPK5mgmTO9ZGRAHiZ/wGVtC6AlOI+8BapGowpF
+	FF0MdKiFtpasEJYEz02nyeXplG+qyGzPPPY8UlER9cbcN5HNOHcACeqVomjwUGOC
+	siXaw==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwga-2
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg8-2
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:36 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:34 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:34 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:33 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:25 +0000
-Subject: [PATCH v4 15/18] drm/imagination: Use cached memory with
- dma_coherent
+Date: Thu, 20 Mar 2025 11:32:23 +0000
+Subject: [PATCH v4 13/18] drm/imagination: Move ELF fw utils to common file
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-15-d987cf4ca439@imgtec.com>
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-13-d987cf4ca439@imgtec.com>
 References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -81,24 +80,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5101;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7489;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=zhAgm6vpBlh4rjQNFTytBY7pilNpSIEy66BGpgIA0NI=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nP0NYc8K1sH04Weyj0BUXuSnOY0WFxYuE1Lie3V5
- sgvAtFpHaUsDGIcDLJiiiw7VliuUPujpiVx41cxzBxWJpAhDFycAjCRaB6G/5mzWOQ/HLgW5vDy
- 6JozmXt8PPba3DZ8t1s7/XLFvwlXdMsZGY7zZCSs7rj32vlc5uwptc1PohyuyfueEW3Lcvmn/zC
- ilB8A
+ bh=le6zqyyW98xnQqhcQmj3/SiM81YhHx+WveNChqSEX2U=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nPUWmVOstyKZRM2vl5RnKK3PrqBV0117gGxmQXPn
+ PY9Tti3qKOUhUGMg0FWTJFlxwrLFWp/1LQkbvwqhpnDygQyhIGLUwAm4h/J8FeWu0DW0ytDIOTX
+ K6t/wnq3jgpOUFCWcOIzns0b27QyfhPDP70ZDZbBD3TVXu1ccF9ff8dTWa+SfWdnWNqKSax6K7f
+ 2NScA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: ublDPSUgo7IsQfMs6OsOx99kZZ-mchlR
-X-Proofpoint-ORIG-GUID: ublDPSUgo7IsQfMs6OsOx99kZZ-mchlR
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd4 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=0i1-_hofAh2E2eMZgqcA:9
+X-Proofpoint-GUID: 7EuZLxt8pWy_5oSJi7FS4SdA_YTgCawo
+X-Proofpoint-ORIG-GUID: 7EuZLxt8pWy_5oSJi7FS4SdA_YTgCawo
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd2 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=gtgaOig2gG6QrLUE_6sA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_043253_801319_61245BE7 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20250320_043253_809629_2EF32D9C 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,125 +112,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TI k3-j721s2 platform does not allow us to use uncached memory
-(which is what the driver currently does) without disabling cache snooping
-on the AXI ACE-Lite interface, which would be too much of a performance
-hit.
-
-Given the platform is dma-coherent, we can simply force all
-device-accessible memory allocations through the CPU cache. In fact, this
-can be done whenever the dma_coherent attribute is present.
+Currently only MIPS firmware processors use ELF-formatted firmware. When
+adding support for RISC-V firmware processors, it will be useful to have
+ELF handling functions ready to go.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v4:
 - None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-15-143b3dbef02f@imgtec.com
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-13-143b3dbef02f@imgtec.com
 Changes in v3:
-- Change from a workaround to a regular codepath
-- Add missing <linux/property.h> include
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-19-3fd45d9fb0cf@imgtec.com
+- None
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-16-3fd45d9fb0cf@imgtec.com
 Changes in v2:
 - None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-19-4ed30e865892@imgtec.com
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-16-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/pvr_gem.c | 10 +++++++---
- drivers/gpu/drm/imagination/pvr_gem.h |  6 ++++--
- drivers/gpu/drm/imagination/pvr_mmu.c |  8 +++++++-
- 3 files changed, 18 insertions(+), 6 deletions(-)
+ drivers/gpu/drm/imagination/Makefile      |  1 +
+ drivers/gpu/drm/imagination/pvr_fw.h      |  5 +++
+ drivers/gpu/drm/imagination/pvr_fw_mips.c | 59 +--------------------------
+ drivers/gpu/drm/imagination/pvr_fw_util.c | 67 +++++++++++++++++++++++++++++++
+ 4 files changed, 75 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_gem.c b/drivers/gpu/drm/imagination/pvr_gem.c
-index 6a8c81fe8c1e85c2130a4fe90fce35b6a2be35aa..9467cd563339cd5bf62ff92edba115ed5721ee76 100644
---- a/drivers/gpu/drm/imagination/pvr_gem.c
-+++ b/drivers/gpu/drm/imagination/pvr_gem.c
-@@ -19,6 +19,7 @@
- #include <linux/log2.h>
- #include <linux/mutex.h>
- #include <linux/pagemap.h>
-+#include <linux/property.h>
- #include <linux/refcount.h>
- #include <linux/scatterlist.h>
+diff --git a/drivers/gpu/drm/imagination/Makefile b/drivers/gpu/drm/imagination/Makefile
+index 9bc6a3884c2239e44265f3cdebee149841b270de..077e4762c7c383b6e339da1584c3865d830ef8d6 100644
+--- a/drivers/gpu/drm/imagination/Makefile
++++ b/drivers/gpu/drm/imagination/Makefile
+@@ -16,6 +16,7 @@ powervr-y := \
+ 	pvr_fw_mips.o \
+ 	pvr_fw_startstop.o \
+ 	pvr_fw_trace.o \
++	pvr_fw_util.o \
+ 	pvr_gem.o \
+ 	pvr_hwrt.o \
+ 	pvr_job.o \
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index ab69f40a7fbc6304171f16dd16d825a68b0362a5..e120eae06bf78633b5bae79a77adac63aa5e06d3 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -478,4 +478,9 @@ pvr_fw_object_get_fw_addr(struct pvr_fw_object *fw_obj, u32 *fw_addr_out)
+ 	pvr_fw_object_get_fw_addr_offset(fw_obj, 0, fw_addr_out);
+ }
  
-@@ -336,6 +337,7 @@ struct drm_gem_object *pvr_gem_create_object(struct drm_device *drm_dev, size_t
- struct pvr_gem_object *
- pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
- {
-+	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
- 	struct drm_gem_shmem_object *shmem_obj;
- 	struct pvr_gem_object *pvr_obj;
- 	struct sg_table *sgt;
-@@ -345,7 +347,10 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
- 	if (size == 0 || !pvr_gem_object_flags_validate(flags))
- 		return ERR_PTR(-EINVAL);
- 
--	shmem_obj = drm_gem_shmem_create(from_pvr_device(pvr_dev), size);
-+	if (device_get_dma_attr(drm_dev->dev) == DEV_DMA_COHERENT)
-+		flags |= PVR_BO_CPU_CACHED;
++/* Util functions defined in pvr_fw_util.c. These are intended for use in pvr_fw_<arch>.c files. */
++int
++pvr_fw_process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw, u8 *fw_code_ptr,
++				  u8 *fw_data_ptr, u8 *fw_core_code_ptr, u8 *fw_core_data_ptr);
 +
-+	shmem_obj = drm_gem_shmem_create(drm_dev, size);
- 	if (IS_ERR(shmem_obj))
- 		return ERR_CAST(shmem_obj);
+ #endif /* PVR_FW_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+index 524a9bd0a20b64c509f5708cc61d93b4c864b835..7f341ceb0661c61ac059654faeec91e149036467 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+@@ -8,7 +8,6 @@
+ #include "pvr_rogue_mips.h"
+ #include "pvr_vm_mips.h"
  
-@@ -360,8 +365,7 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
- 		goto err_shmem_object_free;
- 	}
+-#include <linux/elf.h>
+ #include <linux/err.h>
+ #include <linux/types.h>
  
--	dma_sync_sgtable_for_device(shmem_obj->base.dev->dev, sgt,
--				    DMA_BIDIRECTIONAL);
-+	dma_sync_sgtable_for_device(drm_dev->dev, sgt, DMA_BIDIRECTIONAL);
+@@ -16,60 +15,6 @@
+ #define ROGUE_FW_HEAP_MIPS_SHIFT 24 /* 16 MB */
+ #define ROGUE_FW_HEAP_MIPS_RESERVED_SIZE SZ_1M
  
- 	/*
- 	 * Do this last because pvr_gem_object_zero() requires a fully
-diff --git a/drivers/gpu/drm/imagination/pvr_gem.h b/drivers/gpu/drm/imagination/pvr_gem.h
-index e0e5ea509a2e88a437b8d241ea13c7bab2220f56..c99f30cc62088c030bd8a806df79b738b62a968f 100644
---- a/drivers/gpu/drm/imagination/pvr_gem.h
-+++ b/drivers/gpu/drm/imagination/pvr_gem.h
-@@ -44,8 +44,10 @@ struct pvr_file;
-  * Bits not defined anywhere are "undefined".
-  *
-  * CPU mapping options
-- *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set this
-- *       flag to override this behaviour and map the object cached.
-+ *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set
-+ *       this flag to override this behaviour and map the object cached. If the dma_coherent
-+ *       property is present in devicetree, all allocations will be mapped as if this flag was set.
-+ *       This does not require any additional consideration at allocation time.
-  *
-  * Firmware options
-  *    :PVR_BO_FW_NO_CLEAR_ON_RESET: By default, all FW objects are cleared and reinitialised on hard
-diff --git a/drivers/gpu/drm/imagination/pvr_mmu.c b/drivers/gpu/drm/imagination/pvr_mmu.c
-index 4fe70610ed94cf707e631f8148af081a94f97327..450d476d183f0173d0ef03f0d8897fbeb04831a2 100644
---- a/drivers/gpu/drm/imagination/pvr_mmu.c
-+++ b/drivers/gpu/drm/imagination/pvr_mmu.c
-@@ -17,6 +17,7 @@
- #include <linux/dma-mapping.h>
- #include <linux/kmemleak.h>
- #include <linux/minmax.h>
-+#include <linux/property.h>
- #include <linux/sizes.h>
- 
- #define PVR_SHIFT_FROM_SIZE(size_) (__builtin_ctzll(size_))
-@@ -259,6 +260,7 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
- 	struct device *dev = from_pvr_device(pvr_dev)->dev;
- 
- 	struct page *raw_page;
-+	pgprot_t prot;
+-/**
+- * process_elf_command_stream() - Process ELF firmware image and populate
+- *                                firmware sections
+- * @pvr_dev: Device pointer.
+- * @fw: Pointer to firmware image.
+- * @fw_code_ptr: Pointer to FW code section.
+- * @fw_data_ptr: Pointer to FW data section.
+- * @fw_core_code_ptr: Pointer to FW coremem code section.
+- * @fw_core_data_ptr: Pointer to FW coremem data section.
+- *
+- * Returns :
+- *  * 0 on success, or
+- *  * -EINVAL on any error in ELF command stream.
+- */
+-static int
+-process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw, u8 *fw_code_ptr,
+-			   u8 *fw_data_ptr, u8 *fw_core_code_ptr, u8 *fw_core_data_ptr)
+-{
+-	struct elf32_hdr *header = (struct elf32_hdr *)fw;
+-	struct elf32_phdr *program_header = (struct elf32_phdr *)(fw + header->e_phoff);
+-	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
+-	u32 entry;
+-	int err;
+-
+-	for (entry = 0; entry < header->e_phnum; entry++, program_header++) {
+-		void *write_addr;
+-
+-		/* Only consider loadable entries in the ELF segment table */
+-		if (program_header->p_type != PT_LOAD)
+-			continue;
+-
+-		err = pvr_fw_find_mmu_segment(pvr_dev, program_header->p_vaddr,
+-					      program_header->p_memsz, fw_code_ptr, fw_data_ptr,
+-					      fw_core_code_ptr, fw_core_data_ptr, &write_addr);
+-		if (err) {
+-			drm_err(drm_dev,
+-				"Addr 0x%x (size: %d) not found in any firmware segment",
+-				program_header->p_vaddr, program_header->p_memsz);
+-			return err;
+-		}
+-
+-		/* Write to FW allocation only if available */
+-		if (write_addr) {
+-			memcpy(write_addr, fw + program_header->p_offset,
+-			       program_header->p_filesz);
+-
+-			memset((u8 *)write_addr + program_header->p_filesz, 0,
+-			       program_header->p_memsz - program_header->p_filesz);
+-		}
+-	}
+-
+-	return 0;
+-}
+-
+ static int
+ pvr_mips_init(struct pvr_device *pvr_dev)
+ {
+@@ -100,8 +45,8 @@ pvr_mips_fw_process(struct pvr_device *pvr_dev, const u8 *fw,
+ 	u32 page_nr;
  	int err;
  
- 	dma_addr_t dma_addr;
-@@ -268,7 +270,11 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
- 	if (!raw_page)
- 		return -ENOMEM;
+-	err = process_elf_command_stream(pvr_dev, fw, fw_code_ptr, fw_data_ptr, fw_core_code_ptr,
+-					 fw_core_data_ptr);
++	err = pvr_fw_process_elf_command_stream(pvr_dev, fw, fw_code_ptr, fw_data_ptr,
++						fw_core_code_ptr, fw_core_data_ptr);
+ 	if (err)
+ 		return err;
  
--	host_ptr = vmap(&raw_page, 1, VM_MAP, pgprot_writecombine(PAGE_KERNEL));
-+	prot = PAGE_KERNEL;
-+	if (device_get_dma_attr(dev) != DEV_DMA_COHERENT)
-+		prot = pgprot_writecombine(prot);
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_util.c b/drivers/gpu/drm/imagination/pvr_fw_util.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..7bc8a5c48e9b0eed2045607ab2cfed80a60a32b5
+--- /dev/null
++++ b/drivers/gpu/drm/imagination/pvr_fw_util.c
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/* Copyright (c) 2024 Imagination Technologies Ltd. */
 +
-+	host_ptr = vmap(&raw_page, 1, VM_MAP, prot);
- 	if (!host_ptr) {
- 		err = -ENOMEM;
- 		goto err_free_page;
++#include "pvr_device.h"
++#include "pvr_fw.h"
++
++#include <drm/drm_device.h>
++#include <drm/drm_print.h>
++
++#include <linux/elf.h>
++#include <linux/string.h>
++#include <linux/types.h>
++
++/**
++ * pvr_fw_process_elf_command_stream() - Process ELF firmware image and populate
++ *                                       firmware sections
++ * @pvr_dev: Device pointer.
++ * @fw: Pointer to firmware image.
++ * @fw_code_ptr: Pointer to FW code section.
++ * @fw_data_ptr: Pointer to FW data section.
++ * @fw_core_code_ptr: Pointer to FW coremem code section.
++ * @fw_core_data_ptr: Pointer to FW coremem data section.
++ *
++ * Returns :
++ *  * 0 on success, or
++ *  * -EINVAL on any error in ELF command stream.
++ */
++int
++pvr_fw_process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw,
++				  u8 *fw_code_ptr, u8 *fw_data_ptr,
++				  u8 *fw_core_code_ptr, u8 *fw_core_data_ptr)
++{
++	struct elf32_hdr *header = (struct elf32_hdr *)fw;
++	struct elf32_phdr *program_header = (struct elf32_phdr *)(fw + header->e_phoff);
++	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
++	u32 entry;
++	int err;
++
++	for (entry = 0; entry < header->e_phnum; entry++, program_header++) {
++		void *write_addr;
++
++		/* Only consider loadable entries in the ELF segment table */
++		if (program_header->p_type != PT_LOAD)
++			continue;
++
++		err = pvr_fw_find_mmu_segment(pvr_dev, program_header->p_vaddr,
++					      program_header->p_memsz, fw_code_ptr, fw_data_ptr,
++					      fw_core_code_ptr, fw_core_data_ptr, &write_addr);
++		if (err) {
++			drm_err(drm_dev,
++				"Addr 0x%x (size: %d) not found in any firmware segment",
++				program_header->p_vaddr, program_header->p_memsz);
++			return err;
++		}
++
++		/* Write to FW allocation only if available */
++		if (write_addr) {
++			memcpy(write_addr, fw + program_header->p_offset,
++			       program_header->p_filesz);
++
++			memset((u8 *)write_addr + program_header->p_filesz, 0,
++			       program_header->p_memsz - program_header->p_filesz);
++		}
++	}
++
++	return 0;
++}
 
 -- 
 2.49.0
