@@ -4,87 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54E3C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D074C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Srr0VBZQwN4yXqvwN4Xth0EZBYASL+7tLcIViL1r650=; b=TTJdNzXnCogNmArPiaJOhdj2jX
-	NihfkfByRYXoI4758KpUivveaZO1ZLQjcqNkVrb56W3nk+cqjyFqUds3MH4IygXjDPZdyNv4pOb97
-	8okCYkqd483pRJ730TXzZPlBD/2ZCVp4jgUzLIU8HLsYvJlplVykNWvepE7iSU6IPXmD+GGty3XT3
-	ZHzNz+rXkomhlrs1bG8ZXfDbKtJP9JRG/5fl5Z36ac/Jqhgc02QPnJKZhhL+6rN8v+r/Avs+HCMWb
-	J4fbnHPotVnkMm2d2+YhQ0IAhwEQLkLRqesMPMyXjG2VTwhN668ii3qTGwpEHhoczCUCnyz+QjsII
-	QFDREJxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tCTXY8au+71bsz+0fNc/CkvP9+Xt+EQdyzRpclZudew=; b=FTtCLv87ySyLNoi6TFMe7lPXt7
+	d0QrGzTetKiZxri957+qTdQQ3C7oBerr48TIlN71kbIXRGJtIeOhgIQ7ZhUQTljZCJWWmVtM4lr0A
+	Nmz748ntuYaOp1x5U428BaK0WS4GZYPa9HQcHDuIsTHmluvnWyM8gmDKKIEmuqoJY8Kz/yoOYyVIK
+	Uhxgoel9parXvLyEl08j45n0p7fe/8Yo264WSyoyqQ/XMxWWzTPvV9HQrrbmY1PFt5D4wreW1FEIe
+	LTfFiTaLeS0W7lKlKm/4HRyuRbXkS+snVxqw+uxmZ5g7QmZP9URK11Lgq2/vTvezHIeG7Khyqcs4z
+	+eYkdlCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJhz-0000000Cnx2-2BY3;
-	Thu, 20 Mar 2025 17:29:31 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tvJjf-0000000CoEy-0hPK;
+	Thu, 20 Mar 2025 17:31:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJdu-0000000CnMh-01Ar
+	id 1tvJg4-0000000Cni6-2kGh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 17:25:19 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-391342fc0b5so933134f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 10:25:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742491516; x=1743096316; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Srr0VBZQwN4yXqvwN4Xth0EZBYASL+7tLcIViL1r650=;
-        b=NfXunj4BU95+6lTpoLKV3Z3DKWJqCH0ywB3FkVdR9SmzWQ5QK1ohrPrs96+6s9jAqm
-         WLDFd46pzohcBtlecz3ybA3UNsQUJQHohjPxe7QOZi7KIIySIntiYvbS9yNUxyooDDk1
-         LelhPk778tlCwTPHrC7wewMQfwVD6Ll+m5NRsMj/dLgTrQz6B7FJBIoqiRNE94u6ccBv
-         7wXjVHfQSPEzqXusod0mI271veSz9RFgT7r9ExuAMG8i5Dvk7U22EPLXU+LMU60x+yFA
-         3vqAYkUg6kU49nexJmLOm3F6ktsOBwAbdMK5ecmOQd+iOASduIQIz2GS7XgGCayS0XDn
-         iv4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742491516; x=1743096316;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Srr0VBZQwN4yXqvwN4Xth0EZBYASL+7tLcIViL1r650=;
-        b=RFkwAZFwYgJUm5nrS8Hzk4vwDPZjZlHJ4A2gsJK3oFVfAhZKtxmz25a/waC2deS8K2
-         4NOk7NxpHBPIHg1cTgBm6kDisXs34RagTPXSY1itVASBd02UFepH6HVq+6Jiq2/a05LP
-         z8ShYHc11zVBV+8PpzBeWnSJ2hyOMjD8qXNBc112UkWEjCXLzBzcsJu88P1T4OFp3i8u
-         aGzf7AYxv8oQH/LbUPTjQ3iKxkmI8zXuRFMz5xha1s0xL/o8ducVH3yo9S1Avhuozxxh
-         UufZnXPsMpOZv/o9ItLGrXxe2AxF0GQf89EHMZkr8AMjxri3nIy/by3OXA6NSDIwzmmA
-         xF1g==
-X-Forwarded-Encrypted: i=1; AJvYcCXD1zJDVmMFySggZQvTGi2fAtD2sMkgic8oRx2qfjc8e2Ty+r3OPVrGv/VYb3BK02qOv7fxrnXhliyl+xnPB7cI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXp1bfPjxTsaswgFb3wAMTwU5DJyrzBG72bohs+KsZw0SRL+Fc
-	XxU70HqiIgHn+PrCKWWIgcYTl65Pu4nf9dX5ZTeHP0J/+VeUQO6HHKP06lhM9vfluz0MVGCGUYM
-	7d5Dodihj1KvOlbpiFnkQCG6WUgI=
-X-Gm-Gg: ASbGnctcpjHwJsr48wvUhuiMFJWj6BbZcOB9NeSkqFS0FP7CXbqArlOK4GI2fGmDRy4
-	Rz7QlDMCbSpLLK4vdHJ3Kid+Xj1GyDAYf3BQX+qbnguLMSPLhMHIlYdRHhGlCpuxsRA0fPHkNn6
-	v02MFNe+yFYURUJc5L7wG4SMbYXV4=
-X-Google-Smtp-Source: AGHT+IHbGxKbQYCFuWIhUZcVJczLm09+fIRHtWAIdQXRdJS6TuroZiuhT9dXX9oyzczviIbaRcswg6Yl68ThvI97uCA=
-X-Received: by 2002:a05:6000:21c6:b0:385:d7f9:f157 with SMTP id
- ffacd0b85a97d-3997f9375admr249521f8f.36.1742491515474; Thu, 20 Mar 2025
- 10:25:15 -0700 (PDT)
+	Thu, 20 Mar 2025 17:27:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=tCTXY8au+71bsz+0fNc/CkvP9+Xt+EQdyzRpclZudew=; b=cJ87csw/S2ZuA7VfWqTPQaoGwR
+	PH6KJOpZnuZz9rgSTwN2KX+U25vjRxxqRo5zDNbnX+aifNt3/DNzUEwYOgudTZnPMN3H+glYtBtZ3
+	RQxVoKgNZsLmsvuwp2Obtu84bo8ydg5GKg5IDum27w1K2Qx4nxpkvei0CACt6dOgz1QaJK34h0DnB
+	YimCeCltUfxC9sDt4R2FGLjNu5iP9ZPFqia8NL1bw9HwnCysEosfDHJycLXs/rCcWS4GNeIA3U+vr
+	l5PVvGrZmWU0281SacVYhQ9s5hqMrG0w70NC1tX97qjpegDgLdSHkzcd9N2xRkpwfw1ai4m0kGFx5
+	XZ9cZXnQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54996)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tvJfq-0007zD-0P;
+	Thu, 20 Mar 2025 17:27:18 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tvJfo-0006mk-0x;
+	Thu, 20 Mar 2025 17:27:16 +0000
+Date: Thu, 20 Mar 2025 17:27:16 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@kernel.org>
+Cc: Jon Hunter <jonathanh@nvidia.com>, Thierry Reding <treding@nvidia.com>,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: suspend-to-ram resume fails on Tegra Jetson Xavier NX
+Message-ID: <Z9xP9IpLD04O5KPY@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20250318214035.481950-1-pcc@google.com> <20250318214035.481950-3-pcc@google.com>
-In-Reply-To: <20250318214035.481950-3-pcc@google.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Thu, 20 Mar 2025 18:25:04 +0100
-X-Gm-Features: AQ5f1Jokd8HHitZidj6J_qrj1ibwtVddlmZs6GFQ40Nq--4p2Wt3mzW0XeogKWQ
-Message-ID: <CA+fCnZfG79JmGG9rj7KbE=9yX-EM4e8CXDSm5F9=YEmgyX5v3w@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] kasan: Add strscpy() test to trigger tag fault on arm64
-To: Peter Collingbourne <pcc@google.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_102518_043077_3A06CA84 
-X-CRM114-Status: GOOD (  28.38  )
+X-CRM114-CacheID: sfid-20250320_102732_986865_9561B800 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,105 +78,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 10:41=E2=80=AFPM Peter Collingbourne <pcc@google.co=
-m> wrote:
->
-> From: Vincenzo Frascino <vincenzo.frascino@arm.com>
->
-> When we invoke strscpy() with a maximum size of N bytes, it assumes
-> that:
-> - It can always read N bytes from the source.
-> - It always write N bytes (zero-padded) to the destination.
->
-> On aarch64 with Memory Tagging Extension enabled if we pass an N that is
-> bigger then the source buffer, it triggers an MTE fault.
->
-> Implement a KASAN KUnit test that triggers the issue with the current
-> implementation of read_word_at_a_time() on aarch64 with MTE enabled.
->
-> Cc: Will Deacon <will@kernel.org>
-> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Co-developed-by: Peter Collingbourne <pcc@google.com>
-> Signed-off-by: Peter Collingbourne <pcc@google.com>
-> Link: https://linux-review.googlesource.com/id/If88e396b9e7c058c1a4b5a252=
-274120e77b1898a
-> ---
-> v2:
-> - rebased
-> - fixed test failure
->
->  mm/kasan/kasan_test_c.c | 31 ++++++++++++++++++++++++++++++-
->  1 file changed, 30 insertions(+), 1 deletion(-)
->
-> diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-> index 59d673400085f..c4bb3ee497b54 100644
-> --- a/mm/kasan/kasan_test_c.c
-> +++ b/mm/kasan/kasan_test_c.c
-> @@ -1570,7 +1570,9 @@ static void kasan_memcmp(struct kunit *test)
->  static void kasan_strings(struct kunit *test)
->  {
->         char *ptr;
-> -       size_t size =3D 24;
-> +       char *src, *src2;
-> +       u8 tag;
-> +       size_t size =3D 2 * KASAN_GRANULE_SIZE;
->
->         /*
->          * str* functions are not instrumented with CONFIG_AMD_MEM_ENCRYP=
-T.
-> @@ -1581,6 +1583,33 @@ static void kasan_strings(struct kunit *test)
->         ptr =3D kmalloc(size, GFP_KERNEL | __GFP_ZERO);
->         KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ptr);
->
-> +       src =3D kmalloc(size, GFP_KERNEL | __GFP_ZERO);
-> +       strscpy(src, "f0cacc1a00000000f0cacc1a00000000", size);
-> +
-> +       tag =3D get_tag(src);
-> +
-> +       src2 =3D src + KASAN_GRANULE_SIZE;
-> +
-> +       /*
-> +        * Shorten string and poison the granule after it so that the una=
-ligned
-> +        * read in strscpy() triggers a tag mismatch.
-> +        */
-> +       src[KASAN_GRANULE_SIZE - 1] =3D '\0';
-> +       kasan_poison(src2, KASAN_GRANULE_SIZE, tag + 1, false);
-> +
-> +       /*
-> +        * The expected size does not include the terminator '\0'
-> +        * so it is (KASAN_GRANULE_SIZE - 2) =3D=3D
-> +        * KASAN_GRANULE_SIZE - ("initial removed character" + "\0").
-> +        */
-> +       KUNIT_EXPECT_EQ(test, KASAN_GRANULE_SIZE - 2,
-> +                       strscpy(ptr, src + 1, size));
-> +
-> +       /* Undo operations above. */
-> +       src[KASAN_GRANULE_SIZE - 1] =3D '0';
-> +       kasan_poison(src2, KASAN_GRANULE_SIZE, tag, false);
-> +
-> +       kfree(src);
+Hi,
 
-I have trouble understanding what this code is doing...
+I'm struggling with a deadlock in the _noirq paths when resuming from
+suspend-to-ram. with 6.14-rc6 (specifically net-next).
 
-So the goal is to call strcpy with such an address, that the first 8
-bytes (partially) cover 2 granules, one accessible and the other is
-not?
+Having thrown lots of debug into kernel/power/suspend.c and
+drivers/base/power/main.c, what I observe is:
 
-If so, can we not do something like:
+1. /sys/power/pm_async is 1. If this is set to 0, then the problem does
+   not manifest.
 
-src =3D kmalloc(KASAN_GRANULE_SIZE, GFP_KERNEL | __GFP_ZERO);
-strscpy(src, "aabbcceeddeeffg\0", size);
-strscpy(ptr, src + KASAN_GRANULE_SIZE - 2, sizeof(unsigned long));
+2. it seems the sync/async resume doesn't order correctly. With my own
+   debugging in place, I see:
 
-Otherwise, this code needs more explanatory comments and it's probably
-better to move it out to a helper function.
+CPU5 is up
+resume: suspend_enter:471
+resume: dpm_resume_noirq:794
+resume: dpm_noirq_resume_devices:742
+ faux: PM: trying async resume (async=0)
+ faux: PM:   -- will resume sync
+ platform: PM: trying async resume (async=0)
+ platform: PM:   -- will resume sync
+ cpu: PM: trying async resume (async=0)
+ cpu: PM:   -- will resume sync
+cpu cpu0: PM: trying async resume (async=0)
+cpu cpu0: PM:   -- will resume sync
+...
+tegra-bpmp bpmp: PM: trying async resume (async=0)
+tegra-bpmp bpmp: PM:   -- will resume sync
+platform 17000000.gpu: PM: trying async resume (async=0)
+platform 17000000.gpu: PM:   -- will resume sync
+platform 13e00000.host1x: PM: trying async resume (async=0)
+platform 13e00000.host1x: PM:   -- will resume sync
+...
+tegra-bpmp-i2c bpmp:i2c: PM: trying async resume (async=0)
+tegra-bpmp-i2c bpmp:i2c: PM:   -- will resume sync
 
->         kfree(ptr);
->
->         /*
-> --
-> 2.49.0.395.g12beb8f557-goog
->
+*** Note - bpmp:i2c is on the dpm_noirq_list after 13e00000.host1x
+and is being resumed synchronously.
+
+i2c i2c-0: PM: trying async resume (async=1)
+i2c-dev i2c-0: PM: trying async resume (async=0)
+i2c i2c-0: PM: device_resume_noirq:650
+i2c-dev i2c-0: PM:   -- will resume sync
+max77620 0-003c: PM: trying async resume (async=1)
+max77620-pinctrl max20024-pinctrl: PM: trying async resume (async=0)
+max77620 0-003c: PM: device_resume_noirq:650
+...
+i2c i2c-0: PM: waiting for parent (bpmp:i2c)
+max77620 0-003c: PM: waiting for parent (i2c-0)
+...
+tegra-bpmp bpmp: PM: device_resume_noirq:650
+tegra-bpmp bpmp: PM: waiting for parent (platform)
+tegra-bpmp bpmp: PM: parent wait finished, waiting for suppliers
+tegra-bpmp bpmp: PM: waiting for supplier 2c00000.memory-controller
+tegra-bpmp bpmp: PM: supplier finished
+tegra-bpmp bpmp: PM: waiting for supplier 3c00000.hsp
+tegra-bpmp bpmp: PM: supplier finished
+tegra-bpmp bpmp: PM: suppliers finished
+tegra-bpmp bpmp: PM: -- resume_noirq: tegra_bpmp_resume (sync)
+tegra-bpmp bpmp: PM: -- complete
+...
+platform 13e00000.host1x: PM: device_resume_noirq:650
+platform 13e00000.host1x: PM: waiting for parent (bus@0)
+platform 13e00000.host1x: PM: parent wait finished, waiting for suppliers
+platform 13e00000.host1x: PM: waiting for supplier 2c60000.external-memory-controller
+platform 13e00000.host1x: PM: supplier finished
+platform 13e00000.host1x: PM: waiting for supplier 2c00000.memory-controller
+platform 13e00000.host1x: PM: supplier finished
+platform 13e00000.host1x: PM: waiting for supplier 2200000.gpio
+platform 13e00000.host1x: PM: supplier finished
+platform 13e00000.host1x: PM: waiting for supplier bpmp
+platform 13e00000.host1x: PM: supplier finished
+platform 13e00000.host1x: PM: waiting for supplier regulator-vdd-hdmi
+platform 13e00000.host1x: PM: supplier finished
+platform 13e00000.host1x: PM: waiting for supplier bus@0
+platform 13e00000.host1x: PM: supplier finished
+platform 13e00000.host1x: PM: waiting for supplier 0-003c
+
+Here we die - with interrupts off, so none of the kernel lockup
+detectors are functional, so without debug the console is completely
+silent.
+
+13e00000.host1x is not bound to a driver (it failed its probe), but
+is being synchronously resumed. It is waiting for 0-003c to be resumed.
+
+0-003c is being resumed asynchronously, and is waiting for i2c-0 to
+be resumed.
+
+i2c-0 is being resumed asynchronously, and is waiting for bpmp:i2c to
+be resumed.
+
+bpmp:i2c is not *yet* being resumed, because it is to be resumed
+synchronously, and is on the dpm_noirq_list after 13e00000.host1x.
+This results in a silently dead system on resume.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
