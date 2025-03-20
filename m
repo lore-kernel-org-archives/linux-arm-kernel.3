@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BB2C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 21:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692CDC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 21:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cbk3jQRpbWZBJhAvhNYsKKIrxJtVHyaYhoxicKJbhbI=; b=d76ycAFRFwN1zMtzWjrxxJVMRl
-	lAvLy6SZ2vTxnfr3pk+a563Qk2AkUnVqe2ckul/A4fVtRhzC3Vpmfp39CWlMvCyfJcOMz0alj9Iz5
-	VHGws1qzk0jOWWvq6ofpcxY+0VyrafOaWzahQzb7ik1NfyiblR0sxKvmMI/eTHpRHropwX2UurP+Y
-	fmBEzvKHuh6MmVPkz86hnGoAF9RSGxKX3I9lL5Hv5gAtbRmwbuZpo57rOjotscOxI//IjRLm9ELD5
-	PderHmZ2/PSIXT0ekJuprkZcKgDXKKjWqOpmf+vBcX18wDfFeVUpitzcfBHjWt6pR4mpYdwgzqKPm
-	DI0X2H9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zYIFpIGg7Pw4Ms94S3HA9G4NSedkMEmXDo8W6VlYbjw=; b=bfWYsyzue8tJW9Xn23liO30Wf2
+	3KtDW4eBfIYFJ4sRq65CosP3vCLu1uwYDLGSz0RaqPcT7p1VIQP06CbLD1kN9vg7gwdkHXA2IiH1A
+	K4AEj8fFzXQEiF00t+4tpCwEumWSSEMdpq3SKVKd3o72u4QcGrdeKEKLAd0vGE0D0lrczqZEWdnRK
+	+U/CjiJA7hzWKI92j/o9vCX/XkA8MuG1ehVBVLqQLUYcDJ8aLjRTVOzlZwuJnaG6OnsUnx2GHQd5u
+	UpldeZwD9FeSfCyeqBqseaVcBjvl8jc/lgSv7V+8piiSxZ15rRmFBJgGU0KgnsXJAoEHV5CYQd9t6
+	6xMIr6LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvN3z-0000000DDHW-3gvA;
-	Thu, 20 Mar 2025 21:04:27 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1tvNEY-0000000DEEf-13FY;
+	Thu, 20 Mar 2025 21:15:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvN2H-0000000DD8T-3mqZ
+	id 1tvNCr-0000000DE5Y-04bX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 21:02:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742504562; x=1774040562;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=9Yu/IcKZ+HW0miEpI8MazFPTTbzQQ642qRvaUz7Er3I=;
-  b=JeZAPYi6J5W5z+LOqdAzS5TOgg+D1//eqhVq8LflC0jEFsyFFZZ1JXQV
-   IccanzbbGmi+PL6FFjTp/U6oUqLEKX5QBXK2/rTnx4c6Z1hpNPgnhG46I
-   9jJmRYmsZ5m7Xzqr+vwBdRakOGXmk4RYnEkAoVP9NbzJOGLTYlHkAt4ah
-   Q5pYLGN/kmYMfVaN53aVXfigofusa9JiuGUUk89juFIZvl8UL51YhEP4f
-   1kTmIgsSUQt2/Aq8Ic2lsQMWunB15RgWZQhRlrZvKxwA9ouZntCx+mA4H
-   /bc+jyhVHfKKB8QsH5FbJ9Rn4iYbAovXzsqkI4uRkfqCay0i6FUFYZRP9
-   g==;
-X-CSE-ConnectionGUID: mh/K14DIT7m+qjpyD4idag==
-X-CSE-MsgGUID: CA5SkhRxSpaYTYJk2iO8lw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11379"; a="43491197"
-X-IronPort-AV: E=Sophos;i="6.14,262,1736841600"; 
-   d="scan'208";a="43491197"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2025 14:02:40 -0700
-X-CSE-ConnectionGUID: nXFITisySfCRV1iQdQ4WdQ==
-X-CSE-MsgGUID: CbZlzwNgQJurit+a8DQtvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,262,1736841600"; 
-   d="scan'208";a="154099904"
-Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
-  by orviesa002.jf.intel.com with ESMTP; 20 Mar 2025 14:02:39 -0700
-Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tvN29-0000lP-2g;
-	Thu, 20 Mar 2025 21:02:35 +0000
-Date: Fri, 21 Mar 2025 05:02:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, arm@kernel.org,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: [soc:soc/drivers 22/24]
- drivers/platform/cznic/turris-signing-key.c:25:55: warning: omitting the
- parameter name in a function definition is a C23 extension
-Message-ID: <202503210450.AoOpbJXC-lkp@intel.com>
+	Thu, 20 Mar 2025 21:13:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 57F87A496EA;
+	Thu, 20 Mar 2025 21:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F231C4CEDD;
+	Thu, 20 Mar 2025 21:13:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1742505215;
+	bh=qT3pRQIRt1i35oXtu0ODXFreqqI/+Y7zQS4P0enG44U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iaMJ49FB16G+FlJRuy97OCfjA+ZbWBl3XVzcBMcaKwrB06G5d36541muYB5cmaXHu
+	 YMMt/nHuOhUyOpB+eQ4xO2cyWMn+axk3d7aTdXz2tEEpUBygHFk0M9oDEEwHS0uJPd
+	 EKgLazyXP8IsrH66Cm5uouuHXXVNfRPzAwLWxRrU=
+Date: Thu, 20 Mar 2025 14:12:15 -0700
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	james.morse@arm.com, conor@kernel.org,
+	Yicong Yang <yangyicong@huawei.com>, linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org, linuxarm@huawei.com,
+	Yushan Wang <wangyushan12@huawei.com>, linux-mm@kvack.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dan Williams <dan.j.williams@intel.com>
+Subject: Re: [RFC PATCH 3/6] cache: coherency device class
+Message-ID: <2025032013-venus-request-b026@gregkh>
+References: <20250320174118.39173-1-Jonathan.Cameron@huawei.com>
+ <20250320174118.39173-4-Jonathan.Cameron@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250320174118.39173-4-Jonathan.Cameron@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_140241_984408_978806E2 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250320_141337_185440_4C731CC7 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,45 +77,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
-head:   ba8755ab541fc629948233125db870d4dbf00a75
-commit: df94a2f1eb455b57dd01f9b64419e3163d44df7f [22/24] platform: cznic: turris-omnia-mcu: Add support for digital message signing with HW private key
-config: arm-randconfig-001-20250321 (https://download.01.org/0day-ci/archive/20250321/202503210450.AoOpbJXC-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250321/202503210450.AoOpbJXC-lkp@intel.com/reproduce)
+On Thu, Mar 20, 2025 at 05:41:15PM +0000, Jonathan Cameron wrote:
+> --- a/drivers/cache/Kconfig
+> +++ b/drivers/cache/Kconfig
+> @@ -1,6 +1,12 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  menu "Cache Drivers"
+>  
+> +config CACHE_COHERENCY_CLASS
+> +	bool "Cache coherency control class"
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503210450.AoOpbJXC-lkp@intel.com/
+Why can't this be a module?  And why would anyone want to turn it off?
 
-All warnings (new ones prefixed by >>):
+> +	help
+> +	  Class to which coherency control drivers register allowing core kernel
+> +	  subsystems to issue invalidations and similar coherency operations.
 
->> drivers/platform/cznic/turris-signing-key.c:25:55: warning: omitting the parameter name in a function definition is a C23 extension [-Wc23-extensions]
-      25 | static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
-         |                                                       ^
-   drivers/platform/cznic/turris-signing-key.c:25:87: warning: omitting the parameter name in a function definition is a C23 extension [-Wc23-extensions]
-      25 | static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
-         |                                                                                       ^
-   2 warnings generated.
+What "core kernel subsystems"?
 
+> +
+>  config AX45MP_L2_CACHE
+>  	bool "Andes Technology AX45MP L2 Cache controller"
+>  	depends on RISCV
 
-vim +25 drivers/platform/cznic/turris-signing-key.c
+Shouldn't all of these now depend on CACHE_COHERENCY_CLASS?
 
-0b28b7080ef5a3 Marek Behún 2025-02-04  24  
-0b28b7080ef5a3 Marek Behún 2025-02-04 @25  static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
-0b28b7080ef5a3 Marek Behún 2025-02-04  26  {
-0b28b7080ef5a3 Marek Behún 2025-02-04  27  	return 0;
-0b28b7080ef5a3 Marek Behún 2025-02-04  28  }
-0b28b7080ef5a3 Marek Behún 2025-02-04  29  
+> diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
+> index 55c5e851034d..b72b20f4248f 100644
+> --- a/drivers/cache/Makefile
+> +++ b/drivers/cache/Makefile
+> @@ -3,3 +3,5 @@
+>  obj-$(CONFIG_AX45MP_L2_CACHE)		+= ax45mp_cache.o
+>  obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
+>  obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
+> +
+> +obj-$(CONFIG_CACHE_COHERENCY_CLASS)	+= coherency_core.o
 
-:::::: The code at line 25 was first introduced by commit
-:::::: 0b28b7080ef5a323c3afa3860c3d45d627629830 platform: cznic: Add keyctl helpers for Turris platform
+Why the blank line?
 
-:::::: TO: Marek Behún <kabel@kernel.org>
-:::::: CC: Arnd Bergmann <arnd@arndb.de>
+> diff --git a/drivers/cache/coherency_core.c b/drivers/cache/coherency_core.c
+> new file mode 100644
+> index 000000000000..52cb4ceae00c
+> --- /dev/null
+> +++ b/drivers/cache/coherency_core.c
+> @@ -0,0 +1,130 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Class to manage OS controlled coherency agents within the system.
+> + * Specifically to enable operations such as write back and invalidate.
+> + *
+> + * Copyright: Huawei 2025
+> + * Some elements based on fwctl class as an example of a modern
+> + * lightweight class.
+> + */
+> +
+> +#include <linux/cache_coherency.h>
+> +#include <linux/container_of.h>
+> +#include <linux/idr.h>
+> +#include <linux/fs.h>
+> +#include <linux/module.h>
+> +#include <linux/slab.h>
+> +
+> +#include <asm/cacheflush.h>
+> +
+> +static DEFINE_IDA(cache_coherency_ida);
+> +
+> +static void cache_coherency_device_release(struct device *device)
+> +{
+> +	struct cache_coherency_device *ccd =
+> +		container_of(device, struct cache_coherency_device, dev);
+> +
+> +	ida_free(&cache_coherency_ida, ccd->id);
+> +}
+> +
+> +static struct class cache_coherency_class = {
+> +	.name = "cache_coherency",
+> +	.dev_release = cache_coherency_device_release,
+> +};
+> +
+> +static int cache_inval_one(struct device *dev, void *data)
+> +{
+> +	struct cache_coherency_device *ccd =
+> +		container_of(dev, struct cache_coherency_device, dev);
+> +
+> +	if (!ccd->ops)
+> +		return -EINVAL;
+> +
+> +	return ccd->ops->wbinv(ccd, data);
+> +}
+> +
+> +static int cache_inval_done_one(struct device *dev, void *data)
+> +{
+> +	struct cache_coherency_device *ccd =
+> +		container_of(dev, struct cache_coherency_device, dev);
+> +	if (!ccd->ops)
+> +		return -EINVAL;
+> +
+> +	return ccd->ops->done(ccd);
+> +}
+> +
+> +static int cache_invalidate_memregion(int res_desc,
+> +				      phys_addr_t addr, size_t size)
+> +{
+> +	int ret;
+> +	struct cc_inval_params params = {
+> +		.addr = addr,
+> +		.size = size,
+> +	};
+> +
+> +	ret = class_for_each_device(&cache_coherency_class, NULL, &params,
+> +				    cache_inval_one);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return class_for_each_device(&cache_coherency_class, NULL, NULL,
+> +				     cache_inval_done_one);
+> +}
+> +
+> +static const struct system_cache_flush_method cache_flush_method = {
+> +	.invalidate_memregion = cache_invalidate_memregion,
+> +};
+> +
+> +struct cache_coherency_device *
+> +_cache_coherency_alloc_device(struct device *parent,
+> +			      const struct coherency_ops *ops, size_t size)
+> +{
+> +
+> +	if (!ops || !ops->wbinv)
+> +		return NULL;
+> +
+> +	struct cache_coherency_device *ccd __free(kfree) = kzalloc(size, GFP_KERNEL);
+> +
+> +	if (!ccd)
+> +		return NULL;
+> +
+> +	ccd->dev.class = &cache_coherency_class;
+> +	ccd->dev.parent = parent;
+> +	ccd->ops = ops;
+> +	ccd->id = ida_alloc(&cache_coherency_ida, GFP_KERNEL);
+> +
+> +	if (dev_set_name(&ccd->dev, "cache_coherency%d", ccd->id))
+> +		return NULL;
+> +
+> + 	device_initialize(&ccd->dev);
+> +
+> +	return_ptr(ccd);
+> +}
+> +EXPORT_SYMBOL_NS_GPL(_cache_coherency_alloc_device, "CACHE_COHERENCY");
+> +
+> +int cache_coherency_device_register(struct cache_coherency_device *ccd)
+> +{
+> +	return device_add(&ccd->dev);
+> +}
+> +EXPORT_SYMBOL_NS_GPL(cache_coherency_device_register, "CACHE_COHERENCY");
+> +
+> +void cache_coherency_device_unregister(struct cache_coherency_device *ccd)
+> +{
+> +	device_del(&ccd->dev);
+> +}
+> +EXPORT_SYMBOL_NS_GPL(cache_coherency_device_unregister, "CACHE_COHERENCY");
+> +
+> +static int __init cache_coherency_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = class_register(&cache_coherency_class);
+> +	if (ret)
+> +		return ret;
+> +
+> +	//TODO: generalize
+> +	arm64_set_sys_cache_flush_method(&cache_flush_method);
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+I'm guessing this will blow up the build on non-x86 builds :)
+
+> +struct cache_coherency_device {
+> +	struct device dev;
+> +	const struct coherency_ops *ops;
+> +	int id;
+> +};
+
+Classes are normally for user/kernel apis, what is this going to be used
+for?  I don't see any new user/kernel apis happening, so why do you need
+a struct device to be created?
+
+thanks,
+
+greg k-h
 
