@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE4CC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 10:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2408C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 10:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ocw3fLNrrR6m3zSnxHaViU7nn/Q0W3Q5BAYr9jcJ8fw=; b=j99UjS12foTNO1PFSW6avA9cXG
-	wQR7wcWVHLIwCgx6TZzpvTlmEB6QJQg9j97AkCZqKavYek89xVBJ0WYGRo/94jxikyh70167eQyJH
-	RY2kBwY3uRW77eWN9PTZ6SYDwRfX+ze0MQ8dCSIs4yoJZMYF1MexSfK1ocedEcigaLHf8Nmr7HXLc
-	aeB4N89BCPGJWALykYz29MGLvMEEghuhOgl2+EOinkJs425tshsKL9fC+ibAmAFACv5ykGIp++cIV
-	nv5mz5m53R8hsfa6Tr2Vv6DqjFeh4Is4kxfLmAmJ6Mse44uVFPt6eVCiO9qtuups0WSHkPrFzAwWO
-	2K29VgoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j11DFSETqOLtc+vMOz1k4rHgXFA118EedepjEdU8Zqw=; b=VUtv7CSxK1seHO0pQTn6R6Ud8Q
+	sx/RozE60+mV5cuh1BHw4hq00W3olg4mVABPi6Fm/Zc4ju7LT46+lWWsoWH75LLPvbfTHHr8snyMo
+	6y5YnrY4rP9Ur4RgWZWskhf3RNsWa7+6GBaVsuxY606uIkbf+Y41OR0IXDCMiuo2LBFe40KQLcjOJ
+	pJjP2xmxOAAmNoIpRIIzVUbxHjDvIdWjWkMDzANIpLXZ2hQTMGqhk7SHcZwlXJ2l9zH7upEPgyZam
+	PLOyfdY72Zhcehhgp/jTadlN0OI6miqC6/4bn7CozP/GRuXJQILUCfrSzA7yGFvOyrOxnplhGNRN0
+	2Eg2hCsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDIi-0000000BpwL-2I5J;
-	Thu, 20 Mar 2025 10:39:00 +0000
-Received: from mail-ua1-x92f.google.com ([2607:f8b0:4864:20::92f])
+	id 1tvDPw-0000000BqgK-1HXf;
+	Thu, 20 Mar 2025 10:46:28 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDFI-0000000BpRW-24qN
+	id 1tvDOE-0000000BqQI-0S4Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 10:35:29 +0000
-Received: by mail-ua1-x92f.google.com with SMTP id a1e0cc1a2514c-86b9b1def28so592515241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 03:35:28 -0700 (PDT)
+	Thu, 20 Mar 2025 10:44:43 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d3b211d0eso9419215e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 03:44:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742466927; x=1743071727; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ocw3fLNrrR6m3zSnxHaViU7nn/Q0W3Q5BAYr9jcJ8fw=;
-        b=hx3ld2yafY3QYdDBBpipqggljPPRE7Hw2CCkbxuLuccokeamlqAOEHqYnjaR1S5zdy
-         GYI84gZFSqWeDr1IMNcMoZL8W8wjpcabCcrffmFk0lIxmE20RkvllutoAQtrwl976m2Q
-         p09vWa70v8xtAL8vLVlGXP8ySEYyZbuEJBU/udFhZH+zhOuoCLi4OziWKtL+b9BTHMou
-         FksMNiB6znyH+yKQvhVdsKpQANgPiWcS8PJ15wjXz13FOYvx2iMVc4zyQFOi4NTEPkf9
-         lJ1G9lSgSSRk4FmBK4grfZxk2aU4AIMVJYp7MctamUtqobSlUmvgsltTgka/7IR9dYYi
-         IrEg==
+        d=google.com; s=20230601; t=1742467480; x=1743072280; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=j11DFSETqOLtc+vMOz1k4rHgXFA118EedepjEdU8Zqw=;
+        b=GS8RrzE2vwAeGIaqR5zLiyJSzd2zaxwuhxrLwkE8WHU1pmJAFltVU/jPwH5g02Ipsk
+         /HLtC1YtosNokwMiybWwMxr9RM7ao6QMvMNBmqiXNzSS+j/63tEVfTQ3DeU5fBNLQ0YK
+         PB0W0+fhy/gi7pGUTN4MmNOFBfxKWK+Gd3mjQEep0myZuf/9zJC5nPNK+5eafqJdFTX3
+         cWHK3/6r1f+ENqqYAzwJvIfO/c7dq+dKev2ORVOlKidpXK0R+AXh/HWMg+eHMxL49ZS3
+         4Ca5wf54yWZuj0bfRZ5/rO7u+x+emthzQ4WL3xI/Vj9Qph5opobyDTBaVmt0/uxIW0O4
+         Cctw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742466927; x=1743071727;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ocw3fLNrrR6m3zSnxHaViU7nn/Q0W3Q5BAYr9jcJ8fw=;
-        b=KWwyOp9MO70Gm53B6Xayj8UwBNIPSySID+XpB3Mc5eobeKtlE0uoI//Lm3u4ofAIxC
-         od7RCov84Qe7CmnJwBRA4VFOHj0/I5+CQIEbwva5jSAeiQtpGVJjB2n1UQlyzYS8GlFj
-         rBCUv0rGzGIUDHxlzmWjPGUPmmpweuqg6c9nV2P2vBSqG9xgpKbTk9citD/I0aeoNR7/
-         FqmpNBO3VQb2Bntj046hVBoO6lDXa8cRqfRsa8NRxlILvTUm8O/AEnGFsiWqRAV9q0wg
-         rbBsm9RePGEPzbyGZ/DQqWZwG9dVjjWh2h4iL7LCm7H2Pocn0CRCACk0TmojOODdE0DI
-         mFuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXlAyua7Q4RFHitjY+WlQrrpzSwZ86eGRcZAKLLDhtqFS1yVar9yruYXFMrel6IpcOaANuV7UmNgpvcyqmPTbP+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyZjxvdtslmqfvBgsgSLkABoxDVYtlMvW5opxPwV4a4fKU0cmL
-	7Yy02u+qKqMCUFnrBC2z0ckMPZnTByl9PvDfncItwHs21PIBEMcYvlSmPJTdP550pLQoH2xfMbt
-	ol7MRLYwNoFPIQb0gGiJhkrK22+Ox11woirf5nQ==
-X-Gm-Gg: ASbGncvkwyEurKmElfPFxfr2vDxKV1Vos/PuFgOU+cuWATvcu246E+bPl7wjQK7ADia
-	PwvRJ5QDoTmFZt888E0g+haEJ55KMRXdexQEtL7JE8v1lix3aZCf8Q6uk4v2eUa2b+BLX6oBCVm
-	ZrCygHZRnWLT1mBqyxne01ICFiPvHyiDO40kP5KxXv5sCIFj4AOhSTDjc=
-X-Google-Smtp-Source: AGHT+IHIeZliyhb9LyS7D2WsjQ6zbb6VPBN1WoAf3qf5XM+D1B5bbRyzduTdvwhUu6cWsbXVY+l4bLVoqYBV0hktqrw=
-X-Received: by 2002:a05:6102:3f11:b0:4bb:e36f:6a35 with SMTP id
- ada2fe7eead31-4c4ec691efcmr4815712137.14.1742466927194; Thu, 20 Mar 2025
- 03:35:27 -0700 (PDT)
-MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 20 Mar 2025 16:05:14 +0530
-X-Gm-Features: AQ5f1JrfSwLIxsvWRpKUwQXjWhqD0LlnNy1w9lDb63teXByQKV_Jsn0_BBUeIPc
-Message-ID: <CA+G9fYtucEt8Hp6RsV0o+OWSz1E=hXBvhHa-P9C-bPnb7cyGaQ@mail.gmail.com>
-Subject: stable-rc: Fast model boot fail Internal error Oops BTI - kernfs_iop_permission
-To: open list <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, lkft-triage@lists.linaro.org
-Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Brown <broonie@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
+        d=1e100.net; s=20230601; t=1742467480; x=1743072280;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=j11DFSETqOLtc+vMOz1k4rHgXFA118EedepjEdU8Zqw=;
+        b=L+zUGWES9HTIprWQntP1w5Z3VEVcs5xz9IYkLUSMDl0bUph0OgsVYgbIflUNWOKpyA
+         MuXIoVJyepyvbLRD1XMkJ3pGGva1+ZZFWuqidj4p9TN5RWGjsK0NdAcUgEMfWzScXZ2Y
+         3j9nV/we2yABxD0A0JYtDXuWhi9n+JF7nsmOL3UgnjtnCcQiSjYPhALyg+LM56nBBTOp
+         d/WlW3M9Lpf/1hqz6lofuLudpwpfySCb4kMCnzVBIM+3Rj+nK5Uz56cD1Q2Dld/DWazK
+         Zj2sEe9SqpXHRZNpBz4IX0mfWbxniH/4GNAs+IvYnK/XbusRi0fkNijkaSXWmCfuUFh5
+         oM8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUK6sZ5G0hI7XBgu4aPmxRRY+IWUxnXftR8mv0aTzVI5L1qJNGEM1roumo75X05XL1C0EwUdStK1QuPTVOTPip4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtD3i4DviZseJ5Ewqls+Dst8l4r8JanqEI9kpnyXkrDf0XyqCh
+	+dDDsEXf97cde8ZbGz0rKEZLhRYySfv5JNK0Q0D9c1ss7DxXF6rsG6YRQLksuaVuDLJWsuDXqvg
+	nhbgIlHMbFg==
+X-Google-Smtp-Source: AGHT+IHmhdHTuCMOMffmpvyIMCzJObzjHJotMPvb7/CKZriBN1WJ2Qe2CHVhTxdEuiWThlixsbw8H9oOiShQMA==
+X-Received: from wmgg15.prod.google.com ([2002:a05:600d:f:b0:43b:c450:ea70])
+ (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:1da2:b0:439:5f04:4f8d with SMTP id 5b1f17b1804b1-43d49187ba9mr20806165e9.12.1742467480075;
+ Thu, 20 Mar 2025 03:44:40 -0700 (PDT)
+Date: Thu, 20 Mar 2025 10:44:38 +0000
+In-Reply-To: <Z9sRQ0cK0rupEiT-@google.com>
+Mime-Version: 1.0
+References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
+ <20250110-asi-rfc-v2-v2-4-8419288bc805@google.com> <20250319172935.GMZ9r-_zzXhyhHBLfj@fat_crate.local>
+ <Z9sRQ0cK0rupEiT-@google.com>
+X-Mailer: aerc 0.18.2
+Message-ID: <D8L164U8HBTB.G5MS86AIISLM@google.com>
+Subject: Re: [PATCH RFC v2 04/29] mm: asi: Add infrastructure for boot-time enablement
+From: Brendan Jackman <jackmanb@google.com>
+To: Yosry Ahmed <yosry.ahmed@linux.dev>, Borislav Petkov <bp@alien8.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, 
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, 
+	<linux-alpha@vger.kernel.org>, <linux-snps-arc@lists.infradead.org>, 
+	<linux-arm-kernel@lists.infradead.org>, <linux-csky@vger.kernel.org>, 
+	<linux-hexagon@vger.kernel.org>, <loongarch@lists.linux.dev>, 
+	<linux-m68k@lists.linux-m68k.org>, <linux-mips@vger.kernel.org>, 
+	<linux-openrisc@vger.kernel.org>, <linux-parisc@vger.kernel.org>, 
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>, 
+	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>, 
+	<sparclinux@vger.kernel.org>, <linux-um@lists.infradead.org>, 
+	<linux-arch@vger.kernel.org>, <linux-mm@kvack.org>, 
+	<linux-trace-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>, 
+	<kvm@vger.kernel.org>, <linux-efi@vger.kernel.org>, 
+	Junaid Shahid <junaids@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_033528_533537_63EF03AC 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250320_034442_147858_E1B8D068 
+X-CRM114-Status: GOOD (  36.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,82 +106,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Regressions on arm64 Fast model (FVP-aemva) boot failed with stable-rc 6.13.
+On Wed Mar 19, 2025 at 6:47 PM UTC, Yosry Ahmed wrote:
+> On Wed, Mar 19, 2025 at 06:29:35PM +0100, Borislav Petkov wrote:
+> > On Fri, Jan 10, 2025 at 06:40:30PM +0000, Brendan Jackman wrote:
+> > > Add a boot time parameter to control the newly added X86_FEATURE_ASI.
+> > > "asi=on" or "asi=off" can be used in the kernel command line to enable
+> > > or disable ASI at boot time. If not specified, ASI enablement depends
+> > > on CONFIG_ADDRESS_SPACE_ISOLATION_DEFAULT_ON, which is off by default.
+> > 
+> > I don't know yet why we need this default-on thing...
+>
+> It's a convenience to avoid needing to set asi=on if you want ASI to be
+> on by default. It's similar to HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON
+> or ZSWAP_DEFAULT_ON.
+>
+> [..]
+> > > @@ -175,7 +184,11 @@ static __always_inline bool asi_is_restricted(void)
+> > >  	return (bool)asi_get_current();
+> > >  }
+> > >  
+> > > -/* If we exit/have exited, can we stay that way until the next asi_enter? */
+> > > +/*
+> > > + * If we exit/have exited, can we stay that way until the next asi_enter?
+> > 
+> > What is that supposed to mean here?
+>
+> asi_is_relaxed() checks if the thread is outside an ASI critical
+> section.
+>
+> I say "the thread" because it will also return true if we are executing
+> an interrupt that arrived during the critical section, even though the
+> interrupt handler is not technically part of the critical section.
+>
+> Now the reason it says "if we exit we stay that way" is probably
+> referring to the fact that an asi_exit() when interrupting a critical
+> section will be undone in the interrupt epilogue by re-entering ASI.
+>
+> I agree the wording here is confusing. We should probably describe this
+> more explicitly and probably rename the function after the API
+> discussions you had in the previous patch.
 
-First seen on the stable-rc 6.13.8-rc1
- Good: v6.13.8
- Bad:  6.13.8-rc1 (v6.13.7-242-g14de9a7d510f)
+Yeah, this is confusing. It's trying to very concisely define the
+concept of "relaxed" but now I see it through Boris' eyes I realise
+it's really unhelpful to try and do that. And yeah we should probably
+just rework the terminology/API.
 
-Regressions found on FVP:
- - boot
+To re-iterate what Yosry said, aside from my too-clever comment style
+the more fundamental thing that's confusing here is that, using the
+terminology currently in the code there are two concepts at play:
 
-Regression Analysis:
- - New regression? Yes
- - Reproducible? Yes
+- The critical section: this is the path from asi_enter() to
+  asi_relax(). The critical section can be interrupted, and code
+  running in those interupts is not said to be "in the critical
+  section".
 
-Boot regression: Fast model boot fail Internal error Oops BTI
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+- Being "tense" vs "relaxed". Being "tense" means the _task_ is in a
+  critical section, but the current code might not be.
 
-NOTE:
-  LKFT is currently running FVP Fast Models version 11.24.
-  Planned upgrade to the Fast Models version 11.28 in this sprint.
+This distinction is theoretically relevant because e.g. it's a bug to
+access sensitive data in a critical section, but it's OK to access it
+while in the tense state (we will switch to the restricted address
+space, but this is OK because we will have a chance to asi_enter()
+again before we get back to the untrusted code). 
 
-## Boot log
-[   12.812790] Internal error: Oops - BTI: 0000000036000002 [#1] PREEMPT SMP
-[   12.812886] Modules linked in: drm fuse backlight ip_tables x_tables
-[   12.813120] CPU: 6 UID: 0 PID: 136 Comm: udevadm Not tainted 6.13.8-rc1 #1
-[   12.813245] Hardware name: FVP Base RevC (DT)
-[   12.813317] pstate: 163402809 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=-c)
-[   12.813450] pc : kernfs_iop_permission+0x4/0xe4
-[   12.813585] lr : inode_permission+0xb8/0x174
-[   12.813728] sp : ffff800080d63bb0
-[   12.813796] x29: ffff800080d63bc0 x28: 0000000000002e2e x27: 00000000fffffff6
-[   12.813978] x26: 0000000000000030 x25: 2f2f2f2f2f2f2f2f x24: 61c8864680b583eb
-[   12.814161] x23: 0000000000000000 x22: fefefefefefefeff x21: ffffa991682c84b8
-[   12.814344] x20: ffff0008006704d0 x19: 0000000000000001 x18: 00000000fffffffb
-[   12.814525] x17: ffff000801bf8021 x16: e0acaabd2f000000 x15: ffffffffff000000
-[   12.814711] x14: 0000000000000002 x13: ffffffffffffffff x12: 0000002e00000000
-[   12.814893] x11: 0000002d00000000 x10: 0000002d00000000 x9 : ffff0008006704d0
-[   12.815076] x8 : ffffa991665f0ff8 x7 : 0000000000000000 x6 : 0000000000000000
-[   12.815253] x5 : 0000000000000000 x4 : 0000000000004050 x3 : 2f7375622f737973
-[   12.815432] x2 : 0000000000000001 x1 : ffff0008006704d0 x0 : ffffa991682c84b8
-[   12.815613] Call trace:
-[   12.815670]  kernfs_iop_permission+0x4/0xe4 (P)
-[   12.815830]  link_path_walk+0x2b8/0x388
-[   12.815962]  path_lookupat+0x68/0x120
-[   12.816073]  filename_lookup+0xe0/0x1e0
-[   12.816196]  do_readlinkat+0x6c/0x1d8
-[   12.816337]  __arm64_sys_readlinkat+0x20/0x30
-[   12.816481]  invoke_syscall+0x40/0xf8
-[   12.816623]  el0_svc_common+0xa8/0xd8
-[   12.816765]  do_el0_svc+0x1c/0x28
-[   12.816904]  el0_svc+0x38/0x68
-[   12.817050]  el0t_64_sync_handler+0x78/0x108
-[   12.817203]  el0t_64_sync+0x198/0x19c
-[   12.817359] Code: a8c27bfd d50323bf d65f03c0 d503245f (373806c2)
-[   12.817444] ---[ end trace 0000000000000000 ]---
+BTW, just to be clear:
 
+1. Both of these are only relevant to code that's pretty deeply aware
+   of ASI. (TLB flushing code, entry code, stuff like that).
 
-## Source
-* Kernel version: 6.13.8-rc1
-* Git tree: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
-* Git sha: 14de9a7d510fcfb3bd35e275eda09724bda4d440
-* Git describe: v6.13.7-242-g14de9a7d510f
-* Project details:
-https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/
+2. To be honest whenever you write:
 
-## Build
-* Build log: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/testrun/27684866/suite/boot/test/clang-20-lkftconfig-no-kselftest-frag/log
-* Build history:
-https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/testrun/27684866/suite/boot/test/clang-20-lkftconfig-no-kselftest-frag/history/
-* Build details:
-https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/testrun/27684866/suite/boot/test/clang-20-lkftconfig-no-kselftest-frag/
-* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2uXZoz8Lc7Ue3i4mVWAM8Y800oz/
-* Kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2uXZoz8Lc7Ue3i4mVWAM8Y800oz/config
+     if (asi_in_critical_section())
 
+   You probably mean:
+
+     if (WARN_ON(asi_in_critical_section()))
+
+   For example if we try to flush the TLB in the critical section,
+   there's a thing we can do to handle it. But that really shouldn't
+   be necessary.  We want the critical section code to be very small
+   and straight-line code.
+
+   And indeed in the present code we don't use
+   asi_in_critical_section() for anything bur WARNing.
+
+> asi_is_relaxed() checks if the thread is outside an ASI critical
+> section.
+
+Now I see it written this way, this is probably the best way to
+conceptualise it. Instead of having two concepts "tense/relaxed" vs
+"ASI critical section" we could just say "the task is in a critical
+section" vs "the CPU is in a critical section". So we could have
+something like:
+
+bool asi_task_critical(void);
+bool asi_cpu_critical(void);
+
+(They could also accept an argument for the task/CPU, but I can't see
+any reason why you'd peek at another context like that).
 
 --
-Linaro LKFT
-https://lkft.linaro.org
+
+For everything else, Ack to Boris or +1 to Yosry respectively.
 
