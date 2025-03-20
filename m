@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0FEC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29414C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7YBtR1spLf0QRCiJhjrse6IDdfvV86Od/iQUXLfPIQ=; b=jZEpSs1QA5GNn+R22wI/CIhVtb
-	4rsD9U5xpVJb0/Udlx8vKx4PAxH+oqalPHwdSEY0tM7oI9wYcKv+Zi0iW817liRY9r8LmBFaWnmPh
-	el1GEmx6iZQ6lsJ1WI9Ac9JtVXGt7sxiC5VX60JmsyzhCtSv3FNJFArRacH8Jn3X7a4ga6STKtCgq
-	XaARrKpxQfTnX7G5JpDB5ggQfucEiejTtLUbMp86NBtswJfxA2Xo3EjFeG+/yPaJXeqwHU5sRMYir
-	dwiXUW69e7hmg5f3FokWICOb1kwGoJA+LaoLVa4sluOj+B8k2pTAutlvZI3I+wD/K/bV/k7XTm73H
-	NdLpNCBw==;
+	bh=PCJAzpy8HDIbp+z+ImFUPsEWfbhdpXlMCt8uQ4lZYeA=; b=cGmY0oliqIqgByBWGIa+1ghgyT
+	/ISMhiHj3NFASmSTPsQiQCio5Qi/zafQOBpACKs/vfNADOXUq6fWmvw6O4Ouq1FNYD6r7pVbpezNA
+	wsVZvFwKUtI6irSzy0/txvwDoq2C+0O/Ncf8Xh6CPVaSFw51S1B1PpZ6bPMSfccs2uFg1IAn6Hq3/
+	MJipJP4B3f9IBFRmt/DIMZlneNjLEKCnEl9iBS1FGHaoLq+KXu5gx3vZ71vshVySOZ6m3Qo0ygVmd
+	sGq26aJLjeqkIUuu14b2fSDmNJdJR/2IiGAj1Us2VQ5Oq15pQB9NVBseZvoZv/beCfHk97sPJ6Tq+
+	zFTGsWrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBxK-0000000BeNE-0Oce;
-	Thu, 20 Mar 2025 09:12:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tvC57-0000000BfqQ-09uJ;
+	Thu, 20 Mar 2025 09:20:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBva-0000000Be8d-2z2I
+	id 1tvC3O-0000000Bff2-2cLn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 09:11:05 +0000
+	Thu, 20 Mar 2025 09:19:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C2F6243AE1;
-	Thu, 20 Mar 2025 09:11:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D944C4CEDD;
-	Thu, 20 Mar 2025 09:11:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DF5AF5C51AA;
+	Thu, 20 Mar 2025 09:16:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77B2AC4CEDD;
+	Thu, 20 Mar 2025 09:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742461862;
-	bh=15a5VxRJS8V9l6kVXtwQdjDgviqb/vy7Z07smrfa5V0=;
+	s=k20201202; t=1742462345;
+	bh=DyYZu43SCOG8idqcMJJdyHd71H6vj85HgtLk8md7IhI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=In1g4rUiolC6SIkmnEALCTEXDYVMLz5EFWLWj36oPyKIcgjFEHaTZuNatgG2DhL+1
-	 Mzvun4IotKG63Ip76H8ynAUYaBMRTZdwMjcb3XKYdJSU8UrZPc74fnMsnfJNc2pc1M
-	 xMZdIDOyppa8ka4pwHgmwX4CTQd0GR1wSxhCDPwMb9VPds4sbGY5OFmBvZuzXkUDBZ
-	 F+Qh8HLG7IYqoTb/jzbN3wYx/XVugVsY4ragG1iYScTkhzJpHAASddNDx0xxGgfKA1
-	 jo7Z7EQY3rGzzc1i8eGLq3pWRFbzbNeKrHJJ2SQeLfi7DBuQvFfdlZtIGI+Qr70ahK
-	 N9wpoIB7Yk6Fg==
+	b=g9tP5OaBBniNVKx/1th/Dn6r/KXDHr1v6Sn6QKGJfwbuaAnPrH/sIJd6ryyHFW6mD
+	 lXKRAgqhmTQjoin2lcilrtZUBL9zKTtRk4iaOVENNvWYxIXK+eql7BUsnZn3sYnWVX
+	 vwT92yDgc2KsrgfDENuN7Dk+7hezHcQ23+TYgVrYsA5tEI7lmDMp1+l5t1WJu2tTSg
+	 ZGJ3p8kSQHSMdfishJWD0TmTcnopLzmaLi3ElnS1BE0NAifgAVTiKAPf1WnAQSHpRk
+	 GEMHsL5OQMsMuubI5BMr1STWNZ7/rV6ykx4u12zT48FNl7CbYIMjfVl8j9M78Ps8Co
+	 dQiHRgwllnVng==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tvBvX-00FMTh-OY;
-	Thu, 20 Mar 2025 09:10:59 +0000
-Date: Thu, 20 Mar 2025 09:10:59 +0000
-Message-ID: <86iko4m5i4.wl-maz@kernel.org>
+	id 1tvC3K-00FMaU-U3;
+	Thu, 20 Mar 2025 09:19:03 +0000
+Date: Thu, 20 Mar 2025 09:19:02 +0000
+Message-ID: <86h63om54p.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <akihiko.odaki@daynix.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Akihiko Odaki <akihiko.odaki@daynix.com>,
 	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose
- <suzuki.poulose@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -67,7 +66,7 @@ Cc: Oliver Upton <oliver.upton@linux.dev>,
 	linux-hardening@vger.kernel.org,
 	devel@daynix.com
 Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
-In-Reply-To: <0d84bc94-1c65-4737-a2eb-aa7f96a7d1e0@daynix.com>
+In-Reply-To: <Z9sSMJAlf7cQ5viu@linux.dev>
 References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
 	<Z9pze3J2_zrTk_yC@linux.dev>
 	<e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
@@ -79,19 +78,18 @@ References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
 	<cd7b4528-34a3-4d87-9711-acc2c2e6f6e1@daynix.com>
 	<86ldt0n9w1.wl-maz@kernel.org>
 	<Z9sSMJAlf7cQ5viu@linux.dev>
-	<0d84bc94-1c65-4737-a2eb-aa7f96a7d1e0@daynix.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, akihiko.odaki@daynix.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_021102_790558_17510F16 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250320_021906_750658_424FA85B 
+X-CRM114-Status: GOOD (  35.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,46 +104,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Mar 2025 06:03:35 +0000,
-Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+On Wed, 19 Mar 2025 18:51:28 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
 > 
-> On 2025/03/20 3:51, Oliver Upton wrote:
-> > On Wed, Mar 19, 2025 at 06:38:38PM +0000, Marc Zyngier wrote:
-> >> On Wed, 19 Mar 2025 11:51:21 +0000, Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
-> >>> What about setting the flag automatically when a user fails to pin
-> >>> vCPUs to CPUs that are covered by one PMU? There would be no change if
-> >>> a user correctly pins vCPUs as it is. Otherwise, they will see a
-> >>> correct feature set advertised to the guest and the cycle counter
-> >>> working.
-> >> 
-> >> How do you know that the affinity is "correct"? VCPU affinity can be
-> >> changed at any time. I, for one, do not want my VMs to change
-> >> behaviour because I let the vcpus bounce around as the scheduler sees
-> >> fit.
+> On Wed, Mar 19, 2025 at 06:38:38PM +0000, Marc Zyngier wrote:
+> > On Wed, 19 Mar 2025 11:51:21 +0000, Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> > > What about setting the flag automatically when a user fails to pin
+> > > vCPUs to CPUs that are covered by one PMU? There would be no change if
+> > > a user correctly pins vCPUs as it is. Otherwise, they will see a
+> > > correct feature set advertised to the guest and the cycle counter
+> > > working.
+> > 
+> > How do you know that the affinity is "correct"? VCPU affinity can be
+> > changed at any time. I, for one, do not want my VMs to change
+> > behaviour because I let the vcpus bounce around as the scheduler sees
+> > fit.
+> > 
+> > Honestly, this is not a can of worm I want to open. We already have a
+> > pretty terrible userspace API for the PMU, let's not add to the
+> > confusion. *If* we are going down the road of presenting a dumbed-down
+> > PMU to the guest, it has to be an explicit buy-in from userspace.
 > 
-> Checking the affinity when picking the default PMU; the vCPU affinity
-> is the only thing that rules the choice of the default PMU even now.
->
-> Perhaps we may model the API as follows: introduce another "composite"
-> PMU that works on any core but only exposes the cycle counter. Robust
-> VMMs will choose it or one of hardware PMUs with
-> KVM_ARM_VCPU_PMU_V3_SET_PMU. KVM will choose the default PMU according
-> to the vCPU affinity at the point of KVM_ARM_VCPU_INIT otherwise. If
-> the affinity is covered by one hardware PMU, that PMU will be chosen
-> as the default. The "composite" PMU will be the default otherwise.
+> I also have a very strong distaste for the crappy UAPI we have around a
+> 'default' PMU. At the same time I do recognize this hurts practical
+> usecases since some VMMs can't be bothered to configure the vPMU / vCPU
+> pinning correctly.
+> 
+> I'm at least willing to plug my nose and do the following:
+> 
+>  1) When the VMM does not specify a vPMU type:
+> 
+>    - We continue to present the 'default' PMU (including event counters)
+>      to the VM
+> 
+>    - KVM ensures that the fixed CPU cycle counter works on any PMUv3
+>      implementation in the system, even if it is different from the
+>      default
+> 
+>    - Otherwise, event counters will only count on the default
+>      implementation and will not count on different PMUs
 
-This makes no sense to me. A VCPU is always affine to a PMU, because
-we do not support configurations where only some CPUs have a PMU. This
-is an all-or-nothing situation.
+I think this is confusing. The CC is counting, but nothing else, and
+people using the cycle counters in conjunction with other events (a
+very common use case) will not be able to correlate things correctly.
+The current behaviour is, for all its sins, at least consistent.
 
-More importantly, you keep suggesting the same "new default", and I
-keep saying NO.
+> 
+>  2) Implement your suggestion of a UAPI where the VMM can select a PMU
+>     that only has the CPU cycle counter and works on any PMUv3
+>     implementation.
+> 
+> Either way KVM will need to have some special case handling of the fixed
+> CPU cycle counter. That'd allow users to actually run Windows *now* and
+> provide a clear mechanism for userspace to present a less-broken vPMU if
+> it cares.
 
-My position is clear: if you want a *new* behaviour, you *must* add a
-new flag that the VMM explicitly provides to enable this CC-only PMU.
-No change in default behaviour at all.
-
-I'm not going to move from that.
+Honestly, I don't care about one guest or another. My point is that if
+we are changing the behaviour of the PMU to deal with this sort of
+things, then it has to be a userspace buy-in.
 
 	M.
 
