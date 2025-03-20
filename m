@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3609DC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8DF8C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PiwjRVxMAh+aRSJQzROvUDuvUP7bfHphETD8QOGYAo8=; b=J4J5gP5zwiEn4eV9MZgbP8TVSE
-	efhsBdrzfdPwbdy8nWyboryWbYIYYUKfSfxAxFXRQGniM+o56vQW+yn/mobWJ/VfMMo/k+gsg0/aF
-	Eaahd7J++6V+/3HUak7DhbWk9onjkeUA/6m1j0G+Z8pAbBXDBKS2M0R9Y75wPDZGhX/O7uInijB1F
-	hUwbl/oOx2HsQNC/gi8nievWaqRsbxmDBloDrtvbLMQGrwh7aFmhdtH3eWShrWA+vTiHs1W2iV2qN
-	xpF9yyfjSGtHHcbUAcGQRyhf4M8b1kQQK/dPnjqO9ELL2r+2Lq5Bz0eZChLGUc5hWTebECYfSgdhW
-	AE2slddA==;
+	bh=8yL5b2WTU5WHGZETUIu4ND+tiGH8mntIZf0oxmIMUMA=; b=AXGUeE9sQcg8GNnEOU3qQe27oE
+	rhfOMtLSr5xDLKy+nQ7T3fmyFo86I2A8F3CxXz5eY3GSQxBWM2iqbgF6Nt+23gEOUpw5a65lVvONg
+	tFCuF7vUlbZrGVR9LsevKV7JqK5s98M5NrfMr2LeRiVy7tlzbjfKClHGnVWq6gHr1rFTE5aOGxx6n
+	mNoIbDOOUxupjwUccPKbyUyOIOHz9Llt8WrtUE1mG1SDcPIqIR4XIVtMreJdvYWDXISyKFyspSZqE
+	1MAtRrXudPCXuG98D46w+rCZYJSiepSoICxwCsnSRrl+hkila8sQN4YdwbAzm7or/QZekWHuhYUW9
+	BtHRL8cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv5Im-0000000AntE-07Se;
-	Thu, 20 Mar 2025 02:06:32 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tv5KR-0000000AoHQ-0w7Z;
+	Thu, 20 Mar 2025 02:08:15 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv58j-0000000AkPH-1G5R
+	id 1tv58l-0000000AkRp-11fa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 01:56:11 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff78bd3026so447166a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:08 -0700 (PDT)
+	Thu, 20 Mar 2025 01:56:13 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-22650077995so5170205ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742435768; x=1743040568; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742435770; x=1743040570; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PiwjRVxMAh+aRSJQzROvUDuvUP7bfHphETD8QOGYAo8=;
-        b=RN9NBzYXSqbk5T/lJdmEzb43eApU61hu3hmHEoS9ryAjTrh59MAlol0ZHcppLIGY9h
-         GVVZRzMdPB9ZBWnsOIaoUATQmGTQheeybNX+gyxqcT8aeI4q+79PH80ke/ALQHpdJ/7e
-         OZa7aKxezCsL9XjlCjcIfpKjlN62ltMm53z4ZBgy5PxElAoblnCb84r4tJl0zC1jiHpY
-         cTT6vVdaOpC3kBzaGsL0zvd1Wq9gYrsj/tskPaU8bBVTKNQmoWey9dSYn2ui2wxFJ51A
-         1wmTL7k+vM8OsUVO+yjXqA1Xy1bu+nBF6SV2Aan41QeroVDnFJ/EVGmvLje5gXNPyt5j
-         zDCg==
+        bh=8yL5b2WTU5WHGZETUIu4ND+tiGH8mntIZf0oxmIMUMA=;
+        b=wSfsMcupzBcOYYlvN7GoRYET9X70swpalaV45piFB5Jz8BFqcmfO98JIBHE1TxhzJk
+         qmKyOfGded0SshqCJveqJ3MCATdGLJOBztkTo/EJaO0Hz7riBAKWY2knNmHmIdy5Dep2
+         y8+wAG3ioPLSx3VDQwWRL9XhStVzAvljlVyN44+DWEtPqf9Yc1ydygaCOFMH3tjoAMVW
+         pYgdj/jvKxEKI2QNZO0APEJgV0Y4mAby/R/c5eVjUPvvFtO1Yg4iuJfnUk+Xc1KaHmWo
+         eRfLRQeWj9dD9K3XtKghn+LBeP1fupbPI2BzLnBCg7/vxg1s9bwIqu2PhaR3eeEL1lcJ
+         WNMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742435768; x=1743040568;
+        d=1e100.net; s=20230601; t=1742435770; x=1743040570;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PiwjRVxMAh+aRSJQzROvUDuvUP7bfHphETD8QOGYAo8=;
-        b=jLSrMmAviAqHbYNBpZdfJPlyLUtLm/A3pPCfdiVYViTLLryjM+KpW3NDtvU4iIb2tT
-         5bqP4uEG9L8izMHgpuAqp2iUw7qUMdytiA0S6LflaWyUtA8SN2ok3goBa7b2NDJyAtfh
-         o52buyoCY2WDc99rqSExd/m9SEgioJXP+uPRmsuP6AFsIe3wLFQ35hx2TnftDoDx1gOX
-         kMkV/lsoEwQS4Huee1mPKnJEqOrY9kwL830Pv22COXw9eRK6619SV+2AQYN5jbv7ZW2j
-         cvXFaRnydbHjzXOmY/EqM4ihM5h21pj6OFm8xHpTm2WQO5W9GUaF+n21DxLp6BsTAveD
-         +2/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVelhjjjy68/KYxWjvwsbk4DpeWA9gXrKpfc/fJpGFa/nEEnqgF5v2MvQOVf7k/JovH7zus5hLTFSJJxyfyEZbD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnTcekYIxnUWpxrhycXbjck+pf92IBwI2xNiWsI30ZHL7FvBaW
-	ThUHCn9S0W4LOC+ay9DntV0LOSB8F1D4Z1Kh0JCirJYKOeU2ZyAPMzq/VKya5ynMOeXCEDQlcmt
-	2Ih3De6BievBZgjv+6w==
-X-Google-Smtp-Source: AGHT+IEhVbWDRhW3hPJYHJMT+HzW9sk9EOurakKCEQdD5tgMb9uQ2NYyCFbTRsSUUBpQ3kTf4vM/PmcUJOjFZ+gE
-X-Received: from pglu36.prod.google.com ([2002:a63:1424:0:b0:af2:22fe:cfb3])
+        bh=8yL5b2WTU5WHGZETUIu4ND+tiGH8mntIZf0oxmIMUMA=;
+        b=oURYdppyHX9w3z5Swwg+9HuCFleVjKIcqAX0bLVDrnBjyz1QM9pTsKwzjTbaxiQDcb
+         /OumM2kZYoZn9meL5gtUhDCgU09CT8J/te32hcP366X+MJr9athYxvunzB4AB/IMX3bO
+         53E63RG61wTh4EETeq5f1TSwCXdcxsXcTD4aJNYXi0diOPFD82eJGVH4Sh47ld0vz5Zh
+         OsUx56kf5IxtYcO/+CuwiJzpH9zmhDJ5erD2GtVVgFn6OMLMJtrhlI2wWq7nqoIunLqR
+         cLYBLhOBZ//JLvLHC4jkPN3wyF5GsW5k2QN4jab0IaBP8WlKObCpY3WmfprS5mE8orJQ
+         U7zg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHvHzJX05etnygjNum0dStFdyJjhRECVtCov1nQZINrpKLoDyzao/aRm0HTNIrAY+YuZQi6WsUh2szNjZ/CGiK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAvU9wWcAI9KycSFthudKl9DCXKgHYBiANT/m8EAr+P3fN/E26
+	LwCMi4yXL4vcY+qKla1w31pEpNg+G783728rTRo4ulIpId7P9XB7ETx+0a6EI9A/mn0tigOUwhl
+	qlyIeD7Dn85mD41EtUQ==
+X-Google-Smtp-Source: AGHT+IHW15FvPpMLWn1HKaL85qfGSHpQDCxTWGFYK6N/65irCZHXzpE1wn1H8XnTV124IW6pqODmzO2IIQUyBB4r
+X-Received: from pfbna11.prod.google.com ([2002:a05:6a00:3e0b:b0:730:4672:64ac])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a21:4cc7:b0:1ee:e96a:d9ed with SMTP id adf61e73a8af0-1fbeaf88adfmr8896191637.7.1742435768113;
- Wed, 19 Mar 2025 18:56:08 -0700 (PDT)
-Date: Wed, 19 Mar 2025 18:55:40 -0700
+ 2002:a05:6a00:4187:b0:736:fff2:99b with SMTP id d2e1a72fcca58-7376d6ff535mr8193650b3a.23.1742435769805;
+ Wed, 19 Mar 2025 18:56:09 -0700 (PDT)
+Date: Wed, 19 Mar 2025 18:55:41 -0700
 In-Reply-To: <20250320015551.2157511-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250320015551.2157511-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250320015551.2157511-6-changyuanl@google.com>
-Subject: [PATCH v5 05/16] memblock: introduce memmap_init_kho_scratch()
+Message-ID: <20250320015551.2157511-7-changyuanl@google.com>
+Subject: [PATCH v5 06/16] hashtable: add macro HASHTABLE_INIT
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org, 
@@ -81,11 +81,12 @@ Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
 	thomas.lendacky@amd.com, usama.arif@bytedance.com, will@kernel.org, 
 	devicetree@vger.kernel.org, kexec@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-mm@kvack.org, x86@kernel.org
+	linux-mm@kvack.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_185609_374460_1BDB7A22 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20250319_185611_304317_D80D6376 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,124 +101,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Similar to HLIST_HEAD_INIT, HASHTABLE_INIT allows a hashtable embedded
+in another structure to be initialized at compile time.
 
-With deferred initialization of struct page it will be necessary to
-initialize memory map for KHO scratch regions early.
+Example,
 
-Add memmap_init_kho_scratch() method that will allow such initialization
-in upcoming patches.
+struct tree_node {
+    DECLARE_HASHTABLE(properties, 4);
+    DECLARE_HASHTABLE(sub_nodes, 4);
+};
 
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+static struct tree_node root_node = {
+    .properties = HASHTABLE_INIT(4),
+    .sub_nodes = HASHTABLE_INIT(4),
+};
+
+Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- include/linux/memblock.h |  2 ++
- mm/internal.h            |  2 ++
- mm/memblock.c            | 22 ++++++++++++++++++++++
- mm/mm_init.c             | 11 ++++++++---
- 4 files changed, 34 insertions(+), 3 deletions(-)
+ include/linux/hashtable.h | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index a83738b7218b..497e2c1364a6 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -636,9 +636,11 @@ static inline void memtest_report_meminfo(struct seq_file *m) { }
- #ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
- void memblock_set_kho_scratch_only(void);
- void memblock_clear_kho_scratch_only(void);
-+void memmap_init_kho_scratch_pages(void);
- #else
- static inline void memblock_set_kho_scratch_only(void) { }
- static inline void memblock_clear_kho_scratch_only(void) { }
-+static inline void memmap_init_kho_scratch_pages(void) {}
- #endif
+diff --git a/include/linux/hashtable.h b/include/linux/hashtable.h
+index f6c666730b8c..27e07a436e2a 100644
+--- a/include/linux/hashtable.h
++++ b/include/linux/hashtable.h
+@@ -13,13 +13,14 @@
+ #include <linux/hash.h>
+ #include <linux/rculist.h>
  
- #endif /* _LINUX_MEMBLOCK_H */
-diff --git a/mm/internal.h b/mm/internal.h
-index 20b3535935a3..8e45a2ae961a 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1053,6 +1053,8 @@ DECLARE_STATIC_KEY_TRUE(deferred_pages);
- bool __init deferred_grow_zone(struct zone *zone, unsigned int order);
- #endif /* CONFIG_DEFERRED_STRUCT_PAGE_INIT */
- 
-+void init_deferred_page(unsigned long pfn, int nid);
++#define HASHTABLE_INIT(bits) { [0 ... ((1 << (bits)) - 1)] = HLIST_HEAD_INIT }
 +
- enum mminit_level {
- 	MMINIT_WARNING,
- 	MMINIT_VERIFY,
-diff --git a/mm/memblock.c b/mm/memblock.c
-index c0f7da7dff47..d5d406a5160a 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -945,6 +945,28 @@ __init_memblock void memblock_clear_kho_scratch_only(void)
- {
- 	kho_scratch_only = false;
- }
-+
-+void __init_memblock memmap_init_kho_scratch_pages(void)
-+{
-+	phys_addr_t start, end;
-+	unsigned long pfn;
-+	int nid;
-+	u64 i;
-+
-+	if (!IS_ENABLED(CONFIG_DEFERRED_STRUCT_PAGE_INIT))
-+		return;
-+
-+	/*
-+	 * Initialize struct pages for free scratch memory.
-+	 * The struct pages for reserved scratch memory will be set up in
-+	 * reserve_bootmem_region()
-+	 */
-+	__for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
-+			     MEMBLOCK_KHO_SCRATCH, &start, &end, &nid) {
-+		for (pfn = PFN_UP(start); pfn < PFN_DOWN(end); pfn++)
-+			init_deferred_page(pfn, nid);
-+	}
-+}
- #endif
+ #define DEFINE_HASHTABLE(name, bits)						\
+-	struct hlist_head name[1 << (bits)] =					\
+-			{ [0 ... ((1 << (bits)) - 1)] = HLIST_HEAD_INIT }
++	struct hlist_head name[1 << (bits)] =	HASHTABLE_INIT(bits)	\
  
- /**
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index c4b425125bad..04441c258b05 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -705,7 +705,7 @@ defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
- 	return false;
- }
+ #define DEFINE_READ_MOSTLY_HASHTABLE(name, bits)				\
+ 	struct hlist_head name[1 << (bits)] __read_mostly =			\
+-			{ [0 ... ((1 << (bits)) - 1)] = HLIST_HEAD_INIT }
++		HASHTABLE_INIT(bits)
  
--static void __meminit init_deferred_page(unsigned long pfn, int nid)
-+static void __meminit __init_deferred_page(unsigned long pfn, int nid)
- {
- 	pg_data_t *pgdat;
- 	int zid;
-@@ -739,11 +739,16 @@ static inline bool defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
- 	return false;
- }
- 
--static inline void init_deferred_page(unsigned long pfn, int nid)
-+static inline void __init_deferred_page(unsigned long pfn, int nid)
- {
- }
- #endif /* CONFIG_DEFERRED_STRUCT_PAGE_INIT */
- 
-+void __meminit init_deferred_page(unsigned long pfn, int nid)
-+{
-+	__init_deferred_page(pfn, nid);
-+}
-+
- /*
-  * Initialised pages do not have PageReserved set. This function is
-  * called for each range allocated by the bootmem allocator and
-@@ -760,7 +765,7 @@ void __meminit reserve_bootmem_region(phys_addr_t start,
- 		if (pfn_valid(start_pfn)) {
- 			struct page *page = pfn_to_page(start_pfn);
- 
--			init_deferred_page(start_pfn, nid);
-+			__init_deferred_page(start_pfn, nid);
- 
- 			/*
- 			 * no need for atomic set_bit because the struct
+ #define DECLARE_HASHTABLE(name, bits)                                   	\
+ 	struct hlist_head name[1 << (bits)]
 -- 
 2.48.1.711.g2feabab25a-goog
 
