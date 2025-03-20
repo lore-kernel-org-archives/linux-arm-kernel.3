@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F7BC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E294C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z5h6i5QlegtnsZKZNuCkYxic6SGx0oA7WXCgJZ9g/qk=; b=Ja+VK8NyD0QHp9q2FnPbyWHf/b
-	pPmu/uVJ2Smv0fWZJAEgy0GZpEH8CdT22PDWlfHbHelfw1EKAO1PbSjgcHxN6k+lWqxml8ID9oWtn
-	+GEJtDbq2UMG4jRi1yFmC1Pac1DACB+IhryqJZSlmd1AgXK95lkx8sT8BTZiFQjUBFW3YHRD9nrR0
-	DXuSQJPdGz2NMDce9QfeOjd6cWjfflly00/40rKnxnkSXHXr8euxFnI0eB6vR+byRTxishpOuTl6p
-	8MMfdJSjSRnBKG92viRiG7XSQD/ilvSLPIEGfrp6fHtwKsaICOnf1HhbarFs7dZf8ZC0GTHcAUyAk
-	Pq/apUlA==;
+	bh=jSXa0ucjx2iw9Nq/f9zLmD2fUqwx8MG/5t679bVcACA=; b=qKMy7MKC0ksLJYvz7fBfdW1fyh
+	xKKN6lRjZG57pfSFw1wUDXd+rSVJeD8AmeuGRHtgFK4uz0b/EwleCCOQBmGyFJWqj9HBYdMVWkppX
+	nuIjihIeuoQXdW0MPb9iQJVMQmws3AANN6fkbLOfLWX/4Gh2xJhrL7W3GhLIgrarDqNk8D3LuDZB8
+	vInCeFe7re84cNs4SyDDhANkU88oTVmsbhgew+mRK/kTEHeD1K8yNHYBJF5RsGvA1aI7Tv5He13Nt
+	EBcTQa4d486NZ+olwWomLWWgCmL1npclmM90s4OdQfbTpOLBp5GMM5qBtqsAspDtjFDPkHU3yQGhM
+	e+2WUNYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvG73-0000000CGa3-2cEB;
-	Thu, 20 Mar 2025 13:39:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tvGBL-0000000CHOg-3Zfb;
+	Thu, 20 Mar 2025 13:43:35 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvG5L-0000000CG8h-20RG
+	id 1tvG9d-0000000CH78-2CtO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 13:37:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DC9405C5401
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 13:35:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DBE5C4CEF0
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 13:37:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742477842;
-	bh=YR+i89cgDJ+s150iYLatiV4MlhOTZxfjkvujDA29uFg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fwoqQ5HLZ1VTIv4pp9u1zn9oOLN3dSG3sx/P/sy41uT7XN3wzeFcPZHv3Aw8TZlGH
-	 TgZZBQcKI58BpuyLRalpbDpYyzzo12B46vYImUa+oMchrjfRbAyK6QYG4GBxe68MaA
-	 pdwr5VIehWFuGN0jbOvkV9fcBOom77L0n3wIppOdXETVRAjyKuyC8qDbTSUekmqXbG
-	 ZXr2sjsoppIhKA2egUYpbGDgz+IAJzkENMUQV0ZVgC/4CXDNyhLDrCBPaTyCrk63jv
-	 q8V42/2euTC/kBXP4w/rnvPdP8A5kiA6+UjyRa2Gsu+Slt00EMAdkB37inBkHtPpn9
-	 uNxiHg6y/TSwA==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-549963b5551so903098e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 06:37:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUfEa4KMDTrvIEPdypNfFyFf7pSGtr3Zu/rsy6psLuryflza3AoxCT2RFmUSEnXiE6AzY2cDn0WHxA5Jrlo6yba@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmTqXG8uY275Is83xG3wfwkHc+XAZ2Lg6vuIpFhOSPGULWFePR
-	qzfJHKgy5cOmhmOiX1pAYYXjCmtim9+1Ai2jOIJPsUu5kigXwWoqE4aJSvhVnrtRNrceeW+VCxy
-	o+MldDCSkGvi0XseepL1tkF1jx0c=
-X-Google-Smtp-Source: AGHT+IH1uSkf2uM+LcoD4uBRdGz5SL3adFWbT+OYTJyNNWdRyQZyb0lE1rVKbKGGzWThpM6glOaALBN3j3flNNCBE0Y=
-X-Received: by 2002:a05:6512:e86:b0:549:86c8:113a with SMTP id
- 2adb3069b0e04-54acb1b6b01mr3023005e87.15.1742477840456; Thu, 20 Mar 2025
- 06:37:20 -0700 (PDT)
+	Thu, 20 Mar 2025 13:41:51 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cf034d4abso8600285e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 06:41:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742478107; x=1743082907; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jSXa0ucjx2iw9Nq/f9zLmD2fUqwx8MG/5t679bVcACA=;
+        b=BBKbm+8cMDTr5VzBxhv3uw3VvgtAuKVATS9ZMpeXfCYvdStuZCPI/EPHERrWgbuETn
+         9kbfUpFbHP9OxTdWVXxE/ntM+GnLju51aNciIEH5caTVsUG3WzesxWKqMXvAT87uDsqd
+         XdBper8SANqp+lWg8v4HkwYyHPQcSVIirwXbHbnE7Lp+lGy/lnFNcUgs2J4DJi5FsRVG
+         ErWA6cxeVYtP8wHYj+GOTkXm5I8Sebis2FJewgoTxnfqAlSH3ZpqY8QDeXSRrfqykp51
+         ODMx/yR3tQliLT2sKj5iuYxMzPCREVUB42M/ZKFl6znngCpMB68Bn7aiX6TZYx7ukmPP
+         EXZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742478107; x=1743082907;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jSXa0ucjx2iw9Nq/f9zLmD2fUqwx8MG/5t679bVcACA=;
+        b=PUou0oRDlmM7FD8SEBVIGT47eq9ly1AvWtPSGIGrXLBIlusYBP0OMpr802iSGeYLMS
+         ZT6lzI+Ao6nUTUVgN5kJ12EftZKcY2kW3ivznNHfqi1OeSS0AaDuOzKpfZcA96rKCh8b
+         LjsrSW+86B9VoFHZYu/0wUWuBCK5WKjnWzW1jkbfGl9NecmbWleUSrRgTUEFM7AsqxKD
+         XzT+t0Ja1zGikRtqh3lmsFy9ie6N51YIgrgFHgQKBeufSn5tBfLG72vA7A+wj3Jxbl7g
+         d2ZpqUVnRibHzrHhea4dCT4XsZXDNGp+zYWgWnRPiZmrVBuJq8gzzhP8ooiR7R5D0JuB
+         Nj1A==
+X-Forwarded-Encrypted: i=1; AJvYcCVi3UeU3Phbo6DRUaTp4ot4PY1N/TilqCnuiPP6hU64Om4oG34reQHRRublEm3svcIIteI+ROZPKUNLWffmUtQm@lists.infradead.org
+X-Gm-Message-State: AOJu0YylICOZYfiFiZ/1mA12w5+68UAdN5KP+dGk2BebKmF3RHsA4DcR
+	O9eGYkLaQFRi8mUF6dH6yVWZawZpwMmSw/2rpsYFlu/kZlZ+zFuAgfemfUgMAec=
+X-Gm-Gg: ASbGnct0RyOU+AKnUjXduJCSXxEe0LJjnnpraFwV1ultdXJ1s5nixAHl9SsivkHxNkm
+	grGZ3XxLWO1c9l2nllBJ83cKVLCZNm+t+Wj8tnyxFdcc8EqPTjgaExRVMDwkFxqsOKsuRfqF58L
+	X1Ix6iUQvpJAYdegaNyBfN3zBzakU7X4KUKab6K+M0V1kG+0Ju34YELCnXk9nVSxfEn9hvkhljy
+	yAqN1l9Rd8LeDz0miMqU00Ou+jGc3aw7kT1fDX+oAebDDJUDYSwaHJapYwnVBxZ99wcbgJ6wfZO
+	3+U5tpeoKFl5Xji1iBo9ryI9cFQ7LnQZqKLGXACQLGmjiVw9Bk60EDNoWL9kmvPtDvcZ3PMGMhq
+	quTZkeGqXwOU=
+X-Google-Smtp-Source: AGHT+IHB8Jpq/dv/MF5Xpnl20lVwYehCBg2fUw2R2WxrWPUwJTYa2KVgSsV+p6JoZMdI4aYop1tDlQ==
+X-Received: by 2002:a05:600c:470b:b0:43d:fa:1f9a with SMTP id 5b1f17b1804b1-43d438abb10mr66472345e9.30.1742478107437;
+        Thu, 20 Mar 2025 06:41:47 -0700 (PDT)
+Received: from [10.1.5.55] (88-127-129-70.subs.proxad.net. [88.127.129.70])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f8679bsm50112995e9.40.2025.03.20.06.41.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Mar 2025 06:41:47 -0700 (PDT)
+Message-ID: <818de9a7-b308-4e00-9eba-3f58e1d89bbd@baylibre.com>
+Date: Thu, 20 Mar 2025 14:41:45 +0100
 MIME-Version: 1.0
-References: <20250319150533.37440-2-miko.lenczewski@arm.com> <20250319150533.37440-3-miko.lenczewski@arm.com>
-In-Reply-To: <20250319150533.37440-3-miko.lenczewski@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 20 Mar 2025 14:37:08 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFOofRCiVHxxxBZMGQHRH-ghtqNxgd=uww9D4sr4vvjEQ@mail.gmail.com>
-X-Gm-Features: AQ5f1JoXEf-176DDZRbp16VKBYBsy3AsXn6mHxJRtBdSe3bLtcfpofqtWsvZ_8c
-Message-ID: <CAMj1kXFOofRCiVHxxxBZMGQHRH-ghtqNxgd=uww9D4sr4vvjEQ@mail.gmail.com>
-Subject: Re: [PATCH v4 1/3] arm64: Add BBM Level 2 cpu feature
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: ryan.roberts@arm.com, suzuki.poulose@arm.com, yang@os.amperecomputing.com, 
-	corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org, 
-	jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org, 
-	akpm@linux-foundation.org, mark.rutland@arm.com, joey.gouly@arm.com, 
-	maz@kernel.org, james.morse@arm.com, broonie@kernel.org, 
-	oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com, 
-	ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com, 
-	jsnitsel@redhat.com, smostafa@google.com, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] firmware: config: ti-sci: Default set to ARCH_K3 for
+ the ti sci driver
+To: Arnd Bergmann <arnd@arndb.de>, Nishanth Menon <nm@ti.com>,
+ Tero Kristo <kristo@kernel.org>
+Cc: Andrew Davis <afd@ti.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com>
+ <c506a805-9221-4afe-8d98-af0ca97a1fd2@app.fastmail.com>
+Content-Language: en-US
+From: Guillaume La Roque <glaroque@baylibre.com>
+In-Reply-To: <c506a805-9221-4afe-8d98-af0ca97a1fd2@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_063723_608008_4F7FE42D 
-X-CRM114-Status: GOOD (  30.94  )
+X-CRM114-CacheID: sfid-20250320_064149_694400_C9E862EC 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,157 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Mar 2025 at 16:06, Miko=C5=82aj Lenczewski
-<miko.lenczewski@arm.com> wrote:
+Le 19/03/2025 à 22:45, Arnd Bergmann a écrit :
+> On Thu, Feb 20, 2025, at 14:31, Guillaume La Roque wrote:
+>> With ARCH_K3=y we cannot enable TI_SCI_PROTOCOL=m because
+>> ARCH_K3 selects TI_SCI_PROTOCOL.
+>>
+>> Modify the logic to enable TI_SCI_PROTOCOL by default when ARCH_K3=y
+>> allowing us to submit a future patch to remove select on ARCH_K3 without
+>> breaking existing users.
+>>
+>> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+>> ---
+>> Link to comment done on last serie [1] we come back on first version of
+>> series[2] to not use imply but set deps on ARCH_K3 in driver directly.
+>> An other patch will be sent to update Kconfig.platform when this patch
+>> is merged.
+> I just merged the patch and hadn't seen the earlier discussion,
+> just two small notes from me:
 >
-> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-> and this commit adds a dedicated BBML2 cpufeature to test against
-> support for, as well as a kernel commandline parameter to optionally
-> disable BBML2 altogether.
+> - thanks for doing it this way instead of the backwards 'imply'
+> - there is really no need to split it into two steps, since the
+>    change to the Kconfig.platforms file logically goes with this
+>    one and I would merge both through the SoC tree, having it
+>    as a single patch would make sense.
 >
-> This is a system feature as we might have a big.LITTLE architecture
-> where some cores support BBML2 and some don't, but we want all cores to
-> be available and BBM to default to level 0 (as opposed to having cores
-> without BBML2 not coming online).
->
-> To support BBML2 in as wide a range of contexts as we can, we want not
-> only the architectural guarantees that BBML2 makes, but additionally
-> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
-> us having to prove that no recursive faults can be induced in any path
-> that uses BBML2, allowing its use for arbitrary kernel mappings.
-> Support detection of such CPUs.
->
-> Signed-off-by: Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com>
-> ---
->  .../admin-guide/kernel-parameters.txt         |  3 +
->  arch/arm64/Kconfig                            | 11 +++
->  arch/arm64/include/asm/cpucaps.h              |  2 +
->  arch/arm64/include/asm/cpufeature.h           |  5 ++
->  arch/arm64/kernel/cpufeature.c                | 68 +++++++++++++++++++
->  arch/arm64/kernel/pi/idreg-override.c         |  2 +
->  arch/arm64/tools/cpucaps                      |  1 +
->  7 files changed, 92 insertions(+)
->
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentat=
-ion/admin-guide/kernel-parameters.txt
-> index fb8752b42ec8..3e4cc917a07e 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -453,6 +453,9 @@
->         arm64.no32bit_el0 [ARM64] Unconditionally disable the execution o=
-f
->                         32 bit applications.
->
-> +       arm64.nobbml2   [ARM64] Unconditionally disable Break-Before-Make=
- Level
-> +                       2 support
-> +
->         arm64.nobti     [ARM64] Unconditionally disable Branch Target
->                         Identification support
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 940343beb3d4..49deda2b22ae 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2057,6 +2057,17 @@ config ARM64_TLB_RANGE
->           The feature introduces new assembly instructions, and they were
->           support when binutils >=3D 2.30.
->
-> +config ARM64_BBML2_NOABORT
-> +       bool "Enable support for Break-Before-Make Level 2 detection and =
-usage"
-> +       default y
-> +       help
-> +         FEAT_BBM provides detection of support levels for break-before-=
-make
-> +         sequences. If BBM level 2 is supported, some TLB maintenance re=
-quirements
-> +         can be relaxed to improve performance. We additonally require t=
-he
-> +         property that the implementation cannot ever raise TLB Conflict=
- Aborts.
-> +         Selecting N causes the kernel to fallback to BBM level 0 behavi=
-our
-> +         even if the system supports BBM level 2.
-> +
->  endmenu # "ARMv8.4 architectural features"
->
->  menu "ARMv8.5 architectural features"
-> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cp=
-ucaps.h
-> index 0b5ca6e0eb09..2d6db33d4e45 100644
-> --- a/arch/arm64/include/asm/cpucaps.h
-> +++ b/arch/arm64/include/asm/cpucaps.h
-> @@ -23,6 +23,8 @@ cpucap_is_possible(const unsigned int cap)
->                 return IS_ENABLED(CONFIG_ARM64_PAN);
->         case ARM64_HAS_EPAN:
->                 return IS_ENABLED(CONFIG_ARM64_EPAN);
-> +       case ARM64_HAS_BBML2_NOABORT:
-> +               return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT);
->         case ARM64_SVE:
->                 return IS_ENABLED(CONFIG_ARM64_SVE);
->         case ARM64_SME:
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm=
-/cpufeature.h
-> index e0e4478f5fb5..108ef3fbbc00 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -866,6 +866,11 @@ static __always_inline bool system_supports_mpam_hcr=
-(void)
->         return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
->  }
->
-> +static inline bool system_supports_bbml2_noabort(void)
-> +{
-> +       return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
-> +}
-> +
->  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
->  bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
->
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeatur=
-e.c
-> index d561cf3b8ac7..1a4adcda267b 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2176,6 +2176,67 @@ static bool hvhe_possible(const struct arm64_cpu_c=
-apabilities *entry,
->         return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_H=
-VHE);
->  }
->
-> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
-> +{
+>          Arnd
 
-We generally start these block comments with just /* on the first line
+Hi,
 
-> +       /* We want to allow usage of bbml2 in as wide a range of kernel c=
-ontexts
-> +        * as possible. This list is therefore an allow-list of known-goo=
-d
-> +        * implementations that both support bbml2 and additionally, fulf=
-ill the
-> +        * extra constraint of never generating TLB conflict aborts when =
-using
-> +        * the relaxed bbml2 semantics (such aborts make use of bbml2 in =
-certain
-> +        * kernel contexts difficult to prove safe against recursive abor=
-ts).
-> +        *
-> +        * Note that implementations can only be considered "known-good" =
-if their
-> +        * implementors attest to the fact that the implementation never =
-raises
-> +        * TLBI conflict aborts for bbml2 mapping granularity changes.
-> +        */
-> +       static const struct midr_range supports_bbml2_noabort_list[] =3D =
-{
-> +               MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-> +               MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-> +               {}
-> +       };
-> +
+thanks for merged.
 
-Why on earth is this needed? Is there nothing in the architecture that
-can inform us about this? That seems like a huge oversight to me ...
+i do what we ask me in review in fact or perhaps i misunderstand sorry 
+for that.
+
+Guillaume
+
 
