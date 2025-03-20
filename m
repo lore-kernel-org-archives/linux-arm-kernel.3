@@ -4,106 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66791C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D80C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crexQWu4l57R3sbdMnceBIPuj5iuismgQR90iwJhOlw=; b=Q7lw4ItcotlsC8Iws+3t/hZ4yE
-	AFJhAD7jfuflXGNN8fl13HBtc8ssB5HuiQ3m2SUhyj0uAXpFukIoKAR8nsID/JRRU4SU6kaMmHgHE
-	tLiKfU5pUyocf+eVBKGBcsWfCIoSUqctJUO8aTRyi8tp4ew7f9fyDeAvm4rw2MJl4BdCSZ8JU8jOM
-	ak4bs9irKmIlWgx8z7Jvsdh+f18Ba3GQb5caydVQLvcPuD7qlOffUgOIZbAMc2Wf+KR34gWH2b8J4
-	6a8/AVlyVCpvfSJ5337dwOaTHBRQ2R45dwl5waTFVJGDGsbOisOi7lYnPPqU9jaLkSlNgYulpq8RZ
-	3QGUoncw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GtytNtkytdOwkY7RxEAZ6YIeWDZ0Hukdcg0v5RzJWII=; b=X/ECIPaGWNz5QChFhDhNKp3/sO
+	1z9L8R6l7MbEFu4sH6+wFxr+YlvMGIvjAnsbweso8wP2W5VlR0/nYWRZF9uigegdBk/2fveaNDkD8
+	eWEfBLv84Vt/zlEDYkoXeCooW15xaqIfyGuZVrcL7bfVOkG4Ct09zMgZaiSjv8YkvmlaUfMu/ZgeV
+	MhjCms/qHBYQbdsJy8PMh8dDNSeTpMhGLGqp0/Rlfs1FkIWt7vrixrwgqzRvYEJ4Pd5vQ6rQcNlgU
+	gQfCQb74dothadA6kCRfuHOBrJ4nk5Nnv7zetMxfcLvqnne83Eobd+PmLUi6CSJnFFg9uObQTWhuP
+	cKrFfkRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvC9j-0000000BgPt-41nA;
-	Thu, 20 Mar 2025 09:25:39 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tvCBa-0000000BgqM-3f3t;
+	Thu, 20 Mar 2025 09:27:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvC82-0000000BgG1-1tsL
+	id 1tvC9q-0000000BgRM-04Mo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 09:23:56 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K9HKHq023149;
-	Thu, 20 Mar 2025 10:23:39 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	crexQWu4l57R3sbdMnceBIPuj5iuismgQR90iwJhOlw=; b=SAdDYbMG9niyLueX
-	EmzCVR2UEw3l/kOQ0MwvxKZXvC+VsrRFslJFtNFw82j4ojfMLQ7c/92hs5wpdQZb
-	4pJLqvivmJP1npces5+rUxcaO0ZP3VD7BMgzU3HKp7ROvOQKo3UhrvVAfger3DYR
-	MG4YNVl28gSKPE6+LEulzoavrtjdTEz9mK/8Xpw48mBVW8GV8FKYTRiUbYxeNa85
-	aS+uag6Ka/MqzZ/37uKVx+RJDvG+1NW9JzBYrDDai9hCSaHR8ixkozxXbtNJmNXv
-	a1O013eA5hu5sFUBAG+IpUImoCNXg5hKNSAnPQLtGsak+EYIMDBetGbOgE+tP5m6
-	uCZcUw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45d1u84m7s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Mar 2025 10:23:39 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BAD0D4005D;
-	Thu, 20 Mar 2025 10:22:13 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CEE927C1EF4;
-	Thu, 20 Mar 2025 10:21:28 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 20 Mar
- 2025 10:21:28 +0100
-Received: from [10.252.18.22] (10.252.18.22) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 20 Mar
- 2025 10:21:27 +0100
-Message-ID: <130d61a8-6f03-46dc-94ca-f098bc09babc@foss.st.com>
-Date: Thu, 20 Mar 2025 10:21:26 +0100
+	Thu, 20 Mar 2025 09:25:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C1CA25C67BA;
+	Thu, 20 Mar 2025 09:23:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FE60C4CEDD;
+	Thu, 20 Mar 2025 09:25:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742462744;
+	bh=ka5I9+DH/KH7qnUYQBc5BsFzu7ZUacgslYAyJ2oFovM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H2COShwXIEBvemupMgwn2yPIGOH7svF/CtUyKlgMhEzjE1HIzM1OrmlP/VvihYgGl
+	 lXTgfZobbSVF8FtL+PCnm+i3KVKtGJsOnwQ7ATnroImvKVPa+LNcCIheByLLEbUNTa
+	 C+3oCt2JSXTQ/TKyXaWd+qrkdOjgtsDUFlwdnYV1kMspfRBSVJpYisbqkJOzVteLDV
+	 DRZdaJw3cZlnV1X0QBu1X98zOruIcTOtHWMLXiY43FICqGE6U4vSomoAeCaRH4YKw6
+	 GWnZyWDQ2PGIYKAu3L1DH19GgXTcr/6/2t+4T/YcXbDHPzFI70975O4spMKWCYC6ab
+	 ofc84GJuH5EOw==
+Date: Thu, 20 Mar 2025 14:55:35 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>
+Subject: Re: [PATCH v6 03/10] optee: account for direction while converting
+ parameters
+Message-ID: <Z9vfD4UWSrqSTPnP@sumit-X1>
+References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
+ <20250305130634.1850178-4-jens.wiklander@linaro.org>
+ <Z9K2RQYuXSJc8Y1E@sumit-X1>
+ <CAHUa44H5Zc_POJ_RWaVd4iFVagRkFaN+8Ajs=19FKboZapbQHw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH 3/3] remoteproc: Use
- of_reserved_mem_region_* functions for "memory-region"
-To: Rob Herring <robh@kernel.org>
-CC: Saravana Kannan <saravanak@google.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        "Shawn
- Guo" <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        "Pengutronix Kernel Team" <kernel@pengutronix.de>,
-        Fabio Estevam
-	<festevam@gmail.com>,
-        Patrice Chotard <patrice.chotard@foss.st.com>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-        <linux-arm-msm@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250317232426.952188-1-robh@kernel.org>
- <20250317232426.952188-4-robh@kernel.org>
- <26e72cb2-c355-4c40-bb98-fc0ff267bf4f@foss.st.com>
- <CAL_Jsq+7ZhMWgbFDvPB+3BG7YfiS9PweybOGNY3r=d40RbGHJA@mail.gmail.com>
-Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Organization: STMicroelectronics
-In-Reply-To: <CAL_Jsq+7ZhMWgbFDvPB+3BG7YfiS9PweybOGNY3r=d40RbGHJA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.18.22]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-20_03,2025-03-19_01,2024-11-22_01
+In-Reply-To: <CAHUa44H5Zc_POJ_RWaVd4iFVagRkFaN+8Ajs=19FKboZapbQHw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_022354_977600_1EE81AEA 
-X-CRM114-Status: GOOD (  23.57  )
+X-CRM114-CacheID: sfid-20250320_022546_148182_860B01DA 
+X-CRM114-Status: GOOD (  36.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,132 +91,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jens,
 
-
-On 3/20/25 00:04, Rob Herring wrote:
-> On Wed, Mar 19, 2025 at 10:26 AM Arnaud POULIQUEN
-> <arnaud.pouliquen@foss.st.com> wrote:
->>
->> Hello Rob,
->>
->> On 3/18/25 00:24, Rob Herring (Arm) wrote:
->>> Use the newly added of_reserved_mem_region_to_resource() and
->>> of_reserved_mem_region_count() functions to handle "memory-region"
->>> properties.
->>>
->>> The error handling is a bit different in some cases. Often
->>> "memory-region" is optional, so failed lookup is not an error. But then
->>> an error in of_reserved_mem_lookup() is treated as an error. However,
->>> that distinction is not really important. Either the region is available
->>> and usable or it is not. So now, it is just
->>> of_reserved_mem_region_to_resource() which is checked for an error.
->>>
->>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->>> ---
->>> For v6.16
->>>
+On Mon, Mar 17, 2025 at 08:42:01AM +0100, Jens Wiklander wrote:
+> Hi Sumit,
 > 
-> [...]
+> On Thu, Mar 13, 2025 at 11:41 AM Sumit Garg <sumit.garg@kernel.org> wrote:
+> >
+> > Hi Jens,
+> >
+> > On Wed, Mar 05, 2025 at 02:04:09PM +0100, Jens Wiklander wrote:
+> > > The OP-TEE backend driver has two internal function pointers to convert
+> > > between the subsystem type struct tee_param and the OP-TEE type struct
+> > > optee_msg_param.
+> > >
+> > > The conversion is done from one of the types to the other, which is then
+> > > involved in some operation and finally converted back to the original
+> > > type. When converting to prepare the parameters for the operation, all
+> > > fields must be taken into account, but then converting back, it's enough
+> > > to update only out-values and out-sizes. So, an update_out parameter is
+> > > added to the conversion functions to tell if all or only some fields
+> > > must be copied.
+> > >
+> > > This is needed in a later patch where it might get confusing when
+> > > converting back in from_msg_param() callback since an allocated
+> > > restricted SHM can be using the sec_world_id of the used restricted
+> > > memory pool and that doesn't translate back well.
+> > >
+> > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > > ---
+> > >  drivers/tee/optee/call.c          | 10 ++--
+> > >  drivers/tee/optee/ffa_abi.c       | 43 +++++++++++++----
+> > >  drivers/tee/optee/optee_private.h | 42 +++++++++++------
+> > >  drivers/tee/optee/rpc.c           | 31 +++++++++----
+> > >  drivers/tee/optee/smc_abi.c       | 76 +++++++++++++++++++++++--------
+> > >  5 files changed, 144 insertions(+), 58 deletions(-)
+> > >
+> > > diff --git a/drivers/tee/optee/call.c b/drivers/tee/optee/call.c
+> > > index 16eb953e14bb..f1533b894726 100644
+> > > --- a/drivers/tee/optee/call.c
+> > > +++ b/drivers/tee/optee/call.c
+> > > @@ -400,7 +400,8 @@ int optee_open_session(struct tee_context *ctx,
+> > >       export_uuid(msg_arg->params[1].u.octets, &client_uuid);
+> > >
+> > >       rc = optee->ops->to_msg_param(optee, msg_arg->params + 2,
+> > > -                                   arg->num_params, param);
+> > > +                                   arg->num_params, param,
+> > > +                                   false /*!update_out*/);
+> > >       if (rc)
+> > >               goto out;
+> > >
+> > > @@ -427,7 +428,8 @@ int optee_open_session(struct tee_context *ctx,
+> > >       }
+> > >
+> > >       if (optee->ops->from_msg_param(optee, param, arg->num_params,
+> > > -                                    msg_arg->params + 2)) {
+> > > +                                    msg_arg->params + 2,
+> > > +                                    true /*update_out*/)) {
+> > >               arg->ret = TEEC_ERROR_COMMUNICATION;
+> > >               arg->ret_origin = TEEC_ORIGIN_COMMS;
+> > >               /* Close session again to avoid leakage */
+> > > @@ -541,7 +543,7 @@ int optee_invoke_func(struct tee_context *ctx, struct tee_ioctl_invoke_arg *arg,
+> > >       msg_arg->cancel_id = arg->cancel_id;
+> > >
+> > >       rc = optee->ops->to_msg_param(optee, msg_arg->params, arg->num_params,
+> > > -                                   param);
+> > > +                                   param, false /*!update_out*/);
+> > >       if (rc)
+> > >               goto out;
+> > >
+> > > @@ -551,7 +553,7 @@ int optee_invoke_func(struct tee_context *ctx, struct tee_ioctl_invoke_arg *arg,
+> > >       }
+> > >
+> > >       if (optee->ops->from_msg_param(optee, param, arg->num_params,
+> > > -                                    msg_arg->params)) {
+> > > +                                    msg_arg->params, true /*update_out*/)) {
+> > >               msg_arg->ret = TEEC_ERROR_COMMUNICATION;
+> > >               msg_arg->ret_origin = TEEC_ORIGIN_COMMS;
+> > >       }
+> > > diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+> > > index 4ca1d5161b82..e4b08cd195f3 100644
+> > > --- a/drivers/tee/optee/ffa_abi.c
+> > > +++ b/drivers/tee/optee/ffa_abi.c
+> > > @@ -122,15 +122,21 @@ static int optee_shm_rem_ffa_handle(struct optee *optee, u64 global_id)
+> > >   */
+> > >
+> > >  static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
+> > > -                                u32 attr, const struct optee_msg_param *mp)
+> > > +                                u32 attr, const struct optee_msg_param *mp,
+> > > +                                bool update_out)
+> > >  {
+> > >       struct tee_shm *shm = NULL;
+> > >       u64 offs_high = 0;
+> > >       u64 offs_low = 0;
+> > >
+> > > +     if (update_out) {
+> > > +             if (attr == OPTEE_MSG_ATTR_TYPE_FMEM_INPUT)
+> > > +                     return;
+> > > +             goto out;
+> > > +     }
+> > > +
+> > >       p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT +
+> > >                 attr - OPTEE_MSG_ATTR_TYPE_FMEM_INPUT;
+> > > -     p->u.memref.size = mp->u.fmem.size;
+> > >
+> > >       if (mp->u.fmem.global_id != OPTEE_MSG_FMEM_INVALID_GLOBAL_ID)
+> > >               shm = optee_shm_from_ffa_handle(optee, mp->u.fmem.global_id);
+> > > @@ -141,6 +147,8 @@ static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
+> > >               offs_high = mp->u.fmem.offs_high;
+> > >       }
+> > >       p->u.memref.shm_offs = offs_low | offs_high << 32;
+> > > +out:
+> > > +     p->u.memref.size = mp->u.fmem.size;
+> > >  }
+> > >
+> > >  /**
+> > > @@ -150,12 +158,14 @@ static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
+> > >   * @params:  subsystem internal parameter representation
+> > >   * @num_params:      number of elements in the parameter arrays
+> > >   * @msg_params:      OPTEE_MSG parameters
+> > > + * @update_out: update parameter for output only
+> > >   *
+> > >   * Returns 0 on success or <0 on failure
+> > >   */
+> > >  static int optee_ffa_from_msg_param(struct optee *optee,
+> > >                                   struct tee_param *params, size_t num_params,
+> > > -                                 const struct optee_msg_param *msg_params)
+> > > +                                 const struct optee_msg_param *msg_params,
+> > > +                                 bool update_out)
+> > >  {
+> > >       size_t n;
+> > >
+> > > @@ -166,18 +176,20 @@ static int optee_ffa_from_msg_param(struct optee *optee,
+> > >
+> > >               switch (attr) {
+> > >               case OPTEE_MSG_ATTR_TYPE_NONE:
+> > > +                     if (update_out)
+> > > +                             break;
+> > >                       p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
+> > >                       memset(&p->u, 0, sizeof(p->u));
+> > >                       break;
+> > >               case OPTEE_MSG_ATTR_TYPE_VALUE_INPUT:
+> > >               case OPTEE_MSG_ATTR_TYPE_VALUE_OUTPUT:
+> > >               case OPTEE_MSG_ATTR_TYPE_VALUE_INOUT:
+> > > -                     optee_from_msg_param_value(p, attr, mp);
+> > > +                     optee_from_msg_param_value(p, attr, mp, update_out);
+> > >                       break;
+> > >               case OPTEE_MSG_ATTR_TYPE_FMEM_INPUT:
+> > >               case OPTEE_MSG_ATTR_TYPE_FMEM_OUTPUT:
+> > >               case OPTEE_MSG_ATTR_TYPE_FMEM_INOUT:
+> > > -                     from_msg_param_ffa_mem(optee, p, attr, mp);
+> > > +                     from_msg_param_ffa_mem(optee, p, attr, mp, update_out);
+> > >                       break;
+> > >               default:
+> > >                       return -EINVAL;
+> > > @@ -188,10 +200,16 @@ static int optee_ffa_from_msg_param(struct optee *optee,
+> > >  }
+> > >
+> > >  static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
+> > > -                             const struct tee_param *p)
+> > > +                             const struct tee_param *p, bool update_out)
+> > >  {
+> > >       struct tee_shm *shm = p->u.memref.shm;
+> > >
+> > > +     if (update_out) {
+> > > +             if (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT)
+> > > +                     return 0;
+> > > +             goto out;
+> > > +     }
+> > > +
+> > >       mp->attr = OPTEE_MSG_ATTR_TYPE_FMEM_INPUT + p->attr -
+> > >                  TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT;
+> > >
+> > > @@ -211,6 +229,7 @@ static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
+> > >               memset(&mp->u, 0, sizeof(mp->u));
+> > >               mp->u.fmem.global_id = OPTEE_MSG_FMEM_INVALID_GLOBAL_ID;
+> > >       }
+> > > +out:
+> > >       mp->u.fmem.size = p->u.memref.size;
+> > >
+> > >       return 0;
+> > > @@ -222,13 +241,15 @@ static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
+> > >   * @optee:   main service struct
+> > >   * @msg_params:      OPTEE_MSG parameters
+> > >   * @num_params:      number of elements in the parameter arrays
+> > > - * @params:  subsystem itnernal parameter representation
+> > > + * @params:  subsystem internal parameter representation
+> > > + * @update_out: update parameter for output only
+> > >   * Returns 0 on success or <0 on failure
+> > >   */
+> > >  static int optee_ffa_to_msg_param(struct optee *optee,
+> > >                                 struct optee_msg_param *msg_params,
+> > >                                 size_t num_params,
+> > > -                               const struct tee_param *params)
+> > > +                               const struct tee_param *params,
+> > > +                               bool update_out)
+> > >  {
+> > >       size_t n;
+> > >
+> > > @@ -238,18 +259,20 @@ static int optee_ffa_to_msg_param(struct optee *optee,
+> > >
+> > >               switch (p->attr) {
+> > >               case TEE_IOCTL_PARAM_ATTR_TYPE_NONE:
+> > > +                     if (update_out)
+> > > +                             break;
+> > >                       mp->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
+> > >                       memset(&mp->u, 0, sizeof(mp->u));
+> > >                       break;
+> > >               case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT:
+> > >               case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT:
+> > >               case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT:
+> > > -                     optee_to_msg_param_value(mp, p);
+> > > +                     optee_to_msg_param_value(mp, p, update_out);
+> > >                       break;
+> > >               case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT:
+> > >               case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT:
+> > >               case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT:
+> > > -                     if (to_msg_param_ffa_mem(mp, p))
+> > > +                     if (to_msg_param_ffa_mem(mp, p, update_out))
+> > >                               return -EINVAL;
+> > >                       break;
+> > >               default:
+> >
+> > Can we rather handle it as follows to improve code readability and
+> > maintainence long term? Ditto for all other places.
+> >
+> > static int optee_ffa_to_msg_param(struct optee *optee,
+> >                                   struct optee_msg_param *msg_params,
+> >                                   size_t num_params,
+> >                                   const struct tee_param *params,
+> >                                   bool update_out)
+> > {
+> >         size_t n;
+> >
+> >         for (n = 0; n < num_params; n++) {
+> >                 const struct tee_param *p = params + n;
+> >                 struct optee_msg_param *mp = msg_params + n;
+> >
+> >                 if (update_out && (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_NONE ||
+> >                      p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT ||
+> >                      p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT))
+> >                     continue;
 > 
->>> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
->>> index b02b36a3f515..9d2bd8904c49 100644
->>> --- a/drivers/remoteproc/stm32_rproc.c
->>> +++ b/drivers/remoteproc/stm32_rproc.c
->>> @@ -213,52 +213,46 @@ static int stm32_rproc_prepare(struct rproc *rproc)
->>>  {
->>>       struct device *dev = rproc->dev.parent;
->>>       struct device_node *np = dev->of_node;
->>> -     struct of_phandle_iterator it;
->>>       struct rproc_mem_entry *mem;
->>> -     struct reserved_mem *rmem;
->>>       u64 da;
->>> -     int index = 0;
->>> +     int index = 0, mr = 0;
->>>
->>>       /* Register associated reserved memory regions */
->>> -     of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
->>> -     while (of_phandle_iterator_next(&it) == 0) {
->>> -             rmem = of_reserved_mem_lookup(it.node);
->>> -             if (!rmem) {
->>> -                     of_node_put(it.node);
->>> -                     dev_err(dev, "unable to acquire memory-region\n");
->>> -                     return -EINVAL;
->>> -             }
->>> +     while (1) {
->>> +             struct resource res;
->>> +             int ret;
->>> +
->>> +             ret = of_reserved_mem_region_to_resource(np, mr++, &res);
->>> +             if (ret)
->>> +                     return 0;
->>>
->>> -             if (stm32_rproc_pa_to_da(rproc, rmem->base, &da) < 0) {
->>> -                     of_node_put(it.node);
->>> -                     dev_err(dev, "memory region not valid %pa\n",
->>> -                             &rmem->base);
->>> +             if (stm32_rproc_pa_to_da(rproc, res.start, &da) < 0) {
->>> +                     dev_err(dev, "memory region not valid %pR\n", &res);
->>>                       return -EINVAL;
->>>               }
->>>
->>>               /*  No need to map vdev buffer */
->>> -             if (strcmp(it.node->name, "vdev0buffer")) {
->>> +             if (strcmp(res.name, "vdev0buffer")) {
->>
->> I tested your patches
+> You're missing updating the length field for memrefs.
+>
+
+Do we need to update length field for input memrefs when update_out is
+set? I don't see that happening in your existing patch too.
+
+-Sumit
+
+> Cheers,
+> Jens
 > 
-> Thank you.
-> 
->> The update introduces a regression here. The strcmp function never returns 0.
->> Indeed, it.node->name stores the memory region label "vdev0buffer," while
->> res.name stores the memory region name "vdev0buffer@10042000."
->>
->> Several remoteproc drivers may face the same issue as they embed similar code.
-> 
-> Indeed. I confused myself because node 'name' is without the
-> unit-address, but this is using the full name. I've replaced the
-> strcmp's with strstarts() to address this. I've updated my branch with
-> the changes.
-
-This is not enough as the remoteproc core function rproc_find_carveout_by_name()
-also compares the memory names. With the following additional fix, it is working
-on my STM32MP15-DK board.
-
-@@ -309,11 +309,11 @@ rproc_find_carveout_by_name(struct rproc *rproc, const
-char *name, ...)
- 	vsnprintf(_name, sizeof(_name), name, args);
- 	va_end(args);
-
- 	list_for_each_entry(carveout, &rproc->carveouts, node) {
- 		/* Compare carveout and requested names */
--		if (!strcmp(carveout->name, _name)) {
-+		if (strstarts(carveout->name, _name)) {
- 			mem = carveout;
- 			break;
- 		}
- 	}
-
-I just wonder if would not be more suitable to address this using the
-"memory-region-names" field.
-
-The drawback is that we would break compatibility with legacy boards...
-
-I let Mathieu and Bjorn review and comment
-
-
-Else with the fix in rproc_find_carveout_by_name(),
-
--for the stm32_rproc:
-reviewed-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-tested-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-
-- for the st_remoteproc
-reviewed-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-
-Thanks,
-Arnaud
-
-
-> 
-> Rob
+> >
+> >                 switch (p->attr) {
+> >                 case TEE_IOCTL_PARAM_ATTR_TYPE_NONE:
+> >                         mp->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
+> >                         memset(&mp->u, 0, sizeof(mp->u));
+> >                         break;
+> >                 case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT:
+> >                 case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT:
+> >                 case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT:
+> >                         optee_to_msg_param_value(mp, p);
+> >                         break;
+> >                 case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT:
+> >                 case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT:
+> >                 case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT:
+> >                         if (to_msg_param_ffa_mem(mp, p))
+> >                                 return -EINVAL;
+> >                         break;
+> >                 default:
+> >                         return -EINVAL;
+> >                 }
+> >         }
+> >
+> >         return 0;
+> > }
+> >
+> > -Sumit
 
