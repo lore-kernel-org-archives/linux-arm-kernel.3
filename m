@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F1D9C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 08:51:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF90EC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 08:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3dSSUDp0kq8Zg5C9MUmkhdPhVDOdSmRPSZzAk4mUfCY=; b=HbFAFOI7aWhALH
-	4vuy4XFYr5Q97s/eDmEXBYTjFFQIT9uvhcMoz5tdjqvQM5t/krUGqaqt2xpKt1F6Is/ZkFv4T+pOB
-	oyaL4uelcvMuNYyPswLM4Txr8bifon1sEC6tRcNst28IOaoagqLUPCjabdtjT1iMXYh4QAIIrJkcN
-	uySP69cp2+LGbmr5m+UcEV+YgTAVTY76vVZaacETvwWYqqUnlpcSvW1hTeKi630Dc0v2fR5n9IvHq
-	l3+ZgLvON1Ku5l4B00kgQKQbj+12Oo2eVPbJ2UPFPZ2TfRjXL/9uRbiNNh0yUSbT7QNPWZtg77+iv
-	0+ZM0rXlhUFEh/PjQ7bg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gQeXTV1LA9vLFyUSPTOWos3fw/hNZwIQ/slXSCfXZO8=; b=ZvTGbSDxzQ4ccBXfDdMZXdPX1n
+	yIYogKGrFAhne1W17ufr1OVWY1tguxNQ+AzaTFcB9pOyC+Td6jhuZIwFQ5MiDIcBLASSqQl4QrxLk
+	91rUYFfXyGx/RQ+C+IVcc7vCRTBK+I2EU14XEmbg/0y30Ywp11wsEmGsauzBtxLRzoUHzSFtYrIEN
+	4f+0CK3yHhz82y8YoDDYCibCTQHhGG4v4p1DNfTqvWERPNNtQ/A56eCEDb0vYpE2JEpdT6i5Qcr91
+	Z5H/j2SNTjj2zQqE6uuUEY7mi+gr8toG2+Hrl8mmM+SicgLr0dj9hY8Ju/FyB1rKmP+tuHefHWHxz
+	lrkNdiag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBcD-0000000BbBT-2vmk;
-	Thu, 20 Mar 2025 08:51:01 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tvBds-0000000BbRZ-2sJC;
+	Thu, 20 Mar 2025 08:52:44 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBaV-0000000Baou-0gaL
+	id 1tvBaV-0000000Bap9-2iPB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 08:49:16 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3912d2c89ecso394738f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 01:49:14 -0700 (PDT)
+	Thu, 20 Mar 2025 08:49:17 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso4942845e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 01:49:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742460553; x=1743065353; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3dSSUDp0kq8Zg5C9MUmkhdPhVDOdSmRPSZzAk4mUfCY=;
-        b=zBQRgBen1pZ39aaLnvqJ5qJ+F9OyEQ0WnY96/OFv6P2vJ/YH1/+/2fi35AW5V8iACc
-         +k1dCgIwVJLuNy/RPzEreLhX1qQy2XP9KkQVi8RdaKR7+HWA6hqRLx2QNAsJjZl43qMB
-         1k9KwoEKA2BC+ka4k9q3suIUAIoVfBK2xY/k43epjOtv7vudVDrB3ffGItpO9pi1HNrG
-         HaPU2Yu87vOQ8e0C6jlvVlaUUFZ/hegcqqQFo9DxYMVvfhPAl6JJItTOSnLF1odMTlUx
-         Mt5zPRkBUM2Z9SFhxHPZik4PSagq7eLLoYQpMiJ02Ux/OWMhsPg9RnXFL9tCzQZMNt1b
-         cnVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742460553; x=1743065353;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742460554; x=1743065354; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3dSSUDp0kq8Zg5C9MUmkhdPhVDOdSmRPSZzAk4mUfCY=;
-        b=hclanHBQcftLv3A+d341kPCROVCdnjCRu0sKKelzZSRoJc6VfAJgj+km0UGmFqBz8W
-         nmA8tCw+J/w668sgKdu598llJWkf1j9GJzlGlT+1clo4nOcIletYgqLti/TEISWXzobH
-         HBkWXG7IXyNfKYgkHRTbr5AbfSO233l5DvfKrd2IYgMxCEzXPRLeidYDlGdO29MzDoGK
-         4G5t5b0fmjGIkWjfApDdOeMHQ+qTtpXQepoKCq2ca2UBGvqnPQYQBeDCNQ0jJNJvE7jO
-         Sfs13p/2kE7um9X8oiThXkbrPgw3FAa1aNUb9thOYxKn3wMxINdv5HQohlmrS3ppCxEd
-         GKlQ==
-X-Gm-Message-State: AOJu0YxHwZY6b4g04FLWl7gF7a4dIiYLMtSMfoPoym32L0jW+PGG3uWP
-	gjX2APCWMg155vF4fl3z/5p0DfAHnVhF2Pg3nkuerYR6lnEzuv9H2ZWWBGKcKtE=
-X-Gm-Gg: ASbGncvrUeQgE9LPlC9Ze2elbUQ+mpoGZ9QrJp72kKlBXJXkFTldpmiJL23VmmyPBaG
-	iPx5GxiFm50OMALVmAiYUSO+TQYS+8mCXtxIIIUlXSchb3cBBKSf0c5Xbsn/+iq00szt4pvMHv+
-	P+zDuagymga/HEm6+F0DTQKqoxi36FctO6/IyyhxxF3UmSpT2TIs8quXr/2g0MKeq8GzD6A5AG3
-	E3/11Abd37btDZzHiQAB9V+HaQUkP6UMt1vFleAA/tWhv+n3oMLjcDOcQACNqcsc1xv3Va5mZOi
-	d38TAl+MCKxg18Z0XKrRX38PSTHCRV9/i/g+uXwFeWnmUqhF
-X-Google-Smtp-Source: AGHT+IESyPaiI1V9B3T+xCXcpOdHP115r4JOZkpshAPm0pBqPbQrvCBH6xJxDvOxDEUrw+x64IGdGA==
-X-Received: by 2002:a5d:584c:0:b0:391:12a5:3c95 with SMTP id ffacd0b85a97d-399795adb01mr1697690f8f.22.1742460553152;
-        Thu, 20 Mar 2025 01:49:13 -0700 (PDT)
+        bh=gQeXTV1LA9vLFyUSPTOWos3fw/hNZwIQ/slXSCfXZO8=;
+        b=zaFKBHuwD6QyizKj5/g+7aVATrA0doJ6U1X9mW/9gpJDLetwo64o3AMQGvfdLLOyjI
+         ha3P2YIFUUQwYKqGaYDoe6KZW2wgXIbF1KNOxc9TX56zlkNlzRRaDQfXhZZmguaJeGW0
+         MPrnmspHbIbezEa7D9c8+CJDAJGsXWC9kCLDsbER3PecVJFzEfAU1m+E0OSffMPvcFk2
+         vdMFpMn3d4FJMmW/CBue4CGPRiJP9hD4pU4QQEwGc4BS5+cY5zjqriBJHV7dQNckQTQJ
+         yDM0IM0sUPN/Kl+jfnaa0MaY03BVm/QU71l4mhq0E7ZpybZ8uAxF024Ptdq/5nv0H0PL
+         TwQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742460554; x=1743065354;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gQeXTV1LA9vLFyUSPTOWos3fw/hNZwIQ/slXSCfXZO8=;
+        b=lF4QizS+Fvuq3bU8pYk7ufSxjoJXuOCMfjKBlv+GsGjkUnEOVS7L2u6/0s+H/0dPPu
+         g3qxMZcE4pQT2B1W//pn7UGDTuO9gOtV6ozWDDqFM5PJx5DB//WcE1FIsdWRtw+bLIHs
+         KLSe1kB55SlccQFEU1xvNkGvTS1eQPiUY3vZWxvqH7NqpKyIr6yCjLKM5UTt1gbmYdvl
+         6ORetddm3l3FzppdzYJ+oVrljXNX5LaAch8eud2AaIgADN0lX2zmB2nznuhKBtdPib3w
+         1f5nMMSw79mFP0iajeFfIIqrnKwDHK+BVVd/6zZegruaX3c8x8TptWd5DB9hJWRpmfb6
+         tmBA==
+X-Gm-Message-State: AOJu0Yxn8CCGdSToeBtUP6d3LE+YFv7kMUrF/P/vvsZUu8I/w5DJnTYn
+	OM8vryRELiq9L6q23G8UZ1rMIL/fA74g3jnMFhjwYR2tskE/JeK2OvpIpXi/inQ=
+X-Gm-Gg: ASbGncsFsM4f3kVs3xLhvvPHFd1YzZvwtEzl3zRVw+AH+eXfWJK9iJiV/dO8mK+XjA2
+	Qup3ikK3xNSXRtj0eMVPXM3MgVQkFNwgxPKkP5bnXOdXSfUTWUKSvJmpPJKcF5ejijBPCsC93ld
+	MI9XFNOEhiUV345BjCi7AiqZo046HZ2f27Sh6MO6BL9wc5JJjlR3nXiqgyObCl7hnNixRR5VD/r
+	VgTDYsYFAHdfu4c1tTiitW12saY/SYToWSmt/evXecUpc3NoKpzTL07X6Baa0jbMddVq8gNh2uH
+	6xhYahgJUP3V092dIx5qle2mAKRv5g9FkQIyzaWLIBNBGVhi
+X-Google-Smtp-Source: AGHT+IH58YmM+Ar3OIBnrYDz72JB09Ne3XzaCC0yavAlSFgbWvLySke1g9L5Z6waa+wCIlyWCNTAWg==
+X-Received: by 2002:a05:600c:5248:b0:43d:aed:f7d0 with SMTP id 5b1f17b1804b1-43d495aba92mr15463345e9.28.1742460554194;
+        Thu, 20 Mar 2025 01:49:14 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:e0a:5ee:79d0:c11c:487d:c821:54a0])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d43fdac9dsm41381655e9.30.2025.03.20.01.49.11
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d43fdac9dsm41381655e9.30.2025.03.20.01.49.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 01:49:12 -0700 (PDT)
+        Thu, 20 Mar 2025 01:49:13 -0700 (PDT)
 From: Alexandre Mergnat <amergnat@baylibre.com>
-Subject: [PATCH v8 0/3] Add display support for the MT8365-EVK board
-Date: Thu, 20 Mar 2025 09:48:44 +0100
-Message-Id: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
+Date: Thu, 20 Mar 2025 09:48:45 +0100
+Subject: [PATCH v8 1/3] arm64: defconfig: enable display support for
+ mt8365-evk
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGzW22cC/4XQS27EIAwG4KuMWJcKMBBmVr1H1QUP0yBNkwjSq
- NEody/MskrFgsVvyZ9tHqRgTljI7fIgGbdU0jzVYF4uxI92+kSaQs1EMAG8PhpSWe52p+V7Wea
- 8Uq8lNw4YSn4ltcvZgtRlO/mx9a1YVt7qS8aYfp6T3j9qHlNZ57w/B2+8Vf+fsXHKqPJGMwzKA
- 7g3Z/d7chlf/fxFGreJDiEqAeDRGC2dEMMJAR0C2hYAxkTAAPJsC9khZCUwGIGOaxMdPyFUh1D
- tkCtTkaN0BtQJoTuEroTXNsoIMspgToihQwyV0AOD+hVCG/h7yHEcv+U7Pw1bAgAA
+Message-Id: <20231023-display-support-v8-1-c2dd7b0fb2bd@baylibre.com>
+References: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
+In-Reply-To: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
  Jessica Zhang <quic_jesszhan@quicinc.com>, 
@@ -93,24 +92,24 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Alexandre Mergnat <amergnat@baylibre.com>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5549; i=amergnat@baylibre.com;
- h=from:subject:message-id; bh=dFWBZa11361gL22ddaMWSIWli3shFJKSBcr7kHO8OAs=;
- b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBn29aHbKmfCxg9p7exTe9tO4ahnJps7WII3FBjPnb4
- 3eBbyQaJAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ9vWhwAKCRArRkmdfjHURXGrEA
- Cmq6GfCcjI8Ht1UNcjWmd4WfAieGbhW5mYUQQVUZyrkkVUl2sEDA94dd7L1HlTzNmiO9qXciEj+GZ4
- CD5NhyDyHrTXp8bkL0bgGIjHZXf8QqT3ae/1WYtL0HUH4c8sTjcWF8p8fIDmRzE3ql2nSKmTB5w9fb
- 6T+oJLElauBuc6eWCq6nJjF4PfdmotiB/2RyRmo+9FNm8jp9PSYjniUQo61mmbssD0zx1fGiDMJcNE
- dfXFLBOhju/EEHdvcAqBD/sHMu+4//dxQ2ZPmJ4CV6lTFeJpJDNX98Vy7tgehwEAs5QfLzqawHpgh4
- tN/2XWMzX1S/pNqcr2DMw2UJwMGHuD+/yr9bmsbSwtadQCWflHc8HNCRiT3qGvXBYdQ2nX1D34SHGS
- yhOSRFKlIKQTcIhsOLJMx+go6P/BiffF3PsPFlnClkdu9Rp8MaohY8YKRNnpPAdQnly1FYZ8OKNJ7L
- XJRh3+RoEC/eZNgm/As3WaJjJYoRU9d3Io5XvOqis3TFJwUMZNhzsyHNlmILLFiPdT3sKqYt/1+UFK
- MrKj41Oe6yoMBlQupg9mQc34O8Wiq5ap7bI/5sfAwwqV8YNojrqnlh71tf7QGQdFBrLoCTonkx6gR3
- tGEGOZO1VwKbIUnxiKIvX8I1iBHJejB8KysIYz8BVCnhPK9vSuOv71qUJbdQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1094; i=amergnat@baylibre.com;
+ h=from:subject:message-id; bh=ZusPf2YtjBEtNve2Icxs25V5Tl/ibrpsGhWI+A0KSgU=;
+ b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBn29aH6usGfN2/1gaTh9wKj+TSHgkhwQ2e617HVo3A
+ T2nrw+uJAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ9vWhwAKCRArRkmdfjHURarMD/
+ kBEjarCQjoLriCSN2ub60j2k/Jqp4G5LTX4M3crHIEvT/AJ1/D0ShmhMqlAGFJqzIuOD/uTzvBCH4C
+ bvY4jxUtPHFP/4FqhTFtCiB4ieeiipBTC4gDQ3iDwnQtJ3egvFXIU+TYQICa3/lds2dwg3LPfI8lYW
+ kTmBMlwM/FxFnUZA//Onw6iJsbRzaKrvCZaHfmhIkKN8cXdO73g41J5uiws/LV9OioWmTwxioi3sfT
+ yeQC0vJB+q0EmE5vnp499CedQpZWTJvw5dAGVOr6zP8fJIYS/LyWObKhn5t+mJCHol1lJ+Ty3dDXoD
+ 5tfUCbkzfXmiZK8Y+pzH2Yl+YSxgeZUyF5g4yS3gNaLO4/LHIsyfFPzqrN8Nu2/T+Vu8xf57gtRiTN
+ yvlzEAOgC2gFD6lEdCls5eBIHksYK0ntvzYD7ykbnM9YJ9zI1amHZHpVw3tJ9lJn/Ko1hm9sgXLuKn
+ OvS7nxXk6ABvpHrHXIHTttwaqOrMN2+kAxT8Si3Tr+A//FpFpOx+BNJs6CBZ1kaB9CuFFvYHJtvNwA
+ GLfDzh1Kdf659ylFdqcCdiT0kjaEmujM+W2KwrWgohbdkT8f5pSvPl2HTVwIrxStU8MXgya8H0ksA3
+ Rrn6wVEmTr6rmJmD3UfNG4LkSVcvwzH8JGPe3ChKA7ZNLm2ZbW0s1XUAoDZg==
 X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
  fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_014915_208554_0E34C94A 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20250320_014915_688243_8ABEB41B 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,134 +124,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The purpose of this series is to add the display support for the mt8365-evk.
+Enable the DRM HDMI connector support and the MIPI-DSI display
+Startek KD070FHFID015 panel to have HDMI and DSI display working
+on the mt8365-evk board.
 
-This is the list of HWs / IPs support added:
-- Connectors (HW):
-  - HDMI
-  - MIPI DSI (Mobile Industry Processor Interface Display Serial Interface)
-- HDMI bridge (it66121)
-- DSI pannel (startek,kd070fhfid015)
-- SoC display blocks (IP):
-  - OVL0 (Overlay)
-  - RDMA0 (Data Path Read DMA)
-  - Color0
-  - CCorr0 (Color Correction)
-  - AAL0 (Adaptive Ambient Light)
-  - GAMMA0
-  - Dither0
-  - DSI0 (Display Serial Interface)
-  - RDMA1 (Data Path Read DMA)
-  - DPI0 (Display Parallel Interface)
-
-The Mediatek DSI, DPI and DRM drivers are also improved.
-
-The series is rebased on top of Angelo's series [1] to
-use the OF graphs support.
-
-Update 03/20/25:
-According to Angelo's comment, the DSI fix in the previous version
-doesn't fix the root issue.
-Then, the "drm/mediatek: dsi: Improves the DSI lane setup robustness"
-as been replaced by two other patch to fix the DSI power on sequence
-and remove custom power function.
-
-Regards,
-Alex
-
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
 ---
-Changes in v8:
-- Patch merged, then removed from the series:
-  - dt-bindings: display: mediatek: dpi: add power-domains example
-  - drm/mediatek: add MT8365 SoC support
-  - arm64: dts: mediatek: add display blocks support for the MT8365 SoC
-  - arm64: dts: mediatek: add display support for mt8365-evk
-- Patch removed:
-  - drm/mediatek: dsi: Improves the DSI lane setup robustness
-- Patch added:
-  - drm/panel: startek-kd070fhfid015: add another init step
-  - drm/mediatek: dsi: remove custom init part
-- Remove MTK custom init function for the DSI driver to avoid conflict
-  with what the DRM APIs provide.
-- Link to v7: https://lore.kernel.org/r/20231023-display-support-v7-0-6703f3e26831@baylibre.com
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes in v7:
-- Improve defconfig commit description
-- Add comment in the DTS about pins clash with ethernet and HDMI (DPI0)
-- Link to v6: https://lore.kernel.org/r/20231023-display-support-v6-0-c6af4f34f4d8@baylibre.com
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index c62831e615863..1e2963a13500b 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -897,9 +897,11 @@ CONFIG_DRM_PANEL_NOVATEK_NT36672E=m
+ CONFIG_DRM_PANEL_RAYDIUM_RM67191=m
+ CONFIG_DRM_PANEL_SAMSUNG_ATNA33XC20=m
+ CONFIG_DRM_PANEL_SITRONIX_ST7703=m
++CONFIG_DRM_PANEL_STARTEK_KD070FHFID015=m
+ CONFIG_DRM_PANEL_TRULY_NT35597_WQXGA=m
+ CONFIG_DRM_PANEL_VISIONOX_VTDR6130=m
+ CONFIG_DRM_FSL_LDB=m
++CONFIG_DRM_DISPLAY_CONNECTOR=m
+ CONFIG_DRM_LONTIUM_LT8912B=m
+ CONFIG_DRM_LONTIUM_LT9611=m
+ CONFIG_DRM_LONTIUM_LT9611UXC=m
 
-Changes in v6:
-- Fix DPI binding: remove the duplicated property (power-domains).
-- Squash defconfig commit.
-- Fix the property order in the DTS.
-- Link to v5: https://lore.kernel.org/r/20231023-display-support-v5-0-3905f1e4b835@baylibre.com
-
-Changes in v5:
-- Patch merged, then removed from the series:
-  - dt-bindings: display: mediatek: rdma: add compatible for MT8365 SoC
-  - dt-bindings: display: mediatek: ovl: add compatible for MT8365 SoC
-  - dt-bindings: display: mediatek: gamma: add compatible for MT8365 SoC
-  - dt-bindings: display: mediatek: dpi: add compatible for MT8365
-  - dt-bindings: display: mediatek: dsi: add compatible for MT8365 SoC
-  - dt-bindings: display: mediatek: dither: add compatible for MT8365 SoC
-  - dt-bindings: display: mediatek: color: add compatible for MT8365 SoC
-  - dt-bindings: display: mediatek: ccorr: add compatible for MT8365 SoC
-  - dt-bindings: display: mediatek: aal: add compatible for MT8365 SoC
-- Enable STARTEK KD070FHFID015 panel in the defconfig.
-- Rebase on top of 6.13-rc6.
-- Link to v4: https://lore.kernel.org/all/20231023-display-support-v4-0-ed82eb168fb1@baylibre.com
-
-Changes in v4:
-- Patch merged, then removed from the series:
-  - dt-bindings: display: mediatek: dpi: add power-domains property
-  - dt-bindings: pwm: mediatek,pwm-disp: add compatible for mt8365 SoC
-  - clk: mediatek: mt8365-mm: fix DPI0 parent
-- Remove mediatek,mt8365-dpi compatible from mtk_drm_drv.c because it
-  use the mt8192's data. It's a miss.
-- Add MT8365 OF graphs support, remove the hardcoded display path and
-  rebase on top of Angelo's series [1].
-- Link to v3: https://lore.kernel.org/r/20231023-display-support-v3-0-53388f3ed34b@baylibre.com
-
-Changes in v3:
-- Drop "drm/mediatek: add mt8365 dpi support" because it's the same
-  config as mt8192 SoC
-- Drop "dt-bindings: pwm: mediatek,pwm-disp: add power-domains property"
-  because an equivalent patch has been merge already.
-- Add DPI clock fix in a separate commit.
-- Improve DTS(I) readability.
-- Link to v2: https://lore.kernel.org/r/20231023-display-support-v2-0-33ce8864b227@baylibre.com
-
-Changes in v2:
-- s/binding/compatible/ in commit messages/titles.
-- Improve commit messages as Conor suggest.
-- pwm-disp: Set power domain property for MT8365. This one is optionnal
-  and can be used for other SoC.
-- Fix mediatek,dsi.yaml issue.
-- Remove the extra clock in the DPI node/driver and fix the dpi clock
-  parenting to be consistent with the DPI clock assignement.
-- Link to v1: https://lore.kernel.org/r/20231023-display-support-v1-0-5c860ed5c33b@baylibre.com
-
-[1] https://lore.kernel.org/lkml/20240516081104.83458-1-angelogioacchino.delregno@collabora.com/
-
----
-Alexandre Mergnat (3):
-      arm64: defconfig: enable display support for mt8365-evk
-      drm/panel: startek-kd070fhfid015: add another init step
-      drm/mediatek: dsi: remove custom init part
-
- arch/arm64/configs/defconfig                       |  2 ++
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c            |  2 --
- drivers/gpu/drm/mediatek/mtk_disp_drv.h            |  2 --
- drivers/gpu/drm/mediatek/mtk_dsi.c                 | 16 --------------
- .../gpu/drm/panel/panel-startek-kd070fhfid015.c    | 25 +++++++++++++---------
- 5 files changed, 17 insertions(+), 30 deletions(-)
----
-base-commit: 72e8ab284ff34785ec292f79610de5fcf3825b32
-change-id: 20231023-display-support-c6418b30e419
-
-Best regards,
 -- 
-Alexandre Mergnat <amergnat@baylibre.com>
+2.25.1
 
 
