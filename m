@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045DDC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 07:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D3EC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 07:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VnQtAPnmzsNXyG30aCgKLW877OIe/1r7F5azTH//yIQ=; b=a9dn8z7TF5Tr4aCXxPUD6Kl9pa
-	ByrhY/FWLC/df+X1k4QoaNsBYF8E7F647LtOHciQEwrlgiE+H/51jLPXTAAJj7jfME7FpNtJpxxVW
-	Ox88HY/UgQnPmWXY/E4t/i64NKL9RgDqoxKL3iPsGE3YGiWgN8cuuj02vBD4ZFdKs8yZNHuwn4fnK
-	W9Ifh1sgDjvn9/EVCPVEBlyEbDB7cXJnf3Az6hHLsXxdnFid1nEFf6tE+1lzmTSOABp/BJ03OZNPD
-	YJJO8eXsiACJFLl5radD+QU3iybwmh6Kl+boFB8fABjx6oyuOI6N3E3GVGIZ4zqbSHNqPsWmuDDzb
-	cLp8n3cg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fmPdfR67O2wcc6/RI+Tc9AyY4rjn6JD2dOIfEvFlJnQ=; b=srgL/7W55SVj82/HjGhb75p2Ye
+	MYwRImZxFkQ00iRyn3eADv3ACOr1PJ5DvYIH4nxEfqVPdyu7FVOxYOTVBI7F67Vmz+s9e5dTdOGyK
+	Ta/GDmL9jvKp4CATm1/TtcbpY11qD9qosusz9sSNMAkXWPnGVNY6uWFGnT5j1/nO9vvv16d+WrYVC
+	YWYQbqwWe9vjbPohuffueLbq1CmowbA/yp3l+ix8nCerD01JxmkLSvXenR8Lf0vHlQG3S34S79Cnn
+	Lxqk4GPNAm9qBbBrEHrF5Cm+8a/ki1iCqxwUqCw5EdXKA8KRfgszxLEoU8gBtdn6zz7TgxyG+G1ii
+	USXp3tuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvAau-0000000BRR2-0Kjc;
-	Thu, 20 Mar 2025 07:45:36 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1tvAcY-0000000BRbx-39wv;
+	Thu, 20 Mar 2025 07:47:18 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvAT3-0000000BQIQ-30Bq
+	id 1tvAWw-0000000BQwH-29nj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 07:37:31 +0000
-Received: from localhost.localdomain (unknown [124.16.141.245])
-	by APP-01 (Coremail) with SMTP id qwCowAAXHNCrxdtntmrdFg--.44953S2;
-	Thu, 20 Mar 2025 15:37:19 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: s.nawrocki@samsung.com,
-	mchehab@kernel.org,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com
-Cc: linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH] media: platform: Add hardware sync wait to fimc_is_hw_change_mode()
-Date: Thu, 20 Mar 2025 15:36:57 +0800
-Message-ID: <20250320073658.1005-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.42.0.windows.2
+	Thu, 20 Mar 2025 07:41:32 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2E3C84436F;
+	Thu, 20 Mar 2025 07:41:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742456486;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fmPdfR67O2wcc6/RI+Tc9AyY4rjn6JD2dOIfEvFlJnQ=;
+	b=Fajab6ofQy9GQKOL1lDcWQfm/0zyroqQRlF4ltPWxT9DK3Kz2DXP4fiTBAuRaWBovUj2Cq
+	7Xs65a44MCIogTqhY9yE+Pbjp+uATyM3uGz8ZXBovdasbw4nY74FcibRBPw15cVC5B//HL
+	HoE79L729ZJJC2p0S2zTI6MKh5g6VFJAR5pV3gUeTNOpVL9Bk7zrb72rG67qGTRwhtUEmP
+	doGblm+y8jR0MsywXUhEFuv1zt7JHUkmCFEJPi/JlSYAhD2EBPzsvfS9haVYm4wtkorHyP
+	nZ64j9pnqZIyUM2/BSBuYi5mvWIKq1K7tmjyz/E7reZ1jTkV0dPNeOZ858B90w==
+Date: Thu, 20 Mar 2025 08:41:18 +0100
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, Stefan Agner
+ <stefan@agner.ch>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, Jagan
+ Teki <jagan@amarulasolutions.com>, Marek Szyprowski
+ <m.szyprowski@samsung.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Anusha Srivatsa <asrivats@redhat.com>, Paul
+ Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>,
+ =?UTF-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Hui Pu
+ <Hui.Pu@gehealthcare.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 00/11] drm/bridge: add devm_drm_bridge_alloc() with
+ bridge refcount
+Message-ID: <20250320084118.347bafc9@booty>
+In-Reply-To: <20250319-stylish-lime-mongoose-0a18ad@houat>
+References: <20250314-drm-bridge-refcount-v7-0-152571f8c694@bootlin.com>
+	<20250314-daft-woodoo-cheetah-e029c5@houat>
+	<20250317155607.68cff522@booty>
+	<20250319-stylish-lime-mongoose-0a18ad@houat>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAAXHNCrxdtntmrdFg--.44953S2
-X-Coremail-Antispam: 1UD129KBjvPXoW8tF43KF17AFyUtr4rWr45p5X_Gr13JoW8JF
-	yaka1xtr4UXwnIgrnru3yfAwsrurW3KrWF9FZ0gryqq3W3A3W5W393Xr4agF1YkFn5Xry5
-	Gw13AF4xJa4xn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3AaLa
-	J3UjIYCTnIWjp_UUUYT7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E6xAIw20EY4v20xvaj40_
-	Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M2
-	8EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWx
-	JwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJV
-	W0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	tVW8ZwCY02Avz4vE14v_GF4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjfUYhL0DUUUU
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAUHA2fbxEAF+AAAsI
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeejieegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrr
+ hhordhorhhgpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnfgruhhrvghnthdrphhinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgvpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_003730_124424_654463E4 
-X-CRM114-Status: UNSURE (   6.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250320_004131_204416_A9F575EF 
+X-CRM114-Status: GOOD (  61.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,31 +97,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In fimc_is_hw_change_mode(), the function changes camera modes without
-waiting for hardware completion, risking corrupted data or system hangs
-if subsequent operations proceed before the hardware is ready.
+Hello Mazime,
 
-Add fimc_is_hw_wait_intmsr0_intmsd0() after mode configuration, ensuring
-hardware state synchronization and stable interrupt handling.
+On Wed, 19 Mar 2025 17:16:53 +0100
+Maxime Ripard <mripard@kernel.org> wrote:
 
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c | 1 +
- 1 file changed, 1 insertion(+)
+> On Mon, Mar 17, 2025 at 03:56:07PM +0100, Luca Ceresoli wrote:
+> > Hello Maxime,
+> > 
+> > On Fri, 14 Mar 2025 19:21:01 +0100
+> > Maxime Ripard <mripard@kernel.org> wrote:
+> >   
+> > > Hi,
+> > > 
+> > > On Fri, Mar 14, 2025 at 11:31:13AM +0100, Luca Ceresoli wrote:  
+> > > > This series improves the way DRM bridges are allocated and
+> > > > initialized and makes them reference-counted. The goal of reference
+> > > > counting is to avoid use-after-free by drivers which got a pointer
+> > > > to a bridge and keep it stored and used even after the bridge has
+> > > > been deallocated.
+> > > > 
+> > > > The overall goal is supporting Linux devices with a DRM pipeline
+> > > > whose final components can be hot-plugged and hot-unplugged,
+> > > > including one or more bridges. For more details see the big picture
+> > > > [0].
+> > > > 
+> > > > DRM bridge drivers will have to be adapted to the new API, which is
+> > > > pretty simple for most cases. Refcounting will have to be adopted
+> > > > on the two sides: all functions returning a bridge pointer and all
+> > > > code obtaining such a pointer. This series has just an overview of
+> > > > some of those conversions, because for now the main goal is to
+> > > > agree on the API.
+> > > > 
+> > > > Series layout:
+> > > > 
+> > > >  1. Add the new API and refcounting:
+> > > > 
+> > > >     drm/bridge: add devm_drm_bridge_alloc()
+> > > >     drm/bridge: add support for refcounting
+> > > > 
+> > > >  2. get/put the reference in basic operations in the bridge core:
+> > > > 
+> > > >     drm/bridge: get/put the bridge reference in
+> > > > drm_bridge_add/remove() drm/bridge: get/put the bridge reference in
+> > > > drm_bridge_attach/detach()
+> > > > 
+> > > >  3. as an example of changes for bridge consumers, get a reference
+> > > > for the bridge returned by drm_bridge_chain_get_first_bridge(),
+> > > > have it put by all callers (all users will be covered later on
+> > > > separately):
+> > > > 
+> > > >     drm/bridge: add a cleanup action for scope-based
+> > > > drm_bridge_put() invocation drm/bridge: get the bridge returned by
+> > > > drm_bridge_chain_get_first_bridge() drm/mxsfb: put the bridge
+> > > > returned by drm_bridge_chain_get_first_bridge() drm/atomic-helper:
+> > > > put the bridge returned by drm_bridge_chain_get_first_bridge()
+> > > > drm/probe-helper: put the bridge returned by
+> > > > drm_bridge_chain_get_first_bridge()
+> > > > 
+> > > >  4. convert a few bridge drivers (bridge providers) to the new API:
+> > > > 
+> > > >     drm/bridge: ti-sn65dsi83: use dynamic lifetime management
+> > > >     drm/bridge: samsung-dsim: use dynamic lifetime management
+> > > > 
+> > > > This work was formerly a part of my v6 DRM bridge hotplug
+> > > > series[0], now split as a standalone series with many improvements,
+> > > > hence the "v7" version number.    
+> > > 
+> > > Except for one patch where I had comments, I think the series is in
+> > > excellent shape. We're still missing a couple of things to close this
+> > > topic though:
+> > > 
+> > >   - Converting the other bridge iterators/accessors to take / put the
+> > > references  
+> > 
+> > I sent a couple in this series as you had asked, to show how conversion
+> > looks like. But I have a large part of this conversion partially done
+> > already, and it is the largest part of the refcounting work in terms of
+> > touched files due to the large number of drivers using the iterators
+> > and accessors. Here are the functions to convert:
+> > 
+> >  A) drm_bridge_chain_get_first_bridge
+> >  B) drm_bridge_get_prev_bridge
+> >  C) drm_bridge_get_next_bridge
+> >  D) drm_for_each_bridge_in_chain
+> >  E) drm_bridge_connector_init
+> >  F) of_drm_find_bridge
+> > 
+> > A) is present in this series as an example but I don't think it should
+> > be applied until all bridge drivers are converted to
+> > drm_bridge_alloc(). Otherwise for not-yet-converted bridge drivers we'd
+> > have drm_bridge_get/put() operating on an uninitialized kref, and
+> > __drm_bridge_free() called on non-refcounted bridges, so I think we'd
+> > see fireworks.
+> > 
+> > In the previous iteration I used drm_bridge_is_refcounted() in
+> > drm_bridge_get/put() to allow a progressive migration, but if we want
+> > to convert everything in a single run we need to first convert all
+> > bridges to drm_bridge_alloc() and then convert all accessors.
+> > 
+> > The same reasoning applies to patches 3-4 which add get/put to
+> > drm_bridge_add/remove() and _attach/detach().  
+> 
+> Agreed.
+> 
+> > B) to E) are ready in my work branch, about 20 patches in total.
+> > Indeed item E) is a special case but it is handled there too.
+> > 
+> > Item F) is the beast, because of the reverse call graph of
+> > of_drm_find_bridge() which includes drm_of_find_panel_or_bridge() and
+> > then *_of_get_bridge(), each having a few dozen callers, and leading
+> > to the panel_bridge topic. I have converted maybe half of the users of
+> > accessors in F), it's 35 patches but it's the easy half and I still need
+> > to tackle to hardest ones.  
+> 
+> One thing to keep in mind is that, while it's not correct, if the bridge
+> has been allocated with devm_drm_bridge_alloc, it's not worse either. If
+> you're not getting a reference to your pointer, the point is buggy,
+> sure, but it's just as buggy as before, and in the same situations.
+> 
+> So we can make that gradually if it's more convenient.
 
-diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c b/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
-index 366e6393817d..5f9c44e825a5 100644
---- a/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
-+++ b/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
-@@ -164,6 +164,7 @@ int fimc_is_hw_change_mode(struct fimc_is *is)
- 	if (WARN_ON(is->config_index >= ARRAY_SIZE(cmd)))
- 		return -EINVAL;
- 
-+	fimc_is_hw_wait_intmsr0_intmsd0(is);
- 	mcuctl_write(cmd[is->config_index], is, MCUCTL_REG_ISSR(0));
- 	mcuctl_write(is->sensor_index, is, MCUCTL_REG_ISSR(1));
- 	mcuctl_write(is->setfile.sub_index, is, MCUCTL_REG_ISSR(2));
+I see your point, right. And definitely doing it in gradually will help.
+
+> One way to solve it would be that, for example, of_drm_find_bridge is
+> oddly named according to our convention and it would make more sense to
+> be called drm_of_find_bridge().
+> 
+> So maybe we can just create drm_of_find_bridge() that takes a reference,
+> make of_drm_find_bridge() deprecated in favour of drm_of_find_bridge(),
+> add a TODO, and call it a day. People will gradually switch to the new
+> API over time.
+
+Thanks for the suggestion, I will certainly try this way when I get
+back to the accessor conversion work. While increasing the number of
+deprecated functions is not great, I'm starting to suspect a conversion
+of _all_ the of_drm_find_bridge() users at once is not realistic.
+
+> > >   - Documenting somewhere (possibly in drm_bridge_init?) that it
+> > > really shouldn't be used anymore  
+> > 
+> > I'm afraid there is no drm_bridge_init(), bridge drivers just do
+> > [devm_]kzalloc and set fields explicitly. So I don't think there is a
+> > place to document this.  
+> 
+> Oh, right.
+> 
+> Then, drm_bridge_add() would be a good candidate too to mention that
+> bridges must be allocated using devm_drm_bridge_alloc().
+
+Sure. I'll add such a comment.
+
+> > Overall, I think this could be the path forward, let me know if
+> > youthink it should be done differently:
+> > 
+> >  A. have patches 1 and 2 of this series applied
+> >     (why not, even patches 10-11)  
+> 
+> I had some comments on patch 2, but it's ok for me on principle.
+
+Sorry, my wording was not clear. I really meant "have patches 1 and 2 of
+this series applied after the improvements proposed". So hopefully the
+v8 I'm sending today-ish. I'm going to send only patches 1, 2, 10 and
+11. The other patches are not meant to be merged now, so I'm resending
+them when appropriate.
+
+Luca
+
 -- 
-2.42.0.windows.2
-
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
