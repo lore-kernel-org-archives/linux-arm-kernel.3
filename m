@@ -4,129 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB0DC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6457C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XvoMtFQu/5mLGfm/YlEYZey6eEGMtp23wegCaBbXJv4=; b=NXewC1sEfPOYXvnFhaEdr5Hcy3
-	LKHp3eP5sqH5Sk3S61GTPDP0kBdl4g/j9mNmtd+5bz9++VpgZVpFigMPPYMIlcL5hHikewOmgp3tr
-	egJbMQcR/MBoDpTpbfD5KfdczmjS4IPEWFLYSzMkZXDvDfvGt2I1tuywcjWILXEodKIfvUKTmopWz
-	iD6edcIc3Z5IPWPrFnZBaN0zx1hjupT/8S7iQPO0IM+YSVTPa3h4ZubYuCkNWpTDcqo6V1QW/pBOs
-	eB88cSBy1K3ds4qQJRkr3vB4514H2ZHraaVFhlYmUGyoByxfFbP2TbxSdyjPVs1DbypEYjv/xCRYv
-	gtntPcag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=T3uKjmvKFIJwQeQjhs6y043yl808flrdLcwtYSXqapk=; b=yfb14v91CjCPCt
+	Hnq0qkZJKGUKD//R7YGICdOWw9Y5+2YZ27SI27pNASXAfjdsDtXBFgRbjhAGGWFaeL0Bob2Kk/ECF
+	uKLm+xNdzbFs6LXmkI+n51tf3fPfKDuFzi4jh3XXS+MT+F4jrvZXn4eZCU5vhWkGV3RY+4yBDTFQX
+	He9+9Ub+3IEi8+2aAYG7jMh5ONPzJvjWwsh5BCpcqoH2+VWZVoc/jU0akayTOM+X7MvKWgY9JTNix
+	a7EaZ0zv9SbNTIFpqkBtiTyS7sv9DOJhp855CIFnIqlvTgUoek+VX1erOkkwZWOPh/KaXzCyKDoxR
+	mNdRs535WeT0ulM3J27w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGsX-0000000CNr5-0wWR;
-	Thu, 20 Mar 2025 14:28:13 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1tvH0x-0000000CPKV-2xxu;
+	Thu, 20 Mar 2025 14:36:55 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGqp-0000000CNev-32qK
+	id 1tvGzF-0000000COwv-35MW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 14:26:29 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-307325f2436so9159391fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 07:26:27 -0700 (PDT)
+	Thu, 20 Mar 2025 14:35:11 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43d04ea9d9aso4309285e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 07:35:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742480786; x=1743085586; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XvoMtFQu/5mLGfm/YlEYZey6eEGMtp23wegCaBbXJv4=;
-        b=rNkxZY5tuZeLTu9bVro36ITKcqMBlk2DccHLPyB0qpVZclcPNjFRgJfCvCkaYEzl/j
-         QujM2cG9BimLe1O+GRNHQTK+3IVacqdYV59V9yHEYCuW/ieAWbS5GEIMoOjxnAx0yDuH
-         Wl/V4gNxUMLhlL52tRR0igtKgSuqdkYjeAB9f7Wkiiyrpisu0Y5dzI81/1a8/Tox8xbq
-         A3D8IgxsZo0Cua254tTraIAb/yhjnUTLQhoITYmdWTNOa8YCP2VHFJNCHRug/GIRZFIu
-         mGkcCNtW4EvfqX+cJSgVW9vmQKTw9BcPa620soR05VnK1G43U92L2Lf1dq9un5QsTZO0
-         lTkQ==
+        d=linaro.org; s=google; t=1742481308; x=1743086108; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=T3uKjmvKFIJwQeQjhs6y043yl808flrdLcwtYSXqapk=;
+        b=rqp5lSpVdWpMFiCLLbdG0xF18KaoMr3jwKjb3zVZLnLktd8qzaB3kyQ4m7/BQIfGxB
+         YKutLpc/A3v1j5F0sw/KwFp8wcbwtTbwHk1knaPXL2kyiOgV6mzLqvjhQsd3HJ7gii9Q
+         keraK50BbJPaiPvFVQJOx+LQBUgkPW7vbtFD1FkadDypOE3OqgQp5jFxdIJ73+t+Gg/9
+         VLNrmGuf02b1P6U9TtscZKq9S5icpkWyb9QJidT7ZYx8Gze2GL4ZjEv/b1wwD0wRWVYk
+         GwyowsIQuD0ZjMAJIWkHyeIRHpBy5e342facE3ZU0/guGvt7XlyfIMn6xntP5mFyWeqP
+         Otpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742480786; x=1743085586;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XvoMtFQu/5mLGfm/YlEYZey6eEGMtp23wegCaBbXJv4=;
-        b=HwMpxPUPVpIC8HB7GAmbhA92g6aYtv+Ec7BorIvQlJq8AzlPxYc+nli19t8n2Z6+oc
-         ogQ9Vy9TjzO1x+A3Hb6SuOZKb3e5uyljz2aWV7P+2wt+Y+bDhdMNjHxup26LiBrnXBEt
-         kafGvRHVTeJiSQZ+ABxhECFvZ1GX1dOxokNsPk4XyrgmBIsaIea19cHCefuHDRqAXYqQ
-         ZlKrs+nKIgfMHj4lTa8BaipBOuQEG8jQRzMEzveI5qkcigLvemTGONfPcMTawgqJxGfu
-         KJdk8BJATmy8xbNMwKHjXdUc0mvsB0bTSQHgj35ySapvj+L+UzOTWcsWqik6lx2D9Utu
-         SREQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUdMEiCCiUnuJcn/AgvuvWjZP4tc4XgJVqdLcmknFUNy2H/Rm2Gp5zJc3MVfMlwqtRqgYBVjkS+7a4filnQs3jd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4bET5VZXFMnJpTl/RzyZxxR+VO60dkW1lJbm0VZjJXm3DWAuu
-	Nc20oVTzwqacEVqkWUxQstB8/1VCfXPmWBJsUwJJpZlEgozCiQXq+qAlm638Pxw=
-X-Gm-Gg: ASbGnctTxXRrHNTa+xr3BNm3XrCWjj574dJSBQthjX/Ll0P1xyvlA//R2Psw9y5gnNT
-	RBKLqFnmfTTKOFOHDP/aBAXthCybp20ZMtKOh/cwQ/3qDi4tEjAxTTBbaM4/a37ejCuwrf3N7rF
-	pJO98OVDrkSgOsH4L4PFd6kNHWqfnQ8NIwLyUHAIQco2odq7UbEQpoCx7+PeWAKMrUautn0+0Uw
-	cFhpA8u6nf0UjbQCdmiaLWtZ8a7Oiv5Y+RxBiwFBcxqzQawcgwcCk3keoIGRfcmEMkU4EdOrTuq
-	tbr9xQYy8ceabgNM7qU+8EmY/6qqwWRJxa+K1WJ88NCOWQ03xwlGNlQvt1xo4e2lTEZDE9TbCD8
-	S5oMe
-X-Google-Smtp-Source: AGHT+IGJdiwH3GLesSTdhfruK4DZmmmGPbFFRhIvLmZNGlq+ysSxYFDz9Vi7Dj6qQxxwk7XjYXZifg==
-X-Received: by 2002:a05:6512:1153:b0:545:d70:1d0e with SMTP id 2adb3069b0e04-54ad061ba69mr1646599e87.3.1742480785393;
-        Thu, 20 Mar 2025 07:26:25 -0700 (PDT)
-Received: from Fecusia.lan (c-92-34-223-1.bbcust.telenor.se. [92.34.223.1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba8a9201sm2216816e87.250.2025.03.20.07.26.24
+        d=1e100.net; s=20230601; t=1742481308; x=1743086108;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T3uKjmvKFIJwQeQjhs6y043yl808flrdLcwtYSXqapk=;
+        b=kT+qgNkecs7lqMNnaTMvHFLfaPgWCf7E30Vf2vRXyh0IhcZTzEhtWA6JcaynT0ClYy
+         FYQ5KQ6eNc/eA6a2mG5wnrR3+qnPLkIMMOJ8La6PMBhws2bmVf+ccbOXOWHNzl7+1VIH
+         jLelChDjd5p7r3Sie2QaiXiCg6meEUuCcHybptWuGNgDIBoI/mRyr1gyjQ6kfW4f0mWJ
+         B+bJJljPxdC5XqVp734VyfToNyVoVXUpXUjcKqxtcQ6eDqS2z+1xnzM5o72K/aRL0Yhe
+         yJvtlkrqIU2VvCKLHmyvzpW8r7gLcjusZ6UX7M4xVCPZad1BpgAWXeyct4xr9k9ISHZU
+         HV4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUVJujd2gY/u9k7ffCV5kyOP1TT4M0X+ySXQFEcZn+VavSfG99Qi1TXt51iaGcA58vRm2J8qZd7407dLgAnqVJx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQrOVGWfsvenEeFrKSRxxFAsSiONGy2Qqpz60snOR3mYKIL/Gq
+	5/G1BpR6RRXMWUHKg/qioP/a0FwusLQhIUJSXPJ20ziAYutKlDSFDSlSfD2ACsExxin80KiSPZ1
+	o
+X-Gm-Gg: ASbGncscEs5GZZM30HtMuKSqEbhgUe5dwJz0kJcFfT0twKITSEix5Uu4ORtq4yZMQQH
+	Wh3Fk528LGWKffxvO125eJL/ZHhOzXhc+eh03tLt9P9FQRV7xFQIRj5xfZBq9+Y6j3+Z0wbBMou
+	FpXEBs3Y+at2xUjGmSKbmg74D8rJeXHswig5rINyyfyreN7cf0DJGKpjngx3nHFC7x8FAHvqnL5
+	Up1769Jidn9AmxjrghGwAon8nngCiTzDuyNiQhJW/RzkXDkWsCsKePdkNiPp65GOTStf08WqDF6
+	/sYQTd92SRth+AUC3rHprQQnq7RbvKtvilEFszHM7e2CjfU=
+X-Google-Smtp-Source: AGHT+IEi+3lvXUBBl0Xfy6+/zMNSE6JUBwO9nHsVgmXy4u5Zz77pany2bxefRYqYSeHLwQMSeBXSLA==
+X-Received: by 2002:a5d:64c4:0:b0:391:2d97:7d0e with SMTP id ffacd0b85a97d-39973af6beamr6757865f8f.42.1742481307687;
+        Thu, 20 Mar 2025 07:35:07 -0700 (PDT)
+Received: from pop-os.lan ([145.224.67.123])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c83b6a27sm24238187f8f.31.2025.03.20.07.35.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 07:26:24 -0700 (PDT)
-From: Linus Walleij <linus.walleij@linaro.org>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	oleg@redhat.com,
-	sstabellini@kernel.org,
-	tglx@linutronix.de,
-	peterz@infradead.org,
-	luto@kernel.org,
-	mingo@redhat.com,
-	juri.lelli@redhat.com,
-	vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kees@kernel.org,
-	aliceryhl@google.com,
-	ojeda@kernel.org,
-	samitolvanen@google.com,
-	masahiroy@kernel.org,
-	rppt@kernel.org,
-	xur@google.com,
-	paulmck@kernel.org,
-	arnd@arndb.de,
-	mark.rutland@arm.com,
-	puranjay@kernel.org,
-	broonie@kernel.org,
-	mbenes@suse.cz,
-	sudeep.holla@arm.com,
-	guohanjun@huawei.com,
-	prarit@redhat.com,
-	liuwei09@cestc.cn,
-	Jonathan.Cameron@huawei.com,
-	dwmw@amazon.co.uk,
-	kristina.martsenko@arm.com,
-	liaochang1@huawei.com,
-	ptosi@google.com,
-	thiago.bauermann@linaro.org,
-	kevin.brodsky@arm.com,
-	Dave.Martin@arm.com,
-	joey.gouly@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Cc: ruanjinjie@huawei.com,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH -next v6 1/8] entry: Split generic entry into generic exception and syscall entry
-Date: Thu, 20 Mar 2025 15:26:12 +0100
-Message-ID: <20250320142612.396250-1-linus.walleij@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250213130007.1418890-2-ruanjinjie@huawei.com>
-References: <20250213130007.1418890-2-ruanjinjie@huawei.com>
+        Thu, 20 Mar 2025 07:35:07 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v3 0/7] coresight: Clear self hosted claim tag on probe
+Date: Thu, 20 Mar 2025 14:34:09 +0000
+Message-Id: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGEn3GcC/33Oyw6CMBCF4VcxXTukLde68j0Mi6YMMF6omRKiI
+ by7BWN05fIkk2/+WQRkwiAOu1kwThTID3Gk+51wvR06BGriFlrqXKaqhLO9YQDnGQN1/Qjuauk
+ Go+0CWFRZoVrV5ihFBO6MLT02/FTH3bKPlz2j/ZJaKSVTk+WJKcrM5KDeH5Lo8uV4pcGyTzx3K
+ 9hTGD0/t9hJr+ynq/rXNWmQgMZV1rgGqwx/2XpZlheviR+aBgEAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Suzuki.Poulose@arm.com, 
+ leo.yan@arm.com
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_072627_764964_62D224C8 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250320_073509_786162_02D6B7A3 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,24 +105,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Currently CONFIG_GENERIC_ENTRY enables both the generic exception
-> entry logic and the generic syscall entry logic, which are otherwise
-> loosely coupled.
->
-> Introduce separate config options for these so that archtiectures can
-> select the two independently. This will make it easier for
-> architectures to migrate to generic entry code.
->
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+I've gotten stuck a few times with unusable Coresight after a warm boot
+due to lingering claim tags, especially when testing the Coresight
+panic patchsets.
 
-If the generic entry maintainer (hi Thomas) thinks this patch is
-OK it would be nice to have it applied because it will also make
-the ARM32 transition to generic entry easier as we can work on
-exception and syscall entry each in isolation.
+This change does some tidy ups, adds some debug messages and clears the
+self hosted claim tag on probe. The last two commits are unrelated
+tidyups but they touch some of the same functions so to avoid extra
+conflicts I'm including them here.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+This gets as far as fixing the claim tag issue, but there is some other
+state not being cleared on probe that results in the following error.
+This can be fixed up as a later change:
 
-Yours,
-Linus Walleij
+  coresight tmc_etf0: timeout while waiting for TMC to be Ready
+  coresight tmc_etf0: Failed to enable : TMC is not ready
+
+Changes in v3:
+- Collapse rename and locked/unlocked addition commits of
+  coresight_clear_self_claim_tag() so we don't change the name twice.
+- Make coresight_clear_self_claim_tag() a bit more generic by only
+  doing UNLOCK for MMIO devices (although there is no use of this right
+  now)
+- Link to v2: https://lore.kernel.org/r/20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org
+
+Changes in v2:
+ * Revert most of the interface changes, just call
+   coresight_clear_self_claim_tag() directly. This is possible because
+   we're not doing the read first, so it has fewer knock on effects.
+ * Split out the change to add struct cs_access to etm3x
+ * Add another warning for racing with external debugger
+
+--
+2.34.1
+
+---
+James Clark (7):
+      coresight: Convert tag clear function to take a struct cs_access
+      coresight: Only check bottom two claim bits
+      coresight: Add claim tag warnings and debug messages
+      coresight: etm3x: Convert raw base pointer to struct coresight access
+      coresight: Clear self hosted claim tag on probe
+      coresight: Remove inlines from static function definitions
+      coresight: Remove extern from function declarations
+
+ drivers/hwtracing/coresight/coresight-catu.c       | 12 +--
+ drivers/hwtracing/coresight/coresight-core.c       | 87 ++++++++++++++--------
+ drivers/hwtracing/coresight/coresight-cti-core.c   |  2 +
+ drivers/hwtracing/coresight/coresight-etb10.c      |  4 +-
+ drivers/hwtracing/coresight/coresight-etm.h        |  6 +-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 28 +++----
+ .../hwtracing/coresight/coresight-etm3x-sysfs.c    |  8 +-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 ++-
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    |  4 +-
+ drivers/hwtracing/coresight/coresight-funnel.c     |  1 +
+ drivers/hwtracing/coresight/coresight-platform.c   | 26 +++----
+ drivers/hwtracing/coresight/coresight-priv.h       | 20 ++---
+ drivers/hwtracing/coresight/coresight-replicator.c |  3 +-
+ drivers/hwtracing/coresight/coresight-stm.c        |  6 +-
+ .../coresight/coresight-syscfg-configfs.c          |  2 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  9 ++-
+ drivers/hwtracing/coresight/coresight-tmc-etr.c    | 16 ++--
+ drivers/hwtracing/coresight/coresight-trbe.c       | 18 ++---
+ include/linux/coresight.h                          | 40 +++++-----
+ 19 files changed, 168 insertions(+), 134 deletions(-)
+---
+base-commit: 5442d22da7dbff3ba8c6720fc6f23ea4934d402d
+change-id: 20250317-james-coresight-claim-tags-ae1461f1f5e0
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
