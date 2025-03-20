@@ -4,103 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55DBC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A707C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iApjQxSPhTF/tl2rkU2LC3L+Sofo1JAgj9zbjrL2yA0=; b=kHrSpLvhtUiAsNVZECmQyx4f9y
-	gUWaJKipBwxeRPPFS21J9vkg23n8f6n5xSDx3Vf7sQoUCe/MoStfQTerHKvWZk/i+WJzcLTxEXV7T
-	9avmHAy9Hw9b8eoaVuumFJEBdKcMh9Ixtc+YNyPLGnJlrRRkYy6QZEkbbYCktUR09H1qj1gYQwORk
-	SI2hOHEnrkC9OFV4Vz3Qvfq6FX1mmCo259wAqYavB7kCe7xZ2U4UP4tpiI8ErztHDYkkNFkexZg8N
-	NojaSlcGecPH3sCGisf+tF6h2ukuY9To2MW565as4aWP2Lontu3cj1pgklHtLbAcA2KyP/j+A7HmG
-	yFzfx/jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HO8uAZnfu0nzvmrRg0SbaV0AmWMoDGkZFQkPpU7xqAY=; b=Ukht2Csa76EJ07F5SPJI3Z1X9p
+	qxXJBgRXYv95DVUtGhcVTQFCggIVd1Plh1pX9by5AU8Y0VoFBvhWn07msK+YY719flPmX7J0S+IGx
+	DX2bExXrJms/PXpQIjTJ+qYZ1Nm0K6yzdMH042kGnStjtc6sWb77ev5/usam1bFBaMFlIWaRYbGJI
+	LaFF5PhlLnbhmZjdwUSl5cG7QrFEbYSZHAk7/wgKEX+i3saaw8PxSExb+42yTEgF8grVc84ZytdJY
+	Iy8LGC/+eWZiOQmUFJ4IdlxxmyEQLk+J45Y2OBoJOB/MdSrjawl9lfJU1fZcalf9x/qUKWxObCGUQ
+	zBOrnbYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv5bA-0000000Asg9-33o3;
-	Thu, 20 Mar 2025 02:25:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tv5cr-0000000AtJ3-1Vlr;
+	Thu, 20 Mar 2025 02:27:17 +0000
+Received: from mail-sg2apc01on2072b.outbound.protection.outlook.com ([2a01:111:f403:200f::72b] helo=APC01-SG2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv594-0000000AkqT-3RhZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 20 Mar 2025 01:56:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=iApjQxSPhTF/tl2rkU2LC3L+Sofo1JAgj9zbjrL2yA0=; b=O8bqfC8yOenaeiZPrhRvnF70YP
-	1LYnRerU90RkNZPf8AKhiS93D1inujXME/Km8T9rCOuUhA9IN/mshESTrsloKzkBSl6rlsmkukAp+
-	nIkkpyxTy6A0r/GZ5NO3SOa2GG1rF6ci59WK32KzM/pRULjhMdVTAQFBT/aTj7dk98QnWw8Cc2BL2
-	o8b1IKkSk5ipbQ/If35jXaxnoe4AU67OQRRpoQF/pBnuK9ApFjKAfNY/ZoSwujESMD6OoIz1jIQS6
-	dl0Q8/2Hi0qjjYqDHaHzcaSp/coIflvJU8lsqBaYxhKF0ZpJ0yMzU0Y2EyXzr/Z7xiz18A/z9IQq+
-	aKaTOp6w==;
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv591-000000043h5-2aUB
+	id 1tv5QO-0000000Aq93-2L1a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 01:56:29 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2254bdd4982so4820365ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742435786; x=1743040586; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iApjQxSPhTF/tl2rkU2LC3L+Sofo1JAgj9zbjrL2yA0=;
-        b=okhhoXCzCePtuhAklcm/dy8fgA22qbaZtdgmzRgAF5hPB2AhRtolCj0VVY96Tcnzq0
-         KZ1G23NjYnkN0FAjNRfymUZoCWy4F8ECiskw2qgbUcSSc8QUCDRBz7DwJAVTd49RMRaK
-         sByDIluWmB1SV0+eh2iACMNqBpAOrkT4JE7lwXm53LpHReeKunl+U6o9p7sniwSWHekL
-         TJfg1FL4LjOYWB1hcyhN1vf5ddzKxZ3Qp9oSqfxv1QmA/GJm2WZgjIIjzF+sQqX2iqJW
-         JhPqYohe3M2YL0Zb9LN/wkiAOnOIvq3I/Cmtq5/ePELWhNhCkkpIwaLRP2AcWM8ZuiSS
-         MFVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742435786; x=1743040586;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iApjQxSPhTF/tl2rkU2LC3L+Sofo1JAgj9zbjrL2yA0=;
-        b=k9T3Fu5/pjc6K2D6ce3Gx3JEr4bgMiWxejnzCpDd8e3Vx05K+6ytnbTkv4yaSvoBkn
-         gWAy04fI1ZwINPLYx9yiBLafJtWS+Uo8E06mn3UGq5nP0W8+qfRUzGhGWahn5VJBugv+
-         831iSG5mN5zbEkoSsPEWBZ36js2jGsHMowwiG1d5z2o5yqUjqHqPdCKra/JU2QDfcvP1
-         YcL7MRIDnxdHHNnLqWpVVoFmV6AFHUaa4v6EyipW3fKB6iy0X8Mh0KF32CZLN5zcm5GV
-         B8fIPXIURFifAPKAkRk8DoHpjfzsfjWhxpk/X9eIMijZBsBWjqLDaEqsp8dh4u4EddBU
-         pitA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/hnb2MDe+tSiMWjlzxzhpbxq0OujjuDkie1ToIRPOQO3W8rjpL0KfxDheRHfTBMbvMAYZBihfImpkjfa7Mkn+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWKJqkdVvixdDllYgCNdPzPQApQagCuiALoBSGyOt0JI0vcbbt
-	luoxTCSbmMiBSjlLCg28VGeRGOq6hGyLYgsQI3W5mKJ7hZZ4KBGkdeB8/L4FcJbWXecRrvUpkM2
-	AorPVXpgPd5O1STXifA==
-X-Google-Smtp-Source: AGHT+IGFSfyI7p/Qh0SdAoE1uQ2Phsg//Ps3doqJu8c++ecy3AeyWqH3lvhpNMjdI0PgAE047ECxcGLwH834CeR5
-X-Received: from pjbpw8.prod.google.com ([2002:a17:90b:2788:b0:2fa:15aa:4d2b])
- (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:22c1:b0:223:fd7f:2752 with SMTP id d9443c01a7336-22649a34325mr73764035ad.29.1742435786002;
- Wed, 19 Mar 2025 18:56:26 -0700 (PDT)
-Date: Wed, 19 Mar 2025 18:55:51 -0700
-In-Reply-To: <20250320015551.2157511-1-changyuanl@google.com>
-Mime-Version: 1.0
-References: <20250320015551.2157511-1-changyuanl@google.com>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250320015551.2157511-17-changyuanl@google.com>
-Subject: [PATCH v5 16/16] Documentation: add documentation for KHO
-From: Changyuan Lyu <changyuanl@google.com>
-To: linux-kernel@vger.kernel.org
-Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org, 
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com, 
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com, 
-	dave.hansen@linux.intel.com, dwmw2@infradead.org, ebiederm@xmission.com, 
-	mingo@redhat.com, jgowans@amazon.com, corbet@lwn.net, krzk@kernel.org, 
-	rppt@kernel.org, mark.rutland@arm.com, pbonzini@redhat.com, 
-	pasha.tatashin@soleen.com, hpa@zytor.com, peterz@infradead.org, 
-	ptyadav@amazon.de, robh+dt@kernel.org, robh@kernel.org, saravanak@google.com, 
-	skinsburskii@linux.microsoft.com, rostedt@goodmis.org, tglx@linutronix.de, 
-	thomas.lendacky@amd.com, usama.arif@bytedance.com, will@kernel.org, 
-	devicetree@vger.kernel.org, kexec@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-mm@kvack.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 20 Mar 2025 02:14:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QPgrQHdo2dbK7fLMrNqXarrIjU85hGMmbnHK4JFcPW7DsjOzuOOmv6LcIHBPzg8vVsinKqRgZ87kWNVlsBN11UVz1KzBpBpzXVrA3ohTLo+rm6VozFo5Z/8v2Vs8xmFV9weWo6Mmxor1sDxIARfX9kJqhmlx/ICzU1uaGg57s9U/aBXnoqX0iRNJBTkxvX9ZL3C2XajHaCgfqpv7m9vuYejL529eM4j+1mvwVnatuPAtE6zSdib4oDxGefP+c8GlDrOPNeLlxAfHZpHai+F0nmfx4dwUp6ULrDTgYdKEBTEVXsT6takkRw0nV6gu/fFhJE4fqS+0NUEzDOD09Ypozg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HO8uAZnfu0nzvmrRg0SbaV0AmWMoDGkZFQkPpU7xqAY=;
+ b=RO3SxeYXP3JbW6omGSxxf/LRN0CtyK1KdZigqwnzk0HLbq8QmL5AHPpsgDjD+FysplQuYp8JrVq3WhQd3EHxcsizx8AgfwMREx8UavDtfZltKehx6veAxyH4IK00g3CUiIfvdAOALfdbcWb/9JR29oimfQZbNW85E3qy7NzvZQIT0/SAEvuQfsvQ/+uovgnkzg+io1do69tRb+HjfH4Zl4MYmSs8pQhXJqhpcXp0U8zrKuadzj3N+Zw1llU9YgklDAC9IUIf0icItll1iUAizLvcRXT+11T+roIzJAJ8FgjzEbeJOTU4X5/S7fMY6rnydqRDPyIUlJnlDRI/T7fuSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=bootlin.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PS2PR02CA0012.apcprd02.prod.outlook.com (2603:1096:300:41::24)
+ by JH0PR06MB7055.apcprd06.prod.outlook.com (2603:1096:990:6e::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.34; Thu, 20 Mar
+ 2025 02:14:05 +0000
+Received: from OSA0EPF000000C9.apcprd02.prod.outlook.com
+ (2603:1096:300:41:cafe::51) by PS2PR02CA0012.outlook.office365.com
+ (2603:1096:300:41::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.35 via Frontend Transport; Thu,
+ 20 Mar 2025 02:14:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C9.mail.protection.outlook.com (10.167.240.55) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Thu, 20 Mar 2025 02:14:04 +0000
+Received: from [172.16.64.208] (unknown [172.16.64.208])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 6A5354160CA0;
+	Thu, 20 Mar 2025 10:14:03 +0800 (CST)
+Message-ID: <a8966792-fa0e-4e8e-aceb-427819ae4ef5@cixtech.com>
+Date: Thu, 20 Mar 2025 10:14:02 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Loadable Module support for PCIe Cadence and J721E
+To: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+ Peter Chen <peter.chen@cixtech.com>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com"
+ <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "vigneshr@ti.com" <vigneshr@ti.com>, "kishon@kernel.org"
+ <kishon@kernel.org>, "cassel@kernel.org" <cassel@kernel.org>,
+ "wojciech.jasko-EXT@continental-corporation.com"
+ <wojciech.jasko-EXT@continental-corporation.com>,
+ "thomas.richard@bootlin.com" <thomas.richard@bootlin.com>,
+ "bwawrzyn@cisco.com" <bwawrzyn@cisco.com>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "srk@ti.com" <srk@ti.com>
+References: <20250307103128.3287497-1-s-vadapalli@ti.com>
+ <Z9pffxeXHVOsoi4O@nchen-desktop> <20250319062534.ollh3s5t7znf5zqs@uda0492258>
+ <Z9qO1f5MgNcwO5A4@nchen-desktop> <20250319095511.hf3y2c6vbbnm3ien@thinkpad>
+Content-Language: en-US
+From: "hans.zhang" <hans.zhang@cixtech.com>
+In-Reply-To: <20250319095511.hf3y2c6vbbnm3ien@thinkpad>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C9:EE_|JH0PR06MB7055:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0d0263f-7156-4daa-d885-08dd6754e353
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RWR3VmNZUDhpYUtwVE45Z3JHaXNjNGhQT0tUM2RwRm8rTnZFOUNoa1ZCV1Mw?=
+ =?utf-8?B?RnA5SEkxWlpXSlcxcDJVem1IRjNJL3pRaGZOM0pabVpRWDB2OElibW82dmIz?=
+ =?utf-8?B?QXpiV1Vvd0FuRDVIU2VWaEtIZ0x5VHU5MjNtUzQvbE5ZdmJUYXhWOHBXNndT?=
+ =?utf-8?B?UEIvREpaMThYZU5Obkd5ck56SXg2VVhkYVF0NkZNc3NBbDI2S2pEa1RYT0dI?=
+ =?utf-8?B?VnRFVUh3aFZ3Z09rZWwvY3lKV2xGckg5TWxRd3M1MEhRVE9jeUlpaGpRdG9p?=
+ =?utf-8?B?NE14YWhiekMrOEN3dDdYb0NsMDh5NWxxSFFDRGdzYkQxTk5nWC9oY29SSWRI?=
+ =?utf-8?B?SThRa2FNWDV5M3lnbStHMFU5Nnl2aTRNakpRdDFBWjZEV1EydDNPU1NseFBw?=
+ =?utf-8?B?d2JrS2ZYaEZRWnVlb2JxY05kTVREcjdzQ2ZEYmhVcHF0YzBRdW1aSXA5TTFw?=
+ =?utf-8?B?SExKNjhhWVFRbnhjck5nWjJuZ2QwMVkwVFAxNXhPQ2VwTHQwQ2NpWksvcGRM?=
+ =?utf-8?B?L1RGRG1JekUyWjU5c3N2UFVxYjFwazVvS044ajh1TVZIYkhkc0c1SXdMVE9x?=
+ =?utf-8?B?RTFITERTUkVjVEx3ZE0zYllUYlMzSERVQzBEV3F5enI3Q3U3Zm5TNjIyTGYz?=
+ =?utf-8?B?ejdNbTA1MGh0NnRZZWdQMzMvSjR5aEN4Zm9qQUlHNkhlYTk2Y0swblpMcERj?=
+ =?utf-8?B?aThnWlQrcVgwbDkySVd2Y2NTUk90YjlOcnRKYUx6bWxqN1pMRkJQQ3dLRmJP?=
+ =?utf-8?B?ejcvMTdiVXJrSlNURjlEQWtTRUJWM1NWU3dHMFRvOVFNRWpkR3FNZDd2VVUv?=
+ =?utf-8?B?MW1PTGd2NHVuektEc0Y1M3JJY3gxeUhwZm9ORzM2bGR4VzcvcEVUcURTWFk4?=
+ =?utf-8?B?U0VLMGpsRlp0TjY1SHdYS0xkdENnVXJDRUlTQzFnM1h2eHgyclNVWVd3SDlw?=
+ =?utf-8?B?NDEyVGtZVjRjZVJCRG10aHkxdU0rU2N2UFlUQm9CZzE3UlptendoZjNyUVFl?=
+ =?utf-8?B?ZjNoaHQxUzNqUFlVT2FZT0dya05rNGtMeHM3Uk96cDVBTXljdEd5SFlWVzda?=
+ =?utf-8?B?MElvdEdvNDJMYjV3V0M5d3VkRkk5NCsxYmNKSVVscGtoWGx4V0NvNzByUEsv?=
+ =?utf-8?B?T2kyUVV2a0VuSUVsNC8ybjhwc0ZNWVhBMjUrSVJueHpUdFBBNFltSUF4dVdQ?=
+ =?utf-8?B?K0JXZ2djTHpnSEVya2l1T21teWQrMmg1SkFLZ0FSSEFJU0RPQW9GMlJuMFRL?=
+ =?utf-8?B?aWt5TXFIODJiaEZyc2ZLZUdPelpUZ3hUQmRaemFMVE84YzdFbkJZTzY3d3dx?=
+ =?utf-8?B?VEhzRFRGZEpyVmF0T29EZHJsYkFxU3o2Yll5UXhKZDlkT1hGbktueDBPWU5G?=
+ =?utf-8?B?ZjAwNHQ2cWRQanA1eW1yYkxjNzNBREI3a0Ixb0xRaU5LQjFxQWN5Z011UmRu?=
+ =?utf-8?B?Qi9vTnJzd3NnQnlvR3dHRHo0NUNWWnUxc0krcmpybDhQTS9MeXNqVmhMc2Z1?=
+ =?utf-8?B?ZHB5Qlg4UVQrSDcrNnA2SjNsWis5Mmp5WmJjSHJLNHVTNC9yWk5UNFA5azVY?=
+ =?utf-8?B?K3AzL05YZ0hxa0NxS3ljMmRpOGZSMnh6aXFBNHR0d3hBck03THRSQ3MwY2dW?=
+ =?utf-8?B?cnNFMjdrSDVybUtoUEFNd3JrWnVxTTNvL0IybGNCWno2Y2FNSVZCTkk2QlUx?=
+ =?utf-8?B?amRqS1FicFFaR0tNQ2RuYVl0bS9QZXA4bzdKUHRRL2xLaTNzTm11ZzdXRU5S?=
+ =?utf-8?B?VDRaZm5UQndoVUtzSzBjQ1liU0VRY281c1RrZE5FQ3QrZDVWTXN2clJCRmZI?=
+ =?utf-8?B?enJoYlpmcExvR1hrMjB2YU5IOFJ1eGtMYnJmb0F4S1VpeGRQVi96TDFlcWVp?=
+ =?utf-8?B?V0FpS1NRVzlHQXA4SVF4SUovZERjakprTzJWZHJBamlja0h1Mm01S2FPcDI1?=
+ =?utf-8?B?ZmJxSDlGdXk0Q2M3bGROODBiMGh4VEhWUVhRNHE0OG9YdmkvQkltRVl5Y3BH?=
+ =?utf-8?Q?g2iHpJPHbt8c92txD5AMR5pZD6g2Kg=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2025 02:14:04.3126
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0d0263f-7156-4daa-d885-08dd6754e353
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C9.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB7055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_015627_751098_E33F0C60 
-X-CRM114-Status: GOOD (  41.54  )
+X-CRM114-CacheID: sfid-20250319_191424_601279_F2B1F318 
+X-CRM114-Status: GOOD (  26.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,376 +160,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Graf <graf@amazon.com>
 
-With KHO in place, let's add documentation that describes what it is and
-how to use it.
 
-Signed-off-by: Alexander Graf <graf@amazon.com>
-Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-Signed-off-by: Changyuan Lyu <changyuanl@google.com>
----
- .../admin-guide/kernel-parameters.txt         |  25 ++++
- Documentation/kho/concepts.rst                |  70 +++++++++++
- Documentation/kho/fdt.rst                     |  62 +++++++++
- Documentation/kho/index.rst                   |  14 +++
- Documentation/kho/usage.rst                   | 118 ++++++++++++++++++
- Documentation/subsystem-apis.rst              |   1 +
- MAINTAINERS                                   |   1 +
- 7 files changed, 291 insertions(+)
- create mode 100644 Documentation/kho/concepts.rst
- create mode 100644 Documentation/kho/fdt.rst
- create mode 100644 Documentation/kho/index.rst
- create mode 100644 Documentation/kho/usage.rst
+On 2025/3/19 17:55, manivannan.sadhasivam@linaro.org wrote:
+> EXTERNAL EMAIL
+> 
+> On Wed, Mar 19, 2025 at 05:31:01PM +0800, Peter Chen wrote:
+>> On 25-03-19 14:25:34, Siddharth Vadapalli wrote:
+>>>>>
+>>>>> Hello,
+>>>>>
+>>>>> This series enables support to build the PCIe Cadence Controller drivers
+>>>>> and the PCI J721E Application/Wrapper/Glue driver as Loadable Kernel
+>>>>> Modules. The motivation for this series is that PCIe is not a necessity
+>>>>> for booting the SoC, due to which it doesn't have to be a built-in
+>>>>> module. Additionally, the defconfig doesn't enable the PCIe Cadence
+>>>>> Controller drivers and the PCI J721E driver, due to which PCIe is not
+>>>>> supported by default. Enabling the configs as of now (i.e. without this
+>>>>> series) will result in built-in drivers i.e. a bloated Linux Image for
+>>>>> everyone who doesn't have the PCIe Controller.
+>>>>
+>>>> If the user doesn't enable PCIe controller device through DTS/ACPI,
+>>>> that's doesn't matter.
+>>>
+>>> The Linux Image for arm64 systems built using:
+>>> arch/arm64/configs/defconfig
+>>> will not have support for the Cadence PCIe Controller and the PCIe J721e
+>>> driver, because these configs aren't enabled.
+>>>
+>>>>
+>>>>> @@ -209,6 +209,12 @@ CONFIG_NFC=m
+>>>>>   CONFIG_NFC_NCI=m
+>>>>>   CONFIG_NFC_S3FWRN5_I2C=m
+>>>>>   CONFIG_PCI=y
+>>>>> +CONFIG_PCI_J721E=m
+>>>>> +CONFIG_PCI_J721E_HOST=m
+>>>>> +CONFIG_PCI_J721E_EP=m
+>>>>> +CONFIG_PCIE_CADENCE=m
+>>>>> +CONFIG_PCIE_CADENCE_HOST=m
+>>>>> +CONFIG_PCIE_CADENCE_EP=m
+>>>>
+>>>> The common Cadence configuration will be select if the glue layer's
+>>>> configuration is select according to Kconfig.
+>>>>
+>>>> Please do not set common configuration as module, some user may need
+>>>> it as build-in like dw's. Considering the situation, the rootfs is at
+>>>> NVMe.
+>>>
+>>> The common configuration at the moment is "DISABLED" i.e. no support for
+>>> the Cadence Controller at all. Which "user" are you referring to? This
+>>> series was introduced since having the drivers built-in was pushed back at:
+>>
+>> We are using Cadence controller, and prepare upstream radxa-o6 board
+>> whose rootfs is at PCIe NVMe.
+>>
+> 
+> It doesn't matter. Only criteria AFAIK to build the driver as built-in in
+> defconfig is that it should be a depedency for console. For some time, storage
+> was also a dependency, but for sure PCIe is not.
+> 
+> Moreover, CONFIG_BLK_DEV_NVME is built as a module in ARM64 defconfig. So it
+> doesn't matter if you build PCIe controller driver as a built-in or not. You
+> need to load the NVMe driver somehow.
+> 
+> So please use initramfs.
+> 
+>> You could build driver as module for TI glue layer, but don't force
+>> other vendors using module as well, see dwc as an example please.
+>>
+> 
+> DWC is a bad example here. Only reason the DWC drivers are not loadable is due
+> to the in-built MSI controller implementation as irqchip. People tend to build
+> the irqchip controllers as always built-in for some known issues. Even then some
+> driver developers prefer to built them as loadable module but suppress unbind to
+> avoid rmmoding the module.
+Hi Mani,
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index fb8752b42ec8..d715c6d9dbb3 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -2698,6 +2698,31 @@
- 	kgdbwait	[KGDB,EARLY] Stop kernel execution and enter the
- 			kernel debugger at the earliest opportunity.
- 
-+	kho=		[KEXEC,EARLY]
-+			Format: { "0" | "1" | "off" | "on" | "y" | "n" }
-+			Enables or disables Kexec HandOver.
-+			"0" | "off" | "n" - kexec handover is disabled
-+			"1" | "on" | "y" - kexec handover is enabled
-+
-+	kho_scratch=	[KEXEC,EARLY]
-+			Format: ll[KMG],mm[KMG],nn[KMG] | nn%
-+			Defines the size of the KHO scratch region. The KHO
-+			scratch regions are physically contiguous memory
-+			ranges that can only be used for non-kernel
-+			allocations. That way, even when memory is heavily
-+			fragmented with handed over memory, the kexeced
-+			kernel will always have enough contiguous ranges to
-+			bootstrap itself.
-+
-+			It is possible to specify the exact amount of
-+			memory in the form of "ll[KMG],mm[KMG],nn[KMG]"
-+			where the first parameter defines the size of a low
-+			memory scratch area, the second parameter defines
-+			the size of a global scratch area and the third
-+			parameter defines the size of additional per-node
-+			scratch areas.  The form "nn%" defines scale factor
-+			(in percents) of memory that was used during boot.
-+
- 	kmac=		[MIPS] Korina ethernet MAC address.
- 			Configure the RouterBoard 532 series on-chip
- 			Ethernet adapter MAC address.
-diff --git a/Documentation/kho/concepts.rst b/Documentation/kho/concepts.rst
-new file mode 100644
-index 000000000000..174e23404ebc
---- /dev/null
-+++ b/Documentation/kho/concepts.rst
-@@ -0,0 +1,70 @@
-+.. SPDX-License-Identifier: GPL-2.0-or-later
-+.. _concepts:
-+
-+=======================
-+Kexec Handover Concepts
-+=======================
-+
-+Kexec HandOver (KHO) is a mechanism that allows Linux to preserve state -
-+arbitrary properties as well as memory locations - across kexec.
-+
-+It introduces multiple concepts:
-+
-+KHO State tree
-+==============
-+
-+Every KHO kexec carries a state tree, in the format of flattened device tree
-+(FDT), that describes the state of the system. Device drivers can register to
-+KHO to serialize their state before kexec. After KHO, device drivers can read
-+the FDT and extract previous state.
-+
-+KHO only uses the FDT container format and libfdt library, but does not
-+adhere to the same property semantics that normal device trees do: Properties
-+are passed in native endianness and standardized properties like ``regs`` and
-+``ranges`` do not exist, hence there are no ``#...-cells`` properties.
-+
-+Scratch Regions
-+===============
-+
-+To boot into kexec, we need to have a physically contiguous memory range that
-+contains no handed over memory. Kexec then places the target kernel and initrd
-+into that region. The new kernel exclusively uses this region for memory
-+allocations before during boot up to the initialization of the page allocator.
-+
-+We guarantee that we always have such regions through the scratch regions: On
-+first boot KHO allocates several physically contiguous memory regions. Since
-+after kexec these regions will be used by early memory allocations, there is a
-+scratch region per NUMA node plus a scratch region to satisfy allocations
-+requests that do not require particular NUMA node assignment.
-+By default, size of the scratch region is calculated based on amount of memory
-+allocated during boot. The ``kho_scratch`` kernel command line option may be
-+used to explicitly define size of the scratch regions.
-+The scratch regions are declared as CMA when page allocator is initialized so
-+that their memory can be used during system lifetime. CMA gives us the
-+guarantee that no handover pages land in that region, because handover pages
-+must be at a static physical memory location and CMA enforces that only
-+movable pages can be located inside.
-+
-+After KHO kexec, we ignore the ``kho_scratch`` kernel command line option and
-+instead reuse the exact same region that was originally allocated. This allows
-+us to recursively execute any amount of KHO kexecs. Because we used this region
-+for boot memory allocations and as target memory for kexec blobs, some parts
-+of that memory region may be reserved. These reservations are irrelevant for
-+the next KHO, because kexec can overwrite even the original kernel.
-+
-+.. _finalization_phase:
-+
-+KHO finalization phase
-+======================
-+
-+To enable user space based kexec file loader, the kernel needs to be able to
-+provide the FDT that describes the previous kernel's state before
-+performing the actual kexec. The process of generating that FDT is
-+called serialization. When the FDT is generated, some properties
-+of the system may become immutable because they are already written down
-+in the FDT. That state is called the KHO finalization phase.
-+
-+With the in-kernel kexec file loader, i.e., using the syscall
-+``kexec_file_load``, KHO FDT is not created until the actual kexec. Thus the
-+finalization phase is much shorter. User space can optionally choose to generate
-+the FDT early using the debugfs interface.
-diff --git a/Documentation/kho/fdt.rst b/Documentation/kho/fdt.rst
-new file mode 100644
-index 000000000000..70b508533b77
---- /dev/null
-+++ b/Documentation/kho/fdt.rst
-@@ -0,0 +1,62 @@
-+.. SPDX-License-Identifier: GPL-2.0-or-later
-+
-+=======
-+KHO FDT
-+=======
-+
-+KHO uses the flattened device tree (FDT) container format and libfdt
-+library to create and parse the data that is passed between the
-+kernels. The properties in KHO FDT are stored in native format and can
-+include any data KHO users need to preserve. Parsing of FDT subnodes is
-+responsibility of KHO users, except for nodes and properties defined by
-+KHO itself.
-+
-+KHO nodes and properties
-+========================
-+
-+Node ``preserved-memory``
-+-------------------------
-+
-+KHO saves a special node named ``preserved-memory`` under the root node.
-+This node contains the metadata for KHO to preserve pages across kexec.
-+
-+Property ``compatible``
-+-----------------------
-+
-+The ``compatible`` property determines compatibility between the kernel
-+that created the KHO FDT and the kernel that attempts to load it.
-+If the kernel that loads the KHO FDT is not compatible with it, the entire
-+KHO process will be bypassed.
-+
-+Examples
-+========
-+
-+The following example demonstrates KHO FDT that preserves two memory
-+regions create with ``reserve_mem`` kernel command line parameter::
-+
-+  /dts-v1/;
-+
-+  / {
-+  	compatible = "kho-v1";
-+
-+  	memblock {
-+  		compatible = "memblock-v1";
-+
-+  		region1 {
-+  			compatible = "reserve-mem-v1";
-+  			start = <0xc07a 0x4000000>;
-+			size = <0x01 0x00>;
-+  		};
-+
-+		region2 {
-+			compatible = "reserve-mem-v1";
-+			start = <0xc07b 0x4000000>;
-+			size = <0x8000 0x00>;
-+		};
-+
-+  	};
-+
-+	preserved-memory {
-+                metadata = <0x00 0x00>;
-+        };
-+  };
-diff --git a/Documentation/kho/index.rst b/Documentation/kho/index.rst
-new file mode 100644
-index 000000000000..d108c3f8d15c
---- /dev/null
-+++ b/Documentation/kho/index.rst
-@@ -0,0 +1,14 @@
-+.. SPDX-License-Identifier: GPL-2.0-or-later
-+
-+========================
-+Kexec Handover Subsystem
-+========================
-+
-+.. toctree::
-+   :maxdepth: 1
-+
-+   concepts
-+   usage
-+   fdt
-+
-+.. only::  subproject and html
-diff --git a/Documentation/kho/usage.rst b/Documentation/kho/usage.rst
-new file mode 100644
-index 000000000000..b45dc58e8d3f
---- /dev/null
-+++ b/Documentation/kho/usage.rst
-@@ -0,0 +1,118 @@
-+.. SPDX-License-Identifier: GPL-2.0-or-later
-+
-+====================
-+Kexec Handover Usage
-+====================
-+
-+Kexec HandOver (KHO) is a mechanism that allows Linux to preserve state -
-+arbitrary properties as well as memory locations - across kexec.
-+
-+This document expects that you are familiar with the base KHO
-+:ref:`concepts <concepts>`. If you have not read
-+them yet, please do so now.
-+
-+Prerequisites
-+=============
-+
-+KHO is available when the ``CONFIG_KEXEC_HANDOVER`` config option is set to y
-+at compile time. Every KHO producer may have its own config option that you
-+need to enable if you would like to preserve their respective state across
-+kexec.
-+
-+To use KHO, please boot the kernel with the ``kho=on`` command line
-+parameter. You may use ``kho_scratch`` parameter to define size of the
-+scratch regions. For example ``kho_scratch=16M,512M,256M`` will reserve a
-+16 MiB low memory scratch area, a 512 MiB global scratch region, and 256 MiB
-+per NUMA node scratch regions on boot.
-+
-+Perform a KHO kexec
-+===================
-+
-+First, before you perform a KHO kexec, you can optionally move the system into
-+the :ref:`KHO finalization phase <finalization_phase>` ::
-+
-+  $ echo 1 > /sys/kernel/debug/kho/out/finalize
-+
-+After this command, the KHO FDT is available in
-+``/sys/kernel/debug/kho/out/fdt``.
-+
-+Next, load the target payload and kexec into it. It is important that you
-+use the ``-s`` parameter to use the in-kernel kexec file loader, as user
-+space kexec tooling currently has no support for KHO with the user space
-+based file loader ::
-+
-+  # kexec -l Image --initrd=initrd -s
-+  # kexec -e
-+
-+If you skipped finalization in the first step, ``kexec -e`` triggers
-+FDT finalization automatically. The new kernel will boot up and contain
-+some of the previous kernel's state.
-+
-+For example, if you used ``reserve_mem`` command line parameter to create
-+an early memory reservation, the new kernel will have that memory at the
-+same physical address as the old kernel.
-+
-+Unfreeze KHO FDT data
-+=====================
-+
-+You can move the system out of KHO finalization phase by calling ::
-+
-+  $ echo 0 > /sys/kernel/debug/kho/out/finalize
-+
-+After this command, the KHO FDT is no longer available in
-+``/sys/kernel/debug/kho/out/fdt``, and the states kept in KHO can be
-+modified by other kernel subsystems again.
-+
-+debugfs Interfaces
-+==================
-+
-+Currently KHO creates the following debugfs interfaces. Notice that these
-+interfaces may change in the future. They will be moved to sysfs once KHO is
-+stabilized.
-+
-+``/sys/kernel/debug/kho/out/finalize``
-+    Kexec HandOver (KHO) allows Linux to transition the state of
-+    compatible drivers into the next kexec'ed kernel. To do so,
-+    device drivers will serialize their current state into an FDT.
-+    While the state is serialized, they are unable to perform
-+    any modifications to state that was serialized, such as
-+    handed over memory allocations.
-+
-+    When this file contains "1", the system is in the transition
-+    state. When contains "0", it is not. To switch between the
-+    two states, echo the respective number into this file.
-+
-+``/sys/kernel/debug/kho/out/fdt_max``
-+    KHO needs to allocate a buffer for the FDT that gets
-+    generated before it knows the final size. By default, it
-+    will allocate 10 MiB for it. You can write to this file
-+    to modify the size of that allocation.
-+
-+``/sys/kernel/debug/kho/out/fdt``
-+    When KHO state tree is finalized, the kernel exposes the
-+    flattened device tree blob that carries its current KHO
-+    state in this file. Kexec user space tooling can use this
-+    as input file for the KHO payload image.
-+
-+``/sys/kernel/debug/kho/out/scratch_len``
-+    To support continuous KHO kexecs, we need to reserve
-+    physically contiguous memory regions that will always stay
-+    available for future kexec allocations. This file describes
-+    the length of these memory regions. Kexec user space tooling
-+    can use this to determine where it should place its payload
-+    images.
-+
-+``/sys/kernel/debug/kho/out/scratch_phys``
-+    To support continuous KHO kexecs, we need to reserve
-+    physically contiguous memory regions that will always stay
-+    available for future kexec allocations. This file describes
-+    the physical location of these memory regions. Kexec user space
-+    tooling can use this to determine where it should place its
-+    payload images.
-+
-+``/sys/kernel/debug/kho/in/fdt``
-+    When the kernel was booted with Kexec HandOver (KHO),
-+    the state tree that carries metadata about the previous
-+    kernel's state is in this file in the format of flattened
-+    device tree. This file may disappear when all consumers of
-+    it finished to interpret their metadata.
-diff --git a/Documentation/subsystem-apis.rst b/Documentation/subsystem-apis.rst
-index b52ad5b969d4..5fc69d6ff9f0 100644
---- a/Documentation/subsystem-apis.rst
-+++ b/Documentation/subsystem-apis.rst
-@@ -90,3 +90,4 @@ Other subsystems
-    peci/index
-    wmi/index
-    tee/index
-+   kho/index
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a000a277ccf7..d0df0b380e34 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -12828,6 +12828,7 @@ F:	include/linux/kernfs.h
- KEXEC
- L:	kexec@lists.infradead.org
- W:	http://kernel.org/pub/linux/utils/kernel/kexec/
-+F:	Documentation/kho/
- F:	include/linux/kexec*.h
- F:	include/uapi/linux/kexec.h
- F:	kernel/kexec*
--- 
-2.48.1.711.g2feabab25a-goog
+I think the MSI RTL module provided by Synopsys PCIe controller IP is 
+not a standard operation. The reason for this MSI module is probably to 
+be used by some cpus that do not have ITS(LPI interrupt) designed. Or 
+RISC-V SOC, etc. MSI is defined as an MSI/MSIX interrupt that starts 
+with a direct write memory access.
+
+There are also SOC vendors that do not use the built-in MSI RTL module. 
+Instead, MSI/MSIX interrupts are transmitted directly to the GIC's ITS 
+module via the GIC V3/V4 interface. For example, RK3588, they do not use 
+the PCIe controller built-in MSI module. Some Qualcomm platforms also 
+modify the PCIe controller's built-in MSI modules to connect each of 
+them to 32 SPI interrupts to the GIC. I was under the impression that 
+the SDM845 was designed that way. The only explanation is that SPI 
+interrupts are faster than LPI interrupts without having to look up some 
+tables.
+
+So the dwc driver can also compile to ko?
+
+Best regards,
+Hans
 
 
