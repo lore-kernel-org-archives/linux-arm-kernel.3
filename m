@@ -4,94 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA448C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDCCC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b51iP35KFG1CIl36iu8PXktEtqpi3MNuLw8E+xpgKP4=; b=ab3da1+bgB2wKApFIWFTFYFSlP
-	abC9yTdnYCdVHGy7bhnMxBgQqefSeCX9vzXtlYq2Cz+CgIO1Ccew8gxkw09s0ffVxq+ThTs50Sedm
-	Zto9mHo8Xi5ehVloml1OC11Yytu75M/JTGTvzuMhOJmB5ujSDxMDPljMoxM6/mTU37eLG2r26QFY1
-	Q2quD+UAasqLKdfrtvruAP8wWhumwSz0R6Ax73SS3fkS0jI/BeidExvmDFs+eiScKwq9G9Feb0rJR
-	FaqUFF9vEo5XyVgsW2T+a/5xYf6wVBG2f6kK+yprKhkOIvNyK/jbuvomias9+BNmTlic+uuwYeBp4
-	1I4znAuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+vyO/loypVAXfgbXfiAs9fDtNIAFBajvuLmXxHlNeQQ=; b=fSDOU+0LvI00qS5LF+2BBSE9TF
+	gJbeCH5K8enO3/IbkZNE6wNncr9OxaCD37n0FL3JcONOK0LXbJc0SgeopWDBASbr776L0Td8fV6H8
+	RR25w6WNZQHYOg99Qm/RKUzKnOqzi2y4DCNKkYk3vsap3nUHm/YDJWHcNcbz2Rwvr75C0x8LqWdGU
+	34Bcr4F1aQh48etNncQfqKwbJ9uUnz9SJnZV/f6o7Kc9EKD4TkoSXwkVdmkfgU48z5QkK6yIyShDF
+	oukO7t2qW6jyAJIa8+257wL7q+Xu57m6b+dKIIpuY98RsdVsxzz788BrVChofeOV+Nk36bofTR0Nc
+	BbT29wmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvO5t-0000000DK2n-1YVx;
-	Thu, 20 Mar 2025 22:10:29 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tvO7a-0000000DKSZ-0PI3;
+	Thu, 20 Mar 2025 22:12:14 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvO4A-0000000DJlz-3oAh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 22:08:44 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-390cf7458f5so999059f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 15:08:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742508521; x=1743113321; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=b51iP35KFG1CIl36iu8PXktEtqpi3MNuLw8E+xpgKP4=;
-        b=EvCMlVIW94Qz+kBu2jX6GxC18mIl4VDNbQjz6IMDl3nIO4fDCisb+XDJIXP+BZmd9i
-         3wDt+6uyZoEO+9/HWh+LVBrCiJaBpAkguxdyTRfYWMj99BfRvHjOYLoVxQP3Ak/7+QCX
-         LajHanwOmvDQvJAZ2GPlNDQBRtnosYaujw7NNgDQMRV0ODVRG+7xNMX+EjbRodbhqTHI
-         otaPcBl/tRqy6C/Wuux+uzmVXP4iumT6iH68RcEQAlkUABtuV/qM+3aJyt++m0GC9k2s
-         Ff2iLx0FQCZY/x+N+Qsj11d11HeVxGLSRQdCUm29XJUGjc6LOlbJ1jFbZWp+V2FQVfF4
-         sLDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742508521; x=1743113321;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b51iP35KFG1CIl36iu8PXktEtqpi3MNuLw8E+xpgKP4=;
-        b=SU4PJ/dtMsAGuG9CAeZwH+QNj7TjLG3DL+r8lkkrWSWWDve7R3TA+b1Sk5AxiAprFh
-         sO4KZorKZcmFDm0mgoZK4WzLAV6kz0Mw/vqqK8Lvy59ZZdBX4viM1HLYaNQJHObij5r2
-         VU0wx1tZOooIFqgNkFCIdwfntrpKiNn4QeeLU9DpkIEXzoL45aCNOBXRaCM2SiTzQkt+
-         CaXuufmlckgtQr43vRHHYgNYdEqf+c+/q+a2GO4iMIrZAboBwdDIGmJIaAa4UuLWynai
-         mz1fySWjm1X4OK3ShAA8CIIf7BsD3Uq/8db+jqFki6ZiHPvsCKK2Uioc8gux/TX+2LSK
-         p8aw==
-X-Forwarded-Encrypted: i=1; AJvYcCXCpO2w108mAn3kjWarZnQ1KGEfPU1t7l8XXU6qvbxK00Zj292pO93yn+o5+AeNXnugTOgDahXSvSsxLQAv91b1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPCX+7Y1avvzuvNPFJoIzrPLAmhENIX6FF6zDyB/1vnS+GZ5s0
-	s+1kThL84ubhEdh4QyZYhTtd9wsXswzeHRd0GGN07sfT3jeNRvc69u43D46QFKY=
-X-Gm-Gg: ASbGncv2gs+cXK+kM+e9WrIug+RQCIOy9QnZoQWVoVH46DR24McKLCIEOJVIWUbojdX
-	8gPByRG0tr9a1GnrgZSHzIzeIlj//1Eiv7smAaIUaOelwSNicqSC/65XUGM1P2oM1aQevvnbCdq
-	gKHmt331+SDledC77K28l2GE8c82g38oTOvZw3B16BXtf2sQz/GhUGV6T4P6sl4uphu/7hKHQaB
-	jjLUCdoJbWUa8XWsT/+ri1qZ32EhcQI62sQTxg389T263fquZF8g/kykZxiU+D58nQToTPamWB/
-	f3krmOiqh72JQ0wjDMaLHP+hfASqQ3MALv45G8Mh5ewT/klIKL95jE+ha2vM9hLpsSZxMPsrF6T
-	5NHfLARol1g==
-X-Google-Smtp-Source: AGHT+IG6cZVwmLEZurTazZCr7atPJy2iNnHxLpGHe6xlII+3K7WFRsUslXpp2g67TeBOVTtPbGFAyQ==
-X-Received: by 2002:a05:6000:400e:b0:391:2a9a:4796 with SMTP id ffacd0b85a97d-3997f901786mr1265282f8f.18.1742508521013;
-        Thu, 20 Mar 2025 15:08:41 -0700 (PDT)
-Received: from [192.168.0.34] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9a50c1sm692749f8f.38.2025.03.20.15.08.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Mar 2025 15:08:39 -0700 (PDT)
-Message-ID: <54c588be-d630-4901-8885-a042b477f168@linaro.org>
-Date: Thu, 20 Mar 2025 22:08:38 +0000
+	id 1tvO4L-0000000DJnO-23xN;
+	Thu, 20 Mar 2025 22:08:54 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1tvO4D-000000004Q0-2b5q;
+	Thu, 20 Mar 2025 22:08:45 +0000
+Date: Thu, 20 Mar 2025 22:08:42 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: Zoie Lin <zoie.lin@mediatek.com>, Qii Wang <qii.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, teddy.chen@mediatek.com,
+	joseph-cc.chang@mediatek.com, leilk.liu@mediatek.com,
+	John Crispin <john@phrozen.org>
+Subject: Re: [PATCH v5 1/1] i2c: mediatek: add runtime PM operations and bus
+ regulator control
+Message-ID: <Z9yR6pyg1mtqKynh@makrotopia.org>
+References: <20250314145407.2900190-1-zoie.lin@mediatek.com>
+ <fqicrglyug7gmkmysok7hilhmkyhxmnkztzv4iffgry6xce6t3@2i6b2ihfu4rb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/3] arm64: dts: qcom: x1e80100-qcp: Add power control
- and sideband signals for PCIe3
-To: Wenbin Yao <quic_wenbyao@quicinc.com>, andersson@kernel.org,
- konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, quic_qianyu@quicinc.com,
- sfr@canb.auug.org.au, linux-arm-kernel@lists.infradead.org
-References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
- <w7mbnqG7DHPCH6hVoSu4E2p8pV7Rw6uvurlK-CUxF7TYQ53fFyagxmLUCmCTfG0DOUgIQn7GdppXgBlq8Gyv9Q==@protonmail.internalid>
- <20250320055502.274849-4-quic_wenbyao@quicinc.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20250320055502.274849-4-quic_wenbyao@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fqicrglyug7gmkmysok7hilhmkyhxmnkztzv4iffgry6xce6t3@2i6b2ihfu4rb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_150842_952337_4B41BC2A 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250320_150853_679711_43325388 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,176 +70,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2025 05:55, Wenbin Yao wrote:
-> From: Qiang Yu <quic_qianyu@quicinc.com>
-> 
-> Add perst, wake and clkreq sideband signals and required regulators in
-> PCIe3 controller and PHY device tree node. Describe the voltage rails of
-> the x8 PCI slots for PCIe3 port.
-> 
-> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
-> ---
->   arch/arm64/boot/dts/qcom/x1e80100-qcp.dts | 119 ++++++++++++++++++++++
->   1 file changed, 119 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-> index 28086a2bc..9cd313802 100644
-> --- a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-> +++ b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-> @@ -318,6 +318,48 @@ vreg_wcn_3p3: regulator-wcn-3p3 {
->   		regulator-boot-on;
->   	};
-> 
-> +	vreg_pcie_12v: regulator-pcie_12v {
-> +		compatible = "regulator-fixed";
-> +
-> +		regulator-name = "VREG_PCIE_12V";
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-max-microvolt = <12000000>;
-> +
-> +		gpio = <&pm8550ve_8_gpios 8 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pcie_x8_12v>;
-> +	};
-> +
-> +	vreg_pcie_3v3_aux: regulator-pcie_3v3_aux {
-> +		compatible = "regulator-fixed";
-> +
-> +		regulator-name = "VREG_PCIE_3P3_AUX";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +
-> +		gpio = <&pmc8380_3_gpios 8 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pm_sde7_aux_3p3_en>;
-> +	};
-> +
-> +	vreg_pcie_3v3: regulator-pcie_3v3 {
-> +		compatible = "regulator-fixed";
-> +
-> +		regulator-name = "VREG_PCIE_3P3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +
-> +		gpio = <&pmc8380_3_gpios 6 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pm_sde7_main_3p3_en>;
-> +};
-> +
->   	usb-1-ss0-sbu-mux {
->   		compatible = "onnn,fsusb42", "gpio-sbu-mux";
-> 
-> @@ -907,6 +949,60 @@ &mdss_dp3_phy {
->   	status = "okay";
->   };
-> 
-> +&pm8550ve_8_gpios {
-> +	pcie_x8_12v: pcie-12v-default-state {
-> +		pins = "gpio8";
-> +		function = "normal";
-> +		output-enable;
-> +		output-high;
-> +		bias-pull-down;
-> +		power-source = <0>;
-> +	};
-> +};
-> +
-> +&pmc8380_3_gpios {
-> +	pm_sde7_aux_3p3_en: pcie-aux-3p3-default-state {
-> +		pins = "gpio8";
-> +		function = "normal";
-> +		output-enable;
-> +		output-high;
-> +		bias-pull-down;
-> +		power-source = <0>;
-> +	};
-> +
-> +	pm_sde7_main_3p3_en: pcie-main-3p3-default-state {
-> +		pins = "gpio6";
-> +		function = "normal";
-> +		output-enable;
-> +		output-high;
-> +		bias-pull-down;
-> +		power-source = <0>;
-> +	};
-> +};
-> +
-> +&pcie3 {
-> +
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie3_default>;
-> +	perst-gpios = <&tlmm 143 GPIO_ACTIVE_LOW>;
-> +	wake-gpios = <&tlmm 145 GPIO_ACTIVE_LOW>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie3_phy {
-> +	vdda-phy-supply = <&vreg_l3j_0p8>;
-> +	vdda-pll-supply = <&vreg_l3e_1p2>;
-> +	vdda-qref-supply = <&vreg_l3c_0p8>;
-> +
-> +	status = "okay";
-> +};
-> +
-> +&pcie3port {
-> +	vpcie12v-supply = <&vreg_pcie_12v>;
-> +	vpcie3v3-supply = <&vreg_pcie_3v3>;
-> +	vpcie3v3aux-supply = <&vreg_pcie_3v3_aux>;
-> +};
-> +
->   &pcie4 {
->   	perst-gpios = <&tlmm 146 GPIO_ACTIVE_LOW>;
->   	wake-gpios = <&tlmm 148 GPIO_ACTIVE_LOW>;
-> @@ -1118,6 +1214,29 @@ nvme_reg_en: nvme-reg-en-state {
->   		bias-disable;
->   	};
-> 
-> +	pcie3_default: pcie3-default-state {
-> +		clkreq-n-pins {
-> +			pins = "gpio144";
-> +			function = "pcie3_clk";
-> +			drive-strength = <2>;
-> +			bias-pull-up;
-> +		};
-> +
-> +		perst-n-pins {
-> +			pins = "gpio143";
-> +			function = "gpio";
-> +			drive-strength = <2>;
-> +			bias-pull-down;
-> +		};
-> +
-> +		wake-n-pins {
-> +		       pins = "gpio145";
-> +		       function = "gpio";
-> +		       drive-strength = <2>;
-> +		       bias-pull-up;
-> +		};
-> +	};
-> +
->   	pcie4_default: pcie4-default-state {
->   		clkreq-n-pins {
->   			pins = "gpio147";
-> --
-> 2.34.1
-> 
-> 
+Hi Andi,
+Hi Zoie,
 
-Recommend breaking this patch into at least two patches @ the and
+On Wed, Mar 19, 2025 at 12:34:53AM +0100, Andi Shyti wrote:
+> Hi Zoie,
+> 
+> On Fri, Mar 14, 2025 at 10:53:43PM +0800, Zoie Lin wrote:
+> > Introduce support for runtime PM operations in
+> > the I2C driver, enabling runtime suspend and resume functionality.
+> > 
+> > Although in most platforms, the bus power of i2c is always
+> > on, some platforms disable the i2c bus power in order to meet
+> > low power request.
+> > 
+> > This implementation includes bus regulator control to facilitate
+> > proper handling of the bus power based on platform requirements.
+> > 
+> > Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
+> 
+> merged to i2c/i2c-host.
 
--> Add power control
--> Add sideband signals
+the change causes a crash during boot on MT7988 which typically uses
+one of its I2C busses to connect a Richtek RT5190A PMIC.
 
-if your patch title requires an and its usually a good indicator of a 
-place to break that patch into different parts.
+[    1.465158] SError Interrupt on CPU3, code 0x00000000bf000002 -- SError
+[    1.465170] CPU: 3 UID: 0 PID: 40 Comm: kworker/u16:1 Not tainted 6.14.0-rc7-next-20250320+ #0 NONE 
+[    1.465178] Hardware name: SmartRG SDG-9000 (DT)
+[    1.465180] Workqueue: async async_run_entry_fn
+[    1.465194] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    1.465199] pc : mtk_i2c_transfer+0x27c/0x1108
+[    1.465208] lr : mtk_i2c_transfer+0x224/0x1108
+[    1.465212] sp : ffffffc0821538e0
+[    1.465213] x29: ffffffc0821538e0 x28: 0000000000000000 x27: ffffffc082153a00
+[    1.465220] x26: 00000000ffff8b62 x25: ffffffc080f3b000 x24: 0000000000000000
+[    1.465225] x23: 0000000000000001 x22: ffffff80c0ba7810 x21: 000000000000000f
+[    1.465230] x20: ffffffc082153a10 x19: ffffff80c9620080 x18: 0000000000000014
+[    1.465236] x17: 000000005f52c058 x16: 00000000c071d659 x15: 0000000013b9e9aa
+[    1.465241] x14: 00000000305bde35 x13: ffffff80c5f222e8 x12: ffffff80c5f222b0
+[    1.465246] x11: 0000000000001e20 x10: ffffffc0811097d8 x9 : 0000000000000001
+[    1.465251] x8 : ffffffc082153830 x7 : ffffffc0821538a0 x6 : ffffffc082153840
+[    1.465256] x5 : 000000000000ffed x4 : 0000000000000003 x3 : ffffffc080b798b0
+[    1.465260] x2 : 0000000000000000 x1 : ffffffc080b797d8 x0 : 0000000000000064
+[    1.465267] Kernel panic - not syncing: Asynchronous SError Interrupt
+[    1.465269] SMP: stopping secondary CPUs
+[    1.465281] Kernel Offset: disabled
+[    1.465282] CPU features: 0x0000,00000040,00000000,8200400b
+[    1.465286] Memory Limit: none
+[    1.466353] 
+[    1.466355] ================================
+[    1.466356] WARNING: inconsistent lock state
+[    1.466357] 6.14.0-rc7-next-20250320+ #0 Not tainted
+[    1.466360] --------------------------------
+[    1.466361] inconsistent {INITIAL USE} -> {IN-NMI} usage.
+[    1.466364] kworker/u16:1/40 [HC1[1]:SC0[0]:HE0:SE1] takes:
+[    1.466369] ffffff80c0357940 (&prz->buffer_lock){....}-{2:2}, at: buffer_size_add+0x68/0x84
+[    1.466384] {INITIAL USE} state was registered at:
+[    1.466386]   lock_acquire+0xf4/0x2d8
+[    1.466391]   _raw_spin_lock_irqsave+0x5c/0x80
+[    1.466399]   buffer_size_add+0x68/0x84
+[    1.466404]   persistent_ram_write+0x44/0x11c
+[    1.466410]   ramoops_pstore_write+0x150/0x1c4
+[    1.466415]   pstore_console_write+0x4c/0x5c
+[    1.466420]   console_flush_all+0x2ac/0x490
+[    1.466425]   console_unlock+0x68/0x144
+[    1.466430]   vprintk_emit+0x168/0x3ac
+[    1.466434]   vprintk_default+0x34/0x3c
+[    1.466439]   vprintk+0x24/0x2c
+[    1.466444]   _printk+0x48/0x50
+[    1.466448]   register_console+0x370/0x4c4
+[    1.466453]   pstore_register+0x18c/0x37c
+[    1.466457]   ramoops_probe+0x2e8/0x5c4
+[    1.466461]   platform_probe+0x64/0xbc
+[    1.466467]   really_probe+0xbc/0x388
+[    1.466470]   __driver_probe_device+0x78/0x154
+[    1.466474]   driver_probe_device+0x3c/0xd4
+[    1.466477]   __device_attach_driver+0xb0/0x144
+[    1.466480]   bus_for_each_drv+0x6c/0xb0
+[    1.466486]   __device_attach+0x9c/0x19c
+[    1.466489]   device_initial_probe+0x10/0x18
+[    1.466493]   bus_probe_device+0xa8/0xac
+[    1.466495]   device_add+0x58c/0x790
+[    1.466500]   of_device_add+0x4c/0x58
+[    1.466507]   of_platform_device_create_pdata+0x9c/0x118
+[    1.466512]   of_platform_default_populate_init+0x4c/0xf0
+[    1.466519]   do_one_initcall+0x64/0x324
+[    1.466524]   kernel_init_freeable+0x298/0x4f0
+[    1.466530]   kernel_init+0x1c/0x1c8
+[    1.466534]   ret_from_fork+0x10/0x20
+[    1.466538] irq event stamp: 3498
+[    1.466539] hardirqs last  enabled at (3497): [<ffffffc080ac0b78>] _raw_spin_unlock_irqrestore+0x54/0x74
+[    1.466546] hardirqs last disabled at (3498): [<ffffffc080ab43c4>] el1h_64_error_handler+0x20/0x48
+[    1.466551] softirqs last  enabled at (3392): [<ffffffc08004af28>] handle_softirqs+0x46c/0x484
+[    1.466558] softirqs last disabled at (3381): [<ffffffc080010170>] __do_softirq+0x10/0x18
+[    1.466562] 
+[    1.466562] other info that might help us debug this:
+[    1.466564]  Possible unsafe locking scenario:
+[    1.466564] 
+[    1.466565]        CPU0
+[    1.466566]        ----
+[    1.466567]   lock(&prz->buffer_lock);
+[    1.466570]   <Interrupt>
+[    1.466571]     lock(&prz->buffer_lock);
+[    1.466573] 
+[    1.466573]  *** DEADLOCK ***
+[    1.466573] 
+[    1.466575] 5 locks held by kworker/u16:1/40:
+[    1.466578]  #0: ffffff80c01b2148 ((wq_completion)async){+.+.}-{0:0}, at: process_one_work+0x1a8/0x610
+[    1.466588]  #1: ffffffc082153dd8 ((work_completion)(&entry->work)){+.+.}-{0:0}, at: process_one_work+0x1d0/0x610
+[    1.466598]  #2: ffffff80c7b3f908 (&dev->mutex){....}-{4:4}, at: __device_attach_async_helper+0x28/0xec
+[    1.466606]  #3: ffffff80c5f22068 (rt5190a_regulator:443:(&rt5190a_regmap_config)->lock){+.+.}-{4:4}, at: regmap_lock_mutex+0x10/0x18
+[    1.466617]  #4: ffffff80c9620100 (i2c_register_adapter){+.+.}-{4:4}, at: i2c_adapter_lock_bus+0x20/0x2c
+[    1.466629] 
+[    1.466629] stack backtrace:
+[    1.466630] CPU: 3 UID: 0 PID: 40 Comm: kworker/u16:1 Not tainted 6.14.0-rc7-next-20250320+ #0 NONE 
+[    1.466635] Hardware name: SmartRG SDG-9000 (DT)
+[    1.466637] Workqueue: async async_run_entry_fn
+[    1.466643] Call trace:
+[    1.466645]  show_stack+0x14/0x1c (C)
+[    1.466653]  dump_stack_lvl+0x30/0xc0
+[    1.466657]  dump_stack+0x14/0x1c
+[    1.466661]  print_usage_bug.part.0+0x26c/0x318
+[    1.466665]  lock_acquire+0x280/0x2d8
+[    1.466669]  _raw_spin_lock_irqsave+0x5c/0x80
+[    1.466676]  buffer_size_add+0x68/0x84
+[    1.466681]  persistent_ram_write+0x44/0x11c
+[    1.466687]  ramoops_pstore_write+0xc8/0x1c4
+[    1.466692]  pstore_dump+0x16c/0x300
+[    1.466697]  kmsg_dump_desc+0xc0/0x194
+[    1.466703]  panic+0x170/0x38c
+[    1.466708]  nmi_panic+0x50/0x64
+[    1.466712]  arm64_serror_panic+0x60/0x70
+[    1.466715]  do_serror+0x38/0x68
+[    1.466719]  el1h_64_error_handler+0x34/0x48
+[    1.466723]  el1h_64_error+0x70/0x74
+[    1.466727]  mtk_i2c_transfer+0x27c/0x1108 (P)
+[    1.466732]  __i2c_transfer+0x1f8/0x948
+[    1.466736]  i2c_transfer+0x90/0xe8
+[    1.466739]  regmap_i2c_read+0x48/0x70
+[    1.466744]  _regmap_raw_read+0x110/0x328
+[    1.466750]  regmap_raw_read+0x130/0x240
+[    1.466755]  rt5190a_probe+0x88/0x53c
+[    1.466761]  i2c_device_probe+0x154/0x2ec
+[    1.466764]  really_probe+0xbc/0x388
+[    1.466768]  __driver_probe_device+0x78/0x154
+[    1.466772]  driver_probe_device+0x3c/0xd4
+[    1.466776]  __device_attach_driver+0xb0/0x144
+[    1.466780]  bus_for_each_drv+0x6c/0xb0
+[    1.466785]  __device_attach_async_helper+0x80/0xec
+[    1.466790]  async_run_entry_fn+0x34/0x17c
+[    1.466794]  process_one_work+0x224/0x610
+[    1.466799]  worker_thread+0x1b4/0x348
+[    1.466804]  kthread+0x108/0x1d4
+[    1.466808]  ret_from_fork+0x10/0x20
 
----
-bod
+Reverting commit 4b60b1b58696 (i2c: mediatek: add runtime PM operations
+and bus regulator control") fixes the issue.
 
