@@ -4,79 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0EDFC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF685C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZligmQ74U0xbPfxCAx5b5QFPEeG8RR+DiQiNZWDgnNc=; b=I0JrqFypb6VuSVTqkmBp2XWFxh
-	nfEbWC6qSfX5MjTeE1DAH1z6kR8UBua1rGG0K5XTgiyZA9vS2ss1CHmz+NUmKfAaaeEUtW9UeKA03
-	Ydsj9mFjiemoTztrU9fhv59n170yyEM8IWs1vbhw7uuGfDzVkFMTkcqqVZPcktNCGcOqWMYe7liCi
-	lGkQmetGGJmASkj8NgPI1I4GgIn0W1IX+O8nQezfxa4eF2XHGPq+wvYPTJw5xppLypae3obH2bbAe
-	3vnaPL/CGLio3mCZWKtnemjNTofQqn1HUo77TMRw/+00oeEAIDWfQexVncgyHpmYxTuXE75TcFjSO
-	r96MTTCA==;
+	bh=9KEnR66BBq0/OEh9u1+50TsTpEWKW5YWZxaSBSaTBiA=; b=kGIfguXY52wocYZdl/prxwcs4F
+	MTSb/FmzvdJUqkvOVw2Hl4kRdjgzz7hmRUDLjuh2jP0oqR+R95AdZg06fSZM/0u7VYrdCipDaT0PP
+	T4n9uhnAHZiEdw1HaR8bqQTVWnDGfepvt61kPPj7pOnzgwGLWzS27Q2p2xom9j+vIuG3gTprE5Ccy
+	YU1Kb3Rn8Ck82VD9VULihsMV4gNvcvSAaptrth/cccD+Qx0/RHCS/vtNC3l5tSMBFj6bDnRI3H737
+	R/7wmpdcCQ15k02zwL9mmTEhzxzxy5hgp+KHkyiF50HSBljJTe/NHrX2ehm/r6I1UJSw245Um2+M+
+	j96lCBnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvCWv-0000000Bk1H-32qM;
-	Thu, 20 Mar 2025 09:49:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1tvCYb-0000000BkMf-3PaI;
+	Thu, 20 Mar 2025 09:51:21 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvCQB-0000000Bj8b-3xJA;
-	Thu, 20 Mar 2025 09:42:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B575143E29;
-	Thu, 20 Mar 2025 09:42:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 010A4C4CEE8;
-	Thu, 20 Mar 2025 09:42:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742463759;
-	bh=KVMP+KP4loWBPX8Ab8zvnYv5rM2SYyJlpChJv4S7Ph0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=mY9lf+wMvcsugdnmpe51JPmX72Ymdx/hbUUcqy9N3N5YOJW3e4yxkhTQrcfq+0cax
-	 NA5wThSwoE//jtXmRB7YAg2xdcvVER/9DntwxC9MD7Wb0t3thWQf54JEL6ndFbUG7P
-	 F3b/hbZioyDBvgqOKJ6d4VLO8rmEspZVV2EHnGZcrg8cJg3aTiDP6LT/aAOsLC/j0A
-	 O6H8xNn3GF/bO5o++OEykpX6Kv05ULPH39rWHPtcKcH+k6pPx+FyCOea+unDernvdj
-	 VOlOqXJwitW8X1dfwlMsSj8EMU655I2vMqbedPPrXIKtfqRhg70yyKJJw6rYftSMn7
-	 pbS8NeBIBM8Ug==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E70B5C36004;
-	Thu, 20 Mar 2025 09:42:38 +0000 (UTC)
-From: Kelvin Zhang via B4 Relay <devnull+kelvin.zhang.amlogic.com@kernel.org>
-Date: Thu, 20 Mar 2025 17:42:09 +0800
-Subject: [PATCH v5 2/3] arm64: dts: amlogic: Add A4 Reset Controller
+	id 1tvCTW-0000000Bja1-1PMZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Mar 2025 09:46:10 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ac2bfcd2a70so98063966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 02:46:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742463964; x=1743068764; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9KEnR66BBq0/OEh9u1+50TsTpEWKW5YWZxaSBSaTBiA=;
+        b=nE9A0vkY+MRdLTzwBWKY9YEE4BAgvwJpfDJLSQr5OmlB1/3RJ4FFxfzbo3hcjmbsQg
+         rXHKXOkz0YIKqmRKsxacuw4J5yQqBzNTbJxetv0PBCuw6aatjXXIIvUZmQUuWj04mYwH
+         OpmELhMW6KavyrKG8JvFowKF59VDn/ObjXiGKMfS1FopCtQo9WLnlUohdjEPDBnXfAcC
+         NIQuCmoSbr6pI3VntNei09iImnCLzNy0hFzUFWioNeRAFjTPiKNANEU39W1YEYOFMC0X
+         NaopLbLzprt3RPTcyVfWhMcgtvpC+su+onYJTgbGtmkCICkaT70ANU/iRnBV5UDdcTjQ
+         6rfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742463964; x=1743068764;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9KEnR66BBq0/OEh9u1+50TsTpEWKW5YWZxaSBSaTBiA=;
+        b=A+kcNASgK3BxMoZ4Fhlr9JTlvRBbYJVh7U7xoA9s/I1w4b+/QJ11sdQvSUmM1yk5Lg
+         0b6Z3kgn9no5L0lf9FtER2lreNVytmnLNRXWDr+Q/MfuFkKUzX9lO8SaRNXInl+5FMKn
+         GiMZ/rcqpXvdqLi2FGfXGCJegoAoZZjDfsAULeFRG8TVOuqg0GcYTNX8uaxJHNR3HZ//
+         ke7ccZQIaKM9qzwsvGS6dsveN1ib6VhlF02ZL7FuDTNUr1/ppvi99uYq0RIG7s1F2FCI
+         Dth32YPc5+5gV73pMz+3BUno/Se+rlEA+WKkALdg1EqFasJV+dTh9oLXmZ+o1MLXC88u
+         bEcw==
+X-Forwarded-Encrypted: i=1; AJvYcCVH98LJBgMsEtw7Uu2zk2QO4/xG4cxtphWOnp8GNM2DnC8r97PtXaGffm3YAHo0+WqnVXiGgmFTJmUxCAS82vhY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYA2SkeHo9XLVpC+gQK9Mv80mSNLCH+QPcPoodJdMqb4gTp6SZ
+	vl7tQ2TmWQay+Cn+qXD4u5dwBYlwahBYdgbKOkckaCkeJ0m63Se6Cck9gJWWWrdGNms4WTDODwN
+	/g6MgElYeHq97QHMCRblQhi4h1JY=
+X-Gm-Gg: ASbGncuqJpVCVbdrbDQw72TZ7A9YEL6ZuCVYpNWejZcGt2uydwozVYChfQ3BIyDUCMI
+	nPK6Ae34MQoy2YlB5oeT4IBN8I+fkWLfNGSSQuMoYV82pQst4lVfDthmjhcpBdOdgDYPUXqpUxa
+	Sfu3fgoz2eZGiLcUuyyOy6EMuLZGKhliEOY0Hv
+X-Google-Smtp-Source: AGHT+IH0WgeCzcPbZMZ7RcmmYI5xx52o7t7ZMdyfRJZKbVhCltB5dB5p47huOWOMje9qXnxDbQEClo4vl/rS3uHSu3A=
+X-Received: by 2002:a17:907:980f:b0:ac3:cad2:9e53 with SMTP id
+ a640c23a62f3a-ac3cad29f08mr325129066b.55.1742463964281; Thu, 20 Mar 2025
+ 02:46:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250320-a4-a5-reset-v5-2-296f83bf733d@amlogic.com>
-References: <20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com>
-In-Reply-To: <20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Zelong Dong <zelong.dong@amlogic.com>, 
- Kelvin Zhang <kelvin.zhang@amlogic.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742463756; l=3871;
- i=kelvin.zhang@amlogic.com; s=20240329; h=from:subject:message-id;
- bh=zH5X8psdvMQvBp31WZm+TBpjs/7nrtzcnxMyMa/Bno8=;
- b=wjbX/xleJxuYs/ldvJ677IkJc8tgumu1s+lZ8LBMmgQsS1ztYmBTZTgMRJKk6GVZXGHq95oQ0
- A3rh1k9l1HRB1YigJav6oXwePrLqhA180bLSSAE0i69cAMzaqEtoREF
-X-Developer-Key: i=kelvin.zhang@amlogic.com; a=ed25519;
- pk=pgnle7HTNvnNTcOoGejvtTC7BJT30HUNXfMHRRXSylI=
-X-Endpoint-Received: by B4 Relay for kelvin.zhang@amlogic.com/20240329 with
- auth_id=148
-X-Original-From: Kelvin Zhang <kelvin.zhang@amlogic.com>
+References: <20250318105932.2090926-1-andriy.shevchenko@linux.intel.com> <CACRpkdbTKytFgdqyDajpcfENagSXPZhG5hbpQiGF23VHqLd9_A@mail.gmail.com>
+In-Reply-To: <CACRpkdbTKytFgdqyDajpcfENagSXPZhG5hbpQiGF23VHqLd9_A@mail.gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 20 Mar 2025 11:45:28 +0200
+X-Gm-Features: AQ5f1JoOVMLoM1UFlrLmLsYwzq3tsN7OH81VeBc-t7MFZOdMOMyvVlUp33ImP1g
+Message-ID: <CAHp75Ve_cF=zdZuZxSO6H1FXrCbAc1EXyHhCWw8K3Tc_Q2p8tA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] pinctrl: nuvoton: A few cleanups and a fix
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Jacky Huang <ychuang3@nuvoton.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, Shan-Chun Hung <schung@nuvoton.com>, 
+	Avi Fishman <avifishman70@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_024240_040126_E1D9B864 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250320_024606_428501_78C4B78A 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,151 +96,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kelvin.zhang@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zelong Dong <zelong.dong@amlogic.com>
+On Thu, Mar 20, 2025 at 10:15=E2=80=AFAM Linus Walleij <linus.walleij@linar=
+o.org> wrote:
+> On Tue, Mar 18, 2025 at 11:59=E2=80=AFAM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
 
-Add the device node and related header file for Amlogic
-A4 reset controller.
+> > Convert Nuvoton drivers to use pin control provided data types
+> > and more of device property APIs.
+> >
+> > While doing that, fix one non-critical issue that sparse complains abou=
+t.
+> >
+> > Compile tested only.
+>
+> Patches LGTM and we are close to the merge window so I have
+> just applied them.
+>
+> If there are any issues we can surely fix it up in -next.
+>
+> Thanks Andy!
 
-Signed-off-by: Zelong Dong <zelong.dong@amlogic.com>
-Link: https://lore.kernel.org/r/20240918074211.8067-3-zelong.dong@amlogic.com
-Signed-off-by: Kelvin Zhang <kelvin.zhang@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h | 93 ++++++++++++++++++++++++++
- arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi    |  8 +++
- 2 files changed, 101 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h b/arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..f6a4c90bab3cf7cfaa3c98c522bed5e455b73bd3
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h
-@@ -0,0 +1,93 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+/*
-+ * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-+ */
-+
-+#ifndef __DTS_AMLOGIC_A4_RESET_H
-+#define __DTS_AMLOGIC_A4_RESET_H
-+
-+/* RESET0 */
-+/*						0-3 */
-+#define RESET_USB				4
-+/*						5-6*/
-+#define RESET_U2PHY22				7
-+#define RESET_USBPHY20				8
-+#define RESET_U2PHY21				9
-+#define RESET_USB2DRD				10
-+#define RESET_U2H				11
-+#define RESET_LED_CTRL				12
-+/*						13-31 */
-+
-+/* RESET1 */
-+#define RESET_AUDIO				32
-+#define RESET_AUDIO_VAD				33
-+/*						34*/
-+#define RESET_DDR_APB				35
-+#define RESET_DDR				36
-+#define RESET_VOUT_VENC				37
-+#define RESET_VOUT				38
-+/*						39-47 */
-+#define RESET_ETHERNET				48
-+/*						49-63 */
-+
-+/* RESET2 */
-+#define RESET_DEVICE_MMC_ARB			64
-+#define RESET_IRCTRL				65
-+/*						66*/
-+#define RESET_TS_PLL				67
-+/*						68-72*/
-+#define RESET_SPICC_0				73
-+#define RESET_SPICC_1				74
-+/*						75-79*/
-+#define RESET_MSR_CLK				80
-+/*						81*/
-+#define RESET_SAR_ADC				82
-+/*						83-87*/
-+#define RESET_ACODEC				88
-+/*						89-90*/
-+#define RESET_WATCHDOG				91
-+/*						92-95*/
-+
-+/* RESET3 */
-+/*						96-127 */
-+
-+/* RESET4 */
-+/*						128-131 */
-+#define RESET_PWM_AB				132
-+#define RESET_PWM_CD				133
-+#define RESET_PWM_EF				134
-+#define RESET_PWM_GH				135
-+/*						136-137*/
-+#define RESET_UART_A				138
-+#define RESET_UART_B				139
-+/*						140*/
-+#define RESET_UART_D				141
-+#define RESET_UART_E				142
-+/*						143-144*/
-+#define RESET_I2C_M_A				145
-+#define RESET_I2C_M_B				146
-+#define RESET_I2C_M_C				147
-+#define RESET_I2C_M_D				148
-+/*						149-151*/
-+#define RESET_SDEMMC_A				152
-+/*						153*/
-+#define RESET_SDEMMC_C				154
-+/*						155-159*/
-+
-+/* RESET5 */
-+/*						160-175*/
-+#define RESET_BRG_AO_NIC_SYS			176
-+/*						177*/
-+#define RESET_BRG_AO_NIC_MAIN			178
-+#define RESET_BRG_AO_NIC_AUDIO			179
-+/*						180-183*/
-+#define RESET_BRG_AO_NIC_ALL			184
-+/*						185*/
-+#define RESET_BRG_NIC_SDIO			186
-+#define RESET_BRG_NIC_EMMC			187
-+#define RESET_BRG_NIC_DSU			188
-+#define RESET_BRG_NIC_CLK81			189
-+#define RESET_BRG_NIC_MAIN			190
-+#define RESET_BRG_NIC_ALL			191
-+
-+#endif
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-index fa80fa365f13c4a93f5577f78bf2b3369cb91cb8..6537153b3026af1bf9d1df0a196619b716553cde 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-@@ -4,6 +4,7 @@
-  */
- 
- #include "amlogic-a4-common.dtsi"
-+#include "amlogic-a4-reset.h"
- #include <dt-bindings/power/amlogic,a4-pwrc.h>
- #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
- / {
-@@ -51,6 +52,13 @@ pwrc: power-controller {
- };
- 
- &apb {
-+	reset: reset-controller@2000 {
-+		compatible = "amlogic,a4-reset",
-+			     "amlogic,meson-s4-reset";
-+		reg = <0x0 0x2000 0x0 0x98>;
-+		#reset-cells = <1>;
-+	};
-+
- 	gpio_intc: interrupt-controller@4080 {
- 		compatible = "amlogic,a4-gpio-intc",
- 			     "amlogic,meson-gpio-intc";
-
--- 
-2.37.1
+Thank you!
 
 
+--=20
+With Best Regards,
+Andy Shevchenko
 
