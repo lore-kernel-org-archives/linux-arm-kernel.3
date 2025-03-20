@@ -4,85 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B44C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 03:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FCFFC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 03:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dc8FTTmQUPssSR+0L7w8BIPfBM922jSVMcz1txzmmtc=; b=crYJ1GIkX7AiO1pWeo9edpUj0Z
-	TYDtlWWKeWssuiYXIX/DkVnGdMf2dDIihCkauPuAkV022RLfXlGdLTr4yQslJ9bp4pde6S6ntgsEp
-	yA9foXpkunp8Zpuj0N0nAn7zyis5sQxDWGh2k+RiiImp5LjWfVQ7v/YdQWYcolzhLvMtBPJmaOmAN
-	FbVaAwdwz7SoRD/TCInQgBEy9kRW504FCrpgWqE7n1Q7gTyLclnbyoe/5o6T9oPzpUNgOk8Etg4K4
-	f7IRDkl8GYqa1LvHFqUNdJaQwSodaZYFJ8bBwJEaHcdFIsKsocVTsIl1LFYTfQGazSKVYhgdoChrt
-	Lfy8UvUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0v1mfDfXZYY+ngcMqvJwjlv+wrqk76RhbROMRHxGJtM=; b=BtIu5jCy7arRxCls470EJzrLOd
+	JxIBGKeUaExFcPk4NI5sNzHICJJgKPib10nr1so82VRByzqxCKi4Mg7R43UblhulVympI1wRgcmcy
+	/dcKLjG+Csk36zXzmE/Tkl1dleeY+wK/u1zgY9HiBrYKYV7Es9tmQJQdHmudnXIY2HoUup15smZTx
+	wTn32b/OJukW15YjLGti0/+sfFVtzUdI8k3t0UxvN9sPLjxtuZnYLVqt8a6h6d5Am/H6OL9Cb0IAi
+	vO10eeFZJj3GD09nxtXdrAg/tArL6DdUGHaDO6Hr54fs7/ChM6vAT1/3HxiI1wk59Ksktb0/UvIcY
+	vIlNGa6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv6VQ-0000000Ayc6-31R2;
-	Thu, 20 Mar 2025 03:23:40 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tv6et-0000000AzlW-3vr9;
+	Thu, 20 Mar 2025 03:33:27 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv6QZ-0000000AyAl-2nO4;
-	Thu, 20 Mar 2025 03:18:40 +0000
-X-UUID: 02bf57e2053a11f0a1e849db4cc18d44-20250319
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Dc8FTTmQUPssSR+0L7w8BIPfBM922jSVMcz1txzmmtc=;
-	b=e+XDd+qZ8hEBvIarcPnYfcv7+1c7wvcEOHLLV3HxUatZ23U9cgIySy32qtTIjneTe47ZcP/W+Hfhckf4xgqzam3a4TBH/ShcoPgMvrGchXUncQ/XHxh9wXTFaU5e01bc8dxrtKZ66xYAaXEJL0x/3HK22v7IOm9rTdFzGpYUncY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:5a4b6b24-9811-434f-9b09-d46ae64b714f,IP:0,UR
-	L:25,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:aed8c741-b9d5-4efb-8cbd-6eb0b75d20c2,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 02bf57e2053a11f0a1e849db4cc18d44-20250319
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <hailong.fan@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1628212086; Wed, 19 Mar 2025 20:18:36 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 20 Mar 2025 11:18:32 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 20 Mar 2025 11:18:31 +0800
-From: hailong.fan <hailong.fan@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Liam Girdwood
-	<lgirdwood@gmail.com>, Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, Bard
- Liao <yung-chuan.liao@linux.intel.com>, Ranjani Sridharan
-	<ranjani.sridharan@linux.intel.com>, Daniel Baluta <daniel.baluta@nxp.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>, Pierre-Louis Bossart
-	<pierre-louis.bossart@linux.dev>, Mark Brown <broonie@kernel.org>, Jaroslav
- Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<sound-open-firmware@alsa-project.org>, <linux-sound@vger.kernel.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<Jjian.Zhou@mediatek.com>, <Xiangzhi.Tang@mediatek.com>, hailong.fan
-	<hailong.fan@mediatek.com>
-Subject: [PATCH 2/2] dt-bindings: dsp: mediatek: add mt8196 dsp document
-Date: Thu, 20 Mar 2025 11:17:25 +0800
-Message-ID: <20250320031753.13669-3-hailong.fan@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250320031753.13669-1-hailong.fan@mediatek.com>
-References: <20250320031753.13669-1-hailong.fan@mediatek.com>
+	id 1tv6dD-0000000AzgZ-3t5n
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 20 Mar 2025 03:31:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=0v1mfDfXZYY+ngcMqvJwjlv+wrqk76RhbROMRHxGJtM=; b=F7pES7Z/lGmbMApqIjEYSCs7py
+	6Ni3disaaSsArwbiUBRbbphr1LldBsCjxefb6oGUTRvip7i9wQ0nHO8AR3Z/SRBaDIjkJzU+0c4nl
+	GKgyxp5NE2P2mb7jsbrYiUhnHwVJlCaned0/H2j71QHOgFLDxJI8uWQFQN6w28vMp0Kh6iQPzpaZW
+	nBE99CQXR4cIV2jox+gJbI/WpMkviQwh354WQzqK9Ww5InrgHTwp8nPLhERr+eFf1gxJz3L56HVcr
+	zKbDa7moaH1pvgXQvwtJHXWGYbqayiZuUI7V1iXLdBM3IoHJ/OhXsYEYYfYTmTi/U36yQUx8VMeFB
+	3hATfXNQ==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tv6dA-000000027Fl-0HEI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Mar 2025 03:31:42 +0000
+Received: from loongson.cn (unknown [10.20.42.62])
+	by gateway (Coremail) with SMTP id _____8BxrnIRjNtnTvGdAA--.4713S3;
+	Thu, 20 Mar 2025 11:31:29 +0800 (CST)
+Received: from [10.20.42.62] (unknown [10.20.42.62])
+	by front1 (Coremail) with SMTP id qMiowMDx_MQKjNtnM_hUAA--.47363S3;
+	Thu, 20 Mar 2025 11:31:26 +0800 (CST)
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+To: Oliver Upton <oliver.upton@linux.dev>,
+ David Hildenbrand <david@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Jason Gunthorpe <jgg@nvidia.com>, Marc Zyngier <maz@kernel.org>,
+ Ankit Agrawal <ankita@nvidia.com>, "joey.gouly@arm.com"
+ <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+ "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+ "shahuang@redhat.com" <shahuang@redhat.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+ Kirti Wankhede <kwankhede@nvidia.com>,
+ "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+ Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+ Alistair Popple <apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>,
+ Dan Williams <danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>,
+ Matt Ochs <mochs@nvidia.com>, Uday Dhoke <udhoke@nvidia.com>,
+ Dheeraj Nigam <dnigam@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>,
+ "alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+ "sebastianene@google.com" <sebastianene@google.com>,
+ "coltonlewis@google.com" <coltonlewis@google.com>,
+ "kevin.tian@intel.com" <kevin.tian@intel.com>,
+ "yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+ <ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "ddutile@redhat.com" <ddutile@redhat.com>,
+ "tabba@google.com" <tabba@google.com>,
+ "qperret@google.com" <qperret@google.com>,
+ "seanjc@google.com" <seanjc@google.com>,
+ "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <86r033olwv.wl-maz@kernel.org>
+ <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <87tt7y7j6r.wl-maz@kernel.org>
+ <SA1PR12MB7199B320DAE42A8D7038A78EB0D32@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <8634fcnh0n.wl-maz@kernel.org> <Z9h98RhunemcFhhz@arm.com>
+ <86wmcmn0dp.wl-maz@kernel.org> <20250318125527.GP9311@nvidia.com>
+ <Z9nJH38Em9XEx3U7@arm.com> <ed25f5a6-dad6-4b5e-b42b-58e6ced6c7a2@redhat.com>
+ <Z9nMHW-OqTLEqDRs@linux.dev>
+From: bibo mao <maobibo@loongson.cn>
+Message-ID: <bbb361bd-6cb8-7b9d-f689-d52bb1a05605@loongson.cn>
+Date: Thu, 20 Mar 2025 11:30:43 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
+In-Reply-To: <Z9nMHW-OqTLEqDRs@linux.dev>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-CM-TRANSID: qMiowMDx_MQKjNtnM_hUAA--.47363S3
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7WFW5WFW5Kr47Ww15ZF4fJFc_yoW8ZF1Dpr
+	yxt3ZFka1kXrySyws29w42gF40yw4Fqr4UXw15Kr1UCwn09FnrKFWFya12kFsrAF1Sq39F
+	vFZ0q347JFya9abCm3ZEXasCq-sJn29KB7ZKAUJUUUUD529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	GcCE3s1ln4kS14v26r126r1DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2
+	x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5
+	McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7
+	I2V7IY0VAS07AlzVAYIcxG8wCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCF
+	x2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AKxVWUAVWUtwC20s026c02F40E14v26r
+	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU3sjjDUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_201839_707586_10AC00A4 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250320_033140_704884_04CAF236 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,119 +138,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds mt8196 dsp document. The dsp is used for Sound Open
-Firmware driver node. It includes registers,  clocks, memory regions,
-and mailbox for dsp.
 
-Signed-off-by: hailong.fan <hailong.fan@mediatek.com>
----
- .../bindings/dsp/mediatek,mt8196-dsp.yaml     | 96 +++++++++++++++++++
- 1 file changed, 96 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
 
-diff --git a/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml b/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
-new file mode 100644
-index 000000000000..62bcd97bd0f4
---- /dev/null
-+++ b/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
-@@ -0,0 +1,96 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/dsp/mediatek,mt8196-dsp.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Mediatek mt8196 DSP core
-+
-+maintainers:
-+  - Hailong Fan <hailong.fan@mediatek.com>
-+
-+description: |
-+  Some boards from mt8196 contain a DSP core used for
-+  advanced pre- and post- audio processing.
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt8196-dsp
-+
-+  reg:
-+    items:
-+      - description: Address and size of the DSP Cfg registers
-+      - description: Address and size of the DSP SRAM
-+      - description: Address and size of the DSP secure registers
-+      - description: Address and size of the DSP bus registers
-+
-+  reg-names:
-+    items:
-+      - const: cfg
-+      - const: sram
-+      - const: sec
-+      - const: bus
-+
-+  clocks:
-+    items:
-+      - description: mux for dsp clock
-+      - description: 26M clock
-+      - description: ADSP PLL clock
-+
-+  clock-names:
-+    items:
-+      - const: adsp_sel
-+      - const: clk26m
-+      - const: adsppll
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  mboxes:
-+    items:
-+      - description: mailbox for receiving audio DSP requests.
-+      - description: mailbox for transmitting requests to audio DSP.
-+
-+  mbox-names:
-+    items:
-+      - const: rx
-+      - const: tx
-+
-+  memory-region:
-+    items:
-+      - description: dma buffer between host and DSP.
-+      - description: DSP system memory.
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - clock-names
-+  - power-domains
-+  - mbox-names
-+  - mboxes
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/mt8196-clk.h>
-+    #include <dt-bindings/power/mt8196-power.h>
-+    adsp: adsp@1a000000 {
-+        compatible = "mediatek,mt8196-dsp";
-+        reg = <0x1a000000 0x5000>,
-+              <0x1a210000 0x80000>,
-+              <0x1a345000 0x300>,
-+              <0x1a00f000 0x1000>;
-+        reg-names = "cfg", "sram", "sec", "bus";
-+        power-domains = <&scpsys MT8196_POWER_DOMAIN_ADSP_TOP_DORMANT>;
-+        clocks = <&cksys_clk CLK_CK_ADSP_SEL>,
-+                 <&cksys_clk CLK_CK_TCK_26M_MX9>,
-+                 <&cksys_clk CLK_CK_ADSPPLL>;
-+        clock-names = "adsp_sel",
-+                      "clk26m",
-+                      "adsppll";
-+        mbox-names = "rx", "tx";
-+        mboxes = <&adsp_mailbox0>, <&adsp_mailbox1>;
-+    };
--- 
-2.45.2
+On 2025/3/19 上午3:40, Oliver Upton wrote:
+> On Tue, Mar 18, 2025 at 08:35:38PM +0100, David Hildenbrand wrote:
+>> On 18.03.25 20:27, Catalin Marinas wrote:
+>>> On Tue, Mar 18, 2025 at 09:55:27AM -0300, Jason Gunthorpe wrote:
+>>>> On Tue, Mar 18, 2025 at 09:39:30AM +0000, Marc Zyngier wrote:
+>>>>> The memslot must also be created with a new flag ((2c) in the taxonomy
+>>>>> above) that carries the "Please map VM_PFNMAP VMAs as cacheable". This
+>>>>> flag is only allowed if (1) is valid.
+>>>>>
+>>>>> This results in the following behaviours:
+>>>>>
+>>>>> - If the VMM creates the memslot with the cacheable attribute without
+>>>>>     (1) being advertised, we fail.
+>>>>>
+>>>>> - If the VMM creates the memslot without the cacheable attribute, we
+>>>>>     map as NC, as it is today.
+>>>>
+>>>> Is that OK though?
+>>>>
+>>>> Now we have the MM page tables mapping this memory as cachable but KVM
+>>>> and the guest is accessing it as non-cached.
+>>>
+>>> I don't think we should allow this.
+>>>
+>>>> I thought ARM tried hard to avoid creating such mismatches? This is
+>>>> why the pgprot flags were used to drive this, not an opt-in flag. To
+>>>> prevent userspace from forcing a mismatch.
+>>>
+>>> We have the vma->vm_page_prot when the memslot is added, so we could use
+>>> this instead of additional KVM flags.
+>>
+>> I thought we try to avoid messing with the VMA when adding memslots; because
+>> KVM_CAP_SYNC_MMU allows user space for changing the VMAs afterwards without
+>> changing the memslot?
+> 
+> Any checks on the VMA at memslot creation is done out of courtesy to
+> userspace so it 'fails fast'. We repeat checks on the VMA at the time of
+> fault to handle userspace twiddling VMAs behind our back.
+yes, I think it is better to add cachable attribute in memslot, it can 
+be checked on the VMA at memslot creation. Also cache attribute can be 
+abstracted with cachable/uc/wc type rather than detailed arch specified.
+
+Regards
+Bibo Mao
+> 
+> VM_MTE_ALLOWED is an example of this.
+> 
+> Thanks,
+> Oliver
+> 
 
 
