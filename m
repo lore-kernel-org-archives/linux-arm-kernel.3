@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F524C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 08:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 372C7C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 08:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YJV9USVZmsP9ZdAAuuoldoMM46JkHDHsnIzVnX7GtUI=; b=rKtdf3POkJUgJmzG7/a1loPKdh
-	TRt3ifbd1h9SkjqCK2Qc0VzIMkkABuISx6bayhOKOTj1ildm+rAnPZpT8MmNHsJKTB8TJW5E2rbib
-	IYgAIzNJ86DowpPP5MCCArbAHQllPCwXDpHwblOe7hsXWavQLfEMACbhXlg1EUNnSrxfTv1lW2IYn
-	i2Pf52dl9uOcLTjFSVh/Om2kitiCmHzgpCcLyJ+8WjQfakyWGfyG6nE14eTlAG+Eksky6VtpstrCP
-	jM6R9qD0v5KpfHNI3L/c83sOI45q0+ovFPqUFUKT3zPi/GIx40refeNJBGuF9NOQ9I5i6JNgGzDCC
-	7NFI6a7g==;
+	bh=zZKjyFb8BZx79o9w3IcZRsKDUkbzPE3rt8zz+Ry3hx0=; b=sx2+MXR+RlGrtpWK/n1pjmXReN
+	5jCJAKv3fPg0PmAfFEezlZ4jXy7oWij950VqvjaBL+oC4IVpOP3yHJfC22h04N6vpoEfEN+Y7jcxP
+	/Glbyd3Kb1BkqMC6yn/mShP8flgGO7I4FKDKBmnOvAKPTOhbiHKk6aPMqNh3014L3Ga0IYBhLdbTa
+	sd5B2Gr+PRSUeDnDCMUGZsCxV+S+38MFy6opsAcMK+35h39uiMY2SBb1y54QZ3VHZkvYugBYSh692
+	EyFklDxKq/DliNoYDtDbn5jAX9WHzCWzUS2Q80kVZvg/xOKhEpsmk3NeFhVoJY+4IJLJAx42Zor25
+	wWzek3/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBfY-0000000Bbgs-1h5m;
-	Thu, 20 Mar 2025 08:54:28 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tvBhD-0000000BbvF-3Bvr;
+	Thu, 20 Mar 2025 08:56:11 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBaW-0000000Baq4-3cVZ
+	id 1tvBaY-0000000Baqi-0H05
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 08:49:18 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfa7e7f54so2726485e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 01:49:16 -0700 (PDT)
+	Thu, 20 Mar 2025 08:49:19 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3995ff6b066so231114f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 01:49:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742460555; x=1743065355; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742460556; x=1743065356; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YJV9USVZmsP9ZdAAuuoldoMM46JkHDHsnIzVnX7GtUI=;
-        b=abaq9KTHAZZWdXIX+Mt2EnQNgTSYvSu2m35QxDkYRk++l3eZHYmQwe5fdwUk23v7Go
-         KApkW5oTf9HEay4tDdgu7IQTqHvbhVPQetls8ob0WdLY7zBXlxTcro4vBfzaWxSQRDTB
-         AreUCw36ddhgeyLISVKfmb+7ifpYQNLgjVn1d83cVOYiPWEHvj0XlCKFcQ+pHZZDLdt5
-         vehNauR0HSzcE2Z6zKEuIg8Xni/4Otclp5dS4FR6gevMLca1MHxC5ujVTXICGzLx3r9x
-         6cZfG3M54EA5fvJGekePIsme4kynd+S/pASHrOFbEV6i6ARtMhx8E1IoDJ1TW6oRV7Im
-         LIIw==
+        bh=zZKjyFb8BZx79o9w3IcZRsKDUkbzPE3rt8zz+Ry3hx0=;
+        b=P5kM3EQoFxKxinqxZbjTMUeYz1lMZvjxZfdI1CB3BSX+xaQ2DostGI2Qtmlf0Q6ZQH
+         CIce4AsXnFagn6Aha5owsat170Zm2WXqDibGKAbIsrlRFS7xqXYZ62uqeboQMQGK9QcB
+         KUUnlg8MmmHVeRHDsYQ4nQuKAHOYhAafSvFyt70ivIS6abPGXXaNLMG+EmkUjXEYq9IJ
+         Y5RMgayq4EFKv9FITbhwji5InqIyw9EcVH5c61oM6C/Bz6q9FRraRO7TRd+w3d+Beyuk
+         KzEHo4K8xJ4wRAXxM6eV1Wbc/OM2aJQDwzo69x3xLobJw7QGYNoV1LCv+w6buIcB2Wls
+         hK1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742460555; x=1743065355;
+        d=1e100.net; s=20230601; t=1742460556; x=1743065356;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YJV9USVZmsP9ZdAAuuoldoMM46JkHDHsnIzVnX7GtUI=;
-        b=OPjuH9roxe/vcyXKo1T8nluLmLkFawG0eBWCdnuwEapq9FZwQYE5yM/bLO1w+Sgxj1
-         ByTJgdcn2W4edh+7mlWWjHymg1RCpelsgA/DXRGL+JNTl5pFCT5jg4HZTKp0cx4EqfMB
-         fb4w5CxwXyVmC+vwpwVeQAcuV1EdtZd3hmyLsO5uu0br0FiWOrh39pWRSaIjQnqGFPdJ
-         ZPeCev/+FqUi6vs6JGsombD66rKsa82na2zlwP3otCeNbJN6rBcOUhDHO4S2J9bnJnwe
-         SoXyca3agx5pvzaNIVsXKjQq52A49t4/PmAoZNuW/iSTExKWRE55FmByi1KiVEXlTV6C
-         STXg==
-X-Gm-Message-State: AOJu0YyUT2Wy/nuC/dyz9jt/3JmM/vjjmYyQdIMoba3sZTaFZ5uNgZmS
-	2pMDkGy69hCc8L/iF8/qY2vdW57IoBfS/1JoFP4BEJeIlAHMs4wFyUG3RoI4u6k=
-X-Gm-Gg: ASbGncvx+JUpJSaeXcUKZ98KCeGImvBEguEiYrloaHwxtrwGlpewiGj8CVZn2OE3yk7
-	HXzvP30hejTX+UibEkcp+c0oZbIXi629W/JKPKr5twEybw4062CGAXq3EE8ByQnptgbFNyt1cT8
-	yphNN0WAjeBmooI2qEhW5ZqSohpoN8Z4Q13lLec22H9kwyCzgB/fA8wlaaw83AKqQU1qfC1H3Up
-	7ECjX7JG/niq4JVZUM16G/aNfIrqSgUDinVoIiXZ55QBRFYU1IbByqB/v3NZg3c3JipMsBOLARW
-	tXClYVEUGLYtDMij4Dz3IV2CgnEXnZVM5F3idDaKHKAEFB1PIHxD8A4Yb1c=
-X-Google-Smtp-Source: AGHT+IGvyzObe3HUgUPIOkcUmHLI+6xANcIGJKxeOg9jouXNulvNZlxlIH6nFdT6PpdEkn3OcgskSQ==
-X-Received: by 2002:a05:600c:138d:b0:43b:4829:8067 with SMTP id 5b1f17b1804b1-43d4ac2b356mr13977715e9.6.1742460555324;
-        Thu, 20 Mar 2025 01:49:15 -0700 (PDT)
+        bh=zZKjyFb8BZx79o9w3IcZRsKDUkbzPE3rt8zz+Ry3hx0=;
+        b=dpG7GPqABgHnZkNZsgskDRmkDpSmx5wjs5OnAqUHVqpQmcmqpnstJvrZp9iCo144n0
+         7CXw2hRs14iyjz8J15rceDtcvxYTVlLHP5EMCkHTjYV2iZuc3bcioB0NACWG0XwOxV4a
+         /2oGFyTzsRn1PorjEEa22FTS6+qEnIpum/ZO6DyWBABIYEKuR9W+HA5YZKOef0Km1a9p
+         fNLufz4u174zEacEqkmGvJFH1Z7dUaurt4q4WdkcPcq8mpvo/n5YS+et1EkxUYFxLiXn
+         03BUZDRuLi3oechbo/pVIkkgl3Qb6ToqtgKWSxK8BZJ/+hTzTjSN2K3carNSVoK2fB+o
+         hkSA==
+X-Gm-Message-State: AOJu0Yy1cyKXvtuyQqafkTvw2p0GcwnX/JpcG9Gax3vj40tVP89RcPEc
+	ztw06HhETSnY6Z5SzSz6YjDtmeDl0iZW17EV4ctlfCF0UPWWH2KmnJfCHQKCM3w=
+X-Gm-Gg: ASbGncurfFxtPfrmJt0Ea1EeHFNkvPRXAhA7GaK7HxYbcyrQDxohgNqfu+skxBbBGhM
+	noDCmXrMo+uxi4XiWyPs1M24is1CMxR1NaG9x7CI0EO9Yhta/yCOLaINGJo6m19imSYJUeFBeAu
+	I7QuyXWVvko6Ndt8YhQVy09oWdQ3VAFPmiXdR2mIXl6YFw5RhFGVbkzfieYQTuWocw+c8agERmd
+	V7Ol/StcPSmym4GpgP0/8Q09f2tbnPT2DtQtwXEXCRP/XdY0+EEFaKYzxSY2kr20SquD7geEHLp
+	PFivvr0j0djU+1oIIA5IxQBiOsRyfODrmWsWaIzUJj2nuZyN
+X-Google-Smtp-Source: AGHT+IF1ShRsZAhXeGcFF/eH1QOBy38lGwVALG8wcA9aWqeTkHgVv4Ae8bUcyD5nie1uQZaBU4zsBA==
+X-Received: by 2002:a5d:64c4:0:b0:391:2d97:7d0e with SMTP id ffacd0b85a97d-39973af6beamr5443274f8f.42.1742460556286;
+        Thu, 20 Mar 2025 01:49:16 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:e0a:5ee:79d0:c11c:487d:c821:54a0])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d43fdac9dsm41381655e9.30.2025.03.20.01.49.14
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d43fdac9dsm41381655e9.30.2025.03.20.01.49.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 01:49:14 -0700 (PDT)
+        Thu, 20 Mar 2025 01:49:15 -0700 (PDT)
 From: Alexandre Mergnat <amergnat@baylibre.com>
-Date: Thu, 20 Mar 2025 09:48:46 +0100
-Subject: [PATCH v8 2/3] drm/panel: startek-kd070fhfid015: add another init
- step
+Date: Thu, 20 Mar 2025 09:48:47 +0100
+Subject: [PATCH v8 3/3] drm/mediatek: dsi: remove custom init part
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20231023-display-support-v8-2-c2dd7b0fb2bd@baylibre.com>
+Message-Id: <20231023-display-support-v8-3-c2dd7b0fb2bd@baylibre.com>
 References: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
 In-Reply-To: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -91,24 +90,24 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
  Alexandre Mergnat <amergnat@baylibre.com>
 X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2311; i=amergnat@baylibre.com;
- h=from:subject:message-id; bh=gHl0LdUTqSzXFqfH/bwqt0Qp3EzE+6UWudOR8k0D9wo=;
- b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBn29aHBpzXiGFeZYZjQ2WV79w2etmusdRumeCDA2/j
- En4xIveJAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ9vWhwAKCRArRkmdfjHURUS3D/
- 9vN0KMVYZZKmprhPA5LN7rawwuTGP/uyEhk9jFV0/j6JL6U4PVd0nArK1OQLjxBSyc8nUS1QhpHFhL
- GNVR07l6xuu0efimjhIgzKpfapyc0xJDcsSLokHgtrFYnnFsxhYNegLt2qFhQnAzfhs6CkD8JQRe7j
- K5ZiuZbQaE9rSuPU9dMg9/Nc9+eO8HpPVfckzLWretHlNh7yz42U0FAUp9KvfnDilzIcxzydGuuNzy
- Jd/N0DstuCiy80SPtbL4cE8FVcQZpZe5jPrx+mMVIUtyaVPTkJwyP++ureQvWDzAQ334cDPfrwy2Ei
- Oeh0VnncqzOktXqxToMmHFzuFwKfoDr0/6LV+dlVtsI2RP/3/bW67t8xKV0I6eMGMGESBck72W9vwD
- ca1+TzhnFFesumJlEkaj/XnlS6mvr4PPLAaqauBwaKTiAXgZT/btqNWTVJBx+sYj3/dyd+1Sy0NtJ2
- lpmstf0PEKIOMLotSfh7vkJ/+71UqXjgjVbmV6k0f1lgMLHIpGEEqNz/Us0zURzuYQEVwsj6cFRsyw
- W6Lz1Pgec4nQ9wjY5aeCuLQPAkLl9D87UWlEs4SeCgePB7fs9v/PogO0y5kTxHItyjqRqV2XGGIAxe
- Lu9b+dTaPTCrjNEDXVF5nGl/HyIMiJ8yrA1aWPFooOUtSOMg18/vt4NOuirQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2647; i=amergnat@baylibre.com;
+ h=from:subject:message-id; bh=TX7OcGVRtr1P2pPXrsvbTSXIwOoVwPaz45DKWAiAmLc=;
+ b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBn29aHumqlEtPmW0ArR5jYJL5IvH5lLNSxMmfrFswE
+ D6QNUKyJAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ9vWhwAKCRArRkmdfjHURTTUD/
+ 9/d7eGtM1x5wW0jXmYe6IW8fwisk78gewlZv0z4juc7RAlpd2GbJSBerX6VBJY/DL8d0V7/u5WVa90
+ P1bZxxvdxm79wEjWsSyJYbCwQWH/Wmn8zyZQvwZXUaOjh1uuoiKmuhNi3oP7o8ikoo/7Yerpza6BoU
+ +gKMkpOuW0YAy/jdv8/xCqXCcMGD9z7lU7wbKFgnDi1QD1X0aTCoXoxb4rKmZSJxJ1A7tvGKWA1R8y
+ D0MqNsi/HjfA/hNYullag24K50oJOlOCoT9fCeQ0yLvALuNPn6K9jIXfGgHO45KgYsShibM1bRt83M
+ UxZrEncVEifz0mKSROkc1yiKmHlushJSeifzd3fe09pGcBc0lTubg4AQ/ysBmKzDuOuqNTOP9tOIMq
+ iyNSOj1tdoWtwP0BOSlY+ElUwUdM5mdhUzZRHIDLkHDybrZP9YSCEmb+joNt4IhE8rvoDc+B3q4PpJ
+ l88Ls1+kFFuSSpOjoMgvg276mnZ1igr7TmVTxl3n5f/WVT3XKpUDhopnmpc7DroirFG5Bc0xJVSYT1
+ x93zcH7j9Yu+1KuQpRU9VBR7lne920Op7uje9MJSB5eFZlRdbHGOlqiXFUB5/jnQqbtO6DUZOTIiKV
+ Ry4pSE6S5lwJfZrZoSCAgSky6flyYM5QMBBHyvf2yuZqxL6xz9WxweVYp5JQ==
 X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
  fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_014916_932973_E0ED3473 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250320_014918_182724_82627A09 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,77 +122,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the panel set power, set gpio and enable the display link
-in stk_panel_prepare, pointed by drm_panel_funcs.prepare, called by
-panel_bridge_atomic_pre_enable, pointed by
-drm_bridge_funcs.atomic_pre_enable. According to the drm_bridge.h,
-atomic_pre_enable must not enable the display link
-
-Since the DSI driver is properly inited by the DRM, the panel try to
-communicate with the panel before DSI is powered on.
-
-To solve that, use stk_panel_enable to enable the display link because
-it's called after the mtk_dsi_bridge_atomic_pre_enable which is power
-on the DSI.
+To be aligned with the DRM framework and avoid DSI power being driven
+by two different entities, remove the custom function and keep the DRM
+API to initialize the DSI.
 
 Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
 ---
- .../gpu/drm/panel/panel-startek-kd070fhfid015.c    | 25 +++++++++++++---------
- 1 file changed, 15 insertions(+), 10 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.c |  2 --
+ drivers/gpu/drm/mediatek/mtk_disp_drv.h |  2 --
+ drivers/gpu/drm/mediatek/mtk_dsi.c      | 16 ----------------
+ 3 files changed, 20 deletions(-)
 
-diff --git a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c b/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
-index c0c95355b7435..bc3c4038bf4f5 100644
---- a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
-+++ b/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
-@@ -135,19 +135,9 @@ static int stk_panel_prepare(struct drm_panel *panel)
- 	gpiod_set_value(stk->enable_gpio, 1);
- 	mdelay(20);
- 	gpiod_set_value(stk->reset_gpio, 1);
--	mdelay(10);
--	ret = stk_panel_init(stk);
--	if (ret < 0)
--		goto poweroff;
+diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
+index edc6417639e64..d86eed0d279d3 100644
+--- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
++++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
+@@ -317,8 +317,6 @@ static const struct mtk_ddp_comp_funcs ddp_dsc = {
+ };
+ 
+ static const struct mtk_ddp_comp_funcs ddp_dsi = {
+-	.start = mtk_dsi_ddp_start,
+-	.stop = mtk_dsi_ddp_stop,
+ 	.encoder_index = mtk_dsi_encoder_index,
+ };
+ 
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_drv.h b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
+index 04217a36939cd..5657854fa2f9e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_drv.h
++++ b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
+@@ -47,8 +47,6 @@ void mtk_dpi_start(struct device *dev);
+ void mtk_dpi_stop(struct device *dev);
+ unsigned int mtk_dpi_encoder_index(struct device *dev);
+ 
+-void mtk_dsi_ddp_start(struct device *dev);
+-void mtk_dsi_ddp_stop(struct device *dev);
+ unsigned int mtk_dsi_encoder_index(struct device *dev);
+ 
+ int mtk_gamma_clk_enable(struct device *dev);
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index e61b9bc68e9a3..b813b49340420 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -787,7 +787,6 @@ static void mtk_output_dsi_enable(struct mtk_dsi *dsi)
+ {
+ 	if (dsi->enabled)
+ 		return;
 -
--	ret = stk_panel_on(stk);
--	if (ret < 0)
--		goto poweroff;
+ 	mtk_dsi_lane_ready(dsi);
+ 	mtk_dsi_set_mode(dsi);
+ 	mtk_dsi_clk_hs_mode(dsi, 1);
+@@ -893,20 +892,6 @@ static const struct drm_bridge_funcs mtk_dsi_bridge_funcs = {
+ 	.mode_set = mtk_dsi_bridge_mode_set,
+ };
  
- 	return 0;
+-void mtk_dsi_ddp_start(struct device *dev)
+-{
+-	struct mtk_dsi *dsi = dev_get_drvdata(dev);
+-
+-	mtk_dsi_poweron(dsi);
+-}
+-
+-void mtk_dsi_ddp_stop(struct device *dev)
+-{
+-	struct mtk_dsi *dsi = dev_get_drvdata(dev);
+-
+-	mtk_dsi_poweroff(dsi);
+-}
+-
+ static int mtk_dsi_encoder_init(struct drm_device *drm, struct mtk_dsi *dsi)
+ {
+ 	int ret;
+@@ -1243,7 +1228,6 @@ static int mtk_dsi_probe(struct platform_device *pdev)
+ 	}
  
--poweroff:
--	regulator_disable(stk->supplies[POWER].consumer);
- iovccoff:
- 	regulator_disable(stk->supplies[IOVCC].consumer);
- 	gpiod_set_value(stk->reset_gpio, 0);
-@@ -156,6 +146,20 @@ static int stk_panel_prepare(struct drm_panel *panel)
- 	return ret;
- }
+ 	init_waitqueue_head(&dsi->irq_wait_queue);
+-
+ 	platform_set_drvdata(pdev, dsi);
  
-+static int stk_panel_enable(struct drm_panel *panel)
-+{
-+	struct stk_panel *stk = to_stk_panel(panel);
-+	int ret;
-+
-+	ret = stk_panel_init(stk);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = stk_panel_on(stk);
-+
-+	return ret;
-+}
-+
- static const struct drm_display_mode default_mode = {
- 		.clock = 163204,
- 		.hdisplay = 1200,
-@@ -239,6 +243,7 @@ drm_panel_create_dsi_backlight(struct mipi_dsi_device *dsi)
- }
- 
- static const struct drm_panel_funcs stk_panel_funcs = {
-+	.enable = stk_panel_enable,
- 	.unprepare = stk_panel_unprepare,
- 	.prepare = stk_panel_prepare,
- 	.get_modes = stk_panel_get_modes,
+ 	dsi->bridge.funcs = &mtk_dsi_bridge_funcs;
 
 -- 
 2.25.1
