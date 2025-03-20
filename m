@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF661C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 15:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4426DC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 15:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tdhjUaEpge+sh2/HmxIDfMo+ucgquiWth6F5utS9+iA=; b=Y5EWyl7wqC1ryD9VsuYhQgvZbU
-	f4j9MedR30sIWASM8IDnCq2K5GVmvKq7lA5AKV1IivJet57Bls7vaBxyIkd6IKiMQSp/8GZd0uKij
-	w1pDCAPm6bnXd58bd05HR7rRhfn7Dh0KEpUfQVwH7TNht5C9HiHauXBwADKF/l4ObtoMAbOSV713F
-	4wngJvKe9Fy04wI2zP7Q7UfZWwCqNQIfdOMvm40X/2Rx/sZCgj8BqcyBpm4pF1XjiaEWvzaO3z5c+
-	aYtK5dbmewga/AdL7kGF9LG7+OYSupBAl2djMegWIiQ7kOyGHlZLIk2R1PDXUcXbtEaUgYbtu5myQ
-	33INAHwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q4ZCJfEccZI3jmWmasjNXu732Bul52iWqFQrhQTpNK4=; b=uH62Ni/qlWu4VZVnIKipM/0INw
+	5LgHg8P/QOJYP3BsL7Uv2j2xwraL/IoaI82CKs78JegPvV5wEyhPVNhEhIOW6VI+P5/9LkXZFx+db
+	dFiXoJte/v5sB0X1k3kw3sv7i1jMTPal1eGOIWo0+tuiCHD/H7KCFardiyKpBrAUovkpjmWqPHtJB
+	PMK5Ic+VIYaGXpvbUfST5QZwF+x3kOSUQEpGWENxPLoZuYOYmpyiTdYyasaGG64UccAe+WywKE4c0
+	GVQg85rWLcn3ZHkk7TZCteXfNwK3IBKDSKVvCjjmDfLISnaGHiAVIlPlnhSm/DLbnQuP48G7sd35G
+	XIkaRGBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvHlM-0000000CX5k-46l2;
-	Thu, 20 Mar 2025 15:24:52 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tvHn2-0000000CXUg-2imo;
+	Thu, 20 Mar 2025 15:26:36 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvHjd-0000000CWop-2J2G
+	id 1tvHk3-0000000CWuz-1IeS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 15:23:08 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52KFMrVn664173
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 20 Mar 2025 10:22:53 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1742484173;
-	bh=tdhjUaEpge+sh2/HmxIDfMo+ucgquiWth6F5utS9+iA=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=rmicgVpPt+9HzF5sfuP7w95FjMue2MaSO+ZFAmsZA5JioKrnIsHEYxovOMjlluulm
-	 mUjyxg0nFxQPQ32YPMKYIjeg1ETzTiq53HcuFwlBNWJ25zGHE/O1qn1qcEBPAOrvP4
-	 zfBw+1Crfd7Gtsn+tvsVxQF6UZl5ZmepRUB2KEaI=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52KFMrUY054048
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 20 Mar 2025 10:22:53 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 20
- Mar 2025 10:22:53 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 20 Mar 2025 10:22:53 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52KFMrJ6023231;
-	Thu, 20 Mar 2025 10:22:53 -0500
-Date: Thu, 20 Mar 2025 10:22:53 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Parth Pancholi <parth105105@gmail.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Parth Pancholi
-	<parth.pancholi@toradex.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1] arm64: dts: ti: k3-j784s4-main: Enable ACSPCIE
- outputs for PCIe interfaces
-Message-ID: <20250320152253.rm7zavvnqvzmy6pv@galore>
-References: <20250320122259.525613-1-parth105105@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250320122259.525613-1-parth105105@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Thu, 20 Mar 2025 15:23:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742484211; x=1774020211;
+  h=date:from:to:cc:subject:message-id;
+  bh=Mc3UIUYegGRWFQD9uy3UNOXJ0Jw3xvvBrPbR1LQdOfY=;
+  b=gcq9Gs4+GNLSnfOGeKolmkf2Zb0zCfdo0jhkiSrnPBmBdC2pr0P/5gKq
+   Md70zkZ2DgmHqTRv+3pfU4R75o0djpLUKpmaGyNLaDOMajOrpi2adMd+W
+   qkA+/6JTZbN+TCzx+roo1+/SitLnr4oLcxcsejKjZ4SH2UJp/MlfL9Ai8
+   d2yIyhMcYLPaTpQAIn50Psdv2j6atbNpDjmpgEB1DqLufafSMTTrvEX05
+   tJf4p2UTBidh+KUFbUB35fwplCX5WektdJN0F09XnJpGqPkl+yLFU2n8o
+   wTQrPneCQB7bqI93+mrBo6ExfjfaeYvwogfV/QkP+HCF7QjBbOv9z4kyL
+   w==;
+X-CSE-ConnectionGUID: x9R0BXXcRJKTa6jGe86yxw==
+X-CSE-MsgGUID: GjpOXx2xRE+X9JEfRqW0zw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11379"; a="43855262"
+X-IronPort-AV: E=Sophos;i="6.14,262,1736841600"; 
+   d="scan'208";a="43855262"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2025 08:23:29 -0700
+X-CSE-ConnectionGUID: Ky8i+4+VSA+n25bgh9sN/w==
+X-CSE-MsgGUID: cyD9imkzQjOA4+yCMv7jkg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,262,1736841600"; 
+   d="scan'208";a="123134912"
+Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
+  by orviesa006.jf.intel.com with ESMTP; 20 Mar 2025 08:23:27 -0700
+Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tvHjx-0000X1-0Z;
+	Thu, 20 Mar 2025 15:23:25 +0000
+Date: Thu, 20 Mar 2025 23:23:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Bjorn Andersson <andersson@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:qcom/defconfig] BUILD SUCCESS
+ dd20903cc09ac40e71096370a9564e6523e87c22
+Message-ID: <202503202315.OVMstnDa-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_082305_753568_4DE98A40 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250320_082331_364439_20E55CAD 
+X-CRM114-Status: UNSURE (   5.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,118 +83,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:22-20250320, Parth Pancholi wrote:
-> From: Parth Pancholi <parth.pancholi@toradex.com>
-> 
-> TI J784S4-based devices, such as the AM69 SoC, provide PCIE_REFCLK outputs
-> from the SoC, which can be used to clock external PCIe endpoint devices.
-> Each PCIE_REFCLK output is enabled via the corresponding ACSPCIE clock buffer,
-> with each buffer supporting two PADs to provide reference clocks for two
-> associated PCIe instances. The mappings are as follows:
->         - PCIe0 -> ACSPCIE1 PAD0
->         - PCIe1 -> ACSPCIE0 PAD0
->         - PCIe2 -> ACSPCIE1 PAD1
->         - PCIe3 -> ACSPCIE0 PAD1
-> 
-> This patch enables each ACSPCIE module and its corresponding PADs to ensure
-> that all PCIE_REFCLK outputs are functional.
-> 
-> This change have been tested on an AM69-based custom hardware platform,
-> where all four PCIe instances (PCIe0, PCIe1, PCIe2, and PCIe3) with the
-> internal PCIE_REFCLK are utilized with various endpoint devices such as
-> a WiFi card, NVMe SSD, and PCIe-to-USB bridge.
-> 
-> Link: https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1484211/am69-pcie-refclk-out-and-acspcie-mappings
-> Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
-> ---
-> This change depends on https://lore.kernel.org/all/20241209085157.1203168-1-s-vadapalli@ti.com/
-> ---
->  .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi      | 10 ++++++++--
->  arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi             | 10 ++++++----
->  2 files changed, 14 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> index 591609f3194c..854fdf7b771e 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> @@ -132,6 +132,11 @@ acspcie0_proxy_ctrl: clock-controller@1a090 {
->  			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
->  			reg = <0x1a090 0x4>;
->  		};
-> +
-> +		acspcie1_proxy_ctrl: clock-controller@1a094 {
-> +			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git qcom/defconfig
+branch HEAD: dd20903cc09ac40e71096370a9564e6523e87c22  arm64: defconfig: Enable USB retimer and redriver
 
-We have the same challenge with bindings as well?
+elapsed time: 1456m
 
-> +			reg = <0x1a094 0x4>;
-> +		};
->  	};
->  
->  	main_ehrpwm0: pwm@3000000 {
-> @@ -1067,11 +1072,12 @@ pcie0_rc: pcie@2900000 {
->  		interrupts = <GIC_SPI 318 IRQ_TYPE_EDGE_RISING>;
->  		device_type = "pci";
->  		ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x0>;
-> +		ti,syscon-acspcie-proxy-ctrl = <&acspcie1_proxy_ctrl 0x1>;
->  		max-link-speed = <3>;
->  		num-lanes = <4>;
->  		power-domains = <&k3_pds 332 TI_SCI_PD_EXCLUSIVE>;
-> -		clocks = <&k3_clks 332 0>;
-> -		clock-names = "fck";
-> +		clocks = <&k3_clks 332 0>, <&serdes1 CDNS_TORRENT_REFCLK_DRIVER>;
-> +		clock-names = "fck", "pcie_refclk";
->  		#address-cells = <3>;
->  		#size-cells = <2>;
->  		bus-range = <0x0 0xff>;
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-> index 0160fe0da983..ebbc315649d0 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-> @@ -34,8 +34,8 @@ pcie2_rc: pcie@2920000 {
->  		max-link-speed = <3>;
->  		num-lanes = <2>;
->  		power-domains = <&k3_pds 334 TI_SCI_PD_EXCLUSIVE>;
-> -		clocks = <&k3_clks 334 0>;
-> -		clock-names = "fck";
-> +		clocks = <&k3_clks 334 0>, <&serdes1 CDNS_TORRENT_REFCLK_DRIVER>;
-> +		clock-names = "fck", "pcie_refclk";
->  		#address-cells = <3>;
->  		#size-cells = <2>;
->  		bus-range = <0x0 0xff>;
-> @@ -45,6 +45,7 @@ pcie2_rc: pcie@2920000 {
->  		dma-coherent;
->  		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
->  		ti,syscon-pcie-ctrl = <&pcie2_ctrl 0x0>;
-> +		ti,syscon-acspcie-proxy-ctrl = <&acspcie1_proxy_ctrl 0x3>;
->  		status = "disabled";
->  	};
->  
-> @@ -63,8 +64,8 @@ pcie3_rc: pcie@2930000 {
->  		max-link-speed = <3>;
->  		num-lanes = <2>;
->  		power-domains = <&k3_pds 335 TI_SCI_PD_EXCLUSIVE>;
-> -		clocks = <&k3_clks 335 0>;
-> -		clock-names = "fck";
-> +		clocks = <&k3_clks 335 0>, <&serdes0 CDNS_TORRENT_REFCLK_DRIVER>;
-> +		clock-names = "fck", "pcie_refclk";
->  		#address-cells = <3>;
->  		#size-cells = <2>;
->  		bus-range = <0x0 0xff>;
-> @@ -74,6 +75,7 @@ pcie3_rc: pcie@2930000 {
->  		dma-coherent;
->  		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
->  		ti,syscon-pcie-ctrl = <&pcie3_ctrl 0x0>;
-> +		ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
->  		status = "disabled";
->  	};
->  
-> -- 
-> 2.34.1
-> 
+configs tested: 152
+configs skipped: 204
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+The following configs have been built successfully.
+More configs may be tested in the coming days.
+
+tested configs:
+alpha                             allnoconfig    gcc-14.2.0
+alpha                            allyesconfig    clang-19
+alpha                               defconfig    gcc-14.2.0
+arc                              allmodconfig    clang-19
+arc                               allnoconfig    gcc-14.2.0
+arc                              allyesconfig    clang-19
+arc                                 defconfig    gcc-14.2.0
+arc                            hsdk_defconfig    clang-15
+arc                   randconfig-001-20250320    gcc-7.5.0
+arc                   randconfig-002-20250320    gcc-7.5.0
+arm                              allmodconfig    clang-19
+arm                               allnoconfig    gcc-14.2.0
+arm                              allyesconfig    clang-19
+arm                       aspeed_g5_defconfig    clang-15
+arm                                 defconfig    gcc-14.2.0
+arm                             mxs_defconfig    clang-15
+arm                   randconfig-001-20250320    gcc-7.5.0
+arm                   randconfig-002-20250320    gcc-7.5.0
+arm                   randconfig-003-20250320    gcc-7.5.0
+arm                   randconfig-004-20250320    gcc-7.5.0
+arm                           tegra_defconfig    clang-15
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-14.2.0
+arm64                               defconfig    clang-15
+arm64                               defconfig    gcc-14.2.0
+arm64                 randconfig-001-20250320    clang-21
+arm64                 randconfig-001-20250320    gcc-7.5.0
+arm64                 randconfig-002-20250320    clang-21
+arm64                 randconfig-002-20250320    gcc-7.5.0
+arm64                 randconfig-003-20250320    clang-19
+arm64                 randconfig-003-20250320    gcc-7.5.0
+arm64                 randconfig-004-20250320    gcc-7.5.0
+arm64                 randconfig-004-20250320    gcc-8.5.0
+csky                              allnoconfig    gcc-14.2.0
+csky                                defconfig    gcc-14.2.0
+csky                  randconfig-001-20250320    gcc-12.4.0
+csky                  randconfig-002-20250320    gcc-12.4.0
+hexagon                          allmodconfig    clang-19
+hexagon                           allnoconfig    gcc-14.2.0
+hexagon                          allyesconfig    clang-19
+hexagon                             defconfig    gcc-14.2.0
+hexagon               randconfig-001-20250320    gcc-12.4.0
+hexagon               randconfig-002-20250320    gcc-12.4.0
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    clang-20
+i386                             allyesconfig    clang-20
+i386                                defconfig    clang-20
+i386                  randconfig-001-20250320    clang-20
+i386                  randconfig-002-20250320    clang-20
+i386                  randconfig-003-20250320    clang-20
+i386                  randconfig-004-20250320    clang-20
+i386                  randconfig-005-20250320    clang-20
+i386                  randconfig-006-20250320    clang-20
+i386                  randconfig-007-20250320    clang-20
+i386                  randconfig-011-20250320    gcc-12
+i386                  randconfig-012-20250320    gcc-12
+i386                  randconfig-013-20250320    gcc-12
+i386                  randconfig-014-20250320    gcc-12
+i386                  randconfig-015-20250320    gcc-12
+i386                  randconfig-016-20250320    gcc-12
+i386                  randconfig-017-20250320    gcc-12
+loongarch                        allmodconfig    gcc-14.2.0
+loongarch                         allnoconfig    gcc-14.2.0
+loongarch                           defconfig    gcc-14.2.0
+loongarch                 loongson3_defconfig    clang-15
+loongarch             randconfig-001-20250320    gcc-12.4.0
+loongarch             randconfig-002-20250320    gcc-12.4.0
+m68k                             allmodconfig    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+m68k                             allyesconfig    gcc-14.2.0
+m68k                                defconfig    gcc-14.2.0
+microblaze                       allmodconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+microblaze                       allyesconfig    gcc-14.2.0
+microblaze                          defconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+mips                         rt305x_defconfig    clang-15
+nios2                             allnoconfig    gcc-14.2.0
+nios2                               defconfig    gcc-14.2.0
+nios2                 randconfig-001-20250320    gcc-12.4.0
+nios2                 randconfig-002-20250320    gcc-12.4.0
+openrisc                          allnoconfig    clang-15
+openrisc                         allyesconfig    gcc-14.2.0
+parisc                           allmodconfig    gcc-14.2.0
+parisc                            allnoconfig    clang-15
+parisc                           allyesconfig    gcc-14.2.0
+parisc                randconfig-001-20250320    gcc-12.4.0
+parisc                randconfig-002-20250320    gcc-12.4.0
+parisc64                            defconfig    gcc-14.2.0
+powerpc                          allmodconfig    gcc-14.2.0
+powerpc                           allnoconfig    clang-15
+powerpc                          allyesconfig    gcc-14.2.0
+powerpc                      arches_defconfig    clang-15
+powerpc                      bamboo_defconfig    clang-15
+powerpc                 mpc8313_rdb_defconfig    clang-15
+powerpc               randconfig-001-20250320    gcc-12.4.0
+powerpc               randconfig-002-20250320    gcc-12.4.0
+powerpc               randconfig-003-20250320    gcc-12.4.0
+powerpc64             randconfig-001-20250320    gcc-12.4.0
+powerpc64             randconfig-002-20250320    gcc-12.4.0
+powerpc64             randconfig-003-20250320    gcc-12.4.0
+riscv                            allmodconfig    gcc-14.2.0
+riscv                             allnoconfig    clang-15
+riscv                            allyesconfig    gcc-14.2.0
+s390                             allmodconfig    gcc-14.2.0
+s390                              allnoconfig    clang-15
+s390                             allyesconfig    gcc-14.2.0
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                        dreamcast_defconfig    clang-15
+sh                            migor_defconfig    clang-15
+sh                          sdk7780_defconfig    clang-15
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-15
+um                               allyesconfig    clang-19
+x86_64                           alldefconfig    clang-15
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250320    clang-20
+x86_64      buildonly-randconfig-002-20250320    clang-20
+x86_64      buildonly-randconfig-003-20250320    clang-20
+x86_64      buildonly-randconfig-004-20250320    clang-20
+x86_64      buildonly-randconfig-005-20250320    clang-20
+x86_64      buildonly-randconfig-006-20250320    clang-20
+x86_64                              defconfig    clang-20
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20250320    clang-20
+x86_64                randconfig-002-20250320    clang-20
+x86_64                randconfig-003-20250320    clang-20
+x86_64                randconfig-004-20250320    clang-20
+x86_64                randconfig-005-20250320    clang-20
+x86_64                randconfig-006-20250320    clang-20
+x86_64                randconfig-007-20250320    clang-20
+x86_64                randconfig-008-20250320    clang-20
+x86_64                randconfig-071-20250320    gcc-12
+x86_64                randconfig-072-20250320    gcc-12
+x86_64                randconfig-073-20250320    gcc-12
+x86_64                randconfig-074-20250320    gcc-12
+x86_64                randconfig-075-20250320    gcc-12
+x86_64                randconfig-076-20250320    gcc-12
+x86_64                randconfig-077-20250320    gcc-12
+x86_64                randconfig-078-20250320    gcc-12
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    clang-18
+x86_64                         rhel-9.4-kunit    clang-18
+x86_64                           rhel-9.4-ltp    clang-18
+x86_64                          rhel-9.4-rust    clang-18
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                       common_defconfig    clang-15
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
