@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1484EC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 573E6C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 09:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCHJBF5dMVTfNahjMmx9c0DDq2oOwm+d+U1wDsBTLSw=; b=0FLW6TexboliTIf1qyFmFExGzj
-	4tcfgNG+0smSWdYOaU1OfXrvSoXY6ofe0Md2mfWy8DAllVaAhFOfA751b+134z3sBaC4Xnu21WMJa
-	AEziI85l8Q6Oug6hZ4xoaBYouHxZ2JX29Vwl86BgwuMpsOdXqGf2wM5XuEBatuZpTR7MQsYuwUK02
-	UWYt5L2aA+sbWZSoR6xgg/FuU5o5YBb/Xbd4I5tM+jj0vY8DOE3I+ljTql2/cK4tlopz+pzqWsSYe
-	j1rdnfCqepHdIIk1zvZyms0dFENPMwXKmirdNayO05XL7c9pBbZAywk3dRFT8rCnXRA6o5W9p+dNl
-	LGQJMXqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9YVWDmC+/vg2msqK+4+2L2enxmWviUXTPI98MLQOvIg=; b=YFleWE7c4GQqIbceTN/yz+Vvdl
+	rECcqBq6XC+pUu3KP2J7ZFXCjuaMB1ZdMzKPTmpDIhdPIjOTyKRz1mezg8yKQ8EHoAl1UsOmvjAJn
+	mTwItOBJLS7pPxS4AxvhP9KVL/jGCH9V2O2hhb2OJP930yBte5KuwhS5awYYPVR/E0sPu2siQpTka
+	2Ep1yNi4s8NH8rveNwq70S7cCppBCg35TwvbcqejJGsnPL8MT0Kk7rCFGKice0dZZXM01YmQiNab3
+	0FzTNyJfIXWYehYRLmjm0p3r+LGvWAew/u8ODKwsv+cO+hbIbt+sliUxcAQG8KbHooicVqWKT9vxp
+	8dnp47Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvCDE-0000000BhDU-2Yqi;
-	Thu, 20 Mar 2025 09:29:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tvCGW-0000000Bhux-2AcQ;
+	Thu, 20 Mar 2025 09:32:40 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvCA5-0000000BgVz-2NDU
+	id 1tvCEn-0000000BhY5-0GSb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 09:26:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CFF7E5C67B5;
-	Thu, 20 Mar 2025 09:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC7F1C4CEEA;
-	Thu, 20 Mar 2025 09:25:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742462760;
-	bh=Bwdp99hFePaP2xYgbsyqGGdtNftLunV8lNTIHG7a08U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gOL6TaSjklG+uOUFY3hUJBEUBIKI9aZemytkh4zdXhAWinmMpW/FqQavzTsCGQloR
-	 G+mITGTCRsj0gb591vhBlp03ZT7BxDKlVy6Ml8RA7U+ecdVYzkf2pq6GmKUsySF7IP
-	 YdcVemPXpCz+Js1GEOAvr2jaeRJ8Dlh3OFPeB9vRCyoXan+6NoqLfMgIwH3IIk8OMv
-	 UHPcrRIqFQj6V4Dh9b3Ql0pNFs8YniEqZUmLRC9Nx+T87/t6q/8x8z0JMaYIQqPaTy
-	 woUvmVestCK85ie0/UJiFg9GwTsWLT6HDAUmRrMz9ECIu3E1HCsXrvt2UxSydiuPbj
-	 A0b/06njKPv3Q==
-Message-ID: <7419360a-abc0-44cf-8d55-8f5fad8e9079@kernel.org>
-Date: Thu, 20 Mar 2025 10:25:53 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/6] MAINTAINERS: Add CIX SoC maintainer entry
-To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- marcin@juszkiewicz.com.pl, Fugang Duan <fugang.duan@cixtech.com>
-References: <20250305053823.2048217-1-peter.chen@cixtech.com>
- <20250305053823.2048217-7-peter.chen@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+	Thu, 20 Mar 2025 09:30:54 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZJKwt1Pmrz6M4Yy;
+	Thu, 20 Mar 2025 17:27:26 +0800 (CST)
+Received: from frapeml500007.china.huawei.com (unknown [7.182.85.172])
+	by mail.maildlp.com (Postfix) with ESMTPS id F1FD41401F3;
+	Thu, 20 Mar 2025 17:30:45 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (7.182.85.71) by
+ frapeml500007.china.huawei.com (7.182.85.172) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Thu, 20 Mar 2025 10:30:45 +0100
+Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
+ frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
+ Thu, 20 Mar 2025 10:30:45 +0100
+From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Linuxarm <linuxarm@huawei.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>, "alex.williamson@redhat.com"
+	<alex.williamson@redhat.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "will@kernel.org"
+	<will@kernel.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"nicolinc@nvidia.com" <nicolinc@nvidia.com>, "jean-philippe@linaro.org"
+	<jean-philippe@linaro.org>, Jonathan Cameron <jonathan.cameron@huawei.com>
+Subject: RE: [RFC PATCH v3 4/5] iommu/arm-smmu-v3-iommufd: Use KVM VMID for s2
+ stage
+Thread-Topic: [RFC PATCH v3 4/5] iommu/arm-smmu-v3-iommufd: Use KVM VMID for
+ s2 stage
+Thread-Index: AQHbmPZBeq6wgyt4V0G2k2xYLylJd7N7DbQAgACsr4A=
+Date: Thu, 20 Mar 2025 09:30:45 +0000
+Message-ID: <f654ae10e55e4142acb83eb926bb80b2@huawei.com>
+References: <20250319173202.78988-1-shameerali.kolothum.thodi@huawei.com>
+ <20250319173202.78988-5-shameerali.kolothum.thodi@huawei.com>
+ <20250319233946.GF126678@ziepe.ca>
+In-Reply-To: <20250319233946.GF126678@ziepe.ca>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250305053823.2048217-7-peter.chen@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.203.177.241]
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_022601_757345_4238970C 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20250320_023053_402917_6FDEFA0A 
+X-CRM114-Status: GOOD (  27.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,42 +87,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2025 06:38, Peter Chen wrote:
-> Using this entry as the maintainers information for CIX SKY series SoCs.
-> 
-> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> ---
-> Changes for v4
-> - Add two dts files as maintained files
-> 
->  MAINTAINERS | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index efee40ea589f..edf26cf11ee2 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2354,6 +2354,16 @@ F:	arch/arm/boot/compressed/misc-ep93xx.h
->  F:	arch/arm/mach-ep93xx/
->  F:	drivers/iio/adc/ep93xx_adc.c
->  
-> +ARM/CIX SKY ARM ARCHITECTURE
-> +M:	Peter Chen <peter.chen@cixtech.com>
-> +M:	Fugang Duan <fugang.duan@cixtech.com>
-> +R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/arm/cix.yaml
-> +F:	arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> +F:	arch/arm64/boot/dts/cix/sky1.dtsi
 
-Instead:
-arch/arm64/boot/dts/cix/
 
-or if you think there will be more different architectures coming from
-cix, which you will not maintain, then useful would be a "sky" subdirectory.
+> -----Original Message-----
+> From: Jason Gunthorpe <jgg@ziepe.ca>
+> Sent: Wednesday, March 19, 2025 11:40 PM
+> To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+> Cc: kvmarm@lists.linux.dev; iommu@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; Linuxarm <linuxarm@huawei.com>;
+> kevin.tian@intel.com; alex.williamson@redhat.com; maz@kernel.org;
+> oliver.upton@linux.dev; will@kernel.org; robin.murphy@arm.com;
+> nicolinc@nvidia.com; jean-philippe@linaro.org; Jonathan Cameron
+> <jonathan.cameron@huawei.com>
+> Subject: Re: [RFC PATCH v3 4/5] iommu/arm-smmu-v3-iommufd: Use KVM
+> VMID for s2 stage
+>=20
+> On Wed, Mar 19, 2025 at 05:32:01PM +0000, Shameer Kolothum wrote:
+> > +static int arm_vsmmu_alloc_vmid(struct arm_smmu_device *smmu,
+> struct kvm *kvm,
+> > +				bool *kvm_used)
+> > +{
+> > +#ifdef CONFIG_KVM
+> > +	/*
+> > +	 * There can only be one allocator for VMIDs active at once. If BTM
+> is
+> > +	 * turned on then KVM's allocator always supplies the VMID, and
+> the
+> > +	 * VMID is matched by CPU invalidation of the KVM S2. Right now
+> there
+> > +	 * is no API to get an unused VMID from KVM so this also means
+> BTM systems
+> > +	 * cannot support S2 without an associated KVM.
+> > +	 */
+> > +	if ((smmu->features & ARM_SMMU_FEAT_BTM)) {
+> > +		int vmid;
+> > +
+> > +		if (!kvm || !kvm_get_kvm_safe(kvm))
+> > +			return -EOPNOTSUPP;
+>=20
+> Isn't kvm_get_kvm_safe() in modular KVM code most of the time? You can't
+> call it like this right?
 
-Best regards,
-Krzysztof
+I think it is safe since KVM is not modular for ARM64. And that is one of t=
+he
+reasons I thought I will hold the KVM reference here as we don't have to go
+through the symbol_get/put calls here. Also IOMMUFD is not using the kvm
+pointer at the moment. Probably I should add some comments in IOMMUFD
+to make it clear.
+
+However I just realized that in patch #1 I should EXPORT the
+kvm_arm_pinned_vmid_get/put functions as smmuv3 driver can be built
+modular.=20
+
+>=20
+> Per my prior comments, I'm a little nervous to make drivers keep track
+> of this refcount instead of the core code but this does seem like it
+> could work..
+>=20
+> I also think you should block using the S2 without a viommu & KVM in
+> BTM mode.. Maybe like this:
+>=20
+> @@ -2938,8 +2938,16 @@ static int arm_smmu_attach_dev(struct
+> iommu_domain *domain, struct device *dev)
+>                 cdptr =3D arm_smmu_alloc_cd_ptr(master, IOMMU_NO_PASID);
+>                 if (!cdptr)
+>                         return -ENOMEM;
+> -       } else if (arm_smmu_ssids_in_use(&master->cd_table))
+> -               return -EBUSY;
+> +       } else {
+> +               if (arm_smmu_ssids_in_use(&master->cd_table))
+> +                       return -EBUSY;
+> +               /*
+> +                * S2 cannot be used when BTM is turned on without a VIOM=
+MU
+> and
+> +                * VMID shared with KVM
+> +                */
+> +               if (smmu->features & ARM_SMMU_FEAT_BTM)
+> +                       return -EOPNOTSUPP;
+> +       }
+>=20
+> That more closely matches how this will eventually work when the VMID
+> allocation is properly made to be local to the viommu.
+
+Ok. Will update.
+
+Thanks,
+Shameer
 
