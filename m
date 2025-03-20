@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CCFC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963B5C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1i3DRbTdyzbpnAKiDfDQZ1mLdcscqRmuPns+JX+LUjs=; b=vbYttYI8hXkv0TiDZVQNdcTlNW
-	qkHS9mtaabfKb4wuGRI43lk0/oNizj1FSUopC5xIDdZzhpEGjSEGELBs1qX/+G8Fcrwemcv46lBIP
-	7eaJYNuAlbrlcLhrTiHeSoBegrlEhFHXKCV2GXYmwfF6fHc9vpVTKHm6RhGPe4/2zQNOXEaoYDSuh
-	Riv+lqLWSRhIzyJLhBWXHQIO49B8zsyP/5xtHzKaLpf4H4oyzN0zcWZzxmuk5lUqDMveDUNzsorH+
-	ip07aFOctJA2YEyNd3IuB9uMqhSL2iYaxw/uIWrziqRjWqWmIn3Byt1PQbzlzcm0UEUGda73Jpp82
-	FXq5um0g==;
+	bh=Vc3dKjde0rLVyDC0QPLc/14aVKYKizi/3+LepGRxWFU=; b=djjwewdDaYULJcX7VX/GjR46SC
+	DBvJxBi//nvcBL1R4bBfYi7cy1WjwqqUi1g/31Cn/WpKDFvDF0DUsUE3ehzzGsEp4bM8dWZbvjA0Z
+	m0iZ8NPckeShyBWq04rmc6bVcqJj33TcDnkx51p9nbt2oi2qzXGEckMZ1hfQBwDTgNyLp+9ThAmWn
+	3dBeuUsmTxKQvc/x1KQLF0WFQ0OF+tLsnQSqudujdeE84xnXv66R0ilgMfgaCO+eYBalBLFVlihPp
+	o3LIBV1Dl0IfgZlRvb4AkPPe+N33/xVWa8lLIFOuE3qbQj6mxlN5puJvSQLZ8IhBA/kiabK5JCafy
+	BYxfA85A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFh6-0000000CCF9-12xS;
-	Thu, 20 Mar 2025 13:12:20 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1tvFil-0000000CCQD-2M6f;
+	Thu, 20 Mar 2025 13:14:03 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFWo-0000000CAeE-3DgK;
-	Thu, 20 Mar 2025 13:01:44 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3912baafc58so630460f8f.1;
-        Thu, 20 Mar 2025 06:01:42 -0700 (PDT)
+	id 1tvFWr-0000000CAfJ-20dZ;
+	Thu, 20 Mar 2025 13:01:47 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cec5cd73bso4556795e9.3;
+        Thu, 20 Mar 2025 06:01:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742475701; x=1743080501; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742475704; x=1743080504; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1i3DRbTdyzbpnAKiDfDQZ1mLdcscqRmuPns+JX+LUjs=;
-        b=nYWHyQm94Jxl2s2XH8oBtnsOxBKBFrzARo2U1u68sZver3yQjk88Nb6Zcb/tvbD9My
-         YhahQcPS71Ux7XmatlJzydWVu63hp2oaBpuvex2+yjxKEpmzuBchMThsdED5/4OtdU0z
-         +4FD5wlaaRXsKHhLo15fLbpbB//9bS8uep1IAAIENzNVuTJfy56ZRJ9qT0Snubna17UO
-         dybnxgzJF2L9KsYRpy5urABv/Xktdy/diDs5pQ5xUCGiDpeIQm+Py9kEvgiFxhbb5d06
-         /oL1Vwt3kNruXHUqodjmRsZtAtZWLDaJVH2v0fiRj78qNnIdsZpIcIeyvdWSQ8qhHOE3
-         6aRQ==
+        bh=Vc3dKjde0rLVyDC0QPLc/14aVKYKizi/3+LepGRxWFU=;
+        b=Csi2zum1XPkTORecvpN2iWPExWO3KCJQAB/jYG2lBf1hx8lXg4trDDQJMynDIZVlGp
+         +bu8vw6YYuUhfswBdYLFImN1H+TM8N6lQ22uU3vI6MoJZS1jejXQe6PRj+1b2p437qWu
+         Rocu2a5yi6cfADIqKQ6iPnR1xhz0aa4G+0F7kCmS7txbWqZHkY/j8AGOexs1SbkkYJ+M
+         LyaThJfeMGiQ42EbpglM0Hvo2m6M3TXR6NLuoeF6VNPSwH9XguDJGIxy/7Y+5t3NFUSz
+         HVuP19krtD6ykeIKnCzmXA2Um05gMrRJKhamGBam995Sa0bKZVW2GqdAyqMREaWXSoWb
+         /vCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742475701; x=1743080501;
+        d=1e100.net; s=20230601; t=1742475704; x=1743080504;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1i3DRbTdyzbpnAKiDfDQZ1mLdcscqRmuPns+JX+LUjs=;
-        b=NtAzYExjpdOzfZFXf2uQS961bFZ9m2g+i6EKYnojV61iHZ41FCJQQvjUwDbIFV8N0+
-         Te7SC36xM5giQpS//UaivZUuBrVhPqfPMPzTMk0XcXQHWVaN9UhFFyG8mGD/cJwtaR/k
-         rGt2isN4wd80blFANhElxR2/iQELojYA2r90Hil1URmQQ2in0izOEmd/u665+tquKqYL
-         u3ChFnxhiQi6O3T7xEv3t0uYIvfm46sgLSjMdl+a0WvQcOP1otI023Bgc1/MC4UETbuI
-         QBoGERBmd2WOnSONxHF8MjKM+1WMUpTAUM6jnbbDXSk8EYy/4sxL+E3Ur52WrBS4EDqI
-         Ldug==
-X-Forwarded-Encrypted: i=1; AJvYcCVO7+36KXZPoktN3NQ4pucDXAHIouGYrssMC8lbL23a/2iIQvNPfcYxH49pFq0LHUc2QT/v7keexixq@lists.infradead.org, AJvYcCVeVJTTCgcRf/8rFlD2NHtse0xnYO0a49B6aOKstKeK42BVSY2aGgJmo0kOH/hygCpgOiB+NGtiiNly1aQPL/U=@lists.infradead.org, AJvYcCWg44lvqKWVMhSXcCnMTZ7mX+/6oUePBimwzPivBJ0h2EuKLmlVkenh+MnxKlX27hoHtV7MIsyn95YMfzTQj/DQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO318Smoi9cByh3wpb9g4SIHFBNLNE9MNbzpdGKypRqFEi0OLi
-	4oGMaNQR01OaYYFe2xpIciQuPknpCsJTYivBZpFP6R5BMOQmbsHt
-X-Gm-Gg: ASbGncuXzFioPXdTc4bmuVTWTdQVhphUHRQ5ysvTYIvsiXZpqNBDbj+daPkrB1iwMpT
-	JiTFq+A7JB/cDdD20dKrD6WJF81A2BXeXcJ9yVbU77V0VcE1NJ2M17VfFnrE7XQiX8e1XE2q8ih
-	vqcpNbHT98uOxZTLonoseoaa9uTMa5t2V3KwbrloN61IvpEIDc9mwNTnywLJfk3zpejCHZorEjo
-	/uBJ5dihXa6n10f+UufH0iSnbBIu7fjPasKU2liy7KGD8nCNU3POtIpn0K3DUNyAktSNHArBAlE
-	zK9abZBJf43DMqXmlGFNZ5bu6Q64wGA8xNGj5+bdSI+QauBdEb3dc/FEa4g2uK0XEZKuN9qfin1
-	sgsfqS3JC8g2qGQ==
-X-Google-Smtp-Source: AGHT+IEQRynyz9JGzu+Wy/hCcpiQtdW/bJaEM9RuaZOW49I93OxOlyiURvahKTtdmPXSEWXajsfaYQ==
-X-Received: by 2002:a5d:6c6a:0:b0:391:4559:876a with SMTP id ffacd0b85a97d-399795e77d5mr3094168f8f.46.1742475699266;
-        Thu, 20 Mar 2025 06:01:39 -0700 (PDT)
+        bh=Vc3dKjde0rLVyDC0QPLc/14aVKYKizi/3+LepGRxWFU=;
+        b=V5+kginZTSkMuwMcIlQ0j5qIaKA1W+v3gwOh/Gvz6WPIpvwISFMzM2oVH8gcNGlZL/
+         NVB0zyAgtTSQtUqrQXVkvj7WWee4dxXMlBqzaL/ZXiysirPFWNf0v3Mi8GS2NYQnR5Wp
+         3S2dbrImMMnBUx1EAkzhnkCJFyeW4afMYV9g81sSxfXwlQc+ilrlVITh+PHlE+cUfTqq
+         CYUHiH0jkmH/tLsXOCpXqY1GpednIvOg9yKtp8Mf7AW9RtnEEGjOedowBmi22vTy2LVd
+         Zdieo6/ytnVgcTQ7/GU7YJRaIlamjV/wmD10yDxd4E6TgBndyJrcK0R74RSPKFqSBazE
+         7NNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU2UHNAQZSoZGc3YxfSjAhH0CtchsK31wLVPDnzr3Z/8EwmLSjUCpMgKxgbzj9uuo36ti7iUcq6jafX5LSQ3tA/@lists.infradead.org, AJvYcCW6cTp+NSMJh+4wvn17AS7kjo9FqhbYIHHnDBWhcSmR+Bc9buGx2dYXq1ejr7co2JkFOxsBaumdz/216ShJuHw=@lists.infradead.org, AJvYcCW9a2hMmkEE2w43CrrgUsecJHgyJFF+mSpfRYF6gW3zjyeYMLPgEc7zYrrf6EwHE4ob5Ih8R5MuGqxC@lists.infradead.org
+X-Gm-Message-State: AOJu0YymjcIMFNRylgYPRicKHeDkb8C+Xj+BzmnYpDlsfQrzXrWcSaUo
+	rudn/fRTn9OIFGHlR2eSDDUWWPG0Z/ziVMB3/vUU3XCkuLO2+3o7
+X-Gm-Gg: ASbGncsUmN4XXbCxf1cwReuR4hmSKA/otiUCcoLV1nwsaXlUhbdb/xjzHOkraFwtzXy
+	HS91QLu2x5tiOMinrJi29DRf4YrJ3ERQ7Bq+r3eipB6pD4pwf8QCVTUdLb/yTnOGjHH8tzC13AX
+	QOBz7h6PBxpeylAEPPTxdji3hZ2YUKiuxUl2VyEIoCqK20rGufoQ+6y7X48Vu/seQSo9KEra8C2
+	A2H14SL03kKPwcxSS3K5+nfcScwTfz9nmDHczHhI48+0hFzOnefwgCr3SBNa41z630DvRlcEOUa
+	j1p5AigGaegNZ7mSvlsyU9+28+c9HzLN3XiwCVAfnSvuZreLalTirni9Ar5y6XQPcbTbnou8HFt
+	sTelyx6JqWbedug==
+X-Google-Smtp-Source: AGHT+IF/l6XMrjHci+BW3RGcUAaz5jM7jX2EkvkrL4ZuF2YFu9cX6Xupx/UFNRAGRB5FWZYiIkaFbw==
+X-Received: by 2002:a5d:6d07:0:b0:38d:d9bd:18a6 with SMTP id ffacd0b85a97d-39973b32cf5mr5739209f8f.42.1742475701698;
+        Thu, 20 Mar 2025 06:01:41 -0700 (PDT)
 Received: from localhost.localdomain (93-34-90-129.ip49.fastwebnet.it. [93.34.90.129])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-397f2837e61sm18492328f8f.97.2025.03.20.06.01.37
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-397f2837e61sm18492328f8f.97.2025.03.20.06.01.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 06:01:38 -0700 (PDT)
+        Thu, 20 Mar 2025 06:01:41 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -97,17 +97,17 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-usb@vger.kernel.org,
 	upstream@airoha.com
-Subject: [PATCH v2 06/11] soc: airoha: scu-ssr: expose API to read current Serdes Port mode
-Date: Thu, 20 Mar 2025 14:00:29 +0100
-Message-ID: <20250320130054.4804-7-ansuelsmth@gmail.com>
+Subject: [PATCH v2 07/11] dt-bindings: phy: Add documentation for Airoha AN7581 USB PHY
+Date: Thu, 20 Mar 2025 14:00:30 +0100
+Message-ID: <20250320130054.4804-8-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250320130054.4804-1-ansuelsmth@gmail.com>
 References: <20250320130054.4804-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_060142_822573_A8B9CCEE 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20250320_060145_521585_04D2A319 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,113 +122,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose an API to read the current Serdes Port mode. This is needed for
-pheriperal attached to the Serdes mode to validate the Serdes port is in
-the correct mode.
+Add documentation for Airoha AN7581 USB PHY that describe the USB PHY
+for the USB controller.
 
-Each driver will have to define in DT the phandle airoha,scu
-pointing to the SCU node to make use of this API.
+Airoha AN7581 SoC support a maximum of 2 USB port. The USB 2.0 mode is
+always supported. The USB 3.0 mode is optional and depends on the Serdes
+mode currently configured on the system for the USB port.
 
-Function airoha_scu_ssr_get_serdes_mode() will then parse the phandle,
-and extract tha Serdes Port state from the SCU SSR driver priv.
-
-Driver will use the new API airoha_scu_ssr_get_serdes_mode() by passing
-the dev and the serdes mode reference from dt-bindings header.
+If the airoha,serdes-port property is not declared, it's assumed USB 3.0
+mode is not supported, as the Serdes mode can't be validated.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/soc/airoha/airoha-scu-ssr.c       | 50 +++++++++++++++++++++++
- include/linux/soc/airoha/airoha-scu-ssr.h | 11 +++++
- 2 files changed, 61 insertions(+)
+ .../bindings/phy/airoha,an7581-usb-phy.yaml   | 83 +++++++++++++++++++
+ MAINTAINERS                                   |  7 ++
+ .../dt-bindings/phy/airoha,an7581-usb-phy.h   | 11 +++
+ 3 files changed, 101 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+ create mode 100644 include/dt-bindings/phy/airoha,an7581-usb-phy.h
 
-diff --git a/drivers/soc/airoha/airoha-scu-ssr.c b/drivers/soc/airoha/airoha-scu-ssr.c
-index 29e17577e9a4..3fbc36f793d0 100644
---- a/drivers/soc/airoha/airoha-scu-ssr.c
-+++ b/drivers/soc/airoha/airoha-scu-ssr.c
-@@ -5,6 +5,7 @@
+diff --git a/Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml b/Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+new file mode 100644
+index 000000000000..39ceaded5d0e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+@@ -0,0 +1,83 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/airoha,an7581-usb-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Airoha AN7581 SoC USB PHY
++
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
++
++description: >
++  The Airoha AN7581 SoC USB PHY describes the USB PHY for the USB controller.
++
++  Airoha AN7581 SoC support a maximum of 2 USB port. The USB 2.0 mode is
++  always supported. The USB 3.0 mode is optional and depends on the Serdes
++  mode currently configured on the system for the USB port.
++
++  If the airoha,serdes-port property is not declared, it's assumed USB 3.0
++  mode is not supported, as the Serdes mode can't be validated.
++
++properties:
++  compatible:
++    const: airoha,an7581-usb-phy
++
++  reg:
++    maxItems: 1
++
++
++  airoha,usb2-monitor-clk-sel:
++    description: Describe what oscillator across the available 4
++      should be selected for USB 2.0 Slew Rate calibration.
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1, 2, 3]
++
++  airoha,serdes-port:
++    description: Describe what Serdes Port is attached to the USB 3.0 port.
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1, 2, 3]
++
++  airoha,scu:
++    description: Phandle to the SCU node for USB 3.0 Serdes mode validation.
++    $ref: /schemas/types.yaml#/definitions/phandle
++
++  '#phy-cells':
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - airoha,usb2-monitor-clk-sel
++  - '#phy-cells'
++
++dependentRequired:
++  airoha,serdes-port: [ 'airoha,scu' ]
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/phy/airoha,an7581-usb-phy.h>
++    #include <dt-bindings/soc/airoha,scu-ssr.h>
++
++    phy@1fac0000 {
++        compatible = "airoha,an7581-usb-phy";
++        reg = <0x1fac0000 0x10000>;
++
++        airoha,usb2-monitor-clk-sel = <AIROHA_USB2_MONCLK_SEL1>;
++        airoha,scu = <&scu>;
++        airoha,serdes-port = <AIROHA_SCU_SERDES_USB1>;
++
++        #phy-cells = <1>;
++    };
++
++    phy@1fae0000 {
++        compatible = "airoha,an7581-usb-phy";
++        reg = <0x1fae0000 0x10000>;
++
++        airoha,usb2-monitor-clk-sel = <AIROHA_USB2_MONCLK_SEL2>;
++
++        #phy-cells = <1>;
++    };
++
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7cd54c70aeed..c4a374da2b12 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -754,6 +754,13 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/spi/airoha,en7581-snand.yaml
+ F:	drivers/spi/spi-airoha-snfi.c
  
- #include <dt-bindings/soc/airoha,scu-ssr.h>
- #include <linux/bitfield.h>
-+#include <linux/clk/clk-en7523.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
-@@ -54,6 +55,55 @@ static int airoha_scu_serdes_str_to_mode(const char *serdes_str)
- 	return -EINVAL;
- }
- 
-+/**
-+ * airoha_scu_ssr_get_serdes_mode - Get current Mode for Serdes Port
-+ * @dev: Device pointer of the Serdes Port peripheral
-+ * @port: Reference number of the Serdes Port
-+ *
-+ * Parse the phandle pointed by the Device Node property
-+ * "airoha,scu" present in Devide Node of dev and get
-+ * the current Mode of the Serdes Port reference by port
-+ *
-+ * Return the mode or a negative error code. If the pdev
-+ * or the driver data for the SCU can't be found,
-+ * -EPROBE_DEFER is returned.
-+ */
-+int airoha_scu_ssr_get_serdes_mode(struct device *dev,
-+				   unsigned int port)
-+{
-+	struct airoha_scu_ssr_priv *priv;
-+	struct en_clk_priv *clk_priv;
-+	struct platform_device *pdev;
-+	struct device_node *np;
++AIROHA USB PHY DRIVER
++M:	Christian Marangi <ansuelsmth@gmail.com>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++S:	Maintained
++F:	Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
++F:	include/dt-bindings/phy/airoha,an7581-usb-phy.h
 +
-+	np = of_parse_phandle(dev->of_node, "airoha,scu", 0);
-+	if (!np)
-+		return -ENODEV;
+ AIRSPY MEDIA DRIVER
+ L:	linux-media@vger.kernel.org
+ S:	Orphan
+diff --git a/include/dt-bindings/phy/airoha,an7581-usb-phy.h b/include/dt-bindings/phy/airoha,an7581-usb-phy.h
+new file mode 100644
+index 000000000000..efbb0ae75e3a
+--- /dev/null
++++ b/include/dt-bindings/phy/airoha,an7581-usb-phy.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
 +
-+	if (!of_device_is_available(np)) {
-+		of_node_put(np);
-+		return -ENODEV;
-+	}
++#ifndef _DT_BINDINGS_AIROHA_AN7581_USB_PHY_H_
++#define _DT_BINDINGS_AIROHA_AN7581_USB_PHY_H_
 +
-+	pdev = of_find_device_by_node(np);
-+	of_node_put(np);
-+	if (!pdev || !platform_get_drvdata(pdev)) {
-+		if (pdev)
-+			put_device(&pdev->dev);
-+		return -EPROBE_DEFER;
-+	}
++#define AIROHA_USB2_MONCLK_SEL0                 0
++#define AIROHA_USB2_MONCLK_SEL1                 1
++#define AIROHA_USB2_MONCLK_SEL2                 2
++#define AIROHA_USB2_MONCLK_SEL3                 3
 +
-+	/*
-+	 * Get pdev from clk priv. Clock driver register
-+	 * SSR driver hence it can be assumed present.
-+	 */
-+	clk_priv = platform_get_drvdata(pdev);
-+	priv = platform_get_drvdata(clk_priv->ssr_pdev);
-+
-+	return priv->serdes_port[port];
-+}
-+EXPORT_SYMBOL_GPL(airoha_scu_ssr_get_serdes_mode);
-+
- static int airoha_scu_ssr_apply_modes(struct airoha_scu_ssr_priv *priv)
- {
- 	int ret;
-diff --git a/include/linux/soc/airoha/airoha-scu-ssr.h b/include/linux/soc/airoha/airoha-scu-ssr.h
-index 0224c0340b6d..81f2c1b57889 100644
---- a/include/linux/soc/airoha/airoha-scu-ssr.h
-+++ b/include/linux/soc/airoha/airoha-scu-ssr.h
-@@ -20,4 +20,15 @@ struct airoha_scu_ssr_data {
- 	const struct airoha_scu_ssr_serdes_info *ports_info;
- };
- 
-+#if IS_ENABLED(CONFIG_AIROHA_SCU_SSR)
-+int airoha_scu_ssr_get_serdes_mode(struct device *dev,
-+				   unsigned int port);
-+#else
-+static inline int airoha_scu_ssr_get_serdes_mode(struct device *dev,
-+						 unsigned int port);
-+{
-+	return -EOPNOTSUPP;
-+}
 +#endif
-+
- #endif
 -- 
 2.48.1
 
