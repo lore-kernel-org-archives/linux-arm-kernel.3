@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53E5C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B49C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P/0a701HR1QMAbwnoHEZabCPrgFFxLqUSJCXgOzYZho=; b=kGddZpoLBnGxTUth3Gct/UY7yD
-	Rgqj3yynttXuhIjkCptgbbMzyeD2O772RmtHB6qM+iCZM84RDc25uLnqCxppNQMw/D6VK2MCx9m2K
-	FiRYMs4RZfjNa3nVkXOjtZTjQA3a9yX5uZj7TrB/6DtmhCXMdhTaWL6mq866KXx5gzwHlsU6NWB54
-	LEhX7W70JXojh/GXWVewAvqLS2+IkNLPh9q9HFalOW1cuadD13HLvxbERBOEbc36gS7iH4bDZn6jJ
-	sqdJDPeBb9EsvDOuGin5g8Cf+hcf2jhXYY57Ml60APiuYfQNNNCRqZiKgzckpSchD1/Wp8cmMSBwA
-	WT+fL2Fg==;
+	bh=W6oHES6wNtnrl+tb3RRiuK5oXfst5EgK21bbTQfRKuU=; b=B2alxfLjd4u8lOHR2kTNxhtPn4
+	wl/noDgTXe26EWS8VLNm+glYb2XJYSmlgrCFdFR+2DHSkh2Q7kRM2g0rWTDhQveI+qK4G7O8bQYVu
+	2uBmqZYUV3Ot+mT3gDRC5FstH/KAqmK35GWbws4PSikX7PCeP0QxFRUqvxcnIDDIy+b/AgyxvX4qH
+	D5J6Vgdpw9mP6WmXV8HGqVQyxJNkM1YGyHuoScd2jjcm9Bbj0sknFGlobbGkLDjjG0wY44BE4KeL/
+	clhJxhSG8NkCckYnHU4daoYUJOpZ2/3ZVnSByWc/gbPRqd2NtvUuTIH0EyW1QpK2HuZzBnwYrTk7r
+	qR/Zk5ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEFa-0000000ByDc-22XM;
-	Thu, 20 Mar 2025 11:39:50 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1tvEHF-0000000ByMB-0jmh;
+	Thu, 20 Mar 2025 11:41:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-0000000BxR3-1sRw
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tvE8v-0000000BxUT-06qt
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 20 Mar 2025 11:32:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=W6oHES6wNtnrl+tb3RRiuK5oXfst5EgK21bbTQfRKuU=; b=fmF2eq8SK8a23DJJlmZRzefs5d
+	+FJhcOQyalmdExejg7LsBIblB+lkOykR+5o+u965FGvqZP2yIsWAHS4OHwDGkjTBLAq/CPAaHgQTR
+	QbFwovmVXKMNQ+juSdVB3Re//AiLnNstug3JOzWYe4w4ikw8bnRfapPk0YSGwEbViw2bY2zUga5Ny
+	m7AlD2+8IQbQzpQwcb4NhtA+UaFkqq7ZkCHZoNLah+NiNIXn8wkQ44Mh47o81tIl1g/Xluo1TRsAO
+	8es8KFJIlbf40RYSY2QzKdxLnPQJipFzyojkcgX6BMZbBl1mvzRHiD3iBkMRNl5RmM9pvuys5tz++
+	BayK9k7g==;
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvE8r-000000047ji-1xN8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Mar 2025 11:32:55 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lX006831;
-	Thu, 20 Mar 2025 11:32:34 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lc006831;
+	Thu, 20 Mar 2025 11:32:39 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=P
-	/0a701HR1QMAbwnoHEZabCPrgFFxLqUSJCXgOzYZho=; b=mL8ZTro14F2k5oprR
-	1hh1/bEG+AxrWifv8Sf/k/IC4t8y2fQ/OeKAF+5xShZ1Su8P4ia7D2pBl9pygSkV
-	vt75yIkYEqHP8HwQ5comnchW6pXpqb3fJjmn25C1iX08ugLb8L4DSGn70atAo351
-	g7Ya5P0w3oVC/McOoKrTCS8iJK5u1D572yIXFM3Meg6NFbP/r3nNV6c94snUaVO8
-	o6cvGy92/ZgGFf7E/nPln+9575PPK5mgmTO9ZGRAHiZ/wGVtC6AlOI+8BapGowpF
-	FF0MdKiFtpasEJYEz02nyeXplG+qyGzPPPY8UlER9cbcN5HNOHcACeqVomjwUGOC
-	siXaw==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=W
+	6oHES6wNtnrl+tb3RRiuK5oXfst5EgK21bbTQfRKuU=; b=EhtL6O22mGwO5yh7a
+	CqEUVZQkXs/CGVpfqAiKyAbsahKzArMRgMrtPXVYDcskI5aTNDr+JNjBENPK9RGk
+	HO8I+aE7y3ohOnpWSLqZiy8HvlZFlbhqKKopwuXeykR+RlNN8p1b8elIjUwwavdL
+	rgZ6gEuKCFXNpdq7xaoVEfcVW3jerAk82NvAcz+bT3dScbWLKJk+aBgoBENFwr07
+	sa3sTncaQtcFvvX4qaXfpIihrRBwZa2UcYWKPZMrrAawZpKtLzXgK/yZk4vGrosB
+	A3v9ej4MtldMy93ndSM4Wi+RzN5GTuP/MwR0LXHdk4g/cafijyxk6bjBEIyponwt
+	i1zmA==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg8-2
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwga-5
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:34 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:38 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:33 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:37 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:23 +0000
-Subject: [PATCH v4 13/18] drm/imagination: Move ELF fw utils to common file
+Date: Thu, 20 Mar 2025 11:32:28 +0000
+Subject: [PATCH DO NOT MERGE v4 18/18] arm64: dts: ti: k3-j721s2: Add GPU
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-13-d987cf4ca439@imgtec.com>
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-18-d987cf4ca439@imgtec.com>
 References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -80,24 +96,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7489;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1932;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=le6zqyyW98xnQqhcQmj3/SiM81YhHx+WveNChqSEX2U=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nPUWmVOstyKZRM2vl5RnKK3PrqBV0117gGxmQXPn
- PY9Tti3qKOUhUGMg0FWTJFlxwrLFWp/1LQkbvwqhpnDygQyhIGLUwAm4h/J8FeWu0DW0ytDIOTX
- K6t/wnq3jgpOUFCWcOIzns0b27QyfhPDP70ZDZbBD3TVXu1ccF9ff8dTWa+SfWdnWNqKSax6K7f
- 2NScA
+ bh=yN9xyOabnmnigiGiibEL+z+79E5jnfDbScfaMu09b6I=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nPsguSuXS/ufM1SPnbv2da/+T3tYQEcz9c5HXU53
+ Hv//6qlHB2lLAxiHAyyYoosO1ZYrlD7o6YlceNXMcwcViaQIQxcnAIwkd3PGH4xrZwzWZnLyHaW
+ 3NbdLCtbY9J4rtlmrDz56tntBRPWeDb3MjKcsnD0vrVOgSXv46elEc8kChJcMj8fzJ5z8iX3lG/
+ LvTo4AQ==
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: 7EuZLxt8pWy_5oSJi7FS4SdA_YTgCawo
-X-Proofpoint-ORIG-GUID: 7EuZLxt8pWy_5oSJi7FS4SdA_YTgCawo
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd2 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=gtgaOig2gG6QrLUE_6sA:9
- a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: JAcei8UDXF7CyrAfwHnCfjAR9XjUH7tq
+X-Proofpoint-ORIG-GUID: JAcei8UDXF7CyrAfwHnCfjAR9XjUH7tq
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd6 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=sozttTNsAAAA:8 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8
+ a=rLJv8WYccUdZFC7c5UsA:9 a=QEXdDO2ut3YA:10 a=S-JV1fTmrHgA:10 a=j2-svP0xy3wA:10 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_043253_809629_2EF32D9C 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250320_113253_785794_E96284B5 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,211 +128,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently only MIPS firmware processors use ELF-formatted firmware. When
-adding support for RISC-V firmware processors, it will be useful to have
-ELF handling functions ready to go.
+The J721S2 binding is based on the TI downstream binding in 54b0f2a00d92
+("arm64: dts: ti: k3-j721s2-main: add gpu node") from [1] but with updated
+compatible strings.
+
+The clock[2] and power[3] indices were verified from docs, but the
+source of the interrupt index remains elusive.
+
+[1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel
+[2]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/clocks.html
+[3]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/devices.html
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v4:
 - None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-13-143b3dbef02f@imgtec.com
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-18-143b3dbef02f@imgtec.com
 Changes in v3:
 - None
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-16-3fd45d9fb0cf@imgtec.com
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-21-3fd45d9fb0cf@imgtec.com
 Changes in v2:
-- None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-16-4ed30e865892@imgtec.com
+- Use normal reg syntax for 64-bit values
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-21-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/Makefile      |  1 +
- drivers/gpu/drm/imagination/pvr_fw.h      |  5 +++
- drivers/gpu/drm/imagination/pvr_fw_mips.c | 59 +--------------------------
- drivers/gpu/drm/imagination/pvr_fw_util.c | 67 +++++++++++++++++++++++++++++++
- 4 files changed, 75 insertions(+), 57 deletions(-)
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/gpu/drm/imagination/Makefile b/drivers/gpu/drm/imagination/Makefile
-index 9bc6a3884c2239e44265f3cdebee149841b270de..077e4762c7c383b6e339da1584c3865d830ef8d6 100644
---- a/drivers/gpu/drm/imagination/Makefile
-+++ b/drivers/gpu/drm/imagination/Makefile
-@@ -16,6 +16,7 @@ powervr-y := \
- 	pvr_fw_mips.o \
- 	pvr_fw_startstop.o \
- 	pvr_fw_trace.o \
-+	pvr_fw_util.o \
- 	pvr_gem.o \
- 	pvr_hwrt.o \
- 	pvr_job.o \
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index ab69f40a7fbc6304171f16dd16d825a68b0362a5..e120eae06bf78633b5bae79a77adac63aa5e06d3 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -478,4 +478,9 @@ pvr_fw_object_get_fw_addr(struct pvr_fw_object *fw_obj, u32 *fw_addr_out)
- 	pvr_fw_object_get_fw_addr_offset(fw_obj, 0, fw_addr_out);
- }
- 
-+/* Util functions defined in pvr_fw_util.c. These are intended for use in pvr_fw_<arch>.c files. */
-+int
-+pvr_fw_process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw, u8 *fw_code_ptr,
-+				  u8 *fw_data_ptr, u8 *fw_core_code_ptr, u8 *fw_core_data_ptr);
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+index 92bf48fdbeba45ecca8c854db5f72fd3666239c5..a79ac41b2c1f51b7193e6133864428bd35a5e835 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+@@ -2048,4 +2048,16 @@ watchdog8: watchdog@23f0000 {
+ 		/* reserved for MAIN_R5F1_1 */
+ 		status = "reserved";
+ 	};
 +
- #endif /* PVR_FW_H */
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-index 524a9bd0a20b64c509f5708cc61d93b4c864b835..7f341ceb0661c61ac059654faeec91e149036467 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-@@ -8,7 +8,6 @@
- #include "pvr_rogue_mips.h"
- #include "pvr_vm_mips.h"
- 
--#include <linux/elf.h>
- #include <linux/err.h>
- #include <linux/types.h>
- 
-@@ -16,60 +15,6 @@
- #define ROGUE_FW_HEAP_MIPS_SHIFT 24 /* 16 MB */
- #define ROGUE_FW_HEAP_MIPS_RESERVED_SIZE SZ_1M
- 
--/**
-- * process_elf_command_stream() - Process ELF firmware image and populate
-- *                                firmware sections
-- * @pvr_dev: Device pointer.
-- * @fw: Pointer to firmware image.
-- * @fw_code_ptr: Pointer to FW code section.
-- * @fw_data_ptr: Pointer to FW data section.
-- * @fw_core_code_ptr: Pointer to FW coremem code section.
-- * @fw_core_data_ptr: Pointer to FW coremem data section.
-- *
-- * Returns :
-- *  * 0 on success, or
-- *  * -EINVAL on any error in ELF command stream.
-- */
--static int
--process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw, u8 *fw_code_ptr,
--			   u8 *fw_data_ptr, u8 *fw_core_code_ptr, u8 *fw_core_data_ptr)
--{
--	struct elf32_hdr *header = (struct elf32_hdr *)fw;
--	struct elf32_phdr *program_header = (struct elf32_phdr *)(fw + header->e_phoff);
--	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
--	u32 entry;
--	int err;
--
--	for (entry = 0; entry < header->e_phnum; entry++, program_header++) {
--		void *write_addr;
--
--		/* Only consider loadable entries in the ELF segment table */
--		if (program_header->p_type != PT_LOAD)
--			continue;
--
--		err = pvr_fw_find_mmu_segment(pvr_dev, program_header->p_vaddr,
--					      program_header->p_memsz, fw_code_ptr, fw_data_ptr,
--					      fw_core_code_ptr, fw_core_data_ptr, &write_addr);
--		if (err) {
--			drm_err(drm_dev,
--				"Addr 0x%x (size: %d) not found in any firmware segment",
--				program_header->p_vaddr, program_header->p_memsz);
--			return err;
--		}
--
--		/* Write to FW allocation only if available */
--		if (write_addr) {
--			memcpy(write_addr, fw + program_header->p_offset,
--			       program_header->p_filesz);
--
--			memset((u8 *)write_addr + program_header->p_filesz, 0,
--			       program_header->p_memsz - program_header->p_filesz);
--		}
--	}
--
--	return 0;
--}
--
- static int
- pvr_mips_init(struct pvr_device *pvr_dev)
- {
-@@ -100,8 +45,8 @@ pvr_mips_fw_process(struct pvr_device *pvr_dev, const u8 *fw,
- 	u32 page_nr;
- 	int err;
- 
--	err = process_elf_command_stream(pvr_dev, fw, fw_code_ptr, fw_data_ptr, fw_core_code_ptr,
--					 fw_core_data_ptr);
-+	err = pvr_fw_process_elf_command_stream(pvr_dev, fw, fw_code_ptr, fw_data_ptr,
-+						fw_core_code_ptr, fw_core_data_ptr);
- 	if (err)
- 		return err;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_util.c b/drivers/gpu/drm/imagination/pvr_fw_util.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..7bc8a5c48e9b0eed2045607ab2cfed80a60a32b5
---- /dev/null
-+++ b/drivers/gpu/drm/imagination/pvr_fw_util.c
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/* Copyright (c) 2024 Imagination Technologies Ltd. */
-+
-+#include "pvr_device.h"
-+#include "pvr_fw.h"
-+
-+#include <drm/drm_device.h>
-+#include <drm/drm_print.h>
-+
-+#include <linux/elf.h>
-+#include <linux/string.h>
-+#include <linux/types.h>
-+
-+/**
-+ * pvr_fw_process_elf_command_stream() - Process ELF firmware image and populate
-+ *                                       firmware sections
-+ * @pvr_dev: Device pointer.
-+ * @fw: Pointer to firmware image.
-+ * @fw_code_ptr: Pointer to FW code section.
-+ * @fw_data_ptr: Pointer to FW data section.
-+ * @fw_core_code_ptr: Pointer to FW coremem code section.
-+ * @fw_core_data_ptr: Pointer to FW coremem data section.
-+ *
-+ * Returns :
-+ *  * 0 on success, or
-+ *  * -EINVAL on any error in ELF command stream.
-+ */
-+int
-+pvr_fw_process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw,
-+				  u8 *fw_code_ptr, u8 *fw_data_ptr,
-+				  u8 *fw_core_code_ptr, u8 *fw_core_data_ptr)
-+{
-+	struct elf32_hdr *header = (struct elf32_hdr *)fw;
-+	struct elf32_phdr *program_header = (struct elf32_phdr *)(fw + header->e_phoff);
-+	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
-+	u32 entry;
-+	int err;
-+
-+	for (entry = 0; entry < header->e_phnum; entry++, program_header++) {
-+		void *write_addr;
-+
-+		/* Only consider loadable entries in the ELF segment table */
-+		if (program_header->p_type != PT_LOAD)
-+			continue;
-+
-+		err = pvr_fw_find_mmu_segment(pvr_dev, program_header->p_vaddr,
-+					      program_header->p_memsz, fw_code_ptr, fw_data_ptr,
-+					      fw_core_code_ptr, fw_core_data_ptr, &write_addr);
-+		if (err) {
-+			drm_err(drm_dev,
-+				"Addr 0x%x (size: %d) not found in any firmware segment",
-+				program_header->p_vaddr, program_header->p_memsz);
-+			return err;
-+		}
-+
-+		/* Write to FW allocation only if available */
-+		if (write_addr) {
-+			memcpy(write_addr, fw + program_header->p_offset,
-+			       program_header->p_filesz);
-+
-+			memset((u8 *)write_addr + program_header->p_filesz, 0,
-+			       program_header->p_memsz - program_header->p_filesz);
-+		}
-+	}
-+
-+	return 0;
-+}
++	gpu: gpu@4e20000000 {
++		compatible = "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img-rogue";
++		reg = <0x4e 0x20000000 0x00 0x80000>;
++		clocks = <&k3_clks 130 1>;
++		clock-names = "core";
++		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&k3_pds 130 TI_SCI_PD_EXCLUSIVE>,
++				<&k3_pds 373 TI_SCI_PD_EXCLUSIVE>;
++		power-domain-names = "a", "b";
++		dma-coherent;
++	};
+ };
 
 -- 
 2.49.0
