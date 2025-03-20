@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39309C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33553C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=izkjD6yTnP5j6NIkyzvQPArolLfNQIi3Qq8nA6tdTxg=; b=dsRqB6lMzwnMqV7s1jppdMvRPg
-	jQGJ5sY/q15pXKoPiiixsHo9cWcn3CWYcFXvn0/tunxIT1+0AYR3V+Aal7kqRZCZtB+l8ZvszK5vc
-	INdQxoV0sry6p7CT+F4uI6HaZXtgGjx+CQ7rBf8o+BR/H7qjKgF0+zpu8Xx7PuEC90QvlfE7WProx
-	RG/1aqP/zfhWZVylY+1pEY9QUA7qGf/P9Ck+EsjSnqn17UWJk1p9Lrap8xKNO0cdutwA3B2vyAyoi
-	KYVxVOYyU0nBpT5nTisNmJXc8AwuFdhEvKLKN1EZ9qn3UINAWIwuFYBoMNbBEDpLDkAyACEFopL1E
-	AGV3YIDA==;
+	bh=JWrra46cF/zn5ZJCem2dit2AHSq8ubSoM94HJ5Xwj78=; b=jOioz/KmkoWi5Nerko/937NEIL
+	OBC2BcnNvcyLsg2njOHQaUZHGvwtOxDap8GbDMCXgmkhMbo4TEJUg/W/tC4UC7QOInEzFkY6JanC+
+	YI7qQ6L4XETnFI9NfYH5qcMq9WCA8N365OfSz2xaivpeFJq16lYsCg9wzyAugLrUYv8C5nAysSu/b
+	RbHxycDJ4VTKRWaRIbP23x5+KwRk82Bk6uUr9UB0Ajt47dQgkraq6lDixWi+umdsjv1rnAxgRYMpY
+	k1fEK/+r+FYOmtWFrUq+cDTscuViG3ZXIYn8QDrqHSTIMgR8iTZh+EdRTVK6G4dv7LPlF1afIQLQU
+	+QuVVGqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJcy-0000000CnFS-3yW6;
-	Thu, 20 Mar 2025 17:24:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tvJee-0000000CnSv-2k27;
+	Thu, 20 Mar 2025 17:26:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJVA-0000000CmCd-29iS
+	id 1tvJVI-0000000CmEA-0DHq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 17:16:17 +0000
+	Thu, 20 Mar 2025 17:16:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7935AA495BC;
-	Thu, 20 Mar 2025 17:10:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55640C4CEDD;
-	Thu, 20 Mar 2025 17:16:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EA43EA495C1;
+	Thu, 20 Mar 2025 17:10:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4622C4CEDD;
+	Thu, 20 Mar 2025 17:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742490975;
-	bh=93BptoOqRVNyFCiKnHpDZo5E7NyEmw7OFNQMaCFMsOU=;
+	s=k20201202; t=1742490983;
+	bh=+evCBeNGTvUjxQbku1JezmpWd8bBB4yvmqkVwISqS1w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WdMz1U1svm/4L8hrxLq7fu0fIWjgK7YNV0P0hmjtoZdidcxGlN+c8CWY9XwBIFLxW
-	 TubZI2sZROkpdT20h2nbq3zhTE8Fv9j5LsaD5JGbjpPsmZTb/G6eG8BestSS6MqDXN
-	 I1O9IcFpuZJC+3dz5aJaSL+FeJyCDiLFz+x49k/q6bKGapPjgOScxWi9Co5AVUVX4C
-	 KgG5k2bOVtz7cW5xH8GNN9pcxCx6u4Y3BrdvGhLISjcffthPg3pCbgjo7/q6k82HVW
-	 R9Vp8yIJ1r4uu5jsA0OG3h52QeioNlWgVWJXf20DHdxg/FtPkXKJDX5WjyalA1fCY5
-	 0gHs6Lsz/5RMg==
+	b=aZhkcZjhgwTBQhn5xLxRnF3a4qsa3u+33DaXQvkxOCmztDrjEduWoh9z6n8kqeTFf
+	 qAdmXarac8CfVE7puGIIgCCYAY0GtNUjG8G8gfUcZPpPJ07fx5PSBQUC9g488Gx/d5
+	 c6TKxha++wh71G+QcFcyJa6NVvszcn/4y8Va3WfQLtoRrFPSdzrs9S2wsuPqjptnsH
+	 uld7Tp2ri8VeaM446rm7kl0yuZ/TOjgptCBqKroNZi5627Urk8CscO0RsHovIuGnTM
+	 DVWtGQPt8hXyrV7j4TIsGz1B7FAOv5N2GVjRGmmxPIiLP532gpL2Hl4m5wANOgyt0w
+	 RP8bMohr+O8GA==
 From: Song Liu <song@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -59,18 +59,22 @@ Cc: indu.bhagat@oracle.com,
 	rostedt@goodmis.org,
 	will@kernel.org,
 	kernel-team@meta.com,
-	song@kernel.org
-Subject: [PATCH v3 1/2] arm64: Implement arch_stack_walk_reliable
-Date: Thu, 20 Mar 2025 10:15:58 -0700
-Message-ID: <20250320171559.3423224-2-song@kernel.org>
+	song@kernel.org,
+	Suraj Jitindar Singh <surajjs@amazon.com>,
+	Torsten Duwe <duwe@suse.de>,
+	Miroslav Benes <mbenes@suse.cz>,
+	Breno Leitao <leitao@debian.org>
+Subject: [PATCH v3 2/2] arm64: Implement HAVE_LIVEPATCH
+Date: Thu, 20 Mar 2025 10:15:59 -0700
+Message-ID: <20250320171559.3423224-3-song@kernel.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250320171559.3423224-1-song@kernel.org>
 References: <20250320171559.3423224-1-song@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_101616_682061_B67570B2 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250320_101624_215965_676C94E9 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,183 +89,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With proper exception boundary detection, it is possible to implment
-arch_stack_walk_reliable without sframe.
+This is largely based on [1] by Suraj Jitindar Singh.
 
-Note that, arch_stack_walk_reliable does not guarantee getting reliable
-stack in all scenarios. Instead, it can reliably detect when the stack
-trace is not reliable, which is enough to provide reliable livepatching.
+Test coverage:
 
+- Passed manual tests with samples/livepatch.
+- Passed all but test-kprobe.sh in selftests/livepatch.
+  test-kprobe.sh is expected to fail, because arm64 doesn't have
+  KPROBES_ON_FTRACE.
+- Passed tests with kpatch-build [2]. (This version includes commits that
+  are not merged to upstream kpatch yet).
+
+[1] https://lore.kernel.org/all/20210604235930.603-1-surajjs@amazon.com/
+[2] https://github.com/liu-song-6/kpatch/tree/fb-6.13
+Cc: Suraj Jitindar Singh <surajjs@amazon.com>
+Cc: Torsten Duwe <duwe@suse.de>
 Signed-off-by: Song Liu <song@kernel.org>
+Acked-by: Miroslav Benes <mbenes@suse.cz>
+Tested-by: Breno Leitao <leitao@debian.org>
 ---
- arch/arm64/Kconfig             |  2 +-
- arch/arm64/kernel/stacktrace.c | 66 +++++++++++++++++++++++++---------
- 2 files changed, 51 insertions(+), 17 deletions(-)
+ arch/arm64/Kconfig                   | 3 +++
+ arch/arm64/include/asm/thread_info.h | 4 +++-
+ arch/arm64/kernel/entry-common.c     | 4 ++++
+ 3 files changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 701d980ea921..31d5e1ee6089 100644
+index 31d5e1ee6089..dbd237b13b21 100644
 --- a/arch/arm64/Kconfig
 +++ b/arch/arm64/Kconfig
-@@ -276,6 +276,7 @@ config ARM64
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
+@@ -277,6 +277,7 @@ config ARM64
  	select USER_STACKTRACE_SUPPORT
  	select VDSO_GETRANDOM
-+	select HAVE_RELIABLE_STACKTRACE
+ 	select HAVE_RELIABLE_STACKTRACE
++	select HAVE_LIVEPATCH
  	help
  	  ARM 64-bit (AArch64) Linux support.
  
-@@ -2500,4 +2501,3 @@ endmenu # "CPU Power Management"
+@@ -2501,3 +2502,5 @@ endmenu # "CPU Power Management"
  source "drivers/acpi/Kconfig"
  
  source "arch/arm64/kvm/Kconfig"
--
-diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-index 1d9d51d7627f..7e07911d8694 100644
---- a/arch/arm64/kernel/stacktrace.c
-+++ b/arch/arm64/kernel/stacktrace.c
-@@ -56,6 +56,7 @@ struct kunwind_state {
- 	enum kunwind_source source;
- 	union unwind_flags flags;
- 	struct pt_regs *regs;
-+	bool end_on_unreliable;
- };
- 
- static __always_inline void
-@@ -230,8 +231,26 @@ kunwind_next_frame_record(struct kunwind_state *state)
- 	new_fp = READ_ONCE(record->fp);
- 	new_pc = READ_ONCE(record->lr);
- 
--	if (!new_fp && !new_pc)
--		return kunwind_next_frame_record_meta(state);
-+	if (!new_fp && !new_pc) {
-+		int ret;
 +
-+		ret = kunwind_next_frame_record_meta(state);
-+		if (ret < 0) {
-+			/*
-+			 * This covers two different conditions:
-+			 *  1. ret == -ENOENT, unwinding is done.
-+			 *  2. ret == -EINVAL, unwinding hit error.
-+			 */
-+			return ret;
-+		}
-+		/*
-+		 * Searching across exception boundaries. The stack is now
-+		 * unreliable.
-+		 */
-+		if (state->end_on_unreliable)
-+			return -EINVAL;
-+		return 0;
-+	}
++source "kernel/livepatch/Kconfig"
+diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+index 1114c1c3300a..4ac42e13032b 100644
+--- a/arch/arm64/include/asm/thread_info.h
++++ b/arch/arm64/include/asm/thread_info.h
+@@ -64,6 +64,7 @@ void arch_setup_new_exec(void);
+ #define TIF_UPROBE		4	/* uprobe breakpoint or singlestep */
+ #define TIF_MTE_ASYNC_FAULT	5	/* MTE Asynchronous Tag Check Fault */
+ #define TIF_NOTIFY_SIGNAL	6	/* signal notifications exist */
++#define TIF_PATCH_PENDING	7	/* pending live patching update */
+ #define TIF_SYSCALL_TRACE	8	/* syscall trace active */
+ #define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
+ #define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
+@@ -92,6 +93,7 @@ void arch_setup_new_exec(void);
+ #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+ #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
+ #define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
++#define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
+ #define _TIF_UPROBE		(1 << TIF_UPROBE)
+ #define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
+ #define _TIF_32BIT		(1 << TIF_32BIT)
+@@ -103,7 +105,7 @@ void arch_setup_new_exec(void);
+ #define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_SIGPENDING | \
+ 				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
+ 				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
+-				 _TIF_NOTIFY_SIGNAL)
++				 _TIF_NOTIFY_SIGNAL | _TIF_PATCH_PENDING)
  
- 	unwind_consume_stack(&state->common, info, fp, sizeof(*record));
+ #define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
+ 				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index b260ddc4d3e9..b537af333b42 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -8,6 +8,7 @@
+ #include <linux/context_tracking.h>
+ #include <linux/kasan.h>
+ #include <linux/linkage.h>
++#include <linux/livepatch.h>
+ #include <linux/lockdep.h>
+ #include <linux/ptrace.h>
+ #include <linux/resume_user_mode.h>
+@@ -144,6 +145,9 @@ static void do_notify_resume(struct pt_regs *regs, unsigned long thread_flags)
+ 				       (void __user *)NULL, current);
+ 		}
  
-@@ -277,21 +296,24 @@ kunwind_next(struct kunwind_state *state)
- 
- typedef bool (*kunwind_consume_fn)(const struct kunwind_state *state, void *cookie);
- 
--static __always_inline void
-+static __always_inline int
- do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state,
- 	   void *cookie)
- {
--	if (kunwind_recover_return_address(state))
--		return;
-+	int ret;
- 
--	while (1) {
--		int ret;
-+	ret = kunwind_recover_return_address(state);
-+	if (ret)
-+		return ret;
- 
-+	while (1) {
- 		if (!consume_state(state, cookie))
--			break;
-+			return -EINVAL;
- 		ret = kunwind_next(state);
-+		if (ret == -ENOENT)
-+			return 0;
- 		if (ret < 0)
--			break;
-+			return ret;
- 	}
- }
- 
-@@ -324,10 +346,10 @@ do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state,
- 			: stackinfo_get_unknown();		\
- 	})
- 
--static __always_inline void
-+static __always_inline int
- kunwind_stack_walk(kunwind_consume_fn consume_state,
- 		   void *cookie, struct task_struct *task,
--		   struct pt_regs *regs)
-+		   struct pt_regs *regs, bool end_on_unreliable)
- {
- 	struct stack_info stacks[] = {
- 		stackinfo_get_task(task),
-@@ -348,11 +370,12 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
- 			.stacks = stacks,
- 			.nr_stacks = ARRAY_SIZE(stacks),
- 		},
-+		.end_on_unreliable = end_on_unreliable,
- 	};
- 
- 	if (regs) {
- 		if (task != current)
--			return;
-+			return -EINVAL;
- 		kunwind_init_from_regs(&state, regs);
- 	} else if (task == current) {
- 		kunwind_init_from_caller(&state);
-@@ -360,7 +383,7 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
- 		kunwind_init_from_task(&state, task);
- 	}
- 
--	do_kunwind(&state, consume_state, cookie);
-+	return do_kunwind(&state, consume_state, cookie);
- }
- 
- struct kunwind_consume_entry_data {
-@@ -384,7 +407,18 @@ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
- 		.cookie = cookie,
- 	};
- 
--	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs);
-+	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs, false);
-+}
++		if (thread_flags & _TIF_PATCH_PENDING)
++			klp_update_patch_state(current);
 +
-+noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
-+			void *cookie, struct task_struct *task)
-+{
-+	struct kunwind_consume_entry_data data = {
-+		.consume_entry = consume_entry,
-+		.cookie = cookie,
-+	};
-+
-+	return kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, NULL, true);
- }
+ 		if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
+ 			do_signal(regs);
  
- struct bpf_unwind_consume_entry_data {
-@@ -409,7 +443,7 @@ noinline noinstr void arch_bpf_stack_walk(bool (*consume_entry)(void *cookie, u6
- 		.cookie = cookie,
- 	};
- 
--	kunwind_stack_walk(arch_bpf_unwind_consume_entry, &data, current, NULL);
-+	kunwind_stack_walk(arch_bpf_unwind_consume_entry, &data, current, NULL, false);
- }
- 
- static const char *state_source_string(const struct kunwind_state *state)
-@@ -456,7 +490,7 @@ void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk,
- 		return;
- 
- 	printk("%sCall trace:\n", loglvl);
--	kunwind_stack_walk(dump_backtrace_entry, (void *)loglvl, tsk, regs);
-+	kunwind_stack_walk(dump_backtrace_entry, (void *)loglvl, tsk, regs, false);
- 
- 	put_task_stack(tsk);
- }
 -- 
 2.47.1
 
