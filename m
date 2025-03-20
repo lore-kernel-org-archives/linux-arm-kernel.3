@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B65CC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 12:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84851C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 12:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QmQTgHnNfk/YJQVz70Z46dnEeEGmjtdUuR03pGN2Bwc=; b=iquAFz0/u6D2RwNlTT3o3gYr4I
-	FzPqe+9Dy4XFeTAMrwK1lCgjLe5t+RPScO334upV7z+QtgZbDqVCKZJ6H75Tz9K4b+YgYn8rIPxCv
-	+g3ZEi5WnjYOekaKkJqBA7yDwvb83EgB5/hjmC/d0HzGuOMmpvpinStoUsdHgP1AgLe7iNYB6SZdk
-	NFLar2mSMVkhz4SM483sjIbe3JkP7TpPV3L/ZB1mHPsNWGyZfhjZPMFGVCXveh0fn5QoWAU/OaBt4
-	qL6uJ9INxo1XXS3tDI7/1ISlvC8nF1xJ6e1dDTJR6kD3odTfd5KzSJwySz0afaQ7ewfQRGQQyTqx/
-	+aMVgoaw==;
+	bh=xflSa0hR/PENfTIOp0gqa3rilFj0JKDkxLJsuqmvYRo=; b=12oyMtgqMJA0rODUm8yHRITL1U
+	mleigIbAZWccIpLr7UDf46C72VmoJhkobpu5yEH3LolRlUZXeFH6si7fHmkoLD+8KI7hIqQO1PyZ1
+	swoNESbR/8GG4sYPCDHvhXvaXsug2imXRk1H8UQCC8D9+puRtWiqYvisv37BaWaKdeWfVbBXbEFgX
+	fNxkdtHCMpj7M4W5Tt15kxXgkZ6i4NAoMKxzelSiNO/kACLrYX655vB0XRKzsG5nIuMAKgFwOW1ww
+	YBJEwa04mHBWL705Rdlg8z9i0Kfr4hJxPBKi2y0/5zMDsr96Y+ykYd3cfdeomWMIFaM+yCMixFDZS
+	CbrPuFSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFT0-0000000CA6Z-3D1Z;
-	Thu, 20 Mar 2025 12:57:46 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tvFUf-0000000CAJQ-1mry;
+	Thu, 20 Mar 2025 12:59:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFPJ-0000000C9R3-0lHL
+	id 1tvFPb-0000000C9Sf-2Smn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 12:53:58 +0000
+	Thu, 20 Mar 2025 12:54:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 95CD9A49413;
-	Thu, 20 Mar 2025 12:48:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADDDBC4CEDD;
-	Thu, 20 Mar 2025 12:53:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C17465C68AA;
+	Thu, 20 Mar 2025 12:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 734EBC4CEDD;
+	Thu, 20 Mar 2025 12:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742475235;
-	bh=qz7MeaPR8fOUUQcZ6yj6cjFnFISOPaxEsa/PQ0ftEok=;
+	s=k20201202; t=1742475254;
+	bh=vxV+a/fLmjjCRymtdhQarF9ezoeGwerQqeFxyUA3row=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OSEaEyweNzA4Glaku9/kxFiZYPTRlTzqNWNKbcpiVt/T0M7WrzFY/xXDcutG7k5+u
-	 uHHjzBC581oQo4wIvbP1SEszyEzB1856/ZDv9NriIotrP4CF5GrlZ5psV42voERfr4
-	 Ry42mOocCkwIBXO99fp9JpMdoSBFOglm9n4ZYiuyu08kYdyzcSgWv5nYUXfvl9JAim
-	 6/o3gNfm+Nd/BuOtWDP54RdRLSi9n08t5BY+Dq2+Zpj2mxxcRQozAOFtFHLDBKiSdz
-	 2+5DGh2sJPOchXiUFxqv97zueJDS01w781OpmO9C61jXvCcvhi0cXCJ3Krgz7gGHGJ
-	 vgccg7ifdK5XQ==
-Date: Thu, 20 Mar 2025 12:53:49 +0000
+	b=mshW1Y1mUUWzSAYHX9v4UeBiVBN7iJ+TcNCV6wFNs7ezLg1Su9nsxvJML07ynWPyS
+	 7bBrvZaRYZaffw1osYjlU28JPszJOQD7uAno0Z4FDSCn2Gn2M7f28MfKhgAMz9kvU2
+	 X5Z00tR5QE4aPdzX8QFqr2DnTkYUs0X5pf48SfxX9yGRx8HFoLPDH8tsZ+HRZiHTlm
+	 BspfnzdRWUxEdCj2w4ie9gD9KSkqD77LBZuHVsqF3FdyHMOYqdlC+sTROuhWo9ba+A
+	 glkEgWE98+ENvZ7R1gFGQLaklueQud518AhZutgCB0C+v+djPuXQTGlWT/hgf8wIoz
+	 9MAaLVz7SAOVg==
+Date: Thu, 20 Mar 2025 12:54:08 +0000
 From: Simon Horman <horms@kernel.org>
 To: Meghana Malladi <m-malladi@ti.com>
 Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
@@ -54,18 +54,18 @@ Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
 	daniel@iogearbox.net, ast@kernel.org, srk@ti.com,
 	Vignesh Raghavendra <vigneshr@ti.com>,
 	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-Subject: Re: [PATCH net-next 1/3] net: ti: prueth: Fix kernel warning while
- bringing down network interface
-Message-ID: <20250320125349.GN280585@kernel.org>
+Subject: Re: [PATCH net-next 2/3] net: ti: prueth: Fix possible NULL pointer
+ dereference inside emac_xmit_xdp_frame()
+Message-ID: <20250320125408.GO280585@kernel.org>
 References: <20250317101551.1005706-1-m-malladi@ti.com>
- <20250317101551.1005706-2-m-malladi@ti.com>
+ <20250317101551.1005706-3-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250317101551.1005706-2-m-malladi@ti.com>
+In-Reply-To: <20250317101551.1005706-3-m-malladi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_055357_285090_89CFC51C 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20250320_055415_680228_EF044D47 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +80,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 03:45:48PM +0530, Meghana Malladi wrote:
-> During network interface initialization, the NIC driver needs to register
-> its Rx queue with the XDP, to ensure the incoming XDP buffer carries a
-> pointer reference to this info and is stored inside xdp_rxq_info.
+On Mon, Mar 17, 2025 at 03:45:49PM +0530, Meghana Malladi wrote:
+> There is an error check inside emac_xmit_xdp_frame() function which
+> is called when the driver wants to transmit XDP frame, to check if
+> the allocated tx descriptor is NULL, if true to exit and return
+> ICSSG_XDP_CONSUMED implying failure in transmission.
 > 
-> While this struct isn't tied to XDP prog, if there are any changes in
-> Rx queue, the NIC driver needs to stop the Rx queue by unregistering
-> with XDP before purging and reallocating memory. Drop page_pool destroy
-> during Rx channel reset and this is already handled by XDP during
-> xdp_rxq_info_unreg (Rx queue unregister), failing to do will cause the
-> following warning:
+> In this case trying to free a descriptor which is NULL will result
+> in kernel crash due to NULL pointer dereference. Fix this error handling
+> and increase netdev tx_dropped stats in the caller of this function
+> if the function returns ICSSG_XDP_CONSUMED.
 > 
-> [  271.494611] ------------[ cut here ]------------
-> [  271.494629] WARNING: CPU: 0 PID: 2453 at /net/core/page_pool.c:1108 0xffff8000808d5f60
-
-I think it would be nice to include a bit more of the stack trace here.
-
-> 
-> Fixes: 46eeb90f03e0 ("net: ti: icssg-prueth: Use page_pool API for RX buffer allocation")
+> Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
 > Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-
-It is a shame that we now have more asymmetry regarding
-the allocation of the pool and unwind on error prueth_prepare_rx_chan().
-
-But if I see things correctly the freeing of the pool via
-xdp_rxq_info_unreg() is unconditional. And with that in mind
-I agree the approach taken by this patch makes sense.
 
 Reviewed-by: Simon Horman <horms@kernel.org>
 
-...
 
