@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C8BC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBD8C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GvO6U5e3ou7cohuaaLtiVKLu/0FNfSOPql7f4CQNZ20=; b=s1FLHl1ldDRhoDQ3l0gnEehQ1D
-	8ftd4dIERl2hAATTtyI4rtMKpMRQUzaz3sdmqJCK5EWUh2srovus5RN+fWvXZoi+LTfGwT12Hijmn
-	/NLht9Q/sV/I+WNyulYb1vSCRgoYEr3OoOcvKKdOTKVhlrbsgVSEUTPx5Uaz5jzGhfHCTTkqs9BaQ
-	tNZSupDlUB6HIBdA1WFBvHiQVxhaIDk+EZS4Yyj0cEg/hbgGksIzkYV6IlApDlWWi83YwfGfW015m
-	/jRKHQflodmMVdpR7QQskNiwY7D2Lc3GF6JPuPNSqSuhRJwOe7wuxlliH/UsrNxASoEKSZ06csRyC
-	Mm7idJlg==;
+	bh=9xs+2LaReXeMSg7prIRwlEpMNVm9r1gq5TR6tQoW624=; b=u1OfZaQTsvbgn0MrTTSyHPbPs3
+	RdZDIT8vpLytx8yFESlapOPnALRjSl/LWSrcNtUANMM+ILag17Dl+RttboXk2hICMXowO/o1ffUpU
+	eCwp6vwekp95Dw6K4/bFQRGj8Y38Xox1P1g/GAvS33zzkYg2UohWTrTv4Jj4QmuVf5l0AXftZwimV
+	bYC+KtAOiZI1w19dMQm4TXdrLqHFWw016DXI3t4LChPjEQNOniE47r33ydHr5Lz6nrujKmWkw4/tI
+	vs9s7PfwI46CbKcBLozp4gSb6xCg69Kml+nMQWd0Po/d6mHm+x2OYTQmPHiEMRppr6dogkmNqkCFz
+	bewjpYMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDiw-0000000BuDr-1NMH;
-	Thu, 20 Mar 2025 11:06:06 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDhD-0000000Bu1Z-0kik
+	id 1tvE2t-0000000Bx2x-0Oxu;
+	Thu, 20 Mar 2025 11:26:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvE1A-0000000Bwqa-1ZJs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 11:04:21 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1742468646;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GvO6U5e3ou7cohuaaLtiVKLu/0FNfSOPql7f4CQNZ20=;
-	b=Y/wumE1iWwGTzwcOYHCaxujevsLP2sVF0WD0JCoz2y6HfR5rRs0AGGm47M+kkVy047HPVX
-	WugwszOrVFVU9ySFiHnHRQz1EZsIz5gNxS63sDEH6qyenzgbEQj6WuCqqacEKHM26sRpSo
-	RmcAb8zo+DJtS3dtY0/S0h4g6jayJlpU7mt/fU1/vpj8EWA+M1UvFXy4oW91TwJtWH/bdi
-	s080GE/cSXSw2J9UENTHlmLfLtDKOYBLVF4acbnbuL/PGcHrSabeMDBK4V+rDhBIGIBqGW
-	VWcRzLT/7q7secuqVx0Whe2UUvZVQSmGK5rGspeTCAKiE7lX3EiWgChPDnhINA==
-Content-Transfer-Encoding: quoted-printable
+	Thu, 20 Mar 2025 11:24:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C68371424;
+	Thu, 20 Mar 2025 04:25:02 -0700 (PDT)
+Received: from [10.57.84.158] (unknown [10.57.84.158])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 238CF3F694;
+	Thu, 20 Mar 2025 04:24:53 -0700 (PDT)
+Message-ID: <2cb92aaf-900e-4a30-beeb-50081afc85ec@arm.com>
+Date: Thu, 20 Mar 2025 11:24:50 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm64/mm: Remove randomization of the linear map
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, Kees Cook <kees@kernel.org>
+References: <20250318134949.3194334-2-ardb+git@google.com>
+ <CAMj1kXHXAYt0xLnx4=+qiCbnuF5U+9dzwnds1yd+vhTtpP5v3Q@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAMj1kXHXAYt0xLnx4=+qiCbnuF5U+9dzwnds1yd+vhTtpP5v3Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Thu, 20 Mar 2025 11:03:38 +0000
-Message-Id: <D8L1KOJC0NJD.3QJBLQ0Z1FI62@postmarketos.org>
-Subject: Re: [PATCH v5 2/2] arm64: dts: amlogic: add support for
- xiaomi-aquaman/Mi TV Stick
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Ferass El Hafidi" <funderscore@postmarketos.org>
-Cc: "Neil Armstrong" <neil.armstrong@linaro.org>, "Kevin Hilman"
- <khilman@baylibre.com>, "Jerome Brunet" <jbrunet@baylibre.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, <linux-amlogic@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
- "Artur Weber" <aweber.kernel@gmail.com>, "Karl Chan"
- <exxxxkc@getgoogleoff.me>, "Christian Hewitt" <christianshewitt@gmail.com>
-To: "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>
-References: <20250319190150.31529-2-funderscore@postmarketos.org>
- <20250319190150.31529-4-funderscore@postmarketos.org>
- <CAFBinCArRO-F59tOv9m27f+DV+qhy69OGUunGOAbDdfOdd5_Xg@mail.gmail.com>
-In-Reply-To: <CAFBinCArRO-F59tOv9m27f+DV+qhy69OGUunGOAbDdfOdd5_Xg@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_040419_847659_7756C52E 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20250320_042456_502164_BA7AF2A4 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +67,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Mar 19, 2025 at 10:36 PM UTC, Martin Blumenstingl wrote:
-> Hello,
->
-> thanks for your contribution and sorry for the late reply!
->
-> On Wed, Mar 19, 2025 at 8:02=E2=80=AFPM Ferass El Hafidi
-> <funderscore@postmarketos.org> wrote:
-> [...]
-> > +       au2: analog-amplifier {
-> > +               compatible =3D "simple-audio-amplifier";
-> > +               sound-name-prefix =3D "AU2";
-> > +               VCC-supply =3D <&vcc_5v>;
-> > +               enable-gpios =3D <&gpio GPIOH_5 GPIO_ACTIVE_HIGH>;
-> > +       };
-> I couldn't find any pictures online that show an analog audio output
-> (typically a 3.5mm socket).
-> Can you confirm that this is really present?
->
-> [...]
-> > +       sound {
-> > +               compatible =3D "amlogic,gx-sound-card";
-> > +               model =3D "XIAOMI-AQUAMAN";
-> > +               audio-aux-devs =3D <&au2>;
-> > +               audio-widgets =3D "Line", "Lineout";
-> > +               audio-routing =3D "AU2 INL", "ACODEC LOLN",
-> > +                               "AU2 INR", "ACODEC LORN",
-> > +                               "Lineout", "AU2 OUTL",
-> > +                               "Lineout", "AU2 OUTR";
-> If there's no analog audio in/out then this section can be cleaned up
-> as well - together with the references to acodec in the dai-links
-> below.
+On 20/03/2025 07:57, Ard Biesheuvel wrote:
+> On Tue, 18 Mar 2025 at 14:50, Ard Biesheuvel <ardb+git@google.com> wrote:
+>>
+>> From: Ard Biesheuvel <ardb@kernel.org>
+>>
+>> Since commit
+>>
+>>   97d6786e0669 ("arm64: mm: account for hotplug memory when randomizing the linear region")
+>>
+>> the decision whether or not to randomize the placement of the system's
+>> DRAM inside the linear map is based on the capabilities of the CPU
+>> rather than how much memory is present at boot time. This change was
+>> necessary because memory hotplug may result in DRAM appearing in places
+>> that are not covered by the linear region at all (and therefore
+>> unusable) if the decision is solely based on the memory map at boot.
+>>
+>> In the Android GKI kernel, which requires support for memory hotplug,
+>> and is built with a reduced virtual address space of only 39 bits wide,
+>> randomization of the linear map never happens in practice as a result.
+>> And even on arm64 kernels built with support for 48 bit virtual
+>> addressing, the wider PArange of recent CPUs means that linear map
+>> randomization is slowly becoming a feature that only works on systems
+>> that will soon be obsolete.
+>>
+>> So let's just remove this feature. We can always bring it back in an
+>> improved form if there is a real need for it.
 
-Oops, completely overlooked those.  Will fix in v6.  There indeed is no=20
-analog audio output.
+The argument certainly makes sense to me.
 
->
-> [...]
-> > +/* Wireless SDIO Module (Amlogic W155S1 / Realtek RTL8821CS) */
-> > +&sd_emmc_b {
-> question to Neil: since we know that there's two board variants out
-> there (with different wifi chipsets) - are dt overlays down the road
-> enough (to enable Bluetooth / wifi - depending on the chipset or board
-> revision) or do we need to split the whole .dts?
->
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Mark Rutland <mark.rutland@arm.com>
+>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>> Cc: Kees Cook <kees@kernel.org>
+>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Additional note based on an off-list discussion with Kees and the KSPP team:
+> 
+> Initially, the randomization of the linear map was considered to be a
+> layer of defense against the abuse of writable linear aliases of
+> read-only mappings in the vmalloc range, such as module text and
+> rodata. 
 
-So far W155S1 and RTL8821CS are the *known* chipsets used, but there may=20
-be others.  Right now it's not my main concern, as W155S1 is not
-supported in Mainline, as far as I know, and I can't test RTL8821CS
-because my variant seems to have the former.
+I would have assumed that there is already a level of randomization for this use
+case because vmalloc will be allocating random pages from the buddy, so the
+location of a given vmalloc alias in the linear map is already somewhat random?
 
->
-> Best regards,
-> Martin
+Perhaps the regions of interest are allocated early in boot when the pages the
+buddy gives you are still pretty predictable? In this case could there be any
+argument for adding a capability to the buddy to give out somewhat randomised
+pages, at least during boot?
 
-Regards.
+> This has been addressed in the meantime, by mapping the linear
+> region down to pages by default, and mapping linear aliases read-only
+> if the vmalloc mapping is read-only.
+> 
+> So considering that, and the fact that randomization of the linear map
+> occurs rarely if at all on recent CPUs, I think we should go ahead and
+> remove this feature.
+
 
