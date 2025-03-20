@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0CAC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D10C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QmV5BWqKnlxPhrRMqlARz/TZT0WTjCpLvcGNlHyxpKs=; b=Y2t81YndJP9OSGLf6xp+ahPNsj
-	2rSYjpAsprsyswrJiHw+ppi+fGipZQb6b1qp9XBaFaGvubELYAeQPkDM8/f+f7oXhCgdlQhz+wNX3
-	IBGNLLD/4m0X9v2HEpSbocq6jpr83dHk5lz486Vjry5Q72i0kugYiuvrgxoF9SGTlTeyVGhBMLWHZ
-	ut763F3WTq0zBQpujPVdr8quEPOOT2ryQQrnDglSc6Xo+RCwGwv1482dpsQVGhPEpbSekktaCjYWf
-	D4Hr+HEd4/JMS+Gi3NC3K2jfw5Ho0aJjhQ5DV2+H2B4SrF3RlSXlp9/+oUpVqPTR7FmWaXMYFeCW9
-	suCnKeFQ==;
+	bh=+uiHbtbR2+LTCG9tPghyUo9+PEq69RRB7eOXIX8kmmQ=; b=XCEeae5CTHdNxCdWfRTo2r/EsD
+	k3PFPg2TFSM/loDRc/loSs0hdV25K5t6313U2B2bd0au3PbI4PGmxhr5YrzQsTB856N5FPxdzB7gg
+	fiR3QM6ouqUJzGed7z+ggLCo7ux5sIduI/k+ATZB6qWzuQ129kVWLM7/Z/r2AJM5D5zEXtIgICGHM
+	9TcJMq1unRwdnKYIMGtlGDsKBl4UrmZ9SLaol4PLqdOpi+KCi9O7HEMIF5PdaIZDROPWGsenL8sEc
+	S2bwkjftmeXFyf/Az+UJ2ia14jSWMh8Zxty0Cbs97/+9CUd2lOfnRPwn4RIPpVC91c+tPnF3+uMTH
+	A5xNJc+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv5Xp-0000000ArtT-1XWX;
-	Thu, 20 Mar 2025 02:22:05 +0000
+	id 1tv5ZV-0000000AsJE-2VDe;
+	Thu, 20 Mar 2025 02:23:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv592-0000000Aknt-2Y8Q
+	id 1tv594-0000000Akps-0rH6
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 20 Mar 2025 01:56:28 +0000
+	Thu, 20 Mar 2025 01:56:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=QmV5BWqKnlxPhrRMqlARz/TZT0WTjCpLvcGNlHyxpKs=; b=ja1+QRRozLG5BCp1m6+y3tZFc3
-	iiXdNaf1oHtGaRMx9IQbaMZR2W8riuyMlCShADzW8r+TLOb4mzL43Vk/FteElJGXciqk2YqixwFTC
-	AYuI6sIz1dnd1OOeVLHY+fkynGSeLpbpMt5otUfqMEayPV6OTJe59Mp0coes8PJMWgFVaslI5NlhB
-	3966ZOnX4Js/SZy9nO8S/HZIxRTAH1Cf5NJ/pK/UACt2cNmIAPvAixtdEjThjHUN046O9PFpwbCBb
-	bFX7EvaHDngaZc5kTHUa+IBqAyJXWGIu/VdjvD+CkOd9rLQIJZ/ld7d0oBWUD+o/au1EgzdtpxKrX
-	8s1oizKw==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	bh=+uiHbtbR2+LTCG9tPghyUo9+PEq69RRB7eOXIX8kmmQ=; b=MmLIAyAMMArYv65dUBzyozMJaU
+	e20J+1wqafhCVXZ4GqlA27xHeNZnqDcRRbVoAKoW+fVic1MDV35ZzbdD7P3Tm0W3SICjx9rfVPVro
+	2L+9vTTzMSLSA1XpISq4ZZZyV0DcxNydb5sp6eEBmkw9N9mIRV4+zDewzW0nm5L2qwZaHRM0AQvFF
+	2ESZp+H2JcSpRQqYHWe0Tj9L16CenIZZnG/okGo+VLjNnxl3Cz/3xZjGZieTX7ju4NuzsGdqbpbeH
+	p/Q16YlOEYbJmVOKBpdAEp6Z0F3WIN9V8zXKZ4QzF4lQu42IeBL6e+HlI5fxplXpECtmRoX0Pk3Kw
+	DNNQkwTw==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv58z-000000043fO-2RT6
+	id 1tv590-000000043fx-0ijJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 01:56:27 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff58318acaso846559a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:24 -0700 (PDT)
+	Thu, 20 Mar 2025 01:56:29 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff62f96b10so2210661a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742435783; x=1743040583; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742435784; x=1743040584; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QmV5BWqKnlxPhrRMqlARz/TZT0WTjCpLvcGNlHyxpKs=;
-        b=hOyv9f8XTCn45SUhcuSKTgnPbHFtQ7waOjvb5DQs+lF1hsWY2OwSeQIRz5ScUqWfQy
-         Z1tJkw1WU8TpJVX9wRX/xEdRSwF9N3U4yT/m+cRWNGaTePaqAX0dqONHSxm3twIkgIJN
-         /AJverV4JpHbrn1kBNzPOu5Sx9Hog+mFHxoa5pi8i6nUYLLHaDv/QrFRu9LYfQcDNrPE
-         BNtc6LMWhMwrDqLQ63Qj1iChFpQmConO07DlzuCHT1VvaWUXRy+550U3BBhn+l+drE4g
-         W2c0pQy1sLzlAm9qRXrnToifwLG1KofUsP8sSfGf/YtxZ+pja8glGK2hR15Jywb3/68I
-         EWow==
+        bh=+uiHbtbR2+LTCG9tPghyUo9+PEq69RRB7eOXIX8kmmQ=;
+        b=e3k0Lo60PpHn6fXyv87r9sknedIJLblwUeYNTZlcRNoYG3vdMS4Dk5/jnA2XlsPftS
+         nPQuYA8WQEcxdpzIgJCgIxJYV0goxlNwVZ9cBovx+zo5l0bpYmCcmdTl8WrEw3Djt5aa
+         YYXI5mCQ2B7WqM2b4Bg1ogyE1ltv8yM0Bblp/gCwitzYp7U/pFGAptq6DCyFdsclz0B0
+         tzfHGjKhpavcXoX0tuMuwiBU+0IK5RBEKrvtcXuYVNvCaxslFfctpeP5+2DI7zWCClG1
+         c75pvvy1P4zGdUfcMtS5Umq7++32GsiQGW/FJBuJWwqpti2H3DRUaHEjIZsnFpvVf4BE
+         iAbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742435783; x=1743040583;
+        d=1e100.net; s=20230601; t=1742435784; x=1743040584;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QmV5BWqKnlxPhrRMqlARz/TZT0WTjCpLvcGNlHyxpKs=;
-        b=WjepFeJxvB8x/qvZM7wbiDvhG/ToPokAXBX5BwqCotILqEvh3+VIqxtwCcrUyFd/0k
-         S9Ypr3K/soMTG/9AKqlKY6TD1jfZu7lIQ72iFqGwnfCCCLQyG1PY4is/mEdk6wo/i9Nq
-         PPO9LkBCp/eCGSgNXlqrXs5Ga8JBBvLatgg4G1nETe3+L36ia3ILs7VNub6BJitQMLZX
-         MnSz0c49Ezmn5b2TnYg6f4CV+2bn4WLJ/skMix4uh8VFHDUsrPn7n3fijFYjwQDHpERv
-         BrYU8KzteG01sT66FMn89B18W+wtF0tw3VQolGz/Dy69s5VrCCpHpkl7Ec+fhW0OAUtm
-         yeBg==
-X-Forwarded-Encrypted: i=1; AJvYcCUw38j0MRQI2c0uIzGqGadzHgT9E61FnCRtqtJWt9MGw0Al2gFCl1rm19dtCF3AApZ/PmZWGGDW509vZCNXaR3e@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKGVEvzcRE1bz6MSSFcFw8jANYdNHk+lvyuq+W69WOnC5NmLGr
-	vHUt/H0nSjjgXyFy6+2VaNAb4iGmk94m4vJKrwCsPRGY7DJf3KpkxiRTWaXIn5+3ByHrKbZYjvO
-	FWHdUN6fb4nNqSt+ZgQ==
-X-Google-Smtp-Source: AGHT+IFcz6xgCpsdaGMV/lA4NVDUFar/eMRSs8b1l17t60oWu+KTL3OhVFDVjETsYQaFDiZdylma2/Q1A+VwCJiL
-X-Received: from pjbrr14.prod.google.com ([2002:a17:90b:2b4e:b0:2ef:82c0:cb8d])
+        bh=+uiHbtbR2+LTCG9tPghyUo9+PEq69RRB7eOXIX8kmmQ=;
+        b=hso+Lu6NoijaJLa8eelyBqCAHk2mgYP7n9NeDSXYJ9HP2I8AvtySxG8hOzHZpg0XR1
+         5dcevNd0wjhNgEcLR6yMSj2s1X6/4fZI41sKR8qYBgOy0t4Err6Ese+BIt4h+1UCdUQj
+         dkxixH2Pgn+PP/Zrje2GOyNS+oAuVEr2YU1C5rb0gQZ5TygYzlA3Mg1AsBd3W+wjJOhE
+         dcl0EwSiVgtT+FCOEJWPUhqCS5NcdVGvNceY8bHk728iGZicalAmdSNnb6B3BsO/Wr7V
+         A410cQvEtswA9FrIvYXPAleMScQyAUpfU2TjNoRv3LqXLSUiajsW3yO7rInRNg1OZh+a
+         JHDA==
+X-Forwarded-Encrypted: i=1; AJvYcCW5Jpxb0hklup+Yry3XuHl3R1BKdsWqwJyYLPtbdM1GIJuTbZz2nb9PohP2Gqz0ZuCRloOwS1TZmu2N+HmktkWh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yypb1IelO+CM4ZZLDcTEtgAWhMvE/NHN+zO28eMXHKCEiQ2S1b/
+	OGAQoXbt2rfq8jT82nSApYdU1Zsp+Sfc8ImaSsOlrq8dbh+snuopBSZCx09BcvpmYuyre/f6ORL
+	ONvmuHqxnW7SqdS9/Mg==
+X-Google-Smtp-Source: AGHT+IGco0TbFvrpWaz7RU09LVDLIbrwQOB0hzzeh7i66UCW7yrWSDQtXXKFJgzbGrQWcK/LzqGUCqggvCd+K/bd
+X-Received: from pgvr15.prod.google.com ([2002:a65:60cf:0:b0:ad8:bdc2:8a33])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:1f86:b0:301:6343:1626 with SMTP id 98e67ed59e1d1-301d507fab7mr2148203a91.1.1742435782874;
- Wed, 19 Mar 2025 18:56:22 -0700 (PDT)
-Date: Wed, 19 Mar 2025 18:55:49 -0700
+ 2002:a05:6a21:69c:b0:1f5:8bf4:fde0 with SMTP id adf61e73a8af0-1fd0904c18cmr2493103637.9.1742435784427;
+ Wed, 19 Mar 2025 18:56:24 -0700 (PDT)
+Date: Wed, 19 Mar 2025 18:55:50 -0700
 In-Reply-To: <20250320015551.2157511-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250320015551.2157511-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250320015551.2157511-15-changyuanl@google.com>
-Subject: [PATCH v5 14/16] x86: add KHO support
+Message-ID: <20250320015551.2157511-16-changyuanl@google.com>
+Subject: [PATCH v5 15/16] memblock: add KHO support for reserve_mem
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org, 
@@ -99,8 +99,8 @@ Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
 	linux-mm@kvack.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_015625_881695_D23FDE3B 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20250320_015627_240568_A8B75152 
+X-CRM114-Status: GOOD (  20.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,14 +117,19 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexander Graf <graf@amazon.com>
 
-We now have all bits in place to support KHO kexecs. This patch adds
-awareness of KHO in the kexec file as well as boot path for x86 and
-adds the respective kconfig option to the architecture so that it can
-use KHO successfully.
+Linux has recently gained support for "reserve_mem": A mechanism to
+allocate a region of memory early enough in boot that we can cross our
+fingers and hope it stays at the same location during most boots, so we
+can store for example ftrace buffers into it.
 
-In addition, it enlightens it decompression code with KHO so that its
-KASLR location finder only considers memory regions that are not already
-occupied by KHO memory.
+Thanks to KASLR, we can never be really sure that "reserve_mem"
+allocations are static across kexec. Let's teach it KHO awareness so
+that it serializes its reservations on kexec exit and deserializes them
+again on boot, preserving the exact same mapping across kexec.
+
+This is an example user for KHO in the KHO patch set to ensure we have
+at least one (not very controversial) user in the tree before extending
+KHO's use to more subsystems.
 
 Signed-off-by: Alexander Graf <graf@amazon.com>
 Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
@@ -132,331 +137,213 @@ Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Co-developed-by: Changyuan Lyu <changyuanl@google.com>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- arch/x86/Kconfig                       |  3 ++
- arch/x86/boot/compressed/kaslr.c       | 52 +++++++++++++++++++++++++-
- arch/x86/include/asm/setup.h           |  4 ++
- arch/x86/include/uapi/asm/setup_data.h | 13 ++++++-
- arch/x86/kernel/e820.c                 | 18 +++++++++
- arch/x86/kernel/kexec-bzimage64.c      | 36 ++++++++++++++++++
- arch/x86/kernel/setup.c                | 25 +++++++++++++
- arch/x86/realmode/init.c               |  2 +
- include/linux/kexec_handover.h         | 13 +++++--
- 9 files changed, 161 insertions(+), 5 deletions(-)
+ mm/memblock.c | 179 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 179 insertions(+)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 0e27ebd7e36a..acd180e3002f 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2091,6 +2091,9 @@ config ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
- config ARCH_SUPPORTS_KEXEC_JUMP
- 	def_bool y
+diff --git a/mm/memblock.c b/mm/memblock.c
+index d28abf3def1c..dd698c55b87e 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -17,6 +17,10 @@
+ #include <linux/seq_file.h>
+ #include <linux/memblock.h>
  
-+config ARCH_SUPPORTS_KEXEC_HANDOVER
-+	def_bool y
-+
- config ARCH_SUPPORTS_CRASH_DUMP
- 	def_bool X86_64 || (X86_32 && HIGHMEM)
- 
-diff --git a/arch/x86/boot/compressed/kaslr.c b/arch/x86/boot/compressed/kaslr.c
-index f03d59ea6e40..ff1168881016 100644
---- a/arch/x86/boot/compressed/kaslr.c
-+++ b/arch/x86/boot/compressed/kaslr.c
-@@ -760,6 +760,55 @@ static void process_e820_entries(unsigned long minimum,
- 	}
- }
- 
-+/*
-+ * If KHO is active, only process its scratch areas to ensure we are not
-+ * stepping onto preserved memory.
-+ */
 +#ifdef CONFIG_KEXEC_HANDOVER
-+static bool process_kho_entries(unsigned long minimum, unsigned long image_size)
++#include <linux/kexec_handover.h>
++#endif /* CONFIG_KEXEC_HANDOVER */
++
+ #include <asm/sections.h>
+ #include <linux/io.h>
+ 
+@@ -2431,6 +2435,176 @@ int reserve_mem_find_by_name(const char *name, phys_addr_t *start, phys_addr_t *
+ }
+ EXPORT_SYMBOL_GPL(reserve_mem_find_by_name);
+ 
++#ifdef CONFIG_KEXEC_HANDOVER
++#define MEMBLOCK_KHO_NODE "memblock"
++#define MEMBLOCK_KHO_NODE_COMPATIBLE "memblock-v1"
++#define RESERVE_MEM_KHO_NODE_COMPATIBLE "reserve-mem-v1"
++
++static struct kho_node memblock_kho_node = KHO_NODE_INIT;
++
++static void reserve_mem_kho_reset(void)
 +{
-+	struct kho_scratch *kho_scratch;
-+	struct setup_data *ptr;
-+	int i, nr_areas = 0;
++	int i;
++	struct kho_node *node;
 +
-+	ptr = (struct setup_data *)(unsigned long)boot_params_ptr->hdr.setup_data;
-+	while (ptr) {
-+		if (ptr->type == SETUP_KEXEC_KHO) {
-+			struct kho_data *kho = (struct kho_data *)ptr->data;
++	kho_remove_node(NULL, MEMBLOCK_KHO_NODE);
++	kho_remove_prop(&memblock_kho_node, "compatible", NULL);
 +
-+			kho_scratch = (void *)kho->scratch_addr;
-+			nr_areas = kho->scratch_size / sizeof(*kho_scratch);
++	for (i = 0; i < reserved_mem_count; i++) {
++		struct reserve_mem_table *map = &reserved_mem_table[i];
 +
++		node = kho_remove_node(&memblock_kho_node, map->name);
++		if (IS_ERR(node))
++			continue;
++
++		kho_unpreserve_phys(map->start, map->size);
++
++		kho_remove_prop(node, "compatible", NULL);
++		kho_remove_prop(node, "start", NULL);
++		kho_remove_prop(node, "size", NULL);
++
++		kfree(node);
++	}
++}
++
++static int reserve_mem_kho_finalize(void)
++{
++	int i, err = 0;
++	struct kho_node *node;
++
++	if (!reserved_mem_count)
++		return NOTIFY_DONE;
++
++	err = kho_add_node(NULL, MEMBLOCK_KHO_NODE, &memblock_kho_node);
++	if (err == 1)
++		return NOTIFY_DONE;
++
++	err |= kho_add_string_prop(&memblock_kho_node, "compatible",
++				   MEMBLOCK_KHO_NODE_COMPATIBLE);
++
++	for (i = 0; i < reserved_mem_count; i++) {
++		struct reserve_mem_table *map = &reserved_mem_table[i];
++
++		node = kmalloc(sizeof(*node), GFP_KERNEL);
++		if (!node) {
++			err = -ENOMEM;
 +			break;
 +		}
 +
-+		ptr = (struct setup_data *)(unsigned long)ptr->next;
-+	}
++		err |= kho_preserve_phys(map->start, map->size);
 +
-+	if (!nr_areas)
-+		return false;
++		kho_init_node(node);
++		err |= kho_add_string_prop(node, "compatible",
++					   RESERVE_MEM_KHO_NODE_COMPATIBLE);
++		err |= kho_add_prop(node, "start", &map->start,
++				    sizeof(map->start));
++		err |= kho_add_prop(node, "size", &map->size,
++				    sizeof(map->size));
++		err |= kho_add_node(&memblock_kho_node, map->name, node);
 +
-+	for (i = 0; i < nr_areas; i++) {
-+		struct kho_scratch *area = &kho_scratch[i];
-+		struct mem_vector region = {
-+			.start = area->addr,
-+			.size = area->size,
-+		};
-+
-+		if (process_mem_region(&region, minimum, image_size))
++		if (err)
 +			break;
 +	}
++
++	if (err) {
++		pr_err("failed to save reserve_mem to KHO: %d\n", err);
++		reserve_mem_kho_reset();
++		return NOTIFY_STOP;
++	}
++
++	return NOTIFY_DONE;
++}
++
++static int reserve_mem_kho_notifier(struct notifier_block *self,
++				    unsigned long cmd, void *v)
++{
++	switch (cmd) {
++	case KEXEC_KHO_FINALIZE:
++		return reserve_mem_kho_finalize();
++	case KEXEC_KHO_UNFREEZE:
++		return NOTIFY_DONE;
++	default:
++		return NOTIFY_BAD;
++	}
++}
++
++static struct notifier_block reserve_mem_kho_nb = {
++	.notifier_call = reserve_mem_kho_notifier,
++};
++
++static int __init reserve_mem_init(void)
++{
++	if (!kho_is_enabled())
++		return 0;
++
++	return register_kho_notifier(&reserve_mem_kho_nb);
++}
++core_initcall(reserve_mem_init);
++
++static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
++					  phys_addr_t align)
++{
++	int err, len_start, len_size;
++	struct kho_in_node node, child;
++	const phys_addr_t *p_start, *p_size;
++
++	err = kho_get_node(NULL, MEMBLOCK_KHO_NODE, &node);
++	if (err)
++		return false;
++
++	err = kho_node_check_compatible(&node, MEMBLOCK_KHO_NODE_COMPATIBLE);
++	if (err) {
++		pr_warn("Node '%s' is incompatible with %s: %d\n",
++			MEMBLOCK_KHO_NODE, MEMBLOCK_KHO_NODE_COMPATIBLE, err);
++		return false;
++	}
++
++	err = kho_get_node(&node, name, &child);
++	if (err) {
++		pr_warn("Node '%s' has no child '%s': %d\n",
++			MEMBLOCK_KHO_NODE, name, err);
++		return false;
++	}
++	err = kho_node_check_compatible(&child, RESERVE_MEM_KHO_NODE_COMPATIBLE);
++	if (err) {
++		pr_warn("Node '%s/%s' is incompatible with %s: %d\n",
++			MEMBLOCK_KHO_NODE, name,
++			RESERVE_MEM_KHO_NODE_COMPATIBLE, err);
++		return false;
++	}
++
++	p_start = kho_get_prop(&child, "start", &len_start);
++	p_size = kho_get_prop(&child, "size", &len_size);
++	if (!p_start || len_start != sizeof(*p_start) || !p_size ||
++	    len_size != sizeof(*p_size)) {
++		return false;
++	}
++
++	if (*p_start & (align - 1)) {
++		pr_warn("KHO reserve-mem '%s' has wrong alignment (0x%lx, 0x%lx)\n",
++			name, (long)align, (long)*p_start);
++		return false;
++	}
++
++	if (*p_size != size) {
++		pr_warn("KHO reserve-mem '%s' has wrong size (0x%lx != 0x%lx)\n",
++			name, (long)*p_size, (long)size);
++		return false;
++	}
++
++	reserved_mem_add(*p_start, size, name);
++	pr_info("Revived memory reservation '%s' from KHO\n", name);
 +
 +	return true;
 +}
 +#else
-+static inline bool process_kho_entries(unsigned long minimum,
-+				       unsigned long image_size)
++static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
++					  phys_addr_t align)
 +{
 +	return false;
 +}
-+#endif
-+
- static unsigned long find_random_phys_addr(unsigned long minimum,
- 					   unsigned long image_size)
- {
-@@ -775,7 +824,8 @@ static unsigned long find_random_phys_addr(unsigned long minimum,
- 		return 0;
- 	}
- 
--	if (!process_efi_entries(minimum, image_size))
-+	if (!process_kho_entries(minimum, image_size) &&
-+	    !process_efi_entries(minimum, image_size))
- 		process_e820_entries(minimum, image_size);
- 
- 	phys_addr = slots_fetch_random();
-diff --git a/arch/x86/include/asm/setup.h b/arch/x86/include/asm/setup.h
-index 85f4fde3515c..70e045321d4b 100644
---- a/arch/x86/include/asm/setup.h
-+++ b/arch/x86/include/asm/setup.h
-@@ -66,6 +66,10 @@ extern void x86_ce4100_early_setup(void);
- static inline void x86_ce4100_early_setup(void) { }
- #endif
- 
-+#ifdef CONFIG_KEXEC_HANDOVER
-+#include <linux/kexec_handover.h>
-+#endif
-+
- #ifndef _SETUP
- 
- #include <asm/espfix.h>
-diff --git a/arch/x86/include/uapi/asm/setup_data.h b/arch/x86/include/uapi/asm/setup_data.h
-index b111b0c18544..c258c37768ee 100644
---- a/arch/x86/include/uapi/asm/setup_data.h
-+++ b/arch/x86/include/uapi/asm/setup_data.h
-@@ -13,7 +13,8 @@
- #define SETUP_CC_BLOB			7
- #define SETUP_IMA			8
- #define SETUP_RNG_SEED			9
--#define SETUP_ENUM_MAX			SETUP_RNG_SEED
-+#define SETUP_KEXEC_KHO			10
-+#define SETUP_ENUM_MAX			SETUP_KEXEC_KHO
- 
- #define SETUP_INDIRECT			(1<<31)
- #define SETUP_TYPE_MAX			(SETUP_ENUM_MAX | SETUP_INDIRECT)
-@@ -78,6 +79,16 @@ struct ima_setup_data {
- 	__u64 size;
- } __attribute__((packed));
- 
-+/*
-+ * Locations of kexec handover metadata
-+ */
-+struct kho_data {
-+	__u64 dt_addr;
-+	__u64 dt_size;
-+	__u64 scratch_addr;
-+	__u64 scratch_size;
-+} __attribute__((packed));
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _UAPI_ASM_X86_SETUP_DATA_H */
-diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
-index 82b96ed9890a..0b81cd70b02a 100644
---- a/arch/x86/kernel/e820.c
-+++ b/arch/x86/kernel/e820.c
-@@ -1329,6 +1329,24 @@ void __init e820__memblock_setup(void)
- 		memblock_add(entry->addr, entry->size);
- 	}
- 
-+	/*
-+	 * At this point with KHO we only allocate from scratch memory.
-+	 * At the same time, we configure memblock to only allow
-+	 * allocations from memory below ISA_END_ADDRESS which is not
-+	 * a natural scratch region, because Linux ignores memory below
-+	 * ISA_END_ADDRESS at runtime. Beside very few (if any) early
-+	 * allocations, we must allocate real-mode trapoline below
-+	 * ISA_END_ADDRESS.
-+	 *
-+	 * To make sure that we can actually perform allocations during
-+	 * this phase, let's mark memory below ISA_END_ADDRESS as scratch
-+	 * so we can allocate from there in a scratch-only world.
-+	 *
-+	 * After real mode trampoline is allocated, we clear scratch
-+	 * marking from the memory below ISA_END_ADDRESS
-+	 */
-+	memblock_mark_kho_scratch(0, ISA_END_ADDRESS);
-+
- 	/* Throw away partial pages: */
- 	memblock_trim_memory(PAGE_SIZE);
- 
-diff --git a/arch/x86/kernel/kexec-bzimage64.c b/arch/x86/kernel/kexec-bzimage64.c
-index 68530fad05f7..09d6a068b14c 100644
---- a/arch/x86/kernel/kexec-bzimage64.c
-+++ b/arch/x86/kernel/kexec-bzimage64.c
-@@ -233,6 +233,31 @@ setup_ima_state(const struct kimage *image, struct boot_params *params,
- #endif /* CONFIG_IMA_KEXEC */
- }
- 
-+static void setup_kho(const struct kimage *image, struct boot_params *params,
-+		      unsigned long params_load_addr,
-+		      unsigned int setup_data_offset)
-+{
-+#ifdef CONFIG_KEXEC_HANDOVER
-+	struct setup_data *sd = (void *)params + setup_data_offset;
-+	struct kho_data *kho = (void *)sd + sizeof(*sd);
-+
-+	sd->type = SETUP_KEXEC_KHO;
-+	sd->len = sizeof(struct kho_data);
-+
-+	/* Only add if we have all KHO images in place */
-+	if (!image->kho.fdt || !image->kho.scratch)
-+		return;
-+
-+	/* Add setup data */
-+	kho->dt_addr = image->kho.fdt->mem;
-+	kho->dt_size = image->kho.fdt->memsz;
-+	kho->scratch_addr = image->kho.scratch->mem;
-+	kho->scratch_size = image->kho.scratch->bufsz;
-+	sd->next = params->hdr.setup_data;
-+	params->hdr.setup_data = params_load_addr + setup_data_offset;
 +#endif /* CONFIG_KEXEC_HANDOVER */
-+}
 +
- static int
- setup_boot_parameters(struct kimage *image, struct boot_params *params,
- 		      unsigned long params_load_addr,
-@@ -312,6 +337,13 @@ setup_boot_parameters(struct kimage *image, struct boot_params *params,
- 				     sizeof(struct ima_setup_data);
- 	}
+ /*
+  * Parse reserve_mem=nn:align:name
+  */
+@@ -2486,6 +2660,11 @@ static int __init reserve_mem(char *p)
+ 	if (reserve_mem_find_by_name(name, &start, &tmp))
+ 		return -EBUSY;
  
-+	if (IS_ENABLED(CONFIG_KEXEC_HANDOVER)) {
-+		/* Setup space to store preservation metadata */
-+		setup_kho(image, params, params_load_addr, setup_data_offset);
-+		setup_data_offset += sizeof(struct setup_data) +
-+				     sizeof(struct kho_data);
-+	}
++	/* Pick previous allocations up from KHO if available */
++	if (reserve_mem_kho_revive(name, size, align))
++		return 1;
 +
- 	/* Setup RNG seed */
- 	setup_rng_seed(params, params_load_addr, setup_data_offset);
- 
-@@ -479,6 +511,10 @@ static void *bzImage64_load(struct kimage *image, char *kernel,
- 		kbuf.bufsz += sizeof(struct setup_data) +
- 			      sizeof(struct ima_setup_data);
- 
-+	if (IS_ENABLED(CONFIG_KEXEC_HANDOVER))
-+		kbuf.bufsz += sizeof(struct setup_data) +
-+			      sizeof(struct kho_data);
-+
- 	params = kzalloc(kbuf.bufsz, GFP_KERNEL);
- 	if (!params)
- 		return ERR_PTR(-ENOMEM);
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index ead370570eb2..e2c54181405b 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -385,6 +385,28 @@ int __init ima_get_kexec_buffer(void **addr, size_t *size)
- }
- #endif
- 
-+static void __init add_kho(u64 phys_addr, u32 data_len)
-+{
-+#ifdef CONFIG_KEXEC_HANDOVER
-+	struct kho_data *kho;
-+	u64 addr = phys_addr + sizeof(struct setup_data);
-+	u64 size = data_len - sizeof(struct setup_data);
-+
-+	kho = early_memremap(addr, size);
-+	if (!kho) {
-+		pr_warn("setup: failed to memremap kho data (0x%llx, 0x%llx)\n",
-+			addr, size);
-+		return;
-+	}
-+
-+	kho_populate(kho->dt_addr, kho->scratch_addr, kho->scratch_size);
-+
-+	early_memunmap(kho, size);
-+#else
-+	pr_warn("Passed KHO data, but CONFIG_KEXEC_HANDOVER not set. Ignoring.\n");
-+#endif
-+}
-+
- static void __init parse_setup_data(void)
- {
- 	struct setup_data *data;
-@@ -413,6 +435,9 @@ static void __init parse_setup_data(void)
- 		case SETUP_IMA:
- 			add_early_ima_buffer(pa_data);
- 			break;
-+		case SETUP_KEXEC_KHO:
-+			add_kho(pa_data, data_len);
-+			break;
- 		case SETUP_RNG_SEED:
- 			data = early_memremap(pa_data, data_len);
- 			add_bootloader_randomness(data->data, data->len);
-diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
-index f9bc444a3064..9b9f4534086d 100644
---- a/arch/x86/realmode/init.c
-+++ b/arch/x86/realmode/init.c
-@@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
- 	 * setup_arch().
- 	 */
- 	memblock_reserve(0, SZ_1M);
-+
-+	memblock_clear_kho_scratch(0, SZ_1M);
- }
- 
- static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
-diff --git a/include/linux/kexec_handover.h b/include/linux/kexec_handover.h
-index d52a7b500f4c..2dd51a77d56c 100644
---- a/include/linux/kexec_handover.h
-+++ b/include/linux/kexec_handover.h
-@@ -3,9 +3,6 @@
- #define LINUX_KEXEC_HANDOVER_H
- 
- #include <linux/types.h>
--#include <linux/hashtable.h>
--#include <linux/notifier.h>
--#include <linux/mm_types.h>
- 
- struct kho_scratch {
- 	phys_addr_t addr;
-@@ -18,6 +15,15 @@ enum kho_event {
- 	KEXEC_KHO_UNFREEZE = 1,
- };
- 
-+#ifdef _SETUP
-+struct notifier_block;
-+struct kho_node;
-+struct folio;
-+#else
-+#include <linux/notifier.h>
-+#include <linux/hashtable.h>
-+#include <linux/mm_types.h>
-+
- #define KHO_HASHTABLE_BITS 3
- #define KHO_NODE_INIT                                        \
- 	{                                                    \
-@@ -35,6 +41,7 @@ struct kho_node {
- 	struct list_head list;
- 	bool visited;
- };
-+#endif /* _SETUP */
- 
- struct kho_in_node {
- 	int offset;
++	/* TODO: Allocation must be outside of scratch region */
+ 	start = memblock_phys_alloc(size, align);
+ 	if (!start)
+ 		return -ENOMEM;
 -- 
 2.48.1.711.g2feabab25a-goog
 
