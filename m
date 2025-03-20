@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 192F3C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D906BC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/2i/cLqH70rFIGQEh0as4tKq9BI5pDp8ooCRLadLuPs=; b=AMMhzpQl7xbU+t0xknVNOLmZz0
-	3jgpAaP9RUr71TIXP2ltlNGeu+eECy31Cn95R09AjfsAxGiPGpQ8195CIuP144P8Uad6F6MyUHM6/
-	nbMuk87D4NqgwmKFBjrRV9LF/tQGNouSuHJGp9D8ay5R+dnmhiPYTzRwhTastQjRJ/aqA8AW0Bq97
-	LCWOm7c2Qc+N70a4i9XzKr4xSR3SzXteF2BlwcJSM6CEn2CWp6wU5n9xpQBfm2PAnhUQ1DJymgdXm
-	cezUi4zelZNFAyVbYgmxNMBaOdh7zHphRD2+XY7QLU2cbuRb7E3qjJDV7w5PPaTE4dI2nkNQO4sYQ
-	LaWxoSzQ==;
+	bh=a9NDCwlC9t4pV6apOxhp/Woh5xsA/boRS4RgotHWwmw=; b=14+a7RpXQrfqprtREf8oFnnZS1
+	HRhqN3vIstxODDwf58Ikt2Zu2xGZCbqTkpA207qUfmg/ajn7AOViB9OzbfqObtMYBaUM+1c9h9/uy
+	bQbc87gdwIePo7MmCgbcptLFD6Csc2HBLhIOrmOHfrCQSOM6zNNzsZhxsGDfNCtLqLnU4mQ3h+AQ8
+	UEYIqAMjZcO7ZXN82brOkCoasi+ZnSrVjiWUK5hvkGSqydhDTZZvFyALFyg3tAZh5g1jqtiL34hX5
+	OSdK5ICsbFbI3U4Qeq9S89uo+AVYZTSBkyzot5cuVRbDIcltsJUenPuaqkaYZO1CTp/VIa5QIEe1C
+	casBH6Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFpR-0000000CDKG-24w0;
-	Thu, 20 Mar 2025 13:20:57 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tvFr6-0000000CDZK-3Kgt;
+	Thu, 20 Mar 2025 13:22:40 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFWy-0000000CAiQ-2fEy;
-	Thu, 20 Mar 2025 13:01:53 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-399744f74e9so458029f8f.1;
-        Thu, 20 Mar 2025 06:01:52 -0700 (PDT)
+	id 1tvFWf-0000000CAb6-3zUo;
+	Thu, 20 Mar 2025 13:01:35 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43cf0d787eeso7903095e9.3;
+        Thu, 20 Mar 2025 06:01:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742475711; x=1743080511; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742475692; x=1743080492; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=/2i/cLqH70rFIGQEh0as4tKq9BI5pDp8ooCRLadLuPs=;
-        b=UNWPclpawWJ3w+F3KFoSRSOnOOJZSEMyl5eDTmcLUKZCil7X79wgDrv+BjL0WjPqa9
-         ykU5y811GsUY/ATdBWK0vnN6qcYlEc1EtSFag/fstwoBe4IN9ArLcCxrQEl7ziNTwVaG
-         LMpjmQ8Yc7CXh5FWhgvJqDj33JH3BNo/ZdNGO1G9JPZnoTGZQj9pDede6wKUqwmkcB+k
-         fYdT5H+qxXUE8aL74T5sURbEszmQTSbF+MnbD4VCECLODxINCVeKP5+Grs/ciAx2F3oX
-         lo/2Z1GSfwpPUH4WCrbRYEdro4Gj8YJtgetzl7Wxl4NkVQdLlWtomQhBWuAjC+pg2Eru
-         kEQA==
+        bh=a9NDCwlC9t4pV6apOxhp/Woh5xsA/boRS4RgotHWwmw=;
+        b=ALP7cn2Uga2qYBE+IZabvMWqs/iYkW/60KOTwWyG3R8UpabZsS7tdHxFJsMuKFI5Zz
+         39qejDRYFwcZfl/+PwgDQF8+H7X8a/kjvWLXwBHnO0vswhY+gIBOCmUT8kiZE4QVHoTc
+         BDOt161rLi4TaLr7NZdOGcKlJzdCPjFasqW9nPkO/I4boRQ/eeCcJ5pKj+VjM0hRFXFu
+         qb+iE++uIXYZsuxkL+4TtvEGWnJG6xQfXgfRw9/U7EDnXanuLqgPSb9FMhsfR2Ip2ThA
+         hrDXDFVXS0KjhrEf4GH7sRqBP/epmS2BlHf4MGC/71fAF68ur5FBvysyfvZUMCr65fW7
+         rUtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742475711; x=1743080511;
+        d=1e100.net; s=20230601; t=1742475692; x=1743080492;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/2i/cLqH70rFIGQEh0as4tKq9BI5pDp8ooCRLadLuPs=;
-        b=nfuI5WEU2ScUHuUBNCtGTcWkScxr4l87wBKFYUKpLtQUvpdOU2wU6B0A/YKReKDBqL
-         FteE8uhpSBrr+26sVBXeAnLTAtTrcY8sQv5GRLnJ4NBQa9nffBOOmVDkdQ2XH0PJlnTg
-         RXAOByA/3I+BbR0rmLq+xDZGyULlL3dzuTPY+Oe5Rh09LnHtYE6glPuGvSmsiy/WOhtn
-         UCpoi16xPAUObw68HRLZn8K/h8OjZY4W1hGyf9TDCEMxviQNkAhvW4pv6YFpcjOervS+
-         3hNbcAhKfufKimP4SldAXi3O0ZCgRh5gN0cg1mR1dEAEuq3U53UN1ou5dBPyNeMoed4L
-         jrLA==
-X-Forwarded-Encrypted: i=1; AJvYcCUxcwdjIRGIb9TiQeg6VET3MQqnbMD89r2yyjVNVa2nI3DZ9UhEVl5Yx9rPETx5xPaw3eal3pLsvwa4I69s5Wh2@lists.infradead.org, AJvYcCWhEzRNpDPBZDpRkD8zqzJKU4tH3Qh5y3NfEIrj57CkjTiJjSIp69KmLK3vV5iTQxXjYBDyW7to/ev7@lists.infradead.org, AJvYcCXG9ndxBqfSXie13z2XWIwiry4kJjSfvGJy8sLy+QsQJ3eb9ujGpuxECTaWcnjaCJubmRGHh/5TdTpb/21iPGA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YztAb9aMAl0Yx48Qg7oZQSNW+2iWY8Q25ZEw+IIEO76UXJ+cvK1
-	iuH6NwRBJORR15lEJKgSs6K+h+L6FcEuggNUFHPaYuZZNXS1AVOC
-X-Gm-Gg: ASbGnctTTgweoq+BmWAnQuhFrV+mwfpwu4HH7hKcFjfuRejz3b0yHQkA+/czbnwBw+P
-	flokxZqNc632JmkbQnLXosfV8pKA7ETREWB8KxoZgjrxLAOPWy2Z42CJJZMf+Q5Pzyu4Pa/heqx
-	/iUUwEJTqZlzYnmZsPwRaVwcVJe9wd5a7kHLzxF8UKy8O1BKX9j3cxKpLCW4ErlWGwk4J7aOJzG
-	OLPdU8/gREygyQSODruZPQ6+gETGsvIwsls06UySiYFvoiSB7Tmf+WuxyCESa1NESnUcGI5QH2N
-	aPAhWQa9ZRmopMZvslYOc5U2LgvtHoWn30iazjJPTrfJMkElGHBk1hdMsJLEn9c3ZHrxQQdJDBZ
-	qlRsgtWqcVFiruA==
-X-Google-Smtp-Source: AGHT+IGPoVf9Gxeq+Z6YkgZOF9dLEtuHhARuJ5TNPwOSxmTqplkNjLTuQh6kUIXQk8Ui4saz4dpBhQ==
-X-Received: by 2002:a05:6000:1564:b0:391:4095:49b7 with SMTP id ffacd0b85a97d-399739c8f6dmr6626914f8f.25.1742475709979;
-        Thu, 20 Mar 2025 06:01:49 -0700 (PDT)
+        bh=a9NDCwlC9t4pV6apOxhp/Woh5xsA/boRS4RgotHWwmw=;
+        b=hbgOd+4hqU7tdb8EOn/A8rDxykrlK7vSTluvNG7U2A/piSWCNxDI8/gZD1Do+K5LxN
+         i1AXUm3Sex8w7A5b/S6UAmIw/kUSvE5FmgjeNIlt7jmaGCgHgRjDhYocyp4ZbfZ0WqyM
+         f2bkviMVR2IZCHQo+MsJNwNDBw7i+liflNclpxQxHPUc8GVu5BNw0Tk/mH+2Z63OQI4u
+         MXdQ7JYRQGsvjfFt09rzRPeckJDuPWTacdlMsXZVow8cB+YCxPk1TmqyKpxbWSL29++0
+         aIdSBDFLcsAWHi2BAY7s6o5RBzbzOHoUy2Baw/S/xngE8zL0JlOghneKickyveYHKote
+         /50A==
+X-Forwarded-Encrypted: i=1; AJvYcCUICXZoKlr/Kl0WIR7ag0r9GRXFAqjTlmRXJU+YtIlCJVYFaBsM0Z+J1xEZYc23kzB9ra3dFv+E384XO/oTzuNa@lists.infradead.org, AJvYcCV8txN6fL8a6lM3970caGRJLz2Wyj/qJeYBHTtJh5eH4ZWvxxpIKRBG698qCEwHcyrUhZhIzdSJEFA4@lists.infradead.org, AJvYcCXMgaeO8UXPcpoXD4z3SJtFSCG4lML4Rb0CEC3eLGmpnP1YScnjAQM5BiQ8nLizvV1yiaI5pz5V+uzvgewjuOs=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxakJ+B9RHJVoPh6/ijohMjtCfisilL9VHexheIi5JRibr/44Q
+	om56RYAmnRC/8Eo70S81STPSgpruW12SVl0AfnUayrVuvjwY1ZAX
+X-Gm-Gg: ASbGnctQlKnLQsLp6TjXFZ/kI3hd+52Sq8XDbFcsqxKy6yGoKLcGnJdttJHfK155oFj
+	DFxQZcXp474cZxHIh8wPmdSomBBV7rk8RQ2sgKhVtjME8JJL0RYwoT9ou51QncWNuqZTqEnZkvN
+	OnpgThFTUTV+Yq0IIW6EVvj3BkSIdPVG30TejP8ASA41q4sz9HqUMJXhxRxV8hvBBxG97nKmnxB
+	rfirVOA+NwQuebnWg+Gv3zePDzn9TwqBJqAF77XxjhBWbvTCT6u6K/Wy4te0EDqmwy1kbVDivce
+	XhfIaFYp+dYNirWUPE3qVMZ8jkMHNpXMEY9iCkyWI7yrMzZqqtHzb3NJcvCslx5NsPLGkOUTlv8
+	GFlP+oa4s5UTr6g==
+X-Google-Smtp-Source: AGHT+IHeiWUjZYzxtkXpntYYlsW6atQC3N/FUEVhxccbCxLV+C3rtXXpoHMzxMjkwdKTi2hGl7WWew==
+X-Received: by 2002:a05:6000:21c4:b0:399:795e:d899 with SMTP id ffacd0b85a97d-399795ed8b6mr2509291f8f.14.1742475691925;
+        Thu, 20 Mar 2025 06:01:31 -0700 (PDT)
 Received: from localhost.localdomain (93-34-90-129.ip49.fastwebnet.it. [93.34.90.129])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-397f2837e61sm18492328f8f.97.2025.03.20.06.01.48
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-397f2837e61sm18492328f8f.97.2025.03.20.06.01.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 06:01:49 -0700 (PDT)
+        Thu, 20 Mar 2025 06:01:31 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -97,17 +97,17 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-usb@vger.kernel.org,
 	upstream@airoha.com
-Subject: [PATCH v2 11/11] arm64: dts: airoha: en7581: add USB nodes
-Date: Thu, 20 Mar 2025 14:00:34 +0100
-Message-ID: <20250320130054.4804-12-ansuelsmth@gmail.com>
+Subject: [PATCH v2 03/11] dt-bindings: clock: en7523: add Documentation for Airoha AN7581 SCU SSR
+Date: Thu, 20 Mar 2025 14:00:26 +0100
+Message-ID: <20250320130054.4804-4-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250320130054.4804-1-ansuelsmth@gmail.com>
 References: <20250320130054.4804-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_060152_673008_D2855AB0 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250320_060133_993566_0BC55492 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,82 +122,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add USB nodes required for USB support of Airoha EN7581 with the correct
-define of Serdes Port and Monitor Clock for USB 2.0 calibration.
+The Airoha AN7581 SoC have in the SCU register space particular
+address that control how some peripheral are configured.
+
+These are toggeled in the System Status Register and are used to
+toggle Serdes port for USB 3.0 mode or HSGMII, USB 3.0 mode or PCIe2
+or setup port for PCIe mode or Ethrnet mode (HSGMII/USXGMII).
+
+Modes are mutually exclusive and selecting one mode cause the
+other feature to not work (example a mode in USB 3.0 cause PCIe
+port 2 to not work) This depends also on what is physically
+connected to the Hardware and needs to correctly reflect the
+System Status Register bits.
+
+Special care is needed for PCIe port 0 in 2 line mode that
+requires both WiFi1 and WiFi2 Serdes port set to PCIe0 2 Line
+mode.
+
+Expose these configuration as an enum of strings in the SCU node and
+also add dt-bindings header to reference each serdes port in DT.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- arch/arm64/boot/dts/airoha/en7581.dtsi | 49 ++++++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
+ .../bindings/clock/airoha,en7523-scu.yaml     | 101 ++++++++++++++++--
+ MAINTAINERS                                   |   7 ++
+ include/dt-bindings/soc/airoha,scu-ssr.h      |  11 ++
+ 3 files changed, 110 insertions(+), 9 deletions(-)
+ create mode 100644 include/dt-bindings/soc/airoha,scu-ssr.h
 
-diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-index 26b136940917..d1cec63bb77f 100644
---- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-+++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-@@ -3,7 +3,10 @@
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/clock/en7523-clk.h>
-+#include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/phy/airoha,an7581-usb-phy.h>
- #include <dt-bindings/reset/airoha,en7581-reset.h>
-+#include <dt-bindings/soc/airoha,scu-ssr.h>
+diff --git a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
+index fe2c5c1baf43..637ce0e06619 100644
+--- a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
++++ b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
+@@ -9,6 +9,7 @@ title: EN7523 Clock
+ maintainers:
+   - Felix Fietkau <nbd@nbd.name>
+   - John Crispin <nbd@nbd.name>
++  - Christian Marangi <ansuelsmth@gmail.com>
  
- / {
- 	interrupt-parent = <&gic>;
-@@ -195,6 +198,52 @@ rng@1faa1000 {
- 			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
- 		};
+ description: |
+   This node defines the System Control Unit of the EN7523 SoC,
+@@ -26,6 +27,23 @@ description: |
  
-+		usb0: usb@1fab0000 {
-+			compatible = "mediatek,mtk-xhci";
-+			reg = <0x0 0x1fab0000 0x0 0x3e00>,
-+				<0x0 0x1fab3e00 0x0 0x100>;
-+			reg-names = "mac", "ippc";
-+			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+   The clocks are provided inside a system controller node.
+ 
++  The System Control Unit may also set different mode for the Serdes ports
++  present on the SoC.
 +
-+			phys = <&usb0_phy PHY_TYPE_USB2>, <&usb0_phy PHY_TYPE_USB3>;
++  These are toggeled in the System Status Register and are used to
++  toggle Serdes port for USB 3.0 mode or HSGMII, USB 3.0 mode or PCIe2
++  or setup port for PCIe mode or Ethernet mode (HSGMII/USXGMII).
 +
-+			status = "disabled";
-+		};
++  Modes are mutually exclusive and selecting one mode cause the
++  other feature to not work (example a mode in USB 3.0 cause PCIe
++  port 2 to not work) This depends also on what is physically
++  connected to the Hardware and needs to correctly reflect the
++  System Status Register bits.
 +
-+		usb0_phy: phy@1fac0000 {
-+			compatible = "airoha,an7581-usb-phy";
-+			reg = <0x0 0x1fac0000 0x0 0x10000>;
++  Special care is needed for PCIe port 0 in 2 line mode that
++  requires both WiFi1 and WiFi2 Serdes port set to PCIe0 2 Line
++  mode.
 +
-+			airoha,scu = <&scuclk>;
-+			airoha,usb2-monitor-clk-sel = <AIROHA_USB2_MONCLK_SEL1>;
-+			airoha,serdes-port = <AIROHA_SCU_SERDES_USB1>;
+ properties:
+   compatible:
+     items:
+@@ -49,6 +67,40 @@ properties:
+     description: ID of the controller reset line
+     const: 1
+ 
++  airoha,serdes-wifi1:
++    description: Configure the WiFi1 Serdes port
++    $ref: /schemas/types.yaml#/definitions/string
++    enum:
++      - pcie0_x2
++      - pcie0_x1
++      - ethernet
++    default: pcie0_x1
 +
-+			#phy-cells = <1>;
-+		};
++  airoha,serdes-wifi2:
++    description: Configure the WiFi2 Serdes port
++    $ref: /schemas/types.yaml#/definitions/string
++    enum:
++      - pcie0_x2
++      - pcie1_x1
++      - ethernet
++    default: pcie1_x1
 +
-+		usb1: usb@1fad0000 {
-+			compatible = "mediatek,mtk-xhci";
-+			reg = <0x0 0x1fad0000 0x0 0x3e00>,
-+				<0x0 0x1fad3e00 0x0 0x100>;
-+			reg-names = "mac", "ippc";
-+			interrupts = <GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH>;
++  airoha,serdes-usb1:
++    description: Configure the USB1 Serdes port
++    $ref: /schemas/types.yaml#/definitions/string
++    enum:
++      - usb3
++      - ethernet
++    default: usb3
 +
-+			phys = <&usb1_phy PHY_TYPE_USB2>, <&usb1_phy PHY_TYPE_USB3>;
++  airoha,serdes-usb2:
++    description: Configure the USB2 Serdes port
++    $ref: /schemas/types.yaml#/definitions/string
++    enum:
++      - usb3
++      - pcie2_x1
++    default: usb3
 +
-+			status = "disabled";
-+		};
+ required:
+   - compatible
+   - reg
+@@ -64,6 +116,12 @@ allOf:
+         reg:
+           minItems: 2
+ 
++        airoha,serdes-wifi1: false
++        airoha,serdes-wifi2: false
 +
-+		usb1_phy: phy@1fae0000 {
-+			compatible = "airoha,an7581-usb-phy";
-+			reg = <0x0 0x1fae0000 0x0 0x10000>;
++        airoha,serdes-usb1: false
++        airoha,serdes-usb2: false
 +
-+			airoha,scu = <&scuclk>;
-+			airoha,usb2-monitor-clk-sel = <AIROHA_USB2_MONCLK_SEL2>;
-+			airoha,serdes-port = <AIROHA_SCU_SERDES_USB2>;
+         '#reset-cells': false
+ 
+   - if:
+@@ -75,6 +133,24 @@ allOf:
+         reg:
+           maxItems: 1
+ 
++  - if:
++      properties:
++        airoha,serdes-wifi1:
++          const: pcie0_x2
++    then:
++      properties:
++        airoha,serdes-wifi2:
++          const: pcie0_x2
 +
-+			#phy-cells = <1>;
-+		};
++  - if:
++      properties:
++        airoha,serdes-wifi2:
++          const: pcie0_x2
++    then:
++      properties:
++        airoha,serdes-wifi1:
++          const: pcie0_x2
 +
- 		system-controller@1fbf0200 {
- 			compatible = "airoha,en7581-gpio-sysctl", "syscon",
- 				     "simple-mfd";
+ additionalProperties: false
+ 
+ examples:
+@@ -87,15 +163,22 @@ examples:
+       #clock-cells = <1>;
+     };
+ 
++  # Example SCU node with Serdes set to PCIe0 to x2 mode
++  # and USB2 set to PCIe2 to x1 mode
+   - |
+     soc {
+-      #address-cells = <2>;
+-      #size-cells = <2>;
+-
+-      scuclk: clock-controller@1fb00000 {
+-        compatible = "airoha,en7581-scu";
+-        reg = <0x0 0x1fb00000 0x0 0x970>;
+-              #clock-cells = <1>;
+-              #reset-cells = <1>;
+-      };
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        scuclk: clock-controller@1fb00000 {
++            compatible = "airoha,en7581-scu";
++            reg = <0x0 0x1fb00000 0x0 0x970>;
++
++            airoha,serdes-wifi1 = "pcie0_x2";
++            airoha,serdes-wifi2 = "pcie0_x2";
++            airoha,serdes-usb2 = "pcie2_x1";
++
++            #clock-cells = <1>;
++            #reset-cells = <1>;
++        };
+     };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 3eee238c2ea2..9944845ae9f5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -736,6 +736,13 @@ F:	Documentation/devicetree/bindings/phy/airoha,en7581-pcie-phy.yaml
+ F:	drivers/phy/phy-airoha-pcie-regs.h
+ F:	drivers/phy/phy-airoha-pcie.c
+ 
++AIROHA SCU SSR DRIVER
++M:	Christian Marangi <ansuelsmth@gmail.com>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++S:	Maintained
++F:	Documentation/devicetree/bindings/soc/airoha/airoha,an7581-scu-ssr.yaml
++F:	include/dt-bindings/soc/airoha,scu-ssr.h
++
+ AIROHA SPI SNFI DRIVER
+ M:	Lorenzo Bianconi <lorenzo@kernel.org>
+ M:	Ray Liu <ray.liu@airoha.com>
+diff --git a/include/dt-bindings/soc/airoha,scu-ssr.h b/include/dt-bindings/soc/airoha,scu-ssr.h
+new file mode 100644
+index 000000000000..915f3cde7c1a
+--- /dev/null
++++ b/include/dt-bindings/soc/airoha,scu-ssr.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef __DT_BINDINGS_AIROHA_SCU_SSR_H
++#define __DT_BINDINGS_AIROHA_SCU_SSR_H
++
++#define AIROHA_SCU_SERDES_WIFI1		0
++#define AIROHA_SCU_SERDES_WIFI2		1
++#define AIROHA_SCU_SERDES_USB1		2
++#define AIROHA_SCU_SERDES_USB2		3
++
++#endif /* __DT_BINDINGS_AIROHA_SCU_SSR_H */
 -- 
 2.48.1
 
