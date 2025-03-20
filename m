@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8652C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C030C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktzMOZYNlwNiDxoE8omHkFi9oPhb83P0wnx9jkyg590=; b=p2vdN/afl03XqaX00McmIvhoLk
-	kztiNzifp4zOB2VdzzWt/XG1FS4gNNURTx/IDzsXZyn4JbU03PqZLBHuPM+0a/b6qfFJ/Q/APiKyJ
-	zHo/xe+tBiydRXkcMONYp3LtRL744DAAq8z2vk1pO8oFUXkq7atDdry3WwnxBOuyeAXz3ys8AmGq1
-	AN4I0EFwhcgZX8N/KmxJzwWS82zLzsMMqENB6SSm9hKfLWfvtrEMrXgupPEnlsmvskw3L0TvSW60S
-	oyOkGXWHX6e4Arggn81ws73R9lqx1qIpJaFnamQqjDaDo1CyMY4EzE4uWChwFJDbV7pU4+DjaXqxy
-	+tLMpryA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CoF70uKeI5oxzSiOPNjzHWGikLf7hCVkYp2xH2dZwr8=; b=TXJFKQ9VcecOsA1+fEec4xXZNS
+	vSCoUUmvUxw4O2DAdRap1RpDsUAQ9aX6cn2cJd0wKUYLHtJ2zXRORUoAkagBcBgejMa1k/8xl845N
+	8FyAsqt16ebwnwOoxQHopwfMMc0LS9ul1Ld+mumtNNk6LCoGrTB084iqsj/Cd4pPAkvG2nQUu49Mo
+	ZQWvHG+hOpdhhSWc8qaT2Y2KM+B83TyMdyP3So2a0yTFxoTrDaIVvgwNcF/sh7vNJSIGT6j7qyV7K
+	6s342wjA0s9cgSXUIHoaZyLMX75wG6hOFrFC25rkncCsSn55Vn8567t3vTZStmTOkgSpayevLCAIZ
+	sm2N97Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvHCf-0000000CROA-35ZZ;
-	Thu, 20 Mar 2025 14:49:01 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tvHEM-0000000CRgL-0r2W;
+	Thu, 20 Mar 2025 14:50:46 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGzN-0000000CP0e-44ZP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 14:35:19 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43d07ca6a80so4351295e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 07:35:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742481316; x=1743086116; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ktzMOZYNlwNiDxoE8omHkFi9oPhb83P0wnx9jkyg590=;
-        b=x4LovN8t2aH5bHBl8sN+Rtqk5uhEmEZkwRT3GIjbXFMy95kaoxh9CgWL7bfO6w6CcP
-         COy7gOELsIpv6HbkzgfT3ozsxfUtM0ZZ1nIg/whhzXy55LfNBVhtbuaO6uhmRyRJaaPJ
-         qdabuKSBLJ1QC8I6u3LrYaSPH88EOj4grATzMEqlvtoNRqXL6IJWoWvhzV871GzvEeVh
-         bbT68tPrlKHpCaWmVqaSTHQTMB7n6h0qwx8/TnOwuP9k1J9AjTpQMAfP3CKEejtIkdmZ
-         6TNOv35NcDqwQKy3Q6qp+YQG2pa1hE1tGf5aCuancd+ZfMSbfIGSQ7x68Xel2sXo3LIE
-         OPiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742481316; x=1743086116;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ktzMOZYNlwNiDxoE8omHkFi9oPhb83P0wnx9jkyg590=;
-        b=KdS5O7/M2S4DZLIswMg2+Elbej6Sjq3AVg9mOFXiHrkMmpv+Cj/ZsD0RMMmofoJxBp
-         vekWp7R7ipk9KokMwpz9CgDVhIgxkLuBrorGfLvuEpZ1jjpfyo0TSYYR9stofjQsfzS/
-         /134/N0jdw+YJhubNfIYGOG/3swk5sJJYazWA3NEtif4poKSoQxaCeDq2Kiwg+SZB6YQ
-         +5edDjArtsSdmBwNE6ak95gEeOVXVuLzmXhtlPhD+9d6JDzJ1kwo4Hs4KF9/SdazqgLo
-         eV500LDeAE1rayiYCrULa/byS8z3xCso7g9LuktkMNeAASUL+6zHXsVf34O1DBh/H86U
-         u5CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVYBEI/g48afjJAtFx6qi87cVyKHwX11cG92grvE//cyO89zgJZcCIZEJlzaapKaeC2scVnZN39ELUzdu3dbmf2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXB9KTTMFxUaYjjAHjCotPkyyVdQynCtl1aFUGukC5MS2Q6o62
-	2YYW+fGvCZyFmEGYj9UuWz+3wXeMKf6d1bfQQvm53EQBOrBtRJWgMzAG+1Uz94s=
-X-Gm-Gg: ASbGnctwaVec6Xh8AnMwk4Io8D+G+6bAWIQRwa7ev7jMVzF1z237fxa8jFlpqVEpXGc
-	6Udaz9yu38q4kJnIqeOWsYAbim6eRYQEfg0Cfvma8fQM23RgTyKXhzWis6u8bxn42p1Ig+33+Zj
-	UuJicVhmPAB0FlrIaarWkH35Du1Mu2JubPVor4O2VzyQQxU7MhuKFF7glhAbGRY0eZmO3m3cDBj
-	4bZIW1PviMUAkR289gKaMUV6ds5cwxPYJi4sraoo65qpS0/goOpSChk96QHCnwUJ9zZVLZE/vaz
-	gRArtddGXuFkqHAZjWF+zDk7Pomaal8Mhs/kUBzigGNmG7o=
-X-Google-Smtp-Source: AGHT+IGWLVpm4TQ0kdAiwRFUVf9LxYmBruxCxdW+BZGKM/2Bj+7qbRWxjTO13KNGwhsfFVq1+NGRWQ==
-X-Received: by 2002:a05:600c:b9b:b0:43b:cd0d:9466 with SMTP id 5b1f17b1804b1-43d4378cf45mr58703935e9.9.1742481316328;
-        Thu, 20 Mar 2025 07:35:16 -0700 (PDT)
-Received: from pop-os.lan ([145.224.67.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c83b6a27sm24238187f8f.31.2025.03.20.07.35.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 07:35:16 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Thu, 20 Mar 2025 14:34:16 +0000
-Subject: [PATCH v3 7/7] coresight: Remove extern from function declarations
+	id 1tvH8w-0000000CQYJ-1eZN;
+	Thu, 20 Mar 2025 14:45:11 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 6D2FF41067
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1742481904; bh=CoF70uKeI5oxzSiOPNjzHWGikLf7hCVkYp2xH2dZwr8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=islBIcnPKt8uW5hA3T3PPSmSCAiYqTkWFBEgj6iGu0PWPhW3yjcXFHgamlCxP1MrS
+	 /Lj+fUKxr5XHpTVprLUBgUismDvPS5CB5J1IUUz2odXEXKxobBdvyGKp74eASDg1b7
+	 3NcoQjKXG2u/38NTpV85yQL2oGjhpBevYaOfsEqQNZYT3+llSNJ46De0it7L6QHik5
+	 4OCNYQKMEJTCOOJW9yd4iQ9bGRG/5GewfSs/+M1vFeCmQII3N0M93VIhTR33fzTGT2
+	 XjQTWkJpZniQrdJpagKpy1B+EeTb8h9XOtTFnPpNxPzbj/PPuetJF6/iR/xdwKAoCn
+	 7GVrkwxcSB9Ag==
+Received: from localhost (unknown [IPv6:2601:280:4600:2da9::1fe])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id 6D2FF41067;
+	Thu, 20 Mar 2025 14:45:04 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org
+Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+ anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+ benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+ dave.hansen@linux.intel.com, dwmw2@infradead.org, ebiederm@xmission.com,
+ mingo@redhat.com, jgowans@amazon.com, krzk@kernel.org, rppt@kernel.org,
+ mark.rutland@arm.com, pbonzini@redhat.com, pasha.tatashin@soleen.com,
+ hpa@zytor.com, peterz@infradead.org, ptyadav@amazon.de,
+ robh+dt@kernel.org, robh@kernel.org, saravanak@google.com,
+ skinsburskii@linux.microsoft.com, rostedt@goodmis.org, tglx@linutronix.de,
+ thomas.lendacky@amd.com, usama.arif@bytedance.com, will@kernel.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-mm@kvack.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
+Subject: Re: [PATCH v5 16/16] Documentation: add documentation for KHO
+In-Reply-To: <20250320015551.2157511-17-changyuanl@google.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-17-changyuanl@google.com>
+Date: Thu, 20 Mar 2025 08:45:03 -0600
+Message-ID: <87wmcj69sg.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250320-james-coresight-claim-tags-v3-7-d3145c153820@linaro.org>
-References: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
-In-Reply-To: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Suzuki.Poulose@arm.com, 
- leo.yan@arm.com
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.14.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_073518_021071_75BC64E5 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20250320_074510_435993_9B98A961 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,116 +82,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Function declarations are extern by default so remove the extra noise
-and inconsistency.
+Changyuan Lyu <changyuanl@google.com> writes:
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- drivers/hwtracing/coresight/coresight-priv.h | 14 +++++------
- include/linux/coresight.h                    | 35 ++++++++++++++--------------
- 2 files changed, 23 insertions(+), 26 deletions(-)
+> From: Alexander Graf <graf@amazon.com>
+>
+> With KHO in place, let's add documentation that describes what it is and
+> how to use it.
+>
+> Signed-off-by: Alexander Graf <graf@amazon.com>
+> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+> ---
+>  .../admin-guide/kernel-parameters.txt         |  25 ++++
+>  Documentation/kho/concepts.rst                |  70 +++++++++++
+>  Documentation/kho/fdt.rst                     |  62 +++++++++
+>  Documentation/kho/index.rst                   |  14 +++
+>  Documentation/kho/usage.rst                   | 118 ++++++++++++++++++
+>  Documentation/subsystem-apis.rst              |   1 +
+>  MAINTAINERS                                   |   1 +
+>  7 files changed, 291 insertions(+)
+>  create mode 100644 Documentation/kho/concepts.rst
+>  create mode 100644 Documentation/kho/fdt.rst
+>  create mode 100644 Documentation/kho/index.rst
+>  create mode 100644 Documentation/kho/usage.rst
 
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 6e8cf55aee0a..ce91e0fbb497 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -60,10 +60,8 @@ struct cs_off_attribute {
- 	u32 off;
- };
- 
--extern ssize_t coresight_simple_show32(struct device *_dev,
--				     struct device_attribute *attr, char *buf);
--extern ssize_t coresight_simple_show_pair(struct device *_dev,
--				     struct device_attribute *attr, char *buf);
-+ssize_t coresight_simple_show32(struct device *_dev, struct device_attribute *attr, char *buf);
-+ssize_t coresight_simple_show_pair(struct device *_dev, struct device_attribute *attr, char *buf);
- 
- #define coresight_simple_reg32(name, offset)				\
- 	(&((struct cs_off_attribute[]) {				\
-@@ -160,8 +158,8 @@ void coresight_path_assign_trace_id(struct coresight_path *path,
- 				   enum cs_mode mode);
- 
- #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
--extern int etm_readl_cp14(u32 off, unsigned int *val);
--extern int etm_writel_cp14(u32 off, u32 val);
-+int etm_readl_cp14(u32 off, unsigned int *val);
-+int etm_writel_cp14(u32 off, u32 val);
- #else
- static inline int etm_readl_cp14(u32 off, unsigned int *val) { return 0; }
- static inline int etm_writel_cp14(u32 off, u32 val) { return 0; }
-@@ -172,8 +170,8 @@ struct cti_assoc_op {
- 	void (*remove)(struct coresight_device *csdev);
- };
- 
--extern void coresight_set_cti_ops(const struct cti_assoc_op *cti_op);
--extern void coresight_remove_cti_ops(void);
-+void coresight_set_cti_ops(const struct cti_assoc_op *cti_op);
-+void coresight_remove_cti_ops(void);
- 
- /*
-  * Macros and inline functions to handle CoreSight UCI data and driver
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 00134a80d358..8cb07c132b01 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -671,28 +671,27 @@ static inline void coresight_set_mode(struct coresight_device *csdev,
- 	local_set(&csdev->mode, new_mode);
- }
- 
--extern struct coresight_device *
--coresight_register(struct coresight_desc *desc);
--extern void coresight_unregister(struct coresight_device *csdev);
--extern int coresight_enable_sysfs(struct coresight_device *csdev);
--extern void coresight_disable_sysfs(struct coresight_device *csdev);
--extern int coresight_timeout(struct csdev_access *csa, u32 offset,
--			     int position, int value);
-+struct coresight_device *coresight_register(struct coresight_desc *desc);
-+void coresight_unregister(struct coresight_device *csdev);
-+int coresight_enable_sysfs(struct coresight_device *csdev);
-+void coresight_disable_sysfs(struct coresight_device *csdev);
-+int coresight_timeout(struct csdev_access *csa, u32 offset, int position, int value);
- typedef void (*coresight_timeout_cb_t) (struct csdev_access *, u32, int, int);
--extern int coresight_timeout_action(struct csdev_access *csa, u32 offset,
--					int position, int value,
--					coresight_timeout_cb_t cb);
-+int coresight_timeout_action(struct csdev_access *csa, u32 offset, int position, int value,
-+			     coresight_timeout_cb_t cb);
-+int coresight_claim_device(struct coresight_device *csdev);
-+int coresight_claim_device_unlocked(struct coresight_device *csdev);
- 
--extern int coresight_claim_device(struct coresight_device *csdev);
--extern int coresight_claim_device_unlocked(struct coresight_device *csdev);
-+int coresight_claim_device(struct coresight_device *csdev);
-+int coresight_claim_device_unlocked(struct coresight_device *csdev);
- void coresight_clear_self_claim_tag(struct csdev_access *csa);
- void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa);
--extern void coresight_disclaim_device(struct coresight_device *csdev);
--extern void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
--extern char *coresight_alloc_device_name(struct coresight_dev_list *devs,
-+void coresight_disclaim_device(struct coresight_device *csdev);
-+void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
-+char *coresight_alloc_device_name(struct coresight_dev_list *devs,
- 					 struct device *dev);
- 
--extern bool coresight_loses_context_with_cpu(struct device *dev);
-+bool coresight_loses_context_with_cpu(struct device *dev);
- 
- u32 coresight_relaxed_read32(struct coresight_device *csdev, u32 offset);
- u32 coresight_read32(struct coresight_device *csdev, u32 offset);
-@@ -705,8 +704,8 @@ void coresight_relaxed_write64(struct coresight_device *csdev,
- 			       u64 val, u32 offset);
- void coresight_write64(struct coresight_device *csdev, u64 val, u32 offset);
- 
--extern int coresight_get_cpu(struct device *dev);
--extern int coresight_get_static_trace_id(struct device *dev, u32 *id);
-+int coresight_get_cpu(struct device *dev);
-+int coresight_get_static_trace_id(struct device *dev, u32 *id);
- 
- struct coresight_platform_data *coresight_get_platform_data(struct device *dev);
- struct coresight_connection *
+I will ask again: please let's not create another top-level docs
+directory for this...?  It looks like it belongs in the admin guide to
+me.
 
--- 
-2.34.1
+Thanks,
 
+jon
 
