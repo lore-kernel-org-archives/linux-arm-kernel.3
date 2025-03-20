@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA68C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E009C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o2gc0uIp20vFRrnjWwjQL7GVMAiQPOp+xknJd1vKRXg=; b=x6BFBAz6dAfIWRihrjjfH9MIKp
-	OqGiC7yY9S2GoNhmN7J8GVN/nl1xJi/93OmWOOKh/mFNJA3hNGL7/K43A4F5L8syMXUvq+t3DQjie
-	yJyHpmwvHw13ybW36fqueIhFQEVTe2hwnPPp8zS49sqUyhoed1TtTV9NpPO5dEjMw4uTgYmlQYshS
-	jpKuL5pSHo8b+m1RfyMYPEQ7ZuKhPI5EriBfZMrCiSgLN32eEFpnc5iVQAWjVBP3Cprkwjg1z4+E0
-	a4WpbQdqTxvYBjLWLcHAUckpeUf1JLM6hOh2ayLrWd9DUNzN3uQFg4gI9q1I0KOHK6WqnSFZzOdA0
-	MK0XvRuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fkKG+1uig/gv8dqFUSDCg+KHZ2PnbqdRy0w1E0ZwBhU=; b=eiBBwr5+Rd0Jo2GB2x9hVVOLw5
+	emc6Jxzo072SHlE/sDnw+Gxm+pQ8lgT6a3iti+Sku3eo0N8lVo7X6tVZxkfiqmUOOzC28F46O/OWD
+	xbgps52+rPqb9fwFbHEljYBW082GHBagvAWZiUqWNibyGw7AqXjBSjbsOlJgmOK8gnRLDu/jYRraf
+	1gCti+hrvPRHSdvJV5KOutYtljdmD6LoYNJzMLUFRh9wgqAAF3XL2DSf7dhVOAT6X7LVoVMdhbNXs
+	c0MOwWSTm/yj5BwB3wWpbkmBje6vmJFbBQAK0nadcY9KwXRmCmDPiKXGoEAga3VAKcjz4HzouFzBl
+	u12O+/Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvO9G-0000000DKvz-3Ct9;
-	Thu, 20 Mar 2025 22:13:58 +0000
+	id 1tvOAw-0000000DLA8-264K;
+	Thu, 20 Mar 2025 22:15:42 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvO6f-0000000DKC3-3RYx
+	id 1tvO6v-0000000DKGl-1aqo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 22:11:19 +0000
+	Thu, 20 Mar 2025 22:11:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=o2gc0uIp20vFRrnjWwjQL7GVMAiQPOp+xknJd1vKRXg=; b=zL/WnoNqfYWh3Mti5728U+lclE
-	2m1aEpeUrW2f04ehkDtHsXEpjUzEhltqRDM5857u4bHpUaqps2fC02FG1C6QhAL23wyVfOeWfVQmq
-	dQC/Od8YASee8xAGz7FH9fG6OBKSDSRu7OsJsr54PW2LJDYuiD6AJJWGilAvZkyvMyXasQ8xAh6xW
-	H+KhiLVMAZurplAxKb+giGb+K6rlDPf15mSrZG/EA0x8GdBpDCBrUnMT64kd4ST4aNPrS+r8BPcM9
-	P369Zlx4RLutSYU+sZjkoa+1E8SqxiWfEQurT9icE5zxEjfPVWY6P0S4B/hZep4BP8+E6WlJURFkk
-	/5lLWd4w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56530)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fkKG+1uig/gv8dqFUSDCg+KHZ2PnbqdRy0w1E0ZwBhU=; b=wbVA+7oy5foIOmkAEoQU0k7PzL
+	zKqNHoIrLmQkBIGbnASdMm1JUjTr9ZFRq1KOcvZeOoaNjHRNJ4z9yZwp0Uhaqu0cSbxI64OQFWwt2
+	Zl0SjXkb6YRsinD3AQsEk+pvvNBXfxtaNGjsPYLC9WnHg/UjcPm1wcNcU/UMCYKEclLEgW/uHiDxa
+	jVoVI5o1p9uK7g766JAf5+uIKfCWIaxQ6bRYZsaEKr39BjUUhk0ybUpecPSsdskVaCzzj5EeiuBVI
+	f0AqWace3lwN/F3RFIA4TIDkhhjWwWsd0O9hmKk5h4Os5mrM+4jxsKF05yKEgYoTG/HeroMu5y5/p
+	5nxMpz9w==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:56714 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tvO6Y-0008DL-1J;
-	Thu, 20 Mar 2025 22:11:10 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tvO6V-0006z8-0N;
-	Thu, 20 Mar 2025 22:11:07 +0000
-Date: Thu, 20 Mar 2025 22:11:06 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tvO6p-0008Db-2p;
+	Thu, 20 Mar 2025 22:11:27 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tvO6V-008Vjb-AP; Thu, 20 Mar 2025 22:11:07 +0000
+In-Reply-To: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
+References: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -59,16 +60,19 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 0/5] net: improve stmmac resume rx clocking
-Message-ID: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
+Subject: [PATCH net-next 1/5] net: phylink: add phylink_prepare_resume()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tvO6V-008Vjb-AP@rmk-PC.armlinux.org.uk>
+Date: Thu, 20 Mar 2025 22:11:07 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_151117_860054_6B08CD17 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20250320_151133_417131_A60AB9B6 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,92 +87,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+When the system is suspended, the PHY may be placed in low-power mode
+by setting the BMCR 0.11 Power down bit. IEEE 802.3 states that the
+behaviour of the PHY in this state is implementation specific, and
+the PHY is not required to meet the RX_CLK and TX_CLK requirements.
+Essentially, this means that a PHY may stop the clocks that it is
+generating while in power down state.
 
-stmmac has had a long history of problems with resuming, illustrated by
-reset failure due to the receive clock not running.
+However, MACs exist which require the clocks from the PHY to be running
+in order to properly resume. phylink_prepare_resume() provides them
+with a way to clear the Power down bit early.
 
-Several attempts have been attempted over the years to address this
-issue, such as moving phylink_start() (now phylink_resume()) super
-early in stmmac_resume() in commit 90702dcd19c0 ("net: stmmac: fix MAC
-not working when system resume back with WoL a ctive.") However, this
-has the downside that stmmac_mac_link_up() can (and demonstrably is)
-called before or during the driver initialisation in another thread.
-This can cause issues as packets could begin to be queued, and the
-transmit/receive enable bits will be set before any initialisation has
-been done.
+Note, however, that IEEE 802.3 gives PHYs up to 500ms grace before the
+transmit and receive clocks meet the requirements after clearing the
+power down bit.
 
-Another attempt is used by dwmac-socfpga.c in commit 2d871aa07136 ("net:
-stmmac: add platform init/exit for Altera's ARM socfpga") which
-pre-dates the above commit.
+Add a resume preparation function, which will ensure that the receive
+clock from the PHY is appropriately configured while resuming.
 
-Neither of these two approaches consider the effect of EEE with a PHY
-that supports receive clock-stop and has that feature enabled (which
-the stmmac driver does enable). If the link is up, then there is the
-possibility for the receive path to be in low-power mode, and the PHY
-may stop its receive clock.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/phy/phylink.c | 25 +++++++++++++++++++++++++
+ include/linux/phylink.h   |  1 +
+ 2 files changed, 26 insertions(+)
 
-This series addresses these issues by (each is not necessarily a
-separate patch):
-
-1) introducing phylink_prepare_resume(), which can be used by MAC
-   drivers to ensure that the PHY is resumed prior to doing any
-   re-initialisation work. This call is added to stmmac_resume().
-
-2) moving phylink_resume() after all re-initialisation has completed,
-   thereby ensuring that the hardware is ready to be enabled for
-   packet reception/transmission.
-
-3) with (1) and (2) addressed, the need for socfpga to have a private
-   work-around is no longer necessary, so it is removed.
-
-4) introducing phylink functions to block/unblock the receive clock-
-   stop at the PHY. As these require PHY access over the MDIO bus,
-   they can sleep, so are not suitable for atomic access.
-
-5) the stmmac hardware requires the receive clock to be running for
-   reset to complete. Depending on synthesis options, this requirement
-   may also extend to writing various registers as well, e.g. setting
-   the MAC address, writing some of the vlan registers, etc. Full
-   details are in the databook.
-
-   We add blocking/unblocking of the PHY receive clock-stop around
-   parts of the main stmmac driver where we have a context that we
-   can sleep. These are wrapped with the new phylink functions.
-
-   However, depending on synthesis options, there could be other
-   places where the net core calls the driver with a BH-disabled
-   context where we can't sleep, and thus can't block the PHY from
-   disabling its receive clock. These are documented with FIXME
-   comments.
-
-Given the last paragraph above, I am wondering whether a better
-approach would be to ensure that receive clock-stop is always disabled
-at the PHY with stmmac. From what I can see, implementations do not
-document to this level of detail, which makes it difficult to tell
-which registers require the receive clock to be running to behave
-correctly.
-
-This patch series has been tested on the Tegra194 Jetson Xavier NX
-board kindly donated by NVidia, with two additional patches that are
-pending in patchwork - the first is required to have EEE's LPI mode
-passed through to the MAC on this platform to allow testing under
-PHY clock-stop scenarios. The second is a bug fix for PHYLIB and
-makes "eee off" functional, but should not affect this series.
-
-All patches on top of net-next commit f749448ce9f1 ("Merge branch
-'net-mlx5-hw-steering-cleanups'")
-
-https://patchwork.kernel.org/project/netdevbpf/patch/E1ttnHW-00785s-Uq@rmk-PC.armlinux.org.uk/
-https://patchwork.kernel.org/project/netdevbpf/patch/E1ttmWN-0077Mb-Q6@rmk-PC.armlinux.org.uk/
-
- .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 18 -----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 46 ++++++++++--
- drivers/net/phy/phylink.c                          | 84 ++++++++++++++++++++++
- include/linux/phylink.h                            |  4 ++
- 4 files changed, 129 insertions(+), 23 deletions(-)
-
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 0f70a7f3dfcc..1b76ddc286fe 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -2481,6 +2481,31 @@ void phylink_suspend(struct phylink *pl, bool mac_wol)
+ }
+ EXPORT_SYMBOL_GPL(phylink_suspend);
+ 
++/**
++ * phylink_prepare_resume() - prepare to resume a network device
++ * @pl: a pointer to a &struct phylink returned from phylink_create()
++ *
++ * Optional, but if called must be called prior to phylink_resume().
++ *
++ * Prepare to resume a network device, preparing the PHY as necessary.
++ */
++void phylink_prepare_resume(struct phylink *pl)
++{
++	struct phy_device *phydev = pl->phydev;
++
++	ASSERT_RTNL();
++
++	/* IEEE 802.3 22.2.4.1.5 allows PHYs to stop their receive clock
++	 * when PDOWN is set. However, some MACs require RXC to be running
++	 * in order to resume. If the MAC requires RXC, and we have a PHY,
++	 * then resume the PHY. Note that 802.3 allows PHYs 500ms before
++	 * the clock meets requirements. We do not implement this delay.
++	 */
++	if (pl->config->mac_requires_rxc && phydev && phydev->suspended)
++		phy_resume(phydev);
++}
++EXPORT_SYMBOL_GPL(phylink_prepare_resume);
++
+ /**
+  * phylink_resume() - handle a network device resume event
+  * @pl: a pointer to a &struct phylink returned from phylink_create()
+diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+index 79876c84ae81..06f1b649f173 100644
+--- a/include/linux/phylink.h
++++ b/include/linux/phylink.h
+@@ -707,6 +707,7 @@ void phylink_start(struct phylink *);
+ void phylink_stop(struct phylink *);
+ 
+ void phylink_suspend(struct phylink *pl, bool mac_wol);
++void phylink_prepare_resume(struct phylink *pl);
+ void phylink_resume(struct phylink *pl);
+ 
+ void phylink_ethtool_get_wol(struct phylink *, struct ethtool_wolinfo *);
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.30.2
+
 
