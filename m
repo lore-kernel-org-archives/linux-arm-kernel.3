@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53026C35FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Mar 2025 23:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C85EC35FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 00:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SNQOcy+R7mQ4cPTc59VSSVwJu1ScZnlp/qvs/mXts1k=; b=ryvfjfP5/IDiUn3g8aoYorLmgZ
-	a7tmdFoFrRuBjvPY2MrOjzmor6I8tlSGz9IqoJem+6hULJkQpHFjFR+aZ+zpiXq0WUGhwNDtOLNq9
-	sRajch8osIfAkaBQm6LTSkPTBP5R33avPGIzrPDKINlNpfOiUPqG6yYO8Lkfs4iEODLEnh2jCzMP/
-	rdIzlOS+2ifvT6dsSnWK5eqDS/64/yrFAk40rbySVM7kTNLozuXAZ2jUuYmq6hGK32Ocmgbw35iqE
-	bKVh8328vxpWlbpZvARi9UFFkQFvvVapYnerLan0qqG5FkJnYXnvRHQAHPeLXzb4OZPF6EqK2619w
-	9EWY1/2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K4re5PQvpoiSUMkMH5+LC/XgtaMh83lF3Lx0UPHLfTU=; b=3nlaJCVwt2J8/DL9G11PFIb75l
+	umm7kjXEvOrGLoKFhGlC4eaff6ENzEGSmLZkHDi5bHFrzmXcu+oC7oRdjvLWDp3qsEiMJcrDfD+G/
+	cjF95deOU2WYHv8V/GyITtenJ81/jGzNqBd97oHClBbQ+LnblkU2HY1IOEuiKgUVP36O8bFNM2n0L
+	rYSrNqnERQWIVIcuPwXBI6xqTk4cu7uYI1r4oU/MjMB1KRXGIZDaSofrCbr0LHHwXn528DYxlupPn
+	9oWVKkE+xy9i9TuRfJa3ZlixGKg5LjVsR891u3FVAT/2hVkzGge//h5w3sFiZAhLitu1vOIXCnfb0
+	zbP4UZYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv3Gk-0000000AZhi-0mHZ;
-	Wed, 19 Mar 2025 23:56:18 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tv3cu-0000000Abia-1NRH;
+	Thu, 20 Mar 2025 00:19:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv3Ea-0000000AZAs-37BC;
-	Wed, 19 Mar 2025 23:54:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=SNQOcy+R7mQ4cPTc59VSSVwJu1ScZnlp/qvs/mXts1k=; b=bOIei5bPNo+tiyuP9SAapPEBko
-	UQI5znglXHZ4wa4igSaIgMbcKwbIcJWZK/mpf9Q/R6XGEYpJuGVFYPwq/yV+OG/XfDuHm4+7YvTzS
-	rbk6vgXu7620BldduyefDk0sdxXy3BuPuKUuHPKAU3VebZPe3NE0q9ZCtlQpj+9YRnR+7++/x59r0
-	GB5IVyl/mGgxf8SIsxqEkw8xJMyEuP9qVyn0WvVUjNNyLjjwJCKya1X+oU5zRQ1Y0YzkdbYNdQXS0
-	jAxHUVpPN/33+mMa+ZNS6uPriVepPGyMrjLEanecRrZUtih/QKsGQovmOG6mPLGhaD2FYpEYakXHC
-	2Y6QVr6A==;
-Received: from i53875bc6.versanet.de ([83.135.91.198] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tv3EZ-00021P-Bl; Thu, 20 Mar 2025 00:54:03 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts64 changes for 6.15 #3
-Date: Thu, 20 Mar 2025 00:54:02 +0100
-Message-ID: <5552256.Sb9uPGUboI@phil>
+	id 1tv3bB-0000000AbUz-1gfc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Mar 2025 00:17:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BD8185C101A;
+	Thu, 20 Mar 2025 00:15:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB01CC4CEE4;
+	Thu, 20 Mar 2025 00:17:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742429844;
+	bh=2y/dJ4wHb2mrgocbKn8ljT/pAiya0DW13gSxj/rI8uY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F3SqfcKxCqyPMWOJ9NSQgdINsa8TSI+AC7nYUeOzvewHqrjYbPtrCfZqG8vF4llvd
+	 VStA0W9qBho0AXDAlUqtgpDNjrPn2s4989Ep5n92bGGDBD3wkS7SpVPcgXDSN2gXnT
+	 YxMNGFCLb6tMir0ZgRn0cMuZvHTa31OY0nb9BbZbfctJzDnZFFqmXnoUHXG8qy5tVd
+	 FM7wP8tueJ8HyI8tpLFcPuU9cy6HA4poytqqiXVIhy5klZEjNGc6K+VWVLuEgx4sgV
+	 1GFNx6GOZW5Bww9hVt5eLJFOh3Og7UczOlJ6fraJC4Hot7PvuZb1zgoaJ/kL/kRZX+
+	 sYYjiUchVfQDg==
+Date: Thu, 20 Mar 2025 01:17:21 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Naveen N Rao <naveen@kernel.org>, linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH 2/4] i2c: pasemi: Improve error recovery
+Message-ID: <mp77oombs4xgr6sjj44ne7muybfrwejgehzv5xupeanh6udui3@ymgfesctindh>
+References: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
+ <20250222-pasemi-fixes-v1-2-d7ea33d50c5e@svenpeter.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250222-pasemi-fixes-v1-2-d7ea33d50c5e@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_165404_795188_28CDCD31 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250319_171725_521849_4B212EAD 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +76,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
+Hi Sven,
 
-I made an error and accidentially applied a patch that was meant for
-the mfd tree. Thankfully Stephen noticed that when the duplicate
-commit appeared in linux-next.
+On Sat, Feb 22, 2025 at 01:38:34PM +0000, Sven Peter via B4 Relay wrote:
+> The hardware (supposedly) has a 25ms timeout for clock stretching
+> and the driver uses 100ms which should be plenty.
 
+Can we add this lines as a comment to the define you are adding?
 
-Please pull.
-Thanks
-Heiko
+> The error
+> reocvery itself is however lacking.
 
+...
 
-The following changes since commit 73d246b4402c3356f6b3d13665de3a51eea7b555:
+> -static void pasemi_smb_clear(struct pasemi_smbus *smbus)
+> +static int pasemi_smb_clear(struct pasemi_smbus *smbus)
+>  {
+>  	unsigned int status;
+> +	int timeout = TRANSFER_TIMEOUT_MS;
+>  
+>  	status = reg_read(smbus, REG_SMSTA);
+> +
+> +	/* First wait for the bus to go idle */
+> +	while ((status & (SMSTA_XIP | SMSTA_JAM)) && timeout--) {
+> +		msleep(1);
 
-  arm64: dts: rockchip: remove ethm0_clk0_25m_out from Sige5 gmac0 (2025-03-15 15:49:00 +0100)
+Please, use usleep_range for 1 millisecond timeout.
 
-are available in the Git repository at:
+> +		status = reg_read(smbus, REG_SMSTA);
+> +	}
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.15-rockchip-dts64-3
+You could use here readx_poll_timeout() here.
 
-for you to fetch changes up to cee24bc73d4f3f47344a1a54100a69c72f1db061:
+> +
+> +	if (timeout < 0) {
+> +		dev_warn(smbus->dev, "Bus is still stuck (status 0x%08x)\n", status);
 
-  Revert "dt-bindings: mfd: syscon: Add rk3528 QoS register compatible" (2025-03-19 00:22:18 +0100)
+if it's an error, please use an error.
 
-----------------------------------------------------------------
-Revert of one commit that was applied accidentially and should instead
-go through the MFD tree. It is already part of that tree as
-commit 7f3e3e7228bb ("dt-bindings: mfd: syscon: Add rk3528 QoS register
-compatible").
+> +		return -EIO;
+> +	}
+> +
+> +	/* If any badness happened or there is data in the FIFOs, reset the FIFOs */
+> +	if ((status & (SMSTA_MRNE | SMSTA_JMD | SMSTA_MTO | SMSTA_TOM | SMSTA_MTN | SMSTA_MTA)) ||
+> +		!(status & SMSTA_MTE))
 
-----------------------------------------------------------------
-Heiko Stuebner (1):
-      Revert "dt-bindings: mfd: syscon: Add rk3528 QoS register compatible"
+Please, fixe the alignment here.
 
- Documentation/devicetree/bindings/mfd/syscon.yaml | 2 --
- 1 file changed, 2 deletions(-)
+> +		pasemi_reset(smbus);
+> +
+> +	/* Clear the flags */
+>  	reg_write(smbus, REG_SMSTA, status);
+> +
+> +	return 0;
+>  }
+>  
+>  static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
+>  {
+> -	int timeout = 100;
+> +	int timeout = TRANSFER_TIMEOUT_MS;
+>  	unsigned int status;
+>  
+>  	if (smbus->use_irq) {
+>  		reinit_completion(&smbus->irq_completion);
+> -		reg_write(smbus, REG_IMASK, SMSTA_XEN | SMSTA_MTN);
+> -		wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(100));
+> +		/* XEN should be set when a transaction terminates, whether due to error or not */
+> +		reg_write(smbus, REG_IMASK, SMSTA_XEN);
+> +		wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(timeout));
 
+what happens if the timeout expires?
 
+>  		reg_write(smbus, REG_IMASK, 0);
+>  		status = reg_read(smbus, REG_SMSTA);
+>  	} else {
 
+...
+
+>  	struct pasemi_smbus *smbus = adapter->algo_data;
+>  	int ret, i;
+>  
+> -	pasemi_smb_clear(smbus);
+> +	if (pasemi_smb_clear(smbus))
+> +		return -EIO;
+
+Can we use
+
+	ret = ...
+	if (ret)
+		return ret;
+
+This way we return whatever comes from pasemi_smb_clear().
+
+>  
+>  	ret = 0;
+
+This way we can remove this line, as well.
+
+Andi
 
