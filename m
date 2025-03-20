@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E242CC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A763C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8TaTRN+t2aQ2wq9zWBw7J+dbIhAxxWvfBigEXB8l0k=; b=4UAHWbN/cEhH48EaECLHIrBG/W
-	SHn9T5RnkAhmAhrsm7TkkPe2SBIa0nQknGPEebfGyFRCjTrQ9Ef28oM4ipWGxshx6HtCVGcAT3f8F
-	XwutCjWNUiJrwDXv6RsurHf37kwxht3eJ+bTk1F9av7hvlt7v8hJviT9e7/h6rYkaQ/TQyXT/mTQy
-	JRJPR1S2NyJ5BbJEFEFkJ78NA0FFxuRyTt8PxFmP/D7i+hAFUGolF25Ms/DUKyzc3yND99pz4dJJe
-	D+jXuPVO+Gij4tND/1uXzy0Ya1n4E/DIzuLoCAtkHdYzihUTPA6o5TyU/vhOfEV8KuLl/GhW1TNzK
-	h2lO3DUQ==;
+	bh=7JVDVTN0oPA+Ta2bW7BJUlzHMGTm2Zw/hHId3AJNvY4=; b=vrfz6wp0HrSp0jyi202HXl74mf
+	wgz7ylg9S98oKqJuj/emZKfNNAE67k2ETFo4O6TY5Trg0j1CwDVHfvKzQy2Acvt6DU0G7BOv+PxHB
+	RIkDFHw5jvMkIWQe7J5oQeQ/cWjHSbiGY7wedlu8ZNRhyncNKtKhIB63ly0KIWdU5JR3MdgWTlG5g
+	6jUf2G1kvOq61p6b4R23KAXMFcBJ3C2mIECZP0Q90nxNq3G0Zax7LOS7TFNqAT8WcfGP0EaZf0zXs
+	nxKoAIoPaJUtEQeKPHZuyHysX5xX7q4m24Stg/o9gfSB0q6MIe19ndjpFPp7Mddegu97OOexS4eXK
+	elFUOpug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEKb-0000000Byv9-2WXm;
-	Thu, 20 Mar 2025 11:45:01 +0000
+	id 1tvEMG-0000000BzIY-1AIH;
+	Thu, 20 Mar 2025 11:46:44 +0000
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-0000000BxR5-1sqq
+	id 1tvE8r-0000000BxR6-27vG
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Mar 2025 11:32:57 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9la006831;
-	Thu, 20 Mar 2025 11:32:37 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lV006831;
+	Thu, 20 Mar 2025 11:32:32 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=s
-	8TaTRN+t2aQ2wq9zWBw7J+dbIhAxxWvfBigEXB8l0k=; b=ovb6oZg5gADuRL+vw
-	CMn1TvbQx4+XU1rG9+yOCAKutwkoreM4H3CcI+iPdHnzer4mtmesZ5F3JRKEdMJh
-	I13u78A3/gxU/4CE1BOGFkWDUE8WcTFvnCC9P462bxN7WcYNMDkDkFQ9lgihIAHP
-	YYnoO9XHXJQu+lApmZqhqCBFWsw4o5NyqatKVNH3G06xgxD5W0jZf8fC90u3Tx3s
-	TCOYQfKI0ki0IFGe16dI6GiY+r/X//7p1sEGJUcUFSBAPG0qt9E1Z4LljmGQqtJc
-	5NmBiNytXWxkuv9noDZLiupbA7Ou/zG8WAT1zUV4Qwv5xvJQ+G/Jcvni78maX5VM
-	QdYnw==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=7
+	JVDVTN0oPA+Ta2bW7BJUlzHMGTm2Zw/hHId3AJNvY4=; b=VUfRRwePbu/sMD+Du
+	SILijuCCBuqnxoRdDICRQ9xIfj9YLyV0vT8MwY54ee/znjK2jgnIc8buN/j0Kv9N
+	O8Q8ejSsOn4wg/+lM5wYGPaEZM7I/QNZJbzzDp9Rd5+nIXN7ZUh14qMX6hc0pnL6
+	a3nK6FwImhhPeTNIJx672Cs0AqyHXOXMsh2nYFYeOETPg5agB3I3y/fuStsV/IDy
+	Hm9XKnwmqtYGUma2YYQuXWezRtcub1dfevjaHa/QgvakOYfoCL+FnKtdUcFlozX8
+	5YSm3+BnNvoN4huISy71JwfBQCKqGbrMF4FQz7UMDjSoVc7+85dqGJJWZ/7Ac/xG
+	NR8qg==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwga-3
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg6-2
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:37 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:32 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:35 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:31 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:26 +0000
-Subject: [PATCH v4 16/18] drm/imagination: Add support for TI AM68 GPU
+Date: Thu, 20 Mar 2025 11:32:21 +0000
+Subject: [PATCH v4 11/18] drm/imagination: Use a lookup table for fw defs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-16-d987cf4ca439@imgtec.com>
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-11-d987cf4ca439@imgtec.com>
 References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -80,24 +80,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1551;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3622;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=/jn7NtzI9B+n7dwnr4ys/OUVOBta5KgLxbh8zwZgyz0=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nNMM7R8tS5X0x/JXj6WU9LbtaqYLtu8aZFV0PZwm
- zX1bUFcRykLgxgHg6yYIsuOFZYr1P6oaUnc+FUMM4eVCWQIAxenAEwkrZvhf9jaBR9uro+9JbDp
- /XtPBkG+L2XlPzj3xX8N9T0739Xg8kFGhr/ayxXSM5wr0vyYqiLVLquzdqSs/nLxSutuKbm63fG
- HOQE=
+ bh=FJOK2fpdwepKEkSgJ54eDFC8byDOcozCf7jBYB698IU=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nP0av2FSanaS9bqOf39ejhpB9fkbVd8DXeIC22Zt
+ 6Qy8G9VakcpC4MYB4OsmCLLjhWWK9T+qGlJ3PhVDDOHlQlkCAMXpwBMZEUfI8Op/xXruH7+2f3q
+ dNU62+ym9AOsvz4WKkusD319jnlyffw/RobT5523PReVSNrA8nRFYXiHQXtkaozY9p7z0SEHnZW
+ 6OVgB
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: zMRjpUr7vnlHJGLZ1Roze8o9Eiy-XB4R
-X-Proofpoint-ORIG-GUID: zMRjpUr7vnlHJGLZ1Roze8o9Eiy-XB4R
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd5 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=8q2ZPnE9uwbZrF7VKmgA:9
+X-Proofpoint-GUID: Xn1tYi5tvAygr5BfkuIBmwahD6wM-g-q
+X-Proofpoint-ORIG-GUID: Xn1tYi5tvAygr5BfkuIBmwahD6wM-g-q
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd0 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=iYL5nd4a90DRai7o0HQA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_043253_826066_05E7CBA1 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20250320_043253_907025_4E54710E 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +112,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since we already added a generic compatible string for all IMG Rogue GPUs
-("img,img-rogue"), all that's needed here is to link the appropriate
-firmware for the BXS-4-64 GPU in the AM68.
+With more than two firmware processor types, the if/else chain in
+pvr_fw_init() gets a bit ridiculous. Use a static array indexed on
+pvr_fw_processor_type (which is now a proper enum instead of #defines)
+instead.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v4:
 - None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-16-143b3dbef02f@imgtec.com
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-11-143b3dbef02f@imgtec.com
 Changes in v3:
-- Remove device overrides
-- Remove specific compatible string
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-20-3fd45d9fb0cf@imgtec.com
+- None
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-13-3fd45d9fb0cf@imgtec.com
 Changes in v2:
 - None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-20-4ed30e865892@imgtec.com
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-13-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/pvr_drv.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/imagination/pvr_device.h |  4 ----
+ drivers/gpu/drm/imagination/pvr_fw.c     | 21 ++++++++++++++++-----
+ drivers/gpu/drm/imagination/pvr_fw.h     |  7 +++++++
+ 3 files changed, 23 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-index ac4f5855c5692f0956862cebdbf76b16d8da9a81..b058ec183bb30ab5c3db17ebaadf2754520a2a1f 100644
---- a/drivers/gpu/drm/imagination/pvr_drv.c
-+++ b/drivers/gpu/drm/imagination/pvr_drv.c
-@@ -44,6 +44,7 @@
-  * This driver supports the following PowerVR/IMG graphics cores from Imagination Technologies:
-  *
-  * * AXE-1-16M (found in Texas Instruments AM62)
-+ * * BXS-4-64 MC1 (found in Texas Instruments J721S2/AM68)
-  */
+diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+index 6c01d96657de6dc3904ef5ca28365f06cfe0f40b..12bf0b9e5bfb48ef9e5ed9faa44e0896b7555f49 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.h
++++ b/drivers/gpu/drm/imagination/pvr_device.h
+@@ -739,8 +739,4 @@ pvr_ioctl_union_padding_check(void *instance, size_t union_offset,
+ 					      __union_size, __member_size);  \
+ 	})
  
- /**
-@@ -1512,3 +1513,4 @@ MODULE_DESCRIPTION(PVR_DRIVER_DESC);
- MODULE_LICENSE("Dual MIT/GPL");
- MODULE_IMPORT_NS("DMA_BUF");
- MODULE_FIRMWARE("powervr/rogue_33.15.11.3_v1.fw");
-+MODULE_FIRMWARE("powervr/rogue_36.53.104.796_v1.fw");
+-#define PVR_FW_PROCESSOR_TYPE_META  0
+-#define PVR_FW_PROCESSOR_TYPE_MIPS  1
+-#define PVR_FW_PROCESSOR_TYPE_RISCV 2
+-
+ #endif /* PVR_DEVICE_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index 74ea83b5c1a5f1edd79d2f5ccf1c6b1b400524a9..a69c3c306a1c1de0a9587c003e1e03e4604cca81 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -942,16 +942,27 @@ pvr_fw_validate_init_device_info(struct pvr_device *pvr_dev)
+ int
+ pvr_fw_init(struct pvr_device *pvr_dev)
+ {
++	static const struct pvr_fw_defs *fw_defs[PVR_FW_PROCESSOR_TYPE_COUNT] = {
++		[PVR_FW_PROCESSOR_TYPE_META] = &pvr_fw_defs_meta,
++		[PVR_FW_PROCESSOR_TYPE_MIPS] = &pvr_fw_defs_mips,
++		[PVR_FW_PROCESSOR_TYPE_RISCV] = NULL,
++	};
++
+ 	u32 kccb_size_log2 = ROGUE_FWIF_KCCB_NUMCMDS_LOG2_DEFAULT;
+ 	u32 kccb_rtn_size = (1 << kccb_size_log2) * sizeof(*pvr_dev->kccb.rtn);
+ 	struct pvr_fw_device *fw_dev = &pvr_dev->fw_dev;
+ 	int err;
+ 
+-	if (fw_dev->processor_type == PVR_FW_PROCESSOR_TYPE_META)
+-		fw_dev->defs = &pvr_fw_defs_meta;
+-	else if (fw_dev->processor_type == PVR_FW_PROCESSOR_TYPE_MIPS)
+-		fw_dev->defs = &pvr_fw_defs_mips;
+-	else
++	if (fw_dev->processor_type >= PVR_FW_PROCESSOR_TYPE_COUNT)
++		return -EINVAL;
++
++	fw_dev->defs = fw_defs[fw_dev->processor_type];
++
++	/*
++	 * Not all firmware processor types are currently supported.
++	 * Once they are, this check can be removed.
++	 */
++	if (!fw_dev->defs)
+ 		return -EINVAL;
+ 
+ 	err = fw_dev->defs->init(pvr_dev);
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index 180d310074e3585c641e540a9e2576b5ab2a5705..88ad713468ce3a1ee459b04dde5363c24791a4f1 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -402,6 +402,13 @@ struct pvr_fw_device {
+ #define pvr_fw_irq_clear(pvr_dev) \
+ 	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
+ 
++enum pvr_fw_processor_type {
++	PVR_FW_PROCESSOR_TYPE_META = 0,
++	PVR_FW_PROCESSOR_TYPE_MIPS,
++	PVR_FW_PROCESSOR_TYPE_RISCV,
++	PVR_FW_PROCESSOR_TYPE_COUNT,
++};
++
+ extern const struct pvr_fw_defs pvr_fw_defs_meta;
+ extern const struct pvr_fw_defs pvr_fw_defs_mips;
+ 
 
 -- 
 2.49.0
