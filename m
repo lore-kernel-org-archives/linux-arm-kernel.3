@@ -4,95 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6A4C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 06:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D56A6C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 06:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxLrqePuJgckjU9Gq6tzwwGieyaiXAZhf8WK7spWf+8=; b=QXCnzaTRiUe/ASz+DUlo6QbTT8
-	/jjvYwZoVAb2SYlo8NkkMERj7r+GjcMQlCizxE9Iyms4xzy7X5mlPDuo+HYilWxCUh4Dvp0M6CKFG
-	ANepTpAJUymKIL/wMDGXR41M8h86ojWDbaT29EamYf7rNmm5yA2vCjQ98kUTvm8uOd451SMPZdwm2
-	0XZk3SjtzpGnP/OH9icFbUoweT/Zlifresmq/4wmnq3KA/1GdTxGaGspHYPc5OFluogPwoEeQ7XUP
-	yO/4K8e93lG/z/euu8kxTwMbd+3IV0TE3bVegWp13u4x9xPwVshgynTrKqgXAxighELqZYyQExk6K
-	GMXq9dEQ==;
+	bh=EUlQy+omekyAlQ/UT0+jDTx9lfmxYWK64YNT4WpuUK4=; b=ennzmt04GpnJJlEaLD0zdPStmi
+	E6g0VHYbNJF0Cu3yUueIapoOkgKxCz/QD1RZzRMdKkzwWgU8+KRQ/chOXBkIrqPWofaBbnfLJpR/h
+	o+HS8VRC+bIjLqs9eEV3PHRIbGdoQcRbY4G4y+RWR0QrD3RNCU6u6GTFY/wdeIIz8IldhWmW+jeY/
+	qiYQMYbWVDaxdruVcWdkI4lxaULLeBFC8f8QY5K9ubbZvCpGubiFtZLLo/QqzhCsZyw6gAfM7gwg0
+	uC99iwVlODQvGJbKwl63otJUrdKzHCb98MpzGi1So7AISIzp5qJnm/qPjjIvJu28Fanb6jZlHHQnR
+	XPCpfSGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv8z7-0000000BH7f-3Nw8;
-	Thu, 20 Mar 2025 06:02:29 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tv920-0000000BHMs-0Hrb;
+	Thu, 20 Mar 2025 06:05:28 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv8sH-0000000BGIV-47s8
+	id 1tv90H-0000000BHH4-0KoZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 05:55:27 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52JKFMqE013593;
-	Thu, 20 Mar 2025 05:55:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=nxLrqePuJgc
-	kjU9Gq6tzwwGieyaiXAZhf8WK7spWf+8=; b=M1cEQCbGlY4Jy45FZNcnftsizAb
-	l/nX+eOjcjy+tQnLb6/syiuDwdKJjMxZs7le5ORN40H4MvCHHja0a7usw73WfpKo
-	0TIo+wDg+F8SKMKKyWwF9HWV2udQaWZjJbz5pyKPeo05V3y0lrCtqo1CBfGRew69
-	PmIGnxvPXnIC46NrazqjdSJC2OCR3rE8GxNYz3G8PVDN6rA2ruFk7iI5kfhBU4tC
-	HPliVflcD+huVhWTxr9rwfxXAoa8P1X+M+dezaFx9NrHJZOrsmziYW0wgAkpvpCL
-	fxBWBhWZu1vGMuOJLz7C1O/KRK3IhR55xZ16IjFXnmxtcDZ5KMSRBiCf17Q==
-Received: from aptaippmta02.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45g4t414ee-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Mar 2025 05:55:16 +0000 (GMT)
-Received: from pps.filterd (APTAIPPMTA02.qualcomm.com [127.0.0.1])
-	by APTAIPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 52K5tEbg001167;
-	Thu, 20 Mar 2025 05:55:14 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 45dk9w97cm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Mar 2025 05:55:14 +0000
-Received: from APTAIPPMTA02.qualcomm.com (APTAIPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 52K5tEp6001162;
-	Thu, 20 Mar 2025 05:55:14 GMT
-Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
-	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 52K5tDuW001161
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Mar 2025 05:55:14 +0000
-Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 4635958)
-	id 8D71B40BF8; Thu, 20 Mar 2025 13:55:10 +0800 (CST)
-From: Wenbin Yao <quic_wenbyao@quicinc.com>
-To: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        catalin.marinas@arm.com, will@kernel.org, quic_qianyu@quicinc.com,
-        sfr@canb.auug.org.au, linux-arm-kernel@lists.infradead.org
-Cc: quic_wenbyao@quicinc.com
-Subject: [PATCH v1 3/3] arm64: dts: qcom: x1e80100-qcp: Add power control and sideband signals for PCIe3
-Date: Thu, 20 Mar 2025 13:55:02 +0800
-Message-Id: <20250320055502.274849-4-quic_wenbyao@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
-References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
+	Thu, 20 Mar 2025 06:03:42 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-223fb0f619dso5530285ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 23:03:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1742450620; x=1743055420; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EUlQy+omekyAlQ/UT0+jDTx9lfmxYWK64YNT4WpuUK4=;
+        b=i3+gRgq1v3Q/0H2c93GABiOpwP39zoAT8E6aBhT0JgAvzbHytT+mgpsg0xzlLUiJrG
+         FMK3zjnXb5WnbAL6FDmS7MHvq85VrRtWQDnL3RdzzeAa0Og4AiaxFmjP/RbS2riWVZkZ
+         94yQ5lOFm2VOeIm+4e4wNb/AQx+L6iKQ6FEWFG/mlsIYvDpVGrl5IYjoWa8lTHHTFxPZ
+         s9hM1Vsj5RX9pShS5lLiFYd5aeCFUgTtde2vF6euXjXix0hxY1JPqsCOPJ3FvyhAAS7g
+         oXqKDoqOnTPwC6h+83v9gTynchjfTMV/4Imj1xlcQvL1AS2FQYjSRplCyvdAN58K3KLi
+         jktQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742450620; x=1743055420;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EUlQy+omekyAlQ/UT0+jDTx9lfmxYWK64YNT4WpuUK4=;
+        b=l9wabXsSEPZdSIU9SNORO4YwhIaBkON1kVse22aHN+OTycRojz5Bp8kprFneXIgdVS
+         81RdUeqtUlqY2wy70u4EDeYMH7ppnshF/LieKwQsaMN1ijuG5HwpksLWBTyT4qCLfDla
+         F2HWNB7wmOO7ZOaeM5KVJ++c9wizoH0OFWGZntBocNEpqxZd24HNzQDpAEj7o/fIBni3
+         Esb/o1K+4q3OVr/TQi+PnAvEtlGlmiO5ZOsURdRPq/86GBVRXlsgu36aa7u8nvZoAmpG
+         0jzgfY9OCndu29vmf4SzqOaiwdoNf6+JAcu4xLzdgXMkr/bqOHWPXztXPhu/FFqImQmd
+         2C2A==
+X-Forwarded-Encrypted: i=1; AJvYcCX8CRJbGJyKG30T7fSiGIl0mqcD3NK3fYBFTjWus6cSKaqWx5/nRWS6QWow1U+ry0ZPwkfXDi+vxGX7nw30zgwz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRpO+6yHFdTP7h4H0rb6sP28QRVwB3aqnqmGvoQ6FMDONlUy6F
+	a3iTIAzb/y6q2xo79cSa+jX6M5DsOCyl8Uq5Ef94M08MD5zuootgRiVc7Ze7t+U=
+X-Gm-Gg: ASbGnctyG9n9mjUmkxv0AYpyjPTcvkLT9lfBlRUy+vIO0LzxqgUKmTyaMK+MS7G+4H5
+	iudeh4jOqvyvtPcLB2+Pum1vujTbeG7ASBycZbyxUQb9Lq56/Mv96shrikPxwKA9YeQb3xYvPRU
+	BZQTHohN1cun8tmfGBgCS+7Z+uv1FPnW+iueRRDiOoLJbF430uvBJL2uzMIIRaA0EebW+K2arKl
+	gCspy6LC7cWwuv2uvr4fD5/mfu4r173ruPHvxBwr6y/EIE95igTXJ6Xf6R/kmNYkSeL9ZfaXfbg
+	TdBMWJh5ZVALsiKHaf8FkfP5uJWA8wyWscyOQkVuV8A+xx7t5ksOrJRx1w==
+X-Google-Smtp-Source: AGHT+IFenEJO6TI9Hsl5cc1hX2SStJer0wmUMMpctF1K7VqnKKB8w0l0InlYXp+IwtSylHw5lHcLYg==
+X-Received: by 2002:a17:902:d2cc:b0:224:1c41:a4c0 with SMTP id d9443c01a7336-2264981b59bmr83265325ad.9.1742450620129;
+        Wed, 19 Mar 2025 23:03:40 -0700 (PDT)
+Received: from [157.82.207.107] ([157.82.207.107])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73711557e9fsm13269592b3a.51.2025.03.19.23.03.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Mar 2025 23:03:39 -0700 (PDT)
+Message-ID: <0d84bc94-1c65-4737-a2eb-aa7f96a7d1e0@daynix.com>
+Date: Thu, 20 Mar 2025 15:03:35 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=HMPDFptv c=1 sm=1 tr=0 ts=67dbadc4 cx=c_pps a=nuhDOHQX5FNHPW3J6Bj6AA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=uqfcqhS-80NqSzA78J4A:9 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: j9VWoZr1Lv5nxXfVBsZ4Iaf2RA-gfPVs
-X-Proofpoint-ORIG-GUID: j9VWoZr1Lv5nxXfVBsZ4Iaf2RA-gfPVs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-20_01,2025-03-19_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0
- priorityscore=1501 mlxscore=0 clxscore=1011 bulkscore=0 impostorscore=0
- mlxlogscore=999 malwarescore=0 adultscore=0 suspectscore=0
- lowpriorityscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502280000 definitions=main-2503200035
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] KVM: arm64: PMU: Use multiple host PMUs
+To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+ devel@daynix.com
+References: <20250319-hybrid-v1-1-4d1ada10e705@daynix.com>
+ <Z9pze3J2_zrTk_yC@linux.dev>
+ <e8324d9d-3756-41cf-a102-28572e302368@daynix.com>
+ <86plidmjwh.wl-maz@kernel.org>
+ <bd681ec6-0b4c-47d9-8a4a-b7324c0883a6@daynix.com>
+ <86o6xxmg87.wl-maz@kernel.org>
+ <aabd71eb-286b-475c-a30e-d5cf5c4f2769@daynix.com>
+ <86msdhmemw.wl-maz@kernel.org>
+ <cd7b4528-34a3-4d87-9711-acc2c2e6f6e1@daynix.com>
+ <86ldt0n9w1.wl-maz@kernel.org> <Z9sSMJAlf7cQ5viu@linux.dev>
+Content-Language: en-US
+From: Akihiko Odaki <akihiko.odaki@daynix.com>
+In-Reply-To: <Z9sSMJAlf7cQ5viu@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_225526_030599_BD0AA5F7 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250319_230341_128682_72AA50AE 
+X-CRM114-Status: GOOD (  28.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,163 +113,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Qiang Yu <quic_qianyu@quicinc.com>
+On 2025/03/20 3:51, Oliver Upton wrote:
+> On Wed, Mar 19, 2025 at 06:38:38PM +0000, Marc Zyngier wrote:
+>> On Wed, 19 Mar 2025 11:51:21 +0000, Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+>>> What about setting the flag automatically when a user fails to pin
+>>> vCPUs to CPUs that are covered by one PMU? There would be no change if
+>>> a user correctly pins vCPUs as it is. Otherwise, they will see a
+>>> correct feature set advertised to the guest and the cycle counter
+>>> working.
+>>
+>> How do you know that the affinity is "correct"? VCPU affinity can be
+>> changed at any time. I, for one, do not want my VMs to change
+>> behaviour because I let the vcpus bounce around as the scheduler sees
+>> fit.
 
-Add perst, wake and clkreq sideband signals and required regulators in
-PCIe3 controller and PHY device tree node. Describe the voltage rails of
-the x8 PCI slots for PCIe3 port.
+Checking the affinity when picking the default PMU; the vCPU affinity is 
+the only thing that rules the choice of the default PMU even now.
 
-Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
----
- arch/arm64/boot/dts/qcom/x1e80100-qcp.dts | 119 ++++++++++++++++++++++
- 1 file changed, 119 insertions(+)
+Perhaps we may model the API as follows: introduce another "composite" 
+PMU that works on any core but only exposes the cycle counter. Robust 
+VMMs will choose it or one of hardware PMUs with 
+KVM_ARM_VCPU_PMU_V3_SET_PMU. KVM will choose the default PMU according 
+to the vCPU affinity at the point of KVM_ARM_VCPU_INIT otherwise. If the 
+affinity is covered by one hardware PMU, that PMU will be chosen as the 
+default. The "composite" PMU will be the default otherwise.
 
-diff --git a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-index 28086a2bc..9cd313802 100644
---- a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-+++ b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-@@ -318,6 +318,48 @@ vreg_wcn_3p3: regulator-wcn-3p3 {
- 		regulator-boot-on;
- 	};
- 
-+	vreg_pcie_12v: regulator-pcie_12v {
-+		compatible = "regulator-fixed";
-+
-+		regulator-name = "VREG_PCIE_12V";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+
-+		gpio = <&pm8550ve_8_gpios 8 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pcie_x8_12v>;
-+	};
-+
-+	vreg_pcie_3v3_aux: regulator-pcie_3v3_aux {
-+		compatible = "regulator-fixed";
-+
-+		regulator-name = "VREG_PCIE_3P3_AUX";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+
-+		gpio = <&pmc8380_3_gpios 8 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pm_sde7_aux_3p3_en>;
-+	};
-+
-+	vreg_pcie_3v3: regulator-pcie_3v3 {
-+		compatible = "regulator-fixed";
-+
-+		regulator-name = "VREG_PCIE_3P3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+
-+		gpio = <&pmc8380_3_gpios 6 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pm_sde7_main_3p3_en>;
-+};
-+
- 	usb-1-ss0-sbu-mux {
- 		compatible = "onnn,fsusb42", "gpio-sbu-mux";
- 
-@@ -907,6 +949,60 @@ &mdss_dp3_phy {
- 	status = "okay";
- };
- 
-+&pm8550ve_8_gpios {
-+	pcie_x8_12v: pcie-12v-default-state {
-+		pins = "gpio8";
-+		function = "normal";
-+		output-enable;
-+		output-high;
-+		bias-pull-down;
-+		power-source = <0>;
-+	};
-+};
-+
-+&pmc8380_3_gpios {
-+	pm_sde7_aux_3p3_en: pcie-aux-3p3-default-state {
-+		pins = "gpio8";
-+		function = "normal";
-+		output-enable;
-+		output-high;
-+		bias-pull-down;
-+		power-source = <0>;
-+	};
-+
-+	pm_sde7_main_3p3_en: pcie-main-3p3-default-state {
-+		pins = "gpio6";
-+		function = "normal";
-+		output-enable;
-+		output-high;
-+		bias-pull-down;
-+		power-source = <0>;
-+	};
-+};
-+
-+&pcie3 {
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie3_default>;
-+	perst-gpios = <&tlmm 143 GPIO_ACTIVE_LOW>;
-+	wake-gpios = <&tlmm 145 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+};
-+
-+&pcie3_phy {
-+	vdda-phy-supply = <&vreg_l3j_0p8>;
-+	vdda-pll-supply = <&vreg_l3e_1p2>;
-+	vdda-qref-supply = <&vreg_l3c_0p8>;
-+
-+	status = "okay";
-+};
-+
-+&pcie3port {
-+	vpcie12v-supply = <&vreg_pcie_12v>;
-+	vpcie3v3-supply = <&vreg_pcie_3v3>;
-+	vpcie3v3aux-supply = <&vreg_pcie_3v3_aux>;
-+};
-+
- &pcie4 {
- 	perst-gpios = <&tlmm 146 GPIO_ACTIVE_LOW>;
- 	wake-gpios = <&tlmm 148 GPIO_ACTIVE_LOW>;
-@@ -1118,6 +1214,29 @@ nvme_reg_en: nvme-reg-en-state {
- 		bias-disable;
- 	};
- 
-+	pcie3_default: pcie3-default-state {
-+		clkreq-n-pins {
-+			pins = "gpio144";
-+			function = "pcie3_clk";
-+			drive-strength = <2>;
-+			bias-pull-up;
-+		};
-+
-+		perst-n-pins {
-+			pins = "gpio143";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+		};
-+
-+		wake-n-pins {
-+		       pins = "gpio145";
-+		       function = "gpio";
-+		       drive-strength = <2>;
-+		       bias-pull-up;
-+		};
-+	};
-+
- 	pcie4_default: pcie4-default-state {
- 		clkreq-n-pins {
- 			pins = "gpio147";
--- 
-2.34.1
+Regards,
+Akihiko Odaki
+
+>>
+>> Honestly, this is not a can of worm I want to open. We already have a
+>> pretty terrible userspace API for the PMU, let's not add to the
+>> confusion. *If* we are going down the road of presenting a dumbed-down
+>> PMU to the guest, it has to be an explicit buy-in from userspace.
+> 
+> I also have a very strong distaste for the crappy UAPI we have around a
+> 'default' PMU. At the same time I do recognize this hurts practical
+> usecases since some VMMs can't be bothered to configure the vPMU / vCPU
+> pinning correctly.
+> 
+> I'm at least willing to plug my nose and do the following:
+> 
+>   1) When the VMM does not specify a vPMU type:
+> 
+>     - We continue to present the 'default' PMU (including event counters)
+>       to the VM
+> 
+>     - KVM ensures that the fixed CPU cycle counter works on any PMUv3
+>       implementation in the system, even if it is different from the
+>       default
+> 
+>     - Otherwise, event counters will only count on the default
+>       implementation and will not count on different PMUs
+> 
+>   2) Implement your suggestion of a UAPI where the VMM can select a PMU
+>      that only has the CPU cycle counter and works on any PMUv3
+>      implementation.
+> 
+> Either way KVM will need to have some special case handling of the fixed
+> CPU cycle counter. That'd allow users to actually run Windows *now* and
+> provide a clear mechanism for userspace to present a less-broken vPMU if
+> it cares.
+> 
+> Thanks,
+> Oliver
 
 
