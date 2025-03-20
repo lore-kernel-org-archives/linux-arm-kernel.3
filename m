@@ -4,63 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4806C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B9CDC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qhdEBysemK4Op5BI5LxI7dMVD7TFix3pgk70ZVv71ZE=; b=PRhW1DhRz7kcuyqTo3Bblu5g8I
-	tfmkaQ935mHzKAu68ex0is816igfbtxAORMvn1LbpPNxSyn2ADj1OBUSGkCCGFsS344eiSqd300wU
-	p4M99pes2cVHtiopdMqzuqk5XWlJ/SWC4olI+uW/ZaNexFxctkH0shNvzddSBkzbQAtSpvu7eoTCx
-	ka4tPvsjRon5DnhWRK0w9tzsT9Mm1enuyG9AXdj3aSN9VDSl15l55Gy9eyQbtFKUmVqryrcXm1/ct
-	3LIOgWE6WeyukHm8S6cuFb3GQ/vBTJzm/90r9u8HWj6Z1TxZViflx+sdD2jK6dlZrSQEFxCkx+HWM
-	gV+h7M2w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c60rmrlv3aaIY5Znkost7oGl6lYu1esWCAXp40NR25k=; b=pYqXOSzO2NCn1t3i9oKUa8jZA6
+	ZRRzVOX9R5cMTZnM1TsgqLiWk2hZ3hvlDGsNTlztUl/LXbTdUCiPAIRzXRKR9hYPr7UjMdVhaqmxZ
+	xqsrMSGmDYjCGw9DFWaU6Nc8Jvsai3/wmP25p59vNfNVQqaninPUtNVicCA98fp9gvy57A21GmXR+
+	FqAG3AKObHgxf6OVgZih7lDHG5mQt8Yg8oZKE0YjY5Rs0s8U1g7O0sy6CsuAaDlEi5v8tQwXkDWaq
+	yF1JrScDJmhMV+puYmZqR6PjtURjJB1vxlB+U4M74cxloJZeWuV9QXvIcuKKJVLbQH+WPfOfgFjvW
+	T7AnA5Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGUd-0000000CKAg-1BRp;
-	Thu, 20 Mar 2025 14:03:31 +0000
+	id 1tvGnt-0000000CNKF-0Kc7;
+	Thu, 20 Mar 2025 14:23:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGSu-0000000CJl0-3lKy
+	id 1tvGmA-0000000CMxK-207p
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 14:01:46 +0000
+	Thu, 20 Mar 2025 14:21:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFF5A113E;
-	Thu, 20 Mar 2025 07:01:51 -0700 (PDT)
-Received: from [10.57.84.158] (unknown [10.57.84.158])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7EAC3F63F;
-	Thu, 20 Mar 2025 07:01:39 -0700 (PDT)
-Message-ID: <2cbca34c-477c-4055-b388-a13bb6c22b4d@arm.com>
-Date: Thu, 20 Mar 2025 14:01:38 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8108A1063;
+	Thu, 20 Mar 2025 07:21:43 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 054353F63F;
+	Thu, 20 Mar 2025 07:21:34 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: joro@8bytes.org,
+	will@kernel.org
+Cc: iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] iommu: Split out and tidy up Arm Kconfig
+Date: Thu, 20 Mar 2025 14:21:28 +0000
+Message-Id: <a614ec86ba78c09cd16e348f633f6bb38793391f.1742480488.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb@kernel.org>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
- james.morse@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
- baohua@kernel.org, david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev
-References: <20250319150533.37440-2-miko.lenczewski@arm.com>
- <20250319150533.37440-3-miko.lenczewski@arm.com>
- <CAMj1kXFOofRCiVHxxxBZMGQHRH-ghtqNxgd=uww9D4sr4vvjEQ@mail.gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAMj1kXFOofRCiVHxxxBZMGQHRH-ghtqNxgd=uww9D4sr4vvjEQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_070145_022420_BF15ED76 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20250320_072138_611159_CD856354 
+X-CRM114-Status: GOOD (  32.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,153 +62,357 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2025 13:37, Ard Biesheuvel wrote:
-> On Wed, 19 Mar 2025 at 16:06, Mikołaj Lenczewski
-> <miko.lenczewski@arm.com> wrote:
->>
->> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
->> and this commit adds a dedicated BBML2 cpufeature to test against
->> support for, as well as a kernel commandline parameter to optionally
->> disable BBML2 altogether.
->>
->> This is a system feature as we might have a big.LITTLE architecture
->> where some cores support BBML2 and some don't, but we want all cores to
->> be available and BBM to default to level 0 (as opposed to having cores
->> without BBML2 not coming online).
->>
->> To support BBML2 in as wide a range of contexts as we can, we want not
->> only the architectural guarantees that BBML2 makes, but additionally
->> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
->> us having to prove that no recursive faults can be induced in any path
->> that uses BBML2, allowing its use for arbitrary kernel mappings.
->> Support detection of such CPUs.
->>
->> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
->> ---
->>  .../admin-guide/kernel-parameters.txt         |  3 +
->>  arch/arm64/Kconfig                            | 11 +++
->>  arch/arm64/include/asm/cpucaps.h              |  2 +
->>  arch/arm64/include/asm/cpufeature.h           |  5 ++
->>  arch/arm64/kernel/cpufeature.c                | 68 +++++++++++++++++++
->>  arch/arm64/kernel/pi/idreg-override.c         |  2 +
->>  arch/arm64/tools/cpucaps                      |  1 +
->>  7 files changed, 92 insertions(+)
->>
->> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->> index fb8752b42ec8..3e4cc917a07e 100644
->> --- a/Documentation/admin-guide/kernel-parameters.txt
->> +++ b/Documentation/admin-guide/kernel-parameters.txt
->> @@ -453,6 +453,9 @@
->>         arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
->>                         32 bit applications.
->>
->> +       arm64.nobbml2   [ARM64] Unconditionally disable Break-Before-Make Level
->> +                       2 support
->> +
->>         arm64.nobti     [ARM64] Unconditionally disable Branch Target
->>                         Identification support
->>
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index 940343beb3d4..49deda2b22ae 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -2057,6 +2057,17 @@ config ARM64_TLB_RANGE
->>           The feature introduces new assembly instructions, and they were
->>           support when binutils >= 2.30.
->>
->> +config ARM64_BBML2_NOABORT
->> +       bool "Enable support for Break-Before-Make Level 2 detection and usage"
->> +       default y
->> +       help
->> +         FEAT_BBM provides detection of support levels for break-before-make
->> +         sequences. If BBM level 2 is supported, some TLB maintenance requirements
->> +         can be relaxed to improve performance. We additonally require the
->> +         property that the implementation cannot ever raise TLB Conflict Aborts.
->> +         Selecting N causes the kernel to fallback to BBM level 0 behaviour
->> +         even if the system supports BBM level 2.
->> +
->>  endmenu # "ARMv8.4 architectural features"
->>
->>  menu "ARMv8.5 architectural features"
->> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
->> index 0b5ca6e0eb09..2d6db33d4e45 100644
->> --- a/arch/arm64/include/asm/cpucaps.h
->> +++ b/arch/arm64/include/asm/cpucaps.h
->> @@ -23,6 +23,8 @@ cpucap_is_possible(const unsigned int cap)
->>                 return IS_ENABLED(CONFIG_ARM64_PAN);
->>         case ARM64_HAS_EPAN:
->>                 return IS_ENABLED(CONFIG_ARM64_EPAN);
->> +       case ARM64_HAS_BBML2_NOABORT:
->> +               return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT);
->>         case ARM64_SVE:
->>                 return IS_ENABLED(CONFIG_ARM64_SVE);
->>         case ARM64_SME:
->> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
->> index e0e4478f5fb5..108ef3fbbc00 100644
->> --- a/arch/arm64/include/asm/cpufeature.h
->> +++ b/arch/arm64/include/asm/cpufeature.h
->> @@ -866,6 +866,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
->>         return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
->>  }
->>
->> +static inline bool system_supports_bbml2_noabort(void)
->> +{
->> +       return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
->> +}
->> +
->>  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
->>  bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
->>
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index d561cf3b8ac7..1a4adcda267b 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -2176,6 +2176,67 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->>         return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->>  }
->>
->> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
->> +{
-> 
-> We generally start these block comments with just /* on the first line
-> 
->> +       /* We want to allow usage of bbml2 in as wide a range of kernel contexts
->> +        * as possible. This list is therefore an allow-list of known-good
->> +        * implementations that both support bbml2 and additionally, fulfill the
->> +        * extra constraint of never generating TLB conflict aborts when using
->> +        * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
->> +        * kernel contexts difficult to prove safe against recursive aborts).
->> +        *
->> +        * Note that implementations can only be considered "known-good" if their
->> +        * implementors attest to the fact that the implementation never raises
->> +        * TLBI conflict aborts for bbml2 mapping granularity changes.
->> +        */
->> +       static const struct midr_range supports_bbml2_noabort_list[] = {
->> +               MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
->> +               MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
->> +               {}
->> +       };
->> +
-> 
-> Why on earth is this needed? Is there nothing in the architecture that
-> can inform us about this? That seems like a huge oversight to me ...
+There are quite a lot of options for the Arm drivers, still all buried
+in the top-level Kconfig. For ease of use and consistency with all the
+other subdirectories, break these out into drivers/arm. For similar
+clarity and self-consistency, also tweak the ARM_SMMU sub-options to use
+"if" instead of "depends", to match ARM_SMMU_V3. Lastly also clean up
+the slightly messy description of ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT as
+highlighted by Geert - by now we really shouldn't need commentary on
+v4.x kernel behaviour anyway - and downgrade it to EXPERT as the first
+step in the 6-year-old threat to remove it entirely.
 
-Currently the architecture can only tell us about the BBM support level.
-Currently level 2 is the highest and that permits an implementation to raise a
-conflict abort instead of handling it in HW.
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/iommu/Kconfig     | 157 +-------------------------------------
+ drivers/iommu/arm/Kconfig | 144 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 145 insertions(+), 156 deletions(-)
+ create mode 100644 drivers/iommu/arm/Kconfig
 
-Since this series only relies on BBML2 for user space memory, we believe we
-could contain and handle any conflict abort safely (the first version of this
-series handled the abort). But Yang Shi has a series on list that aims to use
-BBML2 to enable dynamically splitting the linear map. It becomes much harder to
-reason about the safety of any conflict abort in that case.
-
-Will was keen to take this approach were we decide if the HW supports
-"BBML2+NOABORT" semanitics based on the MIDR. Plans are in flight to fix the
-arch so we can tidy this up long term, but Will didn't want to hold up Ampere.
-
-Thanks,
-Ryan
-
+diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+index d935b59abb35..5ad3b7b8bfeb 100644
+--- a/drivers/iommu/Kconfig
++++ b/drivers/iommu/Kconfig
+@@ -193,6 +193,7 @@ config MSM_IOMMU
+ 	  If unsure, say N here.
+ 
+ source "drivers/iommu/amd/Kconfig"
++source "drivers/iommu/arm/Kconfig"
+ source "drivers/iommu/intel/Kconfig"
+ source "drivers/iommu/iommufd/Kconfig"
+ source "drivers/iommu/riscv/Kconfig"
+@@ -315,150 +316,6 @@ config APPLE_DART
+ 
+ 	  Say Y here if you are using an Apple SoC.
+ 
+-# ARM IOMMU support
+-config ARM_SMMU
+-	tristate "ARM Ltd. System MMU (SMMU) Support"
+-	depends on ARM64 || ARM || COMPILE_TEST
+-	depends on !GENERIC_ATOMIC64	# for IOMMU_IO_PGTABLE_LPAE
+-	select IOMMU_API
+-	select IOMMU_IO_PGTABLE_LPAE
+-	select ARM_DMA_USE_IOMMU if ARM
+-	help
+-	  Support for implementations of the ARM System MMU architecture
+-	  versions 1 and 2.
+-
+-	  Say Y here if your SoC includes an IOMMU device implementing
+-	  the ARM SMMU architecture.
+-
+-config ARM_SMMU_LEGACY_DT_BINDINGS
+-	bool "Support the legacy \"mmu-masters\" devicetree bindings"
+-	depends on ARM_SMMU=y && OF
+-	help
+-	  Support for the badly designed and deprecated "mmu-masters"
+-	  devicetree bindings. This allows some DMA masters to attach
+-	  to the SMMU but does not provide any support via the DMA API.
+-	  If you're lucky, you might be able to get VFIO up and running.
+-
+-	  If you say Y here then you'll make me very sad. Instead, say N
+-	  and move your firmware to the utopian future that was 2016.
+-
+-config ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT
+-	bool "Default to disabling bypass on ARM SMMU v1 and v2"
+-	depends on ARM_SMMU
+-	default y
+-	help
+-	  Say Y here to (by default) disable bypass streams such that
+-	  incoming transactions from devices that are not attached to
+-	  an iommu domain will report an abort back to the device and
+-	  will not be allowed to pass through the SMMU.
+-
+-	  Any old kernels that existed before this KConfig was
+-	  introduced would default to _allowing_ bypass (AKA the
+-	  equivalent of NO for this config).  However the default for
+-	  this option is YES because the old behavior is insecure.
+-
+-	  There are few reasons to allow unmatched stream bypass, and
+-	  even fewer good ones.  If saying YES here breaks your board
+-	  you should work on fixing your board.  This KConfig option
+-	  is expected to be removed in the future and we'll simply
+-	  hardcode the bypass disable in the code.
+-
+-	  NOTE: the kernel command line parameter
+-	  'arm-smmu.disable_bypass' will continue to override this
+-	  config.
+-
+-config ARM_SMMU_MMU_500_CPRE_ERRATA
+-	bool "Enable errata workaround for CPRE in SMMU reset path"
+-	depends on ARM_SMMU
+-	default y
+-	help
+-	  Say Y here (by default) to apply workaround to disable
+-	  MMU-500's next-page prefetcher for sake of 4 known errata.
+-
+-	  Say N here only when it is sure that any errata related to
+-	  prefetch enablement are not applicable on the platform.
+-	  Refer silicon-errata.rst for info on errata IDs.
+-
+-config ARM_SMMU_QCOM
+-	def_tristate y
+-	depends on ARM_SMMU && ARCH_QCOM
+-	select QCOM_SCM
+-	help
+-	  When running on a Qualcomm platform that has the custom variant
+-	  of the ARM SMMU, this needs to be built into the SMMU driver.
+-
+-config ARM_SMMU_QCOM_DEBUG
+-	bool "ARM SMMU QCOM implementation defined debug support"
+-	depends on ARM_SMMU_QCOM=y
+-	help
+-	  Support for implementation specific debug features in ARM SMMU
+-	  hardware found in QTI platforms. This include support for
+-	  the Translation Buffer Units (TBU) that can be used to obtain
+-	  additional information when debugging memory management issues
+-	  like context faults.
+-
+-	  Say Y here to enable debug for issues such as context faults
+-	  or TLB sync timeouts which requires implementation defined
+-	  register dumps.
+-
+-config ARM_SMMU_V3
+-	tristate "ARM Ltd. System MMU Version 3 (SMMUv3) Support"
+-	depends on ARM64
+-	select IOMMU_API
+-	select IOMMU_IO_PGTABLE_LPAE
+-	select GENERIC_MSI_IRQ
+-	select IOMMUFD_DRIVER if IOMMUFD
+-	help
+-	  Support for implementations of the ARM System MMU architecture
+-	  version 3 providing translation support to a PCIe root complex.
+-
+-	  Say Y here if your system includes an IOMMU device implementing
+-	  the ARM SMMUv3 architecture.
+-
+-if ARM_SMMU_V3
+-config ARM_SMMU_V3_SVA
+-	bool "Shared Virtual Addressing support for the ARM SMMUv3"
+-	select IOMMU_SVA
+-	select IOMMU_IOPF
+-	select MMU_NOTIFIER
+-	help
+-	  Support for sharing process address spaces with devices using the
+-	  SMMUv3.
+-
+-	  Say Y here if your system supports SVA extensions such as PCIe PASID
+-	  and PRI.
+-
+-config ARM_SMMU_V3_IOMMUFD
+-	bool "Enable IOMMUFD features for ARM SMMUv3 (EXPERIMENTAL)"
+-	depends on IOMMUFD
+-	help
+-	  Support for IOMMUFD features intended to support virtual machines
+-	  with accelerated virtual IOMMUs.
+-
+-	  Say Y here if you are doing development and testing on this feature.
+-
+-config ARM_SMMU_V3_KUNIT_TEST
+-	tristate "KUnit tests for arm-smmu-v3 driver"  if !KUNIT_ALL_TESTS
+-	depends on KUNIT
+-	depends on ARM_SMMU_V3_SVA
+-	default KUNIT_ALL_TESTS
+-	help
+-	  Enable this option to unit-test arm-smmu-v3 driver functions.
+-
+-	  If unsure, say N.
+-
+-config TEGRA241_CMDQV
+-	bool "NVIDIA Tegra241 CMDQ-V extension support for ARM SMMUv3"
+-	depends on ACPI
+-	help
+-	  Support for NVIDIA CMDQ-Virtualization extension for ARM SMMUv3. The
+-	  CMDQ-V extension is similar to v3.3 ECMDQ for multi command queues
+-	  support, except with virtualization capabilities.
+-
+-	  Say Y here if your system is NVIDIA Tegra241 (Grace) or it has the same
+-	  CMDQ-V extension.
+-endif
+-
+ config S390_IOMMU
+ 	def_bool y if S390 && PCI
+ 	depends on S390 && PCI
+@@ -495,18 +352,6 @@ config MTK_IOMMU_V1
+ 
+ 	  if unsure, say N here.
+ 
+-config QCOM_IOMMU
+-	# Note: iommu drivers cannot (yet?) be built as modules
+-	bool "Qualcomm IOMMU Support"
+-	depends on ARCH_QCOM || COMPILE_TEST
+-	depends on !GENERIC_ATOMIC64	# for IOMMU_IO_PGTABLE_LPAE
+-	select QCOM_SCM
+-	select IOMMU_API
+-	select IOMMU_IO_PGTABLE_LPAE
+-	select ARM_DMA_USE_IOMMU
+-	help
+-	  Support for IOMMU on certain Qualcomm SoCs.
+-
+ config HYPERV_IOMMU
+ 	bool "Hyper-V IRQ Handling"
+ 	depends on HYPERV && X86
+diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+new file mode 100644
+index 000000000000..ef42bbe07dbe
+--- /dev/null
++++ b/drivers/iommu/arm/Kconfig
+@@ -0,0 +1,144 @@
++# SPDX-License-Identifier: GPL-2.0-only
++# ARM IOMMU support
++config ARM_SMMU
++	tristate "ARM Ltd. System MMU (SMMU) Support"
++	depends on ARM64 || ARM || COMPILE_TEST
++	depends on !GENERIC_ATOMIC64	# for IOMMU_IO_PGTABLE_LPAE
++	select IOMMU_API
++	select IOMMU_IO_PGTABLE_LPAE
++	select ARM_DMA_USE_IOMMU if ARM
++	help
++	  Support for implementations of the ARM System MMU architecture
++	  versions 1 and 2.
++
++	  Say Y here if your SoC includes an IOMMU device implementing
++	  the ARM SMMU architecture.
++
++if ARM_SMMU
++config ARM_SMMU_LEGACY_DT_BINDINGS
++	bool "Support the legacy \"mmu-masters\" devicetree bindings"
++	depends on ARM_SMMU=y && OF
++	help
++	  Support for the badly designed and deprecated "mmu-masters"
++	  devicetree bindings. This allows some DMA masters to attach
++	  to the SMMU but does not provide any support via the DMA API.
++	  If you're lucky, you might be able to get VFIO up and running.
++
++	  If you say Y here then you'll make me very sad. Instead, say N
++	  and move your firmware to the utopian future that was 2016.
++
++config ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT
++	bool "Disable unmatched stream bypass by default" if EXPERT
++	default y
++	help
++	  If your firmware is broken and fails to describe StreamIDs which
++	  Linux should know about in order to manage the SMMU correctly and
++	  securely, and you don't want to boot with the 'arm-smmu.disable_bypass=0'
++	  command line parameter, then as a last resort you can turn it off
++	  by default here. But don't. This option may be removed at any time.
++
++	  Note that 'arm-smmu.disable_bypass=1' will still take precedence.
++
++config ARM_SMMU_MMU_500_CPRE_ERRATA
++	bool "Enable errata workaround for CPRE in SMMU reset path"
++	default y
++	help
++	  Say Y here (by default) to apply workaround to disable
++	  MMU-500's next-page prefetcher for sake of 4 known errata.
++
++	  Say N here only when it is sure that any errata related to
++	  prefetch enablement are not applicable on the platform.
++	  Refer silicon-errata.rst for info on errata IDs.
++
++config ARM_SMMU_QCOM
++	def_tristate y
++	depends on ARCH_QCOM
++	select QCOM_SCM
++	help
++	  When running on a Qualcomm platform that has the custom variant
++	  of the ARM SMMU, this needs to be built into the SMMU driver.
++
++config ARM_SMMU_QCOM_DEBUG
++	bool "ARM SMMU QCOM implementation defined debug support"
++	depends on ARM_SMMU_QCOM=y
++	help
++	  Support for implementation specific debug features in ARM SMMU
++	  hardware found in QTI platforms. This include support for
++	  the Translation Buffer Units (TBU) that can be used to obtain
++	  additional information when debugging memory management issues
++	  like context faults.
++
++	  Say Y here to enable debug for issues such as context faults
++	  or TLB sync timeouts which requires implementation defined
++	  register dumps.
++endif
++
++config ARM_SMMU_V3
++	tristate "ARM Ltd. System MMU Version 3 (SMMUv3) Support"
++	depends on ARM64
++	select IOMMU_API
++	select IOMMU_IO_PGTABLE_LPAE
++	select GENERIC_MSI_IRQ
++	select IOMMUFD_DRIVER if IOMMUFD
++	help
++	  Support for implementations of the ARM System MMU architecture
++	  version 3 providing translation support to a PCIe root complex.
++
++	  Say Y here if your system includes an IOMMU device implementing
++	  the ARM SMMUv3 architecture.
++
++if ARM_SMMU_V3
++config ARM_SMMU_V3_SVA
++	bool "Shared Virtual Addressing support for the ARM SMMUv3"
++	select IOMMU_SVA
++	select IOMMU_IOPF
++	select MMU_NOTIFIER
++	help
++	  Support for sharing process address spaces with devices using the
++	  SMMUv3.
++
++	  Say Y here if your system supports SVA extensions such as PCIe PASID
++	  and PRI.
++
++config ARM_SMMU_V3_IOMMUFD
++	bool "Enable IOMMUFD features for ARM SMMUv3 (EXPERIMENTAL)"
++	depends on IOMMUFD
++	help
++	  Support for IOMMUFD features intended to support virtual machines
++	  with accelerated virtual IOMMUs.
++
++	  Say Y here if you are doing development and testing on this feature.
++
++config ARM_SMMU_V3_KUNIT_TEST
++	tristate "KUnit tests for arm-smmu-v3 driver"  if !KUNIT_ALL_TESTS
++	depends on KUNIT
++	depends on ARM_SMMU_V3_SVA
++	default KUNIT_ALL_TESTS
++	help
++	  Enable this option to unit-test arm-smmu-v3 driver functions.
++
++	  If unsure, say N.
++
++config TEGRA241_CMDQV
++	bool "NVIDIA Tegra241 CMDQ-V extension support for ARM SMMUv3"
++	depends on ACPI
++	help
++	  Support for NVIDIA CMDQ-Virtualization extension for ARM SMMUv3. The
++	  CMDQ-V extension is similar to v3.3 ECMDQ for multi command queues
++	  support, except with virtualization capabilities.
++
++	  Say Y here if your system is NVIDIA Tegra241 (Grace) or it has the same
++	  CMDQ-V extension.
++endif
++
++config QCOM_IOMMU
++	# Note: iommu drivers cannot (yet?) be built as modules
++	bool "Qualcomm IOMMU Support"
++	depends on ARCH_QCOM || COMPILE_TEST
++	depends on !GENERIC_ATOMIC64	# for IOMMU_IO_PGTABLE_LPAE
++	select QCOM_SCM
++	select IOMMU_API
++	select IOMMU_IO_PGTABLE_LPAE
++	select ARM_DMA_USE_IOMMU
++	help
++	  Support for IOMMU on certain Qualcomm SoCs.
+-- 
+2.39.2.101.g768bb238c484.dirty
 
 
