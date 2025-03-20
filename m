@@ -4,100 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E3EC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 08:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2AAC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 08:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=inP+EHbG3HFu17JrpCxUEkiI+iH0naKDQSPrV/Ou9sg=; b=TTHXsuJZ7Aa/ZlFcfa1LR++xob
-	whe97h6klQ3AvSFmOSszZgaPp8qLnZUQnCLDlhT5+dhyyT8I65hA9L3BzTXyEaggUsto57EQzH+xn
-	VQJ/rTLcBvtMEmyuNWyTott1rQcra+/eMcCo2i2NMW8VCjmjdqm3KkaGCgwUbnTFd+KXFyQ8fDm1B
-	9vNXlBO53x9rb4YS3gD7tP6L9aARSI7Qtf644dAD6NYFBOWUzKagN+yN3700CXXQlxWcSL37iMMjp
-	DIY0OaBNziOZXN2EoL+0F5fyN7V9Xj6DYx4ee2alTnj3qkfgn+4W0It4dpNwoiXX5/yLkSxtRHjD2
-	bh6j4QeQ==;
+	bh=Pmd/n1xd7k2T8XMZPqYkLOsLsUUybFUobREHXbcUvsY=; b=PjnD0J0tL0cDlVbjkWo0TEBP/3
+	jnlvlXdP4To9EZjGZDG3AkK/JApX9UoAUJCJbt7djPP44oAQh9t7n/e19DBlwD5rkT1u00ORTkWvs
+	geGjjtrTfQxoAzKOOitBAhfa54I8Pk1QRGgYW2zf9PECf2u062XLaNeY9b2Ib1aOLaVYCncknf574
+	V57zyY23JcJwh3c0/3fxqILuw3EuIQUyE7pZMfWjkRHKgiIspl5aJD1pc/4BVpfybDqR8fK+8nUy6
+	nLJDP+YwSPOAnkfzCKHAQqINEpfI+S9/uqkggpbm/37QJHP3U+I6Q2eWQy/C51VGLuBAjiZjkWKis
+	23hV2bjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBFd-0000000BWoH-1AJO;
-	Thu, 20 Mar 2025 08:27:41 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tvBHI-0000000BX1y-4Bop;
+	Thu, 20 Mar 2025 08:29:25 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBA2-0000000BVlt-2Rnj
+	id 1tvBAW-0000000BVtQ-0a0z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 08:21:55 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-30bfc8faef9so5557821fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 01:21:54 -0700 (PDT)
+	Thu, 20 Mar 2025 08:22:25 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54991d85f99so1785836e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 01:22:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742458913; x=1743063713; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742458942; x=1743063742; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=inP+EHbG3HFu17JrpCxUEkiI+iH0naKDQSPrV/Ou9sg=;
-        b=RDzDFW3rle7jKWEdKkAWAsgXMD8HJSNXNKvNNtdB1fzVJrQQhGIir6O4jHEzzXJSX+
-         YSKayT3qe+/zy3IhJLGzCi+QMDdwZXF0cl2U1IBScO26adnGZRXbrw+h1i9n2JwUxa9Y
-         F0c8oEr2/MRNsnYVVXeGJ0l54iXA/e/aMtsS/90pFk0xS6qzHnjrUfd1khlnujaWIpQk
-         Daqw1pRt1p8tNlC2/J1LRkoNfH108t9Ha2Mi1F1wZ0yI1/RtGDjWinm17CjQeWdm7G/Q
-         f/bker5OOplnij/DOkD6+FFGt7CyV2/C2y3EuRIP/JyLnz3DtjsDIf35mTKujRNLAz+h
-         XgLQ==
+        bh=Pmd/n1xd7k2T8XMZPqYkLOsLsUUybFUobREHXbcUvsY=;
+        b=WbabXw5yf6LYAQz9bhqZz7kULyAy1sEgCI1m8hfsBsBvutSfQv7xzc+T/iHjCnRGtm
+         VSqhJY4WY9sHvEXVEBXod8i4iFnQZsC/W3UHponjagzfQOJw//OLsL5WpV+5y8bruFar
+         MbBKRADhlgQ/NgU04P8UizMf6n1P9rV+V7hp0KM3d/j7aYW9BcgLd3PSqusCC15OTdi6
+         DBRip1zRnXg79tBaRvNkbUlo102Jd3BTlgV39oohqIx/17HIEmUCGZtYdn/jnSo5VVR4
+         xd65GBV6/cMdPsnDpJNuHWI3FfQgohqJ+2CPjyhDC1tyQg2ys+1outW4tcIV53AD60ra
+         /4Sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742458913; x=1743063713;
+        d=1e100.net; s=20230601; t=1742458942; x=1743063742;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=inP+EHbG3HFu17JrpCxUEkiI+iH0naKDQSPrV/Ou9sg=;
-        b=Qb9dmkFBpynMqn2BWLJHo9UhhdEcfTKNF3G+lMbdA6mIjLx52qamNUxFwDqimj9t8f
-         UWItFxGBPZlg2AGBFCiK22gZBQv7zRLcnoOd0OGgkmMKlJleMjVkgawv/L80u6qpYU3v
-         T9piclBfk/EKiaVFGuTHVO6G8qc0oIlyN8fqen73fky1cwIdPTlTo+uBl2SDU+y3BgwK
-         uDCapdQGPGS8LCzkVPzc8umttbf+CFFEV+LIfyhIrTyMqX3VHbYy/Ay7KjMfhy9xiel1
-         hEQbucN/GKU1EAV0rC3GficgGJpH+c9xWjyLJ1MuRqYbCwqfHGS2/bp4z0/8289VlUSN
-         KixA==
-X-Forwarded-Encrypted: i=1; AJvYcCVCvOgnmkYhE+sUha97IPltaPvj+5K47Cu/2uPc1KgobdfywD/14QTGA6fz/4qs6hIDUjlTn9+QxEXh4iqqc7lj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo4xD2oq0PM0vHKPrBktleFatf28Zj3nzI3GUwtY1kh9we4ALs
-	jfNcLekXk1PhXFT9a2/EpuM3RgvSVi8ESMRBEMpCX/SRpPr9teks
-X-Gm-Gg: ASbGncs9cp2Wkv2CrvGNo8B0stkI5vNxfJklJgsnfRlEkFcB1yffjdXzhekOk+ixu68
-	GJWF9ijidfdlsxesKEjhuYk/tLZ6sQC3TEZ/BHr+wZXO8eQ6Qsjwp8VjrhwuJ249SUCjh40ic3y
-	/v2Khg3MOI3zlpvKBhUezIy6RYGDnsxBrbO5JXUwJ3dYJTYM6DaZzILZytmof9PfPRQSjLTOkZI
-	UTiQapo7ZOGwZs2B5lkOnC3LChOhk+CB+hqt4emGkK3nEPLunG99M2vBA+6HH07bkl+OuOAVJdJ
-	0LZKc46kWjVHeLblfmUnTZdt107RY2t2dzfH3L2AVANEWQyqelk=
-X-Google-Smtp-Source: AGHT+IEhufbW2LJTHSlZk9mpioInmJst32vWXWedYxnZIFXDsg6/QWM8o+AA1E/Gzb00RvRPWNGd7g==
-X-Received: by 2002:a05:651c:546:b0:30b:b9e4:13b0 with SMTP id 38308e7fff4ca-30d6a3db84emr26007541fa.12.1742458912404;
-        Thu, 20 Mar 2025 01:21:52 -0700 (PDT)
+        bh=Pmd/n1xd7k2T8XMZPqYkLOsLsUUybFUobREHXbcUvsY=;
+        b=cj5UmNoKOuG+sRiwkDUa0U4ootG0en92QO6ZI8idpl+ukwuXzdf/vDuBX5v1KCr3OF
+         58Yo/+4zZiOfrF4ubNiaX1j4qGi8sm2nCkredufVV0YF8DjIHpVLL+3z5ULwUaT25zIZ
+         Xt0czhXvtTeizUHWG/vbNg54YmJLEZjlNv3v+xeb1ENYTSzS7ZAg6AL2AuP3xGkyLB0e
+         VsBKh9lS5d88/mMr6dFRTfRQEY/SJX2oMgQc2FU94pVMs34DCJzSr16TxkbFdP6257IL
+         +X7cmSyku0amdwr1IwgJyRukK1sPuqTRAsB6HNMqgSf+U+qudCeAAwvpc2aAslPcu+Xl
+         AHEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWmciuZ0efiCAfpeuMAL3u1cnfGsFn7Y1Qa2LsX7lhawGi3EAj2+HNST7nETcWOMfUumCM7ChdQd2vFOG9N8/06@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjwBQhI9W6s7mQbtK5OAxJMY4pEV6Ep++b03p+GMsrthRM18n6
+	MqovS16HnglUhSWwBIHsmGHhxllJA8KvfqlHTH9X/XKv0wSh7YnX
+X-Gm-Gg: ASbGncvbTjO7u0bFuEpHhyZGDnt6S8XiwVp3Kng3Mnt2T1Xhm9MDiF97d69FUJhDLLN
+	stf6FZxCOAKmIh6LMsgTz9bhlRG68zXQB7OlT5CQ1EF9wFqtoUyxhDk3ZgEfSsUd625g+mBNIQw
+	4ly82pXjVyw9BmQTtFWFtLcMdfPgffK3vxm5TL0zEWbx/ObNPyurwkAY0G6kmspfUJbzLWjPwbY
+	4MTJX7HhQr3lYbTW+MNtiJAjkUJTi4+hH39MIrNtgH6enkH+7DQNHaCPj9SgZktrldLmUtm3ntC
+	TgGrRSUrTiod2H1gm/gLzZWCEq25Z/M0vnoNibJqYV8PtIj3Mus=
+X-Google-Smtp-Source: AGHT+IGN7jQq3CGHj0RH91IeY9Q032+tQbArvaah7gKQeusMKWEMnoW/5Hlgr2n0AqqsWIEjFWFNPQ==
+X-Received: by 2002:a05:6512:1596:b0:549:981b:169d with SMTP id 2adb3069b0e04-54acfa81f3emr851829e87.3.1742458942033;
+        Thu, 20 Mar 2025 01:22:22 -0700 (PDT)
 Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30c3f0fff95sm25420711fa.47.2025.03.20.01.21.48
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba864d7dsm2141832e87.130.2025.03.20.01.22.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 01:21:50 -0700 (PDT)
-Date: Thu, 20 Mar 2025 10:21:45 +0200
+        Thu, 20 Mar 2025 01:22:19 -0700 (PDT)
+Date: Thu, 20 Mar 2025 10:22:14 +0200
 From: Matti Vaittinen <mazziesaccount@gmail.com>
 To: Matti Vaittinen <mazziesaccount@gmail.com>,
 	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
 Cc: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
 	David Lechner <dlechner@baylibre.com>,
 	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
 	Guillaume Stols <gstols@baylibre.com>,
 	Dumitru Ceclan <mitrutzceclan@gmail.com>,
 	Trevor Gamblin <tgamblin@baylibre.com>,
 	Matteo Martelli <matteomartelli3@gmail.com>,
 	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: [PATCH v9 5/8] iio: adc: sun20i-gpadc: Use adc-helpers
-Message-ID: <bd0a5b7cb9b98319941ea246953866c61fba6540.1742457420.git.mazziesaccount@gmail.com>
+Subject: [PATCH v9 7/8] MAINTAINERS: Add IIO ADC helpers
+Message-ID: <c81db29201f10b50f03971bc43fc6fc1c63ec4c8.1742457420.git.mazziesaccount@gmail.com>
 References: <cover.1742457420.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BbT3xLiwPWOuLU+N"
+	protocol="application/pgp-signature"; boundary="LU4zmYhbxNu61z52"
 Content-Disposition: inline
 In-Reply-To: <cover.1742457420.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_012154_624580_812D07F9 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20250320_012224_169345_C7C13856 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,170 +118,60 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---BbT3xLiwPWOuLU+N
+--LU4zmYhbxNu61z52
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-The new devm_iio_adc_device_alloc_chaninfo_se() -helper is intended to
-help drivers avoid open-coding the for_each_node -loop for getting the
-channel IDs. The helper provides standard way to detect the ADC channel
-nodes (by the node name), and a standard way to convert the "reg"
--properties to channel identification numbers, used in the struct
-iio_chan_spec. Furthermore, the helper can optionally check the found
-channel IDs are smaller than given maximum. This is useful for callers
-which later use the IDs for example for indexing a channel data array.
-
-The original driver treated all found child nodes as channel nodes. The
-new helper requires channel nodes to be named channel[@N]. This should
-help avoid problems with devices which may contain also other but ADC
-child nodes. Quick grep from arch/* with the sun20i-gpadc's compatible
-string didn't reveal any in-tree .dts with channel nodes named
-otherwise. Also, same grep shows all the in-tree .dts seem to have
-channel IDs between 0..num of channels.
-
-Use the new helper.
+Add undersigned as a maintainer for the IIO ADC helpers.
 
 Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-
 ---
-NOTE: This change now drops a print "no channel children" which used to
-be printed if no channel nodes were found. It also changes the return
-value from -ENODEV to -ENOENT.
-
 Revision history:
-v8 =3D>
+v2 =3D>
  - No changes
-v7 =3D> v8:
- - drop explicit "no channels check". It is now done inside the
-   devm_iio_adc_device_alloc_chaninfo_se().
-v6 =3D> v7:
- - Fix function name in the commit message
-v5 =3D> v6:
- - Commit message typofix
-v4 =3D> v5:
- - Drop the diff-channel stuff from the commit message
-v3 =3D> v4:
- - Adapt to 'drop diff-channel support' changes to ADC-helpers
- - select ADC helpers in the Kconfig
-v2 =3D> v3:
+RFC v1 =3D> v2:
  - New patch
-
-I picked the sun20i-gpadc in this series because it has a straightforward
-approach for populating the struct iio_chan_spec. Everything else except
-the .channel can use 'template'-data.
-
-This makes the sun20i-gpadc well suited to be an example user of this new
-helper. I hope this patch helps to evaluate whether these helpers are worth
-the hassle.
-
-The change is compile tested only!! Testing before applying is highly
-appreciated (as always!). Also, even though I tried to audit the dts
-files for the reg-properties in the channel nodes, use of references
-didn't make it easy. I can't guarantee I didn't miss anything.
 ---
- drivers/iio/adc/Kconfig            |  1 +
- drivers/iio/adc/sun20i-gpadc-iio.c | 39 +++++++++++-------------------
- 2 files changed, 15 insertions(+), 25 deletions(-)
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-index e4933de0c366..0993008a1586 100644
---- a/drivers/iio/adc/Kconfig
-+++ b/drivers/iio/adc/Kconfig
-@@ -1357,6 +1357,7 @@ config SUN4I_GPADC
- config SUN20I_GPADC
- 	tristate "Allwinner D1/T113s/T507/R329 and similar GPADCs driver"
- 	depends on ARCH_SUNXI || COMPILE_TEST
-+	select IIO_ADC_HELPER
- 	help
- 	  Say yes here to build support for Allwinner (D1, T113, T507 and R329)
- 	  SoCs GPADC. This ADC provides up to 16 channels.
-diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gp=
-adc-iio.c
-index 136b8d9c294f..2428ea69d676 100644
---- a/drivers/iio/adc/sun20i-gpadc-iio.c
-+++ b/drivers/iio/adc/sun20i-gpadc-iio.c
-@@ -15,6 +15,7 @@
- #include <linux/property.h>
- #include <linux/reset.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8e0736dc2ee0..5b96fb864227 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -11208,6 +11208,13 @@ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	drivers/media/rc/iguanair.c
 =20
-+#include <linux/iio/adc-helpers.h>
- #include <linux/iio/iio.h>
-=20
- #define SUN20I_GPADC_DRIVER_NAME	"sun20i-gpadc"
-@@ -149,36 +150,23 @@ static void sun20i_gpadc_reset_assert(void *data)
- 	reset_control_assert(rst);
- }
-=20
-+static const struct iio_chan_spec sun20i_gpadc_chan_template =3D {
-+	.type =3D IIO_VOLTAGE,
-+	.indexed =3D 1,
-+	.info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW),
-+	.info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE),
-+};
++IIO ADC HELPERS
++M:	Matti Vaittinen <mazziesaccount@gmail.com>
++L:	linux-iio@vger.kernel.org
++S:	Maintained
++F:	drivers/iio/adc/industrialio-adc.c
++F:	include/linux/iio/adc-helpers.h
 +
- static int sun20i_gpadc_alloc_channels(struct iio_dev *indio_dev,
- 				       struct device *dev)
- {
--	unsigned int channel;
--	int num_channels, i, ret;
-+	int num_channels;
- 	struct iio_chan_spec *channels;
-=20
--	num_channels =3D device_get_child_node_count(dev);
--	if (num_channels =3D=3D 0)
--		return dev_err_probe(dev, -ENODEV, "no channel children\n");
--
--	channels =3D devm_kcalloc(dev, num_channels, sizeof(*channels),
--				GFP_KERNEL);
--	if (!channels)
--		return -ENOMEM;
--
--	i =3D 0;
--	device_for_each_child_node_scoped(dev, node) {
--		ret =3D fwnode_property_read_u32(node, "reg", &channel);
--		if (ret)
--			return dev_err_probe(dev, ret, "invalid channel number\n");
--
--		channels[i].type =3D IIO_VOLTAGE;
--		channels[i].indexed =3D 1;
--		channels[i].channel =3D channel;
--		channels[i].info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW);
--		channels[i].info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE);
--
--		i++;
--	}
-+	num_channels =3D devm_iio_adc_device_alloc_chaninfo_se(dev,
-+				&sun20i_gpadc_chan_template, -1, &channels);
-+	if (num_channels < 0)
-+		return num_channels;
-=20
- 	indio_dev->channels =3D channels;
- 	indio_dev->num_channels =3D num_channels;
-@@ -271,3 +259,4 @@ module_platform_driver(sun20i_gpadc_driver);
- MODULE_DESCRIPTION("ADC driver for sunxi platforms");
- MODULE_AUTHOR("Maksim Kiselev <bigunclemax@gmail.com>");
- MODULE_LICENSE("GPL");
-+MODULE_IMPORT_NS("IIO_DRIVER");
+ IIO BACKEND FRAMEWORK
+ M:	Nuno Sa <nuno.sa@analog.com>
+ R:	Olivier Moysan <olivier.moysan@foss.st.com>
 --=20
 2.48.1
 
 
---BbT3xLiwPWOuLU+N
+--LU4zmYhbxNu61z52
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfb0BkACgkQeFA3/03a
-ocVctgf/bBBEeJw/sSHAk6ry0GVLRQoRYDRuSwV02Qrw1Hkui7QSbGLhlnOGGA5X
-UsbfZitGbL1x1b14QvMwl3JiYosiHCQOWSph1O19piML/pRVjy7ou98lu+O+oHbt
-6Q+PWMNGhfMD15DPy10pmeO40WCnXhqHYDWCRFnav6k01//ugzG+C/Tas0kvR4JZ
-5H30kUZQTpz42DXUmk9l2WpvU18Y5w7TMpD5rMy0ThY7P0mygc3ztK1R6TggKS1i
-SgnZcATsrUozQlf6XwuqlYTlhmT5Ef5WmvnoMmsb6cNPzzMJSKcne59CYxt7u6op
-dgldsND/s60Avrsv/hLScyxlRG/kLw==
-=r70i
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfb0DYACgkQeFA3/03a
+ocVHKAf+MPHPcl8h0q9Jo2dudYpTD2nDzKrEj8KICCiF9YQvvTj6RSGXVd9Z6GuP
+wYX9UYNaarCpcpiEwOh3jytWvUcVHt+9fxwz3Z4ObFLXUqHQTg4ymKwT2zOWUDYq
+6ukaqXl+8NSVAoXVH4FbjfZsfiMWb3TeXdckgpEBCBIl9/rQIzf0X5V7H8RQke23
+P0gNLTiQJI4H+OymLXMlNYIkVPaZ2JFwEuiP+ZHYyuJvOvj4MOKT7t5coSbcs0T6
+JqoYlU/55pcjASW4oTUL7VhWMjnL0UXLJLRjLJjJwMs1/iZuwpKNXrTKKYewEts9
+1tvceWn+PujhGuuNVmJTjoZH1mnJNA==
+=oGui
 -----END PGP SIGNATURE-----
 
---BbT3xLiwPWOuLU+N--
+--LU4zmYhbxNu61z52--
 
