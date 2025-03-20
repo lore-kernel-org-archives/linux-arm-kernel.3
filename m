@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A492C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7440DC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jv3AXwrPAhPiEIwnHYZ/9pyvsna15qUiV2D8MOfGMEc=; b=oSy3GhSIPnz1sxLlgPU47N4Pgx
-	QyseWG8kLchfg2Jro1GccC6OYrJXtk8TBdoNW+ZzL2/JgwX5rJLdd8quXq7fxsZZ3razor16sK7Iu
-	bLHBv9/fnBYMNn63RXYMxD479hras7tclaxuvpZ1izVrej7n/RG7GvjJ4UKIqGFYl8Jg7WzVxQlCO
-	bzoCZDMNOw0xj7DTVg+9p6Ra9HKlSGwvza572i8iIS/k3z/nM0QG9Dyym26qSTlOJ02EjQOLFVqag
-	2ioRUPcDRIp0l73zkvjCfa1tBFA0sBW//io7VpXuqPsJUtN3Tx+DggTNguvYrTGyVQHqCoHOi/sBI
-	odUmiJ0g==;
+	bh=R8eLi6YiEY3L6wGv5SNMS6fZaMNVO8CXhnuVoGIWMUU=; b=rp3x1zfDRP4mzZ9L3ek8+F8y7A
+	ZF8VV9bKYV+p1y/8vQ7kwzYmtbogHW2MVp5HteEXLYH7pz4F+i0+6n+1xqUqYD6NUPTcC5SvpNCTX
+	F2PPGHJyhJ6V6EVJVqUCOTSppj45v9sSoRfr3wW5OFLXZ9YFkc0gUeHLk+5HntQp9hh7su9JAqp6v
+	Ckv05yZZnMRtM3d2CkyNrZb1u4GaUefGrIAJuzytvM6cIpOCrWxhQB5gVrO0xn+WQyuixpoU1Ssks
+	KpZph51iDK6luETSaeqxUETglH5+/E/JmWXlCDw/XqGBBtH15vQy0LS395bvoiD4jSjeOQQ1oltM9
+	Y6bQVBkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEUb-0000000C172-3Vvn;
-	Thu, 20 Mar 2025 11:55:21 +0000
+	id 1tvEWI-0000000C1O2-2Ce4;
+	Thu, 20 Mar 2025 11:57:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8w-0000000BxVC-22IJ
+	id 1tvE8w-0000000BxVB-1xnD
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 20 Mar 2025 11:32:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
 	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=jv3AXwrPAhPiEIwnHYZ/9pyvsna15qUiV2D8MOfGMEc=; b=TsM4kaptplnk7QCdmAgvtYwx+Y
-	Gm0Vqi9KjbNdKTEInmKx3GWQbPbYU0iqTLoJEI9atGfrnoSeWFk9pNqqeE/OpvYeDifm6dSb/QxhT
-	OM4Q4sKdPMddd1PcXjh14H31mOLQAKaa885Pyr3K0IenufLOSRm9I1BFIXfQMp9H7ePTAJ+Ksj1Jl
-	Nu4Pei5FwtMLFPcNQpZs0oAhUNAHVnP+Qif3Q+pNKbMQrWlYoyZ90Gi+wJvdKE1fAd6IPPoIN/SnR
-	WqvEHmSRxkUIQMxQCvfqcdu/m7uAgbSidnrHq+OQFTscvv4IBQFYuOAt/Hm58VyMCF4pLv5Kp/qO7
-	lrlJP9Hg==;
+	bh=R8eLi6YiEY3L6wGv5SNMS6fZaMNVO8CXhnuVoGIWMUU=; b=JdD+Kw75NKcgLumOuMA0K0W/uZ
+	bwhckZlIf655yJxGmp87irPU9AjJv89jXGhgy69Pmy9G+sKLpwOA62/WUd4zzCXLqk0q3wUGwFX/g
+	ZARp6B8CIY4MWxwb4CZ5C3z9LoPMJSYKv27ubDMTlFt+61QSy5ySrHayQYCvHESHH9f/Izp23POua
+	lkMnQYFC6cyGRYQElf+SIlCH9lk6n3kV2QCCNO2+PuWsgiZi4Pw1iC8dZA25oXZ7RIMB2H3wlrE5L
+	mMbIMY6lcpy7n6dI7XsSbqPcrA9uGyiaLd7g9otQ+QLIhqrXfjNdqbQzjrZ81+9InINAxtHbzvRgO
+	hOUkIQwQ==;
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-000000047jk-2uNW
+	id 1tvE8r-000000047jj-1o9C
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Mar 2025 11:32:57 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lP006831;
-	Thu, 20 Mar 2025 11:32:25 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lR006831;
+	Thu, 20 Mar 2025 11:32:26 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=j
-	v3AXwrPAhPiEIwnHYZ/9pyvsna15qUiV2D8MOfGMEc=; b=C7RSS99mBPi7c/bwI
-	DwR+VswB6wHXNoXOcEG7KwE0dS0V5SqjbTxtKSNqAdPg6aGYEQF1KsyqbEMHX9sV
-	O2LZV0V2HvGB1AOLVBFxpeEGsnSdTVS7LUAdphjqX1IYMEH17i0rtQKeLXX8iG6m
-	JMcPAckQTXFtpjRPxAvi4zwcaiq+JzaTPC0tMx0ScJtI8+5QmQDHxEPRHmUETQNX
-	dHjDr8QCOJZVC+K23PfeyGi6T8ZdbJ9CU90922CT757/V6IUXMrzU/k0ONpXfwHd
-	fHzIbvJn4kVJZkN3pC33PSAFmQjeBbFZ6b5wA/Bo67dhESMLgkBr/CCOfWRh96v2
-	3IBOg==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=R
+	8eLi6YiEY3L6wGv5SNMS6fZaMNVO8CXhnuVoGIWMUU=; b=Wx7+QWo1RStEz8RzQ
+	0VlzBpyd3pl7sU8O+M4OAqi30nG2bBP9zrJwJf0YKWfqrImE1yRB1gKc9wkvw7dn
+	g00BIPnV+0bY+NhHC+Yym+NRdj+gi8JoTW3CdvaTNHa7VW/lUkuZr+B3z5wtvQhH
+	qN292t+ulZp9W+PkdkdhXkD6ui+fr6ibhdldFIzfyHKNeKqosAu7/zF9DPTkcuRs
+	NL8u5oJwGIrHC4+/4djUuE5ako64sHKYtU6E5/Yw2sE1BWXw+F4K23qRD6aQloRF
+	7JV+sLFORHoS6VG7MFZYAmhP+Zx0T93u4f7torS/w5ogAeo9DKxN3J3B/RUns2T8
+	b/c6A==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg1-2
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg1-4
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:24 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:26 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:23 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:24 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:11 +0000
-Subject: [PATCH v4 01/18] dt-bindings: gpu: img: Future-proofing
- enhancements
+Date: Thu, 20 Mar 2025 11:32:13 +0000
+Subject: [PATCH v4 03/18] drm/imagination: Update register defs for newer
+ GPUs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com>
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-3-d987cf4ca439@imgtec.com>
 References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -96,24 +96,25 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5722;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10813;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=ZvnylilIXl7N5Ug0fe/WkMAsXcZNw9YcKN2DmQBkIQA=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nM4vdh2IUNa2fdNx1ZdX8u/qI6rVkCe8+uLgPYDI
- SW1/N3TO0pZGMQ4GGTFFFl2rLBcofZHTUvixq9imDmsTCBDGLg4BWAiES6MDLvnpS02jX179N7m
- CWdKWjdwKFkWRMYELtm3tXSLwWF5V2VGhg/WPjPcuHf4RWYzal1c2nhxs7a9e6XlwVWbfl/fdfx
- DPzMA
+ bh=gsAuB698u/i7VAaIizzQRvaE2iWTxEB6tfcFfyW643M=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nMk6Ivfk1Xyf8VmJsxpMo54bL9GeVXzdP3nW2f5y
+ vgu83nQ3VHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATmbWd4Z+qboMOz16hO3rV
+ oazvOTNS/px3+sNeEpeQeWDVeW2VFf6MDJ/C7maJ+TjK3tvrfCImqOvNgR0mZ79uvKu9dwqP3LO
+ 4Ik4A
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: kT4vZzrsmsjO6JE9438jZYFI_pXvwA2Q
-X-Proofpoint-ORIG-GUID: kT4vZzrsmsjO6JE9438jZYFI_pXvwA2Q
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcc8 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=w15EKZF3e2A1P0N44N0A:9
+X-Proofpoint-GUID: MmITFyW6B0EkIvfmuavI6tX5Rjv1UGn0
+X-Proofpoint-ORIG-GUID: MmITFyW6B0EkIvfmuavI6tX5Rjv1UGn0
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcca cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=cj9k-Jd43VawDxvwHVkA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_113253_952042_A4F28AFE 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20250320_113253_855880_C3F4EEF0 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,151 +129,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first compatible strings added for the AXE-1-16M are not sufficient to
-accurately describe all the IMG Rogue GPUs. The current "img,img-axe"
-string refers to the entire family of Series AXE GPUs, but this is
-primarily a marketing term and does not denote a level of hardware
-similarity any greater than just "Rogue".
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-The more specific "img,img-axe-1-16m" string refers to individual AXE-1-16M
-GPU. For example, unlike the rest of the Series AXE GPUs, the AXE-1-16M
-only uses a single power domain.
+Update the register define header to a newer version that covers more
+recent GPUs, including BXS-4-64.
 
-The situation is actually slightly worse than described in the first
-paragraph, since many "series" (such as Series BXS found in the TI AM68
-among others and added later in this series) contain cores with both Rogue
-and Volcanic architectures.
-
-Besides attempting to move away from vague groupings defined only
-by marketing terms, we want to draw a line between properties inherent to
-the IP core and choices made by the silicon vendor at integration time.
-For instance, the number of power domains is a property of the IP core,
-whereas the decision to use one or multiple clocks is a vendor one.
-
-In the original compatible strings, we must use "ti,am62-gpu" to constrain
-both of these properties since the number of power domains cannot be fixed
-for "img,img-axe".
-
-Work is currently underway to add support for volcanic-based Imagination
-GPUs, for which bindings will be added in "img,powervr-volcanic.yaml".
-As alluded to previously, the split between rogue and volcanic cores is
-non-obvious at times, so add a generic top-level "img,img-rogue" compatible
-string here to allow for simpler differentiation in devicetrees without
-referring back to the bindings.
-
-The currently supported GPU (AXE-1-16M) only requires a single power
-domain. Subsequent patches will add support for BXS-4-64 MC1, which has
-two power domains. Add infrastructure now to allow for this.
-
-Also allow the dma-coherent property to be added to IMG Rogue GPUs, which
-are DMA devices. The decision for coherency is made at integration time and
-this property should be applied wherever it accurately describes the
-vendor integration.
-
-Note that the new required properties for power domains are conditional on
-the new base compatible string to avoid an ABI break.
-
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v4:
-- Add img,img-rogue back to ti,am62-gpu compatible strings to allow
-  compatibility with older kernels
-- Revert change to power-domains property and add proper constraint
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-1-143b3dbef02f@imgtec.com
+- None
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-3-143b3dbef02f@imgtec.com
 Changes in v3:
-- Remove unnecessary example
-- Remove second power domain details, add these where they're used instead
-- Avoid ABI breaks by limiting new required properties to new compatible
-  strings and making all binding changes in a single patch.
-- Links to v2:
-  https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com
-  https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-3-3fd45d9fb0cf@imgtec.com
-  https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-4-3fd45d9fb0cf@imgtec.com
+- Added
 ---
- .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 44 +++++++++++++++++++---
- 1 file changed, 39 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h | 153 +++++++++++++++++++++---
+ 1 file changed, 134 insertions(+), 19 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-index 256e252f8087fa0d6081f771a01601d34b66fe19..2a692feb5bcd526788117fce7934eef9521b364d 100644
---- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-+++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-@@ -12,10 +12,23 @@ maintainers:
+diff --git a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
+index 2a90d02796d3e071b18e18dead105e29798bcddc..790c97f80a2ac03ac76b933d009a2f9cfc6003f7 100644
+--- a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
++++ b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
+@@ -827,6 +827,120 @@
+ #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
+ #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_EN 0x00000001U
  
- properties:
-   compatible:
--    items:
--      - enum:
--          - ti,am62-gpu
--      - const: img,img-axe # IMG AXE GPU model/revision is fully discoverable
-+    oneOf:
-+      - items:
-+          - enum:
-+              - ti,am62-gpu
-+          - const: img,img-axe-1-16m
-+          # This deprecated element must be kept around to allow old kernels to
-+          # work with newer dts.
-+          - const: img,img-axe
-+          - const: img,img-rogue
++/* Register ROGUE_CR_EVENT_CLEAR */
++#define ROGUE_CR_EVENT_CLEAR 0x0138U
++#define ROGUE_CR_EVENT_CLEAR__ROGUEXE__MASKFULL 0x00000000E01DFFFFULL
++#define ROGUE_CR_EVENT_CLEAR__SIGNALS__MASKFULL 0x00000000E007FFFFULL
++#define ROGUE_CR_EVENT_CLEAR_MASKFULL 0x00000000FFFFFFFFULL
++#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_SHIFT 31U
++#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_CLRMSK 0x7FFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_EN 0x80000000U
++#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_SHIFT 30U
++#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_CLRMSK 0xBFFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_EN 0x40000000U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_SHIFT 29U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_CLRMSK 0xDFFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_EN 0x20000000U
++#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_SHIFT 28U
++#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_CLRMSK 0xEFFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_EN 0x10000000U
++#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_SHIFT 27U
++#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_CLRMSK 0xF7FFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_EN 0x08000000U
++#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_SHIFT 26U
++#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_CLRMSK 0xFBFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_EN 0x04000000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_SHIFT 25U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_CLRMSK 0xFDFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_EN 0x02000000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_SHIFT 24U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_CLRMSK 0xFEFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_EN 0x01000000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_SHIFT 23U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_CLRMSK 0xFF7FFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_EN 0x00800000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_SHIFT 22U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_CLRMSK 0xFFBFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_EN 0x00400000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_SHIFT 21U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_CLRMSK 0xFFDFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_EN 0x00200000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_SHIFT 20U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_CLRMSK 0xFFEFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_EN 0x00100000U
++#define ROGUE_CR_EVENT_CLEAR_SAFETY_SHIFT 20U
++#define ROGUE_CR_EVENT_CLEAR_SAFETY_CLRMSK 0xFFEFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_SAFETY_EN 0x00100000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_SHIFT 19U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_CLRMSK 0xFFF7FFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_EN 0x00080000U
++#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_SHIFT 19U
++#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_CLRMSK 0xFFF7FFFFU
++#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_EN 0x00080000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_SHIFT 18U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_CLRMSK 0xFFFBFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_EN 0x00040000U
++#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_SHIFT 18U
++#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_CLRMSK 0xFFFBFFFFU
++#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_EN 0x00040000U
++#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_SHIFT 17U
++#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_CLRMSK 0xFFFDFFFFU
++#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_EN 0x00020000U
++#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_SHIFT 17U
++#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_CLRMSK 0xFFFDFFFFU
++#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_EN 0x00020000U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_SHIFT 16U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_CLRMSK 0xFFFEFFFFU
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_EN 0x00010000U
++#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_SHIFT 15U
++#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_CLRMSK 0xFFFF7FFFU
++#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_EN 0x00008000U
++#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_SHIFT 14U
++#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_CLRMSK 0xFFFFBFFFU
++#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_EN 0x00004000U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_SHIFT 13U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_CLRMSK 0xFFFFDFFFU
++#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_EN 0x00002000U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_SHIFT 12U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_CLRMSK 0xFFFFEFFFU
++#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_EN 0x00001000U
++#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_SHIFT 11U
++#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_CLRMSK 0xFFFFF7FFU
++#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_EN 0x00000800U
++#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_SHIFT 10U
++#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_CLRMSK 0xFFFFFBFFU
++#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_EN 0x00000400U
++#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_SHIFT 9U
++#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_CLRMSK 0xFFFFFDFFU
++#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_EN 0x00000200U
++#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_SHIFT 8U
++#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_CLRMSK 0xFFFFFEFFU
++#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_EN 0x00000100U
++#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_SHIFT 7U
++#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_CLRMSK 0xFFFFFF7FU
++#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_EN 0x00000080U
++#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_SHIFT 6U
++#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_CLRMSK 0xFFFFFFBFU
++#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_EN 0x00000040U
++#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_SHIFT 5U
++#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_CLRMSK 0xFFFFFFDFU
++#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_EN 0x00000020U
++#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_SHIFT 4U
++#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_CLRMSK 0xFFFFFFEFU
++#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_EN 0x00000010U
++#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_SHIFT 3U
++#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_CLRMSK 0xFFFFFFF7U
++#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_EN 0x00000008U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_SHIFT 2U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_CLRMSK 0xFFFFFFFBU
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_EN 0x00000004U
++#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_SHIFT 1U
++#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_CLRMSK 0xFFFFFFFDU
++#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_EN 0x00000002U
++#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_SHIFT 0U
++#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
++#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_EN 0x00000001U
 +
-+      # This legacy combination of compatible strings was introduced early on
-+      # before the more specific GPU identifiers were used.
-+      - items:
-+          - enum:
-+              - ti,am62-gpu
-+          - const: img,img-axe
-+        deprecated: true
+ /* Register ROGUE_CR_TIMER */
+ #define ROGUE_CR_TIMER 0x0160U
+ #define ROGUE_CR_TIMER_MASKFULL 0x8000FFFFFFFFFFFFULL
+@@ -6031,25 +6145,6 @@
+ #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_SHIFT 0U
+ #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_CLRMSK 0xFFFFFF00U
  
-   reg:
-     maxItems: 1
-@@ -35,8 +48,15 @@ properties:
-     maxItems: 1
+-/* Register ROGUE_CR_ECC_RAM_ERR_INJ */
+-#define ROGUE_CR_ECC_RAM_ERR_INJ 0xF340U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MASKFULL 0x000000000000001FULL
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_SHIFT 4U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_CLRMSK 0xFFFFFFEFU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_EN 0x00000010U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_SHIFT 3U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_CLRMSK 0xFFFFFFF7U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_EN 0x00000008U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_SHIFT 2U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_CLRMSK 0xFFFFFFFBU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_EN 0x00000004U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_SHIFT 1U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_CLRMSK 0xFFFFFFFDU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_EN 0x00000002U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_SHIFT 0U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_CLRMSK 0xFFFFFFFEU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_EN 0x00000001U
+-
+ /* Register ROGUE_CR_ECC_RAM_INIT_KICK */
+ #define ROGUE_CR_ECC_RAM_INIT_KICK 0xF348U
+ #define ROGUE_CR_ECC_RAM_INIT_KICK_MASKFULL 0x000000000000001FULL
+@@ -6163,6 +6258,26 @@
+ #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_CLRMSK 0xFFFFFFFEU
+ #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_EN 0x00000001U
  
-   power-domains:
-+    minItems: 1
-     maxItems: 1
- 
-+  power-domain-names:
-+    items:
-+      - const: a
++/* Register ROGUE_CR_FAULT_FW_STATUS */
++#define ROGUE_CR_FAULT_FW_STATUS 0xF3B0U
++#define ROGUE_CR_FAULT_FW_STATUS_MASKFULL 0x0000000000010001ULL
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_SHIFT 16U
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_EN 0x00010000U
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_SHIFT 0U
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_CLRMSK 0xFFFFFFFEU
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_EN 0x00000001U
 +
-+  dma-coherent: true
++/* Register ROGUE_CR_FAULT_FW_CLEAR */
++#define ROGUE_CR_FAULT_FW_CLEAR 0xF3B8U
++#define ROGUE_CR_FAULT_FW_CLEAR_MASKFULL 0x0000000000010001ULL
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_SHIFT 16U
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_EN 0x00010000U
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_SHIFT 0U
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_CLRMSK 0xFFFFFFFEU
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_EN 0x00000001U
 +
- required:
-   - compatible
-   - reg
-@@ -47,6 +67,18 @@ required:
- additionalProperties: false
- 
- allOf:
-+  # Constraints added alongside the new compatible strings that would otherwise
-+  # create an ABI break.
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: img,img-rogue
-+    then:
-+      required:
-+        - power-domains
-+        - power-domain-names
-+
-   - if:
-       properties:
-         compatible:
-@@ -64,10 +96,12 @@ examples:
-     #include <dt-bindings/soc/ti,sci_pm_domain.h>
- 
-     gpu@fd00000 {
--        compatible = "ti,am62-gpu", "img,img-axe";
-+        compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-axe",
-+                     "img,img-rogue";
-         reg = <0x0fd00000 0x20000>;
-         clocks = <&k3_clks 187 0>;
-         clock-names = "core";
-         interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
-         power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
-+        power-domain-names = "a";
-     };
+ /* Register ROGUE_CR_MTS_SAFETY_EVENT_ENABLE */
+ #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE 0xF3D8U
+ #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE__MASKFULL 0x000000000000007FULL
 
 -- 
 2.49.0
