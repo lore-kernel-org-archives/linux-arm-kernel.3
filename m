@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9222C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A689C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 22:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ChKjIakwJND4vOY0HyYOFQnBjQelfpLov4gGDNWana8=; b=uBGZAQmgZdXG2gzXFR9Wyz9Pxk
-	kHG43dbIlk0lNWghnsuRZaiB6f35IlmExpHG8OG8I7mc8gL1MeERKANiGLtJdNM6/qhecRGGYb1n+
-	3WWCbhGRKig7F4lSax6FkaHvb81eOZVcW3YgMYFB2rS+d8z56+1qmkCPtM28UU2v4e1AG2fM/S04U
-	ultOKuQGNzQXX31tKZvTgDqRGBH8bdbb/SYaPhBf8mCNFeMGyp8Rjw2GEINGeg9vjjpjPCy48s3AO
-	hJ6l0gyXgAM4HCbqILLJhU+HR+Oj0kCKkIQNQNt5sdhPqnAJjhYU5KY982whM2t+5EwzGkpW8ZVqH
-	K/1cIIgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JMPcFOn4UwYXter5dbI+9cINmWX56V1KwEkN69pNmGE=; b=qaBFR5AGVSs0K+qxRz2NpN3qI9
+	vRTH3pgGW9v1rFY+3rvD+ZgbxwGr9bgM9Hiqcl8S6uaiZTc+g/N4U1zcqHG2/XhBR9NWY16xJE/jv
+	RZrZNzgNPLVJbZRbXDnuabB0wx2p7v2EJGC4xACC+YsiAqZFCkVg5A7FuCY4F3Nyazj5cAwteLtQa
+	xf41r+GX9df8/TvL9igHKTASLqc9VAuJSuV80AcGfPjdKZ1ppjNrYtF1KEesV09YuHlSIbvQVmw+F
+	iglDF5dY77yYAHbNmzq51eNyVQ3kAaBU3e7ZOYlkHtPY4BMSIoefYrfuWAgc6lrXWn6khj+sFCNYb
+	nOI8NooA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvOHc-0000000DM3U-1XEv;
-	Thu, 20 Mar 2025 22:22:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tvOJI-0000000DM9r-0QTb;
+	Thu, 20 Mar 2025 22:24:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvO7E-0000000DKOs-32CV
+	id 1tvO8S-0000000DKkY-2gI7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 22:11:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ChKjIakwJND4vOY0HyYOFQnBjQelfpLov4gGDNWana8=; b=MRYYPRdyTwUz3nT4aAgnzm0Y2k
-	kVDyf+2rnB58GjD2Bzo5h1hwIUtvpN9zS8jDV8rlJa/HyFN3ILfN+IyxfusH8JPfsu4HAh3oDtgQI
-	NnLNEyEPztmLX1MeZrXQCkv9q0cQQ9m9WmETsy8Op3y0MoQs2AuIH+bSYft1XWfJHAK9GQGgCx5FH
-	4V/2VUotn4nz3LJ8zatUSd9R0HDdSf7dylORraDcjozSw/3fz4KTsFo1cJrBb0lJVmovUIPxfSb3E
-	DeYyK6KkLmcBoz6peqBWOArcHr1n8/YTckvZmYc7mZpwN26RIfyWDjv/CrXNAWttM2Zr3/Sa29fOI
-	PK5W/Apg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59052 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tvO7A-0008Eb-1P;
-	Thu, 20 Mar 2025 22:11:48 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tvO6p-008Vjz-Qy; Thu, 20 Mar 2025 22:11:27 +0000
-In-Reply-To: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
-References: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 5/5] net: stmmac: block PHY RXC clock-stop
+	Thu, 20 Mar 2025 22:13:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E00FF6159E;
+	Thu, 20 Mar 2025 22:13:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5B68C4CEDD;
+	Thu, 20 Mar 2025 22:13:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742508787;
+	bh=M7qrseV6fB8Hed0ymLja/KLmZm6erUG8Gh3U6YrkLzA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IUOSq3feRUEOLLgSW7vUdrZ3wJPw87ZS4Toe3mUkTuhPH5XGp5YVvt9gMvIKPX1kf
+	 YB7nJQHtbQ5nu9G55CeNT0kxzrAPHXQc6s5EhvFJ1gz2Kkh1uUBY/OTAN2uMsOj8/D
+	 idKvcye6uePTP1C5zBx7UOvTb7aTTKcUFX0H+2gb9MvfDN0ybup9S0jlbU1OwxxALL
+	 QxHt8OlRrBIWUsskCpfVvS/58obwwGLzRf5ks1sVtktni2nzjB/oOZg0xuKogerK2w
+	 bbBC6i+/gQDKT154qksc8V0s86kNMrgFIUxyzzt94+lXxqcL5qzaaya7EV/tYeUcQn
+	 3ufYvYPor93WQ==
+Date: Thu, 20 Mar 2025 23:13:03 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Potin Lai <potin.lai.pt@gmail.com>
+Cc: Brendan Higgins <brendanhiggins@google.com>, 
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, 
+	Rob Herring <robh+dt@kernel.org>, Rayn Chen <rayn_chen@aspeedtech.com>, 
+	Patrick Williams <patrick@stwcx.xyz>, Potin Lai <potin.lai@quantatw.com>, linux-i2c@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] aspeed: i2c: add clock duty cycle property
+Message-ID: <jcznjekoig6n5jtispbgxn6ingzteodwb5lib77evsvvufldoh@ia57mjlvie5k>
+References: <20220610054722.32229-1-potin.lai.pt@gmail.com>
+ <20220610054722.32229-2-potin.lai.pt@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tvO6p-008Vjz-Qy@rmk-PC.armlinux.org.uk>
-Date: Thu, 20 Mar 2025 22:11:27 +0000
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_151152_761932_132BD1FB 
-X-CRM114-Status: GOOD (  15.58  )
+In-Reply-To: <20220610054722.32229-2-potin.lai.pt@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,124 +73,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DesignWare core requires the receive clock to be running during
-certain operations. Ensure that we block PHY RXC clock-stop during
-these operations.
+Hi Potin,
 
-This is a best-efforts change - not everywhere can be covered by this
-because of net's core locking, which means we can't access the MDIO
-bus to configure the PHY to disable RXC clock-stop in certain areas.
-These are marked with FIXME comments.
+On Fri, Jun 10, 2022 at 01:47:21PM +0800, Potin Lai wrote:
+> Introduce i2c-clk-high-min-percent property for setting a minimum clock
+> high percentage.
+> 
+> This driver calculate clk_high and clk_low with giving duty cycle. If it
+> could not find a suit clk_high and clk_low, it apply default duty cycle
+> 50%.
+> 
+> Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 27 +++++++++++++++++++
- 1 file changed, 27 insertions(+)
+if you have still interest in getting this patch applied, may I
+ask you to please resubmit it?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 860f800cd014..a4f2c98e851a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3484,9 +3484,18 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
- 	if (priv->hw->phylink_pcs)
- 		phylink_pcs_pre_init(priv->phylink, priv->hw->phylink_pcs);
- 
-+	/* Note that clk_rx_i must be running for reset to complete. This
-+	 * clock may also be required when setting the MAC address.
-+	 *
-+	 * Block the receive clock stop for LPI mode at the PHY in case
-+	 * the link is established with EEE mode active.
-+	 */
-+	phylink_rx_clk_stop_block(priv->phylink);
-+
- 	/* DMA initialization and SW reset */
- 	ret = stmmac_init_dma_engine(priv);
- 	if (ret < 0) {
-+		phylink_rx_clk_stop_unblock(priv->phylink);
- 		netdev_err(priv->dev, "%s: DMA engine initialization failed\n",
- 			   __func__);
- 		return ret;
-@@ -3494,6 +3503,7 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
- 
- 	/* Copy the MAC addr into the HW  */
- 	stmmac_set_umac_addr(priv, priv->hw, dev->dev_addr, 0);
-+	phylink_rx_clk_stop_unblock(priv->phylink);
- 
- 	/* PS and related bits will be programmed according to the speed */
- 	if (priv->hw->pcs) {
-@@ -3604,7 +3614,9 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
- 	/* Start the ball rolling... */
- 	stmmac_start_all_dma(priv);
- 
-+	phylink_rx_clk_stop_block(priv->phylink);
- 	stmmac_set_hw_vlan_mode(priv, priv->hw);
-+	phylink_rx_clk_stop_unblock(priv->phylink);
- 
- 	return 0;
- }
-@@ -5888,6 +5900,9 @@ static void stmmac_tx_timeout(struct net_device *dev, unsigned int txqueue)
-  *  whenever multicast addresses must be enabled/disabled.
-  *  Return value:
-  *  void.
-+ *
-+ *  FIXME: This may need RXC to be running, but it may be called with BH
-+ *  disabled, which means we can't call phylink_rx_clk_stop*().
-  */
- static void stmmac_set_rx_mode(struct net_device *dev)
- {
-@@ -6020,7 +6035,9 @@ static int stmmac_set_features(struct net_device *netdev,
- 	else
- 		priv->hw->hw_vlan_en = false;
- 
-+	phylink_rx_clk_stop_block(priv->phylink);
- 	stmmac_set_hw_vlan_mode(priv, priv->hw);
-+	phylink_rx_clk_stop_unblock(priv->phylink);
- 
- 	return 0;
- }
-@@ -6304,7 +6321,9 @@ static int stmmac_set_mac_address(struct net_device *ndev, void *addr)
- 	if (ret)
- 		goto set_mac_error;
- 
-+	phylink_rx_clk_stop_block(priv->phylink);
- 	stmmac_set_umac_addr(priv, priv->hw, ndev->dev_addr, 0);
-+	phylink_rx_clk_stop_unblock(priv->phylink);
- 
- set_mac_error:
- 	pm_runtime_put(priv->device);
-@@ -6660,6 +6679,9 @@ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
- 	return stmmac_update_vlan_hash(priv, priv->hw, hash, pmatch, is_double);
- }
- 
-+/* FIXME: This may need RXC to be running, but it may be called with BH
-+ * disabled, which means we can't call phylink_rx_clk_stop*().
-+ */
- static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
-@@ -6691,6 +6713,9 @@ static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid
- 	return ret;
- }
- 
-+/* FIXME: This may need RXC to be running, but it may be called with BH
-+ * disabled, which means we can't call phylink_rx_clk_stop*().
-+ */
- static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vid)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
-@@ -7951,9 +7976,11 @@ int stmmac_resume(struct device *dev)
- 
- 	stmmac_hw_setup(ndev, false);
- 	stmmac_init_coalesce(priv);
-+	phylink_rx_clk_stop_block(priv->phylink);
- 	stmmac_set_rx_mode(ndev);
- 
- 	stmmac_restore_hw_vlan_rx_fltr(priv, ndev, priv->hw);
-+	phylink_rx_clk_stop_unblock(priv->phylink);
- 
- 	stmmac_enable_all_queues(priv);
- 	stmmac_enable_all_dma_irq(priv);
--- 
-2.30.2
-
+Thanks,
+Andi
 
