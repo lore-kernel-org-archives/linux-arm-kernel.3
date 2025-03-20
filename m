@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84851C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 12:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33D2C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 13:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xflSa0hR/PENfTIOp0gqa3rilFj0JKDkxLJsuqmvYRo=; b=12oyMtgqMJA0rODUm8yHRITL1U
-	mleigIbAZWccIpLr7UDf46C72VmoJhkobpu5yEH3LolRlUZXeFH6si7fHmkoLD+8KI7hIqQO1PyZ1
-	swoNESbR/8GG4sYPCDHvhXvaXsug2imXRk1H8UQCC8D9+puRtWiqYvisv37BaWaKdeWfVbBXbEFgX
-	fNxkdtHCMpj7M4W5Tt15kxXgkZ6i4NAoMKxzelSiNO/kACLrYX655vB0XRKzsG5nIuMAKgFwOW1ww
-	YBJEwa04mHBWL705Rdlg8z9i0Kfr4hJxPBKi2y0/5zMDsr96Y+ykYd3cfdeomWMIFaM+yCMixFDZS
-	CbrPuFSg==;
+	bh=glTaSdR3o4X9GAxmeU45K8T6CfAsdsfpsmdPJF5vMoA=; b=OqZjR1RJqmt2Og2hNt0m7a4fcj
+	vrn0dQIY7d8G/etwA7j553fkmUZU5npGosVhJuMKZ/zcke8VQIFjjrFgA/yQS7/1poGKt4s5whEM6
+	9+icse6Cbhzm7SX3BPoUNEKU6Y4iwhyGUK9O+XpoGW0LuvkV2L6GwIa28infTghBUcgZz5PgWipMq
+	dKtd2Ei0xekiKt0Q3UCYU7N4TYjeS/ggNf5bv1nNtVwqXWj+leyRV90ilB+gAKVzEJcQ6RWUKahCR
+	vBkFGkmLF/euds++kE5DKE9PVwResfAUoDQ3vCaVLTUozAKADaYsT9evOTFJpyaTAc4lJu5ffDSNM
+	WqjLaJnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFUf-0000000CAJQ-1mry;
-	Thu, 20 Mar 2025 12:59:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tvFWL-0000000CAUj-0NgS;
+	Thu, 20 Mar 2025 13:01:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvFPb-0000000C9Sf-2Smn
+	id 1tvFPs-0000000C9W3-2MG6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 12:54:16 +0000
+	Thu, 20 Mar 2025 12:54:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C17465C68AA;
-	Thu, 20 Mar 2025 12:51:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 734EBC4CEDD;
-	Thu, 20 Mar 2025 12:54:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C6CF943BC0;
+	Thu, 20 Mar 2025 12:54:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B40DC4CEDD;
+	Thu, 20 Mar 2025 12:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742475254;
-	bh=vxV+a/fLmjjCRymtdhQarF9ezoeGwerQqeFxyUA3row=;
+	s=k20201202; t=1742475272;
+	bh=UUeHYaWcZVHy8DD0p9+ABrB/AFWTnKzv0JWjred+ovQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mshW1Y1mUUWzSAYHX9v4UeBiVBN7iJ+TcNCV6wFNs7ezLg1Su9nsxvJML07ynWPyS
-	 7bBrvZaRYZaffw1osYjlU28JPszJOQD7uAno0Z4FDSCn2Gn2M7f28MfKhgAMz9kvU2
-	 X5Z00tR5QE4aPdzX8QFqr2DnTkYUs0X5pf48SfxX9yGRx8HFoLPDH8tsZ+HRZiHTlm
-	 BspfnzdRWUxEdCj2w4ie9gD9KSkqD77LBZuHVsqF3FdyHMOYqdlC+sTROuhWo9ba+A
-	 glkEgWE98+ENvZ7R1gFGQLaklueQud518AhZutgCB0C+v+djPuXQTGlWT/hgf8wIoz
-	 9MAaLVz7SAOVg==
-Date: Thu, 20 Mar 2025 12:54:08 +0000
+	b=beL7dyff5kYW6aDIOicQPhtdSJasmuSwJdRjUIlh8MSkfspCTwN8zNUDz9AXwgnun
+	 uM5wDfa4HeC8Gwn7yc/7xMtG6aISfUtFeX5hRvyGd+dCuGP0arFvrNJkO3F2YT4z/N
+	 tEQr/EuhRNbkluXRAsZJpME3up9CI9BD1CZRkb3gARoD4SAbzgOglnL7YpWg9gpjRS
+	 UkFhxfi0FdjjJiX5lhBs1bSwwl2+tqvFAQXcnl9Fd+QsFguJRdRviV0VlSZTLyhjae
+	 s+tBlQnQX8PxRyeLwdUo9bcBNxuGNzD3JxSaqW6kaRpY81OM5pXpAY3FVvqDOgcYna
+	 ctIymZBUPqong==
+Date: Thu, 20 Mar 2025 12:54:26 +0000
 From: Simon Horman <horms@kernel.org>
 To: Meghana Malladi <m-malladi@ti.com>
 Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
@@ -54,18 +54,19 @@ Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
 	daniel@iogearbox.net, ast@kernel.org, srk@ti.com,
 	Vignesh Raghavendra <vigneshr@ti.com>,
 	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-Subject: Re: [PATCH net-next 2/3] net: ti: prueth: Fix possible NULL pointer
- dereference inside emac_xmit_xdp_frame()
-Message-ID: <20250320125408.GO280585@kernel.org>
+Subject: Re: [PATCH net-next 3/3] net: ti: icss-iep: Fix possible NULL
+ pointer dereference for perout request
+Message-ID: <20250320125426.GP280585@kernel.org>
 References: <20250317101551.1005706-1-m-malladi@ti.com>
- <20250317101551.1005706-3-m-malladi@ti.com>
+ <20250317101551.1005706-4-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250317101551.1005706-3-m-malladi@ti.com>
+In-Reply-To: <20250317101551.1005706-4-m-malladi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_055415_680228_EF044D47 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250320_055432_633619_76879A1C 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +81,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 03:45:49PM +0530, Meghana Malladi wrote:
-> There is an error check inside emac_xmit_xdp_frame() function which
-> is called when the driver wants to transmit XDP frame, to check if
-> the allocated tx descriptor is NULL, if true to exit and return
-> ICSSG_XDP_CONSUMED implying failure in transmission.
+On Mon, Mar 17, 2025 at 03:45:50PM +0530, Meghana Malladi wrote:
+> Whenever there is a perout request from the user application,
+> kernel receives req structure containing the configuration info
+> for that req. Add NULL pointer handling for perout request if
+> that req struct points to NULL.
 > 
-> In this case trying to free a descriptor which is NULL will result
-> in kernel crash due to NULL pointer dereference. Fix this error handling
-> and increase netdev tx_dropped stats in the caller of this function
-> if the function returns ICSSG_XDP_CONSUMED.
-> 
-> Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
+> Fixes: e5b456a14215 ("net: ti: icss-iep: Add pwidth configuration for perout signal")
 > Signed-off-by: Meghana Malladi <m-malladi@ti.com>
 
 Reviewed-by: Simon Horman <horms@kernel.org>
