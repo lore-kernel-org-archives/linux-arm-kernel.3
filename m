@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 289DBC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 205F2C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sx0uJyZFYDkNkfu2SZxOotLIfyA6oHFV/FxsVb5FHgw=; b=4OgaW0Ek/8mviBzW5J1GaHG0lW
-	fZZsEXb4tTgp92MzZc2tBnBlfwacCDcwW/3ccszz4YAb2or2JJG7GXcqMua/0shVoHrsyojCEy/Xu
-	CYabuoKAncJy5eB9CVYnbHwWvN5ZvbAXGHffOprKyh8qSnGb0q27l/eCGOMm3q63gV1ylYYhZc14J
-	IRVm3q4iPqEtYV44sjrjlUQMJ9bkoLWAE0CCRyguj3U90IIDKeMXxVhlrRYEegEZGwx+vSMllS/Qz
-	Vh+WxyBjpwHT2uqJeXYlazH3gZuCJHeKOe2w9ByNgbySotuNI3wN2mjd6VwtP/zVtUi+hJ/D+0C3o
-	yLK9kiJg==;
+	bh=iwJWfv7sSsu8zcuBk05hMx3hXI76rKRudocCrAtv49o=; b=kW8stoxIJCATyM7bYe319k1msH
+	uF/pM9qm64IQiPeAyUPr6ii3OJgsjA8IBETnUnQ/5kTbRmeDm3AEWISyScZsCLlrSTH25xTH6YYzh
+	hGSVLcFgoCdpcMb1OMUHshe9tD9KyDLr+0UaKlw4oEqRbV2fCjMAGHinl0ktw5xdpuNBYh1Pgu1KJ
+	wjw/U2GPAnCoWvEUyo6wYurr/mhqvacwMZ0PPojsc//jmLXlkFe/LjB7ui7JCRtMlXoNKoy8nXv3O
+	Dg3Zsz3ovDAkyqIzfFzgdHiw7iW2dF9ws3J8tQe2V3G3sL+ywxtuYIfU4NKV+Gw2yftlGI1BFfdGN
+	JVP71XgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvK22-0000000CrS6-15vE;
-	Thu, 20 Mar 2025 17:50:14 +0000
+	id 1tvK3h-0000000Crvm-3vsQ;
+	Thu, 20 Mar 2025 17:51:57 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJvT-0000000CqLE-1cpe
+	id 1tvJvy-0000000CqPv-1WqX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 17:43:28 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZJXsl1VN3z6K9M7;
-	Fri, 21 Mar 2025 01:40:27 +0800 (CST)
+	Thu, 20 Mar 2025 17:44:00 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZJXsw4H2fz6M4kK;
+	Fri, 21 Mar 2025 01:40:36 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id ABEA714050D;
-	Fri, 21 Mar 2025 01:43:25 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id DB01114050C;
+	Fri, 21 Mar 2025 01:43:56 +0800 (CST)
 Received: from SecurePC-101-06.china.huawei.com (10.122.19.247) by
  frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Thu, 20 Mar 2025 18:43:24 +0100
+ 15.1.2507.39; Thu, 20 Mar 2025 18:43:56 +0100
 From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 To: <linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<james.morse@arm.com>, <conor@kernel.org>, Yicong Yang
@@ -46,9 +46,9 @@ CC: <linux-arch@vger.kernel.org>, <linuxarm@huawei.com>, Yushan Wang
 	<gregkh@linuxfoundation.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
  Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>, Dan Williams <dan.j.williams@intel.com>
-Subject: [RFC PATCH 4/6] cache: Support cache maintenance for HiSilicon SoC Hydra Home Agent
-Date: Thu, 20 Mar 2025 17:41:16 +0000
-Message-ID: <20250320174118.39173-5-Jonathan.Cameron@huawei.com>
+Subject: [RFC PATCH 5/6] acpi: PoC of Cache control via ACPI0019 and _DSM
+Date: Thu, 20 Mar 2025 17:41:17 +0000
+Message-ID: <20250320174118.39173-6-Jonathan.Cameron@huawei.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250320174118.39173-1-Jonathan.Cameron@huawei.com>
 References: <20250320174118.39173-1-Jonathan.Cameron@huawei.com>
@@ -59,8 +59,8 @@ X-Originating-IP: [10.122.19.247]
 X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_104327_736987_16A1BA03 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20250320_104358_717156_B61C9BE2 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,255 +75,342 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+Do not merge. This is the bare outline of what may become an ACPI
+code first specification proposal.
 
-Hydra Home Agent is a device used for maintain cache coherency, add
-support of cache maintenance operations for it.
+From various discussions, it has become clear that there is some desire not
+to end up needing a cache flushing driver for every host that supports the
+flush by PA range functionality that is needed for CXL and similar
+disagregated memory pools where the host PA mapping to actual memory may
+change over time and where various races can occur with prefetchers making
+it hard to use CPU instructions to flush all stale data out.
 
-Same as HiSilicon L3 cache and L3 cache PMU, memory resource of HHA
-conflicts with that of HHA PMU.  Same workaround is implemented here to
-workaround resource conflict check.
+There was once an ARM PSCI specification [1] that defined a firmware
+interface to solve this problem.  However that meant dropping into
+a more privileged mode, or chatting to an external firmware. That was
+overkill for those systems that provide a simple MMIO register interface
+for these operations. That specification never made it beyond alpha level.
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-Co-developed-by: Yushan Wang <wangyushan12@huawei.com>
-Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+For the typical class of machine that actually uses these disaggregated
+pools, ACPI can potentially provide the same benefits with a great deal more
+flexibility.  A _DSM in DSDT via operation regions, may be used to do any of:
+1) Make firmware calls
+2) Operate a register based state machine.
+3) Most other things you might dream of.
+
+This was prototyped against an implementation of the ARM specification
+in [1] wrapped up in _DSM magic. That was chosen to give a second
+(be it abandoned) example of how this cache control class can be used.
+
+DSDT blob example that uses PSCI underneath.
+
+Device (CCT0)
+{
+     Name (_HID, "ACPI0019")  // _HID: Hardware ID
+     Name (_UID, Zero)  // _UID: Unique ID
+     OperationRegion (AFFH, FFixedHW, One, 0x90)
+     Field (AFFH, BufferAcc, NoLock, Preserve)
+     {
+         AFFX,   1152
+     }
+
+     Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+     {
+         If ((Arg0 == ToUUID ("61fdc7d5-1468-4807-b565-515bf6b75319") /* Unknown UUID */))
+         {
+             If ((Arg2 == Zero))
+	     {
+                 Return (Buffer (One)
+                 {
+                     0x0F                                             // .
+                 })
+             }
+
+             If ((Arg2 == One))
+             {
+                 Name (CCR1, Buffer (0x08)
+                 {
+                      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                 })
+                 CreateDWordField (CCR1, Zero, RRR1)
+                 CCR1 = AFFX = Buffer (0x10)
+                 {
+                      /* 0000 */  0x17, 0x00, 0x00, 0xC4, 0x00, 0x00, 0x00, 0x00,  // ........
+                     /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                 }
+                 Name (CCOP, Zero)
+                 CCOP = RRR1 /* \_SB_.CCT0._DSM.RRR1 */
+                 CCR1 = AFFX = Buffer (0x10)
+                 {
+                     /* 0000 */  0x17, 0x00, 0x00, 0xC4, 0x00, 0x00, 0x00, 0x00,  // ........
+                     /* 0008 */  0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                 }
+                 Name (CCLA, Zero)
+                 CCLA = RRR1 /* \_SB_.CCT0._DSM.RRR1 */
+                 CCR1 = AFFX = Buffer (0x10)
+                 {
+                      /* 0000 */  0x17, 0x00, 0x00, 0xC4, 0x00, 0x00, 0x00, 0x00,  // ........
+                      /* 0008 */  0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                 }
+                 Name (CCRL, Zero)
+                 CCRL = RRR1 /* \_SB_.CCT0._DSM.RRR1 */
+                 Return (Package (0x04)
+                 {
+                     CCOP,
+                     CCLA,
+                     CCRL,
+                     One
+                 })
+            }
+            If ((Arg2 == 0x02))
+            {
+                If (!((ObjectType (Arg3) == 0x04) && (SizeOf (Arg3) == 0x03)))
+                {
+                    Return (One)
+                }
+
+                Name (BUFF, Buffer (0x28)
+                {
+                    /* 0000 */  0x16, 0x00, 0x00, 0xC4, 0x00, 0x00, 0x00, 0x00,  // ........
+                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                    /* 0010 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                    /* 0018 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                    /* 0020 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                 })
+                 CreateQWordField (BUFF, 0x08, BFBA)
+                 CreateQWordField (BUFF, 0x10, BFSZ)
+                 CreateQWordField (BUFF, 0x20, BFFL)
+                 Local0 = Arg3 [Zero]
+                 BFBA = DerefOf (Local0)
+                 Local0 = Arg3 [One]
+                 BFSZ = DerefOf (Local0)
+                 Local0 = Arg3 [0x02]
+                 Local1 = DerefOf (Local0)
+                 If ((Local1 != Zero))
+                 {
+                     Return (One)
+                 }
+
+                 AFFX = BUFF /* \_SB_.CCT0._DSM.BUFF */
+                 Return (Zero)
+             }
+
+             If ((Arg2 == 0x03))
+             {
+                 Return (Zero)
+             }
+         }
+    }
+}
+
+Link: https://developer.arm.com/documentation/den0022/falp1/?lang=en [1]
 Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 ---
- drivers/cache/Kconfig        |  12 +++
- drivers/cache/Makefile       |   1 +
- drivers/cache/hisi_soc_hha.c | 193 +++++++++++++++++++++++++++++++++++
- 3 files changed, 206 insertions(+)
+ drivers/acpi/Makefile              |   1 +
+ drivers/cache/Kconfig              |   8 ++
+ drivers/cache/Makefile             |   1 +
+ drivers/cache/acpi_cache_control.c | 157 +++++++++++++++++++++++++++++
+ 4 files changed, 167 insertions(+)
 
+diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
+index 40208a0f5dfb..fcb6635d27d8 100644
+--- a/drivers/acpi/Makefile
++++ b/drivers/acpi/Makefile
+@@ -129,3 +129,4 @@ obj-$(CONFIG_ACPI_VIOT)		+= viot.o
+ 
+ obj-$(CONFIG_RISCV)		+= riscv/
+ obj-$(CONFIG_X86)		+= x86/
++
 diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-index 45dc4b2935e7..6dab014bc581 100644
+index 6dab014bc581..5569af0903c4 100644
 --- a/drivers/cache/Kconfig
 +++ b/drivers/cache/Kconfig
-@@ -6,6 +6,18 @@ config CACHE_COHERENCY_CLASS
- 	help
- 	  Class to which coherency control drivers register allowing core kernel
- 	  subsystems to issue invalidations and similar coherency operations.
-+if CACHE_COHERENCY_CLASS
+@@ -17,6 +17,14 @@ config HISI_SOC_HHA
+ 
+ 	  This driver can be built as a module. If so, the module will be
+ 	  called hisi_soc_hha.
 +
-+config HISI_SOC_HHA
-+	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
-+	depends on ARM64 && ACPI || COMPILE_TEST
-+	help
-+	  The Hydra Home Agent (HHA) is responsible of cache coherency
-+	  on SoC. This drivers provides cache maintenance functions of HHA.
++config ACPI_CACHE_CONTROL
++       tristate "ACPI cache maintenance"
++       depends on ARM64
++       help
++         ACPI0019 device ID in DSDT identifies an interface that may be used
++	 to carry out certain forms of cache flush operation.
 +
-+	  This driver can be built as a module. If so, the module will be
-+	  called hisi_soc_hha.
-+endif
+ endif
  
  config AX45MP_L2_CACHE
- 	bool "Andes Technology AX45MP L2 Cache controller"
 diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
-index b72b20f4248f..48b319984b45 100644
+index 48b319984b45..9f0679a6dab1 100644
 --- a/drivers/cache/Makefile
 +++ b/drivers/cache/Makefile
-@@ -5,3 +5,4 @@ obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
- obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
+@@ -6,3 +6,4 @@ obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
  
  obj-$(CONFIG_CACHE_COHERENCY_CLASS)	+= coherency_core.o
-+obj-$(CONFIG_HISI_SOC_HHA)		+= hisi_soc_hha.o
-diff --git a/drivers/cache/hisi_soc_hha.c b/drivers/cache/hisi_soc_hha.c
+ obj-$(CONFIG_HISI_SOC_HHA)		+= hisi_soc_hha.o
++obj-$(CONFIG_ACPI_CACHE_CONTROL)   	+= acpi_cache_control.o
+diff --git a/drivers/cache/acpi_cache_control.c b/drivers/cache/acpi_cache_control.c
 new file mode 100644
-index 000000000000..c2af06e5839e
+index 000000000000..d5b91f505a26
 --- /dev/null
-+++ b/drivers/cache/hisi_soc_hha.c
-@@ -0,0 +1,193 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for HiSilicon Hydra Home Agent (HHA).
-+ *
-+ * Copyright (c) 2024 HiSilicon Technologies Co., Ltd.
-+ * Author: Yicong Yang <yangyicong@hisilicon.com>
-+ *         Yushan Wang <wangyushan12@huawei.com>
-+ */
++++ b/drivers/cache/acpi_cache_control.c
+@@ -0,0 +1,157 @@
 +
-+#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-+
-+#include <linux/bitfield.h>
-+#include <linux/cacheflush.h>
++#include <linux/acpi.h>
 +#include <linux/cache_coherency.h>
-+#include <linux/device.h>
-+#include <linux/init.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/kernel.h>
-+#include <linux/memregion.h>
-+#include <linux/module.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/platform_device.h>
-+#include <linux/spinlock.h>
++#include <linux/cleanup.h>
++#include <asm/cacheflush.h>
 +
-+#define HISI_HHA_CTRL		0x5004
-+#define   HISI_HHA_CTRL_EN	BIT(0)
-+#define   HISI_HHA_CTRL_RANGE	BIT(1)
-+#define   HISI_HHA_CTRL_TYPE	GENMASK(3, 2)
-+#define HISI_HHA_START_L	0x5008
-+#define HISI_HHA_START_H	0x500c
-+#define HISI_HHA_LEN_L		0x5010
-+#define HISI_HHA_LEN_H		0x5014
-+
-+/* The maintain operation performs in a 128 Byte granularity */
-+#define HISI_HHA_MAINT_ALIGN	128
-+
-+#define HISI_HHA_POLL_GAP_US		10
-+#define HISI_HHA_POLL_TIMEOUT_US	50000
-+
-+struct hisi_soc_hha {
++struct acpi_cache_control {
 +	struct cache_coherency_device ccd;
-+	/* Locks HHA instance to forbid overlapping access. */
-+	spinlock_t lock;
-+	void __iomem *base;
++	/* Stuff */
 +};
 +
-+static bool hisi_hha_cache_maintain_wait_finished(struct hisi_soc_hha *soc_hha)
++static const guid_t testguid =
++	GUID_INIT(0x61FDC7D5, 0x1468, 0x4807,
++		0xB5, 0x65, 0x51, 0x5B, 0xF6, 0xB7, 0x53, 0x19);
++
++static int acpi_cache_control_query(struct acpi_device *device)
 +{
-+	u32 val;
++	union acpi_object *out_obj;
 +
-+	return !readl_poll_timeout_atomic(soc_hha->base + HISI_HHA_CTRL, val,
-+					  !(val & HISI_HHA_CTRL_EN),
-+					  HISI_HHA_POLL_GAP_US,
-+					  HISI_HHA_POLL_TIMEOUT_US);
-+}
-+
-+static int hisi_hha_cache_do_maintain(struct hisi_soc_hha *soc_hha,
-+				      phys_addr_t addr, size_t size)
-+{
-+	int ret = 0;
-+	u32 reg;
-+
-+	if (!size || !IS_ALIGNED(size, HISI_HHA_MAINT_ALIGN))
++	out_obj = acpi_evaluate_dsm(device->handle, &testguid, 1, 1, NULL);//&in_obj);
++	if (out_obj->package.count < 4) {
++		printk("Only partial capabilities received\n");
 +		return -EINVAL;
++	}
++	for (int i = 0; i < out_obj->package.count; i++)
++		if (out_obj->package.elements[i].type != 1) {
++			printk("Element %d not integer\n", i);
++			return -EINVAL;
++		}
++	switch (out_obj->package.elements[0].integer.value) {
++	case 0:
++		printk("Supports range\n");
++		break;
++	case 1:
++		printk("Full flush only\n");
++		break;
++	default:
++		printk("unknown op type %llx\n",
++			out_obj->package.elements[0].integer.value);
++		break;
++	}
 +
-+	/*
-+	 * Hardware will maintain in a range of
-+	 * [addr, addr + size + HISI_HHA_MAINT_ALIGN]
-+	 */
-+	size -= HISI_HHA_MAINT_ALIGN;
++	printk("Latency is %lld msecs\n",
++		out_obj->package.elements[1].integer.value);
++	printk("Min delay between calls is %lld msecs\n",
++		out_obj->package.elements[2].integer.value);
 +
-+	guard(spinlock)(&soc_hha->lock);
-+
-+	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
-+		return -EBUSY;
-+
-+	writel(lower_32_bits(addr), soc_hha->base + HISI_HHA_START_L);
-+	writel(upper_32_bits(addr), soc_hha->base + HISI_HHA_START_H);
-+	writel(lower_32_bits(size), soc_hha->base + HISI_HHA_LEN_L);
-+	writel(upper_32_bits(size), soc_hha->base + HISI_HHA_LEN_H);
-+
-+	reg = FIELD_PREP(HISI_HHA_CTRL_TYPE, 1); /* Clean Invalid */
-+	reg |= HISI_HHA_CTRL_RANGE | HISI_HHA_CTRL_EN;
-+	writel(reg, soc_hha->base + HISI_HHA_CTRL);
-+
-+	return ret;
-+}
-+
-+static int hisi_hha_cache_poll_maintain_done(struct hisi_soc_hha *soc_hha,
-+					     phys_addr_t addr, size_t size)
-+{
-+	guard(spinlock)(&soc_hha->lock);
-+
-+	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
-+		return -ETIMEDOUT;
-+
++	if (out_obj->package.elements[3].integer.value & BIT(0))
++		printk("CLEAN_INVALIDATE\n");
++	if (out_obj->package.elements[3].integer.value & BIT(1))
++		printk("CLEAN\n");
++	if (out_obj->package.elements[3].integer.value & BIT(2))
++		printk("INVALIDATE\n");
++	ACPI_FREE(out_obj);
 +	return 0;
 +}
 +
-+static int hisi_soc_hha_wbinv(struct cache_coherency_device *ccd, struct cc_inval_params *invp)
++static int acpi_cache_control_inval(struct acpi_device *device, u64 base, u64 size)
 +{
-+	struct hisi_soc_hha *hha = container_of(ccd, struct hisi_soc_hha, ccd);
++	union acpi_object *out_obj;
++	union acpi_object in_array[] = {
++		[0].integer = { ACPI_TYPE_INTEGER, base },
++		[1].integer = { ACPI_TYPE_INTEGER, size },
++		[2].integer = { ACPI_TYPE_INTEGER, 0 }, // Clean invalidate
++	};
++	union acpi_object in_obj = {
++		.package = {
++			.type = ACPI_TYPE_PACKAGE,
++			.count = ARRAY_SIZE(in_array),
++			.elements = in_array,
++		},
++	};
 +
-+	return hisi_hha_cache_do_maintain(hha, invp->addr, invp->size);
++	out_obj = acpi_evaluate_dsm(device->handle, &testguid, 1, 2, &in_obj);
++	printk("out type %d\n", out_obj->type);
++	printk("out val %lld\n", out_obj->integer.value);
++	ACPI_FREE(out_obj);
++	return 0;
 +}
 +
-+static int hisi_soc_hha_done(struct cache_coherency_device *ccd)
++static int acpi_cc_wbinv(struct cache_coherency_device *ccd,
++			 struct cc_inval_params *invp)
 +{
-+	struct hisi_soc_hha *hha = container_of(ccd, struct hisi_soc_hha, ccd);
++	struct acpi_device *acpi_dev =
++		container_of(ccd->dev.parent, struct acpi_device, dev);
 +
-+	return hisi_hha_cache_poll_maintain_done(hha, 0, 0);
++	return acpi_cache_control_inval(acpi_dev, invp->addr, invp->size);
 +}
 +
-+static const struct coherency_ops hha_ops = {
-+	.wbinv = hisi_soc_hha_wbinv,
-+	.done = hisi_soc_hha_done,
++static int acpi_cc_done(struct cache_coherency_device *ccd)
++{
++	/* Todo */
++	return 0;
++}
++
++static const struct coherency_ops acpi_cc_ops = {
++	.wbinv = acpi_cc_wbinv,
++	.done = acpi_cc_done,
 +};
 +
-+DEFINE_FREE(hisi_soc_hha, struct hisi_soc_hha *, if (_T) cache_coherency_device_put(&_T->ccd))
-+static int hisi_soc_hha_probe(struct platform_device *pdev)
++DEFINE_FREE(acpi_cache_control, struct acpi_cache_control *,
++	if (_T) cache_coherency_device_put(&_T->ccd));
++
++static int acpi_cache_control_add(struct acpi_device *device)
 +{
-+	struct resource *mem;
 +	int ret;
 +
-+	struct hisi_soc_hha *soc_hha __free(hisi_soc_hha) =
-+		cache_coherency_alloc_device(&pdev->dev, &hha_ops,
-+					     struct hisi_soc_hha, ccd);
-+	if (!soc_hha)
++	printk("ACPI device bound\n");
++
++	ret = acpi_cache_control_query(device);
++	if (ret)
++		return ret;
++
++	struct acpi_cache_control *acpi_cc __free(acpi_cache_control) =
++		cache_coherency_alloc_device(&device->dev, &acpi_cc_ops,
++					struct acpi_cache_control, ccd);
++	if (!acpi_cc)
 +		return -ENOMEM;
 +
-+	platform_set_drvdata(pdev, soc_hha);
-+
-+	spin_lock_init(&soc_hha->lock);
-+
-+	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!mem)
-+		return -ENODEV;
-+
-+	/*
-+	 * HHA cache driver share the same register region with HHA uncore PMU
-+	 * driver in hardware's perspective, none of them should reserve the
-+	 * resource to itself only.  Here exclusive access verification is
-+	 * avoided by calling devm_ioremap instead of devm_ioremap_resource to
-+	 * allow both drivers to exist at the same time.
-+	 */
-+	soc_hha->base = ioremap(mem->start, resource_size(mem));
-+	if (IS_ERR_OR_NULL(soc_hha->base)) {
-+		return dev_err_probe(&pdev->dev, PTR_ERR(soc_hha->base),
-+				     "failed to remap io memory");
-+	}
-+
-+	ret = cache_coherency_device_register(&soc_hha->ccd);
-+	if (ret) {
-+		iounmap(soc_hha->base);
++	ret = cache_coherency_device_register(&acpi_cc->ccd);
++	if (ret)
 +		return ret;
-+	}
 +
-+	platform_set_drvdata(pdev, no_free_ptr(soc_hha));
++	dev_set_drvdata(&device->dev, acpi_cc);
 +	return 0;
 +}
 +
-+static void hisi_soc_hha_remove(struct platform_device *pdev)
++static void acpi_cache_control_del(struct acpi_device *device)
 +{
-+	struct hisi_soc_hha *soc_hha = platform_get_drvdata(pdev);
++	struct acpi_cache_control *acpi_cc = dev_get_drvdata(&device->dev);
 +
-+	cache_coherency_device_unregister(&soc_hha->ccd);
-+	iounmap(soc_hha->base);
-+	cache_coherency_device_put(&soc_hha->ccd);
++	cache_coherency_device_unregister(&acpi_cc->ccd);
++	cache_coherency_device_put(&acpi_cc->ccd);
 +}
 +
-+static const struct acpi_device_id hisi_soc_hha_ids[] = {
-+	{ "HISI0511", },
++static const struct acpi_device_id acpi_cache_control_ids[] = {
++	{ "ACPI0019" },
 +	{ }
 +};
-+MODULE_DEVICE_TABLE(acpi, hisi_soc_hha_ids);
 +
-+static struct platform_driver hisi_soc_hha_driver = {
-+	.driver = {
-+		.name = "hisi_soc_hha",
-+		.acpi_match_table = hisi_soc_hha_ids,
++MODULE_DEVICE_TABLE(acpi, acpi_cache_control_ids);
++
++static struct acpi_driver acpi_cache_control_driver = {
++	.name = "acpi_cache_control",
++	.ids = acpi_cache_control_ids,
++	.ops = {
++		.add = acpi_cache_control_add,
++		.remove = acpi_cache_control_del,
 +	},
-+	.probe = hisi_soc_hha_probe,
-+	.remove = hisi_soc_hha_remove,
 +};
 +
-+module_platform_driver(hisi_soc_hha_driver);
++module_acpi_driver(acpi_cache_control_driver);
 +
 +MODULE_IMPORT_NS("CACHE_COHERENCY");
-+MODULE_DESCRIPTION("Hisilicon Hydra Home Agent driver supporting cache maintenance");
-+MODULE_AUTHOR("Yicong Yang <yangyicong@hisilicon.com>");
-+MODULE_AUTHOR("Yushan Wang <wangyushan12@huawei.com>");
++MODULE_AUTHOR("Jonathan Cameron <Jonathan.Cameron@huawei.com>");
++MODULE_DESCRIPTION("HACKS HACKS HACKS");
 +MODULE_LICENSE("GPL");
 -- 
 2.43.0
