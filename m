@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EE7C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE61C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 02:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rd3wJc2IZkbxeklI0oyF9EA5atShYqSy3T5piwpZMms=; b=op/wonQPss6dWBY4KlkCXWUHch
-	spXq4auzUsM3LYDVT+D+2q43W5ayRCPK/tV24XAzpAeSQAqMMXI67bUBf+Mzumeu1MlTqMj8ykv+s
-	+Rdv8Mf6svH/jNz2rAc+zQCf36PQ78Tr7ul1kPoYRD05VIIHYoeGkerdQsVRuDGxeu64VPkqLrASp
-	0VLqrbqPCSZkLUrsStuFnH5+4ZXw4Hg0R0VLdSLE+cxycPXU8QmFFCidGS/xNKFlZGf3dPK1CLwWy
-	yF3tIEw5X+GqLFbkgJYh3ZR6pJPkVoz2ZmlinOMACXVIQYFts90DmZnNquUnQD8mj5D0uj9JGZcTC
-	aKIgPLeg==;
+	bh=Q4HakJ1xIrca+h2lsnqHQuPoA99HtUJXt7bntXeIsss=; b=0v8dx+eRQNJpuYONqNhqUbzqxT
+	A5wp/pTBd/0+ZF7XEawVN+/QM7kqaFKf/dmMrBqNzkFvKNGx/528Sq5YnPusOS2uSOWivDpqkjF2S
+	Il8L5jZMnbUAzxvF0nlZJNSU2bILCrBvdSXwtL4nj7CVAA+z+pvhDr24/cfGgQ+VjeMSrve4WwQK9
+	EEzcAOcYE82zDU9gRq6QpkNvxwGlFqe0zT4mZizQ+hgHtwscH7HzXLgCj8SEvIZxxNQvlz4SRHw+y
+	zomg924A4s0CpnD3eUPUtYwELiwwPXFoZx8JLftMEoNy1XYYdl2Gpzeha4tcaS8EoPmLTWAL1q9m7
+	4m+NCBsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv5So-0000000Aqjg-2oZv;
-	Thu, 20 Mar 2025 02:16:54 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1tv5UU-0000000Ar8i-47pY;
+	Thu, 20 Mar 2025 02:18:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv58u-0000000Ake9-1JzP
+	id 1tv590-0000000Akkr-1F8Q
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 20 Mar 2025 01:56:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Q4HakJ1xIrca+h2lsnqHQuPoA99HtUJXt7bntXeIsss=; b=NLmSFfT6YY+cLUkj+qLuDECfqt
+	oVuL+wy/oQ+yKZTzaRt5KcOzrHcQejXkQfjtXTP5wrB5MYnmgrheBRweu+khBJM/jiQlYzKgkp/q+
+	AgQIO7wPXQ/JC68y9hOBkCnbfXfG1tBDXdHA8DmWvfIafH3+YIvjjI+aWHrhO/35vdnIYCC8maEIV
+	AX/mRs3i2jigo0kOqRIkwGJQV9PwPv0UXKOtWVJEaBLZWmEsRvLZFS7kkWZiStMHpRVh1vd+2i7uA
+	/wcq6IN1giXyE4kV/nMS6Yth1dnjA8XbCraiaRmCX9Db5RbTwYp90U12WozSl1NEBmUFubw5ohRC7
+	oC9EEObQ==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tv58x-000000043ea-0MHB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 01:56:24 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2240a960f9cso2984825ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:19 -0700 (PDT)
+	Thu, 20 Mar 2025 01:56:25 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2254bdd4982so4818545ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Mar 2025 18:56:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742435779; x=1743040579; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742435781; x=1743040581; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rd3wJc2IZkbxeklI0oyF9EA5atShYqSy3T5piwpZMms=;
-        b=isR6kPMFXZa2fnACG26tUzMx9X+vPntIf3xQ0V3kDsfnhfsMV7NJLyy4nP1kC8HZGp
-         8akD1LDtjr+TGYW2En9gSKAJEGJbRsIEcozwwcT8fdv8njkSbN0DXF3yHmfDLuZL96JI
-         TxQvNS6XwgkL7B7ElQbPpQ3sWEYu98fh8w81zWjQsI7yyJfsQdJR7raGunnGNnUyI2Kg
-         HcFO5FgOsRsXdJDuQ9oWBlfTGwoDFgxJ10ggmB+hhCjWTq+CwSlll7XGdy/K3L5CjtQQ
-         SAWBw23aDaeaqB8Qh26VRPXAEk4msuaD1jxRJRxS1xXaYEhaJJjx22CwGriFozUsvj9J
-         qAWw==
+        bh=Q4HakJ1xIrca+h2lsnqHQuPoA99HtUJXt7bntXeIsss=;
+        b=fyxmrUIYgX0Cq/IMAid+aoDCpUk1HA3gibS36h5wu0pBy5zbdo0u2fStw8KKfTP05N
+         xdcjAERNDwynE1yxoATP68pWAmc3Bt8uAsaSFGvCvBlXSMgR/jSd7uPywNiqeRe+xxVE
+         klTNJzlq4I5OvcxbZ81ELIsn24tm5qijw74pZUjY/GFR0bRAirK688Z6DbIG/l27zUsk
+         ZKWY2Zyt/aZTXj73OfDiKFwmZpkQaOZJMAzasVnFWXZo8IcsG3S9AyLOvLwaHeN1jCxR
+         Mgi4ti/0k/QGi+OUSdKdxHj5VCpFV1F44eyoWtomz1/MfZDtf3rP7hXgsuFfaulybmEU
+         Xr/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742435779; x=1743040579;
+        d=1e100.net; s=20230601; t=1742435781; x=1743040581;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rd3wJc2IZkbxeklI0oyF9EA5atShYqSy3T5piwpZMms=;
-        b=TKagI/6vW0n3P4HLb6vHUq8KglhOtACPT6h8choDz7xIC2ccnnGQbJJyNwML0mGf1w
-         QLHuRmkvtYVsGDoq/Sc1OTyWhou7LiRvJr01mVlvt8DnN9DsHTNX81f2Fn40lI7fsacs
-         jWyR7zDZoG+AGiDpTiI/Wwlqsugt4Zg0rmlYptmrf2K+zyxSHWKRe1446oHVryU1y5E0
-         tHZuz55RtVPlf59fymAB6fpN8KIQECqokmnEXqQivUocgvBSmyxVm/JmfN8nyMz8+Xcy
-         eI+imzBRXPAsJwGpwOCPicKwxEcD3MGYpvIeZnlyksKHELSoyQBaSl6KqPlKNxy5SUVE
-         T4pQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVozd0qurZdr1yE5hG0UF7hV8P/5/wlYH09S5QUE72GAfXqO8/ZgXUJh46hCP/zRoQGlaX8IJZ4Qgbe/NXAOh/U@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd4GyK9zGuh2zB/Hc0opeg0OjUoVammyp6rpvhLFFKwW3N3O0R
-	YPTr9AEudcFnqaE3Yjjjt1fxs60Nebm5sRIDhjNdKqrTet16RrFl5b2f5ZZTdYtUEA94KkgWf9Z
-	loFQNdA7k8wNItm8HhQ==
-X-Google-Smtp-Source: AGHT+IGJMwZEQr7XX54NJ2Wc09gQFNrebDpGN2LmiuqxXXpWV4PLS6zLIf0YQX/7suAC0aQ3d5AJ2BOMHO4N4Oqa
-X-Received: from pfbig24.prod.google.com ([2002:a05:6a00:8b98:b0:730:597f:f227])
+        bh=Q4HakJ1xIrca+h2lsnqHQuPoA99HtUJXt7bntXeIsss=;
+        b=V/lrED36GTGrNHTwl7zLLcnJcnzvBJHj7MzrWrHwcHhvRr5szc//Ym02dJzpFiFmgx
+         nAzcGCZUMZAhBDLDTJe3l0w9wioRoG0xpkXxixM050OkO1epixtK+n3mOidjHxOzfa6v
+         +n6LZEIHRLxZfA7p7AiWctP6zASKyeU1moHLUegHBR8/3IqeO9gOzwsoiLhX62AT1KSR
+         VwV+1wFBSjeCBo4DJ8DWnD+htB1Hb0DquqQ2J2RTvx5P8L9DC/XO1eBQ9SqT1/QJFIwB
+         zcpXgMTeAIRJHjuyAS9n/rq/jdfDdKIY813/bRkSCsrn+J1sK4I0QXBv4u87aexRAZo7
+         vcCw==
+X-Forwarded-Encrypted: i=1; AJvYcCUM/HXyWvNdfbsVgXN77atQP4QzfJLk8KhlR289IcRJNHgfd29rJh/BPKrD0jYyNHVQBc0U8rOWKL/XtsYTAdnM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfFFCs1ib+tfUg7OcN43zeCCm7VnxCDVdFngwMdV/QuCJC3cZD
+	vtAViKOG+HSTqkgR7XxtMuJD6V+JLKK3lfIulCFB9ciWL7uuQI646jWXXKKK/Hze6p9zQ8pCeVg
+	mUM57rHGlkHYmxLAJaA==
+X-Google-Smtp-Source: AGHT+IGeUFjJTWpK4QjhVVj4506qhZmgM6+vP3bTkcGXoNreK6tGzf61M1Gbm1yeqL/C/F63sl0IwvGvOY21BMKy
+X-Received: from plof5.prod.google.com ([2002:a17:902:8605:b0:21f:56e1:c515])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:3a08:b0:736:57cb:f2b6 with SMTP id d2e1a72fcca58-7376d62aac5mr7233223b3a.12.1742435779245;
- Wed, 19 Mar 2025 18:56:19 -0700 (PDT)
-Date: Wed, 19 Mar 2025 18:55:47 -0700
+ 2002:a17:902:f548:b0:21f:b483:2ad5 with SMTP id d9443c01a7336-2264993273bmr61032515ad.20.1742435781232;
+ Wed, 19 Mar 2025 18:56:21 -0700 (PDT)
+Date: Wed, 19 Mar 2025 18:55:48 -0700
 In-Reply-To: <20250320015551.2157511-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250320015551.2157511-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Message-ID: <20250320015551.2157511-13-changyuanl@google.com>
-Subject: [PATCH v5 12/16] arm64: add KHO support
+Message-ID: <20250320015551.2157511-14-changyuanl@google.com>
+Subject: [PATCH v5 13/16] x86/setup: use memblock_reserve_kern for memory used
+ by kernel
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org, 
@@ -81,11 +97,11 @@ Cc: graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
 	thomas.lendacky@amd.com, usama.arif@bytedance.com, will@kernel.org, 
 	devicetree@vger.kernel.org, kexec@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-mm@kvack.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
+	linux-mm@kvack.org, x86@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_185620_443538_FD98C4CF 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20250320_015623_284712_41ED39DF 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,151 +116,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Graf <graf@amazon.com>
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-We now have all bits in place to support KHO kexecs. Add awareness of
-KHO in the kexec file as well as boot path for arm64 and adds the
-respective kconfig option to the architecture so that it can use KHO
-successfully.
+memblock_reserve() does not distinguish memory used by firmware from memory
+used by kernel.
 
-Signed-off-by: Alexander Graf <graf@amazon.com>
-Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+The distinction is nice to have for accounting of early memory allocations
+and reservations, but it is essential for kexec handover (kho) to know how
+much memory kernel consumes during boot.
+
+Use memblock_reserve_kern() to reserve kernel memory, such as kernel image,
+initrd and setup data.
+
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- arch/arm64/Kconfig |  3 +++
- drivers/of/fdt.c   | 33 +++++++++++++++++++++++++++++++++
- drivers/of/kexec.c | 37 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 73 insertions(+)
+ arch/x86/kernel/setup.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 940343beb3d4..c997b27b7da1 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1589,6 +1589,9 @@ config ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
- config ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
- 	def_bool y
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index cebee310e200..ead370570eb2 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -220,8 +220,8 @@ static void __init cleanup_highmap(void)
+ static void __init reserve_brk(void)
+ {
+ 	if (_brk_end > _brk_start)
+-		memblock_reserve(__pa_symbol(_brk_start),
+-				 _brk_end - _brk_start);
++		memblock_reserve_kern(__pa_symbol(_brk_start),
++				      _brk_end - _brk_start);
  
-+config ARCH_SUPPORTS_KEXEC_HANDOVER
-+	def_bool y
-+
- config ARCH_SUPPORTS_CRASH_DUMP
- 	def_bool y
+ 	/* Mark brk area as locked down and no longer taking any
+ 	   new allocations */
+@@ -294,7 +294,7 @@ static void __init early_reserve_initrd(void)
+ 	    !ramdisk_image || !ramdisk_size)
+ 		return;		/* No initrd provided by bootloader */
  
-diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-index aedd0e2dcd89..73f80e3f7188 100644
---- a/drivers/of/fdt.c
-+++ b/drivers/of/fdt.c
-@@ -25,6 +25,7 @@
- #include <linux/serial_core.h>
- #include <linux/sysfs.h>
- #include <linux/random.h>
-+#include <linux/kexec_handover.h>
- 
- #include <asm/setup.h>  /* for COMMAND_LINE_SIZE */
- #include <asm/page.h>
-@@ -875,6 +876,35 @@ void __init early_init_dt_check_for_usable_mem_range(void)
- 		memblock_add(rgn[i].base, rgn[i].size);
+-	memblock_reserve(ramdisk_image, ramdisk_end - ramdisk_image);
++	memblock_reserve_kern(ramdisk_image, ramdisk_end - ramdisk_image);
  }
  
-+/**
-+ * early_init_dt_check_kho - Decode info required for kexec handover from DT
-+ */
-+static void __init early_init_dt_check_kho(void)
-+{
-+	unsigned long node = chosen_node_offset;
-+	u64 kho_start, scratch_start, scratch_size;
-+	const __be32 *p;
-+	int l;
-+
-+	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER) || (long)node < 0)
-+		return;
-+
-+	p = of_get_flat_dt_prop(node, "linux,kho-fdt", &l);
-+	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
-+		return;
-+
-+	kho_start = dt_mem_next_cell(dt_root_addr_cells, &p);
-+
-+	p = of_get_flat_dt_prop(node, "linux,kho-scratch", &l);
-+	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
-+		return;
-+
-+	scratch_start = dt_mem_next_cell(dt_root_addr_cells, &p);
-+	scratch_size = dt_mem_next_cell(dt_root_addr_cells, &p);
-+
-+	kho_populate(kho_start, scratch_start, scratch_size);
-+}
-+
- #ifdef CONFIG_SERIAL_EARLYCON
- 
- int __init early_init_dt_scan_chosen_stdout(void)
-@@ -1169,6 +1199,9 @@ void __init early_init_dt_scan_nodes(void)
- 
- 	/* Handle linux,usable-memory-range property */
- 	early_init_dt_check_for_usable_mem_range();
-+
-+	/* Handle kexec handover */
-+	early_init_dt_check_kho();
- }
- 
- bool __init early_init_dt_scan(void *dt_virt, phys_addr_t dt_phys)
-diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
-index 5b924597a4de..db7d7014d8b4 100644
---- a/drivers/of/kexec.c
-+++ b/drivers/of/kexec.c
-@@ -264,6 +264,38 @@ static inline int setup_ima_buffer(const struct kimage *image, void *fdt,
- }
- #endif /* CONFIG_IMA_KEXEC */
- 
-+static int kho_add_chosen(const struct kimage *image, void *fdt, int chosen_node)
-+{
-+	int ret = 0;
-+#ifdef CONFIG_KEXEC_HANDOVER
-+	phys_addr_t dt_mem = 0;
-+	phys_addr_t dt_len = 0;
-+	phys_addr_t scratch_mem = 0;
-+	phys_addr_t scratch_len = 0;
-+
-+	if (!image->kho.fdt || !image->kho.scratch)
-+		return 0;
-+
-+	dt_mem = image->kho.fdt->mem;
-+	dt_len = image->kho.fdt->memsz;
-+
-+	scratch_mem = image->kho.scratch->mem;
-+	scratch_len = image->kho.scratch->bufsz;
-+
-+	pr_debug("Adding kho metadata to DT");
-+
-+	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-fdt",
-+				       dt_mem, dt_len);
-+	if (ret)
-+		return ret;
-+
-+	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-scratch",
-+				       scratch_mem, scratch_len);
-+
-+#endif /* CONFIG_KEXEC_HANDOVER */
-+	return ret;
-+}
-+
- /*
-  * of_kexec_alloc_and_setup_fdt - Alloc and setup a new Flattened Device Tree
-  *
-@@ -414,6 +446,11 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
- #endif
+ static void __init reserve_initrd(void)
+@@ -347,7 +347,7 @@ static void __init add_early_ima_buffer(u64 phys_addr)
  	}
  
-+	/* Add kho metadata if this is a KHO image */
-+	ret = kho_add_chosen(image, fdt, chosen_node);
-+	if (ret)
-+		goto out;
-+
- 	/* add bootargs */
- 	if (cmdline) {
- 		ret = fdt_setprop_string(fdt, chosen_node, "bootargs", cmdline);
+ 	if (data->size) {
+-		memblock_reserve(data->addr, data->size);
++		memblock_reserve_kern(data->addr, data->size);
+ 		ima_kexec_buffer_phys = data->addr;
+ 		ima_kexec_buffer_size = data->size;
+ 	}
+@@ -447,7 +447,7 @@ static void __init memblock_x86_reserve_range_setup_data(void)
+ 		len = sizeof(*data);
+ 		pa_next = data->next;
+ 
+-		memblock_reserve(pa_data, sizeof(*data) + data->len);
++		memblock_reserve_kern(pa_data, sizeof(*data) + data->len);
+ 
+ 		if (data->type == SETUP_INDIRECT) {
+ 			len += data->len;
+@@ -461,7 +461,7 @@ static void __init memblock_x86_reserve_range_setup_data(void)
+ 			indirect = (struct setup_indirect *)data->data;
+ 
+ 			if (indirect->type != SETUP_INDIRECT)
+-				memblock_reserve(indirect->addr, indirect->len);
++				memblock_reserve_kern(indirect->addr, indirect->len);
+ 		}
+ 
+ 		pa_data = pa_next;
+@@ -649,8 +649,8 @@ static void __init early_reserve_memory(void)
+ 	 * __end_of_kernel_reserve symbol must be explicitly reserved with a
+ 	 * separate memblock_reserve() or they will be discarded.
+ 	 */
+-	memblock_reserve(__pa_symbol(_text),
+-			 (unsigned long)__end_of_kernel_reserve - (unsigned long)_text);
++	memblock_reserve_kern(__pa_symbol(_text),
++			      (unsigned long)__end_of_kernel_reserve - (unsigned long)_text);
+ 
+ 	/*
+ 	 * The first 4Kb of memory is a BIOS owned area, but generally it is
 -- 
 2.48.1.711.g2feabab25a-goog
 
