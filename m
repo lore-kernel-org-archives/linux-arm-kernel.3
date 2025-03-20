@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E13DC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 12:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED19C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 12:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zF1PsVs8tAIHp1nwIAkdofs/M/mB7uWevLMDDPw0xkI=; b=Ed/8tdVeV6EsFw4Y3Q13lhxtM9
-	OB9LKiX1VRDSeJhoYWJcffS2AAOYVECWTw501ligzxt9eyCxxJirCl0GjrMFDVhEKbTrNn66iJOcI
-	X1wTb7zL32fAROwwvshzmRDijrAowPkeIGnyYsnniArWeJlDIM0bQ0Wts0cD80OkQE2WAZCZAeCWe
-	PaKHLJvQUXsPEaeqV/HXiFWRYD/LTsxNm8sCY04Hr+iANEpOl242O01ez39E4ZDEsbCtYeMghdlPp
-	8XXhD5TO0A6CFS9O9zNpMPEaeh6LEn++tntHGTDws0V9MUyF/ku/VTxxhML3dnLdBw2ftV38WU+we
-	JfTw6uKg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gaiSg/UQRCv0UtztXX61BGsqxfLRtDkme/gJHd1mFzw=; b=CAMuqLMVCfe7cJ
+	dleO2sa6Co+ANhg8eXBQrCRtDUZbNOWmChQEmonQXn+XC8i6G5FuYkUesXgs3fdIh0Y/i1HmSfsxq
+	cc/b8CtXuxEaLMxZ0mgjKNiS5x9NNxbY/8TB2UEfbUektQC52wAHVsbqDo3R0sqyskvlKdC364f5b
+	6ZkTAOcBcorSXUoNIriLnF/SCPdGPbY7B3bR6poIwl5SCvTB8d/jz44m3uotfLncIZpzgT4BY3tQz
+	XSrOdMlbDb3mREEQh1xHICr8w9OAscBxYZC70vc0xjPSSFShCRCWERGx12NcPtI24DJFJ4uEt1YY1
+	yLVxcjLrhPTSJUujdWnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEZd-0000000C22G-3yjl;
-	Thu, 20 Mar 2025 12:00:33 +0000
+	id 1tvEbJ-0000000C2OF-2yuJ;
+	Thu, 20 Mar 2025 12:02:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8y-0000000BxVz-0of1
+	id 1tvE8y-0000000BxW1-1lTh
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 20 Mar 2025 11:33:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=zF1PsVs8tAIHp1nwIAkdofs/M/mB7uWevLMDDPw0xkI=; b=CT5mD7G/G02ygKBoS5PXvthmNJ
-	LxqN5K+BO4aIUg2+Ru1Df2n8rT7nPp38BwQcZ22NcuqTNCDvg/T0E941dYRmvA+fpAF9j6oHywJch
-	n1jmYPl1NtpK2Qg9SoKXJtkvcn1H1cZH3hgHEqg9FfIWeFGhsWPIEyiEwx+O6j60KhtyAc7ZBvHxI
-	2lVKfj9M1yzLtH6o1vQ0KlWXpqYe44sKKKUMwXoQF+dVkDRJRl+JvWEdFVW6ew8BZuwmpLZnAwRNh
-	+mHjut7MZVZRykxiHrAq1jJDqYUoYHU1ayw4J84jUZIF7snlP8VXhwein3BQVytg0/kByqatGinOj
-	FvRVeQgw==;
+	d=infradead.org; s=desiato.20200630; h=CC:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=gaiSg/UQRCv0UtztXX61BGsqxfLRtDkme/gJHd1mFzw=; b=pmxw8DGMUrGPlfn/khwcvhJ9U2
+	turprlRHIrsmU4zlUAxo8g7PATzuvummYtYfR2drIjlL9OAstcK5c/T8g6So9CRwTdR4UzukVc/Bh
+	xsv82RP6eLFzw/BrCr82SXQRSA2A3tKjheLCNmtypAyQYA/8nWMAqTVAHqGOzVfxZRD4+/z7i58DU
+	E6f2VVWPvsCBt7ZDBDh5vAxAYcrd8pJk4ttmVlsAAxZJdsBDMY9Hy4bYEsDxJyN3eaoDyBIy8By6J
+	0HpI6O0JawZLzBQvJ8IBRPEFA899d98l5JMnqylCMGvvHO4S4rlb2+HI3aFmI0xxLrT6/3lDunWod
+	x+Qkygww==;
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-000000047jd-31Lc
+	id 1tvE8r-000000047jb-3o23
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Mar 2025 11:32:59 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lT006831;
-	Thu, 20 Mar 2025 11:32:27 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lO006831;
+	Thu, 20 Mar 2025 11:32:24 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=z
-	F1PsVs8tAIHp1nwIAkdofs/M/mB7uWevLMDDPw0xkI=; b=xD/yK+D8BxNv9R/wZ
-	LiKwt6VKHXFyeGlQW8YjSme4KgT9smalk2Fdbe08tRvKLycGtBXXdMMFAYDNf4iF
-	2mSgQVOzl4fBh67pTRIF2UkISQK7ChcuXkoH8m9PK+kHlpqcyq0SIkW6mnr0jIoN
-	PkI07T3bGyl4VUao7xZIbmz6P/dZnJqFVliTUJsj4XOlMyzIRwN0ZZCXv8wBf8mK
-	JXNM/Ct2vxrJufHT0YQr6gOLCVm+TYZCzkqf43YhhkoZU1m1EWk/9kTgQV0yaqLG
-	k09et2vRS1mqw9I8REQtJqAQzIieePRcDaDrINvnZM++LKoL1uGPzrYSZojDq//N
-	PZ/Jw==
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=gaiSg/UQRCv0UtztXX61BGs
+	qxfLRtDkme/gJHd1mFzw=; b=kWXhecZuImuBNAnH+ojcvthHCGqAx8kECQWWy4y
+	TWzGT6hBFvYBpG8st0Wh83HfJ7RpUQ1uxdjyjdhfWelIrkAPIciCnQu4Ew8XxQEJ
+	P4l4QADgapFolFpBzUaQBsBm+exa7f+8MCvUXgOdA6x6sCiDWQjWcIWRDPhMQrMk
+	2qMYnj4uRdIqBRwT6L1OIHGdytnVz1P78X1DvXPlcxYkGpRFhOSB7WFm2lFAggid
+	BzTM3qUrZFQrBUcDb054i4e31cukzZt5uNWJhvUS7gl9292d4GP5hJ154VFHM907
+	1YAJTqx9IyqEcdEcZDp5+K4a9cwAaS73klEN/W/m1srXEOw==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg1-6
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg1-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:27 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:24 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:26 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:22 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:15 +0000
-Subject: [PATCH v4 05/18] drm/imagination: Add power domain control
+Subject: [PATCH v4 00/18] Imagination BXS-4-64 MC1 GPU support
+Date: Thu, 20 Mar 2025 11:32:10 +0000
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-5-d987cf4ca439@imgtec.com>
-References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
-In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
+X-B4-Tracking: v=1; b=H4sIALv822cC/3XNzQrCMAzA8VeRno2kbSqbJ99DPLg23XrYB+0Yk
+ 7F3tyqCIoNc/oH8sojEMXASp90iIk8hhb7LQfudsM2tqxmCyy0UKpKoJCQeE1RzAoIjwXAbbQO
+ TBCLrfGmtMcaLfDxE9mF+wZdr7iaksY/3159JPrdvUqLZIvMgEDuNXBxNUapzaOuR7cH2rXiak
+ /pyZLHpqOxo78i40ldo/Z+jP45BLXHT0dmRpCvtKvaofp11XR8AtdtcTQEAAA==
+X-Change-ID: 20241021-sets-bxs-4-64-patch-v1-44cdf9cc555f
 To: Frank Binns <frank.binns@imgtec.com>,
         Matt Coster
 	<matt.coster@imgtec.com>,
@@ -93,26 +95,27 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
  Wilczynski" <m.wilczynski@samsung.com>,
         Alessio Belle
 	<alessio.belle@imgtec.com>,
-        Alexandru Dadu <alexandru.dadu@imgtec.com>
+        Alexandru Dadu <alexandru.dadu@imgtec.com>,
+        "Sarah Walker" <sarah.walker@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7131;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6399;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=lzMiSBj3W97x6LnL+njszLrGkUtUMHWsN2UbS7jRfF8=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nNEQWqB1FcFtUmTAz4brf3HkNM7z9zmQ4bnAs7jh
- os5mEUlOkpZGMQ4GGTFFFl2rLBcofZHTUvixq9imDmsTCBDGLg4BWAiRU8Y/sel7LqwbYJd0Qee
- mJJOhXO/p/M5chbs29/C4x2hvHaDpREjQ/+JsFu7rhgskFQ/Ias2U8Oq/HC0VtHWgw0TBDYsMK0
- rZAMA
+ bh=/drBQ+EY8V4wxyvc0vjx/Oygt083Vv7P4Uspc/5c/Ec=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nP43+LT7/elcCt3c8xeJrh9H9MR3sLGydftRCXOM
+ nC/2rL0REcpC4MYB4OsmCLLjhWWK9T+qGlJ3PhVDDOHlQlkCAMXpwBMZP96hn8qTMcEVJeE5v9l
+ 2zN7m2hB2A+jb5783iu8v+Rm8rMdSu9h+KewLD1Zfar2jqvP+IXD1xqq3BBS+i9Sc/pD+czdran
+ XjvABAA==
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: C9Vv6zmkmSKWcFM0Bt4-RiPunjZCXROY
-X-Proofpoint-ORIG-GUID: C9Vv6zmkmSKWcFM0Bt4-RiPunjZCXROY
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfccb cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=Iu228gY9Y64KKxsXE-4A:9
- a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: x8GmIMnDaCW7u_DZKY-t--TVfpC6FC8A
+X-Proofpoint-ORIG-GUID: x8GmIMnDaCW7u_DZKY-t--TVfpC6FC8A
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcc8 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=e5mUnYsNAAAA:8 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8
+ a=4ypaFGEvw_zvJEgvs6UA:9 a=QEXdDO2ut3YA:10 a=Vxmtnl_E_bksehYqCbjh:22 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_113253_958051_380A801B 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250320_113254_093958_D6FD7C07 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,242 +130,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first supported GPU only used a single power domain so this was
-automatically handled by the device runtime.
+This GPU is found in the TI AM68 family of SoCs, with initial support
+added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
 
-In order to support multiple power domains, they must be enumerated from
-devicetree and linked to both the GPU device and each other to ensure
-correct power sequencing at start time.
+A suitable firmware binary can currently be found in the IMG
+linux-firmware repository[1] as powervr/rogue_36.53.104.796_v1.fw.
 
-For all Imagination Rogue GPUs, power domains are named "a", "b", etc. and
-the sequence A->B->... is always valid for startup with the reverse true
-for shutdown. Note this is not always the *only* valid sequence, but it's
-simple and does not require special-casing for different GPU power
-topologies.
+No new UAPI will be necessary for this platform as it is sufficiently
+similar to the already supported AXE-1-16M.
 
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+UMD support is close to being complete. We're now able to pass >92% of
+Vulkan conformance on our Mesa development branch. The compiler has been
+undergoing a significant rework needed to accomodate the BXS-4-64, as
+well as to make it more flexible to support additional Rogue GPUs going
+forward. The first part of this rework landed in Mesa in [2], and the
+next chunk is currently in review in [3].
+
+There are several dt-bindings changes at the beginning of this series.
+We expect the result to be versatile enough to handle all Imagination
+Rogue GPUs while being a strong foundation to build bindings for the
+newer Volcanic architecture (for which we're currently developing
+support).
+
+The DTS changes at the end of the series are marked [DO NOT MERGE]. Once
+the series is reviewed, we will request these be taken through the
+relevant tree.
+
+This version of the series depends on a patch[4] which exists in
+drm-misc-fixes, but has not yet made it back to drm-misc-next (the
+target of this series). That patch adds the function pvr_vm_unmap_obj()
+which is used in patch 14 ("drm/imagination: Add RISC-V firmware
+processor support").
+
+[1]: https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
+[2]: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/32258
+[3]: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/33998
+[4]: https://lore.kernel.org/r/20250226-hold-drm_gem_gpuva-lock-for-unmap-v2-1-3fdacded227f@imgtec.com
+
 ---
 Changes in v4:
-- None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-5-143b3dbef02f@imgtec.com
+- Update status of UMD support (cover)
+- Fix backwards compatibility of new compatible strings (P1)
+- Fix power-domains property constraints (P1/P2)
+- Fix power-domain-names property constraints (P2)
+- Only invoke pvr_device_safety_irq_clear() if has_safety_events is set
+  (P7)
+- Use pvr_vm_unmap_obj() in pvr_riscv_vm_unmap() (P14)
+- Fix formatting of pvr_riscv_fw_process() signature (P14)
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com
+
 Changes in v3:
-- None
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-6-3fd45d9fb0cf@imgtec.com
+- Reorder some patches to ensure the proper sequencing
+- Update status of UMD support (cover)
+- Don't use more specific compatible strings when not required (P1)
+- Avoid ABI break by limiting new required properties to new compatible
+  strings (P2)
+- Move power domain changes to the patch in which they're used (P2/P5)
+- Update register definitions (P3) [Thanks, Alessio!]
+- Don't use more specific compatible strings when not required (P4)
+- Enhanced commit messages (P4)
+- Remove unnecessary example (P5)
+- Add proper fixes for threaded IRQs (P6) [Thanks, Alessio!]
+- Include fix for a separate IRQ issue (P7) [Thanks, Alessio!]
+- Don't enable firmware debug module (was P13 in v2, also in P14)
+- Change from a workaround to a regular codepath (P15)
+- Drop platform overrides framework (was P18 in v2, also in P16)
+- Mark DTS changes [DO NOT MERGE] (P17/P18)
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com
+
 Changes in v2:
-- None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-6-4ed30e865892@imgtec.com
+- Clarified justification for compatible strings (P1)
+- Simplified clocks constraints (P2)
+- Simplified power-domains constraints (P3/P4)
+- Use normal reg syntax for 64-bit values (P8/P21)
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com
+
 ---
- drivers/gpu/drm/imagination/pvr_device.h |   8 +++
- drivers/gpu/drm/imagination/pvr_drv.c    |   7 ++
- drivers/gpu/drm/imagination/pvr_power.c  | 114 +++++++++++++++++++++++++++++++
- drivers/gpu/drm/imagination/pvr_power.h  |   3 +
- 4 files changed, 132 insertions(+)
+Alessio Belle (3):
+      drm/imagination: Update register defs for newer GPUs
+      drm/imagination: Mask GPU IRQs in threaded handler
+      drm/imagination: Handle Rogue safety event IRQs
 
-diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-index 6d0dfacb677b46a880f37f419dfa7b67c68fe63d..2dd8a8885fe07078896d669d822525fb2b7bab51 100644
---- a/drivers/gpu/drm/imagination/pvr_device.h
-+++ b/drivers/gpu/drm/imagination/pvr_device.h
-@@ -18,6 +18,7 @@
- #include <linux/bits.h>
- #include <linux/compiler_attributes.h>
- #include <linux/compiler_types.h>
-+#include <linux/device.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
-@@ -131,6 +132,13 @@ struct pvr_device {
- 	 */
- 	struct clk *mem_clk;
- 
-+	struct pvr_device_power {
-+		struct device **domain_devs;
-+		struct device_link **domain_links;
-+
-+		u32 domain_count;
-+	} power;
-+
- 	/** @irq: IRQ number. */
- 	int irq;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-index 3130193f8fffc185e630a293be53374bdc4b7ce0..ac4f5855c5692f0956862cebdbf76b16d8da9a81 100644
---- a/drivers/gpu/drm/imagination/pvr_drv.c
-+++ b/drivers/gpu/drm/imagination/pvr_drv.c
-@@ -1411,6 +1411,10 @@ pvr_probe(struct platform_device *plat_dev)
- 
- 	platform_set_drvdata(plat_dev, drm_dev);
- 
-+	err = pvr_power_domains_init(pvr_dev);
-+	if (err)
-+		return err;
-+
- 	init_rwsem(&pvr_dev->reset_sem);
- 
- 	pvr_context_device_init(pvr_dev);
-@@ -1450,6 +1454,8 @@ pvr_probe(struct platform_device *plat_dev)
- err_context_fini:
- 	pvr_context_device_fini(pvr_dev);
- 
-+	pvr_power_domains_fini(pvr_dev);
-+
- 	return err;
- }
- 
-@@ -1470,6 +1476,7 @@ static void pvr_remove(struct platform_device *plat_dev)
- 	pvr_watchdog_fini(pvr_dev);
- 	pvr_queue_device_fini(pvr_dev);
- 	pvr_context_device_fini(pvr_dev);
-+	pvr_power_domains_fini(pvr_dev);
- }
- 
- static const struct of_device_id dt_match[] = {
-diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
-index ba7816fd28ec77e6ca5ce408302a413ce1afeb6e..19b079b357df78e8bcdecfa377fc9c05b6e8e4b0 100644
---- a/drivers/gpu/drm/imagination/pvr_power.c
-+++ b/drivers/gpu/drm/imagination/pvr_power.c
-@@ -10,10 +10,13 @@
- 
- #include <drm/drm_drv.h>
- #include <drm/drm_managed.h>
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/interrupt.h>
- #include <linux/mutex.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
- #include <linux/timer.h>
- #include <linux/types.h>
-@@ -431,3 +434,114 @@ pvr_watchdog_fini(struct pvr_device *pvr_dev)
- {
- 	cancel_delayed_work_sync(&pvr_dev->watchdog.work);
- }
-+
-+int pvr_power_domains_init(struct pvr_device *pvr_dev)
-+{
-+	struct device *dev = from_pvr_device(pvr_dev)->dev;
-+
-+	struct device_link **domain_links __free(kfree) = NULL;
-+	struct device **domain_devs __free(kfree) = NULL;
-+	int domain_count;
-+	int link_count;
-+
-+	char dev_name[2] = "a";
-+	int err;
-+	int i;
-+
-+	domain_count = of_count_phandle_with_args(dev->of_node, "power-domains",
-+						  "#power-domain-cells");
-+	if (domain_count < 0)
-+		return domain_count;
-+
-+	if (domain_count <= 1)
-+		return 0;
-+
-+	link_count = domain_count + (domain_count - 1);
-+
-+	domain_devs = kcalloc(domain_count, sizeof(*domain_devs), GFP_KERNEL);
-+	if (!domain_devs)
-+		return -ENOMEM;
-+
-+	domain_links = kcalloc(link_count, sizeof(*domain_links), GFP_KERNEL);
-+	if (!domain_links)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < domain_count; i++) {
-+		struct device *domain_dev;
-+
-+		dev_name[0] = 'a' + i;
-+		domain_dev = dev_pm_domain_attach_by_name(dev, dev_name);
-+		if (IS_ERR_OR_NULL(domain_dev)) {
-+			err = domain_dev ? PTR_ERR(domain_dev) : -ENODEV;
-+			goto err_detach;
-+		}
-+
-+		domain_devs[i] = domain_dev;
-+	}
-+
-+	for (i = 0; i < domain_count; i++) {
-+		struct device_link *link;
-+
-+		link = device_link_add(dev, domain_devs[i], DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
-+		if (!link) {
-+			err = -ENODEV;
-+			goto err_unlink;
-+		}
-+
-+		domain_links[i] = link;
-+	}
-+
-+	for (i = domain_count; i < link_count; i++) {
-+		struct device_link *link;
-+
-+		link = device_link_add(domain_devs[i - domain_count + 1],
-+				       domain_devs[i - domain_count],
-+				       DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
-+		if (!link) {
-+			err = -ENODEV;
-+			goto err_unlink;
-+		}
-+
-+		domain_links[i] = link;
-+	}
-+
-+	pvr_dev->power = (struct pvr_device_power){
-+		.domain_devs = no_free_ptr(domain_devs),
-+		.domain_links = no_free_ptr(domain_links),
-+		.domain_count = domain_count,
-+	};
-+
-+	return 0;
-+
-+err_unlink:
-+	while (--i >= 0)
-+		device_link_del(domain_links[i]);
-+
-+	i = domain_count;
-+
-+err_detach:
-+	while (--i >= 0)
-+		dev_pm_domain_detach(domain_devs[i], true);
-+
-+	return err;
-+}
-+
-+void pvr_power_domains_fini(struct pvr_device *pvr_dev)
-+{
-+	const int domain_count = pvr_dev->power.domain_count;
-+
-+	int i = domain_count + (domain_count - 1);
-+
-+	while (--i >= 0)
-+		device_link_del(pvr_dev->power.domain_links[i]);
-+
-+	i = domain_count;
-+
-+	while (--i >= 0)
-+		dev_pm_domain_detach(pvr_dev->power.domain_devs[i], true);
-+
-+	kfree(pvr_dev->power.domain_links);
-+	kfree(pvr_dev->power.domain_devs);
-+
-+	pvr_dev->power = (struct pvr_device_power){ 0 };
-+}
-diff --git a/drivers/gpu/drm/imagination/pvr_power.h b/drivers/gpu/drm/imagination/pvr_power.h
-index 9a9312dcb2dab7d36ee8ff7f69e69d126c5469a9..ada85674a7ca762dcf92df40424230e1c3910342 100644
---- a/drivers/gpu/drm/imagination/pvr_power.h
-+++ b/drivers/gpu/drm/imagination/pvr_power.h
-@@ -38,4 +38,7 @@ pvr_power_put(struct pvr_device *pvr_dev)
- 	return pm_runtime_put(drm_dev->dev);
- }
- 
-+int pvr_power_domains_init(struct pvr_device *pvr_dev);
-+void pvr_power_domains_fini(struct pvr_device *pvr_dev);
-+
- #endif /* PVR_POWER_H */
+Matt Coster (14):
+      dt-bindings: gpu: img: Future-proofing enhancements
+      dt-bindings: gpu: img: Add BXS-4-64 devicetree bindings
+      drm/imagination: Use new generic compatible string
+      drm/imagination: Add power domain control
+      drm/imagination: Remove firmware enable_reg
+      drm/imagination: Rename event_mask -> status_mask
+      drm/imagination: Make has_fixed_data_addr a value
+      drm/imagination: Use a lookup table for fw defs
+      drm/imagination: Use callbacks for fw irq handling
+      drm/imagination: Move ELF fw utils to common file
+      drm/imagination: Use cached memory with dma_coherent
+      drm/imagination: Add support for TI AM68 GPU
+      [DO NOT MERGE] arm64: dts: ti: k3-am62: New GPU binding details
+      [DO NOT MERGE] arm64: dts: ti: k3-j721s2: Add GPU node
 
--- 
-2.49.0
+Sarah Walker (1):
+      drm/imagination: Add RISC-V firmware processor support
+
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml |  81 +++++++++-
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi           |   4 +-
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi         |  12 ++
+ drivers/gpu/drm/imagination/Makefile               |   2 +
+ drivers/gpu/drm/imagination/pvr_device.c           | 126 ++++++++++++++--
+ drivers/gpu/drm/imagination/pvr_device.h           |  31 +++-
+ drivers/gpu/drm/imagination/pvr_drv.c              |  16 ++
+ drivers/gpu/drm/imagination/pvr_fw.c               |  28 +++-
+ drivers/gpu/drm/imagination/pvr_fw.h               |  85 +++++------
+ drivers/gpu/drm/imagination/pvr_fw_meta.c          |  23 +--
+ drivers/gpu/drm/imagination/pvr_fw_mips.c          |  82 ++--------
+ drivers/gpu/drm/imagination/pvr_fw_riscv.c         | 165 +++++++++++++++++++++
+ drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  17 +++
+ drivers/gpu/drm/imagination/pvr_fw_util.c          |  67 +++++++++
+ drivers/gpu/drm/imagination/pvr_gem.c              |  10 +-
+ drivers/gpu/drm/imagination/pvr_gem.h              |   6 +-
+ drivers/gpu/drm/imagination/pvr_mmu.c              |   8 +-
+ drivers/gpu/drm/imagination/pvr_power.c            | 114 ++++++++++++++
+ drivers/gpu/drm/imagination/pvr_power.h            |   3 +
+ drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h    | 153 ++++++++++++++++---
+ drivers/gpu/drm/imagination/pvr_rogue_riscv.h      |  41 +++++
+ 21 files changed, 896 insertions(+), 178 deletions(-)
+---
+base-commit: d034e6f7ea8ddc866d4ac59c104e18675b13975b
+change-id: 20241021-sets-bxs-4-64-patch-v1-44cdf9cc555f
 
 
