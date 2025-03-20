@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7440DC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F449C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R8eLi6YiEY3L6wGv5SNMS6fZaMNVO8CXhnuVoGIWMUU=; b=rp3x1zfDRP4mzZ9L3ek8+F8y7A
-	ZF8VV9bKYV+p1y/8vQ7kwzYmtbogHW2MVp5HteEXLYH7pz4F+i0+6n+1xqUqYD6NUPTcC5SvpNCTX
-	F2PPGHJyhJ6V6EVJVqUCOTSppj45v9sSoRfr3wW5OFLXZ9YFkc0gUeHLk+5HntQp9hh7su9JAqp6v
-	Ckv05yZZnMRtM3d2CkyNrZb1u4GaUefGrIAJuzytvM6cIpOCrWxhQB5gVrO0xn+WQyuixpoU1Ssks
-	KpZph51iDK6luETSaeqxUETglH5+/E/JmWXlCDw/XqGBBtH15vQy0LS395bvoiD4jSjeOQQ1oltM9
-	Y6bQVBkg==;
+	bh=0/LMOGl36EsBhYPPnnsrjLJHCxzgGSEbX7mYNxwWjQU=; b=j6xtM26TWjBOmhTGnjxOKKp8aW
+	qxcxeL9c3nujzLTvuhqDDWcnStzdyGrA0QHIax8IxLW/z8h8U/GfWk5tRxUpVZ4OUBVPNAFkjYbkV
+	a+DaliLRAIA/a4rNtr03YcYcQ00KqN8F/iZCz+VhVKJXyuXj3+hi88D7rJBz81SgbPD1ZNqLREGeZ
+	3GnO0D0SMokjazl+GcxddcPsCxfKbaHc4fIK+Zhf6EONyFu+MDLYQJqBlXV5kRuX/B8+G5b4TYLGx
+	5xcsZesD4l77m7IsEd4eX8ZbJL3VLYWrV2iBA+QKL0fzmlnWhz1k6Fb8kZyYrI1WNUkjFhNmBl3Qw
+	7QzUYy9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEWI-0000000C1O2-2Ce4;
-	Thu, 20 Mar 2025 11:57:06 +0000
+	id 1tvEXy-0000000C1cm-0un1;
+	Thu, 20 Mar 2025 11:58:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8w-0000000BxVB-1xnD
+	id 1tvE8w-0000000BxVE-2EIM
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 20 Mar 2025 11:32:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
 	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=R8eLi6YiEY3L6wGv5SNMS6fZaMNVO8CXhnuVoGIWMUU=; b=JdD+Kw75NKcgLumOuMA0K0W/uZ
-	bwhckZlIf655yJxGmp87irPU9AjJv89jXGhgy69Pmy9G+sKLpwOA62/WUd4zzCXLqk0q3wUGwFX/g
-	ZARp6B8CIY4MWxwb4CZ5C3z9LoPMJSYKv27ubDMTlFt+61QSy5ySrHayQYCvHESHH9f/Izp23POua
-	lkMnQYFC6cyGRYQElf+SIlCH9lk6n3kV2QCCNO2+PuWsgiZi4Pw1iC8dZA25oXZ7RIMB2H3wlrE5L
-	mMbIMY6lcpy7n6dI7XsSbqPcrA9uGyiaLd7g9otQ+QLIhqrXfjNdqbQzjrZ81+9InINAxtHbzvRgO
-	hOUkIQwQ==;
+	bh=0/LMOGl36EsBhYPPnnsrjLJHCxzgGSEbX7mYNxwWjQU=; b=fS9EwFXPfydvPqftClUXAymBaf
+	2NVr/Rpaqi3FwGzV+8a/S/OICtl7ZNf73zv65ZmWdNgADNEI7TMvYQZ+KpaM1thZmsXSLBl6xEyYb
+	79H4AHXsojsH8GtXGv68sADz7Lwip8XXTHEaawMOhB0OmwTBtc1uL5x5dZQzofZNDAKguYYmLVT/S
+	ayyho8a7uhaDZwZ1vPUI/xpw1omXws1hZU7HxiXZsRCCLg0EAVjhZS0tsqc7Knkb+Vr/IVt1oApNG
+	uE74GUQZEfzCF4h8ZFId9UzcLonRpbG6XbmMWyLhyndXKDisN5C27Kj8wdbRQQTfT5d+GRgokZoMp
+	3p8pvcXQ==;
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-000000047jj-1o9C
+	id 1tvE8r-000000047jl-2963
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Mar 2025 11:32:57 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lR006831;
-	Thu, 20 Mar 2025 11:32:26 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9lW006831;
+	Thu, 20 Mar 2025 11:32:34 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=R
-	8eLi6YiEY3L6wGv5SNMS6fZaMNVO8CXhnuVoGIWMUU=; b=Wx7+QWo1RStEz8RzQ
-	0VlzBpyd3pl7sU8O+M4OAqi30nG2bBP9zrJwJf0YKWfqrImE1yRB1gKc9wkvw7dn
-	g00BIPnV+0bY+NhHC+Yym+NRdj+gi8JoTW3CdvaTNHa7VW/lUkuZr+B3z5wtvQhH
-	qN292t+ulZp9W+PkdkdhXkD6ui+fr6ibhdldFIzfyHKNeKqosAu7/zF9DPTkcuRs
-	NL8u5oJwGIrHC4+/4djUuE5ako64sHKYtU6E5/Yw2sE1BWXw+F4K23qRD6aQloRF
-	7JV+sLFORHoS6VG7MFZYAmhP+Zx0T93u4f7torS/w5ogAeo9DKxN3J3B/RUns2T8
-	b/c6A==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=0
+	/LMOGl36EsBhYPPnnsrjLJHCxzgGSEbX7mYNxwWjQU=; b=kG3zDda2X43wsL/BD
+	nydDuxY7zv/SeYY9dHA3taDcLb3qN4aHcApy3ADHGJEpQhFH51P0nNMWQyU5xIma
+	DNSxkl2F31RknxhEyZP0uxpR80Lu0QZtCy2+QyVvyYq08mIteIEKZV+5mJxyHQUt
+	XXpaVbJktcSngPYMovJTayk2PJghGxfSC+3tOdFqdBBNcFxqSMU88hvl35XORk7k
+	leKwTQJqTNpNSmLGYSwLi+YGv480XbzdeFltYhCEZHQq4EsVzHt5rTmKuux5Mzns
+	iQA3A2omJ/DSUcguYCCK+iVQ04F76nlzUXajSpmC6u/GPr6uqBIVbi6S3BrJBFSa
+	9AIRw==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg1-4
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:26 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:33 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:24 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:32 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:13 +0000
-Subject: [PATCH v4 03/18] drm/imagination: Update register defs for newer
- GPUs
+Date: Thu, 20 Mar 2025 11:32:22 +0000
+Subject: [PATCH v4 12/18] drm/imagination: Use callbacks for fw irq
+ handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-3-d987cf4ca439@imgtec.com>
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-12-d987cf4ca439@imgtec.com>
 References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -96,25 +96,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10813;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7137;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=gsAuB698u/i7VAaIizzQRvaE2iWTxEB6tfcFfyW643M=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nMk6Ivfk1Xyf8VmJsxpMo54bL9GeVXzdP3nW2f5y
- vgu83nQ3VHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATmbWd4Z+qboMOz16hO3rV
- oazvOTNS/px3+sNeEpeQeWDVeW2VFf6MDJ/C7maJ+TjK3tvrfCImqOvNgR0mZ79uvKu9dwqP3LO
- 4Ik4A
+ bh=hwlKcU7EPs4Wk7fYxA1CZM266u1B3uwcxd+J8QiAJAQ=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nM07Nu+TN0mhpCSU6mL7l967Mmy+8pUS4MNOdfEr
+ pf/ba+831HKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATiWVh+O8VMfW54svbAgcc
+ QzL/bqxdyFsqlJwcVXBi+3u+1Uu1q3YzMsyvFT/UXKqnNkd3ZVWNseROjhDrsmWfb1d0CDYle+R
+ KMAAA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: MmITFyW6B0EkIvfmuavI6tX5Rjv1UGn0
-X-Proofpoint-ORIG-GUID: MmITFyW6B0EkIvfmuavI6tX5Rjv1UGn0
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcca cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=cj9k-Jd43VawDxvwHVkA:9
+X-Proofpoint-GUID: kUptmVa49Pk6x5hxbk2HjTILvu5lpPT6
+X-Proofpoint-ORIG-GUID: kUptmVa49Pk6x5hxbk2HjTILvu5lpPT6
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd1 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=6iF6CzAXET1p6JnpVhoA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_113253_855880_C3F4EEF0 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250320_113253_827133_E5DC7E5C 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,201 +128,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alessio Belle <alessio.belle@imgtec.com>
+This allows for more versatility in checking and clearing firmware
+registers used for interrupt handling.
 
-Update the register define header to a newer version that covers more
-recent GPUs, including BXS-4-64.
-
-Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v4:
 - None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-3-143b3dbef02f@imgtec.com
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-12-143b3dbef02f@imgtec.com
 Changes in v3:
-- Added
+- None
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-14-3fd45d9fb0cf@imgtec.com
+Changes in v2:
+- None
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-14-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h | 153 +++++++++++++++++++++---
- 1 file changed, 134 insertions(+), 19 deletions(-)
+ drivers/gpu/drm/imagination/pvr_device.h  | 18 +++++++++++++
+ drivers/gpu/drm/imagination/pvr_fw.h      | 45 +++++++++----------------------
+ drivers/gpu/drm/imagination/pvr_fw_meta.c | 22 ++++++++++-----
+ drivers/gpu/drm/imagination/pvr_fw_mips.c | 22 ++++++++++-----
+ 4 files changed, 63 insertions(+), 44 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
-index 2a90d02796d3e071b18e18dead105e29798bcddc..790c97f80a2ac03ac76b933d009a2f9cfc6003f7 100644
---- a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
-+++ b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
-@@ -827,6 +827,120 @@
- #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
- #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_EN 0x00000001U
+diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+index 12bf0b9e5bfb48ef9e5ed9faa44e0896b7555f49..eb5da8c7040fc9e9751f433279cb0c92fd4d1336 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.h
++++ b/drivers/gpu/drm/imagination/pvr_device.h
+@@ -739,4 +739,22 @@ pvr_ioctl_union_padding_check(void *instance, size_t union_offset,
+ 					      __union_size, __member_size);  \
+ 	})
  
-+/* Register ROGUE_CR_EVENT_CLEAR */
-+#define ROGUE_CR_EVENT_CLEAR 0x0138U
-+#define ROGUE_CR_EVENT_CLEAR__ROGUEXE__MASKFULL 0x00000000E01DFFFFULL
-+#define ROGUE_CR_EVENT_CLEAR__SIGNALS__MASKFULL 0x00000000E007FFFFULL
-+#define ROGUE_CR_EVENT_CLEAR_MASKFULL 0x00000000FFFFFFFFULL
-+#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_SHIFT 31U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_CLRMSK 0x7FFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_EN 0x80000000U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_SHIFT 30U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_CLRMSK 0xBFFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_EN 0x40000000U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_SHIFT 29U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_CLRMSK 0xDFFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_EN 0x20000000U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_SHIFT 28U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_CLRMSK 0xEFFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_EN 0x10000000U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_SHIFT 27U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_CLRMSK 0xF7FFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_EN 0x08000000U
-+#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_SHIFT 26U
-+#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_CLRMSK 0xFBFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_EN 0x04000000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_SHIFT 25U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_CLRMSK 0xFDFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_EN 0x02000000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_SHIFT 24U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_CLRMSK 0xFEFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_EN 0x01000000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_SHIFT 23U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_CLRMSK 0xFF7FFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_EN 0x00800000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_SHIFT 22U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_CLRMSK 0xFFBFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_EN 0x00400000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_SHIFT 21U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_CLRMSK 0xFFDFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_EN 0x00200000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_SHIFT 20U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_CLRMSK 0xFFEFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_EN 0x00100000U
-+#define ROGUE_CR_EVENT_CLEAR_SAFETY_SHIFT 20U
-+#define ROGUE_CR_EVENT_CLEAR_SAFETY_CLRMSK 0xFFEFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SAFETY_EN 0x00100000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_SHIFT 19U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_CLRMSK 0xFFF7FFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_EN 0x00080000U
-+#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_SHIFT 19U
-+#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_CLRMSK 0xFFF7FFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_EN 0x00080000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_SHIFT 18U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_CLRMSK 0xFFFBFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_EN 0x00040000U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_SHIFT 18U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_CLRMSK 0xFFFBFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_EN 0x00040000U
-+#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_SHIFT 17U
-+#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_CLRMSK 0xFFFDFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_EN 0x00020000U
-+#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_SHIFT 17U
-+#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_CLRMSK 0xFFFDFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_EN 0x00020000U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_SHIFT 16U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_CLRMSK 0xFFFEFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_EN 0x00010000U
-+#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_SHIFT 15U
-+#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_CLRMSK 0xFFFF7FFFU
-+#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_EN 0x00008000U
-+#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_SHIFT 14U
-+#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_CLRMSK 0xFFFFBFFFU
-+#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_EN 0x00004000U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_SHIFT 13U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_CLRMSK 0xFFFFDFFFU
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_EN 0x00002000U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_SHIFT 12U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_CLRMSK 0xFFFFEFFFU
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_EN 0x00001000U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_SHIFT 11U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_CLRMSK 0xFFFFF7FFU
-+#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_EN 0x00000800U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_SHIFT 10U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_CLRMSK 0xFFFFFBFFU
-+#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_EN 0x00000400U
-+#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_SHIFT 9U
-+#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_CLRMSK 0xFFFFFDFFU
-+#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_EN 0x00000200U
-+#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_SHIFT 8U
-+#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_CLRMSK 0xFFFFFEFFU
-+#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_EN 0x00000100U
-+#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_SHIFT 7U
-+#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_CLRMSK 0xFFFFFF7FU
-+#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_EN 0x00000080U
-+#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_SHIFT 6U
-+#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_CLRMSK 0xFFFFFFBFU
-+#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_EN 0x00000040U
-+#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_SHIFT 5U
-+#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_CLRMSK 0xFFFFFFDFU
-+#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_EN 0x00000020U
-+#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_SHIFT 4U
-+#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_CLRMSK 0xFFFFFFEFU
-+#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_EN 0x00000010U
-+#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_SHIFT 3U
-+#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_CLRMSK 0xFFFFFFF7U
-+#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_EN 0x00000008U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_SHIFT 2U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_CLRMSK 0xFFFFFFFBU
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_EN 0x00000004U
-+#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_SHIFT 1U
-+#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_CLRMSK 0xFFFFFFFDU
-+#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_EN 0x00000002U
-+#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_SHIFT 0U
-+#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
-+#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_EN 0x00000001U
++/*
++ * These utility functions should more properly be placed in pvr_fw.h, but that
++ * would cause a dependency cycle between that header and this one. Since
++ * they're primarily used in pvr_device.c, let's put them in here for now.
++ */
 +
- /* Register ROGUE_CR_TIMER */
- #define ROGUE_CR_TIMER 0x0160U
- #define ROGUE_CR_TIMER_MASKFULL 0x8000FFFFFFFFFFFFULL
-@@ -6031,25 +6145,6 @@
- #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_SHIFT 0U
- #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_CLRMSK 0xFFFFFF00U
++static __always_inline bool
++pvr_fw_irq_pending(struct pvr_device *pvr_dev)
++{
++	return pvr_dev->fw_dev.defs->irq_pending(pvr_dev);
++}
++
++static __always_inline void
++pvr_fw_irq_clear(struct pvr_device *pvr_dev)
++{
++	pvr_dev->fw_dev.defs->irq_clear(pvr_dev);
++}
++
+ #endif /* PVR_DEVICE_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index 88ad713468ce3a1ee459b04dde5363c24791a4f1..ab69f40a7fbc6304171f16dd16d825a68b0362a5 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -167,29 +167,22 @@ struct pvr_fw_defs {
+ 	int (*wrapper_init)(struct pvr_device *pvr_dev);
  
--/* Register ROGUE_CR_ECC_RAM_ERR_INJ */
--#define ROGUE_CR_ECC_RAM_ERR_INJ 0xF340U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MASKFULL 0x000000000000001FULL
--#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_SHIFT 4U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_CLRMSK 0xFFFFFFEFU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_EN 0x00000010U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_SHIFT 3U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_CLRMSK 0xFFFFFFF7U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_EN 0x00000008U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_SHIFT 2U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_CLRMSK 0xFFFFFFFBU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_EN 0x00000004U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_SHIFT 1U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_CLRMSK 0xFFFFFFFDU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_EN 0x00000002U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_SHIFT 0U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_CLRMSK 0xFFFFFFFEU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_EN 0x00000001U
+ 	/**
+-	 * @irq: FW Interrupt information.
++	 * @irq_pending: Check interrupt status register for pending interrupts.
+ 	 *
+-	 * Those are processor dependent, and should be initialized by the
+-	 * processor backend in pvr_fw_funcs::init().
++	 * @pvr_dev: Target PowerVR device.
++	 *
++	 * This function is mandatory.
+ 	 */
+-	struct {
+-		/** @status_reg: FW interrupt status register. */
+-		u32 status_reg;
++	bool (*irq_pending)(struct pvr_device *pvr_dev);
+ 
+-		/**
+-		 * @clear_reg: FW interrupt clear register.
+-		 *
+-		 * If @status_reg == @clear_reg, we clear by write a bit to zero,
+-		 * otherwise we clear by writing a bit to one.
+-		 */
+-		u32 clear_reg;
 -
- /* Register ROGUE_CR_ECC_RAM_INIT_KICK */
- #define ROGUE_CR_ECC_RAM_INIT_KICK 0xF348U
- #define ROGUE_CR_ECC_RAM_INIT_KICK_MASKFULL 0x000000000000001FULL
-@@ -6163,6 +6258,26 @@
- #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_CLRMSK 0xFFFFFFFEU
- #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_EN 0x00000001U
+-		/** @status_mask: Bitmask of events to listen for in the status_reg. */
+-		u32 status_mask;
+-
+-		/** @clear_mask: Value to write to the clear_reg in order to clear FW IRQs. */
+-		u32 clear_mask;
+-	} irq;
++	/**
++	 * @irq_clear: Clear pending interrupts.
++	 *
++	 * @pvr_dev: Target PowerVR device.
++	 *
++	 * This function is mandatory.
++	 */
++	void (*irq_clear)(struct pvr_device *pvr_dev);
  
-+/* Register ROGUE_CR_FAULT_FW_STATUS */
-+#define ROGUE_CR_FAULT_FW_STATUS 0xF3B0U
-+#define ROGUE_CR_FAULT_FW_STATUS_MASKFULL 0x0000000000010001ULL
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_SHIFT 16U
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_EN 0x00010000U
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_SHIFT 0U
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_CLRMSK 0xFFFFFFFEU
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_EN 0x00000001U
+ 	/**
+ 	 * @has_fixed_data_addr: Specify whether the firmware fixed data must be loaded at the
+@@ -390,18 +383,6 @@ struct pvr_fw_device {
+ 	} fw_objs;
+ };
+ 
+-#define pvr_fw_irq_read_reg(pvr_dev, name) \
+-	pvr_cr_read32((pvr_dev), (pvr_dev)->fw_dev.defs->irq.name ## _reg)
+-
+-#define pvr_fw_irq_write_reg(pvr_dev, name, value) \
+-	pvr_cr_write32((pvr_dev), (pvr_dev)->fw_dev.defs->irq.name ## _reg, value)
+-
+-#define pvr_fw_irq_pending(pvr_dev) \
+-	(pvr_fw_irq_read_reg(pvr_dev, status) & (pvr_dev)->fw_dev.defs->irq.status_mask)
+-
+-#define pvr_fw_irq_clear(pvr_dev) \
+-	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
+-
+ enum pvr_fw_processor_type {
+ 	PVR_FW_PROCESSOR_TYPE_META = 0,
+ 	PVR_FW_PROCESSOR_TYPE_MIPS,
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index 62ddfea6b7306784b979ce209bfdf4a9938f8984..d72e0eae9e4b16cb31c48797ffcf5138d2728862 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -533,6 +533,20 @@ pvr_meta_vm_unmap(struct pvr_device *pvr_dev, struct pvr_fw_object *fw_obj)
+ 			 fw_obj->fw_mm_node.start, fw_obj->fw_mm_node.size);
+ }
+ 
++static bool
++pvr_meta_irq_pending(struct pvr_device *pvr_dev)
++{
++	return pvr_cr_read32(pvr_dev, ROGUE_CR_META_SP_MSLVIRQSTATUS) &
++	       ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN;
++}
 +
-+/* Register ROGUE_CR_FAULT_FW_CLEAR */
-+#define ROGUE_CR_FAULT_FW_CLEAR 0xF3B8U
-+#define ROGUE_CR_FAULT_FW_CLEAR_MASKFULL 0x0000000000010001ULL
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_SHIFT 16U
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_EN 0x00010000U
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_SHIFT 0U
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_CLRMSK 0xFFFFFFFEU
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_EN 0x00000001U
++static void
++pvr_meta_irq_clear(struct pvr_device *pvr_dev)
++{
++	pvr_cr_write32(pvr_dev, ROGUE_CR_META_SP_MSLVIRQSTATUS,
++		       ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK);
++}
 +
- /* Register ROGUE_CR_MTS_SAFETY_EVENT_ENABLE */
- #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE 0xF3D8U
- #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE__MASKFULL 0x000000000000007FULL
+ const struct pvr_fw_defs pvr_fw_defs_meta = {
+ 	.init = pvr_meta_init,
+ 	.fw_process = pvr_meta_fw_process,
+@@ -540,11 +554,7 @@ const struct pvr_fw_defs pvr_fw_defs_meta = {
+ 	.vm_unmap = pvr_meta_vm_unmap,
+ 	.get_fw_addr_with_offset = pvr_meta_get_fw_addr_with_offset,
+ 	.wrapper_init = pvr_meta_wrapper_init,
+-	.irq = {
+-		.status_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
+-		.clear_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
+-		.status_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
+-		.clear_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK,
+-	},
++	.irq_pending = pvr_meta_irq_pending,
++	.irq_clear = pvr_meta_irq_clear,
+ 	.has_fixed_data_addr = false,
+ };
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+index 2c3172841886b70eb7a9992ec3851f18adcad8d5..524a9bd0a20b64c509f5708cc61d93b4c864b835 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+@@ -227,6 +227,20 @@ pvr_mips_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
+ 	       ROGUE_FW_HEAP_MIPS_BASE;
+ }
+ 
++static bool
++pvr_mips_irq_pending(struct pvr_device *pvr_dev)
++{
++	return pvr_cr_read32(pvr_dev, ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS) &
++	       ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN;
++}
++
++static void
++pvr_mips_irq_clear(struct pvr_device *pvr_dev)
++{
++	pvr_cr_write32(pvr_dev, ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
++		       ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN);
++}
++
+ const struct pvr_fw_defs pvr_fw_defs_mips = {
+ 	.init = pvr_mips_init,
+ 	.fini = pvr_mips_fini,
+@@ -235,11 +249,7 @@ const struct pvr_fw_defs pvr_fw_defs_mips = {
+ 	.vm_unmap = pvr_vm_mips_unmap,
+ 	.get_fw_addr_with_offset = pvr_mips_get_fw_addr_with_offset,
+ 	.wrapper_init = pvr_mips_wrapper_init,
+-	.irq = {
+-		.status_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS,
+-		.clear_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
+-		.status_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
+-		.clear_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN,
+-	},
++	.irq_pending = pvr_mips_irq_pending,
++	.irq_clear = pvr_mips_irq_clear,
+ 	.has_fixed_data_addr = true,
+ };
 
 -- 
 2.49.0
