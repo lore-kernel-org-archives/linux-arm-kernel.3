@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E5FC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 20:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DFB1C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 20:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Dhyguxhy3QF6ssQ6N4HmtB46ru/Kl2lPpRXSHmaJ/rA=; b=fImRyfBPlglUDXjZ/FSAzKzEMS
-	OtUvwa8V7IUGblGqF+hOKY/yPeeh8qPb7594qPlTTuHwf2T4CXex0D2qjEBNhcv1QQCVHPvCFSSdh
-	a3ZinToAd5Zq5VCSTqigZ+4WCjFZuEgjiKt9e72yyShC0r2LMn6NmeLln8p+FG/bByJpfAoEfchmA
-	e9HdGjvEsN6J3ZMMHSHvLjTdIY8If3fjKXuPAbmCrRdeTwnKErGL2IKTUr9pqtNR6eg/p4Xg0+qHw
-	OG926Rc9RjRsoIFDwS4RV3SABlhCioMc1iZa8nDO9UXHNCDQeGnGZO5ac4uzWAbXauVjCNsF58pBS
-	BNVQTiDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wPq8lUSAEHAPuEHZ0ESyH4azEVJ3R4HhviZNqVoKq20=; b=yBJStXxLEoftLyyskKDfR7nSmG
+	RfoAOzeXBSp5xYvHMA23JuI/qjTQ3E8OTWMIzNSULlWwtMP0Gvega+klMlhl58qXy9rUu0qW7dlOR
+	PXvDUfvPBtx8Ta0MhOO8CFvmuovU8/9maX7rmGsZ/9VvyyObCAM3mMh8Lp7FxwvSjNYQPCbM2Vm7Q
+	pS5xyhQRk41g1r4ImEfJWgGZ5LzYgHhGMfTRYBRNGP8K3mCFSbIMcvppnS1h4RGrT81ke12MbSeuc
+	jflJwWPBx+7v5U0g/HXeaZAoFC1qcpD4+fnG+WOSWZpWUxfJq0HYYvkHJPm+RhFzyXd5Uho/TpaMG
+	UW9NavuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvMOY-0000000D9p7-28qv;
-	Thu, 20 Mar 2025 20:21:38 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tvMaV-0000000DAlH-37eG;
+	Thu, 20 Mar 2025 20:33:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvMMp-0000000D9kH-3Yxm;
-	Thu, 20 Mar 2025 20:19:52 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-394780e98easo784202f8f.1;
-        Thu, 20 Mar 2025 13:19:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742501989; x=1743106789; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Dhyguxhy3QF6ssQ6N4HmtB46ru/Kl2lPpRXSHmaJ/rA=;
-        b=hkDeTnfaaAG6Y9Bg5Aw1wk0b/P83DsZ0cV6/iCl/vLUQjZ6udi5IIl7Q5H+YFcSDL9
-         H2KyzxNp9oknc1BwF+Zis1P0cnl4aSJGSOAEi2gb4tUtMJpP45JnV/8XMkQy0+H4nflg
-         0E1l45sfdWbzOEMcCOHXxzZ3f62D3HQSjOrXj7je0ZoYzu3WFxY2V78arFsIjVEFAY+m
-         PQBjFtu2dniAPgAUxLOEljFx7rbsWzwFfTcMD27ZpmAWB0INLbLoPocprTlK+0Nri/YG
-         1W8+frDZH6riPVhZI5n1PTzjhuhH7k/yhhEIRdQnrHqMqZn+CR2qhPym4GyI54Z45ZPc
-         C8rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742501989; x=1743106789;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Dhyguxhy3QF6ssQ6N4HmtB46ru/Kl2lPpRXSHmaJ/rA=;
-        b=cYYbXOEsSShEZPrYC+nYw/dxn/EHGI9B4CVFpe9aN4KkQsmXCEE3fM01QSF4gX5P4p
-         qvgRlQ9QpVN/tOpvqjMqa9cCk4efRIhAEmpdelNS9qq4LkMEE/zfLQW7ng+yJLWkv78a
-         CrgOeIpF0A/Lw2EsvaV0NLeHcSx4H068Udp1eJDKVXYiDIfBcbIyPxgy1l9YUOKNohlF
-         m+po9ueOaT+HG4CFy28XXKD9aCgcVIWAEIPkWwqSCEKo0HQ1et2GqQU1ykXuqLWhOrMF
-         2Uv5zHXZwbM+Swzlk1kKE2dOGfyA34YVAyicoj37Za1KkR2PgAVhnJ1GBFmHb3hrVtj7
-         lSWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU785joEcqPWzK0fV+jNX3Yy54SmPhDRzfjUGUPQyt3sUNGDafu5vtJ8qcUb/fEBF9PHl5fBS+V6P7ixbXOzIP2@lists.infradead.org, AJvYcCV+kcvnhoriX6bPAMaT017JPqcVP4Rkh1HzTBs5n2TvncMJVydPD8T9YhsTowZr0JFtrn/airDpg2KHC2htlso=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMsZvRPdM4TtvSoUVK1CCOYhPJZsUw3QOKOlpHpzLeAr7Mok28
-	rdAGxJ9xI2ae4jEAXqh7AJF9H2WvAnMJRZ9nAaR/aMYjQY/xv7Gi
-X-Gm-Gg: ASbGncuRHKzMJn9PXN2RmpAUlobdpCsrysFRu6PQgNPHRv3aLPuqcQWhkdFbSKH28fm
-	HFX0DCGtlos6ZfCeY1sZL+BtM53Jrwgvc+AHRsAkzAI1ClyAy6DUROaxCuYjqYuBtSzNkvCCLqV
-	SsMBeQsvVFBeQCRFfaA0+MwzWWe5advZtCY7ZZxWH9JhYGnTTuuwaVnQ0oW4wp5MNgwVkAcX+72
-	g9a7hFBYBe2B6uh/VXsaUm8rH0FiRuI07p69q5rronyGbe8f8nuFnkBERJKVR6CGIaeN4SOHgri
-	SF1kYaGQ/YEo7Qe5tU8Gb7TU25xWLEjkOTOBmrMsnxppAQ==
-X-Google-Smtp-Source: AGHT+IE/btzueE8JU/eAqEkp1q9M1cbr7FO2mpWZMkpMLSmIZhDdqe7dSjJh7OehvrSNgBvLJbC84A==
-X-Received: by 2002:a05:6000:1566:b0:38f:451b:653c with SMTP id ffacd0b85a97d-3997f8edadamr632159f8f.7.1742501989262;
-        Thu, 20 Mar 2025 13:19:49 -0700 (PDT)
-Received: from qasdev.Home ([2a02:c7c:6696:8300:a534:f4c9:f77d:6a2e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fdbd1c7sm6948465e9.40.2025.03.20.13.19.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 13:19:48 -0700 (PDT)
-From: Qasim Ijaz <qasdev00@gmail.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chui-hao.chiu@mediatek.com,
-	Bo.Jiao@mediatek.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Qasim Ijaz <qasdev00@gmail.com>
-Subject: [PATCH] wifi: mt76: mt7996: prevent uninit return in mt7996_mac_sta_add_links
-Date: Thu, 20 Mar 2025 20:19:14 +0000
-Message-Id: <20250320201914.48159-1-qasdev00@gmail.com>
-X-Mailer: git-send-email 2.39.5
-MIME-Version: 1.0
+	id 1tvMYo-0000000DAfb-0iFt
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Mar 2025 20:32:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F98143CF1;
+	Thu, 20 Mar 2025 20:32:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41DFCC4CEDD;
+	Thu, 20 Mar 2025 20:32:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742502733;
+	bh=cnp33NkEi4UH3U5nL6OYRxVdAuacty7X9TFypMwuZc8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=c5Y7G1tvB/Ta8X0sil3in+E5BlgUQLGV605yIuYzK8co8+TfnSTkhayTb29bKddDk
+	 +jFC1pNEeqjwmuPrpSI/38CKKsGu9/CsI6AsdE4hKxzQyiKhrZWt7BfciBUYCeQ239
+	 5Yl3/plunvner2fZUkOkczdgYCQ7IMzhMaJ4ymXk3DmlodYr3I/Cghj1CmuKhUiBk5
+	 EftCKULjpQMvSx/J2e+2hIVtbn+WnBF7cr5uwnmo8QZNRsTnqTlepHwpofKa+7NwyS
+	 7ClZ0RQBUJkY8n5aytEXu0i9y6Vyws1VGr3XM9bf4TG+pUf75im+fJ0S+uHpDE1i5w
+	 qQWbPYtJiLnXA==
+Date: Thu, 20 Mar 2025 15:32:12 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Alexandru Dadu <alexandru.dadu@imgtec.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, 
+ Darren Etheridge <detheridge@ti.com>, 
+ Alessio Belle <alessio.belle@imgtec.com>, Simona Vetter <simona@ffwll.ch>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Maxime Ripard <mripard@kernel.org>, 
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Nishanth Menon <nm@ti.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Tero Kristo <kristo@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Randolph Sapp <rs@ti.com>, Frank Binns <frank.binns@imgtec.com>
+To: Matt Coster <matt.coster@imgtec.com>
+In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com>
+References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
+ <20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com>
+Message-Id: <174250273222.1046427.15822439763542356679.robh@kernel.org>
+Subject: Re: [PATCH v4 01/18] dt-bindings: gpu: img: Future-proofing
+ enhancements
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_131951_888190_83117344 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250320_133214_249097_5F7BDC91 
+X-CRM114-Status: GOOD (  31.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,50 +85,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If link_conf_dereference_protected() or mt7996_vif_link() 
-or link_sta_dereference_protected() fail the code jumps to
-the error_unlink label and returns ret which is uninitialised.
 
-Fix this by setting err before jumping to error_unlink.
+On Thu, 20 Mar 2025 11:32:11 +0000, Matt Coster wrote:
+> The first compatible strings added for the AXE-1-16M are not sufficient to
+> accurately describe all the IMG Rogue GPUs. The current "img,img-axe"
+> string refers to the entire family of Series AXE GPUs, but this is
+> primarily a marketing term and does not denote a level of hardware
+> similarity any greater than just "Rogue".
+> 
+> The more specific "img,img-axe-1-16m" string refers to individual AXE-1-16M
+> GPU. For example, unlike the rest of the Series AXE GPUs, the AXE-1-16M
+> only uses a single power domain.
+> 
+> The situation is actually slightly worse than described in the first
+> paragraph, since many "series" (such as Series BXS found in the TI AM68
+> among others and added later in this series) contain cores with both Rogue
+> and Volcanic architectures.
+> 
+> Besides attempting to move away from vague groupings defined only
+> by marketing terms, we want to draw a line between properties inherent to
+> the IP core and choices made by the silicon vendor at integration time.
+> For instance, the number of power domains is a property of the IP core,
+> whereas the decision to use one or multiple clocks is a vendor one.
+> 
+> In the original compatible strings, we must use "ti,am62-gpu" to constrain
+> both of these properties since the number of power domains cannot be fixed
+> for "img,img-axe".
+> 
+> Work is currently underway to add support for volcanic-based Imagination
+> GPUs, for which bindings will be added in "img,powervr-volcanic.yaml".
+> As alluded to previously, the split between rogue and volcanic cores is
+> non-obvious at times, so add a generic top-level "img,img-rogue" compatible
+> string here to allow for simpler differentiation in devicetrees without
+> referring back to the bindings.
+> 
+> The currently supported GPU (AXE-1-16M) only requires a single power
+> domain. Subsequent patches will add support for BXS-4-64 MC1, which has
+> two power domains. Add infrastructure now to allow for this.
+> 
+> Also allow the dma-coherent property to be added to IMG Rogue GPUs, which
+> are DMA devices. The decision for coherency is made at integration time and
+> this property should be applied wherever it accurately describes the
+> vendor integration.
+> 
+> Note that the new required properties for power domains are conditional on
+> the new base compatible string to avoid an ABI break.
+> 
+> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> ---
+> Changes in v4:
+> - Add img,img-rogue back to ti,am62-gpu compatible strings to allow
+>   compatibility with older kernels
+> - Revert change to power-domains property and add proper constraint
+> - Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-1-143b3dbef02f@imgtec.com
+> Changes in v3:
+> - Remove unnecessary example
+> - Remove second power domain details, add these where they're used instead
+> - Avoid ABI breaks by limiting new required properties to new compatible
+>   strings and making all binding changes in a single patch.
+> - Links to v2:
+>   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com
+>   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-3-3fd45d9fb0cf@imgtec.com
+>   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-4-3fd45d9fb0cf@imgtec.com
+> ---
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 44 +++++++++++++++++++---
+>  1 file changed, 39 insertions(+), 5 deletions(-)
+> 
 
-Fixes: c7e4fc362443 ("wifi: mt76: mt7996: Update mt7996_mcu_add_sta to MLO support")
-Fixes: dd82a9e02c05 ("wifi: mt76: mt7996: Rely on mt7996_sta_link in sta_add/sta_remove callbacks")
-Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
----
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 91c64e3a0860..78f7f1fc867e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -998,16 +998,22 @@ mt7996_mac_sta_add_links(struct mt7996_dev *dev, struct ieee80211_vif *vif,
- 			continue;
- 
- 		link_conf = link_conf_dereference_protected(vif, link_id);
--		if (!link_conf)
-+		if (!link_conf) {
-+			err = -EINVAL;
- 			goto error_unlink;
-+		}
- 
- 		link = mt7996_vif_link(dev, vif, link_id);
--		if (!link)
-+		if (!link) {
-+			err = -EINVAL;
- 			goto error_unlink;
-+		}
- 
- 		link_sta = link_sta_dereference_protected(sta, link_id);
--		if (!link_sta)
-+		if (!link_sta) {
-+			err = -EINVAL
- 			goto error_unlink;
-+		}
- 
- 		err = mt7996_mac_sta_init_link(dev, link_conf, link_sta, link,
- 					       link_id);
--- 
-2.39.5
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml: properties:power-domains: 'anyOf' conditional failed, one must be fixed:
+	'minItems' is not one of ['maxItems', 'description', 'deprecated']
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	'minItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	'maxItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	1 is less than the minimum of 2
+		hint: Arrays must be described with a combination of minItems/maxItems/items
+	hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+	from schema $id: http://devicetree.org/meta-schemas/power-domain.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
