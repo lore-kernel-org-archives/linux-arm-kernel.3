@@ -4,96 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E410C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CF3C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 14:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DfZoeGXnC8fbARD3b+igjeNU0yxDHdtiopyfZfd2L6Y=; b=v8VgbbnZ7x1pZ9lL3bBeB6uemA
-	2cMEt+unai1nQoc8lBTlRj/tU/QeXxNyQVQRWFMrp6lCLVRf7NZpHeWgmJwmjSD+JAT1EXzek4rqK
-	9A2D0L1CohGlNM1yYtOkQZx6sYGgl4Uyvt7joOEcxjX7Js9zCkGqWjfKAj2CmTG9f1Qi/VOMbohY2
-	eAm7JjSLdiuP14hTnlJhdla1FiZiTgvsvokjBqYrwc9+GAS5cPlSDqRs9Zx6KqlJOQeZwA/1GeGoe
-	ROhGUoSzbpnCWyXt9YoUPe9VaF/PmuhY3/e5sxuZZZrG0+gtdSP9OI/MHzuii3GAQLhFqbk/u54Tg
-	ufAqZahg==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DLyOHmoAVb5Kjp+6FlYdojTGuwaxjtqiw9xkYFjrks=; b=ZH7wpAC03srohEy1POKplwVNJ/
+	tVqkPYM/XnLMVSVO/MDdpbhlKT6BDYRT3ndNrJF/uC/WSLYxBOrHLvqEjOsePq1KPXNkke9IurrSs
+	uFBiq71kXl8MM53JklkIfs1ngRL3VDFwIpTcFNXxXuFthS/Sz4utBFRlZT61QrQfO8X6sv//8IBGH
+	9gKoWfWbo0cYx2iMXlmW7IYJRogE5QIW4eIaF7u4xaE48sCrJMIYPf75tx5jheZXVxU3hEfSvCLXB
+	t4hgv1RUWaY5bThBgyi2HaojUMudlnDUMWOx1m2XgWiyMvzaMyI6Iat9gbkiHY4fRictNBCJ3gfZ5
+	1lLBGUZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvHG1-0000000CRxi-3uYp;
-	Thu, 20 Mar 2025 14:52:29 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1tvHHg-0000000CSA4-3auK;
+	Thu, 20 Mar 2025 14:54:12 +0000
+Received: from flow-b2-smtp.messagingengine.com ([202.12.124.137])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvHCJ-0000000CRLk-306r
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 14:48:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1742482098; x=1743086898; i=markus.elfring@web.de;
-	bh=DfZoeGXnC8fbARD3b+igjeNU0yxDHdtiopyfZfd2L6Y=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=sDKs5kIF7lvFISqdnWdsUo7Q19Yr3e3giqX4Kd+Ny2reakJb+vVULaV1qaWhI0Tu
-	 RthkGZsbijtxlJyDdcrASbATnReAjT7dABuZhywMvK889TElkz+foEn6rk+MzO4AO
-	 wn46oY30nC4acPUJNKZcA1w63FPWEkkqpeGgIy2ATA4SbqrKY5dkjkQtrNa7c9Ihp
-	 KY35BD7uHZFWIhpplbziBQEDe0bya28G09Lk8tvPMTS1Af77c8H0PWfeSsTDT21BM
-	 BYM5P5XLEgrTEUXaXK9SHyMBIv7FcKVCacBhBYvUIk3bsK4pzqgpUUVB1lFeNYuvS
-	 byEsLCO9Rtr8/BF3ug==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.70.46]) by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MbTH3-1tKHcJ17hB-00aFwu; Thu, 20
- Mar 2025 15:48:18 +0100
-Message-ID: <79b776fe-7fcf-4cf8-9d3f-bd5f4e66344e@web.de>
-Date: Thu, 20 Mar 2025 15:48:16 +0100
+	id 1tvHDA-0000000CRW2-3klO;
+	Thu, 20 Mar 2025 14:49:35 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailflow.stl.internal (Postfix) with ESMTP id AEE401D416BB;
+	Thu, 20 Mar 2025 10:49:30 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-07.internal (MEProxy); Thu, 20 Mar 2025 10:49:31 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1742482170;
+	 x=1742489370; bh=9DLyOHmoAVb5Kjp+6FlYdojTGuwaxjtqiw9xkYFjrks=; b=
+	Bw3lXaOmvk9EdHs1fHI4ePb/4my5fKxj/IMehz35ln/GbxTb2yfCvVNDmPag0Iyc
+	6U4DAcH8l8GGqWTL/f+oEJeQwE2vg9NLGJjKJA56zHtY+rLW7mwDSGbyr5+p5XM9
+	JCCrRvfUg8U9Ay9Equz57Dwz1WcN465IOEnw52kZ1BygBzU2OSdFKNAmAlWz1mAa
+	FCAYffC5LmTTVMZFFSQLceuZN0f5ZPmPgd+JE4ytjReoN4stZJTs7zhSBTdzr9V3
+	pPny3DzuG5icuFEqINH8fHGHXQ9PJLpj9cpXsRhS8AcpIVTbUyPQVl3J30MBzF1n
+	X7rb7bbbVqo5z/rdkGcDTg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm1; t=1742482170; x=1742489370; bh=9
+	DLyOHmoAVb5Kjp+6FlYdojTGuwaxjtqiw9xkYFjrks=; b=Y0x9aWYb2wIAQmaSl
+	Pq6kfxvFZ+vMSk4mUZVMwOCYQXFhwo4FJthV1YOsfpEAc5r56MQs00MWNWQ0JNDX
+	BeT2gaYmcUUtXFUpth1PV9wPGsIz06xj9QEOolTvT2f3WnwVVP1ZBCYav2jRKaKv
+	JGphU67eMFJd/qbRt0RbNP2aPRcqsGRMK+PLas0r1J3nRoQ21uqRPpGUL1iI2NVS
+	FebfzaJxE+l3slXKq9Zx6IGVg+a9jxn/YDtEIn7PDb/xAnScxQ2sczmw0mug+qgD
+	84PKh+sqX8mlDjlR5HIzegh2buZJErBnJqLHFtImfWvmvwlvJbFl2pDGiPe7CEeT
+	1YNkQ==
+X-ME-Sender: <xms:-CrcZyd9GW8HoH0R3IH91GtQzQt0CEr8OyRwG1O-nnJkeMuRCvK6Zg>
+    <xme:-CrcZ8NvNa45BKatbeA4B1wgGCMT93ZcGxk0DSOqDPRgKGUn0zpZUmNESobrm7HKP
+    to6wCniosQHayzwSCo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeekgeelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvffkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpefhkeeltdfffefhgffhteetheeuhffgteeghfdt
+    ueefudeuleetgfehtdejieffhfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedv
+    jedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepuhhpshhtrhgvrghmsegrihhroh
+    hhrgdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgt
+    ohhmpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnoh
+    estgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopegthiihsegthiihshgvlhhfrdhn
+    rghmvgdprhgtphhtthhopegsvghnseguvggtrgguvghnthdrohhrghdruhhkpdhrtghpth
+    htohepuggusegvmhgsvgguugdrtghomhdprhgtphhtthhopegrlhgvgigrnhguvghrrdhs
+    vhgvrhgulhhinhesghhmrghilhdrtghomhdprhgtphhtthhopegrnhhsuhgvlhhsmhhthh
+    esghhmrghilhdrtghomhdprhgtphhtthhopehmrghtthhhihgrshdrsghgghesghhmrghi
+    lhdrtghomh
+X-ME-Proxy: <xmx:-CrcZzggTkjaKKMcIlgevkAvwlYjG5PkKJgdClNOo099WbN16OSVsA>
+    <xmx:-CrcZ_9zuYJuN_HLg3rJNKPuHPA9shltG7CLzwdMTeYtvKj7bZxlGA>
+    <xmx:-CrcZ-tBhZRJUgt6KbRsVeBxevJWA7uQVq4pldXImlnOXd_tXaUkew>
+    <xmx:-CrcZ2HPgAWXYC_-FTq__I9R22-H0xsP9vJ2kl_t3HMh2-otp4xiig>
+    <xmx:-ircZzt99E-ok_aWCfAWKBZl4vRai5AHEGnkM81fK97NzSmAflzBFw3S>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 660AA2220073; Thu, 20 Mar 2025 10:49:28 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: vulab@iscas.ac.cn, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Ludovic Desroches <ludovic.desroches@microchip.com>
-References: <20250318030717.781-1-vulab@iscas.ac.cn>
-Subject: Re: [PATCH] pinctrl: at91: Add error handling for
- pinctrl_utils_add_map_mux()
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250318030717.781-1-vulab@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Jv9YEG5A6IYdFMMjFJhbkMP4K6fj4hm+m/+jMG29jkDhR3DufXP
- fao5en0fLSRCMR/fTiyIrAEvL8JhX541DSKF9jUFjNoK+7fP9sLOI7F2fCxmPCo8nYt5rLb
- iN9GLL1Ll05eZG3hwdD3wOxiUXLVxNkujPeWB9TGvh4fTtdkQBtuEnqm4VSKt9umtB8GKit
- in295Z82kqqeJ5fjvZj8g==
-UI-OutboundReport: notjunk:1;M01:P0:Icd6NZo/SxA=;bXndP2xuCTpikrk/MEyGXGzNVW0
- CneKGLPmvCp6YnKQTW2CXUHE16pLlTKUg3wFdKTaF8Z3ad0k1JzsvcvO0tAvi94y3CM91YiUs
- lK/2Fy0NI0ptapr73mJQ0y0mRC1MdZnRialJiLDXXBKUnRlMcqij8IA6pGlyM+hzf6q3dO6vM
- 9ZAXV8X13Yg+7hKYqYkrc4/C8L68hxwxqbyGF2Kwln+Sb4OQppKMyL8Zib89wd3IW4Fzv58HA
- J4Erb+2POAnlvkpSzT2V1RuRoomtXdOE0Z5rL5lvkI2zEHQ4e5sF/mVEn7YCggfeLRKhhib7a
- LLIsQjd5NBLmbijxxGkVJbQGhkpVkjNANLSIHq361VEo0F4teKl4BMI0Va83HP/rjcgZvxo/U
- WJCWDAYxmf2r9rLkMmlvE0YbkGMPvFMY4OErCdPFpaNNrA4hqXIjS9vB3TZ+Nexd4+cyNkqp1
- s39zVmBlH16WDMlSRtf2IjC4LUsBTvxjQSNF722xGl2YoIbLEV0WKEhe0l3auvgf1Witqg3CQ
- T6MT1CcWRm1NmzNtbkvt297hCvbcu0Sx5d7Y9daEDCk4HjZUG+3i6DrKXGobkszQQR660AhMj
- WZoT5g8jv7IAr6aFGMDRPQUlW23nYY7eKupqLgGtozNOcTSWGdLyCfx/KLKK+hITqKdWKMeB7
- BbLQm4jPPpAYXpQkicl8qGGWhnmYw9gk5aq+/cDx/aTYluAsRVbdt+8iEHe3tbYHr8Ci+Qq9N
- pCcLelwn3AVIm6mPbi+uXbz8wluwHAbghf3KSVBs0sS3+IWLijJp17C8jOcfkZ8qLV1h9U9KM
- 5Ypm+gcjjk3Wc1VWC/vG0aq6vXmTezAgkZ3Oa901yYMcVWUj86+nA0RwS6keXPYX9vqTyh0I3
- Gd028Egn4Y9Js810uzZ5k969hYGBZhd3NgV493D0XYtancDR/mrL+wXhMzvlC19S+8sr4DLBw
- WefoueVnGwekTd8C47aoqsSP/HiIv+a8v1rmvk4R6XWkzwUaEYdZA2Oo4MkBCn0q7GosHgdxs
- tJumdQKOPJzhfpfeeK95D/uKlpO0ol78aIi9UWrKJVmvNEveutmqiD2QG5/uxMwGO/bmE5/mP
- +yoj84Ol8yJYQ1LzXDaVY7b9mS0H7+8aM9TSHDtahKeKdn8F6yGsEtWdx4VIfxSvm+t1nW+J3
- JX1szufteAnz4358o5q7S+NoTeVMOfiJI4wqVgLZCz7bpZfb87lA/9BkunFFSGL8tzDPmok6/
- EiDMsn/5i5rLZAK1b4E1GfZ1w2L62yWh3wOeh33Kqa2aKCQBHsoDrQkV6NUnNNSjJcnbJOH0s
- lfWAJNQXZicbOvQR6bBzqJfB+kjjcxEwHABsLw87/mpBUP2zQiMoourAFq16A4aPxZ4IpDnmB
- UiKTN5mMnK1E+q4RnBFohs9XuBRwmaTCjaawqH/DBNimwgeSAY2NkO0B7G46ponZUBvt7rvCV
- lgWqrJ9HkKa5o7CtgnGOpwnGUqzZtOkDpWzjJHGv6xsTJPT1XB7KdTeNHei5u9QPy/hVqhQ==
+X-ThreadId: T0b2bddcaf378cae8
+Date: Thu, 20 Mar 2025 15:49:08 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Christian Marangi" <ansuelsmth@gmail.com>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Vinod Koul" <vkoul@kernel.org>,
+ "Kishon Vijay Abraham I" <kishon@kernel.org>,
+ "Matthias Brugger" <matthias.bgg@gmail.com>,
+ "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+ "Lorenzo Bianconi" <lorenzo@kernel.org>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Daniel Danzberger" <dd@embedd.com>,
+ "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
+ "Nikita Shubin" <nikita.shubin@maquefel.me>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Yangyu Chen" <cyy@cyyself.name>, "Ben Hutchings" <ben@decadent.org.uk>,
+ "Felix Fietkau" <nbd@nbd.name>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-usb@vger.kernel.org,
+ upstream@airoha.com
+Message-Id: <d6e27266-dc5b-4ef8-b708-21cedd06621e@app.fastmail.com>
+In-Reply-To: <20250320130054.4804-5-ansuelsmth@gmail.com>
+References: <20250320130054.4804-1-ansuelsmth@gmail.com>
+ <20250320130054.4804-5-ansuelsmth@gmail.com>
+Subject: Re: [PATCH v2 04/11] soc: airoha: add support for configuring SCU SSR Serdes
+ port
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_074840_135119_46FAF27E 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250320_074933_270629_CE5DC85D 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +133,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> In atmel_pctl_dt_subnode_to_map(), the return value of
-> pinctrl_utils_add_map_mux() needs to be checked, for the function
-> will fail to associate group when the group map is full. =E2=80=A6
+On Thu, Mar 20, 2025, at 14:00, Christian Marangi wrote:
+> Add support for configuring SCU SSR Serdes port. Airoha AN7581 SoC can
+> configure the different Serdes port by toggling bits in the SCU register
+> space.
+>
+> Port Serdes mode are mutually exclusive, force example the USB2 Serdes port
+> can either used for USB 3.0 or PCIe 2 port. Enabling USB 3.0 makes the
+> PCIe 2 to not work.
+>
+> The current supported Serdes port are:
+> - WiFi 1 and defaults to PCIe0 1 line mode
+> - Wifi 2 and defaults to PCIe1 1 line mode
+> - USB 1 and defaults to USB 3.0 mode
+> - USB 2 and defaults to USB 3.0 mode
+>
+> WiFi 1, WiFi 2 and USB 1 also support a particular Ethernet mode that
+> can toggle between USXGMII or HSGMII mode (USB 1 only to HSGMII)
+> Such mode doesn't configure bits as specific Ethernet PCS driver will
+> take care of configuring the Serdes mode based on what is required.
+>
+> This driver is to correctly setup these bits.
+> Single driver can't independently set the Serdes port mode as that
+> would cause a conflict if someone declare, for example, in DT
+> (and enable) PCIe 2 port and USB2 3.0 port.
+>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-Please improve such a change description another bit.
+I think serdes drivers are usually implement in the drivers/phy
+layer, and I see there is already a drivers/phy/phy-airoha-pcie.c,
+which may or may not overlap with this one (I have not looked at
+the details).
 
+Have you tried to use the phy subsystem interface here instead
+of creating a custom in-kernel interface?
 
-> propagate the error code to caller function when the function fails.
-
-                                                                call faile=
-d?
-
-How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D and =
-=E2=80=9CCc=E2=80=9D) accordingly?
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tre=
-e/Documentation/process/submitting-patches.rst?h=3Dv6.14-rc7#n145
-
-Regards,
-Markus
+      Arnd
 
