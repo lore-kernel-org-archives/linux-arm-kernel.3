@@ -4,73 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182B8C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E242CC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 11:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRYPBZwOxb7NLrAVi2qebzHMrELoukkBJcqf0HL2AdM=; b=0f+hT6r3iy+Nl6R2Mn7IqRhEYl
-	3FF9mUImEmHtfvYhrXVktkbkoTAvga7glWxFiFqeIOQWItaDPv9xQRDQXL1tgAOZjCfM8fBNb8EBs
-	DnVG99jf+Z/srLTOkpQNv7XET+anXbCTUAX/nLk4LuCOWSH1JmNGAbZ+6i89cNq2sdklH643w6/xJ
-	wzQ3GKJKPV+XfzjCFkmyPI0YmEnlSGgQEP/HGl63Me/CaR5cuMjJAzXbr0zeDIL1u+o+AdubI+p0x
-	TsqrBU4QDPjKuryFt+fgerJWPfYH99m6riM1ZWYAkMFRuQHaIYdi62M/N5u0FO2qHoxXNHCWQ32vz
-	jxaVYr4Q==;
+	bh=s8TaTRN+t2aQ2wq9zWBw7J+dbIhAxxWvfBigEXB8l0k=; b=4UAHWbN/cEhH48EaECLHIrBG/W
+	SHn9T5RnkAhmAhrsm7TkkPe2SBIa0nQknGPEebfGyFRCjTrQ9Ef28oM4ipWGxshx6HtCVGcAT3f8F
+	XwutCjWNUiJrwDXv6RsurHf37kwxht3eJ+bTk1F9av7hvlt7v8hJviT9e7/h6rYkaQ/TQyXT/mTQy
+	JRJPR1S2NyJ5BbJEFEFkJ78NA0FFxuRyTt8PxFmP/D7i+hAFUGolF25Ms/DUKyzc3yND99pz4dJJe
+	D+jXuPVO+Gij4tND/1uXzy0Ya1n4E/DIzuLoCAtkHdYzihUTPA6o5TyU/vhOfEV8KuLl/GhW1TNzK
+	h2lO3DUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEIv-0000000ByeB-3VkT;
-	Thu, 20 Mar 2025 11:43:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8v-0000000BxUS-06Rd
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 20 Mar 2025 11:32:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=HRYPBZwOxb7NLrAVi2qebzHMrELoukkBJcqf0HL2AdM=; b=Hk16+M7DLZ5ozYgl5UOmGGTYuP
-	UBu+i2CtG/yRMx3wGOJhdk+eJN5Odd+jyvdtFz1OaRXYDfhnOg3+CzF4AM9hzWNKCOW+Nmi5oFfT3
-	BDUv2+eca3uczvqFlUw27F9yC4vdVmOqXhEzRRr/MXa+iH7fsig7OcDYVqk/9E3rDcRsebRMHeSdI
-	AJUG13kZ4HLkWip/6V6gNK5CVNQp3MxRrwhI/+H57l5y1F1CKiBAFmgqdLqv8c5kHtZFnuiFWXXJG
-	lZXiyUwdMhlfiwltsrXM3imQRgA+oAsczOjFl0I1siLOJAof5lYy2n6UDeXeuSAfTYcYm8VJZkmNg
-	2UAeuYSw==;
+	id 1tvEKb-0000000Byv9-2WXm;
+	Thu, 20 Mar 2025 11:45:01 +0000
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvE8r-000000047jc-1srs
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvE8r-0000000BxR5-1sqq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 11:32:55 +0000
+	Thu, 20 Mar 2025 11:32:57 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K5Ntgf021993;
-	Thu, 20 Mar 2025 11:32:31 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52K7I9la006831;
+	Thu, 20 Mar 2025 11:32:37 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=H
-	RYPBZwOxb7NLrAVi2qebzHMrELoukkBJcqf0HL2AdM=; b=DgC4x02z6zQGNlw+Q
-	lpdabYizjBedlCjyYoVYzcBqzqZCBsYO0BKIC5ypkCKqlZeejqf/sSu8DFdEZvqX
-	5LonFKMHlp/HQ+rz0N/t5zJBSzjcmvT588C8/KEwex0gaQam6YKy14CljiUe/Uga
-	2plaKSq4jE2DtNonyBZrG+Xjtv84/tdwAAatuMK/OfkAp36fidGBqhqlUk0aS35c
-	PFJw9pySPuVDmKwvYYMtQnq/3/zpuKWJ0BYkWOpr2+J1ruzPdJNIR+TzZKSz+zn0
-	Ur92GUVwPOYi8fhrZAxqELYigsZ0LahI8HibaPN77BV9r+rO2TtRHRsYMrPBA8o9
-	y4I0Q==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=s
+	8TaTRN+t2aQ2wq9zWBw7J+dbIhAxxWvfBigEXB8l0k=; b=ovb6oZg5gADuRL+vw
+	CMn1TvbQx4+XU1rG9+yOCAKutwkoreM4H3CcI+iPdHnzer4mtmesZ5F3JRKEdMJh
+	I13u78A3/gxU/4CE1BOGFkWDUE8WcTFvnCC9P462bxN7WcYNMDkDkFQ9lgihIAHP
+	YYnoO9XHXJQu+lApmZqhqCBFWsw4o5NyqatKVNH3G06xgxD5W0jZf8fC90u3Tx3s
+	TCOYQfKI0ki0IFGe16dI6GiY+r/X//7p1sEGJUcUFSBAPG0qt9E1Z4LljmGQqtJc
+	5NmBiNytXWxkuv9noDZLiupbA7Ou/zG8WAT1zUV4Qwv5xvJQ+G/Jcvni78maX5VM
+	QdYnw==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwg5-2
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45d2h1kwga-3
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 20 Mar 2025 11:32:30 +0000 (GMT)
+	Thu, 20 Mar 2025 11:32:37 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 20 Mar 2025 11:32:29 +0000
+ 15.1.2507.44; Thu, 20 Mar 2025 11:32:35 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 20 Mar 2025 11:32:19 +0000
-Subject: [PATCH v4 09/18] drm/imagination: Rename event_mask -> status_mask
+Date: Thu, 20 Mar 2025 11:32:26 +0000
+Subject: [PATCH v4 16/18] drm/imagination: Add support for TI AM68 GPU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-9-d987cf4ca439@imgtec.com>
+Message-ID: <20250320-sets-bxs-4-64-patch-v1-v4-16-d987cf4ca439@imgtec.com>
 References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -95,24 +80,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3243;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1551;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=u1casUeI9Ls0Pb7TwvXEMa3nKlI9a1VHQ9Flv7MTick=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nOUcX/QrXe3qxdrO/pceZXtM2nDnY1KHEGVvl7hM
- 5Mvtn/b11HKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATeXyJkeFBeLBK0oUzbn8K
- 17w5p/dmi6FSxO9O7UMVhqo6VxZUmGxk+F/Gyp2/p8sxaov9F8m7ngYte7Xs7u1ab+BoveVOyfv
- sq/wA
+ bh=/jn7NtzI9B+n7dwnr4ys/OUVOBta5KgLxbh8zwZgyz0=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaTf/nNMM7R8tS5X0x/JXj6WU9LbtaqYLtu8aZFV0PZwm
+ zX1bUFcRykLgxgHg6yYIsuOFZYr1P6oaUnc+FUMM4eVCWQIAxenAEwkrZvhf9jaBR9uro+9JbDp
+ /XtPBkG+L2XlPzj3xX8N9T0739Xg8kFGhr/ayxXSM5wr0vyYqiLVLquzdqSs/nLxSutuKbm63fG
+ HOQE=
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-GUID: B-fId4-PgKhpJlqDBbIbz7wYN48LS0U9
-X-Proofpoint-ORIG-GUID: B-fId4-PgKhpJlqDBbIbz7wYN48LS0U9
-X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcce cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=eQCmySvtvC0styh21agA:9
+X-Proofpoint-GUID: zMRjpUr7vnlHJGLZ1Roze8o9Eiy-XB4R
+X-Proofpoint-ORIG-GUID: zMRjpUr7vnlHJGLZ1Roze8o9Eiy-XB4R
+X-Authority-Analysis: v=2.4 cv=V8Z90fni c=1 sm=1 tr=0 ts=67dbfcd5 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=8q2ZPnE9uwbZrF7VKmgA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_113253_798590_D9E2C6A3 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250320_043253_826066_05E7CBA1 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,76 +112,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that enable_reg isn't used, rename the previously shared event_mask to
-status_mask since it's only used with status_reg.
+Since we already added a generic compatible string for all IMG Rogue GPUs
+("img,img-rogue"), all that's needed here is to link the appropriate
+firmware for the BXS-4-64 GPU in the AM68.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v4:
 - None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-9-143b3dbef02f@imgtec.com
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-16-143b3dbef02f@imgtec.com
 Changes in v3:
-- None
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-11-3fd45d9fb0cf@imgtec.com
+- Remove device overrides
+- Remove specific compatible string
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-20-3fd45d9fb0cf@imgtec.com
 Changes in v2:
 - None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-11-4ed30e865892@imgtec.com
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-20-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/pvr_fw.h      | 6 +++---
- drivers/gpu/drm/imagination/pvr_fw_meta.c | 2 +-
- drivers/gpu/drm/imagination/pvr_fw_mips.c | 2 +-
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/imagination/pvr_drv.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index 29bae4bc244a243a6a95bcf838d924060cc043e2..eead744835726712622d5aba9b3480fe264a089f 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -199,8 +199,8 @@ struct pvr_fw_defs {
- 		 */
- 		u32 clear_reg;
+diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
+index ac4f5855c5692f0956862cebdbf76b16d8da9a81..b058ec183bb30ab5c3db17ebaadf2754520a2a1f 100644
+--- a/drivers/gpu/drm/imagination/pvr_drv.c
++++ b/drivers/gpu/drm/imagination/pvr_drv.c
+@@ -44,6 +44,7 @@
+  * This driver supports the following PowerVR/IMG graphics cores from Imagination Technologies:
+  *
+  * * AXE-1-16M (found in Texas Instruments AM62)
++ * * BXS-4-64 MC1 (found in Texas Instruments J721S2/AM68)
+  */
  
--		/** @event_mask: Bitmask of events to listen for in the status_reg. */
--		u32 event_mask;
-+		/** @status_mask: Bitmask of events to listen for in the status_reg. */
-+		u32 status_mask;
- 
- 		/** @clear_mask: Value to write to the clear_reg in order to clear FW IRQs. */
- 		u32 clear_mask;
-@@ -404,7 +404,7 @@ struct pvr_fw_device {
- 	pvr_cr_write32((pvr_dev), (pvr_dev)->fw_dev.defs->irq.name ## _reg, value)
- 
- #define pvr_fw_irq_pending(pvr_dev) \
--	(pvr_fw_irq_read_reg(pvr_dev, status) & (pvr_dev)->fw_dev.defs->irq.event_mask)
-+	(pvr_fw_irq_read_reg(pvr_dev, status) & (pvr_dev)->fw_dev.defs->irq.status_mask)
- 
- #define pvr_fw_irq_clear(pvr_dev) \
- 	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-index a51eec867884b24767f23b3b34cd7029cb660f48..6786e0153970691fa51ba3a0e62c00a46244a3a3 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-@@ -550,7 +550,7 @@ const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.irq = {
- 		.status_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
- 		.clear_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
--		.event_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
-+		.status_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
- 		.clear_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK,
- 	},
- };
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-index c810a67eeecf1016064e76baf534e31a44c859b5..f195c602bb112066e88210d0106cb5ffc0a9abc6 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-@@ -245,7 +245,7 @@ const struct pvr_fw_defs pvr_fw_defs_mips = {
- 	.irq = {
- 		.status_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS,
- 		.clear_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
--		.event_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
-+		.status_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
- 		.clear_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN,
- 	},
- };
+ /**
+@@ -1512,3 +1513,4 @@ MODULE_DESCRIPTION(PVR_DRIVER_DESC);
+ MODULE_LICENSE("Dual MIT/GPL");
+ MODULE_IMPORT_NS("DMA_BUF");
+ MODULE_FIRMWARE("powervr/rogue_33.15.11.3_v1.fw");
++MODULE_FIRMWARE("powervr/rogue_36.53.104.796_v1.fw");
 
 -- 
 2.49.0
