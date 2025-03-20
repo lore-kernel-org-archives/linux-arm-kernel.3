@@ -4,57 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC4DFC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 12:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D55DC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 12:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s30otd3j+CqZbEQ1TlC1eKwHScRFiOlxOZcrR60AwGA=; b=moFUvpR0PadaUpYOactKs961lk
-	NMJkgCzjf5yFKeNjaSyC6w2CnH2EXXfUIqVbHa4An9v0IGd5vOvS6OIKMnNkBZjch53rGC89Qr688
-	QHevLnucrlBrE4U+QwP/lHFOnCxda4/g7ftbMSbsf37GUHJGShXrh0k+aevCUC91InGo57KDqvhX6
-	9moH44iffpInqTfE3JnaRx4bj2QS0Lh/6OllKJx4g8Bpce32gmBUL8UNVL6CQVIlMtFN8gsWcGcpj
-	2TxMwlAveRiVqUFnt7dlIGYG6DITyY20ZWONlD/jHI1HPT6sCUesoQtboIsdr6wNP0nYj69wbeXu8
-	fzurR+tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OdAOgP3gNkHvLFtV3A596Wkv2d+7FX+7z3evjIioM2M=; b=OsrVbkdiBgtxCubH2pcbTRvpqr
+	QO0CHPqTeKshZD76enS3WlkOL6daVP0glZrJ5RfXCQNmLZfajSzMOZ0b4EojUu2XgMr+KZU9qhX0C
+	JLvR5bv/66YD7nkzfvYYJ/ocBVdbnSSQ0Y47hg8xYtOM0fBYqQeehUJANax3vWFlPvfgWCF/hnx6f
+	vlSvbgqZa+7P3vg19GfV2pJJlMATMtaDKxbltz/CnpntIuNOo8XbUDxBfhq4ao4ePYqRoeXp/cy6N
+	6bNyAJmDVNwPI4KXsihNeUO56FshSSOg76ATJ2CytBMJI47FtE6HRqb7v04nI8viyCQURkJTEefzG
+	Q7tKAfzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvElL-0000000C4hw-3bGo;
-	Thu, 20 Mar 2025 12:12:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEZ9-0000000C1r8-2hiV
+	id 1tvEn2-0000000C5A6-1RU9;
+	Thu, 20 Mar 2025 12:14:24 +0000
+Received: from mail-am0eur02on2061f.outbound.protection.outlook.com ([2a01:111:f403:2606::61f] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvEhc-0000000C3mB-1zhL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 12:00:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70BA4106F;
-	Thu, 20 Mar 2025 05:00:08 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C3943F673;
-	Thu, 20 Mar 2025 04:59:59 -0700 (PDT)
-Date: Thu, 20 Mar 2025 11:59:54 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: open list <linux-kernel@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	lkft-triage@lists.linaro.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Subject: Re: stable-rc: Fast model boot fail Internal error Oops BTI -
- kernfs_iop_permission
-Message-ID: <Z9wDOguDLJ17juz2@J2N7QTR9R3.cambridge.arm.com>
-References: <CA+G9fYtucEt8Hp6RsV0o+OWSz1E=hXBvhHa-P9C-bPnb7cyGaQ@mail.gmail.com>
+	Thu, 20 Mar 2025 12:08:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DJgH+C6+LRJDn33pCSsgojuag5fTdaa7eqkCw61k0/mw312Px6JqsLQQAiY6ueioyXwvNKLf6cUdhZmZ0GSEylv1Di0Z5buDS494FduQ6omt8MNKiGF85lNL4+QGJftGjukMT+U90kpshuqO3Dz2xEDFi8touJc+iXkx5dZpzIB9eYUv2Skoo/DfZ2xsgsZOVNoPzKXZnuQyEcYAOj3EwaQTwgzRyHVbGkB9dPKC8HzKxLuMxu64frwJgNVy8uJWdFwdx/wr44KhOskfOzTfnlKC1DlaEFiBnG7RxOKTmgqKCLGqtc1BZjDQzlHzTYGBe93Z0aRaad7iAsHcdiQrkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OdAOgP3gNkHvLFtV3A596Wkv2d+7FX+7z3evjIioM2M=;
+ b=eINHsR6nC9xpSY6p9Wdgj9l3we3OI2ZfrCb8YQuoo1wfm/lU0Dl9kKWMkNgBx83F6qfmCQYBLR3kla8WZnq/IGqsxljOHsN0nvT5QQsgFLUtZh7/KXdWQKvFHe+pEqrvFYykVkDFRqD7QOwRT/Z/achRR6No39WeTmJBvwJmx0lw5nquut/a4OyBaXeoFlN0r9tZNAh5gm8rJ3K+0Exlm43ror02oLTqBAnFFTpJz4no592qB/vwFrLQsSkGZqF9radX4QQfzmbtJSAUsgq1T3ncfVmRJXW+G98ckG63C3wGxmOgSEwGJ2i0PmPz85WlTERCjxa0XtENolA8DS0yQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OdAOgP3gNkHvLFtV3A596Wkv2d+7FX+7z3evjIioM2M=;
+ b=EP5mSZeKKl3IMDPjEQhqMRBD9hZqrAOB1RMOmx6P5zCOboBq4NmjhVWOPdFsELx6ThDWW74Iw5QZR/yvmXWqdGPQFTp8gYURJJFRvCXe0eVyJDhH1q+cgYhbRLCKvw0AxrD7Y68hc7ss3hFH17R1B7B3FEJ0PoM82aWoTkKH2tn3LOQgLWXfC/LgeLICA/OqsooFDaU4y5LkZKRw5r8CAG72VCfkhyxp7BC6fHMn39yylvlI7biULjoawn2M8Npt7eIzD4QXP6Shb+LH5bRrMbkf2oiOGp+l4zeUZqip8OxDLh7vqClg6VgubXMEMHC8gEXXqFvYJ6jNnVulGOqWBw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by VE1PR04MB7247.eurprd04.prod.outlook.com (2603:10a6:800:1a2::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.33; Thu, 20 Mar
+ 2025 12:08:42 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8534.034; Thu, 20 Mar 2025
+ 12:08:42 +0000
+From: Daniel Baluta <daniel.baluta@nxp.com>
+To: shawnguo@kernel.org,
+	robh@kernel.org
+Cc: s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	frank.li@nxp.com,
+	aisheng.dong@nxp.com,
+	daniel.baluta@gmail.com,
+	laurentiu.mihalcea@nxp.com,
+	shengjiu.wang@nxp.com,
+	iuliana.prodan@nxp.com,
+	a.fatoum@pengutronix.de,
+	mathieu.poirier@linaro.org,
+	linux-remoteproc@vger.kernel.org,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: [PATCH v7 0/5] Configure imx8mp dsp node for rproc usage
+Date: Thu, 20 Mar 2025 14:09:50 +0200
+Message-ID: <20250320121004.2542314-1-daniel.baluta@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0PR06CA0139.eurprd06.prod.outlook.com
+ (2603:10a6:208:ab::44) To AS8PR04MB8247.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3f2::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYtucEt8Hp6RsV0o+OWSz1E=hXBvhHa-P9C-bPnb7cyGaQ@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|VE1PR04MB7247:EE_
+X-MS-Office365-Filtering-Correlation-Id: 315059aa-6c34-47db-7c47-08dd67a7f4a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Ung1SVZlQkFGMzU2anRLdTVpRnBHb0k3WUZFZlZwVjlENkJDR2RTeUsyRVZ2?=
+ =?utf-8?B?UHNhUHliZ0FkOFhyRWV3YWZXeU1wdUVYN0tKOWM3OTQ2Z0Q5cWNzaDFBaUJN?=
+ =?utf-8?B?RDJ1cFdNV082ajFOQVNlWXVHOWp3azZ5ZzhKZFRmVTEwR1hSd2xIU3FRdU9B?=
+ =?utf-8?B?VTVNK0dDNnN6MzFKQUxsUG82M2xSZ3hHMXBsc1JFTE44NUc4V3FTSGJZVGFK?=
+ =?utf-8?B?Tmx3SXRwbG1jUE5DMVRVWkZxUllFVHBMd2dpSlpUTVE5TWpqa3NwSmJxWmhk?=
+ =?utf-8?B?YnhpR2ZVSkFHNXJ6UTRWYlY0UHNwdDR6UmhhRm1ZYjN0RG9LNkxvTFdYM3Fq?=
+ =?utf-8?B?R0w3Lyt6T25KeUdmcE15TWlxNHFKdC91SzBBb29zV3RoNFhTNUVmSWtnWXU4?=
+ =?utf-8?B?bzh6Q2VsRTRMR1dxc09TdUxXR2ZYM284d25ndHlvSlkrZk5rZmJLSFRVWjVI?=
+ =?utf-8?B?ZlB2bHdaT05qOS9WUzFybExKWnY5UzNYN3ZxRE0wbHRWejlTUVB5aFNTOHJE?=
+ =?utf-8?B?aTc3N2J0MFVVN1B1NTkzR3RQZnhCd3hDUmE0NUQyZDYyQzZEajQzeGdNQ0JL?=
+ =?utf-8?B?L2hCVzdnZk5DZnpJckswa2J0dWJIMFJRNkgxdHdhM1VaRGwrVWtlYzdaaHo0?=
+ =?utf-8?B?L0EzYnBxT2E3dEpwbGl2L24ycUlMMnUvVFpJR3I3VXFWOWQydmwxZ0E2RGdv?=
+ =?utf-8?B?R0FMWGxxdVd2c2RHdERKUUovb2o0eXdWV25QM205dk44c2I3eGY0aUUzdEJP?=
+ =?utf-8?B?ajVFNTBldnBlNVdJbUtzWXordFplaG1iMlNYd05CYllVTE81VzJXNEFvQXBF?=
+ =?utf-8?B?dUFUa0pXdjFnYmRnd3FNUjlIQ0FheFNVemZwZkg1Tldic3pIUlpub1hxR1gv?=
+ =?utf-8?B?L0ltbmM3aytLMTZESVM1UUF6VE1KWDJxczlSMm5GcDNSV0FwaFd6VWFTOXhr?=
+ =?utf-8?B?UnVnd0J5SWxMMGNMU21nTmpIeFBMV0YydTJVbSsxYndEL3NkWUIxVzhhMG5j?=
+ =?utf-8?B?MlhzalM5TVRvWU1CV2hNOWRrVS8wazQ0RzhRZ2RzWlRocEp3NnBXVm14NHlk?=
+ =?utf-8?B?ZnNGYlpTdkw4VlFmaUlFT0IyZmRaMkZUWlllS0QwQUdpKytpQSsvcUxMcVZH?=
+ =?utf-8?B?YnFJdFM3S2U0cURsUkt6eHdBVWl1QmNpL203NUFLc08waXpwVW9ldi9ia3cz?=
+ =?utf-8?B?bkM3RkhzaG54MUxSc2RUcTZkZzQrNkJrNVhvbnBVbFdtMEtZaTgyVGlCVGxj?=
+ =?utf-8?B?Q0dGUGdDU1U5d3FKZ3p3VVFhVU5KTUgwZGxKa0t2R1ZtUlNnQko3VUhGak51?=
+ =?utf-8?B?RWkzRjEvR0loK0k5VjlLU2xzUzFTSURBaWNqemtFS0NEb2lWc3VleDVDVWNp?=
+ =?utf-8?B?QTZZcFREZ3RSbGZicDh4bVhKUVBLVEp1SUdSQTVuYms1QXdFN09hdWJ3eHNH?=
+ =?utf-8?B?VzI3TzhjeGFhRmpMT0JRRkFzamhiY0VZbnc5a3ZvR2VtYnJGdDRPbGhtUDlt?=
+ =?utf-8?B?NTNQa0JqQW1NeWEvdkUxZFc4MlhEdW03S0FFeUZGaFNiUy9RSUFCWTdtdFJx?=
+ =?utf-8?B?SlMrODJQdVgzbExlSHhRbnpzNXpaSFp4eGFzZy9NQXFFeGNsOVRHY0R5cGtw?=
+ =?utf-8?B?YTI3RVlHcWFDR2hJNC9CNkxFbDJrb0kwZSt1WjNYR1FPVmlBR3I2ajhjRjIr?=
+ =?utf-8?B?QlZTaVpiQ25mQjhzWVNHZEFsL3F3YlRrNXFXRTZscFZRbjF3MVZ4VitzZmlu?=
+ =?utf-8?B?NWlpRytKT2tzRDJ0cEc1WFliU3hrOElxbVJTcWZ6WlVaTVNOZzBzVUNuR2VK?=
+ =?utf-8?B?SlFWN1VzWFZhemcxaThLNG90dkpYUkpqeUtDYXd6MVBhS1djS0J1MnlGS2V0?=
+ =?utf-8?B?SXJrdi93SEoyUkVQRHdwM2ptUkptOU85b2hQR3U0bXNDNENHK0RuckdDaFhs?=
+ =?utf-8?Q?oeZsnjqOOVxEDcl/bLOwZW3wSNPnis1A?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVlkL01haTl5aWhSL1FIRlI0QVlxN3lZQXM4dTg0c0pLY1JKdUJ2dk5MOHhY?=
+ =?utf-8?B?eGd1bHdqcmFVTWR6RmQ4VUNIUCtZLzNzWTlBQTc5N1hxWWx5a0szZlduYW5m?=
+ =?utf-8?B?ODFEZXlqZSt6SHk5ZUJEY1FBZ3ZMM1RKT1dOQ3JFODVtSEpTRFpmcUNBNk5Z?=
+ =?utf-8?B?RXBXUmowcFhFdDdZSUN2ZW9McGQ4Yk8wdWlmUU1mTk1YTnRadERTWVhLOVQz?=
+ =?utf-8?B?ZHlIN2d3anBJYWM2eEhLcjBzNXE4a091ZTFYYUNGRk1WRnprSWlYMG9MTlg1?=
+ =?utf-8?B?Z3JrMjhYUmxXOXh3Uzh4eWJlME8vUmlIejhRa216bThHTVo4clllclJndit3?=
+ =?utf-8?B?bmtXeFVWeU5raUpWUzZ6MFFTYWt3QjFBWEUvcHFiT25EWkcyWjEvb2lzdmlU?=
+ =?utf-8?B?Z3d6bE9WekR4MmM1dUVLZ2JZVGhVaVJjSjViNCt5dDJ2aVRqSVFBWE4xUUpW?=
+ =?utf-8?B?OVV0VXdqbnh5M2xERzlPS2VrZDE3WVFvUFltVGJ6MWpXKzR0MkNFcVhJQUpj?=
+ =?utf-8?B?ZFNtQnVpU3JlTE83M3F1L0FyVjdDemprRnhlQXMyblRDbU9MTXpqK2hPdEk1?=
+ =?utf-8?B?bzhPOW12Z2VDb3pFd3R1U2VCMEVKengxdzJTeGNLU0p0dmo4d082UEs3OExh?=
+ =?utf-8?B?S3o2cllyWGdhKy9VOFQ3WVdIelBPaDlmYldQQ1pPcHl5d05lYzU4b3J1cmt2?=
+ =?utf-8?B?TmpvNmdpSHROTlNObk1vOWlwWjRGZm5KRm5yQkRWeEdYQnNTSHZPUU1TQmgv?=
+ =?utf-8?B?ZWVCQm9XZE56dHhnTUMwSzk2czJ3c3Rwc1dZMkZYN29odXFJY3BrODY0U1B5?=
+ =?utf-8?B?bjZnTDZOYkdaSTJJS2pRRUlBK2xTTUttTTlrRmpVaFB3VnVnWkU5OGpWUGZS?=
+ =?utf-8?B?aW44VXUwMzRUSmF3OEswK0QwSWVpTUIxdXFMRU43TU1aSzBTSk1TZU45K0E5?=
+ =?utf-8?B?QlZmWDNVd0hXR0tkdEtsa1BRUmQxSmN3SWFaUkZybTJiaW5YMzU0VytHNTlR?=
+ =?utf-8?B?MTdkdVl2dnBvVUM0OVE5cWdJL2x5VHR3WjlpS2FGaUhhaUJzbkJ6WDkzWGJu?=
+ =?utf-8?B?ODhYVFNFSHNkWjBNRUxFWFVBcGRBRGhSNU9WTTZHSHRyb2JPWEtJUVJMK3I1?=
+ =?utf-8?B?SDJkZ3MwS2QwZTBiUDFLMENlUzlEMkh4K1RkNGhTY0t3RUhPWk1uVjNpaGhl?=
+ =?utf-8?B?Y3ZGNFRnTDBYVVVxWWZJVkx5dWFMVGdYNWoyVXF2Y0VFNVdaQ3FvYUxPL3pX?=
+ =?utf-8?B?eDF3K0ZPL1pYQ2RiNlhTMzVBVWliclhrbldwbFM0TGFsU1FGS1lWZHRPbGJ0?=
+ =?utf-8?B?UVFwRERsL3huSStWVldscHJ0RjhPSExaUVlKWWQxdnRuL0FpUm5jV3Zua3pU?=
+ =?utf-8?B?NVkvSnBCeUFpZjhOVjI2WWgrYVByZVdvUHVTS0dIRFpLeVhFLzRMZ3E2ejRu?=
+ =?utf-8?B?bS9WL2plZitmQ08yM29BemRVVWJXaC93T0FnQk1UNHQ2aDBFVm13azRJTUtJ?=
+ =?utf-8?B?M2t0QWRjU1loV1BNaWNHNklwcDdSTGxyek8reHVzZEkvdm9hRzV0cGh6endq?=
+ =?utf-8?B?WVdobUlRQzFKVSthb01wREpOcmpmcG43YkNGenhMdW5iS2UvOW1RTkI4WHdu?=
+ =?utf-8?B?REJOMHJabXB6eHlzTnhuWWNoQTY5STZkT2ovcDFOajdreiswM2hlRkFRWlk3?=
+ =?utf-8?B?MnhabmRyWG5ZdXp2aGdaOUh1OHFJVEJFTmYyWmcyTFdlK2JpZ1NHSXdlL1dK?=
+ =?utf-8?B?UUhNU0dpVHl2MmhwOGhCOE1IMjVyRXpMc2xkOVg0VkFUMGs1SmN1VmY1UVBT?=
+ =?utf-8?B?L0lqM1NwVlZFZHBHZFY0VkJhbnlDWXhtVzYxUmVaYTc4S1B0UU1EMWZGZlpa?=
+ =?utf-8?B?THhCTkNBNnlNaEx1V1dpTVdtT0hJOW5JS25XZStReHl3ZnpYMUZLalI2NXFp?=
+ =?utf-8?B?ZGFYaUFWSWpsWkc5eiszSld6aWRiY1o2MnJmeVZDZ05Zdmo3MU9sM0lPWjVD?=
+ =?utf-8?B?ZU1ZeFF0Ym5wUDNENXlTRDNJUFExNXppWTZLVXhrTWxpU1UzWUkrcjROYnZs?=
+ =?utf-8?B?QWhjc0xZbmZxUnJyZWZBNHFEQVg1QWxwUG92M3h1aHFLTlI2NlpGWGt4M1VD?=
+ =?utf-8?Q?SZNSVSlLK9n8/7R4hMJvsQjTS?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 315059aa-6c34-47db-7c47-08dd67a7f4a7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2025 12:08:42.0633
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LJjUPmvmGTZ5v8rL+bwZA4w6QhkDmNgYlilYV1pJJnbVj+2J5Kqs2ozST67/1HhxBXOmZRHwqiMiGteILsfRLw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7247
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_050003_773903_76AB08F4 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250320_050848_515770_5A839671 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,106 +189,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 04:05:14PM +0530, Naresh Kamboju wrote:
-> Regressions on arm64 Fast model (FVP-aemva) boot failed with stable-rc 6.13.
-> 
-> First seen on the stable-rc 6.13.8-rc1
->  Good: v6.13.8
->  Bad:  6.13.8-rc1 (v6.13.7-242-g14de9a7d510f)
+DSP found in i.MX8MP SOC can be used by multiple frameworks in order to
+enable various applications:                                                                                                                                                            
+        - rproc/rpmsg framework, used to load for example Zephyr samples
+        - Sound Open Firmware, used to enable various audio processing
+          pipelines.
 
-That "Good" tag doesn't look right. Is that meant to be v6.13.7?
+Current dsp node was configured with SOF in mind but it doesn't work
+well with imx8mp-evk dts. SOF controls audio IPs from firmware side
+while imx8mp-evk.dts preffers to control audio IPs from Linux side.
 
-AFAICT there is no v6.13.8 tag yet.
+So, configure 'dsp' node to be used with rproc scenario and later will
+add a separate dts or an overlay to configure the node for SOF.
 
-> Regressions found on FVP:
->  - boot
-> 
-> Regression Analysis:
->  - New regression? Yes
->  - Reproducible? Yes
+This patch series configures and enables dsp node to be used with rproc.
 
-Can you bisect this?
+Changes since v6:
+	- addressed Alexander Stein comments
+	- enable mu2 separately in patch 5/5
+	- put "status" always as the last in node definition
 
-> Boot regression: Fast model boot fail Internal error Oops BTI
-> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> 
-> NOTE:
->   LKFT is currently running FVP Fast Models version 11.24.
->   Planned upgrade to the Fast Models version 11.28 in this sprint.
-> 
-> ## Boot log
-> [   12.812790] Internal error: Oops - BTI: 0000000036000002 [#1] PREEMPT SMP
-> [   12.812886] Modules linked in: drm fuse backlight ip_tables x_tables
-> [   12.813120] CPU: 6 UID: 0 PID: 136 Comm: udevadm Not tainted 6.13.8-rc1 #1
-> [   12.813245] Hardware name: FVP Base RevC (DT)
-> [   12.813317] pstate: 163402809 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=-c)
-> [   12.813450] pc : kernfs_iop_permission+0x4/0xe4
-> [   12.813585] lr : inode_permission+0xb8/0x174
+Changes since v5:
+       - do not enable mu2 node by default
+       - fix dt_bindings errors
 
-This is one instruction into kernfs_iop_permission(), which suggests
-that either the caller has branched to a corrupted address, or somehow
-the model has skipped the BTI.
+Changes since v4:
+(https://lore.kernel.org/linux-arm-kernel/Z6zGLn3B6SVXhTV1@lizhi-Precision-Tower-5810/T/)·······························································································
+       - after comments received on v4, we implemented the run/stall
+         bits using reset controller API (changes merged ->
+https://patchwork.kernel.org/project/linux-arm-kernel/cover/20250311085812.1296243-1-daniel.baluta@nxp.com/)
+        - drop patches related to DSP run/stall/reset via syscon
+       - picked up patch related to using run_stall via reset
+         controller API.
 
-> [   12.813728] sp : ffff800080d63bb0
-> [   12.813796] x29: ffff800080d63bc0 x28: 0000000000002e2e x27: 00000000fffffff6
-> [   12.813978] x26: 0000000000000030 x25: 2f2f2f2f2f2f2f2f x24: 61c8864680b583eb
-> [   12.814161] x23: 0000000000000000 x22: fefefefefefefeff x21: ffffa991682c84b8
-> [   12.814344] x20: ffff0008006704d0 x19: 0000000000000001 x18: 00000000fffffffb
-> [   12.814525] x17: ffff000801bf8021 x16: e0acaabd2f000000 x15: ffffffffff000000
-> [   12.814711] x14: 0000000000000002 x13: ffffffffffffffff x12: 0000002e00000000
-> [   12.814893] x11: 0000002d00000000 x10: 0000002d00000000 x9 : ffff0008006704d0
-> [   12.815076] x8 : ffffa991665f0ff8 x7 : 0000000000000000 x6 : 0000000000000000
-> [   12.815253] x5 : 0000000000000000 x4 : 0000000000004050 x3 : 2f7375622f737973
-> [   12.815432] x2 : 0000000000000001 x1 : ffff0008006704d0 x0 : ffffa991682c84b8
-> [   12.815613] Call trace:
-> [   12.815670]  kernfs_iop_permission+0x4/0xe4 (P)
-> [   12.815830]  link_path_walk+0x2b8/0x388
-> [   12.815962]  path_lookupat+0x68/0x120
-> [   12.816073]  filename_lookup+0xe0/0x1e0
-> [   12.816196]  do_readlinkat+0x6c/0x1d8
-> [   12.816337]  __arm64_sys_readlinkat+0x20/0x30
-> [   12.816481]  invoke_syscall+0x40/0xf8
-> [   12.816623]  el0_svc_common+0xa8/0xd8
-> [   12.816765]  do_el0_svc+0x1c/0x28
-> [   12.816904]  el0_svc+0x38/0x68
-> [   12.817050]  el0t_64_sync_handler+0x78/0x108
-> [   12.817203]  el0t_64_sync+0x198/0x19c
-> [   12.817359] Code: a8c27bfd d50323bf d65f03c0 d503245f (373806c2)
-                                                  ^^^^^^^^
-						  BTI C
 
-As we can see here, there's a BTI C immediately beafore the instruction
-that triggers the BTI exception, so as above either the call has branch
-to a bogus address or the model has somehow skipepd the BTI.
+Daniel Baluta (5):
+  arm64: dts: imx8mp: Use resets property
+  arm64: dts: imx8mp: Add mu2 root clock
+  arm64: dts: imx8mp: Configure dsp node for rproc usage
+  arm64: dts: imx8mp: Add DSP clocks
+  arm64: dts: Enable DSP node for remoteproc usage
 
-Assuming there isn't a model bug, this is likely to be either a bug in
-inode_permission(), or some sort of memory corruption.
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 14 +++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 22 +++++++++++++-------
+ 2 files changed, 29 insertions(+), 7 deletions(-)
 
-Mark.
+-- 
+2.43.0
 
-> [   12.817444] ---[ end trace 0000000000000000 ]---
-> 
-> 
-> ## Source
-> * Kernel version: 6.13.8-rc1
-> * Git tree: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
-> * Git sha: 14de9a7d510fcfb3bd35e275eda09724bda4d440
-> * Git describe: v6.13.7-242-g14de9a7d510f
-> * Project details:
-> https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/
-> 
-> ## Build
-> * Build log: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/testrun/27684866/suite/boot/test/clang-20-lkftconfig-no-kselftest-frag/log
-> * Build history:
-> https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/testrun/27684866/suite/boot/test/clang-20-lkftconfig-no-kselftest-frag/history/
-> * Build details:
-> https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.13.y/build/v6.13.7-242-g14de9a7d510f/testrun/27684866/suite/boot/test/clang-20-lkftconfig-no-kselftest-frag/
-> * Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2uXZoz8Lc7Ue3i4mVWAM8Y800oz/
-> * Kernel config:
-> https://storage.tuxsuite.com/public/linaro/lkft/builds/2uXZoz8Lc7Ue3i4mVWAM8Y800oz/config
-> 
-> 
-> --
-> Linaro LKFT
-> https://lkft.linaro.org
 
