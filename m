@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33553C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2E1C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Mar 2025 17:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JWrra46cF/zn5ZJCem2dit2AHSq8ubSoM94HJ5Xwj78=; b=jOioz/KmkoWi5Nerko/937NEIL
-	OBC2BcnNvcyLsg2njOHQaUZHGvwtOxDap8GbDMCXgmkhMbo4TEJUg/W/tC4UC7QOInEzFkY6JanC+
-	YI7qQ6L4XETnFI9NfYH5qcMq9WCA8N365OfSz2xaivpeFJq16lYsCg9wzyAugLrUYv8C5nAysSu/b
-	RbHxycDJ4VTKRWaRIbP23x5+KwRk82Bk6uUr9UB0Ajt47dQgkraq6lDixWi+umdsjv1rnAxgRYMpY
-	k1fEK/+r+FYOmtWFrUq+cDTscuViG3ZXIYn8QDrqHSTIMgR8iTZh+EdRTVK6G4dv7LPlF1afIQLQU
-	+QuVVGqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=88p1w7uEcFSCHYKOCDuBHPZGg/x3AAPkfIOOrr6qmRE=; b=UxO/qJD1edjMfMx/pn/lvk31JY
+	2diNeLrAh1qyGSFMj7wqrmd5dIt4P7pKH8qAdE+n3BsoPWReXnG2VHrBRefX7/fTurOVMZVunckXN
+	OgUvozWdGtzhqd+1Dvey+QhQspHnNJvSJLDzIdzPWsnq3xljVcM1dqPFJzQlMqF/oX1I53L4T0CgS
+	EDJ1Ig4NovcI4PNVL2uooNNkhdIRiejwiHrpYOnIJOcmayEYTDGK2FEBKd2oRU5MfdYpQ6/4etleD
+	CPxZNV2C4+I9vkDxKbFU18NuCeRWY9N0M5IG40NRM63KrV56ua8S49PBm0XX3JA7082eeejuxQm6L
+	5bpZo6Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJee-0000000CnSv-2k27;
-	Thu, 20 Mar 2025 17:26:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tvJgJ-0000000CnkB-36nv;
+	Thu, 20 Mar 2025 17:27:47 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJVI-0000000CmEA-0DHq
+	id 1tvJX7-0000000CmaS-2hxm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Mar 2025 17:16:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EA43EA495C1;
-	Thu, 20 Mar 2025 17:10:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4622C4CEDD;
-	Thu, 20 Mar 2025 17:16:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742490983;
-	bh=+evCBeNGTvUjxQbku1JezmpWd8bBB4yvmqkVwISqS1w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aZhkcZjhgwTBQhn5xLxRnF3a4qsa3u+33DaXQvkxOCmztDrjEduWoh9z6n8kqeTFf
-	 qAdmXarac8CfVE7puGIIgCCYAY0GtNUjG8G8gfUcZPpPJ07fx5PSBQUC9g488Gx/d5
-	 c6TKxha++wh71G+QcFcyJa6NVvszcn/4y8Va3WfQLtoRrFPSdzrs9S2wsuPqjptnsH
-	 uld7Tp2ri8VeaM446rm7kl0yuZ/TOjgptCBqKroNZi5627Urk8CscO0RsHovIuGnTM
-	 DVWtGQPt8hXyrV7j4TIsGz1B7FAOv5N2GVjRGmmxPIiLP532gpL2Hl4m5wANOgyt0w
-	 RP8bMohr+O8GA==
-From: Song Liu <song@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-toolchains@vger.kernel.org,
-	live-patching@vger.kernel.org
-Cc: indu.bhagat@oracle.com,
-	puranjay@kernel.org,
-	wnliu@google.com,
-	irogers@google.com,
-	joe.lawrence@redhat.com,
-	jpoimboe@kernel.org,
-	mark.rutland@arm.com,
-	peterz@infradead.org,
-	roman.gushchin@linux.dev,
-	rostedt@goodmis.org,
-	will@kernel.org,
-	kernel-team@meta.com,
-	song@kernel.org,
-	Suraj Jitindar Singh <surajjs@amazon.com>,
-	Torsten Duwe <duwe@suse.de>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Breno Leitao <leitao@debian.org>
-Subject: [PATCH v3 2/2] arm64: Implement HAVE_LIVEPATCH
-Date: Thu, 20 Mar 2025 10:15:59 -0700
-Message-ID: <20250320171559.3423224-3-song@kernel.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250320171559.3423224-1-song@kernel.org>
-References: <20250320171559.3423224-1-song@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 20 Mar 2025 17:18:19 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff799be8f5so1727988a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 10:18:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1742491096; x=1743095896; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=88p1w7uEcFSCHYKOCDuBHPZGg/x3AAPkfIOOrr6qmRE=;
+        b=lEptnLmktB/e/BZeoEA03sW/XKu+vAZJt2X2N9Z1rkytTqOWV8lgOzwOhlB7KzE/4h
+         ktfWRkIL88dlUNuVJWbH9D6ofdJzsXFBicIN5ePnP+K9jTLaxSCeHkT+lRNzxU2aM7An
+         Cy2LnZhGwEkMD3oXxHJhsvgeqmAj9dMW/naWwieL/jbImL/dd8o7rEwiLlJyssQMIfyy
+         JA9v1W5gun33qeHTfRqO3EdxflZNgz09MHXe4zYdMJpiV1cl8ZMu+twsxHPXK4IGksHo
+         zKMYn4WtzyI/zNSYP+KHUPZwmYLNPaTDkpbtdOtOKjD2Vn6mzwIpAk8Lreag2DYlCtm3
+         yHZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742491096; x=1743095896;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=88p1w7uEcFSCHYKOCDuBHPZGg/x3AAPkfIOOrr6qmRE=;
+        b=qLZhhivS+tNmPq6K4tHlzQCnmm5la5nn+tnA++Re5HY3UVbqDkOLrTCTrI80TML2MR
+         YDLVgAgbPExzd3foFtI30LLilQ4VqzqsaywnS5/rAKp8SlRjRGa2IZxPbILpCF+1bzgr
+         ENmmTLinPclRZaAQMU+YFPwtInKzI2akEa8NBmA1U0iQzIa4ZXn4RsvW0/ecCpyhe+hj
+         iYzDPJ4QrGV9BSzrp5nVlETWdbyjjA/dzTHELp+kqFuq3CnHkdn0c4TyOcThq1JHYw4G
+         Rbyu9Bel7kQkJTDBxvOMtJUnrrP3UIaO9G8tI5wgaUg4QYjMOz+PDtf2I1Tr4Its6vlR
+         ViQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVY8Vy4ntlnkaYnU6JEeag38sC6upmXJD6uE57SBfaKqcdDBsQWDY52E7Zi/vToR/ktmzdPGbc5dcck8Vd2NeKa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR37yr3+hUJcOJgRM0KgsaSx4uavOhMX8r5NZtaoCFrPth9zB0
+	zQyu+ldQtlIOCzKJ0Ay6gopQRwpuAdcXbCA7p/tMP/3CGUTwA5zApmZlzMwchQFkcDdumd2bK4s
+	Kl94zA2Vwa2jupv3RaA==
+X-Google-Smtp-Source: AGHT+IGpaoCewgRhvYW5fa+HpkkDxI6GYIKVShvL+72MGW8IdbGecEsEYFRFVCnEraF7VtF/dPJ/f4MPXZFrOdbn
+X-Received: from pjbpq9.prod.google.com ([2002:a17:90b:3d89:b0:2fa:a101:755])
+ (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:2707:b0:2ff:6488:e01c with SMTP id 98e67ed59e1d1-3030fefe3e4mr5163a91.29.1742491096376;
+ Thu, 20 Mar 2025 10:18:16 -0700 (PDT)
+Date: Thu, 20 Mar 2025 10:18:02 -0700
+In-Reply-To: <d5f7379c-c66b-47f5-bc97-eab90ab34346@kernel.org>
+Mime-Version: 1.0
+References: <d5f7379c-c66b-47f5-bc97-eab90ab34346@kernel.org>
+X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
+Message-ID: <20250320171802.2325561-1-changyuanl@google.com>
+Subject: Re: [PATCH v5 11/16] kexec: add config option for KHO
+From: Changyuan Lyu <changyuanl@google.com>
+To: krzk@kernel.org
+Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
+	catalin.marinas@arm.com, changyuanl@google.com, corbet@lwn.net, 
+	dave.hansen@linux.intel.com, devicetree@vger.kernel.org, dwmw2@infradead.org, 
+	ebiederm@xmission.com, graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, 
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com, 
+	pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org, 
+	ptyadav@amazon.de, robh+dt@kernel.org, robh@kernel.org, rostedt@goodmis.org, 
+	rppt@kernel.org, saravanak@google.com, skinsburskii@linux.microsoft.com, 
+	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_101624_215965_676C94E9 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20250320_101817_686097_DA97AE10 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,100 +99,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is largely based on [1] by Suraj Jitindar Singh.
+Hi Krzysztof,
 
-Test coverage:
+On Thu, Mar 20, 2025 at 08:10:37 +0100, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On 20/03/2025 02:55, Changyuan Lyu wrote:
+> > From: Alexander Graf <graf@amazon.com>
+> >
+> > We have all generic code in place now to support Kexec with KHO. This
+> > patch adds a config option that depends on architecture support to
+> > enable KHO support.
+> >
+> > Signed-off-by: Alexander Graf <graf@amazon.com>
+> > Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+> > Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+> What did you exactly co-develop here? Few changes does not mean you are
+> a co-developer.
 
-- Passed manual tests with samples/livepatch.
-- Passed all but test-kprobe.sh in selftests/livepatch.
-  test-kprobe.sh is expected to fail, because arm64 doesn't have
-  KPROBES_ON_FTRACE.
-- Passed tests with kpatch-build [2]. (This version includes commits that
-  are not merged to upstream kpatch yet).
+I proposed and implemented the hashtable-based state tree API in the
+previous patch "kexec: add Kexec HandOver (KHO) generation helpers" [1]
+and then added `select XXHASH` here. If one line of change is not
+qualified for "Co-developed-by", I will remove it from the commit message
+in the next version.
 
-[1] https://lore.kernel.org/all/20210604235930.603-1-surajjs@amazon.com/
-[2] https://github.com/liu-song-6/kpatch/tree/fb-6.13
-Cc: Suraj Jitindar Singh <surajjs@amazon.com>
-Cc: Torsten Duwe <duwe@suse.de>
-Signed-off-by: Song Liu <song@kernel.org>
-Acked-by: Miroslav Benes <mbenes@suse.cz>
-Tested-by: Breno Leitao <leitao@debian.org>
----
- arch/arm64/Kconfig                   | 3 +++
- arch/arm64/include/asm/thread_info.h | 4 +++-
- arch/arm64/kernel/entry-common.c     | 4 ++++
- 3 files changed, 10 insertions(+), 1 deletion(-)
+[1] https://lore.kernel.org/all/20250320015551.2157511-8-changyuanl@google.com/
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 31d5e1ee6089..dbd237b13b21 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -277,6 +277,7 @@ config ARM64
- 	select USER_STACKTRACE_SUPPORT
- 	select VDSO_GETRANDOM
- 	select HAVE_RELIABLE_STACKTRACE
-+	select HAVE_LIVEPATCH
- 	help
- 	  ARM 64-bit (AArch64) Linux support.
- 
-@@ -2501,3 +2502,5 @@ endmenu # "CPU Power Management"
- source "drivers/acpi/Kconfig"
- 
- source "arch/arm64/kvm/Kconfig"
-+
-+source "kernel/livepatch/Kconfig"
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index 1114c1c3300a..4ac42e13032b 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -64,6 +64,7 @@ void arch_setup_new_exec(void);
- #define TIF_UPROBE		4	/* uprobe breakpoint or singlestep */
- #define TIF_MTE_ASYNC_FAULT	5	/* MTE Asynchronous Tag Check Fault */
- #define TIF_NOTIFY_SIGNAL	6	/* signal notifications exist */
-+#define TIF_PATCH_PENDING	7	/* pending live patching update */
- #define TIF_SYSCALL_TRACE	8	/* syscall trace active */
- #define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
- #define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
-@@ -92,6 +93,7 @@ void arch_setup_new_exec(void);
- #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
- #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
- #define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
-+#define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
- #define _TIF_UPROBE		(1 << TIF_UPROBE)
- #define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
- #define _TIF_32BIT		(1 << TIF_32BIT)
-@@ -103,7 +105,7 @@ void arch_setup_new_exec(void);
- #define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_SIGPENDING | \
- 				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
- 				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
--				 _TIF_NOTIFY_SIGNAL)
-+				 _TIF_NOTIFY_SIGNAL | _TIF_PATCH_PENDING)
- 
- #define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
- 				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index b260ddc4d3e9..b537af333b42 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -8,6 +8,7 @@
- #include <linux/context_tracking.h>
- #include <linux/kasan.h>
- #include <linux/linkage.h>
-+#include <linux/livepatch.h>
- #include <linux/lockdep.h>
- #include <linux/ptrace.h>
- #include <linux/resume_user_mode.h>
-@@ -144,6 +145,9 @@ static void do_notify_resume(struct pt_regs *regs, unsigned long thread_flags)
- 				       (void __user *)NULL, current);
- 		}
- 
-+		if (thread_flags & _TIF_PATCH_PENDING)
-+			klp_update_patch_state(current);
-+
- 		if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
- 			do_signal(regs);
- 
--- 
-2.47.1
-
+Best,
+Changyuan
 
