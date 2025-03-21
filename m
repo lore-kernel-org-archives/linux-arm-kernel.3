@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598BAC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 16:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A331C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 17:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iEEiGEhv7GrcoqTpPPcsYvqSGcI47R8J2PWoqrefKrI=; b=Uqx6ufnSb7RI0yi9wefU0K7JwD
-	7K1leHxissgGIGGSUS7O0m0ulx04DuJKFg/ASe/bNY1br9yuH1ZroSPyOt2JR9dJoazmiFDUrfdoJ
-	7ydH+RRwfW3SMgyMov7Zlbj+yEmCnZgoyrEREwbnwvkV4e7uIfIUdij2wX36UsQuKp0nQBd7A1Tte
-	Z7uSgX2L0awGYoXJOx7zoGUVrQahK+f4RY2vecAiV2x8b7IdaorzzbH0n32MvmlTTtrpmJjbsK6ms
-	jKMWrDtSZZkGd9evObeqGuLD49jO+uE3djoFXs4aQdJsubTrSeMtKm4TP5yCRnrYgmmNL6BuwteDe
-	sgeG15mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T1YEjPn52FRVRTrD6KDhfuu3b/bEaHroSqlT2w2m7mI=; b=xbM/O54zSSS9W9tqGY2v+4dhBn
+	oc6hrAqQoFF4GTNUMqzI0x0AkKWUjFaNkmg0ecB+64TFxjsnIrcDMBr1UI55KAEpUXXWiEOK0Vs6c
+	x/naoi0FuQO6hD3Fn87OCaWbJQ2PSf+AyWBxSsosHad9JIgX5ZyRUT3hFRd2TVVi/S7NZBjY37xWn
+	CnJlI4FVskKDHFmVVBdXHA71NGlcsrKPOvOh2rOXuJqlF/hPgj6fcN5Vj0LSCwYrS3CjRvyfyPTdr
+	pUJ2rZtOrp+nBM5xsKrXeyNhIUHIoeiIg5m6IgTF2adpbwkW39xwA4kJr5n2QxGjrCEjd+zNZkj+8
+	cDGQk++w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvfaB-0000000FaM5-1w6z;
-	Fri, 21 Mar 2025 16:50:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvfYE-0000000FZnD-1mFF
+	id 1tvfp6-0000000FdPm-3Tuc;
+	Fri, 21 Mar 2025 17:06:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvfnP-0000000Fd1Q-0o6h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 16:48:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12A25106F;
-	Fri, 21 Mar 2025 09:49:01 -0700 (PDT)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 791DD3F63F;
-	Fri, 21 Mar 2025 09:48:50 -0700 (PDT)
-Message-ID: <135390b1-c0c5-4595-a3f3-1fb376473872@arm.com>
-Date: Fri, 21 Mar 2025 16:48:46 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
- path
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
- Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- Charan Teja Kalla <quic_charante@quicinc.com>
-References: <cover.1740753261.git.robin.murphy@arm.com>
- <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
- <CGME20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd@eucas1p2.samsung.com>
- <9b358d68-332e-404e-9a75-740297f7b28d@samsung.com>
- <417d6f59-0d78-4e81-ad0b-e06846f786b0@arm.com>
- <bf2adf5d-1432-4bb7-846c-e1bcfa84858b@samsung.com>
- <016bb7ca-f0d3-464e-ac74-46e6f78e90d7@arm.com>
- <b63ff6b4-9dc3-42ea-8b87-d4fdead8d0eb@arm.com>
- <cdc333e4-25bb-4171-9f6e-01f1de947db3@samsung.com>
- <d6cd5e64-e2c0-4c6e-9c89-ce8b3e0a4a5b@arm.com>
- <ace3a01f-4700-4455-ada3-0f88fc8ea4cd@samsung.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <ace3a01f-4700-4455-ada3-0f88fc8ea4cd@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Fri, 21 Mar 2025 17:04:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 773F85C6E5E;
+	Fri, 21 Mar 2025 17:02:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D58BC4CEE3;
+	Fri, 21 Mar 2025 17:04:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742576674;
+	bh=4BIhvc3+qX0OSvURR+5GbIbaBgN0H4vLEDwiLUkmYk0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=r8gXM74F/+FGR0yRaBVaczuaUVE0HAnVuuKBIGwW1wkvw57XgJlAzu5Txf+qOg1yU
+	 Pm1KKfAGtuXFjrY2VX+79XtObxfKBwV/wCQDl5/J/oiNix0bXDH6oll9RRVBVYK3zk
+	 Wlb6hHOE8FhyDF/V4ggnKrje+iy/YKeb8AVrdDl2JnFBEFIPpYAAWgaRZpHay70pRo
+	 u0noL0xozzR6HommJQd7dnQKAQOhT30qDW891zYRxQPM2tZvNAb+mWzqeJvf2mYBn+
+	 wNmpsGilzTsHBW7YEyPi79Z7T/Bjh+n4vYrQEnNDCzZvGvd+4nzwyGipOFSEKg0MDL
+	 cutBPKbjuLuIg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tvfnL-00Frrz-HD;
+	Fri, 21 Mar 2025 17:04:31 +0000
+Date: Fri, 21 Mar 2025 17:04:22 +0000
+Message-ID: <87cyeaqprd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Ricardo Koller <ricarkol@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Andrew Jones <drjones@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH] KVM: selftests: Fix a couple "prio" signedness bugs
+In-Reply-To: <ca579322-dc9d-4300-bd74-7e9240e930c7@stanley.mountain>
+References: <ca579322-dc9d-4300-bd74-7e9240e930c7@stanley.mountain>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dan.carpenter@linaro.org, ricarkol@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org, drjones@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_094854_551100_9ECCA64C 
-X-CRM114-Status: GOOD (  34.01  )
+X-CRM114-CacheID: sfid-20250321_100435_312973_1A55FF98 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,162 +95,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/03/2025 12:15 pm, Marek Szyprowski wrote:
-> On 17.03.2025 19:22, Robin Murphy wrote:
->> On 17/03/2025 7:37 am, Marek Szyprowski wrote:
->>> On 13.03.2025 15:12, Robin Murphy wrote:
->>>> On 2025-03-13 1:06 pm, Robin Murphy wrote:
->>>>> On 2025-03-13 12:23 pm, Marek Szyprowski wrote:
->>>>>> On 13.03.2025 12:01, Robin Murphy wrote:
->>>>>>> On 2025-03-13 9:56 am, Marek Szyprowski wrote:
->>>>>>> [...]
->>>>>>>> This patch landed in yesterday's linux-next as commit bcb81ac6ae3c
->>>>>>>> ("iommu: Get DT/ACPI parsing into the proper probe path"). In my
->>>>>>>> tests I
->>>>>>>> found it breaks booting of ARM64 RK3568-based Odroid-M1 board
->>>>>>>> (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts). Here is the
->>>>>>>> relevant kernel log:
->>>>>>>
->>>>>>> ...and the bug-flushing-out begins!
->>>>>>>
->>>>>>>> Unable to handle kernel NULL pointer dereference at virtual address
->>>>>>>> 00000000000003e8
->>>>>>>> Mem abort info:
->>>>>>>>        ESR = 0x0000000096000004
->>>>>>>>        EC = 0x25: DABT (current EL), IL = 32 bits
->>>>>>>>        SET = 0, FnV = 0
->>>>>>>>        EA = 0, S1PTW = 0
->>>>>>>>        FSC = 0x04: level 0 translation fault
->>>>>>>> Data abort info:
->>>>>>>>        ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
->>>>>>>>        CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->>>>>>>>        GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
->>>>>>>> [00000000000003e8] user address but active_mm is swapper
->>>>>>>> Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
->>>>>>>> Modules linked in:
->>>>>>>> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc3+ #15533
->>>>>>>> Hardware name: Hardkernel ODROID-M1 (DT)
->>>>>>>> pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->>>>>>>> pc : devm_kmalloc+0x2c/0x114
->>>>>>>> lr : rk_iommu_of_xlate+0x30/0x90
->>>>>>>> ...
->>>>>>>> Call trace:
->>>>>>>>       devm_kmalloc+0x2c/0x114 (P)
->>>>>>>>       rk_iommu_of_xlate+0x30/0x90
->>>>>>>
->>>>>>> Yeah, looks like this is doing something a bit questionable which
->>>>>>> can't
->>>>>>> work properly. TBH the whole dma_dev thing could probably be
->>>>>>> cleaned up
->>>>>>> now that we have proper instances, but for now does this work?
->>>>>>
->>>>>> Yes, this patch fixes the problem I've observed.
->>>>>>
->>>>>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>>>>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>>>>>
->>>>>> BTW, this dma_dev idea has been borrowed from my exynos_iommu driver
->>>>>> and
->>>>>> I doubt it can be cleaned up.
->>>>>
->>>>> On the contrary I suspect they both can - it all dates back to when
->>>>> we had the single global platform bus iommu_ops and the SoC drivers
->>>>> were forced to bodge their own notion of multiple instances, but with
->>>>> the modern core code, ops are always called via a valid IOMMU
->>>>> instance or domain, so in principle it should always be possible to
->>>>> get at an appropriate IOMMU device now. IIRC it was mostly about
->>>>> allocating and DMA-mapping the pagetables in domain_alloc, where the
->>>>> private notion of instances didn't have enough information, but
->>>>> domain_alloc_paging solves that.
->>>>
->>>> Bah, in fact I think I am going to have to do that now, since although
->>>> it doesn't crash, rk_domain_alloc_paging() will also be failing for
->>>> the same reason. Time to find a PSU for the RK3399 board, I guess...
->>>>
->>>> (Or maybe just move the dma_dev assignment earlier to match Exynos?)
->>>
->>> Well I just found that Exynos IOMMU is also broken on some on my test
->>> boards. It looks that the runtime pm links are somehow not correctly
->>> established. I will try to analyze this later in the afternoon.
->>
->> Hmm, I tried to get an Odroid-XU3 up and running, but it seems unable
->> to boot my original 6.14-rc3-based branch - even with the IOMMU driver
->> disabled, it's consistently dying somewhere near (or just after) init
->> with what looks like some catastrophic memory corruption issue - very
->> occasionally it's managed to print the first line of various different
->> panics.
->>
->> Before that point though, with the IOMMU driver enabled it does appear
->> to show signs of working OK:
->>
->> [    0.649703] exynos-sysmmu 14650000.sysmmu: hardware version: 3.3
->> [    0.654220] platform 14450000.mixer: Adding to iommu group 1
->> ...
->> [    2.680920] exynos-mixer 14450000.mixer:
->> exynos_iommu_attach_device: Attached IOMMU with pgtable 0x42924000
->> ...
->> [    5.196674] exynos-mixer 14450000.mixer:
->> exynos_iommu_identity_attach: Restored IOMMU to IDENTITY from pgtable
->> 0x42924000
->> [    5.207091] exynos-mixer 14450000.mixer:
->> exynos_iommu_attach_device: Attached IOMMU with pgtable 0x42884000
->>
->>
->> The multi-instance stuff in probe/release does look a bit suspect,
->> however - seems like the second instance probe would overwrite the
->> first instance's links, and then there would be a double-del() if the
->> device were ever actually released again? I may have made that much
->> more likely to happen, but I suspect it was already possible with
->> async driver probe...
+Hey Dan,
+
+On Fri, 21 Mar 2025 14:32:53 +0000,
+Dan Carpenter <dan.carpenter@linaro.org> wrote:
 > 
-> That is really strange. My Odroid XU3 boots fine from commit
-> bcb81ac6ae3c ("iommu: Get DT/ACPI parsing into the proper probe path"),
-> although the IOMMU seems not to be working correctly. I've tested this
-> with 14450000.mixer device (one need to attach HDMI cable to get it
-> activated) and it looks that the video data are not being read from
-> memory at all (the lack of VSYNC is reported, no IOMMU fault). However,
-> from time to time, everything initializes and works properly.
+> There is an assert which relies on "prio" to be signed.
+> 
+> 	GUEST_ASSERT(prio >= 0);
+> 
+> Change the type from uint32_t to int.
+> 
+> Fixes: 728fcc46d2c2 ("KVM: selftests: aarch64: Add test for restoring active IRQs")
+> Fixes: 0ad3ff4a6adc ("KVM: selftests: aarch64: Add preemption tests in vgic_irq")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+> ---
+>  tools/testing/selftests/kvm/arm64/vgic_irq.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+> index f4ac28d53747..e89c0fc5eef3 100644
+> --- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
+> +++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+> @@ -294,7 +294,8 @@ static void guest_restore_active(struct test_args *args,
+>  		uint32_t first_intid, uint32_t num,
+>  		kvm_inject_cmd cmd)
+>  {
+> -	uint32_t prio, intid, ap1r;
+> +	uint32_t intid, ap1r;
+> +	int prio;
+>  	int i;
+>  
+>  	/*
+> @@ -362,7 +363,8 @@ static void test_inject_preemption(struct test_args *args,
+>  		uint32_t first_intid, int num,
+>  		kvm_inject_cmd cmd)
+>  {
+> -	uint32_t intid, prio, step = KVM_PRIO_STEPS;
+> +	uint32_t intid, step = KVM_PRIO_STEPS;
+> +	int prio;
+>  	int i;
+>  
+>  	/* Set the priorities of the first (KVM_NUM_PRIOS - 1) IRQs
 
-Urgh, seems my mistake was assuming exynos_defconfig was the right thing 
-to begin from - bcb81ac6ae3c with that still dies in the same way (this 
-time I saw a hint of spin_bug() being hit...), however a 
-multi_v7_defconfig build does get to userspace OK again with no obvious 
-signs of distress:
+I think this is going in the wrong direction. A GIC priority is an
+unsigned 8bit value as per the architecture definition.
 
-[root@alarm ~]# grep -Hr . /sys/kernel/iommu_groups/*/type
-/sys/kernel/iommu_groups/0/type:identity
-/sys/kernel/iommu_groups/1/type:identity
-/sys/kernel/iommu_groups/10/type:identity
-/sys/kernel/iommu_groups/2/type:identity
-/sys/kernel/iommu_groups/3/type:identity
-/sys/kernel/iommu_groups/4/type:identity
-/sys/kernel/iommu_groups/5/type:identity
-/sys/kernel/iommu_groups/6/type:identity
-/sys/kernel/iommu_groups/7/type:identity
-/sys/kernel/iommu_groups/8/type:identity
-/sys/kernel/iommu_groups/9/type:identity
-
-Annoyingly I do have an adapter for the fiddly micro-HDMI, but it's at 
-home :(
-
-> It looks that this is somehow related to the different IOMMU/DMA-mapping
-> glue code, as the other boards (ARM64 based) with exactly the same
-> Exynos IOMMU driver always work fine. I've tried to figure out what
-> actually happens, but so far I didn't get anything for sure. Disabling
-> the call to dev->bus->dma_configure(dev) from iommu_init_device() seems
-> to be fixing this, but this is almost equal to the revert of the
-> $subject patch. I don't get why calling it in iommu_init_device() causes
-> problems. It also doesn't look that this is anyhow related to the
-> multi-instance stuff, as the same happens if I only leave a single
-> exynos-sysmmu instance and its client (only 14450000.mixer device in the
-> system).
-
-On a hunch I stuck a print in exynos_iommu_probe_device(), and it looks 
-like in fact device_link_add() isn't getting called at all, and indeed 
-your symptoms do sound like they could be explained by the IOMMU not 
-being reliably resumed... lemme stare at exynos_iommu_of_xlate() a bit 
-longer...
+So the type used by the test the first place looks wrong (it is too
+wide), and the assertion is pointless.
 
 Thanks,
-Robin.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
