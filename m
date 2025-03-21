@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03047C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 00:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D570EC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 00:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+JGFzTmfFN9TcBTmXbt5/36yDQUz9uOadscRAvvTdg=; b=rf0iDzGZhBa/4DaQrhShJI/XqQ
-	Nrr+Sjlwr7xTiwoF8WIQQYK96znLKCvlw3whi36pFIL0H7a9X35Hg8bmoC3WA46GNvKcxRPPzU0zP
-	xZQeIrff9gV0pQeAHCTYoutS7XFsvMDBrRWjAWEw8Zhb813G1H82oudgkXRlyGTJfe6pGAxz0Shc2
-	l3C+PJtNq80YT+PjC7s245Hp5fMrJcnNEAPxvnFlsZbJBffJkIWRQhNMjCr4PaKRWD1uZEFIJiZLq
-	/euAXaE0jhiWgY4e4KPCaytzt7b++L64m6g9/5gp5Jdo4BDqP3Jiw2x30p5+TII06CZ5M2HJ/9dcr
-	PWFKCbqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CfoOI8wUX0Ky9/ttBj+qxrjbxy7PSmmVL33ECKqOn5Y=; b=LTfWOwpl0KiRhEA1wr50Rqv/pD
+	61NigtgzfVKS47UsZGlANitaKSoFwNDlpK5vOVeJuhl+JcT33vzEHpyLQt5KU0NoIYECWaYQSWmIK
+	bdM1/Fv94X2J0n9GWK+Ky50T+DW3lLgKtOXl/GqIhGtdaB5dMhIQdlpN/GG+iIwB9e/Vyldax8x8I
+	2j/RXPz6mU1izwewu/bISGR8QYbnPjpEfEjhKJYeGIZgPHt7yG9q4lkMH/p89MplF2HOLvon2GkMp
+	vpBnvJsCOS15mg2MwzxjQACqSh/pt/H2T2eVtB5POZRf/TaPQESCDBDlZgk7MzLE0PHcohYNXooDv
+	7cBtJsNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvPp0-0000000DVQW-0XIA;
-	Fri, 21 Mar 2025 00:01:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1tvPzv-0000000DWYt-42YC;
+	Fri, 21 Mar 2025 00:12:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvPnE-0000000DVIO-42mg;
-	Thu, 20 Mar 2025 23:59:25 +0000
+	id 1tvPyE-0000000DWGi-2iPU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 00:10:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2606434C0;
-	Thu, 20 Mar 2025 23:59:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2221C4CEE3;
-	Thu, 20 Mar 2025 23:59:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 01277615BB;
+	Fri, 21 Mar 2025 00:10:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B784C4CEEA;
+	Fri, 21 Mar 2025 00:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742515160;
-	bh=evM+amhGbjZ9x7OIKn/QbuenV/Wj5MsmMJhPkJ8VTjY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rs0DPUV9zV0Uh3UJUVAaqOSZ8/AXf7YpZaSg3W5xA2NUU1AUIhYHnewaUWoEqnIoI
-	 Y0WJnRxRrJ9S1x3G4bAM9ETNT4nEz5N0ENjmdtPSMkyWC7BmoodOjSRQfD6CHjsUp+
-	 F1dL60Sqi+VsMHv3ZJGxutJNf0bdeaxmk9d9RK+WDeNI6iouW/TwreD/0gT/8VPWPu
-	 /DXBXlAAVg28MxmvIPQIyMOPEf1l11zmBbmB6raXMn5YxfCa0p4BMhytQyYa63mi05
-	 VNvu3dKS87nWgN+l+eRy8aKFQzzzOx3ltasno+/aFng3wMLttpShWjnUFAlnm/mM0S
-	 n4T3x8sQPeM3g==
-Date: Thu, 20 Mar 2025 16:59:17 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v7 00/14] perf: Support multiple system call tables in
- the build
-Message-ID: <Z9yr1dnrX0DgDHgn@google.com>
-References: <20250319050741.269828-1-irogers@google.com>
+	s=k20201202; t=1742515841;
+	bh=DsuzL5d+FWDPkIB2OfoSKH9+2zOmH96rLhi5fPoGYRE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=sEoDBCp8Opot2VTK9ewTsTZ76hHP3CEhvm+CIL0kydDSTfvQ0aScO4AImRG1Z1js/
+	 LqnW9UBJxpmYUz0hCDKbxulVL4Zm4l6j0BY9VY86NMDMTyFDKgjj4o9qrcS7keRZZt
+	 R4PSV1ORmiryrnSmD9na9JXFxnUoocviUKpa8qX/78bzYFIrDKk17izbKtZmCgXByp
+	 Iqd4pxvuw6yJ2wGn0+4spVw18S5UudHohOLegE4k20mUWGk6UsJLfXhFY9LiPZVFz5
+	 WdDfCzn5DCXtxtIKbUzcs072ZNlLkqwZyYykPp3tsOUR41PbIRAliFQGgnkT7IhESU
+	 kq6zzCtnDJWvQ==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 21 Mar 2025 00:10:10 +0000
+Subject: [PATCH 6.13 v2 1/8] KVM: arm64: Calculate cptr_el2 traps on
+ activating traps
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_165921_044626_254A3AD0 
-X-CRM114-Status: GOOD (  29.04  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250321-stable-sve-6-13-v2-1-3150e3370c40@kernel.org>
+References: <20250321-stable-sve-6-13-v2-0-3150e3370c40@kernel.org>
+In-Reply-To: <20250321-stable-sve-6-13-v2-0-3150e3370c40@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, Fuad Tabba <tabba@google.com>, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7022; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Q+UuVlKjNzo07rKv9ONYZ0AiJSCiuDy2BQeY+ELpVSM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn3K50AaI1BRRAzjH1OcAmYjgxLDhtRdBWhvWQT5e0
+ OWmGHQyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ9yudAAKCRAk1otyXVSH0BHqB/
+ 4oil2ZJp6zQRHWQZOPxtTSsOY03+zuDi1y0Ix2y2SIv/sMc97sb1sFff2FokjugZGVzAhATMk7Dk4x
+ 6w5Kk1f7ETS9V6gMXczbgSk1w7P5Bt9pVCiL1DXccPcWvobcvmcWjxjlC9/erRL1qR8GF7rO/C3zSg
+ dROIcf18bx+dudnDgRCeI+Ohob/SWM6Qrjpjl98Mirpy62/nH0hJpEB2zfUJQL8q5A4SBuNYLwradh
+ k4RWUKU5dK7nRcr3OGjzTbLQpo64cJPA+wci44SqFD6pnZsv92oDsZNWIXYGLoduGsaUCMoCxp+QrJ
+ d008/SBf0hgdNluU7tb54TL0yzQPYg
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,190 +86,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 10:07:27PM -0700, Ian Rogers wrote:
-> This work builds on the clean up of system call tables and removal of
-> libaudit by Charlie Jenkins <charlie@rivosinc.com>.
-> 
-> The system call table in perf trace is used to map system call numbers
-> to names and vice versa. Prior to these changes, a single table
-> matching the perf binary's build was present. The table would be
-> incorrect if tracing say a 32-bit binary from a 64-bit version of
-> perf, the names and numbers wouldn't match.
-> 
-> Change the build so that a single system call file is built and the
-> potentially multiple tables are identifiable from the ELF machine type
-> of the process being examined. To determine the ELF machine type, the
-> executable's maps are searched and the associated DSOs ELF headers are
-> read. When this fails and when live, /proc/pid/exe's ELF header is
-> read. Fallback to using the perf's binary type when unknown.
-> 
-> Remove some runtime types used by the system call tables and make
-> equivalents generated at build time.
-> 
-> v7: Rebase for dso data locking changes. Don't NULL check before
->     btf__free (Arnaldo). Add patch to clean up perf trace's evlist to
->     make leak sanitizer happier.
-> 
-> v6: Incorporate Namhyung's fixes:
->     https://lore.kernel.org/lkml/Z9PCjQ8PhOadVGQ8@google.com/
->     https://lore.kernel.org/lkml/Z9YHCzINiu4uBQ8B@google.com/
->     Which highlighted an issue with syscall pointers becoming
->     stale. Add a patch 12 to make the syscall table a table of
->     pointers that don't move so that struct syscalls don't move. Add a
->     patch 13 fixing a BTF memory leak.
-> 
-> v5: Add byte swap to dso__e_machine and fix comment as suggested by
->     Namhyung.
-> 
-> v4: Add reading the e_machine from the thread's maps dsos, only read
->     from /proc/pid/exe on failure and when live as requested by
->     Namhyung. Add patches to add dso comments and remove unused
->     dso_data variables that are unused without libunwind.
-> 
-> v3: Add Charlie's reviewed-by tags. Incorporate feedback from Arnd
->     Bergmann <arnd@arndb.de> on additional optional column and MIPS
->     system call numbering. Rebase past Namhyung's global system call
->     statistics and add comments that they don't yet support an
->     e_machine other than EM_HOST.
-> 
-> v2: Change the 1 element cache for the last table as suggested by
->     Howard Chu, add Howard's reviewed-by tags.
->     Add a comment and apology to Charlie for not doing better in
->     guiding:
->     https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
->     After discussion on v1 and he agreed this patch series would be
->     the better direction.
-> 
-> Ian Rogers (14):
->   perf dso: Move libunwind dso_data variables into ifdef
->   perf dso: kernel-doc for enum dso_binary_type
->   perf syscalltbl: Remove syscall_table.h
->   perf trace: Reorganize syscalls
->   perf syscalltbl: Remove struct syscalltbl
->   perf dso: Add support for reading the e_machine type for a dso
->   perf thread: Add support for reading the e_machine type for a thread
->   perf trace beauty: Add syscalltbl.sh generating all system call tables
->   perf syscalltbl: Use lookup table containing multiple architectures
->   perf build: Remove Makefile.syscalls
->   perf syscalltbl: Mask off ABI type for MIPS system calls
->   perf trace: Make syscall table stable
->   perf trace: Fix BTF memory leak
->   perf trace: Fix evlist memory leak
+From: Fuad Tabba <tabba@google.com>
 
-Reviewed-by: Namhyung Kim <namhyung@kernel.org>
+[ Upstream commit 2fd5b4b0e7b440602455b79977bfa64dea101e6c ]
 
-Thanks,
-Namhyung
+Similar to VHE, calculate the value of cptr_el2 from scratch on
+activate traps. This removes the need to store cptr_el2 in every
+vcpu structure. Moreover, some traps, such as whether the guest
+owns the fp registers, need to be set on every vcpu run.
 
-> 
->  tools/perf/Makefile.perf                      |  10 +-
->  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
->  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/alpha/include/syscall_table.h |   2 -
->  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
->  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
->  tools/perf/arch/arc/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
->  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
->  tools/perf/arch/arm/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
->  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
->  tools/perf/arch/arm64/include/syscall_table.h |   8 -
->  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
->  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
->  tools/perf/arch/csky/include/syscall_table.h  |   2 -
->  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
->  .../entry/syscalls/Makefile.syscalls          |   3 -
->  .../arch/loongarch/include/syscall_table.h    |   2 -
->  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
->  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/mips/include/syscall_table.h  |   2 -
->  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
->  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
->  .../perf/arch/parisc/include/syscall_table.h  |   8 -
->  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
->  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
->  .../perf/arch/powerpc/include/syscall_table.h |   8 -
->  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
->  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
->  tools/perf/arch/riscv/include/syscall_table.h |   8 -
->  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
->  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/s390/include/syscall_table.h  |   2 -
->  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
->  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
->  tools/perf/arch/sh/include/syscall_table.h    |   2 -
->  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
->  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/sparc/include/syscall_table.h |   8 -
->  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
->  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
->  tools/perf/arch/x86/include/syscall_table.h   |   8 -
->  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
->  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
->  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
->  tools/perf/builtin-trace.c                    | 339 ++++++++++++------
->  tools/perf/scripts/Makefile.syscalls          |  61 ----
->  tools/perf/scripts/syscalltbl.sh              |  86 -----
->  tools/perf/trace/beauty/syscalltbl.sh         | 274 ++++++++++++++
->  tools/perf/util/dso.c                         |  89 +++++
->  tools/perf/util/dso.h                         |  62 ++++
->  tools/perf/util/symbol-elf.c                  |  27 --
->  tools/perf/util/syscalltbl.c                  | 148 ++++----
->  tools/perf/util/syscalltbl.h                  |  22 +-
->  tools/perf/util/thread.c                      |  80 +++++
->  tools/perf/util/thread.h                      |  14 +-
->  57 files changed, 839 insertions(+), 543 deletions(-)
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
->  delete mode 100644 tools/perf/scripts/Makefile.syscalls
->  delete mode 100755 tools/perf/scripts/syscalltbl.sh
->  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
-> 
-> -- 
-> 2.49.0.rc1.451.g8f38331e32-goog
-> 
+Reported-by: James Clark <james.clark@linaro.org>
+Fixes: 5294afdbf45a ("KVM: arm64: Exclude FP ownership from kvm_vcpu_arch")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+Link: https://lore.kernel.org/r/20241216105057.579031-13-tabba@google.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/include/asm/kvm_host.h |  1 -
+ arch/arm64/kvm/arm.c              |  1 -
+ arch/arm64/kvm/hyp/nvhe/pkvm.c    | 30 -----------------------
+ arch/arm64/kvm/hyp/nvhe/switch.c  | 51 ++++++++++++++++++++++++---------------
+ 4 files changed, 32 insertions(+), 51 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index c85aa4f1def810a08e7bfa4ab181760839521c25..6762dadce45deb657b6e8df3e14dc9fbef884f1d 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -708,7 +708,6 @@ struct kvm_vcpu_arch {
+ 	u64 hcr_el2;
+ 	u64 hcrx_el2;
+ 	u64 mdcr_el2;
+-	u64 cptr_el2;
+ 
+ 	/* Exception Information */
+ 	struct kvm_vcpu_fault_info fault;
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 3b3ecfed294f2be5bf545f4e89ba6e53415625f5..591f512ab072963424f4b2287a1a572fc72bd639 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1569,7 +1569,6 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+ 	}
+ 
+ 	vcpu_reset_hcr(vcpu);
+-	vcpu->arch.cptr_el2 = kvm_get_reset_cptr_el2(vcpu);
+ 
+ 	/*
+ 	 * Handle the "start in power-off" case.
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 071993c16de81ca0b0181c56d0598b1b026ae018..6405fa30f961723c0da0761be079e09f91b7e8e1 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -31,8 +31,6 @@ static void pvm_init_traps_aa64pfr0(struct kvm_vcpu *vcpu)
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR0_EL1);
+ 	u64 hcr_set = HCR_RW;
+ 	u64 hcr_clear = 0;
+-	u64 cptr_set = 0;
+-	u64 cptr_clear = 0;
+ 
+ 	/* Protected KVM does not support AArch32 guests. */
+ 	BUILD_BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0),
+@@ -62,21 +60,10 @@ static void pvm_init_traps_aa64pfr0(struct kvm_vcpu *vcpu)
+ 	/* Trap AMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AMU), feature_ids)) {
+ 		hcr_clear |= HCR_AMVOFFEN;
+-		cptr_set |= CPTR_EL2_TAM;
+-	}
+-
+-	/* Trap SVE */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_clear |= CPACR_ELx_ZEN;
+-		else
+-			cptr_set |= CPTR_EL2_TZ;
+ 	}
+ 
+ 	vcpu->arch.hcr_el2 |= hcr_set;
+ 	vcpu->arch.hcr_el2 &= ~hcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+-	vcpu->arch.cptr_el2 &= ~cptr_clear;
+ }
+ 
+ /*
+@@ -106,7 +93,6 @@ static void pvm_init_traps_aa64dfr0(struct kvm_vcpu *vcpu)
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64DFR0_EL1);
+ 	u64 mdcr_set = 0;
+ 	u64 mdcr_clear = 0;
+-	u64 cptr_set = 0;
+ 
+ 	/* Trap/constrain PMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), feature_ids)) {
+@@ -133,21 +119,12 @@ static void pvm_init_traps_aa64dfr0(struct kvm_vcpu *vcpu)
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceFilt), feature_ids))
+ 		mdcr_set |= MDCR_EL2_TTRF;
+ 
+-	/* Trap Trace */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceVer), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_set |= CPACR_EL1_TTA;
+-		else
+-			cptr_set |= CPTR_EL2_TTA;
+-	}
+-
+ 	/* Trap External Trace */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_ExtTrcBuff), feature_ids))
+ 		mdcr_clear |= MDCR_EL2_E2TB_MASK;
+ 
+ 	vcpu->arch.mdcr_el2 |= mdcr_set;
+ 	vcpu->arch.mdcr_el2 &= ~mdcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+ }
+ 
+ /*
+@@ -198,10 +175,6 @@ static void pvm_init_trap_regs(struct kvm_vcpu *vcpu)
+ 	/* Clear res0 and set res1 bits to trap potential new features. */
+ 	vcpu->arch.hcr_el2 &= ~(HCR_RES0);
+ 	vcpu->arch.mdcr_el2 &= ~(MDCR_EL2_RES0);
+-	if (!has_hvhe()) {
+-		vcpu->arch.cptr_el2 |= CPTR_NVHE_EL2_RES1;
+-		vcpu->arch.cptr_el2 &= ~(CPTR_NVHE_EL2_RES0);
+-	}
+ }
+ 
+ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+@@ -236,7 +209,6 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+  */
+ static void pkvm_vcpu_init_traps(struct kvm_vcpu *vcpu)
+ {
+-	vcpu->arch.cptr_el2 = kvm_get_reset_cptr_el2(vcpu);
+ 	vcpu->arch.mdcr_el2 = 0;
+ 
+ 	pkvm_vcpu_reset_hcr(vcpu);
+@@ -693,8 +665,6 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
+ 		return ret;
+ 	}
+ 
+-	hyp_vcpu->vcpu.arch.cptr_el2 = kvm_get_reset_cptr_el2(&hyp_vcpu->vcpu);
+-
+ 	return 0;
+ }
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index cc69106734ca732ba9276ac1eaf84be3e7381648..81d933a71310fd1132b2450cd08108e071a2cf78 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -36,33 +36,46 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+ 
+ extern void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
+ 
+-static void __activate_traps(struct kvm_vcpu *vcpu)
++static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+ {
+-	u64 val;
++	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+ 
+-	___activate_traps(vcpu, vcpu->arch.hcr_el2);
+-	__activate_traps_common(vcpu);
++	if (has_hvhe()) {
++		val |= CPACR_ELx_TTA;
+ 
+-	val = vcpu->arch.cptr_el2;
+-	val |= CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+-	val |= has_hvhe() ? CPACR_EL1_TTA : CPTR_EL2_TTA;
+-	if (cpus_have_final_cap(ARM64_SME)) {
+-		if (has_hvhe())
+-			val &= ~CPACR_ELx_SMEN;
+-		else
+-			val |= CPTR_EL2_TSM;
+-	}
++		if (guest_owns_fp_regs()) {
++			val |= CPACR_ELx_FPEN;
++			if (vcpu_has_sve(vcpu))
++				val |= CPACR_ELx_ZEN;
++		}
++	} else {
++		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
+ 
+-	if (!guest_owns_fp_regs()) {
+-		if (has_hvhe())
+-			val &= ~(CPACR_ELx_FPEN | CPACR_ELx_ZEN);
+-		else
+-			val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
++		/*
++		 * Always trap SME since it's not supported in KVM.
++		 * TSM is RES1 if SME isn't implemented.
++		 */
++		val |= CPTR_EL2_TSM;
+ 
+-		__activate_traps_fpsimd32(vcpu);
++		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
++			val |= CPTR_EL2_TZ;
++
++		if (!guest_owns_fp_regs())
++			val |= CPTR_EL2_TFP;
+ 	}
+ 
++	if (!guest_owns_fp_regs())
++		__activate_traps_fpsimd32(vcpu);
++
+ 	kvm_write_cptr_el2(val);
++}
++
++static void __activate_traps(struct kvm_vcpu *vcpu)
++{
++	___activate_traps(vcpu, vcpu->arch.hcr_el2);
++	__activate_traps_common(vcpu);
++	__activate_cptr_traps(vcpu);
++
+ 	write_sysreg(__this_cpu_read(kvm_hyp_vector), vbar_el2);
+ 
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
+
+-- 
+2.39.5
+
 
