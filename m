@@ -4,162 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7713EC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55673C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8SAS32sWUqrMSSHqOwA3qiSpt4GRQEm8a3yJVSVKFmM=; b=PaqzIDMt5HfvYJTaH03+t9GnYM
-	vhyUMzXHzAVqBcWNI4nZ48WUiTcCxv0QjjyFbqfwPggKQV+nLiK2pvMj/3VyITUPELcVKPV1dhy29
-	x8u7c+imV87wCortFJ4xGCDSq6+lN1ZCdYcf0uXSEGfVOGViRINCXd60eXE1vjKtGzJawudna88Uc
-	3c/MCsOKW9wqAHh9i2L3toIartdTJRsKC4u2DRIRyqvZAwqMG0v6r3Y4+tFy2gSU0Jks8jzXURp9A
-	oQBkvQGK0pZVjrJfM2bEZeBRg7NjPl/jjTdP7Yd25Mi36T7g8uz2GWwY71Szs/tgtK2RX2MSWH5rI
-	P4M7H2pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dq3Hj8gPeDCA8YR5G45cntVoKw1hN2KoBbCsLCkkwSo=; b=UAZAiGDr7ms88y4QCe1WDZWJ2+
+	bcdOOTAkCGbSMx8z9LzNgBmu/IeUX4KmiM4HTujaFZn+hlVhvnKg7zTAt/YyV07nQiiJW+ypsE5+k
+	l5mT81KT3FJjqol1i7OEOxTvKpnlho68N/sk3e3B5YqMUktI6FWgTjyK6mmYe/B7TJuD2bDwKvWOf
+	KJI5CTAUpqkTeSu3OZUXpFGErJVRS8tNzFO/L4wtq7+wSZqsp5iCJaQN2hWST0+raqQDTDGSg3Uv6
+	BRjlmxEpjeOGGwPa2yG3Ju8mevbEytBQdDPM0U+FuHvZu+nPVHv2CI7JcXeBkaBy6uVjZMP8bJywT
+	424ypVmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdQw-0000000F7ks-03th;
-	Fri, 21 Mar 2025 14:33:14 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1tvdS6-0000000F816-2iTg;
+	Fri, 21 Mar 2025 14:34:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdKJ-0000000F6Pd-0fex
+	id 1tvcFS-0000000Ethu-2uXx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 14:26:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bBYqJ58fkdfO0leWY2IMptAoEz1ElxTVShgILthGafa1C691XRPgCgBroCD+5RBD8hiXUKs3bwRlYg04ugPVBvOWXj78AgkCJnNWuLTxs6OQR17gbf2uaScLQcoZWOoX3qgg5/Ncvo6rnS1eFCXNSOsTdDE5G2EYloGzfx2Qs7Hg9SHCHlHFsPT/V2gNK/BBiHqDITwEShGJ2PB3UWzLEOOMSOmcEd4AUze6VQbCMg8QAFK27Vt0XYFaNCyQ3rY9ZCj4TEr/2wWFpj75o1vFFNLoNE67Tht/KrlVRzisIkTWuUoJhCYRMoanSzRtu6yGUgeXct3wql4CsOTsg6T73Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8SAS32sWUqrMSSHqOwA3qiSpt4GRQEm8a3yJVSVKFmM=;
- b=TlC/kVQAIb7YlY95zj87wOkIImS/zjGJ1Hgv81PYeCoBja6bDNjsVgBA91kddI9nluEd1szaIzIY3IA1z3LZ90jyD/ztuovzff4/EjZ9c/MdxOYKm4q5uqkW69MngJtfYvu4yNfOEJk+SeolnwHjVMu7CKVUHh9gJGaUB9Dr88KplntqCwNZENtuEiBalUJAdQ5JU0Z+LLRXs5T3WZbSKZvYYJj9uARJylLyxQSqRLv3rYMkJ89nhxuJ5do1qhMYma3Wt/PxVo282hrdDPgwYuRNposVMudOXKpeNKemeNdHl45Ya8PdzJwmcvcSG78m0HHr0oAfGf3oraoPQbr7Zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8SAS32sWUqrMSSHqOwA3qiSpt4GRQEm8a3yJVSVKFmM=;
- b=VtmL7R80oMI7pzp3kDRFGYfZ2s5m6ScaLqQpEVLyofsGeAcmxzG5EZVqAIYRVtOdA6Q6k4J8tTZb6LDCwdRrMO2Y5ZpjlGSx5LXReeboy7WjWzRJ3ZYjkCPCCwd0IjviA1kPsetnESybOzLrI5nS4Wv7zt7kKwNCrAmZI4dvDRdnX6y+AH5IU4QtZtu219gC0V+t2hARCzxXyGMCY846RgUV2I/EhN6r3jZJbcM4uFn3wfYe41mfqjjSa++hk9ME2GqkRjMCiGvu5zCkTYj7VfDtyxev60vnUJBIsFoAIDIA7awCY7Isgzm1nqjDcEtE740yy0ao9cTmUaj3Di2Guw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by DUZPR04MB10061.eurprd04.prod.outlook.com (2603:10a6:10:4df::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.34; Fri, 21 Mar
- 2025 14:26:19 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db%4]) with mapi id 15.20.8534.031; Fri, 21 Mar 2025
- 14:26:19 +0000
-From: florin.leotescu@oss.nxp.com
-To: Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: viorel.suman@nxp.com,
-	carlos.song@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	festevam@gmail.com,
-	Florin Leotescu <florin.leotescu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v6 3/3] hwmon: emc2305: Use devm_thermal_of_cooling_device_register
-Date: Fri, 21 Mar 2025 16:33:08 +0200
-Message-Id: <20250321143308.4008623-4-florin.leotescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250321143308.4008623-1-florin.leotescu@oss.nxp.com>
-References: <20250321143308.4008623-1-florin.leotescu@oss.nxp.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM4PR0302CA0033.eurprd03.prod.outlook.com
- (2603:10a6:205:2::46) To DU7PR04MB11163.eurprd04.prod.outlook.com
- (2603:10a6:10:5b3::14)
+	Fri, 21 Mar 2025 13:17:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1742563037;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Dq3Hj8gPeDCA8YR5G45cntVoKw1hN2KoBbCsLCkkwSo=;
+	b=F3S2CpriR1xdy2NFYAJS/80OK7+YibUTyBnAAdQINFzmvaZJyq0fpbqauOL8YWGPxhtkjR
+	XBLuPzW6zEzTGqkbQ7g0fjb6wZH1H+ajW/e9XAd+RnYrCBQ6PWKFkdmEknYEFdFdS9PX4t
+	oIf3mLZUUWd94EDQY8ZsEXLmKLHzlUg=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-686-sBgCXd4_OxSeabVdlLyN8w-1; Fri, 21 Mar 2025 09:17:16 -0400
+X-MC-Unique: sBgCXd4_OxSeabVdlLyN8w-1
+X-Mimecast-MFC-AGG-ID: sBgCXd4_OxSeabVdlLyN8w_1742563035
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-43d51bd9b41so6336355e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 06:17:16 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742563035; x=1743167835;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Dq3Hj8gPeDCA8YR5G45cntVoKw1hN2KoBbCsLCkkwSo=;
+        b=VSH0VsmC+QQlydrVNIB+0EnjJbBXw58acqEDZwt/vZjTLZzkCXAmPOUcLAn7THO4GI
+         vPyLcpU3KIUOuEIdDnkXBsmXbZ473EzfBn1HDvB/4pDrrptBYxiVeuqPvNkgiU17fdV0
+         8vpDL5D1C02nXunYw2navMqjkaLr+Ulcaa0w2EHDP//mgQ8zq61/0RhATjky7+DJizun
+         p9H1dXSL1g4eHe3+xhe2me/TP5Xn90pJsG9xH9OTm180j+7kXfCJd8PrNhn1vYnulce/
+         F9eOZge4yRcTAl/CdzqQqojtVV6tHxGLgLIV5kzbcnBevjV6N4NhziAKaK15zRecGbf1
+         TtPw==
+X-Forwarded-Encrypted: i=1; AJvYcCWJa5CChpb8322ChSaa9MWZb23IuGXrcvu1+xwWdVAlTvvpSvJIXbM0xHaUHtq0y62bFP/plwNoX2SpuEIEH0ac@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzQW/NbWdfEH0rYxWBQNHb+xGRAzTyCjAAqece4LJmajuHQ1tp
+	vKIgmSDNLSdILmxQCPKCL7gJ4AsYw394290PQdhgwRjtJGgld7X+UIoc4RDbznKf0z4Vw3VAHni
+	6D3oz2/LGqi+Gmx+oGCxrYuIXz14ccMoM+Uue+iDixDsKotGIwtCYhtCpf0f+nDwn0bilmpmU
+X-Gm-Gg: ASbGncvCXPuRhUL8U/iXHq8pvnE8u5p1zRtR+ylVH3AXp2vIxmzbMyprXuTQ47NHqJ0
+	vEeOcqncQ4KqwUS857FKCLDsqLnQFOmcb+WRQajwjU7buK/u2QfUHxFxE8qaXNdgn1fAG1Ffgcp
+	fh8vJIa3mCXDQUdZ9KJNr0Xi6L/W3pjOUfocRSbZJc8STfPsLBP3/be7SOrtxyNO3RUmVDqLBIX
+	i/SfEkPtuRv2jrSgEQIclUO9f+J6UImoh9hpQ72reY9eLnTHMs7sCvT78X/e4cSQ3FJ25dgJdIm
+	0zaM5ZUJufT3DcFMaJbkYUqp3zVJzB4Zrh39oRr3Pml5+yc93wNn11fRmS34HVnv9R/c/P6Fk55
+	J4I75sjoMYgPwQ3GeDII6h32DpXQxav/j88yWYs+hw8w=
+X-Received: by 2002:a05:600c:1e0d:b0:43c:f689:88ce with SMTP id 5b1f17b1804b1-43d50a1d1b4mr32164145e9.20.1742563034968;
+        Fri, 21 Mar 2025 06:17:14 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH0Zz8OTC0SBn9u7TvheCk2N+jYIOaRrdB9xOl+x7aeYutuqY8BRuH9FouxASHDSollfi9sWw==
+X-Received: by 2002:a05:600c:1e0d:b0:43c:f689:88ce with SMTP id 5b1f17b1804b1-43d50a1d1b4mr32163515e9.20.1742563034538;
+        Fri, 21 Mar 2025 06:17:14 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c72a:9100:23d2:3800:cdcc:90f0? (p200300cbc72a910023d23800cdcc90f0.dip0.t-ipconnect.de. [2003:cb:c72a:9100:23d2:3800:cdcc:90f0])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f47196sm77012285e9.16.2025.03.21.06.17.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Mar 2025 06:17:14 -0700 (PDT)
+Message-ID: <69256f08-1d1c-45ac-945a-495ef4ffc558@redhat.com>
+Date: Fri, 21 Mar 2025 14:17:12 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|DUZPR04MB10061:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb39ee7d-5ef9-4218-fea9-08dd68845910
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?Z8xigk+HaRKXYn//n/wZp5+12Or4QSve5ejjpJNLaVmDx39PKl5Ho/mK/I?=
- =?iso-8859-1?Q?+GqeCGQbjDYND0OIkmbujS+85y7cRJNhY3/zzH+EF8Ik+SeAVprQktfJId?=
- =?iso-8859-1?Q?uHi9QsGM43JYEI8sF7sGnTKooOildkk/8KqySPKTEXI4r2JokmGbxUd0h8?=
- =?iso-8859-1?Q?z7O4XnB1SAEpyPh01/CXxqW2Jkb6t5xDfEL/A4q8nsgQVstypgns49+E2F?=
- =?iso-8859-1?Q?ilu54Y4vj2VCI3waioHTYDi0zKxVfwVqb5vNNd0NSeHykzudQ8dVj+8Gr/?=
- =?iso-8859-1?Q?3tobMLe8sRQIeve4BG7XV42kYNjEd8OBRDZtrRS+o5u/LSPOiJAuPoXSwc?=
- =?iso-8859-1?Q?cjtncbCGF8eOejdvcNsFWgh7P3ecDRdQYRVqNjUpslmtPsfCmX/xy44c84?=
- =?iso-8859-1?Q?vkmGwOdyWawociKbkyMrj2nKDzqVFNC1wMYHMGxWOTkubl3gS1gQhlNfBr?=
- =?iso-8859-1?Q?rj+s99S7BqU9YHHse9b1wCw3pYgxawcrPsJ52N+wYJCIV7k/jIPAnoZxqB?=
- =?iso-8859-1?Q?TgqnkuDDjpXF50cxcdGiMq7rxKihu9akBFogZmNh97ptLsVk6zk5T2R8sr?=
- =?iso-8859-1?Q?AyfU1MlFjX83giyJvHsf4m0X1yJRDwfzCkd9mwI96w4udWdhPXADBT++XR?=
- =?iso-8859-1?Q?HK9wlSGIoaZ9bV7rkdJcsMnaq9oYuSgBx+qVZ9+SVX6CQJUTHe44sej+VL?=
- =?iso-8859-1?Q?vEo36oWk5KqID5boZ0boZTDB/twR9KkzYhBRE5ice4vZ2wB999lS2vR8Vj?=
- =?iso-8859-1?Q?h0YsvYGvgL0OQ8WHmhKlJ3Cy83mzXSg7dOX3no3P2hzTcP2SjCNld3EGcp?=
- =?iso-8859-1?Q?yKU6ZjecfHDNA+nYNwqu5W/p3C803r0uqZsNeen852bHQOFZFtCXVwi2ov?=
- =?iso-8859-1?Q?RRJBYuwAm4WiEMGAFmtS27PzQsvlfBh0JR3Qf8G2IGHsb6I/phbOlKLqZ7?=
- =?iso-8859-1?Q?t4XlA43hQefyiw4Sp+jDqNZ3d/VtGryMwYyg6/ZZRAwXQABn/IKi1OYdJg?=
- =?iso-8859-1?Q?3P0BU1BhB9rQYW3Dl/JyZrKOxRDXxsX6qfCotXdQi7H8BaeMCFpUn9bBqt?=
- =?iso-8859-1?Q?Dv7vGGGpEPX4yXfw2uQB12tb9k1oCjPRUIgJK4Wb9VAh9Xby7fjZ46fPq+?=
- =?iso-8859-1?Q?8uZYIMZ5XfBU9XCXtZxCnOtoyinjHunr8u8ypq89Vgwen9m1Oi0EqizFVP?=
- =?iso-8859-1?Q?8fz2QnjpReP7/tcfZVY4K659JgmwE8XYFBkidETz50iDzHasIa9GP9wjdT?=
- =?iso-8859-1?Q?2G6XOQsqufgsEi/SHKFU7oflqNMSfTp7lmsipffyfivnMed/n3XgVpw3Et?=
- =?iso-8859-1?Q?cXXvRmiv4CW7AyQgO5hGug0dLdO/ealJE+6z8/TZ2cr7eEu5DwT8d5c4Eo?=
- =?iso-8859-1?Q?weVcNnp9IGjOfsYJ0eRk9EWZRDjMsG4Z7/yreEpJG0rrQFzGpTeg0jJSGH?=
- =?iso-8859-1?Q?Z5zmm2L7t5kGhimc?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?t7cFTIwsv35VcYhkv0/w3NNLGRQlBIbJmKBQ3VW7AMQu0mb/nOe+l9lRmZ?=
- =?iso-8859-1?Q?gzR/ziFAn10G3jDwXl8TVfU9prv+CAMTdPwbtKHPyQLiDH1RKfra8hhhw0?=
- =?iso-8859-1?Q?hCwits9fL1xetpBoENE1bBqcnMeXhtDC2/9VVoyYMklyoiG5nnJb6omG9l?=
- =?iso-8859-1?Q?OGjUUXc3tcVEs7o/c/0Wxh1KqGxJJTfoIOa1qEhsI8kO6yovH0n/SS1Lfx?=
- =?iso-8859-1?Q?GNOjEnio9knAjxM6oyAnXg7P8dGrqnkpfW+WNNDIBUulFpwt7QILQt40Vv?=
- =?iso-8859-1?Q?10qkzwBFiqIPz3KuIXDd0+d2IZgFXXpCT5huWZ1doOflPIT4SRgxeYMDos?=
- =?iso-8859-1?Q?yOplDG1Hrt61qIba+JKSOQlxrUL4m+K8FzO/MypKInK7yzQ0cr+Bz2+kxB?=
- =?iso-8859-1?Q?oZRQIUKPFSwPXsGfjnpxo5zOSdMFK/6KwvHZgu1/eyiSa6C0KH02MIuyce?=
- =?iso-8859-1?Q?HhJJim7m/SQwPhlye1szHivb7eSIqBX/nOzr0vaBUZ8Q5Kc/zj9J909Lqp?=
- =?iso-8859-1?Q?GY25vZVaz9OE33xZ3zGpQwtbDm3cRieRKwbF0dzeuI4DfM8v8By2DmafIm?=
- =?iso-8859-1?Q?g6+fFi3lsTbvsYHZj8gBT6y8BKuYvQVCtQDBpxmu40uON4L34VfNt8IR59?=
- =?iso-8859-1?Q?+rYZPGIlOevhhxhlAMqxPUpwqHd50yCTj84VwB8ih4ac4jDk/7ySOP4hDG?=
- =?iso-8859-1?Q?6yZUKEJRmk0+6eCesCJ4X+dioP5KRY0wjcE5mMYYKxmaE0z7w+TcY6mgB5?=
- =?iso-8859-1?Q?vo5LuQ2EnKHGwU5p1zdU4y20T7EqI5qaJgeHhaU5Qm7rqbgl5y2RUVcjoH?=
- =?iso-8859-1?Q?MzLZNXZmkGyybzdc5Ay+593jO/o/ZqXEfZy7GyUf4o9ubKVWs8w3pfuzWd?=
- =?iso-8859-1?Q?JlFlHKp1lZuC5x3upYUX+LHD+YTwCrMbGngJRrJS8cjKHfkqD4/3yhtJw6?=
- =?iso-8859-1?Q?WPyWpf280QWuWSyDP/YDLgdYUMrv+7MY3a4Tn8BPFlh2du/CG/k+X1TmP7?=
- =?iso-8859-1?Q?18Hi58Gnb0yUy1E3o27h5I4vOV/G/hVQ0zGLVsi9EIuLF9iD1mq2SgjE1j?=
- =?iso-8859-1?Q?6K/KWBGk6Aj3hvrLlBroOC+UYpJiuiRPtTmtG7Af4wCbuztQOEqrL3FnOy?=
- =?iso-8859-1?Q?GvEQeVZW5vVFXAnBs3x/pyJVcBHztFmN8UWxDiqcWRCFOCa3iY5GHCN101?=
- =?iso-8859-1?Q?uipeYsD7zj24ilahkEDq2oda8fkmxdBmQAs/ARML0PnAIBNpdd8+sNmh0Q?=
- =?iso-8859-1?Q?Vnom7rokGSoEX9yNZxuRDRmUR1KsnEK9ljVKYL5TQGuk5RVGfvjI79R3zj?=
- =?iso-8859-1?Q?WG0DQ0lkD5DTVfU7LBcueWhp5jD1EM7mgzBWbN3J18nMzJZ5AETn9gNS8L?=
- =?iso-8859-1?Q?9yogmbU/ISkj4bFcxdc/NNoJtbJli70S4eoBUO489yrrHOzHKXjdnymZXY?=
- =?iso-8859-1?Q?UhsZKZCKSoNal8ebYmecXT7q4bJWZ/fxgUfe6GEGTsE1C2V49O8ovp4lkg?=
- =?iso-8859-1?Q?BHFWKZF4isNuR+mG/21DE65IkqKtUtE+uZCJzLdYUS+OBsa6VPfWzsNMLc?=
- =?iso-8859-1?Q?qu4BV57X0dWNHbs1fZ+cZ+TXH2pGTbxsDIU+Sd7FHwDd3YYkP/qndcpD3X?=
- =?iso-8859-1?Q?odIN6DkYADaV9shyu4Ee2bpJELOlrH+rw0RybBDtCLysWPLew2seNbow?=
- =?iso-8859-1?Q?=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb39ee7d-5ef9-4218-fea9-08dd68845910
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Mar 2025 14:26:19.8209
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SS2ev+iUOozMNIrpMxJ9PcvYc0lyCNOLVwhf3BK1QYwh13cwZpskOf5mQ6U0XOZy+NOJOmIJbBK+cz+qch2tiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10061
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] kernel/events/uprobes: uprobe_write_opcode()
+ rewrite
+To: Jiri Olsa <olsajiri@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andrii Nakryiko <andrii.nakryiko@gmail.com>,
+ Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ Tong Tiangen <tongtiangen@huawei.com>
+References: <20250321113713.204682-1-david@redhat.com>
+ <20250321113713.204682-4-david@redhat.com> <Z91j_UwNhi2DQB3N@krava>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <Z91j_UwNhi2DQB3N@krava>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZicteqTYPAfeu9E1m4tERD2DSs6gKKVEVSON2oCNgwY_1742563035
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_072623_200148_F2CF4378 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20250321_061718_813136_1B03036A 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,94 +169,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florin Leotescu <florin.leotescu@nxp.com>
+On 21.03.25 14:05, Jiri Olsa wrote:
+> On Fri, Mar 21, 2025 at 12:37:13PM +0100, David Hildenbrand wrote:
+> 
+> SNIP
+> 
+>> +static int __uprobe_write_opcode(struct vm_area_struct *vma,
+>> +		struct folio_walk *fw, struct folio *folio,
+>> +		unsigned long opcode_vaddr, uprobe_opcode_t opcode)
+>> +{
+>> +	const unsigned long vaddr = opcode_vaddr & PAGE_MASK;
+>> +	const bool is_register = !!is_swbp_insn(&opcode);
+>> +	bool pmd_mappable;
+>> +
+>> +	/* For now, we'll only handle PTE-mapped folios. */
+>> +	if (fw->level != FW_LEVEL_PTE)
+>> +		return -EFAULT;
+>> +
+>> +	/*
+>> +	 * See can_follow_write_pte(): we'd actually prefer a writable PTE here,
+>> +	 * but the VMA might not be writable.
+>> +	 */
+>> +	if (!pte_write(fw->pte)) {
+>> +		if (!PageAnonExclusive(fw->page))
+>> +			return -EFAULT;
+>> +		if (unlikely(userfaultfd_pte_wp(vma, fw->pte)))
+>> +			return -EFAULT;
+>> +		/* SOFTDIRTY is handled via pte_mkdirty() below. */
+>> +	}
+>> +
+>> +	/*
+>> +	 * We'll temporarily unmap the page and flush the TLB, such that we can
+>> +	 * modify the page atomically.
+>> +	 */
+>> +	flush_cache_page(vma, vaddr, pte_pfn(fw->pte));
+>> +	fw->pte = ptep_clear_flush(vma, vaddr, fw->ptep);
+>> +	copy_to_page(fw->page, opcode_vaddr, &opcode, UPROBE_SWBP_INSN_SIZE);
+>> +
+>> +	/*
+>> +	 * When unregistering, we may only zap a PTE if uffd is disabled and
+>> +	 * there are no unexpected folio references ...
+>> +	 */
+>> +	if (is_register || userfaultfd_missing(vma) ||
+>> +	    (folio_ref_count(folio) != folio_mapcount(folio) + 1 +
+>> +	     folio_test_swapcache(folio) * folio_nr_pages(folio)))
+>> +		goto remap;
+>> +
+>> +	/*
+>> +	 * ... and the mapped page is identical to the original page that
+>> +	 * would get faulted in on next access.
+>> +	 */
+>> +	if (!orig_page_is_identical(vma, vaddr, fw->page, &pmd_mappable))
+>> +		goto remap;
+>> +
+>> +	dec_mm_counter(vma->vm_mm, MM_ANONPAGES);
+>> +	folio_remove_rmap_pte(folio, fw->page, vma);
+>> +	if (!folio_mapped(folio) && folio_test_swapcache(folio) &&
+>> +	     folio_trylock(folio)) {
+>> +		folio_free_swap(folio);
+>> +		folio_unlock(folio);
+>> +	}
+>> +	folio_put(folio);
+> 
+> hi,
+> it's probably ok and I'm missing something, but why do we call folio_put
+> in here, I'd think it's done by folio_put call in uprobe_write_opcode
 
-Prepare the emc2305 driver to use configuration from Device Tree nodes.
-Switch to devm_thermal_of_cooling_device_register to simplify the
-cleanup procedure, allowing the removal of emc2305_unset_tz and
-emc2305_remove, which are no longer needed.
+Hi!
 
-Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/hwmon/emc2305.c | 33 ++++-----------------------------
- 1 file changed, 4 insertions(+), 29 deletions(-)
+We're zapping a page table mapping mapping (folio_remove_rmap_pte()), so 
+we have to drop that reference.
 
-diff --git a/drivers/hwmon/emc2305.c b/drivers/hwmon/emc2305.c
-index f8a4c76fcadd..234c54956a4b 100644
---- a/drivers/hwmon/emc2305.c
-+++ b/drivers/hwmon/emc2305.c
-@@ -112,8 +112,6 @@ static char *emc2305_fan_name[] = {
- 	"emc2305_fan5",
- };
- 
--static void emc2305_unset_tz(struct device *dev);
--
- static int emc2305_get_max_channel(const struct emc2305_data *data)
- {
- 	return data->pwm_num;
-@@ -293,8 +291,9 @@ static int emc2305_set_single_tz(struct device *dev, int idx)
- 	pwm = data->pwm_min[cdev_idx];
- 
- 	data->cdev_data[cdev_idx].cdev =
--		thermal_cooling_device_register(emc2305_fan_name[idx], data,
--						&emc2305_cooling_ops);
-+		devm_thermal_of_cooling_device_register(dev, dev->of_node,
-+							emc2305_fan_name[idx], data,
-+							&emc2305_cooling_ops);
- 
- 	if (IS_ERR(data->cdev_data[cdev_idx].cdev)) {
- 		dev_err(dev, "Failed to register cooling device %s\n", emc2305_fan_name[idx]);
-@@ -332,24 +331,9 @@ static int emc2305_set_tz(struct device *dev)
- 	for (i = 0; i < data->pwm_num; i++) {
- 		ret = emc2305_set_single_tz(dev, i + 1);
- 		if (ret)
--			goto thermal_cooling_device_register_fail;
-+			return ret;
- 	}
- 	return 0;
--
--thermal_cooling_device_register_fail:
--	emc2305_unset_tz(dev);
--	return ret;
--}
--
--static void emc2305_unset_tz(struct device *dev)
--{
--	struct emc2305_data *data = dev_get_drvdata(dev);
--	int i;
--
--	/* Unregister cooling device. */
--	for (i = 0; i < EMC2305_PWM_MAX; i++)
--		if (data->cdev_data[i].cdev)
--			thermal_cooling_device_unregister(data->cdev_data[i].cdev);
- }
- 
- static umode_t
-@@ -599,14 +583,6 @@ static int emc2305_probe(struct i2c_client *client)
- 	return 0;
- }
- 
--static void emc2305_remove(struct i2c_client *client)
--{
--	struct device *dev = &client->dev;
--
--	if (IS_REACHABLE(CONFIG_THERMAL))
--		emc2305_unset_tz(dev);
--}
--
- static const struct of_device_id of_emc2305_match_table[] = {
- 	{ .compatible = "microchip,emc2305", },
- 	{},
-@@ -619,7 +595,6 @@ static struct i2c_driver emc2305_driver = {
- 		.of_match_table = of_emc2305_match_table,
- 	},
- 	.probe = emc2305_probe,
--	.remove	  = emc2305_remove,
- 	.id_table = emc2305_ids,
- };
- 
+That's the folio_put(old_folio) in the old __replace_page().
+
+Thanks!
+
 -- 
-2.34.1
+Cheers,
+
+David / dhildenb
 
 
