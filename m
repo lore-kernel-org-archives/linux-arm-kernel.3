@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3356BC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 06:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E703C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vXAyj+GHzS7wqAccTE1NbTCMIzG8yR1/7SBWPdH7m8=; b=y0NWoGUqCpiyqvLLjhFmt1VfOW
-	BJ0STOlz4ExvYArQnLyHmWxvlb0czOHQvsS5aOe0V55IwqRF46fSwbyoR84v8CO1D757B0SiQgoev
-	n41oTuhnmdaCAe8Gk9TpdUnnMuU4jCAvIICSvakSBOruzhyOqzMED1reriaIAqgLrR2QLSwXtbqnD
-	vII+Jn7ehUM4f1fSYuALSNLy093nfzaQChxGo3vYekpZn9c5nwirldoqr99YoUy8eRc4TO6RhptBK
-	JFMjR15AuQUWleSRBv9PbbD4B9AYcWZEc8LJ0FCnkJqHjUHNSHtQIZqblVV2LKmweGlbCZuKmcI9d
-	i/8Ja91Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PK0BeTHmcdd/qcMUUN81vS2AduMCdU/azMiQVglHyhE=; b=1x8GgseVSLzVxVJtW2j2kNB184
+	5h4nDNWvva2L2KWAm9IPOxNDo/Mch4DDis3P/t/bf0FGjEd7xLQh6iI+nK5KHSzaUSCq8lIBfbQfc
+	VqiPM5jVoNNCtb9NJnV3mdSdVTNn9Y/ZYcnrStCixwR/gLdpOUwXxQuqA1ol1Wx848oLz6BzAz8Ti
+	1NCOfbQm01De3jdshB/grATWSsEa/k1DnM4VWHZtKhD+jsGfUsAvc/6b2qNd7o+f3XzZL8huJVezF
+	zgfGKptT5P5kuaqxacCDnZ3bhgovKOYNXut+yk2Wup9oiaTvKgicZEHB/EM9+P2xzTwlCJsAYlnws
+	9sj1Zf+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvVys-0000000E0mO-1F1K;
-	Fri, 21 Mar 2025 06:35:46 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tvWOy-0000000E3a2-1DeH;
+	Fri, 21 Mar 2025 07:02:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvVxA-0000000E0Vv-1OEq
+	id 1tvWNH-0000000E3Ee-1wBu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 06:34:02 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff605a7a43so4296343a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Mar 2025 23:33:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742538839; x=1743143639; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2vXAyj+GHzS7wqAccTE1NbTCMIzG8yR1/7SBWPdH7m8=;
-        b=v4KAD1Quf7M5xrkmqInMxzUSptGEdSPzJ7IpExAceV7l8AAGaDNIRimRtCqQTvGRlK
-         ponwnHifAqQQCYWyT4puFGbgg7v7AFWGpty7LeJXPo2HuVVuD9FMsJBp1icM2WJOLZBy
-         eUWkS9VF/D/fv1foO+AyAqEKgJPD6JjRN15SLeOwqpxqIs39m1aWBYfGNymUzn4fVJ87
-         WLR7oetd0V7/SfsqHSuxuJK/uGJ57zT1fM1zLpRfJauICUYKUipO/efptxM9A+k6kfVf
-         s909ra7oCZPDXX2tGB0UJoPXzl92P++TC3SQO4lRIo20yG7gSC+ZQnGNQUm0CqZvLYIO
-         Gu3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742538839; x=1743143639;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2vXAyj+GHzS7wqAccTE1NbTCMIzG8yR1/7SBWPdH7m8=;
-        b=cJfvgU+83vCJK7xVzyvItx71kGVHcUUANRscSItcwbhN60GhQKKF7OrEqYn0JP5XO0
-         8fyqDUGt5z77geBky6YPREUpZs5IeKEmhkirXCxOGW1xNc7rxHRTD6XciTTBIKH9RwOv
-         plVRloxqB7MtfV1HjTTssI0yhHQyWfu00KUehQFlUlsiXHqgqgi353LW0Cu2efovcJY4
-         ebTR6CTyHI+rqm4eakPwUNOpzasADOcpDDhVmO/GTwEOMrwFHJMSQ3O1PpzXJJ4AEY/Z
-         GbdLgIHz64qFqNMgnZZs1YKm3jmEbl3BKGAFsNTflAZlFY6rPTYbz48ptGIiXG6WAEBS
-         XWkw==
-X-Forwarded-Encrypted: i=1; AJvYcCWwO4H+lO4RTL2hKDWLjFdKeHiXgULSjtoX3hLhtkGJACNhWIjhj8NGZKwkfqEhwLGt5ji9xmtT7c1wNflqJgcR@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywb31PoHwKToGUugaq1ilbp7/wCIJAOWP5v/KbTkCg+FV54IPRy
-	/UvkdKvBvGoU34eKz7bNb66eO/bZzyzJZzUQMmgUY3YJDAADmfIv2+nXgLB4zfAFCBoRjMh7Aqx
-	oLjmReWCzt/hBtLZ3fQ==
-X-Google-Smtp-Source: AGHT+IHzfqXaz88vnwbh1bU3QQ0eg9cO7MjTqz+i1yp3jt6YPQs5uqsY4Klq/6OgfyRjy5OLLCoj7DrCd0HOjDbw
-X-Received: from pjbsk8.prod.google.com ([2002:a17:90b:2dc8:b0:2fc:2ee0:d38a])
- (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:1848:b0:2ea:bf1c:1e3a with SMTP id 98e67ed59e1d1-3030fe9e646mr4063011a91.12.1742538838726;
- Thu, 20 Mar 2025 23:33:58 -0700 (PDT)
-Date: Thu, 20 Mar 2025 23:33:56 -0700
-In-Reply-To: <87wmcj69sg.fsf@trenco.lwn.net>
-Mime-Version: 1.0
-References: <87wmcj69sg.fsf@trenco.lwn.net>
-X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
-Message-ID: <20250321063356.381646-1-changyuanl@google.com>
-Subject: Re: [PATCH v5 16/16] Documentation: add documentation for KHO
-From: Changyuan Lyu <changyuanl@google.com>
-To: corbet@lwn.net
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
-	catalin.marinas@arm.com, changyuanl@google.com, dave.hansen@linux.intel.com, 
-	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, 
-	graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, 
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com, 
-	pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org, 
-	ptyadav@amazon.de, robh+dt@kernel.org, robh@kernel.org, rostedt@goodmis.org, 
-	rppt@kernel.org, saravanak@google.com, skinsburskii@linux.microsoft.com, 
-	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 21 Mar 2025 07:01:00 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52L1WgjF030882;
+	Fri, 21 Mar 2025 07:00:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=PK0BeTHmcdd/qcMUUN81vS
+	2AduMCdU/azMiQVglHyhE=; b=GJr3cUVlt7col3IiWsW0y4BBvH5RvRnMOuO6c8
+	bYOK5zygh5lMqrFFFKdGkt6b/83EnIiX6tHRzpZ7K8hAuhZ6uqKqTRzm6XsGKYtQ
+	lPexFlYYEqr9/Qf8p9OuoKf2Bb3nO+CT1k5Jzy7f7rzIHx8QJt4nFhdqTjASYVxr
+	XrnIvqYBmch1ypzP5gV6mSIfQeGUBH4E+3eF1c2m/l2B4OVJAgzHMIRyXBd37lgm
+	H3JGm5LtDz7er3GijXdKRYksIFzZ15t+6NtDrZYfpNr8fPvixdQDCoj0QoDN2Gie
+	cCpukVTfS4hvfvVIXXG3ON7/TSr7Bn8LiiDPS46Oj/zrFb3g==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45gcd1bw5j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 21 Mar 2025 07:00:42 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52L70g6H010467
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 21 Mar 2025 07:00:42 GMT
+Received: from ap-kernel-sh01-lnx.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 21 Mar 2025 00:00:37 -0700
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+To: <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>, <david@redhat.com>,
+        <will@kernel.org>, <ryan.roberts@arm.com>, <mark.rutland@arm.com>,
+        <ardb@kernel.org>, <quic_zhenhuah@quicinc.com>,
+        <yangyicong@hisilicon.com>, <joey.gouly@arm.com>,
+        <quic_cgoldswo@quicinc.com>, <quic_sudaraja@quicinc.com>,
+        <akpm@linux-foundation.org>
+CC: <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>
+Subject: [PATCH] arm64: mm: Correct the update of max_pfn
+Date: Fri, 21 Mar 2025 15:00:19 +0800
+Message-ID: <20250321070019.1271859-1-quic_zhenhuah@quicinc.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=bfFrUPPB c=1 sm=1 tr=0 ts=67dd0e9b cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=ZcgGWeM3x-1IUL8PSGgA:9 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: vhqnlhEx7zteyR5jia7Iia7zm_iS-JR7
+X-Proofpoint-ORIG-GUID: vhqnlhEx7zteyR5jia7Iia7zm_iS-JR7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-21_02,2025-03-20_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 impostorscore=0
+ clxscore=1011 suspectscore=0 malwarescore=0 bulkscore=0 mlxlogscore=576
+ priorityscore=1501 lowpriorityscore=0 mlxscore=0 adultscore=0 phishscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503210049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_233400_381290_48FFF795 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20250321_000059_615700_E6DB9C90 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +101,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hotplugged memory can be smaller than the original memory. For example,
+on my target:
 
-On Thu, Mar 20, 2025 at 08:45:03 -0600, Jonathan Corbet <corbet@lwn.net> wrote:
-> Changyuan Lyu <changyuanl@google.com> writes:
->
-> > From: Alexander Graf <graf@amazon.com>
-> >
-> > With KHO in place, let's add documentation that describes what it is and
-> > how to use it.
-> >
-> > Signed-off-by: Alexander Graf <graf@amazon.com>
-> > Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-> > Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-> > ---
-> >  .../admin-guide/kernel-parameters.txt         |  25 ++++
-> >  Documentation/kho/concepts.rst                |  70 +++++++++++
-> >  Documentation/kho/fdt.rst                     |  62 +++++++++
-> >  Documentation/kho/index.rst                   |  14 +++
-> >  Documentation/kho/usage.rst                   | 118 ++++++++++++++++++
-> >  Documentation/subsystem-apis.rst              |   1 +
-> >  MAINTAINERS                                   |   1 +
-> >  7 files changed, 291 insertions(+)
-> >  create mode 100644 Documentation/kho/concepts.rst
-> >  create mode 100644 Documentation/kho/fdt.rst
-> >  create mode 100644 Documentation/kho/index.rst
-> >  create mode 100644 Documentation/kho/usage.rst
->
-> I will ask again: please let's not create another top-level docs
-> directory for this...?  It looks like it belongs in the admin guide to
-> me.
+root@genericarmv8:~# cat /sys/kernel/debug/memblock/memory
+   0: 0x0000000064005000..0x0000000064023fff    0 NOMAP
+   1: 0x0000000064400000..0x00000000647fffff    0 NOMAP
+   2: 0x0000000068000000..0x000000006fffffff    0 DRV_MNG
+   3: 0x0000000088800000..0x0000000094ffefff    0 NONE
+   4: 0x0000000094fff000..0x0000000094ffffff    0 NOMAP
+max_pfn will affect read_page_owner. Therefore, it should first compare and
+then select the larger value for max_pfn.
 
-Thanks for review the patch! Sure I will move usage.rst to
-Documentation/admin-guide in the next version.
+Fixes: 8fac67ca236b ("arm64: mm: update max_pfn after memory hotplug")
+Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+---
+ arch/arm64/mm/mmu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-However, I think concepts.rst and fdt.rst are not not end-user oriented,
-but for kernel developers of other subsystems to use KHO API (I also plan
-to include the kernel-doc generated from kernel/kexec_handover.c and
-include/linux/kexec_handover.h here in the next version).
-Should Documentation/core-api be a better choice?
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 1dfe1a8efdbe..310ff75891ef 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1361,7 +1361,8 @@ int arch_add_memory(int nid, u64 start, u64 size,
+ 		__remove_pgd_mapping(swapper_pg_dir,
+ 				     __phys_to_virt(start), size);
+ 	else {
+-		max_pfn = PFN_UP(start + size);
++		/* Address of hotplugged memory can be smaller */
++		max_pfn = max(max_pfn, PFN_UP(start + size));
+ 		max_low_pfn = max_pfn;
+ 	}
+ 
+-- 
+2.25.1
 
-Best,
-Changyuan
 
