@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1402CC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 17:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0290C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 17:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XANZcjxiMkxYwy4469ggjQsTac9XWyp0s6kIgVil7jY=; b=mhQo2rGqW/VxxjcQz3uVJLQxSU
-	x3tjpuPRX4nGA7tpNzwIWLzfLkJB3elER1cEJ/7uN3hWeqLaKNPcQviHsBazsgvPGbkc3aTZv2e2D
-	/u1oe7sJC0hW6ycinsPlptEKXywNehAKHCm77slNwpY3tRezST+u2b80OYZpAGfnYkmo59m9VyUVt
-	BUoGJyaxT9ludgDaLG9LjISv1UY3cK/RRKmN372AN+6xSCFB/tPA6NNjz18wg+KiFe1NtOGmKmRBq
-	jNlOf2G/mB4a1od/TAY7X2aS0/jX1zBJ44Xmce8HEossI8ncZw3oM9NgMpecA2dDpJM8WiugUJ+yD
-	DilHxV2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GNqD8PyJLQnJQLvnULZ+vanw9dMkZAzGyI1k4rO3/oY=; b=2WUmDpGGIsNN/v2lRPxgSNXLt+
+	rQl4F9FRELgCvB5i2P5aBGe363z0VGFJ3xprdxqzzpSMVj5geZXsXbNECODmSeg+P0mLpmnQ7QUQ3
+	gygNAdfXT5f82ypEdZvW1sABPYNkcrMzQxS/SCpGUEXSbGm+1g1f6AmVzThFoA5OiQSoE/1W9Q4uT
+	5bEnmnWC1+6tYxEWwHfss74skTNS6+s6JLzhFPg5jhUS+v9KdxosZpVHqAtLCFxXKogvfDD0cGtmq
+	lyWVYBl12TWJ+DYQsKMPxX2lt0+nN1Pc7Qg3jN5Y6uAAV25BiIwDOsGAthpAfLEnf+7mgyUUO2hzJ
+	rfbwaZkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvgaL-0000000Flws-3UIp;
-	Fri, 21 Mar 2025 17:55:09 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tvgc0-0000000FmCm-2LaG;
+	Fri, 21 Mar 2025 17:56:52 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvgWZ-0000000FlC9-0RAC
+	id 1tvgZ6-0000000Flg2-1WIn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 17:51:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742579475; x=1774115475;
-  h=date:from:to:cc:subject:message-id;
-  bh=LcidMpl1jvp3WDo6XiR+3KORcUhyCc/0LGUGvwTQaa0=;
-  b=Wx72uO+N/zXivxurVZ8soByJ+cPFRr2tq2sf3hIWPyyq01wW3Cop2p1p
-   JsAUQHEQprHdAgg0JlyO7zZ+tjJTaN6XUWIPqG3MteMXC7i8Xh3sa9Kze
-   gRvU7Y2UMlYSj3AzEOm2llKXEbuuiwZjluHDyYZrRF4IkgWIMu1h9o1K6
-   2ddLEeWtQtfyW9N11BMPHCNQxQ5yScO28sc0m0Uzue5h87ibcGYTa4hn0
-   VNbLyBaDftU5+L3R5Uoyv6dOgYmK+Egk15wCtI5edh5Rk0ptua+YpdTVZ
-   0MiQ/T6q1PfyLikgHNRiOQGVwyO3rYMwY/uCI9gp1LVtLJVAW+naKr3+q
-   A==;
-X-CSE-ConnectionGUID: 8nd7pBZOQNKtrAzOIjb05w==
-X-CSE-MsgGUID: eJ9T4sxLSzOx0gw2He4pmw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11380"; a="47512164"
-X-IronPort-AV: E=Sophos;i="6.14,265,1736841600"; 
-   d="scan'208";a="47512164"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Mar 2025 10:51:14 -0700
-X-CSE-ConnectionGUID: 8tDScEQVQcKG6rBVSE5pPA==
-X-CSE-MsgGUID: p98oGHqcRR2oC/Gj0sxXLg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,265,1736841600"; 
-   d="scan'208";a="127614357"
-Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
-  by fmviesa003.fm.intel.com with ESMTP; 21 Mar 2025 10:51:13 -0700
-Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tvgWU-0001ZI-2U;
-	Fri, 21 Mar 2025 17:51:10 +0000
-Date: Sat, 22 Mar 2025 01:50:48 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- f7dd075de68de8a2536e50c2de434d1c12366155
-Message-ID: <202503220139.jFG63sHA-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Fri, 21 Mar 2025 17:53:54 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3913d45a148so1894891f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 10:53:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742579630; x=1743184430; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GNqD8PyJLQnJQLvnULZ+vanw9dMkZAzGyI1k4rO3/oY=;
+        b=BBGEkugGdZI7YwspPyRUqA/yjYj4mtAb3YqP6eruSxwryT2gwFbl7Nkswkyo1w7fZ9
+         mVN45C4faikKbV0PVafQeNHqd397ST61zYU3YCcOjEb8rQ5Pbv6uzLS1dWa8pKHNXpH8
+         wrwlAITB8o2tF0DhmjVGuPi6iM6dBbY9Fd9GC1GRMdiP8g610qmJboGdIpsrI3muByxS
+         N7UcPgdB9mJJF08hbf6JRL+g+o5rfTuEk0qWS/DM08SwcCL7IoCddqDnPHipCK6AHvcS
+         uaZQUjVQdycSE0l9rq6g31BXT2d+oCYfb8xRvYGGhDV0qu+oux8bkb6YAts5LJha+FeH
+         u3Xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742579630; x=1743184430;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GNqD8PyJLQnJQLvnULZ+vanw9dMkZAzGyI1k4rO3/oY=;
+        b=PaGgDXieSvWY3Pg2bSdsh8l4DnkXg7m4QAut9lSacmVHaL0EfK+dXsZ6D180Tcl238
+         qaaEmE3VeJHFx5G0xhYOOK1G2XLoUVVBBZVugwre6pNZML2aJdjIgqYZi3Zmjd9aGgHw
+         TZRBQuyhmNoQFcBNuKwn8uBzvHgEDRIaDweVz8UZXEhcs2OeG4orQ21swiU9wBRGz1CE
+         mWk/oIo7yNHiYRdrQm8pQBGPsBYot4wBl5aIxp1I6DT4zgD8fbD38fjUiitgS+71KHlu
+         +kaGZRNC2TI9aEhWQKmetZipsNDu4YYV4gokV2pOjscPWUDiagZ0UU9onspd1zGSPOlB
+         XQrA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQAhIIxRCQ20bp+DEwwMCrLl6djR9x7RUxWN8AWJ9WrGvLOvL7skIL3n3sirjxx7Ptt9Td0m8AEVvavz9YnLPN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ07Qw17Ohsdh1LT8M6hXmaIulQQiZdoSXMy6lqe+w2QR+fWdo
+	efwf6wC2OTZlAdJJ2Eot+9YwNYKaDaDY1djrSy8y7uqKYrqLG7KPHaYoK0dWJrk=
+X-Gm-Gg: ASbGncvGfsMtPW6q63fFzpidtQDw+3BSIGJpq0GY8YpAsra5ISD8UhdYHtmpyVZGsN1
+	ni1AsyLhMwlVJlUJfjIAU9azlYmzkJ8mcSLmfdqpXUCUNECyqtteGyRAM8yNUbP8bEW3PXyRwSV
+	+th+/5uD6FoXqUVAREBGfrNR6Dc89B9NjMupm5LA2PGelw410bMSu4tDL0jYkzLLPENmJzY7vZ1
+	Jtjy435QFVK9xehcI59O7xBhSLhvMeUjYEeLJE9qQqanAWlRuWzedv+r3hsxQqMYL4DSI3Xpqh5
+	7BJigMMjBqoQBwxELQ+CHXKW8XOYiWzpX5WMzl2cuCl/
+X-Google-Smtp-Source: AGHT+IGw/k1s3UhG3nO2rFtVFyriyvE9zSGonoM40r54Hxa67x+rs2qU6DUJGZCT59Otrl8jKGhlwA==
+X-Received: by 2002:a5d:6482:0:b0:391:2da8:6e26 with SMTP id ffacd0b85a97d-3997f94083fmr4523621f8f.52.1742579630502;
+        Fri, 21 Mar 2025 10:53:50 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:c5a7:dfd4:9ad8:1ea0])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3997f9a31a7sm2929623f8f.23.2025.03.21.10.53.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Mar 2025 10:53:50 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Michael Turquette
+ <mturquette@baylibre.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] clk: add a clk_hw helpers to get the clock
+ device or device_node
+In-Reply-To: <508a5ee6c6b365e8d9cdefd5a9eec769.sboyd@kernel.org> (Stephen
+	Boyd's message of "Wed, 26 Feb 2025 17:01:05 -0800")
+References: <20250120-amlogic-clk-drop-clk-regmap-tables-v3-0-126244146947@baylibre.com>
+	<20250120-amlogic-clk-drop-clk-regmap-tables-v3-1-126244146947@baylibre.com>
+	<508a5ee6c6b365e8d9cdefd5a9eec769.sboyd@kernel.org>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Fri, 21 Mar 2025 18:53:49 +0100
+Message-ID: <1jv7s21d8y.fsf@starbuckisacylon.baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_105115_209697_3BEA4DD9 
-X-CRM114-Status: UNSURE (   4.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250321_105352_409344_5FA9145D 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,112 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: f7dd075de68de8a2536e50c2de434d1c12366155  Merge branch 'soc/drivers' into for-next
+On Wed 26 Feb 2025 at 17:01, Stephen Boyd <sboyd@kernel.org> wrote:
 
-elapsed time: 1446m
 
-configs tested: 92
-configs skipped: 2
+>> +static void clk_hw_get_of_node_test(struct kunit *test)
+>> +{
+>> +       struct device_node *np;
+>> +       struct clk_hw *hw;
+>> +
+>> +       hw = kunit_kzalloc(test, sizeof(*hw), GFP_KERNEL);
+>> +       KUNIT_ASSERT_NOT_ERR_OR_NULL(test, hw);
+>> +
+>> +       np = of_find_compatible_node(NULL, NULL, "test,clk-dummy-device");
+>> +       hw->init = CLK_HW_INIT_NO_PARENT("test_get_of_node",
+>> +                                        &clk_dummy_rate_ops, 0);
+>> +       of_node_put_kunit(test, np);
+>> +
+>> +       KUNIT_ASSERT_EQ(test, 0, of_clk_hw_register_kunit(test, np, hw));
+>
+> The stuff before the expectation should likely go to the init function.
+> Or it can use the genparams stuff so we can set some struct members to
+> indicate if the pointer should be NULL or not and then twist through the
+> code a couple times.
+>
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+I'm trying to address all your comments but I'm starting to wonder if
+this isn't going a bit too far ? The functions tested are one line
+returns. Is it really worth all this ?
 
-tested configs:
-alpha                            allyesconfig    gcc-14.2.0
-arc                              allmodconfig    gcc-14.2.0
-arc                              allyesconfig    gcc-14.2.0
-arc                   randconfig-001-20250321    gcc-13.3.0
-arc                   randconfig-002-20250321    gcc-11.5.0
-arm                              allmodconfig    gcc-14.2.0
-arm                              allyesconfig    gcc-14.2.0
-arm                   randconfig-001-20250321    clang-19
-arm                   randconfig-002-20250321    gcc-9.3.0
-arm                   randconfig-003-20250321    gcc-5.5.0
-arm                   randconfig-004-20250321    clang-21
-arm64                            allmodconfig    clang-19
-arm64                 randconfig-001-20250321    gcc-5.5.0
-arm64                 randconfig-002-20250321    gcc-5.5.0
-arm64                 randconfig-003-20250321    clang-20
-arm64                 randconfig-004-20250321    clang-21
-csky                  randconfig-001-20250321    gcc-13.3.0
-csky                  randconfig-002-20250321    gcc-13.3.0
-hexagon                          allmodconfig    clang-17
-hexagon                          allyesconfig    clang-21
-hexagon               randconfig-001-20250321    clang-21
-hexagon               randconfig-002-20250321    clang-16
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20250321    clang-20
-i386        buildonly-randconfig-002-20250321    clang-20
-i386        buildonly-randconfig-003-20250321    clang-20
-i386        buildonly-randconfig-004-20250321    clang-20
-i386        buildonly-randconfig-005-20250321    clang-20
-i386        buildonly-randconfig-006-20250321    clang-20
-i386                                defconfig    clang-20
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch             randconfig-001-20250321    gcc-14.2.0
-loongarch             randconfig-002-20250321    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20250321    gcc-13.3.0
-nios2                 randconfig-002-20250321    gcc-7.5.0
-openrisc                         allyesconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                randconfig-001-20250321    gcc-8.5.0
-parisc                randconfig-002-20250321    gcc-6.5.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                          allyesconfig    clang-21
-powerpc               randconfig-001-20250321    clang-21
-powerpc               randconfig-002-20250321    gcc-7.5.0
-powerpc               randconfig-003-20250321    gcc-7.5.0
-powerpc64             randconfig-001-20250321    gcc-5.5.0
-powerpc64             randconfig-002-20250321    clang-16
-powerpc64             randconfig-003-20250321    gcc-7.5.0
-riscv                            allmodconfig    clang-21
-riscv                            allyesconfig    clang-16
-riscv                 randconfig-001-20250321    clang-21
-riscv                 randconfig-002-20250321    clang-21
-s390                             allyesconfig    gcc-14.2.0
-s390                  randconfig-001-20250321    clang-16
-s390                  randconfig-002-20250321    gcc-8.5.0
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                    randconfig-001-20250321    gcc-7.5.0
-sh                    randconfig-002-20250321    gcc-7.5.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20250321    gcc-12.4.0
-sparc                 randconfig-002-20250321    gcc-6.5.0
-sparc64               randconfig-001-20250321    gcc-10.5.0
-sparc64               randconfig-002-20250321    gcc-6.5.0
-um                               allmodconfig    clang-19
-um                               allyesconfig    gcc-12
-um                    randconfig-001-20250321    gcc-12
-um                    randconfig-002-20250321    gcc-12
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250321    clang-20
-x86_64      buildonly-randconfig-002-20250321    clang-20
-x86_64      buildonly-randconfig-003-20250321    gcc-12
-x86_64      buildonly-randconfig-004-20250321    clang-20
-x86_64      buildonly-randconfig-005-20250321    clang-20
-x86_64      buildonly-randconfig-006-20250321    clang-20
-x86_64                              defconfig    gcc-11
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                randconfig-001-20250321    gcc-6.5.0
-xtensa                randconfig-002-20250321    gcc-10.5.0
+I do understand the idea for things that actually do something, such as
+reparenting, setting rates or what not ... But this ? It feels like a
+lot of test code for very little added value, don't you think ?
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- 
+Jerome
 
