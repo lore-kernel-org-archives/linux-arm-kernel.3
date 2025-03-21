@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44DA8C36001
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CEFC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dWamBMGzQ4b2qzS5reu3KA74iQ43aQ3a9idYDj5XNb4=; b=3dj9iSqm23ja2ecsFy8s1oKE7w
-	sk+IXcV+68IUke6pZLzLO1xxjOZrYbatgr/itPwt1xqrNNgsq/3H8+tEJxdVJ89mUhimcMnBUHG+w
-	6rvWq/BsqVmHXL1Cl4xMB1bVOeQXUfiN7i+WCfTKoVs84XOGoPrKcN1N7jBzwZrzdrdxnPsKtaOiH
-	oU+RYDFtj8Pv7lnQaKuSkquipjbQMv0mcStb80coSE3rNsLmpTLWpdD9/6uj6Vjtyn98NyYUaqOJc
-	0eGQVFdB7R6btaGXVLZEIeIO08NtXLpAEWHVa5UGTlFtbSEcjjfKZK+f9qrYuRwSQr0njfOE4JsIM
-	m3JNaKbA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+LoofhK/wQGr/+9KAmshAJ8mFNKJgp9hRkahBUOv2q0=; b=lSGLDWutklh3NohtWiOxGGS7Yw
+	3Fe3h1Su7bUTgm/b6yuQKZARqaXPC2vsH0dPYiCzIrdex3U2aIWleAxhX+buLINpaMrbH1JYgK1FW
+	XqEm4P8uJvwTK5+guqf2Y8JzQshtkUEzE/G+RqQwcHy04FuarRjd09jrQPb1U3RmF4OaJYjjgxEJq
+	oSXJCKpSYFpqP8CiFv2QnG2f1I49jbWz5lfxvArSiYaJyq1y2zPTckSvRmGORIclAhvJarreqkk3C
+	fpdj007VOCQ6uhUMVNFIABPAWWxilKW/dYFb9bqXtvrLf9qroFy6S75MP9HpNzOmbkg44TkxF/HYI
+	RyTlms5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdeA-0000000FBD9-2Wkl;
-	Fri, 21 Mar 2025 14:46:54 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tvdfq-0000000FBcA-16va;
+	Fri, 21 Mar 2025 14:48:38 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdXp-0000000F9bH-3xI7
+	id 1tvdXr-0000000F9cC-0nBv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 14:40:23 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39141ffa9fcso1847732f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:40:21 -0700 (PDT)
+	Fri, 21 Mar 2025 14:40:24 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3913fdd0120so1239728f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:40:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742568020; x=1743172820; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dWamBMGzQ4b2qzS5reu3KA74iQ43aQ3a9idYDj5XNb4=;
-        b=Lt/A/oTYmldpevIdZubbEs25bmlODhtAjtQRyete7t9BmVZnpiuLBnLNh3ARItJuZe
-         ylCf8+ySD2zigq0LFim2ItuunF9gqAALRKD0RhdXH+MWbT4GjQGilmQlA4TorhXni7rd
-         L9ibkqt9DIEWdlEHhe4Ep0NUvaQUR9o7RB67Mp6MxO/DM9SiOBuZaqZqiBX1rdPpF3dN
-         ic9ORHa4My2HFYpXH72dDDxppNyDVaFqhcQuWDCSIfEQFenPFgy0RbBnKO08bxMyhxXt
-         THry+Y51hfgaCAmSRLkeSqrvC9Lzm9fA1LG6UyAtiD7bJMxpswGnsXNaNQ9geGyw4c4n
-         hnnA==
+        d=gmail.com; s=20230601; t=1742568022; x=1743172822; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+LoofhK/wQGr/+9KAmshAJ8mFNKJgp9hRkahBUOv2q0=;
+        b=FAZLVCtrKH4pjyFNgLeWJOZKK89BVFmg7RI0B/Gb5wZmyD9/u8/qMDlL23UBQU0t9A
+         HbxaJjeiGVkK8eeHaPApLsJ67k/ljlGwaT6zLLptNCmZE+6SDhpf1i7vaIVXz/GM8jnU
+         cQzl1DGGQy/OYcGmGqzuDUuCTVuzXRbN8aYpxuwofZ9evm3cL54tg4ecN9wRRoNf8cRU
+         vVrOP59+C/rjnj91UmUicdmIrbb6rk3rMLOFzCIU3zrxet9+MMNMlu/Kwda/8LzxI89q
+         zHEq5W6cKt9kUulIWziWCuPshY/eRdBILw9Pf8dfT5mTY7jmGwYKS3HlAu8NgpZlIhDS
+         XGCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742568020; x=1743172820;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dWamBMGzQ4b2qzS5reu3KA74iQ43aQ3a9idYDj5XNb4=;
-        b=RjoH+w1PsgQdNBqB5+R22APkGE/6XFLq+5g80ydVaeXtd54DUfOYBtNxRZe2D6paIE
-         vv7I/HQGeTKgrWNl/XgASU4s0dT15cwukfaWSFJbMd9Xdnx1F+VDvxCDODwDW5/d+k+2
-         bI1jjvoT4HuMhvygYSVr7zBH+opyPDkK/vupQexk6/+oN47v+/vARu2zHYIVxniFdKs/
-         kmoeD1Br84WYsP0+tvPMiLwrCqxat09F7lOFnoWyx6m5CKa5VC2GgvuLqgPGzJOubST+
-         VAubXt8c7rOuYbGZA/fsu7Ce6IH0/Pb/N/m3c/ttIIDZa4Uo2JiSaGRVfdiYsASp0g/j
-         E+3w==
-X-Forwarded-Encrypted: i=1; AJvYcCVbrcTPL1HASl0nyLRbKWRUfI3J7MzLHJXrRX13Euu6UeEV8KKdR2EOpwb9HdYtNom51LCBISZQmXbqgX7A/Rhx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7V4C3UIlZR8Il7W7hkKjy9OAs1gxnZGC7yVRBOE37gsZgDxi/
-	vrlMGr11Mz/1xDfg6/8wYVyNR0Ml1on7Lidpzh8d2UrwtXISZL6vi+PJWQ==
-X-Gm-Gg: ASbGnctOptEZX99P1o+HUeWpx1GTLDYAA2iCDYoK8OnuUWc/0wFyVNsnStoKE4FMXnJ
-	7WBRA4errX5RWwD9ApeaW88ckfHcqBYrO0Xg1yu35UNy7b0RP44dSU7FxdxDkz/27dGFHoRadDN
-	G0pNueNJEx+KK9LwJbrf+AXWUdXuZ37zIZ1t76C3qGwHcFKuBKleNNsh9c2F2ZKFzXK/GPLYMq8
-	BaFR/x9lbVy0NQRn7VazuCJEXezDhxmB9mEgxEx07btjNOT/QUp4PR1DR6jcCxVRtpUmU+MC6H4
-	Qo7CvlafjZoKwsR207OoT1rs1ShEHW07S9NmMniIWfOGQ36YNLeIA6g9LqXZp7VMXN6ab5OknGt
-	tuwrnx2vKw7bXaB+GdcgO
-X-Google-Smtp-Source: AGHT+IFQeRM9QPE09HFBRqHaY3uOORN2Cbc8vPnkx/biZLOobat7sMvMEqqreD9p39WhPvc7YAHoew==
-X-Received: by 2002:a05:6000:186b:b0:391:3768:f448 with SMTP id ffacd0b85a97d-3997f941b0fmr3190399f8f.49.1742568020439;
-        Fri, 21 Mar 2025 07:40:20 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742568022; x=1743172822;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+LoofhK/wQGr/+9KAmshAJ8mFNKJgp9hRkahBUOv2q0=;
+        b=TtaerOwDMgzLb6acSlkYoTOjsUi+3adJbvoPschjb82YTHJII9NI3qnqyACn1L0ebI
+         n3ar5DTFUmQzm6fDurOaeW7y17RQd9REdBjZglv1oBWqjDBuHbh8KVW8+P3VfIkfwB7H
+         i6Buafjc/mt+Wb17L7BGv8pfwUqLFCwSeFyHDi66WbvfmCDvso7xiFEOuZlHJKjUsraH
+         IozDVbtbFcp6Qux/9Pim4I0UX+eTxOEXJca4+LlyDICT7775clxoxkjj/p2W31BT1hUn
+         fG6wIskMlKrb4nw7Ulyls7R8jV9ynFnLSB6hz1UQU5NJ9p3Do09/BtCb/XE4krMk3ygv
+         INdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXB5bjSfmzWyZHHvLxco5Kv16DvFYHhyMUOcuKJQBh2vtMw4QeuH5BZZ1jWnckGzEPJbBZ0o3ersJjRxclggi/T@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBVsNVrdHcrYUYeJSZqymbEOm+JDsDTCi9uM/dOf5VeSY5akev
+	FiycHPB2XZZQVOQGt8xWcuQkgUZ0YI+yRsvlCj8pt+Y//CfVOBLZ
+X-Gm-Gg: ASbGncsTD5Q5B3GjXE/zfrh8/3Atpi1/K5xRh74jM+XGqBaxo7o4K/AcI7gx2KzfecC
+	UG2GCtGiBf13AdyI2bAt1U5HkPg/1wFNNYfgLmd0NMIhEmL7jyI9Z2uCBEQ0BZD2FxXWOkKBQYY
+	NxOHdbkbrSyyfYgWZJlWM27Xvt/EQ2yqUQvS2q+SfKfJ9sGAyp1JxGkbI9RhAn6T3JIZ1I/xZCc
+	bDu8IM+ui5JenfbyDZ2yUbKIsPA4P27HeZW6GzIA5/UjyfMdWH+r2XklT/r2bUC0UNMTOYFagZg
+	ef94AKBPhZmdnBluPTO130f8gsYGtIKamldrVasr00MJk/R75uNkczo59FpRIdhe9uW0viIXWYC
+	MQftNiGNjpIDG3aHkzhxx
+X-Google-Smtp-Source: AGHT+IGKF0/9vMppFQXLfG3fhWhSIXTNDv+iiIejYeyOQ7CuA+3GXv5xqTcwGc75uj4W4ZUzzSuDhg==
+X-Received: by 2002:a05:6000:1a8d:b0:391:3207:2e6f with SMTP id ffacd0b85a97d-3997f932d2fmr2949465f8f.42.1742568021582;
+        Fri, 21 Mar 2025 07:40:21 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9e65d5sm2557156f8f.64.2025.03.21.07.40.19
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9e65d5sm2557156f8f.64.2025.03.21.07.40.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 07:40:20 -0700 (PDT)
+        Fri, 21 Mar 2025 07:40:21 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh@kernel.org>,
@@ -80,16 +81,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH v2 0/2] usb: dwc3: exynos: add support for Exynos2200 variant
-Date: Fri, 21 Mar 2025 16:40:14 +0200
-Message-ID: <20250321144016.1434848-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v2 1/2] dt-bindings: usb: samsung,exynos-dwc3: add exynos2200 compatible
+Date: Fri, 21 Mar 2025 16:40:15 +0200
+Message-ID: <20250321144016.1434848-2-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250321144016.1434848-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250321144016.1434848-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_074021_978620_50F4F613 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250321_074023_228028_2CACF61D 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,27 +106,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey folks,
+The Exynos2200 SoC has a DWC3 compatible USB controller and can reuse
+the existing Exynos glue. Update the dt schema to include the
+samsung,exynos2200-dwusb3 compatible for it.
 
-This patchset adds support for the Exynos 2200 to the exynos-dwc3 glue
-code. It takes one clock - the link_aclk, and the dwc3 refclk is passed
-to the dwc3 subnode, as with gs101.
-
-Best regards,
-Ivaylo
-
-Changes in v2:
-- add sob and r-b tags
-- drop minitems from binding patch
-
-Ivaylo Ivanov (2):
-  dt-bindings: usb: samsung,exynos-dwc3: add exynos2200 compatible
-  usb: dwc3: exynos: add support for Exynos2200 variant
-
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
  .../bindings/usb/samsung,exynos-dwc3.yaml          | 14 ++++++++++++++
- drivers/usb/dwc3/dwc3-exynos.c                     |  9 +++++++++
- 2 files changed, 23 insertions(+)
+ 1 file changed, 14 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+index 2b3430ceb..679088c91 100644
+--- a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
++++ b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+@@ -13,6 +13,7 @@ properties:
+   compatible:
+     enum:
+       - google,gs101-dwusb3
++      - samsung,exynos2200-dwusb3
+       - samsung,exynos5250-dwusb3
+       - samsung,exynos5433-dwusb3
+       - samsung,exynos7-dwusb3
+@@ -73,6 +74,19 @@ allOf:
+             - const: link_aclk
+             - const: link_pclk
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: samsung,exynos2200-dwusb3
++    then:
++      properties:
++        clocks:
++          maxItems: 1
++        clock-names:
++          items:
++            - const: link_aclk
++
+   - if:
+       properties:
+         compatible:
 -- 
 2.43.0
 
