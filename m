@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287F2C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3B7C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f+MrpltCOvHc71+tHqzfu84Dtf2TZ9VYH/6xlCHbKG4=; b=ctr9ei3wfvFrRwTcJ1s30HsM75
-	Xulq+7jtLrspz2lGA4AqtonVdnw2Vo7gbdtHB2lPVc3FXdBkhWr3cMU35+FB9/a3/mDX7wgu6vsb6
-	XIkxo5bUPqwwwSwCe5v4wd//wueEKZpZcHEpOfNaCDcgu2SjcY4oNzl62mPiAhaqg0Zzq4Wpv1Ery
-	dWT1UfQ1tcVqje9yMhz93AxpZ8tBwI99rgPzRXwrlUFasGpVS8rswYyx9hmsQQed2j9aZ3vJQW3xI
-	uDBmrK6/Zu7faToSrwbVEoPd2yVaK+s2WEizWSn9N9dKThrnD5LaTZcRdOrzJSJZu0vc7hZRB5VEI
-	p464AQQQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9OaCxVvb7AGSHid8PW/pNN4SupUMJrvc+PxPF17E580=; b=dASt2JdoOuQZAy6p4CpfaU1SJY
+	+ejOnR3Mj8EYyOmZXXMx6df4FvleN3g0fW9+dRqJ4xGKU1Ua2ZCpsi4/gLGNORbV+6oC0b4XDOPXB
+	IhrIGO9V4rO5LydvwKJooHp3JWLRM77jPklmtmjcay6V3VXfobei45s0j/wHayDG8r7PEXMWqxJib
+	63c4QGMkAU1YaIDj9KicAlfQBN4ohvns23mjPkV7Y9V009P1sXc/Pkx8e2wSngPpX+BCjUU6Uu4lh
+	qCdzqbYVqQJmUrMb8XAtD+YlYt8hHEq8+kiuQP+BEr7RVBsQjEXWLtNRBJZC8MgwekWmbLwxczUWg
+	TX4xC7+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXPq-0000000ECXn-49oR;
-	Fri, 21 Mar 2025 08:07:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tvXRV-0000000ECjY-13CR;
+	Fri, 21 Mar 2025 08:09:25 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvWyJ-0000000E7ja-3Lvw
+	id 1tvX3R-0000000E8y9-1QOC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 07:39:15 +0000
+	Fri, 21 Mar 2025 07:44:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22B48615CA;
-	Fri, 21 Mar 2025 07:39:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9813C4CEE3;
-	Fri, 21 Mar 2025 07:39:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 220DDA496A1;
+	Fri, 21 Mar 2025 07:39:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9DE8C4CEE3;
+	Fri, 21 Mar 2025 07:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742542754;
-	bh=nlD8UfHxL6A1SIXp/p6NoZR/pJlgm3rdkZfgohR3koA=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=iiAJLk7jR0FpJGamwJFBBypXRf8QpNqTnJd0fQHgdjcI0kroUJxPhMBEIB6wIHY1W
-	 6w3FD2J5ttYVIuroG49qYG1RLqLgKLvPSVp3r3GSObHsfZCEGYqS6LtNWHBg89L1Nq
-	 XNRwZfzYxC6Szkp0rKk42wng4CJwP75O7nqjXJdKmq7Nk7HE7LqLEDeYvTXbiUH9x2
-	 wnNlfwVJAgA6H/yuQHmCx34ca7TWJFU6MMbxYRmCvITdHvORAKRDlHVldbvvTstHuP
-	 EcgTqlvKHF/hbiORCRKvFPvlWoSKMX4hNZ+KsvBK7Y7YZYSxeW0RmqBHe8M75BtIWx
-	 Z3PbIf83k25qw==
-Message-ID: <8379e009-9619-4c2b-986a-8ccb9ebaa083@kernel.org>
-Date: Fri, 21 Mar 2025 08:39:07 +0100
+	s=k20201202; t=1742543072;
+	bh=/YmjxGbakqtnak0HA4K/vKGsWFbKueiINUncr9XTSzw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uxtOttO2F7v89LlJgh70CQiu5tLI6RaIemI9Z0u8HLRIqerUioGSSYZrDpkcA3sPv
+	 /3KXrgvNsfcYBjgOdatbfruVTVSwl1+thHkX/4svLdGjdAGPxr1R56cev/osRg9N+E
+	 XQOySpa5W7nDLmt3gtA6T85KBMttBU4UT2JX4NAwoUC2ZjQH/NEstb50hKeD5MTUe+
+	 o2/4Y4f8v+vaGHApik+dNWVxLFpmvynZOa2PbQRTfGBGihAx3Hj69aLPViPfRYMQh+
+	 ZzfXaT758lgC2uoV+MGwjGcfQoysEVl+q9Cn33/sVgS8DSNBPQrpI+MCfoi87U9CqV
+	 busQicYEiHfTA==
+Message-ID: <5127f2e7-cb38-4103-8799-551fdedd8152@kernel.org>
+Date: Fri, 21 Mar 2025 08:44:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/3] arm64: dts: qcom: x1e80100-qcp: Add power control
- and sideband signals for PCIe3
-To: Wenbin Yao <quic_wenbyao@quicinc.com>, andersson@kernel.org,
- konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, quic_qianyu@quicinc.com,
- sfr@canb.auug.org.au, linux-arm-kernel@lists.infradead.org
-References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
- <20250320055502.274849-4-quic_wenbyao@quicinc.com>
+Subject: Re: [PATCH v3 1/2] ARM: dts: aspeed: Add device tree for Nvidia's
+ GB200NVL BMC
+To: Willie Thai <wthai@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+ kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, openbmc@lists.ozlabs.org
+Cc: leohu@nvidia.com, tingkaic@nvidia.com, dkodihalli@nvidia.com,
+ Mars Yang <maryang@nvidia.com>, Andrew Lunn <andrew@lunn.ch>,
+ Paul Menzel <pmenzel@molgen.mpg.de>
+References: <20250320164633.101331-1-wthai@nvidia.com>
+ <20250320164633.101331-2-wthai@nvidia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,9 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250320055502.274849-4-quic_wenbyao@quicinc.com>
+In-Reply-To: <20250320164633.101331-2-wthai@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250321_004433_523750_A16DA176 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,37 +124,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2025 06:55, Wenbin Yao wrote:
-> From: Qiang Yu <quic_qianyu@quicinc.com>
-> 
-> Add perst, wake and clkreq sideband signals and required regulators in
-> PCIe3 controller and PHY device tree node. Describe the voltage rails of
-> the x8 PCI slots for PCIe3 port.
-> 
-> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/x1e80100-qcp.dts | 119 ++++++++++++++++++++++
->  1 file changed, 119 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-> index 28086a2bc..9cd313802 100644
-> --- a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-> +++ b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-> @@ -318,6 +318,48 @@ vreg_wcn_3p3: regulator-wcn-3p3 {
->  		regulator-boot-on;
->  	};
->  
-> +	vreg_pcie_12v: regulator-pcie_12v {
+On 20/03/2025 17:46, Willie Thai wrote:
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +		led-0 {
+> +			label = "uid_led";
+> +			gpios = <&sgpiom0 27 GPIO_ACTIVE_LOW>;
+> +		};
+> +		led-1 {
+> +			label = "fault_led";
+> +			gpios = <&sgpiom0 29 GPIO_ACTIVE_LOW>;
+> +		};
+> +		led-2 {
+> +			label = "power_led";
+> +			gpios = <&sgpiom0 31 GPIO_ACTIVE_LOW>;
+> +		};
+> +
 
-Don't send the downstream code.
+You still have stray blank lines in few places.
 
-Underscore are not allowed in node names plus:
+> +	};
+> +
+> +	buttons {
+> +		button-power {
+> +			label = "power-btn";
+> +			gpio = <&sgpiom0 156 GPIO_ACTIVE_LOW>;
+> +		};
+> +		button-uid {
+> +			label = "uid-btn";
+> +			gpio = <&sgpiom0 154 GPIO_ACTIVE_LOW>;
+> +		};
+> +	};
+> +
+> +};
+> +
 
-Please use name for all fixed regulators which matches current format
-recommendation: 'regulator-[0-9]v[0-9]'
+...
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml?h=v6.11-rc1#n46
+> +/*
+> + * Enable USB port A as device (via the virtual hub) to host
+> + */
+> +&vhub {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	/*
+> +	 * Uncomment below line to enable internal EHCI controller
+> +	 * Current config uses xHCI Port1
+> +	 */
+
+Comment makes no sense.
+
+> +};
+> +
+> +&video {
+> +	status = "okay";
+> +	memory-region = <&video_engine_memory>;
+> +};
+> +
+
+...
+
+> +&gpio0 {
+> +	gpio-line-names =
+> +		/*A0-A7*/ "", "", "", "", "", "", "", "",
+> +		/*B0-B7*/ "", "", "", "", "", "", "", "",
+> +		/*C0-C7*/ "SGPIO_I2C_MUX_SEL-O", "", "", "", "", "", "", "",
+> +		/*D0-D7*/ "", "", "", "UART1_MUX_SEL-O", "", "FPGA_PEX_RST_L-O", "", "",
+> +		/*E0-E7*/ "RTL8221_PHY_RST_L-O", "RTL8211_PHY_INT_L-I",	"", "UART3_MUX_SEL-O",
+> +					"", "", "", "SGPIO_BMC_EN-O",
+> +		/*F0-F7*/ "", "", "", "", "", "", "", "",
+> +		/*G0-G7*/ "", "", "", "", "", "", "", "",
+> +		/*H0-H7*/ "", "", "", "", "", "", "", "",
+> +		/*I0-I7*/ "", "", "", "", "", "QSPI2_RST_L-O", "GLOBAL_WP_BMC-O", "BMC_DDR4_TEN-O",
+> +		/*J0-J7*/ "", "", "", "", "", "", "", "",
+> +		/*K0-K7*/ "", "", "", "", "", "", "", "",
+> +		/*L0-L7*/ "", "", "", "", "", "", "", "",
+> +		/*M0-M7*/ "PCIE_EP_RST_EN-O", "BMC_FRU_WP-O", "HMC_RESET_L-O", "STBY_POWER_EN-O",
+> +					"STBY_POWER_PG-I", "PCIE_EP_RST_L-O", "", "",
+> +		/*N0-N7*/ "", "", "", "", "", "", "", "",
+> +		/*O0-O7*/ "", "", "", "", "", "", "", "",
+> +		/*P0-P7*/ "", "", "", "", "", "", "", "",
+> +		/*Q0-Q7*/ "", "", "", "", "", "", "", "",
+> +		/*R0-R7*/ "", "", "", "", "", "", "", "",
+> +		/*S0-S7*/ "", "", "", "", "", "", "", "",
+> +		/*T0-T7*/ "", "", "", "", "", "", "", "",
+> +		/*U0-U7*/ "", "", "", "", "", "", "", "",
+> +		/*V0-V7*/ "AP_EROT_REQ-O", "EROT_AP_GNT-I", "", "","PCB_TEMP_ALERT-I", "","", "",
+> +		/*W0-W7*/ "", "", "", "", "", "", "", "",
+> +		/*X0-X7*/ "", "", "TPM_MUX_SEL-O", "", "", "", "", "",
+> +		/*Y0-Y7*/ "", "", "", "EMMC_RST-O", "","", "", "",
+> +		/*Z0-Z7*/ "BMC_READY-O","", "", "", "", "", "", "";
+> +};
+> +
+> +&gpio1 {
+> +	/* 36 1.8V GPIOs */
+> +	gpio-line-names =
+> +		/*A0-A7*/ "", "", "", "", "", "", "", "",
+> +		/*B0-B7*/ "", "", "", "", "", "", "IO_EXPANDER_INT_L-I","",
+> +		/*C0-C7*/ "", "", "", "", "", "", "", "",
+> +		/*D0-D7*/ "", "", "", "", "", "", "SPI_HOST_TPM_RST_L-O", "SPI_BMC_FPGA_INT_L-I",
+> +		/*E0-E7*/ "", "", "", "", "", "", "", "";
+> +};
+> +
+> +// EMMC group that excludes WP pin
+> +&pinctrl {
+> +	pinctrl_emmcg5_default: emmcg5_default {
+
+No underscores in node names.
+
+> +		function = "EMMC";
+> +		groups = "EMMCG5";
+> +	};
+> +};
+
 
 Best regards,
 Krzysztof
