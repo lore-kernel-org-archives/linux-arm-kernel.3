@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8130DC35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 01:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59927C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 01:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LjDymQPV/JFsOgAFzuvK8gI8KQUK45IdrgIAv3AgUY=; b=V448kyoL/7ZiOMKsRAlR96SfEf
-	6qMmKGy74rxEl26lFhwkqN+IUpAX37v7sbClrj0MHI1v3spct2Is96ZWGgZkr4ucBlKdQN/EDlmBz
-	HuOlsoUieJQd7LpMRsWxGhK4dCl/3Mw4Uib9Qj7rlC7lQk+y9tLDFpEqk47MvTWCGv1eqaGMu48rq
-	cSdp+XdRxEHHQBxnmIUYOfOzTZXmPjnbrSdjWYyTjMyXXA4ZB17om8S3KwA+rpGNgQoS9J21hVnAQ
-	2DlW24P2E+EaxZFom4X45Iq+FljymAoEkUo/Kytocg8YayEuh3BveYstd2GPiJR36ApPJoTPuioIi
-	ON+T+hNw==;
+	bh=3gAbyuISuqa5pnBiQR//72WrRmt0RCFEDOdo2QdTYT0=; b=TLtn8hiZS44JOi5WAnsmh0HTfO
+	itDkWVo//ycoob5uOJEXRwFGpY7OuWrrbx51S5Ub7I+iKPiQjJQu+0Nvl4Yp4xwTs6Yc0837021bK
+	Y51TnBtTsEcc6aJXwLziYSZB7EthsJVj3uh+xIUYQcO6p3ye9eleFOgNgqrEYWTGhUaFMwhmf8tSX
+	S0rx2GclUX4cJ3xhP1RsEadrBsA8FfDtFT+R1Yvzu7Pbcl64BnktZXH4bhgQ8voWEjB8aZxPQEWMr
+	lpRYUIiaoWrKpQi5Lz991EUCyfOJOxjpUjS0gSwhvEoBYYpkXa2aUa7UMRaKraT5ZLa122Mc7Lcr0
+	E9mFPoCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvQuo-0000000Dciv-0Vv2;
-	Fri, 21 Mar 2025 01:11:14 +0000
+	id 1tvR2Z-0000000DdDY-1JLd;
+	Fri, 21 Mar 2025 01:19:15 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvQqR-0000000DcMT-37AR
+	id 1tvR0o-0000000Dd5a-1rNb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 01:06:48 +0000
+	Fri, 21 Mar 2025 01:17:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1742519201;
-	bh=7LjDymQPV/JFsOgAFzuvK8gI8KQUK45IdrgIAv3AgUY=;
+	d=codeconstruct.com.au; s=2022a; t=1742519844;
+	bh=3gAbyuISuqa5pnBiQR//72WrRmt0RCFEDOdo2QdTYT0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I3Ca8LzsDShrd9bn/2RdZJZCg/rULYZoSQ5iyPZS6eL6U8+01IHQkxX8CKz+pi9Fq
-	 ZLtxC4l1vzTJs4/jRnS10Dv+mu82/3ZAaikRSAztf97rzyWy3iUiBNy7KFa6cyNVZa
-	 Cn8H++9ta9jvHr+kYeWWcry8S8LvyqlduYH6KJK2oZ4MnjHCCSM9C+qWHc9gXt1qJF
-	 9d68b1Tz74pLo4Ur2cozOJLLePiaojIrl0zYk1tpesgjQZOWOEwIycRfAbHVgBwCIT
-	 dBQDZrhSODyQ1nJlip6P/DU858JAELTM8+a95BOlU/DTkWcxAa3EahKbd5DF33RVtg
-	 WpJtNasKEiuWQ==
+	b=CF9LrEaW73SSkAvONjb7ZeJumWBWYxoLQjntgCqAddTkQMb+6W3Ef9L9xMutrChWF
+	 4M3NhEapu1XqbGp4r43Mk9FvfQZcYgdC0PQx74HpzalW6cP4ICJXXFqD8D0H4rsLb5
+	 3wGvehiN82krX48aekEAXVTTltdltypLJydQcmZhkqOAgdHJQHEipk0uZfE+jVVICP
+	 +r1i21k+oLgLe0VA+h4AvyC+LFRGYmJuZhRuMKbdnTwcr+uVt/eBFfERxq6f55lGN3
+	 aKAkmbSbRsBYhxkDscaApAlbXAzbJc2A/+BKBNtV9WsLTR8XUTESe8xIWW/RoiOVu+
+	 hq8h5S6RvwoFw==
 Received: from [192.168.68.112] (unknown [180.150.112.225])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 3941E7A886;
-	Fri, 21 Mar 2025 09:06:38 +0800 (AWST)
-Message-ID: <4471e1948ab420ae0574e1442d445800bc19240c.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 0/2] Add device tree for Nvidia's GB200NVL BMC
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 5C53E7A886;
+	Fri, 21 Mar 2025 09:17:23 +0800 (AWST)
+Message-ID: <26a1d17c47c5ca6036dd58ac3b953daeec9f5ef8.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v5 05/10] ARM: dts: aspeed: catalina: Add second source
+ fan controller support
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Willie Thai <wthai@nvidia.com>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>, Paul Menzel
- <pmenzel@molgen.mpg.de>,  tingkaic@nvidia.com, kees@kernel.org, Krzysztof
- Kozlowski <krzk@kernel.org>,  Mars Yang <maryang@nvidia.com>,
- linux-kernel@vger.kernel.org, conor+dt@kernel.org, Andrew Lunn
- <andrew@lunn.ch>, linux-hardening@vger.kernel.org, gpiccoli@igalia.com, 
- linux-aspeed@lists.ozlabs.org, leohu@nvidia.com, openbmc@lists.ozlabs.org, 
- krzk+dt@kernel.org, dkodihalli@nvidia.com, joel@jms.id.au, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- tony.luck@intel.com
-Date: Fri, 21 Mar 2025 11:36:37 +1030
-In-Reply-To: <174249492169.658140.8130213005563532857.robh@kernel.org>
-References: <20250320164633.101331-1-wthai@nvidia.com>
-	 <174249492169.658140.8130213005563532857.robh@kernel.org>
+To: Potin Lai <potin.lai.pt@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>, Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Cosmo Chou
+	 <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>
+Date: Fri, 21 Mar 2025 11:47:22 +1030
+In-Reply-To: <20250320-potin-catalina-dts-update-20250102-v5-5-e161be6583a7@gmail.com>
+References: <20250320-potin-catalina-dts-update-20250102-v5-0-e161be6583a7@gmail.com>
+	 <20250320-potin-catalina-dts-update-20250102-v5-5-e161be6583a7@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: base64
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_180644_032260_CAAF6C43 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250320_181726_698860_922EE4BF 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,200 +76,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Willie,
+SGkgUG90aW4sCgpPbiBUaHUsIDIwMjUtMDMtMjAgYXQgMjM6MjEgKzA4MDAsIFBvdGluIExhaSB3
+cm90ZToKPiBBZGQgZGV2aWNlIHRyZWUgbm9kZXMgZm9yIHRoZSBOQ1Q3MzYzIGZhbiBjb250cm9s
+bGVycyBvbiB0aGUgc2Vjb25kLQo+IHNvdXJjZQo+IFBvd2VyIERpc3RyaWJ1dGlvbiBCb2FyZCAo
+UERCKS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBQb3RpbiBMYWkgPHBvdGluLmxhaS5wdEBnbWFpbC5j
+b20+Cj4gLS0tCj4gwqAuLi4vZHRzL2FzcGVlZC9hc3BlZWQtYm1jLWZhY2Vib29rLWNhdGFsaW5h
+LmR0c8KgwqDCoCB8IDc2Cj4gKysrKysrKysrKysrKysrKysrKysrKwo+IMKgMSBmaWxlIGNoYW5n
+ZWQsIDc2IGluc2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm0vYm9vdC9kdHMv
+YXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2stCj4gY2F0YWxpbmEuZHRzIGIvYXJjaC9hcm0vYm9v
+dC9kdHMvYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2stCj4gY2F0YWxpbmEuZHRzCj4gaW5kZXgg
+ZmQyMmFkZDkwNDQ5Li45Y2JiMjk2ZGNkOWUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9hcm0vYm9vdC9k
+dHMvYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2stY2F0YWxpbmEuZHRzCj4gKysrIGIvYXJjaC9h
+cm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2stY2F0YWxpbmEuZHRzCj4gQEAg
+LTQ2Nyw2ICs0NjcsODIgQEAgaTJjMW11eDBjaDI6IGkyY0AyIHsKPiDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAjc2l6ZS1jZWxscyA9IDwwPjsKPiDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZWcgPSA8MHgyPjsK
+PiDCoAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgaHdt
+b24wOiBod21vbkAxIHsKClRoZXJlIG1pZ2h0IGJlIGluc3RhbmNlcyBvZiBjYWxsaW5nIG5vZGVz
+IGFuZCBsYWJlbHMgJ2h3bW9uJyBpbiBvdGhlcgooQk1DKSBkZXZpY2V0cmVlcywgYnV0IEkgZG9u
+J3QgdGhpbmsgd2Ugc2hvdWxkIGNvbnRpbnVlIHRoYXQgcHJhY3RpY2UuCkkgdGhpbmsgaW4gdGhp
+cyBjYXNlIGl0IHNob3VsZCBiZSAnZmFuLWNvbnRyb2xsZXInLgoKaHdtb24gaXMgdGhlIG5hbWUg
+b2YgYSBrZXJuZWwgc3Vic3lzdGVtLCBub3QgYSBjbGFzcyBvZiBoYXJkd2FyZS4gVGhlCmRldmlj
+ZXRyZWVzIHNob3VsZCBkZXNjcmliZSB0aGUgaGFyZHdhcmUgKGFuZCBub3QgY29uY2VwdHMgZnJv
+bSB0aGUKa2VybmVsKS4KCgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGNvbXBhdGlibGUgPSAibnV2b3RvbixuY3Q3MzYzIjsK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqByZWcgPSA8MHgwMT47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgI3B3bS1jZWxscyA9IDwyPjsKPiArCj4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgZmFuLTkgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBwd21zID0gPCZod21vbjAgMCA0MDAw
+MD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHRhY2gtY2ggPSAvYml0cy8gOCA8MHgwOT47Cj4g
+K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgfTsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqBmYW4tMTEgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBwd21zID0g
+PCZod21vbjAgMCA0MDAwMD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHRhY2gtY2ggPSAvYml0
+cy8gOCA8MHgwYj47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBmYW4tMTAgewo+ICvCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqBwd21zID0gPCZod21vbjAgNCA0MDAwMD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oHRhY2gtY2ggPSAvYml0cy8gOCA8MHgwYT47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBmYW4tMTMgewo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBwd21zID0gPCZod21vbjAgNCA0MDAwMD47Cj4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoHRhY2gtY2ggPSAvYml0cy8gOCA8MHgwZD47Cj4gK8KgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqBmYW4tMTUgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBwd21zID0gPCZod21vbjAgNiA0
+MDAwMD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHRhY2gtY2ggPSAvYml0cy8gOCA8MHgwZj47
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgfTsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBmYW4tMSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHB3bXMg
+PSA8Jmh3bW9uMCA2IDQwMDAwPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgdGFjaC1jaCA9IC9i
+aXRzLyA4IDwweDAxPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGZhbi0wIHsKPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgcHdtcyA9IDwmaHdtb24wIDEwIDQwMDAwPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgdGFjaC1jaCA9IC9iaXRzLyA4IDwweDAwPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+ICvCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGZhbi0zIHsK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcHdtcyA9IDwmaHdtb24wIDEwIDQwMDAwPjsKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgdGFjaC1jaCA9IC9iaXRzLyA4IDwweDAzPjsKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGh3bW9uMTogaHdtb25A
+MiB7CgpBcyBhYm92ZS4KCkFuZHJldwo=
 
-On Thu, 2025-03-20 at 13:26 -0500, Rob Herring (Arm) wrote:
->=20
-> On Thu, 20 Mar 2025 16:46:31 +0000, Willie Thai wrote:
-> > The GB200NVL BMC is an Aspeed Ast2600 based BMC
-> > for Nvidia Blackwell GB200NVL platform.
-> > Reference to Ast2600 SOC [1].
-> > Reference to Blackwell GB200NVL Platform [2].
-> >=20
-> > Co-developed-by: Mars Yang <maryang@nvidia.com>
-> > Signed-off-by: Mars Yang <maryang@nvidia.com>
-> > Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> > Cc: Andrew Lunn <andrew@lunn.ch>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Paul Menzel <pmenzel@molgen.mpg.de>
-> > Link: https://www.aspeedtech.com/server_ast2600/=C2=A0[1]
-> > Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703=
-=C2=A0[2]
-> > Signed-off-by: Willie Thai <wthai@nvidia.com>
-> > ---
-> > Changes v1 -> v2:
-> > =C2=A0 - Fix the SOB name [Krzysztof]
-> > =C2=A0 - Fix warnings from scripts/checkpatch.pl run [Krzysztof]
-> > =C2=A0 - Fix DTS coding style [Krzysztof]
-> > =C2=A0 - Move pinctrl override to the bottom [Krzysztof]
-> > =C2=A0 - Drop bootargs [Krzysztof]
-> > =C2=A0 - Follow DTS coding style and change naming for leds node [Krzys=
-ztof]
-> > =C2=A0 - Change flash 0 status property [Krzysztof]
-> > =C2=A0 - Change the phy-mode to rgmii [Andrew]
-> > =C2=A0 - Remove the max-speed in mac0 [Andrew]
-> > =C2=A0 - Put gpio line name in one line per group of 8 gpios, but keep =
-some b/c they can exceed length limit [Paul]
-> > Changes v2 -> v3:
-> > =C2=A0 - Fix missing new line [Krzysztof]
-> > =C2=A0 - Fix missing binding define, adding it in the patch no.1 of thi=
-s patch set v3 [Krzysztof, Rob]
-> > =C2=A0 - Fix DTS coding style [Krzysztof]
-> > =C2=A0 - Modify nodes name to generic name for: i2c expander pca9546, g=
-pio expander pca9555, power monitor lm5066i, fan controller max31790 [Krzys=
-ztof]
-> > =C2=A0 - Skip mac setting and wait till the delay issue in phy-mode fix=
- from Aspeed SOC vendor side [Andrew]
-> > =C2=A0 - Remove i2c-scl-clk-low-timeout-us which is Apseed proprietary =
-property [Mars]
-> > ---
-> >=20
-> > Willie Thai (2):
-> > =C2=A0 ARM: dts: aspeed: Add device tree for Nvidia's GB200NVL BMC
-> > =C2=A0 dt-bindings: arm: aspeed: add Nvidia's GB200NVL BMC
-> >=20
-> > =C2=A0.../bindings/arm/aspeed/aspeed.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> > =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> > =C2=A0.../aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 1168 ++++++++++++=
-+++++
-> > =C2=A03 files changed, 1170 insertions(+)
-> > =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb2=
-00nvl-bmc.dts
-> >=20
-> > --
-> > 2.25.1
-> >=20
-> >=20
-> >=20
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->=20
-> =C2=A0 pip3 install dtschema --upgrade
->=20
->=20
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm/boot/dts/aspeed/' =
-for 20250320164633.101331-1-wthai@nvidia.com:
->=20
-...
-
->=20
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pinctrl: emm=
-cg5_default:groups:0: 'EMMCG5' is not one of ['ADC0', 'ADC1', 'ADC10', 'ADC=
-11', 'ADC12', 'ADC13', 'ADC14', 'ADC15', 'ADC2', 'ADC3', 'ADC4', 'ADC5', 'A=
-DC6', 'ADC7', 'ADC8', 'ADC9', 'BMCINT', 'EMMCG1', 'EMMCG4', 'EMMCG8', 'ESPI=
-', 'ESPIALT', 'FSI1', 'FSI2', 'FWQSPI', 'FWSPIABR', 'FWSPID', 'FWSPIWP', 'G=
-PIT0', 'GPIT1', 'GPIT2', 'GPIT3', 'GPIT4', 'GPIT5', 'GPIT6', 'GPIT7', 'GPIU=
-0', 'GPIU1', 'GPIU2', 'GPIU3', 'GPIU4', 'GPIU5', 'GPIU6', 'GPIU7', 'HVI3C3'=
-, 'HVI3C4', 'I2C1', 'I2C10', 'I2C11', 'I2C12', 'I2C13', 'I2C14', 'I2C15', '=
-I2C16', 'I2C2', 'I2C3', 'I2C4', 'I2C5', 'I2C6', 'I2C7', 'I2C8', 'I2C9', 'I3=
-C1', 'I3C2', 'I3C3', 'I3C4', 'I3C5', 'I3C6', 'JTAGM', 'LHPD', 'LHSIRQ', 'LP=
-C', 'LPCHC', 'LPCPD', 'LPCPME', 'LPCSMI', 'LSIRQ', 'MACLINK1', 'MACLINK2', =
-'MACLINK3', 'MACLINK4', 'MDIO1', 'MDIO2', 'MDIO3', 'MDIO4', 'NCSI3', 'NCSI4=
-', 'NCTS1', 'NCTS2', 'NCTS3', 'NCTS4', 'NDCD1', 'NDCD2', 'NDCD3', 'NDCD4', =
-'NDSR1', 'NDSR2', 'NDSR3'
-> =C2=A0, 'NDSR4', 'NDTR1', 'NDTR2', 'NDTR3', 'NDTR4', 'NRI1', 'NRI2', 'NRI=
-3', 'NRI4', 'NRTS1', 'NRTS2', 'NRTS3', 'NRTS4', 'OSCCLK', 'PEWAKE', 'PWM0',=
- 'PWM1', 'PWM10G0', 'PWM10G1', 'PWM11G0', 'PWM11G1', 'PWM12G0', 'PWM12G1', =
-'PWM13G0', 'PWM13G1', 'PWM14G0', 'PWM14G1', 'PWM15G0', 'PWM15G1', 'PWM2', '=
-PWM3', 'PWM4', 'PWM5', 'PWM6', 'PWM7', 'PWM8G0', 'PWM8G1', 'PWM9G0', 'PWM9G=
-1', 'QSPI1', 'QSPI2', 'RGMII1', 'RGMII2', 'RGMII3', 'RGMII4', 'RMII1', 'RMI=
-I2', 'RMII3', 'RMII4', 'RXD1', 'RXD2', 'RXD3', 'RXD4', 'SALT1', 'SALT10G0',=
- 'SALT10G1', 'SALT11G0', 'SALT11G1', 'SALT12G0', 'SALT12G1', 'SALT13G0', 'S=
-ALT13G1', 'SALT14G0', 'SALT14G1', 'SALT15G0', 'SALT15G1', 'SALT16G0', 'SALT=
-16G1', 'SALT2', 'SALT3', 'SALT4', 'SALT5', 'SALT6', 'SALT7', 'SALT8', 'SALT=
-9G0', 'SALT9G1', 'SD1', 'SD2', 'SD3', 'SGPM1', 'SGPM2', 'SGPS1', 'SGPS2', '=
-SIOONCTRL', 'SIOPBI', 'SIOPBO', 'SIOPWREQ', 'SIOPWRGD', 'SIOS3', 'SIOS5', '=
-SIOSCI', 'SPI1', 'SPI1ABR', 'SPI1CS1', 'SPI1WP', 'SPI2', 'SPI2CS1', 'SPI2CS=
-2', 'TACH0', 'TACH1', 'TACH10'
-> =C2=A0, 'TACH11', 'TACH12', 'TACH13', 'TACH14', 'TACH15', 'TACH2', 'TACH3=
-', 'TACH4', 'TACH5', 'TACH6', 'TACH7', 'TACH8', 'TACH9', 'THRU0', 'THRU1', =
-'THRU2', 'THRU3', 'TXD1', 'TXD2', 'TXD3', 'TXD4', 'UART10', 'UART11', 'UART=
-12G0', 'UART12G1', 'UART13G0', 'UART13G1', 'UART6', 'UART7', 'UART8', 'UART=
-9', 'USBA', 'USBB', 'VB', 'VGAHS', 'VGAVS', 'WDTRST1', 'WDTRST2', 'WDTRST3'=
-, 'WDTRST4']
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/pinctrl/aspeed,ast2600-pinctrl.yaml#
-
-...
-
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c@80: Unev=
-aluated properties are not allowed ('disable-master' was unexpected)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/i2c/aspeed,i2c.yaml#
-
-...
-
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: gpio@21: '#a=
-ddress-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+=
-|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: gpio@21: '#a=
-ddress-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+=
-|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: gpio@21: '#a=
-ddress-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+=
-|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pwm@20: '#ad=
-dress-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$'=
-, 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/hwmon/maxim,max31790.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pwm@23: '#ad=
-dress-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$'=
-, 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/hwmon/maxim,max31790.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pwm@2c: '#ad=
-dress-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$'=
-, 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/hwmon/maxim,max31790.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pwm@2f: '#ad=
-dress-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$'=
-, 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/hwmon/maxim,max31790.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: gpio@20: '#a=
-ddress-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+=
-|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: gpio@21: '#a=
-ddress-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+=
-|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: gpio@27: '#a=
-ddress-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+=
-|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: gpio@74: '#a=
-ddress-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+=
-|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-
-Please fix all of the warnings highlighted above before submitting v4.
-
-Thanks,
-
-Andrew
 
