@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DA6C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 21:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA2CC36007
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 21:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ub4NJLTCmNC8PLQMEsKYzWE8LoAtBXMJm+3L1r28Cek=; b=PCP47orvevZbrfwGJPsIvEJjqu
-	Crio7/3gPlSQGbID7ViiBDqF+UgEhgMeyUFzCfjeAQKBwVnK/SORxlCWWHrtmr6PacLMDmzj/+Z1H
-	fIQBicmc9aCYX8z+wgwibRzu6ZGgiaQQPKav7qDjRVEMqXm7fHv8LgXcpKz9VFYs6kd6YEhvMzRoX
-	B4I7OYj/hXpJwPT/NQsnTi103Z9NdxL9vF1w4ZtQtFsGH6uC/E9YkRyjLjAh0J9p0DNS7HrB8yxWA
-	SJ0wyNplgt8xRGj9WZSnNOyEhcROtOb5WaGE1HUgkgcoc8fYPR6tmsgRRq2DwDncC9Bv7nKDQSV76
-	ACgvSGWg==;
+	bh=f3/ahBZgYfr5QGhY3NdFxhDpxuNvdguuT+JBJRbbarA=; b=DGaIWUXjLu2zZa/Dy252nsxYpx
+	PUfe/EDdqr/1HfCsUcY5vwQrXCfLtNF7tE6ryfhoibVWbvmITIPRESkn7OeJb8oAcv3LSkrDyRiEX
+	1C9en5bBIvE8O3x2k0/AD/RK16dUIqfKq+LKFEpuM+psmolKATtxghnLWyF1CxKLda9pdQMGlsHW3
+	UH/AXxu5kS5rjasJRYqwZhrwqYCzb+TdsfuvNUiHoAnrEYJsTkbTBgYlzGvCYf6D9A4U9G/jINZfG
+	qB1PkySpm9j58hv1MHfpA8y86WBkLzP4r27wuUd3sTQBmBXNZ+mPHpJZmfZczWAmxbcYzvRVm6i+A
+	zDtUelLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvk7e-0000000GOF7-3KGT;
-	Fri, 21 Mar 2025 21:41:46 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tvkI8-0000000GPb0-0UqV;
+	Fri, 21 Mar 2025 21:52:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvk5y-0000000GO4H-2bYV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 21:40:03 +0000
+	id 1tvkGS-0000000GPJJ-3a20;
+	Fri, 21 Mar 2025 21:50:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6C1CFA494F8;
-	Fri, 21 Mar 2025 21:34:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 122D9C4CEE3;
-	Fri, 21 Mar 2025 21:40:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B862761144;
+	Fri, 21 Mar 2025 21:50:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F52DC4CEE3;
+	Fri, 21 Mar 2025 21:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742593201;
-	bh=uG1o0DY+GJVVCupYP5Q6vsH9tFoXa2TJsrh44k6zKl8=;
+	s=k20201202; t=1742593851;
+	bh=OuXsCIjww8IGPIERo9jMNo59TtIIO8iDeK1LYXy5qcU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y6Pa/PehUaF69lIIfMgtgZhuBTeyvNMIWT92RiOv5dVZSKXU+jFqtBf9E6rJ8p2eZ
-	 VK2tHeM47fDed0TspAIxRkFMHC3qzJV/O19mCSLqWibA7Ayn6AKJYm+v9TyE6Q9DxX
-	 Md7ncFFXRUHqEwbPU2bw7Lm4WKtxD5fONIv2QtD8rT6Z34WVFUbUh3RDlARxfHeW0p
-	 T/8Fg3xf/aINftiEEbJsxfRRSOH9E8ihKcnev16YmXley9Se3ROglb0LtM6zCJyEc0
-	 ZSUz1cUoNZFimmffdMfE9thBVfyOA75lw3ynW/BmiHyrRkfc4S1aF8uLgJftulcEKj
-	 jfmKyRwQ5ABZQ==
-Date: Fri, 21 Mar 2025 16:40:00 -0500
+	b=mRXd7UtIRqeAPMkVSIWqUxf6NRJDuETi5ei5Xx2ZrXry9WCOECAdPPwt+QM5r6O0E
+	 Tgmg1fmyg3MSOvrtuJB/qszgX7onxH6yXKu74w47hxtBK8MOpgeHIJOx5FasxccWDG
+	 N15PsR9S61n6PT8yuH5NQkMD+j2FER8vUrn/W6QLIjYCDjCs6Ln1wHf81ZtTcqgmhl
+	 YBuOK9VADQqCk6zHzPlrO7N+lH9ykVYO4ulZlzlxZtv+fpu/Ou8kFe9wse4dTEb+tw
+	 F+oWlaOntz9e20/mdckQPWqh5zfdYsDpOIBNrZlGzBjr8725fscNL5ZZ7t3Yx3iym9
+	 LMgcSbPv357+w==
+Date: Fri, 21 Mar 2025 16:50:50 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Marek Vasut <marex@denx.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Steven Price <steven.price@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	dri-devel@lists.freedesktop.org, David Airlie <airlied@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Simona Vetter <simona@ffwll.ch>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Reichel <sre@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v2 1/9] dt-bindings: reset: imx95-gpu-blk-ctrl: Document
- Freescale i.MX95 GPU reset
-Message-ID: <174259137507.3955133.798395163716870826.robh@kernel.org>
-References: <20250321200625.132494-1-marex@denx.de>
- <20250321200625.132494-2-marex@denx.de>
+To: Xueqi Zhang <xueqi.zhang@mediatek.com>
+Cc: iommu@lists.linux.dev,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Wendy-st Lin <wendy-st.lin@mediatek.com>,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Yong Wu <yong.wu@mediatek.com>, Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: memory: mediatek: Add mt8196 support
+Message-ID: <174259384769.4178048.13773796481091254405.robh@kernel.org>
+References: <20250320073625.25225-1-xueqi.zhang@mediatek.com>
+ <20250320073625.25225-2-xueqi.zhang@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250321200625.132494-2-marex@denx.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_144002_729991_4A494BB5 
-X-CRM114-Status: GOOD (  13.85  )
+In-Reply-To: <20250320073625.25225-2-xueqi.zhang@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +77,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 21 Mar 2025 21:05:51 +0100, Marek Vasut wrote:
-> The instance of the GPU populated in Freescale i.MX95 does require
-> release from reset by writing into a single GPUMIX block controller
-> GPURESET register bit 0. Document support for this reset register.
+On Thu, 20 Mar 2025 15:36:16 +0800, Xueqi Zhang wrote:
+> Add mt8196 smi support in the bindings.
+> Since mt8196 has more than 32 SMI larbs, update 'mediatek,larb-id'
+> maximum to 63.
 > 
-> Signed-off-by: Marek Vasut <marex@denx.de>
+> Signed-off-by: Xueqi Zhang <xueqi.zhang@mediatek.com>
 > ---
-> Cc: Boris Brezillon <boris.brezillon@collabora.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Philipp Zabel <p.zabel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Sebastian Reichel <sre@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
-> V2: - Fix dt_binding_check errors in example, temporarily use fixed
->       numbers to refer to IMX95_CLK_GPUAPB clock and IMX95_PD_GPU
->       power-domain
->     - Drop trailing pipe after description:
->     - Drop leading dash before const in compatible:
->     - Switch from fsl, to nxp, vendor prefix
-> ---
->  .../reset/nxp,imx95-gpu-blk-ctrl.yaml         | 49 +++++++++++++++++++
->  1 file changed, 49 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/nxp,imx95-gpu-blk-ctrl.yaml
+>  .../mediatek,smi-common.yaml                  |   4 +-
+>  .../memory-controllers/mediatek,smi-larb.yaml |   4 +-
+>  .../dt-bindings/memory/mt8196-memory-port.h   | 460 ++++++++++++++++++
+>  include/dt-bindings/memory/mtk-memory-port.h  |   4 +-
+>  4 files changed, 468 insertions(+), 4 deletions(-)
+>  create mode 100644 include/dt-bindings/memory/mt8196-memory-port.h
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
