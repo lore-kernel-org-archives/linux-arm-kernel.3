@@ -4,101 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E456C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 18:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89846C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 19:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCYnaCr6t2CITiy2CVtW2Iw29QsHSOWYrJlCz4eX7VE=; b=sp+Kh44oa5OHbSbYnhRtSMq4T4
-	Gm40CC1fmwxCSlK0SSKO0wXi4hsUGsYMMU9u6bhSR2b7/cefSMwyKNVse5YRUV+sIzR/dDJ/kG16n
-	z2GWMhgaKsVOPab5DthsT4m2+yPSGNqDbVzIC5ofEWCGGpw/R5aBO80qkq+OlV0JlFwNrWfJWmuaV
-	tXssPEf3I0CaXV0zcRMRN9tI+5OccAeziHGOo2ADGw0iamk/skJLHYMuG8VhyJcqntx//+XHo9r7L
-	iZ/htrki/efPahiThBygQvyljpVizW5ejX+pvo80K+7P1c85QwGqV/Ffsj+YKIKCuhcq/dQ7Tauh1
-	3EBZfYiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RpBlJrTh2SiAQ7XsqitwZTpLQOS2kEOUFkxFqjobLOc=; b=SPH3uMYuFdE4mrUysrXFd71m9Q
+	5fDFC7xgh5kDlMf7fPYnE+6HOexOP2+sm3HZklJVbascivF98h7k+DxzddAlhL23xIYu55dNo1cxc
+	amTIi7LJttIDsLOVxTJyHNKEBa9FjrpnWLqdmK0KOnL0yu2jz1jFQTZH0id73nRcUtM9/0E0/IGdr
+	jdc/L5bWhzABYpHOJWG873bGhIRxe8ypnFjHpPWWPTN4B6T2U98Ua3rnJWSLX43CHqqM4644CSF8K
+	lDirG44MeTNwRKsGonf9ZTx1pgpYNC6JbABvpaDp5xbhXwQ74VbRdqfLEeNdQ40ZzYVjtr/Hxc5BT
+	ErxHhk8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvhEt-0000000Fsd4-3vEO;
-	Fri, 21 Mar 2025 18:37:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvhAI-0000000FrRS-24Uz
+	id 1tvhp6-0000000FzQn-0762;
+	Fri, 21 Mar 2025 19:14:28 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvhnP-0000000FzAF-1XqR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 18:32:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1742581936;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TCYnaCr6t2CITiy2CVtW2Iw29QsHSOWYrJlCz4eX7VE=;
-	b=Tpns9EBDvrc5sa7kztWzJu0TjUxDvFboqdZLXn+5yUCyomAaOirOx2QTsZHipHNkiJS+Ty
-	dQ6aaX2KcFT1U4KVnAiwWQzxwOGUV4c9pTdlSc2Ly0Uepc8NFA8+6HmZswv8dUp4JpaOb3
-	sKFTeyPl2Ron7lfXPDstXHh20rJrJ0U=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-489-Kz_AW0YdNo-JBBktUMJk9g-1; Fri, 21 Mar 2025 14:30:39 -0400
-X-MC-Unique: Kz_AW0YdNo-JBBktUMJk9g-1
-X-Mimecast-MFC-AGG-ID: Kz_AW0YdNo-JBBktUMJk9g_1742581838
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43ceed237efso18666065e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 11:30:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742581838; x=1743186638;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TCYnaCr6t2CITiy2CVtW2Iw29QsHSOWYrJlCz4eX7VE=;
-        b=GklJ/hxvDfXip/plWJ2AwurpBg1IB+QOswGptY91RNupcwtwDRg8MBBsLFPrShieze
-         RNhg+GcHNXzsUSEUHxxore2a6KICRCRRDkjw7Nbx1EPoGJ9ViVkeSiz1Hax+uWiS8OP0
-         +ECIuDtuSLlbfb4jfnKEayjbqtboJQ6kXll1ltaU3oCpKfX0ElXCcrij872VALbDDdcQ
-         NW8kljRX3eeiSRHEq0qI1p7sS825c/tjwjibnW8r3uyNC9hB2bUt5dog65PpFIyXx8hO
-         Qon6eYUenA6ByJOKbFF4Krje6JcISYFfPw+7DUhXWFW3k+D+vgoNcJm15Bfg7+mvDStF
-         L73w==
-X-Forwarded-Encrypted: i=1; AJvYcCVejjfW79HBlrPz+1OPWDCB90JWbrvJG8jh/La+wEtobjPv5Jl1Gm+5srVzx7N6O4mOLpYHifhFPahsXIKtvBa3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4WflFnbg1TuReY7p1Yt6OzTSaXlSZaUMe8cnDDr5HfU9bHqvC
-	UlvUL0BNtryKLe2jb9p0qsJttrw4+9laJ3Ln4WlcW9Pd7cSE4kxo0BlwvQYrbS80iI8id9fEDIJ
-	k/aAfmQDdgxbKNz9NjYvko9pPlPp/sr9Np9+pHji6RojPTWSzxMDDaLPgaxO5E0jp9SoJoS11
-X-Gm-Gg: ASbGncv8h3sh8pVF7Ka6nssI1K6amuIrXehjtnGrDNrEhaXwPYod1jOEXZo9j4BqtWj
-	EokUPIT0zlltxFlmVJEulTSwGueNR6yQjZciV2LdUvuaZ37gJbqsR0gBs69sIl7aYTUj8h0mBhp
-	Ayy0Tm6qHqPdb4Xo4Ygn6pJ9LsPi9ZrN4U0blkrTmBBcNN92eg58PbIflTPrQ3+bfxSHAv2hELz
-	YGTYhDSya2HE9doKfM+AKf6IMSJ5m1zdNCDLPhOmNtRwGZvNttD4ToEDDWgnwKOc54jasL3C16Y
-	zJLiUctQjigRAsNx0jukh+lNmcJgv3xxUG2EidNsQo7XBMpr/cpbOFFxOp/y/KU=
-X-Received: by 2002:a05:600c:331c:b0:43c:f332:7038 with SMTP id 5b1f17b1804b1-43d52a8ff41mr16399545e9.21.1742581838133;
-        Fri, 21 Mar 2025 11:30:38 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHV1J4g5vZeaiZX63RdE3knu8eFnfAyikgZWs5oJe594PE0zRqxZLu0vVxmRdyWaSppnlnHbw==
-X-Received: by 2002:a05:600c:331c:b0:43c:f332:7038 with SMTP id 5b1f17b1804b1-43d52a8ff41mr16399465e9.21.1742581837658;
-        Fri, 21 Mar 2025 11:30:37 -0700 (PDT)
-Received: from localhost (net-93-146-37-148.cust.vodafonedsl.it. [93.146.37.148])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd26cecsm33890485e9.17.2025.03.21.11.30.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 11:30:37 -0700 (PDT)
-Date: Fri, 21 Mar 2025 19:30:36 +0100
-From: Lorenzo Bianconi <lorenzo.bianconi@redhat.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
-Message-ID: <Z92wTGu_Sp9VnqPf@lore-desk>
-References: <20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org>
- <b647d3c2-171e-43ea-9329-ea37093f5dec@lunn.ch>
- <Z9WV4mNwG04JRbZg@lore-desk>
- <2d39033d-0303-48d0-98d3-49d63fba5563@redhat.com>
+	Fri, 21 Mar 2025 19:12:44 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id CF4992025382;
+	Fri, 21 Mar 2025 12:12:40 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com CF4992025382
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1742584361;
+	bh=RpBlJrTh2SiAQ7XsqitwZTpLQOS2kEOUFkxFqjobLOc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hkOKtvIis368GA/nBLiPIbVRZnLqR4lZuZfuJK5omjdr4orl62qBol7YKN0jDJT1F
+	 Ej+n9pHTJ20rq+9UpKtUghqYc4p5HqagBt1wmktxPJbXnqz1Q9a0vY9gsg7I+VFmFo
+	 08qTYLhhG9NKHnxoDyfrpqKvTXEcIJWSlmUpelQk=
+Message-ID: <7bc80505-686e-40db-b3bf-dd2f846ea66c@linux.microsoft.com>
+Date: Fri, 21 Mar 2025 12:12:35 -0700
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+vQwyXtwdSXuM5kh"
-Content-Disposition: inline
-In-Reply-To: <2d39033d-0303-48d0-98d3-49d63fba5563@redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/10] hyperv: Log hypercall status codes as strings
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "ltykernel@gmail.com" <ltykernel@gmail.com>,
+ "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+ "eahariha@linux.microsoft.com" <eahariha@linux.microsoft.com>,
+ "jeff.johnson@oss.qualcomm.com" <jeff.johnson@oss.qualcomm.com>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
+ "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
+ <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+References: <1741980536-3865-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1741980536-3865-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB4157E630EC520DC487139372D4DE2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157E630EC520DC487139372D4DE2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_113218_668303_8A647399 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20250321_121243_461925_D7822FAC 
+X-CRM114-Status: GOOD (  39.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,83 +106,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 3/18/2025 11:01 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, March 14, 2025 12:29 PM
+>>
+>> Introduce hv_status_printk() macros as a convenience to log hypercall
+>> errors, formatting them with the status code (HV_STATUS_*) as a raw hex
+>> value and also as a string, which saves some time while debugging.
+>>
+>> Create a table of HV_STATUS_ codes with strings and mapped errnos, and
+>> use it for hv_result_to_string() and hv_result_to_errno().
+>>
+>> Use the new hv_status_printk()s in hv_proc.c, hyperv-iommu.c, and
+>> irqdomain.c hypercalls to aid debugging in the root partition.
+>>
+>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>> Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+>> ---
+>>  arch/x86/hyperv/irqdomain.c    |   6 +-
+>>  drivers/hv/hv_common.c         | 129 ++++++++++++++++++++++++---------
+>>  drivers/hv/hv_proc.c           |  10 +--
+>>  drivers/iommu/hyperv-iommu.c   |   4 +-
+>>  include/asm-generic/mshyperv.h |  13 ++++
+>>  5 files changed, 118 insertions(+), 44 deletions(-)
+>>
+> 
+> [snip]
+>  
+>> +
+>> +struct hv_status_info {
+>> +	char *string;
+>> +	int errno;
+>> +	u16 code;
+>> +};
+>> +
+>> +/*
+>> + * Note on the errno mappings:
+>> + * A failed hypercall is usually only recoverable (or loggable) near
+>> + * the call site where the HV_STATUS_* code is known. So the errno
+>> + * it gets converted to is not too useful further up the stack.
+>> + * Provide a few mappings that could be useful, and revert to -EIO
+>> + * as a fallback.
+>> + */
+>> +static const struct hv_status_info hv_status_infos[] = {
+>> +#define _STATUS_INFO(status, errno) { #status, (errno), (status) }
+>> +	_STATUS_INFO(HV_STATUS_SUCCESS,				0),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_HYPERCALL_CODE,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_HYPERCALL_INPUT,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_ALIGNMENT,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_PARAMETER,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_ACCESS_DENIED,			-EIO),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_PARTITION_STATE,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_OPERATION_DENIED,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_UNKNOWN_PROPERTY,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_PROPERTY_VALUE_OUT_OF_RANGE,	-EIO),
+>> +	_STATUS_INFO(HV_STATUS_INSUFFICIENT_MEMORY,		-ENOMEM),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_PARTITION_ID,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_VP_INDEX,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_NOT_FOUND,			-EIO),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_PORT_ID,			-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_CONNECTION_ID,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_INSUFFICIENT_BUFFERS,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_NOT_ACKNOWLEDGED,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_VP_STATE,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_NO_RESOURCES,			-EIO),
+>> +	_STATUS_INFO(HV_STATUS_PROCESSOR_FEATURE_NOT_SUPPORTED,	-EIO),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_LP_INDEX,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_REGISTER_VALUE,		-EINVAL),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_LP_INDEX,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_INVALID_REGISTER_VALUE,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_OPERATION_FAILED,		-EIO),
+>> +	_STATUS_INFO(HV_STATUS_TIME_OUT,			-EIO),
+>> +	_STATUS_INFO(HV_STATUS_CALL_PENDING,			-EIO),
+>> +	_STATUS_INFO(HV_STATUS_VTL_ALREADY_ENABLED,		-EIO),
+>> +#undef _STATUS_INFO
+>> +};
+>> +
+>> +static inline const struct hv_status_info *find_hv_status_info(u64 hv_status)
+>> +{
+>> +	int i;
+>> +	u16 code = hv_result(hv_status);
+>> +
+>> +	for (i = 0; i < ARRAY_SIZE(hv_status_infos); ++i) {
+>> +		const struct hv_status_info *info = &hv_status_infos[i];
+>> +
+>> +		if (info->code == code)
+>> +			return info;
+>> +	}
+>> +
+>> +	return NULL;
+>> +}
+>> +
+>> +/* Convert a hypercall result into a linux-friendly error code. */
+>> +int hv_result_to_errno(u64 status)
+>> +{
+>> +	const struct hv_status_info *info;
+>> +
+>> +	/* hv_do_hypercall() may return U64_MAX, hypercalls aren't possible */
+>> +	if (unlikely(status == U64_MAX))
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	info = find_hv_status_info(status);
+>> +	if (info)
+>> +		return info->errno;
+>> +
+>> +	return -EIO;
+>> +}
+>> +EXPORT_SYMBOL_GPL(hv_result_to_errno);
+>> +
+>> +const char *hv_result_to_string(u64 status)
+>> +{
+>> +	const struct hv_status_info *info;
+>> +
+>> +	if (unlikely(status == U64_MAX))
+>> +		return "Hypercall page missing!";
+>> +
+>> +	info = find_hv_status_info(status);
+>> +	if (info)
+>> +		return info->string;
+>> +
+>> +	return "Unknown";
+>> +}
+>> +EXPORT_SYMBOL_GPL(hv_result_to_string);
+> 
+> I think the table-driven approach worked out pretty well. But here's a version that
+> is even more compact, and avoids the duplicate testing for U64_MAX and having
+> to special case both U64_MAX and not finding a match:
+> 
+> +
+> +struct hv_status_info {
+> +	char *string;
+> +	int errno;
+> +	int code;
+> +};
+> +
+> +/*
+> + * Note on the errno mappings:
+> + * A failed hypercall is usually only recoverable (or loggable) near
+> + * the call site where the HV_STATUS_* code is known. So the errno
+> + * it gets converted to is not too useful further up the stack.
+> + * Provide a few mappings that could be useful, and revert to -EIO
+> + * as a fallback.
+> + */
+> +static const struct hv_status_info hv_status_infos[] = {
+> +#define _STATUS_INFO(status, errno) { #status, (errno), (status) }
+> +	_STATUS_INFO(HV_STATUS_SUCCESS,				0),
+> +	_STATUS_INFO(HV_STATUS_INVALID_HYPERCALL_CODE,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_INVALID_HYPERCALL_INPUT,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_INVALID_ALIGNMENT,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_INVALID_PARAMETER,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_ACCESS_DENIED,			-EIO),
+> +	_STATUS_INFO(HV_STATUS_INVALID_PARTITION_STATE,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_OPERATION_DENIED,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_UNKNOWN_PROPERTY,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_PROPERTY_VALUE_OUT_OF_RANGE,	-EIO),
+> +	_STATUS_INFO(HV_STATUS_INSUFFICIENT_MEMORY,		-ENOMEM),
+> +	_STATUS_INFO(HV_STATUS_INVALID_PARTITION_ID,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_INVALID_VP_INDEX,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_NOT_FOUND,			-EIO),
+> +	_STATUS_INFO(HV_STATUS_INVALID_PORT_ID,			-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_INVALID_CONNECTION_ID,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_INSUFFICIENT_BUFFERS,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_NOT_ACKNOWLEDGED,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_INVALID_VP_STATE,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_NO_RESOURCES,			-EIO),
+> +	_STATUS_INFO(HV_STATUS_PROCESSOR_FEATURE_NOT_SUPPORTED,	-EIO),
+> +	_STATUS_INFO(HV_STATUS_INVALID_LP_INDEX,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_INVALID_REGISTER_VALUE,		-EINVAL),
+> +	_STATUS_INFO(HV_STATUS_INVALID_LP_INDEX,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_INVALID_REGISTER_VALUE,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_OPERATION_FAILED,		-EIO),
+> +	_STATUS_INFO(HV_STATUS_TIME_OUT,			-EIO),
+> +	_STATUS_INFO(HV_STATUS_CALL_PENDING,			-EIO),
+> +	_STATUS_INFO(HV_STATUS_VTL_ALREADY_ENABLED,		-EIO),
+> +	{"Hypercall page missing!", -EOPNOTSUPP, -1}, /* code -1 is "no hypercall page" */
+> +	{"Unknown", -EIO, -2},  /* code -2 is "Not found" entry; must be last */
+> +#undef _STATUS_INFO
+> +};
+> +
+> +static inline const struct hv_status_info *find_hv_status_info(u64 hv_status)
+> +{
+> +	int i, code;
+> +	const struct hv_status_info *info;
+> +
+> +	/* hv_do_hypercall() may return U64_MAX, hypercalls aren't possible */
+> +	if (unlikely(hv_status == U64_MAX))
+> +		code = -1;
+> +	else
+> +		code = hv_result(hv_status);
+> +
+> +	for (i = 0; i < ARRAY_SIZE(hv_status_infos); ++i) {
+> +		info = &hv_status_infos[i];
+> +		if (info->code == code || info->code == -2)
+> +			break;
+> +	}
+> +
+> +	return info;
+> +}
+> +
+> +/* Convert a hypercall result into a linux-friendly error code. */
+> +int hv_result_to_errno(u64 status)
+> +{
+> +	return find_hv_status_info(status)->errno;
+> +}
+> +EXPORT_SYMBOL_GPL(hv_result_to_errno);
+> +
+> +const char *hv_result_to_string(u64 status)
+> +{
+> +	return find_hv_status_info(status)->string;
+> +}
+> +EXPORT_SYMBOL_GPL(hv_result_to_string);
+> 
+> It could be even more compact by exporting find_hv_status_info() and
+> letting  hv_result_to_errno() and hv_result_to_string() be #defines to
+> find_hv_status_info()->errno and find_hv_status_info()->string,
+> respectively.
+> 
+> Note that in struct hv_status_info, the "code" field is defined as "int"
+> instead of "u16" so that it can contain sentinel values -1 and -2 that
+> won't overlap with HV_STATUS_* values.
+> 
+Played around with this some more.
 
---+vQwyXtwdSXuM5kh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I like your idea of making it more compact by dealing with U64_MAX and
+unknown in find_hv_status_info(), however I'm not as keen on putting
+these cases in the array and iterating over the whole array when they
+could just be static constants or inline struct initializers. See below.
 
-> On 3/15/25 3:59 PM, Lorenzo Bianconi wrote:
-> >>> Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prep=
-are
-> >>> routine.
-> >>
-> >> A more interesting question is, why do you see an invalid port? Is the
-> >> hardware broken? Something not correctly configured? Are you just
-> >> papering over the crack?
-> >>
-> >>> -static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
-> >>> +static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
-> >>> +					struct airoha_foe_entry *hwe,
-> >>>  					struct net_device *dev, int type,
-> >>>  					struct airoha_flow_data *data,
-> >>>  					int l4proto)
-> >>> @@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct a=
-iroha_foe_entry *hwe,
-> >>>  	if (dev) {
-> >>>  		struct airoha_gdm_port *port =3D netdev_priv(dev);
-> >>
-> >> If port is invalid, is dev also invalid? And if dev is invalid, could
-> >> dereferencing it to get priv cause an opps?
-> >=20
-> > I do not think this is a hw problem. Running bidirectional high load tr=
-affic,
-> > I got the sporadic crash reported above. In particular, netfilter runs
-> > airoha_ppe_flow_offload_replace() providing the egress net_device point=
-er used
-> > in airoha_ppe_foe_entry_prepare(). Debugging with gdb, I discovered the=
- system
-> > crashes dereferencing port pointer in airoha_ppe_foe_entry_prepare() (e=
-ven if
-> > dev pointer is not NULL). Adding this sanity check makes the system sta=
-ble.
-> > Please note a similar check is available even in mtk driver [0].
->=20
-> I agree with Andrew, you need a better understanding of the root cause.
-> This really looks like papering over some deeper issue.
->=20
-> AFAICS 'dev' is fetched from the airoha driver itself a few lines
-> before. Possibly you should double check that code.
+I also like the idea of making hv_result_to_*() functions into simple
+macros and exporting find_hv_status_info(). However, if it gets used
+elsewhere it makes more sense if the returned hv_status_info for the
+"Unknown" case contains the actual status code instead of replacing
+that information with -2, so then I'd want to return it by value
+instead of pointer:
 
-Are you referring to airoha_get_dsa_port() routine?
-I think dev pointer in airoha_ppe_foe_entry_prepare() is not strictly
-necessary a device from a driver itself since it is an egress device
-and the flowtable can contain even a wlan or a vlan device. In this
-case airoha_get_dsa_port() will just return the original device pointer
-and we can't assume priv pointer points to a airoha_gdm_port struct.
-Agree?
++static const struct hv_status_info hv_status_infos[] = {
++#define _STATUS_INFO(status, errno) { #status, (status), (errno) }
++       _STATUS_INFO(HV_STATUS_SUCCESS,                         0),
+<snip>
++       _STATUS_INFO(HV_STATUS_VTL_ALREADY_ENABLED,             -EIO),
++#undef _STATUS_INFO
++};
++
++struct hv_status_info hv_get_status_info(u64 hv_status)
++{
++       int i;
++       const struct hv_status_info *info;
++       u16 code = hv_result(hv_status);
++       struct hv_status_info ret = {"Unknown", code, -EIO};
++
++       if (hv_status == U64_MAX)
++               ret = (struct hv_status_info){"Hypercall page missing!", -1,
++                                             -EOPNOTSUPP};
++       else
++               for (i = 0; i < ARRAY_SIZE(hv_status_infos); ++i) {
++                       info = &hv_status_infos[i];
++                       if (info->code == code) {
++                               ret = *info;
++                               break;
++                       }
++               }
++
++       return ret;
++}
++EXPORT_SYMBOL_GPL(hv_get_status_info);
 
-Regards,
-Lorenzo
+and in mshyperv.h:
 
->=20
-> Thanks,
->=20
-> Paolo
->=20
->=20
++#define hv_result_to_string(hv_status) hv_get_status_info(hv_status).string
++#define hv_result_to_errno(hv_status) hv_get_status_info(hv_status).errno
++
++struct hv_status_info {
++       char *string;
++       int code;
++       int errno;
++};
++
++struct hv_status_info hv_get_status_info(u64 hv_status);
 
---+vQwyXtwdSXuM5kh
-Content-Type: application/pgp-signature; name=signature.asc
+Note also I switched the order of code and errno in hv_status_info,
+mainly because I think the struct initializers for "Unknown" and
+"Hypercall page missing!" are more readable with that order:
+{string, code, errno}
 
------BEGIN PGP SIGNATURE-----
+Do you see any problems with the above?
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ92wTAAKCRA6cBh0uS2t
-rL/MAQDcn4FFF3wmkVqDFXlch5Wj9+r8ZXCL12r0CY8mcPZm1gD/UWZra+6Q2LlQ
-dfGzn/9YsTjGEJxgAcx5ERuOnJ7eBQQ=
-=/fph
------END PGP SIGNATURE-----
+> Anyway, just a suggestion. The current code works from what I can
+> see.
+Thanks, it's not a bad idea at all to make it as compact and readable
+as possible on the first try, but not a big loss either way.
 
---+vQwyXtwdSXuM5kh--
+Thanks
+Nuno
+
+> 
+> Michael
 
 
