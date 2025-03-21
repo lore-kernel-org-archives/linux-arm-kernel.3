@@ -4,130 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC42C36007
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 12:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2598C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 12:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6kPZ0cFTmXIpixMnN6tF81nr1APN9wNYIh/tOxWbbw=; b=aEAGNLOx/LRUlhbHxR0/fAdeQp
-	f9tgEyKOh054CWsfc/EVNbnOxOfqr1/6tltxJjkn9Hler2gYtXfUvMrW4Ey0NoOK2cu57RtavBfhF
-	pcNaq/83wjDeHI0vtmh/8bVRrUyZX1i+NDb5GhsPHZNqkJPuEuW1ztBRaj0uzdLCBE2kf4E20CidE
-	FUPbJU1mhqqHkDd4rWEZPLF+y0h3W31VzdvTOB/s8KGPDok18Xxefz5z/81BJJ9QNJn8Cqn16tWe1
-	D/hB+Z3rGKEeym/aHJQsW2jZoY6dhm65xs+O6ciHzTyuBWwjzyCttUGGTpXczS5g+Z5QMgYrqXc0c
-	1wkVF5VA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lX+j7ZByvLSkPBbGZ8e37EOuRyaPsfVXExUNogWzc3E=; b=dd9+QCVND2ffEOOFrMNjYmW64I
+	l+eDJbC4DbK6sMcMSN/azFUGgyaEqfMbQ517aRrj0Nu/lLTTKsG2t/cXIGVX/IvrBNE1gcQO3+JOM
+	rSngEYIQLcPlOkyCmm9kD7TDnm6teO9RyNQIULAvT4xweE2lPoQMH4QPujwm9d+JL5tJKot12m40C
+	i+G++S0UVbZeTX9imWckJ3mkPMSEhw0aY0SYUPOGupEYIsVWOT3Ktr5LzVkehb6WCGeBxDRPRdqrt
+	bRc1ES+DcmtgXIRR11oS/LTMY80SZIu0uxCSf0tN3h8o+HDzYLZmf1Hv7goQU7cXCxomq4MEpYNRY
+	r0bsNbUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvbWZ-0000000ElMO-0hY1;
-	Fri, 21 Mar 2025 12:30:55 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1tvbgk-0000000EmmK-48ml;
+	Fri, 21 Mar 2025 12:41:26 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvbUs-0000000ElBF-2G9n;
-	Fri, 21 Mar 2025 12:29:12 +0000
-Received: from phl-compute-09.internal (phl-compute-09.phl.internal [10.202.2.49])
-	by mailfout.phl.internal (Postfix) with ESMTP id BBD171383770;
-	Fri, 21 Mar 2025 08:29:08 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-09.internal (MEProxy); Fri, 21 Mar 2025 08:29:08 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1742560148;
-	 x=1742646548; bh=N6kPZ0cFTmXIpixMnN6tF81nr1APN9wNYIh/tOxWbbw=; b=
-	i57tvl4VKDF5ha2G2v+8lAQuw6M4b1rAcdwypJljRX1jdQIIhzz0E6CEgVlFkLRO
-	QtFqzhLS998HFqJWRmkKelAQcaTcK0YLNtn49PmynzG8d5BS7EsoRVNiuYIoIn9I
-	cOiZVhYwtpQWmD2njqRcpGywgdu5+SQt/nPTb4yf8gMJbbwX9oQWrK8AkMTvoVOB
-	L9FmDRNfEoZgW12ShA0klsJ9QMNk9FrVQlr6W4xkhkSf5eGpp8IdkbpOJuEE/Qmg
-	lCPFhIGP50Wykl2lHlJ8xEpJHVYiNbUhYAS/6s/Ue5lmvLZ1GGZpHTY+Et+Yq5tZ
-	OE8D5fzFZEcdRDWUcd+hqQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742560148; x=
-	1742646548; bh=N6kPZ0cFTmXIpixMnN6tF81nr1APN9wNYIh/tOxWbbw=; b=l
-	T051Oi2UrKbm70CTM0+WU3RQEBl8O2InYlf0qdnaHHzwk5G/DKmvmQY4V+YoDLdm
-	QJB0kaHQp9VLye/2Xf+xPqSWKQXyi08/ivcZ8uo6Mjm7/UXyd4jeDd8oB94FhdAa
-	aC2Y99wIkKUoxgxQP84BNTei34kdy6grBEl3jybYMlOFcPhV2LExykGvfGQg7QXH
-	P5QYIGouVKBsllY6pY33yrQvIxGDFhPJFKGTV00z6bwu67sOPPpsFCxVuqIIVKfM
-	Qs66jVGIffYzvn79RakI8Q67HJVtLeA8bZT2RhUYwT+Cx7EXXNC2exbfSZPdwyak
-	fA7bufMcB9yyYIgUYf9Bg==
-X-ME-Sender: <xms:kVvdZ-dvlNxtgCueP5K-X9LrgmPY6bqsjmhT2RPPYtEaSwAWAGAdAQ>
-    <xme:kVvdZ0gcXISmmqq1VzvW-zdk0qyp2ODnRZoy7qxoIXaKjL5LU_X1LWe1jWEw4F8_G
-    dd1P2hZMkrAJWbSSTA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduheduudduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    feeipdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinh
-    hugidrohhrghdruhhkpdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhr
-    tghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtoheprg
-    hnuhhpsegsrhgrihhnfhgruhhlthdrohhrghdprhgtphhtthhopegstghmqdhkvghrnhgv
-    lhdqfhgvvggusggrtghkqdhlihhsthessghrohgruggtohhmrdgtohhmpdhrtghpthhtoh
-    epfhhlohhrihgrnhdrfhgrihhnvghllhhisegsrhhorggutghomhdrtghomhdprhgtphht
-    thhopehrjhhuihessghrohgruggtohhmrdgtohhmpdhrtghpthhtohepshgsrhgrnhguvg
-    hnsegsrhhorggutghomhdrtghomhdprhgtphhtthhopehhvghinhhrihgthhdrshgthhhu
-    tghhrghrughtsegtrghnohhnihgtrghlrdgtohhm
-X-ME-Proxy: <xmx:kVvdZyTE_63LDgMM7nvl4LCgcIFqy_9iCOFIBpOZarDifNQuZnO2iA>
-    <xmx:kVvdZ9x64sGPKdZ2VIrCvWv-1MNkOWAp6cmotk7ZALObl9LtLLnk7A>
-    <xmx:kVvdZ9ft6EbGWl4xG5AO97oQzboLTu8b0zu7dl5RWqGY1OfLFgpFBA>
-    <xmx:kVvdZ5K36lITbTqEtI95TI43l1OeBmYuUxwKKiur1-FWuKwrE3_V5Q>
-    <xmx:lFvdZ0kCqZVFDyJTIxAcWCLqQ8EY8hX7Vh8b8wygXH59ssdCdw-ftcuY>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CB0352220073; Fri, 21 Mar 2025 08:29:05 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tvbf4-0000000EmJm-1WZe
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 12:39:43 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-22622ddcc35so10601445ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 05:39:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742560781; x=1743165581; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lX+j7ZByvLSkPBbGZ8e37EOuRyaPsfVXExUNogWzc3E=;
+        b=ddeHTQvC54Wg0UQUl2nwy1dqHd0me3jTl0qWXR+2SI1UcCuXGqv8ETEkRKSwf6KZ/m
+         +oms+YnQu8yoZm6gPo2VyU2PAgGoKW/WYASt+/aGvv4Swjehv0ESGtPVi46owegeQ7wD
+         eZ3MOTYM3LOxsNExIt0BcX8ZkUFAhttaBFPkbt7WiwA2HRnc6WS8GnpOPuWQEEFwtZie
+         PCO/Be9bQAAe6jHmv+dsotCJ/0NU3PXynGrRoeGUX1foE1tn7OHW+JdL4E+3e0ZTVUbI
+         UtMKVq3lJdX9xX3MGL41BxAa57SBACDqJleREUe+p6hrWQN8bo/2OmEcdZYpVh7dkLhn
+         ABMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742560781; x=1743165581;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lX+j7ZByvLSkPBbGZ8e37EOuRyaPsfVXExUNogWzc3E=;
+        b=fnT8dYE+qgoKS/LdgrZZYFqlGJXIdMFnY5jVvPt+FK76z4jVbga1LHSx4HTcyuUPPx
+         BHTw/GRNIq/4tF8xzhjpcrVmNDDaxvKWHAQUvSYsl3XjE3GWyDQj0vCM5A02Pmd+NcZ2
+         hBiPSfIgR4k5j25junzvXBtqkcEyPO1y7l3ms5056G6rGQCLVEDVXwXyLnZ34FFP5wxT
+         jPBywvEnJUYCJE/G7PljTrhv9INDTpq/G5T0TRP+UQ8Hb6weOW9yXg232YNHtUTwHYJv
+         ep4rB15My/0FVAZ9eZWZ0VDaumyZ9LuvbWM/LcRWHVTGLYjFWkZl6MHZYU0vsGyaQde4
+         ZJOg==
+X-Forwarded-Encrypted: i=1; AJvYcCV+QCoDnnBe9orKU/+PbeSHNjoDpOJZisZmMBDBXsRsSi+voo1fjEnL+2yckxlgJXF7FQYDL/IxXERJ1ubNkaCl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyB9z5cbzpn2wEUR5c3mjgwHBaBcAJPL6yVrA1w/ljY33YXPata
+	l0HbgujUp0cdgGRy9Q236bH1p9PZzixkT0v2Qno2SvyU8w0ZIss9J4kW3D2Q
+X-Gm-Gg: ASbGncugZZYXd7M6uF1Nw9ON8zudOXFTC2FUv5txLP6X+JsWkIJ6hriOnOQrWFTd+FK
+	Hmb65puYVqos/Er4x0VVyPNSpAyeE2HIakzunnQPy4HqiMBn0bbyG2G7MVgA0IKYAmFZzkAoisZ
+	XyF31H6Dux0kSCO/XOkl5b9j0d6U1951qNgncnErSR3Or2TlHeGuUBEpWBjWWWSCF5sk6E1g17c
+	sVyViCMypsd2sMC8wf6oznSwrxy34g6oCDpTfuTsQw03vOZhnNqwww1lAtgVUt1A+bCnnQG0kjy
+	OwLw9JKyGB2uxPGc7G4i08RBZ3X1dNi0JZoDiVmszPBb3TLCBPhd0sS9+Gfy/4cleGZ0+cLU/PP
+	vNP2qGXBT/x3o49bq8/woJGFxc8GXwmH28cziix8Z00n7jolkY+oEvvs8iGQ=
+X-Google-Smtp-Source: AGHT+IHId0CD+P7qvQUeVHlIxcs9d9bWCjTq4tyT+oN5nat9T4lYmUbkwkbTDc4O4exXD2ol31Q6kw==
+X-Received: by 2002:a05:6a21:6e03:b0:1f5:a577:dd10 with SMTP id adf61e73a8af0-1fe43437119mr6748664637.36.1742560780747;
+        Fri, 21 Mar 2025 05:39:40 -0700 (PDT)
+Received: from jason-System-Product-Name.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73905fd5c90sm1815432b3a.51.2025.03.21.05.39.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Mar 2025 05:39:40 -0700 (PDT)
+From: Jason Hsu <jasonhell19@gmail.com>
+X-Google-Original-From: Jason Hsu <jason-hsu@quantatw.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	patrick@stwcx.xyz,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Cc: yang.chen@quantatw.com,
+	jerry.lin@quantatw.com,
+	Jason Hsu <jason-hsu@quantatw.com>,
+	Jason-Hsu <jasonhell19@gmail.com>
+Subject: [PATCH v5 0/2] Add Meta(Facebook) Ventura BMC(AST2600)
+Date: Fri, 21 Mar 2025 20:37:29 +0800
+Message-Id: <20250321123731.1373596-1-jason-hsu@quantatw.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-ThreadId: Td2a26421dc1a91fa
-Date: Fri, 21 Mar 2025 13:28:43 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Thierry Reding" <thierry.reding@gmail.com>
-Cc: "Celeste Liu" <uwu@coelacanthus.name>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, guoren <guoren@kernel.org>,
- "Anup Patel" <anup@brainfault.org>,
- "Heinrich Schuchardt" <heinrich.schuchardt@canonical.com>,
- "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
- "Yoshinori Sato" <ysato@users.sourceforge.jp>,
- "Rich Felker" <dalias@libc.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "Russell King" <linux@armlinux.org.uk>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>,
- "Broadcom internal kernel review list"
- <bcm-kernel-feedback-list@broadcom.com>, "Ray Jui" <rjui@broadcom.com>,
- "Scott Branden" <sbranden@broadcom.com>,
- "Tony Lindgren" <tony@atomide.com>, "Jon Hunter" <jonathanh@nvidia.com>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Andreas Kemnade" <andreas@kemnade.info>,
- "Kevin Hilman" <khilman@baylibre.com>,
- "Roger Quadros" <rogerq@kernel.org>,
- "Palmer Dabbelt" <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org,
- Linux-OMAP <linux-omap@vger.kernel.org>, linux-tegra@vger.kernel.org,
- "Stefan Wahren" <wahrenst@gmx.net>,
- "Thierry Reding" <treding@nvidia.com>, soc@lists.linux.dev
-Message-Id: <5fd4f314-e570-4b37-b7c2-af5b4bc85a39@app.fastmail.com>
-In-Reply-To: <t2dustbykx2qd24wazjeiw5hch5nwr6z2ewmaf4srg6r2grwrf@rdw47chzkef2>
-References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
- <20250115-fix-riscv-rt_group_sched-v4-4-607606fe73a5@coelacanthus.name>
- <t2dustbykx2qd24wazjeiw5hch5nwr6z2ewmaf4srg6r2grwrf@rdw47chzkef2>
-Subject: Re: [PATCH v4 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from
- bcm2835/tegra/omap2plus
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_052910_994624_7111335D 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250321_053942_404021_16B5820D 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,24 +108,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 6, 2025, at 20:19, Thierry Reding wrote:
-> On Wed, Jan 15, 2025 at 04:41:23AM +0800, Celeste Liu wrote:
->> ---
->>  arch/arm/configs/bcm2835_defconfig   | 1 -
->>  arch/arm/configs/omap2plus_defconfig | 1 -
->>  arch/arm/configs/tegra_defconfig     | 1 -
->>  3 files changed, 3 deletions(-)
->
-> Hi Arnd,
->
-> is this something that you could pick up? I think so far only the RISC-V
-> patch was picked up, but nobody seems to feel responsible for the ARM
-> patch here.
+Add Linux device tree entry related to Meta(Facebook) Ventura specific
+devices connected to BMC(AST2600) SoC.
 
-I've merged it now after going through stuff in my inbox. It's
-generally ok for patches like this one to be forwarded to
-soc@lists.linux.dev where they end up in patchwork for me to apply,
-in case you don't want it to get lost.
+---
+v1:
+    1. Create ventura dts file.
+    2. Add commit msg.
+    3. Use format-patch to generate patch.
+    4. Add subject prefixes matching the subsystem.
+---
+v2:
+    1. Modify email content.
+---
+v3:
+    1. Add mail list.
+---
+v4:
+    1. Apply git send-email --thread option.
+    2. Sort nodes in the dts alphanumerically.
+---
+v5:
+    1. Run scripts/checkpatch.pl and fix reported warnings.
+    2. Remove unnecessary 88E6393X CONFIG FRU.
+---
+v6:
+    1. Add a new stage for the DTS change.
+    2. Run scripts/checkpatch.pl and fix reported error.
+    3. Fix the issue in a separate patch.
+---
+Signed-off-by: Jason-Hsu <jasonhell19@gmail.com>
 
-     Arnd
+Jason Hsu (2):
+  dt-bindings: arm: aspeed: add Meta Ventura board
+  ARM: dts: aspeed: ventura: add Meta Ventura BMC
+
+ .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+ arch/arm/boot/dts/aspeed/Makefile             |    1 +
+ .../aspeed/aspeed-bmc-facebook-ventura.dts    | 1399 +++++++++++++++++
+ 3 files changed, 1401 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dts
+
+
+base-commit: b3ee1e4609512dfff642a96b34d7e5dfcdc92d05
+-- 
+2.34.1
+
 
