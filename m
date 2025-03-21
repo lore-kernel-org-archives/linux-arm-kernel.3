@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02BB1C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:30:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CAE1C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZB8kiE+qcLLJcoLITaaDs20vORJvN1XQTZkEg+RWu78=; b=cC5RonLNi2jYbr
-	keeaddGh3404bT536KDQNsrMoEMa1C0/r8B9wCYT/U9Y70vzhOL4J8Frwqi7jC4uP7d+qNWAfaOTE
-	dHzW+E6bhwMc1FxvHfc/Ie9sYPtnxFh/YCcZjG1gichhW8E/Go9VjRSEyJhsvp69TyupneRGcNy70
-	+GTXnxeeGC0NgEX4vxsyAdStyIoyHWlMV0Q89X0gX5CMIw10IhC8NH0ZSfx01oZ42nhcyS2MTFwSq
-	+b+q5cpizy13vHGZXXbk1livsExLxjPRN5EzfQM6V3uypdPNMG8UndNi7v6b4zOh/ISdXrhwnLkwB
-	CRlVFyG2a0qftAjGvutQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vsGnq8WpEGq8rItMy0um7W6pcAm/zbCWTBE+mh8Th8U=; b=vnuiDiI3aGafjrAeB67SCXCvsb
+	C1YM2ECwZlivUHW9KWuE5SM9YeCJdb+IdFK4uX+ci1rNEzrH/5JCs0yn56fQFa0QKIcASciIcisRj
+	8UL5JZz/bWLF+0oLity6Y1iOxV3KuOlBElP+9wR6hMiaryzl1xAGXrUcn82rlCseaOqBXJJw3OHQp
+	j2hl0DBvVnr5PO1+xBKtArWE0Ft2rnYZ+PpycSDsQF47zIscjlUAQdIhQWScHOf3UrVPQkLq3nAFS
+	1H/aDy4tJExnbNcsIIL/zttqZH6347FwQ3E1Yee+59a8pXaa79d55jAzovjfs/rRg/Za1Jw5lxaHP
+	3PzXzzXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvWpY-0000000E6Fz-3htJ;
-	Fri, 21 Mar 2025 07:30:12 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tvWrD-0000000E6aR-3bUn;
+	Fri, 21 Mar 2025 07:31:55 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvWns-0000000E62f-0pjw
+	id 1tvWnu-0000000E632-2o1Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 07:28:29 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-22438c356c8so31575575ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 00:28:27 -0700 (PDT)
+	Fri, 21 Mar 2025 07:28:31 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22438c356c8so31576245ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 00:28:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742542106; x=1743146906; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZB8kiE+qcLLJcoLITaaDs20vORJvN1XQTZkEg+RWu78=;
-        b=ntYU1UVRsEMoUqg/O2Z/7/nXnkioz4FlPuyBUdC/cWG0ypR+X0OQI26eV40gs8wRJw
-         vrSYCidlUPuFGHzzurZ+b069XeSk6DsGTfBnUNVw+okfuZjUjrrT4OPqRH8Vmhketc4r
-         5a1Z+7m1LQpwQPWaIf9MP13M+62qHdFCJ1deNGfy62npz/wAATiMurJkDXbCtMn8KGc2
-         QLtT+NcEHOION/Bxpn3qLcjta3zyxhkjT8s0CzwGXGV+Cr81fYLAvni4E/7e6tk2pYjL
-         A0JmmSKwFfNGaUc3UBjFQWC59zLXBcICHhhPOXsgx+iEvDj9L6aFRDLDNmxYnhRbm1Ac
-         kVGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742542106; x=1743146906;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1742542109; x=1743146909; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZB8kiE+qcLLJcoLITaaDs20vORJvN1XQTZkEg+RWu78=;
-        b=DAvSjbyJxP8JQ+kOwP0IVPftZHUYSyJuzfrCfgWAM7BWWLKcmK0uNFHHAVrkPD3gH9
-         BrGlgxPBG/kkcSGApvqduxNQJ1Upgv2cpquk/yTw0c+esDYBu0VWofE8i1OPCxdVtVDk
-         YIWj1QK/ausKEP7LEcgsSnyBlRktIb4zfc7ZNYDrUZZAWOykZOgZzmYyml6nASfCyEMo
-         NKN2giyvxaVYWmYmCUAm3/yW3xMplwUsDSwSFKHSu4ICxYRTM8d8L0HiiqMjrypeTdyb
-         o8CldD5aQq7cfmqhlcJ9H8kuxrzyT/rzs5iiE741PxZ75S+8pVsAoL4a1py6A5TzXNMw
-         nxzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXb7vAmIXolzB5SEeaGslkwOvHrU2qR8dzJ+SLSgC843yOjRVgpdyxSZO3JUiaomG1esrV4UPMfgktS8L6KYPVl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK/cXns0SU6yZXD8fXlSK0DICdEN6LhaVfvH9d4VUtI0t51tXc
-	AjlonwCSEJrgoA8cQ0P4bj2nGgPH4tqUgX1faCj0Ur2pvQgLcQpIYC7vYw==
-X-Gm-Gg: ASbGncvj0YqOsyb6PbLz3WAe/xtYYq511e6QqJ+zSPWhYS66fggaLK+gBu0qxgvSMtG
-	+g6F8rMwS1j5ZZHBOUFFFPeA4NK250avmyquVAHgXlvZ9c5s8v1py1CxCzFbh6g9TzugvBnHLdy
-	9iafLuZyEts1zPQc2WBK3wiOvDrrp3ktBTy8K7QvO1dPzdm6iesPVl/oCGvTZrIjUhylwDLKKcN
-	6iGX2WZZ55PlCfPeVhjZtfk7S8ZTCdEgNqEPpx9B0MfWlZYvBWTKHOGSxBefkfLoxpJ/rUodbtF
-	jleDyNL9PMQQnraHOK6XwH4JbGO9/YHM7/w8d5jpTbdGz7xB9V7USpwJ/h9xbRm6H9cVMhTZwQT
-	+5vz4t+mhanPtWmtOMe4K0g==
-X-Google-Smtp-Source: AGHT+IHlSEk8vePnKOkamFFIpfHyaA1m+UQS95Ubg2HRN1Dlu1q58w71hmeoIXSixkljxSV8yVTYSg==
-X-Received: by 2002:a17:902:e884:b0:21f:8453:7484 with SMTP id d9443c01a7336-22780dae109mr29510195ad.30.1742542106449;
-        Fri, 21 Mar 2025 00:28:26 -0700 (PDT)
+        bh=vsGnq8WpEGq8rItMy0um7W6pcAm/zbCWTBE+mh8Th8U=;
+        b=nlafflNcweW9ERl3/fW24lGmJCw1ealH7ZxJ+CXSc/dtJnfak+UriElcG8Hx7+dlPx
+         rVpGZqxydFbeFh8Qo0JivsxvS+8Jb915NRHaPvVmVQFdb+kPGFnrCFAA1qlopu/A2ieo
+         Sd53nF0IG/odXkLLu4XVyxBBVBkHNDscgKzKYZetM6kT+fwV9LeVB2AyN6Ac+ofWiJt/
+         JNawmLIypoy5UnYBttdXIUoMu6aqDah1VjZ/GbZsYhz/46tkGHir2/E42dSYfUlH/tAs
+         7Tr5oz596l4snr1H26s2Oq7B9khEbKu7ydkRteRG6pYzQcubdBUEcYAbPw10KzI/6yDY
+         bkhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742542109; x=1743146909;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vsGnq8WpEGq8rItMy0um7W6pcAm/zbCWTBE+mh8Th8U=;
+        b=VMUxrpRY84/tJuEOZUs0RAO29euHBJ/M57qZhsmotAsedNuVPXrvqC7P2hEjQqrdyj
+         8kD93zrkTGpuVaAndOMBR8CMdbs4M/f3c6AEJTEUtZ8bA2lNjACybq2D1IoJIKDGgOP0
+         yi3HkgOrdgCKZDWqAFJ6HA4+Va+5/ndJ/TTMtSf3BULy8mSpPiqrQbPxnFXferIXaAeC
+         Ri/x+O4ndA0QAGo1uyFLGu9AoyuuIyy92IOidnL97qbpzfAlxcHfLlWGf3NDMcbFaZHl
+         Ftt4nHNP9Ye5AxkABMSd89KhfCcthCS27AlWsS7eogvNXvnvczACyJRG+Dz0GJ35MMcI
+         49XQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUdAhQm4k6XjM4zsA0fVO/okLNpXXV1Gm1w064WjMgCijCuv89gfHHcx9llC3jz6XfWBs2KTbRr/yUDvG2DaP/F@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRrEcFR23S76+LOwY9zjP/u2rO2vIJ2w3SyOcZYA1h/FhdcHl0
+	U3QGRiV5Y5w8PFgLtWnJcuY4RQzfD4ruGGtshyLQBfC7ZXkBDEhr1jaONA==
+X-Gm-Gg: ASbGnctwpoEaI8msZE6wT7J3Ww3Zc8uzwCvb16kq0/mElFyij4t0QixWq1VFOXmxUvQ
+	zDq4mArknUdHXZYKyM5+EtB8kcHwVfbBjohyEtVkG6FGSGRrHbybcOKUYvPD4MTXuNA8vY+Spnx
+	6MTXekAUyzRsnImW+eyBQxaBWGAvZ3clG7aABHgLuEQsvtbj7uQrBCtxSUTqq062pi0AyHjMm2L
+	iY417Jnh2DgJvWB40Bfqzj2wPvRyVPgFjy26l3ZggwaQ0imd+uE7ftJ9Ci3B+Z5HPXuXic1XprS
+	Y8KGMqr3ekR8opDN9wLhQqgkriG3IRTmbZSwR11VOuehHku001UF4nFrPet6FpULqVNsCrFqcJj
+	X0XCrI3TdDF7BoBVrc7GkPg==
+X-Google-Smtp-Source: AGHT+IHZwkqqnNy+VPxGo4BdiCjiJgfTxT+uvqFaJnReF+y/mGA7CSLdbLFcCPQBoqccVKLmssYfMA==
+X-Received: by 2002:a17:902:da82:b0:224:162:a3e0 with SMTP id d9443c01a7336-22780e2a37fmr35488305ad.49.1742542109028;
+        Fri, 21 Mar 2025 00:28:29 -0700 (PDT)
 Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f396fasm9862265ad.27.2025.03.21.00.28.24
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f396fasm9862265ad.27.2025.03.21.00.28.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 00:28:26 -0700 (PDT)
+        Fri, 21 Mar 2025 00:28:28 -0700 (PDT)
 From: Potin Lai <potin.lai.pt@gmail.com>
-Subject: [PATCH v6 00/10] ARM: dts: aspeed: catalina: Update DTS to support
- Catalina PVT hardware
-Date: Fri, 21 Mar 2025 15:26:01 +0800
-Message-Id: <20250321-potin-catalina-dts-update-20250102-v6-0-4bd85efeb9b4@gmail.com>
+Date: Fri, 21 Mar 2025 15:26:02 +0800
+Subject: [PATCH v6 01/10] ARM: dts: aspeed: catalina: Add IO Mezz board
+ thermal sensor nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIkU3WcC/5XNTWrDMBCG4asEraui0a/VVe9RuhjJ40SQ2MZST
- Uvw3SsH2hqv3OU7DM93Z5mmRJm9nO5sojnlNPQ17NOJxQv2Z+Kprc2kkEaAkHwcSup5xILX1CN
- vS+YfY4uF+O+LBx2ERR3agKxC40Rd+nyMvL3XvqRchunrsTnDev3h1RF+Bg48iODQSBW9bV7PN
- 0zX5zjc2MrPckPCMVJWEpw0AK4jh35Pqi2pD5FqJbVvwGkdZEd7Uv+RSopDpOaCu6h0aEB5AXp
- Pmv+TppIEFgJZ0yh0W3JZlm+PDpfaIAIAAA==
+Message-Id: <20250321-potin-catalina-dts-update-20250102-v6-1-4bd85efeb9b4@gmail.com>
+References: <20250321-potin-catalina-dts-update-20250102-v6-0-4bd85efeb9b4@gmail.com>
+In-Reply-To: <20250321-potin-catalina-dts-update-20250102-v6-0-4bd85efeb9b4@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>, 
@@ -90,17 +88,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
  Potin Lai <potin.lai.pt@gmail.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742542103; l=2266;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1742542103; l=1855;
  i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=Nj94npq6q1wguoTxPUR60r+bZgVts+q6TMPv2OWz25Q=;
- b=O/AOrrLZgeC/5rmjqrKCnMKUbnnQpINPRqSIVmrM7UpVxmhshmQJ+PP052IxOx5ip+tGzT9l9
- JvIg8Q2vxwbAnO6gEvkWg8UYp1hBTjnq8UV9sZBTkW7igHFNpyMmbOw
+ bh=ZE8DMnDtK6GtXz/R29k12joihlo+gxEvbFhaGKQky3s=;
+ b=hSNSRF8aykCJoZWrCIMBeG6atv69rGcfZy7cKck3omGOD07NUktdt5H/dVqsU4O70JCwkQyrQ
+ FiGZEehi0WUDAuOve21El2ZnNN9uElK4xLudO4NPMRmsXKLjsDs8SN5
 X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
  pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_002828_245959_D729902D 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250321_002830_700788_57833A66 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,54 +112,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the DTS file for the Catalina platform based on the PVT hardware
-changes.
+Add thermal sensor nodes for the IO Mezzanine (IO Mezz) board in the
+Catalina platform device tree. These nodes enable temperature monitoring
+for the backend NIC, improving thermal management and monitoring
+capabilities.
 
 Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
-Changes in v6:
-- Rename the fan controller nodes with appropriate name
-- Link to v5: https://lore.kernel.org/r/20250320-potin-catalina-dts-update-20250102-v5-0-e161be6583a7@gmail.com
+ .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 24 ++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-Changes in v5:
-- Revise CBC FRU eeprom i2c bus and address
-- Add MCTP support for backend NIC monitoring via PLDM over MCTP
-- Link to v4: https://lore.kernel.org/r/20250320-potin-catalina-dts-update-20250102-v4-0-7c34b8139014@gmail.com
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+index c151984289bc..d5d99a945ee4 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+@@ -198,6 +198,12 @@ i2c0mux0ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB0 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -208,6 +214,12 @@ i2c0mux0ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB0 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -299,6 +311,12 @@ i2c0mux3ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB1 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -309,6 +327,12 @@ i2c0mux3ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB1 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch3: i2c@3 {
+ 			#address-cells = <1>;
 
-Changes in v4:
-- Split a single commit into multiple smaller commits to reduce complexity.
-- Add `multi-master` into i2c12 & i2c13  
-- Link to v3: https://lore.kernel.org/r/20250114-potin-catalina-dts-update-20250102-v3-1-14981744b2fe@gmail.com
-
-Changes in v3:
-- Remove delta_brick nodes due to compatible string not supported
-- Link to v2: https://lore.kernel.org/r/20250113-potin-catalina-dts-update-20250102-v2-1-1725117fe7a9@gmail.com
-
-Changes in v2:
-- Add delta_brick nodes to support PDB brick board
-- Link to v1: https://lore.kernel.org/r/20250103-potin-catalina-dts-update-20250102-v1-1-b0b7a523c968@gmail.com
-
----
-Potin Lai (10):
-      ARM: dts: aspeed: catalina: Add IO Mezz board thermal sensor nodes
-      ARM: dts: aspeed: catalina: Add Front IO board remote thermal sensor
-      ARM: dts: aspeed: catalina: Add MP5990 power sensor node
-      ARM: dts: aspeed: catalina: Add fan controller support
-      ARM: dts: aspeed: catalina: Add second source fan controller support
-      ARM: dts: aspeed: catalina: Add second source HSC node support
-      ARM: dts: aspeed: catalina: Remove INA238 and INA230 nodes
-      ARM: dts: aspeed: catalina: Enable multi-master on additional I2C buses
-      ARM: dts: aspeed: catalina: Update CBC FRU EEPROM I2C bus and address
-      ARM: dts: aspeed: catalina: Enable MCTP support for NIC management
-
- .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 197 +++++++++++++++------
- 1 file changed, 144 insertions(+), 53 deletions(-)
----
-base-commit: 4701f33a10702d5fc577c32434eb62adde0a1ae1
-change-id: 20250102-potin-catalina-dts-update-20250102-914b06a4bdba
-
-Best regards,
 -- 
-Potin Lai <potin.lai.pt@gmail.com>
+2.31.1
 
 
