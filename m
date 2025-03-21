@@ -4,108 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA89C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8450DC35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C3hFefNG/ofK11xawtXlMVCQRjohpgf9QIt80AtA+kY=; b=rqLaqBy89Vgmj2QMOpHg95RipO
-	v/C7CLPEJ+v/h7LK2er/cbcBr62sSUWOdMNhWK/eQqM3HbpFnUfbRLN12yqeOnURxuHtq6ZLDZbD8
-	ClDV7Y9YTD3aKYrEk0wMaxeBTsgL/9NaPWwMvAstQvvUsC1PeRpDJ64+yNvybr3RaCvKaGC/no7s1
-	do9RrvWEaIfJJhAwTc2GCE8clmexFrWNnqq3mF+hmSVDROSbWc3mhcfNzyosLYzTV0kQf+fi8vIjP
-	rNNh/G9sa/qRfamP+jOQlR4Q0Re3baUT7zpf+dHVep5Vzl4TNxUvEBSiR2vZezK9b+AhS0mrkmH1K
-	h3S43r5Q==;
+	bh=6+aM4v81IIJ0lXB9aqI4mX4YkHUFBD7dtY0uixMWUn8=; b=GVzrEz8IcIlDXzYWFF/PSNAFiH
+	KM7eJOKSrwU3P2BfF/DFfGGOP9VH0UBYEsWpG2l8DhtWPYZSmG2p9kBfKumb6lfCHQSOpFdQv3Atb
+	k/SUrpz4FyAHaRSoqQt08tHqd7VN848M8TQs7Yoy5ypJIb3XW2x6jWTXbXDDqR2GVEYv4DDPN2eB+
+	hbLI6lJFgLNipITacOUwLwI7IH3AyX/3CIc0dtwRqhChKK0YUJEbqmu+TJjumVVXYCS/UIOFnjOAO
+	zOU9u6UeivPx3Id8fxGy8cPAYdlancwFv8w3AaBLxgoloH3qYGEiHzABxqb0My6iiVCyaVS/T6yf/
+	20VwvIew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYf0-0000000EMcS-2OiH;
-	Fri, 21 Mar 2025 09:27:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tvYna-0000000ENzN-0iA2;
+	Fri, 21 Mar 2025 09:36:18 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYdK-0000000EMQk-0lGv;
-	Fri, 21 Mar 2025 09:25:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E48145C5F13;
-	Fri, 21 Mar 2025 09:23:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F3B8C4CEE3;
-	Fri, 21 Mar 2025 09:25:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742549140;
-	bh=xagWroqK2KjwExb/4QdLan+HJEEnc1v2heAo/kNeQMg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BkttSCfq/1bl1fNVgyDlJAQugUKukCU1N6GtHzthSFYhlSZyDtdMf0mLZJSvrCBeK
-	 Fu3UUKhXbXKYeepJSBP+57AAHISAOekEZZFyrFVlL8xevY2oVQ/VGFKvjJD2tsUtvK
-	 v1UgI41RlZjuibPCSNX7yS3kPXZ+ScOgNPruhTJ/0IaXSNZMVi5lA3mfJP31nTwiC3
-	 O8m60Aag4/w0PAXoFCNATGS89MDxWSYXoQl4TgmcTOF4HdyFOFH9EfSFCqOwVnniSK
-	 nQQYGTBDe+hZp5U0in6gPO9VKCGDk6CldliWv1icZbXmubvasT025r1bBxek4M+OH5
-	 5q+CAjoxHuQEQ==
-Message-ID: <e21f3e39-573d-4391-885a-2df7c2598d80@kernel.org>
-Date: Fri, 21 Mar 2025 10:25:34 +0100
+	id 1tvYlt-0000000ENQX-16Ry
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 09:34:34 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52L5Gbxc007262;
+	Fri, 21 Mar 2025 10:34:24 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	6+aM4v81IIJ0lXB9aqI4mX4YkHUFBD7dtY0uixMWUn8=; b=4yazo+tkF8P4OFe9
+	U3XTY82QV7IrMlmNtViDse/Xq9IK3M9D2gKvT4Kl+NX4ZnLIjhUz+laJwa4kWsGV
+	YbkCo8oJmlmTzWHOR2Qkngy8ohc1mXYgD6qWc7hewChHzlozzU/o7xU1XS4IVuIx
+	+bwAhx4niwjlxvN2VHO4oLapyW+0DHmA5spFEyjex1iDKGt3Wu2SIDjFSE7M/VGl
+	Bh0268QHu3QT9oLAXautra5Jp8+tYS4pROmIRdzc1CJvc3rpzhww7t1OoUUtCvYG
+	CEx+A8gNxkfwXuy80RbfER1r9ueQTcMdfw72I6i3gwMgoEpNqihEQGOWSLNF11vA
+	R2g3Mg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45gh76vnpq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 21 Mar 2025 10:34:24 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4C70940058;
+	Fri, 21 Mar 2025 10:33:16 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 858D27BC006;
+	Fri, 21 Mar 2025 10:32:26 +0100 (CET)
+Received: from localhost (10.252.27.50) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 21 Mar
+ 2025 10:32:26 +0100
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Fri, 21 Mar 2025 10:32:21 +0100
+Subject: [PATCH v6 1/7] MAINTAINERS: add entry for STM32 OCTO MEMORY
+ MANAGER driver
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: amlogic: a4: fix dtb compilation warning
- issues
-To: xianwei.zhao@amlogic.com, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20250321-upstream_ospi_v6-v6-1-37bbcab43439@foss.st.com>
+References: <20250321-upstream_ospi_v6-v6-0-37bbcab43439@foss.st.com>
+In-Reply-To: <20250321-upstream_ospi_v6-v6-0-37bbcab43439@foss.st.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.252.27.50]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-21_03,2025-03-20_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_022542_311629_75A305DE 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250321_023433_813567_D6695881 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,53 +106,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/03/2025 03:23, Xianwei Zhao via B4 Relay wrote:
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> 
-> When use command 'make ARCH=arm64 dtbs_check W=1' to compile dtb,
-> a warning message appears.
-> "Warning (simple_bus_reg): /soc/bus@fe000000/pinctrl:
-> missing or empty reg/ranges property"
-> 
-> Add the unit address to the pinctrl node to fix it.
-> 
-> Fixes: ce78f679e08c ("arm64: dts: amlogic: a4: add pinctrl node")
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->  arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 102 +++++++++++++++-------------
->  1 file changed, 55 insertions(+), 47 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> index fa80fa365f13..582e0043024b 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> @@ -51,87 +51,52 @@ pwrc: power-controller {
->  };
->  
->  &apb {
-> -	gpio_intc: interrupt-controller@4080 {
-> -		compatible = "amlogic,a4-gpio-intc",
-> -			     "amlogic,meson-gpio-intc";
-> -		reg = <0x0 0x4080 0x0 0x20>;
-> -		interrupt-controller;
-> -		#interrupt-cells = <2>;
-> -		amlogic,channel-interrupts =
-> -			<10 11 12 13 14 15 16 17 18 19 20 21>;
-> -	};
-> -
-> -	gpio_ao_intc: interrupt-controller@8e72c {
-> -		compatible = "amlogic,a4-gpio-ao-intc",
-> -			     "amlogic,meson-gpio-intc";
-> -		reg = <0x0 0x8e72c 0x0 0x0c>;
-> -		interrupt-controller;
-> -		#interrupt-cells = <2>;
-> -		amlogic,channel-interrupts = <140 141>;
-> -	};
+Add myself as STM32 OCTO MEMORY MANAGER maintainer.
 
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Not related to the change you described in commit msg.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5b7e1f9c30f3e45fb85b0d0f58b56db84d986061..830245c8d583c422e869dfe4b5a184faaf52b559 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22766,6 +22766,12 @@ L:	linux-i2c@vger.kernel.org
+ S:	Maintained
+ F:	drivers/i2c/busses/i2c-stm32*
+ 
++ST STM32 OCTO MEMORY MANAGER
++M:	Patrice Chotard <patrice.chotard@foss.st.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
++F:	drivers/memory/stm32_omm.c
++
+ ST STM32 SPI DRIVER
+ M:	Alain Volmat <alain.volmat@foss.st.com>
+ L:	linux-spi@vger.kernel.org
 
+-- 
+2.25.1
 
-Best regards,
-Krzysztof
 
