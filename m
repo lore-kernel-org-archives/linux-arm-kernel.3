@@ -4,105 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1E7C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 13:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48755C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 13:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I4+8N541CkNOWDvfZ0cddMC7Om8lmOSt/AsWehOXc8g=; b=Xtls/bYNTBnnxkwz5TT7jUWK0n
-	mOEfrp6OiruIOpLNNUcJp2daVgm79E55STg0wUAoKNHJ9dbjwCHv3ECkSERKKg9ycueF2SNh1LV/w
-	eZMrjJRTN1BxzI1dOc/kl6/q1GSBDBy8YKObcT3kMnrMRaDuRQpEQeJ7twHa70y5WBySHtSA6d3/k
-	b0sk7+h7tt9mQJZsw/ZA/lSOkBx+4yDFonI8IUKKvv4GgJ7jy8p5F9Tp7Soj0RPCG1tipodtRgXea
-	YQRTEIFPdDYpnrRVO+85Oq2H+M8xwEkoRjmZB9unFquUcAPK2P29T2LwJa639GWdJ1lE5jY1CBdJR
-	5WdSGwdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NoPNTj3V5YtvLo2U0JoAwgjQlQPlLdtIAiFjHR9ruWQ=; b=RCm+E0iM7qa+YrNeTAz5osGaX6
+	S6b2BRix+kUX7URgo44Weyg4YksykgRCQhQOnHY6lCZwl/e+p3YwUqqRTB3AgJdw3LS4PnHgyUNmS
+	tE44uuz2QiiInVNnuzW0j4krMAurNM5r3QFlxwDsdPMfoBXEpkmOOWZ3+QQNvhO3wZFQJrYc3v50G
+	h3a94ji2b87eEeM61boatDuHCkqkR3HUXCZ7dtzgcL8i+uyzRZTJTyrSsU2a09fa9dLESTgrXLrPS
+	DYCuMhSBmsJRRsKpTmTc8eVF7vQkIw4CHC1udtk7D+3jisOPlXRwzDfYIzNwdnn8+yT11JzOtkVgy
+	5S+BAdkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvc5L-0000000Er4i-0WwR;
-	Fri, 21 Mar 2025 13:06:51 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tvc6z-0000000ErZf-1oQI;
+	Fri, 21 Mar 2025 13:08:33 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvc3e-0000000EqnK-1QAZ
+	id 1tvc5A-0000000Er2H-2XuV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 13:05:07 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cfb6e9031so17921745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 06:05:05 -0700 (PDT)
+	Fri, 21 Mar 2025 13:06:42 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3913fdd003bso1042744f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 06:06:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742562305; x=1743167105; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=I4+8N541CkNOWDvfZ0cddMC7Om8lmOSt/AsWehOXc8g=;
-        b=GnqjbILOp44fRJ5YlQVat5V/ORUMuZvHbyhleJp10WBsvx9uNVZk81a+UorhOWR6NI
-         HYWlLVtl5/6FdBdjiKUkmDFkcw59CXV0rBiQOQRbAeedvSG+xjxr9c9NK6kuv3XSATyC
-         8Nhl0vGYvUMnlv38FBVRXH6/fPHx4KbET23PpV1gOzAK1uZ9Y2ok3cK6/NZEqoSjPD6p
-         VLdDkOP2nna1NrTrq0EgVicdko5n4lJHqxOTQCEVA0/xHMcTRiQQXkkzkJVUN87oW1hx
-         +BhyxFNr40lFQf9LGDNYnsQU15VtD9om02zQVop3WpaV3lkv0ZhZX+4oghMdDdTKMSCY
-         d9Bw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742562399; x=1743167199; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NoPNTj3V5YtvLo2U0JoAwgjQlQPlLdtIAiFjHR9ruWQ=;
+        b=y8AyN2DzXzU6Tu+JzUZdV14RHxDbKRBRPSSTqBjlSSosbMgXCpQc8QKkbyir96Nd4J
+         VTScxZrfsBCTJ0l+AQ4jitoEAmxngLY08ufFRFX2TexRW11q1/wR3JEfNavRRoaHWOkW
+         ACdjUkEUUuLx38TNXNHI77ct4nMIyy+HCj89S7zNxPr5qWubuu7hzZS+TRi7QZABEYKq
+         Bo9gfnzwEV04s9hwJNI7Rpah3GPnehwtVNVhxnZwI3EUjwqX7893xck5PPUIn9y5j6g9
+         NXnhqr1XQ+4Ah4yAqKv+5ryMhH0A+Gg1FwlkHOnhOr5X2CgOhDVMta14oI4cZ4hzy5AO
+         qFtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742562305; x=1743167105;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I4+8N541CkNOWDvfZ0cddMC7Om8lmOSt/AsWehOXc8g=;
-        b=BOS2jPvUJigGzLL90fY/y6M/cmsO2NznRdFS1KsBngrbXoZaN9xkaZzuxU3+NrcnQc
-         XwsVa2q7eefkbFM+qtrPkU+/DVKBQtH9dTKQw5vBOVu2TMxD3oCzu/gZoMgmieDH62D0
-         y0yNbrKyQ0rJhDbbbaDzDEfJkl+Zn+BHIZyoGRkHGZRTAB0UAuRrNHZKuQOASNA2xONW
-         mBSpGuSKIssiesCWo7DD46z0zKmCcpQ5WT00RpX2oJB9a05wdzk0bQ8xYbGU0ra/V6fg
-         InmRO+y7bznKQOYypoQIM9Fvhw11NV87ngv6Ijj85bbZBfkxbdxUcWc0ltSta/FmySON
-         A6GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkpx634a9S6lueSuQVd3lxY6sf2ffthsFrM17LD4wKxX+MWVIsTLpzl1jqDVGu77XecJC5tumKX4DNN/hyWyuy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZZYyqxGk5XxzCM5IyqIlQLG1Y3s9F3Wt5JKGxdsJgoMR39MCb
-	FpojstylxSbV8b1BUgpf9WI6VXamr0fnHaCvB1twUIC/XMoGZKzK
-X-Gm-Gg: ASbGncuAevi7yTBk96fzeo2+XhtfCqc6mfdaecJNnmlnGsS0qxDezdTjOmgQTXn+oA/
-	PVVUx9EWTEknq5dZOFl7yrLnTwDjxZONrf/eCsbjUB8A8PaoJm286mVIxe9yIw9VZ+mLns2ghg9
-	ljj/K2o4H3YHe/wxbW/RrthpAK9KkNsOTbEzgRU1478i3rtHQSL6wubfwS91SPJMzRmoKO539qH
-	7fnuzObgAQdHDpyufb7HLTldN8UQcuW/BRDJBCsqpOzlQ/u8rz7kef7emRzCIKudLu+Y1VbFy4P
-	MZM1Tu5UL7ahm7QE8BNZdF54wZ7qs+M=
-X-Google-Smtp-Source: AGHT+IH86jMzbekNz39ZrDpdZDYAPnbN5nw03VrRG8082LHcSjfAUIiFBGdlOw/SLKZprEqeMfYmYA==
-X-Received: by 2002:a05:600c:4512:b0:43c:f87c:24ce with SMTP id 5b1f17b1804b1-43d50a3781amr21917025e9.21.1742562304146;
-        Fri, 21 Mar 2025 06:05:04 -0700 (PDT)
-Received: from krava ([173.38.220.55])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd27980sm26731495e9.21.2025.03.21.06.05.02
+        d=1e100.net; s=20230601; t=1742562399; x=1743167199;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NoPNTj3V5YtvLo2U0JoAwgjQlQPlLdtIAiFjHR9ruWQ=;
+        b=u9FDV2lxd5+4epLsvU4LHYM5cNjTL5rXByBWvZ3zD6rhDWMXTrdKPt6DBpCf7vd1lk
+         0Bfnt5ODDOjq3XFdswW0B452wITrvZMTM2eBgvUlQWN5ZfEboco3VLTqw4I2o5AyFY0m
+         tCJ91lrhSruOavXe/oufUPLuF0iOCivubZ0RjnQXm9BtUPoS0axLBwuQqxPqR1l5d94n
+         TaZUmtWHdsJ0wJVSu1LBys4KLmM10zpbKJOFhkP5dtXC0Tkh4h+dBbqoSKc5t8qbMDL5
+         4KGmeOE74XYr9daHjs3c+wCFjCKFsl1C8+G6XKgID6VN2t+i7XmVbWV2x3sI1cWkRMy+
+         a4WA==
+X-Forwarded-Encrypted: i=1; AJvYcCXKWBQRoIehLFxFQrGDexO8Mcco0BN4sbfgIPb31C/c19uq1IimU3LbVvml5IRu8VisHmZddV/Z8XHezjwkoHNE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMJEekB3dC9HmHr31EGOe3zH0zerzliihO3lQfDr/ZqkVs0bY5
+	mvzC1BZ2P56OFeZipsi5Cq53x4eDuOK9Qw7e9ftOO1shOY7XplooRS8nOiBMqCIunQCmzjM+hNQ
+	y
+X-Gm-Gg: ASbGncsSZMSuOX1MEU7QKrmB82dNMIlyrdmzjP11UgdQ2E4XxVzU8J9NEXGnjGX2LuP
+	+ztjId8Jov6EjbpvZgz3qisq2EuekD+3TuxnIus9p5R5SBREF4CGRl8tXg4YSq2+l8rrZ4wHyZu
+	IEN5XsJXNdzm4aGse4z16BtzAFlkBoobNVbzhFIfzWndhDBDVW7LezQCHNqlb1qVlk7N96Db+XO
+	1nanmWJMVyC/D4wTtn8D+hmkBtSrKU0x6KMmuzqgyI8AJbx7ecCB14vaZbBvBq+Vzd7P9yUXF2H
+	UgKEAaFWgedp2sQMy4eLHRmCu4ULzzQi4pud5iIuKaB412yn0Mm6gmiHVMpzrm2fzVPiXA==
+X-Google-Smtp-Source: AGHT+IEOpmQu3vdRTdoPK4Nh9YP5qAW7X5GoPVuQLhck+hEVtrUjAV5TX9kBkzKS3ZyCGSIbxUt4SQ==
+X-Received: by 2002:a5d:6c6a:0:b0:390:f5c8:1079 with SMTP id ffacd0b85a97d-3997959cde3mr6694234f8f.24.1742562398418;
+        Fri, 21 Mar 2025 06:06:38 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com ([2001:861:3382:ef90:3d12:52fe:c1cc:c94])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b5b8dsm2363992f8f.59.2025.03.21.06.06.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 06:05:03 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Fri, 21 Mar 2025 14:05:01 +0100
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andrii Nakryiko <andrii.nakryiko@gmail.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
+        Fri, 21 Mar 2025 06:06:37 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Tong Tiangen <tongtiangen@huawei.com>
-Subject: Re: [PATCH v3 3/3] kernel/events/uprobes: uprobe_write_opcode()
- rewrite
-Message-ID: <Z91j_UwNhi2DQB3N@krava>
-References: <20250321113713.204682-1-david@redhat.com>
- <20250321113713.204682-4-david@redhat.com>
+	Matthew Wilcox <willy@infradead.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
+Date: Fri, 21 Mar 2025 14:06:26 +0100
+Message-Id: <20250321130635.227011-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250321113713.204682-4-david@redhat.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_060506_385639_7CCAE5B5 
-X-CRM114-Status: GOOD (  39.27  )
+X-CRM114-CacheID: sfid-20250321_060640_645871_A41A2B1E 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,277 +106,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 12:37:13PM +0100, David Hildenbrand wrote:
+This patchset intends to merge the contiguous ptes hugetlbfs implementation
+of arm64 and riscv.
 
-SNIP
+Both arm64 and riscv support the use of contiguous ptes to map pages that
+are larger than the default page table size, respectively called contpte
+and svnapot.
 
-> +static int __uprobe_write_opcode(struct vm_area_struct *vma,
-> +		struct folio_walk *fw, struct folio *folio,
-> +		unsigned long opcode_vaddr, uprobe_opcode_t opcode)
-> +{
-> +	const unsigned long vaddr = opcode_vaddr & PAGE_MASK;
-> +	const bool is_register = !!is_swbp_insn(&opcode);
-> +	bool pmd_mappable;
-> +
-> +	/* For now, we'll only handle PTE-mapped folios. */
-> +	if (fw->level != FW_LEVEL_PTE)
-> +		return -EFAULT;
-> +
-> +	/*
-> +	 * See can_follow_write_pte(): we'd actually prefer a writable PTE here,
-> +	 * but the VMA might not be writable.
-> +	 */
-> +	if (!pte_write(fw->pte)) {
-> +		if (!PageAnonExclusive(fw->page))
-> +			return -EFAULT;
-> +		if (unlikely(userfaultfd_pte_wp(vma, fw->pte)))
-> +			return -EFAULT;
-> +		/* SOFTDIRTY is handled via pte_mkdirty() below. */
-> +	}
-> +
-> +	/*
-> +	 * We'll temporarily unmap the page and flush the TLB, such that we can
-> +	 * modify the page atomically.
-> +	 */
-> +	flush_cache_page(vma, vaddr, pte_pfn(fw->pte));
-> +	fw->pte = ptep_clear_flush(vma, vaddr, fw->ptep);
-> +	copy_to_page(fw->page, opcode_vaddr, &opcode, UPROBE_SWBP_INSN_SIZE);
-> +
-> +	/*
-> +	 * When unregistering, we may only zap a PTE if uffd is disabled and
-> +	 * there are no unexpected folio references ...
-> +	 */
-> +	if (is_register || userfaultfd_missing(vma) ||
-> +	    (folio_ref_count(folio) != folio_mapcount(folio) + 1 +
-> +	     folio_test_swapcache(folio) * folio_nr_pages(folio)))
-> +		goto remap;
-> +
-> +	/*
-> +	 * ... and the mapped page is identical to the original page that
-> +	 * would get faulted in on next access.
-> +	 */
-> +	if (!orig_page_is_identical(vma, vaddr, fw->page, &pmd_mappable))
-> +		goto remap;
-> +
-> +	dec_mm_counter(vma->vm_mm, MM_ANONPAGES);
-> +	folio_remove_rmap_pte(folio, fw->page, vma);
-> +	if (!folio_mapped(folio) && folio_test_swapcache(folio) &&
-> +	     folio_trylock(folio)) {
-> +		folio_free_swap(folio);
-> +		folio_unlock(folio);
-> +	}
-> +	folio_put(folio);
+The riscv implementation differs from the arm64's in that the LSBs of the
+pfn of a svnapot pte are used to store the size of the mapping, allowing
+for future sizes to be added (for now only 64KB is supported). That's an
+issue for the core mm code which expects to find the *real* pfn a pte points
+to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
+and restores the size of the mapping when it is written to a page table.
 
-hi,
-it's probably ok and I'm missing something, but why do we call folio_put
-in here, I'd think it's done by folio_put call in uprobe_write_opcode
+The following patches are just merges of the 2 different implementations
+that currently exist in arm64 and riscv which are very similar. It paves
+the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
+reimplementing the same in riscv.
 
-thanks,
-jirka
+This patchset was tested by running the libhugetlbfs testsuite with 64KB
+and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
 
+[1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
 
-> +
-> +	return pmd_mappable;
-> +remap:
-> +	/*
-> +	 * Make sure that our copy_to_page() changes become visible before the
-> +	 * set_pte_at() write.
-> +	 */
-> +	smp_wmb();
-> +	/* We modified the page. Make sure to mark the PTE dirty. */
-> +	set_pte_at(vma->vm_mm, vaddr, fw->ptep, pte_mkdirty(fw->pte));
-> +	return 0;
-> +}
-> +
->  /*
->   * NOTE:
->   * Expect the breakpoint instruction to be the smallest size instruction for
-> @@ -475,116 +480,115 @@ static int update_ref_ctr(struct uprobe *uprobe, struct mm_struct *mm,
->   * uprobe_write_opcode - write the opcode at a given virtual address.
->   * @auprobe: arch specific probepoint information.
->   * @vma: the probed virtual memory area.
-> - * @vaddr: the virtual address to store the opcode.
-> - * @opcode: opcode to be written at @vaddr.
-> + * @opcode_vaddr: the virtual address to store the opcode.
-> + * @opcode: opcode to be written at @opcode_vaddr.
->   *
->   * Called with mm->mmap_lock held for read or write.
->   * Return 0 (success) or a negative errno.
->   */
->  int uprobe_write_opcode(struct arch_uprobe *auprobe, struct vm_area_struct *vma,
-> -		unsigned long vaddr, uprobe_opcode_t opcode)
-> +		const unsigned long opcode_vaddr, uprobe_opcode_t opcode)
->  {
-> +	const unsigned long vaddr = opcode_vaddr & PAGE_MASK;
->  	struct mm_struct *mm = vma->vm_mm;
->  	struct uprobe *uprobe;
-> -	struct page *old_page, *new_page;
->  	int ret, is_register, ref_ctr_updated = 0;
-> -	bool orig_page_huge = false;
->  	unsigned int gup_flags = FOLL_FORCE;
-> +	struct mmu_notifier_range range;
-> +	struct folio_walk fw;
-> +	struct folio *folio;
-> +	struct page *page;
->  
->  	is_register = is_swbp_insn(&opcode);
->  	uprobe = container_of(auprobe, struct uprobe, arch);
->  
-> -retry:
-> +	if (WARN_ON_ONCE(!is_cow_mapping(vma->vm_flags)))
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * When registering, we have to break COW to get an exclusive anonymous
-> +	 * page that we can safely modify. Use FOLL_WRITE to trigger a write
-> +	 * fault if required. When unregistering, we might be lucky and the
-> +	 * anon page is already gone. So defer write faults until really
-> +	 * required. Use FOLL_SPLIT_PMD, because __uprobe_write_opcode()
-> +	 * cannot deal with PMDs yet.
-> +	 */
->  	if (is_register)
-> -		gup_flags |= FOLL_SPLIT_PMD;
-> -	/* Read the page with vaddr into memory */
-> -	ret = get_user_pages_remote(mm, vaddr, 1, gup_flags, &old_page, NULL);
-> -	if (ret != 1)
-> -		return ret;
-> +		gup_flags |= FOLL_WRITE | FOLL_SPLIT_PMD;
->  
-> -	ret = verify_opcode(old_page, vaddr, &opcode);
-> +retry:
-> +	ret = get_user_pages_remote(mm, vaddr, 1, gup_flags, &page, NULL);
->  	if (ret <= 0)
-> -		goto put_old;
-> -
-> -	if (is_zero_page(old_page)) {
-> -		ret = -EINVAL;
-> -		goto put_old;
-> -	}
-> +		goto out;
-> +	folio = page_folio(page);
->  
-> -	if (WARN(!is_register && PageCompound(old_page),
-> -		 "uprobe unregister should never work on compound page\n")) {
-> -		ret = -EINVAL;
-> -		goto put_old;
-> +	ret = verify_opcode(page, opcode_vaddr, &opcode);
-> +	if (ret <= 0) {
-> +		folio_put(folio);
-> +		goto out;
->  	}
->  
->  	/* We are going to replace instruction, update ref_ctr. */
->  	if (!ref_ctr_updated && uprobe->ref_ctr_offset) {
->  		ret = update_ref_ctr(uprobe, mm, is_register ? 1 : -1);
-> -		if (ret)
-> -			goto put_old;
-> +		if (ret) {
-> +			folio_put(folio);
-> +			goto out;
-> +		}
->  
->  		ref_ctr_updated = 1;
->  	}
->  
->  	ret = 0;
-> -	if (!is_register && !PageAnon(old_page))
-> -		goto put_old;
-> -
-> -	ret = anon_vma_prepare(vma);
-> -	if (ret)
-> -		goto put_old;
-> -
-> -	ret = -ENOMEM;
-> -	new_page = alloc_page_vma(GFP_HIGHUSER_MOVABLE, vma, vaddr);
-> -	if (!new_page)
-> -		goto put_old;
-> -
-> -	__SetPageUptodate(new_page);
-> -	copy_highpage(new_page, old_page);
-> -	copy_to_page(new_page, vaddr, &opcode, UPROBE_SWBP_INSN_SIZE);
-> +	if (unlikely(!folio_test_anon(folio))) {
-> +		VM_WARN_ON_ONCE(is_register);
-> +		folio_put(folio);
-> +		goto out;
-> +	}
->  
->  	if (!is_register) {
-> -		struct page *orig_page;
-> -		pgoff_t index;
-> -
-> -		VM_BUG_ON_PAGE(!PageAnon(old_page), old_page);
-> -
-> -		index = vaddr_to_offset(vma, vaddr & PAGE_MASK) >> PAGE_SHIFT;
-> -		orig_page = find_get_page(vma->vm_file->f_inode->i_mapping,
-> -					  index);
-> -
-> -		if (orig_page) {
-> -			if (PageUptodate(orig_page) &&
-> -			    pages_identical(new_page, orig_page)) {
-> -				/* let go new_page */
-> -				put_page(new_page);
-> -				new_page = NULL;
-> -
-> -				if (PageCompound(orig_page))
-> -					orig_page_huge = true;
-> -			}
-> -			put_page(orig_page);
-> -		}
-> +		/*
-> +		 * In the common case, we'll be able to zap the page when
-> +		 * unregistering. So trigger MMU notifiers now, as we won't
-> +		 * be able to do it under PTL.
-> +		 */
-> +		mmu_notifier_range_init(&range, MMU_NOTIFY_CLEAR, 0, mm,
-> +					vaddr, vaddr + PAGE_SIZE);
-> +		mmu_notifier_invalidate_range_start(&range);
-> +	}
-> +
-> +	ret = -EAGAIN;
-> +	/* Walk the page tables again, to perform the actual update. */
-> +	if (folio_walk_start(&fw, vma, vaddr, 0)) {
-> +		if (fw.page == page)
-> +			ret = __uprobe_write_opcode(vma, &fw, folio, opcode_vaddr, opcode);
-> +		folio_walk_end(&fw, vma);
->  	}
->  
-> -	ret = __replace_page(vma, vaddr & PAGE_MASK, old_page, new_page);
-> -	if (new_page)
-> -		put_page(new_page);
-> -put_old:
-> -	put_page(old_page);
-> +	if (!is_register)
-> +		mmu_notifier_invalidate_range_end(&range);
->  
-> -	if (unlikely(ret == -EAGAIN))
-> +	folio_put(folio);
-> +	switch (ret) {
-> +	case -EFAULT:
-> +		gup_flags |= FOLL_WRITE | FOLL_SPLIT_PMD;
-> +		fallthrough;
-> +	case -EAGAIN:
->  		goto retry;
-> +	default:
-> +		break;
-> +	}
->  
-> +out:
->  	/* Revert back reference counter if instruction update failed. */
-> -	if (ret && is_register && ref_ctr_updated)
-> +	if (ret < 0 && is_register && ref_ctr_updated)
->  		update_ref_ctr(uprobe, mm, -1);
->  
->  	/* try collapse pmd for compound page */
-> -	if (!ret && orig_page_huge)
-> +	if (ret > 0)
->  		collapse_pte_mapped_thp(mm, vaddr, false);
->  
-> -	return ret;
-> +	return ret < 0 ? ret : 0;
->  }
->  
->  /**
-> -- 
-> 2.48.1
-> 
+v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-alexghiti@rivosinc.com/
+v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
+v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-alexghiti@rivosinc.com/
+v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-alexghiti@rivosinc.com/
+
+Changes in v5:
+  - Fix "int i" unused variable in patch 2 (as reported by PW)
+  - Fix !svnapot build
+  - Fix arch_make_huge_pte() which returned a real napot pte
+  - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
+    avoid leaking real napot pfns to core mm
+  - Fix arch_contpte_get_num_contig() that used to always try to get the
+    mapping size from the ptep, which does not work if the ptep comes the core mm
+  - Rebase on top of 6.14-rc7 + fix for
+    huge_ptep_get_and_clear()/huge_pte_clear()
+    https://lore.kernel.org/linux-riscv/20250317072551.572169-1-alexghiti@rivosinc.com/
+
+Changes in v4:
+  - Rebase on top of 6.13
+
+Changes in v3:
+  - Split set_ptes and ptep_get into internal and external API (Ryan)
+  - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
+    we split hugetlb functions from contpte functions (actually riscv contpte
+    functions to support THP will come into another series) (Ryan)
+  - Rebase on top of 6.11-rc1
+
+Changes in v2:
+  - Rebase on top of 6.9-rc3
+
+Alexandre Ghiti (9):
+  riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
+  riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
+  mm: Use common huge_ptep_get() function for riscv/arm64
+  mm: Use common set_huge_pte_at() function for riscv/arm64
+  mm: Use common huge_pte_clear() function for riscv/arm64
+  mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
+  mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
+  mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
+  mm: Use common huge_ptep_clear_flush() function for riscv/arm64
+
+ arch/arm64/Kconfig                  |   1 +
+ arch/arm64/include/asm/hugetlb.h    |  22 +--
+ arch/arm64/include/asm/pgtable.h    |  68 ++++++-
+ arch/arm64/mm/hugetlbpage.c         | 294 +---------------------------
+ arch/riscv/Kconfig                  |   1 +
+ arch/riscv/include/asm/hugetlb.h    |  36 +---
+ arch/riscv/include/asm/pgtable-64.h |  11 ++
+ arch/riscv/include/asm/pgtable.h    | 222 ++++++++++++++++++---
+ arch/riscv/mm/hugetlbpage.c         | 243 +----------------------
+ arch/riscv/mm/pgtable.c             |   6 +-
+ include/linux/hugetlb_contpte.h     |  39 ++++
+ mm/Kconfig                          |   3 +
+ mm/Makefile                         |   1 +
+ mm/hugetlb_contpte.c                | 258 ++++++++++++++++++++++++
+ 14 files changed, 583 insertions(+), 622 deletions(-)
+ create mode 100644 include/linux/hugetlb_contpte.h
+ create mode 100644 mm/hugetlb_contpte.c
+
+-- 
+2.39.2
+
 
