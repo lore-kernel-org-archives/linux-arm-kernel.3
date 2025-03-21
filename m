@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D18C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF194C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CgGaJaPa/jEPScVXsjWC4390D+TFpvglNfRjMg/X9O0=; b=ewdRYcrp1KENzq7TNhhdhFIZUZ
-	rpIV9BxIKsrnIwZcn+Wj0ZnpoEeO03hYzb6Xo/WB3mgd1leowpKB3tzD8WktlaVYoIEFsMMo4+Qkj
-	5Ywuje4+1VT2KtWj300QE1nxnRxHG1KBSS1HFJoTKJ+hEH6r6giWvZTjd7pLo0Ig4z1t15RMPV4g1
-	ar6IeHjAQLq3dkFvy8gDoC8REtaARwiNsXqONCF1b2sbb1WtlQWEQIDNak8Yat3uf46NupA5/ew5T
-	/gOIyLgJ6mRkmIBDu5YswvOrhRCDnzk+PGP4MAg0aK18mYdH9EGi0axeoql1toXcGjoEOxxXM0HGe
-	So5bN43g==;
+	bh=yT8oLnhtXkXINGnaV4SHYt3aHucazcGEQTHZoc9QZSc=; b=a70EpNdqE4M446x/9hT+5BLQmp
+	IAV5cH2uV5y3FC9xemkADudWSDJX6HMRqaH9VliTrdxD7XOFruvzBv/6LxDKa/tNsvZxpNtgsqee3
+	zwRE8vYjtEIXXxDgWyDfw5RjzVee2RHGZh8tTzHxvh+AE5OJmsuJNEEEQ2kzOYnU8+6YRCGM8c6m1
+	iLvlDQAx4+yZFkF46wk7XKRU33d0blNABKmmcrE4kZc7H+KfoMBr/x2FJIZ1XHU3W+deymezpcthI
+	ALq6wZlEBXaKNnAF1Kqh2/2OVyhn2kFce6sCqLJlejR1lt0/xzsmVVlZmgCZ1VZyQHcOrj3KnKaPf
+	udVg9e3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZXv-0000000EVyI-3VXp;
-	Fri, 21 Mar 2025 10:24:11 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tvZZa-0000000EWEF-20rZ;
+	Fri, 21 Mar 2025 10:25:54 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYuX-0000000EPgD-3eIR
+	id 1tvYx5-0000000EQD5-3CkT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 09:43:31 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5498d2a8b89so2051536e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 02:43:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1742550207; x=1743155007; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CgGaJaPa/jEPScVXsjWC4390D+TFpvglNfRjMg/X9O0=;
-        b=sWl81rV4Z2IbZL4sOG2sVv/VkdjQHuLxPN7o9l7TA/oNQEgPlj4VhC4lT3HRljESFR
-         NIMmJjOAYoYxOnfdG2DgPgLp5h6bPCbh/Kb/nkvA9vjH7kCj1NQWigLspDVj/YwBtrZe
-         M3+YECIDMQlYGJ/ku6DrZxrKGfyscOtNyrJ1MsMYQrfdN7BqXyjBSox8jZJ5DuVy9ODr
-         J7TP1PhgKTGI+RMmMy3WzNu3y5CplQ+oM9WF3zl43i/eywoBIxqriIs8DfXSCwyqNCZu
-         rdggvXQUXe0BEgejECCA59J2j6xSns69Fy5TTWiTiqRlzNBWv8s/9rJIXPnt7zqBE1Bl
-         u0PQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742550207; x=1743155007;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CgGaJaPa/jEPScVXsjWC4390D+TFpvglNfRjMg/X9O0=;
-        b=XC8L3OFcgNQSkj4o6ucMBMmqoabUnkQHZvv2CvSL89K+jWQomU1pPDz5Zr1N1rE2Ul
-         Dn/PVbNTkzZwZLfXO8rX7RSCS44AVmTgH9soX6tb6EvmLIOXCRq29LYLhwpsHefFhut4
-         SQTeJOq84CPsy2QdFKW4+mjnz41YyK0pw+4GSLWERcOjB2lEEndCuSAoDCs1vWmIpYUn
-         pyNBTZ/TE+9tKe+XrwjMqyU9E3XHcyhCq+QakIRTDoQTRSpX9HeqQKaohwIWXRAX470q
-         pG264HEGRBkODv9N2yJg3SuIADCAmKPt8Lqq3CTjxi14rV/bKlyniiCJECb8KSVc3vG0
-         O0Qg==
-X-Forwarded-Encrypted: i=1; AJvYcCXmkdVxsynAurOX8gDtH87/igo7iBfXG+Uoa48rochZWHQ3G8eseJ4XEHf4cxHwqNGx38shmey7y8CWa7iYpXjR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8K/UJd81RHKQ3aqoc9xZz3kyPzu40AD3zCgwfaOtj9pnV9JsA
-	NuxhIVzkKlN84JnV1SGgN0qQqj8PmA7vW7LfsvmzHjoZyzgVVUO9KbN05fyuuE8wrt/nMgB0lIc
-	HpubFzCdgI9XTSMN2Ir5jrUzOk4PlX+XHT4iHRg==
-X-Gm-Gg: ASbGncuyt7lsxSY5Ty1/aJjKztUbLCBbM3JdWc+b0zI2hv9dKK0ZJBkNjESyZXbOn8d
-	vc8Vy8r9gCirvBH1L8jL6c3l67gofAj8344y6EXOfWswwGuw7r9p2hGwHlpwv+ckHJocK0C/KM6
-	IGGPky1yRDMAdiAaXG9HKfPkJyBQvBneAqrwNyL0LBhqI/u8bhHb0OHziLPg==
-X-Google-Smtp-Source: AGHT+IEDdJoaJq6teyJiW13G+bIfvvL5/3c4aVZ249NYoi9wkGLc1z6wYCrInzpYKLkQcy/ueE7DfYIIW3z1gg4d79A=
-X-Received: by 2002:a05:6512:1314:b0:54a:cbfb:b62e with SMTP id
- 2adb3069b0e04-54ad64f6791mr932986e87.35.1742550207212; Fri, 21 Mar 2025
- 02:43:27 -0700 (PDT)
+	Fri, 21 Mar 2025 09:46:09 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52L7Y9kf019721;
+	Fri, 21 Mar 2025 10:46:01 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	yT8oLnhtXkXINGnaV4SHYt3aHucazcGEQTHZoc9QZSc=; b=dZg903c5A+UkE5d1
+	dwrvh4nBb9580CZgPxHlwMIETESWiwbWuQPnPihQHgiY5w1M/5skqdZ8S5QhUdSu
+	s8bf81SNwad2LwXADABH19AH/GYY98YEo862jlchVNwu59SQ15epCQjg3cHAOrt2
+	Jv4yWTlEjfTFNKAtYPH95MpbdM16NSi/C+H5LVoGRUhttYNkuGadtvpnMClnUQrU
+	0s4S4kfj7waDyx2Zox2vYOEr4R5933iY/8yWJE79vO8Mj4A5Jfki8PmufqiD+w76
+	xU7yUAC4Onxlf0ahDIArYbqpH0pa85QCbbaAnHB/yTz2CBqHzISCbkr0l+y0WQ6h
+	2G9XOw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45h3ua0p4m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 21 Mar 2025 10:46:01 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AFFF140058;
+	Fri, 21 Mar 2025 10:44:56 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7F2957C0CFD;
+	Fri, 21 Mar 2025 10:44:08 +0100 (CET)
+Received: from localhost (10.252.27.50) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 21 Mar
+ 2025 10:44:08 +0100
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Fri, 21 Mar 2025 10:44:07 +0100
+Subject: [PATCH 2/2] spi: spi-stm32-ospi: Make "resets" a required property
 MIME-Version: 1.0
-References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
- <20250320055502.274849-2-quic_wenbyao@quicinc.com> <694b6638-92b2-4ac0-a175-bd29aea6cba9@kernel.org>
-In-Reply-To: <694b6638-92b2-4ac0-a175-bd29aea6cba9@kernel.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 21 Mar 2025 10:43:16 +0100
-X-Gm-Features: AQ5f1Jo9naRtRxBQvHi76DCGdYFDD5Qh6BXFBrW4RyaSHcjfJlIGHOXa5xvXdjg
-Message-ID: <CAMRc=MfZrRp=VuEOLuMY_04JdyRrD+joGL56LwRFQ-+D-8Z_6w@mail.gmail.com>
-Subject: Re: [PATCH v1 1/3] arm64: defconfig: enable PCI Power Control for PCIe3
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Wenbin Yao <quic_wenbyao@quicinc.com>, andersson@kernel.org, konradybcio@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	quic_qianyu@quicinc.com, sfr@canb.auug.org.au, 
-	linux-arm-kernel@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250321-upstream_ospi_required_resets-v1-2-9aa4702e3ae2@foss.st.com>
+References: <20250321-upstream_ospi_required_resets-v1-0-9aa4702e3ae2@foss.st.com>
+In-Reply-To: <20250321-upstream_ospi_required_resets-v1-0-9aa4702e3ae2@foss.st.com>
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        <christophe.kerello@foss.st.com>, <linux-spi@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.252.27.50]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-21_04,2025-03-20_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_024329_911014_7153AFBC 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20250321_024608_091569_CAF205FF 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,49 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 8:37=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 20/03/2025 06:55, Wenbin Yao wrote:
-> > From: Qiang Yu <quic_qianyu@quicinc.com>
-> >
-> > Enable the pwrctrl driver, which is utilized to manage the power suppli=
-es
-> > of the devices connected to the PCI slots. This ensures that the voltag=
-e
-> > rails of the x8 PCI slots on the X1E80100 - QCP can be correctly turned
-> > on/off if they are described under PCIe port device tree node.
-> >
-> > Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-> > Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
-> > ---
-> >  arch/arm64/configs/defconfig | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfi=
-g
-> > index 85ec2fba1..de86d1121 100644
-> > --- a/arch/arm64/configs/defconfig
-> > +++ b/arch/arm64/configs/defconfig
-> > @@ -245,6 +245,7 @@ CONFIG_PCIE_LAYERSCAPE_GEN4=3Dy
-> >  CONFIG_PCI_ENDPOINT=3Dy
-> >  CONFIG_PCI_ENDPOINT_CONFIGFS=3Dy
-> >  CONFIG_PCI_EPF_TEST=3Dm
-> > +CONFIG_PCI_PWRCTL_SLOT=3Dy
-> Bartosz,
->
-> Wasn't the intention to select it the same way as PCI_PWRCTL_PWRSEQ is
-> selected?
->
-> Best regards,
-> Krzysztof
->
+On some STM32MP2 SoCs, an Octo Memory Manager is embedded and
+need to retrieve OSPI's reset to perform its own initialization.
+Make "resets" property mandatory.
 
-For sure. I would expect there to be something like:
+Fixes: 79b8a705e26c ("spi: stm32: Add OSPI driver")
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ drivers/spi/spi-stm32-ospi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-select PCI_PWRCTL_SLOT if ARCH_QCOM
+diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+index d4f413c8c3ce1a51d2302602d46c7605a8bbc605..d3839a4dacf9f2eb95bafad9f7a8538ce2bb3598 100644
+--- a/drivers/spi/spi-stm32-ospi.c
++++ b/drivers/spi/spi-stm32-ospi.c
+@@ -804,7 +804,7 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	ospi->rstc = devm_reset_control_array_get_optional_exclusive(dev);
++	ospi->rstc = devm_reset_control_array_get_exclusive(dev);
+ 	if (IS_ERR(ospi->rstc))
+ 		return dev_err_probe(dev, PTR_ERR(ospi->rstc),
+ 				     "Can't get reset\n");
 
-in Kconfig and nothing in defconfig.
+-- 
+2.25.1
 
-Bartosz
 
