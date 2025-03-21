@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FBCC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 18:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37DDC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 18:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VT3j5ia3YM4BM/xg+Fw4hf8d8cAPlpEijn+7bl03zsE=; b=hSA4pHmbmLW1p8jcm1dwMD+/83
-	npQPlNl2/vFEBguifYtaDXvh7UurJ6zTjqgVKcG+e+b5bkFU1L6fdzcOGh+cQRA6nauUI+viVPxP5
-	jJS7eX/O6r29e82DYw7tVKb9FlpSYrvFkq7WfjtI3pPNOiP4JWj39Guez5FXJiJhh0DPqecDLRYT+
-	mWQafoU4Wg6HmywByYonko5cnLdvn7UT9IX8wx3Ku1KSQlad7bigQZafIYGEzk5jGiursuLXvfr+E
-	aFJG+uYUL80DiU0bVxYNqmJPuzZPIiMaYsIW/eBtMjDkPyMgL8OVepBKEMI5jpFyVHQ9jtgSz9/bu
-	twZ5NEig==;
+	bh=PCFWoQsxxvcIGets8kLMeKmFrMqSoLG7cv3B4SulRtI=; b=kT3xRoWV//roA6IXrlNfeFaMrZ
+	UXtknxw97MGTMhY0SroR7WmfR7EiCv83AcSwMb1Cw6VXfgoAG+s8WgqTRqcfTDWCwtWMpqRNxlU6F
+	yPdNp85qDpEYFjX3LVJdW/7pwXnSe7N2CqlyWtBlu+nndCGePTKsl+cTur1udXoyEbZs8JjdnQa6a
+	f9lULy8b/3kVCEPzr5XKwyOL2P85SHwsTHcWcKlViCpLAvUKXpvLYm11N4O06yTmhY9A2fJ6XUkDi
+	mJBZ1HWprXyGSspbWUYT2P+WUobe+PNktvY4PeueF/tzft0JSohFFghvfupCmY+tVzP79XDQwhIXH
+	0j99vh7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvh1k-0000000Fpw9-250G;
-	Fri, 21 Mar 2025 18:23:28 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1tvh9v-0000000FrL6-0fT2;
+	Fri, 21 Mar 2025 18:31:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvh02-0000000FpYN-3UDZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 18:21:44 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8B82C4439E;
-	Fri, 21 Mar 2025 18:21:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742581298;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VT3j5ia3YM4BM/xg+Fw4hf8d8cAPlpEijn+7bl03zsE=;
-	b=M2+aLmXCuAkAtEzK22T1y229k0Hx/fEcdMCuVydJ1io66hFVPtiOn7GBAwEYaUnyhjxC94
-	ICATURZtPDmh1DBptvQBie4GII1Pm7bGnMArOcVEhyHMLfO4ZtUjzrVAzlXBmLaMCSQJ2o
-	v0QxoN+dfKbAxbDnacFwsJVtWQlxGKo8R8MnuogRDC52wuk3izUBlzY9ufJLExiD6tlnKM
-	k7rbUwm2fL8rKxFOLoxjROHPAz5M5QHE7vXqivbMecIsaf6TpBAaFZ10mpgP3P7z/SWpQB
-	MHkfpgxw9FAok9ZSgsZYepow4fZBN6nB79LgrwrwqCk9UkR+nfFWiaV9ElT8qw==
-Date: Fri, 21 Mar 2025 19:21:32 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: "Maxime Ripard" <mripard@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa"
- <asrivats@redhat.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <lumag@kernel.org>, "Fabio Estevam" <festevam@gmail.com>,
- =?UTF-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
- <jagan@amarulasolutions.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski"
- <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Paul Kocialkowski" <paulk@sys-base.io>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Robert Foss"
- <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn Guo"
- <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Stefan Agner"
- <stefan@agner.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
- "Thomas Zimmermann" <tzimmermann@suse.de>
-Subject: Re: [PATCH v8 2/5] drm/bridge: add support for refcounting
-Message-ID: <20250321192132.211893ec@booty>
-In-Reply-To: <400466cd3c229ea6c6cb25e2a58cee27@kernel.org>
-References: <20250320-drm-bridge-refcount-v8-2-b3ddaa9f1368@bootlin.com>
-	<400466cd3c229ea6c6cb25e2a58cee27@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1tvh8D-0000000Fqw2-13rb;
+	Fri, 21 Mar 2025 18:30:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 449BF443B6;
+	Fri, 21 Mar 2025 18:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5EF2C4CEEC;
+	Fri, 21 Mar 2025 18:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742581808;
+	bh=Aon3MpuqI2KphyJJxW/mgSijVLrvb2iG67m72HH1MKc=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=da/wdTBUJ5ngQarDW94IRkO6+fhSqJjh3qAwgHe0AJCeraT/nuof6vKiDPfEldpB+
+	 Ev9nJ+X7z6zIQr7K43miMJoSW4ar1pZoxHfE3vTdbXIrfafARUt0OxKYL7JS5+0JUd
+	 +5ErgfRoLQgGUHhut1mQqpofgYCAvW8xIKr8iQ+DocDidcBTccppwAHCTQBZ87zcKH
+	 UCvJ5M8VlfE0l/vmF1WL1aA7zGrFk5YtcIABNy2L0PI602Q8TvRekFkB08FDXcd9GV
+	 7591axIwNbAESKy5nBIYVWl04wD+RQF7MHRGuQta6/mYx8tEarXLlWGXzClqbL8fcD
+	 6fFNqXKe4IrCQ==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+ guoren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Charlie Jenkins <charlie@rivosinc.com>, Bibo Mao <maobibo@loongson.cn>, 
+ Huacai Chen <chenhuacai@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
+ Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Arnd Bergmann <arnd@arndb.de>, Ian Rogers <irogers@google.com>
+In-Reply-To: <20250319050741.269828-1-irogers@google.com>
+References: <20250319050741.269828-1-irogers@google.com>
+Subject: Re: [PATCH v7 00/14] perf: Support multiple system call tables in
+ the build
+Message-Id: <174258180770.163787.17026526140964969734.b4-ty@kernel.org>
+Date: Fri, 21 Mar 2025 11:30:07 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedukedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvtddtudemsgdtjeemieegieelmegtieguieemgegtudelmeeffeekvgemjegvjegvmegttdejudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemsgdtjeemieegieelmegtieguieemgegtudelmeeffeekvgemjegvjegvmegttdejuddphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrghdprhgtphhtthhopehimhigsehlihhsthhsr
- dhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopegrshhrihhvrghtshesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+X-Mailer: b4 0.15-dev-c04d2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_112143_177449_B82F4C08 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250321_113009_312023_77F10D08 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,33 +89,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Maxime,
-
-On Fri, 21 Mar 2025 09:54:55 +0000
-"Maxime Ripard" <mripard@kernel.org> wrote:
-
-> On Thu, 20 Mar 2025 16:42:11 +0100, Luca Ceresoli wrote:
-> > DRM bridges are currently considered as a fixed element of a DRM card, and
-> > thus their lifetime is assumed to extend for as long as the card
-> > exists. New use cases, such as hot-pluggable hardware with video bridges,
-> > require DRM bridges to be added to and removed from a DRM card without
-> > tearing the card down. This is possible for connectors already (used by DP
-> > 
-> > [ ... ]  
+On Tue, 18 Mar 2025 22:07:27 -0700, Ian Rogers wrote:
+> This work builds on the clean up of system call tables and removal of
+> libaudit by Charlie Jenkins <charlie@rivosinc.com>.
 > 
-> Reviewed-by: Maxime Ripard <mripard@kernel.org>
+> The system call table in perf trace is used to map system call numbers
+> to names and vice versa. Prior to these changes, a single table
+> matching the perf binary's build was present. The table would be
+> incorrect if tracing say a 32-bit binary from a 64-bit version of
+> perf, the names and numbers wouldn't match.
+> 
+> [...]
+Applied to perf-tools-next, thanks!
 
-Thanks a lot for reviewing!
+Best regards,
+Namhyung
 
-I noticed you haven't replied on patch 3. Being a change you had
-suggested, I was wondering whether haven't noticed that. If you are OK
-with that patch, the entire series would have a R-by, which would be
-great to unlock all the work depending on this series.
 
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
