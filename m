@@ -4,119 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75717C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC64C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9N77P41IwOEtQjyzNQ+1k/cERPt5eLRxJQTUEpJGHQA=; b=4RsCPNT+FWNkyN9o+ZUPfuH2HY
-	HCACKA0kR51TRXiyiRmc2jgKKFW7hFuFtY4TDkVuQarb10S3dFou/OwwyJIygtbr/9zUsVpFbQavY
-	fiB8vUQv42FK43F3g0KSU3I0Fgy81EwHqmHXkJx6A7zfjL3vJBWqfaEJbWlOa7LIPgs4t4MNO82L/
-	Jj8qkbVJMofHl/48uKMEKzsbVlIGXjd5ORWLJIAJirRoTFi0LfzdAlEyLVksFJtZJeErw+2e23pYW
-	PKQDHctM1xPQcFN7JTnk2rIaiY79lCdepoI0h7booOBuTchXBj8+E0JgBVXLX6MFuBw5IGR5FTNns
-	l7ROOLZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GrXyuQ2AZF/rxz81XvK1/BykFOMnT3aFbvO2iFjE5g4=; b=e7v/pvTN76aZatiyScocdLj1KC
+	qy5bF0G+dUzNlk0RH29YPg0275qn/q+rskYJmy0FckQ3uuIGy8Dr+L2ZugY0PVejGwnSZ58JjdZZB
+	z2lH4MDJRSrZrYCpgqobcV34lwJiqUDKvh2rSN84u25oK9gmwcmeVeR9gPPIsIjM7gx2btgoKflby
+	ZO9YZLNHUMWA89j4uAuKFrURyLbtcvS0tYFPg6nxSfclhe+3pqm7VSlr1TPZSDHt92xMh1TX6BkQ4
+	5Q/ik1w7X44vSv1VUqdgSJ6r9yR3Q+vk/1TxDMnY5c9b6HTOROQfPZSuL79ACNbAjtwh1AxxGAgLr
+	KL0Nh5PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZSx-0000000EVHH-2yqL;
-	Fri, 21 Mar 2025 10:19:03 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tvZUc-0000000EVaK-1w9h;
+	Fri, 21 Mar 2025 10:20:46 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYpF-0000000EOMN-14wD
+	id 1tvYpn-0000000EOVF-1dfy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 09:38:03 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso17225755e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 02:38:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742549879; x=1743154679; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9N77P41IwOEtQjyzNQ+1k/cERPt5eLRxJQTUEpJGHQA=;
-        b=mChTIuvw8CmOmodTchVX+ShuVyOBDGfhvqDN7N6E8wXT6QueK07RDaPLeVubRFKKgJ
-         dNmxQisE1QsMq95P1hFEtfEYhLZXTXFKlsGKbVKrfao+BTpbkxPrEx9LbdAuMio/WdwN
-         X+Z6I6K256/hJdZfsuZFu4PHoLLJ0MYKucBxHKooCD+/uQk6So5VGgVsiDbazNETlsmY
-         wKiFQEjL3ZNszMHjuB+x9tCXJ4m/z5bKMLImjT4L3szhJp50w/6cET/X1I7MVXO2sZBu
-         a9q47kqacsw6M8x/168S7weUH7nlCJNgUw5dx5eZXrscamEu8C7mrZj4zhirfs7BWKrg
-         DP8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742549879; x=1743154679;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=9N77P41IwOEtQjyzNQ+1k/cERPt5eLRxJQTUEpJGHQA=;
-        b=GROlTEp/f9GSwqtIXUKvHqxZYXcnuwivGD+oQEtmKU76wz6Zbni5xDRCY2C/IrlSmn
-         X86fvCqhFcQ0ieOsBmFXxy9C69vMaqv0XRWkxlVA4Q+cDjiJiOitvfoL0nZHu/G2qGQ3
-         TQRlBTGmpxq7+AlRVb9HUMJSckPcIaXi9dND1Z8pgjpityg2mPgPupHHnLGOgL3kFpzB
-         SVfVu3q5jDgG/iEAFl7rSmXxegtQdHszAdw+cl+Bp0xiM3p2iVhAeBKUa0+VBKCgAvnE
-         rvz0NPAduKt4NebArp3wtTQ4sKrpJGcXLVVgFpGPl5rf4oubm5IhCBh/mzOuDKU4nqLM
-         p0Qw==
-X-Gm-Message-State: AOJu0Yw2I8skcV4oixcoQ+W49CJFj06RKTZ23JBX/x8F6NWcWf7gFBt6
-	215OSI28aTIoR2JHzOwBsHS4k4BicaFSfPVd/bYnibsWfcsHxF8wypcMgc9qNzw=
-X-Gm-Gg: ASbGncs6lcdtrtH2X3Mi8mTR5UAqPMnV3TN0DBtjQytfo2s9u93M/eV32Il3bIPsa3p
-	OvsMACdYYv2ifvO1eGinHb7ukq0c6f+P4i1sBG5WG2n8OuaYS4SiFLpBKhw5XlS4ZsWxSct2CTV
-	oARTwAzTBKw1hpGp9VeQHmoHkiyA8z+jPaRaWt3HLs+Jo5fwvn1rJze64mIwaDOgkLH9vtofAHs
-	7Fah99S8ArPh5RShtxAG8Wk7OsoslR/HRbnXw+tGvfmttMjI/CnJVOkRVShPveUq/LCtYGSJSM5
-	uFHRcUY6pR1YOu+BsWOONUiu7cJurA8pytONyJHtGhrhJB/DtPrcA23qBcIG+8A8i1gusJSP64a
-	Al94uUV9rP6kx4SgTIekh6+iGVNAr6UZd
-X-Google-Smtp-Source: AGHT+IE4AxMnbwGIVq74R+nsPXDkLIHd1kWqc+z8aTF3wWVCvx+LwG9D0+avsooNskmWWMoFCV5riw==
-X-Received: by 2002:a05:600c:3109:b0:43c:e70d:450c with SMTP id 5b1f17b1804b1-43d50a201bemr22157905e9.22.1742549878764;
-        Fri, 21 Mar 2025 02:37:58 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:5080:77b0:43f2:5276? ([2a01:e0a:3d9:2080:5080:77b0:43f2:5276])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd187fasm21568345e9.14.2025.03.21.02.37.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Mar 2025 02:37:58 -0700 (PDT)
-Message-ID: <5caa550a-ffdf-477d-92f4-a3222b7fba29@linaro.org>
-Date: Fri, 21 Mar 2025 10:37:57 +0100
+	Fri, 21 Mar 2025 09:38:36 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZJy1R5Bsvz6L5GL;
+	Fri, 21 Mar 2025 17:33:31 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4DB00140517;
+	Fri, 21 Mar 2025 17:38:28 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 21 Mar
+ 2025 10:38:27 +0100
+Date: Fri, 21 Mar 2025 09:38:25 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Greg KH <gregkh@linuxfoundation.org>
+CC: <linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<james.morse@arm.com>, <conor@kernel.org>, Yicong Yang
+	<yangyicong@huawei.com>, <linux-acpi@vger.kernel.org>,
+	<linux-arch@vger.kernel.org>, <linuxarm@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, <linux-mm@kvack.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, Dan Williams
+	<dan.j.williams@intel.com>
+Subject: Re: [RFC PATCH 3/6] cache: coherency device class
+Message-ID: <20250321093825.00004d6b@huawei.com>
+In-Reply-To: <2025032013-venus-request-b026@gregkh>
+References: <20250320174118.39173-1-Jonathan.Cameron@huawei.com>
+	<20250320174118.39173-4-Jonathan.Cameron@huawei.com>
+	<2025032013-venus-request-b026@gregkh>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH] arm64: dts: amlogic: a4: fix dtb compilation warning
- issues
-To: xianwei.zhao@amlogic.com, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_023801_328851_BB0B30ED 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20250321_023835_708345_281AED44 
+X-CRM114-Status: GOOD (  31.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,192 +75,238 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, 20 Mar 2025 14:12:15 -0700
+Greg KH <gregkh@linuxfoundation.org> wrote:
 
-On 21/03/2025 03:23, Xianwei Zhao via B4 Relay wrote:
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> On Thu, Mar 20, 2025 at 05:41:15PM +0000, Jonathan Cameron wrote:
+> > --- a/drivers/cache/Kconfig
+> > +++ b/drivers/cache/Kconfig
+> > @@ -1,6 +1,12 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> >  menu "Cache Drivers"
+> >  
+> > +config CACHE_COHERENCY_CLASS
+> > +	bool "Cache coherency control class"  
 > 
-> When use command 'make ARCH=arm64 dtbs_check W=1' to compile dtb,
-> a warning message appears.
-> "Warning (simple_bus_reg): /soc/bus@fe000000/pinctrl:
-> missing or empty reg/ranges property"
-> 
-> Add the unit address to the pinctrl node to fix it.
+> Why can't this be a module?  And why would anyone want to turn it off?
 
-I've delayed the pinctrl to next release so plase rebase
-the commit on top of https://web.git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=for-next
-and fix the warnings here, and make sure DTBS_CHECK still passes.
+If you don't have the hardware you won't want the infrastructure.
+I'll add a note.  If you do have the hardware and don't have memory subsystems
+that need to use it (maybe no CXL hardware for instance and that's the only
+user on a particular platform).
 
-Neil
+> 
+> > +	help
+> > +	  Class to which coherency control drivers register allowing core kernel
+> > +	  subsystems to issue invalidations and similar coherency operations.  
+> 
+> What "core kernel subsystems".
+
+I'll expand on that.  Memory hotplug related stuff (currently CXL and NVDIMM)
+but the thing is more general that that.
 
 > 
-> Fixes: ce78f679e08c ("arm64: dts: amlogic: a4: add pinctrl node")
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->   arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 102 +++++++++++++++-------------
->   1 file changed, 55 insertions(+), 47 deletions(-)
+> > +
+> >  config AX45MP_L2_CACHE
+> >  	bool "Andes Technology AX45MP L2 Cache controller"
+> >  	depends on RISCV  
 > 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> index fa80fa365f13..582e0043024b 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> @@ -51,87 +51,52 @@ pwrc: power-controller {
->   };
->   
->   &apb {
-> -	gpio_intc: interrupt-controller@4080 {
-> -		compatible = "amlogic,a4-gpio-intc",
-> -			     "amlogic,meson-gpio-intc";
-> -		reg = <0x0 0x4080 0x0 0x20>;
-> -		interrupt-controller;
-> -		#interrupt-cells = <2>;
-> -		amlogic,channel-interrupts =
-> -			<10 11 12 13 14 15 16 17 18 19 20 21>;
-> -	};
-> -
-> -	gpio_ao_intc: interrupt-controller@8e72c {
-> -		compatible = "amlogic,a4-gpio-ao-intc",
-> -			     "amlogic,meson-gpio-intc";
-> -		reg = <0x0 0x8e72c 0x0 0x0c>;
-> -		interrupt-controller;
-> -		#interrupt-cells = <2>;
-> -		amlogic,channel-interrupts = <140 141>;
-> -	};
-> -
-> -	periphs_pinctrl: pinctrl {
-> +	periphs_pinctrl: pinctrl@4000 {
->   		compatible = "amlogic,pinctrl-a4";
->   		#address-cells = <2>;
->   		#size-cells = <2>;
-> -		ranges;
-> +		ranges = <0x0 0x0 0x0 0x4000 0x0 0x280>;
->   
-> -		gpiox: gpio@4100 {
-> -			reg = <0 0x4100 0 0x40>, <0 0x400c 0 0xc>;
-> +		gpiox: gpio@100 {
-> +			reg = <0 0x100 0 0x40>, <0 0xc 0 0xc>;
->   			reg-names = "gpio", "mux";
->   			gpio-controller;
->   			#gpio-cells = <2>;
->   			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 18>;
->   		};
->   
-> -		gpiot: gpio@4140 {
-> -			reg = <0 0x4140 0 0x40>, <0 0x402c 0 0xc>;
-> +		gpiot: gpio@140 {
-> +			reg = <0 0x140 0 0x40>, <0 0x2c 0 0xc>;
->   			reg-names = "gpio", "mux";
->   			gpio-controller;
->   			#gpio-cells = <2>;
->   			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_T<<8) 23>;
->   		};
->   
-> -		gpiod: gpio@4180 {
-> -			reg = <0 0x4180 0 0x40>, <0 0x4040 0 0x8>;
-> +		gpiod: gpio@180 {
-> +			reg = <0 0x180 0 0x40>, <0 0x40 0 0x8>;
->   			reg-names = "gpio", "mux";
->   			gpio-controller;
->   			#gpio-cells = <2>;
->   			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 16>;
->   		};
->   
-> -		gpioe: gpio@41c0 {
-> -			reg = <0 0x41c0 0 0x40>, <0 0x4048 0 0x4>;
-> +		gpioe: gpio@1c0 {
-> +			reg = <0 0x1c0 0 0x40>, <0 0x48 0 0x4>;
->   			reg-names = "gpio", "mux";
->   			gpio-controller;
->   			#gpio-cells = <2>;
->   			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
->   		};
->   
-> -		gpiob: gpio@4240 {
-> -			reg = <0 0x4240 0 0x40>, <0 0x4000 0 0x8>;
-> +		gpiob: gpio@240 {
-> +			reg = <0 0x240 0 0x40>, <0 0 0 0x8>;
->   			reg-names = "gpio", "mux";
->   			gpio-controller;
->   			#gpio-cells = <2>;
->   			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
->   		};
->   
-> -		gpioao: gpio@8e704 {
-> -			reg = <0 0x8e704 0 0x16>, <0 0x8e700 0 0x4>;
-> -			reg-names = "gpio", "mux";
-> -			gpio-controller;
-> -			#gpio-cells = <2>;
-> -			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
-> -		};
-> -
-> -		test_n: gpio@8e744 {
-> -			reg = <0 0x8e744 0 0x20>;
-> -			reg-names = "gpio";
-> -			gpio-controller;
-> -			#gpio-cells = <2>;
-> -			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
-> -		};
-> -
->   		func-uart-a {
->   			uart_a_default: group-uart-a-pins1 {
->   				pinmux = <AML_PINMUX(AMLOGIC_GPIO_X, 11, 1)>,
-> @@ -186,4 +151,47 @@ uart_e_default: group-uart-e-pins {
->   			};
->   		};
->   	};
-> +
-> +	gpio_intc: interrupt-controller@4080 {
-> +		compatible = "amlogic,a4-gpio-intc",
-> +			     "amlogic,meson-gpio-intc";
-> +		reg = <0x0 0x4080 0x0 0x20>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		amlogic,channel-interrupts =
-> +			<10 11 12 13 14 15 16 17 18 19 20 21>;
-> +	};
-> +
-> +	ao_pinctrl: pinctrl@8e700 {
-> +		compatible = "amlogic,pinctrl-a4";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges = <0x0 0x0 0x0 0x8e700 0x0 0x80>;
-> +
-> +		gpioao: gpio@4 {
-> +			reg = <0 0x4 0 0x16>, <0 0 0 0x4>;
-> +			reg-names = "gpio", "mux";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
-> +		};
-> +
-> +		test_n: gpio@44 {
-> +			reg = <0 0x44 0 0x20>;
-> +			reg-names = "gpio";
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
-> +		};
-> +	};
-> +
-> +	gpio_ao_intc: interrupt-controller@8e72c {
-> +		compatible = "amlogic,a4-gpio-ao-intc",
-> +			     "amlogic,meson-gpio-intc";
-> +		reg = <0x0 0x8e72c 0x0 0x0c>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		amlogic,channel-interrupts = <140 141>;
-> +	};
-> +
->   };
+> Shouldn't all of these now depend on CACHE_COHERENCY_CLASS?
+
+Nope. They are unrelated existing cache related drivers.   The question
+to Conor is whether he minds me putting this in the existing directory
+and to others on whether it's a good idea.
+
 > 
-> ---
-> base-commit: 73a143e436311183186ab4b365a84c662f2c9651
-> change-id: 20250317-fix-a4-pinctrl-node-9babfd44e085
+> > diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
+> > index 55c5e851034d..b72b20f4248f 100644
+> > --- a/drivers/cache/Makefile
+> > +++ b/drivers/cache/Makefile
+> > @@ -3,3 +3,5 @@
+> >  obj-$(CONFIG_AX45MP_L2_CACHE)		+= ax45mp_cache.o
+> >  obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
+> >  obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
+> > +
+> > +obj-$(CONFIG_CACHE_COHERENCY_CLASS)	+= coherency_core.o  
 > 
-> Best regards,
+> Why the blank line?
+
+To separate existing stuff that happens to be cache related from this new
+class.  Kind of camping in a directory because seemed silly to have
+drivers/cache and drivers/cache_coherency
+
+
+> 
+> > diff --git a/drivers/cache/coherency_core.c b/drivers/cache/coherency_core.c
+> > new file mode 100644
+> > index 000000000000..52cb4ceae00c
+> > --- /dev/null
+> > +++ b/drivers/cache/coherency_core.c
+> > @@ -0,0 +1,130 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Class to manage OS controlled coherency agents within the system.
+> > + * Specifically to enable operations such as write back and invalidate.
+> > + *
+> > + * Copyright: Huawei 2025
+> > + * Some elements based on fwctl class as an example of a modern
+> > + * lightweight class.
+> > + */
+> > +
+> > +#include <linux/cache_coherency.h>
+> > +#include <linux/container_of.h>
+> > +#include <linux/idr.h>
+> > +#include <linux/fs.h>
+> > +#include <linux/module.h>
+> > +#include <linux/slab.h>
+> > +
+> > +#include <asm/cacheflush.h>
+> > +
+> > +static DEFINE_IDA(cache_coherency_ida);
+> > +
+> > +static void cache_coherency_device_release(struct device *device)
+> > +{
+> > +	struct cache_coherency_device *ccd =
+> > +		container_of(device, struct cache_coherency_device, dev);
+> > +
+> > +	ida_free(&cache_coherency_ida, ccd->id);
+> > +}
+> > +
+> > +static struct class cache_coherency_class = {
+> > +	.name = "cache_coherency",
+> > +	.dev_release = cache_coherency_device_release,
+> > +};
+> > +
+> > +static int cache_inval_one(struct device *dev, void *data)
+> > +{
+> > +	struct cache_coherency_device *ccd =
+> > +		container_of(dev, struct cache_coherency_device, dev);
+> > +
+> > +	if (!ccd->ops)
+> > +		return -EINVAL;
+> > +
+> > +	return ccd->ops->wbinv(ccd, data);
+> > +}
+> > +
+> > +static int cache_inval_done_one(struct device *dev, void *data)
+> > +{
+> > +	struct cache_coherency_device *ccd =
+> > +		container_of(dev, struct cache_coherency_device, dev);
+> > +	if (!ccd->ops)
+> > +		return -EINVAL;
+> > +
+> > +	return ccd->ops->done(ccd);
+> > +}
+> > +
+> > +static int cache_invalidate_memregion(int res_desc,
+> > +				      phys_addr_t addr, size_t size)
+> > +{
+> > +	int ret;
+> > +	struct cc_inval_params params = {
+> > +		.addr = addr,
+> > +		.size = size,
+> > +	};
+> > +
+> > +	ret = class_for_each_device(&cache_coherency_class, NULL, &params,
+> > +				    cache_inval_one);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	return class_for_each_device(&cache_coherency_class, NULL, NULL,
+> > +				     cache_inval_done_one);
+> > +}
+> > +
+> > +static const struct system_cache_flush_method cache_flush_method = {
+> > +	.invalidate_memregion = cache_invalidate_memregion,
+> > +};
+> > +
+> > +struct cache_coherency_device *
+> > +_cache_coherency_alloc_device(struct device *parent,
+> > +			      const struct coherency_ops *ops, size_t size)
+> > +{
+> > +
+> > +	if (!ops || !ops->wbinv)
+> > +		return NULL;
+> > +
+> > +	struct cache_coherency_device *ccd __free(kfree) = kzalloc(size, GFP_KERNEL);
+> > +
+> > +	if (!ccd)
+> > +		return NULL;
+> > +
+> > +	ccd->dev.class = &cache_coherency_class;
+> > +	ccd->dev.parent = parent;
+> > +	ccd->ops = ops;
+> > +	ccd->id = ida_alloc(&cache_coherency_ida, GFP_KERNEL);
+> > +
+> > +	if (dev_set_name(&ccd->dev, "cache_coherency%d", ccd->id))
+> > +		return NULL;
+> > +
+> > + 	device_initialize(&ccd->dev);
+> > +
+> > +	return_ptr(ccd);
+> > +}
+> > +EXPORT_SYMBOL_NS_GPL(_cache_coherency_alloc_device, "CACHE_COHERENCY");
+> > +
+> > +int cache_coherency_device_register(struct cache_coherency_device *ccd)
+> > +{
+> > +	return device_add(&ccd->dev);
+> > +}
+> > +EXPORT_SYMBOL_NS_GPL(cache_coherency_device_register, "CACHE_COHERENCY");
+> > +
+> > +void cache_coherency_device_unregister(struct cache_coherency_device *ccd)
+> > +{
+> > +	device_del(&ccd->dev);
+> > +}
+> > +EXPORT_SYMBOL_NS_GPL(cache_coherency_device_unregister, "CACHE_COHERENCY");
+> > +
+> > +static int __init cache_coherency_init(void)
+> > +{
+> > +	int ret;
+> > +
+> > +	ret = class_register(&cache_coherency_class);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	//TODO: generalize
+> > +	arm64_set_sys_cache_flush_method(&cache_flush_method);  
+> 
+> I'm guessing this will blow up the build on non-x86 builds :)
+
+Yup. That's a TODO That needs fixing.
+
+> 
+> > +struct cache_coherency_device {
+> > +	struct device dev;
+> > +	const struct coherency_ops *ops;
+> > +	int id;
+> > +};  
+> 
+> Classes are normally for user/kernel apis, what is this going to be used
+> for?  I don't see any new user/kernel apis happening, so why do you need
+> a struct device to be created?
+
+I'm kind of expecting to grow some userspace ABI around a few things but
+indeed there isn't any yet.  Stuff that has been suggested is:
+* Descriptive stuff useful for performance estimation.
+* Cache locking - as kind of the opposite of flushes.
+* Maybe more direct user interfaces to control it (I'm wary of that though).
+
+Mostly thought, the idea was  avoid rolling my own similar registration
+infrastructure for this case.  Absolutely can do a subsystem without
+a class if that seems to be the way to go. It'll be a little more complex
+though.
+
+Thanks,
+
+Jonathan
+
+> 
+> thanks,
+> 
+> greg k-h
+> 
 
 
