@@ -4,89 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F87BC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA11C36001
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MzFQfhx5F8dx0RL9AvvQYwg76iw5NXa4lMy+vsdeqMg=; b=JcQ1yANaApQIxK4vt9ArcT4c+D
-	cWDluYYer3XvFZuC6qL/ghTqSqDlhHqC0Dz25+sOII9mpQc4i5fiZtdFCM0w/EUtwPcdyMq0auWZi
-	VeJmb3teKKTomr82Pqe39pvLOyf4xiVuOFqVNrtxaLY7z4qz7FVUAgJN6fywMezWqYf8EIPtHnbP9
-	jPZMv1tBtd2aGU1lzq5DzRkYwX6Dt9QK4SsCXQ2eSMtXBI8evCaMGYdqp+4+1hlViOLblhHPJY/Jn
-	UvLfPM0Qlsjm1nnz4Swq9o2tq8KVrT2ECuuGWa7V141wW882hI+JjN/TIp3vFV/AWV92vJ3SAzKBx
-	SGX0Z6RQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y6Qr8QAI+Mok+bWdMsFd6M7n8U4F8tUmQSbLyZ4Fyg0=; b=u8zCWGYjjT5e2BpJbE3Ms9KF8a
+	GYUGzW9zbJ4jZOmocbjZp7Sr/1t1olyurgAK1F3gtlarmJG1N1OG8ffFd+/7BDrgRl1eBz9kgbZlH
+	QGavT7ehM3+wuzZQP9Qv0vMSj1RAzLw5tLJd0LiRYyZ+KXG+H7YGrcEaZV0Qo+cFhhQv3782H0ww5
+	nJYF8AsMRyG9TLAr3RYiIYaaw3ygVpMLA7KW4vM6mYzUMqVdWay39liEV65vf6B4W/+JRE+Hpg0Ia
+	YE1MX2zMekL0CSicmSV+9yyRYEuBCcvLAl4o+eGTI/SUcmdZY2kaaOLYd/XF2XYqvgtRjf6lQ2oVq
+	es69qmOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdVu-0000000F95Y-180p;
-	Fri, 21 Mar 2025 14:38:22 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tvdXY-0000000F9WX-0xMN;
+	Fri, 21 Mar 2025 14:40:04 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdQf-0000000F7hp-2SBZ
+	id 1tvdSd-0000000F8AC-3sXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 14:32:58 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso13539325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:32:56 -0700 (PDT)
+	Fri, 21 Mar 2025 14:35:01 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3912c09be7dso1332383f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:34:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742567575; x=1743172375; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MzFQfhx5F8dx0RL9AvvQYwg76iw5NXa4lMy+vsdeqMg=;
-        b=m4ZR+0yD1Zgjvy5CiMMmk6KWKOBeFcQH7lfvu6HZVy0ZX9KXBbyFR/LyxHg+eXdCoo
-         icMrjrEjxlVeoL3ttjc/9B2a01E+61ON0d7/I6NrPF66s2vViV0l7CT5wfPPgibk7fUB
-         Qhff4OR1/YPV+ETeQUuvri2VJ+q0+oghaotL3gjCs9bT4qHvTVWbLPOjOnSW/GW/fJfU
-         lZBTzYKiUO0MjYzWiZgMGGZtf4/PsrWpHtAHR+PbvCYf2Or+q3G1V5Lq7NtysVsu/nuT
-         BT/mr9Ao6jU5/3XkpS1PcNH0v4Nfs8iDLc+kATBGyK+VZOuZZfyieqmoBX1yifCPxtmz
-         twXA==
+        d=linaro.org; s=google; t=1742567698; x=1743172498; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y6Qr8QAI+Mok+bWdMsFd6M7n8U4F8tUmQSbLyZ4Fyg0=;
+        b=SrLWAgr5Gd+AOK7DymkO3BxXTWWfd96RYJn+upOZeFDz7yhd6iULrpXA1rKzo05iBK
+         BKu4sxKhWvvpUSGKkVcP+OCGkk0xQCsDbSGomhjXLGngCbfAS7+UqW0VTp2Q0h660pdk
+         1GrsajM42ENJgYJo+Nx12lL9QYL6hf0nVIYduiEtNaV0OqXf/KNCPr0VcLJ8TrsaDnos
+         OCf47MH+Asn4QivtQMq/dJuvy8n1cbD3JCanNFDpvNsX7hYWMIo1vyocLKFj6crfBeMm
+         hdk8w1jYmazAdXRtAh5P/9sv6gq3hCCOKXrlA/jXYuouGTBJ+5dhX33Iq4bCpWMQLHny
+         y6lQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742567575; x=1743172375;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MzFQfhx5F8dx0RL9AvvQYwg76iw5NXa4lMy+vsdeqMg=;
-        b=LBYGzfI3AUmc/B4ZrArQRB9rAl4Mi09VNCyEwirBAEiB77+BxMv7K6eBKOcTzzmLqZ
-         3dicUBJ+v61JFgeV2LETZCRBf8xlhbPbNt1VeDTtD5bXDIcrUyoAKSMDAzpmJYxSR020
-         W02c6RcU0lMzwfOQ9/0WsST72pXgbk+vdP4VgZKGH59yCwSuEDty4rRDEURsnfnrzij+
-         8QiOLrb9lmglctU+R60FvotYlxIQWVS/pYXRVI4kBtRaOt72cF6elj0TAIZrNvmiGYHV
-         v1ysGCLhp4sJaEW4dYYqC/qSm5BMmsAvEVXjaRIp8jywR8R2D8Ln7wdY2lnL6XMMIYAp
-         gDKw==
-X-Forwarded-Encrypted: i=1; AJvYcCUvgo8YF7SY+Aig0JV0qWFe1emk007JbUw2M2ip6PKlzPv9DK1GHEi7NJ6ZNDTPrSBA7ZtuZ2h8GQrX7QLT3NrL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQXyKBOtAnKNpIDhlJ+q6LC5+T998YBZrqV2H47uyHn1d0i3r7
-	6nfjcdxHX47brIYdoYwS69uV7jWMjCKdOm3HWl+5nCGzJh/m+UpLBk0iQq6BBdY=
-X-Gm-Gg: ASbGncuaY0kSHf2y5RpmrUZVUJgj8rYot8jsZJPPIHFvsDEZQR0FCFU85ZLzA2Z1eHu
-	i8dAeGILDg3VJ9P05CG2XGL3WoF7cHW9DoEqiw9FBp4wQ0Rb//euj1XDmyTEPRba6nDURedZ9TF
-	su1joSgRKztfZZAECNYL8q1keWoLYXpiUJ70iR3lxNK+M6yXVH626gMl08qieVLQFSLbhSJnka2
-	GI91WBblMX6xUoS1JKk1Wuqv2QFiHUMk4nES82Zk5bHDtwIKpdrl8iPl4JETJnnFC6hfa1vpdu8
-	Ho9zTa2KurT0zzLL9bViJdjttLl6Xmdn56KfvHshFRd3LF1UuQ==
-X-Google-Smtp-Source: AGHT+IFdHgCx4C5nFq7a41Rl1TdfpLB7mC6eqzVe1FxFvJX3eQdkfF3U3LPtyEx8bVlfn1VSsrBleA==
-X-Received: by 2002:a05:600c:1c02:b0:43d:5264:3cf0 with SMTP id 5b1f17b1804b1-43d52a08ed8mr22225315e9.11.1742567575525;
-        Fri, 21 Mar 2025 07:32:55 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d4fd27980sm28845345e9.21.2025.03.21.07.32.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 07:32:55 -0700 (PDT)
-Date: Fri, 21 Mar 2025 17:32:53 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Ricardo Koller <ricarkol@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	Andrew Jones <drjones@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: [PATCH] KVM: selftests: Fix a couple "prio" signedness bugs
-Message-ID: <ca579322-dc9d-4300-bd74-7e9240e930c7@stanley.mountain>
+        d=1e100.net; s=20230601; t=1742567698; x=1743172498;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Y6Qr8QAI+Mok+bWdMsFd6M7n8U4F8tUmQSbLyZ4Fyg0=;
+        b=K3svyaT9oiQbNFrwCn66yn30PwsQr7I9fcvJOHJO88w38Nnn7kcr2+t+/Z0Eg1uuO9
+         iIbt+6WFBCL6zxdhg3cAne8eBRyS7DX0BNYke0IcO+Y12NZWYSsfYZkE1SeXG18awXHf
+         R1yHDCXmMf5wYmIpJ0BqFynzDTfvVKlodn9KtKy6PM0o5YAqR1Jt5br3krSmDpmD6gh8
+         X0uYaRlUgG/n4VUmb1VQ3BSGO6MZ1PnuMUuEHxCRvYfTkee1sQSEz8gEmzc9XNdJ0ciP
+         AihY75D/BMDn/PZs4QzmOVxKsUE1xyqdI/mF1Vgg8IazOVMtvgvetA2DQvQFTZYG6HuO
+         S6Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCUGxzRk3EGOkvDPxI97JEAT1nUV1Mv/N9BjL5B6RC3FRx9lB/DQjiHkN2achtLQyHWCnppPUxfu7g8gZa3UZIJS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnd3AN/Pug6Oy/+TU3TAC/JlYseVHiUmSx8jadpVVaw1Ox2e5G
+	b2KDIV0arSrA82klUiuOj7UvIoQwBSZVlaAmGNvLqCmsd1mi8AFE9g72JQC8asU=
+X-Gm-Gg: ASbGncujttQgDLgfffn7VNLu7bc5rk/bM39mDb4bvldDatJkj+F1lIfiNO7uI0LwvAQ
+	wYGUHj0pST8+DRQ7TrjdmXDyANinnPpHAOJqhLV2E+EN1AR6m67PwMKz0yy7mH/GOhrl6gIJyHB
+	d2lF9r3Awsmaidn8OSfLjTZufOfM8OBFkVTEG4spqGhqNiKIIPIsFpcfZNZ7SerDrQtQOp6tRki
+	tY5UOWVF3XZh7zHVlZt1/0/rTpTAPyGRPiu4dyEln7OJ6vQUYYnF42Mtdxv3mvVUyKcK7oxLnbd
+	5fIMysUfMaFNGU/QsbEfHkw1m4CPYOb/cq3oZbvhoyeBmw3Zpeu3ruesdNm3uBdX8lPIngkEZzr
+	5MtaSQIZSypYLJ/2b3uNOFw==
+X-Google-Smtp-Source: AGHT+IGa8KHeqSfvai4gM0A+MR712S3ariHHnp5X7yo+cWqQtSzUkx4fPOGLLduFzalQxzqnA/R9mw==
+X-Received: by 2002:a5d:6485:0:b0:391:2d8f:dd59 with SMTP id ffacd0b85a97d-3997f90d943mr3320018f8f.24.1742567698365;
+        Fri, 21 Mar 2025 07:34:58 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:5080:77b0:43f2:5276? ([2a01:e0a:3d9:2080:5080:77b0:43f2:5276])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b55cdsm2544183f8f.52.2025.03.21.07.34.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Mar 2025 07:34:57 -0700 (PDT)
+Message-ID: <2b572981-7e63-4052-8186-4ba17f530cca@linaro.org>
+Date: Fri, 21 Mar 2025 15:34:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v3 05/10] phy: phy-snps-eusb2: split phy init code
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, Abel Vesa
+ <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250321135854.1431375-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250321135854.1431375-6-ivo.ivanov.ivanov1@gmail.com>
+ <7v3xkvldjnpqakrndwl6wb6vdsl3idbirlhddpqhwtt3ddadzr@kjafi3updcsb>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <7v3xkvldjnpqakrndwl6wb6vdsl3idbirlhddpqhwtt3ddadzr@kjafi3updcsb>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_073257_629180_DB4C3309 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250321_073459_974270_C6AF6EA8 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +136,67 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is an assert which relies on "prio" to be signed.
+On 21/03/2025 15:31, Dmitry Baryshkov wrote:
+> On Fri, Mar 21, 2025 at 03:58:49PM +0200, Ivaylo Ivanov wrote:
+>> The current phy init consists of hardware power-up, as well as
+>> QCOM-specific eUSB2 init code. Split it into two parts, to make room
+>> for such non-QCOM init code.
+>>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> ---
+>>   drivers/phy/phy-snps-eusb2.c | 96 +++++++++++++++++++++++-------------
+>>   1 file changed, 63 insertions(+), 33 deletions(-)
+>>
+>> @@ -378,6 +401,11 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
+>>   	if (!phy)
+>>   		return -ENOMEM;
+>>   
+>> +	drv_data = of_device_get_match_data(dev);
+>> +	if (!drv_data)
+>> +		return -EINVAL;
+>> +	phy->data = drv_data;
+> 
+> Nit and completely bikeshedding, but this looks simpler:
+> 
+> 	phy->data = of_device_get_match_data(dev);
+> 	if (!phy->data)
+> 		return -EINVAL;
 
-	GUEST_ASSERT(prio >= 0);
+Please use device_get_match_data() instead.
 
-Change the type from uint32_t to int.
+Neil
 
-Fixes: 728fcc46d2c2 ("KVM: selftests: aarch64: Add test for restoring active IRQs")
-Fixes: 0ad3ff4a6adc ("KVM: selftests: aarch64: Add preemption tests in vgic_irq")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
----
- tools/testing/selftests/kvm/arm64/vgic_irq.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index f4ac28d53747..e89c0fc5eef3 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -294,7 +294,8 @@ static void guest_restore_active(struct test_args *args,
- 		uint32_t first_intid, uint32_t num,
- 		kvm_inject_cmd cmd)
- {
--	uint32_t prio, intid, ap1r;
-+	uint32_t intid, ap1r;
-+	int prio;
- 	int i;
- 
- 	/*
-@@ -362,7 +363,8 @@ static void test_inject_preemption(struct test_args *args,
- 		uint32_t first_intid, int num,
- 		kvm_inject_cmd cmd)
- {
--	uint32_t intid, prio, step = KVM_PRIO_STEPS;
-+	uint32_t intid, step = KVM_PRIO_STEPS;
-+	int prio;
- 	int i;
- 
- 	/* Set the priorities of the first (KVM_NUM_PRIOS - 1) IRQs
--- 
-2.47.2
+> 
+> 
+> Anyway:
+> 
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> 
+> 
+>> +
+>>   	phy->base = devm_platform_ioremap_resource(pdev, 0);
+>>   	if (IS_ERR(phy->base))
+>>   		return PTR_ERR(phy->base);
+>> @@ -424,8 +452,10 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
+>>   }
+>>   
+>>   static const struct of_device_id snps_eusb2_hsphy_of_match_table[] = {
+>> -	{ .compatible = "qcom,sm8550-snps-eusb2-phy", },
+>> -	{ },
+>> +	{
+>> +		.compatible = "qcom,sm8550-snps-eusb2-phy",
+>> +		.data = &sm8550_snps_eusb2_phy,
+>> +	}, { },
+>>   };
+>>   MODULE_DEVICE_TABLE(of, snps_eusb2_hsphy_of_match_table);
+>>   
+>> -- 
+>> 2.43.0
+>>
+> 
 
 
