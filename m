@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AFBC35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85575C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w0LKCPTWLqOz0v0nFE+m771YyCcWhP2oMeKQU76uMec=; b=AzH1485gNwWuaYvCxtABC9+o/T
-	39UDzgoFzhBBzF3I3giA6mUDhD6qP89mU8U3NovUa+SdR3mvGPNjmhtIdt32SkRb7h/3HXOqP8DuN
-	x86J+2+6Jxe8Nj8ywRsFjAowdH3UOT+TxepMcxdVWCX/7XH6femR4vkqZ9lvlNF6pr7huQ/441Qwe
-	hvBShAa5exeJPmQuJPdCf3yfW8a3B8AoBRzoQAxPqNEyCO3rnvMgmzeUB8MXlRphdoIMwYEf1sLmR
-	jTSvVroU2ghjRzLDlZCIOeYMyJBHZMaQakglhZIW2+x1xPf3AuKqBI2OMIwm8X6v1jUiSNXKK5QJG
-	xoHbA6lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=68U2xOJN0FdMowzUkCY1aIhi5big7bilZhbRnPyI3bA=; b=ueFJRWzmo5fjWtp5nOnFIMgzuh
+	GcsgLMkUuXkxe88lhPIBmriUYpMWDCwcvt8EBLJJEbtOWvPWWSxP5qatMsecPhyNwHBw8Osn3rJ93
+	tdZCsguWBXo5autds1YZkZn8MFrUBDV5mdBFK6UKprKktb4G9qdlSKuy39bXEESXfoMNzwqb9Ss74
+	wOJ4hZPFiUizEKdsqVhxOxA5YeO67ySsK0xsEv91b6HEJw73TDGrhieZiId9+2ix1lOhnR9cyGPOn
+	+1Pbe1eDsaaxk24VJV/roqenhHxyNAr9Hgr5rV9xU0qZq9q9VvLSxgNADxWuHkK/HLHcgXHtPEfOc
+	cvufm+pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZrn-0000000EZ8K-0PXY;
-	Fri, 21 Mar 2025 10:44:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tvZtR-0000000EZF0-3Bii;
+	Fri, 21 Mar 2025 10:46:25 +0000
+Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZnw-0000000EYap-2ixh
+	id 1tvZpW-0000000EYr8-0aMr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 10:40:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=w0LKCPTWLqOz0v0nFE+m771YyCcWhP2oMeKQU76uMec=; b=GGV8D1vtw9RNsDDh0sGL/X/tYv
-	usnovAyelwqv0yDopXgbrW6cYz0L5Bs2S/E+Jvo0w1H4nbClisHkcSex6ceeD2aFDLNUM89EsFqwQ
-	SshPS4xhujhu9WQoDE4SPoLqgs439O+PNOqOi52YnQPZdANuRf0qw/qYJMCBFJl7PqhOVA8r8h6Fo
-	U2dF4m6s2JfRh4TID8XKCVac42mgFPDV5+Lhfn9BHz81vR+Cavkl29IrFUlVaC8MV5muLolcvTdiU
-	j7bMAEnNwvpO/teQRE1uVsJcENho2xqr1OFywzPafJ2+6938uJNVoqeSkquEb4KH/rXI7cy/9FFvz
-	J4VVLEeQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53034)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tvZnm-0000S9-0C;
-	Fri, 21 Mar 2025 10:40:34 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tvZni-0007aA-1A;
-	Fri, 21 Mar 2025 10:40:30 +0000
-Date: Fri, 21 Mar 2025 10:40:30 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Simon Horman <horms@kernel.org>, alexis.lothore@bootlin.com,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Subject: Re: [PATCH net-next] net: stmmac: Call xpcs_config_eee_mult_fact()
- only when xpcs is present
-Message-ID: <Z91CHjqVc0-BmTPX@shell.armlinux.org.uk>
-References: <20250321103502.1303539-1-maxime.chevallier@bootlin.com>
+	Fri, 21 Mar 2025 10:42:23 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id B4292114010D;
+	Fri, 21 Mar 2025 06:42:20 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-07.internal (MEProxy); Fri, 21 Mar 2025 06:42:20 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1742553740;
+	 x=1742640140; bh=68U2xOJN0FdMowzUkCY1aIhi5big7bilZhbRnPyI3bA=; b=
+	XjnjdZcg53TQoWY6DbowpGSf6Ma4/nsFtY8lkgM2pEJsZCUXCKKwcIm7QdV7M4Bf
+	2yM/xCCXpwT3VCW/Nf9a/BX5QIhRI8DG6QFz0DYU5i+JJjSMcsuSwvkAiL2im1/B
+	QUptqhaFFJMriuw9uGO3DvCvSVZBNlMR98m+YkVFJqKLF4NvSZBKjcgEnRsAB/tQ
+	GA+u373L0rT8LwfZDfN7IoF8Ae7CpZXBhKthdAo373/RsGSTPT+8lljNoe/2pxZW
+	qmLXa/EfmC/hpqNMa2nvBUIZRSnZ5Ij5kEXUNkbgs9aVIg6/D2HQSrEvWZgqjqP+
+	354rucCqNwBj7TNoacjEgA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742553740; x=
+	1742640140; bh=68U2xOJN0FdMowzUkCY1aIhi5big7bilZhbRnPyI3bA=; b=g
+	gxomf2o2Tzd8VqwlKhcjQellV0+NwxdKBaE8avhS5rYKhDZa0Ghdtmqk737JgchC
+	hOzMB+Mqa0XBnoWrLhvB0iXiVdTvFODyXMi+zZ5OxvSZsWps8Rq108K4//zyzO3F
+	eiH70PU+qr5b18HI0fxDKjhdm62raRMh4jNwz3AVz/jG02/G7Cv9xMLW7yqji8/T
+	M859M1V666xCrodf5rK91YQJ80iJENomW9W1LIJu/CiZ2+CIjNqJeK63099zJU0c
+	UY2kzKmZ00WbGH31yXB8ARjAJq3PjPWLO0lP8GRVoY/h4fpdMiu25xlhdEhALANe
+	CUAEDcYfu4f6wfHRj291w==
+X-ME-Sender: <xms:jELdZ3Qub_8dm9XOH3yQjxa06hPdPSXZkUYGDPZhLOyeo-2A6Nk_Yw>
+    <xme:jELdZ4wb-VhBLRDtRTQgYrx28aExpsmKbLRcj1mPXYv6xEC-Nt5etqa7R-KnIBLPi
+    Nq4Z6LCF6f0-9-qB_w>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedtkeelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    kedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhkphesihhnthgvlhdrtghomh
+    dprhgtphhtthhopegrrhhmsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrggsvghl
+    sehkvghrnhgvlhdrohhrghdprhgtphhtthhopehgvggvrhhtsehlihhnuhigqdhmieekkh
+    drohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdr
+    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehovgdqkhgsuhhilhguqdgrlhhlse
+    hlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepghhlrghusghithiisehphhih
+    shhikhdrfhhuqdgsvghrlhhinhdruggvpdhrtghpthhtoheplhhinhhugidqshhhsehvgh
+    gvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:jELdZ83aQHV9LtOryKkIY-LnH0PwTwyEk09Enz43tjsIsJiEDDKD8w>
+    <xmx:jELdZ3DDEPGE55RY2nfpDjDUc_c3w6BK6D87xaXuBcNEG6F60073Fg>
+    <xmx:jELdZwibPTszLGO-UHzIzm2F1Ncl2_meCfYni2K7DYg2cqM7epW0cQ>
+    <xmx:jELdZ7rOyu6iqfshT38zNgtCmoZfQTkaiFvSUeK8RI94N64sk42t-Q>
+    <xmx:jELdZ8igUHd-95sRvIhWoI_NxZI-x8VCjyjdp2II0S9JiCsqKfZLABYb>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 3C61E2220072; Fri, 21 Mar 2025 06:42:20 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250321103502.1303539-1-maxime.chevallier@bootlin.com>
+X-ThreadId: Tcf25c5c4b21ac15d
+Date: Fri, 21 Mar 2025 11:41:59 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Geert Uytterhoeven" <geert@linux-m68k.org>
+Cc: "kernel test robot" <lkp@intel.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm <arm@kernel.org>, linux-sh@vger.kernel.org,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>
+Message-Id: <86813d50-d4c2-4220-a5a8-2a264b37f7d4@app.fastmail.com>
+In-Reply-To: <CAMuHMdUeynpmUUmZPViEBttANFmEhpjFn0wqNc1wQB6wRbd0rQ@mail.gmail.com>
+References: <202503211029.DnQpqsJs-lkp@intel.com>
+ <927105f8-4aa8-4579-ac2e-bce4bce12b1e@app.fastmail.com>
+ <CAMuHMdUeynpmUUmZPViEBttANFmEhpjFn0wqNc1wQB6wRbd0rQ@mail.gmail.com>
+Subject: Re: [soc:soc/drivers 20/24] ERROR: modpost: "__ffsdi2"
+ [drivers/platform/cznic/turris-omnia-mcu.ko] undefined!
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_034044_685564_7564E6F2 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20250321_034222_245698_0C796D5B 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 11:35:01AM +0100, Maxime Chevallier wrote:
-> Some dwmac variants such as dwmac_socfpga don't use xpcs but lynx_pcs.
-> 
-> Don't call xpcs_config_eee_mult_fact() in this case, as this causes a
-> crash at init :
-> 
->  Unable to handle kernel NULL pointer dereference at virtual address 00000039 when write
-> 
->  [...]
-> 
->  Call trace:
->   xpcs_config_eee_mult_fact from stmmac_pcs_setup+0x40/0x10c
->   stmmac_pcs_setup from stmmac_dvr_probe+0xc0c/0x1244
->   stmmac_dvr_probe from socfpga_dwmac_probe+0x130/0x1bc
->   socfpga_dwmac_probe from platform_probe+0x5c/0xb0
-> 
-> Fixes: 060fb27060e8 ("net: stmmac: call xpcs_config_eee_mult_fact()")
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+On Fri, Mar 21, 2025, at 10:36, Geert Uytterhoeven wrote:
+>> >
+>> > ERROR: modpost: "__delay" [drivers/net/mdio/mdio-cavium.ko] undefined!
+>
+> Bug in driver (must not use __delay() directly).
+>
+>> > ERROR: modpost: "devm_of_clk_add_hw_provider"
+>> > [drivers/media/i2c/tc358746.ko] undefined!
+>> > ERROR: modpost: "devm_clk_hw_register" [drivers/media/i2c/tc358746.ko]
+>> > undefined!
+>> > ERROR: modpost: "of_clk_hw_simple_get" [drivers/media/i2c/tc358746.ko]
+>> > undefined!
+>
+> Missing dependencies for driver.
 
-Yes, I had noticed that but haven't had time to patch it, so thanks for
-submitting the patch. However, I think the code structure could be
-better in this function. Let's get the bug fixed, so:
+Agreed, but both of these only break the build on sh because
+the architecture code is different from the others. It's obviously
+best to fix these in the drivers, I just wouldn't expect the
+driver maintainers to care unless someone sends them a patch/
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+>> >>> ERROR: modpost: "__ffsdi2" [drivers/platform/cznic/turris-omnia-mcu.ko] undefined!
+>>
+>> This comes from __bf_shf(spec) in omnia_mcu_request_irq().
+>>
+>> As far as I can tell, this is not your problem but in the
+>> SH architecture missing one of the libgcc functions that are
+>> called by gcc.
+>>
+>> Since this is only for compile-testing sh allmodconfig, and
+>> that is already broken because of other bugs, I'm not going
+>> to care either.
+>>
+>> Adding the linux-sh list to Cc, it would be nice to get a clean
+>> build again. All four problems should be trivial to address,
+>> and some of these have been broken for many years.
+>
+> So one SH-specific issue to fix...
 
-Thanks!
+There is also the missing clone3 syscall that has been
+causing a warning for many years.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+      Arnd
 
