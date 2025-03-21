@@ -4,112 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859B6C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 17:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9384FC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 17:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8uqUXv0r/8O3QLVh8vDMkagGkjjokeiI2xDdN6b6W64=; b=nHrF8HUN6IyxotC01WM0ANIlDn
-	+7dEBYtVMAMtj8wBds5wx+rmrUbtcKkn9qzvLmPlwzKai/XFFJl5d3fw6R3dhuvwh4+CzFXEXfgNq
-	O4fqUereyEyucVi7eYGY85ppi4EUB7V6PsLrOACisBpemrJXW4WWyiHhWbc9k13fTN0pG/ORKFQs1
-	bZfJ85M+D/yTBR6wjk00vwEeSijoKajZH4JC9xy4b1UjptjECYyQhFqIoP/+XdoywXoU6oxrPFFt6
-	+HP8Fa1GIJ3b6sjIF7ZWz0U+Go3mMOMlsdRghwdlM//sGvLZ25fMcjHC0iDX4MBrjKhP5pk9a/lm9
-	aOiVo1qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jcHwQGpQOx6GZtNDddAxOwDOWSoyBujaJTuqoyGqXDA=; b=ik0bGebAB64FjVGmSNc+nUkFY0
+	xlGzoKrbZpuEBKbbNLELjOD1lqPXlWz2/A3c7U+H3SS0n6759AGOSo+EV/9Ei3FTxVIqen6qODfZg
+	kzxnN94fXIbiCJJdrgOegDOWvJUCcPHxWux1A3tj9WZhHxo3EIqRu03WUcaA843GBSH+VvfZGYDzg
+	W0HDGMbXQaLWL41N1e3hTlmUvkU93qMYimsodkV5uGgID+K0GxEXnB6yHUhaPRrz9gpacwu11IWOk
+	aolpCQq2e3Pc1Rf3wfMU4A+24SlhlasO7i/yOjN0FQ7RloIBstvuHz7PMwDWRfW438OaD5V9gm9RB
+	LiyXDevQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvg3p-0000000Fg85-34Eg;
-	Fri, 21 Mar 2025 17:21:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tvgHQ-0000000Fikh-1XTy;
+	Fri, 21 Mar 2025 17:35:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvg29-0000000FfkM-195d
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 17:19:50 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52LATDkt031748
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 17:19:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=8uqUXv0r/8O3QLVh8vDMkagG
-	kjjokeiI2xDdN6b6W64=; b=a3QsaeIiEM9t7Qtuc+WZurmqy0+WO9wpbCDREBb4
-	FsQAJGFS96YtJgPsMW9+iufBUrK5AtDvSwuIhvUGw/DyPdevDEcFq/wEWRk7vra+
-	QgMaxVSfY0mBRNMwAbjKYPtxyhZSAEUbAJ8Fb0ObOzSTzLERuQVGkF+z98WCB50m
-	T4pn3/IfV63vVMzeRgUtNpvsYv85TdtmdocNVnsUYCS8WnTYz0hA6mqQ8E9Ih+Lu
-	ggZ4OkkUaneyDM5iPE4d/zJNXXpOMrss4EIBeqwqFrVcBOXz7GUuW7NJqIqUsion
-	IITHSQ/nTxI0cOG0TbpqPfylJze671pdaHwI77Z56e3A7w==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45gt5kjv6j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 17:19:48 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-476870bad3bso36996201cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 10:19:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742577587; x=1743182387;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8uqUXv0r/8O3QLVh8vDMkagGkjjokeiI2xDdN6b6W64=;
-        b=LSdkDwOrceULXcWiYMSyzRPALffAVzp0pOuK/+C6qMa3fEvEbeyCoHZVhiJWhsROci
-         afYhx3I8t2F1WYIu/e2J3AyXr51sofMi/gAQhIn/4yxzM5thL/lGOdpgGzmVp9T8ZcCJ
-         CAurETxMV9qUOpdc0mwB4E3oIuY68DcHKJQ5abxfy51InTLbWnrMBq+YQX9R35vUVrmw
-         YvR0OMQcUhR/DgYQmTUBkXRtTvYt+5108oJiZJ/HUra1Ly5Lxsi8SXyIRLhLkI+Es80D
-         Mz9pK+DlangPnI374kdYPW0sR3KVw95IqreISoSScb7qtUNwMTR2p4GqOMaKgl5qDG7l
-         7uKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXTHSZwNhgKspPOVqghOuaNivt+eE2168J6dBKeCUbuoXBBrVV4UDmSjqHNG2dXqppebba1nWwdTUq05tQAm22i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuBmhx86mS+uLaqPj+MJP21pBwn+JAe87bjPu2+bcH4O5/q+5M
-	Rp2n6d6maKwXEqanLVlQHmHAujm3ZXwcgX96+OGsNM+NU0hp8OFWnfwtkTdtMsTdblAlrpTjrWf
-	CHIDX4Q/IKopUAo/S3+uYIEHtOFhXLWnnJLRLnfmjQ47rYxWZUIBq3wrmM3TnN20QktPPTVo4Gw
-	==
-X-Gm-Gg: ASbGnctJnUXJ9aLBws6Pyhto9SYxXuByS41yaBG20M86qxH9Y+yU84SC+V5nX4xQ9KT
-	fA/dVQOWtllZzGZcHEk7wt/9sXlHPMKTNpGkwgn0SDhD0msezUaQEINBoCXFFo7NskhryaYIeVd
-	onT41qUrgx40XYnipm6620UYwnabPvRAIzjVX/QQmpffe+wA3yTQ/uSRAuytPzHTbcEa1vh8DTf
-	FYzQwS6Y1Yx5mNDH4scyInhYVuvw3oL+xYWFS5j371ZAlSkWY/1dJuKMi5DC/yQ/l5hpGXexSnZ
-	4UF1o5G7Objfp7Rm76ufmRkXF/SOLxWzZCdejK6Vf6MREnaudk/s5i7hkygb2QV4N2jJIRz6fuA
-	1om0=
-X-Received: by 2002:a05:622a:989:b0:474:eff7:a478 with SMTP id d75a77b69052e-4771de6458fmr49666181cf.46.1742577587095;
-        Fri, 21 Mar 2025 10:19:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IER60Phq8nLZh+XeCU4Jt2MqK+yrUa3O0K5NTXyK+Z44YiEZ4OyV6O67mgxGbNT2KMwFFn7dw==
-X-Received: by 2002:a05:622a:989:b0:474:eff7:a478 with SMTP id d75a77b69052e-4771de6458fmr49665781cf.46.1742577586679;
-        Fri, 21 Mar 2025 10:19:46 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad646893dsm226011e87.44.2025.03.21.10.19.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 10:19:44 -0700 (PDT)
-Date: Fri, 21 Mar 2025 19:19:41 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Wenbin Yao <quic_wenbyao@quicinc.com>
-Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        catalin.marinas@arm.com, will@kernel.org, quic_qianyu@quicinc.com,
-        sfr@canb.auug.org.au, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 2/3] arm64: dts: qcom: x1e80100: add bus topology for
- PCIe domain 3
-Message-ID: <hgvfxxjvquh3tn543ae44o3lie3pwld5snbewy2lxcrtgd4raa@eyfm57omt3ge>
-References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
- <20250320055502.274849-3-quic_wenbyao@quicinc.com>
+	id 1tvgFl-0000000FiVE-08w0;
+	Fri, 21 Mar 2025 17:33:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=jcHwQGpQOx6GZtNDddAxOwDOWSoyBujaJTuqoyGqXDA=; b=lSWKPtH1gubr4S6qHB2t+STH7x
+	1onJfzYqe2wnBE5lSa1X48eDCP/VoIQ0+Kq7EUyg4hHK0rFAhHUbTFMJM2sQ3qNWiiJtRUjte7WgT
+	3rNIo1/Td6NgJ2Ha6SWjtB8D/OVY20H3WIcBZ+4iL7mYCs91rUh3TOP7EHPaNzGnAC9mbP9u91XO8
+	laokMFPmHRLEI4bRPUjwz84tJfobyGYJ9ZH61PsX2jffIy4ZfGVWyClxoF4ThhvTA+Zs39F0pn/re
+	KKRpM/1bLBsrvFp6/nSz8DLr0YTSZX9MMkdfLyDzm0DItm+exWVAVDrDwAsaiF5VG8TeDDf/o4S9L
+	LejdaL7A==;
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvgFh-00000004TtI-1Hpa;
+	Fri, 21 Mar 2025 17:33:51 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailflow.phl.internal (Postfix) with ESMTP id F0255202146;
+	Fri, 21 Mar 2025 13:33:42 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-07.internal (MEProxy); Fri, 21 Mar 2025 13:33:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1742578422;
+	 x=1742585622; bh=jcHwQGpQOx6GZtNDddAxOwDOWSoyBujaJTuqoyGqXDA=; b=
+	DLLkrbjxdeZ5VZIGvPAZd4NM/kpOB5yjaRA2bvhlRZZqiAajItla9WOumvbn54t1
+	awAa2WdDiftQwM9VUrrdOy2B8L6rbJZP1L2CHyFMjUo2bYV5jiVdUCBJ+txYzcyX
+	YfNdALHqJ8vA1g0fKqj/rYooeIPG8pW0+DKZ5pjBDdQ/ov2TUOQvQoS7XX0pmiXf
+	E0jtTwHqb2w3VcZDUJJbENArof3r2e/WJIEaKvPw8kCHgD/xH5vt/Oaa41CisOOt
+	aLby2QkmaE23J33Sau22v+uw207knEJBvxfygvvXmXMkokkBEsxQ+juulQzszHxF
+	prI/sAddxyIp9Iv/S2/Rhw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742578422; x=
+	1742585622; bh=jcHwQGpQOx6GZtNDddAxOwDOWSoyBujaJTuqoyGqXDA=; b=U
+	i4Dx6rw8n6KelCD0qaTj5zmZdQsre1O+uqLIzcbok/RNBBKaWZy4PEX4GXch+Jbj
+	lGeF4rm/KmmivV4flBuVWpy9M3ugVKbWVfcXdHTDAu4/CJgKdGaPnkWToVcfc1Hw
+	pGV6HAeXLkOX5OanKtfkRnUF8XHkfi0qbIavNs+iHqhH4TTY1MrqulMRfI/e6DwS
+	PJXbL6UQXAhfw+r1cX0pjR9yekCg707nyiuGR2GY3F0MLay1n+DxG8jMS6OyEQen
+	5c7eHiflpY3UpwHTif8k8jnnl5jgO/iJjoATUB+TYxcGJdukz4ej7g5g44pnW5D5
+	wL+dD+0XGM01ti8O6vuyQ==
+X-ME-Sender: <xms:9aLdZ1FWQqOziPqqoohR2Ek7ZIBNYbxHCOcRkjf-xbQHxvCD9abBXw>
+    <xme:9aLdZ6WibTWFxk_WdQPYzwJQ8ENd3FCvBOXO81gFbAz0-NmJ4fiVzoewL77Jow-f_
+    b8Bs0S4SK0muK6g9C8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedujedtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    feejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkvggvshgtohhokhestghhrh
+    homhhiuhhmrdhorhhgpdhrtghpthhtohepuggrnhhivghlsehffhiflhhlrdgthhdprhgt
+    phhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghlvghssh
+    grnhgurhhordgtrghrmhhinhgrthhisehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggr
+    vhhiughgohifsehgohhoghhlvgdrtghomhdprhgtphhtthhopehkuhhnihhtqdguvghvse
+    hgohhoghhlvghgrhhouhhpshdrtghomhdprhgtphhtthhopehmtggrnhgrlhesihhgrghl
+    ihgrrdgtohhmpdhrtghpthhtohepjhgrnhhirdhnihhkuhhlrgesihhnthgvlhdrtghomh
+    dprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:9aLdZ3LWSj3ee0DpgDBVQgR9N6em0f5-W_bT607OLi8J56P-PHjwdg>
+    <xmx:9aLdZ7EmgyfsMK79595Ji4fqyaEgzpUx28qERgbScF30VauOkMTTZA>
+    <xmx:9aLdZ7VDCg0me11XgjTCMnOtsbEkwp9VdJtw9WRuZpovB9sSdPMWvQ>
+    <xmx:9aLdZ2MO9qdvK_ExIyuwHK5jCpMbl8MVknK5QRVW7ddiQcxb6VhGrQ>
+    <xmx:9qLdZ7URYi_A7oI0zqTv7Ebk9x9UFrrUdpb50OelwEli-e3q19QxBoz_>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1F6E52220072; Fri, 21 Mar 2025 13:33:41 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250320055502.274849-3-quic_wenbyao@quicinc.com>
-X-Proofpoint-GUID: RUpVepNHL0UkgQfRuET0yLHTvqYTXx0x
-X-Proofpoint-ORIG-GUID: RUpVepNHL0UkgQfRuET0yLHTvqYTXx0x
-X-Authority-Analysis: v=2.4 cv=PsuTbxM3 c=1 sm=1 tr=0 ts=67dd9fb4 cx=c_pps a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=ICgkrN6sfqZrQ0pjF_MA:9 a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-21_05,2025-03-21_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- phishscore=0 adultscore=0 spamscore=0 mlxscore=0 lowpriorityscore=0
- bulkscore=0 clxscore=1015 malwarescore=0 suspectscore=0 impostorscore=0
- mlxlogscore=999 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503210127
+X-ThreadId: T46bf3c12e1d9de2d
+Date: Fri, 21 Mar 2025 18:33:19 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Guenter Roeck" <linux@roeck-us.net>,
+ "Alessandro Carminati" <acarmina@redhat.com>, linux-kselftest@vger.kernel.org
+Cc: "Dave Airlie" <airlied@gmail.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ "Dan Carpenter" <dan.carpenter@linaro.org>,
+ "Kees Cook" <keescook@chromium.org>,
+ =?UTF-8?Q?Daniel_D=C3=ADaz?= <daniel.diaz@linaro.org>,
+ "David Gow" <davidgow@google.com>,
+ "Arthur Grillo" <arthurgrillo@riseup.net>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>,
+ "Naresh Kamboju" <naresh.kamboju@linaro.org>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Maxime Ripard" <mripard@kernel.org>,
+ =?UTF-8?Q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>,
+ "Daniel Vetter" <daniel@ffwll.ch>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "Alessandro Carminati" <alessandro.carminati@gmail.com>,
+ "Jani Nikula" <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org,
+ kunit-dev@googlegroups.com, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ loongarch@lists.linux.dev, x86@kernel.org,
+ "Linaro Kernel Functional Testing" <lkft@linaro.org>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>
+Message-Id: <a6f90bdb-8459-4d33-8874-7e724bd22d9f@app.fastmail.com>
+In-Reply-To: <b6bb68f0-7e93-4db2-9fe6-f615f06ddeb1@roeck-us.net>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <20250313114329.284104-11-acarmina@redhat.com>
+ <b6bb68f0-7e93-4db2-9fe6-f615f06ddeb1@roeck-us.net>
+Subject: Re: [PATCH v4 10/14] s390: Add support for suppressing warning backtraces
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_101949_326707_C6C7F6E5 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20250321_173350_130620_FA6A0CBF 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,47 +155,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 01:55:01PM +0800, Wenbin Yao wrote:
-> From: Qiang Yu <quic_qianyu@quicinc.com>
-> 
-> Add pcie3port node to represent the PCIe bridge of PCIe3 so that PCI slot
-> voltage rails can be described under this node in the board's dts.
-> 
-> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/x1e80100.dtsi | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
-> index 46b79fce9..32e8d400a 100644
-> --- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
-> @@ -3287,6 +3287,16 @@ opp-128000000 {
->  					opp-peak-kBps = <15753000 1>;
->  				};
->  			};
-> +			pcie3port: pcie@0 {
+On Fri, Mar 21, 2025, at 18:05, Guenter Roeck wrote:
+> On 3/13/25 04:43, Alessandro Carminati wrote:
+>
+> gcc 10.3.0 and later do not have this problem. I also tried s390 builds 
+> with gcc 9.4
+> and 9.5 but they both crash for unrelated reasons.
+>
+> If this is a concern, the best idea I have is to make KUNIT_SUPPRESS_BACKTRACE
+> depend on, say,
+> 	depends on CC_IS_CLANG || (CC_IS_GCC && GCC_VERSION >= 100300)
+>
+> A more complex solution might be to define an architecture flag such
+> as HAVE_SUPPRESS_BACKTRACE, make that conditional on the gcc version
+> for s390 only, and make KUNIT_SUPPRESS_BACKTRACE depend on it.
 
-Empty line between nodes, please.
+That is probably fine, there are very few users on s390 that build
+their own kernels, and they likely all have modern compilers anyway.
 
-> +				device_type = "pci";
-> +				compatible = "pciclass,0604";
-> +				reg = <0x0 0x0 0x0 0x0 0x0>;
-> +				bus-range = <0x01 0xff>;
-> +
-> +				#address-cells = <3>;
-> +				#size-cells = <2>;
-> +				ranges;
-> +			};
->  		};
->  
->  		pcie3_phy: phy@1be0000 {
-> -- 
-> 2.34.1
-> 
+I should still send a patch to raise the minimum compiler version to
+gcc-8.1, but unfortunately that is not enough here.
 
--- 
-With best wishes
-Dmitry
+     Arnd
 
