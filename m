@@ -4,98 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F14C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 15:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2AFC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 15:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sxyu4837xaBsPKdh19s14kC1VMDWEUK2aQpdlRhN9bY=; b=I2GaH0ygqiqf3oWVKRGBob8ERY
-	afsHdclIQsMSmsYMpbJa9C0Yv90B+3aPe9HQpDhJQZHDzbgtfcJ5c5Jt9gWffgIe0m1ZaKsKFASE7
-	Ntkpv/R8r1NAuiFRnooKyM2Y+NSiy8/XPaaR07xBbuW9FIfmIap4EZV0yN6SShnhN//4Fll+ASZp8
-	vhA/jT/hrG7ry2gYzA+el4bhVcnvd90xVQQuR5n+iOz+cdNjGfqFfLEQ0HpxxSFJ4J+SDyvgc5/HC
-	zaVGNQ9Xmw5udulDfeHZTHu+S2DheUo83ZCF9hlCvQox7YV1cwGxQXMQJKx5ecA/sLssLfZGcgR54
-	EIYc+Rnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ew2lMrVu7l0SPLG0kCLHLamFRIyU0cvwAG4t3O7Yn4g=; b=Kvn0iGLOKoI1/qk4XarQHS8VO/
+	rZ4l3X3mHYEVTy1dRPyPXjybhra9BSJ5r9pToD53mXlM83e0TVAvOOa7fEZGzhGXHfR/YUBifl3sf
+	+HQ1ubvrDF1wmCbVVEAfFB6pSqzQmpaevhLBH1LuXIhcnrgc9aZPjhiL2OIozHtDdtG+pklho3+Ws
+	cdo6PACyWZAjIZz55e6TcEnCDQH/PKTI4lcZd4HwPOwlNvUZmGqhIv6exP5JtmSeIdPrEYzieSCg1
+	UjsPsLHJ5fXjzv0ZHIZJ3jP+4D5GoOnwVLauTygzCPux53W49jnoaK7TEmhYs7oy/yOjw72fgP4Oc
+	p5nN14Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvebH-0000000FLh1-272T;
-	Fri, 21 Mar 2025 15:47:59 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tvedB-0000000FMDE-2Gg8;
+	Fri, 21 Mar 2025 15:49:57 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tveZa-0000000FLKU-0hGl
+	id 1tvebT-0000000FLlf-3Hfz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 15:46:15 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cf257158fso15183215e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 08:46:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742571972; x=1743176772; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=sxyu4837xaBsPKdh19s14kC1VMDWEUK2aQpdlRhN9bY=;
-        b=0D08T0anpurf6B/C3svR5RL/i4U7ltLQiVDvbMBikh8sbWtKdi5YTG7KlpLveN1Wve
-         qC8Wbte3bEd5Q8RWDkXg/V5Z3KWnsq9FiFO7+8nCW79zZo6dS+so4jY1IethNaUQwT5a
-         PCTAf+d1nhpARKIVinGtDxqV3pE7Br4MQnOBCz8UjzvIBX3odY7TNuJtRJCSuN/hl/SL
-         qOD+lITTHBuev5VSZtCaiTWTGtOpwaHi5tjbwe0a79XXdbLPfbhxM1Nf6sd17/48hzDg
-         +AcoyNPQyq6RN/ATV+GZnTrLzn6AvCfyaLZfUiReGZpQ6KzMRGEIzsT/sAA6gRVUlNjt
-         NVyw==
+	Fri, 21 Mar 2025 15:48:13 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52LATAaR022106
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 15:48:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Ew2lMrVu7l0SPLG0kCLHLamFRIyU0cvwAG4t3O7Yn4g=; b=KuVwBnf2nE5dgPjG
+	iu0Dt5aTEYsF242ofGUjG/G1tZoUkf5iok4yeVizpJeM03fVEnrkD1BgMm4Qtb6d
+	S3jwK6BuxlDQCxas1P4zGZzLcw8YJpXmqIWPXMSjcyHe0W05XCYVL7lR5TsZna+Y
+	78BcbGqdkT0LTtdDWr0cpuZ9Ubk8oUIutzZVxWdEIPQf+MEb2ZJtOrytLQV4k966
+	8rnadosj7oXO4uKQa4r5Rjxd2qC6lctIPZ5Pl4M/psr9+JNXC1aYxiC6LHCzZq7w
+	PTzSvvfVO4+6CE4LojnPskHDOxVZvStMDqcB76N5HJOcXFD9zeFrs7uA/qN9fMvD
+	FgKxnQ==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45h4wph5yn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 15:48:09 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-22647ff3cf5so28720065ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 08:48:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742571972; x=1743176772;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sxyu4837xaBsPKdh19s14kC1VMDWEUK2aQpdlRhN9bY=;
-        b=nXg5WXDLy/cCtdAFLAu4ul/T+peF/2hkcRuMPLxJu6w7Ygij7eNjYXMRQFAECxd/9M
-         jz2lLwvNRcbXo25rLI42WRGuP6xJcRB7wcfRFOZMw5TiJ0ew50bgv1I1bhC/Y0Bc2P39
-         rV4leocV1EGfzmyUL8o48mEiBaPS4ta28xd8JRr1eVeu1anCkuCpOB0+GwL2xAy8OJ4r
-         05nzEX8PFy6lqbR3enY7Lk4Ztfh/vvCwgCTG2SEfl01C42W6dmn8Wu2Lzvr9gvjpmcRa
-         LB7UarGzhu0kL48qNFK3w0pv0nn2subz0Ksk0K5nUMTSRrb4EWgoMlyZ3aDMMtCJDT9/
-         L4/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWlMdAYlnGsbk25Gqxp897JPLGEmFCIro/CXEiOJIDnUjKxk+fYPaikTR2v85IpJkuNqZ0k6W7UneT1EVZyzKRt@lists.infradead.org
-X-Gm-Message-State: AOJu0YziaeyZQOXkOhyNBW2ll7i61aE9mDSKXiKYOGXaNRUMwqulbZkX
-	g66we1Voa+j4v6R4vOzQ7Xezs3E1STSc5I86s4E/JnGP4FmaDxRMZ29MuhzTWA0=
-X-Gm-Gg: ASbGnctoHxP9O8NXlPu6aCBbRCR5p8HYl9yJN0SwDKCo3NHt6PcOcsdKkRAr32WZNnC
-	IGoxF0DhtyhH3Q69Iqq3rsX+y/PLdfkNMARuwdtTQ8u+YEKHG/UaoIGvsB0oDlbvOBdWYRylnov
-	nPHzE4SKcnNg4XoxB/4vcI3AzaF0P7u6cg6pmvSqK1UVFGCk6x1kyejCS5ZQ0OmIFBQQtbcQCt7
-	M2G/YNG/fv8Ms1Qt9XExTYnAFYni0fVr/UHWps9QHQv+cVe39iSPBcNnXMvrEODgqJLEHGpanR2
-	LEYiCKjsZNkZZgLHUxPPHKRL4KA9DGB+tY6PTkiFXmzJ
-X-Google-Smtp-Source: AGHT+IHA8cRGoAIkPVPFNmZnRzpsn7R6Bm6hI1qPItBl8eiyD+ALObZwrN5Smom3mHRzHmPrld4JMw==
-X-Received: by 2002:a05:600c:1992:b0:43c:f332:703a with SMTP id 5b1f17b1804b1-43d50a553f2mr30247065e9.31.1742571971921;
-        Fri, 21 Mar 2025 08:46:11 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:2102:ce42:30c0:9b40])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d4fd9e96bsm30814545e9.25.2025.03.21.08.46.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 08:46:11 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  Michael Turquette
- <mturquette@baylibre.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] clk: amlogic: drop clk_regmap tables
-In-Reply-To: <5109de7fe1a1a8467118daf80c7b7f8a.sboyd@kernel.org> (Stephen
-	Boyd's message of "Thu, 27 Feb 2025 14:55:00 -0800")
-References: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com>
-	<20241220-amlogic-clk-drop-clk-regmap-tables-v1-2-96dd657cbfbd@baylibre.com>
-	<9f1d69ebe1ddce5dfc170e986c9213f2.sboyd@kernel.org>
-	<1ja5cp8f87.fsf@starbuckisacylon.baylibre.com>
-	<88fe909ab182d1f17f6ef18161c7f064.sboyd@kernel.org>
-	<1jfrlwb69r.fsf@starbuckisacylon.baylibre.com>
-	<ed20c67e7d1a91d7fd8b921f156f56fb.sboyd@kernel.org>
-	<1jmsg2adgu.fsf@starbuckisacylon.baylibre.com>
-	<697b634770d789ef8ff0e05cec9465f5.sboyd@kernel.org>
-	<1j4j205ark.fsf@starbuckisacylon.baylibre.com>
-	<5109de7fe1a1a8467118daf80c7b7f8a.sboyd@kernel.org>
-User-Agent: mu4e 1.12.8; emacs 29.4
-Date: Fri, 21 Mar 2025 16:46:10 +0100
-Message-ID: <1j7c4i2xq5.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20230601; t=1742572089; x=1743176889;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ew2lMrVu7l0SPLG0kCLHLamFRIyU0cvwAG4t3O7Yn4g=;
+        b=nPuRaCVDc0aXyLxJsr0HL5XiiprzWPs6Aaw8sEcJg2kCqvl6lQKBj3WrqbsD4HAM6r
+         O7/DUU+4bmHPIaFnR/68tNFBlhLJuG2P3i+gBJ3qppR/oodEqfjjd/0FjL6GNGjRT2D1
+         yTTVN5Z5RynebO9Pfklw9netbt1XS2d9cEeyNjgQGxWBthimkGV2Yvw8YI8LTQDElwI9
+         dK/22LDGmKXxw2fjTig45QsSRJai/DQSkK965jVLGTrN4P/OZqiJvgMWCARCvp0a+V7I
+         jr+2GO1ViFuHSRjU/TimprKB/8xL3NYV044EC0l8xirMZnu5KDcCw6MY13Y24LClRox0
+         XXsA==
+X-Forwarded-Encrypted: i=1; AJvYcCV7anvoMegu+rXMNk9cNdixC94qkuKqPxGD1e5So6TPY/QJq3VbgoMo7lZ61etqit36TZyqd1o1HdNyZE/DaK3b@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgevtoDl9MifOrNeZlmVfEjycc6qBI7tDlqWu+Mj0c9vC1fVX0
+	5g0ghocNZmr5V5nq9iCc6dgczqNfqqzzvJZFAYZMVpOci+cud7cvsP276kcG4rnu6EIsOkxKJY+
+	qpaXCEurCSVDiKCRJq32h3asov4giPbQjO5Bvi2pbm187Texk+vXkH66vMuXr0ju7qGrZerNTng
+	==
+X-Gm-Gg: ASbGnctUQtLboQsR48IGKDn7JnnyOXSiizst4VpSsPK/R40R17cp2e55zgpbsY2KP0l
+	5IhLzAvqmd9Tt0bDJnHqN8ztaBlWAzIBuzZvFrEZmtsODJ0iCHWa5+ilhlcPVWp/LfqOJTFrepH
+	SSNd/xH/hgJxikRbL9zXgVBtGA9C09MZcTkE0V0WIuD+pwOt+wypeEmX8HdhPfMp4DcrReslVhM
+	1oMCqyIScMzUzZO4NC2yQgUCzO5fg4iVM1ki+Cqu21DxKPVUlbpiK8XmoDF5EVH9KuOBzCJyyKv
+	i5mmd5P2Mxd26nH84nRR+yPH3gzZl3tGBsyrBxUzPvUx64bMvBAIviqFEDt3clVhIA==
+X-Received: by 2002:a17:902:e846:b0:225:abd2:5e39 with SMTP id d9443c01a7336-22780da5fc2mr56334565ad.30.1742572088489;
+        Fri, 21 Mar 2025 08:48:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGhXXKtU/apQYCTmprByHUMaLSD4Gh5qMihEs8CapzUY4ItUimuE0Rg0Pf+Wmofij6lJ9+HXg==
+X-Received: by 2002:a17:902:e846:b0:225:abd2:5e39 with SMTP id d9443c01a7336-22780da5fc2mr56333985ad.30.1742572087896;
+        Fri, 21 Mar 2025 08:48:07 -0700 (PDT)
+Received: from [10.226.59.182] (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-227811baee4sm18356385ad.135.2025.03.21.08.48.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Mar 2025 08:48:07 -0700 (PDT)
+Message-ID: <f96b313a-fa0d-45d6-b358-8d2da40a9b95@oss.qualcomm.com>
+Date: Fri, 21 Mar 2025 09:48:04 -0600
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/7] accel/rocket: Add a new driver for Rockchip's NPU
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+        Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Sumit Semwal <sumit.semwal@linaro.org>,
+        =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+        Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+        linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
+References: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
+ <20250225-6-10-rocket-v2-4-d4dbcfafc141@tomeuvizoso.net>
+Content-Language: en-US
+From: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+In-Reply-To: <20250225-6-10-rocket-v2-4-d4dbcfafc141@tomeuvizoso.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: Qx-xXWi-i7SrniqsiBnebL1dYqXCn-HO
+X-Proofpoint-GUID: Qx-xXWi-i7SrniqsiBnebL1dYqXCn-HO
+X-Authority-Analysis: v=2.4 cv=ZN3XmW7b c=1 sm=1 tr=0 ts=67dd8a3a cx=c_pps a=JL+w9abYAAE89/QcEU+0QA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=DISFzqtZAAAA:8 a=4oo6kz2Fa93MN3BI1icA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22 a=aug85vrO5LANNmmtkfAW:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-21_05,2025-03-21_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ mlxlogscore=999 clxscore=1011 phishscore=0 adultscore=0 lowpriorityscore=0
+ malwarescore=0 impostorscore=0 spamscore=0 mlxscore=0 priorityscore=1501
+ bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503210115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_084614_194894_486C8719 
-X-CRM114-Status: GOOD (  35.18  )
+X-CRM114-CacheID: sfid-20250321_084811_953133_8C7727E0 
+X-CRM114-Status: GOOD (  39.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,108 +135,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu 27 Feb 2025 at 14:55, Stephen Boyd <sboyd@kernel.org> wrote:
+On 2/25/2025 12:55 AM, Tomeu Vizoso wrote:
+>   
+> diff --git a/Documentation/accel/rocket/index.rst b/Documentation/accel/rocket/index.rst
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ad33194dec0325d0dab362768fd349e8dc286970
+> --- /dev/null
+> +++ b/Documentation/accel/rocket/index.rst
+> @@ -0,0 +1,19 @@
+> +.. SPDX-License-Identifier: GPL-2.0-only
+> +
+> +=====================================
+> + accel/rocket Rockchip NPU driver
+> +=====================================
+> +
+> +The accel/rocket driver supports the Neural Processing Units (NPUs) inside some Rockchip SoCs such as the RK3588. Rockchip calls it RKNN and sometimes RKNPU.
+> +
+> +This NPU is closely based on the NVDLA IP released by NVIDIA as open hardware in 2018, along with open source kernel and userspace drivers.
+> +
+> +The frontend unit in Rockchip's NPU though is completely different from that in the open source IP, so this kernel driver is specific to Rockchip's version.
+> +
+> +The hardware is described in chapter 36 in the RK3588 TRM.
+> +
+> +This driver just powers the hardware on and off, allocates and maps buffers to the device and submits jobs to the frontend unit. Everything else is done in userspace, as a Gallium driver that is part of the Mesa3D project.
 
-> Quoting Jerome Brunet (2025-01-15 07:58:55)
->> 
->> I'd like to register controller init hook to apply on all the clocks of
->> a particular type. The reason to do that is to drop the big clk_regmap
->> table that are a pain to maintain (in addition to be ugly). I hoped it
->> would also save a bit of memory.
->> 
->> The solutions we've been discussing so far feels like we are moving
->> around the problem, recreating the memory saved somewhere else,
->> perhaps in a more complicated way. I'd like to find something more
->> convinient to use, which does not scale the memory used with the number
->> of clock registered. The point is not a different hook for clk_hw after
->> all.
->
-> What are the goals?
->
->  1. Drop clk_regmap table
+Nit: name the specific Gallium driver here?
 
-That my first goal
+> diff --git a/drivers/accel/rocket/Kconfig b/drivers/accel/rocket/Kconfig
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..83a401129ab2dc2847ccc30c6364e8802f43648d
+> --- /dev/null
+> +++ b/drivers/accel/rocket/Kconfig
+> @@ -0,0 +1,25 @@
+> +# SPDX-License-Identifier: GPL-2.0
 
->  2. Reduce memory
+I'm curious, is there a specific reason for "GPL-2.0"?  This tag is 
+depreciated and everywhere else in the accel subsystem "GPL-2.0-only" is 
+used.
 
-Would be nice
+Same comment for the Makefile and everything else in this patch.
 
->  3. ??
->
->> 
->> Here is an idea, how about list of hook identified by ops and controller ?
->> 
->> The node would look like this
->> 
->> struct clk_type_init_node {
->>        struct list_head         entry;
->>        
->>        struct device_node       *of_node;
->>        struct device            *dev;
->>        const struct clk_ops     *ops;
->> 
->>        int (*init_hook)(struct clk_hw *hw);
->> };
->> 
->> The change would be minimal in core CCF, just searching the list for a
->> match in clk_register. On most platform the list would be empty so there
->> is virtually no penalty when it is not used.
->> 
->> From the controller, the usage would be very simple, just calling a
->> function before registering the clocks, something like:
->> 
->> int clk_type_register_dev_hook(struct device *dev,
->>                                const struct clk_ops *ops,
->>                                int (*init_hook)(struct clk_hw *hw))
->> 
->> or the 'of_node' equivalent.
->
-> Why can't we register the clk at the same time? I don't understand why
-> we want to search a list to match something up to what could be another
-> argument to the clk registration API. Isn't this the same as 
->
->  clk_hw_register_data(struct device *dev, struct clk_hw *hw, const struct clk_register_data *data)
->
-> Why is that hard to maintain? Is that because the clk driver is
-> registering various different types of clks and it wants to do different
-> stuff depending on the type of clk?
+> +
+> +config DRM_ACCEL_ROCKET
+> +       tristate "Rocket (support for Rockchip NPUs)"
+> +       depends on DRM
+> +       depends on ARM64 || COMPILE_TEST
+> +       depends on MMU
+> +       select DRM_SCHED
+> +       select IOMMU_SUPPORT
+> +       select IOMMU_IO_PGTABLE_LPAE
+> +       select DRM_GEM_SHMEM_HELPER
+> +       help
+> +	  Choose this option if you have a Rockchip SoC that contains a
+> +	  compatible Neural Processing Unit (NPU), such as the RK3588. Called by
+> +	  Rockchip either RKNN or RKNPU, it accelerates inference of neural
+> +	  networks.
+> +
+> +	  The interface exposed to userspace is described in
+> +	  include/uapi/drm/rocket_accel.h and is used by the userspace driver in
+> +	  Mesa3D.
 
-Exactly
+Nit: name the specific Mesa driver here?
 
-> Why wouldn't wrapping the clk_ops
-> in another struct and then using container_of to find the custom clk_ops
-> not work there?
+> +
+> +	  If unsure, say N.
+> +
+> +	  To compile this driver as a module, choose M here: the
+> +	  module will be called rocket.
+> diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..09d966c826b5b1090a18cb24b3aa4aba286a12d4
+> --- /dev/null
+> +++ b/drivers/accel/rocket/rocket_core.c
+> @@ -0,0 +1,71 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/* Copyright 2024 Tomeu Vizoso <tomeu@tomeuvizoso.net> */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
 
-For this particular problem, it still does not scale well. There is more
-than 20 different ops (and counting) for that clock type. Those would
-need to be duplicated for each different way to get the regmap. That's
-really not ideal
+This list of includes seems insufficient. You use PTR_ERR but don't have 
+the include for it (linux/err.h). Same for dev_err/dev_info. I'm 
+guessing this comment applies elsewhere.
 
-Side note: That's very interesting idea for another topic I'd like
-address someday - not having all clock as global, but the just static data.
-That would be a nice way to attach an allocator.
+> +#include "rocket_core.h"
+> +#include "rocket_registers.h"
+> +
+> +static int rocket_clk_init(struct rocket_core *core)
+> +{
+> +	struct device *dev = core->dev;
+> +	int err;
+> +
+> +	core->a_clk = devm_clk_get(dev, "aclk");
+> +	if (IS_ERR(core->a_clk)) {
+> +		err = PTR_ERR(core->a_clk);
+> +		dev_err(dev, "devm_clk_get_enabled failed %d for core %d\n", err, core->index);
 
->
->> 
->> I admit this is heavily inspired by how devres works :) but it does solve
->> the early clock controller problem and does not scale with the number of
->> clock registered.
->> 
->
-> I don't know if devres is a good model. It's about tracking allocations
-> and things to undo later, not really to track things to do when called
-> initially.
+Do you think it would be useful to mention "aclk" in the message? Seems 
+like if this or the hclk get fails, you won't know just from the kernel log.
 
-My point was more the decoupling it allows.
-Maybe it is me being too picky, but what I'm trying to do is related to the
-clock type, so it bothers me when it scales with the number of instances
-instead of the type.
+> +		return err;
+> +	}
+> +
+> +	core->h_clk = devm_clk_get(dev, "hclk");
+> +	if (IS_ERR(core->h_clk)) {
+> +		err = PTR_ERR(core->h_clk);
+> +		dev_err(dev, "devm_clk_get_enabled failed %d for core %d\n", err, core->index);
+> +		clk_disable_unprepare(core->a_clk);
+> +		return err;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +int rocket_core_init(struct rocket_core *core)
+> +{
+> +	struct device *dev = core->dev;
+> +	struct platform_device *pdev = to_platform_device(dev);
+> +	uint32_t version;
+> +	int err = 0;
+> +
+> +	err = rocket_clk_init(core);
+> +	if (err) {
+> +		dev_err(dev, "clk init failed %d\n", err);
 
-More generally, something devres-like allows to register an attribute
-and link it to a group. Then the group members come and just pick what
-they need. Whatever manages the attribute does not have to track
-them. That is pretty much aligned with what I'm trying to do.
+This feels redundant since rocket_clk_init() already printed an error 
+message with more details.
 
--- 
-Jerome
+> +		return err;
+> +	}
+> +
+> +	core->iomem = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(core->iomem))
+> +		return PTR_ERR(core->iomem);
+> +
+> +	pm_runtime_use_autosuspend(dev);
+> +	pm_runtime_set_autosuspend_delay(dev, 50); /* ~3 frames */
+
+Frames? That feels like a rendering term, but this driver is not doing 
+rendering, right? Is there a better way to describe this?
+
+> +	pm_runtime_enable(dev);
+> +
+> +	err = pm_runtime_get_sync(dev);
+> +
+> +	version = rocket_read(core, REG_PC_VERSION);
+> +	version += rocket_read(core, REG_PC_VERSION_NUM) & 0xffff;
+> +
+> +	pm_runtime_mark_last_busy(dev);
+> +	pm_runtime_put_autosuspend(dev);
+> +
+> +	dev_info(dev, "Rockchip NPU core %d version: %d\n", core->index, version);
+> +
+> +	return 0;
+> +}
+> +
+> diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ce3b533f15c1011d8a7a23dd8132e907cc334c58
+> --- /dev/null
+> +++ b/drivers/accel/rocket/rocket_device.c
+> @@ -0,0 +1,29 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/* Copyright 2024 Tomeu Vizoso <tomeu@tomeuvizoso.net> */
+> +
+> +#include <linux/clk.h>
+> +
+> +#include "rocket_device.h"
+> +
+> +int rocket_device_init(struct rocket_device *rdev)
+> +{
+> +	struct device *dev = rdev->cores[0].dev;
+> +	int err;
+> +
+> +	rdev->clk_npu = devm_clk_get(dev, "npu");
+> +	rdev->pclk = devm_clk_get(dev, "pclk");
+
+Are these optional? It would appear that error handling is missing.
+
+> +
+> +	/* Initialize core 0 (top) */
+> +	err = rocket_core_init(&rdev->cores[0]);
+> +	if (err) {
+> +		rocket_device_fini(rdev);
+> +		return err;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void rocket_drm_unbind(struct device *dev)
+> +{
+> +	struct rocket_device *rdev = dev_get_drvdata(dev);
+> +	struct drm_device *ddev = &rdev->ddev;
+> +
+> +	drm_dev_unregister(ddev);
+
+You allocated this with devm, shouldn't that make this unnecessary?
+
+> +
+> +	component_unbind_all(dev, rdev);
+> +
+> +	rocket_device_fini(rdev);
+> +}
 
