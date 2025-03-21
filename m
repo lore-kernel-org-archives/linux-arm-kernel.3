@@ -4,118 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D0DFC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 15:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96927C36007
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 15:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LptmSOduTXZdmxLfabby/f0qYD+OOd89CLB3+Homj/E=; b=oZaQksHY5Vl667QG2xj6MRXnjy
-	5P/B8KVw/jPxUnsaFKYwtJ6QkX+D+wODMFUpiZ/CySergqRnl8Dj8E/BeO/4uuqCTt4jgRnRJr4me
-	jnkJJUdVI9UNLC3ETx6h2567afuCiriHinbbfDVUoQe1ZyDaK1PwCEpMoURZw4m/zXNHilVHIIBoU
-	/JQxCsWAXAxht+rJqkzEX8rIItRrAEkFLvhRYB++23cwNjjwB6iQ+2oQC41jXr2mzvOeI1UiuYpso
-	KSiRKQxPPT3HS4o9lMQLfUGwTREYPEe4/7PLaquwjwxS+UILvesl8Vk9XvOcndOR3q+oB+yE6HtqJ
-	czu/Kkzg==;
+	bh=keE5UAE8I7WQVpj+EG1JG1WPFCAgkdvUmiHSr+M5kNk=; b=dzL58kBmOXuEgEkVyDUK/PcyuN
+	d5ykKBImd7nlwJz8p3bO3ZKK3Z+xU+MvuithpWRK8RowjWqyd1eCf9EK2L5jlV6aXELDndY+QlAGb
+	YgWEVpTRXmEtk6cI2aA7VWnlZvEdWU8SzphmHZ6i5TFXCuuGEHhiKuM+jjEc6ktaoV+q5X5fCUDhs
+	TTNCmY+6OcsHZ9C3JTK9Gini1KVPPjLUY8AsAkAMRAG2zGQK8UTGczDXbb1Ui3exuTkvLbfORijKk
+	szxIRs3ChflA+D8qCgFth4aSEAJTGuig3ueb1A/iM5OjmIt0hG1Sk7VE8umANXEY+zepj2RLGWxBM
+	MTdj3bMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvekm-0000000FNwp-0xj7;
-	Fri, 21 Mar 2025 15:57:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tvemR-0000000FOKO-2Fhx;
+	Fri, 21 Mar 2025 15:59:31 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvegs-0000000FN9K-2TPt
+	id 1tveiL-0000000FNT7-0dVM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 15:53:47 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52LATUxX003145
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 15:53:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=LptmSOduTXZdmxLfabby/f0q
-	YD+OOd89CLB3+Homj/E=; b=XwOqSwMLn6z4nHVnDSkjrjKFlzyirWWCntc4tipp
-	mdieX75XroXRDdyorNmXzvbcciaq9pQf0LkT+vPXhl1tTisgbArrLN6Ph6XSZ44v
-	PHwfbPbgHbs5PX8XZVoXC4/+yhO7XBakxe3gIuCGR3htwRDz22CgcWUycxORItcW
-	pA2ZMdE3ZJxmcxw750xmNfalecsyaLy8KbhYk5suDi2RT6GD2cPITOt0xOrs6PIl
-	xU5BZUQZ/bZ1e/a+8lfPk4uJljvvUX/DmuetZz8cAPTpO4klaZJdCdxxPAbl7H1x
-	QrAzjuAtzNmsEZ/dSBZICyAlxmsNm6/Nc10mLWvE0EK2KQ==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45h4p118cm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 15:53:45 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6e8fae3e448so39933686d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 08:53:45 -0700 (PDT)
+	Fri, 21 Mar 2025 15:55:18 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43690d4605dso14777795e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 08:55:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742572516; x=1743177316; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=keE5UAE8I7WQVpj+EG1JG1WPFCAgkdvUmiHSr+M5kNk=;
+        b=2573rcMMptjhOI7HmbVch7XkmnMIl0kU3rY0Skc1UleL4wouh70SMO73aM00lK29c3
+         HwME37iP6ECnATpGoo9NjrotgyZmvEBwMWVaWScz91zEGHf0khpRnfL+0DTCrFTLc6q2
+         7sFZsC2n7UqZg6JuWAXRTX4CkQoZFTYdcNtF5lY5h4V8Pzwo0Tc/Vq9OYhrOtVJWD6ar
+         wlufP9yw5/iDwWqIF2qZAnJcR7Ay+ryX63L2Px1MdKsFYmXx/WR+asGtdmn39v/uy7DQ
+         H40iTVy1lhV2BPThNWclLs1Lxe7Q1wzyD3+we7pSzK2SiUXxMi2ufblFPWAgxwbGcSl/
+         ImDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742572424; x=1743177224;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1742572516; x=1743177316;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=LptmSOduTXZdmxLfabby/f0qYD+OOd89CLB3+Homj/E=;
-        b=nUXh4BbU5IOp1A8sbJxWXwQHeOhDVe55AKVTNtfD+qdd3Gz3dZnP9bY4tmoFpLFFPi
-         6bxtqpfsPmNboWImVxw5gGxLJWTaYj/TRpXUUSaPYly1NjDAdD1zSFseaZNGpXO3Xz+A
-         NkuTVLZWZFQTboE1njGrZeM8NSRuLtMxIEfqiwJ8SAHNwjHdjEsI9iboxYL5VSUrG2Ol
-         r+fPdCQmEjInqX1u069QqPGHs/HlGncSlwtf+utZNj+c7Q+qRMubV5QvaiokthbzAzsz
-         smcjIEPXid632qAij7YBjl/eg1tO8mSCFXjUCL0iQ9um7ZluO/ZHecu3XjD9WUFJQhKF
-         FDvA==
-X-Forwarded-Encrypted: i=1; AJvYcCVCS1oj+SXTg04oE8jvStPArGbRnXlyiBAAhovhqMv4mAizzQqv11BldSDpKpJrSbuRFuAxR0lLoxXgL/AHBnH/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHjpy2Me2mFlrUIxfyHT10dmADNrfJgXtpbWhoUYrzRpQhSIEj
-	mP3yauxfIMtgJzCWFAuXeFjAAPDLRRLPvR2EzfpnUnSIPEm+f2sg2nEh2XOAY5xcG0K53D56gAM
-	bROYKY8xEh9fwH3DxgnTVe9ITSvdIR90DAaJ6sQ4twgrXoELFf/ZrtTasUERAqcwDRQzPe0hnBQ
-	==
-X-Gm-Gg: ASbGnctYV/hYsCylbn/Wi/CxUXeGPKKxqsY6PgQvOVjZU11+s09qqTXnFsGE+RV3G7O
-	VK7bVxTuxu6CKLInL1w9HEtowHDKe3xMyB5QEtPvFLPZ3hszBvrgP4KdT370pkT/JtgC+LHTKIX
-	rAgvqDEtU4FESnrJtuFvxJ/oJ0Y+aPQLWwyH+LdMd253AfcXcuHMrB5b5CUFIRHf7APeXVtPGfy
-	BctiRqTUeBQw0lwwQvlgHvlInjXx58qFKPrmcVGsKLWiXdAx9dTQWqvAApiZxFOTaFl0SrSLYgN
-	kqLnDPv7JoQ1iyrNNSkwG7D68y6HZZKYkRhgcmr2DTNSm8PD8GeNcTbo8SMZXiMKj6cH1R0SRnE
-	AtC4=
-X-Received: by 2002:ad4:5de7:0:b0:6e8:ea17:8587 with SMTP id 6a1803df08f44-6eb3f3b7b50mr46274746d6.42.1742572424181;
-        Fri, 21 Mar 2025 08:53:44 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFNM19+y0wvr0/rSNbRv08Ya/wFMH3feSKKK/Zb7YMAXHSS6ZMZj7DV4uHlqvystkp4UnLvjQ==
-X-Received: by 2002:ad4:5de7:0:b0:6e8:ea17:8587 with SMTP id 6a1803df08f44-6eb3f3b7b50mr46274196d6.42.1742572423624;
-        Fri, 21 Mar 2025 08:53:43 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad651237fsm209084e87.242.2025.03.21.08.53.40
+        bh=keE5UAE8I7WQVpj+EG1JG1WPFCAgkdvUmiHSr+M5kNk=;
+        b=isDTA46LBbWW1CFZQ0xZ3sB45HSQgVcccJHoMRttunrAwaw7Q9TQ+wgBU0w8jhsVOh
+         X1PskVKs+c5Xr0EN6+oxv+TJH0CaJI/izms1yBvMXtB4LUTcTYOu43DOUOSYy+rxyB1e
+         TTlM9phVI6SNeYDYRM8CkKBhqVh0Pzs/gKWM2GyYx7dceWDx1xIlmMt/lqOYVn6SOZfe
+         lwa+Chd1BAvMeObhTzmF6mh5quC3okZW5YP3Cn0xEEreOfgBkBk32b63IsvxT2RY7FDE
+         2Flrn0viL7NBrSAZU8CK3ayBjlsYU14l+c/UFCullsrBLFAvatvOK2qxB4g/ltYx4C4D
+         0STQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyldqap+d93pfv1ttbuVJ42Fqw0/XDQmLC0wgHDrGuGzEX0v+xC9MgK280K0BTRf1wWpbGV5xnOXpo/dQNTslN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCMUHLH/MQAj8F+tJIGWZNRWonVwnM0rTUJN5o1ZxuDQdahuJb
+	s1GT7KXKuOG0CpUc9imAEGgfaPIf6j/xZonWJlAEjqX4UxzCSXSLPPmJCGi5wA4=
+X-Gm-Gg: ASbGncvG2h9I7jNQPrUo6lccnE7Z3VXiBveTu49ZC3YFh8yNXw8rqhAVEyi+DFIIlM/
+	7/QPwVsc7Ps8U4MJ6rvgUGrO9LcCXhTBnZXiytKMoTo23gsVoyfcdRW28c2TeKuD5fObBiAq9i/
+	5mrW35KmFJ+P0EYhpvFHbZpSmpuCfEEXXT8kwCFzaExHWbVX15W+ouY+q+DDfJWhWuFN6ofDdO9
+	fjMeP21y+LHDIEkxQAdaj7lexndahVpSKYBJrsB5BdB0NARi5GGzDMJ7rw24lCCdD2wx9t0IbQf
+	ICZJ6GB/PwosJxn980riraFrQ+DK5/J68AyVh/MnT3GxPN6uPqcKq2c=
+X-Google-Smtp-Source: AGHT+IGf7f6p3B2QWzXbSlTw1NK0pPjUROlEz/T5BuJywHA6Cp2/lY5juGyE3geEn0WI2gDMWjaauQ==
+X-Received: by 2002:a05:600c:198a:b0:43c:fd27:a216 with SMTP id 5b1f17b1804b1-43d52376b88mr29455795e9.23.1742572515585;
+        Fri, 21 Mar 2025 08:55:15 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:2102:ce42:30c0:9b40])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d43f3328bsm81162415e9.1.2025.03.21.08.55.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 08:53:41 -0700 (PDT)
-Date: Fri, 21 Mar 2025 17:53:38 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Marek Szyprowski <m.szyprowski@samsung.com>,
-        Sylwester Nawrocki <s.nawrocki@samsung.com>,
-        Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org,
-        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v3 09/10] phy: phy-snps-eusb2: add support for exynos2200
-Message-ID: <wwvjm4576r437tf2thbqseca5fobedgrhjk52iegwz5qnlhfv4@pnsl3pvsefwq>
-References: <20250321135854.1431375-1-ivo.ivanov.ivanov1@gmail.com>
- <20250321135854.1431375-10-ivo.ivanov.ivanov1@gmail.com>
+        Fri, 21 Mar 2025 08:55:15 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Michael Turquette
+ <mturquette@baylibre.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] clk: amlogic: drop clk_regmap tables
+In-Reply-To: <1j7c4i2xq5.fsf@starbuckisacylon.baylibre.com> (Jerome Brunet's
+	message of "Fri, 21 Mar 2025 16:46:10 +0100")
+References: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com>
+	<20241220-amlogic-clk-drop-clk-regmap-tables-v1-2-96dd657cbfbd@baylibre.com>
+	<9f1d69ebe1ddce5dfc170e986c9213f2.sboyd@kernel.org>
+	<1ja5cp8f87.fsf@starbuckisacylon.baylibre.com>
+	<88fe909ab182d1f17f6ef18161c7f064.sboyd@kernel.org>
+	<1jfrlwb69r.fsf@starbuckisacylon.baylibre.com>
+	<ed20c67e7d1a91d7fd8b921f156f56fb.sboyd@kernel.org>
+	<1jmsg2adgu.fsf@starbuckisacylon.baylibre.com>
+	<697b634770d789ef8ff0e05cec9465f5.sboyd@kernel.org>
+	<1j4j205ark.fsf@starbuckisacylon.baylibre.com>
+	<5109de7fe1a1a8467118daf80c7b7f8a.sboyd@kernel.org>
+	<1j7c4i2xq5.fsf@starbuckisacylon.baylibre.com>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Fri, 21 Mar 2025 16:55:14 +0100
+Message-ID: <1j1puq2xb1.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250321135854.1431375-10-ivo.ivanov.ivanov1@gmail.com>
-X-Proofpoint-GUID: sljr3iz8xSzzjV-SNgO_YBwRbRqnOrq4
-X-Proofpoint-ORIG-GUID: sljr3iz8xSzzjV-SNgO_YBwRbRqnOrq4
-X-Authority-Analysis: v=2.4 cv=NZjm13D4 c=1 sm=1 tr=0 ts=67dd8b89 cx=c_pps a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=VxB2ctdoYg6PJSLCJaAA:9 a=CjuIK1q_8ugA:10
- a=OIgjcC2v60KrkQgK7BGD:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-21_05,2025-03-21_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 mlxlogscore=718
- priorityscore=1501 impostorscore=0 bulkscore=0 phishscore=0 spamscore=0
- mlxscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0 adultscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503210116
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_085346_625137_4AE6322D 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20250321_085517_198402_4A38B4F6 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,22 +111,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 03:58:53PM +0200, Ivaylo Ivanov wrote:
-> The Exynos2200 SoC reuses the Synopsis eUSB2 PHY IP, alongside an
-> external repeater, for USB 2.0. Add support for it to the existing
-> driver, while keeping in mind that it requires enabled more than the
-> reference clock.
-> 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
->  drivers/phy/Kconfig          |   2 +-
->  drivers/phy/phy-snps-eusb2.c | 162 ++++++++++++++++++++++++++++++++++-
->  2 files changed, 159 insertions(+), 5 deletions(-)
-> 
+On Fri 21 Mar 2025 at 16:46, Jerome Brunet <jbrunet@baylibre.com> wrote:
 
-Acked-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>>> 
+>>> I admit this is heavily inspired by how devres works :) but it does solve
+>>> the early clock controller problem and does not scale with the number of
+>>> clock registered.
+>>> 
+>>
+>> I don't know if devres is a good model. It's about tracking allocations
+>> and things to undo later, not really to track things to do when called
+>> initially.
+>
+> My point was more the decoupling it allows.
+> Maybe it is me being too picky, but what I'm trying to do is related to the
+> clock type, so it bothers me when it scales with the number of instances
+> instead of the type.
+>
+> More generally, something devres-like allows to register an attribute
+> and link it to a group. Then the group members come and just pick what
+> they need. Whatever manages the attribute does not have to track
+> them. That is pretty much aligned with what I'm trying to do.
+
+Just to be clear, this idea is meant to live in /drivers/clk/meson, for
+a start a least, not as something generic.
 
 -- 
-With best wishes
-Dmitry
+Jerome
 
