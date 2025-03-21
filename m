@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9347BC3600B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889C7C36002
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/QjT7PtVWPkoRPUHyfCfzMI+lVd5Zx3OIJsUBq2pBDI=; b=oCd23MNSarxU2b3At9now90EFP
-	2WItIKd3NhHDyb/AxQDFjWxa3Bzcg9qCYEEQ0SMDUHPsjFovMyjFE5jHqxVYu8eZCIZx5Gp3eQVT4
-	yY2BH+HF8QMEnU8KgnGZ2/y1TUdSVucGqK3/0uAXQ80SIQZghn5nB7k7upDUGG3534dDcdmHwm+8U
-	V1TM0xW+mKJNAzPBPeCnfzJDTkr5otl3ZnwM/rts6jFvH/cyttJPmsC6JvgBAsXKlPW85CMKIHQ5N
-	9IHiF29/rJ3r7hdkkG7NKNcya+VAtT3h1cPqpj1lX7tOK4FkWz773lxxw1/gmTOVj0ONfML8Qdanu
-	Ed1We//Q==;
+	bh=T+aW3YqrWtyb+HJrv0NdBuH13F+b2T4tSgjYxeo3bk0=; b=ZAuKhweFJtnKViGIKm0eOE6eO+
+	JUoynbmhTBgKgCAzCiv5KUyjOM8gBTXkrRk3BKwqjzxzMD5WAiydjmZZrvIQNm38lJfV+b7xzYS+n
+	DCzoMqQFdVkI4ngtHnxCCSwCk/02eIH44oh55Tsvo1G5wGLQZB3YB80BbehrAXxhdmCqFKdSFs/48
+	PnjHIENvEuKu2Fg4dCL+x/w+CSTutcEj+DJFGcPLbb8y6cNVz2fXQI62TbednaX/zmyHE66kFujgq
+	GDcIFHnXDtAsoDK8Mu+mLgYX88yFVuGnS3mYo9ovkO56s6i8wFoQyCI15q+N3JAIN/1t9IznW/44g
+	x6c/1v8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tviyz-0000000GAK0-34cw;
+	id 1tviyz-0000000GAIh-0HCg;
 	Fri, 21 Mar 2025 20:28:45 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvie7-0000000G7Sx-2nq9
+	id 1tvie5-0000000G7Sc-2zJi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 20:07:12 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 53656101E8FE9;
-	Fri, 21 Mar 2025 21:07:08 +0100 (CET)
+	Fri, 21 Mar 2025 20:07:11 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A9E98101E8FE7;
+	Fri, 21 Mar 2025 21:07:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742587629; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1742587628; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=/QjT7PtVWPkoRPUHyfCfzMI+lVd5Zx3OIJsUBq2pBDI=;
-	b=Nn4K6WeuDlELvisXql4OpZVGGp9NE+QVqa0IrHuTGC1z8zSVUKEdkdPhaGbpvWlNdeVR/G
-	6/vl9gvs7mPL2cN3yuq9N80FNtHwRrmhUEU3Mh3zmgSBa9aqXW4TAzNpxA8fFdKDUe8Hqw
-	5IuhoR3wxTFmxQm/FN3w+m2pDBuqG4rL2XMD/CUbEZP0wSRbRUAmKKBjN5VtaXdjnSJDY1
-	xpD6vqF0aClV4p9c7uCQMRNlAIXMnazbjWhPC/HbDOqaC5oe4AvMnVi85va6tsqqiAvnvX
-	r0htcX7Ndd6NN1baiQDu2MuXVQIRG4kIvoAop+MxVT3wXbtrbXP1skg5hHOW9A==
+	bh=T+aW3YqrWtyb+HJrv0NdBuH13F+b2T4tSgjYxeo3bk0=;
+	b=HPjNgGMIOobFRLkbtZOxz8dZlyaVxNxU64iSONjzGGOv7RG5JKJnnmnov6KAqY69h9uPII
+	M23mjnU2HDHEQRcchu/mGaePSbsLWE31IykDvLPiW4v2UrRdL40KVLDSqPWl2vev9IwruW
+	5qR0dIDDjk9NYET/N9rMl/YeoVmuKZqc/+RZGvrOpZabzECShlg/fTL2Yp/eVdxG26rB99
+	3gHUPXDBygq08VWoOmoSnKuDoFpAJT+QFvRGIWgDeymj5WvN3jov+3IgUqZOupfSYxRx6z
+	OsV9AY94J053dyoBoEm9c0gtozsCtTrcOWSyMSlm7Ylr1L1eAWLY/AnaAS7Ojw==
 From: Marek Vasut <marex@denx.de>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@denx.de>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
 	Boris Brezillon <boris.brezillon@collabora.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	David Airlie <airlied@gmail.com>,
@@ -53,6 +51,7 @@ Cc: Marek Vasut <marex@denx.de>,
 	Maxime Ripard <mripard@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Sebastian Reichel <sre@kernel.org>,
 	Shawn Guo <shawnguo@kernel.org>,
@@ -62,9 +61,9 @@ Cc: Marek Vasut <marex@denx.de>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev
-Subject: [PATCH v2 3/9] dt-bindings: gpu: mali-valhall-csf: Document optional reset
-Date: Fri, 21 Mar 2025 21:05:53 +0100
-Message-ID: <20250321200625.132494-4-marex@denx.de>
+Subject: [PATCH v2 2/9] reset: simple: Add support for Freescale i.MX95 GPU reset
+Date: Fri, 21 Mar 2025 21:05:52 +0100
+Message-ID: <20250321200625.132494-3-marex@denx.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250321200625.132494-1-marex@denx.de>
 References: <20250321200625.132494-1-marex@denx.de>
@@ -72,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_130711_851296_3E78E393 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250321_130709_891722_32D11CD9 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,10 +89,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 The instance of the GPU populated in Freescale i.MX95 does require
 release from reset by writing into a single GPUMIX block controller
-GPURESET register bit 0. Document support for one optional reset.
+GPURESET register bit 0. Implement support for this reset register.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Marek Vasut <marex@denx.de>
 ---
 Cc: Boris Brezillon <boris.brezillon@collabora.com>
@@ -118,26 +115,63 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
-V2: - Add RB from Frank
-    - Add AB from Rob
+V2: - Set nr_resets=1 to limit the amount of resets to single bit
+    - Switch from fsl, to nxp, vendor prefix
+    - Add RESET_IMX95_GPU Kconfig symbol to select this reset driver
+      on MX9
 ---
- .../devicetree/bindings/gpu/arm,mali-valhall-csf.yaml          | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/reset/Kconfig        | 8 ++++++++
+ drivers/reset/reset-simple.c | 9 +++++++++
+ 2 files changed, 17 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-index a5b4e00217587..0efa06822a543 100644
---- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-+++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-@@ -61,6 +61,9 @@ properties:
-     minItems: 1
-     maxItems: 5
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 99f6f9784e686..0b48e76fd0aab 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -249,12 +249,20 @@ config RESET_SIMPLE
+ 	   - Altera SoCFPGAs
+ 	   - ASPEED BMC SoCs
+ 	   - Bitmain BM1880 SoC
++	   - NXP i.MX95 GPU
+ 	   - Realtek SoCs
+ 	   - RCC reset controller in STM32 MCUs
+ 	   - Allwinner SoCs
+ 	   - SiFive FU740 SoCs
+ 	   - Sophgo SoCs
  
-+  resets:
-+    maxItems: 1
++config RESET_IMX95_GPU
++	bool "NXP i.MX95 GPU Reset Driver" if COMPILE_TEST && !SOC_IMX9
++	default SOC_IMX9
++	select RESET_SIMPLE
++	help
++	  This enables the reset driver for i.MX95 GPU.
 +
-   sram-supply: true
+ config RESET_SOCFPGA
+ 	bool "SoCFPGA Reset Driver" if COMPILE_TEST && (!ARM || !ARCH_INTEL_SOCFPGA)
+ 	default ARM && ARCH_INTEL_SOCFPGA
+diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
+index 2760678398308..64aeda8f76b75 100644
+--- a/drivers/reset/reset-simple.c
++++ b/drivers/reset/reset-simple.c
+@@ -133,9 +133,18 @@ static const struct reset_simple_devdata reset_simple_active_low = {
+ 	.status_active_low = true,
+ };
  
-   "#cooling-cells":
++static const struct reset_simple_devdata reset_simple_fsl_imx95_gpu_blk_ctrl = {
++	.reg_offset = 0x8,
++	.active_low = true,
++	.nr_resets = 1,
++	.status_active_low = true,
++};
++
+ static const struct of_device_id reset_simple_dt_ids[] = {
+ 	{ .compatible = "altr,stratix10-rst-mgr",
+ 		.data = &reset_simple_socfpga },
++	{ .compatible = "nxp,imx95-gpu-blk-ctrl",
++		.data = &reset_simple_fsl_imx95_gpu_blk_ctrl },
+ 	{ .compatible = "st,stm32-rcc", },
+ 	{ .compatible = "allwinner,sun6i-a31-clock-reset",
+ 		.data = &reset_simple_active_low },
 -- 
 2.47.2
 
