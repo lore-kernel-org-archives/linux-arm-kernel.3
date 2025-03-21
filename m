@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48755C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 13:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A95DCC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 13:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NoPNTj3V5YtvLo2U0JoAwgjQlQPlLdtIAiFjHR9ruWQ=; b=RCm+E0iM7qa+YrNeTAz5osGaX6
-	S6b2BRix+kUX7URgo44Weyg4YksykgRCQhQOnHY6lCZwl/e+p3YwUqqRTB3AgJdw3LS4PnHgyUNmS
-	tE44uuz2QiiInVNnuzW0j4krMAurNM5r3QFlxwDsdPMfoBXEpkmOOWZ3+QQNvhO3wZFQJrYc3v50G
-	h3a94ji2b87eEeM61boatDuHCkqkR3HUXCZ7dtzgcL8i+uyzRZTJTyrSsU2a09fa9dLESTgrXLrPS
-	DYCuMhSBmsJRRsKpTmTc8eVF7vQkIw4CHC1udtk7D+3jisOPlXRwzDfYIzNwdnn8+yT11JzOtkVgy
-	5S+BAdkA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+81In4ilDZ/dsxug/tXtQcTDxsQusJyemdqH5+0jxZc=; b=Fmg8CiRX13NzwKGiGFtHuSf41c
+	N7o8FEJkEr70ksjoR7hAHCbu8D/av6aWYqngG5btPxfOTtm49bDeabhQpxHOUeV8ezxpnKsAJQvzX
+	NrB858JfDYeGNhmiM35rdbJvlUxcN1dbQ1zV9thevNuflODI7fcegQR0eZkLg9l/3IRf0VPE9Shw1
+	XudIaTvX8xhpW58kakRx/oI50Qbep05vSrYJo1WAf/3OPk1LQO1+bWlgMFBR7dOQ1FeM/beCNz9Cr
+	qOH8Zy1xAdXeAWGol6Xka0K1ztAMvqawCPwWJYeRqZlv88MRgHKePhuMXUqcwYLTWmRYRxu179kLX
+	o/HSAohA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvc6z-0000000ErZf-1oQI;
-	Fri, 21 Mar 2025 13:08:33 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tvc8e-0000000ErtD-0YW7;
+	Fri, 21 Mar 2025 13:10:16 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvc5A-0000000Er2H-2XuV
+	id 1tvc69-0000000ErIC-2WMM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 13:06:42 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3913fdd003bso1042744f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 06:06:40 -0700 (PDT)
+	Fri, 21 Mar 2025 13:07:42 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-399737f4fa4so1205348f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 06:07:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742562399; x=1743167199; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NoPNTj3V5YtvLo2U0JoAwgjQlQPlLdtIAiFjHR9ruWQ=;
-        b=y8AyN2DzXzU6Tu+JzUZdV14RHxDbKRBRPSSTqBjlSSosbMgXCpQc8QKkbyir96Nd4J
-         VTScxZrfsBCTJ0l+AQ4jitoEAmxngLY08ufFRFX2TexRW11q1/wR3JEfNavRRoaHWOkW
-         ACdjUkEUUuLx38TNXNHI77ct4nMIyy+HCj89S7zNxPr5qWubuu7hzZS+TRi7QZABEYKq
-         Bo9gfnzwEV04s9hwJNI7Rpah3GPnehwtVNVhxnZwI3EUjwqX7893xck5PPUIn9y5j6g9
-         NXnhqr1XQ+4Ah4yAqKv+5ryMhH0A+Gg1FwlkHOnhOr5X2CgOhDVMta14oI4cZ4hzy5AO
-         qFtw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742562460; x=1743167260; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+81In4ilDZ/dsxug/tXtQcTDxsQusJyemdqH5+0jxZc=;
+        b=HgSJ4whBgtjsbkyb9VF0Ecqve6sdntG50GGllaB71WVRz7zei8i3G/Wx2O/ZduE9Gy
+         cPtm73OyQUvbi0V4k+6VVPNH026CcKEDwsHIiCPaLYzWLY5CBANdBvTe62QWXZMdJeng
+         /nJpWqvB7A31DqHEs9fvHT5WcDouqtZWkwzSvGifw7X10YXri5mx5ncq1g+p2D5jlq5B
+         Y8+kokMnn3jkaCBIOGck4A7FfPAivqbM0PY6oVS/VqeQDrUQQ9x68LIqizI76iykg66h
+         Lb6FLrd/K4+dojG+ceDCrFUTTyLICFzbKmLejoulVYyohVvrmM1oS2q+pOedt1v1RgcL
+         n6Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742562399; x=1743167199;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NoPNTj3V5YtvLo2U0JoAwgjQlQPlLdtIAiFjHR9ruWQ=;
-        b=u9FDV2lxd5+4epLsvU4LHYM5cNjTL5rXByBWvZ3zD6rhDWMXTrdKPt6DBpCf7vd1lk
-         0Bfnt5ODDOjq3XFdswW0B452wITrvZMTM2eBgvUlQWN5ZfEboco3VLTqw4I2o5AyFY0m
-         tCJ91lrhSruOavXe/oufUPLuF0iOCivubZ0RjnQXm9BtUPoS0axLBwuQqxPqR1l5d94n
-         TaZUmtWHdsJ0wJVSu1LBys4KLmM10zpbKJOFhkP5dtXC0Tkh4h+dBbqoSKc5t8qbMDL5
-         4KGmeOE74XYr9daHjs3c+wCFjCKFsl1C8+G6XKgID6VN2t+i7XmVbWV2x3sI1cWkRMy+
-         a4WA==
-X-Forwarded-Encrypted: i=1; AJvYcCXKWBQRoIehLFxFQrGDexO8Mcco0BN4sbfgIPb31C/c19uq1IimU3LbVvml5IRu8VisHmZddV/Z8XHezjwkoHNE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMJEekB3dC9HmHr31EGOe3zH0zerzliihO3lQfDr/ZqkVs0bY5
-	mvzC1BZ2P56OFeZipsi5Cq53x4eDuOK9Qw7e9ftOO1shOY7XplooRS8nOiBMqCIunQCmzjM+hNQ
-	y
-X-Gm-Gg: ASbGncsSZMSuOX1MEU7QKrmB82dNMIlyrdmzjP11UgdQ2E4XxVzU8J9NEXGnjGX2LuP
-	+ztjId8Jov6EjbpvZgz3qisq2EuekD+3TuxnIus9p5R5SBREF4CGRl8tXg4YSq2+l8rrZ4wHyZu
-	IEN5XsJXNdzm4aGse4z16BtzAFlkBoobNVbzhFIfzWndhDBDVW7LezQCHNqlb1qVlk7N96Db+XO
-	1nanmWJMVyC/D4wTtn8D+hmkBtSrKU0x6KMmuzqgyI8AJbx7ecCB14vaZbBvBq+Vzd7P9yUXF2H
-	UgKEAaFWgedp2sQMy4eLHRmCu4ULzzQi4pud5iIuKaB412yn0Mm6gmiHVMpzrm2fzVPiXA==
-X-Google-Smtp-Source: AGHT+IEOpmQu3vdRTdoPK4Nh9YP5qAW7X5GoPVuQLhck+hEVtrUjAV5TX9kBkzKS3ZyCGSIbxUt4SQ==
-X-Received: by 2002:a5d:6c6a:0:b0:390:f5c8:1079 with SMTP id ffacd0b85a97d-3997959cde3mr6694234f8f.24.1742562398418;
-        Fri, 21 Mar 2025 06:06:38 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742562460; x=1743167260;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+81In4ilDZ/dsxug/tXtQcTDxsQusJyemdqH5+0jxZc=;
+        b=R6aRBPUjGKjMLySBqNffK7goiU3TepsIT5xd4ZmL9ouvjWqeXrVM8Dxvzy4298ehum
+         n3rltRW1mcbWKIBrzOp7cbfo8mZdClHxv3V1K/uzxMmjuzR1W+rH9AGLu8zW3CBzYVfo
+         XqDSuy29siSoRftOF9hzdYvpLEfxSdrTG2YCRRDN7bpzrkm/PrazyOGceQYohzXuoFhn
+         ERHuYC3hQWBS2QKVT/s84Y0V7zec4eRgUJoULk2lKmNBvXpjQCv1mN+2yWSL+AM8Rq1L
+         WghOxNIt24jfQlexjR5GpsHiSevgFsSAAfB5A/nbXy8oQjLTq6NUgFvThijE8yfLbH+5
+         Fn7A==
+X-Forwarded-Encrypted: i=1; AJvYcCV7HDLM0+CSoQ2ULBiUcpCKLpDDHnmv/x28sWeupFvTlBr2ULXn0ArCuFsMV2SUxMJH7e88PErNt43G2tLwAzAD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3CJMe1Yrc+ead/ElgfxY3FCvQ6iHN5blA2vqh2/4ND1hfqJVv
+	hRnnxMbdSI2M8tP4I7LPdOlLmPRi57zktYhfuANCYbFxv/7eVGlXGY8brrgShBQ=
+X-Gm-Gg: ASbGncuY2ksmzGC6MfFyDP3vfe3QQ6G+uLhCclF+qnR9KrhHJWVRevHF3ggj/2vIdmV
+	YnK1IVjV2zM6Q29mQykMFvhccs8CkUSqoEOY5ntu2BwA2ONxtY/2qi4Pz3XaFzpMvKO3RRpOcv6
+	xzyCCT74M9gSor55TO+rto72EfMAU535qAp1zw0DpZj//MOIlIKeQv6xtoZ1ayUAAwa6x6we1Te
+	4dM9cN3AZXRb7W+YPPArb6TjiMEK4ZaHfk1+jvU8pNZU4jHql8dVJHm0xU/zQhshNPiJuoYq378
+	hP9g4fpTHd21Hd4lV46O4NYi9Grg9TAq/weFP5uQIubM9Rz4+8BnMSysaLnLOZL8gEU+cA==
+X-Google-Smtp-Source: AGHT+IFGcNIQFtkSrVrMaEJyHkzdoC3QT/2GtmdRgmqzsJ6C1xedRKK8otT6Nr1+/A9BoBAqiRGLXw==
+X-Received: by 2002:a05:6000:1f86:b0:391:4743:6de4 with SMTP id ffacd0b85a97d-3997f940e28mr2542677f8f.50.1742562459890;
+        Fri, 21 Mar 2025 06:07:39 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com ([2001:861:3382:ef90:3d12:52fe:c1cc:c94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b5b8dsm2363992f8f.59.2025.03.21.06.06.37
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9efd6csm2364857f8f.90.2025.03.21.06.07.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 06:06:37 -0700 (PDT)
+        Fri, 21 Mar 2025 06:07:39 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -83,15 +83,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
-Date: Fri, 21 Mar 2025 14:06:26 +0100
-Message-Id: <20250321130635.227011-1-alexghiti@rivosinc.com>
+Subject: [PATCH v5 1/9] riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
+Date: Fri, 21 Mar 2025 14:06:27 +0100
+Message-Id: <20250321130635.227011-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250321130635.227011-1-alexghiti@rivosinc.com>
+References: <20250321130635.227011-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_060640_645871_A41A2B1E 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20250321_060741_643125_C70F8AC8 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,89 +108,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset intends to merge the contiguous ptes hugetlbfs implementation
-of arm64 and riscv.
+The pte_t pointer is expected to point to the first entry of the NAPOT
+mapping so no need to use huge_pte_offset(), similarly to what is done
+in arm64.
 
-Both arm64 and riscv support the use of contiguous ptes to map pages that
-are larger than the default page table size, respectively called contpte
-and svnapot.
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/mm/hugetlbpage.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-The riscv implementation differs from the arm64's in that the LSBs of the
-pfn of a svnapot pte are used to store the size of the mapping, allowing
-for future sizes to be added (for now only 64KB is supported). That's an
-issue for the core mm code which expects to find the *real* pfn a pte points
-to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
-and restores the size of the mapping when it is written to a page table.
-
-The following patches are just merges of the 2 different implementations
-that currently exist in arm64 and riscv which are very similar. It paves
-the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
-reimplementing the same in riscv.
-
-This patchset was tested by running the libhugetlbfs testsuite with 64KB
-and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
-
-v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-alexghiti@rivosinc.com/
-v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
-v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-alexghiti@rivosinc.com/
-v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-alexghiti@rivosinc.com/
-
-Changes in v5:
-  - Fix "int i" unused variable in patch 2 (as reported by PW)
-  - Fix !svnapot build
-  - Fix arch_make_huge_pte() which returned a real napot pte
-  - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
-    avoid leaking real napot pfns to core mm
-  - Fix arch_contpte_get_num_contig() that used to always try to get the
-    mapping size from the ptep, which does not work if the ptep comes the core mm
-  - Rebase on top of 6.14-rc7 + fix for
-    huge_ptep_get_and_clear()/huge_pte_clear()
-    https://lore.kernel.org/linux-riscv/20250317072551.572169-1-alexghiti@rivosinc.com/
-
-Changes in v4:
-  - Rebase on top of 6.13
-
-Changes in v3:
-  - Split set_ptes and ptep_get into internal and external API (Ryan)
-  - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
-    we split hugetlb functions from contpte functions (actually riscv contpte
-    functions to support THP will come into another series) (Ryan)
-  - Rebase on top of 6.11-rc1
-
-Changes in v2:
-  - Rebase on top of 6.9-rc3
-
-Alexandre Ghiti (9):
-  riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
-  riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
-  mm: Use common huge_ptep_get() function for riscv/arm64
-  mm: Use common set_huge_pte_at() function for riscv/arm64
-  mm: Use common huge_pte_clear() function for riscv/arm64
-  mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
-  mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
-  mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
-  mm: Use common huge_ptep_clear_flush() function for riscv/arm64
-
- arch/arm64/Kconfig                  |   1 +
- arch/arm64/include/asm/hugetlb.h    |  22 +--
- arch/arm64/include/asm/pgtable.h    |  68 ++++++-
- arch/arm64/mm/hugetlbpage.c         | 294 +---------------------------
- arch/riscv/Kconfig                  |   1 +
- arch/riscv/include/asm/hugetlb.h    |  36 +---
- arch/riscv/include/asm/pgtable-64.h |  11 ++
- arch/riscv/include/asm/pgtable.h    | 222 ++++++++++++++++++---
- arch/riscv/mm/hugetlbpage.c         | 243 +----------------------
- arch/riscv/mm/pgtable.c             |   6 +-
- include/linux/hugetlb_contpte.h     |  39 ++++
- mm/Kconfig                          |   3 +
- mm/Makefile                         |   1 +
- mm/hugetlb_contpte.c                | 258 ++++++++++++++++++++++++
- 14 files changed, 583 insertions(+), 622 deletions(-)
- create mode 100644 include/linux/hugetlb_contpte.h
- create mode 100644 mm/hugetlb_contpte.c
-
+diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+index 375dd96bb4a0..3192ad804279 100644
+--- a/arch/riscv/mm/hugetlbpage.c
++++ b/arch/riscv/mm/hugetlbpage.c
+@@ -287,7 +287,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 
+ 	order = napot_cont_order(pte);
+ 	pte_num = napot_pte_num(order);
+-	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
+ 	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+ 
+ 	if (pte_dirty(orig_pte))
+@@ -334,7 +333,6 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ 
+ 	order = napot_cont_order(pte);
+ 	pte_num = napot_pte_num(order);
+-	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
+ 	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+ 
+ 	orig_pte = pte_wrprotect(orig_pte);
 -- 
 2.39.2
 
