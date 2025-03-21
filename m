@@ -4,107 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BEE5C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5688EC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LEbT5bPhP4WcLW38oXwnbwZDnAF+BgzvO4LRwbs0urQ=; b=YvZJJmhChYBNPPR76SPv940pLx
-	1nAzHlZzOz9F2/8iKtJ7NEsp9V9kgg9PYSGTRMEGqOPAcynbtBtV+2qlwaPlJVNqBUMtPRzI1jQhm
-	01w/jjsrGEVKXasn8LPWJwAAsgnwsRpVgPKfp6fkyQ9MmRslaFsKOWw9LLptHEVaeGMBQJSXY/Tb7
-	FTxHmo4zdM9NPn6+bGZ9mY+8StYX8JnO5nzT3R8SPZSMzO/fxh+qq0tfkoVY75M3XcLR3DfX55FWy
-	yc1FkUmzM3cghe9xXW/ghbQOzSu9DOE56h/9HNN9RNppTATN6r4V13By4fd2Iok4ZK2Pjs3h/XFnX
-	VTBeRQDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/zpngRXQegPaSefdv6TE3SAxM0QfWh/hV98qBo6ljiU=; b=p5NAUvsQfu4TRo3Av+6ASgpsTe
+	csxzaO6phuc6gQocH0ZO/NEWdwIO9Pjv6Nvevf+5rJf6e4nnCZ+ZarL6mDXTDLluZUXkLqLKPiIWR
+	JQxy/wiN2GWg0lNlJ0hSTf47RXCrdmu77dokLbOKfxBRoWXXxL7/PJPiGZ5rH7sHDZViqqk7ub3WG
+	b6r+XVG/87M7qbkRMGRTFT+0dSDRIKvRjmyimWcCQ5iPTZCbCEjya1FO/FPuQSNkAXN4/gZ4VE+vH
+	WK3EF/Z78z6mVJbtyM6yu+tCp65gxJJfnTdCaYp6s3FGUB9/irTqL0TgLLlCZf5EMstLjR3aRPiYn
+	PmSnZ8Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYKF-0000000EK3k-1MQM;
-	Fri, 21 Mar 2025 09:05:59 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1tvYLt-0000000EKIb-2gOS;
+	Fri, 21 Mar 2025 09:07:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYHl-0000000EJd4-1sWB
+	id 1tvYIP-0000000EJlL-3ifK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 09:03:26 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id AC130114009A;
-	Fri, 21 Mar 2025 05:03:24 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Fri, 21 Mar 2025 05:03:24 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1742547804;
-	 x=1742634204; bh=LEbT5bPhP4WcLW38oXwnbwZDnAF+BgzvO4LRwbs0urQ=; b=
-	merId6y0RnVKyxyTClbhwQo21y2zU3NJxajhrt0fwZPHI+8ZlSZKs1rmPXGGM+1H
-	sCvRMNPcaI1oXd3+O4OHEeQMznRuy2+rcW3sXw9b4RHZC+qkkmticQcS+aP73L6l
-	F9AiD4V9/Vyi9Ar4zjMWzJ8oHciiUBhjm1TeZkR8e/xKaunEaS1MjihdpbAWlPFt
-	Ujd35Beeyye8C0NX02uziSfoRHdmSMAIuw+S6jWFbTWZS6r01Dys3iPz2tKTbgle
-	HBL0TOAGIpOIGkm1Z17dAHyJGwtow8eBZ+xrieySqcmFSO2elOT4Tm0D4yMZVp4X
-	FnphFbMXueWhfoNrIj1zFQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742547804; x=
-	1742634204; bh=LEbT5bPhP4WcLW38oXwnbwZDnAF+BgzvO4LRwbs0urQ=; b=4
-	8cHDPDAZKTxz20VisSEmp78kpWp9L10BOI63t4yyNCLxVjDh6A38ALDDxxVgNOn2
-	HVRk1iudMu4KiXWeZOB9F4ATNoF5esEUHVnI2TON9DCmyp7Dyeb9TOUkFNsKGxaQ
-	53N+G19oC5fHKGWEFHsjp3RAUvfyQSxL+GnD1gkfS0lFTOgQHnqhfG9aeCP6MlAb
-	v0M3BKwDFxd2i/qo8i1eqlKiMafUIWEwFq9ErmojD+yoqG0bvKTSrnoTdJ1z9kCD
-	/UkiUUlFNOsF7VG0U8N93NLambZrE4dfYLhV6CVID/WGkJTetpkzrcyaYq162VJ8
-	fY5Vj24JAiojVL8CXN3Hg==
-X-ME-Sender: <xms:WyvdZ1vUgCVAHBf2-ld5VaanSDcjKBI90axcl0vtE5wRZooozLZVyg>
-    <xme:WyvdZ-dIfqxJVKpJ1wR2iaSkNluIGnsDtEUaMxv9rns2zQZFdT4YSQWHFs8ob2tKS
-    6pLuX5R-xxbutazdYg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedtieekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    uddvpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrih
-    hnrghssegrrhhmrdgtohhmpdhrtghpthhtoheptghigidqkhgvrhhnvghlqdhuphhsthhr
-    vggrmhestghigihtvggthhdrtghomhdprhgtphhtthhopehfuhhgrghnghdrughurghnse
-    gtihigthgvtghhrdgtohhmpdhrtghpthhtohepphgvthgvrhdrtghhvghnsegtihigthgv
-    tghhrdgtohhmpdhrtghpthhtohepmhgrrhgtihhnsehjuhhsiihkihgvfihitgiirdgtoh
-    hmrdhplhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:WyvdZ4zsmGXN-tX6IEG1VMG842mhYjzOzA1BtsfWle6yrOArGRhlcg>
-    <xmx:WyvdZ8PrlWRu1LA6oEn060yebTb1Ag-AqebjIH87b3By2Q7dwt6Isg>
-    <xmx:WyvdZ19YrjPNr1rAc-u-ofNIqs40tfCCjaalcyFFnqlMxquFvSXLaA>
-    <xmx:WyvdZ8WWG_8MBf2yt3HQFiv3e7gQRrkVgr-LDOeyBXcjVlOK_s-Wfg>
-    <xmx:XCvdZ8XkCG1VoR2k-iT0qkyzlOA75Au0yJWyl33coS3AcNt7gadovbxl>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4B6622220072; Fri, 21 Mar 2025 05:03:23 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: T1bdb747f5f593b3d
-Date: Fri, 21 Mar 2025 10:00:59 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Peter Chen" <peter.chen@cixtech.com>, "Rob Herring" <robh@kernel.org>,
- krzk+dt@kernel.org, "Conor Dooley" <conor+dt@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- marcin@juszkiewicz.com.pl, "Fugang . duan" <fugang.duan@cixtech.com>
-Message-Id: <59619096-bfb2-428c-a4f5-2dfb031d126c@app.fastmail.com>
-In-Reply-To: <20250305053823.2048217-7-peter.chen@cixtech.com>
+	Fri, 21 Mar 2025 09:04:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E9A5B61581;
+	Fri, 21 Mar 2025 09:04:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B21C4CEE3;
+	Fri, 21 Mar 2025 09:04:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742547843;
+	bh=8fw7paiuFxV9WqkArmDeFOzxQ4fMfuMVsbglLpRjvSo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uruPfbQ6Ibea2mcVkJwvG/qhmgSuVdvzisdlkwMcKGC6hKlt2si1BaTJeTK/6OlVB
+	 m28GTejQo3TqU+reqVJGB7NYZ/HF51FLsC6k8l1eaLdNZ3oPqU2Ji37CXJdLQQrzyf
+	 lREvAcAzWY0o6zRbRD2UlYTM6as5feGd/FZn5G6QGoD1KbbPDikWgEKGOpZ9kgEnjg
+	 t+SPN0fyj9SPehxUYikwQLWJvoCXfpQ0vTlCY/ICEdSZlxUmv/sFLdV+MBwDY12iZi
+	 E2KIvhPfxNikwT8MDC+7KnWnrS74YA7y3Vp+2ubZQh17Ijf2GPZV3qjFmomUbZXnat
+	 pZVhQx2PJ30SQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tvYIL-00FiXX-DQ;
+	Fri, 21 Mar 2025 09:04:01 +0000
+Date: Fri, 21 Mar 2025 09:04:00 +0000
+Message-ID: <86bjtun4an.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	marcin@juszkiewicz.com.pl,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: Re: [PATCH v4 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
+In-Reply-To: <Z9vmeTj68LmwinPD@nchen-desktop>
 References: <20250305053823.2048217-1-peter.chen@cixtech.com>
- <20250305053823.2048217-7-peter.chen@cixtech.com>
-Subject: Re: [PATCH v4 6/6] MAINTAINERS: Add CIX SoC maintainer entry
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_020325_555429_0EF33FE0 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+	<20250305053823.2048217-6-peter.chen@cixtech.com>
+	<86frj8m4be.wl-maz@kernel.org>
+	<Z9vmeTj68LmwinPD@nchen-desktop>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: peter.chen@cixtech.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, marcin@juszkiewicz.com.pl, krzysztof.kozlowski@linaro.org, fugang.duan@cixtech.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,23 +94,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 5, 2025, at 06:38, Peter Chen wrote:
-> +ARM/CIX SKY ARM ARCHITECTURE
-> +M:     Peter Chen <peter.chen@cixtech.com>
-> +M:     Fugang Duan <fugang.duan@cixtech.com>
-> +R:     CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
-> +L:     linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> +S:     Maintained
-> +F:     Documentation/devicetree/bindings/arm/cix.yaml
-> +F:     arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> +F:     arch/arm64/boot/dts/cix/sky1.dtsi
-> +
+On Thu, 20 Mar 2025 09:57:13 +0000,
+Peter Chen <peter.chen@cixtech.com> wrote:
+> 
+> On 25-03-20 09:36:37, Marc Zyngier wrote:
+> > Peter Chen <peter.chen@cixtech.com> wrote:
+> > >
+> > > +     pmu-a520 {
+> > > +             compatible = "arm,cortex-a520-pmu";
+> > > +             interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition0>;
+> > > +     };
+> > > +
+> > > +     pmu-a720 {
+> > > +             compatible = "arm,cortex-a720-pmu";
+> > > +             interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition1>;
+> > > +     };
+> > > +
+> > > +     pmu-spe {
+> > > +             compatible = "arm,statistical-profiling-extension-v1";
+> > > +             interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_LOW 0>;
+> > > +     };
+> > 
+> > SPE should follow the same model as the PMU, as each CPU has its own
+> > SPE implementation, exposing different micro-architectural details.
+> > 
+> 
+> Hi Marc,
+> 
+> Thanks for your reply. But there is only one compatible string
+> "statistical-profiling-extension-v1" at drivers/perf/arm_spe_pmu.c,
+> how could differentiate pmu-spe-a720 and pmu-spe-a520, do I need
+> to change arm_spe_pmu.c as well?
 
-Looks good to me. You can also add a regex keyword entry such as
+I don't think there is a need to have different compatible. The driver
+can probe which CPU this is on, and work out the implemented
+subfeatures from the PMSIDR_EL1 register. New compatible strings are
+better avoided when there is a way to probe/discover the HW (and in
+most cases, there is).
 
-K:       \bcix\b
+Note that this equally applies to TRBE, which also explicitly deals
+with interrupt partitioning and yet only has a single compatible.
+Please consider adding TRBE support when you repost this series.
 
-to match any filenames that have 'cix' as a whole word.
+Thanks,
 
-    Arnd
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
