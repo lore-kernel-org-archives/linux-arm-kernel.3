@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02356C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 18:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E456C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 18:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FO+6WGOaMw0ibKCiJIW30sXNuwvLPQXpKREpykWvmkc=; b=W2a5aoSljWZK1bMOKmbmGkgxfC
-	exnzPzrHpL433kcQqCy+io+o2bZRRagB90zVbZX+J3U6oJH+kYv3XXxFwkzs0otgaAED/fi+MvYiz
-	AIsQztA5zk9A4oV/i4s/ma9+VYDILlHhK56KXOM9gpBif2n6gVs0/HxxtMTlJY9VBWFbFExWjAN4V
-	z2ALaNDIU4im5yaJkoMVt7/PT4yAaf6rGAYbrLEbiqafQ6MEqRxya8xMsUCgXBJUBpZOStgLiwXjl
-	PQaqsKYgfCdDPdzHf6I4wfcdPPxWBuijkJ9s7zXvm3xG5FzUwYXI0StcNWF3wmU3frP2dtiBgxduL
-	Zy0YNVeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TCYnaCr6t2CITiy2CVtW2Iw29QsHSOWYrJlCz4eX7VE=; b=sp+Kh44oa5OHbSbYnhRtSMq4T4
+	Gm40CC1fmwxCSlK0SSKO0wXi4hsUGsYMMU9u6bhSR2b7/cefSMwyKNVse5YRUV+sIzR/dDJ/kG16n
+	z2GWMhgaKsVOPab5DthsT4m2+yPSGNqDbVzIC5ofEWCGGpw/R5aBO80qkq+OlV0JlFwNrWfJWmuaV
+	tXssPEf3I0CaXV0zcRMRN9tI+5OccAeziHGOo2ADGw0iamk/skJLHYMuG8VhyJcqntx//+XHo9r7L
+	iZ/htrki/efPahiThBygQvyljpVizW5ejX+pvo80K+7P1c85QwGqV/Ffsj+YKIKCuhcq/dQ7Tauh1
+	3EBZfYiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvhDF-0000000FsEY-0vT2;
-	Fri, 21 Mar 2025 18:35:21 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tvhEt-0000000Fsd4-3vEO;
+	Fri, 21 Mar 2025 18:37:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvh9N-0000000FrFX-2DYr
+	id 1tvhAI-0000000FrRS-24Uz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 18:31:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742581881; x=1774117881;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=y6EGF/mxSagxfgbYKqdWkLT4HZXwRDQ3HIzuXaFUuQk=;
-  b=M528O1iH+ooLNlWJFg5yKHUcMt0KiC+V7Hxb0WGFbhr6YIVDAblMajJR
-   pxzN5GRTtD4n62zKoeg8mjIULS5pJ82PgondS7DptKD5ZYUH1Y1tVIJmr
-   tLBjJGdeo8atG9qaAzgELgvEyvHxXBB1UgahQhKUL7LJnhGZf9xKD5AZa
-   QOg7wmndT6XrWWQvN3+6544lizKS6VyhiGs4HxiYr8QuK8kxqD2uq4TcS
-   lN1DngL7GMsEvdi4MXZ4TYCIEcZSo2+qt1mF6cMq7F2OXl0xnvI5YaQPq
-   z/r7aTY9nGhoRBCu3aW8CmODZriIScif9Nf979sFKoWBuAQfb5hCqHcCJ
-   Q==;
-X-CSE-ConnectionGUID: gQPSrGhKQx2Z1+/IyfiO9g==
-X-CSE-MsgGUID: gH5rVErNQWa27YBPGKghrA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11380"; a="47515769"
-X-IronPort-AV: E=Sophos;i="6.14,265,1736841600"; 
-   d="scan'208";a="47515769"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Mar 2025 11:31:20 -0700
-X-CSE-ConnectionGUID: D5bEjmkNTHSv0JQpi2zF2g==
-X-CSE-MsgGUID: qgxBRvGqQjucbOdMzLh+QQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,265,1736841600"; 
-   d="scan'208";a="128298920"
-Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
-  by orviesa003.jf.intel.com with ESMTP; 21 Mar 2025 11:31:18 -0700
-Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tvh9I-0001ad-1X;
-	Fri, 21 Mar 2025 18:31:16 +0000
-Date: Sat, 22 Mar 2025 02:30:51 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	arm@kernel.org, Arnd Bergmann <arnd@arndb.de>
-Subject: [soc:soc/drivers 24/26]
- drivers/platform/cznic/turris-signing-key.c:25:50: error: parameter name
- omitted
-Message-ID: <202503220206.LHWsolYc-lkp@intel.com>
+	Fri, 21 Mar 2025 18:32:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1742581936;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TCYnaCr6t2CITiy2CVtW2Iw29QsHSOWYrJlCz4eX7VE=;
+	b=Tpns9EBDvrc5sa7kztWzJu0TjUxDvFboqdZLXn+5yUCyomAaOirOx2QTsZHipHNkiJS+Ty
+	dQ6aaX2KcFT1U4KVnAiwWQzxwOGUV4c9pTdlSc2Ly0Uepc8NFA8+6HmZswv8dUp4JpaOb3
+	sKFTeyPl2Ron7lfXPDstXHh20rJrJ0U=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-489-Kz_AW0YdNo-JBBktUMJk9g-1; Fri, 21 Mar 2025 14:30:39 -0400
+X-MC-Unique: Kz_AW0YdNo-JBBktUMJk9g-1
+X-Mimecast-MFC-AGG-ID: Kz_AW0YdNo-JBBktUMJk9g_1742581838
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43ceed237efso18666065e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 11:30:39 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742581838; x=1743186638;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TCYnaCr6t2CITiy2CVtW2Iw29QsHSOWYrJlCz4eX7VE=;
+        b=GklJ/hxvDfXip/plWJ2AwurpBg1IB+QOswGptY91RNupcwtwDRg8MBBsLFPrShieze
+         RNhg+GcHNXzsUSEUHxxore2a6KICRCRRDkjw7Nbx1EPoGJ9ViVkeSiz1Hax+uWiS8OP0
+         +ECIuDtuSLlbfb4jfnKEayjbqtboJQ6kXll1ltaU3oCpKfX0ElXCcrij872VALbDDdcQ
+         NW8kljRX3eeiSRHEq0qI1p7sS825c/tjwjibnW8r3uyNC9hB2bUt5dog65PpFIyXx8hO
+         Qon6eYUenA6ByJOKbFF4Krje6JcISYFfPw+7DUhXWFW3k+D+vgoNcJm15Bfg7+mvDStF
+         L73w==
+X-Forwarded-Encrypted: i=1; AJvYcCVejjfW79HBlrPz+1OPWDCB90JWbrvJG8jh/La+wEtobjPv5Jl1Gm+5srVzx7N6O4mOLpYHifhFPahsXIKtvBa3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4WflFnbg1TuReY7p1Yt6OzTSaXlSZaUMe8cnDDr5HfU9bHqvC
+	UlvUL0BNtryKLe2jb9p0qsJttrw4+9laJ3Ln4WlcW9Pd7cSE4kxo0BlwvQYrbS80iI8id9fEDIJ
+	k/aAfmQDdgxbKNz9NjYvko9pPlPp/sr9Np9+pHji6RojPTWSzxMDDaLPgaxO5E0jp9SoJoS11
+X-Gm-Gg: ASbGncv8h3sh8pVF7Ka6nssI1K6amuIrXehjtnGrDNrEhaXwPYod1jOEXZo9j4BqtWj
+	EokUPIT0zlltxFlmVJEulTSwGueNR6yQjZciV2LdUvuaZ37gJbqsR0gBs69sIl7aYTUj8h0mBhp
+	Ayy0Tm6qHqPdb4Xo4Ygn6pJ9LsPi9ZrN4U0blkrTmBBcNN92eg58PbIflTPrQ3+bfxSHAv2hELz
+	YGTYhDSya2HE9doKfM+AKf6IMSJ5m1zdNCDLPhOmNtRwGZvNttD4ToEDDWgnwKOc54jasL3C16Y
+	zJLiUctQjigRAsNx0jukh+lNmcJgv3xxUG2EidNsQo7XBMpr/cpbOFFxOp/y/KU=
+X-Received: by 2002:a05:600c:331c:b0:43c:f332:7038 with SMTP id 5b1f17b1804b1-43d52a8ff41mr16399545e9.21.1742581838133;
+        Fri, 21 Mar 2025 11:30:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHV1J4g5vZeaiZX63RdE3knu8eFnfAyikgZWs5oJe594PE0zRqxZLu0vVxmRdyWaSppnlnHbw==
+X-Received: by 2002:a05:600c:331c:b0:43c:f332:7038 with SMTP id 5b1f17b1804b1-43d52a8ff41mr16399465e9.21.1742581837658;
+        Fri, 21 Mar 2025 11:30:37 -0700 (PDT)
+Received: from localhost (net-93-146-37-148.cust.vodafonedsl.it. [93.146.37.148])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd26cecsm33890485e9.17.2025.03.21.11.30.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Mar 2025 11:30:37 -0700 (PDT)
+Date: Fri, 21 Mar 2025 19:30:36 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@redhat.com>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: airoha: Validate egress gdm port in
+ airoha_ppe_foe_entry_prepare()
+Message-ID: <Z92wTGu_Sp9VnqPf@lore-desk>
+References: <20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org>
+ <b647d3c2-171e-43ea-9329-ea37093f5dec@lunn.ch>
+ <Z9WV4mNwG04JRbZg@lore-desk>
+ <2d39033d-0303-48d0-98d3-49d63fba5563@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+vQwyXtwdSXuM5kh"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <2d39033d-0303-48d0-98d3-49d63fba5563@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_113121_603075_6D7568C9 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250321_113218_668303_8A647399 
+X-CRM114-Status: GOOD (  24.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,52 +113,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
 
-First bad commit (maybe != root cause):
+--+vQwyXtwdSXuM5kh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
-head:   cf2ae5e5b68b06b4c8bceb42d46fa311e6db9a60
-commit: ba8755ab541fc629948233125db870d4dbf00a75 [24/26] firmware: turris-mox-rwtm: Add support for ECDSA signatures with HW private key
-config: arm-randconfig-002-20250322 (https://download.01.org/0day-ci/archive/20250322/202503220206.LHWsolYc-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 7.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250322/202503220206.LHWsolYc-lkp@intel.com/reproduce)
+> On 3/15/25 3:59 PM, Lorenzo Bianconi wrote:
+> >>> Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prep=
+are
+> >>> routine.
+> >>
+> >> A more interesting question is, why do you see an invalid port? Is the
+> >> hardware broken? Something not correctly configured? Are you just
+> >> papering over the crack?
+> >>
+> >>> -static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
+> >>> +static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+> >>> +					struct airoha_foe_entry *hwe,
+> >>>  					struct net_device *dev, int type,
+> >>>  					struct airoha_flow_data *data,
+> >>>  					int l4proto)
+> >>> @@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct a=
+iroha_foe_entry *hwe,
+> >>>  	if (dev) {
+> >>>  		struct airoha_gdm_port *port =3D netdev_priv(dev);
+> >>
+> >> If port is invalid, is dev also invalid? And if dev is invalid, could
+> >> dereferencing it to get priv cause an opps?
+> >=20
+> > I do not think this is a hw problem. Running bidirectional high load tr=
+affic,
+> > I got the sporadic crash reported above. In particular, netfilter runs
+> > airoha_ppe_flow_offload_replace() providing the egress net_device point=
+er used
+> > in airoha_ppe_foe_entry_prepare(). Debugging with gdb, I discovered the=
+ system
+> > crashes dereferencing port pointer in airoha_ppe_foe_entry_prepare() (e=
+ven if
+> > dev pointer is not NULL). Adding this sanity check makes the system sta=
+ble.
+> > Please note a similar check is available even in mtk driver [0].
+>=20
+> I agree with Andrew, you need a better understanding of the root cause.
+> This really looks like papering over some deeper issue.
+>=20
+> AFAICS 'dev' is fetched from the airoha driver itself a few lines
+> before. Possibly you should double check that code.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503220206.LHWsolYc-lkp@intel.com/
+Are you referring to airoha_get_dsa_port() routine?
+I think dev pointer in airoha_ppe_foe_entry_prepare() is not strictly
+necessary a device from a driver itself since it is an egress device
+and the flowtable can contain even a wlan or a vlan device. In this
+case airoha_get_dsa_port() will just return the original device pointer
+and we can't assume priv pointer points to a airoha_gdm_port struct.
+Agree?
 
-Note: the soc/soc/drivers HEAD cf2ae5e5b68b06b4c8bceb42d46fa311e6db9a60 builds fine.
-      It only hurts bisectability.
+Regards,
+Lorenzo
 
-All errors (new ones prefixed by >>):
+>=20
+> Thanks,
+>=20
+> Paolo
+>=20
+>=20
 
-   drivers/platform/cznic/turris-signing-key.c: In function 'turris_signing_key_instantiate':
->> drivers/platform/cznic/turris-signing-key.c:25:50: error: parameter name omitted
-    static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
-                                                     ^~~
-   drivers/platform/cznic/turris-signing-key.c:25:64: error: parameter name omitted
-    static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
-                                                                   ^~~~~~~~~~~~~~~~~~~~~
+--+vQwyXtwdSXuM5kh
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
-vim +25 drivers/platform/cznic/turris-signing-key.c
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ92wTAAKCRA6cBh0uS2t
+rL/MAQDcn4FFF3wmkVqDFXlch5Wj9+r8ZXCL12r0CY8mcPZm1gD/UWZra+6Q2LlQ
+dfGzn/9YsTjGEJxgAcx5ERuOnJ7eBQQ=
+=/fph
+-----END PGP SIGNATURE-----
 
-0b28b7080ef5a32 Marek Behún 2025-02-04  24  
-0b28b7080ef5a32 Marek Behún 2025-02-04 @25  static int turris_signing_key_instantiate(struct key *, struct key_preparsed_payload *)
-0b28b7080ef5a32 Marek Behún 2025-02-04  26  {
-0b28b7080ef5a32 Marek Behún 2025-02-04  27  	return 0;
-0b28b7080ef5a32 Marek Behún 2025-02-04  28  }
-0b28b7080ef5a32 Marek Behún 2025-02-04  29  
+--+vQwyXtwdSXuM5kh--
 
-:::::: The code at line 25 was first introduced by commit
-:::::: 0b28b7080ef5a323c3afa3860c3d45d627629830 platform: cznic: Add keyctl helpers for Turris platform
-
-:::::: TO: Marek Behún <kabel@kernel.org>
-:::::: CC: Arnd Bergmann <arnd@arndb.de>
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
