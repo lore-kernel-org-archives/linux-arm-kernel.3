@@ -4,73 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248DAC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE7DC35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iFVSnaEFehYviDaI8WC9Ww2XhK/F7xqHGZT+habFMIE=; b=jTZ8t5lyvzJAb7q7uEmgh4ydmT
-	OURudJGmm9OpO5oDoHsY0lZsIXHmauvMdsy5qIkyVUHhOpMUYRyJqQMw+/83gBpGOLnIDg300G3LM
-	NmLOKTifqsVG465aJElWW/4NeV7VYimIkZsEmyS59oNm1VJSCu3rRkrlcgjQdTDSEs8wOHp+jSPd3
-	RYiAGcQwTbTGzPzuNzbLOvegLxt7vp9F9HQ7XYKfFbkSJVZJexIj6bnpRUFZTFfX2CMXzZFqogZwQ
-	f0wvOIlvdIhbhkM07uyML5ttNJvfHtHpbNNfD8qBUh35qvz2PpRFytRXkKCm7jrGWPVNPcFDNLFXM
-	2V9QYovw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iWnR5bCtS2OFl6qMZ2T0dze3z5cvO0emTkA11CaAm0I=; b=HdPzKJPHE+rxcqill9xi5xBx1/
+	t4zGTOICuuoAIsI1hJufNv85vMzHgsHnScSyotv7N90t1yRr1Ms0FcUXAuGaE/OKn+D438mTU3T0W
+	9x2HqK3+a6pWTe73t6i0Lp/bjeGqibNx3JFsl2ri7SGoebiSOHJXUP5vxoy0s1Tg0AgdPz2RRFOkX
+	x00I1X25+m9R+i8bCPBqHOpUyyOizyo1EIUCwUQf/mCND4yLj8reWFKentmfwfgRk/f5sBXBTRrfh
+	dGyIBnMBRs9AdtBV//ibBd2EBFA+8n4kveKWmlkMGMVjaJaDWM4DceiulL57B+IWPv7N/rQURrhuJ
+	0gPppjNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYNX-0000000EKSH-1IaU;
-	Fri, 21 Mar 2025 09:09:23 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tvYZH-0000000EM04-0zUi;
+	Fri, 21 Mar 2025 09:21:31 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYLG-0000000EKEZ-3oZt
+	id 1tvYXZ-0000000ELoY-3u4W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 09:07:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742548023; x=1774084023;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=ul7CfSeUaWuBtceyuR/J8GsjwNrCXI8nP0Rj5T3ooAg=;
-  b=EAkl0KbA5Qe9tVUu9gVP5mUBGvoEPqvofb7E6KMyy2ljnH9uPmGPX1Hf
-   AS6GkVPsGk3CoKdH+OnHrPbIS8w3F70Jm/4b2z8BYr7A8LKJsIub5sE8y
-   J+0LZPmkgUYQNSu9WRxG5JlUDUvOjrzpgqoTY4CgVafrLJHnhHN/Te85t
-   LIgNAA5p0q1GbS8LW0XkBeWnvxfHZlRPBsDu3GQ2EJVa1sb8D7syIQATI
-   GFqm5TPuYDZjf1sohlgZGMOqQ2GM2HJGn/PocEgCa3/NIkSc/z7jrZ/qX
-   EnJ5ZYm6JVjp4aMEyFOH4PxHTq4OdvNbxNaq+y+4Eoeltwjn398Wbwc3p
-   Q==;
-X-CSE-ConnectionGUID: m0vKU/ZnTjWxybUbTNK8bA==
-X-CSE-MsgGUID: IEdQJZY9S0iHMsEoLq6TIQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11379"; a="47583918"
-X-IronPort-AV: E=Sophos;i="6.14,264,1736841600"; 
-   d="scan'208";a="47583918"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Mar 2025 02:07:00 -0700
-X-CSE-ConnectionGUID: NLm5nu8kRa2bHPPy2QjZGw==
-X-CSE-MsgGUID: wPJkXU+wTAy/Byg6qJHEnA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,264,1736841600"; 
-   d="scan'208";a="123866876"
-Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
-  by orviesa007.jf.intel.com with ESMTP; 21 Mar 2025 02:06:58 -0700
-Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tvYKx-0001CN-1v;
-	Fri, 21 Mar 2025 09:06:45 +0000
-Date: Fri, 21 Mar 2025 17:06:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	arm@kernel.org, Arnd Bergmann <arnd@arndb.de>
-Subject: [soc:soc/drivers 20/24] undefined reference to `__ffsdi2'
-Message-ID: <202503211748.QH9oyt9m-lkp@intel.com>
+	Fri, 21 Mar 2025 09:19:48 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43d04ea9d9aso7970015e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 02:19:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742548784; x=1743153584; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iWnR5bCtS2OFl6qMZ2T0dze3z5cvO0emTkA11CaAm0I=;
+        b=tmcLyIn85/VkIeIhfpvZoRL2Q7lo7l3+HHwBEcDmh8EPYvbnvfo7G3/Ssp56vBXmwE
+         NHnXtgBdUy+yt5aOMgrr4F99I29wnp7mVL5CXCOGd0URXW/FCzSzmeDiZATqcao2CDHG
+         ys9VGogMx/QyOiVKDn/XADzkl4kjicrH8Q221OYigIe7mvLqdUicMrzSmq1qKr7R3Xaz
+         JwpulB8UY251jkXo90dCXnwnIzH9cdfhJJ0Ww3v/kQpOpagRx+pKXXBMxe3muK3UAC3d
+         TLDtCc8AsSC947ItEXMc+H7PQ3HXvbha3siJNdx2slWzg2WFewnEguEdRVPSsuSlWT4K
+         QUBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742548784; x=1743153584;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iWnR5bCtS2OFl6qMZ2T0dze3z5cvO0emTkA11CaAm0I=;
+        b=N7YTQn5otubvLImjbjAQ7E/BFTf+JurErQARNXknYrcEAeGNvneZEXPxFWG+Zz2w36
+         LDR9+CcW6bSJ2TkHnPmtp9FoGIHWeJ7S3r05vqj69uahQbngRFPRmK9ssA5W7UpQLjss
+         v8JwpuPBh3Z1DDnooYLxuQEhVyYF5kXQR5L/zWlrZQbhrUAm71ay5J17RIvrCjdHa1xH
+         l4VtRrH3u8aC7hqBkK7JnetXMmYwDD4HxdLztXaZLN9RwQ9goLxwt+RExcwc8WFmNXMB
+         EhuyzjLgZy2qWKl+V+Vc8VXeaiBrJzoLFSynMLIj1d4w3O5ICn+yiQKOZyXWGKOQShFX
+         9YVg==
+X-Gm-Message-State: AOJu0YzVjUL0t4tNvfEVz98sUMp2wZ/9ZQnI4cAekvGsMGUSiYJJkgQn
+	Ap9tph+vAoKr5T/G2+D+pM8YSWH8dHpGARQEZF6ah+nbfeiOcMnpopp7eDd6twQ=
+X-Gm-Gg: ASbGncvv1EACW1OpWXcb99cFoS6VxxYgAIdcXevqJDa+vKALT9feBhD43eFZH78ogHj
+	75ITSkzeCAhhBPWm4kgnHact8gh11jrzf4OIO3dxOBO8Gl48QkNyFI2bGQKJq7TdC7Qv8JYb0wG
+	JFC7QklTHfRaUviQlFNtZWj8N+XtmDzOwiecaYKcVQlxU2E1Gk9ySiGpcfCzFLx027RNy1AdJW/
+	QVmuOyns/B1qwp2AdiDgPR+R+8GDR1ZPb5fZRL0uCEl/7UpSOXRXCnC03rWuCwQvD53q52cg0m6
+	BudTv/bl7hn6bqyKzdjSa3azwMpxDTOXhb9NepqdIi7RuchxM0W6V0xk2GyfC68QIpyWANw2y1d
+	pt2VTuyGObLtKnqKN
+X-Google-Smtp-Source: AGHT+IGb4qaiD8zveCmbngoPFmfN9WpLcjDxkx7ItZuEiKJ1uCoRacXpzZp0WPeOAWRPRphRbr45pg==
+X-Received: by 2002:a05:600c:1e18:b0:43c:eea9:f45d with SMTP id 5b1f17b1804b1-43d509f64b8mr23766545e9.18.1742548783913;
+        Fri, 21 Mar 2025 02:19:43 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:5ee:79d0:2756:9ecd:3e82:43c7? ([2a01:e0a:5ee:79d0:2756:9ecd:3e82:43c7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fceae03sm21916245e9.8.2025.03.21.02.19.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Mar 2025 02:19:43 -0700 (PDT)
+Message-ID: <fb72f1f5-dc94-4e33-a20c-d46a081091bc@baylibre.com>
+Date: Fri, 21 Mar 2025 10:19:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/3] drm/panel: startek-kd070fhfid015: add another init
+ step
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org
+References: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
+ <20231023-display-support-v8-2-c2dd7b0fb2bd@baylibre.com>
+ <d70b62f8-e24e-4a10-8c6b-18d2e19f1337@collabora.com>
+Content-Language: en-US
+From: Alexandre Mergnat <amergnat@baylibre.com>
+In-Reply-To: <d70b62f8-e24e-4a10-8c6b-18d2e19f1337@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_020703_019436_0799AB8B 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250321_021946_206174_CE9C5B56 
+X-CRM114-Status: GOOD (  28.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +111,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
-head:   ba8755ab541fc629948233125db870d4dbf00a75
-commit: ee7f8ed72990f28657b5bf598e695fcf4633f4ed [20/24] platform: cznic: turris-omnia-mcu: Refactor requesting MCU interrupt
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20250321/202503211748.QH9oyt9m-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250321/202503211748.QH9oyt9m-lkp@intel.com/reproduce)
+Hi Angelo,
+Thanks for the fast feedback :)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503211748.QH9oyt9m-lkp@intel.com/
+On 20/03/2025 13:37, AngeloGioacchino Del Regno wrote:
+> Il 20/03/25 09:48, Alexandre Mergnat ha scritto:
+>> Currently, the panel set power, set gpio and enable the display link
+>> in stk_panel_prepare, pointed by drm_panel_funcs.prepare, called by
+>> panel_bridge_atomic_pre_enable, pointed by
+>> drm_bridge_funcs.atomic_pre_enable. According to the drm_bridge.h,
+>> atomic_pre_enable must not enable the display link
+>>
+>> Since the DSI driver is properly inited by the DRM, the panel try to
+>> communicate with the panel before DSI is powered on.
+>>
+> 
+> The panel driver shall still be able to send commands in the .prepare() callback
+> and if this is not happening anymore... well, there's a problem!
 
-All errors (new ones prefixed by >>):
+Sorry I don't think so, according to that def:
+	/**
+	 * @pre_enable:
+	 *
+	 * This callback should enable the bridge. It is called right before
+	 * the preceding element in the display pipe is enabled. If the
+	 * preceding element is a bridge this means it's called before that
+	 * bridge's @pre_enable function. If the preceding element is a
+	 * &drm_encoder it's called right before the encoder's
+	 * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
+	 * &drm_encoder_helper_funcs.dpms hook.
+	 *
+	 * The display pipe (i.e. clocks and timing signals) feeding this bridge
+	 * will not yet be running when this callback is called. The bridge must
+	 * not enable the display link feeding the next bridge in the chain (if
+	 * there is one) when this callback is called.
+	 *
+	 * The @pre_enable callback is optional.
+	 *
+	 * NOTE:
+	 *
+	 * This is deprecated, do not use!
+	 * New drivers shall use &drm_bridge_funcs.atomic_pre_enable.
+	 */
+	void (*pre_enable)(struct drm_bridge *bridge);
 
-   alpha-linux-ld: drivers/platform/cznic/turris-omnia-mcu-gpio.o: in function `omnia_mcu_request_irq':
->> (.text+0x2660): undefined reference to `__ffsdi2'
->> alpha-linux-ld: (.text+0x2668): undefined reference to `__ffsdi2'
+	/**
+	 * @enable:
+	 *
+	 * This callback should enable the bridge. It is called right after
+	 * the preceding element in the display pipe is enabled. If the
+	 * preceding element is a bridge this means it's called after that
+	 * bridge's @enable function. If the preceding element is a
+	 * &drm_encoder it's called right after the encoder's
+	 * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
+	 * &drm_encoder_helper_funcs.dpms hook.
+	 *
+	 * The bridge can assume that the display pipe (i.e. clocks and timing
+	 * signals) feeding it is running when this callback is called. This
+	 * callback must enable the display link feeding the next bridge in the
+	 * chain if there is one.
+	 *
+	 * The @enable callback is optional.
+	 *
+	 * NOTE:
+	 *
+	 * This is deprecated, do not use!
+	 * New drivers shall use &drm_bridge_funcs.atomic_enable.
+	 */
+	void (*enable)(struct drm_bridge *bridge);
+
+=> "The bridge must not enable the display link feeding the next bridge in the
+=> chain (if there is one) when this callback is called."
+
+Additionally, you ask for something impossible because here is the init order
+fixed by the framework:
+
+[   10.753139] panel_bridge_atomic_pre_enable
+[   10.963505] mtk_dsi_bridge_atomic_pre_enable
+[   10.963518] mtk_dsi_bridge_atomic_enable
+[   10.963527] panel_bridge_atomic_enable
+[   10.963532] drm_panel_enable
+
+If panel want to use the DSI link in panel_bridge_atomic_pre_enable, nothing
+will happen and  you will get a timeout.
+
+So, IMHO, this patch make sense.
+
+> 
+>> To solve that, use stk_panel_enable to enable the display link because
+>> it's called after the mtk_dsi_bridge_atomic_pre_enable which is power
+>> on the DSI.
+>>
+>> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+>> ---
+>>   .../gpu/drm/panel/panel-startek-kd070fhfid015.c    | 25 +++++++++++++---------
+>>   1 file changed, 15 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c 
+>> b/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
+>> index c0c95355b7435..bc3c4038bf4f5 100644
+>> --- a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
+>> +++ b/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
+>> @@ -135,19 +135,9 @@ static int stk_panel_prepare(struct drm_panel *panel)
+>>       gpiod_set_value(stk->enable_gpio, 1);
+>>       mdelay(20);
+>>       gpiod_set_value(stk->reset_gpio, 1);
+>> -    mdelay(10);
+>> -    ret = stk_panel_init(stk);
+>> -    if (ret < 0)
+>> -        goto poweroff;
+> 
+> Also, you're moving both init and set_display_on to the enable callback...
+> this is suboptimal.
+> 
+> You should do the DrIC setup in .prepare() (can include SLEEP OUT), and then you
+> should have a .enable() callback that calls DISP ON, a .disable() callback that
+> calls DISP OFF, and .unprepare() that turns everything off.
+
+This is not what I understand from the pre_enable's definition above, and also
+the function call order by the framework. :)
+
+> 
+> Cheers,
+> Angelo
+> 
+>> -
+>> -    ret = stk_panel_on(stk);
+>> -    if (ret < 0)
+>> -        goto poweroff;
+>>       return 0;
+>> -poweroff:
+>> -    regulator_disable(stk->supplies[POWER].consumer);
+>>   iovccoff:
+>>       regulator_disable(stk->supplies[IOVCC].consumer);
+>>       gpiod_set_value(stk->reset_gpio, 0);
+>> @@ -156,6 +146,20 @@ static int stk_panel_prepare(struct drm_panel *panel)
+>>       return ret;
+>>   }
+>> +static int stk_panel_enable(struct drm_panel *panel)
+>> +{
+>> +    struct stk_panel *stk = to_stk_panel(panel);
+>> +    int ret;
+>> +
+>> +    ret = stk_panel_init(stk);
+>> +    if (ret < 0)
+>> +        return ret;
+>> +
+>> +    ret = stk_panel_on(stk);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>>   static const struct drm_display_mode default_mode = {
+>>           .clock = 163204,
+>>           .hdisplay = 1200,
+>> @@ -239,6 +243,7 @@ drm_panel_create_dsi_backlight(struct mipi_dsi_device *dsi)
+>>   }
+>>   static const struct drm_panel_funcs stk_panel_funcs = {
+>> +    .enable = stk_panel_enable,
+>>       .unprepare = stk_panel_unprepare,
+>>       .prepare = stk_panel_prepare,
+>>       .get_modes = stk_panel_get_modes,
+>>
+> 
+> 
+> 
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+Alexandre
 
