@@ -4,143 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9038AC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCAAC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5RvRkAKIVI9q9r+L/FzG/Y84uSgRTrWVxVq9ny+9Vaw=; b=dhuDbTV9rwcFGfCarulhB/5B1u
-	DL3rBARcykoG7QNTHPJpQR3sLuuK3hYqbMtZkrtQ9CAduTO+RVFwPfoWXlG+qJ9fkEV8GV9kIHpXM
-	747jGd9vCP4MB/kbkaS4nbCO0ltVlWguugFN1oVbSntWISqzokzvqcw9GgH0pI10KPFucql/bgPvT
-	rI3M0mw8528DhJAMfVxO26czPrWqvpbJZr+HRGF0rW8G7gXeUysEpY2TwE9RmupBvNYlWX4DAJ32U
-	LgXK6VLHnSEA5EG9/1GL1Udk9k0rjhh8PDFTdgfdAGSOAjLA+CoyEdI3yGEM1aEa8zkpmvhcnZn5B
-	aVETLleg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BJsB749pnTX72RwDRztsFQHu4pIA8A7ILSPDLgStd4o=; b=gqxoJMmJ7QgU1vN8qqwAODSZF5
+	KTNnQ/wdYoSJI0jLqdp++kPuCLN9UyYDxOtFQPFIL6NsOdJiRWe20Qgry04QQXZrArGNI9WzE2Z7a
+	QDSCxE0N0hGty6igEn0rdjWh/GofRW1HqZYAVVcbmNec5CAuuP+fnlPGb1tH4SUmyHA+lLdsBoiDx
+	CAZunclqTIc2DPNjhoT/xXwFPZzeTDWpDwvQznJL8Psbp7fqDZi9HgHPQ1TETaSjw8tak6aFoCwiC
+	C7ZRmroeAHSjDYkgTtksbuKQOlZaUpkazdVJ8OStXzjAZlVk6X9gerYsUAC+NzwWTF2I/2Kc079j6
+	oXwU4Wsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXei-0000000EFAh-39Hj;
-	Fri, 21 Mar 2025 08:23:04 +0000
-Received: from mail-vi1eur03on20601.outbound.protection.outlook.com ([2a01:111:f403:260c::601] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1tvXiL-0000000EFSF-2L7h;
+	Fri, 21 Mar 2025 08:26:49 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXYr-0000000EEQu-0RNE
+	id 1tvXge-0000000EFLL-0aCm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 08:17:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Uy7v2F5HjUvE7Z8N/1sqL+doHWCE1g3FVfApRzGhvDItl616cljjnLqB9imgxQFCoiplXLSPds8TPqeJ3CUZfWQkCguB2MkjqL+xlOdbjeUI5btN9RlIfWgBiZ5T5Cza8GiJ6yJ2nvtC1EaVppBDecL2XVyaKpWrMWhcyHmEa3tgjnEDKJDOiSwYb89hpWzrtYS018TT8Y8EIbvX8CmKWe0sTNgHirkX26P1TKrpA88BoX4P+bPn9AgA61E94vU/7o6ij8MsnAWrR9CS/QGiv3eftjmwTNFTbig5j50pTWf+ziEI3WvbbMHvdFAmpCuYa3d4nDpYWVCf0mGMuqiAGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5RvRkAKIVI9q9r+L/FzG/Y84uSgRTrWVxVq9ny+9Vaw=;
- b=BWoYCxLUnq74/KsUZuu0HXOT1159h8k6HdCvMcIDTwe6H2ptDHzGM0otTIvB8Vhoe1tvp3euzbc7Rj6s/fLobUYWgboSkfO6RpO5wNw3IKz0T+S5W2xhSXKBVctljMobz+nchbQDqrQNevJPXCLO3dU7++ErhBC/t0nZcPoHBkcPv3YbcoUeRtl8NXJ3uG8ohk1D5xea1G+8lg6su0VBAsmKjOLlMO8QAzxEJFAGZ4nEktTIj3fYKmC+Bqessa1/L08mhF80jlByXXeHgJxV9edgjkhlrPHimcYJ9kzZiitHNI+bli3/YllvdygPaHXlpYyUGVbSrtXQJjSFnyc5Wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5RvRkAKIVI9q9r+L/FzG/Y84uSgRTrWVxVq9ny+9Vaw=;
- b=H6GvZrsx/a4y59LZwKz4p8X57C9QTt5blysudE5CLnQwDQY2bwyU5ixnorsM+RI2U3DGql1tBS5hgCq58sTIpLkJd0ZDYo1kN5v6a+RT7/vd4BLLUCEHzh7LDEXDjWxCLw2B+n+6cF963XrEOD8cEs0j36KgxawG0RTMNgChtLK9E5FJtiz6i+mDWL85nsbU7HWxTDqD/8YC1M/ugBEEoBgcL2Y1wdP5Pgqh2lUNM00EMUggxpwp1/4G/C4Nhy0cRuqWLSZ2CvtQnk3YcOHJySbAK/wiRmHPNS5M4+Ax2UMe3i0Jq7COl3UN0gf+C3vBqCGv78xgi/zIttwu3GkHMQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
- by GV1PR04MB10559.eurprd04.prod.outlook.com (2603:10a6:150:20b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.35; Fri, 21 Mar
- 2025 08:16:52 +0000
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8534.036; Fri, 21 Mar 2025
- 08:16:52 +0000
-Date: Fri, 21 Mar 2025 10:16:49 +0200
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: linux@treblig.org
-Cc: stuyoder@gmail.com, christophe.leroy@csgroup.eu, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] bus: fsl-mc: Remove deadcode
-Message-ID: <jz2ci3idg7kabbfunyzklolsgc4d3yla2oatma7nxodfvgqnp6@2yzm3yti5ljz>
-References: <20241115152055.279732-1-linux@treblig.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241115152055.279732-1-linux@treblig.org>
-X-ClientProxiedBy: ZR0P278CA0093.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:23::8) To AS8PR04MB8868.eurprd04.prod.outlook.com
- (2603:10a6:20b:42f::6)
+	Fri, 21 Mar 2025 08:25:06 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52L7XAjn022991;
+	Fri, 21 Mar 2025 09:24:52 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	BJsB749pnTX72RwDRztsFQHu4pIA8A7ILSPDLgStd4o=; b=qw1wgFDZ4OU12BJK
+	sxhLItBYLieB0GN9SwtUcs6S5dUjLJcjecgsdOZBykhcsvhRQa5hMsrLWsJx4Cwe
+	pKXxuUYVLv5ldP8vmq+w2zYCkoAMPYPR2xNlsISpNyH+W2AHpIYTZBkAooVX2n0p
+	+QEb0UDtgMVM4hft1BcZGRDzdEMmzxq4wCgh8uVveCt+dpLpZ+ui0VBDy9Foqz/g
+	x3svWBaNPKP9mB0Qo4vWlz0sNHRwgdt+qJpW3d0JdzgE8kL0jC4uKKHiKnE4WalJ
+	uskPxqv9deihvesTAN6IekfwhenzbkYL2p+SbLzAVS2RuN0q2GrJsGkWl+Qlfn2p
+	mNbTmQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45h3tqr7g2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 21 Mar 2025 09:24:52 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4153E40068;
+	Fri, 21 Mar 2025 09:23:33 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id ABB387C6A8F;
+	Fri, 21 Mar 2025 09:22:31 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 21 Mar
+ 2025 09:22:31 +0100
+Received: from [10.48.86.121] (10.48.86.121) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 21 Mar
+ 2025 09:22:30 +0100
+Message-ID: <4eddc37b-5164-453a-9b7f-c4331a7d6243@foss.st.com>
+Date: Fri, 21 Mar 2025 09:22:30 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|GV1PR04MB10559:EE_
-X-MS-Office365-Filtering-Correlation-Id: beb0a90d-b38d-47ea-e0c8-08dd6850bc31
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?q2sChoWCG21wGRGAzMtMa5WAYObuGkIoHEUlb1LZ5rWZfkK95NKfA8zrQ3uB?=
- =?us-ascii?Q?wld+8m7AbBcFqciYf9lDIskys+lYbhb+AkUH+DjgUhRmMoAZJl5Bs0+TY7jX?=
- =?us-ascii?Q?WEecjb2bBDrPr2/n0gHrVAy09XPfH6Crp/Dib/9ZE2y/IHJyS6b7DBlnlxQx?=
- =?us-ascii?Q?srFn2B31eNf0vDJRWhgONHYPktKUQTlzhyvlnsdk4D90pfV8iLMQt/MO1KAR?=
- =?us-ascii?Q?FNUMJZbtgM4lFpYu4XnrbbgIC1vhhrfuaKJBILDHj3sx/YRwFUYJlohIJDVo?=
- =?us-ascii?Q?WW1LekaoRZOLudYRxMRc3RK//fnWWpYgEolDT8KKCsg7hcMNdSOdfNmAx63a?=
- =?us-ascii?Q?88BjocQf3zfg75sF6nrr9jyodoap2H8toO/hQ8aggpN+PItYF27ob+cGkGrb?=
- =?us-ascii?Q?fuYLfszev62w1kz79Lby42377gntV85Dbi4iB2LRlxpYQ6WewQJkKPspJcSt?=
- =?us-ascii?Q?ApoPX053xKhezd3JQ3gO95YZDUnXHI63fekAoWtFraA467c+EspLjzbyE3+z?=
- =?us-ascii?Q?Mh0Zv2NCVRC0THxc6mm6h7ICKI60Uq93GcCQgJqirU0QMkfXxujde9NzI9cz?=
- =?us-ascii?Q?HCjcAKnLgF+51shZTdnzhgd1vcT8a9ASpCRH5cbJ2NImcTxTzT1RPN+El35R?=
- =?us-ascii?Q?4OhYNfTkQh3GTmfnzDXr77iqj2X557hPNW2t6AuCORgq3axPoCSn1+Ds2048?=
- =?us-ascii?Q?AG+N/D+pfrHuqX5AwoX+9OHGMPQVoo1EE+mJ6lLycXB/yd5VOekYFV7HJNVB?=
- =?us-ascii?Q?ROTkWCLl1h6a5H5YjfrIy26EmEDQpNwXZ2Qey+4PdrmbeIek+iwlRd5YtKEm?=
- =?us-ascii?Q?VBTwLsRPJtvN7tpjVjsfAQa6/vU8UZHpbeZ+1BvqmJQ5SVCFX1TYjJuLEc0X?=
- =?us-ascii?Q?zRp6wKGoCkLtd4V3JSkI5MwT8/r6A18TwUx2T/TB+WwUcxB9eP+Gd7ZeM0Vg?=
- =?us-ascii?Q?Tt2Hle+XB/2ksv5Js/XExBzI0V6107/5MveP4zDWXpaAvdXrcoAjnPgR2NGS?=
- =?us-ascii?Q?78yV6VezwhdY2xAU4Ago3ZBooStVsVQuW4BiuCWzxAkf+lGpKtBcXc7STIdm?=
- =?us-ascii?Q?UAu0dHng8A97O4i0ch6en/XtnZnyMrb1/jvIlXMiAuQ6aCN/DaQH8e1gBgp8?=
- =?us-ascii?Q?LKI8MkauHAR//m8sG/peeC6XP7E8zfoP5fCmHQm6qB1UJjRzH3A6oS4DueF1?=
- =?us-ascii?Q?mfgLqn+G0BJF4e0nELSMdti48VdQ184JlEA16cAwE27eNB0Ly2vYvhtlbIR8?=
- =?us-ascii?Q?PuvVQny6VT87b0HC3muJcUpfWh965c5iQ4YQCbLFxsmIGZJhBTGs/9MnfDAn?=
- =?us-ascii?Q?IFRNjSsl0FEjn7YlpHEe19hJO9ccR69IOJ7U+8LtuDJIp4UfL1LLlN7VQmQe?=
- =?us-ascii?Q?frFPzrp5UoN4Ofk1O8G/SqmdxFAr?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+b8+wKxI89AYgzmg5GiK4HDQLZ0JB8d+iu5jxDmOvOT1yWECL1i9z0MUHrQv?=
- =?us-ascii?Q?8Qoufa+QF5JD5HcVuuPzwGquXTqLPOp56Z5ShMwVccQLhXlhMXJ4EGocbxjL?=
- =?us-ascii?Q?4Kk3PpWAnw2Rk6rls/gdZORD0TPqBVrOQrV2BlNGeaKLgG/ocHgoC/DIINmQ?=
- =?us-ascii?Q?YGJYyPCl9LvYwbMKYJUbbTLtPIX56D/YiPdc40ER2F7x/ZmHh1OMyOYqfLBN?=
- =?us-ascii?Q?TbpOAtTbS/6Cnlxjtv5F0Q7IjBfbMHuq/q6tzu8KZ1XyX7YppS/FC7Fro+Ac?=
- =?us-ascii?Q?O1kTaah89WoCvnDprO7oiM7zfgEjJ80wNdAGcUyP9d+vZr35RvXCTG/AfPv3?=
- =?us-ascii?Q?FIbLnl1F1BBgmBpTiFMdlX5AciP59GIlkSgOjksiB22lzlTw3t/O444w1kea?=
- =?us-ascii?Q?vTKvfvf8M4MPi7rdnOW7uIHtH+Zk3fntDrLpa7kUXgSst2DMZIoTt6s0XnFY?=
- =?us-ascii?Q?UyWS8bvVPKndJp9xlvKKcbSeQGlDe/A9R6D4G2/jHd3J81Q0q6isF+xV48Sd?=
- =?us-ascii?Q?XxdrcmnViHwsPELOSfAvCJeQ62VR9akiQ5/oIZtBFitwNEtMJMQ6+/BgI0L4?=
- =?us-ascii?Q?li5jVeuYKibW65LvtKDncC8R4cFezU7IrK1LwqLyvwke5JcmrlDqUsJqHv9f?=
- =?us-ascii?Q?OmmflqNIVkIpii+da0GccFEaBXWcp0qOfkISVtf5ttdscEYjru9PAJTCxxCp?=
- =?us-ascii?Q?He+Sezl1ts+dtBK/oRlVLYTpt9QfuOajtN70X9ilwwEyNMPZfNfuHlZ+S39t?=
- =?us-ascii?Q?R1DEDgMSthKUZTZi2FXsCIqSUAaBDk91MT6/HgxPMiXg/borySwSRs50BvPU?=
- =?us-ascii?Q?B1QtbCXw9mULHD/zZVxkDJDhDnIRVzk5iFkR7OzguE7b94Ve/nHExPrDW3io?=
- =?us-ascii?Q?3LfMou6bU0eZ3LO+TFaZC9uachegPZbAy//Gx2WfybdnvI0UVd+fG9RXN3Ha?=
- =?us-ascii?Q?N7sDjRh4/xCw2qTKCWXSpDLiruMMTtFqmLbzjH/mJjis2ZS1WPGzUQDmj0iy?=
- =?us-ascii?Q?SJEOJklJUNSxd0zJov6N9TKlCDzxznYpGZhoYuSEAcD6GBmcJasCgGVR2n2I?=
- =?us-ascii?Q?dpbSCcYRvn41iL/vVCtU7SZzekJCtGao2ZwW2mYa1pjSzOw2muhaTeDBnWJm?=
- =?us-ascii?Q?okAoTuVFELIvSZMYOKAImZJ091RX764QJRjy/71CISTdEQB0jI43cFL0Z9EY?=
- =?us-ascii?Q?AeYovNr/yYAgausmRi1MqEJ7hZsFFDKbMxkBTJuZNpcYcE98uTX4hJ906sOP?=
- =?us-ascii?Q?ojYXGtmB1V9H0oEz/rgd1ellShb8ZH/tFyTHsGX7IWanRChiAlrGcV/goItn?=
- =?us-ascii?Q?eMh97UmuVDSUErO44CRtcqbUg6SdnSSNQLH6GdqpczuVkXG3WGYcY0MjHJ/p?=
- =?us-ascii?Q?QRzapUIBOISMxLDY56KopCPSnn5Vjs6lsBz+8NThxZeY5QqrAm6FM4OuCbyJ?=
- =?us-ascii?Q?+UDyNVBRHwf0MWFojhK/9LuXdILvvkyYhUfGUGAw1hVuEy+lh6I9mS6MNlTy?=
- =?us-ascii?Q?lhfKkopAfBDpyTAlwVwjnzzAz0q4Sg4MQN61m8U3wDVbf3KlyUspt0ffNhVU?=
- =?us-ascii?Q?vAPplyBqQe+RtdVTVhkdsOoClJbv4EHgTAyUpSce?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: beb0a90d-b38d-47ea-e0c8-08dd6850bc31
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Mar 2025 08:16:52.2608
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0nS9q4i+KuC5L+oFDci5TKhVC25AiMbD8GkJMIcby1RXBl8gY9ciLaBhGvXycEDCPDh/yGSOTY8rJPR6AnykLw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10559
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH 3/3] remoteproc: Use
+ of_reserved_mem_region_* functions for "memory-region"
+To: Rob Herring <robh@kernel.org>
+CC: Saravana Kannan <saravanak@google.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        "Shawn
+ Guo" <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+        Fabio Estevam
+	<festevam@gmail.com>,
+        Patrice Chotard <patrice.chotard@foss.st.com>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+        <linux-arm-msm@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250317232426.952188-1-robh@kernel.org>
+ <20250317232426.952188-4-robh@kernel.org>
+ <26e72cb2-c355-4c40-bb98-fc0ff267bf4f@foss.st.com>
+ <CAL_Jsq+7ZhMWgbFDvPB+3BG7YfiS9PweybOGNY3r=d40RbGHJA@mail.gmail.com>
+ <130d61a8-6f03-46dc-94ca-f098bc09babc@foss.st.com>
+ <CAL_JsqJZkEpx26=ro_y8hHA2x1Zm6z_SFOQHjQ-WzUa-gy+s0w@mail.gmail.com>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Organization: STMicroelectronics
+In-Reply-To: <CAL_JsqJZkEpx26=ro_y8hHA2x1Zm6z_SFOQHjQ-WzUa-gy+s0w@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-21_03,2025-03-20_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_011701_151374_3AC1FB98 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250321_012504_800887_DA451840 
+X-CRM114-Status: GOOD (  33.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,27 +120,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 03:20:55PM +0000, linux@treblig.org wrote:
-> From: "Dr. David Alan Gilbert" <linux@treblig.org>
-> 
-> fsl_mc_allocator_driver_exit() was added explicitly by
-> commit 1e8ac83b6caf ("bus: fsl-mc: add fsl_mc_allocator cleanup function")
-> but was never used.
-> 
-> Remove it.
-> 
-> fsl_mc_portal_reset() was added in 2015 by
-> commit 197f4d6a4a00 ("staging: fsl-mc: fsl-mc object allocator driver")
-> but was never used.
-> 
-> Remove it.
-> 
-> fsl_mc_portal_reset() was the only caller of dpmcp_reset().
-> 
-> Remove it.
-> 
-> Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
 
-Acked-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 
+On 3/20/25 19:02, Rob Herring wrote:
+> On Thu, Mar 20, 2025 at 4:23 AM Arnaud POULIQUEN
+> <arnaud.pouliquen@foss.st.com> wrote:
+>>
+>>
+>>
+>> On 3/20/25 00:04, Rob Herring wrote:
+>>> On Wed, Mar 19, 2025 at 10:26 AM Arnaud POULIQUEN
+>>> <arnaud.pouliquen@foss.st.com> wrote:
+>>>>
+>>>> Hello Rob,
+>>>>
+>>>> On 3/18/25 00:24, Rob Herring (Arm) wrote:
+>>>>> Use the newly added of_reserved_mem_region_to_resource() and
+>>>>> of_reserved_mem_region_count() functions to handle "memory-region"
+>>>>> properties.
+>>>>>
+>>>>> The error handling is a bit different in some cases. Often
+>>>>> "memory-region" is optional, so failed lookup is not an error. But then
+>>>>> an error in of_reserved_mem_lookup() is treated as an error. However,
+>>>>> that distinction is not really important. Either the region is available
+>>>>> and usable or it is not. So now, it is just
+>>>>> of_reserved_mem_region_to_resource() which is checked for an error.
+>>>>>
+>>>>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>>>>> ---
+>>>>> For v6.16
+>>>>>
+>>>
+>>> [...]
+>>>
+>>>>> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+>>>>> index b02b36a3f515..9d2bd8904c49 100644
+>>>>> --- a/drivers/remoteproc/stm32_rproc.c
+>>>>> +++ b/drivers/remoteproc/stm32_rproc.c
+>>>>> @@ -213,52 +213,46 @@ static int stm32_rproc_prepare(struct rproc *rproc)
+>>>>>  {
+>>>>>       struct device *dev = rproc->dev.parent;
+>>>>>       struct device_node *np = dev->of_node;
+>>>>> -     struct of_phandle_iterator it;
+>>>>>       struct rproc_mem_entry *mem;
+>>>>> -     struct reserved_mem *rmem;
+>>>>>       u64 da;
+>>>>> -     int index = 0;
+>>>>> +     int index = 0, mr = 0;
+>>>>>
+>>>>>       /* Register associated reserved memory regions */
+>>>>> -     of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
+>>>>> -     while (of_phandle_iterator_next(&it) == 0) {
+>>>>> -             rmem = of_reserved_mem_lookup(it.node);
+>>>>> -             if (!rmem) {
+>>>>> -                     of_node_put(it.node);
+>>>>> -                     dev_err(dev, "unable to acquire memory-region\n");
+>>>>> -                     return -EINVAL;
+>>>>> -             }
+>>>>> +     while (1) {
+>>>>> +             struct resource res;
+>>>>> +             int ret;
+>>>>> +
+>>>>> +             ret = of_reserved_mem_region_to_resource(np, mr++, &res);
+>>>>> +             if (ret)
+>>>>> +                     return 0;
+>>>>>
+>>>>> -             if (stm32_rproc_pa_to_da(rproc, rmem->base, &da) < 0) {
+>>>>> -                     of_node_put(it.node);
+>>>>> -                     dev_err(dev, "memory region not valid %pa\n",
+>>>>> -                             &rmem->base);
+>>>>> +             if (stm32_rproc_pa_to_da(rproc, res.start, &da) < 0) {
+>>>>> +                     dev_err(dev, "memory region not valid %pR\n", &res);
+>>>>>                       return -EINVAL;
+>>>>>               }
+>>>>>
+>>>>>               /*  No need to map vdev buffer */
+>>>>> -             if (strcmp(it.node->name, "vdev0buffer")) {
+>>>>> +             if (strcmp(res.name, "vdev0buffer")) {
+>>>>
+>>>> I tested your patches
+>>>
+>>> Thank you.
+>>>
+>>>> The update introduces a regression here. The strcmp function never returns 0.
+>>>> Indeed, it.node->name stores the memory region label "vdev0buffer," while
+>>>> res.name stores the memory region name "vdev0buffer@10042000."
+>>>>
+>>>> Several remoteproc drivers may face the same issue as they embed similar code.
+>>>
+>>> Indeed. I confused myself because node 'name' is without the
+>>> unit-address, but this is using the full name. I've replaced the
+>>> strcmp's with strstarts() to address this. I've updated my branch with
+>>> the changes.
+>>
+>> This is not enough as the remoteproc core function rproc_find_carveout_by_name()
+>> also compares the memory names. With the following additional fix, it is working
+>> on my STM32MP15-DK board.
+>>
+>> @@ -309,11 +309,11 @@ rproc_find_carveout_by_name(struct rproc *rproc, const
+>> char *name, ...)
+>>         vsnprintf(_name, sizeof(_name), name, args);
+>>         va_end(args);
+>>
+>>         list_for_each_entry(carveout, &rproc->carveouts, node) {
+>>                 /* Compare carveout and requested names */
+>> -               if (!strcmp(carveout->name, _name)) {
+>> +               if (strstarts(carveout->name, _name)) {
+>>                         mem = carveout;
+>>                         break;
+>>                 }
+>>         }
+>>
+>> I just wonder if would not be more suitable to address this using the
+>> "memory-region-names" field.
+> 
+> That would be better as you shouldn't really care what a provider node
+> name is where-as "memory-region-names" is meaningful to the driver.
+> 
+>>
+>> The drawback is that we would break compatibility with legacy boards...
+> 
+> So not an option.
+
+> 
+> I think I'll have to fix this within the reserved mem code storing the
+> name or do something like the diff below. I'd like to avoid the
+> former. Using the original device_node.name is also problematic
+> because I want to get rid of it. We redundantly store the node name
+> with and without the unit-address. There's a lot of places like this
+> one where we hand out the pointer with no lifetime.
+> 
+> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+> index 1e949694d365..cdee87c6ffe0 100644
+> --- a/drivers/remoteproc/stm32_rproc.c
+> +++ b/drivers/remoteproc/stm32_rproc.c
+> @@ -239,7 +239,7 @@ static int stm32_rproc_prepare(struct rproc *rproc)
+>                                                    resource_size(&res), da,
+>                                                    stm32_rproc_mem_alloc,
+>                                                    stm32_rproc_mem_release,
+> -                                                  res.name);
+> +                                                  "%.*s",
+> strchrnul(res.name, '@') - res.name, res.name);
+> 
+>                         if (mem)
+>                                 rproc_coredump_add_segment(rproc, da,
+> @@ -249,7 +249,7 @@ static int stm32_rproc_prepare(struct rproc *rproc)
+>                         mem = rproc_of_resm_mem_entry_init(dev, index,
+>                                                            resource_size(&res),
+>                                                            res.start,
+> -                                                          res.name);
+> +                                                          "vdev0buffer");
+>                 }
+> 
+>                 if (!mem) {
+
+
+That's work on my side.
+Could we have an OF helper to retrieve the name from the full name?
+
+Thanks,
+Arnaud
 
