@@ -4,88 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C9AC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 15:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3969DC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 15:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0b1ZVK4FQBOKzIWDvZDBhV3e5RNA779GaFmuBBFBIPY=; b=EVtMZZBa/4fe2eviVkqV5FZHr/
-	EHzYUJyBt+4GjiKpYNZN75m80IEKJqNTVaJatajt/I2I8za6b+E0YzOAJCemddQAdFQEYY4I+lnAs
-	iN63a9ZHGAa7i7QkQc4pzA39jada9qMxC+RVc7/1s5IPw0c/w1xEcokPaXv9NEFMr93C/16lpNCPe
-	GpzCCOmGn9M9eR1WY0w9h58aPSv9MsG0kvG6umyNRJhVQ6sAgkqgVwNbf0d/tlewjBF/dXKNPhIIT
-	rsWrxWu+0cKPero+cGhQ/2kkjs06a2jnROcrD8lElsa06IV91FaCwRiXhcu3XEDLAiIU2NFm7pGVG
-	GlbibZHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ux4F23BCxaLPEfsCmjUqyx7Q4asr2VPcqp7oydcis7I=; b=SpQ3z8JAqng5FfU85gnzCulzT4
+	I/Qv/yxCZ8CcYLvmc5eZvzqpLxWPCu+8r2UpCJfiJCNqEJVJL3fnPXdfbPyuiEh91w79pp2miDAQI
+	RvIAXqDYUh48g1OaqUNaQdD8ccLoclJiIn3MM6BLGwrH50gIg1b6GjQtbWe6OfiZ0xt3xg//tno5O
+	RJKGp8TL2Xcx4D+9R2v2k12h0cwLgBxxDZ/tkLoNoRMml6DS3t7c8PTHbk6YNKGfr+38wOOs/7Lk1
+	zpDhoX+R+Kvavp0emWvB8qTGvKR6LNpsjNDWfNZVGD8jDHHnrYup6KWVA4MtPJmzupgZcrrXiLd5g
+	1zYjPCwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdwd-0000000FFJY-2VIS;
-	Fri, 21 Mar 2025 15:05:59 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tvdyI-0000000FFbz-28bQ;
+	Fri, 21 Mar 2025 15:07:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdn2-0000000FDUZ-3420
+	id 1tvdwE-0000000FFCo-3yoj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 14:56:06 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cf628cb14so20955795e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:56:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742568963; x=1743173763; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0b1ZVK4FQBOKzIWDvZDBhV3e5RNA779GaFmuBBFBIPY=;
-        b=JPP/fRj+XwxmL8QU/VnysqnhHivZRcR6bFaH7OyI9AO8+uI3BwKHm+VNyXTN7h/nox
-         Z01ME4o3PuS09smmSJ1wpRJ1Jm81H0A/7Zk/Biy60wA/4oIWtcIykMF4MJ9vQojnGfi3
-         RzZHZ1ngytgOHDzolaWnTbxdDVgQ5RhXQg2assbbRVA4ntCuaBy8Oydr0da/y9JhkOa5
-         JFjbQLeFWPzIs8I7tJv7V6yv8kLqbZTrbeJRgUfpmKxtD0BJOWg/sTkg6oiJEvfOo+X2
-         jZCb2v4PjhWFD3S3IAHRjhCYKqY5O5qSE5mKpWN3Zl+mkG2CvLKfFk0k9ebq5belmm3E
-         MS0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742568963; x=1743173763;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0b1ZVK4FQBOKzIWDvZDBhV3e5RNA779GaFmuBBFBIPY=;
-        b=H5a+rcNvbUiHm7Vl6PB+XsFrZOnqZBTindKx5GMXPzig6z0JegBhA5CYYdGpYtkaGy
-         vxyWDZkdC3//dCtej65v7+wRiMJBovQs6aL1e2zH3U5nboI5VWlxL4aaE2krgFQFhuzS
-         LnFlh7+2jju7uEGrrUgAO/ccJUX30rf2AJJWHzj/w2JjLiTz03/ScXCtJIhaCWq0Ri+G
-         dvyZGmSpUwAPvsQLmx/AOvgD1IvQhR25QizSBthK+3qd70+eOdLIRw++F8lSuvjk5gvj
-         FzZRV+BIyX1NaFuqZFYiz+jXGkHKcAOo5jNtX+mU6jK5ZgsXd+yF3wIlvBNwjE29GnLa
-         m2ew==
-X-Forwarded-Encrypted: i=1; AJvYcCVhSnFHnJT/Q2kECJRVfH9+S1GfWjkBk05vPhZxXu6Ezb0xoi7ns4FsLABY+xWjGdOfRQuimmKlQsT3odI6vH5h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2y36SxmxArGCeeKJZaNTCHzvbCNIZy0yS6dGB7vht+xxyyToE
-	WuSLvxz5iUdEIEZ7XDWam4NOVcY/n6Z7TCCVX7snoeizolPbPUnYc25+xQ==
-X-Gm-Gg: ASbGncseou3VUk6iinfFsOpC5oauOeMmbs9iuF3inZCEfklEyWcslhV8Ig/W3MzNdl9
-	YI2TBSSijw/1ocDDfJAEoU0qHWAO7Q58BKvDnSgEkIpQHr/g2V01oCGgOFAkXcbs9nRO0i5485Q
-	zlrFIQzMMRIy9NuwIO/OkDCFkSfMVM2Eoi/PEmto9N9Bj2MM3mabm5oL2cMFjzJAeG31Jh+usNf
-	a38PyqLJX+X8i3gwc4F1QePTcE5R78HpE5N7gflwj7Ll2gijl3ZRu0YO8mpDsMsR8HzuWGlDzNL
-	BUrHKOMl1RVA73JwVHzRuO6CPr7+pqT8McGnzZ5j4XmFQsYLC+R8zJfoVKLU14nrZ1pwODXKG7z
-	roq+swyh6LIHRSp0g14IG
-X-Google-Smtp-Source: AGHT+IGUoURGAWj8U3P960wJT/eiyLcta46A5WVi7nZH3W7YjqEoIAHw3UKw8FdD3W+LtY7DrmzUwA==
-X-Received: by 2002:a05:600c:cc:b0:43b:c592:7e16 with SMTP id 5b1f17b1804b1-43d4915e6bemr68811475e9.3.1742568962858;
-        Fri, 21 Mar 2025 07:56:02 -0700 (PDT)
-Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd28a46sm29217095e9.24.2025.03.21.07.56.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 07:56:02 -0700 (PDT)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/4] arm64: dts: exynos: add initial support for Samsung Galaxy S22+
-Date: Fri, 21 Mar 2025 16:55:52 +0200
-Message-ID: <20250321145556.1436201-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+	Fri, 21 Mar 2025 15:05:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F20F661161;
+	Fri, 21 Mar 2025 15:05:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC1BC4CEE3;
+	Fri, 21 Mar 2025 15:05:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742569534;
+	bh=PfOQ0FP+8YX/koHyI8Fcu+/q5N8sChby5arINuhCyWg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=JgBowR4OhM3a0EdNODoa+6b93RS5XJtcSRdUZsDIuf98P1S4gTZ2AzwV/JV6PuaMB
+	 BCU15njrWpKDVRGlkEPDaN+4IaovNoalpKI8l8npc64YUW3VrjSRSS8rcMZmo7RQ8n
+	 Dawu3V/UjI3SQuFhbkhKxTgsVwNTrM8g6m+RoIYQmaPt/+ag/TdokexHoYY/6l9JNL
+	 eukYKlLpWe/AqahYYIPMxhN4DF/uXkBNTjDemyowHEFLVroPq2VIxfrDBcRSZ96+3Z
+	 03lJQRVurqiqz0orKBk/NMTsHz7SVqlRusu7AKo1dtP4Kf83VvKvWkIWpfP9gPyGIC
+	 jDaSi2t4LGSfA==
+Date: Fri, 21 Mar 2025 10:05:32 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_075604_764719_4D25E287 
-X-CRM114-Status: GOOD (  19.38  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ patrick@stwcx.xyz, krzk+dt@kernel.org, joel@jms.id.au, 
+ Jason Hsu <jason-hsu@quantatw.com>, devicetree@vger.kernel.org, 
+ andrew@codeconstruct.com.au, yang.chen@quantatw.com, jerry.lin@quantatw.com, 
+ linux-kernel@vger.kernel.org, conor+dt@kernel.org
+To: Jason Hsu <jasonhell19@gmail.com>
+In-Reply-To: <20250321123731.1373596-1-jason-hsu@quantatw.com>
+References: <20250321123731.1373596-1-jason-hsu@quantatw.com>
+Message-Id: <174256796315.3336760.12396122805182974784.robh@kernel.org>
+Subject: Re: [PATCH v5 0/2] Add Meta(Facebook) Ventura BMC(AST2600)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,73 +71,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey folks,
 
-This patchset adds device tree files for Exynos 2200 and Samsung
-Galaxy S22+.
+On Fri, 21 Mar 2025 20:37:29 +0800, Jason Hsu wrote:
+> Add Linux device tree entry related to Meta(Facebook) Ventura specific
+> devices connected to BMC(AST2600) SoC.
+> 
+> ---
+> v1:
+>     1. Create ventura dts file.
+>     2. Add commit msg.
+>     3. Use format-patch to generate patch.
+>     4. Add subject prefixes matching the subsystem.
+> ---
+> v2:
+>     1. Modify email content.
+> ---
+> v3:
+>     1. Add mail list.
+> ---
+> v4:
+>     1. Apply git send-email --thread option.
+>     2. Sort nodes in the dts alphanumerically.
+> ---
+> v5:
+>     1. Run scripts/checkpatch.pl and fix reported warnings.
+>     2. Remove unnecessary 88E6393X CONFIG FRU.
+> ---
+> v6:
+>     1. Add a new stage for the DTS change.
+>     2. Run scripts/checkpatch.pl and fix reported error.
+>     3. Fix the issue in a separate patch.
+> ---
+> Signed-off-by: Jason-Hsu <jasonhell19@gmail.com>
+> 
+> Jason Hsu (2):
+>   dt-bindings: arm: aspeed: add Meta Ventura board
+>   ARM: dts: aspeed: ventura: add Meta Ventura BMC
+> 
+>  .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+>  arch/arm/boot/dts/aspeed/Makefile             |    1 +
+>  .../aspeed/aspeed-bmc-facebook-ventura.dts    | 1399 +++++++++++++++++
+>  3 files changed, 1401 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dts
+> 
+> 
+> base-commit: b3ee1e4609512dfff642a96b34d7e5dfcdc92d05
+> --
+> 2.34.1
+> 
+> 
+> 
 
-Exynos 2200 SoC is an ARMv8 mobile SoC found in the Samsung Galaxy S22
-(r0s), S22+ (g0s), S22 Ultra (b0s) Add minimal support for that SoC,
-including psci, pmu, chipid, architecture timer and mct, pinctrl,
-clocks and usb.
 
-The devices using this SoC suffer from an issue caused by the stock
-Samsung bootloader, as it doesn't configure CNTFRQ_EL0. Hence it's
-needed to hardcode the adequate frequency in the timer node,
-otherwise the kernel panics.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Another issue is that cpu2 and cpu3 fail to come up consistently, which
-leads to a hang later in the boot process. As A510 cores are clustered
-by two, it makes sense for both of these cpus to fail if there is a
-power issue. Disable them until the problem is figured out.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Samsung Galaxy S22+ (SM-S906B), codenamed g0s, is a mobile phone from
-2022. It features 8GB RAM, 128/256GB UFS 3.1, Exynos 2200 SoC and a
-1080x2340 Dynamic AMOLED display.
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-Further platform support will be added over time.
+  pip3 install dtschema --upgrade
 
-I expect [1], [2] and [3] to be merged in next before this patchset
-because it depends on the aforementioned series for drivers and device
-tree bindings.
 
-Best regards,
-Ivaylo
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250321123731.1373596-1-jason-hsu@quantatw.com:
 
-Changes in v3:
-- account for the usbdrd changes in the exynos2200 soc dtsi
-- drop usbcon driver from the MAINTAINERS patch
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/video@1e700000: failed to match any schema with compatible: ['aspeed,ast2600-video-engine']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c256d4i.dtb: /ahb/apb/pwm-tacho-controller@1e786000: failed to match any schema with compatible: ['aspeed,ast2500-pwm-tacho']
 
-Changes in v2:
-- mention the board codename in the first patch's commit message
-- make all reg values hex in device trees
-- reorder usb_con above usb_dwc3
-- drop regulators for usb_con
-- remodel usb_con_phy to take usb_hsphy phandle
-- include MAINTAINERS patch in this patchset
 
-[1] https://lore.kernel.org/all/20250321135854.1431375-1-ivo.ivanov.ivanov1@gmail.com/
-[2] https://lore.kernel.org/all/20250215123922.163630-1-ivo.ivanov.ivanov1@gmail.com/
-[3] https://lore.kernel.org/all/20250321144804.1435502-1-ivo.ivanov.ivanov1@gmail.com/
 
-Ivaylo Ivanov (4):
-  dt-bindings: arm: samsung: document g0s board binding
-  arm64: dts: exynos: add initial support for exynos2200 SoC
-  arm64: dts: exynos: add initial support for Samsung Galaxy S22+
-  MAINTAINERS: add entry for Samsung Exynos2200 SoC
 
- .../bindings/arm/samsung/samsung-boards.yaml  |    6 +
- MAINTAINERS                                   |   10 +
- arch/arm64/boot/dts/exynos/Makefile           |    1 +
- arch/arm64/boot/dts/exynos/exynos2200-g0s.dts |  175 ++
- .../boot/dts/exynos/exynos2200-pinctrl.dtsi   | 1765 +++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos2200.dtsi    |  561 ++++++
- 6 files changed, 2518 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-g0s.dts
- create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
- create mode 100644 arch/arm64/boot/dts/exynos/exynos2200.dtsi
-
--- 
-2.43.0
 
 
