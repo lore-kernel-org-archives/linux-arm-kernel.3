@@ -4,114 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DDDC35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D5FC35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KcDWjw4tYTqgGDKhBHJ68UBVwNp1GORoqUH3SN3YlYI=; b=A1pSKoHKzaYNoIfQukNBdlQuKV
-	mWfXAiO9P2+65HqEWCL4Bq9sULQQ/NaMEwieHHyy9VfT/vFc2ra1+bgIpIGpk+i+ERNyNFriiB5ae
-	puyESKOvyww49CEnkvP6TMHMjUpYaVGZyDZ2FbR9krVHZSdnOWhXxi2jCDLPrriJ9qoYkjq9xaUOa
-	m3lbMhgVYInSdgadTMS9dE1jMXowCq0c+yQAWNqNZSGYgR3KYjHhXq69lVUlSO54Flds6ig8Y6SLl
-	lstSLt92H2VBzEQ9FQghutzZ5Ys1mWJymR+235W9ULO8E07l8wU/3myp40W7tgK8SmNFFsV9nRkqN
-	shdi5qeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XRZ+XSjQ/3l77gzAWIABboWpdWXlzKhZWMQiOVr6X2o=; b=jCwEBHWy8qJFsuuVRAihXg9co0
+	BXTE4UT9tU8FeBpJH+h4WXOitvCdUUIhPn/1TdAB5yZo/W6AUB25xUPEYeVKbn6zl00HwBBSqSbYG
+	+HB0C7XGqtLIa9fSzIzmJ6xLtoHk2mO/WsJR+3Qp5H84nzlAOfssi8cfrnD3gWgQyPISRQkiUTBAu
+	YPUCsrxf8c6o51J+ob9aTu/Cm7xWfW5fYKn+msvkVIlpSu6b2fffrw2JMEJCKa8QDnRfw2NrNBf5p
+	EOqiLWSC7xbj3bY34BhhNDHeaqjqOBfasbZ/k2MfcdjD1IHpY3DbWYWjarOPnek7ZaNNDXtVW94Wj
+	nJKzWuYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZmp-0000000EYF0-39wP;
-	Fri, 21 Mar 2025 10:39:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tvZoU-0000000EYgs-17uT;
+	Fri, 21 Mar 2025 10:41:18 +0000
+Received: from mail-psaapc01on20723.outbound.protection.outlook.com ([2a01:111:f403:200e::723] helo=APC01-PSA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZNn-0000000EUV0-2yEU
+	id 1tvZfm-0000000EX5p-2FKu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 10:13:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 050215C6D84;
-	Fri, 21 Mar 2025 10:11:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E42FC4CEE3;
-	Fri, 21 Mar 2025 10:13:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742552022;
-	bh=EZbtgEk7SZ4G91a9vc2hXnQO8qphCCfomxCtIP1nLmU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=et/KB8+msgdT4aalzipN1WP21vPP3jMJwBlYdfjieZDC04KudFQqZUbEjoBh0RC5q
-	 a2HM9q/DVJm3f8xzdch5J247VVzzbodEsWJZ8RjEhnXAVswcmbqEXjyRyakcpnLT+W
-	 dZPXY5H/K/DHfPb+1PR/Ce5pwKMH9q3RHeG2/Dv09/gq07RMUVduJgRuz+aSm8oR2i
-	 yJwg7zFlv91fszYH7tqjjsNmN/YyOmM9tWa8xjZdfGUMXooi59rwkAsPPG8L+SAOQ8
-	 o2/d2Ff9erqvBTZxlp46gcF+bDhvZYVc/3xQOuZeo/2iEC9IHIgNQFZUNySN3eJmeQ
-	 5YQRSU1vpnL7A==
-Message-ID: <688c619d-0e20-496a-ae24-d62ab34f93ab@kernel.org>
-Date: Fri, 21 Mar 2025 11:13:33 +0100
+	Fri, 21 Mar 2025 10:32:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eOx4OBIeQ1I8BK3adF3d2SDS5ip3zK/mCf8WEHnaB+9A8N2rnXNBB8yEhGO0nRNByoV9rdEpIXY3UhBGpc8Udp/xQJarB6XkSSf6U/6eWqIhAcUAlohGUE5QySAXd6iz04N88FsDRXtZkMANfeWgre9eNE/ObX9oewv0Cio+IOt5p3ODLvD4x7QPLr2iR0QM2vwmI/tQt4lKsNhIKnkahqtHXCo9zakKc7dM7AroVsGYGCKN/u60WlFcTx+KkegvpvaBzK8ibGOjVyduE0fGvhyzDAV0ViPsRmqpiGsXbkGf7ct+Rh6HCwYUJNhZzWYq2mfkdZiLpFe/gMfUqjl6PA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XRZ+XSjQ/3l77gzAWIABboWpdWXlzKhZWMQiOVr6X2o=;
+ b=LXi4WD3XNiCnnsoRuPANFXjO/OASAEL9+Q4f6fkedm1ZpQzaxlIPWYdUIhV5LPRJwSLMxO/IZNWu820QGjmZK4lkia3A1lgK0Ildmg/ynuhH2v5My2YNpDDnG0NvS77yufE/YMw5n4M7kR9/s7z5dQDNq+AkZB3tNoD1VqGRC+UbaTJr5FSx8GVJrtFRMkVE3c/NPdyRROOf5hiJFREGV549X21WGZj7O8DT+lG3m2z23HND/Z9O31DEwJ10gd8UtPu5h2WHRBkZEsOrTtZ11fFhY+bm2wJH84ba52d6BGWJMCY8osLw++SFW3iUc5SBcM8sUWqYhtFqG0r404BgHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR06CA0006.apcprd06.prod.outlook.com (2603:1096:4:186::19)
+ by TYSPR06MB6361.apcprd06.prod.outlook.com (2603:1096:400:42d::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.34; Fri, 21 Mar
+ 2025 10:32:02 +0000
+Received: from SG2PEPF000B66CF.apcprd03.prod.outlook.com
+ (2603:1096:4:186:cafe::c3) by SI2PR06CA0006.outlook.office365.com
+ (2603:1096:4:186::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.36 via Frontend Transport; Fri,
+ 21 Mar 2025 10:32:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CF.mail.protection.outlook.com (10.167.240.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Fri, 21 Mar 2025 10:32:01 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 66FCF4160CA2;
+	Fri, 21 Mar 2025 18:32:00 +0800 (CST)
+Date: Fri, 21 Mar 2025 18:31:55 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+	marcin@juszkiewicz.com.pl,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: Re: [PATCH v4 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts
+ support
+Message-ID: <Z91AG0lH1JNN7NHq@nchen-desktop>
+References: <20250305053823.2048217-1-peter.chen@cixtech.com>
+ <20250305053823.2048217-6-peter.chen@cixtech.com>
+ <86frj8m4be.wl-maz@kernel.org>
+ <Z9vmeTj68LmwinPD@nchen-desktop>
+ <86bjtun4an.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] spi: dt-bindings: st,stm32mp25-ospi: Make "resets" a
- required property
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- christophe.kerello@foss.st.com, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250321-upstream_ospi_required_resets-v1-0-9aa4702e3ae2@foss.st.com>
- <20250321-upstream_ospi_required_resets-v1-1-9aa4702e3ae2@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250321-upstream_ospi_required_resets-v1-1-9aa4702e3ae2@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86bjtun4an.wl-maz@kernel.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CF:EE_|TYSPR06MB6361:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d733ee3-3e14-45c1-a9e9-08dd68639db2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HzjbeHE+DvtnOWAClnRLrKqGY2d+jgvnME/FU9irD7Arf4Pgz+jQuQKiVNeb?=
+ =?us-ascii?Q?HQdLTkC7M6A6a8Ot95d3iJ/xuEKJbpeIQTkUPFyROGDIr6RZlgfbEvIA4/Oc?=
+ =?us-ascii?Q?VyXFXHNebkceR5RIttiYWQW3qrRueUZ+EHdp+je5R/rShNGakQCxpstNM92L?=
+ =?us-ascii?Q?2q+LP1Xeo2sqdN3Azdg67wg6qv352AoYk7/9YtnydEcTXXicqVpkkQD5/lJr?=
+ =?us-ascii?Q?uYObdhxOcNNr/8EgrHbLv6SVzOTfcpXeFUAV0svL3mu+Ngea1aKImoKoXvtK?=
+ =?us-ascii?Q?5UDMg3auWLxczSMNj0iXW/uHu1bQfTwC1ibsG136qNMGTxKfhqrGczxcnCKd?=
+ =?us-ascii?Q?xtcQbmy0nxe3anoKk1ZEgWqv0h8fae+mhoIi6mhoCC8fNOMfj7nj+INGBGoq?=
+ =?us-ascii?Q?cjD9mM8btXob6Nsk2wZYdwbvBSd7XI4z+nyFQzyJbCCvRXJnBveOU/7oZCtj?=
+ =?us-ascii?Q?OEUk6+yLF9pgb2C9sG7xk7UdCqoYjuZXRlccNi7qk0P9to98izadFI0CWTnV?=
+ =?us-ascii?Q?CcQHEx60RmoIFo9WFr9VompkLwMXWqJKgmNq5i32hgmqpuDFJjjH0uZESu6Q?=
+ =?us-ascii?Q?D1A9ewHjyk5WTSA0st6qGsvqHLa+aYXxbZueDQjRnxUt17N2jtO6eeUzn4tn?=
+ =?us-ascii?Q?sw72TsS+JIe4JGPP6Tc0N3aCAvxxYHZHbmShocnSY3sgnBqnJYnx7t4HL5Od?=
+ =?us-ascii?Q?aMmbANLcBej3OeyYbFTW722ldvMIgzAVyMT0vknaeedE+6zb4hEHs/3HOuxf?=
+ =?us-ascii?Q?X1pxgZpZHONHbHuYHLB/OTbonKl5qqsiEIUdO1KpMdcO/0+sw1VmO7mA8SK0?=
+ =?us-ascii?Q?BNQ/WN9xQhxaP8/mvtKBk+u62Bfnuuq4Tb5sOQ4DUT16XK7klC3wP5+u3yB8?=
+ =?us-ascii?Q?cWTPI4eJQFVEqs9bd5BdQsB1g3yhrMsBF2l0A8SR7BlOtzk1S7nyK0bXlXOb?=
+ =?us-ascii?Q?AychQdF6Wg0ivW5Al2fxpeVcv+2zAFq8+/YaQS92sKkp1qdJJvL4onTrac1i?=
+ =?us-ascii?Q?KbM5QK/nwBk2qpwRiVmsSjHP5OhfrHeOUY1KY+0tkG1wSD70e0/HFVwcYDnA?=
+ =?us-ascii?Q?Wm743bxawiSt+nqaDl8CVnQqj2A5365I/3TjCHsV3ObEPc8oz2r9cQd4adTl?=
+ =?us-ascii?Q?szGjH4fBX/Wm5TGaK0/lvktXvuIjKf5TV3oCrYYYqFQpmqCPs5MiBlFBO3hr?=
+ =?us-ascii?Q?be4kVuBMEmG+X7z+1z3cvXF63LYUsmrHHR85n+aqIEFWVl/jleEycOdGSzSC?=
+ =?us-ascii?Q?TnYnxfiaTHse8036k88zZsZVuJCJwPz9rQeh1nyNWuq48JaYoBoZHLiM5u2f?=
+ =?us-ascii?Q?dzFowVzq/e+07A/91GPnl7dhfvdtylfH9YOBouT22XU8NqGbE4zfxp0rcupk?=
+ =?us-ascii?Q?hIBcKD71lzM9hNkSKI2Re7T208HYcodeReRnQWxZTEOR2FYFVfllgdei05mO?=
+ =?us-ascii?Q?5G0HqIixEAStcDtlk2fckq6fh1YeN/hpUckp1+C5SzYPjTkmrAdL7Yb13lC0?=
+ =?us-ascii?Q?esIZy192tXYd/bc=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Mar 2025 10:32:01.1386
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d733ee3-3e14-45c1-a9e9-08dd68639db2
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CF.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6361
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_031343_863887_D81AA38D 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250321_033218_577360_FF667EC1 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,20 +144,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/03/2025 10:44, Patrice Chotard wrote:
-> Make "resets" a required property.
-
-Please explain why. This is technically an ABI break, so you please
-provide explanation what sort of issue is being fixed.
-
+On 25-03-21 09:04:00, Marc Zyngier wrote:
+> > On 25-03-20 09:36:37, Marc Zyngier wrote:
+> > > Peter Chen <peter.chen@cixtech.com> wrote:
+> > > >
+> > > > +     pmu-a520 {
+> > > > +             compatible = "arm,cortex-a520-pmu";
+> > > > +             interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition0>;
+> > > > +     };
+> > > > +
+> > > > +     pmu-a720 {
+> > > > +             compatible = "arm,cortex-a720-pmu";
+> > > > +             interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition1>;
+> > > > +     };
+> > > > +
+> > > > +     pmu-spe {
+> > > > +             compatible = "arm,statistical-profiling-extension-v1";
+> > > > +             interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_LOW 0>;
+> > > > +     };
+> > >
+> > > SPE should follow the same model as the PMU, as each CPU has its own
+> > > SPE implementation, exposing different micro-architectural details.
+> > >
+> >
+> > Hi Marc,
+> >
+> > Thanks for your reply. But there is only one compatible string
+> > "statistical-profiling-extension-v1" at drivers/perf/arm_spe_pmu.c,
+> > how could differentiate pmu-spe-a720 and pmu-spe-a520, do I need
+> > to change arm_spe_pmu.c as well?
 > 
-> Fixes: bed97e35786a ("dt-bindings: spi: Add STM32 OSPI controller")
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> ---
->  Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> I don't think there is a need to have different compatible. The driver
+> can probe which CPU this is on, and work out the implemented
+> subfeatures from the PMSIDR_EL1 register. New compatible strings are
+> better avoided when there is a way to probe/discover the HW (and in
+> most cases, there is).
+> 
+> Note that this equally applies to TRBE, which also explicitly deals
+> with interrupt partitioning and yet only has a single compatible.
+> Please consider adding TRBE support when you repost this series.
+> 
 
+Hi Marc,
+
+Thanks for your comment, we need to discuss it internally. Since it
+is very initial dts support for CIX sky1 SoC, I will delete pmu-spe
+support at this time, and add better support for it when adding
+more components next time.
+
+-- 
 
 Best regards,
-Krzysztof
+Peter
 
