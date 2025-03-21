@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86D4C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FB9C3600A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Eb1BEiAFxII1zhOSg9DeCQQ4Y+bPXdF5eBe8UOsuPVs=; b=YPagX3JRA32u14lSTRnLr7xazO
-	S2VCPpmNospaAxJo5Q4692XqNIV0wX562IkLrMCbJuAie0PivM5ckE35Z1RjgdhqPmqkoUZK/qV6j
-	lQv0JeuBvlNep4ZvtR15KOBvFDsx9Yyi4D81idFw949MzTi+huOxJ1MkunCCHh4L0nJ1PPohp1bgD
-	7jimCkd3NTVTCWEYZQafa30dB3as/LEDGemadc41/zqFTLfjfGMYdtjLa7UNH5XnAVviIrKzD5VHt
-	xdiuUMkDPUoK/XD6rGxqNt71zCOiXqNj+Yl+6viSyww25EIl0mQo1iTU8nnJAi0BRoGPu2/RBLgYK
-	fNcYJsAA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tbl1bzwd72WBMUHQVUL0sGP9LINKYez4xzgILWcrQd0=; b=MjV9hgFjY2yu4AJEKxOnWaBjqY
+	vk80JprfLW0FPmkEQb1DuPPhNZDKHv8YkDlgkclesAXjLXZCXJ7UytAgrDUwaglBeXVAH0ottve48
+	FuPIrE7Mm2JCJW/KI38d9feZT6ekbgwaz2W5H7EBg87W5eRbOv88m509uFmqqAD9grPotewQXmzZ0
+	X8KbYULocxeQpkt2ff6LbKROZYvgaE8e7m9qyC23uSmd92n7DBIRRLGUKGti2BPpJ99zLEx9uYpQT
+	qn5im9xyAQjdk9PkaN45zTDupe1VZ3aNJJuQcU8bsLO33ENBLCYH8KAu4MnRSzCWb3wYKj0zqqEzF
+	akGA44zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tviyx-0000000GAIR-46LZ;
-	Fri, 21 Mar 2025 20:28:43 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tviz0-0000000GAKM-1Ii6;
+	Fri, 21 Mar 2025 20:28:46 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvie2-0000000G7Ry-40Jb
+	id 1tvie9-0000000G7Tb-1gjU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 20:07:08 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 46DC610206773;
-	Fri, 21 Mar 2025 21:07:02 +0100 (CET)
+	Fri, 21 Mar 2025 20:07:14 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 46EF310206773;
+	Fri, 21 Mar 2025 21:07:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742587624; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=Eb1BEiAFxII1zhOSg9DeCQQ4Y+bPXdF5eBe8UOsuPVs=;
-	b=AgToCSSKKYGUb2qujDBiiU0HotwJSAM4SPBu9VhEBf50yG917ZMsA1xgJy0s/ULiJVzRHQ
-	Yv6CGGw+fPvIDtSg8YwtXR1qYQon3ZG1mdKFSsCBxI5ZCCzkmLbO8UDVxl+R907vC4+S/n
-	+LcludsrLo1vr9/7d5FlGMh4PXr4t/40DrMnOQcsVlSsrlyyOE39byxrAWnC93aJ9HR4h3
-	9k8ru63MfSefMUimVYUBBZk6mMzr7bOFWBO2loKiMNbE1jvzdjQJ39/w2IlcO93l3DmJxT
-	z2P9oSH4gh6hrMiyE0i1Rwf1P0ZN1kV/QTtkFjHwSJqPgQm2q9+yvEX4FAXKog==
+	t=1742587631; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=tbl1bzwd72WBMUHQVUL0sGP9LINKYez4xzgILWcrQd0=;
+	b=Ujh3YbJpP0w6d7Vq3HH9Q30e9e0u1qTMHdtq9Vyg79Vb6a4W2PuiLeQJ7PDrgp0QIRoBYn
+	hqoNE1AGZ3HPtUgaGbGXHzJM/LZfXFqVRQPSMH59yZurKeJQ1p6ClZGURG8can0C36aQJi
+	I4VyO8rBrbPYSAUPosCoJ6rKTRmxtzGi15XRyfEUG0Kkwg11l8BFjTEFkzmD8xz3gy7TVN
+	Mg8/V70meiqDVRvhoSsIaqmF75S4kjGVipBKH9b7w5wG0DxyqzhYVW0o5NX/a0eNa1iXIr
+	pMfEogdxrjt6VOXYT6rEpn2rq/svVdni5lsfJbddgnL0lsXE9Yw6UfoPhbXqFA==
 From: Marek Vasut <marex@denx.de>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@denx.de>,
@@ -60,16 +61,18 @@ Cc: Marek Vasut <marex@denx.de>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev
-Subject: [PATCH v2 0/9] arm64: dts: imx95: Add support for Mali G310 GPU
-Date: Fri, 21 Mar 2025 21:05:50 +0100
-Message-ID: <20250321200625.132494-1-marex@denx.de>
+Subject: [PATCH v2 4/9] drm/panthor: Implement optional reset
+Date: Fri, 21 Mar 2025 21:05:54 +0100
+Message-ID: <20250321200625.132494-5-marex@denx.de>
 X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250321200625.132494-1-marex@denx.de>
+References: <20250321200625.132494-1-marex@denx.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_130707_134015_C9806E63 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250321_130713_731193_813ACD60 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +87,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The instance of the GPU populated in i.MX95 is the G310.
-Add support for the GPUMIX reset via simple-reset driver,
-add reset and multiple power domains support into panthor
-GPU driver, add iMX95 GPU support into panthor driver and
-describe the iMX95 GPU in imx95.dtsi DT.
+The instance of the GPU populated in Freescale i.MX95 does require
+release from reset by writing into a single GPUMIX block controller
+GPURESET register bit 0. Implement support for one optional reset.
 
-Marek Vasut (9):
-  dt-bindings: reset: imx95-gpu-blk-ctrl: Document Freescale i.MX95 GPU
-    reset
-  reset: simple: Add support for Freescale i.MX95 GPU reset
-  dt-bindings: gpu: mali-valhall-csf: Document optional reset
-  drm/panthor: Implement optional reset
-  drm/panthor: Implement support for multiple power domains
-  drm/panthor: Reset GPU after L2 cache power off
-  dt-bindings: gpu: mali-valhall-csf: Document i.MX95 support
-  drm/panthor: Add i.MX95 support
-  arm64: dts: imx95: Describe Mali G310 GPU
-
- .../bindings/gpu/arm,mali-valhall-csf.yaml    | 12 +++
- .../reset/nxp,imx95-gpu-blk-ctrl.yaml         | 49 ++++++++++++
- arch/arm64/boot/dts/freescale/imx95.dtsi      | 58 ++++++++++++++
- drivers/gpu/drm/panthor/panthor_device.c      | 75 +++++++++++++++++++
- drivers/gpu/drm/panthor/panthor_device.h      |  8 ++
- drivers/gpu/drm/panthor/panthor_drv.c         |  1 +
- drivers/gpu/drm/panthor/panthor_gpu.c         | 12 +--
- drivers/reset/Kconfig                         |  8 ++
- drivers/reset/reset-simple.c                  |  9 +++
- 9 files changed, 227 insertions(+), 5 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/reset/nxp,imx95-gpu-blk-ctrl.yaml
-
+Signed-off-by: Marek Vasut <marex@denx.de>
 ---
 Cc: Boris Brezillon <boris.brezillon@collabora.com>
 Cc: Conor Dooley <conor+dt@kernel.org>
@@ -136,7 +114,89 @@ Cc: devicetree@vger.kernel.org
 Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
+---
+V2: Drop the select RESET_SIMPLE from Kconfig
+---
+ drivers/gpu/drm/panthor/panthor_device.c | 23 +++++++++++++++++++++++
+ drivers/gpu/drm/panthor/panthor_device.h |  3 +++
+ 2 files changed, 26 insertions(+)
 
+diff --git a/drivers/gpu/drm/panthor/panthor_device.c b/drivers/gpu/drm/panthor/panthor_device.c
+index a9da1d1eeb707..51ee9cae94504 100644
+--- a/drivers/gpu/drm/panthor/panthor_device.c
++++ b/drivers/gpu/drm/panthor/panthor_device.c
+@@ -64,6 +64,17 @@ static int panthor_clk_init(struct panthor_device *ptdev)
+ 	return 0;
+ }
+ 
++static int panthor_reset_init(struct panthor_device *ptdev)
++{
++	ptdev->resets = devm_reset_control_get_optional_exclusive_deasserted(ptdev->base.dev, NULL);
++	if (IS_ERR(ptdev->resets))
++		return dev_err_probe(ptdev->base.dev,
++				     PTR_ERR(ptdev->resets),
++				     "get reset failed");
++
++	return 0;
++}
++
+ void panthor_device_unplug(struct panthor_device *ptdev)
+ {
+ 	/* This function can be called from two different path: the reset work
+@@ -217,6 +228,10 @@ int panthor_device_init(struct panthor_device *ptdev)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = panthor_reset_init(ptdev);
++	if (ret)
++		return ret;
++
+ 	ret = panthor_devfreq_init(ptdev);
+ 	if (ret)
+ 		return ret;
+@@ -470,6 +485,10 @@ int panthor_device_resume(struct device *dev)
+ 	if (ret)
+ 		goto err_disable_stacks_clk;
+ 
++	ret = reset_control_deassert(ptdev->resets);
++	if (ret)
++		goto err_disable_coregroup_clk;
++
+ 	panthor_devfreq_resume(ptdev);
+ 
+ 	if (panthor_device_is_initialized(ptdev) &&
+@@ -512,6 +531,9 @@ int panthor_device_resume(struct device *dev)
+ 
+ err_suspend_devfreq:
+ 	panthor_devfreq_suspend(ptdev);
++	reset_control_assert(ptdev->resets);
++
++err_disable_coregroup_clk:
+ 	clk_disable_unprepare(ptdev->clks.coregroup);
+ 
+ err_disable_stacks_clk:
+@@ -563,6 +585,7 @@ int panthor_device_suspend(struct device *dev)
+ 
+ 	panthor_devfreq_suspend(ptdev);
+ 
++	reset_control_assert(ptdev->resets);
+ 	clk_disable_unprepare(ptdev->clks.coregroup);
+ 	clk_disable_unprepare(ptdev->clks.stacks);
+ 	clk_disable_unprepare(ptdev->clks.core);
+diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/panthor/panthor_device.h
+index da6574021664b..fea3a05778e2e 100644
+--- a/drivers/gpu/drm/panthor/panthor_device.h
++++ b/drivers/gpu/drm/panthor/panthor_device.h
+@@ -111,6 +111,9 @@ struct panthor_device {
+ 		struct clk *coregroup;
+ 	} clks;
+ 
++	/** @resets: GPU reset. */
++	struct reset_control *resets;
++
+ 	/** @coherent: True if the CPU/GPU are memory coherent. */
+ 	bool coherent;
+ 
 -- 
 2.47.2
 
