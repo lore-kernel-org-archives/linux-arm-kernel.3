@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC919C35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C37C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 10:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nTSF2h1OnKkWH6HxXI+MAWBmqT+Sba+o9eR7NLazAxQ=; b=TxQ+rAJKi5SjbpZUOvGPITdfBn
-	GGYbsQ/f71P4ddz3O7ha4w8v7CSlSUg4TWjuIbZffPBuclyd7IxSSEID9A1A7RzXJn7h79PzV45nN
-	sLFSErProWaErmhdupKij43uRVSTq3cZc2dTa/0DUtmh++75wVmn381OoKODLC6K+LJNBt9PzQMCw
-	/YKP1gpJYfSyi3DJQ10VwMd8hUXulKj1QyvPk6qBkXcMM/jjwminmRo6Kqc2ezkglpdUB3agsP/9J
-	Iv9ZHLW+FkRs2Uv32LA9qGo6eZvQ3YJ8jDEBG9WEzQVS+6c043zEtHCKjlDhL5fkkrAb14FZR5b+c
-	tnK0x3zw==;
+	bh=gpI2ZDWuq3G6Uk5QSQZYNIovPpchlt6ElQHUEbJygfM=; b=TpIcYMoEY9QY/2pX4WWNtOgPE6
+	ziObjj1Q4/q2ThiHLNSpOHaaCsVBYm+VUP3zVmR9BIAhK40UUV/lL/zmKvyNc6PhuPYWRhi8xkRdw
+	GOorKljOGomgWyEennVKdCKFDMWWhLTvD+gI2OTY4rSk7ExwvQFpqyYA9ND6ZN1YJlKjMEoZku45j
+	/I3HkSA9ZT/S2MM/jRcaKThgh0dCHgHAn5opqyFArBVqQchgpJprenSiLI0Qn8mTGKXCeCHhjXny4
+	La7ijR/lJypn9clWco6STX8z5/IYBW0MNiBMhH1BiUhiyw/6tM8BTnboazfIsQA25joVDP/c5WCF/
+	HvbjSEHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZPe-0000000EUlQ-0Svr;
-	Fri, 21 Mar 2025 10:15:38 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tvZRJ-0000000EUvN-0p1r;
+	Fri, 21 Mar 2025 10:17:21 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYnA-0000000ENrn-0HdU;
-	Fri, 21 Mar 2025 09:35:53 +0000
-X-UUID: ddd5453c063711f083f2a1c9db70dae0-20250321
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=nTSF2h1OnKkWH6HxXI+MAWBmqT+Sba+o9eR7NLazAxQ=;
-	b=iEB9WbCeYL6P1EJc5g2hv7I81QWbv7jW5Dkkp3N32cFa9GDMIvUTGFavsru9MydlntnH0bLYyR7lAx6F0B+5uJEPXfTT+EcwXrMfox0eNKpsRnip+BuGytUOPqnm/jF250F0Nl5O+ffl67WeEYGEMZvxbOtz1JfRw8q40HJei7U=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:9ea30809-172f-46de-b65d-ce4265ed38fd,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:ce18664a-a527-43d8-8af6-bc8b32d9f5e9,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: ddd5453c063711f083f2a1c9db70dae0-20250321
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <paul-pl.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 177964738; Fri, 21 Mar 2025 02:35:46 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 21 Mar 2025 17:35:43 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 21 Mar 2025 17:35:43 +0800
-From: paul-pl.chen <paul-pl.chen@mediatek.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
-CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
-	<jason-jh.lin@mediatek.com>, <nancy.lin@mediatek.com>,
-	<singo.chang@mediatek.com>, <xiandong.wang@mediatek.com>,
-	<sirius.wang@mediatek.com>, <paul-pl.chen@mediatek.com>,
-	<sunny.shen@mediatek.com>, <fshao@chromium.org>, <treapking@chromium.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v2 15/15] drm/mediatek: Add support for MT8196 multiple mmsys
-Date: Fri, 21 Mar 2025 17:33:44 +0800
-Message-ID: <20250321093435.94835-16-paul-pl.chen@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250321093435.94835-1-paul-pl.chen@mediatek.com>
-References: <20250321093435.94835-1-paul-pl.chen@mediatek.com>
+	id 1tvYo5-0000000EO7y-315t
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 09:36:51 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5240764f7c1so758216e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 02:36:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742549807; x=1743154607;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gpI2ZDWuq3G6Uk5QSQZYNIovPpchlt6ElQHUEbJygfM=;
+        b=W6Vlc8kzfCUnw4bzRtZlycdoaaI46zqjeAeqkcF40JNBv0CKShdxv//d75PbP8IGyV
+         xu/sM58qEpcm1TNVHyylxZRGzFvYeNLZHOOrXCvM2XWJGSDzy2s6unHN3CftR0x66+u5
+         yrB2s3h3o9EFHe55JvWGItjk1+SmJAMfWjnrf4e9C+eOshPH1FidhtczL5vIrXSEJ8Zb
+         71Fnwev2nR8NHoLZvP/3fnd+j/IOHzY7qwaM0OiYeHXkb/xG0Tel9fe99T6IERB0pqeE
+         0Z+PoqJIM0r1jpjIyYGPw/NH01K8cQiJ/npwh5bZZnJBdvsiI5qv4E9cWmptGxCccgZE
+         CaiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUBNTQskfRLoTnZOsDWCCPY0IMEz1gXRxa2bYs24CkyMSyvaMZ4s5M/5g9JS9/bJL2cbyoS9WyR9Htu8dndVXVy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3Cf5U9FI6yF0Gm2MI/3RNPHVhrD0hO23/bL0eesohZJEbQRYp
+	KiXU/kwqJchpFHM1QjEFP8X2lv8/tPMoSFhE8tSl5vg+WbwxunEmM0auIg9J
+X-Gm-Gg: ASbGncs8AnQVorhP8OPtIesl2E32x8uIhICuBTpRWLazCD5Z0jzw09TeZOyHwnVUBqA
+	tdjkBRGFAWb5wxzpR6JLF0YPZd9LuNx7wSr85mYtMaR7cLOb3VbWwEmJcXh5pW7dECPDt19pMFC
+	zCbSgC8OnzluGIbI6J/o9BIvezjfmsMNT7A+B45fXiNfq89w40vWTd5D9C0waHb+HLD6yGeAQld
+	5RI9W9AYtyhYz8w1oEpg/wjd48CHTrGFJCJvDiZTaodOA/naSQJDJFaSC3DI4QB71g3j4MKt30U
+	+0thaowwBIkPizbEhtoOSm9Q7Z8Lpmxuq4f3XHwIKa/yq/WnWNrj/RRBshyPBNwLpxLkT53pFZv
+	FqqZ2f6g=
+X-Google-Smtp-Source: AGHT+IFBjfVeBnC0RDyiEbcz9/wR4Coi6I5NXV69ArJCWLJ7P0cMyNCGMt4sML6M4MFSrJqfVbtxsg==
+X-Received: by 2002:a05:6102:b11:b0:4bd:3519:44be with SMTP id ada2fe7eead31-4c50d4fd8f2mr1582183137.15.1742549806979;
+        Fri, 21 Mar 2025 02:36:46 -0700 (PDT)
+Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com. [209.85.222.41])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-86f9f4553d7sm324860241.21.2025.03.21.02.36.46
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Mar 2025 02:36:46 -0700 (PDT)
+Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-86718c2c3b9so773809241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 02:36:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW42vz4mnH0ssHEIkF0eKyPfSolkwa1qwQ/ZmvWtK/oFSH32sqsrqEcE3pmeyHeftx6HZ8YndIiEYYjCMspnfk3@lists.infradead.org
+X-Received: by 2002:a05:6102:54a4:b0:4c1:8b8e:e9f7 with SMTP id
+ ada2fe7eead31-4c50d4b370emr1929888137.8.1742549805933; Fri, 21 Mar 2025
+ 02:36:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <202503211029.DnQpqsJs-lkp@intel.com> <927105f8-4aa8-4579-ac2e-bce4bce12b1e@app.fastmail.com>
+In-Reply-To: <927105f8-4aa8-4579-ac2e-bce4bce12b1e@app.fastmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 21 Mar 2025 10:36:34 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUeynpmUUmZPViEBttANFmEhpjFn0wqNc1wQB6wRbd0rQ@mail.gmail.com>
+X-Gm-Features: AQ5f1JqEvbttQ-lKLZf8npFjdUhrt-aqV_OwYka3KjE3DchYx8eW7jqUyLFbARM
+Message-ID: <CAMuHMdUeynpmUUmZPViEBttANFmEhpjFn0wqNc1wQB6wRbd0rQ@mail.gmail.com>
+Subject: Re: [soc:soc/drivers 20/24] ERROR: modpost: "__ffsdi2"
+ [drivers/platform/cznic/turris-omnia-mcu.ko] undefined!
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: kernel test robot <lkp@intel.com>, =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>, 
+	oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	arm <arm@kernel.org>, linux-sh@vger.kernel.org, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_023552_109828_3279BC15 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250321_023649_756137_A6CEAE58 
+X-CRM114-Status: GOOD (  29.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,168 +97,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nancy Lin <nancy.lin@mediatek.com>
+Hi Arnd,
 
-Add code to support MT8196 SOC Multi MMSYS Driver
+On Fri, 21 Mar 2025 at 09:41, Arnd Bergmann <arnd@arndb.de> wrote:
+> On Fri, Mar 21, 2025, at 03:41, kernel test robot wrote:
+> > First bad commit (maybe != root cause):
+> >
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git
+> > soc/drivers
+> > head:   ba8755ab541fc629948233125db870d4dbf00a75
+> > commit: ee7f8ed72990f28657b5bf598e695fcf4633f4ed [20/24] platform:
+> > cznic: turris-omnia-mcu: Refactor requesting MCU interrupt
+> > config: sh-allmodconfig
+> > (https://download.01.org/0day-ci/archive/20250321/202503211029.DnQpqsJs-lkp@intel.com/config)
+> > compiler: sh4-linux-gcc (GCC) 14.2.0
+> > reproduce (this is a W=1 build):
+> > (https://download.01.org/0day-ci/archive/20250321/202503211029.DnQpqsJs-lkp@intel.com/reproduce)
+> >
+> > If you fix the issue in a separate patch/commit (i.e. not just a new
+> > version of
+> > the same patch/commit), kindly add following tags
+> > | Reported-by: kernel test robot <lkp@intel.com>
+> > | Closes:
+> > https://lore.kernel.org/oe-kbuild-all/202503211029.DnQpqsJs-lkp@intel.com/
+> >
+> > All errors (new ones prefixed by >>, old ones prefixed by <<):
+> >
+> > ERROR: modpost: "__delay" [drivers/net/mdio/mdio-cavium.ko] undefined!
 
-Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
-Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
----
- drivers/gpu/drm/mediatek/mtk_drm_drv.c | 119 ++++++++++++++++++++++++-
- 1 file changed, 115 insertions(+), 4 deletions(-)
+Bug in driver (must not use __delay() directly).
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index b9c6a2a657ea..70a7e6d06d4f 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -193,6 +193,10 @@ static const struct mtk_drm_route mt8188_mtk_ddp_main_routes[] = {
- 	{0, DDP_COMPONENT_DSI0},
- };
- 
-+static const struct mtk_drm_route mt8196_mtk_ddp_routes[] = {
-+	{2, DDP_COMPONENT_DSI0},
-+};
-+
- static const unsigned int mt8192_mtk_ddp_main[] = {
- 	DDP_COMPONENT_OVL0,
- 	DDP_COMPONENT_OVL_2L0,
-@@ -231,6 +235,50 @@ static const unsigned int mt8195_mtk_ddp_ext[] = {
- 	DDP_COMPONENT_DP_INTF1,
- };
- 
-+static const unsigned int mt8196_mtk_ddp_ovl0_main[] = {
-+	DDP_COMPONENT_DRM_OVLSYS_ADAPTOR0,
-+	DDP_COMPONENT_OVL0_DLO_ASYNC5,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_disp0_main[] = {
-+	DDP_COMPONENT_DLI_ASYNC0,
-+	DDP_COMPONENT_DLO_ASYNC1,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_disp1_main[] = {
-+	DDP_COMPONENT_DLI_ASYNC21,
-+	DDP_COMPONENT_DVO0,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_ovl0_ext[] = {
-+	DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1,
-+	DDP_COMPONENT_OVL0_DLO_ASYNC6,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_disp0_ext[] = {
-+	DDP_COMPONENT_DLI_ASYNC1,
-+	DDP_COMPONENT_DLO_ASYNC2,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_disp1_ext[] = {
-+	DDP_COMPONENT_DLI_ASYNC22,
-+	DDP_COMPONENT_DP_INTF0,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_ovl1_third[] = {
-+	DDP_COMPONENT_DRM_OVLSYS_ADAPTOR2,
-+	DDP_COMPONENT_OVL1_DLO_ASYNC5,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_disp0_third[] = {
-+	DDP_COMPONENT_DLI_ASYNC8,
-+	DDP_COMPONENT_DLO_ASYNC3,
-+};
-+
-+static const unsigned int mt8196_mtk_ddp_disp1_third[] = {
-+	DDP_COMPONENT_DLI_ASYNC23,
-+};
-+
- static const struct mtk_mmsys_driver_data mt2701_mmsys_driver_data = {
- 	.main_path = mt2701_mtk_ddp_main,
- 	.main_len = ARRAY_SIZE(mt2701_mtk_ddp_main),
-@@ -327,8 +375,65 @@ static const struct mtk_mmsys_driver_data mt8195_vdosys1_driver_data = {
- 	.min_height = 1,
- };
- 
--static const struct mtk_mmsys_driver_data mt8365_mmsys_driver_data = {
--	.mmsys_dev_num = 1,
-+static const struct mtk_mmsys_driver_data mt8196_dispsys0_driver_data = {
-+	.main_path = mt8196_mtk_ddp_disp0_main,
-+	.main_len = ARRAY_SIZE(mt8196_mtk_ddp_disp0_main),
-+	.main_order = 1,
-+	.ext_path = mt8196_mtk_ddp_disp0_ext,
-+	.ext_len = ARRAY_SIZE(mt8196_mtk_ddp_disp0_ext),
-+	.ext_order = 1,
-+	.third_path = mt8196_mtk_ddp_disp0_third,
-+	.third_len = ARRAY_SIZE(mt8196_mtk_ddp_disp0_third),
-+	.third_order = 1,
-+	.mmsys_id = DISPSYS0,
-+	.mmsys_dev_num = 4,
-+	.max_width = 8191,
-+	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
-+	.min_height = 1,
-+};
-+
-+static const struct mtk_mmsys_driver_data mt8196_dispsys1_driver_data = {
-+	.main_path = mt8196_mtk_ddp_disp1_main,
-+	.main_len = ARRAY_SIZE(mt8196_mtk_ddp_disp1_main),
-+	.main_order = 2,
-+	.ext_path = mt8196_mtk_ddp_disp1_ext,
-+	.ext_len = ARRAY_SIZE(mt8196_mtk_ddp_disp1_ext),
-+	.ext_order = 2,
-+	.third_path = mt8196_mtk_ddp_disp1_third,
-+	.third_len = ARRAY_SIZE(mt8196_mtk_ddp_disp1_third),
-+	.conn_routes = mt8196_mtk_ddp_routes,
-+	.num_conn_routes = ARRAY_SIZE(mt8196_mtk_ddp_routes),
-+	.third_order = 2,
-+	.mmsys_id = DISPSYS1,
-+	.mmsys_dev_num = 4,
-+	.max_width = 8191,
-+	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
-+	.min_height = 1,
-+};
-+
-+static const struct mtk_mmsys_driver_data mt8196_ovlsys0_driver_data = {
-+	.main_path = mt8196_mtk_ddp_ovl0_main,
-+	.main_len = ARRAY_SIZE(mt8196_mtk_ddp_ovl0_main),
-+	.main_order = 0,
-+	.ext_path = mt8196_mtk_ddp_ovl0_ext,
-+	.ext_len = ARRAY_SIZE(mt8196_mtk_ddp_ovl0_ext),
-+	.ext_order = 0,
-+	.mmsys_id = OVLSYS0,
-+	.mmsys_dev_num = 4,
-+	.max_width = 8191,
-+	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
-+	.min_height = 1,
-+};
-+
-+static const struct mtk_mmsys_driver_data mt8196_ovlsys1_driver_data = {
-+	.third_path = mt8196_mtk_ddp_ovl1_third,
-+	.third_len = ARRAY_SIZE(mt8196_mtk_ddp_ovl1_third),
-+	.third_order = 0,
-+	.mmsys_id = OVLSYS1,
-+	.mmsys_dev_num = 4,
-+	.max_width = 8191,
-+	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
-+	.min_height = 1,
- };
- 
- static const struct of_device_id mtk_drm_of_ids[] = {
-@@ -358,8 +463,14 @@ static const struct of_device_id mtk_drm_of_ids[] = {
- 	  .data = &mt8195_vdosys0_driver_data},
- 	{ .compatible = "mediatek,mt8195-vdosys1",
- 	  .data = &mt8195_vdosys1_driver_data},
--	{ .compatible = "mediatek,mt8365-mmsys",
--	  .data = &mt8365_mmsys_driver_data},
-+	{ .compatible = "mediatek,mt8196-dispsys0",
-+	  .data = &mt8196_dispsys0_driver_data},
-+	{ .compatible = "mediatek,mt8196-dispsys1",
-+	  .data = &mt8196_dispsys1_driver_data},
-+	{ .compatible = "mediatek,mt8196-ovlsys0",
-+	  .data = &mt8196_ovlsys0_driver_data},
-+	{ .compatible = "mediatek,mt8196-ovlsys1",
-+	  .data = &mt8196_ovlsys1_driver_data},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, mtk_drm_of_ids);
+> > ERROR: modpost: "devm_of_clk_add_hw_provider"
+> > [drivers/media/i2c/tc358746.ko] undefined!
+> > ERROR: modpost: "devm_clk_hw_register" [drivers/media/i2c/tc358746.ko]
+> > undefined!
+> > ERROR: modpost: "of_clk_hw_simple_get" [drivers/media/i2c/tc358746.ko]
+> > undefined!
+
+Missing dependencies for driver.
+
+> >>> ERROR: modpost: "__ffsdi2" [drivers/platform/cznic/turris-omnia-mcu.ko] undefined!
+>
+> This comes from __bf_shf(spec) in omnia_mcu_request_irq().
+>
+> As far as I can tell, this is not your problem but in the
+> SH architecture missing one of the libgcc functions that are
+> called by gcc.
+>
+> Since this is only for compile-testing sh allmodconfig, and
+> that is already broken because of other bugs, I'm not going
+> to care either.
+>
+> Adding the linux-sh list to Cc, it would be nice to get a clean
+> build again. All four problems should be trivial to address,
+> and some of these have been broken for many years.
+
+So one SH-specific issue to fix...
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.45.2
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
