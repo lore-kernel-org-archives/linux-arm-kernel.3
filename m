@@ -4,84 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96745C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 01:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8239CC35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 01:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9HZK/FjsgxH8rgQz5UdjpktKxGwid5B9t/SURmUdS6A=; b=qVNxBWVYAAyKlbEjmvgxu4q/QG
-	IWApmuqlE1ssc+JUtwpIhnF0B//d9pADkCOoDkUhx20LeG+TgWcwdwr1fKILpNpsIJB5HG4fU6Vvs
-	S5QSzbo8kP4xml7pVIxuVVfR60h5bbdfKrgW4YLgfoxsgIT3qIea6akv9aX5N00M3DFcFKPZ8R5nl
-	q6gx+GL720cmG2GyqsIBAsuo/w2V2bW5NHKYjwXGzcBRQBe0WAatd5YBSKN3NsAHKzm/l60U2NQoA
-	boV4TTGhX22l0NUHy2wtrrLcJaEdTCi8X6SHBjIaOuzgaDrh8rdU1ZkgxOiPB6s9YkIKhSZ+NbgIt
-	9NTi8Z9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bfONhRl9345mCoz2uzNlqfXAYwqJdwHiegxkU3p1npg=; b=l3/2zOQeov+0x5dQXXd9Yen/2r
+	yhME3l+QCSkP52RGTZXlCeS6+yRqOcWwr9ly98ZKKtuKX5Ury7qxpFZX+Q7mijB0fJ7l/9NLPrdAo
+	xgJ8XxDv130uPIYMbj94Bzm5av+as0Zi8iH9o4MPD93eaGXHK3neWdxWQg9WA9g7+aml9/ALTzhA0
+	/mEgUy/XPMrfjJrajOF5n6axo1E88Ngfzfriu719pbQ0cXEfh4ow4xsVlMaNiEcW+kmlekt+vrXHN
+	wkO26OOMSkOkWzWp9etihdw1qwgwkrHQSlITTUQVsx2RcxaPXSp0hCU01NinYYZEQ3L1fCj90nrJJ
+	hMLrabyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvR5X-0000000DdRJ-1adG;
-	Fri, 21 Mar 2025 01:22:19 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1tvROf-0000000DePm-3Fje;
+	Fri, 21 Mar 2025 01:42:05 +0000
+Received: from mail-psaapc01on20722.outbound.protection.outlook.com ([2a01:111:f403:200e::722] helo=APC01-PSA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvR3p-0000000DdLB-3jdm;
-	Fri, 21 Mar 2025 01:20:35 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5dccaaca646so2694851a12.0;
-        Thu, 20 Mar 2025 18:20:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742520032; x=1743124832; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9HZK/FjsgxH8rgQz5UdjpktKxGwid5B9t/SURmUdS6A=;
-        b=CD35lpHA/pfRCkWln8y/v8jPvLCTnsVJP6ZJqYDcJJqKGjKf9M5MFyCE31iArFyPcl
-         cS9vMeg2aDCN25i+jIc75ZDPp3NHYi5GIeOFRm0OfUmGRAizj2WsTtXx22ZOIjafVmLr
-         mC1UxsE9tlVOLQX+eDR6HzRPPPMoLAAUli41o+FU/JWmrCcMDPzUheUUYUUknGaTcKgp
-         e/QZqvZNgulMa5pz1kqweJR96mA23+vjOg68Xi62EfRTF7vMjXb7t3RnX9F8UVksQ+0s
-         lvysuna6Da/YoJT172zOQfG6Mfkdet+btFOp8+D1BAraCjVSS0vC66gmMd9md4R0zl1e
-         9omA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742520032; x=1743124832;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9HZK/FjsgxH8rgQz5UdjpktKxGwid5B9t/SURmUdS6A=;
-        b=V6f/ZLYh6LX1KiB0KZdhenHaRqOV7AEHinkhzmjldNRo98qpIwKWP3jgKUkQPfWE1j
-         m+fsc/t7/t8PEJ6dCsbK5G5ucOH9GDq4Mfpsqz8YHEMhudx2RmBn074RCY68z+8/Tl6g
-         y9npY8VCKUBlDPqef2EOzUTAhZZdEks5eFv7q1Onz2eqxKxvDT/22aIANcale9KDbgse
-         Bk5dKrKl3CiUNn9syKhQRekJnO+GWyd7CWEGTyllqf3I5jwi5VI1CYQ72ems62tT+9/2
-         307KQ1bwDvVFW8QhFLvOuN6ysRn+73X8m+Ow0FmKJerJj4vtr3yDtJM3J+0BbRfmvmJQ
-         35bw==
-X-Forwarded-Encrypted: i=1; AJvYcCUyql3e58dM5wiyQq8RctIg7eIhruOvX2u1kZPSbYyxUcG9AJRakY9WBpzqNHq2QIrw11SdSxtrRL3MokmtOFLW@lists.infradead.org, AJvYcCXM+4EjjsSbQI+ACHNGi3H8MwFHMrjR1Mwj+L3JPuhuRpjBgd0EsHp6V4Y3chKyVKL5dtCvcabSsfIo4+437a0=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw3fwUu2+ENFWwDq9MBRM/2duk4FyTbP9s0J5cgFwQhQGb4QM/
-	Q0Q9m69VOjmvXQZ/3zki6/3zM8yZmZieeNXaV5Y6pPimhmZiPU4xSLUg9NwbDejugkg4IJgvJa7
-	fUfgV9ZQQ0Oot9xPltWAFxP+of68=
-X-Gm-Gg: ASbGnctRXre6op0DqKgHJ1pGlgQ9UUaHz9layCgAVKMjOSku3dTyl/lkBtcmOgriYFg
-	Rn4mohzrGCtoS7g92H4XadhQEwS/L/vYlH4VBdJMHetaf+8wJfBM2t89wcotWUH96us3XjTWYDI
-	fFDPgW2KyaaJHHCINBAcPje8eDe6QBk56Ttp1PFhoJu69H7+m4zWu/e2iyAoY=
-X-Google-Smtp-Source: AGHT+IGIE1+moUJxAvVppTaWNdlItcrjKuGQPgygcTy+VdcsvgnoPSCeR+4j8NRkAklH93BWzVlDqMTDcRKMNKFlmI8=
-X-Received: by 2002:a05:6402:2793:b0:5e5:3c1b:c0ff with SMTP id
- 4fb4d7f45d1cf-5ebcce07a08mr1613441a12.13.1742520031566; Thu, 20 Mar 2025
- 18:20:31 -0700 (PDT)
+	id 1tvRMx-0000000DeGr-1Yyb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 01:40:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZXvoKfP2LoyPqfbE/f7Qy+4rDnYaduI+obOc3cTa7uqlaxusgg9qdsSaB5rYynE8wx4Qwo/81b83XX/ppcMEpqtLYGd97PQUDVkycrD5yzPyQVNo2rszMJkTH9chg4cGCbu0HE4UATWiC/mbE1ygNu7xm/LLxrD19bJxQ6qYNksvv7Hl7BNlx2GnsG0EdukeiOpNYk2fZG+Q1HiSGvp0lPxBE1F2YuvEQ2CjoFRqCUP+oNVwg+5XHlXrJtjbSY1cCyuK7OeSL7pBTndri6vDXEWRPwANwn0KC65kWCYe+I2/GPSw3n4CZEqhI7qi607krTCNRF5kI5oJSe0dASp9MQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bfONhRl9345mCoz2uzNlqfXAYwqJdwHiegxkU3p1npg=;
+ b=l1ihq3JS98+xqkiWKkYWRgwFfA+bwQXFLTghE6Rxmq3N4mQzfhj8bgUPk2cwAGylTbaA6mDRPQxXUfrZSZLuX7yHikFpAQTMJ/Fs/JMbFzxTgzYPiCiQ5VHfnYqU8enM7i1xYt5FJlZAmMVUqi4+MnjmC48dPi0H6UvGVS2XLXZke6eHOruGO5wcmPCIxOX0FfqiEECfqC+EdstwMIGJS19s7ik6Ep6H+ul6g69vmx45YiTp0yU3BJAeLGomSOgrLiUBnQsQptZSAJ3nP21l0Bti3Fsv3mBtxq1Ff55OGeYwp/kIT2bm6wyRr9/9Va2EH3J+Qy2AgKccLBsOatqp0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR01CA0039.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::16) by SEZPR06MB6350.apcprd06.prod.outlook.com
+ (2603:1096:101:133::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.36; Fri, 21 Mar
+ 2025 01:40:08 +0000
+Received: from SG2PEPF000B66CB.apcprd03.prod.outlook.com
+ (2603:1096:4:193:cafe::64) by SI2PR01CA0039.outlook.office365.com
+ (2603:1096:4:193::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.36 via Frontend Transport; Fri,
+ 21 Mar 2025 01:40:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CB.mail.protection.outlook.com (10.167.240.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Fri, 21 Mar 2025 01:40:07 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8C2DA4160CAB;
+	Fri, 21 Mar 2025 09:40:05 +0800 (CST)
+Date: Fri, 21 Mar 2025 09:40:00 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: Kajetan Puchalski <kajetan.puchalski@arm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <arnd@arndb.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<cix-kernel-upstream@cixtech.com>, <marcin@juszkiewicz.com.pl>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: Re: [PATCH v4 6/6] MAINTAINERS: Add CIX SoC maintainer entry
+Message-ID: <Z9zDcMRVqAcJW8H7@nchen-desktop>
+References: <20250305053823.2048217-1-peter.chen@cixtech.com>
+ <20250305053823.2048217-7-peter.chen@cixtech.com>
+ <7419360a-abc0-44cf-8d55-8f5fad8e9079@kernel.org>
+ <Z9vyy7f5NOPyzUES@nchen-desktop>
+ <zsmeh4ukuspyetowryqi3blcquxlua5wzy5ibgy7lupryr5txx@74ic6drtremv>
 MIME-Version: 1.0
-References: <20250315204852.1247992-1-CFSworks@gmail.com> <e1cdc3a39b9201cb115b12b559899aee@manjaro.org>
-In-Reply-To: <e1cdc3a39b9201cb115b12b559899aee@manjaro.org>
-From: Sam Edwards <cfsworks@gmail.com>
-Date: Thu, 20 Mar 2025 18:20:20 -0700
-X-Gm-Features: AQ5f1JrZ70w76EeL0x7DU0tc9VlG6Hcd3TPBcx3Yd7HL18hR7dxsfjuAIY08JdU
-Message-ID: <CAH5Ym4hqkMMBsT7XEz_f+TCng+0X2m0nV_Kdr-LAPBqgENgr5A@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Allow Turing RK1 cooling fan to
- spin down
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Daniel_Kukie=C5=82a?= <daniel@kukiela.pl>, 
-	Sven Rademakers <sven.rademakers@gmail.com>, Joshua Riek <jjriek@verizon.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <zsmeh4ukuspyetowryqi3blcquxlua5wzy5ibgy7lupryr5txx@74ic6drtremv>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CB:EE_|SEZPR06MB6350:EE_
+X-MS-Office365-Filtering-Correlation-Id: f623761c-c481-4a90-338f-08dd68194f8a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7aRcFhbSjQnYAC/a1TARIu1YRnLz8P9G8NibTldr96ZwEMF+fANqmd+Lfkgx?=
+ =?us-ascii?Q?axctD4v8ibzB9LDScnX0SypB+ZrMNxhvyazJGZRcTB+RmYNzLl+5nYJV3FK1?=
+ =?us-ascii?Q?7nvLtFFR68B+PCH41oWA5psbmInIZOGnatC6Jm1P+1LFg4yunVw2CcSi8FQi?=
+ =?us-ascii?Q?Rm0AU14CM3QhMFLVKgef4x33c4NVrnl0IGDMGscvbxGSfKKS7o6rY56KB92R?=
+ =?us-ascii?Q?Enax1HXjYQqRFGaZvVc18/EQmfNcOIFpfhbCMJ4hv4NSzeZz1m+lcj+M1B/R?=
+ =?us-ascii?Q?fGP/n6JTIyUMs8jRmvEQlrJu4ITBhHp0o9KwkeyzbWFtzA/owIGkhUtBphyy?=
+ =?us-ascii?Q?q/sNDUJpqg4tzErsnMOclTwMVCaJOP4WF7NtWg5aGXB6IrDa068qOhhrOzMR?=
+ =?us-ascii?Q?zl/vgeH9o3aeiWc6k12XKoTS6FfMhXfk1PRSRsiJGK4MsRh2OekhLQl6CbU9?=
+ =?us-ascii?Q?FIQc9vnbXVW0jmBMFbD1pXoBcSt4AE+IzHVFL7ThXz+a/JpYnSy94OZKD+5T?=
+ =?us-ascii?Q?9u/4AN56BusFu/sQ7AaWt/2swiOD4Xi20jkEl5aceBuU52AotVRe222Daorr?=
+ =?us-ascii?Q?1HxX2FEUyLJdIyURDRpkNkI8SLzwr1zTRZiOEclrofqH05HGoDKvX+V3eQoa?=
+ =?us-ascii?Q?CWK4MCPm/VpAxi32bHNLjQ5vtYfJS7oux+vGvnC2ncn+UX2nxsELXifTiZzp?=
+ =?us-ascii?Q?Tb9fZ9fAfRbfk4phX24dwn3mGaoIQWm7ShwKiHBczcVTDP/OgSEmjZr504Ze?=
+ =?us-ascii?Q?EkHdQy8BSgrQZfwH5jgusoJigmfRGwKBZ4D6Gafa2ovH8FS5a6qzrygLAJ6s?=
+ =?us-ascii?Q?jO6vouFksq/RCb1FP4DE8gkLhiEG0XWJberccet3x5jkx80g0bAL/FY1iR59?=
+ =?us-ascii?Q?mBBrhkgXShmh+S/TRqbySO/yVY6nwNALROBL90kgHoYZBD99mnIx3yf4YFeD?=
+ =?us-ascii?Q?2reF3HuqYSX017YmPxkwdfDUwx97B+HoX/rty85jv72T4NPwDBAtehHtFEfP?=
+ =?us-ascii?Q?afeQEjf29zMroFrfaeKyEw8o1sqWUTnMyD0oaXlFG3Y9G9nmXH+/4bDY3DFE?=
+ =?us-ascii?Q?qcy4zDMx4+vrFe68aYrWqlAAmTMBEC5ZSoEh9tMpsRld+dTPqWtvqOKeqiHb?=
+ =?us-ascii?Q?EPoyuzANvPaRVGQXXg/Cq6OYkR1ACwizQrKKM6zl1mhEexQGJ88nstr8W59x?=
+ =?us-ascii?Q?xTxkHMzO3PsCKjo9U1SHJt6hmuW8lGO8r0SOIDE/94KnJ4zTe4yvGkbdbveQ?=
+ =?us-ascii?Q?0Lj1QEGuABACoPeOagxDoRTUJButJKjN0uBDYuJQlf3nv729A36ZP0dC2OFw?=
+ =?us-ascii?Q?U7rKl+yOSbCA5d2u7idA5Jgu2wFN/LJN+cD9leB+Rz70p4RvNt1H4fnDHBsY?=
+ =?us-ascii?Q?fd1FXA19es1xOvQequD7pfDI6exzK9X179ftvC7fhMT0/FVbHd2nu49kUi0K?=
+ =?us-ascii?Q?uHuHnzYB2jk1uXXj1dfiIMr64iFyb/EaR/aTb5Vjde0wHn701Vdv8g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Mar 2025 01:40:07.2687
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f623761c-c481-4a90-338f-08dd68194f8a
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CB.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6350
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_182033_932141_FFBD560D 
-X-CRM114-Status: GOOD (  29.55  )
+X-CRM114-CacheID: sfid-20250320_184019_415750_409EA1E0 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,82 +142,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 5:38=E2=80=AFPM Dragan Simic <dsimic@manjaro.org> w=
-rote:
->
-> Hello Sam,
->
-> On 2025-03-15 21:48, Sam Edwards wrote:
-> > The RK3588 thermal sensor driver only receives interrupts when a
-> > higher-temperature threshold is crossed; it cannot notify when the
-> > sensor cools back off. As a result, the driver must poll for
-> > temperature
-> > changes to detect when the conditions for a thermal trip are no longer
-> > met. However, it only does so if the DT enables polling.
+On 25-03-20 15:28:49, Kajetan Puchalski wrote:
+> 
+> > > > +ARM/CIX SKY ARM ARCHITECTURE
+> > > > +M:   Peter Chen <peter.chen@cixtech.com>
+> > > > +M:   Fugang Duan <fugang.duan@cixtech.com>
+> > > > +R:   CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
+> > > > +L:   linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> > > > +S:   Maintained
+> > > > +F:   Documentation/devicetree/bindings/arm/cix.yaml
+> > > > +F:   arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> > > > +F:   arch/arm64/boot/dts/cix/sky1.dtsi
+> > >
+> > > Instead:
+> > > arch/arm64/boot/dts/cix/
+> > >
+> > > or if you think there will be more different architectures coming from
+> > > cix, which you will not maintain, then useful would be a "sky" subdirectory.
+> > >
+> > Hi Krzysztof,
 > >
-> > Before this patch, the RK1 DT did not enable polling, causing the fan
-> > to
-> > continue running at the speed corresponding to the highest temperature
-> > reached.
-> >
-> > Follow suit with similar RK3588 boards by setting a polling-delay of
-> > 1000ms, enabling the driver to detect when the sensor cools back off,
-> > allowing the fan speed to decrease as appropriate.
-> >
-> > Fixes: 7c8ec5e6b9d6 ("arm64: dts: rockchip: Enable automatic fan
-> > control on Turing RK1")
-> > Signed-off-by: Sam Edwards <CFSworks@gmail.com>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-> > b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-> > index 6bc46734cc14..0270bffce195 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-> > @@ -214,6 +214,8 @@ rgmii_phy: ethernet-phy@1 {
-> >  };
-> >
-> >  &package_thermal {
-> > +     polling-delay =3D <1000>;
-> > +
-> >       trips {
-> >               package_active1: trip-active1 {
-> >                       temperature =3D <45000>;
->
-> Thanks for the patch, it's looking good to me, with some related
-> thoughts below.  Please, feel free to include:
->
-> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
->
-> After a quick look at the RK3588 TRM Part 1, it seems possible
-> to actually generate additional interrupts when the TSADC channel
-> temperature readouts reach predefined low thresholds.  Moreover,
+> > Thanks for your comment, CIX is Arm SoC based silicon design
+> > company, we may have different SoC style for middle end in future.
+> > So, for that SoC series, it may not name sky.
+> 
+> I believe the idea is that the file should either say
+> 
+> +F:   arch/arm64/boot/dts/cix/
+> 
+> if the two of you intend to be maintainers for everything under cix/.
+> You don't need to list every specific file.
+> 
+> Otherwise it should say
+> 
+> +F:   arch/arm64/boot/dts/cix/sky/
+> 
+> with its own subdirectory if you only intend to be maintaining the sky family.
 
-Hi Dragan,
+Hi Kajetan & Krzysztof,
 
-Ooh, I see that now!
+Thanks for your valuable comments. We prefer maintain the entire
+CIX architecture under one entry, I will change maintain information
+like below:
 
-It seems to be as simple as adding a `.set_cooloff_temp =3D ...` that
-writes the lower thresholds to TSADC_COMP#_LOW_INT and sets the
-necessary bits in TSADC_LT_EN+TSADC_LT_INT_EN. Since the driver
-already rescans all temperatures on any interrupt and acknowledges all
-interrupt status bits indiscriminately, I don't anticipate any other
-necessary changes.
+ARM/CIX SOC SUPPORT
+M:	Peter Chen <peter.chen@cixtech.com>
+M:	Fugang Duan <fugang.duan@cixtech.com>
+R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+S:	Maintained
+F:	Documentation/devicetree/bindings/arm/cix.yaml
+F:	arch/arm64/boot/dts/cix/
 
-I can easily take care of that this weekend or next if that plan
-sounds good to you. However, since *this* patch is a Fixes:, I'd
-rather land it as-is first and handle the above separately. :)
+-- 
 
-> avoiding the polling would actually help the SoC cool down a tiny
-> bit faster, which makes it worth detailed investigation in my book,
-> despite not being used by the downstream kernel code.
-
-Do you mean "spin down the fan a tiny bit faster" (since it would
-detect the cool-off without needing to poll for it), or are you
-emphasizing saving CPU cycles that would otherwise be spent polling?
-
-Thanks for the tip,
-Sam
+Best regards,
+Peter
 
