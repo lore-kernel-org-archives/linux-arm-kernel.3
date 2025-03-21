@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CBBC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 00:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BBB6C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 00:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GPImoECNbENM7viwFxVkoaP1eizf+cwwG4+z1GAykAk=; b=OrLaw4f3rkkUst
-	3q/+w8x7QGdb6jpsz6lw01rcQiUV/xIVW489ISXQ5/yeye6VBTEa069+LoNzYx4hQW87mcQ82ooND
-	sV4zyLtGbs8m9Cgx3eO3GpICt+g465EnrESi0yRJ63yn+qmS4acYAX4TWdYatD1YPjLHm22i8aGfz
-	rSVCWlSTENC/VjW2HjuECZIBizVgThaUmOiX7AIP50eiApJ0rMgi5hQOraffjh4WMGOjaUlmw/Vle
-	dFKrqu7U4KbEvZ/qf7CL2AXb7ru5U9zc4Jvle6FBvpPJhjUxAZKJR/iNKnn5h7rRHychKSv/ZgW8V
-	lOA/nUu8uCPndffWlfBQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8OOoCLa3/F+3CGkux6//BdwtvTnKuC1bNaPhM9fDtto=; b=X2lsmbwyvakmgyMAFDjwiqbGen
+	3V9owTFWhEaRGSDCzF4sVFwIMEg1SU2BWqhsftnZLE6TRp+N2sVAlGBCs7N4qbTt4zbZyLiuBRc9x
+	RUkmnaLIe1PLsXtIPzRdy5sFw7GgJyRfFleW0qBcRQGCp30s+7YdlUx470hgFgzOc8qrIo6/UDjqB
+	9QukBuLRm9JtJhr8jdwwfnaNSqi3a8BuNyxUgcyIPmxbl+3h2gm5JOBZ9xMvfaRA0ZABKwqXVWe+c
+	sr98wCHxvo+R/dwP04zJ2P9rhRMAeV30PQWwp293if+QPRPjGc5Fh2IBM+0wcB6hnT5fRD2ACDH8u
+	z6ez/zyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvQ1b-0000000DWpN-2aq2;
-	Fri, 21 Mar 2025 00:14:11 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tvQ3H-0000000DX6m-1f3a;
+	Fri, 21 Mar 2025 00:15:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvPyE-0000000DWG7-1Qwj
+	id 1tvPyH-0000000DWHK-3vTj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 00:10:43 +0000
+	Fri, 21 Mar 2025 00:10:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8E091A49763;
-	Fri, 21 Mar 2025 00:05:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA1F8C4CEDD;
-	Fri, 21 Mar 2025 00:10:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 16B5744EC0;
+	Fri, 21 Mar 2025 00:10:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A02C4CEEF;
+	Fri, 21 Mar 2025 00:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742515838;
-	bh=UnwmEOzkbVYA12kIeylZ6mRzOZdlCojdMzHgIqtEWHg=;
-	h=From:Subject:Date:To:Cc:From;
-	b=h8G17aTXy7pKB7dyU4WVLaw42gkw94O6XAMEfaS3aQnsrNmFmPTaTor/HkUgy6nFZ
-	 tDzudy0Z/oT3KtveAIGQM/x6igV8OEhQyheHxruDNoGH7DmiB1wyexwZA3iE9SiN9k
-	 QibC0QttzPFh9F5CdTbkNPIPapAQ3UzDQtDdYODq1TdBydkiR07/QqgW26BlSx1soU
-	 yfRVfEvDamE2bM5e64ZrMWkrU7E6Qi+fUtpD8WXcD69etMilrdpQNbitD0I2smoslz
-	 50jGqPQ/JE63txaELirqjPK7NSxu2o8ATN5Ba0WRc5sruJvpM2Xt2JzcqlpD47fRXy
-	 KQiEUywJgPB3w==
+	s=k20201202; t=1742515845;
+	bh=tOwLNJGuoclDCJFfIwBo5Rq9l6EWSbzQnW22bOhJ3Fs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=XGuqgGgDOlE286mGiglg3vUXMyt4eeuVxhQ0kuDDCuXNzscml4QPHkYHns0ZfLX3L
+	 S+SP4qUsWMxA4wvTxLAxTfagz0R6pSzAzg/WJQLl4yLihMpbu2QKO1JXPJYhGnmJso
+	 jGWQia0tDOLRAuQ31WRxiMre3axQO3F+Vc5pi83powignDMUK3CnSWWqlHsh80dcVy
+	 lrBP1gaodHGGagSnXIBw+qSh4n66zvJxqF7HhE7EBPrv4PIM/lCXHt43ViVRNUaaxF
+	 gLH5vzvY7RMYkHGsg8L7ljep5iBZyGIFnLGRoxHBxmF0TPweR+0UoU/8Dm/OPnSNU+
+	 +xDfinuBp1aOA==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH 6.13 v2 0/8] KVM: arm64: Backport of SVE fixes to v6.13
-Date: Fri, 21 Mar 2025 00:10:09 +0000
-Message-Id: <20250321-stable-sve-6-13-v2-0-3150e3370c40@kernel.org>
+Date: Fri, 21 Mar 2025 00:10:11 +0000
+Subject: [PATCH 6.13 v2 2/8] KVM: arm64: Unconditionally save+flush host
+ FPSIMD/SVE/SME state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGKu3GcC/2WNwQ6DIBBEf8XsuWtgVWh66n80HsAuSmqwAUPaG
- P+9hGuPbybz5oDE0XOCW3NA5OyT30IBujQwLSbMjP5ZGEjQIIg0pt3YlTFlRoWyw2Fi43pxtYP
- TUFbvyM5/qvEBqpUdjCVdfNq3+K03WdauGjtJf8YsUeCkrRHaKNc7fX9xDLy2W5xhPM/zB8DQU
- Uy1AAAA
-X-Change-ID: 20250227-stable-sve-6-13-5ceaf408b5f7
+Message-Id: <20250321-stable-sve-6-13-v2-2-3150e3370c40@kernel.org>
+References: <20250321-stable-sve-6-13-v2-0-3150e3370c40@kernel.org>
+In-Reply-To: <20250321-stable-sve-6-13-v2-0-3150e3370c40@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
  linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>, Fuad Tabba <tabba@google.com>, 
- James Clark <james.clark@linaro.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Eric Auger <eauger@redhat.com>, Wilco Dijkstra <wilco.dijkstra@arm.com>, 
  Eric Auger <eric.auger@redhat.com>, Florian Weimer <fweimer@redhat.com>, 
- Jeremy Linton <jeremy.linton@arm.com>, Paolo Bonzini <pbonzini@redhat.com>
+ Fuad Tabba <tabba@google.com>, Jeremy Linton <jeremy.linton@arm.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>
 X-Mailer: b4 0.15-dev-1b0d6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1702; i=broonie@kernel.org;
- h=from:subject:message-id; bh=UnwmEOzkbVYA12kIeylZ6mRzOZdlCojdMzHgIqtEWHg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn3K5z+OUtTc8Yn+JX7kpLLlAGN05FTJOgpvs9yukl
- 5RHjDbmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ9yucwAKCRAk1otyXVSH0IDuB/
- 9Qx4rfSQv9RPjp4QcG5wJW92CPAHkXG0TJCQuGzbqNllI333pq6rZqHS3xbJBW+tTqBOK2D47PCNLZ
- TwKkUeEE2V4oXfP9VfSVii7YsX3zgKiNJzmJXccaGRNqZjpdoM6nprl9N/5E/Ypchg0s6XJAk4OLvF
- zng/O9IcBn6yg5yKu6SDB5O2iCfnZZm+j3LiJDIaYGV9dPBtRDp2KB/uXIBry+dypUiDiI/nanQt27
- NA+peMIwULuUVSfgw4eaHTE1NWC3C962IKydHWzbhyssLydTRgi6xgusBnry/wSdGSM0OIIqMyzBAF
- Qkj4F4RPpYiXktijmdIYj1PW6/bD8Z
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6408; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=eSs9USTWP3aXbjRozqprmSkIPf1vVJd8O/dZ9UErDyY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn3K51FCNdGIGP+WXASgka+q+T/2muoEvjkSPoePI0
+ fDl2ccuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ9yudQAKCRAk1otyXVSH0DMaB/
+ 0SxDQipABMl5eULsHIxxm8arQweejFHElMfImNdrCxwK1HLOzSbbtRkVk10grSljo0qvpNGfGU9mIj
+ t80fRc25+KoMM/op1GjagPiBsvi8YmdyOS0wMyxGqp087U0+GpPSagKItMR0J5a86gZvtK5Lmgo/3/
+ UFDUVS+AZDr3EmJGbUe6j8DmlvWGfx4JEg9gUjKm1dpRvIbNwlmZdZhCgxbt1S//52zhBvAqHB6yUp
+ PN9iVR41dPT31PeOB5eJ3YekxAEajYlc7pCmYDubZa0z6TjJW7fFrfSdUNoF09Mf+K2CVuSa2WF8/Z
+ zRWR2pbSrKoTndf1aHnT0SIjJ/TfKi
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_171042_513526_CFBA6A78 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250320_171046_023625_5D176FCE 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +92,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series backports some recent fixes for SVE/KVM interactions from
-Mark Rutland to v6.13.
+From: Mark Rutland <mark.rutland@arm.com>
 
+[ Upstream commit fbc7e61195e23f744814e78524b73b59faa54ab4 ]
+
+There are several problems with the way hyp code lazily saves the host's
+FPSIMD/SVE state, including:
+
+* Host SVE being discarded unexpectedly due to inconsistent
+  configuration of TIF_SVE and CPACR_ELx.ZEN. This has been seen to
+  result in QEMU crashes where SVE is used by memmove(), as reported by
+  Eric Auger:
+
+  https://issues.redhat.com/browse/RHEL-68997
+
+* Host SVE state is discarded *after* modification by ptrace, which was an
+  unintentional ptrace ABI change introduced with lazy discarding of SVE state.
+
+* The host FPMR value can be discarded when running a non-protected VM,
+  where FPMR support is not exposed to a VM, and that VM uses
+  FPSIMD/SVE. In these cases the hyp code does not save the host's FPMR
+  before unbinding the host's FPSIMD/SVE/SME state, leaving a stale
+  value in memory.
+
+Avoid these by eagerly saving and "flushing" the host's FPSIMD/SVE/SME
+state when loading a vCPU such that KVM does not need to save any of the
+host's FPSIMD/SVE/SME state. For clarity, fpsimd_kvm_prepare() is
+removed and the necessary call to fpsimd_save_and_flush_cpu_state() is
+placed in kvm_arch_vcpu_load_fp(). As 'fpsimd_state' and 'fpmr_ptr'
+should not be used, they are set to NULL; all uses of these will be
+removed in subsequent patches.
+
+Historical problems go back at least as far as v5.17, e.g. erroneous
+assumptions about TIF_SVE being clear in commit:
+
+  8383741ab2e773a9 ("KVM: arm64: Get rid of host SVE tracking/saving")
+
+... and so this eager save+flush probably needs to be backported to ALL
+stable trees.
+
+Fixes: 93ae6b01bafee8fa ("KVM: arm64: Discard any SVE state when entering KVM guests")
+Fixes: 8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
+Fixes: ef3be86021c3bdf3 ("KVM: arm64: Add save/restore support for FPMR")
+Reported-by: Eric Auger <eauger@redhat.com>
+Reported-by: Wilco Dijkstra <wilco.dijkstra@arm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Tested-by: Mark Brown <broonie@kernel.org>
+Tested-by: Eric Auger <eric.auger@redhat.com>
+Acked-by: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Florian Weimer <fweimer@redhat.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Jeremy Linton <jeremy.linton@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+Link: https://lore.kernel.org/r/20250210195226.1215254-2-mark.rutland@arm.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+[ Mark: Handle vcpu/host flag conflict ]
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Changes in v2:
-- Remove an erronious kern_hyp_va().
-- Move standard cherry pick to stable format in patch 8.
-- Link to v1: https://lore.kernel.org/r/20250312-stable-sve-6-13-v1-0-c7ba07a6f4f7@kernel.org
+ arch/arm64/kernel/fpsimd.c | 25 -------------------------
+ arch/arm64/kvm/fpsimd.c    | 35 ++++++++++-------------------------
+ 2 files changed, 10 insertions(+), 50 deletions(-)
 
----
-Fuad Tabba (1):
-      KVM: arm64: Calculate cptr_el2 traps on activating traps
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 8c4c1a2186cc510a7826d15ec36225857c07ed71..ec68d520b7ca70e7395bab4bc78fc9a7405d6b92 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1694,31 +1694,6 @@ void fpsimd_signal_preserve_current_state(void)
+ 		sve_to_fpsimd(current);
+ }
+ 
+-/*
+- * Called by KVM when entering the guest.
+- */
+-void fpsimd_kvm_prepare(void)
+-{
+-	if (!system_supports_sve())
+-		return;
+-
+-	/*
+-	 * KVM does not save host SVE state since we can only enter
+-	 * the guest from a syscall so the ABI means that only the
+-	 * non-saved SVE state needs to be saved.  If we have left
+-	 * SVE enabled for performance reasons then update the task
+-	 * state to be FPSIMD only.
+-	 */
+-	get_cpu_fpsimd_context();
+-
+-	if (test_and_clear_thread_flag(TIF_SVE)) {
+-		sve_to_fpsimd(current);
+-		current->thread.fp_type = FP_STATE_FPSIMD;
+-	}
+-
+-	put_cpu_fpsimd_context();
+-}
+-
+ /*
+  * Associate current's FPSIMD context with this cpu
+  * The caller must have ownership of the cpu FPSIMD context before calling
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index ea5484ce1f3ba3121b6938bda15f7a8057d49051..efb54ed60fe1d1d8a904b10a4a4bd3c820d9dac5 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -54,16 +54,18 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ 	if (!system_supports_fpsimd())
+ 		return;
+ 
+-	fpsimd_kvm_prepare();
+-
+ 	/*
+-	 * We will check TIF_FOREIGN_FPSTATE just before entering the
+-	 * guest in kvm_arch_vcpu_ctxflush_fp() and override this to
+-	 * FP_STATE_FREE if the flag set.
++	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
++	 * that the host kernel is responsible for restoring this state upon
++	 * return to userspace, and the hyp code doesn't need to save anything.
++	 *
++	 * When the host may use SME, fpsimd_save_and_flush_cpu_state() ensures
++	 * that PSTATE.{SM,ZA} == {0,0}.
+ 	 */
+-	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+-	*host_data_ptr(fpsimd_state) = kern_hyp_va(&current->thread.uw.fpsimd_state);
+-	*host_data_ptr(fpmr_ptr) = kern_hyp_va(&current->thread.uw.fpmr);
++	fpsimd_save_and_flush_cpu_state();
++	*host_data_ptr(fp_owner) = FP_STATE_FREE;
++	*host_data_ptr(fpsimd_state) = NULL;
++	*host_data_ptr(fpmr_ptr) = NULL;
+ 
+ 	vcpu_clear_flag(vcpu, HOST_SVE_ENABLED);
+ 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+@@ -73,23 +75,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ 		vcpu_clear_flag(vcpu, HOST_SME_ENABLED);
+ 		if (read_sysreg(cpacr_el1) & CPACR_EL1_SMEN_EL0EN)
+ 			vcpu_set_flag(vcpu, HOST_SME_ENABLED);
+-
+-		/*
+-		 * If PSTATE.SM is enabled then save any pending FP
+-		 * state and disable PSTATE.SM. If we leave PSTATE.SM
+-		 * enabled and the guest does not enable SME via
+-		 * CPACR_EL1.SMEN then operations that should be valid
+-		 * may generate SME traps from EL1 to EL1 which we
+-		 * can't intercept and which would confuse the guest.
+-		 *
+-		 * Do the same for PSTATE.ZA in the case where there
+-		 * is state in the registers which has not already
+-		 * been saved, this is very unlikely to happen.
+-		 */
+-		if (read_sysreg_s(SYS_SVCR) & (SVCR_SM_MASK | SVCR_ZA_MASK)) {
+-			*host_data_ptr(fp_owner) = FP_STATE_FREE;
+-			fpsimd_save_and_flush_cpu_state();
+-		}
+ 	}
+ 
+ 	/*
 
-Mark Rutland (7):
-      KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
-      KVM: arm64: Remove host FPSIMD saving for non-protected KVM
-      KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
-      KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
-      KVM: arm64: Refactor exit handlers
-      KVM: arm64: Mark some header functions as inline
-      KVM: arm64: Eagerly switch ZCR_EL{1,2}
-
- arch/arm64/include/asm/kvm_host.h       |  25 ++----
- arch/arm64/kernel/fpsimd.c              |  25 ------
- arch/arm64/kvm/arm.c                    |   9 ---
- arch/arm64/kvm/fpsimd.c                 | 100 ++----------------------
- arch/arm64/kvm/hyp/entry.S              |   5 ++
- arch/arm64/kvm/hyp/include/hyp/switch.h | 133 ++++++++++++++++++++++---------
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  11 +--
- arch/arm64/kvm/hyp/nvhe/pkvm.c          |  30 -------
- arch/arm64/kvm/hyp/nvhe/switch.c        | 134 ++++++++++++++++++--------------
- arch/arm64/kvm/hyp/vhe/switch.c         |  21 ++---
- 10 files changed, 201 insertions(+), 292 deletions(-)
----
-base-commit: 648e04a805652f513af04b47035cde896addf9b0
-change-id: 20250227-stable-sve-6-13-5ceaf408b5f7
-
-Best regards,
 -- 
-Mark Brown <broonie@kernel.org>
+2.39.5
 
 
