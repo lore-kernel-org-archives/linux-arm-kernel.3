@@ -4,96 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C76C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 13:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB19C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 13:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tW5CZGKlc6dgOhT2HYLkHYDVp73Jiwu1Hc2Rif5lDWM=; b=ODc6NdJBjSTW6SCqhlGcYrfI0N
-	WRsRejp35blMJnngQepp9vjJ3dQY1LS2KaGYVvH8V+aVKzbAkxh1erW64bHqXrcHLBTjp8HtO8ONP
-	2r2Bw5w3XvEr96k49X70487pLGPPzJJTt5DJR2uBZ/oRymf03tI/L18NWYvx2tdQp8ykxYwxaFucb
-	DLuXe/sJFfh74vC71PqeQV02SKrg+qQB3zNFlvLdfxmMV2Fhs7YrPv39+9C95ZNoO/nHnZKzWfYaM
-	PHygT0G4Qii5hST9d5gsoJfqm19L/pIyCMUIVtJIV5XHXv5lBw0cqSKNW2iVzk5+YEX73hZUP1DXj
-	3pBO8ogA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r19dy1h/efUoSCKQjibx6+2/93JkupqYItH8fkWVixY=; b=UYAl7nwGxa9S7P4zvH1Z3BM6PK
+	+WkGpx3NvJdjhLVuB/AiGV6ZBgSfj/XtDvHhwJuWtFivB9x9ZBEE3DWNblS1uRxmYPrSGa5d8DdpZ
+	asF882qqgry2AQks1ch4/J5MukpnjX19DAEFhpYOjAiqF45xBT1BVy108eRmBJ129ft+njupX3qLM
+	mXvfM5VRLPbuYU1MPkGtykIqnIt7MulHvgd1yrnJxNl87dA7+4fs/pAgrcVGvu+UJ87+JgKh/GYIZ
+	9w8qbr9OlYEa8ZkKYJUZ3xe896RKMhQxC7skomI+JquREBJYljrvn5/Iw4BZYQgc1BbkGrqwSQyd1
+	I2V7ASDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvcNv-0000000EvJQ-0ElF;
-	Fri, 21 Mar 2025 13:26:03 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tvcYE-0000000EwbZ-3y0O;
+	Fri, 21 Mar 2025 13:36:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvcB7-0000000EsYy-1EUn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 13:12:51 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso1326735f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 06:12:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742562768; x=1743167568; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tW5CZGKlc6dgOhT2HYLkHYDVp73Jiwu1Hc2Rif5lDWM=;
-        b=puYwddz8Wz+5V5YrPz2C2AcTgvDT4mKtmkEeH4loATwSKRXgec/hBnnIHbVyY5iX99
-         XJbj7o+XUQz9QwtTeXsxV1+T95GhTQaVmC+gfCjXLN0ODUSMwH3joBtcrm9ZeCbgMy5l
-         Ek/JROE7oNeRHAtrUxE/D2hTQBHy3trPvPcL6YHFW+l5uLcwW4AswEzsCyDJ8C2LB9MC
-         QzrCr6oOEGQcE2oFvjVSGLuk19+uwLUn0g6zeszYFCUM02Vqwt3vJv6lkLR9VXMzXahT
-         nS3aZhotDxEDXVdgx0M0YZ/wopd1FURCesZiNGP3gO364lvPf2zs4+COlqz7eUriMq+1
-         DyAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742562768; x=1743167568;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tW5CZGKlc6dgOhT2HYLkHYDVp73Jiwu1Hc2Rif5lDWM=;
-        b=WjWT+B4KDqzKoR5MznvhdEpROrKdJu72Uwbt5tpS5gtvNE76dfF8n7nCs94fZSxSGk
-         HEhyXkBshxPbIt0AGYBHoF8p68PC0ETdodo1UEjkIL6wRgIweCWpooKaKZLBIWghWwlL
-         PddPLM3l6xsUIY8byhnF4AWsJ/ouYAFYbZsu1fyFG5z1MKg/QnAQ73YiHvmcQAkA4PAJ
-         AQcRhcYjrmakdRpxvSrSSaRXVsgraYxT5SuqoU4vYOlKobG1GGZJ+YRMblsgVDObQK5Y
-         C9qQVHvGWB4u3w7iFtoSSpY8WRFey9Etl5JBrjQRMYqTyutbq7y8VqT39feSCg6NBCBy
-         JNoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV8B40TK2217SeO2veEf4ELPV/XRYiKssc9jQHHX13g3wIdUL30gpD3iLJFq/vW9PT91Hwcj7mp/VHnriuCqW4p@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNawQdn23FyYOL/qQujt2T10RvvMerk5+t+njJFe4r5+uA6Tex
-	mCO41haqGd3YNwAQakBhi8xXKn9H9bWCpwN60w0PAnLxUqaaeD4JuxN8frtDKgk=
-X-Gm-Gg: ASbGnct3UTgz03YIZXC3i/M7TqYg6zuqERa5fSIpkx/qV6d5Y1RfwaPjPjskCazItj1
-	BOP6AnbfU04rz/ShTeT5eGKqq/DBEvnz3SqMjLeC/+1qr5k9agtjI5DiX3vDeK8tr+XKlajkfDj
-	DWwRGxIS+gMirtHwxEtaYTjomKL1doqWAaYATkYxzCJGgOCvCqIiiuJHRHPvaJy/4xbON6qtk1O
-	5m7dgaiUoEz9pQt3ceWC7MTnUOr/jJ98DY8DKO+ID2RwJir5GCNsPqUsFiTF5MVlZIGlVPNplo3
-	CwZ1x70LyuuSefEKxmIFL33kcdHVKxyOnH6thTQRjmlVezi5EQFuvz9r3WosQ7Rprbdwcg==
-X-Google-Smtp-Source: AGHT+IEUtROIBbu/cy/pImYWjl+q4lRngYo9z7idT6KT9+6QFPXCkP6BZJtyCAPZK3CSSAem4Gc0LA==
-X-Received: by 2002:a5d:64af:0:b0:391:2db0:2961 with SMTP id ffacd0b85a97d-3997f932efcmr3394631f8f.38.1742562767493;
-        Fri, 21 Mar 2025 06:12:47 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com ([2001:861:3382:ef90:3d12:52fe:c1cc:c94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9e66c7sm2356167f8f.79.2025.03.21.06.12.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 06:12:47 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v5 6/9] mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
-Date: Fri, 21 Mar 2025 14:06:32 +0100
-Message-Id: <20250321130635.227011-7-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250321130635.227011-1-alexghiti@rivosinc.com>
-References: <20250321130635.227011-1-alexghiti@rivosinc.com>
+	id 1tvcWY-0000000EwOF-3MVR;
+	Fri, 21 Mar 2025 13:34:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=r19dy1h/efUoSCKQjibx6+2/93JkupqYItH8fkWVixY=; b=FtbYW/LllHDtOz4StYRGsvkso/
+	9481CTPssthokqxJmIknzPVeBEKb1zaej7gQYagzTCdYk6kguuqBYURCuB8MbXZybAHCStAGxiFZ5
+	+KisczDDtnA5SlFXbZ2MwrgkWjEJq/ePex8XuyDxO/k87ZT3avaBbg0c2kkosBCBO8PatcrBY0akL
+	t2Gb9ZM30IA9Jytzw4xs9HuzyhKedV1naVzzgWWdu2TDgbW9Q3fzYLJqmI4+qJafXwqWYpkjPR303
+	pHPI/G/D41sJBwbP1/wnu4HZlTxMb+6aPkwhDbz0LKCS516JJR0x8VaJzOXxjRN9p/e7Z9P67Sih7
+	vXKiijkw==;
+Received: from mail-dm3nam02on2060a.outbound.protection.outlook.com ([2a01:111:f403:2405::60a] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvcWV-00000004MPK-3PVU;
+	Fri, 21 Mar 2025 13:34:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SvHf3KddWjGaG7JFvOzRSXMj+VF0HVo5ogsnVMc5aI3+/8LNsasWSBFUz4yzg+LrJKXAgzF2FSNtbHv0HShCinZwoCvTLKxtbKllrGWnPTCgivZdR+YEb9RLt3WgtHTe7PeDUZjHclj4J41BfZ0PmSAux5Lr2jfpnA8bAA9Tem0lhvnaAywoRMMCDphdGdEA0/E3SfW0UKHFNT5aVBF6JYkXYiXW/bXY2wloh58GX2hCOkIl7SA+mgmBe77kQ3aOl7y8WII+lZgBesdFLBwFcFsJ8StcuEIv8Te15suyzj31mJliXTrnDMHWMVcggFhtoxoRxHPV6/H6fYQ12AkAqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r19dy1h/efUoSCKQjibx6+2/93JkupqYItH8fkWVixY=;
+ b=s7ClVZVQyMj5zOGrZ6OZhxsXkSKE9sicHZUVJ3VZKXCaKOF2Di1E3FKS69FACiq7s4yU0wQQO85+0XOyM6q1kfgKmbaBPrDw14q1/7AvZaPPVN7xH705JLQhv0b253nvQ+Qi4lzKiX/XQQj2jx/jUwXyq2JV0OGinW+B+cw+nzrlnjAIVtn1VOwJsHC9y3u4KAqmAZAEmFFPO74BKAe4D6lGolaD0kTvdY9aur1NGUaSmy8b3fIeg9kJEBd8Qtb902luF9fG7osp/bcnm1DIoQI9p7PG11qtfp7WvjQHc1CvCD3Ymhpwf7p+Cyu5ds/QPw+H/5+vR6xCajhM4lQLEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r19dy1h/efUoSCKQjibx6+2/93JkupqYItH8fkWVixY=;
+ b=mmUwS8GS/ixtccZu0UTYiz4Z1lq0GQ2UlGW9EszZ4e8SkoG8R7NrMFdI1Xsyp6KLHwFY3YtJtUL953sg02OGcoeQfEY3E9P5LcfqJcuisxEBpO6DzHF61pzJbhc/NKyT6El7jXYq477a4KOprRbo5Rkk3Fh+y/b7rj0wioeF31umebLdrjGmBpb1KIl4xdoVOAhP8/nec6N9lLUlNPDZUPbtMOsXqyhs0kFvlx3baFcjBWbGGe6bWnUC4VUmUIn08oTW9aX8Yfyzrq+mboxUoiH6KWjQkpXovy0CaE/JYPm0v0XNNAunPHBDfQd69pN1vezmvJxO9AqI/AXBF7ZkEg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by MN0PR12MB5761.namprd12.prod.outlook.com (2603:10b6:208:374::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.34; Fri, 21 Mar
+ 2025 13:34:49 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.036; Fri, 21 Mar 2025
+ 13:34:48 +0000
+Date: Fri, 21 Mar 2025 10:34:47 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Changyuan Lyu <changyuanl@google.com>
+Cc: linux-kernel@vger.kernel.org, graf@amazon.com,
+	akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, rppt@kernel.org,
+	mark.rutland@arm.com, pbonzini@redhat.com,
+	pasha.tatashin@soleen.com, hpa@zytor.com, peterz@infradead.org,
+	ptyadav@amazon.de, robh+dt@kernel.org, robh@kernel.org,
+	saravanak@google.com, skinsburskii@linux.microsoft.com,
+	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 07/16] kexec: add Kexec HandOver (KHO) generation
+ helpers
+Message-ID: <20250321133447.GA251739@nvidia.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-8-changyuanl@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250320015551.2157511-8-changyuanl@google.com>
+X-ClientProxiedBy: BL1PR13CA0416.namprd13.prod.outlook.com
+ (2603:10b6:208:2c2::31) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN0PR12MB5761:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94e8a737-876f-48a0-8728-08dd687d267e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?686swMVR76sdl35h7IhFiCO+06XxqMBVtd9wSydxcgG6fgrhc8JS4EbTpEjU?=
+ =?us-ascii?Q?hFVQmDYOesHEiBeYW6N9gavUexIvlkDiFIjDNaYI6WQ+hCqZYp12f3nzI0HW?=
+ =?us-ascii?Q?7DQjCC8iJKQjnENGAcOtIAmlIJGIISYMNL+MtbLX8HuWa5crrIY24j+wkCd+?=
+ =?us-ascii?Q?th0zrnHtjSK+UAZAa8s5T3eV7KDtySYxo48sRh/THxKU9yQETCiiDixByiSq?=
+ =?us-ascii?Q?U43Jg4c2wr/5OjF39AavHJax4ovBLtlX8Y//WYFdlbJ8OP0Cw13labsBuB5y?=
+ =?us-ascii?Q?5zJSCVS7C3XhFCvRPCwsFoYTsuwRyu18WIdw7FerMqZjKaW2RvJt6lT4oyR8?=
+ =?us-ascii?Q?BMW+U3DRVR5Znl/moiCIocgfrdOBmSuiXm5Aryx+SJLu4QNL57pLJBhy59TT?=
+ =?us-ascii?Q?JkR2NqkNJMAXC5uTevmVQvyM6Yv/chGa1ZnAFtGL3+ChZxqBPmGxSyWFjr46?=
+ =?us-ascii?Q?Rif8izTlzVX8tC8RqoDWyNw4WhS0htc2Fi1pHoUs2XEkSEMF/Z7/ARw0qd9b?=
+ =?us-ascii?Q?XMwWNRFcYXfPHRiefl68MnspO/q2wByg/zAatP20d6FZNDSQNXdtBaeN68bo?=
+ =?us-ascii?Q?BAhBMywJBeiQkl7oob1vi4Lr9qmqjLtmjLXi+pSoUdFd/QJw0aEE+DjLrHu/?=
+ =?us-ascii?Q?4HxuBb6xXoAH37p3+lGP4VxVtjze8qx3wMxqzMv5RmQoPwJuLqrvESIpVjAe?=
+ =?us-ascii?Q?39wBBl3Yq6sh/s/O/1Grzm4iipXr2Tm3g6Xy+NWrCgigQziBL1TOFm5OtCIV?=
+ =?us-ascii?Q?7AsMKXi277ZgFyj1CMVrNIb2gT0sq1DGGaEYj28RX4FxsvBsEjdqPnV/nAzZ?=
+ =?us-ascii?Q?jaJw94cc87u9WtlZr+ibcBL8Vp3z8T1GNMDQK0797dCPec2YbgTn+lba1OWA?=
+ =?us-ascii?Q?UhbGcOSoSjfpFgsOjwcNiI5cz5NmxxkBjFZ0j2Svdg2U3aDBJLIICmcRYtYn?=
+ =?us-ascii?Q?XrYdDdu8jkcV5Ng/buNEtqea/UqAdf7FGD+11Z9AYHiIHwYkqMDVt4tiXCV7?=
+ =?us-ascii?Q?AVgjVJP5mlxUPmm0HWG9811uoTmaXZhqkf5FTInJ21/9R0CyI+jQOV0Qbo+6?=
+ =?us-ascii?Q?EwC8YVDjGTDDpikq0PodkovRuwc4BhbcO92Pz/DtXi/Fbtb1xqmn6dyFg529?=
+ =?us-ascii?Q?s/IyJ4u9gtHdRKRy1iRnTzqMNiyzVFJCRdvsWdtEvbNXDK/7v4l2S/9Wzb0+?=
+ =?us-ascii?Q?6aJ+tjObpvzbQHMQQR0AokukCOmq2bJRmmAVQHKXU53McRsaxiQJT8WoD64I?=
+ =?us-ascii?Q?2/nvxylGGksGQtIsZFNJgPvopAMQdJaEf+uIuSngTig7/C+22mgah9UnZUgG?=
+ =?us-ascii?Q?zqjqWut3TQdVTaXuboIWCCSuoSYo47v6EeSycThHBw6AT6Dn7Sefhlzh5aOK?=
+ =?us-ascii?Q?ocmeV0z0IarGesys68ZZyVWejfoS?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mtjm435sHx8Zw7oJLc0CovVcZP4stk6QDQJEa5WMyKEXLFhxLLLbZvhuqsVF?=
+ =?us-ascii?Q?jF0GDHecfZctrKWvDQrjoThdraTR76K9L9TjDD+bLrObqj8cZkvZcbT9AwIK?=
+ =?us-ascii?Q?BtMjSzgQeX5JCn1aVcxKJhsQ/mzW4ZFBo9c4Bwx6L8F0ffVThQgRTJZ0UZbi?=
+ =?us-ascii?Q?m2ngJHEt7lOqsHQ246HTfU1UifitSPwi+sUlIEyizut2N7OtesCavDCD52/o?=
+ =?us-ascii?Q?Hsvs9CN02iVUlENrDSULCYI6ThpQGelQMY1X0zmUzxYSmSihN29iIp2Z8SSa?=
+ =?us-ascii?Q?0yTWMBK4N4PKplJVdsOlZlK6Zn+2PqjaHHteo/GlSnd5PIVfyuhT3HPhXQbd?=
+ =?us-ascii?Q?oQ0vstP4WqeNRITkifPBy3CA0uYxCas5IQmp9LGU/k5RgKsc+NugyZ98Z3Nl?=
+ =?us-ascii?Q?YUhxxmt2rly1CWhK+FTKra9s+dE38FU8qEDrX3wVS/QpU1bGwU/5biNSGiJV?=
+ =?us-ascii?Q?HmQaxEyCRHXplw/nG7jl5+o45C1Ha71IOMOmwyjUp6iRNVfPFKJksmNna9Hg?=
+ =?us-ascii?Q?TpVDe95cWGlc8yTfAUmK9eVQJHZp256OEr611SC0NIpAvLyS4lmkOYreEaY6?=
+ =?us-ascii?Q?KL3y07Ho1JV1jc3xcbnEeEmO6CMqyz1yrPGfh69Vt3M9p6NKLINYrOVwXd1N?=
+ =?us-ascii?Q?XUGLoz0vsK05byC4pE6wiNjxrEBXag6iWBjeTSOEC067a4nV8omu+0YT6erd?=
+ =?us-ascii?Q?MmpPO4TJtUeMBnhijTjCJepXm5talYhkwBPZUckoIScFGSDwAjpAmj56yNga?=
+ =?us-ascii?Q?HcmzGUShKVVwy7uQblizjHWkf/wLabxExKS/LgVrn4Jr/UUiXO/4BRsnGxEr?=
+ =?us-ascii?Q?n2KqvBhPOfs+13SqxnQ67qWrBx8T2MoRzgRYPGB+vUtYP0b+/YUQWOjy9BRW?=
+ =?us-ascii?Q?Sjpp34nA50pZfK7SjBL1Hn89kWhLfSCqyFrSY5TRaHPiPubA1W6ZvInmAQFU?=
+ =?us-ascii?Q?XLg8CWYfh2Y0C3x35+869NsRa2paHHp3mkcCsOQNhoKKk3nXFx/zaf1yV0O+?=
+ =?us-ascii?Q?UVWDsDrc/ZfFXhHWn3ALS1w7GNn0CUCnAjp6j/GIbYTqMsfTg+SapU3x2B8J?=
+ =?us-ascii?Q?RlxC18R4iRgdoNl3kALUVG7k5JiIG7mF5M5TjK0ouh6CwnIavGFbuBTkagwf?=
+ =?us-ascii?Q?NgmHHot+rTYGYIemrAZTN/Ca6enLUvgvgzVm9JW4nlRKJvcxv8eHWOHIkYME?=
+ =?us-ascii?Q?tx4rtzGTzidsXZ45COBi3aPDZfR2LBttKiHmZdZYgFCm1pepZGHu2jWk/rX6?=
+ =?us-ascii?Q?cLvL4FERdM0Sn4tfpY8kBdmsipLvjGU8Asy9L4np22wmSy9XtOF/NANFAmHn?=
+ =?us-ascii?Q?0D9iqJsYvKUnXJcQd8yr26jX+YikUVM/xlbefRJFAvl5PUAcR6USTZeCknHz?=
+ =?us-ascii?Q?D38T2wACEj4rsEMAnE/2glfusyJIicr9aEazyNVpCbYLVUfyvZF3MK0jB3DK?=
+ =?us-ascii?Q?yr+rUoEg6FaXEGwZstgI0W/VebiWgiCxuSuZ0nv9jYwcse35VcVoCWgj+Dgw?=
+ =?us-ascii?Q?qpG6g0fzP/4ADB3yzkErYTSVh/v1SR39RsgJzPAOb0bBary5ns6ZGA/oE7GA?=
+ =?us-ascii?Q?eQS4kHTaiBryVFSJaGY7X/GWPa9VuLAk5E1iuywE?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94e8a737-876f-48a0-8728-08dd687d267e
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Mar 2025 13:34:48.7320
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2IuKN+c69obwKlXgvMZcNaAn7QIs6xSQ3A/LOHPLvALE5hVpcbucYwMIZQZ7Ol0j
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5761
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_061249_337992_DAAD15EB 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20250321_133455_903364_0D5B01BB 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,175 +184,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After some adjustments, both architectures have the same implementation
-so move it to the generic code.
+On Wed, Mar 19, 2025 at 06:55:42PM -0700, Changyuan Lyu wrote:
+> From: Alexander Graf <graf@amazon.com>
+> 
+> Add the core infrastructure to generate Kexec HandOver metadata. Kexec
+> HandOver is a mechanism that allows Linux to preserve state - arbitrary
+> properties as well as memory locations - across kexec.
+> 
+> It does so using 2 concepts:
+> 
+>   1) State Tree - Every KHO kexec carries a state tree that describes the
+>      state of the system. The state tree is represented as hash-tables.
+>      Device drivers can add/remove their data into/from the state tree at
+>      system runtime. On kexec, the tree is converted to FDT (flattened
+>      device tree).
 
-Note that get_clear_contig() function is duplicated in the generic and
-the arm64 code because it is still used by some arm64 functions that
-will, in the next commits, be moved to the generic code. Once all have
-been moved, the arm64 version will be removed.
+Why are we changing this? I much prefered the idea of having recursive
+FDTs than this notion copying eveything into tables then out into FDT?
+Now that we have the preserved pages mechanism there is a pretty
+direct path to doing recursive FDT.
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/arm64/include/asm/hugetlb.h |  3 --
- arch/arm64/mm/hugetlbpage.c      | 10 -------
- arch/riscv/include/asm/hugetlb.h |  5 ----
- arch/riscv/mm/hugetlbpage.c      | 15 ----------
- include/linux/hugetlb_contpte.h  |  5 ++++
- mm/hugetlb_contpte.c             | 51 ++++++++++++++++++++++++++++++++
- 6 files changed, 56 insertions(+), 33 deletions(-)
+I feel like this patch is premature, it should come later in the
+project along with a stronger justification for this approach.
 
-diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
-index ed75631ad63c..9b1c25775bea 100644
---- a/arch/arm64/include/asm/hugetlb.h
-+++ b/arch/arm64/include/asm/hugetlb.h
-@@ -39,9 +39,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
- extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 				      unsigned long addr, pte_t *ptep,
- 				      pte_t pte, int dirty);
--#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
--extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
--				     pte_t *ptep, unsigned long sz);
- #define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
- extern void huge_ptep_set_wrprotect(struct mm_struct *mm,
- 				    unsigned long addr, pte_t *ptep);
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 99728b02a3ca..62a66ce2b2fe 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -260,16 +260,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
- 	return entry;
- }
- 
--pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
--			      pte_t *ptep, unsigned long sz)
--{
--	int ncontig;
--	size_t pgsize;
--
--	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
--	return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
--}
--
- /*
-  * huge_ptep_set_access_flags will update access flags (dirty, accesssed)
-  * and write permission.
-diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
-index 467bc30c2153..0fbb6b19df79 100644
---- a/arch/riscv/include/asm/hugetlb.h
-+++ b/arch/riscv/include/asm/hugetlb.h
-@@ -20,11 +20,6 @@ bool arch_hugetlb_migration_supported(struct hstate *h);
- #endif
- 
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
--#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
--pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
--			      unsigned long addr, pte_t *ptep,
--			      unsigned long sz);
--
- #define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
- pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 			    unsigned long addr, pte_t *ptep);
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index fe82284c3dc4..87168123d4a2 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -203,21 +203,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 	return true;
- }
- 
--pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
--			      unsigned long addr,
--			      pte_t *ptep, unsigned long sz)
--{
--	pte_t orig_pte = ptep_get(ptep);
--	int pte_num;
--
--	if (!pte_napot(orig_pte))
--		return ptep_get_and_clear(mm, addr, ptep);
--
--	pte_num = arch_contpte_get_num_contig(ptep, sz, NULL);
--
--	return get_clear_contig(mm, addr, ptep, pte_num);
--}
--
- void huge_ptep_set_wrprotect(struct mm_struct *mm,
- 			     unsigned long addr,
- 			     pte_t *ptep)
-diff --git a/include/linux/hugetlb_contpte.h b/include/linux/hugetlb_contpte.h
-index e6aa9befa78c..1c8f46ff95ea 100644
---- a/include/linux/hugetlb_contpte.h
-+++ b/include/linux/hugetlb_contpte.h
-@@ -18,4 +18,9 @@ extern void set_huge_pte_at(struct mm_struct *mm,
- extern void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
- 			   pte_t *ptep, unsigned long sz);
- 
-+#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
-+extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+				     unsigned long addr, pte_t *ptep,
-+				     unsigned long sz);
-+
- #endif /* _LINUX_HUGETLB_CONTPTE_H */
-diff --git a/mm/hugetlb_contpte.c b/mm/hugetlb_contpte.c
-index e881b302dd63..82f49eb79ffb 100644
---- a/mm/hugetlb_contpte.c
-+++ b/mm/hugetlb_contpte.c
-@@ -98,3 +98,54 @@ void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
- 	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
- 		__pte_clear(mm, addr, ptep);
- }
-+
-+/*
-+ * ARM: Changing some bits of contiguous entries requires us to follow a
-+ * Break-Before-Make approach, breaking the whole contiguous set
-+ * before we can change any entries. See ARM DDI 0487A.k_iss10775,
-+ * "Misprogramming of the Contiguous bit", page D4-1762.
-+ *
-+ * RISCV: When dealing with NAPOT mappings, the privileged specification
-+ * indicates that "if an update needs to be made, the OS generally should first
-+ * mark all of the PTEs invalid, then issue SFENCE.VMA instruction(s) covering
-+ * all 4 KiB regions within the range, [...] then update the PTE(s), as
-+ * described in Section 4.2.1.". That's the equivalent of the Break-Before-Make
-+ * approach used by arm64.
-+ *
-+ * This helper performs the break step.
-+ */
-+static pte_t get_clear_contig(struct mm_struct *mm,
-+			     unsigned long addr,
-+			     pte_t *ptep,
-+			     unsigned long pgsize,
-+			     unsigned long ncontig)
-+{
-+	pte_t pte, tmp_pte;
-+	bool present;
-+
-+	pte = __ptep_get_and_clear(mm, addr, ptep);
-+	present = pte_present(pte);
-+	while (--ncontig) {
-+		ptep++;
-+		addr += pgsize;
-+		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
-+		if (present) {
-+			if (pte_dirty(tmp_pte))
-+				pte = pte_mkdirty(pte);
-+			if (pte_young(tmp_pte))
-+				pte = pte_mkyoung(pte);
-+		}
-+	}
-+	return pte;
-+}
-+
-+pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+			      unsigned long addr, pte_t *ptep, unsigned long sz)
-+{
-+	int ncontig;
-+	size_t pgsize;
-+
-+	ncontig = arch_contpte_get_num_contig(ptep, sz, &pgsize);
-+
-+	return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
-+}
--- 
-2.39.2
+IHMO keep things simple for this series, just the very basics.
 
+> +int register_kho_notifier(struct notifier_block *nb)
+> +{
+> +	return blocking_notifier_chain_register(&kho_out.chain_head, nb);
+> +}
+> +EXPORT_SYMBOL_GPL(register_kho_notifier);
+
+And another different set of notifiers? :(
+
+> +static int kho_finalize(void)
+> +{
+> +	int err = 0;
+> +	void *fdt;
+> +
+> +	fdt = kvmalloc(kho_out.fdt_max, GFP_KERNEL);
+> +	if (!fdt)
+> +		return -ENOMEM;
+
+We go to all the trouble of keeping track of stuff in dynamic hashes
+but still can't automatically size the fdt and keep the dumb uapi to
+have the user say? :( :(
+
+Jason
 
