@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08606C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 12:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0FDC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 12:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0Bfq4RisKeoN4RJfGqSrsliDfiosntwLr+iSEKNHzc=; b=y/VkH5SriOJSbff0QwEH4w5wqN
-	/jk95/66NiR/iHkXWwq+A9/0OjVf/EGvxO6l9uMuuXOHI6RYcWP9A17yI2PqTjWCZRfMAiBWORV6f
-	kOQmdllZyP39BXX2ZA72McEdQCgm7njqZFadbX7LJtMcoMXmWUj32K0S6GZT/nyIlv1zN8Nu3/6vR
-	YnHFAEmAmIgaU8SpMwmTRpwBD0ZIfH2AqsoJDRCpj3NSUlRxVeoubKcCKXauBWu2l/kir+J0LQpGa
-	2t6yNZGBwRGnfxXKby53B7qnuEvt8IqHMV1fpSdieQuJkR5ewHkJ8cmZBSolj7aRAK1MDc9xEhDol
-	t6/O/F2Q==;
+	bh=bjbbUlO+lFrQhVSdKJY1Qq0t6HZ4De9L7Y5VLIlJUik=; b=Zd5LU2rbNlIecH05uey2ZKKgX4
+	OUt1woH3n9haGgfY/1K9nP25lhWoqYb5oFwKnrWPSlHzbReUOeq6QKenIGKqcwPJN0WaX/kM9CGFV
+	LWYYURWUBV0Rjg5ofjrWmJY/ZKq1Ly3O+d0eKR5K1+rq6V3/ClmNorc/iNvEID1vOHakefzY2rjoZ
+	sUVz4oXztSCxADxmalqDl+8He5Nr3NWp7lNWVWmzXxE/P1lbqOwuVINRJp6K0eaqjat0o1EfIeScz
+	yU3KyD33eh6OAwQ3tJH2sYLc2xuSnCJcpejZOdixbrxhg7cdDZU6PPn0qeTOAmBrKkpEkrAUuuSkM
+	EoYQH1jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvblj-0000000Enze-2lxq;
-	Fri, 21 Mar 2025 12:46:35 +0000
+	id 1tvbyC-0000000Epyn-0iNu;
+	Fri, 21 Mar 2025 12:59:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvbhd-0000000En5s-0fke
+	id 1tvbwV-0000000EpkZ-2BKr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 12:42:22 +0000
+	Fri, 21 Mar 2025 12:57:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BFBA3106F;
-	Fri, 21 Mar 2025 05:42:27 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23F393F63F;
-	Fri, 21 Mar 2025 05:42:19 -0700 (PDT)
-Message-ID: <2d3fb704-172c-4632-9e95-02bbfb8c0f90@arm.com>
-Date: Fri, 21 Mar 2025 12:42:17 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 408B5106F;
+	Fri, 21 Mar 2025 05:57:50 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC44A3F63F;
+	Fri, 21 Mar 2025 05:57:40 -0700 (PDT)
+Date: Fri, 21 Mar 2025 12:57:32 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, open list
+ <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, Linux ARM
+ <linux-arm-kernel@lists.infradead.org>, kvmarm@lists.linux.dev, Anshuman
+ Khandual <anshuman.khandual@arm.com>, Rob Herring <robh@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>,
+ Aishwarya TCV <aishwarya.tcv@arm.com>, Anders Roxell
+ <anders.roxell@linaro.org>, Dan Carpenter <dan.carpenter@linaro.org>, Arnd
+ Bergmann <arnd@arndb.de>
+Subject: Re: Fast model boot failure with Linux next-20250312
+Message-ID: <20250321125732.6def5eca@donnerap.manchester.arm.com>
+In-Reply-To: <CA+G9fYuw_jXCz07Dsk46QXQr3+y5-NfkC30ZNh+XmyeWgibQhA@mail.gmail.com>
+References: <CA+G9fYvPu+MQKhYyPZSSDpAn-zhRGmeHQ8hJksT_cdDdxfbB-g@mail.gmail.com>
+	<Z9ra3I2axii2HRVb@J2N7QTR9R3>
+	<CA+G9fYuw_jXCz07Dsk46QXQr3+y5-NfkC30ZNh+XmyeWgibQhA@mail.gmail.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/7] coresight: Convert tag clear function to take a
- struct cs_access
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, leo.yan@arm.com
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
- <20250320-james-coresight-claim-tags-v3-1-d3145c153820@linaro.org>
- <3bbf8aee-7b84-405a-8a3f-648c74196c2c@arm.com>
-Content-Language: en-US
-In-Reply-To: <3bbf8aee-7b84-405a-8a3f-648c74196c2c@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_054221_374216_3E50146A 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20250321_055743_650923_272B2139 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,141 +72,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/03/2025 11:02, Suzuki K Poulose wrote:
-> On 20/03/2025 14:34, James Clark wrote:
->> The self hosted claim tag will be reset on device probe in a later
->> commit. We'll want to do this before coresight_register() is called so
->> won't have a coresight_device and have to use cs_access instead.
->>
->> Also make them public and create locked and unlocked versions for
->> later use.
->>
->> These look functions look like they set the whole tags register as one
->> value, but they only set and clear the self hosted bit using a SET/CLR
->> bits mechanism so also rename the functions to reflect this better.
->>
->> Reviewed-by: Leo Yan <leo.yan@arm.com>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   drivers/hwtracing/coresight/coresight-core.c | 27 ++++++++++++++++++ 
->> +--------
->>   include/linux/coresight.h                    |  3 ++-
->>   2 files changed, 21 insertions(+), 9 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
->> hwtracing/coresight/coresight-core.c
->> index fb43ef6a3b1f..8471aefeac76 100644
->> --- a/drivers/hwtracing/coresight/coresight-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-core.c
->> @@ -144,19 +144,30 @@ static inline bool 
->> coresight_is_claimed_any(struct coresight_device *csdev)
->>       return coresight_read_claim_tags(csdev) != 0;
->>   }
->> -static inline void coresight_set_claim_tags(struct coresight_device 
->> *csdev)
->> +static inline void coresight_set_self_claim_tag(struct 
->> coresight_device *csdev)
-> 
-> nit: For consistency, this should be renamed to _unlocked ?
-> 
+On Thu, 20 Mar 2025 16:03:32 +0530
+Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
 
-minor nit on the subject;
+Hi,
 
-s/cs_access/csdev_access/
-
-Suzuki
-
-
+> On Wed, 19 Mar 2025 at 20:25, Mark Rutland <mark.rutland@arm.com> wrote:
+> >
+> > On Wed, Mar 19, 2025 at 08:07:47PM +0530, Naresh Kamboju wrote:  
+> > > Regressions on the arm64 Fast Model (FVP-AEMvA) caused boot failures starting
+> > > with Linux next-20250312 and persisting through next-20250319.
+> > >
+> > > First seen on the next-20250312
+> > >  Good: next-20250311
+> > >  Bad:  next-20250312 .. next-20250319
+> > >
+> > > Regressions found on FVP:
+> > >  - boot
+> > >
+> > > Regression Analysis:
+> > >  - New regression? Yes
+> > >  - Reproducible? Yes
+> > >
+> > > Boot regression: Fast model boot failure with Linux next-20250312
+> > > Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> > >
+> > > Anders bisected this to this commit id,
+> > >
+> > > # first bad commit:
+> > >   [858c7bfcb35e1100b58bb63c9f562d86e09418d9]
+> > >   arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+> > >
+> > > NOTE:
+> > >   LKFT is currently running FVP Fast Models version 11.24.
+> > >   Planned upgrade to the Fast Models version 11.28 in this sprint.  
+> >
+> > What firmware (and version therof) are you running within the model?  
 > 
+> Fast Models [11.24.11 (Nov 29 2023)]
+> Booting Trusted Firmware
+> BL1: v2.9(release):v2.9.0
+> BL2: v2.9(release):v2.9.0
+> BL31: v2.9(release):v2.9.0
+> UEFI firmware (version  built at 22:31:25 on May 26 2023)
+> UEFI v2.70 (EDK II, 0x00010000)
+> 
+> We need to update the firmware version at our end.
 
-Rest looks fine to me
+Oh yes, please, v2.9.0 is quite old by now, especially for a moving target
+like the FVP, and when enabling new architecture features.
+FWIW, after Anshuman pointed me the problem, I made a patch for TF-A to
+enable PMUv3p9:
+https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/35884
+You would need that for this Linux commit here to work.
+FEAT_FGT2 should be enabled already by default for the FVP.
+
+Please feel free to leave a comment at the TF-A gerrit, stating that you
+need the patch, that should accelerate the upstream process.
+
+Cheers,
+Andre
+
+> > For example, if the EL3 firmware lacks support for FEAT_FGT2 or
+> > FEAT_PMUv3p9, the kernel will trap to EL3 early during boot and die.
+> >
+> > It would be really helpful if you could capture that in the report in
+> > future.
+> >
+> > Mark.
+> >  
+> > >
+> > > ## Boot log
+> > >   <No crash log on the console>
+> > >
+> > > ## Source
+> > > * Kernel version: 6.14.0-rc7
+> > > * Git tree: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> > > * Git sha: ff7f9b199e3f4cc7d61df5a9a26a7cbb5c1492e6
+> > > * Git describe: next-20250319
+> > > * Project details:
+> > > https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250319
+> > > * DUT: arm64 Fast Model (FVP-AEMvA)
+> > > * Toolchains: gcc-13 and clang-20
+> > >
+> > > ## Build
+> > > * Build log: https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250319/testrun/27675691/suite/boot/test/gcc-13-lkftconfig/log
+> > > * Build history:
+> > > https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250319/testrun/27675685/suite/boot/test/gcc-13-lkftconfig/history/
+> > > * Build details:
+> > > https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250319/testrun/27675691/suite/boot/test/gcc-13-lkftconfig/
+> > > * Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2uX2EtC2pQdmVZ7ccoyhoi01Yy0/
+> > > * Kernel config:
+> > > https://storage.tuxsuite.com/public/linaro/lkft/builds/2uX2EtC2pQdmVZ7ccoyhoi01Yy0/config
+> > >
+> > > --
+> > > Linaro LKFT
+> > > https://lkft.linaro.org
+> > >  
 > 
-> Suzuki
-> 
-> 
->>   {
->>       csdev_access_relaxed_write32(&csdev->access, 
->> CORESIGHT_CLAIM_SELF_HOSTED,
->>                        CORESIGHT_CLAIMSET);
->>       isb();
->>   }
->> -static inline void coresight_clear_claim_tags(struct coresight_device 
->> *csdev)
->> +void coresight_clear_self_claim_tag(struct csdev_access *csa)
->>   {
->> -    csdev_access_relaxed_write32(&csdev->access, 
->> CORESIGHT_CLAIM_SELF_HOSTED,
->> +    if (csa->io_mem)
->> +        CS_UNLOCK(csa->base);
->> +    coresight_clear_self_claim_tag_unlocked(csa);
->> +    if (csa->io_mem)
->> +        CS_LOCK(csa->base);
->> +}
->> +EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
->> +
->> +void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
->> +{
->> +    csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
->>                        CORESIGHT_CLAIMCLR);
->>       isb();
->>   }
->> +EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
->>   /*
->>    * coresight_claim_device_unlocked : Claim the device for self- 
->> hosted usage
->> @@ -176,11 +187,11 @@ int coresight_claim_device_unlocked(struct 
->> coresight_device *csdev)
->>       if (coresight_is_claimed_any(csdev))
->>           return -EBUSY;
->> -    coresight_set_claim_tags(csdev);
->> +    coresight_set_self_claim_tag(csdev);
->>       if (coresight_is_claimed_self_hosted(csdev))
->>           return 0;
->> -    /* There was a race setting the tags, clean up and fail */
->> -    coresight_clear_claim_tags(csdev);
->> +    /* There was a race setting the tag, clean up and fail */
->> +    coresight_clear_self_claim_tag_unlocked(&csdev->access);
->>       return -EBUSY;
->>   }
->>   EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
->> @@ -201,7 +212,7 @@ int coresight_claim_device(struct coresight_device 
->> *csdev)
->>   EXPORT_SYMBOL_GPL(coresight_claim_device);
->>   /*
->> - * coresight_disclaim_device_unlocked : Clear the claim tags for the 
->> device.
->> + * coresight_disclaim_device_unlocked : Clear the claim tag for the 
->> device.
->>    * Called with CS_UNLOCKed for the component.
->>    */
->>   void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
->> @@ -211,7 +222,7 @@ void coresight_disclaim_device_unlocked(struct 
->> coresight_device *csdev)
->>           return;
->>       if (coresight_is_claimed_self_hosted(csdev))
->> -        coresight_clear_claim_tags(csdev);
->> +        coresight_clear_self_claim_tag_unlocked(&csdev->access);
->>       else
->>           /*
->>            * The external agent may have not honoured our claim
->> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->> index d79a242b271d..00134a80d358 100644
->> --- a/include/linux/coresight.h
->> +++ b/include/linux/coresight.h
->> @@ -685,7 +685,8 @@ extern int coresight_timeout_action(struct 
->> csdev_access *csa, u32 offset,
->>   extern int coresight_claim_device(struct coresight_device *csdev);
->>   extern int coresight_claim_device_unlocked(struct coresight_device 
->> *csdev);
->> -
->> +void coresight_clear_self_claim_tag(struct csdev_access *csa);
->> +void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa);
->>   extern void coresight_disclaim_device(struct coresight_device *csdev);
->>   extern void coresight_disclaim_device_unlocked(struct 
->> coresight_device *csdev);
->>   extern char *coresight_alloc_device_name(struct coresight_dev_list 
->> *devs,
->>
+> - Naresh
 > 
 
 
