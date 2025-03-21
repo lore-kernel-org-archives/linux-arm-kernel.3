@@ -4,133 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EF5C36001
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F87BC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASbCVF6IGoyY2N0TjxdPMAgZr4dHNvrD/QqrVeipMWU=; b=gOyrzEWgBxuu3AzWPz0ddniYvB
-	J0oMeD/YqTDmr+BW+hMCNdSkqiY5QJ5ak9wWs0xi1VmEG7eIEVeHPJmnjBohDhIalAjSS2/B9z5mv
-	zaSsZRxOSjlv0Gls2ojN7Q83YOUCk7AhGH5KXtfeY/A594U38A+C1+DDQibNo/xKGX3OOwgc94iiD
-	yTam9qgos2jPiwzUOg+mKB0sGUp1rsfOkRXxqz9Iz523dBYcjB5PpLFlDcDXA4jarslPEuiYSiRQH
-	m8g+tMqixU4EUBXCXPH3lXGYQ8kQdhHgE2PyAixf/LKsipku1VULCrKqOsRJQXEl/bBeWqSBx9V3C
-	ysGa/zuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MzFQfhx5F8dx0RL9AvvQYwg76iw5NXa4lMy+vsdeqMg=; b=JcQ1yANaApQIxK4vt9ArcT4c+D
+	cWDluYYer3XvFZuC6qL/ghTqSqDlhHqC0Dz25+sOII9mpQc4i5fiZtdFCM0w/EUtwPcdyMq0auWZi
+	VeJmb3teKKTomr82Pqe39pvLOyf4xiVuOFqVNrtxaLY7z4qz7FVUAgJN6fywMezWqYf8EIPtHnbP9
+	jPZMv1tBtd2aGU1lzq5DzRkYwX6Dt9QK4SsCXQ2eSMtXBI8evCaMGYdqp+4+1hlViOLblhHPJY/Jn
+	UvLfPM0Qlsjm1nnz4Swq9o2tq8KVrT2ECuuGWa7V141wW882hI+JjN/TIp3vFV/AWV92vJ3SAzKBx
+	SGX0Z6RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdUF-0000000F8eZ-2YIB;
-	Fri, 21 Mar 2025 14:36:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tvdVu-0000000F95Y-180p;
+	Fri, 21 Mar 2025 14:38:22 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdPt-0000000F7a8-35Ku
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 21 Mar 2025 14:32:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ASbCVF6IGoyY2N0TjxdPMAgZr4dHNvrD/QqrVeipMWU=; b=mHU5WVRg1hJ+ZIv65lNzNzK9er
-	CZUBXOK7CPrBmZy35ewd+/Z3dEmVpsGkuzp/I7MAoZnMyDXROYpYah5DjLfhgA+63sFD1t2QdLzBc
-	nm/qFXR8whXd0wVsTi9xw8KX4M419JU/cgLq4DF5Zf3MAknq7wVf9piKcyMlVtTl+HKq/1mAs74Nf
-	akfCzPblP8CS3g30XdeqmWkR557as1HuV81HiMr2PZIhTdwW9lmIC580CV4wunXQHOB3ToNJZwhcx
-	6jUQP+feUX7aapweV/NrNcSgiuy/PJcMbXkOTONwqfeMA2gm4zUDzclRZ3Wgh0/VLV0Bv6J6Vufcm
-	Fy7Ug9pA==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdPq-00000004O8H-16mm
+	id 1tvdQf-0000000F7hp-2SBZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 14:32:08 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52LATCwn011435
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 14:32:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=ASbCVF6IGoyY2N0TjxdPMAgZ
-	r4dHNvrD/QqrVeipMWU=; b=j5/rvATVRl6e8otFJk7TbSloKEolYfxdsRjzEMzg
-	ahv0NV3EzON7+NlL2LG+x07BVD1G8E2LXmCAqs6xepVXisQWj5WOYaNhCE9+uC+7
-	2QdprtEUMU1KEes4JYdCFKdWDiOKqjBIfgD7cTX/4jBIq5s3o6gXIWFciWpsoRaV
-	hgeIjdTpqO+YtrYjBBhgbamNBdrIRLQVDtUuCuni2MOCH9fk1zCfI1xQYPYov8gO
-	I/yYtk099O770kxqToSM5yJuDhflwyBv34Z4q7gg4yRaXHFSiRqwS56wjKrP08/E
-	BIO4BQrb1UG+nx+sT9ArT0tL9Oc1Nd9XF3BpCXJOGohTLg==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45g15y6r57-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 14:32:00 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7c5b9333642so180935485a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:32:00 -0700 (PDT)
+	Fri, 21 Mar 2025 14:32:58 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso13539325e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:32:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742567575; x=1743172375; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MzFQfhx5F8dx0RL9AvvQYwg76iw5NXa4lMy+vsdeqMg=;
+        b=m4ZR+0yD1Zgjvy5CiMMmk6KWKOBeFcQH7lfvu6HZVy0ZX9KXBbyFR/LyxHg+eXdCoo
+         icMrjrEjxlVeoL3ttjc/9B2a01E+61ON0d7/I6NrPF66s2vViV0l7CT5wfPPgibk7fUB
+         Qhff4OR1/YPV+ETeQUuvri2VJ+q0+oghaotL3gjCs9bT4qHvTVWbLPOjOnSW/GW/fJfU
+         lZBTzYKiUO0MjYzWiZgMGGZtf4/PsrWpHtAHR+PbvCYf2Or+q3G1V5Lq7NtysVsu/nuT
+         BT/mr9Ao6jU5/3XkpS1PcNH0v4Nfs8iDLc+kATBGyK+VZOuZZfyieqmoBX1yifCPxtmz
+         twXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742567519; x=1743172319;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ASbCVF6IGoyY2N0TjxdPMAgZr4dHNvrD/QqrVeipMWU=;
-        b=roTt1WTFuANjQ4ZBP0nKm4oQmxUmlxm0AmXtVwtNuWBopzslh1kkM77Xk6PKhfZGZD
-         7vPZYh9ZKvxlisttTLzf2AhNfjHafPGbM0Fop5Sy2NoRuMmUP3Lq5wXv2h8uwW4ufjFK
-         fl4cTFQK/yZioSi8FkL0XXM+IZB4bbG9WZc9tJjZbhHiyLb8gKS2jC6lM2WfOYbyC1u8
-         WI9daI4Yx6FBRevjV2nZAxHHdgAIxBQyAufBsu4Udc34KSY8u4stfK3SdwPEKIXDkNa7
-         bh3DIPgz5wPlPLGMK6d1OoxrWFk4QsEN1epKe72zPsDMg0nqIWEQ3nnc+EEXk4qMHBDg
-         Pu7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUtrVBpfGfIq6aeLe0+QV6JCFw02zMeq2OQsi0Afa3Jlka8Cwipub67tUb2hpzN7pR8SsFheWKBPMGTtazBEJox@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+nU7c8xtm9udzXCoj1jt1a+b7rWCi7er7kIQQLD8PKyBZmDsS
-	M23VltgzydEljMenGbf2avgU6jtTy71WKK4JPBqDmhQM4crrQv1J9fYRpojAvIIWAlY4dluc55+
-	uOQ8mX8m+FDWFuJKMR7kPtqekHasYo51aFQMN8MRjg2H7PPyZABfdS6M+ezq1D6zED3+tVaImMw
-	==
-X-Gm-Gg: ASbGncuP/0GT2jKNWuOxnpjm7AZk0gG27SzjK3tqKCP0agr25YUNDQGMWQs3q40M1r5
-	IW6soJDsXr4XpLgy7+3X3ZFo4rsoN9qI+5p7Bmre3szoiqFYRhYb6t6R+Dw8xOq279GSfbBvXJH
-	sraC5A88q5tmtRevsNZLhQUNWq4roORMYL60toAt+nEf6SwIGbOsE0HPscWRMjrZsNVn5KfYIxm
-	zqa1ReU/nPDJe9jkGn7C+QIEBmdm1QHpx9QcpYyFywmQdNq84FbuBA4rmaz3Kt6Hqv5iBS/x1k5
-	mDKk88hcRUqnO+zSZQzNP7ItRLBJPfz3EDLJDyzF6VxaSKXEjK1MjxV9ZqRuWwqBSyAZhPpNjvK
-	3/Lo=
-X-Received: by 2002:a05:620a:461f:b0:7c5:5e5b:2fdb with SMTP id af79cd13be357-7c5ba211392mr509660585a.41.1742567519264;
-        Fri, 21 Mar 2025 07:31:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHTvGJ85KG70hDc3USgHc+qZKoWAZnYtaXcPyp6rUDakGGGOGIHCJQh/uHXW8DEKPu0mfBeXA==
-X-Received: by 2002:a05:620a:461f:b0:7c5:5e5b:2fdb with SMTP id af79cd13be357-7c5ba211392mr509654385a.41.1742567518714;
-        Fri, 21 Mar 2025 07:31:58 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad646bd42sm194861e87.26.2025.03.21.07.31.56
+        d=1e100.net; s=20230601; t=1742567575; x=1743172375;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MzFQfhx5F8dx0RL9AvvQYwg76iw5NXa4lMy+vsdeqMg=;
+        b=LBYGzfI3AUmc/B4ZrArQRB9rAl4Mi09VNCyEwirBAEiB77+BxMv7K6eBKOcTzzmLqZ
+         3dicUBJ+v61JFgeV2LETZCRBf8xlhbPbNt1VeDTtD5bXDIcrUyoAKSMDAzpmJYxSR020
+         W02c6RcU0lMzwfOQ9/0WsST72pXgbk+vdP4VgZKGH59yCwSuEDty4rRDEURsnfnrzij+
+         8QiOLrb9lmglctU+R60FvotYlxIQWVS/pYXRVI4kBtRaOt72cF6elj0TAIZrNvmiGYHV
+         v1ysGCLhp4sJaEW4dYYqC/qSm5BMmsAvEVXjaRIp8jywR8R2D8Ln7wdY2lnL6XMMIYAp
+         gDKw==
+X-Forwarded-Encrypted: i=1; AJvYcCUvgo8YF7SY+Aig0JV0qWFe1emk007JbUw2M2ip6PKlzPv9DK1GHEi7NJ6ZNDTPrSBA7ZtuZ2h8GQrX7QLT3NrL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQXyKBOtAnKNpIDhlJ+q6LC5+T998YBZrqV2H47uyHn1d0i3r7
+	6nfjcdxHX47brIYdoYwS69uV7jWMjCKdOm3HWl+5nCGzJh/m+UpLBk0iQq6BBdY=
+X-Gm-Gg: ASbGncuaY0kSHf2y5RpmrUZVUJgj8rYot8jsZJPPIHFvsDEZQR0FCFU85ZLzA2Z1eHu
+	i8dAeGILDg3VJ9P05CG2XGL3WoF7cHW9DoEqiw9FBp4wQ0Rb//euj1XDmyTEPRba6nDURedZ9TF
+	su1joSgRKztfZZAECNYL8q1keWoLYXpiUJ70iR3lxNK+M6yXVH626gMl08qieVLQFSLbhSJnka2
+	GI91WBblMX6xUoS1JKk1Wuqv2QFiHUMk4nES82Zk5bHDtwIKpdrl8iPl4JETJnnFC6hfa1vpdu8
+	Ho9zTa2KurT0zzLL9bViJdjttLl6Xmdn56KfvHshFRd3LF1UuQ==
+X-Google-Smtp-Source: AGHT+IFdHgCx4C5nFq7a41Rl1TdfpLB7mC6eqzVe1FxFvJX3eQdkfF3U3LPtyEx8bVlfn1VSsrBleA==
+X-Received: by 2002:a05:600c:1c02:b0:43d:5264:3cf0 with SMTP id 5b1f17b1804b1-43d52a08ed8mr22225315e9.11.1742567575525;
+        Fri, 21 Mar 2025 07:32:55 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d4fd27980sm28845345e9.21.2025.03.21.07.32.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 07:31:56 -0700 (PDT)
-Date: Fri, 21 Mar 2025 16:31:55 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Marek Szyprowski <m.szyprowski@samsung.com>,
-        Sylwester Nawrocki <s.nawrocki@samsung.com>,
-        Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org,
-        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v3 05/10] phy: phy-snps-eusb2: split phy init code
-Message-ID: <7v3xkvldjnpqakrndwl6wb6vdsl3idbirlhddpqhwtt3ddadzr@kjafi3updcsb>
-References: <20250321135854.1431375-1-ivo.ivanov.ivanov1@gmail.com>
- <20250321135854.1431375-6-ivo.ivanov.ivanov1@gmail.com>
+        Fri, 21 Mar 2025 07:32:55 -0700 (PDT)
+Date: Fri, 21 Mar 2025 17:32:53 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Ricardo Koller <ricarkol@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Andrew Jones <drjones@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH] KVM: selftests: Fix a couple "prio" signedness bugs
+Message-ID: <ca579322-dc9d-4300-bd74-7e9240e930c7@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250321135854.1431375-6-ivo.ivanov.ivanov1@gmail.com>
-X-Proofpoint-GUID: 8H3mMlIAWhEIRP7aK2P2ntjPKxBDUZZD
-X-Proofpoint-ORIG-GUID: 8H3mMlIAWhEIRP7aK2P2ntjPKxBDUZZD
-X-Authority-Analysis: v=2.4 cv=VaD3PEp9 c=1 sm=1 tr=0 ts=67dd7860 cx=c_pps a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=XJ2MQsQTle-X_OudA-YA:9 a=CjuIK1q_8ugA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-21_05,2025-03-20_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
- bulkscore=0 lowpriorityscore=0 adultscore=0 mlxlogscore=999 phishscore=0
- spamscore=0 priorityscore=1501 suspectscore=0 mlxscore=0 malwarescore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503210106
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_143206_672075_ED85949D 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20250321_073257_629180_DB4C3309 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,59 +101,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 03:58:49PM +0200, Ivaylo Ivanov wrote:
-> The current phy init consists of hardware power-up, as well as
-> QCOM-specific eUSB2 init code. Split it into two parts, to make room
-> for such non-QCOM init code.
-> 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
->  drivers/phy/phy-snps-eusb2.c | 96 +++++++++++++++++++++++-------------
->  1 file changed, 63 insertions(+), 33 deletions(-)
-> 
-> @@ -378,6 +401,11 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
->  	if (!phy)
->  		return -ENOMEM;
->  
-> +	drv_data = of_device_get_match_data(dev);
-> +	if (!drv_data)
-> +		return -EINVAL;
-> +	phy->data = drv_data;
+There is an assert which relies on "prio" to be signed.
 
-Nit and completely bikeshedding, but this looks simpler:
+	GUEST_ASSERT(prio >= 0);
 
-	phy->data = of_device_get_match_data(dev);
-	if (!phy->data)
-		return -EINVAL;
+Change the type from uint32_t to int.
 
+Fixes: 728fcc46d2c2 ("KVM: selftests: aarch64: Add test for restoring active IRQs")
+Fixes: 0ad3ff4a6adc ("KVM: selftests: aarch64: Add preemption tests in vgic_irq")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+---
+ tools/testing/selftests/kvm/arm64/vgic_irq.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Anyway:
-
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-
-
-> +
->  	phy->base = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(phy->base))
->  		return PTR_ERR(phy->base);
-> @@ -424,8 +452,10 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
->  }
->  
->  static const struct of_device_id snps_eusb2_hsphy_of_match_table[] = {
-> -	{ .compatible = "qcom,sm8550-snps-eusb2-phy", },
-> -	{ },
-> +	{
-> +		.compatible = "qcom,sm8550-snps-eusb2-phy",
-> +		.data = &sm8550_snps_eusb2_phy,
-> +	}, { },
->  };
->  MODULE_DEVICE_TABLE(of, snps_eusb2_hsphy_of_match_table);
->  
-> -- 
-> 2.43.0
-> 
-
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+index f4ac28d53747..e89c0fc5eef3 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+@@ -294,7 +294,8 @@ static void guest_restore_active(struct test_args *args,
+ 		uint32_t first_intid, uint32_t num,
+ 		kvm_inject_cmd cmd)
+ {
+-	uint32_t prio, intid, ap1r;
++	uint32_t intid, ap1r;
++	int prio;
+ 	int i;
+ 
+ 	/*
+@@ -362,7 +363,8 @@ static void test_inject_preemption(struct test_args *args,
+ 		uint32_t first_intid, int num,
+ 		kvm_inject_cmd cmd)
+ {
+-	uint32_t intid, prio, step = KVM_PRIO_STEPS;
++	uint32_t intid, step = KVM_PRIO_STEPS;
++	int prio;
+ 	int i;
+ 
+ 	/* Set the priorities of the first (KVM_NUM_PRIOS - 1) IRQs
 -- 
-With best wishes
-Dmitry
+2.47.2
+
 
