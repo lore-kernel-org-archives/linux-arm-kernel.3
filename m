@@ -4,100 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0938C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F694C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbhBstTf/rpGE79fQcNaD6V+9Y2DvcY3tvSTTq6IewU=; b=zO4/mm77obQmN+LvX8tRv/HWMj
-	uVkhd+9b2+cscbC6DTbg9HJm9UQFEEdIiY7LLVs/4ZAvABjx4AcHl2UodvhkcEk8ih6kNPIZDNDWB
-	4F+C+xY46XWhOT6kQj8Mq4cxwElbo9t67Um0GvzjBmHJ4NEPIOcJABb3Z/6wXD8iM6QrWK2e+Bg5H
-	YvmVqk5fVf37cseq3xttxXF8y1VyIJpelb9B0Tk7howOTqBPcZyIZa+6hET2hgZRxUzQR1ibB/Exh
-	gmjlp3BRy9B6JlFbnPvXkU/TDhn/3vHtjmcAy3+RvT1ZbubXCDeEJNUr90/ZihjLozI7Nun510UPx
-	6frzfnYg==;
+	bh=RNT2K+m2Kh9/ubJRwFMhjD+xp03X8faLotIucQNMpuY=; b=VGwaVahaf4DyICut+Q8qNt48Ym
+	Kkan/zab3roBZH77KunjH4K3xcXEOtAc6mB01z9SfUJiiq+Yj1A+J3XSZhIDCCgn/lGV/JIGkNH1J
+	EDVuxWeT4+PjqtMe6p6Su0VhF5emZEuR4740Z3+yaPhftIhQ99UeHfzzuVdaq/Frrf/u5TUxMhzw8
+	5VDhxjQ1kt2YagtSN7HL3oXZ8CQBC1s790hARWpwBrgHYJ1m7pLnfPlExG3fbRZCcekohYLLcTAp8
+	52tLZPAW3kb2P9jC6u50mxrBcpkMrxUSyA/K3c7hkUisHOXgns/yVm6/dawTcppqZhEVfFlbvNgdj
+	K6ZV4Zaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvX64-0000000E9Hh-1TQk;
-	Fri, 21 Mar 2025 07:47:16 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tvX7i-0000000E9eS-0wjx;
+	Fri, 21 Mar 2025 07:48:58 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvWoH-0000000E67U-1G2j
+	id 1tvWuZ-0000000E74k-0HYV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 07:28:54 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2254e0b4b79so3792095ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 00:28:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742542132; x=1743146932; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BbhBstTf/rpGE79fQcNaD6V+9Y2DvcY3tvSTTq6IewU=;
-        b=CFykKr4l0/NU1paHlKVzv77EWrJG9NSTXMvg2lFGm2WpdVGwGutwdXdmh6wvNu7xB6
-         gTjYl7ffZ2tzkCJiwL41UEquR/5jpjN6fel7AFgpr4dXkS/23MPmaGuEie0K7Ti7vVYy
-         ZDzpobLCXm8ouajAqeByrCAD85vobyjEUrYwS+z3YH8/jLUOTSxJUQ0HTMAcMlzkq9HG
-         T5LthMmvoEtF6EtQFGye0gi/F3qsW/NOfgHvxV4iMpz41bmUI7Z9iCxQ0UQXPciCN8qy
-         CGz9/WDL1wxFdjQUWd/PoDNAsy2FHd0HTBApl8xTBmQhUvD8fD3Oa0PuTn7vgl8LJ/Ss
-         J1jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742542132; x=1743146932;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BbhBstTf/rpGE79fQcNaD6V+9Y2DvcY3tvSTTq6IewU=;
-        b=kBMKoVoq1QsXoCvTwvWdMJfZFyLusbs/aiCTjMJNRXj+6LMszne8jIsjF4d3u3j5zw
-         z/MrRiXKy91CvlNmJmsMm8U++QKTnQSRE7rk3JP/EcAKPypl6OI5YgAxPsV9NgFNS0SR
-         uXjVn3zYJJM1V/sS4HzjsgLXQVmccpTGk3m7sHBPeC/IdLDU0fqJSsd/I5AM/A3ujyGD
-         wljMdesxtGj9taFKUr1qawpKf8cJLiCX3yZ8uO5KjKTnXxr6boYmAOX5n32eORF2+CL5
-         h3D6FmVhJUUm5foSbHXouMlRFgDC5q4Wm2ssNrsiv60KfKFp1KfjOb23lwKwe+ZMpyYV
-         /KDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWFVq7jstSLBQ0+l4ywtjbNqpfyD+VjDB7to1BH/Z2C5XJbXem7K9OMEgG/PrWp+T2SCK8tQUplHO6+QVre/Que@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl9S3JhIt4X/9ZpV7cvuP1vHiVvgdHAHmUuGddc72ujfixqhQJ
-	xQCgVlJDwETqAitQ0G6qEU559WgtMXmZBVZZ5N4ZSeQQTDN21tibsnhxug==
-X-Gm-Gg: ASbGnctjskmfv3RKVsG0FGSPKoh7Zw1CxNb8yPfGeIBS3u+e2lwCLoLnMiBF9TO3L+Y
-	45FRMkVit2dELJoi/NbyOKunkfVlUsp4ABtK26CZs/3f8800wKCXnm5Mic+IdkoGXW8ooEN4+jt
-	oEcwy5tIVVw7/BVsr6qukyXKu8bvx+g55heMhFcs72HdgfjqePvjmXz55nNwO+qD+ePSWoRmeYv
-	rofl1yOVN+uEJh+pi2fvKe8Cjbw9SulCSK8ort4tBbOlGZsi9ytn1xHSyIqNLJXyN62gkH0Q9Vb
-	L+trm3Oq9VD5/kFoZ7/RwLbDjSACC5KbQ3BG2RI4iBjVjK2733uqSwu5zqafaUWh/BrvI5Tg1Ka
-	DBpSfBxsH0pwWvzZzmnw0LA==
-X-Google-Smtp-Source: AGHT+IEfn10cVp0MmL9KAA7HT1bbZ8SZCvI7q9K72uD16FVBGG7ET0Q39wXEka05fFezPLWLFC4AYA==
-X-Received: by 2002:a17:902:cec8:b0:223:668d:eba9 with SMTP id d9443c01a7336-22780c5587bmr48813795ad.10.1742542132085;
-        Fri, 21 Mar 2025 00:28:52 -0700 (PDT)
-Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f396fasm9862265ad.27.2025.03.21.00.28.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 00:28:51 -0700 (PDT)
-From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Fri, 21 Mar 2025 15:26:11 +0800
-Subject: [PATCH v6 10/10] ARM: dts: aspeed: catalina: Enable MCTP support
- for NIC management
+	Fri, 21 Mar 2025 07:35:26 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250321073516euoutp0168ac30ddd7ba30f971b52ae74816c124~uwS_xAjpe1920719207euoutp01U
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:35:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250321073516euoutp0168ac30ddd7ba30f971b52ae74816c124~uwS_xAjpe1920719207euoutp01U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1742542516;
+	bh=RNT2K+m2Kh9/ubJRwFMhjD+xp03X8faLotIucQNMpuY=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=Wk2T5wi6fc8xAAP+Ppr/A09DLPnizHp67Vho323sdruyK2f2C9jAs2MVpgnbXVHOy
+	 YzyqPghiW3uBrL2+F4NFNgPDGIakpovvtYE0eRP6YnYq2XezDWI28GzgznwX0dgKmd
+	 EUkylQWz4DJWNluj1an7QeSulTSMU8A05VvPbsz0=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250321073512eucas1p11fdbdc3bb672b6d124a475eca48b8a29~uwS6y3A103203332033eucas1p1M;
+	Fri, 21 Mar 2025 07:35:12 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id 20.C5.20821.0B61DD76; Fri, 21
+	Mar 2025 07:35:12 +0000 (GMT)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250321073511eucas1p11f3d9353bf52d6b9649cef6ebcd9d158~uwS6VJS080774107741eucas1p1J;
+	Fri, 21 Mar 2025 07:35:11 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250321073511eusmtrp2efd006670188e1b672aafd657dd59bcc~uwS6T9Ob80551005510eusmtrp2J;
+	Fri, 21 Mar 2025 07:35:11 +0000 (GMT)
+X-AuditID: cbfec7f2-b11c470000005155-54-67dd16b0f438
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id 6A.D4.19920.FA61DD76; Fri, 21
+	Mar 2025 07:35:11 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250321073510eusmtip2a2a7ebc40cc109cc0d2489a526313c41~uwS5bWPkf0030000300eusmtip22;
+	Fri, 21 Mar 2025 07:35:10 +0000 (GMT)
+Message-ID: <33f85cd5-8387-4358-b2d4-29f8877a7e2e@samsung.com>
+Date: Fri, 21 Mar 2025 08:35:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Patch v2] media: s5p-mfc: Support for handling
+ RET_ENC_BUFFER_FULL interrupt
+To: Aakarsh Jain <aakarsh.jain@samsung.com>,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: andrzej.hajda@intel.com, mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+	krzysztof.kozlowski+dt@linaro.org, linux-samsung-soc@vger.kernel.org,
+	gost.dev@samsung.com, aswani.reddy@samsung.com, pankaj.dubey@samsung.com
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250305055308.111300-2-aakarsh.jain@samsung.com>
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250321-potin-catalina-dts-update-20250102-v6-10-4bd85efeb9b4@gmail.com>
-References: <20250321-potin-catalina-dts-update-20250102-v6-0-4bd85efeb9b4@gmail.com>
-In-Reply-To: <20250321-potin-catalina-dts-update-20250102-v6-0-4bd85efeb9b4@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742542103; l=1803;
- i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=bwpQIFwpZpzyzjai+JYBYfCrfZUWdhbKBq8cHgvMUjA=;
- b=oDGqxJIBbfZ7/afAwIsvVjkBfZM66AC4NAU3Nl/DKHdHlrLPNSwK60RC1citbXPc1kcm284Lf
- OCMuUPbPXxPBrXRXK9WJqB0/QIZT3wAgnO+MLqFtqts/SAYDRTGtqX1
-X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
- pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrIKsWRmVeSWpSXmKPExsWy7djPc7obxO6mG7TNY7V4umMmq8X9xZ9Z
+	LA5t3spucfPATiaLizPvslj0vXjIbLHp8TVWi8u75rBZ9GzYymox4/w+Jotlm/4wWSza+oXd
+	gcdj8Z6XTB6bVnWyedy5tofNY/OSeo++LasYPT5vkvM49fUzewB7FJdNSmpOZllqkb5dAldG
+	z8KXrAUNihX9Wx6wNjB+l+5i5OSQEDCRODFtFnMXIxeHkMAKRokdL06yQzhfGCVuTZzEBOF8
+	ZpQ4cu4qK0zLrzUvmEFsIYHljBJt+4ogij4ySsx4dosJJMErYCdxccNBFhCbRUBV4sTn38wQ
+	cUGJkzOfgMVFBeQl7t+aAbSOg0NYIEbi6aQkkDkiAhMYJa5/PMUC4jAL3GWUmLXoOdhmZgFx
+	iVtP5oMtYBMwlOh628UGYnMK2EvcfDOLHaJGXmL72zlgD0kITOeUmNByhB3ibBeJxe0tULaw
+	xKvjW6BsGYn/O+czQTS0M0os+H0fygG6o+H5LUaIKmuJO+d+sYHcyiygKbF+lz5E2FGi6c8n
+	VpCwhACfxI23ghBH8ElM2jadGSLMK9HRJgRRrSYx6/g6uLUHL1xinsCoNAspXGYheXMWkndm
+	IexdwMiyilE8tbQ4Nz212DAvtVyvODG3uDQvXS85P3cTIzCVnf53/NMOxrmvPuodYmTiYDzE
+	KMHBrCTCK9JxO12INyWxsiq1KD++qDQntfgQozQHi5I476L9relCAumJJanZqakFqUUwWSYO
+	TqkGpowJhU7rTaL4DVOP68gsXaw9+ehDp7Za1rISs0Vn2KY0LJOfJyucdXnCQuOmjstmP9Zo
+	/v96P/f4VB6Tp18Ez9r6rZPdHbWsvdPez6bi9nLW1KNCpyNmec1fyaidtXHGJ23HdaXenlcm
+	7/GPM2JLDK3WmZV+S+vASVXjHdnvNDIypdMnb16zwv9E+z3lkobdcfPKZG0NnrvtehCvlHTh
+	SKDJDvklfFdZ4vYlVbcLbV915Pm0JT6chY5Ou61/JLftOfpVr/BP65RLP62uqSSpqjXontiy
+	nfOV4K3ofPmWq7deXpr99lHA6pxbKckFDv3W37jt9ZKEog93nvz/0W7KKdPq3yufrT0udvuW
+	a0rhNiWW4oxEQy3mouJEABAoJ5/UAwAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrMIsWRmVeSWpSXmKPExsVy+t/xe7rrxe6mG5x5rGjxdMdMVov7iz+z
+	WBzavJXd4uaBnUwWF2feZbHoe/GQ2WLT42usFpd3zWGz6NmwldVixvl9TBbLNv1hsli09Qu7
+	A4/H4j0vmTw2repk87hzbQ+bx+Yl9R59W1YxenzeJOdx6utn9gD2KD2bovzSklSFjPziElul
+	aEMLIz1DSws9IxNLPUNj81grI1MlfTublNSczLLUIn27BL2MnoUvWQsaFCv6tzxgbWD8Lt3F
+	yMkhIWAi8WvNC+YuRi4OIYGljBIvV7UyQyRkJE5Oa2CFsIUl/lzrYoMoes8o0fryCxNIglfA
+	TuLihoMsIDaLgKrEic+/mSHighInZz4Bi4sKyEvcvzWDvYuRg0NYIEbi6aQkkDkiAhMYJU6/
+	m8EIUsMscJdR4l+vL8SC44wSz+/+Z4VIiEvcejIfbBmbgKFE11uQKzg5OAXsJW6+mcUOUWMm
+	0bW1C2qQvMT2t3OYJzAKzUJyxywko2YhaZmFpGUBI8sqRpHU0uLc9NxiQ73ixNzi0rx0veT8
+	3E2MwNjdduzn5h2M81591DvEyMTBeIhRgoNZSYRXpON2uhBvSmJlVWpRfnxRaU5q8SFGU2Bg
+	TGSWEk3OByaPvJJ4QzMDU0MTM0sDU0szYyVxXrfL59OEBNITS1KzU1MLUotg+pg4OKUamNiv
+	LP25JnSJYP7R2SXrryx+XLshUzBUQPJQf2Bxp++Mp28spsy10OjX1/lT+Tp3Aa99p0Du59jb
+	nTzGfpfPXEzyDC69v+D7nc7wEOG/rznPCpXW+1/lOdQ9h9vPYPpMG36nFqttPInaJ1je6dpk
+	P/j7oKrYTL0m+U/Tywuf36xXn1i8JO3T9msVb0MXfhNmlkvy0A/dJv6i55eUXPGH4hnX5h7a
+	feJTBZtx2t+X4SeeLHYXYQ36urXp2ZW29QFdx77Lf5Aw+hg2eXPwFnMjaf5JK+W9jmv+ejIt
+	m3kHR8Kt2V2GfYwWLzdt+D3pm8e3mQ+0fyV9u5kXnvskcb1yzJR3u7w3OLz7nWtbk3Y48qsS
+	S3FGoqEWc1FxIgCkdWUJZgMAAA==
+X-CMS-MailID: 20250321073511eucas1p11f3d9353bf52d6b9649cef6ebcd9d158
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250305055908epcas5p222e192cc21512ac178543445184a2519
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250305055908epcas5p222e192cc21512ac178543445184a2519
+References: <20250305055308.111300-1-aakarsh.jain@samsung.com>
+	<CGME20250305055908epcas5p222e192cc21512ac178543445184a2519@epcas5p2.samsung.com>
+	<20250305055308.111300-2-aakarsh.jain@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_002853_344987_6D2046BF 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20250321_003525_271769_E9D04AFF 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,75 +137,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the `mctp-controller` property and MCTP nodes to enable support for
-backend NIC management via PLDM over MCTP.
+On 05.03.2025 06:53, Aakarsh Jain wrote:
+> When output encoded buffer size provided by userspace
+> is insufficient with current encoding parameters, it
+> leads to RET_ENC_BUFFER_FULL interrupt which was not
+> handled in IRQ handler.
+>
+> On handling of RET_ENC_BUFFER_FULL interrupt leads to
+> NAL_ABORT command from host to risc which in turn leads
+> to RET_NAL_ABORT interrupt. On receiving RET_NAL_ABORT
+> driver clears workbit and VB2 queues for cleaner closing
+> of MFC instance.
+>
+> When user encounters "Call on DQBUF after unrecoverable
+> error", userspace should close fd and restart with larger
+> output encoder buffer size.
+>
+> Signed-off-by: Aakarsh Jain <aakarsh.jain@samsung.com>
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> ---
+> changelog:
+> v1->v2
+> Patch link: https://patchwork.kernel.org/project/linux-media/patch/20250228065952.14375-1-aakarsh.jain@samsung.com/
+> Fixed build errors reported by Media CI robot.
+>   .../media/platform/samsung/s5p-mfc/regs-mfc-v6.h   |  1 +
+>   drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c   | 14 ++++++++++++++
+>   .../platform/samsung/s5p-mfc/s5p_mfc_common.h      |  1 +
+>   .../platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c      |  5 +++++
+>   4 files changed, 21 insertions(+)
+>
+> diff --git a/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h b/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h
+> index fa49fe580e1a..075a58b50b8c 100644
+> --- a/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h
+> +++ b/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h
+> @@ -45,6 +45,7 @@
+>   #define S5P_FIMV_H2R_CMD_WAKEUP_V6		8
+>   #define S5P_FIMV_CH_LAST_FRAME_V6		9
+>   #define S5P_FIMV_H2R_CMD_FLUSH_V6		10
+> +#define S5P_FIMV_H2R_CMD_NAL_ABORT_V6		11
+>   /* RMVME: REALLOC used? */
+>   #define S5P_FIMV_CH_FRAME_START_REALLOC_V6	5
+>   
+> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
+> index 5f80931f056d..e764cab2485c 100644
+> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
+> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
+> @@ -739,6 +739,20 @@ static irqreturn_t s5p_mfc_irq(int irq, void *priv)
+>   		ctx->state = MFCINST_RUNNING;
+>   		goto irq_cleanup_hw;
+>   
+> +	case S5P_MFC_R2H_CMD_ENC_BUFFER_FUL_RET:
+> +		ctx->state = MFCINST_NAL_ABORT;
+> +		s5p_mfc_hw_call(dev->mfc_ops, clear_int_flags, dev);
+> +		set_work_bit(ctx);
+> +		WARN_ON(test_and_clear_bit(0, &dev->hw_lock) == 0);
+> +		s5p_mfc_hw_call(dev->mfc_ops, try_run, dev);
+> +		break;
+> +
+> +	case S5P_MFC_R2H_CMD_NAL_ABORT_RET:
+> +		ctx->state = MFCINST_ERROR;
+> +		s5p_mfc_cleanup_queue(&ctx->dst_queue, &ctx->vq_dst);
+> +		s5p_mfc_cleanup_queue(&ctx->src_queue, &ctx->vq_src);
+> +		goto irq_cleanup_hw;
+> +
+>   	default:
+>   		mfc_debug(2, "Unknown int reason\n");
+>   		s5p_mfc_hw_call(dev->mfc_ops, clear_int_flags, dev);
+> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h
+> index 3cc2a4f5c40a..86c316c1ff8f 100644
+> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h
+> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h
+> @@ -141,6 +141,7 @@ enum s5p_mfc_inst_state {
+>   	MFCINST_RES_CHANGE_INIT,
+>   	MFCINST_RES_CHANGE_FLUSH,
+>   	MFCINST_RES_CHANGE_END,
+> +	MFCINST_NAL_ABORT,
+>   };
+>   
+>   /*
+> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
+> index 4cf12f33d706..356adfddcfcf 100644
+> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
+> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
+> @@ -2229,6 +2229,11 @@ static void s5p_mfc_try_run_v6(struct s5p_mfc_dev *dev)
+>   		case MFCINST_HEAD_PRODUCED:
+>   			ret = s5p_mfc_run_init_enc_buffers(ctx);
+>   			break;
+> +		case MFCINST_NAL_ABORT:
+> +			mfc_write(dev, ctx->inst_no, S5P_FIMV_INSTANCE_ID_V6);
+> +			s5p_mfc_hw_call(dev->mfc_cmds, cmd_host2risc,
+> +					dev, S5P_FIMV_H2R_CMD_NAL_ABORT_V6, NULL);
+> +			break;
+>   		default:
+>   			ret = -EAGAIN;
+>   		}
 
-Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index a6a2dd725266..5fb67ad2d777 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -186,18 +186,23 @@ flash@1 {
- 
- &i2c0 {
- 	status = "okay";
-+	multi-master;
-+	mctp@10 {
-+		compatible = "mctp-i2c-controller";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+	};
- 
- 	i2c-mux@71 {
- 		compatible = "nxp,pca9546";
- 		reg = <0x71>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
--		i2c-mux-idle-disconnect;
- 
- 		i2c0mux0ch0: i2c@0 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0>;
-+			mctp-controller;
- 
- 			// IOB0 NIC0 TEMP
- 			temperature-sensor@1f {
-@@ -214,6 +219,7 @@ i2c0mux0ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <2>;
-+			mctp-controller;
- 
- 			// IOB0 NIC1 TEMP
- 			temperature-sensor@1f {
-@@ -305,12 +311,12 @@ i2c-mux@75 {
- 		reg = <0x75>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
--		i2c-mux-idle-disconnect;
- 
- 		i2c0mux3ch0: i2c@0 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0>;
-+			mctp-controller;
- 
- 			// IOB1 NIC0 TEMP
- 			temperature-sensor@1f {
-@@ -327,6 +333,7 @@ i2c0mux3ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <2>;
-+			mctp-controller;
- 
- 			// IOB1 NIC1 TEMP
- 			temperature-sensor@1f {
-
+Best regards
 -- 
-2.31.1
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
