@@ -4,67 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E34AC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D928C36001
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZadN2GVeRPCb8Ngr27bepOGMvfz3EXFKp0uXaSVH0Eg=; b=OLJpopB63wqwT85fHO/jp1ZrZD
-	Ip0jOrx6u5rcL77l5hlSsd+9FFq1VlB9/DnvFxDUEJZT8RugZ8M4BRFITkviGhkBcsq0kAUdNquAc
-	2q13kGhY8wqX1s3XwZzo3g82MQOdC8GLlF0tWaMTdu1yXrXlkSR8rasYXS6RLFWVyxJc8qrw4kteK
-	7fN31aa3WTKoZWC1BDhZAk7DVl/7Jd+6EABpxy04YTyUi5o6f8JIs5qLPG6mdR9OyoZAkp3eLofqm
-	8cWwM17tgTvl1Cj9zIssvkiBC4D7soJcdc/b1sw4K4tiPZXgJZEGQ7ksajYeSbFR/hUnJ2+YSJVd0
-	pd+JI9Kg==;
+	bh=IygKvUSovqJjIcgBHkL5I8fdpvAkZ2upGcSD5Jix+nc=; b=Fgyv3XpuZAcByUthydyVmNGCTj
+	UXIbqd+koM/dP9zbxBwSrfiXUUvickbCiZqrlmuxT6x9wR3VUxxWPWg7Z3cN96TGK+lHBVqWVAhWA
+	Y5men13RliOKKFJ3ek7iTWOJBjpPWXlrAqu+Y3opF3zueESh4nkSNdWX75drKbKY/a3JjmotLJo/2
+	1uopoE0AC4qXinGNC3MokLvK6C2s11W7YtLPoDAdGmtT3cwea2Qs51NjfaIVlpUOstWZ1G1JtE4RO
+	CalcqgnocjTd8u7J0J9B/+2PtQd0f29+N9ntuYF2G6F9ySHS3l8Pfvh70Gt6SXkziaO1Llf5HLmwV
+	j5GAUNkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdFM-0000000F5LK-0CZc;
-	Fri, 21 Mar 2025 14:21:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tvdH0-0000000F5jR-1es9;
+	Fri, 21 Mar 2025 14:22:58 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvcwm-0000000F1DJ-1XrT
+	id 1tvdA3-0000000F42i-1SX8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 14:02:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20B436113B;
-	Fri, 21 Mar 2025 14:02:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B4F3C4CEE3;
-	Fri, 21 Mar 2025 14:02:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742565723;
-	bh=Qwd1OjDeGAqCbYwL7o5MutzvzBIW/CFy3NKOIVcCn8w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=khWlefwOsoylPZURq7kqnVa8gnSh4gGlyyrQTxNpmwR0ypkBHylbIa4SNkDc0FVjS
-	 tjup6w5tzsaTvdgc/pNsqBEBjocLL8IB/TM21LEsanaFN2nogKRUlZLn6qdqmGCkNG
-	 erJckZQShNBg9ySGpuVGTIYr6btTyrRSiw9xpeEfEzzghAcX8QbeLphgfstKn7rTkE
-	 ssKTN5Iv3L0xH0ZpkOihKSqyNNTc2YxtlUTGVeHjJwBkDggpZgjXsxC1gkhTzqRgkB
-	 7KbWBevmapajfIlLhVHbHRsLb70wq2qrqWMg8D4S0lAWfFIO1raAbLZkELe8RKWl3L
-	 rvcHqq+vpnJ0A==
-Date: Fri, 21 Mar 2025 09:02:00 -0500
-From: Rob Herring <robh@kernel.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, christophe.kerello@foss.st.com,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 2/7] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
-Message-ID: <20250321140200.GA3192411-robh@kernel.org>
-References: <20250321-upstream_ospi_v6-v6-0-37bbcab43439@foss.st.com>
- <20250321-upstream_ospi_v6-v6-2-37bbcab43439@foss.st.com>
+	Fri, 21 Mar 2025 14:15:48 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52LATEFx022440
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 14:15:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=IygKvUSovqJjIcgBHkL5I8fd
+	pvAkZ2upGcSD5Jix+nc=; b=iJTOldNn2Hujp/0G059Gy26ug4FclmrYmd8es9cq
+	8K6TWDVA5odygD4qey/epN6oVcaw5LFZiG9lbyj0bRdmxwWsgOSeeSL7kplhRhBX
+	jOre/1U3+4O7xg4IVT0uQWXP/Dt8UF0e+/MtlllSOi7fjeA4RnZHp2pcb5DmGZQF
+	hQPzFT8IVuoPREIiX5PMrVsL/1hy6CtdpWbxbeM/r2B3/N/Zgg3amQUAyi0lCGEg
+	MMrDVIfeFDHtkJkGSQVGOzuT4wJH6eb/Zdf/EP5Kkk2mq4mheGy1Cy0FQ69FpTKV
+	Rt4BiyLLU0eGNCn/zPes5yN9OKWDeouak3r/qqi4UqJvkQ==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45fd1dt1t8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 14:15:45 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6e913e1cf4aso49434176d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:15:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742566537; x=1743171337;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IygKvUSovqJjIcgBHkL5I8fdpvAkZ2upGcSD5Jix+nc=;
+        b=VMQ29rctLNt0hWC97cf7ktWt6tVuWwxjDcZaiwqEn7xH0hcwwwr7ejVsftbr5YZUmo
+         zdTOHa5SNhTYYf0cif6vdEHaboN2u48of+eWGGDERcNETCpv9kRUE883FSRcz2HpsRi9
+         JuvImrWoW54lxlDkxHfbJhdvfGcI5xAqNvJkDOZx+J0PCLWHVtRvVEkuA8wS1UM2R1tV
+         H53ER3Z7DhRgmJWSZzQhkvi8C64mI2Hssk/WrjCDYBrb4hFhQQ0HMNRmI8GDLvF8P3Mn
+         6lLBZHmYfE9gPKzx/108VIlKftCzWGUmnv3phKaHyZrC0UoBqZqQTGMs5WM1W+iFEdCj
+         ALcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWd7hBMHLz1CeGif/SD0nmaD9R2u0CA2bb1Nxz73l3+bGrYlbXTgk0Ziiy73r4cUMfWBSyBv6tZKYcwkf8rV86J@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4EGYz+DpD23hjJdgMvtj78tpLWM2/I4RSt8wfX7g4cbZKp0mJ
+	udPMHCcAqOS4KN53N3i+Lzi6hnvLX3+o2Kq6SQXZE6atcVeh0Hz1LiNQns1u++UufTWChLbuQtG
+	dCos7kOxOOOOhkNVwMGfYo+kTjnT9kGerScr9wcHNNPvXXMLvndt+4XeApV485qsJQzCc5CQhkw
+	==
+X-Gm-Gg: ASbGncteQvOz2l3Ax7v4PLioAQnfafu0b3CxRhykMm90S5JUd0aIqSvKfOmAERXHPng
+	2fm6hkN394bd7f6PR62pM2ap4zPtcV2LPc2hEWzhNrSn48SGnAVA3Xytd5IsFQExAppSk+PDvR+
+	ito7tkG5b4vFsIQEIwjudVyW4wbj/Yc/I8K4EUd5iR4coXnV/K+CgWPDOPRvS/oM1dWTva31tBF
+	rr6aXfkg5Q9fzatk1GDjjMsdx+U1UknQWtltDY2+v+747G7CFoC0G/16IgGN63aLm9zwseA7vAT
+	y3wXx6ImtjwDyoV3pPKUxFo+Rful1yZmjKoTiMnJ2gAPMPK1HGnmWBPjntFokaTjWlUhOSW/0Zm
+	kGK0=
+X-Received: by 2002:ad4:5d6e:0:b0:6e8:fb92:dffa with SMTP id 6a1803df08f44-6eb3f2f5960mr61025106d6.25.1742566537086;
+        Fri, 21 Mar 2025 07:15:37 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHFN/n1Ojxb+W+fnWe4TwdIO9ZmKkhfBLlVD64bA7J5vncM0McnA+X9BWkDQCQmyd0kZxS+AA==
+X-Received: by 2002:ad4:5d6e:0:b0:6e8:fb92:dffa with SMTP id 6a1803df08f44-6eb3f2f5960mr61024326d6.25.1742566536504;
+        Fri, 21 Mar 2025 07:15:36 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30d7d8f3c93sm2661681fa.82.2025.03.21.07.15.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Mar 2025 07:15:35 -0700 (PDT)
+Date: Fri, 21 Mar 2025 16:15:34 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Marek Szyprowski <m.szyprowski@samsung.com>,
+        Sylwester Nawrocki <s.nawrocki@samsung.com>,
+        Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org,
+        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v3 03/10] phy: move phy-qcom-snps-eusb2 out of its vendor
+ sub-directory
+Message-ID: <vzlylhf5r5xy4ip4hkcolt3iye4stiabzxc4jwdzenbhll45ct@hx5gwpzrd33y>
+References: <20250321135854.1431375-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250321135854.1431375-4-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250321-upstream_ospi_v6-v6-2-37bbcab43439@foss.st.com>
+In-Reply-To: <20250321135854.1431375-4-ivo.ivanov.ivanov1@gmail.com>
+X-Proofpoint-ORIG-GUID: F1PXlPgNx6Fxe1e423cuK6vr7giWUVWT
+X-Proofpoint-GUID: F1PXlPgNx6Fxe1e423cuK6vr7giWUVWT
+X-Authority-Analysis: v=2.4 cv=T52MT+KQ c=1 sm=1 tr=0 ts=67dd7491 cx=c_pps a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=pGLkceISAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=N56nwJYzXhOJYq9YhE8A:9 a=CjuIK1q_8ugA:10
+ a=iYH6xdkBrDN1Jqds4HTS:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-21_05,2025-03-20_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 adultscore=0
+ impostorscore=0 priorityscore=1501 bulkscore=0 mlxscore=0 clxscore=1015
+ mlxlogscore=999 lowpriorityscore=0 phishscore=0 spamscore=0 malwarescore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503210104
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250321_071547_500153_B4D2F3CB 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,272 +131,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 10:32:22AM +0100, Patrice Chotard wrote:
-> Add bindings for STM32 Octo Memory Manager (OMM) controller.
+On Fri, Mar 21, 2025 at 03:58:47PM +0200, Ivaylo Ivanov wrote:
+> As not only Qualcomm, but also Samsung is using the Synopsys eUSB2 IP
+> (albeit with a different register layout) in their newer SoCs, move the
+> driver out of its vendor sub-directory and rename it to phy-snps-eusb2.
 > 
-> OMM manages:
->   - the muxing between 2 OSPI busses and 2 output ports.
->     There are 4 possible muxing configurations:
->       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->         output is on port 2
->       - OSPI1 and OSPI2 are multiplexed over the same output port 1
->       - swapped mode (no multiplexing), OSPI1 output is on port 2,
->         OSPI2 output is on port 1
->       - OSPI1 and OSPI2 are multiplexed over the same output port 2
->   - the split of the memory area shared between the 2 OSPI instances.
->   - chip select selection override.
->   - the time between 2 transactions in multiplexed mode.
-> 
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Suggested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Please fix the order of the tags. SoB should come after Suggested-by
+(and usually it is the last one).
+
 > ---
->  .../memory-controllers/st,stm32mp25-omm.yaml       | 227 +++++++++++++++++++++
->  1 file changed, 227 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..2f8fa7569009369ebd077e4c6f4ab409a91838a5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
-> @@ -0,0 +1,227 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/memory-controllers/st,stm32mp25-omm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32 Octo Memory Manager (OMM)
-> +
-> +maintainers:
-> +  - Patrice Chotard <patrice.chotard@foss.st.com>
-> +
-> +description: |
-> +  The STM32 Octo Memory Manager is a low-level interface that enables an
-> +  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
-> +  function map) and multiplex of single/dual/quad/octal SPI interfaces over
-> +  the same bus. It Supports up to:
-> +    - Two single/dual/quad/octal SPI interfaces
-> +    - Two ports for pin assignment
-> +
-> +properties:
-> +  compatible:
-> +    const: st,stm32mp25-omm
-> +
-> +  "#address-cells":
-> +    const: 2
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
-> +  ranges:
-> +    description: |
-> +      Reflects the memory layout with four integer values per OSPI instance.
+>  drivers/phy/Kconfig                                      | 8 ++++++++
+>  drivers/phy/Makefile                                     | 1 +
+>  .../{qualcomm/phy-qcom-snps-eusb2.c => phy-snps-eusb2.c} | 0
+>  drivers/phy/qualcomm/Kconfig                             | 9 ---------
+>  drivers/phy/qualcomm/Makefile                            | 1 -
+>  5 files changed, 9 insertions(+), 10 deletions(-)
+>  rename drivers/phy/{qualcomm/phy-qcom-snps-eusb2.c => phy-snps-eusb2.c} (100%)
 
-You say 4 here...
+With that fixed:
 
-> +      Format:
-> +      <chip-select> 0 <registers base address> <size>
-> +    minItems: 2
-> +    maxItems: 2
 
-And 2 here. I'm confused. From the example it doesn't look like you are 
-using ranges correctly. If you are parsing it yourself, that's wrong. 
-More below.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-> +
-> +  reg:
-> +    items:
-> +      - description: OMM registers
-> +      - description: OMM memory map area
-> +
-> +  reg-names:
-> +    items:
-> +      - const: regs
-> +      - const: memory_map
-> +
-> +  memory-region:
-> +    description: |
-> +      Memory region shared between the 2 OCTOSPI instance.
-> +      One or two phandle to a node describing a memory mapped region
-> +      depending of child number.
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  memory-region-names:
-> +    description: |
 
-Don't need '|'.
-
-> +      OCTOSPI instance's name to which memory region is associated
-
-That doesn't really tell me anything.
-
-> +    items:
-> +      enum: [ospi1, ospi2]
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  clocks:
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    items:
-> +      enum: [omm, ospi1, ospi2]
-
-Define the order.
-
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  resets:
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  reset-names:
-> +    items:
-> +      enum: [omm, ospi1, ospi2]
-
-Define the order.
-
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  access-controllers:
-> +    maxItems: 1
-> +
-> +  st,syscfg-amcr:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description: |
-> +      The Address Mapping Control Register (AMCR) is used to split the 256MB
-> +      memory map area shared between the 2 OSPI instance. The Octo Memory
-> +      Manager sets the AMCR depending of the memory-region configuration.
-> +      The memory split bitmask description is:
-> +        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
-> +        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
-> +        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
-> +        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
-> +        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
-> +    items:
-> +      - description: phandle to syscfg
-> +      - description: register offset within syscfg
-> +      - description: register bitmask for memory split
-> +
-> +  st,omm-req2ack-ns:
-> +    description: |
-
-Don't need '|'.
-
-> +      In multiplexed mode (MUXEN = 1), this field defines the time in
-> +      nanoseconds between two transactions.
-> +    default: 0
-> +
-> +  st,omm-cssel-ovr:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      Configure the chip select selector override for the 2 OCTOSPIs.
-> +      - 0: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS1
-> +      - 1: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS1
-> +      - 2: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS2
-> +      - 3: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS2
-> +    minimum: 0
-> +    maximum: 3
-> +    default: 0
-> +
-> +  st,omm-mux:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      Configure the muxing between the 2 OCTOSPIs busses and the 2 output ports.
-> +      - 0: direct mode
-> +      - 1: mux OCTOSPI1 and OCTOSPI2 to port 1
-> +      - 2: swapped mode
-> +      - 3: mux OCTOSPI1 and OCTOSPI2 to port 2
-> +    minimum: 0
-> +    maximum: 3
-> +    default: 0
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +patternProperties:
-> +  ^spi@[a-f0-9]+$:
-> +    type: object
-> +    $ref: /schemas/spi/st,stm32mp25-ospi.yaml#
-> +    description: Required spi child node
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - st,syscfg-amcr
-> +  - ranges
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-> +    ommanager@40500000 {
-> +      compatible = "st,stm32mp25-omm";
-> +      reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
-> +      reg-names = "regs", "memory_map";
-> +      ranges = <0 0 0x40430000 0x400>,
-> +               <1 0 0x40440000 0x400>;
-
-> +      #address-cells = <2>;
-> +      #size-cells = <1>;
-> +
-
-> +      spi@40430000 {
-
-ranges is okay, but the unit-address is wrong here. It should be based 
-on reg below. So 'spi@0' or 'spi@0,0' since chip select is a distinct 
-field. It's up to you, but you need to define the format in the schema.
-
-> +        compatible = "st,stm32mp25-ospi";
-> +        reg = <0 0 0x400>;
-> +        memory-region = <&mm_ospi1>;
-> +        interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
-> +        dmas = <&hpdma 2 0x62 0x00003121 0x0>,
-> +               <&hpdma 2 0x42 0x00003112 0x0>;
-> +        dma-names = "tx", "rx";
-> +        clocks = <&scmi_clk CK_SCMI_OSPI1>;
-> +        resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-> +        access-controllers = <&rifsc 74>;
-> +        power-domains = <&CLUSTER_PD>;
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +        st,syscfg-dlyb = <&syscfg 0x1000>;
-> +      };
-> +
-> +      spi@40440000 {
-
-spi@1,0
-
-> +        compatible = "st,stm32mp25-ospi";
-> +        reg = <1 0 0x400>;
-> +        memory-region = <&mm_ospi1>;
-> +        interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
-> +        dmas = <&hpdma 3 0x62 0x00003121 0x0>,
-> +               <&hpdma 3 0x42 0x00003112 0x0>;
-> +        dma-names = "tx", "rx";
-> +        clocks = <&scmi_clk CK_KER_OSPI2>;
-> +        resets = <&scmi_reset RST_SCMI_OSPI2>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-> +        access-controllers = <&rifsc 75>;
-> +        power-domains = <&CLUSTER_PD>;
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +        st,syscfg-dlyb = <&syscfg 0x1000>;
-> +      };
-> +    };
-> 
-> -- 
-> 2.25.1
-> 
+-- 
+With best wishes
+Dmitry
 
