@@ -4,56 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D83CC35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 12:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD5AC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 12:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTaVTst+te6fxwk+vgG9xGn2H5FB//wgXtax395KZ+A=; b=gpHhLln9j/PlpYzfFE2S5aMOQM
-	0fPSVt/bgE/wqlaODjMPmxHkOzh/Yga5OEWEY9zLfqIQL3h+yM6PRAszqjGOebKBAAj+A0SLTh/+F
-	vJ6XTd9rA+gQo1iV7+YYt1NRDAc8NqqvyQAJ9JTexuQT1ZR9Ql3kiah8S8Jv3zU+cNO+9CkjAYOho
-	L1uO8teAhbQPXeYdRcC+8kCqrmTGozu5IlAHU9zkt/IyHYG6boLyuRgRr5hhgYgXjPOsgg1R/tKRN
-	ySPlqRaL+4O7uLqw9I68EAgjS63uYMCzBMYpG1GXJR/RYjdWDb0t0HfrtFR1A8vd75Bzwe+t2Awld
-	RmcfTikA==;
+	bh=MHO6SdbNFs1J7nO+41CHx9xqMsSu4tdXH9vnU5Jzzo4=; b=T2totDHfJ1RNPghcBoc7h6+BBO
+	RR+n0k5CNKl1MyKlbC6XvWifDlTwsTqvc7evfEoENclfm6SYZOCTS+F2aNakELuoVanMAauBDENmE
+	pq3X0TkCP32mwAfWfrHYQj+A4fPVmzHd2ZYlkWOV3b3X+MVhHX5AztEtjCJtoELgQDkhv51zIkjvp
+	fhfTox2E15SJ48eZKGednXh7i32Ni49qVLQ+BT97PqrHsXcWIkiLkgxVzj1Ze5j9+7W77nIdz5OK4
+	0G1brIUDzkpk9Yrf0CSbzf5+2s4Ik/VVYHgHCjNKkjUqf1qubPHGtURb9+TTtG01FsjnEUNp1yfL2
+	xL86Sd1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvbEq-0000000EjOP-2Yzf;
-	Fri, 21 Mar 2025 12:12:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvbD8-0000000Ej6i-3iMa
+	id 1tvbJI-0000000Ek0J-3dvF;
+	Fri, 21 Mar 2025 12:17:12 +0000
+Received: from [210.118.77.12] (helo=mailout2.w1.samsung.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvbHb-0000000EjmX-3CCX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 12:10:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56E60106F;
-	Fri, 21 Mar 2025 05:10:57 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0A813F694;
-	Fri, 21 Mar 2025 05:10:48 -0700 (PDT)
-Message-ID: <40e30ec8-a7ea-46b9-b687-aa7efa8cf0e1@arm.com>
-Date: Fri, 21 Mar 2025 12:10:47 +0000
+	Fri, 21 Mar 2025 12:15:30 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250321121514euoutp02d43a09700377ff77660eb077a98f3bb2~u0HbTUWMh0704207042euoutp02M
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 12:15:14 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250321121514euoutp02d43a09700377ff77660eb077a98f3bb2~u0HbTUWMh0704207042euoutp02M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1742559314;
+	bh=MHO6SdbNFs1J7nO+41CHx9xqMsSu4tdXH9vnU5Jzzo4=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=uJ66fLs7Obilq9mId7yKjwF50346mYhfbEOPUZxyOKN8Sh5Pn9OhQnju0XagfuJMS
+	 jH6Cm7ik0xZAj9fwzXRS7Iz6nGn4plED88CovnWjXA8BxbPtxi6FbzjDr6IL4+0k2L
+	 +bFl6wNnY1LtrhnzNhe+HGyaJY+PB5PZVwUJY7KM=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250321121514eucas1p1ee13ac2a07d447599b9c7c32b594ecc0~u0Ha9Jj1p0634006340eucas1p1V;
+	Fri, 21 Mar 2025 12:15:14 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id 31.10.20821.2585DD76; Fri, 21
+	Mar 2025 12:15:14 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250321121513eucas1p2c17d32842a41ad058b914bf3d9ff7512~u0HaTDMvC0313803138eucas1p2b;
+	Fri, 21 Mar 2025 12:15:13 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250321121513eusmtrp18028559e7e8c3a8d821562fa4b64ad93~u0HaRrSkW3246232462eusmtrp1h;
+	Fri, 21 Mar 2025 12:15:13 +0000 (GMT)
+X-AuditID: cbfec7f2-b09c370000005155-cc-67dd58525c00
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id 67.C1.19920.1585DD76; Fri, 21
+	Mar 2025 12:15:13 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250321121511eusmtip23c2fe1a430242457999298218d0d3fd7~u0HYaApUO3026630266eusmtip21;
+	Fri, 21 Mar 2025 12:15:11 +0000 (GMT)
+Message-ID: <ace3a01f-4700-4455-ada3-0f88fc8ea4cd@samsung.com>
+Date: Fri, 21 Mar 2025 13:15:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] coresight: Only check bottom two claim bits
-To: James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, leo.yan@arm.com
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
- <20250320-james-coresight-claim-tags-v3-2-d3145c153820@linaro.org>
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+To: Robin Murphy <robin.murphy@arm.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Russell King <linux@armlinux.org.uk>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Stuart
+	Yoder <stuyoder@gmail.com>, Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun
+	Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, Joerg
+	Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Rob Herring
+	<robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Bjorn Helgaas
+	<bhelgaas@google.com>
+Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, Charan Teja Kalla
+	<quic_charante@quicinc.com>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250320-james-coresight-claim-tags-v3-2-d3145c153820@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <d6cd5e64-e2c0-4c6e-9c89-ce8b3e0a4a5b@arm.com>
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Sa0xTZxj26zk9PdS0HgqOD9xG0kQHmxYZunyJzMmi2XGXhOCWEZc56zgp
+	ILe14PAyRlYQ7NgGVlQKpc3A1WgDtDBXGi6jNC13GUUgXMZgMBQGUqnEOdBZDtv49z7P+7y3
+	Jy+JiXREEJmQks7IU6RJYoKP33L8dXtXTOyYbPfqDwSq/CoezV1eJJDO3sNFyopqArXUl/DQ
+	Yw9CF0preMhT2Imj+ol5AhmavgPI/PsAF7msZQTqLncSyFbcCFDOSg6Orlok6OG9yziq1iUj
+	racYQ08bLDzUsjjFRSrb6rO2pmEMGTosOMoZ3XsgkJ5qKefQuX2rBG0sNwLaNfALRtdrxni0
+	3pxB59jnubT5xgWCbtYaeXRt5Zf03doSQJsWLBy6qCGLXjK/GC08yo+MY5ISTjHysP3H+fGD
+	mlZeWm94Zn/REzwb2ENUgCQhtQcuKM+oAJ8UUdcBNDm6OCzwAGhp6SdYsASgNbcZUwGftQqX
+	Xr+eMAD46OvldeAG8HzNAu5VCaj9sLwvj/DGOLUd9toGeCzvC9tLptY0W6lgOD58dY33o47A
+	BdUk8Dbyp8xcOJjbxfUCjJoGsObO0FonjAqAw1M6jjcmqHComlet8T7UPjhw3wxYTTBU/liK
+	eYshpeVDm2mRxy5+EKpHZrhs7AdnnXXr/POwU12AswV5AOr/HuewoBDA7JlhwKr2wdGex4TX
+	NIwKhdXWMJaOgqqlYoz1UgiH5n3ZJYTw4q0r67QA5p8XseodUOOs+m9sS28fVgjEmg3GaDac
+	qdlwjub/uXqA3wABTIYiWcYowlOYzyUKabIiI0Um+TQ12Qye/XDnE+cDC9DOuiU2wCGBDUAS
+	E/sL/PNHZCJBnPT0GUae+ok8I4lR2MA2EhcHCL5vzpWJKJk0nTnJMGmM/N8sh/QJyuZsr+RE
+	3QykWj9WGE+dMG6JeNB29w4d2hE7bzzk2LW32pkeM9k5veSOiyx4/7nJbh/fkvYeUv3bztdc
+	jqbG1ar2CM9bb5/9ItF8752J1ANDh7c2BkWIrMcSihIKLwnmNg+oNte8/ub0TQCVJ8u0Ev/E
+	0baK3aPCn7r28F6KXF4OfSVv08ziwysFrcdL+/saVAfxsu5NcQ71ubA/Plv59aI+OiT/bKDb
+	9YLpgxGy6ZunIVW3pYnqa/bZrK4ThqzwIsN7FRNRf0ZH1V6HTY++Pf2R8NWYmXc70rDgQ207
+	75ubKpZi6yK2uD9sMzReOzcWZLdu+7nuDZ1f5qD46LHxuUJlbNXKZOZhMa6Il4a/jMkV0n8A
+	DUX1DjIEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrEKsWRmVeSWpSXmKPExsVy+t/xe7qBEXfTDVZvl7JY0pRh8XraBzaL
+	+UfOsVo0L17PZnFw50x2i19fLCw6Z29gt/gy4TSLxc6Hb9kslu/rZ7TY9Pgaq8XlXXPYLM7O
+	O85mcWjqXkaLlj8tLBYzduhZfH05jcVi/fxci7lfpjJb/N+zg93i4IcnrBZdh/4Cjd14i9li
+	+akdLBYtd0wdJD2eHJzH5NF66S+bx5p5axg9Ll+7yOyxc9Zddo8Fm0o9Wo68ZfXYtKqTzWP/
+	3DXsHpuX1Hu82DyT0WPjux1MHhP31Hl83iQXwBelZ1OUX1qSqpCRX1xiqxRtaGGkZ2hpoWdk
+	YqlnaGwea2VkqqRvZ5OSmpNZllqkb5egl3F91mH2gguGFVcm/mNpYDyi0cXIySEhYCJxecEC
+	ti5GLg4hgaWMEkt/HWeESMhInJzWwAphC0v8udYFVfSeUWLNsZlgRbwCdhLzLrWzgdgsAqoS
+	Fw5dY4eIC0qcnPmEBcQWFZCXuH9rBlhcWCBY4l3XI0aQQSIC21glrs3byQziMAs8ZZT4cv4Z
+	K8SK/SwSZx8vZwZpYRYQl7j1ZD4TiM0mYCjR9bYLbB2ngLXEtfebGCFqzCS6tnZB2fISzVtn
+	M09gFJqF5JJZSEbNQtIyC0nLAkaWVYwiqaXFuem5xYZ6xYm5xaV56XrJ+bmbGIGJZ9uxn5t3
+	MM579VHvECMTB+MhRgkOZiURXpGO2+lCvCmJlVWpRfnxRaU5qcWHGE2BwTGRWUo0OR+Y+vJK
+	4g3NDEwNTcwsDUwtzYyVxHndLp9PExJITyxJzU5NLUgtgulj4uCUamBKr338iTny7zIjk+aH
+	7FeXbVs918HcnjGPtX7XvGyxe9P2qnxlLoxpt3iSV7maoeC+QeHhtNzYqXYl6kqi17orxa5P
+	4eP9GZ1369HXo6t7VHVPyd94bCGtzruobem8kmp5Mw+XU+s8DHYeO32Cbcoctw0z/8yx0Twh
+	ciO86cqG+R2p3vZbTKJWNtwNLd7u8+1xIUeGfinHsmSG6Qutjj74dr96m1dC2Ibffduv7mUz
+	f1Sp0f3pOVf/wc977xp9X5fG+t1K/auarsHmbpliprusbmwpUglPEm9xMzlIdrOKp1sYWZu9
+	bOi0fTzhwsR7M3KVd2uUvJm5w1/u717N9d/vWGZwvbudHhd/w11CqUCJpTgj0VCLuag4EQBP
+	2Er8xQMAAA==
+X-CMS-MailID: 20250321121513eucas1p2c17d32842a41ad058b914bf3d9ff7512
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd
+References: <cover.1740753261.git.robin.murphy@arm.com>
+	<e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+	<CGME20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd@eucas1p2.samsung.com>
+	<9b358d68-332e-404e-9a75-740297f7b28d@samsung.com>
+	<417d6f59-0d78-4e81-ad0b-e06846f786b0@arm.com>
+	<bf2adf5d-1432-4bb7-846c-e1bcfa84858b@samsung.com>
+	<016bb7ca-f0d3-464e-ac74-46e6f78e90d7@arm.com>
+	<b63ff6b4-9dc3-42ea-8b87-d4fdead8d0eb@arm.com>
+	<cdc333e4-25bb-4171-9f6e-01f1de947db3@samsung.com>
+	<d6cd5e64-e2c0-4c6e-9c89-ce8b3e0a4a5b@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_051050_971528_02972AAA 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250321_051528_380329_9BB90D68 
+X-CRM114-Status: GOOD (  32.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,54 +156,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2025 14:34, James Clark wrote:
-> The use of the whole register and == could break the claim mechanism if
-> any of the other bits are used in the future. The referenced doc "PSCI -
-> ARM DEN 0022D" also says to only read and clear the bottom two bits.
-> 
-> Use FIELD_GET() to extract only the relevant part.
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 3 ++-
->   drivers/hwtracing/coresight/coresight-priv.h | 1 +
->   2 files changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 8471aefeac76..26d149a4c579 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -131,7 +131,8 @@ coresight_find_out_connection(struct coresight_device *csdev,
->   
->   static inline u32 coresight_read_claim_tags(struct coresight_device *csdev)
->   {
-> -	return csdev_access_relaxed_read32(&csdev->access, CORESIGHT_CLAIMCLR);
-> +	return FIELD_GET(CORESIGHT_CLAIM_MASK,
-> +			 csdev_access_relaxed_read32(&csdev->access, CORESIGHT_CLAIMCLR));
->   }
->   
->   static inline bool coresight_is_claimed_self_hosted(struct coresight_device *csdev)
-> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> index 82644aff8d2b..38bb4e8b50ef 100644
-> --- a/drivers/hwtracing/coresight/coresight-priv.h
-> +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> @@ -35,6 +35,7 @@ extern const struct device_type coresight_dev_type[];
->    * Coresight device CLAIM protocol.
->    * See PSCI - ARM DEN 0022D, Section: 6.8.1 Debug and Trace save and restore.
->    */
-> +#define CORESIGHT_CLAIM_MASK		GENMASK(1, 0)
->   #define CORESIGHT_CLAIM_SELF_HOSTED	BIT(1)
+On 17.03.2025 19:22, Robin Murphy wrote:
+> On 17/03/2025 7:37 am, Marek Szyprowski wrote:
+>> On 13.03.2025 15:12, Robin Murphy wrote:
+>>> On 2025-03-13 1:06 pm, Robin Murphy wrote:
+>>>> On 2025-03-13 12:23 pm, Marek Szyprowski wrote:
+>>>>> On 13.03.2025 12:01, Robin Murphy wrote:
+>>>>>> On 2025-03-13 9:56 am, Marek Szyprowski wrote:
+>>>>>> [...]
+>>>>>>> This patch landed in yesterday's linux-next as commit bcb81ac6ae3c
+>>>>>>> ("iommu: Get DT/ACPI parsing into the proper probe path"). In my
+>>>>>>> tests I
+>>>>>>> found it breaks booting of ARM64 RK3568-based Odroid-M1 board
+>>>>>>> (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts). Here is the
+>>>>>>> relevant kernel log:
+>>>>>>
+>>>>>> ...and the bug-flushing-out begins!
+>>>>>>
+>>>>>>> Unable to handle kernel NULL pointer dereference at virtual address
+>>>>>>> 00000000000003e8
+>>>>>>> Mem abort info:
+>>>>>>>       ESR = 0x0000000096000004
+>>>>>>>       EC = 0x25: DABT (current EL), IL = 32 bits
+>>>>>>>       SET = 0, FnV = 0
+>>>>>>>       EA = 0, S1PTW = 0
+>>>>>>>       FSC = 0x04: level 0 translation fault
+>>>>>>> Data abort info:
+>>>>>>>       ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+>>>>>>>       CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>>>>>>>       GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+>>>>>>> [00000000000003e8] user address but active_mm is swapper
+>>>>>>> Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
+>>>>>>> Modules linked in:
+>>>>>>> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc3+ #15533
+>>>>>>> Hardware name: Hardkernel ODROID-M1 (DT)
+>>>>>>> pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>>>>>> pc : devm_kmalloc+0x2c/0x114
+>>>>>>> lr : rk_iommu_of_xlate+0x30/0x90
+>>>>>>> ...
+>>>>>>> Call trace:
+>>>>>>>      devm_kmalloc+0x2c/0x114 (P)
+>>>>>>>      rk_iommu_of_xlate+0x30/0x90
+>>>>>>
+>>>>>> Yeah, looks like this is doing something a bit questionable which
+>>>>>> can't
+>>>>>> work properly. TBH the whole dma_dev thing could probably be
+>>>>>> cleaned up
+>>>>>> now that we have proper instances, but for now does this work?
+>>>>>
+>>>>> Yes, this patch fixes the problem I've observed.
+>>>>>
+>>>>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>>>>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>>>>>
+>>>>> BTW, this dma_dev idea has been borrowed from my exynos_iommu driver
+>>>>> and
+>>>>> I doubt it can be cleaned up.
+>>>>
+>>>> On the contrary I suspect they both can - it all dates back to when
+>>>> we had the single global platform bus iommu_ops and the SoC drivers
+>>>> were forced to bodge their own notion of multiple instances, but with
+>>>> the modern core code, ops are always called via a valid IOMMU
+>>>> instance or domain, so in principle it should always be possible to
+>>>> get at an appropriate IOMMU device now. IIRC it was mostly about
+>>>> allocating and DMA-mapping the pagetables in domain_alloc, where the
+>>>> private notion of instances didn't have enough information, but
+>>>> domain_alloc_paging solves that.
+>>>
+>>> Bah, in fact I think I am going to have to do that now, since although
+>>> it doesn't crash, rk_domain_alloc_paging() will also be failing for
+>>> the same reason. Time to find a PSU for the RK3399 board, I guess...
+>>>
+>>> (Or maybe just move the dma_dev assignment earlier to match Exynos?)
+>>
+>> Well I just found that Exynos IOMMU is also broken on some on my test
+>> boards. It looks that the runtime pm links are somehow not correctly
+>> established. I will try to analyze this later in the afternoon.
+>
+> Hmm, I tried to get an Odroid-XU3 up and running, but it seems unable 
+> to boot my original 6.14-rc3-based branch - even with the IOMMU driver 
+> disabled, it's consistently dying somewhere near (or just after) init 
+> with what looks like some catastrophic memory corruption issue - very 
+> occasionally it's managed to print the first line of various different 
+> panics.
+>
+> Before that point though, with the IOMMU driver enabled it does appear 
+> to show signs of working OK:
+>
+> [    0.649703] exynos-sysmmu 14650000.sysmmu: hardware version: 3.3
+> [    0.654220] platform 14450000.mixer: Adding to iommu group 1
+> ...
+> [    2.680920] exynos-mixer 14450000.mixer: 
+> exynos_iommu_attach_device: Attached IOMMU with pgtable 0x42924000
+> ...
+> [    5.196674] exynos-mixer 14450000.mixer: 
+> exynos_iommu_identity_attach: Restored IOMMU to IDENTITY from pgtable 
+> 0x42924000
+> [    5.207091] exynos-mixer 14450000.mixer: 
+> exynos_iommu_attach_device: Attached IOMMU with pgtable 0x42884000
+>
+>
+> The multi-instance stuff in probe/release does look a bit suspect, 
+> however - seems like the second instance probe would overwrite the 
+> first instance's links, and then there would be a double-del() if the 
+> device were ever actually released again? I may have made that much 
+> more likely to happen, but I suspect it was already possible with 
+> async driver probe...
 
-I am checking with the Arm CoreSight architects on this. This is
-problematic, if another agent is assigned, say BIT(2) and we wouldn't
-forward compatible.
+That is really strange. My Odroid XU3 boots fine from commit 
+bcb81ac6ae3c ("iommu: Get DT/ACPI parsing into the proper probe path"), 
+although the IOMMU seems not to be working correctly. I've tested this 
+with 14450000.mixer device (one need to attach HDMI cable to get it 
+activated) and it looks that the video data are not being read from 
+memory at all (the lack of VSYNC is reported, no IOMMU fault). However, 
+from time to time, everything initializes and works properly.
 
-Suzuki
+It looks that this is somehow related to the different IOMMU/DMA-mapping 
+glue code, as the other boards (ARM64 based) with exactly the same 
+Exynos IOMMU driver always work fine. I've tried to figure out what 
+actually happens, but so far I didn't get anything for sure. Disabling 
+the call to dev->bus->dma_configure(dev) from iommu_init_device() seems 
+to be fixing this, but this is almost equal to the revert of the 
+$subject patch. I don't get why calling it in iommu_init_device() causes 
+problems. It also doesn't look that this is anyhow related to the 
+multi-instance stuff, as the same happens if I only leave a single 
+exynos-sysmmu instance and its client (only 14450000.mixer device in the 
+system).
 
-
->   
->   #define TIMEOUT_US		100
-> 
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
