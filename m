@@ -4,99 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE7DC35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA89C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 09:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWnR5bCtS2OFl6qMZ2T0dze3z5cvO0emTkA11CaAm0I=; b=HdPzKJPHE+rxcqill9xi5xBx1/
-	t4zGTOICuuoAIsI1hJufNv85vMzHgsHnScSyotv7N90t1yRr1Ms0FcUXAuGaE/OKn+D438mTU3T0W
-	9x2HqK3+a6pWTe73t6i0Lp/bjeGqibNx3JFsl2ri7SGoebiSOHJXUP5vxoy0s1Tg0AgdPz2RRFOkX
-	x00I1X25+m9R+i8bCPBqHOpUyyOizyo1EIUCwUQf/mCND4yLj8reWFKentmfwfgRk/f5sBXBTRrfh
-	dGyIBnMBRs9AdtBV//ibBd2EBFA+8n4kveKWmlkMGMVjaJaDWM4DceiulL57B+IWPv7N/rQURrhuJ
-	0gPppjNw==;
+	bh=C3hFefNG/ofK11xawtXlMVCQRjohpgf9QIt80AtA+kY=; b=rqLaqBy89Vgmj2QMOpHg95RipO
+	v/C7CLPEJ+v/h7LK2er/cbcBr62sSUWOdMNhWK/eQqM3HbpFnUfbRLN12yqeOnURxuHtq6ZLDZbD8
+	ClDV7Y9YTD3aKYrEk0wMaxeBTsgL/9NaPWwMvAstQvvUsC1PeRpDJ64+yNvybr3RaCvKaGC/no7s1
+	do9RrvWEaIfJJhAwTc2GCE8clmexFrWNnqq3mF+hmSVDROSbWc3mhcfNzyosLYzTV0kQf+fi8vIjP
+	rNNh/G9sa/qRfamP+jOQlR4Q0Re3baUT7zpf+dHVep5Vzl4TNxUvEBSiR2vZezK9b+AhS0mrkmH1K
+	h3S43r5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYZH-0000000EM04-0zUi;
-	Fri, 21 Mar 2025 09:21:31 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tvYf0-0000000EMcS-2OiH;
+	Fri, 21 Mar 2025 09:27:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYXZ-0000000ELoY-3u4W
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 09:19:48 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43d04ea9d9aso7970015e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 02:19:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742548784; x=1743153584; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iWnR5bCtS2OFl6qMZ2T0dze3z5cvO0emTkA11CaAm0I=;
-        b=tmcLyIn85/VkIeIhfpvZoRL2Q7lo7l3+HHwBEcDmh8EPYvbnvfo7G3/Ssp56vBXmwE
-         NHnXtgBdUy+yt5aOMgrr4F99I29wnp7mVL5CXCOGd0URXW/FCzSzmeDiZATqcao2CDHG
-         ys9VGogMx/QyOiVKDn/XADzkl4kjicrH8Q221OYigIe7mvLqdUicMrzSmq1qKr7R3Xaz
-         JwpulB8UY251jkXo90dCXnwnIzH9cdfhJJ0Ww3v/kQpOpagRx+pKXXBMxe3muK3UAC3d
-         TLDtCc8AsSC947ItEXMc+H7PQ3HXvbha3siJNdx2slWzg2WFewnEguEdRVPSsuSlWT4K
-         QUBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742548784; x=1743153584;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iWnR5bCtS2OFl6qMZ2T0dze3z5cvO0emTkA11CaAm0I=;
-        b=N7YTQn5otubvLImjbjAQ7E/BFTf+JurErQARNXknYrcEAeGNvneZEXPxFWG+Zz2w36
-         LDR9+CcW6bSJ2TkHnPmtp9FoGIHWeJ7S3r05vqj69uahQbngRFPRmK9ssA5W7UpQLjss
-         v8JwpuPBh3Z1DDnooYLxuQEhVyYF5kXQR5L/zWlrZQbhrUAm71ay5J17RIvrCjdHa1xH
-         l4VtRrH3u8aC7hqBkK7JnetXMmYwDD4HxdLztXaZLN9RwQ9goLxwt+RExcwc8WFmNXMB
-         EhuyzjLgZy2qWKl+V+Vc8VXeaiBrJzoLFSynMLIj1d4w3O5ICn+yiQKOZyXWGKOQShFX
-         9YVg==
-X-Gm-Message-State: AOJu0YzVjUL0t4tNvfEVz98sUMp2wZ/9ZQnI4cAekvGsMGUSiYJJkgQn
-	Ap9tph+vAoKr5T/G2+D+pM8YSWH8dHpGARQEZF6ah+nbfeiOcMnpopp7eDd6twQ=
-X-Gm-Gg: ASbGncvv1EACW1OpWXcb99cFoS6VxxYgAIdcXevqJDa+vKALT9feBhD43eFZH78ogHj
-	75ITSkzeCAhhBPWm4kgnHact8gh11jrzf4OIO3dxOBO8Gl48QkNyFI2bGQKJq7TdC7Qv8JYb0wG
-	JFC7QklTHfRaUviQlFNtZWj8N+XtmDzOwiecaYKcVQlxU2E1Gk9ySiGpcfCzFLx027RNy1AdJW/
-	QVmuOyns/B1qwp2AdiDgPR+R+8GDR1ZPb5fZRL0uCEl/7UpSOXRXCnC03rWuCwQvD53q52cg0m6
-	BudTv/bl7hn6bqyKzdjSa3azwMpxDTOXhb9NepqdIi7RuchxM0W6V0xk2GyfC68QIpyWANw2y1d
-	pt2VTuyGObLtKnqKN
-X-Google-Smtp-Source: AGHT+IGb4qaiD8zveCmbngoPFmfN9WpLcjDxkx7ItZuEiKJ1uCoRacXpzZp0WPeOAWRPRphRbr45pg==
-X-Received: by 2002:a05:600c:1e18:b0:43c:eea9:f45d with SMTP id 5b1f17b1804b1-43d509f64b8mr23766545e9.18.1742548783913;
-        Fri, 21 Mar 2025 02:19:43 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:5ee:79d0:2756:9ecd:3e82:43c7? ([2a01:e0a:5ee:79d0:2756:9ecd:3e82:43c7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fceae03sm21916245e9.8.2025.03.21.02.19.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Mar 2025 02:19:43 -0700 (PDT)
-Message-ID: <fb72f1f5-dc94-4e33-a20c-d46a081091bc@baylibre.com>
-Date: Fri, 21 Mar 2025 10:19:41 +0100
+	id 1tvYdK-0000000EMQk-0lGv;
+	Fri, 21 Mar 2025 09:25:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E48145C5F13;
+	Fri, 21 Mar 2025 09:23:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F3B8C4CEE3;
+	Fri, 21 Mar 2025 09:25:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742549140;
+	bh=xagWroqK2KjwExb/4QdLan+HJEEnc1v2heAo/kNeQMg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BkttSCfq/1bl1fNVgyDlJAQugUKukCU1N6GtHzthSFYhlSZyDtdMf0mLZJSvrCBeK
+	 Fu3UUKhXbXKYeepJSBP+57AAHISAOekEZZFyrFVlL8xevY2oVQ/VGFKvjJD2tsUtvK
+	 v1UgI41RlZjuibPCSNX7yS3kPXZ+ScOgNPruhTJ/0IaXSNZMVi5lA3mfJP31nTwiC3
+	 O8m60Aag4/w0PAXoFCNATGS89MDxWSYXoQl4TgmcTOF4HdyFOFH9EfSFCqOwVnniSK
+	 nQQYGTBDe+hZp5U0in6gPO9VKCGDk6CldliWv1icZbXmubvasT025r1bBxek4M+OH5
+	 5q+CAjoxHuQEQ==
+Message-ID: <e21f3e39-573d-4391-885a-2df7c2598d80@kernel.org>
+Date: Fri, 21 Mar 2025 10:25:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/3] drm/panel: startek-kd070fhfid015: add another init
- step
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <quic_jesszhan@quicinc.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org
-References: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
- <20231023-display-support-v8-2-c2dd7b0fb2bd@baylibre.com>
- <d70b62f8-e24e-4a10-8c6b-18d2e19f1337@collabora.com>
+Subject: Re: [PATCH] arm64: dts: amlogic: a4: fix dtb compilation warning
+ issues
+To: xianwei.zhao@amlogic.com, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Alexandre Mergnat <amergnat@baylibre.com>
-In-Reply-To: <d70b62f8-e24e-4a10-8c6b-18d2e19f1337@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_021946_206174_CE9C5B56 
-X-CRM114-Status: GOOD (  28.40  )
+X-CRM114-CacheID: sfid-20250321_022542_311629_75A305DE 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,173 +120,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
-Thanks for the fast feedback :)
-
-On 20/03/2025 13:37, AngeloGioacchino Del Regno wrote:
-> Il 20/03/25 09:48, Alexandre Mergnat ha scritto:
->> Currently, the panel set power, set gpio and enable the display link
->> in stk_panel_prepare, pointed by drm_panel_funcs.prepare, called by
->> panel_bridge_atomic_pre_enable, pointed by
->> drm_bridge_funcs.atomic_pre_enable. According to the drm_bridge.h,
->> atomic_pre_enable must not enable the display link
->>
->> Since the DSI driver is properly inited by the DRM, the panel try to
->> communicate with the panel before DSI is powered on.
->>
+On 21/03/2025 03:23, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > 
-> The panel driver shall still be able to send commands in the .prepare() callback
-> and if this is not happening anymore... well, there's a problem!
-
-Sorry I don't think so, according to that def:
-	/**
-	 * @pre_enable:
-	 *
-	 * This callback should enable the bridge. It is called right before
-	 * the preceding element in the display pipe is enabled. If the
-	 * preceding element is a bridge this means it's called before that
-	 * bridge's @pre_enable function. If the preceding element is a
-	 * &drm_encoder it's called right before the encoder's
-	 * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
-	 * &drm_encoder_helper_funcs.dpms hook.
-	 *
-	 * The display pipe (i.e. clocks and timing signals) feeding this bridge
-	 * will not yet be running when this callback is called. The bridge must
-	 * not enable the display link feeding the next bridge in the chain (if
-	 * there is one) when this callback is called.
-	 *
-	 * The @pre_enable callback is optional.
-	 *
-	 * NOTE:
-	 *
-	 * This is deprecated, do not use!
-	 * New drivers shall use &drm_bridge_funcs.atomic_pre_enable.
-	 */
-	void (*pre_enable)(struct drm_bridge *bridge);
-
-	/**
-	 * @enable:
-	 *
-	 * This callback should enable the bridge. It is called right after
-	 * the preceding element in the display pipe is enabled. If the
-	 * preceding element is a bridge this means it's called after that
-	 * bridge's @enable function. If the preceding element is a
-	 * &drm_encoder it's called right after the encoder's
-	 * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
-	 * &drm_encoder_helper_funcs.dpms hook.
-	 *
-	 * The bridge can assume that the display pipe (i.e. clocks and timing
-	 * signals) feeding it is running when this callback is called. This
-	 * callback must enable the display link feeding the next bridge in the
-	 * chain if there is one.
-	 *
-	 * The @enable callback is optional.
-	 *
-	 * NOTE:
-	 *
-	 * This is deprecated, do not use!
-	 * New drivers shall use &drm_bridge_funcs.atomic_enable.
-	 */
-	void (*enable)(struct drm_bridge *bridge);
-
-=> "The bridge must not enable the display link feeding the next bridge in the
-=> chain (if there is one) when this callback is called."
-
-Additionally, you ask for something impossible because here is the init order
-fixed by the framework:
-
-[   10.753139] panel_bridge_atomic_pre_enable
-[   10.963505] mtk_dsi_bridge_atomic_pre_enable
-[   10.963518] mtk_dsi_bridge_atomic_enable
-[   10.963527] panel_bridge_atomic_enable
-[   10.963532] drm_panel_enable
-
-If panel want to use the DSI link in panel_bridge_atomic_pre_enable, nothing
-will happen and  you will get a timeout.
-
-So, IMHO, this patch make sense.
-
+> When use command 'make ARCH=arm64 dtbs_check W=1' to compile dtb,
+> a warning message appears.
+> "Warning (simple_bus_reg): /soc/bus@fe000000/pinctrl:
+> missing or empty reg/ranges property"
 > 
->> To solve that, use stk_panel_enable to enable the display link because
->> it's called after the mtk_dsi_bridge_atomic_pre_enable which is power
->> on the DSI.
->>
->> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
->> ---
->>   .../gpu/drm/panel/panel-startek-kd070fhfid015.c    | 25 +++++++++++++---------
->>   1 file changed, 15 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c 
->> b/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
->> index c0c95355b7435..bc3c4038bf4f5 100644
->> --- a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
->> +++ b/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
->> @@ -135,19 +135,9 @@ static int stk_panel_prepare(struct drm_panel *panel)
->>       gpiod_set_value(stk->enable_gpio, 1);
->>       mdelay(20);
->>       gpiod_set_value(stk->reset_gpio, 1);
->> -    mdelay(10);
->> -    ret = stk_panel_init(stk);
->> -    if (ret < 0)
->> -        goto poweroff;
+> Add the unit address to the pinctrl node to fix it.
 > 
-> Also, you're moving both init and set_display_on to the enable callback...
-> this is suboptimal.
+> Fixes: ce78f679e08c ("arm64: dts: amlogic: a4: add pinctrl node")
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+>  arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 102 +++++++++++++++-------------
+>  1 file changed, 55 insertions(+), 47 deletions(-)
 > 
-> You should do the DrIC setup in .prepare() (can include SLEEP OUT), and then you
-> should have a .enable() callback that calls DISP ON, a .disable() callback that
-> calls DISP OFF, and .unprepare() that turns everything off.
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+> index fa80fa365f13..582e0043024b 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+> @@ -51,87 +51,52 @@ pwrc: power-controller {
+>  };
+>  
+>  &apb {
+> -	gpio_intc: interrupt-controller@4080 {
+> -		compatible = "amlogic,a4-gpio-intc",
+> -			     "amlogic,meson-gpio-intc";
+> -		reg = <0x0 0x4080 0x0 0x20>;
+> -		interrupt-controller;
+> -		#interrupt-cells = <2>;
+> -		amlogic,channel-interrupts =
+> -			<10 11 12 13 14 15 16 17 18 19 20 21>;
+> -	};
+> -
+> -	gpio_ao_intc: interrupt-controller@8e72c {
+> -		compatible = "amlogic,a4-gpio-ao-intc",
+> -			     "amlogic,meson-gpio-intc";
+> -		reg = <0x0 0x8e72c 0x0 0x0c>;
+> -		interrupt-controller;
+> -		#interrupt-cells = <2>;
+> -		amlogic,channel-interrupts = <140 141>;
+> -	};
 
-This is not what I understand from the pre_enable's definition above, and also
-the function call order by the framework. :)
 
-> 
-> Cheers,
-> Angelo
-> 
->> -
->> -    ret = stk_panel_on(stk);
->> -    if (ret < 0)
->> -        goto poweroff;
->>       return 0;
->> -poweroff:
->> -    regulator_disable(stk->supplies[POWER].consumer);
->>   iovccoff:
->>       regulator_disable(stk->supplies[IOVCC].consumer);
->>       gpiod_set_value(stk->reset_gpio, 0);
->> @@ -156,6 +146,20 @@ static int stk_panel_prepare(struct drm_panel *panel)
->>       return ret;
->>   }
->> +static int stk_panel_enable(struct drm_panel *panel)
->> +{
->> +    struct stk_panel *stk = to_stk_panel(panel);
->> +    int ret;
->> +
->> +    ret = stk_panel_init(stk);
->> +    if (ret < 0)
->> +        return ret;
->> +
->> +    ret = stk_panel_on(stk);
->> +
->> +    return ret;
->> +}
->> +
->>   static const struct drm_display_mode default_mode = {
->>           .clock = 163204,
->>           .hdisplay = 1200,
->> @@ -239,6 +243,7 @@ drm_panel_create_dsi_backlight(struct mipi_dsi_device *dsi)
->>   }
->>   static const struct drm_panel_funcs stk_panel_funcs = {
->> +    .enable = stk_panel_enable,
->>       .unprepare = stk_panel_unprepare,
->>       .prepare = stk_panel_prepare,
->>       .get_modes = stk_panel_get_modes,
->>
-> 
-> 
-> 
+Not related to the change you described in commit msg.
 
--- 
-Regards,
-Alexandre
+
+Best regards,
+Krzysztof
 
