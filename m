@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBC0C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE0EC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Axdj0QnFgjxfraWinlzlf+n30BytYhrhTX2isoRR1xs=; b=PfACGH1G60yBAaxRmypESrvYoE
-	EV1RpNtEf7Ec6DMiAqRWT8pluFCVMJGFKJqvVrOmiWhqB8LpI6ANXNrUrsu8jGNDtYH9XbqGb0LOY
-	cyrp2HgQ0CDN2SBQJqwLBX0cQWRkOaOaBmcpj5GqyqlLazEKiZ2qVxQgvqrVPcN5PclgI0QZRsBas
-	TkrkKKhu4C4fk/O7unqjA5ZVYXSjUmYM7sWYkspXkZ8pO1WWWVZ4RLFxfQTmvLlWzRqKtW8jFZDBK
-	f9w1TRaZTY3SQR1jLbLplOzNPbgz6mIwv3HcgPASy3WGk7ElMIRLJva0MFwdMJV4zqlFn/1thGKpk
-	RLGDc62w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k/UKbI4ubUDEStzF9NbwSE9vjEWe0ipM2pC4V8LoihE=; b=2s+DqccLjGBUaQbtXXg2hALarC
+	W3FM/FwP66AxWv3SFwT+mZ4GWW8ngxsVU2aEdv4h9GIzlhLKi9+b7RUDxCYWScaCfbTHdv/OvFJBe
+	Xcd9Ct9Z2qy7ecpjS+1GRu1dKcJxmVXdHI0pL/m5+uGSmyI9lCY+0vcfWxNCZGLul8W7gmGY3Larz
+	mpc7S4ZoVh0U+tc6WDF05aNcBHgHKeJloMeJpCdCyWASy87dgAzVUO/RjppGxdOYnRZzGTpRWicxy
+	/5R30QMSppAsyd/idOw8DIyUwW8jthR/8naQD2fJXFSFcpMJ3658GVUhrjshMw3bce7K/5arTZhTK
+	UO75QYbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXUp-0000000EDMU-2RB7;
-	Fri, 21 Mar 2025 08:12:51 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tvXWT-0000000EDdY-135C;
+	Fri, 21 Mar 2025 08:14:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXKN-0000000EBip-33OW
+	id 1tvXSs-0000000ED3w-04jg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 08:02:05 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52L81aQZ257023
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 21 Mar 2025 03:01:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1742544097;
-	bh=Axdj0QnFgjxfraWinlzlf+n30BytYhrhTX2isoRR1xs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=CuIyKFbscqKOjmXrH91k9s8t7OXo3P8jAqitsCtKup3PkMQDhDHqpcDl9maXUkTgx
-	 LqogDkZUthqCdXKeM530PWhXw85t1MCQgxcer+T2av/4vPKLgZ6TazhqFwcJYPkXef
-	 rKQQC8AtMWn100ZzBBD/xytYBaMtGbE/CE93Pd+0=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52L81aBj008848
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 21 Mar 2025 03:01:36 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 21
- Mar 2025 03:01:36 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 21 Mar 2025 03:01:36 -0500
-Received: from [172.24.19.92] (lt9560gk3.dhcp.ti.com [172.24.19.92])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52L81UVH114513;
-	Fri, 21 Mar 2025 03:01:31 -0500
-Message-ID: <48519536-6756-4d3d-9bb1-09197248df36@ti.com>
-Date: Fri, 21 Mar 2025 13:31:29 +0530
+	Fri, 21 Mar 2025 08:10:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DC416A4973A;
+	Fri, 21 Mar 2025 08:05:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 077CCC4CEE3;
+	Fri, 21 Mar 2025 08:10:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742544648;
+	bh=+rfm0VgNi58UlS6Mr9jdwghnEVpDGqTsgyDvBE7vOrI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YF2mgQ8JjPnKzwus08IDSkCkivQKkXgZE6e+3yN1hLybBSFtVGiIWMlGQQcbZLzbv
+	 ZQuUxLQ65euXlF7MdP7Q1iPsc8Ez0c8XdhHWdu73kj1Pkpd2PTYSIGlJnTu+8yVzo+
+	 3NevVzi8mWz7j7XWEJ382MBTpt83nTTuPSEYAxEVusWz8i4cWoddYWOlmszThmjciU
+	 QIvgV2tVJ0tx4YeZ85yMyIYWm/wUsrKlQ2fclkP+lVXZYsIE289NlSw33RUZGRJ1mX
+	 Gg4qoMgIgmXF/4LHaZhPEMzRWtgV0XyCm4tM0O8GKDpX6uzDyy4wt5ts9pqkF6ZNOY
+	 znmnTomGgFDDg==
+Date: Fri, 21 Mar 2025 09:10:44 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Matt Coster <matt.coster@imgtec.com>
+Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>, 
+	Michal Wilczynski <m.wilczynski@samsung.com>, Alessio Belle <alessio.belle@imgtec.com>, 
+	Alexandru Dadu <alexandru.dadu@imgtec.com>
+Subject: Re: [PATCH v4 02/18] dt-bindings: gpu: img: Add BXS-4-64 devicetree
+ bindings
+Message-ID: <20250321-liberal-muskox-of-reputation-edd6c0@krzk-bin>
+References: <20250320-sets-bxs-4-64-patch-v1-v4-0-d987cf4ca439@imgtec.com>
+ <20250320-sets-bxs-4-64-patch-v1-v4-2-d987cf4ca439@imgtec.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/3] net: ti: prueth: Fix kernel warning while
- bringing down network interface
-To: Simon Horman <horms@kernel.org>
-CC: <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <kory.maincent@bootlin.com>,
-        <javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
-        <jacob.e.keller@intel.com>, <john.fastabend@gmail.com>,
-        <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
-        <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250317101551.1005706-1-m-malladi@ti.com>
- <20250317101551.1005706-2-m-malladi@ti.com>
- <20250320125349.GN280585@kernel.org>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <20250320125349.GN280585@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250320-sets-bxs-4-64-patch-v1-v4-2-d987cf4ca439@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_010203_932314_6B8F4667 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20250321_011050_118613_65D0B850 
+X-CRM114-Status: UNSURE (   6.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
-Thanks for reviewing the patch series.
+On Thu, Mar 20, 2025 at 11:32:12AM +0000, Matt Coster wrote:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: img,img-bxs-4-64
+> +    then:
+> +      properties:
+> +        power-domains:
+> +          minItems: 2
+> +        power-domain-names:
+> +          minItems: 2
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            anyOf:
 
-On 3/20/2025 6:23 PM, Simon Horman wrote:
-> On Mon, Mar 17, 2025 at 03:45:48PM +0530, Meghana Malladi wrote:
->> During network interface initialization, the NIC driver needs to register
->> its Rx queue with the XDP, to ensure the incoming XDP buffer carries a
->> pointer reference to this info and is stored inside xdp_rxq_info.
->>
->> While this struct isn't tied to XDP prog, if there are any changes in
->> Rx queue, the NIC driver needs to stop the Rx queue by unregistering
->> with XDP before purging and reallocating memory. Drop page_pool destroy
->> during Rx channel reset and this is already handled by XDP during
->> xdp_rxq_info_unreg (Rx queue unregister), failing to do will cause the
->> following warning:
->>
->> [  271.494611] ------------[ cut here ]------------
->> [  271.494629] WARNING: CPU: 0 PID: 2453 at /net/core/page_pool.c:1108 0xffff8000808d5f60
-> 
-> I think it would be nice to include a bit more of the stack trace here.
-> 
+Instead: enum
 
-Sure, I will attach a link to the warning logs in v2.
+> +              - const: ti,am62-gpu
+> +              - const: ti,j721s2-gpu
 
->>
->> Fixes: 46eeb90f03e0 ("net: ti: icssg-prueth: Use page_pool API for RX buffer allocation")
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> 
-> It is a shame that we now have more asymmetry regarding
-> the allocation of the pool and unwind on error prueth_prepare_rx_chan().
-> 
-> But if I see things correctly the freeing of the pool via
-> xdp_rxq_info_unreg() is unconditional. And with that in mind
-> I agree the approach taken by this patch makes sense.
-> 
-
-Agreed on the asymmetry part, but I am not quite convinced on why 
-xdp_rxq_info_unreg() is freeing the pool unconditionally, when the 
-driver is the one which is allocating the pool. If xdp_rxq_info_unreg() 
-is freeing it, then shouldn't xdp_rxq_info_reg() be allocating it ?
-
-> Reviewed-by: Simon Horman <horms@kernel.org>
-> 
-> ...
+Best regards,
+Krzysztof
 
 
