@@ -4,49 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE8EC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23EDC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8aB9qgWlVy2NBZVQBFw/q+M8FBhJXD4Jw8UWQ4xYOow=; b=kWxaaOS0+Ryl3WQFlYekPupE4+
-	2dstq2C/4D1LvPsy9EEmXtv3nAXIYQtvJzwJIMdI/pkiaw9TD6666/0Ks/gneUFgHIduKDzqBPOE9
-	aTVdN0Q/7pojO3IlIJrWJq7Mg4tNFPAOOCxeYqEP5Btro/QrPwy/wXfiMErLFUjE7FIaiNYQLFpGZ
-	wQguP0hy6H5H3Zmy9wgrEGKOoSxR83fUSzGkrfbbXQnbbuHQa/y3UL1hrXy/JhL1a4iTu9daufMWh
-	kahbZAzJJPutmUEcImjtOX2ACyamYQBSJjjQ/sCWaxIJOwA0tlfGIMv72UmMdD1NIkdmUpLgBLRxU
-	OjPx7Hqw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nES+kZxk0uA6lIGz1XMMjd+1ZXeW6F8zF57WI+cOqO4=; b=Pvt/+agj1ripFtzNwr1mVl1US5
+	L8OXzxqf0xg40d51IIPFeDP2EnbCNlODUR3JmStYDAgkuqp6PuPiECZaAIsmZVgPpb+fxbcSt1EPv
+	4Ho4TKXhTlKmVSZlefLZQG8f1i8T/vnVNkOdViSRGveyPj3k0+vK6cbtZxwQnMmlBNvl2r859asVg
+	X5gEICkUxJOtBAmOyc/xIi5spfDlgzboWnwVF+w9MdYrvvCgaer3y7zbODLPbqOEmdZ/hbXx+YDOD
+	wSgMxlgt8cfKNfWbMhC072SpwJ+q1RGQXn3QbnAnhbSicM7v/DFfOLGhQqhIlVJuQPnxFEy18ucBI
+	klphTSxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXCf-0000000EAMR-1AnI;
-	Fri, 21 Mar 2025 07:54:05 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tvXEI-0000000EAZ2-3weX;
+	Fri, 21 Mar 2025 07:55:46 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvWxl-0000000E7ae-2LgO
+	id 1tvWxl-0000000E7aj-2UT3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 07:38:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4ZJvTP48yYz27gMb;
-	Fri, 21 Mar 2025 15:39:05 +0800 (CST)
+	Fri, 21 Mar 2025 07:38:44 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZJvNd2zVFzCsJb;
+	Fri, 21 Mar 2025 15:34:57 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id D22581A0188;
-	Fri, 21 Mar 2025 15:38:28 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2033C140159;
+	Fri, 21 Mar 2025 15:38:34 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 21 Mar 2025 15:38:28 +0800
+ 15.2.1748.10; Fri, 21 Mar 2025 15:38:33 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <hejunhao3@huawei.com>, <jonathan.cameron@huawei.com>,
 	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
 	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: [PATCH v2 0/8] General updates and two new drivers for HiSilicon Uncore PMU
-Date: Fri, 21 Mar 2025 15:38:38 +0800
-Message-ID: <20250321073846.23507-1-yangyicong@huawei.com>
+Subject: [PATCH v2 3/8] drivers/perf: hisi: Use ACPI driver_data to retrieve SLLC PMU information
+Date: Fri, 21 Mar 2025 15:38:41 +0800
+Message-ID: <20250321073846.23507-4-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250321073846.23507-1-yangyicong@huawei.com>
+References: <20250321073846.23507-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -54,8 +56,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_003841_749322_77CC1320 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250321_003841_960313_141F971F 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,52 +72,409 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+From: Junhao He <hejunhao3@huawei.com>
 
-Support new version of DDRC/SLLC PMU identified with updated ACPI HID and
-register definition. In order to support this, we do a preliminary refactor
-to initialize device of each version by using driver data of each HID
-rather than checking the version. This will also make the driver easier to
-maintain and extend, since only the HID specific information along
-with the new HID will be added to support the new version without touching
-the common logic.
+Make use of struct acpi_device_id::driver_data for version specific
+information rather than judge the version register. This will help
+to simplify the probe process and also a bit easier for extension.
 
-Two new Uncore PMU drivers is also added to support the monitoring the
-events of the system bus (by NoC PMU) and the DVM opertaions (by MN PMU).
+Factor out SLLC register definition to struct hisi_sllc_pmu_regs.
+No functional changes intended.
 
-Change since v1:
-- Fold patch which extending the struct hisi_pmu_dev_info into its user
-- Use bit shift rather than bit mask for SLLC PMU registers configuration
-- Address other comments by Jonathan, thanks
-Link: https://lore.kernel.org/linux-arm-kernel/20250218092000.41641-1-yangyicong@huawei.com/
+Signed-off-by: Junhao He <hejunhao3@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 178 ++++++++++++------
+ 1 file changed, 118 insertions(+), 60 deletions(-)
 
-Junhao He (6):
-  drivers/perf: hisi: Simplify the probe process for each DDRC version
-  drivers/perf: hisi: Add support for HiSilicon DDRC v3 PMU driver
-  drivers/perf: hisi: Use ACPI driver_data to retrieve SLLC PMU
-    information
-  drivers/perf: hisi: Add support for HiSilicon SLLC v3 PMU driver
-  drivers/perf: hisi: Relax the event number check of v2 PMUs
-  drivers/perf: hisi: Add support for HiSilicon MN PMU driver
-
-Yicong Yang (2):
-  drivers/perf: hisi: Support PMUs with no interrupt
-  drivers/perf: hisi: Add support for HiSilicon NoC PMU
-
- Documentation/admin-guide/perf/hisi-pmu.rst   |  11 +
- drivers/perf/hisilicon/Makefile               |   3 +-
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 354 ++++++++--------
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |   6 +-
- drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 355 ++++++++++++++++
- drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 392 ++++++++++++++++++
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |   2 +-
- drivers/perf/hisilicon/hisi_uncore_pmu.c      |  11 +-
- drivers/perf/hisilicon/hisi_uncore_pmu.h      |   2 +
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 220 +++++++---
- 10 files changed, 1098 insertions(+), 258 deletions(-)
- create mode 100644 drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
- create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-
+diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+index dbd079016fc4..79327639ec17 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+@@ -41,6 +41,7 @@
+ #define SLLC_SRCID_CMD_SHIFT		1
+ #define SLLC_SRCID_MSK_SHIFT		12
+ #define SLLC_NR_EVENTS			0x80
++#define SLLC_EVENT_CNTn(cnt0, n)	((cnt0) + (n) * 8)
+ 
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tgtid_min, config1, 10, 0);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tgtid_max, config1, 21, 11);
+@@ -48,6 +49,23 @@ HISI_PMU_EVENT_ATTR_EXTRACTOR(srcid_cmd, config1, 32, 22);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(srcid_msk, config1, 43, 33);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tracetag_en, config1, 44, 44);
+ 
++struct hisi_sllc_pmu_regs {
++	u32 int_mask;
++	u32 int_clear;
++	u32 int_status;
++	u32 perf_ctrl;
++	u32 srcid_ctrl;
++	u32 srcid_cmd_shift;
++	u32 srcid_mask_shift;
++	u32 tgtid_ctrl;
++	u32 tgtid_min_shift;
++	u32 tgtid_max_shift;
++	u32 event_ctrl;
++	u32 event_type0;
++	u32 version;
++	u32 event_cnt0;
++};
++
+ static bool tgtid_is_valid(u32 max, u32 min)
+ {
+ 	return max > 0 && max >= min;
+@@ -56,96 +74,104 @@ static bool tgtid_is_valid(u32 max, u32 min)
+ static void hisi_sllc_pmu_enable_tracetag(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 tt_en = hisi_get_tracetag_en(event);
+ 
+ 	if (tt_en) {
+ 		u32 val;
+ 
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val |= SLLC_TRACETAG_EN | SLLC_FILT_EN;
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_disable_tracetag(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 tt_en = hisi_get_tracetag_en(event);
+ 
+ 	if (tt_en) {
+ 		u32 val;
+ 
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val &= ~(SLLC_TRACETAG_EN | SLLC_FILT_EN);
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_config_tgtid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 min = hisi_get_tgtid_min(event);
+ 	u32 max = hisi_get_tgtid_max(event);
+ 
+ 	if (tgtid_is_valid(max, min)) {
+-		u32 val = (max << SLLC_TGTID_MAX_SHIFT) | (min << SLLC_TGTID_MIN_SHIFT);
++		u32 val = (max << regs->tgtid_max_shift) |
++			  (min << regs->tgtid_min_shift);
+ 
+-		writel(val, sllc_pmu->base + SLLC_TGTID_CTRL);
++		writel(val, sllc_pmu->base + regs->tgtid_ctrl);
+ 		/* Enable the tgtid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val |= SLLC_TGTID_EN | SLLC_FILT_EN;
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_clear_tgtid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 min = hisi_get_tgtid_min(event);
+ 	u32 max = hisi_get_tgtid_max(event);
+ 
+ 	if (tgtid_is_valid(max, min)) {
+ 		u32 val;
+ 
+-		writel(SLLC_TGTID_NONE, sllc_pmu->base + SLLC_TGTID_CTRL);
++		writel(SLLC_TGTID_NONE, sllc_pmu->base + regs->tgtid_ctrl);
+ 		/* Disable the tgtid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val &= ~(SLLC_TGTID_EN | SLLC_FILT_EN);
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_config_srcid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 cmd = hisi_get_srcid_cmd(event);
+ 
+ 	if (cmd) {
+ 		u32 val, msk;
+ 
+ 		msk = hisi_get_srcid_msk(event);
+-		val = (cmd << SLLC_SRCID_CMD_SHIFT) | (msk << SLLC_SRCID_MSK_SHIFT);
+-		writel(val, sllc_pmu->base + SLLC_SRCID_CTRL);
++		val = (cmd << regs->srcid_cmd_shift) |
++		      (msk << regs->srcid_mask_shift);
++		writel(val, sllc_pmu->base + regs->srcid_ctrl);
+ 		/* Enable the srcid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val |= SLLC_SRCID_EN | SLLC_FILT_EN;
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_clear_srcid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 cmd = hisi_get_srcid_cmd(event);
+ 
+ 	if (cmd) {
+ 		u32 val;
+ 
+-		writel(SLLC_SRCID_NONE, sllc_pmu->base + SLLC_SRCID_CTRL);
++		writel(SLLC_SRCID_NONE, sllc_pmu->base + regs->srcid_ctrl);
+ 		/* Disable the srcid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val &= ~(SLLC_SRCID_EN | SLLC_FILT_EN);
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+@@ -167,29 +193,27 @@ static void hisi_sllc_pmu_clear_filter(struct perf_event *event)
+ 	}
+ }
+ 
+-static u32 hisi_sllc_pmu_get_counter_offset(int idx)
+-{
+-	return (SLLC_EVENT_CNT0_L + idx * 8);
+-}
+-
+ static u64 hisi_sllc_pmu_read_counter(struct hisi_pmu *sllc_pmu,
+ 				      struct hw_perf_event *hwc)
+ {
+-	return readq(sllc_pmu->base +
+-		     hisi_sllc_pmu_get_counter_offset(hwc->idx));
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
++
++	return readq(sllc_pmu->base + SLLC_EVENT_CNTn(regs->event_cnt0, hwc->idx));
+ }
+ 
+ static void hisi_sllc_pmu_write_counter(struct hisi_pmu *sllc_pmu,
+ 					struct hw_perf_event *hwc, u64 val)
+ {
+-	writeq(val, sllc_pmu->base +
+-	       hisi_sllc_pmu_get_counter_offset(hwc->idx));
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
++
++	writeq(val, sllc_pmu->base + SLLC_EVENT_CNTn(regs->event_cnt0, hwc->idx));
+ }
+ 
+ static void hisi_sllc_pmu_write_evtype(struct hisi_pmu *sllc_pmu, int idx,
+ 				       u32 type)
+ {
+-	u32 reg, reg_idx, shift, val;
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
++	u32 reg, val;
+ 
+ 	/*
+ 	 * Select the appropriate event select register(SLLC_EVENT_TYPE0/1).
+@@ -198,96 +222,98 @@ static void hisi_sllc_pmu_write_evtype(struct hisi_pmu *sllc_pmu, int idx,
+ 	 * SLLC_EVENT_TYPE0 is chosen. For the latter 4 hardware counters,
+ 	 * SLLC_EVENT_TYPE1 is chosen.
+ 	 */
+-	reg = SLLC_EVENT_TYPE0 + (idx / 4) * 4;
+-	reg_idx = idx % 4;
+-	shift = 8 * reg_idx;
++	reg = regs->event_type0 + (idx / 4) * 4;
+ 
+ 	/* Write event code to SLLC_EVENT_TYPEx Register */
+ 	val = readl(sllc_pmu->base + reg);
+-	val &= ~(SLLC_EVTYPE_MASK << shift);
+-	val |= (type << shift);
++	val &= ~(SLLC_EVTYPE_MASK << HISI_PMU_EVTYPE_SHIFT(idx));
++	val |= (type << HISI_PMU_EVTYPE_SHIFT(idx));
+ 	writel(val, sllc_pmu->base + reg);
+ }
+ 
+ static void hisi_sllc_pmu_start_counters(struct hisi_pmu *sllc_pmu)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++	val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 	val |= SLLC_PERF_CTRL_EN;
+-	writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++	writel(val, sllc_pmu->base + regs->perf_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_stop_counters(struct hisi_pmu *sllc_pmu)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++	val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 	val &= ~(SLLC_PERF_CTRL_EN);
+-	writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++	writel(val, sllc_pmu->base + regs->perf_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_enable_counter(struct hisi_pmu *sllc_pmu,
+ 					 struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_EVENT_CTRL);
+-	val |= 1 << hwc->idx;
+-	writel(val, sllc_pmu->base + SLLC_EVENT_CTRL);
++	val = readl(sllc_pmu->base + regs->event_ctrl);
++	val |= BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->event_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_disable_counter(struct hisi_pmu *sllc_pmu,
+ 					  struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_EVENT_CTRL);
+-	val &= ~(1 << hwc->idx);
+-	writel(val, sllc_pmu->base + SLLC_EVENT_CTRL);
++	val = readl(sllc_pmu->base + regs->event_ctrl);
++	val &= ~BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->event_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_enable_counter_int(struct hisi_pmu *sllc_pmu,
+ 					     struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_INT_MASK);
+-	/* Write 0 to enable interrupt */
+-	val &= ~(1 << hwc->idx);
+-	writel(val, sllc_pmu->base + SLLC_INT_MASK);
++	val = readl(sllc_pmu->base + regs->int_mask);
++	val &= ~BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->int_mask);
+ }
+ 
+ static void hisi_sllc_pmu_disable_counter_int(struct hisi_pmu *sllc_pmu,
+ 					      struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_INT_MASK);
+-	/* Write 1 to mask interrupt */
+-	val |= 1 << hwc->idx;
+-	writel(val, sllc_pmu->base + SLLC_INT_MASK);
++	val = readl(sllc_pmu->base + regs->int_mask);
++	val |= BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->int_mask);
+ }
+ 
+ static u32 hisi_sllc_pmu_get_int_status(struct hisi_pmu *sllc_pmu)
+ {
+-	return readl(sllc_pmu->base + SLLC_INT_STATUS);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
++
++	return readl(sllc_pmu->base + regs->int_status);
+ }
+ 
+ static void hisi_sllc_pmu_clear_int_status(struct hisi_pmu *sllc_pmu, int idx)
+ {
+-	writel(1 << idx, sllc_pmu->base + SLLC_INT_CLEAR);
+-}
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 
+-static const struct acpi_device_id hisi_sllc_pmu_acpi_match[] = {
+-	{ "HISI0263", },
+-	{}
+-};
+-MODULE_DEVICE_TABLE(acpi, hisi_sllc_pmu_acpi_match);
++	writel(BIT_ULL(idx), sllc_pmu->base + regs->int_clear);
++}
+ 
+ static int hisi_sllc_pmu_init_data(struct platform_device *pdev,
+ 				   struct hisi_pmu *sllc_pmu)
+ {
++	struct hisi_sllc_pmu_regs *regs;
++
+ 	hisi_uncore_pmu_init_topology(sllc_pmu, &pdev->dev);
+ 
+ 	/*
+@@ -304,13 +330,18 @@ static int hisi_sllc_pmu_init_data(struct platform_device *pdev,
+ 		return -EINVAL;
+ 	}
+ 
++	sllc_pmu->dev_info = device_get_match_data(&pdev->dev);
++	if (!sllc_pmu->dev_info)
++		return -ENODEV;
++
+ 	sllc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(sllc_pmu->base)) {
+ 		dev_err(&pdev->dev, "ioremap failed for sllc_pmu resource.\n");
+ 		return PTR_ERR(sllc_pmu->base);
+ 	}
+ 
+-	sllc_pmu->identifier = readl(sllc_pmu->base + SLLC_VERSION);
++	regs = sllc_pmu->dev_info->private;
++	sllc_pmu->identifier = readl(sllc_pmu->base + regs->version);
+ 
+ 	return 0;
+ }
+@@ -352,6 +383,27 @@ static const struct attribute_group *hisi_sllc_pmu_v2_attr_groups[] = {
+ 	NULL
+ };
+ 
++static struct hisi_sllc_pmu_regs hisi_sllc_v2_pmu_regs = {
++	.int_mask = SLLC_INT_MASK,
++	.int_clear = SLLC_INT_CLEAR,
++	.int_status = SLLC_INT_STATUS,
++	.perf_ctrl = SLLC_PERF_CTRL,
++	.srcid_ctrl = SLLC_SRCID_CTRL,
++	.srcid_cmd_shift = SLLC_SRCID_CMD_SHIFT,
++	.srcid_mask_shift = SLLC_SRCID_MSK_SHIFT,
++	.tgtid_ctrl = SLLC_TGTID_CTRL,
++	.tgtid_min_shift = SLLC_TGTID_MIN_SHIFT,
++	.tgtid_max_shift = SLLC_TGTID_MAX_SHIFT,
++	.event_ctrl = SLLC_EVENT_CTRL,
++	.event_type0 = SLLC_EVENT_TYPE0,
++	.version = SLLC_VERSION,
++	.event_cnt0 = SLLC_EVENT_CNT0_L,
++};
++
++static const struct hisi_pmu_dev_info hisi_sllc_v2 = {
++	.private = &hisi_sllc_v2_pmu_regs,
++};
++
+ static const struct hisi_uncore_ops hisi_uncore_sllc_ops = {
+ 	.write_evtype		= hisi_sllc_pmu_write_evtype,
+ 	.get_event_idx		= hisi_uncore_pmu_get_event_idx,
+@@ -443,6 +495,12 @@ static void hisi_sllc_pmu_remove(struct platform_device *pdev)
+ 					    &sllc_pmu->node);
+ }
+ 
++static const struct acpi_device_id hisi_sllc_pmu_acpi_match[] = {
++	{ "HISI0263", (kernel_ulong_t)&hisi_sllc_v2 },
++	{}
++};
++MODULE_DEVICE_TABLE(acpi, hisi_sllc_pmu_acpi_match);
++
+ static struct platform_driver hisi_sllc_pmu_driver = {
+ 	.driver = {
+ 		.name = "hisi_sllc_pmu",
 -- 
 2.24.0
 
