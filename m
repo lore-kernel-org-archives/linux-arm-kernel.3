@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A7EC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBEDDC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 14:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eglGoRr46S0QXsG3q/hnCjtc4IGj4qTm0VYKUvrdsl0=; b=kHs7uB8zowqhhWtjaBELSXqsfD
-	GHSRX0aC3e2NgfK9cPvhfZIUeBkT9u3UyqqQ23WCSs+HybpYrisHvCVxCV8UczsVqkdFVMmTdEMtA
-	p1Br4ZvijFyFSek/77tb6gNWPkkgo5xuXDH3PKRv06vYfLJ/XVZL5JcxEPvUiujiXJ83fRegOJzJf
-	CSG25McrzTzLoy+wMcD9ng9h/gTN64DAn/MQNPJWPDEgjwh28oOlhgO4GGLjhYuAXef2LtNcEkgB7
-	A5FyGtDMFl13Xkm9Hm8ZIrz6vYx4b9xA/iSYtfb8z20YpEJGvovswqgW43YPmDBOcG38TE7WmWfYX
-	00cqkK0Q==;
+	bh=D7pE5Ysu98qvM8Dtr8qK+BXt3i2KN5R1lxlItWkqUL4=; b=jB4t9sdWFPWLV9xGsxcrJsh3dW
+	APQxF5gVTbKnIrshliswQ46gib7jMezzCAQCTGfwiA3BYyBTsr0ApVg1OQ1tnRjED8og6TpZR1AZf
+	Tv+OgW5ondSrjERLlCIdkSXKAwQB1ZbvtBl8kHrtGZMUGX7CzCTmCPMrzr2q43Lwr9KYyBBZKfVRX
+	Ox9D/2J3deqTjbPHlHdfa18qdlWSo3AAPz+vwjVcSIjWwZ84r9qAKfUQAVX1/3CPpVSGYHzpQZmPN
+	cNwCvGx+T05M1jMQO1OtFTtGFSnkG8FuKvhQqa39oyhxV5zcor7SM3ODpSU5tNIVmVUM7JpOcAIND
+	Oxu2kaQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdmS-0000000FDHu-0ZSW;
-	Fri, 21 Mar 2025 14:55:28 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tvdq0-0000000FDvX-1Op1;
+	Fri, 21 Mar 2025 14:59:08 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvdfP-0000000FBVV-0Gek
+	id 1tvdn3-0000000FDVP-3iRU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 14:48:12 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39143200ddaso1285850f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:48:10 -0700 (PDT)
+	Fri, 21 Mar 2025 14:56:07 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso13739905e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 07:56:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742568489; x=1743173289; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742568964; x=1743173764; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eglGoRr46S0QXsG3q/hnCjtc4IGj4qTm0VYKUvrdsl0=;
-        b=eQVZljA8XpAR84r32C7/Js0dWKWhBCA4YY3fgDuKYl6ep6Kd4+s9VG/GlQUScwpgLj
-         GqyPnHEMhMPEmEagp5/wQvggSPZxBv2V3mN6s5Qao1uCKGnqVqevY+A+OEsHVqW0aRW+
-         CA1uChEEZD2MokC9gp3fVpoKvPVeCNBIej38nvYAHr/0PwoD4ihKj+3is4jh6vmLeHrS
-         kkZYfWaTH7Tk2Z9Nd3xYTC0jhLCXHCZCMpdS3B2grL5Y4CLUfOW7quNZWe43f+/f5pER
-         XzcKiwQClrjdERIVfGucHq/ToRKIPsm3cNd/H1KnzqQikRxOPJshG4e1P39G5nAa8vFH
-         8yYQ==
+        bh=D7pE5Ysu98qvM8Dtr8qK+BXt3i2KN5R1lxlItWkqUL4=;
+        b=Frrj8G4BDxDQ0pbEBldVJxOXfaqPmMWZcRwNLS+qPYTNYFxkUhOTGXhp2Ck3luUCUo
+         pMNvtK1h9Blq6tHtbs1IATI7qTUnWY2CWqLuPwq9Do1g5fdqbySCkMqLxZKeI9m/u2uK
+         XH8SD4228rFFgQTEnDN1Sr4ihjbskE5iOQLz7GJgcKrtxbKb7EmbyJvbKrSuo3ppcG65
+         mzz9jW1j3/3K7szp4Pja6k91uyEMf2szXzu0qxMnOrf9UP0tfjKsMxp4xzSktHMCFG/y
+         GqVqqKhf7maNwXLVDoCZ+RYEKvJN0K/Kb2MgA1dXQMvqjDzNA5IFbEZ3SfkdVmUJ7LQC
+         baKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742568489; x=1743173289;
+        d=1e100.net; s=20230601; t=1742568964; x=1743173764;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eglGoRr46S0QXsG3q/hnCjtc4IGj4qTm0VYKUvrdsl0=;
-        b=SahmEXOVnnGOlwqMeSvJgifwEkP9GytJ12YsKA0HxZcr7lY48Jx2NxqTMUX7GCLBuO
-         W4xPbA4Gj9eEjj2LmZ7MpBz9Bw4Z3xvsyBuz3N2HGWU8+g9g1S+EhO+lu3hRuiYbKQhi
-         4lxmgFJo3xTDTGdXXSKbVO6WB0FEwCb/sIofL7ti09Ik8wnI7JQXg2pdC4bbQsRM/iCE
-         Fijk/6Jjpa6NYlSSYhhz2RAd68yW3idi4gp+HptiQ3DI/0jyO59sQnFY9CBVvOqiXpv0
-         8rRp9qquwl0YFMet2oh6ubMBSUQS00CW/KyinbJCzCITwRgK+/Wf4tPsbwyT7iJ5tBui
-         4+CA==
-X-Forwarded-Encrypted: i=1; AJvYcCXO2znDYpu5Rhu3XeKB6YhQk3HqlhfWME0iVvUNn8K5ZIDV+L0oI+ciypS7vc8DwNkkXC5DwTq2y3bqbVwOycxR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTsrL9y4KQtNs/QHtXTq5OKrfTrCJNtv0jwbnAnG/gUpsJJly7
-	dx3n1O5JpW8TZDQ/aUwwS/cjRTigg/IA/9aEFWjK74wYAn03pLm2GiOOvg==
-X-Gm-Gg: ASbGncuExx3F6vAmogCZYj7SXn9RJQ8qfSH//Qw4gnxqBGdOoXFYw21JnNXuC6ta1dO
-	VKePTxPs/PcdbTLadN7My/FxQb7V6UypjYAETenANWH9gqXctkv7wWxSvZYU4vtXU6bkyIr4W/L
-	anXX99MDxH2vf8NppkBrL/7h+fDOngbueIOG4k+KottTLsH/CWmZsLYn4yniWJex8A8qi0I3lZN
-	912nqqZIsIN5iNa3Uwvve0NhYK2kBz/mWOhtAsYoh6u1pRhaaXT4TBaOd/jantpGnveLB1PvM1A
-	hIE8gTru462brSEfqYjso7tEK88cUWygzNQnKjgaSuPxcynTx+PIiByTmNKMBwSJAV7IoB/kOFd
-	OIG7XZzKqTyl+3ofOrXTO
-X-Google-Smtp-Source: AGHT+IGV1TOlNM3xng9QbH9wlKQQUk/Hqr0UTaR7z33DFcaPZufgeSbUX/WC36jQ/lzEZqtWL3v0TQ==
-X-Received: by 2002:a05:6000:210b:b0:391:2192:ccd6 with SMTP id ffacd0b85a97d-3997f932f07mr3452699f8f.39.1742568489430;
-        Fri, 21 Mar 2025 07:48:09 -0700 (PDT)
+        bh=D7pE5Ysu98qvM8Dtr8qK+BXt3i2KN5R1lxlItWkqUL4=;
+        b=UwBbt+9KxluffOdyzjvFsP7PEsDcr4RBcNIu9DO5rNiC8n4SgvbjK5SDBapliRQdFE
+         o1C0PJXs7dr/6bNqdQQuuU90buY++jaDWY9K+7aKel+PTzY4/IT8i1xct7ze0il1rutj
+         a52yqFb8ZM8wxG0f6vgXtrKiYFjJVK5ICMvE0ElbdRuSlFLITwipr+et7V4/n81vtmkd
+         IR+UM73jliVsGCBexicboB19iG+pKy0sDUddTrAVpgsBzt/GeEodSSOQiVQqEjrYksyq
+         BmRIp1ppzmFMw2+1alWDo07bRP9woC8G3/y3dBXszZv/7r/Xl9wIMBs8syKNdO+3j4xh
+         202g==
+X-Forwarded-Encrypted: i=1; AJvYcCUo6KVcbWAAbrfiaEoPU05qFdR+w5MC10DTSpc7Q+j14KK0TYIqdgnO0u4cd8GjQnxwRwoFE+eh/uquFOd68Q3E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmdd+z5bpi+uM8IYQDBSYI3cczHZOYxZCbWhaWE9Kbqn4SBucQ
+	3GNiYYrFrTgzUx0ggw0uazkb3+R4ZAbvbN6FAxizTJJPaWJy6BDd04HhoQ==
+X-Gm-Gg: ASbGncusr6FQ8CAoBqcV6NmdBgzLdQg4ynQ/wFHOArnY75W4M42FZQF2OHPU75bQ4+x
+	PuWOgNMwbzMRShzm7ykD+dJQxk0cQ7kpfgd1P4K4NqSZ6iVuyInjGpU/+u6IXIyx+3GsmnDq3Yf
+	xQfiYxAJx39bC+wWpc52Cl5bDMfAyQ9gfEXywMTX3izimmxtKGL1cevYGo+Yf9yxMlWCU/KSB8D
+	ohg3OKXQeXD4SmpNyglAwL954EI2V+nnacfCydi2FAxJ5PXCj/MCN6Lh73IHNkdHZWIHrUMMGWm
+	O3mrggIkIaMkEw/CNOzffE1du1zeatq3C+CKf5/kqGnof35v/hYIKeSPCaf90Jv3uR3z9IcHn+F
+	3QvbRoi6vpjSq6/8TRrue
+X-Google-Smtp-Source: AGHT+IFy7V7yS49SBSh4QivpSyiHP2fZRhsx5j7YhDnnawlKq2OGpMgAznt0LvIAwZuK32tG9Lq3pA==
+X-Received: by 2002:a05:600c:cc:b0:43b:c592:7e16 with SMTP id 5b1f17b1804b1-43d4915e6bemr68812115e9.3.1742568964237;
+        Fri, 21 Mar 2025 07:56:04 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b3dd5sm2533851f8f.45.2025.03.21.07.48.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd28a46sm29217095e9.24.2025.03.21.07.56.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 07:48:09 -0700 (PDT)
+        Fri, 21 Mar 2025 07:56:03 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: devicetree@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH v3 2/2] usb: dwc3: exynos: add support for Exynos2200 variant
-Date: Fri, 21 Mar 2025 16:48:03 +0200
-Message-ID: <20250321144804.1435502-3-ivo.ivanov.ivanov1@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/4] dt-bindings: arm: samsung: document g0s board binding
+Date: Fri, 21 Mar 2025 16:55:53 +0200
+Message-ID: <20250321145556.1436201-2-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250321144804.1435502-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20250321144804.1435502-1-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250321145556.1436201-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250321145556.1436201-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_074811_100909_39231E47 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250321_075605_935642_F3E6FF6F 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Exynos2200 compatible string and associated driver data. This SoC
-requires a Link interface AXI clock.
+Add binding for the Samsung Galaxy S22+ (SM-S906B) board, codenamed G0S,
+which is based on the Samsung Exynos2200 SoC.
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
 ---
- drivers/usb/dwc3/dwc3-exynos.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ .../devicetree/bindings/arm/samsung/samsung-boards.yaml     | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/usb/dwc3/dwc3-exynos.c b/drivers/usb/dwc3/dwc3-exynos.c
-index f5d963fae..aa22265c7 100644
---- a/drivers/usb/dwc3/dwc3-exynos.c
-+++ b/drivers/usb/dwc3/dwc3-exynos.c
-@@ -145,6 +145,12 @@ static void dwc3_exynos_remove(struct platform_device *pdev)
- 	regulator_disable(exynos->vdd10);
- }
+diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+index fab29f95d..bb3f6a0e1 100644
+--- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
++++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+@@ -45,6 +45,12 @@ properties:
+           - const: samsung,aries
+           - const: samsung,s5pv210
  
-+static const struct dwc3_exynos_driverdata exynos2200_drvdata = {
-+	.clk_names = { "link_aclk" },
-+	.num_clks = 1,
-+	.suspend_clk_idx = -1,
-+};
++      - description: Exynos2200 based boards
++        items:
++          - enum:
++              - samsung,g0s                     # Samsung Galaxy S22+ (SM-S906B)
++          - const: samsung,exynos2200
 +
- static const struct dwc3_exynos_driverdata exynos5250_drvdata = {
- 	.clk_names = { "usbdrd30" },
- 	.num_clks = 1,
-@@ -177,6 +183,9 @@ static const struct dwc3_exynos_driverdata gs101_drvdata = {
- 
- static const struct of_device_id exynos_dwc3_match[] = {
- 	{
-+		.compatible = "samsung,exynos2200-dwusb3",
-+		.data = &exynos2200_drvdata,
-+	}, {
- 		.compatible = "samsung,exynos5250-dwusb3",
- 		.data = &exynos5250_drvdata,
- 	}, {
+       - description: Exynos3250 based boards
+         items:
+           - enum:
 -- 
 2.43.0
 
