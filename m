@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6D9C36001
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 22:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74086C36001
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 23:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zqTy844Xprqr34yAx3A4v2SXoEP8U+w//xhiHy3BoOU=; b=1RuLFYOGqGhP6m8ygFsI0aIebq
-	5VUQYHbM7gsJCL/rHNY5lnZM91blFZGBaR+iVrfEb08IxR1d4u2fDqosuu9X7g5R8IkguneHWySXe
-	lmTIH0FR5GxV4Vfz43AEJ9Wp/JlyXD6yqDTmtCeeAFw9p9RU2GhyY7nM5UugVTu4hR2iQsS9yeqhK
-	4H1NYZmWBFWd+dnwJuiJq+h/pARGMceK0LHpLeAJTWQMQqIy7I69m5YzRkl/HPeBv5hryvOuy6sY+
-	7knPTU/nnTPW/uB2it8luRyYwooAz9siRpudF8w6BDopxNz7F8/jXM/SRnQHLuzoxNy44zLH7Jepl
-	wqfMEUzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CT0xeUxPK7M0JEJD3aEAdaLenW2othheeKIqp5BaoVE=; b=egrRVq4lDB9kJyjWNvouCIevmP
+	T76LQF/098a8tkC2wVVjFtd2j+oCeQAIKeas1h+IvSBBAoEglY3exsPFSwuwpB3y9rEkTJt7IXKde
+	ya9hPJbXTAzdlyII0xWZPU9S7MSXC62TBr/w+9SZHL++wEIhebUecaYJ74pHYwpR4vzF5uGgICKAv
+	JDTp8ZmAMZdkYiHgNzraqNdQ1kkjnpFZSrHdNIp43j+9V0Pd8tDREkyeqNbKs+0wxNexF2Si12jqf
+	W/j3LI2I77qseV5eb51kri15k5ZUYf1Wn5Mi0Yefu/4X9R0HLXdopJQi9nHN7+7oWmT9mo/M5OZEL
+	KN/IUvjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvl1M-0000000GVDD-3rQl;
-	Fri, 21 Mar 2025 22:39:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvkzg-0000000GV4O-2SPG;
-	Fri, 21 Mar 2025 22:37:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9586943754;
-	Fri, 21 Mar 2025 22:37:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BD08C4CEE3;
-	Fri, 21 Mar 2025 22:37:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742596655;
-	bh=ramSATIM6Gfyw9DQk/rIg5hUgUc4Aq61YIxEdbWpWAc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u/b5e3XwA10wQ0+gzZsAmrh+PYEPBTqOTPwQCOEJmGQ72ZsBAs4AUVs6sGkyH/oCm
-	 OWh72S7LLTL5DxzFvdSVgJM05lo4MiYSGkdaANNFI7HR/8FtIQh08BqBmmYhZP/ldO
-	 U3oL9HVf6BXs+eapmm7aKRLfGJQhcMI2zTLB7ahA4kLIvR71WujKLPNXhhxJ09PWNH
-	 dLlWWMcr/3JOadEK6bvLKreEPEgWRHTlPVHQKyqypBDzcPN1PYgvavIhgMIqlbIe4a
-	 Y26LDPTZ5wsqjo3Tn2S6/fmAZ82NZi6oHL8CNGEyRnkbS2KBvmAFiFSMTSn7PLiEhS
-	 6vAgxK49Xc4wA==
-Date: Fri, 21 Mar 2025 17:37:34 -0500
-From: Rob Herring <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Danzberger <dd@embedd.com>, Arnd Bergmann <arnd@arndb.de>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Nikita Shubin <nikita.shubin@maquefel.me>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Yangyu Chen <cyy@cyyself.name>, Ben Hutchings <ben@decadent.org.uk>,
-	Felix Fietkau <nbd@nbd.name>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-usb@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [PATCH v2 03/11] dt-bindings: clock: en7523: add Documentation
- for Airoha AN7581 SCU SSR
-Message-ID: <20250321223734.GA6837-robh@kernel.org>
-References: <20250320130054.4804-1-ansuelsmth@gmail.com>
- <20250320130054.4804-4-ansuelsmth@gmail.com>
+	id 1tvm3G-0000000GZkH-0KTj;
+	Fri, 21 Mar 2025 23:45:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvm1Z-0000000GZbB-0oil
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 23:43:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AA87113E;
+	Fri, 21 Mar 2025 16:43:37 -0700 (PDT)
+Received: from [192.168.20.16] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71F853F673;
+	Fri, 21 Mar 2025 16:43:25 -0700 (PDT)
+Message-ID: <e8ada81d-0e10-412b-8792-035bc63113a6@arm.com>
+Date: Fri, 21 Mar 2025 18:43:23 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250320130054.4804-4-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/7] arm64: uaccess: Add additional userspace GCS
+ accessors
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org, acme@kernel.org,
+ namhyung@kernel.org, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, kan.liang@linux.intel.com,
+ thiago.bauermann@linaro.org, yury.khrustalev@arm.com,
+ kristina.martsenko@arm.com, liaochang1@huawei.com, catalin.marinas@arm.com,
+ will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250318204841.373116-1-jeremy.linton@arm.com>
+ <20250318204841.373116-4-jeremy.linton@arm.com>
+ <50a0920d-3e3d-4e96-b68a-a7a0d78c3695@sirena.org.uk>
+Content-Language: en-US
+From: Jeremy Linton <jeremy.linton@arm.com>
+In-Reply-To: <50a0920d-3e3d-4e96-b68a-a7a0d78c3695@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_153736_667592_F50F4F7F 
-X-CRM114-Status: GOOD (  25.17  )
+X-CRM114-CacheID: sfid-20250321_164337_281948_23FF5CEF 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,154 +74,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 02:00:26PM +0100, Christian Marangi wrote:
-> The Airoha AN7581 SoC have in the SCU register space particular
-> address that control how some peripheral are configured.
-> 
-> These are toggeled in the System Status Register and are used to
-> toggle Serdes port for USB 3.0 mode or HSGMII, USB 3.0 mode or PCIe2
-> or setup port for PCIe mode or Ethrnet mode (HSGMII/USXGMII).
-> 
-> Modes are mutually exclusive and selecting one mode cause the
-> other feature to not work (example a mode in USB 3.0 cause PCIe
-> port 2 to not work) This depends also on what is physically
-> connected to the Hardware and needs to correctly reflect the
-> System Status Register bits.
-> 
-> Special care is needed for PCIe port 0 in 2 line mode that
-> requires both WiFi1 and WiFi2 Serdes port set to PCIe0 2 Line
-> mode.
-> 
-> Expose these configuration as an enum of strings in the SCU node and
-> also add dt-bindings header to reference each serdes port in DT.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../bindings/clock/airoha,en7523-scu.yaml     | 101 ++++++++++++++++--
->  MAINTAINERS                                   |   7 ++
->  include/dt-bindings/soc/airoha,scu-ssr.h      |  11 ++
->  3 files changed, 110 insertions(+), 9 deletions(-)
->  create mode 100644 include/dt-bindings/soc/airoha,scu-ssr.h
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
-> index fe2c5c1baf43..637ce0e06619 100644
-> --- a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
-> +++ b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
-> @@ -9,6 +9,7 @@ title: EN7523 Clock
->  maintainers:
->    - Felix Fietkau <nbd@nbd.name>
->    - John Crispin <nbd@nbd.name>
-> +  - Christian Marangi <ansuelsmth@gmail.com>
->  
->  description: |
->    This node defines the System Control Unit of the EN7523 SoC,
-> @@ -26,6 +27,23 @@ description: |
->  
->    The clocks are provided inside a system controller node.
->  
-> +  The System Control Unit may also set different mode for the Serdes ports
-> +  present on the SoC.
-> +
-> +  These are toggeled in the System Status Register and are used to
-> +  toggle Serdes port for USB 3.0 mode or HSGMII, USB 3.0 mode or PCIe2
-> +  or setup port for PCIe mode or Ethernet mode (HSGMII/USXGMII).
-> +
-> +  Modes are mutually exclusive and selecting one mode cause the
-> +  other feature to not work (example a mode in USB 3.0 cause PCIe
-> +  port 2 to not work) This depends also on what is physically
-> +  connected to the Hardware and needs to correctly reflect the
-> +  System Status Register bits.
-> +
-> +  Special care is needed for PCIe port 0 in 2 line mode that
-> +  requires both WiFi1 and WiFi2 Serdes port set to PCIe0 2 Line
-> +  mode.
-> +
->  properties:
->    compatible:
->      items:
-> @@ -49,6 +67,40 @@ properties:
->      description: ID of the controller reset line
->      const: 1
->  
-> +  airoha,serdes-wifi1:
-> +    description: Configure the WiFi1 Serdes port
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum:
-> +      - pcie0_x2
-> +      - pcie0_x1
-> +      - ethernet
-> +    default: pcie0_x1
-> +
-> +  airoha,serdes-wifi2:
-> +    description: Configure the WiFi2 Serdes port
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum:
-> +      - pcie0_x2
-> +      - pcie1_x1
-> +      - ethernet
-> +    default: pcie1_x1
-> +
-> +  airoha,serdes-usb1:
-> +    description: Configure the USB1 Serdes port
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum:
-> +      - usb3
-> +      - ethernet
-> +    default: usb3
-> +
-> +  airoha,serdes-usb2:
-> +    description: Configure the USB2 Serdes port
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum:
-> +      - usb3
-> +      - pcie2_x1
-> +    default: usb3
+Hi,
 
-Couldn't you make this a phy provider and use the mode flags in the 
-phy cells?
+On 3/19/25 8:24 AM, Mark Brown wrote:
+> On Tue, Mar 18, 2025 at 03:48:37PM -0500, Jeremy Linton wrote:
+> 
+>> +static inline u64 load_user_gcs(unsigned long __user *addr, int *err)
+>> +{
+>> +	unsigned long ret;
+>> +	u64 load;
+>> +
+>> +	if (!access_ok((char __user *)addr, sizeof(load))) {
+>> +		*err = -EFAULT;
+>> +		return 0;
+>> +	}
+>> +
+>> +	gcsb_dsync();
+>> +	ret = copy_from_user(&load, addr, sizeof(load));
+>> +	if (ret != 0)
+>> +		*err = ret;
+>> +	return load;
+>> +}
+> 
+> A GCS load done by the hardware will verify that we are loading from GCS
+> memory (the accesses are marked as AccessType_GCS in the pseudocode
+> which is then validated in for example S1CheckPermissions()).  Sadly
+> there's no equivalent of GCSSTR so we'd need to do the permission check
+> ourselves to match this behaviour.
 
-> +
->  required:
->    - compatible
->    - reg
-> @@ -64,6 +116,12 @@ allOf:
->          reg:
->            minItems: 2
->  
-> +        airoha,serdes-wifi1: false
-> +        airoha,serdes-wifi2: false
-> +
-> +        airoha,serdes-usb1: false
-> +        airoha,serdes-usb2: false
-> +
->          '#reset-cells': false
->  
->    - if:
-> @@ -75,6 +133,24 @@ allOf:
->          reg:
->            maxItems: 1
->  
-> +  - if:
-> +      properties:
-> +        airoha,serdes-wifi1:
-> +          const: pcie0_x2
+Right, except that if I grab the VMA as a placeholder for the page, 
+check to see if its a VM_SHADOW_STACK under any of 
+map_read_lock()/lock_vma_under_rcu()/etc and then perform the access, 
+the resulting possible fault will have problems with vma locking. 
+Otherwise there ends up being a few different races that at the moment 
+I've not yet figured out how to fix without making a big mess. For 
+example, we can reduce that possible window, by reading the 
+value/locking and checking shadow stack state/dropping the 
+lock/rereading the value, or some other construct but it seems pointless 
+because the suggested problem is that we might be creating a way to 
+bypass some of the shadow stack security. In which case, leaving a 
+little race is likely the same as leaving it wide open.
 
-This is also true if airoha,serdes-wifi1 is not present. Probably not 
-what you intended.
 
-> +    then:
-> +      properties:
-> +        airoha,serdes-wifi2:
-> +          const: pcie0_x2
-> +
-> +  - if:
-> +      properties:
-> +        airoha,serdes-wifi2:
-> +          const: pcie0_x2
-> +    then:
-> +      properties:
-> +        airoha,serdes-wifi1:
-> +          const: pcie0_x2
-> +
->  additionalProperties: false
+Otherwise, maybe we can ignore the problem, or just refuse to allow 
+probes on 'RET' instructions which seems to be the main problematic 
+case. Although, given we don't really know if GCS is enabled until the 
+probe is hit, SIGSEG'ing the target process is a big hammer.
+
+Ignoring it might be a valid option. I guess it could to be one of those 
+"if the user puts a uprobe on a RET some of the shadow stack security is 
+reduced" footguns. If an attacker can also manipulate the address space 
+in a way to exploit it then its probably game over anyway. Ideally, the 
+kernel would warn on this, but per the conversation around patch 6/7 
+that seems to be off the table.
+
+
+
+
+
+
+
+
+
+
+
+
 
