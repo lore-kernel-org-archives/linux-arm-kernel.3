@@ -4,43 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14167C36007
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D88C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O8iECVKqUngmbLKesdAXdxuc21AF1mv3PVk149t7akU=; b=aMPSL7geTyflfbB+EUn9E3Mk0W
-	Bi+xBB2M+P/GGIUz2OfdEYz+GvQP9vKGgcxxdSixWIKYcmttsGrkFIHptipSvE3dZ3fXSRpuZmz+U
-	hk4B3HKOQWoTOFVEMwkNrA5Yu8qBaxTCtmWBN/G6hhmiuixt2Rek8WEa66LGcfZeBtROy4gemDpGV
-	8lzsgJKg1/zSTjw0s31Njo6UAYCg/xphsCVGudIyXTT6xdxFo7CNT7ReaczswGu0vCFQCFG5C0OVi
-	XOpv2kB5dUkfYhmwG/X184Oj4sZTlLSs2N67uIQqq1B9oZ20vy5BPnla3QY8QmfyDY6bSw40o5xg4
-	NaeAXLIg==;
+	bh=ZzRD5QOdeWfzwL+D5t37uF2dpRk29SkQGyL53eKSa5Q=; b=In386gxAAFgKHhndWvf3iU8u28
+	82v1g5y1kOigW6NzK5AwXy68exwGsur+q/WOtNQYnaYKDbYpFTboCKtDPhdL7Z2mh6//+Megtr6vK
+	btnWBwj+Yq6EbJPZwfmvtZFk8vpy14B9Fzbn2yfDLfr+fkx21mxHl7DbWtAL9TV5e8K2LW8fts6lV
+	/yzsDw6FSzIT2M0VR8ImGCSv9yDmhdnSy0gR/dXktxra6FWXJGTbiaWB59pMfcFWExis+KMj8jlCc
+	ANM6/4bTWgSDK/iD3rQwkUKIQv4atOAXl538h27sYgJocMxRH2g33QZnC/DuFa2x4gGEeUFqzhaib
+	ycBD9VUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tviz1-0000000GAKz-1mLm;
-	Fri, 21 Mar 2025 20:28:47 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tviz2-0000000GALS-05mo;
+	Fri, 21 Mar 2025 20:28:48 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvieC-0000000G7VN-40Pv
+	id 1tvieF-0000000G7Wq-0jvI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 20:07:18 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C7E5D101E8FE7;
-	Fri, 21 Mar 2025 21:07:13 +0100 (CET)
+	Fri, 21 Mar 2025 20:07:20 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9C2CC101E8FEE;
+	Fri, 21 Mar 2025 21:07:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742587635; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1742587637; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=O8iECVKqUngmbLKesdAXdxuc21AF1mv3PVk149t7akU=;
-	b=dbkJVkNrAiPA1y2flaykkwgNtX4AnewryWHqt5l/Jmoaw6Rwx0rMnsDXHOlEHmWHlDHHlQ
-	kA1TiweR3QTmtoSMyfYo5B/pghhZnm24wn/bT/5ogob2FiFAQL8uVlT47avHBNP1PsaS9H
-	v6UhNwzQ+eBXsTb+H3TigCcr/jK7g/cuXzb7lCrVnT8AHQdC4S5Wrd7aaqbO9hVv2bLsab
-	QNJyixNjnHnTHfuBzNEYcItV0h+7tVXaELiv38kwsvH9Gya72u07w6MQAK9BpHYa2GfNdQ
-	IsU7AlUuBi0Rg5eYyPQ7clJYJPC1iXpQik3JyOMyGDjyZG3SwQGgPgn8QFahtw==
+	bh=ZzRD5QOdeWfzwL+D5t37uF2dpRk29SkQGyL53eKSa5Q=;
+	b=A9XBJ1i68wOzhkEqzV2QKFTy3CrsFNhwqsvwx/iHoBcJ17IYmByaRzeVVyZZDMc68iHzL8
+	1kNoYtbMnKvGc9r2c+M+ZY/nm+9h+h0o1lEtcSKgN6IERjiqkbwmoMz0+jFSHef9hb5Ovl
+	z5Mc0+TSFxo0oBz2tfUCx/vRyHsSa50w5nYbn+ZBo3SKb7Hf6DQ0DTdO/ypccB4ZkSZwWK
+	A77u7gOvzlVzSapAIJCMR5CdgAqY9sLb6KzIsN4sv+5rN+tceWeYyvHk0MfyP/rjuKehih
+	vNIjHFlgR/wV/53HwUSMEFD8XeH1vlC+iZVvezWZPqy0hQI4Hyj74NdXsOXm8g==
 From: Marek Vasut <marex@denx.de>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@denx.de>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Frank Li <Frank.Li@nxp.com>,
 	Boris Brezillon <boris.brezillon@collabora.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	David Airlie <airlied@gmail.com>,
@@ -61,9 +63,9 @@ Cc: Marek Vasut <marex@denx.de>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev
-Subject: [PATCH v2 6/9] drm/panthor: Reset GPU after L2 cache power off
-Date: Fri, 21 Mar 2025 21:05:56 +0100
-Message-ID: <20250321200625.132494-7-marex@denx.de>
+Subject: [PATCH v2 7/9] dt-bindings: gpu: mali-valhall-csf: Document i.MX95 support
+Date: Fri, 21 Mar 2025 21:05:57 +0100
+Message-ID: <20250321200625.132494-8-marex@denx.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250321200625.132494-1-marex@denx.de>
 References: <20250321200625.132494-1-marex@denx.de>
@@ -71,8 +73,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_130717_145137_A63BFE01 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250321_130719_352913_7F7D6F7A 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,11 +89,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This seems necessary on Freescale i.MX95 Mali G310 to reliably resume
-from runtime PM suspend. Without this, if only the L2 is powered down
-on RPM entry, the GPU gets stuck and does not indicate the firmware is
-booted after RPM resume.
+The instance of the GPU populated in Freescale i.MX95 is the
+Mali G310, document support for this variant.
 
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Marek Vasut <marex@denx.de>
 ---
 Cc: Boris Brezillon <boris.brezillon@collabora.com>
@@ -116,33 +118,40 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
-V2: No change
+V2: - Add RB from Frank and Alexander
+    - Make resets: mandatory on i.MX95
+    - Switch from fsl, to nxp, vendor prefix
 ---
- drivers/gpu/drm/panthor/panthor_gpu.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+ .../devicetree/bindings/gpu/arm,mali-valhall-csf.yaml    | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
-index 671049020afaa..0f07ef7d9aea7 100644
---- a/drivers/gpu/drm/panthor/panthor_gpu.c
-+++ b/drivers/gpu/drm/panthor/panthor_gpu.c
-@@ -470,11 +470,12 @@ int panthor_gpu_soft_reset(struct panthor_device *ptdev)
-  */
- void panthor_gpu_suspend(struct panthor_device *ptdev)
- {
--	/* On a fast reset, simply power down the L2. */
--	if (!ptdev->reset.fast)
--		panthor_gpu_soft_reset(ptdev);
--	else
--		panthor_gpu_power_off(ptdev, L2, 1, 20000);
-+	/*
-+	 * Power off the L2 and soft reset the GPU, that makes
-+	 * iMX95 Mali G310 resume without firmware boot timeout.
-+	 */
-+	panthor_gpu_power_off(ptdev, L2, 1, 20000);
-+	panthor_gpu_soft_reset(ptdev);
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+index 0efa06822a543..485609de54eac 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+@@ -18,6 +18,7 @@ properties:
+     oneOf:
+       - items:
+           - enum:
++              - nxp,imx95-mali            # G310
+               - rockchip,rk3588-mali
+           - const: arm,mali-valhall-csf   # Mali Valhall GPU model/revision is fully discoverable
  
- 	panthor_gpu_irq_suspend(&ptdev->gpu->irq);
- }
+@@ -111,6 +112,14 @@ allOf:
+         power-domains:
+           maxItems: 1
+         power-domain-names: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: nxp,imx95-mali
++    then:
++      required:
++        - resets
+ 
+ examples:
+   - |
 -- 
 2.47.2
 
