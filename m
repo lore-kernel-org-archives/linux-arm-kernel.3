@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FB9C3600A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9347BC3600B
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbl1bzwd72WBMUHQVUL0sGP9LINKYez4xzgILWcrQd0=; b=MjV9hgFjY2yu4AJEKxOnWaBjqY
-	vk80JprfLW0FPmkEQb1DuPPhNZDKHv8YkDlgkclesAXjLXZCXJ7UytAgrDUwaglBeXVAH0ottve48
-	FuPIrE7Mm2JCJW/KI38d9feZT6ekbgwaz2W5H7EBg87W5eRbOv88m509uFmqqAD9grPotewQXmzZ0
-	X8KbYULocxeQpkt2ff6LbKROZYvgaE8e7m9qyC23uSmd92n7DBIRRLGUKGti2BPpJ99zLEx9uYpQT
-	qn5im9xyAQjdk9PkaN45zTDupe1VZ3aNJJuQcU8bsLO33ENBLCYH8KAu4MnRSzCWb3wYKj0zqqEzF
-	akGA44zg==;
+	bh=/QjT7PtVWPkoRPUHyfCfzMI+lVd5Zx3OIJsUBq2pBDI=; b=oCd23MNSarxU2b3At9now90EFP
+	2WItIKd3NhHDyb/AxQDFjWxa3Bzcg9qCYEEQ0SMDUHPsjFovMyjFE5jHqxVYu8eZCIZx5Gp3eQVT4
+	yY2BH+HF8QMEnU8KgnGZ2/y1TUdSVucGqK3/0uAXQ80SIQZghn5nB7k7upDUGG3534dDcdmHwm+8U
+	V1TM0xW+mKJNAzPBPeCnfzJDTkr5otl3ZnwM/rts6jFvH/cyttJPmsC6JvgBAsXKlPW85CMKIHQ5N
+	9IHiF29/rJ3r7hdkkG7NKNcya+VAtT3h1cPqpj1lX7tOK4FkWz773lxxw1/gmTOVj0ONfML8Qdanu
+	Ed1We//Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tviz0-0000000GAKM-1Ii6;
-	Fri, 21 Mar 2025 20:28:46 +0000
+	id 1tviyz-0000000GAK0-34cw;
+	Fri, 21 Mar 2025 20:28:45 +0000
 Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvie9-0000000G7Tb-1gjU
+	id 1tvie7-0000000G7Sx-2nq9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 20:07:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 46EF310206773;
-	Fri, 21 Mar 2025 21:07:10 +0100 (CET)
+	Fri, 21 Mar 2025 20:07:12 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 53656101E8FE9;
+	Fri, 21 Mar 2025 21:07:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742587631; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1742587629; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=tbl1bzwd72WBMUHQVUL0sGP9LINKYez4xzgILWcrQd0=;
-	b=Ujh3YbJpP0w6d7Vq3HH9Q30e9e0u1qTMHdtq9Vyg79Vb6a4W2PuiLeQJ7PDrgp0QIRoBYn
-	hqoNE1AGZ3HPtUgaGbGXHzJM/LZfXFqVRQPSMH59yZurKeJQ1p6ClZGURG8can0C36aQJi
-	I4VyO8rBrbPYSAUPosCoJ6rKTRmxtzGi15XRyfEUG0Kkwg11l8BFjTEFkzmD8xz3gy7TVN
-	Mg8/V70meiqDVRvhoSsIaqmF75S4kjGVipBKH9b7w5wG0DxyqzhYVW0o5NX/a0eNa1iXIr
-	pMfEogdxrjt6VOXYT6rEpn2rq/svVdni5lsfJbddgnL0lsXE9Yw6UfoPhbXqFA==
+	bh=/QjT7PtVWPkoRPUHyfCfzMI+lVd5Zx3OIJsUBq2pBDI=;
+	b=Nn4K6WeuDlELvisXql4OpZVGGp9NE+QVqa0IrHuTGC1z8zSVUKEdkdPhaGbpvWlNdeVR/G
+	6/vl9gvs7mPL2cN3yuq9N80FNtHwRrmhUEU3Mh3zmgSBa9aqXW4TAzNpxA8fFdKDUe8Hqw
+	5IuhoR3wxTFmxQm/FN3w+m2pDBuqG4rL2XMD/CUbEZP0wSRbRUAmKKBjN5VtaXdjnSJDY1
+	xpD6vqF0aClV4p9c7uCQMRNlAIXMnazbjWhPC/HbDOqaC5oe4AvMnVi85va6tsqqiAvnvX
+	r0htcX7Ndd6NN1baiQDu2MuXVQIRG4kIvoAop+MxVT3wXbtrbXP1skg5hHOW9A==
 From: Marek Vasut <marex@denx.de>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@denx.de>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
 	Boris Brezillon <boris.brezillon@collabora.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	David Airlie <airlied@gmail.com>,
@@ -51,7 +53,6 @@ Cc: Marek Vasut <marex@denx.de>,
 	Maxime Ripard <mripard@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Sebastian Reichel <sre@kernel.org>,
 	Shawn Guo <shawnguo@kernel.org>,
@@ -61,9 +62,9 @@ Cc: Marek Vasut <marex@denx.de>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev
-Subject: [PATCH v2 4/9] drm/panthor: Implement optional reset
-Date: Fri, 21 Mar 2025 21:05:54 +0100
-Message-ID: <20250321200625.132494-5-marex@denx.de>
+Subject: [PATCH v2 3/9] dt-bindings: gpu: mali-valhall-csf: Document optional reset
+Date: Fri, 21 Mar 2025 21:05:53 +0100
+Message-ID: <20250321200625.132494-4-marex@denx.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250321200625.132494-1-marex@denx.de>
 References: <20250321200625.132494-1-marex@denx.de>
@@ -71,8 +72,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_130713_731193_813ACD60 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250321_130711_851296_3E78E393 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,8 +90,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 The instance of the GPU populated in Freescale i.MX95 does require
 release from reset by writing into a single GPUMIX block controller
-GPURESET register bit 0. Implement support for one optional reset.
+GPURESET register bit 0. Document support for one optional reset.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Marek Vasut <marex@denx.de>
 ---
 Cc: Boris Brezillon <boris.brezillon@collabora.com>
@@ -115,88 +118,26 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
-V2: Drop the select RESET_SIMPLE from Kconfig
+V2: - Add RB from Frank
+    - Add AB from Rob
 ---
- drivers/gpu/drm/panthor/panthor_device.c | 23 +++++++++++++++++++++++
- drivers/gpu/drm/panthor/panthor_device.h |  3 +++
- 2 files changed, 26 insertions(+)
+ .../devicetree/bindings/gpu/arm,mali-valhall-csf.yaml          | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/gpu/drm/panthor/panthor_device.c b/drivers/gpu/drm/panthor/panthor_device.c
-index a9da1d1eeb707..51ee9cae94504 100644
---- a/drivers/gpu/drm/panthor/panthor_device.c
-+++ b/drivers/gpu/drm/panthor/panthor_device.c
-@@ -64,6 +64,17 @@ static int panthor_clk_init(struct panthor_device *ptdev)
- 	return 0;
- }
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+index a5b4e00217587..0efa06822a543 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+@@ -61,6 +61,9 @@ properties:
+     minItems: 1
+     maxItems: 5
  
-+static int panthor_reset_init(struct panthor_device *ptdev)
-+{
-+	ptdev->resets = devm_reset_control_get_optional_exclusive_deasserted(ptdev->base.dev, NULL);
-+	if (IS_ERR(ptdev->resets))
-+		return dev_err_probe(ptdev->base.dev,
-+				     PTR_ERR(ptdev->resets),
-+				     "get reset failed");
++  resets:
++    maxItems: 1
 +
-+	return 0;
-+}
-+
- void panthor_device_unplug(struct panthor_device *ptdev)
- {
- 	/* This function can be called from two different path: the reset work
-@@ -217,6 +228,10 @@ int panthor_device_init(struct panthor_device *ptdev)
- 	if (ret)
- 		return ret;
+   sram-supply: true
  
-+	ret = panthor_reset_init(ptdev);
-+	if (ret)
-+		return ret;
-+
- 	ret = panthor_devfreq_init(ptdev);
- 	if (ret)
- 		return ret;
-@@ -470,6 +485,10 @@ int panthor_device_resume(struct device *dev)
- 	if (ret)
- 		goto err_disable_stacks_clk;
- 
-+	ret = reset_control_deassert(ptdev->resets);
-+	if (ret)
-+		goto err_disable_coregroup_clk;
-+
- 	panthor_devfreq_resume(ptdev);
- 
- 	if (panthor_device_is_initialized(ptdev) &&
-@@ -512,6 +531,9 @@ int panthor_device_resume(struct device *dev)
- 
- err_suspend_devfreq:
- 	panthor_devfreq_suspend(ptdev);
-+	reset_control_assert(ptdev->resets);
-+
-+err_disable_coregroup_clk:
- 	clk_disable_unprepare(ptdev->clks.coregroup);
- 
- err_disable_stacks_clk:
-@@ -563,6 +585,7 @@ int panthor_device_suspend(struct device *dev)
- 
- 	panthor_devfreq_suspend(ptdev);
- 
-+	reset_control_assert(ptdev->resets);
- 	clk_disable_unprepare(ptdev->clks.coregroup);
- 	clk_disable_unprepare(ptdev->clks.stacks);
- 	clk_disable_unprepare(ptdev->clks.core);
-diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/panthor/panthor_device.h
-index da6574021664b..fea3a05778e2e 100644
---- a/drivers/gpu/drm/panthor/panthor_device.h
-+++ b/drivers/gpu/drm/panthor/panthor_device.h
-@@ -111,6 +111,9 @@ struct panthor_device {
- 		struct clk *coregroup;
- 	} clks;
- 
-+	/** @resets: GPU reset. */
-+	struct reset_control *resets;
-+
- 	/** @coherent: True if the CPU/GPU are memory coherent. */
- 	bool coherent;
- 
+   "#cooling-cells":
 -- 
 2.47.2
 
