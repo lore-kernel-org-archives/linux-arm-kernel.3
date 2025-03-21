@@ -4,102 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FA1C36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 18:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FBCC36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 18:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRqBZ0OkMQP4BzSiooVfIumzyiQnM11f1AZ/zH2IWSk=; b=ONf2PS1GpXMyoFXVkvbUJtas0x
-	xlVHS9j33ts2eC+V7Nv6UxAPOOAoa7wPVxHjOHX9dWBh/6QLg0EJAQsB28WU8JGUaDdoO7rNemNHd
-	WVN6O5plQ8hwvNhONCltRIxK0nfHiEtZ9BOhyxoTAGl/F5cGPNystHqFaGwCBrzJ+8CnbY4pabTb2
-	wuFnKApTgMzIt55S7lkfRuDobJSIPY5Hg82TG4foPwbC2p8BUFiBAITp8tg4HMuyUIQXb8RW5FCJP
-	6mnqO8sAOb7BjuWtGnCTkM+qGgb9u4FQOrB/3W1Wx+IjY+IjYf9ixEL4KMWObObOMSwYZKwoMIxeD
-	TiXfGbRw==;
+	bh=VT3j5ia3YM4BM/xg+Fw4hf8d8cAPlpEijn+7bl03zsE=; b=hSA4pHmbmLW1p8jcm1dwMD+/83
+	npQPlNl2/vFEBguifYtaDXvh7UurJ6zTjqgVKcG+e+b5bkFU1L6fdzcOGh+cQRA6nauUI+viVPxP5
+	jJS7eX/O6r29e82DYw7tVKb9FlpSYrvFkq7WfjtI3pPNOiP4JWj39Guez5FXJiJhh0DPqecDLRYT+
+	mWQafoU4Wg6HmywByYonko5cnLdvn7UT9IX8wx3Ku1KSQlad7bigQZafIYGEzk5jGiursuLXvfr+E
+	aFJG+uYUL80DiU0bVxYNqmJPuzZPIiMaYsIW/eBtMjDkPyMgL8OVepBKEMI5jpFyVHQ9jtgSz9/bu
+	twZ5NEig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvgyU-0000000FpIv-2f9Z;
-	Fri, 21 Mar 2025 18:20:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tvh1k-0000000Fpw9-250G;
+	Fri, 21 Mar 2025 18:23:28 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvgwo-0000000Fp5O-2CVM
+	id 1tvh02-0000000FpYN-3UDZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 18:18:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1742581101;
+	Fri, 21 Mar 2025 18:21:44 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8B82C4439E;
+	Fri, 21 Mar 2025 18:21:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742581298;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iRqBZ0OkMQP4BzSiooVfIumzyiQnM11f1AZ/zH2IWSk=;
-	b=INmnnSJTDyHhNTY2PZJsfZwb5+lOhftv86YFzxkHC5ojg87qG9utHHRGAVD0Dk5AIdVjnn
-	3OArhZBcapihg+Cb6QcGF4anYQsY22/z8/ln7lqVJjcUp043Y++/7J6Gzo6pv/aXFcCKs5
-	e7gNMKm+LTJvHlwJ4j8eXEUHZAIqFB4=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-275-UKa2Di6_Oo-Y_Q6d5D-M9w-1; Fri, 21 Mar 2025 14:18:18 -0400
-X-MC-Unique: UKa2Di6_Oo-Y_Q6d5D-M9w-1
-X-Mimecast-MFC-AGG-ID: UKa2Di6_Oo-Y_Q6d5D-M9w_1742581097
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43cf5196c25so11046505e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 11:18:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742581097; x=1743185897;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iRqBZ0OkMQP4BzSiooVfIumzyiQnM11f1AZ/zH2IWSk=;
-        b=d73lGxnRHuLA6SBTIzJ9FNnl2cu38j4oYxpUwiZQo+X2NJFma41SMwD7QdAc5kPKtn
-         SEW1jdxTUYTFD2acqZgB7VX/+h3nOYn83qS9Jle+HSPTC+ENp4ZrZDgxFRBc1xcOVvN1
-         XwV0saJN4lLWyhrC2+jsFknid3CV8DR6pcLJf9yNMRyBMH/Cb9NFacG5GIvI5J6BCqkk
-         aiNEJ4rzUFS2+5aJbwwqf7cPJgMNJgx2LVMPd6+bUCmnmaa7GjAT6qeB4dWrHgFjEgV2
-         HAFyYPodP9mo0TV+Rr5Fd7V5g0bKkdAqX72vbJF/APS7f7lXd6KHn71gFyeJeHpHlU1c
-         vTsg==
-X-Forwarded-Encrypted: i=1; AJvYcCXdnl903jMgXxqxxMDgVgV0mOwUxcK0k7kqBpFCTMt3mIg3WlSG0aZX7jUnHcGfVLz+aIh+TdDCD46/Zz6Kdf6q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQeYAZ4Y0k6S/SNXaFs99L6j92iIOj3bkeW/Dh6vkdIbyCnKD1
-	3zMu4irh7hJFQQKqlSflsZYKmwM2X79Pits5ND6AiZB5sxP/9WGu32dEwHRQJIxXF3GqcWLxfM8
-	61twLyvJtcXEdiwxGuzkueYj/ivAyXWLFZUe6FUBEt0rIw1ANP72WmVHPIuLFgb0h2F0wFUk+A6
-	MnTxY4
-X-Gm-Gg: ASbGnctSonWN+rWhe8Gj954GyF2p6DKHO4Vq52/TlBJoiPDC1B9WRz3zVyyea28hfS+
-	Kz12+YdM+ixYr/7xhsH2peLsXpCBmH5h/2X3s7Bra3nPlkMI+NwfQ09R8DBVEtWA+Xm7BBXVd4e
-	4DndyObNYVVIQj873Y9wD6WnpJa0Dyey4nj1gnv19E/0DwpqjBB8dqPetDMxCb4N/nozugQifBf
-	d2FLtdnSanIhWX43Hl5uupj9uI4W2l1SvUiP3wAbvIsUXRd8K7nX2fW/FG0z03zexTR41cIw8nF
-	pOl+lp0Tkfcl4AXAjmBe/8Mib3I9dfDYVixz15IvFypqPw==
-X-Received: by 2002:a05:600c:5488:b0:43d:db5:7af8 with SMTP id 5b1f17b1804b1-43d50a31981mr32999235e9.21.1742581096866;
-        Fri, 21 Mar 2025 11:18:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH4hjspn7nFbirV1vOF+PWolmKka8uULS32ZeHXEmfN9pXrlTOZAy5VVuhKwl33XEm7itFSrQ==
-X-Received: by 2002:a05:600c:5488:b0:43d:db5:7af8 with SMTP id 5b1f17b1804b1-43d50a31981mr32999005e9.21.1742581096493;
-        Fri, 21 Mar 2025 11:18:16 -0700 (PDT)
-Received: from [192.168.88.253] (146-241-77-210.dyn.eolo.it. [146.241.77.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f3328bsm84371215e9.1.2025.03.21.11.18.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Mar 2025 11:18:16 -0700 (PDT)
-Message-ID: <2d39033d-0303-48d0-98d3-49d63fba5563@redhat.com>
-Date: Fri, 21 Mar 2025 19:18:15 +0100
+	bh=VT3j5ia3YM4BM/xg+Fw4hf8d8cAPlpEijn+7bl03zsE=;
+	b=M2+aLmXCuAkAtEzK22T1y229k0Hx/fEcdMCuVydJ1io66hFVPtiOn7GBAwEYaUnyhjxC94
+	ICATURZtPDmh1DBptvQBie4GII1Pm7bGnMArOcVEhyHMLfO4ZtUjzrVAzlXBmLaMCSQJ2o
+	v0QxoN+dfKbAxbDnacFwsJVtWQlxGKo8R8MnuogRDC52wuk3izUBlzY9ufJLExiD6tlnKM
+	k7rbUwm2fL8rKxFOLoxjROHPAz5M5QHE7vXqivbMecIsaf6TpBAaFZ10mpgP3P7z/SWpQB
+	MHkfpgxw9FAok9ZSgsZYepow4fZBN6nB79LgrwrwqCk9UkR+nfFWiaV9ElT8qw==
+Date: Fri, 21 Mar 2025 19:21:32 +0100
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: "Maxime Ripard" <mripard@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa"
+ <asrivats@redhat.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
+ Baryshkov" <lumag@kernel.org>, "Fabio Estevam" <festevam@gmail.com>,
+ =?UTF-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
+ <jagan@amarulasolutions.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Paul Kocialkowski" <paulk@sys-base.io>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Robert Foss"
+ <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Stefan Agner"
+ <stefan@agner.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>
+Subject: Re: [PATCH v8 2/5] drm/bridge: add support for refcounting
+Message-ID: <20250321192132.211893ec@booty>
+In-Reply-To: <400466cd3c229ea6c6cb25e2a58cee27@kernel.org>
+References: <20250320-drm-bridge-refcount-v8-2-b3ddaa9f1368@bootlin.com>
+	<400466cd3c229ea6c6cb25e2a58cee27@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
-To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-References: <20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org>
- <b647d3c2-171e-43ea-9329-ea37093f5dec@lunn.ch> <Z9WV4mNwG04JRbZg@lore-desk>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <Z9WV4mNwG04JRbZg@lore-desk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ChpHDwXW5OBV5nobZle10hp39wXY5tBTDnRRkpSiYCc_1742581097
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedukedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvtddtudemsgdtjeemieegieelmegtieguieemgegtudelmeeffeekvgemjegvjegvmegttdejudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemsgdtjeemieegieelmegtieguieemgegtudelmeeffeekvgemjegvjegvmegttdejuddphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrghdprhgtphhtthhopehimhigsehlihhsthhsr
+ dhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopegrshhrihhvrghtshesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_111822_631686_67FA6301 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250321_112143_177449_B82F4C08 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,43 +94,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/15/25 3:59 PM, Lorenzo Bianconi wrote:
->>> Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
->>> routine.
->>
->> A more interesting question is, why do you see an invalid port? Is the
->> hardware broken? Something not correctly configured? Are you just
->> papering over the crack?
->>
->>> -static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
->>> +static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
->>> +					struct airoha_foe_entry *hwe,
->>>  					struct net_device *dev, int type,
->>>  					struct airoha_flow_data *data,
->>>  					int l4proto)
->>> @@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
->>>  	if (dev) {
->>>  		struct airoha_gdm_port *port = netdev_priv(dev);
->>
->> If port is invalid, is dev also invalid? And if dev is invalid, could
->> dereferencing it to get priv cause an opps?
+Hello Maxime,
+
+On Fri, 21 Mar 2025 09:54:55 +0000
+"Maxime Ripard" <mripard@kernel.org> wrote:
+
+> On Thu, 20 Mar 2025 16:42:11 +0100, Luca Ceresoli wrote:
+> > DRM bridges are currently considered as a fixed element of a DRM card, and
+> > thus their lifetime is assumed to extend for as long as the card
+> > exists. New use cases, such as hot-pluggable hardware with video bridges,
+> > require DRM bridges to be added to and removed from a DRM card without
+> > tearing the card down. This is possible for connectors already (used by DP
+> > 
+> > [ ... ]  
 > 
-> I do not think this is a hw problem. Running bidirectional high load traffic,
-> I got the sporadic crash reported above. In particular, netfilter runs
-> airoha_ppe_flow_offload_replace() providing the egress net_device pointer used
-> in airoha_ppe_foe_entry_prepare(). Debugging with gdb, I discovered the system
-> crashes dereferencing port pointer in airoha_ppe_foe_entry_prepare() (even if
-> dev pointer is not NULL). Adding this sanity check makes the system stable.
-> Please note a similar check is available even in mtk driver [0].
+> Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-I agree with Andrew, you need a better understanding of the root cause.
-This really looks like papering over some deeper issue.
+Thanks a lot for reviewing!
 
-AFAICS 'dev' is fetched from the airoha driver itself a few lines
-before. Possibly you should double check that code.
+I noticed you haven't replied on patch 3. Being a change you had
+suggested, I was wondering whether haven't noticed that. If you are OK
+with that patch, the entire series would have a R-by, which would be
+great to unlock all the work depending on this series.
 
-Thanks,
+Luca
 
-Paolo
-
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
