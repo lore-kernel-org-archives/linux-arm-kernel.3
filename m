@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B845C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C7DC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 07:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjCNidD1nDVnXFrMlTY1ibBRmDZZuKdhhSQi5Z6zBTI=; b=CxkfZaLlbsl3c5l1PpTjQVy+jm
-	GP3euEsxx5KM+t+5h94YlSgTENXNsISSIsEuKPR5SKottax4OMS2uE/iGIfGSZWs8DC++MM0DX0UR
-	QR/8mKJhmApiS71GVNWUrny1CdHRiRGclMGuEN8oer8lp7SicIxA+RsQbt8XNb/aRcmKHOfSyqX0m
-	/nhO8ZfneQjlmbl4mtXpuE8tXyOPYBt5uciKNT+kV8AEdfuih37CTO6m8A5OfcvhXKD7lYiHBGA8n
-	0dZHBz3NErEija185b9z33rBwOFJLvxb/WaJSI2KSR64QT4iv8A0Cio5iwMecMTZfmSnSw5FD0QQZ
-	CqaBZm1Q==;
+	bh=6yYy4AbJx68HMcvUd81BZlBUUo2lt5qzF5zCFnIAXP0=; b=1ZlovBKI64cAsiloD0RLEFkuAE
+	FDgwqQG/e5Kx24THUxCGoP7CGwD6z21w797+zIoivgcOFyHR7ARSO/pRhlvzgrtIvFWjL/BhUz/Q6
+	GD9XISNpl7vxqNRyX35jiFiYFb+15P2XLQ+Z15DUkGLgzXE4CbA/eGxV8d3ivKyDvFghEYEEgmr0a
+	aMtzfBCqwmeVG9u172RJyjeOLdYP8q9LBvyYVmzm5m1C1/mQ3/cSIY1SD17oWsxZ2bEmQh3S98ln7
+	JsB2qAqmUczNQmN3zrhm6xE2j8m+xSABi7PJNbQZUBJ3+RwJ5IiQW95FG1MxTH/vV4mgFe7YenOih
+	olZJ0zbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvX2k-0000000E8jb-2d5D;
-	Fri, 21 Mar 2025 07:43:50 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tvX4P-0000000E93s-1JTm;
+	Fri, 21 Mar 2025 07:45:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvWoF-0000000E66v-0RRt
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tvWoG-0000000E67K-3Qfk
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 21 Mar 2025 07:28:52 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2235189adaeso31198035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 00:28:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=6yYy4AbJx68HMcvUd81BZlBUUo2lt5qzF5zCFnIAXP0=; b=Xi54NJ2P/JrzTkQqS7uCzprQ2y
+	sjz5QwNJXY1ibmAbs/pO08nK/dMA4cHbV8DpjRIYG4x3v3avqNpNu4G5k7g0R+z1DJ6AswHYHMLzz
+	IngBP9VyE+lHO2P4c97BFwG5FY7NQ+A/AgrZXkJ9oj4b16dkvxaSaTZQxosfO0UQxvKAsSQn2Cjc8
+	lTgXTHJbCJPKW/gz+vwX1BKtNl1ICwoX7MQ2IiA+Jh+7vGenCRyeP9LdzvoHUnZ9ZsqcbH+n3DuSL
+	SjNF17Qy8q4dLqfcoHz2Ab6blwkLlAyA9chsHUfM8qnw45cAy7zVrOFYavRTf0IcgWBoO9RwkJ40/
+	OPYn51aw==;
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvWoD-00000004Jsj-3xx4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 07:28:51 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-22548a28d0cso4110325ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Mar 2025 00:28:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742542129; x=1743146929; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1742542127; x=1743146927; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rjCNidD1nDVnXFrMlTY1ibBRmDZZuKdhhSQi5Z6zBTI=;
-        b=ja2R0xIBIiSg21hshhq/d9C1lCJ+X2fto5A/yiRizsoGxNt5Pak/5Kx2zDsldIhdyn
-         G/iMT5PQfcS2GWSNJ5wdlWw48GRRFCdTtutQ3wAGwhIYnsRHNdbrC4QLz6f1DgtGX5z0
-         w3bns4zv5ngOPsJfTUtx2rze3MNgdXgvSxtBd7L0YWmWvqXO5ELUUsuZ63Ru6sYuVZLh
-         Rbs+onxGn+zk9GiuKbPlLhVF9zw8K13J72YsUNgDBYH356idu9GzGalQxwbaVqysTyVY
-         uGGaqpaS40njs0DXzaVws2K/cB7OoCTHptxKKzclxpQ3fgEmEczoyo3HoM6DfjNx0Bnt
-         m0QQ==
+        bh=6yYy4AbJx68HMcvUd81BZlBUUo2lt5qzF5zCFnIAXP0=;
+        b=LMBC9oRTK+/gPzCP0iCZ7+jfRgB4KHvCGiAEVuFqStFTSc+C1ibVLp3ffFAOTCSm1f
+         jiBX9uyGpCUQZZiyA2swhgSU5kwD9qwybv4NbU7/3YiIfh4c20snyXUhBhohzbBDiATz
+         A622wrIx50rXMnhcl6XFsn0o1fP/dmrwPwTQ9AZ9uB8vh+cGls6bdiUgHr+3Fj03D3Z/
+         q9rPIVRmD6kyVDoCTdYYbfBWRtaBASTtp53H4/bFUjWKiPJkoPA1ag6MiLWb2QBDQqDy
+         HUKrT9N+MYQf4RoOgTWAJmljVw74CBFt+n574SbmhmhhzOx2edkL+FumeL5GyzuxbeVj
+         mzKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742542129; x=1743146929;
+        d=1e100.net; s=20230601; t=1742542127; x=1743146927;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rjCNidD1nDVnXFrMlTY1ibBRmDZZuKdhhSQi5Z6zBTI=;
-        b=cqJYaE7WFXoCWYDNQlmTvCduJ+mqYpxtOQDcdG2KAc8W2zmfoj4f8aYJaIk5TXCxyI
-         LhF/cmmhEXr+9jT9d+9DY32SrpfidfxmxBIt2w8n7T/JsSnT3ehhmrvMmd2Ju/7AIpLC
-         aAH19kaVvAYmJBE1djp11ad0cxElc0Xoh+wDrZi2Dyf5/+DsGVf0O7uznct4tYTQcJJs
-         X5A/cu/kahDxFH5NbANmb5+Hmmwn2hxB/XGaAHpKQFLJFLTfagYuaR05uWLZrKnyMApv
-         ABPOYr1LWZX9mLUeyNQ/x+L31cGdduBk72e3ldtMiOA8M4+xla/NnYR0lJNNy8RqTkB2
-         SZIA==
-X-Forwarded-Encrypted: i=1; AJvYcCV1TC1KZXugpvy4MIXE3zaXW2UnAzn9ygiXp7NMJBOTWAbMeqOALs0q/NZCN3yQUc5vWMK2bfbKMUopeuMulT2j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9ti97/GbTdViEv+rAXb81ZViIeEcfFwpIuGV5Gfo+Dlj9XpcW
-	cF60BX50TIrbNW8LsiikrXNBn2d0FsGGdaaMykTEpfLocTIRtJYmygdXng==
-X-Gm-Gg: ASbGncs76sXwOXr3qdUtbgWcM16KgRQ8xM/Jczcdsgkr48Z76s72uwCjn2iFTCcaZjm
-	OMILoXIFF8nE/WJ7wF+IllI1EpiL/jIo4cT9gseTgys5AlhBALkCBb0n2AIi/C7XAmw2Y3NYifJ
-	qYgHv/B/r7Kwxynk+I1RkZcm22ZlTx/n9ihsPdSZEPDkNbN4Ang5rPW5qQ+DIBkyzHC+dE/ccP7
-	P/XLs4B541E02Q9XcArq4Us16BXT7IF9zLOU7V3lW/Auldm9xXePg516bxOwYYreCvF0m0o60uG
-	yorW9lHlN5sswPK+ooJtRWgOQ8kY7+NJS6YHgjgjB17jH1epQjRfERDJgz5BtHBBXdqo0TPMMG7
-	yvcrzZ0esNV+YCRxDCsCFGw==
-X-Google-Smtp-Source: AGHT+IEdlfdB78rjOGHfq1n06+OQDqD/5ZuI1NfpzlDEeEQ5t3Eg0NaxY/M0zpNx0tr+GcFTGiQYdQ==
-X-Received: by 2002:a17:903:1c6:b0:221:8568:c00f with SMTP id d9443c01a7336-2265e24eddcmr97780925ad.0.1742542129526;
-        Fri, 21 Mar 2025 00:28:49 -0700 (PDT)
+        bh=6yYy4AbJx68HMcvUd81BZlBUUo2lt5qzF5zCFnIAXP0=;
+        b=GABq7EsLUkL3wpg+E/ZX/QJO3WcA7mU0whMwrD3sHw5WmDmi7hCWGK4p+WS54Xd1eL
+         M9LMkImXhfMoUDh1qQXCJtzqj6vPO36l33xDJ8enPCf0iVNz0bFtKY5DcTl6dq3HgCQO
+         U+myGLj9SeuqJm8etDaUmwmsdj+VPjoKIEuR8W2xdWeOleRUzvu+1lrJKYKnkvzu80AG
+         D6tgO/gAC2mlJyfQ//FMFd9JnoT5h16BuyKuQ2+fCV1hrjLNqftNuB0NukSK3tl1SYpK
+         cMnw0CVxIZqjvu6bF/TRbRDgSG2PPTCd+IqIeyDg8363rd+wILpIYiCFcuIxNYEijRdE
+         6Oow==
+X-Forwarded-Encrypted: i=1; AJvYcCWaE/Uz2vOHqMZsHs/kJOHDc2Umbgmkag6xQl3CEfRoEk/qkasZvuaY9uW76d0rUp3iqrYTS+4vwbWVbeSb3j2W@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywxo/rVjoieFFLxLcAQazOmv2Tn9b/H63XcBHB5eMzgQgPQ5XFt
+	XtE2xyBALitWrf2aoY7d5SFrIEYRHQcNX+EYvLA/YxBnCtiRlEEslYjHRg==
+X-Gm-Gg: ASbGnctJVi2G/gqct2BASPu84V3XKy930AuuZj/W/+zPl9zPUvCUo5UksP14Sa2ivRV
+	Ly2BNOgiTnbCF4s7xu/i6tokm7rz1wfMa1NGZg3Y5GsPscDyseP3NVZhA6HyYnft2wtNRtClDFv
+	GMKDsrqlty0KgtUqDDpttkhOY8Z5bvBxKX+OQmhbyaQ9fAi8zV5//1Sa78UdS/ZOrSgGWJf92yq
+	Dv08mrXdjia8iGZOsSsNzT0l2Y5+q+UsweSXxfB3lv6jKA3VVxQSamG743mnaUP3QN9sa4q2v1u
+	0FM8oBmpsZzQOlmL3mSUTif8xRLtJ99ngCoYFtofvHRt4oRWIsJucHJanxRCK69NTa6a63FJgOo
+	F9E+SP/aP7QLO2BZaBxC9/Q==
+X-Google-Smtp-Source: AGHT+IFz7z9DTULNmP+oLx3nWMYzi7RsllXSFyhzZAy2FVTHB5ZXzxdUyhyyOFfzLur+HYKAMXEW7w==
+X-Received: by 2002:a17:902:d2d1:b0:224:24d5:f20a with SMTP id d9443c01a7336-22780e231a1mr42741185ad.48.1742542127003;
+        Fri, 21 Mar 2025 00:28:47 -0700 (PDT)
 Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f396fasm9862265ad.27.2025.03.21.00.28.47
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f396fasm9862265ad.27.2025.03.21.00.28.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 00:28:49 -0700 (PDT)
+        Fri, 21 Mar 2025 00:28:46 -0700 (PDT)
 From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Fri, 21 Mar 2025 15:26:10 +0800
-Subject: [PATCH v6 09/10] ARM: dts: aspeed: catalina: Update CBC FRU EEPROM
- I2C bus and address
+Date: Fri, 21 Mar 2025 15:26:09 +0800
+Subject: [PATCH v6 08/10] ARM: dts: aspeed: catalina: Enable multi-master
+ on additional I2C buses
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250321-potin-catalina-dts-update-20250102-v6-9-4bd85efeb9b4@gmail.com>
+Message-Id: <20250321-potin-catalina-dts-update-20250102-v6-8-4bd85efeb9b4@gmail.com>
 References: <20250321-potin-catalina-dts-update-20250102-v6-0-4bd85efeb9b4@gmail.com>
 In-Reply-To: <20250321-potin-catalina-dts-update-20250102-v6-0-4bd85efeb9b4@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,16 +103,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
  Potin Lai <potin.lai.pt@gmail.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742542103; l=1195;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1742542103; l=1008;
  i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=cwszt1VFQnP0f7obJVwFKJMah6f154vn4FcRq3Og9tY=;
- b=PJ4/r/ExlbEASIzj9UpkcDwcf+n+oj5TVo2Q1L3mJAQismWdHDQBLOQI4WoHNFtfXbLtQp6uP
- xhND1kGpY+ECVHJ8UZIChY5h1TLViPhywg/CVC83hJq95l2mDtw16Dp
+ bh=p/QorKJCn9XrFKbtYC8NvQNC1AWXOIPQaV8PshPU3mA=;
+ b=hV+DOjonfukNtIa7vGCSR+jzs82NRq4/way8tjyiwrTKrV6clGwwNua5InfHy7waqGTVFHXvK
+ faEslXcUhw7DyXaYrSgm5Z7hz5gKtrp0n1tFujFjX9XQSfpXo2jPHzU
 X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
  pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_002851_149091_7F05BB75 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20250321_072850_132162_66552A7C 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +127,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Revise the I2C bus and address for the Cable Backplane Cartridge (CBC)
-FRU EEPROM in the Catalina device tree.
+Update the device tree to enable `multi-master` mode on I2C buses shared
+between the host BMC and the NV module with HMC. This ensures proper bus
+arbitration and coordination in multi-master environments, preventing
+communication conflicts and improving reliability.
 
 Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index 2dbb65db9250..a6a2dd725266 100644
+index 6702be32918e..2dbb65db9250 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -822,6 +822,12 @@ eeprom@50 {
- 		compatible = "atmel,24c64";
- 		reg = <0x50>;
- 	};
-+
-+	// Secondary CBC FRU EEPROM
-+	eeprom@54 {
-+		compatible = "atmel,24c02";
-+		reg = <0x54>;
-+	};
- };
+@@ -815,6 +815,7 @@ ssif-bmc@10 {
+ 
+ &i2c12 {
+ 	status = "okay";
++	multi-master;
+ 
+ 	// Module 1 FRU EEPROM
+ 	eeprom@50 {
+@@ -825,6 +826,7 @@ eeprom@50 {
  
  &i2c13 {
-@@ -834,18 +840,12 @@ eeprom@50 {
- 		reg = <0x50>;
- 	};
+ 	status = "okay";
++	multi-master;
  
--	// Left CBC FRU EEPROM
-+	// Primary CBC FRU EEPROM
- 	eeprom@54 {
- 		compatible = "atmel,24c02";
- 		reg = <0x54>;
- 	};
- 
--	// Right CBC FRU EEPROM
--	eeprom@55 {
--		compatible = "atmel,24c02";
--		reg = <0x55>;
--	};
--
- 	// HMC FRU EEPROM
- 	eeprom@57 {
- 		compatible = "atmel,24c02";
+ 	// Module 0 FRU EEPROM
+ 	eeprom@50 {
 
 -- 
 2.31.1
