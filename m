@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3B7C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFB4C35FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 08:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9OaCxVvb7AGSHid8PW/pNN4SupUMJrvc+PxPF17E580=; b=dASt2JdoOuQZAy6p4CpfaU1SJY
-	+ejOnR3Mj8EYyOmZXXMx6df4FvleN3g0fW9+dRqJ4xGKU1Ua2ZCpsi4/gLGNORbV+6oC0b4XDOPXB
-	IhrIGO9V4rO5LydvwKJooHp3JWLRM77jPklmtmjcay6V3VXfobei45s0j/wHayDG8r7PEXMWqxJib
-	63c4QGMkAU1YaIDj9KicAlfQBN4ohvns23mjPkV7Y9V009P1sXc/Pkx8e2wSngPpX+BCjUU6Uu4lh
-	qCdzqbYVqQJmUrMb8XAtD+YlYt8hHEq8+kiuQP+BEr7RVBsQjEXWLtNRBJZC8MgwekWmbLwxczUWg
-	TX4xC7+g==;
+	bh=Ec2St+Gc0pOyLINTmGyLHhq9ofy1idnsHJy6GNwshTA=; b=AYUNFMVwCkhDjux+UY2WoP6+Lu
+	3UPWQ51IDXJEvKFloJusTGx3/aULv0H7iysmVp31XvfynpqOjp0rZ/XtU+o2d0AWsFXgNlrQEOxJs
+	qyl/D6JwXrrv9pkfNo4MT6fSpwvQRF07isszuKUqJeuaaSLGX7q9ftwnJMt5OK22ahfN5Cd9xsr4x
+	A7Zi7bKjsxIdy6pELlEMjtEbjI2gce5lVxtOImKVRxkai5pm6jFJ5fawJNcSBatPSkbpJSJ922kVs
+	MP7BjHmo3Sl/A4/CHEjTnr/06WXR9x0Ji/OpbL5R+Z93R7Ko+CAcx/ye85EloX14dQk69LsL9iTOw
+	g6bDG0Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXRV-0000000ECjY-13CR;
-	Fri, 21 Mar 2025 08:09:25 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tvXTA-0000000ED8C-0ksK;
+	Fri, 21 Mar 2025 08:11:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvX3R-0000000E8y9-1QOC
+	id 1tvXIA-0000000EB3R-0RBi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 07:44:34 +0000
+	Fri, 21 Mar 2025 07:59:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 220DDA496A1;
-	Fri, 21 Mar 2025 07:39:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9DE8C4CEE3;
-	Fri, 21 Mar 2025 07:44:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EA23D43501;
+	Fri, 21 Mar 2025 07:59:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFC3AC4CEE3;
+	Fri, 21 Mar 2025 07:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742543072;
-	bh=/YmjxGbakqtnak0HA4K/vKGsWFbKueiINUncr9XTSzw=;
+	s=k20201202; t=1742543985;
+	bh=pOn9x6VL60RWSKq8tUSuctOL+F1TrQS8bDL/t0ctgOU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uxtOttO2F7v89LlJgh70CQiu5tLI6RaIemI9Z0u8HLRIqerUioGSSYZrDpkcA3sPv
-	 /3KXrgvNsfcYBjgOdatbfruVTVSwl1+thHkX/4svLdGjdAGPxr1R56cev/osRg9N+E
-	 XQOySpa5W7nDLmt3gtA6T85KBMttBU4UT2JX4NAwoUC2ZjQH/NEstb50hKeD5MTUe+
-	 o2/4Y4f8v+vaGHApik+dNWVxLFpmvynZOa2PbQRTfGBGihAx3Hj69aLPViPfRYMQh+
-	 ZzfXaT758lgC2uoV+MGwjGcfQoysEVl+q9Cn33/sVgS8DSNBPQrpI+MCfoi87U9CqV
-	 busQicYEiHfTA==
-Message-ID: <5127f2e7-cb38-4103-8799-551fdedd8152@kernel.org>
-Date: Fri, 21 Mar 2025 08:44:21 +0100
+	b=HzetHDiP1v5WvZgW7SchOuLQEzW6PYuDsemfUwsjvpojaS0Cou9ctohlNmJhR/+eM
+	 vnqIBEHLmv4HivDJ0JQ+cAGzlAYXOdMiFtbrNDuR1mdLRkEHmbOyhQu9gHQcK2invq
+	 jNO6bWbiXpjPfAvICaWaJ0YKh8DyqHgijw0EfME6fRLAD4peQItcdbxrUGbZMaPsYE
+	 LCZttXhS80gXD0d5ru1Wn+gER79PZWmZiyzxyi67NcpKKhV/crmOlUCx8gcPSFa/cL
+	 p8Ot8loK6oZqEFM2HjOFEOoYYkBDzPpYNVog33tdvxKYTrACFpwKeCJ6uXBIG4Fh5y
+	 svQXTR8tRAoHQ==
+Message-ID: <b99eee70-5231-43fe-bff8-db92d78153e7@kernel.org>
+Date: Fri, 21 Mar 2025 08:59:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] ARM: dts: aspeed: Add device tree for Nvidia's
- GB200NVL BMC
-To: Willie Thai <wthai@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, openbmc@lists.ozlabs.org
-Cc: leohu@nvidia.com, tingkaic@nvidia.com, dkodihalli@nvidia.com,
- Mars Yang <maryang@nvidia.com>, Andrew Lunn <andrew@lunn.ch>,
- Paul Menzel <pmenzel@molgen.mpg.de>
-References: <20250320164633.101331-1-wthai@nvidia.com>
- <20250320164633.101331-2-wthai@nvidia.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: hwmon: Add Microchip emc2305 support
+To: "Florin Leotescu (OSS)" <florin.leotescu@oss.nxp.com>
+Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
+ "linux-hwmon@vger.kernel.org" <linux-hwmon@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Viorel Suman <viorel.suman@nxp.com>, Carlos Song <carlos.song@nxp.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ Florin Leotescu <florin.leotescu@nxp.com>, Frank Li <frank.li@nxp.com>
+References: <20250318085444.3459380-1-florin.leotescu@oss.nxp.com>
+ <20250318085444.3459380-2-florin.leotescu@oss.nxp.com>
+ <20250319-optimistic-positive-peacock-cc26b1@krzk-bin>
+ <DU7PR04MB111631E2E5B074A306033D001FFD92@DU7PR04MB11163.eurprd04.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +109,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250320164633.101331-2-wthai@nvidia.com>
+In-Reply-To: <DU7PR04MB111631E2E5B074A306033D001FFD92@DU7PR04MB11163.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_004433_523750_A16DA176 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250321_005946_196383_7B83B3F8 
+X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,119 +130,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2025 17:46, Willie Thai wrote:
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +		led-0 {
-> +			label = "uid_led";
-> +			gpios = <&sgpiom0 27 GPIO_ACTIVE_LOW>;
-> +		};
-> +		led-1 {
-> +			label = "fault_led";
-> +			gpios = <&sgpiom0 29 GPIO_ACTIVE_LOW>;
-> +		};
-> +		led-2 {
-> +			label = "power_led";
-> +			gpios = <&sgpiom0 31 GPIO_ACTIVE_LOW>;
-> +		};
-> +
+On 19/03/2025 12:54, Florin Leotescu (OSS) wrote:
 
-You still have stray blank lines in few places.
+>> No blank line here. Use existing code as template. If you find such code, share so we can fix it.
+> 
+> Thanks!   I will remove it.
+> 
+> Identified similar blank line on the following dt-binding files:
+> 
+> 1 adi,ad741x.yaml
+> 2 adi,adm1275.yaml
+> 3 adi,ltc2991.yaml
+> 4 maxim,max20730.yaml
+> 5 maxim,max6639.yaml
+> 6 maxim,max6650.yaml
+> 7 nuvoton,nct6775.yaml
+> 8 nuvoton,nct7363.yaml
+> 9 nuvoton,nct7802.yaml
+> 10 ti,adc128d818.yaml
+> 11 ti,ads7828.yaml
+> 12 ti,ina2xx.yaml
+> 13 ti,lm87.yaml
+> 14 ti,tmp513.yaml
+> 15 ti,tps23861.yaml
+> 16 winbond,w83781d.yaml
 
-> +	};
-> +
-> +	buttons {
-> +		button-power {
-> +			label = "power-btn";
-> +			gpio = <&sgpiom0 156 GPIO_ACTIVE_LOW>;
-> +		};
-> +		button-uid {
-> +			label = "uid-btn";
-> +			gpio = <&sgpiom0 154 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +
-> +};
-> +
-
-...
-
-> +/*
-> + * Enable USB port A as device (via the virtual hub) to host
-> + */
-> +&vhub {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	/*
-> +	 * Uncomment below line to enable internal EHCI controller
-> +	 * Current config uses xHCI Port1
-> +	 */
-
-Comment makes no sense.
-
-> +};
-> +
-> +&video {
-> +	status = "okay";
-> +	memory-region = <&video_engine_memory>;
-> +};
-> +
-
-...
-
-> +&gpio0 {
-> +	gpio-line-names =
-> +		/*A0-A7*/ "", "", "", "", "", "", "", "",
-> +		/*B0-B7*/ "", "", "", "", "", "", "", "",
-> +		/*C0-C7*/ "SGPIO_I2C_MUX_SEL-O", "", "", "", "", "", "", "",
-> +		/*D0-D7*/ "", "", "", "UART1_MUX_SEL-O", "", "FPGA_PEX_RST_L-O", "", "",
-> +		/*E0-E7*/ "RTL8221_PHY_RST_L-O", "RTL8211_PHY_INT_L-I",	"", "UART3_MUX_SEL-O",
-> +					"", "", "", "SGPIO_BMC_EN-O",
-> +		/*F0-F7*/ "", "", "", "", "", "", "", "",
-> +		/*G0-G7*/ "", "", "", "", "", "", "", "",
-> +		/*H0-H7*/ "", "", "", "", "", "", "", "",
-> +		/*I0-I7*/ "", "", "", "", "", "QSPI2_RST_L-O", "GLOBAL_WP_BMC-O", "BMC_DDR4_TEN-O",
-> +		/*J0-J7*/ "", "", "", "", "", "", "", "",
-> +		/*K0-K7*/ "", "", "", "", "", "", "", "",
-> +		/*L0-L7*/ "", "", "", "", "", "", "", "",
-> +		/*M0-M7*/ "PCIE_EP_RST_EN-O", "BMC_FRU_WP-O", "HMC_RESET_L-O", "STBY_POWER_EN-O",
-> +					"STBY_POWER_PG-I", "PCIE_EP_RST_L-O", "", "",
-> +		/*N0-N7*/ "", "", "", "", "", "", "", "",
-> +		/*O0-O7*/ "", "", "", "", "", "", "", "",
-> +		/*P0-P7*/ "", "", "", "", "", "", "", "",
-> +		/*Q0-Q7*/ "", "", "", "", "", "", "", "",
-> +		/*R0-R7*/ "", "", "", "", "", "", "", "",
-> +		/*S0-S7*/ "", "", "", "", "", "", "", "",
-> +		/*T0-T7*/ "", "", "", "", "", "", "", "",
-> +		/*U0-U7*/ "", "", "", "", "", "", "", "",
-> +		/*V0-V7*/ "AP_EROT_REQ-O", "EROT_AP_GNT-I", "", "","PCB_TEMP_ALERT-I", "","", "",
-> +		/*W0-W7*/ "", "", "", "", "", "", "", "",
-> +		/*X0-X7*/ "", "", "TPM_MUX_SEL-O", "", "", "", "", "",
-> +		/*Y0-Y7*/ "", "", "", "EMMC_RST-O", "","", "", "",
-> +		/*Z0-Z7*/ "BMC_READY-O","", "", "", "", "", "", "";
-> +};
-> +
-> +&gpio1 {
-> +	/* 36 1.8V GPIOs */
-> +	gpio-line-names =
-> +		/*A0-A7*/ "", "", "", "", "", "", "", "",
-> +		/*B0-B7*/ "", "", "", "", "", "", "IO_EXPANDER_INT_L-I","",
-> +		/*C0-C7*/ "", "", "", "", "", "", "", "",
-> +		/*D0-D7*/ "", "", "", "", "", "", "SPI_HOST_TPM_RST_L-O", "SPI_BMC_FPGA_INT_L-I",
-> +		/*E0-E7*/ "", "", "", "", "", "", "", "";
-> +};
-> +
-> +// EMMC group that excludes WP pin
-> +&pinctrl {
-> +	pinctrl_emmcg5_default: emmcg5_default {
-
-No underscores in node names.
-
-> +		function = "EMMC";
-> +		groups = "EMMCG5";
-> +	};
-> +};
+Oh, that's quite a lot. Thanks, I'll fix them.
 
 
 Best regards,
