@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949CDC36000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 17:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1402CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 17:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SoUN+8bIaivTJTs4Mt44CSp5Obsmiq4S/WbSlFjaM9k=; b=To368kdOuB7EDeH/B2Ua4LyVK/
-	WGhyW2PKG6GtL00nIjELt5DkkU2OYshuC3UOaNvu2v3x/43Nfnwxs9y9+UdfRVi/ehgp2kft3uIDr
-	V8PnKwHKH8V5x87ZwQHSmIPlUyZkKRQh9J4ue24XV2fDU2fVGmhAqx+oXFl8JqjGTiFQ7jnR24ag8
-	aP6V4kYHvwiC+dLK6hd428Q9P7/U8F8rpC0Enr7bIWJ5weqOmqAdTpkAorcmz5RgwKAQASwmUswV7
-	vgfZcjAqc3XfonamsPDCjIVVqJeouj5jqOeerUhLmisw+8+yUQT9vWFlqKgq+W7rDDvgqCmoUkkSR
-	jdIqTlSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XANZcjxiMkxYwy4469ggjQsTac9XWyp0s6kIgVil7jY=; b=mhQo2rGqW/VxxjcQz3uVJLQxSU
+	x3tjpuPRX4nGA7tpNzwIWLzfLkJB3elER1cEJ/7uN3hWeqLaKNPcQviHsBazsgvPGbkc3aTZv2e2D
+	/u1oe7sJC0hW6ycinsPlptEKXywNehAKHCm77slNwpY3tRezST+u2b80OYZpAGfnYkmo59m9VyUVt
+	BUoGJyaxT9ludgDaLG9LjISv1UY3cK/RRKmN372AN+6xSCFB/tPA6NNjz18wg+KiFe1NtOGmKmRBq
+	jNlOf2G/mB4a1od/TAY7X2aS0/jX1zBJ44Xmce8HEossI8ncZw3oM9NgMpecA2dDpJM8WiugUJ+yD
+	DilHxV2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvgYg-0000000FlaS-2aS4;
-	Fri, 21 Mar 2025 17:53:26 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvgVR-0000000Fky1-3vWL;
-	Fri, 21 Mar 2025 17:50:07 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4ZK8Sl5g91z9sSc;
-	Fri, 21 Mar 2025 18:24:23 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id zGiE3Fieq8zB; Fri, 21 Mar 2025 18:24:23 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4ZK8Sl3Q1Zz9sSZ;
-	Fri, 21 Mar 2025 18:24:23 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 13D588B79C;
-	Fri, 21 Mar 2025 18:24:23 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id PgNENOWgR9TQ; Fri, 21 Mar 2025 18:24:22 +0100 (CET)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4E6918B763;
-	Fri, 21 Mar 2025 18:24:22 +0100 (CET)
-Message-ID: <1b0d0513-9d18-4603-91e9-20af36334145@csgroup.eu>
-Date: Fri, 21 Mar 2025 18:24:22 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Matthew Wilcox <willy@infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-mm@kvack.org
-References: <20250321130635.227011-1-alexghiti@rivosinc.com>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <20250321130635.227011-1-alexghiti@rivosinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	id 1tvgaL-0000000Flws-3UIp;
+	Fri, 21 Mar 2025 17:55:09 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvgWZ-0000000FlC9-0RAC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Mar 2025 17:51:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1742579475; x=1774115475;
+  h=date:from:to:cc:subject:message-id;
+  bh=LcidMpl1jvp3WDo6XiR+3KORcUhyCc/0LGUGvwTQaa0=;
+  b=Wx72uO+N/zXivxurVZ8soByJ+cPFRr2tq2sf3hIWPyyq01wW3Cop2p1p
+   JsAUQHEQprHdAgg0JlyO7zZ+tjJTaN6XUWIPqG3MteMXC7i8Xh3sa9Kze
+   gRvU7Y2UMlYSj3AzEOm2llKXEbuuiwZjluHDyYZrRF4IkgWIMu1h9o1K6
+   2ddLEeWtQtfyW9N11BMPHCNQxQ5yScO28sc0m0Uzue5h87ibcGYTa4hn0
+   VNbLyBaDftU5+L3R5Uoyv6dOgYmK+Egk15wCtI5edh5Rk0ptua+YpdTVZ
+   0MiQ/T6q1PfyLikgHNRiOQGVwyO3rYMwY/uCI9gp1LVtLJVAW+naKr3+q
+   A==;
+X-CSE-ConnectionGUID: 8nd7pBZOQNKtrAzOIjb05w==
+X-CSE-MsgGUID: eJ9T4sxLSzOx0gw2He4pmw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11380"; a="47512164"
+X-IronPort-AV: E=Sophos;i="6.14,265,1736841600"; 
+   d="scan'208";a="47512164"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Mar 2025 10:51:14 -0700
+X-CSE-ConnectionGUID: 8tDScEQVQcKG6rBVSE5pPA==
+X-CSE-MsgGUID: p98oGHqcRR2oC/Gj0sxXLg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,265,1736841600"; 
+   d="scan'208";a="127614357"
+Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
+  by fmviesa003.fm.intel.com with ESMTP; 21 Mar 2025 10:51:13 -0700
+Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tvgWU-0001ZI-2U;
+	Fri, 21 Mar 2025 17:51:10 +0000
+Date: Sat, 22 Mar 2025 01:50:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ f7dd075de68de8a2536e50c2de434d1c12366155
+Message-ID: <202503220139.jFG63sHA-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_105006_140742_241EEC90 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250321_105115_209697_3BEA4DD9 
+X-CRM114-Status: UNSURE (   4.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,107 +83,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: f7dd075de68de8a2536e50c2de434d1c12366155  Merge branch 'soc/drivers' into for-next
 
+elapsed time: 1446m
 
-Le 21/03/2025 à 14:06, Alexandre Ghiti a écrit :
-> This patchset intends to merge the contiguous ptes hugetlbfs implementation
-> of arm64 and riscv.
+configs tested: 92
+configs skipped: 2
 
-Can we also add powerpc in the dance ?
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-powerpc also use contiguous PTEs allthough there is not (yet) a special 
-name for it:
-- b250c8c08c79 powerpc/8xx: Manage 512k huge pages as standard pages
-- e47168f3d1b1 powerpc/8xx: Support 16k hugepages with 4k pages
+tested configs:
+alpha                            allyesconfig    gcc-14.2.0
+arc                              allmodconfig    gcc-14.2.0
+arc                              allyesconfig    gcc-14.2.0
+arc                   randconfig-001-20250321    gcc-13.3.0
+arc                   randconfig-002-20250321    gcc-11.5.0
+arm                              allmodconfig    gcc-14.2.0
+arm                              allyesconfig    gcc-14.2.0
+arm                   randconfig-001-20250321    clang-19
+arm                   randconfig-002-20250321    gcc-9.3.0
+arm                   randconfig-003-20250321    gcc-5.5.0
+arm                   randconfig-004-20250321    clang-21
+arm64                            allmodconfig    clang-19
+arm64                 randconfig-001-20250321    gcc-5.5.0
+arm64                 randconfig-002-20250321    gcc-5.5.0
+arm64                 randconfig-003-20250321    clang-20
+arm64                 randconfig-004-20250321    clang-21
+csky                  randconfig-001-20250321    gcc-13.3.0
+csky                  randconfig-002-20250321    gcc-13.3.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allyesconfig    clang-21
+hexagon               randconfig-001-20250321    clang-21
+hexagon               randconfig-002-20250321    clang-16
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20250321    clang-20
+i386        buildonly-randconfig-002-20250321    clang-20
+i386        buildonly-randconfig-003-20250321    clang-20
+i386        buildonly-randconfig-004-20250321    clang-20
+i386        buildonly-randconfig-005-20250321    clang-20
+i386        buildonly-randconfig-006-20250321    clang-20
+i386                                defconfig    clang-20
+loongarch                        allmodconfig    gcc-14.2.0
+loongarch             randconfig-001-20250321    gcc-14.2.0
+loongarch             randconfig-002-20250321    gcc-14.2.0
+m68k                             allmodconfig    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+m68k                             allyesconfig    gcc-14.2.0
+microblaze                       allmodconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+microblaze                       allyesconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                 randconfig-001-20250321    gcc-13.3.0
+nios2                 randconfig-002-20250321    gcc-7.5.0
+openrisc                         allyesconfig    gcc-14.2.0
+parisc                           allmodconfig    gcc-14.2.0
+parisc                           allyesconfig    gcc-14.2.0
+parisc                randconfig-001-20250321    gcc-8.5.0
+parisc                randconfig-002-20250321    gcc-6.5.0
+powerpc                          allmodconfig    gcc-14.2.0
+powerpc                          allyesconfig    clang-21
+powerpc               randconfig-001-20250321    clang-21
+powerpc               randconfig-002-20250321    gcc-7.5.0
+powerpc               randconfig-003-20250321    gcc-7.5.0
+powerpc64             randconfig-001-20250321    gcc-5.5.0
+powerpc64             randconfig-002-20250321    clang-16
+powerpc64             randconfig-003-20250321    gcc-7.5.0
+riscv                            allmodconfig    clang-21
+riscv                            allyesconfig    clang-16
+riscv                 randconfig-001-20250321    clang-21
+riscv                 randconfig-002-20250321    clang-21
+s390                             allyesconfig    gcc-14.2.0
+s390                  randconfig-001-20250321    clang-16
+s390                  randconfig-002-20250321    gcc-8.5.0
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                    randconfig-001-20250321    gcc-7.5.0
+sh                    randconfig-002-20250321    gcc-7.5.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+sparc                 randconfig-001-20250321    gcc-12.4.0
+sparc                 randconfig-002-20250321    gcc-6.5.0
+sparc64               randconfig-001-20250321    gcc-10.5.0
+sparc64               randconfig-002-20250321    gcc-6.5.0
+um                               allmodconfig    clang-19
+um                               allyesconfig    gcc-12
+um                    randconfig-001-20250321    gcc-12
+um                    randconfig-002-20250321    gcc-12
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250321    clang-20
+x86_64      buildonly-randconfig-002-20250321    clang-20
+x86_64      buildonly-randconfig-003-20250321    gcc-12
+x86_64      buildonly-randconfig-004-20250321    clang-20
+x86_64      buildonly-randconfig-005-20250321    clang-20
+x86_64      buildonly-randconfig-006-20250321    clang-20
+x86_64                              defconfig    gcc-11
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                randconfig-001-20250321    gcc-6.5.0
+xtensa                randconfig-002-20250321    gcc-10.5.0
 
-powerpc also use configuous PMDs/PUDs for larger hugepages:
-- 57fb15c32f4f ("powerpc/64s: use contiguous PMD/PUD instead of HUGEPD")
-- 7c44202e3609 ("powerpc/e500: use contiguous PMD instead of hugepd")
-- 0549e7666373 ("powerpc/8xx: rework support for 8M pages using 
-contiguous PTE entries")
-
-Christophe
-
-> 
-> Both arm64 and riscv support the use of contiguous ptes to map pages that
-> are larger than the default page table size, respectively called contpte
-> and svnapot.
-> 
-> The riscv implementation differs from the arm64's in that the LSBs of the
-> pfn of a svnapot pte are used to store the size of the mapping, allowing
-> for future sizes to be added (for now only 64KB is supported). That's an
-> issue for the core mm code which expects to find the *real* pfn a pte points
-> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
-> and restores the size of the mapping when it is written to a page table.
-> 
-> The following patches are just merges of the 2 different implementations
-> that currently exist in arm64 and riscv which are very similar. It paves
-> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
-> reimplementing the same in riscv.
-> 
-> This patchset was tested by running the libhugetlbfs testsuite with 64KB
-> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
-> 
-> v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-alexghiti@rivosinc.com/
-> v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
-> v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-alexghiti@rivosinc.com/
-> v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-alexghiti@rivosinc.com/
-> 
-> Changes in v5:
->    - Fix "int i" unused variable in patch 2 (as reported by PW)
->    - Fix !svnapot build
->    - Fix arch_make_huge_pte() which returned a real napot pte
->    - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
->      avoid leaking real napot pfns to core mm
->    - Fix arch_contpte_get_num_contig() that used to always try to get the
->      mapping size from the ptep, which does not work if the ptep comes the core mm
->    - Rebase on top of 6.14-rc7 + fix for
->      huge_ptep_get_and_clear()/huge_pte_clear()
->      https://lore.kernel.org/linux-riscv/20250317072551.572169-1-alexghiti@rivosinc.com/
-> 
-> Changes in v4:
->    - Rebase on top of 6.13
-> 
-> Changes in v3:
->    - Split set_ptes and ptep_get into internal and external API (Ryan)
->    - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
->      we split hugetlb functions from contpte functions (actually riscv contpte
->      functions to support THP will come into another series) (Ryan)
->    - Rebase on top of 6.11-rc1
-> 
-> Changes in v2:
->    - Rebase on top of 6.9-rc3
-> 
-> Alexandre Ghiti (9):
->    riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
->    riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
->    mm: Use common huge_ptep_get() function for riscv/arm64
->    mm: Use common set_huge_pte_at() function for riscv/arm64
->    mm: Use common huge_pte_clear() function for riscv/arm64
->    mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
->    mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
->    mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
->    mm: Use common huge_ptep_clear_flush() function for riscv/arm64
-> 
->   arch/arm64/Kconfig                  |   1 +
->   arch/arm64/include/asm/hugetlb.h    |  22 +--
->   arch/arm64/include/asm/pgtable.h    |  68 ++++++-
->   arch/arm64/mm/hugetlbpage.c         | 294 +---------------------------
->   arch/riscv/Kconfig                  |   1 +
->   arch/riscv/include/asm/hugetlb.h    |  36 +---
->   arch/riscv/include/asm/pgtable-64.h |  11 ++
->   arch/riscv/include/asm/pgtable.h    | 222 ++++++++++++++++++---
->   arch/riscv/mm/hugetlbpage.c         | 243 +----------------------
->   arch/riscv/mm/pgtable.c             |   6 +-
->   include/linux/hugetlb_contpte.h     |  39 ++++
->   mm/Kconfig                          |   3 +
->   mm/Makefile                         |   1 +
->   mm/hugetlb_contpte.c                | 258 ++++++++++++++++++++++++
->   14 files changed, 583 insertions(+), 622 deletions(-)
->   create mode 100644 include/linux/hugetlb_contpte.h
->   create mode 100644 mm/hugetlb_contpte.c
-> 
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
