@@ -4,59 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82060C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E386C36000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GS0DTW8urIe1mVBYAFT1ILELcujA8A8LqLBoIuElaRI=; b=E0v/Yzi7oQQ/rF847UG51on25p
-	hVRG1QlIGQrG/My/U4dB9h9CG9dup4B48QTXIdIf3zzla4MvjgSdiw6lgxe4ubJFXBv5PFh0JnRty
-	KlFYDj/ljV36m3+9y7s2ct7M4P51dYEqe6iQUt3FDV5jVZc39gSLEPRwSxBqIVgoz0nwzkjKNTx1q
-	NxNBExiVTJ+pa3RF2n671MZmvF5uYgqQ2op0AExMNtZwBMcvJHzwbYQwUhF0NoXZcBYj1YfS1ryob
-	67koYapHl9qi5y0O5f5cuVUnAvTb8DXKdxQkxEr0SSnjTSX5W8/Zc8nUIYD/g4Ttz3R1ybMW8/mGk
-	WKtoZ8MA==;
+	bh=+sSLDnAdQaaRh1ug3/9steXZw1JYzt1ToQ27dvMkXSk=; b=vY2iBLb4gqKkz3ztn21pwl2Tkn
+	AYwuW+o8BnT5ScYBPbFEHqqz/erCdxXUeHINmk64BWu8NcId11KJZGiu7+6JYxxDn28Cl1cGdLc5P
+	LYhsgLXFGbmlCVc8B9VK6V3sxFYIpOh+2dH4azyOgkDLsvU8IpiW8T6ypUBt7wPgaAFQVLR1ahYCM
+	NLTKclSA6zwr4kaPGa8J5KD3I3tfZjrHzsnfiWf6x9nM63uvg0jKXDyFzXpGmXB5W4768ATTt23z5
+	/LdLMafY4qY/8bTclLpAW0stlvffosTY1sQ3pl6qH1xkW+UOGtmyVk4qfjYj4upcErC4EkVwcB2R1
+	OJOoQmhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tviz3-0000000GAN3-1A76;
-	Fri, 21 Mar 2025 20:28:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tviyy-0000000GAIV-28md;
+	Fri, 21 Mar 2025 20:28:44 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvieT-0000000G7gD-1KKP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 21 Mar 2025 20:07:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=GS0DTW8urIe1mVBYAFT1ILELcujA8A8LqLBoIuElaRI=; b=IBZxlerDDrV7uABf+vzrqRioAj
-	UMpanY4jmPTEaw12wAfuXnv6hw6ygPQl+eA7kOIc4h1L0yvFgV0e24oM0h/wTCIsTgGXfRH/5Ip5a
-	mwZkM7abmdHNozAs/BzFB8kn0S17+v4bmd6LXxRgdbe87SvVFPlljIFQn2Q93GphP8v5gGqnRdZNz
-	1bMNDzrDfiU/V5XYSzjko/Bs0ab0RFk9zw/HEnJStXGsIi//Ny1GGS40JI4/UsOhKEojvq8S8Wgea
-	/wpLUDGfe7LGxpPICYk6PCr5qGCXnQv3t+6z4oCyKYaOywIxsmdMW5iIDUDPK0r7yElW33a3BQsm4
-	oktPaWtg==;
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvieP-00000004Wgt-43ue
+	id 1tvie4-0000000G7SE-0mxV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 20:07:32 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA41810206773;
-	Fri, 21 Mar 2025 21:07:17 +0100 (CET)
+	Fri, 21 Mar 2025 20:07:09 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EEFDE101E90A8;
+	Fri, 21 Mar 2025 21:07:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742587639; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1742587626; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=GS0DTW8urIe1mVBYAFT1ILELcujA8A8LqLBoIuElaRI=;
-	b=ZTaqmbiV6GWUzLqpmKiQCW+8deNpU3TNxYAvqgUb7GivfibYqRoLRFU7PmdpUX76XNtTK5
-	SsibKYYtGFj43qbQFVnk0uXJyKU9CvCpK+v3dVs4Mo/4qAwjrjl8ksdLqU2gc5J1AywDNu
-	5uk8lCJX1YrocnlB8JiVOY8Sx9V0jsCqytMNWA2gvowfl2tOJf2JAk43csHcflGkVdsBGE
-	JmTS3mAZN7uC9Abcer6W4v2467gw1c7FPB2z9WbK0PjclcjS6cSDLCJjkl3XNpglOEn96n
-	C7vznTE7eMXWzkUTOekiR4GJhiqfh+UqV+Idw2QiC8TPZni718gVWjwx1L8Z0A==
+	bh=+sSLDnAdQaaRh1ug3/9steXZw1JYzt1ToQ27dvMkXSk=;
+	b=DfXAd422TEJJklzGEddbwWU/OeKgZww3A3cYngRWzDYNyrTTbHl7JC5IXsa9Qkq9vmb8Q4
+	kP0GxhPzzlaj+gYSu4507wgC/zWzgL5WeKWdSQTNcmQG5yJkhTBuZw2GneDpLImkWcNHz3
+	wylB1+zTksd57JqSTE/wgS5MnmSH3cCPwAn/Lg11muqeiIjyvv1Dm7uZMe6QsmFi5t+92G
+	D7AvpAlbnKxL+EzT8wDYQdlgwJANhnY5TVaNLeDs9RrsT0GWnWFtjqle9ajLuieDrlJmz+
+	x3bsE+yL1Fwl49kFeUBHt+OZ5G2aM0aVZwMrcZRswxvwmwjja51uKhnIt6ubvw==
 From: Marek Vasut <marex@denx.de>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@denx.de>,
-	Frank Li <Frank.Li@nxp.com>,
 	Boris Brezillon <boris.brezillon@collabora.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	David Airlie <airlied@gmail.com>,
@@ -77,9 +61,9 @@ Cc: Marek Vasut <marex@denx.de>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev
-Subject: [PATCH v2 8/9] drm/panthor: Add i.MX95 support
-Date: Fri, 21 Mar 2025 21:05:58 +0100
-Message-ID: <20250321200625.132494-9-marex@denx.de>
+Subject: [PATCH v2 1/9] dt-bindings: reset: imx95-gpu-blk-ctrl: Document Freescale i.MX95 GPU reset
+Date: Fri, 21 Mar 2025 21:05:51 +0100
+Message-ID: <20250321200625.132494-2-marex@denx.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250321200625.132494-1-marex@denx.de>
 References: <20250321200625.132494-1-marex@denx.de>
@@ -87,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_200730_219706_9749F958 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250321_130708_367549_ECAF2D2E 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,10 +87,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The instance of the GPU populated in Freescale i.MX95 is the
-Mali G310, add support for this variant.
+The instance of the GPU populated in Freescale i.MX95 does require
+release from reset by writing into a single GPUMIX block controller
+GPURESET register bit 0. Document support for this reset register.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Marek Vasut <marex@denx.de>
 ---
 Cc: Boris Brezillon <boris.brezillon@collabora.com>
@@ -131,39 +115,72 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
-V2: - Add RB from Frank
+V2: - Fix dt_binding_check errors in example, temporarily use fixed
+      numbers to refer to IMX95_CLK_GPUAPB clock and IMX95_PD_GPU
+      power-domain
+    - Drop trailing pipe after description:
+    - Drop leading dash before const in compatible:
     - Switch from fsl, to nxp, vendor prefix
-    - Fix up GPU_MODEL(g310, 0, 0) to GPU_MODEL(g310, 10, 4)
-    - Remove code comments about MX95 and G310
 ---
- drivers/gpu/drm/panthor/panthor_drv.c | 1 +
- drivers/gpu/drm/panthor/panthor_gpu.c | 1 +
- 2 files changed, 2 insertions(+)
+ .../reset/nxp,imx95-gpu-blk-ctrl.yaml         | 49 +++++++++++++++++++
+ 1 file changed, 49 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/reset/nxp,imx95-gpu-blk-ctrl.yaml
 
-diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
-index 06fe46e320738..299ec8bafdd17 100644
---- a/drivers/gpu/drm/panthor/panthor_drv.c
-+++ b/drivers/gpu/drm/panthor/panthor_drv.c
-@@ -1591,6 +1591,7 @@ static struct attribute *panthor_attrs[] = {
- ATTRIBUTE_GROUPS(panthor);
- 
- static const struct of_device_id dt_match[] = {
-+	{ .compatible = "nxp,imx95-mali" },
- 	{ .compatible = "rockchip,rk3588-mali" },
- 	{ .compatible = "arm,mali-valhall-csf" },
- 	{}
-diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
-index 0f07ef7d9aea7..59fc1cacefcfe 100644
---- a/drivers/gpu/drm/panthor/panthor_gpu.c
-+++ b/drivers/gpu/drm/panthor/panthor_gpu.c
-@@ -67,6 +67,7 @@ struct panthor_model {
- }
- 
- static const struct panthor_model gpu_models[] = {
-+	GPU_MODEL(g310, 10, 4),
- 	GPU_MODEL(g610, 10, 7),
- 	{},
- };
+diff --git a/Documentation/devicetree/bindings/reset/nxp,imx95-gpu-blk-ctrl.yaml b/Documentation/devicetree/bindings/reset/nxp,imx95-gpu-blk-ctrl.yaml
+new file mode 100644
+index 0000000000000..ca841db20d35b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/reset/nxp,imx95-gpu-blk-ctrl.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/reset/nxp,imx95-gpu-blk-ctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Freescale i.MX95 GPU Block Controller
++
++maintainers:
++  - Marek Vasut <marex@denx.de>
++
++description:
++  This reset controller is a block of ad-hoc debug registers, one of
++  which is a single-bit GPU reset.
++
++properties:
++  compatible:
++    const: nxp,imx95-gpu-blk-ctrl
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  '#reset-cells':
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - power-domains
++  - '#reset-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    reset-controller@4d810000 {
++        compatible = "nxp,imx95-gpu-blk-ctrl";
++        reg = <0x4d810000 0xc>;
++        clocks = <&clk 83>;
++        power-domains = <&scmi_devpd 14>;
++        #reset-cells = <1>;
++    };
 -- 
 2.47.2
 
