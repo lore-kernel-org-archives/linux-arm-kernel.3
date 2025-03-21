@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1099EC36000
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7514CC36007
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 20:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ulsbme4hNQzYTq8vlOulaN2Y8LowM5FPAQmz8elBPM=; b=Bzx6rho3BfRFz0EHRLAH6Ow5JM
-	es80EuDMdFkAgr3mV8ctMjA9KJUqJNijT2HdZadg0gwuiBrYRl9sjrpkLisbfAGXQabz0fcPM5RWG
-	xdE4dk9ev1d6w9B9lSCVft4g98EPad+92zRaHcnm++uFs173JoVYbAw3m9Q7gJsfhvgXUR5A/QE/Q
-	SzryEMckad/JGzpMjibTBXpla+6zG70Z9iVhhmD8Wlv7zV7MrYx3XeV7aPH2azuuci2JfGA+5e7WP
-	dYyRJnxZZ+Qg4EOE6ryKUce0fSTS9mH4DEL96w0c4MgCxyPGWHjior6XwSNrYzsZ0pjSZsbHFrYLM
-	r+khQQJw==;
+	bh=drWgqDtEwtRQ/AqNec+865/QoSBEzToGMlvzXdRpbRc=; b=Vxm/yXKXCBo6xpqLZOMleI8lpZ
+	WYl70MJtvhKAp8dnFQKOSNUIBXr1uIXAcs3OyatLCgmCglHPRWKGI6V5KVPwgZ76fuK1eIT/QolNr
+	0q0nD64vQwApozlcm/DoDRo01RBzFrqvzdIhwL2Vgsryws12MOvPdXDDdrkjADXvf04iPojkVqaqG
+	ZS79T/aWYF0PxjI0udZ2XHwtxh5nhsYqz9KA4Sn+4pq7GSjcpLucy/KUHD1PJ6fyMYotLEeQ7Q/HB
+	H9tB14R4AWsxkfhnj8Mhzc5g4D/JikUaZndZ1d8XpnKOfI5Y30LDenOxhhYReBJEBZoUTcn5qf6qJ
+	K3fDsN7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tviyw-0000000GAIE-3uEG;
-	Fri, 21 Mar 2025 20:28:42 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tviyx-0000000GAIL-1uPY;
+	Fri, 21 Mar 2025 20:28:43 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tviZQ-0000000G6px-0zxI
+	id 1tviZR-0000000G6qX-0srI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 20:02:21 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8A42E101E8FE7;
-	Fri, 21 Mar 2025 21:02:14 +0100 (CET)
+	Fri, 21 Mar 2025 20:02:22 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 635FF101E8FE9;
+	Fri, 21 Mar 2025 21:02:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742587336; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1742587339; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=3Ulsbme4hNQzYTq8vlOulaN2Y8LowM5FPAQmz8elBPM=;
-	b=VDxZ2EQ/5tg99PzI7sO7Iev5h1/wFCQ+DuZIPurcNhRu42cjUBDXfEBThUs7hHKYmEHyVb
-	j9OYINwC6QB3Sd1o1XsGYvtnGKqSXJpNCTVm2g7uEiYxd112uSCJ8xvB29ci2Zh3RX/euB
-	YddxYDnEYqWs9UsY0f9AWgBniVPLPyf4a32wbwjAvNiy73gpUA51StDBQRVb7BS5OiYfvg
-	3hXbQJ3zduLUkKjTAbwn9pjp8jobnNBp1cK/kWQYCtY8Vvx46VeoZDzvVv2eXelpVASJI4
-	5UnSh2YmrAM3yZ+T/+LNggwYMMjh+8oBMiFHZ/pUqesF43NhZK3OjJJIW4m7wQ==
-Message-ID: <d19fa0b9-b07b-46cf-aa3f-3c2e65fecd67@denx.de>
-Date: Fri, 21 Mar 2025 20:54:26 +0100
+	bh=drWgqDtEwtRQ/AqNec+865/QoSBEzToGMlvzXdRpbRc=;
+	b=UAPj7u9D99BzWdmrqugwwfMF1kOr649TjzIBIrq4luHu3EKIxBSYIlVak1XBT5eZi8IlIx
+	WH8Lb6E04i0EDXTUyFMYBabrxds3rJoJtAgSWLBRbbFg1/qhgZztdq2LGVCXJBvbyq+wc3
+	KCVQSBu2VkznmY8lFrQcOqkpiG86I7rhBwo/QO2z86gNO5Q+jqWpP+GH2Zkr1wAGUnmEu3
+	S9rvJQSGNl/aRqgtlG67xsnIuhxEIt5cFLHpccdkvSHaWRMeymOyJtuNiE0rhWoJytV8Jo
+	4GAR5ZO7/E7pOVsavK64sbJ4OFsnVYm/NtqDV/yWRBm3yMYvCUFpfBCvDKZ+QQ==
+Message-ID: <12a0c285-8f1a-4014-9253-0129a3a6ba21@denx.de>
+Date: Fri, 21 Mar 2025 21:00:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 6/9] drm/panthor: Reset GPU after L2 cache power off
@@ -63,15 +63,16 @@ References: <20250227170012.124768-1-marex@denx.de>
  <fa88c1c1-89ba-4a10-bd57-0819d7740c0a@denx.de>
  <Z8Wb05rmGW0ORnJB@e110455-lin.cambridge.arm.com>
  <20250303133523.2c5153ed@collabora.com>
+ <20250303134250.5ba726fc@collabora.com>
 Content-Language: en-US
 From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20250303133523.2c5153ed@collabora.com>
+In-Reply-To: <20250303134250.5ba726fc@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_130220_428769_699E88D8 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250321_130221_394813_6A904604 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +87,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/3/25 1:35 PM, Boris Brezillon wrote:
+On 3/3/25 1:42 PM, Boris Brezillon wrote:
 
 Hi,
 
->> This looks like it has been part of a R50 release of the DDK, which is recent
->> enough to consider it up-to-date. The issues you're seeing with fast resume are
->> probably due to some integration issues or other quirks.
+>>> This looks like it has been part of a R50 release of the DDK, which is recent
+>>> enough to consider it up-to-date. The issues you're seeing with fast resume are
+>>> probably due to some integration issues or other quirks.
+>>>
+>>> Boris has the most recent experience with playing with fast resume, maybe
+>>> he can share some tips on where to add messages in Panthor to try to debug
+>>> your problem.
 >>
->> Boris has the most recent experience with playing with fast resume, maybe
->> he can share some tips on where to add messages in Panthor to try to debug
->> your problem.
+>> If you end up with fast_reset=true, that means the FW claims it entered
+>> a suspend state from which is can resume quickly (fast-reset), and in
+>> that case, we're only supposed to power on the L2 block at resume time
+>> AFAIK.
 > 
-> If you end up with fast_reset=true, that means the FW claims it entered
-> a suspend state from which is can resume quickly (fast-reset), and in
-> that case, we're only supposed to power on the L2 block at resume time
-> AFAIK. If there's a component that can tell us more, it's probably the
-> FW, unfortunately, it doesn't tell us much through the FW interface,
-> especially if it's not booting properly. Do you hit this error [1]
-> without this patch, and if you do, what's the status reported there?
-> 
-> [1]https://elixir.bootlin.com/linux/v6.14-rc4/source/drivers/gpu/drm/panthor/panthor_fw.c#L1051
+> Can you try deasserting the reset lines at probe time and keeping them
+> deasserted until the device is removed instead of re-asserting at
+> suspend time? If that doesn't work, try doing the same with power
+> domains.
+I'm afraid either of this makes no difference, no.
 
-Sorry for the late reply. I get the following, so I think the status is 
-"fatal" ?
-
-panthor 4d900000.gpu: [drm] clock rate = 1000000000
-panthor 4d900000.gpu: EM: created perf domain
-panthor 4d900000.gpu: [drm] mali-g310 id 0xac74 major 0x0 minor 0x0 
-status 0x1
-panthor 4d900000.gpu: [drm] Features: L2:0x7110306 Tiler:0x809 Mem:0x1 
-MMU:0x2830 AS:0xff
-panthor 4d900000.gpu: [drm] shader_present=0x1 l2_present=0x1 
-tiler_present=0x1
-panthor 4d900000.gpu: [drm] Firmware protected mode entry not be 
-supported, ignoring
-panthor 4d900000.gpu: [drm] Firmware git sha: 
-8e5cfcfec20cc8aff8509d37e72babc935d34a3b
-panthor 4d900000.gpu: [drm] CSF FW using interface v1.1.0, Features 0x0 
-Instrumentation features 0x71
-[drm] Initialized panthor 1.3.0 for 4d900000.gpu on minor 0
-panthor 4d900000.gpu: [drm] *ERROR* Failed to boot MCU (status=fatal)
-panthor 4d900000.gpu: [drm] *ERROR* FW fast reset failed
-panthor 4d900000.gpu: [drm] *ERROR* Fast reset failed, trying a slow reset
-panthor 4d900000.gpu: [drm] *ERROR* Failed to boot MCU (status=fatal)
-panthor 4d900000.gpu: [drm] *ERROR* FW slow reset failed
+I'll at least send a V2 now, so others can use the latest state of my work.
 
