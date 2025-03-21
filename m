@@ -4,130 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8239CC35FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 01:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68675C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Mar 2025 01:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bfONhRl9345mCoz2uzNlqfXAYwqJdwHiegxkU3p1npg=; b=l3/2zOQeov+0x5dQXXd9Yen/2r
-	yhME3l+QCSkP52RGTZXlCeS6+yRqOcWwr9ly98ZKKtuKX5Ury7qxpFZX+Q7mijB0fJ7l/9NLPrdAo
-	xgJ8XxDv130uPIYMbj94Bzm5av+as0Zi8iH9o4MPD93eaGXHK3neWdxWQg9WA9g7+aml9/ALTzhA0
-	/mEgUy/XPMrfjJrajOF5n6axo1E88Ngfzfriu719pbQ0cXEfh4ow4xsVlMaNiEcW+kmlekt+vrXHN
-	wkO26OOMSkOkWzWp9etihdw1qwgwkrHQSlITTUQVsx2RcxaPXSp0hCU01NinYYZEQ3L1fCj90nrJJ
-	hMLrabyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=McDxZasD/M7IQ6Jn7sHIcHjRPaMImkKi5TvB+FHfbZk=; b=2R4N8aTb6dseIUPtfziqX26J9y
+	PUVBFNo1/RqiK8f4q/US9bKH4IMVtUpAjd6w2giZC9FKOXnpc025OSLw+FdpPmIm2DuCCik29LUa8
+	gwANQ6y7AF5XvSnVoLosYt9IoBbyauLP4Wjm1CIgXGd93RCyHPfyd5Q5Q23bVG7W/hLwWXoATCNdn
+	iUmyDXMCwvlGLGzoI4XB4Tr3H8BxAciW44xwHqLBKdwB6OKTqtpGhf/iqgw4k0/x6UJS8Lb4KNWw/
+	xgdE9UafpYUiqd7t/huktrOl+jHT6nf+5u3qu86EOkSRu7RxIB/muIMEc+lZVOU7tiwoiOkNmfacB
+	N5bN9xXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvROf-0000000DePm-3Fje;
-	Fri, 21 Mar 2025 01:42:05 +0000
-Received: from mail-psaapc01on20722.outbound.protection.outlook.com ([2a01:111:f403:200e::722] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tvRVi-0000000Deph-14gD;
+	Fri, 21 Mar 2025 01:49:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvRMx-0000000DeGr-1Yyb
+	id 1tvQ5Y-0000000DXSs-1jJv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Mar 2025 01:40:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZXvoKfP2LoyPqfbE/f7Qy+4rDnYaduI+obOc3cTa7uqlaxusgg9qdsSaB5rYynE8wx4Qwo/81b83XX/ppcMEpqtLYGd97PQUDVkycrD5yzPyQVNo2rszMJkTH9chg4cGCbu0HE4UATWiC/mbE1ygNu7xm/LLxrD19bJxQ6qYNksvv7Hl7BNlx2GnsG0EdukeiOpNYk2fZG+Q1HiSGvp0lPxBE1F2YuvEQ2CjoFRqCUP+oNVwg+5XHlXrJtjbSY1cCyuK7OeSL7pBTndri6vDXEWRPwANwn0KC65kWCYe+I2/GPSw3n4CZEqhI7qi607krTCNRF5kI5oJSe0dASp9MQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bfONhRl9345mCoz2uzNlqfXAYwqJdwHiegxkU3p1npg=;
- b=l1ihq3JS98+xqkiWKkYWRgwFfA+bwQXFLTghE6Rxmq3N4mQzfhj8bgUPk2cwAGylTbaA6mDRPQxXUfrZSZLuX7yHikFpAQTMJ/Fs/JMbFzxTgzYPiCiQ5VHfnYqU8enM7i1xYt5FJlZAmMVUqi4+MnjmC48dPi0H6UvGVS2XLXZke6eHOruGO5wcmPCIxOX0FfqiEECfqC+EdstwMIGJS19s7ik6Ep6H+ul6g69vmx45YiTp0yU3BJAeLGomSOgrLiUBnQsQptZSAJ3nP21l0Bti3Fsv3mBtxq1Ff55OGeYwp/kIT2bm6wyRr9/9Va2EH3J+Qy2AgKccLBsOatqp0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR01CA0039.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::16) by SEZPR06MB6350.apcprd06.prod.outlook.com
- (2603:1096:101:133::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.36; Fri, 21 Mar
- 2025 01:40:08 +0000
-Received: from SG2PEPF000B66CB.apcprd03.prod.outlook.com
- (2603:1096:4:193:cafe::64) by SI2PR01CA0039.outlook.office365.com
- (2603:1096:4:193::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.36 via Frontend Transport; Fri,
- 21 Mar 2025 01:40:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CB.mail.protection.outlook.com (10.167.240.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.20 via Frontend Transport; Fri, 21 Mar 2025 01:40:07 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8C2DA4160CAB;
-	Fri, 21 Mar 2025 09:40:05 +0800 (CST)
-Date: Fri, 21 Mar 2025 09:40:00 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Kajetan Puchalski <kajetan.puchalski@arm.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <arnd@arndb.de>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<cix-kernel-upstream@cixtech.com>, <marcin@juszkiewicz.com.pl>,
-	Fugang Duan <fugang.duan@cixtech.com>
-Subject: Re: [PATCH v4 6/6] MAINTAINERS: Add CIX SoC maintainer entry
-Message-ID: <Z9zDcMRVqAcJW8H7@nchen-desktop>
-References: <20250305053823.2048217-1-peter.chen@cixtech.com>
- <20250305053823.2048217-7-peter.chen@cixtech.com>
- <7419360a-abc0-44cf-8d55-8f5fad8e9079@kernel.org>
- <Z9vyy7f5NOPyzUES@nchen-desktop>
- <zsmeh4ukuspyetowryqi3blcquxlua5wzy5ibgy7lupryr5txx@74ic6drtremv>
+	Fri, 21 Mar 2025 00:18:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6323144EFD;
+	Fri, 21 Mar 2025 00:18:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 463FBC4CEEC;
+	Fri, 21 Mar 2025 00:18:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742516295;
+	bh=IkZsuY+kAaVDLrs8HWKvRFz6/h6ZoxMySJFddJZVVGc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=HhiNkYVWAeRC2RvW4BcuNKDTM0/B1aYTF44nGEDLsHSDrUrA7ZG+hVEcZr0lS/MjA
+	 4Iposz+TZ0CJDhh0QdEkaN00tWs+59OLc7gm39AkX4mi0RIuE6ip6g737Ka4uR6Bxc
+	 LWgJizA6e77UTwRXIAQ7z+NjcgkpUczT5thvI83r9zIkT3x1SNKxBUkIN2MhPeAIZQ
+	 bYqJYBvsqZ3uoRS/EiZL1xSpjuhz/ZhJUF1CrKIXrRld+I4LAsZRh58bjXElPsMnov
+	 51hIC6rvsx1bnMbWOe+rD9X7+in6nXTdIBX5qWAfw7umppC+nSv8jEvouZtK7FFhYY
+	 XhE9A12SgFlRg==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 21 Mar 2025 00:16:01 +0000
+Subject: [PATCH 6.6 1/8] KVM: arm64: Calculate cptr_el2 traps on activating
+ traps
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <zsmeh4ukuspyetowryqi3blcquxlua5wzy5ibgy7lupryr5txx@74ic6drtremv>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CB:EE_|SEZPR06MB6350:EE_
-X-MS-Office365-Filtering-Correlation-Id: f623761c-c481-4a90-338f-08dd68194f8a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7aRcFhbSjQnYAC/a1TARIu1YRnLz8P9G8NibTldr96ZwEMF+fANqmd+Lfkgx?=
- =?us-ascii?Q?axctD4v8ibzB9LDScnX0SypB+ZrMNxhvyazJGZRcTB+RmYNzLl+5nYJV3FK1?=
- =?us-ascii?Q?7nvLtFFR68B+PCH41oWA5psbmInIZOGnatC6Jm1P+1LFg4yunVw2CcSi8FQi?=
- =?us-ascii?Q?Rm0AU14CM3QhMFLVKgef4x33c4NVrnl0IGDMGscvbxGSfKKS7o6rY56KB92R?=
- =?us-ascii?Q?Enax1HXjYQqRFGaZvVc18/EQmfNcOIFpfhbCMJ4hv4NSzeZz1m+lcj+M1B/R?=
- =?us-ascii?Q?fGP/n6JTIyUMs8jRmvEQlrJu4ITBhHp0o9KwkeyzbWFtzA/owIGkhUtBphyy?=
- =?us-ascii?Q?q/sNDUJpqg4tzErsnMOclTwMVCaJOP4WF7NtWg5aGXB6IrDa068qOhhrOzMR?=
- =?us-ascii?Q?zl/vgeH9o3aeiWc6k12XKoTS6FfMhXfk1PRSRsiJGK4MsRh2OekhLQl6CbU9?=
- =?us-ascii?Q?FIQc9vnbXVW0jmBMFbD1pXoBcSt4AE+IzHVFL7ThXz+a/JpYnSy94OZKD+5T?=
- =?us-ascii?Q?9u/4AN56BusFu/sQ7AaWt/2swiOD4Xi20jkEl5aceBuU52AotVRe222Daorr?=
- =?us-ascii?Q?1HxX2FEUyLJdIyURDRpkNkI8SLzwr1zTRZiOEclrofqH05HGoDKvX+V3eQoa?=
- =?us-ascii?Q?CWK4MCPm/VpAxi32bHNLjQ5vtYfJS7oux+vGvnC2ncn+UX2nxsELXifTiZzp?=
- =?us-ascii?Q?Tb9fZ9fAfRbfk4phX24dwn3mGaoIQWm7ShwKiHBczcVTDP/OgSEmjZr504Ze?=
- =?us-ascii?Q?EkHdQy8BSgrQZfwH5jgusoJigmfRGwKBZ4D6Gafa2ovH8FS5a6qzrygLAJ6s?=
- =?us-ascii?Q?jO6vouFksq/RCb1FP4DE8gkLhiEG0XWJberccet3x5jkx80g0bAL/FY1iR59?=
- =?us-ascii?Q?mBBrhkgXShmh+S/TRqbySO/yVY6nwNALROBL90kgHoYZBD99mnIx3yf4YFeD?=
- =?us-ascii?Q?2reF3HuqYSX017YmPxkwdfDUwx97B+HoX/rty85jv72T4NPwDBAtehHtFEfP?=
- =?us-ascii?Q?afeQEjf29zMroFrfaeKyEw8o1sqWUTnMyD0oaXlFG3Y9G9nmXH+/4bDY3DFE?=
- =?us-ascii?Q?qcy4zDMx4+vrFe68aYrWqlAAmTMBEC5ZSoEh9tMpsRld+dTPqWtvqOKeqiHb?=
- =?us-ascii?Q?EPoyuzANvPaRVGQXXg/Cq6OYkR1ACwizQrKKM6zl1mhEexQGJ88nstr8W59x?=
- =?us-ascii?Q?xTxkHMzO3PsCKjo9U1SHJt6hmuW8lGO8r0SOIDE/94KnJ4zTe4yvGkbdbveQ?=
- =?us-ascii?Q?0Lj1QEGuABACoPeOagxDoRTUJButJKjN0uBDYuJQlf3nv729A36ZP0dC2OFw?=
- =?us-ascii?Q?U7rKl+yOSbCA5d2u7idA5Jgu2wFN/LJN+cD9leB+Rz70p4RvNt1H4fnDHBsY?=
- =?us-ascii?Q?fd1FXA19es1xOvQequD7pfDI6exzK9X179ftvC7fhMT0/FVbHd2nu49kUi0K?=
- =?us-ascii?Q?uHuHnzYB2jk1uXXj1dfiIMr64iFyb/EaR/aTb5Vjde0wHn701Vdv8g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Mar 2025 01:40:07.2687
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f623761c-c481-4a90-338f-08dd68194f8a
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CB.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6350
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250321-stable-sve-6-6-v1-1-0b3a6a14ea53@kernel.org>
+References: <20250321-stable-sve-6-6-v1-0-0b3a6a14ea53@kernel.org>
+In-Reply-To: <20250321-stable-sve-6-6-v1-0-0b3a6a14ea53@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, Fuad Tabba <tabba@google.com>, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7504; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=JSYgABijzaBEeRBZ792dyLFvcMocImtFap9K59dqIIQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn3LA6vxysY9lgminsnLplSF2R0v15vrkadze3SGzB
+ yuP0ohiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ9ywOgAKCRAk1otyXVSH0J7FCA
+ CFlv5e6TtLoZ19s1IAM8KyYVpP+nV5rks+ZA/9P/T6jpVPAA6DFB32VLwPiny2NiYudGUVM6Rb7fYS
+ JByJxHEHvTU0Mkwgji6LHDUo/QpKF0I8QkON8T1XuhJ8X0mo/HGpieVUlkPQrWcnrR3tOASVui7USq
+ R3jzdDKrolhqYygtPhgOPexLccf92NQJKjKgZxraShlV8HBFxscw6qvzSj2q1M0oAtdZcGJ2g0YbXR
+ EyZnVwxIJd2hkionDQlrlYslt3ffevg8frgUpvqn+/t1ud7V4En51+3/MAMlVGvgOXaIj4cgbZnnZN
+ pqiJS5XzEF9xGda/OlXekt3DPMuTAa
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_184019_415750_409EA1E0 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20250320_171816_501533_4B9CD743 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,60 +90,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-03-20 15:28:49, Kajetan Puchalski wrote:
-> 
-> > > > +ARM/CIX SKY ARM ARCHITECTURE
-> > > > +M:   Peter Chen <peter.chen@cixtech.com>
-> > > > +M:   Fugang Duan <fugang.duan@cixtech.com>
-> > > > +R:   CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
-> > > > +L:   linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> > > > +S:   Maintained
-> > > > +F:   Documentation/devicetree/bindings/arm/cix.yaml
-> > > > +F:   arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> > > > +F:   arch/arm64/boot/dts/cix/sky1.dtsi
-> > >
-> > > Instead:
-> > > arch/arm64/boot/dts/cix/
-> > >
-> > > or if you think there will be more different architectures coming from
-> > > cix, which you will not maintain, then useful would be a "sky" subdirectory.
-> > >
-> > Hi Krzysztof,
-> >
-> > Thanks for your comment, CIX is Arm SoC based silicon design
-> > company, we may have different SoC style for middle end in future.
-> > So, for that SoC series, it may not name sky.
-> 
-> I believe the idea is that the file should either say
-> 
-> +F:   arch/arm64/boot/dts/cix/
-> 
-> if the two of you intend to be maintainers for everything under cix/.
-> You don't need to list every specific file.
-> 
-> Otherwise it should say
-> 
-> +F:   arch/arm64/boot/dts/cix/sky/
-> 
-> with its own subdirectory if you only intend to be maintaining the sky family.
+From: Fuad Tabba <tabba@google.com>
 
-Hi Kajetan & Krzysztof,
+[ Upstream commit 2fd5b4b0e7b440602455b79977bfa64dea101e6c ]
 
-Thanks for your valuable comments. We prefer maintain the entire
-CIX architecture under one entry, I will change maintain information
-like below:
+Similar to VHE, calculate the value of cptr_el2 from scratch on
+activate traps. This removes the need to store cptr_el2 in every
+vcpu structure. Moreover, some traps, such as whether the guest
+owns the fp registers, need to be set on every vcpu run.
 
-ARM/CIX SOC SUPPORT
-M:	Peter Chen <peter.chen@cixtech.com>
-M:	Fugang Duan <fugang.duan@cixtech.com>
-R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
-L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-S:	Maintained
-F:	Documentation/devicetree/bindings/arm/cix.yaml
-F:	arch/arm64/boot/dts/cix/
+Reported-by: James Clark <james.clark@linaro.org>
+Fixes: 5294afdbf45a ("KVM: arm64: Exclude FP ownership from kvm_vcpu_arch")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+Link: https://lore.kernel.org/r/20241216105057.579031-13-tabba@google.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/include/asm/kvm_host.h  |  1 -
+ arch/arm64/kvm/arm.c               |  1 -
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c |  2 --
+ arch/arm64/kvm/hyp/nvhe/pkvm.c     | 27 --------------------
+ arch/arm64/kvm/hyp/nvhe/switch.c   | 52 +++++++++++++++++++++++---------------
+ 5 files changed, 32 insertions(+), 51 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index b84ed3ad91a9eba3a30a6081371f2ec98963de06..6a165ec5d3b74ece3e98e7bf45f3ea94cc30e6ec 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -486,7 +486,6 @@ struct kvm_vcpu_arch {
+ 	/* Values of trap registers for the guest. */
+ 	u64 hcr_el2;
+ 	u64 mdcr_el2;
+-	u64 cptr_el2;
+ 
+ 	/* Values of trap registers for the host before guest entry. */
+ 	u64 mdcr_el2_host;
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index ffdc2c4d07ee83dbeb78b76d93f700f53af35be6..9818cde948ca9c7028220322aea4ff3706542c93 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1309,7 +1309,6 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+ 	}
+ 
+ 	vcpu_reset_hcr(vcpu);
+-	vcpu->arch.cptr_el2 = kvm_get_reset_cptr_el2(vcpu);
+ 
+ 	/*
+ 	 * Handle the "start in power-off" case.
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 2385fd03ed87c6c0450a1c2dbe830e95ce235ecc..67cc07283e642ab07e1c98c5745e2c6a2dd4f36e 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -36,7 +36,6 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 
+ 	hyp_vcpu->vcpu.arch.hcr_el2	= host_vcpu->arch.hcr_el2;
+ 	hyp_vcpu->vcpu.arch.mdcr_el2	= host_vcpu->arch.mdcr_el2;
+-	hyp_vcpu->vcpu.arch.cptr_el2	= host_vcpu->arch.cptr_el2;
+ 
+ 	hyp_vcpu->vcpu.arch.iflags	= host_vcpu->arch.iflags;
+ 	hyp_vcpu->vcpu.arch.fp_state	= host_vcpu->arch.fp_state;
+@@ -59,7 +58,6 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	host_vcpu->arch.ctxt		= hyp_vcpu->vcpu.arch.ctxt;
+ 
+ 	host_vcpu->arch.hcr_el2		= hyp_vcpu->vcpu.arch.hcr_el2;
+-	host_vcpu->arch.cptr_el2	= hyp_vcpu->vcpu.arch.cptr_el2;
+ 
+ 	host_vcpu->arch.fault		= hyp_vcpu->vcpu.arch.fault;
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 8033ef353a5da406dba355ab73854dfa39e93c27..9e7612343ad66d3dc13b8ee858a4e61e917901c9 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -26,8 +26,6 @@ static void pvm_init_traps_aa64pfr0(struct kvm_vcpu *vcpu)
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR0_EL1);
+ 	u64 hcr_set = HCR_RW;
+ 	u64 hcr_clear = 0;
+-	u64 cptr_set = 0;
+-	u64 cptr_clear = 0;
+ 
+ 	/* Protected KVM does not support AArch32 guests. */
+ 	BUILD_BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0),
+@@ -57,21 +55,10 @@ static void pvm_init_traps_aa64pfr0(struct kvm_vcpu *vcpu)
+ 	/* Trap AMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AMU), feature_ids)) {
+ 		hcr_clear |= HCR_AMVOFFEN;
+-		cptr_set |= CPTR_EL2_TAM;
+-	}
+-
+-	/* Trap SVE */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_clear |= CPACR_EL1_ZEN_EL0EN | CPACR_EL1_ZEN_EL1EN;
+-		else
+-			cptr_set |= CPTR_EL2_TZ;
+ 	}
+ 
+ 	vcpu->arch.hcr_el2 |= hcr_set;
+ 	vcpu->arch.hcr_el2 &= ~hcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+-	vcpu->arch.cptr_el2 &= ~cptr_clear;
+ }
+ 
+ /*
+@@ -101,7 +88,6 @@ static void pvm_init_traps_aa64dfr0(struct kvm_vcpu *vcpu)
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64DFR0_EL1);
+ 	u64 mdcr_set = 0;
+ 	u64 mdcr_clear = 0;
+-	u64 cptr_set = 0;
+ 
+ 	/* Trap/constrain PMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), feature_ids)) {
+@@ -128,17 +114,8 @@ static void pvm_init_traps_aa64dfr0(struct kvm_vcpu *vcpu)
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceFilt), feature_ids))
+ 		mdcr_set |= MDCR_EL2_TTRF;
+ 
+-	/* Trap Trace */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceVer), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_set |= CPACR_EL1_TTA;
+-		else
+-			cptr_set |= CPTR_EL2_TTA;
+-	}
+-
+ 	vcpu->arch.mdcr_el2 |= mdcr_set;
+ 	vcpu->arch.mdcr_el2 &= ~mdcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+ }
+ 
+ /*
+@@ -189,10 +166,6 @@ static void pvm_init_trap_regs(struct kvm_vcpu *vcpu)
+ 	/* Clear res0 and set res1 bits to trap potential new features. */
+ 	vcpu->arch.hcr_el2 &= ~(HCR_RES0);
+ 	vcpu->arch.mdcr_el2 &= ~(MDCR_EL2_RES0);
+-	if (!has_hvhe()) {
+-		vcpu->arch.cptr_el2 |= CPTR_NVHE_EL2_RES1;
+-		vcpu->arch.cptr_el2 &= ~(CPTR_NVHE_EL2_RES0);
+-	}
+ }
+ 
+ /*
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index c353a06ee7e6d624b41997021379b7b4cf77453d..1026be1964d9664b8b6de19e048aba91ee6463b0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -36,34 +36,46 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+ 
+ extern void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
+ 
+-static void __activate_traps(struct kvm_vcpu *vcpu)
++static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+ {
+-	u64 val;
++	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+ 
+-	___activate_traps(vcpu);
+-	__activate_traps_common(vcpu);
++	if (has_hvhe()) {
++		val |= CPACR_ELx_TTA;
+ 
+-	val = vcpu->arch.cptr_el2;
+-	val |= CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+-	val |= has_hvhe() ? CPACR_EL1_TTA : CPTR_EL2_TTA;
+-	if (cpus_have_final_cap(ARM64_SME)) {
+-		if (has_hvhe())
+-			val &= ~(CPACR_EL1_SMEN_EL1EN | CPACR_EL1_SMEN_EL0EN);
+-		else
+-			val |= CPTR_EL2_TSM;
+-	}
++		if (guest_owns_fp_regs(vcpu)) {
++			val |= CPACR_ELx_FPEN;
++			if (vcpu_has_sve(vcpu))
++				val |= CPACR_ELx_ZEN;
++		}
++	} else {
++		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
+ 
+-	if (!guest_owns_fp_regs(vcpu)) {
+-		if (has_hvhe())
+-			val &= ~(CPACR_EL1_FPEN_EL0EN | CPACR_EL1_FPEN_EL1EN |
+-				 CPACR_EL1_ZEN_EL0EN | CPACR_EL1_ZEN_EL1EN);
+-		else
+-			val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
++		/*
++		 * Always trap SME since it's not supported in KVM.
++		 * TSM is RES1 if SME isn't implemented.
++		 */
++		val |= CPTR_EL2_TSM;
+ 
+-		__activate_traps_fpsimd32(vcpu);
++		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs(vcpu))
++			val |= CPTR_EL2_TZ;
++
++		if (!guest_owns_fp_regs(vcpu))
++			val |= CPTR_EL2_TFP;
+ 	}
+ 
++	if (!guest_owns_fp_regs(vcpu))
++		__activate_traps_fpsimd32(vcpu);
++
+ 	kvm_write_cptr_el2(val);
++}
++
++static void __activate_traps(struct kvm_vcpu *vcpu)
++{
++	___activate_traps(vcpu);
++	__activate_traps_common(vcpu);
++	__activate_cptr_traps(vcpu);
++
+ 	write_sysreg(__this_cpu_read(kvm_hyp_vector), vbar_el2);
+ 
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
 
 -- 
+2.39.5
 
-Best regards,
-Peter
 
