@@ -4,112 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26091C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 10:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E98C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 10:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4k06jUYDMqKxGVP7wovx5h5JsVcIo+gSmbwAwSo1yGQ=; b=PseKV2hdOt6NAbVPcMbdIkvvmn
-	sTun3Qtry+PzFpxsGeDI9+TXcHVhsAZA24gGw7/lVdksgesp/9K/gANOw4dMS3OtEDW1jrsnzIZc9
-	avBlxtB2/aEOP/APEb4B16OlsPl6iEBcl9G/WFy+FAbv7ACOVyHAhwHMgEmnznE7r+gpIv1NiMMhv
-	Qv/Zgnwo6yNYI4HHCH/oQpTH53wxe1hGzKuAfldFeIrIRw8ra8sL7yZu80h8CLIWRnf3cKUvlhcpo
-	w7zpa7XexnHSNlZ4/JU3PIfmcKxJt1odQeIN2VYcnqusNt9JzCJRK2GNpgUEY7PlVcAjf9fO5Nm85
-	tsvAoxsw==;
+	bh=YkMRAD9WlCYn1xOedFDEZ4kBwzZAibmza3SX4Cxq/dQ=; b=ts9HtszOJuxpC2NelKVKnAicOC
+	DbiSUxbSHAtBjWZG31SBZB2EnEOmk9A/g8yBFzVWDz/IRvHuY079u1nS/m5sffWafFzioTsD+ioqS
+	ovJCObMER4hfwYDgY+4xOED3c4cJXRUza3gRcdi8D6WEas8ZWOFYSQolmP8CA2Bk7BmorFEsr9evk
+	ddaoUHNu9IxWNdoPqZklnZrU0EpO4svh64V06DF1fPBZc2dfGknd+Nek5+w16W27PCvEX7NK1w9ry
+	WzpV5ez2JsKvc5DC09409NDjHuf7nIOSnUVZoLScWxTknl7WpNRUsmIkL/N8+JmjXj8kb6ckftUmI
+	veNsHJRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvw56-0000000HFre-2pu4;
-	Sat, 22 Mar 2025 10:27:56 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1tvwLq-0000000HI3F-1yWm;
+	Sat, 22 Mar 2025 10:45:14 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvw3P-0000000HFkm-00pi
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Mar 2025 10:26:12 +0000
-Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
-	by mailfout.stl.internal (Postfix) with ESMTP id 4987B11400E9;
-	Sat, 22 Mar 2025 06:26:07 -0400 (EDT)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-12.internal (MEProxy); Sat, 22 Mar 2025 06:26:07 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1742639167; x=1742725567; bh=4k06jUYDMqKxGVP7wovx5h5JsVcIo+gS
-	mbwAwSo1yGQ=; b=t9hjJIaZzhAb1sTydGWTipJLOFWuRXeGvTCZiY2Wa0w1ZXxJ
-	2OqUcciKnI3eTrGrgOL5sC9mRUqToBcEz0aL+MvPfmgB2clmjg30512g4/0xEB0m
-	51NctuA8mSeDUrZ0dTA+O45AA4r0YZcAwfsBKCj2rjRK1oaOzy0bfBzlzRr+++3P
-	2v7AKCcGv4z9xJMql/YZnb0Sg+4bkZ94/x5Tm5f+ClqbgfoDnPs9ZqHD3Ve86Iyg
-	YcHSrKEeZR0cbsbJa6w2KgTr+tyZDUXngdSVbsKFOA9VDo2fx4wBfQrvJbTOM/ZW
-	csBo2UGafDBgICynM/T1ek+kT+uKjDqe2ZUz5Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742639167; x=
-	1742725567; bh=4k06jUYDMqKxGVP7wovx5h5JsVcIo+gSmbwAwSo1yGQ=; b=J
-	MLYl9t785lSpiAA96/nVBW2560PquizTiJ8pqPArqrjCo5bfyzZsgcSX7m7FhXgo
-	UEyyVerugktrDSXSfMsnXR1sHurc8xTNkpn2LLeUSXOH34G7bmMst8v02xjRgRVe
-	x5BhmSoNOp/u8lD1RtDI0h51OmI4VJz07qc3lqCtJFX/ewfPnOHZeV73janzWkOx
-	wiASxedcsjhz5kpIrUKwqCsCyFjdp/SvFq7/dKAV553eJVrN3u7NslgR+MODdryJ
-	JKy5xXjfxuQky4qRXFjG811q15NT21+aOQxaWe5R+BMOhejXB5eFjsvTaP8u1ju7
-	w9OSTz4zInZa/kC3/y1bw==
-X-ME-Sender: <xms:PJDeZwKamvFvitc_8b5-ILgAsDhJJiMw033QL0nZjP-XvdB4NVg6YA>
-    <xme:PJDeZwJ7_8KViu88SX8MC-SW6OotvS7WWjPT_6w22WJn8PungaSOp7Dx9QQbaScb8
-    8yHPw6kMensShK46yM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduheefjedvucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
-    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
-    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
-    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
-    rhgtphhtthhopedugedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghhrhhish
-    htohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehmphgvsegv
-    lhhlvghrmhgrnhdrihgurdgruhdprhgtphhtthhopehnphhighhgihhnsehgmhgrihhlrd
-    gtohhmpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtoheprghnughi
-    rdhshhihthhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnrghvvggvnheskhgvrh
-    hnvghlrdhorhhgpdhrtghpthhtohepmhgrugguhieslhhinhhugidrihgsmhdrtghomhdp
-    rhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrg
-    guvggrugdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdgu
-    vghv
-X-ME-Proxy: <xmx:PJDeZwuEg6hGGEK5PHiAyO3GZtowY5eCwDah_bCuezcT5Y8pwbI5-Q>
-    <xmx:PJDeZ9aGqHFd2wNx5nns2BEm6odzvnQ3MmBCHCfeEJg_Msy_RGfI6A>
-    <xmx:PJDeZ3ZxcestJZdFEPmdTTneC5DR54PktFNkZZdl-FuF2zCBFrwWTw>
-    <xmx:PJDeZ5Dv65gsmURvHnm_NCS9k_iSaGuGAV5cWMCRz796Qm7cCnzlQw>
-    <xmx:P5DeZzqXt91aNcgVvxTn0rV8KereEgd4qWw4JYKeoXGGKsd4V-Iif9Ep>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A70FFBA006F; Sat, 22 Mar 2025 06:26:04 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tvwKA-0000000HHvX-19C9;
+	Sat, 22 Mar 2025 10:43:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1742640191; x=1743244991; i=markus.elfring@web.de;
+	bh=YkMRAD9WlCYn1xOedFDEZ4kBwzZAibmza3SX4Cxq/dQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=pe6nHEN443O7V290nCMNqYFbUgzsFFTjoyl3Wvqbwnzf4w+p6zpK7BS8UhSmffsL
+	 ytu6vkmtKI46ys4CuejZ8O3NfzlnfpkzXq21WjmgnkvTppBZFi/Da182mZOKCP+yD
+	 SJo5LedQ2w0i/cE3gqelDZd2z3Fv4qx34jI2pszdZFuXj5/2OgslotItEXzN+DUwm
+	 zlTv2mq6Uk12nFst4Sj9/YVT5g2RPJomoDfzDsKlmziZQVJ5zTK6ivkp34kD5k9hz
+	 TZg72zAZyTG2ECGn5aova03xZ/QOahFG2QVTpvoAg9YZltklVN7J0361U5pXU2ESx
+	 nMC71wFJIWlof2J5eA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.73]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MqqTb-1tRIWF3nrl-00cVNO; Sat, 22
+ Mar 2025 11:43:10 +0100
+Message-ID: <68543b3c-2004-43e8-999c-a6579b6aeb23@web.de>
+Date: Sat, 22 Mar 2025 11:43:09 +0100
 MIME-Version: 1.0
-X-ThreadId: T4cec72d9951ea634
-Date: Sat, 22 Mar 2025 11:25:44 +0100
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Andi Shyti" <andi.shyti@kernel.org>
-Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Naveen N Rao" <naveen@kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, "Hector Martin" <marcan@marcan.st>
-Message-Id: <3a849f4d-2cea-458a-9045-b2ae98d4293d@app.fastmail.com>
-In-Reply-To: <mp77oombs4xgr6sjj44ne7muybfrwejgehzv5xupeanh6udui3@ymgfesctindh>
-References: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
- <20250222-pasemi-fixes-v1-2-d7ea33d50c5e@svenpeter.dev>
- <mp77oombs4xgr6sjj44ne7muybfrwejgehzv5xupeanh6udui3@ymgfesctindh>
-Subject: Re: [PATCH 2/4] i2c: pasemi: Improve error recovery
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: wifi: mt76: mt7996: prevent uninit return in
+ mt7996_mac_sta_add_links
+To: Johannes Berg <johannes@sipsolutions.net>, Qasim Ijaz
+ <qasdev00@gmail.com>, linux-wireless@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Bo Jiao <bo.jiao@mediatek.com>, Dan Carpenter <dan.carpenter@linaro.org>,
+ Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Peter Chiu <chui-hao.chiu@mediatek.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>
+References: <20250320201914.48159-1-qasdev00@gmail.com>
+ <061ebbe3-557b-46d7-acb8-308ae87105dd@web.de>
+ <631977c57b2236edfefb8db7a28885ff6888c823.camel@sipsolutions.net>
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <631977c57b2236edfefb8db7a28885ff6888c823.camel@sipsolutions.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:UOKGF5y3H0aWty2Ge0EpsSI/+m+zx9k401Kz+ZPa+Cty5ktLW31
+ aihaZWCSZQ8UUJgs2fdMpbXv4M4sIsk5Bxl7nEJPGy2WBVUKBFYy8wi7tWGf1oEjpgsZixk
+ /zt7z4uFGe47bHkQS5dpSgKfXmZtmxhcfnfQudPNSGBUUn7ZG5GyaLLRocR95xZtOmtgqLQ
+ zBz2rpg5XWYDmenTzovSw==
+UI-OutboundReport: notjunk:1;M01:P0:Ds9ibI0GWBM=;KJP8Mkrg79VhvVfIdkUcJpe2zWw
+ P4FSt08PPWUj2iQAHDT2ruL4CnVguLWR/EwQmh5ySL8KLQV8wvvPPVc3Pg5XjgT6UfndggAIt
+ crBf/FF+ra359BEX3+RFfoAmwLY1bsSWK8LtYzcC4Xo8nSJmfoT8YGG0va8RVeCZXPTfZ1JyE
+ fo77rKDX/dwZquTpr5HkJvexItJty5X70gKOOej1U+/DHlFGWoScPyE+TC4xld/8+MsnmX/+C
+ fS9MYGnhSt3p2xDG0Q3IavWIFDjOvFVv8IMug8R1gjEzHoovQXGk9iiukvMi4NhPN3zPbE+Rp
+ jjSZCA5ECkkD8ZCHKS+0BgfdrrAjCvewf0Ewxw5S074ft/P6hQJweWl+z14Jl1ZpECe95hHNh
+ RuU1q67X5ijvKU22JtCBh7Zpu8sbOmqCQiCGJlAk9lkYdjEZKFwUcaTmJJ0C2XvScqn1h6OAA
+ czaWdhbakIwsDa90vnrdYhoS5di/DlGlDmb+DLfFn+toh9+XRuiF/ku5Y1HOSudYPso7Mn5Vo
+ RHKLkqF5B3cV5IGJZvP/dQdeabUJilc10MCeVWUwIxG92W7Ldbf8YF7QleC1sySfx0Gt/P+BF
+ 46vrloA2HHBuW/3tv0uYPFHEawnA59KCxdzO3Uhg9nlciIzKRmeC1+a0M6I/8zBvCMKuS7oh2
+ U0+f9TuhXbB6EWYZ4dqtoDFiu26hxSHHR2kyYd80zi744upWndXlH6OqBthdIwIZCSXaHD6dF
+ XsHbKPrlOrFtNCwRIx7QJuaWp8gF/j/D3gpS5HvdbFQuE6hspgsN8b61VVNgtL7oordRAnBnG
+ y0WzoBoywS1+WF67aj9zp30yldJg9IGz1AmE+LS1/4n/xQpIHHcjdsWFrPWsEETZlnJ11j9xX
+ v8G2Ix86kmrXvondv5Y9wXIyAj9PfYWcsi8Wys/fM4K69DcKqrEvYaEOdeA857urm7Pzf6V8B
+ J1OOe4YBOuAeRU0qVeNOVK/bWGj1I/iWqCO3L1O3ITV4wCU25pnC04nHFmFlHPAqqecKpdDij
+ yxhzYnGs548fLEEN6yf94h2DwlgcOIgFZWpEo0V+Ul3U0GCztOCIZIAyVRecOTT72DB5BKpxc
+ N0FJtx2mwxxI83c4hPAYNJ2PWCRmcEB0Pgi/HJ/BPlF8oH++LwF+JnF4SsnM8M3fHhWS9neF2
+ RGz1jn5avDfjjineWyQKkpHiU8eE9QHFe+EfiQsM0uRH7g9CyN89bsp+U3M7l42H1VH0MwDDO
+ YeS+2yh+Fx/GxiU8meTZYKpNXVTkjJMO5VJVuUYzrlw8MMIB8EXAJrSdVcYkJ4g9QD/CjtRlB
+ FONI1G0+X+O/lwgsREGWmEesogl5yX1XtrB0I6MKB4J38f62JTBpoqX3pRd+BU20oBd1jmuzq
+ Ysv+X7Na/mNoWxfoBBrLJLZZ9n849354WbPMd/JpqdAf/O3Xa1hdYwGlHrq0itSbb6P0a79hX
+ QuI+5Trhw9lfwEUS6aej6VmRaj53xRJfUD9pXjzpQQ0fj2DCt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_032611_383447_36209F60 
-X-CRM114-Status: GOOD (  25.25  )
+X-CRM114-CacheID: sfid-20250322_034330_628188_356F681D 
+X-CRM114-Status: UNSURE (   5.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,136 +112,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi,
+>> I suggest to avoid such repeated error code assignments.
+>> Can an additional label be applied instead for this purpose?
+>
+> Please stop your "suggestions" on this list. None have really been
+> helpful.
+It seems that you care less then for the avoidance of duplicate source cod=
+e
+also for affected error/exception handling.
 
-Thanks for the review! Will send a v2 after -rc1 is out.
-
-On Thu, Mar 20, 2025, at 01:17, Andi Shyti wrote:
-> Hi Sven,
->
-> On Sat, Feb 22, 2025 at 01:38:34PM +0000, Sven Peter via B4 Relay wrote:
->> The hardware (supposedly) has a 25ms timeout for clock stretching
->> and the driver uses 100ms which should be plenty.
->
-> Can we add this lines as a comment to the define you are adding?
-
-Sure.
-
->
->> The error
->> reocvery itself is however lacking.
->
-> ...
->
->> -static void pasemi_smb_clear(struct pasemi_smbus *smbus)
->> +static int pasemi_smb_clear(struct pasemi_smbus *smbus)
->>  {
->>  	unsigned int status;
->> +	int timeout = TRANSFER_TIMEOUT_MS;
->>  
->>  	status = reg_read(smbus, REG_SMSTA);
->> +
->> +	/* First wait for the bus to go idle */
->> +	while ((status & (SMSTA_XIP | SMSTA_JAM)) && timeout--) {
->> +		msleep(1);
->
-> Please, use usleep_range for 1 millisecond timeout.
-
-Ack.
-
->
->> +		status = reg_read(smbus, REG_SMSTA);
->> +	}
->
-> You could use here readx_poll_timeout() here.
-
-Yup, that should work.
-
->
->> +
->> +	if (timeout < 0) {
->> +		dev_warn(smbus->dev, "Bus is still stuck (status 0x%08x)\n", status);
->
-> if it's an error, please use an error.
-
-Ack.
-
->
->> +		return -EIO;
->> +	}
->> +
->> +	/* If any badness happened or there is data in the FIFOs, reset the FIFOs */
->> +	if ((status & (SMSTA_MRNE | SMSTA_JMD | SMSTA_MTO | SMSTA_TOM | SMSTA_MTN | SMSTA_MTA)) ||
->> +		!(status & SMSTA_MTE))
->
-> Please, fixe the alignment here.
-
-Ok.
-
->
->> +		pasemi_reset(smbus);
->> +
->> +	/* Clear the flags */
->>  	reg_write(smbus, REG_SMSTA, status);
->> +
->> +	return 0;
->>  }
->>  
->>  static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
->>  {
->> -	int timeout = 100;
->> +	int timeout = TRANSFER_TIMEOUT_MS;
->>  	unsigned int status;
->>  
->>  	if (smbus->use_irq) {
->>  		reinit_completion(&smbus->irq_completion);
->> -		reg_write(smbus, REG_IMASK, SMSTA_XEN | SMSTA_MTN);
->> -		wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(100));
->> +		/* XEN should be set when a transaction terminates, whether due to error or not */
->> +		reg_write(smbus, REG_IMASK, SMSTA_XEN);
->> +		wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(timeout));
->
-> what happens if the timeout expires?
-
-I think that can only happen if the hardware is seriously broken because
-it's always supposed to set XEN. I'll make sure to catch that case in v2
-though and print a separate error message similar to how the polling case
-below is taken care of right now.
-
->
->>  		reg_write(smbus, REG_IMASK, 0);
->>  		status = reg_read(smbus, REG_SMSTA);
->>  	} else {
->
-> ...
->
->>  	struct pasemi_smbus *smbus = adapter->algo_data;
->>  	int ret, i;
->>  
->> -	pasemi_smb_clear(smbus);
->> +	if (pasemi_smb_clear(smbus))
->> +		return -EIO;
->
-> Can we use
->
-> 	ret = ...
-> 	if (ret)
-> 		return ret;
->
-> This way we return whatever comes from pasemi_smb_clear().
->
->>  
->>  	ret = 0;
->
-> This way we can remove this line, as well.
-
-Sure, will do both for v2.
-
-
-
-Thanks,
-
-
-Sven
-
+Regards,
+Markus
 
