@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8ABC36007
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 18:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB07DC36007
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 18:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WTVoLyGgbdmzjrUE8T6GsZDPitalOn1Yi5lAm2rNLKM=; b=VU7E27Qt0sJiGSjBOSfjYfcrrf
-	EjLFiicAoSheri/5E6hr4eO8DrG2i90jWqaC+tevlvmCJEHfkrF7/DI9ho1Zq4HAEXwru10RAB2Zz
-	m7MzB1eRXG5UfPi/qOHEsDh9Hkhxwl0DMX0jKgABjDDJZRWzcFylk4Ri8ebp7f9GJ1Q8SPDPQU7ai
-	8j1/N2nVNppDE+IpDEkhCnk8Dfamz4z4weGmLVldf/HUqdFwAdGOb7VeraHhATd6U0jLF0xDhZ3DL
-	JmLGpsdAi3XlRw7xvrUYBjA390oycm7yMJEsgRT5jjUO0kBjhPGrCJV6M6Z+sUBK68BsCM9fBo03N
-	Z2cdGxEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AJwyQZqQD7T0LNy/jNqtjEdi05XKrLYNz0P7sIGRcMk=; b=F1uAwMdHEbe3shs8RKojNsZcnl
+	gbgMV6QnR6u9q/aeLg9OlBbaadE35Rg8zswg33z5EQvqH+dUPuMJFiBj29OiA32E1DNYI1j9IW31o
+	znRKSH9EJWEdDxHks6mCwDoXV4+aTKbFczsAus3MD6taHjIpabXtIL5owH+RG+zqAsRhYL2Q+tKt4
+	WTwESVit3QCz+UWRQhUj3nN8VqEgLBMwU0elNQPR0fb6EvLUN3VwzRu8cyyikfiap/GWBaD0KA03F
+	RcOsxgbpAQ0UhRmOoyOK9/LDFho/K3NB1rcaDXEtmrKnmkp4Ip6AlabafODIZIs5i+4M0c5jJOApw
+	hKYzvNUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw3kg-00000000Bij-0BnS;
-	Sat, 22 Mar 2025 18:39:22 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tw3t8-00000000CAC-0zqX;
+	Sat, 22 Mar 2025 18:48:06 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw3iz-00000000BZm-3Y0B;
-	Sat, 22 Mar 2025 18:37:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1742668645; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XyWN7OBjTEt5Kf6pHc3iqCwNHigU0MHqrbUxGIAfWBdarqVjgx8Xrg62yWTAJMvX2fy2PlKU1bqQMaGdR2PzEQZv1OFcPl2ZulEJ4rR/BmukUvxBI3oYOSef+F12hrl/KG7yS7fhZCpcrWOdYLSEkALO2UEym9+e4dMFAsEX9Qg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1742668645; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=WTVoLyGgbdmzjrUE8T6GsZDPitalOn1Yi5lAm2rNLKM=; 
-	b=NGiLLNnXBjvzD/5K9hpWWxGHtM+95jCExdGFmPPZyJUbKLbo67ffGf0M6HfoepEwPHjWcBbBugemU0llRaGEq7+JC2IlwwKNBghor3Tyalav98CoNYuzt5Bwd5fYYArMOufBvZ656cfp+yQ3AEUbCO8ZAxAhzuQ+Nvws4hVnrDo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=adrian.larumbe@collabora.com;
-	dmarc=pass header.from=<adrian.larumbe@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742668645;
-	s=zohomail; d=collabora.com; i=adrian.larumbe@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
-	bh=WTVoLyGgbdmzjrUE8T6GsZDPitalOn1Yi5lAm2rNLKM=;
-	b=P78cOOK3yLrTakfL9AysUuqlYQIRr71SKVn8pAn/olUWqqBmU/Q7hC8WdsF3SPHk
-	QdF230ZqN6rHDjktqqbWFM4+75eyj5Vfq3uQ+SW/h/OjrdwoOesZ8ZHNEMFnCu7uU5u
-	15he9RGEwc1srHlluJffNiOWjoK360kz4VghNPOU=
-Received: by mx.zohomail.com with SMTPS id 1742668644881646.2713412624316;
-	Sat, 22 Mar 2025 11:37:24 -0700 (PDT)
-Date: Sat, 22 Mar 2025 18:37:15 +0000
-From: Adrian Larumbe <adrian.larumbe@collabora.com>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	boris.brezillon@collabora.com, robh@kernel.org, steven.price@arm.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, kernel@collabora.com, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com, angelogioacchino.delregno@collabora.com
-Subject: Re: [PATCH v4 3/6] drm/panfrost: Set HW_FEATURE_AARCH64_MMU feature
- flag on Bifrost models
-Message-ID: <rocdajh3msvq2mesaftg4garbdxl4qn77kxpqhwn4pv2wncc45@x7iejre6y3kb>
-References: <20250317145245.910566-1-ariel.dalessandro@collabora.com>
- <20250317145245.910566-4-ariel.dalessandro@collabora.com>
+	id 1tw3rQ-00000000C1y-3e4X
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Mar 2025 18:46:22 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id EDFABA0B56;
+	Sat, 22 Mar 2025 19:46:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=AJwyQZqQD7T0LNy/jNqt
+	jEdi05XKrLYNz0P7sIGRcMk=; b=a+T+Fgr09LxUJ1fxDW1n68PwmVU3ys2hBi0y
+	1nDhgl0ZOIi9Oip+CEGUgxV2tO1tAAFGpnLCptDS5wm/iABRf/4ig6Occ3VfRElN
+	gCW8X2hrGqLE6KKEJL1Y9ZyLpZvu7sZ6MsJGwGEfKoDKqrJyWMSL1uNoTko3mAuD
+	hpgDKE7XHVqLytxg0mjyW2/Hpqm5JgINDbeJuijIP9F+DaM3ZP0dAbHskkeMZpNy
+	wntY5yJ8aOvKzBitlZMi7yfJgYm481G//ohbbJsAx90VxTaB2YWKntUTzyDiFXMc
+	75Xx2LhpCV8w3/57eqqgVUDa0GvWc3/ucLwZYmk8zYECyd8odunmAgYTB/WnquON
+	X0XXdS8YHXvnU/h5CdM45gvlV649/G4Jfkyt8OYgoxEqHN1JhZWtiVZc0I4/WA7Q
+	EUZYLEuD6SOAkeEgllcVGSLLWJdv0LqYP8MCKVZGcZI7o/XV6bZySK0Jqa/RXdhj
+	K3z/x1sdwTxYldAGaie64gmfIt+5TgVLBeTB05aGAV6ruEpufGL20hIVal+baf2w
+	EgeqWn2O1MLX2om02x6AORQcd/KJu+hB0jYi138yWSEBYw0IjNkw4+WyV9AfG31L
+	Pcdsryu+qP2Gs10+5GvXntguEo9+M4HKCdsB0fe5L6rU0fddknQrQqKe+9EtjrEv
+	O05C9GQ=
+Message-ID: <f0a82f7a-806e-4dde-a870-f5d76df61984@prolan.hu>
+Date: Sat, 22 Mar 2025 19:46:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] dma-engine: sun4i: Use devm functions in probe()
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Chen-Yu Tsai <wens@csie.org>, Vinod Koul <vkoul@kernel.org>, Samuel Holland
+	<samuel@sholland.org>, Markus Elfring <Markus.Elfring@web.de>
+References: <20250311180254.149484-1-csokas.bence@prolan.hu>
+Content-Language: en-US, hu-HU
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <20250311180254.149484-1-csokas.bence@prolan.hu>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250317145245.910566-4-ariel.dalessandro@collabora.com>
+X-Originating-IP: [10.254.253.2]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D948526D7266
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_113737_948673_2CC6693E 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250322_114621_370318_20395057 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +85,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.03.2025 11:52, Ariel D'Alessandro wrote:
-> Set this feature flag on all Mali Bifrost platforms as the MMU supports
-> AARCH64 4K page table format.
->
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-> Reviewed-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Hi all,
 
-Reviewed-by: Adrián Larumbe <adrian.larumbe@collabora.com>
+On 2025. 03. 11. 19:02, Bence Csókás wrote:
+> Clean up error handling by using devm functions
+> and dev_err_probe(). This should make it easier
+> to add new code, as we can eliminate the "goto
+> ladder" in probe().
+> 
+> Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> Acked-by: Chen-Yu Tsai <wens@csie.org>
+> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 
-> ---
->  drivers/gpu/drm/panfrost/panfrost_features.h | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_features.h b/drivers/gpu/drm/panfrost/panfrost_features.h
-> index 7ed0cd3ea2d4c..52f9d69f6db9d 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_features.h
-> +++ b/drivers/gpu/drm/panfrost/panfrost_features.h
-> @@ -54,6 +54,7 @@ enum panfrost_hw_feature {
->  	BIT_ULL(HW_FEATURE_THREAD_GROUP_SPLIT) | \
->  	BIT_ULL(HW_FEATURE_FLUSH_REDUCTION) | \
->  	BIT_ULL(HW_FEATURE_PROTECTED_MODE) | \
-> +	BIT_ULL(HW_FEATURE_AARCH64_MMU) | \
->  	BIT_ULL(HW_FEATURE_COHERENCY_REG))
->
->  #define hw_features_g72 (\
-> @@ -64,6 +65,7 @@ enum panfrost_hw_feature {
->  	BIT_ULL(HW_FEATURE_FLUSH_REDUCTION) | \
->  	BIT_ULL(HW_FEATURE_PROTECTED_MODE) | \
->  	BIT_ULL(HW_FEATURE_PROTECTED_DEBUG_MODE) | \
-> +	BIT_ULL(HW_FEATURE_AARCH64_MMU) | \
->  	BIT_ULL(HW_FEATURE_COHERENCY_REG))
->
->  #define hw_features_g51 hw_features_g72
-> @@ -77,6 +79,7 @@ enum panfrost_hw_feature {
->  	BIT_ULL(HW_FEATURE_PROTECTED_MODE) | \
->  	BIT_ULL(HW_FEATURE_PROTECTED_DEBUG_MODE) | \
->  	BIT_ULL(HW_FEATURE_IDVS_GROUP_SIZE) | \
-> +	BIT_ULL(HW_FEATURE_AARCH64_MMU) | \
->  	BIT_ULL(HW_FEATURE_COHERENCY_REG))
->
->  #define hw_features_g76 (\
-> --
-> 2.47.2
+So, will this be merged for the MW of 6.15? I just looked at the history 
+of this patch, and there haven't been any major changes since v1, which 
+was sent on 8 Dec last year. Despite this, it didn't make it into 6.14, 
+probably because it was forgot amid the MW rush, so now I'm anxious as 
+to whether it will happen again.
 
+Bence
 
-Adrian Larumbe
 
