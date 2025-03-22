@@ -4,97 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C9FC36005
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 14:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9C3C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 15:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KR1XGA5UlrZYB/EE75mcNea8LxdNsuvuyP1JLzY93YI=; b=DymcdfNprE7IG28L4mw8nq4qgJ
-	qdaJOMq+7RC17/hO76ihpNlYZFOwmm7pSYhLd5hu6Us2JNqA7AwtHZRYxOH4xJq7TPfYDj6M4PpU3
-	LCFmk/BLuoT7fsRWMs6VNMgzUQdAYZYiV3RzZ8g+eIwrXXbxT/EMscijylNrRGB7XplNvcZrLweeV
-	d7CPKxavvv0ShipsnXzMcrNiGYaF2w6R5my9ZcYvz/IVb+axcWIXWeiEIlNCZxnpwfGX6I1dDSVmL
-	gZ/eTG6bMGnYbgaWu1/QHYlrCU0/K9gEgNmmrtmoYD8VST6X8+VWnIxg6dTLq0AYZcRhQkNjlT8Jp
-	m+HL3Eig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MDPcWgMNo2FqmuOqa9TlGd/nusehsLtSUTJAhoCLfx8=; b=ZEAq2i3EDNh6eQQQTZqetsCjps
+	4Jvohs1YKJzPARiA2SHDMVYIKNMVzQIJOKadr0uVpexycloVykovtQT86jAq64kj3C5smxq294zx6
+	OCVW1nQNDsvq4JX0CH0Va1ksN7HvkF9T6SUvdxuIbq3089Q4kx03GZ2b2or5un2DGs2ZizSU5/Qdc
+	lzHZVky2lkJlBS2gFEurD86rFsvp2SkRi5osnFUshAeZPyMBeEY2p+FDQpyg6RwD7BypxiZPQuLIe
+	JCFutNLWJ8wLjlQUT6lF67yN3c7tgC0LAUQmPQw43hgHavCrLZpKNe1ZHyvrOCkLumpQF/8amUPt6
+	QjuZvAzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw0I8-0000000HZ61-0s04;
-	Sat, 22 Mar 2025 14:57:40 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1tw0wA-000000001hY-0HIH;
+	Sat, 22 Mar 2025 15:39:02 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw0GQ-0000000HYlC-28Ru;
-	Sat, 22 Mar 2025 14:55:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1742655351; x=1743260151; i=markus.elfring@web.de;
-	bh=KR1XGA5UlrZYB/EE75mcNea8LxdNsuvuyP1JLzY93YI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=V/yAGRGDhlKct8VpACB6OwOKrXpExfRBs1IQg81eh5OKGLSyvTZzGq/Tjmjmm/xc
-	 aSWwUUFw+g+lJxV2SOEaCKL/ee5egi5HRmGkkzfxH8t5MLuO1qhXY7mtzcwvZczs3
-	 kiC1+n3qvhdXykumd1NPIx+7esq4idCz85Dw0PNBXrUuFBHlYIuuqBcRX1Wj2gvrn
-	 aQQ/AiW+hJeyXmXcwHqMZfTZD28SNGVUGL1etrS39k26TxnUkvqJ/MiFL+GDZ5+Mf
-	 Dp/YG+j/wWpSL/q11JgR4ayuNm40iIm7niFBepqv2k1WVnQABRuHTGvoXAN2pNUZJ
-	 /O4bK9eRevpv9iwZJw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.70.73]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1M59nK-1tutnf1ug0-001Qbn; Sat, 22
- Mar 2025 15:55:51 +0100
-Message-ID: <d1df5d97-4691-40d4-a6cc-416505f35164@web.de>
-Date: Sat, 22 Mar 2025 15:55:49 +0100
+	id 1tw0uT-000000001dV-2qg9;
+	Sat, 22 Mar 2025 15:37:18 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ac2c663a3daso601660866b.2;
+        Sat, 22 Mar 2025 08:37:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742657835; x=1743262635; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MDPcWgMNo2FqmuOqa9TlGd/nusehsLtSUTJAhoCLfx8=;
+        b=Rnkglo/djJ/xtV92MYrJEifuiK96jiZdJ3YDZVMXyaeAGyW19YzRC4pfVMozbwKAk5
+         0Ux6rAdHGHva1bJQndctCqUiRa47gLMcgZtzUSKXexJX6par78IckfyjZ2/9InsSg7SS
+         Seh49+H6cWCv/QEySsfdm+qoBsXv3BMsUpUqHEdu1UVEqRjwHEjbaPgn6kuxsjrUvd+D
+         RCsMKrpEzV0XfxiHvG3Tvm0/7ZTNN1gh5eOqIMKZmO5v6guDue8wKD6aDnXuw1XykoLU
+         WAReY3pfGGJjTcuyArRclmoMRDUVlr0Jsl/l4z3by9H0SpN6g7A4ZSKw9UOROPgUgR2Y
+         KU8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742657835; x=1743262635;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MDPcWgMNo2FqmuOqa9TlGd/nusehsLtSUTJAhoCLfx8=;
+        b=uhsTRCy4TIr6z62kS/s2NHcTuL9pC4NEcG4691BPSUvS0zcU414/hPGBdN7sLM/+zC
+         BqTZrC/qPIeuzRj4vGM4N7iYfsl2FGsdFRXV+a8kP1t7AEPlcVHnIgBDpfjGvp/TgVMO
+         wfC3WTqurSBSSiVQtf/6Xg/UVSQBZltjKi7ZdreWvMscM8BgqERh4f0eUBmMbuA4oEpc
+         54TyuYN5sWKfYJFvQr4x/cGr+XdkHq7RaO9NocXU29OLPvWUFdn5boEhNeU9CBxrcuAq
+         mJ2Acsw/FR2Zj/gdAELC2GsRQIEeh0xfUrTYeqhAr6SM3ksOgk9TKKyhAGoDPqIxEXhF
+         ihog==
+X-Forwarded-Encrypted: i=1; AJvYcCW8+59if8W/hoLOURYwJRBtDVPT2GeRaakwUTbMr3HVzxhSyaKd2IAADxrezmVFsCikBmFEtGDWwcbOA7Os0pCRzw==@lists.infradead.org, AJvYcCW9GbKMJlHV1YH0eiBoaSzgLQa53w8q2IVI8M/NpR9cfaWYQsKj5OYKWUHcQ1CV0JLxjyf81Asc8fLiuHOSAYZd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzGMu6G9d1tC4bIQP8UeGm6xzgJn2txlJE5/XjjUtkOEjPyaFX
+	JNTRjKiuqtPh5ZDAtTUCWRMjel45qvnirth1fGm6YfIFaeosJNDC8QCcelMSRo0=
+X-Gm-Gg: ASbGncukXffUpPO2MG6eCZj8812ajXyF3m8XWFVKtvOLTWaZDsV5uIO59ScjSGDsNsJ
+	ucfgry85SMxpbIVls3PA4+P5ubN9+p8k2qQCS7/4J6m+irQadgWew5/dQQCqq1RAhZAxS9FZd/5
+	9V0lAK6xJp7MJxwUrgFCPxbjIOps3A16XYIIxYQT1XVu1kJXmiz8BuXOVtSy2dk92/45fkbkS2a
+	5oIYz/X/EYcEvrqvTda+GE6j5JpPM1OEubcHu9a8Ril0SeoNEs7LMT+Ag7tdXoXY0RHYD/AS9XI
+	YLQ50eLxutuXqNBpu5+NSeSd5ylleMP+sC4UHRK3Kp2jvTULFg==
+X-Google-Smtp-Source: AGHT+IFkSEzUgBZ0q29OnEgwaAmNJN8Y3mUH0OvKhoqlOBRCbzI4wzIkN6km6zh3cBkvJW4Gi+rwRw==
+X-Received: by 2002:a17:907:9403:b0:ac3:154e:1391 with SMTP id a640c23a62f3a-ac3f207f927mr779803966b.10.1742657834898;
+        Sat, 22 Mar 2025 08:37:14 -0700 (PDT)
+Received: from HP-650 ([105.112.226.109])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef8d3cd3sm363834466b.40.2025.03.22.08.37.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 Mar 2025 08:37:14 -0700 (PDT)
+Date: Sat, 22 Mar 2025 16:36:53 +0100
+From: Abraham Samuel Adekunle <abrahamadekunle50@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Julia Lawall <julia.lawall@inria.fr>, outreachy@lists.linux.dev
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	linux-staging@lists.linux.dev, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] staging: bcm2835-camera: Modify function call formatting
+Message-ID: <Z97ZFURPvDcTkjjf@HP-650>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Qasim Ijaz <qasdev00@gmail.com>, linux-wireless@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Bo Jiao <bo.jiao@mediatek.com>, Dan Carpenter <dan.carpenter@linaro.org>,
- Felix Fietkau <nbd@nbd.name>, Johannes Berg <johannes@sipsolutions.net>,
- Lorenzo Bianconi <lorenzo@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Peter Chiu <chui-hao.chiu@mediatek.com>, Ryder Lee <ryder.lee@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>
-References: <20250322141910.4461-1-qasdev00@gmail.com>
-Subject: Re: [PATCH] wifi: mt76: mt7996: avoid potential null deref in
- mt7996_get_et_stats()
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250322141910.4461-1-qasdev00@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:zGgYsMVFMC7gMzLMJMEaOqOzG4KCvD6WdUj5Wr+OkPGAGJatYKZ
- MSyQ3MBAtAciAngF+P2u2paZGglBI3KYJ+Ca7K0VGJCaenqIS9f7Pq7uklBPKxLD1faeh/7
- 3RB8qof/kEEvhVQQ/qetSRlrb1Chy9ljJPPLTtnXRoY5ywmKwgwqgVRKN7zyYDPXGy/lZTy
- LI1yB6/ZhSRvt/TSPSPrA==
-UI-OutboundReport: notjunk:1;M01:P0:6WNxdDY6Ngo=;rgvjXtJMAoHIrEJ2fRmFicKctqo
- nr6njC9l6NX9BsJ/sLJZrR5aB+TGnQsy33Dpy+HDmswmS9/DQ7h/3I7sZTx8LWwQgUBuj53pO
- VzEQeUBFjZREWcp0fJF3QaXVpVHTc4zJ1jNBWN3M4gk1Dav9VekVaBg7GH3gfEIogNUCVdFXm
- jOnhm7OGz7YEAHUSK01/OyQNQoZP/wkXJbWp7KMD98Wuxj1TcP66IiUYBYHUcXGzOBUhTfWpB
- AvN+AKBtg5t6piGCQyJ9M2EZTDo+HAGdi1qOlOUuHLY89NZTOwhSJTWYT1JWqRr7v7QkjZMSs
- dWV3IKlO1yFyIHakpjfySgmxuA6dzICdLpearWp9PcmWYiVdbEN5dfSMVtLzW6Zyr4x6Ls9NV
- B7+ZT3/ehv942+YzTfN0mEIdYeTcEjZhVpAqmkDJ2Kj2NNyf92TgxU+x6VONSP+Uk/sIp/g0v
- NKkCBz/DO4wQjCoSdxt6/jjCD9GCrIsBzcg7KRlcVpS2GHIo21exhqw1cDKyNQatzSe7iZa6y
- CakUlSj0RwPGglZi289WqjrYFMm7bvP7kZ+3cnU7W4TG0cs3TSIIkjzEBpIPKmfq+nCamOOy5
- kCHBi3+NqXEsPpCAnVMSS7qmgKBJtA7CcRUuhvZmhoEYDzCJgL1xSMlcwoHafdb0wJHKLOm0+
- BJ4pydgUfAPzf50FttZozx7KccXgyXpk+1Dv7Fos0hAb861itqtRputaLB0ZdH1hTscJeS49Y
- 5rpL50plO0m1GE8VCu7A6zWH/pPD+slwfU+GP5Vc/hS8j7KB8k8+/s+Iu9RUhygrGEkF4tPje
- oqbtKuk0u3SELsGRzE2w1gxDk9rta3v7gt0iski9TC+ErkGM6yDxl6sKrQ1hHbFGShuxRBOWb
- IO8RlyR6Hoyq7LKLvpQrA8SMtlnryUTabxZwM1LoiVCgciWFfc7mbGwnBXR1fFi27ikAaQfl4
- W8y0p8pekQT4j+Rn93WAl+hDLn4c0TiRBsKwaITXW9yuScr0TX8uDy6PaebH401hwVykxM9Qw
- kbSy50jOBFWLfViZ6/r0o+1ENqKIsBfO/kV3OOLlKuOaTpXnCKfBFWn0/MxaCUYqutxZQU+rG
- c4uExsZKQB2am4TdfOKrowgLP01ergXdIR46T7y7w0JZhwdLHb+b2Rux8LB7f1UppfIWVX76g
- duCUcnJUOV1LsPw3xRYkjbCMdIHVsQszN3wZUSQDSA9NrdpcAyXid+gzgPL/L5ABNSL7B37DL
- rQZ862j/QbZPkHs61XwT/RkeTlwT7ETjmqkHazRYrzYMfrF/jPdEaAGLuZWB0BTD6UzNNH4Zb
- ySHc35e3RhtlDbs7B9pG4AV1olV6yDCJDGCXz615i7YV2a+Zr/wnghstWGMbQ4q2QOf8XgJku
- M4ofFROuDhs/3FhtF6gRsdsv9LkIY/pVFa6W2qxKxbkUQ7DaPYjWsjTV0kZUn4FzdY2YvQXfT
- ETgyk8K8863+6+jtF5E433JlDT0di3gWbk0AwWcsHE7S4PN0l
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_075554_923216_E6A9D23B 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250322_083717_738404_5605C301 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +96,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Ensure phy->mib is only accessed after the null sanity check for phy
-> otherwise the code may trigger a potential null deref.
+The line is a function call which ends with an opening parenthesis
+thereby not adhering to the Linux kernel coding style.
 
-* Would you like to use the term =E2=80=9Cnull pointer dereference=E2=80=
-=9D consistently?
+Modify the function call to include parameters on the same line as
+the opening parenthesis to improve readability and consistency while
+adhering to Linux coding styles.
 
-* Were any known source code analysis tools involved also for
-  this software improvement?
+Reported by checkpatch:
 
+CHECK: Lines should not end with '('
 
-=E2=80=A6
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-=E2=80=A6
-> @@ -1886,6 +1886,8 @@ void mt7996_get_et_stats(struct ieee80211_hw *hw,
->  	if (!phy)
->  		return;
->
-> +	mib =3D &phy->mib;
-> +
->  	mutex_lock(&dev->mt76.mutex);
->
->  	mt7996_mac_update_stats(phy);
+Signed-off-by: Abraham Samuel Adekunle <abrahamadekunle50@gmail.com>
+---
+Changes in v2:
+	- Add more patch recipients.
 
-I suggest to move such an assignment statement directly before the place
-where this variable is used finally.
+ .../vc04_services/bcm2835-camera/controls.c        | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
 
-Regards,
-Markus
+diff --git a/drivers/staging/vc04_services/bcm2835-camera/controls.c b/drivers/staging/vc04_services/bcm2835-camera/controls.c
+index 6bce45925bf1..e670226f1edf 100644
+--- a/drivers/staging/vc04_services/bcm2835-camera/controls.c
++++ b/drivers/staging/vc04_services/bcm2835-camera/controls.c
+@@ -533,17 +533,15 @@ static int ctrl_set_image_effect(struct bcm2835_mmal_dev *dev,
+
+ 		control = &dev->component[COMP_CAMERA]->control;
+
+-		ret = vchiq_mmal_port_parameter_set(
+-				dev->instance, control,
+-				MMAL_PARAMETER_IMAGE_EFFECT_PARAMETERS,
+-				&imagefx, sizeof(imagefx));
++		ret = vchiq_mmal_port_parameter_set(dev->instance, control,
++						    MMAL_PARAMETER_IMAGE_EFFECT_PARAMETERS,
++						    &imagefx, sizeof(imagefx));
+ 		if (ret)
+ 			goto exit;
+
+-		ret = vchiq_mmal_port_parameter_set(
+-				dev->instance, control,
+-				MMAL_PARAMETER_COLOUR_EFFECT,
+-				&dev->colourfx, sizeof(dev->colourfx));
++		ret = vchiq_mmal_port_parameter_set(dev->instance, control,
++						    MMAL_PARAMETER_COLOUR_EFFECT,
++						    &dev->colourfx, sizeof(dev->colourfx));
+ 	}
+
+ exit:
+--
+2.34.1
+
 
