@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3F8C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 11:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B34C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 11:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UTGUGbQUE2yBy6fNmytOVRCkloT3VUILyaQFDzsliS0=; b=hhyPeml+kqVOZF95RtgtH7qBZj
-	OaqZvWmhZFPnT7T7dJXVbc8e7LSW3t0pNKead3dZFLoGBt4DrlRpzOpuEl6psyEwe2oM3uSeJTvnO
-	YKpib/bioz6x8VB1uvYls0ygee+yyiu5fR6Nns5kds7iQaXNJ7/SfKZ5Uw9xevljbX/RTPl7o59cI
-	q/mQBzO4kFGUhPIUQf6m1SYZt+BI0OJotdSEW5xBcRs6yY/BmiVUaJ4VyRbztX1tbfwQsELgbwmiE
-	isFwJCG+/aEyPwTp+dXOcIm6KUKR7URCkrkp4DmH9D0sx/RVAfr+0m48O5bzN36G5ofRNQ46Qlqb4
-	gDqVcXDA==;
+	bh=R/38SpXX+t/RyNGR7UIeutSrg3vd9sf/spj62Z5/lVQ=; b=Vi2AKapDC4b+b1SIugqsP2G5cv
+	e27ot2lZvjJ16f9+lEFoEZTtEnqhxo8F8moFNf0JW5XyrKaRsEuzPAO5zqcCdLURTR7rxVWTEI/k3
+	49Bp1F6ofJZTdUmK5wuCztvPoVXmL7suiEwWBZc8+jR9OD1R9qRoWwk95TL98rZ/HZViEMugO8945
+	zPN8YBbPaJY/0cMz8b2FXM05yZ967aUGYyuLivfWy5M0iRdxa7U84n4CfrsEkFZVILfVQJvVWk0eP
+	st5hYwj4y3oWvapRGTucdH1Kz2MMO1Hox7bZNbUx5uSUPnDAVUMPCuteq0l+NMKyFmFYCG9qDYuF4
+	WMUgS+Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvxLW-0000000HM2e-1BN9;
-	Sat, 22 Mar 2025 11:48:58 +0000
-Received: from out-72.smtpout.orange.fr ([193.252.22.72] helo=out.smtpout.orange.fr)
+	id 1tvxQI-0000000HMLD-1260;
+	Sat, 22 Mar 2025 11:53:54 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvxJq-0000000HLti-0vFG
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Mar 2025 11:47:16 +0000
-Received: from [172.16.82.72] ([124.33.176.97])
-	by smtp.orange.fr with ESMTPA
-	id vxJVt69rhpih5vxJZtV7CB; Sat, 22 Mar 2025 12:47:05 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1742644026;
-	bh=UTGUGbQUE2yBy6fNmytOVRCkloT3VUILyaQFDzsliS0=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=TOvo37+NuAbEYBETmhToZGFCO3XSA5A1TrbT/NKcYuQv0poRsQ5d7DFMcFpNEvptu
-	 3LL0OJhePxXiuXBgCAq6ScWL0H6AYnx2YCTTtueGLcwm1YT1Nv9om3ykr+qlV8qKBv
-	 t3aIsgQnpWbcyCI5DAJu4u/Q4X/3CEhDjyg0+aHS7opuCUb2WVNvDbhYiSoyf35X4p
-	 VVuWK0ILd6Ftj1bXvaaLNXWhWOubtzjBnkGf7ULseUgH8rV/J1CfHOwvTYcGAmu7pT
-	 liTnqE7rhR4C2PE4UICzKxE1RQPABxi1Oqvg31DicrVppqpBX7o0h+zCM7o0oYuGar
-	 Wmpz5nqaTnLeA==
-X-ME-Helo: [172.16.82.72]
-X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
-X-ME-Date: Sat, 22 Mar 2025 12:47:06 +0100
-X-ME-IP: 124.33.176.97
-Message-ID: <5d2af209-46bd-4a40-b82f-7772ed0b825d@wanadoo.fr>
-Date: Sat, 22 Mar 2025 20:46:52 +0900
+	id 1tvxOc-0000000HMGe-2AX1;
+	Sat, 22 Mar 2025 11:52:11 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6feaa0319d8so21259537b3.2;
+        Sat, 22 Mar 2025 04:52:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742644329; x=1743249129; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R/38SpXX+t/RyNGR7UIeutSrg3vd9sf/spj62Z5/lVQ=;
+        b=Mdb2m5yP1OKjajWnxKGlKoaTenMWU/3tvBA21BXGyAZ5UnbO7b4itzGusbFk8e3DbS
+         e/rW722TR2Q+1Uv99VexcEWi9NOcyBD/YW4yFBsH0KFUB0euA1ccucx429Y+ANQtFx83
+         s8VQtlGm6n0gUKWEiks7hnOG3fprKdzcmUeFnOKmSfx0dp+ZNPDx8+GWamuUNam4BhGF
+         jCk7H9ZEvMUbVVOdIQlzRAqjaE6EkvGIqTI+193uiK3HLIf4tCyUuxGKmfBbCcmMgAN1
+         sZmPWYvNpjolmRrvt/K8whQseCfP13EpIlT0XnqhCG+H7hSAbLGd9mNJd6Tms9qIEZCw
+         G6NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742644329; x=1743249129;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=R/38SpXX+t/RyNGR7UIeutSrg3vd9sf/spj62Z5/lVQ=;
+        b=kzmb/kzCk/NU5uvaV6bmz3CaQZKhdq+ATXBm3HNA8p3NX1DRpxtO2U8ovd3AyPn7/L
+         KEPQxSMqTq57pI4fRSh9fiVll37ghtKnwnt9BA3et1gnrCQ9U/k+QVdGg6tt3InbqkWF
+         RhPQGvSMm8Ze5c0WSxptUGbynU7aTerGNGp63FDhoYKEhjZrfhi8ldF5j9y/v+oWlPJP
+         qSBir5A/rviPgQ9/9Ej7erC9rx/J9d/Ev4Z6++9e1jWMoyVX/foTBYsgpWyzXWfkWW6T
+         RomBm7FooNfciIw/uRLhllsEfPGRLZsn1PM0Kx6BzZcfYBO+kcEoIL/g/uFGbOPoftP9
+         38XQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVMGzjyQzWN7EpzYwox3/PqwQFQE6KVmHuh6qkMbBYkWN/Sih99FcWWbOrBnk8AAXzv7u8+1uWKIAmitqNvtdk=@lists.infradead.org, AJvYcCVoIKoVRnPUZt0ZuAN6JKdPZDlLYFhdTooJfX9R1ER77fZG1JC6mOcWjmu2dLSgi41nhsMHz29kqkbqaTcEG3e3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXsZzSCbBKvqcBnARO7XbP3HAcN9j71VIlfRCWSpp28mUeusYw
+	xrmIp81RflONFMFqkbgpd0pNjO5tFYtILcsonZkBX5kanolhaoWK2K3VAiSDHD2iPej7vEfd6A6
+	BL5s1NgK/3Epi9u1AhyEtw1zUK4g=
+X-Gm-Gg: ASbGncvcFWMufLxlQt5KkWnRIJY2U59kqnJKQMUdmLu/Imw6bWbTvSfbsVd9458bQvj
+	4FfwzHiXo+yUcJf+HFdeW+pfYY5W0Ia5phd2Tcfin2shOLDbm9lOjon4UmnNeRPl9Z369h/Ceht
+	xUZAIUNqsx0I4zrMzCO7/FQkpu
+X-Google-Smtp-Source: AGHT+IHEIH+TD7S8LIB0pgaC3Heq4ilCGl8dSsQ4Y2jB1WCnC9MH4oZaTqBRO+rXtE+U3iicvoBJ0yr1yUCPg/w5PwU=
+X-Received: by 2002:a05:6902:2845:b0:e60:5d76:f79d with SMTP id
+ 3f1490d57ef6-e66a4fd7596mr8057025276.43.1742644328776; Sat, 22 Mar 2025
+ 04:52:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/8] bits: introduce fixed-type genmasks
-To: Yury Norov <yury.norov@gmail.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Lucas De Marchi <lucas.demarchi@intel.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrew Morton <akpm@linux-foundation.org>,
- linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, Andi Shyti <andi.shyti@linux.intel.com>,
- David Laight <David.Laight@aculab.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jani Nikula <jani.nikula@intel.com>
-References: <20250305-fixed-type-genmasks-v4-0-1873dcdf6723@wanadoo.fr>
- <20250305-fixed-type-genmasks-v4-3-1873dcdf6723@wanadoo.fr>
- <Z8hsRJvpjYoqh9RG@thinkpad> <Z9oiEkQEcHhA0a80@thinkpad>
- <5cbaefa8-e51f-415f-a9b3-4841e69bb3fa@arm.com>
- <1aba17f1-0cd2-429c-8338-28387ec16314@arm.com> <Z92cThxAyXu9JJdk@thinkpad>
-Content-Language: en-US
-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Autocrypt: addr=mailhol.vincent@wanadoo.fr; keydata=
- xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
- LFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+wrIEExYKAFoC
- GwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQTtj3AFdOZ/IOV06OKrX+uI
- bbuZwgUCZx41XhgYaGtwczovL2tleXMub3BlbnBncC5vcmcACgkQq1/riG27mcIYiwEAkgKK
- BJ+ANKwhTAAvL1XeApQ+2NNNEwFWzipVAGvTRigA+wUeyB3UQwZrwb7jsQuBXxhk3lL45HF5
- 8+y4bQCUCqYGzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrbYZzu0JG5w8gxE6EtQe6LmxKMqP6E
- yR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDldOjiq1/riG27mcIFAmceMvMCGwwF
- CQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8VzsZwr/S44HCzcz5+jkxnVVQ5LZ4B
- ANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
-In-Reply-To: <Z92cThxAyXu9JJdk@thinkpad>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250320201914.48159-1-qasdev00@gmail.com>
+In-Reply-To: <20250320201914.48159-1-qasdev00@gmail.com>
+From: Jonas Gorski <jonas.gorski@gmail.com>
+Date: Sat, 22 Mar 2025 12:51:57 +0100
+X-Gm-Features: AQ5f1JoRh53ceEml7E4eB4zyrreqx0RIlQoRBpJCDeq9YDF93pFOkWwS8Y7fB0k
+Message-ID: <CAOiHx==UCeMQpywQJCLPQqipEW0tK9youRxdR5+_T1LuGp_EHA@mail.gmail.com>
+Subject: Re: [PATCH] wifi: mt76: mt7996: prevent uninit return in mt7996_mac_sta_add_links
+To: Qasim Ijaz <qasdev00@gmail.com>
+Cc: nbd@nbd.name, lorenzo@kernel.org, ryder.lee@mediatek.com, 
+	shayne.chen@mediatek.com, sean.wang@mediatek.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, chui-hao.chiu@mediatek.com, 
+	Bo.Jiao@mediatek.com, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_044714_668212_1A80D8F8 
-X-CRM114-Status: GOOD (  25.17  )
+X-CRM114-CacheID: sfid-20250322_045210_557374_2CFCD7BD 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,115 +97,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/03/2025 at 02:05, Yury Norov wrote:
-> On Wed, Mar 19, 2025 at 09:43:06AM +0530, Anshuman Khandual wrote:
->> 
->> 
->> On 3/19/25 09:04, Anshuman Khandual wrote:
->>> On 3/19/25 07:16, Yury Norov wrote:
->>>> + Catalin Marinas, ARM maillist
+Hi,
 
-(...)
+On Thu, Mar 20, 2025 at 9:19=E2=80=AFPM Qasim Ijaz <qasdev00@gmail.com> wro=
+te:
+>
+> If link_conf_dereference_protected() or mt7996_vif_link()
+> or link_sta_dereference_protected() fail the code jumps to
+> the error_unlink label and returns ret which is uninitialised.
+>
+> Fix this by setting err before jumping to error_unlink.
+>
+> Fixes: c7e4fc362443 ("wifi: mt76: mt7996: Update mt7996_mcu_add_sta to ML=
+O support")
+> Fixes: dd82a9e02c05 ("wifi: mt76: mt7996: Rely on mt7996_sta_link in sta_=
+add/sta_remove callbacks")
+> Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
+> ---
+>  drivers/net/wireless/mediatek/mt76/mt7996/main.c | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/n=
+et/wireless/mediatek/mt76/mt7996/main.c
+> index 91c64e3a0860..78f7f1fc867e 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+> @@ -998,16 +998,22 @@ mt7996_mac_sta_add_links(struct mt7996_dev *dev, st=
+ruct ieee80211_vif *vif,
+>                         continue;
+>
+>                 link_conf =3D link_conf_dereference_protected(vif, link_i=
+d);
+> -               if (!link_conf)
+> +               if (!link_conf) {
+> +                       err =3D -EINVAL;
+>                         goto error_unlink;
+> +               }
+>
+>                 link =3D mt7996_vif_link(dev, vif, link_id);
+> -               if (!link)
+> +               if (!link) {
+> +                       err =3D -EINVAL;
+>                         goto error_unlink;
+> +               }
+>
+>                 link_sta =3D link_sta_dereference_protected(sta, link_id)=
+;
+> -               if (!link_sta)
+> +               if (!link_sta) {
+> +                       err =3D -EINVAL
 
->>> These were moved into uapi subsequently via the following 
->>> commit.
->>> 
->>> 21a3a3d015aee ("tools headers: Synchronize {uapi/}linux/bits.h 
->>> with the kernel sources")
->>> 
->>> But in general GENMASK_U128() is needed for generating 128 bit 
->>> page table entries, related flags and masks whether in kernel or
->>> in user space for writing kernel test cases etc.
->> 
->> In the commit 947697c6f0f7 ("uapi: Define GENMASK_U128"), 
->> GENMASK_U128() gets defined using __GENMASK_U128() which in turn 
->> calls __BIT128() - both of which are defined in UAPI headers 
->> inside (include/uapi/linux/).
->> 
->> Just wondering - are you suggesting to move these helpers from 
->> include/uapi/linux/ to include/linux/bits.h instead ?
-> 
-> Vincent is working on fixed-width GENMASK_Uxx() based on 
-> GENMASK_TYPE().
-> 
-> https://lore.kernel.org/lkml/20250308-fixed-type-genmasks-v6-0- 
-> f59315e73c29@wanadoo.fr/T/
-> 
-> The series adds a general GENMASK_TYPE() in the linux/bits.h. I'd 
-> like all fixed-widh genmasks to be based on it. The implementation 
-> doesn't allow to move GENMASK_TYPE() the to uapi easily.
-> 
-> There was a discussion regarding that, and for now the general 
-> understanding is that userspace doesn't need GENMASK_Uxx().
-> 
-> Are your proposed tests based on the in-kernel tools/ ? If so, 
-> linux/ bits.h will be available for you.
-> 
-> Vincent,
-> 
-> Can you please experiment with moving GENMASK_U128() to linux/ 
-> bits.h and switching it to GENMASK_TYPE()-based implementation?
-> 
-> If it works, we can do it after merging of GENMASK_TYPE() and 
-> ancestors.
+You are missing a semicolon at the end of the line.
 
-I sent the new version with the split as you asked in a separate message.
+To also do some bike shedding, you could initialize err (with 0 or
+-EINVAL), and then change the err return to return err ? : -EINVAL;.
+But your way has an explicit error code assigned to each failure, even
+if it is always the same. So I won't claim my suggestion is better.
 
-I switched GENMASK_U128() from using __GENMASK_U128() to using
-GENMASK_TYPE() in this patch of the second series:
-
-https://lore.kernel.org/all/20250322-consolidate-genmask-
-v1-2-54bfd36c5643@wanadoo.fr/
-
-After this, the genmask_u128_test() unit tests from lib/test_bits.c are
-all green, so this looks good. Note that because it is not yet used,
-there isn't much more things to test aside from that unit test.
-
-To be precise, I am not yet *moving* it. For now, I decoupled
-GENMASK_U128() from __GENMASK_U128(). To complete the move, all what is
-left is to remove __GENMASK_U128() from the uapi. To be honest, I am not
-keen on touching either of the uapi or the asm variants myself. But, if
-my work gets merged, that last step should be easy for you.
-
-
-
-On a side note, at first glance, I was disturbed by the current
-__GENMASK_U128() implementation:
-
-  #define __GENMASK_U128(h, l) \
-  	((_BIT128((h)) << 1) - (_BIT128(l)))
-
-If calling __GENMASK_U128(127, x), the macro does a:
-
-  _BIT128(127) << 1
-
-which expands to:
-
-  (unsigned __int128)1 << 127 << 1
-
-So, while (unsigned __int128)1 << 128 is an undefined behaviour, doing
-it in two steps: << 127 and << 1 is well defined and gives zero. Then,
-when doing the subtraction, the unsigned integer wraparound restores the
-most significant bits making things go back to normal.
-
-
-The same applies to all the other variants. If doing:
-
-  #define GENMASK_TYPE(t, h, l)				\
-  	((t)(GENMASK_INPUT_CHECK(h, l) +		\
-  	     (((t)1 << (h) << 1) - ((t)1 << (l)))))
-
-The unit tests pass for everything and you even still get the warning if
-h is out of bound.
-
-But then, bloat-o-meter (x86_64, defconfig, GCC 12.4.1) shows a small
-increase:
-
-  Total: Before=22723482, After=22724586, chg +0.00%
-
-So, probably not worth the change anyway. I am keeping the current version.
-
-
-Yours sincerely,
-Vincent Mailhol
+Best regards,
+Jonas
 
