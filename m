@@ -4,75 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A86C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 03:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DB0C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 03:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Lvy/dP/dYUGfjnu2QCfMUtLvYzUpcN/CIXYL8YpDYrI=; b=xvUGJBvQKY8x/p0LoWEhDFujvw
-	iaRL6lv0Ex8HQbvnfP8m3NbFuav2plrRaErQroTOYIeQpKBKdtZgkvmGFdLXd4mf06Oaw4uKHmFTx
-	m2G+GpkbVwrIEJeVz7UatX1hYyZyZ/bi3dlbrdCUeiEWitimOTKcFB5M9d5ba3O3cil3bX6/IS2Zz
-	JX0oP6/fWo+fF9Nzk5FVsrZPzCAphtd+YtXiRc7Qs08+ICKArSSeRS5vHfDJGOxToNwRbwc6kfHAY
-	AMLwZhr/DvC4OjsgWPm8lHOAFTkyIysVV7NSxUA6X+Sl+8kW3JIgJ0sNASvMqCrDZZdidyO326rxs
-	glDpiMWg==;
+	bh=Lqb2eZQ/+kMWvbgl9EAomxF8FEK43YLgtDWWib56z+o=; b=VBEeq35KhndmV8ceM7fgN8WIqq
+	C68Pt+KiDaMQ8d7OjNRKUQBwnR6qCNZhQRDOHh+utmW2tzhl6uVG6DfQwS3/BbAivT2lmVBhnTVva
+	5r/aCqI25zHwRPmy3hh5XHUNVLk8yn6TtL/8hLPEgYUOVP2zg2A155KzPEpx8SwQa4aRYcRx38rEI
+	AlWMHu18pbrFM1L0M1vx8tkDTvbjY98KhOBpQxxQsQTuKGq52RuGil54w20X2Lg8YQCUAg0w8i4sd
+	ksaxDzxmJO5tbI5YWqJETmOxwwSDAYOhvBEmXIQfqMSjk0jr9y7GLnoQW/OwZ5VdYDp022ACkCbyq
+	jGre1w1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvpnt-0000000Gmkn-3HVI;
-	Sat, 22 Mar 2025 03:45:45 +0000
-Received: from [198.175.65.9] (helo=mgamail.intel.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvpmD-0000000GmgC-2P8G
+	id 1tvpvH-0000000GnCj-20hW;
+	Sat, 22 Mar 2025 03:53:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvptb-0000000Gn7a-00oS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Mar 2025 03:44:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742615042; x=1774151042;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=+Xm4tlSMtMO60gV3x8fi5XUT7H975ov/B5iwJWBR6wo=;
-  b=XUnqshnNKrEuT4dVm/XCQdYlr8ERKRGTas3o8I/HUVwEQheJqF/l7XUt
-   +7PldxsNwvA4gNc4veQYQaUM8+loCnGQboB50pNIffioJYPO8yfApmq4d
-   XVB4MB5NvEFwUHmIq5CgTpDZCQX/OwDh1kTpUqLhGlrXIQr5x2hdTuQoE
-   8hTwN8teKVJKgHd5KR5k9uA5+F8emBavvOlRdSayUoP4YDxi2bGjOFj5a
-   YhOHa+P7U1Rwt5AoWhKN5i5TNOUOMyCx5IrKjrifZg37/S0NhFTwR2W8B
-   NagUpJ8/ZZ0z2D3r/ubbFbR7sgfJzx5WRz5QkNhOKclVMlsyuzIbrBEo7
-   Q==;
-X-CSE-ConnectionGUID: NGGd8IXqSjiQ3q07GZ0lkQ==
-X-CSE-MsgGUID: z3Xz/iPFSjmfthnztYCgeA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11380"; a="66352145"
-X-IronPort-AV: E=Sophos;i="6.14,266,1736841600"; 
-   d="scan'208";a="66352145"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Mar 2025 20:43:56 -0700
-X-CSE-ConnectionGUID: zrb3K/ueTo6o1R4CxBZKgQ==
-X-CSE-MsgGUID: voPuKtqzQ4eQEFf0TYHb/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,266,1736841600"; 
-   d="scan'208";a="123275185"
-Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
-  by orviesa009.jf.intel.com with ESMTP; 21 Mar 2025 20:43:54 -0700
-Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tvpm4-0001uZ-12;
-	Sat, 22 Mar 2025 03:43:52 +0000
-Date: Sat, 22 Mar 2025 11:43:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Hector Martin <marcan@marcan.st>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [arm-platforms:arm64/tlbi-range-hacks 12/17]
- drivers/pci/controller/pcie-apple.c:460:40: error: implicit declaration of
- function 'FIELD_PREP'
-Message-ID: <202503221117.9esJe5iq-lkp@intel.com>
+	Sat, 22 Mar 2025 03:51:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 324DD106F;
+	Fri, 21 Mar 2025 20:51:38 -0700 (PDT)
+Received: from entos-yitian-01.. (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 04ADF3F694;
+	Fri, 21 Mar 2025 20:51:26 -0700 (PDT)
+From: Jia He <justin.he@arm.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Jia He <justin.he@arm.com>
+Subject: [PATCH] KVM: arm64: pmu: Avoid initializing KVM PMU when KVM is not initialised
+Date: Sat, 22 Mar 2025 03:51:15 +0000
+Message-Id: <20250322035115.118048-1-justin.he@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_204401_681269_244997D5 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250321_205139_103923_D99FBD39 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,79 +68,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git arm64/tlbi-range-hacks
-head:   89a08aa9682594d44c11df1b6e168e38bdb7f0c3
-commit: b2817638e680079b58e1bf67c6d9fa1d5f48b636 [12/17] PCI: apple: Add T602x PCIe support
-config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20250322/202503221117.9esJe5iq-lkp@intel.com/config)
-compiler: csky-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250322/202503221117.9esJe5iq-lkp@intel.com/reproduce)
+Currently, `kvm_host_pmu_init()` does not check if KVM has been
+successfully initialized before proceeding. This can lead to unintended
+behavior if the function is called in an environment where KVM is not
+available, e.g., kernel is landed in EL1.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503221117.9esJe5iq-lkp@intel.com/
+Signed-off-by: Jia He <justin.he@arm.com>
+---
+ arch/arm64/kvm/pmu.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-All errors (new ones prefixed by >>):
-
-   drivers/pci/controller/pcie-apple.c: In function 'apple_pcie_port_setup_irq':
->> drivers/pci/controller/pcie-apple.c:460:40: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     460 |                         writel_relaxed(FIELD_PREP(PORT_MSIMAP_TARGET, i) |
-         |                                        ^~~~~~~~~~
-
-
-vim +/FIELD_PREP +460 drivers/pci/controller/pcie-apple.c
-
-   423	
-   424	static int apple_pcie_port_setup_irq(struct apple_pcie_port *port)
-   425	{
-   426		struct fwnode_handle *fwnode = &port->np->fwnode;
-   427		struct apple_pcie *pcie = port->pcie;
-   428		unsigned int irq;
-   429		u32 val = 0;
-   430	
-   431		/* FIXME: consider moving each interrupt under each port */
-   432		irq = irq_of_parse_and_map(to_of_node(dev_fwnode(port->pcie->dev)),
-   433					   port->idx);
-   434		if (!irq)
-   435			return -ENXIO;
-   436	
-   437		port->domain = irq_domain_create_linear(fwnode, 32,
-   438							&apple_port_irq_domain_ops,
-   439							port);
-   440		if (!port->domain)
-   441			return -ENOMEM;
-   442	
-   443		/* Disable all interrupts */
-   444		writel_relaxed(~0, port->base + PORT_INTMSK);
-   445		writel_relaxed(~0, port->base + PORT_INTSTAT);
-   446		writel_relaxed(~0, port->base + PORT_LINKCMDSTS);
-   447	
-   448		irq_set_chained_handler_and_data(irq, apple_port_irq_handler, port);
-   449	
-   450		/* Configure MSI base address */
-   451		BUILD_BUG_ON(upper_32_bits(DOORBELL_ADDR));
-   452		writel_relaxed(lower_32_bits(DOORBELL_ADDR),
-   453			       port->base + pcie->hw->port_msiaddr);
-   454		if (pcie->hw->port_msiaddr_hi)
-   455			writel_relaxed(0, port->base + pcie->hw->port_msiaddr_hi);
-   456	
-   457		/* Enable MSIs, shared between all ports */
-   458		if (pcie->hw->port_msimap) {
-   459			for (int i = 0; i < pcie->nvecs; i++)
- > 460				writel_relaxed(FIELD_PREP(PORT_MSIMAP_TARGET, i) |
-   461					       PORT_MSIMAP_ENABLE,
-   462					       port->base + pcie->hw->port_msimap + 4 * i);
-   463		} else {
-   464			writel_relaxed(0, port->base + PORT_MSIBASE);
-   465			val = ilog2(pcie->nvecs) << PORT_MSICFG_L2MSINUM_SHIFT;
-   466		}
-   467	
-   468		writel_relaxed(val | PORT_MSICFG_EN, port->base + PORT_MSICFG);
-   469		return 0;
-   470	}
-   471	
-
+diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
+index 7169c1a24dd6..e39c48d12b81 100644
+--- a/arch/arm64/kvm/pmu.c
++++ b/arch/arm64/kvm/pmu.c
+@@ -227,6 +227,13 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+ {
+ 	struct arm_pmu_entry *entry;
+ 
++	/*
++	 * Prevent unintended behavior where KVM is not available or not
++	 * successfully initialised, e.g., kernel is landed in EL1.
++	 */
++	if (!is_kvm_arm_initialised())
++		return;
++
+ 	/*
+ 	 * Check the sanitised PMU version for the system, as KVM does not
+ 	 * support implementations where PMUv3 exists on a subset of CPUs.
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
