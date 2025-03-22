@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFB9C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 14:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CA1C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 14:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aF+lshiTJwsEbYCiQIvW3LTB1kytaT25WY+mnoTd02w=; b=xJ5C63kYa+qniDvBdr7+r/ws4n
-	KtBk5t+R8DPc1XUtY7PfS87bamQYlIx5BMjQXY9b9UvPVBv0SN3PGolbdTlt361w6fH8TYPHYBdBP
-	v0h5qkZRrhibTUrnW5/Hc/lkJpUv2kneuwm7zA/rFIe1XK4eGoLpT5ohqtrTl8NMoMyDD9ssLn3xa
-	wH9sQGYqibeFgGnarAX2UguKEH6/qqcwYqXjO9UYqAX0AJAK+zwofHLYga3cmgrJEyobdJeq3FyVT
-	ijVPvYeVsoLvojx4voiGk/7YUNkDt2LovWTgrSgIDkUd6/MVdng1/a7df59UjAhA1RPkWg172PTr3
-	sjH1Ov5Q==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/f1bHTA7htjqoINiWzkFbpaJDIy02W8D2pTXViSOfUU=; b=aKvxGw+WwqMqrYc9R4YkAAyMIG
+	istVeFiujVrsUz3MaxueeLlOMi1ZheDUNP8zkRPd7Rnzqi1xKDhwPq4WO34XSehQO5cy3YU5wrZ7e
+	AFZMElX5V7uSFXlHhQdff9fJoHhO7SyXM2ILipOAoTlAOLdYhOawc3J/edy7ohaE2FvHcyFIu5DLx
+	75TWiLmtkmF2FfOPBEM4LXC4LPDkE6eSdb5dqReNeJnVR/EHc0/dWqMqyripMNdaAusZsESsIlSYk
+	RwHf02bhqiOwY31HLzPWkvnQMZ8iCU6nsIIzvPzXwiGA/tNls9ITZ6jNQ9nDUyXTYIbMM80EjvaqY
+	VsM581SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvzip-0000000HUsy-1CGU;
-	Sat, 22 Mar 2025 14:21:11 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tvzlL-0000000HVAz-2FDL;
+	Sat, 22 Mar 2025 14:23:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvzh9-0000000HUl6-0vvB;
-	Sat, 22 Mar 2025 14:19:28 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3912fdddf8fso2497122f8f.1;
-        Sat, 22 Mar 2025 07:19:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742653165; x=1743257965; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aF+lshiTJwsEbYCiQIvW3LTB1kytaT25WY+mnoTd02w=;
-        b=jhXddAq1CVaVg37XZohUv5tvZwtpOSqrteXj0farGcl/shjYzM85/94O1aqnnWP+BN
-         ftZJ6ygedZjxmPAabqtdCIJ54nWLyVuN1ZjPZp2tQ5vrzfcddWVFOOS/Oa7ly/y0GIB/
-         rYC7CK3BsY1FROWFZ1ZKAMFwZps6vvxss4vBdJc4XTJ+xJLViYs6600tn6ScsuojGWUu
-         e8qacehz5zDhKscpTN44Q1HU/c9PIOzfLswvjK1uGblRkJGSYqyF293IgPQDXwsT0mez
-         6VZyZNJM/+Hh5JhgpZ3MFAyRJ7roDm1SauPskm3HlLJSdIPLLGXgOd1HzdBWxEinhc3c
-         9/RA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742653165; x=1743257965;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aF+lshiTJwsEbYCiQIvW3LTB1kytaT25WY+mnoTd02w=;
-        b=lmZhnUwY3xrtcuOJwrGTC7a/5dZUdw8kqXv3ooca5qcBmUtBkpuesI2BwthefxQZi9
-         N6s4ZR4H51KLbZfHgVDWhHki8KcfUSfiB1YVtcx95msr/gPHyyrRlvOnp9qCAf+eFZe0
-         NHJWEtzx8r67LUUrbnmQ4MPp9FVquaANs5lrRC7fnQZ5U7MYFe12/jHWgKeDSKGtLgBO
-         tLWPii/cWWxhQv2WznB+/B5TiZuUSk5c3UT8zXz5BR6NCL51Xtjj4688sCwJ4EpTaX7a
-         7IEWUBb0WC4xtEbEGt/rH33HUpiDupvvA2L9VClYF8P7cqMiY6jZhd/9pai1aVbcnJS2
-         3OHw==
-X-Forwarded-Encrypted: i=1; AJvYcCVHfqNegnbty9/LX0Ia3uyAxx9epx/A2bS5Ttwyj5gO+f4AwPaqVOmh6bDiMgtBGUPzGtK+WY4xYbX9RDNNwdvq@lists.infradead.org, AJvYcCXYa1MvnULoo/ya1+5ytRLNpkQZuKNIG7d+rnv5cYOoVgfhSFaUHDQ3iL03HcyglNqO9Hct0BeA/clb855crww=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqI46RsgkN8fAl04OdeSTfb4HLBDtqv7g1Eb0vEz/GK2F2qvxo
-	rQ/kvCVpqmyT5j9JiGR0HCAUIdHaajtl+40UsLZ9GvKYD2Bkya5R
-X-Gm-Gg: ASbGnct7YIS2paTKZYC7UnFW6LpNSHY3kW8/UUHFgQKV0XgPAEaEdRMrpCIX0yePyee
-	QoPfz7+qqZK/tyXSEa0ZvqNYjOtdzA0b2/CeaOWtrj7f9H0NiuacJ2niZRYW4nHejfc21yw5fEb
-	55IqIYJLHtA2oe6O9BFGDb5+vvpzG4z/2sZ8bPeFjREp+aDgyja9+C67Y0BEwVZxhrgXdUSSllm
-	pw8v2oalxh2WHaRYOXIuKPIj5CDJCzHFka4I9dArY8ErF9BlSl/VnCMGmHGLBZElijBokMHfeuq
-	V8u9uOhjzeRAsn+UscuAA1d9SQN3Be59fQop2wuEzJmFCp1UXADQU/sf
-X-Google-Smtp-Source: AGHT+IESFJJXx1OaHEDpiDrDpp/1v/90T162quMXGMiu0ErBsYhKB7IcQbevvYKVQEpCP+boy7enFQ==
-X-Received: by 2002:a5d:5989:0:b0:38a:4184:14ec with SMTP id ffacd0b85a97d-3997f8f7526mr6944813f8f.1.1742653165247;
-        Sat, 22 Mar 2025 07:19:25 -0700 (PDT)
-Received: from qasdev.Home ([2a02:c7c:6696:8300:c9a5:205c:4c36:bde4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9e6550sm5233487f8f.78.2025.03.22.07.19.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Mar 2025 07:19:24 -0700 (PDT)
-From: Qasim Ijaz <qasdev00@gmail.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chui-hao.chiu@mediatek.com,
-	Bo.Jiao@mediatek.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] wifi: mt76: mt7996: avoid potential null deref in mt7996_get_et_stats()
-Date: Sat, 22 Mar 2025 14:19:10 +0000
-Message-Id: <20250322141910.4461-1-qasdev00@gmail.com>
-X-Mailer: git-send-email 2.39.5
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1tvzjf-0000000HV1Q-2HCF
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Mar 2025 14:22:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EBB3BA4A320;
+	Sat, 22 Mar 2025 14:16:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A76C4CEDD;
+	Sat, 22 Mar 2025 14:22:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742653321;
+	bh=TIu42g6hbijrCcZuE/1tP1wo0BubLGFRertECUWE7Sc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=p1tyYzkFurPMBJ5WfGDti97Xz1uPdqJvT14/QgesVhBtdPv/I6K5ERDiVIW5eHztK
+	 UGusDr084KFRmpkqC7oHJQnegzcbG8ZNj2ZRCHA1GqoUjJ+iOrsLvykIDPkLTnkIfU
+	 9v7ylu/BlXKjqESOr20cJGuRoSGb1kYqq9GY/oOof5HGAydPj0QRkGdChoA2bfMutB
+	 dNA68QN2vwNDP+BlRwMOseEm4Vtci/QlcyGTCVWu7K1uLM3s6V1jm6/GP96Ff1Cdej
+	 k4mend9OVs0ggZkbfsqgzgETk6P+wybinScXonfPODBcLVX/xQQtnmJ6vt6zo9nxRe
+	 sCR6huekN9VSw==
+Received: from 82-132-213-7.dab.02.net ([82.132.213.7] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tvzjb-00G7Qc-3m;
+	Sat, 22 Mar 2025 14:21:59 +0000
+Date: Sat, 22 Mar 2025 14:21:55 +0000
+Message-ID: <87bjttqh6k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Justin He <Justin.He@arm.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Colton Lewis
+	<coltonlewis@google.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Zenghui Yu
+	<yuzenghui@huawei.com>,
+	Catalin Marinas <Catalin.Marinas@arm.com>,
+	Will
+ Deacon <will@kernel.org>,
+	"linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] KVM: arm64: pmu: Avoid initializing KVM PMU when KVM is not initialised
+In-Reply-To: <GV2PR08MB920679CA30617D465B69D79DF7DA2@GV2PR08MB9206.eurprd08.prod.outlook.com>
+References: <20250322035115.118048-1-justin.he@arm.com>
+	<867c4hml8v.wl-maz@kernel.org>
+	<GV2PR08MB920679CA30617D465B69D79DF7DA2@GV2PR08MB9206.eurprd08.prod.outlook.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 82.132.213.7
+X-SA-Exim-Rcpt-To: Justin.He@arm.com, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, Joey.Gouly@arm.com, coltonlewis@google.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, Catalin.Marinas@arm.com, will@kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_071927_276453_A4B829F4 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20250322_072203_710994_747CA1AE 
+X-CRM114-Status: GOOD (  39.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +100,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure phy->mib is only accessed after the null sanity check for phy
-otherwise the code may trigger a potential null deref.
+On Sat, 22 Mar 2025 13:54:17 +0000,
+Justin He <Justin.He@arm.com> wrote:
+>=20
+> Hi Marc,
+>=20
+> > -----Original Message-----
+> > From: Marc Zyngier <maz@kernel.org>
+> > Sent: Saturday, March 22, 2025 6:08 PM
+> > To: Justin He <Justin.He@arm.com>
+> > Cc: Oliver Upton <oliver.upton@linux.dev>; linux-arm-
+> > kernel@lists.infradead.org; kvmarm@lists.linux.dev; Joey Gouly
+> > <Joey.Gouly@arm.com>; Suzuki Poulose <Suzuki.Poulose@arm.com>;
+> > Zenghui Yu <yuzenghui@huawei.com>; Catalin Marinas
+> > <Catalin.Marinas@arm.com>; Will Deacon <will@kernel.org>; linux-
+> > kernel@vger.kernel.org
+> > Subject: Re: [PATCH] KVM: arm64: pmu: Avoid initializing KVM PMU when
+> > KVM is not initialised
+> >=20
+> > On Sat, 22 Mar 2025 03:51:15 +0000,
+> > Jia He <justin.he@arm.com> wrote:
+> > >
+> > > Currently, `kvm_host_pmu_init()` does not check if KVM has been
+> > > successfully initialized before proceeding. This can lead to
+> > > unintended behavior if the function is called in an environment where
+> > > KVM is not
+> >=20
+> > Which unintended behaviour? Other than the pointless allocation of a ti=
+ny
+> > amount of memory? Does anything really go wrong?
+> >=20
+> Sorry for the confusion --- I should explain more clearly.
+> I noticed the usage of host_data_ptr in Colton Lewis's RFC patch [1]. Aft=
+er
+> applying the patch, the guest VM fails to boot.Upon investigating the root
+> cause, I found that host_data_ptr can trigger a kernel panic if KVM is not
+> initialized.
 
-Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
----
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+How relevant is this for upstream?
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 88e013577c0d..19391966ee3e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -1875,7 +1875,7 @@ void mt7996_get_et_stats(struct ieee80211_hw *hw,
- 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
- 	struct mt7996_vif *mvif = (struct mt7996_vif *)vif->drv_priv;
- 	struct mt7996_phy *phy = mt7996_vif_link_phy(&mvif->deflink);
--	struct mt76_mib_stats *mib = &phy->mib;
-+	struct mt76_mib_stats *mib;
- 	struct mt76_ethtool_worker_info wi = {
- 		.data = data,
- 		.idx = mvif->deflink.mt76.idx,
-@@ -1886,6 +1886,8 @@ void mt7996_get_et_stats(struct ieee80211_hw *hw,
- 	if (!phy)
- 		return;
- 
-+	mib = &phy->mib;
-+	
- 	mutex_lock(&dev->mt76.mutex);
- 
- 	mt7996_mac_update_stats(phy);
--- 
-2.39.5
+>=20
+> [1] https://patchwork.kernel.org/project/kvm/patch/20250213180317.3205285=
+-6-coltonlewis@google.com/
+> > > available, e.g., kernel is landed in EL1.
+> >=20
+> > s/landed in/booted from/
+> >=20
+> > >
+> > > Signed-off-by: Jia He <justin.he@arm.com>
+> > > ---
+> > >  arch/arm64/kvm/pmu.c | 7 +++++++
+> > >  1 file changed, 7 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c index
+> > > 7169c1a24dd6..e39c48d12b81 100644
+> > > --- a/arch/arm64/kvm/pmu.c
+> > > +++ b/arch/arm64/kvm/pmu.c
+> > > @@ -227,6 +227,13 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+> >=20
+> > Huh:
+> >=20
+> > maz@valley-girl:~/hot-poop/arm-platforms$ git grep -l kvm_host_pmu_init
+> > arch/arm64/kvm/pmu-emul.c drivers/perf/arm_pmu.c
+> > include/linux/perf/arm_pmu.h
+> >=20
+> > Amusingly, arch/arm64/kvm/pmu.c is nowhere to be seen in this list.
+> > I have no idea what this patch applies to, but that's neither 6.13, the=
+ current
+> > upstream, nor kvmarm/next.
+> Sorry for the mistake, the patch is based on Colton Lewis's series.
+> I=E2=80=99ll need to respin it if you're interested in the fix =F0=9F=98=
+=8A
 
+I'm interested in a patch if:
+
+- the patch applies to an upstream or a kvmarm tag
+- the patch fixes *something* in the upstream code
+- the commit message accurately describes the problem
+
+Otherwise, no, thank you.
+
+> > >  {
+> > >  	struct arm_pmu_entry *entry;
+> > >
+> > > +	/*
+> > > +	 * Prevent unintended behavior where KVM is not available or not
+> > > +	 * successfully initialised, e.g., kernel is landed in EL1.
+> >=20
+> > Same comment here.
+> >=20
+> > > +	 */
+> > > +	if (!is_kvm_arm_initialised())
+> >=20
+> > This is definitely the wrong thing to check for, as it relies on the pr=
+obe
+> > ordering between the PMU drivers and KVM. Relying on that is not
+> > acceptable.
+> >=20
+> Indeed, would is_hyp_mode_available() be a proper replacement for
+> is_kvm_arm_initialised() here?
+
+Looks more appropriate, at least for upstream.
+> Or should we add a prevention condition in host_data_ptr instead?
+
+I can't comment about a series that I haven't reviewed and that is not
+yet targeting upstream. But using host_data_ptr() from outside of KVM
+is plain wrong, as it falls into the same trap as above. Checking for
+random init flags is not going to help with that.
+
+Instead of posting random patches that make no sense for upstream, why
+don't you instead reply to Colton's series outlining your concerns and
+findings? It sounds to me like a more useful way to make progress.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
