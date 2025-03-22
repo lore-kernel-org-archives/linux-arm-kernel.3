@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A346DC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 19:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE41C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 19:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rlJEbPPbIUzOYO/Yzg2oCOOmqaFv09aLLXibTWsy+xg=; b=HjFQ3aQpaQhxa8QvAWLsKPlZzo
-	6LjIDqHn4UKN0Xz1MDFyCjswAT+eiRTi59gVPayZ92wLBsaD5Aay2SirrSdaJIlWr+SFP5hLRhzFx
-	XdNLNUdRvu9IS/w6e+oFy8XB/R3QiLLqYUSafzbpB0WnuUXRcZODG9Qs2wK6feMsADYLZdi5kHuMC
-	/xmQ045lNRk649KNc/3WT+jvXFGkC5/rsSm5C4xeJzPwa3PUm/JXD7CGnePGPiDMGj7Y9fopEKNs/
-	UBqG6Iw9pmP+zVWHEhL1ghBeRgYTma+KtihbyJhoSuFkct1hwCAr5Do1wgpbi9oPeTnKyRZ/jNCHZ
-	EA4ghe7Q==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3AynJL+dhUM+xX7FNGAWHa5xmA3IueurXqDLGr7/TpI=; b=F3qGKWUc6I88HUyfxWHZPv6DZm
+	X/hW60yRprYJwSlkVhp5bU5zmt0CmRwZ2tvJaVrtlWE2mSe2cjyce0MQlgCloQFrRGQZNpfSX1b7D
+	Sf4jnO6+vo0L/zZaTcFMcs/OSfpLUFA0+trctWhvx5OEjIfSysNyP+QIWl9fY3sSIwfWvGnNJIUHO
+	9rSYFZ8eaDL4WiuVTSL2vmShA2ExMXlMbm6Z34jaM7NWy9kp6f6qoKamGeIKWzR7AKLzNoAVvERJt
+	ndxJK98mV2SUvlfmpXmLhsAX7vXKNKJPNCdzg2FbftnLe5ezvf2co7XJVTBG4sPUMvPGJVP7wlEku
+	l43Lwc9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw4ey-00000000F5m-3tjZ;
-	Sat, 22 Mar 2025 19:37:32 +0000
+	id 1tw4gd-00000000FCH-2Ohk;
+	Sat, 22 Mar 2025 19:39:15 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw4dH-00000000Exm-3vpt
+	id 1tw4eR-00000000F2Q-2PuK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Mar 2025 19:35:49 +0000
+	Sat, 22 Mar 2025 19:37:00 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 2C8B2A02DE;
-	Sat, 22 Mar 2025 20:35:46 +0100 (CET)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 40A1FA02DE;
+	Sat, 22 Mar 2025 20:36:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=rlJEbPPbIUzOYO/Yzg2o
-	COOmqaFv09aLLXibTWsy+xg=; b=t32GIkcQ7LeV857VWYYWeXH1zP9LRfEexX2q
-	1ZGm4TZv67eHxty97zWKjGe98Hl/ti8TcVdvbUYdif08FSTwBWQ83KTfixHRO5sN
-	pGqA1pRKvHbPNcJKe37Ko4AyyUghSz1vAhgRX7ZgGXiJSjaJCiu6T6m/9sCM1NVW
-	r69cDWPAHUS8yq5q3tnSOeXUHtNPXqsmaPmKWrHqqx7bvKvL2OmWsnM8rtVNdgS7
-	JC/9zllFCtNHWROAcGklDqA+vQQM4EtcDAeiP5Uui54APGdl12o+cbbCBPFQq/Fx
-	r9NJOFrwGLG1/uKzNbDXZGrz7CnGGujbaAomtOGqow5H58csdzuKQ/UFdQaKZYcS
-	VvaTRHS+Rqns02rY6STsl64tB5tJMixAYHva6mPsNPQVSIHob650DShkL/lKxp0K
-	ewKGhv4Ol/z7CraEcxw+auco+1YbVFYqcOexA8J5srBAcG02EA/PAu2Q+fWuhgYM
-	iKBnQ/WJOXnZRpmTy3D10jYZ9o9NRQ7+xX0s9fUxrcy/YAg9BUwUyBN+lCQuPhs6
-	RReluQPb1uFluFZ+XkA3P97jqwdAApw/wbkcCoL2tjDz5QQIJtkyusYj3/LaThx9
-	1/ek3yLINhjHFWeD/t3n1jqWar8m3HgluW24LIJdtbQRdvG74dWxaS58hxsySE4Y
-	QPWrTu0=
-Message-ID: <2da00161-723b-438a-9f70-1729312ec819@prolan.hu>
-Date: Sat, 22 Mar 2025 20:35:44 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] dma-engine: sun4i: Use devm functions in probe()
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	<dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=3AynJL+dhUM+xX7FNGAWHa5xmA3IueurXqDLGr7/TpI=; b=
+	Ck3tfQ4jZZJAybDWC18HN2SNgDmRFwISNwopn5TsMhMGNReE0xdJIWUyzOaVOy5Y
+	hc/16gA3bWHtFqqkW2znbGRXq4NnuUjof3gk7ivQEgaCWSGGrEQ5TqrhszH7J4J2
+	QSCmNDtTbBymVE06ufzqRO8g0rxoi4RqJK5OBCPuHCDZUc2aBgDMFP7ha4t16J1F
+	vbU7aCdVauWKVqpeMwgrscOgE61u3XaMPpqot5JwxjaeKeOJgo9EphCLluMye18a
+	EmUueOaRlWTU1NdbZjtQHhoCRSjJY+5KID6Yr//8iUyMHm7sNYpG01e+87l+ec+J
+	Wqvg0QxTImQRA3msNkbBhYSQFvnDbz8SBhJtJf8NUWPJRmBuMX5xWl59tAHOiHJU
+	LP0PORBhd1YxFroqBtqPX3WSHjaT08gttgVJ+9qkbOdKqsT5hRCSsYOy3JE6olPu
+	t1L9+OofRkUoFSEpGnKlMI52bHkL7Al6HxZe4TrP1hj1kgP3FdYRgNnB6aV7UYxY
+	7ORCBdgLmC5pJHE/vYqUKljpX6McFNxdjeEeQUZfDoryBHdA8cUSuyKYF/GR5pnq
+	gfG+eL4X0TDBPPfqF4XEOseodiJFGxVgWUGdzHOtmNW+gjkO3FO05j6rDAJz+zZf
+	PFlbRmyzEJfSSQad0YoeBbn5vSUWnA6QBx2wx2P1BpY=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Chen-Yu Tsai <wens@csie.org>, Vinod Koul <vkoul@kernel.org>, Samuel Holland
-	<samuel@sholland.org>
-References: <20250311180254.149484-1-csokas.bence@prolan.hu>
- <e4249f3c-ca05-4fc7-b367-6ce280d0d749@wanadoo.fr>
-Content-Language: en-US, hu-HU
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <e4249f3c-ca05-4fc7-b367-6ce280d0d749@wanadoo.fr>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Markus
+ Elfring" <Markus.Elfring@web.de>, Christophe JAILLET
+	<christophe.jaillet@wanadoo.fr>, Chen-Yu Tsai <wens@kernel.org>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Vinod Koul
+	<vkoul@kernel.org>, Samuel Holland <samuel@sholland.org>
+Subject: [PATCH v5] dma-engine: sun4i: Use devm functions in probe()
+Date: Sat, 22 Mar 2025 20:36:40 +0100
+Message-ID: <20250322193640.246382-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.253.2]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1742672217;VERSION=7987;MC=1970532306;ID=72972;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A2980D948526D7266
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_123548_134351_E77E0FFD 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250322_123659_770701_C6BE6486 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +81,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Clean up error handling by using devm functions and dev_err_probe(). This
+should make it easier to add new code, as we can eliminate the "goto
+ladder" in probe().
 
-On 2025. 03. 22. 20:13, Christophe JAILLET wrote:
-> Le 11/03/2025 à 19:02, Bence Csókás a écrit :
->> Clean up error handling by using devm functions
->> and dev_err_probe(). This should make it easier
->> to add new code, as we can eliminate the "goto
->> ladder" in probe().
->>
->> Suggested-by: Chen-Yu Tsai <wens@kernel.org>
->> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
->> Acked-by: Chen-Yu Tsai <wens@csie.org>
->> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
->> ---
->>
->> Notes:
->>      Changes in v2:
->>      * rebase on current next
->>      Changes in v3:
->>      * rebase on current next
->>      * collect Jernej's tag
->>      Changes in v4:
->>      * rebase on current next
->>      * collect Chen-Yu's tag
->>
->>   drivers/dma/sun4i-dma.c | 31 ++++++-------------------------
->>   1 file changed, 6 insertions(+), 25 deletions(-)
->>
->> diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
->> index 24796aaaddfa..b10639720efd 100644
->> --- a/drivers/dma/sun4i-dma.c
->> +++ b/drivers/dma/sun4i-dma.c
->> @@ -1249,10 +1249,9 @@ static int sun4i_dma_probe(struct 
->> platform_device *pdev)
->>       if (priv->irq < 0)
->>           return priv->irq;
->> -    priv->clk = devm_clk_get(&pdev->dev, NULL);
->> +    priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
->>       if (IS_ERR(priv->clk)) {
->> -        dev_err(&pdev->dev, "No clock specified\n");
->> -        return PTR_ERR(priv->clk);
->> +        return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk), 
->> "Couldn't start the clock");
-> 
-> Why removing the trailing \n everywhere?
-> 
-> Any reference esxplaing why it is correct?
-> 
-> CJ
+Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Acked-by: Chen-Yu Tsai <wens@csie.org>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
 
-Well, printk() will add a newline unless LOG_CONT is used. However, 
-while looking up this feature, it seems that the consensus is to keep 
-the `\n`s, even though they are not strictly needed anymore. I'll update 
-this.
+Notes:
+    Changes in v2:
+    * rebase on current next
+    Changes in v3:
+    * rebase on current next
+    * collect Jernej's tag
+    Changes in v4:
+    * rebase on current next
+    * collect Chen-Yu's tag
+    Changes in v5:
+    * reformat msg to 75 cols
+    * keep `\n`s in error messages
 
-Bence
+ drivers/dma/sun4i-dma.c | 31 ++++++-------------------------
+ 1 file changed, 6 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+index 24796aaaddfa..59ecebfc8eed 100644
+--- a/drivers/dma/sun4i-dma.c
++++ b/drivers/dma/sun4i-dma.c
+@@ -1249,10 +1249,9 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	if (priv->irq < 0)
+ 		return priv->irq;
+ 
+-	priv->clk = devm_clk_get(&pdev->dev, NULL);
++	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(priv->clk)) {
+-		dev_err(&pdev->dev, "No clock specified\n");
+-		return PTR_ERR(priv->clk);
++		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk), "Couldn't start the clock\n");
+ 	}
+ 
+ 	if (priv->cfg->has_reset) {
+@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 		vchan_init(&vchan->vc, &priv->slave);
+ 	}
+ 
+-	ret = clk_prepare_enable(priv->clk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Couldn't enable the clock\n");
+-		return ret;
+-	}
+-
+ 	/*
+ 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
+ 	 * likes to leave these dirty
+@@ -1344,32 +1337,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+ 			       0, dev_name(&pdev->dev), priv);
+ 	if (ret) {
+-		dev_err(&pdev->dev, "Cannot request IRQ\n");
+-		goto err_clk_disable;
++		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ\n");
+ 	}
+ 
+-	ret = dma_async_device_register(&priv->slave);
++	ret = dmaenginem_async_device_register(&priv->slave);
+ 	if (ret) {
+-		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+-		goto err_clk_disable;
++		return dev_err_probe(&pdev->dev, ret, "Failed to register DMA engine device\n");
+ 	}
+ 
+ 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+ 					 priv);
+ 	if (ret) {
+-		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+-		goto err_dma_unregister;
++		return dev_err_probe(&pdev->dev, ret, "Failed to register translation function\n");
+ 	}
+ 
+ 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+ 
+ 	return 0;
+-
+-err_dma_unregister:
+-	dma_async_device_unregister(&priv->slave);
+-err_clk_disable:
+-	clk_disable_unprepare(priv->clk);
+-	return ret;
+ }
+ 
+ static void sun4i_dma_remove(struct platform_device *pdev)
+@@ -1380,9 +1364,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
+ 	disable_irq(priv->irq);
+ 
+ 	of_dma_controller_free(pdev->dev.of_node);
+-	dma_async_device_unregister(&priv->slave);
+-
+-	clk_disable_unprepare(priv->clk);
+ }
+ 
+ static struct sun4i_dma_config sun4i_a10_dma_cfg = {
+-- 
+2.49.0
+
 
 
