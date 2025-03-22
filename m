@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231EFC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 21:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8E6C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Mar 2025 21:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pM9vLebllQghQbND97wqUp00Uf5kZppdIdNy+FWYMvc=; b=U+TGFafljGvyZ4yifrWKaPyK5k
-	Aw/qikR1XRaNLARnvRnnhIpkIUHfojVJfd/qZSldr7gdPbr4CcktQF8tGE3mlVCUzKXRmhCuyjQhA
-	7CR6+hNFxjuOcxd7/SCkNBWVf1o1QYi0DMjzwfQr92tuCfjwvW9dB10hA/I0MMusHXerp6FHLp/q9
-	fuw+VvN0CCMpF0JGpDzHK9iFtA6YeAeYoxYMC+fWPEZ+qiWzkfubwKUlBJVfL580ORY8Vk9t43HHR
-	5xAKk/FL1fn9jpoe5ciCqsOSuRPWc5O/dUvXY/ftCTQEBXtmxiqZwPSBM//P0ncy6DRTmnMTuk0Bp
-	QQrLTd+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1jP1iD/XB5t52+KeZ1FsE4W0vWyW8Ips9m8Lf+NGpwE=; b=YoOwslEH7dCOwj7Mv+A/jxo2eN
+	43sLZGHXDYKTUQpNEc2lekpzFGFcSNPV68lyS2qnc3NPrRj2ilqQOkk1QxFWdfgD3j23yXl5h+UXw
+	6iz8zIS7WaZblNClW0S3pVZmpgYzS2m1vaFo92P4tL3jlYtvsYrWO9iHMcaqvDj2d78wxJ9U6lUbi
+	xSDSb0BHD7RIW4zICfZIy1L3UbTAzpLj+FNOZISVNmMCYKm6cye+v81sCYb/D10aGVHW+aGvk4XRg
+	WzrNgCM3QJnoAhYNNJBB6AGFftmq8+uyG1a+Ftbu3BTxSDAfd/Pr9eoN1lQYS9uS871diuG5uu4hQ
+	4I1Vyqag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw62S-00000000KNM-49vt;
-	Sat, 22 Mar 2025 21:05:52 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tw6ZJ-00000000M8q-3scK;
+	Sat, 22 Mar 2025 21:39:49 +0000
+Received: from smtp-28.smtpout.orange.fr ([80.12.242.28] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw60l-00000000KG9-15KR
+	id 1tw6Xd-00000000M3Q-34nG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Mar 2025 21:04:08 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1742677442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pM9vLebllQghQbND97wqUp00Uf5kZppdIdNy+FWYMvc=;
-	b=Ao6jD+maG2AyhVkdqyHx3qauJvKFaFcrIhpgCwPf5nmg1yS78gC235uTL4d5HSMUbG/yQI
-	pYPbsAYhP5Qfdf2t8/8qboWrglX6BPuzpvVofQYzvOSa9q657oMHicigOuSVCJiXuUpXBP
-	ZAXwaXms3vHvjpq7u2ld8t0aX00304j4pGEKb00RLgT1qpJPPoRCGSUmz3m7BZOwS69v8L
-	AN5Tvt9mTX+cGf1jzbJ8pHV8nAg8i6n0ChgZ3c/6sOKNNYUwSR748CRvmdEPAcbClDgwEZ
-	l0FpPV0lz4vVtY3m1L6m+wguEs4lk1ozR73sTEISmE+YnBm4jQSBJfqj5KdgNg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1742677442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pM9vLebllQghQbND97wqUp00Uf5kZppdIdNy+FWYMvc=;
-	b=BM/cU9Wt+vkTnRYv0tA6Cf+1FrYUmvuD0rM+IU4rojWTWleWpdLMDnAnH7gs8vbgzCjLoh
-	w/cJHDZ4LFFJN9Dw==
-To: richard clark <richard.xnu.clark@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: hrtimer precision issue/question??
-In-Reply-To: <CAJNi4rPaPeVWzBve6Toi8hhrxP6GROAGRug7+c3zg1crDeOt7Q@mail.gmail.com>
-References: <CAJNi4rPaPeVWzBve6Toi8hhrxP6GROAGRug7+c3zg1crDeOt7Q@mail.gmail.com>
-Date: Sat, 22 Mar 2025 22:04:01 +0100
-Message-ID: <875xk022wu.ffs@tglx>
+	Sat, 22 Mar 2025 21:38:07 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id w6XTtGGb67I4cw6XWtwDSM; Sat, 22 Mar 2025 22:38:02 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1742679482;
+	bh=1jP1iD/XB5t52+KeZ1FsE4W0vWyW8Ips9m8Lf+NGpwE=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=jmU14P3aY7umyeNggwmyo3m3SSEPB7x7iI9RakbnjWSc7xkOvb1vVF4ih0Mw0PHwJ
+	 jCRI/cSo9UCOV8YFL4MGU01vkq2IA63Vo7PXpMRBlJq3uPNc94NJfhYu9vtSvQeVDS
+	 3bz0TDBvtHn+2m3Di7r/BMKo2lI30qENa+N/v2ST4GUUJ5GVjQ1X0KA2NKiDXdOcfN
+	 A2Q+AjZNvVfPqheMeUWb/Q7z2wQIdUVDPX2us8iLwNRjVfn8Y2SRPExz2Oh1+SfX03
+	 UqufGvWPz4SHYI1PCpPXfAgEPMOHGpf3TN19VQTsNmw8p2C+FqDX1DxbQCnu2ILpmd
+	 y4YU0IykOxLTw==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Sat, 22 Mar 2025 22:38:02 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <071b4cf6-df18-4232-b2ae-6b8bee48899d@wanadoo.fr>
+Date: Sat, 22 Mar 2025 22:37:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] dma-engine: sun4i: Use devm functions in probe()
+To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <csokas.bence@prolan.hu>,
+ dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Markus Elfring <Markus.Elfring@web.de>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
+ Vinod Koul <vkoul@kernel.org>, Samuel Holland <samuel@sholland.org>
+References: <20250322193640.246382-2-csokas.bence@prolan.hu>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20250322193640.246382-2-csokas.bence@prolan.hu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_140407_437583_A77EACA3 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250322_143806_326458_576B94C0 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +78,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 22 2025 at 11:20, richard clark wrote:
-> With diff below under the 'cyclictest -a 0 -t 1 -m -p99' trigger from
-> the arm64-based linux box, the interval is 1000us and the arch_timer
-> in the system is: arch_timer: cp15 timer(s) running at 31.25MHz
-> (phys).  1tick = 32ns for the arch timer, I am not sure if those
-> durations less than 1000us are expected?
+Le 22/03/2025 à 20:36, Bence Csókás a écrit :
+> Clean up error handling by using devm functions and dev_err_probe(). This
+> should make it easier to add new code, as we can eliminate the "goto
+> ladder" in probe().
+> 
+> Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> Acked-by: Chen-Yu Tsai <wens@csie.org>
+> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+> ---
+> 
+> Notes:
+>      Changes in v2:
+>      * rebase on current next
+>      Changes in v3:
+>      * rebase on current next
+>      * collect Jernej's tag
+>      Changes in v4:
+>      * rebase on current next
+>      * collect Chen-Yu's tag
+>      Changes in v5:
+>      * reformat msg to 75 cols
+>      * keep `\n`s in error messages
+> 
+>   drivers/dma/sun4i-dma.c | 31 ++++++-------------------------
+>   1 file changed, 6 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+> index 24796aaaddfa..59ecebfc8eed 100644
+> --- a/drivers/dma/sun4i-dma.c
+> +++ b/drivers/dma/sun4i-dma.c
+> @@ -1249,10 +1249,9 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+>   	if (priv->irq < 0)
+>   		return priv->irq;
+>   
+> -	priv->clk = devm_clk_get(&pdev->dev, NULL);
+> +	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+>   	if (IS_ERR(priv->clk)) {
+> -		dev_err(&pdev->dev, "No clock specified\n");
+> -		return PTR_ERR(priv->clk);
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk), "Couldn't start the clock\n");
 
-With your method of measurement yes. There is a german saying, which
-describes this. It roughly translates to:
+I think that it would be better to keep the message on another line, to 
+avoid too long lines.
 
-   "Who measures a lot, might measure a lot of garbage."
+>   	}
 
-But it accurately describes, what you are measuring here. You do:
+In several places, now {} around a single statement looks unneeded.
 
-    t1 = ktime_get();
-    arm_timer(T);
-    schedule();
-    t2 = ktime_get();
+CJ
 
-and then look at t2 - t1. That only tells you how long the task actually
-slept. But that's ignoring the most important information here:
+>   
+>   	if (priv->cfg->has_reset) {
+> @@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+>   		vchan_init(&vchan->vc, &priv->slave);
+>   	}
+>   
+> -	ret = clk_prepare_enable(priv->clk);
+> -	if (ret) {
+> -		dev_err(&pdev->dev, "Couldn't enable the clock\n");
+> -		return ret;
+> -	}
+> -
+>   	/*
+>   	 * Make sure the IRQs are all disabled and accounted for. The bootloader
+>   	 * likes to leave these dirty
+> @@ -1344,32 +1337,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+>   	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+>   			       0, dev_name(&pdev->dev), priv);
+>   	if (ret) {
+> -		dev_err(&pdev->dev, "Cannot request IRQ\n");
+> -		goto err_clk_disable;
+> +		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ\n");
+>   	}
+>   
+> -	ret = dma_async_device_register(&priv->slave);
+> +	ret = dmaenginem_async_device_register(&priv->slave);
+>   	if (ret) {
+> -		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+> -		goto err_clk_disable;
+> +		return dev_err_probe(&pdev->dev, ret, "Failed to register DMA engine device\n");
+>   	}
+>   
+>   	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+>   					 priv);
+>   	if (ret) {
+> -		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+> -		goto err_dma_unregister;
+> +		return dev_err_probe(&pdev->dev, ret, "Failed to register translation function\n");
+>   	}
+>   
+>   	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+>   
+>   	return 0;
+> -
+> -err_dma_unregister:
+> -	dma_async_device_unregister(&priv->slave);
+> -err_clk_disable:
+> -	clk_disable_unprepare(priv->clk);
+> -	return ret;
+>   }
+>   
+>   static void sun4i_dma_remove(struct platform_device *pdev)
+> @@ -1380,9 +1364,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
+>   	disable_irq(priv->irq);
+>   
+>   	of_dma_controller_free(pdev->dev.of_node);
+> -	dma_async_device_unregister(&priv->slave);
+> -
+> -	clk_disable_unprepare(priv->clk);
+>   }
+>   
+>   static struct sun4i_dma_config sun4i_a10_dma_cfg = {
 
-    arm_timer(T);
-
-cyclictest uses:
-
-           clock_nanosleep(clockid, ABSTIME, &T);
-
-and T is maintained in absolute time on a periodic time line.
-
-    T = starttime + N * interval;
-
-So the only interesting information here is at which time the task
-returns from schedule(), i.e. you want to look at:
-
-        t2 - T
-
-Why? Because that gives you the latency of the wakeup. That's what
-cyclictest is looking at in user space:
-
-           clock_nanosleep(... &T);
-           clock_gettime(..., &T2);
-           latency = T2 - T;
-
-Now what you are looking at is the time at which the cyclictest task
-comes back into the kernel to sleep, which is obviously
-
-           t1 = T[N] + latency[N-1] + execution_time;
-
-But the timer is armed for T[N], so your t2 is:
-
-           t2 = T[N] + latency[N];
-
-You surely can do the remaining math and map that to the output:
-
-> [  165.555795] [ 0- 0]t0=165550399226,t1=165551394303,d=995 us
-> [  165.556802] [ 0- 0]t0=165551398751,t1=165552400997,d=1002 us
-
-Right?
-
-Thanks,
-
-        tglx
 
