@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C4AC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 19:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C85C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 19:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rzd5n04s6jxEJ+gCSK/dDhucMnvX+2uhB2qdLifXWko=; b=ErdJCToy6MfHfx0b5j0zNYoyFL
-	Idi1BldKZHf8LlrZ6knRtK+GY+O3Ei5rPswlRzpEduAK2LrA6fcGxXng7CJ1VvwMRIZH19uF2n4S/
-	OcfWCI1+ON9u+aI2IezFhsWnRSzu+xe5dTGPLdlmwu+Tc/wzHZh1q1upf7+mJjCuZcHYvFHHh1ZjE
-	U/4E1M5SmMgTdGNlcjOtOodInM3K68XJu5HhgCB0Iv+b2Uvk/N+dnekrLHagRxA/fDHyXdoNormFb
-	w/JBWTMbpjUmQX37HuJ9PeKfBCvCQhbZjXUrWTHjvoSljuQd90fs6vUjkQ4le3FsoLxktErRQ7P0T
-	lwcsF0eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Yg8auF71+9Wy/NHRDxD554OEHtfrS7K8eB3r8Fv9UGw=; b=VRhKFEjqxBCne/z0hTZD+jOLfu
+	wtxHVL9/t1VD1YxWSVioEOWdo1LpYrmv2lzK55V9fxSbxFGse1uJEksjP9p+ZACUBjXLhpEltEf/K
+	126/LQs3efG8L7r1hstlMkdxjQkeOV9f56E2mI/MmDETJ+ED48eyMHhiu8rq2/OismYTve9R2k+yi
+	/i0/GhMOj0LORHuYB3AJnR+HbxMmWpRJy+rmQyf+Oc0jWLBLRPN0r9FYMQmddKfQS4TXZjrKB6aTH
+	Epe0lx4xqsKHtBcGgG1Q5gW49Wxb91IwMv9h3M8IarKabVxZmxkLStMVPSFFzIYRbsmFaqxXshxvT
+	0zntgczQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twQhg-00000001ciC-3JuC;
-	Sun, 23 Mar 2025 19:09:48 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1twQmG-00000001cxg-010l;
+	Sun, 23 Mar 2025 19:14:32 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twQg0-00000001cYv-2uBC
+	id 1twQkZ-00000001cuQ-3f0T
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 19:08:05 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-22651aca434so56790375ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 12:08:03 -0700 (PDT)
+	Sun, 23 Mar 2025 19:12:49 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-30bae572157so36416751fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 12:12:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742756883; x=1743361683; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rzd5n04s6jxEJ+gCSK/dDhucMnvX+2uhB2qdLifXWko=;
-        b=BmESLpUxP6eR5z1sOzfjjlvSqlrF1y3yxOqsfJUwfGoBYKJ0BeYgY2004A75qFPVqe
-         9+cAs8TyTAm0MBdXJuCIxnJp+rL1GR9vf5nNT5dE5ff+5zI9tM/bTNYv/f+QhupE2cEg
-         32IxNI7ypcm8PbeNKkdZIfuENROsByZCwmfFx6BYEtI9Of5giAp3u7SO1b723dLa01Zy
-         YRTOf58wrCcDo5H/Wz3GpDkItRzgNZPJUOcw9Jsa4bzjRs9ZhqPOAG7L2qnvkg+bS7E6
-         X3gLVC0mK8cjHdbnaQAWuLaQnAsYG+Fl7qQkpQkktVBJ0sqfwYbyPm7PY0VTcFKR2A0X
-         PGCA==
+        d=gmail.com; s=20230601; t=1742757165; x=1743361965; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yg8auF71+9Wy/NHRDxD554OEHtfrS7K8eB3r8Fv9UGw=;
+        b=FboiuAqW1736eSIcaH/+3UetlHEZ5V7Rpgh1qO15DOmNtyLYNNYxg+bkIPuNO7qoIJ
+         4NLMlLymj3EC2cRPfj4PZM0xbS9cUoEpxriGCZvYiI9WNk6G3QRfh/mXx3R5DbYIYuX7
+         0OvDUkl2Zp7blB7btF+G5X3ywaAKBeZ7Dmo3oIK9IGqhy9622+P/JVdiJ0uPJ14AWlC7
+         TnGNzJzW/EnwPt4OqQxQz5hlN/3Kl/AORM5sqeuMutxo4DLB42M9Wg7N70mowJhvKWWd
+         W9Qp9uwhxcZ/Iu2Tyhfl2yGsMHYUVAxF6Dy+dsWj/amkTWhB7nY7TnMWGSumPy02etYd
+         Hq4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742756883; x=1743361683;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rzd5n04s6jxEJ+gCSK/dDhucMnvX+2uhB2qdLifXWko=;
-        b=UR9E0ulEq8Fh2Iv2Id1Eett/XTahRIIMQHy+x7q45vGn55azI8zC/BaaJ7LmHPEXb+
-         Z1PVN8zO39TfIDhjAZy1DPyW9LxvxVfLnbIszlyo4UWrlVSm749uykmcdERQTom/0+l6
-         l/pPKkQCW84iWj9TdUKiunyC8r4AdnC4WYLmGQa+CgMHt1ZrXkMn1GW8JiN1uHK3iWOe
-         WyZCbVQIZ2yyy5LvXK5MWx8b+GZcNYMC3hXpQZ4PaGAfzm3nrl6/5mwOyLt0MRZave0Z
-         2XfCs0sLumWgiZLg/uYUBjsoUb2I6pyIYHfRgHXXLfRyokr239e82Je4l5lHwXsxNV5I
-         dJbg==
-X-Forwarded-Encrypted: i=1; AJvYcCWceI1NB/BnaYu36LYD5e3Xq6gEUol9t6AlELoBIJebMWpWUpXcBp0Sx7DpaMybFrKLKyUu2QiC3mKEl/rQxbI/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2Ix/enVFkvX7v52SR7GqlOB0q9dX6rogPAWsfH9AGdVYv5F+W
-	excIaRRBFKdpir5+P4BM8oQJ4wEiezzM7qRrsxhfboZNMw+YIP6k/qCbsyRhK8km4XvAc0+2CGg
-	6cRs4w4zabMiaBh8yPg==
-X-Google-Smtp-Source: AGHT+IGWzYSY0zabXCYcrGJkQenZmyCPMKhLyeRtNYw0Z+Vw+fyMnZoqvv9CAHyz7l26vGknvFW4powxBM9q/JtU
-X-Received: from plri3.prod.google.com ([2002:a17:903:32c3:b0:220:e84e:350c])
- (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:da82:b0:224:162:a3e0 with SMTP id d9443c01a7336-22780e2a37fmr150656275ad.49.1742756882709;
- Sun, 23 Mar 2025 12:08:02 -0700 (PDT)
-Date: Sun, 23 Mar 2025 12:07:58 -0700
-In-Reply-To: <20250321134629.GA252045@nvidia.com>
-Mime-Version: 1.0
-References: <20250321134629.GA252045@nvidia.com>
-X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
-Message-ID: <20250323190758.743798-1-changyuanl@google.com>
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
-From: Changyuan Lyu <changyuanl@google.com>
-To: jgg@nvidia.com
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
-	catalin.marinas@arm.com, changyuanl@google.com, corbet@lwn.net, 
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org, dwmw2@infradead.org, 
-	ebiederm@xmission.com, graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, 
-	kexec@lists.infradead.org, krzk@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org, 
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com, 
-	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de, 
-	robh+dt@kernel.org, robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org, 
-	saravanak@google.com, skinsburskii@linux.microsoft.com, tglx@linutronix.de, 
-	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1742757165; x=1743361965;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Yg8auF71+9Wy/NHRDxD554OEHtfrS7K8eB3r8Fv9UGw=;
+        b=pbcnwUVRsbK/co7wRuiV4FtmNn9AUu6pkghGRcVPgbR/uH93npwYRfr/ARfsJ6ia1L
+         dqXfauGErAf72MfA5Xh5wokSqoIbYWus/jYSEE0aPS8B/Cf6ftT1Q0+ZcJgKbSlQsQBC
+         faU3ONvf9j3gJTVNs29wil59x4+NRv0ioy6HAyAS0elB2rmK81kehrwtJAdYCWDctvbJ
+         95wVh4BpQx1hGjBspCZge5bpI6wEaZGl3D/1BtBP4dWke1U8ICtrQIDml779s8GgMX9B
+         qcDTbOI3/Nh9PiR4S42VMX0WdZvu7ZlHGE7XBvu/idFIp0CPjbCzefXy65IMCtjcpTVt
+         7liw==
+X-Gm-Message-State: AOJu0Yz/856Mn+OVKyNdTR33IQakdpoJUquAUu+EXgiHx5D/mPckVcbW
+	5Ir9e5x0PZ9V8SOD5u4U53potl9XR/sborFLsaUTi/2WlAlpBjSI0j9fJ7ZE+50=
+X-Gm-Gg: ASbGnct4+H/JDqX/Pdje3u0dt7B1r7iEcYDDmV4UdKB/Azr2UXSdPCmonxY5MBVZO2n
+	DWGgG6McILSy/oP64N6Rmod4jOVlgocVhtVQ/eVcwH4CmUztVccXCCW2avuq/TIgJYF4/BChsoi
+	4QL7PocESbeeWIMxvKh4u0Xa9PFamUhHJQ3HYAmf+875yDSNsI1b7XsWbM8luorLy8dopNXhN9Z
+	x6K/hFJe75dmso9/PM2mfJBASz/fxGuWa+n7JyXqU1aPYIo9t2e5avyCHFOhsCs9HGLRDLa+HA9
+	Y9n9mYe0ZPQj2loE2RudPgmDVUP/x3ICJm87jCfFvs/xMCU/3v60fjv97/ENrwsBb8v+X2zo/Ze
+	dhpPky9l/WCd5ksnV8z2e2UTqappHBKLnZaLudZFnBF2YY2EXK31r8hUysoCXtDrf0w==
+X-Google-Smtp-Source: AGHT+IGBsuqNpHXM9/IyouXlg2gmqX9aluYapE/1IzOAZkdocKsixutRanHt9NyEZOBxgCU/F+4o+Q==
+X-Received: by 2002:a05:6512:3d11:b0:54a:cc76:1676 with SMTP id 2adb3069b0e04-54ad650c8bcmr4019916e87.44.1742757164372;
+        Sun, 23 Mar 2025 12:12:44 -0700 (PDT)
+Received: from yocto-build-johan.c.remarkable-codex-builds.internal (122.96.88.34.bc.googleusercontent.com. [34.88.96.122])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad6480800sm858226e87.94.2025.03.23.12.12.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Mar 2025 12:12:43 -0700 (PDT)
+From: Johan Korsnes <johan.korsnes@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Johan Korsnes <johan.korsnes@gmail.com>,
+	Russell King <linux@armlinux.org.uk>
+Subject: [PATCH] arch: arm: defconfig: Drop obsolete CONFIG_NET_CLS_TCINDEX
+Date: Sun, 23 Mar 2025 20:12:39 +0100
+Message-ID: <20250323191239.114181-1-johan.korsnes@gmail.com>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_120804_724844_A3E48DE9 
-X-CRM114-Status: GOOD (  39.82  )
+X-CRM114-CacheID: sfid-20250323_121247_914080_CD204267 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,151 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 10:46:29 -0300, Jason Gunthorpe <jgg@nvidia.com> wrote:
-> On Wed, Mar 19, 2025 at 06:55:44PM -0700, Changyuan Lyu wrote:
-> > +/**
-> > + * kho_preserve_folio - preserve a folio across KHO.
-> > + * @folio: folio to preserve
-> > + *
-> > + * Records that the entire folio is preserved across KHO. The order
-> > + * will be preserved as well.
-> > + *
-> > + * Return: 0 on success, error code on failure
-> > + */
-> > +int kho_preserve_folio(struct folio *folio)
-> > +{
-> > +	unsigned long pfn = folio_pfn(folio);
-> > +	unsigned int order = folio_order(folio);
-> > +	int err;
-> > +
-> > +	if (!kho_enable)
-> > +		return -EOPNOTSUPP;
-> > +
-> > +	down_read(&kho_out.tree_lock);
-> > +	if (kho_out.fdt) {
->
-> What is the lock and fdt test for?
+This option was removed from the Kconfig in commit
+8c710f75256b ("net/sched: Retire tcindex classifier") but it was not
+removed from the defconfigs.
 
-It is to avoid the competition between the following 2 operations,
-- converting the hashtables and mem traker to FDT,
-- adding new data to hashtable/mem tracker.
-Please also see function kho_finalize() in the previous patch
-"kexec: add Kexec HandOver (KHO) generation helpers" [1].
+Fixes: 8c710f75256b ("net/sched: Retire tcindex classifier")
+Signed-off-by: Johan Korsnes <johan.korsnes@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>
+---
+ arch/arm/configs/ixp4xx_defconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-The function kho_finalize() iterates over all the hashtables and
-the mem tracker. We want to make sure that during the iterations,
-no new data is added to the hashtables and mem tracker.
+diff --git a/arch/arm/configs/ixp4xx_defconfig b/arch/arm/configs/ixp4xx_defconfig
+index 3cb995b9616a..9c7e55384386 100644
+--- a/arch/arm/configs/ixp4xx_defconfig
++++ b/arch/arm/configs/ixp4xx_defconfig
+@@ -75,7 +75,6 @@ CONFIG_NET_SCH_TBF=m
+ CONFIG_NET_SCH_GRED=m
+ CONFIG_NET_SCH_DSMARK=m
+ CONFIG_NET_SCH_INGRESS=m
+-CONFIG_NET_CLS_TCINDEX=m
+ CONFIG_NET_CLS_ROUTE4=m
+ CONFIG_NET_CLS_FW=m
+ CONFIG_NET_CLS_U32=m
+-- 
+2.49.0
 
-Also if FDT is generated, the mem tracker then has been serialized
-to linked pages, so we return -EBUSY to prevent more data from
-being added to the mem tracker.
-
-> I'm getting the feeling that probably kho_preserve_folio() and the
-> like should accept some kind of
-> 'struct kho_serialization *' and then we don't need this to prove we
-> are within a valid serialization window. It could pass the pointer
-> through the notifiers
-
-If we use notifiers, callbacks have to be done serially.
-
-> The global variables in this series are sort of ugly..
->
-> We want this to be fast, so try hard to avoid a lock..
-
-In most cases we only need read lock. Different KHO users can adding
-data into their own subnodes in parallel.
-We only need a write lock if
-- 2 KHO users register subnodes to the KHO root node at the same time
-- KHO root tree is about to be converted to FDT.
-
-> > +void *kho_restore_phys(phys_addr_t phys, size_t size)
-> > +{
-> > +	unsigned long start_pfn, end_pfn, pfn;
-> > +	void *va = __va(phys);
-> > +
-> > +	start_pfn = PFN_DOWN(phys);
-> > +	end_pfn = PFN_UP(phys + size);
-> > +
-> > +	for (pfn = start_pfn; pfn < end_pfn; pfn++) {
-> > +		struct page *page = pfn_to_online_page(pfn);
-> > +
-> > +		if (!page)
-> > +			return NULL;
-> > +		kho_restore_page(page);
-> > +	}
-> > +
-> > +	return va;
-> > +}
-> > +EXPORT_SYMBOL_GPL(kho_restore_phys);
->
-> What do you imagine this is used for? I'm not sure what value there is
-> in returning a void *? How does the caller "free" this?
-
-This function is also from Mike :)
-
-I suppose some KHO users may still
-preserve memory using memory ranges (instead of folio). In the restoring
-stage they need a helper to setup the pages of reserved memory ranges.
-A void * is returned so the KHO user can access the memory
-contents through the virtual address.
-I guess the caller can free the ranges by free_pages()?
-
-It makes sense to return nothing and let caller to call `__va`
-if they want. Then the function signature looks more symmetric to
-`kho_preserve_phys`.
-
-> > +#define KHOSER_PTR(type)          \
-> > +	union {                   \
-> > +		phys_addr_t phys; \
-> > +		type ptr;         \
-> > +	}
-> > +#define KHOSER_STORE_PTR(dest, val)                 \
-> > +	({                                          \
-> > +		(dest).phys = virt_to_phys(val);    \
-> > +		typecheck(typeof((dest).ptr), val); \
-> > +	})
-> > +#define KHOSER_LOAD_PTR(src) \
-> > +	((src).phys ? (typeof((src).ptr))(phys_to_virt((src).phys)) : NULL)
->
-> I had imagined these macros would be in a header and usably by drivers
-> that also want to use structs to carry information.
->
-
-OK I will move them to the header file in the next version.
-
-> > [...]
-> > @@ -829,6 +1305,10 @@ static __init int kho_init(void)
-> >
-> >  	kho_out.root.name = "";
->
-> ?
-
-Set the root node name to an empty string since fdt_begin_node
-calls strlen on the node name.
-
-It is equivalent to `err = fdt_begin_node(fdt, "")` in kho_serialize()
-of Mike's V4 patch [2].
-
-> >  	err = kho_add_string_prop(&kho_out.root, "compatible", "kho-v1");
-> > +	err |= kho_add_prop(&kho_out.preserved_memory, "metadata",
-> > +			    &kho_out.first_chunk_phys, sizeof(phys_addr_t));
->
-> metedata doesn't fee like a great a better name..
->
-> Please also document all the FDT schema thoroughly!
->
-> There should be yaml files just like in the normal DT case defining
-> all of this. This level of documentation and stability was one of the
-> selling reasons why FDT is being used here!
-
-YAML files were dropped because we think it may take a while for our
-schema to be near stable. So we start from some simple plain text. We
-can add some prop and node docs (that are considered stable at this point)
-back to YAML in the next version.
-
-[1] https://lore.kernel.org/all/20250320015551.2157511-8-changyuanl@google.com/
-[2] https://lore.kernel.org/all/20250206132754.2596694-6-rppt@kernel.org/
-
-Best,
-Changyuan
 
