@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B92CC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 23:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B9FC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 23:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OvVG+h6exYVME9DrCs1LDYgxvlNyKrO2ZRoKATXeWAM=; b=AokrMAMv6dPRzB3rGnM0GoXJ3Q
-	uO8tmU85ZGxSvgU5ieACUShrfscoT1D2zqBF/vxNFDIA5xlcglgpVNZSqmkHr3dDYc7Eh/ZNR0NDA
-	g21v87zmpq8uKEYmmTlNkgeWhLgJLrlzA9IHXcDOLffBV9j5FTdkoRjaizRBMRI15nvDfXnmCJatF
-	35RPAbef3BoZIdcGRb/em2wlBMr8qaun6bSMR0XbNy98sO0Zaqa/u8E4LzkyztbnDN+pSrOOE60sG
-	639Fh48hS7buQwB8AFHQeZ+cic9bOdAkM1zqY29AEXxGkR14r8sQ5v+q3tbkFcnNuJF7tIHirdKHg
-	dQjg1pcw==;
+	bh=k8z5p12enI9RZw66rCmwLiYXfJvqOoZz3UAG+lMt/bw=; b=OX54zahcJDqpsB6IMnEmOwfT/c
+	DzC8C+V3zrxmBt5f8XqfigtufXWood2mP0U/jTTcVP/3gvTGhleFSu1ZqUhqQPwwJc3E+IoWBrFa1
+	3b/IQ/ZaZRji3DjuHr2kR0RRTifuMEnsVdEX6fGSRDgJ8H3kQ6m5Hq6as5L/FVl/ltejSBc4/GiiO
+	C6jVuDwqt1SlsnCAhSL+vwMp36xR0BfzDUTI6J6ww419VEmt4q+Af2WHgBIV3nRTGmYuKp4OkI65e
+	x/8N6yXXWT6ArDB0NleXQEGiP0oeFW4+O57VCXRbLGnchZ6isNeQjIYc4e/lxzjLIIqNWVHVFDZ3b
+	w+Uf8oHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twURK-00000001sx7-1Drh;
-	Sun, 23 Mar 2025 23:09:10 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1twUSz-00000001t5f-0uCH;
+	Sun, 23 Mar 2025 23:10:53 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twTyh-00000001p95-2q83
+	id 1twTyi-00000001p9W-2tm1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 22:39:36 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-abec8b750ebso702083666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 15:39:35 -0700 (PDT)
+	Sun, 23 Mar 2025 22:39:37 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ac2bfcd2a70so552638166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 15:39:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742769574; x=1743374374; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742769575; x=1743374375; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=OvVG+h6exYVME9DrCs1LDYgxvlNyKrO2ZRoKATXeWAM=;
-        b=fTKJ1vaIx9puTBGC9pHUc3jClmGxdUfea/hEmZdRbjvr2H8kjJmr9mDPVu6LLbbJOX
-         X3xgUtqdwErI8fv9VEOJ8XbJSewVPvvMJo2FHrpagyZYqjF8xDOiqDKNlNyLevkn5OLX
-         PHQvkLffYiXlG13kmEKV6OF4xNEF6VpgszijNsoULmjMnx4G7dFE3Hjh+ahIXIkkJEdY
-         fcN7Jy3JV1i4p8u6wTWJfmwrWTaPGpduzaeMFg21v1zHUqwLFllIByuqAACrw1jfc3LC
-         Qu5W0m/xgvIzg0qTvLEzIH5o+GuSbVA7HIp3JH1t987NmX3FaEMnLjXgp0MdABoT1S0j
-         y3Ig==
+        bh=k8z5p12enI9RZw66rCmwLiYXfJvqOoZz3UAG+lMt/bw=;
+        b=mI2NNnIjjPc4oazSHKcUYeOK6GhKGhVJ3GRH1dJ2dNkxSelfQQJIoUPOJGypb7vpv/
+         YymvZfZpz0dHTrJdK5cWpFnSGCYF1s+NJxqkH4Yjt0KKT6PuAucnMPhAGnTE6c6DFQ1+
+         atZ/ynYuQSVZsPksGP4ySh5pvyWajP9ABkA++VYN+7+NF66q5O8tL75g9FbJnIj4J/yM
+         kO0ziF6AMM0lYp7wXIwHzy/armvnybgiSCTsGeL1W1sEJ0ywN1c/+oSdwl9lqKgSRR8C
+         r/W4pmEo3P1PBTkNZTH9dtq/58LftPUf1dUtzy+f8q3NzfM+b2+2D0Yg13djCJ32bdxw
+         yUug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742769574; x=1743374374;
+        d=1e100.net; s=20230601; t=1742769575; x=1743374375;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OvVG+h6exYVME9DrCs1LDYgxvlNyKrO2ZRoKATXeWAM=;
-        b=vjJ6b1LlpkhEJi2H+AWSHJyBKX+z/qmRh5TOlTP5+FGMGF9XZ0u0e6qEVui6S3ZpSc
-         NvTVyolRRjnuvzF8mvvnt96JbtYhAp+V38sNx3Nnv7eNwzSfb30bshS3iYdhwGBr9OOe
-         9B0E9n75zcF8IfAsPaKGRC0Nml5FYKOk5EFL6HTFXu1h0oQhFEDJI07HFrrA6VOqXycJ
-         pkm/dHHWf7eIV6f7yQDzkXQfM+bCgMs36q9G4tdpPIkVQNITue+9CXmghWVJVmvIb84f
-         gxasWITvI3Hj7+LLuVVajvv/jOHV5jp+Abnnmv5BHxrmnvbWft9RGbEy3greVpTxpFBD
-         wTzg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFTDc58fE5a386N2e6gfXYOZnhaBRJ1XK0NX9ICYvQf9n4AlSIaBspmUIfoTquvCJMSAGpFRlBN6ewsa58Eik7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+cQCeBl14Gs+GY60csPJbiTiKKxg9YX7i2SzEs2d7JDaRDctd
-	4vgsCXzVYy0/TnWsoV+pOUUjfHwIpNHEHaN3xTPT1qshpO09eGEGyAG3fHVA6q0=
-X-Gm-Gg: ASbGncsPID7cx1uZTI3HDWSlI95kof+l9/Q4FWowo5xyOPuHlZB/rh+04uMlk3Rz/eU
-	7rFF+RASSTLL20xcOh9Z0r6DA6U9Ske6a6ekiBOU9fXYW4YuAEDPAlFwVVULQVGoYxoPmwOu9op
-	wsdU2zgkIYCoBHIbVmYcmC92p6EKB5Mx63tm5W6I2wtrUt7UzW3aLHEDxoxJ8eRvzf1CNFzLosF
-	BPGT9lIyPE+WQsjv3vqHKKCOzZBY8wyjH1ovneuuZga9rQwE5SJdZNZz3UuyZ2VquO1zdWr9rJk
-	xmklqtVSRDRBLuhPyM4dYGvJL0VXlh3vG8xM1vcGXTUVJYEloS6f4LSK7agVU1u9hZmRmFO8yEX
-	EnJHvXDSyo1GL0jBZu6wbMzZmuDtp
-X-Google-Smtp-Source: AGHT+IGbu/jFjtqa9LSXFqPCJsAn/xbvTSf/7H1OcPEes32L8sKOj1rM+QLBV82JKfVyHX96sb/teQ==
-X-Received: by 2002:a17:907:1b0d:b0:ac2:7a97:87fb with SMTP id a640c23a62f3a-ac3f229dcb7mr1140111466b.33.1742769574302;
+        bh=k8z5p12enI9RZw66rCmwLiYXfJvqOoZz3UAG+lMt/bw=;
+        b=FA4N07U81uiV9k6Ywt5iChAGJf1snju6q36gZK3ehBfeMkqjU4lvwLUDfVf+f+ZRNw
+         B5LE41qwSY4zcKS34fBMJ3tgJ7VbqN6dZPEDiqiDdh5K+6/b929UCYNfH+AwWoDqlRup
+         tKOMtcsCc62F9mBm+tY+9BOjmaHd7iik8WAascFX8Yu4VZvooPnuh9eyuWOUkgt5KA5u
+         qfAWZwBiwCgwVP42T3lHd2jC9urkogkBKY4mXtMlMnVIWWR6CgKYyVck0YWn6xK07M6M
+         QZCiWdbAQ6SELGkYXVNSI6hHaa8wLXxd4j6PGlqC8/0/0NTNNXkejkuHsahwMM+w6egg
+         It7w==
+X-Forwarded-Encrypted: i=1; AJvYcCV67y5FEUlkyzrXQJT9Q/AyzR+WbYt0v62doZdXo8dBFjlLguKqLk1UQDraldF+fiQwUARS34MKDwbURmTjCvCM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYN+CuFxGeoZNhkreMdpWeptMEEb8yXuxaJ52QpBbpkePEOY4p
+	kkvEsAhfLWKnGuxjkiX3Y+VoWYg7v+3CZxGifyCVw7I88RiUexnQtTnk5KzLwho=
+X-Gm-Gg: ASbGncvajHfFQvxRnud+gYY1Yn511qE420XTi1fnGyREbVdxQT/Rr8Ije6+r2LY5afo
+	oIuU3QV/m/PdFl/NUbCHVuAYNeKTDS7ooog2FnY9+uD6MaRa1ViGyqGcUlkex1RZ+XCa9Pj+Wqu
+	05JdKHXBO/2Smspn9I1CLG3te0nOqiWn8y1a7qvAtTSvtYNG0Pgobs0WR87L9A0x4cOpEvdjW5k
+	wjNOe8ONeH8SSRqP/2xHB5KeoFycRLSa71VIP97+l77s331ONVJNN8IZ/ECqQE4muliYdW+3UaM
+	zbD3YzspRrywjdM/4Rb1saD4t1vtsGfky0wH/rTVafdAly+Bf1EQvhegDKlfgLbKAynNs7esy59
+	3/nXTzx0OHXHX0VcHi7t4fCFd6LVj
+X-Google-Smtp-Source: AGHT+IGe5qmoAcXMWbaWHDRmab3UauFteJoVt09a7sGbTlNJP0cYBqQFxBHjhU8bkTv1Ztr/PWxw0A==
+X-Received: by 2002:a17:907:bac2:b0:ac2:e059:dc03 with SMTP id a640c23a62f3a-ac3f26aee3dmr1087374966b.38.1742769574917;
         Sun, 23 Mar 2025 15:39:34 -0700 (PDT)
 Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm559686666b.31.2025.03.23.15.39.33
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm559686666b.31.2025.03.23.15.39.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Mar 2025 15:39:33 -0700 (PDT)
+        Sun, 23 Mar 2025 15:39:34 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Sun, 23 Mar 2025 22:39:34 +0000
-Subject: [PATCH 18/34] mfd: sec: s2dos05: doesn't support interrupts (it
- seems)
+Date: Sun, 23 Mar 2025 22:39:35 +0000
+Subject: [PATCH 19/34] mfd: sec: don't ignore errors from sec_irq_init()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250323-s2mpg10-v1-18-d08943702707@linaro.org>
+Message-Id: <20250323-s2mpg10-v1-19-d08943702707@linaro.org>
 References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
 In-Reply-To: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
@@ -96,8 +95,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_153935_728572_7DFAE83F 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250323_153936_725040_774FB57B 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,59 +111,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit bf231e5febcf ("mfd: sec-core: Add support for the Samsung
-s2dos05") adding s2dos05 support didn't add anything related to IRQ
-support, so I assume this works without IRQs.
-
-Rather than printing a warning message in sec_irq_init() due to the
-missing IRQ number, or returning an error due to a missing irq chip
-regmap, just return early explicitly.
-
-This will become particularly important once errors from sec_irq_init()
-aren't ignored anymore in an upcoming patch and helps the reader of
-this code while reasoning about what the intention might be here.
+sec_irq_init() can fail, we shouldn't continue and ignore the error in
+that case, but actually error out.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/mfd/sec-irq.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ drivers/mfd/sec-common.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mfd/sec-irq.c b/drivers/mfd/sec-irq.c
-index d05c8b66c35f2a1356d7c641484404628870ed42..dc5560a0c496917e847a40295c53e3f762b60998 100644
---- a/drivers/mfd/sec-irq.c
-+++ b/drivers/mfd/sec-irq.c
-@@ -453,16 +453,12 @@ int sec_irq_init(struct sec_pmic_dev *sec_pmic)
- 	int type = sec_pmic->device_type;
- 	const struct regmap_irq_chip *sec_irq_chip;
- 
--	if (!sec_pmic->irq) {
--		dev_warn(sec_pmic->dev,
--			 "No interrupt specified, no interrupts\n");
--		return 0;
--	}
--
- 	switch (type) {
- 	case S5M8767X:
- 		sec_irq_chip = &s5m8767_irq_chip;
- 		break;
-+	case S2DOS05:
-+		return 0;
- 	case S2MPA01:
- 		sec_irq_chip = &s2mps14_irq_chip;
- 		break;
-@@ -493,6 +489,12 @@ int sec_irq_init(struct sec_pmic_dev *sec_pmic)
- 				     sec_pmic->device_type);
+diff --git a/drivers/mfd/sec-common.c b/drivers/mfd/sec-common.c
+index 5e084e2c389ea6d509393be93f7e2d39a795a60c..bec8f93a03f7fd794beade563d73610534cb96b2 100644
+--- a/drivers/mfd/sec-common.c
++++ b/drivers/mfd/sec-common.c
+@@ -165,7 +165,9 @@ int sec_pmic_probe(struct device *dev, unsigned long device_type,
+ 		pdata->disable_wrstbi = probedata->disable_wrstbi;
  	}
  
-+	if (!sec_pmic->irq) {
-+		dev_warn(sec_pmic->dev,
-+			 "No interrupt specified, no interrupts\n");
-+		return 0;
-+	}
-+
- 	ret = devm_regmap_add_irq_chip(sec_pmic->dev, sec_pmic->regmap_pmic,
- 				       sec_pmic->irq, IRQF_ONESHOT,
- 				       0, sec_irq_chip, &sec_pmic->irq_data);
+-	sec_irq_init(sec_pmic);
++	ret = sec_irq_init(sec_pmic);
++	if (ret)
++		return ret;
+ 
+ 	pm_runtime_set_active(sec_pmic->dev);
+ 
 
 -- 
 2.49.0.395.g12beb8f557-goog
