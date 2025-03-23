@@ -4,76 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8E5C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 18:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6D1C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 18:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Let4Q3el9jM1Xi0HwmGhei27/6Q/PCmg+tofSw5IIg=; b=qEKeSM9Br+1xGMI7pza176lN2c
-	dymNGVllV+sIHFO/f2RqGpdaNe/zSZnK3zdkh+cT8anjI2rKUZ8aQNlVBkLr7b0kic2yk0R6kMKKG
-	pbeOIhf0jwkwRilc/0mSglxcrEIIcEUFodl937fgVpCt7KAQmOJ0QumMAOVAlyMM54DHyONA+LAV7
-	ccw+t53iZkdYWiuLFLU9+owoanI8fTeoly8YP20M0lVnW1AVnFCekXBYaK5lPXyev4RenaLRInBDp
-	3VIuvQDXm+hg0yLk0sxIvk56svydFTJKq1+MEQiGHsJJ9zdy7lB3fgJB+HgyUir8kKoXTq71L21xU
-	t8GrAFPQ==;
+	bh=9nAG/qQRQpu//rLtAVyPzvPWzctU8u3buhONBO6yYrU=; b=uDy1t3CISvF+fVp/gB+P+XVSN+
+	Ujt+pkgBp8UpO+V/tMrr3cTLtZPvXLOYhJ0woRiF2xl4K8WAESYpUzl5mNz9TNY0NsQSRtPrsXNP3
+	+GX0J6EHsE5ZmDvm/XsTGMTH3yOIf44I02XbtgjaSY1JyLJ2pVNdtt/Cpgg4Iwndz/o2yP32pDs8/
+	WzHSXOQeqWN8OLSTwNwTjYmGtUmpopKcHWOnQD4Bsr4lkVH0nNTvmkjsQO0KYbDNH2T060a6lufl6
+	suWTwJn7DGQjA9QAt2IG3+rCoeQeY11ghHcPj4KrplvtgiF3G2WEcG1x/jdhNGM3aVsR8v3sXIqqi
+	vRrt+cfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twPuj-00000001Zwa-39VH;
-	Sun, 23 Mar 2025 18:19:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1twQW8-00000001bao-2oKL;
+	Sun, 23 Mar 2025 18:57:52 +0000
+Received: from mail-bn1nam02on2062e.outbound.protection.outlook.com ([2a01:111:f403:2407::62e] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twPt2-00000001Zkx-2y23
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 18:17:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2B5343892
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 18:17:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E92B7C4CEEE
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 18:17:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742753847;
-	bh=DnwlcnrmTvJn4x6Jhu4lPS5Jhc5VMN4fOZX67Zowe28=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=aOA/7NhtL5afDUxB+Zhh+QBnY+LwpQJbqtjSH6/f0XKI9u9yHS8Fy6dZOGSGOBDNF
-	 Yo7o8R4WnRz3l9p/NdlRFPj5rCCzvDr7BSyHE2zABYhWGBbsYGCg3fFo3QgFJxIptJ
-	 qGtyvOPq+jpo8Za7Ta5jL8YhzOt+K0JyPYIICFlTcmq/Wpj09RtsURrtf5atD7v9Gs
-	 SBeOElN9wucBbLZI2M2JpI2QYkbM4EUeFPaE3LBQm54IPWgvKnLJ1jSVoWX+aMelBf
-	 g/YJzRe3VkQ9c+cbty53T19yVHaBjH61CmhXB+p0Wf9DE7+gClaACxKKt0cwGXIX2p
-	 lE9e5dA4IxG/Q==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-54954fa61c8so3845358e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 11:17:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW2xVQxUAF/K9u75MgUCgaPLCGmU6WXxLGfviPbXIetfizOS5e2sizS65ijhbLVyHwEMkJZH0YLrL2XV5wXI46j@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPdrxQdbSPR6NyZKz/0as8Xk0KY2u1N3PXE6tkMUIS4rQbeCoz
-	0fjjH6hcfQ7FSVXydML4Hp2hAZpuQ1zocPI1I8SNbu5ZabM86yL+Q/rzyl8dawoc6vQcqWNOu85
-	hMhyFN4rdt83q+YyKQG6KHXH26fo=
-X-Google-Smtp-Source: AGHT+IETHfg8ib2tQB5DP02LtHyjTXmPdsydvih0XDlfjgyQtoziDZQMtCctILBs1DwoARqUA+qqI6epKDqy+wlyiFE=
-X-Received: by 2002:a05:6512:1598:b0:549:5769:6ad8 with SMTP id
- 2adb3069b0e04-54ad6470a7dmr3513782e87.4.1742753846190; Sun, 23 Mar 2025
- 11:17:26 -0700 (PDT)
+	id 1twQUR-00000001bTY-1BqU;
+	Sun, 23 Mar 2025 18:56:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JSyMWh8nS8h/04iE80vfCLbsXZLU+/8sq+ceFexk3bKKOGwUYjsDEX2Z3ABdh93JSzKQfZt+3iB8A268Y8E1Ko/1SFMK622q9iht1yzIsciaQlqzLGwuRI2qFxsOEvlpFc16ueksyDGSqIp8PwT9lfbOn2pe9dPFN2Ep20j21XFw2vkOKhrP8AQer9Id/68nKDpHpZN5fv4BxBPpK2dTwJrv13L8jTmkcgmw+7NADlO8Y2Qsna9JnupG+vhwxr9dp+0J0+epkNZFwcnTzIK6ooSUN9mXGzBHhoEVWz0ZrZFDoe+on/k1RGzEU/t+WqGIUDdFtlkUi/hU0xHUb7UbEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9nAG/qQRQpu//rLtAVyPzvPWzctU8u3buhONBO6yYrU=;
+ b=I7XBgcviTpqY1vuFFn0u1EU/8YTHz6X1rHf27bDvG5MiypDPfPMrKSngU/i2OYwaCSxb388V+7J3bIdY8BYThWYSD3J0kORj0+G5/DIPLAq4iE0q3h6AomYkj6U7rUEtNk6gwE9hUlf/rUAPg3L/7DGUW7Eqy7opqQ18mIqpQ+UJKVzsdBUqOqEEx9y6/diwozLqX1MyWHvOrvr1HnxeLgd8pSnRZDXB9jnhGt4knTiGTxgkudrzKOvfdewDxOMvQ1Ltcim/uweiI/P3a9Twrt/yuFlxQdCtIjtDLQuI4OQSeBbbw+w1Bik5h+sKyZdNLm0h6R6z8CA52xsWjOrdKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9nAG/qQRQpu//rLtAVyPzvPWzctU8u3buhONBO6yYrU=;
+ b=UngI4r6C7vQ2n9H+gtGZhws6/qrBhSx43bAEGwBYrUdAW+CawijtqyIRTMjHgQxA/4DD13N8Mxsg8nkCW5c/2+BuePkX8ibVxDuWzzM5B6rTPDFRCUPq23E3JgNi0N8irotbUaYX95EQNaQC28LGn8hdkfIWmhYsHj7Wn+OA+bFRoPtJN/pUGcB8da5Nd04Dp0YUWyXIOhuSoGOZvVPLjoWUlLef2hzb37ApEotjdNLIqm4DDJsbbrDrpYEYAwopSGgQ/TZ3DhnE+4cvkJ+/ef0fgENegAC0Fo8/ZRplLW1M13V/yZdVc2gVLyf/IT1Fkfxs6H3XxRrvffb9NSJI9Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CY5PR12MB6297.namprd12.prod.outlook.com (2603:10b6:930:22::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Sun, 23 Mar
+ 2025 18:55:54 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.040; Sun, 23 Mar 2025
+ 18:55:53 +0000
+Date: Sun, 23 Mar 2025 15:55:52 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
+	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
+	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
+	robh@kernel.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
+	tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <Z+BZOKSpyPA1Pyu+@nvidia.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-10-changyuanl@google.com>
+ <20250321134629.GA252045@nvidia.com>
+ <Z98Lmo50h5RboFXq@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z98Lmo50h5RboFXq@kernel.org>
+X-ClientProxiedBy: YQBPR0101CA0123.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:5::26) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <20241202012056.209768-1-ebiggers@kernel.org> <20241202012056.209768-9-ebiggers@kernel.org>
- <389b899f-893c-4855-9e30-d8920a5d6f91@roeck-us.net> <CAMj1kXHAktbQ-605wfqXCWtn8bP-yEv8sYKWAykajeAX2m1hEA@mail.gmail.com>
- <20250323171243.GA852@quark.localdomain>
-In-Reply-To: <20250323171243.GA852@quark.localdomain>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 23 Mar 2025 19:17:14 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGMtpMuiJqwWVuWDhRrb-dXC30Fj0vu0vU=O6-gGR0FWg@mail.gmail.com>
-X-Gm-Features: AQ5f1Jq9h71nypQ2vOBZhli703EaGsNLFv7huy-pmiN-c5U6P8ctOyu2HMEj9rU
-Message-ID: <CAMj1kXGMtpMuiJqwWVuWDhRrb-dXC30Fj0vu0vU=O6-gGR0FWg@mail.gmail.com>
-Subject: Re: [PATCH v2 08/12] lib/crc_kunit.c: add KUnit test suite for CRC
- library functions
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Guenter Roeck <linux@roeck-us.net>, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-crypto@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org, 
-	Zhihang Shao <zhihang.shao.iscas@gmail.com>, Vinicius Peixoto <vpeixoto@lkcamp.dev>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6297:EE_
+X-MS-Office365-Filtering-Correlation-Id: d70fbe72-ad15-4802-0ca6-08dd6a3c565f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?odjoHHyQ0FxiSX0H5pcOJzT32iQwjwxvJhX9xmj/+oE+tpwAR+mWZ8LHhYEg?=
+ =?us-ascii?Q?+7DcN8MtdkL6le8IEG0XRcrjXKYpofURtY0yGp+tauwWsQdzXhRvMI8gkcfY?=
+ =?us-ascii?Q?37w+iEFZvSHuv0UJMjCeMrGlSjF5BS0n4awzKKTUlD3G6bDTHhK1cPohDAmT?=
+ =?us-ascii?Q?XgoGxnEhnRG9lTUojkx9ANSelB1AjdlU5LvHN31RSr4wo9E3c6jAWPbZ9X62?=
+ =?us-ascii?Q?U1iJ6j4aGmotWWw61VtOglLyjRbPRvkuivyH3mK42qWvhNfmwZjwrJYrdmSc?=
+ =?us-ascii?Q?xA6Kza6R0r/r3cLjEYGjoHq5fe48KKDfnreKrcLF0+CNt4O2HYWkaNfOuz/F?=
+ =?us-ascii?Q?EBtSCtATMnS/oIDymQyyTieYYUvtbZobhdMic8AaQerQkD2WR+VO/haS1xOm?=
+ =?us-ascii?Q?kLl4G/nUYFlCNGad7LxcJjUo9BMEL5pD1CrbHmOLdmUec+p6wgsgw+dxQDBb?=
+ =?us-ascii?Q?mC/7TjoFZ9e1qSXjd1Rw7pHVGASLVbwMCz1roSk4XlavOf7UezLVGp0LXL5C?=
+ =?us-ascii?Q?IY6Vp2ndeTF5vMHOgMuH1fruWzUO2JfdQJPiLXPYWyYvxT6MEkx2yF/lumtc?=
+ =?us-ascii?Q?RAFAjEoneNCl7HmRK60gnRDaAU++froNzch6BF6Jgc8mP1US3OXnG51dsPZM?=
+ =?us-ascii?Q?Z8spHWydjLhpY+G3/1OTKH2ouzkKeyPzVeatiqaWIAo4rY5wO7UaKCDy7yxq?=
+ =?us-ascii?Q?vkxULmW9ds2DQUH8ZFLeYbyidZxxkPTmFtrrt1HL4N1Et0uK37vsJtVZVu41?=
+ =?us-ascii?Q?5zhTaBzjsVGgJHRuxaQXBPdzzim8rQ8nn1kjA8dYRLhjROgSdCmy4OcS3YYm?=
+ =?us-ascii?Q?hqTxdJg6IUtBvkjHJjRdajYXOSevDKr5V8SXquEo/j0StmcjUHzU+8amLSp2?=
+ =?us-ascii?Q?EfTplKj7n2OxCRC98r/+3BypkBaVGM7ywcVUl+c3HbziQnX36MR6Lq5Njv7r?=
+ =?us-ascii?Q?2/8unVO4jk12AaansdWjZMKxJUmShVjV+Mx4KjNAf2vBlcFDcbWYsCa4qCDs?=
+ =?us-ascii?Q?DiEG6XVwsC62iCKOfaWPeah/KYC8DT9+hJ/myiFeiW3t6krkFwn2/6DoHXbi?=
+ =?us-ascii?Q?mn9ksksE9+51KAhvYCK3VZdj4V9SA/gxKH3WyBA3/ZyeVFP4AOag0OC6HMIq?=
+ =?us-ascii?Q?rKoX3aYHo5lwkk0K3HqVnmhDVbwCJYaFrdoTN26p1iRoA2NIjiIVZlZbELNA?=
+ =?us-ascii?Q?O9xdTM2+D4J6FPT/5Hx9yT/eKYRzsdA5Kn18ZpvgT+BtBLGTh2YpHqr2ZmBs?=
+ =?us-ascii?Q?HzwlAHEIOMuGEAQdXTuOHHfejrKfDdwrMgqcYy1CfxOky89HgXYu+XFFdf9p?=
+ =?us-ascii?Q?CK66xiQ20ZV8g+0ZBCQIbenKBDhqTaRnHmzq86gUjWayCFY0Iib0qA+RkEgp?=
+ =?us-ascii?Q?ASUv8mQXpG8Lyo2DY8hlbTi7q2HF?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fsNp4Y3v/uIAENqRxBR9lJqflaoGqma77DUjBEB1XRbcnEWi3ps82ty8dojg?=
+ =?us-ascii?Q?sSM6k6BLABRBYfdd0iJZwJryXBx2Ym3nJmM6Ua8j7TE217JzD2avEeTyj4TF?=
+ =?us-ascii?Q?7GTaTBYAM5H6u0dwcxGIce6oO4gimx1217XrtFQ3wcne7Al8ZUxQGXUBh7fI?=
+ =?us-ascii?Q?ZGeI0QypduTQQJyWRkZZY0Hsk8jXzCXdHrgUSRcqjnshuT8pn7+KWwvEJdQe?=
+ =?us-ascii?Q?4ZRh4T0PFFYqo5xJulIS26m7kRcs2lbVFsz6pB2HUWXK4xqH70FEUl5ZHr6I?=
+ =?us-ascii?Q?TaKdL4+po0RT/nVCMM0u49KaOiEgXJdtePSfi5nddN3wZCF5qy5VoUbFkzSI?=
+ =?us-ascii?Q?X4l9n6RRxi0JjgONz6qehVgL4PSoiMiPYwOxO8EkYkcNIp1Ypalk0vsNmwYy?=
+ =?us-ascii?Q?q0Q7P0XPSalQ1qzEmtBiieL5R68QJZARXB13epL+TtSvFwtsFcb6NrY10STt?=
+ =?us-ascii?Q?ONggKYvGliFTY9ilKUDguqLYQAYJ15DZIRuMPyHihEKyDqt0+dNjbZmWV6XP?=
+ =?us-ascii?Q?6B/73j/1URh+8B3AMAdftrSTv74urDwfg+YmmSprnMKcOQh49if/x5sxMVRa?=
+ =?us-ascii?Q?05znogQeQx0eeczC6mrByRAZn1zXOEVWRw/bEVus+oyb2Nq68eRUdv27sN9o?=
+ =?us-ascii?Q?04iPjG435EOieO27gksKayrNIGzLGB9YH/RQzyfuTMgx9FckJXuM5i4kFjGO?=
+ =?us-ascii?Q?DcGzjo31V0swi5v+38Ecle9Qhccj7F+0clVr14RQCcAMYDDP91bU7GN0yLCa?=
+ =?us-ascii?Q?lhXsRdq3FkhFf939BI7jgJ5hyCw3NRI3nM0LOyAu6L2FMRq68Qe0K03vsJ03?=
+ =?us-ascii?Q?z/Ftq/IFRp0yQ8Cn9iycMlY4f3ZkDDpfw2cBf4T9zH5jJ0bita+81UVH/7Ra?=
+ =?us-ascii?Q?Hvprka82QinXKEYEpbBjqYLu2lypBD5Ncsyp1l/6e76dC6Cbb1g4HQGE6I4w?=
+ =?us-ascii?Q?GZRNuY6a01bLRfg2jflByk5CBZ+LjFDwscpYyvaOlwoB5EA5ylbDIpe6FrUF?=
+ =?us-ascii?Q?MxtZTWI5FIkNZ24qVEQj+b8xgjnO+Hckku4Rpkpwidt9GYIW8+UF4ZPl4Wnd?=
+ =?us-ascii?Q?xqzs9TmNcznaPVBHAtXNhBDbnZXq17BUk/2ZWrJGqUH7xh0O4vrmEA4QCXhC?=
+ =?us-ascii?Q?TMGxLVbcNKyY1cdsNeKmSazyU9OiDi9j4aRmcRhus0wpkmiwcvKn/HNE418A?=
+ =?us-ascii?Q?OzIVNL+LDjignGZ73JbJW8Zn/4z41MATHjOX+p/8vwTQUFqDcSc4v3fTgBCS?=
+ =?us-ascii?Q?KLBQjHMf2t5n9TYEIml4nWGKIgRrhZC1UqzCkocAjMNgu24L6x1rSgLdsT7E?=
+ =?us-ascii?Q?pcZPd1N62J6vkbbKLneYvFO6HhnxAh1cPWxlgmiDb8Q7/9E0nzHM2rLbFJmW?=
+ =?us-ascii?Q?kRXtrFtwIM4r2BCSEgtIH60NFtd5O6J3yYQ5ZaY6MPR1XzoLVXqUlqu9SsTC?=
+ =?us-ascii?Q?OFNPJPwGKKsZ9tbgX7z+hm8XkPPokAp4dJeGye0lv2hYu1F18LNCVAPRIf7R?=
+ =?us-ascii?Q?x08N6XCJ+FWLaMndud8xJxdnEIS5V4I/XxEGjxbFAiFE+Glrvoi48QTdf1SO?=
+ =?us-ascii?Q?dj9FqUTc1rbXIL77/QJxopAbw/kmmGeEghkh0Bp0?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d70fbe72-ad15-4802-0ca6-08dd6a3c565f
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2025 18:55:53.7539
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 93inFYzSfLw8BQQU10/cBXQfp93jyBY5w1ozhrFZ2r+OucIUX3coYeOtcaKamXth
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6297
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_111728_785969_8908C053 
-X-CRM114-Status: GOOD (  41.12  )
+X-CRM114-CacheID: sfid-20250323_115607_323869_9818D0B6 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,128 +172,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 23 Mar 2025 at 18:12, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On Sun, Mar 23, 2025 at 04:35:29PM +0100, Ard Biesheuvel wrote:
-> > On Sat, 22 Mar 2025 at 15:33, Guenter Roeck <linux@roeck-us.net> wrote:
-> > >
-> > > Hi,
-> > >
-> > > On Sun, Dec 01, 2024 at 05:20:52PM -0800, Eric Biggers wrote:
-> > > > From: Eric Biggers <ebiggers@google.com>
-> > > >
-> > > > Add a KUnit test suite for the crc16, crc_t10dif, crc32_le, crc32_be,
-> > > > crc32c, and crc64_be library functions.  It avoids code duplication by
-> > > > sharing most logic among all CRC variants.  The test suite includes:
-> > > >
-> > > > - Differential fuzz test of each CRC function against a simple
-> > > >   bit-at-a-time reference implementation.
-> > > > - Test for CRC combination, when implemented by a CRC variant.
-> > > > - Optional benchmark of each CRC function with various data lengths.
-> > > >
-> > > > This is intended as a replacement for crc32test and crc16_kunit, as well
-> > > > as a new test for CRC variants which didn't previously have a test.
-> > > >
-> > > > Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-> > > > Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
-> > > > Cc: Vinicius Peixoto <vpeixoto@lkcamp.dev>
-> > > > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > > > ---
-> > > ...
-> > > > +
-> > > > +             nosimd = rand32() % 8 == 0;
-> > > > +
-> > > > +             /*
-> > > > +              * Compute the CRC, and verify that it equals the CRC computed
-> > > > +              * by a simple bit-at-a-time reference implementation.
-> > > > +              */
-> > > > +             expected_crc = crc_ref(v, init_crc, &test_buffer[offset], len);
-> > > > +             if (nosimd)
-> > > > +                     local_irq_disable();
-> > > > +             actual_crc = v->func(init_crc, &test_buffer[offset], len);
-> > > > +             if (nosimd)
-> > > > +                     local_irq_enable();
-> > >
-> > > This triggers a traceback on some arm systems.
-> > >
-> > > [    7.810000]     ok 2 crc16_benchmark # SKIP not enabled
-> > > [    7.810000] ------------[ cut here ]------------
-> > > [    7.810000] WARNING: CPU: 0 PID: 1145 at kernel/softirq.c:369 __local_bh_enable_ip+0x118/0x194
-> > > [    7.810000] Modules linked in:
-> > > [    7.810000] CPU: 0 UID: 0 PID: 1145 Comm: kunit_try_catch Tainted: G                 N 6.14.0-rc7-00196-g88d324e69ea9 #1
-> > > [    7.810000] Tainted: [N]=TEST
-> > > [    7.810000] Hardware name: NPCM7XX Chip family
-> > > [    7.810000] Call trace:
-> > > [    7.810000]  unwind_backtrace from show_stack+0x10/0x14
-> > > [    7.810000]  show_stack from dump_stack_lvl+0x7c/0xac
-> > > [    7.810000]  dump_stack_lvl from __warn+0x7c/0x1b8
-> > > [    7.810000]  __warn from warn_slowpath_fmt+0x19c/0x1a4
-> > > [    7.810000]  warn_slowpath_fmt from __local_bh_enable_ip+0x118/0x194
-> > > [    7.810000]  __local_bh_enable_ip from crc_t10dif_arch+0xd4/0xe8
-> > > [    7.810000]  crc_t10dif_arch from crc_t10dif_wrapper+0x14/0x1c
-> > > [    7.810000]  crc_t10dif_wrapper from crc_main_test+0x178/0x360
-> > > [    7.810000]  crc_main_test from kunit_try_run_case+0x78/0x1e0
-> > > [    7.810000]  kunit_try_run_case from kunit_generic_run_threadfn_adapter+0x1c/0x34
-> > > [    7.810000]  kunit_generic_run_threadfn_adapter from kthread+0x118/0x254
-> > > [    7.810000]  kthread from ret_from_fork+0x14/0x28
-> > > [    7.810000] Exception stack(0xe3651fb0 to 0xe3651ff8)
-> > > [    7.810000] 1fa0:                                     00000000 00000000 00000000 00000000
-> > > [    7.810000] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-> > > [    7.810000] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
-> > > [    7.810000] irq event stamp: 29
-> > > [    7.810000] hardirqs last  enabled at (27): [<c037875c>] __local_bh_enable_ip+0xb4/0x194
-> > > [    7.810000] hardirqs last disabled at (28): [<c0b09684>] crc_main_test+0x2e4/0x360
-> > > [    7.810000] softirqs last  enabled at (26): [<c032a3ac>] kernel_neon_end+0x0/0x1c
-> > > [    7.810000] softirqs last disabled at (29): [<c032a3c8>] kernel_neon_begin+0x0/0x70
-> > > [    7.810000] ---[ end trace 0000000000000000 ]---
-> > > [    8.050000]     # crc_t10dif_test: pass:1 fail:0 skip:0 total:1
-> > >
-> > > kernel_neon_end() calls local_bh_enable() which apparently conflicts with
-> > > the local_irq_disable() in above code.
-> > >
-> >
-> > This seems to be an oversight on my part. Can you try the below please?
-> >
-> > diff --git a/arch/arm/include/asm/simd.h b/arch/arm/include/asm/simd.h
-> > index 82191dbd7e78..56ddbd3c4997 100644
-> > --- a/arch/arm/include/asm/simd.h
-> > +++ b/arch/arm/include/asm/simd.h
-> > @@ -4,5 +4,6 @@
-> >
-> >  static __must_check inline bool may_use_simd(void)
-> >  {
-> > -       return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && !in_hardirq();
-> > +       return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
-> > +              !in_hardirq() && !irqs_disabled();
-> >  }
->
-> Thanks Ard, you beat me to it.  Yes, may_use_simd() needs to be consistent with
-> kernel_neon_begin().  On x86 there is a case where the equivalent function is
-> expected to work when irqs_disabled(), but if there is no such case on arm this
-> fix looks good.  Can you send it out as a formal patch?  Presumably for the arm
-> maintainer to pick up.
->
+On Sat, Mar 22, 2025 at 03:12:26PM -0400, Mike Rapoport wrote:
+> This hunk actually came from me. I decided to keep it simple for now and
+> check what are the alternatives, like moving away from memblock_reserve(),
+> adding a maple_tree or even something else.
 
-Sure.
+Okat, makes sense to me
+ 
+> > > +		page->private = order;
+> > 
+> > Can't just set the page order directly? Why use private?
+> 
+> Setting the order means recreating the folio the way prep_compound_page()
+> does. I think it's better to postpone it until the folio is requested. This
+> way it might run after SMP is enabled. 
 
-On other architectures, we might just turn this logic around, and only
-disable softirqs when IRQs are enabled, as otherwise, there is no
-need: we don't care about whether or not IRQs are disabled, only the
-softirq plumbing that we need to call into does, and no softirqs can
-be delivered over the back of a hard IRQ when those are disabled to
-begin with.
+I see, that makes sense, but also it could stil use page->order..
 
-> > However, this test code also appears to assume that SIMD is forbidden
-> > on any architecture when IRQs are disabled, but this not guaranteed.
->
-> Yes, to reliably test the no-SIMD code paths, I need to finish refactoring the
-> crypto_simd_disabled_for_test stuff to be disentangled from the crypto subsystem
-> so that crc_kunit.c can use it.  It's on my list of things to do, and I'm
-> planning to get it done in 6.16.  Disabling hardirqs is just a trick to get
-> there more easily on some architectures.  But as this shows it's a useful test
-> to have anyway, so we'll want to keep that too.  The CRC functions need to work
-> in any context, and any context that we can easily test we should do so.
->
+> Besides, when we start allocating
+> folios separately from struct page, initializing it here would be a real
+> issue.
 
-Sounds good.
+Yes, but also we wouldn't have page->private to make it work.. Somehow
+anything we want to carry over would have to become encoded in the
+memdesc directly.
+
+I think this supports my remark someplace else that any user of this
+that wants to preserve per-page data should do it on its own somehow
+as an add-on-top?
+
+Jason
 
