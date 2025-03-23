@@ -4,110 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FDDC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 17:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8E5C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 18:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJR9nuX+GzpU6ysNtRGeGBe2rw4YuNvmnXR2ANTMqpk=; b=rmf7hBXOdGCBzW2z5d0ELFNb/1
-	ic6aEBDFgsrAoDzk+NGOhG445rOAsSiFiu+TA10zO0wUa/d63yo14IOtZ3akgtr8/yG/iFlOeBUZS
-	bSMxgXXqbRKQowTPQt3rU2R6sA+uKT3+kseGI1kJvkW1642Ka2reb/PXtpr2pbUOzwAf45bQBiPYU
-	TkTn3X39+hpH8j+/9YNNlRj3qzq87AquHQQagSqzuwcNCYGDPVKxiSKzOIf6VmBLcyk+kDHbH5VQz
-	3ZXadfgBtdFpg5nLzC5EnEr3IxxGf2hntMI7irIJPEo4DCNd9hiMF5+F4lvbkQbrFKirPwJ83Uj8J
-	eA4Q0tdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Let4Q3el9jM1Xi0HwmGhei27/6Q/PCmg+tofSw5IIg=; b=qEKeSM9Br+1xGMI7pza176lN2c
+	dymNGVllV+sIHFO/f2RqGpdaNe/zSZnK3zdkh+cT8anjI2rKUZ8aQNlVBkLr7b0kic2yk0R6kMKKG
+	pbeOIhf0jwkwRilc/0mSglxcrEIIcEUFodl937fgVpCt7KAQmOJ0QumMAOVAlyMM54DHyONA+LAV7
+	ccw+t53iZkdYWiuLFLU9+owoanI8fTeoly8YP20M0lVnW1AVnFCekXBYaK5lPXyev4RenaLRInBDp
+	3VIuvQDXm+hg0yLk0sxIvk56svydFTJKq1+MEQiGHsJJ9zdy7lB3fgJB+HgyUir8kKoXTq71L21xU
+	t8GrAFPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twPGl-00000001Wsh-1iad;
-	Sun, 23 Mar 2025 17:37:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1twPuj-00000001Zwa-39VH;
+	Sun, 23 Mar 2025 18:19:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twPAs-00000001WHs-2EHR;
-	Sun, 23 Mar 2025 17:31:51 +0000
+	id 1twPt2-00000001Zkx-2y23
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Mar 2025 18:17:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 438775C5D8E;
-	Sun, 23 Mar 2025 17:29:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D96A3C4CEED;
-	Sun, 23 Mar 2025 17:31:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E2B5343892
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 18:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E92B7C4CEEE
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 18:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742751107;
-	bh=KW8HvEyjKl4+3w87G/HKj1aL1Obox2r5omiDDDKvHuU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I/O7lI8m0clQf2iH5mum/fc0gVoxT9Qdrf++coZfcVT3ZZd6FzjCevXew8F70UVWx
-	 ZjNMipFaphHO/3w+KwJjq3QVn7fbcjcuXucfy6oirlIOXlcJe2TxqRjgWePFzXTDE5
-	 9L3Jfuqs2Lynq4fUedxPRAz4KZ41znhy8ZAKvUUjyp3QPNT8NH7pimCzJAuwY8TFMk
-	 ZivcA46BB+J+wP/BoO+oZbzjHbt/7JpIG0NJXE2sO6fubNLHm6KiKFhO8tN2h+G5Ss
-	 c7vMhkVjXD2DJAg7yh+lWH86GKE3jhOc21k3+NY8KG4CpnY1fku5fQ8/NZYFueipNp
-	 TNEgDDQI7hGzw==
-Message-ID: <2842b994-6970-4f31-9a9a-ff8dd1e9b212@kernel.org>
-Date: Sun, 23 Mar 2025 18:31:41 +0100
+	s=k20201202; t=1742753847;
+	bh=DnwlcnrmTvJn4x6Jhu4lPS5Jhc5VMN4fOZX67Zowe28=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=aOA/7NhtL5afDUxB+Zhh+QBnY+LwpQJbqtjSH6/f0XKI9u9yHS8Fy6dZOGSGOBDNF
+	 Yo7o8R4WnRz3l9p/NdlRFPj5rCCzvDr7BSyHE2zABYhWGBbsYGCg3fFo3QgFJxIptJ
+	 qGtyvOPq+jpo8Za7Ta5jL8YhzOt+K0JyPYIICFlTcmq/Wpj09RtsURrtf5atD7v9Gs
+	 SBeOElN9wucBbLZI2M2JpI2QYkbM4EUeFPaE3LBQm54IPWgvKnLJ1jSVoWX+aMelBf
+	 g/YJzRe3VkQ9c+cbty53T19yVHaBjH61CmhXB+p0Wf9DE7+gClaACxKKt0cwGXIX2p
+	 lE9e5dA4IxG/Q==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-54954fa61c8so3845358e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 11:17:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW2xVQxUAF/K9u75MgUCgaPLCGmU6WXxLGfviPbXIetfizOS5e2sizS65ijhbLVyHwEMkJZH0YLrL2XV5wXI46j@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPdrxQdbSPR6NyZKz/0as8Xk0KY2u1N3PXE6tkMUIS4rQbeCoz
+	0fjjH6hcfQ7FSVXydML4Hp2hAZpuQ1zocPI1I8SNbu5ZabM86yL+Q/rzyl8dawoc6vQcqWNOu85
+	hMhyFN4rdt83q+YyKQG6KHXH26fo=
+X-Google-Smtp-Source: AGHT+IETHfg8ib2tQB5DP02LtHyjTXmPdsydvih0XDlfjgyQtoziDZQMtCctILBs1DwoARqUA+qqI6epKDqy+wlyiFE=
+X-Received: by 2002:a05:6512:1598:b0:549:5769:6ad8 with SMTP id
+ 2adb3069b0e04-54ad6470a7dmr3513782e87.4.1742753846190; Sun, 23 Mar 2025
+ 11:17:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: arm: amlogic: Add TCU Fernsehfee 3.0
- board
-To: j.ne@posteo.net, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-References: <20250323-fernsehfee-v1-0-2621341cd37a@posteo.net>
- <20250323-fernsehfee-v1-2-2621341cd37a@posteo.net>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250323-fernsehfee-v1-2-2621341cd37a@posteo.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20241202012056.209768-1-ebiggers@kernel.org> <20241202012056.209768-9-ebiggers@kernel.org>
+ <389b899f-893c-4855-9e30-d8920a5d6f91@roeck-us.net> <CAMj1kXHAktbQ-605wfqXCWtn8bP-yEv8sYKWAykajeAX2m1hEA@mail.gmail.com>
+ <20250323171243.GA852@quark.localdomain>
+In-Reply-To: <20250323171243.GA852@quark.localdomain>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Sun, 23 Mar 2025 19:17:14 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGMtpMuiJqwWVuWDhRrb-dXC30Fj0vu0vU=O6-gGR0FWg@mail.gmail.com>
+X-Gm-Features: AQ5f1Jq9h71nypQ2vOBZhli703EaGsNLFv7huy-pmiN-c5U6P8ctOyu2HMEj9rU
+Message-ID: <CAMj1kXGMtpMuiJqwWVuWDhRrb-dXC30Fj0vu0vU=O6-gGR0FWg@mail.gmail.com>
+Subject: Re: [PATCH v2 08/12] lib/crc_kunit.c: add KUnit test suite for CRC
+ library functions
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Guenter Roeck <linux@roeck-us.net>, linux-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-crypto@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org, 
+	Zhihang Shao <zhihang.shao.iscas@gmail.com>, Vinicius Peixoto <vpeixoto@lkcamp.dev>, 
+	"Martin K. Petersen" <martin.petersen@oracle.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_103150_648774_36DCF0A8 
-X-CRM114-Status: UNSURE (   5.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250323_111728_785969_8908C053 
+X-CRM114-Status: GOOD (  41.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,17 +88,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/03/2025 13:37, J. Neuschäfer via B4 Relay wrote:
-> From: "J. Neuschäfer" <j.ne@posteo.net>
-> 
-> Fernsehfee ("TV fairy") 3.0 is a set-top box with HDMI input and output
-> ports. It originally ran Android 4.4 and a Linux 3.10 kernel.
-> 
->   https://fernsehfee.de/  (German)
->   https://telefairy.com/  (English)
+On Sun, 23 Mar 2025 at 18:12, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> On Sun, Mar 23, 2025 at 04:35:29PM +0100, Ard Biesheuvel wrote:
+> > On Sat, 22 Mar 2025 at 15:33, Guenter Roeck <linux@roeck-us.net> wrote:
+> > >
+> > > Hi,
+> > >
+> > > On Sun, Dec 01, 2024 at 05:20:52PM -0800, Eric Biggers wrote:
+> > > > From: Eric Biggers <ebiggers@google.com>
+> > > >
+> > > > Add a KUnit test suite for the crc16, crc_t10dif, crc32_le, crc32_be,
+> > > > crc32c, and crc64_be library functions.  It avoids code duplication by
+> > > > sharing most logic among all CRC variants.  The test suite includes:
+> > > >
+> > > > - Differential fuzz test of each CRC function against a simple
+> > > >   bit-at-a-time reference implementation.
+> > > > - Test for CRC combination, when implemented by a CRC variant.
+> > > > - Optional benchmark of each CRC function with various data lengths.
+> > > >
+> > > > This is intended as a replacement for crc32test and crc16_kunit, as well
+> > > > as a new test for CRC variants which didn't previously have a test.
+> > > >
+> > > > Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+> > > > Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
+> > > > Cc: Vinicius Peixoto <vpeixoto@lkcamp.dev>
+> > > > Signed-off-by: Eric Biggers <ebiggers@google.com>
+> > > > ---
+> > > ...
+> > > > +
+> > > > +             nosimd = rand32() % 8 == 0;
+> > > > +
+> > > > +             /*
+> > > > +              * Compute the CRC, and verify that it equals the CRC computed
+> > > > +              * by a simple bit-at-a-time reference implementation.
+> > > > +              */
+> > > > +             expected_crc = crc_ref(v, init_crc, &test_buffer[offset], len);
+> > > > +             if (nosimd)
+> > > > +                     local_irq_disable();
+> > > > +             actual_crc = v->func(init_crc, &test_buffer[offset], len);
+> > > > +             if (nosimd)
+> > > > +                     local_irq_enable();
+> > >
+> > > This triggers a traceback on some arm systems.
+> > >
+> > > [    7.810000]     ok 2 crc16_benchmark # SKIP not enabled
+> > > [    7.810000] ------------[ cut here ]------------
+> > > [    7.810000] WARNING: CPU: 0 PID: 1145 at kernel/softirq.c:369 __local_bh_enable_ip+0x118/0x194
+> > > [    7.810000] Modules linked in:
+> > > [    7.810000] CPU: 0 UID: 0 PID: 1145 Comm: kunit_try_catch Tainted: G                 N 6.14.0-rc7-00196-g88d324e69ea9 #1
+> > > [    7.810000] Tainted: [N]=TEST
+> > > [    7.810000] Hardware name: NPCM7XX Chip family
+> > > [    7.810000] Call trace:
+> > > [    7.810000]  unwind_backtrace from show_stack+0x10/0x14
+> > > [    7.810000]  show_stack from dump_stack_lvl+0x7c/0xac
+> > > [    7.810000]  dump_stack_lvl from __warn+0x7c/0x1b8
+> > > [    7.810000]  __warn from warn_slowpath_fmt+0x19c/0x1a4
+> > > [    7.810000]  warn_slowpath_fmt from __local_bh_enable_ip+0x118/0x194
+> > > [    7.810000]  __local_bh_enable_ip from crc_t10dif_arch+0xd4/0xe8
+> > > [    7.810000]  crc_t10dif_arch from crc_t10dif_wrapper+0x14/0x1c
+> > > [    7.810000]  crc_t10dif_wrapper from crc_main_test+0x178/0x360
+> > > [    7.810000]  crc_main_test from kunit_try_run_case+0x78/0x1e0
+> > > [    7.810000]  kunit_try_run_case from kunit_generic_run_threadfn_adapter+0x1c/0x34
+> > > [    7.810000]  kunit_generic_run_threadfn_adapter from kthread+0x118/0x254
+> > > [    7.810000]  kthread from ret_from_fork+0x14/0x28
+> > > [    7.810000] Exception stack(0xe3651fb0 to 0xe3651ff8)
+> > > [    7.810000] 1fa0:                                     00000000 00000000 00000000 00000000
+> > > [    7.810000] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+> > > [    7.810000] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+> > > [    7.810000] irq event stamp: 29
+> > > [    7.810000] hardirqs last  enabled at (27): [<c037875c>] __local_bh_enable_ip+0xb4/0x194
+> > > [    7.810000] hardirqs last disabled at (28): [<c0b09684>] crc_main_test+0x2e4/0x360
+> > > [    7.810000] softirqs last  enabled at (26): [<c032a3ac>] kernel_neon_end+0x0/0x1c
+> > > [    7.810000] softirqs last disabled at (29): [<c032a3c8>] kernel_neon_begin+0x0/0x70
+> > > [    7.810000] ---[ end trace 0000000000000000 ]---
+> > > [    8.050000]     # crc_t10dif_test: pass:1 fail:0 skip:0 total:1
+> > >
+> > > kernel_neon_end() calls local_bh_enable() which apparently conflicts with
+> > > the local_irq_disable() in above code.
+> > >
+> >
+> > This seems to be an oversight on my part. Can you try the below please?
+> >
+> > diff --git a/arch/arm/include/asm/simd.h b/arch/arm/include/asm/simd.h
+> > index 82191dbd7e78..56ddbd3c4997 100644
+> > --- a/arch/arm/include/asm/simd.h
+> > +++ b/arch/arm/include/asm/simd.h
+> > @@ -4,5 +4,6 @@
+> >
+> >  static __must_check inline bool may_use_simd(void)
+> >  {
+> > -       return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && !in_hardirq();
+> > +       return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
+> > +              !in_hardirq() && !irqs_disabled();
+> >  }
+>
+> Thanks Ard, you beat me to it.  Yes, may_use_simd() needs to be consistent with
+> kernel_neon_begin().  On x86 there is a case where the equivalent function is
+> expected to work when irqs_disabled(), but if there is no such case on arm this
+> fix looks good.  Can you send it out as a formal patch?  Presumably for the arm
+> maintainer to pick up.
+>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Sure.
 
-Best regards,
-Krzysztof
+On other architectures, we might just turn this logic around, and only
+disable softirqs when IRQs are enabled, as otherwise, there is no
+need: we don't care about whether or not IRQs are disabled, only the
+softirq plumbing that we need to call into does, and no softirqs can
+be delivered over the back of a hard IRQ when those are disabled to
+begin with.
+
+> > However, this test code also appears to assume that SIMD is forbidden
+> > on any architecture when IRQs are disabled, but this not guaranteed.
+>
+> Yes, to reliably test the no-SIMD code paths, I need to finish refactoring the
+> crypto_simd_disabled_for_test stuff to be disentangled from the crypto subsystem
+> so that crc_kunit.c can use it.  It's on my list of things to do, and I'm
+> planning to get it done in 6.16.  Disabling hardirqs is just a trick to get
+> there more easily on some architectures.  But as this shows it's a useful test
+> to have anyway, so we'll want to keep that too.  The CRC functions need to work
+> in any context, and any context that we can easily test we should do so.
+>
+
+Sounds good.
 
