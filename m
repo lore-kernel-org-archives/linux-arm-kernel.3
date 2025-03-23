@@ -4,82 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBE7C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 21:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C99C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 21:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjI5CAIKnyK0cdKaefRJI+q3uIG7lhr68HrdHr6otHQ=; b=Y84Kpc+MDPbWAJn0rnRCRiwCgD
-	avY22qQ0UiVxymth9vv/2i28u69+h3ja2DsUVkVW1X0DcLC3FSpGvARO430ars2OdFVDjiHnjlxtQ
-	M47N459AdNyy1nMPg1NzUO8rPbiEKkaVJOovgT5yBD4TK3zuDA1Fpe6zPIQCebem/h2it6UNluapD
-	qoJaaMTBkQf8ppDOPnNUcdC/TDrw7oupQes9yaITnVD8SWSs+pJEUKLPzeLsdSyuhXNnW5tK54RWR
-	q73iTz4q0JQW+hivQ5pzMRc2IeG269gdlgcMDDRdcDYsEb4Kx3JcDZpQL/gUoClUvPlKkDwXIAegq
-	Aaso+nAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4qA4COV9YHp+Oo7CvUkU/OS+JOY7kTPl3jpE0A4KLQ=; b=CwNaHyXpyPSRu8zi3U0qQtWXw6
+	D+K2j4OYZL3Wd9D3PEuUK0QbGn3MVAVIhkeF8MNpCIZB2FI1CAgCkOz88ylAEL3mroojJmOzeV4Yq
+	ZFQClueVx8n8H+hSC9tiKJKnnS5WUsGNMMDIlMQ1c27hBWlhEMsZDuOCjcp73ExH/fGioX6/vkj7C
+	FQCnwGSlHNHKHRobmtbmz99NKca7Phi6Ge9Enw2hQbx3hRVCJMaCxBgrUNCTxXIDXTlQmuKhjHfxO
+	c8BvcRUXoibBnjVsci20rsDFS+jyJD1xWvfphFq36V6EkB3lRrghI//FDmuwQWln+WFghuCeazdBj
+	8KpWhzmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twT99-00000001lfO-0ubE;
-	Sun, 23 Mar 2025 21:46:19 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1twTDe-00000001m3t-0I3C;
+	Sun, 23 Mar 2025 21:50:58 +0000
+Received: from smtp.forwardemail.net ([121.127.44.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twT7R-00000001lWB-28B3
+	id 1twTBv-00000001ltI-2o0r
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 21:44:35 +0000
-Date: Sun, 23 Mar 2025 17:44:23 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1742766271;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QjI5CAIKnyK0cdKaefRJI+q3uIG7lhr68HrdHr6otHQ=;
-	b=nZ9Le3K9grAmT8NSqrDY7VgqawNr/XTrJxRvN1cnBj5rG5ctGZFQCbYbmgaahOqfE4y8X6
-	9KiTK78LgpYvRwVN+5zFnyPVfkywDFasGxtxhKNwLwWoFJmI3aEZJwku1/EAvQL4segCBL
-	GKMhFQ9tW6Sie6nKkCQzSyxkQg/G91JQl5JBVLihPfSOBgK0Rw9zfLdsp5oL61XNAM2K4y
-	EOadBxaZValTGWpyOOX2ozW/iNrMvBnfzLdCp+xW/A4nUucYKeDqrqta/rfKTlhwkGNgDe
-	CZGYYmPXcuH8jntdQWJIvZ7MVHpgdSGE0X7sP901OWfGmctB8KHsZb9uFe7BFA==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: Faith Ekstrand <faith.ekstrand@collabora.com>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?=22Bj=F6rn_Roy_Baron=22?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Janne Grunau <j@jannau.net>, Sven Peter <sven@svenpeter.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Sergio Lopez Pascual <slp@sinrega.org>,
-	Ryan Houdek <sonicadvance1@gmail.com>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	dri-devel <dri-devel@lists.freedesktop.org>,
-	rust-for-linux <rust-for-linux@vger.kernel.org>,
-	asahi <asahi@lists.linux.dev>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	linux-doc <linux-doc@vger.kernel.org>,
-	Asahi Lina <lina@asahilina.net>
-Subject: Re: [PATCH v3] drm: Add UAPI for the Asahi driver
-Message-ID: <Z-CAtz-D-CslvABE@blossom>
-References: <20250314-agx-uapi-v3-1-3abf7e74ea2f@rosenzweig.io>
- <195b507d4b3.b25d0dad175771.7566427576910952468@collabora.com>
- <195b582682b.121ba4d5e219032.3109114844776468245@collabora.com>
+	Sun, 23 Mar 2025 21:49:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1742766550;
+ bh=G4qA4COV9YHp+Oo7CvUkU/OS+JOY7kTPl3jpE0A4KLQ=;
+ b=GuNp/OwufxVmqcwVD5CwJIb5n8XhBphLMvH2JlEztKXrQjeEodifsy7O3R67+83bmX0n4xnG7
+ si2Yt1bF7pDCkV+eDV4e2AtzZg6wjgDsvR1EbD5hGYHQEfxpAfyFXdHHSU0nC6S3mcodXfA8l0p
+ NHJ8osWAEwlH5dizF79veBpw5Gs9pldqs6eIV+LYYUYkNQxy9rHainj9f+OrLht7OOzTGMopbKG
+ 00pkmJyfzrgTqrHfD43nUHHz9vEgMGDu9Qm0lW56yPIruz5p9ytaN5xHcIzJgYiDg199F6LU6g2
+ OHqvuxIxIAmC3uOz9UWdQRuc2GIeszefBniPaOYnfK5g==
+X-Forward-Email-ID: 67e081d4bd529871d5f80e10
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.59
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <bcedff66-26e4-4630-88cd-6ab9fbcf5598@kwiboo.se>
+Date: Sun, 23 Mar 2025 22:49:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <195b582682b.121ba4d5e219032.3109114844776468245@collabora.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency
+ scaling support
+To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>,
+ Dragan Simic <dsimic@manjaro.org>
+Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250320100002.332720-1-amadeus@jmu.edu.cn>
+ <20250320100002.332720-2-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250320100002.332720-2-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_144433_779077_448E0225 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250323_144911_831123_024EA21C 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,23 +81,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->  >  > +struct drm_asahi_queue_create { 
->  >  > +    /** @flags: MBZ */ 
->  >  > +    __u32 flags; 
->  >  > + 
->  >  > +    /** @vm_id: The ID of the VM this queue is bound to */ 
->  >  > +    __u32 vm_id; 
->  >  > + 
->  >  > +    /** @queue_caps: Bitmask of DRM_ASAHI_QUEUE_CAP_* */ 
->  >  > +    __u32 queue_caps; 
->  >  > + 
->  >  > +    /** @priority: Queue priority, 0-3 */ 
->  >  > +    __u32 priority; 
-> 
-> Is one of these priorities REALTIME and only usable by privileged apps? If so, maybe document that and/or have an enum?
+Hi Chukun,
 
-Actually, I've reserved realtime&high but always deny right now to make
-sure Mesa doesn't assume it can use them, then we can relax in the
-future once the kernel permission gating is there. (Needs rust
-bindings.)
+On 2025-03-20 11:00, Chukun Pan wrote:
+> By default, the CPUs on RK3528 operates at 1.5GHz. Add CPU frequency and
+> voltage mapping to the device tree to enable dynamic scaling via cpufreq.
+> 
+> The OPP values come from downstream kernel[1], and voltage is chosen from
+> the one that makes the actual frequency close to the displayed frequency.
+> 
+> [1] https://github.com/rockchip-linux/kernel/blob/develop-5.10/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 64 ++++++++++++++++++++++++
+>  1 file changed, 64 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 621fc19ac0b3..9dae18c3c770 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -61,6 +61,7 @@ cpu0: cpu@0 {
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 = <&cpu0_opp_table>;
+>  		};
+>  
+>  		cpu1: cpu@1 {
+> @@ -69,6 +70,7 @@ cpu1: cpu@1 {
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 = <&cpu0_opp_table>;
+>  		};
+>  
+>  		cpu2: cpu@2 {
+> @@ -77,6 +79,7 @@ cpu2: cpu@2 {
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 = <&cpu0_opp_table>;
+>  		};
+>  
+>  		cpu3: cpu@3 {
+> @@ -85,6 +88,7 @@ cpu3: cpu@3 {
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 = <&cpu0_opp_table>;
+>  		};
+>  	};
+>  
+> @@ -103,6 +107,66 @@ scmi_clk: protocol@14 {
+>  		};
+>  	};
+>  
+> +	cpu0_opp_table: opp-table-0 {
+
+nitpick:
+
+There is only one cpu cluster on this SoC, I suggest we name this node
+opp-table-cpu with a cpu_opp_table label.
+
+For a forthcoming GPU series I named the node opp-table-gpu with a
+gpu_opp_table label.
+
+> +		compatible = "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-408000000 {
+> +			opp-hz = /bits/ 64 <408000000>;
+> +			opp-microvolt = <825000 825000 1100000>;
+> +			clock-latency-ns = <40000>;
+> +			opp-suspend;
+> +		};
+> +
+> +		opp-600000000 {
+> +			opp-hz = /bits/ 64 <600000000>;
+> +			opp-microvolt = <825000 825000 1100000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+
+Both 408 and 600 MHz freq will use a normal PLL and based on the vendor
+opp-table there are chip variants that presumably require 875000
+microvolt.
+
+Because of this 875000 is the lowest microvolt we should use in the
+entire table, to ensure all chip variants can run stable.
+
+Dragan is working on a chip binning project to help improve opp voltage
+selection based on chip quality. Hopefully that project will result in
+something that can also be used for RK3528 in the future.
+
+> +
+> +		opp-816000000 {
+> +			opp-hz = /bits/ 64 <816000000>;
+> +			opp-microvolt = <825000 825000 1100000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +
+> +		opp-1008000000 {
+> +			opp-hz = /bits/ 64 <1008000000>;
+> +			opp-microvolt = <850000 850000 1100000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +
+> +		opp-1200000000 {
+> +			opp-hz = /bits/ 64 <1200000000>;
+> +			opp-microvolt = <850000 850000 1100000>;
+
+For remaining freq TF-A will use PVTPLL and configure an osc ring length,
+then the voltage supplied in opp and chip quality will determine/limit
+the real cpu clock speed.
+
+This means that the voltage used is less important when it comes to
+stability. However, we should keep 875000 as the lowest microvolt for
+all opp above.
+
+The voltage for remaining opp does not matter, historically mainline
+picks the highest voltage from vendor tree to ensure stability. With the
+use of PVTPLL that should not really be an issue, and we could pick
+voltages that will give closest speed for majority of users.
+
+> +			clock-latency-ns = <40000>;
+> +		};
+> +
+> +		opp-1416000000 {
+> +			opp-hz = /bits/ 64 <1416000000>;
+> +			opp-microvolt = <925000 925000 1100000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +
+> +		opp-1608000000 {
+> +			opp-hz = /bits/ 64 <1608000000>;
+> +			opp-microvolt = <975000 975000 1100000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +
+> +		opp-1800000000 {
+> +			opp-hz = /bits/ 64 <1800000000>;
+> +			opp-microvolt = <1037500 1037500 1100000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +
+> +		opp-2016000000 {
+> +			opp-hz = /bits/ 64 <2016000000>;
+> +			opp-microvolt = <1100000 1100000 1100000>;
+
+This looks good, we should not go above the highest voltage used in
+vendor tree.
+
+A DT overlay can be used if a user wants to use board optimized voltages.
+
+Regards,
+Jonas
+
+> +			clock-latency-ns = <40000>;
+> +		};
+> +	};
+> +
+>  	psci {
+>  		compatible = "arm,psci-1.0", "arm,psci-0.2";
+>  		method = "smc";
+
 
