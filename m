@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C99C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 21:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6484C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 22:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4qA4COV9YHp+Oo7CvUkU/OS+JOY7kTPl3jpE0A4KLQ=; b=CwNaHyXpyPSRu8zi3U0qQtWXw6
-	D+K2j4OYZL3Wd9D3PEuUK0QbGn3MVAVIhkeF8MNpCIZB2FI1CAgCkOz88ylAEL3mroojJmOzeV4Yq
-	ZFQClueVx8n8H+hSC9tiKJKnnS5WUsGNMMDIlMQ1c27hBWlhEMsZDuOCjcp73ExH/fGioX6/vkj7C
-	FQCnwGSlHNHKHRobmtbmz99NKca7Phi6Ge9Enw2hQbx3hRVCJMaCxBgrUNCTxXIDXTlQmuKhjHfxO
-	c8BvcRUXoibBnjVsci20rsDFS+jyJD1xWvfphFq36V6EkB3lRrghI//FDmuwQWln+WFghuCeazdBj
-	8KpWhzmQ==;
+	bh=XY3BA1Vv02oLfVKMD+vhtMt4wqV14ktZSaEZlGUTwv8=; b=NaSdSN3N1sZMoSt3ahS141sgf0
+	vJhss+rB2MXsredjwzTevzlaCnkrmTodJaQc+7/H3rVw3+ziqAKwOWCfY/ORiaJRAPVde0th7IVB4
+	U75TtQlB8xOl7fZKoRiN0PgcBYymMmR9uZRIgdBR/iZTnAxk+NItoiAOaPyC67UsjS84mi8aLe6SL
+	bNIoDYzodOok/89KYUQHwtz9pKvry98F9S8/zO3gyakCcUUAnW9cc9wG08Vw8ft7nIWG01EWj5973
+	vw6E3Cg9nHR7JAzCM9BAA4ObrlUw5c0Qhe7gllgx83z1jN+vqpM+KLzKtGH9xQ9WufeqDMncdDjxB
+	R+kXxxvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twTDe-00000001m3t-0I3C;
-	Sun, 23 Mar 2025 21:50:58 +0000
+	id 1twTRv-00000001myp-0nJb;
+	Sun, 23 Mar 2025 22:05:43 +0000
 Received: from smtp.forwardemail.net ([121.127.44.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twTBv-00000001ltI-2o0r
+	id 1twTQD-00000001mmL-19h9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 21:49:13 +0000
+	Sun, 23 Mar 2025 22:03:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1742766550;
- bh=G4qA4COV9YHp+Oo7CvUkU/OS+JOY7kTPl3jpE0A4KLQ=;
- b=GuNp/OwufxVmqcwVD5CwJIb5n8XhBphLMvH2JlEztKXrQjeEodifsy7O3R67+83bmX0n4xnG7
- si2Yt1bF7pDCkV+eDV4e2AtzZg6wjgDsvR1EbD5hGYHQEfxpAfyFXdHHSU0nC6S3mcodXfA8l0p
- NHJ8osWAEwlH5dizF79veBpw5Gs9pldqs6eIV+LYYUYkNQxy9rHainj9f+OrLht7OOzTGMopbKG
- 00pkmJyfzrgTqrHfD43nUHHz9vEgMGDu9Qm0lW56yPIruz5p9ytaN5xHcIzJgYiDg199F6LU6g2
- OHqvuxIxIAmC3uOz9UWdQRuc2GIeszefBniPaOYnfK5g==
-X-Forward-Email-ID: 67e081d4bd529871d5f80e10
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: References: Cc:
+ To: From: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1742767433;
+ bh=XY3BA1Vv02oLfVKMD+vhtMt4wqV14ktZSaEZlGUTwv8=;
+ b=jbqF4OpMJbfYya2OvlaUKDGR2wW1oCtuVa+C6f2lraNb7zuCZrG+k5X02stoDhHaTUtx88EEa
+ ldl3x2oJlqD9+Nzr684FEuFNzg6j2pFT9JAz8CDr6uJp7+6XFPYwcH1VgnOR+xv3zo7mZZreWIO
+ gnKElRI4odGtfNF1Vs3EsJfhHsZMhg92WXNtJGa9E+r7yp4UuK55Xu2QxLEXdXgTRAK/ewUps3S
+ p3CBjtxNUaIluZRXGbI6K35pk5JnRQfu28Qb3aRdrbXKSfSpY9ltSzE3kSIRnZH1/obFXVd5ieh
+ Yq4G70nDn7aym2wxR8xkmMat+HKCvTSCZHnwtviVDWpQ==
+X-Forward-Email-ID: 67e08547bd529871d5f812bb
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.59
 X-Forward-Email-Version: 0.4.40
@@ -45,28 +45,29 @@ X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
 X-Report-Abuse: abuse@forwardemail.net
 X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <bcedff66-26e4-4630-88cd-6ab9fbcf5598@kwiboo.se>
-Date: Sun, 23 Mar 2025 22:49:04 +0100
+Message-ID: <364bed4f-4ae1-48d5-ae6e-369668456d8e@kwiboo.se>
+Date: Sun, 23 Mar 2025 23:03:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency
- scaling support
-To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>,
- Dragan Simic <dsimic@manjaro.org>
+Subject: Re: [PATCH v2 1/2] arm64: dts: rockchip: Add pwm nodes for RK3528
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>, Chukun Pan <amadeus@jmu.edu.cn>
 Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
  <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250320100002.332720-1-amadeus@jmu.edu.cn>
- <20250320100002.332720-2-amadeus@jmu.edu.cn>
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250318120003.2340652-1-amadeus@jmu.edu.cn>
+ <20250318120003.2340652-2-amadeus@jmu.edu.cn>
+ <0d638134-0c0d-4918-af47-e23d2ead3bf3@kwiboo.se> <2499436.jE0xQCEvom@phil>
+ <0f0a35ba-d85d-49eb-92dd-7bc17358aeaf@kwiboo.se>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250320100002.332720-2-amadeus@jmu.edu.cn>
+In-Reply-To: <0f0a35ba-d85d-49eb-92dd-7bc17358aeaf@kwiboo.se>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_144911_831123_024EA21C 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20250323_150357_500493_589B78CF 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,168 +82,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
-
-On 2025-03-20 11:00, Chukun Pan wrote:
-> By default, the CPUs on RK3528 operates at 1.5GHz. Add CPU frequency and
-> voltage mapping to the device tree to enable dynamic scaling via cpufreq.
+On 2025-03-20 08:02, Jonas Karlman wrote:
+> On 2025-03-20 00:47, Heiko Stuebner wrote:
+>> Am Donnerstag, 20. März 2025, 00:26:14 MEZ schrieb Jonas Karlman:
+>>> Hi Chukun,
+>>>
+>>> On 2025-03-18 13:00, Chukun Pan wrote:
+>>>> Add pwm nodes for RK3528. The PWM core on RK3528 is the same as
+>>>> RK3328, but the driver does not support interrupts yet.
+>>>
+>>> The device tree should describe the hardware, not what the driver
+>>> support, so interrupts should probably be included.
+>>>
+>>> However, looking closer at TRM for i.e. RK3328, RK3568 and RK3588 it
+>>> look like the following description is not a true description of the
+>>> hardware.
+>>>
+>>> Each PWM controller seem to support 4 channels, here (and for older RK
+>>> SoCs) we instead describe each channel and not the controller.
+>>
+>> Yep, that is something that did go wrong in the very early days.
+>> And all other Rockchip socs also have the same issue - even back
+>> to the rk3066.
 > 
-> The OPP values come from downstream kernel[1], and voltage is chosen from
-> the one that makes the actual frequency close to the displayed frequency.
+> I see, look like the PWM has evolved something like following:
 > 
-> [1] https://github.com/rockchip-linux/kernel/blob/develop-5.10/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> - The controller has always been 1 controller for 4 channels
+> - Initial versions only had 2 regs for interrupt outside of the 4x
+>   0x10 reg space, one for each channel
+> - FIFO was introduced for channel 3
+> - Interrupts for FIFO was introduced (in RK3399 or earlier)
+> - Additional features/regs was introduced (in PX30 or earlier)
+> - PWM_VERSION_ID = 0x02120b34 is used (in RK3308 and later)
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 64 ++++++++++++++++++++++++
->  1 file changed, 64 insertions(+)
+>>
+>> So yes, at some point we should overhaul the thing.
+>>
+>> But I think this is more involved, as right now everything is aimed
+>> at the current single-channel status quo.
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> index 621fc19ac0b3..9dae18c3c770 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> @@ -61,6 +61,7 @@ cpu0: cpu@0 {
->  			device_type = "cpu";
->  			enable-method = "psci";
->  			clocks = <&scmi_clk SCMI_CLK_CPU>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
->  		};
->  
->  		cpu1: cpu@1 {
-> @@ -69,6 +70,7 @@ cpu1: cpu@1 {
->  			device_type = "cpu";
->  			enable-method = "psci";
->  			clocks = <&scmi_clk SCMI_CLK_CPU>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
->  		};
->  
->  		cpu2: cpu@2 {
-> @@ -77,6 +79,7 @@ cpu2: cpu@2 {
->  			device_type = "cpu";
->  			enable-method = "psci";
->  			clocks = <&scmi_clk SCMI_CLK_CPU>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
->  		};
->  
->  		cpu3: cpu@3 {
-> @@ -85,6 +88,7 @@ cpu3: cpu@3 {
->  			device_type = "cpu";
->  			enable-method = "psci";
->  			clocks = <&scmi_clk SCMI_CLK_CPU>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
->  		};
->  	};
->  
-> @@ -103,6 +107,66 @@ scmi_clk: protocol@14 {
->  		};
->  	};
->  
-> +	cpu0_opp_table: opp-table-0 {
+> I did a quick and dirty change in driver to use npwms = 4, and that was
+> a rather trivial change, see top commit at [1]. Minimum required change
+> in U-Boot also look to be very trivial.
 
-nitpick:
+I did a quick test on U-Boot and are preparing a series to add support
+for multiple channels in U-Boot, see [2] for an early version that
+should hit U-Boot ML in a day or two.
 
-There is only one cpu cluster on this SoC, I suggest we name this node
-opp-table-cpu with a cpu_opp_table label.
+Found some other other issues when digging in the U-Boot pwm-regulator
+code so ended up with a bigger series than anticipated, only the last
+patch is related to preparation for multiple channels in rk-pwm driver.
 
-For a forthcoming GPU series I named the node opp-table-gpu with a
-gpu_opp_table label.
-
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +
-> +		opp-408000000 {
-> +			opp-hz = /bits/ 64 <408000000>;
-> +			opp-microvolt = <825000 825000 1100000>;
-> +			clock-latency-ns = <40000>;
-> +			opp-suspend;
-> +		};
-> +
-> +		opp-600000000 {
-> +			opp-hz = /bits/ 64 <600000000>;
-> +			opp-microvolt = <825000 825000 1100000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-
-Both 408 and 600 MHz freq will use a normal PLL and based on the vendor
-opp-table there are chip variants that presumably require 875000
-microvolt.
-
-Because of this 875000 is the lowest microvolt we should use in the
-entire table, to ensure all chip variants can run stable.
-
-Dragan is working on a chip binning project to help improve opp voltage
-selection based on chip quality. Hopefully that project will result in
-something that can also be used for RK3528 in the future.
-
-> +
-> +		opp-816000000 {
-> +			opp-hz = /bits/ 64 <816000000>;
-> +			opp-microvolt = <825000 825000 1100000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +
-> +		opp-1008000000 {
-> +			opp-hz = /bits/ 64 <1008000000>;
-> +			opp-microvolt = <850000 850000 1100000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +
-> +		opp-1200000000 {
-> +			opp-hz = /bits/ 64 <1200000000>;
-> +			opp-microvolt = <850000 850000 1100000>;
-
-For remaining freq TF-A will use PVTPLL and configure an osc ring length,
-then the voltage supplied in opp and chip quality will determine/limit
-the real cpu clock speed.
-
-This means that the voltage used is less important when it comes to
-stability. However, we should keep 875000 as the lowest microvolt for
-all opp above.
-
-The voltage for remaining opp does not matter, historically mainline
-picks the highest voltage from vendor tree to ensure stability. With the
-use of PVTPLL that should not really be an issue, and we could pick
-voltages that will give closest speed for majority of users.
-
-> +			clock-latency-ns = <40000>;
-> +		};
-> +
-> +		opp-1416000000 {
-> +			opp-hz = /bits/ 64 <1416000000>;
-> +			opp-microvolt = <925000 925000 1100000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +
-> +		opp-1608000000 {
-> +			opp-hz = /bits/ 64 <1608000000>;
-> +			opp-microvolt = <975000 975000 1100000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +
-> +		opp-1800000000 {
-> +			opp-hz = /bits/ 64 <1800000000>;
-> +			opp-microvolt = <1037500 1037500 1100000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +
-> +		opp-2016000000 {
-> +			opp-hz = /bits/ 64 <2016000000>;
-> +			opp-microvolt = <1100000 1100000 1100000>;
-
-This looks good, we should not go above the highest voltage used in
-vendor tree.
-
-A DT overlay can be used if a user wants to use board optimized voltages.
+[2] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/pwm-regulator
 
 Regards,
 Jonas
 
-> +			clock-latency-ns = <40000>;
-> +		};
-> +	};
-> +
->  	psci {
->  		compatible = "arm,psci-1.0", "arm,psci-0.2";
->  		method = "smc";
+> 
+>   cat /sys/kernel/debug/pwm
+>   0: platform/ffa90000.pwm, 4 PWM devices
+>    pwm-0   ((null)              ): period: 0 ns duty: 0 ns polarity: normal
+>    pwm-1   (regulator-vdd-arm   ): requested enabled period: 5000 ns duty: 2250 ns polarity: inverse
+>    pwm-2   (regulator-vdd-logic ): requested enabled period: 5000 ns duty: 2800 ns polarity: inverse
+>    pwm-3   ((null)              ): period: 0 ns duty: 0 ns polarity: normal
+> 
+> Not really seeing any reason not to describe these PWM controllers more
+> correctly, we need to start somewhere.
+> 
+> However, I have no idea on how to deal with historic and wrong bindings.
+> Driver could possible check if resource space is above 0x10 size and state
+> of PWM_VERSION_ID.
+> 
+>   PWM_VERSION_ID  0x005c  W  0x02120b34  PWM Version ID Register  
+> 
+> [1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250319-rk3528/
+> 
+> Regards,
+> Jonas
+> 
+>>
+>>
+>> Heiko
+>>
+>>
+>>> Maybe something like following would better represent the hardware:
+>>>
+>>> 	pwm0: pwm@ffa90000 {
+>>> 		compatible = "rockchip,rk3528-pwm";
+>>> 		reg = <0x0 0xffa90000 0x0 0x10000>;
+>>> 		clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+>>> 		clock-names = "pwm", "pclk";
+>>> 		interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>,
+>>> 			     <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
+>>> 	};
+>>>
+>>> 	pwm1: pwm@ffa98000 {
+>>> 		compatible = "rockchip,rk3528-pwm";
+>>> 		reg = <0x0 0xffa98000 0x0 0x10000>;
+>>> 		clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+>>> 		clock-names = "pwm", "pclk";
+>>> 		interrupts = <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
+>>> 			     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
+>>> 	};
+>>>
+>>> Regards,
+>>> Jonas
+>>>
+>>>>
+>>>> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+>>>> ---
+>>>>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 80 ++++++++++++++++++++++++
+>>>>  1 file changed, 80 insertions(+)
+>>>>
 
+[snip]
 
