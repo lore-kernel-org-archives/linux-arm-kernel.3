@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C85C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 19:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51589C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 19:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Yg8auF71+9Wy/NHRDxD554OEHtfrS7K8eB3r8Fv9UGw=; b=VRhKFEjqxBCne/z0hTZD+jOLfu
-	wtxHVL9/t1VD1YxWSVioEOWdo1LpYrmv2lzK55V9fxSbxFGse1uJEksjP9p+ZACUBjXLhpEltEf/K
-	126/LQs3efG8L7r1hstlMkdxjQkeOV9f56E2mI/MmDETJ+ED48eyMHhiu8rq2/OismYTve9R2k+yi
-	/i0/GhMOj0LORHuYB3AJnR+HbxMmWpRJy+rmQyf+Oc0jWLBLRPN0r9FYMQmddKfQS4TXZjrKB6aTH
-	Epe0lx4xqsKHtBcGgG1Q5gW49Wxb91IwMv9h3M8IarKabVxZmxkLStMVPSFFzIYRbsmFaqxXshxvT
-	0zntgczQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yiTcoVcywtNu482adnyxpvL2GYMUY5vhWbT9wgfALrY=; b=WcIMk/YbQzqJeS2njMeAAHfh7i
+	jacJGR9GMf94RT10JEfa/XwVxaAyB7ycI1WfB/X/abhEhXUpazaVXKYQxYGPfyIj1R6CImuq+BuvL
+	pRjAWSawEBF3EoX0EdJWanei8zu6Zkzqx96G9RjuWi9hK0Kd8Euc8r0OfVSJur2Qxmc8IlzUlrhA/
+	TyGDuvRqotEJwWx4uzAE5OmSH3B7ezVY5nmkG2inje1DVE/z4meAXtM3jkxenklur7wXKSyhYiggC
+	7hZauUjfJ2BBFqfoHD0XWNYraz++XVsuSQM4MfCPAidz9qhoxFZd8RYlxw7sOUCbWny5VV02Zz8KU
+	MFRrLrJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twQmG-00000001cxg-010l;
-	Sun, 23 Mar 2025 19:14:32 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1twRFg-00000001eVS-2pXh;
+	Sun, 23 Mar 2025 19:44:56 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twQkZ-00000001cuQ-3f0T
+	id 1twRDy-00000001eOs-33HY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 19:12:49 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-30bae572157so36416751fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 12:12:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742757165; x=1743361965; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yg8auF71+9Wy/NHRDxD554OEHtfrS7K8eB3r8Fv9UGw=;
-        b=FboiuAqW1736eSIcaH/+3UetlHEZ5V7Rpgh1qO15DOmNtyLYNNYxg+bkIPuNO7qoIJ
-         4NLMlLymj3EC2cRPfj4PZM0xbS9cUoEpxriGCZvYiI9WNk6G3QRfh/mXx3R5DbYIYuX7
-         0OvDUkl2Zp7blB7btF+G5X3ywaAKBeZ7Dmo3oIK9IGqhy9622+P/JVdiJ0uPJ14AWlC7
-         TnGNzJzW/EnwPt4OqQxQz5hlN/3Kl/AORM5sqeuMutxo4DLB42M9Wg7N70mowJhvKWWd
-         W9Qp9uwhxcZ/Iu2Tyhfl2yGsMHYUVAxF6Dy+dsWj/amkTWhB7nY7TnMWGSumPy02etYd
-         Hq4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742757165; x=1743361965;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Yg8auF71+9Wy/NHRDxD554OEHtfrS7K8eB3r8Fv9UGw=;
-        b=pbcnwUVRsbK/co7wRuiV4FtmNn9AUu6pkghGRcVPgbR/uH93npwYRfr/ARfsJ6ia1L
-         dqXfauGErAf72MfA5Xh5wokSqoIbYWus/jYSEE0aPS8B/Cf6ftT1Q0+ZcJgKbSlQsQBC
-         faU3ONvf9j3gJTVNs29wil59x4+NRv0ioy6HAyAS0elB2rmK81kehrwtJAdYCWDctvbJ
-         95wVh4BpQx1hGjBspCZge5bpI6wEaZGl3D/1BtBP4dWke1U8ICtrQIDml779s8GgMX9B
-         qcDTbOI3/Nh9PiR4S42VMX0WdZvu7ZlHGE7XBvu/idFIp0CPjbCzefXy65IMCtjcpTVt
-         7liw==
-X-Gm-Message-State: AOJu0Yz/856Mn+OVKyNdTR33IQakdpoJUquAUu+EXgiHx5D/mPckVcbW
-	5Ir9e5x0PZ9V8SOD5u4U53potl9XR/sborFLsaUTi/2WlAlpBjSI0j9fJ7ZE+50=
-X-Gm-Gg: ASbGnct4+H/JDqX/Pdje3u0dt7B1r7iEcYDDmV4UdKB/Azr2UXSdPCmonxY5MBVZO2n
-	DWGgG6McILSy/oP64N6Rmod4jOVlgocVhtVQ/eVcwH4CmUztVccXCCW2avuq/TIgJYF4/BChsoi
-	4QL7PocESbeeWIMxvKh4u0Xa9PFamUhHJQ3HYAmf+875yDSNsI1b7XsWbM8luorLy8dopNXhN9Z
-	x6K/hFJe75dmso9/PM2mfJBASz/fxGuWa+n7JyXqU1aPYIo9t2e5avyCHFOhsCs9HGLRDLa+HA9
-	Y9n9mYe0ZPQj2loE2RudPgmDVUP/x3ICJm87jCfFvs/xMCU/3v60fjv97/ENrwsBb8v+X2zo/Ze
-	dhpPky9l/WCd5ksnV8z2e2UTqappHBKLnZaLudZFnBF2YY2EXK31r8hUysoCXtDrf0w==
-X-Google-Smtp-Source: AGHT+IGBsuqNpHXM9/IyouXlg2gmqX9aluYapE/1IzOAZkdocKsixutRanHt9NyEZOBxgCU/F+4o+Q==
-X-Received: by 2002:a05:6512:3d11:b0:54a:cc76:1676 with SMTP id 2adb3069b0e04-54ad650c8bcmr4019916e87.44.1742757164372;
-        Sun, 23 Mar 2025 12:12:44 -0700 (PDT)
-Received: from yocto-build-johan.c.remarkable-codex-builds.internal (122.96.88.34.bc.googleusercontent.com. [34.88.96.122])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad6480800sm858226e87.94.2025.03.23.12.12.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Mar 2025 12:12:43 -0700 (PDT)
-From: Johan Korsnes <johan.korsnes@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Johan Korsnes <johan.korsnes@gmail.com>,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH] arch: arm: defconfig: Drop obsolete CONFIG_NET_CLS_TCINDEX
-Date: Sun, 23 Mar 2025 20:12:39 +0100
-Message-ID: <20250323191239.114181-1-johan.korsnes@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	Sun, 23 Mar 2025 19:43:12 +0000
+Date: Sun, 23 Mar 2025 15:42:55 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1742758983;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yiTcoVcywtNu482adnyxpvL2GYMUY5vhWbT9wgfALrY=;
+	b=COGGpNiSGwbjGd/AFOZzHBsAlaw2UAU/u4y/l9RNv3VbOsqVe1K2zD3A2HqP32mjxPPVs/
+	tVnou30Pv6VXc02us/pQxO0+AWLmmEetYwLpCpTtA4p5Cz8t2Nx3XJqRRA0j1H4MUj7+H6
+	tIvDA8peCoY79bfy1DhaMh904W6JA4MjJzipMyut5BClhw8L6AedGlcRNWMCvzVKCjXxug
+	xMGrwvTDy3cuvF97G1+bktPo1BkT96THLSFD/dSPTk03CdI6P30IILtiesfEcrNpUlZ0HO
+	zUkxPJcadOGGDj9OikYXA67HnbuwW97YI17akVSYF6qM2Rdv0cwKOe1Nu+3vAw==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: Faith Ekstrand <faith.ekstrand@collabora.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?=22Bj=F6rn_Roy_Baron=22?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Janne Grunau <j@jannau.net>, Sven Peter <sven@svenpeter.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Sergio Lopez Pascual <slp@sinrega.org>,
+	Ryan Houdek <sonicadvance1@gmail.com>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	dri-devel <dri-devel@lists.freedesktop.org>,
+	rust-for-linux <rust-for-linux@vger.kernel.org>,
+	asahi <asahi@lists.linux.dev>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-doc <linux-doc@vger.kernel.org>,
+	Asahi Lina <lina@asahilina.net>
+Subject: Re: [PATCH v3] drm: Add UAPI for the Asahi driver
+Message-ID: <Z-BkP2Kt0NYKJwfC@blossom>
+References: <20250314-agx-uapi-v3-1-3abf7e74ea2f@rosenzweig.io>
+ <195b507d4b3.b25d0dad175771.7566427576910952468@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <195b507d4b3.b25d0dad175771.7566427576910952468@collabora.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_121247_914080_CD204267 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250323_124311_293332_909F08CC 
+X-CRM114-Status: GOOD (  37.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +92,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This option was removed from the Kconfig in commit
-8c710f75256b ("net/sched: Retire tcindex classifier") but it was not
-removed from the defconfigs.
+> I'm good with this. There's a slim possibility that upstream may
+> evolve in ways that make the current UAPI tricky to implement.
+> However, given that it's based on prior art from the nouveau, Intel,
+> and panfrost teams and that you've been shipping it in production for
+> a while, I think that possibility is pretty remote.
 
-Fixes: 8c710f75256b ("net/sched: Retire tcindex classifier")
-Signed-off-by: Johan Korsnes <johan.korsnes@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>
----
- arch/arm/configs/ixp4xx_defconfig | 1 -
- 1 file changed, 1 deletion(-)
+Yeah, I'm not too worried about that... the uAPI isn't being designed
+around the kernel driver, so unless we're deprecating GEM or something
+we should be good!
 
-diff --git a/arch/arm/configs/ixp4xx_defconfig b/arch/arm/configs/ixp4xx_defconfig
-index 3cb995b9616a..9c7e55384386 100644
---- a/arch/arm/configs/ixp4xx_defconfig
-+++ b/arch/arm/configs/ixp4xx_defconfig
-@@ -75,7 +75,6 @@ CONFIG_NET_SCH_TBF=m
- CONFIG_NET_SCH_GRED=m
- CONFIG_NET_SCH_DSMARK=m
- CONFIG_NET_SCH_INGRESS=m
--CONFIG_NET_CLS_TCINDEX=m
- CONFIG_NET_CLS_ROUTE4=m
- CONFIG_NET_CLS_FW=m
- CONFIG_NET_CLS_U32=m
--- 
-2.49.0
+>  > +    /** @DRM_ASAHI_GEM_BIND: Bind/unbind memory to a VM. */ 
+>  > +    DRM_ASAHI_GEM_BIND, 
+> 
+> I was about to complain about the GEM_BIND name but I actually prefer
+> it. Given that it binds a single GEM object to a given range in a
+> given VM, I think it makes sense to have it be an option on the GEM
+> object. If and when you implement a bind queue, you can use VM_BIND
+> for the new multi-bind ioctl and that will be an operation on the VM
+> that says "bind all this stuff, here's some fences to know when."
 
+Sounds good.
+
+>  > +    /** @vm_user_start: VM user range start VMA */ 
+>  > +    __u64 vm_user_start; 
+>  > + 
+>  > +    /** @vm_user_end: VM user range end VMA */ 
+>  > +    __u64 vm_user_end; 
+> 
+> Does this have to be chosen by the kernel? Are there fixed addresses chosen by the firmware which need to be respected? Or is this just the range of valid GPU addresses? I also see kernel start/end being passed in at VM creation. I'm confused. At the very least, this needs a much better comment than the one above.
+
+Added a bunch of comments in v4.
+
+>  > +    /** 
+>  > +     * @vm_kernel_min_size: Minimum kernel VMA window size within user 
+>  > +     * range 
+>  > +     */ 
+>  > +    __u64 vm_kernel_min_size; 
+
+>  > +    /** 
+>  > +     * @max_commands_per_submission: Maximum number of supported commands 
+>  > +     * per submission 
+>  > +     */ 
+>  > +    __u32 max_commands_per_submission; 
+> 
+> Pain. But we have this in nouveau as well, so...
+
+This mirrors firmware limits. Either we have to split in userspace or
+kernelspace. And at least if we split in userspace, there are no
+surprises about where oversynchronization happens.
+
+>  > +    /** 
+>  > +     * @firmware_version: GPU firmware version, as 4 integers 
+>  > +     */ 
+>  > +    __u32 firmware_version[4]; 
+> 
+> There's a part of me that's like "This should never matter. You shouldn't expose that detail to userspace!" but let's be real...
+
+TBH, I agree. If we need it for something later we can revisit but by
+design this should never matter and current Mesa doesn't do anything
+with it anyway.
+
+Dropped in v4.
+
+>  > + 
+>  > +    /** 
+>  > +     * @user_timestamp_frequency_hz: Timebase frequency for user timestamps 
+>  > +     */ 
+>  > +    __u64 user_timestamp_frequency_hz; 
+> 
+> Why is this different? What are user timestamps and how are they different from GPU timestamps?
+
+I've added comments in v4 to clarify.
+
+This does raise the question of, maybe drm_asahi_get_time should be
+returning time in nanoseconds instead? I'm tempted to make that change
+in v4. That would let us get rid of one of the parameters.
+
+In practice the firmware-written "user" timestamps are themselves in
+nanoseconds but we don't want to make that uAPI. We can't scale those in
+the kernel (what if we write timestamps and then immediately
+vkCmdCopyQuery them? We don't want to force a CPU roundtrip/stall just
+for that.)
+
+The kernel-read timestamps on current systems are from a 24MHz SoC-wide
+reference clock, which both the GPU and CPU share. We can scale these in
+the kernel to nanos, which is what userspace does itself currently.
+Kind of bikeshed territory but meh?
+
+>  > +    /** 
+>  > +     * @DRM_ASAHI_FEATURE_SOFT_FAULTS: GPU has "soft fault" enabled. Shader 
+>  > +     * loads of unmapped memory will return zero. Shader stores to unmapped 
+>  > +     * memory will be silently discarded. Note that only shader load/store 
+>  > +     * is affected. Other hardware units are not affected, notably including 
+>  > +     * texture sampling. 
+>  > +     */ 
+>  > +    DRM_ASAHI_FEATURE_SOFT_FAULTS = (1UL) << 0, 
+>  > +}; 
+> 
+> This makes me a little nervous. Why isn't this a bit you can set on VM creation? If it's something that's chosen by the kernel and which userspace can query but not change, that seems problematic from a backwards compatiblity PoV.
+
+As far as we know, the fault control register must be set during GPU
+initialization and cannot be changed once we're booted. So, we can
+override it only via a kernel command line parameter.
+
+macOS enables soft fault in all production builds. We do too these days,
+but we have a kernel cmdline flag to disable soft fault / enable hard
+faults to aid debugging.
+
+Mesa queries this parameter to determine whether it can speculate
+aggressively loads out of control (CAN_SPECULATE) -- it can with
+production Asahi systems but not when I'm running CTS on my dev box.
+
+Maybe more problematically, Mesa also currently gates sparseBuffer on
+this flag, although I'm probably going to rewrite the sparse buffer
+implementation in the coming months to avoid that dependence for various
+reasons.
+
+Should I avoid releasing an upstream Mesa with sparseBuffer advertised
+until the dependence is dropped, to avoid a theoretical uAPI break if we
+wanted to change this policy later? (where the regression is "old Mesas
+in containers lose sparseBuffer/FL12").
 
