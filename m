@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7BAC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 22:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72474C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 22:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ElO2IZ9G98m5zgbIKm9J2T+DEuKZxhIOZ2O4ti4VZ1Q=; b=nQKRStFXTCHGatgua/gvfTNI8P
-	M+xBjdx/RkBRBYpUAzpZnqntuhGyVu3KjmXcqLR51MPcwGhMAyNlmp1r8ThEtY07FYE1q58Sc3o/8
-	ezMnGHpzYQmNubC2E+TXXcEHNN2S8WXFS8c7oJi7X3A4g93X3YhxsRqlsT8R92DSQYUyezCbln+qh
-	b3jJAAjqNb+PjE0B1Z0yhAGz6J1XLppcWJEXhAGSHwNY2DFtIsMqVyylsBSjfnmbB5xwAcz8SrGCc
-	+740vKbbiyWkDdYGHGTwO5zoYUWzpXofjqemxFmn+QBUNtvdOqyNT7+9eQA7WZm8Uc1L+c/6NmV97
-	Zjyy9T1g==;
+	bh=0uX6CkEO0NwgPlFwhM+5SvUIZg247JR2UUxHaZZQTw4=; b=iS4C26KIYhazhb78+GM5ce715T
+	flz67VR6poL7JyIat4ye4CFVE6sSZyzX8GOS63WIUITsC6Wde76h+S+CMMJczHeMjGHNFHRU4CmrO
+	Wcro1cORZisKRgPFIjC7Kt0t6pvIriYTYmiaINkN2SRE9XsUzg+F9KQpSKKwAR7Ub1SpZ1ahRqz2R
+	csNk4qg5jb0d12toFVopydxSd3M6C5KD7+UVDGW/VHJNoqgFy/m6rOb1LVV8mV+fg2YxvL40qUxzl
+	FQ1fO44zbdgiTLwaGAtTQ+Q3e6MjuxAa8t/+TDjgLsudXaWJfjZrKFIDKxBi/+60BfTKxalqHH79M
+	ZZM3+aYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twUAB-00000001rQb-3yw4;
-	Sun, 23 Mar 2025 22:51:27 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1twUBq-00000001rd0-2hMT;
+	Sun, 23 Mar 2025 22:53:10 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twTya-00000001p4t-3feC
+	id 1twTyb-00000001p56-1eYD
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 23 Mar 2025 22:39:30 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ac2aeada833so704447266b.0
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ac297cbe017so864495766b.0
         for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 15:39:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742769567; x=1743374367; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742769568; x=1743374368; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ElO2IZ9G98m5zgbIKm9J2T+DEuKZxhIOZ2O4ti4VZ1Q=;
-        b=SWnnwMPMTZML/LjlA3o52qvkyNiQ/x7VLX9HJhfZsRgCpMredH7Tf15ob2nQ6Bgy0n
-         SWNvYG5sHtGyJyVe6UZUTBE828Ycyli8vpeteeZoku/YrSlF3z471uKfuKF0CDAmPoMM
-         khd1+iqlxEZQdfwqdakxK8NyNrCatjZwO2qKNPwmSycet0G9fPKRNKMWVKCt4xdNaLPs
-         EKHOD88ybqWBv58f+bp62/euEm2jjZu4etfcl1WEWnO5Ma179XydKA58Tj1xUEZlv0Ye
-         AtpVOQYBADRyBrqJ2KedSASrKVhtQEaBp1FvrPK1m9fXzGBi2EBtR7iV2gZX+4/xGIYw
-         rp8w==
+        bh=0uX6CkEO0NwgPlFwhM+5SvUIZg247JR2UUxHaZZQTw4=;
+        b=Z+SwC/zGvoCkY8dHgr1IAG9TV7gffR+Sti/e+b0FLc4wFgKogf2V5KpGt+dWNAGs4N
+         wHGvFxLWOkxQGb0eMjNvUMbm4CLzDVwnze5yHeNj0oB+KvhaHW8E0c3Tph7szGDLZN3S
+         wRPbNNJwyuThlbUmPh3/T3xWhHsS2LRQgvd/ymguzAl+dqqvRnqbtytA6WrgvyC5kGZ/
+         TLng2ZLVyXh9Y8MlW/FTQv1csrgfKL52Ul68/F1jfinibp5pB2bDhS1tVnAqPFzImLEj
+         mzNMOfibnJiqU1ftpdy8NjwxUjC1ZxJFVf7ezI3SxOq32bXF3sAECNwaNL1ybFWBuNtx
+         lsWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742769567; x=1743374367;
+        d=1e100.net; s=20230601; t=1742769568; x=1743374368;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ElO2IZ9G98m5zgbIKm9J2T+DEuKZxhIOZ2O4ti4VZ1Q=;
-        b=Kn0dAYJ4WKn6Yz0T9S36TFCYolt8+e1NVltZH9DvGpU8nXMMqZiKjokAW6P/ppF1As
-         w39G0JF4Lxo8Dum6dylQ8nrJnebBASKAShii4I7+r8AeQG4xGN44HroIX/99ZFueOVui
-         FUDSY8px1PxczWGTO6GGjXBwch11/fsi2aEhWtGliQeAl1o/cLKyzDZXz9XMxC2Ah6A4
-         ZifVjdI56M+kRqjHQJPxgk0qmA/q93wkvedfevka4N3nCzjX0s693X/HtIvveLt9TOqW
-         28X2gyTbc+ISR18aOkXHmiFd3hxcClbNY+rRFtn+5v2s09LtSwdBkAgU0GN4ySXY+CHO
-         1y6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVCh1zrOWR8RQA1RVVou8F7Oj0nu1KiNxsoK0lWIBgz6xEjkTKt1BbRCJxgATZvOCfROFpvLhC60uprgmhrIiG2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCRPJsOSX0utXtHnITGnEhUiY3US3PFeoNyzSq5XOswdjzS1Vs
-	oYhRCAo38kTzduFsvA8jCeZ052tQJIdTetamAHoaJvng1lFHQVkwuto0R85kk2o=
-X-Gm-Gg: ASbGncso3MV6NYiYAe2fcXSurQ2z/DpQ9FMscsMPD6n4xaz25t/nXa5Gw2+yfheA0LO
-	EC4oZvf5Wwn9apJnAGj27JjLR8+dcADLM2GQjUQ/tos7+VSZkLV0Drcw//J3zYnvSJruzSTySPD
-	BWgCs8IuWKMAGyWEUjUs/PEIikBiPqYwPs/YbQROTZwnByrFx5nMO+cgoPSKSgxTQgFtjSItyNQ
-	GIEWyW0+iG32kuujp6h9vDV62vi1KlfWL1mOQJ7bdtHZ0u37+hKitlalYI8+oTmCRITM8SlCxue
-	LR505/jeMOoVFtlwRIvnmLzRM4A3NS813h1MTrZmZmfEfWiWziY071BJ5k61sTxrjJL1N3qNq0e
-	h1i/J3mrzGcTNQdgR90y7W1eVeMx9
-X-Google-Smtp-Source: AGHT+IHK84mhAeYJUO60X9G/6jnyMUTEi3qcuoEP39r4Iheks7w5bAT6r9bNJMH9nKdB0JzRhkSGLA==
-X-Received: by 2002:a17:907:d58b:b0:ac3:ef17:f6f0 with SMTP id a640c23a62f3a-ac3f00b5ff7mr1040036766b.5.1742769567137;
+        bh=0uX6CkEO0NwgPlFwhM+5SvUIZg247JR2UUxHaZZQTw4=;
+        b=GLWJiXGWWuD/g+iVI5w39SSHmfBnnEWoAD0hBlz7DCZHIDK4mwbhQsCpAX1EZmOCaF
+         gJcqJk/b9f7SyDWpPWu8W+mSYQg7xy755EO4VGnX5kkfAsGqf3PBEzX8vfVkP7JOsJjR
+         Nmf9sexsRSPu/FUVjpPOK5IDliMQkH02051MEvdqritK+4THOW8YHKbHLTxLmHPLgskT
+         4GUvxMoo7hTtVCCwfqjQonZxxbOFEfrwnWiGlYbmM3+5Rz1ttvgj3Rcje/J3uvXKJHaV
+         rA41ONi9IhsjT2VaZmGzRCNUse8ISdHu1qWzLgHf0CB/ircv4fkirulnFZsHQz7zHuVK
+         rUSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU24eQat6ZhH6wGWSP+t6z/q2RKgQYO28Azc97pMf0yjBu2SkxTp49OysZJyN25GLsIdbsb+T0Bc0pBNGcXWqma@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/rSI9+9AM2U2DDgSfodhYWR0vTxWv5J6I/nZN0GxkpbtF0X5f
+	OtjQGNTX0eimw7B82n+AzQMvxNBCaj8PIykCGZOTmyyfXD9pL7JsEr6HZiHtcf4=
+X-Gm-Gg: ASbGncsSIEjK1wBVihLYfKpJJruihn9yGVauJSmunU/Gta+ZewF4Zy42/JMTrgfmg6s
+	JmNqH5ksJ9RuHVkyd2ckpUclRzfdljJsgvM03tIGGzLjFUo8+xU2w5NnMYtRJGJGdMYhJqNkLeD
+	REaXX/00MnjvwfscxnuHqr6MYJW4xPNnAQV2G7OjKCfZ6TZ/bHc4rFa4RAw4aKLW/IYWz1YX1ee
+	Cbvilk+1Sq/SmAPzjZxMfgxIiqxEWpC2Gs3bfLG+NQjyUr6GUP4mfthNbVSSC4fEZ1+sv1FAt0B
+	0NIjC3pjv/xEqgc9V8dOETDnvVB+N8794zV3wGg2ZEk/OwElYtcNReNnl92AWSjID6cR4JLSIa1
+	7X51XRie3CQEcgN0117AmKBmZYmEO8BRYJLozyXc=
+X-Google-Smtp-Source: AGHT+IFvkyM7m55m5DAsodXq5EZ4AXqEDqM6V8YHvLrK06u5ugX5A70IcVFVe8/Urn5Sgh48Nw6Uvw==
+X-Received: by 2002:a17:907:2d20:b0:ac2:26a6:febf with SMTP id a640c23a62f3a-ac3cdf8a8bbmr1398647266b.20.1742769567610;
         Sun, 23 Mar 2025 15:39:27 -0700 (PDT)
 Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm559686666b.31.2025.03.23.15.39.26
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm559686666b.31.2025.03.23.15.39.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Mar 2025 15:39:26 -0700 (PDT)
+        Sun, 23 Mar 2025 15:39:27 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Sun, 23 Mar 2025 22:39:22 +0000
-Subject: [PATCH 06/34] mfd: sec: update includes to add missing and remove
- superfluous ones
+Date: Sun, 23 Mar 2025 22:39:23 +0000
+Subject: [PATCH 07/34] mfd: sec: move private internal API to internal
+ header
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250323-s2mpg10-v1-6-d08943702707@linaro.org>
+Message-Id: <20250323-s2mpg10-v1-7-d08943702707@linaro.org>
 References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
 In-Reply-To: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
@@ -96,8 +96,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_153928_939836_CF682103 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250323_153929_430880_6D199FBA 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,69 +112,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This driver misses to include some of the respective headers of some of
-the APIs used. It also includes headers that aren't needed (e.g. due to
-previous driver rework where includes weren't updated).
+sec_irq_init() is an internal API for the core driver, and doesn't
+belong into the public header.
 
-It is good practice to directly include all headers used, which avoids
-implicit dependencies and spurious build breakage if someone rearranged
-headers, as this could cause the implicit includes to be dropped.
+Due to an upcoming split of the driver into a core and i2c driver,
+we'll also be adding more internal APIs, which again shouldn't be in
+the public header.
 
-Include the relevant headers explicitly and drop superfluous ones.
+Move it into a new internal include.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/mfd/sec-core.c | 7 +++----
- drivers/mfd/sec-irq.c  | 5 ++++-
- 2 files changed, 7 insertions(+), 5 deletions(-)
+ MAINTAINERS                      |  2 +-
+ drivers/mfd/sec-core.c           |  1 +
+ drivers/mfd/sec-core.h           | 15 +++++++++++++++
+ drivers/mfd/sec-irq.c            |  1 +
+ include/linux/mfd/samsung/core.h |  2 --
+ 5 files changed, 18 insertions(+), 3 deletions(-)
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ebf7fa9a814d2d198fce853f7ff9a01f2bb69f5f..d686e02dc7ccd61e35173df997d2f894ee5ab515 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21351,7 +21351,7 @@ F:	Documentation/devicetree/bindings/mfd/samsung,s5m*.yaml
+ F:	Documentation/devicetree/bindings/regulator/samsung,s2m*.yaml
+ F:	Documentation/devicetree/bindings/regulator/samsung,s5m*.yaml
+ F:	drivers/clk/clk-s2mps11.c
+-F:	drivers/mfd/sec*.c
++F:	drivers/mfd/sec*.[ch]
+ F:	drivers/regulator/s2m*.c
+ F:	drivers/regulator/s5m*.c
+ F:	drivers/rtc/rtc-s5m.c
 diff --git a/drivers/mfd/sec-core.c b/drivers/mfd/sec-core.c
-index e31b3a6fbc8922e04a8bfcb78c85b6dbaf395e37..b12020c416aa8bf552f3d3b7829f6a38a773f674 100644
+index b12020c416aa8bf552f3d3b7829f6a38a773f674..83693686567df61b5e09f7129dc6b01d69156ff3 100644
 --- a/drivers/mfd/sec-core.c
 +++ b/drivers/mfd/sec-core.c
-@@ -3,9 +3,9 @@
- // Copyright (c) 2012 Samsung Electronics Co., Ltd
- //              http://www.samsung.com
- 
-+#include <linux/device.h>
- #include <linux/err.h>
- #include <linux/i2c.h>
--#include <linux/init.h>
- #include <linux/interrupt.h>
- #include <linux/mfd/core.h>
- #include <linux/mfd/samsung/core.h>
-@@ -17,13 +17,12 @@
- #include <linux/mfd/samsung/s2mps15.h>
- #include <linux/mfd/samsung/s2mpu02.h>
- #include <linux/mfd/samsung/s5m8767.h>
-+#include <linux/mod_devicetable.h>
- #include <linux/module.h>
--#include <linux/moduleparam.h>
--#include <linux/mutex.h>
- #include <linux/of.h>
-+#include <linux/pm.h>
+@@ -23,6 +23,7 @@
+ #include <linux/pm.h>
  #include <linux/pm_runtime.h>
  #include <linux/regmap.h>
--#include <linux/slab.h>
++#include "sec-core.h"
  
  static const struct mfd_cell s5m8767_devs[] = {
  	{ .name = "s5m8767-pmic", },
+diff --git a/drivers/mfd/sec-core.h b/drivers/mfd/sec-core.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..b3fded5f02a0ddc09a9508fd49a5d335f7ad0ee7
+--- /dev/null
++++ b/drivers/mfd/sec-core.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++/*
++ * Copyright 2012 Samsung Electronics Co., Ltd
++ *                http://www.samsung.com
++ * Copyright 2025 Linaro Ltd.
++ *
++ * Samsung SxM core driver internal data
++ */
++
++#ifndef __SEC_CORE_INT_H
++#define __SEC_CORE_INT_H
++
++int sec_irq_init(struct sec_pmic_dev *sec_pmic);
++
++#endif /* __SEC_CORE_INT_H */
 diff --git a/drivers/mfd/sec-irq.c b/drivers/mfd/sec-irq.c
-index 5c0d949aa1a20f5538d8baf7a8aefc1160ffa14c..3ed2902c3a2634a6ea656d890ecea934053bd192 100644
+index 3ed2902c3a2634a6ea656d890ecea934053bd192..4d49bb42bd0d109263f485c8b58e88cdd8d598d9 100644
 --- a/drivers/mfd/sec-irq.c
 +++ b/drivers/mfd/sec-irq.c
-@@ -3,7 +3,10 @@
- // Copyright (c) 2011-2014 Samsung Electronics Co., Ltd
- //              http://www.samsung.com
+@@ -18,6 +18,7 @@
+ #include <linux/mfd/samsung/s5m8767.h>
+ #include <linux/module.h>
+ #include <linux/regmap.h>
++#include "sec-core.h"
  
--#include <linux/device.h>
-+#include <linux/array_size.h>
-+#include <linux/build_bug.h>
-+#include <linux/dev_printk.h>
-+#include <linux/export.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
- #include <linux/mfd/samsung/core.h>
+ static const struct regmap_irq s2mps11_irqs[] = {
+ 	[S2MPS11_IRQ_PWRONF] = {
+diff --git a/include/linux/mfd/samsung/core.h b/include/linux/mfd/samsung/core.h
+index b7008b50392ab857751b89e0a05d2c27f6306906..8a4e660854bbc955b812b4d61d4a52a0fc2f2899 100644
+--- a/include/linux/mfd/samsung/core.h
++++ b/include/linux/mfd/samsung/core.h
+@@ -71,8 +71,6 @@ struct sec_pmic_dev {
+ 	struct regmap_irq_chip_data *irq_data;
+ };
+ 
+-int sec_irq_init(struct sec_pmic_dev *sec_pmic);
+-
+ struct sec_platform_data {
+ 	struct sec_regulator_data	*regulators;
+ 	struct sec_opmode_data		*opmode;
 
 -- 
 2.49.0.395.g12beb8f557-goog
