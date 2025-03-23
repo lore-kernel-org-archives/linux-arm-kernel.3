@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CECC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 23:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238ACC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 23:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFl8ti8LLZE4LPxCWkejP2QjcAENJxbtxTGfboQDJno=; b=pZy1lSrd9KV+NlTpGKAVvmALdH
-	zUbjEOcfSYXQafYqkU1aW/LmoVxqIn9B+E9YLV4M/HB/deYoka6c+3daTooCbDPUDPvd6jqD0NrdJ
-	g7iJmoKawLbwFMUxdCf0Dh9mgvPKJZTeKGBtNceIsNmQAA1evo+thuUlnYzMWlTaKebEHILaEKfCz
-	UAi0UdcsYUE2pHJE/idZtRR3qWJyNxGADeysCQFrTSIkGJphR8boeuzapyhrsKE0MceLHquliFEvp
-	Zk3I+xDkVzUuLTqygTAsyxtADCbNcJs7xh/UAhglJ8BFV1RtT0lOvX1SEa3+6SGrD11xtseHi/Han
-	M0gE395w==;
+	bh=qB2B+UaRvhzRZZ5Wx1Ln6+NaDhGt6Oe4sLGxlVN20j8=; b=WZmF2SXH459/rUPV1/YLnUv0ds
+	7j4bmIs5NJ178z2KLToTNDZoLQK7j9qFTA3jJNU291tar4hugoYRyv7NtGQ61HDvylC6CdJoLRF6Y
+	RHF8CB6LgJeYteqRlJrJCjGrSMo6Mit03IN8PxdvRAFdZHtwxBayWvYDGbwjN3k+DrTyqU4Mjp18W
+	brPGBTGCOLO4EeqlvZMZhkwwXTgbsElDM5kWk/q/SEye30HUG99Dc9A/HxoGOWqMOlYXkKGG2LPIm
+	IJQvcnLHh/l7FuvJ0bJcwODkW2i/M5OebfJOX2LOxywjaYc/Vih9IPuC0+v/pEXFqGu9RzfwPz/fj
+	raoYYRVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twUmx-00000001uaG-3TKx;
-	Sun, 23 Mar 2025 23:31:31 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1twUoc-00000001ugd-2zBn;
+	Sun, 23 Mar 2025 23:33:14 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twTyp-00000001pDh-2Bh3
+	id 1twTyp-00000001pEU-46Xu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 22:39:44 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso588949666b.1
+	Sun, 23 Mar 2025 22:39:45 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ac345bd8e13so673832266b.0
         for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Mar 2025 15:39:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742769582; x=1743374382; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742769583; x=1743374383; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VFl8ti8LLZE4LPxCWkejP2QjcAENJxbtxTGfboQDJno=;
-        b=zO8zi5Hv1wQEGq32bLm3V8qj0BqcZLCoQt4ra9fNO621hni8aA6Fl/LeeSTGMo/Aw/
-         A60uIi0rj1YkzoGCoMuvC08lIDzz9XSaYBZmi/SbtDOTzyi53i6gwul35WybDZFHZkGj
-         DSqKXtXbI04VIJ0bodiUeNYzQAYik1Hm3lpavUKXyzcvTgyyemHjS79bOSn5PmskjRqN
-         60XXtXwgwrCNXlSTO1eutojVBFtF4l3UlK4X5mSBs3abW3KHz11pX2uX7jxxwCsWb+X7
-         P2w0io7NbkCZaQdt8hzs8DsBOstCecfjoNbuMSIiaSVnhMzOejog63EjtqoyQUEENuuZ
-         NZNQ==
+        bh=qB2B+UaRvhzRZZ5Wx1Ln6+NaDhGt6Oe4sLGxlVN20j8=;
+        b=LAba9iY2jDdPjgIuJUp3NemEs+FeGMAoE9lSpQKX6H/R3TTpr+duHFOdFEkzhPtCER
+         /gakWhvxe8n/jCqy9ZD1ziUeFR5ez8KKq06h1/YoCy4cLm8swQVAOxh8wMP6gI+lFuaL
+         J9WRTZRve9PpOaQUrnSjDGkadn4qEljPbMPenh6zOhNzTyfRPQAI2bsC2wLHX04JBh2A
+         JE9uiYH7e1U11DGqn9Oo99P7GaOwzVVcIIePJ1v7zenfiK8ruXsvI8YFFsSgkHIeAU90
+         NCZEOHjJhWWTysrzBuxX3PSETeZ/9jffO56zY8Z8zUzF3wvXIVPqHraoV56EjFKPvDvZ
+         tg5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742769582; x=1743374382;
+        d=1e100.net; s=20230601; t=1742769583; x=1743374383;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VFl8ti8LLZE4LPxCWkejP2QjcAENJxbtxTGfboQDJno=;
-        b=W3UmOY8aWC/LyJQ3MB2x2XsmBlMv0pB6Gm6COk62zaNLbnUaRUQqAsV5X2m04Y6o/j
-         cqJKi9OvfJlJXH/LflubZnDRZoDpN/qEaPuQtJCHlCz5TO1SV398U8mfSLaHq7OuIq22
-         UBUM9C0xZsBHVEtdkvMJdkQ26EqUBWfAbELo4tzlX0dpSOShUttw5QqMJrWjiqvSpraQ
-         SjRhu4HghRzSzXj4u+aaGXvPUczRc7U22+aVeYml+yrn0Np8hK9ArCBkqcSztYnluPQd
-         6lpRpN0qtuLX6Y33erHuO7qlkyzZx9D0wvb5qO6Osi15OByYX8h7kwxlWs1LZzmPdbnJ
-         ZRtw==
-X-Forwarded-Encrypted: i=1; AJvYcCU++V6hSHlkyBwJGRTD2hyYiP86kHfnYputiWBbUlATjPl8M+k3G+305Nh6K/8sg4iMRXG6unieNkfa2RnCgR2i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAlZfoE42Yfv/rsFaCEEoZp2pUqq0SMPLJvKnT2YRx2ULF0oUB
-	/16ZB/tTadFUmijz0aOhvTEuszxZ+TJTm2CyTn+oK+65CkvuPYX4XRcpGcwEQ3w=
-X-Gm-Gg: ASbGnctsy9O+mwlesi3RmW6gjeRGwmOkcQJhjhZ03rH4auTfp11fJg4BYOINCq+Jd4n
-	5GNPviW1TzEgSx+8vYwL6lOYapg/aO4tXP1RzFSxJy8p6NuwTCs70Vq/oos6i092VinSYfHiO95
-	77smvmKnBKP0fdyOlr7qJc1Pi8clNxNIHeJg7JeUdnAXbHLzvNwYU4h07vMvHo5DzZ10QTqsB4d
-	g1JfdRyKLeOtc5KOWZQwZ5Tnc5ZvL/50NWIWPQQ4jB8WSDGK7fTV1jalAbrKEFUhzPkqdzwL6Hq
-	/EyAlqPAvR+E8uzfDa19PkiuDjQAo0NPHUWDVuIBNHb/RNyDAr4o6yRtbKvl1T4eRpRuPaEGSnM
-	tq7BKDYfYNJzN2MCJnlBRUUnNqGeR
-X-Google-Smtp-Source: AGHT+IG4c/ltmFn+ZYM2U03LWJ2WSMibTI8JvVco3lTM01jqnuwgY40zG7FK43Yn/mRbbubKlLsYtw==
-X-Received: by 2002:a17:907:c1c:b0:ac3:422a:76dc with SMTP id a640c23a62f3a-ac3f22b52f7mr1161510866b.34.1742769581788;
-        Sun, 23 Mar 2025 15:39:41 -0700 (PDT)
+        bh=qB2B+UaRvhzRZZ5Wx1Ln6+NaDhGt6Oe4sLGxlVN20j8=;
+        b=pHQ2cQ85dhev2/V2Tqe5vztLDZsJ+JrbWLScppKI5WD5PnbrprGMgwUjkBXn6reBS1
+         8hvS7bVSnvTvoFZBNoWIh524GoM7SC0ER8f0fg0+aeBf1vz12p58t7rBj2di3XP8WwX7
+         ccbv9+M/HufIQwOEzgh0KzQnE8rngqu06Z24EKnPA2PqGmjJcQ06O1Tpb9uHpRxscN8b
+         u3BJB5CCrO/YLsV236UiWtCFu+iMfk8rzxJuUuW7Gcf5cQ7DuX7Q8/lucm1hSWwSxiUk
+         2wm1ktXWpFPuZvTdO2ZvgrTVJHhivKIHq7JU5IMlbuaqmHWt0aUUZw8OCz25FZ69WqC/
+         3IGA==
+X-Forwarded-Encrypted: i=1; AJvYcCWvxf0blmTL9i+cqNv2ZpnMovpVd6uMi47aT2CUI1hMTLU9DZFnvi8PS9QhSumfSFr5hSLIvQkLLE17S5Qjg1Kr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqOZG8T44cxP+80pxhTYu2oSYVHU6dD3TKCo/M/5TNmo+5kEhW
+	o1YIeti3R4F258cHtHGSZZervRLrbT4vyDK0Jq85e6EL7yuKdFXDLGkpURJyPd8=
+X-Gm-Gg: ASbGncv7Joen4rDdSX4FKE8mBHJ6wrp9x72tvwn1JIeoqElAmmD/N1apuIhetsAYRuq
+	FT/aZ12RqtOsh2O68T061KJzYXlT2iXfhoKcS3fe8dzSFaTQr1IWWkrc4AxBezhYj+DuLyccoFb
+	SyNzSopNfVxuHSfzcBEvmKleLk2ELNCm9tg2x3PSZxR36mtFFI/QtZFMoWtvUeyb/7nn039oUgz
+	0n5tJeOkHm7I8E10l7i2FzIHD1WO8Y8eJmlGi6Igs/s0o/guECrSQV0RXq59KHjBGp8C4/Z153D
+	5fy4NUKWYlM0+1y8JgouAoF4uAnkZmBNeFq0GYlKl46slY63aSm1P6H0R1bzRA5SCTSMKMrWsMY
+	NGg+3hLjx4Dfxw0TJ5h0hAFGVaztl
+X-Google-Smtp-Source: AGHT+IEqdMFkeJB9L19k5i2T9SHkqV7HBIih5q+Sk1+mGJp+qYtrcbGq+req37UQlXtoOfZvy9bw1w==
+X-Received: by 2002:a17:907:da0c:b0:ac3:f683:c842 with SMTP id a640c23a62f3a-ac3f683c845mr1099102666b.42.1742769582647;
+        Sun, 23 Mar 2025 15:39:42 -0700 (PDT)
 Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
         by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm559686666b.31.2025.03.23.15.39.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Sun, 23 Mar 2025 15:39:41 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Sun, 23 Mar 2025 22:39:47 +0000
-Subject: [PATCH 31/34] rtc: s5m: switch to devm_device_init_wakeup
+Date: Sun, 23 Mar 2025 22:39:48 +0000
+Subject: [PATCH 32/34] rtc: s5m: replace regmap_update_bits with
+ regmap_clear/set_bits
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250323-s2mpg10-v1-31-d08943702707@linaro.org>
+Message-Id: <20250323-s2mpg10-v1-32-d08943702707@linaro.org>
 References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
 In-Reply-To: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
@@ -95,8 +96,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_153943_578448_EF373111 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20250323_153944_018052_6DD05475 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +112,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To release memory allocated by device_init_wakeup(true), drivers have
-to call device_init_wakeup(false) in error paths and unbind.
+The regmap_clear_bits() and regmap_set_bits() helper macros state the
+intention a bit more obviously.
 
-Switch to the new devres managed version devm_device_init_wakeup() to
-plug this memleak.
+Use those.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/rtc/rtc-s5m.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/rtc/rtc-s5m.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
-index 7b00e65bdd9c25b3426f92355f8ea36e66c3939f..e8e442c503064eb4e570af5bf7dcff6bfa7f4656 100644
+index e8e442c503064eb4e570af5bf7dcff6bfa7f4656..fb65a8e439d72d9070751c00f5826a403ac0b416 100644
 --- a/drivers/rtc/rtc-s5m.c
 +++ b/drivers/rtc/rtc-s5m.c
-@@ -779,7 +779,11 @@ static int s5m_rtc_probe(struct platform_device *pdev)
- 			return dev_err_probe(&pdev->dev, ret,
- 					     "Failed to request alarm IRQ %d\n",
- 					     info->irq);
--		device_init_wakeup(&pdev->dev, true);
-+
-+		ret = devm_device_init_wakeup(&pdev->dev);
-+		if (ret < 0)
-+			return dev_err_probe(&pdev->dev, ret,
-+					     "Failed to init wakeup\n");
- 	}
+@@ -338,8 +338,8 @@ static int s5m8767_rtc_set_alarm_reg(struct s5m_rtc_info *info)
  
- 	if (of_device_is_system_power_controller(pdev->dev.parent->of_node) &&
+ 	/* On S2MPS13 the AUDR is not auto-cleared */
+ 	if (info->device_type == S2MPS13X)
+-		regmap_update_bits(info->regmap, info->regs->udr_update,
+-				   S2MPS13_RTC_AUDR_MASK, 0);
++		regmap_clear_bits(info->regmap, info->regs->udr_update,
++				  S2MPS13_RTC_AUDR_MASK);
+ 
+ 	return ret;
+ }
+@@ -351,10 +351,8 @@ static int s5m_rtc_read_time(struct device *dev, struct rtc_time *tm)
+ 	int ret;
+ 
+ 	if (info->regs->read_time_udr_mask) {
+-		ret = regmap_update_bits(info->regmap,
+-				info->regs->udr_update,
+-				info->regs->read_time_udr_mask,
+-				info->regs->read_time_udr_mask);
++		ret = regmap_set_bits(info->regmap, info->regs->udr_update,
++				      info->regs->read_time_udr_mask);
+ 		if (ret) {
+ 			dev_err(dev,
+ 				"Failed to prepare registers for time reading: %d\n",
 
 -- 
 2.49.0.395.g12beb8f557-goog
