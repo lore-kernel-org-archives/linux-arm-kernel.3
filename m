@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4E4C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 17:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E77C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 17:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tb7rMiQzTkHus/lAKHW1ZZ9ikFtbsqbwSt9L/aLaNTk=; b=47kK7kfzblxmzLF4Fk+LG0rWbR
-	ZPUw5gPVf8EqXJAqVLFt/J0cLpiMpA4+/UBu2LzdzdJb4SV8STKUP0EaLS1TRTOvM2ccR7Nvr9ljF
-	RRcAWQ7UfAvHMFHfEIWhEJZVeRquM4N5DNgVk/bO7AgU8wAeUqKNgLacvnB0cY2Pbt8a81WLKQqvq
-	B4jn3i5CPvwl0JmTrGail8JguEosEkKLlugA6Da4edX22mVp3c85+ehINVS5YYLPPGEZw3BBWTZdj
-	Hr6N0YPr67M0o1n3JQp4dbYCQh/agsOMWH/V+pg4em8eJG8t4bM31xzC1dv7jVORGEY4YYDx9h+Jb
-	ZvLkE8uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aS26mjbyN4abFalJdzaoStx6yXU3U8r5tdNKBbcsZHU=; b=BJKEJNqVXkidMsVb87C/JEdiTU
+	q3bm3vBuj9hmF7KSPRsu/hz3OCAohpBD29EcxWArI7dZxRWPjXBx7UpqbU+YtzRJXJH238tsLXLKO
+	GuleOwMAyRtQx3OnQHxajjYIlFcO5GQUH13QmHWNMOMS4GIw4BxH33om3mVVJBEq0cinttVB5Mpl2
+	ZkcnYyYOHTYdTG5lRuBNciMUWRTuCT6OEdopXlkHGHALYy4N6OK5jV72mMVjPPT1p2mPpooW5sHJF
+	PAN3SuKySKpGppckRN3bFsCHAeGJNGkNFc6C+teDTLZ2rg33vWqpHJBbV40t9GpkGHTfTo+ywLo4g
+	MA3mO5pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twOuB-00000001VSh-2zGu;
-	Sun, 23 Mar 2025 17:14:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1twPBn-00000001WOF-2AOI;
+	Sun, 23 Mar 2025 17:32:47 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twOsV-00000001VLF-2lUY
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 17:12:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2A617A48F8B;
-	Sun, 23 Mar 2025 17:07:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D64CEC4CEE2;
-	Sun, 23 Mar 2025 17:12:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742749970;
-	bh=XozAwQbTpUGYueKBZlPi1Tm0N8h4iRa1gpfz6WWgGhw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T60O6NjeFks2vJ6xoS5NBfgqWn8g0dPX15v5A0FxuX5LYy3UbxKMI4+NeCdWURWZG
-	 jCHwGkV04UqT5ic3MTt8KF6h9q5JEKJIlNLRXpxt4T4ZGEYsmnIVB2NU0YbS0Ydp7T
-	 ZjWpEvA56svrG5y/IEJz+CstDBwaIxEQLdRVgbcupgsUaw30FA/gSyKbg57dS4bLro
-	 mMQYE0Cu741xEKT8D/20is7yPBNPEYrB86hgDgBBSjY/sJnR8FxzPSpMYCaNB8fhxw
-	 5Pdo5Fk0lpKO5EIkasrZ8lsQXMV+t9w32r+13Jscjh2ISDmJcyWosyKOOnxqqRI/wn
-	 9pKRZr7zW+sug==
-Date: Sun, 23 Mar 2025 10:12:43 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Guenter Roeck <linux@roeck-us.net>, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	x86@kernel.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>,
-	Vinicius Peixoto <vpeixoto@lkcamp.dev>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>
-Subject: Re: [PATCH v2 08/12] lib/crc_kunit.c: add KUnit test suite for CRC
- library functions
-Message-ID: <20250323171243.GA852@quark.localdomain>
-References: <20241202012056.209768-1-ebiggers@kernel.org>
- <20241202012056.209768-9-ebiggers@kernel.org>
- <389b899f-893c-4855-9e30-d8920a5d6f91@roeck-us.net>
- <CAMj1kXHAktbQ-605wfqXCWtn8bP-yEv8sYKWAykajeAX2m1hEA@mail.gmail.com>
+	id 1twPA6-00000001WB8-23Bg;
+	Sun, 23 Mar 2025 17:31:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1742751057; x=1743355857; i=markus.elfring@web.de;
+	bh=aS26mjbyN4abFalJdzaoStx6yXU3U8r5tdNKBbcsZHU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=euWeTzGb1rN8KKZiRijlg7gIUkM7JDUBfjL1gr+b0UK6l43xtJPFUz5CA95xrbCS
+	 MIe3kTPEEi81izfL1fEKwQgl6WArlH+zRuqSABOKbHDWSDB6lnT7+78msDp52/rLW
+	 iBjLCyZIdPSjolVmPV6siFilCy+spFpHYLmES7RJZPUE0vZfrELG47MweIOpyycCt
+	 GX9ELDgPqjlYRTpZoYO+ChKDY3UIUXUHwcq1F6YExWJsK7jLMYKkeTVK53y+Q0BJ7
+	 RHVNvNjXfVeo3IHHbnWIIv3Fj10sXgDYm+vbWYcL8EV/Y6Xi8c9vh8LLVKG8CFln0
+	 Q5W8brIWphi+HhXLyg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.71]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MQxo5-1tl4ju0s23-00NkmL; Sun, 23
+ Mar 2025 18:30:57 +0100
+Message-ID: <6a45eb0a-01e2-4316-bbee-93bdd490cfb5@web.de>
+Date: Sun, 23 Mar 2025 18:30:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXHAktbQ-605wfqXCWtn8bP-yEv8sYKWAykajeAX2m1hEA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+To: Qasim Ijaz <qasdev00@gmail.com>, linux-wireless@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Bo Jiao <bo.jiao@mediatek.com>, Dan Carpenter <dan.carpenter@linaro.org>,
+ Felix Fietkau <nbd@nbd.name>, Jonas Gorski <jonas.gorski@gmail.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Peter Chiu <chui-hao.chiu@mediatek.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>
+References: <20250322230137.28164-1-qasdev00@gmail.com>
+Subject: Re: [PATCH v2] wifi: mt76: mt7996: prevent uninit return in
+ mt7996_mac_sta_add_links
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250322230137.28164-1-qasdev00@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:mGNn0js7md32cTCJEgqZPPy4hyHljtu/hoMlFhXvzLekJuVU0Tn
+ ubdLUleIlTmQ7FNQCSSLtPk3mKbVE1DEfbxSLB79BnUzj0ur97GHBQwF9EHV/i7KatTE6dR
+ eTMGxaSKsHq6n6QcuxIs0sng4OWxo+1OkswkNWIjZaGXDAReJwO99DSIX357yW9zouy1SrU
+ BoE2zwzo8r3hXOcR1nTOw==
+UI-OutboundReport: notjunk:1;M01:P0:1mKSqeyZi18=;W19U/1M1dA8MGB8usvwUxEXkLrA
+ nX9et2qPU3TAVk6+9MNSRQc7tbID6fWCi0D4PfbYdhhiIQ1oSZEebgUpwfjDM4PR93C5jJhEP
+ opfXC85UGKH/Io5S82p8EF5KmzLv3i+o3ArlcyvLHaDClTwhKowH0CyUOAJvS/skGk9wGBvNW
+ Apt8Qi8092gawnDgyx7+fWk+Sn659QJhBxdTFeNs956DBuJub14R05/8lPYyyn7XieEhHvJ9Q
+ D7q05Bj+5ELl6touPRVUeUZ7dZbAJfh+CoHpgIr34/1J1XHwhrRC2dW7qvOvn1oUeKkP5uacD
+ id5Ry9xhNomJmnYViGiHAZS+6psqWBc1TisEhNkYPBK1ggSARrjA/E0IEv2La7irHVolti+im
+ Ju0Bv0TaNTuqUMKLDXaMVgpFqZjh+v5LmiS963ludUk10U9iny/76RWKFi62nmb0MomEA/Fdk
+ A2S9ZDalutNaPAPllTItGKLaCcHt4noqFjsk2oUllAUsBh1p7Vf1SrDtBBSLIdLHhYSMrTOMJ
+ tPtGTW+4YuFCAkG3CtXnNycKYzjANaEsapwMwZJrg7MKHCsZNctZnywCRdURarhMV32rDkwmj
+ 6leNKcFSfy8uNy4zhkHFeLEKp585UpENSzgWC9iWTh4BidpS7/O0+bHlWWjljuLWaJ/v9j6ba
+ E1i/7C5Mxxajxa+A3U1veEDXrfhjYjP72q4NX17/0D4PQx+m6uM2evxyMEKn7Z1FqgpvFqbVP
+ EOMOgVSSIBdGfkaHLrFqd2Z12XaRlhlNMDrTQiN7+d4FEJKoeL3y+wfgKcpQl5GRurIuCxzp3
+ GQHNyWiUynnWCFVBeQSlrJqDNZIWRHkFAEf6Td5ZLb0dHJ3Rk3D1F+GfxWX2Odf6kGYpefxB5
+ /KxjvhkMxmnnG1JOPQ+oTMP8lbGtELlxogzvDh+aRuQvSJFA8gi4Qn823ts8hKiWzwGlL0ofs
+ et/urC/Dh8Q1J46iFNE1I+M8apiX1DV1VFjpoN+MnhF/7YTFssXLtZdHIzfMJeGMHAZ6A+sJj
+ HNXVW/krAUfhEuFvrtbMk8ruB2xPFYPqSZJ8nckIBVmJ0kNv73Y/qwdHTCDjXGGiGejd0lAVb
+ Q0Ii60fhYvLfYY4JIGgatWLaZW9wsJfs2892vPFai1FUffWGi4ydcjy1PtNG+fHJ08sSmKrAr
+ o+H/z5LnthVDCtelaevV8Vhm1P0KlM6bvXBLn5NkzB0h+HALG/0Bh/CMHTk0lnDw7UacTN+Xz
+ 0GrP/uXKvuV9SpgEr+fXjbKHB7i0JOPS/r1hDdOTGKL3YOirQvHVnLDGIRow7u82hYAvtHqDk
+ OBnpau6DdgRyjn6h62bN6ZqhQCwC3O52ZgIlNJUUnceydse1LE0LO0wjqOMRc1t05NO6Ggkzo
+ ofdzDtHsPegqzSFjPOaScufqL80/wB7fKk9zI7DdO9H91BRuGGEzFtn1M06wAR1sgpAnr/c+e
+ PwnO2hzsS/4PaqwdgPbsmJDCJixtXFVD+na45TtlnprpYIOC+NdXl5v8LKgLBi1jWiEZc2A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_101251_827933_55B03E58 
-X-CRM114-Status: GOOD (  35.63  )
+X-CRM114-CacheID: sfid-20250323_103102_925419_71F51C57 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,115 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 23, 2025 at 04:35:29PM +0100, Ard Biesheuvel wrote:
-> On Sat, 22 Mar 2025 at 15:33, Guenter Roeck <linux@roeck-us.net> wrote:
-> >
-> > Hi,
-> >
-> > On Sun, Dec 01, 2024 at 05:20:52PM -0800, Eric Biggers wrote:
-> > > From: Eric Biggers <ebiggers@google.com>
-> > >
-> > > Add a KUnit test suite for the crc16, crc_t10dif, crc32_le, crc32_be,
-> > > crc32c, and crc64_be library functions.  It avoids code duplication by
-> > > sharing most logic among all CRC variants.  The test suite includes:
-> > >
-> > > - Differential fuzz test of each CRC function against a simple
-> > >   bit-at-a-time reference implementation.
-> > > - Test for CRC combination, when implemented by a CRC variant.
-> > > - Optional benchmark of each CRC function with various data lengths.
-> > >
-> > > This is intended as a replacement for crc32test and crc16_kunit, as well
-> > > as a new test for CRC variants which didn't previously have a test.
-> > >
-> > > Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-> > > Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
-> > > Cc: Vinicius Peixoto <vpeixoto@lkcamp.dev>
-> > > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > > ---
-> > ...
-> > > +
-> > > +             nosimd = rand32() % 8 == 0;
-> > > +
-> > > +             /*
-> > > +              * Compute the CRC, and verify that it equals the CRC computed
-> > > +              * by a simple bit-at-a-time reference implementation.
-> > > +              */
-> > > +             expected_crc = crc_ref(v, init_crc, &test_buffer[offset], len);
-> > > +             if (nosimd)
-> > > +                     local_irq_disable();
-> > > +             actual_crc = v->func(init_crc, &test_buffer[offset], len);
-> > > +             if (nosimd)
-> > > +                     local_irq_enable();
-> >
-> > This triggers a traceback on some arm systems.
-> >
-> > [    7.810000]     ok 2 crc16_benchmark # SKIP not enabled
-> > [    7.810000] ------------[ cut here ]------------
-> > [    7.810000] WARNING: CPU: 0 PID: 1145 at kernel/softirq.c:369 __local_bh_enable_ip+0x118/0x194
-> > [    7.810000] Modules linked in:
-> > [    7.810000] CPU: 0 UID: 0 PID: 1145 Comm: kunit_try_catch Tainted: G                 N 6.14.0-rc7-00196-g88d324e69ea9 #1
-> > [    7.810000] Tainted: [N]=TEST
-> > [    7.810000] Hardware name: NPCM7XX Chip family
-> > [    7.810000] Call trace:
-> > [    7.810000]  unwind_backtrace from show_stack+0x10/0x14
-> > [    7.810000]  show_stack from dump_stack_lvl+0x7c/0xac
-> > [    7.810000]  dump_stack_lvl from __warn+0x7c/0x1b8
-> > [    7.810000]  __warn from warn_slowpath_fmt+0x19c/0x1a4
-> > [    7.810000]  warn_slowpath_fmt from __local_bh_enable_ip+0x118/0x194
-> > [    7.810000]  __local_bh_enable_ip from crc_t10dif_arch+0xd4/0xe8
-> > [    7.810000]  crc_t10dif_arch from crc_t10dif_wrapper+0x14/0x1c
-> > [    7.810000]  crc_t10dif_wrapper from crc_main_test+0x178/0x360
-> > [    7.810000]  crc_main_test from kunit_try_run_case+0x78/0x1e0
-> > [    7.810000]  kunit_try_run_case from kunit_generic_run_threadfn_adapter+0x1c/0x34
-> > [    7.810000]  kunit_generic_run_threadfn_adapter from kthread+0x118/0x254
-> > [    7.810000]  kthread from ret_from_fork+0x14/0x28
-> > [    7.810000] Exception stack(0xe3651fb0 to 0xe3651ff8)
-> > [    7.810000] 1fa0:                                     00000000 00000000 00000000 00000000
-> > [    7.810000] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-> > [    7.810000] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
-> > [    7.810000] irq event stamp: 29
-> > [    7.810000] hardirqs last  enabled at (27): [<c037875c>] __local_bh_enable_ip+0xb4/0x194
-> > [    7.810000] hardirqs last disabled at (28): [<c0b09684>] crc_main_test+0x2e4/0x360
-> > [    7.810000] softirqs last  enabled at (26): [<c032a3ac>] kernel_neon_end+0x0/0x1c
-> > [    7.810000] softirqs last disabled at (29): [<c032a3c8>] kernel_neon_begin+0x0/0x70
-> > [    7.810000] ---[ end trace 0000000000000000 ]---
-> > [    8.050000]     # crc_t10dif_test: pass:1 fail:0 skip:0 total:1
-> >
-> > kernel_neon_end() calls local_bh_enable() which apparently conflicts with
-> > the local_irq_disable() in above code.
-> >
-> 
-> This seems to be an oversight on my part. Can you try the below please?
-> 
-> diff --git a/arch/arm/include/asm/simd.h b/arch/arm/include/asm/simd.h
-> index 82191dbd7e78..56ddbd3c4997 100644
-> --- a/arch/arm/include/asm/simd.h
-> +++ b/arch/arm/include/asm/simd.h
-> @@ -4,5 +4,6 @@
-> 
->  static __must_check inline bool may_use_simd(void)
->  {
-> -       return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && !in_hardirq();
-> +       return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
-> +              !in_hardirq() && !irqs_disabled();
->  }
+=E2=80=A6
+> or link_sta_dereference_protected() fail the code jumps to
+> the error_unlink label and returns ret which is uninitialised.
+=E2=80=A6
 
-Thanks Ard, you beat me to it.  Yes, may_use_simd() needs to be consistent with
-kernel_neon_begin().  On x86 there is a case where the equivalent function is
-expected to work when irqs_disabled(), but if there is no such case on arm this
-fix looks good.  Can you send it out as a formal patch?  Presumably for the arm
-maintainer to pick up.
+* Would you like to avoid typos in such a change description?
 
-> However, this test code also appears to assume that SIMD is forbidden
-> on any architecture when IRQs are disabled, but this not guaranteed.
+* Can any background information become more relevant for the usage of
+  source code analysis tools?
 
-Yes, to reliably test the no-SIMD code paths, I need to finish refactoring the
-crypto_simd_disabled_for_test stuff to be disentangled from the crypto subsystem
-so that crc_kunit.c can use it.  It's on my list of things to do, and I'm
-planning to get it done in 6.16.  Disabling hardirqs is just a trick to get
-there more easily on some architectures.  But as this shows it's a useful test
-to have anyway, so we'll want to keep that too.  The CRC functions need to work
-in any context, and any context that we can easily test we should do so.
+* Can the summary phrase be improved also another bit?
 
-- Eric
+
+=E2=80=A6
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+> @@ -998,16 +998,22 @@ mt7996_mac_sta_add_links(struct mt7996_dev *dev, s=
+truct ieee80211_vif *vif,
+>  			continue;
+>
+>  		link_conf =3D link_conf_dereference_protected(vif, link_id);
+> -		if (!link_conf)
+> +		if (!link_conf) {
+> +			err =3D -EINVAL;
+>  			goto error_unlink;
+> +		}
+>
+>  		link =3D mt7996_vif_link(dev, vif, link_id);
+> -		if (!link)
+> +		if (!link) {
+> +			err =3D -EINVAL;
+>  			goto error_unlink;
+> +		}
+=E2=80=A6
+
+Can software development interests evolve in ways which might make the avo=
+idance
+of duplicate source code more feasible also for affected error/exception h=
+andling?
+
+Regards,
+Markus
 
