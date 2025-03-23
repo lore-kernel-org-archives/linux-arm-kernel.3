@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDDAC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 03:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5237AC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Mar 2025 08:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/0FRMX9aBKnekAkOBfw/gbWkw+xrCQaz5CvPCEHncCk=; b=qy6+0TOxVbZOP1qdEG1wfm1hP6
-	diVnUGrinWPgS/+h61FwelTHhfKP5oUfZC0eYBYzJXVJaSriCZHBk6CMovsUQRJhbi8UXHwvq09/g
-	/ez5U0EHBqHbzlcUsyt0SbkfEXFQXiIFLYVKGZ1XNkUCUb58ZZxzFrPoYlJV1zabGxGdRA+Iy1/ga
-	YUPGQBbvJP6q+m3gJ+lCLdpc0svFlnRuYjGcrpuZcKaT/dYlQmYfJFFtKCKr9tZb8reF1LUBiNyp8
-	Ii3PN/U6enZLZhq+XiPiDAQNJGab8lBVGZ/juRKOo7/+wAoyvnd0pGS1K+lOuuah9MYUhpNkqYfan
-	dsq9dzkA==;
+	bh=DYPNU7IrXM3BAA5bDt9np5+DeRI7TeRzLYJArUf3A84=; b=YvMbx5fls/FBEAFO5NwauAx7do
+	jVnwTsaS6HT6kyDpeYrO5EvHrbqQXwXnOMUu88D7B9AHIgXlqbhNylOfsrpZerD1Xj5BmJ+lWXfIN
+	yZV3K1uqAaLkBWJ9eYklqiELjXCZZ/1i1Hlc3GKcsRh+6cz4mQKReD3+BNsWeiwRZCf57LIRByy7/
+	8f1FlrrCT10NKrUW1piSQA24v1IUlSuZ2uiMuRqs7oe+XW6ykHHp1v6mnAtBRNtH8Vi0CdFC4Dm0Q
+	HeQFbAf2At0kMblHHL0C62YnMqhF2EIRU5uKNdeYZwKtZfKJufDqYpq8B9Ik6IcpH+PqqCeZj1oWA
+	e+dj0LzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twCND-00000000bd1-0bbK;
-	Sun, 23 Mar 2025 03:51:43 +0000
-Received: from mail-yw1-x1142.google.com ([2607:f8b0:4864:20::1142])
+	id 1twGlq-00000000tWA-3L6p;
+	Sun, 23 Mar 2025 08:33:26 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twCLX-00000000bU6-1Inl
+	id 1twGk7-00000000tRh-3tFC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Mar 2025 03:50:00 +0000
-Received: by mail-yw1-x1142.google.com with SMTP id 00721157ae682-6fd80f30ba5so21533187b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Mar 2025 20:49:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742701798; x=1743306598; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/0FRMX9aBKnekAkOBfw/gbWkw+xrCQaz5CvPCEHncCk=;
-        b=FTxXTXGD1r+zLvcys2VUA3Etk7x8IjSjjYbOAJNPOKeerSw+5CCchK4QQw8WOYQbz0
-         lAjFdJBMMDUJd0eyZce7zXkkfGPqJIL2lRxuoUP70QShl88ctvKvKq03gfBA6rmFuEVc
-         SxfGDrzImtQoiu3duk7w2B6Crjmd8ZXpovh8+sEA5Tsy2PG/Vdi54UqXi8OSOM1BoFiX
-         KerNteg/37qAnh3t5nlT0Oy5yxhNSf5LJYdf7irEaSdPBR/snJ7hMRf1V88pTpkMLh5h
-         hx94loClKsySVTtxW36A6LWG9XyUPUGqXSuaaOtMws5+Zyim04bU57WNOtuaJAyDUVzl
-         myxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742701798; x=1743306598;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/0FRMX9aBKnekAkOBfw/gbWkw+xrCQaz5CvPCEHncCk=;
-        b=mVttXnwWvCjH/9VKVTWqGk4Fwpx0uM1BOlRvANZ0fdpFLAYHqg99JJV6VfZATvA3L8
-         Vdx+VOXmDWn4o0bNn4cFx9vU2yYC5F5pHWJXrJx3PEpll6c+MFYW3prjM9FZYIJFEdW2
-         Zg9HTni5ODm53w1dukQcz115mfAHcOuRQFVZzG5Z2C/gPKHHx+lCDbRRRnLbA0tBee9L
-         r4I7l4JJfymy9vfkiV78YSIImrzroMGjPR2Vh0OG+0ANHFFpxz1cKzOLdqcx4BoEIqrR
-         YW0fEjMrhzg/nxhVTQLkx60lSHZKTgdzvcMxfd597wSE+sjSOLlCg9kh9ptNxYgwojNf
-         W4Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCXdAs7pxIEtbSEOL6Qtzi/ESW5L26ikF8lbpuNuCZLM2dHYdHqjq0HlXoYnR/tK2tLuHxZDGuUXIuki1JTzgUow@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8OxzYCi4gcphET/BJGZSB6i9818WQwF8CmgdgT5Ohh+Jg6VGF
-	v756/WoCGDF7XNybhdaipiNFIbAcIW8Rpl3J1rDwpqHZgFHf4MqG6KsDzo9AXVApMNK5StV0/uR
-	WpeGM7IZ55Lgk/uiMfdb9Uqqa+cg=
-X-Gm-Gg: ASbGncvuFJAZ5pRpS46fnxP65OsJ7Q1OW/ig/oAFDhEiKkcp31EPKx1j4PmmB+7MePx
-	z0J1szBNsXlYU68Z/e4OUITU0jTAKLTMVt8aMDNm0HyO8f06fIu9t4IYaBNTQDIZ0PEVi5DalSJ
-	e3N4Fu1qLbnCf6qhJNcZRQRotXbw==
-X-Google-Smtp-Source: AGHT+IHrRRGwnzoEVm9rPtAOLwXv3Ds9wIlF/k9E56Cd7/IsdGAe157sqosMk0nWoRQCnTz/jDyzC+GOxDdPuG1Zei0=
-X-Received: by 2002:a05:690c:64c8:b0:6ff:28b2:50bd with SMTP id
- 00721157ae682-700babfd2e1mr111396127b3.2.1742701797513; Sat, 22 Mar 2025
- 20:49:57 -0700 (PDT)
+	Sun, 23 Mar 2025 08:31:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1742718653; x=1743323453; i=markus.elfring@web.de;
+	bh=DYPNU7IrXM3BAA5bDt9np5+DeRI7TeRzLYJArUf3A84=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=VIMimFAiNYiWnto0HLD9gvyhH9Teq0oGbpaxVZz2KUd3uAZJ+3dRIb8lZhbyXlSo
+	 XbVlSPYaQ46JkHNu55JWfsn9x7p54idTHIHGT3C+uQyYDSXjUDpBuGoLETTq4HSRK
+	 3Nx5U0VOAkqJAcCXZcgF2K3TcFnlBj4q8S4k0dKU5zpKnsLiLN+oDxSHQ78gKwbYe
+	 jSLDikgNjpOKSL1lH8lY/VrCFdZL4HNKFv+4fHCyzxIjVF/Q558C7Wc0qk+KivlRP
+	 66DCXJMxBBHvXJ8kXjbJdQpLjUsBJm4SRcY2jQQz7Ik6abcn8mbGSEuObXrneagh1
+	 zrti/qqb1UWxxq4Gug==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.71]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MNwjc-1tY1m12DLU-00MYlX; Sun, 23
+ Mar 2025 09:30:53 +0100
+Message-ID: <352b3fb3-0acd-44bf-8f69-cf72b5d27e67@web.de>
+Date: Sun, 23 Mar 2025 09:30:21 +0100
 MIME-Version: 1.0
-References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
- <20250303132837.498938-2-dongml2@chinatelecom.cn> <20250303165454.GB11590@noisy.programming.kicks-ass.net>
- <CADxym3aVtKx_mh7aZyZfk27gEiA_TX6VSAvtK+YDNBtuk_HigA@mail.gmail.com>
- <20250304053853.GA7099@noisy.programming.kicks-ass.net> <20250304061635.GA29480@noisy.programming.kicks-ass.net>
- <CADxym3bS_6jpGC3vLAAyD20GsR+QZofQw0_GgKT8nN3c-HqG-g@mail.gmail.com>
- <20250304094220.GC11590@noisy.programming.kicks-ass.net> <6F9EF5C3-4CAE-4C5E-B70E-F73462AC7CA0@zytor.com>
- <CADxym3busXZKtX=+FY_xnYw7e1CKp5AiHSasZGjVJTdeCZao-g@mail.gmail.com>
- <20250305100306.4685333a@gandalf.local.home> <CADxym3ZB_eQny=-aO4AwrHiwT264NXitdKwjRUYrnGJ2tH=Qwg@mail.gmail.com>
- <CAADnVQJ0_+Hij=kf9eVPX_ZND=2=uDHaYPWvv1x-WmR5sZRSmA@mail.gmail.com> <CADxym3YMeAPpc+ozM2E7yW1qpB_arKJiDyAcRs8pW8sRqJZOZw@mail.gmail.com>
-In-Reply-To: <CADxym3YMeAPpc+ozM2E7yW1qpB_arKJiDyAcRs8pW8sRqJZOZw@mail.gmail.com>
-From: Menglong Dong <menglong8.dong@gmail.com>
-Date: Sun, 23 Mar 2025 11:51:41 +0800
-X-Gm-Features: AQ5f1JrZYkyvJMf2b6Drb-R-P7CuIuoIpnCVtLn7V-eAwU_iQgNyMkTt6IvDE_Q
-Message-ID: <CADxym3aRTo0GfhfTKKxbig+QmrGfiBGoqs-Rtr6y_WFzNpgmgw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, Steven Rostedt <rostedt@goodmis.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, X86 ML <x86@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, dongml2@chinatelecom.cn, 
-	Mike Rapoport <rppt@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	linux-trace-kernel <linux-trace-kernel@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, clang-built-linux <llvm@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] dma-engine: sun4i: Use devm functions in probe()
+To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <csokas.bence@prolan.hu>,
+ dmaengine@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Samuel Holland <samuel@sholland.org>
+References: <20250322193640.246382-2-csokas.bence@prolan.hu>
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250322193640.246382-2-csokas.bence@prolan.hu>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Eok7N/ZFTQPH/RQ/eVBr6b5jC0i/dy6yeFBhBmj57IReVHa0aDa
+ qbRh06yLzMUPZpKRncmU9SPEssGx7qTPaLN58ZKELTkKtXRah2HhmLxfGLqRP8kASsuZjqE
+ YX6u3nQqKtsYrc3G8wAAD8/NVbBcmZxvwqbTdW848BaJ3Cd5ITThEsNw7/+fVitGEU5Pjaj
+ LMubty8hVyW9lL23kL2HQ==
+UI-OutboundReport: notjunk:1;M01:P0:dAswLujEvUw=;9KVLCGNHyqed/0kFl03BZHn51pP
+ JtULO5FjGC71GnLRkuJmDwVcaad3GtJ4sWROV/cHrnK7YVqurRfU2JOMy4wa/qMTUiClKb+XM
+ i5dDhKLnihGijJ8rcUtOCqsj4L7Hwd5gV3kfI8Tn2tYl1RxH7YIXUdaw2uWR5Rh/fnzEJEXvK
+ F81r6T3K2M38M0s5r+kag2r5+y/blWAzlfaGLM2KZMQbrYIWz7GZDwld0VRqnkQEdzMUtjSJc
+ SYpb3O+zoLnvBHzS/HZWb2ly80REu8e4+YDIrGz/VwGpGNyOwEsjWAE5qRx5Dy77TWUKVoJlc
+ ULI6XFoiu2Wlj6qaLUIZw1Chh2u2m3Eh7rI+xUWqV5h75M9omCyks454bw7E1o6iqkJi9BXIL
+ K//cFsuR/OR3NodNia2/feiIq4anuYEJCgjkaHvoyUb15KcMAzADYR9giYsbVfpOF4MSHPtPr
+ /CayK9cXHUdjrE1yiCmB/EeMp8u7IAv7vmGQKi2z5w1RXAM/PndOBUJ1bjjm6c0GOGfNZnM8I
+ dlZm5SVpF+TTZPiRlHURFekB7dPJwckgUvVsyoSGMCR2+5lCU+zg5h3akxB7l0gJgYrap0qT3
+ rA078/SRxVSZ4+TKQo9JfxQKeFdGvhQlrg4L/dXG+YiSHJHuQA87/Q7BNyBKaAL7P/L/hNueB
+ YeIPyne+LcjWdgwbjyoPKnxf0R87h9zjXcXAEHxahhOvQHe6dbtqVFmGH38Yslsr7ZjyOhDnH
+ AmTvOWHy/U52vph3+/wvBHKr8IDkji5u2MF0RLMXfoy36/roocdliXxwWWKJ/3kz5X73wsQ7U
+ w/DBxqw0BeEQcARYeFvZZ3us2Kfuxf7JUd5OUu/omDgTmMnN8rCmZqhSlstBa320ibbW71OWg
+ iQJ0sdevcI8hxxwhhvXLUpP+XgpW4EjE+8olxJt4KPMmDI3pKMWh7XiqhiY/Vga/9Z4sB68zo
+ H4f1LWoKLEokg5BUrImjEa5hXR7V9kaMQOTKvBLYJQjGmFOjC9pe1QKz8QMNX+epWUGjYZg2j
+ R4LBji5Q9iu56kK7eU4znvoqYJO3gl80PC2EGY9KNbK3F0gMtg0a/V6960lHC2zizRC0YRN7d
+ NL7JRaJFD6NRpOQUfibofYIZ2U3Q9+feRQ+7Z07DZFNlKfS7y3b3g7cOmQfLfPyKDDlJ9y2MU
+ Tt1clxt3Vzf5C0ifJuZ15d+ai5xc7EKUMK6yEsPDL0wKGQQBEb20E5E3LBzSZqaEghN0tNwO6
+ T60z+pO9Dg/tzBBm09OGl4SoBDDn71XfRC/RVj8Aj0Mc9EwkkCmMy6895zcUs/HxHh6hV5uQ6
+ Y7eOwdpEsK1uEuvicb+i9S5vyUyEVHftT8+KII2Z2tOB0cKfnUqGFPufTkNCG4qR2VpxtzemQ
+ nX/ennEcACKse+LcnHz3F0gozgCj3XZS62TNtHsvZfacf88YpEwxp/bnSL/G+QLmxI4hPIORc
+ 6/5rd2dDXQkXKBU3k+zvybNZ7oFsjE8VZl57nu2g7H+SOomBx5Ye4ZOTdMH6I8aE/nD+u6Q==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_204959_358306_6DDD67EF 
-X-CRM114-Status: GOOD (  45.31  )
+X-CRM114-CacheID: sfid-20250323_013140_281018_62416FF4 
+X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,330 +108,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 6, 2025 at 4:50=E2=80=AFPM Menglong Dong <menglong8.dong@gmail.=
-com> wrote:
->
-> On Thu, Mar 6, 2025 at 11:39=E2=80=AFAM Alexei Starovoitov
-> <alexei.starovoitov@gmail.com> wrote:
-> >
-> > On Wed, Mar 5, 2025 at 6:59=E2=80=AFPM Menglong Dong <menglong8.dong@gm=
-ail.com> wrote:
-> > >
-> > > I'm not sure if it works. However, indirect call is also used
-> > > in function graph, so we still have better performance. Isn't it?
-> > >
-> > > Let me have a look at the code of the function graph first :/
-> >
-> > Menglong,
-> >
-> > Function graph infra isn't going to help.
-> > "call foo" isn't a problem either.
-> >
-> > But we have to step back.
-> > per-function metadata is an optimization and feels like
-> > we're doing a premature optimization here without collecting
-> > performance numbers first.
-> >
-> > Let's implement multi-fentry with generic get_metadata_by_ip() first.
-> > get_metadata_by_ip() will be a hashtable in such a case and
-> > then we can compare its performance when it's implemented as
-> > a direct lookup from ip-4 (this patch) vs hash table
-> > (that does 'ip' to 'metadata' lookup).
->
-> Hi, Alexei
->
-> You are right, I should do such a performance comparison.
->
-> >
-> > If/when we decide to do this per-function metadata we can also
-> > punt to generic hashtable for cfi, IBT, FineIBT, etc configs.
-> > When mitigations are enabled the performance suffers anyway,
-> > so hashtable lookup vs direct ip-4 lookup won't make much difference.
-> > So we can enable per-function metadata only on non-mitigation configs
-> > when FUNCTION_ALIGNMENT=3D16.
-> > There will be some number of bytes available before every function
-> > and if we can tell gcc/llvm to leave at least 5 bytes there
-> > the growth of vmlinux .text will be within a noise.
+> Clean up =E2=80=A6 and dev_err_probe(). =E2=80=A6
+I find it more reasonable to offer such a change in a separate update step=
+.
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tre=
+e/Documentation/process/submitting-patches.rst?h=3Dv6.14-rc7#n81
 
-Hi, Alexei
 
-I have finished the demo of the tracing multi-link recently.
-The code is not ready to be sent out, as it's very very ugly
-for now, and I did some performance testing.
+Will it be clearer to mention also the function name =E2=80=9Csun4i_dma_pr=
+obe=E2=80=9D
+in the summary phrases?
 
-The test case is very simple. I defined a function "kfunc_md_test",
-and called it 10000000 times in "do_kfunc_md_test". And I will
-attach my empty bpf program of attach type BPF_FENTRY_MULTI
-to it. Following is the code of the test case:
-
------------------------------------------kernel
-part--------------------------------
-int kfunc_md_test_result =3D 0;
-noinline void kfunc_md_test(int a)
-{
-    kfunc_md_test_result =3D a;
-}
-
-int noinline
-do_kfunc_md_test(const struct ctl_table *table, int write,
-                void *buffer, size_t *lenp, loff_t *ppos)
-{
-    u64 start, interval;
-    int i;
-
-    start =3D ktime_get_boottime_ns();
-    for (i =3D 0; i < 10000000; i++)
-        kfunc_md_test(i);
-
-    interval =3D ktime_get_boottime_ns() - start;
-    pr_info("%llu.%llums\n",
-        interval / 1000000, interval % 1000000);
-
-    return 0;
-}
-
----------------------------------------bpf
-part-----------------------------------------
-SEC("fentry.multi/kfunc_md_test")
-int BPF_PROG(fentry_manual_nop)
-{
-    return 0;
-}
-------------------------------------bpf part
-end-------------------------------------
-
-I did the testing for BPF_FENTRY, BPF_FENTRY_MULTI and
-BPF_KPROBE_MULTI, and following is the results:
-
-Without any bpf:
----------------------------------------------------------------------------=
------------
-9.234677ms
-9.486119ms
-9.310059ms
-9.468227ms
-9.217295ms
-9.500406ms
-9.292606ms
-9.530492ms
-9.268741ms
-9.513371ms
-
-BPF_FENTRY:
----------------------------------------------------------------------------=
--------------
-80.800800ms
-79.746338ms
-83.292012ms
-80.324835ms
-84.25841ms
-81.67250ms
-81.21824ms
-80.415886ms
-79.910556ms
-80.427809ms
-
-BPF_FENTRY_MULTI with function padding:
----------------------------------------------------------------------------=
-------------
-120.457336ms
-117.854154ms
-118.888287ms
-119.726011ms
-117.52847ms
-117.463910ms
-119.212126ms
-118.722216ms
-118.843222ms
-119.166079ms
-
-It seems that the overhead of BPF_FENTRY_MULTI is more
-that BPF_FENTRY. I'm not sure if it is because of the "indirect
-call". However, it's not what we want to discuss today, so let's
-focus on the performance of the function metadata basing on
-"function padding" and "hash table".
-
-Generally speaking, the overhead of the BPF_FENTRY_MULTI
-with the hash table has a linear relation. The hash table that I
-used is exactly the same to the filter_hash that ftrace uses, and
-the array length is 1024. I didn't do that statistics basing on the
-function number, but the hash table looking up count, as I find
-that the hash is not random enough some times. However, we
-can compute the kernel function number if we image the hash
-is random enough.
-
-BPF_FENTRY_MULTI with hash table:
----------------------------------------------------------------------------=
--------
-1(1k)                    16(32k)
---------------------    --------------------
-124.950881ms    235.24341ms
-124.171226ms    232.20816ms
-123.969627ms    232.212086ms
-125.803975ms    230.935175ms
-124.256777ms    230.906713ms
-124.314095ms    234.551623ms
-124.165637ms    231.435496ms
-124.488003ms    230.936458ms
-125.571929ms    230.753203ms
-124.168110ms    234.679152ms
-
-(The 1 and 16 above means that the hash lookup times is
-1 and 16, 1k and 32k means the corresponding kernel function
-count that we trace.)
-
-According to my testing, the hash table will have a slight overhead
-if the kernel functions that we trace are no more than 5k. And
-I think this is the most use case, according to the people who are
-interested in tracing multi-link. When the function count up to 32k,
-the overhead is obvious.
-
-According to my research, the kprobe-multi/fprobe also based on
-the hash table, which will lookup the callback ops with the function
-address in a hash table, and the overhead is heavy too. And I alse
-did the kprobe-multi performance. I run the test case
-"kprobe_multi_bench_attach/kernel", and do the "kfunc_md_test"
-meanwhile, just like what I did for BPF_FENTRY_MULTI:
-
-BPF_KPROBE_MULTI:
----------------------------------------------------------------------------=
---------
-36895.985224ms
-37002.298075ms
-30150.774087ms
-
-The kernel function count is 55239 in the kprobe-multi testing.
-I'm not sure if there is something wrong with my testing, but
-the overhead looks heavy.
-
-So I think maybe it works to fallback to the hash table if
-CFI/FINEIBT/... are enabled? I would be appreciated to
-hear some advice here.
-
-(BTW, I removed most CCs to reduce the noise :/)
-
-Thanks!
-Menglong Dong
-
----------------------------------------------------------------------------=
-----
----------------------------------------------------------------------------=
-----
-
-Following is the bpf global trampoline(x86, demo and ugly):
----------------------------------------------------------------------------=
-------
-#define FUNC_ARGS_SIZE        (6 * 8)
-#define FUNC_ARGS_OFFSET    (-8 - FUNC_ARGS_SIZE)
-#define FUNC_ARGS_1        (FUNC_ARGS_OFFSET + 0 * 8)
-#define FUNC_ARGS_2        (FUNC_ARGS_OFFSET + 1 * 8)
-#define FUNC_ARGS_3        (FUNC_ARGS_OFFSET + 2 * 8)
-#define FUNC_ARGS_4        (FUNC_ARGS_OFFSET + 3 * 8)
-#define FUNC_ARGS_5        (FUNC_ARGS_OFFSET + 4 * 8)
-#define FUNC_ARGS_6        (FUNC_ARGS_OFFSET + 5 * 8)
-
-/* the args count, rbp - 8 * 8 */
-#define FUNC_ARGS_COUNT_OFFSET    (FUNC_ARGS_OFFSET - 1 * 8)
-#define FUNC_ORIGIN_IP        (FUNC_ARGS_OFFSET - 2 * 8) /* -9 * 8 */
-#define RBX_OFFSET        (FUNC_ARGS_OFFSET - 3 * 8)
-
-/* bpf_tramp_run_ctx, rbp - BPF_RUN_CTX_OFFSET */
-#define BPF_RUN_CTX_OFFSET    (RBX_OFFSET - BPF_TRAMP_RUN_CTX_SIZE)
-#define KFUNC_MD_OFFSET        (BPF_RUN_CTX_OFFSET - 1 * 8)
-#define STACK_SIZE        (-1 * KFUNC_MD_OFFSET)
-
-.macro tramp_restore_regs
-    movq FUNC_ARGS_1(%rbp), %rdi
-    movq FUNC_ARGS_2(%rbp), %rsi
-    movq FUNC_ARGS_3(%rbp), %rdx
-    movq FUNC_ARGS_4(%rbp), %rcx
-    movq FUNC_ARGS_5(%rbp), %r8
-    movq FUNC_ARGS_6(%rbp), %r9
-    .endm
-
-SYM_FUNC_START(bpf_global_caller)
-    pushq %rbp
-    movq %rsp, %rbp
-    subq $STACK_SIZE, %rsp
-
-    /* save the args to stack, only regs is supported for now */
-    movq %rdi, FUNC_ARGS_1(%rbp)
-    movq %rsi, FUNC_ARGS_2(%rbp)
-    movq %rdx, FUNC_ARGS_3(%rbp)
-    movq %rcx, FUNC_ARGS_4(%rbp)
-    movq %r8, FUNC_ARGS_5(%rbp)
-    movq %r9, FUNC_ARGS_6(%rbp)
-
-    /* save the rbx, rbp - 9 * 8 */
-    movq %rbx, RBX_OFFSET(%rbp)
-
-    /* get the function address */
-    movq 8(%rbp), %rdi
-    /* subq $(4+5), %rdi */
-    /* save the function ip */
-    movq %rdi, FUNC_ORIGIN_IP(%rbp)
-
-    call kfunc_md_find
-    cmpq $0, %rax
-    jz out
-    /* kfunc_md, keep it in %rcx */
-    movq %rax, %rcx
-
-    /* fentry bpf prog */
-    cmpq $0, KFUNC_MD_FENTRY(%rcx)
-    jz out
-
-    /* load fentry bpf prog to the 1st arg */
-    movq KFUNC_MD_FENTRY(%rcx), %rdi
-    /* load the pointer of tramp_run_ctx to the 2nd arg */
-    leaq BPF_RUN_CTX_OFFSET(%rbp), %rsi
-    /* save the bpf cookie to the tramp_run_ctx */
-    movq KFUNC_MD_COOKIE(%rcx), %rax
-    movq %rax, BPF_COOKIE_OFFSET(%rsi)
-    call __bpf_prog_enter_recur
-    /* save the start time to rbx */
-    movq %rax, %rbx
-
-    /* load fentry JITed prog to rax */
-    movq BPF_FUNC_OFFSET(%rdi), %rax
-    /* load func args array to the 1st arg */
-    leaq FUNC_ARGS_OFFSET(%rbp), %rdi
-
-    /* load and call the JITed bpf func */
-    call *%rax
-
-    /* load bpf prog to the 1st arg */
-    movq KFUNC_MD_FENTRY(%rcx), %rdi
-    /* load the rbx(start time) to the 2nd arg */
-    movq %rbx, %rsi
-    /* load the pointer of tramp_run_ctx to the 3rd arg */
-    leaq BPF_RUN_CTX_OFFSET(%rbp), %rdx
-    call __bpf_prog_exit_recur
-out:
-    tramp_restore_regs
-
-    movq RBX_OFFSET(%rbp), %rbx
-    addq $STACK_SIZE, %rsp
-    popq %rbp
-    RET
-
-SYM_FUNC_END(bpf_global_caller)
-STACK_FRAME_NON_STANDARD_FP(bpf_global_caller)
-
->
-> Sounds great! It's so different to make the per-function metadata
-> work in all the cases. Especially, we can't implement it in arm64
-> if CFI_CLANG is enabled. And the fallbacking to the hash table makes
-> it much easier in these cases.
->
-> >
-> > So let's figure out the design of multi-fenty first with a hashtable
-> > for metadata and decide next steps afterwards.
->
-> Ok, I'll develop a version for fentry multi-link with both hashtable
-> and function metadata, and do some performance testing. Thank
-> you for your advice :/
->
-> Thanks!
-> Menglong Dong
+Regards,
+Markus
 
