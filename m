@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BD7C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 15:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7E0C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 15:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VIXMyJcelbL95lk5i6cF7CMMxgNXH3YnFDanO5WuLy0=; b=h6jYlFUF2BfO9C
-	Pm18K62T9kSDo1aAi3TEuYAiTs+fUHRvcia+yqgYDkw1qFe7TJJAD6PZ1hvTCOPy0rqMWKnvBw05t
-	TocmrHWVwL2AZtA8zsYU1J5Fxt+sYmDBYF06S02CJahpWhyRBmdXPg0iJohMZuPJgl1q4Lqn5BYxg
-	MLArMdVdMXJl5ER2JhUtuGt/IfLHgvythAj8yBrdS6NZUi6nUEe3oEqOM6CDdRRlDWxs8kJJSXvsv
-	QDEnIUasN6Ussi8UyrSFSXITHcDGu0sk14BQ2NOKLw1YmfnHrz2bhMWzjroqauC9WBtFYDDrY32CD
-	wZv0VsHIOQcVVam2eLkQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xKFz6eLJyqKb87mD6Fpb+y2pLdxHOWnaVFUS6QOxr3U=; b=aMVmYo/UsE7V+5SGUJAtuGFsYt
+	r2JPhpg5JopT9KjhLdW5uuB0SHzcP6oxxL1nPIYYkOREYYVetPtNy4zWuTDZ/kpmNroo88feeMIcN
+	ngcqEjV8nW8X7/0ASujE6LDAvE4TamPvhgXl81hscfW8r7xZSUVGP0DfSfZAzlRETXZh8v1QsDB2D
+	Ur7eXg0Ca8qbCxE9+UECLHFEjtnbTJWqI6NYFbita9J2/Ov9ChF+fITDH9f2bNVGWYiM2q7LoJOll
+	Htn2nsl9Ulh6CdIs66DZnqnvClt3Muy9CIzcdB7w5OecfzDe9/gUe1uHyegJL/Y1gSavhcvAYjK3d
+	DH5w1XnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twjqL-00000003XJu-2N4a;
-	Mon, 24 Mar 2025 15:36:01 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1twjs2-00000003XRJ-1M8v;
+	Mon, 24 Mar 2025 15:37:46 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twjoc-00000003X7P-3IrN
+	id 1twjod-00000003X7Q-17Xd
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 24 Mar 2025 15:34:16 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ab7430e27b2so951887566b.3
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e60cfef9cfso6744934a12.2
         for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 08:34:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google; t=1742830453; x=1743435253; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VIXMyJcelbL95lk5i6cF7CMMxgNXH3YnFDanO5WuLy0=;
-        b=fTCBScSqqyHsepdIDH3yXwQ7GccTEeDF5uUyMPr4LUHPVc0uM14MnZCukdUP6oMKoJ
-         kzAXKUP9NlAQ7pXXyE9XYw2ZxMtzVDntyZ+ci6b1LYJHrBKpJhnrVrmEXZv4YjSxURiK
-         CKx6NOPnWBXffckx16WJ/a+xRormRzesM0iAY+rn825fM6ICH9SmxPeLtcNQLOLYwEP2
-         TLdeXFLr7KYIwBUaR+P8k89cRoNbP/RLwKzstdYo9tFNjw4rcag9wz2AYJ+cx4GB010d
-         DZaC0K9qkwy6XhAlFLMDpc9piK56qem5N3s1OTNSMSNiJbSI7F6CmLbHBIMGcCoT077h
-         fKtw==
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xKFz6eLJyqKb87mD6Fpb+y2pLdxHOWnaVFUS6QOxr3U=;
+        b=jckv3dNqFIq3dQaWy11t93oPUO9nK1lLQuiuiVmnoNZ/V+csd/DPEfiBl4ArbVrWHw
+         qitb7RTA54WRhk0SQOWpbn5Xn94tsD1j0auya7GaJNnrTF9tpCOyW0ZLy4OGp1i1yl/9
+         n7ujLNVEdUyTNS/K2oVSDNO3S9HPpFqSshrYoJCcjDuLAWtcwg2VwnqukdFmmuMZ1Ahi
+         nq20L0HExhSysvF4oU/l27y7b3uYX0qXk6VPBrCt/RS0YLioDxR05khf2UaLWfO9iKoe
+         v6Ua93twTQLeWfs9W2zJVtABklxqnhr8kZmw+vnFEKSaPWrPgKdbiWf1nZDt0OeV5X6x
+         Ii6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1742830453; x=1743435253;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VIXMyJcelbL95lk5i6cF7CMMxgNXH3YnFDanO5WuLy0=;
-        b=IUvxpXBXUp8SpDainBRQovUkVe+sYTTjSr6ldC5fj8hcAOykZYyWlXHCkTDHFCzk79
-         N+ZzwpGT51bu4W1u0Bt46ptieH2YAGteWB3/NlZzOTWP59RpvLaqFPihgTR7OdEsAi0V
-         0hhlyczV2C1MGK2VAS95dx7/vyjgcmQOM/gp2qLCKnF7XmzuYbBVs0Xqtx0xddx1xtBU
-         wBqgMdCOMTaEbwee66aebUyNXjaHlDJL9hu4trrg3lBtKeNqjArw2aX6uAeHkunRV8+X
-         +XxySs+hoKrWG50L0NIyCQDh2N3h24YnS64xKr8ErDWpm8s69uJqmIm8TnUvEqoPIwU0
-         SbVA==
-X-Forwarded-Encrypted: i=1; AJvYcCVqghuDwQV5OUvN3JraLtq5S+ynf9Ju0PYJ93gPvs4Rb4/ojSV54IJyDBrQbH7IRm8NnSQSlm9AmhZ2cytSCaKg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwstKkq/e7PQScm9PNJL/bzXWR+TqvmYDW/6KvW+YrO/SoxiviE
-	TdE0f5NLMUyX9tfqpiYHEqtMgKmazHcDZ0lFesdFbxRFW8xnZ7dDSOzTYGhSCWr5VXlzdWLX479
-	rojE=
-X-Gm-Gg: ASbGncuqnUKaeY/D4AlBeCtYK0jazEGNUTbf6Z46TprXOjWfSVSCDjlD01SBnrjrsSv
-	/g9ePtIxjrRfhD2fTVHPjaHV74TJENM+plbVoEmD5mtyW76e5UphRaatkhFl+FhXLyI/KpVNiij
-	Hlvi0tDEEsiEvumcfJt++ynP4F3ORqNZpBMJfgx8GRVOnLCrQx0+BL7JyqRKBe6cUi/EXNMIDnm
-	cydH5bqTitCQr4qmwowDcULLTS2Ky6ftAjhaCrUWeMWYTc1YF+SPdAmSjN19PKSCq3uR77LAsGd
-	KSheHAFSaNq6EEglpqrwa8mUlxAJtpHMRiPCWUwY8nzOQp+p3UaB6W9kHiLJzLqGMWJ8EU2/6pF
-	R5dxY78FMwv4E7r1vPS8sodaDlvHk
-X-Google-Smtp-Source: AGHT+IEAgyYw/lVqLDZmI/94VMcCiHl4tz0Ye4f3LeTmnsdRF9wIxE3C8ACjWz621GGbasA9tr0kSw==
-X-Received: by 2002:a17:907:8694:b0:ac2:cdc7:fa61 with SMTP id a640c23a62f3a-ac3f22a030amr1409182066b.25.1742830452932;
-        Mon, 24 Mar 2025 08:34:12 -0700 (PDT)
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xKFz6eLJyqKb87mD6Fpb+y2pLdxHOWnaVFUS6QOxr3U=;
+        b=RyStoDpS0ixfl50+hHAvHu547xqfUbSWytjaICqsr6J5+Bum4NrQ2m1gdnwnzrjHBc
+         4rs9y9FuNWGWLFUf2GUBJxXyBvQHzZ7Br/rzBTMqUKymiP3aGr1ZCYIBdCowcdzs9X0m
+         ttJauhAfD4dSreQ6jBBjewlzkYDQzqYZEBNvAnn9OiuDQHazcqD7jpUJr93YNQdHodFc
+         zVVMetc7BFgH6WFqLCV0YWD/TSbgpHEMa+xsmu6VfYD+++52IvitVDKa6T6aNlnGNJhp
+         lOA7531LpNBsOYHzKxuZNxG8QRvcmgdSzAmSyKnB1GeqXU3OmVbTFAT5Rev0wUniKtXb
+         YSlA==
+X-Forwarded-Encrypted: i=1; AJvYcCUEvFaMp2TDNALcJR+md92RDYWPnouppgIE6VvGXecYfZ2u5O0PK096fdgMfvzmYH6H2oI5VL6Mc3z20x2Mx6c5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdEgDV3Qq7D6n5h22jGG3OoexRZipUtfUb1zckC9H8iwPRDsG7
+	yFcyk0KV1oQC4+3jjFhmQBCAY1qrsn/GmZGkcGuQyWjjdlm5gHFh2a33b771f+IKbhcpbgY9oM2
+	lf9Q=
+X-Gm-Gg: ASbGncsqfndRxgQdNs/8jsC/IIUnRghHeRGvXVcv28WVKJdLTWnEB8CL+kxzlR8ugBw
+	kBNA1LnSwK7G22RVlKPbmTEIFf/pkKF0TMP4LHjNu/GkdblAr7jOpc1Uc4EuZE10uaVMkTwlIYK
+	yvdb08QdLQalTQD6V8SwSCQ7XlpNl+STJ82zEcD12QZ8l5SbBnF1xDT0W+tngr3KD2h4wt3a5wY
+	euHA11FeFc5M3fxFcesL0F36VwwP2DCFKB796tKF3k+i7TTjXcKgqbzEX2OSmSkibm2VzU1tr1G
+	SX6onkEa2UyxbuvmLm7KAanRzs2r+1h9BxjG6mwAT77fQ3pUwBe+BZqDG72fepZ23WSYVPN6iUb
+	M9LHSB0lGY4CVNyyieRqNhMMLXkQV
+X-Google-Smtp-Source: AGHT+IErQhBX/WXUMuS2xd0b7MNJeantSHZ2LsehWbVB+frQPoLUYxwOawSJkU4fE0OO3vdYCY7DoQ==
+X-Received: by 2002:a17:907:3e03:b0:ab7:d87f:665b with SMTP id a640c23a62f3a-ac3f25593b7mr1313444066b.48.1742830453430;
+        Mon, 24 Mar 2025 08:34:13 -0700 (PDT)
 Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm690219466b.31.2025.03.24.08.34.12
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm690219466b.31.2025.03.24.08.34.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 08:34:12 -0700 (PDT)
+        Mon, 24 Mar 2025 08:34:13 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Subject: [PATCH v2 0/2] firmware: exynos-acpm: allow use during system
- shutdown
-Date: Mon, 24 Mar 2025 15:34:08 +0000
-Message-Id: <20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org>
+Date: Mon, 24 Mar 2025 15:34:09 +0000
+Subject: [PATCH v2 1/2] firmware: exynos-acpm: use ktime APIs for timeout
+ detection
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAHB74WcC/23MSwrDIBSF4a2EO67FB9bQUfdRMjDmmlxoNGiQl
- uDeazPu8D9wvgMyJsIM9+6AhIUyxdBCXjpwiw0zMppag+RScyUFs25bmd3jSo5xpYzRI9cCPbT
- HltDT+9SeQ+uF8h7T58SL+K3/nSIYZ37sezNOaPAmHi8KNsVrTDMMtdYvaPIgl6cAAAA=
-X-Change-ID: 20250321-acpm-atomic-033775b051ef
+Message-Id: <20250324-acpm-atomic-v2-1-7d87746e1765@linaro.org>
+References: <20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org>
+In-Reply-To: <20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org>
 To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
  Krzysztof Kozlowski <krzk@kernel.org>, 
  Alim Akhtar <alim.akhtar@samsung.com>
@@ -91,8 +90,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_083414_836974_E5E53DA4 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20250324_083415_304568_BFCA322B 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +106,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One user of this ACPM driver is a PMIC driver that needs to communicate
-with the PMIC during late system shutdown [1] and at that time we are
-not allowed to sleep anymore.
+acpm_dequeue_by_polling() uses a loop counter and assumes that each
+iteration of the loop takes 20us. It may take longer, though, because
+usleep_range() may sleep a different amount.
 
-This series address this by switching the code to using udelay() in the
-specific case of system shutdown. This approach was inspired by I2C's
-i2c_in_atomic_xfer_mode(), which has to deal with a similar corner
-case.
+Switch to using ktime_get() / ktime_before() to detect the timeout
+condition more reliably.
 
-Link: https://lore.kernel.org/all/20250323-s2mpg10-v1-29-d08943702707@linaro.org/ [1]
+This change also makes the code easier to follow and it allows us to
+adjust the sleep without having to adjust the loop counter exit
+condition. This will come in useful in a follow-up patch that changes
+the delays.
 
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
-Changes in v2:
-- add missing ktime.h include
-- switch to ktime_before() instead of !ktime_after()
-- add link to user requiring this change to cover letter
-- collect Tudor's Rb
-- Link to v1: https://lore.kernel.org/r/20250321-acpm-atomic-v1-0-fb887bde7e61@linaro.org
 
 ---
-André Draszik (2):
-      firmware: exynos-acpm: use ktime APIs for timeout detection
-      firmware: exynos-acpm: allow use during system shutdown
-
- drivers/firmware/samsung/exynos-acpm.c | 35 +++++++++++++++++++++++++---------
- 1 file changed, 26 insertions(+), 9 deletions(-)
+v2:
+* add missing ktime.h
+* ktime_before() instead of !ktime_after() (Tudor)
 ---
-base-commit: 9388ec571cb1adba59d1cded2300eeb11827679c
-change-id: 20250321-acpm-atomic-033775b051ef
+ drivers/firmware/samsung/exynos-acpm.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-Best regards,
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index a85b2dbdd9f0d7b1f327f54a0a283e4f32587a98..542eaff03f9e39422a8c5345ca75e05c1710a9ee 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -15,6 +15,7 @@
+ #include <linux/firmware/samsung/exynos-acpm-protocol.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
++#include <linux/ktime.h>
+ #include <linux/mailbox/exynos-message.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/module.h>
+@@ -32,8 +33,7 @@
+ 
+ #define ACPM_PROTOCOL_SEQNUM		GENMASK(21, 16)
+ 
+-/* The unit of counter is 20 us. 5000 * 20 = 100 ms */
+-#define ACPM_POLL_TIMEOUT		5000
++#define ACPM_POLL_TIMEOUT_US		(100 * USEC_PER_MSEC)
+ #define ACPM_TX_TIMEOUT_US		500000
+ 
+ #define ACPM_GS101_INITDATA_BASE	0xa000
+@@ -284,12 +284,13 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
+ 				   const struct acpm_xfer *xfer)
+ {
+ 	struct device *dev = achan->acpm->dev;
+-	unsigned int cnt_20us = 0;
++	ktime_t timeout;
+ 	u32 seqnum;
+ 	int ret;
+ 
+ 	seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM, xfer->txd[0]);
+ 
++	timeout = ktime_add_us(ktime_get(), ACPM_POLL_TIMEOUT_US);
+ 	do {
+ 		ret = acpm_get_rx(achan, xfer);
+ 		if (ret)
+@@ -300,11 +301,10 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
+ 
+ 		/* Determined experimentally. */
+ 		usleep_range(20, 30);
+-		cnt_20us++;
+-	} while (cnt_20us < ACPM_POLL_TIMEOUT);
++	} while (ktime_before(ktime_get(), timeout));
+ 
+-	dev_err(dev, "Timeout! ch:%u s:%u bitmap:%lx, cnt_20us = %d.\n",
+-		achan->id, seqnum, achan->bitmap_seqnum[0], cnt_20us);
++	dev_err(dev, "Timeout! ch:%u s:%u bitmap:%lx.\n",
++		achan->id, seqnum, achan->bitmap_seqnum[0]);
+ 
+ 	return -ETIME;
+ }
+
 -- 
-André Draszik <andre.draszik@linaro.org>
+2.49.0.395.g12beb8f557-goog
 
 
