@@ -4,54 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D924C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97435C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jfjHC4p9odXwqxIpmk68w29l39qeBtGFlwdOR+yKErY=; b=al0NzVLh31qoBQW5bZEHfLjqWt
-	o3wna3sZrFKTOLXiCkXjkpq+iE8gOplOtOykKnHU6+2Qgh1r8fAZZXuSxY7yOQC6EYBs9dsj0XpGp
-	jLd//uldLrWRjXmhUQXAN0qL4E9wZ3D6G4SEnGwTbqiay6hiOx8V7/WgGnCLvNuUuNRGoAkXazJqO
-	NEiEeNx3oPHh+gzsRBrT9JnGHAhGqvRrQ331nDIQj4YG2RH4H+/a16MPFAXr062W70Wivr0qvhjFE
-	f8zaD5lthRglyMPKvgqfbk/jeq2dbQ7qBakiqWwgIrnNeextW+KaDPKOAvRqwgI+LNTugskBKDdsv
-	7vR4JGhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r/Ryn4TuN0nsTbrc45njRwtkhVgpxP9Hz/vwCYDKCL0=; b=o1xnh5ZMk4ZUWNNW5LmuGTkAFO
+	cofFUQpW/yNzRU6otjkvXsyRN+QLcqM3tmlcaTzw75NjnpADbMfBt17UG8yfSNzEtVCPkqPgHC/TJ
+	WbA+QP3/zB2TxyyO4N0DhtqZMaQYXcMkA7R7cWA6Q+WtVoXfEYMILiRaXSP4RqlCs1l8ROyotQ95G
+	d587hIvdngCm6P1zhBJAID+Sfwy06azjpEqy24ggaLTOMo5dY7bLhN1/FtI8dq+vOWWQGYnD2JgZ0
+	/XhRVZlxXjf19du77rjI/mbWUpugQxhHe+Rbaq3yVu4Y9+maHndz/jaENzFVHwI/hOH8Gm8Hb7GRk
+	RUjEXChw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twnpP-000000047Sn-2uQ6;
-	Mon, 24 Mar 2025 19:51:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twnIx-000000042kX-2jeH
+	id 1twnr7-000000047fL-1iAp;
+	Mon, 24 Mar 2025 19:53:05 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1twnKG-000000042vo-0PSR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 19:17:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0351F14BF;
-	Mon, 24 Mar 2025 12:17:50 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6386B3F694;
-	Mon, 24 Mar 2025 12:17:42 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4] coresight: prevent deactivate active config while enabling the config
-Date: Mon, 24 Mar 2025 19:17:40 +0000
-Message-Id: <20250324191740.64964-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 24 Mar 2025 19:19:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hrosidr92I1GPoNCprqzZYf1sZRDLnzJ/4gHCsmXCZ/1V99kc7PwoyrlofrDC/sBDaYCtK1yOmBnjsfDHJId8088eSVclqGVrlnwb7Pi+zX9PA9zTdMxtA2pN2iT9sijyk+ySmDSaHy0jJ7Dg9ldg0Uubhe7ViLU4D9s43Vdk101/jfg8NZTOXOAeP6IYvznfnHolwy01pECN01BhXLcGU/08YFLi88kkr9f6FbzzyO0Jknarh3acBEqIOQFE3yn6pMa+L+Q7RzEXhRK/TY0uJtCjCKoVuLlb/B79n07lVz7L3wOHcZZwh7hRiUS61c14TqT1NQ5ilksbjfbk6GQCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r/Ryn4TuN0nsTbrc45njRwtkhVgpxP9Hz/vwCYDKCL0=;
+ b=IHy8yk60Ey922w8npPQZ6fT1A3/FGOPoNo/8Rt9g4hHkqQss8/DKSN9687FnQjhIYEJ5KhWZ7Cq2whBYPfjbiCnxnyzhu9eKd72U6ko7uq1yRGWvRKr7HEF9VWJDXsapLzr34PA7E0U3G6eoVL/nMXbnxjiS6smx3oFpiETuDEiSHl8jcp6GrLaCsjreYeHwXPVRuNnQqOFDMnZdD1bRUuWneGL8uOm4dDsrJRRxvRrK5LWdNFXndoyrW7Au8367QaYy5NmsC/srC30jrHzg9WrpvG5XzQD19siwBjIq9smwmqo604FnZTY/vp1lORgometFiR94yxGsfQv2isTe/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r/Ryn4TuN0nsTbrc45njRwtkhVgpxP9Hz/vwCYDKCL0=;
+ b=fyaQP/bdSeeAIW0sTU9STbL+PKeUKJfMBNn2cgnR8oYmeWmVYYojOvByLYG8626Me+GrIPMoQM5pNoSGt4agdlKdlHr6Qxq9/az7yX0MJQqaeljdeaa5XIOZu214BeT20tKEmOl+uzsG5gECZxCHZhisR0Hf1WpGWPLf5e/uDYiuXc8jP/XIB/eef94JgELQSrQurX8Bw0BuRsAGzQReZdGEzkUW++PLvQ4WlEK/P+4A4ZE36DbRQTC+FYYu+dllPH6uGbQ0yAuWhPiypJUuYPlQASE1PDZjeghUqFZDheFw3qyTxZenyaM740C1c+/3v5gDjYn5fyn+o5rS8BuoYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by GV1PR04MB10654.eurprd04.prod.outlook.com (2603:10a6:150:209::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
+ 2025 19:19:04 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Mon, 24 Mar 2025
+ 19:19:03 +0000
+Date: Mon, 24 Mar 2025 15:18:56 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 4/5] PCI: imx6: Let i.MX95 PCIe compliance with 8GT/s
+ Receiver Impedance ECN
+Message-ID: <Z+GwIOBB9MwoKfpf@lizhi-Precision-Tower-5810>
+References: <20250324062647.1891896-1-hongxing.zhu@nxp.com>
+ <20250324062647.1891896-5-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250324062647.1891896-5-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: PH7P222CA0003.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:33a::18) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB10654:EE_
+X-MS-Office365-Filtering-Correlation-Id: a67c68cd-b057-488c-1444-08dd6b08bd25
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3n4+kWE4PYELUTlwfYdCxJcpqJd783wjMoy48buTijxRkCqqpi09UxbebVgk?=
+ =?us-ascii?Q?1iNJmEjtcMScEyf8M2+lWf+d7vdIpWowN3ehHPB/flJyTAX3wEps7z/OmYzf?=
+ =?us-ascii?Q?5+U51QkogrhCNrklBxuL5EkIEeZCzSRFOxcieoG0ih4m8P7ijTA+gkLeqUoy?=
+ =?us-ascii?Q?J9RokHLU0KZLU7i5iR+GwyeaqUQG7lStzXUsj97M3vlnJ6cZW3g4Ypjk/u7F?=
+ =?us-ascii?Q?gp4/J1+/frS+vJFNjVrt1GtNveiIC0D5BjTo8LZTot4NklfYSxEOdzGmLNur?=
+ =?us-ascii?Q?NuAUqZCahHm4gENTP/BsxkfAuO8Nh8b4tFymZiyNQt0XroLAgIKpw6fFZ9Vy?=
+ =?us-ascii?Q?Uueq4FbTpjVd8Fi8velFFNvrdoHmuaABIpzg6GRPkRbEgatdrvXVZOxQ5aBP?=
+ =?us-ascii?Q?JhcL2HDxrlb+Enpln/QmvIdUuvZbdi2NFhMniITukZEQl17Wyz1bOR6cG40a?=
+ =?us-ascii?Q?xX2l/rS2+LMA0F7GXYfJXzpBmOtinOuCOKWICHjwFwEd2vZlmMroU4Oi3VrG?=
+ =?us-ascii?Q?i2/I96tZWkxn724vW1eq/RQuoHdSaugr6IjSLZ+pVcsTOHaQiIqGDSGopL2A?=
+ =?us-ascii?Q?UBJGQcKvoqHHwI3kxWPVhfzoczKxgJnVkm+pUElWQQZVl6A7ROUXcKxL0qS3?=
+ =?us-ascii?Q?G//s1009NYWdjU/MkTcN3u2mzKg19noQ49kQFPv3g6FN4YTYFAGzl+IimDSf?=
+ =?us-ascii?Q?njCtGV9Au1HzlwuwQ+5C+9EORaHVXYKJt69xK3+GIlkWNkObSNW434WwEeKs?=
+ =?us-ascii?Q?WUuSrb7V5yRBLxDiAh//4c7VLBsHM45BDun++2iWVtN9B/eM8nyF3p96l0TI?=
+ =?us-ascii?Q?CMnVjo5MYn5DfcmNY0bbl+VXTZXM68cScO14iNVCQg0uU6iKfzJEBYt7Ujzp?=
+ =?us-ascii?Q?Dr4ftdx8oM/g1VW1nw56rGjRtvsVdY4JcvPDRX6W6o1uhpKhVTa9yi31raut?=
+ =?us-ascii?Q?w7VoRJROKvV1f8a1EZNvqLLFDHaSPJdBdEqYj9A67hkppecb4OggBDk6usNh?=
+ =?us-ascii?Q?BcqUINqWyrL6vuhw7+xXI1Cjlt6o8hOjywKIcifax2IRcZxQRlnoB0wOFr/b?=
+ =?us-ascii?Q?ndDhd7aJzpk0IrDmUVb6IBfgOeD0To+a+6gdj9Zj6PExGNAgugFPZjlQgfYU?=
+ =?us-ascii?Q?xXIyLjf7/5aT6OsukmE3J7cSUsYbpxWAzQ0PmMMPKLODGroDusf52Hj4rW3G?=
+ =?us-ascii?Q?mELG9Ih80vnCeDKsDhwpSTFqurWHvsG6jhwtEIEMhwZzC/unrXaiIS7DFvBL?=
+ =?us-ascii?Q?OzDgxa2WVH95b0O4miDogFeDZUAa8759pHe4w+zVOvZVCmIsmMguvqZ4eHvX?=
+ =?us-ascii?Q?fmBcC42uDgg4E/fYEeJqfNdTJbH+LREe9iqc+jwCL3Du3p7QbX2mtrnqna75?=
+ =?us-ascii?Q?+G7jbEtcuKMz25r3O5ZVDJbeGWDtIIrHeGaKcomw/WSdTmVztbiPeGnMoPUf?=
+ =?us-ascii?Q?wXQ51X5RTPj66uL5JfYQrS7K5T7TciLS?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EpyJKrtvYa53KYm6RImNwmOFVEJg/aIrG9m+ohMd28Hm2JK8IEUxIfruK6UW?=
+ =?us-ascii?Q?82Fr6/ay5XTcF/TQRA+7QXMFxww1BpfPtbE1R9mPzdXCdag0HJQ7K2l8PmNt?=
+ =?us-ascii?Q?9YHFmVouZQP8ym/fuANlu5IulP4Dm1hZ62WsAqt7oK1980RmXc3q9ho1OJEQ?=
+ =?us-ascii?Q?/kIPsifkf6SVK9FR8OycMwrBTZ8nYTH6WCJS1buYyx5bkZbCCLhyWIfNQtLn?=
+ =?us-ascii?Q?BQR+XeAoA7cvyDK23p5FXV8Kg8Eg2Gh02SaXCSBWYTIT3YOqHjHrsuNNPWrx?=
+ =?us-ascii?Q?zaEbAzkTNfakb05/BGhWW2cSZ1H3Wdhhxh4UcF69ZOq7Saoau8ZH8WamGcHY?=
+ =?us-ascii?Q?QrUe0+NoweErjvstbMGz1oixF1wK0j0weObgl6dir9iAyk8psEhithesdJ+m?=
+ =?us-ascii?Q?eF9MHoeO3WdfKlPtjOvo5dYgS+zHd6fhzbH3kkVMpF+BV1DXhg4oU5yGe02U?=
+ =?us-ascii?Q?rw3wdzZbLUkAZyz7IMKZZogouRD21Oq5YBzFPbdIrfdDg/iS3O0Ev8qqjJ1u?=
+ =?us-ascii?Q?VY/vAjltsAzoXO2rkkmooB+o+hAviCd78AUEl6RVmjRZLXMHgh8tM2XJh5py?=
+ =?us-ascii?Q?Cgi8Bj9Ba3Q+ofRDBLbilqFyFASEyPxc+5R3N3wmLF2NoZ0I+kmVamCyi90I?=
+ =?us-ascii?Q?cVt7moWlhMTXObEgRovPNNwYGK50UbnQk3kWbtvCtFOOQ2deiupibQgRPgWB?=
+ =?us-ascii?Q?eJpHRDWbhlXoBlJMWkqGqBa+lDDD/ktp1yMHUiAMxSoGWO7GkieVm+5RXgRc?=
+ =?us-ascii?Q?0iACKOA20aQ2QQwy5iDwZOXwv+X9yJHxSbilm2nwwg+oF8I5AdzSX23hpV+H?=
+ =?us-ascii?Q?YClE9D36fTuNNDO0lf+EYcsipnWQHtTFio8kcay6LP6zuVXFA9MFdE6hFp5o?=
+ =?us-ascii?Q?0lWnMgOQZVJTSwVQnltWOdU/qbc/7QbPdnpVIEzHZMGqrABZA8VNQxiVp1d1?=
+ =?us-ascii?Q?KYERVm9kNM6me8HvrMc4nNrLdx/Uz1jXtzwnVzqWfLWTkml9YxDnjtOXRmOU?=
+ =?us-ascii?Q?VN9pKZyjsNc4xjaqTlK1oZXDsOWAej8znsNz+XPFqpnhRs8I/7gXZOiOcmJ0?=
+ =?us-ascii?Q?lDktPy02qhrqxAyrlWmEfJmPVUFS6oQcLaaR64I8UXvd6aR6tJh+yoDceAHE?=
+ =?us-ascii?Q?RIrmCEt4lGviQ45xSgPKEOPbSKFyv9MVOsZif7LIYxjyjcWhzeDH12oqFpSo?=
+ =?us-ascii?Q?cgMpnE6yk6qJnKDeDDTHD8oF3un2IQhvEDmc0g1qL8Dxb+/SurlU9M2vw7p5?=
+ =?us-ascii?Q?ukZtPzxGt6weqd8wzYPJ/OpT5WbBp9B3hy79y5PVsuO9N4igRvXyInVJ7n/Y?=
+ =?us-ascii?Q?rN09KHzkQlINI3x4rtyg0xp9ybg3mEGNiyC3NNUmkV6qeYhtJkoAZVKJspcL?=
+ =?us-ascii?Q?2VhVxaN9e3Kq66Jhh6HG4VE/WzmBA/SfgpLCIXMQjEMqwRc66e7Uo+Mk657h?=
+ =?us-ascii?Q?avQVl+iqQ5m1hZSackoXj43Mh2bWjv8v8zPqtIGe/VF/y9slrkx8IoWDi0Ld?=
+ =?us-ascii?Q?bI95xZtZ6Nx2hkkQVzLa5HPeDLmjOOXTkQHrfjSdJ/0W31uUSd4Fa2PmAo6T?=
+ =?us-ascii?Q?UJW3lMJg1cNAperv127V+I6eKL6D3RXZqgnc/aoi?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a67c68cd-b057-488c-1444-08dd6b08bd25
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2025 19:19:03.5219
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MmP3m7PmqWQ8pNLUKgH1I54o4t5q8ab44WC2gZfMmmQBU6Eld69Eao4HuvT1QEIfjp3PRtpnBnJdNr1WFexjBQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10654
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_121747_789547_F65F8898 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20250324_121908_139662_DBC3AA1B 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,205 +161,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While enable active config via cscfg_csdev_enable_active_config(),
-active config could be deactivated via configfs' sysfs interface.
-This could make UAF issue in below scenario:
+On Mon, Mar 24, 2025 at 02:26:46PM +0800, Richard Zhu wrote:
+> Workaround for ERR051586: Compliance with 8GT/s Receiver Impedance ECN.
+>
+> The default value of GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] is 1 which
+> makes receiver non-compliant with the ZRX-DC parameter for 2.5 GT/s when
+> operating at 8 GT/s or higher. It causes unnecessary timeout in L1.
+>
+> Workaround: Program GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] to 0.
+>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 29 +++++++++++++++++++++++++++
+>  1 file changed, 29 insertions(+)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 52aa8bd66cde..dda3eed99bb8 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -131,6 +131,7 @@ struct imx_pcie_drvdata {
+>  	int (*init_phy)(struct imx_pcie *pcie);
+>  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+>  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+> +	void (*post_config)(struct imx_pcie *pcie);
+>  	const struct dw_pcie_host_ops *ops;
+>  };
+>
+> @@ -1158,6 +1159,29 @@ static void imx_pcie_disable_device(struct pci_host_bridge *bridge,
+>  	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
+>  }
+>
+> +static void imx95_pcie_post_config(struct imx_pcie *imx_pcie)
 
-CPU0                                          CPU1
-(sysfs enable)                                load module
-                                              cscfg_load_config_sets()
-                                              activate config. // sysfs
-                                              (sys_active_cnt == 1)
-...
-cscfg_csdev_enable_active_config()
-  lock(csdev->cscfg_csdev_lock)
-  // here load config activate by CPU1
-  unlock(csdev->cscfg_csdev_lock)
+There are already have post_init in dwc dw_pcie_host_ops
 
-                                              deactivate config // sysfs
-                                              (sys_activec_cnt == 0)
-                                              cscfg_unload_config_sets()
-                                              unload module
+struct dw_pcie_host_ops {
+        int (*init)(struct dw_pcie_rp *pp);
+        void (*deinit)(struct dw_pcie_rp *pp);
+        void (*post_init)(struct dw_pcie_rp *pp);
+        int (*msi_init)(struct dw_pcie_rp *pp);
+        void (*pme_turn_off)(struct dw_pcie_rp *pp);
+};
 
-  // access to config_desc which freed
-  // while unloading module.
-  cfs_csdev_enable_config
+Can you use it directly?
 
-To address this, use cscfg_config_desc's active_cnt as a reference count
-which will be holded when
-    - activate the config.
-    - enable the activated config.
-and put the module reference when config_active_cnt == 0.
+Frank
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
-Since v3:
-  - Remove enable arguments in cscfg_config_desc_get() (from Mike).
-  - https://lore.kernel.org/all/20250109171956.3535294-1-yeoreum.yun@arm.com/
----
- .../hwtracing/coresight/coresight-config.h    |  2 +-
- .../coresight/coresight-etm4x-core.c          |  3 ++
- .../hwtracing/coresight/coresight-syscfg.c    | 52 +++++++++++++------
- 3 files changed, 41 insertions(+), 16 deletions(-)
+> +{
+> +	u32 val;
+> +	struct dw_pcie *pci = imx_pcie->pci;
 
-diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
-index b9ebc9fcfb7f..90fd937d3bd8 100644
---- a/drivers/hwtracing/coresight/coresight-config.h
-+++ b/drivers/hwtracing/coresight/coresight-config.h
-@@ -228,7 +228,7 @@ struct cscfg_feature_csdev {
-  * @feats_csdev:references to the device features to enable.
-  */
- struct cscfg_config_csdev {
--	const struct cscfg_config_desc *config_desc;
-+	struct cscfg_config_desc *config_desc;
- 	struct coresight_device *csdev;
- 	bool enabled;
- 	struct list_head node;
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index e5972f16abff..ef96028fa56b 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1020,6 +1020,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
- 	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+struct dw_pcie *pci = imx_pcie->pci;
+u32 val;
 
- 	raw_spin_unlock(&drvdata->spinlock);
-+
-+	cscfg_csdev_disable_active_config(csdev);
-+
- 	cpus_read_unlock();
-
- 	/*
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index a70c1454b410..6d8c212ad434 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -391,14 +391,17 @@ static void cscfg_owner_put(struct cscfg_load_owner_info *owner_info)
- static void cscfg_remove_owned_csdev_configs(struct coresight_device *csdev, void *load_owner)
- {
- 	struct cscfg_config_csdev *config_csdev, *tmp;
-+	unsigned long flags;
-
- 	if (list_empty(&csdev->config_csdev_list))
- 		return;
-
-+	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
- 	list_for_each_entry_safe(config_csdev, tmp, &csdev->config_csdev_list, node) {
- 		if (config_csdev->config_desc->load_owner == load_owner)
- 			list_del(&config_csdev->node);
- 	}
-+	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
- }
-
- static void cscfg_remove_owned_csdev_features(struct coresight_device *csdev, void *load_owner)
-@@ -867,6 +870,25 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
- }
- EXPORT_SYMBOL_GPL(cscfg_csdev_reset_feats);
-
-+static bool cscfg_config_desc_get(struct cscfg_config_desc *config_desc)
-+{
-+	if (!atomic_fetch_inc(&config_desc->active_cnt)) {
-+		/* must ensure that config cannot be unloaded in use */
-+		if (unlikely(cscfg_owner_get(config_desc->load_owner))) {
-+			atomic_dec(&config_desc->active_cnt);
-+			return false;
-+		}
-+	}
-+
-+	return true;
-+}
-+
-+static void cscfg_config_desc_put(struct cscfg_config_desc *config_desc)
-+{
-+	if (!atomic_dec_return(&config_desc->active_cnt))
-+		cscfg_owner_put(config_desc->load_owner);
-+}
-+
- /*
-  * This activate configuration for either perf or sysfs. Perf can have multiple
-  * active configs, selected per event, sysfs is limited to one.
-@@ -890,22 +912,17 @@ static int _cscfg_activate_config(unsigned long cfg_hash)
- 			if (config_desc->available == false)
- 				return -EBUSY;
-
--			/* must ensure that config cannot be unloaded in use */
--			err = cscfg_owner_get(config_desc->load_owner);
--			if (err)
-+			if (!cscfg_config_desc_get(config_desc)) {
-+				err = -EINVAL;
- 				break;
-+			}
-+
- 			/*
- 			 * increment the global active count - control changes to
- 			 * active configurations
- 			 */
- 			atomic_inc(&cscfg_mgr->sys_active_cnt);
-
--			/*
--			 * mark the descriptor as active so enable config on a
--			 * device instance will use it
--			 */
--			atomic_inc(&config_desc->active_cnt);
--
- 			err = 0;
- 			dev_dbg(cscfg_device(), "Activate config %s.\n", config_desc->name);
- 			break;
-@@ -920,9 +937,8 @@ static void _cscfg_deactivate_config(unsigned long cfg_hash)
-
- 	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
- 		if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
--			atomic_dec(&config_desc->active_cnt);
- 			atomic_dec(&cscfg_mgr->sys_active_cnt);
--			cscfg_owner_put(config_desc->load_owner);
-+			cscfg_config_desc_put(config_desc);
- 			dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
- 			break;
- 		}
-@@ -1047,7 +1063,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
- 				     unsigned long cfg_hash, int preset)
- {
- 	struct cscfg_config_csdev *config_csdev_active = NULL, *config_csdev_item;
--	const struct cscfg_config_desc *config_desc;
-+	struct cscfg_config_desc *config_desc;
- 	unsigned long flags;
- 	int err = 0;
-
-@@ -1062,8 +1078,8 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
- 	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
- 	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
- 		config_desc = config_csdev_item->config_desc;
--		if ((atomic_read(&config_desc->active_cnt)) &&
--		    ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
-+		if (((unsigned long)config_desc->event_ea->var == cfg_hash) &&
-+				cscfg_config_desc_get(config_desc)) {
- 			config_csdev_active = config_csdev_item;
- 			csdev->active_cscfg_ctxt = (void *)config_csdev_active;
- 			break;
-@@ -1097,7 +1113,11 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
- 				err = -EBUSY;
- 			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
- 		}
-+
-+		if (err)
-+			cscfg_config_desc_put(config_desc);
- 	}
-+
- 	return err;
- }
- EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
-@@ -1136,8 +1156,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
- 	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
-
- 	/* true if there was an enabled active config */
--	if (config_csdev)
-+	if (config_csdev) {
- 		cscfg_csdev_disable_config(config_csdev);
-+		cscfg_config_desc_put(config_csdev->config_desc);
-+	}
- }
- EXPORT_SYMBOL_GPL(cscfg_csdev_disable_active_config);
-
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+> +
+> +	/*
+> +	 * Workaround for ERR051586: Compliance with 8GT/s Receiver
+> +	 * Impedance ECN
+> +	 *
+> +	 * The default value of GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] is
+> +	 * 1 which makes receiver non-compliant with the ZRX-DC
+> +	 * parameter for 2.5 GT/s when operating at 8 GT/s or higher. It
+> +	 * causes unnecessary timeout in L1.
+> +	 *
+> +	 * Workaround: Program GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] to 0.
+> +	 */
+> +	dw_pcie_dbi_ro_wr_en(pci);
+> +	val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
+> +	val &= ~GEN3_RELATED_OFF_GEN3_ZRXDC_NONCOMPL;
+> +	dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
+> +	dw_pcie_dbi_ro_wr_dis(pci);
+> +}
+> +
+>  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> @@ -1222,6 +1246,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>
+>  	imx_setup_phy_mpll(imx_pcie);
+>
+> +	if (imx_pcie->drvdata->post_config)
+> +		imx_pcie->drvdata->post_config(imx_pcie);
+> +
+>  	return 0;
+>
+>  err_phy_off:
+> @@ -1808,6 +1835,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+> +		.post_config = imx95_pcie_post_config,
+>  	},
+>  	[IMX8MQ_EP] = {
+>  		.variant = IMX8MQ_EP,
+> @@ -1863,6 +1891,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.epc_features = &imx95_pcie_epc_features,
+>  		.mode = DW_PCIE_EP_TYPE,
+> +		.post_config = imx95_pcie_post_config,
+>  	},
+>  };
+>
+> --
+> 2.37.1
+>
 
