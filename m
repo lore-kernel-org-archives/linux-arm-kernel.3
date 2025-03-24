@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8FBC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 09:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B891C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 10:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XERG4fHTRlBSKZ7O9h54QbkOrIztH+Lz87Rz4mphs4o=; b=oKkcrcYUiCV5Uf2pj1U6ynFJ6l
-	dvYuDnzp5Fi6oKYI7+tpKY6r4wi8LbaMQV9w/BloT3M4vyp0ExAZJ0fgd4XeAVRB1SUNPtF1uuyNy
-	DSDsQwlJDFH4UbCebW5y5FxWaBtyCSfKDxRD0Y8Q11Wq4lK13iR1mQvIIgLQOZiPMhWTaDMl3Rz3h
-	v3gdX17G1qrF8U94pN493Tif80t5QHOs7debE0g07xz8KcdtnRKplqFgnN8GaqHm3ZmmdHlPFTi83
-	f3EOy7vRTZO/XxMfrUY+xPTKg3sqcUTynLHGvlcKX0NjpFT5XN3zNfSar8ZVmY6p95jc1f71nIz+4
-	LI3LzKHw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3RzGV1RpQts5giBdaR6NJZIGRMhOnCTfW5GoZwlJYO8=; b=z+IVSHKA8TOmkNnxiV2EcABnnG
+	otCvae9s/OIwXF8fUGijdwzwlP9XlG9Yuf/OMOntTL065C30kXamkIitryNy4iUkGnp4eYEYa5V5I
+	sqr4ysgqFAZXAWFpi+lDQ6LdBs2CJ9aE8XgBBej3iNKpes9amKkPkVikbFsq1DTRsY11LCfBDo1eK
+	dSZgnThThSKrQ8VIS/ivKPO+ondW3HMV2sW27TtPWtX20D1P9G1DZep02DqASrsupjLES5LDSvFwM
+	YIHCJAXGH1TXPToAa7tlstyVfU+F9eZWlTuGNPs/017JQS9XIJXpp53JhblazDZgdr9Sv10PaffV7
+	v8QoKw/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tweWx-00000002lXk-2DzU;
-	Mon, 24 Mar 2025 09:55:39 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1twedL-00000002mEs-0pn5;
+	Mon, 24 Mar 2025 10:02:15 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tweVE-00000002lQz-0bsS;
-	Mon, 24 Mar 2025 09:53:53 +0000
+	id 1tweba-00000002ls7-1tNR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 10:00:27 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3912fdddf8fso3142234f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 03:00:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742810425; x=1743415225; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3RzGV1RpQts5giBdaR6NJZIGRMhOnCTfW5GoZwlJYO8=;
+        b=m8TnDgGBpgmdPf4K4GvgWXZuXcDCfDhxkdyplCeY5SRGIvAXeHGr65OEwl3oEpJel6
+         EC832j8kYS0w53IVL3IKGw6hdTjTyxBj76j+CxI0HmvkrIi0I8SYibfIysVmR4nbmEsr
+         EQfa/RtUzvzGji+pbNI6kkmNdC2azOutH7TLkrrXs3rHzXEjjXcVe+FEty8vpH2BvLJ4
+         5BwxZVWuJgDsVN8C3hJ477I6j+FzVj52LVTZBy2Y3T+gS27pYJsday/dksj78sQVKcQr
+         eFUFF0LX8SexdajGITn6Cu13RZhCapLHISSoJWCW2xwdplXDJlXDP6w+5w1/E0OF8lyx
+         wqag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742810425; x=1743415225;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3RzGV1RpQts5giBdaR6NJZIGRMhOnCTfW5GoZwlJYO8=;
+        b=oKq64QWGZXqno/M7adxYXBt7J3DPqXwo2/0oZbsztTwZne10BMSwaHq9JaRctWp6QT
+         nPNKCYY4NfLLqgbB+izT0rp9WvrChn6eB9L+mpm6e6q9bYMNvzSc67CKHjLu3VVh+olD
+         728WuNwLDWUnikFiNiWRDiY6m1IyIm62Bx5wT2fGenCZadj4TZFMEFsa/Tp5xv7/EXLU
+         hcHCNLkKwV1BYjCb+J1tAPG/3h4JV0NkaXaciRDKjv/FHe+4dFkDeKxtEtBBKUPbvOcx
+         oITobYhz6rLhefDJ3FYIRD7bs6/5XwjE/u4GMTxe7JC5TDho9pIYNlagS8R4by5BdYRX
+         /p+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXPWUOpJbtOkqBYXm5lwrUODShYLrNBtORPN68s6rvgFXBc8y3rjXvS08HdAaOKYvqJVdGcDAfrlWKmTSjGX/UD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPZi3RiUqLRhjo2ZCrfv0f6+HMX37Mt/aVGAY455rvn4RGFmZB
+	mARQm1eauQ2v5P4ucdqaVrsiNDUZe09urbrY/KVp+y4+C+scTNIYR5rmw7FsaUc=
+X-Gm-Gg: ASbGncvJZesuI1v5+P1Il0gf2U0f8+/nPiwhWHd0S4g0uXtGiAe35zsGEoDojawSF9o
+	1LgPY1AdKO7FcXex4eWu0cdPT8mKjJYNLriiL/5xfrX6lmgd5a7nLDJBSU7eNlXw0o016C8r9/q
+	iPlva0UX4E1jN8jEVmSOfItlt0rzXeX8zZ56a6OqCvqaNKlZn5+37T255U9DxpQSa1XQ4oLejXR
+	2m84RIMyINrqdoayNf092vL6Vtc53Z82aQx82cd1AONW1HbzhSAps6k7Sk9B1VIiai9KfH1djGp
+	5yoRh7oa+f3R24eZdCQnYoHbh0F6cw1u+IyJ2NsmGGSq3mcWulVoZoYEpdY+/Ag9RRKLOwY=
+X-Google-Smtp-Source: AGHT+IGVC5Cc2BTYBbFdNtgjSgvA47GAhTFPvWufLC91XobhDpo2M7uGRnbnSjRmU2ARwM+unXFsow==
+X-Received: by 2002:a5d:47af:0:b0:391:21e2:ec3b with SMTP id ffacd0b85a97d-3997f8f743dmr9193072f8f.3.1742810424883;
+        Mon, 24 Mar 2025 03:00:24 -0700 (PDT)
+Received: from mai.. (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f995611sm10625933f8f.15.2025.03.24.03.00.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 03:00:24 -0700 (PDT)
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: daniel.lezcano@linaro.org,
+	tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Thomas Fossati <thomas.fossati@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
+Subject: [PATCH 1/2] dt-bindings: NXP System Timer Module
+Date: Mon, 24 Mar 2025 11:00:05 +0100
+Message-ID: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1742810030;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XERG4fHTRlBSKZ7O9h54QbkOrIztH+Lz87Rz4mphs4o=;
-	b=FobUkMLHzOSyOc4vvxt3chAceAe1ueFbrWsmTvLcLgLFx6DMMUAhCGlPBGdfebE2Xstk0x
-	cJ8CDVdI3836LwlxSq8VN6AGAVGCu78x/jzI+aDgpAniinYsuelmTsdcbwAZ8qB+0MXaa3
-	YUn+eTXy1rPLPvLp35oVNOb0t+jZUFbJjwqwAyp4J/VfrTnKeKwwXTl5sBJTfUgWH84iBq
-	nZ9Nz5aFtN1PH2IJo6IwVmCLx9bAfntiZ4AH+eB17tyZYQc6ZQ2KUFOqtoXKILr63YX+5+
-	04yl2AjaiVUyJAhsp32aKUocxWx4ZpCiMRhXlGa7dNMh5xiJSUTWM0ekHBnCXQ==
-Date: Mon, 24 Mar 2025 10:53:49 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, stable@vger.kernel.org, Alexey Charkov
- <alchark@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Remove overdrive-mode OPPs from
- RK3588J SoC dtsi
-In-Reply-To: <2ece5cca-50ea-4ec9-927e-e757c9c10c18@cherry.de>
-References: <f929da061de35925ea591c969f985430e23c4a7e.1742526811.git.dsimic@manjaro.org>
- <71b7c81b-6a4e-442b-a661-04d63639962a@cherry.de>
- <960c038ad9f7b83fe14d0ded388b42f7@manjaro.org>
- <2ece5cca-50ea-4ec9-927e-e757c9c10c18@cherry.de>
-Message-ID: <4d25c9af4380598b35a0d55e7c77ac3d@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
 Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_025352_507313_5580E10E 
-X-CRM114-Status: GOOD (  31.50  )
+X-CRM114-CacheID: sfid-20250324_030026_495912_E481E8B6 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,131 +105,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Quentin,
+Add the System Timer Module description found on the NXP s32 platform
+and the compatible for the s32g2 variant.
 
-On 2025-03-24 10:23, Quentin Schulz wrote:
-> On 3/23/25 11:19 AM, Dragan Simic wrote:
->> On 2025-03-21 10:53, Quentin Schulz wrote:
->>> On 3/21/25 4:28 AM, Dragan Simic wrote:
->>>> The differences in the vendor-approved CPU and GPU OPPs for the 
->>>> standard
->>>> Rockchip RK3588 variant [1] and the industrial Rockchip RK3588J 
->>>> variant [2]
->>>> come from the latter, presumably, supporting an extended temperature 
->>>> range
->>>> that's usually associated with industrial applications, despite the 
->>>> two SoC
->>>> variant datasheets specifying the same upper limit for the allowed 
->>>> ambient
->>>> temperature for both variants.  However, the lower temperature limit 
->>>> is
->>> 
->>> RK3588 is rated for 0-80°C, RK3588J for -40-85°C, c.f. Recommended
->>> Operating Conditions, Table 3-2, Ambient Operating Temperature.
->> 
->> Indeed, which is why I specifically wrote "specifying the same upper
->> limit", because having a lower negative temperature limit could hardly
->> put the RK3588J in danger of overheating or running hotter. :)
-> 
-> """
-> despite the two SoC variant datasheets specifying the same upper limit
-> for the allowed temperature for both variants
-> """
-> 
-> is incorrect. The whole range is different, yes it's only a 5°C
-> difference for the upper limit, but they still are different.
+Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Thomas Fossati <thomas.fossati@linaro.org>
+Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+---
+ .../bindings/timer/nxp,stm-timer.yaml         | 59 +++++++++++++++++++
+ 1 file changed, 59 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
 
-I just commented on this separately, with a couple of datasheet
-screenshots, before I saw your latest response.  Please, have
-a look at that message.
+diff --git a/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml b/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
+new file mode 100644
+index 000000000000..41093892c617
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/nxp,stm-timer.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP System Timer Module (STM)
++
++maintainers:
++  - Daniel Lezcano <daniel.lezcano@kernel.org>
++
++description: |
++  The System Timer Module supports commonly required system and
++  application software timing functions. STM includes a 32-bit
++  count-up timer and four 32-bit compare channels with a separate
++  interrupt source for each channel. The timer is driven by the STM
++  module clock divided by an 8-bit prescale value.
++
++properties:
++  compatible:
++    oneOf:
++      - const: nxp,s32g2-stm
++      - items:
++          - const: nxp,s32g2-stm
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: System Timer Module clock
++
++  clock-names:
++    items:
++      - const: stm
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    stm@4011c000 {
++        compatible = "nxp,s32g2-stm";
++        reg = <0x4011c000 0x3000>;
++        interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clks 0x3b>;
++        clock-names = "stm";
++    };
+-- 
+2.43.0
 
->>>> specified much lower for the RK3588J variant. [1][2]
->>>> 
->>>> To be on the safe side and to ensure maximum longevity of the 
->>>> RK3588J SoCs,
->>>> only the CPU and GPU OPPs that are declared by the vendor to be 
->>>> always safe
->>>> for this SoC variant may be provided.  As explained by the vendor 
->>>> [3] and
->>>> according to its datasheet, [2] the RK3588J variant can actually run 
->>>> safely
->>>> at higher CPU and GPU OPPs as well, but only when not enjoying the 
->>>> assumed
->>>> extended temperature range that the RK3588J, as an SoC variant 
->>>> targeted
->>> 
->>> "only when not enjoying the assumed extended temperature range" is
->>> extrapolated by me/us and not confirmed by Rockchip themselves. I've
->>> asked for a statement on what "industrial environment" they specify 
->>> in
->>> the Normal Mode explanation means since it's the only time they use
->>> the term. I've yet to receive an answer. The only thing Rockchip in
->>> their datasheet is that the overdrive mode will shorten lifetime when
->>> used for a long time, especially in high temperature conditions. It's
->>> not clear whether we can use the overdrive mode even within the 
->>> RK3588
->>> typical range of operation.
->> 
->> True.  I'll see to rephrase the patch description a bit in the v2,
->> to avoid this kind of speculation.  I mean, perhaps the speculation
->> is right, but it hasn't been confirmed officially by Rockchip.
-> 
-> Speculation is fine, but it should be worded as such.
-
-Agreed, because that's our understanding so far, but it needs
-to be explained a bit better.
-
->>>> The provided RK3588J CPU OPPs follow the slightly debatable "provide 
->>>> only
->>>> the highest-frequency OPP from the same-voltage group" approach 
->>>> that's been
->>> 
->>> Interesting that we went for a different strategy for the GPU OPPs :)
->> 
->> Good point, and I'm fully aware of that. :)  Actually, I'm rather
->> sure that omitting the additional CPU OPPs does no good to us, but
->> I didn't want to argue about that when they were dropped originally,
->> before I can have some hard numbers to prove it in a repeatable way.
-> 
-> I assume we'll have some patch in the future with those added and
-> those hard numbers you're talking about, so looking forward to seeing
-> it on the ML :)
-
-Indeed, that's the plan, and there should be even more patches,
-which should remove the slightly annoying "xyz OPP is inefficient"
-warnings emitted by the IPA governor. :)
-
->>>> Helped-by: Quentin Schulz <quentin.schulz@cherry.de>
->>> 
->>> Reported-by/Suggested-by?
->>> 
->>> I don't see Helped-by in
->>> https://eur02.safelinks.protection.outlook.com/? 
->>> url=https%3A%2F%2Fwww.kernel.org%2Fdoc%2Fhtml%2Flatest%2Fprocess%2Fsubmitting-patches.html%23using-reported-by-tested-by-reviewed-by-suggested-by-and-fixes&data=05%7C02%7Cquentin.schulz%40cherry.de%7Cdc754791b6844506b11c08dd69f444a7%7C5e0e1b5221b54e7b83bb514ec460677e%7C0%7C0%7C638783220330058516%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=4bv9pUh6aSD0GVLJ4Zvuyvox1K0xxwf83KXX86QsvMo%3D&reserved=0
->>> 
->>> I see 2496b2aaacf137250f4ca449f465e2cadaabb0e8 got the Helped-by
->>> replaced by a Suggested-by for example, but I see other patches with
->>> Helped-by... if that is a standard trailer for kernel patches, then
->>> maybe we should add it to that doc?
->> 
->> Actually, I already tried to get the Helped-by tag added to the
->> kernel documentation, by submitting a small patch series. [*]
->> Unfortunately, it got rejected. :/
->> 
->> However, Heiko accepts Helped-by tags and nobody higher up the
->> tree seems to complain, so we should be fine. :)  It isn't the
->> case with all maintainers, though.
->> 
->> [*] https://eur02.safelinks.protection.outlook.com/? 
->> url=https%3A%2F%2Flore.kernel.org%2Fall%2Fcover.1730874296.git.dsimic%40manjaro.org%2FT%2F%23u&data=05%7C02%7Cquentin.schulz%40cherry.de%7Cdc754791b6844506b11c08dd69f444a7%7C5e0e1b5221b54e7b83bb514ec460677e%7C0%7C0%7C638783220330070422%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3dZgSG%2FBT6f%2Ffqs7D30HvEl18SzqYPwNeUGWBZfMAqM%3D&reserved=0
-> 
-> Are you trying to up the numbers of Helped-by in commit logs to make
-> it a reasonable request to add the trailer in the documentation :) ?
-
-It's just that Helped-by is, to me, of a bit "higher value" than
-Suggested-by or Reported-by, because Helped-by means that the
-tagged person contributed more to the patch than just suggesting
-it or reporting a bug.  In addition, having more Helped-by tags
-present in various commits can help a bit with, possibly, making
-it officially supported at some point in the future. :)
 
