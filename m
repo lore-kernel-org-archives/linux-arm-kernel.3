@@ -4,121 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73EEC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FA5C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5gCTHqi5RXz4RfxlVIq8tZmJ5xAwfohObZ7yBTeoI8=; b=WqwJ1TOGS3LY7UQA9lAPflwNmp
-	JUN//WxNuVwbdZTm9Ts5aH1PVvsyMlhA32U833wPaChRv4CnmKpgD2LFnjjrAURMTIjmzrUUdGocS
-	l8UlRbvl1iQPGCVy8SuwzUuuFq0BgBoxC3VYPdy2Z6wcwI0af6rb/LZ+UmenwsKPkkhvvEqQkJNIN
-	et2xm0oIGi/wPpu6M1Gl9XI5SCWKMedCo6iyF4ZnYgCaP2BvaA39Pxxi6z14XaofVnrrQXAae42CW
-	AKB7dRt/cKLNy4/U3vSwb5HvVMWtbVDzq/hYvDRtMGmFJE668FYEcUdOmXT6FgWv0ybNjVt1Kz1kY
-	Y/LqaXHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ngufI78IFU7yCiFrUdhla7M+4msjXhssA/3I0fUkc8=; b=d6S485gADO4c/4+B342x95JgbO
+	FxatzsxNbwycVO3+qPwXzhfRbNqHMNaf2N6VOGMn70Xx2zRm4Pe5hs/vEZUVfnFbUfdj9Qo1uUOkv
+	V6BMczf4Ni3bZRXo7BUkFTVg5F981KlhP7968CFyki9DQVbHVMpx4g2s7EQKVTRdT0kHTPdQieKic
+	MYsC49Jb3MpetQUzA92Pgb5KjU3Ta0xDdAZuU6tR8drV6mt1mRwKgtCJJJDEPtU3l1erOMKXNVPm9
+	Q7MoNmJbJBdF1m7tTYyCFwkgbNtvEWBgTW04ytXzcjmKtMmJFaPDziv/g4qQlVmd1O24zNRCveBF3
+	TrVTe3lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twbzb-00000002Psi-0wJs;
-	Mon, 24 Mar 2025 07:13:03 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1twc1J-00000002QF1-169W;
+	Mon, 24 Mar 2025 07:14:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twbtZ-00000002Oo5-4AyT
+	id 1twbwt-00000002POk-2isg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:06:51 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-38a25d4b9d4so2077866f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:06:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742800008; x=1743404808; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=R5gCTHqi5RXz4RfxlVIq8tZmJ5xAwfohObZ7yBTeoI8=;
-        b=I1TO30yw8VCPrha/RYN+B3SLoLtuKyVWSMj4ZRERIQpqkX9NW5g7+ut16yf9GMJWCS
-         xoe1SwxNBfnvAeG+s9BJPrgpHAMSQnRZpJGmdelZIw6hmCkrFXjMyNT0Oxxh3zfSicYL
-         1Rq1DI8SE0dNo/ctbLktcBwEJBoucKJ+8FHA2eYZH/4fW+UbO1DzP29cX+zf4uA3Hx0+
-         f2YzgCGIxa+PeG7/XZzzdSihFIRejJEmO3BV+5xXllU2X8CzNws2LSi2GYPwKNfAfQQE
-         Kg0EemfttKWM0CdlaXn8nMWHRYFJYACuctbptEHPkAilKr6ib9xuaqhXVGsngHrzxWV3
-         V7NQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742800008; x=1743404808;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=R5gCTHqi5RXz4RfxlVIq8tZmJ5xAwfohObZ7yBTeoI8=;
-        b=SowbrWdcKfKgWEzX+hBcfucuYvPq20XFyGhGkDmvFjYFl1ABUAJUZ4pKgjS9zKX4dj
-         pRhzaNn9VZosEIsvNlqTfF368E/CxMTlMnqzTjN/kkOknhPbD/wFJ1uXSr1UuEoZOjGc
-         pjNDyoALV/SRzkLI4IYtHJ+xlZvNOqPD1McbaVLRB3UD3EwhO7i45sIuZQTwuMVn1uI9
-         gYrWVKk5fBQ8AZ5QDa0rC+BX98MRR+3JD7zcyuncjTLe3M6AfHGtN3kA6HkukAhfAiWz
-         GXRyam39D2nG7ttruIAfOzHAn4eWwaxwno1VtNe2jHMw6wFdBTg16kqbcpGFG/o5Ht7v
-         vLsA==
-X-Forwarded-Encrypted: i=1; AJvYcCX51/j6iw7KB15zOIy75QcPLscpGZK5YKCDWO9l7C9L6gj602JqdjSoZei7kIRXZww+nMyE45y6p1kWeHLGE9H3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5ksTtLavd/ufHkHzSwZX1eGkY7G+lPZnuDKlBpf5O8jWagji3
-	el/D0jYiXAkqHeAuM4Mhf3d4iQ/Fbt5jFwQAEAg6RDqs0p3Sy2TD62owpeQb5Mo=
-X-Gm-Gg: ASbGncusD1kkx1A9ZE0XeVXMqu6zSWifvkz6wJVo4ywQi/eECs5kDycOvlTIv+VQ7oq
-	zGVSOLoa7Y5Xtm/LiXUAYkORi5L8aQ/8PhIcOoe5uBKG5CrunGjzkqF9SOdpBm5wRris9yOUFgV
-	oP3rgomJQ8ufxfhCY4J0EHo5KxMaSNV1tYFHy9vkNxE0nRVdeuAYG4/R6/bYGbkYqeXOeHA8V+s
-	fjrvvl6luxR9C5csKeCcQZkoo+JnfLaQ9/PH/am8V2sKZNzqr666BvdxNwRpJ+pliKpU9Qx+sml
-	wxOqDDXsAcDsTddFK2UGpneHDUJ1UPWWcgDqRW4qbygMUvz3FI0FrC/9pkjxeFAiymY4Yu5nKrY
-	+xt9PREC25vzk1dtt
-X-Google-Smtp-Source: AGHT+IHPuC+hLaYBHOASKlqZMU4X4ISor3sOVKvUnkvmOWB16uZ4LvwNA+ulTX9xjUSyrlovjePGvQ==
-X-Received: by 2002:a05:6000:1842:b0:391:2c09:bdef with SMTP id ffacd0b85a97d-3997f9261d0mr9315513f8f.30.1742800008211;
-        Mon, 24 Mar 2025 00:06:48 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:a356:8d0:d4d:bb5f? ([2a01:e0a:3d9:2080:a356:8d0:d4d:bb5f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f995a05sm9931047f8f.8.2025.03.24.00.06.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Mar 2025 00:06:47 -0700 (PDT)
-Message-ID: <3ca650ec-d0f2-453b-9770-5e5bbe7a75f0@linaro.org>
-Date: Mon, 24 Mar 2025 08:06:47 +0100
+	Mon, 24 Mar 2025 07:10:16 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52O6bxXH000457;
+	Mon, 24 Mar 2025 07:10:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/ngufI78IFU7yCiFrUdhla7M+4msjXhssA/3I0fUkc8=; b=RZCpy7icQiOHzGd6
+	Ibaq8xuuzPN6Fs7QreXFLZ4h0gzrwj57c8ArPBxXq4cjLVwz5Z4a36W38LuiK0B0
+	WrVqqoJxXyIR3ZcYlP28bWbPe89kxvSxdBaj8IosA5g1hMFbGp9d3F9qYMScd5mw
+	gJrTydS3ijuzuYGI3LaiuNoOPvJBJWZBJFXkMYDuBXOerewvTJyEhsC8mWhsdnRV
+	pWyPjhmfFn/A99fKyjEITU+pJK6wUPoYfvgfWHjr2ChILiS1qGa2Pq2cTgAJevfh
+	W8TqVfBblFeujjR5VZcCKGoLstsuR4PCwO3FMq+te+WLNUXv/ETSKc1SXvsP29zA
+	0g+Jag==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45hn9wbcka-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Mar 2025 07:10:02 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52O7A16L028038
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Mar 2025 07:10:01 GMT
+Received: from [10.233.19.224] (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 24 Mar
+ 2025 00:09:57 -0700
+Message-ID: <9ea8fe39-b818-403b-bd69-815e58eb2949@quicinc.com>
+Date: Mon, 24 Mar 2025 15:09:54 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v5 3/3] arm64: dts: amlogic: Add A5 Reset Controller
-To: kelvin.zhang@amlogic.com, Philipp Zabel <p.zabel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- Zelong Dong <zelong.dong@amlogic.com>
-References: <20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com>
- <20250320-a4-a5-reset-v5-3-296f83bf733d@amlogic.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250320-a4-a5-reset-v5-3-296f83bf733d@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v1 1/3] arm64: defconfig: enable PCI Power Control for
+ PCIe3
+To: Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski <krzk@kernel.org>
+CC: <andersson@kernel.org>, <konradybcio@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <quic_qianyu@quicinc.com>, <sfr@canb.auug.org.au>,
+        <linux-arm-kernel@lists.infradead.org>,
+        "Bartosz
+ Golaszewski" <bartosz.golaszewski@linaro.org>
+References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
+ <20250320055502.274849-2-quic_wenbyao@quicinc.com>
+ <694b6638-92b2-4ac0-a175-bd29aea6cba9@kernel.org>
+ <CAMRc=MfZrRp=VuEOLuMY_04JdyRrD+joGL56LwRFQ-+D-8Z_6w@mail.gmail.com>
+Content-Language: en-US
+From: "Wenbin Yao (Consultant)" <quic_wenbyao@quicinc.com>
+In-Reply-To: <CAMRc=MfZrRp=VuEOLuMY_04JdyRrD+joGL56LwRFQ-+D-8Z_6w@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: W5rVTvp_6yXf7rqNN-IOLx3unxZyMuqQ
+X-Proofpoint-ORIG-GUID: W5rVTvp_6yXf7rqNN-IOLx3unxZyMuqQ
+X-Authority-Analysis: v=2.4 cv=CPoqXQrD c=1 sm=1 tr=0 ts=67e1054b cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=5vY_lBfp_abUPGzNiLoA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-24_03,2025-03-21_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 mlxlogscore=892
+ spamscore=0 priorityscore=1501 suspectscore=0 bulkscore=0 mlxscore=0
+ lowpriorityscore=0 malwarescore=0 adultscore=0 phishscore=0
+ impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503240051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_000650_045399_D3A11088 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250324_001015_813201_F15B2FF8 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,152 +108,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2025 10:42, Kelvin Zhang via B4 Relay wrote:
-> From: Zelong Dong <zelong.dong@amlogic.com>
-> 
-> Add the device node and related header file for Amlogic
-> A5 reset controller.
-> 
-> Signed-off-by: Zelong Dong <zelong.dong@amlogic.com>
-> Link: https://lore.kernel.org/r/20240918074211.8067-4-zelong.dong@amlogic.com
-> Signed-off-by: Kelvin Zhang <kelvin.zhang@amlogic.com>
-> ---
->   arch/arm64/boot/dts/amlogic/amlogic-a5-reset.h | 95 ++++++++++++++++++++++++++
->   arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi    |  8 +++
->   2 files changed, 103 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5-reset.h b/arch/arm64/boot/dts/amlogic/amlogic-a5-reset.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..cdf0f515962097c606e4c53badb19df7d21606ec
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a5-reset.h
-> @@ -0,0 +1,95 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-> + */
-> +
-> +#ifndef __DTS_AMLOGIC_A5_RESET_H
-> +#define __DTS_AMLOGIC_A5_RESET_H
-> +
-> +/* RESET0 */
-> +/*						0-3 */
-> +#define RESET_USB				4
-> +/*						5-7 */
-> +#define RESET_USBPHY20				8
-> +/*						9 */
-> +#define RESET_USB2DRD				10
-> +/*						11-31 */
-> +
-> +/* RESET1 */
-> +#define RESET_AUDIO				32
-> +#define RESET_AUDIO_VAD				33
-> +/*                                              34 */
-> +#define RESET_DDR_APB				35
-> +#define RESET_DDR				36
-> +/*						37-40 */
-> +#define RESET_DSPA_DEBUG			41
-> +/*                                              42 */
-> +#define RESET_DSPA				43
-> +/*						44-46 */
-> +#define RESET_NNA				47
-> +#define RESET_ETHERNET				48
-> +/*						49-63 */
-> +
-> +/* RESET2 */
-> +#define RESET_ABUS_ARB				64
-> +#define RESET_IRCTRL				65
-> +/*						66 */
-> +#define RESET_TS_PLL				67
-> +/*						68-72 */
-> +#define RESET_SPICC_0				73
-> +#define RESET_SPICC_1				74
-> +#define RESET_RSA				75
-> +
-> +/*						76-79 */
-> +#define RESET_MSR_CLK				80
-> +#define RESET_SPIFC				81
-> +#define RESET_SAR_ADC				82
-> +/*						83-90 */
-> +#define RESET_WATCHDOG				91
-> +/*						92-95 */
-> +
-> +/* RESET3 */
-> +/*						96-127 */
-> +
-> +/* RESET4 */
-> +#define RESET_RTC				128
-> +/*						129-131 */
-> +#define RESET_PWM_AB				132
-> +#define RESET_PWM_CD				133
-> +#define RESET_PWM_EF				134
-> +#define RESET_PWM_GH				135
-> +/*						104-105 */
-> +#define RESET_UART_A				138
-> +#define RESET_UART_B				139
-> +#define RESET_UART_C				140
-> +#define RESET_UART_D				141
-> +#define RESET_UART_E				142
-> +/*						143*/
-> +#define RESET_I2C_S_A				144
-> +#define RESET_I2C_M_A				145
-> +#define RESET_I2C_M_B				146
-> +#define RESET_I2C_M_C				147
-> +#define RESET_I2C_M_D				148
-> +/*						149-151 */
-> +#define RESET_SDEMMC_A				152
-> +/*						153 */
-> +#define RESET_SDEMMC_C				154
-> +/*						155-159*/
-> +
-> +/* RESET5 */
-> +/*						160-175 */
-> +#define RESET_BRG_AO_NIC_SYS			176
-> +#define RESET_BRG_AO_NIC_DSPA			177
-> +#define RESET_BRG_AO_NIC_MAIN			178
-> +#define RESET_BRG_AO_NIC_AUDIO			179
-> +/*						180-183 */
-> +#define RESET_BRG_AO_NIC_ALL			184
-> +#define RESET_BRG_NIC_NNA			185
-> +#define RESET_BRG_NIC_SDIO			186
-> +#define RESET_BRG_NIC_EMMC			187
-> +#define RESET_BRG_NIC_DSU			188
-> +#define RESET_BRG_NIC_SYSCLK			189
-> +#define RESET_BRG_NIC_MAIN			190
-> +#define RESET_BRG_NIC_ALL			191
-> +
-> +#endif
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-> index 32ed1776891bc7d1befd01a76c76048631606f5a..b1da8cbaa25a1844312a23bc39eb876df3c60df5 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-> @@ -4,6 +4,7 @@
->    */
->   
->   #include "amlogic-a4-common.dtsi"
-> +#include "amlogic-a5-reset.h"
->   #include <dt-bindings/power/amlogic,a5-pwrc.h>
->   / {
->   	cpus {
-> @@ -50,6 +51,13 @@ pwrc: power-controller {
->   };
->   
->   &apb {
-> +	reset: reset-controller@2000 {
-> +		compatible = "amlogic,a5-reset",
-> +			     "amlogic,meson-s4-reset";
-> +		reg = <0x0 0x2000 0x0 0x98>;
-> +		#reset-cells = <1>;
-> +	};
-> +
->   	gpio_intc: interrupt-controller@4080 {
->   		compatible = "amlogic,a5-gpio-intc",
->   			     "amlogic,meson-gpio-intc";
-> 
+On 3/21/2025 5:43 PM, Bartosz Golaszewski wrote:
+> On Fri, Mar 21, 2025 at 8:37 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> On 20/03/2025 06:55, Wenbin Yao wrote:
+>>> From: Qiang Yu <quic_qianyu@quicinc.com>
+>>>
+>>> Enable the pwrctrl driver, which is utilized to manage the power supplies
+>>> of the devices connected to the PCI slots. This ensures that the voltage
+>>> rails of the x8 PCI slots on the X1E80100 - QCP can be correctly turned
+>>> on/off if they are described under PCIe port device tree node.
+>>>
+>>> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
+>>> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
+>>> ---
+>>>   arch/arm64/configs/defconfig | 1 +
+>>>   1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>>> index 85ec2fba1..de86d1121 100644
+>>> --- a/arch/arm64/configs/defconfig
+>>> +++ b/arch/arm64/configs/defconfig
+>>> @@ -245,6 +245,7 @@ CONFIG_PCIE_LAYERSCAPE_GEN4=y
+>>>   CONFIG_PCI_ENDPOINT=y
+>>>   CONFIG_PCI_ENDPOINT_CONFIGFS=y
+>>>   CONFIG_PCI_EPF_TEST=m
+>>> +CONFIG_PCI_PWRCTL_SLOT=y
+>> Bartosz,
+>>
+>> Wasn't the intention to select it the same way as PCI_PWRCTL_PWRSEQ is
+>> selected?
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> For sure. I would expect there to be something like:
+>
+> select PCI_PWRCTL_SLOT if ARCH_QCOM
+>
+> in Kconfig and nothing in defconfig.
+>
+> Bartosz
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+IIUC, pci slot power driver is a common driver that could be used by all DT
+based platform.
+
+-- 
+With best wishes
+Wenbin
+
 
