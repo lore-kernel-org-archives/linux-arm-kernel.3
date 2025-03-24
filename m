@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D568C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 09:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FD6C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 09:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5fV2R1E3CKBb4WFfRo1d9PYp2TC8wiqYUiEwsJbh6Qc=; b=imzvyLB1rOADAn
-	dhgr6ZJ+rGLiCPz0lZSdfaexP+FsyLG+JxnVQHN4eTVb/OOLQtS4SppGG2mHh9IJ37ZzWH1MFmLZG
-	m+6WaLM0cEiEXARp8pHnAtLyF9jfj02jCpVd/xlX8ONWfZUxbUFyT/6BGK20DxZNPjY7mDaUIkwVf
-	UJRcmuc2dIPJFB9CzeeexwIK420OJQl+IX0OdockKEUGBRKXoVUT2R9GrFhQlNNdPKHOrFmtdxhd3
-	xjeJbm/SQOdcyd8luvRwrJfHKF0zm+gWFDIx1TU2kyqNWKuzXnUy4Paalb56ASk6CvH3AK/YEhpyl
-	V/XmsCw/+58TPS4Nq8kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZwZLVEC883iMdJgNsdYSpUpFPhWJPSZZ0C3e4RfHTgs=; b=H1R4XdGl9TsG76qLUBaVRxQdBq
+	d8m5ZEcylZGATwKPJe6kYyLKuex4dmyZQDgxCIuNTBwNGlHjoAG04jJYv+5wKHVQrYecQC8Vx66Xv
+	78UDqZRASGLx875r33R2p5ZEWBtmNFX5FxUp+2EsA8EqG5ulChm3msOWcB8cQlrfJSqFieTfsW9g1
+	AdPZXHRoi0elrkVTf1gsuB5L23Y7fGQEQqLBrJEHlOY9b2ySeHMxX9tRhX8Ws+4fe9HdsDcGQArC2
+	jCp0M6PIB9+yqePuuWpqncAZm3lcpoSBloOwrt25QZDn0WaKR6/cL5rxPqjshV360fzjjBW3cvcYm
+	CUDP4Cyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tweQx-00000002lCC-1y5G;
-	Mon, 24 Mar 2025 09:49:27 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tweSf-00000002lIh-0XhI;
+	Mon, 24 Mar 2025 09:51:13 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tweKz-00000002kRl-3Hul
+	id 1tweM4-00000002kbZ-1iuu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 09:43:20 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52O7ELVd032168;
-	Mon, 24 Mar 2025 10:42:59 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=5fV2R1E3CKBb4WFfRo1d9P
-	Yp2TC8wiqYUiEwsJbh6Qc=; b=o0SeTaSKKMUsYOUmOa4/jofgvOu2CbNHqPZR4J
-	0590RDqcPG3Niu91HZ96V9+SDVJLcRZEQxzXpO+NqAsm1OdYKg7GrrGWPHiB5sCq
-	eS32CMq9KCaOAzG0KB64861IdL8niNlDmjJiJdaWejHtDhX/i8alovllZCCZyVu5
-	YamOpIJRGcro4TNuZ9uI25C0c8Gjk+12Lc+FN9BtTMY7/NUvNvDG9O34TtlN2U7F
-	H4LWx37jWYYfr8jMweBJRTkARmFIVR4W3VmvEpYMLV8vFKZgS3jjBxWuygR5X+go
-	ufO4+/kzPAsIOeYUpViumltgWd4rZih9TcGGtSNkPku75yvQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45j7n84eqn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Mar 2025 10:42:59 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E3BD1400DA;
-	Mon, 24 Mar 2025 10:41:40 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 14FE17EE902;
-	Mon, 24 Mar 2025 10:40:16 +0100 (CET)
-Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 24 Mar
- 2025 10:40:15 +0100
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH v2 0/2] spi: spi-stm32-ospi: dt-bindings fixes
-Date: Mon, 24 Mar 2025 10:40:12 +0100
-Message-ID: <20250324-upstream_ospi_required_resets-v2-0-85a48afcedec@foss.st.com>
+	Mon, 24 Mar 2025 09:44:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=ZwZL
+	VEC883iMdJgNsdYSpUpFPhWJPSZZ0C3e4RfHTgs=; b=kfbWEBfw1SIvZlkQv25F
+	M0iJPCs4vIaupYGmIm+mOHtw5pllyYBHgc//W6jKN9QoKm0MFHxd8ZIOVE85cJ75
+	mjIr+HQciaLasH0jt5/+w2iiavgLughMFvv0VejbvoXfKOK4jp/YrWsittHxv1q3
+	6JnEYkj3CQSN6tdJfRXsmCZXnmqwnsuEiPxokSq7Qn9XL8ZjSGRC9fTyCYypfth4
+	1tVkXzRiiKRMYcholPO24QRi0MboWKXp73ZSMw4uTI9y6hrW8yMLQUo/wTOhjqCm
+	w7FilVtlpPgboFX36WkcjevbEB/PaM6ReIt27hEhe7Bn8KLDPBiW+tFGajHnCqKq
+	YQ==
+Received: (qmail 2486927 invoked from network); 24 Mar 2025 10:44:17 +0100
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 24 Mar 2025 10:44:17 +0100
+X-UD-Smtp-Session: l3s3148p1@66acchMxkjRtKPH/
+Date: Mon, 24 Mar 2025 10:44:17 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+Cc: thierry.bultel@linatsea.fr, linux-renesas-soc@vger.kernel.org,
+	geert@linux-m68k.org, paul.barker.ct@bp.renesas.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 13/13] arm64: defconfig: Enable Renesas RZ/T2H serial
+ SCI
+Message-ID: <Z-EpcXNXhSZ4zo2N@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
+	thierry.bultel@linatsea.fr, linux-renesas-soc@vger.kernel.org,
+	geert@linux-m68k.org, paul.barker.ct@bp.renesas.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250306152451.2356762-1-thierry.bultel.yh@bp.renesas.com>
+ <20250306152451.2356762-14-thierry.bultel.yh@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHwo4WcC/42NQQ6CMBBFr0JmbUlbENSV9zCEFBhkFlCcKURDu
- LuVE7j77y/e20CQCQVuyQaMKwn5KYI9JdAObnqioi4yWG3POrNGLbMERjfWXmaqGV8LMXZxCAZ
- RWe4ujSkLY5oComNm7Ol9+B9V5IEkeP4cudX83n/Nq1FaXZ3LS20xc2jvvRdJJaStH6Ha9/0LN
- jJtXcwAAAA=
-X-Change-ID: 20250321-upstream_ospi_required_resets-34a8b17611b6
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        <christophe.kerello@foss.st.com>, <linux-spi@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Patrice Chotard <patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-24_04,2025-03-21_01,2024-11-22_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uCRVzdt7Zbst7U5c"
+Content-Disposition: inline
+In-Reply-To: <20250306152451.2356762-14-thierry.bultel.yh@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_024318_130557_2E084622 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20250324_024424_722996_F25C7BD7 
+X-CRM114-Status: UNSURE (   8.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,30 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make "resets" property mandatory.
-Update spi-stm32-ospi driver and dt-bindings accordingly.
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
-Changes in v2:
-- Update dt-bindings commit message to explain why OSPI's resets becomes
-  a required property.
-- Link to v1: https://lore.kernel.org/r/20250321-upstream_ospi_required_resets-v1-0-9aa4702e3ae2@foss.st.com
+--uCRVzdt7Zbst7U5c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
----
-Patrice Chotard (2):
-      spi: dt-bindings: st,stm32mp25-ospi: Make "resets" a required property
-      spi: spi-stm32-ospi: Make "resets" a required property
+On Thu, Mar 06, 2025 at 04:24:47PM +0100, Thierry Bultel wrote:
+> Selects RZ/T2H (aka r9a09g077) SCI (serial) specific code.
+>=20
+> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
 
- Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml | 1 +
- drivers/spi/spi-stm32-ospi.c                                 | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
----
-base-commit: e94bd4ec45ac156616da285a0bf03056cd7430fc
-change-id: 20250321-upstream_ospi_required_resets-34a8b17611b6
+Basically OK, but as said before we need to find a better symbol name.
 
-Best regards,
--- 
-Patrice Chotard <patrice.chotard@foss.st.com>
 
+--uCRVzdt7Zbst7U5c
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmfhKXEACgkQFA3kzBSg
+KbYN4Q/+N3koHF4uMmka6PokDDctb2ON5DN2pTLTVBF/LpuoznWskAdhzQQ281H4
+psoKCXfAgXjgp61Dzfv1CgwG6i7ufyw1AIePI5562Zv/o7JJ8Vvvn+ERR2MIqUtB
+UlldHS7kBQ5818jvJ6W27kDC8qdE6aMta2+OFkzuiO6rtOR94Dzx+O5j+IiXlFJ9
+rMasjd5WIFA0Vg0kUCB+/NKloTeuGyUV0UOLamd0YsQSpLwlMc9CHPv8xSZcU/CV
+fVtZGK/G+Q3bnCkKxh8PYWry3vbCiesRLUCIirPJS6rCJKsRlSJsDl5GYXviYvx7
+1fV9PvzNIkjS0NYgbUQfCrmPP53Wl6atZqUScXwuIjSohbWrdVVPJiWYvHHAVbUC
+QauVivAuBWJHDgOSx1GcNZBoQSxPW4Xf1jfEDDr/pxqQ2CmjLJWoNMR1LsFrKRdz
+dcZEPCBSeH+8nZsnfSejgEcLYBJaw5uUdK53OMHXE6n+VY2lHYA+EG0B9Hk4nx6o
+6mtUoCuLf5kyNqKHBsMNc1lAz4bx/rB2HtmHEgPVX9lGRKN2RI59f6u+ydLP08BG
+L8LG3LXY9i/qpqVZJJ1bbFgO6y350l+U9EqAvPf9wkHKvGhuSiHSelJT/rS4a9jc
+Uexcdzq9htGH8FtmJhIir6AfxLNH7cP61QWrdWQVhrtRpR3qz1c=
+=PYQp
+-----END PGP SIGNATURE-----
+
+--uCRVzdt7Zbst7U5c--
 
