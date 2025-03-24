@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6ECC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 20:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150EAC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 20:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxrGgHWhR4Ky+v6i7DE4a0jUOEzO9NsgEBtqDP5s0TQ=; b=4x7RL6oxVFSNEAwloov0HRPb28
-	jtWW20qFd7M1aD6VG3BmHO2mnoWZ3UyMxSh+9JAtJPRdgxdTtkd8Ff3jIXaydftxAVbJIoKigyPX9
-	fH6yiYs1E21Dq/YX7hiYCQJYDVA0Wq0IpyGia8tQ0WwOtXu/Mm/Lp7EZpI9F7dT9bWPQAI9H/MB1F
-	NTbRhS/+C54mPnOH/FndYQNvLtucOz5Ub/qv/lMfgOpK2PE+BglLCOeA6bfPXkvtJ74XGzvNvWvqN
-	B8+Vf23svpCjxiuv6NSmFWV3xlwSP31qzv8e1m9ywlrRWK6lCIu03fjgn28rmYHeT/HRm2acp93pV
-	/2ne8ueA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LxNhSVN77/tNU4mpU5dmbyj063rXi/eagDqjIOci2lg=; b=vlxjRPhboq0NjFP0J/UH55eFn3
+	itLu3Kue6OaqEM/R6rkBqsTo7pd2PHGXjSP9aWbrwBSBuGAkKZLn0wLbvR1ijsJqtEWgag2X8KiIU
+	XeRbUsZ4je3LTJIzGdeSnXf+S2Xd2kV3jIpD+O3ynI2V2QzO3dnn018JCYPQY0y7Ecbqe8F982UPT
+	AHfBOcoiitD7XSB0Jwz7jp/VOYpKm/W5G4REmwao/R0azytelFW1W+3bFRtRU/7fVKnQEueTfc9/w
+	uLubboXC4Ly8MD42RAYhV3WCw1RC+WugVYgFXcctddDMCqXnM3XJ+xMUOUsVWd+wNSmncy7ummU6/
+	i8BIAyuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twoiP-00000004EAO-3rIg;
-	Mon, 24 Mar 2025 20:48:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1twom5-00000004Eie-1nVc;
+	Mon, 24 Mar 2025 20:51:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twoSl-00000004CZd-0Oyd;
-	Mon, 24 Mar 2025 20:32:00 +0000
+	id 1twokK-00000004EO0-3KBG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 20:50:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 80E0943D0F;
-	Mon, 24 Mar 2025 20:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AD08C4CEDD;
-	Mon, 24 Mar 2025 20:31:58 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 007CEA4A522;
+	Mon, 24 Mar 2025 20:44:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBADEC4CEDD;
+	Mon, 24 Mar 2025 20:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742848318;
-	bh=LDTKp3W7h188ixr/vX4U7f5V6ZusmxQCsTGFE63qb20=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LT4IM+bMgEYMcruZeVIseTw5+f/xunSV2APT5kPRxD76MAc1Wg24Tz9VlF5iGCEJ8
-	 YGA3pU5hhz60cKgndPvFxfYPqSfkx+uKYR8Ng1dEAgUkAuntkDeqdCo3O6sv9oZCQT
-	 BHq12rVUyZKUjeLPjwOBkXH67myUVkzMBvIMF1tI162dpJ164PUMYyCtgJEvOJ6+XD
-	 Ieh4KXL553HZi1EfaxUqE9ucsNEN6JV/54/KoUh5zaDIwxvyEDeXgIfttMQh0fCKGu
-	 2QSf4KQPT+3uNDxjNU8LfOuup5OaEntF3WyDC49zxcpk7BtqntxOwdwWjdFc4D43NO
-	 527MT5yxxsFBg==
-Date: Mon, 24 Mar 2025 15:31:57 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Bert Vermeulen <bert@biot.com>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-gpio@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	Maxime Ripard <mripard@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-kernel@vger.kernel.org, Magnus Damm <magnus.damm@gmail.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	Manikandan Muralidharan <manikandan.m@microchip.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Sander Vanheule <sander@svanheule.net>
-Subject: Re: [PATCH] dt-bindings: gpio: Correct indentation and style in DTS
- example
-Message-ID: <174284830296.819870.8907081146872259608.robh@kernel.org>
-References: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
+	s=k20201202; t=1742849407;
+	bh=+ou0UbncUs03M6sufG6N3xTDsMBOOlOxZOY7cw8WuOw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=fCJ47wN1+6+QohEGuqVMAAGxKIxnmr77Sz6Lx5TpDQX+4kl3ZcS1W7ZYR/KIoIGWo
+	 Qc8FVEBTEFp6FlYB2AD6znBsWXDAaXtUFFk5R3uR+6JkMMmX4g4i4NLr+W2gdhH0Ru
+	 NEsIkcdrUlbQnoKgCWLs8vPaqCf3BsqbqniTpdR/N9eD42A+8wwOQf1fMZ7a3JoJZn
+	 /s/G3/AYQEorFapa+7V9PwohFTJ7lDuuN6AME9/Pm8+9Tj8LjsK1XguSvqJ6S3cnLB
+	 Eh5/USzW7nZ1GAW88iH8WPMX0ThF8XUUcodgNHmIaoOXLE/HoYgrMw1Lz6CS63qFja
+	 stHr7WqJHlzLw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33F0E380664D;
+	Mon, 24 Mar 2025 20:50:45 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: stmmac: Call xpcs_config_eee_mult_fact() only
+ when xpcs is present
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174284944375.4167801.10275229682419761555.git-patchwork-notify@kernel.org>
+Date: Mon, 24 Mar 2025 20:50:43 +0000
+References: <20250321103502.1303539-1-maxime.chevallier@bootlin.com>
+In-Reply-To: <20250321103502.1303539-1-maxime.chevallier@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, andrew@lunn.ch, kuba@kernel.org, edumazet@google.com,
+ pabeni@redhat.com, linux@armlinux.org.uk, hkallweit1@gmail.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, f.fainelli@gmail.com, horms@kernel.org,
+ alexis.lothore@bootlin.com, alexandre.torgue@foss.st.com,
+ mcoquelin.stm32@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_133159_150451_3303CAB0 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250324_135008_891882_A2D6554B 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,31 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-On Mon, 24 Mar 2025 13:53:26 +0100, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.  While re-indenting, drop
-> unused labels.
-> 
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../bindings/gpio/atmel,at91rm9200-gpio.yaml  | 16 ++---
->  .../bindings/gpio/fairchild,74hc595.yaml      | 20 +++---
->  .../devicetree/bindings/gpio/gpio-mxs.yaml    | 70 +++++++++----------
->  .../devicetree/bindings/gpio/nxp,pcf8575.yaml | 24 +++----
->  .../bindings/gpio/realtek,otto-gpio.yaml      |  8 +--
->  .../bindings/gpio/renesas,em-gio.yaml         | 20 +++---
->  .../bindings/gpio/renesas,rcar-gpio.yaml      | 24 +++----
->  .../devicetree/bindings/gpio/sifive,gpio.yaml |  6 +-
->  .../bindings/gpio/toshiba,gpio-visconti.yaml  | 24 +++----
->  .../bindings/gpio/xlnx,gpio-xilinx.yaml       | 48 ++++++-------
->  10 files changed, 130 insertions(+), 130 deletions(-)
-> 
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+On Fri, 21 Mar 2025 11:35:01 +0100 you wrote:
+> Some dwmac variants such as dwmac_socfpga don't use xpcs but lynx_pcs.
+> 
+> Don't call xpcs_config_eee_mult_fact() in this case, as this causes a
+> crash at init :
+> 
+>  Unable to handle kernel NULL pointer dereference at virtual address 00000039 when write
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next] net: stmmac: Call xpcs_config_eee_mult_fact() only when xpcs is present
+    https://git.kernel.org/netdev/net-next/c/53cd6820f5a0
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
