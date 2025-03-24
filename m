@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDCDC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 13:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5B4C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 13:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Z/P0CPp4Wyk9Y9pljrYeXYyD77+BeU3yy6/CkSnjI4=; b=tw2imIP/MNOK/4Q0C8CPpFwB3o
-	ZsVJa/pBqa7RiPEG0Y6LJ+9V/pw2AXOnqhVGq4q332wWUbpXGq5G32RhyKWX86OTzWt+Q0hJf5KI2
-	SvpKe7mARFdwE5tMhWjcISRDEg766RJjf0SS2GoFlKrEOUT0wEjWvRtn6CN83sxvR9G7B1AuUpuVl
-	PWv82zbnOOc9u+wjZKElFnedRIfYTyQlX7fHJDnGzKXb/7PjvfRvb0yrUH6JRrrhrig9VCKTm4gjM
-	KU7H0Yq0lRF7RqkqL/kkcUzeS1QRny5O0Mpt79unYsaKIaR5+hQ7yBiciQxOJ/miaAsmE0dnuoy+Y
-	xyDOsIeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QpLay2NRUxXBZBIq5TN4wg5iG7+LcfQc4wrhgea9GRc=; b=sIPwMzTh61xw81HYEZYvoorV9W
+	xQefwDmpU2ZR4Q+bpTbWDdZEyJ+iKA91qNS8mETGuleaB8D0OKJF49rC4yqz+lFspx0Vby2SxfMR/
+	DfbHrrExgCSa91AqXn6BD0pZT8nBiWzAu6Z7QDBQGks4R3UMpdhiDu/Z/tOO79q8M7TuEHx1eWPEW
+	OsiyG0nvnQRcxp7Vphg4trtX9CEMhPic79xSxQDLja77FnZurx/GxJEqH+dmMfLpHuIT6Lu7U8AAq
+	hbpbCiyQvljEgWJ/NBMCZPE8YFR3BYRDnosZaRGEx3I/j84nu5k0tCAfjQzK8yVFwMrL0ApYo+qVk
+	KV3xqURQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twheZ-00000003DVl-40Dy;
-	Mon, 24 Mar 2025 13:15:43 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1twhnQ-00000003EpS-1yow;
+	Mon, 24 Mar 2025 13:24:52 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twhV0-00000003CHx-2mLm
+	id 1twhlg-00000003EGQ-032i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 13:05:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742821551; x=1774357551;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=vJfBDHCxyVQns/5+3y7fqVp7wz/PXkviSSt+13f9mwU=;
-  b=V7Az1ZBsT7N2lSf6YbaD75X1G8YSfNsvGLqO5+E8KXwnMXnGxBjP24jp
-   V+mXuIncHtvJrxuD+eRkpA3gPhDSu+KvnWBRoWehWI6IjAorvbyq4KYQm
-   8g7HW/dZ2nmYnAgZ3omJ5kt28sEei6gCzD/ySRsLNKzk3y0xGFYkzVYzS
-   NKADIo5zm+u6qyuUaXF+7f/6c1qe01adlB7cXS8adJ1AYYbivVRNUTMdr
-   C0+NcIsgvfyTa9/c93Mo6pfK0kByovq/4B5e2KhuaY2cEx6L/Fgww6Vnh
-   dSCTc4mrMzNWvjUcMkip2fIfKBQ35UvhRWBrl0aStRHwXotjqD0dBU7xm
-   A==;
-X-CSE-ConnectionGUID: X2sAYTSuRCa4iDuaNdOJ7g==
-X-CSE-MsgGUID: tndrKGsgTHCz6nXiUx9iHQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11383"; a="54229798"
-X-IronPort-AV: E=Sophos;i="6.14,272,1736841600"; 
-   d="scan'208";a="54229798"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2025 06:05:50 -0700
-X-CSE-ConnectionGUID: hPJMrlbWRneuwdv8CFBM3g==
-X-CSE-MsgGUID: mLbWTvKnSjK5/IiIFlZfFA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,272,1736841600"; 
-   d="scan'208";a="129107999"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.251])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2025 06:05:44 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Mon, 24 Mar 2025 15:05:41 +0200 (EET)
-To: Richard Zhu <hongxing.zhu@nxp.com>
-cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
-    kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, 
-    bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-    kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-    LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/5] PCI: imx6: Start link directly when workaround
- is not required
-In-Reply-To: <20250324062647.1891896-2-hongxing.zhu@nxp.com>
-Message-ID: <73205114-bdb5-2995-e00a-7df7046ea91d@linux.intel.com>
-References: <20250324062647.1891896-1-hongxing.zhu@nxp.com> <20250324062647.1891896-2-hongxing.zhu@nxp.com>
+	Mon, 24 Mar 2025 13:23:05 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso43999895e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 06:23:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742822582; x=1743427382; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QpLay2NRUxXBZBIq5TN4wg5iG7+LcfQc4wrhgea9GRc=;
+        b=eKM+IOZBai/l94iTfH+pp6HhwlgykFRDaDlzGV5dhPSvaH1aVZWpeR/yGIJzDh3fQk
+         O3+nLbgp1o7wjDxUtzJaPrH+SuFq/uMAgnsj/ttErmDWN/F2Yuvf3+Y60sRu7BM/VoVM
+         bngNNp9I8Tg85eOw0gh5AtcQ3AgSZIidJOf1po8+NTnHGLVK53sw6260h7suhDBx6Zfp
+         qfi/tgtjG3IXy94Adq+hHVA5RsHyvV7X8VpHvJMxxFtXbUqKGA4OnJbjpgbUjItk1TmY
+         51hMYY83DwK44PCcsrYQ+ncNrhZYRmMd11jlEiNECWk//4lyRysikByts0e0UJiA5PXk
+         BCPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742822582; x=1743427382;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QpLay2NRUxXBZBIq5TN4wg5iG7+LcfQc4wrhgea9GRc=;
+        b=oj7OAoqU1QL+Qtx98slwf4yPix8YOEqtpqbVVkVkDhH72y6oefCr0tTkbzgs7Dxhwm
+         E/NmdY+UW9sbEa7ig2mNwEZ8ybtLt+ygau5HsHnRTdfH9JB/yX6Ekexlq8idXHZ1/wOs
+         +qttGUCX9CXvOyGVoh3JtyrxAlgy2tsHYL2V9oDDSlAwzoX2wdcTJd3DwX/Zd/UEJ3N6
+         TjOyptAM+SH8VIHVVXrGavkOHIohiGbu7/imhMQL/eOF3Dh/b4w7HTbRc+SKhEZb44Qp
+         fyAQLU+V0bNqP5zQPn1/TkKyGCv3rOvtCe0s5E9KuGpujiKQavNcVvsykjtLqYxqpAxq
+         /G2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWhsRBUJaqaZlPYgAc2PbBm1THbCqzosUbM0k5yV7i410hKS7fTnXAHMK35X2uLztVP0rOP8Ke0b15HkgHbyGTR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmF3ulctYH36uPrYngfAkcW1IO+yyTcst2oYRbwjJ5JjAUlnb9
+	dooVtkVCxiUUlnVKBR6gQFI2sUVCTECeWK6FUsTlpQM3uucolBG0b+F/MPkUbwxwHUrhYxKfdNy
+	O1Nk=
+X-Gm-Gg: ASbGncusV04pWQZe1jhna4DRJt4xWowl47Wcsu3Bj9czyBcSsADUoqXjlmPaxKnms1q
+	lOoUXKN7Hl6MGGjshkLdXD/mUSBP95cdPf6jWzV6ulzDtgL7MIZQg7knBCXJXEzp1L4uz7NTIIJ
+	IxFUGRnSrS9zhGVaBGLfNwmTW48+swIOKnr5CW+Eg+Ug3lBPXxTO3EVCxq0FbIejQYYxadPCR6m
+	R5AcMHKMYJpKU5tDG+eGBY9NpMBmw0RZnsC0wGk+++xQA5BgjufqAXcNxaEbukfQS8nLdh/Pfso
+	yii54ysCWxPcV3cS87MgjTssSk19Gb7imdG+fKEkroFr2UuPj8q5e8g1mGGC0oxtbA==
+X-Google-Smtp-Source: AGHT+IEf/zzI0Tp9Ahcexm+a6tN9Lg0kiY6AKaxAwg/q8l9R6KHv3dKYwSmrj+c+Gwc5IajDQJz/DA==
+X-Received: by 2002:a05:6000:186b:b0:391:4684:dbdb with SMTP id ffacd0b85a97d-3997f9039ecmr10697036f8f.17.1742822582202;
+        Mon, 24 Mar 2025 06:23:02 -0700 (PDT)
+Received: from [192.168.0.251] ([79.115.63.206])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b4ce9sm11091922f8f.53.2025.03.24.06.23.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Mar 2025 06:23:01 -0700 (PDT)
+Message-ID: <9b372589-1c52-4f3d-9f5b-8f729489b545@linaro.org>
+Date: Mon, 24 Mar 2025 13:23:00 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] firmware: exynos-acpm: allow use during system
+ shutdown
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250321-acpm-atomic-v1-0-fb887bde7e61@linaro.org>
+ <20250321-acpm-atomic-v1-2-fb887bde7e61@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250321-acpm-atomic-v1-2-fb887bde7e61@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_060550_735749_76CAA99D 
-X-CRM114-Status: GOOD (  25.50  )
+X-CRM114-CacheID: sfid-20250324_062304_057197_D4C16589 
+X-CRM114-Status: GOOD (  25.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +105,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Mar 2025, Richard Zhu wrote:
 
-> The current link setup procedure is more like one workaround to detect
-> the device behind PCIe switches on some i.MX6 platforms.
+
+On 3/21/25 4:40 PM, André Draszik wrote:
+> We need to access the PMIC during late system shutdown and at that time
+> we are not allowed to sleep anymore.
 > 
-> To describe more accurately, change the flag name from
-> IMX_PCIE_FLAG_IMX_SPEED_CHANGE to IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND.
+> To make this case work, detect this condition and use busy waiting via
+> udelay() instead of usleep_range() in that situation.
 > 
-> Then, start PCIe link directly when this flag is not set on i.MX7 or
-> later paltforms to simple and speed up link training.
+> The code isn't switched over to udelay() unconditionally so as to not
+> waste resources during normal operation. acpm_may_sleep() was heavily
+> inspired by the I2C subsystem's i2c_in_atomic_xfer_mode().
 > 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> 
 > ---
->  drivers/pci/controller/dwc/pci-imx6.c | 34 +++++++++++----------------
->  1 file changed, 14 insertions(+), 20 deletions(-)
+> udelay(10) causes a checkpatch warning (it suggests to use
+> usleep_range() instead for usec >= 10), but that's exactly what we can
+> not do.
+> Reducing the udelay to be smaller will generally cause the loop to be
+> iterated more than once, which I wanted to avoid.
+> I could reflow the code to hide the actual value from checkpatch, e.g.
+> with the help of a local variable if that is preferred to ignoring the
+> checkpatch warning.
+> ---
+>  drivers/firmware/samsung/exynos-acpm.c | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index c1f7904e3600..aa5c3f235995 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -91,7 +91,7 @@ enum imx_pcie_variants {
->  };
+> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+> index d7ed6b77a957af5db5beba7deecce13ac7b30fd2..33cde6e88e2c0773fdd36c80927c77d3bcb44135 100644
+> --- a/drivers/firmware/samsung/exynos-acpm.c
+> +++ b/drivers/firmware/samsung/exynos-acpm.c
+> @@ -15,6 +15,8 @@
+>  #include <linux/firmware/samsung/exynos-acpm-protocol.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/irqflags.h>
+> +#include <linux/kernel.h>
+>  #include <linux/mailbox/exynos-message.h>
+>  #include <linux/mailbox_client.h>
+>  #include <linux/module.h>
+> @@ -24,6 +26,7 @@
+>  #include <linux/of_address.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/preempt.h>
+>  #include <linux/slab.h>
+>  #include <linux/types.h>
 >  
->  #define IMX_PCIE_FLAG_IMX_PHY			BIT(0)
-> -#define IMX_PCIE_FLAG_IMX_SPEED_CHANGE		BIT(1)
-> +#define IMX_PCIE_FLAG_SPEED_CHANGE_WORDAROUND	BIT(1)
-
-WORDaround ?? :-)
-
--- 
- i.
-
->  #define IMX_PCIE_FLAG_SUPPORTS_SUSPEND		BIT(2)
->  #define IMX_PCIE_FLAG_HAS_PHYDRV		BIT(3)
->  #define IMX_PCIE_FLAG_HAS_APP_RESET		BIT(4)
-> @@ -860,6 +860,12 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
->  	u32 tmp;
->  	int ret;
+> @@ -272,6 +275,17 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
+>  	return 0;
+>  }
 >  
-> +	if (!(imx_pcie->drvdata->flags &
-> +	    IMX_PCIE_FLAG_SPEED_CHANGE_WORDAROUND)) {
-> +		imx_pcie_ltssm_enable(dev);
-> +		return 0;
-> +	}
+> +/*
+> + * When ACPM transfers happen very late, e.g. to access a PMIC when powering
+> + * down, we can not sleep. We do want to sleep in the normal case, though, to
+> + * avoid wasting CPU cycles!
+> + */
+> +static bool acpm_may_sleep(void)
+> +{
+> +	return system_state <= SYSTEM_RUNNING ||
+> +		(IS_ENABLED(CONFIG_PREEMPT_COUNT) ? preemptible() : !irqs_disabled());
+> +}
 > +
->  	/*
->  	 * Force Gen1 operation when starting the link.  In case the link is
->  	 * started in Gen2 mode, there is a possibility the devices on the
-> @@ -896,22 +902,10 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
->  		dw_pcie_writel_dbi(pci, PCIE_LINK_WIDTH_SPEED_CONTROL, tmp);
->  		dw_pcie_dbi_ro_wr_dis(pci);
+>  /**
+>   * acpm_dequeue_by_polling() - RX dequeue by polling.
+>   * @achan:	ACPM channel info.
+> @@ -299,7 +313,10 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
+>  			return 0;
 >  
-> -		if (imx_pcie->drvdata->flags &
-> -		    IMX_PCIE_FLAG_IMX_SPEED_CHANGE) {
-> -
-> -			/*
-> -			 * On i.MX7, DIRECT_SPEED_CHANGE behaves differently
-> -			 * from i.MX6 family when no link speed transition
-> -			 * occurs and we go Gen1 -> yep, Gen1. The difference
-> -			 * is that, in such case, it will not be cleared by HW
-> -			 * which will cause the following code to report false
-> -			 * failure.
-> -			 */
-> -			ret = imx_pcie_wait_for_speed_change(imx_pcie);
-> -			if (ret) {
-> -				dev_err(dev, "Failed to bring link up!\n");
-> -				goto err_reset_phy;
-> -			}
-> +		ret = imx_pcie_wait_for_speed_change(imx_pcie);
-> +		if (ret) {
-> +			dev_err(dev, "Failed to bring link up!\n");
-> +			goto err_reset_phy;
->  		}
+>  		/* Determined experimentally. */
+> -		usleep_range(20, 30);
+> +		if (!acpm_may_sleep())
+> +			udelay(10);
+> +		else
+> +			usleep_range(20, 30);
+>  	} while (!ktime_after(ktime_get(), timeout));
 >  
->  		/* Make sure link training is finished as well! */
-> @@ -1665,7 +1659,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6Q] = {
->  		.variant = IMX6Q,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_SPEED_CHANGE_WORDAROUND |
->  			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.dbi_length = 0x200,
-> @@ -1681,7 +1675,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6SX] = {
->  		.variant = IMX6SX,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_SPEED_CHANGE_WORDAROUND |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.gpr = "fsl,imx6q-iomuxc-gpr",
->  		.ltssm_off = IOMUXC_GPR12,
-> @@ -1696,7 +1690,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6QP] = {
->  		.variant = IMX6QP,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_SPEED_CHANGE_WORDAROUND |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.dbi_length = 0x200,
->  		.gpr = "fsl,imx6q-iomuxc-gpr",
+>  	dev_err(dev, "Timeout! ch:%u s:%u bitmap:%lx.\n",
 > 
+
 
