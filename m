@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7CA9C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77317C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 08:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wYOaUvH2+wGNYkwE9FMO2ObsGp/j2F2VQglfrqeSwY=; b=HDqtWVKLT5e6HsX8lbJb6CsGlJ
-	N6xtUJy8dIWg48WJjBuz0B2nDaQlX63h0a86nOkN8vDW2ngG4Gu9K0IcgExbjYWg7DjowSSyMHLI0
-	ncf/oP4usO/6oLTRCUqZxtdP+x3N/08OvhwxZcu2xLancwMQ+Y67x9ZAQOzdt6+98HuyRmveU8Ur9
-	1GadOa3koctzRA14eziB8EJlrJtceji9eZWRTNlqGlg2HVMfGc1fajot+InfWTH7xpBEJEciGWh8u
-	wFO+tGTjckA/wO9Fb98Zol9Xk7RGvuTFE0zO7gk3oR0OxBvadrSBvNSDgq3r6Iwo4ma8epQQbMFdC
-	/g8KkTlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zToe+dVUkyBWCOW/2Gs9G2Y8C5Jb1Tymi1z8ai2d384=; b=ULfVgI6l6DIOaU+DgzYiLEsS1u
+	SR1LLMI/ul8MkaHGLv9NzgcDLL06K6fPffiMwABoHiw65xBEaMyjhiA/MFf+wokSs4RfdG//ejBg5
+	1i+xH9z5f4WohKZsWxR7tr5OMZPL5N32XH6aNUs9n+3r40TGbuI9+gJ/riO08sknKWwICXZajz6E+
+	tdFIm44njuFoqIkQ/M0+hTXVMCbvowVG5lkthSDfypqjx4MQ2+drgHecuGHWd4rKMeaiauvscaD9L
+	h/FhCFTYYJoqGKjCnzbY89BCh0dAobqlsndTdAwX9rmnSW13LgDP6g3/Pic+bL9oxQWPHCXDC0Onu
+	dRn95D3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twceh-00000002Va5-0Tya;
-	Mon, 24 Mar 2025 07:55:31 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1twcnr-00000002X0V-0l8D;
+	Mon, 24 Mar 2025 08:04:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twccw-00000002VKY-1HXH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:53:43 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54963160818so4867527e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:53:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742802820; x=1743407620; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1wYOaUvH2+wGNYkwE9FMO2ObsGp/j2F2VQglfrqeSwY=;
-        b=sVAgHFZwJT+fm2fFVXMh/5u+nLww4476nRF62ClolFhTM73TT+g4TDhgPoBd0oSbgU
-         K2Gh4GxFO7Jyez/zvqu2qjYxvqndauNUkfQE+zD4uMdyFx25ODlYCGA46QPLEpIwEuJj
-         k9Wd4SaGSj8eE+mlRI3dshScFEVkNDU21Kx+ddXUcyoqtTaRt5os9+GAMQxrlC7WnG5f
-         OAPgjoIt08Z72KR4LzT5dGVcxerYQSN2a9sP5VGzMQ4PVb7R04aBUAkEs1PSOByy3FEY
-         l3ng7+zCTxzWb6lp5JMmTfW65kpGXEjteQ5ufs/YVblabvljmmdBakkXPhykgABnwIBu
-         kemA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742802820; x=1743407620;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1wYOaUvH2+wGNYkwE9FMO2ObsGp/j2F2VQglfrqeSwY=;
-        b=Ej+956Jlj95K8WQV7jC9CV0k/u0fYzMosJ1upDqwDGrU67q+hqL6xpKmEY4umiLhdb
-         K1fCZCZ9+j7wa7vgofd5qThlf+fqQZAdY/vfzXqUsPy+2pLhtcQAPoeXHEtoIGkEewIj
-         xSJGP6ryKtqVvruyCeb1BZIfkxcszLwfHFKLiFi7KkF88JCrcRcy6JyK8yJqVPzErhdI
-         JbBBURWo8p7RUdI16RRfiMLsArAovK/XvdGziAnwk0jsfViUEJvIAco91sSJ9AktFqQ4
-         aMhdTZPtYHro4ladha0yRMUR+lUjBOdcseO3c8+yWIGMYw6OXAHziYuLiOFHUIutpFVI
-         zeOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVcHkWIz410kmzyKVW86l9U4dZyt3b4FgkIJBHMh9BMr4eyVTF0uR2in5TnOAYup4jOThEuoEHTASVZIl1qFIUV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc9Vsw3Xc1oU4ChvI+gJm30txCwcyq+NcL5HPj/8la5yjkX+lX
-	Xy2VX56j0OS92tWLGDbX3dacG59A6rf5DfqD2N/isQgojlElbJS3LAfA4zRW8Z1Rmo6+A34tu8P
-	o3rA+DFXW/bZiEcP2VLxWOJOHZS41qB7X8A+6gA==
-X-Gm-Gg: ASbGncvg78O9QwytVH9ANIYRonOxX9hE/xu2cn/wxV08Tb1MfmtGk9VN+tdI2M3AAfd
-	IEHGrN9I/umVpZGtUTkwd/qDOeK+G5yZvMGET6ZziP1LpRarOV1IwqIYoA2qh8Lx8+J6mVLPU/A
-	xUoOUV4c3qqKxozLb/flPnNB9jwIeGLjBQ0Q==
-X-Google-Smtp-Source: AGHT+IGCsf6gs4boVKvi872tdBJFNBLIE72SzFHUnHiJ2uqF225HOjiewrQhZXAtHdFlZf9qfC6RwySnYBdeijJWt7I=
-X-Received: by 2002:a05:6512:ea5:b0:545:3037:a73a with SMTP id
- 2adb3069b0e04-54ad64850e7mr3708934e87.13.1742802819820; Mon, 24 Mar 2025
- 00:53:39 -0700 (PDT)
+	id 1twcm7-00000002WoO-1Ymt;
+	Mon, 24 Mar 2025 08:03:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 731D3A4A212;
+	Mon, 24 Mar 2025 07:57:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 373B9C4CEDD;
+	Mon, 24 Mar 2025 08:03:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742803390;
+	bh=V6gXN+lnnN9Zem1lt+OB0BhDkOVQosdaVMCSxBi43NE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qAgI3rwZ9umV8rO/biDGWse0Ey26PHU4tmpjYoo6Hj/VdUEZb7Vsq64Wcia91FUb7
+	 NqQZpqxs6gBD0GGj6pkrbPqCrnpoHmXkmAIHOtCSdZUd28j1NHWvBSkAJbC0RsNbiR
+	 wGLENGNrVmSjOUzOujZL/8qZcD6E4ROlnkcGrtMwsFGv1pJuNH2bvqMeqQEXYOyBGD
+	 v+YQq6YdddTwg7hRMP3uolKmuVDC/QQi48K3Sg6O4qYfiTRU+xwgHVds8PDpoOeAxw
+	 jDFro4Lp8eJNrITUkeAVr/vavtsclDRp51rL7a4um1oW8ljovwgpV5sYOZDZ2reuyQ
+	 GFCVQow/PD3ZA==
+Date: Mon, 24 Mar 2025 09:03:06 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Cathy Xu <ot_cathy.xu@mediatek.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, Lei Xue <lei.xue@mediatek.com>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, yong.mao@mediatek.com, 
+	Axe.Yang@mediatek.com, Jimin.Wang@mediatek.com, Wenbin.Mei@mediatek.com, 
+	Guodong Liu <guodong.liu@mediatek.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: pinctrl: mediatek: Add support for
+ mt8196
+Message-ID: <20250324-sly-smart-impala-9fb09e@krzk-bin>
+References: <20250321084142.18563-1-ot_cathy.xu@mediatek.com>
+ <20250321084142.18563-2-ot_cathy.xu@mediatek.com>
 MIME-Version: 1.0
-References: <20250322035307.4811-1-ot_chhao.chang@mediatek.com> <20250322035307.4811-2-ot_chhao.chang@mediatek.com>
-In-Reply-To: <20250322035307.4811-2-ot_chhao.chang@mediatek.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 24 Mar 2025 08:53:28 +0100
-X-Gm-Features: AQ5f1JrIT3jjMlJn7-UFm0QREZvmNoSOiORkmH7amKsqv7WDxLgWsH1QR8-hb0M
-Message-ID: <CACRpkdZT1GYsZjeRHQqWJmuw5jg-kz7x+53_u8_Y3goyu=uRGw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/1] pinctrl: mediatek: Add EINT support for multiple addresses
-To: Hao Chang <ot_chhao.chang@mediatek.com>
-Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>, 
-	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen <hanks.chen@mediatek.com>, 
-	Chunhui Li <chunhui.li@mediatek.com>, linux-mediatek@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250321084142.18563-2-ot_cathy.xu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_005342_335290_5F8B396E 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250324_010311_542619_D8995802 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,19 +78,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 22, 2025 at 4:53=E2=80=AFAM Hao Chang <ot_chhao.chang@mediatek.=
-com> wrote:
+On Fri, Mar 21, 2025 at 04:39:12PM +0800, Cathy Xu wrote:
+> +  reg:
+> +    items:
+> +      - description: gpio registers base address
+> +      - description: rt group io configuration registers base address
 
-> For flexible routing, eint will be divided into 5 bases,
-> and it will obtain the operation address through the pins array.
->
-> Signed-off-by: Hao Chang <ot_chhao.chang@mediatek.com>
-> Signed-off-by: Qingliang Li <qingliang.li@mediatek.com>
+s/io configuration registers base address/IO/
+?
 
-Patch applied as the last pinctrl patch for v6.15!
+Why repeating so much of redundant information?
 
-Thanks for respinning this, I think it will make things easier.
+> +      - description: rm1 group io configuration registers base address
+> +      - description: rm2 group io configuration registers base address
+> +      - description: rb group io configuration registers base address
+> +      - description: bm1 group io configuration registers base address
+> +      - description: bm2 group io configuration registers base address
+> +      - description: bm3 group io configuration registers base address
+> +      - description: lt group io configuration registers base address
+> +      - description: lm1 group io configuration registers base address
+> +      - description: lm2 group io configuration registers base address
+> +      - description: lb1 group io configuration registers base address
+> +      - description: lb2 group io configuration registers base address
+> +      - description: tm1 group io configuration registers base address
+> +      - description: tm2 group io configuration registers base address
+> +      - description: tm3 group io configuration registers base address
+> +
+> +  reg-names:
+> +    items:
+> +      - const: iocfg0
+> +      - const: iocfg_rt
+> +      - const: iocfg_rm1
+> +      - const: iocfg_rm2
+> +      - const: iocfg_rb
+> +      - const: iocfg_bm1
+> +      - const: iocfg_bm2
+> +      - const: iocfg_bm3
+> +      - const: iocfg_lt
+> +      - const: iocfg_lm1
+> +      - const: iocfg_lm2
+> +      - const: iocfg_lb1
+> +      - const: iocfg_lb2
+> +      - const: iocfg_tm1
+> +      - const: iocfg_tm2
+> +      - const: iocfg_tm3
 
-Yours,
-Linus Walleij
+Same here, drop iocfg_ prefix everywhere. The first entry becames then
+"base" or whatever else meaningful ("0" is not meaningful).
+
+
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 2
+> +
+> +  interrupts:
+> +    description: The interrupt outputs to sysirq.
+> +    maxItems: 1
+> +
+> +# PIN CONFIGURATION NODES
+> +patternProperties:
+> +  '-pins$':
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      '^pins':
+> +        type: object
+> +        $ref: /schemas/pinctrl/pincfg-node.yaml
+> +        additionalProperties: false
+> +        description:
+> +          A pinctrl node should contain at least one subnode representing the
+> +          pinctrl groups available on the machine. Each subnode will list the
+> +          pins it needs, and how they should be configured, with regard to muxer
+> +          configuration, pullups, drive strength, input enable/disable and input
+> +          schmitt.
+> +
+> +        properties:
+> +          pinmux:
+> +            description:
+> +              Integer array, represents gpio pin number and mux setting.
+> +              Supported pin number and mux varies for different SoCs, and are
+> +              defined as macros in arch/arm64/boot/dts/mediatek/mt8196-pinfunc.h
+> +              directly, for this SoC.
+> +
+> +          drive-strength:
+> +            enum: [2, 4, 6, 8, 10, 12, 14, 16]
+> +
+> +          bias-pull-down:
+> +            oneOf:
+> +              - type: boolean
+> +              - enum: [100, 101, 102, 103]
+> +                description: mt8196 pull down PUPD/R0/R1 type define value.
+> +              - enum: [75000, 5000]
+> +                description: mt8196 pull down RSEL type si unit value(ohm).
+> +            description: |
+> +              For pull down type is normal, it doesn't need add R1R0 define
+> +              and resistance value.
+> +              For pull down type is PUPD/R0/R1 type, it can add R1R0 define to
+> +              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
+> +              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
+> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
+> +              For pull down type is PD/RSEL, it can add resistance value(ohm)
+> +              to set different resistance by identifying property
+> +              "mediatek,rsel-resistance-in-si-unit". It can support resistance
+> +              value(ohm) "75000" & "5000" in mt8196.
+> +
+> +          bias-pull-up:
+> +            oneOf:
+> +              - type: boolean
+> +              - enum: [100, 101, 102, 103]
+> +                description: mt8196 pull up PUPD/R0/R1 type define value.
+> +              - enum: [1000, 1500, 2000, 3000, 4000, 5000, 75000]
+> +                description: mt8196 pull up RSEL type si unit value(ohm).
+> +            description: |
+> +              For pull up type is normal, it don't need add R1R0 define
+> +              and resistance value.
+> +              For pull up type is PUPD/R0/R1 type, it can add R1R0 define to
+> +              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
+> +              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
+> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
+> +              For pull up type is PU/RSEL, it can add resistance value(ohm)
+> +              to set different resistance by identifying property
+> +              "mediatek,rsel-resistance-in-si-unit". It can support resistance
+> +              value(ohm) "1000" & "1500" & "2000" & "3000" & "4000" & "5000" &
+> +              "75000" in mt8196.
+> +
+> +          bias-disable: true
+> +
+> +          output-high: true
+> +
+> +          output-low: true
+> +
+> +          input-enable: true
+> +
+> +          input-disable: true
+> +
+> +          input-schmitt-enable: true
+> +
+> +          input-schmitt-disable: true
+> +
+> +        required:
+> +          - pinmux
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - interrupt-controller
+> +  - '#interrupt-cells'
+> +  - gpio-controller
+> +  - '#gpio-cells'
+> +  - gpio-ranges
+
+Same order as in properties list. The order here looks correct, so the
+properties needs to be fixed.
+
+
+Best regards,
+Krzysztof
+
 
