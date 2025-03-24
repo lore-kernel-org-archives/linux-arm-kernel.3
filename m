@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63620C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 18:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBEBC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 18:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NlDL/hv6YqzvYilR5+0osMhw7ZHcXbgXJsoE+sm0vik=; b=WcvVKujbmElNWiSbTbJ4IVLyMZ
-	fo/xKutfAct/YN7YMwqcMjc19PbIvTcy6H+6lVRBEMF1MdjyPWiuXhA/9Q8LzXUCrLK97JYyG4RlO
-	nOS1WQgVQdPsJApstefy3udUVQRkPl/eLEDDfcNm30zZ9b8lQCNrI4fg3kaLnyvEjD0hUtK16YiEn
-	RoeuFts9cGPcOLzZ5mdmcIMfESXcZYFKBf7oX/1MaU7ZGZVmdRh1uvX+oYMN1Jj1Zw/bEAdQKvGJ7
-	Jg+iGYHoryLclXfwFinFkx0Zl9hVZu9dLaydeEKWvfLi1gq4tvSBSZCMILolMYadIcDrwFH3RmWOQ
-	4gcn7oIQ==;
+	bh=vYGcI8imqj+MGUqjN29fBqg3Vw5woBztKuaSrXR3vbI=; b=rBEDjCEKr7+efl6unqMIWULZfd
+	aHJKQUvTUSnCcQ2C84hPL7etBE23RnclyBGuuMWr/tl+dlEdDZ8MLogq+wj+0WTO7VUDC1mAvwxkk
+	F8oBoKIpr5xdtL+9CHTLC6uEafXza0Ej7QJgwTgp1ogekUwSB180F5Jpikstcbqf626BPVoyszMb/
+	qvB72QJwrT/4AVxC8QS5+qnsuo95nEJihlcrAUERa6/Z8TPLEzEaCcO7yMymD79QAdJy8dtfaZ4BW
+	pCvNkjAixGRjrpfjgsMfsdZInQlhjmVwOxBWa2PI6gTxDoJfeTdqziEt0pDLgLRj/deJQv6R7cMh5
+	tDUYdkzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twmPU-00000003vxJ-2lSL;
-	Mon, 24 Mar 2025 18:20:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1twmSY-00000003wJF-2lrB;
+	Mon, 24 Mar 2025 18:23:38 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twmNl-00000003vla-1CS9;
-	Mon, 24 Mar 2025 18:18:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C6113A4A41E;
-	Mon, 24 Mar 2025 18:13:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1986DC4CEDD;
-	Mon, 24 Mar 2025 18:18:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742840319;
-	bh=CvPtVrvhXjNToxQtztbHoatPZJDWgp/53NY9ElBqIcg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m9Ur08k8fMZRkAAhCI2CxUvgZeupcT7GIrwX+p9fSpvfV3Ajb3FbMQVykY2lKtAQe
-	 rcSRUeEGnf3/NMWyPQ0qugpcciD3AvqI+F+GniZhsF5a2Ryvk/XXb2nshNIIN+x5cR
-	 JYlU5fpj2U7s/S3WdPrOsq+Y0apgFmjxkWh8sXtE1wxekMHk5W9Gzb05gDZS+Vgjfn
-	 oho/ytmj/aLCNS2l7wFW8/VHiNHcb8DPqS3CMWOxTVqp1CjPVVhuNpZCOYebRtk4tZ
-	 ZLlxV+n2Jb/jAlskHje+GtPWM7FPyNyourFaqabkHce71qm183YbuQjYPsdqdZX51N
-	 JlOQHRHBYPBPw==
-Date: Mon, 24 Mar 2025 14:18:34 -0400
-From: Mike Rapoport <rppt@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
-	robh@kernel.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
-	tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <Z-Gh-t9xB21UNGU2@kernel.org>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <20250321134629.GA252045@nvidia.com>
- <Z98Lmo50h5RboFXq@kernel.org>
- <Z+BZOKSpyPA1Pyu+@nvidia.com>
+	id 1twmQq-00000003wAE-1apZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 18:21:53 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2239c066347so106991185ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 11:21:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742840511; x=1743445311; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=vYGcI8imqj+MGUqjN29fBqg3Vw5woBztKuaSrXR3vbI=;
+        b=HgFVgM4XT2wASovsm+4DQNSAmZWZ9QVhG4Yiti87oGDYIQDm6z0KdjexlNbh5IMGYJ
+         ZXVJ0rKswtfxDCtX0++efd9aZ1ecXZtX0vWVue9H0t2C31lNntcQAWfld56qimt48dIX
+         qJLxAy20/UNypOqrFFrGmJBTg291EWXEDuITzX1GTp5BPl7jt7NFTGAe8GPZJugmr/19
+         rqjL6YwghV8GeEqUVBS61csZ0ji8nUtqbbU4gexN2FVn2mn15FXL6HirE7BWQuaXBcLb
+         GxNz7Zwb4PXWL54FlHKopw5QMU8dY5MLg4e5o1TcnLwuhpnyNZ+yBH36h42XzejlfXxm
+         MwPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742840511; x=1743445311;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vYGcI8imqj+MGUqjN29fBqg3Vw5woBztKuaSrXR3vbI=;
+        b=bHsG9RxoRLrQmbtyRB/i2oMbbhWB7l4T3PF8gnIhwURls4MMDzOXOKulrZ5s1Gm0kH
+         9ARimbzwA/M3ZcZ8OMCI1NKIRMCzYSQnuu+B10Uj6E5ejXnA1CYGRlfzzLidIbE/v0pB
+         1zSZ0e19r4fXKy+8EGfKAzN3xZbKwDSpJAvbmo+zg5ockjcemnwG6sYtYvVOG6wORQZn
+         goSbObFdj4zYl0BBjz5UVjA6YrIX424qM7nOlowdQDUKAgc2sJvMKJIWRAB5QzFnl7CZ
+         VSC86w8n9BEHEFqhgXF7zCsrJuWaEqNimNKjomw4434U3ICzglOHUxbyP+xeUMalKyNi
+         bVpA==
+X-Forwarded-Encrypted: i=1; AJvYcCVZr4AhuzU8hT9PRVLgdcDCTMJpiekDDah7WTq7fZ5RArnbx9llpVrwr2BrfyYnxSUEMPIF3UPpGhGRa8Hbns+v@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhxJ0zQKGp1tLEJBYjfmbMmaGih01Y6Z+0JIYgpr5VlLKx1s1H
+	TuvqihEn8UqsTxy5p9+mp6xzHefHVFdtFa28+9ZmiNWKyc91HIyxPMcP/DNbGN20WBzx7EGE+gT
+	N5gxhbnKuInNMOfUrS5942913EuyBMzDjciAq5A==
+X-Gm-Gg: ASbGnctADyw1yin+QgFzHJGo2hwg3ze/ok2dEoVBkD/Ob3j8uoyKaymVo1QGVKP+ypp
+	wK6MrNzVKVL8K/1U4jCBBRDmVRcr+UUcEHMbeGognzxsB0lJ6LXW6jraFALjk/PldaOzD+MNqE/
+	5exB0zUW+Vq+AvYmPXkRXvMFlqiv0wlmNbanVVXdfptC3ePhRJrRZM9s1LY9U=
+X-Google-Smtp-Source: AGHT+IFF3EcxhuVze+FBnKUvTSo2ADv/p17nL+WNhX5Rraz4E5NBfUNu9Acb3U1M/4KPXQVXhN5pXD8y6Aad14poHsA=
+X-Received: by 2002:a05:6a00:2384:b0:730:d5ca:aee with SMTP id
+ d2e1a72fcca58-73905a2529fmr23710196b3a.23.1742840511070; Mon, 24 Mar 2025
+ 11:21:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z+BZOKSpyPA1Pyu+@nvidia.com>
+References: <20250109171956.3535294-1-yeoreum.yun@arm.com> <CAJ9a7ViuVntYL62q=WYPkFR3++cyufPdKUHm0FUAPyGy76pB_A@mail.gmail.com>
+ <GV1PR08MB10521BB7C93822F5124F2D66EFBD22@GV1PR08MB10521.eurprd08.prod.outlook.com>
+ <CAJ9a7Vgz+L+UYf8Yqyu9J5hp3AB3WPSKutA4AvR-OFdu8b-dPA@mail.gmail.com> <Z+FlLDLV9WkGNbj+@e129823.arm.com>
+In-Reply-To: <Z+FlLDLV9WkGNbj+@e129823.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Mon, 24 Mar 2025 18:21:39 +0000
+X-Gm-Features: AQ5f1JpBLeuBe2uwu_6LtTYvGXXov15RoxnfseC3LtykXCAnpx1LgBpQDY-jWNc
+Message-ID: <CAJ9a7VgsBZ6MkgwVjDiOm7rvcy9KVPfPc_PbaRNX7ra8NWGb9Q@mail.gmail.com>
+Subject: Re: [PATCH v3 1/1] coresight: prevent deactivate active config while
+ enabling the config
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Suzuki Poulose <Suzuki.Poulose@arm.com>, 
+	"james.clark@linaro.org" <james.clark@linaro.org>, 
+	"alexander.shishkin@linux.intel.com" <alexander.shishkin@linux.intel.com>, 
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_111841_387214_8D9AE535 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20250324_112152_430322_BD7A44DA 
+X-CRM114-Status: GOOD (  49.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +99,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 23, 2025 at 03:55:52PM -0300, Jason Gunthorpe wrote:
-> On Sat, Mar 22, 2025 at 03:12:26PM -0400, Mike Rapoport wrote:
->  
-> > > > +		page->private = order;
-> > > 
-> > > Can't just set the page order directly? Why use private?
-> > 
-> > Setting the order means recreating the folio the way prep_compound_page()
-> > does. I think it's better to postpone it until the folio is requested. This
-> > way it might run after SMP is enabled. 
-> 
-> I see, that makes sense, but also it could stil use page->order..
+Hi,
 
-But there's no page->order :)
- 
-> > Besides, when we start allocating
-> > folios separately from struct page, initializing it here would be a real
-> > issue.
-> 
-> Yes, but also we wouldn't have page->private to make it work.. Somehow
-> anything we want to carry over would have to become encoded in the
-> memdesc directly.
+On Mon, 24 Mar 2025 at 13:59, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+>
+> Hi Mike,
+>
+> Please ignore my foremer mail.. and please see my comments for your
+> suggestion.
+>
+> > Hi
+> >
+> > On Fri, 14 Mar 2025 at 15:25, Yeo Reum Yun <YeoReum.Yun@arm.com> wrote:
+> > >
+> > > Hi, Mike.
+> > >
+> > > > >  static void cscfg_remove_owned_csdev_features(struct coresight_device *csdev, void *load_owner)
+> > > > > @@ -867,6 +870,28 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
+> > > > >  }
+> > > > >  EXPORT_SYMBOL_GPL(cscfg_csdev_reset_feats);
+> > > > >
+> > > > > +static bool cscfg_config_desc_get(struct cscfg_config_desc *config_desc, bool enable)
+> > > > > +{
+> > > > > +       if (enable)
+> > > > > +               return atomic_inc_not_zero(&config_desc->active_cnt);
+> > > > > +
+> > > >
+> > > > Not sure why we have an "enable" parameter here - it completely
+> > > > changes the meaning of the function - with no comment at the start.
+> > >
+> > > Sorry. But what I intended is to distinguish
+> > >     - activation of config
+> > >     - enable of activated config.
+> > > Because, current coresight doesn't grab the module reference on enable of activate config,
+> > > But It grabs that reference only in activation.
+> > > That's why I used to "enable" parameter to distinguish this
+> > > while I integrate with module_owner count.
+> > >
+> > > > >         list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
+> > > > >                 if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
+> > > > > -                       atomic_dec(&config_desc->active_cnt);
+> > > > >                         atomic_dec(&cscfg_mgr->sys_active_cnt);
+> > > > > -                       cscfg_owner_put(config_desc->load_owner);
+> > > > > +                       cscfg_config_desc_put(config_desc);
+> > > > >                         dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
+> > > > >                         break;
+> > > > >                 }
+> > > > > @@ -1047,7 +1066,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> > > > >                                      unsigned long cfg_hash, int preset)
+> > > > >  {
+> > > > >         struct cscfg_config_csdev *config_csdev_active = NULL, *config_csdev_item;
+> > > > > -       const struct cscfg_config_desc *config_desc;
+> > > > > +       struct cscfg_config_desc *config_desc;
+> > > > >         unsigned long flags;
+> > > > >         int err = 0;
+> > > > >
+> > > > > @@ -1062,8 +1081,8 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> > > > >         raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+> > > > >         list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
+> > > > >                 config_desc = config_csdev_item->config_desc;
+> > > > > -               if ((atomic_read(&config_desc->active_cnt)) &&
+> > > > > -                   ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
+> > > > > +               if (((unsigned long)config_desc->event_ea->var == cfg_hash) &&
+> > > > > +                               cscfg_config_desc_get(config_desc, true)) {
+> > > > >
+> > > > This obfuscates the logic of the comparisons without good reason. With
+> > > > the true parameter, the function does no "get" operation but just
+> > > > replicates the logic being replaced - checking the active_cnt is
+> > > > non-zero.
+> > > >
+> > > > Restore this to the original logic to make it readable again
+> > >
+> > > It's not a replicates of comparsion logic, but if true,
+> >
+> > sorry - missed that point .
+> >
+> > > It get the reference of active_cnt but not get module reference.
+> > > The fundemental fault in the UAF becase of just "atomic_read()"
+> > > so, it should hold reference in here.
+> > >
+> > > So, If you think the cscfg_config_desc_get()'s parameter makes obfuscation,
+> > > I think there're two way to modfiy.
+> > >
+> > >     1. cscfg_config_desc_get()/put() always grab/drop the module count.
+> > >     2. remove cscfg_config_desc_get()/put() but just use atomic_XXX(&active_cnt) only
+> > >         with cscfg_owner_get()/put()
+> > >
+> > > Any thougt?
+> > >
+> > > Thanks!
+> > >
+> > >
+> >
+> > The get and put functions are asymmetrical w.r.t. owner.
+> >
+> > The put will put owner if active count decrements to 0,
+> > The get if not on enable path will put owner unconditionally.
+> >
+> > This means that the caller has to work out the correct input conditions.
+> >
+> > Might be better if:-
+> >
+> > get_desc()
+> > {
+> >     if (! desc->refcnt) {
+> >        if (!get_owner())
+> >            return false;
+> >    }
+> >    desc->refcnt++;
+> >     return true;
+> > }
+>
+> I think This makes another problem when
+> it races with _cscfg_deactivate_config().
+>
+> CPU0                                          CPU1
+> (sysfs enable)                                load module
+>                                               cscfg_load_config_sets()
+>                                               activate config. // sysfs
+>                                               (sys_active_cnt == 1)
+>
+>                                               // sysfs
+>                                               _cscfg_deactivate_config()
+>                                               (sys_active_cnt == 0)
+>                                               (config->active_cnt = 0)
+> ...
+> cscfg_csdev_enable_active_config()
+>   lock(csdev->cscfg_csdev_lock)
+>   // here get module reference??
+>   // even sys_active_cnt == 0 and
+>   // config->active_cnt == 1.
+>   get_desc()
+>   unlock(csdev->cscfg_csdev_lock)
+>
+>
+>   // access to config_desc which freed
+>   // while unloading module.
+>   cfs_csdev_enable_config
+>
+>
+> Because, the desc->refcnt meaning of zero is different from the context.
+>    - while activate . it should get module reference if zero.
+>    - while enable active configuration, if zero, it should be failed.
+>
+> that means to prevent this race, the core key point is:
+>    when config->active_cnt == 0, it should be failed in cscfg_csdev_enable_active_config()
+>
 
-This is a problem to solve in 2026 :)
+This is not a failure case, it simple means that this config should
+not be activated for this device.
+It is possible for a configuration to be active on the system, without
+it being active for a particular coresight device.
 
-The January update for State of Page [1] talks about 
+Having a get/put interface for the config descriptor - which prevents
+the config from being unloaded is fine, the key logic here is that we
+are searching a list of possible enabled configurations for this
+device and taking the necessary action to enable it if we find one -
+and there can only ever be a single configuration enabled for a trace
+session.
 
-	reasonable goal to shrink struct page to (approximately): 
+Therefore when the list of loaded configs for a device is > 1, then
+all but one is allowed to be active - so the search code will validly
+find instances where config->active_cnt == 0.
 
-	struct page {
-	    unsigned long flags;
-	    union {
-	        struct list_head buddy_list;
-	        struct list_head pcp_list;
-	        struct {
-	            unsigned long memdesc;
-	            int _refcount;
-	        };
-	    };
-	    union {
-	        unsigned long private;
-	        struct {
-	            int _folio_mapcount;
-	        };
-	    };
-	};
- 
-[1] https://lore.kernel.org/linux-mm/Z37pxbkHPbLYnDKn@casper.infradead.org/
- 
-> Jason
+My objection to the original interface was not the get/put operations
+to protect the module from unload, but the fact that the logic
+deciding if a config needed to be enabled on the device was hidden
+inside the get() operation.
+My suggestion is to restore the logic that decides if there is a
+config to enable on the device be clear in the enable function itself,
+then use get/put as appropriate to prevent module unload.
+
+Regards
+
+Mike
+
+
+> Because, according to context the handling the zero reference value is
+> different, It seems,to integrate the get_desc() interface to handle
+> above case together without extra arguments (in case of here is
+> "enable").
+>
+> If this interface is really ugly and unhappy to you,
+> I think It should remove get_desc()/put_desc().
+> although we can add new interface for cscfg_config_desc_get() for enable
+> path. but it makes people more confused.
+>
+> So my suggestion is:
+>    - sustain this patch's contents
+>    - or remove get_desc()/put_desc() interface but use
+>      atomic_inc_zero(&config_desc->active_cnt) directly in
+>      cscfg_csdev_enable_active_config()
+>
+> Any thougt?
+>
+> Thanks.
+
+
 
 -- 
-Sincerely yours,
-Mike.
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
