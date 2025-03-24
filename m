@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03BAC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 10:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F68C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 10:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eI7gPyQYRsRBMrw/lvACQBiN3JsT2YD+lfGEOC2JxYU=; b=5FiZBKsaBWiyuOZKmZTogp762+
-	QXlmaDWS7imw37IkzrStlELXfT/pOAyA+6OaLlQ++DU+lRM0OycgngCGy5lZnn2BI+enKoVjVnQc6
-	KMkHwHYkldzz7if0z1AJdssYoeoKgM0EMC86Eh1bi02HzTXslb91/HUB74EG/7qEjMjACVmeZJQ11
-	sXdbHAzY2oc/Z23m8Wbsvp95W9Ulp6mcS4CZ1nKTsdkOwM9Db1OKgT9uBEpZBtyfbTFTnq2IDCgB7
-	W7lKXcSvhTPEWWY9Bw/KQpkzrEbgesgISGYhIUB/DlD4vVvOOnFWt4XmdQMp6KioWVFtAtZDHd9EK
-	IUsKceNg==;
+	bh=j+x/scrjOmcuG4u3tqntsDdabnal7byUoT1fHHBPuh8=; b=uaaKx9nLGDodAq4F+XPGBOGoJA
+	AkGvxJKyGrmpA/as8j2HtNWrPoMHg/393S18NkKpprbalum49WfSENauvElnBBqXQXFLJG7M18g0O
+	GXUccucYtOBsp6w5+ci0lcf0+/1EKWNdi3JG0nXgVA5g+8DRBRp0jaRkhwtqGB5xYy7b0js/aZ2yW
+	uMnmUGI5nNZ3Vius37qYgb0S/ZTt4EOBTugUdcc6GUhj0G3xlQhX7+0JcKR12n+gjicWErpwlzHSi
+	JzBneUq7CDmtexUpj+2550vuh1W6Ujt+PBwGVWPEP7jO4i5LdSCLuu4NEAAIh5XlFepdzmVovifNU
+	YioohcaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twf9m-00000002qNq-2ozB;
-	Mon, 24 Mar 2025 10:35:46 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twf81-00000002qCp-2sMS;
-	Mon, 24 Mar 2025 10:33:59 +0000
+	id 1twfBU-00000002qbS-2nZV;
+	Mon, 24 Mar 2025 10:37:32 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1twf84-00000002qCX-32Om;
+	Mon, 24 Mar 2025 10:34:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=j+x/s
+	crjOmcuG4u3tqntsDdabnal7byUoT1fHHBPuh8=; b=elvWNwM461rRXqkfAgtBB
+	ppjW2/HxLzWcp1fUSO8y1uExIIoAlL4lk8VdwPK5yhsazfU3ON/fYB7n2yyMAV2p
+	7P356nkCF9njBeTSfxPGu9rU005zTiTxyZGAgdx/yYFenRlTExApGinSpyASf9we
+	+QX4TlUhcwAP398vVeYM9E=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgA3TEH9NOFnDTbjAg--.63654S3;
+	Mon, 24 Mar 2025 18:33:38 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	hjc@rock-chips.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH 2/2] ARM: dts: rockchip: Add ref clk for hdmi
+Date: Mon, 24 Mar 2025 18:33:28 +0800
+Message-ID: <20250324103332.159682-2-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250324103332.159682-1-andyshrk@163.com>
+References: <20250324103332.159682-1-andyshrk@163.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1742812433;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eI7gPyQYRsRBMrw/lvACQBiN3JsT2YD+lfGEOC2JxYU=;
-	b=tzBmpe6y4C9C1mC187Q2hITuYbsywdQEk9ISEptzHhtaaMWMEXT9wyejk/K91P70RuDFt0
-	yh7LOLNj0Jig/SUKDRxlqgdmqpmo0oMmeKIK+xwWSbNxWJvDZzxuDLw3c6wLJ/E1WGOGGb
-	pD3aBw//mpNMo6fV55zHDAWQde+ldynndHLyeALFMMmKhlOk4AcDxIJegLTXfDXjcvBPbf
-	8y2M8OTgqv4oGnaNXRnoe31cVUh3p/UVivt/saEZKVSXm6SlwMWeDd/yvLXwB55zljrROj
-	ibghbX+nD1lzry+Y3YGz+tUT2YxukwHAEsvzw5tGERCd5xpDHei8z2x4TjtOBg==
-Date: Mon, 24 Mar 2025 11:33:53 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, stable@vger.kernel.org, Alexey Charkov
- <alchark@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Remove overdrive-mode OPPs from
- RK3588J SoC dtsi
-In-Reply-To: <170e4d8d-33ca-4c53-9ae7-ca9d674540a9@cherry.de>
-References: <f929da061de35925ea591c969f985430e23c4a7e.1742526811.git.dsimic@manjaro.org>
- <71b7c81b-6a4e-442b-a661-04d63639962a@cherry.de>
- <960c038ad9f7b83fe14d0ded388b42f7@manjaro.org>
- <2ece5cca-50ea-4ec9-927e-e757c9c10c18@cherry.de>
- <4d25c9af4380598b35a0d55e7c77ac3d@manjaro.org>
- <170e4d8d-33ca-4c53-9ae7-ca9d674540a9@cherry.de>
-Message-ID: <17b55e889838f2c989bd0efc6528801b@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
 Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-CM-TRANSID: PigvCgA3TEH9NOFnDTbjAg--.63654S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrKF1xJw4kAFWfZry3tw4xWFg_yoWDGwc_t3
+	WIgw15GF4fGrZIq34Dtw45W39Fvw4fC393XwnYqr4UJF9aqr4UXF4kJayIyFy5GFW2gasx
+	CFWfZF4aya1agjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU0Wq2JUUUUU==
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBkaXmfhNMYG2AAAsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_033358_052047_AB086D01 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250324_033401_084979_842FEE76 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-03-24 11:20, Quentin Schulz wrote:
-> On 3/24/25 10:53 AM, Dragan Simic wrote:
->> On 2025-03-24 10:23, Quentin Schulz wrote:
->>> On 3/23/25 11:19 AM, Dragan Simic wrote:
->>>> On 2025-03-21 10:53, Quentin Schulz wrote:
->>>>> On 3/21/25 4:28 AM, Dragan Simic wrote:
->>>>>> The differences in the vendor-approved CPU and GPU OPPs for the 
->>>>>> standard
->>>>>> Rockchip RK3588 variant [1] and the industrial Rockchip RK3588J 
->>>>>> variant [2]
->>>>>> come from the latter, presumably, supporting an extended 
->>>>>> temperature range
->>>>>> that's usually associated with industrial applications, despite 
->>>>>> the two SoC
->>>>>> variant datasheets specifying the same upper limit for the allowed 
->>>>>> ambient
->>>>>> temperature for both variants.  However, the lower temperature 
->>>>>> limit is
->>>>> 
->>>>> RK3588 is rated for 0-80°C, RK3588J for -40-85°C, c.f. Recommended
->>>>> Operating Conditions, Table 3-2, Ambient Operating Temperature.
->>>> 
->>>> Indeed, which is why I specifically wrote "specifying the same upper
->>>> limit", because having a lower negative temperature limit could 
->>>> hardly
->>>> put the RK3588J in danger of overheating or running hotter. :)
->>> 
->>> """
->>> despite the two SoC variant datasheets specifying the same upper 
->>> limit
->>> for the allowed temperature for both variants
->>> """
->>> 
->>> is incorrect. The whole range is different, yes it's only a 5°C
->>> difference for the upper limit, but they still are different.
->> 
->> I just commented on this separately, with a couple of datasheet
->> screenshots, before I saw your latest response.  Please, have
->> a look at that message.
-> 
-> I see, I had a v1.3 datasheet opened:
-> 
-> https://github.com/FanX-Tek/rk3588-TRM-and-Datasheet/blob/master/Rockchip_RK3588_Datasheet_V1.3-20220328.pdf
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Yup, the v1.6 of the RK3588 datasheet increased the upper ambient
-temperature limit from 80 to 85 oC.
+The RK3036 HDMI DDC bus requires it's PHY's reference clock to be
+enabled first before normal DDC communication can be carried out.
 
-> Interestingly, it seems the RK3588S (still?) has a smaller operating 
-> range:
-> 
-> https://www.armboard.cn/download/Rockchip_RK3588S_Datasheet_V1.6-20240821.pdf
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+---
 
-Oh, that's quite interesting, I had the v1.5 as the newest version.
-The v1.6 of the RK3588S datasheet actually lowered the upper ambient
-temperature limit from 85 down to 80 oC.
+ arch/arm/boot/dts/rockchip/rk3036.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/rockchip/rk3036.dtsi b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+index 6039a0908af1c..22685cd23a708 100644
+--- a/arch/arm/boot/dts/rockchip/rk3036.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+@@ -403,8 +403,8 @@ hdmi: hdmi@20034000 {
+ 		compatible = "rockchip,rk3036-inno-hdmi";
+ 		reg = <0x20034000 0x4000>;
+ 		interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+-		clocks = <&cru  PCLK_HDMI>;
+-		clock-names = "pclk";
++		clocks = <&cru PCLK_HDMI>, <&cru SCLK_LCDC>;
++		clock-names = "pclk", "ref";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&hdmi_ctl>;
+ 		#sound-dai-cells = <0>;
+-- 
+2.43.0
+
 
