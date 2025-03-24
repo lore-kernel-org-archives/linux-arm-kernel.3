@@ -4,100 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB38C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 16:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411A0C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 16:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCacE+xisYPcsgdv3+TM1VMm0lKFuw1VC2E+x/ru66M=; b=WDpGhxpC0fteICEzIfBk7JpN7z
-	qr4eNDyutVfn9gaVyTzYgACLCeKxYFzYZ+2DlEoWgViY7CuUyh2QBcp2tY/0SJqp9zHB9qs+1eNve
-	mY8SQXUZivabFUgJ7L5uUUJb/lyYLwbPuo71vP94B2DO4Ou6AkP4uSmUTSMYfT65/diTe91+OBbIm
-	zaWAHwDfwrtLVMP4RgtAD5IVG2nwGcIQRukCYW3KLPD5H/f16ddmImKb9aY5PUg+x8V6wVIcBO1Rs
-	lC/yOFrO4FpyyfTpSvDDZR4iChCN8LBvAAky+fqMFT8qxBawaDpdzsTxEiHc7HNa8fe0ky2iVjUX0
-	a+nTLsHQ==;
+	bh=60q46KmdQZehKq1+kNfcfffvKPOs4x/Ca6caezCNXyg=; b=fY50v8550XjmpwNfbLfjn21c43
+	UxwgnzgYodzoklyyMYLMQFPrxxtsKzSx6AM2PwQKxIBtMQw+mor77a1Y0Jg1G1MrNCLbcEesxmAqm
+	2HiPf9hVfAiO0OaLtb5KjvR/DNH4GH2kzpHqRSkReUwATLpGuDavsyW67UwLt9u29ikSbZ/ECXswC
+	7XRTfCo821+g+va2/v+0gj4Z9YrriDvvmAXnbvfpCETKOJ0icSguvm4xBdTwKLcmuAF8yKsL2eLjI
+	2xwiK0LpHZ5UgKqfUh8sw1uV2EH8+Wxvg0PG8sHHS3hJ623GnOZm4nGWwtfbn9FvyrekVghi8NOLu
+	PciOqW8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twl5d-00000003iaG-3Ab8;
-	Mon, 24 Mar 2025 16:55:53 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1twl7L-00000003ird-1tk0;
+	Mon, 24 Mar 2025 16:57:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twl3u-00000003iLo-1xGG
+	id 1twl5L-00000003iW3-3BCK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 16:54:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742835246; x=1774371246;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=dE6Zd6Ph+/ryHeQLLazfSBwNRaC6LfUCJ2aoR2M+tDQ=;
-  b=QhOKekUINcKM/BiQtaOrPni0qQ0+aprMmu+2SLx9iOoe2ERL3Mga3Tnj
-   CGaL+Qvwm/FlkpfyQ2fAlQgSZW5WdU/v0vkBHT/prU/IJR3BGfzpVoUp3
-   lcmPgaBtSi1u6lVUHfkitylVO1t9+ms0plU1vfRV69Q7LY24DhZhrtD4J
-   /uCFhw3LofI1MsQrgxXqBKgvp7I4gQ1P8vWfBoPpe5TsxMApHNS/YhEFJ
-   wKZmMNRAWwZy88i/NQ6MRoy6S+MbG+RPeSrK9qZzCledNVqnYi885ekWi
-   A0xDH/wgGVgRvxbtJxUEmxpR66KZr2X9UbF+bRA7DE3LaisQcv1rBC+aM
-   g==;
-X-CSE-ConnectionGUID: 6fuGFQoWRQKo0pHCSsY5cA==
-X-CSE-MsgGUID: +Uwf/hGPTtikY61wNYo5yA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11383"; a="61444871"
-X-IronPort-AV: E=Sophos;i="6.14,272,1736841600"; 
-   d="scan'208";a="61444871"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2025 09:54:04 -0700
-X-CSE-ConnectionGUID: y2R8TjF9T0uyVt27GhllBQ==
-X-CSE-MsgGUID: cDQOi4IQR9e/FuSVLgSLxw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,272,1736841600"; 
-   d="scan'208";a="124891128"
-Received: from agluck-desk3.sc.intel.com (HELO agluck-desk3) ([172.25.222.70])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2025 09:54:05 -0700
-Date: Mon, 24 Mar 2025 09:54:02 -0700
-From: "Luck, Tony" <tony.luck@intel.com>
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Mon, 24 Mar 2025 16:55:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2BD9F5C6152;
+	Mon, 24 Mar 2025 16:53:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3487C4CEE9;
+	Mon, 24 Mar 2025 16:55:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742835334;
+	bh=leI/26fAMdgexlql7vDFs6dgMQzJt9QqAf7u9gfEMO4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JYSAXdYoQskTzAicwQysyjewZ7NgWvm2mB+vWKjVTyvbGNjJC6Mab0i8SvwvUHRe9
+	 MKJcJgxQ5E2WckMD4Sm54HxuHHBk+u+IFwN0Iq83FhptK9Sa3Kxa6dStg4XQibQRzT
+	 rGPzsm1oSPNaeDBF/tjXjbbvpttx6xLEfAtAhkQ58ljQn4nmasDhHb641OnLmKFla0
+	 YB1YcJ+r3nxZGoZH6Dqiu8i1lofuhvZViOqh4B0JEY5pTMwyYxZ6+bEx1166zmm9Uf
+	 P3ejB1+JDH+XGkSpJtIvSJ4lGMXl3ycbwTrjzP1drYVbfctBYrDnIgQyrYLxSA1g0j
+	 rp4SKjETLLi8g==
+Date: Mon, 24 Mar 2025 11:55:33 -0500
+From: Rob Herring <robh@kernel.org>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	James Morse <james.morse@arm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com, wangkefeng.wang@huawei.com,
-	Guohanjun <guohanjun@huawei.com>
-Subject: Re: [PATCH v13 2/5] arm64: add support for ARCH_HAS_COPY_MC
-Message-ID: <Z-GOKgBNxKWQ21w4@agluck-desk3>
-References: <20241209024257.3618492-1-tongtiangen@huawei.com>
- <20241209024257.3618492-3-tongtiangen@huawei.com>
- <Z6zKfvxKnRlyNzkX@arm.com>
- <df40840d-e860-397d-60bd-02f4b2d0b433@huawei.com>
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+Subject: Re: [PATCH 01/34] dt-bindings: mfd: samsung,s2mps11: add s2mpg10
+Message-ID: <20250324165533.GA521455-robh@kernel.org>
+References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
+ <20250323-s2mpg10-v1-1-d08943702707@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <df40840d-e860-397d-60bd-02f4b2d0b433@huawei.com>
+In-Reply-To: <20250323-s2mpg10-v1-1-d08943702707@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_095406_568978_FBEAB327 
-X-CRM114-Status: GOOD (  35.09  )
+X-CRM114-CacheID: sfid-20250324_095535_930983_9DE7C41A 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,76 +88,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 09:44:02AM +0800, Tong Tiangen wrote:
+On Sun, Mar 23, 2025 at 10:39:17PM +0000, André Draszik wrote:
+> The Samsung S2MPG10 PMIC is similar to the existing PMICs supported by
+> this binding.
 > 
+> It is a Power Management IC for mobile applications with buck
+> converters, various LDOs, power meters, RTC, clock outputs, and
+> additional GPIOs interfaces.
 > 
-> åœ¨ 2025/2/13 0:21, Catalin Marinas å†™é“:
-> > (catching up with old threads)
-> > 
-> > On Mon, Dec 09, 2024 at 10:42:54AM +0800, Tong Tiangen wrote:
-> > > For the arm64 kernel, when it processes hardware memory errors for
-> > > synchronize notifications(do_sea()), if the errors is consumed within the
-> > > kernel, the current processing is panic. However, it is not optimal.
-> > > 
-> > > Take copy_from/to_user for example, If ld* triggers a memory error, even in
-> > > kernel mode, only the associated process is affected. Killing the user
-> > > process and isolating the corrupt page is a better choice.
-> > 
-> > I agree that killing the user process and isolating the page is a better
-> > choice but I don't see how the latter happens after this patch. Which
-> > page would be isolated?
-> 
-> The SEA is triggered when the page with hardware error is read. After
-> that, the page is isolated in memory_failure() (mf). The processing of
-> mf is mentioned in the comments of do_sea().
-> 
-> /*
->  * APEI claimed this as a firmware-first notification.
->  * Some processing deferred to task_work before ret_to_user().
->  */
-> 
-> Some processing include mf.
-> 
-> > 
-> > > Add new fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR to identify insn
-> > > that can recover from memory errors triggered by access to kernel memory,
-> > > and this fixup type is used in __arch_copy_to_user(), This make the regular
-> > > copy_to_user() will handle kernel memory errors.
-> > 
-> > Is the assumption that the error on accessing kernel memory is
-> > transient? There's no way to isolate the kernel page and also no point
-> > in isolating the destination page either.
-> 
-> Yes, it's transient, the kernel page in mf can't be isolated, the
-> transient access (ld) of this kernel page is currently expected to kill
-> the user-mode process to avoid error spread.
-> 
-> 
-> The SEA processes synchronization errors. Only hardware errors on the
-> source page can be detected (Through synchronous ld insn) and processed.
-> The destination page cannot be processed.
+> Unlike other Samsung PMICs, communication is not via I2C, but via the
+> Samsung ACPM firmware, it therefore doesn't need a 'reg' property but a
+> handle to the ACPM firmware node instead.
 
-I've considered the copy_to_user() case as only partially fixable. There
-are lots of cases to consider:
+Can it be a child node of the ACPM node instead?
 
-1) Many places where drivers copy to user in ioctl(2) calls. 
-   Killing the application solves the immediate problem, but if
-   the problem with kernel memory is not transient, then you
-   may run into it again.
+> 
+> S2MPG10 can also act as a system power controller allowing
+> implementation of a true cold-reset of the system.
+> 
+> Support for the other components will be added in subsequent future
+> patches.
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+>  .../devicetree/bindings/mfd/samsung,s2mps11.yaml   | 34 ++++++++++++++++++++--
+>  1 file changed, 32 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml b/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
+> index ac5d0c149796b6a4034b5d4245bfa8be0433cfab..ae8adb80b3af7ec3722c2a5718ad8fddf0a5df34 100644
+> --- a/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
+> @@ -20,6 +20,7 @@ description: |
+>  properties:
+>    compatible:
+>      enum:
+> +      - samsung,s2mpg10-pmic
+>        - samsung,s2mps11-pmic
+>        - samsung,s2mps13-pmic
+>        - samsung,s2mps14-pmic
+> @@ -43,6 +44,12 @@ properties:
+>      description:
+>        List of child nodes that specify the regulators.
+>  
+> +  exynos,acpm-ipc:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: |
 
-2) Copy from Linux page cache to user for a read(2) system call.
-   This one is a candidate for recovery. Might need help from the
-   file system code. If the kernel page is a clean copy of data in
-   the file system, then drop this page and re-read from storage
-   into a new page. Then resume the copy_to_user().
-   If the page is modified, then need some file system action to
-   somehow mark this range of addresses in the file as lost forever.
-   First step in tackling this case is identifying that the source
-   address is a page cache page.
+Don't need '|' if no formatting to preserve.
 
-3) Probably many other places where the kernel copies to user for
-   other system calls. Would need to look at these on a case by case
-   basis. Likely most have the same issue as ioctl(2) above.
-
--Tony
+> +      Phandle to the ACPM node for when ACPM is used to communicate with the
+> +      PMIC, rather than I2C.
+> +
+>    samsung,s2mps11-acokb-ground:
+>      description: |
+>        Indicates that ACOKB pin of S2MPS11 PMIC is connected to the ground so
+> @@ -58,16 +65,39 @@ properties:
+>        reset (setting buck voltages to default values).
+>      type: boolean
+>  
+> +  system-power-controller: true
+> +
+>    wakeup-source: true
+>  
+>  required:
+>    - compatible
+> -  - reg
+> -  - regulators
+>  
+>  additionalProperties: false
+>  
+>  allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: samsung,s2mpg10-pmic
+> +    then:
+> +      properties:
+> +        regulators: false
+> +        samsung,s2mps11-acokb-ground: false
+> +        samsung,s2mps11-wrstbi-ground: false
+> +
+> +      required:
+> +        - exynos,acpm-ipc
+> +
+> +    else:
+> +      properties:
+> +        exynos,acpm-ipc: false
+> +        system-power-controller: false
+> +
+> +      required:
+> +        - reg
+> +        - regulators
+> +
+>    - if:
+>        properties:
+>          compatible:
+> 
+> -- 
+> 2.49.0.395.g12beb8f557-goog
+> 
 
