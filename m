@@ -4,114 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913FFC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC65EC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+cQxE11cTeUTFuDTXhtUP0yJ5bXBgERn+/iChwozJXw=; b=l0OqRVXof6e+jKThpo8p4pJuHg
-	Z6xS0vQpa7Ya8uBYsPEli5t8gWA/s9OlUgFKjDwwosMzzXNNNwwuoRPXtl2snpnX5a6xQqoYaZF19
-	H3875UPNWp3YQItHDri7PhXtqoeVJyC9zO8O+8n3JdR2KtIL8RM0tchpyEm3HKfoJ4Jw3meZuy07U
-	cXAXUSbe82ARWcRY5PBvggzdfJpkeiw5T0QEOEwi9sHUvw93Zlh0Tqk15G+SllDr2NDCoA6Kgih3D
-	xgiKdEHRKkvCvBDobaf05/rBiz//A6G814JuOc5uQokQW4i8gs2ayaRB4QPtdw/7J+P0B6sontWE0
-	mqgNZSsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ENeTUflag0l1WgJ9MraeaFTIx2U/M6/MceOO9Gs6H40=; b=ZdF1bjXO+XTLwjxgKenowPg2nL
+	8B4slQirMenFPUNmGqM1nyz/Hm7HGQicWe8f8d1Mh5KWR8sfR9kE5YRmTxUFdpzg8m+NthZSQ4eF+
+	/UNEl5VXhp8z8ibaOzRM1CKT2cQ5APP+epjdijaH3sEEMj7qnZgjsjY5l8cBbo2vl+KNRLyVbLrNY
+	Mt6OROdI07Q3PIZHKiAhkf66wE0aDJxaqmFqHTVGDYqS2FHCUYvNJMTjIR0JE34I4rgWNEnwHBrAO
+	2csgUSTxCOjSU0Cx+AdQ8O/74edsi6G9pWqyDRVErQKCkn145PnLgaSrhkhvO5WEvnmeJrlsss36m
+	f05eVQ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcUN-00000002UAb-0Rqe;
-	Mon, 24 Mar 2025 07:44:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1twcW4-00000002UNg-1zh1;
+	Mon, 24 Mar 2025 07:46:36 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcOT-00000002T7a-01df
+	id 1twcTA-00000002U2d-0dLY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:38:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4E9185C5748;
-	Mon, 24 Mar 2025 07:36:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD385C4CEDD;
-	Mon, 24 Mar 2025 07:38:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742801924;
-	bh=e6SIowdMXYBD6xhP/5nsiEyaBQQ8xzjEYV6YQOv7ymM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G/DCj6aJbFrctGnnNft7BvBOvluAP/K89AzprkIRMNZvv7bMDagxizxlZH81+6cHW
-	 fZToOiRCFHBIx4aGs0H+4IR6GTMJJjzm3Jp2vwdsIXpe5pP3xK5L2+QjvQJG68jVBR
-	 CwJglWxvRsCxLd6Y4cMtN1e5kgRVPt7uzP9CAtATZS4mb7pMEkkaus+qCgHjmCYQ5z
-	 3GaZGAOvtMOiNYX77EJtFfHHdrwroynnsA3kpw+k8Bymt4WisPRY7DG+SnU4kS6hNv
-	 MBYIP8AhcZOp5r/MYFeVg23ydzZnX5tsZzUEjhUhh68BG3KeQPdzlK5uXkfeYqzZ67
-	 7OX89F2laUpJQ==
-Message-ID: <fbd5c153-b73a-4dbc-a923-4e3d3924e748@kernel.org>
-Date: Mon, 24 Mar 2025 08:38:34 +0100
+	Mon, 24 Mar 2025 07:43:37 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cf58eea0fso21022845e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:43:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742802214; x=1743407014; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ENeTUflag0l1WgJ9MraeaFTIx2U/M6/MceOO9Gs6H40=;
+        b=fjHHijztSA/jiW5J1ZJv5X/fBp64p30Yq2bGakpjjsGVCAELN3jEEPcLtonxyVw0zU
+         3o6cWa+Q1LyIIKt68diCSWC1s4Lf4/4ZFheH/lxkuOGsm1+uFVm/pUXQkrtnC2u51qcS
+         TSI1y5QjXcpbCAqVC3n+Mc5tQ8ma43fH8w3q7XjSHcBN+RdIJp6GGPMoVsWSR81ZN5qo
+         uKya1iZE25My9hzleJamn8PIoPFEp5iFEmWQwaOK8MJtm15b4/E0dH04Beigh+3rU1Jx
+         L88qua2mIe2tupsNfjNWdcVFEebV4kBR5U8B/pClEcEXP/3xLmas7rLtP5psrIaaUwhY
+         BJTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742802214; x=1743407014;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ENeTUflag0l1WgJ9MraeaFTIx2U/M6/MceOO9Gs6H40=;
+        b=e1snTew5YktSC5DA053P39jHRz2M7kfuNtDlFflDCGuB2BaMruhJWSzfNHs1vhi7lQ
+         izTP/6ZwaZTyzFZl/o5wSiyB91a2Kd0BoHJAtZ1bQvlRDakxmFnyfzFo5uDiOc96b5Fp
+         mPruhvKjdlH53HZ3TENtFfAGp044k+gOS1lCgWAPMWKBUfy7acNS28QUj+vJWnRERNQa
+         RgwCERl/lXP4a26AbfjgSwKKfhg7dQCGAhamwNuyNj6NrsmOJWI+yXssI2UMl/mi/8Dw
+         ZKoEQ73bcyhTRkk7ihZ2hdBGJPDRbAcpCFzXUZW1VOJUtHh0SL1W3BBU2anffwm407pH
+         wRyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX648Smh9icZ8DAQ+Cza/iY4RosBLejNTLW6KaOZ9MYu/xBh8teSXt8stT9aJQEfpRwBZvTPJpDG/dqOPjh2huf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0UbalI8/lMcY0v+YbBtMsekMoYcRA62skmMCMvmUtKy4bIlcs
+	H+ik5JYF8KmBYsreueQvui5pbUgBWibfDWXeWU9SQh4zHY8QoqxSGvexzlSK8pQ=
+X-Gm-Gg: ASbGncvsB7dV/kBfSHTCZoNmDTfIgkCo0IOUJUsG+LFVzSk0l2ilRiPvj3dsCAqsQfg
+	obH+6hyRuBXsKdIoqRTvjWaO8Xb2uWY6Z2Qe19qWMTFB6zsQfHcJnsG5Wrbs9IOiQSdFRhmNYna
+	rmjwB4W/mfaNXmjBawij2FrDkrWvsF2YlGWSt803YDOYu8LMtuS7ucRsFfHYWtN2yLY/7XqJ3Cn
+	TGBAzv/UjxSMSrGYtyVeQDta6fhcHNgEOfDT5nNpZzmF/VhyLAiHWcyotAyHESvMgOmlXxcgcBI
+	eeACxUHvCrGexv+YLa9EUkq9c9rhLbZh1iG95BLTx3bDhle4Tw==
+X-Google-Smtp-Source: AGHT+IGmGmS5ufUfMSrgfk7DIRjiH+iIQAHj6POw/bNjEYZrqwMBfch1zIjXMn5LOd+CGNnKdNiELw==
+X-Received: by 2002:a05:6000:2a2:b0:390:f400:2083 with SMTP id ffacd0b85a97d-3997f89a039mr9195803f8f.0.1742802214396;
+        Mon, 24 Mar 2025 00:43:34 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3997f9eff9asm10311692f8f.92.2025.03.24.00.43.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 00:43:33 -0700 (PDT)
+Date: Mon, 24 Mar 2025 10:43:31 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: Qasim Ijaz <qasdev00@gmail.com>, linux-wireless@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Bo Jiao <bo.jiao@mediatek.com>, Felix Fietkau <nbd@nbd.name>,
+	James Dutton <james.dutton@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonas Gorski <jonas.gorski@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Peter Chiu <chui-hao.chiu@mediatek.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>
+Subject: Re: wifi: mt76: mt7996: avoid potential null deref in
+ mt7996_get_et_stats()
+Message-ID: <d723d5c1-ed17-41b8-9bc4-274fd8e2b615@stanley.mountain>
+References: <20250322141910.4461-1-qasdev00@gmail.com>
+ <d1df5d97-4691-40d4-a6cc-416505f35164@web.de>
+ <92d1a410788c54facedec033474046dda6a1a2cc.camel@sipsolutions.net>
+ <CAAMvbhGrJ9b3Aab9+2a5zmvEgf0GZFmHLCC7Hud+egUE28voHQ@mail.gmail.com>
+ <223c7280-443d-49b4-96b2-90472339dcd4@stanley.mountain>
+ <46a53498-6c20-48fd-b090-02163baefddd@web.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] arm64: defconfig: enable PCI Power Control for
- PCIe3
-To: "Wenbin Yao (Consultant)" <quic_wenbyao@quicinc.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, quic_qianyu@quicinc.com,
- sfr@canb.auug.org.au, linux-arm-kernel@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
- <20250320055502.274849-2-quic_wenbyao@quicinc.com>
- <694b6638-92b2-4ac0-a175-bd29aea6cba9@kernel.org>
- <CAMRc=MfZrRp=VuEOLuMY_04JdyRrD+joGL56LwRFQ-+D-8Z_6w@mail.gmail.com>
- <9ea8fe39-b818-403b-bd69-815e58eb2949@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <9ea8fe39-b818-403b-bd69-815e58eb2949@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <46a53498-6c20-48fd-b090-02163baefddd@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_003845_135055_BE060539 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250324_004336_184055_19337A04 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,54 +115,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/03/2025 08:09, Wenbin Yao (Consultant) wrote:
-> On 3/21/2025 5:43 PM, Bartosz Golaszewski wrote:
->> On Fri, Mar 21, 2025 at 8:37 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>> On 20/03/2025 06:55, Wenbin Yao wrote:
->>>> From: Qiang Yu <quic_qianyu@quicinc.com>
->>>>
->>>> Enable the pwrctrl driver, which is utilized to manage the power supplies
->>>> of the devices connected to the PCI slots. This ensures that the voltage
->>>> rails of the x8 PCI slots on the X1E80100 - QCP can be correctly turned
->>>> on/off if they are described under PCIe port device tree node.
->>>>
->>>> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
->>>> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
->>>> ---
->>>>   arch/arm64/configs/defconfig | 1 +
->>>>   1 file changed, 1 insertion(+)
->>>>
->>>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->>>> index 85ec2fba1..de86d1121 100644
->>>> --- a/arch/arm64/configs/defconfig
->>>> +++ b/arch/arm64/configs/defconfig
->>>> @@ -245,6 +245,7 @@ CONFIG_PCIE_LAYERSCAPE_GEN4=y
->>>>   CONFIG_PCI_ENDPOINT=y
->>>>   CONFIG_PCI_ENDPOINT_CONFIGFS=y
->>>>   CONFIG_PCI_EPF_TEST=m
->>>> +CONFIG_PCI_PWRCTL_SLOT=y
->>> Bartosz,
->>>
->>> Wasn't the intention to select it the same way as PCI_PWRCTL_PWRSEQ is
->>> selected?
->>>
->>> Best regards,
->>> Krzysztof
->>>
->> For sure. I would expect there to be something like:
->>
->> select PCI_PWRCTL_SLOT if ARCH_QCOM
->>
->> in Kconfig and nothing in defconfig.
->>
->> Bartosz
+On Mon, Mar 24, 2025 at 08:33:39AM +0100, Markus Elfring wrote:
+> > Also the "phy" point will never be NULL so the check should be removed.
+> How many tools can help to determine such a software aspect with
+> inter-procedural analyses?
 > 
-> IIUC, pci slot power driver is a common driver that could be used by all DT
-> based platform.
 
+You can just review the code.  There is only one caller.
 
-You are not responding to the raised problem.
+Btw, it's fine to have unnecessary NULL checks so long as they're done
+consistently.  Generally, we prefer people not add unnecessary code,
+but if it makes you feel safer, most maintainers aren't going to nit-pick
+you about it.  If you are doing the work then you get some say your own
+code.
 
-Best regards,
-Krzysztof
+regards,
+dan carpenter
 
