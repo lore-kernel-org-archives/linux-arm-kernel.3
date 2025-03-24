@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07410C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA40C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6UnkXScqouGuY1tYyYimFzbHtZCsWpZM7xk78yBqXKs=; b=lX5ykNoPqenKtQWslIFRjL6H1I
-	3N51bm+VTIpmLv1o0CljaZatzxk9RTHchf0snAQbxJKxKaroGsQ/Sg7sjTysNMQSBwu47WMqFZSe4
-	LQNBmlVXEWzBemYWt8YwIPd6GRaGDbm9iqfq+ZBOa367okV7pO4EDXFC5bbBEuVoqUGRokiVGsYIP
-	dgdHLw+amJ9NUpY5LDFQy9UFo7s7HGSfh8+MWawlY63sN5j3qeVoRoafXgDpT/jDoVfBku2jFWjUD
-	Ykl2Ogxzp/WRUf3+H246wGRvuzQwOd9Rf+BeBFzYjaUZEuRWAjG+/DSJuqzraRGefSdZ0hnsSocs9
-	awMKrNyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HZEbKpA1frJBrkSoz9cnFIH7frubQfuf2pOMnH5himQ=; b=RQ8487u54yAWFx30gMlty3MUfW
+	2VYJt56yUoOS2qPysPe8ngj5q4bk4lIjMQW9/V0QM6UuEJUWe84QwiJLRd4/1+mkTwFvKFr5ZAzTJ
+	yXmZ+Q+B9q4besRPa2YvbG64Z9aDdQHWSAXYOWLTWqYKAU5b2zwGdTNN9fpvWLNM/CX/PSRnnERxd
+	6JKZOtgCUZbKnPOWN6qFcon/Pnxt33ZtMy4P31nLx1GKGZ1nqZFZDsdw/Rl/EzaVYa8JePy7VajnG
+	PyJyIHNxzgfmoVqNvafS+eJescycfUpYX4q94SUS5m6yPniYqu3aZasaxGitliKkbAl4pDJ1ZCPN3
+	nltnaSXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlRV-00000003m0N-14aF;
-	Mon, 24 Mar 2025 17:18:29 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1twlTG-00000003mDu-2sJE;
+	Mon, 24 Mar 2025 17:20:18 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlMB-00000003lP3-3pgd;
-	Mon, 24 Mar 2025 17:13:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742836378;
-	bh=eSGtumyc/yfmz3YRryO3Vj1UMYd+r3aptpUmRaBllTg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JIIEq3VRuU4o553rkNfLANwWMeCrtQHXqjd8xmrWyrzkbCqH3zpQoVKrhCvY6biFW
-	 KARJsNOuLyJtyi+uGRQoqHFjdtTWb8jq43Hb6FsEaXDVJbOH3Tv1pXQsftOXvD6j+a
-	 BgyoZAhV+TiLB+SBbX+/wCjHcxptNDhR6+bhRKHxlA/t/UqqjsupOQ9B8eNxu/EDvN
-	 Zngza1OqqTgfWVT4qaWCCU5/Gmi6YXUlbyKz9K0T/iE0Ze52a2iQ+Yukn4rDKaRcTV
-	 7dwnfEjo3OBCdj6YH2/OOAVlU7q13unn+FutOvMKh7mCNLOs2qO/Zw7iqMFAR49eQj
-	 vqP2ae8c/E22w==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D10E417E0385;
-	Mon, 24 Mar 2025 18:12:56 +0100 (CET)
-Message-ID: <754df305-9767-47be-8f98-4e287c56808e@collabora.com>
-Date: Mon, 24 Mar 2025 18:12:56 +0100
+	id 1twlRX-00000003m1C-2tls
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 17:18:33 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2264aefc45dso77089795ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 10:18:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742836711; x=1743441511; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HZEbKpA1frJBrkSoz9cnFIH7frubQfuf2pOMnH5himQ=;
+        b=Ld9g5KFN3Ief36yAMIj56Ftl5xm9JijJ92zcyOSiIrOQdBPsJjtfN8e5twyLKJoWs0
+         hHlADMm2RMgtcScK2JJUG7lqqrCKbTjQ+jaIENgfVyIlWMyWQL2FqFbJ8B77/LvpyIme
+         re6FdoL9G1jduUjg3dRHGMab7i+zqZX6re2Op6bjc17wmBXQsJi5Dy/eCEhoPYADDtgU
+         QIxW1W19TXjvcD0rae+9FdxwObOhJ2+Q3k90/onPkqHsgkbNTBE6gG568VBN5cumjrmc
+         S4K+4SR4gcXbtBrbJD0VYTJhDImTznKfsMM0hamaRkiXlx9jSAU7dBzcMxNTvQzO5vV2
+         nGLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742836711; x=1743441511;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HZEbKpA1frJBrkSoz9cnFIH7frubQfuf2pOMnH5himQ=;
+        b=S0foY8EH/AoxbVGwVt7juGoQzRMa6LjYoqvNxyw9u6cAr0uthVPV9FjYgql/0tvNxY
+         93fn1UzQw4Lxct0eXV95S0MvgtBU2g0NOYSdrdx5OzdyyUv3r6C5OPWyFZtuG3t7LOnK
+         XNQVk5m+sXpSUqxCgdAxqzBmv4uJ11youRs0BVhqtCjXJd3DqhBNsDQ+lKjxQARjA9qL
+         HYP1FSA08Lrahd4QfhvA/v2kjh3TRNw0Fd4SMSjZED4rckqm2WQRpgWo6UUKTYQIHw6j
+         cC6NGB4rR2oopQLtnNznXgqOYZio9MCdg37H6PdoqcV9HvXx9si61UkZeb1rh+Q4SfZp
+         lQtA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrzw1le03C7j/8uwLwSibEs0PP5kULCTJOy57vVH1tHQnFlC6w+5oOC89U4QZEKC7vlOaO1QSFgxEs0kFZv8yg@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu6S6RLeIUafpcfsIUwbEadoYv2EVK7CSA8NuIE3nUglEpQ7JP
+	iQagrjtH3d0q1WsP2Vaq4o7TuxYdm8rF2xCSXD9IsZVsZfGvxwv8naaUSryebQ==
+X-Gm-Gg: ASbGncusvoyqy8m56my0m1w2sD9ROL+w5vbV21RNj9q2+slKJB5/w5KPoAeq4ywoFBv
+	vRjetkQ/vonLYNo/+qxy0Vu3dNe2K/BmnvNrvoysI3GDtKf01O0go6lmPPYtLJRIuNQXM4jrPRn
+	Y1w9tuUKWPRTN0+9YjlMIx6uKcFMuskAktJGQMZd8TFIoriAFZwmZNFA7y5/w2LF8D/yNzufbCm
+	XL4AZdfRe+/GDIF1d9zOLUT77FlJJuN9cvUrQncGrrAIo2WbatAIpB6sHuhRbJYXwEcF9Da1cn1
+	YUhEIqhLVPyXoBIv5olJG0n5hhHVO0FpXOEDhTkwyWAvW9stmodgbEAE+5hri1CDvQ==
+X-Google-Smtp-Source: AGHT+IG/+IMOKh9mdPF7QL4qAJQoeDmcoGNXXl94gtnk4lfwQykOcdsW47jIFy2/Z8VlBPbmIKO/Sg==
+X-Received: by 2002:a17:902:f648:b0:224:fa0:36da with SMTP id d9443c01a7336-22780c7c06fmr184562345ad.18.1742836710841;
+        Mon, 24 Mar 2025 10:18:30 -0700 (PDT)
+Received: from thinkpad ([120.60.67.138])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f3bbedsm73934205ad.3.2025.03.24.10.18.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 10:18:30 -0700 (PDT)
+Date: Mon, 24 Mar 2025 22:48:23 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v12 05/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
+Message-ID: <j3qw4zmopulpn3iqq5wsjt6dbs4z3micoeoxkw3354txkx22ml@67ip5sfo6wwd>
+References: <20250315201548.858189-1-helgaas@kernel.org>
+ <20250315201548.858189-6-helgaas@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/15] soc: mediatek: mutex: refactor SOF settings for
- output components
-To: "paul-pl.chen" <paul-pl.chen@mediatek.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org
-Cc: matthias.bgg@gmail.com, p.zabel@pengutronix.de,
- jason-jh.lin@mediatek.com, nancy.lin@mediatek.com, singo.chang@mediatek.com,
- xiandong.wang@mediatek.com, sirius.wang@mediatek.com,
- sunny.shen@mediatek.com, fshao@chromium.org, treapking@chromium.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250321093435.94835-1-paul-pl.chen@mediatek.com>
- <20250321093435.94835-8-paul-pl.chen@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250321093435.94835-8-paul-pl.chen@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250315201548.858189-6-helgaas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_101300_106864_4A29D7CF 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20250324_101831_752260_43AE0241 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,216 +106,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 21/03/25 10:33, paul-pl.chen ha scritto:
-> From: Nancy Lin <nancy.lin@mediatek.com>
+On Sat, Mar 15, 2025 at 03:15:40PM -0500, Bjorn Helgaas wrote:
+> From: Frank Li <Frank.Li@nxp.com>
 > 
-> Refactor SOF settings by adding mtk_mutex_get_output_comp_sof()
-> and extracting SOF logic from mtk_mutex_add_comp()
-> and mtk_mutex_remove_comp().
+> Return the offset from CPU physical address to the parent bus address of
+> the specified element of the devicetree 'reg' property.
 > 
-> - Added mtk_mutex_add_comp_sof() and mtk_mutex_remove_comp_sof()
->    for SOF settings.
-> - Reused the switch case for SOF IDs.
-> - Separated MOD and SOF logic.
-> 
-
-This also needs more than one commit.
-
-The cleanups go in a commit doing only cleanups.
-
-> Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
-> Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
+> [bhelgaas: return offset, split .cpu_addr_fixup() checking and debug to
+> separate patch]
+> Link: https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-5-01d2313502ab@nxp.com
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
 > ---
->   drivers/soc/mediatek/mtk-mutex.c       | 121 +++++++++++++++----------
->   include/linux/soc/mediatek/mtk-mutex.h |   4 +
->   2 files changed, 79 insertions(+), 46 deletions(-)
+>  drivers/pci/controller/dwc/pcie-designware.c | 23 ++++++++++++++++++++
+>  drivers/pci/controller/dwc/pcie-designware.h |  3 +++
+>  2 files changed, 26 insertions(+)
 > 
-> diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
-> index aaa965d4b050..c026ac0e6969 100644
-> --- a/drivers/soc/mediatek/mtk-mutex.c
-> +++ b/drivers/soc/mediatek/mtk-mutex.c
-> @@ -853,43 +853,84 @@ void mtk_mutex_unprepare(struct mtk_mutex *mutex)
->   }
->   EXPORT_SYMBOL_GPL(mtk_mutex_unprepare);
->   
-> -void mtk_mutex_add_comp(struct mtk_mutex *mutex,
-> -			enum mtk_ddp_comp_id id)
-> +static int mtk_mutex_get_output_comp_sof(enum mtk_ddp_comp_id id)
->   {
-> -	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
-> -						 mutex[mutex->id]);
-> -	unsigned int reg;
-> -	unsigned int sof_id;
-> -	unsigned int offset;
-> -
-> -	WARN_ON(&mtx->mutex[mutex->id] != mutex);
-> -
->   	switch (id) {
->   	case DDP_COMPONENT_DSI0:
-> -		sof_id = MUTEX_SOF_DSI0;
-> -		break;
-> +		return MUTEX_SOF_DSI0;
->   	case DDP_COMPONENT_DSI1:
-> -		sof_id = MUTEX_SOF_DSI0;
-> -		break;
-> +		return MUTEX_SOF_DSI1;
->   	case DDP_COMPONENT_DSI2:
-> -		sof_id = MUTEX_SOF_DSI2;
-> -		break;
-> +		return MUTEX_SOF_DSI2;
->   	case DDP_COMPONENT_DSI3:
-> -		sof_id = MUTEX_SOF_DSI3;
-> -		break;
-> +		return MUTEX_SOF_DSI3;
->   	case DDP_COMPONENT_DPI0:
-> -		sof_id = MUTEX_SOF_DPI0;
-> -		break;
-> +		return MUTEX_SOF_DPI0;
->   	case DDP_COMPONENT_DPI1:
-> -		sof_id = MUTEX_SOF_DPI1;
-> -		break;
-> +		return MUTEX_SOF_DPI1;
->   	case DDP_COMPONENT_DP_INTF0:
-> -		sof_id = MUTEX_SOF_DP_INTF0;
-> -		break;
-> +		return MUTEX_SOF_DP_INTF0;
->   	case DDP_COMPONENT_DP_INTF1:
-> -		sof_id = MUTEX_SOF_DP_INTF1;
-> -		break;
-> +		return MUTEX_SOF_DP_INTF1;
->   	default:
-> +		break;
-> +	}
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+> index 9d0a5f75effc..0a35e36da703 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/gpio/consumer.h>
+>  #include <linux/ioport.h>
+>  #include <linux/of.h>
+> +#include <linux/of_address.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/sizes.h>
+>  #include <linux/types.h>
+> @@ -1105,3 +1106,25 @@ void dw_pcie_setup(struct dw_pcie *pci)
+>  
+>  	dw_pcie_link_set_max_link_width(pci, pci->num_lanes);
+>  }
 > +
-> +	return -EINVAL;
-> +}
-> +
-> +void mtk_mutex_add_comp_sof(struct mtk_mutex *mutex, enum mtk_ddp_comp_id id)
+> +resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
+> +					  const char *reg_name,
+> +					  resource_size_t cpu_phy_addr)
 > +{
-> +	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
-> +						 mutex[mutex->id]);
-> +	int sof_id = mtk_mutex_get_output_comp_sof(id);
-> +	unsigned int offset;
-> +
-> +	if (sof_id < 0 || sof_id >= DDP_MUTEX_SOF_MAX)
-> +		return;
-> +
-> +	WARN_ON(&mtx->mutex[mutex->id] != mutex);
-> +
-> +	offset = DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg, mutex->id);
-> +
-> +	writel_relaxed(mtx->data->mutex_sof[sof_id],
-> +		       mtx->regs + offset);
 
-fits in one line
+s/cpu_phy_addr/cpu_phys_addr/g
 
-> +}
-> +EXPORT_SYMBOL_GPL(mtk_mutex_add_comp_sof);
-> +
-> +void mtk_mutex_remove_comp_sof(struct mtk_mutex *mutex, enum mtk_ddp_comp_id id)
-> +{
-> +	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
-> +						 mutex[mutex->id]);
-> +	unsigned int reg;
-> +	int sof_id = mtk_mutex_get_output_comp_sof(id);
-> +	unsigned int offset;
-> +
-> +	if (sof_id < 0 || sof_id >= DDP_MUTEX_SOF_MAX)
-> +		return;
-> +
-> +	WARN_ON(&mtx->mutex[mutex->id] != mutex);
-> +
-> +	offset = DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg, mutex->id);
-> +	reg = readl_relaxed(mtx->regs + offset);
-> +	reg &= ~(1 << mtx->data->mutex_sof[id]);
-> +
-> +	writel_relaxed(reg, mtx->regs + offset);
-> +}
-> +EXPORT_SYMBOL_GPL(mtk_mutex_remove_comp_sof);
-> +
-> +void mtk_mutex_add_comp(struct mtk_mutex *mutex,
-> +			enum mtk_ddp_comp_id id)
-> +{
-> +	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
-> +						 mutex[mutex->id]);
-> +	unsigned int reg;
-> +	unsigned int offset;
-> +	bool is_output_comp = !!mtk_mutex_get_output_comp_sof(id);
-> +
-> +	WARN_ON(&mtx->mutex[mutex->id] != mutex);
-> +
+'phy' usually refers to the physical layer IP block. So 'cpu_phy_addr' sounds
+like the address of the CPU PHY.
 
-Looks like you can just do
-
-	if (is_output_comp) {
-		mtk_mutex_add_comp_sof(mutex, id);
-		return;
-	}
-
-	if (mtx->data->mutex_mod[id] < 32) { .....etc
-
-> +	if (!is_output_comp) {
->   		if (mtx->data->mutex_mod[id] < 32) {
->   			offset = DISP_REG_MUTEX_MOD(mtx->data->mutex_mod_reg,
->   						    mutex->id);
-> @@ -902,12 +943,10 @@ void mtk_mutex_add_comp(struct mtk_mutex *mutex,
->   			reg |= 1 << (mtx->data->mutex_mod[id] - 32);
->   			writel_relaxed(reg, mtx->regs + offset);
->   		}
-> -		return;
->   	}
->   
-> -	writel_relaxed(mtx->data->mutex_sof[sof_id],
-> -		       mtx->regs +
-> -		       DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg, mutex->id));
-> +	if (is_output_comp)
-> +		mtk_mutex_add_comp_sof(mutex, id);
->   }
->   EXPORT_SYMBOL_GPL(mtk_mutex_add_comp);
->   
-> @@ -918,24 +957,11 @@ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
->   						 mutex[mutex->id]);
->   	unsigned int reg;
->   	unsigned int offset;
-> +	bool is_output_comp = !!mtk_mutex_get_output_comp_sof(id);
->   
->   	WARN_ON(&mtx->mutex[mutex->id] != mutex);
->   
-> -	switch (id) {
-> -	case DDP_COMPONENT_DSI0:
-> -	case DDP_COMPONENT_DSI1:
-> -	case DDP_COMPONENT_DSI2:
-> -	case DDP_COMPONENT_DSI3:
-> -	case DDP_COMPONENT_DPI0:
-> -	case DDP_COMPONENT_DPI1:
-> -	case DDP_COMPONENT_DP_INTF0:
-> -	case DDP_COMPONENT_DP_INTF1:
-> -		writel_relaxed(MUTEX_SOF_SINGLE_MODE,
-> -			       mtx->regs +
-> -			       DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg,
-> -						  mutex->id));
-> -		break;
-> -	default:
-> +	if (!is_output_comp) {
-
-same comment as before.
-
->   		if (mtx->data->mutex_mod[id] < 32) {
->   			offset = DISP_REG_MUTEX_MOD(mtx->data->mutex_mod_reg,
->   						    mutex->id);
-> @@ -948,8 +974,11 @@ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
->   			reg &= ~(1 << (mtx->data->mutex_mod[id] - 32));
->   			writel_relaxed(reg, mtx->regs + offset);
->   		}
-> -		break;
->   	}
+> +	struct device *dev = pci->dev;
+> +	struct device_node *np = dev->of_node;
+> +	int index;
+> +	u64 reg_addr;
 > +
-> +	if (is_output_comp)
-> +		mtk_mutex_remove_comp_sof(mutex, id);
+> +	/* Look up reg_name address on parent bus */
+
+'parent bus' is not accurate as the below code checks for the 'reg_name' in
+current PCI controller node.
+
+> +	index = of_property_match_string(np, "reg-names", reg_name);
 > +
+> +	if (index < 0) {
+> +		dev_err(dev, "No %s in devicetree \"reg\" property\n", reg_name);
 
-Regards,
-Angelo
+Both of these callers are checking for the existence of the 'reg_name' property
+before calling this API. So this check seems to be redundant (for now).
 
+- Mani
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
