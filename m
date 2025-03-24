@@ -4,94 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A36C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 15:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460EBC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 15:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xRWYwpfb+Qm0/LZ29AYhcqtDsg2o5q/MxVz554Yo+yk=; b=49hU1KYG/DItziuRyMYYvCcuMk
-	eA9i2xQv8w3LAioA6n0fCAdX0k35hNaPWueIcu57fJeACP/+/hxOR8alWfTVD81JlQZXWJ5Zs6CS3
-	pdja6GDVn3/w0YgBDIkRz01+7U0Zww9yO2iBtHS8rBg0mK/2TpvG8q5GgJW3zXx6+FI0RPwJTgNRv
-	m6LKTNX2gqIfRiRISwxOukyBFMBZP7erg5dYCX6GNxdRkjKm3UgcGaI/k7rb8mmkTwPh3bfFhfxqH
-	3TB7QSOHAxUKalaDhyWuNJg72gyf9lRGWwWgN1asMlpQubnAnOTlmVOjdwW1jNRwxkrsix3m7JvUJ
-	kz8XbLHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+prPsFn1iWaSFHGIzuAw8AEj5MDCbnVehFeVVI3FHdk=; b=Zln9dPNWn2itiiPOGkTCkf8T5y
+	igKZIC6vpeecup6DyHqmHkcvFQ1wCtiWd1uSvnmgf+2ablF3AcMcEdgQBMVrqh1KT4J5jJgzGSU9Y
+	T8FER7ZQINYdgaamzla/oDC0yUKW1Mi2Ma01+SxraKs2PPM6MD8uTu7hZxmZFuvOnlBbkfeOG/h1v
+	f3F4M6QffeTaqfv9n8uRNzpz/zDidWoDwodCxKCF5LHLG/X+fGQHF+Yu8uV+8ZmkUEuOd1SEye2yF
+	o/n92NEF9rztlyNdfLdS7N+QYw55eORbJMLpwEbCOnq19dnTUHz69SF5ZUFlyz2CN4bkLyk4iWv7e
+	51sOC5xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twjtj-00000003XaP-15XA;
-	Mon, 24 Mar 2025 15:39:31 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1twk2u-00000003YI2-1sw6;
+	Mon, 24 Mar 2025 15:49:00 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twjod-00000003X7R-3EQl
+	id 1twk1A-00000003Y9Y-0jH8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 15:34:17 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ac2a9a74d9cso917504366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 08:34:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742830454; x=1743435254; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xRWYwpfb+Qm0/LZ29AYhcqtDsg2o5q/MxVz554Yo+yk=;
-        b=IGW2zDwVQHeCmOhrITvXgrpI6kM1TEgAOT5Qx4XA/eZrVsOarWjaV1+VD45oiyLEiL
-         /oU5vgd2vvxmYv7u+TBQVv7iaHFBTVO1SOwqvMPJQbMrFzXMXF+citP0CfHfD8IrfrLF
-         OVzWYoIQzLZiIAJwEn95IhhnvxXSQ4m93oyvx5qNwz6g0HGdPLFdXmBM0vp3mNnBKpVr
-         GDTdz9vfVl45jBoT/kw+nE6GysfrnnAqZkfNAalwXa1TGp4NAlJTizC2UfzrMlZqTWFL
-         u6i0mA+Bq1JyKnsFbMDEZYwbx3sYyXeNN2tMtrsQBLHUggJ9Ir5MEHVRG0ac/JcQGaen
-         sjYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742830454; x=1743435254;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xRWYwpfb+Qm0/LZ29AYhcqtDsg2o5q/MxVz554Yo+yk=;
-        b=fsoBUYvgq2ux7CtXN21cOPH5CttlhjKv/9ov0cPPF6saBMwW8wK2M5L7degTtW0dJ9
-         PR20Do98oHNYgdZQ/45lZ/VzywltuoAfoQSvU2YZe5lQWNGHZpcjWjpoO+KlYl2V/IpT
-         n4iHnNa4sPXqYtqPUE5EMOkkF9Aq5lgIQkDHzEp7/uQ8PiGg3+wmzYQ87yc0ua8wBAT/
-         rBKLG+8EK+qUCVYyVLqySSy9RVAgd/j9e2lt4gZGCl0fNz5dCH6OAj8GFHZDZ5kIMYCL
-         PnRqcJYM/rz59ZBbxU1r7RKyxfzRH6g5rXEClr3ANV4mqSHVYfO0GeBQurHHBzI9arzN
-         bHQg==
-X-Forwarded-Encrypted: i=1; AJvYcCUU/M8v4AykBkVV49tyDiekeI5xUuWvrAmkIDjdGfS1Ll9yqaUiGgulXrhKFXsFfujq2pKPnjbRIGUg1cDQNhTd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCCa3rTwBbZsCZzzoSy770YsFLWpfyhqxMeGvcRzQsNFWiFwGk
-	QPkLgdp3kewglowakYoca55omAz/KFdEvkCDjDtlnJfqknrzNKrr0PtIZrlQIxt34Sx+o+UdSoP
-	7PYw=
-X-Gm-Gg: ASbGnctOC40e6mdzMusGiyaLuk/GP1nfLVXsdUhOTl6gNCrokw1C/6jvd1zUSIVh3Jr
-	JuHgvj7iuryK9Qwa7V3F0eK8RRJz50KpUKBMiYeAtOi9F7ryTczeIBKu+1gdGkzqt6VWxtyYjrV
-	ldJ8lf4BNtlHbabpqaa/MxkBYF4vhsIUgjpLdLzVNmswdTtlIdnzf4BjhdvqlpHRJe+Cq0BRGYJ
-	NZg6ilFQAWt18Vj0RVCBsgz1CPM4GLqUj0NSQ3IFUcZhSsaOvcayXFbpTAcs3YnAR8/riyx16Mk
-	z3+N4ZxPHyL+kt7EToK2XKqIv8wEZTr3UUR0IFqr4Ej+ShW//L+4i50pNOCab5vFk7lyBmkPdka
-	JVorTb20848U9n2PUqS0YSh7QfMO7
-X-Google-Smtp-Source: AGHT+IFWUzpGuHqazl0dpTOmipY8A50S66wW8ZDj1rQKEydjpZVDbROVxeCvHwm+5oYARuqtOVEg6A==
-X-Received: by 2002:a17:907:3f9b:b0:ac2:63a9:df0b with SMTP id a640c23a62f3a-ac3f251f206mr1143189666b.35.1742830453945;
-        Mon, 24 Mar 2025 08:34:13 -0700 (PDT)
-Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef86e44dsm690219466b.31.2025.03.24.08.34.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 08:34:13 -0700 (PDT)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Mon, 24 Mar 2025 15:34:10 +0000
-Subject: [PATCH v2 2/2] firmware: exynos-acpm: allow use during system
- shutdown
+	Mon, 24 Mar 2025 15:47:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J5px27ztwpWIFZJoRDQDAPtmH730f1DCzR+r8mwVoYstsPZjyUNWVhSCTUs74QOVH6ZUmd3Qok9MurrDYLtdog5/XS9hodMzeuvAtUSsS+Ybr4uJ2rKNURSeR7NErSdg6PnpMZnfurEHFmyjh6sv/t7X1TnFoyHtUdiAlC/9G2kZMieOPw9ZwyCpSQ7uWhlC3HcqC2xEhjCo/oK+ML3dWSvmOYRrXi2LurRp2QQlAg6q65EUaIOGsYZXmac2/N4upUoXP0aL70bcztM/54h2Go9Bc3oM9+Y57aR//YRwWRtfkALnG1HZOQ16OPOD9+Nu5YCm8dzDbKipgUIUbQRMAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+prPsFn1iWaSFHGIzuAw8AEj5MDCbnVehFeVVI3FHdk=;
+ b=Veo54tBONpq1W9v55J77zCZ9Gsz9Ncgoi6rEbTqx4HLF56zHb2vlzyhHWC5p41QUmsrHA+WYE5t3d7zNYhC/uLZ2pAd7AaGcZOBUBRFuIQ8ZO/05PfwjlE15sz1ZgB8ExyixII8XFISNj3IcLsRhKA3KV4G3RSIKk49h1GTiPmUCh0xS79Ryg2Ntxm0fy3o6iz8l0BrcTAfma/z+tF7OXTa+UytcOoj91MfaOvyaWrUBzZWBf/cfTCfqpc0T+wkG/m64d9aEBJ0T6TbO9ia1O8B7G7NWVPfJ3doZQbNZZbpQtWV0J+Sf9WkmIBn/1N5m09KdPJe0imgD9XbXC7RfRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=linaro.org smtp.mailfrom=topic.nl; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=topic.nl; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+prPsFn1iWaSFHGIzuAw8AEj5MDCbnVehFeVVI3FHdk=;
+ b=zSpNY2EBxzJqyYECywZADAoqN0mEmZsdAhWPeCyd2RNLJKUWUtYqQOAqAmYlEur1bScCNHXX2hfMdeR0hug5wLuC2c5pqgb/FgUpULEeuASFb3tF2woBsOD2+JKocM+T8sCc/HiMk/fckqV+hM4eCkKcqCGeY6aTY4u0LbIoW2t9hUNUQSKtw+5dA8p+rYqZioquymkg5jSHfXiA1MDgwjfXZS83OP8pRBjyQANzhMEfZIZEDzMH8SuxMQbNrzlBcpgj5MvVH8X3jxPN75bBKqqicuGdXSFUqL9s7WpHQudwenit3WWHSYlGMaauNUvsvhzJT2pxL70c6bQCRW/8KA==
+Received: from DU2PR04CA0295.eurprd04.prod.outlook.com (2603:10a6:10:28c::30)
+ by VI1PR04MB6992.eurprd04.prod.outlook.com (2603:10a6:803:139::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
+ 2025 15:47:01 +0000
+Received: from DU2PEPF00028D11.eurprd03.prod.outlook.com
+ (2603:10a6:10:28c:cafe::d2) by DU2PR04CA0295.outlook.office365.com
+ (2603:10a6:10:28c::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.38 via Frontend Transport; Mon,
+ 24 Mar 2025 15:47:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ DU2PEPF00028D11.mail.protection.outlook.com (10.167.242.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Mon, 24 Mar 2025 15:47:01 +0000
+Received: from OSPPR02CU001.outbound.protection.outlook.com (40.93.81.78) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Mon, 24 Mar 2025 15:46:58 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
+ by PA2PR04MB10335.eurprd04.prod.outlook.com (2603:10a6:102:419::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
+ 2025 15:46:56 +0000
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8534.040; Mon, 24 Mar 2025
+ 15:46:56 +0000
+Message-ID: <0e7637a0-8b8f-4aa7-be46-1e7b8ac07a45@topic.nl>
+Date: Mon, 24 Mar 2025 16:46:55 +0100
+User-Agent: Mozilla Thunderbird
+From: Mike Looijmans <mike.looijmans@topic.nl>
+Subject: Re: [PATCH] pcie-xilinx: Support reset GPIO and wait for link-up
+ status
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.c4ab15e9-561e-402d-bf39-9e852485e4fa@emailsignatures365.codetwo.com>
+ <20250314145933.27902-1-mike.looijmans@topic.nl>
+ <vazbdawfo4jnct4rdokknxwvknespcf33jzrmobsnecbxnrbjn@kbvxvhrow4fn>
+Content-Language: en-US, nl
+Organization: Topic
+In-Reply-To: <vazbdawfo4jnct4rdokknxwvknespcf33jzrmobsnecbxnrbjn@kbvxvhrow4fn>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: AM0PR03CA0106.eurprd03.prod.outlook.com
+ (2603:10a6:208:69::47) To AS8PR04MB8644.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250324-acpm-atomic-v2-2-7d87746e1765@linaro.org>
-References: <20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org>
-In-Reply-To: <20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|PA2PR04MB10335:EE_|DU2PEPF00028D11:EE_|VI1PR04MB6992:EE_
+X-MS-Office365-Filtering-Correlation-Id: a308cd06-6d4a-4620-cba1-08dd6aeb1e45
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?RXQyZjQrT21TemZYZ3g3NE80MlhkcEovU0tiUEVaNXZyY1IwbXFuQkYybVhS?=
+ =?utf-8?B?ajdxWS9hWWxyQlpEbyt5SVZTZFBVMFBWOXF2VERVbmIrcDU3WEFXUjZFcTRX?=
+ =?utf-8?B?WUNnUEZMVHViUDVoR1QxaHBXVTg3WmVqQlpVRjRkd0FseU5GdFF4YjMxWXRv?=
+ =?utf-8?B?R2ZEcXRIaXI4NTNQNVIyNmtKbnBxUjVKTjNYWGVtRFFGZmJKQk1kc0I0M2hP?=
+ =?utf-8?B?VUJvLzdGbzd1MGFnRVFrZ1NuODBYU3BzcDIzaTZZMXlzSENFQmJ1bW9YYkxt?=
+ =?utf-8?B?T3pjME5pdDFxdS85TnQxbHV5T0xTQVdNNEVjaXlUM2diK05Cc0NlSkJ1eE5D?=
+ =?utf-8?B?OXlFT0VXVzVOMmVRMWd0bjZ0STByaFFnSG50NGdRbUNEUGE2UXdQN3ArUmpH?=
+ =?utf-8?B?UkdCNGVmdlBOdCsza3dsendzaGUyb21kYmFnUnIvaDIyWEdyNS9sS0RWUEhk?=
+ =?utf-8?B?cGYrMU9iL1RxOEZ1MDZacHNmOHJRVUFNWHlvaWZIWFRITlhVdTVRdUFqbnBI?=
+ =?utf-8?B?R3cwUGhvWE9Kb1Y0SThhNzU4aSt1QVY1aGlEWlVlUmdoMUJTZUsrTytYSFhT?=
+ =?utf-8?B?Uk9QODdmZ3l3NHRXaWxrUktSOWNiamV2Yzc2ZllXeVpRUlp2OTdwemZtT1ZY?=
+ =?utf-8?B?SFIvVW83Myt3Mm1yK2xuUEZhckRLa3hpUjVEbUhydGhsZVZwOXF4UFBid2pk?=
+ =?utf-8?B?WVAxM2xtUkR5bTA0NCsvWmR5V1NhMUl6a0NjYUQ0TzBXZjZ0UitNeE1CdEFm?=
+ =?utf-8?B?UXdBSHQrVzJlb2VaQjdabGN2MXJpR3VQdVh4V3pIQWpMZm9saHF3dk9uRkcw?=
+ =?utf-8?B?c1o4MC9vZDljbEIwMzZ0UTZ2NTRKQkplbS9FSkQ0VVg2Z0owdUVDandiZ2wx?=
+ =?utf-8?B?d1AzU0J5ejluaGZDRkp5aWdqM0lkQVJNYWRxYzNPN0diTHBjRSs0aDNyTk5s?=
+ =?utf-8?B?WXF3MDc5RG9LcDZ0RDNDcGx1U3hBV1U5U2JJRHl5Unl5UXVDZmlGMmEwUmxY?=
+ =?utf-8?B?YVdMbUlIQzVPcmxIOGY5YUNRdkRqd1o3dTBJcUdEZXlWbGlIUkd1MEJWOW9r?=
+ =?utf-8?B?alh2WktrN1JwK2ducGdha2ZrVlAvK0p5elFkNVBoak1VbUhoR1diejhYUTJX?=
+ =?utf-8?B?ZmFTcW9lK01Sa3l0dHROK1MzbTdVVzJBSzZXelV2T09TZE1oMHRnbFNnOGpm?=
+ =?utf-8?B?ZkFKak9ncjFCMkY3b0IrSU1WT3o4ZFpLNU1VOElteFM1ejluYmtwckQxbTRw?=
+ =?utf-8?B?aHA0ZFFYZnVHdndLR1J5NzNRUjZyNDBKWDBMcmFiL01WQ0pjcnFMcXBwZ1RD?=
+ =?utf-8?B?bkNVU0Q3cThWQmNMcDByc3RIZ3hhY3lyd3dSOWI4WmZtV3VJTWZQWW5ITDBZ?=
+ =?utf-8?B?d21XY2NPTVlNUldNNUNkYmNUWkltNDlyZmdsK2lic045YXRETU4zc202dzY4?=
+ =?utf-8?B?ZU80bDQzcG9DZnpWUHcyN285SVFsay81NnF4YnZrYVp4ME0zR3ducWVSVnJW?=
+ =?utf-8?B?T0FLYjZQb2tpZXJDaHZ2Qm9UUG45SitmVlJGYjFvSmVkc2djZDZCSWJhNDkw?=
+ =?utf-8?B?TnF2aFJDMGdUMWZDYVA0WFVOR0duY24vM09GUEpFRHhHTldra0RRaTRwTUpj?=
+ =?utf-8?B?SzRYWDB0cDZIWlBnQy9VK0szQnFlSEdqM3VXZndpZnFtUG4zb3ppUlZ6SHJB?=
+ =?utf-8?B?R3NKWFZIeUt2QXRLNjFaUHdZRGJNNmxTMEVDOGRpYmU2QzYxdlhleitZaFAw?=
+ =?utf-8?B?UlpqOWJLMXp0OVdjUDVKNDdLZjVoL2haUGhhV3FneHR0NzgxWU1FTFZYK3ZC?=
+ =?utf-8?B?enVKazR4TlB3em05NHMzU2VsT1IzUmVuU2trbUowWDVQOFY5VmFlYVhVR2tR?=
+ =?utf-8?B?Z2pKWTJKTXpTSHViMTRlNmVGNjdrc1hpWEFkU1RGbzQzRXI2cTBBeUNzYjha?=
+ =?utf-8?Q?j/8ccwGoceQ=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10335
+X-CodeTwo-MessageID: cf5c4ae1-71aa-45d2-affe-b0717ecd2c91.20250324154658@westeu12-emailsignatures-cloud.codetwo.com
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D11.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: c738b0bd-68e3-439a-d6e4-08dd6aeb1b4b
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|14060799003|1800799024|82310400026|376014|35042699022;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?d2xVVGhHZ3VKbi9QeHNoanRhMm1oYVk5UXJNTXZuMUk0SVp0Tkd1Q0NRdUtY?=
+ =?utf-8?B?M2VpYW5MbU1DdSs0YzNXcGg2am1WSWlYTE02Q09WZnZBcVlrQkhlbldtdjVZ?=
+ =?utf-8?B?bE14NmhUWGtQRFhxY3dwZEhReTZWeWs5MGtmUG5mM3l6djZIZExBTmNodVRK?=
+ =?utf-8?B?UEN3a0JwQXpmSHpaUllNMEJqM2NYeElMYVc2V2VHMi9GbmExRTBpbnYyRGNj?=
+ =?utf-8?B?U2Nrb3pVRjcyRXlESWxlR1FiR3BIY3lob1hEYnF2bEc0ZFM4eUJYRzF4bHhJ?=
+ =?utf-8?B?OW5MWithS1hxdlF3Q21SU1JHZlZDSVA4QmdPTlFMd3Z5NTZRNzM1cDFjOGJ0?=
+ =?utf-8?B?czdSOG5VZW1mQUdLcU1jQ1YxRjM3RTlTdDE0QmRBOTdjOGxveHZsTXZoUmFz?=
+ =?utf-8?B?TGt1OENxQS9lLzQyeUpYV2NBaGtVd1NCYUZRZWx0Vlk5WUFLYWNUQjJyR1Bh?=
+ =?utf-8?B?NHAyU0wxZTFMN1pNK1k3RHR3Umg5dlpuYmhZeFRzQk5MR25xaDBpb05zVEVU?=
+ =?utf-8?B?WVFZbkxrbUQ3WW5pUWczaUJ0MEdtNjFicEl3eUtOMXhsZEZiRU41ZUkzR1ZH?=
+ =?utf-8?B?bzl3TDhYN2hGV2hVaGhoKzNSeHNzN09DN2pXNTJabW54WEM4Q1Y1UEZMZm5s?=
+ =?utf-8?B?MDNqRGpxU3hZSktvMVNOQ0h4Z3NXWm5UTnBtV05kY2tCZ3hORDA4d1dOWENJ?=
+ =?utf-8?B?SVoraUVoT1NCVUVVNUh0elJZWkRUMExEa3NGVENPbXNjblNSNVJLOENyZWRk?=
+ =?utf-8?B?c1B6SzczVGRKQ0hmVWxpNnZId3k3Z0pveFpsN29oQ0ZRYi9pa1pxZ1VoUkV3?=
+ =?utf-8?B?d2I4MTlSemF1cFM4eTlqekY4cEJXcEhFOVl6dVJBcTFZdllQY2tYcHN2T0Qz?=
+ =?utf-8?B?ME8wakptdW1xYUsreEFxaThxeU5Xb0lKOUZqcFg3ZS9lMzAvNXZMOFEvUDlj?=
+ =?utf-8?B?Mnl4aDNmOXJTR2ZrcFI4L1NncC94WjZlMmlvR1BtZXl4QWFMd0kzQXRXT3FU?=
+ =?utf-8?B?c3Y0U2NCUTIvZk5wRXZLRU9zSEJGQTJoMUViWU1RN09MbUhFUHRlMDJkYXFt?=
+ =?utf-8?B?aTY4TFAzY2JPaXRld1Q3L3VEY0RNV0tuUDVQYVlDbFFJZlYzcDN3YmZTQlo5?=
+ =?utf-8?B?MmJTZktaY1dSZlc1K1RJQ205Q3BIYms0SEF5eHI3eW9DMGE3NVpQVjRvT25K?=
+ =?utf-8?B?cnYzanhxM2VEWVZ3ZzVOZm5Yc2xLbXROWUZsdEZEcGhkc1c2SVBZaHpsMUNk?=
+ =?utf-8?B?Kys1bUMxKzRaZ3ovMUpnQ25yQThvSC8rWWhEaGxGc1dwK1N5TURpbmo1amp2?=
+ =?utf-8?B?YVp2N1ZkOUh3bS9FYllLSjlLaWkwdFBJc3NIbDB3amZ4U1g2Sm55Z2daQ0Jv?=
+ =?utf-8?B?ejUxcmorQjRjdDdRby9tTTRkcmttaHhpU0xicWMzM3Zlcmo0Qnc5Rm1FbEtn?=
+ =?utf-8?B?R2ZVOW1wQ2RyblduVjZsZVlxUGV0ODZMT0V6U1drS25BUDRYb01rSy9sMCsz?=
+ =?utf-8?B?eUwrRHUvNXB3U0RBc05oeDVKUnQ0WUlVVXBHYzJIM3pveGxyRXNHa3pwVnRG?=
+ =?utf-8?B?YTg4VWRFcFR6VnpZQks1d0dSL05VdFh0QzYxNXNjVDhQMzkwQVEvVndaVE9X?=
+ =?utf-8?B?UDNTcGRwKzdmSGVzUlU4c3dwY1NNdFZwcTJWZWl1UDlsTXNob0pxOVFlc0gv?=
+ =?utf-8?B?aFdwTm9HNWN5Qk95cmI1bkNoTFgzZFhxczNya0J0a283YklYZ09Bb1BBZDUv?=
+ =?utf-8?B?K1pKbmRjUkJxdmxNcTlvalgzbzFqdW9kZjZTTHJyd2FYUWw0eHd5S1FDajhj?=
+ =?utf-8?B?d3VweEsxZWpTdVg2TnU4bldsN05pTVNQcFBHemplTThzZTlXWmJPMDdNUVNT?=
+ =?utf-8?B?c21WcDRkNEtLUGkxVXc0TGZORlpsSGkvMmVOMWxiOUQvVkMveHFXUUw1c1RM?=
+ =?utf-8?B?QzlDb1MrOWRYMXVnWmdKSStNenVzOWtBUGhoSjRWWGsremRFVDFqZkZsZE9a?=
+ =?utf-8?B?YzFsR0k2NmdBPT0=?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(36860700013)(14060799003)(1800799024)(82310400026)(376014)(35042699022);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2025 15:47:01.1571
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a308cd06-6d4a-4620-cba1-08dd6aeb1e45
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D11.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6992
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_083415_806907_CE12DF7F 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250324_084712_652712_C7C13FC5 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,84 +207,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We need to access the PMIC during late system shutdown and at that time
-we are not allowed to sleep anymore.
+On 24-03-2025 08:49, Manivannan Sadhasivam wrote:
+> On Fri, Mar 14, 2025 at 03:59:02PM +0100, Mike Looijmans wrote:
+>> Support providing the PERST reset signal through a devicetree binding.
+> Where is the bindings change?
 
-To make this case work, detect this condition and use busy waiting via
-udelay() instead of usleep_range() in that situation.
+Will add in v2
 
-The code isn't switched over to udelay() unconditionally so as to not
-waste resources during normal operation. acpm_may_sleep() was heavily
-inspired by the I2C subsystem's i2c_in_atomic_xfer_mode().
 
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
-udelay(10) causes a checkpatch warning (it suggests to use
-usleep_range() instead for usec >= 10), but that's exactly what we can
-not do.
-Reducing the udelay to be smaller will generally cause the loop to be
-iterated more than once, which I wanted to avoid.
-I could reflow the code to hide the actual value from checkpatch, e.g.
-with the help of a local variable if that is preferred to ignoring the
-checkpatch warning.
----
- drivers/firmware/samsung/exynos-acpm.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+>> Thus the system no longer relies on external components to perform the
+>> bus reset.
+>>
+> There is a similar series for the CPM controller:
+> https://lore.kernel.org/linux-pci/20250318092648.2298280-1-sai.krishna.mu=
+sham@amd.com/
+>
+> Please take a look for reference.
 
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index 542eaff03f9e39422a8c5345ca75e05c1710a9ee..4f65f7ef39b5fdbf5bb10f6ee9ffb78c5e34d8b2 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -15,6 +15,8 @@
- #include <linux/firmware/samsung/exynos-acpm-protocol.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/irqflags.h>
-+#include <linux/kernel.h>
- #include <linux/ktime.h>
- #include <linux/mailbox/exynos-message.h>
- #include <linux/mailbox_client.h>
-@@ -25,6 +27,7 @@
- #include <linux/of_address.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
-+#include <linux/preempt.h>
- #include <linux/slab.h>
- #include <linux/types.h>
- 
-@@ -273,6 +276,17 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
- 	return 0;
- }
- 
-+/*
-+ * When ACPM transfers happen very late, e.g. to access a PMIC when powering
-+ * down, we can not sleep. We do want to sleep in the normal case, though, to
-+ * avoid wasting CPU cycles!
-+ */
-+static bool acpm_may_sleep(void)
-+{
-+	return system_state <= SYSTEM_RUNNING ||
-+		(IS_ENABLED(CONFIG_PREEMPT_COUNT) ? preemptible() : !irqs_disabled());
-+}
-+
- /**
-  * acpm_dequeue_by_polling() - RX dequeue by polling.
-  * @achan:	ACPM channel info.
-@@ -300,7 +314,10 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
- 			return 0;
- 
- 		/* Determined experimentally. */
--		usleep_range(20, 30);
-+		if (!acpm_may_sleep())
-+			udelay(10);
-+		else
-+			usleep_range(20, 30);
- 	} while (ktime_before(ktime_get(), timeout));
- 
- 	dev_err(dev, "Timeout! ch:%u s:%u bitmap:%lx.\n",
+Seems similar indeed. (You may have noticed we've actually been using=20
+this patch for a few years)
 
--- 
-2.49.0.395.g12beb8f557-goog
+
+>> When the driver loads, the transceiver may still be in the state of
+>> setting up a link. Wait for that to complete before continuing. This
+>> fixes that the PCIe core does not work when loading the PL bitstream
+>> from userspace. There's only milliseconds between the FPGA boot and the
+>> core initializing in that case, and the link won't be up yet. The design
+>> works when the FPGA was programmed in the bootloader, as that will give
+>> the system hundreds of milliseconds to boot.
+>>
+>> As the PCIe spec mentions about 120 ms time to establish a link, we'll
+>> allow up to 200ms before giving up.
+>>
+> This should be a separate change/patch.
+
+Indeed, this is a separate issue, I'll split it in two parts.
+
+
+>> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+>> ---
+>>
+>>   drivers/pci/controller/pcie-xilinx.c | 25 ++++++++++++++++++++++++-
+>>   1 file changed, 24 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controll=
+er/pcie-xilinx.c
+>> index 0b534f73a942..cd09deba0ddc 100644
+>> --- a/drivers/pci/controller/pcie-xilinx.c
+>> +++ b/drivers/pci/controller/pcie-xilinx.c
+>> @@ -15,8 +15,10 @@
+>>   #include <linux/irqdomain.h>
+>>   #include <linux/kernel.h>
+>>   #include <linux/init.h>
+>> +#include <linux/iopoll.h>
+>>   #include <linux/msi.h>
+>>   #include <linux/of_address.h>
+>> +#include <linux/of_gpio.h>
+>>   #include <linux/of_pci.h>
+>>   #include <linux/of_platform.h>
+>>   #include <linux/of_irq.h>
+>> @@ -126,6 +128,14 @@ static inline bool xilinx_pcie_link_up(struct xilin=
+x_pcie *pcie)
+>>   		XILINX_PCIE_REG_PSCR_LNKUP) ? 1 : 0;
+>>   }
+>>  =20
+>> +static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
+>> +{
+>> +	u32 val;
+>> +
+>> +	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
+>> +			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2000, 200000);
+>> +}
+>> +
+>>   /**
+>>    * xilinx_pcie_clear_err_interrupts - Clear Error Interrupts
+>>    * @pcie: PCIe port information
+>> @@ -492,8 +502,21 @@ static int xilinx_pcie_init_irq_domain(struct xilin=
+x_pcie *pcie)
+>>   static void xilinx_pcie_init_port(struct xilinx_pcie *pcie)
+>>   {
+>>   	struct device *dev =3D pcie->dev;
+>> +	struct gpio_desc *perst_gpio;
+>> +
+>> +	perst_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+>> +	if (IS_ERR(perst_gpio)) {
+>> +		dev_err(dev, "gpio request failed: %d\n", PTR_ERR(perst_gpio));
+>> +		perst_gpio =3D NULL;
+> No. If the GPIO is defined in DT and there is a problem in acquiring it, =
+you
+> should return the error.
+
+Agree. And also, this should be moved to probe() so it can handle=20
+deferred properly.
+
+
+>> +	}
+>> +
+>> +	if (perst_gpio) {
+> This check is not needed as gpiod_set_value_cansleep() can accept NULL.
+
+The check is to prevent the extra "sleep" calls. If the reset was=20
+performed externally (some bootloader or POR logic) the sleep calls=20
+should be skipped.
+
+
+> - Mani
+Thanks for your feedback.
+
+--=20
+Mike Looijmans
+System Expert
+
+TOPIC Embedded Products B.V.
+Materiaalweg 4, 5681 RJ Best
+The Netherlands
+
+T: +31 (0) 499 33 69 69
+E: mike.looijmans@topic.nl
+W: www.topic.nl
+
+
 
 
