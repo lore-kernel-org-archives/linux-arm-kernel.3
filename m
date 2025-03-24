@@ -4,68 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C9DC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 11:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54403C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 11:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fNcJg85jb8uy9BPEHwY/03BnrTApgjljAhujB76L3OQ=; b=ueX1HcqjGbKMYmdVcsrQXPMAYn
-	DozvEPUUinN4jEM7Nx6sFD11sUUlAfLywAgs1DHNUy44Ni6vVbbVbt5GPKkIeZx9z4Z8QUVaou9HX
-	29A1tLUOICXLDzbT9o6L82Cuuz7a+f29MF9P2DnNDEsZQR64ClZJUZLF+7b/f585jZcIQNIGsGeOG
-	Bb+rJve+VQnNdQe945YljFvEaIw1fisJSGdzZpTVlwatzJHDwEks8+bifNUozWw6XJ6MHXOR+kxTz
-	gFvsYF+U5w301wrQ6gBXr5ER1s0PHBOVt3LoU3mTNZ8LDBKLatbygl7ZOp14utS9gYtw4tvm2qCk3
-	6voJ91Ew==;
+	bh=Pw0cEx6IsTGG1uYMGo+yYjZIxkwqft8G5guZsdJe3Cc=; b=CfpbG3Rg1AQBTiBa1iJ+6eJ++x
+	gwsY0e9ygAFd3yvjvkAZjb671RsHyFXI0GDXQ8DM+WwoZLzQrO9gRGWmgbatkOVhGDAKxsUmfOwoL
+	Jimk+RdsdQGQyYLikfPxxegda0fhFCsLoBszVIaAjFye69OPU5m5Z3QPIXxNBnYe7fWCjJU8zSlp9
+	UhBu7iXjUMb8Ro0Voyy2IzO2htGiadYloYeSyNKo9KNneqoeWhHoiB3wcxQ307XZHiS+eUoWMat7k
+	8J/97nIzIP8RwEv7QgCemxxUxKj3xgiypntXvuvh5kcGuAGhI+hcT0Lsdmhdz45Klslj7xjWgvUte
+	DfioTJ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twfbW-00000002uQ9-1MAt;
-	Mon, 24 Mar 2025 11:04:26 +0000
-Received: from out-189.mta0.migadu.com ([91.218.175.189])
+	id 1twfjM-00000002v8r-1Irc;
+	Mon, 24 Mar 2025 11:12:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twfYh-00000002u51-01Qk
+	id 1twfhc-00000002v3j-3DFy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 11:01:32 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1742814078;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fNcJg85jb8uy9BPEHwY/03BnrTApgjljAhujB76L3OQ=;
-	b=mb56TlnpQ2C7KhQEa60Jci1EhHvGjef7HtEcDICRX1TD0r4ooU1qaLVYYQfo8ZkzrnjA6W
-	hOXNmmclCAYps//MT6KIy1u3rRLz+++/Arlt8PHXLtrsH43IRK3fRXdeiuB4/DGailAm0W
-	Og7X5LJ7Bl7RxBw7USIAe8iEwYPaQAsWiIinnHBcwZ1XG31KEJRDXHAdiuY18+/F8IoMcx
-	ov/J2tLfPc8xY6I9sj48SWZwXB51DK9VGy7qtt6NltNAakWwKys9H071NSvnKJcCTfs/B3
-	R51GnMEODCmGELfdr8t02ff/sN22pU/zixEqsrC0a72BAF+FjmUSdt4EETa+vA==
-Content-Transfer-Encoding: quoted-printable
+	Mon, 24 Mar 2025 11:10:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B9CEE43453;
+	Mon, 24 Mar 2025 11:10:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C66A7C4CEDD;
+	Mon, 24 Mar 2025 11:10:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742814643;
+	bh=z/Ldx6B4r8X95UnmP5VrbMIGre4B2pHGjVaFENYqI+Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mGmp2VpL+bJHTYiKFd6rCDqOfHFlHCpcIILSGQMUmBZ/7Rk8fDaeb8zraEfCIWnH1
+	 RwWJwcoM4nIKt4+KeJXMVvLqLT+sau5LzLG4HJdzTn0iNezKexA5TX6lnSIS4uE0eh
+	 9abFfUDPMxVWMCxgM7UpWZWU9w3xG8FOhCN+Hj4u3fFJfxTYZsMsyHChrK9wA3XoxH
+	 VcKulpzR9Uan9efDdJ+NsLFTviInfXc40t7KqMIrGkgLm6Y8nzir/iwmsmSB3L+xyn
+	 qUwuQesncTg+Z+i0fLVLhT/nGFITyfiu8MKIDoV2Q+GPoIz5AcVnadvNb8OgTm3J0p
+	 HMuDU5vyQcPkg==
+Message-ID: <8e8aa069-af9f-453f-9bd0-e3dc2eab59ab@kernel.org>
+Date: Mon, 24 Mar 2025 12:10:34 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+ AST2600-i2cv2
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mo Elbadry <elbadrym@google.com>
+References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
+ <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
+ <OS8PR06MB75415E95342F26F576B5CF8AF2C22@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <50327725-f3b8-4a8b-94a2-85afccd2868a@kernel.org>
+ <OS8PR06MB7541B0DBC64B3EF6838DFE74F2CD2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
+ <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
+ <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
+ <OS8PR06MB7541C3B70B15F45F4824772BF2D92@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <994cb954-f3c4-4a44-800e-9303787c1be9@kernel.org>
+ <SI6PR06MB753542037E1D6BBF5CE8D2E7F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
+ <4523caea-3406-4de0-9ab5-424fb7a0a474@kernel.org>
+ <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 24 Mar 2025 11:00:47 +0000
-Message-Id: <D8OG0OI3HO2V.326AQZHJWCBAI@postmarketos.org>
-Subject: Re: [PATCH v5 2/2] arm64: dts: amlogic: add support for
- xiaomi-aquaman/Mi TV Stick
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Ferass El Hafidi" <funderscore@postmarketos.org>
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
- "Artur Weber" <aweber.kernel@gmail.com>, "Karl Chan"
- <exxxxkc@getgoogleoff.me>, "Christian Hewitt" <christianshewitt@gmail.com>
-To: <neil.armstrong@linaro.org>, "Kevin Hilman" <khilman@baylibre.com>,
- "Jerome Brunet" <jbrunet@baylibre.com>, "Martin Blumenstingl"
- <martin.blumenstingl@googlemail.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, <linux-amlogic@lists.infradead.org>
-References: <20250319190150.31529-2-funderscore@postmarketos.org>
- <20250319190150.31529-4-funderscore@postmarketos.org>
- <f36875c5-73bb-4bf8-a59f-5df30043bbbe@linaro.org>
-In-Reply-To: <f36875c5-73bb-4bf8-a59f-5df30043bbbe@linaro.org>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_040131_184087_C6B670E3 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250324_041044_849828_37995C0C 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +145,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Mar 24, 2025 at 7:02 AM UTC, Neil Armstrong wrote:
-> I get:
-> Error: arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts:243=
-.1-2 syntax error
-> FATAL ERROR: Unable to parse input tree
+On 24/03/2025 11:01, Ryan Chen wrote:
+>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+>> AST2600-i2cv2
+>>
+>> On 24/03/2025 09:30, Ryan Chen wrote:
+>>>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+>>>> AST2600-i2cv2
+>>>>
+>>>> On 19/03/2025 12:12, Ryan Chen wrote:
+>>>>>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+>>>>>> AST2600-i2cv2
+>>>>>>
+>>>>>> On 17/03/2025 10:21, Ryan Chen wrote:
+>>>>>>>> Neither this.
+>>>>>>>>
+>>>>>>>> So it seems you describe already existing and documented I2C, but
+>>>>>>>> for some reason you want second compatible. The problem is that
+>>>>>>>> you do not provide reason from the point of view of bindings.
+>>>>>>>>
+>>>>>>>> To summarize: what your users want - don't care. Start properly
+>>>>>>>> describing hardware and your SoC.
+>>>>>>>
+>>>>>>> OK, for ast2600 i2c controller have two register mode setting.
+>>>>>>> One, I call it is old register setting, that is right now
+>>>>>>> i2c-aspeed.c .compatible = "aspeed,ast2600-i2c-bus", And there
+>>>>>>> have a global register
+>>>>>> that can set i2c controller as new mode register set.
+>>>>>>> That I am going to drive. That I post is all register in new an
+>>>>>>> old register
+>>>> list.
+>>>>>>>
+>>>>>>> For example,
+>>>>>>> Global register [2] = 0 => i2c present as old register set Global
+>>>>>>> register [2] = 1 => i2c present as new register set
+>>>>>> It's the same device though, so the same compatible.
+>>>>>
+>>>>> Sorry, it is different design, and it share the same register space.
+>>>>> So that the reason add new compatible "aspeed,ast2600-i2cv2" for
+>>>>> this
+>>>> driver.
+>>>>> It is different register layout.
+>>>>
+>>>> Which device is described by the existing "aspeed,ast2600-i2c-bus"
+>>>> compatible? And which device is described by new compatible?
+>>>>
+>>> On the AST2600 SoC, there are up to 16 I2C controller instances (I2C1 ~
+>> I2C16).
+>>
+>> So you have 16 same devices.
+> Yes, one driver instance for 16 i2c device. 
+>>
+>>> Each of these controllers is hardwired at the SoC level to use either the
+>> legacy register layout or the new v2 register layout.
+>>> The mode is selected by a bit in the global register, these represent two
+>> different hardware blocks:
+>>> "aspeed,ast2600-i2c-bus" describes controllers using the legacy register
+>> layout.
+>>> "aspeed,ast2600-i2cv2" describes controllers using the new register
+>>> layout
+>>
+>> Which part of "same device" is not clear? You have one device, one compatible.
+>> Whatever you do with register layout, is already defined by that compatible. It
+>> does not matter that you forgot to implement it in the Linux kernel.
+> 
+> Sorry, I still can't catch your point.
 
-Yes, somehow a ";" is missing.
 
->
-> whil building, could you fix that ?
->
-> Neil
+I repeated twice "You have one device, one compatible.", provided few
+more sentences and if this is still unclear, I don't know what to say more.
 
+> I separated the support into two drivers:
+
+I don't care about your drivers, why are you bringing them here?
+
+> i2c-aspeed.c for legacy layout, compatible "aspeed,ast2600-i2c-bus"
+> i2c-ast2600.c for the new register set, compatible compatible "aspeed,ast2600-i2cv2"
+> Do you mean I have integrate into 1 driver at i2c-aspeed.c ? can't be separate two driver?
+
+What is this patch about? Bindings. Not drivers. Look at email month ago:
+
+"All this describes driver, not hardware."
+
+Why are you keep bringing here drivers since a month?
+
+Best regards,
+Krzysztof
 
