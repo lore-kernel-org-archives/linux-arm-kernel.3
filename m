@@ -4,69 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885BFC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC25C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sn+9WvrfHWY+2IqdbQcpXc2meRV7F6T0M7XWCp5U8+M=; b=hE5/28+uX8skRXzMPUq3KPDyyz
-	PSGidd78dr5ni5gUellgzSIFIy18xNvmTCB6J+lsrz4RBt/NBqZHMNDPYtCp1xv2t54UFd/YnO4Fq
-	ybV/dvunDA3HbCMfD2FBhVrolHE8WwwdN1aT3oS1r+c5OOD6281S+MZ262YZ4eQcSPNbeMNYfZlGx
-	n5UNeORyayiddP7ImVvxdaCLjfTe1bj8eBnbYFh46lIaFJ6dwj8HsxXqZnQCzbe+MitHqds2SlNX7
-	O5pE4BLRdGUKQCSeUlg9sjVF5e36Q9mk/IUE0G9ebwztbAmCo1RbsT7BKEA19cptPt4eFhfMmQols
-	CigC7BrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WzeJaaOIY3qOgasgq2SbP7NzsZnSi26UTmzBlBZdbZQ=; b=GG6wwOulZ/CxsMSm7UKvXl0X25
+	x7OTx7h47pG88IdfGR6wgFw4ARJEJCXXXU6RFH5BVfx62tHOn7qBRYbLD715jR3ygzhNFoaHZuVfA
+	Ytt32BCQxp46pYi6DMR5P4qPyfw9+QfQwu5mF6DXyHMA+q/t4r8WpcBqK2Sxo1GgIIjEx5ndt38i2
+	Fwf3MRtyQgkVcrXrgJB0odW4j1yFUZUU+Ght6j2NeF0j68wxDSHS0hPQJkcEPokHN8pfjT4Z1ExU6
+	hy8e8vD/BA4iIzQBivKGtu6/5sFBy2trpC3TUZisxVeI29FyKglT+tMF0ZYL9p0nDM/UpC2VhFyBw
+	0dMhqpcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlWM-00000003mR9-1zhV;
-	Mon, 24 Mar 2025 17:23:30 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1twlY3-00000003mYA-0ex7;
+	Mon, 24 Mar 2025 17:25:15 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlUd-00000003mLJ-1BNS
+	id 1twlVx-00000003mNR-1Nev
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 17:21:45 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4BB15A0611;
-	Mon, 24 Mar 2025 18:21:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=sn+9WvrfHWY+2IqdbQcpXc2meRV7F6T0M7XWCp5U8+M=; b=
-	N/We4BvY8xp9qmON0WwaSaZZNPVnV/yejxsPz9uP3dS7fmbOucHgc5Lwhkvurdtb
-	hLt0ZsdhHzkY0N0kIJdUFqVqw022p4fNFukJe/qQ23crkUnfuwNqYR2IV94v5cXI
-	1fu7/U8K4gNfEMMnPvMCS9Brc7JWkiD1vetg/jqfzrKWreKWM96mIWnbCQf2QuK4
-	EhmWOHGz36PBv4NM107zb5+sdulhuKcucJTFK1sAZHW6W3yhexHWxxdcbtXU+Fc6
-	ndC1ZBaExHo9xpPmvEyuryBisoKQE494Oou76iSRmyH6j//tBl3tGnXCzqnuTBTu
-	0doMda47UZOfavOpy8ssII3vGdLqOZ/Ey+dCnu/kBvqeN31ZJH5aeeuBH/elocFh
-	/v9hE8DH9Ohrc8FEqCtyxG06DBTHopfSX1LIELaREiEoGt2XNWh1FOg+qLwlnfMv
-	A4oremgjR9wuiQyiyFBEp7w8xR8pW9ybQ7ytVyqIGysYU4EFLeiacQdM84//5E4N
-	gbVtmHJBWAYLjI/nyeN8ZAnRPKMtzFnUmR3DGtOMI7DiClapOL+7drfkeg6LH37m
-	bxXNZDlnmqtrnJP2pfFcu0dYepGU/isu4s2DyOQlSPkzvVZxt0HYQ//1zoZAiS9z
-	5qBtvyusORs8TtLrW7jR1LmMmNWmDMvS76TRenHsctg=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Markus
- Elfring" <Markus.Elfring@web.de>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, Chen-Yu Tsai <wens@kernel.org>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Vinod Koul
-	<vkoul@kernel.org>, Samuel Holland <samuel@sholland.org>
-Subject: [PATCH v6] dma-engine: sun4i: Simplify error handling in probe()
-Date: Mon, 24 Mar 2025 18:20:25 +0100
-Message-ID: <20250324172026.370253-2-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.49.0
-MIME-Version: 1.0
+	Mon, 24 Mar 2025 17:23:06 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso32824355e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 10:23:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742836984; x=1743441784; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WzeJaaOIY3qOgasgq2SbP7NzsZnSi26UTmzBlBZdbZQ=;
+        b=SM+tR1mCD0/KmuGa01zeUtcG8RWCYh1pNhYTIK+pm9ydQCg66sf95L/3yKbTLmwK3w
+         VoBJ7kvXyRQd28yf63o8f8F1D8oilGP/IgysuMEJlf0DJdhKryIUZKZ71QBBMPnDBSdF
+         hcllXO3d5+KhXrJZ6HfCvU0rUiQ+oBDbGK7JkkQL2iUvfUSBWpJaXWpmjME5J3gcwQ97
+         9MjYrszzr/AgEsln/7vpZE/u6jzr+j5YdkuyWo8RkanfltRJL0QnIf4nmjxEM1VevvlO
+         kWmMw/+ySSfPTZ5n2H83FGeytOKXbTNfo0yhfRy1y3zgIIXpMPHZ0dO1MBpbwf/6jbAh
+         Z1cQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742836984; x=1743441784;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WzeJaaOIY3qOgasgq2SbP7NzsZnSi26UTmzBlBZdbZQ=;
+        b=BSoC8mqhb/2E4ADbGKxqwef0kT4TPywmRCtoYeXI08+3CMMwfDtT8jskC+mhhknb8D
+         nir7YOp/uN0Qofcpr7XKxSyKNBrutrd6sEKfhOGUSEihqNDSnT6vCwuWNZ0/kGUCSWUH
+         foUiZB/hTgawvNr5zSbcmCujZ5/HPDIDvlGOM2cCmUAOLJmovVLokGANtB4QSk5s7V+p
+         IcExdHnFXpyUyYcZ447fH3MCS/+bYtGHJntdLE8fCPyQ5bzpQa9gCBP2BAp3jTTon4VB
+         B4ok7F4jUdzqkbDsMBtT7AuIyupq/U/MIFBTYlbTrIQbCJNHV78aky1QODm87eLhAgOn
+         jgXA==
+X-Forwarded-Encrypted: i=1; AJvYcCVt/Wv4tVZj+2zTMjmFkYqNStMazGMJ1MMsYyho3yA7aXLPcq7m13ep1+woScpgvaYAIFXZ7NeuiHFp7tBbilRz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yym61k5Rp09/OQyTNlvfH16LVCSBfcZXK9CLeqPWiEIRJseiF9b
+	9jQrbtgQEHyP0Z0nQleorZdH8DZoWakNF+xegPRWx/dMnC0YC5+JACncgj56EkI=
+X-Gm-Gg: ASbGncuUNtBMHKmfgqSdfL/EblsEDKwPZyjwFlY/tKTgzzh4bEo3uzTca6ZQbje1ZQz
+	rBy08pJ0l7pbJZBpnXMk32cpI8X8+RWzLbLgjDn8ZN5J094Pj9qgZxNMKmLnsQCl++GK0UOlA51
+	+OFqmSMMXhMccr4sL/+Bwf8IZayVQmWqWkLxlZA33zi9+tPiLs642gIRPqvmRZqVc1VgbGbVdpL
+	LfGRpqSu0l56jQUzbuZNZ0YTin+YM1JMsx9LE9W80LXcKY+3fy2+SIYyph4jNc3ZUyYkscYQX6O
+	YaL9/6Db2Nc6C4DugYHHX/FV4Emmp8vXs0jz8ioQiDYaFfQ=
+X-Google-Smtp-Source: AGHT+IHfEsqVrCp9uQuTAuS3ap1nR417rILjVAh7N1JNOE8t++oFUPwfBJvs4SjxnMYZNeDOSpPNtQ==
+X-Received: by 2002:a05:6000:18a2:b0:391:3028:c779 with SMTP id ffacd0b85a97d-3997f95956cmr12682045f8f.45.1742836983616;
+        Mon, 24 Mar 2025 10:23:03 -0700 (PDT)
+Received: from salami.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f556a4sm177445795e9.22.2025.03.24.10.23.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 10:23:03 -0700 (PDT)
+Message-ID: <26037d49069309915d6ac3dc4d0aff90175754de.camel@linaro.org>
+Subject: Re: [PATCH 01/34] dt-bindings: mfd: samsung,s2mps11: add s2mpg10
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi	 <cw00.choi@samsung.com>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Russell King	 <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon	 <will@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Will
+ McVicker	 <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+Date: Mon, 24 Mar 2025 17:23:01 +0000
+In-Reply-To: <20250324165533.GA521455-robh@kernel.org>
+References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
+	 <20250323-s2mpg10-v1-1-d08943702707@linaro.org>
+	 <20250324165533.GA521455-robh@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1742836890;VERSION=7987;MC=2160210615;ID=85768;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D948526D7C62
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.55.3-1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_102143_783650_A4DDE4E8 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250324_102305_374095_8594CEFE 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,124 +110,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clean up error handling by using devm functions and dev_err_probe(). This
-should make it easier to add new code, as we can eliminate the "goto
-ladder" in sun4i_dma_probe().
+Hi Rob,
 
-Suggested-by: Chen-Yu Tsai <wens@kernel.org>
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Acked-by: Chen-Yu Tsai <wens@csie.org>
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
+Thanks for your review!
 
-Notes:
-    Changes in v2:
-    * rebase on current next
-    Changes in v3:
-    * rebase on current next
-    * collect Jernej's tag
-    Changes in v4:
-    * rebase on current next
-    * collect Chen-Yu's tag
-    Changes in v5:
-    * reformat msg to 75 cols
-    * keep `\n`s in error messages
-    Changes in v6:
-    * remove redundant braces
-    * break lines to stay under 85 cols
-    * reword subject and message
+On Mon, 2025-03-24 at 11:55 -0500, Rob Herring wrote:
+> On Sun, Mar 23, 2025 at 10:39:17PM +0000, Andr=C3=A9 Draszik wrote:
+> > The Samsung S2MPG10 PMIC is similar to the existing PMICs supported by
+> > this binding.
+> >=20
+> > It is a Power Management IC for mobile applications with buck
+> > converters, various LDOs, power meters, RTC, clock outputs, and
+> > additional GPIOs interfaces.
+> >=20
+> > Unlike other Samsung PMICs, communication is not via I2C, but via the
+> > Samsung ACPM firmware, it therefore doesn't need a 'reg' property but a
+> > handle to the ACPM firmware node instead.
+>=20
+> Can it be a child node of the ACPM node instead?
 
- drivers/dma/sun4i-dma.c | 46 ++++++++++++-----------------------------
- 1 file changed, 13 insertions(+), 33 deletions(-)
+That should work, I'll do that instead so.
 
-diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
-index 24796aaaddfa..00d2fd38d17f 100644
---- a/drivers/dma/sun4i-dma.c
-+++ b/drivers/dma/sun4i-dma.c
-@@ -1249,11 +1249,10 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 	if (priv->irq < 0)
- 		return priv->irq;
- 
--	priv->clk = devm_clk_get(&pdev->dev, NULL);
--	if (IS_ERR(priv->clk)) {
--		dev_err(&pdev->dev, "No clock specified\n");
--		return PTR_ERR(priv->clk);
--	}
-+	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(priv->clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk),
-+				     "Couldn't start the clock\n");
- 
- 	if (priv->cfg->has_reset) {
- 		priv->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
-@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 		vchan_init(&vchan->vc, &priv->slave);
- 	}
- 
--	ret = clk_prepare_enable(priv->clk);
--	if (ret) {
--		dev_err(&pdev->dev, "Couldn't enable the clock\n");
--		return ret;
--	}
--
- 	/*
- 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
- 	 * likes to leave these dirty
-@@ -1343,33 +1336,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 
- 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
- 			       0, dev_name(&pdev->dev), priv);
--	if (ret) {
--		dev_err(&pdev->dev, "Cannot request IRQ\n");
--		goto err_clk_disable;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ\n");
- 
--	ret = dma_async_device_register(&priv->slave);
--	if (ret) {
--		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
--		goto err_clk_disable;
--	}
-+	ret = dmaenginem_async_device_register(&priv->slave);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to register DMA engine device\n");
- 
- 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
- 					 priv);
--	if (ret) {
--		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
--		goto err_dma_unregister;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to register translation function\n");
- 
- 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
- 
- 	return 0;
--
--err_dma_unregister:
--	dma_async_device_unregister(&priv->slave);
--err_clk_disable:
--	clk_disable_unprepare(priv->clk);
--	return ret;
- }
- 
- static void sun4i_dma_remove(struct platform_device *pdev)
-@@ -1380,9 +1363,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
- 	disable_irq(priv->irq);
- 
- 	of_dma_controller_free(pdev->dev.of_node);
--	dma_async_device_unregister(&priv->slave);
--
--	clk_disable_unprepare(priv->clk);
- }
- 
- static struct sun4i_dma_config sun4i_a10_dma_cfg = {
--- 
-2.49.0
+> >=20
+> > S2MPG10 can also act as a system power controller allowing
+> > implementation of a true cold-reset of the system.
+> >=20
+> > Support for the other components will be added in subsequent future
+> > patches.
+> >=20
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > ---
+> > =C2=A0.../devicetree/bindings/mfd/samsung,s2mps11.yaml=C2=A0=C2=A0 | 34=
+ ++++++++++++++++++++--
+> > =C2=A01 file changed, 32 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml=
+ b/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
+> > index ac5d0c149796b6a4034b5d4245bfa8be0433cfab..ae8adb80b3af7ec3722c2a5=
+718ad8fddf0a5df34 100644
+> > --- a/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
+> > +++ b/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
+> > @@ -20,6 +20,7 @@ description: |
+> > =C2=A0properties:
+> > =C2=A0=C2=A0 compatible:
+> > =C2=A0=C2=A0=C2=A0=C2=A0 enum:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mpg10-pmic
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mps11-pmic
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mps13-pmic
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mps14-pmic
+> > @@ -43,6 +44,12 @@ properties:
+> > =C2=A0=C2=A0=C2=A0=C2=A0 description:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 List of child nodes that specify t=
+he regulators.
+> > =C2=A0
+> > +=C2=A0 exynos,acpm-ipc:
+> > +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/phandle
+> > +=C2=A0=C2=A0=C2=A0 description: |
+>=20
+> Don't need '|' if no formatting to preserve.
 
+Oops, yes, sorry.
 
+Cheers,
+Andre'
+
+>=20
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Phandle to the ACPM node for when ACPM =
+is used to communicate with the
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 PMIC, rather than I2C.
+> > +
+> > =C2=A0=C2=A0 samsung,s2mps11-acokb-ground:
+> > =C2=A0=C2=A0=C2=A0=C2=A0 description: |
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Indicates that ACOKB pin of S2MPS1=
+1 PMIC is connected to the ground so
+> > @@ -58,16 +65,39 @@ properties:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset (setting buck voltages to de=
+fault values).
+> > =C2=A0=C2=A0=C2=A0=C2=A0 type: boolean
+> > =C2=A0
+> > +=C2=A0 system-power-controller: true
+> > +
+> > =C2=A0=C2=A0 wakeup-source: true
+> > =C2=A0
+> > =C2=A0required:
+> > =C2=A0=C2=A0 - compatible
+> > -=C2=A0 - reg
+> > -=C2=A0 - regulators
+> > =C2=A0
+> > =C2=A0additionalProperties: false
+> > =C2=A0
+> > =C2=A0allOf:
+> > +=C2=A0 - if:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 con=
+st: samsung,s2mpg10-pmic
+> > +=C2=A0=C2=A0=C2=A0 then:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 regulators: false
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 samsung,s2mps11-acokb-groun=
+d: false
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 samsung,s2mps11-wrstbi-grou=
+nd: false
+> > +
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - exynos,acpm-ipc
+> > +
+> > +=C2=A0=C2=A0=C2=A0 else:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 exynos,acpm-ipc: false
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 system-power-controller: fa=
+lse
+> > +
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - reg
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - regulators
+> > +
+> > =C2=A0=C2=A0 - if:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> >=20
+> > --=20
+> > 2.49.0.395.g12beb8f557-goog
+> >=20
 
