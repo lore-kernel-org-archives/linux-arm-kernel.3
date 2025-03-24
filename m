@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE2C2C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79BD4C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ymJKETCSTNnFSnfSZgglYyUeLl0v9Qyv3Aw0QA1tGBc=; b=TYovaZgYN/CcYlF3IlQ/ecH5Di
-	AYjnRgqvZ6ZeqUZuLjhRnzfulpcBKuwkVwjegsvIOPJEZiJERLs7e1mqhY6JlUwfj8EZaMOxyiXzG
-	qsJLHCD6fBDuvGWivcUQeNVVU4zLdHpNVH9R5Dpob9KFmS54NhmJd6jRceMBHYPu0oxVpL/F1DVPO
-	MSy2cjwSt71r3FfzLfpK3zIJknwaHD+EJDMX9G3aMzjUrA1pHrxgPzl/YXKHePYa+v3dHp+FhukoV
-	i5sA2lvn+GKSz94K/f7SpAofR3B3dF+1u2kj28bMLQfjoxRCRpqG40qUFccwhoI8ZBJo1C5YWiBYT
-	NF6bGtvA==;
+	bh=MNcOREEhCrM64183cUkXTDSSnzuWQywRqrwuUd6qql0=; b=leUNKuMELNQRHN5NljFmjzyk1n
+	lOsU2VDQmtcgLGw2nop95S59C8PGyvVbhNDK1QAKqyyUIqKTTd6COSKraIyida9CTzlBr66hgkvkI
+	+WWFanOUx/FHOOTJmO5RWG3GHZ6nqzZBWIdq+Aqiwkm7A3qnNe00qfX5tJDCiAQt9yHUHzfky+rIE
+	iLtIzLQTsiv/1W6ICQqPnoLpU3xa+l88OcOnzvY7wPrEDXgYVKBb16dehwsfXDlQEMzvm5SBVMOJR
+	Je1xrWt67Hugx777Z1tasA/LNTJ/Hi6fOxvVlLWqGjS79AwzRae5+cYZLxyXfLN6sen9HoaAWY0O2
+	WwGs0eVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twnYT-000000045Wu-0QtO;
-	Mon, 24 Mar 2025 19:33:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1twna9-000000045nu-3HM7;
+	Mon, 24 Mar 2025 19:35:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twn2M-000000040Ws-0JwH
+	id 1twn2N-000000040Xd-3YuV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 19:00:39 +0000
+	Mon, 24 Mar 2025 19:00:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 700A05C429B;
-	Mon, 24 Mar 2025 18:58:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4A20C4CEE4;
-	Mon, 24 Mar 2025 19:00:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DAC6C4345B;
+	Mon, 24 Mar 2025 19:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2172C4CEDD;
+	Mon, 24 Mar 2025 19:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1742842837;
-	bh=m0TddWX+32cB72i3MLkvFdKDxfrtOa4XMc0btuXzzrw=;
+	s=korg; t=1742842839;
+	bh=9Jh4peL/XBz8jaxY6wKcCbIgf8Pk+hR4sq1cg0VPftE=;
 	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=jdCVAS/fOANWOYSdhjU1uaSadvmdpVt/gTZrAz8AlfhLUtENtvFlRszMkzkSX59JF
-	 i3Kp+jTfuDbm2K1AIO3gBCESM4YMJhTj8ho+06MniTl+4klWcCHMqvN0b3m1jjAIpl
-	 uN+KZt1CUUW9PtNmIqr71KsqRimqZlATfEodrsDs=
-Subject: Patch "KVM: arm64: Mark some header functions as inline" has been added to the 6.12-stable tree
+	b=GJMA+BExmomh0vWWcf1hWkIawjxOJhsbfHw5xo65WpY1Yxh7vhXAyrJmPC2wiMcb+
+	 qK/YI1biI1riG5NKdoFu9Y+olJ48O8UTtQM7ualDD4L3bOkzBBtRgOeuTNsoaXo68q
+	 0BW5y8tISGf9FsuKsaV/hCELaDGfg1W+Ne3kovbQ=
+Subject: Patch "KVM: arm64: Remove host FPSIMD saving for non-protected KVM" has been added to the 6.12-stable tree
 To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Mon, 24 Mar 2025 11:59:04 -0700
-In-Reply-To: <20250321-stable-sve-6-12-v2-7-417ca2278d18@kernel.org>
-Message-ID: <2025032404-ounce-washbasin-886f@gregkh>
+Date: Mon, 24 Mar 2025 11:59:05 -0700
+In-Reply-To: <20250321-stable-sve-6-12-v2-3-417ca2278d18@kernel.org>
+Message-ID: <2025032405-pennant-purity-3d7b@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
 X-stable: commit
 X-Patchwork-Hint: ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_120038_237327_934BB112 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20250324_120039_937181_5009917D 
+X-CRM114-Status: GOOD (  28.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,60 +71,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 This is a note to let you know that I've just added the patch titled
 
-    KVM: arm64: Mark some header functions as inline
+    KVM: arm64: Remove host FPSIMD saving for non-protected KVM
 
 to the 6.12-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     kvm-arm64-mark-some-header-functions-as-inline.patch
+     kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
 and it can be found in the queue-6.12 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
 
 
-From broonie@kernel.org Thu Mar 20 17:13:50 2025
+From stable+bounces-125709-greg=kroah.com@vger.kernel.org Thu Mar 20 17:15:04 2025
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 21 Mar 2025 00:13:03 +0000
-Subject: KVM: arm64: Mark some header functions as inline
+Date: Fri, 21 Mar 2025 00:12:59 +0000
+Subject: KVM: arm64: Remove host FPSIMD saving for non-protected KVM
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Fuad Tabba <tabba@google.com>
-Message-ID: <20250321-stable-sve-6-12-v2-7-417ca2278d18@kernel.org>
+Message-ID: <20250321-stable-sve-6-12-v2-3-417ca2278d18@kernel.org>
 
 From: Mark Rutland <mark.rutland@arm.com>
 
-[ Upstream commit f9dd00de1e53a47763dfad601635d18542c3836d ]
+[ Upstream commit 8eca7f6d5100b6997df4f532090bc3f7e0203bef ]
 
-The shared hyp switch header has a number of static functions which
-might not be used by all files that include the header, and when unused
-they will provoke compiler warnings, e.g.
+Now that the host eagerly saves its own FPSIMD/SVE/SME state,
+non-protected KVM never needs to save the host FPSIMD/SVE/SME state,
+and the code to do this is never used. Protected KVM still needs to
+save/restore the host FPSIMD/SVE state to avoid leaking guest state to
+the host (and to avoid revealing to the host whether the guest used
+FPSIMD/SVE/SME), and that code needs to be retained.
 
-| In file included from arch/arm64/kvm/hyp/nvhe/hyp-main.c:8:
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:703:13: warning: 'kvm_hyp_handle_dabt_low' defined but not used [-Wunused-function]
-|   703 | static bool kvm_hyp_handle_dabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:682:13: warning: 'kvm_hyp_handle_cp15_32' defined but not used [-Wunused-function]
-|   682 | static bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:662:13: warning: 'kvm_hyp_handle_sysreg' defined but not used [-Wunused-function]
-|   662 | static bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:458:13: warning: 'kvm_hyp_handle_fpsimd' defined but not used [-Wunused-function]
-|   458 | static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:329:13: warning: 'kvm_hyp_handle_mops' defined but not used [-Wunused-function]
-|   329 | static bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~
+Remove the unused code and data structures.
 
-Mark these functions as 'inline' to suppress this warning. This
-shouldn't result in any functional change.
-
-At the same time, avoid the use of __alias() in the header and alias
-kvm_hyp_handle_iabt_low() and kvm_hyp_handle_watchpt_low() to
-kvm_hyp_handle_memory_fault() using CPP, matching the style in the rest
-of the kernel. For consistency, kvm_hyp_handle_memory_fault() is also
-marked as 'inline'.
+To avoid the need for a stub copy of kvm_hyp_save_fpsimd_host() in the
+VHE hyp code, the nVHE/hVHE version is moved into the shared switch
+header, where it is only invoked when KVM is in protected mode.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
@@ -135,77 +118,184 @@ Cc: Fuad Tabba <tabba@google.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oliver.upton@linux.dev>
 Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-8-mark.rutland@arm.com
+Link: https://lore.kernel.org/r/20250210195226.1215254-3-mark.rutland@arm.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h |   19 +++++++++----------
- 1 file changed, 9 insertions(+), 10 deletions(-)
+ arch/arm64/include/asm/kvm_host.h       |   18 ++++--------------
+ arch/arm64/kvm/arm.c                    |    8 --------
+ arch/arm64/kvm/fpsimd.c                 |    2 --
+ arch/arm64/kvm/hyp/include/hyp/switch.h |   25 +++++++++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |    2 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c        |   28 ----------------------------
+ arch/arm64/kvm/hyp/vhe/switch.c         |    8 --------
+ 7 files changed, 28 insertions(+), 63 deletions(-)
 
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -295,7 +295,7 @@ static inline bool __populate_fault_info
- 	return __get_fault_info(vcpu->arch.fault.esr_el2, &vcpu->arch.fault);
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -602,23 +602,13 @@ struct kvm_host_data {
+ 	struct kvm_cpu_context host_ctxt;
+ 
+ 	/*
+-	 * All pointers in this union are hyp VA.
++	 * Hyp VA.
+ 	 * sve_state is only used in pKVM and if system_supports_sve().
+ 	 */
+-	union {
+-		struct user_fpsimd_state *fpsimd_state;
+-		struct cpu_sve_state *sve_state;
+-	};
++	struct cpu_sve_state *sve_state;
+ 
+-	union {
+-		/* HYP VA pointer to the host storage for FPMR */
+-		u64	*fpmr_ptr;
+-		/*
+-		 * Used by pKVM only, as it needs to provide storage
+-		 * for the host
+-		 */
+-		u64	fpmr;
+-	};
++	/* Used by pKVM only. */
++	u64	fpmr;
+ 
+ 	/* Ownership of the FP regs */
+ 	enum {
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2476,14 +2476,6 @@ static void finalize_init_hyp_mode(void)
+ 			per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state =
+ 				kern_hyp_va(sve_state);
+ 		}
+-	} else {
+-		for_each_possible_cpu(cpu) {
+-			struct user_fpsimd_state *fpsimd_state;
+-
+-			fpsimd_state = &per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->host_ctxt.fp_regs;
+-			per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->fpsimd_state =
+-				kern_hyp_va(fpsimd_state);
+-		}
+ 	}
  }
  
--static bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
- 	arm64_mops_reset_regs(vcpu_gp_regs(vcpu), vcpu->arch.fault.esr_el2);
-@@ -373,7 +373,7 @@ static void kvm_hyp_save_fpsimd_host(str
-  * If FP/SIMD is not implemented, handle the trap and inject an undefined
-  * instruction exception to the guest. Similarly for trapped SVE accesses.
-  */
--static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	bool sve_guest;
- 	u8 esr_ec;
-@@ -564,7 +564,7 @@ static bool handle_ampere1_tcr(struct kv
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -64,8 +64,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
+ 	 */
+ 	fpsimd_save_and_flush_cpu_state();
+ 	*host_data_ptr(fp_owner) = FP_STATE_FREE;
+-	*host_data_ptr(fpsimd_state) = NULL;
+-	*host_data_ptr(fpmr_ptr) = NULL;
+ 
+ 	vcpu_clear_flag(vcpu, HOST_SVE_ENABLED);
+ 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -344,7 +344,28 @@ static inline void __hyp_sve_save_host(v
+ 			 true);
+ }
+ 
+-static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu);
++static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
++{
++	/*
++	 * Non-protected kvm relies on the host restoring its sve state.
++	 * Protected kvm restores the host's sve state as not to reveal that
++	 * fpsimd was used by a guest nor leak upper sve bits.
++	 */
++	if (system_supports_sve()) {
++		__hyp_sve_save_host();
++
++		/* Re-enable SVE traps if not supported for the guest vcpu. */
++		if (!vcpu_has_sve(vcpu))
++			cpacr_clear_set(CPACR_ELx_ZEN, 0);
++
++	} else {
++		__fpsimd_save_state(host_data_ptr(host_ctxt.fp_regs));
++	}
++
++	if (kvm_has_fpmr(kern_hyp_va(vcpu->kvm)))
++		*host_data_ptr(fpmr) = read_sysreg_s(SYS_FPMR);
++}
++
+ 
+ /*
+  * We trap the first access to the FP/SIMD to save the host context and
+@@ -394,7 +415,7 @@ static bool kvm_hyp_handle_fpsimd(struct
+ 	isb();
+ 
+ 	/* Write out the host state if it's in the registers */
+-	if (host_owns_fp_regs())
++	if (is_protected_kvm_enabled() && host_owns_fp_regs())
+ 		kvm_hyp_save_fpsimd_host(vcpu);
+ 
+ 	/* Restore the guest state */
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -83,7 +83,7 @@ static void fpsimd_sve_sync(struct kvm_v
+ 	if (system_supports_sve())
+ 		__hyp_sve_restore_host();
+ 	else
+-		__fpsimd_restore_state(*host_data_ptr(fpsimd_state));
++		__fpsimd_restore_state(host_data_ptr(host_ctxt.fp_regs));
+ 
+ 	if (has_fpmr)
+ 		write_sysreg_s(*host_data_ptr(fpmr), SYS_FPMR);
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -193,34 +193,6 @@ static bool kvm_handle_pvm_sys64(struct
+ 		kvm_handle_pvm_sysreg(vcpu, exit_code));
+ }
+ 
+-static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
+-{
+-	/*
+-	 * Non-protected kvm relies on the host restoring its sve state.
+-	 * Protected kvm restores the host's sve state as not to reveal that
+-	 * fpsimd was used by a guest nor leak upper sve bits.
+-	 */
+-	if (unlikely(is_protected_kvm_enabled() && system_supports_sve())) {
+-		__hyp_sve_save_host();
+-
+-		/* Re-enable SVE traps if not supported for the guest vcpu. */
+-		if (!vcpu_has_sve(vcpu))
+-			cpacr_clear_set(CPACR_ELx_ZEN, 0);
+-
+-	} else {
+-		__fpsimd_save_state(*host_data_ptr(fpsimd_state));
+-	}
+-
+-	if (kvm_has_fpmr(kern_hyp_va(vcpu->kvm))) {
+-		u64 val = read_sysreg_s(SYS_FPMR);
+-
+-		if (unlikely(is_protected_kvm_enabled()))
+-			*host_data_ptr(fpmr) = val;
+-		else
+-			**host_data_ptr(fpmr_ptr) = val;
+-	}
+-}
+-
+ static const exit_handler_fn hyp_exit_handlers[] = {
+ 	[0 ... ESR_ELx_EC_MAX]		= NULL,
+ 	[ESR_ELx_EC_CP15_32]		= kvm_hyp_handle_cp15_32,
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -309,14 +309,6 @@ static bool kvm_hyp_handle_eret(struct k
  	return true;
  }
  
--static bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
+-static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
+-{
+-	__fpsimd_save_state(*host_data_ptr(fpsimd_state));
+-
+-	if (kvm_has_fpmr(vcpu->kvm))
+-		**host_data_ptr(fpmr_ptr) = read_sysreg_s(SYS_FPMR);
+-}
+-
+ static bool kvm_hyp_handle_tlbi_el2(struct kvm_vcpu *vcpu, u64 *exit_code)
  {
- 	if (cpus_have_final_cap(ARM64_WORKAROUND_CAVIUM_TX2_219_TVM) &&
- 	    handle_tx2_tvm(vcpu))
-@@ -584,7 +584,7 @@ static bool kvm_hyp_handle_sysreg(struct
- 	return false;
- }
- 
--static bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	if (static_branch_unlikely(&vgic_v3_cpuif_trap) &&
- 	    __vgic_v3_perform_cpuif_access(vcpu) == 1)
-@@ -593,19 +593,18 @@ static bool kvm_hyp_handle_cp15_32(struc
- 	return false;
- }
- 
--static bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
-+					       u64 *exit_code)
- {
- 	if (!__populate_fault_info(vcpu))
- 		return true;
- 
- 	return false;
- }
--static bool kvm_hyp_handle_iabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
--	__alias(kvm_hyp_handle_memory_fault);
--static bool kvm_hyp_handle_watchpt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
--	__alias(kvm_hyp_handle_memory_fault);
-+#define kvm_hyp_handle_iabt_low		kvm_hyp_handle_memory_fault
-+#define kvm_hyp_handle_watchpt_low	kvm_hyp_handle_memory_fault
- 
--static bool kvm_hyp_handle_dabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_dabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	if (kvm_hyp_handle_memory_fault(vcpu, exit_code))
- 		return true;
+ 	int ret = -EINVAL;
 
 
 Patches currently in stable-queue which might be from broonie@kernel.org are
