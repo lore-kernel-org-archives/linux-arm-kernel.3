@@ -4,195 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460EBC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 15:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D202CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 15:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+prPsFn1iWaSFHGIzuAw8AEj5MDCbnVehFeVVI3FHdk=; b=Zln9dPNWn2itiiPOGkTCkf8T5y
-	igKZIC6vpeecup6DyHqmHkcvFQ1wCtiWd1uSvnmgf+2ablF3AcMcEdgQBMVrqh1KT4J5jJgzGSU9Y
-	T8FER7ZQINYdgaamzla/oDC0yUKW1Mi2Ma01+SxraKs2PPM6MD8uTu7hZxmZFuvOnlBbkfeOG/h1v
-	f3F4M6QffeTaqfv9n8uRNzpz/zDidWoDwodCxKCF5LHLG/X+fGQHF+Yu8uV+8ZmkUEuOd1SEye2yF
-	o/n92NEF9rztlyNdfLdS7N+QYw55eORbJMLpwEbCOnq19dnTUHz69SF5ZUFlyz2CN4bkLyk4iWv7e
-	51sOC5xw==;
+	bh=kcqZE4qPTQHVucGSFwcIhAMd1jR70HnZWUK0ZLVzwjk=; b=GDUShmUeKI3/DCpcKsd9W+A6Ml
+	4evAktfjzA8qXrPmg2bKsip9NrLErKlCWvmHrJHJNXNy2drGtspigganTBZa8009Mhy4taYKf7OS6
+	EdXsfVZTqNaI067i+q90ImVmm1mouv8B0hTBjuew7JoZgPhgHGPHHA7y3/eO2zHdkp2DvGNiyOpwx
+	bMc+L/yGwQ9XQL8GEHeYmgPFUoizoTYQcBFZImvGRk7hqVmubyss+T0j8r4vuxsogKXvHku/1bh99
+	LdNrwGW9qwldrjodLckrPEvLNsaAiYB+1kaWIHVJ6m/Npwh25uaEBZfk8FUcgog8YkZsMnyu0OYb2
+	ikE3DHhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twk2u-00000003YI2-1sw6;
-	Mon, 24 Mar 2025 15:49:00 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1twk4b-00000003YV4-0VcQ;
+	Mon, 24 Mar 2025 15:50:45 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twk1A-00000003Y9Y-0jH8
+	id 1twk1u-00000003YDN-0cCB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 15:47:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J5px27ztwpWIFZJoRDQDAPtmH730f1DCzR+r8mwVoYstsPZjyUNWVhSCTUs74QOVH6ZUmd3Qok9MurrDYLtdog5/XS9hodMzeuvAtUSsS+Ybr4uJ2rKNURSeR7NErSdg6PnpMZnfurEHFmyjh6sv/t7X1TnFoyHtUdiAlC/9G2kZMieOPw9ZwyCpSQ7uWhlC3HcqC2xEhjCo/oK+ML3dWSvmOYRrXi2LurRp2QQlAg6q65EUaIOGsYZXmac2/N4upUoXP0aL70bcztM/54h2Go9Bc3oM9+Y57aR//YRwWRtfkALnG1HZOQ16OPOD9+Nu5YCm8dzDbKipgUIUbQRMAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+prPsFn1iWaSFHGIzuAw8AEj5MDCbnVehFeVVI3FHdk=;
- b=Veo54tBONpq1W9v55J77zCZ9Gsz9Ncgoi6rEbTqx4HLF56zHb2vlzyhHWC5p41QUmsrHA+WYE5t3d7zNYhC/uLZ2pAd7AaGcZOBUBRFuIQ8ZO/05PfwjlE15sz1ZgB8ExyixII8XFISNj3IcLsRhKA3KV4G3RSIKk49h1GTiPmUCh0xS79Ryg2Ntxm0fy3o6iz8l0BrcTAfma/z+tF7OXTa+UytcOoj91MfaOvyaWrUBzZWBf/cfTCfqpc0T+wkG/m64d9aEBJ0T6TbO9ia1O8B7G7NWVPfJ3doZQbNZZbpQtWV0J+Sf9WkmIBn/1N5m09KdPJe0imgD9XbXC7RfRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 13.93.42.39) smtp.rcpttodomain=linaro.org smtp.mailfrom=topic.nl; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=topic.nl; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+prPsFn1iWaSFHGIzuAw8AEj5MDCbnVehFeVVI3FHdk=;
- b=zSpNY2EBxzJqyYECywZADAoqN0mEmZsdAhWPeCyd2RNLJKUWUtYqQOAqAmYlEur1bScCNHXX2hfMdeR0hug5wLuC2c5pqgb/FgUpULEeuASFb3tF2woBsOD2+JKocM+T8sCc/HiMk/fckqV+hM4eCkKcqCGeY6aTY4u0LbIoW2t9hUNUQSKtw+5dA8p+rYqZioquymkg5jSHfXiA1MDgwjfXZS83OP8pRBjyQANzhMEfZIZEDzMH8SuxMQbNrzlBcpgj5MvVH8X3jxPN75bBKqqicuGdXSFUqL9s7WpHQudwenit3WWHSYlGMaauNUvsvhzJT2pxL70c6bQCRW/8KA==
-Received: from DU2PR04CA0295.eurprd04.prod.outlook.com (2603:10a6:10:28c::30)
- by VI1PR04MB6992.eurprd04.prod.outlook.com (2603:10a6:803:139::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
- 2025 15:47:01 +0000
-Received: from DU2PEPF00028D11.eurprd03.prod.outlook.com
- (2603:10a6:10:28c:cafe::d2) by DU2PR04CA0295.outlook.office365.com
- (2603:10a6:10:28c::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.38 via Frontend Transport; Mon,
- 24 Mar 2025 15:47:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
- smtp.mailfrom=topic.nl; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=topic.nl;
-Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
- 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
- client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
-Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
- DU2PEPF00028D11.mail.protection.outlook.com (10.167.242.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.20 via Frontend Transport; Mon, 24 Mar 2025 15:47:01 +0000
-Received: from OSPPR02CU001.outbound.protection.outlook.com (40.93.81.78) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Mon, 24 Mar 2025 15:46:58 +0000
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=topic.nl;
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
- by PA2PR04MB10335.eurprd04.prod.outlook.com (2603:10a6:102:419::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
- 2025 15:46:56 +0000
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8534.040; Mon, 24 Mar 2025
- 15:46:56 +0000
-Message-ID: <0e7637a0-8b8f-4aa7-be46-1e7b8ac07a45@topic.nl>
-Date: Mon, 24 Mar 2025 16:46:55 +0100
-User-Agent: Mozilla Thunderbird
-From: Mike Looijmans <mike.looijmans@topic.nl>
-Subject: Re: [PATCH] pcie-xilinx: Support reset GPIO and wait for link-up
- status
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.c4ab15e9-561e-402d-bf39-9e852485e4fa@emailsignatures365.codetwo.com>
- <20250314145933.27902-1-mike.looijmans@topic.nl>
- <vazbdawfo4jnct4rdokknxwvknespcf33jzrmobsnecbxnrbjn@kbvxvhrow4fn>
-Content-Language: en-US, nl
-Organization: Topic
-In-Reply-To: <vazbdawfo4jnct4rdokknxwvknespcf33jzrmobsnecbxnrbjn@kbvxvhrow4fn>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+	Mon, 24 Mar 2025 15:47:59 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cf257158fso30692055e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 08:47:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742831276; x=1743436076; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=kcqZE4qPTQHVucGSFwcIhAMd1jR70HnZWUK0ZLVzwjk=;
+        b=MLI0ovBGpR2WyXyKpO4CmxG63Va7HvDvBLtSLWWsLNTjy5dmAhVUoMWoCXkfG0gXKa
+         qftJ3XbqjGof2PtbQtq4Mm0/uvHU8405MXiINtQukAVdd4XlRGMIOGiQkzwvQlTdS8FL
+         hVRysRsh+O01VHAC3AHWFGwdHJjeamqdXspDJ7rkDwST7F1P5rJ75dkLK4unloxiu8wx
+         U2QVx5A8RuPTVlPdQsNcYe7xc9qgj4SPG0rDYTctc0sRuyBwOaXTd/a3uLxD7O6xNr+X
+         BtqUQ0C+yF7b0q+8uYm8/xs1iT04iaaD8bX58SNG9jlE5BQlh5gN/PAmNnxykCdG1Ll1
+         9wLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742831276; x=1743436076;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kcqZE4qPTQHVucGSFwcIhAMd1jR70HnZWUK0ZLVzwjk=;
+        b=eHWQMhNh6vu49gh2gzItn/tbMN1E4dns42CZFQh0TsxXdLeks4axZzwM2x8GiZyQSS
+         x0UG3p2fXFmJTLsZ2Kch8XabyC73I8mbJ91U21pPtApGosKIt759c4pd9TJNSxfjED8Y
+         OtfbdeQaaWVBdzSe4bToBbKIbrTD0NdBwLonLLXX3/UGmQvrJKhEFa0dc5y+hx33q5Pt
+         rHFn6f0UDOZHJB+OOGZBRSF2wT0z4XAPoNsAGoNzbwDtiK6Hg9lO1bf+zjLhC/WB8a9k
+         8PI3koMmrb2dK9HvHbj4LlYRZvcAiCNUZj8AuvtiPCLKPfFVkt0KIKlMJz5fuU5/5ksj
+         hiww==
+X-Forwarded-Encrypted: i=1; AJvYcCV+V9I7S+oR4PEDj6rsBvQ17XS3bcNu7JKllTgfVs7FGdvYhKp4KIsWNwMxmDx5zaAgJDgvtZrATv6TO9GJxhXC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRUpN1hOtuL8yW5NaK+dwWIHdgR1bN9nQZSzFPSyWVBYNwWMNG
+	QE/nRyNAPyKtN1j3xaFUHjmTV1rSiSGZJplS3cq/5cejfz77pZOeuj3/OsdCYDs=
+X-Gm-Gg: ASbGncspBi7jnNgEMAzdOzDylYizQSGXW2Qq+Yl20wwKqYa7AI6SiMIuZs3Bdy2+CMi
+	UbMmYaTmYSfALAR6h1ZqxnQv+mXHxR7kl04EzUOCnE4sMSDn/3tOJbMIJW/KH5TSET1hVIurUEy
+	oWxIRyCerxPgf5tphh6OyHg86Uo9MOty+EA4A/fTrefxh7Y91Mg+fNjun5dI3ruCEuOC2yeiapP
+	FfMu3bZOAGKq8rlqi8nyHNwXdtF6lSf7IcBtFQiEIqLX0CPvCW600URtDKxhG8P5yRjoVTnTmBc
+	JbGmvbYY5mCDOvJxE/LLb2AhWtdKv/wUhOUHzfhVkAlRk/Kn
+X-Google-Smtp-Source: AGHT+IGBzu+vnV60NdP98eMQrfOkuiF88fG++TSS8EYBfpDvUraev3a4vJjdZ7/Vc2osVqddWPPKJg==
+X-Received: by 2002:a05:600c:249:b0:43d:cc9:b0a3 with SMTP id 5b1f17b1804b1-43d567a2f59mr69800355e9.22.1742831276256;
+        Mon, 24 Mar 2025 08:47:56 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f3328bsm174640485e9.1.2025.03.24.08.47.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 08:47:55 -0700 (PDT)
+Message-ID: <8c453ce602ab10e09104184fca5310233a9f67e2.camel@linaro.org>
+Subject: Re: [PATCH] firmware: exynos-acpm: check saved RX before bailing
+ out on empty RX queue
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Krzysztof Kozlowski
+	 <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org, 
+	willmcvicker@google.com, kernel-team@android.com
+Date: Mon, 24 Mar 2025 15:47:54 +0000
+In-Reply-To: <20250324-acpm-drained-rx-queue-v1-1-577774335151@linaro.org>
+References: <20250324-acpm-drained-rx-queue-v1-1-577774335151@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: AM0PR03CA0106.eurprd03.prod.outlook.com
- (2603:10a6:208:69::47) To AS8PR04MB8644.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::12)
+User-Agent: Evolution 3.53.2-1 
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|PA2PR04MB10335:EE_|DU2PEPF00028D11:EE_|VI1PR04MB6992:EE_
-X-MS-Office365-Filtering-Correlation-Id: a308cd06-6d4a-4620-cba1-08dd6aeb1e45
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?RXQyZjQrT21TemZYZ3g3NE80MlhkcEovU0tiUEVaNXZyY1IwbXFuQkYybVhS?=
- =?utf-8?B?ajdxWS9hWWxyQlpEbyt5SVZTZFBVMFBWOXF2VERVbmIrcDU3WEFXUjZFcTRX?=
- =?utf-8?B?WUNnUEZMVHViUDVoR1QxaHBXVTg3WmVqQlpVRjRkd0FseU5GdFF4YjMxWXRv?=
- =?utf-8?B?R2ZEcXRIaXI4NTNQNVIyNmtKbnBxUjVKTjNYWGVtRFFGZmJKQk1kc0I0M2hP?=
- =?utf-8?B?VUJvLzdGbzd1MGFnRVFrZ1NuODBYU3BzcDIzaTZZMXlzSENFQmJ1bW9YYkxt?=
- =?utf-8?B?T3pjME5pdDFxdS85TnQxbHV5T0xTQVdNNEVjaXlUM2diK05Cc0NlSkJ1eE5D?=
- =?utf-8?B?OXlFT0VXVzVOMmVRMWd0bjZ0STByaFFnSG50NGdRbUNEUGE2UXdQN3ArUmpH?=
- =?utf-8?B?UkdCNGVmdlBOdCsza3dsendzaGUyb21kYmFnUnIvaDIyWEdyNS9sS0RWUEhk?=
- =?utf-8?B?cGYrMU9iL1RxOEZ1MDZacHNmOHJRVUFNWHlvaWZIWFRITlhVdTVRdUFqbnBI?=
- =?utf-8?B?R3cwUGhvWE9Kb1Y0SThhNzU4aSt1QVY1aGlEWlVlUmdoMUJTZUsrTytYSFhT?=
- =?utf-8?B?Uk9QODdmZ3l3NHRXaWxrUktSOWNiamV2Yzc2ZllXeVpRUlp2OTdwemZtT1ZY?=
- =?utf-8?B?SFIvVW83Myt3Mm1yK2xuUEZhckRLa3hpUjVEbUhydGhsZVZwOXF4UFBid2pk?=
- =?utf-8?B?WVAxM2xtUkR5bTA0NCsvWmR5V1NhMUl6a0NjYUQ0TzBXZjZ0UitNeE1CdEFm?=
- =?utf-8?B?UXdBSHQrVzJlb2VaQjdabGN2MXJpR3VQdVh4V3pIQWpMZm9saHF3dk9uRkcw?=
- =?utf-8?B?c1o4MC9vZDljbEIwMzZ0UTZ2NTRKQkplbS9FSkQ0VVg2Z0owdUVDandiZ2wx?=
- =?utf-8?B?d1AzU0J5ejluaGZDRkp5aWdqM0lkQVJNYWRxYzNPN0diTHBjRSs0aDNyTk5s?=
- =?utf-8?B?WXF3MDc5RG9LcDZ0RDNDcGx1U3hBV1U5U2JJRHl5Unl5UXVDZmlGMmEwUmxY?=
- =?utf-8?B?YVdMbUlIQzVPcmxIOGY5YUNRdkRqd1o3dTBJcUdEZXlWbGlIUkd1MEJWOW9r?=
- =?utf-8?B?alh2WktrN1JwK2ducGdha2ZrVlAvK0p5elFkNVBoak1VbUhoR1diejhYUTJX?=
- =?utf-8?B?ZmFTcW9lK01Sa3l0dHROK1MzbTdVVzJBSzZXelV2T09TZE1oMHRnbFNnOGpm?=
- =?utf-8?B?ZkFKak9ncjFCMkY3b0IrSU1WT3o4ZFpLNU1VOElteFM1ejluYmtwckQxbTRw?=
- =?utf-8?B?aHA0ZFFYZnVHdndLR1J5NzNRUjZyNDBKWDBMcmFiL01WQ0pjcnFMcXBwZ1RD?=
- =?utf-8?B?bkNVU0Q3cThWQmNMcDByc3RIZ3hhY3lyd3dSOWI4WmZtV3VJTWZQWW5ITDBZ?=
- =?utf-8?B?d21XY2NPTVlNUldNNUNkYmNUWkltNDlyZmdsK2lic045YXRETU4zc202dzY4?=
- =?utf-8?B?ZU80bDQzcG9DZnpWUHcyN285SVFsay81NnF4YnZrYVp4ME0zR3ducWVSVnJW?=
- =?utf-8?B?T0FLYjZQb2tpZXJDaHZ2Qm9UUG45SitmVlJGYjFvSmVkc2djZDZCSWJhNDkw?=
- =?utf-8?B?TnF2aFJDMGdUMWZDYVA0WFVOR0duY24vM09GUEpFRHhHTldra0RRaTRwTUpj?=
- =?utf-8?B?SzRYWDB0cDZIWlBnQy9VK0szQnFlSEdqM3VXZndpZnFtUG4zb3ppUlZ6SHJB?=
- =?utf-8?B?R3NKWFZIeUt2QXRLNjFaUHdZRGJNNmxTMEVDOGRpYmU2QzYxdlhleitZaFAw?=
- =?utf-8?B?UlpqOWJLMXp0OVdjUDVKNDdLZjVoL2haUGhhV3FneHR0NzgxWU1FTFZYK3ZC?=
- =?utf-8?B?enVKazR4TlB3em05NHMzU2VsT1IzUmVuU2trbUowWDVQOFY5VmFlYVhVR2tR?=
- =?utf-8?B?Z2pKWTJKTXpTSHViMTRlNmVGNjdrc1hpWEFkU1RGbzQzRXI2cTBBeUNzYjha?=
- =?utf-8?Q?j/8ccwGoceQ=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10335
-X-CodeTwo-MessageID: cf5c4ae1-71aa-45d2-affe-b0717ecd2c91.20250324154658@westeu12-emailsignatures-cloud.codetwo.com
-X-CodeTwoProcessed: true
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D11.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: c738b0bd-68e3-439a-d6e4-08dd6aeb1b4b
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|14060799003|1800799024|82310400026|376014|35042699022;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d2xVVGhHZ3VKbi9QeHNoanRhMm1oYVk5UXJNTXZuMUk0SVp0Tkd1Q0NRdUtY?=
- =?utf-8?B?M2VpYW5MbU1DdSs0YzNXcGg2am1WSWlYTE02Q09WZnZBcVlrQkhlbldtdjVZ?=
- =?utf-8?B?bE14NmhUWGtQRFhxY3dwZEhReTZWeWs5MGtmUG5mM3l6djZIZExBTmNodVRK?=
- =?utf-8?B?UEN3a0JwQXpmSHpaUllNMEJqM2NYeElMYVc2V2VHMi9GbmExRTBpbnYyRGNj?=
- =?utf-8?B?U2Nrb3pVRjcyRXlESWxlR1FiR3BIY3lob1hEYnF2bEc0ZFM4eUJYRzF4bHhJ?=
- =?utf-8?B?OW5MWithS1hxdlF3Q21SU1JHZlZDSVA4QmdPTlFMd3Z5NTZRNzM1cDFjOGJ0?=
- =?utf-8?B?czdSOG5VZW1mQUdLcU1jQ1YxRjM3RTlTdDE0QmRBOTdjOGxveHZsTXZoUmFz?=
- =?utf-8?B?TGt1OENxQS9lLzQyeUpYV2NBaGtVd1NCYUZRZWx0Vlk5WUFLYWNUQjJyR1Bh?=
- =?utf-8?B?NHAyU0wxZTFMN1pNK1k3RHR3Umg5dlpuYmhZeFRzQk5MR25xaDBpb05zVEVU?=
- =?utf-8?B?WVFZbkxrbUQ3WW5pUWczaUJ0MEdtNjFicEl3eUtOMXhsZEZiRU41ZUkzR1ZH?=
- =?utf-8?B?bzl3TDhYN2hGV2hVaGhoKzNSeHNzN09DN2pXNTJabW54WEM4Q1Y1UEZMZm5s?=
- =?utf-8?B?MDNqRGpxU3hZSktvMVNOQ0h4Z3NXWm5UTnBtV05kY2tCZ3hORDA4d1dOWENJ?=
- =?utf-8?B?SVoraUVoT1NCVUVVNUh0elJZWkRUMExEa3NGVENPbXNjblNSNVJLOENyZWRk?=
- =?utf-8?B?c1B6SzczVGRKQ0hmVWxpNnZId3k3Z0pveFpsN29oQ0ZRYi9pa1pxZ1VoUkV3?=
- =?utf-8?B?d2I4MTlSemF1cFM4eTlqekY4cEJXcEhFOVl6dVJBcTFZdllQY2tYcHN2T0Qz?=
- =?utf-8?B?ME8wakptdW1xYUsreEFxaThxeU5Xb0lKOUZqcFg3ZS9lMzAvNXZMOFEvUDlj?=
- =?utf-8?B?Mnl4aDNmOXJTR2ZrcFI4L1NncC94WjZlMmlvR1BtZXl4QWFMd0kzQXRXT3FU?=
- =?utf-8?B?c3Y0U2NCUTIvZk5wRXZLRU9zSEJGQTJoMUViWU1RN09MbUhFUHRlMDJkYXFt?=
- =?utf-8?B?aTY4TFAzY2JPaXRld1Q3L3VEY0RNV0tuUDVQYVlDbFFJZlYzcDN3YmZTQlo5?=
- =?utf-8?B?MmJTZktaY1dSZlc1K1RJQ205Q3BIYms0SEF5eHI3eW9DMGE3NVpQVjRvT25K?=
- =?utf-8?B?cnYzanhxM2VEWVZ3ZzVOZm5Yc2xLbXROWUZsdEZEcGhkc1c2SVBZaHpsMUNk?=
- =?utf-8?B?Kys1bUMxKzRaZ3ovMUpnQ25yQThvSC8rWWhEaGxGc1dwK1N5TURpbmo1amp2?=
- =?utf-8?B?YVp2N1ZkOUh3bS9FYllLSjlLaWkwdFBJc3NIbDB3amZ4U1g2Sm55Z2daQ0Jv?=
- =?utf-8?B?ejUxcmorQjRjdDdRby9tTTRkcmttaHhpU0xicWMzM3Zlcmo0Qnc5Rm1FbEtn?=
- =?utf-8?B?R2ZVOW1wQ2RyblduVjZsZVlxUGV0ODZMT0V6U1drS25BUDRYb01rSy9sMCsz?=
- =?utf-8?B?eUwrRHUvNXB3U0RBc05oeDVKUnQ0WUlVVXBHYzJIM3pveGxyRXNHa3pwVnRG?=
- =?utf-8?B?YTg4VWRFcFR6VnpZQks1d0dSL05VdFh0QzYxNXNjVDhQMzkwQVEvVndaVE9X?=
- =?utf-8?B?UDNTcGRwKzdmSGVzUlU4c3dwY1NNdFZwcTJWZWl1UDlsTXNob0pxOVFlc0gv?=
- =?utf-8?B?aFdwTm9HNWN5Qk95cmI1bkNoTFgzZFhxczNya0J0a283YklYZ09Bb1BBZDUv?=
- =?utf-8?B?K1pKbmRjUkJxdmxNcTlvalgzbzFqdW9kZjZTTHJyd2FYUWw0eHd5S1FDajhj?=
- =?utf-8?B?d3VweEsxZWpTdVg2TnU4bldsN05pTVNQcFBHemplTThzZTlXWmJPMDdNUVNT?=
- =?utf-8?B?c21WcDRkNEtLUGkxVXc0TGZORlpsSGkvMmVOMWxiOUQvVkMveHFXUUw1c1RM?=
- =?utf-8?B?QzlDb1MrOWRYMXVnWmdKSStNenVzOWtBUGhoSjRWWGsremRFVDFqZkZsZE9a?=
- =?utf-8?B?YzFsR0k2NmdBPT0=?=
-X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(36860700013)(14060799003)(1800799024)(82310400026)(376014)(35042699022);DIR:OUT;SFP:1102;
-X-OriginatorOrg: topic.nl
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2025 15:47:01.1571
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a308cd06-6d4a-4620-cba1-08dd6aeb1e45
-X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D11.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6992
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_084712_652712_C7C13FC5 
-X-CRM114-Status: GOOD (  23.47  )
+X-CRM114-CacheID: sfid-20250324_084758_191887_DDBB9E54 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,125 +102,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-03-2025 08:49, Manivannan Sadhasivam wrote:
-> On Fri, Mar 14, 2025 at 03:59:02PM +0100, Mike Looijmans wrote:
->> Support providing the PERST reset signal through a devicetree binding.
-> Where is the bindings change?
+On Mon, 2025-03-24 at 12:35 +0000, Tudor Ambarus wrote:
+> When we're polling for responses and get a response that corresponds to
+> another request, we save the RX data in order to drain the RX queue.
+>=20
+> If the response for the current request is not found in the request's
+> iteration of the queue, or if the queue is empty, we must check whether
+> the RX data was saved by a previous request when it drained the RX queue.
+>=20
+> We failed to check for already saved responses when the queue was empty,
+> and requests could time out. Check saved RX before bailing out on empty
+> RX queue.
+>=20
+> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
+> Reported-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+> on top of krzk/for-next
+> ---
+> =C2=A0drivers/firmware/samsung/exynos-acpm.c | 44 +++++++++++++++++++++++=
+-----------
+> =C2=A01 file changed, 30 insertions(+), 14 deletions(-)
+>=20
+> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/sa=
+msung/exynos-acpm.c
+> index a85b2dbdd9f0d7b1f327f54a0a283e4f32587a98..15e991b99f5a384a299c1baf6=
+b279fc93244bcf2 100644
+> --- a/drivers/firmware/samsung/exynos-acpm.c
+> +++ b/drivers/firmware/samsung/exynos-acpm.c
+> @@ -184,6 +184,29 @@ struct acpm_match_data {
+> =C2=A0#define client_to_acpm_chan(c) container_of(c, struct acpm_chan, cl=
+)
+> =C2=A0#define handle_to_acpm_info(h) container_of(h, struct acpm_info, ha=
+ndle)
+> =C2=A0
+> +/**
+> + * acpm_get_saved_rx() - get the response if it was already saved.
+> + * @achan:	ACPM channel info.
+> + * @xfer:	reference to the transfer to get response for.
+> + * @tx_seqnum:	xfer TX sequence number.
+> + */
+> +static void acpm_get_saved_rx(struct acpm_chan *achan,
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct acpm_xfer *xfer, u32 tx_s=
+eqnum)
+> +{
+> +	const struct acpm_rx_data *rx_data =3D &achan->rx_data[tx_seqnum - 1];
+> +	u32 rx_seqnum;
+> +
+> +	if (!rx_data->response)
+> +		return;
+> +
+> +	rx_seqnum =3D FIELD_GET(ACPM_PROTOCOL_SEQNUM, rx_data->cmd[0]);
+> +
+> +	if (rx_seqnum =3D=3D tx_seqnum) {
 
-Will add in v2
+To help the casual reader, maybe add a comment to say that this condition i=
+s true
+if/when the response was received, and before reception rx_seqnum will be =
+=3D=3D 0,
+because acpm_prepare_xfer() clears it - i.e. it is not ever supposed to be =
+any
+arbitrary number. It's kinda implied, but a comment like that would make th=
+is
+more explicit. If I'm getting this all right.
 
+Other that that;
 
->> Thus the system no longer relies on external components to perform the
->> bus reset.
->>
-> There is a similar series for the CPM controller:
-> https://lore.kernel.org/linux-pci/20250318092648.2298280-1-sai.krishna.mu=
-sham@amd.com/
->
-> Please take a look for reference.
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+Tested-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
-Seems similar indeed. (You may have noticed we've actually been using=20
-this patch for a few years)
-
-
->> When the driver loads, the transceiver may still be in the state of
->> setting up a link. Wait for that to complete before continuing. This
->> fixes that the PCIe core does not work when loading the PL bitstream
->> from userspace. There's only milliseconds between the FPGA boot and the
->> core initializing in that case, and the link won't be up yet. The design
->> works when the FPGA was programmed in the bootloader, as that will give
->> the system hundreds of milliseconds to boot.
->>
->> As the PCIe spec mentions about 120 ms time to establish a link, we'll
->> allow up to 200ms before giving up.
->>
-> This should be a separate change/patch.
-
-Indeed, this is a separate issue, I'll split it in two parts.
-
-
->> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
->> ---
->>
->>   drivers/pci/controller/pcie-xilinx.c | 25 ++++++++++++++++++++++++-
->>   1 file changed, 24 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controll=
-er/pcie-xilinx.c
->> index 0b534f73a942..cd09deba0ddc 100644
->> --- a/drivers/pci/controller/pcie-xilinx.c
->> +++ b/drivers/pci/controller/pcie-xilinx.c
->> @@ -15,8 +15,10 @@
->>   #include <linux/irqdomain.h>
->>   #include <linux/kernel.h>
->>   #include <linux/init.h>
->> +#include <linux/iopoll.h>
->>   #include <linux/msi.h>
->>   #include <linux/of_address.h>
->> +#include <linux/of_gpio.h>
->>   #include <linux/of_pci.h>
->>   #include <linux/of_platform.h>
->>   #include <linux/of_irq.h>
->> @@ -126,6 +128,14 @@ static inline bool xilinx_pcie_link_up(struct xilin=
-x_pcie *pcie)
->>   		XILINX_PCIE_REG_PSCR_LNKUP) ? 1 : 0;
->>   }
->>  =20
->> +static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
->> +{
->> +	u32 val;
->> +
->> +	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
->> +			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2000, 200000);
->> +}
->> +
->>   /**
->>    * xilinx_pcie_clear_err_interrupts - Clear Error Interrupts
->>    * @pcie: PCIe port information
->> @@ -492,8 +502,21 @@ static int xilinx_pcie_init_irq_domain(struct xilin=
-x_pcie *pcie)
->>   static void xilinx_pcie_init_port(struct xilinx_pcie *pcie)
->>   {
->>   	struct device *dev =3D pcie->dev;
->> +	struct gpio_desc *perst_gpio;
->> +
->> +	perst_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
->> +	if (IS_ERR(perst_gpio)) {
->> +		dev_err(dev, "gpio request failed: %d\n", PTR_ERR(perst_gpio));
->> +		perst_gpio =3D NULL;
-> No. If the GPIO is defined in DT and there is a problem in acquiring it, =
-you
-> should return the error.
-
-Agree. And also, this should be moved to probe() so it can handle=20
-deferred properly.
-
-
->> +	}
->> +
->> +	if (perst_gpio) {
-> This check is not needed as gpiod_set_value_cansleep() can accept NULL.
-
-The check is to prevent the extra "sleep" calls. If the reset was=20
-performed externally (some bootloader or POR logic) the sleep calls=20
-should be skipped.
-
-
-> - Mani
-Thanks for your feedback.
-
---=20
-Mike Looijmans
-System Expert
-
-TOPIC Embedded Products B.V.
-Materiaalweg 4, 5681 RJ Best
-The Netherlands
-
-T: +31 (0) 499 33 69 69
-E: mike.looijmans@topic.nl
-W: www.topic.nl
-
-
+> +		memcpy(xfer->rxd, rx_data->cmd, xfer->rxlen);
+> +		clear_bit(rx_seqnum - 1, achan->bitmap_seqnum);
+> +	}
+> +}
+> +
+> =C2=A0/**
+> =C2=A0 * acpm_get_rx() - get response from RX queue.
+> =C2=A0 * @achan:	ACPM channel info.
+> @@ -204,15 +227,16 @@ static int acpm_get_rx(struct acpm_chan *achan, con=
+st struct acpm_xfer *xfer)
+> =C2=A0	rx_front =3D readl(achan->rx.front);
+> =C2=A0	i =3D readl(achan->rx.rear);
+> =C2=A0
+> -	/* Bail out if RX is empty. */
+> -	if (i =3D=3D rx_front)
+> +	tx_seqnum =3D FIELD_GET(ACPM_PROTOCOL_SEQNUM, xfer->txd[0]);
+> +
+> +	if (i =3D=3D rx_front) {
+> +		acpm_get_saved_rx(achan, xfer, tx_seqnum);
+> =C2=A0		return 0;
+> +	}
+> =C2=A0
+> =C2=A0	base =3D achan->rx.base;
+> =C2=A0	mlen =3D achan->mlen;
+> =C2=A0
+> -	tx_seqnum =3D FIELD_GET(ACPM_PROTOCOL_SEQNUM, xfer->txd[0]);
+> -
+> =C2=A0	/* Drain RX queue. */
+> =C2=A0	do {
+> =C2=A0		/* Read RX seqnum. */
+> @@ -259,16 +283,8 @@ static int acpm_get_rx(struct acpm_chan *achan, cons=
+t struct acpm_xfer *xfer)
+> =C2=A0	 * If the response was not in this iteration of the queue, check i=
+f the
+> =C2=A0	 * RX data was previously saved.
+> =C2=A0	 */
+> -	rx_data =3D &achan->rx_data[tx_seqnum - 1];
+> -	if (!rx_set && rx_data->response) {
+> -		rx_seqnum =3D FIELD_GET(ACPM_PROTOCOL_SEQNUM,
+> -				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rx_data->cmd[0]);
+> -
+> -		if (rx_seqnum =3D=3D tx_seqnum) {
+> -			memcpy(xfer->rxd, rx_data->cmd, xfer->rxlen);
+> -			clear_bit(rx_seqnum - 1, achan->bitmap_seqnum);
+> -		}
+> -	}
+> +	if (!rx_set)
+> +		acpm_get_saved_rx(achan, xfer, tx_seqnum);
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0}
+>=20
+> ---
+> base-commit: f0dbe0d40d08199109cb689849877694a8b91033
+> change-id: 20250324-acpm-drained-rx-queue-ec316d4cbcdf
+>=20
+> Best regards,
 
 
