@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33B0C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 10:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2B4C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 10:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CsxSqwIllapJ8LuBOULZiZ9puOmcXb0kK/lST1rS3uI=; b=llPk0brHQNaIlL1xqWUCeHjYYq
-	kAMz+8AzBDuLdtysp5m3kNPbb6Wz7/FTKdINPi5yltx7haOPnssMoFFAb/WyDp4LP8NUl9rz4eF8C
-	6m1HRXLIimqoVMTO6e1rYCyMNPK9Bqz85BejPkXQlQPOMyHgckHi69l4Rw9o2IbNKF1niQptzzDER
-	MZaQXdylyz7RN0e0WFuVTDlOQQy2nqYnWmlXBBX6/OR76gQ8GPDGFL0X4GhBUNLYHi7LoAjtd0Ze9
-	ilCVirwJSoh7UbZBn8dnsty65XbpvwrVzdl1q0UeuQHVumcNg0Mkmv8EUziQr7N91rxnu5/4hbAhL
-	+IdvsrQg==;
+	bh=s6FNrudKISRIlY4MPIqsl0wZh+w9Rep6xe74cx2bQaA=; b=wbtkUMAYsq/Lo+3UO+Q1blp2hZ
+	KnB3SEwNnFtRVJ9fnLVCKroL0DWIe43peo6TkaW9RyLiKwrk5SDbDqW/eYzI5jH6ieignLA0fKcBq
+	qoawBl9k8wO0AMgB+FK4s2KQP2wKOcureol+smotuyDb729brZ6uMo3q6WfXY4jefj9vplBW8O0lq
+	MBLac0dOViUsI9rm1wJwRIJDhpu5Urh9ASTVXqFzVp+o9CV0jWxl4Lc842bPH35PgrqydmjHYCU5W
+	Tx6pYD/BAuegMY+IRpTEmUHUmhuCWUIYcsvYXb/YZd9RdbqPi8Sv9NZYMHfdRZJsvkActu7b/YGyD
+	oaL9AwkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twfDC-00000002qjW-2ErF;
-	Mon, 24 Mar 2025 10:39:18 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twf84-00000002qCu-3o2m;
-	Mon, 24 Mar 2025 10:34:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=CsxSq
-	wIllapJ8LuBOULZiZ9puOmcXb0kK/lST1rS3uI=; b=KlYHZBq7R/W2BQ7zdJVkV
-	WUzZkIu6+L5n1kfRPJM2QD5nNS68FYaF7EFfZ14B+liGtLfSfhvmIkKrbNzr4vlC
-	nTa3hHaTE65m8EAyVZTg+Nq9zRyocLrP5rfM0PfCZRQ2v7tdUEc49Oy7e7jMnsww
-	cnHiYLOS2BFbo9MCO/N1Dc=
-Received: from ProDesk.. (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgA3TEH9NOFnDTbjAg--.63654S2;
-	Mon, 24 Mar 2025 18:33:37 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	hjc@rock-chips.com,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
+	id 1twfFv-00000002rI0-44Cz;
+	Mon, 24 Mar 2025 10:42:07 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1twfEB-00000002quz-08et
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 10:40:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BA273442E9;
+	Mon, 24 Mar 2025 10:40:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742812816;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=s6FNrudKISRIlY4MPIqsl0wZh+w9Rep6xe74cx2bQaA=;
+	b=N3k8NpCCYvy54uKjQxxYIkffHYjtGmcYnfYzzSXPmySJM8Gz4DASxBqL7WVdgxcfWUwECJ
+	Qi143hgbsDMmWE4Pmg0PK8vQbga3TNfhXl206Vpaex9jxobzc66tbmjjPtHXU8uPDJd0WN
+	YN6fznn6DITXvbHxx6JRRC/A7WoTU0tkvkpvPpqzFUi2BFCYb7RaAOnIKC3El2u6hGvanA
+	1ihV7ubzQjGi54kpnnqa4DBcOfpSf5ZnZ65o2A+voyVtmQun81GDLf/lIEM7KcqxaIPExQ
+	+6+ZciZ9qQm6rUvu1uYczBWQpUwbjwrBmdPwOZAHGwpTa59Aoq7i7PI9pexe8g==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH 1/2] dt-bindings: display: rockchip,inno-hdmi: Fix ref clk Document of RK3036 compatible
-Date: Mon, 24 Mar 2025 18:33:27 +0800
-Message-ID: <20250324103332.159682-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
+Subject: [PATCH net-next v4 0/8] net: ethtool: Introduce ethnl dump helpers
+Date: Mon, 24 Mar 2025 11:40:02 +0100
+Message-ID: <20250324104012.367366-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgA3TEH9NOFnDTbjAg--.63654S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tw45GrW5ur4xJFyrWF45Wrg_yoW8WF43pa
-	93Cw1kXr1Ikr1UXw1ktr18CrZYya4kAa1Ykry2q3W8Gr1j9ayDKa1agr1DZay3Ar47Aa9F
-	vF47GFy8A34SvrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U_3ktUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0g0aXmfhMHZKxwABsX
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduheelheehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjefhleeihefgffeiffdtffeivdehfeetheekudekgfetffetveffueeujeeitdevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemhedvrgefmeejsgeludemudehtgelmegtledtieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeehvdgrfeemjegsledumeduhegtleemtgeltdeipdhhvghlohepuggvvhhitggvqddvgedrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvr
+ hhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_033401_327639_0700889B 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250324_034019_386099_950871F3 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +90,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+Hi everyone,
 
-The RK3036 HDMI DDC bus requires it's PHY's reference clock to be enabled
-first before normal DDC communication can be carried out.
+This is V4 for the ethnl dump support, allowing better handling of
+per-phy dump but also any other dump operation that needs to dump more
+than one message per netdev.
 
-Therefore, both RK3036 and RK3128 HDMI require two identical clocks.
+Changes in V4:
+ - Don't grab rcu_read_lock when we already have a refcounter netdev on
+   the filtered dump path (Paolo)
+ - Move the dump_all stuff in a dedicated helper (Paolo)
+ - Added patch 1 to set the dev in ctx->req_info
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
----
+Changes in V3:
+ - Fixed some typos and xmas tree issues
+ - Added a missing check for EOPNOTSUPP in patch 1
+ - Added missing kdoc
+ - Added missing comments in phy_reply_size
 
- .../bindings/display/rockchip/rockchip,inno-hdmi.yaml | 11 ++---------
- 1 file changed, 2 insertions(+), 9 deletions(-)
+Changes in V2:
+ - Rebased on the netdev_lock work by Stanislav and the fixes from Eric
+ - Fixed a bissectability issue
+ - Fixed kdoc for the new ethnl ops and fields
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
-index 5b87b0f1963e1..9d1e7f894ea54 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
-@@ -23,13 +23,11 @@ properties:
-     maxItems: 1
- 
-   clocks:
--    minItems: 1
-     items:
-       - description: The HDMI controller main clock
-       - description: The HDMI PHY reference clock
- 
-   clock-names:
--    minItems: 1
-     items:
-       - const: pclk
-       - const: ref
-@@ -87,11 +85,6 @@ allOf:
-             const: rockchip,rk3128-inno-hdmi
- 
-     then:
--      properties:
--        clocks:
--          minItems: 2
--        clock-names:
--          minItems: 2
-       required:
-         - power-domains
- 
-@@ -106,8 +99,8 @@ examples:
-       compatible = "rockchip,rk3036-inno-hdmi";
-       reg = <0x20034000 0x4000>;
-       interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
--      clocks = <&cru  PCLK_HDMI>;
--      clock-names = "pclk";
-+      clocks = <&cru PCLK_HDMI>, <&cru SCLK_LCDC>;
-+      clock-names = "pclk", "ref";
-       pinctrl-names = "default";
-       pinctrl-0 = <&hdmi_ctl>;
-       #sound-dai-cells = <0>;
+V1: https://lore.kernel.org/netdev/20250305141938.319282-1-maxime.chevallier@bootlin.com/
+V2: https://lore.kernel.org/netdev/20250308155440.267782-1-maxime.chevallier@bootlin.com/
+V3: https://lore.kernel.org/netdev/20250313182647.250007-1-maxime.chevallier@bootlin.com/
+
+As of today when using ethnl's default ops, the DUMP requests will
+simply perform a GET for each netdev.
+
+That hits limitations for commands that may return multiple messages for
+a single netdev, such as :
+
+ - RSS (listing contexts)
+ - All PHY-specific commands (PLCA, PSE-PD, phy)
+ - tsinfo (one item for the netdev +  one per phy)
+
+ Commands that need a non-default DUMP support have to re-implement
+ ->dumpit() themselves, which prevents using most of ethnl's internal
+ circuitry.
+
+This series therefore introduces a better support for dump operations in
+ethnl.
+
+The patches 1 and 2 introduce the support for filtered DUMPs, where an
+ifindex/ifname can be passed in the request header for the DUMP
+operation. This is for when we want to dump everything a netdev
+supports, but without doing so for every single netdev. ethtool's
+"--show-phys ethX" option for example performs a filtered dump.
+
+Patch 3 introduces 3 new ethnl ops : 
+ ->dump_start() to initialize a dump context
+ ->dump_one_dev(), that can be implemented per-command to dump
+ everything on a given netdev
+ ->dump_done() to release the context
+
+The default behaviour for dumps remains the same, calling the whole
+->doit() path for each netdev.
+
+Patch 4 introduces a set of ->dump_start(), ->dump_one_dev() and
+->dump_done() callback implementations that can simply be plugged into
+the existing commands that list objects per-phy, making the 
+phy-targeting command behaviour more coherent.
+
+Patch 5 uses that new set of helpers to rewrite the phy.c support, which
+now uses the regulat ethnl_ops instead of fully custom genl ops. This
+one is the hardest to review, sorry about that, I couldn't really manage
+to incrementally rework that file :(
+
+Patches 6 and 7 are where the new dump infra shines, adding per-netdev
+per-phy dump support for PLCA and PSE-PD.
+
+We could also consider converting tsinfo/tsconfig, rss and tunnels to
+these new ->dump_***() operations as well, but that's out of this
+series' scope.
+
+Thanks,
+
+Maxime
+
+
+
+Maxime Chevallier (8):
+  net: ethtool: Set the req_info->dev on DUMP requests for each dev
+  net: ethtool: netlink: Allow per-netdevice DUMP operations
+  net: ethtool: netlink: Rename ethnl_default_dump_one
+  net: ethtool: netlink: Introduce command-specific dump_one_dev
+  net: ethtool: netlink: Introduce per-phy DUMP helpers
+  net: ethtool: phy: Convert the PHY_GET command to generic phy dump
+  net: ethtool: plca: Use per-PHY DUMP operations
+  net: ethtool: pse-pd: Use per-PHY DUMP operations
+
+ net/ethtool/netlink.c | 185 ++++++++++++++++++-----
+ net/ethtool/netlink.h |  47 +++++-
+ net/ethtool/phy.c     | 344 ++++++++++++------------------------------
+ net/ethtool/plca.c    |  12 ++
+ net/ethtool/pse-pd.c  |   6 +
+ 5 files changed, 310 insertions(+), 284 deletions(-)
+
 -- 
-2.43.0
+2.48.1
 
 
