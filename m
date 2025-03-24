@@ -4,94 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF968C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DD6C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qe/MCCvdJLYJ3g+QnwJQUU6NC2SI4IaMPwysTrJxuV0=; b=pWqfTbpOndxCzMcFq+/1XVDxcQ
-	z0RRbf+1+2se7vr59nPhrMTNbYBj5n5a8nirOw9ECI9h85lHue7GPVT9DqUPp3SxtNNvszvdIROVF
-	uk4UsEIVq1hQzz3sFHFzNO4lo0WDx2bG+a6ybt6Ij4p2kgwW20tCur7eeLpsOvLHKGH1VCjWQiDik
-	5I1lYJ1p1ZPPvokOxBdPcs+N8yNC6Axc94ZoCik53vfRZzwdzdQ9+ofUo5np9eY+rwZAfToOn4ngU
-	Bf66Loz54AOU0ukehrZVeEsltJ7joQIq662VKTrMvEhqmINycp76qETnfG2vKI8x+J5vpqFbQOX1W
-	R/d00a5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZcAH4WmaLzUDYXoQDfc68e4M/yFbKsSbjbw66q7D9iw=; b=iS+MsNLSKayRMwUTnNTn9mnKEP
+	QxpcIPuJU7t/nJbzgG/uWnQPz8ALJ6JPjzhArHHcTwDBmwM8bHlyy23j91ypOCMC1zUd8Eif+nz6a
+	rwKl1eWcBaXdtl7MUqiZ5JMK6qLsQpSAQzPAB8Vsx6y/IM5Pyf5YNWaK9N9+4vCtE9QZs9yVFbP+Y
+	Upg5asghrQmlh1OpwVqvHrScfhLIMtFKxag3u2iFw1Lmx7OmdzNY3eXjG/QfHfiENvqbpC1vgBeyt
+	hZnsUljtV/D8OaRESLUfmXo6fPciN++GmUfmTWrOAdXsaXzKGmQmcQeFUA2dsKopXDeYAAXppVter
+	yCzwS/uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcLo-00000002Sms-1t80;
-	Mon, 24 Mar 2025 07:36:00 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1twcNW-00000002Sw8-0bCu;
+	Mon, 24 Mar 2025 07:37:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twc9S-00000002RLt-0IB1
+	id 1twc9a-00000002RMg-2QjX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:23:15 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22423adf751so71903105ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:23:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742800993; x=1743405793; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=qe/MCCvdJLYJ3g+QnwJQUU6NC2SI4IaMPwysTrJxuV0=;
-        b=kkczlXys8kBjlxzE3VPydr0T7sZqE9fJUzqxLW/pFEuDuPHBsvAJxvRYkZ5r5J+hx1
-         sO9YpM0dalegZ5yWtHTJkE0YTEIA29Mz29x+admqFIC+cDPRqNG8XL/0fgZc9V2Iukhf
-         SF9UhglmTHTkXKymwA7vJwjLvEmqlM8qa+XnhzYLrBHD4bza17Yyrdf5hMPsQVx7Y00G
-         74yC4YkkRSxFwsO+byJJeY3I19G1MXzg7oN4+pvSobzS8LMbSv0AjCCLTGDxB1IIT6Es
-         wUyO/9va61GJUCZTFpPQcZzbjtJUzs2wwD89nvmZ5+EdXSwOw1nmFjKZo18//lUnd5c9
-         dGrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742800993; x=1743405793;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qe/MCCvdJLYJ3g+QnwJQUU6NC2SI4IaMPwysTrJxuV0=;
-        b=wbdOJJiEdCgt3uCpkjcRSoQnTuaucAPAPmtx5U7WqVpmIvmA9TzhMVQbeOYeAHZJuI
-         DgtQwQYtbPe5vAIU7NUF6lwwXahbscI9RBpH5PHeHuy0MhHCkZiHhmgt91BrCE+iAC3T
-         WuJO62api0q8qqxnyuKdOX+MTHShat5m8hY5k+0tX4ZNhg8gqEIFLpCTH6kQVEWGNyXn
-         HwNbtJtpQqv0fPbtSN30FBJsfWvLLNJm7lHaIXgtti1YKI+/mahmUZ+wcOCgEXyGoHrF
-         40YLzYlm/S3SAQwTCS+fyrUM6Dm6TXA0PiHzNEN6hOVd/urc/VpUtF5MKm7QggnYqZl3
-         fLCw==
-X-Forwarded-Encrypted: i=1; AJvYcCW8iO00HRlJ85lNxcGZyyCyH/H5QaaRh/weGGEXfwkfHo95Atp7pfov8d9jIUSVv/B+arnZBC6odK7FQRv3Szpd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKPCHNstLXtf3xhap3TthAVhGsDLlfz1v2bV9KJ+Kd0FuNlzEL
-	wauHkIsjx5+JFw6Wtu9IKsxZVIaqQsYAgGanftSMVIOur9/Ri7bORt3E4vn19g==
-X-Gm-Gg: ASbGncu9QIvwsy5Q0nXYLGqdt42n2gYUg5KPeKE5yS2MSFW7WZlTBgUHoK+l7tqzwGH
-	StStSbeq4uQ1foi9g9pAitNytDdYYhCPREibWjgvVUrJRYZ1HndQqXqmea5h78qst6/hcfq/nlg
-	ZcFFkXIJLDMqfOlfYMV2+VmR9Az6QVxIFZuEt94iy68kkVn08U1qpxaeU8W3+22uM00IUY93IES
-	10xvUGuQJGQDXXDqJScICEfhJgBLgJW674sQJNmDw3K+936ChN+wU0RuC4EDarzowCeymcvFuc9
-	dWFv7KGmx9BDc4TmLJ6P5x1ADS6+gChDouUcLqeUMVBlI5CelSxCgdGlRWwSs2Q2iZQ=
-X-Google-Smtp-Source: AGHT+IEVDoBTCHOODzvBGMAnc/Iok1j6AhaExydrGDQgnCUirKAYBNkCKwG2t70sQoq1tMM3o02m1Q==
-X-Received: by 2002:a17:903:230d:b0:220:e9ac:e746 with SMTP id d9443c01a7336-22780e46648mr200826765ad.53.1742800992590;
-        Mon, 24 Mar 2025 00:23:12 -0700 (PDT)
-Received: from thinkpad ([220.158.156.91])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22781208966sm63304325ad.254.2025.03.24.00.23.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 00:23:12 -0700 (PDT)
-Date: Mon, 24 Mar 2025 12:53:05 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Tony Lindgren <tony@atomide.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH PATCH RFC NOT TESTED 1/2] ARM: dts: ti: dra7: Correct
- ranges for PCIe and parent bus nodes
-Message-ID: <hhvst2uvlymcyir5sb5vwd4ezko7yawwp5cnosluaz2hkabcna@ywr4thtjpdps>
-References: <20250305-dra-v1-0-8dc6d9a0e1c0@nxp.com>
- <20250305-dra-v1-1-8dc6d9a0e1c0@nxp.com>
- <20250313165311.2fj7aus3pcsg4m2c@thinkpad>
- <20250314064642.fyf3jqylmc6meft7@uda0492258>
+	Mon, 24 Mar 2025 07:23:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6DBFFA4A212;
+	Mon, 24 Mar 2025 07:17:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68FBC4CEE4;
+	Mon, 24 Mar 2025 07:23:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742801001;
+	bh=rpacFajQmnF5jVC9M6bEwsXc0x3PG4bR6WjOaYeWR3I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WHV52Z5mueIEeKyjSCQE5yZvtpoepiA3LImk9pMIVARR6WRmQbCssqenJl+KtfIDL
+	 e1WnKlpcLFOf9/PdXvXn5ukLUjrIgdtePi6q5jxxFpiBTe+bmLsJXuWF9+DOGXpAeE
+	 85owSCBYk7xB9N3/LNfBaBajRoVcBurb6RP5PRJzgSX7V4IPk71xEdkQZ5ICtbcSd0
+	 uhUbXJYw3pXc7zWAMOrzKkDDKKxIgKZNep9ql05q67ymmu391YMzQYvLi19jwrs2z0
+	 u7aJsHYoQhLrcvYxOMqLcglQfPRRy25E0W9sz9Uram1aDm1hNFpi78yJ7/l/PauQgw
+	 ZAEFgr3Uz9IDw==
+Message-ID: <a2397c92-2884-4f4d-b036-808208892af5@kernel.org>
+Date: Mon, 24 Mar 2025 08:23:13 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250314064642.fyf3jqylmc6meft7@uda0492258>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
+ K3 devices
+To: Neha Malcom Francis <n-francis@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, u-kumar1@ti.com
+References: <20241128140825.263216-1-n-francis@ti.com>
+ <20241128140825.263216-2-n-francis@ti.com>
+ <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
+ <837d329b-bcdd-4c3b-b508-e916b110ce25@ti.com>
+ <e57dfc3e-b702-4803-b776-20c6dbd98fef@kernel.org>
+ <8e58b093-1c64-45b9-a9d3-9835a3bbc4fd@ti.com>
+ <1da4e402-62f3-4bad-9129-1f5a08148987@kernel.org>
+ <f39d80fc-3600-4c2c-b09c-980288f86fa2@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <f39d80fc-3600-4c2c-b09c-980288f86fa2@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_002314_133778_CFCE2A2F 
-X-CRM114-Status: GOOD (  43.82  )
+X-CRM114-CacheID: sfid-20250324_002322_748482_693EC028 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,138 +126,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 12:16:42PM +0530, Siddharth Vadapalli wrote:
-> On Thu, Mar 13, 2025 at 10:23:11PM +0530, Manivannan Sadhasivam wrote:
+On 19/03/2025 10:02, Neha Malcom Francis wrote:
+> Hi Krzysztof,
 > 
-> Hello Mani,
+> On 19/03/25 13:16, Krzysztof Kozlowski wrote:
+>> On 13/03/2025 12:14, Neha Malcom Francis wrote:
+>>> Hi Krzysztof
+>>>
+>>> On 29/11/24 14:45, Krzysztof Kozlowski wrote:
+>>>> On 29/11/2024 08:43, Neha Malcom Francis wrote:
+>>>>>>> +
+>>>>>>> +  power-domains:
+>>>>>>> +    maxItems: 1
+>>>>>>> +
+>>>>>>> +  ti,bist-instance:
+>>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>>> +    description:
+>>>>>>> +      the BIST instance in the SoC represented as an integer
+>>>>>>
+>>>>>> No instance indices are allowed. Drop.
+>>>>>>
+>>>>>
+>>>>> Question on this, this is not a property that is driven by software but rather 
+>>>>> indicates which register sequences have to be picked up for triggering this test 
+>>>>> from this instance. So I don't see how I can workaround this without getting 
+>>>>> this number. Or maybe call it ID rather than instance?
+>>>>
+>>>> I don't understand how the device operates, so what is exactly behind
+>>>> some sequences of registers for triggering this test. You described
+>>>> property as index or ID of one instance of the block. That's not what we
+>>>> want in the binding. That's said maybe other, different hardware
+>>>> characteristic is behind, who knows. Or maybe it's about callers... or
+>>>> maybe that's not hardware property at all, but runtime OS, who knows.
+>>>>
+>>>
+>>> Sorry for such a late reply, but I was hoping to get more details on
+>>> this "ID" and never got back to the thread...
+>>>
+>>> The best way I can describe is this device (BIST) runs a safety
+>>> diagnostic test on a bunch of processors/blocks (let's call them
+>>> targets). There's a mapping between the instance of this device and the
+>>> targets it will run the test. This ID was essentially letting the BIST
+>>> driver know which are these targets.
+>>
+>>
+>> So you want to configure some target? Then this is your property. If you
+>> want to configure 'foo' difference in DT, you do not write 'bar'...
+>>
 > 
-> > On Wed, Mar 05, 2025 at 11:20:22AM -0500, Frank Li wrote:
-> > 
-> > If you want a specific patch to be tested, you can add [PATCH RFT] tag.C
-> > 
-> > > According to code in drivers/pci/controller/dwc/pci-dra7xx.c
-> > > 
-> > > dra7xx_pcie_cpu_addr_fixup()
-> > > {
-> > > 	return cpu_addr & DRA7XX_CPU_TO_BUS_ADDR;  //0x0FFFFFFF
-> > > }
-> > > 
-> > > PCI parent bus trim high 4 bits address to 0. Correct ranges in
-> > > target-module@51000000 to algin hardware behavior, which translate PCIe
-> > > outbound address 0..0x0fff_ffff to 0x2000_0000..0x2fff_ffff.
-> > > 
-> > > Set 'config' and 'addr_space' reg values to 0.
-> > > Change parent bus address of downstream I/O and non-prefetchable memory to
-> > > 0.
-> > > 
-> > > Ensure no functional impact on the final address translation result.
-> > > 
-> > > Prepare for the removal of the driver’s cpu_addr_fixup().
-> > > 
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > ---
-> > >  arch/arm/boot/dts/ti/omap/dra7.dtsi | 18 +++++++++---------
-> > >  1 file changed, 9 insertions(+), 9 deletions(-)
-> > > 
-> > > diff --git a/arch/arm/boot/dts/ti/omap/dra7.dtsi b/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > > index b709703f6c0d4..9213fdd25330b 100644
-> > > --- a/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > > +++ b/arch/arm/boot/dts/ti/omap/dra7.dtsi
-> > > @@ -196,7 +196,7 @@ axi0: target-module@51000000 {
-> > >  			#size-cells = <1>;
-> > >  			#address-cells = <1>;
-> > >  			ranges = <0x51000000 0x51000000 0x3000>,
-> > > -				 <0x20000000 0x20000000 0x10000000>;
-> > > +				 <0x00000000 0x20000000 0x10000000>;
-> > 
-> > I'm not able to interpret this properly. So this essentially means that the
-> > parent address 0x20000000 is mapped to child address 0x00000000. And the child
-> > address is same for other controller as well.
-> > 
-> > Also, the cpu_addr_fixup() is doing the same by masking out the upper 4 bits. I
-> > tried looking into the DRA7 TRM, but it says (ECAM_Param_Base_Addr +
-> > 0x20000000) where ECAM_Param_Base_Addr = 0x0000_0000 to 0x0FFF_F000.
-> > 
-> > I couldn't relate TRM with the cpu_addr_fixup() callback. Can someone from TI
-> > shed light on this?
+> So the difficulty in doing this is, what I mentioned in the earlier
+> email just copying it over again:
 > 
-> A "git blame" on the line being modified in dra7.dtsi gives the
-> following commit:
-> https://github.com/torvalds/linux/commit/c761028ef5e2
-> prior to which the ranges is exactly the same as the one being added by
-> this patch.
+> "Yet another way would be the BIST points out the targets it controls via
+> their phandles in its node... but this approach would trigger the probe
+
+No, it would not. Which part of OF kernel code causes probe ordering
+(device links) if some random phandle appears?
+
+> of these targets before the test runs on them. And in hardware, the test
+> must run only one before the device is used, else we see indefinite
+> behavior."
 > 
-> The cpu_addr_fixup() function was introduced by the following commit:
-> https://github.com/torvalds/linux/commit/2ed6cc71e6f7
-> with the reason described in
-> Section 24.9.4.3.2 PCIe Controller Slave Port
-> of the T.R.M. at:
-> https://www.ti.com/lit/ug/spruic2d/spruic2d.pdf
-> ---------------------------------------------------------------------------
-> NOTE:
-> The PCIe controller remains fully functional, and able to send transactions
-> to, for example, anywhere within the 64-bit PCIe memory space, with the
-> appropriate remapping of the 28-bit address by the outbound address
-> translation unit (iATU). The limitation is that the total size of addressed
-> PCIe regions (in config, memory, IO spaces) must be less than 2^28 bytes.
-> ---------------------------------------------------------------------------
-> 
-> The entire sequence is:
-> 0) dra7.dtsi had ranges which match the ranges in the current patch.
-> 1) cpu_addr_fixup() was added by
-> https://github.com/torvalds/linux/commit/2ed6cc71e6f7
-> 2) ranges was updated to <0x20000000 0x20000000 0x10000000> by:
-> https://github.com/torvalds/linux/commit/c761028ef5e2
-> 3) ranges is being changed back to its original state of "0)" above.
-> 
+> Property that has a list of strings (targets) instead of phandles maybe?
+> Would that be acceptable?
 
-Thanks a lot for the reference.
 
-> cpu_addr_fixup() was introduced to remove the following:
-> 	pp->io_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> 	pp->mem_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> 	pp->cfg0_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> 	pp->cfg1_base &= DRA7XX_CPU_TO_BUS_ADDR;
-> in dra7xx_pcie_host_init(). The reason for the above is mentioned in the
-> "NOTE" as:
-> ---------------------------------------------------------------------------
-> The limitation is that the total size of addressed PCIe regions
-> (in config, memory, IO spaces) must be less than 2^28 bytes.
-> ---------------------------------------------------------------------------
-> 
 
-I don't think so. This note is for the *size* of the addressed regions. The
-fixup corresponds to the sentence in your above note from TRM:
-
-"able to send transactions to, for example, anywhere within the 64-bit PCIe
-memory space, with the appropriate remapping of the 28-bit address by the
-outbound address translation unit (iATU)"
-
-I think the limitation is due to the 29-bit address bus width of the PCIe
-controller slave port as mentionend in section, 24.9.4.3.2. And that correlates
-to the truncation of the upper 4 bits of the IO/CFG/MEM addresses. So even if
-the CPU passes address range relative to offset 0, PCIe controller converts it
-to 0x20000000/0x30000000 based on the instance.
-
-If my understanding is correct, then commit, c761028ef5e2 should be reverted and
-this patch can be applied.
-
-> I am not sure if Frank is accounting for all of this in the current patch
-> as well as the dependent patch series associated with removing
-> cpu_addr_fixup().
-> 
-> Regarding testing the series, I unfortunately don't have the hardware so
-> I cannot test it.
-> 
-
-That's a pity. If TI employee doesn't have access to an upstream supported
-platform, then I'm not sure whom we should ask for testing.
-
-Could you please ask around and see if you can get access to one? I'm sure that
-the hardware will be available somewhere :)
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Best regards,
+Krzysztof
 
