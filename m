@@ -4,56 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF83C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D61C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=bO5OWd2uc0h8OpRsmXvRjUauJea6pM3urudHAcUht64=; b=TpPyy9z6I2VvjduSJMRLXBTRRj
-	OOIpgUrojdoPuDHNI4+QOKDmKtQ+UnFCX5JxwYpJumxp+lL8CmYiA1oV4NAEcYy8y6Y2aA9SKpoZN
-	PDTHEQgn8YPAGx9kn04KHMvzlKcOHPQsqDt54QZhSTmYAfNsectMf9tPC43ztYjPkwS+4f8J4L93G
-	j0wnzOGWRpWalD3Z3HSx3LuaJh9pCAL/nk7HFm6jY3mxY7BEjh4IYT+jECrBBePR4RjOLo/jyV0Tv
-	YfKSVyYLvK5oSMpIAbNJKhnZQU9QqH2sKAey6rKgoOf7/Ht4TeZyop5D9nj9PJt5lX/mZEEncbvVI
-	HVpB8LWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EU5vl2IyAMkqAxOVujXowWQEexWNrBm4lKNgvrzygYM=; b=TBLladc9EO2Pwnl/6ywQisA4XX
+	cEbsf8birXfjcII6dSJVSESaTIhcuLL+fjOX02VApboTEc5L0Ksz/eiYgdzjMosDLhOqBVwwdWq2F
+	JoD1pkFw95UJvp6Fx0cbkpwZd1fbLdaq5hDHURzwDu0xsgGw02NIYIGQIv1jdiiMkoS1MpS5uLF/H
+	3yi/8yA8dUCixbAMJD2eePPJoBpTk5P8XdlKGaf+gmCLbe3szoBlkctUG2IjCqAJwA28PFrQkwpjG
+	7JirUJ3ObG08TsT3spIRAHhKgsWNDEna4FhbbL8GDtyB04o1suLlVZssxTIb46lxmu/VDZ7dx9h1O
+	6NyCD8oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twnDI-0000000423h-3mey;
-	Mon, 24 Mar 2025 19:11:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1twnEz-000000042GF-28Qx;
+	Mon, 24 Mar 2025 19:13:41 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twmzy-00000003znL-2Prl
+	id 1twn1P-0000000400v-1puf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 18:58:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C6BACA4A362;
-	Mon, 24 Mar 2025 18:52:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 662D3C4CEDD;
-	Mon, 24 Mar 2025 18:58:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1742842689;
-	bh=J0XWXNe1/Wcw4hNivuuhDTzbxJ/gKdKS0YRSHwsiR4A=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=cBI+G/9QmdLrTFie16VvxOlFcNHs/ZyXFZwwGltvJPYshHacREwDdiixWKozqYtEx
-	 8q6YXPZJD0ZZ9xHKGTeBYzz/Cy2LRRDrf2vgTmR5jVk76IsTzMV+J+W9uVHNCzuOBD
-	 YWwQA+tO4vPWfGAI1JfbwJj6qzKa9zyaOAs11LYg=
-Subject: Patch "KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state" has been added to the 6.13-stable tree
-To: broonie@kernel.org,catalin.marinas@arm.com,eauger@redhat.com,eric.auger@redhat.com,fweimer@redhat.com,gregkh@linuxfoundation.org,jeremy.linton@arm.com,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,pbonzini@redhat.com,suzuki.poulose@arm.com,tabba@google.com,wilco.dijkstra@arm.com,will@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Mon, 24 Mar 2025 11:56:29 -0700
-In-Reply-To: <20250321-stable-sve-6-13-v2-2-3150e3370c40@kernel.org>
-Message-ID: <2025032428-traps-smugness-faee@gregkh>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
-Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore
+	Mon, 24 Mar 2025 18:59:40 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d51bd9b41so29661125e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 11:59:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1742842777; x=1743447577; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=EU5vl2IyAMkqAxOVujXowWQEexWNrBm4lKNgvrzygYM=;
+        b=QcUoLJvBlggqjjXt4niIt03oikfepUr/zBh5fhTRHXN143znQ53LzRGbq5uDR45ScK
+         pEyykFA0nUM1djc0uMpdHoX8FuN8+VvLleQ0jO4hDmNLu9M93dHnKnXZyv7ZmLQ+XSqz
+         kFbW51ujEaMIBqAkX7OfyNAnfQSNMG3ZTSVRMbRc3EUNCg/qcYDaMt7kMKKw/wIKbwJ6
+         M31RPNf1MsMBQEa/TR54g/7ikceDcA8ebj5wPSTWBE/1mVstAz7InFI91Pu182sj7QV6
+         cK7+DYbdpc0AShec9dHwYEXgbNkX3MfthG622FfOF3jLTS/JfI5Mw7uDw3icQfPQQWqD
+         jXtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742842777; x=1743447577;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EU5vl2IyAMkqAxOVujXowWQEexWNrBm4lKNgvrzygYM=;
+        b=EVaofVGLeRcsOq+JP+zcVZdM9KlyXT1TjKHBJgYDXttVJpxb96kswOoB17u2Y5id/Z
+         hesmqQ9KRezTIi4mN7NRfWn8dnv68OR3w2HzemYwB6og5pNnDLi+ljs5hGn/UYIVd6+C
+         VPeYiyTOu786Z8zLYktiGHEkQrjhdtCgZWrxhNVu9Fhj8m7D12Dxj20W9f9dlHD7QYIw
+         x/wg6lHe6M5iDT6ZqnheTUPih7JUOrGWmvJ8YxAgHwZDWgwNMuGzp7pUH++r7K1VeQ7q
+         dNhv9NaiKFNeJjgnm061BG3DaOJWWxBHCjt5PoXzqrQ1rtOi5UGow5/oIr+mDPpRDSTe
+         GbAg==
+X-Gm-Message-State: AOJu0YzM2yfYIJ4VIsOOKNn6owBrCQb/Eo2ZrtigyubHsio8fD+viWxe
+	bgRPumRSv4qNd+BVA4it6+9edndAOf8dCSXjJYp40wcgbSftuAE5bFMoO9/v9qhB/KqroIePNnU
+	H7YxnNC6ZgOMUwfyJ3aqhpSckgQgJ+LyrkulIGQ2kDCNsedAr9/sgst6vJtBkP7KYYcgWjd2Mo4
+	GM1zj7A1HlUp89cGb3JYswAPNNPKoEBSsMyMwEM9ZJ
+X-Google-Smtp-Source: AGHT+IFXLSEctFeyD4DM0l6T6dvVWRHKZxY/tHET+B00TrGKUHpe50KBTGAvxsGOrUoTxIz9QdIhFGa/
+X-Received: from wmrn15.prod.google.com ([2002:a05:600c:500f:b0:43d:9f1:31a9])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4e45:b0:43c:ee3f:2c3
+ with SMTP id 5b1f17b1804b1-43d509eb3d4mr143385015e9.7.1742842776707; Mon, 24
+ Mar 2025 11:59:36 -0700 (PDT)
+Date: Mon, 24 Mar 2025 19:59:28 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3113; i=ardb@kernel.org;
+ h=from:subject; bh=CH9G3u1CCVjdEZgY11mjk53QRiyscsaYqz4kmq2ldTI=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIf3h6gnNlVPuhWnoWLLeOP9NrSWUbem6FN+7Lf9az3A+2
+ PDcQcO7o5SFQYyDQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEzk116GP1xH1SfY5zzxmP/3
+ yk6x+0ZRf5beuG986tJl/YiY9b5z2CYw/Pf3DbnvU3RQwnZaSdPsl16JvTdlRCWlP1f1LeVnPfO jiwUA
+X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
+Message-ID: <20250324185927.1024543-2-ardb+git@google.com>
+Subject: [PATCH] ARM: Disallow kernel mode NEON when IRQs are disabled
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux@armlinux.org.uk, ebiggers@kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, Guenter Roeck <linux@roeck-us.net>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_115810_762369_ECD9022C 
-X-CRM114-Status: GOOD (  29.87  )
+X-CRM114-CacheID: sfid-20250324_115939_488350_A25DF53C 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,197 +93,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ard Biesheuvel <ardb@kernel.org>
 
-This is a note to let you know that I've just added the patch titled
+Commit
 
-    KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+  c79f81631142 ("ARM: 9283/1: permit non-nested kernel mode NEON in softirq context")
 
-to the 6.13-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+relaxed the rules around the use of SIMD instructions in kernel mode on
+ARM, to allow such use when serving a softirq. To avoid having to
+preserve/restore kernel mode NEON state when such a softirq is taken,
+softirqs are now disabled when using the NEON from task context.
 
-The filename of the patch is:
-     kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
-and it can be found in the queue-6.13 subdirectory.
+However, the fact that the softirq API does not allow unmasking of
+softirqs with interrupts disabled was overlooked, resulting in a WARN()
+in some cases, as reported by Guenter:
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+  WARNING: CPU: 0 PID: 1145 at kernel/softirq.c:369 __local_bh_enable_ip+0x118/0x194
+  Call trace:
+   unwind_backtrace from show_stack+0x10/0x14
+   show_stack from dump_stack_lvl+0x7c/0xac
+   dump_stack_lvl from __warn+0x7c/0x1b8
+   __warn from warn_slowpath_fmt+0x19c/0x1a4
+   warn_slowpath_fmt from __local_bh_enable_ip+0x118/0x194
+   __local_bh_enable_ip from crc_t10dif_arch+0xd4/0xe8
+   crc_t10dif_arch from crc_t10dif_wrapper+0x14/0x1c
+   crc_t10dif_wrapper from crc_main_test+0x178/0x360
+   crc_main_test from kunit_try_run_case+0x78/0x1e0
+   kunit_try_run_case from kunit_generic_run_threadfn_adapter+0x1c/0x34
+   kunit_generic_run_threadfn_adapter from kthread+0x118/0x254
+   kthread from ret_from_fork+0x14/0x28
 
+While disabling softirqs is not really needed when running with IRQs
+disabled (given that the only way a softirq can be delivered
+asynchrously is over the back of an IRQ), let's not complicate this
+logic more than needed, and simply disallow use of the NEON in kernel
+mode when IRQs are disabled.
 
-From stable+bounces-125699-greg=kroah.com@vger.kernel.org Thu Mar 20 17:11:20 2025
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 21 Mar 2025 00:10:11 +0000
-Subject: KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Eric Auger <eauger@redhat.com>, Wilco Dijkstra <wilco.dijkstra@arm.com>,  Eric Auger <eric.auger@redhat.com>, Florian Weimer <fweimer@redhat.com>,  Fuad Tabba <tabba@google.com>, Jeremy Linton <jeremy.linton@arm.com>,  Paolo Bonzini <pbonzini@redhat.com>
-Message-ID: <20250321-stable-sve-6-13-v2-2-3150e3370c40@kernel.org>
+Another approach might be to only disable and re-enable softirqs if IRQs
+are enabled, but other than the test case above, there are no clear use
+cases for doing non-trivial arithmetic processing (hence using an
+accelerated SIMD implementation) with IRQs disabled.
 
-From: Mark Rutland <mark.rutland@arm.com>
-
-[ Upstream commit fbc7e61195e23f744814e78524b73b59faa54ab4 ]
-
-There are several problems with the way hyp code lazily saves the host's
-FPSIMD/SVE state, including:
-
-* Host SVE being discarded unexpectedly due to inconsistent
-  configuration of TIF_SVE and CPACR_ELx.ZEN. This has been seen to
-  result in QEMU crashes where SVE is used by memmove(), as reported by
-  Eric Auger:
-
-  https://issues.redhat.com/browse/RHEL-68997
-
-* Host SVE state is discarded *after* modification by ptrace, which was an
-  unintentional ptrace ABI change introduced with lazy discarding of SVE state.
-
-* The host FPMR value can be discarded when running a non-protected VM,
-  where FPMR support is not exposed to a VM, and that VM uses
-  FPSIMD/SVE. In these cases the hyp code does not save the host's FPMR
-  before unbinding the host's FPSIMD/SVE/SME state, leaving a stale
-  value in memory.
-
-Avoid these by eagerly saving and "flushing" the host's FPSIMD/SVE/SME
-state when loading a vCPU such that KVM does not need to save any of the
-host's FPSIMD/SVE/SME state. For clarity, fpsimd_kvm_prepare() is
-removed and the necessary call to fpsimd_save_and_flush_cpu_state() is
-placed in kvm_arch_vcpu_load_fp(). As 'fpsimd_state' and 'fpmr_ptr'
-should not be used, they are set to NULL; all uses of these will be
-removed in subsequent patches.
-
-Historical problems go back at least as far as v5.17, e.g. erroneous
-assumptions about TIF_SVE being clear in commit:
-
-  8383741ab2e773a9 ("KVM: arm64: Get rid of host SVE tracking/saving")
-
-... and so this eager save+flush probably needs to be backported to ALL
-stable trees.
-
-Fixes: 93ae6b01bafee8fa ("KVM: arm64: Discard any SVE state when entering KVM guests")
-Fixes: 8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
-Fixes: ef3be86021c3bdf3 ("KVM: arm64: Add save/restore support for FPMR")
-Reported-by: Eric Auger <eauger@redhat.com>
-Reported-by: Wilco Dijkstra <wilco.dijkstra@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Tested-by: Mark Brown <broonie@kernel.org>
-Tested-by: Eric Auger <eric.auger@redhat.com>
-Acked-by: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Florian Weimer <fweimer@redhat.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Jeremy Linton <jeremy.linton@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-2-mark.rutland@arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-[ Mark: Handle vcpu/host flag conflict ]
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Reported-by: Guenter Roeck <linux@roeck-us.net>
+Tested-by: Guenter Roeck <linux@roeck-us.net>
+Link: https://lore.kernel.org/all/389b899f-893c-4855-9e30-d8920a5d6f91@roeck-us.net
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c |   25 -------------------------
- arch/arm64/kvm/fpsimd.c    |   35 ++++++++++-------------------------
- 2 files changed, 10 insertions(+), 50 deletions(-)
+ arch/arm/include/asm/simd.h | 3 ++-
+ arch/arm/vfp/vfpmodule.c    | 1 +
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1695,31 +1695,6 @@ void fpsimd_signal_preserve_current_stat
+diff --git a/arch/arm/include/asm/simd.h b/arch/arm/include/asm/simd.h
+index 82191dbd7e78..e604a9382960 100644
+--- a/arch/arm/include/asm/simd.h
++++ b/arch/arm/include/asm/simd.h
+@@ -4,5 +4,6 @@
+ 
+ static __must_check inline bool may_use_simd(void)
+ {
+-	return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && !in_hardirq();
++	return IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && !in_hardirq()
++	       && !irqs_disabled();
  }
- 
- /*
-- * Called by KVM when entering the guest.
-- */
--void fpsimd_kvm_prepare(void)
--{
--	if (!system_supports_sve())
--		return;
--
--	/*
--	 * KVM does not save host SVE state since we can only enter
--	 * the guest from a syscall so the ABI means that only the
--	 * non-saved SVE state needs to be saved.  If we have left
--	 * SVE enabled for performance reasons then update the task
--	 * state to be FPSIMD only.
--	 */
--	get_cpu_fpsimd_context();
--
--	if (test_and_clear_thread_flag(TIF_SVE)) {
--		sve_to_fpsimd(current);
--		current->thread.fp_type = FP_STATE_FPSIMD;
--	}
--
--	put_cpu_fpsimd_context();
--}
--
--/*
-  * Associate current's FPSIMD context with this cpu
-  * The caller must have ownership of the cpu FPSIMD context before calling
-  * this function.
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -54,16 +54,18 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
- 	if (!system_supports_fpsimd())
- 		return;
- 
--	fpsimd_kvm_prepare();
--
- 	/*
--	 * We will check TIF_FOREIGN_FPSTATE just before entering the
--	 * guest in kvm_arch_vcpu_ctxflush_fp() and override this to
--	 * FP_STATE_FREE if the flag set.
-+	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
-+	 * that the host kernel is responsible for restoring this state upon
-+	 * return to userspace, and the hyp code doesn't need to save anything.
-+	 *
-+	 * When the host may use SME, fpsimd_save_and_flush_cpu_state() ensures
-+	 * that PSTATE.{SM,ZA} == {0,0}.
+diff --git a/arch/arm/vfp/vfpmodule.c b/arch/arm/vfp/vfpmodule.c
+index 7803d50b90f8..e559ad3cd148 100644
+--- a/arch/arm/vfp/vfpmodule.c
++++ b/arch/arm/vfp/vfpmodule.c
+@@ -877,6 +877,7 @@ void kernel_neon_begin(void)
+ 	 * the kernel mode NEON register contents never need to be preserved.
  	 */
--	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
--	*host_data_ptr(fpsimd_state) = kern_hyp_va(&current->thread.uw.fpsimd_state);
--	*host_data_ptr(fpmr_ptr) = kern_hyp_va(&current->thread.uw.fpmr);
-+	fpsimd_save_and_flush_cpu_state();
-+	*host_data_ptr(fp_owner) = FP_STATE_FREE;
-+	*host_data_ptr(fpsimd_state) = NULL;
-+	*host_data_ptr(fpmr_ptr) = NULL;
+ 	BUG_ON(in_hardirq());
++	BUG_ON(irqs_disabled());
+ 	cpu = __smp_processor_id();
  
- 	vcpu_clear_flag(vcpu, HOST_SVE_ENABLED);
- 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
-@@ -73,23 +75,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
- 		vcpu_clear_flag(vcpu, HOST_SME_ENABLED);
- 		if (read_sysreg(cpacr_el1) & CPACR_EL1_SMEN_EL0EN)
- 			vcpu_set_flag(vcpu, HOST_SME_ENABLED);
--
--		/*
--		 * If PSTATE.SM is enabled then save any pending FP
--		 * state and disable PSTATE.SM. If we leave PSTATE.SM
--		 * enabled and the guest does not enable SME via
--		 * CPACR_EL1.SMEN then operations that should be valid
--		 * may generate SME traps from EL1 to EL1 which we
--		 * can't intercept and which would confuse the guest.
--		 *
--		 * Do the same for PSTATE.ZA in the case where there
--		 * is state in the registers which has not already
--		 * been saved, this is very unlikely to happen.
--		 */
--		if (read_sysreg_s(SYS_SVCR) & (SVCR_SM_MASK | SVCR_ZA_MASK)) {
--			*host_data_ptr(fp_owner) = FP_STATE_FREE;
--			fpsimd_save_and_flush_cpu_state();
--		}
- 	}
- 
- 	/*
+ 	fpexc = fmrx(FPEXC) | FPEXC_EN;
+-- 
+2.49.0.395.g12beb8f557-goog
 
-
-Patches currently in stable-queue which might be from broonie@kernel.org are
-
-queue-6.13/kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
-queue-6.13/regulator-check-that-dummy-regulator-has-been-probed-before-using-it.patch
-queue-6.13/kvm-arm64-eagerly-switch-zcr_el-1-2.patch
-queue-6.13/kvm-arm64-mark-some-header-functions-as-inline.patch
-queue-6.13/kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
-queue-6.13/regulator-dummy-force-synchronous-probing.patch
-queue-6.13/kvm-arm64-refactor-exit-handlers.patch
-queue-6.13/kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
-queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
-queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
 
