@@ -4,115 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE86FC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 13:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C02BEC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 13:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ghHaIoZTdVg9s4AcD2zJxE+31Mhe4sZUJ4hTXusvaGY=; b=q9IOzDX5Ijcb+PZfSfQ3OllZ8p
-	L/Q7dSAFZOp2XuxFFyh/uuVTjKi4xiJdTtMYUoucp0OUaE4e/u3T7/77USfGZcErghJlp6squWYSC
-	LLksnJMpD2Foqn1UqprVnKvs9rsbbdMnPOTGL5nllNJBr8sbT0tWx5PSYum8VEirDOobJvepUO5J9
-	SZi7Icwux4DKO6aIgnLZ9yUo6v/yEaQ4TI6jpPSGHn2iJjjNfy+zQVQXuCaSX6dcO+G1rrLbLZTOv
-	15FusMBU2HWDdzQBD4KWvmUl/5MlUQ7CGVnHcZzIlAi7f8/54KnTxvUUvHxSVNnKjzsXXy7hEd9mf
-	E01A13yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Swp0A6m5z0PKeokWPdmXBwN3IUR6g66dxOKJCtuIBk4=; b=q+t9HdixZpNDhT6wrTAEF2luqQ
+	jvByscEwf5el2nVDwU9cK1CElxH8ZNyIJIfY1Hqvqa7FN8xqvKhGSLU/tPkPwK3h0SQErTHHwjL95
+	tVzzN+nvNXBgvrv92PWHUmMizoVluCInp9lCmeKqf4nHPgLg076dyqGywiEqyq6g6Yu1mqMpgnSpO
+	lK6E4eHaswylBLtnb7GARlR3AJ5ompZz6Ow+AyDa8PVqIZAtRftaRfdlAXWBSO2V90lHxWaT8BCCe
+	gj3DqxMkJzJZvGu4n0QQPhYCfiPXEekX+xqZRFeZss/88OqgVczXMokNhew6KRoc1jfXmtRI5xeIk
+	vzJE5rUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twhbD-00000003D5a-1Vfc;
-	Mon, 24 Mar 2025 13:12:15 +0000
-Received: from ip-89-177-23-149.bb.vodafone.cz ([89.177.23.149] helo=ixit.cz)
+	id 1twhct-00000003DHL-306u;
+	Mon, 24 Mar 2025 13:13:59 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twhOT-000000039XZ-0rBA;
-	Mon, 24 Mar 2025 12:59:07 +0000
-Received: from [192.168.2.71] (office.icewarp.com [82.113.48.146])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 0BDD51669CA;
-	Mon, 24 Mar 2025 13:58:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1742821136;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ghHaIoZTdVg9s4AcD2zJxE+31Mhe4sZUJ4hTXusvaGY=;
-	b=bmguFzJEiOBbzjWzRn6AMh2wdiX+dlHiGJLokvL2KAqR9iQbGzH1wVn1RYonHzGrLIi17s
-	Atw/knSrWKHsXIKx7mTIB/rKV70HFWjEEIkbghwmZW+9RehgeyAuYY8xzSJt/sbKHlGA8k
-	Fk1I/4g/56QFVXYD8uSJkgGUAdcTxFs=
-Message-ID: <2cf735da-9f20-4372-8b08-0b40c335ba6b@ixit.cz>
-Date: Mon, 24 Mar 2025 13:58:55 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: iommu: Correct indentation and style in DTS
+	id 1twhSo-00000003Bky-1U2R;
+	Mon, 24 Mar 2025 13:03:35 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D9E2D2C6;
+	Mon, 24 Mar 2025 14:01:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1742821301;
+	bh=eos6W+9ir6pEgCNp1c8QmUJfmmzea1hANIHnNv6ejH8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YNF2XMoSxwT4Yx+jjaag38dPG2tWYfX/QmAsCY/Y+XSrA35i/zrDkOHoSF1GWER5c
+	 E47luNt80TOHi67jvn/8+ApN3l7DgVXDAdgYFfO6XgpPaS1y8J2S3i0QMb8fgcex7b
+	 MBqVXo3jIsy4n4PIayQXPe4WctkgqCQ1J/mXRzNs=
+Date: Mon, 24 Mar 2025 15:03:05 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Manikandan Muralidharan <manikandan.m@microchip.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Sander Vanheule <sander@svanheule.net>,
+	Bert Vermeulen <bert@biot.com>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: gpio: Correct indentation and style in DTS
  example
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Maxime Ripard <mripard@kernel.org>, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org
-References: <20250324125250.82137-1-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <20250324125250.82137-1-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Message-ID: <20250324130305.GD5113@pendragon.ideasonboard.com>
+References: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_055905_707422_6A6C2CD7 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20250324_060334_682922_A8F8D0B6 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,7 +90,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/03/2025 13:52, Krzysztof Kozlowski wrote:
+Hi Krzysztof,
+
+Thank you for the patch.
+
+On Mon, Mar 24, 2025 at 01:53:26PM +0100, Krzysztof Kozlowski wrote:
 > DTS example in the bindings should be indented with 2- or 4-spaces and
 > aligned with opening '- |', so correct any differences like 3-spaces or
 > mixtures 2- and 4-spaces in one binding.  While re-indenting, drop
@@ -137,295 +104,422 @@ On 24/03/2025 13:52, Krzysztof Kozlowski wrote:
 > new patches built on existing code.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+
 > ---
->   .../iommu/allwinner,sun50i-h6-iommu.yaml      |  24 ++--
->   .../bindings/iommu/arm,smmu-v3.yaml           |  20 ++--
->   .../devicetree/bindings/iommu/arm,smmu.yaml   | 104 +++++++++---------
->   .../bindings/iommu/mediatek,iommu.yaml        |  18 +--
->   .../bindings/iommu/qcom,apq8064-iommu.yaml    |  20 ++--
->   5 files changed, 92 insertions(+), 94 deletions(-)
+>  .../bindings/gpio/atmel,at91rm9200-gpio.yaml  | 16 ++---
+>  .../bindings/gpio/fairchild,74hc595.yaml      | 20 +++---
+>  .../devicetree/bindings/gpio/gpio-mxs.yaml    | 70 +++++++++----------
+>  .../devicetree/bindings/gpio/nxp,pcf8575.yaml | 24 +++----
+>  .../bindings/gpio/realtek,otto-gpio.yaml      |  8 +--
+>  .../bindings/gpio/renesas,em-gio.yaml         | 20 +++---
+>  .../bindings/gpio/renesas,rcar-gpio.yaml      | 24 +++----
+>  .../devicetree/bindings/gpio/sifive,gpio.yaml |  6 +-
+>  .../bindings/gpio/toshiba,gpio-visconti.yaml  | 24 +++----
+>  .../bindings/gpio/xlnx,gpio-xilinx.yaml       | 48 ++++++-------
+>  10 files changed, 130 insertions(+), 130 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml b/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml
-> index a8409db4a3e3..ad51ace9ca09 100644
-> --- a/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml
-> @@ -48,19 +48,19 @@ additionalProperties: false
->   
->   examples:
->     - |
-> -      #include <dt-bindings/interrupt-controller/arm-gic.h>
-> -      #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
->   
-> -      #include <dt-bindings/clock/sun50i-h6-ccu.h>
-> -      #include <dt-bindings/reset/sun50i-h6-ccu.h>
-> +    #include <dt-bindings/clock/sun50i-h6-ccu.h>
-> +    #include <dt-bindings/reset/sun50i-h6-ccu.h>
->   
-> -      iommu: iommu@30f0000 {
-> -          compatible = "allwinner,sun50i-h6-iommu";
-> -          reg = <0x030f0000 0x10000>;
-> -          interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
-> -          clocks = <&ccu CLK_BUS_IOMMU>;
-> -          resets = <&ccu RST_BUS_IOMMU>;
-> -          #iommu-cells = <1>;
+> diff --git a/Documentation/devicetree/bindings/gpio/atmel,at91rm9200-gpio.yaml b/Documentation/devicetree/bindings/gpio/atmel,at91rm9200-gpio.yaml
+> index 3dd70933ed8e..d810043b56b6 100644
+> --- a/Documentation/devicetree/bindings/gpio/atmel,at91rm9200-gpio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/atmel,at91rm9200-gpio.yaml
+> @@ -69,13 +69,13 @@ examples:
+>      #include <dt-bindings/interrupt-controller/irq.h>
+>  
+>      gpio@fffff400 {
+> -            compatible = "atmel,at91rm9200-gpio";
+> -            reg = <0xfffff400 0x200>;
+> -            interrupts = <2 IRQ_TYPE_LEVEL_HIGH 1>;
+> -            #gpio-cells = <2>;
+> -            gpio-controller;
+> -            interrupt-controller;
+> -            #interrupt-cells = <2>;
+> -            clocks = <&pmc PMC_TYPE_PERIPHERAL 2>;
+> +        compatible = "atmel,at91rm9200-gpio";
+> +        reg = <0xfffff400 0x200>;
+> +        interrupts = <2 IRQ_TYPE_LEVEL_HIGH 1>;
+> +        #gpio-cells = <2>;
+> +        gpio-controller;
+> +        interrupt-controller;
+> +        #interrupt-cells = <2>;
+> +        clocks = <&pmc PMC_TYPE_PERIPHERAL 2>;
+>      };
+>  ...
+> diff --git a/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml b/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml
+> index 0e5c22929bde..ab35bcf98101 100644
+> --- a/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/fairchild,74hc595.yaml
+> @@ -71,15 +71,15 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>      spi {
+> -            #address-cells = <1>;
+> -            #size-cells = <0>;
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+>  
+> -            gpio5: gpio5@0 {
+> -                    compatible = "fairchild,74hc595";
+> -                    reg = <0>;
+> -                    gpio-controller;
+> -                    #gpio-cells = <2>;
+> -                    registers-number = <4>;
+> -                    spi-max-frequency = <100000>;
+> -            };
+> +        gpio5@0 {
+> +            compatible = "fairchild,74hc595";
+> +            reg = <0>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            registers-number = <4>;
+> +            spi-max-frequency = <100000>;
+> +        };
+>      };
+> diff --git a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+> index 8ff54369d16c..b58e08c8ecd8 100644
+> --- a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+> @@ -84,52 +84,52 @@ examples:
+>          reg = <0x80018000 0x2000>;
+>  
+>          gpio@0 {
+> -                compatible = "fsl,imx28-gpio";
+> -                reg = <0>;
+> -                interrupts = <127>;
+> -                gpio-controller;
+> -                #gpio-cells = <2>;
+> -                interrupt-controller;
+> -                #interrupt-cells = <2>;
+> +            compatible = "fsl,imx28-gpio";
+> +            reg = <0>;
+> +            interrupts = <127>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+>          };
+>  
+>          gpio@1 {
+> -                compatible = "fsl,imx28-gpio";
+> -                reg = <1>;
+> -                interrupts = <126>;
+> -                gpio-controller;
+> -                #gpio-cells = <2>;
+> -                interrupt-controller;
+> -                #interrupt-cells = <2>;
+> +            compatible = "fsl,imx28-gpio";
+> +            reg = <1>;
+> +            interrupts = <126>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+>          };
+>  
+>          gpio@2 {
+> -                compatible = "fsl,imx28-gpio";
+> -                reg = <2>;
+> -                interrupts = <125>;
+> -                gpio-controller;
+> -                #gpio-cells = <2>;
+> -                interrupt-controller;
+> -                #interrupt-cells = <2>;
+> +            compatible = "fsl,imx28-gpio";
+> +            reg = <2>;
+> +            interrupts = <125>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+>          };
+>  
+>          gpio@3 {
+> -                compatible = "fsl,imx28-gpio";
+> -                reg = <3>;
+> -                interrupts = <124>;
+> -                gpio-controller;
+> -                #gpio-cells = <2>;
+> -                interrupt-controller;
+> -                #interrupt-cells = <2>;
+> +            compatible = "fsl,imx28-gpio";
+> +            reg = <3>;
+> +            interrupts = <124>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+>          };
+>  
+>          gpio@4 {
+> -                compatible = "fsl,imx28-gpio";
+> -                reg = <4>;
+> -                interrupts = <123>;
+> -                gpio-controller;
+> -                #gpio-cells = <2>;
+> -                interrupt-controller;
+> -                #interrupt-cells = <2>;
+> +            compatible = "fsl,imx28-gpio";
+> +            reg = <4>;
+> +            interrupts = <123>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+>          };
+>      };
+> diff --git a/Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml b/Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
+> index 8bca574bb66d..5a6ecaa7b44b 100644
+> --- a/Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
+> @@ -128,17 +128,17 @@ additionalProperties: false
+>  examples:
+>    - |
+>      i2c {
+> -            #address-cells = <1>;
+> -            #size-cells = <0>;
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+>  
+> -            pcf8575: gpio@20 {
+> -                    compatible = "nxp,pcf8575";
+> -                    reg = <0x20>;
+> -                    interrupt-parent = <&irqpin2>;
+> -                    interrupts = <3 0>;
+> -                    gpio-controller;
+> -                    #gpio-cells = <2>;
+> -                    interrupt-controller;
+> -                    #interrupt-cells = <2>;
+> -            };
+> +        gpio@20 {
+> +            compatible = "nxp,pcf8575";
+> +            reg = <0x20>;
+> +            interrupt-parent = <&irqpin2>;
+> +            interrupts = <3 0>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+> +        };
+>      };
+> diff --git a/Documentation/devicetree/bindings/gpio/realtek,otto-gpio.yaml b/Documentation/devicetree/bindings/gpio/realtek,otto-gpio.yaml
+> index 39fd959c45d2..728099c65824 100644
+> --- a/Documentation/devicetree/bindings/gpio/realtek,otto-gpio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/realtek,otto-gpio.yaml
+> @@ -81,7 +81,7 @@ dependencies:
+>  
+>  examples:
+>    - |
+> -      gpio@3500 {
+> +    gpio@3500 {
+>          compatible = "realtek,rtl8380-gpio", "realtek,otto-gpio";
+>          reg = <0x3500 0x1c>;
+>          gpio-controller;
+> @@ -91,9 +91,9 @@ examples:
+>          #interrupt-cells = <2>;
+>          interrupt-parent = <&rtlintc>;
+>          interrupts = <23>;
 > -      };
-> +    iommu@30f0000 {
-> +        compatible = "allwinner,sun50i-h6-iommu";
-> +        reg = <0x030f0000 0x10000>;
-> +        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&ccu CLK_BUS_IOMMU>;
-> +        resets = <&ccu RST_BUS_IOMMU>;
-> +        #iommu-cells = <1>;
 > +    };
->   
->   ...
-> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-> index 75fcf4cb52d9..36b31197c908 100644
-> --- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-> @@ -82,14 +82,14 @@ examples:
->       #include <dt-bindings/interrupt-controller/irq.h>
->   
->       iommu@2b400000 {
-> -            compatible = "arm,smmu-v3";
-> -            reg = <0x2b400000 0x20000>;
-> -            interrupts = <GIC_SPI 74 IRQ_TYPE_EDGE_RISING>,
-> -                         <GIC_SPI 75 IRQ_TYPE_EDGE_RISING>,
-> -                         <GIC_SPI 77 IRQ_TYPE_EDGE_RISING>,
-> -                         <GIC_SPI 79 IRQ_TYPE_EDGE_RISING>;
-> -            interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
-> -            dma-coherent;
-> -            #iommu-cells = <1>;
-> -            msi-parent = <&its 0xff0000>;
-> +        compatible = "arm,smmu-v3";
-> +        reg = <0x2b400000 0x20000>;
-> +        interrupts = <GIC_SPI 74 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 75 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 77 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 79 IRQ_TYPE_EDGE_RISING>;
-> +        interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
-> +        dma-coherent;
-> +        #iommu-cells = <1>;
-> +        msi-parent = <&its 0xff0000>;
+>    - |
+> -      gpio@3300 {
+> +    gpio@3300 {
+>          compatible = "realtek,rtl9300-gpio", "realtek,otto-gpio";
+>          reg = <0x3300 0x1c>, <0x3338 0x8>;
+>          gpio-controller;
+> @@ -103,6 +103,6 @@ examples:
+>          #interrupt-cells = <2>;
+>          interrupt-parent = <&rtlintc>;
+>          interrupts = <13>;
+> -      };
+> +    };
+>  
+>  ...
+> diff --git a/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml b/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml
+> index 8bdef812c87c..49fb8f613ead 100644
+> --- a/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml
+> @@ -57,14 +57,14 @@ examples:
+>    - |
+>      #include <dt-bindings/interrupt-controller/arm-gic.h>
+>      gpio0: gpio@e0050000 {
+> -            compatible = "renesas,em-gio";
+> -            reg = <0xe0050000 0x2c>, <0xe0050040 0x20>;
+> -            interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
+> -                         <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+> -            gpio-controller;
+> -            #gpio-cells = <2>;
+> -            gpio-ranges = <&pfc 0 0 32>;
+> -            ngpios = <32>;
+> -            interrupt-controller;
+> -            #interrupt-cells = <2>;
+> +        compatible = "renesas,em-gio";
+> +        reg = <0xe0050000 0x2c>, <0xe0050040 0x20>;
+> +        interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+> +        gpio-controller;
+> +        #gpio-cells = <2>;
+> +        gpio-ranges = <&pfc 0 0 32>;
+> +        ngpios = <32>;
+> +        interrupt-controller;
+> +        #interrupt-cells = <2>;
+>      };
+> diff --git a/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml b/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml
+> index cc7a950a6030..d32e103a64aa 100644
+> --- a/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml
+> @@ -138,16 +138,16 @@ examples:
+>      #include <dt-bindings/interrupt-controller/arm-gic.h>
+>      #include <dt-bindings/power/r8a77470-sysc.h>
+>      gpio3: gpio@e6053000 {
+> -            compatible = "renesas,gpio-r8a77470", "renesas,rcar-gen2-gpio";
+> -            reg = <0xe6053000 0x50>;
+> -            interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> -            clocks = <&cpg CPG_MOD 909>;
+> -            power-domains = <&sysc R8A77470_PD_ALWAYS_ON>;
+> -            resets = <&cpg 909>;
+> -            gpio-controller;
+> -            #gpio-cells = <2>;
+> -            gpio-ranges = <&pfc 0 96 30>;
+> -            gpio-reserved-ranges = <17 10>;
+> -            interrupt-controller;
+> -            #interrupt-cells = <2>;
+> +        compatible = "renesas,gpio-r8a77470", "renesas,rcar-gen2-gpio";
+> +        reg = <0xe6053000 0x50>;
+> +        interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&cpg CPG_MOD 909>;
+> +        power-domains = <&sysc R8A77470_PD_ALWAYS_ON>;
+> +        resets = <&cpg 909>;
+> +        gpio-controller;
+> +        #gpio-cells = <2>;
+> +        gpio-ranges = <&pfc 0 96 30>;
+> +        gpio-reserved-ranges = <17 10>;
+> +        interrupt-controller;
+> +        #interrupt-cells = <2>;
 >       };
-> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> index 7b9d5507d6cc..5b56e4f9d106 100644
-> --- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> @@ -621,73 +621,71 @@ examples:
->     - |+
->       /* SMMU with stream matching or stream indexing */
->       smmu1: iommu@ba5e0000 {
-> -            compatible = "arm,smmu-v1";
-> -            reg = <0xba5e0000 0x10000>;
-> -            #global-interrupts = <2>;
-> -            interrupts = <0 32 4>,
-> -                         <0 33 4>,
-> -                         <0 34 4>, /* This is the first context interrupt */
-> -                         <0 35 4>,
-> -                         <0 36 4>,
-> -                         <0 37 4>;
-> -            #iommu-cells = <1>;
-> +        compatible = "arm,smmu-v1";
-> +        reg = <0xba5e0000 0x10000>;
-> +        #global-interrupts = <2>;
-> +        interrupts = <0 32 4>,
-> +                     <0 33 4>,
-> +                     <0 34 4>, /* This is the first context interrupt */
-> +                     <0 35 4>,
-> +                     <0 36 4>,
-> +                     <0 37 4>;
-> +        #iommu-cells = <1>;
->       };
->   
->       /* device with two stream IDs, 0 and 7 */
->       master1 {
-> -            iommus = <&smmu1 0>,
-> -                     <&smmu1 7>;
-> +        iommus = <&smmu1 0>,
-> +                 <&smmu1 7>;
->       };
->   
->   
->       /* SMMU with stream matching */
->       smmu2: iommu@ba5f0000 {
-> -            compatible = "arm,smmu-v1";
-> -            reg = <0xba5f0000 0x10000>;
-> -            #global-interrupts = <2>;
-> -            interrupts = <0 38 4>,
-> -                         <0 39 4>,
-> -                         <0 40 4>, /* This is the first context interrupt */
-> -                         <0 41 4>,
-> -                         <0 42 4>,
-> -                         <0 43 4>;
-> -            #iommu-cells = <2>;
-> +        compatible = "arm,smmu-v1";
-> +        reg = <0xba5f0000 0x10000>;
-> +        #global-interrupts = <2>;
-> +        interrupts = <0 38 4>,
-> +                     <0 39 4>,
-> +                     <0 40 4>, /* This is the first context interrupt */
-> +                     <0 41 4>,
-> +                     <0 42 4>,
-> +                     <0 43 4>;
-> +        #iommu-cells = <2>;
->       };
->   
->       /* device with stream IDs 0 and 7 */
->       master2 {
-> -            iommus = <&smmu2 0 0>,
-> -                     <&smmu2 7 0>;
-> +        iommus = <&smmu2 0 0>,
-> +                 <&smmu2 7 0>;
->       };
->   
->       /* device with stream IDs 1, 17, 33 and 49 */
->       master3 {
-> -            iommus = <&smmu2 1 0x30>;
-> +        iommus = <&smmu2 1 0x30>;
->       };
->   
->   
->       /* ARM MMU-500 with 10-bit stream ID input configuration */
->       smmu3: iommu@ba600000 {
-> -            compatible = "arm,mmu-500", "arm,smmu-v2";
-> -            reg = <0xba600000 0x10000>;
-> -            #global-interrupts = <2>;
-> -            interrupts = <0 44 4>,
-> -                         <0 45 4>,
-> -                         <0 46 4>, /* This is the first context interrupt */
-> -                         <0 47 4>,
-> -                         <0 48 4>,
-> -                         <0 49 4>;
-> -            #iommu-cells = <1>;
-> -            /* always ignore appended 5-bit TBU number */
-> -            stream-match-mask = <0x7c00>;
-> +        compatible = "arm,mmu-500", "arm,smmu-v2";
-> +        reg = <0xba600000 0x10000>;
-> +        #global-interrupts = <2>;
-> +        interrupts = <0 44 4>,
-> +                     <0 45 4>,
-> +                     <0 46 4>, /* This is the first context interrupt */
-> +                     <0 47 4>,
-> +                     <0 48 4>,
-> +                     <0 49 4>;
-
-If you want to squash another change,
-
-0 xx 4
-to
-GIC_SPI xx IRQ_TYPE_LEVEL_HIGH
-
-anyway, with or without:
-
-Reviewed-by: David Heidelberg <david@ixit.cz>
-
-> +        #iommu-cells = <1>;
-> +        /* always ignore appended 5-bit TBU number */
-> +        stream-match-mask = <0x7c00>;
->       };
->   
->       bus {
-> -            /* bus whose child devices emit one unique 10-bit stream
-> -               ID each, but may master through multiple SMMU TBUs */
-> -            iommu-map = <0 &smmu3 0 0x400>;
-> -
-> -
-> +        /* bus whose child devices emit one unique 10-bit stream
-> +           ID each, but may master through multiple SMMU TBUs */
-> +        iommu-map = <0 &smmu3 0 0x400>;
->       };
->   
->     - |+
-> @@ -695,17 +693,17 @@ examples:
->       #include <dt-bindings/interrupt-controller/arm-gic.h>
->       #include <dt-bindings/interrupt-controller/irq.h>
->       smmu4: iommu@d00000 {
-> -      compatible = "qcom,msm8996-smmu-v2", "qcom,smmu-v2";
-> -      reg = <0xd00000 0x10000>;
-> +        compatible = "qcom,msm8996-smmu-v2", "qcom,smmu-v2";
-> +        reg = <0xd00000 0x10000>;
->   
-> -      #global-interrupts = <1>;
-> -      interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
-> -             <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>,
-> -             <GIC_SPI 321 IRQ_TYPE_LEVEL_HIGH>;
-> -      #iommu-cells = <1>;
-> -      power-domains = <&mmcc 0>;
-> +        #global-interrupts = <1>;
-> +        interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 321 IRQ_TYPE_LEVEL_HIGH>;
-> +        #iommu-cells = <1>;
-> +        power-domains = <&mmcc 0>;
->   
-> -      clocks = <&mmcc 123>,
-> -        <&mmcc 124>;
-> -      clock-names = "bus", "iface";
-> +        clocks = <&mmcc 123>,
-> +                 <&mmcc 124>;
-> +        clock-names = "bus", "iface";
->       };
-> diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> index ea6b0f5f24de..1eac27893b03 100644
-> --- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> @@ -218,13 +218,13 @@ examples:
->       #include <dt-bindings/interrupt-controller/arm-gic.h>
->   
->       iommu: iommu@10205000 {
-> -            compatible = "mediatek,mt8173-m4u";
-> -            reg = <0x10205000 0x1000>;
-> -            interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_LOW>;
-> -            clocks = <&infracfg CLK_INFRA_M4U>;
-> -            clock-names = "bclk";
-> -            mediatek,infracfg = <&infracfg>;
-> -            mediatek,larbs = <&larb0>, <&larb1>, <&larb2>,
-> -                             <&larb3>, <&larb4>, <&larb5>;
-> -            #iommu-cells = <1>;
-> +        compatible = "mediatek,mt8173-m4u";
-> +        reg = <0x10205000 0x1000>;
-> +        interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_LOW>;
-> +        clocks = <&infracfg CLK_INFRA_M4U>;
-> +        clock-names = "bclk";
-> +        mediatek,infracfg = <&infracfg>;
-> +        mediatek,larbs = <&larb0>, <&larb1>, <&larb2>,
-> +                         <&larb3>, <&larb4>, <&larb5>;
-> +        #iommu-cells = <1>;
->       };
-> diff --git a/Documentation/devicetree/bindings/iommu/qcom,apq8064-iommu.yaml b/Documentation/devicetree/bindings/iommu/qcom,apq8064-iommu.yaml
-> index 9f83f851e61a..aaecad32dc9d 100644
-> --- a/Documentation/devicetree/bindings/iommu/qcom,apq8064-iommu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/qcom,apq8064-iommu.yaml
-> @@ -65,14 +65,14 @@ examples:
->       #include <dt-bindings/interrupt-controller/arm-gic.h>
->   
->       iommu@7500000 {
-> -            compatible = "qcom,apq8064-iommu";
-> -            reg = <0x07500000 0x100000>;
-> -            interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
-> -                         <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
-> -            clocks = <&clk SMMU_AHB_CLK>,
-> -                     <&clk MDP_AXI_CLK>;
-> -            clock-names = "smmu_pclk",
-> -                          "iommu_clk";
-> -            #iommu-cells = <1>;
-> -            qcom,ncb = <2>;
-> +        compatible = "qcom,apq8064-iommu";
-> +        reg = <0x07500000 0x100000>;
-> +        interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&clk SMMU_AHB_CLK>,
-> +                 <&clk MDP_AXI_CLK>;
-> +        clock-names = "smmu_pclk",
-> +                      "iommu_clk";
-> +        #iommu-cells = <1>;
-> +        qcom,ncb = <2>;
->       };
+> diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+> index fc095646adea..4bdc201b719e 100644
+> --- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+> @@ -76,8 +76,8 @@ additionalProperties: false
+>  
+>  examples:
+>    - |
+> -      #include <dt-bindings/clock/sifive-fu540-prci.h>
+> -      gpio@10060000 {
+> +    #include <dt-bindings/clock/sifive-fu540-prci.h>
+> +    gpio@10060000 {
+>          compatible = "sifive,fu540-c000-gpio", "sifive,gpio0";
+>          interrupt-parent = <&plic>;
+>          interrupts = <7>, <8>, <9>, <10>, <11>, <12>, <13>, <14>, <15>, <16>,
+> @@ -88,6 +88,6 @@ examples:
+>          #gpio-cells = <2>;
+>          interrupt-controller;
+>          #interrupt-cells = <2>;
+> -      };
+> +    };
+>  
+>  ...
+> diff --git a/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml b/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
+> index b085450b527f..712063417bc8 100644
+> --- a/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
+> @@ -48,22 +48,22 @@ additionalProperties: false
+>  
+>  examples:
+>    - |
+> -      #include <dt-bindings/interrupt-controller/irq.h>
+> -      #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  
+> -      soc {
+> +    soc {
+>          #address-cells = <2>;
+>          #size-cells = <2>;
+>  
+>          gpio: gpio@28020000 {
+> -          compatible = "toshiba,gpio-tmpv7708";
+> -          reg = <0 0x28020000 0 0x1000>;
+> -          #gpio-cells = <0x2>;
+> -          gpio-ranges = <&pmux 0 0 32>;
+> -          gpio-controller;
+> -          interrupt-controller;
+> -          #interrupt-cells = <2>;
+> -          interrupt-parent = <&gic>;
+> +            compatible = "toshiba,gpio-tmpv7708";
+> +            reg = <0 0x28020000 0 0x1000>;
+> +            #gpio-cells = <0x2>;
+> +            gpio-ranges = <&pmux 0 0 32>;
+> +            gpio-controller;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+> +            interrupt-parent = <&gic>;
+>          };
+> -      };
+> +    };
+>  ...
+> diff --git a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
+> index d3d8a2e143ed..8fbf12ca067e 100644
+> --- a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
+> @@ -126,29 +126,29 @@ examples:
+>    - |
+>      #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  
+> -        gpio@a0020000 {
+> -            compatible = "xlnx,xps-gpio-1.00.a";
+> -            reg = <0xa0020000 0x10000>;
+> -            #gpio-cells = <2>;
+> -            #interrupt-cells = <0x2>;
+> -            clocks = <&zynqmp_clk 71>;
+> -            gpio-controller;
+> -            interrupt-controller;
+> -            interrupt-names = "ip2intc_irpt";
+> -            interrupt-parent = <&gic>;
+> -            interrupts = <0 89 4>;
+> -            xlnx,all-inputs = <0x0>;
+> -            xlnx,all-inputs-2 = <0x0>;
+> -            xlnx,all-outputs = <0x0>;
+> -            xlnx,all-outputs-2 = <0x0>;
+> -            xlnx,dout-default = <0x0>;
+> -            xlnx,dout-default-2 = <0x0>;
+> -            xlnx,gpio-width = <0x20>;
+> -            xlnx,gpio2-width = <0x20>;
+> -            xlnx,interrupt-present = <0x1>;
+> -            xlnx,is-dual = <0x1>;
+> -            xlnx,tri-default = <0xFFFFFFFF>;
+> -            xlnx,tri-default-2 = <0xFFFFFFFF>;
+> -        };
+> +    gpio@a0020000 {
+> +        compatible = "xlnx,xps-gpio-1.00.a";
+> +        reg = <0xa0020000 0x10000>;
+> +        #gpio-cells = <2>;
+> +        #interrupt-cells = <0x2>;
+> +        clocks = <&zynqmp_clk 71>;
+> +        gpio-controller;
+> +        interrupt-controller;
+> +        interrupt-names = "ip2intc_irpt";
+> +        interrupt-parent = <&gic>;
+> +        interrupts = <0 89 4>;
+> +        xlnx,all-inputs = <0x0>;
+> +        xlnx,all-inputs-2 = <0x0>;
+> +        xlnx,all-outputs = <0x0>;
+> +        xlnx,all-outputs-2 = <0x0>;
+> +        xlnx,dout-default = <0x0>;
+> +        xlnx,dout-default-2 = <0x0>;
+> +        xlnx,gpio-width = <0x20>;
+> +        xlnx,gpio2-width = <0x20>;
+> +        xlnx,interrupt-present = <0x1>;
+> +        xlnx,is-dual = <0x1>;
+> +        xlnx,tri-default = <0xFFFFFFFF>;
+> +        xlnx,tri-default-2 = <0xFFFFFFFF>;
+> +    };
+>  
+>  ...
 
 -- 
-David Heidelberg
+Regards,
 
+Laurent Pinchart
 
