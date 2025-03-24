@@ -4,104 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862D3C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913FFC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHCM6K2iW1+fqMDLh9KgVtF4x5CiQjRva8x012yrIyc=; b=xV9MrTPJAmvMlNTEcc5TNAlTm1
-	0rjFp6xcQYbej5jzRSYX/YItlJQKyB80y4OWOwylC2vLZAevJrzGE2vF3xEA9ViohsSFEWs0qgEFx
-	nK2r34VcsHSGwP1EPV+XbRPHYph0SdG3WUWJ6b8iVISXEaetjX2NyTw/TZ65+OqYFXqSKZsRtUPrI
-	Mw0ujD+s0DIZq5nEvtH0tkvF9tYaLNKCUMTvH0Or6A6wBIf6HCxDEDa8detVQQssbJqw6tJ9L0NhJ
-	/B2+YfYUu8m2Tp5lAd/qYCKxMyWNN9g6ufmcBRIZEZuAMh2vMwbIR8e5m+6vvvnqD1mWjYVtxCQu8
-	2f/GpXYw==;
+	bh=+cQxE11cTeUTFuDTXhtUP0yJ5bXBgERn+/iChwozJXw=; b=l0OqRVXof6e+jKThpo8p4pJuHg
+	Z6xS0vQpa7Ya8uBYsPEli5t8gWA/s9OlUgFKjDwwosMzzXNNNwwuoRPXtl2snpnX5a6xQqoYaZF19
+	H3875UPNWp3YQItHDri7PhXtqoeVJyC9zO8O+8n3JdR2KtIL8RM0tchpyEm3HKfoJ4Jw3meZuy07U
+	cXAXUSbe82ARWcRY5PBvggzdfJpkeiw5T0QEOEwi9sHUvw93Zlh0Tqk15G+SllDr2NDCoA6Kgih3D
+	xgiKdEHRKkvCvBDobaf05/rBiz//A6G814JuOc5uQokQW4i8gs2ayaRB4QPtdw/7J+P0B6sontWE0
+	mqgNZSsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcSf-00000002Tw3-1Qu4;
-	Mon, 24 Mar 2025 07:43:05 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1twcUN-00000002UAb-0Rqe;
+	Mon, 24 Mar 2025 07:44:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcJm-00000002SYz-3Kae;
-	Mon, 24 Mar 2025 07:33:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1742801632; x=1743406432; i=markus.elfring@web.de;
-	bh=lHCM6K2iW1+fqMDLh9KgVtF4x5CiQjRva8x012yrIyc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=MfUf2jm8rzqT28e1mSOGEbVg8GcCrSXq2DnnZIIL6CTEKFw1O8B1YYAxVR3p93wK
-	 3jSrck64eNT3wIJZpj9xLbDs2WFdV+V3BrAUGpCKr7vLfVCO58+OYnJl61DhYjIlu
-	 MCzZwMljjNCF7kBE2aU4SN9wyn/V0zSZKLCt9KlPP1pneusEByXOSzQiyj2WNUyJh
-	 6uEf1GcbkuX99CUJheyEtV2PWaOJiviHiqgBRX5zMNJ5OUWFWi8bZkzQhHRe4OupG
-	 YPDLypzmvAauiEAh14zVPbCGoRXox3OQWwzKB4Oud7aSyFh1REI2kzew/1ph/8WXL
-	 gYY3wuMLFHS7Lub3Cw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.93.33]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1Mr7ac-1tKrO21bXi-00oDxV; Mon, 24
- Mar 2025 08:33:52 +0100
-Message-ID: <46a53498-6c20-48fd-b090-02163baefddd@web.de>
-Date: Mon, 24 Mar 2025 08:33:39 +0100
+	id 1twcOT-00000002T7a-01df
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 07:38:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E9185C5748;
+	Mon, 24 Mar 2025 07:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD385C4CEDD;
+	Mon, 24 Mar 2025 07:38:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742801924;
+	bh=e6SIowdMXYBD6xhP/5nsiEyaBQQ8xzjEYV6YQOv7ymM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G/DCj6aJbFrctGnnNft7BvBOvluAP/K89AzprkIRMNZvv7bMDagxizxlZH81+6cHW
+	 fZToOiRCFHBIx4aGs0H+4IR6GTMJJjzm3Jp2vwdsIXpe5pP3xK5L2+QjvQJG68jVBR
+	 CwJglWxvRsCxLd6Y4cMtN1e5kgRVPt7uzP9CAtATZS4mb7pMEkkaus+qCgHjmCYQ5z
+	 3GaZGAOvtMOiNYX77EJtFfHHdrwroynnsA3kpw+k8Bymt4WisPRY7DG+SnU4kS6hNv
+	 MBYIP8AhcZOp5r/MYFeVg23ydzZnX5tsZzUEjhUhh68BG3KeQPdzlK5uXkfeYqzZ67
+	 7OX89F2laUpJQ==
+Message-ID: <fbd5c153-b73a-4dbc-a923-4e3d3924e748@kernel.org>
+Date: Mon, 24 Mar 2025 08:38:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: wifi: mt76: mt7996: avoid potential null deref in
- mt7996_get_et_stats()
-To: Dan Carpenter <dan.carpenter@linaro.org>, Qasim Ijaz
- <qasdev00@gmail.com>, linux-wireless@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Bo Jiao <bo.jiao@mediatek.com>, Felix Fietkau <nbd@nbd.name>,
- James Dutton <james.dutton@gmail.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Jonas Gorski <jonas.gorski@gmail.com>, Lorenzo Bianconi
- <lorenzo@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Peter Chiu <chui-hao.chiu@mediatek.com>, Ryder Lee <ryder.lee@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>
-References: <20250322141910.4461-1-qasdev00@gmail.com>
- <d1df5d97-4691-40d4-a6cc-416505f35164@web.de>
- <92d1a410788c54facedec033474046dda6a1a2cc.camel@sipsolutions.net>
- <CAAMvbhGrJ9b3Aab9+2a5zmvEgf0GZFmHLCC7Hud+egUE28voHQ@mail.gmail.com>
- <223c7280-443d-49b4-96b2-90472339dcd4@stanley.mountain>
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <223c7280-443d-49b4-96b2-90472339dcd4@stanley.mountain>
+Subject: Re: [PATCH v1 1/3] arm64: defconfig: enable PCI Power Control for
+ PCIe3
+To: "Wenbin Yao (Consultant)" <quic_wenbyao@quicinc.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, quic_qianyu@quicinc.com,
+ sfr@canb.auug.org.au, linux-arm-kernel@lists.infradead.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
+ <20250320055502.274849-2-quic_wenbyao@quicinc.com>
+ <694b6638-92b2-4ac0-a175-bd29aea6cba9@kernel.org>
+ <CAMRc=MfZrRp=VuEOLuMY_04JdyRrD+joGL56LwRFQ-+D-8Z_6w@mail.gmail.com>
+ <9ea8fe39-b818-403b-bd69-815e58eb2949@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <9ea8fe39-b818-403b-bd69-815e58eb2949@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:hPisYZtNHtgdSzDYvkU7jZ10PJssmACwm0eKAkVLKsCDI3b7xsG
- lzCWmSJHsssVXlIH/WXbNoTQQWdL2uKRi5+cu2aBCoRq8td+NnkT20JfBooQvjsecx0XC+a
- Ml1Bx1ENSjGs/NZ8CrOU68lZCqAPXZoL5nCXm2TCFWIKoraDOy7dtISm16LVoMimIarUZ88
- wJXlpqLJg8q3B3nWr5f5A==
-UI-OutboundReport: notjunk:1;M01:P0:jO20oZj/TDE=;aGj7rYdAkRcQW7DeTxELt09CwZj
- IMJ4QmMwA/3OFvwsgsx+W+vN98ShDLwI66ERueilwHOK24GN90dOcZ2A1m+MUdhx2kH9EtOb8
- GpBM4wwOWefzfn5U56aJhfP1E3DwV6ungO7Vvh74LZqMJE6bGTdHJMTx6R4zKOtsb4INcAHwM
- poYPqYUg5HK0TM6npx137BrPjtnruqBeRO2GQsLqZ8FTj724duSrnDT3//T6S7aMztQUaFx6J
- SkDU9SXpaIdDOp6/YoaNw8JrB1RpTKSxNIpLOrF5wOCnormOMXjAmMM5e+vSmJ0M02DS7F1cl
- DYw5vfl/PBhGELoXNFOrMyp5oFu1x+O5E51HA22nRsGOXftFcaEWTSzdxsVEePdyG+QTWEjAJ
- wMPXa7wmzCXtohStcMSk3uRk/QbwW/PW2X6bUniVdn8oAcFwVQ+0YFGYyzEog9tasB1pHsWtw
- TYAZFhNFHl+u+CzIFI2/ozAYEtATj/tCrR0g7XUTxT6TSqB2Vdb9TjvcE+gGayNWtdXm/yM5U
- e1cCx7Q+Y2syqylyrykPExIaqEnzrFA8Lmq+eReqbjcav6EsWZUOvdSF7kwCaBefwGBvcf22f
- ROchFCHsXAhpSK9gBgrAzVxoQl4qblOrpsOENuTWx9jcHsDvv5w2vHkvW4GdpzGRPRKiq5l8j
- KbWP+xgKx1HV8FpskDsEAb7/1foieNAjOwCLRZJ7SGcoTeaVczjWxg3cTG+YulML9AmTgHBA0
- zffaTDuiMvucBG2SAj/2LloeSBPIMg0xQtjHwTWkEqGcppQN8hOYzNXKcGpJiVszgB3wnjW+0
- wIczXjNR4Z8Paj5H+g537DdGuw8lrAGoQNfWK1ScAauE2IYtJPyO+mFtEzQkmYNnyVk/ompDb
- 3PnMdlmAKZpPuzRbfCT+I+Z7ty9PEExDxvkJ6b3epvlbzLVtnYfPH+XSWwXIHGP+7HEehn4/s
- Rimek8h2ei3UvTqbuJK1crjfaXpN9urR0vFRJSANz0uTwLnUxicEX+vZ9RNl0TTikF2jzECix
- a1JaA88odXlJOG/WCeqZXv6AXYa6kwUXwQkBUnz22/J5H6+p9tqWcrhfA9WdtVDg+BCeV9niA
- /bRV8bytHFiTFBvTfULpmLU8HPC+bInE8AXFA5FI4r9FYSLQxHO+HKGSeTdSbL+h4lL78WAfc
- rIIjTih9nMGSlskR2OXtFxGnuIC6pOnrvPWespFIh47fwCDCzXv7v9Mo2aT6IA5NWAgtbL3Zg
- fWofTQ/7m+MeZu9VGM1GPm2mrWkMZnuGhTOdIcweduPdrWKQ6aR/zKIdha8QxSumnsIcXC9Ro
- lKvoiXS2En6XgEWktqn+GL5Q5O9Kfj1eZKVeHoKG3V769mQmQFGUXtJchtPR9FZL1FCyjwDS9
- L8/za+xtLeL4VD37A+P28rCywVzjlh5f7uhpm9p5HX05l1OMqNr+Hck7WhI+ww7k+NBvhXglG
- lbaKo5Cuq4xGEPQlwWhoMX2SpxUnXuT/h4kczqgy9ikO/HlEg
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_003355_202142_AA5427AD 
-X-CRM114-Status: UNSURE (   4.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250324_003845_135055_BE060539 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,9 +126,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Also the "phy" point will never be NULL so the check should be removed.
-How many tools can help to determine such a software aspect with inter-procedural analyses?
+On 24/03/2025 08:09, Wenbin Yao (Consultant) wrote:
+> On 3/21/2025 5:43 PM, Bartosz Golaszewski wrote:
+>> On Fri, Mar 21, 2025 at 8:37 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>> On 20/03/2025 06:55, Wenbin Yao wrote:
+>>>> From: Qiang Yu <quic_qianyu@quicinc.com>
+>>>>
+>>>> Enable the pwrctrl driver, which is utilized to manage the power supplies
+>>>> of the devices connected to the PCI slots. This ensures that the voltage
+>>>> rails of the x8 PCI slots on the X1E80100 - QCP can be correctly turned
+>>>> on/off if they are described under PCIe port device tree node.
+>>>>
+>>>> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
+>>>> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
+>>>> ---
+>>>>   arch/arm64/configs/defconfig | 1 +
+>>>>   1 file changed, 1 insertion(+)
+>>>>
+>>>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>>>> index 85ec2fba1..de86d1121 100644
+>>>> --- a/arch/arm64/configs/defconfig
+>>>> +++ b/arch/arm64/configs/defconfig
+>>>> @@ -245,6 +245,7 @@ CONFIG_PCIE_LAYERSCAPE_GEN4=y
+>>>>   CONFIG_PCI_ENDPOINT=y
+>>>>   CONFIG_PCI_ENDPOINT_CONFIGFS=y
+>>>>   CONFIG_PCI_EPF_TEST=m
+>>>> +CONFIG_PCI_PWRCTL_SLOT=y
+>>> Bartosz,
+>>>
+>>> Wasn't the intention to select it the same way as PCI_PWRCTL_PWRSEQ is
+>>> selected?
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>>
+>> For sure. I would expect there to be something like:
+>>
+>> select PCI_PWRCTL_SLOT if ARCH_QCOM
+>>
+>> in Kconfig and nothing in defconfig.
+>>
+>> Bartosz
+> 
+> IIUC, pci slot power driver is a common driver that could be used by all DT
+> based platform.
 
-Regards,
-Markus
+
+You are not responding to the raised problem.
+
+Best regards,
+Krzysztof
 
