@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA40C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885BFC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HZEbKpA1frJBrkSoz9cnFIH7frubQfuf2pOMnH5himQ=; b=RQ8487u54yAWFx30gMlty3MUfW
-	2VYJt56yUoOS2qPysPe8ngj5q4bk4lIjMQW9/V0QM6UuEJUWe84QwiJLRd4/1+mkTwFvKFr5ZAzTJ
-	yXmZ+Q+B9q4besRPa2YvbG64Z9aDdQHWSAXYOWLTWqYKAU5b2zwGdTNN9fpvWLNM/CX/PSRnnERxd
-	6JKZOtgCUZbKnPOWN6qFcon/Pnxt33ZtMy4P31nLx1GKGZ1nqZFZDsdw/Rl/EzaVYa8JePy7VajnG
-	PyJyIHNxzgfmoVqNvafS+eJescycfUpYX4q94SUS5m6yPniYqu3aZasaxGitliKkbAl4pDJ1ZCPN3
-	nltnaSXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sn+9WvrfHWY+2IqdbQcpXc2meRV7F6T0M7XWCp5U8+M=; b=hE5/28+uX8skRXzMPUq3KPDyyz
+	PSGidd78dr5ni5gUellgzSIFIy18xNvmTCB6J+lsrz4RBt/NBqZHMNDPYtCp1xv2t54UFd/YnO4Fq
+	ybV/dvunDA3HbCMfD2FBhVrolHE8WwwdN1aT3oS1r+c5OOD6281S+MZ262YZ4eQcSPNbeMNYfZlGx
+	n5UNeORyayiddP7ImVvxdaCLjfTe1bj8eBnbYFh46lIaFJ6dwj8HsxXqZnQCzbe+MitHqds2SlNX7
+	O5pE4BLRdGUKQCSeUlg9sjVF5e36Q9mk/IUE0G9ebwztbAmCo1RbsT7BKEA19cptPt4eFhfMmQols
+	CigC7BrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlTG-00000003mDu-2sJE;
-	Mon, 24 Mar 2025 17:20:18 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1twlWM-00000003mR9-1zhV;
+	Mon, 24 Mar 2025 17:23:30 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlRX-00000003m1C-2tls
+	id 1twlUd-00000003mLJ-1BNS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 17:18:33 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2264aefc45dso77089795ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 10:18:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742836711; x=1743441511; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=HZEbKpA1frJBrkSoz9cnFIH7frubQfuf2pOMnH5himQ=;
-        b=Ld9g5KFN3Ief36yAMIj56Ftl5xm9JijJ92zcyOSiIrOQdBPsJjtfN8e5twyLKJoWs0
-         hHlADMm2RMgtcScK2JJUG7lqqrCKbTjQ+jaIENgfVyIlWMyWQL2FqFbJ8B77/LvpyIme
-         re6FdoL9G1jduUjg3dRHGMab7i+zqZX6re2Op6bjc17wmBXQsJi5Dy/eCEhoPYADDtgU
-         QIxW1W19TXjvcD0rae+9FdxwObOhJ2+Q3k90/onPkqHsgkbNTBE6gG568VBN5cumjrmc
-         S4K+4SR4gcXbtBrbJD0VYTJhDImTznKfsMM0hamaRkiXlx9jSAU7dBzcMxNTvQzO5vV2
-         nGLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742836711; x=1743441511;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HZEbKpA1frJBrkSoz9cnFIH7frubQfuf2pOMnH5himQ=;
-        b=S0foY8EH/AoxbVGwVt7juGoQzRMa6LjYoqvNxyw9u6cAr0uthVPV9FjYgql/0tvNxY
-         93fn1UzQw4Lxct0eXV95S0MvgtBU2g0NOYSdrdx5OzdyyUv3r6C5OPWyFZtuG3t7LOnK
-         XNQVk5m+sXpSUqxCgdAxqzBmv4uJ11youRs0BVhqtCjXJd3DqhBNsDQ+lKjxQARjA9qL
-         HYP1FSA08Lrahd4QfhvA/v2kjh3TRNw0Fd4SMSjZED4rckqm2WQRpgWo6UUKTYQIHw6j
-         cC6NGB4rR2oopQLtnNznXgqOYZio9MCdg37H6PdoqcV9HvXx9si61UkZeb1rh+Q4SfZp
-         lQtA==
-X-Forwarded-Encrypted: i=1; AJvYcCVrzw1le03C7j/8uwLwSibEs0PP5kULCTJOy57vVH1tHQnFlC6w+5oOC89U4QZEKC7vlOaO1QSFgxEs0kFZv8yg@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu6S6RLeIUafpcfsIUwbEadoYv2EVK7CSA8NuIE3nUglEpQ7JP
-	iQagrjtH3d0q1WsP2Vaq4o7TuxYdm8rF2xCSXD9IsZVsZfGvxwv8naaUSryebQ==
-X-Gm-Gg: ASbGncusvoyqy8m56my0m1w2sD9ROL+w5vbV21RNj9q2+slKJB5/w5KPoAeq4ywoFBv
-	vRjetkQ/vonLYNo/+qxy0Vu3dNe2K/BmnvNrvoysI3GDtKf01O0go6lmPPYtLJRIuNQXM4jrPRn
-	Y1w9tuUKWPRTN0+9YjlMIx6uKcFMuskAktJGQMZd8TFIoriAFZwmZNFA7y5/w2LF8D/yNzufbCm
-	XL4AZdfRe+/GDIF1d9zOLUT77FlJJuN9cvUrQncGrrAIo2WbatAIpB6sHuhRbJYXwEcF9Da1cn1
-	YUhEIqhLVPyXoBIv5olJG0n5hhHVO0FpXOEDhTkwyWAvW9stmodgbEAE+5hri1CDvQ==
-X-Google-Smtp-Source: AGHT+IG/+IMOKh9mdPF7QL4qAJQoeDmcoGNXXl94gtnk4lfwQykOcdsW47jIFy2/Z8VlBPbmIKO/Sg==
-X-Received: by 2002:a17:902:f648:b0:224:fa0:36da with SMTP id d9443c01a7336-22780c7c06fmr184562345ad.18.1742836710841;
-        Mon, 24 Mar 2025 10:18:30 -0700 (PDT)
-Received: from thinkpad ([120.60.67.138])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f3bbedsm73934205ad.3.2025.03.24.10.18.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 10:18:30 -0700 (PDT)
-Date: Mon, 24 Mar 2025 22:48:23 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v12 05/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
-Message-ID: <j3qw4zmopulpn3iqq5wsjt6dbs4z3micoeoxkw3354txkx22ml@67ip5sfo6wwd>
-References: <20250315201548.858189-1-helgaas@kernel.org>
- <20250315201548.858189-6-helgaas@kernel.org>
+	Mon, 24 Mar 2025 17:21:45 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4BB15A0611;
+	Mon, 24 Mar 2025 18:21:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=sn+9WvrfHWY+2IqdbQcpXc2meRV7F6T0M7XWCp5U8+M=; b=
+	N/We4BvY8xp9qmON0WwaSaZZNPVnV/yejxsPz9uP3dS7fmbOucHgc5Lwhkvurdtb
+	hLt0ZsdhHzkY0N0kIJdUFqVqw022p4fNFukJe/qQ23crkUnfuwNqYR2IV94v5cXI
+	1fu7/U8K4gNfEMMnPvMCS9Brc7JWkiD1vetg/jqfzrKWreKWM96mIWnbCQf2QuK4
+	EhmWOHGz36PBv4NM107zb5+sdulhuKcucJTFK1sAZHW6W3yhexHWxxdcbtXU+Fc6
+	ndC1ZBaExHo9xpPmvEyuryBisoKQE494Oou76iSRmyH6j//tBl3tGnXCzqnuTBTu
+	0doMda47UZOfavOpy8ssII3vGdLqOZ/Ey+dCnu/kBvqeN31ZJH5aeeuBH/elocFh
+	/v9hE8DH9Ohrc8FEqCtyxG06DBTHopfSX1LIELaREiEoGt2XNWh1FOg+qLwlnfMv
+	A4oremgjR9wuiQyiyFBEp7w8xR8pW9ybQ7ytVyqIGysYU4EFLeiacQdM84//5E4N
+	gbVtmHJBWAYLjI/nyeN8ZAnRPKMtzFnUmR3DGtOMI7DiClapOL+7drfkeg6LH37m
+	bxXNZDlnmqtrnJP2pfFcu0dYepGU/isu4s2DyOQlSPkzvVZxt0HYQ//1zoZAiS9z
+	5qBtvyusORs8TtLrW7jR1LmMmNWmDMvS76TRenHsctg=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Markus
+ Elfring" <Markus.Elfring@web.de>, Christophe JAILLET
+	<christophe.jaillet@wanadoo.fr>, Chen-Yu Tsai <wens@kernel.org>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Vinod Koul
+	<vkoul@kernel.org>, Samuel Holland <samuel@sholland.org>
+Subject: [PATCH v6] dma-engine: sun4i: Simplify error handling in probe()
+Date: Mon, 24 Mar 2025 18:20:25 +0100
+Message-ID: <20250324172026.370253-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250315201548.858189-6-helgaas@kernel.org>
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1742836890;VERSION=7987;MC=2160210615;ID=85768;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D948526D7C62
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_101831_752260_43AE0241 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20250324_102143_783650_A4DDE4E8 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,69 +81,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 15, 2025 at 03:15:40PM -0500, Bjorn Helgaas wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Return the offset from CPU physical address to the parent bus address of
-> the specified element of the devicetree 'reg' property.
-> 
-> [bhelgaas: return offset, split .cpu_addr_fixup() checking and debug to
-> separate patch]
-> Link: https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-5-01d2313502ab@nxp.com
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-> ---
->  drivers/pci/controller/dwc/pcie-designware.c | 23 ++++++++++++++++++++
->  drivers/pci/controller/dwc/pcie-designware.h |  3 +++
->  2 files changed, 26 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-> index 9d0a5f75effc..0a35e36da703 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware.c
-> @@ -16,6 +16,7 @@
->  #include <linux/gpio/consumer.h>
->  #include <linux/ioport.h>
->  #include <linux/of.h>
-> +#include <linux/of_address.h>
->  #include <linux/platform_device.h>
->  #include <linux/sizes.h>
->  #include <linux/types.h>
-> @@ -1105,3 +1106,25 @@ void dw_pcie_setup(struct dw_pcie *pci)
->  
->  	dw_pcie_link_set_max_link_width(pci, pci->num_lanes);
->  }
-> +
-> +resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
-> +					  const char *reg_name,
-> +					  resource_size_t cpu_phy_addr)
-> +{
+Clean up error handling by using devm functions and dev_err_probe(). This
+should make it easier to add new code, as we can eliminate the "goto
+ladder" in sun4i_dma_probe().
 
-s/cpu_phy_addr/cpu_phys_addr/g
+Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Acked-by: Chen-Yu Tsai <wens@csie.org>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
 
-'phy' usually refers to the physical layer IP block. So 'cpu_phy_addr' sounds
-like the address of the CPU PHY.
+Notes:
+    Changes in v2:
+    * rebase on current next
+    Changes in v3:
+    * rebase on current next
+    * collect Jernej's tag
+    Changes in v4:
+    * rebase on current next
+    * collect Chen-Yu's tag
+    Changes in v5:
+    * reformat msg to 75 cols
+    * keep `\n`s in error messages
+    Changes in v6:
+    * remove redundant braces
+    * break lines to stay under 85 cols
+    * reword subject and message
 
-> +	struct device *dev = pci->dev;
-> +	struct device_node *np = dev->of_node;
-> +	int index;
-> +	u64 reg_addr;
-> +
-> +	/* Look up reg_name address on parent bus */
+ drivers/dma/sun4i-dma.c | 46 ++++++++++++-----------------------------
+ 1 file changed, 13 insertions(+), 33 deletions(-)
 
-'parent bus' is not accurate as the below code checks for the 'reg_name' in
-current PCI controller node.
-
-> +	index = of_property_match_string(np, "reg-names", reg_name);
-> +
-> +	if (index < 0) {
-> +		dev_err(dev, "No %s in devicetree \"reg\" property\n", reg_name);
-
-Both of these callers are checking for the existence of the 'reg_name' property
-before calling this API. So this check seems to be redundant (for now).
-
-- Mani
-
+diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+index 24796aaaddfa..00d2fd38d17f 100644
+--- a/drivers/dma/sun4i-dma.c
++++ b/drivers/dma/sun4i-dma.c
+@@ -1249,11 +1249,10 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	if (priv->irq < 0)
+ 		return priv->irq;
+ 
+-	priv->clk = devm_clk_get(&pdev->dev, NULL);
+-	if (IS_ERR(priv->clk)) {
+-		dev_err(&pdev->dev, "No clock specified\n");
+-		return PTR_ERR(priv->clk);
+-	}
++	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	if (IS_ERR(priv->clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk),
++				     "Couldn't start the clock\n");
+ 
+ 	if (priv->cfg->has_reset) {
+ 		priv->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
+@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 		vchan_init(&vchan->vc, &priv->slave);
+ 	}
+ 
+-	ret = clk_prepare_enable(priv->clk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Couldn't enable the clock\n");
+-		return ret;
+-	}
+-
+ 	/*
+ 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
+ 	 * likes to leave these dirty
+@@ -1343,33 +1336,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 
+ 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+ 			       0, dev_name(&pdev->dev), priv);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Cannot request IRQ\n");
+-		goto err_clk_disable;
+-	}
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ\n");
+ 
+-	ret = dma_async_device_register(&priv->slave);
+-	if (ret) {
+-		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+-		goto err_clk_disable;
+-	}
++	ret = dmaenginem_async_device_register(&priv->slave);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Failed to register DMA engine device\n");
+ 
+ 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+ 					 priv);
+-	if (ret) {
+-		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+-		goto err_dma_unregister;
+-	}
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Failed to register translation function\n");
+ 
+ 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+ 
+ 	return 0;
+-
+-err_dma_unregister:
+-	dma_async_device_unregister(&priv->slave);
+-err_clk_disable:
+-	clk_disable_unprepare(priv->clk);
+-	return ret;
+ }
+ 
+ static void sun4i_dma_remove(struct platform_device *pdev)
+@@ -1380,9 +1363,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
+ 	disable_irq(priv->irq);
+ 
+ 	of_dma_controller_free(pdev->dev.of_node);
+-	dma_async_device_unregister(&priv->slave);
+-
+-	clk_disable_unprepare(priv->clk);
+ }
+ 
+ static struct sun4i_dma_config sun4i_a10_dma_cfg = {
 -- 
-மணிவண்ணன் சதாசிவம்
+2.49.0
+
+
 
