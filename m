@@ -4,101 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C202C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 14:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C38C6C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 14:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZXYQlywBGjxUCQ5Y1L04Uo3ant2KBX+A6aBOQRIOrE=; b=jEbPPq36V8rlsOpG67Ai9Jfwcv
-	NiCKODjreSxxtfNqBo91pEI91UPBmtkJdSmcprZ31zgL8LtSQ2jY5FMwUxxded+udaeNoTLYQDRZm
-	TTX4/gV4GcBfKz5uzb5Kkykm0otXapkrmPXkkLGRVZDC2pB3ftWCr+2NRwNU7bt5dT+LT3rDN1j/K
-	KY0cf9DIasoyYZ4xXUVg4xFXdBmPl0Vta7e9W61lG2UvWu6A8ETeH5MA7KvsXqMjPjzt2Lqjd7L6C
-	67v/84Tp7af1gY78nH1wBnb3lhwM8y0lnI5TJtqPjtp3Z5aTgnPhOtGWF8K2iLOfNxZdGMShmhXpy
-	H6DSRdEQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q9Xw6f0N/jVmcfq4BQ7p0UOaBkU/oxMIJnmuoMPRYTU=; b=WZMYERL1CGRCxq4Enzw4CE5vRN
+	IZSm6pDXpw/YGm/BchQLXPp9UZIYY7KeUgtp80awX2dTJwP3WCoY6VHhBqrXqWouAp0ZuM4psdpD2
+	7D7eaeYztTfr+als6z8riOHWURwoR6FmwgW7sbrEpcK1SSVEDKIxVcGvfv92ejGN6f9rd6Km5EBo3
+	OYCY5tVuLI5xKyls5X2qGgORyGwaGknXKJEmUnLWvYX3oTFBX0o8d6iGkbn+QHTpZr9Hdzh9Ao1qM
+	s0aNZHQ0DRvfygnKb/7CjY+SkmP6K2WnYckUbc4bKnjbHDGmfLV4LqQi3eS3Sj4ScsA5VFIQsI3fh
+	15molZZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twiRA-00000003LQk-44x3;
-	Mon, 24 Mar 2025 14:05:56 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1twiSr-00000003Lli-31bj;
+	Mon, 24 Mar 2025 14:07:41 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twiIn-00000003K6y-3hBS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 13:57:18 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso32937505e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 06:57:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1742824636; x=1743429436; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XZXYQlywBGjxUCQ5Y1L04Uo3ant2KBX+A6aBOQRIOrE=;
-        b=V2u5XMmEIWIObO8Q8isbM+m2rBv1mSHMEqL1iYkw/+57yf8a/69aHqVbBSF2DF68+H
-         Ovi3MbI4bvAI5PeTHFDPZi984yV9Tyi8gct7008eYqmMoKiaNslL7nOU6HnYiIyjNgOV
-         UjJAtFg7yCfJr7vLXza4WzG4DKhO8xTNgWjjhHt+asm6YOpQeFD+ZFUo4663ErsQMccX
-         cGji925r98a4OWlsJfx5xy7jMKhWtCtMP3TZeRg5zUz+itka+I3Tm8hjt3rdcNAdl2ZV
-         Hnt+7RNPlGkDXyqJPcIrWz95ODGKQmMK/rT3PQGj3m/oGtk48yLlZmdK3nr7AmrasHbv
-         G7mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742824636; x=1743429436;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XZXYQlywBGjxUCQ5Y1L04Uo3ant2KBX+A6aBOQRIOrE=;
-        b=QXz2blhqzS+9c87/h7gb1UHRFmKHIHzGnE7vztIZFmWO+D+qLlz3xVX2C6hjA2rQXu
-         pld/XDgAyMzsF6fbXq6VcHEPH+MaeIiEjDUd63BF313gC7H2ebzjKvvlpfv8O9jkjC4R
-         F01jB69HpnpGUmy0Rs/Wxn44EHpcVFch6NWuh7OTnShYOS+2c8maxvmcfHoIhj9Bjcze
-         LwkRVlmvIlgi6MzR+Ko9IKUFLxT2Oq4eXZ8SVUurtmoP+j7VyOW4atR1EBTi9RDZtLMR
-         8p61V961F9r/aS16ehayzlOqC51SwJtHrxYMs2HS2qA9nEgKgjHzRNUO9b9jxNFvW1ey
-         JNaw==
-X-Forwarded-Encrypted: i=1; AJvYcCVl8liCn+SIglsURU09kpNqWXx1a5wtn7GdDeDvd6AgApHRQLqU7+2K2yZ5V6pXksjM3EQbT1JURlMIm17IDu/w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0CzUjXa/53I/hsDNkUsTvJJb1dx3Z+T5xWSjEqXqfP523m4Xb
-	wUh4OXFP1kQ9QP91cOoloT4V5IzYhQioE7mTu1ymZiDDeAfsSF97bemkSVLddjg=
-X-Gm-Gg: ASbGncsfw7LaW5yAUx2GaHiorodjUcOgRP3YuhfE9OW2SwLMajSwOnoIh2sQRxwGmr0
-	+fgLg/8kxo8LXaHl9qVB3oM/5XL875MV4ueIpUpPoK/z+Oa9wQA0PtgM6ce2aZdV0CCAP2HvByG
-	fsemamsDwO+/MpY4LeTbV+SJuTn8fCZxSGt27LOUIvsMXfSlaFovUHGsyWXQZpGrlMNBn42ZBlL
-	fBsVH03mSTM6yPE1oHqUgadsDzsyf7EZuuX8oRJ4z0arN0BF4+4P2+5T79MVeXGVOvCRSGfu33b
-	a+bxuF+xX3zOoJzZjrx7eghojM3s5Wz3NE6NHFB007z0ZJoexMfLUt73IjOlnKbEfpZgbL1rSQ=
-	=
-X-Google-Smtp-Source: AGHT+IHDKpLBvO3q5uFPvr/70DmnnwzOfgKjpHIucZu6pM8ksgy7yC5qAGJIQYpLCs15vezBXQWNUw==
-X-Received: by 2002:a05:6000:210b:b0:390:df02:47f0 with SMTP id ffacd0b85a97d-3997f9336fdmr7677171f8f.42.1742824636553;
-        Mon, 24 Mar 2025 06:57:16 -0700 (PDT)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.46])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fdbcfaasm120146525e9.35.2025.03.24.06.57.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 06:57:16 -0700 (PDT)
-From: Claudiu <claudiu.beznea@tuxon.dev>
-X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
-To: rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	geert+renesas@glider.be,
-	magnus.damm@gmail.com,
-	p.zabel@pengutronix.de
-Cc: claudiu.beznea@tuxon.dev,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH v3 4/4] arm64: defconfig: Enable RZ/G3S thermal
-Date: Mon, 24 Mar 2025 15:57:01 +0200
-Message-ID: <20250324135701.179827-5-claudiu.beznea.uj@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250324135701.179827-1-claudiu.beznea.uj@bp.renesas.com>
-References: <20250324135701.179827-1-claudiu.beznea.uj@bp.renesas.com>
+	id 1twiKy-00000003KS6-2GX1;
+	Mon, 24 Mar 2025 13:59:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1742824770;
+	bh=pPpPGmbFhlnpcrD/sdzrDoBTzh8QL5fZzQQDJK4oxFg=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=NoOFdZGMVYWoM9DEu8WggGAbsUWyXP8z1gBmOVYNDchafopGHD8cg4ne8gCQsrEOh
+	 JuPHDleNcmv2mZtMw280dk7j8HJNk0a2bA09/3uu/G9Uan44pDZR/7pX1/ujgzT38+
+	 Rdagsu4hGj3TsONQ0hWTCj58/NVcn/+o8gN6FioqAwbbI51EgB2ciGuYEPfxVjU9aG
+	 4L9msFdmuoIAAHy336MF8sXfMWPhsl469v7mWyDIQtr9FU0VZYSEtdcGCqAPkFzK2G
+	 R6rVAXwgu/vjlgh73bV7Cxrpz4kZcKKNchIGPzlVxsKRAX+Ytb8w2TnpKBz7jOsxaQ
+	 3TNL44MXe1f6A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3AAF417E0673;
+	Mon, 24 Mar 2025 14:59:28 +0100 (CET)
+Message-ID: <28135f96-ef99-4347-884d-20e870a3d64a@collabora.com>
+Date: Mon, 24 Mar 2025 14:59:26 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: iommu: Correct indentation and style in DTS
+ example
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Maxime Ripard
+ <mripard@kernel.org>, David Heidelberg <david@ixit.cz>,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250324125250.82137-1-krzysztof.kozlowski@linaro.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250324125250.82137-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_065717_918134_50BD815E 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20250324_065932_768321_7294B0D7 
+X-CRM114-Status: UNSURE (   7.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,36 +86,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Il 24/03/25 13:52, Krzysztof Kozlowski ha scritto:
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.  While re-indenting, drop
+> unused labels.
+> 
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Enable the CONFIG_RZG3S_THERMAL flag for the RZ/G3S SoC.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
----
-
-Changes in v3:
-- none
-
-Changes in v2:
-- collected tags
-
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 5bb8f09422a2..79e566f0d47f 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -715,6 +715,7 @@ CONFIG_ROCKCHIP_THERMAL=m
- CONFIG_RCAR_THERMAL=y
- CONFIG_RCAR_GEN3_THERMAL=y
- CONFIG_RZG2L_THERMAL=y
-+CONFIG_RZG3S_THERMAL=m
- CONFIG_ARMADA_THERMAL=y
- CONFIG_MTK_THERMAL=m
- CONFIG_MTK_LVTS_THERMAL=m
--- 
-2.43.0
 
 
