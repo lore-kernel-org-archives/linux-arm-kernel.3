@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C4FBC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F24DC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=83CYsZDlIxjagBMUpXjJLP1JyYGcnqEAQYBsR+/D8Lg=; b=joJMKHdbJUE9HmpStaDa2nPXXZ
-	6getuHZEHAm/K6mNdUKuebsjZHzvRH3XlA+kg+mO6/KOdlqVfq047nx/9hcGN8nji/m8Jy9QLJmLU
-	IJK/Q+UAdk8QrlnfM3FH8IgxvaKliaEY++g/PSvhScV9cuDg244duwmR3QXuPEZ3b0FZqOTgkypDn
-	YBgQBwrNWFvmi3piQSi7nddflDiSnQ+2aawbCmphVjaD1ixkVG5kwR1Fk84NKsjdl53w+8uLtx4Q0
-	Mqxo4vCetkGpTIgKNM6rYFdN+sT+LIbPoqu9/nWVf9ozx9twx3Vz32CXs7aH4dHJY6+TwCiT+Yio0
-	3GQquy1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ugip4fd8Pdklj4B/ZVd31QAyVX2ztU3G46zy5Bsha/Q=; b=2q74kMjUgnVjnb3HC3nSEBYvw5
+	dpVvcmDgFuisWamOc6XHyJ2RM5PGB+C2UVHK7/9lBYbvK4B4sq3ROpxgKZEQqEnm+ktBWMEQtlAA0
+	oL5UAFNJcI69fL9lGRSoLX/ukYl0bKFj5YE/esqNdLpeufLO1E1Pj4r+ig9nlXYUTuWnWJZV0gulk
+	zBb9Sy4xSKUDHuphtIB9uECakKfBJaA3mxwRuovjAAcOdny3hO855ml7fpf9BTGXk/K6q7I9uaN3/
+	UOQlKtHU4O1CijQH8+S0NjVs2kOsqWQHt7UZ82hObF71Un5Mi0n38S4IWXncHpbvJHkEXT6pauiv7
+	a0QL9Xlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlic-00000003nzx-0QVZ;
-	Mon, 24 Mar 2025 17:36:10 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1twm5C-00000003tm0-0pkH;
+	Mon, 24 Mar 2025 17:59:30 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlgr-00000003nct-1w0k
+	id 1twm3S-00000003tDz-0OVO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 17:34:22 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-224100e9a5cso90360945ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 10:34:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742837660; x=1743442460; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=83CYsZDlIxjagBMUpXjJLP1JyYGcnqEAQYBsR+/D8Lg=;
-        b=MSh3O0j+uOy/ZoSInY4jc/1UhRQGR2boME47bt6PMzKPvNuX0ntyuTkYM76iqhzrZ5
-         PZLm1V8Gq9xw2pyZ5FlAE+H1yMOEu7AbeyBTKVHFndt14I90VHFyOMohQG7LewS1A5bb
-         +qlXdb/q0C5yjkLBGUTU0WuXDBvy0hPUFIbKTkZyhDUr1Ew4TFxY77rIM1QNnhsRNxYm
-         qc5DGiYmsTvLW6rgmClkylLRrv1wKn1S2xBK/pVV1SmiUFGSyYBp4IAm3JOAmLxSDvdA
-         Uf3Sg5i0j2tiq1rjiQW5tauvjJOzvd31EllB40Uo9aMrRaOjvJYIwKuREMdRRUC//2yI
-         GqPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742837660; x=1743442460;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=83CYsZDlIxjagBMUpXjJLP1JyYGcnqEAQYBsR+/D8Lg=;
-        b=kP2YeveAEPz5TP4Zce8WK86b/1Fwr39cETi2rqg++nvv1/PSTGwM+ObTy1vPGjMzWQ
-         KegTIYby0V8vZxcjP8qu3jyzDV7rO56CJ1YUyeWhDaZ9CJDQN/GL7sSZpwcBfFHUHZCV
-         vdD9VkL4rnj/gIsX+vx/QPFFmE/FBJDxzyyID4R+F0e6bTajNN4gMNfKYmg2ILWd1zkI
-         Q8S1LQhcz+P/3vtuSnPT3Qmv7D9fq8WtZczVus1/dGdzYI8VMtqUQg2KupM/g8TZQs2a
-         Q1nSF2ucJP392P3XMWreamqLoobimHa12EM4wroczvLaBnuadYQ1fkjYOwJJ/cAOMf6S
-         AzGw==
-X-Forwarded-Encrypted: i=1; AJvYcCU1HHpRcU6jAbDx+PiNs0MX0LDNFUSlaqAlsC4fBerfbYzzMIUvMtjtWcFO3DXDN9FxyH9M3zvIizGqLWxgkZG9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHHGuoNgK9GbS9Kbh+dmO96aEXolaBwJhyWuh9cozaIM+hhhyB
-	jp9uAa/gsGKcckosk4za92c50j1uRjBaT5BW6BGp5WZ+Z7A01nayxLPiFUCjTg==
-X-Gm-Gg: ASbGnct/1kzMXKpwQ2G3vDe5XJZP1JphQlvrSi7d1PmAwydWXDB6yUGZXdwnJ3ffu3l
-	7xCR3bWDsZiZ+6JnuOXWjLwM3jNSjidGlGEzzy6gOqoNaRlTGMQQ2A7wSeIM39Pz6csktzoqQJt
-	t1f49YnuDFoqY9osuiUFprvCIpypFZ8r9uBH8WfCdYUCDiWnKuHkTb4j3RG6jKvIuTU5C427bPK
-	WPVLhIQNuBaNvcny3Db8+e/HXUlxSOpbE0ohjLs3eNJHSBPxDooyRqWF5vNTjfxNwEcDAfFpHq4
-	JBDJqR2YzMRXqKNUqYvHTS9dDeQHHzeF9sj6lRrYG61rF45GkP2WSnU=
-X-Google-Smtp-Source: AGHT+IHbIVCssVeg7Lv61Tjada9UpukwFQFdXBab670umPHzvG4MJv+C/Yb75yCUgxbb10I3kj+LVA==
-X-Received: by 2002:a17:90b:510d:b0:2ff:4bac:6fba with SMTP id 98e67ed59e1d1-3030fefd847mr23814182a91.24.1742837660393;
-        Mon, 24 Mar 2025 10:34:20 -0700 (PDT)
-Received: from thinkpad ([120.60.67.138])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-301bf61b525sm12457882a91.35.2025.03.24.10.34.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 10:34:19 -0700 (PDT)
-Date: Mon, 24 Mar 2025 23:04:10 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v12 00/13] PCI: Use device bus range info to cleanup RC
- Host/EP pci_fixup_addr()
-Message-ID: <sffiojhyyu5gc7nx4oe6re53r3ti4nbnkworsxzawkus6ovlsh@3auwqhcpdp3c>
-References: <20250315201548.858189-1-helgaas@kernel.org>
+	Mon, 24 Mar 2025 17:57:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1742838922; x=1743443722; i=markus.elfring@web.de;
+	bh=Ugip4fd8Pdklj4B/ZVd31QAyVX2ztU3G46zy5Bsha/Q=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=R5DausesgqbnhBZ9rriIR+mzrPsczUdHyoPkP7gCpaLxbKtU0GaeSX4nK42hF+Iz
+	 QFl66AscEF8xM6xdPzSd67aIUtkySqhUedJm1Wr6eoNksFtw32Ab4Levn4iZO4Uly
+	 c/s6DkWtQwnHtr98OFGFm5uBnbRnfEPn4o/J5Il3qRkitiWAApeTA+1IMMhzdNG8H
+	 0D0DduJ7SYcEjx6WywjIECE+B/lJEVe7G+RI8ie+sY/cTHvKCqA510Nmy385k2QPZ
+	 qzBFlcDf4TcQSEN1ccMZyVcdwd7o7gqggwtqh+ShoOzX7X5DfehWqZq2l82dYrkFC
+	 H6fGBEUThwwEnhFQ8Q==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.33]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N9cHJ-1t2Lap0xrp-018IAt; Mon, 24
+ Mar 2025 18:55:22 +0100
+Message-ID: <92772f63-52c9-4979-9b60-37c8320ca009@web.de>
+Date: Mon, 24 Mar 2025 18:55:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250315201548.858189-1-helgaas@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6] dma-engine: sun4i: Simplify error handling in probe()
+To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <csokas.bence@prolan.hu>,
+ dmaengine@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>
+References: <20250324172026.370253-2-csokas.bence@prolan.hu>
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250324172026.370253-2-csokas.bence@prolan.hu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:SAbuJubhSHN4pH7HvyQuZsAhyfLQIhB/cY7Fku1PM7dBzzJ+znK
+ KFJIy7rF7WIjRryO3MpAP0TzRJAeZLmlMou8bUAV83VJoJbg0+uOTk+MgAbaj3WwpvFH/Xu
+ 1ntkxxFmrGDxiek9nc4IzlE2vfQxeD8sOv0ZFEzA6AOJCD0Us5b4u8pTugFyU/PbLJ7xfMh
+ cDxfSzpNuEeihAtctNcyw==
+UI-OutboundReport: notjunk:1;M01:P0:Zndp+Xt2ZBc=;FT5IcWgiEDFexAVkd/U8C2waAjY
+ NhEJydSVA4u8sdlQJ9/KtqhxElzLhdWlygPYw8a/dUe8nIOBZivJEwSLMpUR7yiNFq8rQGu+f
+ L9eWKq/BItQMtDJA9vCzZPpgQap2eWhCPaaDybV9ctbrKntOKWkjgG56pu8V7oR9MpyU5Qnjx
+ uQMS9m+9Y0N3e2FNhVmVlQw9UJiQkLydGQtBJ+vfUrBdx9AmmJFSvIfumv+HnrANvPIGtkV2U
+ S71KzKgPxnAWJolLsJ87detQZoFkGl2FKIvcezcS4D8k8mVvUPL3fMV4B0NDryXnrJIRp3hrr
+ jj6O9aE26iNOBy+VyTL3t4mFYyAtxqw69f6jLAXLWP4+lktAVv05W4S/Fl29ntdBNehfCD7Ii
+ yyTbMkQw8tEyQghtf3f6rDom0OHJXFPnxkmISGgvwVWzzu7OBjKfzmbOsXKxZbyKkV6EbMK2T
+ 0LNKiPtwyRyL3KED0KX325rTswaQT1tMWs7y36nAOEPzdcUDvK94SfzDvja+UICKKguCo/Kl8
+ JYQDMM0zaLJT13Js+pvyvUFbLUlHTzeQJTJJmZJAwCixYD2Gi3Op573en1TbmmDE0apkIC4uL
+ 9ag6yBxHRKnRoRNLVP6MBimbagbeJJHQISdqZHR4F4Op32kBrlZglxSTUmpI4q0JZDuEfCPCs
+ xiLniaEz7magxGmf1GLYFvPH37iiy9nvUx33P5KWLlQI6W6IrpSPRLwNvEvdFGYd6aUldCQrW
+ UH4r+jLM0ZbUTtESTFx+lua2x4feIfKy8E+AYovYXH3WCNZQs6Un8GXzpRevhR6H5GLNGyJSF
+ ABLNBooS4EOaaE8xNJmnsNgJ8qcAh6KHwBUHhsCrKDj4fEloKzKNoDAOrULAEtyb8+NPqOKAW
+ 87g5sBduWTBH+/z/Sq3Tlu5SK0WTmhgLdFdP5woX5iEa6KuaGsH+JhmyABkoWYIt4pvZ5PJsu
+ JcoZm32Z77NrVNJj0nXdl9stgqyBrAViASlUiivW+dffqkLpZs/oyc6N+9l6FrB0F80Qd2TPc
+ nrzUARcymTL+dX++S5hBiewrSzJjbWOF8sCWz/sxhxW7823VrT9bjA7vq46rKScCdF8xLkeEy
+ xZtaqnfs7Pzp7sAvijUWwNJfAy654Ee0K7DyEa28fXJztYnKvWlI/pTM5ZG1TmvFAuWCDHm6q
+ f4CpqAdAuuw9TB3uW2M8iN0ise7i6qnFG8/VAo3LI4uZg41r0VNC18wirs58nH46HoPZw8yyR
+ y4erIdlVSDlVvV2zHBxtT4QTellxRba9YLEL8SPXN2N4JKds8kuTNZ2NghR5ePD2uA94LJd2Q
+ SzgaUmfJWX2GdDTykrjQ3y7yci/vhZVgfWPQIs9MMeNlycLkh6aqJJkvr+rdSVASk9xIPRU0Z
+ hbYleqa1/YK1zKecOeECTpmiKPZ8F4baAMRVLtUAB8WUxxyLShlAgjNiFbFo8Y3Q/46/3v73g
+ JFaAE+lOy0g0FOqUF5Clb/9sFBo5LADokelkYwS+t2SGOizY/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_103421_509868_F25AD546 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20250324_105742_512927_EEB5D160 
+X-CRM114-Status: UNSURE (   5.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +108,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 15, 2025 at 03:15:35PM -0500, Bjorn Helgaas wrote:
-> From: Bjorn Helgaas <bhelgaas@google.com>
-> 
-> This is a v12 based on Frank's v11 series.
-> 
+> Clean up error handling by using devm functions and dev_err_probe().
+=E2=80=A6
 
-Tested-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org> #SA8775P-RIDE
+Do any contributors care for a different patch granularity?
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tre=
+e/Documentation/process/submitting-patches.rst?h=3Dv6.14#n81
 
-- Mani
 
-> v11 https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-0-01d2313502ab@nxp.com
->     
-> Changes from v11:
->   - Call devm_pci_alloc_host_bridge() early in dw_pcie_host_init(), before
->     any devicetree-related code
->   - Call devm_pci_epc_create() early in dw_pcie_ep_init(), before any
->     devicetree-related code
->   - Consolidate devicetree-related code in dw_pcie_host_get_resources() and
->     dw_pcie_ep_get_resources()
->   - Integrate dw_pcie_cfg0_setup() into dw_pcie_host_get_resources()
->   - Convert dw_pcie_init_parent_bus_offset() to dw_pcie_parent_bus_offset()
->     which returns the offset rather than setting it internally
->   - Split the debug comparison of devicetree info with .cpu_addr_fixup() to
->     separate patch so we can easily revert it later
->   - Drop "cpu_addr_fixup() usage detected" warning since we always warn
->     about something in that case anyway
-> 
-> Any comments welcome.
-> 
-> 
-> Bjorn Helgaas (3):
->   PCI: dwc: Consolidate devicetree handling in
->     dw_pcie_host_get_resources()
->   PCI: dwc: ep: Call epc_create() early in dw_pcie_ep_init()
->   PCI: dwc: ep: Consolidate devicetree handling in
->     dw_pcie_ep_get_resources()
-> 
-> Frank Li (10):
->   PCI: dwc: Use resource start as iomap() input in
->     dw_pcie_pme_turn_off()
->   PCI: dwc: Rename cpu_addr to parent_bus_addr for ATU configuration
->   PCI: dwc: Call devm_pci_alloc_host_bridge() early in
->     dw_pcie_host_init()
->   PCI: dwc: Add dw_pcie_parent_bus_offset()
->   PCI: dwc: Add dw_pcie_parent_bus_offset() checking and debug
->   PCI: dwc: Use devicetree 'reg[config]' to derive CPU -> ATU addr
->     offset
->   PCI: dwc: ep: Use devicetree 'reg[addr_space]' to derive CPU -> ATU
->     addr offset
->   PCI: dwc: ep: Ensure proper iteration over outbound map windows
->   PCI: dwc: Use parent_bus_offset to remove need for .cpu_addr_fixup()
->   PCI: imx6: Remove cpu_addr_fixup()
-> 
->  drivers/pci/controller/dwc/pci-imx6.c         | 18 +---
->  .../pci/controller/dwc/pcie-designware-ep.c   | 74 +++++++++++------
->  .../pci/controller/dwc/pcie-designware-host.c | 57 ++++++++-----
->  drivers/pci/controller/dwc/pcie-designware.c  | 82 ++++++++++++++-----
->  drivers/pci/controller/dwc/pcie-designware.h  | 24 +++++-
->  5 files changed, 171 insertions(+), 84 deletions(-)
-> 
-> -- 
-> 2.34.1
-> 
+Will it be clearer to mention also the function name =E2=80=9Csun4i_dma_pr=
+obe=E2=80=9D
+in the summary phrases?
 
--- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+Markus
 
