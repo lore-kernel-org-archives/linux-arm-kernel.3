@@ -4,114 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DD6C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEA8C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZcAH4WmaLzUDYXoQDfc68e4M/yFbKsSbjbw66q7D9iw=; b=iS+MsNLSKayRMwUTnNTn9mnKEP
-	QxpcIPuJU7t/nJbzgG/uWnQPz8ALJ6JPjzhArHHcTwDBmwM8bHlyy23j91ypOCMC1zUd8Eif+nz6a
-	rwKl1eWcBaXdtl7MUqiZ5JMK6qLsQpSAQzPAB8Vsx6y/IM5Pyf5YNWaK9N9+4vCtE9QZs9yVFbP+Y
-	Upg5asghrQmlh1OpwVqvHrScfhLIMtFKxag3u2iFw1Lmx7OmdzNY3eXjG/QfHfiENvqbpC1vgBeyt
-	hZnsUljtV/D8OaRESLUfmXo6fPciN++GmUfmTWrOAdXsaXzKGmQmcQeFUA2dsKopXDeYAAXppVter
-	yCzwS/uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vj0JbxrXAVA6oD7VcAtXgMKT4fAYOqVFgdHGQAEeEsQ=; b=w9dSfmDpSBM0lyQj7eDv/TkpLv
+	qY9i0pHwYnwoDxN/y9UmhAWLUGQv1IaufTuRKWZVO00facZHRUPiycoxqBHQdWgBCpYFp16k55JUl
+	PhRYOTtNevkZUFqRqZxHwHM5ST1kGKU3ZxOu2PSsN3M+oeZWsSJWRxznOJPA4R/i6YYf4x6es744z
+	2slogb03LnpKAOVo+lGTpIJ4OTD2FwioZQl9WWRP9jY6Gk9+VY8UN9BUJd6Kt/0yEic1wzAJ65C8u
+	H9T5GowD5qz+Q03lv01aCwtdpUWCKrqAW6akFrSpUnG8UkHE+tRmgLH9daj+buMelFKg/2uwqgIaG
+	dhACLYmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcNW-00000002Sw8-0bCu;
-	Mon, 24 Mar 2025 07:37:46 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1twcPE-00000002TDG-3i8g;
+	Mon, 24 Mar 2025 07:39:32 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twc9a-00000002RMg-2QjX
+	id 1twcBS-00000002RcT-3q4l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:23:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6DBFFA4A212;
-	Mon, 24 Mar 2025 07:17:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68FBC4CEE4;
-	Mon, 24 Mar 2025 07:23:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742801001;
-	bh=rpacFajQmnF5jVC9M6bEwsXc0x3PG4bR6WjOaYeWR3I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WHV52Z5mueIEeKyjSCQE5yZvtpoepiA3LImk9pMIVARR6WRmQbCssqenJl+KtfIDL
-	 e1WnKlpcLFOf9/PdXvXn5ukLUjrIgdtePi6q5jxxFpiBTe+bmLsJXuWF9+DOGXpAeE
-	 85owSCBYk7xB9N3/LNfBaBajRoVcBurb6RP5PRJzgSX7V4IPk71xEdkQZ5ICtbcSd0
-	 uhUbXJYw3pXc7zWAMOrzKkDDKKxIgKZNep9ql05q67ymmu391YMzQYvLi19jwrs2z0
-	 u7aJsHYoQhLrcvYxOMqLcglQfPRRy25E0W9sz9Uram1aDm1hNFpi78yJ7/l/PauQgw
-	 ZAEFgr3Uz9IDw==
-Message-ID: <a2397c92-2884-4f4d-b036-808208892af5@kernel.org>
-Date: Mon, 24 Mar 2025 08:23:13 +0100
+	Mon, 24 Mar 2025 07:25:20 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2279915e06eso19532935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:25:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742801118; x=1743405918; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Vj0JbxrXAVA6oD7VcAtXgMKT4fAYOqVFgdHGQAEeEsQ=;
+        b=u5QBfwBFiohO0ftyT1MYfnrqm54OB9aDtfA+bWbKn35PtWt2X1ObGD5q4X9DEeq8Ad
+         MICPUStFH80ZQniTlU8n2i1/2rBQCLTS0l3GxXAVKqRV3xRloFSilsuVnBxgqQ2oo7a2
+         3awFq2hADC8SeiLFOrUNspSLjISRrwUBmzQRa+sKJ5iBhvKeyrq4IZNmDse1b4IS7TIM
+         sRySAbAmtg33bRDE9fmLOEdBpLCuxu86qRVu43SGqCxDK82Usb89PGjhmCNgmOkshnvV
+         j5e7UQlUKus2ejG/EAluJ7dB3lhnkxw97E/czYUsIMbG1dDfer5h7ZneArWhV5Fu/qhZ
+         0J+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742801118; x=1743405918;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Vj0JbxrXAVA6oD7VcAtXgMKT4fAYOqVFgdHGQAEeEsQ=;
+        b=c4J/dTOqneLriKC7CsDGvIK4GnVqqa/o+iOUDMux36DSQatMpXr1OzNDGfo96UAtwB
+         Ad/esysq6VkTuyvZzXKtBNT4GFNqzM/bmcUkw1l82cxPm9Oed6lCjrqcet8hKrfoMct3
+         m67oOzTlxwngySQyPbaF/sRQ2Ghf88nBrW3iELLuFc+h5dD2Ld9GQFJWjgvsXZgSKMsC
+         f7gElfc7fBW67uJSKl8drTq2Bm3Kv2Pn4kf8C5YO9iD6Wysbhzwd9MQlpaRZWGup46Lh
+         R8+0sZbLWR9etAOdh+5in8vEumhyp4SrLHT7/P6fxvQhbzy63TGMoVTG4teB5pr9C1e/
+         Rx8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVXOgNW9tNLPEdFdM1JJ8Avm8TD3lOolXb1+e0OS9VbTe6j20SQMqBPpGs9ivIE1Gz1JDknbhnoeKNfR7ABv22j@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFQOZhi3H/aU6cKXzRMpsjXNpgyDil6skGo3qcrCnPyRK7MxDP
+	oK7xgQSh8PwbCEQXkC9Gb+6C4P7qGXqpbAWAG3Lj136yDiFvvK5297bl0VgV1g==
+X-Gm-Gg: ASbGncvkFa2PqmPo3MVpelhR5RBG78Av87F0GIowCnSwvNSLFn1ODCo/uAZlNqKAifm
+	QiC5OMiC1hasP5uUdyW6DDMn5xDuoAeZEWNsgbazOkShYqxGPyG+1RhASxw2/nxnNdoN009EvT2
+	padQwslXc+/7+WmuA8HCxo8KGaiO1EZmRpFglQzNQvSD0DSxr4eA6bzhbxbdbhyvmR3TTK+5wnz
+	vO9I9+Y+n8wBt94PGwM6+8lFKPMTSgjJIA0Co+aHDI6/eV2o1EI13KFRYdx2qDfGObao4iZa8WM
+	gteLx3WUguWxXDzAmC/ZA+DJb9qnT1p1fVKSMJgUXddqZuSV72sYqocM
+X-Google-Smtp-Source: AGHT+IFkcSPlya/dghCtIGB6baE4UY9siigdCJhCAQ1aprxfhPsqNa0EHD4upA3IZyCq4ENwSZDhpA==
+X-Received: by 2002:a17:90b:4d05:b0:2f1:3355:4a8f with SMTP id 98e67ed59e1d1-3030fe8d50amr13269772a91.4.1742801117734;
+        Mon, 24 Mar 2025 00:25:17 -0700 (PDT)
+Received: from thinkpad ([220.158.156.91])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3030f806fa3sm7307502a91.42.2025.03.24.00.25.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 00:25:17 -0700 (PDT)
+Date: Mon, 24 Mar 2025 12:55:11 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Tony Lindgren <tony@atomide.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Siddharth Vadapalli <s-vadapalli@ti.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC NOT TESTED 0/2] PCI: dra7xx: Try to clean up
+ dra7xx_pcie_cpu_addr_fixup()
+Message-ID: <5lyvmuk7o3nj6xaozyghxnhivwcmx2yisnbhwugklx5u5sutmz@26ta4e5en2mq>
+References: <20250317184427.7wkcr7jwu53r5jog@thinkpad>
+ <20250317194539.GA969005@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
- K3 devices
-To: Neha Malcom Francis <n-francis@ti.com>
-Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, u-kumar1@ti.com
-References: <20241128140825.263216-1-n-francis@ti.com>
- <20241128140825.263216-2-n-francis@ti.com>
- <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
- <837d329b-bcdd-4c3b-b508-e916b110ce25@ti.com>
- <e57dfc3e-b702-4803-b776-20c6dbd98fef@kernel.org>
- <8e58b093-1c64-45b9-a9d3-9835a3bbc4fd@ti.com>
- <1da4e402-62f3-4bad-9129-1f5a08148987@kernel.org>
- <f39d80fc-3600-4c2c-b09c-980288f86fa2@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <f39d80fc-3600-4c2c-b09c-980288f86fa2@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250317194539.GA969005@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_002322_748482_693EC028 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20250324_002518_956083_73757144 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,72 +105,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2025 10:02, Neha Malcom Francis wrote:
-> Hi Krzysztof,
+On Mon, Mar 17, 2025 at 02:45:39PM -0500, Bjorn Helgaas wrote:
+> On Tue, Mar 18, 2025 at 12:14:27AM +0530, Manivannan Sadhasivam wrote:
+> > On Mon, Mar 17, 2025 at 12:30:08PM -0500, Bjorn Helgaas wrote:
+> > > On Thu, Mar 13, 2025 at 11:35:21AM +0530, Manivannan Sadhasivam wrote:
+> > > > On Wed, Mar 05, 2025 at 11:20:21AM -0500, Frank Li wrote:
+> > > > > This patches basic on
+> > > > > https://lore.kernel.org/imx/20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com/
+> > > > > 
+> > > > > I have not hardware to test.
+> > > > > 
+> > > > > Look for driver owner, who help test this and start move
+> > > > > forward to remove cpu_addr_fixup() work.
+> > > > 
+> > > > If you remove cpu_addr_fixup() callback, it will break backwards
+> > > > compatibility with old DTs.
+> > > 
+> > > Do you have any pointers to DTs that will be broken?  Or to
+> > > commits where they were fixed?
+> > 
+> > Any patch that fixes issues in DT and then makes the required
+> > changes in the driver without accounting for the old DTs will break
+> > backwards compatibility.
 > 
-> On 19/03/25 13:16, Krzysztof Kozlowski wrote:
->> On 13/03/2025 12:14, Neha Malcom Francis wrote:
->>> Hi Krzysztof
->>>
->>> On 29/11/24 14:45, Krzysztof Kozlowski wrote:
->>>> On 29/11/2024 08:43, Neha Malcom Francis wrote:
->>>>>>> +
->>>>>>> +  power-domains:
->>>>>>> +    maxItems: 1
->>>>>>> +
->>>>>>> +  ti,bist-instance:
->>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>>>> +    description:
->>>>>>> +      the BIST instance in the SoC represented as an integer
->>>>>>
->>>>>> No instance indices are allowed. Drop.
->>>>>>
->>>>>
->>>>> Question on this, this is not a property that is driven by software but rather 
->>>>> indicates which register sequences have to be picked up for triggering this test 
->>>>> from this instance. So I don't see how I can workaround this without getting 
->>>>> this number. Or maybe call it ID rather than instance?
->>>>
->>>> I don't understand how the device operates, so what is exactly behind
->>>> some sequences of registers for triggering this test. You described
->>>> property as index or ID of one instance of the block. That's not what we
->>>> want in the binding. That's said maybe other, different hardware
->>>> characteristic is behind, who knows. Or maybe it's about callers... or
->>>> maybe that's not hardware property at all, but runtime OS, who knows.
->>>>
->>>
->>> Sorry for such a late reply, but I was hoping to get more details on
->>> this "ID" and never got back to the thread...
->>>
->>> The best way I can describe is this device (BIST) runs a safety
->>> diagnostic test on a bunch of processors/blocks (let's call them
->>> targets). There's a mapping between the instance of this device and the
->>> targets it will run the test. This ID was essentially letting the BIST
->>> driver know which are these targets.
->>
->>
->> So you want to configure some target? Then this is your property. If you
->> want to configure 'foo' difference in DT, you do not write 'bar'...
->>
+> Right, I guess the rule is that if we have patches that fix DT issues,
+> we should apply them as soon as possible.
 > 
-> So the difficulty in doing this is, what I mentioned in the earlier
-> email just copying it over again:
+
+Right, and those patches should not break old DTs.
+
+> And later if we ever have confidence that unfixed DTs no longer exist
+> (or if we can identify and work around them in the kernel), we can
+> remove the .cpu_addr_fixup().
 > 
-> "Yet another way would be the BIST points out the targets it controls via
-> their phandles in its node... but this approach would trigger the probe
 
-No, it would not. Which part of OF kernel code causes probe ordering
-(device links) if some random phandle appears?
+Yeah. Unfortunately, we do not have a fixed deadline or process. Just like
+supporting the legacy broken hw, we have to keep supporting the old DTs for some
+time and then get rid of them.
 
-> of these targets before the test runs on them. And in hardware, the test
-> must run only one before the device is used, else we see indefinite
-> behavior."
-> 
-> Property that has a list of strings (targets) instead of phandles maybe?
-> Would that be acceptable?
+- Mani
 
-
-
-Best regards,
-Krzysztof
+-- 
+மணிவண்ணன் சதாசிவம்
 
