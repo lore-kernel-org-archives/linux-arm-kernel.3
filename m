@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB5DC36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 12:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF01C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 12:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZNkO323fCDGziIQ+TCe0Bh3YOcfzf6+FAg8ZnvrxNgo=; b=L08uWndbLB0Lqffsx3JiXvc90f
-	12RV9PgO7AjcXS83ktBfLnIKhVZipvgJLsc6d+4q+aMQ6oHLSA99eGQguCBxlJnlpTM+Lv5lYSbzX
-	/t0l7Dg2l4J7u+z0hQ09h/qtZzG2tMibH7S8hDa5BO/l1kJYS3WKmaK7YKy7VecgBKd8afzkDfrEg
-	jibC0rUz9rGHEB/IfvNy03RRJtvftmr+ltxdQ6qsO4CaJVf55nN0gW/PRDfFSsYUUqIZR6gVfE45J
-	RJxhqRrc9ZIoHlSEtzGWmIQ3zSYuX9Oo7oYW0tHaBH97RoX5U8n+zQkMCE8cHQxn25ulm048XAbUg
-	ucWP4gIw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y0wZXYw/CdldU5EsbECLrO9WocLpwGBA/zXElKTd/+8=; b=iioLwtXGj9iuAxzOYcNSPav6yp
+	6nivbPK7TTV0SU0bgkuqn7Nx27Y7jN/5y87UUbwNDJg7TPnMXC/r6cDMUu87Cn7oiSmAV+hcl5G6e
+	4n1XUXV8Xyl8BtEO+5pHXCqXJBswzH9tx9bGcZxQeGclaE6UzIyGBK+oDCFKk94eXC0G2mZaodIZv
+	BGNED/3xmovJKlVfJ/V+Lr3TWsU5inJc+tjzbYbMbQCb535Z+WAuN7TK07FupzI63C/N7OgAazxs+
+	DC5Jx9ALyQ8w7RE0OFIq9rKcBnWVVbYYyqibDq2h4CBCOzLXH7erKuCl4PcPA/czva1b/F6I4QVkJ
+	T28Dg8mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twhIY-000000036Gw-38zC;
-	Mon, 24 Mar 2025 12:52:58 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1twhKG-000000037Ia-3MMB;
+	Mon, 24 Mar 2025 12:54:44 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twhGq-000000035X7-0sdc
+	id 1twhGr-000000035Xi-2IgI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 12:51:13 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38da6a1a20bso270477f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 05:51:11 -0700 (PDT)
+	Mon, 24 Mar 2025 12:51:14 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39ab85402c9so122501f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 05:51:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742820670; x=1743425470; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZNkO323fCDGziIQ+TCe0Bh3YOcfzf6+FAg8ZnvrxNgo=;
-        b=qHWvlM1gtcMeZJfnrLRkWn5wYqJez3GppSyIjCA3j1pBxyh9qto9ZySHZ33dA8GGhM
-         /nZJDE2QiTP7wWAKQtRMbvVr4TJXcS/g91G/wAI9n/pvZnMrRNVttfjUmtFYM4FPei4F
-         faGTcXNmn18AejuG+ew/I1vrLrwHeiy5C2ym9tU04Cx63EDqSNzwhoTTekyghXqR9TB8
-         PtSArYi/Nno9PZy59pom4rKRhpKeqsLdsZ0hgg/H3cB2WLXErWGIMFtahY/Q8eNWpb3P
-         doVlDQecw0xp8zPwaZdIJVH9zmEfyU4WvQ5SQWW1H6dYGA84MQCnfUXFQWpbXVBAQ6Jd
-         uZhA==
+        d=linaro.org; s=google; t=1742820672; x=1743425472; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Y0wZXYw/CdldU5EsbECLrO9WocLpwGBA/zXElKTd/+8=;
+        b=OW666iFCe6VIRHg1TJ07TN1EVGRU+ugtay07MDvdb7q2iN9WaOjDQIe08cpT334D3U
+         xMTYrqPA8OteapPcIU4YGA4O5Nms/grEOKOALAxsaU0I8jYyoXYEseprmt8df2ZxCqkE
+         S0YvzTZ88+DzQz6/GEbP61NDTrox/044vfGUhJszMAD/VH4MnYJIkpq3br/okOojG4Nq
+         Pn72c2ig/xHEIhMQV9GfWb+QinI8GjaosLEfR8CYjTJpSYE/AmDfLkzu+yT1KfdQ4amL
+         FNEBhCJ4ywHQ6T9WSdocXxq4ejAmmFuRI9qcUOh84NtM6aR0uXdoFymN9EX9I7c/jVhF
+         kzXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742820670; x=1743425470;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZNkO323fCDGziIQ+TCe0Bh3YOcfzf6+FAg8ZnvrxNgo=;
-        b=iSUprfQaeu5J6m8kiN1RFkR/mHiZ/ViGDnlopv5mU3nmV4r/g3zfGi5WpPQ1u5UXrx
-         F3WQ1LGV2cAMrkFn2MiXKRbO3te9WDz9Qr3D/mIMHvmiiz6C/zVdGOsyloKSjOvK31Py
-         v4zn+tC0y+mznNhDchY2pimZWj374C6mCdGNoG6ho/8r2Hr/ZA6Y1cMgkTB+ChMYumY5
-         0RKU7kne3d5nKYqdnXAnR58G5Uxc9jlBXM0fjBbwnwkWCqBQLucqOBNPGlMOxU+y9oun
-         Kqs+nyyCAosGauLdPjLkwBZXsyna07G3yOzHFlYQh5m6Gi9RNo1mVA9xNPu39crLuPWu
-         3PhA==
-X-Forwarded-Encrypted: i=1; AJvYcCV4iyoo4n9ZpL2E9uNhk+wToTNwY8w0R+3lgYiOYU/8q60cfuxTPu75Uj3Ecqfki/BOzI9w3RE8W6cQfZ5Q/bb6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP+NN8QkNhRp5IEEYBH2Q7fPRiLRzXVQ44fisZxsQ5VrdpF1m/
-	G7jpCMvZqzrtyZSaeUL2p4U0oxq36NGdn7KWYSu3hERcWNxmzSvFPve14rEODZo=
-X-Gm-Gg: ASbGncuKm6WiRdS2hos7xyllzCcc9qc31xvE9NR1M85BteHm9ww6GsWjEmWmzHM0HwE
-	/vLxIYdgnb2X+joOMZPY7Nrolv7t0H2X6GcGQSdVB6RVgiSfqTTZ5NaZQyhf+S752a5EUTjTyK6
-	0N1xJst3X/3O4vN2q0YPcFW/jHDHl93y4V+wN5kEyjmrmhQep3U+KRMnRi1tk2cRmkG/eKVpOw8
-	6wM/s2V/q7VCYxlGwRM2dmYQc0jYcNzFnBxrFjNM8alOLg8W/HSVG4W14bWihyMsgG2glWkuXeK
-	GRCuHFLezcuhXXF020e9vjcYdLjpVzU+aA8Z+jUC1C1jwvx9OOdngtsPuA==
-X-Google-Smtp-Source: AGHT+IEQndIp5eFpgd1dTDP4lH7gXczSBzoAyRnBiPmFPk1TMdz1z67MW7mzStpV92IOyZshhOAyYg==
-X-Received: by 2002:a05:6000:1a87:b0:38e:48a6:280f with SMTP id ffacd0b85a97d-3997f9406bamr4947758f8f.9.1742820669984;
-        Mon, 24 Mar 2025 05:51:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742820672; x=1743425472;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Y0wZXYw/CdldU5EsbECLrO9WocLpwGBA/zXElKTd/+8=;
+        b=tRcFJMSxIuyPfq8w6aqDQ37VteSEqJgLXTpA0HXoSUU2sbpjRjkLCYTJOgo6vjJhIE
+         ljhBvuKzYX4xuvnYZop+PiDGB3HSxSEM2p5H3Yt1LWqzFLYRYrJu/F/YXmWzmWReTpAT
+         PBu48Z+axkgA7EyKUWxuXZojsj6a87j55gSvKoLYAT56Ccws07hxgB2iGSQbKKCpEtA5
+         RU4vwKuKN5WMkpC0s+6wRIh7r8Ha6xiTWoUOChFmgEZR/LVuM9spi6shTPwVBnxc6z7i
+         Udb4sJ/GKtyQwPyGTuVAle8ni5tfgSTkdWV6nZI8PSvImg1Y1KnDNJkg8aue8HLUiASL
+         Rh9g==
+X-Forwarded-Encrypted: i=1; AJvYcCUOei+K/w+mtUkdBEsumF8o6F1ps2gzGBRg+xMcnqj3B7P2PdVXYXnFkXJP/sDTfOvMjhEgJ+THztc+R12fS+MJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgJmJ/+/KcJhOxrVVBEyvCxXgrvViIFp+1xOiIqiH6PabI7UIN
+	y1sAgnfs0AsRys720XZ8sjnBhdsVpFFLmcaxdB7vXmudSjRV4adi59Y6dfCi+Is=
+X-Gm-Gg: ASbGncufM4IIk1j4leXyG5ulDn8w7NtyUFwEkVV/m6JTvoxkHg6iRHxOKHbbLrQqAOC
+	8yJywDLDiBkp/3rZQLJyGpayvpS5HUw1B+gBSxvzkDmPj15yhN55qIQX/Fj12wG9AQrIn3f+EmP
+	jyRyV5Z1Y0AP5c6Zfta6ki9mLVituck3/8PkzWvsIQpDLD341yn/iz+ngT0ZCdDC3caOK0F7VyO
+	ReUdd9BHfu9jupDGXjTVfd8Rk/PHDYAUMSGm3bMoaE0pP2yvWwvFPC5JuuzS+Ezcl4yQ3qHwpbF
+	D2XqcTWwLO1imMFwmz2Bi8KxTVFsw9nH2fHZhhEioCM7LdpfjLyZj2caFg==
+X-Google-Smtp-Source: AGHT+IEep6+lmKtICEdnNtWzicMc4Pz1nJNEZsn02KrzcQwbPTHzgPUylKQvXQKSLa9/kBn7lVLGVg==
+X-Received: by 2002:a5d:5f8f:0:b0:38f:2b3c:569e with SMTP id ffacd0b85a97d-3997f9403bcmr4678022f8f.11.1742820671758;
+        Mon, 24 Mar 2025 05:51:11 -0700 (PDT)
 Received: from krzk-bin.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b517csm11117180f8f.51.2025.03.24.05.51.08
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b517csm11117180f8f.51.2025.03.24.05.51.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 05:51:09 -0700 (PDT)
+        Mon, 24 Mar 2025 05:51:11 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Sean Wang <sean.wang@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -82,16 +83,17 @@ To: Sean Wang <sean.wang@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/2] dt-bindings: pinctrl: mediatek: Drop unrelated nodes from DTS example
-Date: Mon, 24 Mar 2025 13:51:04 +0100
-Message-ID: <20250324125105.81774-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/2] dt-bindings: pinctrl: mediatek: Correct indentation and style in DTS example
+Date: Mon, 24 Mar 2025 13:51:05 +0100
+Message-ID: <20250324125105.81774-2-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250324125105.81774-1-krzysztof.kozlowski@linaro.org>
+References: <20250324125105.81774-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_055112_257639_1CB83A4E 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250324_055113_590674_C7D33CD0 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +108,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Binding example should not contain other nodes, e.g. consumers of
-pinctrl of, because this is completely redundant and adds unnecessary
-bloat.
+DTS example in the bindings should be indented with 2- or 4-spaces and
+aligned with opening '- |', so correct any differences like 3-spaces or
+mixtures 2- and 4-spaces in one binding.
+
+No functional changes here, but saves some comments during reviews of
+new patches built on existing code.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml      | 10 ----------
- .../bindings/pinctrl/mediatek,mt6779-pinctrl.yaml      |  5 -----
- 2 files changed, 15 deletions(-)
+ .../pinctrl/mediatek,mt65xx-pinctrl.yaml      | 83 +++++++------------
+ .../pinctrl/mediatek,mt7622-pinctrl.yaml      | 48 +++++------
+ .../pinctrl/mediatek,mt8183-pinctrl.yaml      | 68 +++++++--------
+ .../pinctrl/mediatek,mt8192-pinctrl.yaml      | 76 ++++++++---------
+ 4 files changed, 127 insertions(+), 148 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
-index bccff08a5ba3..5f2808212f39 100644
+index 5f2808212f39..b9680b896f12 100644
 --- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
 +++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
-@@ -136,16 +136,6 @@ examples:
-         #address-cells = <2>;
+@@ -137,64 +137,43 @@ examples:
          #size-cells = <2>;
  
--        syscfg_pctl_a: syscfg-pctl-a@10005000 {
--          compatible = "mediatek,mt8135-pctl-a-syscfg", "syscon";
--          reg = <0 0x10005000 0 0x1000>;
--        };
--
--        syscfg_pctl_b: syscfg-pctl-b@1020c020 {
--          compatible = "mediatek,mt8135-pctl-b-syscfg", "syscon";
--          reg = <0 0x1020C020 0 0x1000>;
--        };
--
          pinctrl@1c20800 {
-           compatible = "mediatek,mt8135-pinctrl";
-           reg = <0 0x1000B000 0 0x1000>;
-diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-index 3bbc00df5548..f4bab7a132d3 100644
---- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-@@ -245,9 +245,4 @@ examples:
-                 };
-             };
-         };
+-          compatible = "mediatek,mt8135-pinctrl";
+-          reg = <0 0x1000B000 0 0x1000>;
+-          mediatek,pctl-regmap = <&syscfg_pctl_a>, <&syscfg_pctl_b>;
+-          gpio-controller;
+-          #gpio-cells = <2>;
+-          interrupt-controller;
+-          #interrupt-cells = <2>;
+-          interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
+-              <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
+-              <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>;
++            compatible = "mediatek,mt8135-pinctrl";
++            reg = <0 0x1000B000 0 0x1000>;
++            mediatek,pctl-regmap = <&syscfg_pctl_a>, <&syscfg_pctl_b>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            interrupt-controller;
++            #interrupt-cells = <2>;
++            interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
++                         <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
++                         <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>;
+ 
+-          i2c0_pins_a: i2c0-pins {
+-            pins1 {
+-              pinmux = <MT8135_PIN_100_SDA0__FUNC_SDA0>,
+-                <MT8135_PIN_101_SCL0__FUNC_SCL0>;
+-              bias-disable;
+-            };
+-          };
 -
--        mmc0 {
--           pinctrl-0 = <&mmc0_pins_default>;
--           pinctrl-names = "default";
--        };
+-          i2c1_pins_a: i2c1-pins {
+-            pins {
+-              pinmux = <MT8135_PIN_195_SDA1__FUNC_SDA1>,
+-                <MT8135_PIN_196_SCL1__FUNC_SCL1>;
+-              bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
+-            };
+-          };
+-
+-          i2c2_pins_a: i2c2-pins {
+-            pins1 {
+-              pinmux = <MT8135_PIN_193_SDA2__FUNC_SDA2>;
+-              bias-pull-down;
++            i2c0_pins_a: i2c0-pins {
++                pins1 {
++                    pinmux = <MT8135_PIN_100_SDA0__FUNC_SDA0>,
++                             <MT8135_PIN_101_SCL0__FUNC_SCL0>;
++                    bias-disable;
++                };
+             };
+ 
+-            pins2 {
+-              pinmux = <MT8135_PIN_49_WATCHDOG__FUNC_GPIO49>;
+-              bias-pull-up;
+-            };
+-          };
+-
+-          i2c3_pins_a: i2c3-pins {
+-            pins1 {
+-              pinmux = <MT8135_PIN_40_DAC_CLK__FUNC_GPIO40>,
+-                <MT8135_PIN_41_DAC_WS__FUNC_GPIO41>;
+-              bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++            i2c1_pins_a: i2c1-pins {
++                pins {
++                    pinmux = <MT8135_PIN_195_SDA1__FUNC_SDA1>,
++                             <MT8135_PIN_196_SCL1__FUNC_SCL1>;
++                    bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++                };
+             };
+ 
+-            pins2 {
+-              pinmux = <MT8135_PIN_35_SCL3__FUNC_SCL3>,
+-                <MT8135_PIN_36_SDA3__FUNC_SDA3>;
+-              output-low;
+-              bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
+-            };
++            i2c2_pins_a: i2c2-pins {
++                pins1 {
++                    pinmux = <MT8135_PIN_193_SDA2__FUNC_SDA2>;
++                    bias-pull-down;
++                };
+ 
+-            pins3 {
+-              pinmux = <MT8135_PIN_57_JTCK__FUNC_GPIO57>,
+-                <MT8135_PIN_60_JTDI__FUNC_JTDI>;
+-              drive-strength = <32>;
++                pins2 {
++                    pinmux = <MT8135_PIN_49_WATCHDOG__FUNC_GPIO49>;
++                    bias-pull-up;
++                };
+             };
+-          };
+         };
      };
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt7622-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt7622-pinctrl.yaml
+index d74cae9d4d65..9acca85184fa 100644
+--- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt7622-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt7622-pinctrl.yaml
+@@ -366,34 +366,34 @@ examples:
+         #size-cells = <2>;
+ 
+         pio: pinctrl@10211000 {
+-          compatible = "mediatek,mt7622-pinctrl";
+-          reg = <0 0x10211000 0 0x1000>;
+-          gpio-controller;
+-          #gpio-cells = <2>;
++            compatible = "mediatek,mt7622-pinctrl";
++            reg = <0 0x10211000 0 0x1000>;
++            gpio-controller;
++            #gpio-cells = <2>;
+ 
+-          pinctrl_eth_default: eth-pins {
+-            mux-mdio {
+-              groups = "mdc_mdio";
+-              function = "eth";
+-              drive-strength = <12>;
+-            };
++            pinctrl_eth_default: eth-pins {
++                mux-mdio {
++                    groups = "mdc_mdio";
++                    function = "eth";
++                    drive-strength = <12>;
++                };
+ 
+-            mux-gmac2 {
+-              groups = "rgmii_via_gmac2";
+-              function = "eth";
+-              drive-strength = <12>;
+-            };
++                mux-gmac2 {
++                    groups = "rgmii_via_gmac2";
++                    function = "eth";
++                    drive-strength = <12>;
++                };
+ 
+-            mux-esw {
+-              groups = "esw";
+-              function = "eth";
+-              drive-strength = <8>;
+-            };
++                mux-esw {
++                    groups = "esw";
++                    function = "eth";
++                    drive-strength = <8>;
++                };
+ 
+-            conf-mdio {
+-              pins = "MDC";
+-              bias-pull-up;
++                conf-mdio {
++                    pins = "MDC";
++                    bias-pull-up;
++                };
+             };
+-          };
+         };
+     };
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt8183-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8183-pinctrl.yaml
+index 8507bd15f243..464879274cae 100644
+--- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt8183-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8183-pinctrl.yaml
+@@ -195,43 +195,43 @@ examples:
+         #size-cells = <2>;
+ 
+         pio: pinctrl@10005000 {
+-          compatible = "mediatek,mt8183-pinctrl";
+-          reg = <0 0x10005000 0 0x1000>,
+-                <0 0x11f20000 0 0x1000>,
+-                <0 0x11e80000 0 0x1000>,
+-                <0 0x11e70000 0 0x1000>,
+-                <0 0x11e90000 0 0x1000>,
+-                <0 0x11d30000 0 0x1000>,
+-                <0 0x11d20000 0 0x1000>,
+-                <0 0x11c50000 0 0x1000>,
+-                <0 0x11f30000 0 0x1000>,
+-                <0 0x1000b000 0 0x1000>;
+-          reg-names = "iocfg0", "iocfg1", "iocfg2",
+-                "iocfg3", "iocfg4", "iocfg5",
+-                "iocfg6", "iocfg7", "iocfg8",
+-                "eint";
+-          gpio-controller;
+-          #gpio-cells = <2>;
+-          gpio-ranges = <&pio 0 0 192>;
+-          interrupt-controller;
+-          interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH>;
+-          #interrupt-cells = <2>;
++            compatible = "mediatek,mt8183-pinctrl";
++            reg = <0 0x10005000 0 0x1000>,
++                  <0 0x11f20000 0 0x1000>,
++                  <0 0x11e80000 0 0x1000>,
++                  <0 0x11e70000 0 0x1000>,
++                  <0 0x11e90000 0 0x1000>,
++                  <0 0x11d30000 0 0x1000>,
++                  <0 0x11d20000 0 0x1000>,
++                  <0 0x11c50000 0 0x1000>,
++                  <0 0x11f30000 0 0x1000>,
++                  <0 0x1000b000 0 0x1000>;
++            reg-names = "iocfg0", "iocfg1", "iocfg2",
++                  "iocfg3", "iocfg4", "iocfg5",
++                  "iocfg6", "iocfg7", "iocfg8",
++                  "eint";
++            gpio-controller;
++            #gpio-cells = <2>;
++            gpio-ranges = <&pio 0 0 192>;
++            interrupt-controller;
++            interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH>;
++            #interrupt-cells = <2>;
+ 
+-          i2c0_pins_a: i2c0-pins {
+-            pins1 {
+-              pinmux = <PINMUX_GPIO48__FUNC_SCL5>,
+-                <PINMUX_GPIO49__FUNC_SDA5>;
+-              mediatek,pull-up-adv = <3>;
+-              drive-strength-microamp = <1000>;
++            i2c0_pins_a: i2c0-pins {
++                pins1 {
++                  pinmux = <PINMUX_GPIO48__FUNC_SCL5>,
++                           <PINMUX_GPIO49__FUNC_SDA5>;
++                    mediatek,pull-up-adv = <3>;
++                    drive-strength-microamp = <1000>;
++                };
+             };
+-          };
+ 
+-          i2c1_pins_a: i2c1-pins {
+-            pins {
+-              pinmux = <PINMUX_GPIO50__FUNC_SCL3>,
+-                <PINMUX_GPIO51__FUNC_SDA3>;
+-              mediatek,pull-down-adv = <2>;
++            i2c1_pins_a: i2c1-pins {
++                pins {
++                    pinmux = <PINMUX_GPIO50__FUNC_SCL3>,
++                             <PINMUX_GPIO51__FUNC_SDA3>;
++                    mediatek,pull-down-adv = <2>;
++                };
+             };
+-          };
+         };
+     };
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt8192-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8192-pinctrl.yaml
+index 1686427eb854..949dcd6fd847 100644
+--- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt8192-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8192-pinctrl.yaml
+@@ -142,43 +142,43 @@ additionalProperties: false
+ 
+ examples:
+   - |
+-            #include <dt-bindings/pinctrl/mt8192-pinfunc.h>
+-            #include <dt-bindings/interrupt-controller/arm-gic.h>
+-            pio: pinctrl@10005000 {
+-                    compatible = "mediatek,mt8192-pinctrl";
+-                    reg = <0x10005000 0x1000>,
+-                          <0x11c20000 0x1000>,
+-                          <0x11d10000 0x1000>,
+-                          <0x11d30000 0x1000>,
+-                          <0x11d40000 0x1000>,
+-                          <0x11e20000 0x1000>,
+-                          <0x11e70000 0x1000>,
+-                          <0x11ea0000 0x1000>,
+-                          <0x11f20000 0x1000>,
+-                          <0x11f30000 0x1000>,
+-                          <0x1000b000 0x1000>;
+-                    reg-names = "iocfg0", "iocfg_rm", "iocfg_bm",
+-                          "iocfg_bl", "iocfg_br", "iocfg_lm",
+-                          "iocfg_lb", "iocfg_rt", "iocfg_lt",
+-                          "iocfg_tl", "eint";
+-                    gpio-controller;
+-                    #gpio-cells = <2>;
+-                    gpio-ranges = <&pio 0 0 220>;
+-                    interrupt-controller;
+-                    interrupts = <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH 0>;
+-                    #interrupt-cells = <2>;
++    #include <dt-bindings/pinctrl/mt8192-pinfunc.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    pio: pinctrl@10005000 {
++        compatible = "mediatek,mt8192-pinctrl";
++        reg = <0x10005000 0x1000>,
++              <0x11c20000 0x1000>,
++              <0x11d10000 0x1000>,
++              <0x11d30000 0x1000>,
++              <0x11d40000 0x1000>,
++              <0x11e20000 0x1000>,
++              <0x11e70000 0x1000>,
++              <0x11ea0000 0x1000>,
++              <0x11f20000 0x1000>,
++              <0x11f30000 0x1000>,
++              <0x1000b000 0x1000>;
++        reg-names = "iocfg0", "iocfg_rm", "iocfg_bm",
++              "iocfg_bl", "iocfg_br", "iocfg_lm",
++              "iocfg_lb", "iocfg_rt", "iocfg_lt",
++              "iocfg_tl", "eint";
++        gpio-controller;
++        #gpio-cells = <2>;
++        gpio-ranges = <&pio 0 0 220>;
++        interrupt-controller;
++        interrupts = <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH 0>;
++        #interrupt-cells = <2>;
+ 
+-                    spi1-default-pins {
+-                            pins-cs-mosi-clk {
+-                                    pinmux = <PINMUX_GPIO157__FUNC_SPI1_A_CSB>,
+-                                             <PINMUX_GPIO159__FUNC_SPI1_A_MO>,
+-                                             <PINMUX_GPIO156__FUNC_SPI1_A_CLK>;
+-                                    bias-disable;
+-                            };
+-
+-                            pins-miso {
+-                                    pinmux = <PINMUX_GPIO158__FUNC_SPI1_A_MI>;
+-                                    bias-pull-down;
+-                            };
+-                    };
++        spi1-default-pins {
++            pins-cs-mosi-clk {
++                pinmux = <PINMUX_GPIO157__FUNC_SPI1_A_CSB>,
++                         <PINMUX_GPIO159__FUNC_SPI1_A_MO>,
++                         <PINMUX_GPIO156__FUNC_SPI1_A_CLK>;
++                bias-disable;
+             };
++
++            pins-miso {
++                pinmux = <PINMUX_GPIO158__FUNC_SPI1_A_MI>;
++                bias-pull-down;
++            };
++        };
++    };
 -- 
 2.43.0
 
