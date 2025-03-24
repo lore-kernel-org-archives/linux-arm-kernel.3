@@ -4,98 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC25C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D54C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 17:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WzeJaaOIY3qOgasgq2SbP7NzsZnSi26UTmzBlBZdbZQ=; b=GG6wwOulZ/CxsMSm7UKvXl0X25
-	x7OTx7h47pG88IdfGR6wgFw4ARJEJCXXXU6RFH5BVfx62tHOn7qBRYbLD715jR3ygzhNFoaHZuVfA
-	Ytt32BCQxp46pYi6DMR5P4qPyfw9+QfQwu5mF6DXyHMA+q/t4r8WpcBqK2Sxo1GgIIjEx5ndt38i2
-	Fwf3MRtyQgkVcrXrgJB0odW4j1yFUZUU+Ght6j2NeF0j68wxDSHS0hPQJkcEPokHN8pfjT4Z1ExU6
-	hy8e8vD/BA4iIzQBivKGtu6/5sFBy2trpC3TUZisxVeI29FyKglT+tMF0ZYL9p0nDM/UpC2VhFyBw
-	0dMhqpcw==;
+	bh=SnroRpadQs+73Z5A9Ek9rLWnGkVNNMMnwyBsGGz461s=; b=qz7cO+zjgI09zGokWyeedAozCN
+	/XGZRgNr7uscC4mJyoY17jR8WeuzqI7xBv1wJYCxjzr4dTrctMN1bthf4Rgn+ZE2NIoUBScNx2bXj
+	NW7Jsv09WcCj3e8vapJN/nesL7AWhvc5QZxfCigL4mDddbiHdP3OXkQNFajbqyWzj4TVD8QFRLvXc
+	MKDJv9M6VQtGAAxVWaprwZ1zgVENneqbjyM1j1ySCkFFydOJkfiVpmtJCp349gBtyZfp0ArZ03Lyx
+	C8Nm/IApM2IGBQf/pknT6GPrRW9sA6kuZ7KEJ4wgSNsRekQe1pqJLcuTEpVjVzonX3QD+s4lUZLak
+	WWlxBUtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlY3-00000003mYA-0ex7;
-	Mon, 24 Mar 2025 17:25:15 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1twlew-00000003n4d-1C0p;
+	Mon, 24 Mar 2025 17:32:22 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlVx-00000003mNR-1Nev
+	id 1twldC-00000003mtp-2d53
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 17:23:06 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso32824355e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 10:23:05 -0700 (PDT)
+	Mon, 24 Mar 2025 17:30:36 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22403cbb47fso89208415ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 10:30:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742836984; x=1743441784; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=WzeJaaOIY3qOgasgq2SbP7NzsZnSi26UTmzBlBZdbZQ=;
-        b=SM+tR1mCD0/KmuGa01zeUtcG8RWCYh1pNhYTIK+pm9ydQCg66sf95L/3yKbTLmwK3w
-         VoBJ7kvXyRQd28yf63o8f8F1D8oilGP/IgysuMEJlf0DJdhKryIUZKZ71QBBMPnDBSdF
-         hcllXO3d5+KhXrJZ6HfCvU0rUiQ+oBDbGK7JkkQL2iUvfUSBWpJaXWpmjME5J3gcwQ97
-         9MjYrszzr/AgEsln/7vpZE/u6jzr+j5YdkuyWo8RkanfltRJL0QnIf4nmjxEM1VevvlO
-         kWmMw/+ySSfPTZ5n2H83FGeytOKXbTNfo0yhfRy1y3zgIIXpMPHZ0dO1MBpbwf/6jbAh
-         Z1cQ==
+        d=linaro.org; s=google; t=1742837434; x=1743442234; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SnroRpadQs+73Z5A9Ek9rLWnGkVNNMMnwyBsGGz461s=;
+        b=cWfjO0593u0UpnSZjl7puBGc011A4yblC8rPf+Zy1bKlcvZH9goX7O6i43bf8/po20
+         hjExxWtGpk9Wjaoh9uHco6THFDPYWuR+L2QLRU25XEI+3UCqlwmn6m8+ZEZU5Bmx14kb
+         GHfPmXSzrrG+jXc3uttOixR/MfdLEn+lWboXjRJoj2YEDknz3oS0y+jCKtCJJ0crEezK
+         8lwEtX46SZ5QJuYSPbiYAHk2fVgjK2fKlIhiwDYZMo/zgT8fG+MMpmu/WcdDW9lRWwpI
+         k5DS4us68OQj9+BBybFj/wt7tdAdVY9he32GsWn+kQWwtfvlTb5RZqtN8PiIRF9bhTFt
+         0c+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742836984; x=1743441784;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WzeJaaOIY3qOgasgq2SbP7NzsZnSi26UTmzBlBZdbZQ=;
-        b=BSoC8mqhb/2E4ADbGKxqwef0kT4TPywmRCtoYeXI08+3CMMwfDtT8jskC+mhhknb8D
-         nir7YOp/uN0Qofcpr7XKxSyKNBrutrd6sEKfhOGUSEihqNDSnT6vCwuWNZ0/kGUCSWUH
-         foUiZB/hTgawvNr5zSbcmCujZ5/HPDIDvlGOM2cCmUAOLJmovVLokGANtB4QSk5s7V+p
-         IcExdHnFXpyUyYcZ447fH3MCS/+bYtGHJntdLE8fCPyQ5bzpQa9gCBP2BAp3jTTon4VB
-         B4ok7F4jUdzqkbDsMBtT7AuIyupq/U/MIFBTYlbTrIQbCJNHV78aky1QODm87eLhAgOn
-         jgXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVt/Wv4tVZj+2zTMjmFkYqNStMazGMJ1MMsYyho3yA7aXLPcq7m13ep1+woScpgvaYAIFXZ7NeuiHFp7tBbilRz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yym61k5Rp09/OQyTNlvfH16LVCSBfcZXK9CLeqPWiEIRJseiF9b
-	9jQrbtgQEHyP0Z0nQleorZdH8DZoWakNF+xegPRWx/dMnC0YC5+JACncgj56EkI=
-X-Gm-Gg: ASbGncuUNtBMHKmfgqSdfL/EblsEDKwPZyjwFlY/tKTgzzh4bEo3uzTca6ZQbje1ZQz
-	rBy08pJ0l7pbJZBpnXMk32cpI8X8+RWzLbLgjDn8ZN5J094Pj9qgZxNMKmLnsQCl++GK0UOlA51
-	+OFqmSMMXhMccr4sL/+Bwf8IZayVQmWqWkLxlZA33zi9+tPiLs642gIRPqvmRZqVc1VgbGbVdpL
-	LfGRpqSu0l56jQUzbuZNZ0YTin+YM1JMsx9LE9W80LXcKY+3fy2+SIYyph4jNc3ZUyYkscYQX6O
-	YaL9/6Db2Nc6C4DugYHHX/FV4Emmp8vXs0jz8ioQiDYaFfQ=
-X-Google-Smtp-Source: AGHT+IHfEsqVrCp9uQuTAuS3ap1nR417rILjVAh7N1JNOE8t++oFUPwfBJvs4SjxnMYZNeDOSpPNtQ==
-X-Received: by 2002:a05:6000:18a2:b0:391:3028:c779 with SMTP id ffacd0b85a97d-3997f95956cmr12682045f8f.45.1742836983616;
-        Mon, 24 Mar 2025 10:23:03 -0700 (PDT)
-Received: from salami.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f556a4sm177445795e9.22.2025.03.24.10.23.02
+        d=1e100.net; s=20230601; t=1742837434; x=1743442234;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SnroRpadQs+73Z5A9Ek9rLWnGkVNNMMnwyBsGGz461s=;
+        b=otKKlSVqeSP+aG7q/l0nsPpg6mUGk8bs10BZVkOouYwHxFIe/McNLRYwW5TGyyPDCp
+         YnHfYozW6fjN36g0WF2Ga/5ptB0QmGTzg/yeHwCaEk/8f48aiLpx72NlpCNNre04DpH9
+         0Ijl/rKvKCkk1vdJAWBuW6+KGlsryl1SGv2rqTmXKY0uaSmNO7yT5wloKvqv66CpHoHy
+         2y2xSH8wEGEZ56QxkWZDfl6sdNKEQ08DmX9IhmrDtifm8HfAI9Z58FWJC0WhqgDzMt3G
+         5gTycNkqxEJmdwklM/wUVOO2ZeT8c6gjjSCGYv18XhmTF8pnt45WlhySPH4eSjbrc1Lb
+         dY5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWjWovseUxSPwajauam/An//R7MYv985pPLM004hSx/Q2HsE4cjeYcO5jZs9ujhRmYqaN7zjMupEH8pDgfFUgFW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUu6qEgopAWpDv446J4XIn+qbNmq6gvIJrWzYikqNGq1e50ABh
+	5ZBZjTCGGcoTsy+bawPnD6lChSW2T9O25NeKnFfJzlZRtO1XNttbSeEPO8M4cQ==
+X-Gm-Gg: ASbGncvM9qDn7XS56P2QOh13WI/aycyGOGvWfophBqzBCX0gSK1CJ/6g1XF+GemDi5E
+	2qYAdMa/LHBTbzQL4YC7DFzcdJ3BSYMavkDXfiDwiIbwu3I5Q5V7Vd6x7TRTAQN2c5QgY2Qxi0l
+	k+68svi54qCoGcmEpHEXpS4VF2jHorHwRKVi9pcePXZNK3Ue2uzD9Fp5S4jm5SEbUzqSmTOsaJi
+	1PEWKGVWvPl+h5Bwkt22ry5lO2FOiRjNrAZRcvNvjUnjJYDneLjm6HLkONvokQAsfYy7qqy3/sY
+	F8SwkWd8peivvVmdxfWNg7y2BjWtczRXbbG4RolzwYfUunLGlMxlSzQ=
+X-Google-Smtp-Source: AGHT+IFJCOVJt8P803wd2MA7JhfBhloa/XWaXKSzLJsxknH/vt3+SULEZbCYIKyBwnuGPda9wxAY4g==
+X-Received: by 2002:a05:6a20:d81b:b0:1f5:67c2:e3e9 with SMTP id adf61e73a8af0-1fe4342cc6emr22747430637.29.1742837433231;
+        Mon, 24 Mar 2025 10:30:33 -0700 (PDT)
+Received: from thinkpad ([120.60.67.138])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739061598f2sm8309667b3a.153.2025.03.24.10.30.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 10:23:03 -0700 (PDT)
-Message-ID: <26037d49069309915d6ac3dc4d0aff90175754de.camel@linaro.org>
-Subject: Re: [PATCH 01/34] dt-bindings: mfd: samsung,s2mps11: add s2mpg10
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi	 <cw00.choi@samsung.com>, Alim Akhtar
- <alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Russell King	 <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon	 <will@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Will
- McVicker	 <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
-Date: Mon, 24 Mar 2025 17:23:01 +0000
-In-Reply-To: <20250324165533.GA521455-robh@kernel.org>
-References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
-	 <20250323-s2mpg10-v1-1-d08943702707@linaro.org>
-	 <20250324165533.GA521455-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.55.3-1 
+        Mon, 24 Mar 2025 10:30:32 -0700 (PDT)
+Date: Mon, 24 Mar 2025 23:00:24 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v12 06/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
+ checking and debug
+Message-ID: <x2r2xfxrnkihvpoqiamgjmvppverjugp5r4we7lcfpz6jloxzy@7kdfzxiwv2po>
+References: <20250315201548.858189-1-helgaas@kernel.org>
+ <20250315201548.858189-7-helgaas@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250315201548.858189-7-helgaas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_102305_374095_8594CEFE 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20250324_103034_668853_311AA5D1 
+X-CRM114-Status: GOOD (  28.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,128 +107,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On Sat, Mar 15, 2025 at 03:15:41PM -0500, Bjorn Helgaas wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> dw_pcie_parent_bus_offset() looks up the parent bus address of a PCI
+> controller 'reg' property in devicetree.  If implemented, .cpu_addr_fixup()
+> is a hard-coded way to get the parent bus address corresponding to a CPU
+> physical address.
+> 
+> Add debug code to compare the address from .cpu_addr_fixup() with the
+> address from devicetree.  If they match, warn that .cpu_addr_fixup() is
+> redundant and should be removed; if they differ, warn that something is
+> wrong with the devicetree.
+> 
+> If .cpu_addr_fixup() is not implemented, the parent bus address should be
+> identical to the CPU physical address because we previously ignored the
+> parent bus address from devicetree.  If the devicetree has a different
+> parent bus address, warn about it being broken.
+> 
+> [bhelgaas: split debug to separate patch for easier future revert, commit
+> log]
+> Link: https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-5-01d2313502ab@nxp.com
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-designware.c | 26 +++++++++++++++++++-
+>  drivers/pci/controller/dwc/pcie-designware.h | 13 ++++++++++
+>  2 files changed, 38 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+> index 0a35e36da703..985264c88b92 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware.c
+> @@ -1114,7 +1114,8 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
+>  	struct device *dev = pci->dev;
+>  	struct device_node *np = dev->of_node;
+>  	int index;
+> -	u64 reg_addr;
+> +	u64 reg_addr, fixup_addr;
+> +	u64 (*fixup)(struct dw_pcie *pcie, u64 cpu_addr);
+>  
+>  	/* Look up reg_name address on parent bus */
+>  	index = of_property_match_string(np, "reg-names", reg_name);
+> @@ -1126,5 +1127,28 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
+>  
+>  	of_property_read_reg(np, index, &reg_addr, NULL);
+>  
+> +	fixup = pci->ops->cpu_addr_fixup;
+> +	if (fixup) {
+> +		fixup_addr = fixup(pci, cpu_phy_addr);
+> +		if (reg_addr == fixup_addr) {
+> +			dev_warn(dev, "%#010llx %s reg[%d] == %#010llx; %ps is redundant\n",
+> +				 cpu_phy_addr, reg_name, index,
+> +				 fixup_addr, fixup);
+> +		} else {
+> +			dev_warn(dev, "%#010llx %s reg[%d] != %#010llx fixed up addr; devicetree is broken\n",
+> +				 cpu_phy_addr, reg_name,
+> +				 index, fixup_addr);
+> +			reg_addr = fixup_addr;
+> +		}
+> +	} else if (!pci->use_parent_dt_ranges) {
 
-Thanks for your review!
+Is this check still valid? 'use_parent_dt_ranges' is only used here for
+validation. Moreover, if the fixup is not available, we should be able to
+safely return 'cpu_phy_addr - reg_addr' unconditionally.
 
-On Mon, 2025-03-24 at 11:55 -0500, Rob Herring wrote:
-> On Sun, Mar 23, 2025 at 10:39:17PM +0000, Andr=C3=A9 Draszik wrote:
-> > The Samsung S2MPG10 PMIC is similar to the existing PMICs supported by
-> > this binding.
-> >=20
-> > It is a Power Management IC for mobile applications with buck
-> > converters, various LDOs, power meters, RTC, clock outputs, and
-> > additional GPIOs interfaces.
-> >=20
-> > Unlike other Samsung PMICs, communication is not via I2C, but via the
-> > Samsung ACPM firmware, it therefore doesn't need a 'reg' property but a
-> > handle to the ACPM firmware node instead.
->=20
-> Can it be a child node of the ACPM node instead?
+> +		if (reg_addr != cpu_phy_addr) {
+> +			dev_warn(dev, "devicetree has incorrect translation; please check parent \"ranges\" property. CPU physical addr %#010llx, parent bus addr %#010llx\n",
+> +				 cpu_phy_addr, reg_addr);
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	dev_info(dev, "%s parent bus offset is %#010llx\n",
+> +		 reg_name, cpu_phy_addr - reg_addr);
 
-That should work, I'll do that instead so.
+This info is useless on platforms having no translation between CPU and PCI
+controller. The offset will always be 0.
 
-> >=20
-> > S2MPG10 can also act as a system power controller allowing
-> > implementation of a true cold-reset of the system.
-> >=20
-> > Support for the other components will be added in subsequent future
-> > patches.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > ---
-> > =C2=A0.../devicetree/bindings/mfd/samsung,s2mps11.yaml=C2=A0=C2=A0 | 34=
- ++++++++++++++++++++--
-> > =C2=A01 file changed, 32 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml=
- b/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
-> > index ac5d0c149796b6a4034b5d4245bfa8be0433cfab..ae8adb80b3af7ec3722c2a5=
-718ad8fddf0a5df34 100644
-> > --- a/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
-> > +++ b/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml
-> > @@ -20,6 +20,7 @@ description: |
-> > =C2=A0properties:
-> > =C2=A0=C2=A0 compatible:
-> > =C2=A0=C2=A0=C2=A0=C2=A0 enum:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mpg10-pmic
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mps11-pmic
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mps13-pmic
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - samsung,s2mps14-pmic
-> > @@ -43,6 +44,12 @@ properties:
-> > =C2=A0=C2=A0=C2=A0=C2=A0 description:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 List of child nodes that specify t=
-he regulators.
-> > =C2=A0
-> > +=C2=A0 exynos,acpm-ipc:
-> > +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/phandle
-> > +=C2=A0=C2=A0=C2=A0 description: |
->=20
-> Don't need '|' if no formatting to preserve.
+- Mani
 
-Oops, yes, sorry.
-
-Cheers,
-Andre'
-
->=20
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Phandle to the ACPM node for when ACPM =
-is used to communicate with the
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 PMIC, rather than I2C.
-> > +
-> > =C2=A0=C2=A0 samsung,s2mps11-acokb-ground:
-> > =C2=A0=C2=A0=C2=A0=C2=A0 description: |
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Indicates that ACOKB pin of S2MPS1=
-1 PMIC is connected to the ground so
-> > @@ -58,16 +65,39 @@ properties:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset (setting buck voltages to de=
-fault values).
-> > =C2=A0=C2=A0=C2=A0=C2=A0 type: boolean
-> > =C2=A0
-> > +=C2=A0 system-power-controller: true
-> > +
-> > =C2=A0=C2=A0 wakeup-source: true
-> > =C2=A0
-> > =C2=A0required:
-> > =C2=A0=C2=A0 - compatible
-> > -=C2=A0 - reg
-> > -=C2=A0 - regulators
-> > =C2=A0
-> > =C2=A0additionalProperties: false
-> > =C2=A0
-> > =C2=A0allOf:
-> > +=C2=A0 - if:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 con=
-st: samsung,s2mpg10-pmic
-> > +=C2=A0=C2=A0=C2=A0 then:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 regulators: false
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 samsung,s2mps11-acokb-groun=
-d: false
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 samsung,s2mps11-wrstbi-grou=
-nd: false
-> > +
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - exynos,acpm-ipc
-> > +
-> > +=C2=A0=C2=A0=C2=A0 else:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 exynos,acpm-ipc: false
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 system-power-controller: fa=
-lse
-> > +
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - reg
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - regulators
-> > +
-> > =C2=A0=C2=A0 - if:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
-> >=20
-> > --=20
-> > 2.49.0.395.g12beb8f557-goog
-> >=20
+-- 
+மணிவண்ணன் சதாசிவம்
 
