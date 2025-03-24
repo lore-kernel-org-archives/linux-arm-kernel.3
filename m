@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1946C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 11:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55CEC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 11:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+ghVCIu+gHXDYwoW4ycNbW7lIzjPpvmUwKIyMJNb2g=; b=OtN/5RqVv3MrG1tEK4Za9vjW2y
-	WBlG9femFGhjqznVDOcLdJA2MVkJR0l547UcFX63DccgS/clTBsIGWTln4I4RFvvZDjw/LQT72pCN
-	Kk0QwS//so4jRy4WxXLveROKQQsGgXIxgYryju4tiLzS+kp3ab592smiPxL+/ZL8vsQdoo+6Mw3fC
-	gPdCTOm6dHVZcskT5U1BM81qKZbuf8PCRB04KNn/00bTWc8YcYSEqxr0Vmlm+X4xMySsCrclpTWrD
-	S17LBLiKd51WBOSXuOw+hxgMboU2/2c9ktCfbABWBo3Saixn2dA2C8v83OBPyDk42DwBmuFBrhPBu
-	EdOtApew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FclWDOpQYZIOEMCx+3mDgK8c9fGIMqHvQ2gE2LcXKrg=; b=LSwgY95FX4FCKOdd9uYV8qKTbB
+	myPyd0dkJbECYNsnasXtVA0c/pSq8hk0mjWluQ2l9RMfrtaEEot3dylylH7GwIhDR/3JNiAj16Uf9
+	F5xV7LTmTlUkJYzaViOSwPEsiC6wAYNtCPelifuN4uFGe+krUZNni129BNBfm7DykqfozcL7fTAFT
+	kBIEgYQE6ooWQJQZvgVZ1YhxVsv9KEUQaSvmYlT2MgaBPUA4IU6PYuTZ+t1yhZkzlcd3lhpIhZ+q7
+	52sHNC4NVVjg/1EgNj0rIEFa6Dop7ZavS4Z3oapV7NVbIN9Ze03LGqCwcymU1/RyY0OhF9zfeVfE2
+	HsTXpxDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twgCK-00000002xyw-1KtY;
-	Mon, 24 Mar 2025 11:42:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1twgGD-00000002yCb-0TpL;
+	Mon, 24 Mar 2025 11:46:29 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twgAc-00000002xrX-1I4U
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 11:40:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 65D494388E;
-	Mon, 24 Mar 2025 11:40:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36DEFC4CEDD;
-	Mon, 24 Mar 2025 11:40:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742816441;
-	bh=1i0QDMqKfiVbHmoZ6j3RaZ9SuoswG1kMCF7gS9L1lRs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PLlFYht6WtT+po2JvGnc8GYr55OK4Ya2aBMFBkevmixYy6IhviZNZKThloY5FEQKR
-	 K7/zHuAhedPMziMAPM7PjhGYWqXR6N2fMqz2Me76EOir1ofTmVoc7fDN4j9/l+eInd
-	 kwW7JNOUQyxc6I3F47x4c/uiYnjrGCj4+tP1aVqh7p5RHERKCsB7tGFyHDbL2AAO2a
-	 VYTNyDvhrY8D8dgWpO6TbXM19AL4LJweGqrp9usOXT4OUwCHJHFBSUdp/qXV31yAp8
-	 E7eOt8P7ZhXxAvRJx/XXylCmBmFYDgV1EhMTOhfi4ixC280SNFXjkEVW55I7wjerA8
-	 X/QHXGoLLsY+A==
-Date: Mon, 24 Mar 2025 12:40:39 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Mubin Sayyed <mubin.sayyed@amd.com>
-Cc: krzysztof.kozlowski+dt@linaro.org, daniel.lezcano@linaro.org, 
-	tglx@linutronix.de, michal.simek@amd.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, git@amd.com
-Subject: Re: [PATCH v4 2/3] clocksource: timer-cadence-ttc: Support TTC
- device configured as PWM
-Message-ID: <hwnhz4yr6vzz3oav4gq7qptejjy3rdwff7iveawaxexf3tbngr@pnrxi6jkpw3k>
-References: <20250115113556.2832282-1-mubin.sayyed@amd.com>
- <20250115113556.2832282-3-mubin.sayyed@amd.com>
+	id 1twgEV-00000002y72-3If4;
+	Mon, 24 Mar 2025 11:44:44 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2264aefc45dso64078465ad.0;
+        Mon, 24 Mar 2025 04:44:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742816683; x=1743421483; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FclWDOpQYZIOEMCx+3mDgK8c9fGIMqHvQ2gE2LcXKrg=;
+        b=O+cC9b8LyoA8kalqPA21hCwnkle0b/u2bLzb6S/DA/BAzcJ4LrcIjERlX3RSOqUYn/
+         JO78gBg6G9uOvrV4RQJm8SRSVbA9dVpOYc1pjTiJioqEQAEV4VM9FyxS8oCEE7iXfjx/
+         p0/mX1lAZRokovrsppNmu1LoQKo/obJYSGSF0yQIOxxVtJ63V39VNaZk7LEJOSKxR4Vw
+         bbKIc0//5hmFUcW8Ii+tjNU+iR3+DYvla0/Bx1K8O1aIK6F5OxMRddO4Y/0kNVfQx67S
+         /StwPoULCMiLat+go4d98r4iAZrckc38kJ0wd33FwTI1V4H33fkPiPN+3gOVs+mps9ZG
+         NpoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742816683; x=1743421483;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FclWDOpQYZIOEMCx+3mDgK8c9fGIMqHvQ2gE2LcXKrg=;
+        b=TScStRRAbKYEx9kRnPuc+GPccpS3dNvu+RKtQzSEhZVaPGatwIEmRfUoTL/zF8fTXo
+         uj6t6hVlOvcUkzIzqci0MOhoyoV7pf3c3YWSiLHCyf3/lzCBOOhz2izxLASkG6MPytry
+         Orvvr6J7GAOzyF7p7sz/DTM7BgfpL44jVnpPrVMJRkPX5TGfSyWBT/6vQmzIxRTQCu80
+         EL+7pa6nGMS764zqLhP7lGolD9qaldCIref6tpqedcd5MrNACefTrxOvR1E4krjph9Kk
+         GZd+1P/6GkedPWnDD0rAeEM+wx2QzjuaQGt7OwJjHQiyNpddrAsVeGHXbhM59FgP9oWq
+         a+Zw==
+X-Forwarded-Encrypted: i=1; AJvYcCUQD0sXyGijCMOYR5CXQIiGLIaTeC9Rl+7VI3oL0zKbelxNTvkPPCxazbPbBWjITnYvfPRsXk1vWf40bLL6CnQ=@lists.infradead.org, AJvYcCVaLyBpRK/gH2OCcBH34YFPVOc1tpZZz+PSGB0olMRq8rA579xLd1jUX8If3O54YuF5wkA0BPzBmTtBV8IjEj0e@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz++dA+F5aqS4I5ozYCK8m2cC6+IGp3MYMtbWKslLJD4kVXOYfc
+	9V69No9FZuY2e/hkg5gUMeo73CXAVLpxC9FN7DTZu+fh307d33kW
+X-Gm-Gg: ASbGncu8iNk99KVw+xDvK8TNFCb3iKoErLcsysN7o1vxQaAfk6qtAWJI6bkHzELCU6X
+	nXiBBEWDlXvG7cUZGC1B6CTdhTZ0GTJLnvMDITUy2Vr1aVU5Py7g1+JJNX1p0Qa/MggOPOpaYrs
+	tMWikEP42tNKWhNDE+tHY9G6JhSIYoTO4GaiCScey/R45SxsM7H7kJw7woS1/PIWQQnXH1CBflJ
+	5DeD9QK5QqzBI/fth0XrWONzz8TkP/1m53qfBO2du8QpKz1utJvnaKwVg5K6vfdgLFz7JX1i2hc
+	94QJa65mU6XRokXgguTppACfCjE2+B0aV6GKDhQwnHs1hKItM3GSN4gS
+X-Google-Smtp-Source: AGHT+IG0hePrJhwSgn3rCtEA92WDnZVJ/VYMDjPzw/eThcvEnlBPxwvaFn6CraVYwHOXq4RoU8sdHw==
+X-Received: by 2002:a17:903:292:b0:220:c813:dfcc with SMTP id d9443c01a7336-22780e08cf6mr223591475ad.40.1742816682459;
+        Mon, 24 Mar 2025 04:44:42 -0700 (PDT)
+Received: from ownia.localdomain ([156.226.172.226])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f3b242sm68618715ad.41.2025.03.24.04.44.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 04:44:42 -0700 (PDT)
+From: Weizhao Ouyang <o451686892@gmail.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@pengutronix.de,
+	linux-can@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Weizhao Ouyang <o451686892@gmail.com>
+Subject: [PATCH] can: rockchip_canfd: fix broken quirks checks
+Date: Mon, 24 Mar 2025 19:44:16 +0800
+Message-ID: <20250324114416.10160-1-o451686892@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pzd7tzhb5lmj2cym"
-Content-Disposition: inline
-In-Reply-To: <20250115113556.2832282-3-mubin.sayyed@amd.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_044042_392531_EF47B0FE 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20250324_044443_823811_D0CFC2B1 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,116 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+First get the devtype_data then check quirks.
 
---pzd7tzhb5lmj2cym
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 2/3] clocksource: timer-cadence-ttc: Support TTC
- device configured as PWM
-MIME-Version: 1.0
+Fixes: bbdffb341498 ("can: rockchip_canfd: add quirk for broken CAN-FD support")
+Signed-off-by: Weizhao Ouyang <o451686892@gmail.com>
+---
+ drivers/net/can/rockchip/rockchip_canfd-core.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-On Wed, Jan 15, 2025 at 05:05:55PM +0530, Mubin Sayyed wrote:
-> TTC device can act either as clocksource/clockevent or PWM generator,
-> it would be decided by pwm-cells property. If pwm-cells property is
-> present in TTC node, it would be treated as PWM device, and clocksource
-> driver just calls probe function for PWM functionality, so that TTC
-> device would be registered with PWM framework.
->=20
-> Signed-off-by: Mubin Sayyed <mubin.sayyed@amd.com>
-> ---
-> Changes for v4:
->     - In case of pwm-cells property call probe function for PWM
->       feature instead of returning error.
-> Changes for v3:
->     - None
-> Changes for v2:
->     - Added comment regarding pwm-cells property
-> ---
->  drivers/clocksource/timer-cadence-ttc.c | 34 +++++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
->=20
-> diff --git a/drivers/clocksource/timer-cadence-ttc.c b/drivers/clocksourc=
-e/timer-cadence-ttc.c
-> index 2f33d4c40153..c5ecad9332c9 100644
-> --- a/drivers/clocksource/timer-cadence-ttc.c
-> +++ b/drivers/clocksource/timer-cadence-ttc.c
-> @@ -35,6 +35,10 @@
->   * obtained from device tree. The pre-scaler of 32 is used.
->   */
-> =20
-> +struct ttc_timer_config {
-> +	bool is_pwm_mode;
-> +};
-> +
->  /**
->   * struct ttc_timer - This definition defines local timer structure
->   *
-> @@ -453,6 +457,7 @@ static int __init ttc_setup_clockevent(struct clk *cl=
-k,
-> =20
->  static int __init ttc_timer_probe(struct platform_device *pdev)
->  {
-> +	struct ttc_timer_config *ttc_config;
->  	unsigned int irq;
->  	void __iomem *timer_baseaddr;
->  	struct clk *clk_cs, *clk_ce;
-> @@ -461,6 +466,24 @@ static int __init ttc_timer_probe(struct platform_de=
-vice *pdev)
->  	u32 timer_width =3D 16;
->  	struct device_node *timer =3D pdev->dev.of_node;
-> =20
-> +	ttc_config =3D devm_kzalloc(&pdev->dev, sizeof(*ttc_config), GFP_KERNEL=
-);
-> +	if (!ttc_config)
-> +		return -ENOMEM;
-> +
-> +	/*
-> +	 * If pwm-cells property is present in TTC node,
-> +	 * it would be treated as PWM device.
-> +	 */
-> +	if (of_property_read_bool(timer, "#pwm-cells")) {
-> +		#if defined(CONFIG_PWM_CADENCE)
-> +		ttc_config->is_pwm_mode =3D true;
-> +			return ttc_pwm_probe(pdev);
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index d9a937ba126c..ac514766d431 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -907,15 +907,16 @@ static int rkcanfd_probe(struct platform_device *pdev)
+ 	priv->can.data_bittiming_const = &rkcanfd_data_bittiming_const;
+ 	priv->can.ctrlmode_supported = CAN_CTRLMODE_LOOPBACK |
+ 		CAN_CTRLMODE_BERR_REPORTING;
+-	if (!(priv->devtype_data.quirks & RKCANFD_QUIRK_CANFD_BROKEN))
+-		priv->can.ctrlmode_supported |= CAN_CTRLMODE_FD;
+ 	priv->can.do_set_mode = rkcanfd_set_mode;
+ 	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
+ 	priv->ndev = ndev;
+ 
+ 	match = device_get_match_data(&pdev->dev);
+-	if (match)
++	if (match) {
+ 		priv->devtype_data = *(struct rkcanfd_devtype_data *)match;
++		if (!(priv->devtype_data.quirks & RKCANFD_QUIRK_CANFD_BROKEN))
++			priv->can.ctrlmode_supported |= CAN_CTRLMODE_FD;
++	}
+ 
+ 	err = can_rx_offload_add_manual(ndev, &priv->offload,
+ 					RKCANFD_NAPI_WEIGHT);
+-- 
+2.45.2
 
-strange indention. Maybe use
-
-	if (IS_REACHABLE(CONFIG_PWM_CADENCE))
-
-This is an unusal way to bind the PWM driver. I'd prefer creation of separa=
-te
-device in the PWM case. I wonder if it can happen that ttc_pwm_probe() is
-called during boot before pwm_init() completed. Or use an auxbus device
-to distinguish between timer and pwm?
-
-> +		#else
-> +			return -ENODEV;
-> +		#endif
-> +	}
-> +	dev_set_drvdata(&pdev->dev, ttc_config);
-> +
->  	if (initialized)
->  		return 0;
-> =20
-
-Best regards
-Uwe
-
---pzd7tzhb5lmj2cym
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfhRLQACgkQj4D7WH0S
-/k4sqwf/cPZOgKEZ8UNhWo8+7B84fciGOJsR7JSGHrR8Ds3OzoSsSo2SL1hEBRJC
-qRC7A/Ymvfm+VL+819XXNYXtCEtIe0Sdb5LZlUB4V+4muo4uhuOJtZCoj8Op0c8q
-AlDpNDM3W0itt6BUe2gyTWwqwbUHXgdDHggexb+2Q3+h8qUoslfWQxxHC9xGTQvi
-kqeLKzVhEQPY652y50JYDbS2QAi1bnI67inJFIHxUNCDg/ps/Br3w1xxO0/uKyE0
-8xCRHh781T1g7F3gac9uXN5LZq1SX+X4vwQCO9S2UDIv1Oz4IrPrPRiFANASnXva
-OzxvtMFDrG2IDLps1l2L0rn94pSeyA==
-=Aeyv
------END PGP SIGNATURE-----
-
---pzd7tzhb5lmj2cym--
 
