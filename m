@@ -4,96 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C8EC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73695C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tCoEPgVWWmROpC/8ZHSi7yFayVm0nvDeONlNkk5TNQo=; b=dB3S/gFFrgeSCkq7b2JCzxCT51
-	461YV23ehKmNgw4Ff+MbCkGLUzZprA2Tzgu1DuPhWK59JrkEreGUfngOqH9pi19obGFm795r3jJnC
-	yI5Z7hW1N4CFaat203isJEg6FcRPkZaJBJ5gscfGXtUThHlCrDchQSkE77xJJG9NbYjdlszDnmcQk
-	aIm9/zp9/V+rPe96PADBFt8M+4j1WZzGDFDHEY8EP8/I1z03C7DJTXWSdIL0xnMHxjtY2VZLSB6m6
-	4PR5A9OAvDjw07WCdY8Rb7Bv1TCbZHWrDMmXUjJFWoyHFWj/Tr7iTr0i2ymi2ZnJoiGfbVtUF5O14
-	H/A+WCcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sowTRCf+Tb5j3/bsFU0jjdH3gxVyOrbSH7sFKvyOG64=; b=m14NZ9nXgKgyrVinteBGCtyKMb
+	bCshlat6eiG0gtgvCXYzJoEWkhB4kwf1iu8L6QclDzHKZMMR4UgSDoHDq94PK3KIRhJk9ZBfpk8vY
+	1ATPEH+IoU+Ju4DaZRCjtbebksSclw1Bkrq6BSQ2kD0BGPU44Z4509Xlg8Sa8ZyPJjUWkCC3zylAM
+	fVjBMWN0eYIGLabp4Pfm+iHVUiaToUzHZAsfr+Edccy57vYl8UKB8GEFX659nkf8A6kAlb2k55ZHm
+	2MNQhyJ5cdNEop7m4+92lxY2tq/g2V8087sVHl1POhs4WrzCKGD2gxF3VnS/MdT9LA9AyRTibUB9b
+	f2jdTtcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twc6R-00000002Qxx-2cLr;
-	Mon, 24 Mar 2025 07:20:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1twc89-00000002RAi-1FWH;
+	Mon, 24 Mar 2025 07:21:53 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twbyv-00000002PmB-1ofC
+	id 1twbz4-00000002Pn7-2Ei6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:12:22 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52O6bw5C023569;
-	Mon, 24 Mar 2025 07:12:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tCoEPgVWWmROpC/8ZHSi7yFayVm0nvDeONlNkk5TNQo=; b=YMRaR+ENlVsVl2FG
-	xx758fy9wFrMbfsArkmmyR48jbQwlUYHH0/ju1KaWz9vi3H3qEvbGjVjV1mUyXfs
-	pjPRuL/MrnniQRzsr7/GbCnLoEKUSbn2TGNHV0CGhyLrT1mj47gCh7sOc4kQ7s1u
-	owSXxFkXILmAxYgRmOBbLAn6gZzpNu3CarK5Er3p87WQmbdT8jafOs5pUNPpLWIb
-	RMPEwKRg9i2CPVoaRyC43N3labbxwqmA7nS3llvGvXUO1eUnIUekLzmrdhddC8JS
-	z4q3wfDbMI89CMqQxpqN+9IGOOFIvU9WbAnJO38bocXS05wyNEnzBQq4d6UECxvU
-	toHN9A==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45hnk8kcut-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Mar 2025 07:12:06 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52O7C5un000913
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Mar 2025 07:12:05 GMT
-Received: from [10.233.19.224] (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 24 Mar
- 2025 00:12:01 -0700
-Message-ID: <0df07b23-4821-4b7d-85d8-dfaa7516fbc4@quicinc.com>
-Date: Mon, 24 Mar 2025 15:11:58 +0800
+	Mon, 24 Mar 2025 07:12:31 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-307c13298eeso46357261fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:12:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742800348; x=1743405148; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sowTRCf+Tb5j3/bsFU0jjdH3gxVyOrbSH7sFKvyOG64=;
+        b=Y8bjWLCJgD5/HMx9XuqwuHxGnzWNvzoEkvuXSjMGXtI/wLStIn2Z9veKSo1Klfo/hn
+         IafCezO3nq2L8v+KL838Ae7QDTN/9noI8Y4/ebs6gObMbBdu0CtOvt3b5YnDuomjyIU6
+         zfevZ8ZyGXqNa1dfGQR9ytb7UmOzrE1A7+vhhARxeCuev/3g84HKcwVkuTDHAdywDxZB
+         fpHFMgk8IE5OjSozfqsOk7K0TdOGQ/v6YrVWXM/CUCBFfyga7Wle4DJhQmdPynAj0vGh
+         OuSWxXtpMlF17/yJPQZnx0l795woO8omcY3gP/IjzQrrrJ9KYjjlUBthgz1SL164u7Y6
+         J2fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742800348; x=1743405148;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sowTRCf+Tb5j3/bsFU0jjdH3gxVyOrbSH7sFKvyOG64=;
+        b=qmmqgLNu/JcQQRn/tgVlXatj1mLLeqrTzDLHxCfHEZh9VntK6Mwrhj1dTFBmyjpzq+
+         lVr6MjBM1OOTJH37Ur6tHoXlTbQTGkaW00WnvKVZ7bc6wUM9QmNr1+GHx+PlU6qlWaGV
+         n4PhpJqnbEN6v9hH5P+QyHEjRNLU1ozntOawzsJ+4wqsMX+UyotkWNe2UV656vW3bN8J
+         esum84nKM7pf1/MhMX9Zxjwqj3+NCQGRwlhOCOTWAu5PyEqtNhlHKMptmmHXeFzPap6A
+         bkF7t6o16jJY/bWi65cJTVOsNG18gCBz0byPh63u0q0q/yRBjCXl/ry/kx7ojpVr1MsK
+         ft7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXqwm3GbcgDRYvK9Oi7BAl6l91ey5ufvq+KidctQfk404VTlqreOtc02bx5jyhCxKJcwParWzlTdmehXFiJBSHc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7AjTzmbMmtLn7xuajPeC0di9fjX4aD3sSyuHNpQfHoCYCUnyZ
+	pzc6OxsGsJmn1WE3nIznxxh6UNewydIPoFHZ8L4ISy7SY5RPrYlL
+X-Gm-Gg: ASbGnctK+RoLr2lvLJ1LlJIMhexIbvbxODmCaeyMN6aDNrAf/+HrDdd0tW+eeyC0M2b
+	TaJgPieikV1I2pxlPWOowPCufbZLSOjaL8j+MlN+jOBZgxMN55aPI5az5FVHFaslmlg9kw86s5N
+	n5FDrVLZmzzz7sqYonReLCfvkYSuwBBuWPa62driG8SKY0FfqxpiR+HtZiwLvi/ipylA+AJqs2l
+	5vqNGHvuiV0IshNDwAJHhTBoHDO0pmAViZn4g+8xUbQHwrVcA0OddBBx+r/G5XHX+c/YNJXKgJ8
+	QNMHdXLP35bwx/iHM+h9hlinKNzVtI3Zc7K21yk43zU5hlmky9s=
+X-Google-Smtp-Source: AGHT+IEnPPDATgowgnImDNLSvusoM0BTZl2CHm0V3kdZ6FVCrucX9v/2JU56loHRJqHxxkYiE05MEQ==
+X-Received: by 2002:a2e:6817:0:b0:30b:f599:d78f with SMTP id 38308e7fff4ca-30d727317a3mr56663871fa.7.1742800347972;
+        Mon, 24 Mar 2025 00:12:27 -0700 (PDT)
+Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30d7d7c19c3sm13336481fa.4.2025.03.24.00.12.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 00:12:26 -0700 (PDT)
+Date: Mon, 24 Mar 2025 09:12:17 +0200
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: [PATCH v10 0/8] Support ROHM BD79124 ADC
+Message-ID: <cover.1742560649.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/3] arm64: dts: qcom: x1e80100: add bus topology for
- PCIe domain 3
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-CC: <andersson@kernel.org>, <konradybcio@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <quic_qianyu@quicinc.com>, <sfr@canb.auug.org.au>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250320055502.274849-1-quic_wenbyao@quicinc.com>
- <20250320055502.274849-3-quic_wenbyao@quicinc.com>
- <hgvfxxjvquh3tn543ae44o3lie3pwld5snbewy2lxcrtgd4raa@eyfm57omt3ge>
-Content-Language: en-US
-From: "Wenbin Yao (Consultant)" <quic_wenbyao@quicinc.com>
-In-Reply-To: <hgvfxxjvquh3tn543ae44o3lie3pwld5snbewy2lxcrtgd4raa@eyfm57omt3ge>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 3koRAH8YsByUL07B3Jlo9VpzD65cjxU7
-X-Authority-Analysis: v=2.4 cv=KMlaDEFo c=1 sm=1 tr=0 ts=67e105c6 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=Upqwyp-cVDBhw83K_eoA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 3koRAH8YsByUL07B3Jlo9VpzD65cjxU7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-24_03,2025-03-21_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=999
- bulkscore=0 clxscore=1015 lowpriorityscore=0 mlxscore=0 priorityscore=1501
- adultscore=0 impostorscore=0 malwarescore=0 spamscore=0 suspectscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503240051
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="x9LRqC/eTzOvp8+V"
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_001221_601914_E330C03B 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20250324_001230_577375_7FBB5B71 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,50 +124,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/22/2025 1:19 AM, Dmitry Baryshkov wrote:
-> On Thu, Mar 20, 2025 at 01:55:01PM +0800, Wenbin Yao wrote:
->> From: Qiang Yu <quic_qianyu@quicinc.com>
->>
->> Add pcie3port node to represent the PCIe bridge of PCIe3 so that PCI slot
->> voltage rails can be described under this node in the board's dts.
->>
->> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
->> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
->> ---
->>   arch/arm64/boot/dts/qcom/x1e80100.dtsi | 10 ++++++++++
->>   1 file changed, 10 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
->> index 46b79fce9..32e8d400a 100644
->> --- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
->> @@ -3287,6 +3287,16 @@ opp-128000000 {
->>   					opp-peak-kBps = <15753000 1>;
->>   				};
->>   			};
->> +			pcie3port: pcie@0 {
-> Empty line between nodes, please.
 
-Will fix in the next version.
+--x9LRqC/eTzOvp8+V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
->> +				device_type = "pci";
->> +				compatible = "pciclass,0604";
->> +				reg = <0x0 0x0 0x0 0x0 0x0>;
->> +				bus-range = <0x01 0xff>;
->> +
->> +				#address-cells = <3>;
->> +				#size-cells = <2>;
->> +				ranges;
->> +			};
->>   		};
->>   
->>   		pcie3_phy: phy@1be0000 {
->> -- 
->> 2.34.1
->>
--- 
-With best wishes
-Wenbin
+Support ROHM BD79124 ADC.
 
+This series adds also couple of IIO ADC helper functions for parsing the
+channel information from the device tree. There are also new helpers
+included for iterating and counting firmware child nodes with a specific
+name.
+
+The rzg2l_adc and the sun20i-gpadc are converted to use the new ADC helper.
+
+There has been some discussion about how useful these ADC helpers are,
+and whether they should support also differential and single ended channel
+configurations. This version does not include support for those - with the
+benefit of reduced complexity and easier to use API.
+
+NOTE: The rzg2l_adc and the sun20i-gpadc are untested as I lack of relevant
+HW. They have been compile tested only.
+
+The ROHM BD79124 ADC itself is quite usual stuff. 12-bit, 8-channel ADC
+with threshold monitoring.
+
+Except that:
+ - each ADC input pin can be configured as a general purpose output.
+ - manually starting an ADC conversion and reading the result would
+   require the I2C _master_ to do clock stretching(!) for the duration
+   of the conversion... Let's just say this is not well supported.
+ - IC supports 'autonomous measurement mode' and storing latest results
+   to the result registers. This mode is used by the driver due to the
+   "peculiar" I2C when doing manual reads.
+
+Furthermore, the ADC uses this continuous autonomous measuring,
+and the IC keeps producing new 'out of window' IRQs if measurements are
+out of window - the driver disables the event for 1 seconds when sending
+it to user. This prevents generating storm of events
+
+Revision history:
+v9 =3D> v10:
+ BD79124 driver fixes as suggested by Andy:
+   - Use regmap_assign_bits()
+   - dont change the mask for caller in bd79124gpo_set_multiple()
+   - styling
+
+v8 =3D> v9:
+ - Drop the gianfar and the thp7312 drivers from the series to limit the
+   review noise and to simplify the merging. They can be submitted later
+   as separate changes.
+ - Drop the fwnode_for_each_available_named_child() as suggested by
+   Sakari.
+ - BD79124 driver styling and fixes
+
+v7 =3D> v8:
+  property helpers:
+    - Fix the example in fwnode_get_named_child_node_count() documentation
+      to use the fwnode_get_named_child_node_count() and not the
+      device_get_named_child_node_count()
+    - Fix the rest of the new macro's indentiations
+  adc helpers:
+    - Treat 0 ADC channels as an error in
+      devm_iio_adc_device_alloc_chaninfo_se().
+  rzg2l_adc / sun20i-gpadc:
+    - Drop zero channels check from the ADC drivers using
+      devm_iio_adc_device_alloc_chaninfo_se()
+  BD79124:
+    - Use unsigned for regmap values
+    - Commit message fine tuning
+    - Check devm_mutex_init() return value
+    - Handle 'ALL pins as ADC or GPO' cleanly in BD79124 driver
+    - BD79124 styling / typofixes
+
+v6 =3D> v7:
+ - Inline device_get_named_child_node_count()
+ - Fix kernel-doc for fwnode_get_named_child_node_count()
+ - Minor styling fixes
+ More accurate changelog in individual patches.
+
+v5 =3D> v6:
+ - Drop applied patch
+ - Add *_for_each_named_child_* iterators
+ - Add a patch converting the thp7312 driver to use the new helper
+ - Styling and minor things pointed by reviewers
+
+v4 =3D> v5: Fixes as per various review comments. Most notably:
+ - Drop the patch making the TI's ADC driver to respect device tree.
+ - Add (RFC) patch converting gianfar driver to use new name child-node
+   counting API as suggested by Andy.
+ - Add fwnode_get_child_node_count_named() as suggested by Rob.
+ - rebase to v6.14-rc5
+ More accurate changelog in individual patches.
+
+v3 =3D> v4:
+ - Drop the ADC helper support for differential channels
+ - Drop the ADC helper for getting only channel IDs by fwnode.
+ - "Promote" the function counting the number of child nodes with a
+   specific name to the property.h (As suggested by Jonathan).
+ - Add ADC helpers to a namespace.
+ - Rebase on v6.14-rc3
+ - More minor changes described in individual patches.
+
+v2 =3D> v3:
+ - Restrict BD79124 channel numbers as suggested by Conor and add
+   Conor's Reviewed-by tag.
+ - Support differential and single-ended inputs
+ - Convert couple of existing drivers to use the added ADC helpers
+ - Minor fixes based on reviews
+Link to v2:
+https://lore.kernel.org/all/cover.1738761899.git.mazziesaccount@gmail.com/
+
+RFC v1 =3D> v2:
+ - Drop MFD and pinmux.
+ - Automatically re-enable events after 1 second.
+ - Export fwnode parsing helpers for finding the ADC channels.
+
+---
+
+Matti Vaittinen (8):
+  dt-bindings: ROHM BD79124 ADC/GPO
+  property: Add functions to iterate named child
+  iio: adc: add helpers for parsing ADC nodes
+  iio: adc: rzg2l_adc: Use adc-helpers
+  iio: adc: sun20i-gpadc: Use adc-helpers
+  iio: adc: Support ROHM BD79124 ADC
+  MAINTAINERS: Add IIO ADC helpers
+  MAINTAINERS: Add ROHM BD79124 ADC/GPO
+
+ .../bindings/iio/adc/rohm,bd79124.yaml        |  114 ++
+ MAINTAINERS                                   |   12 +
+ drivers/base/property.c                       |   27 +
+ drivers/iio/adc/Kconfig                       |   17 +
+ drivers/iio/adc/Makefile                      |    3 +
+ drivers/iio/adc/industrialio-adc.c            |   82 ++
+ drivers/iio/adc/rohm-bd79124.c                | 1147 +++++++++++++++++
+ drivers/iio/adc/rzg2l_adc.c                   |   39 +-
+ drivers/iio/adc/sun20i-gpadc-iio.c            |   39 +-
+ include/linux/iio/adc-helpers.h               |   27 +
+ include/linux/property.h                      |   20 +
+ 11 files changed, 1479 insertions(+), 48 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/rohm,bd79124.=
+yaml
+ create mode 100644 drivers/iio/adc/industrialio-adc.c
+ create mode 100644 drivers/iio/adc/rohm-bd79124.c
+ create mode 100644 include/linux/iio/adc-helpers.h
+
+
+base-commit: 7eb172143d5508b4da468ed59ee857c6e5e01da6
+--=20
+2.49.0
+
+
+--x9LRqC/eTzOvp8+V
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfhBc4ACgkQeFA3/03a
+ocWangf+NI4B0saJ44yhPgbEq325fSJhMOfkikVYiNQDzf5tPKqdhE3H2+EJitTR
+Q3uQ6HF0uvIhH+sVBIPZpFSDeiS/80JCyyaeXyqaIaAwhyrctLf8wJ0Np8M/c7kt
+kNdnEQPK2zPPSEurLI7f6GmskY71NXfH1Ogdtve32GfLvm89NIPwolg3MmC43/T3
+TteJLSflBgs8HLarrggxMuz4sW1QSIp8My2iIim9A4SKfeHh6VabjqVx1Pgt+9Pd
+aRVXRV+j9OpBkvViz3602kp4TWCGnP3/uJSYGPPaqdFUPD+9ylptoTPBW9e8ZbbT
+ak6Ih1C9yZ6LE/GY2JLdRu+3U2vhpw==
+=yHBg
+-----END PGP SIGNATURE-----
+
+--x9LRqC/eTzOvp8+V--
 
