@@ -4,133 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54403C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 11:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A46C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 11:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pw0cEx6IsTGG1uYMGo+yYjZIxkwqft8G5guZsdJe3Cc=; b=CfpbG3Rg1AQBTiBa1iJ+6eJ++x
-	gwsY0e9ygAFd3yvjvkAZjb671RsHyFXI0GDXQ8DM+WwoZLzQrO9gRGWmgbatkOVhGDAKxsUmfOwoL
-	Jimk+RdsdQGQyYLikfPxxegda0fhFCsLoBszVIaAjFye69OPU5m5Z3QPIXxNBnYe7fWCjJU8zSlp9
-	UhBu7iXjUMb8Ro0Voyy2IzO2htGiadYloYeSyNKo9KNneqoeWhHoiB3wcxQ307XZHiS+eUoWMat7k
-	8J/97nIzIP8RwEv7QgCemxxUxKj3xgiypntXvuvh5kcGuAGhI+hcT0Lsdmhdz45Klslj7xjWgvUte
-	DfioTJ0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rYfKR/YdPlQUXVPdauITHrxBVlyBntqF4xf32JL2EPU=; b=pWNKIT06RCoK1XZeoAMQwMkz4D
+	8OIz99pkqXXRv9joWFkJK6RUNbcnmNJdpjTJ/dD9+jAITsXXrupndQ7txIFx64+EMS/kvWFfHRUZX
+	BL5HZkuiMyAH9TICQraTm6wBafhZzVpulNxaBJ9qYIy9szviJPiF7NwKVxXduoQwRSTlu1Q+yThsK
+	adGnMa502YGgQY5/ne3MSuPbH2dVTWzgnWl/igwlJ8Pt2yjOocy6C1e2Hj5NEJJszEA55vSAdnpnh
+	nMRPuRjp9Lsaojyl3nu/msbzWVA35OJMT43OPhVPraTs5QF2d1F0choEhWKmFAnx5d+mMIdGyIT4u
+	gTppGEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twfjM-00000002v8r-1Irc;
-	Mon, 24 Mar 2025 11:12:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1twg1j-00000002whv-40H7;
+	Mon, 24 Mar 2025 11:31:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twfhc-00000002v3j-3DFy
+	id 1twg02-00000002wYr-0I6V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 11:10:45 +0000
+	Mon, 24 Mar 2025 11:29:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9CEE43453;
-	Mon, 24 Mar 2025 11:10:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C66A7C4CEDD;
-	Mon, 24 Mar 2025 11:10:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 71329A48E2F;
+	Mon, 24 Mar 2025 11:24:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E013DC4CEDD;
+	Mon, 24 Mar 2025 11:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742814643;
-	bh=z/Ldx6B4r8X95UnmP5VrbMIGre4B2pHGjVaFENYqI+Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mGmp2VpL+bJHTYiKFd6rCDqOfHFlHCpcIILSGQMUmBZ/7Rk8fDaeb8zraEfCIWnH1
-	 RwWJwcoM4nIKt4+KeJXMVvLqLT+sau5LzLG4HJdzTn0iNezKexA5TX6lnSIS4uE0eh
-	 9abFfUDPMxVWMCxgM7UpWZWU9w3xG8FOhCN+Hj4u3fFJfxTYZsMsyHChrK9wA3XoxH
-	 VcKulpzR9Uan9efDdJ+NsLFTviInfXc40t7KqMIrGkgLm6Y8nzir/iwmsmSB3L+xyn
-	 qUwuQesncTg+Z+i0fLVLhT/nGFITyfiu8MKIDoV2Q+GPoIz5AcVnadvNb8OgTm3J0p
-	 HMuDU5vyQcPkg==
-Message-ID: <8e8aa069-af9f-453f-9bd0-e3dc2eab59ab@kernel.org>
-Date: Mon, 24 Mar 2025 12:10:34 +0100
+	s=k20201202; t=1742815784;
+	bh=pXSvmnsfZeH4qdTVDB5E1EkPKoYDMFI/4KEb9PoMPyg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H0PGIVrmXfb7lXBQKALfoGDmI27aOH8kOr1n42IujOWPMYIW3ToMzL/T2lyAC7sMJ
+	 7wuaqNJNtkai/kx/bv48MIxyGfaqCxsHGqUXz0Lt5TkW5cgrshCHlKGEgrSE0M+odQ
+	 tZamLUcVVySwdFoISg2SHuuIJnu/IxQejEYhoFuIxrxqb8NAnKX3jGXCCdk9UO3rIT
+	 e2coU/MvDTF1Akn6gTFhFvB88MVPZ+3KEU2MjZiLf0A7eZPSISasivNz7SAVOk72a9
+	 JDqoIq0bvVc0rGa+al4JBhd62RRw7yejG2noGxtCBfGbT/XdS5SaOmrg9M3N8tfnx8
+	 oj2OBQffZlfgA==
+Date: Mon, 24 Mar 2025 12:29:41 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Mubin Sayyed <mubin.sayyed@amd.com>
+Cc: krzysztof.kozlowski+dt@linaro.org, daniel.lezcano@linaro.org, 
+	tglx@linutronix.de, michal.simek@amd.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, git@amd.com
+Subject: Re: [PATCH v4 3/3] pwm: pwm-cadence: Add support for TTC PWM
+Message-ID: <nwdxbyynffy7kkxdznxrogzqg2r5bje45ywgxa6jj7mcix65ze@dtabj46eut5i>
+References: <20250115113556.2832282-1-mubin.sayyed@amd.com>
+ <20250115113556.2832282-4-mubin.sayyed@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mo Elbadry <elbadrym@google.com>
-References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
- <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
- <OS8PR06MB75415E95342F26F576B5CF8AF2C22@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <50327725-f3b8-4a8b-94a2-85afccd2868a@kernel.org>
- <OS8PR06MB7541B0DBC64B3EF6838DFE74F2CD2@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
- <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
- <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
- <OS8PR06MB7541C3B70B15F45F4824772BF2D92@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <994cb954-f3c4-4a44-800e-9303787c1be9@kernel.org>
- <SI6PR06MB753542037E1D6BBF5CE8D2E7F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
- <4523caea-3406-4de0-9ab5-424fb7a0a474@kernel.org>
- <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qalzlpcxz2i65esg"
+Content-Disposition: inline
+In-Reply-To: <20250115113556.2832282-4-mubin.sayyed@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_041044_849828_37995C0C 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20250324_042946_256446_5738A0AC 
+X-CRM114-Status: GOOD (  46.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,90 +74,590 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/03/2025 11:01, Ryan Chen wrote:
->> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
->> AST2600-i2cv2
->>
->> On 24/03/2025 09:30, Ryan Chen wrote:
->>>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
->>>> AST2600-i2cv2
->>>>
->>>> On 19/03/2025 12:12, Ryan Chen wrote:
->>>>>> Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
->>>>>> AST2600-i2cv2
->>>>>>
->>>>>> On 17/03/2025 10:21, Ryan Chen wrote:
->>>>>>>> Neither this.
->>>>>>>>
->>>>>>>> So it seems you describe already existing and documented I2C, but
->>>>>>>> for some reason you want second compatible. The problem is that
->>>>>>>> you do not provide reason from the point of view of bindings.
->>>>>>>>
->>>>>>>> To summarize: what your users want - don't care. Start properly
->>>>>>>> describing hardware and your SoC.
->>>>>>>
->>>>>>> OK, for ast2600 i2c controller have two register mode setting.
->>>>>>> One, I call it is old register setting, that is right now
->>>>>>> i2c-aspeed.c .compatible = "aspeed,ast2600-i2c-bus", And there
->>>>>>> have a global register
->>>>>> that can set i2c controller as new mode register set.
->>>>>>> That I am going to drive. That I post is all register in new an
->>>>>>> old register
->>>> list.
->>>>>>>
->>>>>>> For example,
->>>>>>> Global register [2] = 0 => i2c present as old register set Global
->>>>>>> register [2] = 1 => i2c present as new register set
->>>>>> It's the same device though, so the same compatible.
->>>>>
->>>>> Sorry, it is different design, and it share the same register space.
->>>>> So that the reason add new compatible "aspeed,ast2600-i2cv2" for
->>>>> this
->>>> driver.
->>>>> It is different register layout.
->>>>
->>>> Which device is described by the existing "aspeed,ast2600-i2c-bus"
->>>> compatible? And which device is described by new compatible?
->>>>
->>> On the AST2600 SoC, there are up to 16 I2C controller instances (I2C1 ~
->> I2C16).
->>
->> So you have 16 same devices.
-> Yes, one driver instance for 16 i2c device. 
->>
->>> Each of these controllers is hardwired at the SoC level to use either the
->> legacy register layout or the new v2 register layout.
->>> The mode is selected by a bit in the global register, these represent two
->> different hardware blocks:
->>> "aspeed,ast2600-i2c-bus" describes controllers using the legacy register
->> layout.
->>> "aspeed,ast2600-i2cv2" describes controllers using the new register
->>> layout
->>
->> Which part of "same device" is not clear? You have one device, one compatible.
->> Whatever you do with register layout, is already defined by that compatible. It
->> does not matter that you forgot to implement it in the Linux kernel.
-> 
-> Sorry, I still can't catch your point.
 
+--qalzlpcxz2i65esg
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 3/3] pwm: pwm-cadence: Add support for TTC PWM
+MIME-Version: 1.0
 
-I repeated twice "You have one device, one compatible.", provided few
-more sentences and if this is still unclear, I don't know what to say more.
+Hello,
 
-> I separated the support into two drivers:
+On Wed, Jan 15, 2025 at 05:05:56PM +0530, Mubin Sayyed wrote:
+> Cadence TTC timer can be configured as clocksource/clockevent or PWM
+> device.Specific TTC device would be configured as PWM device, if
+> pwm-cells property is present in the device tree node.
+>=20
+> In case of Zynq, ZynqMP and Versal SoC's, each TTC device has 3
+> timers/counters, so maximum 3 PWM channels can be configured for each TTC
+> IP instance. Also, output of 0th PWM channel of each TTC device can be
+> routed to MIO or EMIO, and output of 2nd and 3rd PWM channel can be
+> routed only to EMIO.
+>=20
+> Period for given PWM channel is configured through interval timer and
+> duty cycle through match counter.
+>=20
+> Details for cadence TTC IP can be found in Zynq UltraScale+ TRM.
+>=20
+> Signed-off-by: Mubin Sayyed <mubin.sayyed@amd.com>
+> ---
+> Refer link given below for Zynq UltraScale+ TRM
+> https://docs.xilinx.com/r/en-US/ug1085-zynq-ultrascale-trm
 
-I don't care about your drivers, why are you bringing them here?
+I would prefer to have a link to the TRM in the source file. When I
+follow that link today however I only get "The document you are looking
+for has been moved or deleted" :-\
 
-> i2c-aspeed.c for legacy layout, compatible "aspeed,ast2600-i2c-bus"
-> i2c-ast2600.c for the new register set, compatible compatible "aspeed,ast2600-i2cv2"
-> Do you mean I have integrate into 1 driver at i2c-aspeed.c ? can't be separate two driver?
+> Changes for v4:
+>  Configure it as part of TTC clocksource/clockevent driver
+>  drivers/clocksource/timer-cadence-ttc.c.
+>  Move probe/remove function to timer-cadence-ttc.c.
+> Changes for v3:
+>  None
+> Changes for v2:
+>  Use maybe_unused attribute for ttc_pwm_of_match_driver structure
+>  Add new function ttc_pwm_set_polarity
+>  Removed calls to pwm_get_state
+>  Replace DIV_ROUNF_CLOSEST with mul_u64_u64_div_u64
+>  Modify ttc_pwm_apply to remove while loop in prescalar logic
+>  and avoid glitch
+>  Calculate rate in probe and add it to private structure for further
+>  Drop ttc_pwm_of_xlate
+>  Replace of_clk_get with devm_clk_get_enabled
+>  Drop _OFFSET and _MASK from definitions
+>  Keep Kconfig and Makefile changes alphabetically sorted
+>  Use remove_new instead of remove
+>  Document limitations in driver file
+> ---
+>  drivers/pwm/Kconfig               |  10 +
+>  drivers/pwm/Makefile              |   1 +
+>  drivers/pwm/pwm-cadence.c         | 323 ++++++++++++++++++++++++++++++
+>  include/linux/timer-cadence-ttc.h |  22 +-
+>  4 files changed, 355 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/pwm/pwm-cadence.c
+>=20
+> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> index 0915c1e7df16..b418e5d8fa42 100644
+> --- a/drivers/pwm/Kconfig
+> +++ b/drivers/pwm/Kconfig
+> @@ -202,6 +202,16 @@ config PWM_CROS_EC
+>  	  PWM driver for exposing a PWM attached to the ChromeOS Embedded
+>  	  Controller.
+> =20
+> +config PWM_CADENCE
+> +	bool "Cadence TTC PWM driver"
 
-What is this patch about? Bindings. Not drivers. Look at email month ago:
+tristate please
 
-"All this describes driver, not hardware."
+> +	depends on CADENCE_TTC_TIMER
+> +	help
+> +	  Generic PWM framework driver for cadence TTC IP found on
+> +          Xilinx Zynq/ZynqMP/Versal SOCs. Each TTC device has 3 PWM
+> +          channels. Output of 0th PWM channel of each TTC device can
+> +          be routed to MIO or EMIO, and output of 1st and 2nd PWM
+> +          channels can be routed only to EMIO.
+> +
+>  config PWM_DWC_CORE
+>  	tristate
+>  	depends on HAS_IOMEM
+> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> index 9081e0c0e9e0..246380391a63 100644
+> --- a/drivers/pwm/Makefile
+> +++ b/drivers/pwm/Makefile
+> @@ -12,6 +12,7 @@ obj-$(CONFIG_PWM_BCM_KONA)	+=3D pwm-bcm-kona.o
+>  obj-$(CONFIG_PWM_BCM2835)	+=3D pwm-bcm2835.o
+>  obj-$(CONFIG_PWM_BERLIN)	+=3D pwm-berlin.o
+>  obj-$(CONFIG_PWM_BRCMSTB)	+=3D pwm-brcmstb.o
+> +obj-$(CONFIG_PWM_CADENCE)	+=3D pwm-cadence.o
+>  obj-$(CONFIG_PWM_CLK)		+=3D pwm-clk.o
+>  obj-$(CONFIG_PWM_CLPS711X)	+=3D pwm-clps711x.o
+>  obj-$(CONFIG_PWM_CRC)		+=3D pwm-crc.o
+> diff --git a/drivers/pwm/pwm-cadence.c b/drivers/pwm/pwm-cadence.c
+> new file mode 100644
+> index 000000000000..e7c337fe956b
+> --- /dev/null
+> +++ b/drivers/pwm/pwm-cadence.c
+> @@ -0,0 +1,323 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Driver to configure cadence TTC timer as PWM
+> + * generator
+> + *
+> + * Limitations:
+> + * - When PWM is stopped, timer counter gets stopped immediately. This
+> + *   doesn't allow the current PWM period to complete and stops abruptly.
+> + * - Disabled PWM emits inactive level.
+> + * - When user requests a change in  any parameter of PWM (period/duty c=
+ycle/polarity)
 
-Why are you keep bringing here drivers since a month?
+s/  / /
 
-Best regards,
-Krzysztof
+> + *   while PWM is in enabled state:
+> + *	- PWM is stopped abruptly.
+> + *	- Requested parameter is changed.
+> + *	- Fresh PWM cycle is started.
+> + *
+> + * Copyright (C) 2025, Advanced Micro Devices, Inc.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/device.h>
+
+I didn't check, but <linux/device.h> is unusual. Do you really need it?
+
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pwm.h>
+> +#include <linux/of_address.h>
+
+Also I think this can be dropped.
+
+> +#include <linux/timer-cadence-ttc.h>
+> +
+> +/**
+> + * struct ttc_pwm_priv - Private data for TTC PWM drivers
+> + * @chip:	PWM chip structure representing PWM controller
+> + * @clk:	TTC input clock
+> + * @rate:	TTC input clock rate
+> + * @max:	Maximum value of the counters
+> + * @base:	Base address of TTC instance
+> + */
+> +struct ttc_pwm_priv {
+> +	struct pwm_chip chip;
+> +	struct clk *clk;
+> +	unsigned long rate;
+> +	u32 max;
+> +	void __iomem *base;
+> +};
+> +
+> +static inline u32 ttc_pwm_readl(struct ttc_pwm_priv *priv,
+> +				unsigned long offset)
+> +{
+> +	return readl_relaxed(priv->base + offset);
+> +}
+> +
+> +static inline void ttc_pwm_writel(struct ttc_pwm_priv *priv,
+> +				  unsigned long offset,
+> +				  unsigned long val)
+> +{
+> +	writel_relaxed(val, priv->base + offset);
+> +}
+> +
+> +static inline u32 ttc_pwm_ch_readl(struct ttc_pwm_priv *priv,
+> +				   unsigned int chnum,
+> +				   unsigned long offset)
+> +{
+> +	unsigned long pwm_ch_offset =3D offset +
+> +				       (TTC_PWM_CHANNEL * chnum);
+> +
+> +	return ttc_pwm_readl(priv, pwm_ch_offset);
+> +}
+> +
+> +static inline void ttc_pwm_ch_writel(struct ttc_pwm_priv *priv,
+> +				     unsigned int chnum,
+> +				     unsigned long offset,
+> +				     unsigned long val)
+> +{
+> +	unsigned long pwm_ch_offset =3D offset +
+> +				       (TTC_PWM_CHANNEL * chnum);
+> +
+> +	ttc_pwm_writel(priv, pwm_ch_offset, val);
+> +}
+> +
+> +static inline struct ttc_pwm_priv *xilinx_pwm_chip_to_priv(struct pwm_ch=
+ip *chip)
+
+Can you please stick to a single unique function prefix? The involved
+prefixes here are ttc_pwm, xilinx_pwm and the driver is called
+"cadence". Unifying them all to a single name would be good.
+
+> +{
+> +	return pwmchip_get_drvdata(chip);
+> +}
+> +
+> +static void ttc_pwm_enable(struct ttc_pwm_priv *priv, struct pwm_device =
+*pwm)
+> +{
+> +	u32 ctrl_reg;
+> +
+> +	ctrl_reg =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
+> +	ctrl_reg |=3D (TTC_CNTR_CTRL_INTR_MODE_EN
+> +				 | TTC_CNTR_CTRL_MATCH_MODE_EN | TTC_CNTR_CTRL_RST);
+> +	ctrl_reg &=3D ~(TTC_CNTR_CTRL_DIS | TTC_CNTR_CTRL_WAVE_EN);
+> +	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl_reg);
+> +}
+> +
+> +static void ttc_pwm_disable(struct ttc_pwm_priv *priv, struct pwm_device=
+ *pwm)
+
+This function only needs .hwpwm from *pwm. Maybe pass hwpwm as parameter
+instead of pwm?
+
+> +{
+> +	u32 ctrl_reg;
+> +
+> +	ctrl_reg =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
+> +	ctrl_reg |=3D TTC_CNTR_CTRL_DIS;
+> +
+> +	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl_reg);
+> +}
+> +
+> +static void ttc_pwm_set_polarity(struct ttc_pwm_priv *priv, struct pwm_d=
+evice *pwm,
+> +				 enum pwm_polarity polarity)
+> +{
+> +	u32 ctrl_reg;
+> +
+> +	ctrl_reg =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
+> +
+> +	if (polarity =3D=3D PWM_POLARITY_NORMAL)
+> +		ctrl_reg |=3D TTC_CNTR_CTRL_WAVE_POL;
+> +	else
+> +		ctrl_reg &=3D (~TTC_CNTR_CTRL_WAVE_POL);
+
+The parenthesis can be dropped.
+
+> +
+> +	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl_reg);
+> +}
+> +
+> +static void ttc_pwm_set_counters(struct ttc_pwm_priv *priv,
+> +				 struct pwm_device *pwm,
+> +				 u32 period_cycles,
+> +				 u32 duty_cycles)
+> +{
+> +	/* Set up period */
+> +	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_INTR_VAL_OFFSET, period_cycles);
+> +
+> +	/* Set up duty cycle */
+> +	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_MATCH_CNT_VAL_OFFSET, duty_cycl=
+es);
+> +}
+> +
+> +static void ttc_pwm_set_prescalar(struct ttc_pwm_priv *priv,
+> +				  struct pwm_device *pwm,
+> +				  u32 div, bool is_enable)
+> +{
+> +	u32 clk_reg;
+> +
+> +	if (is_enable) {
+> +		/* Set up prescalar */
+> +		clk_reg =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET);
+> +		clk_reg &=3D ~TTC_CLK_CNTRL_PSV_MASK;
+> +		clk_reg |=3D (div << TTC_CNTR_CTRL_PRESCALE_SHIFT);
+> +		clk_reg |=3D TTC_CLK_CNTRL_PS_EN;
+> +		ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET, clk_reg);
+> +	} else {
+> +		/* Disable prescalar */
+> +		clk_reg =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET);
+> +		clk_reg &=3D ~TTC_CLK_CNTRL_PS_EN;
+> +		ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET, clk_reg);
+> +	}
+> +}
+> +
+> +static int ttc_pwm_apply(struct pwm_chip *chip,
+> +			 struct pwm_device *pwm,
+> +			 const struct pwm_state *state)
+> +{
+> +	struct ttc_pwm_priv *priv =3D xilinx_pwm_chip_to_priv(chip);
+> +	u64 duty_cycles, period_cycles;
+> +	struct pwm_state cstate;
+> +	unsigned long rate;
+> +	bool flag =3D false;
+> +	u32 div =3D 0;
+> +
+> +	cstate =3D pwm->state;
+
+A pointer would be enough here. No need to copy the whole struct.
+
+> +	if (state->polarity !=3D cstate.polarity) {
+> +		if (cstate.enabled)
+> +			ttc_pwm_disable(priv, pwm);
+> +
+> +		ttc_pwm_set_polarity(priv, pwm, state->polarity);
+> +	}
+> +
+> +	rate =3D priv->rate;
+> +
+> +	/* Prevent overflow by limiting to the maximum possible period */
+> +	period_cycles =3D min_t(u64, state->period, ULONG_MAX * NSEC_PER_SEC);
+
+ULONG_MAX * NSEC_PER_SEC overflows before it's casted to u64.
+
+> +	period_cycles =3D mul_u64_u64_div_u64(period_cycles, rate, NSEC_PER_SEC=
+);
+
+mul_u64_u64_div_u64() doesn't overflow if rate <=3D NSEC_PER_SEC.
+
+> +	if (period_cycles > priv->max) {
+> +		/*
+> +		 * Prescale frequency to fit requested period cycles within limit.
+> +		 * Prescalar divides input clock by 2^(prescale_value + 1). Maximum
+> +		 * supported prescalar value is 15.
+> +		 */
+> +		div =3D mul_u64_u64_div_u64(state->period, rate, (NSEC_PER_SEC * priv-=
+>max));
+
+No parenthesis needed around the 3rd parameter. Can NSEC_PER_SEC *
+priv->max overflow? Is it intended that you use state->period here and
+don't cap the value first as you did above?
+
+> +		div =3D order_base_2(div);
+> +		if (div)
+> +			div -=3D 1;
+> +
+> +		if (div > 15)
+> +			return -ERANGE;
+> +
+> +		rate =3D DIV_ROUND_CLOSEST(rate, BIT(div + 1));
+> +		period_cycles =3D mul_u64_u64_div_u64(state->period, rate,
+> +						    NSEC_PER_SEC);
+
+Dividing twice decreases precision. Also rounding to closest looks
+wrong. I think this should just be:
+
+	period_cycles =3D mul_u64_u64_div_u64(state->period, rate, NSEC_PER_SEC * =
+BIT(div + 1));
+
+Wouldn't it be simpler to just use:
+
+	dif =3D order_base_2(period_cycles / priv->max);
+
+(modulo correctness)?
+
+> +		flag =3D true;
+> +	}
+> +
+> +	if (cstate.enabled)
+> +		ttc_pwm_disable(priv, pwm);
+> +
+> +	duty_cycles =3D mul_u64_u64_div_u64(state->duty_cycle, rate,
+> +					  NSEC_PER_SEC);
+> +	ttc_pwm_set_counters(priv, pwm, period_cycles, duty_cycles);
+> +
+> +	ttc_pwm_set_prescalar(priv, pwm, div, flag);
+> +
+> +	if (state->enabled)
+> +		ttc_pwm_enable(priv, pwm);
+> +	else
+> +		ttc_pwm_disable(priv, pwm);
+
+The hardware is already disabled, so I'd expect that this
+ttc_pwm_disable() can be dropped?
+
+> +	return 0;
+> +}
+> +
+> +static int ttc_pwm_get_state(struct pwm_chip *chip,
+> +			     struct pwm_device *pwm,
+> +			     struct pwm_state *state)
+> +{
+> +	struct ttc_pwm_priv *priv =3D xilinx_pwm_chip_to_priv(chip);
+> +	u32 value, pres_en, pres =3D 1;
+> +	unsigned long rate;
+> +	u64 tmp;
+> +
+> +	value =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
+> +
+> +	if (value & TTC_CNTR_CTRL_WAVE_POL)
+> +		state->polarity =3D PWM_POLARITY_NORMAL;
+> +	else
+> +		state->polarity =3D PWM_POLARITY_INVERSED;
+> +
+> +	if (value & TTC_CNTR_CTRL_DIS)
+> +		state->enabled =3D false;
+
+You can exit early here.
+
+> +	else
+> +		state->enabled =3D true;
+> +
+> +	rate =3D priv->rate;
+> +
+> +	pres_en =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET);
+> +	pres_en	&=3D TTC_CLK_CNTRL_PS_EN;
+> +
+> +	if (pres_en) {
+> +		pres =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET)
+> +					& TTC_CLK_CNTRL_PSV_MASK;
+> +		pres >>=3D TTC_CNTR_CTRL_PRESCALE_SHIFT;
+
+		pres =3D FIELD_GET(...)
+
+> +		/* If prescale is enabled, the count rate is divided by 2^(pres + 1) */
+> +		pres =3D BIT(pres + 1);
+> +	}
+> +
+> +	tmp =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_INTR_VAL_OFFSET);
+> +	tmp *=3D pres;
+
+you can drop `pres =3D BIT(pres + 1);` above if you use
+
+	tmp <<=3D pres + 1
+
+here.
+
+> +	state->period =3D DIV64_U64_ROUND_UP(tmp * NSEC_PER_SEC, rate);
+
+Can this overflow?
+
+> +	tmp =3D ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_MATCH_CNT_VAL_OFFSET);
+> +	tmp *=3D pres;
+> +	state->duty_cycle =3D DIV64_U64_ROUND_UP(tmp * NSEC_PER_SEC, rate);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct pwm_ops ttc_pwm_ops =3D {
+> +	.apply =3D ttc_pwm_apply,
+> +	.get_state =3D ttc_pwm_get_state,
+> +};
+> +
+> +int ttc_pwm_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct device_node *np =3D dev->of_node;
+> +	struct ttc_pwm_priv *priv;
+> +	struct pwm_chip *chip;
+> +	u32 timer_width;
+> +	int ret;
+> +
+> +	ret =3D of_property_read_u32(np, "timer-width", &timer_width);
+> +	if (ret)
+> +		timer_width =3D 16;
+> +
+> +	chip =3D devm_pwmchip_alloc(dev, TTC_PWM_MAX_CH, sizeof(*priv));
+> +	if (IS_ERR(chip))
+> +		return PTR_ERR(chip);
+> +
+> +	priv =3D xilinx_pwm_chip_to_priv(chip);
+> +	priv->base =3D devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(priv->base))
+> +		return PTR_ERR(priv->base);
+> +
+> +	priv->max =3D BIT(timer_width) - 1;
+> +
+> +	priv->clk =3D devm_clk_get_enabled(dev, NULL);
+> +	if (IS_ERR(priv->clk)) {
+> +		return dev_err_probe(dev, PTR_ERR(priv->clk),
+> +				     "ERROR: timer input clock not found\n");
+> +	}
+> +
+> +	priv->rate =3D clk_get_rate(priv->clk);
+> +
+> +	clk_rate_exclusive_get(priv->clk);
+
+Only call clk_get_rate() after clk_rate_exclusive_get(). Also note there
+is a devm variant of clk_rate_exclusive_get().
+
+> +	chip->ops =3D &ttc_pwm_ops;
+> +	chip->npwm =3D TTC_PWM_MAX_CH;
+> +
+> +	ret =3D devm_pwmchip_add(dev, chip);
+> +	if (ret) {
+> +		clk_rate_exclusive_put(priv->clk);
+> +		return dev_err_probe(dev, ret, "Could not register PWM chip\n");
+> +	}
+> +
+> +	platform_set_drvdata(pdev, priv);
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(ttc_pwm_probe);
+
+Putting these functions in a name space would be great.
+
+> +void ttc_pwm_remove(struct platform_device *pdev)
+> +{
+> +	struct ttc_pwm_priv *priv =3D platform_get_drvdata(pdev);
+> +
+> +	pwmchip_remove(&priv->chip);
+> +	clk_rate_exclusive_put(priv->clk);
+> +}
+
+Did you test the remove path? Hint: Don't call pwmchip_remove() if you
+registered the chip using devm_pwmchip_add() and priv->chip is
+uninitialized.
+
+> +EXPORT_SYMBOL_GPL(ttc_pwm_remove);
+> +
+> +MODULE_AUTHOR("Mubin Sayyed <mubin.sayyed@amd.com>");
+> +MODULE_DESCRIPTION("Cadence TTC PWM driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/timer-cadence-ttc.h b/include/linux/timer-cade=
+nce-ttc.h
+> index d938991371e5..6b6135d0ba0c 100644
+> --- a/include/linux/timer-cadence-ttc.h
+> +++ b/include/linux/timer-cadence-ttc.h
+> @@ -12,13 +12,14 @@
+>  #define TTC_CNT_CNTRL_OFFSET            0x0C /* Counter Control Reg, RW =
+*/
+>  #define TTC_COUNT_VAL_OFFSET            0x18 /* Counter Value Reg, RO */
+>  #define TTC_INTR_VAL_OFFSET             0x24 /* Interval Count Reg, RW */
+> +#define TTC_MATCH_CNT_VAL_OFFSET        0x30 /* Match Count Reg, RW */
+
+I assume all these constants are register addresses. I'd drop _OFFSET
+here. If you want a designator for these, I'd suggest REG or ADDR, but
+IMHO plain TTC_MATCH_CNT_VAL is fine.
+
+>  #define TTC_ISR_OFFSET          0x54 /* Interrupt Status Reg, RO */
+>  #define TTC_IER_OFFSET          0x60 /* Interrupt Enable Reg, RW */
+> =20
+>  #define TTC_CNT_CNTRL_DISABLE_MASK      0x1
+> =20
+>  #define TTC_CLK_CNTRL_CSRC_MASK         (1 << 5)        /* clock source =
+*/
+> -#define TTC_CLK_CNTRL_PSV_MASK          0x1e
+> +#define TTC_CLK_CNTRL_PSV_MASK		0x1e
+>  #define TTC_CLK_CNTRL_PSV_SHIFT         1
+> =20
+>  /*
+> @@ -33,3 +34,22 @@
+> =20
+>  #define MAX_F_ERR 50
+> =20
+> +#define TTC_PWM_CHANNEL         0x4
+
+That define is misnamed IMHO. That's the offset between register ranges
+for different channels. *Here* _OFFSET is fine.
+
+> +
+> +#define TTC_CLK_CNTRL_CSRC              BIT(5)
+> +#define TTC_CLK_CNTRL_PS_EN             BIT(0)
+> +#define TTC_CNTR_CTRL_DIS               BIT(0)
+> +#define TTC_CNTR_CTRL_INTR_MODE_EN      BIT(1)
+> +#define TTC_CNTR_CTRL_MATCH_MODE_EN     BIT(3)
+> +#define TTC_CNTR_CTRL_RST               BIT(4)
+> +#define TTC_CNTR_CTRL_WAVE_EN   BIT(5)
+> +#define TTC_CNTR_CTRL_WAVE_POL  BIT(6)
+> +#define TTC_CNTR_CTRL_WAVE_POL_SHIFT    6
+> +#define TTC_CNTR_CTRL_PRESCALE_SHIFT    1
+> +#define TTC_PWM_MAX_CH	3
+> +
+> +#if defined(CONFIG_PWM_CADENCE)
+> +int ttc_pwm_probe(struct platform_device *pdev);
+> +void ttc_pwm_remove(struct platform_device *pdev);
+> +#endif
+
+No need for the ifdef.
+
+Best regards
+Uwe
+
+--qalzlpcxz2i65esg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfhQiMACgkQj4D7WH0S
+/k4Z/ggAoa7oTUS1+r9sZyGVLuPO3maZ+Xr1MkBXOWdq1spUdApZr3FG0W8XCtm4
+cy8icKVYTMx9fbJV/6uMJrukF44CfoCPv9kg4X7DyI/xDjot65Kr5b7OD4tq/jib
+BnKqIS++JiWSoDc687J5rCLlfX8gFRNuIEh9yIT1VvXFECnJy3TCScaru326aErm
+iwB2DXezk4ekQhfnEbO++AQ3y2f11qaa0w9z4oOedJuaSvXYKkRq6u9m/oq9bOxY
+SvgSN2/GYj0TnGzvE62yi8dCC2wllcKRzUMdY7jbVHRa55iLrRbmKXINPDFAZ+f6
+BQovM/yYdbuIzjEmSvCvR2bxYXlVlQ==
+=UNuV
+-----END PGP SIGNATURE-----
+
+--qalzlpcxz2i65esg--
 
