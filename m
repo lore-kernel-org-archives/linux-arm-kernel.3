@@ -4,95 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9024C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622B3C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtdsIlvZFuNXS5m+ytZfrbj/VE0WKhdwUACbuDCbmXo=; b=zpE81q8Z03X9WoKncBdQnolSIt
-	7Nu528zEONB00bH14cyezbVyvWQ4J9ZsUMOWBoIcBx4b8Vjw4Ilrh9/x8tpQb1xSIgduD5yPeoFLS
-	RivWaabAu1REr1Ok6+5sEqDka0Q5OUy+7ji4ZuxDYX3OagSdD7LjaavpNRgYO48aHlsPPqDqGL8jp
-	9Yic2EAYWm5qo1xvMZHJLmTsrUQSCaAjSQHve5MBkXBFP58MyCVgf258dJpu6Yo6MkYjqniHY9llh
-	re3ftNdKAcTd9t1twKS4UK5RTdkoAE88wiSdIropJnlfajBxcKw9mnkIQLbV33HJ5OwbRWaF2FFWP
-	zUL/vKlg==;
+	bh=xxmUD/FejQdyxymWW6D2EaGEGo6cGnFlUrvcW9z1uFY=; b=L9GdDbQCRK8ELcsYMNuvzPuXTs
+	ZXA5KdYegM/shS7vUHDd8gSU7Tidrc9Pkd1pU0nO6TmTeUwD11ysWynvB12EdZuanPcUjE4tpTsv1
+	FkCsmW+xSU0Qxs/8J9TRdHpo+ilOtXolhJEE8J3LZracrAXnYfXrBzQgQs3PcLH/SgVWH6o02Idtl
+	tPOcKRt8dY6SOmH4txK6q5fa+9heXBtlcIglqyFHK0z5VfVinFBCy8jIvuEf+mB+0Q3FatZOabZd3
+	1oX58nPchpWukAGLQUHze2P6/OTaeH2vG04vZ6vePYddduZ7hUt834XB4CFqjd+8oDerIqcw2uHdV
+	V3rzKtLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twbqy-00000002OWU-2IMj;
-	Mon, 24 Mar 2025 07:04:08 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1twbsg-00000002Oga-0tnk;
+	Mon, 24 Mar 2025 07:05:54 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twbpE-00000002OJQ-1KWg
+	id 1twbpq-00000002OPV-2z2u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:02:22 +0000
+	Mon, 24 Mar 2025 07:03:00 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43cec5cd73bso24834245e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:02:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1742799740; x=1774335740;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=jtdsIlvZFuNXS5m+ytZfrbj/VE0WKhdwUACbuDCbmXo=;
-  b=HSue3NhtOq8RjLTq1m2ZDX6J2zCQruZIKzkulzP9FbX9OuuhjAdDd8pD
-   nD4QHuo09V7aleMNf+1NOVZfEnEQU9B53EtxbTgEfJqBPdFSsY8d7ou+t
-   1fQISWqKkfZA1fwohlCQEVZciKdOTvxTL2iFt/574KE3K61sHjSBRBzJG
-   49xD99ldQK8z6zQvqYbP+B4bA/oEJEr6AjZJyCbGHFA3EVJCnSg/DkdtV
-   rvV2HzarrVbrS6tJ99daVFlszhPBSEHf2mUHHbmMXB+7auJjzR7HYUr/N
-   Yeai+Ny69pBvbAbD0Ow2RO2qa3M0Y+RIe6Z6vUx/GE543tOxzy6Tvx+O4
-   Q==;
-X-CSE-ConnectionGUID: CV595JCOQeCMw8MqgTRvug==
-X-CSE-MsgGUID: 6Kkbv+/QRrKJfXic6OHNtg==
-X-IronPort-AV: E=Sophos;i="6.14,271,1736809200"; 
-   d="scan'208";a="43112009"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 24 Mar 2025 08:02:15 +0100
-X-CheckPoint: {67E10377-15-903EAEAC-E04C76C8}
-X-MAIL-CPID: 1D890C64261B07AD8684C1FEF37BE9A0_5
-X-Control-Analysis: str=0001.0A00639B.67E1036D.003C,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5C8771673F9;
-	Mon, 24 Mar 2025 08:02:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1742799731;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jtdsIlvZFuNXS5m+ytZfrbj/VE0WKhdwUACbuDCbmXo=;
-	b=ZPioefSLN+FlFThMWD0H5hkSLzq2+eFOFR5/Nr1DxIkttSAr16drmLBsreSRcMrylHrIJN
-	TtRuu+Ea4B7HK+cGBVFKmRR03kXt7IZ/6limBz2iId/yblXkYZZhkMiHF8+kJANHgEX9bH
-	XVEUrl7EOLukSw6jseg6QCeYM4aZGN68IlYSrdx3sJF2ZQbW9WbvY0GIZ7puYCCEb6dCIO
-	Kzp3PEoHSNBdRZwFkhtV+fwvWH8LWZWyiIMqh/8MLxM/NFUgJXG5aRwyrZPRjY/lq3L4Ep
-	alMs13rW53+XkfDpLEYMCCF4Wf6ZRAA0tqrMfLFleLulmUWb77oEmPg4Lw2wFw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org
-Cc: Marek Vasut <marex@denx.de>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, Marek Vasut <marex@denx.de>
-Subject: Re: [PATCH v2 9/9] arm64: dts: imx95: Describe Mali G310 GPU
-Date: Mon, 24 Mar 2025 08:02:06 +0100
-Message-ID: <6144881.lOV4Wx5bFT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250321200625.132494-10-marex@denx.de>
-References: <20250321200625.132494-1-marex@denx.de>
- <20250321200625.132494-10-marex@denx.de>
+        d=linaro.org; s=google; t=1742799777; x=1743404577; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xxmUD/FejQdyxymWW6D2EaGEGo6cGnFlUrvcW9z1uFY=;
+        b=UXcEJk0Kr+loqfYmHS0VTVcJTm/c4PieXVXoXpuIeG9a4+45BvvpRwVH73qIuj/06T
+         BHdGXJbB/gvpdScnWGfOAU8B61sp5fyuXUcAv/l71sKFKVDfB09d6aeR7YK90GBheXCl
+         zi7jVrq8el6ys4jOyooUCRqTT9EGyLL6jEAkpNshl6+M7/WtEcwS7CUp7VBZ56srMDQ9
+         sd8bQFNBz7bQPATep9imklGM2rtqrxV9JdKo+/wdxl7NdLnX61sE990/XHH4Zj0dNfC+
+         NQXPJ9AHprFnTcQAllpGqFdJIPz+bmvdTrgPryDx+wXgFDpVyoeyCfeXMHUpLU9uktD+
+         uVrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742799777; x=1743404577;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xxmUD/FejQdyxymWW6D2EaGEGo6cGnFlUrvcW9z1uFY=;
+        b=wPTsYIVJG4mdhkXQv1NEVjpMHUWbZpzoqWMuR2l458yFR40Pswu7Ulfo2Cz93K1Ku2
+         Xm9nCnh7hjnoneoqEzHl0LIkCSY0ToKS87tclUGiI5sta3O4riCKZTo4vQ1//cWjN1QC
+         dWR4mDYO1GU7eF62tOET/dxc8dm5FYeTWoTnk9X/0h5lB24IrUXoHWPnzo9ISj5HMNI2
+         yTLp4pscSUyIR31TqXPaQReGg++CjpQBsNOtBVv2oGPFBJm2oKByzGcR6QaxZnDAt/TS
+         UZ9sI5+gqjXmbSC62oCn7nrSsOw9vVTdUY+Xb7SUEKu+C7VQUxEQ9goGpeWNAjE8ZJSH
+         gCEQ==
+X-Gm-Message-State: AOJu0Yzv9pDwzD6k4f1eQSTkpfQ1BcHdK8jgFftkf7uzP2pPnyYKZidM
+	CJxRH/5ZDa4TGwfpgoiwA4SxooqeTB7YLM63sw8lnebUVRQjDCTvhVmHDAoTdYg=
+X-Gm-Gg: ASbGncvQlWNf+L0g+f5lyVJLRYYs6l9IjY+3TCFeSIgg/z9AEqsFNzjuz5AXk8z7NzK
+	eJB6BtUZnRKlM2uFLRgN8zSoYO1zo7kI0T+U+XkCNb+KdzJGugNOwHeMAuLsQpSVxgFvm62hAyv
+	M1Un54yRZRsPBd0c5zb2sOgGKPgJkvSII6p0XbLjOGELuplph2aIJaN9x/gX5ie+1aKzSbbp4iv
+	04rjmV0jFqZDWD+fPFVL0/7C+UfSxcHz9Y6haniQnWjez2ssXXP+lnkS6DhScpXKXIo2H6RsyCz
+	tkBfCWcvjsXjGLR3YAM6PEHD+q09kv9fmzSom0peyw4Ga4FJoC3P/KvtvMR1s9a79jhIDVp/fQU
+	dW6ythtKWdFwh4wx2
+X-Google-Smtp-Source: AGHT+IEvnuv2O4FApGfvybSU5o3Rs8N1aGcC10DtuNPFGrxOLbDjQAe94Ll7vrnr/jictCvIm++FnA==
+X-Received: by 2002:a5d:5f4b:0:b0:391:4873:792f with SMTP id ffacd0b85a97d-3997f937b48mr11238511f8f.45.1742799777129;
+        Mon, 24 Mar 2025 00:02:57 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:a356:8d0:d4d:bb5f? ([2a01:e0a:3d9:2080:a356:8d0:d4d:bb5f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd2798bsm112856625e9.20.2025.03.24.00.02.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Mar 2025 00:02:56 -0700 (PDT)
+Message-ID: <f36875c5-73bb-4bf8-a59f-5df30043bbbe@linaro.org>
+Date: Mon, 24 Mar 2025 08:02:55 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v5 2/2] arm64: dts: amlogic: add support for
+ xiaomi-aquaman/Mi TV Stick
+To: Ferass El Hafidi <funderscore@postmarketos.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ Artur Weber <aweber.kernel@gmail.com>, Karl Chan <exxxxkc@getgoogleoff.me>,
+ Christian Hewitt <christianshewitt@gmail.com>
+References: <20250319190150.31529-2-funderscore@postmarketos.org>
+ <20250319190150.31529-4-funderscore@postmarketos.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250319190150.31529-4-funderscore@postmarketos.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_000220_852909_157733C9 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20250324_000258_789318_D160BE5E 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,145 +131,366 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 21. M=E4rz 2025, 21:05:59 CET schrieb Marek Vasut:
-> The instance of the GPU populated in i.MX95 is the G310,
-> describe this GPU in the DT. Include description of the
-> GPUMIX block controller, which can be operated as a simple
-> reset. Include dummy GPU voltage regulator and OPP tables.
->=20
-> Signed-off-by: Marek Vasut <marex@denx.de>
+On 19/03/2025 20:01, Ferass El Hafidi wrote:
+> Xiaomi Mi TV Stick is a small Amlogic-based Android TV stick released in
+> 2020.  It is known as `xiaomi-aquaman` internally.  Specifications:
+>   * Amlogic S805Y SoC
+>   * Android TV 9, upgradable to Android TV 10
+>   * 8 GB eMMC
+>   * 1 GB of RAM
+>   * Wi-Fi + Bluetooth
+> 
+> The devicetree is based on p241's DT, with some changes to better match
+> the Mi TV Stick:
+>   * there is no Ethernet port, no IR, no CVBS connector on the stick
+>   * a white LED is present
+>   * adjust memory to have 1 GB of RAM available
+> 
+> Signed-off-by: Ferass El Hafidi <funderscore@postmarketos.org>
 > ---
-> Cc: Boris Brezillon <boris.brezillon@collabora.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Philipp Zabel <p.zabel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Sebastian Reichel <sre@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
-> V2: - Drop regulator-{always,boot}-on from fixed-gpu-reg regulator
->     - Keep the GPU and GPUMIX always enabled
->     - Switch from fsl, to nxp, vendor prefix
->     - Fix opp_table to opp-table
->     - Describe IMX95_CLK_GPUAPB as coregroup clock
->     - Sort interrupts by their names to match bindings
-> ---
->  arch/arm64/boot/dts/freescale/imx95.dtsi | 58 ++++++++++++++++++++++++
->  1 file changed, 58 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/d=
-ts/freescale/imx95.dtsi
-> index 9bb26b466a061..3acdbd7fd4eee 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> @@ -249,6 +249,35 @@ dummy: clock-dummy {
->  		clock-output-names =3D "dummy";
->  	};
-> =20
-> +	gpu_fixed_reg: fixed-gpu-reg {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-min-microvolt =3D <920000>;
-> +		regulator-max-microvolt =3D <920000>;
-> +		regulator-name =3D "vdd_gpu";
+>   arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+>   .../meson-gxl-s805y-xiaomi-aquaman.dts        | 292 ++++++++++++++++++
+>   .../boot/dts/amlogic/meson-gxl-s805y.dtsi     |  10 +
+>   3 files changed, 303 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
+>   create mode 100644 arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+> index 2fbda8419..0921707f1 100644
+> --- a/arch/arm64/boot/dts/amlogic/Makefile
+> +++ b/arch/arm64/boot/dts/amlogic/Makefile
+> @@ -49,6 +49,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-wetek-hub.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-wetek-play2.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s805x-libretech-ac.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s805x-p241.dtb
+> +dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s805y-xiaomi-aquaman.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905d-libretech-pc.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905d-mecool-kii-pro.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905d-p230.dtb
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
+> new file mode 100644
+> index 000000000..42c692017
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
+> @@ -0,0 +1,292 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2025 Ferass El Hafidi <funderscore@postmarketos.org>
+> + * Heavily based on meson-gxl-s805x-p241.dtb:
+> + *  - Copyright (c) 2018 BayLibre, SAS.
+> + *    Author: Neil Armstrong <narmstrong@baylibre.com>
+> + *    Author: Jerome Brunet <jbrunet@baylibre.com>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/sound/meson-aiu.h>
+> +
+> +#include "meson-gxl-s805y.dtsi"
+> +
+> +/ {
+> +	compatible = "xiaomi,aquaman", "amlogic,s805y", "amlogic,meson-gxl";
+> +	model = "Xiaomi Mi TV Stick (aquaman)";
+> +
+> +	aliases {
+> +		serial0 = &uart_AO;
+> +		serial1 = &uart_A;
 > +	};
 > +
-> +	gpu_opp_table: opp-table {
-> +		compatible =3D "operating-points-v2";
+> +	au2: analog-amplifier {
+> +		compatible = "simple-audio-amplifier";
+> +		sound-name-prefix = "AU2";
+> +		VCC-supply = <&vcc_5v>;
+> +		enable-gpios = <&gpio GPIOH_5 GPIO_ACTIVE_HIGH>;
+> +	};
 > +
-> +		opp-500000000 {
-> +			opp-hz =3D /bits/ 64 <500000000>;
-> +			opp-hz-real =3D /bits/ 64 <500000000>;
-> +			opp-microvolt =3D <920000>;
-> +		};
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
 > +
-> +		opp-800000000 {
-> +			opp-hz =3D /bits/ 64 <800000000>;
-> +			opp-hz-real =3D /bits/ 64 <800000000>;
-> +			opp-microvolt =3D <920000>;
-> +		};
+> +	emmc_pwrseq: emmc-pwrseq {
+> +		compatible = "mmc-pwrseq-emmc";
+> +		reset-gpios = <&gpio BOOT_9 GPIO_ACTIVE_LOW>;
+> +	};
 > +
-> +		opp-1000000000 {
-> +			opp-hz =3D /bits/ 64 <1000000000>;
-> +			opp-hz-real =3D /bits/ 64 <1000000000>;
-> +			opp-microvolt =3D <920000>;
+> +	hdmi-connector {
+> +		compatible = "hdmi-connector";
+> +		type = "a";
+> +
+> +		port {
+> +			hdmi_connector_in: endpoint {
+> +				remote-endpoint = <&hdmi_tx_tmds_out>;
+> +			};
 > +		};
 > +	};
 > +
->  	clk_ext1: clock-ext1 {
->  		compatible =3D "fixed-clock";
->  		#clock-cells =3D <0>;
-> @@ -1890,6 +1919,35 @@ netc_emdio: mdio@0,0 {
->  			};
->  		};
-> =20
-> +		gpu_blk_ctrl: reset-controller@4d810000 {
-> +			compatible =3D "nxp,imx95-gpu-blk-ctrl";
-> +			reg =3D <0x0 0x4d810000 0x0 0xc>;
-> +			#reset-cells =3D <1>;
-> +			clocks =3D <&scmi_clk IMX95_CLK_GPUAPB>;
-> +			assigned-clocks =3D <&scmi_clk IMX95_CLK_GPUAPB>;
-> +			assigned-clock-parents =3D <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
-> +			assigned-clock-rates =3D <133333333>;
-> +			power-domains =3D <&scmi_devpd IMX95_PD_GPU>;
-> +		};
-
-With the SM release lf-6.12.3-1.0.0 AP does not have any access to
-this BLK_CTRL anymore. See [1]
-
-Best regards,
-Alexander
-
-[1] https://github.com/nxp-imx/imx-sm/blob/master/sm/doc/rn_cl.md#sm-184-de=
-assert-the-gpu-reset-when-the-gpumix-is-powered-up-rn_detail_sm_184
-
+> +	leds {
+> +		compatible = "gpio-leds";
 > +
-> +		gpu: gpu@4d900000 {
-> +			compatible =3D "nxp,imx95-mali", "arm,mali-valhall-csf";
-> +			reg =3D <0 0x4d900000 0 0x480000>;
-> +			clocks =3D <&scmi_clk IMX95_CLK_GPU>, <&scmi_clk IMX95_CLK_GPUAPB>;
-> +			clock-names =3D "core", "coregroup";
-> +			interrupts =3D <GIC_SPI 289 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 290 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 288 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names =3D "job", "mmu", "gpu";
-> +			mali-supply =3D <&gpu_fixed_reg>;
-> +			operating-points-v2 =3D <&gpu_opp_table>;
-> +			power-domains =3D <&scmi_devpd IMX95_PD_GPU>, <&scmi_perf IMX95_PERF_=
-GPU>;
-> +			power-domain-names =3D "mix", "perf";
-> +			resets =3D <&gpu_blk_ctrl 0>;
-> +			#cooling-cells =3D <2>;
-> +			dynamic-power-coefficient =3D <1013>;
+> +		led-white {
+> +			color = <LED_COLOR_ID_WHITE>;
+> +			function = LED_FUNCTION_POWER;
+> +			gpios = <&gpio GPIODV_24 GPIO_ACTIVE_HIGH>;
+> +			default-state = "on";
+> +			panic-indicator;
+> +		};
+> +	};
+> +
+> +	memory@0 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x0 0x0 0x40000000>;
+> +	};
+> +
+> +	vddio_boot: regulator-vddio-boot {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VDDIO_BOOT";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +	};
+> +
+> +	vddao_3v3: regulator-vddao-3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VDDAO_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +	};
+> +
+> +	vddio_ao18: regulator-vddio-ao18 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VDDIO_AO18";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +	};
+> +
+> +	vcc_3v3: regulator-vcc-3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +	};
+> +
+> +	vcc_5v: regulator-vcc-5v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC_5V";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +	};
+> +
+> +	emmc_pwrseq: emmc-pwrseq {
+> +		compatible = "mmc-pwrseq-emmc";
+> +		reset-gpios = <&gpio BOOT_9 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+> +	wifi32k: wifi32k {
+> +		compatible = "pwm-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <32768>;
+> +		pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
+> +	};
+> +
+> +	sdio_pwrseq: sdio-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
+> +		clocks = <&wifi32k>;
+> +		clock-names = "ext_clock";
+> +	};
+> +
+> +	sound {
+> +		compatible = "amlogic,gx-sound-card";
+> +		model = "XIAOMI-AQUAMAN";
+> +		audio-aux-devs = <&au2>;
+> +		audio-widgets = "Line", "Lineout";
+> +		audio-routing = "AU2 INL", "ACODEC LOLN",
+> +				"AU2 INR", "ACODEC LORN",
+> +				"Lineout", "AU2 OUTL",
+> +				"Lineout", "AU2 OUTR";
+> +		clocks = <&clkc CLKID_MPLL0>,
+> +			 <&clkc CLKID_MPLL1>,
+> +			 <&clkc CLKID_MPLL2>;
+> +
+> +		assigned-clocks = <&clkc CLKID_MPLL0>,
+> +				  <&clkc CLKID_MPLL1>,
+> +				  <&clkc CLKID_MPLL2>;
+> +		assigned-clock-parents = <0>, <0>, <0>;
+> +		assigned-clock-rates = <294912000>,
+> +				       <270950400>,
+> +				       <393216000>;
+> +
+> +		dai-link-0 {
+> +			sound-dai = <&aiu AIU_CPU CPU_I2S_FIFO>;
 > +		};
 > +
->  		ddr-pmu@4e090dc0 {
->  			compatible =3D "fsl,imx95-ddr-pmu", "fsl,imx93-ddr-pmu";
->  			reg =3D <0x0 0x4e090dc0 0x0 0x200>;
->=20
+> +		dai-link-1 {
+> +			sound-dai = <&aiu AIU_CPU CPU_I2S_ENCODER>;
+> +			dai-format = "i2s";
+> +			mclk-fs = <256>;
+> +
+> +			codec-0 {
+> +				sound-dai = <&aiu AIU_HDMI CTRL_I2S>;
+> +			};
+> +
+> +			codec-1 {
+> +				sound-dai = <&aiu AIU_ACODEC CTRL_I2S>;
+> +			};
+> +		};
+> +
+> +		dai-link-2 {
+> +			sound-dai = <&aiu AIU_HDMI CTRL_OUT>;
+> +
+> +			codec-0 {
+> +				sound-dai = <&hdmi_tx>;
+> +			};
+> +		};
+> +
+> +		dai-link-3 {
+> +			sound-dai = <&aiu AIU_ACODEC CTRL_OUT>;
+> +
+> +			codec-0 {
+> +				sound-dai = <&acodec>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&acodec {
+> +	AVDD-supply = <&vddio_ao18>;
+> +	status = "okay";
+> +};
+> +
+> +&aiu {
+> +	status = "okay";
+> +};
+> +
+> +&cec_AO {
+> +	status = "okay";
+> +	pinctrl-0 = <&ao_cec_pins>;
+> +	pinctrl-names = "default";
+> +	hdmi-phandle = <&hdmi_tx>;
+> +};
+> +
+> +&hdmi_tx {
+> +	status = "okay";
+> +	pinctrl-0 = <&hdmi_hpd_pins>, <&hdmi_i2c_pins>;
+> +	pinctrl-names = "default";
+> +	hdmi-supply = <&vcc_5v>;
+> +};
+> +
+> +&hdmi_tx_tmds_port {
+> +	hdmi_tx_tmds_out: endpoint {
+> +		remote-endpoint = <&hdmi_connector_in>;
+> +	};
+> +};
+> +
+> +&saradc {
+> +	status = "okay";
+> +	vref-supply = <&vddio_ao18>;
+> +};
+> +
+> +/* Wireless SDIO Module (Amlogic W155S1 / Realtek RTL8821CS) */
+> +&sd_emmc_b {
+> +	status = "okay";
+> +	pinctrl-0 = <&sdio_pins>;
+> +	pinctrl-1 = <&sdio_clk_gate_pins>;
+> +	pinctrl-names = "default", "clk-gate";
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	max-frequency = <50000000>;
+> +
+> +	non-removable;
+> +	disable-wp;
+> +
+> +	/* WiFi firmware requires power to be kept while in suspend */
+> +	keep-power-in-suspend;
+> +
+> +	mmc-pwrseq = <&sdio_pwrseq>;
+> +
+> +	vmmc-supply = <&vddao_3v3>;
+> +	vqmmc-supply = <&vddio_boot>;
+> +
+> +	sdio: wifi@1 {
+> +		reg = <1>;
+> +	}
+> +};
+> +
+> +/* eMMC */
+> +&sd_emmc_c {
+> +	status = "okay";
+> +	pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
+> +	pinctrl-1 = <&emmc_clk_gate_pins>;
+> +	pinctrl-names = "default", "clk-gate";
+> +
+> +	bus-width = <8>;
+> +	cap-mmc-highspeed;
+> +	max-frequency = <200000000>;
+> +	non-removable;
+> +	disable-wp;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +
+> +	mmc-pwrseq = <&emmc_pwrseq>;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&vddio_boot>;
+> +};
+> +
+> +&pwm_ef {
+> +	status = "okay";
+> +	pinctrl-0 = <&pwm_e_pins>;
+> +	pinctrl-names = "default";
+> +};
+> +
+> +/*
+> + * This is connected to the Bluetooth module
+> + * Note: There's no driver for the Bluetooth module of some variants yet.
+> + */
+> +&uart_A {
+> +	status = "okay";
+> +	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
+> +	pinctrl-names = "default";
+> +	uart-has-rtscts;
+> +};
+> +
+> +&uart_AO {
+> +	status = "okay";
+> +	pinctrl-0 = <&uart_ao_a_pins>;
+> +	pinctrl-names = "default";
+> +};
+> +
+> +&usb {
+> +	status = "okay";
+> +	dr_mode = "otg";
+> +	vbus-supply = <&vcc_5v>;
+> +};
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
+> new file mode 100644
+> index 000000000..49b29b71f
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
+> @@ -0,0 +1,10 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2025 Ferass El Hafidi <funderscore@postmarketos.org>
+> + */
+> +
+> +#include "meson-gxl-s805x.dtsi"
+> +
+> +/ {
+> +	compatible = "amlogic,s805y", "amlogic,meson-gxl";
+> +};
 
+I get:
+Error: arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts:243.1-2 syntax error
+FATAL ERROR: Unable to parse input tree
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+whil building, could you fix that ?
 
-
+Neil
 
