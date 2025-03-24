@@ -4,77 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3B1C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 20:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6ECC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 20:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWNykCfIZE5y2vVmoZSSnKAkwrG/e9pduNl8HAGkIE4=; b=dS6+uMeF6ui2l/zFbCTifXsaSS
-	ZmEMRqHBU02R/fgCFfXZk+K8uMt1zoU2aPYyYOTzdFVkjf7Cdu7yoVQjNh/ohM7ymp1ONci1Wo8LL
-	PQNrK0wCyf15a7CLT71j+mmx4MPgbTxjK2mHuGJxQHh36cyUNizdPdZ7LfcbGF0hyzeg2gMIRz27n
-	zPMeUMOi+UuOcwjQx2f94Z1T9B4fJr28h3nuXqKgwzfm4M7jYbgS4Ec08iOEKs+CBHC5W4fALvl2F
-	Fj/Jv+cBxYzoh3CrWRavco3u+//sOW79NUj3ri/dGB2dsRHQ0zccmr/ZPmmRH9Ztch8JJt4sH1lLk
-	2BUumM9g==;
+	bh=xxrGgHWhR4Ky+v6i7DE4a0jUOEzO9NsgEBtqDP5s0TQ=; b=4x7RL6oxVFSNEAwloov0HRPb28
+	jtWW20qFd7M1aD6VG3BmHO2mnoWZ3UyMxSh+9JAtJPRdgxdTtkd8Ff3jIXaydftxAVbJIoKigyPX9
+	fH6yiYs1E21Dq/YX7hiYCQJYDVA0Wq0IpyGia8tQ0WwOtXu/Mm/Lp7EZpI9F7dT9bWPQAI9H/MB1F
+	NTbRhS/+C54mPnOH/FndYQNvLtucOz5Ub/qv/lMfgOpK2PE+BglLCOeA6bfPXkvtJ74XGzvNvWvqN
+	B8+Vf23svpCjxiuv6NSmFWV3xlwSP31qzv8e1m9ywlrRWK6lCIu03fjgn28rmYHeT/HRm2acp93pV
+	/2ne8ueA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twogj-00000004DzK-10zT;
-	Mon, 24 Mar 2025 20:46:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1twoiP-00000004EAO-3rIg;
+	Mon, 24 Mar 2025 20:48:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twoS4-00000004CPa-0qQl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 20:31:16 +0000
+	id 1twoSl-00000004CZd-0Oyd;
+	Mon, 24 Mar 2025 20:32:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9E7C361590;
-	Mon, 24 Mar 2025 20:31:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECC1FC4CEDD;
-	Mon, 24 Mar 2025 20:31:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 80E0943D0F;
+	Mon, 24 Mar 2025 20:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AD08C4CEDD;
+	Mon, 24 Mar 2025 20:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742848275;
-	bh=XZ2Yktl6mmKJfiTNy+Z4/IvVxFgIZo5WawcMrRO2Vbw=;
+	s=k20201202; t=1742848318;
+	bh=LDTKp3W7h188ixr/vX4U7f5V6ZusmxQCsTGFE63qb20=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KFuZW06FF/l/+XccYW9mOLm0/T/y+rQ5Qey1sx5gf4IDaXAPgVGHQnHICkOj2UmZU
-	 PDykSuBwUEVADe6TdOjuKw5QO577NinlTsZimjhVNndV+uT/QF2NWLD0KNSrhsi0MI
-	 KO6BpOsq9Hl8egajcNvUPEudOv9SNJhFWRHqJQFRyzT1WHtvDIrlMg9stNwULybj+M
-	 BrUElG7Trs8lG1eluh+AtsXNGzvNnGeOi0P7Dlji1cjRBLjpqvGDXDk+yLmDF92QVM
-	 HY89MNPoMV56QNAw8di8kHyUcASHkvgva7nx0zVefH0OjCTcc2EeKbkkR51Kcbzo7D
-	 YfL6AJQifexgw==
-Date: Mon, 24 Mar 2025 15:31:14 -0500
+	b=LT4IM+bMgEYMcruZeVIseTw5+f/xunSV2APT5kPRxD76MAc1Wg24Tz9VlF5iGCEJ8
+	 YGA3pU5hhz60cKgndPvFxfYPqSfkx+uKYR8Ng1dEAgUkAuntkDeqdCo3O6sv9oZCQT
+	 BHq12rVUyZKUjeLPjwOBkXH67myUVkzMBvIMF1tI162dpJ164PUMYyCtgJEvOJ6+XD
+	 Ieh4KXL553HZi1EfaxUqE9ucsNEN6JV/54/KoUh5zaDIwxvyEDeXgIfttMQh0fCKGu
+	 2QSf4KQPT+3uNDxjNU8LfOuup5OaEntF3WyDC49zxcpk7BtqntxOwdwWjdFc4D43NO
+	 527MT5yxxsFBg==
+Date: Mon, 24 Mar 2025 15:31:57 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
-	Jonathan Cameron <jic23@kernel.org>,
-	Kim Seer Paller <kimseer.paller@analog.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	devicetree@vger.kernel.org,
-	Petre Rodan <petre.rodan@subdimension.ro>,
+Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Bert Vermeulen <bert@biot.com>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-gpio@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	Maxime Ripard <mripard@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Anshul Dalal <anshulusr@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	linux-iio@vger.kernel.org,
-	Ramona Gradinariu <ramona.gradinariu@analog.com>,
-	Robert Budai <robert.budai@analog.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Andreas Klinger <ak@it-klinger.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Subject: Re: [PATCH 2/2] dt-bindings: iio: Use unevaluatedProperties for SPI
- devices
-Message-ID: <174284827311.819192.14616231717400662961.robh@kernel.org>
-References: <20250324125313.82226-1-krzysztof.kozlowski@linaro.org>
- <20250324125313.82226-2-krzysztof.kozlowski@linaro.org>
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-kernel@vger.kernel.org, Magnus Damm <magnus.damm@gmail.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	Manikandan Muralidharan <manikandan.m@microchip.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Sander Vanheule <sander@svanheule.net>
+Subject: Re: [PATCH] dt-bindings: gpio: Correct indentation and style in DTS
+ example
+Message-ID: <174284830296.819870.8907081146872259608.robh@kernel.org>
+References: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250324125313.82226-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250324_133159_150451_3303CAB0 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,22 +98,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Mar 2025 13:53:13 +0100, Krzysztof Kozlowski wrote:
-> SPI devices should use unevaluatedProperties:false instead of
-> additionalProperties:false, to allow any SPI device properties listed in
-> spi-peripheral-props.yaml.
+On Mon, 24 Mar 2025 13:53:26 +0100, Krzysztof Kozlowski wrote:
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.  While re-indenting, drop
+> unused labels.
+> 
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  Documentation/devicetree/bindings/iio/dac/adi,ad3552r.yaml      | 2 +-
->  Documentation/devicetree/bindings/iio/dac/adi,ltc2664.yaml      | 2 +-
->  Documentation/devicetree/bindings/iio/dac/adi,ltc2672.yaml      | 2 +-
->  .../devicetree/bindings/iio/dac/microchip,mcp4821.yaml          | 2 +-
->  Documentation/devicetree/bindings/iio/dac/rohm,bd79703.yaml     | 2 +-
->  Documentation/devicetree/bindings/iio/imu/adi,adis16550.yaml    | 2 +-
->  .../devicetree/bindings/iio/pressure/honeywell,hsc030pa.yaml    | 2 +-
->  .../devicetree/bindings/iio/pressure/honeywell,mprls0025pa.yaml | 2 +-
->  8 files changed, 8 insertions(+), 8 deletions(-)
+>  .../bindings/gpio/atmel,at91rm9200-gpio.yaml  | 16 ++---
+>  .../bindings/gpio/fairchild,74hc595.yaml      | 20 +++---
+>  .../devicetree/bindings/gpio/gpio-mxs.yaml    | 70 +++++++++----------
+>  .../devicetree/bindings/gpio/nxp,pcf8575.yaml | 24 +++----
+>  .../bindings/gpio/realtek,otto-gpio.yaml      |  8 +--
+>  .../bindings/gpio/renesas,em-gio.yaml         | 20 +++---
+>  .../bindings/gpio/renesas,rcar-gpio.yaml      | 24 +++----
+>  .../devicetree/bindings/gpio/sifive,gpio.yaml |  6 +-
+>  .../bindings/gpio/toshiba,gpio-visconti.yaml  | 24 +++----
+>  .../bindings/gpio/xlnx,gpio-xilinx.yaml       | 48 ++++++-------
+>  10 files changed, 130 insertions(+), 130 deletions(-)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
