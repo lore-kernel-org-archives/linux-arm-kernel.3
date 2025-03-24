@@ -4,78 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DA3C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE022C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uu3d0MtSSjzAtw+Qhy9CyN3/i5xOqsepAkaEuUF8bc8=; b=jem40a8hxwwFoNHfN9G4iOMhV6
-	iaCPZ00AolkbxRLPypJVdalgx97/394tw+FjbL7czt+02xJF9fJP6wvCawZDwCUl4xai5JpN0wUkS
-	3dUd2MkOcgiO/U3T5GCrx3IeFsArd+FKQiSarZ0zq+WV8sZD3ryqjmhBcj/9egrv80cYL76e0p1Wu
-	oR3Bgw6MaCMrWi8ZpSGmxPsOW2bx8TblF6qFqFC4/6O0T38/gOPibyXrm0gt1k+JRkP9A76bMxxTt
-	hqRZYW0E3wwnz0CCRkm/Gvitz08dAmxZ1hzRLt3hOhvOTt36wAo4P8dzr7LyThl/JVjRwD1BEvpjY
-	ld27fYsQ==;
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=nJksNlFi8ncldkxscZW+HQ5o9xCsfSheB24duBQ3tJw=; b=sCURaZq3RjK5D9O1JQvfXgJlkg
+	96TIl1g6eCIfAsSamDucIVBTa7i5t6Jgh/JhUgJEIv7QsfFfYobwHld+DxWrkwn37Z6Xf8jseKCFE
+	nX5GRcnheE1vMAU19tognqnYuDBdcailcwh8mvH/Niu0VrQuGYucqHhscjFkD+1iPB5Eue28LIg8J
+	KtchLBVx8hFdXU0eTGg/1nt9YufEpHixXHaaF8v9bJdYsj6nnm2i8yp3GWlWsIAT5H2SU5Jd3iueR
+	zhfUMvyPJVajAuvJ8CVXWE58OJbtpHdsKVSrUavDP+3kg+BjJRdDbaD1Rx6ur8OMIhRMLQjrph8+d
+	09uBx9NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twnTM-000000044ie-3kDp;
-	Mon, 24 Mar 2025 19:28:32 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1twnV3-000000044we-2efT;
+	Mon, 24 Mar 2025 19:30:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twn1t-000000040Md-1QPY;
-	Mon, 24 Mar 2025 19:00:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1742842796; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=bJt1y4i/ehYsNO7hM5jVKOhrvEse1fiM1TFcl3MYIcmgiZplh5zRBgewFoSbWFy2EZ6+ghE8Gsuo6TLL/LXDiiee9ACqfdTUjnN0XpUxdo4lzQDptQOF2W4GuWM1Wk9O3SSgHawv50mlKGq5QlVQi7hmnbSSct6rI9LyLL+Y1mw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1742842796; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Uu3d0MtSSjzAtw+Qhy9CyN3/i5xOqsepAkaEuUF8bc8=; 
-	b=lB5UCEoGnZdPFFQ0S5uR0ZjV6DXkCeSHLSrNu+oWewq2ldkV7y/VEzvSXZ9lV7I8UcTAIhO2OZw4oGXVYAuQsuaf7e4jwA+7wMKF3O2Pn4BkjriTvFwn0uXT8NEYgD2ZKOzl73ZqBuA4vG7EvqzM3O3S5Zgx1R1vwA5Sj67Ob4g=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742842796;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Uu3d0MtSSjzAtw+Qhy9CyN3/i5xOqsepAkaEuUF8bc8=;
-	b=fk7CoS5pCtIWrMdXWC7Xg9VA45aN11Bf+iu/k+3J0ozV34hlPFayd/DLB+ddh7il
-	jNeRIqVqUDpp/Ljhwe7Er7UNxGz1WSLyvgA2AjO/hOOK6DgS1TQrWKoDu5G99OYOc6R
-	Wc7of82scqX9i8IthnMWsjCpLY6fNHDvLScnJ4vA=
-Received: by mx.zohomail.com with SMTPS id 1742842794374585.952480853528;
-	Mon, 24 Mar 2025 11:59:54 -0700 (PDT)
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-To: dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Cc: boris.brezillon@collabora.com,
-	robh@kernel.org,
-	steven.price@arm.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	kernel@collabora.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	sjoerd@collabora.com,
-	angelogioacchino.delregno@collabora.com,
-	Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Subject: [PATCH v5 6/6] drm/panfrost: Force AARCH64_4K page table format on MediaTek MT8192
-Date: Mon, 24 Mar 2025 15:58:01 -0300
-Message-ID: <20250324185801.168664-7-ariel.dalessandro@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250324185801.168664-1-ariel.dalessandro@collabora.com>
-References: <20250324185801.168664-1-ariel.dalessandro@collabora.com>
+	id 1twn2C-000000040US-1ySK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 19:00:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BA9325C3086;
+	Mon, 24 Mar 2025 18:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D4BC4CEE4;
+	Mon, 24 Mar 2025 19:00:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1742842827;
+	bh=WoZjQQTPKi3wZ4qIPPtrs76TEmIfCC4wPBJt3zp3zwY=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=oVz4OUfCPDxZ+tA0/8Y0i8WnqFCwd9VvX+RnrMMFtFMLhoOZ+xT4brjILV6bKkvza
+	 x685D0ZubdClMGt9o59B7KulJen72lufkpN/B20zaV0bKEVPSAWyckuJWyQ0Vgo9fN
+	 H1rYRqbX5KvlhFXHYH/yXORVfpwQsBKkjFQNapaQ=
+Subject: Patch "KVM: arm64: Calculate cptr_el2 traps on activating traps" has been added to the 6.12-stable tree
+To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,james.clark@linaro.org,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Mon, 24 Mar 2025 11:59:04 -0700
+In-Reply-To: <20250321-stable-sve-6-12-v2-1-417ca2278d18@kernel.org>
+Message-ID: <2025032404-phrase-vending-4278@gregkh>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+X-stable: commit
+X-Patchwork-Hint: ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_120009_436906_6AD175ED 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250324_120028_633880_566BA5DC 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +68,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek MT8192 SoC has an ARM Mali-G57 MC5 GPU (Valhall-JM). Now that
-Panfrost supports AARCH64_4K page table format, let's enable it on this
-SoC.
 
-Running glmark2-es2-drm [0] benchmark, reported the same performance
-score on both modes Mali LPAE (LEGACY) vs. AARCH64_4K, before and after
-this commit. Tested on a Mediatek (MT8395) Genio 1200 EVK board.
+This is a note to let you know that I've just added the patch titled
 
-[0] https://github.com/glmark2/glmark2
+    KVM: arm64: Calculate cptr_el2 traps on activating traps
 
-Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+to the 6.12-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
+and it can be found in the queue-6.12 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From stable+bounces-125707-greg=kroah.com@vger.kernel.org Thu Mar 20 17:14:12 2025
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 21 Mar 2025 00:12:57 +0000
+Subject: KVM: arm64: Calculate cptr_el2 traps on activating traps
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Fuad Tabba <tabba@google.com>,  James Clark <james.clark@linaro.org>
+Message-ID: <20250321-stable-sve-6-12-v2-1-417ca2278d18@kernel.org>
+
+From: Fuad Tabba <tabba@google.com>
+
+[ Upstream commit 2fd5b4b0e7b440602455b79977bfa64dea101e6c ]
+
+Similar to VHE, calculate the value of cptr_el2 from scratch on
+activate traps. This removes the need to store cptr_el2 in every
+vcpu structure. Moreover, some traps, such as whether the guest
+owns the fp registers, need to be set on every vcpu run.
+
+Reported-by: James Clark <james.clark@linaro.org>
+Fixes: 5294afdbf45a ("KVM: arm64: Exclude FP ownership from kvm_vcpu_arch")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+Link: https://lore.kernel.org/r/20241216105057.579031-13-tabba@google.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/include/asm/kvm_host.h |    1 
+ arch/arm64/kvm/arm.c              |    1 
+ arch/arm64/kvm/hyp/nvhe/pkvm.c    |   29 ---------------------
+ arch/arm64/kvm/hyp/nvhe/switch.c  |   51 +++++++++++++++++++++++---------------
+ 4 files changed, 32 insertions(+), 50 deletions(-)
 
-diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-index 21e2f6c8d6be..237e6054d0af 100644
---- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-@@ -836,6 +836,7 @@ static const struct panfrost_compatible mediatek_mt8192_data = {
- 	.num_pm_domains = ARRAY_SIZE(mediatek_mt8192_pm_domains),
- 	.pm_domain_names = mediatek_mt8192_pm_domains,
- 	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
-+	.gpu_quirks = BIT(GPU_QUIRK_FORCE_AARCH64_PGTABLE),
- };
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -697,7 +697,6 @@ struct kvm_vcpu_arch {
+ 	u64 hcr_el2;
+ 	u64 hcrx_el2;
+ 	u64 mdcr_el2;
+-	u64 cptr_el2;
  
- static const struct of_device_id dt_match[] = {
--- 
-2.49.0
+ 	/* Exception Information */
+ 	struct kvm_vcpu_fault_info fault;
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1577,7 +1577,6 @@ static int kvm_arch_vcpu_ioctl_vcpu_init
+ 	}
+ 
+ 	vcpu_reset_hcr(vcpu);
+-	vcpu->arch.cptr_el2 = kvm_get_reset_cptr_el2(vcpu);
+ 
+ 	/*
+ 	 * Handle the "start in power-off" case.
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -28,8 +28,6 @@ static void pvm_init_traps_aa64pfr0(stru
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR0_EL1);
+ 	u64 hcr_set = HCR_RW;
+ 	u64 hcr_clear = 0;
+-	u64 cptr_set = 0;
+-	u64 cptr_clear = 0;
+ 
+ 	/* Protected KVM does not support AArch32 guests. */
+ 	BUILD_BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0),
+@@ -59,21 +57,10 @@ static void pvm_init_traps_aa64pfr0(stru
+ 	/* Trap AMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AMU), feature_ids)) {
+ 		hcr_clear |= HCR_AMVOFFEN;
+-		cptr_set |= CPTR_EL2_TAM;
+-	}
+-
+-	/* Trap SVE */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_clear |= CPACR_ELx_ZEN;
+-		else
+-			cptr_set |= CPTR_EL2_TZ;
+ 	}
+ 
+ 	vcpu->arch.hcr_el2 |= hcr_set;
+ 	vcpu->arch.hcr_el2 &= ~hcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+-	vcpu->arch.cptr_el2 &= ~cptr_clear;
+ }
+ 
+ /*
+@@ -103,7 +90,6 @@ static void pvm_init_traps_aa64dfr0(stru
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64DFR0_EL1);
+ 	u64 mdcr_set = 0;
+ 	u64 mdcr_clear = 0;
+-	u64 cptr_set = 0;
+ 
+ 	/* Trap/constrain PMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), feature_ids)) {
+@@ -130,21 +116,12 @@ static void pvm_init_traps_aa64dfr0(stru
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceFilt), feature_ids))
+ 		mdcr_set |= MDCR_EL2_TTRF;
+ 
+-	/* Trap Trace */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceVer), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_set |= CPACR_EL1_TTA;
+-		else
+-			cptr_set |= CPTR_EL2_TTA;
+-	}
+-
+ 	/* Trap External Trace */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_ExtTrcBuff), feature_ids))
+ 		mdcr_clear |= MDCR_EL2_E2TB_MASK << MDCR_EL2_E2TB_SHIFT;
+ 
+ 	vcpu->arch.mdcr_el2 |= mdcr_set;
+ 	vcpu->arch.mdcr_el2 &= ~mdcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+ }
+ 
+ /*
+@@ -195,10 +172,6 @@ static void pvm_init_trap_regs(struct kv
+ 	/* Clear res0 and set res1 bits to trap potential new features. */
+ 	vcpu->arch.hcr_el2 &= ~(HCR_RES0);
+ 	vcpu->arch.mdcr_el2 &= ~(MDCR_EL2_RES0);
+-	if (!has_hvhe()) {
+-		vcpu->arch.cptr_el2 |= CPTR_NVHE_EL2_RES1;
+-		vcpu->arch.cptr_el2 &= ~(CPTR_NVHE_EL2_RES0);
+-	}
+ }
+ 
+ /*
+@@ -579,8 +552,6 @@ unlock:
+ 		return ret;
+ 	}
+ 
+-	hyp_vcpu->vcpu.arch.cptr_el2 = kvm_get_reset_cptr_el2(&hyp_vcpu->vcpu);
+-
+ 	return 0;
+ }
+ 
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -36,33 +36,46 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_ve
+ 
+ extern void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
+ 
+-static void __activate_traps(struct kvm_vcpu *vcpu)
++static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+ {
+-	u64 val;
++	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+ 
+-	___activate_traps(vcpu, vcpu->arch.hcr_el2);
+-	__activate_traps_common(vcpu);
++	if (has_hvhe()) {
++		val |= CPACR_ELx_TTA;
+ 
+-	val = vcpu->arch.cptr_el2;
+-	val |= CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+-	val |= has_hvhe() ? CPACR_EL1_TTA : CPTR_EL2_TTA;
+-	if (cpus_have_final_cap(ARM64_SME)) {
+-		if (has_hvhe())
+-			val &= ~CPACR_ELx_SMEN;
+-		else
+-			val |= CPTR_EL2_TSM;
+-	}
++		if (guest_owns_fp_regs()) {
++			val |= CPACR_ELx_FPEN;
++			if (vcpu_has_sve(vcpu))
++				val |= CPACR_ELx_ZEN;
++		}
++	} else {
++		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
++
++		/*
++		 * Always trap SME since it's not supported in KVM.
++		 * TSM is RES1 if SME isn't implemented.
++		 */
++		val |= CPTR_EL2_TSM;
+ 
+-	if (!guest_owns_fp_regs()) {
+-		if (has_hvhe())
+-			val &= ~(CPACR_ELx_FPEN | CPACR_ELx_ZEN);
+-		else
+-			val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
++		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
++			val |= CPTR_EL2_TZ;
+ 
+-		__activate_traps_fpsimd32(vcpu);
++		if (!guest_owns_fp_regs())
++			val |= CPTR_EL2_TFP;
+ 	}
+ 
++	if (!guest_owns_fp_regs())
++		__activate_traps_fpsimd32(vcpu);
++
+ 	kvm_write_cptr_el2(val);
++}
++
++static void __activate_traps(struct kvm_vcpu *vcpu)
++{
++	___activate_traps(vcpu, vcpu->arch.hcr_el2);
++	__activate_traps_common(vcpu);
++	__activate_cptr_traps(vcpu);
++
+ 	write_sysreg(__this_cpu_read(kvm_hyp_vector), vbar_el2);
+ 
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
 
+
+Patches currently in stable-queue which might be from broonie@kernel.org are
+
+queue-6.12/kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
+queue-6.12/regulator-check-that-dummy-regulator-has-been-probed-before-using-it.patch
+queue-6.12/kvm-arm64-eagerly-switch-zcr_el-1-2.patch
+queue-6.12/kvm-arm64-mark-some-header-functions-as-inline.patch
+queue-6.12/kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
+queue-6.12/regulator-dummy-force-synchronous-probing.patch
+queue-6.12/kvm-arm64-refactor-exit-handlers.patch
+queue-6.12/kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
+queue-6.12/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
+queue-6.12/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
 
