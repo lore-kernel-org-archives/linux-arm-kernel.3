@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB82FC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:39:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D49AC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=dMfQea7xSO0kQipkV+BSfV7TUzpMwwNyiKkQPOfAfYg=; b=NmPfVONCVQc9bgGvx1MUsmhuvt
-	2fIT1dY/vK4SYmQFgZzEQvhRm+kfojGBLHq5J7J51ptlYubetAx25HqK6zwJWu/Q011z3RRJD+PVj
-	viLjWMzMcWjTI6jECqREsSiNyj8HZ0wmgebvT676/2Md+08zjg1BSMO9Ui4qe3Oat34omA2ydV5uR
-	6yKpAJnkIEA4r2qNmr7DXbQnOWpDui5lKjziRmW+zDtwoSP6UOjRFoMEedF9EOD+84cNPFUMox6hs
-	SZbIXcSkq91xztfDSDs7iXTy0TeqTM+6bCv3GOXe4AWfvyQIQqpU1nwzZa5AR31+GPXhp0R0sCL8G
-	OTO/Tytg==;
+	bh=lK5ocDP9Lr6Oo+WzhsGGcGSE6crYBjMV2du/saHTkh8=; b=D/S9NApn2DNLs5nlnrWmEPfL6C
+	w9n05c4wLpYO9cfa8xA5czRZrh4TG5pFfIKfnkYuItxyBL21ScEYA6Gn7oO0yfwl8k39vi+gpwC/U
+	ylaoqfPhkv80os4GQH7aIj9B2qiuzbI33k1Bsiu9YnpCi7RILZs44Z8DpStV1VaaxCexay70pS5lv
+	Xjgw7zXnA9fEVo1QwlOXFEJJ/j0yQuaENTUlW4OTXO7/iQrlDFtg6csZQNNiKi1WMACiVkp57PqXA
+	gcjE1KietOkjOEqDFIeNlOAkq7QbudzK3IasJNwNKbKen2NQCmXqQufYF6NlYBwHu9EpGloFHOXQC
+	JBHbW2ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twndY-0000000466w-0vuS;
-	Mon, 24 Mar 2025 19:39:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1twnfF-000000046Np-3vaK;
+	Mon, 24 Mar 2025 19:40:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twn2R-000000040YW-1aOE
+	id 1twn2T-000000040Zp-1YbS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 19:00:45 +0000
+	Mon, 24 Mar 2025 19:00:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DB51F5C014A;
-	Mon, 24 Mar 2025 18:58:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63592C4CEE4;
-	Mon, 24 Mar 2025 19:00:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8A9C7A4A3C3;
+	Mon, 24 Mar 2025 18:55:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27624C4AF0B;
+	Mon, 24 Mar 2025 19:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1742842842;
-	bh=J2S+Lv5BWjXt0yK/pyBR8FIhxgiGWlr1lgLVl1VE8bM=;
+	s=korg; t=1742842844;
+	bh=ZGp7GFgUQonUep9WJRhD3c1JJaqEiaesLwKiNELcTls=;
 	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=05HgBDQeslUIUY/vJ1dLJYwJvx06M1BHpFtq2SPcG/JnnDUcnGl/yLWXUtKX/1Dq9
-	 g1g9z3zdTkWAEi7bHcAah0n21MBlcXw3NJ/9XbnZBhG8X87UqWBrvbyOWGtRQ2GNGQ
-	 FRBXjdmjTUmC0KF5ahknL4R3K/xUOU6gynRK2RiU=
-Subject: Patch "KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN" has been added to the 6.12-stable tree
-To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
+	b=aetfiWzL9z4TV8K8AKJywqvvw+MOYWgq7E4RezJsmt4EbEi9nV+ErWr1cTNv9A+Lu
+	 6SHXKB7qvjUw66i96VLT1AK07zT9RldhTssIoN9Ctso3Pny7LxgIe/yZmWKVjMh9nZ
+	 40d85zfuSTVohm0yd/yXKR9Cx3y1My3niG3HaV1g=
+Subject: Patch "KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state" has been added to the 6.12-stable tree
+To: broonie@kernel.org,catalin.marinas@arm.com,eauger@redhat.com,eric.auger@redhat.com,fweimer@redhat.com,gregkh@linuxfoundation.org,jeremy.linton@arm.com,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,pbonzini@redhat.com,suzuki.poulose@arm.com,tabba@google.com,wilco.dijkstra@arm.com,will@kernel.org
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
 Date: Mon, 24 Mar 2025 11:59:05 -0700
-In-Reply-To: <20250321-stable-sve-6-12-v2-4-417ca2278d18@kernel.org>
-Message-ID: <2025032405-dizzy-promotion-0062@gregkh>
+In-Reply-To: <20250321-stable-sve-6-12-v2-2-417ca2278d18@kernel.org>
+Message-ID: <2025032405-manor-hardhat-8f49@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
 X-stable: commit
 X-Patchwork-Hint: ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_120043_513299_AA980ED5 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20250324_120045_563137_54E38C11 
+X-CRM114-Status: GOOD (  29.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,110 +71,182 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 This is a note to let you know that I've just added the patch titled
 
-    KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+    KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
 
 to the 6.12-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
+     kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
 and it can be found in the queue-6.12 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
 
 
-From broonie@kernel.org Thu Mar 20 17:13:41 2025
+From stable+bounces-125708-greg=kroah.com@vger.kernel.org Thu Mar 20 17:14:14 2025
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 21 Mar 2025 00:13:00 +0000
-Subject: KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+Date: Fri, 21 Mar 2025 00:12:58 +0000
+Subject: KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Fuad Tabba <tabba@google.com>
-Message-ID: <20250321-stable-sve-6-12-v2-4-417ca2278d18@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Eric Auger <eauger@redhat.com>, Wilco Dijkstra <wilco.dijkstra@arm.com>,  Eric Auger <eric.auger@redhat.com>, Florian Weimer <fweimer@redhat.com>,  Fuad Tabba <tabba@google.com>, Jeremy Linton <jeremy.linton@arm.com>,  Paolo Bonzini <pbonzini@redhat.com>
+Message-ID: <20250321-stable-sve-6-12-v2-2-417ca2278d18@kernel.org>
 
 From: Mark Rutland <mark.rutland@arm.com>
 
-[ Upstream commit 459f059be702056d91537b99a129994aa6ccdd35 ]
+[ Upstream commit fbc7e61195e23f744814e78524b73b59faa54ab4 ]
 
-When KVM is in VHE mode, the host kernel tries to save and restore the
-configuration of CPACR_EL1.ZEN (i.e. CPTR_EL2.ZEN when HCR_EL2.E2H=1)
-across kvm_arch_vcpu_load_fp() and kvm_arch_vcpu_put_fp(), since the
-configuration may be clobbered by hyp when running a vCPU. This logic is
-currently redundant.
+There are several problems with the way hyp code lazily saves the host's
+FPSIMD/SVE state, including:
 
-The VHE hyp code unconditionally configures CPTR_EL2.ZEN to 0b01 when
-returning to the host, permitting host kernel usage of SVE.
+* Host SVE being discarded unexpectedly due to inconsistent
+  configuration of TIF_SVE and CPACR_ELx.ZEN. This has been seen to
+  result in QEMU crashes where SVE is used by memmove(), as reported by
+  Eric Auger:
 
-Now that the host eagerly saves and unbinds its own FPSIMD/SVE/SME
-state, there's no need to save/restore the state of the EL0 SVE trap.
-The kernel can safely save/restore state without trapping, as described
-above, and will restore userspace state (including trap controls) before
-returning to userspace.
+  https://issues.redhat.com/browse/RHEL-68997
 
-Remove the redundant logic.
+* Host SVE state is discarded *after* modification by ptrace, which was an
+  unintentional ptrace ABI change introduced with lazy discarding of SVE state.
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+* The host FPMR value can be discarded when running a non-protected VM,
+  where FPMR support is not exposed to a VM, and that VM uses
+  FPSIMD/SVE. In these cases the hyp code does not save the host's FPMR
+  before unbinding the host's FPSIMD/SVE/SME state, leaving a stale
+  value in memory.
+
+Avoid these by eagerly saving and "flushing" the host's FPSIMD/SVE/SME
+state when loading a vCPU such that KVM does not need to save any of the
+host's FPSIMD/SVE/SME state. For clarity, fpsimd_kvm_prepare() is
+removed and the necessary call to fpsimd_save_and_flush_cpu_state() is
+placed in kvm_arch_vcpu_load_fp(). As 'fpsimd_state' and 'fpmr_ptr'
+should not be used, they are set to NULL; all uses of these will be
+removed in subsequent patches.
+
+Historical problems go back at least as far as v5.17, e.g. erroneous
+assumptions about TIF_SVE being clear in commit:
+
+  8383741ab2e773a9 ("KVM: arm64: Get rid of host SVE tracking/saving")
+
+... and so this eager save+flush probably needs to be backported to ALL
+stable trees.
+
+Fixes: 93ae6b01bafee8fa ("KVM: arm64: Discard any SVE state when entering KVM guests")
+Fixes: 8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
+Fixes: ef3be86021c3bdf3 ("KVM: arm64: Add save/restore support for FPMR")
+Reported-by: Eric Auger <eauger@redhat.com>
+Reported-by: Wilco Dijkstra <wilco.dijkstra@arm.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
 Tested-by: Mark Brown <broonie@kernel.org>
+Tested-by: Eric Auger <eric.auger@redhat.com>
 Acked-by: Will Deacon <will@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Florian Weimer <fweimer@redhat.com>
 Cc: Fuad Tabba <tabba@google.com>
+Cc: Jeremy Linton <jeremy.linton@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-4-mark.rutland@arm.com
+Link: https://lore.kernel.org/r/20250210195226.1215254-2-mark.rutland@arm.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
-[Rework for refactoring of where the flags are stored -- broonie]
+[ Mark: Handle vcpu/host flag conflict ]
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm64/include/asm/kvm_host.h |    2 --
- arch/arm64/kvm/fpsimd.c           |   16 ----------------
- 2 files changed, 18 deletions(-)
+ arch/arm64/kernel/fpsimd.c |   25 -------------------------
+ arch/arm64/kvm/fpsimd.c    |   35 ++++++++++-------------------------
+ 2 files changed, 10 insertions(+), 50 deletions(-)
 
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -891,8 +891,6 @@ struct kvm_vcpu_arch {
- /* Save TRBE context if active  */
- #define DEBUG_STATE_SAVE_TRBE	__vcpu_single_flag(iflags, BIT(6))
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1695,31 +1695,6 @@ void fpsimd_signal_preserve_current_stat
+ }
  
--/* SVE enabled for host EL0 */
--#define HOST_SVE_ENABLED	__vcpu_single_flag(sflags, BIT(0))
- /* SME enabled for EL0 */
- #define HOST_SME_ENABLED	__vcpu_single_flag(sflags, BIT(1))
- /* Physical CPU not in supported_cpus */
+ /*
+- * Called by KVM when entering the guest.
+- */
+-void fpsimd_kvm_prepare(void)
+-{
+-	if (!system_supports_sve())
+-		return;
+-
+-	/*
+-	 * KVM does not save host SVE state since we can only enter
+-	 * the guest from a syscall so the ABI means that only the
+-	 * non-saved SVE state needs to be saved.  If we have left
+-	 * SVE enabled for performance reasons then update the task
+-	 * state to be FPSIMD only.
+-	 */
+-	get_cpu_fpsimd_context();
+-
+-	if (test_and_clear_thread_flag(TIF_SVE)) {
+-		sve_to_fpsimd(current);
+-		current->thread.fp_type = FP_STATE_FPSIMD;
+-	}
+-
+-	put_cpu_fpsimd_context();
+-}
+-
+-/*
+  * Associate current's FPSIMD context with this cpu
+  * The caller must have ownership of the cpu FPSIMD context before calling
+  * this function.
 --- a/arch/arm64/kvm/fpsimd.c
 +++ b/arch/arm64/kvm/fpsimd.c
-@@ -65,10 +65,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
- 	fpsimd_save_and_flush_cpu_state();
- 	*host_data_ptr(fp_owner) = FP_STATE_FREE;
+@@ -54,16 +54,18 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
+ 	if (!system_supports_fpsimd())
+ 		return;
  
--	vcpu_clear_flag(vcpu, HOST_SVE_ENABLED);
--	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
--		vcpu_set_flag(vcpu, HOST_SVE_ENABLED);
+-	fpsimd_kvm_prepare();
 -
- 	if (system_supports_sme()) {
+ 	/*
+-	 * We will check TIF_FOREIGN_FPSTATE just before entering the
+-	 * guest in kvm_arch_vcpu_ctxflush_fp() and override this to
+-	 * FP_STATE_FREE if the flag set.
++	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
++	 * that the host kernel is responsible for restoring this state upon
++	 * return to userspace, and the hyp code doesn't need to save anything.
++	 *
++	 * When the host may use SME, fpsimd_save_and_flush_cpu_state() ensures
++	 * that PSTATE.{SM,ZA} == {0,0}.
+ 	 */
+-	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+-	*host_data_ptr(fpsimd_state) = kern_hyp_va(&current->thread.uw.fpsimd_state);
+-	*host_data_ptr(fpmr_ptr) = kern_hyp_va(&current->thread.uw.fpmr);
++	fpsimd_save_and_flush_cpu_state();
++	*host_data_ptr(fp_owner) = FP_STATE_FREE;
++	*host_data_ptr(fpsimd_state) = NULL;
++	*host_data_ptr(fpmr_ptr) = NULL;
+ 
+ 	vcpu_clear_flag(vcpu, HOST_SVE_ENABLED);
+ 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+@@ -73,23 +75,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
  		vcpu_clear_flag(vcpu, HOST_SME_ENABLED);
  		if (read_sysreg(cpacr_el1) & CPACR_EL1_SMEN_EL0EN)
-@@ -202,18 +198,6 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcp
- 		 * when needed.
- 		 */
- 		fpsimd_save_and_flush_cpu_state();
--	} else if (has_vhe() && system_supports_sve()) {
+ 			vcpu_set_flag(vcpu, HOST_SME_ENABLED);
+-
 -		/*
--		 * The FPSIMD/SVE state in the CPU has not been touched, and we
--		 * have SVE (and VHE): CPACR_EL1 (alias CPTR_EL2) has been
--		 * reset by kvm_reset_cptr_el2() in the Hyp code, disabling SVE
--		 * for EL0.  To avoid spurious traps, restore the trap state
--		 * seen by kvm_arch_vcpu_load_fp():
+-		 * If PSTATE.SM is enabled then save any pending FP
+-		 * state and disable PSTATE.SM. If we leave PSTATE.SM
+-		 * enabled and the guest does not enable SME via
+-		 * CPACR_EL1.SMEN then operations that should be valid
+-		 * may generate SME traps from EL1 to EL1 which we
+-		 * can't intercept and which would confuse the guest.
+-		 *
+-		 * Do the same for PSTATE.ZA in the case where there
+-		 * is state in the registers which has not already
+-		 * been saved, this is very unlikely to happen.
 -		 */
--		if (vcpu_get_flag(vcpu, HOST_SVE_ENABLED))
--			sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_ZEN_EL0EN);
--		else
--			sysreg_clear_set(CPACR_EL1, CPACR_EL1_ZEN_EL0EN, 0);
+-		if (read_sysreg_s(SYS_SVCR) & (SVCR_SM_MASK | SVCR_ZA_MASK)) {
+-			*host_data_ptr(fp_owner) = FP_STATE_FREE;
+-			fpsimd_save_and_flush_cpu_state();
+-		}
  	}
  
- 	local_irq_restore(flags);
+ 	/*
 
 
 Patches currently in stable-queue which might be from broonie@kernel.org are
