@@ -4,56 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E565C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A296C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 19:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=yIRXLWxaxaHv+4uyygTTMm2yuEH4IHTAISoIpBuzbcw=; b=pHy/1RTjjli/IhimyTlzTQnc6D
-	mtJy3B3OtyYU7zdchrdkf030qDxBwPGyaP78aNSInV68xqhnH7ArQFSqj5vYuBb9Gm23LsKOk2Sec
-	AIbGdLTGeVg+h8h/3rIXAFipylHGNdFteSFXSujR0v8dqyylKAti3CV0f8YS4kjeudzIpp38aCaxB
-	ITcKP5AHreuyZyo7XjNh0RY0AxKBVnlC1dlEqHpLxDkdYMSmKR3IZhKd1jSxg+1t//iHe0RCbWcd1
-	DLm+LjtGoGSDA06V6mBf/XHPDonzDyQYDhN/09TmHDn9QpWEkhROKH8gZ7uOWAwawE+xur3m24PAY
-	tMyq3BiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H8k9dIw6po+UE+bm1w4luATbvjym1FQEu0PVRNiWHqg=; b=tjaLPX/zCd7GlpYF8Lg1Rs5nGM
+	/VyesAPmfXaRgFv7Zrcw0ijFOCH9sK47q/q01uweTDJeHEhTCElHidX0zNUxBW7+iXBND7nvGDYsu
+	WUr/SYrvYbuSFpvfJiYNup/1y9D3zbxMTdsEQLD5QNEklcmKZ+lKYxyryuWTjLb+ap4Vh61oHSDFw
+	T9pBY61jEUNJPpFl/CmM0riVyoRYDwRf+3Nl8IdTdGp4JO98nmggWCW+ejtmCebT48TJR20R9OXEB
+	VddzKsLgp87HDHvjVtumvA+ETtraPnH90FoFutbEf1k8zWjptzNzqVrjoNFJAfhEfyc0dqbv213Xk
+	mQ/9oxsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twngw-000000046dW-2neK;
-	Mon, 24 Mar 2025 19:42:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1twnie-000000046km-1Xhe;
+	Mon, 24 Mar 2025 19:44:20 +0000
+Received: from mail-db8eur05on2062f.outbound.protection.outlook.com ([2a01:111:f403:2614::62f] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twn2V-000000040ax-1ACA
+	id 1twn2t-000000040jE-1Sa5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 19:00:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C13645C3FCC;
-	Mon, 24 Mar 2025 18:58:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CE7EC4CEF2;
-	Mon, 24 Mar 2025 19:00:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1742842846;
-	bh=EzXqDUSJ42eax/fuGgh5eFCcjJ+i+FqL+LNcjm4XVVE=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=eZK3YYGlwtlBa11g0IXnzWSbC/XRsCLWlY8wFhgrJNIDSui+yo39hQQJm1yJre22I
-	 Mlzv4TmEL2h2fGwKBZVUeGNtnImBcTk+w+4jnkU1vU7gYWy626dWV/13XOxmXFH6RT
-	 UMj9Z3m0p7gX1YVpupXsIxELrKzLamnHab55dBG0=
-Subject: Patch "KVM: arm64: Refactor exit handlers" has been added to the 6.12-stable tree
-To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Mon, 24 Mar 2025 11:59:05 -0700
-In-Reply-To: <20250321-stable-sve-6-12-v2-6-417ca2278d18@kernel.org>
-Message-ID: <2025032405-familiar-unifier-5775@gregkh>
+	Mon, 24 Mar 2025 19:01:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RoNUUp+aarE7LdnUyPdCyubYpiJES/qzpEVUdNT55wT+xBjrjIufmRAri+8qeTLfr7lgUtru7MuUUVziliLe5HWM0Nmclk/PJGTfOC9n3gPpYjrzpboLD9rahNC8sAKEZkFbsA0o61g05Azl1aU8DGEhlyKKpgOQXHDj+MYxyjFre6lbwfTVTMvWf4XOdkKk5bBAA4KZl8m74iO42c8XZZ3nFgaYSyWHjJr5aPAarFv5Z+5QzjsBERpyRHEasuH6ORzklP1/ZkSRmGhXMJR4n2x1R/oIuN0OGf84DdWjIzc0It+N/8dVCjzcapNqLSh/t6GNM44iNlNtYEs60jo+mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H8k9dIw6po+UE+bm1w4luATbvjym1FQEu0PVRNiWHqg=;
+ b=J1FVFAb+E8ISVNIwZBroQ84V6p3Jh3GlA5Tp5T5acIL8ogJKzC4rD7yLy+CU/p9YgZENDZNVzpSMXF/O4VW5gsXSIeMOnG6Pgf5ctKjaDCIfx54/vjB6SHOfGcvE+cydqmxBRsPEKoAj1n1ZYl0+y7qdY/bHiYAGhQdcWFNTJOsvJ00qYkoy12vjvQSlmsOF0JA5K3m7v4G7w2My4ksz5Z30y3Al4P+crXFHD34N7q0z5/y+OPD6QO12lBsybn/qtDdN6MCByM9gl2InZBWaDIrslsxySqI1ebK6U+lp8akcyNYbRil1uhu3dJEWYLA0KQKO+MzoqaZ0aaJXmZdP3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H8k9dIw6po+UE+bm1w4luATbvjym1FQEu0PVRNiWHqg=;
+ b=cU3by8aAg2kzRC/3S1fn8ihfvXRevbER0gLyZY8OjMDToTE9iVsAYg8HT4EALFxvsOO9T2kvFrqqLe9/IkvXPu35ZnHASdiHI56wt4Rx9FTb/WEUUAn17nNsqnINc7nQmIqwDDasUbmpvgS4bVBvswt7E5z6mjvAQwJkSuzPs6u79xYPzaDUChNRrjaA1K3pvCtMyR7ziB067lU2IcYOUmnT/kBFnnblNY0/iAgpDlQKbcerHQV1dQt3ZLJ4nNEcWKAt4yQbgYcoEXIYMo2mcgs1SJXdvX35sofUpYHpRXa+cGaB+RT7QYT7njwJfdEnD/pp35n0S2e5eZwGGUzO+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB8363.eurprd04.prod.outlook.com (2603:10a6:10:24b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
+ 2025 19:01:06 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Mon, 24 Mar 2025
+ 19:01:06 +0000
+Date: Mon, 24 Mar 2025 15:00:58 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/5] PCI: imx6: Toggle the cold reset for i.MX95 PCIe
+Message-ID: <Z+Gr6gXQWu+E+LQo@lizhi-Precision-Tower-5810>
+References: <20250324062647.1891896-1-hongxing.zhu@nxp.com>
+ <20250324062647.1891896-3-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250324062647.1891896-3-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: PH1PEPF000132F2.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:518:1::35) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
-Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB8363:EE_
+X-MS-Office365-Filtering-Correlation-Id: 906b51c7-79d3-403c-c76b-08dd6b063b18
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wVMyhlxAs4D8kAYJOaUFkDnFh+dewWMS1ken2RLDngSdd7qHu/6TYDvCUgjG?=
+ =?us-ascii?Q?GQxiYrdHnnzaI7oTBSnHxBzpZnZ8f3ld++MWa21UpNJvn0q38NuvNzpiPwL9?=
+ =?us-ascii?Q?uY5wlexdZFE4ZPFpIJDq0dyZ6LYo3ISVajCJu1LRHIl7s/wbboRmvtVtgVxL?=
+ =?us-ascii?Q?ByWem6EzVZDS7wQwYV/CwyFhMrDleyd8I81oPYYt9X49KkLfo9FoXTjCxHUo?=
+ =?us-ascii?Q?3Vx1r4My3bcJLprR2x3EYrDDu75Rx+fRthZA78pyDqUDTD4cTBlQEfC3kptx?=
+ =?us-ascii?Q?Ox8jxCRKT5/ZDDA52Cia4qcKjFIafbGMKWwhPuFAqDErTMRZBYIsmKWjT80X?=
+ =?us-ascii?Q?dU+GN0ZcsOa4hXE/UswrqiFfLBhAZeklt/ptoVBTt/sDlUm+byJZFW1NvE8V?=
+ =?us-ascii?Q?hmG36LDdn0dGd5dgZUoh5sA9h1Dj1vwGVxMnMqyrtXVwrGHQkViaqNimRd/O?=
+ =?us-ascii?Q?BQf/BSxUSXcOjR/IMxbfsh6UhvKxM49bSpw2wAhdEVRQHiCfOn9I/jkIm3m6?=
+ =?us-ascii?Q?B+pTNZpVaXkJPMtKiXHV3399FE5w9qlf7kY+0Oq/FtsU56hLscdHwjzq2F62?=
+ =?us-ascii?Q?MvaCOUFbaWjK16Hz99IyK0CGTKmLxfh0GyhVAw6Adjem/JG0nLR9QaaH2DzK?=
+ =?us-ascii?Q?P5+f3LLsDLMhR6A2opSEc/35HR0YCW5uOLN++zYmLThngLWaBrFlqix3XMJf?=
+ =?us-ascii?Q?5i6W4ypI7jti5LlpeoymMLDjVJHiCOwHR/bn8PMeuSTg5vS6gE9Nj0HDaEmT?=
+ =?us-ascii?Q?J2lfBz9Km9IgEvnDdylmUb+eRVZFF9A18utlDY9iPxdFCxP++0SCKlQZv0Dd?=
+ =?us-ascii?Q?rKd8RTVclLw9HuFIJS/ZC7WQrbelLJnBGL9WHWAg40ugVFnhgMTwN5zytTdJ?=
+ =?us-ascii?Q?ItvusArD1FK1GXx/kSlqKKn/anVxmi+nLKylplgdV86ZuAUzMPDGOVHrc86N?=
+ =?us-ascii?Q?7B1ymw5Td1t5ovg8tDtzKgc5WNTaHEqMXbbHkAhMjcOIuogOSvLuBJ9nNEj3?=
+ =?us-ascii?Q?DD4x0c4KVSkgWJ7MpATlXocT4tRB7LakNdTlLQSAmC5jygp7p8iIR29KnvDI?=
+ =?us-ascii?Q?R1bAYcQOOimyJ+q/laa3QKAc5nId0QW9lMX4Gn5NS8B79uP1vgmpNLTP/+dt?=
+ =?us-ascii?Q?BbGG0fJbazFpOHtnlc3PVd0MS8IjoO3Q1I65kHsYFLSTe/PryZ3pO5XOKFVG?=
+ =?us-ascii?Q?Lem0aYfV4mtlAOCUBfcwvlfuo6n2HZc4qrzigtjuW3o73l1TSqXaYGeBTz+c?=
+ =?us-ascii?Q?AwwNZGupHDfFC74K7gCMllJEOB1BCTJ8gjkAw5CiNK8xgi8eFAmn/Fa3UMh9?=
+ =?us-ascii?Q?FzSPsNlRavwOjnDI/3EBC1mJc4jeYqa2naQfCpPBMl5zQkQURTrjCRJMgQHW?=
+ =?us-ascii?Q?gUQLjhaypYP5repVbowDlfLaJCVjtfjvn9vEFAb1RedofXwZ+fo2liXNXrFp?=
+ =?us-ascii?Q?j7coVHywM+WtKypBBhWsf1oAkGQpbrpd?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?m8VdxeDXn4iGOb6X8Fr4YIC9Z0xl9MMMRdUGS616F38Nex8CeTrEQ22SPkBg?=
+ =?us-ascii?Q?zCljUk0RPnTFq2nq0F1eF5u+qVbd+fR4D5vCAzof/zAdhzcHArU0BrBspBPC?=
+ =?us-ascii?Q?FzwfpoM7GMyyCqXuXAKB/jNafu7fhHbTmyQ4jGKo90Ikuz0/vNx72vep5MGx?=
+ =?us-ascii?Q?sSPIP6NKK6yb+O4XssFu7/mylEDqSg+t5yT4Hi4jltXWX30T3kCteBbdxEGu?=
+ =?us-ascii?Q?CyVT4EpWn8EzcD2vOIEVFJOnCdj/mocIu8188ofIDikyiQzWkac23TfMueKe?=
+ =?us-ascii?Q?XzvqQ38kMgdVAkts1gzt8NnLRXDI7WPQIVnnLpEbhRC/Vn+je+eegcMuiMjY?=
+ =?us-ascii?Q?IrL6cvnTfgSFPwNzcwCJcLwB5KYy9oP/sfg6S6tokVKFruwtma5UMjjK2ENx?=
+ =?us-ascii?Q?F/ZQOgI0Uqb+3dwb6PoEUg7cNCkqQ2tZDSwuOt4bxWy8l91pGOqnIuHkBqYG?=
+ =?us-ascii?Q?dnhsAQ8wlZupIW9+J4l9dxedl/tOmouluUrWjZHiZk4zF+Cjcfkl8Ntuq8dc?=
+ =?us-ascii?Q?DPakvkCiRf1jnS6FsdDkuhKnRFCIXoUEQq/ZuIWsXlxL4wIBx4mGMTtr5wKY?=
+ =?us-ascii?Q?NMj5lTgJc5tHqhMqvlcscdDv1YKg+TSsjZw/Nf8zgxzWEERPQWMEtodu9oAy?=
+ =?us-ascii?Q?tVhnCqmCHHzSpMd90D5RVPmgFQwr5Lm7PAxqqLSGdbGPjtdkZz9N8PeTsl41?=
+ =?us-ascii?Q?8huzDbkwUdKth09UP82c6eH/rWvhPE6S+QukyRz9DSUK45JVDJHNXr7GIHdH?=
+ =?us-ascii?Q?8u/NvF8/dLSbRosVOAhfK4G0eEvAvZ9NDmnnQXAcAxj54V3VjioeIPSn8q7/?=
+ =?us-ascii?Q?R3fdGsb05conLlpqdTkYEaqPxlar01uZnbppCsG2y6UImt0ZKVNjXN3qC6cA?=
+ =?us-ascii?Q?l66t7enXiHteGRT4yLS5q+zDBPyQTFJ3s8DENidRTc2tFXMIUEBGDgi1fnJP?=
+ =?us-ascii?Q?qnThoFO9D8J6YIgpf7jfBgDjSyWnA8dvOPv520dwD46cu8pFY+8w9ALWYBp7?=
+ =?us-ascii?Q?kzZoKhY4C+dA+8/WDquFbPxZvuJI0VqKhZ5QWmaEGj5R4L/5ZXZL4rv7/59F?=
+ =?us-ascii?Q?Y1k7HyuuUvnKJxv2Zt924QeYr+E9PGJWqLQcS+QWTPxislmHUgk7X1rERvRE?=
+ =?us-ascii?Q?4BY+m2Sunv+zXk8NV+K199bz0znSc0rn8duXgUTPy+HhofHEcyuQ/vAvG/+b?=
+ =?us-ascii?Q?Nl4pnZVV4hRa4eK7Rj5IH1upDpjY3MZBBJYbLie5bnjAzuS/W/us/SUszhVd?=
+ =?us-ascii?Q?S3y6oahWnwbzOgWdWgwvgsvd6pL8G739hVNW7c3f/Z1xd7UeDwFDYit4FUxi?=
+ =?us-ascii?Q?RxlGg2VBrCJ93BpBWHvrTN6SqKzYsh37og9onPqMGE8REmNLc1Gwlvpwwq5B?=
+ =?us-ascii?Q?oUwLXguGKF7fNCi7zi4+OAa7aV0hl3DhneQv1LzIH3VX4lDk0mj8re55vdGF?=
+ =?us-ascii?Q?NVVHPo0oX1yuZTlF4Pusvbcv+H01UEAXJrSpKj0loLXpgCDBJ5Dwgy5rMl9d?=
+ =?us-ascii?Q?0peA4EnW/csGxBHVo5/dfIwNyFg82/W8jt/D75xqP7TGyBeJesiMKLGWbl+c?=
+ =?us-ascii?Q?j0oiZ8bFJ80dG6BKhlRIfAywJh+CsySmjsAbTXHV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 906b51c7-79d3-403c-c76b-08dd6b063b18
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2025 19:01:06.3804
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4o2HNp7E4JtWAaIiM0Aaq4sKUVrIhxFq/s+TLRKRH8N4yiZVzezqZ5QEwCdHHh4QcPM+g1IkT/nOeZybay/mgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8363
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_120047_438520_653C10BB 
-X-CRM114-Status: GOOD (  26.80  )
+X-CRM114-CacheID: sfid-20250324_120111_388894_67FA615B 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,220 +160,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 24, 2025 at 02:26:44PM +0800, Richard Zhu wrote:
+> Beside the power-on reset, add the cold reset toggle for i.MX95 PCIe.
 
-This is a note to let you know that I've just added the patch titled
+Add the code reset toggle for i.MX95 PCIe to align PHY's power on sequency.
 
-    KVM: arm64: Refactor exit handlers
+>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 31 +++++++++++++++++++++++++++
+>  1 file changed, 31 insertions(+)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index aa5c3f235995..0f42ab63f5ad 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -71,6 +71,9 @@
+>  #define IMX95_SID_MASK				GENMASK(5, 0)
+>  #define IMX95_MAX_LUT				32
+>
+> +#define IMX95_PCIE_RST_CTRL			0x3010
+> +#define IMX95_PCIE_COLD_RST			BIT(0)
+> +
+>  #define to_imx_pcie(x)	dev_get_drvdata((x)->dev)
+>
+>  enum imx_pcie_variants {
+> @@ -773,6 +776,32 @@ static int imx7d_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  	return 0;
+>  }
+>
+> +static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+> +{
+> +	if (assert) {
+> +		/*
+> +		 * From i.MX95 PCIe PHY perspective, the COLD reset toggle
+> +		 * should be complete after power-up by the following sequence.
+> +		 *                 > 10us(at power-up)
+> +		 *                 > 10ns(warm reset)
+> +		 *               |<------------>|
+> +		 *                ______________
+> +		 * phy_reset ____/              \________________
+> +		 *                                   ____________
+> +		 * ref_clk_en_______________________/
+> +		 * Toggle COLD reset aligned with this sequence for i.MX95 PCIe.
+> +		 */
+> +		regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				   IMX95_PCIE_COLD_RST, IMX95_PCIE_COLD_RST);
 
-to the 6.12-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+regmap_set_bits()
 
-The filename of the patch is:
-     kvm-arm64-refactor-exit-handlers.patch
-and it can be found in the queue-6.12 subdirectory.
+> +		udelay(15);
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+udelay may not use MMIO. It cause delay time less than 15us. Need read one
+register before udelay(15);
 
+> +		regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				   IMX95_PCIE_COLD_RST, 0);
 
-From broonie@kernel.org Thu Mar 20 17:13:47 2025
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 21 Mar 2025 00:13:02 +0000
-Subject: KVM: arm64: Refactor exit handlers
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Fuad Tabba <tabba@google.com>
-Message-ID: <20250321-stable-sve-6-12-v2-6-417ca2278d18@kernel.org>
+regmap_clr_bits();
 
-From: Mark Rutland <mark.rutland@arm.com>
+Frank
 
-[ Upstream commit 9b66195063c5a145843547b1d692bd189be85287 ]
-
-The hyp exit handling logic is largely shared between VHE and nVHE/hVHE,
-with common logic in arch/arm64/kvm/hyp/include/hyp/switch.h. The code
-in the header depends on function definitions provided by
-arch/arm64/kvm/hyp/vhe/switch.c and arch/arm64/kvm/hyp/nvhe/switch.c
-when they include the header.
-
-This is an unusual header dependency, and prevents the use of
-arch/arm64/kvm/hyp/include/hyp/switch.h in other files as this would
-result in compiler warnings regarding missing definitions, e.g.
-
-| In file included from arch/arm64/kvm/hyp/nvhe/hyp-main.c:8:
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:733:31: warning: 'kvm_get_exit_handler_array' used but never defined
-|   733 | static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu);
-|       |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:735:13: warning: 'early_exit_filter' used but never defined
-|   735 | static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code);
-|       |             ^~~~~~~~~~~~~~~~~
-
-Refactor the logic such that the header doesn't depend on anything from
-the C files. There should be no functional change as a result of this
-patch.
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Tested-by: Mark Brown <broonie@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-7-mark.rutland@arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm64/kvm/hyp/include/hyp/switch.h |   30 ++++++------------------------
- arch/arm64/kvm/hyp/nvhe/switch.c        |   28 ++++++++++++++++------------
- arch/arm64/kvm/hyp/vhe/switch.c         |    9 ++++-----
- 3 files changed, 26 insertions(+), 41 deletions(-)
-
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -635,23 +635,16 @@ static bool kvm_hyp_handle_dabt_low(stru
- 
- typedef bool (*exit_handler_fn)(struct kvm_vcpu *, u64 *);
- 
--static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu);
--
--static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code);
--
- /*
-  * Allow the hypervisor to handle the exit with an exit handler if it has one.
-  *
-  * Returns true if the hypervisor handled the exit, and control should go back
-  * to the guest, or false if it hasn't.
-  */
--static inline bool kvm_hyp_handle_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
-+				       const exit_handler_fn *handlers)
- {
--	const exit_handler_fn *handlers = kvm_get_exit_handler_array(vcpu);
--	exit_handler_fn fn;
--
--	fn = handlers[kvm_vcpu_trap_get_class(vcpu)];
--
-+	exit_handler_fn fn = handlers[kvm_vcpu_trap_get_class(vcpu)];
- 	if (fn)
- 		return fn(vcpu, exit_code);
- 
-@@ -681,20 +674,9 @@ static inline void synchronize_vcpu_psta
-  * the guest, false when we should restore the host state and return to the
-  * main run loop.
-  */
--static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool __fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
-+				      const exit_handler_fn *handlers)
- {
--	/*
--	 * Save PSTATE early so that we can evaluate the vcpu mode
--	 * early on.
--	 */
--	synchronize_vcpu_pstate(vcpu, exit_code);
--
--	/*
--	 * Check whether we want to repaint the state one way or
--	 * another.
--	 */
--	early_exit_filter(vcpu, exit_code);
--
- 	if (ARM_EXCEPTION_CODE(*exit_code) != ARM_EXCEPTION_IRQ)
- 		vcpu->arch.fault.esr_el2 = read_sysreg_el2(SYS_ESR);
- 
-@@ -724,7 +706,7 @@ static inline bool fixup_guest_exit(stru
- 		goto exit;
- 
- 	/* Check if there's an exit handler and allow it to handle the exit. */
--	if (kvm_hyp_handle_exit(vcpu, exit_code))
-+	if (kvm_hyp_handle_exit(vcpu, exit_code, handlers))
- 		goto guest;
- exit:
- 	/* Return to the host kernel and handle the exit */
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -224,19 +224,21 @@ static const exit_handler_fn *kvm_get_ex
- 	return hyp_exit_handlers;
- }
- 
--/*
-- * Some guests (e.g., protected VMs) are not be allowed to run in AArch32.
-- * The ARMv8 architecture does not give the hypervisor a mechanism to prevent a
-- * guest from dropping to AArch32 EL0 if implemented by the CPU. If the
-- * hypervisor spots a guest in such a state ensure it is handled, and don't
-- * trust the host to spot or fix it.  The check below is based on the one in
-- * kvm_arch_vcpu_ioctl_run().
-- *
-- * Returns false if the guest ran in AArch32 when it shouldn't have, and
-- * thus should exit to the host, or true if a the guest run loop can continue.
-- */
--static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
-+	const exit_handler_fn *handlers = kvm_get_exit_handler_array(vcpu);
-+
-+	synchronize_vcpu_pstate(vcpu, exit_code);
-+
-+	/*
-+	 * Some guests (e.g., protected VMs) are not be allowed to run in
-+	 * AArch32.  The ARMv8 architecture does not give the hypervisor a
-+	 * mechanism to prevent a guest from dropping to AArch32 EL0 if
-+	 * implemented by the CPU. If the hypervisor spots a guest in such a
-+	 * state ensure it is handled, and don't trust the host to spot or fix
-+	 * it.  The check below is based on the one in
-+	 * kvm_arch_vcpu_ioctl_run().
-+	 */
- 	if (unlikely(vcpu_is_protected(vcpu) && vcpu_mode_is_32bit(vcpu))) {
- 		/*
- 		 * As we have caught the guest red-handed, decide that it isn't
-@@ -249,6 +251,8 @@ static void early_exit_filter(struct kvm
- 		*exit_code &= BIT(ARM_EXIT_WITH_SERROR_BIT);
- 		*exit_code |= ARM_EXCEPTION_IL;
- 	}
-+
-+	return __fixup_guest_exit(vcpu, exit_code, handlers);
- }
- 
- /* Switch to the guest for legacy non-VHE systems */
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -423,13 +423,10 @@ static const exit_handler_fn hyp_exit_ha
- 	[ESR_ELx_EC_MOPS]		= kvm_hyp_handle_mops,
- };
- 
--static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
-+static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
--	return hyp_exit_handlers;
--}
-+	synchronize_vcpu_pstate(vcpu, exit_code);
- 
--static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
--{
- 	/*
- 	 * If we were in HYP context on entry, adjust the PSTATE view
- 	 * so that the usual helpers work correctly.
-@@ -449,6 +446,8 @@ static void early_exit_filter(struct kvm
- 		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
- 		*vcpu_cpsr(vcpu) |= mode;
- 	}
-+
-+	return __fixup_guest_exit(vcpu, exit_code, hyp_exit_handlers);
- }
- 
- /* Switch to the guest for VHE systems running in EL2 */
-
-
-Patches currently in stable-queue which might be from broonie@kernel.org are
-
-queue-6.12/kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
-queue-6.12/regulator-check-that-dummy-regulator-has-been-probed-before-using-it.patch
-queue-6.12/kvm-arm64-eagerly-switch-zcr_el-1-2.patch
-queue-6.12/kvm-arm64-mark-some-header-functions-as-inline.patch
-queue-6.12/kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
-queue-6.12/regulator-dummy-force-synchronous-probing.patch
-queue-6.12/kvm-arm64-refactor-exit-handlers.patch
-queue-6.12/kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
-queue-6.12/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
-queue-6.12/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
+> +		udelay(10);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>  	reset_control_assert(imx_pcie->pciephy_reset);
+> @@ -1762,6 +1791,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+>  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+> +		.core_reset = imx95_pcie_core_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+>  	},
+>  	[IMX8MQ_EP] = {
+> @@ -1815,6 +1845,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+>  		.init_phy = imx95_pcie_init_phy,
+> +		.core_reset = imx95_pcie_core_reset,
+>  		.epc_features = &imx95_pcie_epc_features,
+>  		.mode = DW_PCIE_EP_TYPE,
+>  	},
+> --
+> 2.37.1
+>
 
