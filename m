@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E22C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 10:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC5EAC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 10:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crxwshCi6/gIzDkqvmX43AHE+I9xHsMFw6dKDZ/wTv4=; b=ZxeKY671QtTQzeWcKHMB9quAOb
-	NYI+lTMZfTYsv2hKKa7InP+JEGQft7upHgn0RdmM3QVIFPHHVEbTxFvIyo9LOZytm7buqeSAAjofZ
-	PUNuunUkZXqoTt/dG5Ed3fIeGVhPCu5RCZv4YY4gid6nYGdfEVfygdH/p37ouCSfXDa2/Qcv7NgPz
-	FedGgw8w4nBS1iMYgNnsBaPzbLOVJnlIup6sWdyD6hkVW9xgycAupdZLdTpiAITun+YOKBmQSwYXb
-	rGXvtijOI3Njc36J3bgKME6PG/uMcEd8sGUUlGE/MccUQMrDikFls+ShDYufomc6yP3qn+OeliOxe
-	MlG86v2A==;
+	bh=aFvrnBRSvdhgzn2vQzbKBQ8kFQcjj0Zp4PCnrL3E5wc=; b=xbTUWJj2pnSFulTtrUJmW12WAh
+	kkWmxbWkNgtvENFfTzMXJ13KwHnOHGXaEv1P0sRK3obLBW9okzLiOazAHJ1Zpju75ra3Bkf492Hbp
+	rPFJPpdmZMuLKLGok/nuOvuFUfJuCoZ2lxPeoRPYIn0KHIptOIaU89zqBAPPtrEqJY5DpWET6newc
+	gF/u/lQJWC/nZdbGiTBdU9qgcrXnsGM4w1kAeAE/JtH3N06td90mr7EqdJWlny5luPsMfMsGyYj6E
+	OgCyWzEWGr53H+ERQWxI2UBZnaKpva7hpb8DjxI4+xanal/o2Y1hITrij9D/WV5mNJ78bf+PBQFIh
+	ZnAVhLfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twfRt-00000002t1E-41iP;
-	Mon, 24 Mar 2025 10:54:29 +0000
+	id 1twfTb-00000002tAS-2frA;
+	Mon, 24 Mar 2025 10:56:15 +0000
 Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twfEK-00000002qz2-3gY3
+	id 1twfEM-00000002qzi-175M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 10:40:30 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5A483442F0;
-	Mon, 24 Mar 2025 10:40:26 +0000 (UTC)
+	Mon, 24 Mar 2025 10:40:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A1E49432FD;
+	Mon, 24 Mar 2025 10:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742812827;
+	t=1742812828;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=crxwshCi6/gIzDkqvmX43AHE+I9xHsMFw6dKDZ/wTv4=;
-	b=DMnA8mFBZJleF0Q20q3rSS9gcUyavMVWvycfbFy5xqPg5b4Tl8pa0N/t+zHwyeKDSugbHk
-	8o6qCDxriJ/FHEPW2G8dko1PUChTWkGpKpqRbxdSq1HDkreJwhI+TJexIEoNfcAoGQaj+F
-	zwJzEa+Fy9JxmHSYYdvOgzyoOP0ZxIeI57oMwz0ivnb7QR2AdGv/K4lGZ9A9m+RWV/p4IO
-	3OqtwkNRqTM1qP21twkzaSxI0e1sfhmb7MMVoov+EcvQ3HdXI0Dw5HbdWa01E07jy0NCEi
-	WsD96jAR2a7Rkbk66uzESNOLiq5wGDzl9ZfdqNFeR0uga2yDhx770YysXqk0ww==
+	bh=aFvrnBRSvdhgzn2vQzbKBQ8kFQcjj0Zp4PCnrL3E5wc=;
+	b=L6qI3QDxwz3/yvShHrOw2xKvE532sXFABNxbj8UcCbP3VwI6Ep/kqm4RfDsntHFY3xK8pG
+	F72ZdDJJsdjrvQiuqYkVK2lMvWktODrrgjkbhX4++5cWQOZHUYtJCO8tfOkUxg7l8WOtiD
+	xMe/riNLSIe4h+auwtaFEfinMnryvIB5UjbHKV2n0fX3W3Nduq6hRdl7Qe6pBH8qjE8q/j
+	Be4+T5kYGYvalDJ5SvsSgpbgMOfygv8bd6HuMdfemFmb+8bkmTKga8p0q+UXNdxsQm2Pqr
+	PQJI0yZeWiRb7RXbR+Q7KhbreMyCcp5XfhGjksMmuvdBV1zaLdIfZykt3hft6w==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -63,9 +63,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Simon Horman <horms@kernel.org>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: [PATCH net-next v4 7/8] net: ethtool: plca: Use per-PHY DUMP operations
-Date: Mon, 24 Mar 2025 11:40:09 +0100
-Message-ID: <20250324104012.367366-8-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v4 8/8] net: ethtool: pse-pd: Use per-PHY DUMP operations
+Date: Mon, 24 Mar 2025 11:40:10 +0100
+Message-ID: <20250324104012.367366-9-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250324104012.367366-1-maxime.chevallier@bootlin.com>
 References: <20250324104012.367366-1-maxime.chevallier@bootlin.com>
@@ -77,8 +77,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduheelheehucetufdoteggode
  ghumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_034029_045825_E6F44F30 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20250324_034030_432155_4496C9E6 
+X-CRM114-Status: UNSURE (   8.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,38 +95,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Leverage the per-phy ethnl DUMP helpers in case we have more that one
-PLCA-able PHY on the link.
-
-This is done for both PLCA status and PLCA config.
+PSE PHY on the link.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
 V4 : No changes
 
- net/ethtool/plca.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ net/ethtool/pse-pd.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/net/ethtool/plca.c b/net/ethtool/plca.c
-index e1f7820a6158..2148ff607561 100644
---- a/net/ethtool/plca.c
-+++ b/net/ethtool/plca.c
-@@ -191,6 +191,12 @@ const struct ethnl_request_ops ethnl_plca_cfg_request_ops = {
+diff --git a/net/ethtool/pse-pd.c b/net/ethtool/pse-pd.c
+index 4f6b99eab2a6..f3d14be8bdd9 100644
+--- a/net/ethtool/pse-pd.c
++++ b/net/ethtool/pse-pd.c
+@@ -314,4 +314,10 @@ const struct ethnl_request_ops ethnl_pse_request_ops = {
  
- 	.set			= ethnl_set_plca,
- 	.set_ntf_cmd		= ETHTOOL_MSG_PLCA_NTF,
-+
-+	.dump_start		= ethnl_dump_start_perphy,
-+	.dump_one_dev		= ethnl_dump_one_dev_perphy,
-+	.dump_done		= ethnl_dump_done_perphy,
-+
-+	.allow_pernetdev_dump	= true,
- };
- 
- // PLCA get status message -------------------------------------------------- //
-@@ -268,4 +274,10 @@ const struct ethnl_request_ops ethnl_plca_status_request_ops = {
- 	.prepare_data		= plca_get_status_prepare_data,
- 	.reply_size		= plca_get_status_reply_size,
- 	.fill_reply		= plca_get_status_fill_reply,
+ 	.set			= ethnl_set_pse,
+ 	/* PSE has no notification */
 +
 +	.dump_start		= ethnl_dump_start_perphy,
 +	.dump_one_dev		= ethnl_dump_one_dev_perphy,
