@@ -4,157 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070D6C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 16:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2FCDC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 16:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sV+C6tvjamxJ4X426YMRD+cxEIVDqEjZC8Ma+sfAYhs=; b=Qt6NC7i2cyEa532z8+2XPDID4v
-	zp/6jPg36d8c89Sqz6uB3C5yX0uAXNdAhMWjoyYZRsA0RYSyBv7iuUL6mpw1YA1SWZbyuc6kRtoKa
-	Y4NkTyc/vaVLQcPButioHgAumyOQmHhj36saVefzUYYTCo4k9GcIB+PpB6jrWFFPFQFG9B+/8RpPh
-	NQjWEvbmiUtJfWYjPcwrxNJJNhTsYtPxWaFIIYBE0ARCTbWRAskR4WTtNrVsOM7gsylBFBD6mK+Ra
-	00ErRtdWGc0B9ztlsTSl20BGF4FRZxVX+S+pRpdn+lhdR4ZFjFeW0Gr9DAoWTk54zay61JTb3m9uL
-	rbutH96Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RR/33HkyWRVzBTpKjMr4gmsX71tawz+FueWvMxXm7FQ=; b=Ch4gRDfyofNAvez1Yp9YHCPFfG
+	oboifu1w+1wyyfxC03i3m9JFX9GfJjw0BGgP6pWCh6DezLx8NxB84PRJHfm7RpVjFNLT/23Unrvp2
+	zbFaVdpOxI1jSaDjCCPZ1BOzMPwblGn0nN7d+C/hKvPUSiYyto79CUxCIvPuS4rgWhBuJh2ZQAhnq
+	Au3h++My6ZasBoJVfULKLOHyLwav7dCa4MbcPkNV5YmVvw+TbMdvAK3i1qUn/qYtXMdraW0I2vj2q
+	LvcoE22xDtt0xdUH/qGD/ZPUC8qi1KwZj51k35RYdQuzTVF33B+kE7/TBUNPgZsgcP2MfnPxFw3ug
+	a6t+zF2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twkj3-00000003euH-0EfW;
-	Mon, 24 Mar 2025 16:32:33 +0000
-Received: from mail-dm3nam02on2060e.outbound.protection.outlook.com ([2a01:111:f403:2405::60e] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1twkkk-00000003fGy-3IVT;
+	Mon, 24 Mar 2025 16:34:18 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twkff-00000003eIP-07w0;
-	Mon, 24 Mar 2025 16:29:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fdI7/qiTaLFMnOO3TMzTbefSYbGVNHm+sKGjOFHO2/57EQLIMcpjg3itsO4zUvJby77V/DiG8i8pEMRVv8yEreqvJtofa1t3O929y209MHipFsFe6AeVw3bhP5rOlwYh7EZA/USPwa2q+JePz/XqT0axREKL2vd6s+/+y+gF+wS5iiB97kbOZ80cP/udEwSZ8H83Me6kfFvj90zes+z8NwwLIWJ7I9KjVBpz+pySAEMH5Aa56TztgmujcWHNAdAI7uQtoxkB9L/fJZ023WS31SxkaTluEm7ncujFs+N+1nMMR40n9fPXcIt/PWiiCR9KW4zVUx8BAJ01M5g7MDgrhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sV+C6tvjamxJ4X426YMRD+cxEIVDqEjZC8Ma+sfAYhs=;
- b=n4DAJhby6vc0veHAchOa4J7xrOWJSEWFYYZtGxaC1lHokPps9LiCm/qBvhyDdiwzdBLdQVj3UcxEYHyQb4SAm6PXVEhu/x4zreQDxYvKI/E60fBt617zlHMuF7b43TxVnmfyaTqxz4uiQ42OntAy6slTqHG1HwtdCwoiiTgdjAFHvBz5BECWZw9ejTGkp5XmzEUwQLJkDslLRTkyAUq+ehCvi8HRP3oHzu3g/7aoQJTXEyDhLKGhaPCrJLeM2juHNFUwmjELtC9hjWdstT3zzLDgGJPlaTYSL4Zb8ucos9pO7Nko5NfCkqw9i1OaoOyV7sbCHDo2klXjrTJ7E3+47A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sV+C6tvjamxJ4X426YMRD+cxEIVDqEjZC8Ma+sfAYhs=;
- b=HGW9+uiqrV43hm9lvK/nUbwXfGxb9mZptZWXgdn6lC1s5rWvv4imk9ZvVsVwk0/j5AqxF/rf0Kr0JTviZ0mWKtFzLWI90e6k0cCPmiws7hiNMJtA419+CcYEjTFrdILzxXDQQqOTqbBVm0zMM2rBbAa8nzE57d1g+Zpmn62tPym01e2E4iS4gj+sXnygJQsSTFEQec/jN2lVz8vSo3kL/vMmT+yiEKfIo6IRUdLhniEcLxZqjZH134HtSIKx+7KVizm2R2WwdA7cKLBisFd/zbnG8S5weZVmJnCEqt3XJDB4gIQJirBB5b8Mkm0OHO4pAO7628TKpQ56cZe8dIWmaw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH7PR12MB9102.namprd12.prod.outlook.com (2603:10b6:510:2f8::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
- 2025 16:28:55 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.040; Mon, 24 Mar 2025
- 16:28:55 +0000
-Date: Mon, 24 Mar 2025 13:28:53 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Changyuan Lyu <changyuanl@google.com>
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
-	catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com,
-	mingo@redhat.com, pasha.tatashin@soleen.com, pbonzini@redhat.com,
-	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
-	robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v5 07/16] kexec: add Kexec HandOver (KHO) generation
- helpers
-Message-ID: <Z+GIRecXeYXiPrYv@nvidia.com>
-References: <20250321133447.GA251739@nvidia.com>
- <20250323190204.742672-1-changyuanl@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250323190204.742672-1-changyuanl@google.com>
-X-ClientProxiedBy: BLAPR03CA0140.namprd03.prod.outlook.com
- (2603:10b6:208:32e::25) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1twkgj-00000003eRV-3quG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Mar 2025 16:30:11 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43d04ea9d9aso21030455e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 09:30:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742833808; x=1743438608; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RR/33HkyWRVzBTpKjMr4gmsX71tawz+FueWvMxXm7FQ=;
+        b=di4/LiaGJG0VZrzZjPc8WgYpsmixfhlVkK75A2gGJFZ7DFgpl45TK2gMGihqhGvtS4
+         700R3KeQ7rfKk1pqQu09SO55hKXqWBCgkznj+Wv3JvstIGsWukyGaGEBr3bElF7pvOrN
+         hGKWLZkCAVZ3a98bYyrjfguSlx4bQsh3ISrtZWQ/GgoHcRVF4wNObUlbuZLGppEji2Xn
+         N07LifMSICPaAV7P/SE2fvEeoaVfcbMh58HA0PObOsDTYdDcw2jKcSQ5NKAujDl5D3pE
+         qHkE75og/7RVxyw4KvatN7Qie9uFv0Hdbh0fLQg5nRd6NLA9dp81d5WTuHpulS8qYuqT
+         1QIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742833808; x=1743438608;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RR/33HkyWRVzBTpKjMr4gmsX71tawz+FueWvMxXm7FQ=;
+        b=WudG2MqoEQP9mkmCXtPL8aUlyDWbvJun51YsxvGgowLYkYwgAHd1YsUMi6SGsEwMgB
+         NGCZwvjX+tIEa0kbguBgevDmmATSxpIN/4zNXU4nNzNKPukUNLLLmSdQIrNxfK2zHntM
+         WcBeICYPzLOWaGWLkqnfVcSVIJlGOYKcyaqzGPmTVlc1ok2nwN2aGvTddVWXoUOhLvW+
+         P6x1rARUFkHG1M6UOq3lYKVfOu2VpxFHurJDg71WPXXam4t8Z2cuIIxBcKRGjRb6kKxH
+         VahsJ0MyvYFMmZgB7k98km6L6W6/7b+PlX6UR04ddM+f7qo3SS/IZunij7HbCj5NJ4iJ
+         VWMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWwJwi5E/JeKM/JobwO27NKlVpgT+hh19+1xPmVMBNe/3d4EY/AQHaeZpy4pFt1ySIM57A2x577Ez4bZEGv62ai@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEud7hbE03MQvMpvHIosb9wLm9NmpTPsPIf4ZSJhyW014SW1Xu
+	HJB/pL1vDLiR7mulS+m9wC6KtudnI4EF55YsiDVnFUL6tV+dZj2fpyopOoT/
+X-Gm-Gg: ASbGncucXerGrxqYSxYNuD5NkvIXp/N46PTjqS68FJGwzcHEaDvDGUPBFL0gUx4h2Dt
+	tWrM9C3b1MpzdGTDk5VIHd8zC8gNXV2WC68VDAxQZaUbNBeYptNGHuXr91jkIpZYVfycbEFVBfb
+	z2aMquE18wsVip+rPIOYCHfQbi/ip+DASaatsHYIcI8q7sKmAVkeR40V2Y2r3OBvE1UljVRSs3N
+	jRs6uyayQM6vHWktgBibVjh4aM2CRwZrY9Kei9fuADNeIKC2/yyJV2LuiWpgPnvtBCdY71h+XCO
+	N6AuE8QnJGNp5bndnxcu/ec1etcvXvtMZclM4TFav7Yh/xGRhrgd5ImP5tt4Z1EfDh7+ZvZh1+O
+	mcebpwC4=
+X-Google-Smtp-Source: AGHT+IEo9FRh6+xI/yyeaQ866fq+Tvmef9RLHhF10hpOmSRuuMOdP7oXv8eQi8BJzr1/UzfTyIuU2w==
+X-Received: by 2002:a5d:6da5:0:b0:391:2f71:bbb3 with SMTP id ffacd0b85a97d-3997f958f34mr10877702f8f.46.1742833807619;
+        Mon, 24 Mar 2025 09:30:07 -0700 (PDT)
+Received: from playground.localdomain ([82.79.237.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fdb0669sm124106765e9.34.2025.03.24.09.30.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Mar 2025 09:30:07 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Frank Li <Frank.li@nxp.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/5] imx8mp: add support for the IMX AIPSTZ bridge
+Date: Mon, 24 Mar 2025 12:25:51 -0400
+Message-Id: <20250324162556.30972-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB9102:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b857bba-35f1-4d41-db27-08dd6af0f878
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GDIISu9WESnPwal+3dOawugQn/zGlQ8j0p6CCa11N0j4atHbDWDP6O6qEo6w?=
- =?us-ascii?Q?gIxaGBoAfDp/pomoACAp8fZsUg7pt3hiLkapZvmNSKufraVqHHcgRyj42LIB?=
- =?us-ascii?Q?CSUq2kdX3fIwVF36V52WTC766okLBFQ0WiA+iwjDwQVeGV1E3WZBT9bxGV5R?=
- =?us-ascii?Q?1ncfUr58bZknj6j7N5HpiDZiWiUPHSmak8pBRBztaTyu+/DsAm4Iebm3b98v?=
- =?us-ascii?Q?kycWdc+8xMBWOfQbUPyJ1shebIlXhc1k14Hqx8tMsPhiD1uzx8TiYwY1oW2P?=
- =?us-ascii?Q?qvJhQw+G8tjw51zaAkfMWA/tiNyMUAgJAZGbqaCP/7vRU4mt37A9kEURWjfI?=
- =?us-ascii?Q?0FXZNVNH8ryNOQNy8lDqac+vj39t4gYnJmOHqN5P4nF0oMLDYH1ZeCQ7AAJc?=
- =?us-ascii?Q?BlMdARkAc809CTMUrBohGr42ZcqHhlQC5tBRFmNsxqC9HrQ5sOvtreRA1uOR?=
- =?us-ascii?Q?5q6yCYdiTq2GuHQk/CV9fEBvpWkfHPEDKz2KqRcjaQwcuxdhMGgWWgc+aiRG?=
- =?us-ascii?Q?Y/08/nMbaLlhqvwJXmgurP6LSWpC0vkh2tFbLdQneKI78VO7+xUD8+oonhZA?=
- =?us-ascii?Q?/B8CRmqKqwsH+o/vlwhrSMUvRP3G8ECOZmlt/ET/Ogobvu+HNvpEjfbzCpMd?=
- =?us-ascii?Q?5YX13PxteCjuRyyae49XDwKqsxBtx1v0Ps9NZGW5aYbk1B2uzUqqcOe/dahw?=
- =?us-ascii?Q?+hK9kC4Sj8vczoVBEOPFsc9AtGImnrgxmINg0sr8CDltqCs+cMP/CHFTeIkN?=
- =?us-ascii?Q?fvHRAaqK9NaBauucVOnlbREOjM1tHA2C0y6rXIul3qm/9ZuLoBR+UM6ay50r?=
- =?us-ascii?Q?LyeSWd/dpu4XVdUpk66+bcxqp+yZxbZNqKLOZUa70iAnH01KyXh7VTixFoC2?=
- =?us-ascii?Q?W5Xlnd0QbzauAQgn0V4onhYos4zc/anOvVSs7Z6DQyTo2MECPnRKn8cV2Fkn?=
- =?us-ascii?Q?8uY6ldq+vuNyt3AyThiWcGHcwzauNTVIZKWe4YqxaUDDMnqJXsoaMkPLytmQ?=
- =?us-ascii?Q?tEy7DAKxH/q4q834PfKvvqE3ZnagPL2Cy0xYUGFHkevo/MKOwEJC0NFfTwLn?=
- =?us-ascii?Q?G3J1tp/+Ij6VdUE3As8yirvJQ32zG8J7lat6PPojdHbLYGD9HtqOakW7NONi?=
- =?us-ascii?Q?EH2ucgD/BUgvg9PG1EpsJR9v0m/sTwrr6o+yLY4ZRFX9l6IE4agwb4MlLaft?=
- =?us-ascii?Q?VhBbJICJGJRbbiaCilShz3VukHygOa72McwrxqBY5fcyNTQC4owygh49Mgb/?=
- =?us-ascii?Q?Tnnn6n4wgRJwTCsoPZ2YY0puo3KpYAGS/a31yHteJ5R43StH7LvHjWAGFpXK?=
- =?us-ascii?Q?FUSEoBdqdERMJRT6nid5miqsHfILONLPBBvX8etYmloUQyho6IGHnVzoNvl8?=
- =?us-ascii?Q?TBN+gFth/Z5zg4WdJhySb40X7LfS?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1g/CRns82T0FDE3aKveVW9dWwF8XHdL4g2gxqD0+mQfI2/+vOFUHSAG6c2LN?=
- =?us-ascii?Q?D3HA8vKKW53I51IZbZ9FN5NVl49A/L3ahYJUG1mWQqs4/HP7diFnekYHJMKB?=
- =?us-ascii?Q?zm6wJKA9irapwhSkD3Vm72bWgruoxr/fsGwi0SwQWGoAbi6hDy2bwyYty4se?=
- =?us-ascii?Q?73lXqgvtzHhKiegdwz9NZjPKtKDjNa6o0rAdRxnMx6MK5OlFylSRBJAidbCF?=
- =?us-ascii?Q?TKKha+HNhW0vi4Phqe96YCmaTZQyubGpl6flquJNvJhrLsC3nDT/IOeyD/q4?=
- =?us-ascii?Q?27LQ4weE3JnToJ/0WJULXIlaa4F7gIoqFAKBrZup72og3yFkmNO7Uyv32R72?=
- =?us-ascii?Q?fqrQRFd0F56DW0W0zJ91rxUUtDAksuzQkgiSmNevYOh6Gqi9a+FfHijqs+1B?=
- =?us-ascii?Q?eQu30AKqFIH31R66WnFBwKwQkTHiz/Y5JbGh4u6wG9xCgkg/Xf4mX1gqzhuC?=
- =?us-ascii?Q?5y6NUep8JGHmfts3X8305h8ETTE11iwMPHjdHRpMXIU6BJyOau3OuIsXoB4v?=
- =?us-ascii?Q?wdBxXbbYPzIadECP6TfkSqAUvMb1IbMtGE8bdNmOqTzU9lnN8kC6CEMur0Cb?=
- =?us-ascii?Q?QcuXcMYo/eYIptSvjPG9d7x8PS6Bicj4PSkMJJt2gqQMRnVvZYkWDQjQZcVk?=
- =?us-ascii?Q?VczcxqJFmdWDANzZhwaKyI+RXX4wkk1hUW6XMSWGOEkTGR5ItTZ4szafVIRj?=
- =?us-ascii?Q?EwAYeaLQciscRVSdRxk70Qjdp+SAN++0Nj2xImScdNKsTFgFYN+QtVJFW8Fs?=
- =?us-ascii?Q?pEIt30u2Um/AIm98R1UmZIIM6Qs1e+j3buLM4/FqF3wn+jrf21P31a0hz+Ml?=
- =?us-ascii?Q?uKhsxeFKT1AwPbyhM9PuIq0mypJA9X7qFGbZeVFd/WYrIGQgm0a42WGxmFpX?=
- =?us-ascii?Q?nY1rhH1zqNRSBUhjhRgF4MAkBP+f0MBOInaeylTOd5csSM8haYey9L4BebDD?=
- =?us-ascii?Q?TwX2hiHKrzt8sCLCT79+f9Z+h5oXdqfWlZffx3vAzTRna/Q81m9cvhOL8VbV?=
- =?us-ascii?Q?NdAv5VFVNBQqQNDAEkybJ9MYryA9eT9HJfLADlfs40pqENpy805dLcunNKd2?=
- =?us-ascii?Q?c9w/hfsZeBfaWLEE0fTiT7cOeZ4Qb7qt7F7wqW9b4F4df3TAAJY+Zzg5Z4Ym?=
- =?us-ascii?Q?8sqvEtdjeI/SKi4IXQ/Br6U8eNKqV4TbzGpfB++JYVsZrO5hcjQKFyPw8v/t?=
- =?us-ascii?Q?SkXKdch50Iw+ZABLMSbaDe7oSaXyyUFl+wYX1mKZsm9+oujo97dsgHSU0bck?=
- =?us-ascii?Q?kpg4KhVyFGSKDQoPpNr0IuJvStXW/yhirmjvlP/kaU8dT0iFWe/vPSB8eyfF?=
- =?us-ascii?Q?5gTwcQOtx6lz/F3vHp1W+yUA20K5quEY6l1+9LN4RG+Y/q9IFczRr2cnOOjt?=
- =?us-ascii?Q?u2+WSt/RWVunaZDihK/rZrVjquCobktdDV9MTk8nyy98XK9YEhH4XLEW9hp6?=
- =?us-ascii?Q?XKy6M+VqDVx7KYCy6d5MWJACVxl7QGnQBRxUQOjxRl9qsDMV7deMG/X8Sqbk?=
- =?us-ascii?Q?96GdHhWrABpoQjpKzoc3iuyJJoBjhHo1Q5bLSjn2r56n8JIONWbai6lUOo2G?=
- =?us-ascii?Q?FFyAiO4O1VFiWXUl11YiB0zLBh2bhwZhaafMkoW9?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b857bba-35f1-4d41-db27-08dd6af0f878
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2025 16:28:55.2693
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QRalG4PrOXvXN4bTs8rhEOfkq0SYZ4A5RVSm8y+0IAehN6bAYe8ge1J4gPNBiuD8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9102
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_092903_064450_6DDC61C7 
-X-CRM114-Status: GOOD (  30.69  )
+X-CRM114-CacheID: sfid-20250324_093009_955843_D236A053 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,91 +108,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 23, 2025 at 12:02:04PM -0700, Changyuan Lyu wrote:
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-> > Why are we changing this? I much prefered the idea of having recursive
-> > FDTs than this notion copying eveything into tables then out into FDT?
-> > Now that we have the preserved pages mechanism there is a pretty
-> > direct path to doing recursive FDT.
-> 
-> We are not copying data into the hashtables, instead the hashtables only
-> record the address and size of the data to be serialized into FDT.
-> The idea is similar to recording preserved folios in xarray
-> and then serialize it to linked pages.
+The AIPSTZ bridge offers some security-related configurations which can
+be used to restrict master access to certain peripherals on the bridge.
 
-I understand that, I mean you are copying the keys/tree/etc. It
-doesn't seem like a good idea idea to me.
- 
-> > I feel like this patch is premature, it should come later in the
-> > project along with a stronger justification for this approach.
-> >
-> > IHMO keep things simple for this series, just the very basics.
-> 
-> The main purpose of using hashtables is to enable KHO users to save
-> data to KHO at any time, not just at the time of activate/finalize KHO
-> through sysfs/debugfs. For example, FDBox can save the data into KHO
-> tree once a new fd is saved to KHO. Also, using hashtables allows KHO
-> users to add data to KHO concurrently, while with notifiers, KHO users'
-> callbacks are executed serially.
+Normally, this could be done from a secure environment such as ATF before
+Linux boots but the configuration of AIPSTZ5 is lost each time the power
+domain is powered off and then powered on. Because of this, it has to be
+configured each time the power domain is turned on and before any master
+tries to access the peripherals (e.g: AP, CM7, DSP, on i.MX8MP).
 
-This is why I like the recursive FDT scheme. Each serialization
-operation can open its own FDT write to it and the close it
-sequenatially within its operation without any worries about
-concurrency.
+The child-parent relationship between the bridge and its peripherals
+should guarantee that the bridge is configured before the AP attempts
+to access the IPs.
 
-The top level just aggregates the FDT blobs (which are in preserved
-memory)
+Other masters should use the 'access-controllers' property to enforce
+a dependency between their device and the bridge device (see the DSP,
+for example).
 
-To me all this complexity here with the hash table and the copying
-makes no sense compared to that. It is all around slower.
+At the moment, we only want to apply a default, more relaxed
+configuration, which is why the number of access controller cells
+is 0.
 
-> Regarding the suggestion of recursive FDT, I feel like it is already
-> doable with this patchset, or even with Mike's V4 patch. 
+The initial version of the series can be found at [1]. The new version
+should provide better management of the device dependencies.
 
-Of course it is doable, here we are really talk about what is the
-right, recommended way to use this system. recurisive FDT is a better
-methodology than hash tables
+[1]: https://lore.kernel.org/linux-arm-kernel/20241119130726.2761726-1-daniel.baluta@nxp.com/
 
-> just allocates a buffer, serialize all its states to the buffer using
-> libfdt (or even using other binary formats), save the address of the
-> buffer to KHO's tree, and finally register the buffer's underlying
-> pages/folios with kho_preserve_folio().
+---
+Changes in v3:
+* make '#address-cells' and '#size-cells' constants and equal to 1 in the
+binding. The bus is 32-bit.
+* add child node in the example DT snippet.
+* the 'aips5' DT node now contains 2 memory regions: that of the
+peripherals accessible via this bridge and that of the access controller.
+* link to v2: https://lore.kernel.org/lkml/20250226165314.34205-1-laurentiumihalcea111@gmail.com/
 
-Yes, exactly! I think this is how we should operate this system as a
-paradig, not a giant FDT, hash table and so on...
+Changes in v2:
+* adress Frank Li's comments
+* pick up some A-b/R-b's
+* don't use "simple-bus" as the second compatible. As per Krzysztof's
+comment, AIPSTZ is not a "simple-bus".
+* link to v1: https://lore.kernel.org/lkml/20250221191909.31874-1-laurentiumihalcea111@gmail.com/
+---
 
-> I changed the semantics of the notifiers. In Mike's V4, the KHO notifier
-> is to pass the fdt pointer to KHO users to push data into the blob. In
-> this patchset, it notifies KHO users about the last chance for saving
-> data to KHO.
+Laurentiu Mihalcea (5):
+  dt-bindings: bus: add documentation for the IMX AIPSTZ bridge
+  dt-bindings: dsp: fsl,dsp: document 'access-controllers' property
+  bus: add driver for IMX AIPSTZ bridge
+  arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+  arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
 
-I think Mike's semantic makes more sense.. At least I'd want to see an
-actual example of someting that wants to do a list minute adjustment
-before adding the code.
+ .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 107 ++++++++++++++++++
+ .../devicetree/bindings/dsp/fsl,dsp.yaml      |   3 +
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |   8 +-
+ drivers/bus/Kconfig                           |   6 +
+ drivers/bus/Makefile                          |   1 +
+ drivers/bus/imx-aipstz.c                      |  92 +++++++++++++++
+ 6 files changed, 215 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+ create mode 100644 drivers/bus/imx-aipstz.c
 
-> However, some KHO users may still want to add data just before kexec,
-> so I kept the notifiers and allow KHO users to get notified when the
-> state tree hashtables are about to be frozen and converted to FDT.
+-- 
+2.34.1
 
-Let's try not adding API surface that has no present user as much as
-possible please. You can shove this into speculative patches that
-someone can pick up if they need this semantic
- 
-> To completely remove fdt_max, I am considering the idea in [1]. At the
-> time of kexec_file_load(), we pass the address of an anchor page to
-> the new kernel, and the anchor page will later be fulfilled with the
-> physical addresses of the pages containing the FDT blob. Multiple
-> anchor pages can be linked together. The FDT blob pages can be physically
-> noncontiguous.
-
-Yes, this is basically what I suggested too. I think this is much
-prefered and doesn't require the wakky uapi.
-
-Except I suggested you just really need a single u64 to point to a
-preserved page holding the top level FDT.
-
-With recursive FDT I think we can say that no FDT fragement should
-exceed PAGE_SIZE, and things become much simpler, IMHO.
-
-Jason
 
