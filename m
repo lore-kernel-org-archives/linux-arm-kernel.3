@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4B7C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 14:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9911C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 14:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QavDf4YfF4g6incDfR8g3M+4C53fdbJxU8hmz4md/c=; b=pdxZnSkG5L7QMvH+Od+NJ3XFlc
-	2hEn15zrBj8A27q5Nxyxc82uP033BsSJKBp9Ke72J77U8XTO3maDyTnGC60MSm5eK6XFOY+Img7uk
-	0Qs8y32Pqafze+Zkv72p/LaKiQFMua0i4lBb5y35yHG2x0tRKbk9avnmkM7jJXBJlHXCHk21Snh9a
-	QYfuE1EWJ+muJCL11n8UtNvR0RNb2ThvxOstAQAaOScrRmHhYgb3kODc2Dkany1imXC4TefMwu/3A
-	WCLDXHqPT+Xp/F5M9Qrfl/coTTm8UBPBDM8o4vZbXY6lYKlgv03cJL1iBHnK9KpwQ6/rDP5el3Wwj
-	nDJ20sBQ==;
+	bh=2dc4mPveff1IHAG1A+Lkmj0HP1FzC7Aejqx8vHkJuXc=; b=hsqe51R1yr9CkGiDXSHlvw6AnK
+	TS88x+Vzj0xcgAMV+ATbdBj6TtHM3v+T9O6CeZka2XTeeKDCDKiogJrd1bLlnaFZyDv2dfYXCAfKg
+	ht4/FZhdRtVdPagPEogQGUQOEisMAerVjiXU8dTt9rmF2xmKcL+xxQHU9ru9yRTPUrllNuFrTOkx6
+	NT7I4nP5JpKUSJaBysMiyB684o8X3yZ0xVwvfU4TEOO5bbseEs8ijwsFZXKHlONCNudxNfR1F59IS
+	JhDfLWQXvV5/rvdtR42qfYAX6uxXR/hVEz3WZuTS3LCDYTECqc1iLyL1XMYM8uZRU4NV40pmbeLr+
+	9/pmXp8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twiYP-00000003MOh-2edy;
-	Mon, 24 Mar 2025 14:13:25 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	id 1twihr-00000003NZ5-0uSF;
+	Mon, 24 Mar 2025 14:23:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twiVx-00000003M8x-45Pu
+	id 1twig9-00000003N9t-1rHR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 14:10:55 +0000
-Date: Mon, 24 Mar 2025 10:10:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1742825449;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5QavDf4YfF4g6incDfR8g3M+4C53fdbJxU8hmz4md/c=;
-	b=dgM8qoQKNJIEi0dY32L6hBabt7HjG8XUm1NhIZaImSKprfR8JXsfBfhH9cTCPrcLg9wfGD
-	o23+bo8cMWxTi36khM1fvKGG4apkYQpsaXdP8sgYZRtIQ6jZU1waJ/RfnEJxDXhZnj6hMt
-	l4zSCzE8vSv3ylcINppjWvFaV7fjmBwjcieTx3E9R4I0dwULWMbcw+IcB7uU72j8Pi/ESl
-	15pJTFdt9S+sGypIz635REFAIlyLDRUk/TZpfAg/E3oncgVQLclL0tPPh5xQu2kDhPTHMJ
-	CFfNp00ClfbxNtP9JaOZCdso+fJ06mjS+jj+Drg6EAouBFLpdKHMNTre/Gp2cA==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-Cc: Faith Ekstrand <faith.ekstrand@collabora.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Janne Grunau <j@jannau.net>, Sven Peter <sven@svenpeter.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Sergio Lopez Pascual <slp@sinrega.org>,
-	Ryan Houdek <sonicadvance1@gmail.com>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	dri-devel <dri-devel@lists.freedesktop.org>,
-	rust-for-linux <rust-for-linux@vger.kernel.org>,
-	asahi <asahi@lists.linux.dev>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	linux-doc <linux-doc@vger.kernel.org>,
-	Asahi Lina <lina@asahilina.net>
-Subject: Re: [PATCH v3] drm: Add UAPI for the Asahi driver
-Message-ID: <Z-Fn4niI6_Yd06Ze@blossom>
-References: <20250314-agx-uapi-v3-1-3abf7e74ea2f@rosenzweig.io>
- <195b507d4b3.b25d0dad175771.7566427576910952468@collabora.com>
- <195b582682b.121ba4d5e219032.3109114844776468245@collabora.com>
- <Z-B6uc7EEAdBPXmt@blossom>
- <260D98E1-7204-4535-A84F-D55A4527FF7E@collabora.com>
+	Mon, 24 Mar 2025 14:21:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0320C61582;
+	Mon, 24 Mar 2025 14:21:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F4EC4CEDD;
+	Mon, 24 Mar 2025 14:21:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742826084;
+	bh=BUz8zYXf16hLfQPBxgTj8QMJv/VwcmDZZs0OAPRiMrc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=aEp+e2S2Mt5oiqdGcYgXj22r5GuOik2+/7oBiJTp3js7wmt6R/EPVP7RrmIsPjT/d
+	 RtEXQPJXegXw9zanTSfpD1IMnJNDP3kDC2b31xYnNpLbUJRVYnFl8VedB9MH/HwsRK
+	 ajc7p/shnr8u603dLAsvdrNl7lqm0CvOg4MxaY98Zu314I3cEgjQr1Jx/HSmoC7gsy
+	 qIyKp4Efh70CMLHQ14x2hfmeYYspmORhbX7q3xFfINGgnM8xn/8r3OYIQXeY59qrlL
+	 NAiYUH3UmsSKI7gGFfkNsUy75IMg7sEnvrrQE9VSP7f2IvC0CX/CdOFzzYpuP01R5C
+	 GG7PkYK2LXqsg==
+Date: Mon, 24 Mar 2025 09:21:23 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <260D98E1-7204-4535-A84F-D55A4527FF7E@collabora.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_071054_635735_FD389A46 
-X-CRM114-Status: GOOD (  18.34  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ devicetree@vger.kernel.org, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Thomas Fossati <thomas.fossati@linaro.org>, tglx@linutronix.de, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ linux-stm32@st-md-mailman.stormreply.com
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+Message-Id: <174282608006.6289.10388719224772938093.robh@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: NXP System Timer Module
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +76,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> >>>> +    /** 
-> >>>> +     * @DRM_ASAHI_BIND_SINGLE_PAGE: Map a single page of the BO repeatedly 
-> >>>> +     * across the VA range. 
-> >>>> +     * 
-> >>>> +     * This is useful to fill a VA range with scratch pages or zero pages. 
-> >>>> +     * It is intended as a mechanism to accelerate sparse. 
-> >>>> +     */ 
-> >>>> +    DRM_ASAHI_BIND_SINGLE_PAGE = (1L << 2),
-> >> 
-> >> Does this require the BO to be a single page? If so, does it require offset==0? Or does it just take whatever page is at the specified offset?
-> > 
-> > I believe the intention is that it takes whatever page is at the
-> > specified offset and just maps that a bunch of times. HK doesn't use
-> > this yet though it probably should (this was added to help reduce
-> > overhead when emulating sparse with scratch/zero pages, which is still
-> > very new functionality in hk).
-> > 
-> > Accelerating this properly involves GPUVM patches - although even without
-> > that, moving the loop into the kernel so it's only a single ioctl
-> > (user-kernel roundtrip) seems worth keeping the flag for.
-> 
-> FYI: I will be posting a patch for the GPUVM abstraction soon.
 
-Great to hear :) Although in this case, I meant that accelerating
-DRM_ASAHI_BIND_SINGLE_PAGE requires patches to extend the actual C
-implementation of drm/gpuvm, not just the Rust abstraction. Which is a
-bit annoying for non-essential functionality with regards to upstreaming
-things...
+On Mon, 24 Mar 2025 11:00:05 +0100, Daniel Lezcano wrote:
+> Add the System Timer Module description found on the NXP s32 platform
+> and the compatible for the s32g2 variant.
+> 
+> Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Cc: Thomas Fossati <thomas.fossati@linaro.org>
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+> ---
+>  .../bindings/timer/nxp,stm-timer.yaml         | 59 +++++++++++++++++++
+>  1 file changed, 59 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
+> 
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/timer/nxp,stm-timer.example.dtb: stm@4011c000: compatible: ['nxp,s32g2-stm'] is valid under each of {'items': [{'const': 'nxp,s32g2-stm'}], 'type': 'array', 'minItems': 1, 'maxItems': 1}, {'items': [{'const': 'nxp,s32g2-stm'}], 'type': 'array', 'minItems': 1, 'maxItems': 1}
+	from schema $id: http://devicetree.org/schemas/timer/nxp,stm-timer.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250324100008.346009-1-daniel.lezcano@linaro.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
