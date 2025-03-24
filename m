@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 264C0C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 14:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFFEC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 14:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfDNrOLDRsSoKnoiSnKZrCZ6ys+s/p6oKC6Xtt3UxnY=; b=eV0yVoWetf7nSN/bacmimmSzff
-	DVfsoG4EDZLRgB+ZAq9XQvB1vksig+1OFu1qF2cS1lxoTqS2ZZ6D6W1CxYB+H/e5X4mvkpNXVBj2W
-	k0pqMJiY6l+Imm1D0n6t6FGg83IfC3IPVTIUsa56/0HNI7JlNmqVhSkpIOqOrRoFxFbge1mUKEyEs
-	+lKPusP+VZYD1Is2/WmDzScoesYKUIQmAemHwXFdkc+Am+H+1X8+mXH+dSyEDXfOA8bkl8ixEYWS8
-	pOrPpZUp+O+XDyCAZYGhkl841k3ShAQi8lyz2s7aXs3v/rEYXrqkvu2yIQoDA3VOp9KvgVUka0yAD
-	RMA4Ga4g==;
+	bh=42P5vkq2rBQHuq46spNPH2ovUefzfZ63iBaCaBNXALE=; b=puUG9+L16BkVoADw1Cf+kCt14+
+	6FaWwNgiHly9wEhCXEgWWmByU+k/R8IAXrg6hGZt3+ZZNmtaiK7Dj5lOoTxSUIv6mjsXudoTCQOWV
+	5iXDbq7rGFQ7YNsIAVm2hkP60WAH3x4CWqo784KLVrGoCIW8k9COdEvhcrdKBwDXYGwlXysBRl4cb
+	Dslksx+8LCAdgCJDVoNuI8PBqSth/V7PxNoW6KQxnt1t5xr2HBNHyzIyK5ZkAVK5IffUK+4iDad3s
+	ERa1Wl/RKOjpXzaTLpM3lDjFr6dtRHG3a8Z7vIO7XkUXuu+aqVrpkmNbcwnNr4Om7jdIrXGv/MACU
+	fxwROqwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twixH-00000003Pqo-2ioK;
-	Mon, 24 Mar 2025 14:39:07 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1twj4T-00000003Qig-3GR0;
+	Mon, 24 Mar 2025 14:46:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twiuO-00000003PX8-0ThB
+	id 1twj2k-00000003QVE-1wKq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 14:36:09 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-224171d6826so8101445ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 07:36:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742826967; x=1743431767; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gfDNrOLDRsSoKnoiSnKZrCZ6ys+s/p6oKC6Xtt3UxnY=;
-        b=r2VU+vV6KxGOyUiQCFq6s74qnhhLbX67bOM+lSf+O4GqxWHCwJnDdnvuvZxJaiS82e
-         oCna8IIUqB7Nxis6VKjreyMJJ6n67q4+e1ECHGUuiTP4FcRqs3hfkufvWmIZHMeNR50U
-         Gn9G6jv7VPtMVjkzgp1ndCxZ1ko0f5HvtLAldWUWqfwZuUprSo3b+BESmRGMa5xwe+iw
-         zzy0y3Ea5VzL11sDpX+0i6ouwR2W5yuX20jtCE5q+BNvjZpLOyXaGnWAFReISQelw3hb
-         nYJCthMxz8JQmAnXyUcnlNgsT9VqWqA8Dvo8Rx4nni8SZFk/s5n978l97FlqtJPVfSpP
-         unVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742826967; x=1743431767;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gfDNrOLDRsSoKnoiSnKZrCZ6ys+s/p6oKC6Xtt3UxnY=;
-        b=R/GE3z0wo0YAvnmnvL1PThAg3IZm8u4At4xajrBY1loXRP4Hw8zixithTNRtvLPzyS
-         p1FoECldwn3JLpLd5/8uXKZpqre8tKPxrwGDdpKKWQzBgjk+tOTQg4fcUHfejMPvzxld
-         QOGrttlqfsVBTabphsN33dl81PLsDK2C5j1omy3RB08UG+Z9pBu1mqkwpR6N1x700wPx
-         hOdsDgetgYw/5Dh3q3/2tbhzy5veZ/LOfaHu4tLCEf8bQ4sbp/OCVDb8oc8yA3eGjBGF
-         MdPwWWKxCvyzT36cgX2ewpjoNWn++t43velLEugGa6LjgPbFDOKT1EtjLXIKrNu5oHUc
-         KurQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWMbsvHUNngHvS2VLv7kC9dL7IDhjdxXtq8mBLwl8GkzHPXQynZPlT9ULUWusfkP8AHWYyRQP2220HI58KTWSW/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd0n/halKYixz5lo9C/uedLNh+3dnnJxhx4JSAzPWpibijDYZ8
-	covxs8giPup0u3uW28X2aDrs1oQx5wWUHtRkuqauQ0qyABuePfJc++3sa0Qtsg==
-X-Gm-Gg: ASbGncv8kHs0pGt+lf46kWkSw/kq9t64MZwsfFMCKYdXVa/0HtJUBxHhx5Uy+cKPV/v
-	HlumJNmxF02h14laZnEqMjhUTsRuf61PyjYj8TPWloqaUf0TsPtUGdne96dxTagOyNuMJm1/JRt
-	rVtLwWj7AdlaPjREOUVDE27tF+/SQLYVUiKE5zFseu2Ui+By3pCC+cAhdXREvWwG3RqtS2QrTYN
-	ZP/txivVB6LFKdFb5ndpLUrdr8HGY7ER9IYKVTCRxTzEjHHqEJ/3bxwxHHIf3h7HotPNaI9nu3L
-	/dtDLm7tLzIkse3onwt+gMdq64qzu4NbTSHrd1TExPCqWttQiqexoUk=
-X-Google-Smtp-Source: AGHT+IHosn533Honkxz5Gkn47lhA4z7ibid7YzujQ4Q5gGN1wmrSmuIZVipbX/6bHz2UT8zZDxLukA==
-X-Received: by 2002:a05:6a00:1885:b0:736:ab1d:7ed5 with SMTP id d2e1a72fcca58-73905623ea3mr21273776b3a.0.1742826966908;
-        Mon, 24 Mar 2025 07:36:06 -0700 (PDT)
-Received: from thinkpad ([120.60.67.138])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73905faa565sm8053740b3a.1.2025.03.24.07.36.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 07:36:06 -0700 (PDT)
-Date: Mon, 24 Mar 2025 20:05:58 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v12 00/13] PCI: Use device bus range info to cleanup RC
- Host/EP pci_fixup_addr()
-Message-ID: <brhtmymbntt7dk3bqgcwjb72ai4g2bn4b5emcaxntbizvu4i7f@ulvm37yyl4oq>
-References: <20250315201548.858189-1-helgaas@kernel.org>
+	Mon, 24 Mar 2025 14:44:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 52427A4A133;
+	Mon, 24 Mar 2025 14:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9B6FC4CEDD;
+	Mon, 24 Mar 2025 14:44:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742827485;
+	bh=aFlNGtyRy9oVmVjrSqn43hcqtvgmECgCXHyXQI+/7CA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q8sKAZ2+lhd8maxG/iv8jyZ89kySEjKbcQAe99pgprGn+u9AfKdb7808l67lJeaGF
+	 Gjjc18B1BmUBZTHiuk1t8mbG/La2dNDlIzNDsaaXCRUOYgZ/Kv5lpd2Z9ISGAq7pm1
+	 eii8h3re+b8WUU/h0EVRY9Z7E+LhMANHqIEed6c68mAzKQawRweqa/o90LEEs1gMc4
+	 uVafHwBKMoVbzhNRRAGQHyLaoacx+cRydC9JjSPffc/csDUSjd548JJaInj2YBmKs8
+	 5xPRVxfL3EoAKNzeTFtRW4LltVmhp9kHiExZPz1zw//DzYWz3JZq3yKYDVzzCJMOYU
+	 dUryZbbH63Dsg==
+Date: Mon, 24 Mar 2025 09:44:43 -0500
+From: Rob Herring <robh@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: tglx@linutronix.de, linux-kernel@vger.kernel.org,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Thomas Fossati <thomas.fossati@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/2] dt-bindings: NXP System Timer Module
+Message-ID: <20250324144443.GA17721-robh@kernel.org>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250315201548.858189-1-helgaas@kernel.org>
+In-Reply-To: <20250324100008.346009-1-daniel.lezcano@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_073608_151979_483A3858 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20250324_074446_625079_9A5A109F 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,72 +80,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 15, 2025 at 03:15:35PM -0500, Bjorn Helgaas wrote:
-> From: Bjorn Helgaas <bhelgaas@google.com>
+On Mon, Mar 24, 2025 at 11:00:05AM +0100, Daniel Lezcano wrote:
+> Add the System Timer Module description found on the NXP s32 platform
+> and the compatible for the s32g2 variant.
 > 
-> This is a v12 based on Frank's v11 series.
+> Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Cc: Thomas Fossati <thomas.fossati@linaro.org>
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+> ---
+>  .../bindings/timer/nxp,stm-timer.yaml         | 59 +++++++++++++++++++
+>  1 file changed, 59 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
 > 
+> diff --git a/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml b/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
+> new file mode 100644
+> index 000000000000..41093892c617
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
+> @@ -0,0 +1,59 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/nxp,stm-timer.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP System Timer Module (STM)
+> +
+> +maintainers:
+> +  - Daniel Lezcano <daniel.lezcano@kernel.org>
+> +
+> +description: |
 
-Mostly looks good to me. But I do have a few comments, that I'll share.
+Don't need '|' and wrap at 80 char.
 
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> +  The System Timer Module supports commonly required system and
+> +  application software timing functions. STM includes a 32-bit
+> +  count-up timer and four 32-bit compare channels with a separate
+> +  interrupt source for each channel. The timer is driven by the STM
+> +  module clock divided by an 8-bit prescale value.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - const: nxp,s32g2-stm
+> +      - items:
+> +          - const: nxp,s32g2-stm
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: System Timer Module clock
 
-- Mani
+Just 'maxItems: 1'. The description is rather obvious.
 
-> v11 https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-0-01d2313502ab@nxp.com
->     
-> Changes from v11:
->   - Call devm_pci_alloc_host_bridge() early in dw_pcie_host_init(), before
->     any devicetree-related code
->   - Call devm_pci_epc_create() early in dw_pcie_ep_init(), before any
->     devicetree-related code
->   - Consolidate devicetree-related code in dw_pcie_host_get_resources() and
->     dw_pcie_ep_get_resources()
->   - Integrate dw_pcie_cfg0_setup() into dw_pcie_host_get_resources()
->   - Convert dw_pcie_init_parent_bus_offset() to dw_pcie_parent_bus_offset()
->     which returns the offset rather than setting it internally
->   - Split the debug comparison of devicetree info with .cpu_addr_fixup() to
->     separate patch so we can easily revert it later
->   - Drop "cpu_addr_fixup() usage detected" warning since we always warn
->     about something in that case anyway
-> 
-> Any comments welcome.
-> 
-> 
-> Bjorn Helgaas (3):
->   PCI: dwc: Consolidate devicetree handling in
->     dw_pcie_host_get_resources()
->   PCI: dwc: ep: Call epc_create() early in dw_pcie_ep_init()
->   PCI: dwc: ep: Consolidate devicetree handling in
->     dw_pcie_ep_get_resources()
-> 
-> Frank Li (10):
->   PCI: dwc: Use resource start as iomap() input in
->     dw_pcie_pme_turn_off()
->   PCI: dwc: Rename cpu_addr to parent_bus_addr for ATU configuration
->   PCI: dwc: Call devm_pci_alloc_host_bridge() early in
->     dw_pcie_host_init()
->   PCI: dwc: Add dw_pcie_parent_bus_offset()
->   PCI: dwc: Add dw_pcie_parent_bus_offset() checking and debug
->   PCI: dwc: Use devicetree 'reg[config]' to derive CPU -> ATU addr
->     offset
->   PCI: dwc: ep: Use devicetree 'reg[addr_space]' to derive CPU -> ATU
->     addr offset
->   PCI: dwc: ep: Ensure proper iteration over outbound map windows
->   PCI: dwc: Use parent_bus_offset to remove need for .cpu_addr_fixup()
->   PCI: imx6: Remove cpu_addr_fixup()
-> 
->  drivers/pci/controller/dwc/pci-imx6.c         | 18 +---
->  .../pci/controller/dwc/pcie-designware-ep.c   | 74 +++++++++++------
->  .../pci/controller/dwc/pcie-designware-host.c | 57 ++++++++-----
->  drivers/pci/controller/dwc/pcie-designware.c  | 82 ++++++++++++++-----
->  drivers/pci/controller/dwc/pcie-designware.h  | 24 +++++-
->  5 files changed, 171 insertions(+), 84 deletions(-)
-> 
+> +
+> +  clock-names:
+> +    items:
+> +      - const: stm
+
+No need for *-names when there is only 1 entry.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    stm@4011c000 {
+
+timer@...
+
+> +        compatible = "nxp,s32g2-stm";
+> +        reg = <0x4011c000 0x3000>;
+> +        interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&clks 0x3b>;
+> +        clock-names = "stm";
+> +    };
 > -- 
-> 2.34.1
+> 2.43.0
 > 
-
--- 
-மணிவண்ணன் சதாசிவம்
 
