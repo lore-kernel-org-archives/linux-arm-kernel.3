@@ -4,72 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CF6C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 20:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24507C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 20:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=bC6yLtr+dpH/CYCRQL/sWCGkeJLFbmMzFs1i95Ve01E=; b=gMA8/t18HvpAEw
-	2LrGpOKUeyQbUK8BsS8WuyhcgoqyDimHdpRxgsw0s5vxStk+PWbt6TDUB/Ugo/OF6KJrqqdWkYtss
-	i2gL32E4SUbzlWxYjcqDzYW+yB4fuXjoWRyWp4ShCTq3Ur4E/yweToAyXFEEDBuU+D8DZIJLXxtHL
-	v6ZO26egRxS7piYjb6U5yUyjSAtbbk4GS1IAyrNxKQHpbrPqJRb49/S67mEppS4NJ6PLRqtJTOnXm
-	CX5AU01cYjEuPrCJc26vDJM6uqjdG7f9lgfA2q8D6rb3hl4ABLx73Wj0hU0W7ycV3UT1bF36TQc5Z
-	0UUmdcnv+u3z0zUWF9Cw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MOhvNRs1cQBxj4Duaz7jm9zqkl0lxkwbkoD90i78CHI=; b=hqDMUeKKfgm4NU50btI4bix8EW
+	rVhFubQ57T3G9AFv4aguQTuI1ivVuicDxaLxF2kwVQTJbJxhL437N1ivXYHhfOl0dU87YAtIdreAY
+	b5tplRKkZ//ZNyIr/Nc4vux+Pepj9POxT+tv34gShAyzH429mscF02XSEZpTxS/qrc1x7vPb4QxFL
+	16ZSAibC3bqlxReYI/3U8x+GiA69bqnmHsx/NwTrL/O82NDOjMaAigp4/sChZMEWVdOB5VN/2H0o9
+	QluTeBQIr2cFYgjJRu2zAOaLbohS+rbQM/IHA+fpvw8YSjB++iDtKRzaXUrO+paOhvrUp480tlRib
+	lm/L16SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1two43-000000048t5-3MBB;
-	Mon, 24 Mar 2025 20:06:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1two6z-000000049bB-1fZe;
+	Mon, 24 Mar 2025 20:09:29 +0000
+Received: from mail-dm6nam04on2061c.outbound.protection.outlook.com ([2a01:111:f403:2409::61c] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1two2J-000000048bF-3ubR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 20:04:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20D2E43C51;
-	Mon, 24 Mar 2025 20:04:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15781C4CEDD;
-	Mon, 24 Mar 2025 20:04:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742846679;
-	bh=zxmtxJA+3RpFU/Hf5MWAcrc6kL1d19pYvJFVOyd3j58=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ir4HnYiTuYT/ai0rJIcleFJsWExMp9ZpWaRwj7+63VVwCK46PgXa0be18Ci1eIm49
-	 bYu3M/v62UAR2hjJJn+ykZOhnfRBVDvrhSwOzCR2nOW4x9NNPqwpsLIcviOBXzjZwz
-	 1I6rdOWMyasnuyjoCCp36hSVh83Ho8A3oNkpNk5TA0yJnSUwQZdMIVj1QxgrYmvsvr
-	 VypkSNJq2c5mqRzX1u65o80YA15c9fZGU1F75/gC9EjKlq5N23A08mdLtQsBM+HdQ1
-	 ukkv7RV93Jl9n7VU2yIjPXwzPUMkEjYIpunR/1jJdKvCEvXD5hdOzmATu+1ZLxuQ37
-	 VrANkVTI8xK0Q==
-Date: Mon, 24 Mar 2025 15:04:37 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v12 06/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
- checking and debug
-Message-ID: <20250324200437.GA1257874@bhelgaas>
-MIME-Version: 1.0
+	id 1two5G-000000049OD-1nvd;
+	Mon, 24 Mar 2025 20:07:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D1B6y1nqIM1U4Lp4RqcATwpuAh9EWpl0D+7zNIxakY712sQ/kRqUlbTCzH0yEJLJ8cCjaDnNutu7UX/2jVZO+BD3zKytWV7C5nsm/jLfNQxxTD+4LyZywvJ4dA8NpcYwIV8x4EwcvP9wxwgBwo7bJlNkvBd0ie0ZRGR09qBCQWEIoRlYclOp0fNfZMabUXU4T3XSdvXQ7vSvMKokZX5hUlTcN/Y1beZijP79Bt+tG/X7yeWu84PaVvxioOsE3qOJxPmzEZIafRIfpd+uC2hHIw9t1r9psOeC09UfkYhUIutLZDKd0LqdtQ56PfjqJ+8Mr44vuLyqQNxkodY64RmvYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MOhvNRs1cQBxj4Duaz7jm9zqkl0lxkwbkoD90i78CHI=;
+ b=nXSToNj50xNXwpyohOkdzdQWXDZVr0rH3GtOG0H/Vubr0e3i/jtFGUTCX+HzZbZ8F1H3674p3vkke0UCpPEpMy/zI+zPq+5h6EIz++KQtC8U+aKE03XER+Oi0lLfJyh7T7E6r02Ruw3mczoZPhxwWN+WNUsax1tPPR3oKbk/MGDMgAIr5GKwUCBGr+uKJa32NEov2v33ym//xxS06ocWpPhvGiB2PG3IxQBLur9YbFCDQhoWcOn3iCEztxt4rkrarnbYztQPFv6dTM+Ycw3Vb/t/+7g8rX9/r6dfkMWuGTxt4WFf1NugKhtijAshy32nmZGdsjVrBkxBu/LrWL4EHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MOhvNRs1cQBxj4Duaz7jm9zqkl0lxkwbkoD90i78CHI=;
+ b=tuomKyp+xq+EhL7Z2/5X00+dLQ7ovohZOp2HG+Pp4Z9sBYwGVOjTXh5eksufojbIjd8z6w0RsMu0hq0kCLAwI+OKjSycXGnjWVE54pE8qQTshQ3D/tgXb8V55GYlBRxutOEG9zFweXxzVAUIUJXb6/bL/gXyTr5u2Ej52oMpvnJwEfmT47uz/OrJjf+IYIcoy2FDzHq+kn0ewCe7KOG1g92L5hw2A7wAdBcRHx2HtqqsmDhGaa45GqF84GEPsBI0l+IhYZ4UmwiO2GoYxh9wNapq3Qoz0WbQ2DLnApjSY0Sr/jv58VFwtoY9JZN/o7jMJJoDMdWNp5TqUFrDtop7Zg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH3PR12MB7498.namprd12.prod.outlook.com (2603:10b6:610:143::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Mon, 24 Mar
+ 2025 20:07:38 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.040; Mon, 24 Mar 2025
+ 20:07:38 +0000
+Date: Mon, 24 Mar 2025 17:07:36 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
+	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
+	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
+	robh@kernel.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
+	tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <Z+G7iHUdRZGv1Ose@nvidia.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-10-changyuanl@google.com>
+ <20250321134629.GA252045@nvidia.com>
+ <Z98Lmo50h5RboFXq@kernel.org>
+ <Z+BZOKSpyPA1Pyu+@nvidia.com>
+ <Z-Gh-t9xB21UNGU2@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <x2r2xfxrnkihvpoqiamgjmvppverjugp5r4we7lcfpz6jloxzy@7kdfzxiwv2po>
+In-Reply-To: <Z-Gh-t9xB21UNGU2@kernel.org>
+X-ClientProxiedBy: MN2PR06CA0029.namprd06.prod.outlook.com
+ (2603:10b6:208:23d::34) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB7498:EE_
+X-MS-Office365-Filtering-Correlation-Id: 903f5702-5797-4b7e-e2eb-08dd6b0f8655
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DFrC7RFB20Cihx2LPgXU6uPD+8gbWqiLkR08ELkwYXAMA1iBjyBUUr+1cv94?=
+ =?us-ascii?Q?c08rjswbo2xc1jaUb0+5ijVCk/a2jEs6olW22hxkfO4kQsuFpG5S5ZT4e9gq?=
+ =?us-ascii?Q?gq+Z3XYuKXwNvGWtY1T2jbR+EH5CDqinqI7jEVO5rkMz1usw6wxl7oW2dg8y?=
+ =?us-ascii?Q?OS7znlk7u+GNirKqELutTisRsFAjVOYOPRvOYjU3KSrW+2xGsZ8sv6xdPwPO?=
+ =?us-ascii?Q?FPu/zJ91XDD8sQc+0vYABmnPKLyEgpvAw1d7oylxQkWjGj0pWMdi24HXeqNk?=
+ =?us-ascii?Q?E4+f3WTsUyqWlxXeLZmsz9BgfCc3BFYF2KAttrJybfNhWMjNivnlneu9REIL?=
+ =?us-ascii?Q?kGyb78PPUulRXUQ3jQTstZP0dqYEurpyUxpsqva+tuGYkAV9sli4EMbwjl2i?=
+ =?us-ascii?Q?u7HJbSCwsZGxDdNldAYT7fmyclYUcdEBgfvdHU8x79FHWMQBkmzZMIfNdE1+?=
+ =?us-ascii?Q?nG4m0uBPZ70TmDT0SzMjpgZGoLYVKnB7HKwAUkRRzuhx2+kqnVfRDP+4JXji?=
+ =?us-ascii?Q?M8p4QdjZZXWYKVULJt2pvTn1bvmuS28LGXztN1hvvhi97UBHdCiHa2t3Qc5V?=
+ =?us-ascii?Q?/QiTrm3o2r1Bak+WAdtxWu5IR4Q+lfLa/3L6Oyf8BBHVwbHIO3dZxBapniwt?=
+ =?us-ascii?Q?Xg+2qVb14KfEY34YqKz/KGi4rLfKwyQ4lxhDxww7LMPYGC5tXHUoirDqrtx5?=
+ =?us-ascii?Q?k7KT2XLOhwVIy5/A5yKJ5yhVXD9LZ3koG2MqhkZuVrQLCGHT9qfeJ2+X6KAw?=
+ =?us-ascii?Q?y0kC2pEIVDA2i982gH4taaPma3X1DaDK68928nbjZXHF4SELFquXCi2JjFVw?=
+ =?us-ascii?Q?Xzifwr48hx+jnRCwk5pszp5YkSvPDX6PKG9kufqWGO3ARBJq/r4Wsi+mz8mw?=
+ =?us-ascii?Q?75D+Ha+cAIhnT3CS4Barzdi30u/i8oAG86i38b04F8eDkNQXXC2xZDvB4u77?=
+ =?us-ascii?Q?U6Z117v9AX4NsyAGTR49OjOzdubJQu4x1S7rZPkSDt1GsGgHnE/zWyVCDehW?=
+ =?us-ascii?Q?uKeLF6i9dp9OqqmaEzSugfzIax8f2ZEfagLQFJRQLaZteiiJEHcmQqzNkY8s?=
+ =?us-ascii?Q?3O+rRABldSFuRZP/c09ow9IrljvCwahTJJtDycAPk3ZT9Y9Qf1s6jKdt6Gp/?=
+ =?us-ascii?Q?Ei6lu2GBqKNcaxq//hEGFw3YxfAJ1tbfjOjHAl0Jmk4nq9WUG3ffFOZYaWjJ?=
+ =?us-ascii?Q?12/HIBh/MMtpzhDxamwKJyk1DdutsJtajNb6UOQ80uv+70nxY+6Q0ntHzVvg?=
+ =?us-ascii?Q?s7640j7KfVNedyF1k8L8sst7+hb4fziz87WWkaZ1qnLFIMw5cuaUHq4UThpJ?=
+ =?us-ascii?Q?nXTOx5YW3n12wG6El15fqd8C5oRkkLwsqp7S9ft3umumDWjoiwQV7MASeOCo?=
+ =?us-ascii?Q?U26J7F1+flZjy9E8dFHBtEJO0BDu?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SmCIb++7kKDtOUi7963AEfv/EQ47ORnK09214iBzXnRMKMYtnb6GK3hjbqTc?=
+ =?us-ascii?Q?RQ3DzjvsSK0koCil+/mgzLWiIe6uYXmachKCcqd7rm+Tx5XzHUAJIxfCFOzR?=
+ =?us-ascii?Q?5W/f5daZpwzMikebAZio6qtJFyqUc5rkQcndWM1VrgiUHPlzKDkEqyE9HgV6?=
+ =?us-ascii?Q?0VzhpOdVaa/+NWMXwB90bjhEZS/W2JZ+SYrohdCUVU6uRkmTy1bwBpLAdFUa?=
+ =?us-ascii?Q?2zg8VnrSjIUkayIdz4GsPY1yFKko4B8kBkPU3Kx1Fk1CK56yfcbGUEmqY4i2?=
+ =?us-ascii?Q?AEEaEeeiIyYyAldUaBep93eqN+kKv7ckZKJ/4+pr1KnZ6G8KqBT4pajB01Td?=
+ =?us-ascii?Q?iaS8xzLamsjjXfMe6IgRQ8cKKwwSuJgS6B9q6/5BXO5ist669hc1ZJ61IS0I?=
+ =?us-ascii?Q?3mpppcvzxU/v7oHuTt2XFkvTdRwaWOX0BVun5IM7IdwoPN7kP9yBnkpq1hxj?=
+ =?us-ascii?Q?Soq/RUx1OcTOOeGxL7j98+OJ8w27tdMFTkZDvbx6/AJZQBPWupDtQ7pEGOTQ?=
+ =?us-ascii?Q?2V7Fs6v5npXxu7jQzWvEINd81bamaIObkvm8WUOiBsEoe3p8fog+CYM5gF1p?=
+ =?us-ascii?Q?PXWLnKej32DQb3DhYDF+upMtYD/juDpf3h4WZAkrkWSebt5tDILoYScro0MH?=
+ =?us-ascii?Q?Oka7si3hbojlxZ4yiYKFcuNkEGkoiVooyC4LvaV2JqZ9PNMF+qge53XIC+k/?=
+ =?us-ascii?Q?0UNZzO/Jig/0NlKGP6hzPuOkbJsW67R3fZ8vBaxqVnauQlrsWx+PnWaC1nOx?=
+ =?us-ascii?Q?Ubfdr0hWGRWcnzI+ClHvwToeJmsWLNhsP4Q9AiR98iBc2BF90JrF8mDtKC4S?=
+ =?us-ascii?Q?R+XuMath4ZofmhlmTYOeOymRMwmCovDghBcZQiODZ1in/cwW5qqTIR7BNeyn?=
+ =?us-ascii?Q?/MPpWuFnLpiDqoQ6BGW5LCZQrPj3fSdp5BuVlr1jf/YGdV+j72ullMF8u/3c?=
+ =?us-ascii?Q?Ch9U5JZZJAqr+iNPQMsS1SuRx6fQSaUr5/d0tBjqUAPCb4WjayYQOwz6pY1/?=
+ =?us-ascii?Q?ZZZW8rl9YPdgFLJRURdEppOfKPyhDieWGRlGv/j1vAPRLi9icWH+TnV9L5p1?=
+ =?us-ascii?Q?O5b1+eQxrCTANO476aUz/QzzP3LrseWDPse7XBqoMIYnW8YLf1mOtFF+XN3r?=
+ =?us-ascii?Q?y30ExV9kFpA0n4NJCQwmZvDmmQWIzXUJu/Zp/egL13NSBff99mXyPTbc0Jyd?=
+ =?us-ascii?Q?3SAbX5jkDu0msWkp5uVrJ4GlOHyFUtUoHvaz/2mvsO40j+TDGt/zJfCeKiiL?=
+ =?us-ascii?Q?dPh3tbjSaceAQ+VQ5ErQanin1KLw+djujx5OMVB+thO5vtKUHdvDSlCDE76y?=
+ =?us-ascii?Q?tKDUYE3LspdFqDqiVrXmC6S+wxKXXVcL3c5glqWjtRihmHbrsk+e+NcH3DbN?=
+ =?us-ascii?Q?XMSbiqi3bl//rfHJYk54uunqGGC1wYcWRYXmm6My6WsMEESI+aCIMnZNh3tQ?=
+ =?us-ascii?Q?RCapBgdO4VnjiHZvIiJ1pisI8Y4NbrPczbRn8tF2XKIdlZz+5PKyXzsfQPzd?=
+ =?us-ascii?Q?YhFGLlPyiJvS0KyhS4QR+5q+rHqKGv91xwk+X2kaILyWxxvLty2HvnbOJYrT?=
+ =?us-ascii?Q?c2aoO4a3bm1JGXcUBpY=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 903f5702-5797-4b7e-e2eb-08dd6b0f8655
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2025 20:07:38.0905
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hBCzi8nM7v3+zlvgQm1DA9MZRB+P35+t2ugKcqbfgw9KjcaeEung05jOW4J7yxrU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7498
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_130440_014651_9FF23FCB 
-X-CRM114-Status: GOOD (  40.85  )
+X-CRM114-CacheID: sfid-20250324_130742_476479_75764C1D 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,180 +174,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 24, 2025 at 11:00:24PM +0530, Manivannan Sadhasivam wrote:
-> On Sat, Mar 15, 2025 at 03:15:41PM -0500, Bjorn Helgaas wrote:
-> > From: Frank Li <Frank.Li@nxp.com>
-> > 
-> > dw_pcie_parent_bus_offset() looks up the parent bus address of a PCI
-> > controller 'reg' property in devicetree.  If implemented, .cpu_addr_fixup()
-> > is a hard-coded way to get the parent bus address corresponding to a CPU
-> > physical address.
-> > 
-> > Add debug code to compare the address from .cpu_addr_fixup() with the
-> > address from devicetree.  If they match, warn that .cpu_addr_fixup() is
-> > redundant and should be removed; if they differ, warn that something is
-> > wrong with the devicetree.
-> > 
-> > If .cpu_addr_fixup() is not implemented, the parent bus address should be
-> > identical to the CPU physical address because we previously ignored the
-> > parent bus address from devicetree.  If the devicetree has a different
-> > parent bus address, warn about it being broken.
-> > 
-> > [bhelgaas: split debug to separate patch for easier future revert, commit
-> > log]
-> > Link: https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-5-01d2313502ab@nxp.com
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-> > ---
-> >  drivers/pci/controller/dwc/pcie-designware.c | 26 +++++++++++++++++++-
-> >  drivers/pci/controller/dwc/pcie-designware.h | 13 ++++++++++
-> >  2 files changed, 38 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-> > index 0a35e36da703..985264c88b92 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware.c
-> > +++ b/drivers/pci/controller/dwc/pcie-designware.c
-> > @@ -1114,7 +1114,8 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
-> >  	struct device *dev = pci->dev;
-> >  	struct device_node *np = dev->of_node;
-> >  	int index;
-> > -	u64 reg_addr;
-> > +	u64 reg_addr, fixup_addr;
-> > +	u64 (*fixup)(struct dw_pcie *pcie, u64 cpu_addr);
+On Mon, Mar 24, 2025 at 02:18:34PM -0400, Mike Rapoport wrote:
+> On Sun, Mar 23, 2025 at 03:55:52PM -0300, Jason Gunthorpe wrote:
+> > On Sat, Mar 22, 2025 at 03:12:26PM -0400, Mike Rapoport wrote:
 > >  
-> >  	/* Look up reg_name address on parent bus */
-> >  	index = of_property_match_string(np, "reg-names", reg_name);
-> > @@ -1126,5 +1127,28 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
-> >  
-> >  	of_property_read_reg(np, index, &reg_addr, NULL);
-> >  
-> > +	fixup = pci->ops->cpu_addr_fixup;
-> > +	if (fixup) {
-> > +		fixup_addr = fixup(pci, cpu_phy_addr);
-> > +		if (reg_addr == fixup_addr) {
-> > +			dev_warn(dev, "%#010llx %s reg[%d] == %#010llx; %ps is redundant\n",
-> > +				 cpu_phy_addr, reg_name, index,
-> > +				 fixup_addr, fixup);
-> > +		} else {
-> > +			dev_warn(dev, "%#010llx %s reg[%d] != %#010llx fixed up addr; devicetree is broken\n",
-> > +				 cpu_phy_addr, reg_name,
-> > +				 index, fixup_addr);
-> > +			reg_addr = fixup_addr;
-> > +		}
-> > +	} else if (!pci->use_parent_dt_ranges) {
+> > > > > +		page->private = order;
+> > > > 
+> > > > Can't just set the page order directly? Why use private?
+> > > 
+> > > Setting the order means recreating the folio the way prep_compound_page()
+> > > does. I think it's better to postpone it until the folio is requested. This
+> > > way it might run after SMP is enabled. 
+> > 
+> > I see, that makes sense, but also it could stil use page->order..
 > 
-> Is this check still valid? 'use_parent_dt_ranges' is only used here for
-> validation. Moreover, if the fixup is not available, we should be able to
-> safely return 'cpu_phy_addr - reg_addr' unconditionally.
+> But there's no page->order :)
 
-Yes, that's true IF the devicetree has the correct 'ranges'
-translation.  This is to avoid breaking platforms with broken
-devicetrees.
+I mean this:
 
-> > +		if (reg_addr != cpu_phy_addr) {
-> > +			dev_warn(dev, "devicetree has incorrect translation; please check parent \"ranges\" property. CPU physical addr %#010llx, parent bus addr %#010llx\n",
-> > +				 cpu_phy_addr, reg_addr);
-> > +			return 0;
-> > +		}
-> > +	}
-> > +
-> > +	dev_info(dev, "%s parent bus offset is %#010llx\n",
-> > +		 reg_name, cpu_phy_addr - reg_addr);
+static inline unsigned int folio_order(const struct folio *folio)
+{
+        if (!folio_test_large(folio))
+                return 0;
+        return folio->_flags_1 & 0xff;
+}
+ 
+> > Yes, but also we wouldn't have page->private to make it work.. Somehow
+> > anything we want to carry over would have to become encoded in the
+> > memdesc directly.
 > 
-> This info is useless on platforms having no translation between CPU and PCI
-> controller. The offset will always be 0.
+> This is a problem to solve in 2026 :)
 
-You're right.  This was probably an overzealous message for any
-possible issues.
+Yes :)
 
-What would you think of the below as a replacement?  It should emit at
-most one message, and none for platforms where devicetree describes no
-translation and there never was a .cpu_addr_fixup().
-
-It's still pretty aggressive logging, but I'm just concerned about
-being able to quickly debug and fix any regressions.  Ideally we can
-revert the whole thing eventually.
-
-
-diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-index 27b464a405a4..4b442d1aa55b 100644
---- a/drivers/pci/controller/dwc/pcie-designware.c
-+++ b/drivers/pci/controller/dwc/pcie-designware.c
-@@ -1114,7 +1114,8 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
- 	struct device *dev = pci->dev;
- 	struct device_node *np = dev->of_node;
- 	int index;
--	u64 reg_addr;
-+	u64 reg_addr, fixup_addr;
-+	u64 (*fixup)(struct dw_pcie *pcie, u64 cpu_addr);
- 
- 	/* Look up reg_name address on parent bus */
- 	index = of_property_match_string(np, "reg-names", reg_name);
-@@ -1126,5 +1127,42 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
- 
- 	of_property_read_reg(np, index, &reg_addr, NULL);
- 
-+	fixup = pci->ops ? pci->ops->cpu_addr_fixup : NULL;
-+	if (fixup) {
-+		fixup_addr = fixup(pci, cpu_phys_addr);
-+		if (reg_addr == fixup_addr) {
-+			dev_info(dev, "%s reg[%d] %#010llx == %#010llx == fixup(cpu %#010llx); %ps is redundant with this devicetree\n",
-+				 reg_name, index, reg_addr, fixup_addr,
-+				 (unsigned long long) cpu_phys_addr, fixup);
-+		} else {
-+			dev_warn(dev, "%s reg[%d] %#010llx != %#010llx == fixup(cpu %#010llx); devicetree is broken\n",
-+				 reg_name, index, reg_addr, fixup_addr,
-+				 (unsigned long long) cpu_phys_addr);
-+			reg_addr = fixup_addr;
-+		}
-+
-+		return cpu_phys_addr - reg_addr;
-+	}
-+
-+	if (pci->use_parent_dt_ranges) {
-+
-+		/*
-+		 * This platform once had a fixup, presumably because it
-+		 * translates between CPU and PCI controller addresses.
-+		 * Log a note if devicetree didn't describe a translation.
-+		 */
-+		if (reg_addr == cpu_phys_addr)
-+			dev_info(dev, "%s reg[%d] %#010llx == cpu %#010llx\n; no fixup was ever needed for this devicetree\n",
-+				 reg_name, index, reg_addr,
-+				 (unsigned long long) cpu_phys_addr);
-+	} else {
-+		if (reg_addr != cpu_phys_addr) {
-+			dev_warn(dev, "%s reg[%d] %#010llx != cpu %#010llx; no fixup and devicetree \"ranges\" is broken, assuming no translation\n",
-+				 reg_name, index, reg_addr,
-+				 (unsigned long long) cpu_phys_addr);
-+			return 0;
-+		}
-+	}
-+
- 	return cpu_phys_addr - reg_addr;
- }
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index 16548b01347d..f08d2852cfd5 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -465,6 +465,19 @@ struct dw_pcie {
- 	struct reset_control_bulk_data	core_rsts[DW_PCIE_NUM_CORE_RSTS];
- 	struct gpio_desc		*pe_rst;
- 	bool			suspended;
-+
-+	/*
-+	 * If iATU input addresses are offset from CPU physical addresses,
-+	 * we previously required .cpu_addr_fixup() to convert them.  We
-+	 * now rely on the devicetree instead.  If .cpu_addr_fixup()
-+	 * exists, we compare its results with devicetree.
-+	 *
-+	 * If .cpu_addr_fixup() does not exist, we assume the offset is
-+	 * zero and warn if devicetree claims otherwise.  If we know all
-+	 * devicetrees correctly describe the offset, set
-+	 * use_parent_dt_ranges to true to avoid this warning.
-+	 */
-+	bool			use_parent_dt_ranges;
- };
- 
- #define to_dw_pcie_from_pp(port) container_of((port), struct dw_pcie, pp)
+Jason
 
