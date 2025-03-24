@@ -4,90 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77795C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7CA9C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Mar 2025 07:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NFIRmNQe7n7uEi96DoOu2jHTdAOyT40YGGUa5QoKur8=; b=D3ausNthtxsjHfxzeZvKFBT5Zu
-	OpJcaESsXo3RP4ZpjqhM4ahiUOsCCBlOpa7wgGOeN/7GWVAk5n4nSTQPmpqaELR2mDyNZZLWEjmc8
-	a/BPJJQnzOvQ3Luyc1yeRoP4gZvFRmnbJUqScsEoHs7Khk0uGQuoiblkQv6SSleqcGHjYL+lRZaT8
-	DbJXJvBbnE+p0w+L1B3VqDv4rKQPi1Gns//FOcXwIrkl2fnbAhJa4MCRn1B+hQGfVqIGhGWEt+Qwf
-	2ssrFfbSyqABK2Uv++IsWju5lqSvaj4h8P5squpJ0epVVaakCMhC9YFRyfX7gSQG2lsb0x7+hBEO0
-	AiH5nPnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1wYOaUvH2+wGNYkwE9FMO2ObsGp/j2F2VQglfrqeSwY=; b=HDqtWVKLT5e6HsX8lbJb6CsGlJ
+	N6xtUJy8dIWg48WJjBuz0B2nDaQlX63h0a86nOkN8vDW2ngG4Gu9K0IcgExbjYWg7DjowSSyMHLI0
+	ncf/oP4usO/6oLTRCUqZxtdP+x3N/08OvhwxZcu2xLancwMQ+Y67x9ZAQOzdt6+98HuyRmveU8Ur9
+	1GadOa3koctzRA14eziB8EJlrJtceji9eZWRTNlqGlg2HVMfGc1fajot+InfWTH7xpBEJEciGWh8u
+	wFO+tGTjckA/wO9Fb98Zol9Xk7RGvuTFE0zO7gk3oR0OxBvadrSBvNSDgq3r6Iwo4ma8epQQbMFdC
+	/g8KkTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcbY-00000002V10-1QPl;
-	Mon, 24 Mar 2025 07:52:16 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1twceh-00000002Va5-0Tya;
+	Mon, 24 Mar 2025 07:55:31 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twcZG-00000002UkI-2wNX
+	id 1twccw-00000002VKY-1HXH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Mar 2025 07:49:56 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2279915e06eso19829335ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:49:53 -0700 (PDT)
+	Mon, 24 Mar 2025 07:53:43 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54963160818so4867527e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 00:53:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742802593; x=1743407393; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=NFIRmNQe7n7uEi96DoOu2jHTdAOyT40YGGUa5QoKur8=;
-        b=R5ZncKF81cKPnOR+b+TJSh2fDIkWFBRWY53S+NBgsqElePIjaJe3DJ/PLNBy1BSK2o
-         aoCpZ52FeGhXcz66rGuTx9R7tpNIfb3cMtG9QTy1u7pFSle29O/mqKcMZGyD3hP1vNH9
-         KfKMJK+4mpzE00F4jy8h5pUqg2pC9Blua+yryPs7r3M1oI0OuTnj+J2O02uAKNORTuol
-         RPK58et9kpJOuTpDJSK/57huzkmA0FYKseAJiCUjwDTce8c0vjV6mZNHny+lcWxn+as1
-         BNhB2Yd5YHVLRHq0GARk3KlBah2S4GmdDgflobWnJ86bVR6qCfkxwGfu9BMkpyNxKfK5
-         ESUg==
+        d=linaro.org; s=google; t=1742802820; x=1743407620; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1wYOaUvH2+wGNYkwE9FMO2ObsGp/j2F2VQglfrqeSwY=;
+        b=sVAgHFZwJT+fm2fFVXMh/5u+nLww4476nRF62ClolFhTM73TT+g4TDhgPoBd0oSbgU
+         K2Gh4GxFO7Jyez/zvqu2qjYxvqndauNUkfQE+zD4uMdyFx25ODlYCGA46QPLEpIwEuJj
+         k9Wd4SaGSj8eE+mlRI3dshScFEVkNDU21Kx+ddXUcyoqtTaRt5os9+GAMQxrlC7WnG5f
+         OAPgjoIt08Z72KR4LzT5dGVcxerYQSN2a9sP5VGzMQ4PVb7R04aBUAkEs1PSOByy3FEY
+         l3ng7+zCTxzWb6lp5JMmTfW65kpGXEjteQ5ufs/YVblabvljmmdBakkXPhykgABnwIBu
+         kemA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742802593; x=1743407393;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NFIRmNQe7n7uEi96DoOu2jHTdAOyT40YGGUa5QoKur8=;
-        b=wT1WewiLk/YTniaFw22kQq21Vg6xUKKqV7Hi+wQH4htQZKpq6kRYNgbBB2e6g7IrrB
-         E1UUTZdy5HRLv9Z1RQtHpm6Dggh2+rQmxU0ucWFjRHLZUMsuBDPPB/ti6aC92UW3SZd1
-         FvFCo6RI2D6fza6fVah8BoWnuOYqCBiB1qZKNN/E+q9dQw+qh7m/zATGwrPwfEdnutHD
-         8TjBfqi/utEQnBv3MjTPbM8H4k0VeUzaX6rGJJ3oUG+DB2gj36r1mQvuUnNwa/ckVQS8
-         pG9Kw2MTUDpwLvH3pnpuwKdDMwmxY9xSQ/5Y/1BShvK/15A9mrQJKqC10fBxnSXbq/z2
-         OyJA==
-X-Forwarded-Encrypted: i=1; AJvYcCUqRxGb1h1vZ0bUEkNZV4G8rBZC6y/aVrJIz34E3HxWKvbglseI0RrTPQcIfHETYZLLRkNC7yhgmB8le0M/8snp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN9HrbdvRT0a84zj4VdgeSyCrNr817Al9Jxm6jIN1EMOhVeJw4
-	UL/fjUTKpz14Kyom/S9PJAj0kOuQgqjPx6dOOCLTD3xxONjRObx5evo5k8Ne3Q==
-X-Gm-Gg: ASbGncuD2wlKv8Wm4Ji8uXO4TqyYgZjBEsyprMv3OefrYZzztHBYsejhMGOdVGr6/JU
-	56rrY7MYBPwJKfYGD+cjy4gbbARFwDdC666wxFS0vsR3pCYJfVQJjwTI1ERZGyS4KdOiHgNTamD
-	1IMrwEBhOTfwiLaF20bKX7AlraYYOCzfu3oLQiVp2u76rVoCCTBU077KQeRn1mfibJzMLs0dg/A
-	X/sfk7DDOuKdR8Oa8ZCrT2bgAHv/zOUk4AUAjYGzRPYY0+XH3nv+ruJeHTqm1hmCgSMtoK87p06
-	HKa8DaYy8Pg1sdluKzXbrlfMEN7ekhoYi5oYCzq1lYwDe8s368UtNTCP
-X-Google-Smtp-Source: AGHT+IFjqUyRiTKVWJF50KZXuILNEfC9bh/Fh8RLdQLup8g1ZfgW4ZYU2YulBex/PqxtrdUJC77Ijg==
-X-Received: by 2002:a05:6a00:2295:b0:730:9502:d564 with SMTP id d2e1a72fcca58-739059a64c5mr17595506b3a.14.1742802593070;
-        Mon, 24 Mar 2025 00:49:53 -0700 (PDT)
-Received: from thinkpad ([220.158.156.91])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7390611bd23sm7430118b3a.96.2025.03.24.00.49.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 00:49:51 -0700 (PDT)
-Date: Mon, 24 Mar 2025 13:19:47 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Mike Looijmans <mike.looijmans@topic.nl>
-Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pcie-xilinx: Support reset GPIO and wait for link-up
- status
-Message-ID: <vazbdawfo4jnct4rdokknxwvknespcf33jzrmobsnecbxnrbjn@kbvxvhrow4fn>
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.c4ab15e9-561e-402d-bf39-9e852485e4fa@emailsignatures365.codetwo.com>
- <20250314145933.27902-1-mike.looijmans@topic.nl>
+        d=1e100.net; s=20230601; t=1742802820; x=1743407620;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1wYOaUvH2+wGNYkwE9FMO2ObsGp/j2F2VQglfrqeSwY=;
+        b=Ej+956Jlj95K8WQV7jC9CV0k/u0fYzMosJ1upDqwDGrU67q+hqL6xpKmEY4umiLhdb
+         K1fCZCZ9+j7wa7vgofd5qThlf+fqQZAdY/vfzXqUsPy+2pLhtcQAPoeXHEtoIGkEewIj
+         xSJGP6ryKtqVvruyCeb1BZIfkxcszLwfHFKLiFi7KkF88JCrcRcy6JyK8yJqVPzErhdI
+         JbBBURWo8p7RUdI16RRfiMLsArAovK/XvdGziAnwk0jsfViUEJvIAco91sSJ9AktFqQ4
+         aMhdTZPtYHro4ladha0yRMUR+lUjBOdcseO3c8+yWIGMYw6OXAHziYuLiOFHUIutpFVI
+         zeOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVcHkWIz410kmzyKVW86l9U4dZyt3b4FgkIJBHMh9BMr4eyVTF0uR2in5TnOAYup4jOThEuoEHTASVZIl1qFIUV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxc9Vsw3Xc1oU4ChvI+gJm30txCwcyq+NcL5HPj/8la5yjkX+lX
+	Xy2VX56j0OS92tWLGDbX3dacG59A6rf5DfqD2N/isQgojlElbJS3LAfA4zRW8Z1Rmo6+A34tu8P
+	o3rA+DFXW/bZiEcP2VLxWOJOHZS41qB7X8A+6gA==
+X-Gm-Gg: ASbGncvg78O9QwytVH9ANIYRonOxX9hE/xu2cn/wxV08Tb1MfmtGk9VN+tdI2M3AAfd
+	IEHGrN9I/umVpZGtUTkwd/qDOeK+G5yZvMGET6ZziP1LpRarOV1IwqIYoA2qh8Lx8+J6mVLPU/A
+	xUoOUV4c3qqKxozLb/flPnNB9jwIeGLjBQ0Q==
+X-Google-Smtp-Source: AGHT+IGCsf6gs4boVKvi872tdBJFNBLIE72SzFHUnHiJ2uqF225HOjiewrQhZXAtHdFlZf9qfC6RwySnYBdeijJWt7I=
+X-Received: by 2002:a05:6512:ea5:b0:545:3037:a73a with SMTP id
+ 2adb3069b0e04-54ad64850e7mr3708934e87.13.1742802819820; Mon, 24 Mar 2025
+ 00:53:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250314145933.27902-1-mike.looijmans@topic.nl>
+References: <20250322035307.4811-1-ot_chhao.chang@mediatek.com> <20250322035307.4811-2-ot_chhao.chang@mediatek.com>
+In-Reply-To: <20250322035307.4811-2-ot_chhao.chang@mediatek.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 24 Mar 2025 08:53:28 +0100
+X-Gm-Features: AQ5f1JrIT3jjMlJn7-UFm0QREZvmNoSOiORkmH7amKsqv7WDxLgWsH1QR8-hb0M
+Message-ID: <CACRpkdZT1GYsZjeRHQqWJmuw5jg-kz7x+53_u8_Y3goyu=uRGw@mail.gmail.com>
+Subject: Re: [PATCH v5 1/1] pinctrl: mediatek: Add EINT support for multiple addresses
+To: Hao Chang <ot_chhao.chang@mediatek.com>
+Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>, 
+	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen <hanks.chen@mediatek.com>, 
+	Chunhui Li <chunhui.li@mediatek.com>, linux-mediatek@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_004954_744571_CCD40687 
-X-CRM114-Status: GOOD (  31.01  )
+X-CRM114-CacheID: sfid-20250324_005342_335290_5F8B396E 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,92 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 03:59:02PM +0100, Mike Looijmans wrote:
-> Support providing the PERST reset signal through a devicetree binding.
+On Sat, Mar 22, 2025 at 4:53=E2=80=AFAM Hao Chang <ot_chhao.chang@mediatek.=
+com> wrote:
 
-Where is the bindings change?
+> For flexible routing, eint will be divided into 5 bases,
+> and it will obtain the operation address through the pins array.
+>
+> Signed-off-by: Hao Chang <ot_chhao.chang@mediatek.com>
+> Signed-off-by: Qingliang Li <qingliang.li@mediatek.com>
 
-> Thus the system no longer relies on external components to perform the
-> bus reset.
-> 
+Patch applied as the last pinctrl patch for v6.15!
 
-There is a similar series for the CPM controller:
-https://lore.kernel.org/linux-pci/20250318092648.2298280-1-sai.krishna.musham@amd.com/
+Thanks for respinning this, I think it will make things easier.
 
-Please take a look for reference.
-
-> When the driver loads, the transceiver may still be in the state of
-> setting up a link. Wait for that to complete before continuing. This
-> fixes that the PCIe core does not work when loading the PL bitstream
-> from userspace. There's only milliseconds between the FPGA boot and the
-> core initializing in that case, and the link won't be up yet. The design
-> works when the FPGA was programmed in the bootloader, as that will give
-> the system hundreds of milliseconds to boot.
-> 
-> As the PCIe spec mentions about 120 ms time to establish a link, we'll
-> allow up to 200ms before giving up.
-> 
-
-This should be a separate change/patch.
-
-> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
-> ---
-> 
->  drivers/pci/controller/pcie-xilinx.c | 25 ++++++++++++++++++++++++-
->  1 file changed, 24 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/pcie-xilinx.c
-> index 0b534f73a942..cd09deba0ddc 100644
-> --- a/drivers/pci/controller/pcie-xilinx.c
-> +++ b/drivers/pci/controller/pcie-xilinx.c
-> @@ -15,8 +15,10 @@
->  #include <linux/irqdomain.h>
->  #include <linux/kernel.h>
->  #include <linux/init.h>
-> +#include <linux/iopoll.h>
->  #include <linux/msi.h>
->  #include <linux/of_address.h>
-> +#include <linux/of_gpio.h>
->  #include <linux/of_pci.h>
->  #include <linux/of_platform.h>
->  #include <linux/of_irq.h>
-> @@ -126,6 +128,14 @@ static inline bool xilinx_pcie_link_up(struct xilinx_pcie *pcie)
->  		XILINX_PCIE_REG_PSCR_LNKUP) ? 1 : 0;
->  }
->  
-> +static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
-> +{
-> +	u32 val;
-> +
-> +	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
-> +			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2000, 200000);
-> +}
-> +
->  /**
->   * xilinx_pcie_clear_err_interrupts - Clear Error Interrupts
->   * @pcie: PCIe port information
-> @@ -492,8 +502,21 @@ static int xilinx_pcie_init_irq_domain(struct xilinx_pcie *pcie)
->  static void xilinx_pcie_init_port(struct xilinx_pcie *pcie)
->  {
->  	struct device *dev = pcie->dev;
-> +	struct gpio_desc *perst_gpio;
-> +
-> +	perst_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-> +	if (IS_ERR(perst_gpio)) {
-> +		dev_err(dev, "gpio request failed: %d\n", PTR_ERR(perst_gpio));
-> +		perst_gpio = NULL;
-
-No. If the GPIO is defined in DT and there is a problem in acquiring it, you
-should return the error.
-
-> +	}
-> +
-> +	if (perst_gpio) {
-
-This check is not needed as gpiod_set_value_cansleep() can accept NULL.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Yours,
+Linus Walleij
 
