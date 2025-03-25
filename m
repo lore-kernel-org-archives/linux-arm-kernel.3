@@ -4,68 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CC1C3600E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13178C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWmWtlj/ywJV6x0SVa10Ru5jBz9yI3s7yAlnn7HAP+A=; b=q82QMRn6K9txIsCFhHqYRIIw4j
-	6A/V66du6qmb4CDh4krI1r/i99BlSEt1aCUeH9sHv5vXpV42vZ5ODIxJu/KFx6ChoAokO6pooi5dD
-	fc4uMRdQmfdD0mVIWdituuxjVq2KEb0SfiCWrKtUSWgfAYatSJ6+RXwG7FNPmHlftTNdUhxkGMUko
-	pKQJ19mzu30DQODIOOYg6jovuOiEczUlHf4zfcwOKFV/ZSPraYtNBMxoNZRoZW1nNqy9tKzlas0L5
-	lL37baBly830lpr4EP0qZhQG/47rotTWmhyVZwtzHhikytUP1xJ1BRKff9B0yDKmz3rI0jqCsrqla
-	BnT2Vbsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bJcwO6oJh/3y1WM8EogHyJVWkUsi3cC2Ve5E14+wX6I=; b=zUVXbgCJeaud5QH9bOH47V5X0r
+	IorO7k5eFLwPmEqXJvogk37qlXUX7kHNwH2gLg+uk7rNcjUnKJs1Uz3/u5hza1/UZXXUqXr+49XSp
+	uaHZT+F20fPx2les3diwA8CY18CGxHG8FnC7NEt4UpyEUsvF0lPPg6q648QTSEZXT59rJxENrC6zw
+	XuXedyzqZIe+UQDXPJIEsJlm+92BdULpqungPLPdsH30Yjl8NojAYvMDEaypOcbASdlKIrQ3+jdQo
+	aL2Vux6eAe6gVgk0q/aDkYA87LTtTI3mrCBhir6aUC0l0jCYh3EI+8kHgzf9+t3IFer1JVj9iizv6
+	JsO0KgPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4il-000000066CI-2H23;
-	Tue, 25 Mar 2025 13:53:35 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tx4jK-0000000672M-2o5R;
+	Tue, 25 Mar 2025 13:54:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3GF-00000005mr7-29Fu
+	id 1tx4Tz-000000063We-0Qzx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 13:38:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=bJcwO6oJh/3y1WM8EogHyJVWkUsi3cC2Ve5E14+wX6I=; b=fyQDiUcM2sLTA0BiCpZnPCk3rk
+	ELJBc8KH19+VWGvRW/lIq6Q9RpBVTaYgySUGycV3ARSwOdHxrGVrv+EZpox1u6aOphd9vWv7WAbFJ
+	06s8/x3K0mCEL3iLueYXBktqU8DoM50o/1u7fj4xCN/sMXajZhx0yS8j5zEIZeNfNxtmZ+3C1S2kk
+	u1b3jTk8NhhbmZkOl5hYJq+kyKyJmJnJf43AN3ME9LgSbZRvavLtZkxaAGQ16JeFgEf/9tFO4JszG
+	fcKSRABfmnoe4CqzJJNx6kT0o0+87hXpBlyM5pYc1KvIqRE6EIjhOXH+N2DeWD7OutsoOGiV/zL2g
+	b0JH1TPg==;
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tx4Tw-00000005TEs-1HLx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:20:05 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BAD1F102F66FF;
-	Tue, 25 Mar 2025 13:19:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742905201; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=NWmWtlj/ywJV6x0SVa10Ru5jBz9yI3s7yAlnn7HAP+A=;
-	b=iI10GOZxX1mHgyM2u8+7/hdsGhCCl9XeQNlR9159nd7Yrmp1M9EzyoQznOCNezfJNl+mJ9
-	SugwMDIGDHQIt+JVt4gZ5jtXRMz5XkD7mYkyoH+3BBQsC6Wep4HQmwCEBLJguay3eUz7UO
-	a++388I8tOOmPQB3cMRAuhPNSnW6ZWmqKY49V2c5IiK5nn5VJccHfnIESBHN9fzadsHgW9
-	Xl3+WTEZKlPTP/gQXxOBNmcm+5pZf5nfRnW+HkKaqVdVO0M7unZEoNF4KEl9D0/hrc9Gqb
-	jTvv2XpW46Zt70RZ+tso/GL43Wd/7AiEZ0vMVJoY64YbV5uAx1kHujfKwWVfZw==
-Date: Tue, 25 Mar 2025 13:19:58 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub
- Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
- Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
- Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH 3/5] arm: dts: Adjust the 'reg' range for imx287 L2
- switch description
-Message-ID: <20250325131958.552fbd0b@wsk>
-In-Reply-To: <93c9bc3d-7ad8-438e-966e-cd28a91540af@kernel.org>
-References: <20250325115736.1732721-1-lukma@denx.de>
-	<20250325115736.1732721-4-lukma@denx.de>
-	<93c9bc3d-7ad8-438e-966e-cd28a91540af@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 25 Mar 2025 13:38:18 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-30bfe0d2b6dso61178971fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 06:38:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742909893; x=1743514693; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bJcwO6oJh/3y1WM8EogHyJVWkUsi3cC2Ve5E14+wX6I=;
+        b=Zg7o/tyBxEHEuJ+Z1w4xZR/MBjsLxWVueBR+2miQE0lx0w6lA5qWgqF2h3zcuz8TRa
+         6Xb2VSM8CxSBmjwxh80P1nOtu/aNJM5RdI4IstFETVOl5fyYY17V9MdW6p73iSE14DSd
+         C6GFudXHNg2XmVt/ECcxZztym3SEv/3gJtj0nhkGxfDMtuwjfG9CJ/WFW6HTGq7Mkpqh
+         dK1Uq7at+BE4JDZkF5r6pglcBS95nr7lOPsBd3IHQOqWtocRI18BOH0CcabloEYxowR3
+         +e+WqduC4Vzm9+B7Lf9vq7EDkjT/b7UFhtymDgLMgot/l5gwBOTWMgTEgIPJ0HuZRPxR
+         K88g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742909893; x=1743514693;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bJcwO6oJh/3y1WM8EogHyJVWkUsi3cC2Ve5E14+wX6I=;
+        b=eyVUTkCYLcWumzGM5Zvx+Qx39lvRFdFw6JTS2/66gB01jvT/hQ8mnoienmus3Ne8Z9
+         Z2lRmWKepiWt4yUVvtZ10TmddDFszM2oGN8E+bLWr9u3G6A1MNfMUDzIE6p6lIZ4CaD/
+         emipFl1NwATXLfL9jvgEakb9YEn7wenL4xCvNvNocCpfoyYUV/aER1lIQOVz4pg39SE7
+         XsDIkubF/rLWSw5mCTNOCaGvL9sJIGFCLWZCfFzqMC8X1wFrhASv5m8tEhUc2fX726IZ
+         P1+ZeLnYNu8n2yp9ChHhlUEwA4FB78zQmnX87n9TxZ6Q4xilFqrENCwEAGoO9qfT0MGO
+         GzoQ==
+X-Gm-Message-State: AOJu0YysqmQLzIqT1hVV+r4NRq/pgYS9sFw4VmYC5c5XTzq27zpQOYW/
+	ZeZdZZSq404cI3f8ubuCy+kevz1VfPu7Urb+EHD5PUK/f9QuWnCS8zFtHmIRD7rVdnOPmAEYmrd
+	gwihUhpiXCaNu6ZRZhdf1cIDl1/o=
+X-Gm-Gg: ASbGncvXnJy9ks6iBXK+H1+osAI1LEOSZc8aTUwtmnWM1WcDIZhM5J7/0miAs2dHQ93
+	uoX7YtdPT4tRq9Kgam2tjllc71xGX+kryz3A0/ugVnYASta5ZX1GoKSs1dLJgtetiTQ1wVfkN5V
+	kcl84NetowS+ej5efm64ihZaI7obPF0XFza8wvB/hBGUq65r7b/naRbfKy
+X-Google-Smtp-Source: AGHT+IE2jBJpiBJtfwsHoNJN87YabNIB3Bk17olZpd4dKi/GPoInYLNljjvK/5Lld/OJTFfbkolpcu+ArxWQkLCWGFg=
+X-Received: by 2002:a05:651c:39e:b0:30d:626e:d03a with SMTP id
+ 38308e7fff4ca-30d7e2be3eemr64314551fa.34.1742909892678; Tue, 25 Mar 2025
+ 06:38:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/iHkkBmAY=t74XA_T2X_ZYbS";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20250324234013.140440-1-marex@denx.de> <20250324234013.140440-2-marex@denx.de>
+In-Reply-To: <20250324234013.140440-2-marex@denx.de>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Tue, 25 Mar 2025 10:38:00 -0300
+X-Gm-Features: AQ5f1JrOTiHA3zEWxRMp40SYF5x01ogmRGkPujdxnIUlw181i_K13kaKiIhlIDY
+Message-ID: <CAOMZO5AVRZBNntXD4p+esOFMrex4a84p12xL509Hg=cVpRnO8A@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: add initial support for i.MX
+ 95 Verdin Evaluation Kit (EVK)
+To: Marek Vasut <marex@denx.de>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, 
+	Frieder Schrempf <frieder.schrempf@kontron.de>, Hiago De Franco <hiago.franco@toradex.com>, 
+	Joao Goncalves <joao.goncalves@toradex.com>, 
+	Joao Goncalves <jpaulo.silvagoncalves@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Max Merchel <Max.Merchel@ew.tq-group.com>, Michael Walle <mwalle@kernel.org>, 
+	Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Tim Harvey <tharvey@gateworks.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052003_704572_7F61D1DE 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20250325_133816_390443_ACB15C27 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +119,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/iHkkBmAY=t74XA_T2X_ZYbS
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Mon, Mar 24, 2025 at 8:40=E2=80=AFPM Marek Vasut <marex@denx.de> wrote:
 
-Hi Krzysztof,
+> +#include <dt-bindings/pwm/pwm.h>
 
-> On 25/03/2025 12:57, Lukasz Majewski wrote:
-> > The current range of 'reg' property is too small to allow full
-> > control of the L2 switch on imx287.
-> >=20
-> > As this IP block also uses ENET-MAC blocks for its operation, the
-> > address range for it must be included as well.
-> >  =20
->=20
-> Please use subject prefixes matching the subsystem. You can get them
-> for example with `git log --oneline -- DIRECTORY_OR_FILE` on the
-> directory your patch is touching. For bindings, the preferred
-> subjects are explained here:
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-pat=
-ches.html#i-for-patch-submitters
->=20
-> Missing nxp or mxs.
+This is unused. Drop it.
 
-Ok. I will add it.
+> +/ {
+> +       model =3D "i.MX 95 Verdin Evaluation Kit (EVK)";
+> +       compatible =3D "toradex,verdin-imx95-19x19-evk",
+> +                    "fsl,imx95";
 
->=20
-> Best regards,
-> Krzysztof
-
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/iHkkBmAY=t74XA_T2X_ZYbS
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfin24ACgkQAR8vZIA0
-zr3N/gf8DYEFypnfPCvqTv0w1mjjvKAqlgERVYVIbxHIpd/6t5B0hhaY3vRUWPyJ
-VUqi8YCx8uavVTRzDM59fSfmYcFzOe7rUv9fVvS4+W3AtxqTmtndRXZUrFAtXrPf
-LwfMfvqJuoKPiLLcfPZQpNNY6iuzehkmrmcO+0MmOmsPNVHWsXUG/mmoefrSIy/Q
-yUysj6v1UeS8nm2XOXYf7Pij0CFaCgMDE7zdzziTkkLtBYywTPxMfUbNv8DjFUSX
-Xa6M/GMe39ehOU92VOjF0TRxyiDNXgRZ4kibznKZFpohskhQ1IugoT2tyXDspA6b
-JauuHhBMQ/y+Om9HVWaZV3LjzVe05Q==
-=TLOn
------END PGP SIGNATURE-----
-
---Sig_/iHkkBmAY=t74XA_T2X_ZYbS--
+The compatible string could be written on a single line.
 
