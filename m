@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74690C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7537CC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s+lwlbypyNWLM9oS//k+PaCmQcJfM6mkqUtpIKVPe4Q=; b=JVYLbGXEgfWXV9lZB5SHPYXS2E
-	z1PVwJ8Ykjr1wJh+qpJhq8FfZxKk2jOT5IRzaLLw4YF70+gJywbyqWC+32kSkj+vs4RtsLFV4rRpd
-	bg6fwzn7aiTEp3fSaKelJJh6r3aRuMU5JDz606qRUffLA93zBtLX/MO47i66xngRVgIsQvD6nwIwP
-	pHKlYjG9/+FJ+oCT/2QmEn1Gthb++V8Vv4hnWYXOWEzuNGAdqu5BQ0QoH9IK2l90htoe2Sn3Jn0TW
-	9y7sHMCsQNDxMyFsoG+LDZzUaNVwxiidGT+bhXA878Uw+YzZL8kkH3eS1eceN1S0osi5jPPxRSCYU
-	friYwh7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9okx19OZpA+5j+MdAvd2Ecd4r6SR5dnQkH8UTLcqtMA=; b=AbhTvtNW163d/CVaObVsZOk+ty
+	edSaQTGt48hAbGvVmccUcTR15GjiNa+oKXNNaRTJliuhBoCS3CoHuXqWN0XcBXwt3RchhEA0ZsaET
+	jZ1/dNA9QRJx9oXcmXa/9BGJtn6lIRs5vjSdhvIrLVJ9RzVciWpvHgIQx0oxOMvbJBbyEDhbfVRnW
+	svAg5sNIzlAj1Ws+oCCpAeGBshDd9O+gyxMtOFeplLexaOrsxV5zrHnM1KrFVY72SF29nDxdXrhJo
+	5p05pd/6amx2euDg9cYUjN0Ul9AJSuLk1bL4q95L0oTdDAxHm6bimBNvyNWCcOcWyrp5fgITa51pX
+	NxaUsroA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Uw-00000005qN0-0Cg9;
-	Tue, 25 Mar 2025 12:35:14 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tx3Wd-00000005qnS-39SF;
+	Tue, 25 Mar 2025 12:36:59 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3BL-00000005lc5-0hbS
+	id 1tx3Bb-00000005leU-2MlP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:15:00 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5499614d3d2so6363324e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 05:14:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742904897; x=1743509697; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=s+lwlbypyNWLM9oS//k+PaCmQcJfM6mkqUtpIKVPe4Q=;
-        b=X/DqllwuVMeORGHqLkvuOQrRvLmRGofHdbrkeA3hoonMArIhhlVoRv9o/P/iDUg8k6
-         vO9buSomNFahHwbTfyrg1MVCszjkX1N7oZol2HHC7rWzwvqUm3xFu7F95fi7Y1fVL8GH
-         UzVtIM1oIDCOqyvt19G1xqsCxDW5LW/O8l/jINN9Z5afmyinPjIuYXxIMq8Jz4q/RT7k
-         1wUXZVjjIKQEUqEIIvEFufP7XuHg1w7Bpd77GAef7/IQsIOdETW4fzJ2ZBJnooaANUoc
-         1NxncL9xPK2WSt6Pi+FKYWmt3DJjWCweqb44OUjKgr05iqx/3UgDtZYxwe3Xtqyq6x4c
-         A54g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742904897; x=1743509697;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=s+lwlbypyNWLM9oS//k+PaCmQcJfM6mkqUtpIKVPe4Q=;
-        b=eUUMrcy6c6iaF8j8OgANyzyNaH3xOOGYeiH//A5ufIjYYsxQEwU5tSIkFpZn0Veakw
-         Wogi7li5GiQUzEGUZt9oYGTWntuLsObcL5D8v5+0iqQMcNlSSa7pyh1Ckprznxd7O5R1
-         /etTY03vc4wiPzTZuDkiLqb6mNXHcAV4CbBhJ9p/DocH1XJ5kf6+V8sgiJxcNWxvJpCC
-         PWQyXDOZ2QggmUbF8Ke6z9N2iiZGXTMFvkI+e3yZ+desJrwEiaRwfOgMEm+JD0HCCPCn
-         GbQ3I+qPHSihmrndvWS+oYjG5dr5Spfqzn4YolIzgvstjX8UtUh/VO6j9sZYnJyXQ2kz
-         aYZA==
-X-Forwarded-Encrypted: i=1; AJvYcCVZmGQ6zAgkkkmz7YMhK4cZRexlx6DBe0BCsLJFCORhDwwsjrBZjEOMZcvBgqSNKFCckxuocSXvCxJt+FHT0KLi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOVwYEQ/aNWOK8hrVs+nYFQY65bIqzfls4PMn0V2lOO5JOYemz
-	MtLfoV3UlYuKcTM7M8iIAeeVa8VFQyL++Y8WFWEE5UQ9WkyucyANkA3PHe4L0sw=
-X-Gm-Gg: ASbGncsQJZlyVxDWw1W1w9L0y4odWAekqHdQlDILAQlVZyyVyW+GHteIvQwn15zHxZo
-	elk1EysQylr+hS4MMxgTdo9hf0ML3kCRRPBPszeEy234gDy282+tRN6uF6z91o5hVDdKvUoblwt
-	yJYsTafVc8Atfxg/Q6iUS+axuGOU5I9rVDt4md+sIbL10ff0a3XB0RMaUIeLOFzF/dWBAbYWv97
-	7k0fmjobIeI9JpMMFnpul5Ka5NtXOd5Uanv8YOK8igQpgrTzQQK/pjBoFukzmBaLCjtT63XN0k6
-	wN9UltSvJjcWoa2xsk4BFlKi0+fi/pPdAl1GyVn9bdHaxZmx9KS3HkzT2pSxc4hjePWfslNJkiN
-	9BsEKwtlsI0fFCw28EdeqTfLCp8Ojyw==
-X-Google-Smtp-Source: AGHT+IGzo1EvbrVCd9ZKmxlnNIRHybsaVGEX6jF84cBerHx8WU6tqQpBpys6UGtNAgMqTeEtrVx5Rw==
-X-Received: by 2002:a05:6512:130c:b0:545:b28:2fa2 with SMTP id 2adb3069b0e04-54ad6476fd4mr5231938e87.7.1742904896727;
-        Tue, 25 Mar 2025 05:14:56 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad651211csm1515556e87.227.2025.03.25.05.14.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 05:14:56 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain/cpuidle-psci updates for v6.15
-Date: Tue, 25 Mar 2025 13:14:54 +0100
-Message-ID: <20250325121455.36031-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Tue, 25 Mar 2025 12:15:17 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D418102F66FF;
+	Tue, 25 Mar 2025 13:15:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1742904913; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=9okx19OZpA+5j+MdAvd2Ecd4r6SR5dnQkH8UTLcqtMA=;
+	b=RDAxNLLY7NjCYc9nDp9XPBY/sX9jaLljzG7jM3kuJVgUUJ9EGP9qnv20zqYq/jCVu+G+4s
+	Y6Wr+WsadOCDrZwhb1vFIbDRgtYoGK75k7F9LddbLAmfAKwLpflfidZjb57bIcB8EXz9DJ
+	v0mInSfgKtf+VOU4Kbbp+74/VXeritZ2UpIVVZ7YL6VvbF7DkyT6bTmrokO/JgDNJsDemf
+	XqIBUp6QbmHYp2A7kzlsuE/zbgB25xjpj22T6ApRlIQWs/JHgph7x3hqQ1gi1Ob+MggWzk
+	7b+y3ih4yqzdD98wb+etvWGhl/0QRboNwsoSJr9u2nq4U3R/8WlCsVym/ceK1A==
+Date: Tue, 25 Mar 2025 13:15:07 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub
+ Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
+ Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
+ Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH 2/5] dt-bindings: net: Add MTIP L2 switch description
+ (fec,mtip-switch.yaml)
+Message-ID: <20250325131507.692804cd@wsk>
+In-Reply-To: <2bf73cc2-c79a-4a06-9c5f-174e3b846f1d@kernel.org>
+References: <20250325115736.1732721-1-lukma@denx.de>
+	<20250325115736.1732721-3-lukma@denx.de>
+	<2bf73cc2-c79a-4a06-9c5f-174e3b846f1d@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="Sig_/Zapl74rJPPeU2cp5Y+tnTMV";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_051459_209613_830E1D89 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20250325_051515_893640_7B8D5E1F 
+X-CRM114-Status: GOOD (  31.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,158 +80,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+--Sig_/Zapl74rJPPeU2cp5Y+tnTMV
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Here's the pull-request with pmdomain and cpuidle-psci updates for v6.15.
-Details about the highlights are as usual found in the signed tag.
+Hi Krzysztof,
 
-A few additional notes:
-*) I have merged an immutable tag/branch from Mark Brown's regulator tree.
-*) I made a few typos in some of the merge-commit-headers, sorry!
+> On 25/03/2025 12:57, Lukasz Majewski wrote:
+> > This patch provides description of the MTIP L2 switch available in
+> > some NXP's SOCs - imx287, vf610.
+> >=20
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> > ---
+> >  .../bindings/net/fec,mtip-switch.yaml         | 160
+> > ++++++++++++++++++ =20
+>=20
+> Use compatible as filename.
 
-Please pull this in!
+I've followed the fsl,fec.yaml as an example. This file has description
+for all the device tree sources from fec_main.c
 
-Kind regards
-Ulf Hansson
+I've considered adding the full name - e.g. fec,imx287-mtip-switch.yaml
+but this driver could (and probably will) be extended to vf610.
 
+So what is the advised way to go?
 
-The following changes since commit ef17b519088ee0c167cf507820609732ec8bad1a:
+>=20
+> >  1 file changed, 160 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
+> >=20
+> > diff --git
+> > a/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
+> > b/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml new
+> > file mode 100644 index 000000000000..cd85385e0f79 --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
+> > @@ -0,0 +1,160 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/fsl,mtip-switch.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Freescale MTIP Level 2 (L2) switch
+> > +
+> > +maintainers:
+> > +  - Lukasz Majewski <lukma@denx.de>
+> > + =20
+>=20
+> description?
 
-  pmdomain: amlogic: fix T7 ISP secpower (2025-03-05 15:51:04 +0100)
+Ok.
 
-are available in the Git repository at:
+>=20
+> > +allOf:
+> > +  - $ref: ethernet-controller.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf: =20
+>=20
+> Drop, you have only one variant.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.15
+Ok, for imx287 this can be dropped, and then extended with vf610.
 
-for you to fetch changes up to 51f0b8911ec4355cea07b180f6569cc52f65aaa8:
+>=20
+> > +      - enum:
+> > +	  - imx287-mtip-switch =20
+>=20
+> This wasn't tested. Except whitespace errors, above compatible does
+> not have format of compatible. Please look at other NXP bindings.
+>=20
+> Missing blank line.
+>=20
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    maxItems: 3 =20
+>=20
+> Need to list items instead.
+>=20
+> > +
+> > +  clocks:
+> > +    maxItems: 4
+> > +    description:
+> > +      The "ipg", for MAC ipg_clk_s, ipg_clk_mac_s that are for
+> > register accessing.
+> > +      The "ahb", for MAC ipg_clk, ipg_clk_mac that are bus clock.
+> > +      The "ptp"(option), for IEEE1588 timer clock that requires
+> > the clock.
+> > +      The "enet_out"(option), output clock for external device,
+> > like supply clock
+> > +      for PHY. The clock is required if PHY clock source from SOC.
+> > =20
+>=20
+> Same problems. This binding does not look at all as any other
+> binding. I finish review here, but the code has similar trivial
+> issues all the way, including incorrect indentation. Start from well
+> reviewed existing binding or example-schema.
 
-  firmware: thead: add CONFIG_MAILBOX dependency (2025-03-18 13:13:03 +0100)
+As I've stated above - this code is reduced copy of fsl,fec.yaml...
 
-----------------------------------------------------------------
-pmdomain core:
- - Add dev_pm_genpd_rpm_always_on() to support more fine-grained PM
+>=20
+> Best regards,
+> Krzysztof
 
-pmdomain providers:
- - arm: Remove redundant state verification for the SCMI PM domain
- - bcm: Add system-wakeup support for bcm2835 via GENPD_FLAG_ACTIVE_WAKEUP
- - rockchip: Add support for regulators
- - rockchip: Use SMC call to properly inform firmware
- - sunxi: Add V853 ppu support
- - thead: Add support for RISC-V TH1520 power-domains
+Best regards,
 
-firmware:
- - Add support for the AON firmware protocol for RISC-V THEAD
+Lukasz Majewski
 
-cpuidle-psci:
- - Update section in MAINTAINERS for cpuidle-psci
- - Add trace support for PSCI domain-idlestates
+--
 
-----------------------------------------------------------------
-Ahmad Fatoum (1):
-      pmdomain: imx: gpcv2: use proper helper for property detection
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
 
-Andras Szemzo (2):
-      dt-bindings: power: add V853 ppu bindings
-      pmdomain: sunxi: add V853 ppu support
+--Sig_/Zapl74rJPPeU2cp5Y+tnTMV
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
 
-Arnd Bergmann (3):
-      pmdomain: rockchip: add regulator dependency
-      pmdomain: thead: fix TH1520_AON_PROTOCOL dependency
-      firmware: thead: add CONFIG_MAILBOX dependency
+-----BEGIN PGP SIGNATURE-----
 
-Dan Carpenter (1):
-      firmware: thead,th1520-aon: Fix use after free in th1520_aon_init()
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfinksACgkQAR8vZIA0
+zr17vAgAgqtwGoPNUc3EI7NljZqJvIZf6svb+ViihSV8scb7rPfd86a83cfQZpfC
+Bo90ssMcSCwGTisf+VkcCumpXu3rH2TM7dC7eGc9ipr8dxD5sTgQtoek0kU51IUF
+T1TpgmyNMS8qSG+Y7Y0GRE6+iRYQQrZXSRGzBaLYmamuvJdQpIbBt1v8rSojc1R7
+qme7A5VKr8j+ERYCwjDxqV/K8PNeUaNEpRxl6QOLi2g9xqQuYWFuk5pow4OGzOv/
+/Dnv6w1tZQNueZLPtd7noEh9ic/3jNHm0/36sQBBvQZv/IWBCtHq76PH/f2dGKa2
+M2JTkCKr7K5WdSzlmXYoGCSQTrfs7g==
+=5nCI
+-----END PGP SIGNATURE-----
 
-Geert Uytterhoeven (2):
-      pmdomain: ti: Use of_property_present() for non-boolean properties
-      pmdomain: renesas: rcar-sysc: Drop fwnode_dev_initialized() call
-
-Keita Morisaki (1):
-      cpuidle: psci: Add trace for PSCI domain idle
-
-Luca Weiss (1):
-      dt-bindings: power: rpmpd: Fix comment for SM6375
-
-Michal Wilczynski (4):
-      dt-bindings: firmware: thead,th1520: Add support for firmware node
-      firmware: thead: Add AON firmware protocol driver
-      dt-bindings: power: Add TH1520 SoC power domains
-      pmdomain: thead: Add power-domain driver for TH1520
-
-Peter Geis (1):
-      pmdomain: rockchip: fix rockchip_pd_power error handling
-
-Sebastian Reichel (6):
-      regulator: Add (devm_)of_regulator_get()
-      dt-bindings: power: rockchip: add regulator support
-      pmdomain: rockchip: cleanup mutex handling in rockchip_pd_power
-      pmdomain: rockchip: forward rockchip_do_pmu_set_power_domain errors
-      pmdomain: rockchip: reduce indentation in rockchip_pd_power
-      pmdomain: rockchip: add regulator support
-
-Shawn Lin (3):
-      soc: rockchip: add header for suspend mode SIP interface
-      pmdomain: rockchip: Add smc call to inform firmware
-      pmdomain: rockchip: Check if SMC could be handled by TA
-
-Stefan Wahren (1):
-      pmdomain: bcm2835-power: set flag GENPD_FLAG_ACTIVE_WAKEUP
-
-Sudeep Holla (1):
-      pmdomain: arm: scmi_pm_domain: Remove redundant state verification
-
-Ulf Hansson (11):
-      pmdomain: core: Introduce dev_pm_genpd_rpm_always_on()
-      mdomain: Merge branch rockchip into next
-      pmdomain: Merge branch dt into next
-      pmdomain: Merge branch rockchip into next
-      MAINTAINERS: Update section for cpuidle-psci
-      pmdomain: rockchip: Fix build error
-      pmdomain: Merge branch rockchip into next
-      pmdomain: Merge tag 'v6.14-rc4' from Linus into next
-      pmdomain: Merge tag regulator-devm-of-get into next
-      mdomain: Merge branch dt into next
-      pmdomain: Merge branch fixes into next
-
- .../bindings/firmware/thead,th1520-aon.yaml        |  53 +++++
- .../bindings/power/allwinner,sun20i-d1-ppu.yaml    |   1 +
- .../bindings/power/rockchip,power-controller.yaml  |   3 +
- MAINTAINERS                                        |   7 +
- drivers/cpuidle/cpuidle-psci.c                     |   3 +
- drivers/firmware/Kconfig                           |  10 +
- drivers/firmware/Makefile                          |   1 +
- drivers/firmware/thead,th1520-aon.c                | 250 +++++++++++++++++++++
- drivers/pmdomain/Kconfig                           |   1 +
- drivers/pmdomain/Makefile                          |   1 +
- drivers/pmdomain/arm/scmi_pm_domain.c              |  11 +-
- drivers/pmdomain/bcm/bcm2835-power.c               |   1 +
- drivers/pmdomain/core.c                            |  35 +++
- drivers/pmdomain/imx/gpcv2.c                       |   2 +-
- drivers/pmdomain/renesas/rcar-sysc.c               |   2 -
- drivers/pmdomain/rockchip/Kconfig                  |   2 +
- drivers/pmdomain/rockchip/pm-domains.c             | 205 +++++++++++------
- drivers/pmdomain/sunxi/sun20i-ppu.c                |  15 ++
- drivers/pmdomain/thead/Kconfig                     |  12 +
- drivers/pmdomain/thead/Makefile                    |   2 +
- drivers/pmdomain/thead/th1520-pm-domains.c         | 218 ++++++++++++++++++
- drivers/pmdomain/ti/omap_prm.c                     |   2 +-
- drivers/regulator/devres.c                         |  17 ++
- drivers/regulator/of_regulator.c                   |  21 ++
- .../dt-bindings/power/allwinner,sun8i-v853-ppu.h   |  10 +
- include/dt-bindings/power/qcom-rpmpd.h             |   2 +-
- include/dt-bindings/power/thead,th1520-power.h     |  19 ++
- include/linux/firmware/thead/thead,th1520-aon.h    | 200 +++++++++++++++++
- include/linux/pm_domain.h                          |   7 +
- include/linux/regulator/consumer.h                 |   6 +
- include/soc/rockchip/rockchip_sip.h                |   3 +
- include/trace/events/power.h                       |  37 +++
- 32 files changed, 1076 insertions(+), 83 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
- create mode 100644 drivers/firmware/thead,th1520-aon.c
- create mode 100644 drivers/pmdomain/thead/Kconfig
- create mode 100644 drivers/pmdomain/thead/Makefile
- create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
- create mode 100644 include/dt-bindings/power/allwinner,sun8i-v853-ppu.h
- create mode 100644 include/dt-bindings/power/thead,th1520-power.h
- create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
+--Sig_/Zapl74rJPPeU2cp5Y+tnTMV--
 
