@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FD4C3600D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB1BC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GkFwRrf70rNA8OmaYxw9PFrRp7+gsmsE+hCsvNFF5YM=; b=HO6LxlSMYSNvV/J+5o83MONvOT
-	RnNOHS8MLBeyQHzZCq0ew4IREPHTZ81Z30IU4FKVXb7NA0cy7fxcc2xeebjOW88m9zD0U/sB6Q75y
-	v5qPIK38x5OVGtCcdsIYrO/fhCrW7CDBDQfK4iONAplpFFz3qGFgYqaM/4qeUcu4UqLkf1OnpRVbb
-	+uidttPG0MeGlU1M1E2NhQAxf8R0V74juJwosIPr+EKoJG0ndUUJs6BOx9mOAQHJQpmA/yolLVXO+
-	AMTSkOCkUVk1qQJdfwAFYoFyrJUMLUkFOH2n0IV3W1XqwsCAt9VUntGxCLZwVZHbArqAW9Ukr/vTR
-	jivxZX5w==;
+	bh=3nrrGGAXvdOU/6+bBe7cAYVe+CFGHogtfxkU/38B0QA=; b=la6+ZCuee77soSKFtm9dcMTiUT
+	P6u6DZYbMDQVE5Dn0JM+awNstzcKl5oOH3xOh7+LTXJPY+nX/JSw/V7mDzRtixBlxFRB1b/OZbEv1
+	BybrctMySfz9+C1SXfd9aC4Eyadyp7dJ9HTa8JySfMTXzxPMoLbB9k86h0M+xsEzc6R3rpezQYiNM
+	RnZUa/dgxauMTXMDwbdwmG0avzJ4BHxAlui3urzIsGJaFwYO5HMhgO69c7lM5eHa67q4VNjl/aXhL
+	X2XbqkXaOAftj8/L01OJOBNNB1lsSp9gAsr9hgY6sPXHtYMuI2pxE7LbWC5JWgkEap46jKvZ/EDDf
+	BAYkU9wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx8k4-00000006hKm-2qot;
-	Tue, 25 Mar 2025 18:11:12 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tx8xb-00000006icJ-3pWm;
+	Tue, 25 Mar 2025 18:25:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx8iK-00000006hAr-2HaR
+	id 1tx8vs-00000006iU7-2iVj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 18:09:26 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-227d6b530d8so47448605ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 11:09:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742926163; x=1743530963; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=GkFwRrf70rNA8OmaYxw9PFrRp7+gsmsE+hCsvNFF5YM=;
-        b=L0bXwteacazo/eLCMCBetE9ibeiI18q2AKBqpShQKLE9G9tpZ1H0FfeCeJGHdtL0Xz
-         GVD2uAfIPjEDNgmwBUQji9tKgD/lS7ztykTwlgl6VbCwP6noSdqsqwNWjy/ny8MQtLKY
-         Qj0D0P2GxY2lxlc69rTZQAbbvl8NbR7IUg8eRxgngvwSa2M8/yUHZW83/Rfd7LeCHiDQ
-         xCAXSClaPumiD0yGB8jL/De80JOK9zaf5EXOHeD5VEZYZgnWio/rNCzi+eVI7Jep1ebQ
-         LXAe4EGrqaz4JKQgKxLbycNYDqr5Nl+LwUsfBOt3gr23DXXB5DEsqVsWPCwMx9YvlzJ6
-         N07w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742926163; x=1743530963;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GkFwRrf70rNA8OmaYxw9PFrRp7+gsmsE+hCsvNFF5YM=;
-        b=bs8bRoVMyxx/WueeV4uxURC0k7LDrQSOY+0zwteCp9YHX4rnPlg/Ay5GHpchhDiJD2
-         IrC0YigbJ3A0bip0kQ4QUe0hi65zzMTwvmvCx55jA4VoxgFwwQuyRIg+03KZlN0EpL+G
-         J85SlZ9B9/ixDb2emtyYJFHUEq3IcwcHHZ1B7/iZloWzAcYQ+NmupJghRIGhuQlqzS9z
-         3IHNx/peGaW/1FPnCokVfNDwhvUmzgW7YVKDaktV4oAoXmH6lDEpP1GpVbfsSQtTltzy
-         4P9FAPulCSKforjbxsgSOsYMeZAqKQEUmgLuL4cfRXXOHltcETFU/F3MpMSXlu1ZSjWx
-         FQrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUHyz6z95SxEj6/abjlcaSxo4mtqZ0TofRg8kHTWhVnjH+4Sev2Vgdw/4pFPkneYKEiUfz4cR2gPV+eb78qDwzO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjnJPoAKbtZD+3enJoJOpbw3EDfrc29lPW35mxixMxAHh2GYLK
-	Xi9LvNOYQeYEV0oZebld8zMh8kv8O6t01fMv60xs+qln0pWa66tzN3tHEX4PuA==
-X-Gm-Gg: ASbGnctvZzRHBtZlkCARiw8hjGKKHJ0+mzOYLJS6y6dI/TZRvlM0wU8/IbrmSTafxjH
-	zLVTq6i74jFytsQS1mVTCXYAjoIGpVpxTSXPtNbvfy8dtYTM4eiXNTJUpysLGfwrH+QXB84l2Uo
-	sqk+VHHzRpF/9/DCar1l8r1PaXntARsL3JMTB69HLHHY0PXAwxnJerF6yZN6ZCw6Sh4widm2VdZ
-	1d3gmF07aJMUB+ul7Pxw3fT/ZMiIzE+5LP4aYzKZK/IxJBb4LjIyqgCLgLPtbFIwf9u9tMc5tm8
-	sb581AIHC6aGVnsjZukkFqUa6HvVKa+vNpr7Fiz51mq7OPvtYjCZ94kZDhGqmemk1Dk=
-X-Google-Smtp-Source: AGHT+IHsQEtK5eDuRWsdEQBYf6f44q2yB07kDLfDBWhVOxMWTo+zOzGbIhIFFRGiGOEd2PP4iDFCkA==
-X-Received: by 2002:a17:902:f693:b0:226:3781:379d with SMTP id d9443c01a7336-22780e1044fmr239586185ad.33.1742926163021;
-        Tue, 25 Mar 2025 11:09:23 -0700 (PDT)
-Received: from thinkpad ([120.60.136.104])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f3962esm93992265ad.4.2025.03.25.11.09.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 11:09:22 -0700 (PDT)
-Date: Tue, 25 Mar 2025 23:39:15 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v12 06/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
- checking and debug
-Message-ID: <3rtte7uyv7gilxnstcxjizpkdlfk5rfxwyc3bd4ednjakn5rfc@fhidkj5vvmtf>
-References: <x2r2xfxrnkihvpoqiamgjmvppverjugp5r4we7lcfpz6jloxzy@7kdfzxiwv2po>
- <20250324200437.GA1257874@bhelgaas>
+	Tue, 25 Mar 2025 18:23:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 117D95C5DCD;
+	Tue, 25 Mar 2025 18:21:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82BDDC4CEE4;
+	Tue, 25 Mar 2025 18:23:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742927003;
+	bh=wBXyK5/v+zshiQ5AJ78U67rSVAz/Ur6ZkcGgzsmTp8M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Modie2getBGH7oWwsObJBFzjFv49uLHLKNDG1G/a3eAgXCOBzRiogF11g6dYAxV4/
+	 XvODcc00PjgRmLF7zSjwmm0Tpd30g+oSgZG05WokPSNbP7+2y35JjcFtcuEbU6nqZQ
+	 0ILc8m0lZ0zNxr6zSU2ib+ByI33v+kIhjh9OboonFyJccND/IPWG6asVgfkH2PtaZT
+	 lkYBRX6318Q8hN26hmNu8ChHVoWvrZLzFwaisA98ve70kYEN2+C/m4QJhWL9IAo90+
+	 k4Y/SaeRt1nL4ZRvplFOU1/TxTwxbGxeA9RVVaDXEFcSNuHuFe7Sd0OlHR7mAT4iu9
+	 u8iIJ9E6D/oPw==
+Date: Tue, 25 Mar 2025 18:23:16 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
+	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
+	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
+	liaochang1@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/7] arm64: uaccess: Add additional userspace GCS
+ accessors
+Message-ID: <203a89bc-75d1-4ab0-ab42-52616103ad72@sirena.org.uk>
+References: <20250318204841.373116-1-jeremy.linton@arm.com>
+ <20250318204841.373116-4-jeremy.linton@arm.com>
+ <50a0920d-3e3d-4e96-b68a-a7a0d78c3695@sirena.org.uk>
+ <e8ada81d-0e10-412b-8792-035bc63113a6@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="XP2AO17pHJsMVVJY"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250324200437.GA1257874@bhelgaas>
+In-Reply-To: <e8ada81d-0e10-412b-8792-035bc63113a6@arm.com>
+X-Cookie: Visit beautiful Vergas, Minnesota.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_110924_590653_9F721C2F 
-X-CRM114-Status: GOOD (  47.06  )
+X-CRM114-CacheID: sfid-20250325_112324_799974_33B3613B 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,164 +84,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 24, 2025 at 03:04:37PM -0500, Bjorn Helgaas wrote:
-> On Mon, Mar 24, 2025 at 11:00:24PM +0530, Manivannan Sadhasivam wrote:
-> > On Sat, Mar 15, 2025 at 03:15:41PM -0500, Bjorn Helgaas wrote:
-> > > From: Frank Li <Frank.Li@nxp.com>
-> > > 
-> > > dw_pcie_parent_bus_offset() looks up the parent bus address of a PCI
-> > > controller 'reg' property in devicetree.  If implemented, .cpu_addr_fixup()
-> > > is a hard-coded way to get the parent bus address corresponding to a CPU
-> > > physical address.
-> > > 
-> > > Add debug code to compare the address from .cpu_addr_fixup() with the
-> > > address from devicetree.  If they match, warn that .cpu_addr_fixup() is
-> > > redundant and should be removed; if they differ, warn that something is
-> > > wrong with the devicetree.
-> > > 
-> > > If .cpu_addr_fixup() is not implemented, the parent bus address should be
-> > > identical to the CPU physical address because we previously ignored the
-> > > parent bus address from devicetree.  If the devicetree has a different
-> > > parent bus address, warn about it being broken.
-> > > 
-> > > [bhelgaas: split debug to separate patch for easier future revert, commit
-> > > log]
-> > > Link: https://lore.kernel.org/r/20250313-pci_fixup_addr-v11-5-01d2313502ab@nxp.com
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pcie-designware.c | 26 +++++++++++++++++++-
-> > >  drivers/pci/controller/dwc/pcie-designware.h | 13 ++++++++++
-> > >  2 files changed, 38 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-> > > index 0a35e36da703..985264c88b92 100644
-> > > --- a/drivers/pci/controller/dwc/pcie-designware.c
-> > > +++ b/drivers/pci/controller/dwc/pcie-designware.c
-> > > @@ -1114,7 +1114,8 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
-> > >  	struct device *dev = pci->dev;
-> > >  	struct device_node *np = dev->of_node;
-> > >  	int index;
-> > > -	u64 reg_addr;
-> > > +	u64 reg_addr, fixup_addr;
-> > > +	u64 (*fixup)(struct dw_pcie *pcie, u64 cpu_addr);
-> > >  
-> > >  	/* Look up reg_name address on parent bus */
-> > >  	index = of_property_match_string(np, "reg-names", reg_name);
-> > > @@ -1126,5 +1127,28 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
-> > >  
-> > >  	of_property_read_reg(np, index, &reg_addr, NULL);
-> > >  
-> > > +	fixup = pci->ops->cpu_addr_fixup;
-> > > +	if (fixup) {
-> > > +		fixup_addr = fixup(pci, cpu_phy_addr);
-> > > +		if (reg_addr == fixup_addr) {
-> > > +			dev_warn(dev, "%#010llx %s reg[%d] == %#010llx; %ps is redundant\n",
-> > > +				 cpu_phy_addr, reg_name, index,
-> > > +				 fixup_addr, fixup);
-> > > +		} else {
-> > > +			dev_warn(dev, "%#010llx %s reg[%d] != %#010llx fixed up addr; devicetree is broken\n",
-> > > +				 cpu_phy_addr, reg_name,
-> > > +				 index, fixup_addr);
-> > > +			reg_addr = fixup_addr;
-> > > +		}
-> > > +	} else if (!pci->use_parent_dt_ranges) {
-> > 
-> > Is this check still valid? 'use_parent_dt_ranges' is only used here for
-> > validation. Moreover, if the fixup is not available, we should be able to
-> > safely return 'cpu_phy_addr - reg_addr' unconditionally.
-> 
-> Yes, that's true IF the devicetree has the correct 'ranges'
-> translation.  This is to avoid breaking platforms with broken
-> devicetrees.
-> 
 
-You mean the driver without cpu_addr_fixup() and devicetree with broken 'ranges'
-property? So the existing platforms... Not a bad idea though.
+--XP2AO17pHJsMVVJY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> > > +		if (reg_addr != cpu_phy_addr) {
-> > > +			dev_warn(dev, "devicetree has incorrect translation; please check parent \"ranges\" property. CPU physical addr %#010llx, parent bus addr %#010llx\n",
-> > > +				 cpu_phy_addr, reg_addr);
-> > > +			return 0;
-> > > +		}
-> > > +	}
-> > > +
-> > > +	dev_info(dev, "%s parent bus offset is %#010llx\n",
-> > > +		 reg_name, cpu_phy_addr - reg_addr);
-> > 
-> > This info is useless on platforms having no translation between CPU and PCI
-> > controller. The offset will always be 0.
-> 
-> You're right.  This was probably an overzealous message for any
-> possible issues.
-> 
-> What would you think of the below as a replacement?  It should emit at
-> most one message, and none for platforms where devicetree describes no
-> translation and there never was a .cpu_addr_fixup().
-> 
-> It's still pretty aggressive logging, but I'm just concerned about
-> being able to quickly debug and fix any regressions.  Ideally we can
-> revert the whole thing eventually.
-> 
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-> index 27b464a405a4..4b442d1aa55b 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware.c
-> @@ -1114,7 +1114,8 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
->  	struct device *dev = pci->dev;
->  	struct device_node *np = dev->of_node;
->  	int index;
-> -	u64 reg_addr;
-> +	u64 reg_addr, fixup_addr;
-> +	u64 (*fixup)(struct dw_pcie *pcie, u64 cpu_addr);
->  
->  	/* Look up reg_name address on parent bus */
->  	index = of_property_match_string(np, "reg-names", reg_name);
-> @@ -1126,5 +1127,42 @@ resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
->  
->  	of_property_read_reg(np, index, &reg_addr, NULL);
->  
-> +	fixup = pci->ops ? pci->ops->cpu_addr_fixup : NULL;
-> +	if (fixup) {
-> +		fixup_addr = fixup(pci, cpu_phys_addr);
-> +		if (reg_addr == fixup_addr) {
-> +			dev_info(dev, "%s reg[%d] %#010llx == %#010llx == fixup(cpu %#010llx); %ps is redundant with this devicetree\n",
-> +				 reg_name, index, reg_addr, fixup_addr,
-> +				 (unsigned long long) cpu_phys_addr, fixup);
-> +		} else {
-> +			dev_warn(dev, "%s reg[%d] %#010llx != %#010llx == fixup(cpu %#010llx); devicetree is broken\n",
-> +				 reg_name, index, reg_addr, fixup_addr,
-> +				 (unsigned long long) cpu_phys_addr);
-> +			reg_addr = fixup_addr;
-> +		}
-> +
-> +		return cpu_phys_addr - reg_addr;
-> +	}
-> +
-> +	if (pci->use_parent_dt_ranges) {
-> +
-> +		/*
-> +		 * This platform once had a fixup, presumably because it
-> +		 * translates between CPU and PCI controller addresses.
-> +		 * Log a note if devicetree didn't describe a translation.
-> +		 */
-> +		if (reg_addr == cpu_phys_addr)
-> +			dev_info(dev, "%s reg[%d] %#010llx == cpu %#010llx\n; no fixup was ever needed for this devicetree\n",
-> +				 reg_name, index, reg_addr,
-> +				 (unsigned long long) cpu_phys_addr);
+On Fri, Mar 21, 2025 at 06:43:23PM -0500, Jeremy Linton wrote:
+> On 3/19/25 8:24 AM, Mark Brown wrote:
 
-So this check is to detect the usage of old DTs with new kernel without
-cpu_addr_fixup()? If so:
+> > A GCS load done by the hardware will verify that we are loading from GCS
+> > memory (the accesses are marked as AccessType_GCS in the pseudocode
+> > which is then validated in for example S1CheckPermissions()).  Sadly
+> > there's no equivalent of GCSSTR so we'd need to do the permission check
+> > ourselves to match this behaviour.
 
-(1) The log is not accurate
-(2) The driver would be broken, so the log should be an error. This condition
-should not be met (if we do not remove the fixup for some time). But I think
-this check should be moved ahead of cpu_addr_fixup() so that the correct DTs
-would be honored first and the fixup would be ignored for them.
+> Right, except that if I grab the VMA as a placeholder for the page, check to
+> see if its a VM_SHADOW_STACK under any of
+> map_read_lock()/lock_vma_under_rcu()/etc and then perform the access, the
+> resulting possible fault will have problems with vma locking. Otherwise
+> there ends up being a few different races that at the moment I've not yet
+> figured out how to fix without making a big mess. For example, we can reduce
+> that possible window, by reading the value/locking and checking shadow stack
+> state/dropping the lock/rereading the value, or some other construct but it
+> seems pointless because the suggested problem is that we might be creating a
+> way to bypass some of the shadow stack security. In which case, leaving a
+> little race is likely the same as leaving it wide open.
 
-- Mani
+Yeah, it's messy.  The "nicest" thing I could think of was doing a GCS
+store of the value we just read to validate the GCS permission but that
+has very obvious ick and is in it's own way incorrect.  Since the GCS
+permission is always read/write I'm not sure what would notice without
+an incredibly dodgy race but it's wrong.
 
--- 
-மணிவண்ணன் சதாசிவம்
+> Otherwise, maybe we can ignore the problem, or just refuse to allow probes
+> on 'RET' instructions which seems to be the main problematic case. Although,
+> given we don't really know if GCS is enabled until the probe is hit,
+> SIGSEG'ing the target process is a big hammer.
+
+Yeah, that doesn't feel like the solution.
+
+> Ignoring it might be a valid option. I guess it could to be one of those "if
+> the user puts a uprobe on a RET some of the shadow stack security is
+> reduced" footguns. If an attacker can also manipulate the address space in a
+> way to exploit it then its probably game over anyway. Ideally, the kernel
+> would warn on this, but per the conversation around patch 6/7 that seems to
+> be off the table.
+
+I'm not completely opposed to just not doing the validation given the
+pain with implementing it, it's hard to be enthusiastic about any of the
+options really.  If we are going to do something other than fully
+and accurately emulate then we should acknowledge what's missing and
+why, at least in the changelog and probably also in the code.
+
+--XP2AO17pHJsMVVJY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfi9JMACgkQJNaLcl1U
+h9BVLgf9EGjIyA/yyo9Zc1l0VBnDeFJuL1QxPKsgq61Al37wBaxFi6YFTJp6uGYG
+0frvA6r4/tMT4Tb1MTCwqp4BrIC9Iow8m17C16HRSDdG8yLxkIJgsH9nWGBZX55w
+yLANK/H3BBc06kKKOYJqojJ2kjgFj+0JuD8JoKY4VUxEeUVFgv66n/LNb0+wWw5c
+iRdolRJg/KGnQhYBpaWU8+A/HUEO14I/Te0DQCBe3q7DLLJhzruAW5SttcTElZDp
+S4SjdGtbN3ES8fUObvqPKXq0KX/3YrsWlRmSQP9K6+PfbbmpksndRfyoNHZU8gkk
+FY5l02qmP5eNnHNn3MFJ9m7WbyIcRw==
+=agKn
+-----END PGP SIGNATURE-----
+
+--XP2AO17pHJsMVVJY--
 
