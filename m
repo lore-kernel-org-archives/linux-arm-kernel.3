@@ -4,66 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE3AC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 17:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B070FC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 17:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mL3bac11gJdmSQ9jSxEhzOMHHT6cgkydJIwgZXReIJo=; b=3ThKepR7BI5YyTOgwSJ22iOC6X
-	lgaqT11Q6MKTV3kFjRJKGqayUxTJXgqjrrfLiUjuFK8UQ5mkSvaNnS0Tp0dpTFrn3TU8FwpgWDb2z
-	Ug607H45wYW8HYPsbrPBJaM7EB/HJWT0zPsNhV1Q/P89w14xCt4LWYXSYlPus0lz1TYjhSbk3yFTu
-	4i5uNYUugrwfzBZ7sEfhOId4144D/hzmk5APAU4xOC0zcPMBeiL9S0nAg4d3+4ejZMd2f4JMeaoyN
-	lZYF3Ba9n6go7/LNU86eOT7/4REgyt7s99splDIr0wARqtolv8eDC1q/SPpknOS8WDMK0khvW6bFp
-	P+W9Fu/A==;
+	bh=A/Zq5XGT/kIlWyhGINZJV5aAesNid1InPW+t4ko0jbc=; b=FZe1XcMd6tHJ+tBgLaygrdTjaS
+	2yLtg2YXQHzxRJWp1ZekKE9svD3+q7R/PXYVLDKItRYnw9wPRQlkXTdx776z1/zUxvD5h+abs8OHt
+	ZgCx0nu1ajA78GV7SxPofm1OtdLvT+j9kLNINE33iqXgege4tW7Sy1ICi/H8jrY+hnl8TdY2BXkRr
+	7leMF1yjBevHPsl/cTv/1VPzPkaC4hOqcZxsxlAItBHNGz3OWb7+LCtHO0hHsJBzy7JRPaAYVjWiS
+	6DlIaDonbTznlh69dfeiswCNshNeTMSR8eHfOhWc9YXHqa+pQJK1UaT8+soPT2h68cL43ZQ5LDdcY
+	rq3bqmbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7q6-00000006aSX-2nwL;
-	Tue, 25 Mar 2025 17:13:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7oN-00000006aJE-01jZ
+	id 1tx7s0-00000006ajo-1sWv;
+	Tue, 25 Mar 2025 17:15:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tx7q5-00000006aS8-0LIZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 17:11:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93CEE1756;
-	Tue, 25 Mar 2025 10:11:37 -0700 (PDT)
-Received: from [10.57.41.156] (unknown [10.57.41.156])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 940363F58B;
-	Tue, 25 Mar 2025 10:11:26 -0700 (PDT)
-Message-ID: <bcaa98c0-4218-470d-981d-9ab0894d3b1b@arm.com>
-Date: Tue, 25 Mar 2025 18:11:24 +0100
+	Tue, 25 Mar 2025 17:13:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D50B43D39;
+	Tue, 25 Mar 2025 17:13:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3F44C4CEEA;
+	Tue, 25 Mar 2025 17:13:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742922800;
+	bh=jGnsNNqQFq4AFO1RW92tn8Xhe0BA642opne2cbpSA5o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gPVu/LM1wKIDTkspAc7J/yrSrVRVXQduRpKBOP6TIV/6w8yqnQgqZQPJQPTLEgAei
+	 DLsQniEdkNW/vkjwGI3pbDZQsGcH58JJQuOQjhJyheHoehmCr35BpUrQRGefSUBiQc
+	 AZjrLGWlUpDeA9agOxNgB5CSeCKk1DrbYsYiQj9j3XT7QMAzeHtQ5nJTnl8Tc/UENQ
+	 lE5+evjrmlabTa53FNOxfInA3Pj5pt/kcvcU4GcPKN7Vx7AfGy1iSANRj7LSW0AHsK
+	 lZrAjmDCUpsFvyyhz1f28oXqj4BLuoVvOzKg+t+yEZMpkKuzCCy0JWp6Co7xft70vh
+	 FNd5blcpRBa8g==
+Message-ID: <39ec01b8-c2d7-47c3-90d9-32fe41f08a5d@kernel.org>
+Date: Tue, 25 Mar 2025 18:13:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
-To: Maxwell Bland <mbland@motorola.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
- <a32cjyekuecoowzbitc2xykilvpu6l3jjtityp7x5hw7xbiysp@5l2lptwmqiug>
- <802963a0-32bd-49e8-82b1-34443acdd5ae@arm.com>
- <epnxrdkidbrjyjzapms7dfsvjcc7ewewjue7khbuxhresy5x5n@hyhokacdi2yg>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <epnxrdkidbrjyjzapms7dfsvjcc7ewewjue7khbuxhresy5x5n@hyhokacdi2yg>
+Subject: Re: [PATCH 5/5] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
+ Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>,
+ netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>
+References: <20250325115736.1732721-1-lukma@denx.de>
+ <20250325115736.1732721-6-lukma@denx.de>
+ <32d93a90-3601-4094-8054-2737a57acbc7@kernel.org>
+ <20250325142810.0aa07912@wsk> <0a908dc7-55eb-4e23-8452-7b7d2e0f4289@lunn.ch>
+ <20250325173846.4c7db33c@wsk>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250325173846.4c7db33c@wsk>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_101135_142130_5BF65A78 
-X-CRM114-Status: GOOD (  46.18  )
+X-CRM114-CacheID: sfid-20250325_101321_168431_A5BE98D3 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,136 +128,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2025 22:54, Maxwell Bland wrote:
-> [...]
->
-> Onto the solution. In a pure-immutability approach, I ended up creating
-> some definitions regarding what an "expected" virtual-to-physical
-> mapping of kernel memory or change in page permissions is (my solution
-> was to treat init_mm as a ground truth structure which is only RW under
-> a more refined set of constraints on mapping updates and permission set
-> updates), for example,
->
-> if (get_tag(cur_pte & EL1_PADDR_MASK) == SECCOMP_PAGE) {
-> // run BPF re-verifier to avoid the Qualys 2021 CVE PoC magic
->
-> or forcing PXN for everything always unless some other check says we
-> absolutely have to make this PX:
->
-> if (!cur_pte && new_pte) {
->   if (!(new_pte & pxn_bit)) {
->     new_pte |= pxn_bit; 
->
-> And then a bunch of additional infrastructure to define what a "safe
-> mapping of physical memory looks like", which introduces its own set of
-> problems for defining how/where vmalloc allocates from, physical address
-> layout randomization, ...
->
-> Such an explication of the expected possible modifications to PTEs may
-> be needed? I don't understand whether just adding guard() around set_pte
-> helps this case.
-
-If I understood correctly the case you're referring to, the simple
-answer is that it doesn't. If some driver explicitly updates page
-tables, and then some exploit hijacks those pgtable updates, then kpkeys
-won't help at all. I see two separate problems here: ensuring that the
-appropriate interface is used to write to pgtables (or other objects),
-and then constraining which pgtables exactly a certain context can
-manipulate via this interface. kpkeys addresses the first problem, which
-you could say is a low-hanging fruit. The second problem clearly needs
-addressing for a strong protection of page tables, but I don't think
-kpkeys can directly help with that.
-
-> [...]
->
->>> Where overwriting f_op is a "classic" bypass of protection systems like
->>> this one.
->> Indeed, this has been pointed out to me on a few occasions. On that note
->> I should reference the follow-up series that aims at protecting struct
->> cred [1].
+On 25/03/2025 17:38, Lukasz Majewski wrote:
+>>>>
+>>>> I don't understand this code. Do you want to re-implement
+>>>> get_optional? But why?  
+>>>
+>>> Here the get_optional() shall be used.  
 >>
->> Using kpkeys to ensure that the task->cred pointer itself is mostly
->> read-only is not straightforward, because there is just too much
->> existing code that directly writes to other fields in task_struct -
->> meaning we can't simply make the whole task_struct mostly read-only.
->> What could be done is to split out the cred fields in a separate
->> kpkeys-protected page, and link that page from task_struct. There is a
->> clear overhead associated with this approach though, and maybe more
->> importantly we have just displaced the issue as the pointer to that
->> protected page remains writeable... I'm not sure how much a page-based
->> technique like pkeys can help here.
-> __randomize_layout accomplished some of what is necessary here, while
-> accommodating contemporary hardware limitations, albeit to a finer
-> granularity and lesser degree. I am also not sure how well it works on
-> production systems (yet! It is on my TODO list in the short term), or
-> how much protection it really implies for an adversary with a "read
-> gadget" that can determine where to write (either from associated asm or
-> from the struct itself).
->
-> But...
->
-> (1) After thinking about this for a few hours, __randomize_layout implies
-> something valuable: under circumstances where this is supported, because
-> we assume the struct's layout itself is modifable, it becomes possible
-> to introduce a canary value _not_ for the modifiable portions, but just
-> for the non-modifiable portions, store this canary value in a strictly
-> read-only region of memory that also tracks pointers to the structure,
-> and ensure uses of the non-modifiable fields must always leverage the
-> canary value stored in this secondary region.
+>> This is the problem with trying to use old code. It needs more work
+>> than just making it compile. It needs to be brought up to HEAD of
+>> mainline standard, which often nearly ends in a re-write.
+> 
+> But you cannot rewrite this code from scratch, as the IP block is not
+> so well documented, and there maybe are some issues that you are not
+> aware of.
+> 
+> Moreover, this code is already in production use, and you don't want to
+> be in situation when regression tests cannot be run.
 
-I don't think this can be enforced with pkeys, since the overall struct
-would have to remain RW. But I'm not sure I completely understand how
-that scheme would work overall, or how __randomize_layout is a
-prerequisite for it.
+This is a good reason to add it to staging, but not to mainline. Just
+because someone has somewhere products with poor code is not the reason
+to accept that poor code. Otherwise all the people and companies who
+upstream BEFORE would be quite disappointed. Why anyone would care to
+work on upstreaming BEFORE hardware release, if you can ship whatever to
+production and then ask mainline to pick up "because it is in production
+use".
 
-> [...]
->
-> It may be possible to write a plugin modification to
->
-> https://github.com/gcc-mirror/gcc/blob/12b2c414b6d0e0d1b3d328b58d654c19c30bee8c/gcc/config/arm/aarch-bti-insert.cc
->
-> To also inject the POE/register set instructions conditioned upon the an
-> expected privilege (kpkeys) level of the executing function.
->
-> Instead of adding code to set the privilege state via a specialized
-> callgate function, having this function's call explicitly tied into the
-> GCC CFI instrumentation pass. Determination of the specific "key level",
-> i.e. KPKEYS_LVL_PGTABLES, could likely be determined by the file
-> name/path via the compiler, or many other clever mechanisms, potentially
-> with support for exceptions via function attribute tags.
-
-Right I'm with you now. This is actually something we considered, but
-I'm not sure it really helps all that much. Adding a guard object to a
-function is basically the same amount of churn as marking that function
-with an attribute, except it doesn't require compiler support. It would
-get more useful if you wanted all functions in a file to switch kpkeys
-level (using a compiler flag), but for the purpose of making certain
-data mostly read-only, I doubt you actually want that - the granularity
-is just too coarse.
-
-A different angle would be use an attribute to mark struct members,
-rather than functions. That would instruct the compiler to switch kpkeys
-level whenever that member is written (and only then). You would
-probably want to forbid taking the address of the member too, as the
-compiler can't easily track that. That said this doesn't solve the
-bigger issue of existing code expecting to be able to write to other
-members in the struct. It most likely works only if the kpkeys switch is
-done when writing to any member of the struct (which may get very
-expensive).
-
-> [...]
-> Noticed as well, just now, the reliance on the static_key for branch
-> unlikely ... the following data structure (at the end of this email) may
-> be of interest as an FYI ... it can be used to track whether the kernel
-> self patching API is only being used to patch expected locations.
->
-> I use this right now with additional checks that the instruction being
-> written for the indirect branch matches the expected offset.
-
-Are there exploits out there corrupting the address of a static branch?
-This seems difficult to me in practice because the __jump_table section
-where the addresses of instructions to be patched are stored is marked
-__ro_after_init.
-
-- Kevin
+Best regards,
+Krzysztof
 
