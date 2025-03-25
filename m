@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E699CC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C181C3600D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCuZIdUEm0QWQuqdvQk8bF8aibatk8qGzYP76myy1Xo=; b=scobtlogPNv7mIvpwhsxk4BwXF
-	8BYxpI40V59SjoceABroGQsmwldX3wvWkkWZ9vziFScbdX79GxrZExX9GyAIuHhoE1Br5K6wKGmw1
-	myilrH51L1E74UoxDfbgMaNDX4ZeKHM7sachrlQ52ZLX5ChqddQSn/4uF/zAJuFTav/Ge2AJ6BS5/
-	6jdSkgyyuI+MTG4/6IO9Tw5c69QNpz6VqA4Qs2dHhhhBZIa2hU8qFekpswM/+AI5w3AJktiVTMlUJ
-	DVmfZErIurfdLR2ye2K8mhOnonD97gJBkVOIN4thsurCpoeLiqpioRz7yV0R0c4xVJRL41AyhGSou
-	46pRuVAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=31T3cY8R212Z8aHTs5rhNTvbbB/uMz7MjuMUCXin76Y=; b=0czMq2jJaVQ24L25+z4iDiTH+i
+	RyX9AdGU+RHIT2g/svFShBOpgkyhdgTxvQTvBHk8DESlr8SZoBq3kqejClY2TSR0nOawBOTxDfhqj
+	UXOsUqTfbr65ml8IGtLFWcfUdapDJzwIypkaDBdRKpN/c0ZpfUqbSCRwXp4boElG+XoMddN+9DjwG
+	LrWcJlSrNg/eqmMlMEKhWFsdax+mrembHmCL4MITP0DJa53yesdZUKlyG1UoujRkY1MmoxhzHg511
+	D0PTOtL7Y8ldVQ9+twRStGfRJ4l2Um3SrEihUxA7mSF9LV3V8Q91dTioRDZ12EDaONPLQ86JHu7ct
+	kVQvetaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx72I-00000006T2R-2gqp;
-	Tue, 25 Mar 2025 16:21:54 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tx73z-00000006TCH-2daF;
+	Tue, 25 Mar 2025 16:23:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6t4-00000006RiS-21FK
+	id 1tx5wH-00000006Ico-3lFO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 16:12:23 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 564B5102F66E4;
-	Tue, 25 Mar 2025 17:12:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742919139; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=OCuZIdUEm0QWQuqdvQk8bF8aibatk8qGzYP76myy1Xo=;
-	b=aq0uJpy6Wp06yKfxV/hPNUiV24cd6mrnOWV4CE+8kfJBqN4oGmgoSUAcXMxOFAu5K8uoPq
-	aOOJI7VMVVHpQssTy9rh+Zxg+zWIJfrKhPErtAqbMYR1HxyWQ1fYv1i8SJbbOPP+jtWK+I
-	2w1/G0d9pKzC7lrHR+odcAgZqSkBD+uDrQnr9cIejI7sLvvN8PfA7/+HwmHP0ss0U5amVA
-	9uM1StWAo9+ovfCtq9IGG68B3G38MB40YR5IWv+mWqBtE7QZ/JEyCyuG80xA88fZyRURoC
-	scOhKT7Y5tgY+UlS0wn/6+bOVsFLoHR69E+bSx8QssbDMQUuBu3c/Mc/ZHJ3iQ==
-Date: Tue, 25 Mar 2025 17:12:13 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub
- Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
- Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
- Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH 2/5] dt-bindings: net: Add MTIP L2 switch description
- (fec,mtip-switch.yaml)
-Message-ID: <20250325171213.61de8d6b@wsk>
-In-Reply-To: <2ccab52d-5ed1-4257-a8f1-328c76127ebe@lunn.ch>
-References: <20250325115736.1732721-1-lukma@denx.de>
-	<20250325115736.1732721-3-lukma@denx.de>
-	<2ccab52d-5ed1-4257-a8f1-328c76127ebe@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 25 Mar 2025 15:11:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D57143CE2;
+	Tue, 25 Mar 2025 15:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C688C4CEE4;
+	Tue, 25 Mar 2025 15:11:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742915497;
+	bh=31T3cY8R212Z8aHTs5rhNTvbbB/uMz7MjuMUCXin76Y=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=apa/XgsnwVd9nOb104wW3rJPdy4fsX4KHS7YuNwZNx7IXRYb2rMvZpWyh3H96xzkl
+	 HD7zsjTZAzj0u2HBcFWHipwm96K6sLdM9o2s6qs1e2NSekXo7yhuH03nuzSEsCfcy6
+	 3PqXuCLLAr5vVcB6mjV9xUXT+LifQtVX8zzRDG0EU6HiXOvl1fIkq9UkUNFxQneKkx
+	 VbH+xCdBzG+XWvJvO/E/3nADw72B42cTxghDKAMX/JhmJ2fNEMTpKuxHO9VFDRWQy3
+	 cMsy/zmsiAVnRNRZaZSqyer7kk3IAEgxTBgXt/S18OD4aj2uAjTWvvHgHb3GL8bNrU
+	 d9HfLvCQylkFw==
+Message-ID: <a3c5e4c369397efcf92dfb4ab6b0fb34@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/BTpJUUNgSsmMxe6X4ageVFE";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250323-s2mpg10-v1-26-d08943702707@linaro.org>
+References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org> <20250323-s2mpg10-v1-26-d08943702707@linaro.org>
+Subject: Re: [PATCH 26/34] clk: s2mps11: add support for S2MPG10 PMIC clock
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, kernel-team@android.com, linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, =?utf-8?q?Andr=C3=A9?= Draszik <andre.draszik@linaro.org>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Alim Akhtar <alim.akhtar@samsung.com>, =?utf-8?q?Andr=C3=A9?= Draszik <andre.draszik@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Will Deacon <will@kernel.org>
+Date: Tue, 25 Mar 2025 08:11:35 -0700
+User-Agent: alot/0.12.dev8+g17a99a841c4b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_091222_675083_7C1B6079 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20250325_081137_955387_B7EA5EBA 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +72,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/BTpJUUNgSsmMxe6X4ageVFE
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-
-Hi Andrew,
-
-> > +  phy-reset-gpios:
-> > +    deprecated: true
-> > +    description:
-> > +      Should specify the gpio for phy reset. =20
+Quoting Andr=C3=A9 Draszik (2025-03-23 15:39:42)
+> Add support for Samsung's S2MPG10 PMIC clock, which is similar to the
+> existing PMIC clocks supported by this driver.
 >=20
-> It seem odd that a new binding has deprecated properties. Maybe add a
-> comment in the commit message as to why they are there. I assume this
-> is because you are re-using part of the FEC code as is, and it
-> implements them?
-
-+1
-
+> S2MPG10 has three clock outputs @ 32kHz: AP, peri1 and peri2.
 >=20
-> 	   Andrew
->=20
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> ---
 
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/BTpJUUNgSsmMxe6X4ageVFE
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfi1d0ACgkQAR8vZIA0
-zr2V+gf+JAQoDZbvVcOrU8Xf5yrlKENSX8KVhYJexfgs+qiD+wvn+CS8kUCphBCk
-rDQbqUh8g3qjogX3/PH1NWqIlXvz7EO55+P39PQExyszRX3HpW7ibOaTWMgnnWa4
-Ik2qLNREr7mWs83euMDjk21zx0+SacLsJ9I8A0k60wY720aUaxwAFm7p/uhTIvTo
-TdCeHqeaKWV/2ui8a2fnR5TNaM9LuCF2a+xxbv9OiqYdHlPVLQyFMtm7AZ4RWT+A
-AGnhGvNGIX87TACwdl5FRb85sSxbUbd2jLMzT04w268IgsXKhqMRmXyAxmktKSMx
-Z4U/nFhivYUqaXt05MM8Id9eAZ20/g==
-=vard
------END PGP SIGNATURE-----
-
---Sig_/BTpJUUNgSsmMxe6X4ageVFE--
+Acked-by: Stephen Boyd <sboyd@kernel.org>
 
