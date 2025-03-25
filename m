@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E4EC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 20:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D15C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 20:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=41s30YXXRbwXzRGFeyeJrCXKI9NiwCNsTttTjp35lHE=; b=qzyZcu+5fxTLo/hQAyk266P7pz
-	G4wDiaJxiOU9uxu5sgaubi+oaAVSUiggiIuURhHSRRZYJ+BSA8gOFQtiaXilfPcHmRXqKgiO+ICXY
-	uERZneEQic3cL6J4kwhs5m6b3hCXquQkrdsijnKIfeTLIslgR5GOqSMQQ3+yEPgiPwG7gXbftixQw
-	oVNZZSZPJnGtY8DWObGvyxtjYwWT2r4HlpzeLZhsLUX0l6S9Ro2aBq9yPVqZ5bk/JvnfHUN3zwfdG
-	PdtrJBxmSbhPVypG/TlIUEgLWvA7MeeBs5WEmG00lUklm2V+N6nrh9zYyp4fJOAFjNkDT89T4b7nn
-	KZLgJldQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hTOr9pYzPi2i26nHAmvmTE63STw7ueFb8JHzYoT0ydw=; b=WuvrYtiIaYLGlSK8J9Xg6glfkn
+	mUVx4qsCxkewri4zy8x5jLC9jlEA+IzdKCAztSSzhjKvvOK0jtNKcIAQL4Zcx6798HLvkEM0sGFNJ
+	ixoQzM/HJ7GZ0r5pNnhjZp5DeO4DcuRE+cnjz9NPQOym9RF0uE5tiRvy2rF4fXHjzH8LGr2XhMfre
+	NOnV7RNyKUTApx+3ziZAzPWRJSlKc0i7jDcwA0CfNCwVJ3E/XzNB4wJmSFyMiIvtWG2rRhj4RWzEz
+	MZwAxE7zwXKoImnWeW2DUzVD88by4LIh8Q7HVVpauInMlDxHLEpr1arKSpsLAhFLWaklEJR0mIvLr
+	sommFaOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txAYg-00000006wHe-1AQP;
-	Tue, 25 Mar 2025 20:07:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1txAfe-00000006xaO-1ium;
+	Tue, 25 Mar 2025 20:14:46 +0000
+Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txAWw-00000006w07-1RX4
+	id 1txAdu-00000006xF2-1Os4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 20:05:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B728343596;
-	Tue, 25 Mar 2025 20:05:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA3EC4CEE4;
-	Tue, 25 Mar 2025 20:05:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742933145;
-	bh=X/72qEeKSYHb3elkSglf86VYveOfq9a0qmJcTUN5hDA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ahM6QEZcVCjW3BKr+TU9Xmp0YDSX/cu9MQRksROxL7aglAWOxiMyhridJgcTp/Se0
-	 DzQEGs49sg9qFUNT5x+F2Dw4vxeHVxT9aQIegI3yp/n/FaTxw2ob08lZUhCYMWWaKV
-	 cuNPOtVoJ4yRwLw3TN07ECkf9VSx6pOmK9q+zJlFH51al+3SJZBLKjRrKvzcSQp+av
-	 HwKgZYLB/u4uCKrjcaoouEUAplD5yR1Z7C7XRT1tdHpDRBCNulkg2KWB1fdgEYUG6c
-	 I9LPjoiDkBcOnhRX50d/fQRqcnyQlwRRYR37u/0Rzp/6Q8RaZ/NxRDoBMMTxjxaOW2
-	 +Ca6+PmaKmydQ==
-Date: Tue, 25 Mar 2025 15:05:44 -0500
-From: Rob Herring <robh@kernel.org>
-To: =?iso-8859-1?Q?J=2E_Neusch=E4fer?= <j.ne@posteo.net>
-Cc: Simon Glass <sjg@chromium.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH RESEND] scripts/make_fit: Print DT name before libfdt
- errors
-Message-ID: <20250325200544.GA2195874-robh@kernel.org>
-References: <20250209-makefit-v1-1-bfe6151e8f0a@posteo.net>
+	Tue, 25 Mar 2025 20:12:59 +0000
+Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e634c42a296so4650635276.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 13:12:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1742933577; x=1743538377; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hTOr9pYzPi2i26nHAmvmTE63STw7ueFb8JHzYoT0ydw=;
+        b=RpU+JuxUkU79Ji/nyS8aC+6agJdDyCHfb1Sl4PjR6pmyOepSd9JgNi0Rpeifo4V6cj
+         4ALlmoF8qFTR7XSaLxtDlaMVp3yTVJaROxJmOqvRmKAjMfy2R4XeKbZP+L8MCGwUwQIx
+         6aL2VIkE1rH+r3n1Ofh2CEqZdXEPArT8Gf464=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742933577; x=1743538377;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hTOr9pYzPi2i26nHAmvmTE63STw7ueFb8JHzYoT0ydw=;
+        b=Dvlkg+JKZfCiI8GMdGo5vF7i42a3Y89XIKDqh/mBQXH2e/2m6I0BcL4saXIP/plYIu
+         sr6jjWf5Shx9GS9M+iGCR3WV8Ju7vZ2Y1nFlEtuk4SXc9rkYpuv8I0FSNi4bRjD1mmwb
+         ON98HkTNcJwOe5ijM0nUNddpmKueF51XKKNQoDd7O5t9kHsOreu78hPU9U6LFkcKTNVX
+         xRX5okmh9xRROXeyJFf1hBuOhRlAVBZHX+LadF+0aNmKttkq7+HCegKCcPpmy4uND3kd
+         CS4SOYvhkalwDEmnjwcvIPTpmMffz+cj+8XDCqkBKfjCFfvFaqB/urKVHNvLfuNAgd/R
+         pDCg==
+X-Forwarded-Encrypted: i=1; AJvYcCWQZFNBIqbMLTWu5qJynQQcjz5zM0Cv1E+r/YIrP03qwUFV+S22UTQWmRBeEW2hB63rrCe49iPHUNWf6nqj8Get@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLqg6JtBd07QhXLORfgyk7X4bgHssl8PPVg+m+btUmOSbE3hd7
+	bzQtrq2PdQWzA840Tlz9pYUsBSMjrIYxQtFfz8A9Ak7n9qYVwzBCXNcUvwQLRovVduQwOfbkSEn
+	WUqgwJZ/AcVKCDMm0BLhWRq90npUo/qKPCRah0w==
+X-Gm-Gg: ASbGnctzZ1JvOfpVtRHz4ZDn+MWGP9V6ZL4JCfY2Jr2D7Irt5T5juEqKlMa6BjwVZ54
+	9C21mu9wMsQKXyhcaSuJWLIT2nZz/HB/E+Bso6H+kzLKlbX0YPjI9CjfKe2VV3RC+EIoPzGfin0
+	C+6tGGRRfENN88fJ/LzUN1leYi7Uoe8KcyjDm2QdM8Cl+UaKC40wpp2Kxm1eY=
+X-Google-Smtp-Source: AGHT+IHshVRxFVSRgmqNOPKSsYowahAI37eYtNiXXANKyrruJ3NhdMG0ruC6NnKn7RBoC8thTuxakfabVjdrFAm4fME=
+X-Received: by 2002:a05:6902:2385:b0:e60:9821:32 with SMTP id
+ 3f1490d57ef6-e66a4d972acmr23048136276.20.1742933576648; Tue, 25 Mar 2025
+ 13:12:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250209-makefit-v1-1-bfe6151e8f0a@posteo.net>
+References: <20250325195322.3243734-1-catalin.marinas@arm.com>
+In-Reply-To: <20250325195322.3243734-1-catalin.marinas@arm.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 25 Mar 2025 13:12:45 -0700
+X-Gm-Features: AQ5f1JroGLoPpd3BNG2lfW60X7dg8N_A3CClyCmOuMjw7azzcTshfNG8StJqxrQ
+Message-ID: <CAADWXX-0hMgpyeQw_7Ko14hNMciqSnKJAROEWS5vwAdMKUt_zw@mail.gmail.com>
+Subject: Re: [GIT PULL] arm64 updates 6.15-rc1
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_130546_404738_44963992 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20250325_131258_388128_84E9246C 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +92,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 09, 2025 at 05:55:28PM +0100, J. Neuschäfer wrote:
-> This makes it easier to pinpoint where the error happened. For example:
-> 
->   FIT     arch/powerpc/boot/image.fit
-> Error processing arch/powerpc/boot/dts/microwatt.dtb:
-> Traceback (most recent call last):
->   File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 335, in <module>
->     sys.exit(run_make_fit())
->              ^^^^^^^^^^^^^^
->   File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 309, in run_make_fit
->     out_data, count, size = build_fit(args)
->                             ^^^^^^^^^^^^^^^
->   File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 286, in build_fit
->     raise e
->   File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 283, in build_fit
->     (model, compat, files) = process_dtb(fname, args)
->                              ^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 231, in process_dtb
->     model = fdt.getprop(0, 'model').as_str()
->             ^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/lib/python3/dist-packages/libfdt.py", line 448, in getprop
->     pdata = check_err_null(fdt_getprop(self._fdt, nodeoffset, prop_name),
->             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/lib/python3/dist-packages/libfdt.py", line 153, in check_err_null
->     raise FdtException(val)
-> libfdt.FdtException: pylibfdt error -1: FDT_ERR_NOTFOUND
-> 
-> Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
-> ---
-> The example is from a different series which I will release soon, which
-> enables FIT on powerpc.
-> ---
->  scripts/make_fit.py | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+On Tue, Mar 25, 2025 at 12:53=E2=80=AFPM Catalin Marinas
+<catalin.marinas@arm.com> wrote:
+>
+> Please pull the arm64 updates for 6.15-rc1 below.
 
-Applied, sorry for the delay.
+This was in my spam folder. The reason is that your email
+configuration is wrong, and lacks the proper DKIM signature.
 
-Rob
+You have
+
+    From: Catalin Marinas <catalin.marinas@arm.com>
+
+but it doesn't actually have the DKIM signature from arm.com...
+
+It looks like you sent it through the kernel.org smtp server using
+git-send-email, but it doesn't have the kernel.org DKIM either (but it
+may be that kernel.org only signs things that say "From:
+xyzzy@kernel.org").
+
+             Linus
 
