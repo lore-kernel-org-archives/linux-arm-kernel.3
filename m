@@ -4,184 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EC8C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B06C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNeZecqcj48I+kBdHVaRTl7XQqRu6of+cOcULg/If9E=; b=KzkKw/N0aU+nznAbIPqf0wX8mv
-	Tc0D/WWM7rs0JE2xtzDrZ71Z022rONeF3Mh9EYiq21PwOv1Ppw8QY1uhBAM5qycS07JA/iZHUXUX2
-	LeoKh9tFLfs+Qv39Gq3TAtJiyYEX/T6wk2lp3i5p6nVOJytwQtNsd33Fh88Byp69AX7hOMO4O3zEW
-	L2m4XMyEtIETLtOIa0uKDolEVeED0RT7vqJonh+ZHMcy1Kv8a9jdyuhH6QMXPxFKZQ2BcbQazaCG0
-	ZQ711aejVGrAsFUNW2iMmnJqaFJDopd80W+b4JiFs9IaYdDdTFIrfCxSTXEB4CdZ0YJjMcY3ckkP3
-	+SqZk2Kw==;
+	bh=x45WNxy+GXjRDdBoNfsMrlZpihQlvBlFRGtpBrd99JI=; b=3VYaJtp90LH+Co+QTMRFB3WH3u
+	E6WcXOmHfh5EsjWrLalw3h+a9m6Z/1S2pWdQb7Rx7T1OATyHXl8nlgryVuKxdilZ3xsCh6Yjvvv7Z
+	VDfYBiPkw8OkRp5xXOmhRZ3u9AdELpevepJYILkkSFihPg7VYh+jqsZEHR5Z3WhUoTLdcGaRzc7mc
+	WQvnuSkyff3wc9R4rxNPljtuUNz5FIQT0StgXrX5JendQR3xopTl1RT+jTZcWdkelD+QEoS38Or1r
+	2ica6xFko5oMxiZaV/wVF0Ey6PelwvrpEseuPVZnDPsj4sV2SaXQfWB9QHoJVKTSaeNClWw+Angn0
+	xuWxcZMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7JI-00000006Vpu-2Vu4;
-	Tue, 25 Mar 2025 16:39:28 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1tx7L1-00000006WDh-0SQT;
+	Tue, 25 Mar 2025 16:41:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7Ds-00000006UsP-22SB;
-	Tue, 25 Mar 2025 16:33:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=sandisk.com; i=@sandisk.com; q=dns/txt;
-  s=dkim.sandisk.com; t=1742920432; x=1774456432;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=McGIPB5TJmfxlA8IuiBToRmakxgQB/aPveGDanWjJqw=;
-  b=VXG7v5G2sIYErKH/RAO3BAlyUt2iHfSGlwJJ0GGSfAmZ9s4sYvMbgv3W
-   +tKy5/cGZzV9KGpG6SMXSkVb3tZdMZxYzcTA2Vka1aH8lTD/iqis1AyeH
-   wIS00XqbzerbZ2fus06BZPDcvV6yuAQN3SMSFymluzwCH8RI1/LnQxBUs
-   hGMeIopo8LNyHaCgTN3yuezFkA89P0cxH1s/dnhsEjmbb4gEj+BbWhHQH
-   RwbuJfdqjSRvyeBd86RpCo7rbTNMjHb/Fhvt5qM3prSZFp6dEGkkRAB8Z
-   r3An6sSSXDIF2p7xEFg/HFjyLKLsINtIH3mXDp2xmigzTRYlzEmjU9dGU
-   g==;
-X-CSE-ConnectionGUID: EkeOOIkLQSKifrWP2QeFUg==
-X-CSE-MsgGUID: stT4YQ3/Qeyl5+fDbH0JWQ==
-X-IronPort-AV: E=Sophos;i="6.14,275,1736784000"; 
-   d="scan'208";a="59856635"
-Received: from mail-dm3nam02lp2041.outbound.protection.outlook.com (HELO NAM02-DM3-obe.outbound.protection.outlook.com) ([104.47.56.41])
-  by ob1.hgst.iphmx.com with ESMTP; 26 Mar 2025 00:33:48 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RTanBfymKacrEMd/IBvpm+DvqCUF4goEV68jT9OFlFg+Us0YY4/7NhLKkm5B4/ACBJaKCPqBU9/CIvAHojpTLEZcJBZ4d57vhuHtIjXgbkgKoGoO/kyof4848r1JUWaN9l5/eiY/JmDCWuHndSd5/NmTYCMcCvnBCaa01Ss64kxxhpyY6lXiaw55BgiXozM895KeM12zlX1SwPh9u9FZjm+XI3NGrhArUccYZZg0XqlJptOlQjRIFQ2JeQylcxvXJmH1dOrNllQ+pNhR1lI3GskmufdZBP5wO/6dVPLluS4Djrw55/gce5UBeG7jIEds8qL71fKH1BIyUyohesrdzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KNeZecqcj48I+kBdHVaRTl7XQqRu6of+cOcULg/If9E=;
- b=oXQg+kyijQAZDoy9fnkY3XMtMZChr6xM3P5MUFGo8OyOk+mftHnfGDg7v2Aa9B8kW0gamTPsFtC2CIEOJWdCqF7jRwhA9rbG3ber1QFckYUhswB3TvHQ8q4fvN0diH4B7lijsY3nA1W7vUZY/LMFNecZLlbrjt8e+KUKMKUxhj2m3bv1ugsuOFbPodZNlkYxyDBs+2LVQ5SbgwrkyE6DgAdIKvshM5j5ic2j3k5HYrZ2N0vkbvayqFyPoD1i6+OTxdIvbnD+qQztOT/aRZXafLPcO8V62ANdCGCInkqj//3sxtxGdAEY8LtltIUqQBv3Gdz+fhwmBJXYWKAq6S4Djg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=sandisk.com; dmarc=pass action=none header.from=sandisk.com;
- dkim=pass header.d=sandisk.com; arc=none
-Received: from SA2PR16MB4251.namprd16.prod.outlook.com (2603:10b6:806:136::8)
- by IA2PR16MB6478.namprd16.prod.outlook.com (2603:10b6:208:4ba::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
- 2025 16:33:47 +0000
-Received: from SA2PR16MB4251.namprd16.prod.outlook.com
- ([fe80::3415:d4b3:ef92:16a2]) by SA2PR16MB4251.namprd16.prod.outlook.com
- ([fe80::3415:d4b3:ef92:16a2%5]) with mapi id 15.20.8534.040; Tue, 25 Mar 2025
- 16:33:46 +0000
-From: Arthur Simchaev <Arthur.Simchaev@sandisk.com>
-To: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>, "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>, "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>, "bvanassche@acm.org" <bvanassche@acm.org>,
-	"avri.altman@wdc.com" <avri.altman@wdc.com>, "peter.wang@mediatek.com"
-	<peter.wang@mediatek.com>, "manivannan.sadhasivam@linaro.org"
-	<manivannan.sadhasivam@linaro.org>, "minwoo.im@samsung.com"
-	<minwoo.im@samsung.com>, "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-	"martin.petersen@oracle.com" <martin.petersen@oracle.com>
-CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>, "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bean Huo <beanhuo@micron.com>,
-	Keoseong Park <keosung.park@samsung.com>, Ziqi Chen
-	<quic_ziqichen@quicinc.com>, Al Viro <viro@zeniv.linux.org.uk>, Gwendal
- Grignou <gwendal@chromium.org>, Eric Biggers <ebiggers@google.com>, open list
-	<linux-kernel@vger.kernel.org>, "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>, "moderated
- list:ARM/Mediatek SoC support:Keyword:mediatek"
-	<linux-mediatek@lists.infradead.org>
-Subject: RE: [PATCH v4 1/1] scsi: ufs: core: add device level exception
- support
-Thread-Topic: [PATCH v4 1/1] scsi: ufs: core: add device level exception
- support
-Thread-Index: AQHbmhAfUxUsnAjyAUq7uGmV7Mzy/bOEEBbA
-Date: Tue, 25 Mar 2025 16:33:46 +0000
-Message-ID: <SA2PR16MB4251229744D717821D3D8353F4A72@SA2PR16MB4251.namprd16.prod.outlook.com>
-References: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
-In-Reply-To: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=sandisk.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA2PR16MB4251:EE_|IA2PR16MB6478:EE_
-x-ms-office365-filtering-correlation-id: f44660da-006b-46bb-185a-08dd6bbad0e9
-wdcipoutbound: EOP-TRUE
-wdcip_bypass_spam_filter_specific_domain_inbound: TRUE
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018|921020;
-x-microsoft-antispam-message-info: =?us-ascii?Q?jpJgeNj/Go40lG8d+0W8wh2LbelOskhGE9mlLTg6oe9xoQSv5fn8HrGIzoun?=
- =?us-ascii?Q?pYON/FJVGhNZfYxMYJSncX3i5GjosCsnO1/bCGocG6/vn9seEF7BInNk+wsf?=
- =?us-ascii?Q?04vSdgbeKPVGhYbMJuXpQlNowrk7j4x+MLlxBNRfCQZxCyXk09zmE2Ajf3fq?=
- =?us-ascii?Q?aqeOhg447W9NF/6sM3ruHmtLqVTBwcEglUp/SZCvMD+y2iSIgxSaBvwHINgO?=
- =?us-ascii?Q?wL4eKywDUM5GL84Z/3jscMfI1Nh8AubCOYMR041Xm7UUhkvK1ffNuc+fotUD?=
- =?us-ascii?Q?qW8EgU8NiHhKJnYXJjfVuex8B407xj+xQts23OrNmbS4ZRmhiMsDcZ8sqvmp?=
- =?us-ascii?Q?dI9N+kd0dbhmHGP0v24GtE9MsAkfA0bdC/4T6wgkzIiu2agmGrg2fv4OYthq?=
- =?us-ascii?Q?WA4renCiDZ8bk+FSveZRCSsoRCStgtiR4q1tOUkVp6WzJ62Jv/iBUZfzZzjm?=
- =?us-ascii?Q?ftG6aCIHk1W06rk9N5eippceb5mYSxPThKPXz+LHoAHkiFNcRTbSRpzGvJGU?=
- =?us-ascii?Q?i90psazdVWybydf8drJKaa6clGNWAXnFI/3YkM6bFov/EnlsB4GCkntBjUjR?=
- =?us-ascii?Q?3uuN+uNguKxSoQExyhO+6eAK3rrqMDTL4VKkX86Hz7Hov54cCTUPT3UGXuMg?=
- =?us-ascii?Q?cXlo1XKEOTV+LzeMy/Tm96mPGNJfUYQbcgy/6YlqrSxdInos8qpLAPEK+wNA?=
- =?us-ascii?Q?+6P9ouYOop3H4rIAXyp1OakMUGOTjhnp2gUsFw40GILs1LS14JVjyqjzZCrb?=
- =?us-ascii?Q?KHt5dBmcqdsQCBz6+hIJJrL34I6sgS8Re59tTyjdgBZi1ID3d6QW+uRtdzuF?=
- =?us-ascii?Q?EhLfOTSTp6pFR5JRTyK3v8Q+W4AdJxri5gAMNvskOzoBFc8N0IRKrnjfFWpr?=
- =?us-ascii?Q?zsOOyl05Es/t5OJQkkZvG5m3CDVXzWY7N7qzcMcaq6HfDplIBNZ0emlEzmL0?=
- =?us-ascii?Q?oN6RiJrmTuHlm7uEIZUQhtnkcl4XsPnxkKWEvMXRAwCnWutQRNiiczS4YLTN?=
- =?us-ascii?Q?5AnrmbffUWe7bKq3ig4/i/1uCmOKlgsNnfYpoEQaRUv31PqAzsgq8X1zjVJM?=
- =?us-ascii?Q?x9Bozf4nWjBgvFFs6ci7vnnO48HsuJxALcYwFGzmeIUY4ANlkC+jM8BNqJlt?=
- =?us-ascii?Q?fQnCkpbU5KRan3tbJDEL8kup8oL0afxNgZLSA2fbb17wrWPuToWsqo6LDOv4?=
- =?us-ascii?Q?0bgQiVdsorDr/GaAXKNgacJ86l+K6V5kZiXu1s7pEj6mH7edz/gGoCuGtGGf?=
- =?us-ascii?Q?OTmNJvZxe7cyWMOEcg0vGqZiKQ/CZYMN7rvCa5tTMgOXA0p5w1t6sbsLdTXl?=
- =?us-ascii?Q?I4ul0xMM4BoKfmI1RkvNx2Q6Qoh9hkj0UOXnrmrsJeFFr2orU365AQeERYmm?=
- =?us-ascii?Q?Nc/o+7myI7UYAP00QLw9dn3N2OnSmnblfsZu8rVksASCwL5Mb7Z4+kptqLA4?=
- =?us-ascii?Q?8nEKK1qWrDidCVERX9XCl8JnTei+NbkU0RQongmrqxsFbuv5I3NxKA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA2PR16MB4251.namprd16.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Vpg4dngh4+CJC6lsHFCKKez20999tQTheVOtIUfZLdc492EkgYlqTE3jgVRB?=
- =?us-ascii?Q?8ClGF3srIlwCoCgBnNKegKFCpyKpEbk255SrKi6mX6WwZgCcmccCAwPUIyt+?=
- =?us-ascii?Q?i17xn1fJ9zn4+p62zc5w7KiVyVzLypQfah3UMmGtjlqDfrMOv1n2ehjfAXzl?=
- =?us-ascii?Q?JfE+pQBztQ+nlfYs0+Ybq3kG0icifFqqQkscKfVyfwxmrU3S5wigm729hLz/?=
- =?us-ascii?Q?8TsWWCkHRuW4Ela8KkS4BJaqT1OyUvtiRbiazy2BQcrTOZ5MFHGjPgCQ/0Qc?=
- =?us-ascii?Q?E+Hlq4r/Gsd7fio02kup+4enawlVsVhAzggjxkQCYqG361Gk1ijMq9P+Szyw?=
- =?us-ascii?Q?B0o+7CRzQL3VNimQGgjROalH+P3ytGntxSuAMnlT86bD7WJLXfM0iFhVYmZx?=
- =?us-ascii?Q?DW06xmrvTXfGA6q3Matdx1HTauBqoaDJRkyeA7N5/DQONUzJklI06Hcx8poG?=
- =?us-ascii?Q?D9R+PHyJa2w97dydA6FKJ0jOoWZkGxoRQz0jZF3tvc28Nx5jMwLi29FV+g6m?=
- =?us-ascii?Q?bSxuKNOyPOOnbGW+SFvYxf/VRfleIW2K6fv5iithKjcJapos1A5U23IwgQ5X?=
- =?us-ascii?Q?nQOhXFpQtvC/l0DQjRVriOHuWf2L0cJ29+e8a0anixkz2zx6t58navaFDVHx?=
- =?us-ascii?Q?jTcb0gR0M3oKeAXCdze/6zIYf7tGbsBirxyNAa6aQemzOAftp7Oa4hGlLQC5?=
- =?us-ascii?Q?VO329Bui3AY3XHTtPT9CSlnmLF8dCXbX5MkSRqv0Zgsfr+bfqE6UpF9rhJrf?=
- =?us-ascii?Q?QJjkOOp+G8elVSeNNwXMGKKG5s2fUsPPiTke42wv/cMJJ5e+W2anfrYXIcRg?=
- =?us-ascii?Q?VTgjBdc2lCefBt76YX5PIxW7EmHOQtf118IhBpldfbiYyM9UuNRyhFBoT+T+?=
- =?us-ascii?Q?mXWXeEgo4XDbpvmbyLBtR/+JovsLisBf8g8gA/EouHPuBMuDpKGf5fd36nDp?=
- =?us-ascii?Q?+dqIWuNXDUw7IKiAqz1nVjkZQcNYgTf3S5jRelfJpgG3zqVFUrnDAWI3VsSt?=
- =?us-ascii?Q?YPE8QJ3yrHuI0049NlS81e2k3flpfjkk6PJTOrzn++pd3sjo7Fr7f/4HP7XL?=
- =?us-ascii?Q?SbdZ+KqRT2LDUeryPi2k2cOWY6MoLzbd533Hb4t4nBDObpYupBhLFM1h36Cu?=
- =?us-ascii?Q?ysfFE5TSUMAgb3q/y+mVAKGCp1W3krLMcYFEyaMbz5XtyWLTMxo2wbigVRQh?=
- =?us-ascii?Q?ht55Qa0KVhxL+xCzeXzWMOT9RfdLU76T9XydTXR+fb3qHaC+nQLLJpyenyN+?=
- =?us-ascii?Q?oRap17IxLv7RQnc4vQB/72GLGv5sQU6gHgPTqyLW+aVvV+7DoJRbNSKabdQv?=
- =?us-ascii?Q?I9GFC0F2ReOwBoM6xELUIU0inxcFJOVOXQIevDycdHJZXlQTyE0XqKa6eBvh?=
- =?us-ascii?Q?b7qqyoCRktei1oqYXLnMQk9NJoA3jnjzjnispkvIywdLZmghYJDLBIJV4Ch2?=
- =?us-ascii?Q?Ibwl6G7B40ITnV433vnte8MBsxn5NbDVPEiGjsJs1dDe97CZA14i8Rkr1KBC?=
- =?us-ascii?Q?9VJ1r6A4Vn0992kL5Xaf/VOOSEKCJV+o3KeNQ8vP9lirXJV/3VmbJwquWbqI?=
- =?us-ascii?Q?WdrRgjW8KbWetdWUWBIuBvvUt+hJUdpyg6CNS7erhP/Al+tNIpmURxMNU/O/?=
- =?us-ascii?Q?kQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tx7Gg-00000006VCd-2TLl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 16:36:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=x45WNxy+GXjRDdBoNfsMrlZpihQlvBlFRGtpBrd99JI=; b=HXm6NkyGHT3MtMfIxAiiO/jcN7
+	e590qGKvzb1vPHXqKLjcBvo5Qvl46L6cEQ0BFDu/V5kmn9hl+gqXhceEXTqcdMFlUGTJEUbBZrdq8
+	57HlDwHIYXYdhSQbJvFQP47/iU6NqeB4JvBYhs42LizqD3xB8DHGiQp4pYfgc3bhTOvjbSC5WyrwQ
+	pjPskv/Pk3O6jftPF8GDfGjjsT19AlG7zrq5Kkg8VB34UHyZ7yWiTKfSKY8jKnpz9Pq1e5YAcBUW1
+	EgqToJVAcDZZNOUeerjO5EPWJmDfZMEnz/ZZ9D+a25rkUyGdv0pxam8FQe2vJh68krDvDQRZZl4Ux
+	29BvlYEw==;
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tx7Gd-00000005eqe-0wHI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Mar 2025 16:36:45 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-301493f45aeso9569081a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 09:36:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742920600; x=1743525400; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=x45WNxy+GXjRDdBoNfsMrlZpihQlvBlFRGtpBrd99JI=;
+        b=k+BO/ez+ot+foYB/kzNjd6necSyNR16/Elsr3gfRVHuO24wPnGaL/Iyi9ZKUajtdZ2
+         azFLSMsjq0Xk/3qW+7w1YbB6fp+/Jg+007S42Lbp/CtoTg/j0aozPkRMZiaF3T0Ihnm1
+         MeDrfxl/AiVCDA9+RZvquWm38pfMlkM8gBC1yfn+2KLANJUASAg2spFOUUDMrHK0Wifi
+         DE3WH8qZht5ofWX2f+2+zSORGz+pNDOV1RXa/deI4sBou0S9Q4mqWjVZe4KwAPa9oOHo
+         0cO7aUdWdb2QFcSx3imltwvCjjjnfyr+GMiRgC/oUzDBprE6kCoEWPN21kGxpj9pstFa
+         PbRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742920600; x=1743525400;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=x45WNxy+GXjRDdBoNfsMrlZpihQlvBlFRGtpBrd99JI=;
+        b=rw+IHlj66h0Uouc+YDVWs54MpddP8PkaTmGOxsFmLhV73g6ssVTP5KPv7GNNxXw1ez
+         SzEAgT1R6PzCPJ1AhCKemc1MBnA3C5dpkMGMgUE0bFBBo6+PbDrXfaUTmBJq2yl9T386
+         4C6l2wV72Dw3brdn09SXIkivayKGc9pdYw0ntrEcOGDrkpBR5wqYy0OFp43eMsWg79Pe
+         LGzAFEcDaiS9zzhlDWB5AJULMHOYXgwldpDiM7cbyj0ZJ7DpoUzwq9Kxv8oJ+qCur4i8
+         Ql18k1aL1YZB9XgkRO9VW9Mm7PrW8hdZsktApz4pExxE7tp2a2GXtPGsNtsGJZ0//VGV
+         VZAA==
+X-Forwarded-Encrypted: i=1; AJvYcCUPBFTxjGjUSB7CifoBjCOIadIEwwmqjcjVXhn/TPyolw5Shlqs9uHa+0D7AjPQi0pJWMNIQdVFYp3d1z1M/fo+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfTT9ltpGnV0j39tmYr4GOr9ToIuim/iTVP/iTNIYmt1bAA/gn
+	p5GjvvUuQPdgdjcw5yZN1wJNPZkYxZXAoZV+o1kn1wa7J2QDg6B9+pWuC9lObw==
+X-Gm-Gg: ASbGncsuA5z0jAC1V/tWKjHvjkn6aCk9ExvEw2M8OoD0TLzkcWaSfr3AKpOiDKW76dg
+	Rj+5A+SaUahAUOP6j5bC5r3QUd0DybaIYDxJINQr5onjOhcniXh6OjC5//3LhFZEO+9wu83YUz3
+	QWrVoHwc4s7GUdj4SYaK61TNAvtYIAgVqqFpdAJisAeAe5Tr+Vo/aOI+qV7NTrFb5vh8KH46/fY
+	EHuCkiokJNuzfgK2k3WVLH7l6PJIXVzQHNLjfqSncCMx51dFrLkBoH0qkXZgKHgTV7ZPfCw1Apz
+	FZhrcMNC84n1HTk0Z4vu1ndhNhBGWViM2qLsBOKDC/OOwVCkGdUdur1t
+X-Google-Smtp-Source: AGHT+IEVZf3cjT/H7LfymK6hzxUjvfOQ2dA0kGMvfu5BvFoGp9VVlRIweYBC+Rpqfm4TthlGV5Mt8g==
+X-Received: by 2002:a17:90b:1f8d:b0:2ff:72f8:3708 with SMTP id 98e67ed59e1d1-3030fea9024mr30752421a91.17.1742920599697;
+        Tue, 25 Mar 2025 09:36:39 -0700 (PDT)
+Received: from thinkpad ([120.60.136.104])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-301bf61a49bsm14597634a91.34.2025.03.25.09.36.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Mar 2025 09:36:39 -0700 (PDT)
+Date: Tue, 25 Mar 2025 22:06:32 +0530
+From: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
+To: Hans Zhang <hans.zhang@cixtech.com>
+Cc: Peter Chen <peter.chen@cixtech.com>, 
+	Siddharth Vadapalli <s-vadapalli@ti.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
+	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>, 
+	"bhelgaas@google.com" <bhelgaas@google.com>, "vigneshr@ti.com" <vigneshr@ti.com>, 
+	"kishon@kernel.org" <kishon@kernel.org>, "cassel@kernel.org" <cassel@kernel.org>, 
+	"wojciech.jasko-EXT@continental-corporation.com" <wojciech.jasko-EXT@continental-corporation.com>, "thomas.richard@bootlin.com" <thomas.richard@bootlin.com>, 
+	"bwawrzyn@cisco.com" <bwawrzyn@cisco.com>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "srk@ti.com" <srk@ti.com>
+Subject: Re: [PATCH 0/4] Loadable Module support for PCIe Cadence and J721E
+Message-ID: <2sxwud7mllpbtymfvlw5sshv3fhz3rpk37x23x5ywpzle2qlg4@7bsqhcimnfqp>
+References: <20250307103128.3287497-1-s-vadapalli@ti.com>
+ <Z9pffxeXHVOsoi4O@nchen-desktop>
+ <20250319062534.ollh3s5t7znf5zqs@uda0492258>
+ <Z9qO1f5MgNcwO5A4@nchen-desktop>
+ <20250319095511.hf3y2c6vbbnm3ien@thinkpad>
+ <a8966792-fa0e-4e8e-aceb-427819ae4ef5@cixtech.com>
+ <bkw4xm4jwe3iuf6sixxl4udosea3bhlwogfua66naf5echbyzv@dlwcbscedh6w>
+ <96940e1e-a395-49bc-ac29-7ca86bfb8ad7@cixtech.com>
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: t06S+lvwMYwY5kx5mFgR4Mpo2rYVS3wU5/01k+OWkPLKPzt6JF6fHnpfBydhAONtr0lXLki6w0yaKE4DPvlEJdBcDUiwpkNbgdGY7ZT65ijYx2JbulKoh7Zq091+DSVnXwQZreIbhbkzO7dvrpNrir7DS2wW2/I0WWdMG6BNKvxaIhMrwy8c/9hMz5s+cu6wOb9c5I0faaAfCxj6jgVcqV55O+8HuUxsG4ycWu4bFWlCQzV0uxMgcZstr/eTLHFYuMWzZFR6cBJHrD1xDO+f5GeBftMYJAhWMRMKh0lusIEUqEYDnKqdxcUOo/LhEcaViqD5hbrfkzRdM2W6R6ht04o3Z83sGQB2yjJ5PRC5TFf+aVmQot/PnZRuE4DGTM3mbA/DeKPF4NFCLc5jEC7xqLpA2rN5sgvk3V+86prLJVfgA0Z1InjeI7lAchz1Vgn6svRF9edAMTD1EEexUND2VAm6UR6lCybtdQC4YRzY10SvrIdSfGiq8ukghBn7yZgKugUKV296qSlnOGSdY6dQvl3bIs+4m8Tg4z8dqTasfrVWC2PEn8yEEWMIVmEADR4VrtlV7Ofau0DU0GdBGJ7FcFdi7ASVpJQ2M3k2kbVDTKl5hfVB7VTiwuroWJeuPOkQaYAbMIUm5s+i+61yJY2y2w==
-X-OriginatorOrg: sandisk.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA2PR16MB4251.namprd16.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f44660da-006b-46bb-185a-08dd6bbad0e9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Mar 2025 16:33:46.8873
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 7ffe0ff2-35d0-407e-a107-79fc32e84ec4
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BVtm6WTCXPvlOqVhzX2mF4qW65CC1zQlkHotzLncuCzTPN08ezxMg5xVcUBGkWfTiKvIpymbJUC9WDQ1ynXkTk19OOI8su2jpezRAurnF0Y=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA2PR16MB6478
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <96940e1e-a395-49bc-ac29-7ca86bfb8ad7@cixtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_093352_555605_9EC26F8E 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20250325_163643_423740_158F05AB 
+X-CRM114-Status: GOOD (  61.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,414 +127,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bao
+On Wed, Mar 26, 2025 at 12:03:01AM +0800, Hans Zhang wrote:
+> 
+> 
+> On 2025/3/25 23:26, manivannan.sadhasivam@linaro.org wrote:
+> > EXTERNAL EMAIL
+> > 
+> > On Thu, Mar 20, 2025 at 10:14:02AM +0800, hans.zhang wrote:
+> > > 
+> > > 
+> > > On 2025/3/19 17:55, manivannan.sadhasivam@linaro.org wrote:
+> > > > EXTERNAL EMAIL
+> > > > 
+> > > > On Wed, Mar 19, 2025 at 05:31:01PM +0800, Peter Chen wrote:
+> > > > > On 25-03-19 14:25:34, Siddharth Vadapalli wrote:
+> > > > > > > > 
+> > > > > > > > Hello,
+> > > > > > > > 
+> > > > > > > > This series enables support to build the PCIe Cadence Controller drivers
+> > > > > > > > and the PCI J721E Application/Wrapper/Glue driver as Loadable Kernel
+> > > > > > > > Modules. The motivation for this series is that PCIe is not a necessity
+> > > > > > > > for booting the SoC, due to which it doesn't have to be a built-in
+> > > > > > > > module. Additionally, the defconfig doesn't enable the PCIe Cadence
+> > > > > > > > Controller drivers and the PCI J721E driver, due to which PCIe is not
+> > > > > > > > supported by default. Enabling the configs as of now (i.e. without this
+> > > > > > > > series) will result in built-in drivers i.e. a bloated Linux Image for
+> > > > > > > > everyone who doesn't have the PCIe Controller.
+> > > > > > > 
+> > > > > > > If the user doesn't enable PCIe controller device through DTS/ACPI,
+> > > > > > > that's doesn't matter.
+> > > > > > 
+> > > > > > The Linux Image for arm64 systems built using:
+> > > > > > arch/arm64/configs/defconfig
+> > > > > > will not have support for the Cadence PCIe Controller and the PCIe J721e
+> > > > > > driver, because these configs aren't enabled.
+> > > > > > 
+> > > > > > > 
+> > > > > > > > @@ -209,6 +209,12 @@ CONFIG_NFC=m
+> > > > > > > >    CONFIG_NFC_NCI=m
+> > > > > > > >    CONFIG_NFC_S3FWRN5_I2C=m
+> > > > > > > >    CONFIG_PCI=y
+> > > > > > > > +CONFIG_PCI_J721E=m
+> > > > > > > > +CONFIG_PCI_J721E_HOST=m
+> > > > > > > > +CONFIG_PCI_J721E_EP=m
+> > > > > > > > +CONFIG_PCIE_CADENCE=m
+> > > > > > > > +CONFIG_PCIE_CADENCE_HOST=m
+> > > > > > > > +CONFIG_PCIE_CADENCE_EP=m
+> > > > > > > 
+> > > > > > > The common Cadence configuration will be select if the glue layer's
+> > > > > > > configuration is select according to Kconfig.
+> > > > > > > 
+> > > > > > > Please do not set common configuration as module, some user may need
+> > > > > > > it as build-in like dw's. Considering the situation, the rootfs is at
+> > > > > > > NVMe.
+> > > > > > 
+> > > > > > The common configuration at the moment is "DISABLED" i.e. no support for
+> > > > > > the Cadence Controller at all. Which "user" are you referring to? This
+> > > > > > series was introduced since having the drivers built-in was pushed back at:
+> > > > > 
+> > > > > We are using Cadence controller, and prepare upstream radxa-o6 board
+> > > > > whose rootfs is at PCIe NVMe.
+> > > > > 
+> > > > 
+> > > > It doesn't matter. Only criteria AFAIK to build the driver as built-in in
+> > > > defconfig is that it should be a depedency for console. For some time, storage
+> > > > was also a dependency, but for sure PCIe is not.
+> > > > 
+> > > > Moreover, CONFIG_BLK_DEV_NVME is built as a module in ARM64 defconfig. So it
+> > > > doesn't matter if you build PCIe controller driver as a built-in or not. You
+> > > > need to load the NVMe driver somehow.
+> > > > 
+> > > > So please use initramfs.
+> > > > 
+> > > > > You could build driver as module for TI glue layer, but don't force
+> > > > > other vendors using module as well, see dwc as an example please.
+> > > > > 
+> > > > 
+> > > > DWC is a bad example here. Only reason the DWC drivers are not loadable is due
+> > > > to the in-built MSI controller implementation as irqchip. People tend to build
+> > > > the irqchip controllers as always built-in for some known issues. Even then some
+> > > > driver developers prefer to built them as loadable module but suppress unbind to
+> > > > avoid rmmoding the module.
+> > > Hi Mani,
+> > > 
+> > > I think the MSI RTL module provided by Synopsys PCIe controller IP is not a
+> > > standard operation. The reason for this MSI module is probably to be used by
+> > > some cpus that do not have ITS(LPI interrupt) designed. Or RISC-V SOC, etc.
+> > > MSI is defined as an MSI/MSIX interrupt that starts with a direct write
+> > > memory access.
+> > > 
+> > 
+> > Yeah, DWC MSI controller is not a great design. The older ones are even more
+> > horrible (using SPI interrupts for reporting AERs etc...).
+> 
+> Hi Mani,
+> 
+> Currently Synopsys and Cadence provide SPI interrupts for reporting AERs
+> etc... This IP vendor only provides an alternative approach that actually
+> requires SOC design companies to design according to PCIe SPEC and conform
+> to linux OS software behavior.
+> 
+> I have a way to workaround AER is SPI interrupt. It can also use aer.c
+> drivers. However, I have been afraid to submit patch, because this is a
+> problem of SOC designers themselves, which does not conform to the port
+> driver of linux os (aer.c). So it will certainly not be accepted.
+> 
 
-I think adding "struct utp_upiu_query_response_v4_0" is redundant and not c=
-orrect for flags upiu response .=20
-You can use "struct utp_upiu_query_v4_0"=20
+Right. There is not clean way afaik.
 
-Regards
-Arthur
+> 
+> > 
+> > > There are also SOC vendors that do not use the built-in MSI RTL module.
+> > > Instead, MSI/MSIX interrupts are transmitted directly to the GIC's ITS
+> > > module via the GIC V3/V4 interface. For example, RK3588, they do not use the
+> > > PCIe controller built-in MSI module. Some Qualcomm platforms also modify the
+> > > PCIe controller's built-in MSI modules to connect each of them to 32 SPI
+> > > interrupts to the GIC. I was under the impression that the SDM845 was
+> > > designed that way. The only explanation is that SPI interrupts are faster
+> > > than LPI interrupts without having to look up some tables.
+> > > 
+> > 
+> > If ITS is available, platforms should make use of that. There is no way DWC MSI
+> > is superior than ITS. We are slowly migrating the Qcom platforms to use ITS.
+> > 
+> 
+> I agree with you.
+> 
+> > And btw, Qcom DWC MSI controller raise interrupts for AER/PME sent by the
+> > downstream components. So enabling ITS is uncovering AER errors which were
+> > already present :)
+> > 
+> > > So the dwc driver can also compile to ko?
+> > > 
+> > 
+> > Only if the MSI support is made as a build time option and there is a guarantee
+> > that the platform will never use it (which is difficult to do as the driver can
+> > only detect it during the runtime based on devicetree).
+> 
+> Anyway, I would still like to request that the Cadence PCIe controller
+> driver not be in module mode. Cadence also has a lot of customers, we are
+> one of them, it's just that many customers don't have upstream. We are about
+> to upstream.
+> 
+> This series was introduced since having the drivers built-in was pushed back
+> at:
+> https://lore.kernel.org/linux-arm-kernel/20250122145822.4ewsmkk6ztbeejzf@slashing/
+> 
+> Hans:
+> The Cadence PCIe root port driver can not be made into module mode because
+> of TI's idea. We should consider the ideas of other customers. If you have
+> to make it module mode, I think all peripheral drivers should be module
+> mode. Maybe I'm being direct, but that's probably the case.
+> 
 
-> -----Original Message-----
-> From: Bao D. Nguyen <quic_nguyenb@quicinc.com>
-> Sent: Friday, March 21, 2025 5:18 AM
-> To: quic_cang@quicinc.com; quic_nitirawa@quicinc.com;
-> bvanassche@acm.org; avri.altman@wdc.com; peter.wang@mediatek.com;
-> manivannan.sadhasivam@linaro.org; minwoo.im@samsung.com;
-> adrian.hunter@intel.com; martin.petersen@oracle.com
-> Cc: linux-scsi@vger.kernel.org; Bao D. Nguyen <quic_nguyenb@quicinc.com>;
-> Alim Akhtar <alim.akhtar@samsung.com>; James E.J. Bottomley
-> <James.Bottomley@HansenPartnership.com>; Matthias Brugger
-> <matthias.bgg@gmail.com>; AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com>; Bean Huo
-> <beanhuo@micron.com>; Keoseong Park <keosung.park@samsung.com>;
-> Ziqi Chen <quic_ziqichen@quicinc.com>; Al Viro <viro@zeniv.linux.org.uk>;
-> Gwendal Grignou <gwendal@chromium.org>; Eric Biggers
-> <ebiggers@google.com>; open list <linux-kernel@vger.kernel.org>; moderate=
-d
-> list:ARM/Mediatek SoC support:Keyword:mediatek <linux-arm-
-> kernel@lists.infradead.org>; moderated list:ARM/Mediatek SoC
-> support:Keyword:mediatek <linux-mediatek@lists.infradead.org>
-> Subject: [PATCH v4 1/1] scsi: ufs: core: add device level exception suppo=
-rt
->=20
-> The ufs device JEDEC specification version 4.1 adds support for the devic=
-e level
-> exception events. To support this new device level exception feature, exp=
-ose
-> two new sysfs nodes below to provide the user space access to the device =
-level
-> exception information.
-> /sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_count
-> /sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_id
->=20
-> The device_lvl_exception_count sysfs node reports the number of device le=
-vel
-> exceptions that have occurred since the last time this variable is reset.=
- Writing
-> a value of 0 will reset it.
-> The device_lvl_exception_id reports the exception ID which is the
-> qDeviceLevelExceptionID attribute of the device JEDEC specifications vers=
-ion
-> 4.1 and later. The user space application can query these sysfs nodes to =
-get
-> more information about the device level exception.
->=20
-> Signed-off-by: Bao D. Nguyen <quic_nguyenb@quicinc.com>
-> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-> ---
-> Changes in v4:
-> 1. Changed the hba->dev_lvl_exception_count to atomic_t type. Removed the
-> spinlock() around hba->dev_lvl_exception_count accesses (Peter's and Bart=
-'s
-> comments).
->=20
-> Changes in v3:
-> 1. Add protection for hba->dev_lvl_exception_count accesses in different
-> contexts (Bart's comment).
->=20
-> Changes in v2:
-> 1. Addressed Mani's comments:
->    - Update the documentation of dev_lvl_exception_count to read/write.
->    - Rephrase the description of the Documentation and commit text.
->    - Remove the export of ufshcd_read_device_lvl_exception_id().
-> 2. Addressed Bart's comments:
->    - Rename dev_lvl_exception sysfs node to dev_lvl_exception_count.
->    - Update the documentation of the sysfs nodes.
->    - Skip comment about sysfs_notify() being used in interrupt
->      context because Avri already addressed it.
-> ---
->  Documentation/ABI/testing/sysfs-driver-ufs | 27 ++++++++++++++
->  drivers/ufs/core/ufs-sysfs.c               | 54 ++++++++++++++++++++++++=
-+++
->  drivers/ufs/core/ufshcd-priv.h             |  1 +
->  drivers/ufs/core/ufshcd.c                  | 60
-> ++++++++++++++++++++++++++++++
->  include/uapi/scsi/scsi_bsg_ufs.h           |  9 +++++
->  include/ufs/ufs.h                          |  5 ++-
->  include/ufs/ufshcd.h                       |  5 +++
->  7 files changed, 160 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/ABI/testing/sysfs-driver-ufs
-> b/Documentation/ABI/testing/sysfs-driver-ufs
-> index ae01912..6a6c35a 100644
-> --- a/Documentation/ABI/testing/sysfs-driver-ufs
-> +++ b/Documentation/ABI/testing/sysfs-driver-ufs
-> @@ -1604,3 +1604,30 @@ Description:
->  		prevent the UFS from frequently performing clock
-> gating/ungating.
->=20
->  		The attribute is read/write.
-> +
-> +What:
-> 	/sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_count
-> +What:		/sys/bus/platform/devices/*.ufs/device_lvl_exception_count
-> +Date:		March 2025
-> +Contact:	Bao D. Nguyen <quic_nguyenb@quicinc.com>
-> +Description:
-> +		This attribute is applicable to ufs devices compliant to the
-> JEDEC
-> +		specifications version 4.1 or later. The
-> device_lvl_exception_count
-> +		is a counter indicating the number of times the device level
-> exceptions
-> +		have occurred since the last time this variable is reset.
-> +		Writing a 0 value to this attribute will reset the
-> device_lvl_exception_count.
-> +		If the device_lvl_exception_count reads a positive value, the
-> user
-> +		application should read the device_lvl_exception_id attribute
-> to know more
-> +		information about the exception.
-> +		This attribute is read/write.
-> +
-> +What:		/sys/bus/platform/drivers/ufshcd/*/device_lvl_exception_id
-> +What:		/sys/bus/platform/devices/*.ufs/device_lvl_exception_id
-> +Date:		March 2025
-> +Contact:	Bao D. Nguyen <quic_nguyenb@quicinc.com>
-> +Description:
-> +		Reading the device_lvl_exception_id returns the
-> qDeviceLevelExceptionID
-> +		attribute of the ufs device JEDEC specification version 4.1. The
-> definition
-> +		of the qDeviceLevelExceptionID is the ufs device vendor
-> specific implementation.
-> +		Refer to the device manufacturer datasheet for more
-> information
-> +		on the meaning of the qDeviceLevelExceptionID attribute
-> value.
-> +		The attribute is read only.
-> diff --git a/drivers/ufs/core/ufs-sysfs.c b/drivers/ufs/core/ufs-sysfs.c =
-index
-> 90b5ab6..634cf16 100644
-> --- a/drivers/ufs/core/ufs-sysfs.c
-> +++ b/drivers/ufs/core/ufs-sysfs.c
-> @@ -466,6 +466,56 @@ static ssize_t critical_health_show(struct device
-> *dev,
->  	return sysfs_emit(buf, "%d\n", hba->critical_health_count);  }
->=20
-> +static ssize_t device_lvl_exception_count_show(struct device *dev,
-> +					       struct device_attribute *attr,
-> +					       char *buf)
-> +{
-> +	struct ufs_hba *hba =3D dev_get_drvdata(dev);
-> +
-> +	if (hba->dev_info.wspecversion < 0x410)
-> +		return -EOPNOTSUPP;
-> +
-> +	return sysfs_emit(buf, "%u\n",
-> +atomic_read(&hba->dev_lvl_exception_count));
-> +}
-> +
-> +static ssize_t device_lvl_exception_count_store(struct device *dev,
-> +						struct device_attribute *attr,
-> +						const char *buf, size_t count)
-> +{
-> +	struct ufs_hba *hba =3D dev_get_drvdata(dev);
-> +	unsigned int value;
-> +
-> +	if (kstrtouint(buf, 0, &value))
-> +		return -EINVAL;
-> +
-> +	/* the only supported usecase is to reset the dev_lvl_exception_count
-> */
-> +	if (value)
-> +		return -EINVAL;
-> +
-> +	atomic_set(&hba->dev_lvl_exception_count, 0);
-> +
-> +	return count;
-> +}
-> +
-> +static ssize_t device_lvl_exception_id_show(struct device *dev,
-> +					    struct device_attribute *attr,
-> +					    char *buf)
-> +{
-> +	struct ufs_hba *hba =3D dev_get_drvdata(dev);
-> +	u64 exception_id;
-> +	int err;
-> +
-> +	ufshcd_rpm_get_sync(hba);
-> +	err =3D ufshcd_read_device_lvl_exception_id(hba, &exception_id);
-> +	ufshcd_rpm_put_sync(hba);
-> +
-> +	if (err)
-> +		return err;
-> +
-> +	hba->dev_lvl_exception_id =3D exception_id;
-> +	return sysfs_emit(buf, "%llu\n", exception_id); }
-> +
->  static DEVICE_ATTR_RW(rpm_lvl);
->  static DEVICE_ATTR_RO(rpm_target_dev_state);
->  static DEVICE_ATTR_RO(rpm_target_link_state);
-> @@ -479,6 +529,8 @@ static DEVICE_ATTR_RW(wb_flush_threshold);
->  static DEVICE_ATTR_RW(rtc_update_ms);
->  static DEVICE_ATTR_RW(pm_qos_enable);
->  static DEVICE_ATTR_RO(critical_health);
-> +static DEVICE_ATTR_RW(device_lvl_exception_count);
-> +static DEVICE_ATTR_RO(device_lvl_exception_id);
->=20
->  static struct attribute *ufs_sysfs_ufshcd_attrs[] =3D {
->  	&dev_attr_rpm_lvl.attr,
-> @@ -494,6 +546,8 @@ static struct attribute *ufs_sysfs_ufshcd_attrs[] =3D=
- {
->  	&dev_attr_rtc_update_ms.attr,
->  	&dev_attr_pm_qos_enable.attr,
->  	&dev_attr_critical_health.attr,
-> +	&dev_attr_device_lvl_exception_count.attr,
-> +	&dev_attr_device_lvl_exception_id.attr,
->  	NULL
->  };
->=20
-> diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-pri=
-v.h
-> index 10b4a19..d0a2c96 100644
-> --- a/drivers/ufs/core/ufshcd-priv.h
-> +++ b/drivers/ufs/core/ufshcd-priv.h
-> @@ -94,6 +94,7 @@ int ufshcd_exec_raw_upiu_cmd(struct ufs_hba *hba,
->  			     enum query_opcode desc_op);
->=20
->  int ufshcd_wb_toggle(struct ufs_hba *hba, bool enable);
-> +int ufshcd_read_device_lvl_exception_id(struct ufs_hba *hba, u64
-> +*exception_id);
->=20
->  /* Wrapper functions for safely calling variant operations */  static in=
-line const
-> char *ufshcd_get_var_name(struct ufs_hba *hba) diff --git
-> a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c index
-> 4e1e214..86ef716 100644
-> --- a/drivers/ufs/core/ufshcd.c
-> +++ b/drivers/ufs/core/ufshcd.c
-> @@ -6013,6 +6013,43 @@ static void
-> ufshcd_bkops_exception_event_handler(struct ufs_hba *hba)
->  				__func__, err);
->  }
->=20
-> +int ufshcd_read_device_lvl_exception_id(struct ufs_hba *hba, u64
-> +*exception_id) {
-> +	struct utp_upiu_query_response_v4_0 *upiu_resp;
-> +	struct ufs_query_req *request =3D NULL;
-> +	struct ufs_query_res *response =3D NULL;
-> +	int err;
-> +
-> +	if (hba->dev_info.wspecversion < 0x410)
-> +		return -EOPNOTSUPP;
-> +
-> +	ufshcd_hold(hba);
-> +	mutex_lock(&hba->dev_cmd.lock);
-> +
-> +	ufshcd_init_query(hba, &request, &response,
-> +			  UPIU_QUERY_OPCODE_READ_ATTR,
-> +			  QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID, 0, 0);
-> +
-> +	request->query_func =3D
-> UPIU_QUERY_FUNC_STANDARD_READ_REQUEST;
-> +
-> +	err =3D ufshcd_exec_dev_cmd(hba, DEV_CMD_TYPE_QUERY,
-> QUERY_REQ_TIMEOUT);
-> +
-> +	if (err) {
-> +		dev_err(hba->dev, "%s: failed to read device level exception
-> %d\n",
-> +			__func__, err);
-> +		goto out;
-> +	}
-> +
-> +	upiu_resp =3D (struct utp_upiu_query_response_v4_0 *)response;
-> +	*exception_id =3D get_unaligned_be64(&upiu_resp->value);
-> +
-> +out:
-> +	mutex_unlock(&hba->dev_cmd.lock);
-> +	ufshcd_release(hba);
-> +
-> +	return err;
-> +}
-> +
->  static int __ufshcd_wb_toggle(struct ufs_hba *hba, bool set, enum flag_i=
-dn
-> idn)  {
->  	u8 index;
-> @@ -6240,6 +6277,11 @@ static void
-> ufshcd_exception_event_handler(struct work_struct *work)
->  		sysfs_notify(&hba->dev->kobj, NULL, "critical_health");
->  	}
->=20
-> +	if (status & hba->ee_drv_mask & MASK_EE_DEV_LVL_EXCEPTION) {
-> +		atomic_inc(&hba->dev_lvl_exception_count);
-> +		sysfs_notify(&hba->dev->kobj, NULL,
-> "device_lvl_exception_count");
-> +	}
-> +
->  	ufs_debugfs_exception_event(hba, status);  }
->=20
-> @@ -8139,6 +8181,22 @@ static void ufshcd_temp_notif_probe(struct
-> ufs_hba *hba, const u8 *desc_buf)
->  	}
->  }
->=20
-> +static void ufshcd_device_lvl_exception_probe(struct ufs_hba *hba, u8
-> +*desc_buf) {
-> +	u32 ext_ufs_feature;
-> +
-> +	if (hba->dev_info.wspecversion < 0x410)
-> +		return;
-> +
-> +	ext_ufs_feature =3D get_unaligned_be32(desc_buf +
-> +
-> 	DEVICE_DESC_PARAM_EXT_UFS_FEATURE_SUP);
-> +	if (!(ext_ufs_feature & UFS_DEV_LVL_EXCEPTION_SUP))
-> +		return;
-> +
-> +	atomic_set(&hba->dev_lvl_exception_count, 0);
-> +	ufshcd_enable_ee(hba, MASK_EE_DEV_LVL_EXCEPTION); }
-> +
->  static void ufshcd_set_rtt(struct ufs_hba *hba)  {
->  	struct ufs_dev_info *dev_info =3D &hba->dev_info; @@ -8339,6
-> +8397,8 @@ static int ufs_get_device_desc(struct ufs_hba *hba)
->=20
->  	ufs_init_rtc(hba, desc_buf);
->=20
-> +	ufshcd_device_lvl_exception_probe(hba, desc_buf);
-> +
->  	/*
->  	 * ufshcd_read_string_desc returns size of the string
->  	 * reset the error value
-> diff --git a/include/uapi/scsi/scsi_bsg_ufs.h b/include/uapi/scsi/scsi_bs=
-g_ufs.h
-> index 8c29e49..8b61dff 100644
-> --- a/include/uapi/scsi/scsi_bsg_ufs.h
-> +++ b/include/uapi/scsi/scsi_bsg_ufs.h
-> @@ -143,6 +143,15 @@ struct utp_upiu_query_v4_0 {
->  	__be32 reserved;
->  };
->=20
-> +struct utp_upiu_query_response_v4_0 {
-> +	__u8 opcode;
-> +	__u8 idn;
-> +	__u8 index;
-> +	__u8 selector;
-> +	__be64 value;
-> +	__be32 reserved;
-> +} __attribute__((__packed__));
-> +
->  /**
->   * struct utp_upiu_cmd - Command UPIU structure
->   * @exp_data_transfer_len: Data Transfer Length DW-3 diff --git
-> a/include/ufs/ufs.h b/include/ufs/ufs.h index 8a24ed5..1c47136 100644
-> --- a/include/ufs/ufs.h
-> +++ b/include/ufs/ufs.h
-> @@ -180,7 +180,8 @@ enum attr_idn {
->  	QUERY_ATTR_IDN_AVAIL_WB_BUFF_SIZE       =3D 0x1D,
->  	QUERY_ATTR_IDN_WB_BUFF_LIFE_TIME_EST    =3D 0x1E,
->  	QUERY_ATTR_IDN_CURR_WB_BUFF_SIZE        =3D 0x1F,
-> -	QUERY_ATTR_IDN_TIMESTAMP		=3D 0x30
-> +	QUERY_ATTR_IDN_TIMESTAMP		=3D 0x30,
-> +	QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID     =3D 0x34,
->  };
->=20
->  /* Descriptor idn for Query requests */ @@ -390,6 +391,7 @@ enum {
->  	UFS_DEV_EXT_TEMP_NOTIF		=3D BIT(6),
->  	UFS_DEV_HPB_SUPPORT		=3D BIT(7),
->  	UFS_DEV_WRITE_BOOSTER_SUP	=3D BIT(8),
-> +	UFS_DEV_LVL_EXCEPTION_SUP       =3D BIT(12),
->  };
->  #define UFS_DEV_HPB_SUPPORT_VERSION		0x310
->=20
-> @@ -419,6 +421,7 @@ enum {
->  	MASK_EE_TOO_LOW_TEMP		=3D BIT(4),
->  	MASK_EE_WRITEBOOSTER_EVENT	=3D BIT(5),
->  	MASK_EE_PERFORMANCE_THROTTLING	=3D BIT(6),
-> +	MASK_EE_DEV_LVL_EXCEPTION       =3D BIT(7),
->  	MASK_EE_HEALTH_CRITICAL		=3D BIT(9),
->  };
->  #define MASK_EE_URGENT_TEMP (MASK_EE_TOO_HIGH_TEMP |
-> MASK_EE_TOO_LOW_TEMP) diff --git a/include/ufs/ufshcd.h
-> b/include/ufs/ufshcd.h index e3909cc..5888463 100644
-> --- a/include/ufs/ufshcd.h
-> +++ b/include/ufs/ufshcd.h
-> @@ -968,6 +968,9 @@ enum ufshcd_mcq_opr {
->   * @pm_qos_req: PM QoS request handle
->   * @pm_qos_enabled: flag to check if pm qos is enabled
->   * @critical_health_count: count of critical health exceptions
-> + * @dev_lvl_exception_count: count of device level exceptions since
-> + last reset
-> + * @dev_lvl_exception_id: vendor specific information about the
-> + * device level exception event.
->   */
->  struct ufs_hba {
->  	void __iomem *mmio_base;
-> @@ -1138,6 +1141,8 @@ struct ufs_hba {
->  	bool pm_qos_enabled;
->=20
->  	int critical_health_count;
-> +	atomic_t dev_lvl_exception_count;
-> +	u64 dev_lvl_exception_id;
->  };
->=20
->  /**
-> --
-> 2.7.4
->=20
+It is not about one company's idea to make the driver as a module. Linux kernel
+community in general strongly encourages developers to build the drivers as
+module unless there are exceptions (which I have already quoted). If you keep
+building the drivers as built-in, it will result in a bloated kernel image. For
+sure vendors would want *their* interested drivers to be built-in so that they
+do not need to package the drivers in initramfs/rootfs, but that's not a
+practice which is encouraged by the Linux community.
 
+So I'm in favor of making the PCIe controllers as module if there are no
+technical issues.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
