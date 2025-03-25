@@ -4,76 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0818C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 11:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E14C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 11:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QdYd+vEdamak2MCnqAsE3kD8l4P2fha+M49/OdiAbBM=; b=ESgEyxxxVF99qVBPB7z1rUcVUN
-	dWTTTOT5hFwDmbxsbIwDIqcGRsQi2kgA+fb06i+++n71NK0E7PTaJcPPum6wW8MadhV/CF/Hplt41
-	IRbrRwGv9QvcBwOupcb8Bdf1i9+gX8MtqW5wtr+Xb7moQTk0QJj8lTHcgHRt0XP5vCQIwsThfIczr
-	zSQyIg/sULEvm0PkteoGERXz5zTZQx0ZFreKiCOtx/6S5kpOyUdk51bftqfZpE7ha0bQSbOOcPr41
-	mou2DhnsJrDFz28DPai6TzBMOu/UQZywOHQQQ0OaO0HTLxPQbuqnxdnfYTzkvR4uYbL+G8Q9E01QS
-	Oe5L0Rzw==;
+	bh=KYzJH+XUDBUF/N0lAmCHUaQA8dWYRxiMlRySq6cDUpo=; b=vXpLqoSZM4inuZCdZXUFPPPj0R
+	6L57WBzBWBihXyIOrqWdYkgY9YbPXbZXj5xQ+6dqusLtTZpPtGukAYJHZiDmLbKyqilelVhU4Y5z9
+	b0AoDib3QJ7gVwSapIbT17UqXdCsI4jptu94fh3XNlKOupRfWlJ6qv1gMk8wRyki11aa9tQSwsyMi
+	e0GiWmizV7OcrqHyij0hIVgo2bGa9nNXQ07nXLyJpYsKzo/9Cxf2xy+FhVIKhxASCpyqvFYURhFkq
+	5GQECy23H04XKpzZrb/7DzyC1YPK2THHziLmKSB7JtJoduzyj39/qLaiptDwZllVSxp9ZnnBTljFa
+	2N035qqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx26g-00000005aFO-1wQI;
-	Tue, 25 Mar 2025 11:06:06 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tx28O-00000005afs-0rL5;
+	Tue, 25 Mar 2025 11:07:52 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx23s-00000005Zmd-0tiQ
+	id 1tx25A-00000005Zvk-0ogp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 11:03:14 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3D33844268;
-	Tue, 25 Mar 2025 11:03:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742900587;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QdYd+vEdamak2MCnqAsE3kD8l4P2fha+M49/OdiAbBM=;
-	b=iqNRSa8/yPLQTgVKWPi+RLTphyxOq4JVLBg3B2sCSYLzaAmHtwnyFX1fU4yezUdeaCfn4F
-	ctIN8baZucCaWhOoHvKnfwwxfv+aFYqYHbC6VwP1rnfVpRMiT1pB/hZ9ukgXXE391Emqjs
-	aVkP/ooFYfWZtclKdzUukz8ouq+PmAuxnj2kdG9eRtolJvyszH5sz2gN4rHd9VbY6aT6CW
-	/8JXUWmBWo65hqknFSz5uPpQxYy1wh8hAGiu5VB5gIcAKTzVp4laUYnPL8MzGn5nytPdFk
-	WppW0HmnjULiONbEX2SB0jbG596/aj47G6Vx/FBpVzFbm1ZEIBA9sVlqJIUuaw==
-Date: Tue, 25 Mar 2025 12:03:05 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Vladimir Oltean
- <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
- Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
- Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net-next v4 1/8] net: ethtool: Set the req_info->dev on
- DUMP requests for each dev
-Message-ID: <20250325120305.0650bb0a@kmaincent-XPS-13-7390>
-In-Reply-To: <20250324104012.367366-2-maxime.chevallier@bootlin.com>
-References: <20250324104012.367366-1-maxime.chevallier@bootlin.com>
-	<20250324104012.367366-2-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	Tue, 25 Mar 2025 11:04:33 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e535e6739bso8786589a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 04:04:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742900670; x=1743505470; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KYzJH+XUDBUF/N0lAmCHUaQA8dWYRxiMlRySq6cDUpo=;
+        b=A8Zar4TA0KRe+zCE1XC6UqK7rSRiTA1LWN5v3fMR8mtwfebnGvmQow+YEkKVsRjxOD
+         IyOmnOkUx/wLYhQh4+pS5qzxzX06KYIgeGMrXKgjDSW3oXy8BVR5EL96csBJhAIV085s
+         aD9/Lqpotm6LKNX13vP5cHkdC4vZRe3u6c3HM24EiBxn0uNeIp8jXR7wc8mi57PB+mEP
+         YJi37oOiat4nNmSz/H2QwOxBfH9CyOGNwv7rKcUZ81NZ2cjwH+obuAl6rvPgcUhPTkgK
+         pTaNIBTi3mJoO4OhjhdacK8xw4kGIK6Z4XyBY2hGmZqDSGd8YyhMEtfHtPuBXxz+xe7S
+         coxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742900670; x=1743505470;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KYzJH+XUDBUF/N0lAmCHUaQA8dWYRxiMlRySq6cDUpo=;
+        b=JRUICdh78AffK+2EOPGHg6EWJYfWmLT5H+PQ858jY7NwKFa996XpgYu6vaM/2jcDUa
+         I0relY2fk5gNCJqIJk1kO0txd59ngKK/uRHaTW4rrXbxnkEeDBiT0G6JQU6rDbMsxKe0
+         ynMxCaGgRSmVBe1vX7GEKAchq6o4D/WRQJHGCCTnUQHozPxP+sxiAOSnmPRjoKmqb1Gn
+         bP0NVVVt13SPOIi3sx9VLAGoy732mE2WHjo3wdf0bKYQzBR7jvv1vUIib/ABfTIsCki4
+         4uIEor7pPrCS1zpIMmJUlPe1BDV0obGizVrN+ZlMvuc6sS0g6xBhnt+bpyY2MrkwDBEa
+         kZRw==
+X-Forwarded-Encrypted: i=1; AJvYcCU+43pHdj+45YHb3tqkvXhUDLXN6JI22i+rrY3wnfduEYC/fMzdg525tOjXAX3PupgJIfNWp6auoUN7nkFz79Av@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9HIiLngWpdXAnUsjQbZbpKkLCkD+BAtN7vfhnlbKWBfP+aRkV
+	HBOZ4QzuBxolbxqiDhiyg5YPU/K/y44moSVScXFFryOE3mGFsDtwZD/i9rX3
+X-Gm-Gg: ASbGncvkCNAhxdF2gFnoGgd0V7awqtdVsiG7FLz/E7bp+GYoFk3OoftYA5mPiy3HfCz
+	EPiJpb0QPfV/M57fbyphwY5D1/ubVaoKfqpicwJDQ41gbqFtBLL9Qb+wrx7n+yrw4oREBq2qwg0
+	prgWwXAgfg4kFiiiWCTL+baiDh4U8PyU/QH8GantY1MnzH0BRThz5Oip8FXYvTL9pAdHeVq5hWN
+	BfyzET/y/Kn48m+tazsKIkY7Yf5ONgFuD1t76Yxcd4WBALE7rJ3mjoKTuH4M9ZN/o2Odu4+XFyG
+	60EdUbNyEPqUmFjyRbEagYtWj0Gs314hqCPrjXGAoXYxNbFlk8/xM8RBERPua7Feimtcavy3/55
+	xpp6paYljySav23tc
+X-Google-Smtp-Source: AGHT+IGjYBkqXYerys/mgiL5w0LGUgClKn/t3akwJFbuIP56/P4GUrbM+dD5ttple3vDwypq/KVE0w==
+X-Received: by 2002:a05:6402:354e:b0:5e5:c0e7:f455 with SMTP id 4fb4d7f45d1cf-5ebcd42dd4cmr12337589a12.8.1742900669673;
+        Tue, 25 Mar 2025 04:04:29 -0700 (PDT)
+Received: from wslxew242.ultratronik.de (mail.ultratronik.de. [82.100.224.114])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ebccf8cc99sm7556809a12.32.2025.03.25.04.04.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Mar 2025 04:04:29 -0700 (PDT)
+From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <gradenovic@ultratronik.de>,
+	=?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 2/3] dt-bindings: arm: stm32: Document Ultratronik's Fly board DT binding
+Date: Tue, 25 Mar 2025 12:04:06 +0100
+Message-ID: <20250325110409.2323611-3-goran.radni@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250325110409.2323611-1-goran.radni@gmail.com>
+References: <20250325110409.2323611-1-goran.radni@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedvgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddupdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
- egvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: kory.maincent@bootlin.com
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_040312_900670_8E6FD66C 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20250325_040432_241062_26EDA4E0 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Mar 2025 11:40:03 +0100
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+From: Goran Rađenović <gradenovic@ultratronik.de>
 
-> There are a few netlink commands that rely on the req_info->dev field
-> being populated by ethnl in their ->prepare_data() and ->fill_reply().
->=20
-> For a regular GET request, this will be set by ethnl_default_parse(),
-> which calls ethnl_parse_header_dev_get().
->=20
-> In the case of a DUMP request, the ->prepare_data() and ->fill_reply()
-> callbacks will be called with the req_info->dev being NULL, which can
-> cause discrepancies in the behaviour between GET and DUMP results.
->=20
-> The main impact is that ethnl_req_get_phydev() will not find any
-> phy_device, impacting :
->  - plca
->  - pse-pd
->  - stats
->=20
-> Some other commands rely on req_info->dev, namely :
->  - coalesce in ->fill_reply to look for an irq_moder
->=20
-> Although cable_test and tunnels also rely on req_info->dev being set,
-> that's not a problem for these commands as :
->  - cable_test doesn't support DUMP
->  - tunnels rolls its own ->dumpit (and sets dev in the req_info).
->  - phy also has its own ->dumpit
->=20
-> All other commands use reply_data->dev (probably the correct way of
-> doing things) and aren't facing this issue.
->=20
-> Simply set the dev in the req_info context when iterating to dump each
-> dev.
+This commit documents ultra-fly-sbc devicetree binding based on
+STM32MP157 SoC.
 
-Tested-by: Kory Maincent <kory.maincent@bootlin.com>
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Thank you, this fixes the PSE dump!
+diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+index b6c56d4ce6b9..c1cb54ffb210 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+@@ -175,6 +175,11 @@ properties:
+           - const: phytec,phycore-stm32mp157c-som
+           - const: st,stm32mp157
+ 
++      - description: Ultratronik STM32MP1 SBC based Boards
++        items:
++          - const: ultratronik,stm32mp157c-ultra-fly-sbc
++          - const: st,stm32mp157
++
+       - description: ST STM32MP257 based Boards
+         items:
+           - enum:
+-- 
+2.43.0
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
 
