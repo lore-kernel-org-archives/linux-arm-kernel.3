@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3DAC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDF3C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gSvf9PO2tqFZJOjUKNihe05fihUTdxiKCVGVrwqCb5M=; b=xjigxfNyySpYs1HQUh/OQmeVuh
-	9RK6bPTECwV/ZZX09wPnqfxJ6x9+l5E5ZjAaZBzSJNat3+VyFX6Sws1OcjLrzNf4/da17xrNhrEyM
-	wxvknreK6rMP5Imz7rSRNNmqvtql8H7gMVFbMWFpnm3ETXEK7N/HcSq1ZwaWD5Eq2VDxCBptyPGzp
-	9B6oT4+Rd/WSyS+Qkg34bTt1SQ+ORQ2sdMCNID7PiTzpXp287mGgPags4pt10gXzKa4Oep2R2jPvu
-	bmL9sMi7w3CGV10T/sPj4q14fcvyVLhfg3sJt2tlZ11XXfKuH03Bajnqf/RwDvZQSQmVF4OBt6xcG
-	nkNV1WIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b4xUr2g8P2Yxfewyx9tncEy5+j9/6LhB8iszS/EBG4A=; b=qEcnVDpTXTZcthQeGDINMaWf03
+	ix7eTl1fMJ+T5WbonQJQdPS7SZ/3CIHP/vYx9kGjrvoP4rUlXjMeQUkSKMm15P577SREjgASMtUd2
+	5qgCFXpKdnGHO/By1DaaL3BoYsWII/L/+NBMZKiNCQfS789AQQ5AlI6ruY2izxjNI31vQ2MnaSm1M
+	TrbteA3bDGEPEEBxcSl2ChgfIILCbXDxVV3YBmTFelHuRz/uxWhjh+jpspEp/Yx6oRyhOYwKZJIlt
+	VwEgkvsJG3M8opV3qiR/NR00vsRbjRJKeLyBkbvcLso14+ySHQTXS2LZ1Gbz5i92rSJ6nHtrmze78
+	TYHez4VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5Io-00000006CUq-22dY;
-	Tue, 25 Mar 2025 14:30:50 +0000
-Received: from mx.denx.de ([89.58.32.78])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5FX-00000006CC1-2HwM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 14:27:28 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A5B811029027E;
-	Tue, 25 Mar 2025 15:27:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742912846; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=gSvf9PO2tqFZJOjUKNihe05fihUTdxiKCVGVrwqCb5M=;
-	b=RDBIDrIm9ENcVGoDsRYP7G8NhrGNiZndKT7QocmSB7YMCPMHnr5kq9ESBuGGZOJkK8IBiH
-	E8vQJNj+haMjKM8uMz8f1EaHszQ5qd7vajeem8EwUGnrbgLI1qr6se1Rwzamz8Ebr7f2pC
-	qBYhog+vHqI+jmkXw8byuk1fF0zKXl1sKz5yQo0eprQB+H8ty9T8vx34oomS210b0ldtE4
-	wYrBp2G1xSZUVNUctLdxhhmJLS5vAE72mDMvTfIPKQkQHT3T9iJZfzk3oKRdbLHaYWMuKR
-	CH28TPU68Q3V8qZvaOy6syttfnkDCR0ohZeKR66koiT77+TjuparqLJcB8mqrw==
-Date: Tue, 25 Mar 2025 15:27:21 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub
- Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
- Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
- Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH 2/5] dt-bindings: net: Add MTIP L2 switch description
- (fec,mtip-switch.yaml)
-Message-ID: <20250325152721.4aeb3761@wsk>
-In-Reply-To: <7d3fbe0b-f566-4615-a5df-a8f3b4544c3b@kernel.org>
-References: <20250325115736.1732721-1-lukma@denx.de>
-	<20250325115736.1732721-3-lukma@denx.de>
-	<2bf73cc2-c79a-4a06-9c5f-174e3b846f1d@kernel.org>
-	<20250325131507.692804cd@wsk>
-	<bf6d066c-f0dd-471a-bb61-9132476b515a@kernel.org>
-	<20250325133949.7782a8a5@wsk>
-	<7d3fbe0b-f566-4615-a5df-a8f3b4544c3b@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1tx5QO-00000006DRq-3Nix;
+	Tue, 25 Mar 2025 14:38:41 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tx4MB-000000062Cy-39cs;
+	Tue, 25 Mar 2025 13:30:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=b4xUr
+	2g8P2Yxfewyx9tncEy5+j9/6LhB8iszS/EBG4A=; b=K79ks/LLuSMZu35FzSAPn
+	FUTPmIjAhC6jRxmEHuSHfrsf1OS/CBsVJKZUTidAB3cZKq8PazjI+RmXXcG4zLbO
+	V5+8Zs/jiX54UmyHs0pXbxxTRL7VnbfYHbpJQ0TpOVwGV5oyPplK5HwolREy8ODX
+	vASdnUq9VjMuUXvyqzQnp4=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgAnc2bLr+JnWNnrAA--.35530S8;
+	Tue, 25 Mar 2025 21:29:56 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	hjc@rock-chips.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v2 6/6] Revert "ARM: dts: rockchip: drop grf reference from rk3036 hdmi"
+Date: Tue, 25 Mar 2025 21:29:40 +0800
+Message-ID: <20250325132944.171111-7-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250325132944.171111-1-andyshrk@163.com>
+References: <20250325132944.171111-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/6lSmEnGq9ohM/ZV9=THLOqf";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgAnc2bLr+JnWNnrAA--.35530S8
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Gry5Kr43uFW8Ary3Kw15Arb_yoWkGwcEya
+	4Ig3W5Ka1FkrWYqry8tw4UCwsFvws5GFZ3Jw1rJr4UGwnYqF4DuFs5GayIyr15Gay2grZ3
+	WFZ5Xa1Yyw1agjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU0JDG5UUUUU==
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBQbXmfipyL9GAAAsc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_072727_728144_FD533ECF 
-X-CRM114-Status: GOOD (  24.89  )
+X-CRM114-CacheID: sfid-20250325_063016_166555_A3518A80 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,85 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/6lSmEnGq9ohM/ZV9=THLOqf
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Hi Krzysztof,
+This reverts commit 1580ccb6ed9dc76b8ff3e2d8912e8215c8b0fa6d.
 
-> On 25/03/2025 13:39, Lukasz Majewski wrote:
-> > Hi Krzysztof,
-> >  =20
-> >> On 25/03/2025 13:15, Lukasz Majewski wrote: =20
-> >>> Hi Krzysztof,
-> >>>    =20
-> >>>> On 25/03/2025 12:57, Lukasz Majewski wrote:   =20
-> >>>>> This patch provides description of the MTIP L2 switch available
-> >>>>> in some NXP's SOCs - imx287, vf610.
-> >>>>>
-> >>>>> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> >>>>> ---
-> >>>>>  .../bindings/net/fec,mtip-switch.yaml         | 160
-> >>>>> ++++++++++++++++++     =20
-> >>>>
-> >>>> Use compatible as filename.   =20
-> >>>
-> >>> I've followed the fsl,fec.yaml as an example. This file has
-> >>> description for all the device tree sources from fec_main.c   =20
-> >>
-> >>
-> >> That's a 14 year old binding, so clear antipattern. =20
-> >=20
-> > For some reason it is still there... =20
->=20
-> And it will be there for very long time. Bindings are not removed just
-> because they are old, because they are an ABI. That's still not a
-> reason to use something old as starting point.
+The HSYNC/VSYNC polarity of rk3036 HDMI are controlled by GRF.
+Without the polarity configuration in GRF, it can be observed from
+the HDMI protocol analyzer that the H/V front/back timing output
+by RK3036 HDMI are currently not in line with the specifications.
 
-It was unintentional - if I would know that fsl,fec.yaml is so old, I
-would use another one as a starting point.
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
-I will use more recent one to provide proper bindings for this driver.
+---
 
->=20
-> It's the same with drivers, although driver can be easier changed and
-> old pattern can be dropped. You cannot easily drop old, anti-patterns
-> from the binding.
+Changes in v2:
+- First included in this series
 
-Yes, I'm fully aware of the problem.
+ arch/arm/boot/dts/rockchip/rk3036.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
->=20
-> Best regards,
-> Krzysztof
+diff --git a/arch/arm/boot/dts/rockchip/rk3036.dtsi b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+index 22685cd23a708..95ae815ba56d3 100644
+--- a/arch/arm/boot/dts/rockchip/rk3036.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+@@ -405,6 +405,7 @@ hdmi: hdmi@20034000 {
+ 		interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+ 		clocks = <&cru PCLK_HDMI>, <&cru SCLK_LCDC>;
+ 		clock-names = "pclk", "ref";
++		rockchip,grf = <&grf>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&hdmi_ctl>;
+ 		#sound-dai-cells = <0>;
+-- 
+2.43.0
 
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/6lSmEnGq9ohM/ZV9=THLOqf
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfivUkACgkQAR8vZIA0
-zr2Tqwf/SGk7rTkRbhWp18Uj5U62OiHZ4Z5IG6yCm/VVMS5W+g3WAdCQAmLkeIGF
-XYksXNPNlSjajTtdymcLx3k6HtMaLAbwTcyRjveRkTIaj2qYZP/svvbnTaEsekE1
-azzE5nMLIe4frACfzbht3MZ5jRGxM2g7n4tcs39tk8p+O7/trcg9Wv2YYy69zfFU
-jeXjlAMkKuh2Sz0oyadV/K7OWB3CcLqxwcjYfUueEyk/iB7iuTl9Sq7kfS5R7sEb
-1kMqu+9tNt8b2+ShhNycPDmwOI4juRWaT3pBvlZHrYAO5SISQ051HJv0H2jYARo1
-Vv8/qfE4zOTZseWUfTp3GKXhZFDBAg==
-=Loga
------END PGP SIGNATURE-----
-
---Sig_/6lSmEnGq9ohM/ZV9=THLOqf--
 
