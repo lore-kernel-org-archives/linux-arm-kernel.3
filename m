@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B8D4C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85C3C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJh2Y6OdJYtieJbzFOlChfIGiWxVwx2cLiWVoVq+9Sg=; b=fDG2lHnu9+sD0hINj5BbuEqOPl
-	+8kc3tAW29Ad2txugEhtqdP+wXKoT+PR8R+LEJADuOtaoF1cknSHr/8HzIuHzygDY55R4LZoBNgaa
-	+gXNOApwFlMdrD6FUpiuTIQ3jPmYeJ9aMxcatLgzXHD4r018znm5xRzo7ZR+Ba14I3AOAMlhdu4T+
-	y/8FuguPLHH8xEnUmMONNpQIgTsKlPoY1RP23ylolVCl9k9MBNNYbh6GcZAtN8R5bEANQgIVhA+JS
-	QAWK8xo5JQCOOVC5YJMCG+sHl9u1vEZ1hpyBqByQE80wQ/sM3AjHTE61yc2JLJxd1IEUDg4T32qvd
-	O7ieubbA==;
+	bh=iPTgPbLOY+aSWptN4fnzef1nyYQQ172UgP4OAepWjo8=; b=GxKVU90kL6Bkbo+zHgO0fOUJax
+	nMGp7VrE4N5WBNam2clro1+CF35iRG6Kexs25sMo8MEM2bLJOS1IRr8BJqC7MbeTdPMYYzI1zlUYn
+	cAWyTDYL2iAp8EJqcIP15W3gO5dQajTm8jkLNrwjRKncUJOVh3O++CLc/yw5Z4bW4lIGfqP/lQZQU
+	Ck3ZQtTaIdA4vA75ZYpKI89ZAau/+e33pwvYEj4JuWSNJ2pyDJalYCX5BVWQ4YbUT3FFrxs7VXiqf
+	ILvpFRqCEEtW+o3WEPyki6qLCbuiGzWLN0uo79aVK126CPHj+kZFyUldCa2lTtuQjCqZPhO0k17OO
+	SkvwGC5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5xu-00000006Ins-3Viv;
-	Tue, 25 Mar 2025 15:13:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tx5zc-00000006J4D-2aCk;
+	Tue, 25 Mar 2025 15:15:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5ul-00000006IOx-2meF
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tx5un-00000006IPw-2vI6;
 	Tue, 25 Mar 2025 15:10:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1874243CE3;
-	Tue, 25 Mar 2025 15:10:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D5FDC4CEE4;
-	Tue, 25 Mar 2025 15:10:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D34986159D;
+	Tue, 25 Mar 2025 15:10:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEB9EC4CEE4;
+	Tue, 25 Mar 2025 15:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742915403;
-	bh=LeTQS4831V5MzsLiMC9LAw9t50lIBowdpyY0TiML4j8=;
+	s=k20201202; t=1742915404;
+	bh=rM2cEQEVYKda9LgagA18a6qU64i4bQNXa6hgu74L26A=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OSv+owgNR70SmVzshxqqtEMPZkBl/rNogjzzKsghyVHlQ28cLSkSU9S/GVwbqpgsq
-	 hUMhkGTKbJ4QDckbTjwRefRsG3C+58481bAz4v/iuCcIHMWR6LXkqfwdV2bMHUywZM
-	 5DLt3iDXsoGjGGu6GRI6rzgDeRTKkjRiC4ERjnzDbUyP5s7NTWOmL61d847gDli+aI
-	 r86gRcsJ0VfBhzqFu4Wmg0kAuLtov8i/nSGY52Odk9mDRowrmnZmS8WfIkJwGDCFY/
-	 sngqbstTr1Xy/huJRbp/lTdykx9mm7/aeG7I7zf37Rm5vsjWlXBPNTPtP1KESIqN1y
-	 BinaN4QGIvxaA==
+	b=Qw5sPzUVhPHUW9fD/il87+6z83Jw4hwaJrAGTBy9CUiqw3koPQWc9H/VQKqDTpEBV
+	 lXc88fT5IhlMVkV+F0G/kg8fb83Tpq931IlK+GqHe/rEujg345ZUB7aok1aGXWMvuu
+	 xIcn8DgX/oczkCxpSFxf7KsqehTQt6JdYIbjrHhTZpqi8xMsTkD+m1N0AX8d7CvoCp
+	 JZqSVQuFj65qOGbT/kOqgpeM0+ddZTzn1kryyBXmf3yaWWBMFNcWIBMEIDUpNn2B7I
+	 d0NwG3K9seJJEMRpMlunFvX3Kh/BWShA1U3y70fqWV+S7aBwKfecwr7/Pv5IkGho+h
+	 SMrIfjj19viBQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B0FBF380CFE7;
-	Tue, 25 Mar 2025 15:10:40 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34F0D380CFE7;
+	Tue, 25 Mar 2025 15:10:42 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/5] net: improve stmmac resume rx clocking
+Subject: Re: [PATCH net-next v3 0/5] net: stmmac: dwmac-rk: Add GMAC support for
+ RK3528
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174291543949.609648.15797575724114490670.git-patchwork-notify@kernel.org>
-Date: Tue, 25 Mar 2025 15:10:39 +0000
-References: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
-In-Reply-To: <Z9ySeo61VYTClIJJ@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_081003_726635_10C23084 
-X-CRM114-Status: GOOD (  13.58  )
+Message-Id: <174291544076.609648.8594782943472190694.git-patchwork-notify@kernel.org>
+Date: Tue, 25 Mar 2025 15:10:40 +0000
+References: <20250319214415.3086027-1-jonas@kwiboo.se>
+In-Reply-To: <20250319214415.3086027-1-jonas@kwiboo.se>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: heiko@sntech.de, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, david.wu@rock-chips.com,
+ ziyao@disroot.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +80,27 @@ Hello:
 This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Thu, 20 Mar 2025 22:11:06 +0000 you wrote:
-> Hi,
+On Wed, 19 Mar 2025 21:44:04 +0000 you wrote:
+> The Rockchip RK3528 has two Ethernet controllers, one 100/10 MAC to be
+> used with the integrated PHY and a second 1000/100/10 MAC to be used
+> with an external Ethernet PHY.
 > 
-> stmmac has had a long history of problems with resuming, illustrated by
-> reset failure due to the receive clock not running.
-> 
-> Several attempts have been attempted over the years to address this
-> issue, such as moving phylink_start() (now phylink_resume()) super
-> early in stmmac_resume() in commit 90702dcd19c0 ("net: stmmac: fix MAC
-> not working when system resume back with WoL a ctive.") However, this
-> has the downside that stmmac_mac_link_up() can (and demonstrably is)
-> called before or during the driver initialisation in another thread.
-> This can cause issues as packets could begin to be queued, and the
-> transmit/receive enable bits will be set before any initialisation has
-> been done.
+> This series add initial support for the Ethernet controllers found in
+> RK3528 and initial support to power up/down the integrated PHY.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,1/5] net: phylink: add phylink_prepare_resume()
-    https://git.kernel.org/netdev/net-next/c/367f1854d442
-  - [net-next,2/5] net: stmmac: address non-LPI resume failures properly
-    https://git.kernel.org/netdev/net-next/c/ef43e5132895
-  - [net-next,3/5] net: stmmac: socfpga: remove phy_resume() call
-    https://git.kernel.org/netdev/net-next/c/366aeeba7908
-  - [net-next,4/5] net: phylink: add functions to block/unblock rx clock stop
-    https://git.kernel.org/netdev/net-next/c/ddf4bd3f7384
-  - [net-next,5/5] net: stmmac: block PHY RXC clock-stop
-    https://git.kernel.org/netdev/net-next/c/dd557266cf5f
+  - [net-next,v3,1/5] dt-bindings: net: rockchip-dwmac: Add compatible string for RK3528
+    https://git.kernel.org/netdev/net-next/c/1b22f686f199
+  - [net-next,v3,2/5] net: stmmac: dwmac-rk: Add GMAC support for RK3528
+    https://git.kernel.org/netdev/net-next/c/1725f0eb37d6
+  - [net-next,v3,3/5] net: stmmac: dwmac-rk: Move integrated_phy_powerup/down functions
+    https://git.kernel.org/netdev/net-next/c/0bed91f2b183
+  - [net-next,v3,4/5] net: stmmac: dwmac-rk: Add integrated_phy_powerdown operation
+    https://git.kernel.org/netdev/net-next/c/32c7bc0747bb
+  - [net-next,v3,5/5] net: stmmac: dwmac-rk: Add initial support for RK3528 integrated PHY
+    https://git.kernel.org/netdev/net-next/c/83e7b35c7879
 
 You are awesome, thank you!
 -- 
