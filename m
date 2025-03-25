@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE6AFC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 09:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C65C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OikC43tfGVqcaGJaSFtBGBt98zMmOylB8g82DSjPV3k=; b=LGeKgBbbCoOamdC3Mv1xdHHCGW
-	LSAOdHcmkoJOeTss/VQu/wroBpgkkL0GGF3ovlmB8BGZk9xDe8XBk77O3eSAA5vLSb4zAM1D8uTxM
-	4OSloCE+LN1XK42u5ca0BiWC63iddkIn2PNOgB/niRPjXiRotMfiXjkb0gwZqkwGKB4qe0SGsfaw8
-	loWbQcAIxBmWG0E8VDg6DGEZgTBEmCiXs9yW2iMqlqGXqruXpjqtbkGt6n4kZvTtD7kNrpdsgLT7+
-	uBPib98LMPkdGzcuECJDhkh+mAH21JM0jj5f9FchKxxqeSFgoygLTk3zvFFDtGTnAPbw7RmOwwE5d
-	4HXgDw6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gaYYKQhdt5+WppBYnImCivL9U494+2hjcdM9oi2RwHw=; b=MkwFC3WmuCXGWz3Eqpght08rGq
+	1Gkbwl9uLSThAQABFyYRfQKAlY035bv5eaKoCE9AEihqZNMxyHSPykMt5jAmUHg9r9r/dzghP+CNQ
+	6KLhgtXD/OVMNSzX53TeNhgTu3VjWvoNX10s/JcDIMRi1T+camlObPzPQRZVXUhhPbYRbUv/jymAB
+	PMehb3IqknB1D1Z1V/DldjrYwrCS4XFJjRwwkrnIrBZeAImrMjIAphEyu1WyzE3ef+4uH7HcFd0d5
+	T/EFZ8kcjI2KxeZANgvaEZJb9C1FjA3sDCvRl0MiVy0JMHlXpTKsPdbPSlTAgTtyPAbzzJTfqa1Nj
+	a3B2R/0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx11m-00000005NJt-2tX7;
-	Tue, 25 Mar 2025 09:56:58 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tx17D-00000005OAp-3XFD;
+	Tue, 25 Mar 2025 10:02:35 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx103-00000005N3q-0cIb
+	id 1tx15T-00000005Nil-496W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 09:55:12 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3014cb646ecso6950519a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 02:55:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742896510; x=1743501310; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OikC43tfGVqcaGJaSFtBGBt98zMmOylB8g82DSjPV3k=;
-        b=jZ9MIjH5iMlxYmaKnpK+5z+4jCuUvdp8zEPxF84AV/oItKe5Q7kP1vZu2RgLkVz2em
-         Td2NS34nqT+ME2yO3dt4rXXEHzvJUbL0UVqUF8dikgEdw95UdxyvIFdx/s2+4dEaeS1H
-         4gcfmN7XYGotuRvC8gxyLjQsMnJ8mWvUPNbLA3rklgOH7kIL6Dfsro47EkfoVUY12BQs
-         jRRSVNIs3Z0vZkNK37ciIzX/A69tgOp6LApX6YDHUOqVv/4G8EaMf7lggVTUYKhLv3AL
-         cYtjiWn/dCkrCONvjOhBsZ8kXHBN6i8PqVnpWysBv9MLfLIRSDzcIDMK/JydDSqjoNuE
-         dTGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742896510; x=1743501310;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OikC43tfGVqcaGJaSFtBGBt98zMmOylB8g82DSjPV3k=;
-        b=bOwvi89apCeuHm0b/eoM2RHoGQoD5wCcsfxnURMe482rDexzvoh+gIpUxHrD9/RB5R
-         EjTdXHgxkA1AsL8Ill5haRHUygntXtG9O/fqt0rvdmfdWbTgJNiqRzE0IqtUwErYVRp9
-         UopdSnhNdkcja3Tf5gpQP/2HO8LjKoar3dbJQDDyEuUfy5BVi/514k3zXWLuoBXBeUD5
-         4jq0tfj9w0xG8Ol172Wz5voyVZC33rDOVlG6MXyUcko+2t6LP/oQchY3uMRKQPacTxUX
-         aLoGzNm0IhQdmyhB+LCNOvtgZk2lQ+6VrtpRMEwC9BuA4lx0Zc+DO5sBnCj8tEjPb+yT
-         7mgw==
-X-Forwarded-Encrypted: i=1; AJvYcCV+33Utu7yBZMI/2Ze9MOXLhDCTUzPpvu9NYy+OuE+doO6qZ6328ncTifr6ypFp/VU6xOfMDMwq3OTiBIxnn2fr@lists.infradead.org
-X-Gm-Message-State: AOJu0YztmUy9JTzSs9DYxv8CMMasHgtsZP5eiEfydbGu4XN8Y+HuNbwb
-	6GUPQuuEgHjmT+Xe0Q3Q8a680XrTtnEFxP/hbW1/koSEO+tnz23+Rqs9pepRGHlgnejsRPhEWaM
-	xeSjOCI4XxxXBVBnR2kFXtwa1o0c=
-X-Gm-Gg: ASbGncudrDOV/Wqhpgy4nrmRDZOtKUsV+q1a1WUWoGYT8OX2zR+0egJ1L2OCdsnimn7
-	Q0waVTPYSmFVr+FNfYjU2V9tzIb7GTIFCeIImRnYZL4rnLo0Wbx0vOUphriBODAsORxX+TEynYN
-	3KQA0fv8N+R/nJw6p1KYx66AezHOU6UkmZPymq
-X-Google-Smtp-Source: AGHT+IGNIEeEUu6SigCoTSpIj9xYEpEWYK8C0NKYzoyZvgcjwlTLD0/P82xVLjttC0KKK2MAJ8X+XpE4+SSRkHydSjY=
-X-Received: by 2002:a17:90b:2647:b0:301:c5cb:7b13 with SMTP id
- 98e67ed59e1d1-3030fe552f1mr23024928a91.3.1742896509787; Tue, 25 Mar 2025
- 02:55:09 -0700 (PDT)
+	Tue, 25 Mar 2025 10:00:49 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52P88G5i011352;
+	Tue, 25 Mar 2025 11:00:38 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	gaYYKQhdt5+WppBYnImCivL9U494+2hjcdM9oi2RwHw=; b=1CWmc+MozFy2guRU
+	8gNsMRb0iEh1vNmc4lDAldUIUwlJlEOWWJ3jJO0hwb2tDGeRoAUWPy6oD3OEv2gp
+	hZ9Vuuw0ouhNbjPhZVp6wXxyB9K5pfpM+2+7AlV9zipeOmzTBLg3B6JoIzSlrqlN
+	nPkpqC6DC6e1edgCP9jZfAashnPrLcjOlO6hkzTBfYhUsD43gbFUJvDWtdZLuAHm
+	yPUtGRB+U93hjDKXcn8t/n+yNU3EVQj7IMq/4lk/g/eAvfnLA8faKGUQZ/KSE1lq
+	5HkTRRO1q2+ovS7l5vANICdKFTwlVyioCn5pb/oQ9Z20RUSR3GvX83BqkfpNOUdC
+	TisPwA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45hmynkrsv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Mar 2025 11:00:38 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 040E440054;
+	Tue, 25 Mar 2025 10:59:31 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 705708265C9;
+	Tue, 25 Mar 2025 10:58:48 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Mar
+ 2025 10:58:48 +0100
+Received: from localhost (10.252.12.99) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Mar
+ 2025 10:58:47 +0100
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v16 4/6] dt-bindings: remoteproc: Add compatibility for TEE support
+Date: Tue, 25 Mar 2025 10:58:31 +0100
+Message-ID: <20250325095833.3059895-5-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250325095833.3059895-1-arnaud.pouliquen@foss.st.com>
+References: <20250325095833.3059895-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-References: <CAJNi4rPaPeVWzBve6Toi8hhrxP6GROAGRug7+c3zg1crDeOt7Q@mail.gmail.com>
- <875xk022wu.ffs@tglx>
-In-Reply-To: <875xk022wu.ffs@tglx>
-From: richard clark <richard.xnu.clark@gmail.com>
-Date: Tue, 25 Mar 2025 17:54:58 +0800
-X-Gm-Features: AQ5f1JqYEwNRR58lzDarOJKfOrvacm-ZDrKE_UsmaKh3gsTaUsm0aGs3qM00oss
-Message-ID: <CAJNi4rPtsUohpXgD28Bi7K4Y0G=ShgNuUmf1L3E4ze7txj_z0w@mail.gmail.com>
-Subject: Re: hrtimer precision issue/question??
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Linus Torvalds <torvalds@linux-foundation.org>, richard clark <richard.xnu.clark@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.252.12.99]
+X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-25_04,2025-03-25_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_025511_189464_4FB4CE61 
-X-CRM114-Status: GOOD (  25.79  )
+X-CRM114-CacheID: sfid-20250325_030048_520404_4559D407 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,97 +104,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi tglx, Thanks for the explanation! I tried run 'cyclictest -a 0 -t 1
--m -p99 -r' to use the relative timer instead of absolute, now the
-output of the same diff as:
-[   63.824382] [ 0- 0]t0=3D63816686720,t1=3D63817689248,d=3D1002 us
-[   63.825387] [ 0- 0]t0=3D63817691648,t1=3D63818694144,d=3D1002 us
-[   63.825691] [ 4- 7]t0=3D63808939136,t1=3D63818998336,d=3D10059 us
-[   63.826392] [ 0- 0]t0=3D63818696544,t1=3D63819699456,d=3D1002 us
-[   63.827402] [ 0- 0]t0=3D63819704352,t1=3D63820709120,d=3D1004 us
-[   63.828407] [ 0- 0]t0=3D63820712448,t1=3D63821714976,d=3D1002 us
-[   63.829413] [ 0- 0]t0=3D63821717536,t1=3D63822720032,d=3D1002 us
-[   63.830417] [ 0- 0]t0=3D63822722496,t1=3D63823724928,d=3D1002 us
-[   63.831423] [ 0- 0]t0=3D63823727264,t1=3D63824730912,d=3D1003 us
-[   63.832429] [ 0- 0]t0=3D63824734176,t1=3D63825736768,d=3D1002 us
-[   63.833434] [ 0- 0]t0=3D63825739168,t1=3D63826741568,d=3D1002 us
-[   63.834439] [ 0- 0]t0=3D63826743904,t1=3D63827746432,d=3D1002 us
-[   63.835445] [ 0- 0]t0=3D63827748832,t1=3D63828752576,d=3D1003 us
-[   63.836164] [ 7- 4]t0=3D63819412064,t1=3D63829471328,d=3D10059 us
-[   63.836452] [ 0- 0]t0=3D63828755936,t1=3D63829760032,d=3D1004 us
+The "st,stm32mp1-m4-tee" compatible is utilized in a system configuration
+where the Cortex-M4 firmware is loaded by the Trusted Execution Environment
+(TEE).
 
-Now I am wondering if the cyclictest will have the same result using
-the relative timer instead of absolute, suppose all the other
-conditions are the same?
-Also the '-a 0' set affinity to cpu0 and only one timer thread with
-'-t 1', don't know why some cyclictest migrate(?) to the other cpus
-than cpu0, any comments about this...
-Thanks!
+For instance, this compatible is used in both the Linux and OP-TEE device
+trees:
+- In OP-TEE, a node is defined in the device tree with the
+  "st,stm32mp1-m4-tee" compatible to support signed remoteproc firmware.
+  Based on DT properties, the OP-TEE remoteproc framework is initiated to
+  expose a trusted application service to authenticate and load the remote
+  processor firmware provided by the Linux remoteproc framework, as well
+  as to start and stop the remote processor.
+- In Linux, when the compatibility is set, the Cortex-M resets should not
+  be declared in the device tree. In such a configuration, the reset is
+  managed by the OP-TEE remoteproc driver and is no longer accessible from
+  the Linux kernel.
 
-On Sun, Mar 23, 2025 at 5:04=E2=80=AFAM Thomas Gleixner <tglx@linutronix.de=
-> wrote:
->
-> On Sat, Mar 22 2025 at 11:20, richard clark wrote:
-> > With diff below under the 'cyclictest -a 0 -t 1 -m -p99' trigger from
-> > the arm64-based linux box, the interval is 1000us and the arch_timer
-> > in the system is: arch_timer: cp15 timer(s) running at 31.25MHz
-> > (phys).  1tick =3D 32ns for the arch timer, I am not sure if those
-> > durations less than 1000us are expected?
->
-> With your method of measurement yes. There is a german saying, which
-> describes this. It roughly translates to:
->
->    "Who measures a lot, might measure a lot of garbage."
->
-> But it accurately describes, what you are measuring here. You do:
->
->     t1 =3D ktime_get();
->     arm_timer(T);
->     schedule();
->     t2 =3D ktime_get();
->
-> and then look at t2 - t1. That only tells you how long the task actually
-> slept. But that's ignoring the most important information here:
->
->     arm_timer(T);
->
-> cyclictest uses:
->
->            clock_nanosleep(clockid, ABSTIME, &T);
->
-> and T is maintained in absolute time on a periodic time line.
->
->     T =3D starttime + N * interval;
->
-> So the only interesting information here is at which time the task
-> returns from schedule(), i.e. you want to look at:
->
->         t2 - T
->
-> Why? Because that gives you the latency of the wakeup. That's what
-> cyclictest is looking at in user space:
->
->            clock_nanosleep(... &T);
->            clock_gettime(..., &T2);
->            latency =3D T2 - T;
->
-> Now what you are looking at is the time at which the cyclictest task
-> comes back into the kernel to sleep, which is obviously
->
->            t1 =3D T[N] + latency[N-1] + execution_time;
->
-> But the timer is armed for T[N], so your t2 is:
->
->            t2 =3D T[N] + latency[N];
->
-> You surely can do the remaining math and map that to the output:
->
-> > [  165.555795] [ 0- 0]t0=3D165550399226,t1=3D165551394303,d=3D995 us
-> > [  165.556802] [ 0- 0]t0=3D165551398751,t1=3D165552400997,d=3D1002 us
->
-> Right?
->
-> Thanks,
->
->         tglx
+Associated with this new compatible, add the "st,proc-id" property to
+identify the remote processor. This ID is used to define a unique ID,
+common between Linux, U-Boot, and OP-TEE, to identify a coprocessor.
+This ID will be used in requests to the OP-TEE remoteproc Trusted
+Application to specify the remote processor.
+
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/remoteproc/st,stm32-rproc.yaml   | 58 ++++++++++++++++---
+ 1 file changed, 50 insertions(+), 8 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
+index 370af61d8f28..409123cd4667 100644
+--- a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
++++ b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
+@@ -16,7 +16,12 @@ maintainers:
+ 
+ properties:
+   compatible:
+-    const: st,stm32mp1-m4
++    enum:
++      - st,stm32mp1-m4
++      - st,stm32mp1-m4-tee
++    description:
++      Use "st,stm32mp1-m4" for the Cortex-M4 coprocessor management by non-secure context
++      Use "st,stm32mp1-m4-tee" for the Cortex-M4 coprocessor management by secure context
+ 
+   reg:
+     description:
+@@ -43,6 +48,10 @@ properties:
+           - description: The offset of the hold boot setting register
+           - description: The field mask of the hold boot
+ 
++  st,proc-id:
++    description: remote processor identifier
++    $ref: /schemas/types.yaml#/definitions/uint32
++
+   st,syscfg-tz:
+     deprecated: true
+     description:
+@@ -142,21 +151,43 @@ properties:
+ required:
+   - compatible
+   - reg
+-  - resets
+ 
+ allOf:
+   - if:
+       properties:
+-        reset-names:
+-          not:
+-            contains:
+-              const: hold_boot
++        compatible:
++          contains:
++            const: st,stm32mp1-m4
+     then:
++      if:
++        properties:
++          reset-names:
++            not:
++              contains:
++                const: hold_boot
++      then:
++        required:
++          - st,syscfg-holdboot
++      else:
++        properties:
++          st,syscfg-holdboot: false
++        required:
++          - reset-names
+       required:
+-        - st,syscfg-holdboot
+-    else:
++        - resets
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: st,stm32mp1-m4-tee
++    then:
+       properties:
+         st,syscfg-holdboot: false
++        reset-names: false
++        resets: false
++      required:
++        - st,proc-id
+ 
+ additionalProperties: false
+ 
+@@ -188,5 +219,16 @@ examples:
+       st,syscfg-rsc-tbl = <&tamp 0x144 0xFFFFFFFF>;
+       st,syscfg-m4-state = <&tamp 0x148 0xFFFFFFFF>;
+     };
++  - |
++    #include <dt-bindings/reset/stm32mp1-resets.h>
++    m4@10000000 {
++      compatible = "st,stm32mp1-m4-tee";
++      reg = <0x10000000 0x40000>,
++            <0x30000000 0x40000>,
++            <0x38000000 0x10000>;
++      st,proc-id = <0>;
++      st,syscfg-rsc-tbl = <&tamp 0x144 0xFFFFFFFF>;
++      st,syscfg-m4-state = <&tamp 0x148 0xFFFFFFFF>;
++    };
+ 
+ ...
+-- 
+2.25.1
+
 
