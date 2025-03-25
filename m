@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF0BC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02BEC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PvnjP1KZvNHykTcRfl9qD1j5GE4bTQS8Z3I6LLaUEwQ=; b=aY/43//HLsj+f5A5gRiVNL/pN8
-	GFENhWqjVeN5aVPJJsPSkpWBdFNXKMMYqaK0g0v3HKUrNUDFg3qkK2dFNY0zwrfWxqkC8/eumgFKV
-	wO2/ha95cLgxnz3Z/lLYCZcHpXLp/6aHVz9V/YEp4q8fzanITV3MFmhbk2HbwzL3UGhZJiLeibz+c
-	/+WTftJa2+/vSs/B+XVgn8j9vYK2sgSNpq2RTGgiHqxBmU0tSwLZGLpE1S6CaHFJOzJjt3YZbT80e
-	m97lH9Dut66nci4Yam924dz9u8ziJ9wFraV7gophJvvxoT8N9Bnfn7ZGQsgJf4pzzoWSj+bckfs1J
-	GC7vHn8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jGTI6dUm2MRiVeGplFX7z/KtFfB0S3Uj2G+oen7A4jo=; b=Og3u4Fn4H7gv29
+	i+aMS9fEZ3muqLzi6fsy3iaBn+3tA39NKdmzTUAbwszy8FUx8qup8lYwvPjlmUqI+6WkMZzHzqeBA
+	HLaA35tViXGsIc337V2IAkp3P97MAbfhEcpdgbd3B8D7fdzW6ihbOGoTWRbhkkcShmpX4ZxKUCV4y
+	OlQj1Px0I6sccSFrD1dRoBe93rgQvP7+1daIW+i3Z9MeygvckUXYTPzLecpsSQjanIyvTdCBFgKmN
+	UDqtZmDR/ZVsDwWcPT8cNYI7WCQg0rrHcCdU+O8lBeJ9YCOJFH5q/8htYNbslu9OlsstmVAPSH7z7
+	1/+BhhRCeE/omcNXvT8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx33l-00000005kIv-1QTB;
-	Tue, 25 Mar 2025 12:07:09 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tx35S-00000005keo-0DWi;
+	Tue, 25 Mar 2025 12:08:54 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx2vI-00000005iFA-1KnT
+	id 1tx2vy-00000005iNT-1Hoi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 11:58:25 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5304C102E64C4;
-	Tue, 25 Mar 2025 12:58:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742903902; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=PvnjP1KZvNHykTcRfl9qD1j5GE4bTQS8Z3I6LLaUEwQ=;
-	b=DHfs+3dK6bKFwwpkizkeqhOSPyaZyj6ZOLzH4VIMXX5CgnIA0WrlPzdOFVUdR9rJVbChC2
-	HIJY0YLP/M+k+78/uaG43pZHPpcL8d6eGOZIfhiEazLKD2Nm7+7Ywj9zj42PEp9GDa6bMG
-	j8CK35jWW+WqZk+SZhZwwYEGWBfhkSHC0Gd9gWSV3egr+AexVDoDtNtvkTnIpupcuDF32E
-	firURP4b7LHre60bJtATXNAuUf3d1/UEq2TUn9MtFWqV5gTTiBWN+dl+/p9doq44PXe7uL
-	OUlzEGWiRijHptWq0KjvkXbUlcj82oZhhKTq3wwAgPy4nHEOJVu2fULh6MwHfQ==
-From: Lukasz Majewski <lukma@denx.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	davem@davemloft.net,
-	Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [PATCH 4/5] arm: dts: imx287: Provide description for MTIP L2 switch
-Date: Tue, 25 Mar 2025 12:57:35 +0100
-Message-Id: <20250325115736.1732721-5-lukma@denx.de>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250325115736.1732721-1-lukma@denx.de>
-References: <20250325115736.1732721-1-lukma@denx.de>
+	Tue, 25 Mar 2025 11:59:07 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso34421725e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 04:59:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742903944; x=1743508744; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jGTI6dUm2MRiVeGplFX7z/KtFfB0S3Uj2G+oen7A4jo=;
+        b=S10uOwX17z2qZffPQ9du7FEDeRlUZa0Ch54hnSXDV6C8QZoPmIXlmkt+ckFhsShREZ
+         /zxvRPQnlC4H2a9ommz14t5/lpxGUlEyjDoYAoo2AUGz/vot6SRcfLuZ3Pj8XHdcnWJL
+         pBvJ5D0ihAjvRCNklgaULUGU9inQiuV5+pxYZ1qxMWyp7a5prtm4ytVf/zKTcQ1U+nPE
+         yxGeQc72LiteL1V97Vhkv3sT+BIDTJAqotrhSuQwrWaBG5StzpbXdLQ/lc9HRUTFc7hn
+         yY4DM+p0mN+dCjgtrx94X8I9EkudlUy/nfNJO2tItKJvYQikDpdM3wpuGu4Zfp+c0gXV
+         kXJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742903944; x=1743508744;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jGTI6dUm2MRiVeGplFX7z/KtFfB0S3Uj2G+oen7A4jo=;
+        b=okTeYSnFrNAlT1momfPZAUxYgdtCcuj1vKBKAOKhlgKk7sMq87ypfEkqax3ODIH3a6
+         CXfQSi9TLjEjPemcDLVdU2uGEsUCBWcu0cxLKesITABtA4ein4V8Jp7pcT3pNOObCWWN
+         f4MPWBkjCtt/rni/b60LJljNpsoyF4b0FmlN/+gwlVVOYCkVB7rqyI9DB8KKAi8xmZxp
+         gicWAknd1LRhd4XfVMIizfVdy1kBMVouLtrocq1NeVU1MGsXLvXad/Jm3HFsyYHpEqdJ
+         k13/7/nMRwqrfBWT5n8pcdAqyRt9fGr84xsZksoCJzVX/pzE70/Kqc36ErUOhW64GqrL
+         tjpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX8GImuAndtn53+F47psMTXj8HjvgRyiX5v15RhtburdNvrQI7ogKOol93g+fWuokGKrdA/TV7k5PYdlwHwCh69@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/3vxLe2VpxcDirF6Sk/bdS9ET3gWHxWJwJ50myCBWmAXgfD1u
+	X2c05THM/SXgNC9GRJ9H+BMTPHi1CC2jHa8Pj2PnxqtUId8XSgFi8IHj8Vh9Ej8=
+X-Gm-Gg: ASbGnct31eDO0Y9Ew1zWEAeZXZ9euKqBSOspwnqtCnTJ9LVU/xRKDGr0BB7UJSFFt2+
+	+AkEWp/yQWzdEy0BOsSgRhLFGhPVac5iD8UEUipbC+N6S7A77n4ZKxD/a3m8FpZY/gczFjTG6Hh
+	fHEilU0I+iPBEs5dDuj9FmtGaI33AKWg8sGwv18+hDvh7GlrWJbgIZsiGI7Pi58ApLiXhEQRcTO
+	I0+JgTEnh3s1FtbN7hkN8AfQBmPKI21E2Jq9UYdd1Xn8ncaSmcnOTvbK1SmnlxLCuXWsLsrfc4N
+	ogdXLvrqAgu091dcnUbYVC1F4PsJu3eO/dYmEXpz4q2ciXiMOq6ZOKbKq/E=
+X-Google-Smtp-Source: AGHT+IGi3f+WduASAoJyESw/dkvZV/1xs7w/6CimQs/4qOoGd+9PrfPjTXiaYW1ipNvTLM3qNBE+cQ==
+X-Received: by 2002:a05:600c:4995:b0:43c:ed33:a500 with SMTP id 5b1f17b1804b1-43d491b7dc5mr162584035e9.10.1742903944481;
+        Tue, 25 Mar 2025 04:59:04 -0700 (PDT)
+Received: from [10.42.0.1] ([145.224.90.136])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9e6676sm13687169f8f.62.2025.03.25.04.59.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Mar 2025 04:59:04 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v4 0/7] coresight: Clear self hosted claim tag on probe
+Date: Tue, 25 Mar 2025 11:58:45 +0000
+Message-Id: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHaa4mcC/33OTWrDMBCG4asErTtGo5/Eyqr3KFkIeWxPm1hlZ
+ ExD8N0rp5Smmyw/GJ55b6qQMBV13N2U0MKF81SHe9mpNMZpIOCubmW08driAd7jhQqkLFR4GGd
+ I58gXmONQIBK6PfbYe9KqAp9CPX/d8bdT3b3kejkKxT/SIKK2wfkm7A8ueMCfD0115eP1zFOU3
+ GQZNnDkMme53mMXs7G/Xe2zrsWABgqpjSF11Dp6ZLewxT5YRj+1bLU6i84n9LY1+p+1rus3IFN
+ REFIBAAA=
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Suzuki.Poulose@arm.com, 
+ leo.yan@arm.com
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Yeoreum Yun <yeoreum.yun@arm.com>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_045824_499005_B71317FC 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250325_045906_368087_E004D948 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,91 +106,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This description is similar to one supprted with the cpsw_new.c
-driver.
+I've gotten stuck a few times with unusable Coresight after a warm boot
+due to lingering claim tags, especially when testing the Coresight
+panic patchsets.
 
-It has separated ports and PHYs (connected to mdio bus).
+This change does some tidy ups, adds some debug messages and clears the
+self hosted claim tag on probe. The last two commits are unrelated
+tidyups but they touch some of the same functions so to avoid extra
+conflicts I'm including them here.
 
-Signed-off-by: Lukasz Majewski <lukma@denx.de>
+This gets as far as fixing the claim tag issue, but there is some other
+state not being cleared on probe that results in the following error.
+This can be fixed up as a later change:
+
+  coresight tmc_etf0: timeout while waiting for TMC to be Ready
+  coresight tmc_etf0: Failed to enable : TMC is not ready
+
+Changes in v4:
+- Add _unlocked() suffix for consistency
+- s/cs_access/csdev_access/
+
+- Link to v3: https://lore.kernel.org/r/20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org
+
+Changes in v3:
+- Collapse rename and locked/unlocked addition commits of
+  coresight_clear_self_claim_tag() so we don't change the name twice.
+- Make coresight_clear_self_claim_tag() a bit more generic by only
+  doing UNLOCK for MMIO devices (although there is no use of this right
+  now)
+- Link to v2: https://lore.kernel.org/r/20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org
+
+Changes in v2:
+ * Revert most of the interface changes, just call
+   coresight_clear_self_claim_tag() directly. This is possible because
+   we're not doing the read first, so it has fewer knock on effects.
+ * Split out the change to add struct cs_access to etm3x
+ * Add another warning for racing with external debugger
+
+--
+2.34.1
+
 ---
- arch/arm/boot/dts/nxp/mxs/imx28-xea.dts | 56 +++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+James Clark (7):
+      coresight: Convert tag clear function to take a struct csdev_access
+      coresight: Only check bottom two claim bits
+      coresight: Add claim tag warnings and debug messages
+      coresight: etm3x: Convert raw base pointer to struct coresight access
+      coresight: Clear self hosted claim tag on probe
+      coresight: Remove inlines from static function definitions
+      coresight: Remove extern from function declarations
 
-diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-index 6c5e6856648a..e645b086574d 100644
---- a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-+++ b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-@@ -5,6 +5,7 @@
-  */
- 
- /dts-v1/;
-+#include<dt-bindings/interrupt-controller/irq.h>
- #include "imx28-lwe.dtsi"
- 
- / {
-@@ -18,6 +19,61 @@ &can0 {
- 	status = "okay";
- };
- 
-+&eth_switch {
-+	compatible = "fsl,imx287-mtip-switch";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
-+	phy-supply = <&reg_fec_3v3>;
-+	phy-reset-duration = <25>;
-+	phy-reset-post-delay = <10>;
-+	interrupts = <100>, <101>, <102>;
-+	clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-+	clock-names = "ipg", "ahb", "enet_out", "ptp";
-+	status = "okay";
-+
-+	ethernet-ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		mtip_port1: port@1 {
-+			reg = <1>;
-+			label = "lan0";
-+			local-mac-address = [ 00 00 00 00 00 00 ];
-+			phy-mode = "rmii";
-+			phy-handle = <&ethphy0>;
-+		};
-+
-+		mtip_port2: port@2 {
-+			reg = <2>;
-+			label = "lan1";
-+			local-mac-address = [ 00 00 00 00 00 00 ];
-+			phy-mode = "rmii";
-+			phy-handle = <&ethphy1>;
-+		};
-+	};
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@0 {
-+			reg = <0>;
-+			smsc,disable-energy-detect;
-+			/* Both PHYs (i.e. 0,1) have the same, single GPIO, */
-+			/* line to handle both, their interrupts (AND'ed) */
-+			interrupt-parent = <&gpio4>;
-+			interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
-+		};
-+
-+		ethphy1: ethernet-phy@1 {
-+			reg = <1>;
-+			smsc,disable-energy-detect;
-+			interrupt-parent = <&gpio4>;
-+			interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
-+		};
-+	};
-+};
-+
- &i2c1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c1_pins_b>;
+ drivers/hwtracing/coresight/coresight-catu.c       | 12 +--
+ drivers/hwtracing/coresight/coresight-core.c       | 87 ++++++++++++++--------
+ drivers/hwtracing/coresight/coresight-cti-core.c   |  2 +
+ drivers/hwtracing/coresight/coresight-etb10.c      |  4 +-
+ drivers/hwtracing/coresight/coresight-etm.h        |  6 +-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 28 +++----
+ .../hwtracing/coresight/coresight-etm3x-sysfs.c    |  8 +-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 ++-
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    |  4 +-
+ drivers/hwtracing/coresight/coresight-funnel.c     |  1 +
+ drivers/hwtracing/coresight/coresight-platform.c   | 26 +++----
+ drivers/hwtracing/coresight/coresight-priv.h       | 20 ++---
+ drivers/hwtracing/coresight/coresight-replicator.c |  3 +-
+ drivers/hwtracing/coresight/coresight-stm.c        |  6 +-
+ .../coresight/coresight-syscfg-configfs.c          |  2 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  9 ++-
+ drivers/hwtracing/coresight/coresight-tmc-etr.c    | 16 ++--
+ drivers/hwtracing/coresight/coresight-trbe.c       | 18 ++---
+ include/linux/coresight.h                          | 40 +++++-----
+ 19 files changed, 168 insertions(+), 134 deletions(-)
+---
+base-commit: 5442d22da7dbff3ba8c6720fc6f23ea4934d402d
+change-id: 20250317-james-coresight-claim-tags-ae1461f1f5e0
+
+Best regards,
 -- 
-2.39.5
+James Clark <james.clark@linaro.org>
 
 
