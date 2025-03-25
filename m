@@ -4,53 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C606BC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 11:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E04C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 11:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=PSqUsC80d2+wVwpciG8PLlj/02LLB/aEWh/Gvq46sec=; b=3nz3OBDq6PbxM+GWguHlv5JmtO
-	10tYFtn3V+TUyLINzCHPqhnYbIy2Fi/oTaaTw7F+PvuRMgyt+KlQrkyd2Y9O1wHwBmdGyJix4U2Z8
-	d5zz1dTkwoH06H+zY5T1MbUFeuZjHQY20rhQcj344Y36hPCDiYW1Qf8yMqYtd8efhJrnZj00QfCA5
-	ucCucHx8LWZMxVx5LBWFwsHnd0pT8TIP0FRczSckJqfgKzx37ieX3smsdLc57c27+ltLfQDsKWogB
-	mIa5FFAEZOGem+YWBHcEO4L3Z28GNBP9HC/Rwd3dT0oLJ9JcETBbGJ0W7FVm5ePa5/R1QeTZ1W7li
-	+dqrZ5Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i9p8SxoCgO1CRxOGHFQK1oOByabIkxwuKSUJPUEUyKc=; b=xv3bXVnaPLd2FMRTkzOLX6osoU
+	qbNweQzdePrROMz6xlNmrEHF/u+l+fxeUA2yqzKfKPCwoyGK0czikapSx1XtCFxefTVJLCmwCbR9E
+	+mSttkADeMLsX1D1Ib0tN2oJAtPqGGrW9MMIo3AYxJzpzyQNXy/x+5lHX6llVS5ic9Z6ikP0fPO2o
+	9cBfdmArXfrymWiZ235NbVIq5a/dou6grk8Q75UfU5qJ9wdJvcXN/tAP+3GHDfwxxsU2zSvwz05/n
+	3RG7D9fbkkX1wAAbI3Z2MR28NT4aJeS0k6iQn4q4CA7WsPEldCnw5Pj9jJ9GmuHADfVOW+PLM690m
+	kT4gwGkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx2hl-00000005g6a-1Q17;
-	Tue, 25 Mar 2025 11:44:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tx2jS-00000005gTA-2T1Y;
+	Tue, 25 Mar 2025 11:46:10 +0000
+Received: from mail-am7eur03on20602.outbound.protection.outlook.com ([2a01:111:f403:260e::602] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx2UT-00000005djz-0szc
+	id 1tx2eL-00000005fJt-1txQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 11:30:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5EB546158F;
-	Tue, 25 Mar 2025 11:30:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08D48C4CEE4;
-	Tue, 25 Mar 2025 11:30:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1742902240;
-	bh=O153+Pmh0+K+lP1cOqZix/hc+Uade+0Glwn1b3nvHg0=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=Pf7Eyl4UHVH0YadSyK7oZ8gQIHm4PaqN39SRlgQapOJpHVtDFFje0FPt1hwL84A/4
-	 lREfpxbBL+QXlnzKpIFJAPKK1XzwaWcJC1mPpkk5AniMzdSX1EH0ywY6tmwERLp5Xo
-	 2QXwYmZ2a0dTBhpxnWxv2hpmpJhZDvgSWF1Vz4tE=
-Subject: Patch "KVM: arm64: Mark some header functions as inline" has been added to the 6.6-stable tree
-To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,james.morse@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Tue, 25 Mar 2025 07:28:56 -0400
-In-Reply-To: <20250321-stable-sve-6-6-v1-7-0b3a6a14ea53@kernel.org>
-Message-ID: <2025032556-sesame-repent-294b@gregkh>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
+	Tue, 25 Mar 2025 11:40:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZPfCc/Locsyrady5xcCLyw1eAxG17w66iMYlQx+Er3KWREb7QO7oIsYs5XRPynnYO3NNMd4P3xxRZKYv4qNqOxGwagdapKNN1d1WEqxPCEj0gFCBgi9tbpd7znDtq41Rw/UEzu22q5BlRiCglHMSBURBCM7CWfgYFo02S8r8xkKV/Y6ttts8WXNRh01db0yt2pYtUAwZ//qCYAJKOkkfuydv8598RWPlHhcn2NinkUFfm2ybTk4S5hhUaSjmmMKulAdJXuNSWotV8pcc62p0FRM71hCCWWZPma3tFW6UpHKBs8Zj566P6xlh+8p29/pHd+n3fDbrVHtpGOea64qBAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i9p8SxoCgO1CRxOGHFQK1oOByabIkxwuKSUJPUEUyKc=;
+ b=Vk/UNJ0Z7QwRgCO7b6TWL5+licvNMedUteQDWeoU0jv2jzeLLkSJY+DTh7GBZk3iqWxR5+yco+jTKoyUTCi5XLymGiQ/2UumsGZqLtwd2oo3ZAlsp0+Ui3jwaUsaa7vUCkqiWTIT+sSfdVNxshyDD5RyY3YERyJvr8VXNUY6e7Qt2OhWc0/C9peO515q5CS9SAi44VHBW7onNh3IlIG9M0101HAO4wqcvxgNEfNf/J9Q4lUs88SLDrWdzJDZTQGQECWj0MCQeUDbstmjdkwdNwjkKt/P37h7Idww6VcW1pdWTRNwXqtnYS5nO8u6gtIAPpSoG5FirlBbqHAXCD3RVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i9p8SxoCgO1CRxOGHFQK1oOByabIkxwuKSUJPUEUyKc=;
+ b=SiwXT74Ldq2s5g4r5bgkvAviYUZRv5RsUYqx6mRZA5mMxGFCi2BH3dq+vTVqvXX+hhHpKywgA+nYNsreyUh+iAduaP6fC/vuc/2dFmaBWdBfXyXfhD307X6mJFuV10vLrFxsmfNFBGT/kwmcqBaaznU4ztObAmi6aeh57w+jHo7wcQS3DsqVU9WrzXEtqVwuMlx/W8XR1EgVFH81A8qkTntSHnklkU4YRG0pd1xlHuZXCp/xYxtghjx/aDNzLSRi2PwMo9GFfGBFxhctbHfv8mlvcqFan4HwURtuU5ubdnaKYVU+GnXZa1rxG2pkbv5WYZOlmVyG+FbDUIxPlThZXg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU2PR04MB8582.eurprd04.prod.outlook.com (2603:10a6:10:2d9::24)
+ by PAXPR04MB8766.eurprd04.prod.outlook.com (2603:10a6:102:20d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
+ 2025 11:40:48 +0000
+Received: from DU2PR04MB8582.eurprd04.prod.outlook.com
+ ([fe80::c96e:12f1:67b7:ed74]) by DU2PR04MB8582.eurprd04.prod.outlook.com
+ ([fe80::c96e:12f1:67b7:ed74%5]) with mapi id 15.20.8534.040; Tue, 25 Mar 2025
+ 11:40:48 +0000
+Message-ID: <065d6f32-3161-8316-bbbd-4da18eef839b@oss.nxp.com>
+Date: Tue, 25 Mar 2025 13:40:44 +0200
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
+ Module for the s32g platform
+Content-Language: en-US
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
+ Larisa Grigore <Larisa.Grigore@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+ <20250324100008.346009-2-daniel.lezcano@linaro.org>
+ <d60fca36-0beb-2574-cb82-3969bbfb58a9@oss.nxp.com>
+ <8c208e8c-2e1e-430c-916a-dbc6732881b0@linaro.org>
+From: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+In-Reply-To: <8c208e8c-2e1e-430c-916a-dbc6732881b0@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore
+X-ClientProxiedBy: WA0P291CA0015.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1::20) To DU2PR04MB8582.eurprd04.prod.outlook.com
+ (2603:10a6:10:2d9::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8582:EE_|PAXPR04MB8766:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23abe2b7-468a-4002-f592-08dd6b91e2e8
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Ukd3UFpDbHZHbmVVd2hLZkhpL25nZVRXbEViTjhwVnBwUzFmNjJMZ1BPd3N5?=
+ =?utf-8?B?NWRueXBvWnBaYXg1aVllRGpvUHZTYmh0SFE2cjVvT3MzQzM1bXh1aW1pZWZ3?=
+ =?utf-8?B?QnZOU3BGUFJNRkhIVlU2ekxPSEVUemRGWmJqMkV6WURSY1hXUXFxWklPOGhU?=
+ =?utf-8?B?Wm9HTkxsMG5UdUlxaUFITmNlWGJRYVRYTEU3WTlJc05MeDFZSFlOYmx4NzBn?=
+ =?utf-8?B?d0dYREQxUjNuM3pGdWlBcjN4TG9WNzFPZTc2VVFjdmZweFNRWTJIa2FWVUZl?=
+ =?utf-8?B?NEx5MTlZWENhcmZrMlBkTGdHUU1WNjZWNStRSnpxbjJoSkQ5aGNXdUNrOEoz?=
+ =?utf-8?B?QkxxaSthbWZwdVRJWEtqS3VscUFIU1J0c0hjSXJXdnEvSnY2aFhqTmxac1c1?=
+ =?utf-8?B?NGNXR0IzVFhYYXpVckQ4TzIxQVR0VU9uVERXT01pUS9wTWFHZDVNZ2lLRWx5?=
+ =?utf-8?B?Q2p6dzQ2OWJtNEMzbmVYbnNUbEljR0FPNXRWTk1uOWdBTDc0dDFPWUordW1h?=
+ =?utf-8?B?QjJIbzdHNjlxNGRIaHJES0p3aDFsbWpJemNhM05vWVVhSTFLN3dBN3ZRVnJE?=
+ =?utf-8?B?TXlWSTQzc3ArVXJrM0hlcktDQjRMeWM2cElaN2VlbFRhSHZMU2EvRDduVWJF?=
+ =?utf-8?B?SndQZG96NENHNStBOHl4S0VrbldocGVMc3VOM1lGK0hRZHVCYkJlQlE5azlN?=
+ =?utf-8?B?VFVLS3RMb1hiZmYybHVIVktLaWVTbGJiWWRmbUF4ckR6Tjhxb2owR1Z3dE9Q?=
+ =?utf-8?B?ZHlFVmpBdXpvK2pxOUhMbndZQWpsTnF5UU1wVDNNcG1EeEQwVzBHSUpYdFk5?=
+ =?utf-8?B?VUFmVmdsWXU0Y2NGNGRtTnAwaEJiS0tuKzJyMlVUcE9ObHlxU3VNc3I5SGIr?=
+ =?utf-8?B?RnZvTDNVT3BURElzcDQxMWtLUHl0ZXp6UUFIU2tuWkptNDBQdGMyTUN3T1pG?=
+ =?utf-8?B?ZC9CWWEyekYzMGYvT0p6d1QvaFJLWG5pUEtFMVNQYmFjS2tkbTZvOHpHN2dS?=
+ =?utf-8?B?dkF3dTJxT281WFI3elNvT01iTzRKYmZOaDJzL0lyQTNLaWQ3OXNzbm5qVGRv?=
+ =?utf-8?B?aWlVQjdPMG5Wb1hTK2h5UDQ3UGtZOWozbklNZjZORVZjS01aVGtZc1lVSjlF?=
+ =?utf-8?B?cE9Yb0VhVHdXekNCdGNDd2Uwa2Y4cmRZNlRmNVRwamFYczEyNmwvNmJsZ0xU?=
+ =?utf-8?B?bnBGcFdHY0JzSldqVFExek1jb09jNXROTTBZaEZjNjZmZ3REUksveGxBRmpZ?=
+ =?utf-8?B?UTNNcmNaTlVFVmNpRUluWjFVTHJEMnhmYjZHZ0Zmdm42MEtmVU5xNUozOFlv?=
+ =?utf-8?B?YlVpcmpoSWUwZC9OMXpuemQwY3NvOEIxNmpEaGttclAwTWt4bzI2RjRxL1ZG?=
+ =?utf-8?B?UmVRd0kvOExvcEV6RWxpay9uN2FqblE0QnlOM2cwOUI5NmZaR3ZnWk9hWllP?=
+ =?utf-8?B?WWdySTQzaWZBRE1JSHhzRk82ZUxIQTJEMFl0SlNHQXo0SUFsSjJHcmwrTG9t?=
+ =?utf-8?B?b2dkM2kzeHZFV0lOTjlxVmhpR1k3MGhQTG5rb2JxRnFtbTdJWlEzZ3BPLzNW?=
+ =?utf-8?B?a1gzeWxGT1czcTB0dzZ1Mk1DQ3NzSXlGUGdhZTE1dFVaMXVoNlRVQko4Q2V6?=
+ =?utf-8?B?d2xvSDdHYStIam5HdklwK3h6RERBaDZ5dzZTamRmRVRQVitGTFJJekt0NytQ?=
+ =?utf-8?B?VDZiTU4vN3lzU1BqWVFEY3FCYTMxbHh2MkhiOFgrVDdrQ2VUSGVOczIwbHU3?=
+ =?utf-8?B?QldoeFNQWFdJNmtUc1pzZW14WEFJeGhMRzZDVHlVV01YK0V0Q05XZkpDZUJO?=
+ =?utf-8?B?SDA4ejhlN2JtMGRSa0lXMEREdnYvZEx5cDlCcUpnRk1LbEFqYjZYcGdNV1p3?=
+ =?utf-8?Q?CT14Hvnl1fg+Q?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8582.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U044UWRTbmR0KzdSQ0hDV2pucGdzS05SOWJIakNJY2hyYUs1eU5xdTNMV2dt?=
+ =?utf-8?B?VlliZDI0VWRUbXlvYlgwQTd2Q3NYcTdTanpiK1FHVlJEYWNFc0tBemR2ZmZQ?=
+ =?utf-8?B?OTBSVTlxUnVadzgxQm1CNWRHU0xWK3phL3pjaVhZaG9uV092Ny9vTzZ2blpk?=
+ =?utf-8?B?WkRkOGNpOWtrelROaVArMVoyb01zSVdLdmlDK1d0ck8xc2pXblh5R2o0VFRm?=
+ =?utf-8?B?SWR2Mi9md2NJdmp5TURWVmg0aUhYUmplZmkzSVErVm5taTFlT3JtZ1ptb1Z0?=
+ =?utf-8?B?MFlCZCtrdU90VmN6QThGZEZiaTk2L3hxRW1uZzQ0MHJYL2Z6Mk8yR1dBWUp1?=
+ =?utf-8?B?ZG9lQjZBTGt5M1JENzA0ZEpsQ25PTllaRkVBTDF2NnVtY3dST3k0Sm9sd3pE?=
+ =?utf-8?B?UlEwOFlxcmJRWkxVckxjbGUxN3dOd2JCMk5KcE1tOGdJSkFkMkJTcm5PTHFt?=
+ =?utf-8?B?czdNZUdqcU1HU05UT0h3dWJyaVFQOXcvZXdpTUlESmZERTJMaEhwMXgxUnY1?=
+ =?utf-8?B?QkRYQktrdzNOanI0R1NOWThGWWN3dmRCeG9Bd3paZlR1TTByMXFQUzJkbVEr?=
+ =?utf-8?B?Wk13WEF3R1U5VW1EZjl4RkNBYXdGWHYvQ2Q2dldwOFd5V1dnU0FZTlU4ZFBu?=
+ =?utf-8?B?QmJKY2d2SWtLTk4yZWJGczB3cENZY2N5Q2lVMERBTm5WMzc3SDNPeXNLZVpr?=
+ =?utf-8?B?NnJXRW1VUG9lSVFUU05UQW1mRHJWdER6WW55aDdlN01KVWlJNnA0WGV3bUlJ?=
+ =?utf-8?B?K3FEa3BqY2t2WlFtWkZ6NVRNRCtKMEhNcW9IU1Y2aWhKUGxtQVRZZHA1eDVu?=
+ =?utf-8?B?V0VrK1BxcSs1TFBwaVd3UGwxL25zVVVzdUg5bFYvcUhoLzZ1MDRYTmtpcGRW?=
+ =?utf-8?B?MklhWjl4bERVSXd2NjBYRlJCNmdwOXEwZjFWUUFRTU93WGZ3Rjh1QU9Wak9l?=
+ =?utf-8?B?QWs4cjBMNWUxVzkzM29OVkFuUml6bFViUjlGTkMwSlJhdmFpejkxNktmYXEx?=
+ =?utf-8?B?emFzK2FwNWY3VlpQV21YNmlUenZxUVZwNkhrK2ZwL1ZBMFQxTHhpUHdsa2JT?=
+ =?utf-8?B?SHBYdVlveVUxSm5qWDZ1OGlBVS9LSENSZ3RyOGsvdEtNc2RPbENZa3hVWWRk?=
+ =?utf-8?B?UFZ0bUNzSjdPUHZ5ei9adEdDZlQrUjZLZldvZ1NTQUNTMTZFOGtydFd4OHRH?=
+ =?utf-8?B?MkJKVFh0VUNyNjBZOXhodmlMRjd6YjJ3eFppaFJUb1drdWdkU25CdW1SZzIw?=
+ =?utf-8?B?WFNYenYrWC9hQWU3RzQzNCtISCsrNHNIY1pMSTZ1cjIvWGhWTVJvUFBYUmp6?=
+ =?utf-8?B?R3J0V1RzeTd1ZmR5NWdORkJTUTVrV1Azcyt6dmVKcldCRW5PK3NvNE1WMG1V?=
+ =?utf-8?B?dzR1QkxzQjNpN1E1QnoybjBiYkYrMTZpeDI3UERPZ3lQT0Q0cDNqdmFMelV4?=
+ =?utf-8?B?RnI1MGFRNEVpYWowYWd0Y25UODJZTXQ1aGVMUjl6NGlkc1hYSFYvN3k5K3E1?=
+ =?utf-8?B?VFFwNUlMVFFzMHAvMm5scy9yT3ZaOG9lc25yL09TYWFTMDJKN1ZkLzNUdWQ5?=
+ =?utf-8?B?RTc4RWZqa09XdFZ2eE8zV2hhSGhBbHpyN2VDTEs4ZmtUK1dvbzNjQXV6d1Ay?=
+ =?utf-8?B?bVNldEdNM2thOFZNYzRtMG5ORkFrOGx0bTY3eG95SVBWVlQ4Q3hGdEo0T1Z1?=
+ =?utf-8?B?b1JReVBPclk4emo4Ykx1VGsrYVNXV25SQkNXZloxYUo4djRNVGszbTVJQ1dE?=
+ =?utf-8?B?TThlQzBUdG1jZVpxT0tDREh3b3FLdjN1RzIvY1k4blVtZ0tzbEUza0Z3MkNn?=
+ =?utf-8?B?dUw0QXV0RHRsZ0xDUVVYMlk5MCtTdlE2UTBTZWlKZ3hMcTJ5amgzTUZMUXVW?=
+ =?utf-8?B?UDNxaDBFUk5tSkY4WGI1TUVrS2xINDBIcnd3N0pheW5MNlgxWG9DWnVmcjVF?=
+ =?utf-8?B?Z0hBYXorU2NobGNObXJ5RzVjRGdWS25yVm1uQUEvSXFyL0RBQndyMW0xU2d6?=
+ =?utf-8?B?OU5NQTEwK05wV25NUTFRMDFqNHNrc29JWDZ6Y2VYT3dNems0Y2pDTUlhZmxK?=
+ =?utf-8?B?cUdZNHRSbGdjUmVXRHduR2cwYmlyaW9vSVRzdUhsKy9kNTIyQ3RwVERzTXFZ?=
+ =?utf-8?B?VmF5b3JXdW9FUDBvbXROWnlzVFNQS1RHTk9vUlYxS3hITGdWZnRvY3BlVFRs?=
+ =?utf-8?Q?a++n1R3XYrQKXD8ZHB+4WCc=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23abe2b7-468a-4002-f592-08dd6b91e2e8
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8582.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2025 11:40:48.0745
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ikzco8/FGX6PTFTe6671tXDeKN/YexjRAHj3SHOgw3xJTsPqycSIkXR3iZMfDBAX++I6SG262FiHrhUu7og5IHaB0jkkY0avwoMEp41EkzY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8766
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250325_044053_654585_C531E95F 
+X-CRM114-Status: GOOD (  27.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,147 +189,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 3/25/2025 12:53 PM, Daniel Lezcano wrote:
+[ ... ]
+>>> +static int __init nxp_stm_clocksource_init(struct device *dev, const
+>>> char *name,
+>>> +                       void __iomem *base, struct clk *clk)
+>>> +{
+>>> +    struct stm_timer *stm_timer;
+>>> +    int ret;
+>>> +
+>>> +    stm_timer = devm_kzalloc(dev, sizeof(*stm_timer), GFP_KERNEL);
+>>> +    if (!stm_timer)
+>>> +        return -ENOMEM;
+>>> +
+>>> +    stm_timer->base = base;
+>>> +    stm_timer->rate = clk_get_rate(clk);
+>>> +
+>>> +    stm_timer->scs.cs.name = name;
+>>> +    stm_timer->scs.cs.rating = 460;
+>>> +    stm_timer->scs.cs.read = nxp_stm_clocksource_read;
+>>> +    stm_timer->scs.cs.enable = nxp_stm_clocksource_enable;
+>>> +    stm_timer->scs.cs.disable = nxp_stm_clocksource_disable;
+>>> +    stm_timer->scs.cs.suspend = nxp_stm_clocksource_suspend;
+>>> +    stm_timer->scs.cs.resume = nxp_stm_clocksource_resume;
+>>> +    stm_timer->scs.cs.mask = CLOCKSOURCE_MASK(32);
+>>> +    stm_timer->scs.cs.flags = CLOCK_SOURCE_IS_CONTINUOUS;
+>>> +
+>>> +    ret = clocksource_register_hz(&stm_timer->scs.cs, stm_timer->rate);
+>>> +    if (ret)
+>>> +        return ret;
+>>
+>> clocksource_unregister during remove callback for cleanup?
+> 
+> Sorry I don't get it :/
+> 
+> There is no cleanup after the clocksource_register_hz() is successful
+> 
 
-This is a note to let you know that I've just added the patch titled
+I noticed that other drivers, such as
+drivers/clocksource/timer-tegra186.c and
+drivers/clocksource/timer-sun5i.c, perform clocksource_unregister during
+their platform_driver.remove callback. Shouldn't this apply here as well?
 
-    KVM: arm64: Mark some header functions as inline
+[ ... ]
+> 
+>>> +static int nxp_stm_clockevent_set_next_event(unsigned long delta,
+>>> struct clock_event_device *ced)
+>>> +{
+>>> +    struct stm_timer *stm_timer = ced_to_stm(ced);
+>>> +    u32 val;
+>>> +
+>>> +    nxp_stm_clockevent_disable(stm_timer);
+>>
+>> While examining the code base, I came across the
+>> drivers/clocksource/timer-imx-gpt.c file, specifically the
+>> mx1_2_set_next_event function, which includes a protection against
+>> missing events. Using a similar approach would allow us to keep the STM
+>> module enabled while only altering the channel's register state. This
+>> risk can also be mitigated by adjusting min_delta_ns based on tick
+>> frequency.
+> 
+> How would you validate that ?
+> 
 
-to the 6.6-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+How would I validate that this works?
 
-The filename of the patch is:
-     kvm-arm64-mark-some-header-functions-as-inline.patch
-and it can be found in the queue-6.6 subdirectory.
+If this is the question, I see that the core performs an auto adjustment
+of the minimum delta as part of the clockevents_program_min_delta
+function when CONFIG_GENERIC_CLOCKEVENTS_MIN_ADJUST is enabled.
+Initially, I would examine how many times dev->set_next_event() returns
+-ETIME. At the end of the function, min_delta_ns should reflect the
+actual minimum delta the device can handle.
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+[ ... ]
+>>> +static int __init nxp_stm_timer_probe(struct platform_device *pdev)
+>>> +{
+>>> +    struct device *dev = &pdev->dev;
+>>> +    struct device_node *np = dev->of_node;
+>>> +    struct stm_instances *stm_instances;
+>>> +    const char *name = of_node_full_name(np);
+>>> +    void __iomem *base;
+>>> +    int irq, ret;
+>>> +    struct clk *clk;
+>>> +
+>>> +    stm_instances =
+>>> (typeof(stm_instances))of_device_get_match_data(dev);
+>>> +    if (!stm_instances) {
+>>> +        dev_err(dev, "No STM instances associated with a cpu");
+>>> +        return -EINVAL;
+>>> +    }
+>>> +
+>>> +    base = devm_of_iomap(dev, np, 0, NULL);
+>>> +    if (IS_ERR(base)) {
+>>> +        dev_err(dev, "Failed to iomap %pOFn\n", np);
+>>> +        return PTR_ERR(base);
+>>> +    }
+>>> +
+>>> +    irq = irq_of_parse_and_map(np, 0);
+>>> +    if (irq <= 0) {
+>>> +        dev_err(dev, "Failed to parse and map IRQ: %d\n", irq);
+>>> +        return -EINVAL;
+>>> +    }
+>>
+>>  From commit description:
+>>
+>>> The first probed STM is used as a clocksource, the second will be the
+>>> broadcast timer and the rest are used as a clockevent with the
+>>> affinity set to a CPU.
+>>
+>> Why is the interrupt mandatory when the node is probed as a clocksource?
+> 
+> It relies on the DT description and it does not hurt to have a
+> consistent code path for clockevent / clocksource even if the interrupt
+> is not requested for the clocksource later.
+> 
 
+If so, in my opinion, it would make sense to use the same STM instance
+for both the clocksource and broadcast clockevent, as both functions can
+be accommodated within a single STM instance, which will help reduce the
+number of STM instances used.
 
-From broonie@kernel.org Thu Mar 20 20:18:37 2025
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 21 Mar 2025 00:16:07 +0000
-Subject: KVM: arm64: Mark some header functions as inline
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  James Morse <james.morse@arm.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Fuad Tabba <tabba@google.com>
-Message-ID: <20250321-stable-sve-6-6-v1-7-0b3a6a14ea53@kernel.org>
+-- 
+Regards,
+Ghennadi
 
-From: Mark Rutland <mark.rutland@arm.com>
-
-[ Upstream commit f9dd00de1e53a47763dfad601635d18542c3836d ]
-
-The shared hyp switch header has a number of static functions which
-might not be used by all files that include the header, and when unused
-they will provoke compiler warnings, e.g.
-
-| In file included from arch/arm64/kvm/hyp/nvhe/hyp-main.c:8:
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:703:13: warning: 'kvm_hyp_handle_dabt_low' defined but not used [-Wunused-function]
-|   703 | static bool kvm_hyp_handle_dabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:682:13: warning: 'kvm_hyp_handle_cp15_32' defined but not used [-Wunused-function]
-|   682 | static bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:662:13: warning: 'kvm_hyp_handle_sysreg' defined but not used [-Wunused-function]
-|   662 | static bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:458:13: warning: 'kvm_hyp_handle_fpsimd' defined but not used [-Wunused-function]
-|   458 | static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:329:13: warning: 'kvm_hyp_handle_mops' defined but not used [-Wunused-function]
-|   329 | static bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
-|       |             ^~~~~~~~~~~~~~~~~~~
-
-Mark these functions as 'inline' to suppress this warning. This
-shouldn't result in any functional change.
-
-At the same time, avoid the use of __alias() in the header and alias
-kvm_hyp_handle_iabt_low() and kvm_hyp_handle_watchpt_low() to
-kvm_hyp_handle_memory_fault() using CPP, matching the style in the rest
-of the kernel. For consistency, kvm_hyp_handle_memory_fault() is also
-marked as 'inline'.
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Tested-by: Mark Brown <broonie@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-8-mark.rutland@arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm64/kvm/hyp/include/hyp/switch.h |   17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
-
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -279,7 +279,7 @@ static inline void __hyp_sve_restore_gue
-  * If FP/SIMD is not implemented, handle the trap and inject an undefined
-  * instruction exception to the guest. Similarly for trapped SVE accesses.
-  */
--static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	bool sve_guest;
- 	u8 esr_ec;
-@@ -518,7 +518,7 @@ static bool handle_ampere1_tcr(struct kv
- 	return true;
- }
- 
--static bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	if (cpus_have_final_cap(ARM64_WORKAROUND_CAVIUM_TX2_219_TVM) &&
- 	    handle_tx2_tvm(vcpu))
-@@ -541,7 +541,7 @@ static bool kvm_hyp_handle_sysreg(struct
- 	return false;
- }
- 
--static bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	if (static_branch_unlikely(&vgic_v3_cpuif_trap) &&
- 	    __vgic_v3_perform_cpuif_access(vcpu) == 1)
-@@ -550,19 +550,18 @@ static bool kvm_hyp_handle_cp15_32(struc
- 	return false;
- }
- 
--static bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
-+					       u64 *exit_code)
- {
- 	if (!__populate_fault_info(vcpu))
- 		return true;
- 
- 	return false;
- }
--static bool kvm_hyp_handle_iabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
--	__alias(kvm_hyp_handle_memory_fault);
--static bool kvm_hyp_handle_watchpt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
--	__alias(kvm_hyp_handle_memory_fault);
-+#define kvm_hyp_handle_iabt_low		kvm_hyp_handle_memory_fault
-+#define kvm_hyp_handle_watchpt_low	kvm_hyp_handle_memory_fault
- 
--static bool kvm_hyp_handle_dabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_dabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	if (kvm_hyp_handle_memory_fault(vcpu, exit_code))
- 		return true;
-
-
-Patches currently in stable-queue which might be from broonie@kernel.org are
-
-queue-6.6/kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
-queue-6.6/regulator-check-that-dummy-regulator-has-been-probed-before-using-it.patch
-queue-6.6/kvm-arm64-eagerly-switch-zcr_el-1-2.patch
-queue-6.6/kvm-arm64-mark-some-header-functions-as-inline.patch
-queue-6.6/kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
-queue-6.6/regulator-dummy-force-synchronous-probing.patch
-queue-6.6/kvm-arm64-refactor-exit-handlers.patch
-queue-6.6/kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
-queue-6.6/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
-queue-6.6/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
 
