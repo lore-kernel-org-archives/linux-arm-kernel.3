@@ -4,94 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE10FC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58180C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmx5ewE9CpmYmb/EWKQ5oR/rMw7j+z90kb/HX9r8TaE=; b=1ibBwo/dqNEYp515HfRZy1xwIj
-	hpbSrr0H+IKbu3UhP6kwdRfaieiw3KlKsEmNmMKU/pLWGFJeNaz8Of3ixB3UTEbTLY1Z5OIXm3rvW
-	SvmMppGqbVuNn51tmg5kD8Urq+Vhu6t6Rkxr3RIRuEbxX3jnQgJvBv16iK0/UCNYQ/YsLbuFr0VVW
-	DQPj85abq7YJD0LUJHhIg3OYjOTRSGakguTRhXhmE7dwV52Bi6zj2tmemy49EUZwOJTY7i65KNtL3
-	hda2t3DTktYme8AvwMDy3ebkkZlnG9m+AxtnTHtL7a2eXBQq4v04cz+CAczvtX10nO90ft7v7SdT4
-	fT+o22UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=rT6uk1ccRQgk3tPYDgENsmPhevfhVkGtCPi5a1GUXLo=; b=0/gOALnksezWwG
+	7SYAqfoTR7EAIm7RXwwjlfI3wXl5BzHKcqjdxWBXL9q9U0HIgwuLXpHYM8j08S7GwmUSxtBlHy/IE
+	18O4mxQD6ZaVh9uDr1ZpHCpH4rEJgWBefC5lSiuHJC4ytOPk4g/ZTXqwwV6H/Mnrangt7MKF6UPDX
+	PxRdoHKYWALJVBxyCvBeQ0i4mtCBkC5Sr9Dg3QgqutZxqI+eI8w/14wCHjhV1CTMn0AoXHW3LK9h/
+	9jFIMjnUFv9RxAqg2Ucp2eFRRxGlKA4lGHwvwpYWg4dKocziciv5tQdSeS/82VluzEOsPzJBfFP06
+	WX2Ouxs5jwEDY3GAie+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx93O-00000006jIT-49SO;
-	Tue, 25 Mar 2025 18:31:10 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tx96R-00000006jfQ-3B22;
+	Tue, 25 Mar 2025 18:34:19 +0000
+Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx91e-00000006j1A-0HoW
+	id 1tx94h-00000006jSu-2sQ8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 18:29:23 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3011737dda0so7810848a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 11:29:21 -0700 (PDT)
+	Tue, 25 Mar 2025 18:32:33 +0000
+Received: by mail-oi1-x24a.google.com with SMTP id 5614622812f47-3f85d071f94so6496897b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 11:32:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742927361; x=1743532161; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+        d=google.com; s=20230601; t=1742927550; x=1743532350; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=tmx5ewE9CpmYmb/EWKQ5oR/rMw7j+z90kb/HX9r8TaE=;
-        b=Vywb8YpbR0/ztkEDfn0DgA6A1HY3ilXI4OgjmwnGeDui9z3QUDLT9mwH6NFcn2EOST
-         sqDFOWg24x2AkWQ+0KiD6MMhh4q3fQdqWrRla4hSedcv76f0Epvv4eyXH0T2gqOD8d+z
-         3hPx1QoeEkxTsBb1jbgTojwqYnB8LsmlQwULIVPZp0UQqoWh2sJGC19LZHBP/8ofvc33
-         FuArRfHUks2wFa0bPKnx9otV2VjCsNzyJ2lYPK+hjl4ry2vYx5BKU5AhFK37j0THykVg
-         yFG1rIcyYv7klv/x1RfuyTzIHT1FB83ErSc6Inkknv4426iMwMyFBE2zxKsTxjY2fS/k
-         Aauw==
+        bh=rT6uk1ccRQgk3tPYDgENsmPhevfhVkGtCPi5a1GUXLo=;
+        b=c6q42xona19LDp/Ur9ylOW/Y2JaP1rnHBhQG+gyFGLa9DByfb+YSrwhtxiRMPbWvYk
+         /FmXYB3smXgGMbh/6MkS+nNjwf3lBrbhXMlThv3i2/4n2AUa6NBcyFdA+nNjiNpUE6wN
+         ep11P15Wwt5KeguOctzPNFUIlF1vwNy8JSkk0ZoW08fhVi9ncIjUaOKfbcjHxm4zSZQ0
+         I7grbuZ0Q/ShJeI4PT03uEjpyQR30WbZhTYGisKOS6denEREHVL9L71EAyZD1y92jmld
+         S5blXQcniqIjpcJ5v35GadmeQJOfkzDes3ljrzSazgsbPQJcJwRJmeX+aBWGrndWmw+i
+         JzSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742927361; x=1743532161;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1742927550; x=1743532350;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tmx5ewE9CpmYmb/EWKQ5oR/rMw7j+z90kb/HX9r8TaE=;
-        b=maYvIYGMyUD1CmVRG/ioBeR9/65psmS9IV02F6R64UAQqTqgm6405+PXECOvagEZux
-         aqGSquqrclBvSLvxHAR6SHyjDgMjCRtZ5p3a/Fn46k0UqRk2wkaSDfdVNRv85hoMNNdz
-         RIRzdlS2MGT1BLhQ7TfwJ0Br3DvE9mu7zHfOY1YZGrUZ0bUpz8yP/gzjiRBMEgTgEAwz
-         6y+6Wp/5O/IA5oQkpQMOVApOF3oKSUWe8wz2iCam254sq85touStcfI68mKNVBQo7LuK
-         LLIibUs704F2jpuLX5I7feSh1qOF+d7U0iXKwnBmbGTnrlPrIpQRn1oIdKJOAeeM1GCI
-         wfZg==
-X-Forwarded-Encrypted: i=1; AJvYcCXlEVpLmlS7BmNFtQyi921lgiM3mCzoA1WANNKHqTxEjXWJbQxQ8gcnwep3LmK8mHH2MUgsEdxE01pfr+Ww5STC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgSAZ1K32A/QwmAuYOSnUNKmkwoRSsT4WnCaIqIIl9RMPac73X
-	iLGLKG0Lsyq0HvZ4KI5McyVOKEDaSvTW1pUyHavxn56xeipik4DZcmMfVmNx5A==
-X-Gm-Gg: ASbGncsoKM6co06lubpZDTq+81HU6kc6yfvzFHL1nAyhz6nma68+9stCtASg32jJwqX
-	cHUwgh0T/syJKzsZz4wlvcJpKew59yDrOghDatY/1zpJdD6T4DJBus2lIAH+1QEmHb4agwEknh3
-	lX8eehnDeDxw3x2XephBJQ6xWnZ7Z7i7tQRlFWqrd8vKh9XTb73qIPS2ji5cjjcXoq32xjHwrsj
-	z7KfWeDVBWwnsTDTHU60+wn1HGe+uUYAJ6tXsM1GlYwV0kD7qOl1rSNNtpyHGa8NWaU573nXiIi
-	Xe+CoEQvOMhu9zuXXEYJngrZNQb+B7ULX6JIMQWd9rBoq1Ftu5ZNi4fL
-X-Google-Smtp-Source: AGHT+IGsYGiIj3zMmleKzhoEAggL4APoyOgKkCTRvkg+1ndeCLopUInmEMl2y5a6pf3LwaqPqiR7kA==
-X-Received: by 2002:a17:90b:2d0c:b0:2fa:1e3e:9be5 with SMTP id 98e67ed59e1d1-3030fd769d1mr34439112a91.0.1742927361019;
-        Tue, 25 Mar 2025 11:29:21 -0700 (PDT)
-Received: from thinkpad ([120.60.136.104])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-227811b2857sm93735025ad.155.2025.03.25.11.29.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 11:29:20 -0700 (PDT)
-Date: Tue, 25 Mar 2025 23:59:14 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v12 05/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
-Message-ID: <5hkzuqptaor4v5fc7ljxb36zdipeg67lsjfkcah5fkxfyyjt6e@oknqdtbwjitj>
-References: <j3qw4zmopulpn3iqq5wsjt6dbs4z3micoeoxkw3354txkx22ml@67ip5sfo6wwd>
- <20250324182827.GA1257218@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250324182827.GA1257218@bhelgaas>
+        bh=rT6uk1ccRQgk3tPYDgENsmPhevfhVkGtCPi5a1GUXLo=;
+        b=ualq+6w/NAz8m6cJUwapuxsgAQiLg14xMFDJPBIM5GGUsV5GFxfZqweNCdgoLVRhAZ
+         8aXI+uCjV/5hx89Crp+Pw3yFFhPx2xvjyUxDnPj8iTtVk2iHEd2MjsYr38fCeYm4BA66
+         tB2KHXj2PQGPn9jloVNlowoIYBEeTa5WtvKe86ySloXSIv04kUGwMKl6FwmV1Np7oAiO
+         HwnYMP9ambHDDF+Mg8cVUZXQjIUejm/eMYhByNEfcrT8igxgxx9PHunTMTXvfltrvzHU
+         1Wcgl+olah8QvAYSkYnGzpxmPVXFXM71o/fdxcB63nxzxtH8SKeDE8ErsVcaZ/b9Q8VQ
+         ARlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUbTOvIuFPQFiYC0A/mLubYBWsJGWaJbzuZ9qaBPE1Am4COLIel8f9i92iJUMvsTcQffXpJgItZM2u0z1LXhDJB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJT0IfIy8jkjIN475aiAUOvV194fwdyL+9xsjQvR2iuDMemrho
+	xDdtbNjqr0Kz7OjcLpH6uwTakeYvGOHngykyQ5lh9vD2O7asupmR4s/nOz5/QtzhPqvgZpETeNP
+	xqd1pP6mPyegqLKZ2BwqmAQ==
+X-Google-Smtp-Source: AGHT+IHRRMYIJCHEAh3svSotUa8q7hV/04SZRRr5Jw10gUK3/nM69X6981QRTYUVyLaD3ga2dWmRCXaZa3v0y+Ebxw==
+X-Received: from oio6.prod.google.com ([2002:a05:6808:8706:b0:3f6:dccd:c522])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:1184:b0:3fb:2e8f:4de5 with SMTP id 5614622812f47-3febf73a9cbmr12594859b6e.17.1742927550105;
+ Tue, 25 Mar 2025 11:32:30 -0700 (PDT)
+Date: Tue, 25 Mar 2025 18:32:28 +0000
+In-Reply-To: <d018f56a-15c3-4739-b8f4-aea863006765@linaro.org> (message from
+ James Clark on Mon, 24 Mar 2025 14:53:49 +0000)
+Mime-Version: 1.0
+Message-ID: <gsnt1pulnepv.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [RFC PATCH v3 5/8] KVM: arm64: Introduce module param to
+ partition the PMU
+From: Colton Lewis <coltonlewis@google.com>
+To: James Clark <james.clark@linaro.org>
+Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, robh@kernel.org, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, 
+	pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_112922_123125_DE94B17B 
-X-CRM114-Status: GOOD (  31.78  )
+X-CRM114-CacheID: sfid-20250325_113231_738962_FFC62486 
+X-CRM114-Status: GOOD (  48.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,96 +94,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 24, 2025 at 01:28:27PM -0500, Bjorn Helgaas wrote:
-> On Mon, Mar 24, 2025 at 10:48:23PM +0530, Manivannan Sadhasivam wrote:
-> > On Sat, Mar 15, 2025 at 03:15:40PM -0500, Bjorn Helgaas wrote:
-> > > From: Frank Li <Frank.Li@nxp.com>
-> > > 
-> > > Return the offset from CPU physical address to the parent bus address of
-> > > the specified element of the devicetree 'reg' property.
-> 
-> > > +resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
-> > > +					  const char *reg_name,
-> > > +					  resource_size_t cpu_phy_addr)
-> > > +{
-> > 
-> > s/cpu_phy_addr/cpu_phys_addr/g
-> 
-> Fixed, thanks!
-> 
-> > > +	struct device *dev = pci->dev;
-> > > +	struct device_node *np = dev->of_node;
-> > > +	int index;
-> > > +	u64 reg_addr;
-> > > +
-> > > +	/* Look up reg_name address on parent bus */
-> > 
-> > 'parent bus' is not accurate as the below code checks for the 'reg_name' in
-> > current PCI controller node.
-> 
-> We want the address of "reg_name" on the node's primary side.  We've
-> been calling that the "parent bus address", I guess because it's the
-> address on the "parent bus" of the node.
-> 
+Hi James,
 
-Yeah, 'parent bus address' sounds bogus to me. 'ranges' property is described
-as:
+Thanks for the review.
 
-	ranges = <child_addr parent_addr child_size>
+James Clark <james.clark@linaro.org> writes:
 
-Here, child_addr refers to the PCIe host controller's view of the address space
-and parent_addr refers to the CPU's view of the address space.
+> On 13/02/2025 6:03 pm, Colton Lewis wrote:
+>> For PMUv3, the register MDCR_EL2.HPMN partitiones the PMU counters
+>> into two ranges where counters 0..HPMN-1 are accessible by EL1 and, if
+>> allowed, EL0 while counters HPMN..N are only accessible by EL2.
 
-So the register address described in the PCIe controller node is not a 'parent
-bus address'.
+>> Introduce a module parameter in KVM to set this register. The name
+>> reserved_host_counters reflects the intent to reserve some counters
+>> for the host so the guest may eventually be allowed direct access to a
+>> subset of PMU functionality for increased performance.
 
-> I'm not sure what the best term is for this.  Do you have a
-> suggestion?
-> 
+>> Track HPMN and whether the pmu is partitioned in struct arm_pmu
+>> because both KVM and the PMUv3 driver will need to know that to handle
+>> guests correctly.
 
-We are just extracting the offset between translated (cpu_phy_addr) and
-untranslated (reg_addr) addresses of a specific register. Maybe the function
-should just return the 'untranslated address' and the caller should compute the
-offset to make it simple?
+>> Due to the difficulty this feature would create for the driver running
+>> at EL1 on the host, partitioning is only allowed in VHE mode. Working
+>> on nVHE mode would require a hypercall for every register access
+>> because the counters reserved for the host by HPMN are now only
+>> accessible to EL2.
 
-> If "parent bus address" is the wrong term, maybe we need to rename
-> dw_pcie_parent_bus_offset() itself?  
-> 
+>> The parameter is only configurable at boot time. Making the parameter
+>> configurable on a running system is dangerous due to the difficulty of
+>> knowing for sure no counters are in use anywhere so it is safe to
+>> reporgram HPMN.
 
-Yes!
 
-> Currently we pass in cpu_phys_addr, but this function doesn't need it
-> except for the debug code added later.  I would really rather have
-> something like this in the callers:
-> 
->   pci->parent_bus_offset = pp->cfg0_base -
->       dw_pcie_parent_bus_addr(pci, "config");
-> 
+> Hi Colton,
 
-I agree. This should become, dw_pcie_get_untranslated_addr().
+> For some high level feedback for the RFC, it probably makes sense to
+> include the other half of the feature at the same time. I think there is
+> a risk that it requires something slightly different than what's here
+> and there ends up being some churn.
 
-> because then the offset is computed sort of at the same level where
-> it's used, and a grep for "cfg0_base" would find both the set and the
-> use and they would be easy to match up.
-> 
-> > > +	index = of_property_match_string(np, "reg-names", reg_name);
-> > > +
-> > > +	if (index < 0) {
-> > > +		dev_err(dev, "No %s in devicetree \"reg\" property\n", reg_name);
-> > 
-> > Both of these callers are checking for the existence of the
-> > 'reg_name' property before calling this API. So this check seems to
-> > be redundant (for now).
-> 
-> True, but I don't see a way to enforce the caller checks.  I don't
-> like the idea of calling of_property_read_reg(np, index, ...) where we
-> have to look the caller to verify that "index" is valid.
-> 
+I agree. That's what I'm working on now. I justed wanted an iteration or
+two in public so I'm not building on something that needs drastic change
+later.
 
-Ok.
+> Other than that I think it looks ok apart from some minor code review  
+> nits.
 
-- Mani
+Thank you
 
--- 
-மணிவண்ணன் சதாசிவம்
+> I was also thinking about how BRBE interacts with this. Alex has done
+> some analysis that finds that it's difficult to use BRBE in guests with
+> virtualized counters due to the fact that BRBE freezes on any counter
+> overflow, rather than just guest ones. That leaves the guest with branch
+> blackout windows in the delay between a host counter overflowing and the
+> interrupt being taken and BRBE being restarted.
+
+> But with HPMN, BRBE does allow freeze on overflow of only one partition
+> or the other (or both, but I don't think we'd want that) e.g.:
+
+>    RNXCWF: If EL2 is implemented, a BRBE freeze event occurs when all of
+>    the following are true:
+
+>    * BRBCR_EL1.FZP is 1.
+>    * Generation of Branch records is not paused.
+>    * PMOVSCLR_EL0[(MDCR_EL2.HPMN-1):0] is nonzero.
+>    * The PE is in a BRBE Non-prohibited region.
+
+> Unfortunately that means we could only let guests use BRBE with a
+> partitioned PMU, which would massively reduce flexibility if hosts have
+> to lose counters just so the guest can use BRBE.
+
+> I don't know if this is a stupid idea, but instead of having a fixed
+> number for the partition, wouldn't it be nice if we could trap and
+> increment HPMN on the first guest use of a counter, then decrement it on
+> guest exit depending on what's still in use? The host would always
+> assign its counters from the top down, and guests go bottom up if they
+> want PMU passthrough. Maybe it's too complicated or won't work for
+> various reasons, but because of BRBE the counter partitioning changes go
+> from an optimization to almost a necessity.
+
+This is a cool idea that would enable useful things. I can think of a
+few potential problems.
+
+1. Partitioning will give guests direct access to some PMU counter
+registers. There is no reliable way for KVM to determine what is in use
+from that state. A counter that is disabled guest at exit might only be
+so temporarily, which could lead to a lot of thrashing allocating and
+deallocating counters.
+
+2. HPMN affects reads of PMCR_EL0.N, which is the standard way to
+determine how many counters there are. If HPMN starts as a low number,
+guests have no way of knowing there are more counters
+available. Dynamically changing the counters available could be
+confusing for guests.
+
+3. If guests were aware they could write beyond HPMN and get the
+counters allocated to them, nothing stops them from writing at counter
+N and taking as many counters as possible to starve the host.
+
+>> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+>> ---
+>>    arch/arm64/include/asm/kvm_pmu.h |  4 +++
+>>    arch/arm64/kvm/Makefile          |  2 +-
+>>    arch/arm64/kvm/debug.c           |  9 ++++--
+>>    arch/arm64/kvm/pmu-part.c        | 47 ++++++++++++++++++++++++++++++++
+>>    arch/arm64/kvm/pmu.c             |  2 ++
+>>    include/linux/perf/arm_pmu.h     |  2 ++
+>>    6 files changed, 62 insertions(+), 4 deletions(-)
+>>    create mode 100644 arch/arm64/kvm/pmu-part.c
+
+>> diff --git a/arch/arm64/include/asm/kvm_pmu.h  
+>> b/arch/arm64/include/asm/kvm_pmu.h
+>> index 613cddbdbdd8..174b7f376d95 100644
+>> --- a/arch/arm64/include/asm/kvm_pmu.h
+>> +++ b/arch/arm64/include/asm/kvm_pmu.h
+>> @@ -22,6 +22,10 @@ bool kvm_set_pmuserenr(u64 val);
+>>    void kvm_vcpu_pmu_resync_el0(void);
+>>    void kvm_host_pmu_init(struct arm_pmu *pmu);
+
+>> +u8 kvm_pmu_get_reserved_counters(void);
+>> +u8 kvm_pmu_hpmn(u8 nr_counters);
+>> +void kvm_pmu_partition(struct arm_pmu *pmu);
+>> +
+>>    #else
+
+>>    static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr  
+>> *attr) {}
+>> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+>> index 3cf7adb2b503..065a6b804c84 100644
+>> --- a/arch/arm64/kvm/Makefile
+>> +++ b/arch/arm64/kvm/Makefile
+>> @@ -25,7 +25,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o  
+>> pvtime.o \
+>>    	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+>>    	 vgic/vgic-its.o vgic/vgic-debug.o
+
+>> -kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+>> +kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu-part.o pmu.o
+>>    kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+>>    kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
+
+>> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+>> index 7fb1d9e7180f..b5ac5a213877 100644
+>> --- a/arch/arm64/kvm/debug.c
+>> +++ b/arch/arm64/kvm/debug.c
+>> @@ -31,15 +31,18 @@
+>>     */
+>>    static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+>>    {
+>> +	u8 counters = *host_data_ptr(nr_event_counters);
+>> +	u8 hpmn = kvm_pmu_hpmn(counters);
+>> +
+>>    	preempt_disable();
+
+
+> Would you not need to use vcpu->cpu here to access host_data? The
+> preempt_disable() after the access seems suspicious. I think you'll end
+> up with the same issue as here:
+
+> https://lore.kernel.org/kvmarm/5edb7c69-f548-4651-8b63-1643c5b13dac@linaro.org/
+
+I think that's right. I should use the host_data for vcpu->cpu
+
+>>    	/*
+>>    	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
+>>    	 * to disable guest access to the profiling and trace buffers
+>>    	 */
+>> -	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
+>> -					 *host_data_ptr(nr_event_counters));
+>> -	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
+>> +	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN, hpmn);
+>> +	vcpu->arch.mdcr_el2 |= (MDCR_EL2_HPMD |
+>> +				MDCR_EL2_TPM |
+>>    				MDCR_EL2_TPMS |
+>>    				MDCR_EL2_TTRF |
+>>    				MDCR_EL2_TPMCR |
+>> diff --git a/arch/arm64/kvm/pmu-part.c b/arch/arm64/kvm/pmu-part.c
+>> new file mode 100644
+>> index 000000000000..e74fecc67e37
+>> --- /dev/null
+>> +++ b/arch/arm64/kvm/pmu-part.c
+>> @@ -0,0 +1,47 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (C) 2025 Google LLC
+>> + * Author: Colton Lewis <coltonlewis@google.com>
+>> + */
+>> +
+>> +#include <linux/kvm_host.h>
+>> +#include <linux/perf/arm_pmu.h>
+>> +
+>> +#include <asm/kvm_pmu.h>
+>> +
+>> +static u8 reserved_host_counters __read_mostly;
+>> +
+>> +module_param(reserved_host_counters, byte, 0);
+>> +MODULE_PARM_DESC(reserved_host_counters,
+>> +		 "Partition the PMU into host and guest counters");
+>> +
+>> +u8 kvm_pmu_get_reserved_counters(void)
+>> +{
+>> +	return reserved_host_counters;
+>> +}
+>> +
+>> +u8 kvm_pmu_hpmn(u8 nr_counters)
+>> +{
+>> +	if (reserved_host_counters >= nr_counters) {
+>> +		if (this_cpu_has_cap(ARM64_HAS_HPMN0))
+>> +			return 0;
+>> +
+>> +		return 1;
+>> +	}
+>> +
+>> +	return nr_counters - reserved_host_counters;
+>> +}
+>> +
+>> +void kvm_pmu_partition(struct arm_pmu *pmu)
+>> +{
+>> +	u8 nr_counters = *host_data_ptr(nr_event_counters);
+>> +	u8 hpmn = kvm_pmu_hpmn(nr_counters);
+>> +
+>> +	if (hpmn < nr_counters) {
+>> +		pmu->hpmn = hpmn;
+>> +		pmu->partitioned = true;
+
+> Looks like Rob's point about pmu->partitioned being duplicate data
+> stands again. On the previous version you mentioned that saving it was
+> to avoid reading PMCR.N, but now it's not based on PMCR.N anymore.
+
+I will make it a function instead so the meaning of hpmn < nr_counters
+is clear.
 
