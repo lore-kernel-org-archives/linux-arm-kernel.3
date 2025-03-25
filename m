@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA79C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5E3C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dsDlcqO1qyqDnqC5g1KjDi23Kk15+j8IW7Il5RdRfiY=; b=wbqrJvyrIR0oBWc2SS21a9Ndoy
-	5nAPArS4qny0/hWd5QHPKIaYt2ccRfAv5u6AWaWs/rz6rxAmhAzQywXFs06MgHDYB9jCiIWK2brDg
-	rGN+3/mrq1WNKarAUrV0w9ABPOEOqE3lPfWB0SbP8pKryA5jipRStID+S309wWX9Ebt22fJT9pZuL
-	VGVNtOV3B8RguDwuEHUK1jgonfYjaRSLzV8iiwnDQD0geBVJribVTIa8ePb3Pwb9nEzcH9GprIC+k
-	V9vDBs8wnEo4OQ+Nt6angvnxY5mCy93B0vst1qjeWlVmFtXp9v0ILoYBEuvxJINglxzz9tI+bSZwu
-	ljcWkgFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g44DiPntgxgai8nMrZBqC2mFlTLQIzQV5yIGLqcK/Sc=; b=s8uKRAmbQ8dS3FS1P9ZWJgoKsj
+	cQo8/B0hKWMK2FXHk31M+SVz/p1ZPNsdFVoa11YjLsRkM2R527jWHWZv01jTZNWa3wFxDZGbVqLDJ
+	Az9rb2xvMz22H6WfZ6yQCgm+TUPaWFH7XcBBNSwJIAw/heY5Gg9RParUMhB8dpSjXYFDpwkiHJnI/
+	kHqCj+hs32sn/E0clQl2+DkFMMs1sD/g918JCimGLBbteFDBqR9L4TxSm4kdAblpaIV7fw488aFD3
+	JrLdqwh8lMOh89D1m+mDxLEFpNaRlTzqqc4LTvgQtvZ7Q38kl4MkJgiABl8hHmZYt2SVF8rKaBQHd
+	UhmsUZ+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6lI-00000006QFr-3vqy;
-	Tue, 25 Mar 2025 16:04:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1tx6n0-00000006QhT-0foQ;
+	Tue, 25 Mar 2025 16:06:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6ck-00000006Oiz-0USW
+	id 1tx6ht-00000006PeB-3Uca
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 15:55:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1742918130; x=1774454130;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=jfgSiqLCqwkZI4qYAO/dSdiUYlqbnqAIsGKA2fS7izw=;
-  b=O77Z4aLmojNNvfFU82Meh9mcBpXRuxHpiV8NkBzMd2vcuRGSkhVoWyE+
-   NciURPnL6tA/Nah7bleSjcrjGbTff4pvJGj4Xecc6oHK9jYcb7r66SYU2
-   eJOTd4vLBL+bGsfEjkVpSWyJhj2OBM5iOUoQXsVBNlTVPFwmSR0jWrUAd
-   gUOyGAaIGW63RayaA8nNiRGvZSf0UVm7K8xcOaSX2/bHRCYAOplg7xNfA
-   WNAVg8C3zGaJKM8TFaPYU0sit1c3cKuv6SNnGseNEzp1+jEf1Fcm/f2U1
-   Q0Ljlq0a3TRKeXzyJLGlaFcffVyDJAW6w3KQwdfJ57Q9H4K6tUZGTUODX
-   g==;
-X-CSE-ConnectionGUID: 5ZRRXf5LQVCIU2dRAgtdWw==
-X-CSE-MsgGUID: ptw/juAZTZWwDMU9R8w8+g==
-X-IronPort-AV: E=Sophos;i="6.14,275,1736838000"; 
-   d="scan'208";a="40152236"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Mar 2025 08:55:25 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 25 Mar 2025 08:54:54 -0700
-Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Tue, 25 Mar 2025 08:54:54 -0700
-From: <Ryan.Wanner@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <mturquette@baylibre.com>
-CC: <sboyd@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH v2 4/4] ARM: dts: microchip: sama7g5: Adjust clock xtal phandle
-Date: Tue, 25 Mar 2025 08:55:10 -0700
-Message-ID: <95c33a95347b098bd32861a59bf6ec658c52f65d.1742916867.git.Ryan.Wanner@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1742916867.git.Ryan.Wanner@microchip.com>
-References: <cover.1742916867.git.Ryan.Wanner@microchip.com>
+	Tue, 25 Mar 2025 16:00:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ED87761158;
+	Tue, 25 Mar 2025 16:00:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CE138C4CEEA;
+	Tue, 25 Mar 2025 16:00:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742918448;
+	bh=FWMREnd5iDlVSh5Gzp0i6UEx3AjyWEabj/dQba8l/fw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=d2BCH6k8jCjMfB0ksgtoz6h9i7DZTMmcxkudiYS/VpSNf2CcdRdEvNsMnHbKX6SFq
+	 sClPwVdBqkyFq0DxxYV65mjK4piHj1L7NfsbLMjSZ3A7SwrC92/8SLVjoXN6atlOQL
+	 +t+XW2hdvoZmGYdVxxaveWTcitefwDtIXT3j9YlOFmJgAhh9KNjAerE/ula8hZozmI
+	 4fGqJh7dO2d6/tpgjN9LvzaN+fWGCooBTCpXwnCMEVrGvxIdU0j8PlyX+l+14uDlVE
+	 30B8tu1WC108EUQ/sNu/Dy46TGvUkPSqZ8Pk3ICxjIlp3Z1Y9lSDVIZP2e8kG9Ivni
+	 ia0RmJY3TLDQQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C095DC3600B;
+	Tue, 25 Mar 2025 16:00:48 +0000 (UTC)
+From: Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org>
+Date: Wed, 26 Mar 2025 00:59:57 +0900
+Subject: [PATCH v8 2/6] bits: introduce fixed-type GENMASK_U*()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_085530_216722_2DE69C4E 
-X-CRM114-Status: GOOD (  10.47  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250326-fixed-type-genmasks-v8-2-24afed16ca00@wanadoo.fr>
+References: <20250326-fixed-type-genmasks-v8-0-24afed16ca00@wanadoo.fr>
+In-Reply-To: <20250326-fixed-type-genmasks-v8-0-24afed16ca00@wanadoo.fr>
+To: Yury Norov <yury.norov@gmail.com>, 
+ Lucas De Marchi <lucas.demarchi@intel.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, Andi Shyti <andi.shyti@linux.intel.com>, 
+ David Laight <David.Laight@ACULAB.COM>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Anshuman Khandual <anshuman.khandual@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, Jani Nikula <jani.nikula@intel.com>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6477;
+ i=mailhol.vincent@wanadoo.fr; h=from:subject:message-id;
+ bh=lcd0sGudcgWuhmZH+0WWzv0DQlUpekaFcQVtmkcurBs=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDOmPLiuVfl9Vwe30Wjf/qqRU0O2a5fe5tkWeVV/1MvBOd
+ 8v6CovfHaUsDGJcDLJiiizLyjm5FToKvcMO/bWEmcPKBDKEgYtTACbScpCRYVZX7pcyzcNR+wMO
+ vQjM7zWfP1Xpk43BgdbmpgUlDHmf2Bj+RyYf4HrYX7a+ncuO4X5mkIbpdp//nrxi0181q21nkI/
+ hAgA=
+X-Developer-Key: i=mailhol.vincent@wanadoo.fr; a=openpgp;
+ fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
+X-Endpoint-Received: by B4 Relay for mailhol.vincent@wanadoo.fr/default
+ with auth_id=291
+X-Original-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +94,194 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: mailhol.vincent@wanadoo.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Wanner <Ryan.Wanner@microchip.com>
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 
-Adjust clock xtal phandles to match the new xtal phandle formatting.
+Add GENMASK_TYPE() which generalizes __GENMASK() to support different
+types, and implement fixed-types versions of GENMASK() based on it.
+The fixed-type version allows more strict checks to the min/max values
+accepted, which is useful for defining registers like implemented by
+i915 and xe drivers with their REG_GENMASK*() macros.
 
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+The strict checks rely on shift-count-overflow compiler check to fail
+the build if a number outside of the range allowed is passed.
+Example:
+
+  #define FOO_MASK GENMASK_U32(33, 4)
+
+will generate a warning like:
+
+  include/linux/bits.h:51:27: error: right shift count >= width of type [-Werror=shift-count-overflow]
+     51 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
+        |                           ^~
+
+The result is casted to the corresponding fixed width type. For
+example, GENMASK_U8() returns an u8. Note that because of the C
+promotion rules, GENMASK_U8() and GENMASK_U16() will immediately be
+promoted to int if used in an expression. Regardless, the main goal is
+not to get the correct type, but rather to enforce more checks at
+compile time.
+
+While GENMASK_TYPE() is crafted to cover all variants, including the
+already existing GENMASK(), GENMASK_ULL() and GENMASK_U128(), for the
+moment, only use it for the newly introduced GENMASK_U*(). The
+consolidation will be done in a separate change.
+
+Co-developed-by: Yury Norov <yury.norov@gmail.com>
+Signed-off-by: Yury Norov <yury.norov@gmail.com>
+Signed-off-by: Lucas De Marchi <lucas.demarchi@intel.com>
+Acked-by: Jani Nikula <jani.nikula@intel.com>
+Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 ---
- arch/arm/boot/dts/microchip/at91-sama7g5ek.dts | 18 ++++++++----------
- arch/arm/boot/dts/microchip/sama7g5.dtsi       |  4 ++--
- 2 files changed, 10 insertions(+), 12 deletions(-)
+Changelog:
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-index 2543599013b1..79bf58f8c02e 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-@@ -35,16 +35,6 @@ aliases {
- 		i2c2 = &i2c9;
- 	};
+  v7 -> v8:
+
+    - s/shift-count-overflow/-Wshift-count-overflow/g
+
+    - add an explanation about the return value cast in the patch
+      description.
+
+  v6 -> v7:
+
+    - Fix grammar in comment: 'GENMASK_U*() depends' -> 'GENMASK_U*()
+      depend'.
+
+    - Fix typo in comment: 'Nethertheless' -> 'Nevertheless'
+
+    - Do an artificial early line wrap in comment so that the next
+      patch only has a one line diff change.
+
+    - Re-wrap the comments to the 80th column.
+
+    - The patch changed a lot since Yury first version: put myself as
+      main author and Yury as Co-developer.
+
+    - Add a new paragraph to the patch description to explain that
+      consolidation will be done later.
+
+  v5 -> v6:
+
+    - No changes.
+
+  v4 -> v5:
+
+    - Rename GENMASK_t() to GENMASK_TYPE().
+
+    - Fix typo in patch description.
+
+    - Use tab indentations instead of single space to separate the
+      macro name from its body.
+
+    - s/__GENMASK_U*()/GENMASK_U*()/g in the comment.
+
+    - Add a tag to credit myself as Co-developer. Keep Yury as the
+      main author.
+
+    - Modify GENMASK_TYPE() to match the changes made to __GENMASK()
+      in: https://github.com/norov/linux/commit/1e7933a575ed
+
+    - Replace (t)~_ULL(0) with type_max(t). This is OK because
+      GENMASK_TYPE() is not available in asm.
+
+    - linux/const.h and asm/bitsperlong.h are not used anymore. Remove
+      them.
+
+    - Apply GENMASK_TYPE() to GENMASK_U128().
+
+    - Remove the unsigned int cast for the U8 and U16 variants. Cast
+      to the target type instead. Do that cast directly in
+      GENMASK_TYPE().
+
+  v3 -> v4:
+
+    - The v3 is one year old. Meanwhile people started using
+      __GENMASK() directly. So instead of generalizing __GENMASK() to
+      support different types, add a new GENMASK_t().
+
+    - replace ~0ULL by ~_ULL(0). Otherwise, GENMASK_t() would fail in
+      asm code.
+
+    - Make GENMASK_U8() and GENMASK_U16() return an unsigned int. In
+      v3, due to the integer promotion rules, these were returning a
+      signed integer. By casting these to unsigned int, at least the
+      signedness is kept.
+---
+ include/linux/bitops.h |  1 -
+ include/linux/bits.h   | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 30 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/bitops.h b/include/linux/bitops.h
+index c1cb53cf2f0f8662ed3e324578f74330e63f935d..9be2d50da09a417966b3d11c84092bb2f4cd0bef 100644
+--- a/include/linux/bitops.h
++++ b/include/linux/bitops.h
+@@ -8,7 +8,6 @@
  
--	clocks {
--		slow_xtal {
--			clock-frequency = <32768>;
--		};
--
--		main_xtal {
--			clock-frequency = <24000000>;
--		};
--	};
--
- 	gpio-keys {
- 		compatible = "gpio-keys";
+ #include <uapi/linux/kernel.h>
  
-@@ -512,6 +502,10 @@ spi11: spi@400 {
- 	};
- };
+-#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
+ #define BITS_TO_LONGS(nr)	__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(long))
+ #define BITS_TO_U64(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u64))
+ #define BITS_TO_U32(nr)		__KERNEL_DIV_ROUND_UP(nr, BITS_PER_TYPE(u32))
+diff --git a/include/linux/bits.h b/include/linux/bits.h
+index e1e5177691406919ba4f5bbc875bd230414fd117..9718c5ae5fc356e66958cf48667bb1edda4f9673 100644
+--- a/include/linux/bits.h
++++ b/include/linux/bits.h
+@@ -12,6 +12,7 @@
+ #define BIT_ULL_MASK(nr)	(ULL(1) << ((nr) % BITS_PER_LONG_LONG))
+ #define BIT_ULL_WORD(nr)	((nr) / BITS_PER_LONG_LONG)
+ #define BITS_PER_BYTE		8
++#define BITS_PER_TYPE(type)	(sizeof(type) * BITS_PER_BYTE)
  
-+&main_xtal {
-+	clock-frequency = <24000000>;
-+};
+ /*
+  * Create a contiguous bitmask starting at bit position @l and ending at
+@@ -20,11 +21,40 @@
+  */
+ #if !defined(__ASSEMBLY__)
+ 
++/*
++ * Missing asm support
++ *
++ * GENMASK_U*() depend on BITS_PER_TYPE() which relies on sizeof(),
++ * something not available in asm. Nevertheless, fixed width integers is a C
++ * concept. Assembly code can rely on the long and long long versions instead.
++ */
 +
- &gmac0 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
-@@ -917,3 +911,7 @@ &vddout25 {
- 	vin-supply = <&vdd_3v3>;
- 	status = "okay";
- };
+ #include <linux/build_bug.h>
+ #include <linux/compiler.h>
++#include <linux/overflow.h>
+ 
+ #define GENMASK_INPUT_CHECK(h, l) BUILD_BUG_ON_ZERO(const_true((l) > (h)))
+ 
++/*
++ * Generate a mask for the specified type @t. Additional checks are made to
++ * guarantee the value returned fits in that type, relying on
++ * -Wshift-count-overflow compiler check to detect incompatible arguments.
++ * For example, all these create build errors or warnings:
++ *
++ * - GENMASK(15, 20): wrong argument order
++ * - GENMASK(72, 15): doesn't fit unsigned long
++ * - GENMASK_U32(33, 15): doesn't fit in a u32
++ */
++#define GENMASK_TYPE(t, h, l)					\
++	((t)(GENMASK_INPUT_CHECK(h, l) +			\
++	     (type_max(t) << (l) &				\
++	      type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
 +
-+&slow_xtal {
-+	clock-frequency = <32768>;
-+};
-diff --git a/arch/arm/boot/dts/microchip/sama7g5.dtsi b/arch/arm/boot/dts/microchip/sama7g5.dtsi
-index 17bcdcf0cf4a..250c9e98a8bb 100644
---- a/arch/arm/boot/dts/microchip/sama7g5.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7g5.dtsi
-@@ -117,12 +117,12 @@ map1 {
- 	};
++#define GENMASK_U8(h, l)	GENMASK_TYPE(u8, h, l)
++#define GENMASK_U16(h, l)	GENMASK_TYPE(u16, h, l)
++#define GENMASK_U32(h, l)	GENMASK_TYPE(u32, h, l)
++#define GENMASK_U64(h, l)	GENMASK_TYPE(u64, h, l)
++
+ #else /* defined(__ASSEMBLY__) */
  
- 	clocks {
--		slow_xtal: slow_xtal {
-+		slow_xtal: clock-slowxtal {
- 			compatible = "fixed-clock";
- 			#clock-cells = <0>;
- 		};
- 
--		main_xtal: main_xtal {
-+		main_xtal: clock-mainxtal {
- 			compatible = "fixed-clock";
- 			#clock-cells = <0>;
- 		};
+ /*
+
 -- 
-2.43.0
+2.48.1
+
 
 
