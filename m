@@ -4,98 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C31DC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8DDC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MDnldeg6W/1rz40qXEdWC7PCXkPqXTii6QHNT2tQjqU=; b=uWxGOiEsqk2nn/GJJgowLaS4OM
-	ueo7sTzJ5P7NaD4Tz78w43kIax6ZQpsCeAB+4k44wk/qW5egbQs/LNiErhUc8K6J+2sozVpK5pKMD
-	v8jGcUH1gxU2pGwLlQQQfZRr4u33DqMZRCmB+PKTOmcu56ppJCEVU6N2lXajw2OrptIO7MQffd+hD
-	ZermGgyWLE+CepmApP6PfO/SRhHkwrATM94Bfy92Jnf8eeZ5+3SH0KpbspCh96z7JHA6SwoCTIPKG
-	Of1JGzs3bcOAT0NviVsrWIoX/iEZW8Ar49LSFUzl8K4GkDD2d+ccWHDJTOhDZheaN7ptu/YHoqFv7
-	erpmrV/A==;
+	bh=PiWm+JkA0WFLQavBGxgJxiDDHRCBaxXFyxmdg7dNgng=; b=0x6KHOUNfbjMSN0mZf3QRE8aS6
+	uvJgdrBOMnDdO9C6AUxuEOmHSwrQ66yein29P32KUn6rMgQ4XAZQLByBQrXWliYVfnWT6DvjFgJ0e
+	2EKozoTI7EaOcMHM6e5gMISSIVMrCG74gocvon7te6uJpa8kW1SuwTmgX/CdK09YFMipks4djyZHR
+	1p7EkSXsNkdCbjBSIRrllE5YmBy6HwQHbJvjUkS2hXgrHqra71Z7rjoF+G4de/AvPb1zRuFhR5KaE
+	c7+uNyPIOp1aRLLFU31Oy5KEtfw3TgXXa3oPhDN5Qzg0sGHaSR0SoRuobLEkkhJfVaQb+AtQko2jb
+	ZHD7LQTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6CI-00000006L42-4148;
-	Tue, 25 Mar 2025 15:28:10 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1tx6Ih-00000006LrH-05QZ;
+	Tue, 25 Mar 2025 15:34:47 +0000
+Received: from mail-ej1-f48.google.com ([209.85.218.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6AT-00000006Kcg-29jh
+	id 1tx6Gy-00000006LbE-16VH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 15:26:18 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3014cb646ecso7545871a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 08:26:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742916377; x=1743521177; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=MDnldeg6W/1rz40qXEdWC7PCXkPqXTii6QHNT2tQjqU=;
-        b=ur8WtGIJ+8xUBxvyoIzUMQU5epOwOXrgpUI4FfrxjwVgrDp5L/ppD+n4r3wHz/r449
-         p73BRaXj8gRi377QnKqU3lH1nn15Pd++4F38+oTdc3qsUQArvlz45wYi7U0WO7fvlMuf
-         50w0M/oqzzmUxDUKWCEpZ/0Obx73f6f7VkwoQS3lrdDQd2sx1fvkVB4NERz49Xwf05Zf
-         LfqyYpZ/86g+r4FKsRCJOQZm97VmpsxWvyref5vFtXsIZoZIwsiQa0EJM70xPmc6tbQp
-         o6AcZYixJnreWgJN1szdrAjUSvDWPYJ5mMYHXIEN0pDy5uAz0rTQBTtkSEGpxoN/a+g0
-         dakQ==
+	Tue, 25 Mar 2025 15:33:01 +0000
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-ac2bfcd2a70so813060966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 08:32:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742916377; x=1743521177;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MDnldeg6W/1rz40qXEdWC7PCXkPqXTii6QHNT2tQjqU=;
-        b=sOzQBWi0ebsom18u6f7e+nHwrYhh7XKKXp2K5LV5zKDjq6GijmvthLcG4+xWWTn4Ke
-         +2hkFi/TiIHytwusqZMSf7aD6KsQ+UaLbY3kTPTc1u4jMvOcpkhokDaxgMDvH42IuxbM
-         fspkmPKwg0zAYVSvB9/DZaGVn7dK09jkL7d1wo6LxuKYKPJHkKXbdLFH23qj2he+maNO
-         fcGF9CJTBi1MwMmjzCZT6WZm+uwC4OlMsI586Z+VrHZX83ZTph+o/oClMQdRHVJ5eR1M
-         Diunz81B9znzKsqp6d4EqFN2gJu/Fs/aTQecKkDehhQ9iv+eJw6kYpyNYrjhOENV2hV8
-         uXjA==
-X-Forwarded-Encrypted: i=1; AJvYcCUBse9lRPkjkorz12tjJ4FpvkOLmZveTihp9hxZNFlOMGiN79Se4VQK8ZPOkIP+UiBaa5qgFdEC6wlphGQp2yWg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlMmG4gM/P3Mn8gIL1VjC2lYwnxuhvTbPMfF54bIasIqDhA8gC
-	fspUJ67vHsKz1BFiBLuKnHn6SHBHFZGQR84RrPhe+kHTqYaN1rePCNmGJg2U2Q==
-X-Gm-Gg: ASbGnctbtLJnKQOE2TDeIacV1cZcGKlceZO+Xd2vIek5kw+bHJWQe+qma+hBtaT/Epr
-	bPPc4ZqeJeheqXaVXbQJxUYDbYVhVt/tbvaI53aBxN57YKA21fhdpqA/RbvkP8V/7xmbMQ/Pyat
-	+bPt5mDTn/aWpX0+YCi5wkV92gDpUVRcJiqnwkmrDi/H55lkPq8RvgRhfP6peu5hStKKbRJLq0O
-	wc1djnDf6qjcSeJw32xt2W429ttMPBqnKzt+EJOMvduNLPBE7fhSpeZI6Uv/m4Hvr85yc/t3Cvd
-	CiIconDCWnuzrd0ZJx0LVZYwyfvn+8CqCwt1JRB91/OMk6DHMkrleo8P
-X-Google-Smtp-Source: AGHT+IHAz5zKC5LGUzafh40DAQCiyiA7I/xihj4TsaCt+ShCCQfQH6xabJ6+324CVpB/iZmGqJ1C/g==
-X-Received: by 2002:a17:90b:134c:b0:2ff:7b28:a51a with SMTP id 98e67ed59e1d1-3030fe96732mr32216302a91.17.1742916376502;
-        Tue, 25 Mar 2025 08:26:16 -0700 (PDT)
-Received: from thinkpad ([120.60.136.104])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-301bf636122sm14517600a91.45.2025.03.25.08.26.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 08:26:15 -0700 (PDT)
-Date: Tue, 25 Mar 2025 20:56:09 +0530
-From: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
-To: "hans.zhang" <hans.zhang@cixtech.com>
-Cc: Peter Chen <peter.chen@cixtech.com>, 
-	Siddharth Vadapalli <s-vadapalli@ti.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>, 
-	"bhelgaas@google.com" <bhelgaas@google.com>, "vigneshr@ti.com" <vigneshr@ti.com>, 
-	"kishon@kernel.org" <kishon@kernel.org>, "cassel@kernel.org" <cassel@kernel.org>, 
-	"wojciech.jasko-EXT@continental-corporation.com" <wojciech.jasko-EXT@continental-corporation.com>, "thomas.richard@bootlin.com" <thomas.richard@bootlin.com>, 
-	"bwawrzyn@cisco.com" <bwawrzyn@cisco.com>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "srk@ti.com" <srk@ti.com>
-Subject: Re: [PATCH 0/4] Loadable Module support for PCIe Cadence and J721E
-Message-ID: <bkw4xm4jwe3iuf6sixxl4udosea3bhlwogfua66naf5echbyzv@dlwcbscedh6w>
-References: <20250307103128.3287497-1-s-vadapalli@ti.com>
- <Z9pffxeXHVOsoi4O@nchen-desktop>
- <20250319062534.ollh3s5t7znf5zqs@uda0492258>
- <Z9qO1f5MgNcwO5A4@nchen-desktop>
- <20250319095511.hf3y2c6vbbnm3ien@thinkpad>
- <a8966792-fa0e-4e8e-aceb-427819ae4ef5@cixtech.com>
+        d=1e100.net; s=20230601; t=1742916777; x=1743521577;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PiWm+JkA0WFLQavBGxgJxiDDHRCBaxXFyxmdg7dNgng=;
+        b=trgr+BXJ+2W0NHfkHVZrJbCEEWinj6CHqqOy0QBn7qSCMHiWMgMFa5jexozJdhzSME
+         8UfSnk3/bjP0hNXCSKjfKy78HaPC58SBtxyR1gxLVFl+5CC2E06UOFKhHGlI/2R7WiEb
+         b5iDjGDElFWLHPc8I+yU49auSZj20B+aJXzkCIXRf7UqhM2Ek5rZ9OGKEYdB+j92BDwn
+         0zFkPtse+W5kbBxE09t3ehOjXN70beAM/GP7nhILfk2uUStNA7y2pkM5SBUwM2JYDEw/
+         6J2FvAEldTrfSWrJgsGz6ohBdGkfehpm+keVxvyyHrKuwKFfOCTH44bp98IBAOtd0egs
+         +rdA==
+X-Forwarded-Encrypted: i=1; AJvYcCU1lVQsuQzFHZcv13l3CxxW+QmsFt9bZe2PgBaKQtkAhmPZZ9PI2nelu+eCa4CQVOnxChwpiutEet6mUwriVp/0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9vllZfBeZTLn9xBwFhOxQSAnVe6JFyzcEUJwPS+MiDTFW9VQO
+	Ny11P4H3YEYthu+KVnjfT9IW3452HYM6CfUX4YYw3IkF456ebnnZ8yNuNfbtVGA=
+X-Gm-Gg: ASbGnct2K/XRzv+H46IOJsgSw0Jcn04LrdLokDjq/jcyN5ZByn+2bUIQFtS/T+dIiIF
+	H9Lj5YDFstJjP6i9kXkksKoLJN4fLz547E7XLMGUZInvQN0IpdsghxtcxtqVsubFH1yUY4MjRpV
+	2+bTqeH/ap6JWeyDkWfxq00rkU8HGqL4HtnfwdDB/RFEBd0PfxVIU1G4hhvrRYjNPbiE6bSwPdH
+	wGGqNhJqCtLPoCz0A0Rw7Z2IEHCTCVkG49utTAYxZ8Nvu4LVhW6YwMIhN1AppRV04lCL5Ydyitx
+	M4aH6mDdZxFQ297t0IuH0i5hkrCgle7oKE2csejOA31vEam+Z+IqQurI+CCwAR9roUCdGMhest/
+	DhjWYEas=
+X-Google-Smtp-Source: AGHT+IFVQn/WEl6eOLNFUTmT24ax1fONJIOro5n4YVZvAm9jwZ2nZTD5uxLcWRCT6MX5f64fhyGooA==
+X-Received: by 2002:a17:907:a08a:b0:ac3:8aa5:53f6 with SMTP id a640c23a62f3a-ac3f24d825bmr1589314566b.24.1742916776743;
+        Tue, 25 Mar 2025 08:32:56 -0700 (PDT)
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com. [209.85.208.51])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef8d3ee9sm887536666b.67.2025.03.25.08.32.56
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Mar 2025 08:32:56 -0700 (PDT)
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-5e5e1a38c1aso7581791a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 08:32:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVSq5WFJYoYbsEp2pQ13Cb6Vb8bfKRnumSsCMQKTMlzXjw4cgk4CPYISA2C5e7aLu9VE1yINWyJKRsldJnKiWkF@lists.infradead.org
+X-Received: by 2002:a17:907:9494:b0:ac1:de84:dec0 with SMTP id
+ a640c23a62f3a-ac3f24ed6c4mr1547143566b.26.1742916775525; Tue, 25 Mar 2025
+ 08:32:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <a8966792-fa0e-4e8e-aceb-427819ae4ef5@cixtech.com>
+References: <cover.1740753261.git.robin.murphy@arm.com> <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+ <CAMuHMdWPFnHTFeeWL2-BU8tKOL-E5K2ROOz=LLBLTJJLCK9NgA@mail.gmail.com> <25bd5477-a388-405f-a976-6b1a59860ef8@arm.com>
+In-Reply-To: <25bd5477-a388-405f-a976-6b1a59860ef8@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 25 Mar 2025 16:32:42 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXt9gQxBSVrWw1VSji+faxga4Vo_NRie27K=EtdUMMa_Q@mail.gmail.com>
+X-Gm-Features: AQ5f1JoGJs3g1Wq6ZLZNBkuvqix5EpionY5Jl_k8v4NSQBsoSN9WndnQ0FJE0b0
+Message-ID: <CAMuHMdXt9gQxBSVrWw1VSji+faxga4Vo_NRie27K=EtdUMMa_Q@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe path
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>, 
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta <nipun.gupta@amd.com>, 
+	Nikhil Agarwal <nikhil.agarwal@amd.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	iommu@lists.linux.dev, devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
+	Charan Teja Kalla <quic_charante@quicinc.com>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_082617_568769_1E70CB23 
-X-CRM114-Status: GOOD (  47.55  )
+X-CRM114-CacheID: sfid-20250325_083300_303710_E40F4D0C 
+X-CRM114-Status: GOOD (  30.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,119 +105,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 10:14:02AM +0800, hans.zhang wrote:
-> 
-> 
-> On 2025/3/19 17:55, manivannan.sadhasivam@linaro.org wrote:
-> > EXTERNAL EMAIL
-> > 
-> > On Wed, Mar 19, 2025 at 05:31:01PM +0800, Peter Chen wrote:
-> > > On 25-03-19 14:25:34, Siddharth Vadapalli wrote:
-> > > > > > 
-> > > > > > Hello,
-> > > > > > 
-> > > > > > This series enables support to build the PCIe Cadence Controller drivers
-> > > > > > and the PCI J721E Application/Wrapper/Glue driver as Loadable Kernel
-> > > > > > Modules. The motivation for this series is that PCIe is not a necessity
-> > > > > > for booting the SoC, due to which it doesn't have to be a built-in
-> > > > > > module. Additionally, the defconfig doesn't enable the PCIe Cadence
-> > > > > > Controller drivers and the PCI J721E driver, due to which PCIe is not
-> > > > > > supported by default. Enabling the configs as of now (i.e. without this
-> > > > > > series) will result in built-in drivers i.e. a bloated Linux Image for
-> > > > > > everyone who doesn't have the PCIe Controller.
-> > > > > 
-> > > > > If the user doesn't enable PCIe controller device through DTS/ACPI,
-> > > > > that's doesn't matter.
-> > > > 
-> > > > The Linux Image for arm64 systems built using:
-> > > > arch/arm64/configs/defconfig
-> > > > will not have support for the Cadence PCIe Controller and the PCIe J721e
-> > > > driver, because these configs aren't enabled.
-> > > > 
-> > > > > 
-> > > > > > @@ -209,6 +209,12 @@ CONFIG_NFC=m
-> > > > > >   CONFIG_NFC_NCI=m
-> > > > > >   CONFIG_NFC_S3FWRN5_I2C=m
-> > > > > >   CONFIG_PCI=y
-> > > > > > +CONFIG_PCI_J721E=m
-> > > > > > +CONFIG_PCI_J721E_HOST=m
-> > > > > > +CONFIG_PCI_J721E_EP=m
-> > > > > > +CONFIG_PCIE_CADENCE=m
-> > > > > > +CONFIG_PCIE_CADENCE_HOST=m
-> > > > > > +CONFIG_PCIE_CADENCE_EP=m
-> > > > > 
-> > > > > The common Cadence configuration will be select if the glue layer's
-> > > > > configuration is select according to Kconfig.
-> > > > > 
-> > > > > Please do not set common configuration as module, some user may need
-> > > > > it as build-in like dw's. Considering the situation, the rootfs is at
-> > > > > NVMe.
-> > > > 
-> > > > The common configuration at the moment is "DISABLED" i.e. no support for
-> > > > the Cadence Controller at all. Which "user" are you referring to? This
-> > > > series was introduced since having the drivers built-in was pushed back at:
-> > > 
-> > > We are using Cadence controller, and prepare upstream radxa-o6 board
-> > > whose rootfs is at PCIe NVMe.
-> > > 
-> > 
-> > It doesn't matter. Only criteria AFAIK to build the driver as built-in in
-> > defconfig is that it should be a depedency for console. For some time, storage
-> > was also a dependency, but for sure PCIe is not.
-> > 
-> > Moreover, CONFIG_BLK_DEV_NVME is built as a module in ARM64 defconfig. So it
-> > doesn't matter if you build PCIe controller driver as a built-in or not. You
-> > need to load the NVMe driver somehow.
-> > 
-> > So please use initramfs.
-> > 
-> > > You could build driver as module for TI glue layer, but don't force
-> > > other vendors using module as well, see dwc as an example please.
-> > > 
-> > 
-> > DWC is a bad example here. Only reason the DWC drivers are not loadable is due
-> > to the in-built MSI controller implementation as irqchip. People tend to build
-> > the irqchip controllers as always built-in for some known issues. Even then some
-> > driver developers prefer to built them as loadable module but suppress unbind to
-> > avoid rmmoding the module.
-> Hi Mani,
-> 
-> I think the MSI RTL module provided by Synopsys PCIe controller IP is not a
-> standard operation. The reason for this MSI module is probably to be used by
-> some cpus that do not have ITS(LPI interrupt) designed. Or RISC-V SOC, etc.
-> MSI is defined as an MSI/MSIX interrupt that starts with a direct write
-> memory access.
-> 
+Hi Robin,
 
-Yeah, DWC MSI controller is not a great design. The older ones are even more
-horrible (using SPI interrupts for reporting AERs etc...).
+On Tue, 18 Mar 2025 at 18:24, Robin Murphy <robin.murphy@arm.com> wrote:
+> On 18/03/2025 4:37 pm, Geert Uytterhoeven wrote:
+> [...]
+> > Thanks for your patch, which is now commit bcb81ac6ae3c2ef9 ("iommu:
+> > Get DT/ACPI parsing into the proper probe path") in iommu/next.
+> >
+> > This patch triggers two issues on R-Car Gen3 platforms:
+> >
+> > 1. I am seeing a warning on Renesas Salvator-XS with R-Car M3N
+> > (but not on the similar board with R-Car H3), and only for SATA[1].
+> > Unfortunately commit 73d2f10957f517e5 ("iommu: Don't warn prematurely
+> > about dodgy probes") does not help:
+> [...]
+> >      Call trace:
+> >       __iommu_probe_device+0x208/0x38c (P)
+> >       iommu_probe_device+0x34/0x74
+> >       of_iommu_configure+0x128/0x200
+> >       of_dma_configure_id+0xdc/0x1d4
+> >       platform_dma_configure+0x48/0x6c
+> >       really_probe+0xf0/0x260
+> >       __driver_probe_device+0xec/0x104
+> >       driver_probe_device+0x3c/0xc0
+>
+> Hurrah, this is the warning doing the correct job - something *is* off
+> if we're now getting here without the IOMMU configuration being done
+> already (for a normal device with no other funny business going on).
+>
+> > 2. The IOMMU driver's iommu_ops.of_xlate() callback is called about
+> > three times as much as before:
+>
+> That would suggest that the fwspec gets set up OK, then something later
+> in the __iommu_probe_device() path fails and tears it down again, so the
+> next attempt starts from scratch. Do you see the "Cannot attach to
+> IPMMU" message firing?
 
-> There are also SOC vendors that do not use the built-in MSI RTL module.
-> Instead, MSI/MSIX interrupts are transmitted directly to the GIC's ITS
-> module via the GIC V3/V4 interface. For example, RK3588, they do not use the
-> PCIe controller built-in MSI module. Some Qualcomm platforms also modify the
-> PCIe controller's built-in MSI modules to connect each of them to 32 SPI
-> interrupts to the GIC. I was under the impression that the SDM845 was
-> designed that way. The only explanation is that SPI interrupts are faster
-> than LPI interrupts without having to look up some tables.
-> 
+I do not see such messages.
 
-If ITS is available, platforms should make use of that. There is no way DWC MSI
-is superior than ITS. We are slowly migrating the Qcom platforms to use ITS.
+> And similarly to the Rockchip case, does the
+> below help?
 
-And btw, Qcom DWC MSI controller raise interrupts for AER/PME sent by the
-downstream components. So enabling ITS is uncovering AER errors which were
-already present :)
+The below is basically the same as your "[PATCH] iommu/ipmmu-vmsa:
+Register in a sensible order"[1].  While that fixes my first issue,
+it does not fix the second (harmless?) issue.
 
-> So the dwc driver can also compile to ko?
-> 
+Note that I only noticed the second issue because I have local debug
+code in soc_device_match().  Perhaps it happens, unnoticed, on other
+systems too?
 
-Only if the MSI support is made as a build time option and there is a guarantee
-that the platform will never use it (which is difficult to do as the driver can
-only detect it during the runtime based on devicetree).
+Thanks!
 
-- Mani
+[1] https://lore.kernel.org/53be6667544de65a15415b699e38a9a965692e45.1742481687.git.robin.murphy@arm.com/
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
