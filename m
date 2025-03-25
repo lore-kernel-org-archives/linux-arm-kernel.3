@@ -4,90 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772FBC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C6BC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HIiymNtPWSmafw/vlEzUs3yK38VavdvhdwhqdM6/8zU=; b=hutoclAGP+SF5/NREOHteJQu7s
-	H87koBzGwmBKsJpGjQqCzMRVHr+pygBEjQ/+wdW53CFRWW4xaofGtVthZ33lfKVze62U+nBq7OIxr
-	EUNTJVL2MF9xYxljTlXDhmSHv8KkHSbgnn6M8QToE/28h1ce/6B/cjUR1EwprkVPQAVw9pFjXFcHG
-	nNHSkSTQvjNsElxCgLxrKFCVOKjoiSdcV5wkhqsAUJmqneKF4aEh5AbLZeq/Y4QFbAXQaMLBDy8NI
-	aJst7RPO1caHEkCTh/wYvzmK5oTrMiPfpB6Gdli2vNah48vRDX8K/5GoTxWviFXrgxwK3ojvPrf/C
-	+jh2GC1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4odhu6w1IDHlANfjxmoN8npMQhQbsUlsbnU5YNqlSts=; b=orHBfRZpLKppszLUuhsiA2zfGN
+	t5T6CSJ8cDM8kx+IYpwdWtkiTkIgyFS+qgBrNktD1avSItaTFxEepDSO68gpPswDPiC7qV06Nbnv2
+	G23vKPWdG2JCbS1J3JCRYFUNrZwItuOWduMjhFQOWnOVfRUyq1zxJImLJrKbP5C/JrY1XWoBZ1/Sm
+	6BN4u50p/zfIyvDZtIFfSEW1oRZJgWFlFsoEFtL7opS55skuxEboqBlld9f9gTgKMOHaL+14kv+ZC
+	UrlUulsNw2xHrPHqwng6Q5kU9yum2U7rbcdmdq9jiYwEVkWZd/T9twax/zm74DjBmgBzFDfXVc8vk
+	1gRTDaJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx1LG-00000005PoU-1BuO;
-	Tue, 25 Mar 2025 10:17:06 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tx1Of-00000005QFe-0VgE;
+	Tue, 25 Mar 2025 10:20:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx1JX-00000005PZs-1XRQ
+	id 1tx1Mv-00000005Q21-2L3X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 10:15:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4394345e4d5so33818555e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 03:15:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742897718; x=1743502518; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=HIiymNtPWSmafw/vlEzUs3yK38VavdvhdwhqdM6/8zU=;
-        b=ekFJBYoMzfSg9Aemziexzz9vcPU5giJPo5XRPpG4HfNIosKTV+BH6Miy4pLMfV/KIo
-         JJZ0BC2dULLqWvlfL7lfsCTWkqxK6pdP4LxF8jVo1ZwkZv6oRbPvi8DrBNy7+hEuDkUQ
-         ZtUUTmR+Iv77AeYPC39yATl1idJxUsPz/AlTJ69krKVRjCKcg4ECn8B/5Hg2XeHbeKTq
-         c6EARZey5r9wAox3w78wqo9cIg3J2ATjzfUoqY0YtRkiknFzlR4y7UZGdFMlhwvgjbz+
-         aioHdbGPsBMKJ+MSXhAzVhVX/tdQMNJMO9JW0GgyAlnu4Ca91U68ucSrPpvwOwIqOsY5
-         7uOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742897718; x=1743502518;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HIiymNtPWSmafw/vlEzUs3yK38VavdvhdwhqdM6/8zU=;
-        b=fsE4jMXUA+leqk84qV/DUt1WV4plZgo7NlvImrp4m2HtC6nCV+2mIWd3c2yxP9xgwO
-         CmCLLZpiX0DNU4XP7xgLPgWE8XkyKflSfhWx9LPNzWjYN/HZAcFvEuSdUMSIKhmDft1F
-         IOFNvw3SK+fIojr7sAIsP9ErPv3xX88PaJpGZCMx9fScUBCgl1VZGOw/o6vYKTc2yGKi
-         VlupxrpDssMLqIzcaWMYKP8t7gpet+XVx5be5bkGxc68ESrKGrrFKYKM6DLlG4o4PH7V
-         9FgPz8mIEWw1myXrncuNOmgKTm3qRahgJv00L708oU1+PkjNf4/b2UK8PS+kSaZqVjSj
-         B8dA==
-X-Forwarded-Encrypted: i=1; AJvYcCXDz4GPI7ZXjNWG2pk0FF2CardlQ5n5utWxJ/MXCw/YzYWVsIPgJBedM/kC+uQ/Dps446wLBweWHVQ41ItYCIXx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEco47wFtVEI9K0cpq8q3Cekbj8tn8iLjV3fQ244WB57UehWIO
-	COFynnkYRZdupzLGoXGRfIcwRlrh/W6STtYwM8b462FXcRyGozZDwXecUgPbkio=
-X-Gm-Gg: ASbGncvmjBnGt0s72g9ttBpHPZApb4Ar2mwkRy6aKTxazyAIg3t9g0Nb84qzivY+FTT
-	HcwaEBRvVQUPWkv/ga5KeLgtTtaE9EYUkmtWyfDguhbqyDvil1qq1Jut4c88uFgcmEvTJ9GpN4a
-	sAVKgFtbPvAkun40ZGo2Nuq01IZuUlguKguPgKbdyeFE4llFhzUoq81OhlhFPKW8r3w+g2w+Wg4
-	U3PXhWnPu5/5tRoyKTGK/0eCyeum1ny0J1+uuEC4fzleS3BEti8NonHM76j0poPt2FnvZNQy1Nj
-	IbQsjeBgfyft3nJVxe5fI3GgXLVtah1Z1sMEuAiycHTk0iLeCw==
-X-Google-Smtp-Source: AGHT+IFw2/pNQ5VlOB5j+GWsibTCWxrlkUBFFVpMfhBQZ4qA20RXRLBX1Zd3wl5pSv2Zad5KMtYTBw==
-X-Received: by 2002:a05:600c:1f10:b0:43c:e2dd:98ea with SMTP id 5b1f17b1804b1-43d5a32ce3amr105676265e9.22.1742897717551;
-        Tue, 25 Mar 2025 03:15:17 -0700 (PDT)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd9ec84sm144043865e9.26.2025.03.25.03.15.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 03:15:17 -0700 (PDT)
-Message-ID: <48c082ffbb6eaa75eacbf3c7cbf0e4caec441bfc.camel@linaro.org>
-Subject: Re: [PATCH v3 0/2] firmware: exynos-acpm: allow use during system
- shutdown
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Krzysztof Kozlowski
-	 <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Will McVicker
-	 <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Tue, 25 Mar 2025 10:15:16 +0000
-In-Reply-To: <20250325-acpm-atomic-v3-0-c66aae7df925@linaro.org>
-References: <20250325-acpm-atomic-v3-0-c66aae7df925@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.53.2-1 
+	Tue, 25 Mar 2025 10:18:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6CCB4A4A669;
+	Tue, 25 Mar 2025 10:13:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10D71C4CEE4;
+	Tue, 25 Mar 2025 10:18:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742897928;
+	bh=nfWVqXVYERAF0PXg9Qq9+Q6xf2VG8qUwOcRqkyfbCXA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jfuB+D5ivv6h9VETLh1fBqawxLaZZU6gZxRceHxBXjY/4en4vCYm6DHincXYqQf53
+	 GRpFXiSutuHH4JW/bA4hRj5K6Az/X2rjNSlDhZxUrtlP24j2B/e4uwLtIRkeDrSv9L
+	 AhpgRHtxuoY6QnigqcT8POY+Vpd+BZFJJpzGsq6VcbRBaE3k7oWuLwujbA9IMj7jY6
+	 GF50ZuqQKcoRX29S50dmN/GE0ym4/FBXONg0BRILGAUHH1DLAH25Isz4WozSQAMrn+
+	 +3JH8LyTUtQcAf5+tiUWC2osg5PcBxBmDV53gE/6VUj81xkbOMmg1691ln6GlEOGHX
+	 QyByQnxwwLapw==
+Message-ID: <99053328-a117-493e-b5f3-00902669c8e7@kernel.org>
+Date: Tue, 25 Mar 2025 11:18:41 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
+ AST2600-i2cv2
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mo Elbadry <elbadrym@google.com>
+References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
+ <50327725-f3b8-4a8b-94a2-85afccd2868a@kernel.org>
+ <OS8PR06MB7541B0DBC64B3EF6838DFE74F2CD2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <d1b184c5-84c1-4d76-a1d0-a9f37f1e363c@kernel.org>
+ <OS8PR06MB7541D1D2E16C5E77037F3BB0F2CB2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <069b9fe4-c54a-4efd-923e-1558c59fe3f4@kernel.org>
+ <OS8PR06MB7541C69AB8E6425313DA8606F2DF2@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <677cb075-24ae-45d8-bfb4-9b23fbacc5df@kernel.org>
+ <OS8PR06MB7541C3B70B15F45F4824772BF2D92@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <994cb954-f3c4-4a44-800e-9303787c1be9@kernel.org>
+ <SI6PR06MB753542037E1D6BBF5CE8D2E7F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
+ <4523caea-3406-4de0-9ab5-424fb7a0a474@kernel.org>
+ <SI6PR06MB7535BAD19B51A381171A0E64F2A42@SI6PR06MB7535.apcprd06.prod.outlook.com>
+ <8e8aa069-af9f-453f-9bd0-e3dc2eab59ab@kernel.org>
+ <OS8PR06MB7541FD8691B43EA33BDC1D22F2A72@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <OS8PR06MB7541FD8691B43EA33BDC1D22F2A72@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_031519_416736_CA4AC099 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20250325_031849_737004_BE9B9A3D 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +145,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-03-25 at 09:46 +0000, Andr=C3=A9 Draszik wrote:
-> One user of this ACPM driver is a PMIC driver that needs to communicate
-> with the PMIC during late system shutdown [1] and at that time we are
-> not allowed to sleep anymore.
->=20
-> This series address this by switching the code to using udelay() in the
-> specific case of system shutdown. This approach was inspired by I2C's
-> i2c_in_atomic_xfer_mode(), which has to deal with a similar corner
-> case.
+On 25/03/2025 10:52, Ryan Chen wrote:
+>>
+>>> i2c-aspeed.c for legacy layout, compatible "aspeed,ast2600-i2c-bus"
+>>> i2c-ast2600.c for the new register set, compatible compatible
+>> "aspeed,ast2600-i2cv2"
+>>> Do you mean I have integrate into 1 driver at i2c-aspeed.c ? can't be
+>> separate two driver?
+>>
+>> What is this patch about? Bindings. Not drivers. Look at email month ago:
+>>
+>> "All this describes driver, not hardware."
+>>
+>> Why are you keep bringing here drivers since a month?
+> Let me try to rephrase the reasoning from a hardware point of view:
+> 
+> On AST2600, each I2C controller instance is functionally the same type of device (I2C controller), 
+> but it can present two different and incompatible register layouts, 
+> depending on a hardware-controlled configuration (via global register bits that are fixed in production SoCs).
+> The layouts are not backward-compatible:
+> Registers are at different offsets. Bit definitions differ.
+> The programming sequence is not the same.
+> Because of this incompatibility at the register level, software cannot handle both layouts in a generic way without explicit knowledge of which version is present.
+> That’s why I proposed a new compatible string — to represent a hardware-visible difference in register interface, even though the logical function (I2C controller) is the same.
 
-Looks like I forgot to update the paragraph here. As of v3, we
-now use udelay() unconditionally, instead of the fragile approach
-inspired by I2C, as suggested by Krzysztof.
+You implied software is set in stone and that's not true. You have a
+compatible which says to the software - this device has two programming
+interfaces, choose whatever you wish and work with that.
 
-A.
+Different compatible would mean the device is different, it changes or
+you have compatibility issues.
 
->=20
-> Link: https://lore.kernel.org/all/20250323-s2mpg10-v1-29-d08943702707@lin=
-aro.org/=C2=A0[1]
->=20
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
-> Changes in v3:
-> - switch to unconditional udelay() (Krzysztof)
-> - Link to v2: https://lore.kernel.org/r/20250324-acpm-atomic-v2-0-7d87746=
-e1765@linaro.org
->=20
-> Changes in v2:
-> - add missing ktime.h include
-> - switch to ktime_before() instead of !ktime_after()
-> - add link to user requiring this change to cover letter
-> - collect Tudor's Rb
-> - Link to v1: https://lore.kernel.org/r/20250321-acpm-atomic-v1-0-fb887bd=
-e7e61@linaro.org
->=20
-> ---
-> Andr=C3=A9 Draszik (2):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 firmware: exynos-acpm: use ktime APIs for =
-timeout detection
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 firmware: exynos-acpm: allow use during sy=
-stem shutdown
->=20
-> =C2=A0drivers/firmware/samsung/exynos-acpm.c | 16 ++++++++--------
-> =C2=A01 file changed, 8 insertions(+), 8 deletions(-)
-> ---
-> base-commit: 9388ec571cb1adba59d1cded2300eeb11827679c
-> change-id: 20250321-acpm-atomic-033775b051ef
->=20
-> Best regards,
+NONE of these cases are here.
 
+I am done with this topic, because explaining this and other
+trivialities to Aspeed takes way too much time, so last opinion:
+
+Your compatible already expressed that there are two interfaces, so your
+drivers can just choose whichever they want. If you need to toggle a bit
+in system controller, it is fine. If you need different compatible, then
+that's a NAK.
+
+Best regards,
+Krzysztof
 
