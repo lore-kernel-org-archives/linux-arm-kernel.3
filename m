@@ -4,81 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37098C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 05:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9B9C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 06:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZz413nIcYCUNOdKO8NwEix9C2Tyx7bxvtadeeCo5tQ=; b=RwvkCS5JUsHtWWgDYRGmxvFU6F
-	Ej+kSHStQJI9jcC8CxiEoCsDLTAtuQP2DjxIoSPkwuPtr2u4CCmtikmRpkYJgzEI1WVsti+5fNiu9
-	wtKuNe+6DPC6lXYp7LjpGd4tbGlM1qa06cGRc6m0eKuL8GnnDn8IGx7Ei4Gt53dlzgNRZ3gTBye0d
-	tBTOk7E79pkwZmnPfc92vIweG/hsnzQyMmseZKAAm8DP+xdyfHZIwZFbw9xMhb2n7aDVt24lxBrKO
-	OwWa/F7fNz2GR52NgOudlKwj5UmocMN1iwhmbMhRbILx9yCI1oTykohuFMw4iknD4Abb84oT1UMVm
-	5RVyXZ7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpkYXileyTcIk8TFV6as38CU1iJIxbB4fpN2GYjcrIo=; b=BGcN6VlWMFaXU/nRNe+HOrk+H5
+	i5dBwu+c71VMJV55a4zwXGqYph8cKeDHdOHxaTwJ524wCCk0NjtPfp4MmvNv4ZZyhDNRpManqS9f6
+	F2l3ylbQwGz5S+r0YbJ+Jw09+aNxIwEv/8s1M+nTSAzNlYYLsZoh55NYPRQhEfxCyworyBID0NNy0
+	KqcGHHL1Gv24Wdwr07C5L9gH+7GTPoVE7jN7ls3PjVK9O8XPM27ohKmlwJyz7q62NbXAJ/uEcX6IT
+	FNjqjb7EeN3/ME9i7NMDoBMQekgYzmhMEPqKNFO5NCUrR5uqlJphmdF5b8c+msS0W6ZIJhf9fWybQ
+	ODnIbdWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twxIQ-00000004vt4-17Kc;
-	Tue, 25 Mar 2025 05:57:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1twxSZ-00000004weU-431y;
+	Tue, 25 Mar 2025 06:08:23 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twxGh-00000004vlS-0Rf5
+	id 1twxQq-00000004wSU-3IZm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 05:56:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B395439C4;
-	Tue, 25 Mar 2025 05:56:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD9FC4CEE8;
-	Tue, 25 Mar 2025 05:55:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742882164;
-	bh=9j22DB61e8MLKocwCu9eFZfZ/VHtm9E70w5QhxAtMuw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ACi0tCWY9CCPWWBmn4FNu0V3otcA+yUdgkb2YfLA1dKZNHitj6Rn91VN5+oQjSjkZ
-	 2D2rSFB84KXVpSP4BSgGuRn6zqpPXyHXLoH5THWaU8J2J02Zpv9CzS91aFVk3Pbn82
-	 2Jy3iZN3xBPEIPMnWhG4QmHcmro21enIi4lnzpAOQZwEiYdBkm019YDo57T98VFyNE
-	 jhvcWlDV6F4sJk6DXDd43Fv9k8abUhuehltzNBquIMsIagQHOL9B1FWdjVRXxM/uuO
-	 kIzxiiv98XSMH9tW5Ea9bmXC0sohW6LW6Tu0ixpNF2dRmCIFg9Bu/mZPNKBf56r7od
-	 bZK5SZFYmDyrQ==
-Date: Tue, 25 Mar 2025 11:25:54 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>
-Subject: Re: [PATCH v6 03/10] optee: account for direction while converting
- parameters
-Message-ID: <Z-JFagmbZBQd0hoM@sumit-X1>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-4-jens.wiklander@linaro.org>
- <Z9K2RQYuXSJc8Y1E@sumit-X1>
- <CAHUa44H5Zc_POJ_RWaVd4iFVagRkFaN+8Ajs=19FKboZapbQHw@mail.gmail.com>
- <Z9vfD4UWSrqSTPnP@sumit-X1>
- <CAHUa44HY-jZCoDXKnx-f4gBoABRVdh1+6PA1AYHSva9aL=rDAA@mail.gmail.com>
+	Tue, 25 Mar 2025 06:06:37 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5497e7bf2e0so6051766e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 23:06:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742882795; x=1743487595; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UpkYXileyTcIk8TFV6as38CU1iJIxbB4fpN2GYjcrIo=;
+        b=jP03EJDNBoR2Gi98UnXb3UA2+9eb7ElJZSDyi5zT+XvsnyLa7td19K/krkYv3Wd2pX
+         G+wLCgVYYiNzd3muTlpbppZN1J4LOSi4SiZMrjNTJwb6VrfCxFDOyjFO+PivEJZQliYP
+         DA973/gxi+M8OBDj9nzCK2LYcYMVYkUDOQEMxVKWlLJA7J+Ue7TjlqDqJCzrBPlj2DUq
+         +LsiMWrszlb4asdJ/WrrJxqb6aoCRYNDTW4ZlWeMO9S3uCRlzO7JFQWVQrjAQhPWtJjl
+         KGG9Jadz5J88/WVBiMtB6X15rqgxMTK0Eh6/0zzLLfaSm6GKwUUPO8ZztxL/I1Sn9zG5
+         /g3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742882795; x=1743487595;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UpkYXileyTcIk8TFV6as38CU1iJIxbB4fpN2GYjcrIo=;
+        b=guuxsV9KWlNO2ZdFx4BjPxzJWlw7Vttd2oIvpw8aL9Xj23lyqe02fGNZVjX8WvgnX/
+         LylPe+yeG3hD5uWOBiLq6XE0Oaz+XL1CQfRNp1KveTPjy1mOOBAP0yRzKdrb9/vSAnWC
+         gsOQPdblkvXn5kRbVqG2wdqdEWX+D0cRffWdrQ7iG+0AVABCW87xG95Jufv0dEQgrPWh
+         KBmKgFWmqFqt6+HLMQZ7QMc3MtF/TnP65oO+vHHKpzVeMIh6AqhDkfLAtKrXlmmvri5X
+         vgveABcTlJNKjpqTt7hibJkjmzNx9F00RiMuTARmE0K7kLH/tLUYU8KM3xMVlZna0ZhY
+         xcIw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5pUi3PU8Vd25jnniP2KmFTh7PdXzHU5dqPUigoFH2RGVPNX0Ay6gqvtreCVhXWZRCk/nDVnR+rxC0eAHYkeR5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlyNy+z+Nllf9hUDSdBdVOutGXE9LlLjjj3MpzShOsQL4RTOoP
+	AnVZSS7gU5MJOkGsVDbj9d6PpYyIfWvZFPle4JZMmA0zJczHQcnj
+X-Gm-Gg: ASbGncsBOEK/kzguEg+L9fZ6nKh7X+rN2fZdq/yK0I7DN0zTZBcChb6Hma/x3HJd0F1
+	qcJtsMkgtvr/suN70k/YLqegWOr7El9Awgx8b/QNIdeLFj5dItwEq+aQYjLrGSz0uJZEPaOIGxS
+	pJHYPAgevb5A6erwKc0P/zPt6cyngDc8mGPcyfiKbtU9gZdiGMTkv8dOhLi/6DhBx/wi/tOHlZ5
+	BwZ+T8B8C1gi9lk9+lciVIfAyk2Y5uFcPzf5splsdZVDifdqtSWMd8CLmP0V82hvZUOkQ3UyvXB
+	c9sht9I6LExpazbCgsaJzeTnWi/vlQs+vpOeYCwc5KzRQeEAevoeUyF43NIWtnpikcZV4ejDQeJ
+	TnhPHagpVtglKHxQuBevmE3SBcsHxYaBX0mJg
+X-Google-Smtp-Source: AGHT+IHRTEer1v2dD1wPBDR8uDVpWnU/Fj1Edj8fXP52s1Zi+C3mR/ra+yeS2GT0K1XmpsBuk0gkKg==
+X-Received: by 2002:a05:6512:ea2:b0:544:ffbe:cd22 with SMTP id 2adb3069b0e04-54ad6500d8fmr5018858e87.46.1742882794350;
+        Mon, 24 Mar 2025 23:06:34 -0700 (PDT)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad65037d5sm1368146e87.180.2025.03.24.23.06.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Mar 2025 23:06:32 -0700 (PDT)
+Message-ID: <007c6e9b-ffcd-42ef-a3f2-4b8fb62e99eb@gmail.com>
+Date: Tue, 25 Mar 2025 08:06:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHUa44HY-jZCoDXKnx-f4gBoABRVdh1+6PA1AYHSva9aL=rDAA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] dt-bindings: iio: Use unevaluatedProperties for SPI
+ devices
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Michael Hennerich <Michael.Hennerich@analog.com>,
+ Kim Seer Paller <kimseer.paller@analog.com>,
+ Anshul Dalal <anshulusr@gmail.com>,
+ Ramona Gradinariu <ramona.gradinariu@analog.com>,
+ Antoniu Miclaus <antoniu.miclaus@analog.com>,
+ Robert Budai <robert.budai@analog.com>,
+ Petre Rodan <petre.rodan@subdimension.ro>, Andreas Klinger
+ <ak@it-klinger.de>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250324125313.82226-1-krzysztof.kozlowski@linaro.org>
+ <20250324125313.82226-2-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <20250324125313.82226-2-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_225607_190370_5795C9A4 
-X-CRM114-Status: GOOD (  39.53  )
+X-CRM114-CacheID: sfid-20250324_230636_833822_76F38DC2 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,304 +117,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 02:00:57PM +0100, Jens Wiklander wrote:
-> Hi Sumit,
+On 24/03/2025 14:53, Krzysztof Kozlowski wrote:
+> SPI devices should use unevaluatedProperties:false instead of
+> additionalProperties:false, to allow any SPI device properties listed in
+> spi-peripheral-props.yaml.
 > 
-> On Thu, Mar 20, 2025 at 10:25 AM Sumit Garg <sumit.garg@kernel.org> wrote:
-> >
-> > Hi Jens,
-> >
-> > On Mon, Mar 17, 2025 at 08:42:01AM +0100, Jens Wiklander wrote:
-> > > Hi Sumit,
-> > >
-> > > On Thu, Mar 13, 2025 at 11:41 AM Sumit Garg <sumit.garg@kernel.org> wrote:
-> > > >
-> > > > Hi Jens,
-> > > >
-> > > > On Wed, Mar 05, 2025 at 02:04:09PM +0100, Jens Wiklander wrote:
-> > > > > The OP-TEE backend driver has two internal function pointers to convert
-> > > > > between the subsystem type struct tee_param and the OP-TEE type struct
-> > > > > optee_msg_param.
-> > > > >
-> > > > > The conversion is done from one of the types to the other, which is then
-> > > > > involved in some operation and finally converted back to the original
-> > > > > type. When converting to prepare the parameters for the operation, all
-> > > > > fields must be taken into account, but then converting back, it's enough
-> > > > > to update only out-values and out-sizes. So, an update_out parameter is
-> > > > > added to the conversion functions to tell if all or only some fields
-> > > > > must be copied.
-> > > > >
-> > > > > This is needed in a later patch where it might get confusing when
-> > > > > converting back in from_msg_param() callback since an allocated
-> > > > > restricted SHM can be using the sec_world_id of the used restricted
-> > > > > memory pool and that doesn't translate back well.
-> > > > >
-> > > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > > > > ---
-> > > > >  drivers/tee/optee/call.c          | 10 ++--
-> > > > >  drivers/tee/optee/ffa_abi.c       | 43 +++++++++++++----
-> > > > >  drivers/tee/optee/optee_private.h | 42 +++++++++++------
-> > > > >  drivers/tee/optee/rpc.c           | 31 +++++++++----
-> > > > >  drivers/tee/optee/smc_abi.c       | 76 +++++++++++++++++++++++--------
-> > > > >  5 files changed, 144 insertions(+), 58 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/tee/optee/call.c b/drivers/tee/optee/call.c
-> > > > > index 16eb953e14bb..f1533b894726 100644
-> > > > > --- a/drivers/tee/optee/call.c
-> > > > > +++ b/drivers/tee/optee/call.c
-> > > > > @@ -400,7 +400,8 @@ int optee_open_session(struct tee_context *ctx,
-> > > > >       export_uuid(msg_arg->params[1].u.octets, &client_uuid);
-> > > > >
-> > > > >       rc = optee->ops->to_msg_param(optee, msg_arg->params + 2,
-> > > > > -                                   arg->num_params, param);
-> > > > > +                                   arg->num_params, param,
-> > > > > +                                   false /*!update_out*/);
-> > > > >       if (rc)
-> > > > >               goto out;
-> > > > >
-> > > > > @@ -427,7 +428,8 @@ int optee_open_session(struct tee_context *ctx,
-> > > > >       }
-> > > > >
-> > > > >       if (optee->ops->from_msg_param(optee, param, arg->num_params,
-> > > > > -                                    msg_arg->params + 2)) {
-> > > > > +                                    msg_arg->params + 2,
-> > > > > +                                    true /*update_out*/)) {
-> > > > >               arg->ret = TEEC_ERROR_COMMUNICATION;
-> > > > >               arg->ret_origin = TEEC_ORIGIN_COMMS;
-> > > > >               /* Close session again to avoid leakage */
-> > > > > @@ -541,7 +543,7 @@ int optee_invoke_func(struct tee_context *ctx, struct tee_ioctl_invoke_arg *arg,
-> > > > >       msg_arg->cancel_id = arg->cancel_id;
-> > > > >
-> > > > >       rc = optee->ops->to_msg_param(optee, msg_arg->params, arg->num_params,
-> > > > > -                                   param);
-> > > > > +                                   param, false /*!update_out*/);
-> > > > >       if (rc)
-> > > > >               goto out;
-> > > > >
-> > > > > @@ -551,7 +553,7 @@ int optee_invoke_func(struct tee_context *ctx, struct tee_ioctl_invoke_arg *arg,
-> > > > >       }
-> > > > >
-> > > > >       if (optee->ops->from_msg_param(optee, param, arg->num_params,
-> > > > > -                                    msg_arg->params)) {
-> > > > > +                                    msg_arg->params, true /*update_out*/)) {
-> > > > >               msg_arg->ret = TEEC_ERROR_COMMUNICATION;
-> > > > >               msg_arg->ret_origin = TEEC_ORIGIN_COMMS;
-> > > > >       }
-> > > > > diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
-> > > > > index 4ca1d5161b82..e4b08cd195f3 100644
-> > > > > --- a/drivers/tee/optee/ffa_abi.c
-> > > > > +++ b/drivers/tee/optee/ffa_abi.c
-> > > > > @@ -122,15 +122,21 @@ static int optee_shm_rem_ffa_handle(struct optee *optee, u64 global_id)
-> > > > >   */
-> > > > >
-> > > > >  static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
-> > > > > -                                u32 attr, const struct optee_msg_param *mp)
-> > > > > +                                u32 attr, const struct optee_msg_param *mp,
-> > > > > +                                bool update_out)
-> > > > >  {
-> > > > >       struct tee_shm *shm = NULL;
-> > > > >       u64 offs_high = 0;
-> > > > >       u64 offs_low = 0;
-> > > > >
-> > > > > +     if (update_out) {
-> > > > > +             if (attr == OPTEE_MSG_ATTR_TYPE_FMEM_INPUT)
-> > > > > +                     return;
-> > > > > +             goto out;
-> > > > > +     }
-> > > > > +
-> > > > >       p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT +
-> > > > >                 attr - OPTEE_MSG_ATTR_TYPE_FMEM_INPUT;
-> > > > > -     p->u.memref.size = mp->u.fmem.size;
-> > > > >
-> > > > >       if (mp->u.fmem.global_id != OPTEE_MSG_FMEM_INVALID_GLOBAL_ID)
-> > > > >               shm = optee_shm_from_ffa_handle(optee, mp->u.fmem.global_id);
-> > > > > @@ -141,6 +147,8 @@ static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
-> > > > >               offs_high = mp->u.fmem.offs_high;
-> > > > >       }
-> > > > >       p->u.memref.shm_offs = offs_low | offs_high << 32;
-> > > > > +out:
-> > > > > +     p->u.memref.size = mp->u.fmem.size;
-> > > > >  }
-> > > > >
-> > > > >  /**
-> > > > > @@ -150,12 +158,14 @@ static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
-> > > > >   * @params:  subsystem internal parameter representation
-> > > > >   * @num_params:      number of elements in the parameter arrays
-> > > > >   * @msg_params:      OPTEE_MSG parameters
-> > > > > + * @update_out: update parameter for output only
-> > > > >   *
-> > > > >   * Returns 0 on success or <0 on failure
-> > > > >   */
-> > > > >  static int optee_ffa_from_msg_param(struct optee *optee,
-> > > > >                                   struct tee_param *params, size_t num_params,
-> > > > > -                                 const struct optee_msg_param *msg_params)
-> > > > > +                                 const struct optee_msg_param *msg_params,
-> > > > > +                                 bool update_out)
-> > > > >  {
-> > > > >       size_t n;
-> > > > >
-> > > > > @@ -166,18 +176,20 @@ static int optee_ffa_from_msg_param(struct optee *optee,
-> > > > >
-> > > > >               switch (attr) {
-> > > > >               case OPTEE_MSG_ATTR_TYPE_NONE:
-> > > > > +                     if (update_out)
-> > > > > +                             break;
-> > > > >                       p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
-> > > > >                       memset(&p->u, 0, sizeof(p->u));
-> > > > >                       break;
-> > > > >               case OPTEE_MSG_ATTR_TYPE_VALUE_INPUT:
-> > > > >               case OPTEE_MSG_ATTR_TYPE_VALUE_OUTPUT:
-> > > > >               case OPTEE_MSG_ATTR_TYPE_VALUE_INOUT:
-> > > > > -                     optee_from_msg_param_value(p, attr, mp);
-> > > > > +                     optee_from_msg_param_value(p, attr, mp, update_out);
-> > > > >                       break;
-> > > > >               case OPTEE_MSG_ATTR_TYPE_FMEM_INPUT:
-> > > > >               case OPTEE_MSG_ATTR_TYPE_FMEM_OUTPUT:
-> > > > >               case OPTEE_MSG_ATTR_TYPE_FMEM_INOUT:
-> > > > > -                     from_msg_param_ffa_mem(optee, p, attr, mp);
-> > > > > +                     from_msg_param_ffa_mem(optee, p, attr, mp, update_out);
-> > > > >                       break;
-> > > > >               default:
-> > > > >                       return -EINVAL;
-> > > > > @@ -188,10 +200,16 @@ static int optee_ffa_from_msg_param(struct optee *optee,
-> > > > >  }
-> > > > >
-> > > > >  static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
-> > > > > -                             const struct tee_param *p)
-> > > > > +                             const struct tee_param *p, bool update_out)
-> > > > >  {
-> > > > >       struct tee_shm *shm = p->u.memref.shm;
-> > > > >
-> > > > > +     if (update_out) {
-> > > > > +             if (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT)
-> > > > > +                     return 0;
-> > > > > +             goto out;
-> > > > > +     }
-> > > > > +
-> > > > >       mp->attr = OPTEE_MSG_ATTR_TYPE_FMEM_INPUT + p->attr -
-> > > > >                  TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT;
-> > > > >
-> > > > > @@ -211,6 +229,7 @@ static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
-> > > > >               memset(&mp->u, 0, sizeof(mp->u));
-> > > > >               mp->u.fmem.global_id = OPTEE_MSG_FMEM_INVALID_GLOBAL_ID;
-> > > > >       }
-> > > > > +out:
-> > > > >       mp->u.fmem.size = p->u.memref.size;
-> > > > >
-> > > > >       return 0;
-> > > > > @@ -222,13 +241,15 @@ static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
-> > > > >   * @optee:   main service struct
-> > > > >   * @msg_params:      OPTEE_MSG parameters
-> > > > >   * @num_params:      number of elements in the parameter arrays
-> > > > > - * @params:  subsystem itnernal parameter representation
-> > > > > + * @params:  subsystem internal parameter representation
-> > > > > + * @update_out: update parameter for output only
-> > > > >   * Returns 0 on success or <0 on failure
-> > > > >   */
-> > > > >  static int optee_ffa_to_msg_param(struct optee *optee,
-> > > > >                                 struct optee_msg_param *msg_params,
-> > > > >                                 size_t num_params,
-> > > > > -                               const struct tee_param *params)
-> > > > > +                               const struct tee_param *params,
-> > > > > +                               bool update_out)
-> > > > >  {
-> > > > >       size_t n;
-> > > > >
-> > > > > @@ -238,18 +259,20 @@ static int optee_ffa_to_msg_param(struct optee *optee,
-> > > > >
-> > > > >               switch (p->attr) {
-> > > > >               case TEE_IOCTL_PARAM_ATTR_TYPE_NONE:
-> > > > > +                     if (update_out)
-> > > > > +                             break;
-> > > > >                       mp->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
-> > > > >                       memset(&mp->u, 0, sizeof(mp->u));
-> > > > >                       break;
-> > > > >               case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT:
-> > > > >               case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT:
-> > > > >               case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT:
-> > > > > -                     optee_to_msg_param_value(mp, p);
-> > > > > +                     optee_to_msg_param_value(mp, p, update_out);
-> > > > >                       break;
-> > > > >               case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT:
-> > > > >               case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT:
-> > > > >               case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT:
-> > > > > -                     if (to_msg_param_ffa_mem(mp, p))
-> > > > > +                     if (to_msg_param_ffa_mem(mp, p, update_out))
-> > > > >                               return -EINVAL;
-> > > > >                       break;
-> > > > >               default:
-> > > >
-> > > > Can we rather handle it as follows to improve code readability and
-> > > > maintainence long term? Ditto for all other places.
-> > > >
-> > > > static int optee_ffa_to_msg_param(struct optee *optee,
-> > > >                                   struct optee_msg_param *msg_params,
-> > > >                                   size_t num_params,
-> > > >                                   const struct tee_param *params,
-> > > >                                   bool update_out)
-> > > > {
-> > > >         size_t n;
-> > > >
-> > > >         for (n = 0; n < num_params; n++) {
-> > > >                 const struct tee_param *p = params + n;
-> > > >                 struct optee_msg_param *mp = msg_params + n;
-> > > >
-> > > >                 if (update_out && (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_NONE ||
-> > > >                      p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT ||
-> > > >                      p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT))
-> > > >                     continue;
-> > >
-> > > You're missing updating the length field for memrefs.
-> > >
-> >
-> > Do we need to update length field for input memrefs when update_out is
-> > set? I don't see that happening in your existing patch too.
-> 
-> I'm sorry, I was unclear. The update_out parameter means only the
-> output fields should be updated, not the attribute, offsets, ids, etc.
-> That is, the length field for memrefs, and the value fields a, b, c
-> for value params. Some of the memrefs aren't translated one-to-one
-> with SDP, but the length field can and must be updated.
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Isn't it rather better to add another attribute type to handled SDP
-special handling?
+Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
 
--Sumit
-
-> 
-> Cheers,
-> Jens
-> 
-> >
-> > -Sumit
-> >
-> > > Cheers,
-> > > Jens
-> > >
-> > > >
-> > > >                 switch (p->attr) {
-> > > >                 case TEE_IOCTL_PARAM_ATTR_TYPE_NONE:
-> > > >                         mp->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
-> > > >                         memset(&mp->u, 0, sizeof(mp->u));
-> > > >                         break;
-> > > >                 case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT:
-> > > >                 case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT:
-> > > >                 case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT:
-> > > >                         optee_to_msg_param_value(mp, p);
-> > > >                         break;
-> > > >                 case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT:
-> > > >                 case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT:
-> > > >                 case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT:
-> > > >                         if (to_msg_param_ffa_mem(mp, p))
-> > > >                                 return -EINVAL;
-> > > >                         break;
-> > > >                 default:
-> > > >                         return -EINVAL;
-> > > >                 }
-> > > >         }
-> > > >
-> > > >         return 0;
-> > > > }
-> > > >
-> > > > -Sumit
+Thanks!!
 
