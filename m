@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C516C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0113C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DlSm/XJ+691y9WK83MK+K+VAhVyt9Uh+O14MYitCEMU=; b=hxFYFXGFP6vTjK3N9RMoJZ1nd9
-	3YUeTBQfCIvvR0Ggx8CDu8zGRCZGFwagk4q40pKpL1G0/e0WCPi0/XDLDlG13GZ9wEKJkzS8O4WcL
-	X62OPk/pL0IXYwi8fYqq+GGkTAOYDy2Q21rtkAzR6mF6SR0pGXi+AjBnAvkxnf/C9K1eVR2ijyuzE
-	S5IMOQs1ZN/CkHHj4oIuaQ/Ui8BRy8PGrIway1HrO6pszSZsFyXjMTmNYgKtaae2J7s4eK5CDY7vb
-	QLPK/lLAJlINjDFLP+GWb4ioPOJtXYniUWGxsiwhQqA0QlpPCN+XvC0BlRU6OaFQahr6JrT7PH3nN
-	/gkmdNzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uLimjQcM6iFyIxMkBOQtsVCSZObu+6TN2wfTYGJmIHA=; b=rYJOFZljp2yQDmIz5v7AyhLrwn
+	SwDetllZCelTX8qxM69p9jkQKGbxz1sYJ2f2jCeC/tAYxfH49U8hBexnnntxDMHuz9Vk6hyKQHOxp
+	ZHUuqUPAVrbzdb1VQPrDbX2frWr8qMSz2HzhCleifa9Qumfda7HN9slFyYSDxBbXEA2hM24V5SlcA
+	nxuHSuaDaoFO2IGFlAH4uclfNyn4We1UF/PmcWHASZ0yZwUkY3Wkn49xYXPqjKZRw9yqYqNIER6dw
+	4grDCxDTrTuM/qbcxJwNTvc/bUuB0l3VJBMc0Kz0VfSMsMc6bLJVNszAAcaKsZJeV5KI8TYZjFO67
+	7MN4n+Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5r5-00000006HXJ-285p;
-	Tue, 25 Mar 2025 15:06:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx5sn-00000006HnH-0sb6;
+	Tue, 25 Mar 2025 15:08:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5pM-00000006HJB-49zp;
-	Tue, 25 Mar 2025 15:04:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DlSm/XJ+691y9WK83MK+K+VAhVyt9Uh+O14MYitCEMU=; b=MG3FMRdQ9KEwjCTKj0nAjeKnrQ
-	/rhwAMjbQsLfUYBpqN+GQ562J1fOiT5RLll8cQ5fS6UME3kaFnpFYom+OwGa+x6jCooTilTeQwITp
-	+80KN32y5Du6kmS828W6l+JzZfQHZGQHWrD2WYTPSQwxEdNp2QEPf2yDFzX5kkKlt1sAdRzckTl9r
-	oFpwg/eOmm7rV+dC1hSx4L5y71CvyPfj3Nvh2Ll/4ezbchZin/G3+hADcdNEbdt7gUaIpdHn1k+ab
-	fpnPpEtxd6qyY5rbrXxZaHHwOv0ws5FN0JqclXw3ZvLvu5dUF5pL5xRfSTwRQLnV740g6S8OoeyPP
-	xqeEddDQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx5ox-00000005XR2-2A34;
-	Tue, 25 Mar 2025 15:04:14 +0000
+	id 1tx5qb-00000006HTG-1zyV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Mar 2025 15:05:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CC9F55C5DD3;
-	Tue, 25 Mar 2025 15:01:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1174BC4CEEE;
-	Tue, 25 Mar 2025 15:03:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D31E43C45;
+	Tue, 25 Mar 2025 15:05:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41210C4CEE4;
+	Tue, 25 Mar 2025 15:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742915038;
-	bh=DlSm/XJ+691y9WK83MK+K+VAhVyt9Uh+O14MYitCEMU=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=pUrY9lz+D3qAxxjKU9sRrd3biaS0OmEhrrBkwmx4kPkTpUCMHpy/mzaWypb8rfZ4e
-	 WLOGhPmrBt3fs8APit625QUMpFR+e16CpN6BEITDKRtEtwtexF6oaMn3wIkjYwgOeN
-	 6FizHB25INbj95+5G1l44Aav81PK0heFxnEewIbWf7WuxLUokYDYAlKxW2nVNlvXo0
-	 +ZLGoHASqyFS74gwKSkv05fI01LQ9Iii2kDieVumQb9V4b3kd16w0Zxcxjv9wGWtEc
-	 lDYZMXceQTr71M7lM3D0LYTuesBJusjWuB+LWuX05PUAjv37EulHMnN5n7zgzuy3C2
-	 93XGDsyQIeifg==
-Date: Tue, 25 Mar 2025 11:03:21 -0400
-From: Mike Rapoport <rppt@kernel.org>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>,
- Changyuan Lyu <changyuanl@google.com>
-CC: linux-kernel@vger.kernel.org, graf@amazon.com, akpm@linux-foundation.org,
- luto@kernel.org, anthony.yznaga@oracle.com, arnd@arndb.de,
- ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
- catalin.marinas@arm.com, dave.hansen@linux.intel.com, dwmw2@infradead.org,
- ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com, corbet@lwn.net,
- krzk@kernel.org, mark.rutland@arm.com, pbonzini@redhat.com, hpa@zytor.com,
- peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org, robh@kernel.org,
- saravanak@google.com, skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
- tglx@linutronix.de, thomas.lendacky@amd.com, usama.arif@bytedance.com,
- will@kernel.org, devicetree@vger.kernel.org, kexec@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 00/16] kexec: introduce Kexec HandOver (KHO)
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CA+CK2bDtBk=49hbz+C=fDswz_Nbtj8kVjsY-pTsmBt+O8YPLmg@mail.gmail.com>
-References: <20250320015551.2157511-1-changyuanl@google.com> <CA+CK2bDtBk=49hbz+C=fDswz_Nbtj8kVjsY-pTsmBt+O8YPLmg@mail.gmail.com>
-Message-ID: <01864D3D-C935-4AA6-85A9-363B14EA5443@kernel.org>
+	s=k20201202; t=1742915139;
+	bh=pxDDzt3nXUXBJ/7Nv/uhVEfW6KoJT8d7Gu3T3cGsCac=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rKdFWddW8jtX6bS9n8hjOA976IYOYP7nA6athtLfM+7hFY0ixM+smcB30Vj+9uSF7
+	 ktsCSkppAznydPwy03iNQ1gukIoxNeM41eVmsgJ0a1M1cbbSLCfNpyInFrSqUl/Aw5
+	 jMObZVGVY+cSvnVNsEYx1xIGvGY9gyG5Uey708/ZV16iPutpSKHhN3to+upNO6Uayq
+	 P7J91fFRG5NZImijGtk6IlwSccukWf9jUYE92yLjebGO0eGmmuGVtwyPTUNpx2qSig
+	 fK5o4aukrUrMzRpwOqmSb/Qjc5r2MDTrSClmITbLV/IdmO9iXR5XzQ+AV/w0BGfTKD
+	 23m9njrR00J6A==
+Date: Tue, 25 Mar 2025 10:05:38 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Goran =?utf-8?B?UmHEkWVub3ZpxIc=?= <goran.radni@gmail.com>
+Cc: Goran =?utf-8?B?UmHEkWVub3ZpxIc=?= <gradenovic@ultratronik.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] dt-bindings: arm: stm32: Document Ultratronik's
+ Fly board DT binding
+Message-ID: <174291508527.2051452.5158369080088647376.robh@kernel.org>
+References: <20250325110409.2323611-1-goran.radni@gmail.com>
+ <20250325110409.2323611-3-goran.radni@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250325110409.2323611-3-goran.radni@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_150406_087809_1BA852D3 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250325_080545_537585_F03EB6A5 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +80,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On Tue, 25 Mar 2025 12:04:06 +0100, Goran Rađenović wrote:
+> From: Goran Rađenović <gradenovic@ultratronik.de>
+> 
+> This commit documents ultra-fly-sbc devicetree binding based on
+> STM32MP157 SoC.
+> 
+> Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
 
-On March 25, 2025 10:19:53 AM EDT, Pasha Tatashin <pasha=2Etatashin@soleen=
-=2Ecom> wrote:
->> To use the code, please boot the kernel with the "kho=3Don" command lin=
-e
->> parameter=2E
->> KHO will automatically create scratch regions=2E If you want to set the
->> scratch size explicitly you can use "kho_scratch=3D" command line param=
-eter=2E
->> For instance, "kho_scratch=3D16M,512M,256M" will reserve a 16 MiB low
->> memory scratch area, a 512 MiB global scratch region, and 256 MiB
->> per NUMA node scratch regions on boot=2E
->
->kho_scratch=3D is confusing=2E It should be renamed to what this memory
->actually represents, which is memory that cannot be preserved by KHO=2E
->
->I suggest renaming all references to "scratch" and this parameter to:
->
->kho_nopersistent=3D or kho_nopreserve=3D
 
-I'm leaning towards kho_bootstrap
+Please add Acked-by/Reviewed-by tags when posting new versions. However,
+there's no need to repost patches *only* to add the tags. The upstream
+maintainer will do that for acks received on the version they apply.
 
->This way, we can also add checks that early allocations done by the
->kernel in this memory do not get preserved=2E We can also add checks to
->ensure that scarce low DMA memory does not get preserved across
->reboots, and we avoid adding fragmentation to that region=2E
->
->Pasha
->
+If a tag was not added on purpose, please state why and what changed.
 
---=20
-Sincerely yours,
-Mike
+Missing tags:
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
+
+
 
