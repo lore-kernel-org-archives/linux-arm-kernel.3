@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE2DC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE7DC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A0BehfUeMRpr2SQrZ16cy0XS94atzlGadwTB4/IF7KU=; b=Phhl5jqnYAoGF8uC6pwE49p9lb
-	q+sMcwMuqXMoQ9Z2Qm8ODB9XneL/NhKY+LmIQFtLyzVnWWIqTsazxMp3lez/isYOKp8mbk646mfKf
-	zrTn9OID5cTlIAUVkAtpbyGB3ggBDK98kyyBXPE5/+lYPn0dbAKYjJix55CJ7GdDZc/heWgP0KZo9
-	JgUQ8ddoQKOSFwLiT2SFttjY0/HAniJMrJeFGtyxvyWVz2saqcFV+Qb8zy2fZPKF/U6IYJaS2h3/r
-	KKWLsg0p6c1w6Q3VPVyuxckq1itrpdKbq1INu5rLdnjYu4p7bYZfmEX210jYKZfW3ki0OxFrslmLt
-	XmPUYOpg==;
+	bh=o2lIKucZ6re6iYgzcjAsVX5kevRz3z6KZJN4SPwXUs8=; b=maAE5pEHTw/pjPwEhCHQzRF4Fj
+	cxOBfK5WXJRsBWThGzSTsn2rUXPRXOgtHrucRi9dsUej+6n5odKbk8I5FDn+USgiaNPYR1qcuvrbA
+	2wbTOM+qLkHPtNUW8Ii1ab+Fb8GX4HuK1vTqTsfbS9roP90F3f7bFyBIHUGhf/Lja9IEkaMqA29Xm
+	gNwb3P0tid6p2owQr0mpU6Q/ZKe6Ia3/AEEJSfJTai2US4zCsFEUHmyL3r83CK9rDRZrASzFprnLM
+	WCmWri0BFqBQIwtqMYc0FqpXHMD9nyVczVv3Mw61BzAx5GZC4vuVi8OTUFyh4u52KNOwnHAkKHJss
+	3vocMqLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3dB-00000005tPB-25C2;
-	Tue, 25 Mar 2025 12:43:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tx3ey-00000005uh7-0oPj;
+	Tue, 25 Mar 2025 12:45:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3KW-00000005o7H-3Oqa
+	id 1tx3QR-00000005pZA-0RgC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:24:30 +0000
+	Tue, 25 Mar 2025 12:30:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 37B7D43C1B;
-	Tue, 25 Mar 2025 12:24:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EB37C4CEE9;
-	Tue, 25 Mar 2025 12:24:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4B7B05C6113;
+	Tue, 25 Mar 2025 12:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32367C4CEE4;
+	Tue, 25 Mar 2025 12:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905468;
-	bh=Mf0PY1BZwER+HJ9Mbh8TvIu8FULZZyssZyyQhg3Lxog=;
+	s=k20201202; t=1742905834;
+	bh=2FQkQy8F48v0kwvvmmEiDNrD3XQsRtCKKA0DgUqJCPk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=s+/0HeFVYw6E9ENxuZrurwBQZjTKxbCYZUpzZpQQkhJ/91XayRTQsrh0ZrPcxL6VT
-	 kWPsswaWOu92ibYtKPVQ8cCX8tI/AovpWLUHxbRfI0/LYO+BNEKvw0jz9tSM+iNekY
-	 vYO8pjYDmfb/z5KEqYkNLmTBUw5TNSgx7s3Tm+/YAcmPn6gD38V4dkw/SWkZ+YlcxW
-	 su7X/NDNRXtlVjRTXmyVRJXFZaFDSzVdX/xcyiKo4eSPgyWNkviNI88lTVQL8Pypxt
-	 ZQYp+1CfBBYtXUeraYsyNCniBCJqLg9oYiWYeeJrfpwq4Grdag9K+D7WLkJGrdzDGX
-	 yL7UoRVqqlcPQ==
-Message-ID: <bf6d066c-f0dd-471a-bb61-9132476b515a@kernel.org>
-Date: Tue, 25 Mar 2025 13:24:16 +0100
+	b=IAkcAUxiwAVkDX91WD4WAbpZ/pjLxaCI73yzBO98n/JPN/C7f4Vm99zoNAvi0Q+TM
+	 hDa5bTbHNw22kGjCcY2lKzNL7U340KHn39gesTGo2IwDbpkjdjrHaslEGkVL/SF8u0
+	 KKEjiboCgRwkRPLcOHEdXrZ+VlRPztgx9aNrOCYMiTLeoK151wj5+RwBd9ENZMnNnh
+	 qdhNXLzl2hHK0pJccisCyirUdVJuWTNMQ1dgjhbTD8wh0N32jNAKJ7m4S5Cw7alkhn
+	 UX37HrRDY03nsWwvrPpMt3sz4Kp9NvY0UH1DClVfkNp0wUF5Ay98GVr2CaZbiE1qjG
+	 T8TI5FxdlQ5NA==
+Message-ID: <9ca80442-15c8-4f2d-ac11-8096b2cd83ad@kernel.org>
+Date: Tue, 25 Mar 2025 13:30:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: net: Add MTIP L2 switch description
- (fec,mtip-switch.yaml)
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
- Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>,
- netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>
-References: <20250325115736.1732721-1-lukma@denx.de>
- <20250325115736.1732721-3-lukma@denx.de>
- <2bf73cc2-c79a-4a06-9c5f-174e3b846f1d@kernel.org>
- <20250325131507.692804cd@wsk>
+Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
+ Module for the s32g platform
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
+ Larisa Grigore <Larisa.Grigore@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, dl-S32 <S32@nxp.com>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+ <20250324100008.346009-2-daniel.lezcano@linaro.org>
+ <bb7e4740-9608-4534-9c19-3ac066e2aa8f@kernel.org>
+ <1bf2d9ad-325e-4b1d-8440-ddbc90eabc67@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250325131507.692804cd@wsk>
+In-Reply-To: <1bf2d9ad-325e-4b1d-8440-ddbc90eabc67@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052428_894318_908706AE 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20250325_053035_265918_A4F79FDD 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,117 +127,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/03/2025 13:15, Lukasz Majewski wrote:
-> Hi Krzysztof,
+On 25/03/2025 13:23, Daniel Lezcano wrote:
 > 
->> On 25/03/2025 12:57, Lukasz Majewski wrote:
->>> This patch provides description of the MTIP L2 switch available in
->>> some NXP's SOCs - imx287, vf610.
->>>
->>> Signed-off-by: Lukasz Majewski <lukma@denx.de>
->>> ---
->>>  .../bindings/net/fec,mtip-switch.yaml         | 160
->>> ++++++++++++++++++  
->>
->> Use compatible as filename.
+> [Added s32@ list which I miss from the initial series]
 > 
-> I've followed the fsl,fec.yaml as an example. This file has description
-> for all the device tree sources from fec_main.c
-
-
-That's a 14 year old binding, so clear antipattern.
-
-> 
-> I've considered adding the full name - e.g. fec,imx287-mtip-switch.yaml
-> but this driver could (and probably will) be extended to vf610.
-
-Unless you add vf610 now, this should follow the compatible name.
-
-> 
-> So what is the advised way to go?
-> 
->>
->>>  1 file changed, 160 insertions(+)
->>>  create mode 100644
->>> Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
->>> b/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml new
->>> file mode 100644 index 000000000000..cd85385e0f79 --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
->>> @@ -0,0 +1,160 @@
->>> +# SPDX-License-Identifier: GPL-2.0-only
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/net/fsl,mtip-switch.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> On 25/03/2025 08:30, Krzysztof Kozlowski wrote:
+>> On 24/03/2025 11:00, Daniel Lezcano wrote:
 >>> +
->>> +title: Freescale MTIP Level 2 (L2) switch
+>>> +static int __init nxp_stm_clocksource_init(struct device *dev, const char *name,
+>>> +					   void __iomem *base, struct clk *clk)
+>>> +{
+>>> +	struct stm_timer *stm_timer;
+>>> +	int ret;
 >>> +
->>> +maintainers:
->>> +  - Lukasz Majewski <lukma@denx.de>
->>> +  
->>
->> description?
-> 
-> Ok.
-> 
->>
->>> +allOf:
->>> +  - $ref: ethernet-controller.yaml#
+>>> +	stm_timer = devm_kzalloc(dev, sizeof(*stm_timer), GFP_KERNEL);
+>>> +	if (!stm_timer)
+>>> +		return -ENOMEM;
 >>> +
->>> +properties:
->>> +  compatible:
->>> +    oneOf:  
->>
->> Drop, you have only one variant.
-> 
-> Ok, for imx287 this can be dropped, and then extended with vf610.
-> 
->>
->>> +      - enum:
->>> +	  - imx287-mtip-switch  
->>
->> This wasn't tested. Except whitespace errors, above compatible does
->> not have format of compatible. Please look at other NXP bindings.
->>
->> Missing blank line.
->>
->>> +  reg:
->>> +    maxItems: 1
+>>> +	stm_timer->base = base;
+>>> +	stm_timer->rate = clk_get_rate(clk);
 >>> +
->>> +  interrupts:
->>> +    maxItems: 3  
+>>> +	stm_timer->scs.cs.name = name;
 >>
->> Need to list items instead.
->>
->>> +
->>> +  clocks:
->>> +    maxItems: 4
->>> +    description:
->>> +      The "ipg", for MAC ipg_clk_s, ipg_clk_mac_s that are for
->>> register accessing.
->>> +      The "ahb", for MAC ipg_clk, ipg_clk_mac that are bus clock.
->>> +      The "ptp"(option), for IEEE1588 timer clock that requires
->>> the clock.
->>> +      The "enet_out"(option), output clock for external device,
->>> like supply clock
->>> +      for PHY. The clock is required if PHY clock source from SOC.
->>>  
->>
->> Same problems. This binding does not look at all as any other
->> binding. I finish review here, but the code has similar trivial
->> issues all the way, including incorrect indentation. Start from well
->> reviewed existing binding or example-schema.
+>> You are aware that all node names will have exactly the same name? All
+>> of them will be called "timer"?
 > 
-> As I've stated above - this code is reduced copy of fsl,fec.yaml...
+>  From the caller const char *name = of_node_full_name(np);
 
-Don't take the worst, old code with all the anti-patterns we point out
-on each review, as an example.
+Ah, right, it's the full name.
 
-Take the most recent, well reviewed binding as an example. Or
-example-schema.
+> 
+> The names are:
+> 
+> "clocksource: Switched to clocksource stm@4011c000"
+> 
+> Or:
+> 
+>   17:      24150          0          0          0    GICv3  57 Level 
+> stm@40120000
+
+This all will be timer@, but anyway I get your point.
+
+>   18:          0      22680          0          0    GICv3  58 Level 
+> stm@40124000
+>   19:          0          0      24110          0    GICv3  59 Level 
+> stm@40128000
+>   20:          0          0          0      21164    GICv3  60 Level 
+> stm@4021c000
+> 
+> And:
+> 
+> cat /sys/devices/system/clocksource/clocksource0/current_clocksource
+> stm@4011c000
+> 
+> cat /sys/devices/system/clockevents/clockevent*/current_device
+> stm@40120000
+> stm@40124000
+> stm@40128000
+> stm@4021c000
+
+Ack
+
+> 
+> [ ... ]
+> 
+>>> +
+>>> +static int __init nxp_stm_timer_probe(struct platform_device *pdev)
+>>> +{
+>>> +	struct device *dev = &pdev->dev;
+>>> +	struct device_node *np = dev->of_node;
+>>> +	struct stm_instances *stm_instances;
+>>> +	const char *name = of_node_full_name(np);
+>>> +	void __iomem *base;
+>>> +	int irq, ret;
+>>> +	struct clk *clk;
+>>> +
+>>> +	stm_instances = (typeof(stm_instances))of_device_get_match_data(dev);
+>>
+>> No, you *cannot* drop the const. It's there on purpose. Match data
+>> should be const because it defines per variant differences. That's why
+>> the prototype of of_device_get_match_data() has such return type.
+>> You just want some global singleton, not match data.
+>>
+>>> +	if (!stm_instances) {
+>>> +		dev_err(dev, "No STM instances associated with a cpu");
+>>> +		return -EINVAL;
+>>> +	}
+>>> +
+>>> +	base = devm_of_iomap(dev, np, 0, NULL);
+>>> +	if (IS_ERR(base)) {
+>>> +		dev_err(dev, "Failed to iomap %pOFn\n", np);
+>>
+>> You need to clean up the downstream code to match upstream. All of these
+>> should be return dev_err_probe().
+> 
+> Oh right, thanks for the reminder
+> 
+>>> +		return PTR_ERR(base);
+>>> +	}
+>>> +
+>>> +	irq = irq_of_parse_and_map(np, 0);
+>>> +	if (irq <= 0) {
+>>> +		dev_err(dev, "Failed to parse and map IRQ: %d\n", irq);
+>>> +		return -EINVAL;
+>>> +	}
+>>> +
+>>> +	clk = devm_clk_get(dev, NULL);
+>>> +	if (IS_ERR(clk)) {
+>>> +		dev_err(dev, "Clock not found\n");
+>>
+>> And this is clearly incorrect - spamming logs. Syntax is:
+>> return dev_err_probe
+>>
+>>> +		return PTR_ERR(clk);
+>>> +	}
+>>> +
+>>> +	ret = clk_prepare_enable(clk);
+>>
+>> Drop, devm_clk_get_enabled.
+>>
+>>> +	if (ret) {
+>>> +		dev_err(dev, "Failed to enable STM timer clock: %d\n", ret);
+>>> +		return ret;
+>>> +	}
+>>> +
+>>> +	if (!stm_instances->clocksource && (stm_instances->features & STM_CLKSRC)) {
+>>> +
+>>> +		/*
+>>> +		 * First probed STM will be a clocksource
+>>> +		 */
+>>> +		ret = nxp_stm_clocksource_init(dev, name, base, clk);
+>>> +		if (ret)
+>>> +			return ret;
+>>> +		stm_instances->clocksource++;
+>>
+>> That's racy. Devices can be brought async, ideally. This should be
+>> rather idr or probably entire structure protected with a mutex.
+> 
+> Mmh, interesting. I never had to think about this problem before
+> 
+> Do you know at what moment the probing is parallelized ?
+
+You don't have PROBE_PREFER_ASYNCHRONOUS, so currently this will be
+still sync, but I don't think we want it to be that way forever. I think
+new drivers should not rely on implicit sync, because converting it
+later to async will be difficult. It's easier to design it now or even
+choose async explicitly (after testing).
+
+BTW, PREEMPT_RT and all fast-boot-use-cases would be only happier with
+probe being async.
+
 
 Best regards,
 Krzysztof
