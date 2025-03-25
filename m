@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01370C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A42FC3600D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4VnD3UUE4VcZVkz6IwiboRLnwKwbUMr0aWfWBRVcNw=; b=Wa6J1E9CoWkRd7GkICAamhxK1m
-	8KXDkmqV9h6h1DjC1oGI7ErYCEVI4E+Ue6+sWa2MT7xnlAiSrws2R8/U0Xmo1itwocMqOyZiVTm2v
-	ul85dUcepTL5mRiO/wSmsdbGRSZncThqdzv2v6/vgj22lxR/34gDKpMnhUOvq+zgUsSUz5m65whLL
-	F9C8r60WSUaPGmpBDD8sjVVRFl7E2CMtgUE/Wyty4Yd3A1UJMagFvqXm4qQVPV5HOStoP08VzR/Gj
-	67zfP8mv5lE2BNY101zu0gk250ho/T10LEO1hpsonJthPiWA7czDVozA0y3gA3uArnXtHPuv/KCrv
-	RqnoILyw==;
+	bh=gxsCj8x2vFQrcLLWFmNKJpZcqjgp3XJqcW6qauCB4FA=; b=JqPj8KQIc3nAw3tiTSeVqUSuqj
+	rBSG1oIn1mtpMh0eauAb8csWUMmmZ0fYarGoNVbyJdaopwSAN1TtMBRKDKlUjPW3DAeeTR2XGtdMQ
+	Z9tk7seBZPcQbmv8IT38F4NaYtDItg1XdvYx+ny0q0Ry1mjDe0Twm2Y39VPrFbeuTmzamRMH5qebu
+	Ur5i6YhGWwTgOil0fqFsWSqhUmiSX019h6FqV1ScQasEqZfSnZR+B6p9Ucf9HfQl3IVCq3Kaht1QR
+	jnD684x8mVRaj7QRDNWM2J9FRHjw3nOEBFfGVIxTTko4+tXJrjJEipFsZ2QOdV8zM3tgKvmmR8GXm
+	QTp59fAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7UH-00000006XNo-3xGo;
-	Tue, 25 Mar 2025 16:50:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tx7X5-00000006Xnh-1mTT;
+	Tue, 25 Mar 2025 16:53:44 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7SY-00000006X6L-2Jbf
+	id 1tx5bZ-00000006FAX-3C6O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 16:49:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C441743DA2;
-	Tue, 25 Mar 2025 16:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B7CC4CEE4;
-	Tue, 25 Mar 2025 16:49:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742921342;
-	bh=avp/c6N3lRSJ103iDEDRC4JwYP0yydF8DWmS20ImOPQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KUks1kwH7x+Q14S4ujHF1c73NCLQjw3NeZQ/ngWizjFUbNu9nfKtQkTau8pmgUky3
-	 DUC+fcV0cMw4cKVOFQZ4mtSRJLaBBIplIoLSbwgwEEdyTIywjydZEL6yDq8i5rn3Ow
-	 il+ixE64HXNAXRJIqPiEbQXzGGqDVqwQaEdm4o5CjXmEXrQzTP+An4dfz1OUN5AS2O
-	 NWMVAfJ0ViFxKzxXMCmrwYT1WOwEM9W3esYmTo2IApJAL0TNyxqvYevuU1kU9OoX1Z
-	 FfzpeQe2+tXedbaPg8Cla5zztvod2Twt5hRREim5sK7Iyh2FqH1ehWgdWwfzovp8qk
-	 Zehst1E9utW/g==
-Received: from 82-132-218-87.dab.02.net ([82.132.218.87] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tx7SU-00H1BS-Un;
-	Tue, 25 Mar 2025 16:48:59 +0000
-Date: Tue, 25 Mar 2025 16:48:53 +0000
-Message-ID: <87a599qcne.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Kettenis <mark.kettenis@xs4all.nl>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	alyssa@rosenzweig.io,
-	j@jannau.net,
-	marcan@marcan.st,
-	sven@svenpeter.dev,
-	bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org
-Subject: Re: [PATCH v2 01/13] dt-bindings: pci: apple,pcie: Add t6020 compatible string
-In-Reply-To: <87ecyl6rtw.fsf@bloch.sibelius.xs4all.nl>
+	Tue, 25 Mar 2025 14:50:15 +0000
+Date: Tue, 25 Mar 2025 10:50:03 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1742914208;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gxsCj8x2vFQrcLLWFmNKJpZcqjgp3XJqcW6qauCB4FA=;
+	b=zzqb1WC5mW/N93G+IA36ptJrmluUMrAolvskNckn8WdmMuDcfjMmOZ4s0L9uEMMgxny1Xi
+	Rs0VEUclMgOXGoF7NG6rbDVMQSixECvz7Gatq5IUPuzBPuEy1Fos2xgr+qKDCE/35XTMAY
+	/24eng98nUsPF/2WXuCjwjDY+1LTbIiADYzZr07aD+SOWFGEl+h43jWvZNBe6SwZcwEN2z
+	EOE/qP8sjVd0Y7ZZ7DLjr4nCZVgG1vcdpWR5Vt9VXD8sj9nvYFlxhqthGxZgZBJOBQObV8
+	aUgMD8Mo1hMeQVhBFYBlAN5BbTHVT3690SGmGjo3P97vWiQW34bJ8s+dlmOgGg==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, Janne Grunau <j@jannau.net>,
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH v2 00/13] PCI: apple: Add support for t6020
+Message-ID: <Z-LCm_XI22kNvFx9@blossom>
 References: <20250325102610.2073863-1-maz@kernel.org>
-	<20250325102610.2073863-2-maz@kernel.org>
-	<87iknx75at.fsf@bloch.sibelius.xs4all.nl>
-	<864izhmkzd.wl-maz@kernel.org>
-	<87ecyl6rtw.fsf@bloch.sibelius.xs4all.nl>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.218.87
-X-SA-Exim-Rcpt-To: mark.kettenis@xs4all.nl, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, alyssa@rosenzweig.io, j@jannau.net, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250325102610.2073863-1-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_094902_631256_CB13F892 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20250325_075014_262465_3D954B4A 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,53 +79,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Mar 2025 15:41:15 +0000,
-Mark Kettenis <mark.kettenis@xs4all.nl> wrote:
+Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+
+Thanks maz!
+
+Everything here looks good to me aside from the dt-bindings that I
+screwed up (sorry!). But I didn't do a thorough review.
+
+Le Tue , Mar 25, 2025 at 10:25:57AM +0000, Marc Zyngier a écrit :
+> As Alyssa didn't have the bandwidth to deal with this series, I have
+> taken it over. All bugs are therefore mine.
 > 
-> > Date: Tue, 25 Mar 2025 11:02:30 +0000
-> > From: Marc Zyngier <maz@kernel.org>
+> The initial series [1] stated:
 > 
-> Hi Marc,
+> "This series adds T6020 support to the Apple PCIe controller. Mostly
+>  Apple shuffled registers around (presumably to accommodate the larger
+>  configurations on those machines). So there's a bit of churn here but
+>  not too much in the way of functional changes."
 > 
-> > Hi Mark,
-> > 
-> > On Tue, 25 Mar 2025 10:50:18 +0000,
-> > Mark Kettenis <mark.kettenis@xs4all.nl> wrote:
-> > > 
-> > > > From: Marc Zyngier <maz@kernel.org>
-> > > > Date: Tue, 25 Mar 2025 10:25:58 +0000
-> > > 
-> > > > @@ -50,6 +55,10 @@ properties:
-> > > >        - const: port1
-> > > >        - const: port2
-> > > >        - const: port3
-> > > > +      - const: phy0
-> > > > +      - const: phy1
-> > > > +      - const: phy2
-> > > > +      - const: phy3
-> > 
-> > Do we need to make this t6020 specific?
-> > 
-> > Obviously, separate PHY registers do not make much sense before t6020,
-> > but I couldn't find a way to describe that. I don't even know if
-> > that's a desirable outcome.
+> The biggest change is affecting the ECAM layer, allowing an ECAM
+> driver to provide its own probe function instead of relying on the
+> .init() callback to do the work. The ECAM layer can therefore be used
+> as a library instead of a convoluted driver.
 > 
-> I don't think there is a way to do that other than creating a separate
-> binding for t6020.  But I'm far from a dt-schema expert.  Maybe robh
-> has some advice here.
-
-Huh, I'd rather not create another binding. The only thing this would
-buy us is a stricter checking of the register ranges.  But it isn't
-like this block is going to find its way in random HW, and this is
-only described in a handful of core dtsi files anyway.
-
-Unless someone screams (and provides a reasonable alternative), I will
-leave it as is.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+> The rest is a mix of bug fixes, cleanups, and required abstraction.
+> 
+> This has been tested on T6020 (M2-Pro mini) and T8102 (M1 mini).
+> 
+> * From v1[1]:
+> 
+>   - Described the PHY registers in the DT binding
+> 
+>   - Extracted a ecam bridge creation helper from the host-common layer
+> 
+>   - Moved probing into its own function instead of pci_host_common_probe()
+>     
+>   - Moved host-specific data to the of_device_id[] table
+> 
+>   - Added dynamic allocation of the RID/SID bitmap
+> 
+>   - Fixed latent bug in RC-generated interrupts
+> 
+>   - Renamed reg_info to hw_info
+> 
+>   - Dropped useless max_msimap
+> 
+>   - Dropped code being moved around without justification
+> 
+>   - Re-split some of the patches to follow a more logical progression
+> 
+>   - General cleanup to fit my own taste
+> 
+> [1] https://lore.kernel.org/r/20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io
+> 
+> Alyssa Rosenzweig (1):
+>   dt-bindings: pci: apple,pcie: Add t6020 compatible string
+> 
+> Hector Martin (6):
+>   PCI: apple: Fix missing OF node reference in apple_pcie_setup_port
+>   PCI: apple: Move port PHY registers to their own reg items
+>   PCI: apple: Drop poll for CORE_RC_PHYIF_STAT_REFCLK
+>   PCI: apple: Use gpiod_set_value_cansleep in probe flow
+>   PCI: apple: Abstract register offsets via a SoC-specific structure
+>   PCI: apple: Add T602x PCIe support
+> 
+> Janne Grunau (1):
+>   PCI: apple: Set only available ports up
+> 
+> Marc Zyngier (5):
+>   PCI: host-generic: Extract an ecam bridge creation helper from
+>     pci_host_common_probe()
+>   PCI: ecam: Allow cfg->priv to be pre-populated from the root port
+>     device
+>   PCI: apple: Move over to standalone probing
+>   PCI: apple: Dynamically allocate RID-to_SID bitmap
+>   PCI: apple: Move away from INTMSK{SET,CLR} for INTx and private
+>     interrupts
+> 
+>  .../devicetree/bindings/pci/apple,pcie.yaml   |  11 +-
+>  drivers/pci/controller/pci-host-common.c      |  24 +-
+>  drivers/pci/controller/pcie-apple.c           | 241 +++++++++++++-----
+>  drivers/pci/ecam.c                            |   2 +
+>  include/linux/pci-ecam.h                      |   2 +
+>  5 files changed, 204 insertions(+), 76 deletions(-)
+> 
+> -- 
+> 2.39.2
+> 
 
