@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8116BC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140B4C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WVAozl6mi9ob89WhmV+U28hJYmW1/113AbyI1zx8oEY=; b=WOSHnOxbQfTEYLU7nVfGhgepRr
-	bbVSAPCxMkl3HKjKzZmATzEPk0jFumwreil5xXgXmAj4ZYaZHI4dfgMEM0jkZg1G2emBH41YVx6IF
-	Iluww6Z7GiNvBlbwhc7MIWxOUP+r9tr77bWPGqOIvXuZ/3mA9Gz3t7MkEJlTH+ZOTSBwMNfmLsknv
-	8tz/oZ//Ob97Dx8Re7JJhh8pLD4oxP4o9Hdvq651lQuykblmyZXFoz7nnKgEs06yPSKGKqx1b2w+Z
-	ShBeVPUkZDZ38X1Hw0V0jpAYvJyFq4zaPf5FrozgDc6LuJnUs+dtCRF12OdiGJkQzh2SE+ocoUkYz
-	MWwMXMxA==;
+	bh=aF2mrocG7bz7iUrXefd6O0ncX6mWZLmTLQaTFXHaLZA=; b=XTfIzft7E9r3CJJW2JSEecfPdy
+	uKhG/8P+PmkBC5mdkXJf6zfgCH7ASY6afn4g9l9vHhTgLyBTI73fen8antb3zUWUSNm2+vmrmoqmd
+	C3n0EmV+m/eZoZV8ncQ1cbR/CTZz5Sze8uFNPw/K9kX0nTfbvEs+bAuX9AVy0Fpmubi+fTfFkBHb9
+	tRVXojoGJXsn+n0FqEfw54+Dt7zJCQQLPFGG+lZl4XJl7gR+TKnJHE/gjcEptQnSRIYyohbmJ/nKR
+	877+dNI4GyFw5Y3pGuFBiHEY+7oPhc0pvq5unDQeEaLwi1mNXW/PlnGTTyYuvg//i2kb7Qttzg5jb
+	FaG4iycw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx1Qd-00000005QU4-3hlO;
-	Tue, 25 Mar 2025 10:22:39 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tx1WC-00000005RSD-0WsM;
+	Tue, 25 Mar 2025 10:28:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx1Ou-00000005QIM-0ckC;
-	Tue, 25 Mar 2025 10:20:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742898050;
-	bh=xj2m28Ti0TkvOIJe8EXIP8rCVJJiSJ2Q+cPMUlJtiLM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ayS+QmiNet5Hdbi6IDs8ib9eCDd79/eaAeVdfdZcC1I5YOhAqjYfTyjc7ZCVMrOJ1
-	 pgSUDVJ7Jst0sQ+6KsrfMj4+eKvPIpT57QAwmk3wNPYQEveORlc5dRpxolndKWBs+/
-	 Wh10I0ufahc/DzN1UWdPZkAcdx3XYA8ZEGCCkYsxOVORh/0Fc66qeTeidJelMjpEQ+
-	 kzl3LwxzN5Rd5BValTtzB16mqaEcJab/tyOEpkNYETN0fe9DFR6i6I2jwFO4A1ImyG
-	 21bJfJQ/0HB83kbk/AwzAt7Y85GLGneMlLmCQONOiD40wLM/SgZgJE/4FR09JsrAwL
-	 NLUdY0y9KHoLg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 35A2017E0A5C;
-	Tue, 25 Mar 2025 11:20:49 +0100 (CET)
-Message-ID: <3572d6e2-8950-4937-bed5-624bf5bde7f3@collabora.com>
-Date: Tue, 25 Mar 2025 11:20:48 +0100
+	id 1tx1UR-00000005Qmn-1idX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Mar 2025 10:26:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BCF8543BF7;
+	Tue, 25 Mar 2025 10:26:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E690DC4CEE8;
+	Tue, 25 Mar 2025 10:26:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742898395;
+	bh=khvmda81Vor6ELCVCuRt/OG1eU4tA4ZfEAJHXcgitdM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=E/vhHGyaqwh1rnTLsKJxY99Gn6mvVieJtZJMPvBvbzGB5tcM2b3c614iEVhoyzIRo
+	 WlM3lrXldAiHAp1xIloJZ1ZRtwpSO3YTobH0W2lscNBjfAq/vvQibiEoa6E1pnvIeZ
+	 rJGIZR61JW7RR/USAyDJZ4aqzA9RKwt7w9d25sqQxPudlg2i39K4TKLryf0X/YZJNr
+	 yb9aedZCw11ax+G3UybagMzZLIpQqaWRA/kPr47grZQxmqVMQMs/qGBR8D/B05+yb4
+	 y3PwXAL55i2v5HCHF2qg9vcgW6rdXIY4Xb/+biAjnpuN7/eHhOPalEi6n5uvvcO/IL
+	 w5z9u+u8eMzZQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tx1UO-00GsRS-Rw;
+	Tue, 25 Mar 2025 10:26:32 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev
+Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Janne Grunau <j@jannau.net>,
+	Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: [PATCH v2 03/13] PCI: ecam: Allow cfg->priv to be pre-populated from the root port device
+Date: Tue, 25 Mar 2025 10:26:00 +0000
+Message-Id: <20250325102610.2073863-4-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250325102610.2073863-1-maz@kernel.org>
+References: <20250325102610.2073863-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: mmc: mtk-sd: add single burst switch
-To: =?UTF-8?B?QXhlIFlhbmcgKOadqOejiik=?= <Axe.Yang@mediatek.com>,
- =?UTF-8?B?V2VuYmluIE1laSAo5qKF5paH5b2sKQ==?= <Wenbin.Mei@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
- <Chaotian.Jing@mediatek.com>, "robh@kernel.org" <robh@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
- =?UTF-8?B?QW5keS1sZCBMdSAo5Y2i5LicKQ==?= <Andy-ld.Lu@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?WW9uZyBNYW8gKOavm+WLhyk=?= <yong.mao@mediatek.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- =?UTF-8?B?UWluZ2xpYW5nIExpICjpu47mmbTkuq4p?= <Qingliang.Li@mediatek.com>
-References: <20250306085028.5024-1-axe.yang@mediatek.com>
- <20250306085028.5024-2-axe.yang@mediatek.com>
- <3e84fda8-2566-4f18-8ef9-850c84789c34@collabora.com>
- <f84800fac589429157cd84034ef2f4541d3486a7.camel@mediatek.com>
- <b09f618a-eaf9-4258-ae2d-67eff1cb249f@collabora.com>
- <f8ce830d831aaba0d2748d31f8ba4a9915b7a14e.camel@mediatek.com>
- <52d2f247a3058b96625bcdf5ab370282dfc9fb0e.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <52d2f247a3058b96625bcdf5ab370282dfc9fb0e.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, alyssa@rosenzweig.io, j@jannau.net, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_032052_342902_3D17DEAA 
-X-CRM114-Status: GOOD (  35.52  )
+X-CRM114-CacheID: sfid-20250325_032635_477050_0E12A619 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,223 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 25/03/25 03:41, Axe Yang (杨磊) ha scritto:
-> Hi Angelo,
-> 
-> Any comment on this :D
-> 
+In order to decouple ecam config space creation from probing via
+pci_host_common_probe(), allow the private pointer to be populated
+via the device drvdata pointer.
 
-Check inline reply below....
+Crucially, this is set before calling ops->init(), allowing that
+particular callback to have access to probe data.
 
-> Regards,
-> Axe
-> 
-> On Wed, 2025-03-12 at 14:30 +0800, axe.yang wrote:
->> On Tue, 2025-03-11 at 10:47 +0100, AngeloGioacchino Del Regno wrote:
->>> External email : Please do not click links or open attachments
->>> until
->>> you have verified the sender or the content.
->>>
->>>
->>> Il 07/03/25 07:59, Axe Yang (杨磊) ha scritto:
->>>> On Thu, 2025-03-06 at 10:19 +0100, AngeloGioacchino Del Regno
->>>> wrote:
->>>>> External email : Please do not click links or open attachments
->>>>> until
->>>>> you have verified the sender or the content.
->>>>>
->>>>>
->>>>> Il 06/03/25 09:48, Axe Yang ha scritto:
->>>>>> Add 'mediatek,disable-single-burst' setting. This property
->>>>>> can
->>>>>> be
->>>>>> used to switch bus burst type, from single burst to INCR,
->>>>>> which
->>>>>> is
->>>>>> determined by the bus type within the IP. Some versions of
->>>>>> the
->>>>>> IP
->>>>>> are using AXI bus, thus this switch is necessary as 'single'
->>>>>> is
->>>>>> not
->>>>>> the burst type supported by the bus.
->>>>>>
->>>>>> Signed-off-by: Axe Yang <axe.yang@mediatek.com>
->>>>>
->>>>> I am mostly sure that this is not something to put in
->>>>> devicetree,
->>>>> but
->>>>> as
->>>>> platform data for specific SoC(s), as much as I'm mostly sure
->>>>> that
->>>>> all of
->>>>> the instances of the MSDC IP in one SoC will be *all* using
->>>>> either
->>>>> single
->>>>> or INCR.
->>>>
->>>> No, actually MSDC IPs in one SoC are using different versions.
->>>> Usually MSDC1 (index from 1) is used as eMMC host, the left hosts
->>>> are
->>>> used as SD/SDIO hosts. They have similar designs, but there are
->>>> still
->>>> difference.
->>>>
->>>>>
->>>>> So, I think I know the answer but I'll still ask just to be
->>>>> extremely
->>>>> sure:
->>>>>
->>>>> is there any MediaTek SoC that has different IP versions for
->>>>> different MSDC
->>>>> instances, and that hence require single burst on one instance
->>>>> and
->>>>> INCR on
->>>>> another instance?
->>>>
->>>> Yes. Actually every SoC has different IP versions for eMMC and
->>>> SD/SDIO
->>>> host as I said.
->>>> e.g. For MT8168, signel burst bit should be set to 1 for eMMC
->>>> Host,
->>>> but
->>>> 0 for SD/SDIO Host.
->>>>
->>>>>
->>>>> And if there is - is there a pattern? Is it always SDIO
->>>>> requiring
->>>>> INCR or
->>>>> always eMMC/SD requiring it?
->>>>>
->>>>>
->>>>
->>>> No, there is no pattern. Both eMMC and SD/SDIO hosts need to be
->>>> configured base on IP version. There is no binding relationship
->>>> between
->>>> eMMC/SD/SDIO and the burst type. eMMC burst type might be INCR or
->>>> single, same as SD/SDIO.
->>>>
->>>
->>> Okay but if there are different IP versions, and AXI/AHB is
->>> determined
->>> by the IP version, why aren't you parsing the MAIN_VER/ECO_VER
->>> registers of
->>> the MSDC IP to check whether to use INCR or SINGLE?
->>
->>
->> To address your concerns, I had further discussions with the
->> designer.
->> Their response was that the bus type and IP version are not bound
->> together. This contradicts my previous statements, and I apologize
->> for
->> that.
->> According to the designer's feedback, I must say that the single
->> burst
->> setting is indeed tied to the IC, but the granularity is such that it
->> needs to be set individually for each host.
->> Given the large number of ICs Mediatek currently has, adding burst
->> type
->> information for each host to the driver's compatible structure would
->> mean adding hundreds(maybe thousands :() of lines to the driver for
->> the
->> compatible structures for *all previous SoCs* (currently there are
->> only
->> 13 compatible structures, and they can be reuse by new SoC). This
->> approach seems very cumbersome.
->>
->> So I still believe that placing this setting in the DTS is a more
->> appropriate approach.
->>
+This should have no impact on existing code which ignores the
+current value of cfg->priv.
 
-Hello Axe,
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/pci/ecam.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-sorry for the wait - this email fell through the cracks and I didn't see
-it at all, so thank you for the ping.
-
-Unfortunately, I don't think that this would be acceptable from a devicetree and/or
-bindings standpoint, but then you don't really need to modify the pdata for all of
-the currently supported SoCs to declare false, as false==0, which is the default.
-
-But maybe there's another way out of this.
-
-You said that this modification is done because some controllers are under AXI and
-some others are under AHB... I was doing some cleanups to this driver and doing so
-made me check a couple of things....
-
-When a MSDC controller is under AXI, there will be configuration for that in other
-registers - specifically, I'm wondering if the EMMC50_CFG2 register can be used to
-check if we are under an AHB to AXI wrapper or not.
-
-The idea is to read this register (offset 0x21c), [27:24] AXI_SET_LEN contains the
-number of beats per burst (from 1 to 16), and also [23:19] AXI_RX_OUTSTANDING_NUM
-contains the number of outstanding transfers (1 to 13).
-
-If a controller does not have an AXI2AHB Wrapper, or if it does not use the AXI bus
-this register should read zero I think?
-
-Especially the two fields that I mentioned before, those should read zero.
-
-That, especially because the hwaddr for the controllers is anyway and always long
-0x1000 - and I think that the extra registers space, on controllers that don't have
-the EMMC50 registers (msdc1 and msdc2) should be still reserved to those and never
-used for anything else.
-
-Would that detection way work?
-
-If it would, we'd be again autodetecting whether to set or not the AXI single burst
-option in the patch bits...without relying on specifying anything manually, not in
-the devicetree, and not in the platform data :-)
-
-Cheers,
-Angelo
-
->> Regards,
->> Axe
->>
->>>
->>> Cheers,
->>> Angelo
->>>
->>>>
->>>> Regards,
->>>> Axe
->>>>
->>>>
->>>>>
->>>>>> ---
->>>>>>     Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 8
->>>>>> ++++++++
->>>>>>     1 file changed, 8 insertions(+)
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/mmc/mtk-
->>>>>> sd.yaml
->>>>>> b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
->>>>>> index 0debccbd6519..6076aff0a689 100644
->>>>>> --- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
->>>>>> +++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
->>>>>> @@ -100,6 +100,14 @@ properties:
->>>>>>         minimum: 0
->>>>>>         maximum: 0xffffffff
->>>>>>
->>>>>> +  mediatek,disable-single-burst:
->>>>>> +    $ref: /schemas/types.yaml#/definitions/flag
->>>>>> +    description:
->>>>>> +      Burst type setting. For some versions of the IP that
->>>>>> do
->>>>>> not
->>>>>> use
->>>>>> +      AHB bus, the burst type need to be switched to INCR.
->>>>>> +      If present, use INCR burst type.
->>>>>> +      If not present, use single burst type.
->>>>>> +
->>>>>>       mediatek,hs200-cmd-int-delay:
->>>>>>         $ref: /schemas/types.yaml#/definitions/uint32
->>>>>>         description:
->>>>>
->>>>>
->>>>>
->>>
->>>
-
+diff --git a/drivers/pci/ecam.c b/drivers/pci/ecam.c
+index 260b7de2dbd57..2c5e6446e00ee 100644
+--- a/drivers/pci/ecam.c
++++ b/drivers/pci/ecam.c
+@@ -84,6 +84,8 @@ struct pci_config_window *pci_ecam_create(struct device *dev,
+ 			goto err_exit_iomap;
+ 	}
+ 
++	cfg->priv = dev_get_drvdata(dev);
++
+ 	if (ops->init) {
+ 		err = ops->init(cfg);
+ 		if (err)
+-- 
+2.39.2
 
 
