@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A58C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 21:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22172C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 21:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KcMPY0H6nJvqxFb1vmAJmAY0Hotd4NdAHQ3stxbMujg=; b=v8HaGOjYoet9h7HgL2F79uoHHd
-	HIC3avqDfYJngV0NcjUiWKYIrX5axJ9fneMVSP57JE8E7BZqeGnbc+gFS9J7PQw7UKnoAB5i/16UE
-	B7M30AEOzWLjsJqyv7wuUI8knH7pf+Xupvc/qTAV6pq/+hu8Ubrd86fh+BrnPMOk+sbYs35N4ZrX0
-	7xygBjmFLNB9SCUzyoV+txxt8TjEHoedInks5coWgiYtaR2tvKtY3Upi9bNKYe7TCSZtfgdNgFE/u
-	CfIlY6wpg+joe7DB65aS9y7tQn3KKCMs1I2AvHYhMeeVYUWEVea+cZu4TzaXYzcd2OB07pJgg4Suw
-	+qqIgNJQ==;
+	bh=yMtwELrwJ1dFJEqCcaQPYkMrrj75OWLdmQwwyUQTSXA=; b=I+9OpPfUMnPfzIbRYP/jxDsIV3
+	nSvF1cxqzSNk9mAH6d3DBK/MzHGKFPVb/WDpnZWF/565IxExukPW1VZMtY3A7zO1hvpd0oADeGHZ1
+	nbLqHHNA8JXYLwey+YcN8A6v7UCbj3+tSOlqwjKVFetmQu60PPBEaDneGuY6EHClqvsLfj/6emTx4
+	3ymlMUWC0fsg+pgeK1BjT7Ra4KFLYHBV/JVZBfaqUSoHapkMx+T89JoGIW62T06KnKnZeCaCAMOCt
+	zfOSLDOlm9baiADlBtYoc3dhVFN3Cy813IKAq5w+8EvZw5rxnMmWsGLsof2+yFJlKKtpf4imzBb+t
+	dTeM8aAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txBx3-000000074Lt-2hjv;
-	Tue, 25 Mar 2025 21:36:49 +0000
+	id 1txByj-000000074bR-33mD;
+	Tue, 25 Mar 2025 21:38:33 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txBtf-000000073p0-26G5;
-	Tue, 25 Mar 2025 21:33:20 +0000
+	id 1txBtk-000000073q0-0awy;
+	Tue, 25 Mar 2025 21:33:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742938398;
-	bh=W8C32j+Z+Tu5rUmg2doFcvtcvCvqRwlVTpiJcRhXIn4=;
+	s=mail; t=1742938402;
+	bh=Ts/xdvdCdHAKpr7BiHXqfNHMmy4Q+yoCfeh9tDETd6Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=btYT+nn2/Xefv3cox6iqNQkgWMS1QeTyKnUYMT2QR61yHUaWhg7S3GEI6kFeQuC14
-	 PnvsKNGC0MUmP5l75LHA2KTakXHFA6WP3DaVTKT/Ye42znIDK6XkRBVbKxy14knREA
-	 /D/c0h7lkjvE7/BMH1UMxCWAUxOD50lakTo+ARHhnvl52CpmTM8EXkgV1iB9a9hrBg
-	 vJjyZP49BBoSWSm3HURTQpjnwSX1rPFl6XYTI5/HlzcCCjJ/owMEBWTbzAr+vHjcMc
-	 iK/kN3gnpjU8OBW8Uaq2esC3EEOlhTBR0FEVZzfpuK0/CcBgxKW6xBh9tbjlogoFin
-	 BvrmCE3LiFFbA==
+	b=OkCPTgFgMnq2UKHA4bDiI+vCoX211/3Z1FxNEPL62Cl3+DAOWKO1IOFHkd+ZhmEp3
+	 wJYT23Tuep+/D/NGL8c+tLVf8olPn//G7xbBTKX9u49Rs6yI728cDAQoYbLDWoBb1/
+	 KsqSeuKhW3Z/gvowriN2osr1R1XNOSKe4ICej/ySo0tXvZRbuGsFu14uaiulOcIR2F
+	 A+e94ac97bTAXIk3oZLI0GeaoBwaMcSnYvItf44SitWf08Wl/avXLQdTqI7bSPTj3w
+	 5hPWj7jOjTX3oLW/iuOMUyiL187BRfglwwHcveKJKvwCeTTQ9l7JUBtl02CxpzOdGs
+	 3RHAHuqaj/MSw==
 Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E0A4317E0C81;
-	Tue, 25 Mar 2025 22:33:13 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 62BBF17E0FCC;
+	Tue, 25 Mar 2025 22:33:18 +0100 (CET)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
@@ -76,19 +76,18 @@ Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-staging@lists.linux.dev,
-	kernel@collabora.com,
-	Christopher Obbard <chris.obbard@collabora.com>
-Subject: [PATCH v4 1/6] media: v4l2: Add NV15 and NV20 pixel formats
-Date: Tue, 25 Mar 2025 17:22:17 -0400
-Message-ID: <20250325213303.826925-2-detlev.casanova@collabora.com>
+	kernel@collabora.com
+Subject: [PATCH v4 2/6] media: v4l2-ctrls-core: Set frame_mbs_only_flag by default in h264 SPS
+Date: Tue, 25 Mar 2025 17:22:18 -0400
+Message-ID: <20250325213303.826925-3-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250325213303.826925-1-detlev.casanova@collabora.com>
 References: <20250325213303.826925-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_143319_689777_169AD0B2 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250325_143324_352669_E6404F8B 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,237 +102,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Karlman <jonas@kwiboo.se>
+This flag is needed for drivers that have a minimum height lower
+than 32 pixels.
 
-Add NV15 and NV20 pixel formats used by the Rockchip Video Decoder for
-10-bit buffers.
+This is because when the flag is not set, the height is halved, which
+would make it lower than 16 pixels if min height is 16.
 
-NV15 and NV20 is 10-bit 4:2:0/4:2:2 semi-planar YUV formats similar to
-NV12 and NV16, using 10-bit components with no padding between each
-component. Instead, a group of 4 luminance/chrominance samples are
-stored over 5 bytes in little endian order:
+Setting this flag will keep the height at its value and have a valid
+SPS.
 
-YYYY = UVUV = 4 * 10 bits = 40 bits = 5 bytes
-
-The '15' and '20' suffix refers to the optimum effective bits per pixel
-which is achieved when the total number of luminance samples is a
-multiple of 8 for NV15 and 4 for NV20.
-
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Tested-by: Christopher Obbard <chris.obbard@collabora.com>
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- .../media/v4l/pixfmt-yuv-planar.rst           | 128 ++++++++++++++++++
- drivers/media/v4l2-core/v4l2-common.c         |   2 +
- drivers/media/v4l2-core/v4l2-ioctl.c          |   2 +
- include/uapi/linux/videodev2.h                |   2 +
- 4 files changed, 134 insertions(+)
+ drivers/media/v4l2-core/v4l2-ctrls-core.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-index b788f69338554..22cad8c9726bf 100644
---- a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-+++ b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-@@ -79,6 +79,13 @@ All components are stored with the same number of bits per component.
-       - Cr, Cb
-       - Yes
-       - Linear
-+    * - V4L2_PIX_FMT_NV15
-+      - 'NV15'
-+      - 10
-+      - 4:2:0
-+      - Cb, Cr
-+      - Yes
-+      - Linear
-     * - V4L2_PIX_FMT_NV12M
-       - 'NM12'
-       - 8
-@@ -172,6 +179,13 @@ All components are stored with the same number of bits per component.
-       - Cr, Cb
-       - Yes
-       - Linear
-+    * - V4L2_PIX_FMT_NV20
-+      - 'NV20'
-+      - 10
-+      - 4:2:2
-+      - Cb, Cr
-+      - Yes
-+      - Linear
-     * - V4L2_PIX_FMT_NV16M
-       - 'NM16'
-       - 8
-@@ -302,6 +316,57 @@ of the luma plane.
-       - Cr\ :sub:`11`
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+index eeab6a5eb7bac..b2343f051e5b9 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+@@ -111,6 +111,7 @@ static void std_init_compound(const struct v4l2_ctrl *ctrl, u32 idx,
+ 	struct v4l2_ctrl_vp9_frame *p_vp9_frame;
+ 	struct v4l2_ctrl_fwht_params *p_fwht_params;
+ 	struct v4l2_ctrl_h264_scaling_matrix *p_h264_scaling_matrix;
++	struct v4l2_ctrl_h264_sps *p_h264_sps;
+ 	struct v4l2_ctrl_av1_sequence *p_av1_sequence;
+ 	void *p = ptr.p + idx * ctrl->elem_size;
  
+@@ -179,6 +180,18 @@ static void std_init_compound(const struct v4l2_ctrl *ctrl, u32 idx,
+ 		 */
+ 		memset(p_h264_scaling_matrix, 16, sizeof(*p_h264_scaling_matrix));
+ 		break;
++	case V4L2_CTRL_TYPE_H264_SPS:
++		p_h264_sps = p;
++		/*
++		 * Without V4L2_H264_SPS_FLAG_FRAME_MBS_ONLY,
++		 * frame_mbs_only_flag set to 0 will translate to a minimum
++		 * height of 32 (see H.264 specification 7-8). Some driver may
++		 * have a minimum size lower than 32, which would fail
++		 * validation with the SPS value. Set this flag, so that there
++		 * is now doubling in the height, allowing a valid default.
++		 */
++		p_h264_sps->flags = V4L2_H264_SPS_FLAG_FRAME_MBS_ONLY;
++		break;
+ 	}
+ }
  
-+.. _V4L2-PIX-FMT-NV15:
-+
-+NV15
-+----
-+
-+Semi-planar 10-bit YUV 4:2:0 format similar to NV12, using 10-bit components
-+with no padding between each component. A group of 4 components are stored over
-+5 bytes in little endian order.
-+
-+.. flat-table:: Sample 4x4 NV15 Image (1 byte per cell)
-+    :header-rows:  0
-+    :stub-columns: 0
-+
-+    * - start + 0:
-+      - Y'\ :sub:`00[7:0]`
-+      - Y'\ :sub:`01[5:0]`\ Y'\ :sub:`00[9:8]`
-+      - Y'\ :sub:`02[3:0]`\ Y'\ :sub:`01[9:6]`
-+      - Y'\ :sub:`03[1:0]`\ Y'\ :sub:`02[9:4]`
-+      - Y'\ :sub:`03[9:2]`
-+    * - start + 5:
-+      - Y'\ :sub:`10[7:0]`
-+      - Y'\ :sub:`11[5:0]`\ Y'\ :sub:`10[9:8]`
-+      - Y'\ :sub:`12[3:0]`\ Y'\ :sub:`11[9:6]`
-+      - Y'\ :sub:`13[1:0]`\ Y'\ :sub:`12[9:4]`
-+      - Y'\ :sub:`13[9:2]`
-+    * - start + 10:
-+      - Y'\ :sub:`20[7:0]`
-+      - Y'\ :sub:`21[5:0]`\ Y'\ :sub:`20[9:8]`
-+      - Y'\ :sub:`22[3:0]`\ Y'\ :sub:`21[9:6]`
-+      - Y'\ :sub:`23[1:0]`\ Y'\ :sub:`22[9:4]`
-+      - Y'\ :sub:`23[9:2]`
-+    * - start + 15:
-+      - Y'\ :sub:`30[7:0]`
-+      - Y'\ :sub:`31[5:0]`\ Y'\ :sub:`30[9:8]`
-+      - Y'\ :sub:`32[3:0]`\ Y'\ :sub:`31[9:6]`
-+      - Y'\ :sub:`33[1:0]`\ Y'\ :sub:`32[9:4]`
-+      - Y'\ :sub:`33[9:2]`
-+    * - start + 20:
-+      - Cb\ :sub:`00[7:0]`
-+      - Cr\ :sub:`00[5:0]`\ Cb\ :sub:`00[9:8]`
-+      - Cb\ :sub:`01[3:0]`\ Cr\ :sub:`00[9:6]`
-+      - Cr\ :sub:`01[1:0]`\ Cb\ :sub:`01[9:4]`
-+      - Cr\ :sub:`01[9:2]`
-+    * - start + 25:
-+      - Cb\ :sub:`10[7:0]`
-+      - Cr\ :sub:`10[5:0]`\ Cb\ :sub:`10[9:8]`
-+      - Cb\ :sub:`11[3:0]`\ Cr\ :sub:`10[9:6]`
-+      - Cr\ :sub:`11[1:0]`\ Cb\ :sub:`11[9:4]`
-+      - Cr\ :sub:`11[9:2]`
-+
-+
- .. _V4L2-PIX-FMT-NV12MT:
- .. _V4L2-PIX-FMT-NV12MT-16X16:
- .. _V4L2-PIX-FMT-NV12-4L4:
-@@ -631,6 +696,69 @@ number of lines as the luma plane.
-       - Cr\ :sub:`32`
- 
- 
-+.. _V4L2-PIX-FMT-NV20:
-+
-+NV20
-+----
-+
-+Semi-planar 10-bit YUV 4:2:2 format similar to NV16, using 10-bit components
-+with no padding between each component. A group of 4 components are stored over
-+5 bytes in little endian order.
-+
-+.. flat-table:: Sample 4x4 NV20 Image (1 byte per cell)
-+    :header-rows:  0
-+    :stub-columns: 0
-+
-+    * - start + 0:
-+      - Y'\ :sub:`00[7:0]`
-+      - Y'\ :sub:`01[5:0]`\ Y'\ :sub:`00[9:8]`
-+      - Y'\ :sub:`02[3:0]`\ Y'\ :sub:`01[9:6]`
-+      - Y'\ :sub:`03[1:0]`\ Y'\ :sub:`02[9:4]`
-+      - Y'\ :sub:`03[9:2]`
-+    * - start + 5:
-+      - Y'\ :sub:`10[7:0]`
-+      - Y'\ :sub:`11[5:0]`\ Y'\ :sub:`10[9:8]`
-+      - Y'\ :sub:`12[3:0]`\ Y'\ :sub:`11[9:6]`
-+      - Y'\ :sub:`13[1:0]`\ Y'\ :sub:`12[9:4]`
-+      - Y'\ :sub:`13[9:2]`
-+    * - start + 10:
-+      - Y'\ :sub:`20[7:0]`
-+      - Y'\ :sub:`21[5:0]`\ Y'\ :sub:`20[9:8]`
-+      - Y'\ :sub:`22[3:0]`\ Y'\ :sub:`21[9:6]`
-+      - Y'\ :sub:`23[1:0]`\ Y'\ :sub:`22[9:4]`
-+      - Y'\ :sub:`23[9:2]`
-+    * - start + 15:
-+      - Y'\ :sub:`30[7:0]`
-+      - Y'\ :sub:`31[5:0]`\ Y'\ :sub:`30[9:8]`
-+      - Y'\ :sub:`32[3:0]`\ Y'\ :sub:`31[9:6]`
-+      - Y'\ :sub:`33[1:0]`\ Y'\ :sub:`32[9:4]`
-+      - Y'\ :sub:`33[9:2]`
-+    * - start + 20:
-+      - Cb\ :sub:`00[7:0]`
-+      - Cr\ :sub:`00[5:0]`\ Cb\ :sub:`00[9:8]`
-+      - Cb\ :sub:`01[3:0]`\ Cr\ :sub:`00[9:6]`
-+      - Cr\ :sub:`01[1:0]`\ Cb\ :sub:`01[9:4]`
-+      - Cr\ :sub:`01[9:2]`
-+    * - start + 25:
-+      - Cb\ :sub:`10[7:0]`
-+      - Cr\ :sub:`10[5:0]`\ Cb\ :sub:`10[9:8]`
-+      - Cb\ :sub:`11[3:0]`\ Cr\ :sub:`10[9:6]`
-+      - Cr\ :sub:`11[1:0]`\ Cb\ :sub:`11[9:4]`
-+      - Cr\ :sub:`11[9:2]`
-+    * - start + 30:
-+      - Cb\ :sub:`20[7:0]`
-+      - Cr\ :sub:`20[5:0]`\ Cb\ :sub:`20[9:8]`
-+      - Cb\ :sub:`21[3:0]`\ Cr\ :sub:`20[9:6]`
-+      - Cr\ :sub:`21[1:0]`\ Cb\ :sub:`21[9:4]`
-+      - Cr\ :sub:`21[9:2]`
-+    * - start + 35:
-+      - Cb\ :sub:`30[7:0]`
-+      - Cr\ :sub:`30[5:0]`\ Cb\ :sub:`30[9:8]`
-+      - Cb\ :sub:`31[3:0]`\ Cr\ :sub:`30[9:6]`
-+      - Cr\ :sub:`31[1:0]`\ Cb\ :sub:`31[9:4]`
-+      - Cr\ :sub:`31[9:2]`
-+
-+
- .. _V4L2-PIX-FMT-NV24:
- .. _V4L2-PIX-FMT-NV42:
- 
-diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-index 0a2f4f0d0a073..d86d54c22fdb0 100644
---- a/drivers/media/v4l2-core/v4l2-common.c
-+++ b/drivers/media/v4l2-core/v4l2-common.c
-@@ -277,8 +277,10 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- 		/* YUV planar formats */
- 		{ .format = V4L2_PIX_FMT_NV12,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
- 		{ .format = V4L2_PIX_FMT_NV21,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
-+		{ .format = V4L2_PIX_FMT_NV15,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2 },
- 		{ .format = V4L2_PIX_FMT_NV16,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_NV61,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_NV20,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_NV24,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_NV42,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_P010,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index 0304daa8471d1..864cd2939222e 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -1361,8 +1361,10 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
- 	case V4L2_PIX_FMT_YUV48_12:	descr = "12-bit YUV 4:4:4 Packed"; break;
- 	case V4L2_PIX_FMT_NV12:		descr = "Y/UV 4:2:0"; break;
- 	case V4L2_PIX_FMT_NV21:		descr = "Y/VU 4:2:0"; break;
-+	case V4L2_PIX_FMT_NV15:		descr = "10-bit Y/UV 4:2:0 (Packed)"; break;
- 	case V4L2_PIX_FMT_NV16:		descr = "Y/UV 4:2:2"; break;
- 	case V4L2_PIX_FMT_NV61:		descr = "Y/VU 4:2:2"; break;
-+	case V4L2_PIX_FMT_NV20:		descr = "10-bit Y/UV 4:2:2 (Packed)"; break;
- 	case V4L2_PIX_FMT_NV24:		descr = "Y/UV 4:4:4"; break;
- 	case V4L2_PIX_FMT_NV42:		descr = "Y/VU 4:4:4"; break;
- 	case V4L2_PIX_FMT_P010:		descr = "10-bit Y/UV 4:2:0"; break;
-diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index e7c4dce390074..700e7033b88e6 100644
---- a/include/uapi/linux/videodev2.h
-+++ b/include/uapi/linux/videodev2.h
-@@ -643,8 +643,10 @@ struct v4l2_pix_format {
- /* two planes -- one Y, one Cr + Cb interleaved  */
- #define V4L2_PIX_FMT_NV12    v4l2_fourcc('N', 'V', '1', '2') /* 12  Y/CbCr 4:2:0  */
- #define V4L2_PIX_FMT_NV21    v4l2_fourcc('N', 'V', '2', '1') /* 12  Y/CrCb 4:2:0  */
-+#define V4L2_PIX_FMT_NV15    v4l2_fourcc('N', 'V', '1', '5') /* 15  Y/CbCr 4:2:0 10-bit packed */
- #define V4L2_PIX_FMT_NV16    v4l2_fourcc('N', 'V', '1', '6') /* 16  Y/CbCr 4:2:2  */
- #define V4L2_PIX_FMT_NV61    v4l2_fourcc('N', 'V', '6', '1') /* 16  Y/CrCb 4:2:2  */
-+#define V4L2_PIX_FMT_NV20    v4l2_fourcc('N', 'V', '2', '0') /* 20  Y/CbCr 4:2:2 10-bit packed */
- #define V4L2_PIX_FMT_NV24    v4l2_fourcc('N', 'V', '2', '4') /* 24  Y/CbCr 4:4:4  */
- #define V4L2_PIX_FMT_NV42    v4l2_fourcc('N', 'V', '4', '2') /* 24  Y/CrCb 4:4:4  */
- #define V4L2_PIX_FMT_P010    v4l2_fourcc('P', '0', '1', '0') /* 24  Y/CbCr 4:2:0 10-bit per component */
 -- 
 2.49.0
 
