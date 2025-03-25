@@ -4,151 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218E7C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 09:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47ABC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 09:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wRU/fbttq2z7Xxxx+us2YBQPyJl2UoNSXQi6HBJW5z0=; b=2QQQpiw68x3FpIKS4y2Jf7F/ta
-	cjNUXJva7DhLhbbFaCsRI4617ad43l3re2cLiny9UEeN3ftTnZov/1I87yjAvRsP3qr4MeoeUxPOj
-	xFBacg84GQ+dpsMrFjAO0G/Kpfhzy9bj+XavOsdhL/x0k2N62u3A+ZybuW040wCunUrqTSMSWa8BB
-	1d1XJLJrOP9tGvvozRfGFqE4s38ZtuEc/RBrUGdKAnvBqBuj8Evx/rTqGEgJmDRVJtFID46Nq6VZ0
-	HcQjZd96LDTMBIfcYFJZ3Vf4itnMV6Bw7kTMNOZEnxLn0CvsqgqC0xlR56CShGNdOeIzEA5DOl6V1
-	/BMTNlZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IbefRUQKW2oql/88hpKv3fFad6yESLUR8BZTv5IsOP0=; b=SjmA1t4PBCNM+p
+	YnaS6/Ud/LQ5KJOhdd6oAIZz9jedTtVkt+sn4+q8t4zsVQCdlgLkDv5OsuWvRfgy/Oxs9obXapbls
+	N8hiCxcDpP/14sljKg/Oq+mxE8J7xLgqx4mRMI5RjvbjBTa/GaZzDb04xiswN0EWS8bXWvwyvnzgy
+	qs+Z29c6wLXIY7pKXsHDC6emH7I0K5VkDcdDYrJqdD3v5Vz0kNvBOVHRR/2z53bdKtv7UkbDry0DM
+	EjskEG72/UVtP/T+tyeWOiQqBsca2Pg4pM6ER6RjHztwnutMF5o1FcVaIKdFy0KL3BXoOudq9G15w
+	XuHYIg06o9D2gkVEc55g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx0qi-00000005LVf-0WQa;
-	Tue, 25 Mar 2025 09:45:32 +0000
-Received: from mail-db5eur02on20625.outbound.protection.outlook.com ([2a01:111:f403:2608::625] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1tx0t4-00000005LuW-3Tb3;
+	Tue, 25 Mar 2025 09:47:58 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx0nj-00000005Kgy-0wVd
+	id 1tx0rL-00000005LcE-1HxD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 09:42:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gKCfi4EPvR6lF5GI0ZZQsp9RwW9jiAHotuZ8WVktFqffWYF7lGWahSiLoGMHiM02yvogz/k8irxdHqMzA38g4aZ4VGGlPiHLHPBVO/Aq4Wqc1obDze3s3H3llTgwKkgyEa2nnjR3hXmDn8ltCchTXyQAjEyCvob5ZIZ/s9/OOealivmLqOxo44owFEzWuL8c77l6VD3CawSXS6MJ5H6Uv63e0qziMM9y5476nbz7D2uqU8R/eJPI8iQgcw7OKV7MAI2DkTPxxaubr0YMduDMnHRMcEYFbMbbs6JlQWrLirU68U+zRaf96RLQ2CK3XWdYuD55aGyvJEysIBB37WLnrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wRU/fbttq2z7Xxxx+us2YBQPyJl2UoNSXQi6HBJW5z0=;
- b=HzAskVLFQttqd+wfAoxNyR9RMEHwrQ1T9f9UM4QDC9wJXs2r2b3BoOokACnbyUsDIxPiFSxz7N7P+jQyXFavlCqtusHVyl42hOY9wg8MF8hVPJOvgNO5gKTBwOE5TiljsPaXl76TcJGcsDUPr/tnlKvliThJ2LVRzQWIhtDMtATWVejLVBbewMSFFzrTr/OqZI/P8hF5UnjMEz4fEZsr/0bDow6EdmFGlXtc+AL2lZF6f4yzGFYp+jsfH7uL13/+4A/Phg+Rr4HfsQklEaJAQ3Gm+tR2hYDqpHekhI9DAzkObUvj1AO10EK9DmBnYhpeGXTKfIZ7p3HDfY3Xm/58gw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wRU/fbttq2z7Xxxx+us2YBQPyJl2UoNSXQi6HBJW5z0=;
- b=Sjc4+OS9ZFIuIrZhk1+jx92WK+dxtfpWo9H2XtSNwu4RzEsijFs06gzMN+pbbn3R7ebyt1+gQgYhs3lp8+GjNudIGcRQO8Lguk+t64L/Ndhw1MhfjcsveTQP+j0xIOeLwcFxjkvUeWhz6/7IHha1XOSAvXkqjKX+FJvaL29xDDUWI5M1YkrqYbOymJk2DFvqfOXWrOERZphGqPx2uSq9b0EbCtzREDBMC/yBRyHehSDlN07Awt4fLVYgIG7JnPWZPeB2NYSkmd317lrT5rVTlbxN8hrPTj4WdlVDHcefoYF6KD00KZ0gVOHcdSFwUw7JhW6wlZj6pR3b62er/9kP6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
- by AS1PR04MB9502.eurprd04.prod.outlook.com (2603:10a6:20b:4d0::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
- 2025 09:42:19 +0000
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a]) by DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a%6]) with mapi id 15.20.8534.040; Tue, 25 Mar 2025
- 09:42:18 +0000
-From: ziniu.wang_1@nxp.com
-To: adrian.hunter@intel.com,
-	ulf.hansson@linaro.org,
-	haibo.chen@nxp.com
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] mmc: host: sdhci-esdhc-imx: save tuning value for the card which keep power in suspend
-Date: Tue, 25 Mar 2025 17:43:30 +0800
-Message-Id: <20250325094330.2242646-1-ziniu.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM9P250CA0030.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:21c::35) To DU2PR04MB8567.eurprd04.prod.outlook.com
- (2603:10a6:10:2d6::21)
+	Tue, 25 Mar 2025 09:46:12 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5e5e63162a0so8263078a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 02:46:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742895970; x=1743500770; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IbefRUQKW2oql/88hpKv3fFad6yESLUR8BZTv5IsOP0=;
+        b=kerjhWNJEfMwKwYWUVD/3wpNM0VVDuzd+m/vVqMM7FDEHLzqv30lqE6ibksvq6sF0d
+         E2zJZUtOoeup6UrYhCeCZKf2/yVD8TvwiZPr47O+pvvz3p22kKVjfR4v67XDqGGFnbE6
+         8MNNjm6m12JDR9NDfX3zmMAFjdRcJypCrwLy0LLtyXDfUYhWdw8UsDtAlJbs7i8XaZZ8
+         p4sdrk6cVgy+7VZ3YSzR+zSeWXt1LgrX2TszDzuUWw73fQYvFHtYj2DNK1K36rotZan1
+         Ci6AXuS+aXON+qCkhU9+ydYeqdoE33iPRZ1iVIbLH9w2wAnYXcUin/gJ50ILZAm6ZY/k
+         kEjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742895970; x=1743500770;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IbefRUQKW2oql/88hpKv3fFad6yESLUR8BZTv5IsOP0=;
+        b=ZYLmprTnE5uJNiQqFGcZgiVk+G/DWv9X25QL1DqWHulGiLZ2OJ1HNUdC8dAXxFkTbi
+         LdhLmrJDqnUPOY5qOQx+vFjnATmAJhIZj52FByIEXRgb1lLet/l4J+LcYbWX5lP3fjXm
+         02qGuPdLNXg0NY+qO5lEkhfXALsaVibNjHCS63lGqVuMUMqUhYjuEABrXFtnG6Xxa7Jq
+         9b6PRJxIQ9dutVWSKP0tkAT6OHBlqn41UAE1si4OPGmba0241bs/hZvRQxEAhr8Bo4qK
+         8wBXqp67VtCbNbpkpHy/JRx1ZS38ncF1Hfo3NpBRqhHzae/JfqFJsTBIWekowNuQIu06
+         4RMg==
+X-Forwarded-Encrypted: i=1; AJvYcCVCzSzwBPBGYjImJcCSme4+eYz/rwbjAlq3lfYTrMDtwEoSy85rTo64G+zoKriZ+CoaxfenMTgA90lhA2VqIfVq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxl2Yqf5XYe+s+pzS6Zw6roqVoMVT9ElBiLEjL2/v2ILv0avr7N
+	7t9m4EvimCXSfV2y7rpqPC5v7hnDYv2E3+yhN0UUZ97/16616NUPiX9Xr/xfYtg=
+X-Gm-Gg: ASbGncv9noNQ/IeNbrLp31GUyJbstzEMnDlkSXRw+MaFMHXtZdit5eu3hsw5MCBorvb
+	QX+TydVNluSTqoIfeCKVQ4uTEO1byoa1Epx3Dr3kCf7XeQNpSGcN+ARvM1ydpz6jS5DAjXCtbh4
+	AlVWcBnhIGMHNDSaXkP1VRnfMITTeE3wWUcYP20b6fBSgbGmpf113Hy9pHA9IknyzByJNcJGIM9
+	xdvgY/2OKAG56wzkCfFbb785fdWLs/ZBIM+JvzwwXPQ0Ubdn/MTgiMGSZEukKGWVafEd1xXryIq
+	wYo5B0TkavKiDNE7urENoWIIkFInnfHzeRp0JtgSK9Vgyl3kXXBwZ/c+0LUQ76QJjnS2JEmhgGs
+	86MjoYDvs7MNmjjrfoL5TWL6db2th
+X-Google-Smtp-Source: AGHT+IFYMNqZbEEZU24hSgKcW3m5RLIViDlNIgnffwEY/e9N3Ve3Ev3qTdJRHo9n8Lr2y8eJMqGUHg==
+X-Received: by 2002:a17:907:972a:b0:ac3:cff:80f1 with SMTP id a640c23a62f3a-ac3f258cee9mr1765840966b.54.1742895969537;
+        Tue, 25 Mar 2025 02:46:09 -0700 (PDT)
+Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef8e509dsm832834566b.68.2025.03.25.02.46.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Mar 2025 02:46:09 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH v3 0/2] firmware: exynos-acpm: allow use during system
+ shutdown
+Date: Tue, 25 Mar 2025 09:46:06 +0000
+Message-Id: <20250325-acpm-atomic-v3-0-c66aae7df925@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8567:EE_|AS1PR04MB9502:EE_
-X-MS-Office365-Filtering-Correlation-Id: 822d59b0-64d2-4852-e224-08dd6b815575
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|366016|1800799024|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RROhDJm76jugiz4JesMC6uhj2U0AJUciyBaB7E3kDPNK8OzxEDCL6Gg985No?=
- =?us-ascii?Q?x6Gh29be3OACBBIt/lpPhjY3qfqVcEkaL63kxZDDF7Q0s/0DzvTqahv9Ohug?=
- =?us-ascii?Q?uAhtaX6gF7eGcHjuFabgZkzUlQeGl4fjbsCAGyFkQ1bid0jzmIX0SlkihClZ?=
- =?us-ascii?Q?piNgK5vB00gceJHRKy3/zKzilf9BPaLLy62XzTDwvYHW6+WMSN1vxVFguoim?=
- =?us-ascii?Q?9fJqc/KIDUTEr3PvK3BFw7Wkv5jy60Qmnrh4N2nhFTW2j5mQz2/56nFrQB3Z?=
- =?us-ascii?Q?/H29bhoVfjAydW7SahIyZoUSi77cpnQsBAgXE6j76ESJxtqLxe2aLuUZbq9p?=
- =?us-ascii?Q?rZWMXN77vFBCth2j9Q0VFnls6cjiVs2bvm6jIweudcXmpJnRgDnHI1nZdeBT?=
- =?us-ascii?Q?pTVvwvZDvyr/cIWDb+iiMaQeeJifn2wB7LNNmytE6cdzE6IOhVYAfZYeY906?=
- =?us-ascii?Q?a65QfJsvufXAnkeqqijkx1ROe+gEu1IybxLGAdZDRHk+ic5dRl34PHo0414l?=
- =?us-ascii?Q?Raj8SgM/vTpA8WQnu5XPqq+R+nFogBETbBxn6InZZiIdrCL/7AK/s3YYFlwX?=
- =?us-ascii?Q?ERgx9ejuL5a71VPO74uQeYOrEewnQE3uGaPw7yrbaH/uT1R5f1ISjAc6XIdm?=
- =?us-ascii?Q?GFVMvGR3PbNAZFbUCeRFj/qBUFdm8zqYN5Cd8mPUmQ+4J2RLormZAeWkzMT/?=
- =?us-ascii?Q?h7aSyjtvI7B94Ct4r5soss05ZbkUBcAIjXaldUnwh2v1YzpAE9SOYu/GzEiI?=
- =?us-ascii?Q?FYMXdOlJMNpRf46X+RDtReg2la9qImedRTzNA8GEREZWVggjlQF6wSnGSlwn?=
- =?us-ascii?Q?cyC4TAYCI1Q420ryCX4TUUZPQUJTwLMzY0duJcXdBh3NHt1KVxQUT+21fMlI?=
- =?us-ascii?Q?wFCW+jrnIPBfJ3Tx+GprwLc4gk5wfxIPnNv8WWuhYr7E003WoxYnueeWArR+?=
- =?us-ascii?Q?UbEHNUGoD/oet0DdG6u0VMpztjgaLmRDDNEi3CHBreXeCwrmRD+7yGlTkPD2?=
- =?us-ascii?Q?wrNO+2kPFEUeJM3Qw2fUxEH20w+UucMJGh+Yx9vow5xaAyzIQBC6KeexbMGL?=
- =?us-ascii?Q?j+taixuoaz7tVWNGD9D3rxgEKGX7Y5gvY6r6QsnBx/fHUBbBkCFaW0RfXsy+?=
- =?us-ascii?Q?cM+KYi/dGnjjuYLc8LY7fQHv4IQCsolAYh69LNWCUKEHCH4VVoRqM90QSZT1?=
- =?us-ascii?Q?iM9Pujz8iEropIFpohDsG6QlZFPodgqdEWJhPM9wDk3Fwa4w0nlUliFdYmqA?=
- =?us-ascii?Q?kb5k7tlvsjo0v4Bv0qXeFpf95iU4Y+v0WciWf0N41CGljrgOO291r1aYjzGj?=
- =?us-ascii?Q?96lqyHm0eTcVIHNTSpoOkD04RrQos+nV8N3iSCsu692d1Sf21qQR36raaT9t?=
- =?us-ascii?Q?uCmI7tOWnggkuOc0zTj1e8GwoX7fONH12WzN6pGYQXWCnG+RJwMNaNhbJtfj?=
- =?us-ascii?Q?nlca2n+U8ImAnAydjtHtLMvpu75vv8Ea?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(366016)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WWfdiZA07k6LRhPDAqncmcmOGm8waUNHDuhjHU++BDJD63sQpGVLSBTv6g6C?=
- =?us-ascii?Q?KSwfBcNC7t4L1A1OdYmoXNhEgb9iJ9VXsWDwfamPH5eu4h83Czn6aJxv0P2F?=
- =?us-ascii?Q?q7Y0FyO1y10M8nSI99IgySvICtiWATGLQdmF3Akju/R/v/9alPKsFfoSAzOn?=
- =?us-ascii?Q?W4QdQL+MRyKatOolRpsB4leNHgZSATDXJYbAu+xx94+3fQFhl0aIcXKwx9qL?=
- =?us-ascii?Q?UPP7NFbCpZvfUVoE8XvFrP6RnV/tJtZR65HiLcNYTZDz+pW/mUSy285SPuNN?=
- =?us-ascii?Q?wjchZ1Y3Ew7IGFwZuMPPyYrRCXYJUTDKRPXqymMiYioYybqxmWXrh7HxTXb9?=
- =?us-ascii?Q?O1VyJb+eHZGDnHZfpPmz3ufRKoSn99mS5X+0/3vwWjcK9P2RMs7Ancqmb6Bo?=
- =?us-ascii?Q?85iJLJRh/07XrwqAGma6ZU0+z/PF+V8OX25CE6Rnfq9iP06F8lbqIfhptIWT?=
- =?us-ascii?Q?HPDx3xhmFuXOPIWbwhmtHLv0hDW6Eiwt4Q9FLOxI/O2Hw1PU/jFZ/5d/nFmt?=
- =?us-ascii?Q?UM4p/X0zaPM+6nhcxcCYQxkXNvCzLIpozpfTgCWvs4hItgkh07Dlnp7YPN50?=
- =?us-ascii?Q?JvBFlCvdHmhOxAwcbLR3Cx7BwGpupb3LPFp2+q/YJHfaNEptSx64rtcmEcgv?=
- =?us-ascii?Q?DnaGlnEEdJWi/mAnxgthoIvU7jOlQKENqbgA1RKkSfPp46Q2zJ1O8Ib+9VaM?=
- =?us-ascii?Q?jq6oi6Z5QE5zlVrJcVaVmtKQh7uXy6hlWBiTjh4MbGPeSi6pw1oG1simNE2C?=
- =?us-ascii?Q?31sBFhKITK7lDFtMEuWjDDElyxpwLloY55dYjeh9qPu3BurMxJCjFu8POEiF?=
- =?us-ascii?Q?gyZdjlxUZC04Bd6B12qFNRT4rLPRYUA6FuoYFNmJEglG180AEhRoT9LWfE7u?=
- =?us-ascii?Q?J3ies5mMX6Q/wFsx65Sjnv52OZjKB7dO5scPr6PtxYfAquVRTcXA5ie7aZJk?=
- =?us-ascii?Q?GRxGeYgfB6OCwhXpkuZayXUlXFyQkOUp14vXpXGMS2m1G8UZl3pC48P3Lkmg?=
- =?us-ascii?Q?iPI6IknVKPXoqVtaIQAtyhVz7t467IqLeChg7b+S02Np7Af7+KMdnlbSlA9Y?=
- =?us-ascii?Q?JYvR0NEnEh9Drj/BB8cQ3rgUomU++B9CqGBRNX6+ynxUtoX+q4v5i4l1QQqY?=
- =?us-ascii?Q?gKUrNr1H1CV5yNSFMp9Y5PgynvgplV6arb5cpbzSiqZbQHQ6dMX/lYCA2/kV?=
- =?us-ascii?Q?s0Zk7Pd3p6PxrGybb/IjO4mRAHHcCRExXgehoslq3UAV8WdvnEQsEEjhG2Ma?=
- =?us-ascii?Q?jSNTSGpY+r2xeZQqxcWsD1CobAj5QJAZGPvV8oWDcL7vXMf3CCPqPiVcrZ/E?=
- =?us-ascii?Q?QpPTvc5Ma3FQtUPhHcbtqhd1NkQs6on1aYxb/G7FCh6cG5but0c32L8nSBlR?=
- =?us-ascii?Q?bFfmIBJXreR4gOz8Il7xlhUZaCLqAnSYcZN/7V86w4FOyP9fDgEKCuBfpBkY?=
- =?us-ascii?Q?Fs5fGFwxYUrbm268IPc9TgMUloTW87wdSN2YudMW4ooTiLkctOH87+Hahe6n?=
- =?us-ascii?Q?Syyj5eGCdb5ffByCO9f4W61AdNdFXdiQ1SJy41B1lgrlJWYc1533LR4A8QnD?=
- =?us-ascii?Q?NcqZKALPnGaMXvaZ9pCWrkXMoDzjbt6XbDOkw0h6?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 822d59b0-64d2-4852-e224-08dd6b815575
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2025 09:42:18.9376
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U7fV2Jli9c/wE2c4UcqjjBDtqSGl4syjLAs2wTaQdPG2b3QjPZiOqij7DsMnUcno4d+Fz9kBZ7nqtzncGMpPEA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9502
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAF574mcC/23MSwqDMBSF4a1Ixk3Jw3ilo+6jdBDjVS9UI4mEF
+ nHvjY4qdHgOfP/KIgbCyG7FygImiuSnPPSlYG6wU4+c2ryZEsoIrSS3bh65XfxIjgutAUwjjMS
+ OZTEH7Oh91B7PvAeKiw+fI57k/v7vJMkF75q6hqZFwEreXzTZ4K8+9GwPJfWLyzNWGUNbA5QVS
+ qjMCW/b9gWJkyPp5AAAAA==
+X-Change-ID: 20250321-acpm-atomic-033775b051ef
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_024227_432571_F5E5AE10 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20250325_024611_366708_41C5B7F6 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,184 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+One user of this ACPM driver is a PMIC driver that needs to communicate
+with the PMIC during late system shutdown [1] and at that time we are
+not allowed to sleep anymore.
 
-For some SoCs like imx6ul(l/z) and imx7d, during system PM, usdhc will
-totally power off, so the internal tuning status will lost. Here add
-save/restore the tuning value for any command after system resume back
-when re-tuning hold.
+This series address this by switching the code to using udelay() in the
+specific case of system shutdown. This approach was inspired by I2C's
+i2c_in_atomic_xfer_mode(), which has to deal with a similar corner
+case.
 
-The tipical case is for the SDIO WIFI which contain flag MMC_PM_KEEP_POWER,
-it means this device will keep power during system PM. To save power, WIFI
-will switch to 1 bit mode, and switch back to 4 bit mode when resume back.
-According to spec, tuning command do not support in 1 bit mode. So when
-send cmd52 to switch back to 4 bit mode, need to hold re-tuning. But this
-cmd52 still need a correct sample point, otherwise will meet command CRC
-error, so need to keep the previous tuning value.
+Link: https://lore.kernel.org/all/20250323-s2mpg10-v1-29-d08943702707@linaro.org/ [1]
 
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/mmc/host/sdhci-esdhc-imx.c | 90 +++++++++++++++++++++++++++++-
- 1 file changed, 88 insertions(+), 2 deletions(-)
+Changes in v3:
+- switch to unconditional udelay() (Krzysztof)
+- Link to v2: https://lore.kernel.org/r/20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index ff78a7c6a04c..d3ac5f38a9eb 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -81,6 +81,9 @@
- #define  ESDHC_TUNE_CTRL_STEP		1
- #define  ESDHC_TUNE_CTRL_MIN		0
- #define  ESDHC_TUNE_CTRL_MAX		((1 << 7) - 1)
-+#define ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK		0x7f000000
-+#define ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_SHIFT	24
-+#define ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_SHIFT	8
- 
- /* strobe dll register */
- #define ESDHC_STROBE_DLL_CTRL		0x70
-@@ -235,6 +238,7 @@ struct esdhc_platform_data {
- 	unsigned int tuning_step;       /* The delay cell steps in tuning procedure */
- 	unsigned int tuning_start_tap;	/* The start delay cell point in tuning procedure */
- 	unsigned int strobe_dll_delay_target;	/* The delay cell for strobe pad (read clock) */
-+	unsigned int saved_tuning_delay_cell;	/* save the value of tuning delay cell */
- };
- 
- struct esdhc_soc_data {
-@@ -1057,7 +1061,7 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
- {
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
- 	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
--	u32 ctrl;
-+	u32 ctrl, tuning_ctrl;
- 	int ret;
- 
- 	/* Reset the tuning circuit */
-@@ -1071,6 +1075,16 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
- 			writel(0, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
- 		} else if (imx_data->socdata->flags & ESDHC_FLAG_STD_TUNING) {
- 			writel(ctrl, host->ioaddr + ESDHC_MIX_CTRL);
-+			/*
-+			 * enable the std tuning just in case it cleared in
-+			 * sdhc_esdhc_tuning_restore.
-+			 */
-+			tuning_ctrl = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-+			if (!(tuning_ctrl & ESDHC_STD_TUNING_EN)) {
-+				tuning_ctrl |= ESDHC_STD_TUNING_EN;
-+				writel(tuning_ctrl, host->ioaddr + ESDHC_TUNING_CTRL);
-+			}
-+
- 			ctrl = readl(host->ioaddr + SDHCI_AUTO_CMD_STATUS);
- 			ctrl &= ~ESDHC_MIX_CTRL_SMPCLK_SEL;
- 			ctrl &= ~ESDHC_MIX_CTRL_EXE_TUNE;
-@@ -1149,7 +1163,8 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
- 	reg |= ESDHC_MIX_CTRL_EXE_TUNE | ESDHC_MIX_CTRL_SMPCLK_SEL |
- 			ESDHC_MIX_CTRL_FBCLK_SEL;
- 	writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
--	writel(val << 8, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+	writel(val << ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_SHIFT,
-+				host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
- 	dev_dbg(mmc_dev(host->mmc),
- 		"tuning with delay 0x%x ESDHC_TUNE_CTRL_STATUS 0x%x\n",
- 			val, readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS));
-@@ -1569,6 +1584,58 @@ static void sdhci_esdhc_imx_hwinit(struct sdhci_host *host)
- 	}
- }
- 
-+static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-+	u32 reg;
-+
-+	/*
-+	 * SD/eMMC do not need this tuning save because it will re-init
-+	 * after system resume back.
-+	 * Here save the tuning delay value for SDIO device since it may
-+	 * keep power during system PM. And for usdhc, only SDR50 and
-+	 * SDR104 mode for SDIO devide need to do tuning, and need to
-+	 * save/restore.
-+	 */
-+	if ((host->timing == MMC_TIMING_UHS_SDR50) ||
-+			(host->timing == MMC_TIMING_UHS_SDR104)) {
-+		reg = readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+		reg = (reg & ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK) >>
-+				ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_SHIFT;
-+		imx_data->boarddata.saved_tuning_delay_cell = reg;
-+	}
-+}
-+
-+static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-+	u32 reg;
-+
-+	if ((host->timing == MMC_TIMING_UHS_SDR50) ||
-+			(host->timing == MMC_TIMING_UHS_SDR104)) {
-+		/*
-+		 * restore the tuning delay value actually is a
-+		 * manual tuning method, so clear the standard
-+		 * tuning enable bit here. Will set back this
-+		 * ESDHC_STD_TUNING_EN in esdhc_reset_tuning()
-+		 * when trigger re-tuning.
-+		 */
-+		reg = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-+		reg &= ~ESDHC_STD_TUNING_EN;
-+		writel(reg, host->ioaddr + ESDHC_TUNING_CTRL);
-+
-+		reg = readl(host->ioaddr + ESDHC_MIX_CTRL);
-+		reg |= ESDHC_MIX_CTRL_SMPCLK_SEL | ESDHC_MIX_CTRL_FBCLK_SEL;
-+		writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
-+
-+		writel(imx_data->boarddata.saved_tuning_delay_cell <<
-+				ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_SHIFT,
-+				host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+	}
-+}
-+
- static void esdhc_cqe_enable(struct mmc_host *mmc)
- {
- 	struct sdhci_host *host = mmc_priv(mmc);
-@@ -1900,6 +1967,15 @@ static int sdhci_esdhc_suspend(struct device *dev)
- 	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
- 		mmc_retune_needed(host->mmc);
- 
-+	/*
-+	 * For the device need to keep power during system PM, need
-+	 * to save the tuning delay value just in case the usdhc
-+	 * lost power during system PM.
-+	 */
-+	if (mmc_card_keep_power(host->mmc) &&
-+			(esdhc_is_usdhc(imx_data)))
-+		sdhc_esdhc_tuning_save(host);
-+
- 	ret = sdhci_suspend_host(host);
- 	if (ret)
- 		return ret;
-@@ -1916,6 +1992,8 @@ static int sdhci_esdhc_suspend(struct device *dev)
- static int sdhci_esdhc_resume(struct device *dev)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
- 	int ret;
- 
- 	ret = pinctrl_pm_select_default_state(dev);
-@@ -1929,6 +2007,14 @@ static int sdhci_esdhc_resume(struct device *dev)
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * restore the saved tuning delay value for the device which keep
-+	 * power during system PM.
-+	 */
-+	if (mmc_card_keep_power(host->mmc) &&
-+			(esdhc_is_usdhc(imx_data)))
-+		sdhc_esdhc_tuning_restore(host);
-+
- 	if (host->mmc->caps2 & MMC_CAP2_CQE)
- 		ret = cqhci_resume(host->mmc);
- 
+Changes in v2:
+- add missing ktime.h include
+- switch to ktime_before() instead of !ktime_after()
+- add link to user requiring this change to cover letter
+- collect Tudor's Rb
+- Link to v1: https://lore.kernel.org/r/20250321-acpm-atomic-v1-0-fb887bde7e61@linaro.org
+
+---
+André Draszik (2):
+      firmware: exynos-acpm: use ktime APIs for timeout detection
+      firmware: exynos-acpm: allow use during system shutdown
+
+ drivers/firmware/samsung/exynos-acpm.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+---
+base-commit: 9388ec571cb1adba59d1cded2300eeb11827679c
+change-id: 20250321-acpm-atomic-033775b051ef
+
+Best regards,
 -- 
-2.34.1
+André Draszik <andre.draszik@linaro.org>
 
 
