@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6CAC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 17:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C169EC3600D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 17:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dHlNZHbBPTVb9Fm1iMNX8UEsumJ85VEz4GTnxe5krU=; b=LivPBMFrOb7ByKUwnrimkeHcHQ
-	LRL5BlQwXmc7Tkck538WYOrt7/gdwDzRQN517M2YRymot85qMWkYvjE2zh7bd+lSjdhVt7oDiIy/e
-	n5eXOxRix2ZJ8LTZYg7UuzRZicgXP3/s2YPxn5X1cmhulKfppLBT+Fu+urAzZ7athgWEJqNc5ySmT
-	PU6pMCKgu0MGEb+zxSSFvWOC+JFQ26w04B9On1QemQJFjl3ljIewP34ECzA/uWwThfblyPKw449xo
-	VMyxQVg5lzEx71ZsPPe8yN5t/YLd4lW8ey2cmPCpu5zo9bCjDn04/iLztw5BsDkvnVFQzByo+26Hq
-	uRye1gsg==;
+	bh=QTH4+Qu8mzE3nigh+Hc+2hs2BRmGJrZ6OxBXPuOBzsM=; b=I/8Q/tneCshU1HwnuPGlivIGm/
+	cG3yv/MwCcmmdd+z3VmFFenCChCw/BCTF7euf80u/Vciuv2/oBHBMAf9PWdhIhwXss8tmM1lNnAe3
+	rlGfkYVH6p5kpyfs7P60jh1LD8KPbkrewB+S1hyWnesNkCNAns56Xa1TtRYlFTznz1gqOM/aDmU5Z
+	Uofb08Z4dVWWYwa054ZxY43bUHY35iJOdUy81C8FGf+mLHCRCgGI6yldLe8mzVfUa+v4Xb75Qxe7D
+	lnN4f69SK/aWhadqj2NEBSf6KYftsI2IEzwRrGTUEvUR2ZM+XWNHcdAcmJHIP7/YTPqth8zKVvLu5
+	F7SgC1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7lb-00000006ZdG-2lNN;
-	Tue, 25 Mar 2025 17:08:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx7ld-00000006Zer-2uL1;
+	Tue, 25 Mar 2025 17:08:45 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5m4-00000006H1F-3bDn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 15:01:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/dHlNZHbBPTVb9Fm1iMNX8UEsumJ85VEz4GTnxe5krU=; b=F+f/W6j/jBzCSsJucqb2sugp7v
-	OoG7j9oqHIFsy/KtzeSzF9F+rbWhMFdMyDf3PrkxYoAmfTUr+G/z6jfkEuswO9vLCycYPiTSIm2q0
-	01HqWsoMr2tPnjWRsjZrLTpUaT/dYuXWh7qyuXSggJPSLbR3ets8CAplivpjUQKXnm57t+siawbJn
-	Gg9sPymsZhDgscoNvJTJUy99hmskbjCWNFpGsvCmlK+ac73l/psMuSziLLi6PkVKq7LebTwaHF8Df
-	SvU/Kd+HM80HLKNt5IQPAjviwFAdIxfrkfKcM14dCaG6Re+Ub9CMeZft3yd7n/AJnGaddYj9ludeb
-	gpYqpuOA==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx5lw-00000005XGW-12IC
+	id 1tx6cj-00000006Ohq-3izv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 15:01:03 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tx5lo-00069R-Rt; Tue, 25 Mar 2025 16:00:48 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tx5ln-001b4w-1A;
-	Tue, 25 Mar 2025 16:00:47 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tx5li-0009py-2A;
-	Tue, 25 Mar 2025 16:00:42 +0100
-Message-ID: <7cb810a0f80d61fea294b93ace2e2fb7515c077c.camel@pengutronix.de>
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Marek Vasut <marex@denx.de>, Boris Brezillon
- <boris.brezillon@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley
- <conor+dt@kernel.org>,  David Airlie <airlied@gmail.com>, Fabio Estevam
- <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Liviu
- Dudau <liviu.dudau@arm.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring
- <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel
- <sre@kernel.org>,  Shawn Guo <shawnguo@kernel.org>, Simona Vetter
- <simona@ffwll.ch>, Steven Price <steven.price@arm.com>,  Thomas Zimmermann
- <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org,  imx@lists.linux.dev
-Date: Tue, 25 Mar 2025 16:00:42 +0100
-In-Reply-To: <7233d56f-d07d-46c3-9954-57eb583a36ac@denx.de>
-References: <20250321200625.132494-1-marex@denx.de>
-	 <20250321200625.132494-5-marex@denx.de>
-	 <20250324094333.7afb17a1@collabora.com>
-	 <22187ae5-7486-416b-b612-53021bfca11e@denx.de>
-	 <13376dff8d861389464b7ecdb2f82fe211638500.camel@pengutronix.de>
-	 <7233d56f-d07d-46c3-9954-57eb583a36ac@denx.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Tue, 25 Mar 2025 15:55:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1742918129; x=1774454129;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=KTXtnWwkPZ9dd4XF9bTY1ABrcDQk0xQphr+uv8Hqj7A=;
+  b=jkFCt3h92hfldkUTWroQfXJ8IBzLd2JI3EDx6eTrOD4pZ6tVR9jR6jlH
+   k/xv/V8a0S7/fBNMKvOxlfObjcM799jpXCETMAbPTD8b6aQj7QYSjS+xg
+   spwclTpQMG58PaUDdO5fjPtzN4XaBwH7WQwu35G2nh79z0Q9SiTS3GFog
+   oVA9GGobwi79KzcDCDlwHkiWB4Ymu7aUt/6bMvsqLITRbkoGBV20bJzce
+   GsAObQ/9XTINUb90VD6pYn4f3R+hpl0J/9V16pWZ2OH/X3as68SxXqr2t
+   95960u0DfDrieGc9lSzkgxbfp8TrqUtS+4CEZuzKbjgy2M9fKe1Td4Lld
+   A==;
+X-CSE-ConnectionGUID: 5ZRRXf5LQVCIU2dRAgtdWw==
+X-CSE-MsgGUID: J3K9ZU4iQeaA5GTgDrFq0Q==
+X-IronPort-AV: E=Sophos;i="6.14,275,1736838000"; 
+   d="scan'208";a="40152234"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Mar 2025 08:55:25 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 25 Mar 2025 08:54:54 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 25 Mar 2025 08:54:53 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <mturquette@baylibre.com>
+CC: <sboyd@kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 3/4]  clk: at91: sama7g5: Add missing clk_hw to parent_data
+Date: Tue, 25 Mar 2025 08:55:09 -0700
+Message-ID: <690cf499758c10ad5f70df3f0d238b8a7834a971.1742916867.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1742916867.git.Ryan.Wanner@microchip.com>
+References: <cover.1742916867.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_150059_682533_D788BA43 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20250325_085529_988778_CCEEDA5C 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Di, 2025-03-25 at 15:27 +0100, Marek Vasut wrote:
-> On 3/25/25 3:12 PM, Philipp Zabel wrote:
-> > On Mo, 2025-03-24 at 20:05 +0100, Marek Vasut wrote:
-> > > On 3/24/25 9:43 AM, Boris Brezillon wrote:
-> > >=20
-> > > [...]
-> > >=20
-> > > > > @@ -563,6 +585,7 @@ int panthor_device_suspend(struct device *dev=
-)
-> > > > >   =20
-> > > > >    	panthor_devfreq_suspend(ptdev);
-> > > > >   =20
-> > > > > +	reset_control_assert(ptdev->resets);
-> > > >=20
-> > > > Hm, that might be the cause of the fast reset issue (which is a fas=
-t
-> > > > resume more than a fast reset BTW): if you re-assert the reset line=
- on
-> > > > runtime suspend, I guess this causes a full GPU reset, and the MCU =
-ends
-> > > > up in a state where it needs a slow reset (all data sections reset =
-to
-> > > > their initial state). Can you try to move the reset_control_[de]ass=
-ert
-> > > > to the unplug/init functions?
-> > > The reset on the MX95 is not really a reset, it is clear-only
-> > > set-never-again bit which goes only one way, the "unreset" way, so I
-> > > don't think this has any impact.
-> >=20
-> > This sounds like the bit is initially set to 1 (reset asserted) and can
-> > be cleared by writing 0 (once, to deassert the reset). But in the
-> > reset-simple patch it looks to be the other way around (active_low =3D
-> > true)?
-> >=20
-> > If the reset control can't be asserted again on this hardware, it would
-> > be better to have custom driver that doesn't implement the .assert()
-> > callback at all.
-> Maybe the reset-simple driver can be extended with some mode of=20
-> operation like this instead , to make it skip assert once deasserted ,=
-=20
-> for specific reset controllers ?
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-How about a second reset_control_ops struct without .assert, selected
-in reset_simple_probe() by a new flag in reset_simple_devdata.
+The main_xtal clk_hw struct is not passed into parent_data.hw causing an
+issue with main_osc parent. Passing the main_xtal struct into the
+parent_data struct will ensure the correct parent structure.
 
-regards
-Philipp
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ drivers/clk/at91/sama7g5.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
+index 8385badc1c70..ac51d006ba99 100644
+--- a/drivers/clk/at91/sama7g5.c
++++ b/drivers/clk/at91/sama7g5.c
+@@ -1017,6 +1017,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 
+ 	parent_data.name = main_xtal_name;
+ 	parent_data.fw_name = main_xtal_name;
++	parent_data.hw = main_xtal_hw;
+ 	main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
+ 						 &parent_data, bypass);
+ 	if (IS_ERR(main_osc_hw))
+-- 
+2.43.0
+
 
