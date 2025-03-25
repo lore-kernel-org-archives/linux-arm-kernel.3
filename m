@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E0DC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CC1C3600E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6cp05A3ncq1r6TSS05Wy5wCIMMlphKX62znrx7IOhkM=; b=OdQ/W1TZQ1ilGM+aAPnSLPbdFN
-	a/D4P93huYgKtdajFCuy8U7BNFnCybw55f8XBOGIjA7wjY49CpYFYKwEcr94QMu7GayzMOUufV9xp
-	xlU06O2SNAsbH3tQdc7OmXScu+dzMNxCl22pWiXGgr/EL6Klp/gsYTbMIEaEkmxWV9Oq557I0WdzL
-	9IZxnjg5h3tgKhzHFBJpTJE/5azorri1GNBYMLQgu8j8iZkOKobgAa1NtkOR5Ez/26f2GEfL1v7rr
-	vdy0j0dXZ4tFlTmUzxTJ3dSwI2gvf35IWCWu5Ygf91ZFnmuU8TEVKx+fifMaNvxp7K1rk2VpcoAlh
-	5skpi3tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NWmWtlj/ywJV6x0SVa10Ru5jBz9yI3s7yAlnn7HAP+A=; b=q82QMRn6K9txIsCFhHqYRIIw4j
+	6A/V66du6qmb4CDh4krI1r/i99BlSEt1aCUeH9sHv5vXpV42vZ5ODIxJu/KFx6ChoAokO6pooi5dD
+	fc4uMRdQmfdD0mVIWdituuxjVq2KEb0SfiCWrKtUSWgfAYatSJ6+RXwG7FNPmHlftTNdUhxkGMUko
+	pKQJ19mzu30DQODIOOYg6jovuOiEczUlHf4zfcwOKFV/ZSPraYtNBMxoNZRoZW1nNqy9tKzlas0L5
+	lL37baBly830lpr4EP0qZhQG/47rotTWmhyVZwtzHhikytUP1xJ1BRKff9B0yDKmz3rI0jqCsrqla
+	BnT2Vbsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4df-000000065LU-1IBY;
-	Tue, 25 Mar 2025 13:48:19 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1tx4il-000000066CI-2H23;
+	Tue, 25 Mar 2025 13:53:35 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4Q5-000000062pz-2sxP
+	id 1tx3GF-00000005mr7-29Fu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 13:34:19 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7921F4326B;
-	Tue, 25 Mar 2025 13:34:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742909654;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6cp05A3ncq1r6TSS05Wy5wCIMMlphKX62znrx7IOhkM=;
-	b=MT2bSinCIIJxoo+uZCXE8NobKCTATTnWXSLD+MEYn1Cbf0q4yFnCAHXwi7ksKtomi1kgg4
-	O53gziaEH8muXl8V/mn5SPTQGdDkfmaMSRo3TtqiLLSN8293XcL/Pxxs4bUTrjTf2tQYd2
-	MQ51TNmeNIjidkLjLWUbWNJG/219tsbchKjtxidLuHMOZV2FItfl8OvXmBsn/k7Yd2ol+Q
-	Z3u58uwdkRWt64sXtcPrXNOTFr0oVKegRhq2yRQnnRxTszSKn1CON//EGSI4xq0vgtXund
-	ZyndzuyJ25ixCMaNHcdqMAPW+1Ht4zbieVJUeCeNfX7RUgTTu3vFr95AEDZw5A==
-Date: Tue, 25 Mar 2025 14:34:11 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Vladimir Oltean
- <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
- Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
- Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net-next v4 5/8] net: ethtool: netlink: Introduce
- per-phy DUMP helpers
-Message-ID: <20250325143411.241053ec@kmaincent-XPS-13-7390>
-In-Reply-To: <20250324104012.367366-6-maxime.chevallier@bootlin.com>
-References: <20250324104012.367366-1-maxime.chevallier@bootlin.com>
-	<20250324104012.367366-6-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	Tue, 25 Mar 2025 12:20:05 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BAD1F102F66FF;
+	Tue, 25 Mar 2025 13:19:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1742905201; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=NWmWtlj/ywJV6x0SVa10Ru5jBz9yI3s7yAlnn7HAP+A=;
+	b=iI10GOZxX1mHgyM2u8+7/hdsGhCCl9XeQNlR9159nd7Yrmp1M9EzyoQznOCNezfJNl+mJ9
+	SugwMDIGDHQIt+JVt4gZ5jtXRMz5XkD7mYkyoH+3BBQsC6Wep4HQmwCEBLJguay3eUz7UO
+	a++388I8tOOmPQB3cMRAuhPNSnW6ZWmqKY49V2c5IiK5nn5VJccHfnIESBHN9fzadsHgW9
+	Xl3+WTEZKlPTP/gQXxOBNmcm+5pZf5nfRnW+HkKaqVdVO0M7unZEoNF4KEl9D0/hrc9Gqb
+	jTvv2XpW46Zt70RZ+tso/GL43Wd/7AiEZ0vMVJoY64YbV5uAx1kHujfKwWVfZw==
+Date: Tue, 25 Mar 2025 13:19:58 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub
+ Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
+ Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
+ Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH 3/5] arm: dts: Adjust the 'reg' range for imx287 L2
+ switch description
+Message-ID: <20250325131958.552fbd0b@wsk>
+In-Reply-To: <93c9bc3d-7ad8-438e-966e-cd28a91540af@kernel.org>
+References: <20250325115736.1732721-1-lukma@denx.de>
+	<20250325115736.1732721-4-lukma@denx.de>
+	<93c9bc3d-7ad8-438e-966e-cd28a91540af@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedvjeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddupdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
- egvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: kory.maincent@bootlin.com
+Content-Type: multipart/signed; boundary="Sig_/iHkkBmAY=t74XA_T2X_ZYbS";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_063417_874410_03E89F33 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20250325_052003_704572_7F61D1DE 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,80 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Mar 2025 11:40:07 +0100
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+--Sig_/iHkkBmAY=t74XA_T2X_ZYbS
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-> As there are multiple ethnl commands that report messages based on
-> phy_device information, let's introduce a set of ethnl generic dump
-> helpers to allow DUMP support for each PHY on a given netdev.
+Hi Krzysztof,
+
+> On 25/03/2025 12:57, Lukasz Majewski wrote:
+> > The current range of 'reg' property is too small to allow full
+> > control of the L2 switch on imx287.
+> >=20
+> > As this IP block also uses ENET-MAC blocks for its operation, the
+> > address range for it must be included as well.
+> >  =20
 >=20
-> This logic iterates over the phy_link_topology of each netdev (or a
-> single netdev for filtered DUMP), and call ethnl_default_dump_one() with
-> the req_info populated with ifindex + phyindex.
+> Please use subject prefixes matching the subsystem. You can get them
+> for example with `git log --oneline -- DIRECTORY_OR_FILE` on the
+> directory your patch is touching. For bindings, the preferred
+> subjects are explained here:
+> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-pat=
+ches.html#i-for-patch-submitters
 >=20
-> This allows re-using all the existing infra for phy-targetting commands
-> that already use ethnl generic helpers.
+> Missing nxp or mxs.
+
+Ok. I will add it.
+
 >=20
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
-> V4 : No changes
->=20
->  net/ethtool/netlink.c | 78 +++++++++++++++++++++++++++++++++++++++++++
->  net/ethtool/netlink.h |  6 ++++
->  2 files changed, 84 insertions(+)
->=20
-> diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
-> index 0345bffa0678..171290eaf406 100644
-> --- a/net/ethtool/netlink.c
-> +++ b/net/ethtool/netlink.c
-> @@ -560,6 +560,84 @@ static int ethnl_default_dump_one(struct sk_buff *sk=
-b,
->  	return ret;
->  }
-> =20
-> +/* Specific context for phy-targeting command DUMP operatins. We keep in
-> context
-> + * the latest phy_index we dumped, in case of an interrupted DUMP.
-> + */
-> +struct ethnl_dump_ctx_perphy {
-> +	unsigned long phy_index;
-> +};
-> +
-> +/**
-> + * ethnl_dump_start_perphy() - Initialise a dump for PHY cmds
-> + * @ctx: Generic ethnl dump context whose cmd_ctx will be initialized
-> + *
-> + * Initializes a dump context for ethnl commands that may return
-> + * one message per PHY on a single netdev.
-> + *
-> + * Returns: 0 for success, a negative value for errors.
+> Best regards,
+> Krzysztof
 
-Minimal nitpick. In the kernel doc Return does not take a s.
 
-> +/**
-> + * ethnl_dump_one_dev_perphy() - Dump all PHY-related messages for one n=
-etdev
-> + * @skb: skb containing the DUMP result
-> + * @ctx: Dump context. Will be kept across the DUMP operation.
-> + * @info: Genl receive info
-> + *
-> + * Some commands are related to PHY devices attached to netdevs. As there
-> may be
-> + * multiple PHYs, this DUMP handler will populate the reply with one mes=
-sage
-> per
-> + * PHY on a single netdev.
-> + *
-> + * Returns: 0 for success or when nothing to do, a negative value otherw=
-ise.
 
-Same.
 
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+Best regards,
 
-Thank you!
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/iHkkBmAY=t74XA_T2X_ZYbS
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfin24ACgkQAR8vZIA0
+zr3N/gf8DYEFypnfPCvqTv0w1mjjvKAqlgERVYVIbxHIpd/6t5B0hhaY3vRUWPyJ
+VUqi8YCx8uavVTRzDM59fSfmYcFzOe7rUv9fVvS4+W3AtxqTmtndRXZUrFAtXrPf
+LwfMfvqJuoKPiLLcfPZQpNNY6iuzehkmrmcO+0MmOmsPNVHWsXUG/mmoefrSIy/Q
+yUysj6v1UeS8nm2XOXYf7Pij0CFaCgMDE7zdzziTkkLtBYywTPxMfUbNv8DjFUSX
+Xa6M/GMe39ehOU92VOjF0TRxyiDNXgRZ4kibznKZFpohskhQ1IugoT2tyXDspA6b
+JauuHhBMQ/y+Om9HVWaZV3LjzVe05Q==
+=TLOn
+-----END PGP SIGNATURE-----
+
+--Sig_/iHkkBmAY=t74XA_T2X_ZYbS--
 
