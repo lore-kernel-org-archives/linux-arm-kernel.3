@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FD7C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 03:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6179BC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 03:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F/mEWC41EA0vCmjlY8EkWcUAHNNZ3z1r6/icvt8x6x4=; b=FnnI8N1kedK9dH5VbRJfBaLdaZ
-	sEbPOwOz2aDFACrsKU1iV71NbbIod0gxuf4LryMlB+sE+6+M8Kd/A84SHjfKev6HFiAQlwD0Vxvsr
-	9fYmAIkQNFqDbHNuSMCMxPiZt75YwmHHmGTi6mIGyk1Q4VUAEKvbrTL9l+GHj7idlZT6LoD8xfnpi
-	8zAUKI4++oXgtusYok6knQlHBc6xsGWpspkB+NBngdMX8kzlcdMxR1bbqFQU1gFx36FcFHVE/mtLf
-	YFUcON54Jg64ydoRVN+xqVg/gNRfwvHmboRSaNslBMZgWPiBKb9kIS0CGkVX3IaYGzL7Ld7q8+3FP
-	1v7Y9SgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CGFKLDf24aDlsCwe/iyUhHj3swPoCT5w/hRxiTvcLQ8=; b=IqUHppCT4jU395vySyUjukmMYv
+	DMhSBHECOH18jWxEuUVyqCWFS1GmvQpIIa553aFitDKq1ImW116xygnxQ6sgI8A4//Arht9ENtEkj
+	xYLVbNql07EAAcXyPW/PVc/SVH5Pky2ZqZWTSdTsxOQuRdFLl44m8C0cax4lkkldsTJPw3/5SpJ26
+	qW7LRx50x5Ni1kmh1GfCQxENz+7SDEIiNs/Myuk5RAKiW9a+oknPfjp0sdD7nijbW/sJj83nxoKmK
+	zXEHhtBaFj68TUZbGqww24bzzU85N0hWP11NtU+VVuPxR8A0cmDcZUTtbu7GadbQFGASZP0tkzu3K
+	8bG7eFgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twv0F-00000004lnb-2JZC;
-	Tue, 25 Mar 2025 03:30:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1twv1w-00000004lu7-0sbn;
+	Tue, 25 Mar 2025 03:32:44 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twuyW-00000004lff-46RK
+	id 1twuyi-00000004lgE-1OZO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 03:29:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3CA84439B5;
-	Tue, 25 Mar 2025 03:29:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29E1CC4CEE8;
-	Tue, 25 Mar 2025 03:29:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742873352;
-	bh=1+F2SiWR1EFj3utMdX7kCpEiQUqyD024EDV1S/WtZ48=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o30PFgTW7i5eAuQ+6N5IBX9UwsrawBUIQ+zHPhdSefE7Jrd6SwDW0E4ec3cs704/Y
-	 GiKwH6aZYKkRnT+07ghLQipoWdIECvaIfySbXPwJH2LYr+eAPbv5UoHIijxkfPLQbD
-	 MWFn5NzZCqFi5yScLNDrKG/R5nCwqWuj3UqmVuJPoLy0oP61cfuc3DzGRdlq0e24FU
-	 uuQ+5IfEDLsSZoVcilyQzXsQuu+k49rKz0gca+fxgTmIZa7FLgUF3UTD+ze/0oxzQV
-	 +iuUSxRYOk6k2y3rLaopEKC/fqT7nqSgNgUbthyqpBjUMyZ3cnbLepbf8kvM+5W4Lj
-	 fiI8eMehyFtyw==
-Date: Mon, 24 Mar 2025 22:29:11 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Marek Vasut <marex@denx.de>
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Joao Goncalves <jpaulo.silvagoncalves@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>, Tim Harvey <tharvey@gateworks.com>,
-	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Tue, 25 Mar 2025 03:29:26 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-05 (Coremail) with SMTP id zQCowABnowsJI+JnbvMuAQ--.961S2;
+	Tue, 25 Mar 2025 11:29:14 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	ckeepax@opensource.cirrus.com,
+	u.kleine-koenig@baylibre.com,
+	megi@xff.cz
+Cc: linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Joao Goncalves <joao.goncalves@toradex.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	Peng Fan <peng.fan@nxp.com>, Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev, Michael Walle <mwalle@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: imx: document i.MX 95 Verdin
- Evaluation Kit (EVK)
-Message-ID: <174287335084.1637326.11937495835125026079.robh@kernel.org>
-References: <20250324234013.140440-1-marex@denx.de>
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] ASoC: sun8i-codec: Remove unnecessary NULL check before clk_disable_unprepare()
+Date: Tue, 25 Mar 2025 11:28:33 +0800
+Message-Id: <20250325032833.604073-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250324234013.140440-1-marex@denx.de>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowABnowsJI+JnbvMuAQ--.961S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7XFyrKrWkZry7Kry3GrWDtwb_yoW3CrX_Zr
+	48uayDWFWUJr9Iyay3Jr4qyr4kXF1F9Fyxtr9ayrWDJ348Ars8Cry8tw4fur97JrykCF9x
+	Gw1qvrZrA3409jkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbakFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
+	Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7xkEbV
+	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
+	xVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjfUrrWFUUUUU
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_202913_040120_B50645CE 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20250324_202924_743359_58F8F6A1 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,44 +89,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+clk_disable_unprepare() already checks NULL by using IS_ERR_OR_NULL.
+Remove unneeded NULL check for clk here.
 
-On Tue, 25 Mar 2025 00:40:01 +0100, Marek Vasut wrote:
-> Document support for i.MX 95 Verdin Evaluation Kit (EVK), which
-> used to be the Titan EVK.
-> 
-> Note that the SoM used in this EVK is a derivative SoM from Verdin
-> line of SoMs, an actual i.MX95 Verdin SoM is under development.
-> 
-> [1] https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95-evaluation-kit
-> 
-> Signed-off-by: Marek Vasut <marex@denx.de>
-> ---
-> Cc: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Francesco Dolcini <francesco.dolcini@toradex.com>
-> Cc: Frieder Schrempf <frieder.schrempf@kontron.de>
-> Cc: Hiago De Franco <hiago.franco@toradex.com>
-> Cc: Joao Goncalves <joao.goncalves@toradex.com>
-> Cc: Joao Goncalves <jpaulo.silvagoncalves@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Max Merchel <Max.Merchel@ew.tq-group.com>
-> Cc: Michael Walle <mwalle@kernel.org>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Tim Harvey <tharvey@gateworks.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ sound/soc/sunxi/sun8i-codec.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+diff --git a/sound/soc/sunxi/sun8i-codec.c b/sound/soc/sunxi/sun8i-codec.c
+index 8b9eb1a202f7..a27976c375fe 100644
+--- a/sound/soc/sunxi/sun8i-codec.c
++++ b/sound/soc/sunxi/sun8i-codec.c
+@@ -274,8 +274,7 @@ static int sun8i_codec_runtime_suspend(struct device *dev)
+ 	regcache_cache_only(scodec->regmap, true);
+ 	regcache_mark_dirty(scodec->regmap);
+ 
+-	if (scodec->clk_bus)
+-		clk_disable_unprepare(scodec->clk_bus);
++	clk_disable_unprepare(scodec->clk_bus);
+ 
+ 	return 0;
+ }
+-- 
+2.25.1
 
 
