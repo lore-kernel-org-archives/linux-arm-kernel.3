@@ -4,49 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0565C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 19:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A047BC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 19:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L6UIv4CVEEkMwwUrc7RH9Eqkn6WzNQceqYv4NEb81V4=; b=yyztiwEmK3QJhIvM2GvmHY/dMG
-	7xOw2Y9//133pliu/G4PvWllW7fsgt+HihMx/Ze9wiIJ1aRGHkXvHvQFAx9RNdxI8Sx0kmNWNU1+3
-	ds6uANrzxuCxKeaZGFFerjwxEIV4wOYjCtZECaEChBcFI8vFtHKBp9C3EHx6znWPziFtSOM5queTv
-	yV6Jq8FrRqsMMcHEtUkohJF/KBDrcRwvR7V1q+6OU6aKKB0EFjdIGvkzuzZblh+UCxL+ybmk7XgVN
-	9l1eSN0VI1Eic0Wv63m6IGYprQ7flsUtLuP5b6LRRHjxmPW3MrDBGUrytchq82+fYeXd0MrSajmeB
-	cxxUReBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EI7ofptYS3imrZOUBfDtDPrG5GfjZrzOydWa8JIhV/s=; b=o0VPO/yCd7PyE9
+	2fa5lW79wz6OCqdNSHTNblSNb67pwBc8wrN/0FYFrpMh8musuCFIaYaH4xTUsA+CESnMjv3WDHm4n
+	pHQDSJeLDLB7xoCINcWa786iBWdnHCGe4VHt28fTX7Fy8Jzsx9bWD243BNAXD73iKoNhEP9TWzmSv
+	PYFKPf89EkgEaHWjY2MGT+qgIh8WHv9VoHtWGTa7f7D7TUOapmqHB/m9kJLLoNLXCLmYRY+Rq1RFZ
+	YePElVA41/fizBGc6KRDXPVRo+6ckkBqAVHqgkDj5qJVdkAydHr7qymvFFoWKHUTkupEQnNN0xr4a
+	DmapKeRTDjmLkF5QWnSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txAMl-00000006ukV-05db;
-	Tue, 25 Mar 2025 19:55:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1txAOS-00000006uuk-09BP;
+	Tue, 25 Mar 2025 19:57:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txAL1-00000006uWh-3dQj
+	id 1txALP-00000006uaM-0MC7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 19:53:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77E1A43C28;
-	Tue, 25 Mar 2025 19:53:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D92BC4CEE4;
-	Tue, 25 Mar 2025 19:53:25 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] arm64 updates 6.15-rc1
-Date: Tue, 25 Mar 2025 19:53:22 +0000
-Message-Id: <20250325195322.3243734-1-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.39.5
+	Tue, 25 Mar 2025 19:53:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1742932429;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=EI7ofptYS3imrZOUBfDtDPrG5GfjZrzOydWa8JIhV/s=;
+	b=ZY5MdTrH39bLoBSHq0TpWMB0BkDKVF2kua0o1VC+UVkS+feX4ZTcMg8zeArLfp/3nXWPTu
+	j/sqVreAzXjJS+6JiCN0qF9LgtgJOpAW7z1nWJzu2QZr20bUElU8Y5CENyAMgFC4MRTYfG
+	QvrsMAPRUW/92iOubrPG9UidbgPjwJY=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-262-lv9_j2QoPSyy-sMNu23O6A-1; Tue,
+ 25 Mar 2025 15:51:58 -0400
+X-MC-Unique: lv9_j2QoPSyy-sMNu23O6A-1
+X-Mimecast-MFC-AGG-ID: lv9_j2QoPSyy-sMNu23O6A_1742932317
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 365E5180025F;
+	Tue, 25 Mar 2025 19:51:56 +0000 (UTC)
+Received: from puchatek.local (unknown [10.44.33.225])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6D3E819560AD;
+	Tue, 25 Mar 2025 19:51:51 +0000 (UTC)
+From: Marcin Juszkiewicz <mjuszkiewicz@redhat.com>
+Subject: [PATCH 0/2] Enable HDMI features on NanoPC-T6
+Date: Tue, 25 Mar 2025 20:51:45 +0100
+Message-Id: <20250325-nanopc-t6-hdmi-v1-0-299a2ed45878@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFEJ42cC/x3MQQqAIBBA0avIrBsoRYmuEi3MppxFJhoRiHdPW
+ r7F/wUyJaYMkyiQ6OHMV2gYOgHO23AQ8tYMspe6V1JjsOGKDm+DfjsZLZFyyoy7diu0KCba+f2
+ H81LrB+C2lkFgAAAA
+X-Change-ID: 20250325-nanopc-t6-hdmi-aee3c368f5cb
+To: linux-rockchip@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Johan Jonker <jbx6244@gmail.com>, 
+ Rick Wertenbroek <rick.wertenbroek@gmail.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Marcin Juszkiewicz <mjuszkiewicz@redhat.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_125327_949825_A9CA32F9 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20250325_125351_243094_627BCEB0 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,281 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+This patchset follows other SBCs and enables second HDMI output and then
+enables HDMI audio on both ports.
 
-Please pull the arm64 updates for 6.15-rc1 below. Nothing major this
-time around. Apart from the usual perf/PMU updates, some page table
-cleanups, the notable features are average CPU frequency based on the
-AMUv1 counters, CONFIG_HOTPLUG_SMT and MOPS instructions (memcpy/memset)
-in the uaccess routines.
+Tested with 1920x1080@60 and 3440x1440@60 displays. Worked nice, audio
+played on both monitors.
 
-Thanks.
+Would be nice to have an option for more than 60Hz (larger screen can do
+75Hz) but I assume that this will come one day.
 
-The following changes since commit 0ad2507d5d93f39619fc42372c347d6006b64319:
+Signed-off-by: Marcin Juszkiewicz <mjuszkiewicz@redhat.com>
 
-  Linux 6.14-rc3 (2025-02-16 14:02:44 -0800)
+---
+Marcin Juszkiewicz (2):
+      arm64: dts: rockchip: enable HDMI1 on FriendlyElec NanoPC-T6
+      arm64: dts: rockchip: enable HDMI sound on FriendlyElec NanoPC-T6
 
-are available in the Git repository at:
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 54 ++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
+---
+base-commit: eb4bc4b07f66f01618d9cb1aa4eaef59b1188415
+change-id: 20250325-nanopc-t6-hdmi-aee3c368f5cb
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-upstream
+Best regards,
+-- 
+Marcin Juszkiewicz <mjuszkiewicz@redhat.com>
 
-for you to fetch changes up to 64fa6b9322a904198589c0479dca6f2ed7f2eb04:
-
-  Merge branch 'for-next/el2-enable-feat-pmuv3p9' into for-next/core (2025-03-25 19:32:32 +0000)
-
-----------------------------------------------------------------
-arm64 updates for 6.15:
-
-Perf and PMUs:
-
- - Support for the "Rainier" CPU PMU from Arm
-
- - Preparatory driver changes and cleanups that pave the way for BRBE
-   support
-
- - Support for partial virtualisation of the Apple-M1 PMU
-
- - Support for the second event filter in Arm CSPMU designs
-
- - Minor fixes and cleanups (CMN and DWC PMUs)
-
- - Enable EL2 requirements for FEAT_PMUv3p9
-
-Power, CPU topology:
-
- - Support for AMUv1-based average CPU frequency
-
- - Run-time SMT control wired up for arm64 (CONFIG_HOTPLUG_SMT). It adds
-   a generic topology_is_primary_thread() function overridden by x86 and
-   powerpc
-
-New(ish) features:
-
- - MOPS (memcpy/memset) support for the uaccess routines
-
-Security/confidential compute:
-
- - Fix the DMA address for devices used in Realms with Arm CCA. The
-   CCA architecture uses the address bit to differentiate between shared
-   and private addresses
-
- - Spectre-BHB: assume CPUs Linux doesn't know about vulnerable by
-   default
-
-Memory management clean-ups:
-
- - Drop the P*D_TABLE_BIT definition in preparation for 128-bit PTEs
-
- - Some minor page table accessor clean-ups
-
- - PIE/POE (permission indirection/overlay) helpers clean-up
-
-Kselftests:
-
- - MTE: skip hugetlb tests if MTE is not supported on such mappings and
-   user correct naming for sync/async tag checking modes
-
-Miscellaneous:
-
- - Add a PKEY_UNRESTRICTED definition as 0 to uapi (toolchain people
-   request)
-
- - Sysreg updates for new register fields
-
- - CPU type info for some Qualcomm Kryo cores
-
-----------------------------------------------------------------
-Anshuman Khandual (16):
-      arm64/sysreg: Update register fields for ID_AA64MMFR0_EL1
-      arm64/sysreg: Add register fields for HDFGRTR2_EL2
-      arm64/sysreg: Add register fields for HDFGWTR2_EL2
-      arm64/sysreg: Add register fields for HFGITR2_EL2
-      arm64/sysreg: Add register fields for HFGRTR2_EL2
-      arm64/sysreg: Add register fields for HFGWTR2_EL2
-      arm64/mm: Convert __pte_to_phys() and __phys_to_pte_val() as functions
-      arm64/hugetlb: Consistently use pud_sect_supported()
-      arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
-      KVM: arm64: ptdump: Test PMD_TYPE_MASK for block mapping
-      arm64/ptdump: Test PMD_TYPE_MASK for block mapping
-      arm64/mm: Clear PXX_TYPE_MASK in mk_[pmd|pud]_sect_prot()
-      arm64/mm: Clear PXX_TYPE_MASK and set PXD_TYPE_SECT in [pmd|pud]_mkhuge()
-      arm64/mm: Check PXD_TYPE_TABLE in [p4d|pgd]_bad()
-      arm64/mm: Drop PXD_TABLE_BIT
-      arm64/mm: Define PTDESC_ORDER
-
-Ard Biesheuvel (1):
-      arm64/kernel: Always use level 2 or higher for early mappings
-
-Beata Michalska (5):
-      cpufreq: Allow arch_freq_get_on_cpu to return an error
-      cpufreq: Introduce an optional cpuinfo_avg_freq sysfs entry
-      arm64: Provide an AMU-based version of arch_freq_get_on_cpu
-      arm64: Update AMU-based freq scale factor on entering idle
-      arm64: Utilize for_each_cpu_wrap for reference lookup
-
-Catalin Marinas (5):
-      kselftest/arm64: mte: Use the correct naming for tag check modes in check_hugetlb_options.c
-      kselftest/arm64: mte: Skip the hugetlb tests if MTE not supported on such mappings
-      Merge branches 'for-next/amuv1-avg-freq', 'for-next/pkey_unrestricted', 'for-next/sysreg', 'for-next/misc', 'for-next/pgtable-cleanups', 'for-next/kselftest', 'for-next/uaccess-mops', 'for-next/pie-poe-cleanup', 'for-next/cputype-kryo', 'for-next/cca-dma-address', 'for-next/drop-pxd_table_bit' and 'for-next/spectre-bhb-assume-vulnerable', remote-tracking branch 'arm64/for-next/perf' into for-next/core
-      Merge branch 'for-next/smt-control' into for-next/core
-      Merge branch 'for-next/el2-enable-feat-pmuv3p9' into for-next/core
-
-Douglas Anderson (7):
-      arm64: cputype: Add QCOM_CPU_PART_KRYO_3XX_GOLD
-      arm64: cputype: Add comments about Qualcomm Kryo 5XX and 6XX cores
-      arm64: errata: Add QCOM_KRYO_4XX_GOLD to the spectre_bhb_k24_list
-      arm64: errata: Assume that unknown CPUs _are_ vulnerable to Spectre BHB
-      arm64: errata: Add KRYO 2XX/3XX/4XX silver cores to Spectre BHB safe list
-      arm64: cputype: Add MIDR_CORTEX_A76AE
-      arm64: errata: Add newer ARM cores to the spectre_bhb_loop_affected() lists
-
-Ionela Voinescu (1):
-      arch_topology: init capacity_freq_ref to 0
-
-James Clark (2):
-      arm64/sysreg: Fix unbalanced closing block
-      arm64/sysreg: Enforce whole word match for open/close tokens
-
-Kevin Brodsky (3):
-      arm64/sysreg: Improve PIR/POR helpers
-      arm64/sysreg: Rename POE_RXW to POE_RWX
-      arm64/sysreg: Move POR_EL0_INIT to asm/por.h
-
-Kristina Martšenko (3):
-      arm64: extable: Add fixup handling for uaccess CPY* instructions
-      arm64: mm: Handle PAN faults on uaccess CPY* instructions
-      arm64: lib: Use MOPS for usercopy routines
-
-Madhavan Srinivasan (1):
-      selftest/powerpc/mm/pkey: fix build-break introduced by commit 00894c3fc917
-
-Mark Rutland (3):
-      perf: arm_pmu: Don't disable counter in armpmu_add()
-      perf: arm_pmuv3: Don't disable counter in armv8pmu_enable_event()
-      perf: arm_pmu: Move PMUv3-specific data
-
-Oliver Upton (2):
-      drivers/perf: apple_m1: Refactor event select/filter configuration
-      drivers/perf: apple_m1: Support host/guest event filtering
-
-Rob Herring (Arm) (4):
-      perf: arm_pmuv3: Call kvm_vcpu_pmu_resync_el0() before enabling counters
-      perf: arm_v7_pmu: Drop obvious comments for enabling/disabling counters and interrupts
-      perf: arm_v7_pmu: Don't disable counter in (armv7|krait_|scorpion_)pmu_enable_event()
-      perf: apple_m1: Don't disable counter in m1_pmu_enable_event()
-
-Robin Murphy (5):
-      perf/arm-cmn: Minor event type housekeeping
-      perf/arm_cspmu: Move register definitons to header
-      perf/arm_cspmu: Generalise event filtering
-      perf/arm_cspmu: Add PMEVFILT2R support
-      perf/arm_cspmu: Fix missing io.h include
-
-Ryan Roberts (2):
-      arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
-      arm64/mm: Check pmd_table() in pmd_trans_huge()
-
-Suzuki K Poulose (3):
-      dma: Fix encryption bit clearing for dma_to_phys
-      dma: Introduce generic dma_addr_*crypted helpers
-      arm64: realm: Use aliased addresses for device DMA to shared buffers
-
-Thomas Weißschuh (1):
-      arm64: mm: Don't use %pK through printk
-
-Vincenzo Frascino (1):
-      perf: arm_pmuv3: Add support for ARM Rainier PMU
-
-Will Deacon (1):
-      Merge branch 'perf/m1-guest-events' of git://git.kernel.org/pub/scm/linux/kernel/git/oupton/linux into for-next/perf
-
-Yicong Yang (4):
-      cpu/SMT: Provide a default topology_is_primary_thread()
-      arch_topology: Support SMT control for OF based system
-      arm64: topology: Support SMT control on ACPI based system
-      arm64: Kconfig: Enable HOTPLUG_SMT
-
-Yue Haibing (1):
-      arm64/fpsimd: Remove unused declaration fpsimd_kvm_prepare()
-
-Yunhui Cui (2):
-      perf/dwc_pcie: fix some unreleased resources
-      perf/dwc_pcie: fix duplicate pci_dev devices
-
-Yury Khrustalev (3):
-      mm/pkey: Add PKEY_UNRESTRICTED macro
-      selftests/mm: Use PKEY_UNRESTRICTED macro
-      selftests/powerpc: Use PKEY_UNRESTRICTED macro
-
- Documentation/admin-guide/pm/cpufreq.rst           |  17 +-
- Documentation/arch/arm64/booting.rst               |  22 +++
- arch/arm64/Kconfig                                 |   3 +-
- arch/arm64/include/asm/apple_m1_pmu.h              |   1 +
- arch/arm64/include/asm/asm-extable.h               |  10 +-
- arch/arm64/include/asm/asm-uaccess.h               |   4 +
- arch/arm64/include/asm/cputype.h                   |  14 ++
- arch/arm64/include/asm/el2_setup.h                 |  25 +++
- arch/arm64/include/asm/extable.h                   |   4 +-
- arch/arm64/include/asm/fpsimd.h                    |   1 -
- arch/arm64/include/asm/kernel-pgtable.h            |   8 +-
- arch/arm64/include/asm/mem_encrypt.h               |  11 ++
- arch/arm64/include/asm/pgtable-hwdef.h             |  35 ++--
- arch/arm64/include/asm/pgtable-prot.h              |  36 ++--
- arch/arm64/include/asm/pgtable.h                   |  80 +++++---
- arch/arm64/include/asm/por.h                       |  11 +-
- arch/arm64/include/asm/spectre.h                   |   1 -
- arch/arm64/include/asm/sysreg.h                    |  15 +-
- arch/arm64/kernel/pi/map_range.c                   |   6 +-
- arch/arm64/kernel/proton-pack.c                    | 208 +++++++++++----------
- arch/arm64/kernel/signal.c                         |   2 +-
- arch/arm64/kernel/topology.c                       | 182 +++++++++++++++++-
- arch/arm64/kvm/at.c                                |   8 +-
- arch/arm64/kvm/ptdump.c                            |   4 +-
- arch/arm64/lib/clear_user.S                        |  25 ++-
- arch/arm64/lib/copy_from_user.S                    |  10 +
- arch/arm64/lib/copy_template.S                     |  10 +
- arch/arm64/lib/copy_to_user.S                      |  10 +
- arch/arm64/mm/extable.c                            |  40 +++-
- arch/arm64/mm/fault.c                              |   4 +-
- arch/arm64/mm/hugetlbpage.c                        |  20 +-
- arch/arm64/mm/kasan_init.c                         |   6 +-
- arch/arm64/mm/mmu.c                                |  10 +-
- arch/arm64/mm/physaddr.c                           |   2 +-
- arch/arm64/mm/ptdump.c                             |   4 +-
- arch/arm64/tools/gen-sysreg.awk                    |  31 +--
- arch/arm64/tools/sysreg                            | 105 ++++++++++-
- arch/powerpc/include/asm/topology.h                |   1 +
- arch/x86/include/asm/topology.h                    |   2 +-
- arch/x86/kernel/cpu/aperfmperf.c                   |   2 +-
- arch/x86/kernel/cpu/proc.c                         |   7 +-
- drivers/base/arch_topology.c                       |  26 ++-
- drivers/cpufreq/Kconfig.x86                        |  12 ++
- drivers/cpufreq/cpufreq.c                          |  38 +++-
- drivers/perf/apple_m1_cpu_pmu.c                    |  70 ++++---
- drivers/perf/arm-cmn.c                             |   5 +-
- drivers/perf/arm_cspmu/ampere_cspmu.c              |  32 +---
- drivers/perf/arm_cspmu/arm_cspmu.c                 |  81 ++------
- drivers/perf/arm_cspmu/arm_cspmu.h                 |  57 +++++-
- drivers/perf/arm_cspmu/nvidia_cspmu.c              |  22 ++-
- drivers/perf/arm_pmu.c                             |   8 +-
- drivers/perf/arm_pmuv3.c                           |  11 +-
- drivers/perf/arm_v7_pmu.c                          |  50 -----
- drivers/perf/dwc_pcie_pmu.c                        |  51 +++--
- include/linux/cpufreq.h                            |   2 +-
- include/linux/dma-direct.h                         |  13 +-
- include/linux/mem_encrypt.h                        |  23 +++
- include/linux/perf/arm_pmu.h                       |  13 +-
- include/linux/topology.h                           |  23 +++
- include/uapi/asm-generic/mman-common.h             |   1 +
- .../selftests/arm64/mte/check_hugetlb_options.c    |  19 +-
- tools/testing/selftests/mm/mseal_test.c            |   6 +-
- tools/testing/selftests/mm/pkey-helpers.h          |   3 +-
- tools/testing/selftests/mm/pkey_sighandler_tests.c |   4 +-
- tools/testing/selftests/mm/protection_keys.c       |   2 +-
- tools/testing/selftests/powerpc/include/pkeys.h    |   5 +-
- .../testing/selftests/powerpc/mm/pkey_exec_prot.c  |   2 +-
- tools/testing/selftests/powerpc/mm/pkey_siginfo.c  |   2 +-
- tools/testing/selftests/powerpc/ptrace/core-pkey.c |   6 +-
- .../testing/selftests/powerpc/ptrace/ptrace-pkey.c |   6 +-
- 70 files changed, 1111 insertions(+), 479 deletions(-)
 
