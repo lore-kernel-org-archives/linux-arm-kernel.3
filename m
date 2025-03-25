@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AFBC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA86C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ej8KG4/2/1Ys4Qu5govMGMKUjxOfseiqsdADZaPMHs=; b=MnE0UcEu5q50wRK8SJ9c3xytwu
-	w/Cz55vvIpDJb1KdndrRSTLXOLthlr5hOZ1lEhKOfe4fWJIJ239N5/7pih73Wyha++KbqFHVV0CzS
-	4jPrLHztli6XM3Op6fEWjRDoICeJoK4qIijG3Hrigz5Ozb3ZMQGDQsI5/f1rQZS7R9mTW7U/hLSKV
-	uJL/JLc0etGNFlQz4UXDJnBbWHrTc7xzL7Rxy+fUSILWW5CdsXftlwA0MMxUDS5JRO63I7m3rZ4b9
-	Yug0JXoJuTFIbmkih4fxpKGF3thHaQf0X3/ykuSMjLv4SRF8591dQrr9+Pq2/dInWsRed9MTOQ7mO
-	xr4QGZwg==;
+	bh=FHndIVYNwQRbJ5agZ0hgtdvmI5GxtcfTYh32VkltYxk=; b=CfzJGsUsS6m3/FLtuilncd22LS
+	U1DCFF3vGZ9v3SvxPunI8kkqPmahOsywAqzCaI7ornjQYC6w5DZDGPOZ05coD3npArKux7zPE/MHU
+	LgsZgkTZny02L3/hEHQLTK/wVDDJqKcsQf7R41ZYD1FqK0ZUXTHYoC7RtL/IlFQgrlyms7G8gtOvn
+	kE4XPN6AkclXtq+oG7tlxWaatyHxnvYj+Oh22W2fRyV4gOzhOFfn6UmhvLgmcj5kZHHSTHRhKYnDT
+	mDiSVtYsctBzamClkOBTdk4UPK+RXnxDkamO1WfHoC59C5a4iMGvyq9U917OiVjHR3aRgchnQIYXI
+	q8rUFyiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4Ky-000000061zr-2rJh;
-	Tue, 25 Mar 2025 13:29:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx4OM-000000062aE-2GDQ;
+	Tue, 25 Mar 2025 13:32:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4Hj-000000061T9-1eFK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 13:25:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+ej8KG4/2/1Ys4Qu5govMGMKUjxOfseiqsdADZaPMHs=; b=QA86jJu/HworQLcDYT5rbrBNzV
-	N4XeZ7D7wYiE/QMN0hq6iUGeCCzLMMflaW4WSnlUZUWVnVK0FpOdMXQ7Lso895TbVc8PkZLGpSiu5
-	hGfLnonx9wLfV653jPxKOP7DSXrlKBC7mJN76nOalY5sC8SYNAqs5W7IWj9pILcqV9DKh7JSs2udK
-	EyuwS57AC/kRF0SB2RnEIgsmrMNVEVNOksKda/3nEqQNF8rKs8/ofNsgXPWepxEQnAEgU7bPwN4R2
-	wZdeEVFv1hmqCv1FSBvJ2StIR9QC8BkiYHzRA/+eil4rDIQEg1EfKp0TCVOWIy/PM2yW1KfGfuF0C
-	nFVUk09Q==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx4Hf-00000005SWc-4ASh
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 13:25:38 +0000
+	id 1tx4Kn-000000061yX-06Mk;
+	Tue, 25 Mar 2025 13:28:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 006D35C587E;
-	Tue, 25 Mar 2025 13:23:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84D50C4CEED;
-	Tue, 25 Mar 2025 13:25:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A918E4375D;
+	Tue, 25 Mar 2025 13:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 117DCC4CEE4;
+	Tue, 25 Mar 2025 13:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742909132;
-	bh=dr/I/9nNgrTKDQbi1FOfdC3fHsEg+MgYpU5p3SIxKFg=;
+	s=k20201202; t=1742909327;
+	bh=dmvM6IN5Dthvxa5kh8GBs+FInlsd/ahwhF0FbdrWGqQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mKWM5ZD7jugXW5b5BRsr96+Cfdtb5zImy9KHAmlaWtdOeYduPQKFXMoUrn79QBKoK
-	 hlrLoh9b4kBVcBAYPyq72peGkYoERUrgG1eKnzpkDi9Add/E/sKRGqdvylh45TOD96
-	 yJtlrk1oHu5JcDQvI5aoO+0fo3Tjz715zakPyooFuXqgZ5aflbqHGo8QiXtfxemt+z
-	 1AUe7moQmSFX3wpUfvx0WaNRJMW/aqZ3qMv1hBrR+tpj7ITd28dooL0hl46lgKFmwY
-	 Pnl5T9mt3bBUuL6mW8IExIctbXQGxK07xtOvSvQReadebYzipdP5jfJy3IOWzGwBps
-	 KP4qV1lCag4GQ==
-Date: Tue, 25 Mar 2025 08:25:31 -0500
-From: Rob Herring <robh@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Janne Grunau <j@jannau.net>, Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 08/13] PCI: apple: Set only available ports up
-Message-ID: <20250325132531.GA1717731-robh@kernel.org>
-References: <20250325102610.2073863-1-maz@kernel.org>
- <20250325102610.2073863-9-maz@kernel.org>
+	b=EmLbCOHOih8hX0taTqKGfc5nAPd/Dpwg4C9VeIXPHSWWUjSbWi45uoM2BDlvUB+q0
+	 HkzPlh/SjtVAf1CjUps8m/r9f5auBR7XTojLfrSfaROckQVfpVZFdka7Y9mXcbDU80
+	 5ueJfukfGutY7ahZ6Gt1WaugQ3S8ITJiNT8M6PNHCepcqZQhi1AT0LFDo9HImWxW7p
+	 /GtDVP6DT4UMw5tp9xX8pNSFJYMcvaqzDeh+MjuJj68HIAmIfq/OBkVw+J/FxmDS9/
+	 k098C4S9DpBuIZKRDGBVSdBr7VcR9pMaa40u79KHwdi5vkmBjuIoJKJ7zvawCuApxq
+	 TmXu7t6vo1wEQ==
+Date: Tue, 25 Mar 2025 14:28:41 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Masahisa Kojima <kojima.masahisa@socionext.com>,
+	Sunil Goutham <sgoutham@marvell.com>,
+	Geetha sowjanya <gakula@marvell.com>,
+	Subbaraya Sundeep <sbhatta@marvell.com>,
+	hariprasad <hkelam@marvell.com>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, netdev@vger.kernel.org,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-hyperv@vger.kernel.org,
+	linux-omap@vger.kernel.org, Michal Kubiak <michal.kubiak@intel.com>
+Subject: Re: [PATCH net-next v2 4/7] net: octeontx2: Add metadata support for
+ xdp mode
+Message-ID: <Z-Kvia3EhrtAjKOG@lore-rh-laptop>
+References: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
+ <20250318-mvneta-xdp-meta-v2-4-b6075778f61f@kernel.org>
+ <20250325044126.1c0f9b83@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="E4yhCdChUNhJbUGb"
 Content-Disposition: inline
-In-Reply-To: <20250325102610.2073863-9-maz@kernel.org>
+In-Reply-To: <20250325044126.1c0f9b83@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_132536_279434_2C7E6BC0 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20250325_062849_104762_E262EAD1 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,50 +99,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 10:26:05AM +0000, Marc Zyngier wrote:
-> From: Janne Grunau <j@jannau.net>
-> 
-> Iterating over disabled ports results in of_irq_parse_raw() parsing
-> the wrong "interrupt-map" entries, as it takes the status of the node
-> into account.
-> 
-> Switching from for_each_child_of_node() to for_each_available_child_of_node()
-> solves this issue.
 
-I really wish "available" was the default iterator...
+--E4yhCdChUNhJbUGb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> This became apparent after disabling unused PCIe ports in the Apple
-> Silicon device trees instead of deleting them.
-> 
-> Link: https://lore.kernel.org/asahi/20230214-apple_dts_pcie_disable_unused-v1-0-5ea0d3ddcde3@jannau.net/
-> Link: https://lore.kernel.org/asahi/1ea2107a-bb86-8c22-0bbc-82c453ab08ce@linaro.org/
-> Fixes: 1e33888fbe44 ("PCI: apple: Add initial hardware bring-up")
-> Cc: stable@vger.kernel.org
+> On Tue, 18 Mar 2025 12:46:08 +0100 Lorenzo Bianconi wrote:
+> > @@ -1514,13 +1518,14 @@ static bool otx2_xdp_rcv_pkt_handler(struct otx=
+2_nic *pfvf,
+> > =20
+> >  	hard_start =3D (unsigned char *)phys_to_virt(pa);
+> >  	xdp_prepare_buff(&xdp, hard_start, OTX2_HEAD_ROOM,
+> > -			 cqe->sg.seg_size, false);
+> > +			 cqe->sg.seg_size, true);
+> > =20
+> >  	act =3D bpf_prog_run_xdp(prog, &xdp);
+> > =20
+> >  handle_xdp_verdict:
+> >  	switch (act) {
+> >  	case XDP_PASS:
+> > +		*metasize =3D xdp.data - xdp.data_meta;
+> >  		break;
+> >  	case XDP_TX:
+> >  		qidx +=3D pfvf->hw.tx_queues;
+>=20
+> This one handles ABORT and invalid return codes as PASS not DROP.
+> That should probably be fixed separately?
 
-Fixes especially for stable should go first in the series.
+Yes, right. I will post a fix for it.
 
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/pci/controller/pcie-apple.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> index 6271533f1b042..23d9f62bd2ad4 100644
-> --- a/drivers/pci/controller/pcie-apple.c
-> +++ b/drivers/pci/controller/pcie-apple.c
-> @@ -747,7 +747,7 @@ static int apple_pcie_init(struct pci_config_window *cfg)
->  	struct device_node *of_port;
->  	int ret;
->  
-> -	for_each_child_of_node(dev->of_node, of_port) {
-> +	for_each_available_child_of_node(dev->of_node, of_port) {
->  		ret = apple_pcie_setup_port(pcie, of_port);
->  		if (ret) {
->  			dev_err(dev, "Port %pOF setup fail: %d\n", of_port, ret);
-> -- 
-> 2.39.2
-> 
+Regards,
+Lorenzo
+
+--E4yhCdChUNhJbUGb
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ+KvhgAKCRA6cBh0uS2t
+rJqvAP9OpMaZdQLvzyjRJ+yYPN1BtI+hjZJfXaRH2utWQHb7uwD+L6oltUUEGPYK
+Pxr4Ki69CfDwCdxPyDpzyKCdOPyfDAk=
+=cnQi
+-----END PGP SIGNATURE-----
+
+--E4yhCdChUNhJbUGb--
 
