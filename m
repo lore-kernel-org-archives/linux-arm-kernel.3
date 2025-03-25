@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DD3C3600B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACFAC3600D
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwjoEW3/NIbfZMbHFvVtoTAaUMS0MY//IOVeA1psqbE=; b=x3Ytc566MoP1ekEzpsNk7S4Kkw
-	290e1ZGoRNZPzeFWVq25qtDjjn0a981c6iwE/nR5IXxznCGCU2arvmpPZPEqas8g+q5vCioKBbllc
-	2PpG7Tn/Dhfqr0kj0wSrUmmH+ecDebQrCuUfprlrqEhHPNmEam9kiza714cUCEqcNrcnl8pFgoA0z
-	Ww7QrlpD1J+rUC0HTCaGG0ZKKJoMXxInL5QN4gI+w4Zcy3duR3UhSacUOYZESUrJmlrj9lAUhQixB
-	KA7ZW/jjtxxrbt5TI7ufBdkJyXz061cEaMWJmAXGI+5xiaJwIcuipE58evp28AubMQAoL9c1KMhpe
-	O559ED0w==;
+	bh=U0keoYKFiCJ4LV3AQsYhglu4Ffxy5MwjN+wvKunaX8w=; b=YaJY1xFx5E347Um4opdFgCyFoV
+	RXUOTJLN5J615bOw52n5+4wAi/cHefTI4KZhdd7OFeCJx+6W/OnOSLgdzH8r/hbvb+Lc+YRkCU1VR
+	QFecyDGfHhvQ5LE1orqeQiL4u95BT94BAKto6h4q8DyfkZq3KG3JKTu9Ry8Bx5KF0e+e0UQPxysiS
+	egD2531v2+gq81ts2Pg+HeCqX93OYNOyJYbuuLuXB6/PSRWbK/GXEFOXXfOavH7zp5gd+B9pRBXzM
+	O86B1V12j/jLYZxwqUYF8sE5ODnWTzuztZIv1xnp4EEweDpf3ncwvBIJqy53hqTBdwiRV3Fhjj1nW
+	V2yOX8dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7IW-00000006VWj-0y9T;
-	Tue, 25 Mar 2025 16:38:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tx7IX-00000006VXL-0LNR;
+	Tue, 25 Mar 2025 16:38:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx60j-00000006JFp-1QOZ;
-	Tue, 25 Mar 2025 15:16:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7ED11A493C1;
-	Tue, 25 Mar 2025 15:10:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E88A6C4CEE4;
-	Tue, 25 Mar 2025 15:16:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742915772;
-	bh=5ByUJpks9hkZhuJoceNmjpMgpU8NiVFGUeBDfoAE150=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vLPVmvDcdWcHF5VNb//6QuBceDBAFsUxvouEhOfevFwX7zzpHqTD7Z2q4DJvRmlFB
-	 GQv1gvCsygYRFHv/ja5UWu4+WwEr1my4iRzZQPi9S1P3dCtAutlpaKrsV8AW3L5Uto
-	 GqaKna3ic6X4bfMn91rlM047BCW+Dz/DM00Ld9yAJISCgFtC73NjcItqk3jIbkk51P
-	 fMr+TeBbaJy0F2tl7TqWhL7UwehxwVTrq3m5i9vgrRqtKk8I5jBlwlT7QIfHztKbxR
-	 vqQr78kIqdwVTfurkMxTojgv1Wz7bZxQuiWMoNU5vCFuOJI+kdOpM8DYxnnec0XaQ3
-	 G9cZsUGQP+61w==
-Date: Tue, 25 Mar 2025 10:16:11 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v3 02/10] dt-bindings: phy: samsung,usb3-drd-phy: add
- exynos2200 support
-Message-ID: <20250325151611.GA2057949-robh@kernel.org>
-References: <20250321135854.1431375-1-ivo.ivanov.ivanov1@gmail.com>
- <20250321135854.1431375-3-ivo.ivanov.ivanov1@gmail.com>
+	id 1tx62i-00000006JY6-3cLM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 15:18:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=U0keoYKFiCJ4LV3AQsYhglu4Ffxy5MwjN+wvKunaX8w=; b=J308oSuOz08iPftg02b0xJynWb
+	LJjcIjM2mQLv4WSnA0MiDomwG9uwpWpaBf5XG8dDEQUbH92CBdL0WSY7g++hMYxMWIxwtD11A70ou
+	OJ1XxzxSW7r4ozhETT7yr0nmRJXRjn0cCabVV54j/x2XOzk8rpag2GRkwFIuqalWIzKcD5baBdF3r
+	Nz+sPuLf1WU9dfPk5E9ayxIlHHY9qsXXipXCNKXkahVXGqRm8YzW/W6fJ51YmtLpUnOsufqvWeO9N
+	5GJ2BqWfDRDf3GtNMEU+0SVxmHxWHwtJ0Ia9Ftq3vS0QPqPE9frrZ25GKDXZtFNBA270cENfqc5sG
+	V7mOdTXg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tx62e-00000005bt8-0SYl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Mar 2025 15:18:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 221C81756;
+	Tue, 25 Mar 2025 08:18:14 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C720B3F58B;
+	Tue, 25 Mar 2025 08:18:07 -0700 (PDT)
+Date: Tue, 25 Mar 2025 15:18:03 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: suzuki.poulose@arm.com, mike.leach@linaro.org, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] coresight: prevent deactivate active config while
+ enabling the config
+Message-ID: <20250325151803.GD604566@e132581.arm.com>
+References: <20250324191740.64964-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250321135854.1431375-3-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250324191740.64964-1-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_081613_510841_06C57138 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20250325_151812_506172_9B5E898A 
+X-CRM114-Status: GOOD (  42.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +79,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 03:58:46PM +0200, Ivaylo Ivanov wrote:
-> Document support for Exynos2200. As the USBDRD 3.2 4nm controller
-> consists of Synopsys eUSB2.0 phy and USBDP/SS combophy, which will
-> be handled by external drivers, define only the bus clocked used
-> by the link controller.
+Hi Levi,
+
+On Mon, Mar 24, 2025 at 07:17:40PM +0000, Yeoreum Yun wrote:
+> While enable active config via cscfg_csdev_enable_active_config(),
+> active config could be deactivated via configfs' sysfs interface.
+> This could make UAF issue in below scenario:
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> CPU0                                          CPU1
+> (sysfs enable)                                load module
+>                                               cscfg_load_config_sets()
+>                                               activate config. // sysfs
+>                                               (sys_active_cnt == 1)
+> ...
+> cscfg_csdev_enable_active_config()
+>   lock(csdev->cscfg_csdev_lock)
+>   // here load config activate by CPU1
+>   unlock(csdev->cscfg_csdev_lock)
+> 
+>                                               deactivate config // sysfs
+>                                               (sys_activec_cnt == 0)
+>                                               cscfg_unload_config_sets()
+>                                               unload module
+> 
+>   // access to config_desc which freed
+>   // while unloading module.
+>   cfs_csdev_enable_config
+
+I am not sure if this flow can happen.  CoreSight configfs feature is
+integrated into the CoreSight core layer, and the other CoreSight
+modules are dependent on it.
+
+For example, if the ETM4x module is not removed, the kernel module
+management will natually prevent the CoreSight core module from being
+removed.
+
+> To address this, use cscfg_config_desc's active_cnt as a reference count
+> which will be holded when
+>     - activate the config.
+>     - enable the activated config.
+> and put the module reference when config_active_cnt == 0.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
->  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 38 +++++++++++++++++--
->  1 file changed, 34 insertions(+), 4 deletions(-)
+> Since v3:
+>   - Remove enable arguments in cscfg_config_desc_get() (from Mike).
+>   - https://lore.kernel.org/all/20250109171956.3535294-1-yeoreum.yun@arm.com/
+> ---
+>  .../hwtracing/coresight/coresight-config.h    |  2 +-
+>  .../coresight/coresight-etm4x-core.c          |  3 ++
+>  .../hwtracing/coresight/coresight-syscfg.c    | 52 +++++++++++++------
+>  3 files changed, 41 insertions(+), 16 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> index 16321cdd4..819e4afe6 100644
-> --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> @@ -26,6 +26,7 @@ properties:
->    compatible:
->      enum:
->        - google,gs101-usb31drd-phy
-> +      - samsung,exynos2200-usb32drd-phy
->        - samsung,exynos5250-usbdrd-phy
->        - samsung,exynos5420-usbdrd-phy
->        - samsung,exynos5433-usbdrd-phy
-> @@ -33,24 +34,32 @@ properties:
->        - samsung,exynos850-usbdrd-phy
->  
->    clocks:
-> -    minItems: 2
-> +    minItems: 1
->      maxItems: 5
->  
->    clock-names:
-> -    minItems: 2
-> +    minItems: 1
->      maxItems: 5
->      description: |
-> -      At least two clocks::
-> +      Typically two clocks::
-
-Don't need double colon.
-
->          - Main PHY clock (same as USB DRD controller i.e. DWC3 IP clock), used
->            for register access.
->          - PHY reference clock (usually crystal clock), used for PHY operations,
->            associated by phy name. It is used to determine bit values for clock
->            settings register.  For Exynos5420 this is given as 'sclk_usbphy30'
-> -          in the CMU.
-> +          in the CMU. It's not needed for Exynos2200.
->  
->    "#phy-cells":
->      const: 1
->  
-> +  phys:
-> +    maxItems: 1
-> +    description:
-> +      Phandle to USBDRD-underlying high-speed PHY
-
-Drop 'phandle to'.
-
+> diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+> index b9ebc9fcfb7f..90fd937d3bd8 100644
+> --- a/drivers/hwtracing/coresight/coresight-config.h
+> +++ b/drivers/hwtracing/coresight/coresight-config.h
+> @@ -228,7 +228,7 @@ struct cscfg_feature_csdev {
+>   * @feats_csdev:references to the device features to enable.
+>   */
+>  struct cscfg_config_csdev {
+> -	const struct cscfg_config_desc *config_desc;
+> +	struct cscfg_config_desc *config_desc;
+>  	struct coresight_device *csdev;
+>  	bool enabled;
+>  	struct list_head node;
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index e5972f16abff..ef96028fa56b 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1020,6 +1020,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>  	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+> 
+>  	raw_spin_unlock(&drvdata->spinlock);
 > +
-> +  phy-names:
-> +    const: hs
+> +	cscfg_csdev_disable_active_config(csdev);
 > +
->    port:
->      $ref: /schemas/graph.yaml#/properties/port
->      description:
-> @@ -137,6 +146,27 @@ allOf:
->          - vdda-usbdp-supply
->          - vddh-usbdp-supply
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - samsung,exynos2200-usb32drd-phy
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 1
-> +        clock-names:
-> +          items:
-> +            - const: phy
-> +        reg:
-> +          maxItems: 1
-> +        reg-names:
-> +          maxItems: 1
-> +      required:
-> +        - phys
-> +        - phy-names
+
+In general, we need to split changes into several patches if each
+addresses a different issue.  From my understanding, the change above is
+to fix missing to disable config when disable Sysfs mode.
+
+If so, could we use a seperate patch for this change?
+
+>  	cpus_read_unlock();
+> 
+>  	/*
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+> index a70c1454b410..6d8c212ad434 100644
+> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+> @@ -391,14 +391,17 @@ static void cscfg_owner_put(struct cscfg_load_owner_info *owner_info)
+>  static void cscfg_remove_owned_csdev_configs(struct coresight_device *csdev, void *load_owner)
+>  {
+>  	struct cscfg_config_csdev *config_csdev, *tmp;
+> +	unsigned long flags;
+> 
+>  	if (list_empty(&csdev->config_csdev_list))
+>  		return;
+> 
+> +	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+
+I think we should use spinlock to guard the condition checking
+list_empty().
+
+Here the race condition is the 'config_csdev_list' list and
+configurations on the list.  For atomicity, we should use lock to
+protect any operations on the list (read, add, delete, etc).
+
+A side topic, as here it adds locks for protecting 'config_csdev_list',
+I am wandering why we do not do the same thing for
+'feature_csdev_list' (See cscfg_remove_owned_csdev_features() and
+cscfg_get_feat_csdev()).
+
+>  	list_for_each_entry_safe(config_csdev, tmp, &csdev->config_csdev_list, node) {
+>  		if (config_csdev->config_desc->load_owner == load_owner)
+>  			list_del(&config_csdev->node);
+>  	}
+> +	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+>  }
+> 
+>  static void cscfg_remove_owned_csdev_features(struct coresight_device *csdev, void *load_owner)
+> @@ -867,6 +870,25 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
+>  }
+>  EXPORT_SYMBOL_GPL(cscfg_csdev_reset_feats);
+> 
+> +static bool cscfg_config_desc_get(struct cscfg_config_desc *config_desc)
+> +{
+> +	if (!atomic_fetch_inc(&config_desc->active_cnt)) {
+> +		/* must ensure that config cannot be unloaded in use */
+> +		if (unlikely(cscfg_owner_get(config_desc->load_owner))) {
+> +			atomic_dec(&config_desc->active_cnt);
+> +			return false;
+> +		}
+> +	}
 > +
->    - if:
->        properties:
->          compatible:
-> -- 
-> 2.43.0
+> +	return true;
+> +}
+> +
+> +static void cscfg_config_desc_put(struct cscfg_config_desc *config_desc)
+> +{
+> +	if (!atomic_dec_return(&config_desc->active_cnt))
+> +		cscfg_owner_put(config_desc->load_owner);
+> +}
+> +
+>  /*
+>   * This activate configuration for either perf or sysfs. Perf can have multiple
+>   * active configs, selected per event, sysfs is limited to one.
+> @@ -890,22 +912,17 @@ static int _cscfg_activate_config(unsigned long cfg_hash)
+>  			if (config_desc->available == false)
+>  				return -EBUSY;
+> 
+> -			/* must ensure that config cannot be unloaded in use */
+> -			err = cscfg_owner_get(config_desc->load_owner);
+> -			if (err)
+> +			if (!cscfg_config_desc_get(config_desc)) {
+> +				err = -EINVAL;
+>  				break;
+> +			}
+> +
+>  			/*
+>  			 * increment the global active count - control changes to
+>  			 * active configurations
+>  			 */
+>  			atomic_inc(&cscfg_mgr->sys_active_cnt);
+
+Seems to me, it is more reasonable to use 'sys_active_cnt' to acquire
+the module reference instead of 'config_desc->active_cnt'.  The reason
+is 'sys_active_cnt' is a global counter.
+
+> -			/*
+> -			 * mark the descriptor as active so enable config on a
+> -			 * device instance will use it
+> -			 */
+> -			atomic_inc(&config_desc->active_cnt);
+> -
+>  			err = 0;
+>  			dev_dbg(cscfg_device(), "Activate config %s.\n", config_desc->name);
+>  			break;
+> @@ -920,9 +937,8 @@ static void _cscfg_deactivate_config(unsigned long cfg_hash)
+> 
+>  	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
+>  		if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
+> -			atomic_dec(&config_desc->active_cnt);
+>  			atomic_dec(&cscfg_mgr->sys_active_cnt);
+> -			cscfg_owner_put(config_desc->load_owner);
+> +			cscfg_config_desc_put(config_desc);
+>  			dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
+>  			break;
+>  		}
+> @@ -1047,7 +1063,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>  				     unsigned long cfg_hash, int preset)
+>  {
+>  	struct cscfg_config_csdev *config_csdev_active = NULL, *config_csdev_item;
+> -	const struct cscfg_config_desc *config_desc;
+> +	struct cscfg_config_desc *config_desc;
+>  	unsigned long flags;
+>  	int err = 0;
+> 
+> @@ -1062,8 +1078,8 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>  	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+>  	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
+>  		config_desc = config_csdev_item->config_desc;
+> -		if ((atomic_read(&config_desc->active_cnt)) &&
+> -		    ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
+> +		if (((unsigned long)config_desc->event_ea->var == cfg_hash) &&
+> +				cscfg_config_desc_get(config_desc)) {
+
+This seems to me not right.  Why a config descriptor is get in multiple
+places?  One time getting a config descriptor is in
+_cscfg_activate_config(), another is at here.
+
+To be honest, I am not clear what is the difference between 'activate'
+config and 'enable active' config.  Literally, I think we only need to
+acquire the config at its creating phase (maybe match to activate
+config?).
+
+>  			config_csdev_active = config_csdev_item;
+>  			csdev->active_cscfg_ctxt = (void *)config_csdev_active;
+>  			break;
+> @@ -1097,7 +1113,11 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>  				err = -EBUSY;
+>  			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+>  		}
+> +
+> +		if (err)
+> +			cscfg_config_desc_put(config_desc);
+>  	}
+> +
+>  	return err;
+>  }
+>  EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
+> @@ -1136,8 +1156,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+>  	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+> 
+>  	/* true if there was an enabled active config */
+> -	if (config_csdev)
+> +	if (config_csdev) {
+>  		cscfg_csdev_disable_config(config_csdev);
+> +		cscfg_config_desc_put(config_csdev->config_desc);
+> +	}
+>  }
+>  EXPORT_SYMBOL_GPL(cscfg_csdev_disable_active_config);
+> 
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 > 
 
