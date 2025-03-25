@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F276AC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B361C3600D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mvcb0QHcMv6UaG/PLGLNNDsQkV2IC4+2Y3SRh51umwg=; b=U5kv9yDh7IYA8gCqBlzI1SgSVu
-	ulZkHBfLpJM3enO8uG2OniemD3L01q/iHYRXZc+aCL/9q6R3dvbXlIYxFLBm4PAp9FM1kDXOPcTZh
-	rAtHGo5Fbj2BYnU+7QEBYuZXJPgOKc2G61BJTzUbxFweeYK6YP235jZBUwB64ce7DI9tTJhz9G4lA
-	BvNsYQTdaGav6ub7j8PF+vRsv9TtpC8fIMPy8Xa9kban2PW7wwZ5p8EthKmWqOM9cXu2k9SIxkAXy
-	bMW95GgKLQWXAbXoEBnbMhEDniEJmo3NmgeJZ7Gg66ExcRYMNqtWdXbSEJU5nAqzQdzjv8mtSh6wg
-	Jk2bXMPQ==;
+	bh=eqktsYbppSRlX7is342sEJneyeO0UnKXZfokmTQClpY=; b=2+Bue7jOvdfCYcCxNI2UnHUJNM
+	ftDLDD+2k2zlS369f1zKl5iFW+AMKGJsQWISjJ9XHeoFrL2w3B8EeTv0KMCita4YkdcduqEP2mz+h
+	hhpl0tge0OQxBB1sfMLR/OLuUy7gaHfttlxOmrAnh1ArkDo9YqQAw0YhHcCRhlhv7RbNG3Muu89Zy
+	QaCtqiCKpW9SBrTR5zto4w4FfSX08+c93gePLau5vzVDFBQhdEMW/an736VnkZ4FyTb1nR/0gs5W/
+	EaY+g74RyjD8r12h3PaE2BESkBwtKAlPjLAkvtGCRjCms6SlwZe/NMu3UJsOYJaqjIvtLd/J/NY8j
+	fsFpvt8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7CU-00000006UiK-1qri;
-	Tue, 25 Mar 2025 16:32:26 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tx7Ft-00000006V5x-1jgD;
+	Tue, 25 Mar 2025 16:35:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx74m-00000006TTw-0L9K
+	id 1tx77L-00000006U5K-18UC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 16:27:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eqktsYbppSRlX7is342sEJneyeO0UnKXZfokmTQClpY=; b=iQOgx42Stqou8AH10asLd5JD5h
+	pBwtkgzljnuHRVCOo1pxbzJRUv0PG3DBg+7lctaqc+dvW8UAISYn0TpW5ong1uZ74tvBXT04p+P2V
+	hJHC8G2zubmA1zY8Jrw8tSOzTVUgN+ZRK4WO9PkeS5x5M5WjPgADEg8ciuoyP0noXUc5RGgEOQFgf
+	hsAnwwcWKEOEP6U1hhn2D32Z9BD9tPviKvBDK7c7KCBr1Avx9acFpZeHo16ZvwLGJHwVKd55w4bdu
+	EyuFNwI0jt8XKz8FSSc+XQRkuoy2N4dBzcYtaJ3RWUcuPdMjbzSKMaVAlv7t4JnBZUubB4RgcR0P+
+	Fl6usonQ==;
+Received: from mgamail.intel.com ([198.175.65.21])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tx77H-00000005eRr-3XwK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 16:24:29 +0000
+	Tue, 25 Mar 2025 16:27:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1742919868; x=1774455868;
+  t=1742920024; x=1774456024;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=O6zgiQy9PurDUfDFlX9BIxqNQbwiYYtsMkbmcnI3ETA=;
-  b=BUv0ibgUtpRMZO6T77dLnnqTslL5W4M9PL20HjNYkwR8DWZuOK4EgzI1
-   z7gkp5KjRizM2bGr17E5dyqqpjX0lef9dk0U2VQEmydUemjvORNHxdk5L
-   AVNhGvEUVzUu/G2s//Qm8xAzUhssRQj5EwgQ9vyM7uED7OFgQQMnPJo5T
-   lKjlxJVg5nzwHTmXB8w7OzvPtN7H6ytiQxRV99oVGQ2eoqE2i2Pt4H1KH
-   UalBegz4/FWYWYHwVMeHSF2AKclTrgnVEm0YK10SVkTcnQ5VX4zS3FpIP
-   Zy2BaCDW062QDlmdIscvLdYg3qq8oCj2P5RBkOAE/HpS3sIShucIvSI+i
-   Q==;
-X-CSE-ConnectionGUID: 81u/R7UhTyikq/eompxTjg==
-X-CSE-MsgGUID: PGsck5gZSQ6DRVl/nj6C4g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11384"; a="54825759"
+  bh=aUoNv4oYa8qCJxrDcUluP80WU2qGEeImHsJYH4SlPvY=;
+  b=gaIptIJ0vGvRn9+T6iT8t6J+l4AcPCU94bLGOs5LKzbBBMRhrLqwlLJg
+   7l9XXeKFW4eSo4yTSPFOPcTXSEurXGS0d6GqqCBYYa5YT/gx1y/Ogz8mg
+   UozgHKGJhm+Gwcr2gkvXnoMFlbiXo0wX3Rj6+1faoP8F40jeItQjxQuqX
+   hTeRNnGqrn0exdNGstCMAyIPAoVU93RYB6CgjJy0MZdo0lVxO1+Fcl0P9
+   1ddHwTOuOFJ1JKCoXxx/p9facHr2jz6bVQJbYicKLp4CnCL/EhFddOpHY
+   HQYYh6+dKETYq9HtERUG4qxTEDzDzRDY9jvd3VoxT/7rfWhAcnoi47Hia
+   w==;
+X-CSE-ConnectionGUID: JGDMVIxLQq+qP9K7m8A4WQ==
+X-CSE-MsgGUID: jZQ5NhdORgaFVT2EqGq6GA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11384"; a="44103821"
 X-IronPort-AV: E=Sophos;i="6.14,275,1736841600"; 
-   d="scan'208";a="54825759"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2025 09:24:26 -0700
-X-CSE-ConnectionGUID: nzc9vcrxQ/+kqPwoeiOqSw==
-X-CSE-MsgGUID: gCtk4bmRQT+ihdrBce7azg==
+   d="scan'208";a="44103821"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2025 09:26:43 -0700
+X-CSE-ConnectionGUID: JlxV2pRcQ2aEbRUQGA2njA==
+X-CSE-MsgGUID: t1wgPdBMRwGB6RhGZYQreQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.14,275,1736841600"; 
-   d="scan'208";a="124897126"
+   d="scan'208";a="124401977"
 Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2025 09:24:22 -0700
+  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2025 09:26:38 -0700
 Received: from andy by smile.fi.intel.com with local (Exim 4.98)
 	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tx74d-00000005njC-1USU;
-	Tue, 25 Mar 2025 18:24:19 +0200
-Date: Tue, 25 Mar 2025 18:24:19 +0200
+	id 1tx76o-00000005nl0-3rmp;
+	Tue, 25 Mar 2025 18:26:34 +0200
+Date: Tue, 25 Mar 2025 18:26:34 +0200
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: mailhol.vincent@wanadoo.fr
 Cc: Yury Norov <yury.norov@gmail.com>,
@@ -76,20 +91,19 @@ Cc: Yury Norov <yury.norov@gmail.com>,
 	David Laight <David.Laight@aculab.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Jani Nikula <jani.nikula@intel.com>
-Subject: Re: [PATCH v8 2/6] bits: introduce fixed-type GENMASK_U*()
-Message-ID: <Z-LYs9D8_Q76bDQk@smile.fi.intel.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 6/6] test_bits: add tests for BIT_U*()
+Message-ID: <Z-LZOoE0tYc51Xlx@smile.fi.intel.com>
 References: <20250326-fixed-type-genmasks-v8-0-24afed16ca00@wanadoo.fr>
- <20250326-fixed-type-genmasks-v8-2-24afed16ca00@wanadoo.fr>
+ <20250326-fixed-type-genmasks-v8-6-24afed16ca00@wanadoo.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250326-fixed-type-genmasks-v8-2-24afed16ca00@wanadoo.fr>
+In-Reply-To: <20250326-fixed-type-genmasks-v8-6-24afed16ca00@wanadoo.fr>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_092428_158776_9275228B 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250325_162704_260847_AF7A6591 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +118,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 12:59:57AM +0900, Vincent Mailhol via B4 Relay wrote:
+On Wed, Mar 26, 2025 at 01:00:01AM +0900, Vincent Mailhol via B4 Relay wrote:
 > From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 > 
-> Add GENMASK_TYPE() which generalizes __GENMASK() to support different
-> types, and implement fixed-types versions of GENMASK() based on it.
-> The fixed-type version allows more strict checks to the min/max values
-> accepted, which is useful for defining registers like implemented by
-> i915 and xe drivers with their REG_GENMASK*() macros.
+> Add some additional tests in lib/tests/test_bits.c to cover the
+> expected results of the fixed type BIT_U*() macros.
 > 
-> The strict checks rely on shift-count-overflow compiler check to fail
+> Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+> Reviewed-by: Lucas De Marchi <lucas.demarchi@intel.com>
 
--Wshift-count-overflow
-
-but it's not so important here. It's good that it's fixed in the comment.
-In any case if Yury wants/can do the change, it might be done when applying.
-(I.o.w. no need to resend)
-
-> the build if a number outside of the range allowed is passed.
-> Example:
-> 
->   #define FOO_MASK GENMASK_U32(33, 4)
-> 
-> will generate a warning like:
-> 
->   include/linux/bits.h:51:27: error: right shift count >= width of type [-Werror=shift-count-overflow]
->      51 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
->         |                           ^~
-> 
-> The result is casted to the corresponding fixed width type. For
-> example, GENMASK_U8() returns an u8. Note that because of the C
-> promotion rules, GENMASK_U8() and GENMASK_U16() will immediately be
-> promoted to int if used in an expression. Regardless, the main goal is
-> not to get the correct type, but rather to enforce more checks at
-> compile time.
-> 
-> While GENMASK_TYPE() is crafted to cover all variants, including the
-> already existing GENMASK(), GENMASK_ULL() and GENMASK_U128(), for the
-> moment, only use it for the newly introduced GENMASK_U*(). The
-> consolidation will be done in a separate change.
-
-The change LGTM, FWIW,
+New tests always have a green light to go from my point of view,
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
 -- 
