@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C060BC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A81C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U+sinP1KbP6gRyd662q74ft7krvF+XuTd9dMt91h8ZM=; b=zbmxckFL7FvdPeQC3W3gNsb76S
-	MRVleZR1pcTganIvU3z1lAjZrxGTaUCeIbHTK1899KWyrCt9icUcgCtUf2vsoSRU2oKMUcpZWRGa9
-	0SJF9w8HTq8wmz+y/1O7EhZvu2do3uCCd9kA749aFGrtkQdtX819fITn55IMpAeCWF0PJRsh0ZARi
-	lCT8g/CjE9WRPKfMrJg/Le+oWSATfOUQaGq7bh6xRu4cb9laOo4FGDt9HJmLByoH9F2bjOyV6GWEV
-	spOAygVhdiZrxZLijBJeOYrtybjj2PpYhOqKGCrulasCBssmNpviN6p0fJMK3tjk0LynILpyDueBw
-	a/B4lXzg==;
+	bh=Nb567w52U4VX6RZjUZZTTfiL9LAMzEOtwHBwdKK5Hbc=; b=sL3P+HdCO2gs04Qtu8UndZvYcn
+	QCTMrBuQ2EOSR80U2nh4lXlKpfVrZGN5uEthMnaROW9KH0/LfYX9m0FGSQRFQQU5KdHzeey9WxuxI
+	ufsSmz20iJNtN09F0jG15x7aAqJSfhDAdDRxo76KRYKq/Zd95eXWsxirQwPtGKBmSpWS+M3xw3qd6
+	x4s9Pd6p8Ku1QgfoLwpJTaZ5gW7X43vveFo7p2GXoRFBvtW8KH6mHhcGLWa5XJJwGoPZ8YaoIxRjo
+	ksr3re02cufJJ9shK77wZzOBYURGPbMyc8BUKn14bcXdHkGlhx4leF+7hNBsbR8g3sxvbZ2BpyPOB
+	85O97D3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx1wh-00000005WIk-1IMk;
-	Tue, 25 Mar 2025 10:55:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tx20B-00000005ZBt-2Kl2;
+	Tue, 25 Mar 2025 10:59:23 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx1tG-00000005VMt-2Jz0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 10:52:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E1DD35C455A;
-	Tue, 25 Mar 2025 10:49:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C622C4CEE4;
-	Tue, 25 Mar 2025 10:52:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742899933;
-	bh=6ypNKE5ZUkZr30q3QrGqJ1AyK2lvJpMFRFKd+k+UQyU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BkD8segMa744iDyhseiLZSyYO++pLVPKksXKGq0lrMcSObF8AAQblZfunBnZ+AwOO
-	 1ZsSTTTnPunwep0L3Ul0I/kR0DomSdk7QTyhRhYA4He7+DdIn8TNSCYX3MniWc0ebJ
-	 dGXZBJRTCXDjhHdgpkH9M86de2Aa2o6glPo/FQH1PXar4DTrakLKCVKpJ+lrk7aIzL
-	 ux83Fa0/BWBjlyDOxEFA04du4r749a/f8rUh50LLZ+ePF+4A0WsY4N1i7H17xFXvJ8
-	 kV/uIt2XaNQ9fWrwppPag4o+IUlo51rTF4O0IOyYldXL0TUR7qkcugyiwxCdKJ7oqH
-	 +sCDvndX0Woog==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tx1tD-00Gsvq-CI;
-	Tue, 25 Mar 2025 10:52:11 +0000
-Date: Tue, 25 Mar 2025 10:52:10 +0000
-Message-ID: <865xjxmlgl.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: soc@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	arnd@arndb.de,
+	id 1tx1uY-00000005Vko-4A4X
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 10:53:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Nb567w52U4VX6RZjUZZTTfiL9LAMzEOtwHBwdKK5Hbc=; b=KgO5HIoukwLGEoCeX08x3EAFwK
+	GguROLbOvjWQ/+UilEVKvr0ye+kuwYiGN3sLL+QkP8mE6bXpw2MSDESAE5pCllViCqmRZB2+iaoHz
+	BS9uZlyi5xy1y+rQVtWNi78ok9I5/x+dxOij5WuzFLkmmLF3fChSUVuQwUZe0ph/OHXmRHqxwuZRS
+	v8m9zjz4AJ89tVe6vQMNuLPXBb6KMI5L7acEYKAnXanttEy3ATH33I9MwGcTbk/6AGa6GhSV7S6Hv
+	5T9m7oyaE4C1pGtBIceHds6d1vwSbTcSo6jSy/qtxIEKJAS2YO9xGVwBf5cmry9olzAS3sdLDY2Q9
+	VF14oI6A==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tx1uU-00000003qLq-3WNM;
+	Tue, 25 Mar 2025 10:53:30 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 66A333004AF; Tue, 25 Mar 2025 11:53:30 +0100 (CET)
+Date: Tue, 25 Mar 2025 11:53:30 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	marcin@juszkiewicz.com.pl,
-	kajetan.puchalski@arm.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Fugang Duan <fugang.duan@cixtech.com>
-Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-In-Reply-To: <20250324062420.360289-6-peter.chen@cixtech.com>
-References: <20250324062420.360289-1-peter.chen@cixtech.com>
-	<20250324062420.360289-6-peter.chen@cixtech.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peter.chen@cixtech.com, soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, marcin@juszkiewicz.com.pl, kajetan.puchalski@arm.com, krzysztof.kozlowski@linaro.org, fugang.duan@cixtech.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_035214_682685_5B84B8C0 
-X-CRM114-Status: GOOD (  29.98  )
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Andrii Nakryiko <andrii.nakryiko@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Tong Tiangen <tongtiangen@huawei.com>
+Subject: Re: [PATCH v3 0/3] kernel/events/uprobes: uprobe_write_opcode()
+ rewrite
+Message-ID: <20250325105330.GI36322@noisy.programming.kicks-ass.net>
+References: <20250321113713.204682-1-david@redhat.com>
+ <20250321133401.GB4776@redhat.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250321133401.GB4776@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,342 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Mar 2025 06:24:19 +0000,
-Peter Chen <peter.chen@cixtech.com> wrote:
+On Fri, Mar 21, 2025 at 02:34:01PM +0100, Oleg Nesterov wrote:
+> On 03/21, David Hildenbrand wrote:
+> >
+> > Based on mm/unstable.
 > 
-> CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
-> and Orion O6 is open source motherboard launched by Radxa.
-> See below for detail:
-> https://docs.radxa.com/en/orion/o6/getting-started/introduction
+> which has another fix from David in __replace_page() plus the fix from
+> Tong in uprobe_write_opcode().
 > 
-> In this commit, it only adds limited components for running initramfs
-> at Orion O6.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> ---
-> Changes for v5:
-> - Delete pmu-spe node which need to refine, and add it in future
-> 
-> Changes for v4:
-> - Add ppi-partition entry for gic-v3 node, and let pmu-a520 and pmu-a720's interrupt entry
-> get its handle
-> - Remove gic-v3's #redistributor-regions and redistributor-stride properties
-> - Change gic-v3's #interrupt-cells as 4, and change all interrupt specifiers accordingly
-> - Remove "arm,no-tick-in-suspend" for timer due to global counter is at always-on power domain
-> - Remove timer's clock frequency due to firmware has already set it
-> - Add Krzysztof Kozlowski's reviewed-by
-> 
-> Changes for v3:
-> - Fix two dts coding sytle issues 
-> 
-> Changes for v2:
-> - Corrects the SoF tag's name
-> - Fix several coding sytle issues
-> - move linux,cma node to dts file
-> - delete memory node, memory size is passed by firmware
-> - delete uart2 node which will be added in future patches
-> - Improve for pmu and cpu node to stands for more specific cpu model
-> - Improve the timer node and add hypervisor virtual timer irq
-> - Pass "make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb"
-> 
->  arch/arm64/boot/dts/Makefile              |   1 +
->  arch/arm64/boot/dts/cix/Makefile          |   2 +
->  arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  26 +++
->  arch/arm64/boot/dts/cix/sky1.dtsi         | 217 ++++++++++++++++++++++
->  4 files changed, 246 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/cix/Makefile
->  create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
->  create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index 79b73a21ddc2..8e7ccd0027bd 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -13,6 +13,7 @@ subdir-y += bitmain
->  subdir-y += blaize
->  subdir-y += broadcom
->  subdir-y += cavium
-> +subdir-y += cix
->  subdir-y += exynos
->  subdir-y += freescale
->  subdir-y += hisilicon
-> diff --git a/arch/arm64/boot/dts/cix/Makefile b/arch/arm64/boot/dts/cix/Makefile
-> new file mode 100644
-> index 000000000000..ed3713982012
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_CIX) += sky1-orion-o6.dtb
-> diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> new file mode 100644
-> index 000000000000..78f4fcd87216
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sky1.dtsi"
-> +/ {
-> +	model = "Radxa Orion O6";
-> +	compatible = "radxa,orion-o6", "cix,sky1";
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			size = <0x0 0x28000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> new file mode 100644
-> index 000000000000..5bfeeea454e0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -0,0 +1,217 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x0>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu1: cpu@100 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x100>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu2: cpu@200 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x200>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu3: cpu@300 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x300>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu4: cpu@400 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x400>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu5: cpu@500 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x500>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu6: cpu@600 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x600>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu7: cpu@700 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x700>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu8: cpu@800 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x800>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu9: cpu@900 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x900>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu10: cpu@a00 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0xa00>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu11: cpu@b00 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0xb00>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu-map {
-> +			cluster0 {
-> +				core0 {
-> +					cpu = <&cpu0>;
-> +				};
-> +				core1 {
-> +					cpu = <&cpu1>;
-> +				};
-> +				core2 {
-> +					cpu = <&cpu2>;
-> +				};
-> +				core3 {
-> +					cpu = <&cpu3>;
-> +				};
-> +				core4 {
-> +					cpu = <&cpu4>;
-> +				};
-> +				core5 {
-> +					cpu = <&cpu5>;
-> +				};
-> +				core6 {
-> +					cpu = <&cpu6>;
-> +				};
-> +				core7 {
-> +					cpu = <&cpu7>;
-> +				};
-> +				core8 {
-> +					cpu = <&cpu8>;
-> +				};
-> +				core9 {
-> +					cpu = <&cpu9>;
-> +				};
-> +				core10 {
-> +					cpu = <&cpu10>;
-> +				};
-> +				core11 {
-> +					cpu = <&cpu11>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	pmu-a520 {
-> +		compatible = "arm,cortex-a520-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition0>;
-> +	};
-> +
-> +	pmu-a720 {
-> +		compatible = "arm,cortex-a720-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition1>;
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0";
-> +		method = "smc";
-> +	};
-> +
-> +	soc@0 {
-> +		compatible = "simple-bus";
-> +		ranges = <0 0 0 0 0x20 0>;
-> +		dma-ranges;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +
-> +		gic: interrupt-controller@e010000 {
-> +			compatible = "arm,gic-v3";
-> +			reg = <0x0 0x0e010000 0 0x10000>,	/* GICD */
-> +			      <0x0 0x0e090000 0 0x300000>;       /* GICR * 12 */
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW 0>;
-> +			#interrupt-cells = <4>;
-> +			interrupt-controller;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			ranges;
-> +
-> +			gic_its: msi-controller@e050000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x0e050000 0x0 0x30000>;
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +
-> +			ppi-partitions {
-> +				ppi_partition0: interrupt-partition-0 {
-> +					affinity = <&cpu0 &cpu1 &cpu2 &cpu3>;
-> +				};
-> +
-> +				ppi_partition1: interrupt-partition-1 {
-> +					affinity = <&cpu4 &cpu5 &cpu6 &cpu7 &cpu8 &cpu9 &cpu10 &cpu11>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupt-names = "sec-phys", "phys", "virt", "hyp-phys", "hyp-virt";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
-> +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
-> +	};
-> +};
+> So, Andrew, could you take this series as well? Peter, will you agree?
 
-I don't think there is anything wrong here, but it is also a pretty
-useless DT. There isn't even a UART to interact with the machine and
-find out whether it has actually booted.
+Yeah,
 
-I reckon this should be part of the initial DT, as this otherwise
-serves little purpose.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 
