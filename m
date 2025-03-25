@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0175FC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933E4C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 10:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pjwodPeGoQRNskM8wRB/+5v/OYaad9fMmX1WtOfP2Ug=; b=zn4aRP4qPzJyR+q+vnKRtRw7dQ
-	lRwbuySS3KCVZKF3D4JNf0AeVH+easYYRHD09DqtqadCMWVlW4wkK9wGPZU/vt9/WjVjXCHYke5b2
-	ZczDMuV4Z4oxB6wrTbjXpkyQpCDoZXlK+D7KscBSl6oc7mHeEGC9p+jY3RrDsVC+HIfAQRwIzdOCp
-	hmVLKb5v1cvPV92n82noXYXSBN6cIzBBVhA19ssK6WCWSemi5VIYa93o1rCFVZX2Z5wrwEEumihWv
-	9lYRJCxQAbqXxlwcAZalJJhPHb4aGGJDnVwW26gX55E67e3e3U6BnHglET40T4lisuoGg5sy76xOW
-	YT3qNoJg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gzYR5cNQ0ecmLOA9GQWS3MuyWMyDZ9dNGuAlrYXRKm0=; b=vx1pPv/kpABR8N+Njix5fpmf6C
+	oIKZQrzgecQP/wrhCnvS8dnwK9kb9IMUNCkSMwx6aOKTVsWYwCZYpezNFQKJdLbFd5x6ef06DyZXO
+	U86N/lPhH6jZIgIYf5LH9HoOmMXfEYR0rZGDbsN0yUOt/SWMDcu1KYLKRxhePJaD7GXpVzH+Nrmj1
+	9dRo3fi97vS2w5ZB3auqxZaakwEP7L8ATy1y+Ox7nukcRY3tBYf6MivcD3MPYd0r/SofGSUM8VEqO
+	mvAz/aN0wBwm9sF9b/y3/zkAQt4KjrWrk18GJVp9XMcHTIurEwprNFAV18kXA/wgwxws2V8DAZNfR
+	BtPa50kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx1CJ-00000005Om9-3wTA;
-	Tue, 25 Mar 2025 10:07:51 +0000
+	id 1tx1E1-00000005OwU-2eFg;
+	Tue, 25 Mar 2025 10:09:37 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx15T-00000005Nik-48pD
+	id 1tx15i-00000005Npw-3yGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 10:00:51 +0000
+	Tue, 25 Mar 2025 10:01:04 +0000
 Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52P69SAF005985;
-	Tue, 25 Mar 2025 11:00:38 +0100
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52P7cmeL001618;
+	Tue, 25 Mar 2025 11:00:57 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=pjwodPeGoQRNskM8wRB/+5
-	v/OYaad9fMmX1WtOfP2Ug=; b=C9bnNZUZubciQOiwpWJibY0aPgIVkw+SJaz/Ps
-	aaliIjjvmLR9uWL/nlp/Ji+MyFzxP9K0wOlEifwtYAeIxzvoZ122sCdVnNKL8QhM
-	djJEozRmLNwD5E+tfvlm6Uf12lwGF/CKZEW2ZPo1JJTFkaQ6HqIdPvEaHMf7jEpl
-	WpoiFj25hTD+xgGnz32GwBFrL3j/UNQ3KrQyE28QWMPcM4LUJglxpDfXwOaA0Kbd
-	o8qkKB4yplNtWVJC1/WBzPkfDZUnV6+1NzeFPZKoXd0YS95+ry2LyHz/DuQw80OD
-	rtRAUCu2ywEKG5WHofSfnxGor3fEvZTcdUqg/UR3MsdkyaWw==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	gzYR5cNQ0ecmLOA9GQWS3MuyWMyDZ9dNGuAlrYXRKm0=; b=oiobuiIMnOga2G2b
+	yrt8BwGqvXQPfdoPzTkuvJrh+LvSbS1f813ED7BXHy0eBHqiIRdhc41QbSF/8XcK
+	3QxK2IV07C8xljKfaSU1WDvsL1c4+eF19JcK0mM3bMuNM88MgUlJQNWN/hzF7tr0
+	KI3hKgutR/OkLZ4nqLlsgs2zmhGP7xyxJRrnH02dYv+hOVjUTclJmOZcHUQKCELX
+	FaRa4PHjcVfUexrNko0t1vXd0CqmXR/ISITJZslDPhpM2D8NPY8bmV2fEFwfjFIK
+	LjJ6GZvjG5MBmH8nwK8r/mvyXyMDM5zsVBn/lkGYV6GXJbI/yL0Gsq6ihgNmZMbf
+	QMNy/w==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45hk7d3yg3-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45hk7d3yhj-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Mar 2025 11:00:38 +0100 (CET)
+	Tue, 25 Mar 2025 11:00:57 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1B07940055;
-	Tue, 25 Mar 2025 10:59:36 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 44DB040047;
+	Tue, 25 Mar 2025 10:59:56 +0100 (CET)
 Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EFBF3823755;
-	Tue, 25 Mar 2025 10:58:44 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8EE818265C6;
+	Tue, 25 Mar 2025 10:58:47 +0100 (CET)
 Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
  (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Mar
- 2025 10:58:44 +0100
+ 2025 10:58:47 +0100
 Received: from localhost (10.252.12.99) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Mar
- 2025 10:58:44 +0100
+ 2025 10:58:47 +0100
 From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Mathieu Poirier
@@ -71,10 +72,12 @@ CC: <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
         Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v16 0/6] Introduction of a remoteproc tee to load signed firmware
-Date: Tue, 25 Mar 2025 10:58:27 +0100
-Message-ID: <20250325095833.3059895-1-arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v16 3/6] remoteproc: Introduce release_fw optional operation
+Date: Tue, 25 Mar 2025 10:58:30 +0100
+Message-ID: <20250325095833.3059895-4-arnaud.pouliquen@foss.st.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250325095833.3059895-1-arnaud.pouliquen@foss.st.com>
+References: <20250325095833.3059895-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -85,8 +88,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-25_04,2025-03-25_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_030048_524894_CDFE14E8 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20250325_030103_279189_52CD2034 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,93 +104,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Main updates from version V15[1]:
-- Removed the rproc_ops:load_fw() operation introduced in the previous version.
-- Returned to managing the remoteproc firmware loading in rproc_tee_parse_fw to
-  load and authenticate the firmware before getting the resource table.
-- Added spinlock and dev_link mechanisms in remoteproc TEE to better manage
-  bind/unbind.
+The release_fw operation is the inverse operation of the load, responsible
+for releasing the remote processor resources configured from the loading
+of the remoteproc firmware (e.g., memories).
 
-More details are available in each patch commit message.
+The operation is called in the following cases:
+ - An error occurs on boot of the remote processor.
+ - An error occurs on recovery start of the remote processor.
+ - After stopping the remote processor.
 
-[1] https://lore.kernel.org/linux-remoteproc/20241128084219.2159197-7-arnaud.pouliquen@foss.st.com/T/
+This operation is needed for the remoteproc_tee implementation after stop
+and on error.
+Indeed, as the remoteproc image is loaded when we parse the resource
+table, there are many situations where something can go wrong before
+the start of the remote processor(resource handling, carveout allocation,
+...).
 
-Tested-on: commit 0a0ba9924445 ("Linux 6.14-rc7")
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+---
+Updates vs previous version:
+- remove the rproc:load_fw() ops introduced in previous version
+- remove duplicate call of rproc_release_fw in rproc_fw_boot and rproc_boot
+---
+ drivers/remoteproc/remoteproc_core.c     | 6 ++++++
+ drivers/remoteproc/remoteproc_internal.h | 6 ++++++
+ include/linux/remoteproc.h               | 3 +++
+ 3 files changed, 15 insertions(+)
 
-Description of the feature:
---------------------------
-This series proposes the implementation of a remoteproc tee driver to
-communicate with a TEE trusted application responsible for authenticating
-and loading the remoteproc firmware image in an Arm secure context.
-
-1) Principle:
-
-The remoteproc tee driver provides services to communicate with the OP-TEE
-trusted application running on the Trusted Execution Context (TEE).
-The trusted application in TEE manages the remote processor lifecycle:
-
-- authenticating and loading firmware images,
-- isolating and securing the remote processor memories,
-- supporting multi-firmware (e.g., TF-M + Zephyr on a Cortex-M33),
-- managing the start and stop of the firmware by the TEE.
-
-2) Format of the signed image:
-
-Refer to:
-https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/src/remoteproc_core.c#L18-L57
-
-3) OP-TEE trusted application API:
-
-Refer to:
-https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/include/ta_remoteproc.h
-
-4) OP-TEE signature script
-
-Refer to:
-https://github.com/OP-TEE/optee_os/blob/master/scripts/sign_rproc_fw.py
-
-Example of usage:
-sign_rproc_fw.py --in <fw1.elf> --in <fw2.elf> --out <signed_fw.sign> --key ${OP-TEE_PATH}/keys/default.pem
-
-
-5) Impact on User space Application
-
-No sysfs impact. The user only needs to provide the signed firmware image
-instead of the ELF image.
-
-
-For more information about the implementation, a presentation is available here
-(note that the format of the signed image has evolved between the presentation
-and the integration in OP-TEE).
-
-https://resources.linaro.org/en/resource/6c5bGvZwUAjX56fvxthxds
-
-
-
-Arnaud Pouliquen (6):
-  remoteproc: core: Introduce rproc_pa_to_va helper
-  remoteproc: Add TEE support
-  remoteproc: Introduce release_fw optional operation
-  dt-bindings: remoteproc: Add compatibility for TEE support
-  remoteproc: stm32: Create sub-functions to request shutdown and
-    release
-  remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
-
- .../bindings/remoteproc/st,stm32-rproc.yaml   |  58 +-
- drivers/remoteproc/Kconfig                    |  10 +
- drivers/remoteproc/Makefile                   |   1 +
- drivers/remoteproc/remoteproc_core.c          |  52 ++
- drivers/remoteproc/remoteproc_internal.h      |   6 +
- drivers/remoteproc/remoteproc_tee.c           | 619 ++++++++++++++++++
- drivers/remoteproc/stm32_rproc.c              | 139 +++-
- include/linux/remoteproc.h                    |   4 +
- include/linux/remoteproc_tee.h                |  90 +++
- 9 files changed, 935 insertions(+), 44 deletions(-)
- create mode 100644 drivers/remoteproc/remoteproc_tee.c
- create mode 100644 include/linux/remoteproc_tee.h
-
-
-base-commit: 0a0ba99244455fea8706c4a53f5f66a45d87905d
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index f05122b699b7..79317d148651 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -1857,6 +1857,8 @@ static int rproc_boot_recovery(struct rproc *rproc)
+ 
+ 	/* boot the remote processor up again */
+ 	ret = rproc_start(rproc, firmware_p);
++	if (ret)
++		rproc_release_fw(rproc);
+ 
+ 	release_firmware(firmware_p);
+ 
+@@ -1998,6 +2000,8 @@ int rproc_boot(struct rproc *rproc)
+ 		}
+ 
+ 		ret = rproc_fw_boot(rproc, firmware_p);
++		if (ret)
++			rproc_release_fw(rproc);
+ 
+ 		release_firmware(firmware_p);
+ 	}
+@@ -2067,6 +2071,8 @@ int rproc_shutdown(struct rproc *rproc)
+ 
+ 	rproc_disable_iommu(rproc);
+ 
++	rproc_release_fw(rproc);
++
+ 	/* Free the copy of the resource table */
+ 	kfree(rproc->cached_table);
+ 	rproc->cached_table = NULL;
+diff --git a/drivers/remoteproc/remoteproc_internal.h b/drivers/remoteproc/remoteproc_internal.h
+index 0cd09e67ac14..c7fb908f8652 100644
+--- a/drivers/remoteproc/remoteproc_internal.h
++++ b/drivers/remoteproc/remoteproc_internal.h
+@@ -221,4 +221,10 @@ bool rproc_u64_fit_in_size_t(u64 val)
+ 	return (val <= (size_t) -1);
+ }
+ 
++static inline void rproc_release_fw(struct rproc *rproc)
++{
++	if (rproc->ops->release_fw)
++		rproc->ops->release_fw(rproc);
++}
++
+ #endif /* REMOTEPROC_INTERNAL_H */
+diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+index 8fd0d7f63c8e..80128461972b 100644
+--- a/include/linux/remoteproc.h
++++ b/include/linux/remoteproc.h
+@@ -381,6 +381,8 @@ enum rsc_handling_status {
+  * @panic:	optional callback to react to system panic, core will delay
+  *		panic at least the returned number of milliseconds
+  * @coredump:	  collect firmware dump after the subsystem is shutdown
++ * @release_fw:	optional function to release the loaded firmware, called after
++ *              stopping the remote processor or in case of error
+  */
+ struct rproc_ops {
+ 	int (*prepare)(struct rproc *rproc);
+@@ -403,6 +405,7 @@ struct rproc_ops {
+ 	u64 (*get_boot_addr)(struct rproc *rproc, const struct firmware *fw);
+ 	unsigned long (*panic)(struct rproc *rproc);
+ 	void (*coredump)(struct rproc *rproc);
++	void (*release_fw)(struct rproc *rproc);
+ };
+ 
+ /**
 -- 
 2.25.1
 
