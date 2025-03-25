@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB352C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D51C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9BYomaOrXBuNI0X4uTrl/CKPbTYsn1WfQ0/aRiNpfU=; b=v4ejdOHyKbFPIJaJqowmhBnnFS
-	s6vtG70gYmwMkSCPEI4n68GwnwdsKGwf8V0iT1ykVrHGQaRSCocunqmgsmKOKj9rp2G896h+e9+fO
-	720trCmzDpLXv1y6AJrexkaRdwA4lMkQtA6R6KeIr11cnnSXJHkoWzT2P4AdaesI20vYnE+3cSkLh
-	rROFN+8YXiw0vqqEBL5P+ooqCu+aXYAqsoKM5+WslEUo+yoU1mPy/mrGQTPGJVXKHznFxuoKRHuTu
-	Co33sSanmHZm9TpQzUHQB6Eb1oaGlVFYWFBGLFQfH+UQruojZyFjsz9BN4v6cyy6b33UN6DSQDla6
-	1SdOiDJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C6tDaH152ddstc370ylWAGo2n6arEJx9aEQNMKGmXeo=; b=hTjDpqp7faNnzsoSnvERYwJmLd
+	e+ex7rYG055ug+vWzzQqOnuPzRfH6p6jIIJMpl70X5l5CYLTBnHXHQb2LeENR5hEtUT3dl6ri9K53
+	nsDMxQdDoveCF6b3HQWgiORCgJrLtnNu7CaItY3SHUcv5CsYBqF0NO58NQbmNzBb9Br8NCopkvEzF
+	2bL9kisanvEjz/3oEGJMPqfZ3aJIcfW9O8BDs9ki/LinCMOfxyBasheVCk6gbUbAd3/YlNcB04oaX
+	r8FMUD3DONxbTv07P06GNx0a2vEIP+3ZOvfpyBGEB8hbFb9yL9UJxK9mwnQy0koNv6jFZ/dJKngsA
+	GcMjkQyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx740-00000006TCX-0nxe;
-	Tue, 25 Mar 2025 16:23:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx741-00000006TDK-2DGr;
+	Tue, 25 Mar 2025 16:23:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5yx-00000006IzF-2UjR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 15:14:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=e9BYomaOrXBuNI0X4uTrl/CKPbTYsn1WfQ0/aRiNpfU=; b=j+yDrU3zVBI03Wcch8hCHci3JG
-	ObK8XWIZIueK8QIu8qy3hyfRwmzCxVPiKth/r9/oRukd2VptMSMz4zNXl+qmr62l0hmGT8U9PNWIe
-	4F8EuwLDAS49lpppIJO5sovZA2YEsn5DB9B+rd9pdhqr1FdKphTUvdnZZnzuOOOkV3lOanOEibvqO
-	fJ4W9lAJo5oRvO6qsLbgrDVPQyvvXFKrWoyexah2JufXYOXVe5kxfzJdwRN57RbN34AfOH4j9Zq3z
-	O6R/ZrbeTg306AF2bdtlCi4AI0mZnJ/Q3UKOHcNQzFla+7llAsDWlXseo4KTIp37FGEN1EloDEYKp
-	ICC6/4MA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5yr-00000005blC-1M1g
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 15:14:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=e9BYomaOrXBuNI0X4uTrl/CKPbTYsn1WfQ0/aRiNpfU=; b=SPc4yNT3r+UVTqPntSELDQ9DY/
-	nQDCXjZg9NxIiwhxY2lERc9folGnr2s3OC9xAAXT/f9HsqrFiRRlb1H2oJ1H4ssHYmNbXTqezL/g8
-	22uMPcvjz2XFkGeTmHu37gbEpdLz4KfnC6IoOW6S3mh4KD7K98AT6QigejSyv/vJcpbs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tx5yj-0074Qk-9i; Tue, 25 Mar 2025 16:14:09 +0100
-Date: Tue, 25 Mar 2025 16:14:09 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, davem@davemloft.net,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH 4/5] arm: dts: imx287: Provide description for MTIP L2
- switch
-Message-ID: <40c6c272-d4a3-4bf2-87a1-17086d96afea@lunn.ch>
-References: <20250325115736.1732721-1-lukma@denx.de>
- <20250325115736.1732721-5-lukma@denx.de>
+	id 1tx6t6-00000006Rj0-2MyB;
+	Tue, 25 Mar 2025 16:12:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DFC94A4AB66;
+	Tue, 25 Mar 2025 16:06:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3AF0C4CEF5;
+	Tue, 25 Mar 2025 16:12:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742919143;
+	bh=x10G0rQd2+3aO6XNnYYfLJ4MTWFAc+fz/p3Z0HiRCLY=;
+	h=From:Date:Subject:To:Cc:From;
+	b=bP2Lq0rmbWZ5q4sl4PMBiIkfx8AY6iW23ip85N3j8L+5zzpZeit0OcbqW9W2Qx8Jp
+	 ApkRCmjCqO4CRXEdDrjejDarVu6Qux+GFIrPmCdwsrIiBczcEsQ3GpNPbaIz0/gCjD
+	 jL5oTM9DpiTIAnZpmOizCxIaLmAcM0vYNrtjDMKrG62oDb/ZX9+VS2yAeJcKYQeFGp
+	 xehHMgejWT+WY3/htuiU0CQP65MfMcFt/1lNtjOxZpTqIyvynAr6RAjXH0P2OlKG6+
+	 7t4Y2x+A/s64FihgPjeJqnzmIyH21WKB/GEhogXiq1qnmHhzSMGsiKSlt3fmu9iK+P
+	 tGFk7q99iRdzw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 25 Mar 2025 17:12:05 +0100
+Subject: [PATCH mt76] Revert "wifi: mt76: Check link_conf pointer in
+ mt76_connac_mcu_sta_basic_tlv()"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250325115736.1732721-5-lukma@denx.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250325-mt76_connac_mcu_sta_basic_tlv-link_conf-revert-v1-1-b84efefb74ee@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANTV4mcC/x3N0QrCMAyF4VcZuTYw69qBryISYpdqcOukrUMYe
+ /d1Xv4c+M4KWZJKhmuzQpJFs86xxvnUgH9xfArqUBtMa2x7MRan0jvyc4zsafJfyoXpwVk9lXH
+ BUeP7WANWTFLB0Lmeg+vYsIWKfpIE/f0Pb3BYcN+2HYAevSCGAAAA
+X-Change-ID: 20250325-mt76_connac_mcu_sta_basic_tlv-link_conf-revert-f467af64a2a5
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_151419_079905_35EE37C5 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20250325_091224_669377_08C1207C 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 12:57:35PM +0100, Lukasz Majewski wrote:
-> This description is similar to one supprted with the cpsw_new.c
-> driver.
-> 
-> It has separated ports and PHYs (connected to mdio bus).
-> 
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> ---
->  arch/arm/boot/dts/nxp/mxs/imx28-xea.dts | 56 +++++++++++++++++++++++++
->  1 file changed, 56 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-> index 6c5e6856648a..e645b086574d 100644
-> --- a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-> @@ -5,6 +5,7 @@
->   */
->  
->  /dts-v1/;
-> +#include<dt-bindings/interrupt-controller/irq.h>
->  #include "imx28-lwe.dtsi"
->  
->  / {
-> @@ -18,6 +19,61 @@ &can0 {
->  	status = "okay";
->  };
->  
-> +&eth_switch {
-> +	compatible = "fsl,imx287-mtip-switch";
+In mt76_connac_mcu_sta_basic_tlv() link_conf is always not NULL.
+Revert the commit '9890624c1b39 ("wifi: mt76: Check link_conf pointer in
+mt76_connac_mcu_sta_basic_tlv()")' in order to fix the following
+warning:
 
-The switch is part of the SoC. So i would expect the compatible to be
-in the .dtsi file for the SoC.
+drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c:394 mt76_connac_mcu_sta_basic_tlv()
+warn: variable dereferenced before check 'link_conf'
 
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
-> +	phy-supply = <&reg_fec_3v3>;
-> +	phy-reset-duration = <25>;
-> +	phy-reset-post-delay = <10>;
-> +	interrupts = <100>, <101>, <102>;
-> +	clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-> +	clock-names = "ipg", "ahb", "enet_out", "ptp";
+This reverts commit 9890624c1b3948c1c7f1d0e19ef0bb7680b8c80d.
 
-Which of these properties are SoC properties? I _guess_ interrupts,
-clocks and clock-names. So they should be in the SoC .dtsi file. You
-should only add board properties here.
+---
+ drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-       Andrew
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+index bafcf5a279e23ff007d9052301cd2f6b899c491e..d0e49d68c5dbf0ed4eab084d9c6f1cad230bed93 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+@@ -391,7 +391,7 @@ void mt76_connac_mcu_sta_basic_tlv(struct mt76_dev *dev, struct sk_buff *skb,
+ 		basic->conn_type = cpu_to_le32(CONNECTION_INFRA_BC);
+ 
+ 		if (vif->type == NL80211_IFTYPE_STATION &&
+-		    link_conf && !is_zero_ether_addr(link_conf->bssid)) {
++		    !is_zero_ether_addr(link_conf->bssid)) {
+ 			memcpy(basic->peer_addr, link_conf->bssid, ETH_ALEN);
+ 			basic->aid = cpu_to_le16(vif->cfg.aid);
+ 		} else {
+
+---
+base-commit: 1794d7ab34d2221ac7eb921b171e75b856e10561
+change-id: 20250325-mt76_connac_mcu_sta_basic_tlv-link_conf-revert-f467af64a2a5
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
