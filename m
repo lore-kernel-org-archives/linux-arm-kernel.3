@@ -4,89 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8670C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB77C3600D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Q6Q8jost6RR+L6/1WQaoG8urBg7K9/rNabjNfsQh20=; b=Qmvot/1DH9yiZqG2682htzKLuK
-	RYzQs5Q9B71tdiwQXHF8FrLJKpvIw+/hhIFdz2tifn7juDwN5iVrp6hhEX0wtCokZ2z+COWfAa/ny
-	d3648wsNBHRxHD3HxlBGnar7R2b2JXAsyoiI1ssgrcTUAZrWSB5tt4vBLTY6lUFuncSTJvNo+ecC/
-	NBMwDj7Ylwv1lKgh/ipN2f7Xjhgwnsbcxy0QiHVYChOowu3138osh05oNhuZ8/UL3N/f1MCIe+Gqf
-	fzRKaZv3zj5ALjTiJ8yqzNiZ1G0OtwxJkHaqcnUUTcavwhySwFxzPBj2IrU4afxhem1Q6deyAxs+c
-	m7cRv7yg==;
+	bh=EJvaTHvV9TkEAhE0kh7p5puwgCBBIeP27IE9sliGY+w=; b=CkDMnw61Rhd68K6aKSpZQQFn4q
+	8kBYI/yxR24/jdkSjqFJun8NMivS0PngBtc8Qrq3MfzNxbfmcs06t8bB6Gt6ETH0RFLTVnI/ay2cH
+	DUsb+3mqQfq95IEGirusxWh1l1Ma65j2lkSE9ZwCIRWDAMkBvEJjGBJl4aOBJECykTwMxDsKJAo2u
+	KnsZ16ESS7nFbkk575XjldCt0fmvlK5RbtltF9BIc++0eAgZu8D789cGftEbrvJyFym4/1F4pp3Qz
+	Bzr6b349AeaILDofkI3eJCzGtI103VCSfM3XsU1cuhZFaLO0gQGAPBlLFDC/97294oSvTuyy2EZHb
+	hP1r3psw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3vz-00000005xZQ-49hy;
-	Tue, 25 Mar 2025 13:03:11 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1tx3w3-00000005xbT-0pQy;
+	Tue, 25 Mar 2025 13:03:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Gx-00000005n3D-17Wt
+	id 1tx3ZB-00000005sE9-2M0s
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 12:39:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=EJvaTHvV9TkEAhE0kh7p5puwgCBBIeP27IE9sliGY+w=; b=Leed0W2RevKa/aro7+RR8cT35c
+	5JXx8CKiDGdHDLcagk+eigvAZ/2Zno55S7wx3In3BBHc88d1F3rw1zawpinKH3bfj5W2CVGT9qMUm
+	lCU0gRLSM6CPK9sYjbkH4fAn0mKBIBJvxpEaP83ihu/TEivaj03klRLbgYKWoDGi3qBPxWHZvGtok
+	kAKgnrFojrlVQB7H1ZHNLwExAaoc6OZOTHyuVU6yCqj4mlVUe93emop//D86teGCUJwIewPpPk3gs
+	tGHSJt97L99SESY62qGUXZGA0P9Y7jfq7Hu0XfmYlMoTx8pscW4ZhqHuAAGqKz1z97yC/4CktmRk6
+	jr5+TSYg==;
+Received: from mout.web.de ([212.227.15.4])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tx3Z8-00000005PqP-1BUv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:20:48 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6e8f43c1fa0so67310286d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 05:20:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742905245; x=1743510045; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+Q6Q8jost6RR+L6/1WQaoG8urBg7K9/rNabjNfsQh20=;
-        b=QWr1S6d1v1dnBOzl3GMM8b83BBQjiEl7Uf6+RjwbxRqWv8JVVf9C/dls1RsD4zmS2B
-         8ZsPSQfexYJ7X4k7se+I0GPQH4z5ckgM7m5qTCD+AcF/7CzNdmZpCcbDIXhowJavN38w
-         0DX/+sprPhZyeutUvL4nqjzwpf8PIAIPohnJT1APh0saK0uc/amj9vxzM3JUMtJD+M3Y
-         Br0VzUKlZI6arMAAKmHwTZEWm2ZDIEvqBkzp0Yksa8LGGGoH+mmGXzESLRsUauHwuSxM
-         idGfm0B9+dliqT709a0738MGOTLCDfw7bvBMqTv3gH8nH5TwNByn2uCk4zh6i11vUzo4
-         uD0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742905245; x=1743510045;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+Q6Q8jost6RR+L6/1WQaoG8urBg7K9/rNabjNfsQh20=;
-        b=WyS/7xKk2S6zWa/Bk/YUNn7tIJuWO2MWvl6mexQ7dpP6YV/eLa2yzJwpGYmO4XW1u9
-         Li5IFWlKXvzPiZ58C2gntLGxIzqt72lk4AbLSUh+uYE+r9TH2/CzOuEbU99rCGpZa8ub
-         gDyDGStk7PJ7E1aL44qHBxVlehZVK7MfuS3Kj88nplq05+XVmBct/3b7RyS9VOYybu86
-         9nM6qYNcmo1pj/N6av+QPB/5S4eyjSjUUn75XheWSlUz3H3VyWuykex/0gcywlMIDadp
-         LrMDoY4I3FCKq7B+3ECaPl0eh0eo4S28UZFzoBMYJvO2DvDaEwXvCVZsvU+tJHidVB7P
-         9NuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXRVuoJTEjUQKKEijHKcXXoqjxrdpxiIB6F/nxceHf2IMybx4399ft697QnrSQx4Q5ZxtUKgN7MGdUX6G40nYbi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoWFMIiz7JeBP/9tsOTXiL3P3N6DdDrm8/MyHMJrXLGz53YTKt
-	QxdfxAjUBBwhibfU8JuVpiShWdDIbeI9sl6cflHsI2YbYCHzo+Q+jusZzps6a8W7E3F4dr5YMqu
-	wvjxf8nBplF0Y8yZBdflWcsO04l0=
-X-Gm-Gg: ASbGncvlsyoQkPnQ4xcTBK3+EpdXgdf1sNLgNMGW0cEWTmGuI3ACfEomeUFbhOwZ9tQ
-	HtTyROAdWn6gvW9oGrVBuERr874V5NN51wf/NfHcy9OuU/8Uq87U5gVxHtLG5mlgFFm9/2OseJT
-	PbqF/mmpreSWuvgCbbZTKSrMtAF577O9bEx0ZpMxBeuA==
-X-Google-Smtp-Source: AGHT+IHzPCRF5SOBl5uX+I45ItuIcu7yYqv1UpwkBeNgwvJPwNXZIu0GAxVrZtFs9aKbKMtvCsG5QpWp0f/ADoOZEd0=
-X-Received: by 2002:a05:6214:c64:b0:6e8:f17e:e00d with SMTP id
- 6a1803df08f44-6eb3f2b884amr196473756d6.14.1742905245447; Tue, 25 Mar 2025
- 05:20:45 -0700 (PDT)
+	Tue, 25 Mar 2025 12:39:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1742906347; x=1743511147; i=markus.elfring@web.de;
+	bh=EJvaTHvV9TkEAhE0kh7p5puwgCBBIeP27IE9sliGY+w=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=f256tSmpfUX0j5+Q4cozF60Gl9YvBzgvGaByJlOH3aMJ3c8Q+NhBHy45n7VipXli
+	 KARsEXc5TlDbfVE2+9DYAVMjud8Dgl+fOLcfQlIB8r+rvh1AWwARgfkLNqoJTPpxM
+	 4Fbg2zDF2uPqsAj0xtPKbPiF+h080QIbzJwiSUfnxiQHRaiqK3yLoh9ymSmv4NoWP
+	 l/tXs53QDL6NwNPV2Z34Qom71FwyrqhlLoG8zCHhCflCEO9h9bqGHlSnykFxbK4tU
+	 nAGcv2o9hwzproO96TJ0ydTeZSud1FqHU6zKWDNWQlEpfrHBjOaqWdcOGHp7fXtaC
+	 9qw94onFeFOGQBTQXw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.33]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1M8kEP-1u1kOQ3G3l-000Fue; Tue, 25
+ Mar 2025 13:39:07 +0100
+Message-ID: <77fbff4c-443d-4ed4-8335-a6cbec6b2809@web.de>
+Date: Tue, 25 Mar 2025 13:38:57 +0100
 MIME-Version: 1.0
-References: <20250324172026.370253-2-csokas.bence@prolan.hu>
- <92772f63-52c9-4979-9b60-37c8320ca009@web.de> <7064597b-caf7-42e2-b083-b3531e874200@prolan.hu>
- <7332ccd2-ebe6-4b9d-a2ae-8f33641e7bd4@web.de> <7afcbbee-6261-4b2f-be14-a3076746d53c@prolan.hu>
- <26e36378-d393-4fe1-938a-be8c3db94ede@web.de>
-In-Reply-To: <26e36378-d393-4fe1-938a-be8c3db94ede@web.de>
-From: Julian Calaby <julian.calaby@gmail.com>
-Date: Tue, 25 Mar 2025 23:20:34 +1100
-X-Gm-Features: AQ5f1JqJR8vf390EC146ON7d6-teBUeT_TrrTXamjUUZoP5Hfz81vyeOiEOgepg
-Message-ID: <CAGRGNgU7t85oG3Bq7L3KjKUAbRyd6SHSM6F6BvmdXDVkbNegKg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
 Subject: Re: [v6] dma-engine: sun4i: Simplify error handling in probe()
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>, 
-	dmaengine@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Christophe Jaillet <christophe.jaillet@wanadoo.fr>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+To: Julian Calaby <julian.calaby@gmail.com>,
+ =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>,
+ dmaengine@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>
+References: <20250324172026.370253-2-csokas.bence@prolan.hu>
+ <92772f63-52c9-4979-9b60-37c8320ca009@web.de>
+ <7064597b-caf7-42e2-b083-b3531e874200@prolan.hu>
+ <7332ccd2-ebe6-4b9d-a2ae-8f33641e7bd4@web.de>
+ <7afcbbee-6261-4b2f-be14-a3076746d53c@prolan.hu>
+ <26e36378-d393-4fe1-938a-be8c3db94ede@web.de>
+ <CAGRGNgU7t85oG3Bq7L3KjKUAbRyd6SHSM6F6BvmdXDVkbNegKg@mail.gmail.com>
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <CAGRGNgU7t85oG3Bq7L3KjKUAbRyd6SHSM6F6BvmdXDVkbNegKg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:9CyG8ypY5QKj6AhZu4bBlBd7xaoOmtjIcy4YmaBDsj3YqIyZhKk
+ PUktB1EqYYQoHv12uD6eMe7ewOJNfdqf+a43VZcmuf+xW/B+cqjHZF1YIuddtDDM82Srbmm
+ sKIaJ96U4yyml9L4xAgB/lVLUCUzDmOWhol9hSdfEJ7COscAtAsD5d/SRH8GkLAhoUcQhpn
+ GcfVX89seWKeYyfg/CSlA==
+UI-OutboundReport: notjunk:1;M01:P0:2idS/XK9DaY=;OR4JaWiRAi3GuG73tU1MlMDztEJ
+ 2omG9oC5KLryibGuBsLaDCnazAklLQZI6ijbJnjl1gTWn866z4XRMeq4Dy/Wrz5phvgVXsfZD
+ pE2F4KZfhFvBkgtlZRU6SmXulu8bVNoa9AUx5vOxGPgEC6l8O7bud6oVScp75NUUDHaiLaZuk
+ FMrttwhLGvUuoCNcIwO6FHbpQ9YX/ngBhBRXWycGwKjnpIQDiYKwtD76dp8niiwogeDKy+lHY
+ eCzm/k8MG1RwZcn7twSGSCuny1I4dLb/ILowaX3xHHjq4VLKH4+2BC4lP+MVUsQVnH+YrR6Da
+ AIo0rcerYZCGQqSU9QGkp6vOba+Cvqg0NR6ITIB0UXqHShjnYeUKPSHE4yvraouAGQI/7wM26
+ b5wW49+aBrZ19Cwoi/YOV31HcWIKKpuv651hrFMR1GW3/cgrj9zDlmwReHodHfGerN5MlGCG/
+ gCaj5eYlNU5vF+h/8h8d2UpN2PoOfKIzrBiNi3udY4WYruQcFnbjhz+KK943mRVTWGegorU0x
+ R7C3gfH2W8jO9s9flcg545AeighTffx4a62AM/B+VW52uU6f+BECy+0LHw/s4bcGKQ3xgZMGe
+ KsEpSN6+RBW7QBY1xyWVox2pA8NjlD/rgeZD/MohrjgbzGM23Zt0sKh+ubYXQ6sj7EEl0S+iz
+ Ile0M+h76ViE43tPGnezxl1kO5m8C35aCdSPrRAt1Nr9pMHtB6zgICPlX5lCjUpouh9Q1kX4f
+ /7Trl4ErBxvVb0N50ABdY/8ltifwMOveO6aci9Yfap2/7nAC6Lv78U78HoqfCseOYIFf0sLse
+ +5ekVJ3Nki37L+8ZhOA2v3pfDrl77UdxQxRutFOS/kjRbsnPvJ89iidwziJ72NAUauDFdLYgj
+ WGly08yr0Gg4DzGHXsVa/Zy9SwrRG5PrkCadBso65Bx1SN0RB5PlCHiSTLww1tm98BrEu6jSD
+ 4uHZqC+XeRej0/673H4nZJfuDVxI8oy9TNKFz6eHmwm14vJDGdebaUAcy2xCfwmULk9vnppFa
+ fh+10orUntjsg1yCZ0UnngAEX7ZDZPJfvGb2xFM7/o8+wM39TgBKbIqLjtCbRvCzLBu8+dcon
+ ajsopM9cSZv0eMqsHId8B5Yze+SucoZ78k4Ond2Z6c4ySsxjYE0inVHiMJ6gVvLyEJprq5Mn4
+ 9unOwHFZC9/Wt4inxSucuJJF5oH/aYpf/cOahaaMZxF/T01nOEGlpbsXoEx8/2/l1YpFXbbv7
+ 6JYlomrvAemfNl5N1T5TFNRJIGDKp7HqCOtkGzReWaHSA/HLnGcAnucr7rApzjk82lcHbZyCy
+ s3Y5sPcgXiDl7gWy2mAnJOojKmNrj/dPSrsW8atXGkCPLS7aLvpPNRhQL365+yzHWYlFSsEg3
+ 4GTXstWJH7zilkrzHP+YDiLGPAGtBVsnRTKx02V20bLckLydpKZiLxPBcyCL42bjgdBGUR4CS
+ fjsBM1lHbil8rlsvbI3D77qh6n4znPzR2GuSM4pHddlZZwOY9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052047_303650_FB9A6405 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20250325_123934_527527_D9EBA0DB 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,73 +130,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+> You're "concerned" about patch granularity, but this is not the sort
+> of thing that some random person would raise, this is the sort of
+> thing a maintainer asks for when patches are doing too many things or
+> are unreviewable. =E2=80=A6
 
-I really wanted to keep out of this, but...
-
-On Tue, Mar 25, 2025 at 8:14=E2=80=AFPM Markus Elfring <Markus.Elfring@web.=
-de> wrote:
->
-> >> Implementation details are probably worth for another look.
-> >
-> > What don't you like in the implementation? Let's discuss that then.
->
-> I dare to point concerns out also for the development process.
-
-You're "concerned" about patch granularity, but this is not the sort
-of thing that some random person would raise, this is the sort of
-thing a maintainer asks for when patches are doing too many things or
-are unreviewable. This is neither. It is a very simple cleanup of a
-probe function as it says in the patch subject.
-
-Futhermore, this already has an ack from the maintainer of this file.
-This indicates that they're happy with it and no significant changes
-are required. This is also version 6 of the patch, if the maintainer
-was concerned about this, they'd have already provided some clear
-guidance on this. If you check previous versions of this patch, no
-such requests have been made.
-
-Your only other "concern" had already been addressed as has already
-been pointed out to you.
-
-> >> Please distinguish better between information from the =E2=80=9Cchange=
-log=E2=80=9D
-> >> and items in a message subject.
-> >
-> > What do you mean? The email body will be the commit message.
-> See also:
-> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tr=
-ee/Documentation/process/submitting-patches.rst?h=3Dv6.14#n623
-
-The email and patch structure are following the format outlined in the
-document you link to _exactly_.
+May additional patch reviewers influence the software evolution another bi=
+t?
 
 
-Once again your comments are just noise, and your insistence on
-repeating them over and over and over and over and over again is
-borderline harassment.
+=E2=80=A6
+>>> What do you mean? =E2=80=A6
+=E2=80=A6
+> Once again your comments are just noise, and your insistence on
+> repeating them over and over and over and over and over again is
+> borderline harassment.
 
-You have been told to stop this nonsense many many times, here's a
-link to the most recent one:
+Some information needs to be repeated also according to known communicatio=
+n difficulties.
+Corresponding views might be evolving further.
 
-https://lore.kernel.org/all/92d1a410788c54facedec033474046dda6a1a2cc.camel@=
-sipsolutions.net/
 
-Please stop sending these emails and go do something constructive with
-your life.
+=E2=80=A6
+> Please block or ignore Markus, at best he's a nuisance and at worst a tr=
+oll.
+I hope that development discussions can become more constructive again.
 
-* * * * *
-
-Bence Cs=C3=B3k=C3=A1s, (I hope I've got the order of your names correct)
-
-Please block or ignore Markus, at best he's a nuisance and at worst a troll=
-.
-
-Thanks,
-
---=20
-Julian Calaby
-
-Email: julian.calaby@gmail.com
-Profile: http://www.google.com/profiles/julian.calaby/
+Regards,
+Markus
 
