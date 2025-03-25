@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559ABC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0358DC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=89K4nGcHH8WHdZ8xcpzD2km9shq9IidWbcZ/CNYM0CM=; b=35cj+HgXfit3Ho8K4UaowEQcW+
-	k9yaMbXXwqt3nTJlrOiJsZ2F65lN63pYuDNt8Ho/GbFtWLvdkj9PQJBkv4id8H18Q4+ZlniuJWEPr
-	t0bufZNG4U6o+jn31C7dMIiTGZZhHTWq8klGFNGn7CjPD20Us5i5GkrnLuE9nsq4QvpITTXfS5oJ/
-	TNq1HrXiCL14VVqbJ5dM3w6RT7/9SEWUGYdRAxfhsZpRSvgNGmY9DoVOg8hhKpo7co3GeQFuVYfNO
-	/0P9kK34rMnPhHb2jth8Vfec+RyO3R/bASQ/D/6AX2XUTZZ0fwKGYIJscKaQFRb56coykEXn6lMoW
-	N11v2V9w==;
+	bh=R4KTdD44dUDwQknezJM6eLLCv6yP78kwSCaVP0yBntY=; b=EC11ef31JENAfKjgq5lT3wXojZ
+	px8j7NSsZkmmsmmDFvIMKo5AZiVPPAD/FtxHeh/gz8l55cHLd1hBcOHdSohl11s+oEoZuV35523kr
+	RNtolAAZUsmvacn7Fr8+mIDbBgiCf0fYOFHjw/hfkkm7s9bSk7DYUHUmTE8S4ZzGVbEaSnaEAYEpp
+	bx8lX9X3sHUucdsF7DP3jgYR3PbEgiwucPCwsxVtcdSZPNhzqxZmy6t0eYP7IDs31YWLgeh0ufOWO
+	ucYhcJHGoeSWlCKeUcc+8Xt6ytmAnJJMuTyevxTQAWbOXS6qGmmmGEqXZXV9VV/875KhmhY0K8pic
+	wzXthFVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6vU-00000006Rwg-2dQz;
-	Tue, 25 Mar 2025 16:14:52 +0000
+	id 1tx6xC-00000006SBn-17tC;
+	Tue, 25 Mar 2025 16:16:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6i1-00000006PgO-1GxY
+	id 1tx6i1-00000006PgN-1IRv
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 25 Mar 2025 16:00:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Content-ID:Content-Description;
-	bh=89K4nGcHH8WHdZ8xcpzD2km9shq9IidWbcZ/CNYM0CM=; b=pc2oDhyYH1bn8wdrEnDheAo6xE
-	4f7mzue/l5UtVBE8Y27IYfpT+YspH1XqHBPUpWkL5kW/KvMEX7xw4jtxUU7Vu3FJEQkq/e/PmU5DF
-	1wk2heUJLMX/N74pkAdBnZVf71DqUCJbl0KXrY/JjkTisqKZ//nF1HT7TMK8lJCYsIGQ+nKBNnF8s
-	h0oE9v+PqcPKgXq7rZ61YMLRg8BpbE0lWMo1Robk3z0j4RUofgacgvibrxy6aS2dQrYeEJNVq0f6R
-	YO3iqfAlmXcXLbehZ+Hl7bxcnHhGHr30UQwCRPfCh1n+4TXmQZ8L29ko9HkaGznpeP8dfEOy7nsjy
-	EndwdN3Q==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=R4KTdD44dUDwQknezJM6eLLCv6yP78kwSCaVP0yBntY=; b=ZIE1gm3AIJJovv3IJpAZAKjCGl
+	u4KOIScY//TcOfh4UK/lp4Y4Teze1TDmWW0g44ICyr0K1lfqLGQ1XS/EiQfagkW64LqsRn/V/dSTj
+	F+54u6OnE+QP1zf2/xt/jrRR+vHZYwSN5X4WQLEZy+3Qou8IqyMNzbAs1fVENJVrBfmakh+upvnt4
+	/3zTqT1ujxHgMpqwUidiqqy92dTvHUhlppN9RSjl+znJyOnSLZM4YnDZAhFS+29mqQDjBaBhMFMTk
+	ZEtxV1fYBkSR9DeHoWIhYd+Y2qiVlTFa+IvF6ppSiwCt/sOtMZOF/BltpZbOWl8aIw9CDI28bExSA
+	fBoiBwJw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx6hw-00000005dCa-3V2N
+	id 1tx6hw-00000005dCb-2qqP
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 25 Mar 2025 16:00:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 14390A4AB3C;
-	Tue, 25 Mar 2025 15:55:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BBD7EC4CEED;
-	Tue, 25 Mar 2025 16:00:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 579ED5C62CA;
+	Tue, 25 Mar 2025 15:58:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 06F44C4CEF0;
+	Tue, 25 Mar 2025 16:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742918448;
-	bh=TjiHYCpNQphi1tE+0DL9muw8Pf7OfDUpMtLAFTcJtqA=;
+	s=k20201202; t=1742918449;
+	bh=i7neHX6pVAvXdKm3a/XywrG4UxQambvNuDibGppmsLA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=gExSObNVNUTCOeWV6gSIlTeNmstu3+4Vk1ZJbnxrNZkdiTPiMrZZDFZWEApwx96+j
-	 0d0Bb0/eHNOOkrRzPoo/Iq3e4DPllkFJC4mMJgPmqBH2z3YkKMi0iZbWl/seHTOiFJ
-	 aj8g8vB9NFsCVivmOQVmUE3v9CXpTROUFk6/niGm1wtDPIxXNdMarA+KCINUwrcpbH
-	 srZvZ7X/UGfZLaRZ3tCYjAYRk4p23ML9wFOTiFxCfIZpG8UxNQXirCCmYskuBPORnM
-	 ++0jRXgmFZ9IhHW4HQBDrngAdm+jgQInmrQNEpQM9P12tDMEOlzjplytaJFnuF44k3
-	 P0qZg7UobNLHQ==
+	b=C7chgjGBObsEy1tdX81nPShppzFJKmCkvz4Ouuv3RW3fj1S0ZVx5K4n4HDrGmiWOy
+	 Fflx611ZGq7v7RBBM5YPzgnRq+s5SPo4kLVTYouUYHHuJWE3uiEARXH69kIBAuJw6U
+	 qcYFJuiqbnEaQOhvqSm6ESXFPTidTGLu+Sya+KHPbGDSgu3F9gsSwJxXYWheK7vqzH
+	 9f1w+HsEQxJxNwQJxRNnZFmaSgdMAeloED+BhJc54BfeX/Chmripg27THieyJQpIC0
+	 xSnAzTwTlDFceojIWuLo05lb70Epz/TR0vjr/10667scA3QS0S/touASs3AeBsRAPI
+	 n6LT1Yx3aOPHw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ACC3FC3600C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EB447C3600C;
 	Tue, 25 Mar 2025 16:00:48 +0000 (UTC)
 From: Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org>
-Date: Wed, 26 Mar 2025 00:59:56 +0900
-Subject: [PATCH v8 1/6] bits: add comments and newlines to #if, #else and
- #endif directives
+Date: Wed, 26 Mar 2025 00:59:59 +0900
+Subject: [PATCH v8 4/6] drm/i915: Convert REG_GENMASK*() to fixed-width
+ GENMASK_U*()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250326-fixed-type-genmasks-v8-1-24afed16ca00@wanadoo.fr>
+Message-Id: <20250326-fixed-type-genmasks-v8-4-24afed16ca00@wanadoo.fr>
 References: <20250326-fixed-type-genmasks-v8-0-24afed16ca00@wanadoo.fr>
 In-Reply-To: <20250326-fixed-type-genmasks-v8-0-24afed16ca00@wanadoo.fr>
 To: Yury Norov <yury.norov@gmail.com>, 
@@ -84,24 +84,24 @@ Cc: linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
  Catalin Marinas <catalin.marinas@arm.com>, 
  Anshuman Khandual <anshuman.khandual@arm.com>, 
- linux-arm-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Jani Nikula <jani.nikula@intel.com>, 
  Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1427;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5740;
  i=mailhol.vincent@wanadoo.fr; h=from:subject:message-id;
- bh=Ogw/eQvEVmEiIvULs2D8+i7sug2mLu6AIl3BoTH0U+o=;
- b=owGbwMvMwCV2McXO4Xp97WbG02pJDOmPLss+er5p5/8bRxLjOl1Ftl3iT34zv3ml1X4/6V7Dr
- 1oKOg/NO0pZGMS4GGTFFFmWlXNyK3QUeocd+msJM4eVCWQIAxenAEzk6g9Ghjd/rmjMnnfwn2Zr
- 8dlgbceNMdY9nQHp+zVvpRf4SP6vmsHwP085q5nvqPz3U3lTDTSPrZNc9mNTjwenT0PA3z1Tj/+
- RZwYA
+ bh=1ou22BtqXrIJAaAiPkSG694MjDxDXtsfNMr9EFCnSzs=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDOmPLqtfykv8x2G4K39lrNPn+haX/mJeHdOUXdpfTCId1
+ q06cupPRykLgxgXg6yYIsuyck5uhY5C77BDfy1h5rAygQxh4OIUgIloejEy3BSpUn6ttPkIw6qp
+ 12Qs004ErJ0k3q1Vlip2qYtJ4SbzfUaGlTlZaxMzTm9vzn78w9Ztw/zCzSxbWbIKfio9miVQPPs
+ xAwA=
 X-Developer-Key: i=mailhol.vincent@wanadoo.fr; a=openpgp;
  fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
 X-Endpoint-Received: by B4 Relay for mailhol.vincent@wanadoo.fr/default
  with auth_id=291
 X-Original-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_160053_110994_D141D196 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20250325_160053_083707_DFBE90BF 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,55 +117,176 @@ Reply-To: mailhol.vincent@wanadoo.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+From: Lucas De Marchi <lucas.demarchi@intel.com>
 
-This is a preparation for the upcoming GENMASK_U*() and BIT_U*()
-changes. After introducing those new macros, there will be a lot of
-scrolling between the #if, #else and #endif.
+Now that include/linux/bits.h implements fixed-width GENMASK_U*(), use
+them to implement the i915/xe specific macros. Converting each driver
+to use the generic macros are left for later, when/if other
+driver-specific macros are also generalized.
 
-Add a comment to the #else and #endif preprocessor macros to help keep
-track of which context we are in. Also, add new lines to better
-visually separate the non-asm and asm sections.
-
+Signed-off-by: Lucas De Marchi <lucas.demarchi@intel.com>
+Acked-by: Jani Nikula <jani.nikula@intel.com>
 Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 ---
 Changelog:
 
   v7 -> v8:
 
-    - new patch
----
- include/linux/bits.h | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+    - No changes.
 
-diff --git a/include/linux/bits.h b/include/linux/bits.h
-index 14fd0ca9a6cd17339dd2f69e449558312a8a001b..e1e5177691406919ba4f5bbc875bd230414fd117 100644
---- a/include/linux/bits.h
-+++ b/include/linux/bits.h
-@@ -19,16 +19,21 @@
-  * GENMASK_ULL(39, 21) gives us the 64bit vector 0x000000ffffe00000.
-  */
- #if !defined(__ASSEMBLY__)
-+
- #include <linux/build_bug.h>
- #include <linux/compiler.h>
-+
- #define GENMASK_INPUT_CHECK(h, l) BUILD_BUG_ON_ZERO(const_true((l) > (h)))
--#else
-+
-+#else /* defined(__ASSEMBLY__) */
-+
- /*
-  * BUILD_BUG_ON_ZERO is not available in h files included from asm files,
-  * disable the input check if that is the case.
-  */
- #define GENMASK_INPUT_CHECK(h, l) 0
--#endif
-+
-+#endif /* !defined(__ASSEMBLY__) */
+  v6 -> v7:
+
+    - Replace BIT_* and GENMASK_* by BIT_U*() and GENMASK_U*() in the
+      description.
+
+    - Add the information in the description that BIT_U*() and
+      GENMASK_U*() are fixed width.
+
+  v5 -> v6:
+
+    - No changes.
+
+  v4 -> v5:
+
+    - Add brackets to macro names in patch description,
+      e.g. 'REG_GENMASK*' -> 'REG_GENMASK*()'
+
+  v3 -> v4:
+
+    - Remove the prefixes in macro parameters,
+      e.g. 'REG_GENMASK(__high, __low)' -> 'REG_GENMASK(high, low)'
+---
+ drivers/gpu/drm/i915/i915_reg_defs.h | 108 ++++-------------------------------
+ 1 file changed, 11 insertions(+), 97 deletions(-)
+
+diff --git a/drivers/gpu/drm/i915/i915_reg_defs.h b/drivers/gpu/drm/i915/i915_reg_defs.h
+index e251bcc0c89f5710125bc70f07851b2cb978c89c..e0bc9cf5fa9ed98f7d36f6cb667999aa6522c384 100644
+--- a/drivers/gpu/drm/i915/i915_reg_defs.h
++++ b/drivers/gpu/drm/i915/i915_reg_defs.h
+@@ -9,76 +9,19 @@
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
  
- #define GENMASK(h, l) \
- 	(GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+-/**
+- * REG_BIT() - Prepare a u32 bit value
+- * @__n: 0-based bit number
+- *
+- * Local wrapper for BIT() to force u32, with compile time checks.
+- *
+- * @return: Value with bit @__n set.
++/*
++ * Wrappers over the generic fixed width BIT_U*() and GENMASK_U*()
++ * implementations, for compatibility reasons with previous implementation.
+  */
+-#define REG_BIT(__n)							\
+-	((u32)(BIT(__n) +						\
+-	       BUILD_BUG_ON_ZERO(__is_constexpr(__n) &&		\
+-				 ((__n) < 0 || (__n) > 31))))
++#define REG_GENMASK(high, low)		GENMASK_U32(high, low)
++#define REG_GENMASK64(high, low)	GENMASK_U64(high, low)
++#define REG_GENMASK16(high, low)	GENMASK_U16(high, low)
++#define REG_GENMASK8(high, low)		GENMASK_U8(high, low)
+ 
+-/**
+- * REG_BIT8() - Prepare a u8 bit value
+- * @__n: 0-based bit number
+- *
+- * Local wrapper for BIT() to force u8, with compile time checks.
+- *
+- * @return: Value with bit @__n set.
+- */
+-#define REG_BIT8(__n)                                                   \
+-	((u8)(BIT(__n) +                                                \
+-	       BUILD_BUG_ON_ZERO(__is_constexpr(__n) &&         \
+-				 ((__n) < 0 || (__n) > 7))))
+-
+-/**
+- * REG_GENMASK() - Prepare a continuous u32 bitmask
+- * @__high: 0-based high bit
+- * @__low: 0-based low bit
+- *
+- * Local wrapper for GENMASK() to force u32, with compile time checks.
+- *
+- * @return: Continuous bitmask from @__high to @__low, inclusive.
+- */
+-#define REG_GENMASK(__high, __low)					\
+-	((u32)(GENMASK(__high, __low) +					\
+-	       BUILD_BUG_ON_ZERO(__is_constexpr(__high) &&	\
+-				 __is_constexpr(__low) &&		\
+-				 ((__low) < 0 || (__high) > 31 || (__low) > (__high)))))
+-
+-/**
+- * REG_GENMASK64() - Prepare a continuous u64 bitmask
+- * @__high: 0-based high bit
+- * @__low: 0-based low bit
+- *
+- * Local wrapper for GENMASK_ULL() to force u64, with compile time checks.
+- *
+- * @return: Continuous bitmask from @__high to @__low, inclusive.
+- */
+-#define REG_GENMASK64(__high, __low)					\
+-	((u64)(GENMASK_ULL(__high, __low) +				\
+-	       BUILD_BUG_ON_ZERO(__is_constexpr(__high) &&		\
+-				 __is_constexpr(__low) &&		\
+-				 ((__low) < 0 || (__high) > 63 || (__low) > (__high)))))
+-
+-/**
+- * REG_GENMASK8() - Prepare a continuous u8 bitmask
+- * @__high: 0-based high bit
+- * @__low: 0-based low bit
+- *
+- * Local wrapper for GENMASK() to force u8, with compile time checks.
+- *
+- * @return: Continuous bitmask from @__high to @__low, inclusive.
+- */
+-#define REG_GENMASK8(__high, __low)                                     \
+-	((u8)(GENMASK(__high, __low) +                                  \
+-	       BUILD_BUG_ON_ZERO(__is_constexpr(__high) &&      \
+-				 __is_constexpr(__low) &&               \
+-				 ((__low) < 0 || (__high) > 7 || (__low) > (__high)))))
++#define REG_BIT(n)			BIT_U32(n)
++#define REG_BIT64(n)			BIT_U64(n)
++#define REG_BIT16(n)			BIT_U16(n)
++#define REG_BIT8(n)			BIT_U8(n)
+ 
+ /*
+  * Local integer constant expression version of is_power_of_2().
+@@ -143,35 +86,6 @@
+  */
+ #define REG_FIELD_GET64(__mask, __val)	((u64)FIELD_GET(__mask, __val))
+ 
+-/**
+- * REG_BIT16() - Prepare a u16 bit value
+- * @__n: 0-based bit number
+- *
+- * Local wrapper for BIT() to force u16, with compile time
+- * checks.
+- *
+- * @return: Value with bit @__n set.
+- */
+-#define REG_BIT16(__n)                                                   \
+-	((u16)(BIT(__n) +                                                \
+-	       BUILD_BUG_ON_ZERO(__is_constexpr(__n) &&         \
+-				 ((__n) < 0 || (__n) > 15))))
+-
+-/**
+- * REG_GENMASK16() - Prepare a continuous u8 bitmask
+- * @__high: 0-based high bit
+- * @__low: 0-based low bit
+- *
+- * Local wrapper for GENMASK() to force u16, with compile time
+- * checks.
+- *
+- * @return: Continuous bitmask from @__high to @__low, inclusive.
+- */
+-#define REG_GENMASK16(__high, __low)                                     \
+-	((u16)(GENMASK(__high, __low) +                                  \
+-	       BUILD_BUG_ON_ZERO(__is_constexpr(__high) &&      \
+-				 __is_constexpr(__low) &&               \
+-				 ((__low) < 0 || (__high) > 15 || (__low) > (__high)))))
+ 
+ /**
+  * REG_FIELD_PREP16() - Prepare a u16 bitfield value
 
 -- 
 2.48.1
