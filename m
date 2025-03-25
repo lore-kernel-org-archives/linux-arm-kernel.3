@@ -4,104 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AFEC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 03:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50029C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 03:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QX+zFdWjeuQlzuCcAZM/kErn+a5XVCQ6Ck8ssaU/og=; b=hFvxTf2ZFw2UesR7G46+wnEmFi
-	TCjQwyzWRHsOZp5xZV0lnjHSxxSOW/2mbjSNZ3fVO+jLpNnza9QrBNQPn1jHbxCqTUZtqxXU2WdKw
-	gyHIJsv8ilClhE6/toavN51fJLpCbw/jThRyYS+nAmxYvpACzmyJOYCKWYtzJLHid1d5GOuRmnI/X
-	7eAgU/vSWy1QTUcGeXOv0qKCYwgvMLVbu3I1rYUYllz4IKS4+fqlni1o5RnVk0mjfaeZDsycExGCz
-	l/XAq9W3R/nWjGBgG4vOfMoS31Sg64Fgrc8UkdGdkSUyr1C08Yt3Sq3QTAXaAjX47CfTE2MstYTDs
-	DYsFjtBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JBGcNe5occCs8XxvzW6yTXPNpLdlfFYZmRYv1G0YKzQ=; b=vyhQTXvaoaEi2VDgGW7JDYfOBP
+	TYCFDc5sjvKmjd1x81Md/P62aR3G6xdjvJysrGXRgErzUCfvol3Mb6K4JrWCBWzfaynR89qNxklVP
+	bZBdL8xKRQBR4w3UEI8o0K1uZJT65c4l71W4orkk1et+a0ey4ShfkMP9DBKO7lvcSoVhftxn7Co0q
+	FHG7dAEfF1qyXqRqDjN2236A5t+D90KLTdYNR6vVSTdeQqYzC4GNGVmqrsA12gJ+N4SOquggzeEeG
+	jCsFrdHRMTnAq1vEXsIj4UYnF87bw+6taumu7ciQaFjdRH3e2pfmoxw3KCXip+hoY/E8PMvHJRamK
+	EwiD/D1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twufV-00000004jad-3a7U;
-	Tue, 25 Mar 2025 03:09:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1twukv-00000004k7N-1P2G;
+	Tue, 25 Mar 2025 03:15:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twucs-00000004jLK-3ozU
+	id 1twujC-00000004js9-0bBl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 03:06:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1742872008;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8QX+zFdWjeuQlzuCcAZM/kErn+a5XVCQ6Ck8ssaU/og=;
-	b=gt/DY1J/08YJGkLPSbtFsj9R0wa9fKrpv0qFhOS8BcAQTTB+X7Wy+jG+mVWQ1vMk4yrREM
-	ZiH3R+YzkRLR9m9doV7s1JZsBY85LNv/o6pLKGyiTEx2Exp1aluntf5+ihk8Y6OuwmzG8v
-	29RgOsYkL7AjGDiqBAM+q01qch4kb1w=
-Received: from mail-il1-f199.google.com (mail-il1-f199.google.com
- [209.85.166.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-552-ku47zlupMQuGSKUKNt125Q-1; Mon, 24 Mar 2025 23:06:46 -0400
-X-MC-Unique: ku47zlupMQuGSKUKNt125Q-1
-X-Mimecast-MFC-AGG-ID: ku47zlupMQuGSKUKNt125Q_1742872006
-Received: by mail-il1-f199.google.com with SMTP id e9e14a558f8ab-3d443811ed2so86701775ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 20:06:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742872006; x=1743476806;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8QX+zFdWjeuQlzuCcAZM/kErn+a5XVCQ6Ck8ssaU/og=;
-        b=YMgljxqPjo6pDqmOaO8Nmyk0y8Ng6ltCDooxQwlnEBcT/5M7ua4D3ZRlO5q+XDu2/E
-         IKDZAq30gvtk4tBKYWh8/B87iEOnKaYWCaExWfnbITPC/E3vhDmPQaHKKp9OGDR4TOyb
-         kWLEzWz2JX+9Rnu9W7RAeGmVRTN+2iMSbx84EytMYvELB1OH0zX8Y4xCKLl7lBKFO+sT
-         afgGtOsb0p5r4hvwG0fYa0bjZmORqzvMvnTVrJ490CdouQ1PEIsrznvqfb76BXZIEHaD
-         TGeOkAmFsfEQtNdjkGb8SFlKqpRvRt77bo9dj49P/I5CDGifxKQUylby3obtHFR9dgQ3
-         P+cw==
-X-Forwarded-Encrypted: i=1; AJvYcCUFEGkdOCTdacDx3zuH3ooXra6YkbQB5u2g4An53ngRSZS0U1Bff/F4gNCzudzKyaewBPJhRfMyIGMMqwqj/NHn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL4B0JfeTUqQFUByIWBWJ6Q9h6haRl1kTFZjGPzKWbSJGAnBHD
-	AVbbCBOtX0+cR6D99/Xma2lu8ktKAGnoJqUnVcXv57VWzcf4lvgLZpGZanloHq+rs4FuquwmdDf
-	IujZX1uDh+50nR5zWjn9vO/c3tI4OfB3TuOmijcsyz7C4lc2ubF8dwWN4ZkpRv5aTNEPo0979rF
-	T9sRwoROmrGfF8xLbyNrm/zOh9lvh9DdzRFxapR+CbV/G7zEQ=
-X-Gm-Gg: ASbGncu1ENeV68OOGlUF5SuzGEN7z/XrgFhS3Wn0DWbfWLpMwMGmkxZeFSPCjNtjxOX
-	db5xbeoMcwwt2bXWqzEQh2o2CqF9QbbpklcNUtIDvCVtWtEc5zWqG84oko7+hmwZ7z8Bk2sYjZg
-	==
-X-Received: by 2002:a05:6e02:748:b0:3d4:6e2f:b493 with SMTP id e9e14a558f8ab-3d59615d9b2mr153651235ab.11.1742872006023;
-        Mon, 24 Mar 2025 20:06:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE5XTfTYA1qkf4MGjSh6Evza+A2MB/jUqh1YG/uG3OXh4qzNNvGTBc1K4PgXO/eVmwdqOvHcPKX5AjVSKaQhLs=
-X-Received: by 2002:a05:6e02:748:b0:3d4:6e2f:b493 with SMTP id
- e9e14a558f8ab-3d59615d9b2mr153650885ab.11.1742872005537; Mon, 24 Mar 2025
- 20:06:45 -0700 (PDT)
+	Tue, 25 Mar 2025 03:13:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7C4975C5747;
+	Tue, 25 Mar 2025 03:11:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2960C4CEDD;
+	Tue, 25 Mar 2025 03:13:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742872401;
+	bh=KziQK7EppF5DOtBo7utcqARNBAi9Ars+fyKXqAXwwQY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=vNg/JsMrXRn+fPXc9o2GtWX/1TEHmPJwgwn5rQ/kSlOKCEtPKAntisR79WOG74aSr
+	 TC1tvxs4yaJ1ObDFIe01JX+PM1/DqIGoID2HwBHNUYwM+3qwTM8dNOr918LcZjvNpL
+	 uIAxYA8NCggQjrZvsBzKhZPi36TadgbTBdCwpC/kI05Wyj2Ell5jq2PZDgSqgZT7VN
+	 TB9gzlMjyd0hCssyjV+x/VnQ2MeWUhII9q06rv52KYSUXWhouGByhtWsbsWfTP50CJ
+	 b7A6ETi46LP21piNgCckqLYmwwtsRNnfY8CuJwNHZ0FeKsHRIJpGfrFJrHTKAi92a9
+	 7NoWTwPdzVlAQ==
+Date: Mon, 24 Mar 2025 22:13:19 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-12-changyuanl@google.com> <CALu+AoS01QJ-H5Vpr378rbx==iRQLG0HajtMCUzDXRO75biCag@mail.gmail.com>
- <CA+CK2bC4PM0JnHOUm7qfpQ=wUhwsYQ-hJ12tTK_7pSWgYk+bhg@mail.gmail.com> <CALu+AoRL+oHW2vN8nf1wpsG2Ki8d44AABQRCBMd+CE4_XzqRTw@mail.gmail.com>
-In-Reply-To: <CALu+AoRL+oHW2vN8nf1wpsG2Ki8d44AABQRCBMd+CE4_XzqRTw@mail.gmail.com>
-From: Dave Young <dyoung@redhat.com>
-Date: Tue, 25 Mar 2025 11:07:06 +0800
-X-Gm-Features: AQ5f1JodZdPjZPmn7C-4IUrPojZILVca8awRM4MpIz-0KIylSAlKoZUHH0RUnGg
-Message-ID: <CALu+AoSzOixDBHiFdry=RbFGX5Umk5XxLC=BmPKMYW7rCLUxSw@mail.gmail.com>
-Subject: Re: [PATCH v5 11/16] kexec: add config option for KHO
-To: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org, graf@amazon.com, 
-	akpm@linux-foundation.org, luto@kernel.org, anthony.yznaga@oracle.com, 
-	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
-	catalin.marinas@arm.com, dave.hansen@linux.intel.com, dwmw2@infradead.org, 
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com, corbet@lwn.net, 
-	krzk@kernel.org, rppt@kernel.org, mark.rutland@arm.com, pbonzini@redhat.com, 
-	hpa@zytor.com, peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org, 
-	robh@kernel.org, saravanak@google.com, skinsburskii@linux.microsoft.com, 
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com, 
-	usama.arif@bytedance.com, will@kernel.org, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: gWHon3O1DYerzs2-xDlBaL-neDr2Rn_OKIukjqTzo4I_1742872006
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: conor+dt@kernel.org, krzk+dt@kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+ andrew@codeconstruct.com.au, tingkaic@nvidia.com, 
+ devicetree@vger.kernel.org, dkodihalli@nvidia.com, 
+ linux-arm-kernel@lists.infradead.org, leohu@nvidia.com, 
+ linux-kernel@vger.kernel.org, gpiccoli@igalia.com, tony.luck@intel.com, 
+ linux-aspeed@lists.ozlabs.org, kees@kernel.org, openbmc@lists.ozlabs.org, 
+ joel@jms.id.au, Paul Menzel <pmenzel@molgen.mpg.de>, 
+ Mars Yang <maryang@nvidia.com>, linux-hardening@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+To: Willie Thai <wthai@nvidia.com>
+In-Reply-To: <20250324175926.222473-1-wthai@nvidia.com>
+References: <20250324175926.222473-1-wthai@nvidia.com>
+Message-Id: <174287235976.1618206.14203259564478820837.robh@kernel.org>
+Subject: Re: [PATCH v4 0/3] Add device tree for Nvidia's GB200NVL BMC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_200651_037236_AEEFC11A 
-X-CRM114-Status: GOOD (  40.59  )
+X-CRM114-CacheID: sfid-20250324_201322_270367_F6875BAB 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,101 +78,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Mar 2025 at 09:24, Dave Young <dyoung@redhat.com> wrote:
->
-> On Tue, 25 Mar 2025 at 03:27, Pasha Tatashin <pasha.tatashin@soleen.com> =
-wrote:
-> >
-> > On Mon, Mar 24, 2025 at 12:18=E2=80=AFAM Dave Young <dyoung@redhat.com>=
- wrote:
-> > >
-> > > On Thu, 20 Mar 2025 at 23:05, Changyuan Lyu <changyuanl@google.com> w=
-rote:
-> > > >
-> > > > From: Alexander Graf <graf@amazon.com>
-> > > >
-> > > > We have all generic code in place now to support Kexec with KHO. Th=
-is
-> > > > patch adds a config option that depends on architecture support to
-> > > > enable KHO support.
-> > > >
-> > > > Signed-off-by: Alexander Graf <graf@amazon.com>
-> > > > Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > > Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-> > > > Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-> > > > ---
-> > > >  kernel/Kconfig.kexec | 15 +++++++++++++++
-> > > >  1 file changed, 15 insertions(+)
-> > > >
-> > > > diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-> > > > index 4d111f871951..57db99e758a8 100644
-> > > > --- a/kernel/Kconfig.kexec
-> > > > +++ b/kernel/Kconfig.kexec
-> > > > @@ -95,6 +95,21 @@ config KEXEC_JUMP
-> > > >           Jump between original kernel and kexeced kernel and invok=
-e
-> > > >           code in physical address mode via KEXEC
-> > > >
-> > > > +config KEXEC_HANDOVER
-> > > > +       bool "kexec handover"
-> > > > +       depends on ARCH_SUPPORTS_KEXEC_HANDOVER && ARCH_SUPPORTS_KE=
-XEC_FILE
-> > > > +       select MEMBLOCK_KHO_SCRATCH
-> > > > +       select KEXEC_FILE
-> > > > +       select DEBUG_FS
-> > > > +       select LIBFDT
-> > > > +       select CMA
-> > > > +       select XXHASH
-> > > > +       help
-> > > > +         Allow kexec to hand over state across kernels by generati=
-ng and
-> > > > +         passing additional metadata to the target kernel. This is=
- useful
-> > > > +         to keep data or state alive across the kexec. For this to=
- work,
-> > > > +         both source and target kernels need to have this option e=
-nabled.
-> > > > +
-> > >
-> > > Have you tested kdump?  In my mind there are two issues,  one is with
-> > > CMA enabled, it could cause kdump crashkernel memory reservation
-> > > failures more often due to the fragmented low memory.  Secondly,  in
-> >
-> > As I understand cma low memory scratch reservation is needed only to
-> > support some legacy pci devices that cannot use the full 64-bit space.
-> > If so, I am not sure if KHO needs to be supported on machines with
-> > such devices. However, even if we keep it, it should really be small,
-> > so I would not expect that to be a problem for crash kernel memory
-> > reservation.
->
-> It is not easy to estimate how much of the KHO reserved memory is
-> needed.  I assume this as a mechanism for all different users, it is
-> not  predictable.  Also it is not only about the size, but also it
-> makes the memory fragmented.
->
-> >
-> > > kdump kernel dump the crazy scratch memory in vmcore is not very
-> > > meaningful.  Otherwise I suspect this is not tested under kdump.  If
-> > > so please disable this option for kdump.
-> >
-> > The scratch memory will appear as regular CMA in the vmcore. The crash
-> > kernel can be kexec loaded only from userland, long after the scratch
-> > memory is converted to CMA.
->
-> Depending on the reserved size, if big enough it should be excluded in
-> vmcore dumping.
-> Otherwise if it is a kdump kernel it should skip the handling of the
-> KHO passed previous old states.
 
-If you do not want to make the KHO conflicts with kdump, then the
-above should be handled and well tested.  And then leave to end user
-and distribution to determine if they want the both enabled
-considering the risk of crashkernel reservation failure.
+On Mon, 24 Mar 2025 17:59:23 +0000, Willie Thai wrote:
+> The GB200NVL BMC is an Aspeed Ast2600 based BMC
+> for Nvidia Blackwell GB200NVL platform.
+> Reference to Ast2600 SOC [1].
+> Reference to Blackwell GB200NVL Platform [2].
+> 
+> Co-developed-by: Mars Yang <maryang@nvidia.com>
+> Signed-off-by: Mars Yang <maryang@nvidia.com>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Andrew Lunn <andrew@lunn.ch>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Paul Menzel <pmenzel@molgen.mpg.de>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> Link: https://www.aspeedtech.com/server_ast2600/ [1]
+> Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
+> Signed-off-by: Willie Thai <wthai@nvidia.com>
+> ---
+> Changes v1 -> v2:
+>   - Fix the SOB name [Krzysztof]
+>   - Fix warnings from scripts/checkpatch.pl run [Krzysztof]
+>   - Fix DTS coding style [Krzysztof]
+>   - Move pinctrl override to the bottom [Krzysztof]
+>   - Drop bootargs [Krzysztof]
+>   - Follow DTS coding style and change naming for leds node [Krzysztof]
+>   - Change flash 0 status property [Krzysztof]
+>   - Change the phy-mode to rgmii [Andrew]
+>   - Remove the max-speed in mac0 [Andrew]
+>   - Put gpio line name in one line per group of 8 gpios, but keep some b/c they can exceed length limit [Paul]
+> Changes v2 -> v3:
+>   - Fix missing new line [Krzysztof]
+>   - Fix missing binding define, adding it in the patch no.1 of this patch set v3 [Krzysztof, Rob]
+>   - Fix DTS coding style [Krzysztof]
+>   - Modify nodes name to generic name for: i2c expander pca9546, gpio expander pca9555, power monitor lm5066i, fan controller max31790 [Krzysztof]
+>   - Skip mac setting and wait till the delay issue in phy-mode fix from Aspeed SOC vendor side [Andrew]
+>   - Remove i2c-scl-clk-low-timeout-us which is Apseed proprietary property [Mars]
+> Changes v3 -> v4:
+>   - Order binding patch first in the patch set [Andrew Jeffery]
+>   - Make the commit message more concise [Krzysztof]
+>   - Remove stray blank lines [Krzysztof]
+>   - Remove unnecessary comments [Krzysztof]
+>   - Remove underscore, repalce by dash symbol in node name [Krzysztof]
+>   - Remove disable-master property in i2c as it is downstream added property [Rob, Andrew Jeffery]
+>   - Remove #address-cells, #size-cells in nxp,pca9555 and maxim,max31790 as they are no longer defined [Rob, Andrew Jeffery]
+> ---
+> 
+> Willie Thai (3):
+>   dt-bindings: arm: aspeed: add Nvidia's GB200NVL BMC
+>   dt-bindings: pinctrl: aspeed,ast2600-pinctrl
+>   ARM: dts: aspeed: Add device tree for Nvidia's GB200NVL BMC
+> 
+>  .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+>  .../pinctrl/aspeed,ast2600-pinctrl.yaml       |    1 +
+>  arch/arm/boot/dts/aspeed/Makefile             |    1 +
+>  .../aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 1149 +++++++++++++++++
+>  4 files changed, 1152 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+> 
+> --
+> 2.25.1
+> 
+> 
+> 
 
->
-> >
-> > Pasha
-> >
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250324175926.222473-1-wthai@nvidia.com:
+
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+
+
+
+
 
 
