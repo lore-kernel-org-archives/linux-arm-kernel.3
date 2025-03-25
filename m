@@ -4,118 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA7FC36011
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138DAC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnQgRFN4ezmQp7ZVIa5YIy0lDo915O1+ha1D7hQ1uNs=; b=mTdD/8rWdQRQBbMTTvXliWkPzi
-	RltXXt1U5X4ZF9w1Aa2bCY1cfSHK9m23f31rnY9awIPXEwKX1/onel8uitHBtUFUi5IXQN/pd/3DC
-	IAv5MCQLDgEtEHhHalJO7rUx0qMT9KCS3pWwsmQ8MZqknoEEW1QdDHU3XXfZlgL7wHGMursXxdG+5
-	mMdGn+Afetqr3nw+D0LhUzvAxrclH4+P0A/u7yxQmzauUAtK//0WyrxXpYr4WhsC5ZxnXBsYgx3jD
-	CXrez6Rr6yRp0YOuxvJGclgDrsf+Y02L9BaKqxUFGg/65ccomx+bPm+Hp5szk8e3fWQ9d1adGXmvA
-	9nG06CFQ==;
+	bh=RB9GJiRFJg6/bN2vnJM4vC1ljE25oPT92TiI7BbGuH4=; b=BfK6ogAl0zDEOOmJNQq2m8Hzjt
+	TUDedq5gSeIjCEcZxPC6kR9VzmSKSJuKjswZAP8+zbvT7saAWphOdJ4yamiWxl8Ll1R3F1foeQYwV
+	0BAaeSStl2vvfrMtd27a5fztCCXCbMS24gu8m+k/eG4YXwZSxNnbcFh908lrP+P0U9vzZdx8jHAV/
+	7UyA1SLOMjiF11ahkiNn/pxApQVAU6KjpOeFE6FMyoFtdK85Y/Q4ynqPQk68UwIQRxqOY/HXEKl/3
+	kT767iIIu3SCuam0bfNVlvoQeNZQApiuEe6oej6l3IjlO1AYelZ1iiQcZnZITulViGQ3ZMLzQGVuI
+	xMZaOf5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3w7-00000005xfD-0jid;
-	Tue, 25 Mar 2025 13:03:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tx3w3-00000005xbx-3Lvt;
+	Tue, 25 Mar 2025 13:03:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3ch-00000005tMH-3uKH
+	id 1tx3Zf-00000005sU8-0ifc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 12:40:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RB9GJiRFJg6/bN2vnJM4vC1ljE25oPT92TiI7BbGuH4=; b=Hhg98WCnsua83pWeyAI5CpUMJ4
+	z3rHscl85jBNDm+EvMLR8hNhPqiC5bm92sWWQh8PfKSa73fW7HOL+2rDbGdAPj3l6B/3v3tRFN5Bb
+	wdRTuNXLf/+h+PzTi/DSFBqt1Y7I0F6WUmBF2iMLBDI4wGLAVm8p30O59gf0ZaLm+SsSb8lSRhV7z
+	83nQUzBDty0pdxIRaqkkdp+x8SR1LjmI78PbonX7WjN4atT/T140IsAojGG46KSVqNCOXgHn6CnhI
+	uqJCRpjimPCK4C9EvhsFfxPYAI4MUEglr+wKohmpb0ik91tROKy3ANxup5VWGfuVJ5+ak9FHNKGOu
+	3mbSpKuA==;
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tx3Zb-00000005PyA-02rM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:43:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2C26EA4A107;
-	Tue, 25 Mar 2025 12:37:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28C5FC4CEE4;
-	Tue, 25 Mar 2025 12:43:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742906594;
-	bh=ng35KBckf7JeUu4rjFsZ5XIXPqVaMyQEg+4Yl2pBr0E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FqskeZGhSZkJYVG9aZ3S0NXYbJpzHLGfjDW0JGVj5tfAuGSsdltKpL3n588a6KTxs
-	 i7/TsSCDSYZRVXDC2qb58+1zPOHTP+RiYIrxb9fZhLWrgKhaUzZuhKyuQnG1dP8yE2
-	 zyXS693a2C23KkKdhWQwUV2RWNdCTFC2Xp/v2wBVaXpplbKgljG8IQEUkINMxtMfaE
-	 rDQg9Q9Kr84uyitneCf2OHFGwikKw7RCeXxl6R65Xrq6vDgxwgomSWTSWzKmmK4/CX
-	 zcY6JGu+qY/z4LMk0xI1K0z5BG+EFrNZs9BPBb9AhSdD6Pi2IdnPaEnhNcg/9nEyeb
-	 tH6vMMFWSz0Gg==
-Message-ID: <7d3fbe0b-f566-4615-a5df-a8f3b4544c3b@kernel.org>
-Date: Tue, 25 Mar 2025 13:43:04 +0100
+	Tue, 25 Mar 2025 12:40:05 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id E788AA05BE;
+	Tue, 25 Mar 2025 13:39:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=RB9GJiRFJg6/bN2vnJM4
+	vC1ljE25oPT92TiI7BbGuH4=; b=S9dATbHQKVhWMebPspBcq6wTeWmup9sX72Kh
+	N6n2EOKfMxJ8hfo0eTHPW1XJagCC0ai0nBmCHIVy4CcHtuy/IXnIgexI30R+GdNl
+	duApg87u5HRR6AeTK/YocuQ6l0qO/UdIfXUct1soL8X9PKv9cQq0h1NBt2X0kI5q
+	+lEN+F2l2JIQI486Y6hh0CZEyKqP0TkDztsZGjlE3Uso/PHsCX1aGKhdGaqF1Rjl
+	+yZcvJGLae6yNEZgZGvIv3HmOOj4JjKAWu/0xAH4uJW4swwIiqcoJFiSrmskdLTm
+	7Y8ihLBis0RuF6MM+NSrVlSq4oBw/2dK9YHX3tSsi05orp7W06buvBssdGEA9Ovd
+	fZ2XqrL02cu625TnlTkTjrZBBs2DMjBk09f03HHe3wJhNAcqCHG5HmRSwsqLkJ0d
+	szXn94T4iai0+JUcFgko07Kg+uYwgI8hpnU+wrH90xaphxeVtGYJzCpqbXd6zy/A
+	5z8DotmD6V5RMOrH2eXdQhM8tJTAkLeUyWinSo3HCsKf8NIzqB8pJz95XaMWGHH+
+	1PqX1GnooCT3EhMYUffDfPUnOWlwoeOhS5ygusL8nLXtNLTMmYRquF+i7C7zWzVM
+	kwqMGcHByQCN9+ea0sgxkir8QTN4PyVDIzYVihd/v0s3gW9o51tuF2S0SEKD2pDk
+	+07bpVg=
+Message-ID: <bd7b31d8-be25-4dbc-9a81-4b0cccd64798@prolan.hu>
+Date: Tue, 25 Mar 2025 13:39:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: net: Add MTIP L2 switch description
- (fec,mtip-switch.yaml)
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
- Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>,
- netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>
-References: <20250325115736.1732721-1-lukma@denx.de>
- <20250325115736.1732721-3-lukma@denx.de>
- <2bf73cc2-c79a-4a06-9c5f-174e3b846f1d@kernel.org>
- <20250325131507.692804cd@wsk>
- <bf6d066c-f0dd-471a-bb61-9132476b515a@kernel.org>
- <20250325133949.7782a8a5@wsk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250325133949.7782a8a5@wsk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [v6] dma-engine: sun4i: Simplify error handling in probe()
+To: Julian Calaby <julian.calaby@gmail.com>, Markus Elfring
+	<Markus.Elfring@web.de>
+CC: <dmaengine@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>, Chen-Yu Tsai <wens@csie.org>, "Christophe
+ Jaillet" <christophe.jaillet@wanadoo.fr>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Vinod Koul
+	<vkoul@kernel.org>
+References: <20250324172026.370253-2-csokas.bence@prolan.hu>
+ <92772f63-52c9-4979-9b60-37c8320ca009@web.de>
+ <7064597b-caf7-42e2-b083-b3531e874200@prolan.hu>
+ <7332ccd2-ebe6-4b9d-a2ae-8f33641e7bd4@web.de>
+ <7afcbbee-6261-4b2f-be14-a3076746d53c@prolan.hu>
+ <26e36378-d393-4fe1-938a-be8c3db94ede@web.de>
+ <CAGRGNgU7t85oG3Bq7L3KjKUAbRyd6SHSM6F6BvmdXDVkbNegKg@mail.gmail.com>
+Content-Language: en-US, hu-HU
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <CAGRGNgU7t85oG3Bq7L3KjKUAbRyd6SHSM6F6BvmdXDVkbNegKg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.37.248]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D948526C7562
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_054316_100651_7EC7A271 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250325_124003_336741_3D49D52E 
+X-CRM114-Status: GOOD (  28.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,39 +108,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/03/2025 13:39, Lukasz Majewski wrote:
-> Hi Krzysztof,
+Hi Julian,
+
+On 2025. 03. 25. 13:20, Julian Calaby wrote:
+> Hi Markus,
 > 
->> On 25/03/2025 13:15, Lukasz Majewski wrote:
->>> Hi Krzysztof,
->>>   
->>>> On 25/03/2025 12:57, Lukasz Majewski wrote:  
->>>>> This patch provides description of the MTIP L2 switch available in
->>>>> some NXP's SOCs - imx287, vf610.
->>>>>
->>>>> Signed-off-by: Lukasz Majewski <lukma@denx.de>
->>>>> ---
->>>>>  .../bindings/net/fec,mtip-switch.yaml         | 160
->>>>> ++++++++++++++++++    
->>>>
->>>> Use compatible as filename.  
+> I really wanted to keep out of this, but...
+> 
+> On Tue, Mar 25, 2025 at 8:14 PM Markus Elfring <Markus.Elfring@web.de> wrote:
+>>
+>>>> Implementation details are probably worth for another look.
 >>>
->>> I've followed the fsl,fec.yaml as an example. This file has
->>> description for all the device tree sources from fec_main.c  
+>>> What don't you like in the implementation? Let's discuss that then.
 >>
->>
->> That's a 14 year old binding, so clear antipattern.
+>> I dare to point concerns out also for the development process.
 > 
-> For some reason it is still there...
+> You're "concerned" about patch granularity, but this is not the sort
+> of thing that some random person would raise, this is the sort of
+> thing a maintainer asks for when patches are doing too many things or
+> are unreviewable. This is neither. It is a very simple cleanup of a
+> probe function as it says in the patch subject.
 
-And it will be there for very long time. Bindings are not removed just
-because they are old, because they are an ABI. That's still not a reason
-to use something old as starting point.
+Exactly. That's why I asked if it broke something on Markus' end, 
+because it is a really specific thing to nitpick about, especially in a 
+changeset this small. So far, he did not indicate the *reasons* why he 
+thinks this should be split further.
 
-It's the same with drivers, although driver can be easier changed and
-old pattern can be dropped. You cannot easily drop old, anti-patterns
-from the binding.
+> Futhermore, this already has an ack from the maintainer of this file.
+> This indicates that they're happy with it and no significant changes
+> are required. This is also version 6 of the patch, if the maintainer
+> was concerned about this, they'd have already provided some clear
+> guidance on this. If you check previous versions of this patch, no
+> such requests have been made.
+> 
+> Your only other "concern" had already been addressed as has already
+> been pointed out to you.
+> 
+>>>> Please distinguish better between information from the “changelog”
+>>>> and items in a message subject.
+>>>
+>>> What do you mean? The email body will be the commit message.
+>> See also:
+>> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v6.14#n623
+> 
+> The email and patch structure are following the format outlined in the
+> document you link to _exactly_.
+> 
+> 
+> Once again your comments are just noise, and your insistence on
+> repeating them over and over and over and over and over again is
+> borderline harassment.
+> 
+> You have been told to stop this nonsense many many times, here's a
+> link to the most recent one:
+> 
+> https://lore.kernel.org/all/92d1a410788c54facedec033474046dda6a1a2cc.camel@sipsolutions.net/
+> 
+> Please stop sending these emails and go do something constructive with
+> your life.
+> 
+> * * * * *
+> 
+> Bence Csókás, (I hope I've got the order of your names correct)
 
-Best regards,
-Krzysztof
+Either order works, Bence is the given name, and Csókás is the family 
+name (surname). Hungarian and Japanese order follows the scientific 
+"Surname, Given Name(s)" order, but commas broke many tools, including 
+Git < v2.46, and b4, so I switched to the germanic "Firstname Lastname" 
+format.
+
+> Please block or ignore Markus, at best he's a nuisance and at worst a troll.
+
+I'm still open to hear him out if, and only if, he can give *clear and 
+valid* reasoning on why he wants to achieve this. I'm a generally 
+understanding person. But if it's just hand-waving and linking to the 
+same page over and over again with no explanation on why he _thinks_ I 
+broke SubmittingPatches, then I will do exactly this.
+
+Lastly, to all other adressees, sorry for the spam. So let's end this 
+meta-discussion here and keep the rest of the conversation professional, 
+reasoning about the technicals.
+
+Bence
+
 
