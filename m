@@ -4,114 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF214C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:44:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F37BC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VDvdYmxbb9NyXB8xd72n+1QmVgLlIzailnuSmaZyxTo=; b=VAm3KPMlRHa2Dm7EcjENf3iKvY
-	IsKgo+8Tf4U8QNTl9NcLWhXKV2ZPI+xnjOM7n1qWodZIooyfD9Jk9jScnqLer2CvFNcx7N8SIc3H3
-	aDTaWG31413IZ98KAqme/7gDRCMerQydYEqAeYJd24NRNnfzkAqFTSbaPCwrdcoNy0vOpx1WeeHFe
-	EkyoO/TgEmx6FJtV3B/bs3KtlPSrmjl8kJHDX9sg3ykBn7QdBwzZVmpgzZ+0z0PObSRiT0q6EGVmU
-	wL/2rJdiWIiBUDx3EHxvaEMmf1CN7uXxQr/XJnFB1ziJkXLzYcEOsaylTJhMexT9fVEPuBflRzGUK
-	DBc+yO5Q==;
+	bh=ghirADeIMwBskFDXl3PRgex4dfQx4yaHnrJ8LRIa/vs=; b=m/6CGlFPxKGkLx0dLwMexZwh6y
+	93Y0ZPJH45bh6QVGroi4jF/XUM5MJJ5piZpusW7KiDhNdG4+y+hhOwqHpqu5BmiP+igAcgWzivmA3
+	pAVIwtvzoPeFonfcj5o2JVbMhpRDxC1MxxXQdxVZk88ntR1vkjB3f0+WK22PSH+H10TomvX/8vhNh
+	bjB1ToP/8jYDN8zaLOqQhHAiN7Mq5cQzbMz62BKtd5q3SpwsAEQKILDFAZeus5czzHswTyQ3HB8I9
+	wL5kv3O6m0Ae9z/vdchE2Jx43LSxMZTlNqka9CBQm4YZvl39ia19B1aSsl7+0n9hEzaSqNjwi1hmv
+	u6+fdREw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx9Fm-00000006kdX-2geM;
-	Tue, 25 Mar 2025 18:43:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tx9Mu-00000006lmf-0507;
+	Tue, 25 Mar 2025 18:51:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx9E4-00000006kKl-1COM
+	id 1tx9L8-00000006lSd-3uqP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 18:42:12 +0000
+	Tue, 25 Mar 2025 18:49:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 817BE61134;
-	Tue, 25 Mar 2025 18:42:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52DDCC4CEE4;
-	Tue, 25 Mar 2025 18:42:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 44FED5C6428;
+	Tue, 25 Mar 2025 18:47:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B419C4CEEF;
+	Tue, 25 Mar 2025 18:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742928128;
-	bh=czQfqjHXT8AC/TqCowPb/ICdTvn8xVWPY8Fynodl96M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aT9YSFk6b9jkufAk8kVmC33X31kyb1aWzVts36xbMEwix/lf/heysclGqCnFWMPaQ
-	 M5fMzZCi7tLYMYeqIBepcMRgQ2BNS5aprNXd7kk/JaSgkzmF8w0s++eF3RHz85xPW3
-	 Za3LXHmNDwDoGTBQPSuJAAZZXRCZ+SUeN5BTpLJO/ru3v6BdDprTljPvvWL1L41c1U
-	 khocGo3TsCC4vXVEbKHQ3NMznx6LrPG4Y2tJV7hCM7M+ACTtq7pQq+e8qaf+GoWNEC
-	 Z+oTMtpEwl/akWMEoj3TovduRdJQ5FgkGzQZT7YhR9xOd8IlUMyn3TxNeleTcsQLO9
-	 aUidFygrY1VaA==
-Message-ID: <e9216aaf-f53e-4256-bb73-489c2261d4c5@kernel.org>
-Date: Tue, 25 Mar 2025 19:42:03 +0100
+	s=k20201202; t=1742928570;
+	bh=9bK1pLnPw0ndr+CZ33l3PmoXOB7bAHxLqCaExh5vFpY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=TOevBzYRC5JeTBzCLG1IGg9LuEgFu0wV9Ts24h4NkiTboPw6StkAHZe8WvIqaUpOL
+	 kxjBxlGxjmBfZ9M5XaDFoMOUGl4UbZ2PAdD2+kXzkN1AhAWl9OGsWhS+LJ7R0oMRDK
+	 6NTlVUXknKJdrf8pcTauKkfnFAznaRMSjJN/PVdAaqn/75uCY6ry1eTDJTutJTj6yg
+	 imeQhqHMA9lh7FJAIx2WW8H+/LQ4P5Nvr+yHzG0UFoN9CQcMjekqchH48IK20uycvF
+	 O6rJQveKTOTHPqvrqAhP6bS7aFNz7BnkvG7+jNtvX8CLNjC9kyFIA5fGu+0xuNXN+m
+	 tdNk6ENul957w==
+From: Mark Brown <broonie@kernel.org>
+Date: Tue, 25 Mar 2025 18:48:16 +0000
+Subject: [PATCH 6.1 02/12] arm64/fpsimd: Track the saved FPSIMD state type
+ separately to TIF_SVE
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
- Module for the s32g platform
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de
-Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
- Larisa Grigore <Larisa.Grigore@nxp.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>, dl-S32 <S32@nxp.com>
-References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
- <20250324100008.346009-2-daniel.lezcano@linaro.org>
- <bb7e4740-9608-4534-9c19-3ac066e2aa8f@kernel.org>
- <1bf2d9ad-325e-4b1d-8440-ddbc90eabc67@linaro.org>
- <9ca80442-15c8-4f2d-ac11-8096b2cd83ad@kernel.org>
- <ff213c29-2a17-4776-a575-35e398e560ec@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <ff213c29-2a17-4776-a575-35e398e560ec@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250325-stable-sve-6-1-v1-2-83259d427d84@kernel.org>
+References: <20250325-stable-sve-6-1-v1-0-83259d427d84@kernel.org>
+In-Reply-To: <20250325-stable-sve-6-1-v1-0-83259d427d84@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Oliver Upton <oliver.upton@linux.dev>, Oleg Nesterov <oleg@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
+ Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13750; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=9bK1pLnPw0ndr+CZ33l3PmoXOB7bAHxLqCaExh5vFpY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn4vqnvbIvrpJOzkFMUTLwDw96gXLVP8PkfQv9Dsfr
+ lOKFrk+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ+L6pwAKCRAk1otyXVSH0MvvB/
+ 40AlD/vuzhTxJEyfrtPYhPp8coiDbHHVWLw76Uh7pouX8itJzIlaa1Fhpsi2F1Ctcnb68OCfGNzqJa
+ EtkrKh5A3/wbIll6Bax7Pzxc/eHHD/8/TU5yt02Py7bmiP33plL02Gvetj+mFRl+Y9M8WhyG/xTXiH
+ QeIwa/nLpVIxENaHQotOuaMNO0WQwDvqloUcmWcAKu6GKWgFiiD2f5mV+sovLpXOjsmfHgH2AGVDiH
+ swOydWh04loCo2abv7PAgJyzdJ6MHGti7sywGPhd9pnJji8WnMvxI01w2koMTlBgGLp2Uq4Dkc6o+Z
+ 0PRqWKP1/DtkNMP0RO2wT7nHsgYWZx
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250325_114931_092916_64FACBE9 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,55 +89,360 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/03/2025 19:38, Daniel Lezcano wrote:
-> On 25/03/2025 13:30, Krzysztof Kozlowski wrote:
->> On 25/03/2025 13:23, Daniel Lezcano wrote:
-> 
-> [ ... ]
-> 
->>>>> +	if (!stm_instances->clocksource && (stm_instances->features & STM_CLKSRC)) {
->>>>> +
->>>>> +		/*
->>>>> +		 * First probed STM will be a clocksource
->>>>> +		 */
->>>>> +		ret = nxp_stm_clocksource_init(dev, name, base, clk);
->>>>> +		if (ret)
->>>>> +			return ret;
->>>>> +		stm_instances->clocksource++;
->>>>
->>>> That's racy. Devices can be brought async, ideally. This should be
->>>> rather idr or probably entire structure protected with a mutex.
->>>
->>> Mmh, interesting. I never had to think about this problem before
->>>
->>> Do you know at what moment the probing is parallelized ?
->>
->> You don't have PROBE_PREFER_ASYNCHRONOUS, so currently this will be
->> still sync, but I don't think we want it to be that way forever. I think
->> new drivers should not rely on implicit sync, because converting it
->> later to async will be difficult. It's easier to design it now or even
->> choose async explicitly (after testing).
-> 
-> I gave a try and sometimes I reach the warnings below. I suspect the 
-> underlying code in the time framework is not yet ready for that.
-> 
-> Even if it could be a good candidate for parallelizing the boot, this 
-> driver should stay sync ATM. Except if someone has the willing to dig 
-> into the core framework to find out the race when switching the 
-> clockevent. I think a thread is setting a timer while we are switching 
-> the driver.
-> 
-> IMO, this core framework is too sensitive for this kind of change now.
-> 
-> Alternatively, I can put anyway the lock which is harmless for the sync 
-> code but making the driver race free. The async flag can be put later.
+[ Upstream commit baa8515281b30861cff3da7db70662d2a25c6440 ]
 
+When we save the state for the floating point registers this can be done
+in the form visible through either the FPSIMD V registers or the SVE Z and
+P registers. At present we track which format is currently used based on
+TIF_SVE and the SME streaming mode state but particularly in the SVE case
+this limits our options for optimising things, especially around syscalls.
+Introduce a new enum which we place together with saved floating point
+state in both thread_struct and the KVM guest state which explicitly
+states which format is active and keep it up to date when we change it.
 
-Yes, that's what I meant, although indeed good point that clocksource is
-way too early to be async. In that case this part is up to you, maybe my
-suggestion was not correct.
+At present we do not use this state except to verify that it has the
+expected value when loading the state, future patches will introduce
+functional changes.
 
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/20221115094640.112848-3-broonie@kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
+[ Mark: fix conflicts due to earlier backports ]
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/include/asm/fpsimd.h    |  2 +-
+ arch/arm64/include/asm/kvm_host.h  | 12 +++++++-
+ arch/arm64/include/asm/processor.h |  6 ++++
+ arch/arm64/kernel/fpsimd.c         | 58 ++++++++++++++++++++++++++++----------
+ arch/arm64/kernel/process.c        |  2 ++
+ arch/arm64/kernel/ptrace.c         |  3 ++
+ arch/arm64/kernel/signal.c         |  7 ++++-
+ arch/arm64/kvm/fpsimd.c            |  3 +-
+ 8 files changed, 74 insertions(+), 19 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+index 3544dfcc67a1eccc12bdff22347e40c378f4ca6b..e10894100c7394b3f3156f7475d62646662812d4 100644
+--- a/arch/arm64/include/asm/fpsimd.h
++++ b/arch/arm64/include/asm/fpsimd.h
+@@ -61,7 +61,7 @@ extern void fpsimd_kvm_prepare(void);
+ extern void fpsimd_bind_state_to_cpu(struct user_fpsimd_state *state,
+ 				     void *sve_state, unsigned int sve_vl,
+ 				     void *za_state, unsigned int sme_vl,
+-				     u64 *svcr);
++				     u64 *svcr, enum fp_type *type);
+ 
+ extern void fpsimd_flush_task_state(struct task_struct *target);
+ extern void fpsimd_save_and_flush_cpu_state(void);
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 577cf444c113583979b9e54fe01b6c5ad21c272d..0e9b093adc6726770e0ff701ae9441ab31e448a5 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -309,8 +309,18 @@ struct vcpu_reset_state {
+ struct kvm_vcpu_arch {
+ 	struct kvm_cpu_context ctxt;
+ 
+-	/* Guest floating point state */
++	/*
++	 * Guest floating point state
++	 *
++	 * The architecture has two main floating point extensions,
++	 * the original FPSIMD and SVE.  These have overlapping
++	 * register views, with the FPSIMD V registers occupying the
++	 * low 128 bits of the SVE Z registers.  When the core
++	 * floating point code saves the register state of a task it
++	 * records which view it saved in fp_type.
++	 */
+ 	void *sve_state;
++	enum fp_type fp_type;
+ 	unsigned int sve_max_vl;
+ 	u64 svcr;
+ 
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index 400f8956328b97db27c8d6d937ab66bd24228c2b..208434a2e9247c9be5c85a032494f256e4c2cd58 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -122,6 +122,11 @@ enum vec_type {
+ 	ARM64_VEC_MAX,
+ };
+ 
++enum fp_type {
++	FP_STATE_FPSIMD,
++	FP_STATE_SVE,
++};
++
+ struct cpu_context {
+ 	unsigned long x19;
+ 	unsigned long x20;
+@@ -152,6 +157,7 @@ struct thread_struct {
+ 		struct user_fpsimd_state fpsimd_state;
+ 	} uw;
+ 
++	enum fp_type		fp_type;	/* registers FPSIMD or SVE? */
+ 	unsigned int		fpsimd_cpu;
+ 	void			*sve_state;	/* SVE registers, if any */
+ 	void			*za_state;	/* ZA register, if any */
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 1dc4254a99f25289278b83965946e09674ad4e75..2e0cecf02bf8fcaa799cf1bc89439a61a2a77973 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -125,6 +125,7 @@ struct fpsimd_last_state_struct {
+ 	u64 *svcr;
+ 	unsigned int sve_vl;
+ 	unsigned int sme_vl;
++	enum fp_type *fp_type;
+ };
+ 
+ static DEFINE_PER_CPU(struct fpsimd_last_state_struct, fpsimd_last_state);
+@@ -330,15 +331,6 @@ void task_set_vl_onexec(struct task_struct *task, enum vec_type type,
+  *    The task can execute SVE instructions while in userspace without
+  *    trapping to the kernel.
+  *
+- *    When stored, Z0-Z31 (incorporating Vn in bits[127:0] or the
+- *    corresponding Zn), P0-P15 and FFR are encoded in
+- *    task->thread.sve_state, formatted appropriately for vector
+- *    length task->thread.sve_vl or, if SVCR.SM is set,
+- *    task->thread.sme_vl.
+- *
+- *    task->thread.sve_state must point to a valid buffer at least
+- *    sve_state_size(task) bytes in size.
+- *
+  *    During any syscall, the kernel may optionally clear TIF_SVE and
+  *    discard the vector state except for the FPSIMD subset.
+  *
+@@ -348,7 +340,15 @@ void task_set_vl_onexec(struct task_struct *task, enum vec_type type,
+  *    do_sve_acc() to be called, which does some preparation and then
+  *    sets TIF_SVE.
+  *
+- *    When stored, FPSIMD registers V0-V31 are encoded in
++ * During any syscall, the kernel may optionally clear TIF_SVE and
++ * discard the vector state except for the FPSIMD subset.
++ *
++ * The data will be stored in one of two formats:
++ *
++ *  * FPSIMD only - FP_STATE_FPSIMD:
++ *
++ *    When the FPSIMD only state stored task->thread.fp_type is set to
++ *    FP_STATE_FPSIMD, the FPSIMD registers V0-V31 are encoded in
+  *    task->thread.uw.fpsimd_state; bits [max : 128] for each of Z0-Z31 are
+  *    logically zero but not stored anywhere; P0-P15 and FFR are not
+  *    stored and have unspecified values from userspace's point of
+@@ -358,6 +358,19 @@ void task_set_vl_onexec(struct task_struct *task, enum vec_type type,
+  *    task->thread.sve_state does not need to be non-NULL, valid or any
+  *    particular size: it must not be dereferenced.
+  *
++ *  * SVE state - FP_STATE_SVE:
++ *
++ *    When the full SVE state is stored task->thread.fp_type is set to
++ *    FP_STATE_SVE and Z0-Z31 (incorporating Vn in bits[127:0] or the
++ *    corresponding Zn), P0-P15 and FFR are encoded in in
++ *    task->thread.sve_state, formatted appropriately for vector
++ *    length task->thread.sve_vl or, if SVCR.SM is set,
++ *    task->thread.sme_vl. The storage for the vector registers in
++ *    task->thread.uw.fpsimd_state should be ignored.
++ *
++ *    task->thread.sve_state must point to a valid buffer at least
++ *    sve_state_size(task) bytes in size.
++ *
+  *  * FPSR and FPCR are always stored in task->thread.uw.fpsimd_state
+  *    irrespective of whether TIF_SVE is clear or set, since these are
+  *    not vector length dependent.
+@@ -404,12 +417,15 @@ static void task_fpsimd_load(void)
+ 		}
+ 	}
+ 
+-	if (restore_sve_regs)
++	if (restore_sve_regs) {
++		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_SVE);
+ 		sve_load_state(sve_pffr(&current->thread),
+ 			       &current->thread.uw.fpsimd_state.fpsr,
+ 			       restore_ffr);
+-	else
++	} else {
++		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_FPSIMD);
+ 		fpsimd_load_state(&current->thread.uw.fpsimd_state);
++	}
+ }
+ 
+ /*
+@@ -474,8 +490,10 @@ static void fpsimd_save(void)
+ 		sve_save_state((char *)last->sve_state +
+ 					sve_ffr_offset(vl),
+ 			       &last->st->fpsr, save_ffr);
++		*last->fp_type = FP_STATE_SVE;
+ 	} else {
+ 		fpsimd_save_state(last->st);
++		*last->fp_type = FP_STATE_FPSIMD;
+ 	}
+ }
+ 
+@@ -851,8 +869,10 @@ int vec_set_vector_length(struct task_struct *task, enum vec_type type,
+ 
+ 	fpsimd_flush_task_state(task);
+ 	if (test_and_clear_tsk_thread_flag(task, TIF_SVE) ||
+-	    thread_sm_enabled(&task->thread))
++	    thread_sm_enabled(&task->thread)) {
+ 		sve_to_fpsimd(task);
++		task->thread.fp_type = FP_STATE_FPSIMD;
++	}
+ 
+ 	if (system_supports_sme()) {
+ 		if (type == ARM64_VEC_SME ||
+@@ -1383,6 +1403,7 @@ static void sve_init_regs(void)
+ 		fpsimd_bind_task_to_cpu();
+ 	} else {
+ 		fpsimd_to_sve(current);
++		current->thread.fp_type = FP_STATE_SVE;
+ 		fpsimd_flush_task_state(current);
+ 	}
+ }
+@@ -1612,6 +1633,8 @@ void fpsimd_flush_thread(void)
+ 		current->thread.svcr = 0;
+ 	}
+ 
++	current->thread.fp_type = FP_STATE_FPSIMD;
++
+ 	put_cpu_fpsimd_context();
+ 	kfree(sve_state);
+ 	kfree(za_state);
+@@ -1660,8 +1683,10 @@ void fpsimd_kvm_prepare(void)
+ 	 */
+ 	get_cpu_fpsimd_context();
+ 
+-	if (test_and_clear_thread_flag(TIF_SVE))
++	if (test_and_clear_thread_flag(TIF_SVE)) {
+ 		sve_to_fpsimd(current);
++		current->thread.fp_type = FP_STATE_FPSIMD;
++	}
+ 
+ 	put_cpu_fpsimd_context();
+ }
+@@ -1683,6 +1708,7 @@ static void fpsimd_bind_task_to_cpu(void)
+ 	last->sve_vl = task_get_sve_vl(current);
+ 	last->sme_vl = task_get_sme_vl(current);
+ 	last->svcr = &current->thread.svcr;
++	last->fp_type = &current->thread.fp_type;
+ 	current->thread.fpsimd_cpu = smp_processor_id();
+ 
+ 	/*
+@@ -1706,7 +1732,8 @@ static void fpsimd_bind_task_to_cpu(void)
+ 
+ void fpsimd_bind_state_to_cpu(struct user_fpsimd_state *st, void *sve_state,
+ 			      unsigned int sve_vl, void *za_state,
+-			      unsigned int sme_vl, u64 *svcr)
++			      unsigned int sme_vl, u64 *svcr,
++			      enum fp_type *type)
+ {
+ 	struct fpsimd_last_state_struct *last =
+ 		this_cpu_ptr(&fpsimd_last_state);
+@@ -1720,6 +1747,7 @@ void fpsimd_bind_state_to_cpu(struct user_fpsimd_state *st, void *sve_state,
+ 	last->za_state = za_state;
+ 	last->sve_vl = sve_vl;
+ 	last->sme_vl = sme_vl;
++	last->fp_type = type;
+ }
+ 
+ /*
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 3f06e9d4527181eaa0c6422c5c1bf2643ce6bfff..7092840deb5c84260faec77adb8fa30ff0ec9081 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -331,6 +331,8 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+ 		clear_tsk_thread_flag(dst, TIF_SME);
+ 	}
+ 
++	dst->thread.fp_type = FP_STATE_FPSIMD;
++
+ 	/* clear any pending asynchronous tag fault raised by the parent */
+ 	clear_tsk_thread_flag(dst, TIF_MTE_ASYNC_FAULT);
+ 
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index b178bbdc1c3b903670cbfa08448e80fc4d361f38..2f1f86d91612914749a13aeec74c7f4df52808d7 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -917,6 +917,7 @@ static int sve_set_common(struct task_struct *target,
+ 		clear_tsk_thread_flag(target, TIF_SVE);
+ 		if (type == ARM64_VEC_SME)
+ 			fpsimd_force_sync_to_sve(target);
++		target->thread.fp_type = FP_STATE_FPSIMD;
+ 		goto out;
+ 	}
+ 
+@@ -939,6 +940,7 @@ static int sve_set_common(struct task_struct *target,
+ 	if (!target->thread.sve_state) {
+ 		ret = -ENOMEM;
+ 		clear_tsk_thread_flag(target, TIF_SVE);
++		target->thread.fp_type = FP_STATE_FPSIMD;
+ 		goto out;
+ 	}
+ 
+@@ -952,6 +954,7 @@ static int sve_set_common(struct task_struct *target,
+ 	fpsimd_sync_to_sve(target);
+ 	if (type == ARM64_VEC_SVE)
+ 		set_tsk_thread_flag(target, TIF_SVE);
++	target->thread.fp_type = FP_STATE_SVE;
+ 
+ 	BUILD_BUG_ON(SVE_PT_SVE_OFFSET != sizeof(header));
+ 	start = SVE_PT_SVE_OFFSET;
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 82f4572c8ddfc78da04a70c9db4181ed94d20f17..2461bbffe7d47a0bbab24c2a923fb16f987ffbb4 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -207,6 +207,7 @@ static int restore_fpsimd_context(struct fpsimd_context __user *ctx)
+ 	__get_user_error(fpsimd.fpcr, &ctx->fpcr, err);
+ 
+ 	clear_thread_flag(TIF_SVE);
++	current->thread.fp_type = FP_STATE_FPSIMD;
+ 
+ 	/* load the hardware registers from the fpsimd_state structure */
+ 	if (!err)
+@@ -297,6 +298,7 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ 	if (sve.head.size <= sizeof(*user->sve)) {
+ 		clear_thread_flag(TIF_SVE);
+ 		current->thread.svcr &= ~SVCR_SM_MASK;
++		current->thread.fp_type = FP_STATE_FPSIMD;
+ 		goto fpsimd_only;
+ 	}
+ 
+@@ -332,6 +334,7 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ 		current->thread.svcr |= SVCR_SM_MASK;
+ 	else
+ 		set_thread_flag(TIF_SVE);
++	current->thread.fp_type = FP_STATE_SVE;
+ 
+ fpsimd_only:
+ 	/* copy the FP and status/control registers */
+@@ -937,9 +940,11 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
+ 		 * FPSIMD register state - flush the saved FPSIMD
+ 		 * register state in case it gets loaded.
+ 		 */
+-		if (current->thread.svcr & SVCR_SM_MASK)
++		if (current->thread.svcr & SVCR_SM_MASK) {
+ 			memset(&current->thread.uw.fpsimd_state, 0,
+ 			       sizeof(current->thread.uw.fpsimd_state));
++			current->thread.fp_type = FP_STATE_FPSIMD;
++		}
+ 
+ 		current->thread.svcr &= ~(SVCR_ZA_MASK |
+ 					  SVCR_SM_MASK);
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 51ca78b31b95241bb8186a473d1bf5ccd50a16f0..a4b4502ad850a5c12f0d2809bdedbba6c6eb957e 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -140,7 +140,8 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
+ 		fpsimd_bind_state_to_cpu(&vcpu->arch.ctxt.fp_regs,
+ 					 vcpu->arch.sve_state,
+ 					 vcpu->arch.sve_max_vl,
+-					 NULL, 0, &vcpu->arch.svcr);
++					 NULL, 0, &vcpu->arch.svcr,
++					 &vcpu->arch.fp_type);
+ 
+ 		clear_thread_flag(TIF_FOREIGN_FPSTATE);
+ 		update_thread_flag(TIF_SVE, vcpu_has_sve(vcpu));
+
+-- 
+2.39.5
+
 
