@@ -4,110 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989CBC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 07:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3955C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 07:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P4rrQVc2zGtRpMhAKKc1z4WWAiDEnAm/KroIvbDZcNw=; b=JDsWJbHwmDDXY/Kci9+XTStJfT
-	aNaKJ2T5hyV9kytXGb8GIp8UP+UMZjXb6TUTn5ztUa6HSvqMCezb5evsLCFMF0GFoIDSAbJ1crX22
-	czkl1YJ1thJ8cFKSTuCHIT8m1LiRd/eAm22TFAYrUCsRo7CNHNryCn80zcZTL4tdeFMi1qIR6x0bi
-	EUewr+K6Vy81uYY4HC2M1k4QD0wK8DMhcveEvz7g1A6NXdV/8pSC1t1oYeseQUY9LIRnxJtQb3tHi
-	WcjCNVGjUvLBjltJ1oOS3lNGBOHJ7wI5uXnvnBe0CrgetznniMvAFgSl0Dm2QQLt0jlupTiKeAjVR
-	+MLGntmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=NBvua+gENZrYzxeXNsdTJXQUC5BEESbKKt6DLEMsFOs=; b=ZUpKxEQ0isJcyeRzgA6HgVwmjs
+	fhdY+g8/UYZIDwixi5AsITkxZL6dhkTh7veN4wd5g4R79yJcg5gvbATEPrxnn4TUor8tIRYzw2ZQ6
+	5isLs1LEWTTjhbqXUb6qFDzE15IbRddZXLFh+JKEkibP7Hv//UqR4flTkJ0R+akCet9YqUlqZvbDx
+	qf5bgG0RP81KgGy6RuHxBa1bVfox7WEd4IBfnTZ8WO0lISHghFeC9achSvkPWgi5lb/epIAN2agQj
+	AjJ9IWNcLEWqDaoNljvB2XCL7EYt7zs5ZrAGcJXqdjBU7sraHpeofoSGb9E3iCxBymyqqvOXH9Q2L
+	MTilF4gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twyfd-000000054rQ-1ghJ;
-	Tue, 25 Mar 2025 07:25:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1twyhK-0000000551o-0BQj;
+	Tue, 25 Mar 2025 07:27:42 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twyXi-000000053ca-1ULz
+	id 1twyYg-000000053hE-3RHn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 07:17:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7178F43B11;
-	Tue, 25 Mar 2025 07:17:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C84EBC4CEE8;
-	Tue, 25 Mar 2025 07:17:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742887065;
-	bh=dPL/Puqjjdi0RH/fJRKYqZV53Z1SSiSqqjVNCx2Q+64=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eQtA14yf/fiXE4P/szG4Tq5ZyOCI9fda5fFmbIpJElchcz+HE1QEwKaX3Pj+zpn7a
-	 EY0IsXS+1YTspcbKop8zdXl3qsbIuy1feq3iye7e5RtPEm+m2xGUYGcwfE+CdL09WF
-	 SeIui/U01UBFf8ctLYj0s5tU/kI1Ts/oojKu3JYN2SvdJuHVbNAFl77Vgbv43lnj2a
-	 HCsmymNN2c0TqZk1kFV4j3yo/ZSYwzPXil72k9rIMXYu/S9J/u/1ehsT5ZEts4n8bu
-	 ePoT6LI7V4Q4oadmo5XEw6tBnHoOTYetepZcrlD4cFuFI8w9Tj/17Yp2gDiNbTTGK/
-	 1ZGTkO79KO/dw==
-Message-ID: <5fb97347-927b-44e1-bc0b-ff711d342be4@kernel.org>
-Date: Tue, 25 Mar 2025 08:17:37 +0100
+	Tue, 25 Mar 2025 07:18:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uMDmVexTQd/NkG3sy+mruaiVspkGGLAUf+IvDnFByFSsl2SaYGR4nGOFbB5gx3KOhZFexwZw2V+xzeAzAWWRphMsLBGSAe5YFRH9qeqJuP4S6xPSB8q2kanl5bxnPT4nwISZIvhVVilIYwtM+3dwn+XOW7AMvcIPBi0LLb2KZA6XpuH6//2Sc9YJxIc55AzASIxl/UgdYwFqLrUe04t0kbv/karhPKoWvsTE6eDyDIhsp2Oa2JA+cjN7BGOQImiKQbXLmOWeW30iVL08aH9Bg1BlP2BoKPzm3H9b9K2AXLxIFlKUBmT5j/QdTxLjNKluVSiEyOS/1AjJs+t2XUUwdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NBvua+gENZrYzxeXNsdTJXQUC5BEESbKKt6DLEMsFOs=;
+ b=uYpbnLn+gc3C5VS3bFktZMux6LKeF6WS4Hw+5RjJVJPfCOD6hoztnXuynl+1f0eIPEdWBUradV/SIqJioFspUbrkeDijUyjZM2ASvrjODVNF7CHtzkxJskMMKTuNqrBgUGbhYy3DkmrYA3MDOeAyX2EsKTUWi29euG55pw1/hcSI7OHQ1l6cXyj19BQhAjY/kVXgWI8fdM+Dwf4LbvUbPgrEmYMlkesjv7GqLM8z2yMmrDJvhQyXGwVfylRIOIFh1/cMGHTKNCx31uzy1014gm63Kxi1VFTL3rytk7FAWHyS3GhK1lYmzpjP48MPXrICA/gy/+Mmvo4rRHhE/tY8Bw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=topic.nl;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=topic.nl;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NBvua+gENZrYzxeXNsdTJXQUC5BEESbKKt6DLEMsFOs=;
+ b=PD77xtb8Ft62XXW3bOF5jZznVXRKVA1laIokZOT1RqZiEPGd6s0UHc2wkTYb1JJ6EV5/xGiEETpP4BAZ+FGy1aETZHX3DbIyRRdYQDE/CemLX6bdzWEpgLlmGAfSuGqiFkibFSR+3FexwTkUsJyh3xBvMDvmLhpq3IxBoG0cPIX0C/XImKpb4sgd4QjgoRdf3zR9Ep3pHYL3mVq4SqrZaktFDriwHeBWddZuWLmPaLeNqeS9SLHGEFcdn4x0vneND0Z0e4bUF6wY0IMzXlr407g54AdZ7O27UfaJ/la07BWKz+kGIjKI7H6voHZ7U+tBUSqqeVdJ4/+byYApUO0wew==
+Received: from DB8P191CA0014.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::24)
+ by DU0PR04MB9494.eurprd04.prod.outlook.com (2603:10a6:10:32e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
+ 2025 07:18:43 +0000
+Received: from DB3PEPF0000885A.eurprd02.prod.outlook.com
+ (2603:10a6:10:130:cafe::dd) by DB8P191CA0014.outlook.office365.com
+ (2603:10a6:10:130::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.42 via Frontend Transport; Tue,
+ 25 Mar 2025 07:18:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ DB3PEPF0000885A.mail.protection.outlook.com (10.167.242.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Tue, 25 Mar 2025 07:18:42 +0000
+Received: from AS8PR03CU001.outbound.protection.outlook.com (40.93.65.54) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Tue, 25 Mar 2025 07:18:42 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
+ by DB9PR04MB9353.eurprd04.prod.outlook.com (2603:10a6:10:36d::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
+ 2025 07:18:39 +0000
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8534.040; Tue, 25 Mar 2025
+ 07:18:38 +0000
+From: Mike Looijmans <mike.looijmans@topic.nl>
+To: linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org
+CC: Mike Looijmans <mike.looijmans@topic.nl>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/3] pcie-xilinx: Wait for link-up status during initialization
+Date: Tue, 25 Mar 2025 08:18:25 +0100
+Message-ID: <20250325071832.21229-1-mike.looijmans@topic.nl>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-ClientProxiedBy: AM0PR08CA0013.eurprd08.prod.outlook.com
+ (2603:10a6:208:d2::26) To AS8PR04MB8644.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::12)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] dt-bindings: pinctrl: aspeed,ast2600-pinctrl
-To: Willie Thai <wthai@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, openbmc@lists.ozlabs.org
-Cc: leohu@nvidia.com, tingkaic@nvidia.com, dkodihalli@nvidia.com
-References: <20250324175926.222473-1-wthai@nvidia.com>
- <20250324175926.222473-3-wthai@nvidia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250324175926.222473-3-wthai@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|DB9PR04MB9353:EE_|DB3PEPF0000885A:EE_|DU0PR04MB9494:EE_
+X-MS-Office365-Filtering-Correlation-Id: eef0e732-a619-4ff1-2e5a-08dd6b6d4646
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?38JKLL4nQzu5Y1wJMG1fEi8CUCk1HMkJ4pZC9gcEcsv9yPKFujloaCdXoso9?=
+ =?us-ascii?Q?3WIYNwiknSV1gDo2p8xtIus2TL67JGvU+qqoSJ/udx8qBGpGAUEnwa9vPmTO?=
+ =?us-ascii?Q?dW0/iwE1DPv3N8ZZ53uoT7ARlFrqCqEthTsCyNyhvsecmagVoeJ99lsmSiWk?=
+ =?us-ascii?Q?Rcv27E1OAm5zgYytjZpZYOeAZi+aKJgo0KVgl7R0S2n1jPujUw4jYpu6jI/+?=
+ =?us-ascii?Q?c+WNsznjj2MYwax6DqA4O7AK+n9F5N7xk50xdpN2fJTSsSBJwnbezqAKS9BD?=
+ =?us-ascii?Q?FJ5HIY3YAP65rRT3J5uacKnbSgR41Q1RXCypUFCzlJ44mXNfLXs9Tat/uE6g?=
+ =?us-ascii?Q?kJ1O5e4SdYcNYv6yADgz2PNfhkKQHpqwPIHO3NUCldqjZ4Sp7TVZo1tbVLKr?=
+ =?us-ascii?Q?7BeCb4q8uR9lOO52hQOwPKBRJ/nkTVq1k0ea3bIPJqNnh5ic9tqMAMd+bVKS?=
+ =?us-ascii?Q?G7bpjNcjDZ8Hjn+FpUuO+CIrnPBd52DP3l3RxdSNrh0utsZ/IbqcK8PrGB79?=
+ =?us-ascii?Q?a72EgjGmRngYogMvyrsp3Vrf+dIla8jbrYvy37v7arIpp+kxSHmKE43dXzbK?=
+ =?us-ascii?Q?L0oOpg/F41QfbKliy5kLq6+ikz97cSRSPbAYiivB5wjGDpH8l/mfItOO7pBY?=
+ =?us-ascii?Q?pAHyn2XVbiYy2k3NoioOxoQtonhtj6S+1CgBjilsEO7iyqwMqu6zgvZD+BIl?=
+ =?us-ascii?Q?q1ZzbdIpJP2HLCFG2VAA8zExN04kT7l5EHU+iYb4Ly/r3+maDMzBAtRV02a1?=
+ =?us-ascii?Q?EkHggHWc4nbT0cjUWmkKh9EPzib0JJolVFy/EmZtzWIrjftRA3GJrYxq0vfc?=
+ =?us-ascii?Q?s7KViOzEqdmwaK/dG540pQtq0c+Hzj0h+XsoRKXQXt1pRjUeUtSEyMkMupzF?=
+ =?us-ascii?Q?LKX1WePrO2dPBfs2boFlgX0LHbQ4nXcAXauqan4MWZtO+u64LpBJkRjXY+0I?=
+ =?us-ascii?Q?AsEQDhWLOAdd0LmBkr7a7zplKaZwgxmJdigaPkXXdXCEyzv3w26MqPJVKwXJ?=
+ =?us-ascii?Q?HXQGDLFwM4ZOSYrKD22O9QR1uhLz6y+tiGoJ6uwy+G44XZYurSQCGSiBi0lv?=
+ =?us-ascii?Q?itju19RO4W6mqDY5CC1WSeVAkI79EnsGdvCYtST7UFi2xLZHJtozzCbDQqKw?=
+ =?us-ascii?Q?PbNnc4ERuhsAmnCxKh1XBbb/qL2yZ4tXcBWi5ynwHtKdf6ThTRnwWAxfniFe?=
+ =?us-ascii?Q?1yB36Wglg3dXq9uG8etmUwwiUI3Y2xcVFt2EKJoj99JvPoL005Zga/iPJ7wT?=
+ =?us-ascii?Q?hAiUa8WNRm0Z28vEMCKUO+6hJmMlSLu/uIDaPm60eujKPAD+TtJTuE7164QD?=
+ =?us-ascii?Q?Z3Jf5grgpUppPS+ymwrVgSkRQ5v6Bwp+Vaz+De0xlknWQfPeAlXQzQTpJ1AN?=
+ =?us-ascii?Q?nakiy4tB1w/sDJvmU9llanYPcYAW+d6QGi85AgJE8miXtTYKNpUM5UXTPzCG?=
+ =?us-ascii?Q?SXsgvX2t3WsenPQ1MrvqaDoe3iVYEvyp?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9353
+X-CodeTwo-MessageID: 80fa15c7-4cbf-4d62-b409-f20133d0a355.20250325071842@westeu12-emailsignatures-cloud.codetwo.com
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.aa50e046-9cb9-4d7e-b920-ce2956412b9d@emailsignatures365.codetwo.com>
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885A.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: aaf6df5c-3bed-419f-5aff-08dd6b6d438c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|7416014|35042699022|14060799003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7N1QwSaUbq1O8einPbXeq9Q3hcUWKDJ3ArblBQoNBgYy8EDkjBJ87wOTjHAl?=
+ =?us-ascii?Q?pLys0LDJzNo4wvW59eDdGARZwTTzoegca4c8hEUNAMkihJnt6p2zEs2/p+7r?=
+ =?us-ascii?Q?gtQjoivA492ZQlu5LI2cIwyFotaocj2H8eNwA6Vp/YU676ucgft0VASTqB0s?=
+ =?us-ascii?Q?VsEDrs2DM6brh+3bBqcq3KNz4KpwklH6PWNFMrZbVSe4PMWmlKIdT2RMtJsH?=
+ =?us-ascii?Q?Z27R+RmeyBprHFDsh8HLbFEhtPXINQgAOnLj2XgWm+Dm8YGB93uaY2yWeYF0?=
+ =?us-ascii?Q?rHFUHADoFvCpJ2leT+Vfiai5ulZTTzsaVgoXcue2JNvOjYJLV38uq/PzgakA?=
+ =?us-ascii?Q?RgEJWQSCitrQvXzn2htbDTl6PTPdByWaO9xsvRCU06ASAfItVuNP/ga8W6kW?=
+ =?us-ascii?Q?OllAHvcY3ekZe/JwltOIRaMHhnJTagfSgMK6hz7q9JrQq47YdwOAeF8Vqdid?=
+ =?us-ascii?Q?8zca4asS134fORDgE6PAraoTJIZzHsPJ/DokhgYjmDQaod2pw9VzOswIz0mT?=
+ =?us-ascii?Q?jIgKYMdQ97weoevbNDPnVJrINwxa36Nr5buDw4xqQyVbnv0U64IAhy0qmITM?=
+ =?us-ascii?Q?KGne/DNICtqJ4x91EYoylPr4Mu5c/poX6bt3hrqi52U/7gisaK7hAx2LzEY9?=
+ =?us-ascii?Q?FrgkpbxF/r1ahbEjOhayzZdfP8MW7IAPLeUFfFrTd/t3iuo0i3DWGaYfYSFN?=
+ =?us-ascii?Q?ceTN7pZEvAUxgE3Gug8qpMNgWhHnN/AEMPEgyUNniyCjjDybdIoqkV7TJQCH?=
+ =?us-ascii?Q?Vs/j01do7ErK2c3Mo1tqT4xEI2RLuoKCiEwC2LvUbw01PA4tjBWCtir7TAkL?=
+ =?us-ascii?Q?8hoclu4eENH0TzBKrN0U9XgcA60ftfkKh/wLbKPl577dNJn82wqdbbocKuy7?=
+ =?us-ascii?Q?IndkfgR8SpAfUIkspklcd240GjsBkRGgMRZvEohyMZD+D0LgXI/LCHVYF5pM?=
+ =?us-ascii?Q?mSk0o40JyrYSI9actAN2vxmD/go4oXRh0sNurp0aYBXyEPFNludDoi9mQ1Zy?=
+ =?us-ascii?Q?Nt2g2Bo+TJiTfjc9gB7EIKWnXYERds9hhM+2KjVr6S5qIHTGp9I3qD6arC9D?=
+ =?us-ascii?Q?Y/3+Pa2htqshSp3utccD40YdaXlL8dDCm8fqgY0WXzG19CJ6X7+soj3htZ0k?=
+ =?us-ascii?Q?Aw3iCQIXe2PaY12zCNxqmhGyflC6kWmNlFKBuPg3/OJ6EQIXhLczaYXJch4B?=
+ =?us-ascii?Q?oF5xuriAXMOvTsN0Ufb4jzFkp74KCqkvvIbtW4FXylQE6u/ryHWrAWVPIf+9?=
+ =?us-ascii?Q?LIKzb214N4h/SUAYPXkkbeirN7QsBPynwICX6yGp7jv6v5mOQ8CFILV6GoTc?=
+ =?us-ascii?Q?jqrbWC8zZs1iOln1XacqrMvjSbrkyva7Q8IFr9Rsd3BgKQnK7xD8EzMV8h3W?=
+ =?us-ascii?Q?m9R7wQop0xgBo22MiOj+nXpsL205jCDsUgGOr2RcH78TPYsOfLoSymDd7AOf?=
+ =?us-ascii?Q?bZThTdlk1ro=3D?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(7416014)(35042699022)(14060799003);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2025 07:18:42.9371
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: eef0e732-a619-4ff1-2e5a-08dd6b6d4646
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885A.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9494
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_001746_434741_05B73E3E 
-X-CRM114-Status: UNSURE (   5.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250325_001847_149977_9F396084 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,15 +189,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/03/2025 18:59, Willie Thai wrote:
-> Add EMMCG5 enum to compatible list of pinctrl binding for emmc enabling.
-> 
-> Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
-> Signed-off-by: Willie Thai <wthai@nvidia.com>
-> ---
+When the driver loads, the transceiver may still be in the state of
+setting up a link. Wait for that to complete before continuing. This
+fixes that the PCIe core does not work when loading the PL bitstream
+from userspace. There's only milliseconds between the FPGA boot and the
+core initializing in that case, and the link won't be up yet. The design
+only worked when the FPGA was programmed in the bootloader, as that will
+give the system hundreds of milliseconds to boot.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+As the PCIe spec allows up to 100 ms time to establish a link, we'll
+allow up to 200ms before giving up.
 
-Best regards,
-Krzysztof
+Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+---
+
+Changes in v2:
+Split into "reset GPIO" and "wait for link" patches
+Add timeout explanation
+
+ drivers/pci/controller/pcie-xilinx.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/=
+pcie-xilinx.c
+index 0b534f73a942..2e59b91f43e0 100644
+--- a/drivers/pci/controller/pcie-xilinx.c
++++ b/drivers/pci/controller/pcie-xilinx.c
+@@ -15,6 +15,7 @@
+ #include <linux/irqdomain.h>
+ #include <linux/kernel.h>
+ #include <linux/init.h>
++#include <linux/iopoll.h>
+ #include <linux/msi.h>
+ #include <linux/of_address.h>
+ #include <linux/of_pci.h>
+@@ -126,6 +127,19 @@ static inline bool xilinx_pcie_link_up(struct xilinx_p=
+cie *pcie)
+ 		XILINX_PCIE_REG_PSCR_LNKUP) ? 1 : 0;
+ }
+=20
++static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
++{
++	u32 val;
++
++	/*
++	 * PCIe r6.0, sec 6.6.1 provides 100ms timeout. Since this is FPGA
++	 * fabric, we're more lenient and allow 200 ms for link training.
++	 */
++	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
++			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2 * USEC_PER_MSEC,
++			200 * USEC_PER_MSEC);
++}
++
+ /**
+  * xilinx_pcie_clear_err_interrupts - Clear Error Interrupts
+  * @pcie: PCIe port information
+@@ -493,7 +507,7 @@ static void xilinx_pcie_init_port(struct xilinx_pcie *p=
+cie)
+ {
+ 	struct device *dev =3D pcie->dev;
+=20
+-	if (xilinx_pcie_link_up(pcie))
++	if (!xilinx_pci_wait_link_up(pcie))
+ 		dev_info(dev, "PCIe Link is UP\n");
+ 	else
+ 		dev_info(dev, "PCIe Link is DOWN\n");
+--=20
+2.43.0
+
+
+Met vriendelijke groet / kind regards,=0A=
+=0A=
+Mike Looijmans=0A=
+System Expert=0A=
+=0A=
+=0A=
+TOPIC Embedded Products B.V.=0A=
+Materiaalweg 4, 5681 RJ Best=0A=
+The Netherlands=0A=
+=0A=
+T: +31 (0) 499 33 69 69=0A=
+E: mike.looijmans@topic.nl=0A=
+W: www.topic.nl=0A=
+=0A=
+Please consider the environment before printing this e-mail=0A=
 
