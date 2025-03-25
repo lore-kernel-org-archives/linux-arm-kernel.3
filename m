@@ -4,107 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A662C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1139EC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HfXW1tINyjybFH59i2/tceSOuMsWCGxf0dWvSOQSE9Q=; b=4OOIBUA3Wq+d8Ybv6QbsiQeITy
-	umaGs5AonmfloiOGaKtx8K26DH5URa09knkIpYbR/lG0H5Zm8LkI1NObgMY6ko5IdEGRfK6OdxPKa
-	LC8kNM+1sBg0rcj3tfEk5IZrSGAeAgJDKCCzmjPixNxW9i4KZ7c/bdEoLqV6XPkhg7jsY9lbs2yny
-	8ZcTnWW14rT3d5JhC2T/lWIsx/zZ0X43uQ+XPy8h7jBRoyFpiGkFirOAEwi1tcpRztuX/RUn244F6
-	di+dfZL7xXxxRhO4qH1OINfFcgpMWhivBu+h1sgjGgYuHv1HHy1epe/5040wP29fn89E0lcYb+/bZ
-	ji6BJEJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8+OV30Ke0OQlvHx9FJ4l7yTTcrZlafSc5GoCEvCnavs=; b=Poo6v31TUpPLSDscZ5P9obkXPq
+	mV8nQRl6WpjPNF/pkCLfTqyHxt1UvT5pPf/J1XMIjZ4VJ5G62qO4kozzPrcn5kljG6Q86+A1KPo9X
+	pGeR8wIvLENEbPtmXI26Q1nO7aCv0xk/FtLzxJb2ba7RIV36WVA3uvHPGK2y9NC+bxTqZVrQnNCPD
+	qLtUr2FrK9+hjRTZYzscfyRYmyCSgeYD3DZ4wVbWM1fjT2Yydq48pBBK+4COK+qsKF9P4chDhrb83
+	LMiQJ3oQrGehRmi4jPRR1KuckGmU+o2MwFte0AauO49WFI4gK8rlobruz5pZeV++LZJJbTemeSoVs
+	ijFEggCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4pf-000000068sJ-2LE5;
-	Tue, 25 Mar 2025 14:00:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx4uQ-000000069Pv-2083;
+	Tue, 25 Mar 2025 14:05:38 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4kz-000000068FC-0kdy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 13:55:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=HfXW1tINyjybFH59i2/tceSOuMsWCGxf0dWvSOQSE9Q=; b=XaGwDtu+Aj+qbXASYWjMwCTFcf
-	ogi1W58J5Qn3o1HE8EtX6r04m3TrCcc7XulVlQ4LOh96aeWnwrnbUgCEvaDZjQlBQXJdnGnNJKcTY
-	R3W/2iIqMNpB3K3hg+exoEqXz/njv0NROXP767UnXA+cilnnDDrgY53bl/6SYP8blCZYVmL+xMyn3
-	ucXYVjxNpZ6LyNOGMZC+B8M9yJVkAlC20ata4q7KM2ZFPuiABEx82shPzqe/AfmVioRFErXX/+mk9
-	o+xSLZtElBlqe4kYzy8+jmNPSJ8ROwlYegUNQQe+6aMgBNWoSLAWGx+WaeGrkVlBhwVbJ9DpQ5wN0
-	ecer+Zmw==;
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx4ku-00000005UQX-3RHR
+	id 1tx4sg-000000069CX-1fN6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 13:55:52 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-2b2b6019a74so2799324fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 06:55:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742910944; x=1743515744; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HfXW1tINyjybFH59i2/tceSOuMsWCGxf0dWvSOQSE9Q=;
-        b=poMsev3Lyd3cbXVbxLqiayfnMyBR+0Ir0yfvNyLLFFyvs3I/w7YBDu8SxtsuTfMOvM
-         5xGse3guT2seBvwPWHwFy3XsCOWwbZLzbJELZ5gk0pAxlumbY4kmbDLEp/ZOndV8WAtX
-         d4RfLdo3q5IFJb19BV8TKqG9I5e1+GdhnMWmGW00w7udO7bcziGZQAa6X4YUuIUUh2Ml
-         2wwPWc7UpKsx4teb1DueceEULFRfo4XLTmM3iLlPlZWbRqHFp/NrNnS6WuRyt9V0/Mqw
-         FPFPOL6D8r649e2DgQO680DLGo2iKH7m8uii0VThjiFcdBiyMJA0cHGDv5BBUY8YWX/A
-         AcBg==
+	Tue, 25 Mar 2025 14:03:52 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52PD9wV7028599
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 14:03:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=8+OV30Ke0OQlvHx9FJ4l7yTT
+	crZlafSc5GoCEvCnavs=; b=DgxwWYGAzzheE7TgTyY86UHR2HHsPUKgTYCXNs3d
+	wcFbVzyySKvRN9nV2m8ybu15e0hrxlvPIm32yiYvweArhlrVswHGMhS89iydEbe6
+	74+3PBDOFbnCOz9leUnm37unebceA1CftqNTJvj5BUl9AvNMAF+Oce/GjNr30po2
+	4tyi7+9XEbDHnGxgIfnn8EUmeCCDWSbVuyZtIlMR8wIQVxdGOe55E1LQosiEIwIK
+	KF/Y8sNyEujB2u9B30HueJoX5rB+eTedunQEZdSd7fDqN54gt37yR3JyCaO7C3a9
+	kamKGMy2cOMrdcyJJjl6B9Wjm7ZpNfjmbOHZe1+DUIi6xw==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45hnyjfxa1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 14:03:47 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2240a960f9cso93073585ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 07:03:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742910944; x=1743515744;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HfXW1tINyjybFH59i2/tceSOuMsWCGxf0dWvSOQSE9Q=;
-        b=kwjkjrljTh4W8xrZFLyWJytRgU9Z02lrJYztdXkt2Eb/p6b2QrpBw3Jjq8IqamKPjY
-         /eQVGMBrRBeVCdPP0cRFWfxUEMrFzwudfbEa6JvxGQf1zl7ppZ7m7mmcrSYkFI2GqSw2
-         KYeQDQTI3B3Z8FdKv/OWpiz5YbPIsxRm3cuQJ/4ox+cLKqde9VFDSAP9y6G+Z9dfHcIH
-         qt6L64WCM+7wXJwemjsbdkG2uCD1DqWbCMc+6a/Vh5xm8KXli+dcz8uyNJX5nTYoQlvN
-         cnFN12VfDpmeP+UWf9CRGQeGe3q5L/qtg3fcJzY6LBC4BmkEKfYc9ZVNleuFJ2fhINse
-         sNug==
-X-Forwarded-Encrypted: i=1; AJvYcCXzV1LeTHHQQ/nNuiLSp7OnuqKwh9EdQMVY0RSKDAj8EgCavEZNsy4ZrIcpS9nhUn/iYaHS83bk8LgiqmL0lqTe@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpb/oOZADndoYroKvAOsslJSD2NpSEydEUsaK65FLGuc4/PuhE
-	tv1vyfWFWaZjgaEbdye/o9MvRfHYPgW3mcbW7D6x9FoY/Xv7R6J1k+paqO46PCC2RVO2MTndVjv
-	Am2mWy/PRXT71CeloERTvwZhiyi4hFvnNdD9VNA==
-X-Gm-Gg: ASbGncs17UW7XvzpCwLGdJ5myAI84KAKszYF9AJLfipLd14TevTwDWGeDfAfjmTWdMl
-	U7dCqSeXYCrQt3kzDeNsWzyLlIC27TWC8OEcIPHTM5gbOkVwpox1xUxjasCBgj/Y/e+mN++LqB+
-	pV9IRLKiSof6qUODcjEfikV+c4s+g=
-X-Google-Smtp-Source: AGHT+IEwBPPwUVoRos1sVNedvDmYTl2oPMhg6qa7EWRFlVhYT0/1fPMMFcZLaxlXCLhryoazT9mEtzOs9FsiBb8tVPo=
-X-Received: by 2002:a05:6870:f80b:b0:296:bbc8:4a82 with SMTP id
- 586e51a60fabf-2c780495379mr12124356fac.27.1742910943713; Tue, 25 Mar 2025
- 06:55:43 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742911427; x=1743516227;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8+OV30Ke0OQlvHx9FJ4l7yTTcrZlafSc5GoCEvCnavs=;
+        b=V6S4/r7CPoLTBgOih2KzbU3L97WZWbg1CvnIrGTFLatCfBjeCcZp6bS07Df3gCxm+F
+         qe8UsTiNEmRbA69PONwt5bXL2yQUs5If9tYjmd/JZwmsvkL8dGCJmY/hLx58gbQK0G4+
+         oWxvEKVAf/hjquGjUwpuInQfAPzunlxghpy2tnrIWheeV1Da3oO9Rz/YjGZ7Pj+MWOPV
+         EpHLoXZxtpgxU09FhzxgBXOZX5Byx5aPpb8u6jdy1ygucFDmpkMoXqrL79rRHxffEVfI
+         uy7hFGE4VfqJ03b2OkFZZsCh1gQnK5BKDAqy0KIlR65HOHbQGH8hylnkLW2gkljV70fU
+         P7fw==
+X-Forwarded-Encrypted: i=1; AJvYcCVSDu7TEuIaWOv3SnJVylkyaEU+Gyf6spxKilgRhZwufUD8XlS4hFyjZz4efd1ETU/hZjhKpSh4A3wVPAcGJoLx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDqiVL0B4pUuteRBdqQo3D7skJHnTNeT3xRQdnKpWx5ah1J5Cp
+	pThHuvK6IlAUgXs2d3PtTjZtlUuqgnvUu1eFIZybZOVCCogPAWGo3D6e5CRKOuzQ0XRnGidtx4y
+	OBX5hWeEihY5TYLzHuxQnc4qaM5qqkMZJvcBzrjFK/QnGH4pq4DKKOfVzJA0czbeWsybmU2/XJg
+	==
+X-Gm-Gg: ASbGncvgE38UB3IJobWk1nSkPf9s41T6BlRhnNwUDnxgzMIeYAx8tilAfxorDDKj5U6
+	WV12yReEWSsTINFxuP62j+nqYFJotgl8DSGEdbGzHq5IJzCwSBN/KEnJBPeFFVVr2jg+H5XVB4L
+	D8DXJmqUBKudv08rGcRZF8+QrUxJRU0PiDbKQKNu9IOTJiPyo0XFveCZ4+THH6IW26C9O1OEAdR
+	PBOKYpRMYVgQdAg3gTNW9LDvAvjv+UH0BGnqIJHoM+M7cQkszxI62LMwUQORAZ4GKcKG2evMLDy
+	qJmslYTeKF3YCL2b+D16znPYHhKGfEIyC1MbTD306cY=
+X-Received: by 2002:a17:902:f084:b0:224:c7c:7146 with SMTP id d9443c01a7336-22780c54d42mr169438275ad.6.1742911426626;
+        Tue, 25 Mar 2025 07:03:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHbNSNxwqRpeGEIa+PRTFNX2l7otE9uzBL+l4MpRSESqIyfb/WaExHc5CZYJsWuUeIjXx6SPw==
+X-Received: by 2002:a17:902:f084:b0:224:c7c:7146 with SMTP id d9443c01a7336-22780c54d42mr169437745ad.6.1742911425988;
+        Tue, 25 Mar 2025 07:03:45 -0700 (PDT)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-227811c1b8fsm89941585ad.154.2025.03.25.07.03.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Mar 2025 07:03:45 -0700 (PDT)
+Date: Tue, 25 Mar 2025 19:33:36 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Elliot Berman <quic_eberman@quicinc.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+        Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+        Melody Olvera <quic_molvera@quicinc.com>,
+        Shivendra Pratap <quic_spratap@quicinc.com>,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, Elliot Berman <elliotb317@gmail.com>,
+        Elliot Berman <elliot.berman@oss.qualcomm.com>
+Subject: Re: [PATCH v9 2/5] firmware: psci: Read and use vendor reset types
+Message-ID: <Z+K3uNjTNbq3pUis@hu-mojha-hyd.qualcomm.com>
+References: <20250303-arm-psci-system_reset2-vendor-reboots-v9-0-b2cf4a20feda@oss.qualcomm.com>
+ <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
+ <Z9QQw6BcE7IXzu+r@lpieralisi>
 MIME-Version: 1.0
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-9-jens.wiklander@linaro.org> <Z-JWIyd8cKyXQR0H@sumit-X1>
-In-Reply-To: <Z-JWIyd8cKyXQR0H@sumit-X1>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Tue, 25 Mar 2025 14:55:32 +0100
-X-Gm-Features: AQ5f1Jp3D7eSeWP8gWeTN_I1pHWpPzOxKysZVMBSQkU1nox7ff2kFajLYyiQcek
-Message-ID: <CAHUa44FXjG1hC9v18Yx1ENPX_Bc9sZW1Z2=+m6+KUsxPMvDE+w@mail.gmail.com>
-Subject: Re: [PATCH v6 08/10] optee: support restricted memory allocation
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z9QQw6BcE7IXzu+r@lpieralisi>
+X-Authority-Analysis: v=2.4 cv=Ybu95xRf c=1 sm=1 tr=0 ts=67e2b7c3 cx=c_pps a=JL+w9abYAAE89/QcEU+0QA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=GcyzOjIWAAAA:8 a=EUspDBNiAAAA:8 a=W06eqCPg62U6qe7cA7cA:9 a=CjuIK1q_8ugA:10
+ a=dtxw0mqMjrQA:10 a=324X-CrmTo6CU4MGRt3R:22 a=hQL3dl6oAZ8NdCsdz28n:22
+X-Proofpoint-GUID: aWfGrTwOp7M5uoo4eE60_095_CTP5L1O
+X-Proofpoint-ORIG-GUID: aWfGrTwOp7M5uoo4eE60_095_CTP5L1O
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-25_06,2025-03-25_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 impostorscore=0
+ suspectscore=0 mlxlogscore=999 priorityscore=1501 spamscore=0
+ lowpriorityscore=0 mlxscore=0 malwarescore=0 bulkscore=0 clxscore=1011
+ adultscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503250099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_135549_158441_FCC11FF5 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20250325_070350_447528_F572453E 
+X-CRM114-Status: GOOD (  64.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,149 +140,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 8:07=E2=80=AFAM Sumit Garg <sumit.garg@kernel.org> =
-wrote:
->
-> On Wed, Mar 05, 2025 at 02:04:14PM +0100, Jens Wiklander wrote:
-> > Add support in the OP-TEE backend driver for restricted memory
-> > allocation. The support is limited to only the SMC ABI and for secure
-> > video buffers.
-> >
-> > OP-TEE is probed for the range of restricted physical memory and a
-> > memory pool allocator is initialized if OP-TEE have support for such
-> > memory.
-> >
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+On Fri, Mar 14, 2025 at 12:19:31PM +0100, Lorenzo Pieralisi wrote:
+> On Mon, Mar 03, 2025 at 01:08:31PM -0800, Elliot Berman wrote:
+> > From: Elliot Berman <elliot.berman@oss.qualcomm.com>
+> > 
+> > SoC vendors have different types of resets and are controlled through
+> > various registers. For instance, Qualcomm chipsets can reboot to a
+> > "download mode" that allows a RAM dump to be collected. Another example
+> > is they also support writing a cookie that can be read by bootloader
+> > during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
+> > vendor reset types to be implemented without requiring drivers for every
+> > register/cookie.
+> > 
+> > Add support in PSCI to statically map reboot mode commands from
+> > userspace to a vendor reset and cookie value using the device tree.
+> 
+> I have managed to discuss a little bit this patchset over the last
+> few days and I think we have defined a plan going forward.
+> 
+> A point that was raised is:
+> 
+> https://man7.org/linux/man-pages/man2/reboot.2.html
+> 
+> LINUX_REBOOT_CMD_RESTART2 *arg command, what is it supposed to
+> represent ?
+> 
+> Is it the mode the system should reboot into OR it is the
+> actual command to be issued (which is what this patchset
+> implements) ?
+> 
+> LINUX_REBOOT_CMD_RESTART "..a default restart..."
+> 
+> It is unclear what "default" means. We wonder whether the
+> reboot_mode variable was introduced to _define_ that "default".
+> 
+> So, in short, my aim is trying to decouple reboot_mode from the
+> LINUX_REBOOT_CMD_RESTART2 *arg command.
+> 
+> I believe that adding a sysfs interface to reboot-mode driver
+> infrastructure would be useful, so that the commands would
+> be exposed to userspace and userspace can set the *arg command
+> specifically to issue a given reset/mode.
+> 
+> I wonder why this is not already in place for eg syscon-reboot-mode
+> resets, how does user space issue a command in those systems if the
+> available commands aren't exposed to userspace ?
+> 
+> Is there a kernel entity exposing those "modes" to userspace, somehow ?
+> 
+> > A separate initcall is needed to parse the devicetree, instead of using
+> > psci_dt_init because mm isn't sufficiently set up to allocate memory.
+> > 
+> > Reboot mode framework is close but doesn't quite fit with the
+> > design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
+> > be solved but doesn't seem reasonable in sum:
+> >  1. reboot mode registers against the reboot_notifier_list, which is too
+> >     early to call SYSTEM_RESET2. PSCI would need to remember the reset
+> >     type from the reboot-mode framework callback and use it
+> >     psci_sys_reset.
+> >  2. reboot mode assumes only one cookie/parameter is described in the
+> >     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
+> >     cookie.
+> 
+> This can be changed and I think it should, so that the reboot modes
+> are exposed to user space and PSCI can use that.
+> 
+In the case of a regular reboot or panic, the reboot/panic notifiers run
+first, followed by the restart notifiers. The PSCI reset/reset2 should
+be the last call from Linux, and ideally, this call should not fail.
+
+Reboot mode notifiers => restart notifiers or Panic notifiers => restart
+notifiers
+
+So, if I understand correctly, you mean that we can change the reboot
+mode framework to expose the arguments available to user space. We can
+extend it to accept magic and cookies, save them in the reboot
+framework, and retrieve them via a call from PSCI during a regular
+reboot or panic based on the current arguments. Is this leading towards
+writing an ARM-specific PSCI-reboot-mode driver, which in its reboot
+notifier callback saves the magic and cookies, and these magic and
+cookies will be used during psci_sys_reset2()? Or is there something
+wrong with my understanding?
+
+P.S. We appreciate Elliot for his work and follow-up on this while being
+employed at Qualcomm.
+
+> >  3. psci cpuidle driver already registers a driver against the
+> >     arm,psci-1.0 compatible. Refactoring would be needed to have both a
+> >     cpuidle and reboot-mode driver.
+> > 
+> > Signed-off-by: Elliot Berman <elliot.berman@oss.qualcomm.com>
 > > ---
-> >  drivers/tee/optee/core.c    |  1 +
-> >  drivers/tee/optee/smc_abi.c | 44 +++++++++++++++++++++++++++++++++++--
-> >  2 files changed, 43 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/tee/optee/core.c b/drivers/tee/optee/core.c
-> > index c75fddc83576..c7fd8040480e 100644
-> > --- a/drivers/tee/optee/core.c
-> > +++ b/drivers/tee/optee/core.c
-> > @@ -181,6 +181,7 @@ void optee_remove_common(struct optee *optee)
-> >       tee_device_unregister(optee->supp_teedev);
-> >       tee_device_unregister(optee->teedev);
-> >
-> > +     tee_device_unregister_all_dma_heaps(optee->teedev);
-> >       tee_shm_pool_free(optee->pool);
-> >       optee_supp_uninit(&optee->supp);
-> >       mutex_destroy(&optee->call_queue.mutex);
-> > diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-> > index cfdae266548b..a14ff0b7d3b3 100644
-> > --- a/drivers/tee/optee/smc_abi.c
-> > +++ b/drivers/tee/optee/smc_abi.c
-> > @@ -1620,6 +1620,41 @@ static inline int optee_load_fw(struct platform_=
-device *pdev,
+> >  drivers/firmware/psci/psci.c | 105 +++++++++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 105 insertions(+)
+> > 
+> > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> > index a1ebbe9b73b136218e9d9f9b8daa7756b3ab2fbe..6f8c47deaec0225f26704e1f3bcad52603127a85 100644
+> > --- a/drivers/firmware/psci/psci.c
+> > +++ b/drivers/firmware/psci/psci.c
+> > @@ -80,6 +80,14 @@ static u32 psci_cpu_suspend_feature;
+> >  static bool psci_system_reset2_supported;
+> >  static bool psci_system_off2_hibernate_supported;
+> >  
+> > +struct psci_reset_param {
+> > +	const char *mode;
+> > +	u32 reset_type;
+> > +	u32 cookie;
+> > +};
+> > +static struct psci_reset_param *psci_reset_params __ro_after_init;
+> > +static size_t num_psci_reset_params __ro_after_init;
+> > +
+> >  static inline bool psci_has_ext_power_state(void)
+> >  {
+> >  	return psci_cpu_suspend_feature &
+> > @@ -306,9 +314,39 @@ static int get_set_conduit_method(const struct device_node *np)
+> >  	return 0;
 > >  }
-> >  #endif
-> >
-> > +static int optee_sdp_pool_init(struct optee *optee)
+> >  
+> > +static int psci_vendor_system_reset2(const char *cmd)
 > > +{
-> > +     enum tee_dma_heap_id heap_id =3D TEE_DMA_HEAP_SECURE_VIDEO_PLAY;
-> > +     struct tee_rstmem_pool *pool;
-> > +     int rc;
+> > +	unsigned long ret;
+> > +	size_t i;
 > > +
-> > +     if (optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_SDP) {
->
-> Is this SDP capability an ABI yet since we haven't supported it in
-> upstream kernel? If no then can we rename it as
-> OPTEE_SMC_SEC_CAP_RSTMEM?
+> > +	for (i = 0; i < num_psci_reset_params; i++) {
+> > +		if (!strcmp(psci_reset_params[i].mode, cmd)) {
+> > +			ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
+> > +					     psci_reset_params[i].reset_type,
+> > +					     psci_reset_params[i].cookie, 0);
+> > +			/*
+> > +			 * if vendor reset fails, log it and fall back to
+> > +			 * architecture reset types
+> 
+> That's not what the code does.
+> 
+Ack.
 
-No problem. We can rename it.
+-Mukesh
 
->
-> > +             union {
-> > +                     struct arm_smccc_res smccc;
-> > +                     struct optee_smc_get_sdp_config_result result;
-> > +             } res;
+> > +			 */
+> > +			pr_err("failed to perform reset \"%s\": %ld\n", cmd,
+> > +			       (long)ret);
+> > +			return 0;
+> > +		}
+> > +	}
 > > +
-> > +             optee->smc.invoke_fn(OPTEE_SMC_GET_SDP_CONFIG, 0, 0, 0, 0=
-, 0, 0,
-> > +                                  0, &res.smccc);
-> > +             if (res.result.status !=3D OPTEE_SMC_RETURN_OK) {
-> > +                     pr_err("Secure Data Path service not available\n"=
-);
-> > +                     return 0;
-> > +             }
-> > +
-> > +             pool =3D tee_rstmem_static_pool_alloc(res.result.start,
-> > +                                                 res.result.size);
-> > +             if (IS_ERR(pool))
-> > +                     return PTR_ERR(pool);
-> > +
-> > +             rc =3D tee_device_register_dma_heap(optee->teedev, heap_i=
-d, pool);
-> > +             if (rc)
-> > +                     goto err;
-> > +     }
-> > +
-> > +     return 0;
-> > +err:
-> > +     pool->ops->destroy_pool(pool);
-> > +     return rc;
+> > +	return -ENOENT;
 > > +}
 > > +
-> >  static int optee_probe(struct platform_device *pdev)
+> >  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+> >  			  void *data)
 > >  {
-> >       optee_invoke_fn *invoke_fn;
-> > @@ -1715,7 +1750,7 @@ static int optee_probe(struct platform_device *pd=
-ev)
-> >       optee =3D kzalloc(sizeof(*optee), GFP_KERNEL);
-> >       if (!optee) {
-> >               rc =3D -ENOMEM;
-> > -             goto err_free_pool;
-> > +             goto err_free_shm_pool;
-> >       }
-> >
-> >       optee->ops =3D &optee_ops;
-> > @@ -1788,6 +1823,10 @@ static int optee_probe(struct platform_device *p=
-dev)
-> >               pr_info("Asynchronous notifications enabled\n");
-> >       }
-> >
-> > +     rc =3D optee_sdp_pool_init(optee);
->
-> s/optee_sdp_pool_init/optee_rstmem_pool_init/
-
-OK
-
-Cheers,
-Jens
-
->
-> -Sumit
->
-> > +     if (rc)
-> > +             goto err_notif_uninit;
+> > +	/*
+> > +	 * try to do the vendor system_reset2
+> > +	 * If there wasn't a matching command, fall back to architectural resets
+> > +	 */
+> > +	if (data && !psci_vendor_system_reset2(data))
+> > +		return NOTIFY_DONE;
 > > +
-> >       /*
-> >        * Ensure that there are no pre-existing shm objects before enabl=
-ing
-> >        * the shm cache so that there's no chance of receiving an invali=
-d
-> > @@ -1823,6 +1862,7 @@ static int optee_probe(struct platform_device *pd=
-ev)
-> >               optee_disable_shm_cache(optee);
-> >       optee_smc_notif_uninit_irq(optee);
-> >       optee_unregister_devices();
-> > +     tee_device_unregister_all_dma_heaps(optee->teedev);
-> >  err_notif_uninit:
-> >       optee_notif_uninit(optee);
-> >  err_close_ctx:
-> > @@ -1839,7 +1879,7 @@ static int optee_probe(struct platform_device *pd=
-ev)
-> >       tee_device_unregister(optee->teedev);
-> >  err_free_optee:
-> >       kfree(optee);
-> > -err_free_pool:
-> > +err_free_shm_pool:
-> >       tee_shm_pool_free(pool);
-> >       if (memremaped_shm)
-> >               memunmap(memremaped_shm);
-> > --
-> > 2.43.0
-> >
+> >  	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+> >  	    psci_system_reset2_supported) {
+> >  		/*
+> > @@ -795,6 +833,73 @@ static const struct of_device_id psci_of_match[] __initconst = {
+> >  	{},
+> >  };
+> >  
+> > +#define REBOOT_PREFIX "mode-"
+> > +
+> > +static int __init psci_init_system_reset2_modes(void)
+> > +{
+> > +	const size_t len = strlen(REBOOT_PREFIX);
+> > +	struct psci_reset_param *param;
+> > +	struct device_node *psci_np __free(device_node) = NULL;
+> > +	struct device_node *np __free(device_node) = NULL;
+> > +	struct property *prop;
+> > +	size_t count = 0;
+> > +	u32 magic[2];
+> > +	int num;
+> > +
+> > +	if (!psci_system_reset2_supported)
+> > +		return 0;
+> > +
+> > +	psci_np = of_find_matching_node(NULL, psci_of_match);
+> > +	if (!psci_np)
+> > +		return 0;
+> > +
+> > +	np = of_find_node_by_name(psci_np, "reset-types");
+> > +	if (!np)
+> > +		return 0;
+> 
+> Related to my initial question above. If LINUX_REBOOT_CMD_RESTART2 *arg command,
+> is the actual reset to be issued, should we add a default mode "cold"
+> and, if SYSTEM_RESET2 is supported, a "warm" reset mode too ?
+> 
+> It all boils down to what *arg represents - adding "cold" and "warm"
+> modes would remove the dependency on reboot_mode for resets issued
+> through LINUX_REBOOT_CMD_RESTART2, the question is whether this
+> is the correct thing to do.
+> 
+> Comments very welcome.
+> 
+> Thanks,
+> Lorenzo
+> 
+> > +
+> > +	for_each_property_of_node(np, prop) {
+> > +		if (strncmp(prop->name, REBOOT_PREFIX, len))
+> > +			continue;
+> > +		num = of_property_count_u32_elems(np, prop->name);
+> > +		if (num != 1 && num != 2)
+> > +			continue;
+> > +
+> > +		count++;
+> > +	}
+> > +
+> > +	param = psci_reset_params =
+> > +		kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
+> > +	if (!psci_reset_params)
+> > +		return -ENOMEM;
+> > +
+> > +	for_each_property_of_node(np, prop) {
+> > +		if (strncmp(prop->name, REBOOT_PREFIX, len))
+> > +			continue;
+> > +
+> > +		num = of_property_read_variable_u32_array(np, prop->name, magic,
+> > +							  1, ARRAY_SIZE(magic));
+> > +		if (num < 0) {
+> > +			pr_warn("Failed to parse vendor reboot mode %s\n",
+> > +				param->mode);
+> > +			kfree_const(param->mode);
+> > +			continue;
+> > +		}
+> > +
+> > +		param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+> > +		if (!param->mode)
+> > +			continue;
+> > +
+> > +		/* Force reset type to be in vendor space */
+> > +		param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
+> > +		param->cookie = num > 1 ? magic[1] : 0;
+> > +		param++;
+> > +		num_psci_reset_params++;
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +arch_initcall(psci_init_system_reset2_modes);
+> > +
+> >  int __init psci_dt_init(void)
+> >  {
+> >  	struct device_node *np;
+> > 
+> > -- 
+> > 2.34.1
+> > 
 
