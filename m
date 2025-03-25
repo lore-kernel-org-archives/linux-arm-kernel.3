@@ -4,91 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB587C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4868C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=laPzi6AI5df0hYY8xCpaxh0N0Q/AFGk3Kz/EhxGguPo=; b=WyX4x+c6nQTXOf/r0hOow9fobo
-	HPeDwppuOtjS9EcTfxzbn5487XXNtTVk92OTilhcQvTwi1ycgFDniDmfPTS0yhyEKsbRb0Umepkj+
-	02x/SwPT2I3GPoO9dnyfaMg7tHMfu+8jn6S2qYhIBHV5h/bpfHJ5KO+tG2t6Tx0DTBgIj0MSTtc11
-	MYQMkUDvei0cpRq1+pzJDRMY4nxBzTuhJNxlOA6P+F41r0fo98zrm+akEL0BZ+t3U5o0rsMWWxBq1
-	bRxuqmoEQ+VDLtwakvRvnyXJu5/xXLX2kej9S1qBDsJSPFChRVypunLWHVA1BT4e68frWwULlsQkv
-	4P2+KhVQ==;
+	bh=SNu0F4yGXjEea7fLM5tg1tfl9TwC9mxjxgn2oB/nJL4=; b=ZIHlzuvvns/zpFVZ64h85QAtbD
+	eUe461UjzG20sNlSlp3edjActH3Kw4u44UZgpirlEyNbfkpv2g7Eek7RmU4Mnqv67QQI8cL8mGfWR
+	c00O+7mSBnzfsmNL3QYh5rbVNwAAKIdecbFvQSyitg9c6EXzBXXBGDJme1z378vH0w3CeT7BfwnLk
+	KDWiVc5y1m+befYtpNughSwztY5sLWvMWIGepBtW7+hxE/zNofybnbaCONx2GtRqOKYQeqz72CDdE
+	bXp4HTGFBhivIQvKryUW1YNwQhBGYcfY7X0a7349briAC+wbx8i04sJ0/8qCPMD8J3Zu46brsnokP
+	d4ZMXEkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5et-00000006Fda-1CUR;
-	Tue, 25 Mar 2025 14:53:39 +0000
+	id 1tx5es-00000006FdQ-1h2Q;
+	Tue, 25 Mar 2025 14:53:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4Qx-000000062xh-2L1Y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 13:35:11 +0000
+	id 1tx4ML-000000062H9-3YN7;
+	Tue, 25 Mar 2025 13:30:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=laPzi6AI5df0hYY8xCpaxh0N0Q/AFGk3Kz/EhxGguPo=; b=awm0vLSh7x14LzdGXXY3y647uM
-	76lUhNIZcMqok7/yCQITG/ntbOMDpI/tN1VTfizBzQF2ApBNpB/mhP+S9kJ37k7I2ZkiH97WrK6Gq
-	b923Hxp9GJLoxrV0c67gnHMp8GjdNTY3sKuOqmmkAInAZnkSBuCbaa8lKxTlAItbzlrnk5Bhsd7V9
-	mhEtK4jH+UpwajcSw2/vxYc9I9hK91KPPQDDBSi37MGfsZOt8txL38n3spgAnPcZ/iTmZx34R8KcQ
-	NnB56jRiO0d6XhALC3Qs6K8gaGZJuuyUcxXy7xtwX8oHermRMSZ++vL1w1DPy1uL7bMDaVOpNlKQw
-	HX/A+e0g==;
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx4Qu-00000005T0k-1uLH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 13:35:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 65FFF44288;
-	Tue, 25 Mar 2025 13:35:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742909704;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=laPzi6AI5df0hYY8xCpaxh0N0Q/AFGk3Kz/EhxGguPo=;
-	b=mpCSdXTo+eVQSvjH2mkqzNcJ3dA0St0l8cbiIWzog554Nstg13Ec+f9qeBFJZJya/rr6D/
-	PFmcm9zItkOtmf2lnVqHpcBqL2bFJ9zJl9wLDPMqcr8JeyZMO2J4/pCwm7oNanvkarN5D3
-	45OsuA6Y5Tldb2CzDwrr76OueVSWySifM9qRKj0caKixcai5PUiN45Cm6eHCixQOcc8AVr
-	Flp1Zyez1cNCQlvZgzSN9YqzI1K4nKlo9Xbvn+6z+XdcWYZmBOAB2nytcm4Hy8LLI8bpU4
-	dXIpO9aNq/GNYIFKuhA7TXj87qWGUeOxsckPFdbNQ939OzmXCp1fYpi1Y9jABA==
-Date: Tue, 25 Mar 2025 14:35:02 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Vladimir Oltean
- <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
- Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
- Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net-next v4 8/8] net: ethtool: pse-pd: Use per-PHY DUMP
- operations
-Message-ID: <20250325143502.515e0bde@kmaincent-XPS-13-7390>
-In-Reply-To: <20250324104012.367366-9-maxime.chevallier@bootlin.com>
-References: <20250324104012.367366-1-maxime.chevallier@bootlin.com>
-	<20250324104012.367366-9-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=SNu0F4yGXjEea7fLM5tg1tfl9TwC9mxjxgn2oB/nJL4=; b=k9UwywIXtVrTWOkwVQBcPYKBiM
+	Gk4K4bFm6GMMv5nP10SZh2EFIG9QLzp5dRuv9FKqsnMZLmLc8G9YUkuR1qdtkdDNPEJHDm0Fja+ab
+	BU41R6R/ZEuNt/A4vf14PbBDndBfjtlR0XQOKrQ6zvdzkSTucq5mFDR1pW+ExehOXrcGoJZtIdhq4
+	gCqzkaz2pJentmndSOCmacwxCGe26izRABMMYs/5ZFKJ+wC1CFI/2HXUmFIVtIx8BNmomI3VUSGn3
+	VN4NgceO8GBdUq5LiLUL+C7uHB98IQACtxtUtZ7oF/JLhp3vaOUXfel03HPYLcOzR1VLil7PfTlKY
+	z4ELaaAQ==;
+Received: from m16.mail.163.com ([220.197.31.3])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tx4MI-00000005Sni-1ImF;
+	Tue, 25 Mar 2025 13:30:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=SNu0F
+	4yGXjEea7fLM5tg1tfl9TwC9mxjxgn2oB/nJL4=; b=GVqfaRHJ8f4Dbd49Yoefd
+	PGivXKGqhOuFpE7Laf6x4CVnBDBDYl9cFSGTj8Z37rNN+gWIkgnm2dMIHSZbktMU
+	cNnhDgLWKj1zkB6o/9nI0e/afnYt+U6RHeKkKv2qFwX88v1cLD/kMiG5cEEvx90M
+	p2tui/QSvq5CzAkzC6+LMM=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgAnc2bLr+JnWNnrAA--.35530S3;
+	Tue, 25 Mar 2025 21:29:51 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	hjc@rock-chips.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v2 1/6] dt-bindings: display: rockchip,inno-hdmi: Fix Document of RK3036 compatible
+Date: Tue, 25 Mar 2025 21:29:35 +0800
+Message-ID: <20250325132944.171111-2-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250325132944.171111-1-andyshrk@163.com>
+References: <20250325132944.171111-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedvjeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddupdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
- egvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: kory.maincent@bootlin.com
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgAnc2bLr+JnWNnrAA--.35530S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tw45GrW5ur4xJFyrWF45Wrg_yoW8Ar4Dpa
+	93C3WkXr1xur1UX34Dtr18CrWkta4kAa1YkFy2q3W8Gr1j9a1DKa1agr4DZay3ArsrAa9F
+	vFsFgry8A34SvrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j773kUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0g0bXmfirF9iZQABsq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_133508_590450_471854F9 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250325_133023_211808_E5E0549C 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,42 +94,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Mar 2025 11:40:10 +0100
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+From: Andy Yan <andy.yan@rock-chips.com>
 
-> Leverage the per-phy ethnl DUMP helpers in case we have more that one
-> PSE PHY on the link.
->=20
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
-> V4 : No changes
->=20
->  net/ethtool/pse-pd.c | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/net/ethtool/pse-pd.c b/net/ethtool/pse-pd.c
-> index 4f6b99eab2a6..f3d14be8bdd9 100644
-> --- a/net/ethtool/pse-pd.c
-> +++ b/net/ethtool/pse-pd.c
-> @@ -314,4 +314,10 @@ const struct ethnl_request_ops ethnl_pse_request_ops=
- =3D {
-> =20
->  	.set			=3D ethnl_set_pse,
->  	/* PSE has no notification */
-> +
-> +	.dump_start		=3D ethnl_dump_start_perphy,
-> +	.dump_one_dev		=3D ethnl_dump_one_dev_perphy,
-> +	.dump_done		=3D ethnl_dump_done_perphy,
-> +
-> +	.allow_pernetdev_dump	=3D true,
->  };
+The RK3036 HDMI DDC bus requires it's PHY's reference clock to be enabled
+first before normal DDC communication can be carried out.
 
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+Therefore, both RK3036 and RK3128 HDMI require two identical clocks.
 
-Thank you!
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+---
+
+(no changes since v1)
+
+ .../bindings/display/rockchip/rockchip,inno-hdmi.yaml | 11 ++---------
+ 1 file changed, 2 insertions(+), 9 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
+index 5b87b0f1963e1..9d1e7f894ea54 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
+@@ -23,13 +23,11 @@ properties:
+     maxItems: 1
+ 
+   clocks:
+-    minItems: 1
+     items:
+       - description: The HDMI controller main clock
+       - description: The HDMI PHY reference clock
+ 
+   clock-names:
+-    minItems: 1
+     items:
+       - const: pclk
+       - const: ref
+@@ -87,11 +85,6 @@ allOf:
+             const: rockchip,rk3128-inno-hdmi
+ 
+     then:
+-      properties:
+-        clocks:
+-          minItems: 2
+-        clock-names:
+-          minItems: 2
+       required:
+         - power-domains
+ 
+@@ -106,8 +99,8 @@ examples:
+       compatible = "rockchip,rk3036-inno-hdmi";
+       reg = <0x20034000 0x4000>;
+       interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+-      clocks = <&cru  PCLK_HDMI>;
+-      clock-names = "pclk";
++      clocks = <&cru PCLK_HDMI>, <&cru SCLK_LCDC>;
++      clock-names = "pclk", "ref";
+       pinctrl-names = "default";
+       pinctrl-0 = <&hdmi_ctl>;
+       #sound-dai-cells = <0>;
+-- 
+2.43.0
+
 
