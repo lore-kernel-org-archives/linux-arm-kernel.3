@@ -4,68 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADA4C36013
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE2DC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vw2aTZfKC8jL612WLeYf7YLLLB/WaqDvcUQ/QnVchBI=; b=cDtIoHmtB3XwfnQqLczWYp0kZi
-	S+ybPhSUyaqc5SNOcrRmEhpCQtLQ56SjzPJbd6CfsoEOQpyRz+mXpaA7OUTSLhCHZih6JgwcoHDGR
-	CViinXGex1eVyTWeG4HlHlMXN4XLCnNoaBws/y+wQMw4h6k+pos18/gejVoknDg/L9ZDmkXeH+VVg
-	52GQMfmzXvjwZOQcNRqvL7Fisi+eEYrauCPxcO2MWU4Lnv0rdYrKrk8D8J8YlrtqutuEHSrnQOC57
-	DXIcY57kGk61JsWN7xpfJj1Q5GDHphCc/1zfbyTfA2ORrztdcPBJjS7Uf1/6IXGr113/Gv2aLG/kG
-	/3T/OrQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A0BehfUeMRpr2SQrZ16cy0XS94atzlGadwTB4/IF7KU=; b=Phhl5jqnYAoGF8uC6pwE49p9lb
+	q+sMcwMuqXMoQ9Z2Qm8ODB9XneL/NhKY+LmIQFtLyzVnWWIqTsazxMp3lez/isYOKp8mbk646mfKf
+	zrTn9OID5cTlIAUVkAtpbyGB3ggBDK98kyyBXPE5/+lYPn0dbAKYjJix55CJ7GdDZc/heWgP0KZo9
+	JgUQ8ddoQKOSFwLiT2SFttjY0/HAniJMrJeFGtyxvyWVz2saqcFV+Qb8zy2fZPKF/U6IYJaS2h3/r
+	KKWLsg0p6c1w6Q3VPVyuxckq1itrpdKbq1INu5rLdnjYu4p7bYZfmEX210jYKZfW3ki0OxFrslmLt
+	XmPUYOpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3YL-00000005rF8-2ROo;
-	Tue, 25 Mar 2025 12:38:45 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tx3dB-00000005tPB-25C2;
+	Tue, 25 Mar 2025 12:43:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3CL-00000005llK-2Lgo
+	id 1tx3KW-00000005o7H-3Oqa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:16:02 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 33CA1102EBA49;
-	Tue, 25 Mar 2025 13:15:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742904959; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=Vw2aTZfKC8jL612WLeYf7YLLLB/WaqDvcUQ/QnVchBI=;
-	b=QLKfZA5hesyp7HKxl4wfAMJm/Eqm1iLloGyqwHdqYMYlU7JKUzljQH8FAvHiekj/fZ6IR6
-	nWKratYium4fr/hJiKgEkRw1BgDOPWdBf1mO7j/4sAsa2hiyK/Xx/axqfzxis7vnBd/H5S
-	5y8AiWj2Y+HsXX9uAAvp9KOSh4kka192Y9gxL/WN7nEJuwjRk2VgYYHTRHbFYSldPxP+2z
-	mvAZ1uGOg9Q2J+ddFJwrtxvLss3h17U1pd4acNFApe8ZIguAvv299V6369chRQffdhDxD2
-	Y9jN1ZDdRTvPJFGOhfnFIarSWpqVyc038v5zuXHEGRL+L8mO3lp7l43jL+F7kw==
-Date: Tue, 25 Mar 2025 13:15:57 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub
- Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
- Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
- Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH 1/5] MAINTAINERS: Add myself as the MTIP L2 switch
- maintainer (IMX SoCs: imx287)
-Message-ID: <20250325131557.275f7c5c@wsk>
-In-Reply-To: <e7d3f22f-4576-448a-a77e-644cd21c9a16@kernel.org>
-References: <20250325115736.1732721-1-lukma@denx.de>
-	<20250325115736.1732721-2-lukma@denx.de>
-	<e7d3f22f-4576-448a-a77e-644cd21c9a16@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 25 Mar 2025 12:24:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 37B7D43C1B;
+	Tue, 25 Mar 2025 12:24:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EB37C4CEE9;
+	Tue, 25 Mar 2025 12:24:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742905468;
+	bh=Mf0PY1BZwER+HJ9Mbh8TvIu8FULZZyssZyyQhg3Lxog=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=s+/0HeFVYw6E9ENxuZrurwBQZjTKxbCYZUpzZpQQkhJ/91XayRTQsrh0ZrPcxL6VT
+	 kWPsswaWOu92ibYtKPVQ8cCX8tI/AovpWLUHxbRfI0/LYO+BNEKvw0jz9tSM+iNekY
+	 vYO8pjYDmfb/z5KEqYkNLmTBUw5TNSgx7s3Tm+/YAcmPn6gD38V4dkw/SWkZ+YlcxW
+	 su7X/NDNRXtlVjRTXmyVRJXFZaFDSzVdX/xcyiKo4eSPgyWNkviNI88lTVQL8Pypxt
+	 ZQYp+1CfBBYtXUeraYsyNCniBCJqLg9oYiWYeeJrfpwq4Grdag9K+D7WLkJGrdzDGX
+	 yL7UoRVqqlcPQ==
+Message-ID: <bf6d066c-f0dd-471a-bb61-9132476b515a@kernel.org>
+Date: Tue, 25 Mar 2025 13:24:16 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/24q=A/Ak_cTLWFZ0Fb5BUSM";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: net: Add MTIP L2 switch description
+ (fec,mtip-switch.yaml)
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
+ Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>,
+ netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>
+References: <20250325115736.1732721-1-lukma@denx.de>
+ <20250325115736.1732721-3-lukma@denx.de>
+ <2bf73cc2-c79a-4a06-9c5f-174e3b846f1d@kernel.org>
+ <20250325131507.692804cd@wsk>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250325131507.692804cd@wsk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_051601_743674_F9EEE1BC 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20250325_052428_894318_908706AE 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +128,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/24q=A/Ak_cTLWFZ0Fb5BUSM
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-
-Hi Krzysztof,
-
-> On 25/03/2025 12:57, Lukasz Majewski wrote:
-> > Add myself as a maintainer for this particular network driver.
-> >=20
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > ---
-> >  MAINTAINERS | 7 +++++++
-> >  1 file changed, 7 insertions(+)
-> >=20
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 5959513a7359..255edd825fa1 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -9270,6 +9270,13 @@ S:	Maintained
-> >  F:	Documentation/devicetree/bindings/i2c/i2c-mpc.yaml
-> >  F:	drivers/i2c/busses/i2c-mpc.c
-> > =20
-> > +FREESCALE MTIP ETHERNET SWITCH DRIVER
-> > +M:	Lukasz Majewski <lukma@denx.de>
-> > +L:	netdev@vger.kernel.org
-> > +S:	Maintained
-> > +F:
-> > Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
-> > +F:	drivers/net/ethernet/freescale/mtipsw/* =20
->=20
-> You need to re-order the patches, there are no such files yet, so this
-> causes warnings.
-
-This shall be probably squashed with the patch adding mtipl2sw* files.
-
->=20
-> Best regards,
-> Krzysztof
+On 25/03/2025 13:15, Lukasz Majewski wrote:
+> Hi Krzysztof,
+> 
+>> On 25/03/2025 12:57, Lukasz Majewski wrote:
+>>> This patch provides description of the MTIP L2 switch available in
+>>> some NXP's SOCs - imx287, vf610.
+>>>
+>>> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+>>> ---
+>>>  .../bindings/net/fec,mtip-switch.yaml         | 160
+>>> ++++++++++++++++++  
+>>
+>> Use compatible as filename.
+> 
+> I've followed the fsl,fec.yaml as an example. This file has description
+> for all the device tree sources from fec_main.c
 
 
+That's a 14 year old binding, so clear antipattern.
 
+> 
+> I've considered adding the full name - e.g. fec,imx287-mtip-switch.yaml
+> but this driver could (and probably will) be extended to vf610.
+
+Unless you add vf610 now, this should follow the compatible name.
+
+> 
+> So what is the advised way to go?
+> 
+>>
+>>>  1 file changed, 160 insertions(+)
+>>>  create mode 100644
+>>> Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
+>>>
+>>> diff --git
+>>> a/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
+>>> b/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml new
+>>> file mode 100644 index 000000000000..cd85385e0f79 --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/net/fec,mtip-switch.yaml
+>>> @@ -0,0 +1,160 @@
+>>> +# SPDX-License-Identifier: GPL-2.0-only
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/net/fsl,mtip-switch.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Freescale MTIP Level 2 (L2) switch
+>>> +
+>>> +maintainers:
+>>> +  - Lukasz Majewski <lukma@denx.de>
+>>> +  
+>>
+>> description?
+> 
+> Ok.
+> 
+>>
+>>> +allOf:
+>>> +  - $ref: ethernet-controller.yaml#
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    oneOf:  
+>>
+>> Drop, you have only one variant.
+> 
+> Ok, for imx287 this can be dropped, and then extended with vf610.
+> 
+>>
+>>> +      - enum:
+>>> +	  - imx287-mtip-switch  
+>>
+>> This wasn't tested. Except whitespace errors, above compatible does
+>> not have format of compatible. Please look at other NXP bindings.
+>>
+>> Missing blank line.
+>>
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  interrupts:
+>>> +    maxItems: 3  
+>>
+>> Need to list items instead.
+>>
+>>> +
+>>> +  clocks:
+>>> +    maxItems: 4
+>>> +    description:
+>>> +      The "ipg", for MAC ipg_clk_s, ipg_clk_mac_s that are for
+>>> register accessing.
+>>> +      The "ahb", for MAC ipg_clk, ipg_clk_mac that are bus clock.
+>>> +      The "ptp"(option), for IEEE1588 timer clock that requires
+>>> the clock.
+>>> +      The "enet_out"(option), output clock for external device,
+>>> like supply clock
+>>> +      for PHY. The clock is required if PHY clock source from SOC.
+>>>  
+>>
+>> Same problems. This binding does not look at all as any other
+>> binding. I finish review here, but the code has similar trivial
+>> issues all the way, including incorrect indentation. Start from well
+>> reviewed existing binding or example-schema.
+> 
+> As I've stated above - this code is reduced copy of fsl,fec.yaml...
+
+Don't take the worst, old code with all the anti-patterns we point out
+on each review, as an example.
+
+Take the most recent, well reviewed binding as an example. Or
+example-schema.
 
 Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/24q=A/Ak_cTLWFZ0Fb5BUSM
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfinn0ACgkQAR8vZIA0
-zr1emQf/fXhcxk4JMbU6x8ViPUfMGnNtieJNZbqixCSsbi5ttFkxRK5g2HwuGSNG
-wRfDDxs+yMejO2q2ZRPnboRHMmp0cPs7BBdLsw0cs81BEMqTQN5/IvymAf7sjUST
-JXRupMGgghbwq8fkESm2wYzRQE43AvpLM1bbykl+akDt7AVLhqJwHKWk9/NZYcPz
-+64fDpsM2Il0oUU2oe5B4SHry4OE33So1s0VyUanuWZxANZnBRvTeh9RA42bviuK
-ehdZQVGt2Hi3ZAi5l7WP3GRwzNAzDAK297M4koxXXNKY7JsIGrUTRsLw4ha63gX9
-3hia1jZ/itQzBJ+iqsKLdzEN7qHZUg==
-=rHL2
------END PGP SIGNATURE-----
-
---Sig_/24q=A/Ak_cTLWFZ0Fb5BUSM--
+Krzysztof
 
