@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02BEC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8420C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jGTI6dUm2MRiVeGplFX7z/KtFfB0S3Uj2G+oen7A4jo=; b=Og3u4Fn4H7gv29
-	i+aMS9fEZ3muqLzi6fsy3iaBn+3tA39NKdmzTUAbwszy8FUx8qup8lYwvPjlmUqI+6WkMZzHzqeBA
-	HLaA35tViXGsIc337V2IAkp3P97MAbfhEcpdgbd3B8D7fdzW6ihbOGoTWRbhkkcShmpX4ZxKUCV4y
-	OlQj1Px0I6sccSFrD1dRoBe93rgQvP7+1daIW+i3Z9MeygvckUXYTPzLecpsSQjanIyvTdCBFgKmN
-	UDqtZmDR/ZVsDwWcPT8cNYI7WCQg0rrHcCdU+O8lBeJ9YCOJFH5q/8htYNbslu9OlsstmVAPSH7z7
-	1/+BhhRCeE/omcNXvT8A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+T3WQyKZjc+sTss9oWTNDsgD0VLz9miuiujDFgPAAiM=; b=3g9AXP9TfqFDIWrG3hqRRWSJQg
+	zvX744K9xHmAw1hgh2hFkZXAHf1ThaX2D/+qJ+fiyw+xMw+6kI5q23Q3jbat7KHYMK0slaYaAG2Am
+	/Y2AjaXogVTNkvUQA/Etaxr2cOEYumr1UC9kY8FfBPblKkcdlsE9AwKNwjnLVPldAmrEWw1pidtB5
+	DITSSV9U7CxnVexXgZewnqzfHQxVC3AUKgXUR/XrC20vW1oiDzViK/cKRKerMYpsEq98JIhetML33
+	eRDXBZmNu72aqQKhbsFSAvTlZmmQKK8gL/s5lA7yQzzWl0B/bta9TE2oZr5bYLm7zKsTHP0YfbBgP
+	oguMKp1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx35S-00000005keo-0DWi;
-	Tue, 25 Mar 2025 12:08:54 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tx379-00000005kug-3Aoa;
+	Tue, 25 Mar 2025 12:10:39 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx2vy-00000005iNT-1Hoi
+	id 1tx2vz-00000005iO4-2qPo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 11:59:07 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso34421725e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 04:59:05 -0700 (PDT)
+	Tue, 25 Mar 2025 11:59:08 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso3193113f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 04:59:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742903944; x=1743508744; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jGTI6dUm2MRiVeGplFX7z/KtFfB0S3Uj2G+oen7A4jo=;
-        b=S10uOwX17z2qZffPQ9du7FEDeRlUZa0Ch54hnSXDV6C8QZoPmIXlmkt+ckFhsShREZ
-         /zxvRPQnlC4H2a9ommz14t5/lpxGUlEyjDoYAoo2AUGz/vot6SRcfLuZ3Pj8XHdcnWJL
-         pBvJ5D0ihAjvRCNklgaULUGU9inQiuV5+pxYZ1qxMWyp7a5prtm4ytVf/zKTcQ1U+nPE
-         yxGeQc72LiteL1V97Vhkv3sT+BIDTJAqotrhSuQwrWaBG5StzpbXdLQ/lc9HRUTFc7hn
-         yY4DM+p0mN+dCjgtrx94X8I9EkudlUy/nfNJO2tItKJvYQikDpdM3wpuGu4Zfp+c0gXV
-         kXJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742903944; x=1743508744;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1742903946; x=1743508746; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jGTI6dUm2MRiVeGplFX7z/KtFfB0S3Uj2G+oen7A4jo=;
-        b=okTeYSnFrNAlT1momfPZAUxYgdtCcuj1vKBKAOKhlgKk7sMq87ypfEkqax3ODIH3a6
-         CXfQSi9TLjEjPemcDLVdU2uGEsUCBWcu0cxLKesITABtA4ein4V8Jp7pcT3pNOObCWWN
-         f4MPWBkjCtt/rni/b60LJljNpsoyF4b0FmlN/+gwlVVOYCkVB7rqyI9DB8KKAi8xmZxp
-         gicWAknd1LRhd4XfVMIizfVdy1kBMVouLtrocq1NeVU1MGsXLvXad/Jm3HFsyYHpEqdJ
-         k13/7/nMRwqrfBWT5n8pcdAqyRt9fGr84xsZksoCJzVX/pzE70/Kqc36ErUOhW64GqrL
-         tjpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX8GImuAndtn53+F47psMTXj8HjvgRyiX5v15RhtburdNvrQI7ogKOol93g+fWuokGKrdA/TV7k5PYdlwHwCh69@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/3vxLe2VpxcDirF6Sk/bdS9ET3gWHxWJwJ50myCBWmAXgfD1u
-	X2c05THM/SXgNC9GRJ9H+BMTPHi1CC2jHa8Pj2PnxqtUId8XSgFi8IHj8Vh9Ej8=
-X-Gm-Gg: ASbGnct31eDO0Y9Ew1zWEAeZXZ9euKqBSOspwnqtCnTJ9LVU/xRKDGr0BB7UJSFFt2+
-	+AkEWp/yQWzdEy0BOsSgRhLFGhPVac5iD8UEUipbC+N6S7A77n4ZKxD/a3m8FpZY/gczFjTG6Hh
-	fHEilU0I+iPBEs5dDuj9FmtGaI33AKWg8sGwv18+hDvh7GlrWJbgIZsiGI7Pi58ApLiXhEQRcTO
-	I0+JgTEnh3s1FtbN7hkN8AfQBmPKI21E2Jq9UYdd1Xn8ncaSmcnOTvbK1SmnlxLCuXWsLsrfc4N
-	ogdXLvrqAgu091dcnUbYVC1F4PsJu3eO/dYmEXpz4q2ciXiMOq6ZOKbKq/E=
-X-Google-Smtp-Source: AGHT+IGi3f+WduASAoJyESw/dkvZV/1xs7w/6CimQs/4qOoGd+9PrfPjTXiaYW1ipNvTLM3qNBE+cQ==
-X-Received: by 2002:a05:600c:4995:b0:43c:ed33:a500 with SMTP id 5b1f17b1804b1-43d491b7dc5mr162584035e9.10.1742903944481;
-        Tue, 25 Mar 2025 04:59:04 -0700 (PDT)
+        bh=+T3WQyKZjc+sTss9oWTNDsgD0VLz9miuiujDFgPAAiM=;
+        b=s73nBJ8gkw0rHcc2pJKO3BpHmmEC9pFy7gjQPTjfmV8ZeBdFdVWtxwA2hJ+ntT92fY
+         7vN2V9/eEvWK6p1f1yzWy0QiDVNHxPccKX4aF2k9CTyUQRKZunNckWdLaY+J0OPPpV+4
+         Hdu+b0d91HxdP6/5C/nJaHU4GWa4LLKuXl92PDCrkl4cHPcBREneNqUiCPHgvpiWC59Z
+         w6RRkzRRONcDfYVg9IVqKfoVGIIp4IAYQGQulOCcpjgLcABrAjIs3Io6yw6dNjynUNbc
+         B+E897uZR8coLgIA/BhPVEvw8strVE4Fwte1/cde26vCbdR7k7Pr3uRHxPqWV5zN7Bp2
+         ecjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742903946; x=1743508746;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+T3WQyKZjc+sTss9oWTNDsgD0VLz9miuiujDFgPAAiM=;
+        b=ued28axGy+bO/FXitThuM391klcu0iD4pxRMOZMKHnhIA+BfY6a2BpPWp84ehXP7Lr
+         hoU45oYS+aa7ZhlydaxFmyQzKU3z6QZSC3YDMyjUwvGtMGhEj3r1XhZMDQfIgp5dXnh8
+         wfawfVRdeIKESQ8CGQ5S7s+wA+U4M1PwtgpMm5oy9kL3fegvvJESt4MrvctbMXLdeD4D
+         xZSrcQ6BHbdBlCwSVRw9dweCw0xwwVHqf7U1UZEizhq4Hd5r61Xu+1PaXeng1t9f7cv8
+         dV1lzZk4yzTFDSEDZRQVM76kt993+ICSO/PKtCgU3R7PBjLhi/qYgf+5Kv3PvdKudhae
+         OSgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUOmqaH3ACPyQi+g5eDs/W9YT5eA7sSFAXtSn8jjm7+sWfirEp7qIgSWV9Wqu8cblal7kwmHDOvjuiKGn3b5kfS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzD4q8aStED1X98wP3/xPWg0UObPBOFBaHdJK8oedr29YiAPENe
+	cdhrJ70dP1PclUWjeby/oAGj9KI3UEFt8RABHV73/Ds93hx3862ElTNGeT/2jYM=
+X-Gm-Gg: ASbGncsb/PbGnHLbvnQO1D/CrX3joL0QGpQGGkNqQdQNOxz+Wj5nR3DMHiaLLCc4rmP
+	g7MPb+dIRmHBCp5CrPpt2zjhwxsobshb0GgTtF9w91jdcW7NxIep2roImGUKDU7XjVJdpGnWB6I
+	H+zRGGjsfFVQVfu3RahJpbRBLZLxbyD2Jb2osBHlgFBFgaKboPvxfkOXIRfqGdZSOEh+Nzbkhte
+	JtNUBlrJ+StmUO/jh9LdkY4o36WTUe+m7VivPI0etHNt6VqgDKCFrtNI0fwGk7Mq68NsMglH40Q
+	4LJN4dQcnQ4TjEk6bU+PM7dRB2J3SHBJt36FMkzo0Mpghp2W
+X-Google-Smtp-Source: AGHT+IFPGy9vum6o+O8NH5bMurCGa+Js6mdtnSW1DTWQ2JGk0tgT1DLh6k91VuQbSdSQx9wfiBlcYg==
+X-Received: by 2002:a5d:5885:0:b0:391:29f:4f87 with SMTP id ffacd0b85a97d-3997f93c495mr13090045f8f.49.1742903945954;
+        Tue, 25 Mar 2025 04:59:05 -0700 (PDT)
 Received: from [10.42.0.1] ([145.224.90.136])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9e6676sm13687169f8f.62.2025.03.25.04.59.03
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9e6676sm13687169f8f.62.2025.03.25.04.59.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 04:59:04 -0700 (PDT)
+        Tue, 25 Mar 2025 04:59:05 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH v4 0/7] coresight: Clear self hosted claim tag on probe
-Date: Tue, 25 Mar 2025 11:58:45 +0000
-Message-Id: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
+Date: Tue, 25 Mar 2025 11:58:46 +0000
+Subject: [PATCH v4 1/7] coresight: Convert tag clear function to take a
+ struct csdev_access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHaa4mcC/33OTWrDMBCG4asErTtGo5/Eyqr3KFkIeWxPm1hlZ
- ExD8N0rp5Smmyw/GJ55b6qQMBV13N2U0MKF81SHe9mpNMZpIOCubmW08driAd7jhQqkLFR4GGd
- I58gXmONQIBK6PfbYe9KqAp9CPX/d8bdT3b3kejkKxT/SIKK2wfkm7A8ueMCfD0115eP1zFOU3
- GQZNnDkMme53mMXs7G/Xe2zrsWABgqpjSF11Dp6ZLewxT5YRj+1bLU6i84n9LY1+p+1rus3IFN
- REFIBAAA=
+Message-Id: <20250325-james-coresight-claim-tags-v4-1-dfbd3822b2e5@linaro.org>
+References: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
+In-Reply-To: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
@@ -90,8 +89,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  Yeoreum Yun <yeoreum.yun@arm.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_045906_368087_E004D948 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20250325_045907_731536_DE8BE23C 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,82 +105,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I've gotten stuck a few times with unusable Coresight after a warm boot
-due to lingering claim tags, especially when testing the Coresight
-panic patchsets.
+The self hosted claim tag will be reset on device probe in a later
+commit. We'll want to do this before coresight_register() is called so
+won't have a coresight_device and have to use csdev_access instead.
 
-This change does some tidy ups, adds some debug messages and clears the
-self hosted claim tag on probe. The last two commits are unrelated
-tidyups but they touch some of the same functions so to avoid extra
-conflicts I'm including them here.
+Also make them public and create locked and unlocked versions for
+later use.
 
-This gets as far as fixing the claim tag issue, but there is some other
-state not being cleared on probe that results in the following error.
-This can be fixed up as a later change:
+These look functions look like they set the whole tags register as one
+value, but they only set and clear the self hosted bit using a SET/CLR
+bits mechanism so also rename the functions to reflect this better.
 
-  coresight tmc_etf0: timeout while waiting for TMC to be Ready
-  coresight tmc_etf0: Failed to enable : TMC is not ready
-
-Changes in v4:
-- Add _unlocked() suffix for consistency
-- s/cs_access/csdev_access/
-
-- Link to v3: https://lore.kernel.org/r/20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org
-
-Changes in v3:
-- Collapse rename and locked/unlocked addition commits of
-  coresight_clear_self_claim_tag() so we don't change the name twice.
-- Make coresight_clear_self_claim_tag() a bit more generic by only
-  doing UNLOCK for MMIO devices (although there is no use of this right
-  now)
-- Link to v2: https://lore.kernel.org/r/20250318-james-coresight-claim-tags-v2-0-e9c8a9cde84e@linaro.org
-
-Changes in v2:
- * Revert most of the interface changes, just call
-   coresight_clear_self_claim_tag() directly. This is possible because
-   we're not doing the read first, so it has fewer knock on effects.
- * Split out the change to add struct cs_access to etm3x
- * Add another warning for racing with external debugger
-
---
-2.34.1
-
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-James Clark (7):
-      coresight: Convert tag clear function to take a struct csdev_access
-      coresight: Only check bottom two claim bits
-      coresight: Add claim tag warnings and debug messages
-      coresight: etm3x: Convert raw base pointer to struct coresight access
-      coresight: Clear self hosted claim tag on probe
-      coresight: Remove inlines from static function definitions
-      coresight: Remove extern from function declarations
+ drivers/hwtracing/coresight/coresight-core.c | 33 ++++++++++++++++++----------
+ include/linux/coresight.h                    |  3 ++-
+ 2 files changed, 24 insertions(+), 12 deletions(-)
 
- drivers/hwtracing/coresight/coresight-catu.c       | 12 +--
- drivers/hwtracing/coresight/coresight-core.c       | 87 ++++++++++++++--------
- drivers/hwtracing/coresight/coresight-cti-core.c   |  2 +
- drivers/hwtracing/coresight/coresight-etb10.c      |  4 +-
- drivers/hwtracing/coresight/coresight-etm.h        |  6 +-
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 28 +++----
- .../hwtracing/coresight/coresight-etm3x-sysfs.c    |  8 +-
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 ++-
- .../hwtracing/coresight/coresight-etm4x-sysfs.c    |  4 +-
- drivers/hwtracing/coresight/coresight-funnel.c     |  1 +
- drivers/hwtracing/coresight/coresight-platform.c   | 26 +++----
- drivers/hwtracing/coresight/coresight-priv.h       | 20 ++---
- drivers/hwtracing/coresight/coresight-replicator.c |  3 +-
- drivers/hwtracing/coresight/coresight-stm.c        |  6 +-
- .../coresight/coresight-syscfg-configfs.c          |  2 +-
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  9 ++-
- drivers/hwtracing/coresight/coresight-tmc-etr.c    | 16 ++--
- drivers/hwtracing/coresight/coresight-trbe.c       | 18 ++---
- include/linux/coresight.h                          | 40 +++++-----
- 19 files changed, 168 insertions(+), 134 deletions(-)
----
-base-commit: 5442d22da7dbff3ba8c6720fc6f23ea4934d402d
-change-id: 20250317-james-coresight-claim-tags-ae1461f1f5e0
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index fb43ef6a3b1f..d895815dee1d 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -129,34 +129,45 @@ coresight_find_out_connection(struct coresight_device *csdev,
+ 	return ERR_PTR(-ENODEV);
+ }
+ 
+-static inline u32 coresight_read_claim_tags(struct coresight_device *csdev)
++static inline u32 coresight_read_claim_tags_unlocked(struct coresight_device *csdev)
+ {
+ 	return csdev_access_relaxed_read32(&csdev->access, CORESIGHT_CLAIMCLR);
+ }
+ 
+ static inline bool coresight_is_claimed_self_hosted(struct coresight_device *csdev)
+ {
+-	return coresight_read_claim_tags(csdev) == CORESIGHT_CLAIM_SELF_HOSTED;
++	return coresight_read_claim_tags_unlocked(csdev) == CORESIGHT_CLAIM_SELF_HOSTED;
+ }
+ 
+ static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
+ {
+-	return coresight_read_claim_tags(csdev) != 0;
++	return coresight_read_claim_tags_unlocked(csdev) != 0;
+ }
+ 
+-static inline void coresight_set_claim_tags(struct coresight_device *csdev)
++static inline void coresight_set_self_claim_tag_unlocked(struct coresight_device *csdev)
+ {
+ 	csdev_access_relaxed_write32(&csdev->access, CORESIGHT_CLAIM_SELF_HOSTED,
+ 				     CORESIGHT_CLAIMSET);
+ 	isb();
+ }
+ 
+-static inline void coresight_clear_claim_tags(struct coresight_device *csdev)
++void coresight_clear_self_claim_tag(struct csdev_access *csa)
+ {
+-	csdev_access_relaxed_write32(&csdev->access, CORESIGHT_CLAIM_SELF_HOSTED,
++	if (csa->io_mem)
++		CS_UNLOCK(csa->base);
++	coresight_clear_self_claim_tag_unlocked(csa);
++	if (csa->io_mem)
++		CS_LOCK(csa->base);
++}
++EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
++
++void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
++{
++	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
+ 				     CORESIGHT_CLAIMCLR);
+ 	isb();
+ }
++EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
+ 
+ /*
+  * coresight_claim_device_unlocked : Claim the device for self-hosted usage
+@@ -176,11 +187,11 @@ int coresight_claim_device_unlocked(struct coresight_device *csdev)
+ 	if (coresight_is_claimed_any(csdev))
+ 		return -EBUSY;
+ 
+-	coresight_set_claim_tags(csdev);
++	coresight_set_self_claim_tag_unlocked(csdev);
+ 	if (coresight_is_claimed_self_hosted(csdev))
+ 		return 0;
+-	/* There was a race setting the tags, clean up and fail */
+-	coresight_clear_claim_tags(csdev);
++	/* There was a race setting the tag, clean up and fail */
++	coresight_clear_self_claim_tag_unlocked(&csdev->access);
+ 	return -EBUSY;
+ }
+ EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
+@@ -201,7 +212,7 @@ int coresight_claim_device(struct coresight_device *csdev)
+ EXPORT_SYMBOL_GPL(coresight_claim_device);
+ 
+ /*
+- * coresight_disclaim_device_unlocked : Clear the claim tags for the device.
++ * coresight_disclaim_device_unlocked : Clear the claim tag for the device.
+  * Called with CS_UNLOCKed for the component.
+  */
+ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
+@@ -211,7 +222,7 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
+ 		return;
+ 
+ 	if (coresight_is_claimed_self_hosted(csdev))
+-		coresight_clear_claim_tags(csdev);
++		coresight_clear_self_claim_tag_unlocked(&csdev->access);
+ 	else
+ 		/*
+ 		 * The external agent may have not honoured our claim
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index d79a242b271d..00134a80d358 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -685,7 +685,8 @@ extern int coresight_timeout_action(struct csdev_access *csa, u32 offset,
+ 
+ extern int coresight_claim_device(struct coresight_device *csdev);
+ extern int coresight_claim_device_unlocked(struct coresight_device *csdev);
+-
++void coresight_clear_self_claim_tag(struct csdev_access *csa);
++void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa);
+ extern void coresight_disclaim_device(struct coresight_device *csdev);
+ extern void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
+ extern char *coresight_alloc_device_name(struct coresight_dev_list *devs,
 
-Best regards,
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
