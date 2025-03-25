@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376D0C35FFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1D84C3600C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,86 +12,111 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cC4k3GVKDrLc3pAzgTSQGdLDrYb8A4mFb3Dpb1J5fKk=; b=qN8/EvBZGDpZmIAWS0OwMiU5r4
-	Gzc0dluP9P42WF+1sN68keK+fA9++ALL9MMY+yL0QCE5ug435J17LZH6W1LbeUg2Mafe/k8x1RaTk
-	y/eGwi7eNMC7sE+KqLFPphDnF75V4JnNwKI4JKg7n6tU09sKpDGCamtZTwMbbe+O0Ie4lerfKjUMZ
-	c1kzq7ZugMtjfs3B7qfi0pTpE5pNgzN/0BytlfrOnjOCBIN5g24I4reIeaCUwJ20cDQnq+efaOt7O
-	Q6X0yDO0PcOSouPWKW+mcquJ14pc0RDVsvKOYDjNBMWB0DY0nOuSU/mK2UX6wa+p4+KASx6r5Adco
-	LNWegwqw==;
+	bh=ijCZlw8abnNdrfWlLDyC8qGCl0jM46CNzFHxUo7UrwI=; b=IM4gQZf+S2xHta9G7ZDTwz8sIA
+	2XdUuDhINN2MUWRhNau/44IE27YAJUp9XEZJ84O1bf0669K5yHr4g5QymHjKLHWYZ8Y9ZwjBeuXeU
+	Cn5cma1R5Ty9jRPapCihT8ay2s+k+A80pyUCdO/GDdBjgnPcA54Dd/pC+yDf1GOrmycaZa6prNG7L
+	HFqvG61zYLeHh/TqnCKn2X0RsOu4DMHHn/3SMKiBfu6L80/oo8XIgff8SEVQZJ4N0cdAL869SUb2m
+	W2VAuFPVigSPoS8uipFIyf/IfCobWfCAWFIF04fw8yoc1H81LMKp0FI33tf43DlgYww+GvA1bUiOn
+	bi9QqiBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5tO-00000006HuH-0510;
-	Tue, 25 Mar 2025 15:08:38 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tx5tP-00000006HvL-3IG8;
+	Tue, 25 Mar 2025 15:08:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4ch-000000065B6-0K0e
+	id 1tx4jn-000000067b9-0C4u
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Mar 2025 13:54:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ijCZlw8abnNdrfWlLDyC8qGCl0jM46CNzFHxUo7UrwI=; b=hOiZxXE6PJqTUMjRMmM6iV7XPN
+	HHtMafQZ8c/ivMzZ1hxnJo7l8sWsW9elyRlOFjmwjEQKaVoBmiVxBy4iMrdbVivNyCBa3bUAfN0uR
+	gdORvGyp1XYFt+rqixfGHRdBKbG/STskOJqNSJIIyfPu6tsDbGtsQFhMWED8c5mel4r112cDv/8M4
+	0w06JU+59sLa2WeOsKGtsPSDUqwD/Dr6AaFlaLu0MIdBhFc10RQA1Ea3S22ZVjXgWwSGXWZpZC4Yx
+	cVCUcySND95SFRJKzuXJ9naga5SaRuA9qrFUgc2zD+OGyxbu05r5gy0NAyOD9X3bHKhNI9H8SxsSw
+	AX45ACTw==;
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tx4ji-00000005UJN-0UQQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 13:47:20 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfecdd8b2so45083195e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 06:47:18 -0700 (PDT)
+	Tue, 25 Mar 2025 13:54:37 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cf0d787eeso59239575e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 06:54:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742910437; x=1743515237; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1742910868; x=1743515668; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=cC4k3GVKDrLc3pAzgTSQGdLDrYb8A4mFb3Dpb1J5fKk=;
-        b=hnRYyxJ1Nek/mqjAw5RFkP4MZTWdqY/A0TPonPxu5EIgXQ7rS2VnDIMNYbzW/w46Lk
-         r4ipgkzPglShnzQuRqRmgdJq5/viHIWmdMgmP+Y/QNOYl5LlhyloskXW+o6M2HWrngol
-         Db95tCPenOE5HxJKHmkxhfTs4jVPZP4jSd3ultpEU9Dg5v2IIzdvL1KeJgoU0tjrU7he
-         13kWQYqmjz/G/SQCkZOsr8CG8jIC+foar03lK5/SBBGlHo55ZcixR3Ccjae5qNzXOf+/
-         yByPt/R2m/hspR+rJWmNd9Jd3hagfwkF7uJrEuvs+WD4drBbEeaTXSPn1y/vmh4bPMpU
-         1SpA==
+        bh=ijCZlw8abnNdrfWlLDyC8qGCl0jM46CNzFHxUo7UrwI=;
+        b=sBmBunFLE8im/dDH28guI1FDvHYxBtB+6iTTY7gsVnXb1Gprb4Tv7BMWTMHNfBlFKR
+         YlYOstNl56vFFxM6V9+aMmyj6BPbUMISwkPgdgDRuYRU69b8bHxfn3ag7bcjOIV6BiaZ
+         9XKwtYNJi3jhcQe1CDfLnbegGkm9Kyum50hbbnMyWOChMUmw96EMXDPhIWkKWt0Tm2Ie
+         fzAL/yYUNQev9jYadUB0KV7lY81IMBQUO1Dddyv1ZQny5vTqZE59fKsZQfdsSkcmZscS
+         d/jbYQHrg/819jxP7uZxsjFwi0p8MMb+jXJXe0oL94n1hnnLhpfvALb86HGGULmcufP5
+         oYxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742910437; x=1743515237;
+        d=1e100.net; s=20230601; t=1742910868; x=1743515668;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cC4k3GVKDrLc3pAzgTSQGdLDrYb8A4mFb3Dpb1J5fKk=;
-        b=mAad2GtN31X+fbNu/kUs51wTrvdg0TIw7m9287HEYwspuFIviQWetBUa/Wp/RGGyyE
-         TpemxjOVURv4VY4dHgClbtrqU0uP6w8BdEKEtwlCFuAmb5Ld3ZTeHlteLS7bI/e0aJOa
-         BUPhheVdA3eLYuICoxq5YB27ZOC6+mXZqYooCR+wotzYwpVtWQG4+Qpfgw4M7XqsYigM
-         rUrGMneFcLT6WmxiB/rwJ2xwbU+hA/6plHZz2Em7aLWXq7eirnAiRnbV17U2+lKKsg6z
-         gXeez2rg6mujGlw2g1LvVsj2aqJxHJ//d25XYJqgB8F/s6UplFaUSLYIuVFQj+X6qY4W
-         ltJA==
-X-Forwarded-Encrypted: i=1; AJvYcCV1zctElg7f3IcXvAtz94SqTxclqt0lQ3x/ktFScf+WfEgxIHHXVlQWcRZvcNc/KIyK0Nnjw1E2f3M90EqVE1sa@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywp9c54tJnvl0mtIpDyx7soQWAGTCDkTqq6Optnr3pYAI6fAH3J
-	BkCH6s1v1ffQdRsXIqOku0y/rnDZNjKtJE61iz2OG7AcuOmDPIHCRYkiMdw8SHE/HEpzyI0IBNk
-	7
-X-Gm-Gg: ASbGnctrKPJHMLa170dcDE12n1TJhc/yL4mRVwsCN23rlRj4hMRqoDg1laMWIC4awm3
-	3Itu0Fc2572oLL6nzVbp+LajxOaVlc1rsDDLR2MQCt8j1K048EsCEFT+FmbDmYQC7kKAJZC6vwR
-	OGqlbyeElmoLgLQTAW3/CeknexE+EvGj/of4A9veMJyZgp2BwmZbUvqqxy+Zk4XLwOgNJu3STJ9
-	+D5Mrn8TrwWMTKvSFcmPcM4n+3idEgtgqieqmUa7QkoDoHjWKkCVKC/iaMfB/be2EKjeO5a4ur+
-	oYbuE2x6U9PBEJqkScO6a2IPWkfcBmVn/TM0K97kd/7miuKHI/qaJRUHPe85A35t
-X-Google-Smtp-Source: AGHT+IFpqtRld4kYWIl0Bq8BHWcBrNQo6w9zy4bwED+7n/WR5x5JXePT8jlXXf2j5+6Ao1DnzGIn6g==
-X-Received: by 2002:a05:600c:32a7:b0:43d:9f2:6274 with SMTP id 5b1f17b1804b1-43d51026f53mr116589055e9.14.1742910437457;
-        Tue, 25 Mar 2025 06:47:17 -0700 (PDT)
-Received: from [192.168.1.247] ([145.224.90.136])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fdbd348sm151629785e9.39.2025.03.25.06.47.16
+        bh=ijCZlw8abnNdrfWlLDyC8qGCl0jM46CNzFHxUo7UrwI=;
+        b=njBcJlZQWXO2tU8d00Aq3Wy+9XNpwSisrLCe1ay1i63eK2mVjEjFH8e2/1h4V8jOr5
+         iSMmYbjWCd8d91bqCe5WOuaRubJAToIiCTqtuaW8DH32UTw+SnKs9R4wzK0ib/QaWc1p
+         RhlrNoUYsuLWRzgY4Ce3YqducGTzi+aq/cWXs6mNtAu6Z/VjyNu74YNQYieLJbitEVdQ
+         GNwpreR/3ULwD6x/SmlnVoZL7DuFfHxFt2eEd5U1F75T3wsw48Adv8cOpIOO9vLoMmr1
+         HoAC+Fo14pT72JYZQnzzXryn3N3SvkgqVB23nvoqbHbtQSxpHF/FYncOwi6w75p6Nay2
+         ADZg==
+X-Forwarded-Encrypted: i=1; AJvYcCVvOlDv4xicbWC1w9Vj6lDDO56cqpOVvVZZiTertzMlWR/Oek9XcTt39z6p8MRXXXY4Llvih/P/j8/D3k/2MljB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxO5r42JT6rkYzvGWUvdDyFicq1q9sfAvcTeHk2fSuK2nT97PEc
+	Ui4T+dy/im/g8TC0dVmOJdgxvHvTLO10sI4QB6HJDTE9bnW7pxi//gnHuTazbkk=
+X-Gm-Gg: ASbGncvYTQQn1XDsNiae7FzA5EEIXOpuzYXaeGj76NKaNh25/b9wjSzZYBFEOSjwv7k
+	vZmsHfNJL1xpS/JLf+bmgD2nPK1ipRakbCfnljP8bu/iHeZpj4RfSChknGhz3gTqxoWkDf18GwT
+	iJKM/95WYZSSiqtZUzdSNNFGNoXpDKazYw+sR2OHxUmsvIkHtSxLZ4Q2irwhVwOrrUHb6sphRL4
+	3U7ovknJ7YWKs9k/cEKQK/Hivlu2ezdUs6KpP6S056RDDo+HlSe02FrhpRK27Ydn7WvGxE6VHAK
+	rqNuERw0HuUaTLHs4Me4/JrXEmE6PixTiRxwAzQffQQzZgveDpoqnENo3517NAcVgaEQQwr2L75
+	52QyQCihPBz/gI6b21wU=
+X-Google-Smtp-Source: AGHT+IFxtTjkR1rjlcOGc3o02TWz8/EihwAEdC3O1L0fXu9zmvxKQn66+P0PWx+0RFvFRJ5mc4A03Q==
+X-Received: by 2002:a05:6000:1fa4:b0:391:952:c758 with SMTP id ffacd0b85a97d-3997f8f78a9mr13996895f8f.6.1742910868103;
+        Tue, 25 Mar 2025 06:54:28 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d4fd18505sm150051955e9.11.2025.03.25.06.54.27
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Mar 2025 06:47:17 -0700 (PDT)
-Message-ID: <21217526-892d-4d27-9a09-b8853885493a@linaro.org>
-Date: Tue, 25 Mar 2025 13:47:15 +0000
+        Tue, 25 Mar 2025 06:54:27 -0700 (PDT)
+Message-ID: <e8054f85-2a23-4ceb-8e1c-7cdfe7c87628@linaro.org>
+Date: Tue, 25 Mar 2025 14:54:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] coresight: Only check bottom two claim bits
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
+ Module for the s32g platform
+To: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
+ Larisa Grigore <Larisa.Grigore@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, leo.yan@arm.com
-References: <20250320-james-coresight-claim-tags-v3-0-d3145c153820@linaro.org>
- <20250320-james-coresight-claim-tags-v3-2-d3145c153820@linaro.org>
- <40e30ec8-a7ea-46b9-b687-aa7efa8cf0e1@arm.com>
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, NXP S32 Linux Team <s32@nxp.com>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+ <20250324100008.346009-2-daniel.lezcano@linaro.org>
+ <d60fca36-0beb-2574-cb82-3969bbfb58a9@oss.nxp.com>
+ <8c208e8c-2e1e-430c-916a-dbc6732881b0@linaro.org>
+ <065d6f32-3161-8316-bbbd-4da18eef839b@oss.nxp.com>
+ <098c5de8-9291-4f3e-a276-500825cac7c5@linaro.org>
+ <068713cb-47ca-ae26-e113-9f5026be9196@oss.nxp.com>
+ <cc2dd75c-e279-4e55-ab88-75498e93146a@linaro.org>
+ <50d2c651-746e-4ddd-4036-f72742a622f8@oss.nxp.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <40e30ec8-a7ea-46b9-b687-aa7efa8cf0e1@arm.com>
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <50d2c651-746e-4ddd-4036-f72742a622f8@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_064719_118554_D1AE8984 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20250325_135434_249648_6A041353 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,71 +131,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 21/03/2025 12:10 pm, Suzuki K Poulose wrote:
-> On 20/03/2025 14:34, James Clark wrote:
->> The use of the whole register and == could break the claim mechanism if
->> any of the other bits are used in the future. The referenced doc "PSCI -
->> ARM DEN 0022D" also says to only read and clear the bottom two bits.
+On 25/03/2025 14:21, Ghennadi Procopciuc wrote:
+> On 3/25/2025 2:51 PM, Daniel Lezcano wrote:
+> [ ... ]
+>>>>>>>> +static int __init nxp_stm_timer_probe(struct platform_device *pdev)
+>>>>>>>> +{
+>>>>>>>> +    struct device *dev = &pdev->dev;
+>>>>>>>> +    struct device_node *np = dev->of_node;
+>>>>>>>> +    struct stm_instances *stm_instances;
+>>>>>>>> +    const char *name = of_node_full_name(np);
+>>>>>>>> +    void __iomem *base;
+>>>>>>>> +    int irq, ret;
+>>>>>>>> +    struct clk *clk;
+>>>>>>>> +
+>>>>>>>> +    stm_instances =
+>>>>>>>> (typeof(stm_instances))of_device_get_match_data(dev);
+>>>>>>>> +    if (!stm_instances) {
+>>>>>>>> +        dev_err(dev, "No STM instances associated with a cpu");
+>>>>>>>> +        return -EINVAL;
+>>>>>>>> +    }
+>>>>>>>> +
+>>>>>>>> +    base = devm_of_iomap(dev, np, 0, NULL);
+>>>>>>>> +    if (IS_ERR(base)) {
+>>>>>>>> +        dev_err(dev, "Failed to iomap %pOFn\n", np);
+>>>>>>>> +        return PTR_ERR(base);
+>>>>>>>> +    }
+>>>>>>>> +
+>>>>>>>> +    irq = irq_of_parse_and_map(np, 0);
+>>>>>>>> +    if (irq <= 0) {
+>>>>>>>> +        dev_err(dev, "Failed to parse and map IRQ: %d\n", irq);
+>>>>>>>> +        return -EINVAL;
+>>>>>>>> +    }
+>>>>>>>
+>>>>>>>     From commit description:
+>>>>>>>
+>>>>>>>> The first probed STM is used as a clocksource, the second will be
+>>>>>>>> the
+>>>>>>>> broadcast timer and the rest are used as a clockevent with the
+>>>>>>>> affinity set to a CPU.
+>>>>>>>
+>>>>>>> Why is the interrupt mandatory when the node is probed as a
+>>>>>>> clocksource?
+>>>>>>
+>>>>>> It relies on the DT description and it does not hurt to have a
+>>>>>> consistent code path for clockevent / clocksource even if the
+>>>>>> interrupt
+>>>>>> is not requested for the clocksource later.
+>>>>>>
+>>>>>
+>>>>> If so, in my opinion, it would make sense to use the same STM instance
+>>>>> for both the clocksource and broadcast clockevent, as both functions
+>>>>> can
+>>>>> be accommodated within a single STM instance, which will help reduce
+>>>>> the
+>>>>> number of STM instances used.
+>>>>
+>>>> The broadcast timer is stopped when it is unused which is the case for
+>>>> the s32 because there are no idle state powering down the local timers.
+>>>> They have to have be separated.
+>>>>
+>>>
+>>> This wouldn't be the case if the STM is kept running/counting during the
+>>> clock event setup, with only the clock event interrupt being disabled
+>>> (CCR.CEN).
 >>
->> Use FIELD_GET() to extract only the relevant part.
+>> Are you asking to use two different channels for the same STM instance,
+>> one for the clocksource and one for the clockevent ?
 >>
->> Reviewed-by: Leo Yan <leo.yan@arm.com>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   drivers/hwtracing/coresight/coresight-core.c | 3 ++-
->>   drivers/hwtracing/coresight/coresight-priv.h | 1 +
->>   2 files changed, 3 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
->> hwtracing/coresight/coresight-core.c
->> index 8471aefeac76..26d149a4c579 100644
->> --- a/drivers/hwtracing/coresight/coresight-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-core.c
->> @@ -131,7 +131,8 @@ coresight_find_out_connection(struct 
->> coresight_device *csdev,
->>   static inline u32 coresight_read_claim_tags(struct coresight_device 
->> *csdev)
->>   {
->> -    return csdev_access_relaxed_read32(&csdev->access, 
->> CORESIGHT_CLAIMCLR);
->> +    return FIELD_GET(CORESIGHT_CLAIM_MASK,
->> +             csdev_access_relaxed_read32(&csdev->access, 
->> CORESIGHT_CLAIMCLR));
->>   }
->>   static inline bool coresight_is_claimed_self_hosted(struct 
->> coresight_device *csdev)
->> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/ 
->> hwtracing/coresight/coresight-priv.h
->> index 82644aff8d2b..38bb4e8b50ef 100644
->> --- a/drivers/hwtracing/coresight/coresight-priv.h
->> +++ b/drivers/hwtracing/coresight/coresight-priv.h
->> @@ -35,6 +35,7 @@ extern const struct device_type coresight_dev_type[];
->>    * Coresight device CLAIM protocol.
->>    * See PSCI - ARM DEN 0022D, Section: 6.8.1 Debug and Trace save and 
->> restore.
->>    */
->> +#define CORESIGHT_CLAIM_MASK        GENMASK(1, 0)
->>   #define CORESIGHT_CLAIM_SELF_HOSTED    BIT(1)
 > 
-> I am checking with the Arm CoreSight architects on this. This is
-> problematic, if another agent is assigned, say BIT(2) and we wouldn't
-> forward compatible.
-> 
-> Suzuki
-> 
-> 
+> I suggested using the CNT register to obtain the count for the clock
+> source, while using one of the STM channels for the clock event.
 
-For the benefit of the list, I think the conclusion is that in order to 
-be forwards compatible with adding new bits, the spec would already have 
-to have been released indicating that the extra bits may be used. As it 
-specifically only mentions the two bits, any other implementation 
-following it would also hit the same problem.
+Ah, ok.
 
-Seems like any further updates would have to be either be breaking or 
-done in some other way.
+I think it is preferable to keep them separated to keep the code 
+modular. Given the number of STM on the platform, it does not hurt
 
-James
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
