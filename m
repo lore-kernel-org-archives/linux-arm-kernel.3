@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB1BC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE10FC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 18:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3nrrGGAXvdOU/6+bBe7cAYVe+CFGHogtfxkU/38B0QA=; b=la6+ZCuee77soSKFtm9dcMTiUT
-	P6u6DZYbMDQVE5Dn0JM+awNstzcKl5oOH3xOh7+LTXJPY+nX/JSw/V7mDzRtixBlxFRB1b/OZbEv1
-	BybrctMySfz9+C1SXfd9aC4Eyadyp7dJ9HTa8JySfMTXzxPMoLbB9k86h0M+xsEzc6R3rpezQYiNM
-	RnZUa/dgxauMTXMDwbdwmG0avzJ4BHxAlui3urzIsGJaFwYO5HMhgO69c7lM5eHa67q4VNjl/aXhL
-	X2XbqkXaOAftj8/L01OJOBNNB1lsSp9gAsr9hgY6sPXHtYMuI2pxE7LbWC5JWgkEap46jKvZ/EDDf
-	BAYkU9wA==;
+	bh=tmx5ewE9CpmYmb/EWKQ5oR/rMw7j+z90kb/HX9r8TaE=; b=1ibBwo/dqNEYp515HfRZy1xwIj
+	hpbSrr0H+IKbu3UhP6kwdRfaieiw3KlKsEmNmMKU/pLWGFJeNaz8Of3ixB3UTEbTLY1Z5OIXm3rvW
+	SvmMppGqbVuNn51tmg5kD8Urq+Vhu6t6Rkxr3RIRuEbxX3jnQgJvBv16iK0/UCNYQ/YsLbuFr0VVW
+	DQPj85abq7YJD0LUJHhIg3OYjOTRSGakguTRhXhmE7dwV52Bi6zj2tmemy49EUZwOJTY7i65KNtL3
+	hda2t3DTktYme8AvwMDy3ebkkZlnG9m+AxtnTHtL7a2eXBQq4v04cz+CAczvtX10nO90ft7v7SdT4
+	fT+o22UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx8xb-00000006icJ-3pWm;
-	Tue, 25 Mar 2025 18:25:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tx93O-00000006jIT-49SO;
+	Tue, 25 Mar 2025 18:31:10 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx8vs-00000006iU7-2iVj
+	id 1tx91e-00000006j1A-0HoW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 18:23:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 117D95C5DCD;
-	Tue, 25 Mar 2025 18:21:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82BDDC4CEE4;
-	Tue, 25 Mar 2025 18:23:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742927003;
-	bh=wBXyK5/v+zshiQ5AJ78U67rSVAz/Ur6ZkcGgzsmTp8M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Modie2getBGH7oWwsObJBFzjFv49uLHLKNDG1G/a3eAgXCOBzRiogF11g6dYAxV4/
-	 XvODcc00PjgRmLF7zSjwmm0Tpd30g+oSgZG05WokPSNbP7+2y35JjcFtcuEbU6nqZQ
-	 0ILc8m0lZ0zNxr6zSU2ib+ByI33v+kIhjh9OboonFyJccND/IPWG6asVgfkH2PtaZT
-	 lkYBRX6318Q8hN26hmNu8ChHVoWvrZLzFwaisA98ve70kYEN2+C/m4QJhWL9IAo90+
-	 k4Y/SaeRt1nL4ZRvplFOU1/TxTwxbGxeA9RVVaDXEFcSNuHuFe7Sd0OlHR7mAT4iu9
-	 u8iIJ9E6D/oPw==
-Date: Tue, 25 Mar 2025 18:23:16 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
-	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
-	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
-	liaochang1@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/7] arm64: uaccess: Add additional userspace GCS
- accessors
-Message-ID: <203a89bc-75d1-4ab0-ab42-52616103ad72@sirena.org.uk>
-References: <20250318204841.373116-1-jeremy.linton@arm.com>
- <20250318204841.373116-4-jeremy.linton@arm.com>
- <50a0920d-3e3d-4e96-b68a-a7a0d78c3695@sirena.org.uk>
- <e8ada81d-0e10-412b-8792-035bc63113a6@arm.com>
+	Tue, 25 Mar 2025 18:29:23 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3011737dda0so7810848a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 11:29:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742927361; x=1743532161; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=tmx5ewE9CpmYmb/EWKQ5oR/rMw7j+z90kb/HX9r8TaE=;
+        b=Vywb8YpbR0/ztkEDfn0DgA6A1HY3ilXI4OgjmwnGeDui9z3QUDLT9mwH6NFcn2EOST
+         sqDFOWg24x2AkWQ+0KiD6MMhh4q3fQdqWrRla4hSedcv76f0Epvv4eyXH0T2gqOD8d+z
+         3hPx1QoeEkxTsBb1jbgTojwqYnB8LsmlQwULIVPZp0UQqoWh2sJGC19LZHBP/8ofvc33
+         FuArRfHUks2wFa0bPKnx9otV2VjCsNzyJ2lYPK+hjl4ry2vYx5BKU5AhFK37j0THykVg
+         yFG1rIcyYv7klv/x1RfuyTzIHT1FB83ErSc6Inkknv4426iMwMyFBE2zxKsTxjY2fS/k
+         Aauw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742927361; x=1743532161;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tmx5ewE9CpmYmb/EWKQ5oR/rMw7j+z90kb/HX9r8TaE=;
+        b=maYvIYGMyUD1CmVRG/ioBeR9/65psmS9IV02F6R64UAQqTqgm6405+PXECOvagEZux
+         aqGSquqrclBvSLvxHAR6SHyjDgMjCRtZ5p3a/Fn46k0UqRk2wkaSDfdVNRv85hoMNNdz
+         RIRzdlS2MGT1BLhQ7TfwJ0Br3DvE9mu7zHfOY1YZGrUZ0bUpz8yP/gzjiRBMEgTgEAwz
+         6y+6Wp/5O/IA5oQkpQMOVApOF3oKSUWe8wz2iCam254sq85touStcfI68mKNVBQo7LuK
+         LLIibUs704F2jpuLX5I7feSh1qOF+d7U0iXKwnBmbGTnrlPrIpQRn1oIdKJOAeeM1GCI
+         wfZg==
+X-Forwarded-Encrypted: i=1; AJvYcCXlEVpLmlS7BmNFtQyi921lgiM3mCzoA1WANNKHqTxEjXWJbQxQ8gcnwep3LmK8mHH2MUgsEdxE01pfr+Ww5STC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgSAZ1K32A/QwmAuYOSnUNKmkwoRSsT4WnCaIqIIl9RMPac73X
+	iLGLKG0Lsyq0HvZ4KI5McyVOKEDaSvTW1pUyHavxn56xeipik4DZcmMfVmNx5A==
+X-Gm-Gg: ASbGncsoKM6co06lubpZDTq+81HU6kc6yfvzFHL1nAyhz6nma68+9stCtASg32jJwqX
+	cHUwgh0T/syJKzsZz4wlvcJpKew59yDrOghDatY/1zpJdD6T4DJBus2lIAH+1QEmHb4agwEknh3
+	lX8eehnDeDxw3x2XephBJQ6xWnZ7Z7i7tQRlFWqrd8vKh9XTb73qIPS2ji5cjjcXoq32xjHwrsj
+	z7KfWeDVBWwnsTDTHU60+wn1HGe+uUYAJ6tXsM1GlYwV0kD7qOl1rSNNtpyHGa8NWaU573nXiIi
+	Xe+CoEQvOMhu9zuXXEYJngrZNQb+B7ULX6JIMQWd9rBoq1Ftu5ZNi4fL
+X-Google-Smtp-Source: AGHT+IGsYGiIj3zMmleKzhoEAggL4APoyOgKkCTRvkg+1ndeCLopUInmEMl2y5a6pf3LwaqPqiR7kA==
+X-Received: by 2002:a17:90b:2d0c:b0:2fa:1e3e:9be5 with SMTP id 98e67ed59e1d1-3030fd769d1mr34439112a91.0.1742927361019;
+        Tue, 25 Mar 2025 11:29:21 -0700 (PDT)
+Received: from thinkpad ([120.60.136.104])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-227811b2857sm93735025ad.155.2025.03.25.11.29.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Mar 2025 11:29:20 -0700 (PDT)
+Date: Tue, 25 Mar 2025 23:59:14 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Niklas Cassel <cassel@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v12 05/13] PCI: dwc: Add dw_pcie_parent_bus_offset()
+Message-ID: <5hkzuqptaor4v5fc7ljxb36zdipeg67lsjfkcah5fkxfyyjt6e@oknqdtbwjitj>
+References: <j3qw4zmopulpn3iqq5wsjt6dbs4z3micoeoxkw3354txkx22ml@67ip5sfo6wwd>
+ <20250324182827.GA1257218@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XP2AO17pHJsMVVJY"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <e8ada81d-0e10-412b-8792-035bc63113a6@arm.com>
-X-Cookie: Visit beautiful Vergas, Minnesota.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250324182827.GA1257218@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_112324_799974_33B3613B 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20250325_112922_123125_DE94B17B 
+X-CRM114-Status: GOOD (  31.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,72 +106,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 24, 2025 at 01:28:27PM -0500, Bjorn Helgaas wrote:
+> On Mon, Mar 24, 2025 at 10:48:23PM +0530, Manivannan Sadhasivam wrote:
+> > On Sat, Mar 15, 2025 at 03:15:40PM -0500, Bjorn Helgaas wrote:
+> > > From: Frank Li <Frank.Li@nxp.com>
+> > > 
+> > > Return the offset from CPU physical address to the parent bus address of
+> > > the specified element of the devicetree 'reg' property.
+> 
+> > > +resource_size_t dw_pcie_parent_bus_offset(struct dw_pcie *pci,
+> > > +					  const char *reg_name,
+> > > +					  resource_size_t cpu_phy_addr)
+> > > +{
+> > 
+> > s/cpu_phy_addr/cpu_phys_addr/g
+> 
+> Fixed, thanks!
+> 
+> > > +	struct device *dev = pci->dev;
+> > > +	struct device_node *np = dev->of_node;
+> > > +	int index;
+> > > +	u64 reg_addr;
+> > > +
+> > > +	/* Look up reg_name address on parent bus */
+> > 
+> > 'parent bus' is not accurate as the below code checks for the 'reg_name' in
+> > current PCI controller node.
+> 
+> We want the address of "reg_name" on the node's primary side.  We've
+> been calling that the "parent bus address", I guess because it's the
+> address on the "parent bus" of the node.
+> 
 
---XP2AO17pHJsMVVJY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Yeah, 'parent bus address' sounds bogus to me. 'ranges' property is described
+as:
 
-On Fri, Mar 21, 2025 at 06:43:23PM -0500, Jeremy Linton wrote:
-> On 3/19/25 8:24 AM, Mark Brown wrote:
+	ranges = <child_addr parent_addr child_size>
 
-> > A GCS load done by the hardware will verify that we are loading from GCS
-> > memory (the accesses are marked as AccessType_GCS in the pseudocode
-> > which is then validated in for example S1CheckPermissions()).  Sadly
-> > there's no equivalent of GCSSTR so we'd need to do the permission check
-> > ourselves to match this behaviour.
+Here, child_addr refers to the PCIe host controller's view of the address space
+and parent_addr refers to the CPU's view of the address space.
 
-> Right, except that if I grab the VMA as a placeholder for the page, check to
-> see if its a VM_SHADOW_STACK under any of
-> map_read_lock()/lock_vma_under_rcu()/etc and then perform the access, the
-> resulting possible fault will have problems with vma locking. Otherwise
-> there ends up being a few different races that at the moment I've not yet
-> figured out how to fix without making a big mess. For example, we can reduce
-> that possible window, by reading the value/locking and checking shadow stack
-> state/dropping the lock/rereading the value, or some other construct but it
-> seems pointless because the suggested problem is that we might be creating a
-> way to bypass some of the shadow stack security. In which case, leaving a
-> little race is likely the same as leaving it wide open.
+So the register address described in the PCIe controller node is not a 'parent
+bus address'.
 
-Yeah, it's messy.  The "nicest" thing I could think of was doing a GCS
-store of the value we just read to validate the GCS permission but that
-has very obvious ick and is in it's own way incorrect.  Since the GCS
-permission is always read/write I'm not sure what would notice without
-an incredibly dodgy race but it's wrong.
+> I'm not sure what the best term is for this.  Do you have a
+> suggestion?
+> 
 
-> Otherwise, maybe we can ignore the problem, or just refuse to allow probes
-> on 'RET' instructions which seems to be the main problematic case. Although,
-> given we don't really know if GCS is enabled until the probe is hit,
-> SIGSEG'ing the target process is a big hammer.
+We are just extracting the offset between translated (cpu_phy_addr) and
+untranslated (reg_addr) addresses of a specific register. Maybe the function
+should just return the 'untranslated address' and the caller should compute the
+offset to make it simple?
 
-Yeah, that doesn't feel like the solution.
+> If "parent bus address" is the wrong term, maybe we need to rename
+> dw_pcie_parent_bus_offset() itself?  
+> 
 
-> Ignoring it might be a valid option. I guess it could to be one of those "if
-> the user puts a uprobe on a RET some of the shadow stack security is
-> reduced" footguns. If an attacker can also manipulate the address space in a
-> way to exploit it then its probably game over anyway. Ideally, the kernel
-> would warn on this, but per the conversation around patch 6/7 that seems to
-> be off the table.
+Yes!
 
-I'm not completely opposed to just not doing the validation given the
-pain with implementing it, it's hard to be enthusiastic about any of the
-options really.  If we are going to do something other than fully
-and accurately emulate then we should acknowledge what's missing and
-why, at least in the changelog and probably also in the code.
+> Currently we pass in cpu_phys_addr, but this function doesn't need it
+> except for the debug code added later.  I would really rather have
+> something like this in the callers:
+> 
+>   pci->parent_bus_offset = pp->cfg0_base -
+>       dw_pcie_parent_bus_addr(pci, "config");
+> 
 
---XP2AO17pHJsMVVJY
-Content-Type: application/pgp-signature; name="signature.asc"
+I agree. This should become, dw_pcie_get_untranslated_addr().
 
------BEGIN PGP SIGNATURE-----
+> because then the offset is computed sort of at the same level where
+> it's used, and a grep for "cfg0_base" would find both the set and the
+> use and they would be easy to match up.
+> 
+> > > +	index = of_property_match_string(np, "reg-names", reg_name);
+> > > +
+> > > +	if (index < 0) {
+> > > +		dev_err(dev, "No %s in devicetree \"reg\" property\n", reg_name);
+> > 
+> > Both of these callers are checking for the existence of the
+> > 'reg_name' property before calling this API. So this check seems to
+> > be redundant (for now).
+> 
+> True, but I don't see a way to enforce the caller checks.  I don't
+> like the idea of calling of_property_read_reg(np, index, ...) where we
+> have to look the caller to verify that "index" is valid.
+> 
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfi9JMACgkQJNaLcl1U
-h9BVLgf9EGjIyA/yyo9Zc1l0VBnDeFJuL1QxPKsgq61Al37wBaxFi6YFTJp6uGYG
-0frvA6r4/tMT4Tb1MTCwqp4BrIC9Iow8m17C16HRSDdG8yLxkIJgsH9nWGBZX55w
-yLANK/H3BBc06kKKOYJqojJ2kjgFj+0JuD8JoKY4VUxEeUVFgv66n/LNb0+wWw5c
-iRdolRJg/KGnQhYBpaWU8+A/HUEO14I/Te0DQCBe3q7DLLJhzruAW5SttcTElZDp
-S4SjdGtbN3ES8fUObvqPKXq0KX/3YrsWlRmSQP9K6+PfbbmpksndRfyoNHZU8gkk
-FY5l02qmP5eNnHNn3MFJ9m7WbyIcRw==
-=agKn
------END PGP SIGNATURE-----
+Ok.
 
---XP2AO17pHJsMVVJY--
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
