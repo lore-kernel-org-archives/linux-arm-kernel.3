@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C48EFC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01370C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jz4ZxvZa2//kqp9AQ5gwaJHWi0QoseUW2iD6QSxnqM0=; b=4s93oeeMLHRwU/B88AgMrFpnY5
-	P5RQYBBm0jyeBnEZkofVi8nwD/FJzdf/SLMzRAbuOjsYqeyCwKrbzfUXfqnwuDpUi+lNs1hk30c80
-	GbFF8uoO0micXI4AqSKZrqVM8LE1zkaMPPMZpm8YodMCrTgHJXFe6p8XX8UgQfSOuw1lsLvCRa2c+
-	sgivAMVLYW+kizVfLuUmym8S9Mvq49pDMtO9sUOj/NzizYwds2pm14m5ASDgVvr2IBFIMnWhoe0jx
-	IZQJkk3hy1JihvuUQPd1nzRdNGdO/x1U35Alq1g+LsikW3yh9OGS6fwxrrXPwk/XsZ8VInEhcA1Iv
-	7SB8SIgg==;
+	bh=d4VnD3UUE4VcZVkz6IwiboRLnwKwbUMr0aWfWBRVcNw=; b=Wa6J1E9CoWkRd7GkICAamhxK1m
+	8KXDkmqV9h6h1DjC1oGI7ErYCEVI4E+Ue6+sWa2MT7xnlAiSrws2R8/U0Xmo1itwocMqOyZiVTm2v
+	ul85dUcepTL5mRiO/wSmsdbGRSZncThqdzv2v6/vgj22lxR/34gDKpMnhUOvq+zgUsSUz5m65whLL
+	F9C8r60WSUaPGmpBDD8sjVVRFl7E2CMtgUE/Wyty4Yd3A1UJMagFvqXm4qQVPV5HOStoP08VzR/Gj
+	67zfP8mv5lE2BNY101zu0gk250ho/T10LEO1hpsonJthPiWA7czDVozA0y3gA3uArnXtHPuv/KCrv
+	RqnoILyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7Mi-00000006WSv-3I1Z;
-	Tue, 25 Mar 2025 16:43:00 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tx7UH-00000006XNo-3xGo;
+	Tue, 25 Mar 2025 16:50:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7Ij-00000006Veo-3MAX
+	id 1tx7SY-00000006X6L-2Jbf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 16:38:55 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9CC6E102F66E4;
-	Tue, 25 Mar 2025 17:38:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742920731; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=Jz4ZxvZa2//kqp9AQ5gwaJHWi0QoseUW2iD6QSxnqM0=;
-	b=Mx9V1M2RDAHcCHYsF8U3Er1w6YAozoeRBum4o/Jk96hSAGjxxWt2iV40fscfPeqsJHo6Di
-	u9dsm6pmuRZkf/pw29kBLDLswwWYtyYtG94xRSfEqIeBy/w9K0BKtxx+YeIfmsQAHG69un
-	SfeR2CJ7oe/UiV7asnifMttl6+H85s9ktnMa5PiNr17mtuW49h7b9xc90kcFni48Bfr+xq
-	QsJcWeLEYWg4e3/shtRuORJ4HOLyRNtr1bDnAt8VrR1xjcD9QHGDKg5QKBdg+esmIywldg
-	RpRhVdjkt6ZwlizYx2wG6jCdXIi+H7p3hOkv+Ucnw9XXKer7t/vvQdJQzS0j4g==
-Date: Tue, 25 Mar 2025 17:38:46 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, davem@davemloft.net,
- Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
- Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
- Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH 5/5] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250325173846.4c7db33c@wsk>
-In-Reply-To: <0a908dc7-55eb-4e23-8452-7b7d2e0f4289@lunn.ch>
-References: <20250325115736.1732721-1-lukma@denx.de>
-	<20250325115736.1732721-6-lukma@denx.de>
-	<32d93a90-3601-4094-8054-2737a57acbc7@kernel.org>
-	<20250325142810.0aa07912@wsk>
-	<0a908dc7-55eb-4e23-8452-7b7d2e0f4289@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/B6bYGrpWKAySBj=BE3Lc1nK";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 25 Mar 2025 16:49:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C441743DA2;
+	Tue, 25 Mar 2025 16:49:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B7CC4CEE4;
+	Tue, 25 Mar 2025 16:49:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742921342;
+	bh=avp/c6N3lRSJ103iDEDRC4JwYP0yydF8DWmS20ImOPQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KUks1kwH7x+Q14S4ujHF1c73NCLQjw3NeZQ/ngWizjFUbNu9nfKtQkTau8pmgUky3
+	 DUC+fcV0cMw4cKVOFQZ4mtSRJLaBBIplIoLSbwgwEEdyTIywjydZEL6yDq8i5rn3Ow
+	 il+ixE64HXNAXRJIqPiEbQXzGGqDVqwQaEdm4o5CjXmEXrQzTP+An4dfz1OUN5AS2O
+	 NWMVAfJ0ViFxKzxXMCmrwYT1WOwEM9W3esYmTo2IApJAL0TNyxqvYevuU1kU9OoX1Z
+	 FfzpeQe2+tXedbaPg8Cla5zztvod2Twt5hRREim5sK7Iyh2FqH1ehWgdWwfzovp8qk
+	 Zehst1E9utW/g==
+Received: from 82-132-218-87.dab.02.net ([82.132.218.87] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tx7SU-00H1BS-Un;
+	Tue, 25 Mar 2025 16:48:59 +0000
+Date: Tue, 25 Mar 2025 16:48:53 +0000
+Message-ID: <87a599qcne.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Kettenis <mark.kettenis@xs4all.nl>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev,
+	alyssa@rosenzweig.io,
+	j@jannau.net,
+	marcan@marcan.st,
+	sven@svenpeter.dev,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org
+Subject: Re: [PATCH v2 01/13] dt-bindings: pci: apple,pcie: Add t6020 compatible string
+In-Reply-To: <87ecyl6rtw.fsf@bloch.sibelius.xs4all.nl>
+References: <20250325102610.2073863-1-maz@kernel.org>
+	<20250325102610.2073863-2-maz@kernel.org>
+	<87iknx75at.fsf@bloch.sibelius.xs4all.nl>
+	<864izhmkzd.wl-maz@kernel.org>
+	<87ecyl6rtw.fsf@bloch.sibelius.xs4all.nl>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.218.87
+X-SA-Exim-Rcpt-To: mark.kettenis@xs4all.nl, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, alyssa@rosenzweig.io, j@jannau.net, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_093854_151250_2F2BD4E5 
-X-CRM114-Status: GOOD (  48.74  )
+X-CRM114-CacheID: sfid-20250325_094902_631256_CB13F892 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,177 +100,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/B6bYGrpWKAySBj=BE3Lc1nK
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Tue, 25 Mar 2025 15:41:15 +0000,
+Mark Kettenis <mark.kettenis@xs4all.nl> wrote:
+> 
+> > Date: Tue, 25 Mar 2025 11:02:30 +0000
+> > From: Marc Zyngier <maz@kernel.org>
+> 
+> Hi Marc,
+> 
+> > Hi Mark,
+> > 
+> > On Tue, 25 Mar 2025 10:50:18 +0000,
+> > Mark Kettenis <mark.kettenis@xs4all.nl> wrote:
+> > > 
+> > > > From: Marc Zyngier <maz@kernel.org>
+> > > > Date: Tue, 25 Mar 2025 10:25:58 +0000
+> > > 
+> > > > @@ -50,6 +55,10 @@ properties:
+> > > >        - const: port1
+> > > >        - const: port2
+> > > >        - const: port3
+> > > > +      - const: phy0
+> > > > +      - const: phy1
+> > > > +      - const: phy2
+> > > > +      - const: phy3
+> > 
+> > Do we need to make this t6020 specific?
+> > 
+> > Obviously, separate PHY registers do not make much sense before t6020,
+> > but I couldn't find a way to describe that. I don't even know if
+> > that's a desirable outcome.
+> 
+> I don't think there is a way to do that other than creating a separate
+> binding for t6020.  But I'm far from a dt-schema expert.  Maybe robh
+> has some advice here.
 
-Hi Andrew,
+Huh, I'd rather not create another binding. The only thing this would
+buy us is a stricter checking of the register ranges.  But it isn't
+like this block is going to find its way in random HW, and this is
+only described in a handful of core dtsi files anyway.
 
-> > > > +config FEC_MTIP_L2SW
-> > > > +	tristate "MoreThanIP L2 switch support to FEC driver"
-> > > > +	depends on OF
-> > > > +	depends on NET_SWITCHDEV
-> > > > +	depends on BRIDGE
-> > > > +	depends on ARCH_MXS || ARCH_MXC   =20
-> > >=20
-> > > Missing compile test =20
-> >=20
-> > Could you be more specific? =20
->=20
-> config FEC
->         tristate "FEC ethernet controller (of ColdFire and some i.MX
-> CPUs)" depends on (M523x || M527x || M5272 || M528x || M520x || M532x
-> || \ ARCH_MXC || ARCH_S32 || SOC_IMX28 || COMPILE_TEST)
->=20
-> || COMPILE_TEST
+Unless someone screams (and provides a reasonable alternative), I will
+leave it as is.
 
-^^^^^^^^^^^^^^^^^^ - ach ... this "compile test" :-)
+Thanks,
 
-(Not that I've posted the code not even compiling ... :-D)
+	M.
 
->=20
-> So that it also gets build on amd64, s390, powerpc etc. The code
-> should cleanly build on all architectures. It if does not, it probably
-> means the code is using the kernel abstractions wrong. Also, most
-> developers build test on amd64, not arm, so if they are making tree
-> wide changes, you want this driver to build on amd64 so such tree wide
-> changes get build tested.
->=20
-> > There have been attempts to upstream this driver since 2020...
-> > The original code is from - v4.4 for vf610 and 2.6.35 for imx287.
-> >=20
-> > It has been then subsequently updated/rewritten for:
-> >=20
-> > - 4.19-cip
-> > - 5.12 (two versions for switchdev and DSA)
-> > - 6.6 LTS
-> > - net-next.
-> >=20
-> > The pr_err() were probably added by me as replacement for
-> > "printk(KERN_ERR". I can change them to dev_* or netdev_*. This
-> > shall not be a problem. =20
->=20
-> With Ethernet switches, you need to look at the context. Is it
-> something specific to one interface? The netdev_err(). If it is global
-> to the whole switch, then dev_err().
-
-Ok.
-
->=20
-> > > > +	pr_info("Ethernet Switch Version %s\n", VERSION);   =20
-> > >=20
-> > > Drivers use dev, not pr. Anyway drop. Drivers do not have
-> > > versions and should be silent on success. =20
-> >=20
-> > As I've written above - there are several "versions" on this
-> > particular driver. Hence the information. =20
->=20
-> There is only one version in mainline, this version (maybe). Mainline
-> does not care about other versions. Such version information is also
-> useless, because once it is merged, it never changes. What you
-> actually want to know is the kernel git hash, so you can find the
-> exact sources. ethtool -I will return that, assuming your ethtool code
-> is correct.
-
-Ok. I will.
-
->=20
-> > > > +	pr_info("Ethernet Switch HW rev 0x%x:0x%x\n",
-> > > > +		MCF_MTIP_REVISION_CUSTOMER_REVISION(rev),
-> > > > +		MCF_MTIP_REVISION_CORE_REVISION(rev));   =20
-> > >=20
-> > > Drop =20
-> >=20
-> > Ok. =20
->=20
-> You can report this via ethtool -I. But i suggest you leave that for
-> later patches.
-
-I will remove it.
-
->=20
-> > > > +	fep->reg_phy =3D devm_regulator_get(&pdev->dev, "phy");
-> > > > +	if (!IS_ERR(fep->reg_phy)) {
-> > > > +		ret =3D regulator_enable(fep->reg_phy);
-> > > > +		if (ret) {
-> > > > +			dev_err(&pdev->dev,
-> > > > +				"Failed to enable phy
-> > > > regulator: %d\n", ret);
-> > > > +			goto failed_regulator;
-> > > > +		}
-> > > > +	} else {
-> > > > +		if (PTR_ERR(fep->reg_phy) =3D=3D -EPROBE_DEFER) {
-> > > > +			ret =3D -EPROBE_DEFER;
-> > > > +			goto failed_regulator;
-> > > > +		}
-> > > > +		fep->reg_phy =3D NULL;   =20
-> > >=20
-> > > I don't understand this code. Do you want to re-implement
-> > > get_optional? But why? =20
-> >=20
-> > Here the get_optional() shall be used. =20
->=20
-> This is the problem with trying to use old code. It needs more work
-> than just making it compile. It needs to be brought up to HEAD of
-> mainline standard, which often nearly ends in a re-write.
-
-But you cannot rewrite this code from scratch, as the IP block is not
-so well documented, and there maybe are some issues that you are not
-aware of.
-
-Moreover, this code is already in production use, and you don't want to
-be in situation when regression tests cannot be run.
-
->=20
-> > > > +	fep->clk_ipg =3D devm_clk_get(&pdev->dev, "ipg");
-> > > > +	if (IS_ERR(fep->clk_ipg))
-> > > > +		fep->clk_ipg =3D NULL;   =20
-> > >=20
-> > > Why? =20
-> >=20
-> > I will update the code. =20
->=20
-> FYI: NULL is a valid clock. But do you actually want _optional()?
-
-Yes, I will use _optional() and _bulk_ if applicable.
-
->=20
-> This is the sort of thing a 10 year old codebase will be missing, and
-> you need to re-write. You might also be able to use the clk _bulk_
-> API?
-
-The goal is to have this driver upstreamed (finally), so the starting
-point of further development would be in kernel.
-
->=20
-> 	Andrew
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/B6bYGrpWKAySBj=BE3Lc1nK
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfi3BYACgkQAR8vZIA0
-zr0U6wgA3vXkBH+jCy2QZbpuVDHnkTY2IX0a2mxIgSyQ62yxZYUCdS4htowl2Z4j
-fAorqb7sMqbSOpu5omBLDDrTaHyHjYRdzfHgvYznt8DfhZCgfuuCIgmcwkaWV7SR
-tT7+04Qo/vfLDjHML8PkKKj41u6NsIExKL4KXzfuqTrEDaMBoMhaz6f2baQ8TCof
-DolrM+4E+SlbJg++sYM4OXeEj5mMwvfMybdmlFPRlIZoiu0EYkmA3b28xdbwogYY
-D9XMB052/7HJ1szx6fIwO4U6ucXzaD9a7I7rFRyuxSYCzhNFHgOyp8D5IgJyaSFV
-AZbGCYSW3maHQFMpag97WHtvWRVG4w==
-=yVa2
------END PGP SIGNATURE-----
-
---Sig_/B6bYGrpWKAySBj=BE3Lc1nK--
+-- 
+Without deviation from the norm, progress is not possible.
 
