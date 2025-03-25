@@ -4,81 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44D3C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 02:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FC1C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 02:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KbmWscRvAoMTscJ7YX1VjxJzdFRKT7QCMrJKO+SUNOM=; b=CEf9BXBqUz+bw0dEQ9uJMScOjc
-	ZyTrccJx9VqUeBNRpE4qqOODea7x3uIVWmThUNNjuBLftbrq6z/fm7cNI2CsK3x24FpSWLb1zfZ0r
-	QqTBN8O1UaNhea5hGFhrHSjy8kIVl5P1sfnuduKcKKL7HudR57lU58ceCn8G5uK9/35ioWNi1land
-	TEqNY0niNiez16NUB266o+rWp04MZtWgpqPjdXYZs9t6S/Xx+tww/i9VlRhpJwsP7j+8eTfSCoCRJ
-	rpZvRLUJcanw+tgYYSKISqbbCrxPShhoFqX4pphiCAkIyFgp47LnLkbV7h6ZX6KzZuRKdKfzlTZng
-	A0dTw2FA==;
+	bh=U1NxtoDO6wxYN4skMVvlL0GEVtbRcnK4gMIc8ocACUI=; b=qxzTvMVYl0E7qTKsQ5h7c2q7gY
+	EnxXaU89qO48n67N2R3VYzoMDXe/wGb4DulEn9O4CF9/LRhCrIsRI3QgEH6B9ePcX4JwJxMq6qF1S
+	cbXjszB6NqCWIOSQUIGtw2Rjwr0R5844E8IFKRZ5vVfau+XWJh6700hEDGA+D4c2tmFRHU15DEbvG
+	djiAy3w3R8Mstjr05n0+RqOfjiSuZNo0hcG80vYFELfhcrxp4E+sSY7AITt6bqK9KjL/ZGYQekYOj
+	UP5YGNa75OyObANjNLkGEX/fw3UnKKktfHKqy1OUlM9xY3UVHW4lu3M9AZb+Bj0WIY/iHL/tfLV0e
+	emXqZSiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twtbo-00000004em7-2eTV;
-	Tue, 25 Mar 2025 02:01:40 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1twtfu-00000004fHa-2S3r;
+	Tue, 25 Mar 2025 02:05:54 +0000
+Received: from mail-mw2nam04on2061a.outbound.protection.outlook.com ([2a01:111:f403:240a::61a] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twtWk-00000004doq-1wGO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 01:56:27 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff69646218so13478971a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Mar 2025 18:56:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742867785; x=1743472585; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KbmWscRvAoMTscJ7YX1VjxJzdFRKT7QCMrJKO+SUNOM=;
-        b=Yh0ucpyMyQfern2EZPWqsfh1iIHERkow79vG9DMywuAxKs+/x0wQIwIFF1waDWP/wx
-         NlXRSglVFXUj6x3/mn8q156w96PWPsIRUPVmo1AcOuIAzRv/AyrlAGlXsql2LfDI3blR
-         s1OcxeSrMk0LJZ3u2PsjoehpoIxBusyfptJhimwXXJUDO6XUDvD325nfMIEX1mIIrJCu
-         tCivkVijyrNn+WqbDFUF62VJaopDnyWi5Zb4PQ2uQLQffDYyK9fplVJ7sy8FF4JEPszR
-         u/m8Xa11i2BVRLx7ncHH0XRr2VKdSL2+Ruk105SjSolTEsrXEyHAFaweu2QBOQygohBg
-         PgxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742867785; x=1743472585;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KbmWscRvAoMTscJ7YX1VjxJzdFRKT7QCMrJKO+SUNOM=;
-        b=CC4f2R/AhcpQdTKEnZPilDPjmi/4fGUMfa41XAMUoB83M+AjVH/1FTOhV/lOzjFLSv
-         rD7QTTpDEka3oLh+S/M2x25uBaHpSMBHUQl5qnfJBOBW1rSPz6upFJglYyOL22zIe0+Y
-         3vB4C4hftsD+xC/KaVFDavHwAzn8p+7lLU7rdgAyUnEKSdj7pOrpYqqN+D61sXRAgwF5
-         HLOA3Mrkr4CRVT0NyERdd1RGETYb1UAXKCNHjh+IGvu/hEmTarlfzA+71OzcYGQVtAMZ
-         X8Xbv6z6MgZLI9j+zRe3Al5YlRexgIULmTO+KsJ9NsaOkqe2w8N5Wif/z7T2EWQByq1B
-         +EDg==
-X-Forwarded-Encrypted: i=1; AJvYcCXGtQ7PGYJ1R2Q8lMdQaBO1I9sv30CGcc9Yv5GFRC6GxHwBpCYYwwh6nMEIjBRVrkHJPEFnjYwHEWJWurK6JutG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw18s9+QKHnhTIw4iG8w6OLdjRlChQzlj1qwFc6EZKgvAEPbyK+
-	cRPWVjiP2BNu7X3LhzHpHMAIRr6sqYs8pTE13wXeDY3zO6smM7RPV1lj/04or/SiBw==
-X-Google-Smtp-Source: AGHT+IHw/mFa4K32w6FBmgVCLK0lfqwfx84tHmcbhBFHdeJjTz1GHC7yDdmMbL5MTLDA5q8NZ++fySA=
-X-Received: from pgcu63.prod.google.com ([2002:a63:7942:0:b0:af2:3541:76e2])
- (user=pcc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:113:b0:1f5:874c:c987
- with SMTP id adf61e73a8af0-1fe42f2c872mr24619131637.15.1742867785611; Mon, 24
- Mar 2025 18:56:25 -0700 (PDT)
-Date: Mon, 24 Mar 2025 18:56:15 -0700
-In-Reply-To: <20250325015617.23455-1-pcc@google.com>
-Mime-Version: 1.0
-References: <20250325015617.23455-1-pcc@google.com>
-X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
-Message-ID: <20250325015617.23455-3-pcc@google.com>
-Subject: [PATCH v3 2/2] kasan: Add strscpy() test to trigger tag fault on arm64
-From: Peter Collingbourne <pcc@google.com>
-To: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
-	Peter Collingbourne <pcc@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1twteC-00000004f6P-0e03;
+	Tue, 25 Mar 2025 02:04:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ugtE6YHkeGOL1i++qGch+E2cKCWMFATShsSTmt8v2ULnYc8P38f8yFx3D8M5zr0TG4pVG1PRFaozhY6wG09bmFZogO4mshRMvPyaz7wyOvduboXRqPR0MGCpwnb5261Zs+FYvFEoHVfQuDche8Vd7Va70FxYXT28cZcp2JZR86AvneLfMdNcdXparyqG+YkFw3BsfsMhMKvHPAUfF/NFeKaNEGtfiopDNx5WyTMHZymI7S9nO7cUIXB3l+F2IT0VuNQ10tzcTon1EKZX7gujnujpQblygiSpsLZBKEg/UjvppuQwdoQHqm4NB5ToktV5dp8j7gb9ATPD8LAiIVEx7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=U1NxtoDO6wxYN4skMVvlL0GEVtbRcnK4gMIc8ocACUI=;
+ b=vYJRQHt8cKDbcpmWbrVD1WoyTXkJZNDbmCDyaEnAxnt1/yW95KQmYKjGl9H77VcU7mLW21G/OxUADOQsy0bF049RZpNCG/lDCIse5bWwhMZj19S6c7PgEnVw85owu2ZygLduUFo4f4fjzZOMO7g5XcFLX9qRu3ktC+89qKd+Dl5VNhdJKB/Yjr0NPtWlr4XROIkXOp708WEYGm4EyGjQYtxjJm92GBCB/9+VJ2i+OnacK5BJwnUQ7xhVAuEIgsn+MFQHRp9GD5GQlCloJtm/+ZuynLmNDC/ifssvsBL2KezlU5YFYYsuyBuKUoHEXKSWoDu/YQjt6nvMeWcempAX1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=U1NxtoDO6wxYN4skMVvlL0GEVtbRcnK4gMIc8ocACUI=;
+ b=refjcuema9Op961qrpvB9u/upzwte+NS1B+1Ko14V8BAkJkYX8b/7FxrtXy6SIASnC2UrvhWMlnAVelZCGTVIApM/pHivnZwcTEFGppEbFDidHaye4nCezflFm6r6mctLGWqx6cSRF8m8WKkEq9sMl1mtfUezb2u1VSxvaUvG/ehpVxxbGevg/GPlYDJoPGRUmg6u0D6VmpnrFAN35feZlcm0sQ+gqzPW6+BLip9X1vkmmhzh03EDKs/AKKgU1CgtYDuyLAsKOHaVYnfU/1ipQXuYoOYzs+y+u2tFpGMuCLQYycWBuO+d3aueiEFcGL6qMfszr99CUQb5UalV4AZEw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by MW3PR12MB4459.namprd12.prod.outlook.com (2603:10b6:303:56::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
+ 2025 02:04:02 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.040; Tue, 25 Mar 2025
+ 02:04:02 +0000
+Date: Mon, 24 Mar 2025 23:04:01 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Changyuan Lyu <changyuanl@google.com>
+Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
+	catalin.marinas@arm.com, corbet@lwn.net,
+	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
+	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
+	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com,
+	mingo@redhat.com, pasha.tatashin@soleen.com, pbonzini@redhat.com,
+	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
+	robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org,
+	saravanak@google.com, skinsburskii@linux.microsoft.com,
+	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <Z+IPEeg7jkjrIB+8@nvidia.com>
+References: <20250321134629.GA252045@nvidia.com>
+ <20250323190758.743798-1-changyuanl@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250323190758.743798-1-changyuanl@google.com>
+X-ClientProxiedBy: BL1PR13CA0428.namprd13.prod.outlook.com
+ (2603:10b6:208:2c3::13) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MW3PR12MB4459:EE_
+X-MS-Office365-Filtering-Correlation-Id: d87366f1-fcc1-42dc-22ad-08dd6b415070
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?miGq+b0QQSd2qqaXDsOls4ecFJ0gUORw6mnhWaTx24ckeDf1eEUPxX0QCYvJ?=
+ =?us-ascii?Q?HgC7oPynoStYDfBAjEOgDKjcq9wv5pRbCgNtYCwgK8XNpgoDwMh2SdmniQRU?=
+ =?us-ascii?Q?9BGxe6u5y3IUOA8kzHPsgdu2LMyRQRdw+5mk60AcvbCPvMNX9XuHgHj6LxHH?=
+ =?us-ascii?Q?Sc3WxQtkDGIK9cu2Vrj8CBCfVOxRq+fFOTeBAfUHcFB8+76nM5OGPpW0BFgy?=
+ =?us-ascii?Q?E49Yvp1Br4fbTHdDCg1eM7FmIBjhZG2AqomViiCW8zKV11OqERD88e4mRSk4?=
+ =?us-ascii?Q?uiWqNc95I3ylzrgk2/JmDYJvkxnMSmZ07mEC4SI7EElsHVaSgO2zCUJLCHXz?=
+ =?us-ascii?Q?ZokNublPaeoBTVXBGVRHh5ISzehdbAqwWcfblqD8flXrdYerJWGiibvIKDAN?=
+ =?us-ascii?Q?gfqverKq9CBAvCkiG/nNfj0M7j0e2HT70xTniyT9bPT2wZs7scq/8nPlfIHO?=
+ =?us-ascii?Q?K47GZvBR3u0dvVu/nDOjnTidGS8S0iL89zMOCH4GREkGEKRBhBvcCC7cQhXE?=
+ =?us-ascii?Q?0xcrCjCgsik7Yzc0B0XIyLwM8uxj77eZs3q8MEqAIvg+zV1bajqEsrMXyjSj?=
+ =?us-ascii?Q?CXX/5ATUREaINmNRcyHtjDEy1BLfKbME3cTlEb8ohkoTQNylagp2w0IBTGpq?=
+ =?us-ascii?Q?qSEQ5c5lSGTuuPvhlkV0zIS2ZL8cZOaTF41buA6vVQ/RuKUKjcPeK8ggHs4Q?=
+ =?us-ascii?Q?H0ViekFmEo72DeTYR4ob7S/sU7w0oK4UdARPlEKurBLvOTidJlxJ3/aqOR0I?=
+ =?us-ascii?Q?+QkMognJ4CXo5P99Iv63PsQiu6J7W6a429WQx4BCV36QJmi9OhDnNU78/7GC?=
+ =?us-ascii?Q?gY4OdIWvGqa0doqGWNTekrrESi/6B+1cx7kE/EdiB51kZMhhIZ+IDex7RiVS?=
+ =?us-ascii?Q?IIbIJW0jX4nqMgbGKeECba+lZ83zwfnXJzCE40mk+Wt2X7xTKN87+fY1gpRH?=
+ =?us-ascii?Q?A8502uQSLkfJvIEZmzeYIHgcySArYGKfnwr6k1soXRFm7fFuAljIn3q86t5Q?=
+ =?us-ascii?Q?yEoNDClxrJS3bzBVzLoJ4EfaMXwZaeUUCDhNchgQqpeed/uydV1oeR0BFirM?=
+ =?us-ascii?Q?K/BmLrKTNC9HeAl0VcDeef6RnhJ+LFcD0+8fp12bi/ZqfSJgYTDF58wW3F/N?=
+ =?us-ascii?Q?sA2O8VXpQW+QJYvDfaUUgdmtmPDb4fnhKRyKZYVIehwSsFUMXNNaVclbNCM4?=
+ =?us-ascii?Q?wcb9CLOmZukbv5sRbDCOj+72iESGUtETtzsjvaL60jtxUF582yJowki+8ArY?=
+ =?us-ascii?Q?rHPhXNNGpD4e2NZnEjfyfcCjHEVTOMVCNfSjkJjuL97Z413stqvsPD4f93Ef?=
+ =?us-ascii?Q?l7cJTPPgJsiz61ms1wJ2i1YIV1eVPh24mGIgKXm/lbZSl4SYunbDGS8BFhGe?=
+ =?us-ascii?Q?d3R8bDiYNRKRm0kSdbSJiu/bD2yn?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vUvxkFQ2iPEbNRUKavEnInat3+fqFOuHHaPN7EpiThm9KYUSsKjcZPmfG3Lw?=
+ =?us-ascii?Q?2nr54aa/iKHgIBT82CS5DMuIW22Y6MqBUPihwuCSq0Vt8fEIPTMyCjLYlx9q?=
+ =?us-ascii?Q?Tbse8uR3Vab9iPKfKMddEMWJ1Ogq8p9syBSZIxOMZn9vY0HcKfj6jt50fYgz?=
+ =?us-ascii?Q?zWinJCjGXHNKGITJWJjD9mfwAeKBlrejQ4aprEAgJLHF/4hK0W0n8nS0dkTO?=
+ =?us-ascii?Q?1ye/whay3BfqbFBqMHI/M/QgaTabLp+yvWZUtZ9IZ/UZqAYMqyu0KVjtJVdb?=
+ =?us-ascii?Q?QqhBBHH9svExIpCqt73EP7vHP/6EEsq6Fbke7LiiJhKoUgJb6pdasFFzeWuN?=
+ =?us-ascii?Q?mauzXO2APnz3dgLQFj1F8ch8UxuhFlTeRNUFDV4oyHwrZT+0qoxm6NxM6Zii?=
+ =?us-ascii?Q?2KTaK/wr+C5F7PqyItehHxGJ5ZxjKw7q6RrP3umrmv4LU2I69l5b6bKByifv?=
+ =?us-ascii?Q?sd45RRNGeLZtmwK29GsJEBUVRWRopJe9LF1VfJCPj1F/iNc0oTk0j7xwJovr?=
+ =?us-ascii?Q?iAQR6VwhfmfUchKNXi3GP/+XdpT970XjrCs7W1DuJthwbm80ePFZIvnaEhXg?=
+ =?us-ascii?Q?y6x90pRcw2xG6gQbMLCs4MPUNUhvt34Coo6rsSh00bAdLRwxio1vaGrWhhIo?=
+ =?us-ascii?Q?gWF2R/wTZcTSKgHKGxw8EmCY0NUdVXqGgxz0pceWBuQVGdXcTRBI+bNdeZoq?=
+ =?us-ascii?Q?Pz9Zmza9GcAY0Ctq5komFVJLY5Of1gtj3B8j/kPu0hbtm98qg/JIqV89fhVh?=
+ =?us-ascii?Q?bJSBUy77m7PDzSn+ZO2XUmTxtSvD9tylH25QHuZYkqKo+GwNaEOdxgiZYezi?=
+ =?us-ascii?Q?yjRNk4y1UH0JwHLgJG1dRs38ldEheZQdSEy615r8fANMQOTP0WxEiA2/T/zD?=
+ =?us-ascii?Q?FBJidUFMHjOtXlfNJqgehVA3Y6xYKEECxBq9S7GWmuWrJ3eUq7VeaiBiyLKH?=
+ =?us-ascii?Q?O+BOAKbdT40g3sBcFygJymn6LVq0ZKOAsbkZ91JD4Rs6csc+/n/I3qPyUlTj?=
+ =?us-ascii?Q?9wDgxKYj/ZdahW3rGzUcR0C/+h9CnikJDhbgnXYF4AXk/g08uqvXGeltFyJx?=
+ =?us-ascii?Q?V7yWzFnugalRmC958ZEiL0M3ObJwyIoNyAofE78pX79tRTcSSkPBA5F+lnnY?=
+ =?us-ascii?Q?PndlocuBluW17zOPsWEFWu4Yj7pASX08fG42kPtavONwvwY7Enmz4lv19jGv?=
+ =?us-ascii?Q?cmW/gYlzkkAVwzFfkb8GxXyc0jWeLbQTMjMRrmg7Vn9xDGNGBI9og0ddZFQU?=
+ =?us-ascii?Q?VEpH4IodN9AOOF9A3eDIumQuTOsKKZpLRL+Sxyj8v04twnntzQw2NJb0HgNI?=
+ =?us-ascii?Q?/3RIQNjaIaiDN+bHUD22lbvIFaXeoOFw3RwB+dgnO2aCObUx0bG5Cw2lMlQX?=
+ =?us-ascii?Q?oNAQ0Gk3KZu02M39qjVUwbL0v3P93hgdYBqkWfguqXTGeYSuTx2pCwIC4+6H?=
+ =?us-ascii?Q?jhNILgkYQJg5ivXwPbiO1jBBN32WM8q6dW/C5rTSFPsKT9dLK8LRPij2WGRE?=
+ =?us-ascii?Q?TKXP93tmVAbXAgxcDNOXQdPDKYQ5DXDe/RLPmuB9djoomVosr6Yor418RZCB?=
+ =?us-ascii?Q?nS93u4lZYS4fkYVOO9g=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d87366f1-fcc1-42dc-22ad-08dd6b415070
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2025 02:04:02.4815
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Jn2EPKqHB3wmS0ncQoM10efDkbnD2UIXtLEQOXENSH/qBDgokQYvUBfeLWMCq3dA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_185626_499797_D3015BA0 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20250324_190408_211634_C221B44D 
+X-CRM114-Status: GOOD (  27.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,68 +169,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+On Sun, Mar 23, 2025 at 12:07:58PM -0700, Changyuan Lyu wrote:
 
-When we invoke strscpy() with a maximum size of N bytes, it assumes
-that:
-- It can always read N bytes from the source.
-- It always write N bytes (zero-padded) to the destination.
+> > > +	down_read(&kho_out.tree_lock);
+> > > +	if (kho_out.fdt) {
+> >
+> > What is the lock and fdt test for?
+> 
+> It is to avoid the competition between the following 2 operations,
+> - converting the hashtables and mem traker to FDT,
+> - adding new data to hashtable/mem tracker.
 
-On aarch64 with Memory Tagging Extension enabled if we pass an N that is
-bigger then the source buffer, it triggers an MTE fault.
+I think you should strive to prevent this by code construction at a
+higher level.
 
-Implement a KASAN KUnit test that triggers the issue with the current
-implementation of read_word_at_a_time() on aarch64 with MTE enabled.
+Do not lock each preserve but lock entire object serializations, operations.
 
-Cc: Will Deacon <will@kernel.org>
-Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Co-developed-by: Peter Collingbourne <pcc@google.com>
-Signed-off-by: Peter Collingbourne <pcc@google.com>
-Link: https://linux-review.googlesource.com/id/If88e396b9e7c058c1a4b5a252274120e77b1898a
----
-v3:
-- simplify test case
+For instance if we do recursive FDT then you'd lock the call that
+builds a single FDT page for a single object.
 
-v2:
-- rebased
-- fixed test failure
+> In most cases we only need read lock. Different KHO users can adding
+> data into their own subnodes in parallel.
 
- mm/kasan/kasan_test_c.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+read locks like this are still quite slow in parallel systems, there
+is alot of slow cacheline bouncing as taking a read lock still has to
+write to the lock memory.
 
-diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-index 59d673400085f..b69f66b7eda1d 100644
---- a/mm/kasan/kasan_test_c.c
-+++ b/mm/kasan/kasan_test_c.c
-@@ -1570,6 +1570,7 @@ static void kasan_memcmp(struct kunit *test)
- static void kasan_strings(struct kunit *test)
- {
- 	char *ptr;
-+	char *src;
- 	size_t size = 24;
- 
- 	/*
-@@ -1581,6 +1582,18 @@ static void kasan_strings(struct kunit *test)
- 	ptr = kmalloc(size, GFP_KERNEL | __GFP_ZERO);
- 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ptr);
- 
-+	src = kmalloc(KASAN_GRANULE_SIZE, GFP_KERNEL | __GFP_ZERO);
-+	strscpy(src, "f0cacc1a0000000", KASAN_GRANULE_SIZE);
-+
-+	/*
-+	 * The expected size does not include the terminator '\0'
-+	 * so it is (KASAN_GRANULE_SIZE - 2) ==
-+	 * KASAN_GRANULE_SIZE - ("initial removed character" + "\0").
-+	 */
-+	KUNIT_EXPECT_EQ(test, KASAN_GRANULE_SIZE - 2,
-+			strscpy(ptr, src + 1, KASAN_GRANULE_SIZE));
-+
-+	kfree(src);
- 	kfree(ptr);
- 
- 	/*
--- 
-2.49.0.395.g12beb8f557-goog
+> > What do you imagine this is used for? I'm not sure what value there is
+> > in returning a void *? How does the caller "free" this?
+> 
+> This function is also from Mike :)
+> 
+> I suppose some KHO users may still
+> preserve memory using memory ranges (instead of folio).
 
+I don't know what that would be, but the folio scheme is all about
+preserving memory from the page buddy allocator, I don't know what
+this is for or how it would be used.
+
+IMHO split this to its own patch and include it in the series that
+would use it.
+
+> I guess the caller can free the ranges by free_pages()?
+
+The folios were not setup right, so no.. And if this is the case then
+you'd just get the struct page and convert it to a void * with some
+helper function, not implement a whole new function...
+
+> > There should be yaml files just like in the normal DT case defining
+> > all of this. This level of documentation and stability was one of the
+> > selling reasons why FDT is being used here!
+> 
+> YAML files were dropped because we think it may take a while for our
+> schema to be near stable. So we start from some simple plain text. We
+> can add some prop and node docs (that are considered stable at this point)
+> back to YAML in the next version.
+
+You need to do something to document what is going on here and show
+the full schema with some explanation. It is hard to grasp the full
+intention just from the C code.
+
+Jason
 
