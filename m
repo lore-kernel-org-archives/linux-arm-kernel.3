@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DB9C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DD3C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZohOB1gCnTc1vPJoVBm7i72a//JfhBzZDhVHtHxtA0=; b=ZvRFfbIC9XPXTNyp8xP24QAB98
-	yLhLnmChN+b6yznhTXk0JYlAee2e2m9nnpMW1FJ5CfMm2nPfuYsjdC+/pezXiUJ+dttx2PqTZiM1X
-	5bCMiUaiXkrGWQcx+sGXhfAgJK0vGOvRI1YJx3hyLYCPNzEOeRdqcaG8JlN+CX/P+gCx7Z1pUITPu
-	9RQ2fkaMOhFA1ihjS/XzH5aLGHK+4VkqMNCBsIcuNHQ1UukwA380sBu224NpzskgvZKzbJ3GZapHO
-	yMgk+6FCHs00XLyYkgiOSq89WKFpQpNJiolELbWqPgwJmAk3KeyMK6QNYR/ltcYjQMLqxyB72qbeS
-	zV7ig9gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MwjoEW3/NIbfZMbHFvVtoTAaUMS0MY//IOVeA1psqbE=; b=x3Ytc566MoP1ekEzpsNk7S4Kkw
+	290e1ZGoRNZPzeFWVq25qtDjjn0a981c6iwE/nR5IXxznCGCU2arvmpPZPEqas8g+q5vCioKBbllc
+	2PpG7Tn/Dhfqr0kj0wSrUmmH+ecDebQrCuUfprlrqEhHPNmEam9kiza714cUCEqcNrcnl8pFgoA0z
+	Ww7QrlpD1J+rUC0HTCaGG0ZKKJoMXxInL5QN4gI+w4Zcy3duR3UhSacUOYZESUrJmlrj9lAUhQixB
+	KA7ZW/jjtxxrbt5TI7ufBdkJyXz061cEaMWJmAXGI+5xiaJwIcuipE58evp28AubMQAoL9c1KMhpe
+	O559ED0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7IV-00000006VWT-2pnJ;
-	Tue, 25 Mar 2025 16:38:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tx7IW-00000006VWj-0y9T;
+	Tue, 25 Mar 2025 16:38:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5N3-00000006CxJ-0dZ4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 14:35:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1742913311;
-	bh=f4rDpzIaw27cWLZTFhTB7eMPv/RlYGMu7kxHgkuzwY8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=YkIqrPLQ1klvRPSV9f8DLqhBy2jPEssKQmd5GPS3Tw/hO8uBTNaMR/orBwoIniP5A
-	 duYdAabrGodLUP4r2drlbwy7RSOMdnJslkGLvqdJFYEdqhO4Q9oley6QaJ76oYl1U5
-	 /J8spi9maOAb8Tax274gcg7qNBUmx6ivBu7wIwdsaUrI9Y9U41oJCbYuH7nVMNZN6U
-	 sXEl+ngwYGuePZm0OWZU67mHsFuynWjO+pyJXwjPJ6AmhJTOAS2p119ZtOuvQ3K1AP
-	 vw1oEYvVvVaN6I0hhzbaxWArieEYjVqROVujzpxOHHv6T95ifdzURcCsTomAqvnTf7
-	 WpSzxnud1j1GQ==
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5828517E0A80;
-	Tue, 25 Mar 2025 15:35:10 +0100 (CET)
-Date: Tue, 25 Mar 2025 15:35:07 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Marek Vasut <marex@denx.de>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley
- <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, Fabio Estevam
- <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau
- <liviu.dudau@arm.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Philipp Zabel
- <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, Steven Price
- <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-Message-ID: <20250325153507.61d82e39@collabora.com>
-In-Reply-To: <7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
-References: <20250321200625.132494-1-marex@denx.de>
-	<20250321200625.132494-5-marex@denx.de>
-	<20250324094333.7afb17a1@collabora.com>
-	<c1de2afb-3559-4fbb-b13b-2373175b420b@denx.de>
-	<20250325084349.344a0f11@collabora.com>
-	<7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1tx60j-00000006JFp-1QOZ;
+	Tue, 25 Mar 2025 15:16:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7ED11A493C1;
+	Tue, 25 Mar 2025 15:10:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E88A6C4CEE4;
+	Tue, 25 Mar 2025 15:16:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742915772;
+	bh=5ByUJpks9hkZhuJoceNmjpMgpU8NiVFGUeBDfoAE150=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vLPVmvDcdWcHF5VNb//6QuBceDBAFsUxvouEhOfevFwX7zzpHqTD7Z2q4DJvRmlFB
+	 GQv1gvCsygYRFHv/ja5UWu4+WwEr1my4iRzZQPi9S1P3dCtAutlpaKrsV8AW3L5Uto
+	 GqaKna3ic6X4bfMn91rlM047BCW+Dz/DM00Ld9yAJISCgFtC73NjcItqk3jIbkk51P
+	 fMr+TeBbaJy0F2tl7TqWhL7UwehxwVTrq3m5i9vgrRqtKk8I5jBlwlT7QIfHztKbxR
+	 vqQr78kIqdwVTfurkMxTojgv1Wz7bZxQuiWMoNU5vCFuOJI+kdOpM8DYxnnec0XaQ3
+	 G9cZsUGQP+61w==
+Date: Tue, 25 Mar 2025 10:16:11 -0500
+From: Rob Herring <robh@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v3 02/10] dt-bindings: phy: samsung,usb3-drd-phy: add
+ exynos2200 support
+Message-ID: <20250325151611.GA2057949-robh@kernel.org>
+References: <20250321135854.1431375-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250321135854.1431375-3-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250321135854.1431375-3-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_073513_380861_95D4F60F 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20250325_081613_510841_06C57138 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +82,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Mar 2025 14:50:32 +0100
-Marek Vasut <marex@denx.de> wrote:
+On Fri, Mar 21, 2025 at 03:58:46PM +0200, Ivaylo Ivanov wrote:
+> Document support for Exynos2200. As the USBDRD 3.2 4nm controller
+> consists of Synopsys eUSB2.0 phy and USBDP/SS combophy, which will
+> be handled by external drivers, define only the bus clocked used
+> by the link controller.
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+>  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 38 +++++++++++++++++--
+>  1 file changed, 34 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> index 16321cdd4..819e4afe6 100644
+> --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> @@ -26,6 +26,7 @@ properties:
+>    compatible:
+>      enum:
+>        - google,gs101-usb31drd-phy
+> +      - samsung,exynos2200-usb32drd-phy
+>        - samsung,exynos5250-usbdrd-phy
+>        - samsung,exynos5420-usbdrd-phy
+>        - samsung,exynos5433-usbdrd-phy
+> @@ -33,24 +34,32 @@ properties:
+>        - samsung,exynos850-usbdrd-phy
+>  
+>    clocks:
+> -    minItems: 2
+> +    minItems: 1
+>      maxItems: 5
+>  
+>    clock-names:
+> -    minItems: 2
+> +    minItems: 1
+>      maxItems: 5
+>      description: |
+> -      At least two clocks::
+> +      Typically two clocks::
 
-> On 3/25/25 8:43 AM, Boris Brezillon wrote:
-> > On Tue, 25 Mar 2025 00:37:59 +0100
-> > Marek Vasut <marex@denx.de> wrote:
-> >   
-> >> On 3/24/25 9:43 AM, Boris Brezillon wrote:
-> >>
-> >> [...]
-> >>  
-> >>>> @@ -563,6 +585,7 @@ int panthor_device_suspend(struct device *dev)
-> >>>>    
-> >>>>    	panthor_devfreq_suspend(ptdev);
-> >>>>    
-> >>>> +	reset_control_assert(ptdev->resets);  
-> >>>
-> >>> Hm, that might be the cause of the fast reset issue (which is a fast
-> >>> resume more than a fast reset BTW): if you re-assert the reset line on
-> >>> runtime suspend, I guess this causes a full GPU reset, and the MCU ends
-> >>> up in a state where it needs a slow reset (all data sections reset to
-> >>> their initial state). Can you try to move the reset_control_[de]assert
-> >>> to the unplug/init functions?  
-> >> Is it correct to assume , that if I remove all reset_control_assert()
-> >> calls (and keep only the _deassert() calls), the slow resume problem
-> >> should go away too ?  
-> > 
-> > Yeah, dropping the _assert()s should do the trick.  
-> Hmmm, no, that does not help. I was hoping maybe NXP can chime in and 
-> suggest something too ?
+Don't need double colon.
 
-Can you try keep all the clks/regulators/power-domains/... on after
-init, and see if the fast resume works with that. If it does,
-re-introduce one resource at a time to find out which one causes the
-MCU to lose its state.
+>          - Main PHY clock (same as USB DRD controller i.e. DWC3 IP clock), used
+>            for register access.
+>          - PHY reference clock (usually crystal clock), used for PHY operations,
+>            associated by phy name. It is used to determine bit values for clock
+>            settings register.  For Exynos5420 this is given as 'sclk_usbphy30'
+> -          in the CMU.
+> +          in the CMU. It's not needed for Exynos2200.
+>  
+>    "#phy-cells":
+>      const: 1
+>  
+> +  phys:
+> +    maxItems: 1
+> +    description:
+> +      Phandle to USBDRD-underlying high-speed PHY
+
+Drop 'phandle to'.
+
+> +
+> +  phy-names:
+> +    const: hs
+> +
+>    port:
+>      $ref: /schemas/graph.yaml#/properties/port
+>      description:
+> @@ -137,6 +146,27 @@ allOf:
+>          - vdda-usbdp-supply
+>          - vddh-usbdp-supply
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - samsung,exynos2200-usb32drd-phy
+> +    then:
+> +      properties:
+> +        clocks:
+> +          maxItems: 1
+> +        clock-names:
+> +          items:
+> +            - const: phy
+> +        reg:
+> +          maxItems: 1
+> +        reg-names:
+> +          maxItems: 1
+> +      required:
+> +        - phys
+> +        - phy-names
+> +
+>    - if:
+>        properties:
+>          compatible:
+> -- 
+> 2.43.0
+> 
 
