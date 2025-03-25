@@ -4,67 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F727C3600D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605D0C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 14:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lp1xXlGfpColhg0+n1ZdYqVOlPI1NjNGyjYPUGRBcBE=; b=vSIfBrB48zTFjCfUylrPwCFSL8
-	8xuBOnoGkyvVOqeHUoutg9ykMRahhHl0LNaDG2/OBOYJD/qS4YZamo3Csha86eyDo93s2jzBORGHI
-	TIgrjVCE+YZrltRG8+Ge2mVZrEM2kJNnnGmcxZoKtfhUKbtc9TJL/FdMPeWnqPGzR4S+1r/QXPj5w
-	V7LNnPXu6841nE6z1A7SfgTY7dFSSQWBplZF1YjdVOH/jbWcrMjKm+Xuzp1kPhN9Lo8Eaq3VH89Db
-	NXYQY9HL1TDYlgbQv5E0+QjQpyRnr12f5XAXIvZwli7l/Dd8S43FRVj9la/PpSfpRFuLh6h2IGBCl
-	VGfGkPyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uBTLdCdSGzt+2sHpsaW7G2H3B7HPbX7C3qZ2SCMCGjA=; b=QWtKrk1aJHwDfjgEIGSKwHXyLD
+	AEvwg1I3Vgz2xJ6VQXod3jmaW7yNB7cLT6Ly5bQu2eXKrdYohKH5OCrDmAWhJ0c8+OOFCt8/WcnxX
+	wYVdug524L0NHAlg4T+6LKYjCPrpiXMnaGWwx7rcsxMUBqFVV1i1zz6uD94D3Pph9+jnhWpzAuq7P
+	KXAbNzZVGTtvPLfixJI7TpMopt27QhagPWR4/PKKtbhdqkDL30YTZPqLqJevBJb022boniAP3yjTe
+	G5xq9DFXyxVUUMiKApu/uMcWppiv7SRYFH0avuV1gBr5wUNOoyx8XhM/slMiCa5e9PmiGJ8TKd5zY
+	ba4IQycA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5QO-00000006DRM-0vK2;
-	Tue, 25 Mar 2025 14:38:40 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tx5QT-00000006DT7-0BS3;
+	Tue, 25 Mar 2025 14:38:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4KX-000000061wg-2sLJ
+	id 1tx5OT-00000006DAI-3Z1U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 13:28:35 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7E76102F66E1;
-	Tue, 25 Mar 2025 14:28:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742909311; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=lp1xXlGfpColhg0+n1ZdYqVOlPI1NjNGyjYPUGRBcBE=;
-	b=cXvxuRhx06SaLJAL+abXeIjaG2WBmk92+Md/LdiJor4BM6rK3kkUWVmW/M7q3gUMc8UapI
-	Iv12IzrjwHf0H8WbL79N0zuaQCM1IP+weBRyYuDKL9Oy5B7Gef+CMYs0mW5xC+iMATZY7L
-	IZ6r99E6vXEMd6z+JpJCdATeV32LR8EjHy297k3Kj0/9HDs10wvoYB2uQnwK+OJYyFMO2B
-	l16VsJSLUaMu+EDiAQYkcE/XD0tekA6P/0EzfgpohOzQfZw2LJ8DERK2RPWs24YRsZQN6Y
-	oqg9MkqyftxPt7FlxGio3MR73PJ6pUs0gGChHZKtnXEEMCyXXUm8qzvsVe5Xdg==
-Date: Tue, 25 Mar 2025 14:28:10 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Jakub
- Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard
- Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, Maxime
- Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH 5/5] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250325142810.0aa07912@wsk>
-In-Reply-To: <32d93a90-3601-4094-8054-2737a57acbc7@kernel.org>
-References: <20250325115736.1732721-1-lukma@denx.de>
-	<20250325115736.1732721-6-lukma@denx.de>
-	<32d93a90-3601-4094-8054-2737a57acbc7@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 25 Mar 2025 14:36:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E9EC2A4A73F;
+	Tue, 25 Mar 2025 14:31:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A087EC4CEED;
+	Tue, 25 Mar 2025 14:36:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742913400;
+	bh=OkCNuhli9F0X/SYOAJxHbH4RtGXOzGf5zz0JWbYVExA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PDyzXXR8W2pF74kMe7vbbSG4Nd3bQ8CDSWy88+KMoQpDtkdCW2YCCw28Gyk5ebJw5
+	 Bg9OQIKIYVK8H/BPZFMruowiy107cgvru60Ds7AJXZCj3CnRODF1KMqtfUtwS6cdJg
+	 vFk/+1Fz7D5PTXs9RlSuBXx0/ATdxA5+KqoWWvNGVHG/smvyYVS0DwyeE7WyVr1BW6
+	 R89/rADEBv/9icUANXmxGNXyIQ2/wujfosO8pix/2rcaUvtcUH9o68QozcVGrV3zyE
+	 kzRf0I72qiZxtMXuiXnHZslgcBSRrOu710Xa7YmY8Knx2OZdr606gdRKkyKd39OsKo
+	 hQTohERKmHDog==
+Message-ID: <b4820116-c6c0-4fb1-ac7e-c602cf3b9da8@kernel.org>
+Date: Tue, 25 Mar 2025 15:36:31 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/ToD0LkzQNNSL0fAVtNGYYTF";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
+ Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>,
+ netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>
+References: <20250325115736.1732721-1-lukma@denx.de>
+ <20250325115736.1732721-6-lukma@denx.de>
+ <32d93a90-3601-4094-8054-2737a57acbc7@kernel.org>
+ <20250325142810.0aa07912@wsk>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250325142810.0aa07912@wsk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_062834_024021_10E2E6A8 
-X-CRM114-Status: GOOD (  48.13  )
+X-CRM114-CacheID: sfid-20250325_073642_026679_0DB39C36 
+X-CRM114-Status: GOOD (  35.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,545 +127,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/ToD0LkzQNNSL0fAVtNGYYTF
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On 25/03/2025 14:28, Lukasz Majewski wrote:
+> Hi Krzysztof,
+> 
+>> On 25/03/2025 12:57, Lukasz Majewski wrote:
+>>> This patch series provides support for More Than IP L2 switch
+>>> embedded in the imx287 SoC.
+>>>
+>>> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
+>>> which can be used for offloading the network traffic.
+>>>
+>>> It can be used interchangeable with current FEC driver - to be more
+>>> specific: one can use either of it, depending on the requirements.
+>>>
+>>> The biggest difference is the usage of DMA - when FEC is used,
+>>> separate DMAs are available for each ENET-MAC block.
+>>> However, with switch enabled - only the DMA0 is used to
+>>> send/receive data.
+>>>
+>>> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+>>> ---
+>>>  drivers/net/ethernet/freescale/Kconfig        |    1 +
+>>>  drivers/net/ethernet/freescale/Makefile       |    1 +
+>>>  drivers/net/ethernet/freescale/mtipsw/Kconfig |   10 +
+>>>  .../net/ethernet/freescale/mtipsw/Makefile    |    6 +
+>>>  .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 2108
+>>> +++++++++++++++++ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |
+>>> 784 ++++++ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  113 +
+>>>  .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  434 ++++
+>>>  8 files changed, 3457 insertions(+)
+>>>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+>>>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+>>>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+>>>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+>>>  create mode 100644
+>>> drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c create mode
+>>> 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+>>>
+>>> diff --git a/drivers/net/ethernet/freescale/Kconfig
+>>> b/drivers/net/ethernet/freescale/Kconfig index
+>>> a2d7300925a8..056a11c3a74e 100644 ---
+>>> a/drivers/net/ethernet/freescale/Kconfig +++
+>>> b/drivers/net/ethernet/freescale/Kconfig @@ -60,6 +60,7 @@ config
+>>> FEC_MPC52xx_MDIO 
+>>>  source "drivers/net/ethernet/freescale/fs_enet/Kconfig"
+>>>  source "drivers/net/ethernet/freescale/fman/Kconfig"
+>>> +source "drivers/net/ethernet/freescale/mtipsw/Kconfig"
+>>>  
+>>>  config FSL_PQ_MDIO
+>>>  	tristate "Freescale PQ MDIO"
+>>> diff --git a/drivers/net/ethernet/freescale/Makefile
+>>> b/drivers/net/ethernet/freescale/Makefile index
+>>> de7b31842233..0e6cacb0948a 100644 ---
+>>> a/drivers/net/ethernet/freescale/Makefile +++
+>>> b/drivers/net/ethernet/freescale/Makefile @@ -25,3 +25,4 @@
+>>> obj-$(CONFIG_FSL_DPAA_ETH) += dpaa/ obj-$(CONFIG_FSL_DPAA2_ETH) +=
+>>> dpaa2/ 
+>>>  obj-y += enetc/
+>>> +obj-y += mtipsw/
+>>> diff --git a/drivers/net/ethernet/freescale/mtipsw/Kconfig
+>>> b/drivers/net/ethernet/freescale/mtipsw/Kconfig new file mode 100644
+>>> index 000000000000..5cc9b758bad4
+>>> --- /dev/null
+>>> +++ b/drivers/net/ethernet/freescale/mtipsw/Kconfig
+>>> @@ -0,0 +1,10 @@
+>>> +# SPDX-License-Identifier: GPL-2.0-only
+>>> +config FEC_MTIP_L2SW
+>>> +	tristate "MoreThanIP L2 switch support to FEC driver"
+>>> +	depends on OF
+>>> +	depends on NET_SWITCHDEV
+>>> +	depends on BRIDGE
+>>> +	depends on ARCH_MXS || ARCH_MXC  
+>>
+>> Missing compile test
+> 
+> Could you be more specific?
+> 
+> I'm compiling and testing this driver for the last week... (6.6 LTS +
+> net-next).
 
-Hi Krzysztof,
+You miss dependency on compile test.
 
-> On 25/03/2025 12:57, Lukasz Majewski wrote:
-> > This patch series provides support for More Than IP L2 switch
-> > embedded in the imx287 SoC.
-> >=20
-> > This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
-> > which can be used for offloading the network traffic.
-> >=20
-> > It can be used interchangeable with current FEC driver - to be more
-> > specific: one can use either of it, depending on the requirements.
-> >=20
-> > The biggest difference is the usage of DMA - when FEC is used,
-> > separate DMAs are available for each ENET-MAC block.
-> > However, with switch enabled - only the DMA0 is used to
-> > send/receive data.
-> >=20
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > ---
-> >  drivers/net/ethernet/freescale/Kconfig        |    1 +
-> >  drivers/net/ethernet/freescale/Makefile       |    1 +
-> >  drivers/net/ethernet/freescale/mtipsw/Kconfig |   10 +
-> >  .../net/ethernet/freescale/mtipsw/Makefile    |    6 +
-> >  .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 2108
-> > +++++++++++++++++ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |
-> > 784 ++++++ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  113 +
-> >  .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  434 ++++
-> >  8 files changed, 3457 insertions(+)
-> >  create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
-> >  create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
-> >  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> >  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
-> >  create mode 100644
-> > drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c create mode
-> > 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
-> >=20
-> > diff --git a/drivers/net/ethernet/freescale/Kconfig
-> > b/drivers/net/ethernet/freescale/Kconfig index
-> > a2d7300925a8..056a11c3a74e 100644 ---
-> > a/drivers/net/ethernet/freescale/Kconfig +++
-> > b/drivers/net/ethernet/freescale/Kconfig @@ -60,6 +60,7 @@ config
-> > FEC_MPC52xx_MDIO=20
-> >  source "drivers/net/ethernet/freescale/fs_enet/Kconfig"
-> >  source "drivers/net/ethernet/freescale/fman/Kconfig"
-> > +source "drivers/net/ethernet/freescale/mtipsw/Kconfig"
-> > =20
-> >  config FSL_PQ_MDIO
-> >  	tristate "Freescale PQ MDIO"
-> > diff --git a/drivers/net/ethernet/freescale/Makefile
-> > b/drivers/net/ethernet/freescale/Makefile index
-> > de7b31842233..0e6cacb0948a 100644 ---
-> > a/drivers/net/ethernet/freescale/Makefile +++
-> > b/drivers/net/ethernet/freescale/Makefile @@ -25,3 +25,4 @@
-> > obj-$(CONFIG_FSL_DPAA_ETH) +=3D dpaa/ obj-$(CONFIG_FSL_DPAA2_ETH) +=3D
-> > dpaa2/=20
-> >  obj-y +=3D enetc/
-> > +obj-y +=3D mtipsw/
-> > diff --git a/drivers/net/ethernet/freescale/mtipsw/Kconfig
-> > b/drivers/net/ethernet/freescale/mtipsw/Kconfig new file mode 100644
-> > index 000000000000..5cc9b758bad4
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/freescale/mtipsw/Kconfig
-> > @@ -0,0 +1,10 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only
-> > +config FEC_MTIP_L2SW
-> > +	tristate "MoreThanIP L2 switch support to FEC driver"
-> > +	depends on OF
-> > +	depends on NET_SWITCHDEV
-> > +	depends on BRIDGE
-> > +	depends on ARCH_MXS || ARCH_MXC =20
->=20
-> Missing compile test
+> 
+>>
+>>> +	help
+>>> +		This enables support for the MoreThan IP L2 switch
+>>> on i.MX
+>>> +		SoCs (e.g. iMX28, vf610).  
+>>
+>> Wrong indentation. Look at other Kconfig files.
+> 
+> The indentation from Kconfig from FEC:
+> 
+> <tab>help
+> <tab><2 spaces>FOO BAR....
 
-Could you be more specific?
+That's correct, but you do not use it :/
 
-I'm compiling and testing this driver for the last week... (6.6 LTS +
-net-next).
+> 
+> also causes the checkpatch on net-next to generated WARNING.
+> 
+>>
+>>> diff --git a/drivers/net/ethernet/freescale/mtipsw/Makefile
+>>> b/drivers/net/ethernet/freescale/mtipsw/Makefile new file mode
+>>> 100644 index 000000000000..e87e06d6870a
+>>> --- /dev/null
+>>> +++ b/drivers/net/ethernet/freescale/mtipsw/Makefile
+>>> @@ -0,0 +1,6 @@
+>>> +# SPDX-License-Identifier: GPL-2.0
+>>> +#
+>>> +# Makefile for the L2 switch from MTIP embedded in NXP SoCs  
+>>
+>> Drop, obvious.
+> 
+> Ok.
+> 
+>>
+>>
+>> ...
+>>
+>>> +
+>>> +static int mtip_parse_of(struct switch_enet_private *fep,
+>>> +			 struct device_node *np)
+>>> +{
+>>> +	struct device_node *port, *p;
+>>> +	unsigned int port_num;
+>>> +	int ret;
+>>> +
+>>> +	p = of_find_node_by_name(np, "ethernet-ports");
+>>> +
+>>> +	for_each_available_child_of_node(p, port) {
+>>> +		if (of_property_read_u32(port, "reg", &port_num))
+>>> +			continue;
+>>> +
+>>> +		fep->n_ports = port_num;
+>>> +		of_get_mac_address(port, &fep->mac[port_num -
+>>> 1][0]); +
+>>> +		ret = of_property_read_string(port, "label",
+>>> +
+>>> &fep->ndev_name[port_num - 1]);
+>>> +		if (ret < 0) {
+>>> +			pr_err("%s: Cannot get ethernet port name
+>>> (%d)!\n",
+>>> +			       __func__, ret);
+>>> +			goto of_get_err;  
+>>
+>> Just use scoped loop.
+> 
+> I've used for_each_available_child_of_node(p, port) {} to iterate
+> through children.
+> 
+> Is it wrong?
 
->=20
-> > +	help
-> > +		This enables support for the MoreThan IP L2 switch
-> > on i.MX
-> > +		SoCs (e.g. iMX28, vf610). =20
->=20
-> Wrong indentation. Look at other Kconfig files.
+No, it is not, just can be simpler with scoped variant.
 
-The indentation from Kconfig from FEC:
+...
 
-<tab>help
-<tab><2 spaces>FOO BAR....
+>>
+>>> +	if (!fep)
+>>> +		return -ENOMEM;
+>>> +
+>>> +	pdev->id_entry = &pdev_id;
+>>> +
+>>> +	dev_info = (struct fec_devinfo
+>>> *)pdev->id_entry->driver_data;
+>>> +	if (dev_info)
+>>> +		fep->quirks = dev_info->quirks;
+>>> +
+>>> +	fep->pdev = pdev;
+>>> +	platform_set_drvdata(pdev, fep);
+>>> +
+>>> +	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+>>> +	fep->enet_addr = devm_ioremap_resource(&pdev->dev, r);  
+>>
+>> Use proper wrapper.
+> 
+> I've followed following pattern:
+> https://elixir.bootlin.com/linux/v6.13.7/source/lib/devres.c#L180
 
-also causes the checkpatch on net-next to generated WARNING.
+which is correct example of that usage, but most drivers were converted
+to different usage. Probably cocci also has rule for that.
 
->=20
-> > diff --git a/drivers/net/ethernet/freescale/mtipsw/Makefile
-> > b/drivers/net/ethernet/freescale/mtipsw/Makefile new file mode
-> > 100644 index 000000000000..e87e06d6870a
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/freescale/mtipsw/Makefile
-> > @@ -0,0 +1,6 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +#
-> > +# Makefile for the L2 switch from MTIP embedded in NXP SoCs =20
->=20
-> Drop, obvious.
+>>> +
+>>> +static const struct of_device_id mtipl2_of_match[] = {
+>>> +	{ .compatible = "fsl,imx287-mtip-switch", },
+>>> +	{ /* sentinel */ }
+>>> +};
+>>> +
+>>> +static struct platform_driver mtipl2plat_driver = {
+>>> +	.probe          = mtip_sw_probe,
+>>> +	.remove         = mtip_sw_remove,
+>>> +	.driver         = {
+>>> +		.name   = "mtipl2sw",
+>>> +		.owner  = THIS_MODULE,  
+>>
+>> Oh no, please do not send us 10-12 year old code. This is long, looong
+>> time gone. If you copied this pattern,
+> 
+> I've stated the chronology of this particular driver. It is working
+> with recent kernels.
 
-Ok.
+That's not how upstreaming should work with explanation below.
+> 
+>> then for sure you copied all
+>> other issues we fixed during last 10 years, so basically you ask us to
+>> re-review the same code we already fixed.
 
->=20
->=20
-> ...
->=20
-> > +
-> > +static int mtip_parse_of(struct switch_enet_private *fep,
-> > +			 struct device_node *np)
-> > +{
-> > +	struct device_node *port, *p;
-> > +	unsigned int port_num;
-> > +	int ret;
-> > +
-> > +	p =3D of_find_node_by_name(np, "ethernet-ports");
-> > +
-> > +	for_each_available_child_of_node(p, port) {
-> > +		if (of_property_read_u32(port, "reg", &port_num))
-> > +			continue;
-> > +
-> > +		fep->n_ports =3D port_num;
-> > +		of_get_mac_address(port, &fep->mac[port_num -
-> > 1][0]); +
-> > +		ret =3D of_property_read_string(port, "label",
-> > +
-> > &fep->ndev_name[port_num - 1]);
-> > +		if (ret < 0) {
-> > +			pr_err("%s: Cannot get ethernet port name
-> > (%d)!\n",
-> > +			       __func__, ret);
-> > +			goto of_get_err; =20
->=20
-> Just use scoped loop.
+^^^ this one. It does not matter if it works. You can send us working
+code with hungarian notation and the argument "it works" is not correct.
+It still will be hungarian notation.
 
-I've used for_each_available_child_of_node(p, port) {} to iterate
-through children.
-
-Is it wrong?
-
->=20
-> > +		}
-> > +
-> > +		ret =3D of_get_phy_mode(port,
-> > &fep->phy_interface[port_num - 1]);
-> > +		if (ret < 0) {
-> > +			pr_err("%s: Cannot get PHY mode (%d)!\n",
-> > __func__,
-> > +			       ret); =20
->=20
-> No, drivers do not use pr_xxx. From where did you get this code?
-
-There have been attempts to upstream this driver since 2020...
-The original code is from - v4.4 for vf610 and 2.6.35 for imx287.
-
-It has been then subsequently updated/rewritten for:
-
-- 4.19-cip
-- 5.12 (two versions for switchdev and DSA)
-- 6.6 LTS
-- net-next.
-
-The pr_err() were probably added by me as replacement for
-"printk(KERN_ERR". I can change them to dev_* or netdev_*. This shall
-not be a problem.
-
->=20
-> > +			goto of_get_err;
-> > +		}
-> > +
-> > +		fep->phy_np[port_num - 1] =3D of_parse_phandle(port,
-> > +
-> > "phy-handle", 0);
-> > +	}
-> > +
-> > + of_get_err:
-> > +	of_node_put(p);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int mtip_sw_learning(void *arg)
-> > +{
-> > +	struct switch_enet_private *fep =3D arg;
-> > +
-> > +	while (!kthread_should_stop()) {
-> > +		set_current_state(TASK_INTERRUPTIBLE);
-> > +		/* check learning record valid */
-> > +		mtip_atable_dynamicms_learn_migration(fep,
-> > fep->curr_time,
-> > +						      NULL, NULL);
-> > +		schedule_timeout(HZ / 100);
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void mtip_mii_unregister(struct switch_enet_private *fep)
-> > +{
-> > +	mdiobus_unregister(fep->mii_bus);
-> > +	mdiobus_free(fep->mii_bus);
-> > +}
-> > +
-> > +static const struct fec_devinfo fec_imx28_l2switch_info =3D {
-> > +	.quirks =3D FEC_QUIRK_BUG_CAPTURE | FEC_QUIRK_SINGLE_MDIO,
-> > +};
-> > +
-> > +static struct platform_device_id pdev_id =3D {
-> > +	.name =3D "imx28-l2switch",
-> > +	.driver_data =3D (kernel_ulong_t)&fec_imx28_l2switch_info,
-> > +};
-> > +
-> > +static int __init mtip_sw_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device_node *np =3D pdev->dev.of_node;
-> > +	struct switch_enet_private *fep;
-> > +	struct fec_devinfo *dev_info;
-> > +	struct switch_t *fecp;
-> > +	struct resource *r;
-> > +	int err, ret;
-> > +	u32 rev;
-> > +
-> > +	pr_info("Ethernet Switch Version %s\n", VERSION); =20
->=20
-> Drivers use dev, not pr. Anyway drop. Drivers do not have versions and
-> should be silent on success.
-
-As I've written above - there are several "versions" on this particular
-driver. Hence the information.
-
-I would opt for dev_info() for backwards compatibility.
-
->=20
-> > +
-> > +	fep =3D kzalloc(sizeof(*fep), GFP_KERNEL); =20
->=20
-> Why not devm? See last comment here (at the end).
-
-As I've written above - no problem to change it.
-
->=20
-> > +	if (!fep)
-> > +		return -ENOMEM;
-> > +
-> > +	pdev->id_entry =3D &pdev_id;
-> > +
-> > +	dev_info =3D (struct fec_devinfo
-> > *)pdev->id_entry->driver_data;
-> > +	if (dev_info)
-> > +		fep->quirks =3D dev_info->quirks;
-> > +
-> > +	fep->pdev =3D pdev;
-> > +	platform_set_drvdata(pdev, fep);
-> > +
-> > +	r =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > +	fep->enet_addr =3D devm_ioremap_resource(&pdev->dev, r); =20
->=20
-> Use proper wrapper.
-
-I've followed following pattern:
-https://elixir.bootlin.com/linux/v6.13.7/source/lib/devres.c#L180
-
->=20
-> > +	if (IS_ERR(fep->enet_addr)) {
-> > +		ret =3D PTR_ERR(fep->enet_addr);
-> > +		goto failed_ioremap;
-> > +	}
-> > +
-> > +	fep->irq =3D platform_get_irq(pdev, 0);
-> > +
-> > +	ret =3D mtip_parse_of(fep, np);
-> > +	if (ret < 0) {
-> > +		pr_err("%s: OF parse error (%d)!\n", __func__,
-> > ret);
-> > +		goto failed_parse_of;
-> > +	}
-> > +
-> > +	/* Create an Ethernet device instance.
-> > +	 * The switch lookup address memory starts 0x800FC000
-> > +	 */
-> > +	fep->hwp_enet =3D fep->enet_addr;
-> > +	fecp =3D (struct switch_t *)(fep->enet_addr +
-> > ENET_SWI_PHYS_ADDR_OFFSET); +
-> > +	fep->hwp =3D fecp;
-> > +	fep->hwentry =3D (struct mtip_addr_table_t *)
-> > +		((unsigned long)fecp + MCF_ESW_LOOKUP_MEM_OFFSET);
-> > +
-> > +	rev =3D readl(&fecp->ESW_REVISION);
-> > +	pr_info("Ethernet Switch HW rev 0x%x:0x%x\n",
-> > +		MCF_MTIP_REVISION_CUSTOMER_REVISION(rev),
-> > +		MCF_MTIP_REVISION_CORE_REVISION(rev)); =20
->=20
-> Drop
-
-Ok.
-
->=20
-> > +
-> > +	fep->reg_phy =3D devm_regulator_get(&pdev->dev, "phy");
-> > +	if (!IS_ERR(fep->reg_phy)) {
-> > +		ret =3D regulator_enable(fep->reg_phy);
-> > +		if (ret) {
-> > +			dev_err(&pdev->dev,
-> > +				"Failed to enable phy regulator:
-> > %d\n", ret);
-> > +			goto failed_regulator;
-> > +		}
-> > +	} else {
-> > +		if (PTR_ERR(fep->reg_phy) =3D=3D -EPROBE_DEFER) {
-> > +			ret =3D -EPROBE_DEFER;
-> > +			goto failed_regulator;
-> > +		}
-> > +		fep->reg_phy =3D NULL; =20
->=20
-> I don't understand this code. Do you want to re-implement
-> get_optional? But why?
-
-Here the get_optional() shall be used.
-
->=20
-> > +	}
-> > +
-> > +	fep->clk_ipg =3D devm_clk_get(&pdev->dev, "ipg");
-> > +	if (IS_ERR(fep->clk_ipg))
-> > +		fep->clk_ipg =3D NULL; =20
->=20
-> Why?
-
-I will update the code.
-
->=20
-> > +
-> > +	fep->clk_ahb =3D devm_clk_get(&pdev->dev, "ahb");
-> > +	if (IS_ERR(fep->clk_ahb))
-> > +		fep->clk_ahb =3D NULL;
-> > +
-> > +	fep->clk_enet_out =3D devm_clk_get(&pdev->dev, "enet_out");
-> > +	if (IS_ERR(fep->clk_enet_out))
-> > +		fep->clk_enet_out =3D NULL;
-> > +
-
-devm_clk_get_optional() shall be used for 'enet_out'.
-
-> > +	ret =3D clk_prepare_enable(fep->clk_ipg);
-> > +	if (ret) {
-> > +		pr_err("%s: clock ipg cannot be enabled\n",
-> > __func__);
-> > +		goto failed_clk_ipg;
-> > +	}
-> > +
-> > +	ret =3D clk_prepare_enable(fep->clk_ahb);
-> > +	if (ret) {
-> > +		pr_err("%s: clock ahb cannot be enabled\n",
-> > __func__);
-> > +		goto failed_clk_ahb;
-> > +	}
-> > +
-> > +	ret =3D clk_prepare_enable(fep->clk_enet_out);
-> > +	if (ret)
-> > +		pr_err("%s: clock clk_enet_out cannot be
-> > enabled\n", __func__); +
-> > +	spin_lock_init(&fep->learn_lock);
-> > +
-> > +	ret =3D mtip_reset_phy(pdev);
-> > +	if (ret < 0) {
-> > +		pr_err("%s: GPIO PHY RST error (%d)!\n", __func__,
-> > ret);
-> > +		goto get_phy_mode_err;
-> > +	}
-> > +
-> > +	ret =3D request_irq(fep->irq, mtip_interrupt, 0,
-> > "mtip_l2sw", fep);
-> > +	if (ret) {
-> > +		pr_err("MTIP_L2: Could not alloc IRQ(%d)!\n",
-> > fep->irq);
-> > +		goto request_irq_err;
-> > +	}
-> > +
-> > +	spin_lock_init(&fep->hw_lock);
-> > +	spin_lock_init(&fep->mii_lock);
-> > +
-> > +	ret =3D mtip_register_notifiers(fep);
-> > +	if (ret)
-> > +		goto clean_unregister_netdev;
-> > +
-> > +	ret =3D mtip_ndev_init(fep);
-> > +	if (ret) {
-> > +		pr_err("%s: Failed to create virtual ndev (%d)\n",
-> > +		       __func__, ret);
-> > +		goto mtip_ndev_init_err;
-> > +	}
-> > +
-> > +	err =3D mtip_switch_dma_init(fep);
-> > +	if (err) {
-> > +		pr_err("%s: ethernet switch init fail (%d)!\n",
-> > __func__, err);
-> > +		goto mtip_switch_dma_init_err;
-> > +	}
-> > +
-> > +	err =3D mtip_mii_init(fep, pdev);
-> > +	if (err)
-> > +		pr_err("%s: Cannot init phy bus (%d)!\n",
-> > __func__, err); +
-> > +	/* setup timer for learning aging function */
-> > +	timer_setup(&fep->timer_aging, mtip_aging_timer, 0);
-> > +	mod_timer(&fep->timer_aging,
-> > +		  jiffies +
-> > msecs_to_jiffies(LEARNING_AGING_INTERVAL)); +
-> > +	fep->task =3D kthread_run(mtip_sw_learning, fep,
-> > "mtip_l2sw_learning");
-> > +	if (IS_ERR(fep->task)) {
-> > +		ret =3D PTR_ERR(fep->task);
-> > +		pr_err("%s: learning kthread_run error (%d)!\n",
-> > __func__, ret);
-> > +		goto fail_task_learning;
-> > +	}
-> > +
-> > +	/* setup MII interface for external switch ports*/
-> > +	mtip_enet_init(fep, 1);
-> > +	mtip_enet_init(fep, 2);
-> > +
-> > +	return 0;
-> > +
-> > + fail_task_learning:
-> > +	mtip_mii_unregister(fep);
-> > +	del_timer(&fep->timer_aging);
-> > + mtip_switch_dma_init_err:
-> > +	mtip_ndev_cleanup(fep);
-> > + mtip_ndev_init_err:
-> > +	mtip_unregister_notifiers(fep);
-> > + clean_unregister_netdev:
-> > +	free_irq(fep->irq, NULL);
-> > + request_irq_err:
-> > +	platform_set_drvdata(pdev, NULL);
-> > + get_phy_mode_err:
-> > +	if (fep->clk_enet_out)
-> > +		clk_disable_unprepare(fep->clk_enet_out);
-> > +	clk_disable_unprepare(fep->clk_ahb);
-> > + failed_clk_ahb:
-> > +	clk_disable_unprepare(fep->clk_ipg);
-> > + failed_clk_ipg:
-> > +	if (fep->reg_phy) {
-> > +		regulator_disable(fep->reg_phy);
-> > +		devm_regulator_put(fep->reg_phy);
-> > +	}
-> > + failed_regulator:
-> > + failed_parse_of:
-> > +	devm_ioremap_release(&pdev->dev, r);
-> > + failed_ioremap:
-> > +	kfree(fep);
-> > +	return err;
-> > +}
-> > +
-> > +static void mtip_sw_remove(struct platform_device *pdev)
-> > +{
-> > +	struct switch_enet_private *fep =3D
-> > platform_get_drvdata(pdev); +
-> > +	mtip_unregister_notifiers(fep);
-> > +	mtip_ndev_cleanup(fep);
-> > +
-> > +	mtip_mii_remove(fep);
-> > +
-> > +	kthread_stop(fep->task);
-> > +	del_timer(&fep->timer_aging);
-> > +	platform_set_drvdata(pdev, NULL);
-> > +
-> > +	kfree(fep);
-> > +}
-> > +
-> > +static const struct of_device_id mtipl2_of_match[] =3D {
-> > +	{ .compatible =3D "fsl,imx287-mtip-switch", },
-> > +	{ /* sentinel */ }
-> > +};
-> > +
-> > +static struct platform_driver mtipl2plat_driver =3D {
-> > +	.probe          =3D mtip_sw_probe,
-> > +	.remove         =3D mtip_sw_remove,
-> > +	.driver         =3D {
-> > +		.name   =3D "mtipl2sw",
-> > +		.owner  =3D THIS_MODULE, =20
->=20
-> Oh no, please do not send us 10-12 year old code. This is long, looong
-> time gone. If you copied this pattern,
-
-I've stated the chronology of this particular driver. It is working
-with recent kernels.
-
-> then for sure you copied all
-> other issues we fixed during last 10 years, so basically you ask us to
-> re-review the same code we already fixed.
-
-I cannot agree with this statement.
-
-Even better, the code has passed net-next's checkpatch.pl without
-complaining about the "THIS_MODULE" statement.
-
-I will remove it.
-
->=20
-> Best regards,
-> Krzysztof
-
-
-
+> 
+> I cannot agree with this statement.
+> 
+> Even better, the code has passed net-next's checkpatch.pl without
+> complaining about the "THIS_MODULE" statement.
+> 
+It's not part of checkpatch. It's part of coccinelle, which - just like
+smatch and sparse - are supposed to report zero or almost zero issues on
+new drivers.
 
 Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/ToD0LkzQNNSL0fAVtNGYYTF
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfir2oACgkQAR8vZIA0
-zr3towf9EuQrYlNola8c/k9YF80cYGUON/OajGVZmP3RKqYfRLoiAdGI08XlKQ6M
-hPsQKJknU2sU8bLLfgtew+V45LNqIXIz57uFyhq3FkcGBHT6FktHKE2RBSTF0BOZ
-cYxhHpWBZifarcyilRC6H2e2yH6s7rgidHP9X+8c1UdNgP/TWTWmtKWupeoON4eN
-dB4EASHTLb6gMoj9mv2irCjg8scy0M8GBkkdmAtZcRsSY2awW66YB2bY9aRIpPdZ
-6/2XLeTl1etM5XDo9axJuARajA8eieRl2DFOod2nxsW78bSIlUyxvmA+iiSeBBz6
-TCLV3LIke2w9jE30lk43sZIjSvyElA==
-=EPeC
------END PGP SIGNATURE-----
-
---Sig_/ToD0LkzQNNSL0fAVtNGYYTF--
+Krzysztof
 
