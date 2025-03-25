@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138DAC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B3CC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RB9GJiRFJg6/bN2vnJM4vC1ljE25oPT92TiI7BbGuH4=; b=BfK6ogAl0zDEOOmJNQq2m8Hzjt
-	TUDedq5gSeIjCEcZxPC6kR9VzmSKSJuKjswZAP8+zbvT7saAWphOdJ4yamiWxl8Ll1R3F1foeQYwV
-	0BAaeSStl2vvfrMtd27a5fztCCXCbMS24gu8m+k/eG4YXwZSxNnbcFh908lrP+P0U9vzZdx8jHAV/
-	7UyA1SLOMjiF11ahkiNn/pxApQVAU6KjpOeFE6FMyoFtdK85Y/Q4ynqPQk68UwIQRxqOY/HXEKl/3
-	kT767iIIu3SCuam0bfNVlvoQeNZQApiuEe6oej6l3IjlO1AYelZ1iiQcZnZITulViGQ3ZMLzQGVuI
-	xMZaOf5Q==;
+	bh=gnl5RH7POTVxhZTqrexGViAgN1F/XxGfRRowwJehUVo=; b=B/paNtRYHUycfFSTF9Fz7D+Jw2
+	W50//TeJoS2KilD4ndm/0YYeQOjxoBBXuKTNEjePMLGh66p9Kl9SQG03D/YRyb+Gzi6IhEwRKoTXq
+	S6ZaJZyXx4JM9bqRuCvJwwCz8ZeXQPQXHysXyWwGve07n4eevpLpGrew5eJ4IYdD1ay2O109vT5Bf
+	n9VQ8vAq4rZdT0YwyZHCaDUluw6bYOW8MRLWAOXxiKVkxybmJ6r78YuzB5Bk7EX/+QHSNxuWM11z6
+	KNO72s0SJtb/ixba7nuvZ9zCNGG2nMQHWeWVkXPDkFtIGTpo6wWvISqzt01FgxoGYemmARAr3D3xB
+	b02JwJ+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3w3-00000005xbx-3Lvt;
-	Tue, 25 Mar 2025 13:03:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx3w1-00000005xa4-0h6j;
+	Tue, 25 Mar 2025 13:03:13 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Zf-00000005sU8-0ifc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 12:40:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RB9GJiRFJg6/bN2vnJM4vC1ljE25oPT92TiI7BbGuH4=; b=Hhg98WCnsua83pWeyAI5CpUMJ4
-	z3rHscl85jBNDm+EvMLR8hNhPqiC5bm92sWWQh8PfKSa73fW7HOL+2rDbGdAPj3l6B/3v3tRFN5Bb
-	wdRTuNXLf/+h+PzTi/DSFBqt1Y7I0F6WUmBF2iMLBDI4wGLAVm8p30O59gf0ZaLm+SsSb8lSRhV7z
-	83nQUzBDty0pdxIRaqkkdp+x8SR1LjmI78PbonX7WjN4atT/T140IsAojGG46KSVqNCOXgHn6CnhI
-	uqJCRpjimPCK4C9EvhsFfxPYAI4MUEglr+wKohmpb0ik91tROKy3ANxup5VWGfuVJ5+ak9FHNKGOu
-	3mbSpKuA==;
-Received: from fw2.prolan.hu ([193.68.50.107])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx3Zb-00000005PyA-02rM
+	id 1tx3JW-00000005nmb-0lsn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:40:05 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id E788AA05BE;
-	Tue, 25 Mar 2025 13:39:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=RB9GJiRFJg6/bN2vnJM4
-	vC1ljE25oPT92TiI7BbGuH4=; b=S9dATbHQKVhWMebPspBcq6wTeWmup9sX72Kh
-	N6n2EOKfMxJ8hfo0eTHPW1XJagCC0ai0nBmCHIVy4CcHtuy/IXnIgexI30R+GdNl
-	duApg87u5HRR6AeTK/YocuQ6l0qO/UdIfXUct1soL8X9PKv9cQq0h1NBt2X0kI5q
-	+lEN+F2l2JIQI486Y6hh0CZEyKqP0TkDztsZGjlE3Uso/PHsCX1aGKhdGaqF1Rjl
-	+yZcvJGLae6yNEZgZGvIv3HmOOj4JjKAWu/0xAH4uJW4swwIiqcoJFiSrmskdLTm
-	7Y8ihLBis0RuF6MM+NSrVlSq4oBw/2dK9YHX3tSsi05orp7W06buvBssdGEA9Ovd
-	fZ2XqrL02cu625TnlTkTjrZBBs2DMjBk09f03HHe3wJhNAcqCHG5HmRSwsqLkJ0d
-	szXn94T4iai0+JUcFgko07Kg+uYwgI8hpnU+wrH90xaphxeVtGYJzCpqbXd6zy/A
-	5z8DotmD6V5RMOrH2eXdQhM8tJTAkLeUyWinSo3HCsKf8NIzqB8pJz95XaMWGHH+
-	1PqX1GnooCT3EhMYUffDfPUnOWlwoeOhS5ygusL8nLXtNLTMmYRquF+i7C7zWzVM
-	kwqMGcHByQCN9+ea0sgxkir8QTN4PyVDIzYVihd/v0s3gW9o51tuF2S0SEKD2pDk
-	+07bpVg=
-Message-ID: <bd7b31d8-be25-4dbc-9a81-4b0cccd64798@prolan.hu>
-Date: Tue, 25 Mar 2025 13:39:51 +0100
+	Tue, 25 Mar 2025 12:23:27 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cf680d351so38705245e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 05:23:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742905404; x=1743510204; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gnl5RH7POTVxhZTqrexGViAgN1F/XxGfRRowwJehUVo=;
+        b=PVqkIc/nW66H9F3KcQMDp6vWuGJ4yFBaG8IskEt73Mm6ttNTQBLRokV+vXbrFNc0T/
+         VaRFySn617KJNV5TirILKeHwAOJEvk3lIuXo1H233T/DU8ZD1JZdoHofpH6dDBvO6VtZ
+         z6207R+FTGUlpW2lf0o8l8midI8pBJyocrgfUxTCc+woLcqW2rp991PdH4NICWew9g00
+         MAiqRzAn3UDE/0d05Q5+uLmhe67kT69iaBxSsqusPxsJx6lT2TYOvqxzKDxLDsohC7zq
+         9TabqbrzPaMXe07zLNWaDxmykn14oY/QMb8Rop3ARkxvbyU9hM0+jl99e4NKTSWWJXzb
+         ytyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742905404; x=1743510204;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gnl5RH7POTVxhZTqrexGViAgN1F/XxGfRRowwJehUVo=;
+        b=wnhc6Gxz9/43vPxVOMNyk0QvB3dIX+6DmBCUNSCtAHQXPIlNhWp7uKz3+pisnaAGP5
+         +SaCSEg3r3dhg4LrQxwAOlbL4wcn5oqHojyIwaVEQW2K6Ol/SzECUyD3WNl9rqwlGUBB
+         8Y0HRz7yj7kHMDf9nq7MARPIR7Q5WABOkPusxKpkH3CP/LYhpE994KWkQEfHBLeo7HD1
+         k5xED+VCGftVBnh4nh0J37VZZiQBpOd+hE+1LjV4+YbSbzEt6MkJdY3MaeVtzH3zRRkd
+         huSknCn7JI+drCsZjogWAP4FFdjaDT5VlD2VNAG/w83D+z/BWxH2vRaSuakuQoqrkWH+
+         jRbA==
+X-Forwarded-Encrypted: i=1; AJvYcCWiEr8YLc10zwuDdUoy8M2brgJnPFSrABB2yh8jtrZ4hmWT/qZvJp9+A/jhyebDBdfR/BxkWJ1VuNvzMm/71N7k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9ZgfAOHvCzIxAc7+CH6fz9d2QE0k8mN3K3gjA8dXduPPNhHbj
+	tOtEwmpyF3zAH1LLvADGoHS/bQJFceG22t1B5C27dthW7H63Eg/WeVv6wUYu0v4=
+X-Gm-Gg: ASbGncuwG5sNPg3aMRw7I7g6nD8m9M46zLuLFIXNdaazIAONLClFz1mZM+EmbCanrsi
+	uwHn8qqcoU6AeICchdfo01y//Kn8E2SRpcPvm3HjNtbk0f+TdR97wp/erpHRDVxNzOQkv7cm49A
+	L1nxU/DwMJID0K5rT4hEV3RBrRPEsRoSVNtLTfyj5KqjBKzYAQTetX+dQZqJYdVORWpJITwqWbG
+	+y6bxzJHxgbAG04kkEOcmtlgFT17YfYYe2/bMJ2oZtcwq5QaL2RWjO/f0bKG7gXENatZI2qFHYS
+	7f8GGJIzedQf1pZ2JDGaLsS3qbQOzVOsKVSgmLnRQ4+/uQuxtnzWLG/2jmSbpy5A2C/kvsDIKEu
+	jF9bECOeP
+X-Google-Smtp-Source: AGHT+IE6bRcBJovGsSP7syxDYUzmQ6H73XOh9NrMfUBBqcvJmW/fILYdlvhCAYwBYc/zAFfQY02Mbg==
+X-Received: by 2002:a05:600c:a00b:b0:439:9434:4f3b with SMTP id 5b1f17b1804b1-43d503056cemr148450025e9.8.1742905404410;
+        Tue, 25 Mar 2025 05:23:24 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d43f43e2asm204517715e9.11.2025.03.25.05.23.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Mar 2025 05:23:24 -0700 (PDT)
+Message-ID: <1bf2d9ad-325e-4b1d-8440-ddbc90eabc67@linaro.org>
+Date: Tue, 25 Mar 2025 13:23:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [v6] dma-engine: sun4i: Simplify error handling in probe()
-To: Julian Calaby <julian.calaby@gmail.com>, Markus Elfring
-	<Markus.Elfring@web.de>
-CC: <dmaengine@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>, Chen-Yu Tsai <wens@csie.org>, "Christophe
- Jaillet" <christophe.jaillet@wanadoo.fr>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Vinod Koul
-	<vkoul@kernel.org>
-References: <20250324172026.370253-2-csokas.bence@prolan.hu>
- <92772f63-52c9-4979-9b60-37c8320ca009@web.de>
- <7064597b-caf7-42e2-b083-b3531e874200@prolan.hu>
- <7332ccd2-ebe6-4b9d-a2ae-8f33641e7bd4@web.de>
- <7afcbbee-6261-4b2f-be14-a3076746d53c@prolan.hu>
- <26e36378-d393-4fe1-938a-be8c3db94ede@web.de>
- <CAGRGNgU7t85oG3Bq7L3KjKUAbRyd6SHSM6F6BvmdXDVkbNegKg@mail.gmail.com>
-Content-Language: en-US, hu-HU
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <CAGRGNgU7t85oG3Bq7L3KjKUAbRyd6SHSM6F6BvmdXDVkbNegKg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
+ Module for the s32g platform
+To: Krzysztof Kozlowski <krzk@kernel.org>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
+ Larisa Grigore <Larisa.Grigore@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, dl-S32 <S32@nxp.com>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+ <20250324100008.346009-2-daniel.lezcano@linaro.org>
+ <bb7e4740-9608-4534-9c19-3ac066e2aa8f@kernel.org>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <bb7e4740-9608-4534-9c19-3ac066e2aa8f@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.37.248]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D948526C7562
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_124003_336741_3D49D52E 
-X-CRM114-Status: GOOD (  28.87  )
+X-CRM114-CacheID: sfid-20250325_052326_238448_8BEF9C8C 
+X-CRM114-Status: GOOD (  24.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,87 +110,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Julian,
 
-On 2025. 03. 25. 13:20, Julian Calaby wrote:
-> Hi Markus,
-> 
-> I really wanted to keep out of this, but...
-> 
-> On Tue, Mar 25, 2025 at 8:14 PM Markus Elfring <Markus.Elfring@web.de> wrote:
->>
->>>> Implementation details are probably worth for another look.
->>>
->>> What don't you like in the implementation? Let's discuss that then.
->>
->> I dare to point concerns out also for the development process.
-> 
-> You're "concerned" about patch granularity, but this is not the sort
-> of thing that some random person would raise, this is the sort of
-> thing a maintainer asks for when patches are doing too many things or
-> are unreviewable. This is neither. It is a very simple cleanup of a
-> probe function as it says in the patch subject.
+[Added s32@ list which I miss from the initial series]
 
-Exactly. That's why I asked if it broke something on Markus' end, 
-because it is a really specific thing to nitpick about, especially in a 
-changeset this small. So far, he did not indicate the *reasons* why he 
-thinks this should be split further.
+On 25/03/2025 08:30, Krzysztof Kozlowski wrote:
+> On 24/03/2025 11:00, Daniel Lezcano wrote:
+>> +
+>> +static int __init nxp_stm_clocksource_init(struct device *dev, const char *name,
+>> +					   void __iomem *base, struct clk *clk)
+>> +{
+>> +	struct stm_timer *stm_timer;
+>> +	int ret;
+>> +
+>> +	stm_timer = devm_kzalloc(dev, sizeof(*stm_timer), GFP_KERNEL);
+>> +	if (!stm_timer)
+>> +		return -ENOMEM;
+>> +
+>> +	stm_timer->base = base;
+>> +	stm_timer->rate = clk_get_rate(clk);
+>> +
+>> +	stm_timer->scs.cs.name = name;
+> 
+> You are aware that all node names will have exactly the same name? All
+> of them will be called "timer"?
 
-> Futhermore, this already has an ack from the maintainer of this file.
-> This indicates that they're happy with it and no significant changes
-> are required. This is also version 6 of the patch, if the maintainer
-> was concerned about this, they'd have already provided some clear
-> guidance on this. If you check previous versions of this patch, no
-> such requests have been made.
-> 
-> Your only other "concern" had already been addressed as has already
-> been pointed out to you.
-> 
->>>> Please distinguish better between information from the “changelog”
->>>> and items in a message subject.
->>>
->>> What do you mean? The email body will be the commit message.
->> See also:
->> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v6.14#n623
-> 
-> The email and patch structure are following the format outlined in the
-> document you link to _exactly_.
-> 
-> 
-> Once again your comments are just noise, and your insistence on
-> repeating them over and over and over and over and over again is
-> borderline harassment.
-> 
-> You have been told to stop this nonsense many many times, here's a
-> link to the most recent one:
-> 
-> https://lore.kernel.org/all/92d1a410788c54facedec033474046dda6a1a2cc.camel@sipsolutions.net/
-> 
-> Please stop sending these emails and go do something constructive with
-> your life.
-> 
-> * * * * *
-> 
-> Bence Csókás, (I hope I've got the order of your names correct)
+ From the caller const char *name = of_node_full_name(np);
 
-Either order works, Bence is the given name, and Csókás is the family 
-name (surname). Hungarian and Japanese order follows the scientific 
-"Surname, Given Name(s)" order, but commas broke many tools, including 
-Git < v2.46, and b4, so I switched to the germanic "Firstname Lastname" 
-format.
+The names are:
 
-> Please block or ignore Markus, at best he's a nuisance and at worst a troll.
+"clocksource: Switched to clocksource stm@4011c000"
 
-I'm still open to hear him out if, and only if, he can give *clear and 
-valid* reasoning on why he wants to achieve this. I'm a generally 
-understanding person. But if it's just hand-waving and linking to the 
-same page over and over again with no explanation on why he _thinks_ I 
-broke SubmittingPatches, then I will do exactly this.
+Or:
 
-Lastly, to all other adressees, sorry for the spam. So let's end this 
-meta-discussion here and keep the rest of the conversation professional, 
-reasoning about the technicals.
+  17:      24150          0          0          0    GICv3  57 Level 
+stm@40120000
+  18:          0      22680          0          0    GICv3  58 Level 
+stm@40124000
+  19:          0          0      24110          0    GICv3  59 Level 
+stm@40128000
+  20:          0          0          0      21164    GICv3  60 Level 
+stm@4021c000
 
-Bence
+And:
 
+cat /sys/devices/system/clocksource/clocksource0/current_clocksource
+stm@4011c000
+
+cat /sys/devices/system/clockevents/clockevent*/current_device
+stm@40120000
+stm@40124000
+stm@40128000
+stm@4021c000
+
+[ ... ]
+
+>> +
+>> +static int __init nxp_stm_timer_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct device_node *np = dev->of_node;
+>> +	struct stm_instances *stm_instances;
+>> +	const char *name = of_node_full_name(np);
+>> +	void __iomem *base;
+>> +	int irq, ret;
+>> +	struct clk *clk;
+>> +
+>> +	stm_instances = (typeof(stm_instances))of_device_get_match_data(dev);
+> 
+> No, you *cannot* drop the const. It's there on purpose. Match data
+> should be const because it defines per variant differences. That's why
+> the prototype of of_device_get_match_data() has such return type.
+> You just want some global singleton, not match data.
+> 
+>> +	if (!stm_instances) {
+>> +		dev_err(dev, "No STM instances associated with a cpu");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	base = devm_of_iomap(dev, np, 0, NULL);
+>> +	if (IS_ERR(base)) {
+>> +		dev_err(dev, "Failed to iomap %pOFn\n", np);
+> 
+> You need to clean up the downstream code to match upstream. All of these
+> should be return dev_err_probe().
+
+Oh right, thanks for the reminder
+
+>> +		return PTR_ERR(base);
+>> +	}
+>> +
+>> +	irq = irq_of_parse_and_map(np, 0);
+>> +	if (irq <= 0) {
+>> +		dev_err(dev, "Failed to parse and map IRQ: %d\n", irq);
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	clk = devm_clk_get(dev, NULL);
+>> +	if (IS_ERR(clk)) {
+>> +		dev_err(dev, "Clock not found\n");
+> 
+> And this is clearly incorrect - spamming logs. Syntax is:
+> return dev_err_probe
+> 
+>> +		return PTR_ERR(clk);
+>> +	}
+>> +
+>> +	ret = clk_prepare_enable(clk);
+> 
+> Drop, devm_clk_get_enabled.
+> 
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to enable STM timer clock: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	if (!stm_instances->clocksource && (stm_instances->features & STM_CLKSRC)) {
+>> +
+>> +		/*
+>> +		 * First probed STM will be a clocksource
+>> +		 */
+>> +		ret = nxp_stm_clocksource_init(dev, name, base, clk);
+>> +		if (ret)
+>> +			return ret;
+>> +		stm_instances->clocksource++;
+> 
+> That's racy. Devices can be brought async, ideally. This should be
+> rather idr or probably entire structure protected with a mutex.
+
+Mmh, interesting. I never had to think about this problem before
+
+Do you know at what moment the probing is parallelized ?
+
+>> +static struct stm_instances s32g_stm_instances = { .features = STM_CLKSRC | STM_CLKEVT_PER_CPU };
+> 
+> Missing const. Or misplaced - all file-scope static variables are
+> declared at the top.
+> 
+>> +
+>> +static const struct of_device_id nxp_stm_of_match[] = {
+>> +	{ .compatible = "nxp,s32g2-stm", &s32g_stm_instances },
+>> +	{ }
+>> +};
+>> +MODULE_DEVICE_TABLE(of, nxp_stm_of_match);
+>> +
+>> +static struct platform_driver nxp_stm_probe = {
+>> +	.probe	= nxp_stm_timer_probe,
+>> +	.driver	= {
+>> +		.name = "nxp-stm",
+>> +		.of_match_table = of_match_ptr(nxp_stm_of_match),
+> 
+> Drop of_match_ptr, you have here warnings.
+> 
+>> +	},
+>> +};
+>> +module_platform_driver(nxp_stm_probe);
+>> +
+>> +MODULE_DESCRIPTION("NXP System Timer Module driver");
+>> +MODULE_LICENSE("GPL");
+
+Thanks for the review
+
+   -- Daniel
+
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
