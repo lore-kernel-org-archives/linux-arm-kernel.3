@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 861C3C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 07:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1689C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 07:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VLCbgkIxmuM/zVJC5WqdP/M363EEdPs0zOuZMbWmfYE=; b=BxZ1Rn9VGvg+/g0vj5vEPuUPFy
-	ehrVS5bsvE6Hhhc+LK6ORFO3ucF9hI4atd+LMWMatmIHi64Aos9vWbRiC/xq+69mSUoqRqCMkSqZ1
-	wfqxex2SkmpG+iE0/S4r24S41oSsZ/mlfiB2nWtWLIqcPAtz/ZB7fYH98tMBVomQv5Nl3TRlI/XHZ
-	OtKKI79nyeuYP9yjsuRjOinXJjdJ4lz9VvryCcj4eS84ANQ7pwmlPzNxep1ECzOY0NxgOX8D+Tv6c
-	X3Fnoprl5MiWFpZ4E6cZpON0l+IukaFudsQbEU4p//isD2NOoKBmKCUVPVyWHEZEl+SWHjjnnyDS9
-	YD554zSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DoJ836Wd7vkGzLLJk2fss49Xw64vZKkegg0JgsJL6/g=; b=YTQU6PhSwbgsBKDvQpCQGB8sm1
+	Gr92kdJ1IeUb+DC+piF5A6xi1h2qytHVpBOGBcqsUtRrniqNoY+dTF+2KpbczXqKkZd4uhX20RCID
+	3o0uLo1CH4ZTMvOEbhXtYTtsK6hHrYBZCCqXcVJkLQiAwHIefGqaZG7mULKcBGpg1jS4n3rWutCSf
+	xVDaRJpQ6n+aNXZN0+PLqsc2IWo+RKQyrFeDCPzhXiORty0gUfDLkJJANTTdqmaUFZbq2wY6jHRCG
+	O4oA4ZYiExdN+UQ7Lpaji8wATxQSwMabTjo7q3T7evXRgNGBydFSiTwYgwArKhvEsYmXj6/5eze0V
+	bMssVD6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twz0Y-000000057wA-3xaA;
-	Tue, 25 Mar 2025 07:47:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1twz2F-00000005839-2uZh;
+	Tue, 25 Mar 2025 07:49:19 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twyyo-000000057bl-4AuU
+	id 1twyzv-000000057pp-0L9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 07:45:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3EAD2A4A557;
-	Tue, 25 Mar 2025 07:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C60B7C4CEE8;
-	Tue, 25 Mar 2025 07:45:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742888746;
-	bh=COv3ALd0K+Klf9VX67K/rQCTmju5YgCqlTdzWPNwzUE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CmV8JNGH7Vcd7sDcWXD3QdzPpQ44/Z4BDNs9o6G3stDLHsydKUsfaTkn5pVxB4LPA
-	 8bRlP+4KjK7bp+4NSt/vU8sD7VicmTvEh1mRkaPB4cHTWKjQ0erj5Whm43Hn4IR/lG
-	 n4FQx6G25IIjt6rmj2JZELJ4TH8vJ+Gc/no9tWf/ut0j83e6BRUaXIj+SrtahRx5Jc
-	 Xc14v+l0DLaqJDsqJrx3zrrK6WoAVXunGAC88ehMCShTerowJG2KDCV82MqmyX4lSJ
-	 eXJdt5BhH/qM4beSZDGs9q+xElFI6D7w7eRvIn1A57pPIG/DiyhT0zEF0hhLfU1bSv
-	 th6orop3f5Pjg==
-Date: Tue, 25 Mar 2025 13:15:35 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>
-Subject: Re: [PATCH v6 10/10] optee: smc abi: dynamic restricted memory
- allocation
-Message-ID: <Z-JfH7VAm0DTTbVg@sumit-X1>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-11-jens.wiklander@linaro.org>
+	Tue, 25 Mar 2025 07:46:56 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-30613802a04so53456261fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 00:46:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1742888813; x=1743493613; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DoJ836Wd7vkGzLLJk2fss49Xw64vZKkegg0JgsJL6/g=;
+        b=jztcKPYcBQBIXphfEm+09SiR/f4d0i2dsLCOYszOeONN+5hQaiQR1JkgHd2CzGpvpa
+         O/o+9ok55ixCfLRQaviXKtv0Vjht4V9m3JBiCHiXC0RVEXpWW19gGZzJS9tum54OY9eO
+         5cK9hQOb8RNXYKJBCHUbHFYz6HMtMX7hA4sJx4QGgy5+/o9P17fyIYvvVt4xNuxsJAsu
+         395EzqvbrVmwG2tTMvTTkHgTdvjf5uwH2HmTT6E/edO31bB/LKZr3ZrT2D4B30bAs5JO
+         5b6ysJcZ2hicDoz30wW1+N8ut5KvacgALn1MuUByI/+Krl15gZBbMLqE0RxGthP7ivGZ
+         EoJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742888813; x=1743493613;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DoJ836Wd7vkGzLLJk2fss49Xw64vZKkegg0JgsJL6/g=;
+        b=CkEn/LGrjzMA1NaQJc9/bJ4MTtSuNqUvSCtpC2kQ4AkYmHqb4mceOr7apdMh/Uqeri
+         0qASg/52y+hPjO+sEEHRWqIDw0TXrVAdRm19rkrmqlNyy0ZFFUq7ZVNbGaKJ2HTKZpc2
+         DYT9mzVwH+4wGI7JaY5bFBultHspKbDt4YU7HkyE3vrJU3w2IYVjZnmzpwQ+6Dj5Yoj3
+         AoIF4F92unS6Dq6PXuqp8jQDPSGRBPU5BZEmY+yjQfqP53wXMpHVkZ+R00+MC0YU6APf
+         SYItQWacY+zs8dz6H+T/SW2fCHTmIA0KRzETv4AkEypcE7pBloB4diP6fvr65Oclyuyh
+         DhSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdjKKHBC9ewMQag4ibN8KbuNu63SFIftY1zxX7+KKwS9+weXKsF7IO8Ldq6xq9d8b5ta+MnW1Gyqim8lIDyOG0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2/VU9STOLloDdzJKAEiYfPV7KrsKeS8q0hqU4mMYSoImPZuGt
+	bH0sZj1QCIq+RBIHfc9Drv5IQsqYzPGx0iGUx074CTwWtw/FBQlsokk+I70iNyUkuEErQaxJP++
+	Bhvs6DCWidsQbn4whJnsW/rAbOTbakhc33OnWMErMWLxihHx+
+X-Gm-Gg: ASbGncvI9kNgFFLOB+hfM1JWDl0Lt71EosMEuCw+skBEq5Mu9ncQkI3gWsi29qyxI3Q
+	SHKbPVZHac8Kq9jygP7OHeefEFbtEcDv3uuBG4vKYRA+XYPRnm0SP/F5ox4ypY7XMZLCSoFxjW2
+	zUYHGN72oKdqRwP2Yyy/Gs/IJr5QfyVM+r2hRnQhD7PVHBM8vAKcjW2qrxWQ==
+X-Google-Smtp-Source: AGHT+IEXQevg12XN39ACCSgu7woEcRZesJCodzxnQwDV3gYwSkv1bJoPPtupvwtOAUoMN/cjKoHLWBSSAF9PWwsTMWk=
+X-Received: by 2002:a05:651c:1989:b0:30c:1017:e5e2 with SMTP id
+ 38308e7fff4ca-30d7e2aacacmr65142341fa.26.1742888812530; Tue, 25 Mar 2025
+ 00:46:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250305130634.1850178-11-jens.wiklander@linaro.org>
+References: <20250324213340.4129384-1-arnd@kernel.org>
+In-Reply-To: <20250324213340.4129384-1-arnd@kernel.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 25 Mar 2025 08:46:41 +0100
+X-Gm-Features: AQ5f1JrDiS4iAiS5mzXk4C4Rng3rq7rGhoSulGPK8xWU4CpD_aXZHddsJebMFnM
+Message-ID: <CAMRc=Mc1zPjuU2KAWkq7s=tizDC+EX86DPNoRjUxutL=U_pY_w@mail.gmail.com>
+Subject: Re: [PATCH] ARM: davinci: always enable CONFIG_ARCH_DAVINCI_DA850
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, David Lechner <david@lechnology.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
+	David Lechner <dlechner@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_004547_180784_0BBAF838 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20250325_004655_388948_85FECD9F 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,158 +96,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 02:04:16PM +0100, Jens Wiklander wrote:
-> Add support in the OP-TEE backend driver for dynamic restricted memory
-> allocation using the SMC ABI.
-> 
-> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+On Mon, Mar 24, 2025 at 10:33=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wr=
+ote:
+>
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> A change to the clk driver broke configurations that enable DA830
+> but not DA850:
+>
+> arm-linux-gnueabi-ld: drivers/clk/davinci/pll.o: in function `__da850_pll=
+0_of_clk_init_declare':
+> pll.c:(.init.text+0x30): undefined reference to `of_da850_pll0_init'
+> arm-linux-gnueabi-ld: drivers/clk/davinci/pll.o:(.rodata.davinci_pll_id_t=
+able+0x14): undefined reference to `da850_pll0_init'
+> arm-linux-gnueabi-ld: drivers/clk/davinci/pll.o:(.rodata.davinci_pll_id_t=
+able+0x2c): undefined reference to `da850_pll1_init'
+> arm-linux-gnueabi-ld: drivers/clk/davinci/pll.o:(.rodata.davinci_pll_of_m=
+atch+0xc0): undefined reference to `of_da850_pll1_init'
+> arm-linux-gnueabi-ld: drivers/clk/davinci/psc.o:(.rodata.davinci_psc_id_t=
+able+0x14): undefined reference to `da850_psc0_init_data'
+> arm-linux-gnueabi-ld: drivers/clk/davinci/psc.o:(.rodata.davinci_psc_id_t=
+able+0x2c): undefined reference to `da850_psc1_init_data'
+>
+> Select ARCH_DAVINCI_DA850 unconditionally to ensure the driver can still
+> build.
+>
+> Fixes: a31b4dcf188c ("clk: davinci: remove support for da830")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  drivers/tee/optee/smc_abi.c | 96 +++++++++++++++++++++++++++++++------
->  1 file changed, 81 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-> index a14ff0b7d3b3..aa574ee6e277 100644
-> --- a/drivers/tee/optee/smc_abi.c
-> +++ b/drivers/tee/optee/smc_abi.c
-> @@ -1001,6 +1001,69 @@ static int optee_smc_do_call_with_arg(struct tee_context *ctx,
->  	return rc;
->  }
->  
-> +static int optee_smc_lend_rstmem(struct optee *optee, struct tee_shm *rstmem,
-> +				 u16 *end_points, unsigned int ep_count,
-> +				 u32 use_case)
-> +{
-> +	struct optee_shm_arg_entry *entry;
-> +	struct optee_msg_arg *msg_arg;
-> +	struct tee_shm *shm;
-> +	u_int offs;
-> +	int rc;
-> +
-> +	msg_arg = optee_get_msg_arg(optee->ctx, 2, &entry, &shm, &offs);
-> +	if (IS_ERR(msg_arg))
-> +		return PTR_ERR(msg_arg);
-> +
-> +	msg_arg->cmd = OPTEE_MSG_CMD_LEND_RSTMEM;
-> +	msg_arg->params[0].attr = OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
-> +	msg_arg->params[0].u.value.a = use_case;
-> +	msg_arg->params[1].attr = OPTEE_MSG_ATTR_TYPE_TMEM_INPUT;
-> +	msg_arg->params[1].u.tmem.buf_ptr = rstmem->paddr;
-> +	msg_arg->params[1].u.tmem.size = rstmem->size;
-> +	msg_arg->params[1].u.tmem.shm_ref = (u_long)rstmem;
-> +
-> +	rc = optee->ops->do_call_with_arg(optee->ctx, shm, offs, false);
-> +	if (rc)
-> +		goto out;
-> +	if (msg_arg->ret != TEEC_SUCCESS) {
-> +		rc = -EINVAL;
-> +		goto out;
-> +	}
-> +	rstmem->sec_world_id = (u_long)rstmem;
-> +
-> +out:
-> +	optee_free_msg_arg(optee->ctx, entry, offs);
-> +	return rc;
-> +}
-> +
-> +static int optee_smc_reclaim_rstmem(struct optee *optee, struct tee_shm *rstmem)
-> +{
-> +	struct optee_shm_arg_entry *entry;
-> +	struct optee_msg_arg *msg_arg;
-> +	struct tee_shm *shm;
-> +	u_int offs;
-> +	int rc;
-> +
-> +	msg_arg = optee_get_msg_arg(optee->ctx, 1, &entry, &shm, &offs);
-> +	if (IS_ERR(msg_arg))
-> +		return PTR_ERR(msg_arg);
-> +
-> +	msg_arg->cmd = OPTEE_MSG_CMD_RECLAIM_RSTMEM;
-> +	msg_arg->params[0].attr = OPTEE_MSG_ATTR_TYPE_RMEM_INPUT;
-> +	msg_arg->params[0].u.rmem.shm_ref = (u_long)rstmem;
-> +
-> +	rc = optee->ops->do_call_with_arg(optee->ctx, shm, offs, false);
-> +	if (rc)
-> +		goto out;
-> +	if (msg_arg->ret != TEEC_SUCCESS)
-> +		rc = -EINVAL;
-> +
-> +out:
-> +	optee_free_msg_arg(optee->ctx, entry, offs);
-> +	return rc;
-> +}
-> +
->  /*
->   * 5. Asynchronous notification
->   */
-> @@ -1252,6 +1315,8 @@ static const struct optee_ops optee_ops = {
->  	.do_call_with_arg = optee_smc_do_call_with_arg,
->  	.to_msg_param = optee_to_msg_param,
->  	.from_msg_param = optee_from_msg_param,
-> +	.lend_rstmem = optee_smc_lend_rstmem,
-> +	.reclaim_rstmem = optee_smc_reclaim_rstmem,
->  };
->  
->  static int enable_async_notif(optee_invoke_fn *invoke_fn)
-> @@ -1622,11 +1687,13 @@ static inline int optee_load_fw(struct platform_device *pdev,
->  
->  static int optee_sdp_pool_init(struct optee *optee)
->  {
-> +	bool sdp = optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_SDP;
-> +	bool dyn_sdp = optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_DYNAMIC_RSTMEM;
->  	enum tee_dma_heap_id heap_id = TEE_DMA_HEAP_SECURE_VIDEO_PLAY;
-> -	struct tee_rstmem_pool *pool;
-> -	int rc;
-> +	struct tee_rstmem_pool *pool = ERR_PTR(-EINVAL);
-> +	int rc = -EINVAL;
->  
-> -	if (optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_SDP) {
-> +	if (sdp) {
->  		union {
->  			struct arm_smccc_res smccc;
->  			struct optee_smc_get_sdp_config_result result;
-> @@ -1634,25 +1701,24 @@ static int optee_sdp_pool_init(struct optee *optee)
->  
->  		optee->smc.invoke_fn(OPTEE_SMC_GET_SDP_CONFIG, 0, 0, 0, 0, 0, 0,
->  				     0, &res.smccc);
-> -		if (res.result.status != OPTEE_SMC_RETURN_OK) {
-> -			pr_err("Secure Data Path service not available\n");
-> -			return 0;
-> -		}
-> +		if (res.result.status == OPTEE_SMC_RETURN_OK)
-> +			pool = tee_rstmem_static_pool_alloc(res.result.start,
-> +							    res.result.size);
-> +	}
->  
-> -		pool = tee_rstmem_static_pool_alloc(res.result.start,
-> -						    res.result.size);
-> -		if (IS_ERR(pool))
-> -			return PTR_ERR(pool);
-> +	if (dyn_sdp && IS_ERR(pool))
-> +		pool = optee_rstmem_alloc_cma_pool(optee, heap_id);
->  
-> +	if (!IS_ERR(pool)) {
->  		rc = tee_device_register_dma_heap(optee->teedev, heap_id, pool);
->  		if (rc)
-> -			goto err;
-> +			pool->ops->destroy_pool(pool);
->  	}
->  
-> +	if (rc && (sdp || dyn_sdp))
-> +		pr_err("Secure Data Path service not available\n");
+>  arch/arm/mach-davinci/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm/mach-davinci/Kconfig b/arch/arm/mach-davinci/Kconfi=
+g
+> index 3fa15f342240..8f66de0405d9 100644
+> --- a/arch/arm/mach-davinci/Kconfig
+> +++ b/arch/arm/mach-davinci/Kconfig
+> @@ -4,6 +4,7 @@ menuconfig ARCH_DAVINCI
+>         bool "TI DaVinci"
+>         depends on ARCH_MULTI_V5
+>         depends on CPU_LITTLE_ENDIAN
+> +       select ARCH_DAVINCI_DA850
+>         select CPU_ARM926T
+>         select DAVINCI_TIMER
+>         select ZONE_DMA
+> --
+> 2.39.5
+>
 
-Rather than an error message we should just use pr_info().
+Thanks and sorry for the trouble. FYI I want to remove all traces of
+da830 during this cycle leaving da850 as the only platform upstream.
 
--Sumit
-
-> +
->  	return 0;
-> -err:
-> -	pool->ops->destroy_pool(pool);
-> -	return rc;
->  }
->  
->  static int optee_probe(struct platform_device *pdev)
-> -- 
-> 2.43.0
-> 
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
