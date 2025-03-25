@@ -4,157 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB315C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 02:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6456EC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 02:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ggW18ZyWU34ZouALEwkt5olqyiKiM/pQiyQCvgogmwo=; b=vi1E2b2cle7Fd66O/k3R43sqGM
-	5c51Xp4PmifI3PJLa7KejyheXAlzC6DJoxv6eztuj46uQdAoBvOaKoQ2SdNrEJ63grETMZ1SSbyKX
-	oqopKNNKxS8W9qpj2fN4vgt/4hhGBkm8bQsYamfg9G3OQXPfHNg2MmoHvNwaVQHAt06q6MMmWmW0y
-	/fuAApzBeUxje7y2Ae+yK73aflZdI2zz7641Tlb2DdXXifReHXoaDckpPl7vrM8eb95RyMAPJoxYl
-	VzrUvGqKtkE/6H83etlsYiu45t4YwGd6TyCBmSYweg2RvD++U+mF1Gx0fJgakVdDMmrdxE9Regr0F
-	Bkcwc7SA==;
+	bh=JSmQOhQx8jXna303TMh4SX/9QUR6aHz50NXqzzJHsDU=; b=v74UFxhZHiPHhYEJHAdzr7/tgE
+	j3/lcEyuWMfvJPPvP4mFaT7eJGpZTBcOv/EfxMNRJCpdjXK5Y15hxIxxJVcYgvxRSgPJ3/cwGTXt4
+	bZnFTTvHWLqziZpAUeNjeGSyG1qUMDUjoqcUuJI2m8pvUkI3Wiwy53s2yH+6CNrZ96j4nHB92fxKr
+	dShybsoD3aHqMajWA5vFoRleHhB5ljLccCrjLnnVw5ZiTC24tXgxzNZhwy+1kROESdKTJIOSrD5iC
+	LXnogEV1l77bnHvnWrqIpRalr5xGedmSEl7e96OJrR7qmf7EdYk7K3eq7qtXLB6E6uklVnXc8+G7F
+	vDsG/SLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twtwD-00000004gBY-2qgC;
-	Tue, 25 Mar 2025 02:22:45 +0000
-Received: from mail-bn1nam02on20615.outbound.protection.outlook.com ([2a01:111:f403:2407::615] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1twuO7-00000004i9N-01F5;
+	Tue, 25 Mar 2025 02:51:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twtuV-00000004g3t-1aku;
-	Tue, 25 Mar 2025 02:21:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XzkAcH+dk2zbect0oWfMQBO2HM66zrGz3fWXgO4XRAkLWDi1eNJgbITXJ7mafr54weTPgzuMSzVoPtvqGOwvZctnIhQlpcR8xaL8R1HHJLScYIlSz20yQWSLKxFj6+cXViOL6dcBvPo98n82df4HvuTDfV6glMI4MFpgULv06SjD56WE5WCIV0ATPzNP8vhlNH8NvmvJqmecPa9XTvp9+/+frYWBcPYkq+Ybgh1fUZ41YFGkFvR5vQxxeTpIyimuwv0862UwrErj8w1DjUQHp3vanv4RhbhpbkK1AA/B4zq080+9uPXJ8MllW5uz772aCR8dqLIAw+OvmyD+JHiaFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ggW18ZyWU34ZouALEwkt5olqyiKiM/pQiyQCvgogmwo=;
- b=iTxMvpnEQ21wYuuWTuiwBvIOE9WGmJc4GqZZQx3Td2jRqedQXGPaq4yWgyM/NXyoA2Mxn/LLt7Gyx4Dy5ijiMo5HyTXe1rHGptHoH5OpLLLzwiTOpcKbquaYDWxwum8bpLM+u7eWufWbHgfPXK7QXVnyIQAui8DSU+QTxp3Zhyf5xzneBssVZyHFEc+zJqdceTUsp5ooG4EXOF5/OOiXFEPE5UkLLy0y2TYFjkWaMxnXMJvelaCwCDA2QQI60ij9CF5MeTjL4ROPIugHJA/eXp5nhKpA1rnrf7rHJsKk8XYR+BKHJGXopXR4FI6q6t/l8QYAVCxpaAasgHHYG6o8WA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ggW18ZyWU34ZouALEwkt5olqyiKiM/pQiyQCvgogmwo=;
- b=io7APqff22BDUPI60QbB3ow+aVWV+y9M7/4KbSTpgL9WeVQtnQQgLtDSGalyT6QMcAsCFRZ9Bqv2hfWwps0jMygDNINgUZTukjupEByYznc97nCAjwJ/P8OTvan3hVhFoRw4emoK5NZHrJJwZcxKrqvU4PTmJA38HGRcl5c9W2qB6bDon5iFlalQi8pM+9Vio6i1flxZuGb/uRHUVnn7xK3xuMvnX+q00kPkoXj5SzgIWJIRYIwsU/iiCj114Ydwz5e39Ymis6XGVrzr18zITx7dunbeRz3KcGsvs+blwsZIUrE2oYgTD3CMr7wi3KXCFoQho/MOlWa3dL2RIJ3NoQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SJ1PR12MB6075.namprd12.prod.outlook.com (2603:10b6:a03:45e::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
- 2025 02:20:53 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.040; Tue, 25 Mar 2025
- 02:20:52 +0000
-Date: Mon, 24 Mar 2025 23:20:51 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Changyuan Lyu <changyuanl@google.com>
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
-	catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com,
-	mingo@redhat.com, pasha.tatashin@soleen.com, pbonzini@redhat.com,
-	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
-	robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v5 07/16] kexec: add Kexec HandOver (KHO) generation
- helpers
-Message-ID: <Z+ITA48uRCpMkvGV@nvidia.com>
-References: <Z+GIRecXeYXiPrYv@nvidia.com>
- <20250325002145.982402-1-changyuanl@google.com>
+	id 1twuMO-00000004i0j-0dRu;
+	Tue, 25 Mar 2025 02:49:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7409E5C585E;
+	Tue, 25 Mar 2025 02:47:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5F37C4CEDD;
+	Tue, 25 Mar 2025 02:49:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742870987;
+	bh=kzEDoLXYoRLg4bIFcw01+2FmmdfSHx/Mqfyj4i5mSJo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G6k6WhZwnR8EXCsrq4/rrPLd3oVKgxxPC4tvPKQ/220SRREdm3++oCCG3eE6gDe4m
+	 M8p6zv3nKFNSdTFGJWndCQOYPYyZTi7LziREVsW+nH27li4kSdLTMDJbu8OtGTET9p
+	 l5ckX40XxsIqwBxkAEEwf5B5bdtmkUWqnFY5LWGvNHSyFUpAXQCEDzFU649/Z9x+z3
+	 2KGeK1ZhKt9ZKPCZmxv9E8/SiFBuQD9vp+J1FJvGW+CZS+w+Jr3DgAwmzJn/s3+yEO
+	 +BFgNPQTmbGXy7oQ+dq2G5D4Q7ZylEGLxTZeY5WIU6aDxsnyobIhdqcNWeCGWSCuDk
+	 n1sDAvEUO1QaQ==
+Date: Mon, 24 Mar 2025 21:49:46 -0500
+From: Rob Herring <robh@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] dt-bindings: arm: rockchip: Add Radxa ROCK 5B+
+Message-ID: <20250325024946.GA1544352-robh@kernel.org>
+References: <20250324-rock5bp-for-upstream-v1-0-6217edf15b19@kernel.org>
+ <20250324-rock5bp-for-upstream-v1-3-6217edf15b19@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250325002145.982402-1-changyuanl@google.com>
-X-ClientProxiedBy: BN9PR03CA0266.namprd03.prod.outlook.com
- (2603:10b6:408:ff::31) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ1PR12MB6075:EE_
-X-MS-Office365-Filtering-Correlation-Id: e83a6eda-aa1a-4a1c-a0a4-08dd6b43aa9b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oBozeVnmC6/KAEgE9DVFU5Fe2Go3KvuhgIIxNUyF7Q8dqqFB3Moeq6ux2+zD?=
- =?us-ascii?Q?MDln2r4lx/fPdgkgtKcgMWUOL4Z5mmySav0n9j+7h3Y8KHEVGpIHCYAAwsrJ?=
- =?us-ascii?Q?mr3YX1K08Gu6zcjQnkbkBc7PhDtKsp0EsO8yQXGgDEFZcaAaz3Et6gYKpQ14?=
- =?us-ascii?Q?5uoqMWoxu2iKjgEYkT5yHeEllVpLmVZPBxaxS1dXmzQGFOFyvhPujn3OGQOr?=
- =?us-ascii?Q?ipQ3sIhxeWSXbpf1UV1BEYEollQEpu5MaWoKorDet8MoE6PAKlZPQpnFIrXu?=
- =?us-ascii?Q?MqzSp14nGDlJVCtJoqro0jsObgNKGi95IaxGoaHlar/b1+01kDAnS7inNNjW?=
- =?us-ascii?Q?G9nU4/UvJ4PeWLh+fWnjh0en+4Ka0jcSUt9jVjHaN4CBoN5FZeT++EfeFc6X?=
- =?us-ascii?Q?+Dt8FBfBGZodrb8dTqS02WcEKlmB79ckD/hc+87Mr/G/6GJUkmEnMfJs747k?=
- =?us-ascii?Q?qoJt7IOJGW3jfiwsXXsxDfgDyxAeFKLs9rIKevcnskikPXzbshM6oog0iiUh?=
- =?us-ascii?Q?eQBXVklfNlJ1spabsiOwiCEVJGIwG9+qUyUawaIxTVHX8QBsfoBh1u98ojbz?=
- =?us-ascii?Q?g+L6gSNDBE7bwzHrZQ9EHNchuHnec/zv2VgiAvG5ABX2qEkFE4AMhOBoD057?=
- =?us-ascii?Q?5+5D8vPSUwGcjRIfc5HsTbA+r74C1rFN/tQRB+RlBd1/pN5BguZg8YpxSUNT?=
- =?us-ascii?Q?yPROV6RHTYU7O3fD1HYvH2pRBXjWvPA/k2ENH0Zn3nR0oyGDk916C7vv5Kvc?=
- =?us-ascii?Q?owqIZbDp9WvGRzyzK2lo+59CdcPnjN2tkVsiuozoUnmoD0xL8AfOTXf8C5rT?=
- =?us-ascii?Q?/PIm/8IL3vgDyLAL/0tR51wSYP8asRLbW8zIfMhucXax+oWeJR03aCM+OTzT?=
- =?us-ascii?Q?Uk/8YXj3/V35VbxRcpjeCR0CGzK8AYYBJc7+T+XOKEiSGbR6Ud0KO4VEXCd7?=
- =?us-ascii?Q?TJvaO2qwoT5Tuq375rOyT9+FZD4f5ClyY+EfUbc0u0EPrnw3LhgH/lD5TjVz?=
- =?us-ascii?Q?UNdLun7+PRb1EDxD6ZVsn0665HiBMntuQiNCZb9rSWf2+CpOKlDoqUgNM6HF?=
- =?us-ascii?Q?IBTGheJRU8ge1BA+E7/Z3nVPDgZZW4SuucKR29BwgxlWxApTdkv1/t6ipGnZ?=
- =?us-ascii?Q?Bd5SD+z56LF010+8c4r5SUYvsEPh4W6eNoyOMPbZX9zMt7o+EOOCGXH3SWZR?=
- =?us-ascii?Q?eO9czcoMToYtxX77WbK7Uh+o850/lYPdNxL3NGlfZSBUTsKBM/XWbomgjmZ2?=
- =?us-ascii?Q?US124gQJfR7wHQo93CI8hm5q0cc95ndx3DOvkcY0tsxSSfUokwOu2H7CLrpN?=
- =?us-ascii?Q?y3v2z0L8JMzidw+9nxGEcVhx/KKXh483cfNZKgPySjCS8QoPT+dSox3r5p3X?=
- =?us-ascii?Q?f3ej2OTO6VZF+nS7VM//irpT6bU/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?M6s51Gwb1b+z1MN9gIXbl0tb387Avb41RyGI5WxJyiSDAPA9Gr78Jzmg9opE?=
- =?us-ascii?Q?qtICrUtNryZxYQWhePyfiWl67s01tUMpQxcWc5r+pENT7NIj5R9V0lpSgDRj?=
- =?us-ascii?Q?n0QY7FWlb/vRTzh+PKi6X+dC5VlpN/q8fFqgYaJL4OQTQnN1JBXPuojKGOnm?=
- =?us-ascii?Q?evYUfYdtnJJdWxfPxNUHiMGDYxVN9BdFRljJTpKNG1MgbEr0FHyFqDQKLuK5?=
- =?us-ascii?Q?maii2fwNDlsN3zFmH8R9zWDULPHz3te7WSX1Jdxck7RmJpxmSZczRcrH+tqu?=
- =?us-ascii?Q?dhU+T8WkiiwBL+pL/Ddtsaz7wMzP/nOJ3g7voGK6QVD7lntmolBkDGJiFDds?=
- =?us-ascii?Q?pMbl5W7y4+bWFfIQxJrEYygGQmb8zzI+rsEuFtxIhQ5/CAjssnqLC8MdyhQT?=
- =?us-ascii?Q?Jj5jTPhWeOV5ZWzpF0ZrEDtufRJzbvQZ1OCuk0lV95WINqgzk5/6D9UXKwzz?=
- =?us-ascii?Q?lGhbJPltWofC2JWiWIVvlaZkxVHLLH7qDu3VbNCQ+bVLKjRLkT7a9k54yoq7?=
- =?us-ascii?Q?x53EMraMk4isJj63hY9PXp3uW5ZlnUENT+gwUmQgL58wu/JWsManJZ91msiX?=
- =?us-ascii?Q?8TybNutY+9FRxq6/YlHt2YD2PeeReRPFNw5ihcgHndMpkZEXWTpaSsWDvcFV?=
- =?us-ascii?Q?csUrUNMIn2ZTWFeHRpgG+5FQAVC7jFnpHzGxCneajFf9D6eb7JBA42Gn1LC1?=
- =?us-ascii?Q?/cV1il9iMO/u4ku2H9hO47Vjvzp6HqwrP8NvPbbFCbgERLdSCBxfW/N4XqqM?=
- =?us-ascii?Q?NZXXWyhHM6pPR/t4G3dUVKnt8GHUQJeFiePRDC1M21SX7oD82fXiH9Y7PRoF?=
- =?us-ascii?Q?fO19ZffashxswjzhwA5kqxtvmHLPOzBgpU9nG3KdtRi7Eodb5XHmC/bRHiHP?=
- =?us-ascii?Q?5QF0ix12Otdit6ZM6WUYJX3zmP8n7Fb4Rd4Le/OkroKBpx/BvkFaJAjjtphg?=
- =?us-ascii?Q?IKRQ5M8c1p5gK3elqn1T+XaO+cT5VO2/9rJGwNBjaoZTZP89yH/7JCDH/8Dc?=
- =?us-ascii?Q?iydMEovuGc/kxnaVJ5IBYLqk/4e4Qzd7cwriDJA+voR/hH3CMxDgIeHSINjl?=
- =?us-ascii?Q?YBwjnEXMxvrW4wNTzzNwxhM8c8GIhUs5MI4uAyYHB107KIJr8V+vgBIQaZgn?=
- =?us-ascii?Q?u1rpMuYW8fepDYY5YI94Ths4Wa21WsKFs8PsqLSPR+HAOzlB6XsbfxH1FP/H?=
- =?us-ascii?Q?NGRTb3UlLxT1hIDUiooy3hck+Onl7WKGbaELArptqoHVbtxvAgGqyHxGNcKD?=
- =?us-ascii?Q?V49oBbIZL2HuUVGv642x+36DBZl21lQi3IsRWUtllhvDF2ZklZoGEWfwz1cO?=
- =?us-ascii?Q?43qBzCzavFc1SzQ9FABG1KCJuOz9KbrexC3VEZz3xiziJeBSKoDmuDrZRc4R?=
- =?us-ascii?Q?vmqRz5I1InJJExxl8or0ERxYIfxTKv5AkEBIyWu+gX2IuupkDCTFcNzhZ1B+?=
- =?us-ascii?Q?zzfrkXjcuzhwfldy7EuJ/Udd9Skg1W4u4CXFPtCO4Mu48TniR6l/1mrH5sHw?=
- =?us-ascii?Q?M4mOI/IUMdpvlX9rWup5IaY9htSpeOdI3IjRC9fe4S28mjAzGnle/zKOhHpF?=
- =?us-ascii?Q?WwkqySuNjwwEmu/NNK4=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e83a6eda-aa1a-4a1c-a0a4-08dd6b43aa9b
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2025 02:20:52.8536
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MK3+FmDc4lbdk4IE/Cwj7mqjBcuvAP51dnKZ4DTppiOdtl/jbBY86CEm8rhkci2p
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6075
+In-Reply-To: <20250324-rock5bp-for-upstream-v1-3-6217edf15b19@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_192059_424261_C6DA4433 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20250324_194948_231748_45E12566 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,71 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 24, 2025 at 05:21:45PM -0700, Changyuan Lyu wrote:
+On Mon, Mar 24, 2025 at 06:04:24PM +0100, Sebastian Reichel wrote:
+> The Radxa ROCK 5B+ is an improved version of the ROCK 5B.
+> 
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
 
-> Thanks for the suggestions! I am a little bit concerned about assuming
-> every FDT fragment is smaller than PAGE_SIZE. In case a child FDT is
-> larger than PAGE_SIZE, I would like to turn the single u64 in the parent
-> FDT into a u64 list to record all the underlying pages of the child FDT.
+Same patch has already been acked here:
 
-Maybe, but I'd suggest leaving some accomodation for this in the API
-but not implement it until we see proof it is needed. 4k is alot of
-space for a FDT, and if you are doing per-object FDT I don't see
-exceeding it.
+https://lore.kernel.org/all/20241226005845.46473-1-naoki@radxa.com/
 
-For instance a vfio, memfd, and iommufd object FDTs would not get
-close.
-
-> In this way we assume that most FDT fragment is smaller than 1 page so
-> "kho,recursive-fdt" is usually just 1 u64, but we can also handle
-> larger fragments if that really happens.
-
-Yes, this is close to what I imagine.
-
-You have to decide if the child FDT top pointers will be stored
-directly in parent FDTs like you sketched above, or if they should be
-stored in some dedicated allocated and preserved datastructure, like
-the memory preservation works. There are some tradeoffs in each
-direction..
-
-> I also allow KHO users to add sub nodes in-place, instead of forcing
-> to create a new FDT fragment for every sub node, if the KHO user is
-> confident that those subnodes are small enough to fit in the parent
-> node's page. In this way we do not need to waste a full page for a small
-> sub node. An example is the "memblock" node above.
-
-Well, I think that sort of misses the bigger picture. What we want is
-to run serialization of everything in parallel. So merging like you
-say will complicate that.
-
-Really, I think we will have on the order of 10's of objects to
-serialize so I don't really care if they use partial pages if that
-makes the serialization faster. As long as the memory is freed once
-the live update is done, the waste doesn't matter.
-
-> Finally, the KHO top level FDT may also be larger than 1 page, this can
-> be handled using the anchor-page method discussed in the previous mails.
-
-This is one of the trade offs I mentioned. If you inline the objects
-as FDT nodes then you have to scale and multi-page a FDT.
-
-If you do a binary-structure like memory preservation then you have to
-serialize to something that is inherently scalable and 4k granular.
-
-The 4k FDT limit really only works if you make liberal use of pointers
-to binary data. Anything that is not of a predictable size limit would
-be in some related binary structure.
-
-So.. I'd probably suggest to think about how to make multi-page FDT
-work in the memory description, but not implement it now. When we
-reach the point where we know we need multi-page FDT then someone
-would have to implement a growable FDT through vmap or something like
-that to make it work.
-
-Keep this intial step simple, we clearly don't need more than 4k FDT
-at this point and we aren't doing stable kexec-ABI either. So simplify
-simplify simplify to get a very thin minimal functionality merged to
-put the fdbox step on top of.
-
-Jason
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> index 650fb833d96ef67ea1bba33c0767777378a38fa7..fe1fe8fe52fa3594a0da8e0263cb46949436a021 100644
+> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
+> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> @@ -946,6 +946,11 @@ properties:
+>            - const: radxa,rock-5b
+>            - const: rockchip,rk3588
+>  
+> +      - description: Radxa ROCK 5B+
+> +        items:
+> +          - const: radxa,rock-5b-plus
+> +          - const: rockchip,rk3588
+> +
+>        - description: Radxa ROCK 5C
+>          items:
+>            - const: radxa,rock-5c
+> 
+> -- 
+> 2.47.2
+> 
 
