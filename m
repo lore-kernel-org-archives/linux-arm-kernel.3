@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56EB8C3600D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6491CC3600D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 16:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gx78FzdSuoxvydX3OAmJrDm5VENfMIagJMouDlZNW7Q=; b=4xmX1PiYjI8Pr54L+/PqqIQhgW
-	GsP6+l0Zqr2Om1bens1k2LxBwcB4h1cD1IR0DRB3tII2LUF639uuILoYbILTOVCY9q8VRn59nP9Y5
-	RD5yTdwMM1L+Jt1CbLdEwctmClApxfkaJ3l4hVak/sqNM/dppy7AjyyU78p9rVWNn4/TN/49qPY9P
-	Fyf55QC4Sk1pUS+o29K1nLn0RILGuhc4QpMO0kgIS6wXwAUVkXMBiZqiEkWFV+hu18UvA99qaAJhI
-	o8fvKcKGpyF96x1aYz2RmOHHk1PDBDnOvlHN4BQRoPBHZa80K5wFyO8t3EDyzZYA+HuvWtYMXOdJT
-	UnSAaiBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+zkh//Nwn4vd5K3+FMDGZ31kXukMuY4E++vVHngzAac=; b=ysefeC7ueOV8ZM1ujcT61Hrnjq
+	8SPTV2Z5rL3Is5r5vnt39GsFSc2tlAsudbyW+PGhaZEAx8Q9Kafg4E1MO72v7uDrUpu/BG6MCpczB
+	J7VOSIpN0/RzVfjaMaKgeHvaXQaAET8i1dgQUqbXomQq4afKR4CU4gSE8sxpPn/1bm5QLBeGtQPXD
+	cJzsaRRWgwOeBVD3kv12GkJPO8hoKVSSGVCzjgJzWqrCbmU9H2Dl4GXfcUvq0CpVTIAqgFtvm6ZpO
+	yEdhbnI9MdijRs3XqStmPKokzoYuZR8inHr4baGn2rLnsRNFr6jyKwmOyryzZZzcdtTHDJWSdhcgB
+	GvbWEFIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7X1-00000006Xkt-48er;
-	Tue, 25 Mar 2025 16:53:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx7X6-00000006Xol-1mh5;
+	Tue, 25 Mar 2025 16:53:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5PJ-00000006DK4-0FV4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 14:37:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Gx78FzdSuoxvydX3OAmJrDm5VENfMIagJMouDlZNW7Q=; b=jAdSEy5gcM+D9u6mxQQDYE+XLG
-	MRzy7Lf68KBhP9VbaCLyRn4zBsIba2Rdk89PKv/DgYz47bWUE9RFwsLHOpKFCaJQJEV1TaJGeIsDd
-	Ey0klXEJ4oDL1XF94nignl36pX7rIQCkNN9nEYSCBaCZNPBpSA694sUXvP9udB2qQ+V9SpH06W6+x
-	cAQLDcv/8MzHTE0sOAeyJFND7HIWgniK4eR8svusij+mfedG5SvWLmKMwczGyPHNMVI4NlM9KiBxx
-	urG/+0do564U6p3l+L1ljdj5QCgE7QRvM1NPlr6NxSejdgihh2LmprawFIlSo0ZnGHMKylh2sdFrC
-	mE2ThWnQ==;
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx5PF-00000005VwA-37GZ
+	id 1tx6Nb-00000006MPr-0Z3N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 14:37:31 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A8859102E64C4;
-	Tue, 25 Mar 2025 15:37:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1742913446; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Gx78FzdSuoxvydX3OAmJrDm5VENfMIagJMouDlZNW7Q=;
-	b=J9EvbRS7UMr+zUOmz1lpNCnS04jKWkny9gRjE9/DZxMR7SGO59p02E0PT6z3LTMHwA4W49
-	54fLn2HkHZv+2PuokIiMXas2nul6iahBgtwliBB6NNTURWfCT6ZdLrinmjo6NVdUnQ+TZE
-	A8v527EIgWxqby2cLTzJ8CY82tYT1MI6ATmsCG+QkU2ALC75a+WDhut8xjSQjx+TaPSn72
-	wEoymXg6ih7DAvPIuykuQ3j1GglTo4PzyTQRtc7Hk6qUng0I5Gt64Xs+6yrWrP7ATGEGgS
-	gsoB/9uCV9EvBYqa9ZF0Cg88EiAkeGlxzTezuncvwUt/6RLWGXPH1F25kuvFmg==
-Message-ID: <4c06aef3-a254-437c-aa15-8e3eb7bf5951@denx.de>
-Date: Tue, 25 Mar 2025 15:37:01 +0100
+	Tue, 25 Mar 2025 15:39:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E1FBB43BCF;
+	Tue, 25 Mar 2025 15:39:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E156EC4CEE4;
+	Tue, 25 Mar 2025 15:39:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742917190;
+	bh=vbJwrqZRlJ74yogkRhKOYB2AhjYmqZbq1qqH2mnl4vY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H/iyYhXJHtI1EiPtbVWpFTkfC1/gBAwzT5OTItcTlucLTfPQI7S23BxqJaiwPerSj
+	 BQkgLqrfmW6GvEbej75iPlFyc32sbvlKP25eIowICGvBtkr/Z8+CElfgid9niU9fLr
+	 yRRLMmQpEu/A0fJ0GkMLAQJfzmhxfut/P5fgUTZhxmDGZN1vCzHo+/RFH2VQkn587l
+	 AomP9jB+y1UWrF8fA8pdd1lak34q7JunD4afC7jxJVi8n//nwtfI4wh9sd5tgVZfr4
+	 7enM1GVKm7+C0jUsczIE4aq4k9tFia6HC6gESqYKSu8pkSZ0x3de5w4qGIKPdd6SRA
+	 OhEebe4ETMbYQ==
+Date: Tue, 25 Mar 2025 08:39:48 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux@armlinux.org.uk,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH] ARM: Disallow kernel mode NEON when IRQs are disabled
+Message-ID: <20250325153948.GB1661@sol.localdomain>
+References: <20250324185927.1024543-2-ardb+git@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev
-References: <20250321200625.132494-1-marex@denx.de>
- <20250321200625.132494-5-marex@denx.de>
- <20250324094333.7afb17a1@collabora.com>
- <c1de2afb-3559-4fbb-b13b-2373175b420b@denx.de>
- <20250325084349.344a0f11@collabora.com>
- <7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
- <20250325153507.61d82e39@collabora.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20250325153507.61d82e39@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250324185927.1024543-2-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_143729_929635_9209BEBE 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250325_083951_192206_BBDAAAC5 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +72,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/25/25 3:35 PM, Boris Brezillon wrote:
-> On Tue, 25 Mar 2025 14:50:32 +0100
-> Marek Vasut <marex@denx.de> wrote:
+On Mon, Mar 24, 2025 at 07:59:28PM +0100, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
 > 
->> On 3/25/25 8:43 AM, Boris Brezillon wrote:
->>> On Tue, 25 Mar 2025 00:37:59 +0100
->>> Marek Vasut <marex@denx.de> wrote:
->>>    
->>>> On 3/24/25 9:43 AM, Boris Brezillon wrote:
->>>>
->>>> [...]
->>>>   
->>>>>> @@ -563,6 +585,7 @@ int panthor_device_suspend(struct device *dev)
->>>>>>     
->>>>>>     	panthor_devfreq_suspend(ptdev);
->>>>>>     
->>>>>> +	reset_control_assert(ptdev->resets);
->>>>>
->>>>> Hm, that might be the cause of the fast reset issue (which is a fast
->>>>> resume more than a fast reset BTW): if you re-assert the reset line on
->>>>> runtime suspend, I guess this causes a full GPU reset, and the MCU ends
->>>>> up in a state where it needs a slow reset (all data sections reset to
->>>>> their initial state). Can you try to move the reset_control_[de]assert
->>>>> to the unplug/init functions?
->>>> Is it correct to assume , that if I remove all reset_control_assert()
->>>> calls (and keep only the _deassert() calls), the slow resume problem
->>>> should go away too ?
->>>
->>> Yeah, dropping the _assert()s should do the trick.
->> Hmmm, no, that does not help. I was hoping maybe NXP can chime in and
->> suggest something too ?
+> Commit
 > 
-> Can you try keep all the clks/regulators/power-domains/... on after
-> init, and see if the fast resume works with that. If it does,
-> re-introduce one resource at a time to find out which one causes the
-> MCU to lose its state.
+>   c79f81631142 ("ARM: 9283/1: permit non-nested kernel mode NEON in softirq context")
+> 
+> relaxed the rules around the use of SIMD instructions in kernel mode on
+> ARM, to allow such use when serving a softirq. To avoid having to
+> preserve/restore kernel mode NEON state when such a softirq is taken,
+> softirqs are now disabled when using the NEON from task context.
+> 
+> However, the fact that the softirq API does not allow unmasking of
+> softirqs with interrupts disabled was overlooked, resulting in a WARN()
+> in some cases, as reported by Guenter:
+> 
+>   WARNING: CPU: 0 PID: 1145 at kernel/softirq.c:369 __local_bh_enable_ip+0x118/0x194
+>   Call trace:
+>    unwind_backtrace from show_stack+0x10/0x14
+>    show_stack from dump_stack_lvl+0x7c/0xac
+>    dump_stack_lvl from __warn+0x7c/0x1b8
+>    __warn from warn_slowpath_fmt+0x19c/0x1a4
+>    warn_slowpath_fmt from __local_bh_enable_ip+0x118/0x194
+>    __local_bh_enable_ip from crc_t10dif_arch+0xd4/0xe8
+>    crc_t10dif_arch from crc_t10dif_wrapper+0x14/0x1c
+>    crc_t10dif_wrapper from crc_main_test+0x178/0x360
+>    crc_main_test from kunit_try_run_case+0x78/0x1e0
+>    kunit_try_run_case from kunit_generic_run_threadfn_adapter+0x1c/0x34
+>    kunit_generic_run_threadfn_adapter from kthread+0x118/0x254
+>    kthread from ret_from_fork+0x14/0x28
+> 
+> While disabling softirqs is not really needed when running with IRQs
+> disabled (given that the only way a softirq can be delivered
+> asynchrously is over the back of an IRQ), let's not complicate this
+> logic more than needed, and simply disallow use of the NEON in kernel
+> mode when IRQs are disabled.
+> 
+> Another approach might be to only disable and re-enable softirqs if IRQs
+> are enabled, but other than the test case above, there are no clear use
+> cases for doing non-trivial arithmetic processing (hence using an
+> accelerated SIMD implementation) with IRQs disabled.
+> 
+> Reported-by: Guenter Roeck <linux@roeck-us.net>
+> Tested-by: Guenter Roeck <linux@roeck-us.net>
+> Link: https://lore.kernel.org/all/389b899f-893c-4855-9e30-d8920a5d6f91@roeck-us.net
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/arm/include/asm/simd.h | 3 ++-
+>  arch/arm/vfp/vfpmodule.c    | 1 +
+>  2 files changed, 3 insertions(+), 1 deletion(-)
 
-I already tried that too . I spent quite a while until I reached that L2 
-workaround in fact.
+Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+
+- Eric
 
