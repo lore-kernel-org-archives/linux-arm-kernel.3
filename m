@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5962C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 11:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467B2C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 11:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+FcsRjQ5TosDI3RFuNWgdaM3bBs4wxJVmkcmTsYLMs=; b=BlaB0xcJXrvo8l8b35HdD/6C+X
-	+S8NUcUpGW2bFR3QIx6BG6bXo/TjwnH/kILEDwkhWfOPX4TGRmtfhNX6xoYch3iu2oJmhWcqtOTwU
-	IxJSSrWtQCUErXKNcmLG82YNH/OyOE/iIHJ/GfH+pm1ZO65E8ZNgUjAW6PjgqYE9zuQQPueVVvol8
-	FG1calWeww3S4yWDw/asLMqC10+0JBZRvdmGD0nvHMDR702wvT7nfCO+m8xJJ+C2TBYYQOROOhfLi
-	TQOmuAZjp6kyicqLDp7ckt9JqL8CHQSXKTPNT0Ew9T8QeowonILQusIvXcgtZ3E90SrxoRVW3Bjzt
-	5eXzPj9Q==;
+	bh=bm2dXKLp3LTMDc8Qpu6pqZp/K1dyJwz6AZGGD6z8t/M=; b=Vecdaz59YnT/GAMTtRZPEZJAsb
+	x4K1GlC0w7EkBPSlfHu5mxwMZpS9ahmqC1Rs+WB0NSExsjmiWiN1bi+rtgTUI5iALBKDJynxntSP8
+	RTX9Opj4oXRO5HRj3A3sY9JTsgDGmabOHGaueZm78bV8cra1cVZuc1UV8dCV7uHiOsBFxaGsuE8cu
+	l8lakT2bjBz59U3V+xSBGw13sz+0y1Rd85Elbs+sMpztUQNjV2PAsan/QivWmKS69AffpyNHA2LWv
+	HalyFtFfmXwCeH5AB8OVa9Q2n2RcREJuOjy52LUzN1Ckm5QkOGM1jaDZriozBMoBF5TsgmNSXEDhS
+	JewNj08Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx2l9-00000005go5-148U;
-	Tue, 25 Mar 2025 11:47:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tx2ot-00000005hPe-1lkj;
+	Tue, 25 Mar 2025 11:51:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx2f9-00000005fZW-1M4M;
-	Tue, 25 Mar 2025 11:41:44 +0000
+	id 1tx2n9-00000005h9j-44hZ;
+	Tue, 25 Mar 2025 11:50:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 57B2BA4A65D;
-	Tue, 25 Mar 2025 11:36:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 078DFC4CEE4;
-	Tue, 25 Mar 2025 11:41:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 61FD15C4BC9;
+	Tue, 25 Mar 2025 11:47:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08523C4CEE4;
+	Tue, 25 Mar 2025 11:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742902902;
-	bh=zUelcqDDriz9SHJ6HG975vlFXTHLgPVDZutVhZothAA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=UjIcrAY75aMFN3vXVfik+OFX0Uy5JnrBVRd5fjFX94lL3SFrNbHkKgQcaIA2VC/uF
-	 c2d7+SrvjPHqi3AbZvmgxIvY1UxRQw1jAJGd9d3ejma7XAkMJ9jHVUr0VdOT7lBd3B
-	 7FPhJeSfb/hWEt/mJCtOzTE4a5iZPKQyCm1dsixrg+kYQkSNd82p/JF1V6m1cUw/ZC
-	 Lcg/MJdd6r8tQjuNkSp6keZMt6LC86vUeKhTm2Ohaw2PdtTPuxtGB0ImPQpkjXtbmf
-	 H5elHwkT2m/vYSAJ7IqPJXyDiyrnd51xugQZFl94GUFuKOXJFsN97DLbXN66xX352G
-	 iZxetGKtfiGvQ==
-Date: Tue, 25 Mar 2025 04:41:26 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Marcin Wojtas <marcin.s.wojtas@gmail.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Alexei
- Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend
- <john.fastabend@gmail.com>, Russell King <linux@armlinux.org.uk>, Ilias
- Apalodimas <ilias.apalodimas@linaro.org>, Masahisa Kojima
- <kojima.masahisa@socionext.com>, Sunil Goutham <sgoutham@marvell.com>,
- Geetha sowjanya <gakula@marvell.com>, Subbaraya Sundeep
- <sbhatta@marvell.com>, hariprasad <hkelam@marvell.com>, Bharat Bhushan
- <bbhushan2@marvell.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
- <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "K.
- Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
- Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Siddharth
- Vadapalli <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>,
- netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-hyperv@vger.kernel.org, linux-omap@vger.kernel.org, Michal Kubiak
- <michal.kubiak@intel.com>
-Subject: Re: [PATCH net-next v2 4/7] net: octeontx2: Add metadata support
- for xdp mode
-Message-ID: <20250325044126.1c0f9b83@kernel.org>
-In-Reply-To: <20250318-mvneta-xdp-meta-v2-4-b6075778f61f@kernel.org>
-References: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
-	<20250318-mvneta-xdp-meta-v2-4-b6075778f61f@kernel.org>
+	s=k20201202; t=1742903399;
+	bh=ZZdZYmOj1ovGoh5945Z2dttRqyMKc3WTfbIx0vwUbGU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=gGJRZLy1WGT9Tlf+yIt17XTtbRhH1gW691Kv6DYWjKAY4BItY+DhyvHWMw5kkvaoL
+	 KKsPEXE9qRjWO3l1qgg7swuhUQzYBPxB1XcIvus+PE/QNvk+bvElBA9WlxrowNC+3J
+	 Y/E1Rxuk9kjweHN8UdkGlc5m2rSLwZIvT/4rpNOvPNwFhbJQndITX5eMQtV83H0FeO
+	 S6YgvuRJjN/6+ry/NbXtK79Sr+qsVpn1E7JVmhX4DfDtQ5yTeMmIqsK6sizO53MYAZ
+	 txFuebDaPwmCa22+MNq5Qg9wExdULRD/Zznoan+rsGvmEgpC921giO5iaFVjMikx8c
+	 dcr43+rM0WDCQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71530380CFE7;
+	Tue, 25 Mar 2025 11:50:36 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2 0/7] net: xdp: Add missing metadata support for
+ some xdp drvs
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174290343526.531918.1341302638467898392.git-patchwork-notify@kernel.org>
+Date: Tue, 25 Mar 2025 11:50:35 +0000
+References: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
+In-Reply-To: <20250318-mvneta-xdp-meta-v2-0-b6075778f61f@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: marcin.s.wojtas@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ linux@armlinux.org.uk, ilias.apalodimas@linaro.org,
+ kojima.masahisa@socionext.com, sgoutham@marvell.com, gakula@marvell.com,
+ sbhatta@marvell.com, hkelam@marvell.com, bbhushan2@marvell.com, nbd@nbd.name,
+ sean.wang@mediatek.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ s-vadapalli@ti.com, rogerq@kernel.org, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-omap@vger.kernel.org, michal.kubiak@intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_044143_426358_01CD0F96 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250325_045000_064088_469DE20A 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,24 +85,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Mar 2025 12:46:08 +0100 Lorenzo Bianconi wrote:
-> @@ -1514,13 +1518,14 @@ static bool otx2_xdp_rcv_pkt_handler(struct otx2_nic *pfvf,
->  
->  	hard_start = (unsigned char *)phys_to_virt(pa);
->  	xdp_prepare_buff(&xdp, hard_start, OTX2_HEAD_ROOM,
-> -			 cqe->sg.seg_size, false);
-> +			 cqe->sg.seg_size, true);
->  
->  	act = bpf_prog_run_xdp(prog, &xdp);
->  
->  handle_xdp_verdict:
->  	switch (act) {
->  	case XDP_PASS:
-> +		*metasize = xdp.data - xdp.data_meta;
->  		break;
->  	case XDP_TX:
->  		qidx += pfvf->hw.tx_queues;
+Hello:
 
-This one handles ABORT and invalid return codes as PASS not DROP.
-That should probably be fixed separately?
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 18 Mar 2025 12:46:04 +0100 you wrote:
+> Introduce missing metadata support for some xdp drivers setting metadata
+> size building the skb from xdp_buff.
+> Please note most of the drivers are just compile tested.
+> 
+> ---
+> Changes in v2:
+> - Improve commit logs for each patch specifying xdp headroom size for
+>   each modified driver.
+> - Link to v1: https://lore.kernel.org/r/20250311-mvneta-xdp-meta-v1-0-36cf1c99790e@kernel.org
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v2,1/7] net: mvneta: Add metadata support for xdp mode
+    https://git.kernel.org/netdev/net-next/c/07b2fbffaaea
+  - [net-next,v2,2/7] net: mvpp2: Add metadata support for xdp mode
+    https://git.kernel.org/netdev/net-next/c/9a45e193c88a
+  - [net-next,v2,3/7] net: netsec: Add metadata support for xdp mode
+    https://git.kernel.org/netdev/net-next/c/a5fec3c88142
+  - [net-next,v2,4/7] net: octeontx2: Add metadata support for xdp mode
+    https://git.kernel.org/netdev/net-next/c/33bfff8fc8ba
+  - [net-next,v2,5/7] net: ethernet: mediatek: Add metadata support for xdp mode
+    https://git.kernel.org/netdev/net-next/c/74fb1346bc77
+  - [net-next,v2,6/7] net: mana: Add metadata support for xdp mode
+    https://git.kernel.org/netdev/net-next/c/c313d35f60c1
+  - [net-next,v2,7/7] net: ti: cpsw: Add metadata support for xdp mode
+    https://git.kernel.org/netdev/net-next/c/b3a54be70ca6
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
