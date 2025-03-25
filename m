@@ -4,95 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF1AC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA286C35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 15:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKMJVcSSYFhFkaF9OI9BOHOle5JxWrFZ54yuemRi3B0=; b=QXm2kdTmkTnk3q35c6T3BQokWs
-	FbURM/mz7xSzLlwNZ8kGJLmvxQm5l1NvlaazXbZ2WelC3jIsLdhWL0u4nOx7zrd4wMGe6NoHLNF/5
-	EgtX/jvyA3AhX3CpN7R9am763qldz4Q7HfHVbClUQVgoL4QMgVwJ8fxJwvCbII0Zri9fdDDVIHGlg
-	VzrjD7lfw3FZvAJ5dJOqMH9mRzU6yNthy2jVxKCrN2NckYckZNdPf6Is+27WInY1ZrQ6f3834k9i8
-	Y932sdyR+pC/fP0LK65wd1VG77+dNqcRICpfJnoKliqzA21sJJ4ro3NmoAmzOGiUYZaV5/jrdketj
-	NetYKpLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Edha+6hYsE+urgD1f18Wv6vFKS3B2jZHR3FNNHQ8wfg=; b=WaBaTtgCehfY6sRlpfzykLa0dV
+	MVjcDecd7J8viHPimTNXcnk/QH0KWPX8ji344v3U//ZrKEFJlXtfkTRqVVUkV8dIpvgPkM+lFamSq
+	CesFs51pjenFELzRuH5PiPpt/V+YUwKqx/hlwAPJ85c26qe46IZ7HpM3Mmfzjc/wyTBokqBEvrpq/
+	jUq3oqUj1T3XLcgYPO2Y4UaqpLnxLxBYU1fxwZDjEpoPjuvng1Ws+/GjhGkSLR2ZDItrv3We+BBTX
+	4Ib4+Vx1U+RdtfhwQgumDdJJpqPTwmwvxTJbnyPKePwBnKzQQAb0vJ4yFhZveVqnFYc83HhwGnEtp
+	/qtnHxGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5tQ-00000006Hw2-1rZU;
-	Tue, 25 Mar 2025 15:08:40 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1tx5uV-00000006II1-3zzw;
+	Tue, 25 Mar 2025 15:09:47 +0000
+Received: from mail-am6eur05on20614.outbound.protection.outlook.com ([2a01:111:f403:2612::614] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4to-000000069JV-38nQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 14:05:03 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-476a304a8edso49670431cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 07:05:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen-com.20230601.gappssmtp.com; s=20230601; t=1742911500; x=1743516300; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KKMJVcSSYFhFkaF9OI9BOHOle5JxWrFZ54yuemRi3B0=;
-        b=AROCbu2ANCTZKO/AYOds/JGwIxoOJ+ropXG02/nK/tawFCLaIv3WaTRaAdTmsJqv1/
-         TYAVK0sFN/SMIrSBfH3J3Lo7PGYnGXwN/2DgD8mArjllHhIYglx8j7yNTv/voz+BM9sy
-         Heql1rvI1XcPyT2Af2SqPszzRtBpT46fW/761lsAAq2OtihL+zEeFaG8VQuozExX7K8W
-         I1nHpmbMRhXx9qSnrr6qV4Qfga7tmuWsYF7f/GjguzSXm874gmniR6q+tu6A0xfcTkjj
-         6jCFSiakxYIDbxbsOIK/4nIckGHdgrpNlYzptcxYZIieAFyg/NRJUfWka6hBlEph4WBe
-         qQ5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742911500; x=1743516300;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KKMJVcSSYFhFkaF9OI9BOHOle5JxWrFZ54yuemRi3B0=;
-        b=S67R2jo7OrYx6p2Lr45ThcoxDd89Z4nL0EInE1RB5Z2zXhozjNKoFv3rRJOAT+Z9lt
-         WK6ct7iRaOovKGzmMRkxNlleBjymF82ft/aH4PcGtRStHM+RH5VQBD/vF+1rP/TKXc3N
-         b6UvfXpNxD0LFV/FKTaw+ItgeRdUTPYk3YCuzxyrYlq90YfQD+KPg47FlzJcElkt3ygJ
-         of1aF8ddC5i7xLSCo2IDzjc4y5MyVPEg7Z53zvoB28V8ZVpTON+wl7J30KdpSQsibKwm
-         0HAERjjZ2Dl3n1t3bj3rYEqKxvnYW0dSjhUr8MmwWHe1bdPXpCTrMuxeZwftpU/HUrAC
-         /xwg==
-X-Forwarded-Encrypted: i=1; AJvYcCVyjixKY5+Ip90qBK+ndXJDyyHMa6JbxWGYKAIiLsDDhvTArwYY0H74gDtTeK8c4QtwZSD6ozaJlNxBZazI+Re6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/ml851mDj2YeHj/AP48WO9SpNU7doChJh3gtCovKTw/R1E0QC
-	qALb2CdFq1os+qetgdrq5aS17caCiDxlwjX8d9x/Fd/9SCCtXBAWXpSu4XZruZ/VAwTVU1rLuan
-	mMgBPW9QllKpHawi3MrtMXdg1RQKPJiVZQhuV6A==
-X-Gm-Gg: ASbGnct43yA8D634tvD0Iq659pTyyo8A8PpTCYrBpavPNf6Ysa92ugGF9s2/WDC7X9I
-	6it3gvHY8SCP4KPKKURJQmZvL9HG41ixTbzZACZB67SHCaquyShV2YVcbgrOj6PT250hTzqBPRC
-	1udc0LGjVvsWP1YtSe5mz92EDF
-X-Google-Smtp-Source: AGHT+IGMYVQtiX/h+EVJlPHZz5Rq/az3V8wIPVjd4SZUiiPGocRCmY6VSmvm0irS2U8qQcxFKzIzc2oRCd6fuO2LGmc=
-X-Received: by 2002:a05:622a:248e:b0:476:b56d:eb46 with SMTP id
- d75a77b69052e-4771dd77d25mr264001271cf.15.1742911499617; Tue, 25 Mar 2025
- 07:04:59 -0700 (PDT)
+	id 1tx5qy-00000006HVg-2tUB;
+	Tue, 25 Mar 2025 15:06:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BmL3nsheMvc7UAKLpdPE2nHDgCYTPnuTGqszumTsh7io1ioFKABjZDVuuGe9MJLmVIGxKl7gjoRqpN/xAvqPKV/wP57sPF30aSO2vNuQAFH/TFSMX7sPoINuAG0Z5hMTFI5zd8jrnjFzDQ1WwRau9QbUjlCEj8RJNmvER1Z5Q7LX1ag5/2/Gjrm2AFrx3cRRi1VGTCs63Uwsf0Eqk4miRjXpLvmXnHhnlCueobieTrA4q3qFXcTCjhGRmuu0XjskLzeSjMsG5Jm4/16PGoNfWwSulx71uIMTtrpAipN8h/Qn2WjsRAW2iUs8eDwEFwMUKcDnNgZnJt8d3dAfax4j/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Edha+6hYsE+urgD1f18Wv6vFKS3B2jZHR3FNNHQ8wfg=;
+ b=qMgywXgWk710o67qr7CBm6nEDRK1Wr5vVutC6oxUMjiNS3WLOSVBaDKXH3A4MPnYPN6/y0mPPN+KIGwiAILJxxvZowT/xBK5bt61e/Ugw5VCmkHy4ZFFVyEi9cMHpmH5fQcxDQbO3EGJZ7vqRh0RIPNCurGG0Bd2Ui/TN7YS9nKcIMTf+ADeT3NDE6aEBB68geC2LMMoEIgYyFEKdEHsacnzJeFeKl+35DTZlBv3PcFMihV053FEZhjL9dkkqLLTCqS4DV/YQoZehi/hiprYXB3pZ9r5OAf5xK4BLOa+M4y7Ejq/Hb1TV+BZl4bK10ssr6PNKnejmhfbM/IEZmmO4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Edha+6hYsE+urgD1f18Wv6vFKS3B2jZHR3FNNHQ8wfg=;
+ b=l0Z4S5SOx63FL1otkLEMMZbrPGaO8ZOVHULcbscqZuBZnOLKQEWBxwGS2foKCIZ2oO/D/6WBJC6pJOUEbU/ONBZStSD9e7mTNjq3PJVoy+WuRt3ZikM51zJjKPQGBdj5Hy0ApyCXO4w4qaNXwAVUPDOWP7cjP3X9r7VScskFJo4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by AS8PR04MB8120.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Tue, 25 Mar
+ 2025 15:06:02 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8534.040; Tue, 25 Mar 2025
+ 15:06:02 +0000
+Message-ID: <1a8ce12a-9335-444f-940a-bef3cf86318e@cherry.de>
+Date: Tue, 25 Mar 2025 16:06:00 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add overlay for tiger-haikou
+ video-demo adapter
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dse@thaumatec.com, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250226140942.3825223-1-heiko@sntech.de>
+ <20250226140942.3825223-4-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250226140942.3825223-4-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0093.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cb::12) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-12-changyuanl@google.com> <CALu+AoS01QJ-H5Vpr378rbx==iRQLG0HajtMCUzDXRO75biCag@mail.gmail.com>
- <Z+JT7kx+sfPqfWFA@MiWiFi-R3L-srv>
-In-Reply-To: <Z+JT7kx+sfPqfWFA@MiWiFi-R3L-srv>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Tue, 25 Mar 2025 10:04:21 -0400
-X-Gm-Features: AQ5f1Jrjo6HkojvC1uIVMuAy34VVl7CYnqSMt1jjfTIiYkTHpp9oYG_kKxOqyPA
-Message-ID: <CA+CK2bB-qPV-QnqUwAv+OGujZwWLAAgBT0xH6fyKY8-cP1bNSQ@mail.gmail.com>
-Subject: Re: [PATCH v5 11/16] kexec: add config option for KHO
-To: Baoquan He <bhe@redhat.com>
-Cc: Dave Young <dyoung@redhat.com>, Changyuan Lyu <changyuanl@google.com>, 
-	linux-kernel@vger.kernel.org, graf@amazon.com, akpm@linux-foundation.org, 
-	luto@kernel.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
-	catalin.marinas@arm.com, dave.hansen@linux.intel.com, dwmw2@infradead.org, 
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com, corbet@lwn.net, 
-	krzk@kernel.org, rppt@kernel.org, mark.rutland@arm.com, pbonzini@redhat.com, 
-	hpa@zytor.com, peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org, 
-	robh@kernel.org, saravanak@google.com, skinsburskii@linux.microsoft.com, 
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com, 
-	usama.arif@bytedance.com, will@kernel.org, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS8PR04MB8120:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4fcc41c5-e5ee-4ab8-432f-08dd6bae8e94
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UUd3ZzlBRlJpVGlJS3VyWEtRVFVUWGtJa25iR2Zld1FWMDE2MUJYK2xGZFdq?=
+ =?utf-8?B?YkdOT0NFcUVVTS9mRW9RQzRJMlJ2TjI5UmMwa3JTSldsZDJobkFHVHkwUzhO?=
+ =?utf-8?B?N0JXbEZEK2RIZ0tkazBHYW9wcENFakRVTUtJeHdvUjRYQWdvdGVFaVF6Rmhm?=
+ =?utf-8?B?c003UEgxN1EvWllEaFNSdnlROW04MEJKalRsT3BBZk9SdjNuOW5QWXRKaEd6?=
+ =?utf-8?B?SmRkRWo3cnlxSUcxN091TkxOK2dsUnZKT2dsRjN6Q2tTVWEwNzJHOTUwR0gr?=
+ =?utf-8?B?aDh0TjJzZ2JNY1RTMFRSbjUwTmhjdTFYd3JWdTd6bU1aSGVKNDdOcnNGTXJz?=
+ =?utf-8?B?elBjczBpR1FycVJuS2s0VmFaUHlXOGhnN2dWYjlEaEw5SnJBeFNTMVFRVW1y?=
+ =?utf-8?B?TjdUZmtxQTI5cnByYXlDL0x0blFPRTA2RndwbG5rT2xObTlxVEsxckp6eUhG?=
+ =?utf-8?B?am9oSFp5M1hKM256U05LcWJMNWNpdzlsOXBZeVRKckhWVnBDUk5wVGZuSEky?=
+ =?utf-8?B?Vmh3VFlndVVOZDhJbHpQcWtUbi84Sk5Kbk02KzRKUEdqNjYxSUkrOEs4ajAy?=
+ =?utf-8?B?R1o1ekZESmYydHBmVXZnUUpTUmhLc000RVRlRDZDOW4rT0hiOVowRkhUQ3B1?=
+ =?utf-8?B?UENkM2hpNTRzNDlKcWN2R3dGVHhEZFQweVFWdzZ3Z3F2YmZaa3Q2UzZ4R3Zk?=
+ =?utf-8?B?SGFHOTd4WnF2SFpxNEt3V3h2WHNSdUJpNHdPbSswVkRtQzY1QzdmdHpwMXhW?=
+ =?utf-8?B?clgzOXAvV2J6cG9tYzdaRU54MU94VU5EUDdzUEZCRGJEenlWb3F5U2N1VFd4?=
+ =?utf-8?B?V0FwaVh6eVNjdDRRQlNlbFVNUU9CekxDZW5jT0o4TEVzelJaQkoxTUhpQ21r?=
+ =?utf-8?B?Nk5GRHV5VkpiTUYzSVJjZ1VKUU9veld2VWVLaGFHSSsxMlNVYW5YK2lNbjk4?=
+ =?utf-8?B?SmN1VkIxVGkzV3ZCNjZROWJQdUNqUlZrTm9LSW9iV0l1bUE0Kzl1MGhNSDdx?=
+ =?utf-8?B?cTg4eEozeWh5Zm9hUUdGVUlaS2xLUk1LcER6aXlTNlNPYmE0VTNjYUNIUzdT?=
+ =?utf-8?B?VWFGcDdyVDFoZ0Zna2ZEN3E3SlVkaGsrRVc1R0cvSHFSUmFyRWJ6Wk4yUW10?=
+ =?utf-8?B?M0VRUFBSYk9JanFCWEI2TVZIRllhUlVqZGU1TjBydkRuY2VkSnAzNDBjZ2tX?=
+ =?utf-8?B?M0ZwaTYrWkltYktuN1hkVlZyeHFueXVmNWUzRUVySVdCUmFEZGZFNWZrY3Bq?=
+ =?utf-8?B?VzZIZVB0L0U2b3gzQjU3cWtiRlExSGVROGpSTldWRGxEUkMrZ0p6VWxZYkdy?=
+ =?utf-8?B?SVdhR3hWM2pOZ3JreEl4QXJCME5xZWJ5ZUltVGxHYmhkUGw0MGpmQVIyejU5?=
+ =?utf-8?B?K1NOQ0lIQTNTWHJtNFBzdHJYdmo2QzJCYW9DM3pjT2xMZWhYWno4Z09YNU1z?=
+ =?utf-8?B?bmRxQ0o0YXB0S1Fwa2xjelAvMG5mMStkZ0lPdGpBK2dpTDQwcFFvYXo2a0VU?=
+ =?utf-8?B?U2k4S21qSjYvdTAxZHZRTHg0SEJOK3VCblY2Sm1JNlJjWHlHbFBZVXNoSGhX?=
+ =?utf-8?B?eDlyTmU4NkNOUlRMUWxuK3JKRFQwc25IdWt6VU5zTTdCQWtGdS9EYnZoaldN?=
+ =?utf-8?B?bytUVFN6RFJka2IvbUlkeFBBeFJLRGxCOXFpbWcrN2M4SGpjekJNOXdFajdY?=
+ =?utf-8?B?WmtidWhnSnFWb0p2aUFVaW5zbTBhRGhteGJHTnpQbFk4cFNFK2hNcUNjdXBY?=
+ =?utf-8?B?b2lHTEJzNWFLTGE2K1ExNHR6bURzSXlQMnpuY2p2R1JPMTVnNXBHY1hMRDRv?=
+ =?utf-8?B?TnlzdnlBazdnUmduamd2QT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDkzSUNFMmtxRVcrVmRIeld3ZFlkYStXdXB0U1FWb2pQMmcvUWlwendKSEFZ?=
+ =?utf-8?B?ajY0ZXN2Q29VRUtqOFhGVzFLdXhuYlVnZGZPUUkzS1owZWNYdzBHdU9sRUlj?=
+ =?utf-8?B?TUJxZmc1QStsc1Q1RzZCd3RGT012bVhiZ2xxR3FRR0dQSitZN0k4cFRrbkZB?=
+ =?utf-8?B?YVhCRkY2TWlQbW4rbEkwMUw1ekNoWE92eDVWbjhxdVBKUC9JZXNDZjhnSXpm?=
+ =?utf-8?B?NTdYZ3JNb3gwUFZNQkw5dzFLQndUdWZSZjJNeC9iUXEzVm5pT013VjA5TWE0?=
+ =?utf-8?B?Y2poT1krL1Y4dmJzRHVjY2VIRDlHRW9JZlpaN3pUV1NOQm1aYmhjbWtTR0xs?=
+ =?utf-8?B?d09TdGNHcExYS0Y5ZVAwL1hzejB4TU5sVlBzQ1hKaU4wK01zNXRUNDk3Ynlu?=
+ =?utf-8?B?SDVrV1FzQkJNQkxxd0ovaVRZN3JQbHVsTVhZbk9KaVdjQ0IzSDNpZFVxZFk0?=
+ =?utf-8?B?QlcvMitlUWxySjlNTUtxUU5ISUpyb2U1QkN3dEtRbk4xUzRNSkYyakFLWGw3?=
+ =?utf-8?B?VDFiSUtaOWVFWWp3V2g4czJvanJkK2svZzVJdmJTNmUvSXR1SXhDd1YwWjBT?=
+ =?utf-8?B?Y0ZaMlY3Wkl4MmFKSXh0Nmpnc25HV3puSFpQbkdmTWJjSWZoTHRMUVExcDA5?=
+ =?utf-8?B?UHZEOU80Wit6ZCtTS1hqZERIR2h2T05NdjI2QnlCUVBjMyt4Q3pGVVlSWGxp?=
+ =?utf-8?B?M2trWllBUnhmOHVuallkS3dVRUs4dlBCL3VhejBhVDVQUC9rb3ZPazF5Mk44?=
+ =?utf-8?B?dGxlcGNjWVpIU2Y0NlMxZjZ2WWNGWXpBVjFjU2tqbk5KbXBsWHZzR0lMTytu?=
+ =?utf-8?B?UEtsbmJxZ3RIcDdkbUVXcnpmZXd3bnB0OS80WGVuZkMzNU0vcGlQYnhhNTBa?=
+ =?utf-8?B?SXhXQnExcjgwSnc5MXBjZWd5ZmZoSkREYjFxT3d2emxsckgyaERpSmVQZVpn?=
+ =?utf-8?B?anJaK3lwdCtwdmNud3NGUmdGaGZKalZKeWkybzYrd2VmcmhzT0dkc0lRelZJ?=
+ =?utf-8?B?c1ZGRzBpc3I4T2dzekdSQzhmVWZ3QkRNdlB5cG52RFJVZE1EWkJzSkZGMWdX?=
+ =?utf-8?B?cXdpdUh3b0EzRHpWWG82SHRSWm94REpxQTI3TXJQdGdFVytuOXh4bGhxV1Vz?=
+ =?utf-8?B?SVVCZUM5U0dseUIyd3JYYnRqby94bjRsaFJwek11Mzg2NmIxekl1SzFVazJp?=
+ =?utf-8?B?YmhxNkJrU09QK00xcGhGbmlTWnYvbExlbU9kcUlpWkN6d3M5a0dmZzg2cVF2?=
+ =?utf-8?B?c1gvM0lpWmlSTzZKRVlvOGVBcXE0WXlOS2xmSFFjZlJadEtVV2c0SWo2VTJV?=
+ =?utf-8?B?Y0gwUDk1ME1IWUJUY0Z5M3BCMFdJd3RvYlExNERYUjJ3WmFxUWpTYzZqOFEz?=
+ =?utf-8?B?dmEySE4xa1Zrckx2dHhOSm5RVFhpRjdzWUxiZUpRU3B0VWpkQ0FZOEN6NEMz?=
+ =?utf-8?B?RSt1TUdmZ1IzVDllWGpCaWVTU2xEU3J5ZHRVVU00SGF4dUcxNTNZaU9VWWxq?=
+ =?utf-8?B?T1VTYm95QXpMZ0ZNdDdkU25HS2lFa05lV2FOMGhKY0hPZkhqc0pGdUw4SWx3?=
+ =?utf-8?B?cFE0OTV4b1h0WjV4ZVNzUXpXbXk4Qm95Vy9jV3dGZmlzZmpJbGRJQTBlcFNC?=
+ =?utf-8?B?ZjVabjJxRUhud1dFVi9LOXpHWDRweENOZFpjZG9COGtDNHdNQktDS29ybnVD?=
+ =?utf-8?B?NGxlc3ZhK21OT3NtWERHRit1Y1RBY1lURzgzVXIzOXRybkVtLzQrYjZuK2hN?=
+ =?utf-8?B?VWJLVlQ5Mm1jWXRhdXptcXFpRHNOZitURC91cE1OWlF0d0U5MWpTZTVBQnZS?=
+ =?utf-8?B?MkRpaEcrWll3OXVPWTNvZmZnZkwwb3JlWkl4RGRvYTBMRWcvYS9yNm5pRHJL?=
+ =?utf-8?B?WFFLNWsvU0ZlbHp5ODFpdUd3UG5rbXhkMTIzWmR3WXNtYThaT0NHZzFHTmN6?=
+ =?utf-8?B?b3h1L0dkeDBKQWp2R2JPU0NiaENZZTZRMXhtVTJFak5BVTZvMFFNWmg3MGFn?=
+ =?utf-8?B?VjRMNWZ1MC83UnFMUllIcWliWXJob05HL1VVZjIwNlN2VkJtY2lRSG5ab3or?=
+ =?utf-8?B?RG44Y1pwaFRlYmE4VEVvcE1LNDRyTXAwRlpuMWo2WStnaU1SeDZGcFBZQm5q?=
+ =?utf-8?B?Q2tkVkt1K3RVcEpRalZYd3RBdlZxaFAvUWZGOFMvZU5SQWZCSU0wZ2Npbkt5?=
+ =?utf-8?B?cmc9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fcc41c5-e5ee-4ab8-432f-08dd6bae8e94
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2025 15:06:01.9664
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Kzzh7xq8uskyvc0rrTa+hy8UxjI/5WWqV78jIBcCigSN3hEaJAO8AwGUSdtm3DvQ3nTc5c8CUV99PMKpSYK58nGb4ZIBl2nr/V550uS9db4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_070501_060850_F4564C1E 
-X-CRM114-Status: GOOD (  30.18  )
+X-CRM114-CacheID: sfid-20250325_080608_895170_A4A5881F 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,84 +176,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 2:58=E2=80=AFAM Baoquan He <bhe@redhat.com> wrote:
->
-> On 03/24/25 at 12:18pm, Dave Young wrote:
-> > On Thu, 20 Mar 2025 at 23:05, Changyuan Lyu <changyuanl@google.com> wro=
-te:
-> > >
-> > > From: Alexander Graf <graf@amazon.com>
-> > >
-> > > We have all generic code in place now to support Kexec with KHO. This
-> > > patch adds a config option that depends on architecture support to
-> > > enable KHO support.
-> > >
-> > > Signed-off-by: Alexander Graf <graf@amazon.com>
-> > > Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-> > > Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-> > > ---
-> > >  kernel/Kconfig.kexec | 15 +++++++++++++++
-> > >  1 file changed, 15 insertions(+)
-> > >
-> > > diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-> > > index 4d111f871951..57db99e758a8 100644
-> > > --- a/kernel/Kconfig.kexec
-> > > +++ b/kernel/Kconfig.kexec
-> > > @@ -95,6 +95,21 @@ config KEXEC_JUMP
-> > >           Jump between original kernel and kexeced kernel and invoke
-> > >           code in physical address mode via KEXEC
-> > >
-> > > +config KEXEC_HANDOVER
-> > > +       bool "kexec handover"
-> > > +       depends on ARCH_SUPPORTS_KEXEC_HANDOVER && ARCH_SUPPORTS_KEXE=
-C_FILE
-> > > +       select MEMBLOCK_KHO_SCRATCH
-> > > +       select KEXEC_FILE
-> > > +       select DEBUG_FS
-> > > +       select LIBFDT
-> > > +       select CMA
-> > > +       select XXHASH
-> > > +       help
-> > > +         Allow kexec to hand over state across kernels by generating=
- and
-> > > +         passing additional metadata to the target kernel. This is u=
-seful
-> > > +         to keep data or state alive across the kexec. For this to w=
-ork,
-> > > +         both source and target kernels need to have this option ena=
-bled.
-> > > +
-> >
-> > Have you tested kdump?  In my mind there are two issues,  one is with
-> > CMA enabled, it could cause kdump crashkernel memory reservation
-> > failures more often due to the fragmented low memory.  Secondly,  in
->
-> kho scracth memorys are reserved much later than crashkernel, we may not
-> need to worry about it.
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> start_kernel()
->   ......
->   -->setup_arch(&command_line);
->      -->arch_reserve_crashkernel();
->   ......
->   -->mm_core_init();
->      -->kho_memory_init();
->
-> > kdump kernel dump the crazy scratch memory in vmcore is not very
-> > meaningful.  Otherwise I suspect this is not tested under kdump.  If
-> > so please disable this option for kdump.
->
-> Yeah, it's not meaningful to dump out scratch memorys into vmcore. We
-> may need to dig them out from eflcorehdr. While it's an optimization,
-> kho scratch is not big relative to the entire system memory. It can be
-> done in later stage. My personal opinion.
+Hi Heiko,
 
-But, we don't; we only dump out the regular CMA memory that absolutely
-should be part of vmcore. When scratch is used during boot, it is used
-for regular early boot kernel allocations, such as to allocate memmap,
-which is an essential part of the crash dump.
+On 2/26/25 3:09 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> This adds support for the video-demo-adapter DEVKIT ADDON CAM-TS-A01
+> (https://embedded.cherry.de/product/development-kit/) for the Haikou
+> devkit with Tiger RK3588 SoM.
+> 
+> The Video Demo adapter is an adapter connected to the fake PCIe slot
+> labeled "Video Connector" on the Haikou devkit.
+> 
+> It's main feature is a Leadtek DSI-display with touchscreen and a camera
+> (that is not supported yet). To drive these components a number of
+> additional regulators are grouped on the adapter as well as a PCA9670
+> gpio-expander to provide the needed additional gpio-lines.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>   arch/arm64/boot/dts/rockchip/Makefile         |   5 +
+>   .../rk3588-tiger-haikou-video-demo.dtso       | 153 ++++++++++++++++++
+>   2 files changed, 158 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> index db6017272ff1..4cddb5d2807d 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -158,6 +158,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-coolpi-4b.dtb
+> @@ -214,3 +215,7 @@ rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
+>   rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
+>   	rk3588-rock-5b-pcie-srns.dtbo
+> +
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtb
+> +rk3588-tiger-haikou-video-demo-dtbs := rk3588-tiger-haikou.dtb \
+> +	rk3588-tiger-haikou-video-demo.dtbo
 
-Pasha
+For consistency with RK3399 Puma and PX30 Ringneck, maybe we want the 
+.dtb to be rk3588-tiger-haikou-haikou-video-demo.dtb (haikou + 
+haikou-video-demo)?
+
+The name for the dtbo is fine though!
+
+Cheers,
+Quentin
 
