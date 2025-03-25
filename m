@@ -4,94 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E80CC35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 07:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC0EC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 07:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IY1LRasI1a4gFwiAowe/BlaLi9qjAct5Q0v/7Pv3fzc=; b=Q03q8GuGIqaBXkXVt5i8R2zepz
-	XO37JZxZUUa2PezMRQbEUogPao/maqu2J98bjYiwsaewomFO2IIV180CbCnylbGlq8UqOP7oWbfU6
-	KNTqR3rjms/HRcqG46vTCmo6HlTBEGB29lZh7/6/tc5+yzXZYcroyrvFeXXHSxz8u5tw091Ux3sOb
-	I819FifIlZnNwKZOaPt4iyYuIPJrNS5ytIfC0xU8or9O/PyX5llOco8CB/IT4Kh4sFVVLmZsP6olo
-	A7Mj7lGh++5amWqt0z0GxCig9G1/sgYF1nFl1Q+QbzxpsUkwrvPSNawzaNa0ElZ2y8F1j4eCu3KfO
-	DBz+D+pw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Xvjv8Q6GMp8xbn4OSbtSrxKyPI/KGWvibRYnGOJDWOI=; b=aNKH8C7slypZdveCbK6xuAfzRB
+	ruP3ZnIsUSZhAXkZHs8vN8Ee2cti8PFpgxzSw3iZOyzs6Tus99bjyWpZviBr+ALLcg8AWETDLPfsC
+	Zf+PUbLUqG0D/xmY8kccrUVLEcs5E+ZmOOcqmQgQY+iH1st9ynRsOqzgA6qM4+ovd+15WzmO3csTy
+	iCN10PqcJfqGDc4pwwfguaNwfbQ6CzrPHZeQ+REpAaL0g7wDGxFFFb5kcqnSxp1pfLuikObYyduXC
+	yspxbg1cKBjbzQNGpvj8RglXgjD1EI8XJe7BVU8nmZV9Rv5/wYG/RgEpbFG0Bha+65l2D5tiCdeJN
+	RK9awjgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twyIU-000000051q5-32at;
-	Tue, 25 Mar 2025 07:02:02 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1twyLM-000000052MV-0JOM;
+	Tue, 25 Mar 2025 07:05:00 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twyGl-000000051VO-00lb
+	id 1twyJc-0000000523b-1qq4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 07:00:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1742886015; x=1774422015;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=IY1LRasI1a4gFwiAowe/BlaLi9qjAct5Q0v/7Pv3fzc=;
-  b=JO5JS3P3VDwQnLH1aJ/87xDTqMTYj439JWoeQA9hQvXxsCqlgMRtL4VX
-   FRv9Bn30CZXrrjbgV5WutvcKl9dRdCYqRDmwFcm4AFsW07hNHnZPuMrcg
-   K0NmXjYHDm0qklJFSf9aUngv5fkisMCGU0H8g7HLJlphRYM6hCw7pBBtw
-   NeX+OxOV9HYFWVocHrMKtOfS8lXl/lWkQtCnEDIZ5T42tRvZjl+pb9Zqv
-   QceW8yu13eK3Z154iAOXcKZeH9Bmw82Va3COnjCed+EKg2ZJx6NcLEaj2
-   dCn++qU4EpV8SFnXZxIIXF1AAfb0VLDAD3gunegK6cFBS+8STVE+vBUCC
-   A==;
-X-CSE-ConnectionGUID: wLTuKKJvS5uEe8ivLhc3ew==
-X-CSE-MsgGUID: Yk3E/ZCrRXKmkvWbyVJD1w==
-X-IronPort-AV: E=Sophos;i="6.14,274,1736809200"; 
-   d="scan'208";a="43135474"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 25 Mar 2025 08:00:11 +0100
-X-CheckPoint: {67E2547B-36-903EAEAC-E04C76C8}
-X-MAIL-CPID: 5ED2254210CBCBBAE887422E760A4071_5
-X-Control-Analysis: str=0001.0A006372.67E25477.00AF,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C2D251632F7;
-	Tue, 25 Mar 2025 08:00:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1742886006;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IY1LRasI1a4gFwiAowe/BlaLi9qjAct5Q0v/7Pv3fzc=;
-	b=g+LXzTJVJqyoxffvyz8jSMsqghsG9czM4ntoP70bldxrkl6PwZuP0nAC/iIQ1doTUeZu5e
-	2GK1wKUKixhDvNAFOvNRLAtM2ilE/aXqZLe5TXIzXg+Ss4hb+hDfCzHJR8GvbroSDCXlz8
-	3HH/9ZEi3aJ07NCXqcZ7vYT0UQ5zX4NmtP5cMZAk+J8JwuqguqjBu+/39+cdzcQk+NE0s0
-	+1cMiMmP2hiMeVFM0czr5iYVDb8/Szl/WpA5aEabwAQ9v+52eJDJ4qkchtBrDsaw3zRIvG
-	ezps5JR5w/9paFGiHgw7unrftOPv6PqhrNMd6r0fxfmYfGArFAApZbWnFutKAA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Marek Vasut <marex@denx.de>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH v2 9/9] arm64: dts: imx95: Describe Mali G310 GPU
-Date: Tue, 25 Mar 2025 08:00:00 +0100
-Message-ID: <4643598.LvFx2qVVIh@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <e8e9f36a-6d05-425e-a0e5-89689424336d@denx.de>
-References: <20250321200625.132494-1-marex@denx.de> <6144881.lOV4Wx5bFT@steina-w>
- <e8e9f36a-6d05-425e-a0e5-89689424336d@denx.de>
+	Tue, 25 Mar 2025 07:03:14 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52P1AEon012512;
+	Tue, 25 Mar 2025 08:02:51 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=Xvjv8Q6GMp8xbn4OSbtSrx
+	KyPI/KGWvibRYnGOJDWOI=; b=CJv01tMCtGSKD2G5rOTz3msPm3VlloZwlB8fsY
+	ynawRhU+8qr0iT3DTGa7apMhYfAt22kh1vG6p1LgUobDzXwQhtLp7n1+JpmiWOWS
+	0RlHckp+sOZRUANipL43Vz7dV8DgKwimMXoQoGWNsAw+WahgT1nr1OQltdcU7ppG
+	frHKSCvQwpaMLCWPbqzp6m7FmZXyufmpv+LtoORAOF5xgY/KmTPDGDfmKPo8Hyc+
+	kMXLDs3GlKHxw1rnwzuzBZeaZWRngG7ubNllw3xvlQ5qiiv8pQ6V95fyUgMHAV0Y
+	zm89nIth7q9JX2gQDFeLDVDGugiUvWkaPFj8Qowrykz6itOQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45hne5b0py-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Mar 2025 08:02:51 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2C8D040052;
+	Tue, 25 Mar 2025 08:01:06 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0D5E882E0C6;
+	Tue, 25 Mar 2025 07:59:39 +0100 (CET)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Mar
+ 2025 07:59:38 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <johan+linaro@kernel.org>,
+        <cassel@kernel.org>, <quic_schintav@quicinc.com>
+CC: <fabrice.gasnier@foss.st.com>, <linux-pci@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v5 0/9 RESEND] Add STM32MP25 PCIe drivers
+Date: Tue, 25 Mar 2025 07:59:26 +0100
+Message-ID: <20250325065935.908886-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-25_03,2025-03-21_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_000015_541974_79BCE0F6 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250325_000312_985459_5AF7D5E7 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,46 +94,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Changes in v5:
+   Address driver comments from Manivanna:
+   - Use dw_pcie_{suspend/resume}_noirq instead of private ones.
+   - Move dw_pcie_host_init() to probe
+   - Add stm32_remove_pcie_port cleanup function
+   - Use of_node_put in stm32_pcie_parse_port
+   - Remove wakeup-source property
+   - Use generic dev_pm_set_dedicated_wake_irq to support wake# irq
+   
+Changes in v4:
+   Address bindings comments Rob Herring
+   - Remove phy property form common yaml
+   - Remove phy-name property
+   - Move wake_gpio and reset_gpio to the host root port
+   
+Changes in v3:
+   Address comments from Manivanna, Rob and Bjorn:
+   - Move host wakeup helper to dwc core (Mani)
+   - Drop num-lanes=<1> from bindings (Rob)
+   - Fix PCI address of I/O region (Mani)
+   - Moved PHY to a RC rootport subsection (Bjorn, Mani)
+   - Replaced dma-limit quirk by dma-ranges property (Bjorn)
+   - Moved out perst assert/deassert from start/stop link (Mani)
+   - Drop link_up test optim (Mani)
+   - DT and comments rephrasing (Bjorn)
+   - Add dts entries now that the combophy entries has landed
+   - Drop delaying Configuration Requests
 
-Am Dienstag, 25. M=E4rz 2025, 00:35:41 CET schrieb Marek Vasut:
-> On 3/24/25 8:02 AM, Alexander Stein wrote:
->=20
-> Hi,
->=20
-> >> @@ -1890,6 +1919,35 @@ netc_emdio: mdio@0,0 {
-> >>   			};
-> >>   		};
-> >>  =20
-> >> +		gpu_blk_ctrl: reset-controller@4d810000 {
-> >> +			compatible =3D "nxp,imx95-gpu-blk-ctrl";
-> >> +			reg =3D <0x0 0x4d810000 0x0 0xc>;
-> >> +			#reset-cells =3D <1>;
-> >> +			clocks =3D <&scmi_clk IMX95_CLK_GPUAPB>;
-> >> +			assigned-clocks =3D <&scmi_clk IMX95_CLK_GPUAPB>;
-> >> +			assigned-clock-parents =3D <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
-> >> +			assigned-clock-rates =3D <133333333>;
-> >> +			power-domains =3D <&scmi_devpd IMX95_PD_GPU>;
-> >> +		};
-> >=20
-> > With the SM release lf-6.12.3-1.0.0 AP does not have any access to
-> > this BLK_CTRL anymore. See [1]
-> I just built SM 6.12 and it still requires the reset, without reset I=20
-> cannot use the GPU ... or ... which BLK CTRL do you refer to ?
+Changes in v2:
+   - Fix st,stm32-pcie-common.yaml dt_binding_check	
 
-I'm specifically looking at [1]. AFAIU after that change AP has no access
-to BLK_CTRL_GPUMIX. But this is just from looking at the changes.
+Changes in v1:
+   Address comments from Rob Herring and Bjorn Helgaas:
+   - Drop st,limit-mrrs and st,max-payload-size from this patchset
+   - Remove single reset and clocks binding names and misc yaml cleanups
+   - Split RC/EP common bindings to a separate schema file
+   - Use correct PCIE_T_PERST_CLK_US and PCIE_T_RRS_READY_MS defines
+   - Use .remove instead of .remove_new
+   - Fix bar reset sequence in EP driver
+   - Use cleanup blocks for error handling
+   - Cosmetic fixes
 
-Best regards
-Alexander
+Christian Bruel (9):
+  dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
+  PCI: stm32: Add PCIe host support for STM32MP25
+  dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
+  PCI: stm32: Add PCIe Endpoint support for STM32MP25
+  MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
+  arm64: dts: st: add PCIe pinctrl entries in stm32mp25-pinctrl.dtsi
+  arm64: dts: st: Add PCIe Rootcomplex mode on stm32mp251
+  arm64: dts: st: Add PCIe Endpoint mode on stm32mp251
+  arm64: dts: st: Enable PCIe on the stm32mp257f-ev1 board
 
-[1] https://github.com/nxp-imx/imx-sm/commit/a3e5da9ea51144f513ac3909fa151f=
-a7df394100
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+ .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++
+ .../bindings/pci/st,stm32-pcie-ep.yaml        |  67 +++
+ .../bindings/pci/st,stm32-pcie-host.yaml      | 112 +++++
+ MAINTAINERS                                   |   7 +
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |  20 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        |  58 ++-
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |  21 +
+ drivers/pci/controller/dwc/Kconfig            |  24 +
+ drivers/pci/controller/dwc/Makefile           |   2 +
+ drivers/pci/controller/dwc/pcie-stm32-ep.c    | 420 ++++++++++++++++++
+ drivers/pci/controller/dwc/pcie-stm32.c       | 367 +++++++++++++++
+ drivers/pci/controller/dwc/pcie-stm32.h       |  16 +
+ 12 files changed, 1146 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32-ep.c
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
 
+-- 
+2.34.1
 
 
