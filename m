@@ -4,103 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D08C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0901CC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 13:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWTGK/X4SS10wsDie07tFoBcds9fT9TR5FQTDlGWK3w=; b=xfVggpH8J/SB3S1rhVfWAebSog
-	dBdWse3IPlqvFYnNvaqSiC/Iw/QAw5V5CNJ/SVnn8izfd/+39aCcy9bEUxVpYPAB1geCauFsQmmfA
-	ueb1gTUaN/x8UHc+BtbJRPPcpJazLjNPMVP/wlLfLIaPaQcJRmIbYmLJrIpfXejBtX8+0L6MykxS6
-	kQ9mb/tMsfae+Mq5v2ZnOW2NhkVtLqRvJuFNKGuGodlEKS3Zs0IhwFCM14LiEa4ZppLGTO5ojDc/b
-	a4BGkW5lE91uw5ISKxDJSwCDTfaBhz4/i+L9dZlyufWwxhqxxVdiQzQ5WTG9+m+ua2S1ar92nKLfy
-	Xe1I8cGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HRtKNqVWmSbvH/hB6VfWt31wHPCJGfHZAtYU9DtK8OA=; b=wsU2Pk+Y/Kvp33EK1Q0bKHwNAB
+	uM7zoL5Qp5K/XbSURpK9OCGfiEvSBZogm+wA5ojaszFfgvRTCYVL+FiOSpOHyENrpfGUuQ643XDDE
+	mS0U7jMzs78lzUXabNQ2HwBM+RoWDxqaJxEtwwGm+SXpbRNeeQmZXzgAMSFRD4K7OHDTrk15uHCr0
+	n191CNn0crFxGifa/D7ekpLannwtFQmvokcnur7WJWxcB7bX3uetAMkLUcS4WbvFQQhzaIt8vpFu+
+	KNE1TJ8POAY61jN0NiOq3U5X3OytgNMXSyDWTWM+/4hMX/BFwONVnreAr66y4nG/WqtjJV4/AhqXh
+	HiJRUcYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3wH-00000005xtw-0nKF;
-	Tue, 25 Mar 2025 13:03:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx3wD-00000005xoG-3zsL;
+	Tue, 25 Mar 2025 13:03:25 +0000
+Received: from mail-wm1-f53.google.com ([209.85.128.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3mP-00000005wCX-2Lep
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Mar 2025 12:53:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=eWTGK/X4SS10wsDie07tFoBcds9fT9TR5FQTDlGWK3w=; b=Reoyh7q4Yh9lvaOyiqXoBWxfO3
-	RyshbLIl5iNvAdo7M8qDAl+19luH4uNCFdTDxOKpRfKEMswdzczUI4BJo4hxsK4gf1uV7ZXnNVgwo
-	U0wkZ9esXRTIuYh+mV6vkVmfvpiO/nECmnv9AE5MAkmtPBB+lSTsP/KbaOdcoGON65eD8cBl6So4K
-	epL/c44i+yN92YO9aixfJit3mEBSi2L0m7MFPygd+++jqYp+5MXstMRz4kqjBWRVVlQTjd7EOWfHF
-	8JRxpXL1pflQ8lq05PTFW7P0EwLe7yGxghl9AjIP4EqIL4ihP8fTWZFc835Fz7SD5IEcZjr6WXAXW
-	qr1eXW3A==;
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx3mM-00000005R3U-0hAy
+	id 1tx3ks-00000005vwz-1osm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:53:16 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-38f2f391864so3292269f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 05:53:12 -0700 (PDT)
+	Tue, 25 Mar 2025 12:51:43 +0000
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso34834585e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 05:51:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1742907191; x=1743511991; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eWTGK/X4SS10wsDie07tFoBcds9fT9TR5FQTDlGWK3w=;
-        b=Tb8ZtYSdZ86HDhNz5oJqvX2Tx9I0jhKIXk2iexxN21eZUOfL+NochSb5ywjpvozBbI
-         cRXXRhQu8m46QM9s9mftHFM/1XGgkar6y7ZBcSWrHfU7N+PCdfSPq/J0ehtIi+FsEp6K
-         yqiToZ7HPswHBUdfq+h/1ofyvFpZ16zvKBGi0f51wNu5Zmrj9a85vEYSILcxbkhisdz+
-         kLphSQJ+K7Bn0xikUVMKotVmadvUhzJyeywx5btqvAzzlJzdVQj4GuaNrnA7eTpkDJZm
-         KYA8R2UjtafXZJUGRtinnGXQjRUJcoVlhnYM4ykQE3l5kJfC6uGQ1tAQFH5VGJwk2LHb
-         LLOg==
+        d=linaro.org; s=google; t=1742907100; x=1743511900; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HRtKNqVWmSbvH/hB6VfWt31wHPCJGfHZAtYU9DtK8OA=;
+        b=FkZD6VsC65xEX67khaC9OEaJtvF0aJ2MyHUH1JAmuKkaJbmpPUFpPf5+Jjl+Do+4G7
+         xQ40XsiKF64rXvfPtrmKxCeVP6xULgjnZ8tKebcggf5UW1Xl6SdBa5BMt8OCqxuw8sdV
+         6j/5bESNwOVaNWYvL1+35UAuoZWZcuDszeKV6AIuwOiTvu9Ho66o8jfAgxrSk4AIqYDL
+         heBcheED5JZcYZzyoqy6sJ5AQoQUkDwCbN0gui+RvOVqyKQ4abBv9MIFC5nMAJY3CZFk
+         nORIKPAvx2sxQKU7QDMcPp5lPUz3mLVGm8IhNkrN5b7W+TO5aV8RGjC+nComQ0S4NQcA
+         2bCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742907191; x=1743511991;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eWTGK/X4SS10wsDie07tFoBcds9fT9TR5FQTDlGWK3w=;
-        b=mNoW6UnfWy1vwE9d72Rh0vUONxI7IzyO9V25Oww3J7ElWm2bhAxZNei7jH8dJSjdpt
-         Tb7Y1Bg1YDzoZA40Rux3gFEHnfKhH6GHt17Rbt8bEzmaHU/sr6hLiBF7QF+Ne1oOKWA7
-         lj5l/HvMmWVPlc4RHBNLny8g4AuL5Cb6ofBC+hwTGuKCjUSox29wrWJNyciuA3FXAim9
-         AkHjyFrsRFp/5uMQQl5rcCKowN3Q7p2jC8L4lZPNIb+7J4zCW2F0O1F5MZMO9UvHLT5t
-         bCKS36gEZrZEqCs2rujNOM8rzfEsMlIKvsP7awuN87kldOG2VgU6LXym84Bt+8EE+Azo
-         5vHQ==
-X-Gm-Message-State: AOJu0YzFqP5V6/Wl03SLDXU9CZnLSP822vsqsE3I4NZAtdbWwh1P5hS0
-	0y3rTJTXwwO4l+PprQJ2rgayMQfZbUqXygtKS2sTkAVCC6Y4wCd493JD/2WW8Vc=
-X-Gm-Gg: ASbGncsIh37gCVj3QgEXwGLIFsofHX/BYMyTkXcUJL/huN/kiHeJLOptyRCA3xeUUYF
-	PJKhHoMnPGqrm6v6Sqz3iWODmbnrTHF4Nw05/Q+o2gis3l0ef6lHNPriDm0M4AlhONvSnuEDcWE
-	r0vYB1shcQ2/rhiwoWOHnaUyyQCkbTlt82x7ULYLMSS9LvfQNvNC0uEmxtixWVjyFKN7hsRnuOr
-	383ndeUbQEMv3s2jV92rVgt7PBKjadi0uCytwWkcxhrnCnbcDag5yDNLZ0hL3uSaiGSpxck0oBy
-	3lgGXTbdO8nwiO7wCSmrBwCqmVBKGgPqD9jBkwKyffVl
-X-Google-Smtp-Source: AGHT+IEE0UpwexJ3OeA2GpZXDHjojgHRAF+v+OvPsapSM0mU4OKjhQXj6Y5aUqQobFvv4w+MSqtBUA==
-X-Received: by 2002:a5d:5886:0:b0:390:f460:77b0 with SMTP id ffacd0b85a97d-3997f90df2emr15215129f8f.26.1742907191489;
-        Tue, 25 Mar 2025 05:53:11 -0700 (PDT)
-Received: from pathway.suse.cz ([193.86.92.181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f99540bsm13579803f8f.2.2025.03.25.05.53.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 05:53:11 -0700 (PDT)
-Date: Tue, 25 Mar 2025 13:53:09 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Song Liu <song@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
-	indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com,
-	irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org,
-	mark.rutland@arm.com, peterz@infradead.org,
-	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH v3 0/2] arm64: livepatch: Enable livepatch without sframe
-Message-ID: <Z-KnNU2A_kwwYdXU@pathway.suse.cz>
-References: <20250320171559.3423224-1-song@kernel.org>
+        d=1e100.net; s=20230601; t=1742907100; x=1743511900;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HRtKNqVWmSbvH/hB6VfWt31wHPCJGfHZAtYU9DtK8OA=;
+        b=jiXZX/0L/dTTEvYQZIDsUHEYLPp2uWQR2kfFZjesiNae9EUsJ5WFZ/fCboY3tMZfXZ
+         nL2IcKxigkFrXY2wd8DxOQ7wCSpv9mEhg8YK1l+Spyxqr3Bzb9/RQ8jriTFhTX3J/Juk
+         qZ9NZpuTN0OfmR6ekf8NOpiakge7WdHur5PbXcAmQPSZANzCc6NnETFE5VYIJVGgfJa9
+         DhcHTxazo+m/LCdmt7F1x/NXRiMoZ4O383QJh/CNZaLbQVT1XyUX7rBOo9EsrRxNGqwq
+         4hAbJthek15bKusIqwhPmKWRSksq6PLdM8unhz3ip4KILVFZpp+L6pMTZjI4MSKGsT1Q
+         C6/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVKf/RzwBZArOb9Vm7IK5ba5Q24oInD/AwIuYZv7Xn5hN8DMGhLweJQyGn/3xXZq5KN5pLFVuSAN7+lxyocOVj4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHJIg4U5YdyjVU8in5FODHDWEJGLzjbDKGWpfWg7skLh8/2Q14
+	WzMmky1Ns+lZvpbNKt2PuNN80KFVnkc2S0EqiWWkuDD+mN/Rv3bN/mwFHVRl04zJoqBuDxijaq7
+	B
+X-Gm-Gg: ASbGnctzH9YdcZU/TEyZtqnjzqqwmzbEcfSJ6EniXDSjlZkdlcarSjd2gZDpox1AgFu
+	ndPiKKu7ipskNNKOj+QUdqP1pv8xeE18e8guYyyYestnpDc7CH4mVUPs3AG5DYo70DMVy3tI5Zh
+	bmfwUVH5OGa7qry4jhvY4vXogdEHnbpC5W7bhKeWt3YTKKmkURU7ESTsmDSD5l6ZggZNGG1uvjS
+	o0nh6ZVV3rlF/46SsaasfF3VJL25qoT2gOCKctGq6r+LP0TJd6VoK9Ffh5HF6A4dCGb8DTJOXJj
+	J3Usipl3hOsNJjuOh9/EpOIL9UHN5ThtkgiMyeSqp7EXsZdw2mkBaqCOkWQNTL9KBxi1ggbCGp6
+	l+l5suwbr
+X-Google-Smtp-Source: AGHT+IGuAoH/p1nMSeqv3bOifmTrMP/PnwzxrZnxOY/n0urwwA3R2/apocnxV/A6G60e0FGXp9uPtA==
+X-Received: by 2002:a05:600c:1f92:b0:43b:c857:e9d7 with SMTP id 5b1f17b1804b1-43d502e338emr131930175e9.5.1742907100288;
+        Tue, 25 Mar 2025 05:51:40 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d4fd9e960sm149122515e9.29.2025.03.25.05.51.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Mar 2025 05:51:39 -0700 (PDT)
+Message-ID: <cc2dd75c-e279-4e55-ab88-75498e93146a@linaro.org>
+Date: Tue, 25 Mar 2025 13:51:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250320171559.3423224-1-song@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
+ Module for the s32g platform
+To: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
+ Larisa Grigore <Larisa.Grigore@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, NXP S32 Linux Team <s32@nxp.com>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+ <20250324100008.346009-2-daniel.lezcano@linaro.org>
+ <d60fca36-0beb-2574-cb82-3969bbfb58a9@oss.nxp.com>
+ <8c208e8c-2e1e-430c-916a-dbc6732881b0@linaro.org>
+ <065d6f32-3161-8316-bbbd-4da18eef839b@oss.nxp.com>
+ <098c5de8-9291-4f3e-a276-500825cac7c5@linaro.org>
+ <068713cb-47ca-ae26-e113-9f5026be9196@oss.nxp.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <068713cb-47ca-ae26-e113-9f5026be9196@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_125314_289291_2F80B4EA 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250325_055142_478042_BF31388A 
+X-CRM114-Status: GOOD (  31.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,45 +115,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu 2025-03-20 10:15:57, Song Liu wrote:
-> There are recent efforts to enable livepatch for arm64, with sframe [1] or
-> without sframe [2]. This set tries to enable livepatch without sframe. Some
-> of the code, however, are from [1].
+On 25/03/2025 13:21, Ghennadi Procopciuc wrote:
+> On 3/25/2025 2:09 PM, Daniel Lezcano wrote:
+>> On 25/03/2025 12:40, Ghennadi Procopciuc wrote:
+>>> On 3/25/2025 12:53 PM, Daniel Lezcano wrote:
+>>> [ ... ]
+>>>>>> +static int __init nxp_stm_clocksource_init(struct device *dev, const
+>>>>>> char *name,
+>>>>>> +                       void __iomem *base, struct clk *clk)
+>>>>>> +{
+>>>>>> +    struct stm_timer *stm_timer;
+>>>>>> +    int ret;
+>>>>>> +
+>>>>>> +    stm_timer = devm_kzalloc(dev, sizeof(*stm_timer), GFP_KERNEL);
+>>>>>> +    if (!stm_timer)
+>>>>>> +        return -ENOMEM;
+>>>>>> +
+>>>>>> +    stm_timer->base = base;
+>>>>>> +    stm_timer->rate = clk_get_rate(clk);
+>>>>>> +
+>>>>>> +    stm_timer->scs.cs.name = name;
+>>>>>> +    stm_timer->scs.cs.rating = 460;
+>>>>>> +    stm_timer->scs.cs.read = nxp_stm_clocksource_read;
+>>>>>> +    stm_timer->scs.cs.enable = nxp_stm_clocksource_enable;
+>>>>>> +    stm_timer->scs.cs.disable = nxp_stm_clocksource_disable;
+>>>>>> +    stm_timer->scs.cs.suspend = nxp_stm_clocksource_suspend;
+>>>>>> +    stm_timer->scs.cs.resume = nxp_stm_clocksource_resume;
+>>>>>> +    stm_timer->scs.cs.mask = CLOCKSOURCE_MASK(32);
+>>>>>> +    stm_timer->scs.cs.flags = CLOCK_SOURCE_IS_CONTINUOUS;
+>>>>>> +
+>>>>>> +    ret = clocksource_register_hz(&stm_timer->scs.cs,
+>>>>>> stm_timer->rate);
+>>>>>> +    if (ret)
+>>>>>> +        return ret;
+>>>>>
+>>>>> clocksource_unregister during remove callback for cleanup?
+>>>>
+>>>> Sorry I don't get it :/
+>>>>
+>>>> There is no cleanup after the clocksource_register_hz() is successful
+>>>>
+>>>
+>>> I noticed that other drivers, such as
+>>> drivers/clocksource/timer-tegra186.c and
+>>> drivers/clocksource/timer-sun5i.c, perform clocksource_unregister during
+>>> their platform_driver.remove callback. Shouldn't this apply here as well?
+>>
+>> The tegra186 registers with one probe several timers and clocksources.
+>> The timer-nxp probes for each node.
+>>
+>> The timer-sun5i.c has the remove callback but it is pointless as it can
+>> not be compiled as module. So it should not have it.
+>>
 > 
-> Although the sframe implementation is more promising in longer term, it
-> suffers from the following issues:
+> Ok.
 > 
->   1. sframe is not yet supported in llvm;
->   2. There is still bug in binutil [3], so that we cannot yet use sframe
->      with gcc;
->   3. sframe unwinder hasn't been fully verified in the kernel.
+>>> [ ... ]
+>>>>
+>>>>>> +static int nxp_stm_clockevent_set_next_event(unsigned long delta,
+>>>>>> struct clock_event_device *ced)
+>>>>>> +{
+>>>>>> +    struct stm_timer *stm_timer = ced_to_stm(ced);
+>>>>>> +    u32 val;
+>>>>>> +
+>>>>>> +    nxp_stm_clockevent_disable(stm_timer);
+>>>>>
+>>>>> While examining the code base, I came across the
+>>>>> drivers/clocksource/timer-imx-gpt.c file, specifically the
+>>>>> mx1_2_set_next_event function, which includes a protection against
+>>>>> missing events. Using a similar approach would allow us to keep the STM
+>>>>> module enabled while only altering the channel's register state. This
+>>>>> risk can also be mitigated by adjusting min_delta_ns based on tick
+>>>>> frequency.
+>>>>
+>>>> How would you validate that ?
+>>>>
+>>>
+>>> How would I validate that this works?
+>>>
+>>> If this is the question, I see that the core performs an auto adjustment
+>>> of the minimum delta as part of the clockevents_program_min_delta
+>>> function when CONFIG_GENERIC_CLOCKEVENTS_MIN_ADJUST is enabled.
+>>> Initially, I would examine how many times dev->set_next_event() returns
+>>> -ETIME. At the end of the function, min_delta_ns should reflect the
+>>> actual minimum delta the device can handle.
+>>
+>> That is an area of optimization and I would prefer to keep that as a
+>> separate change focused on validating this approach.
+>>
 > 
-> On the other hand, arm64 processors have become more and more important in
-> the data center world. Therefore, it is getting critical to support
-> livepatching of arm64 kernels.
+> This suggestion supports the argument presented below.
 > 
-> With recent change in arm64 unwinder [4], it is possible to reliably
-> livepatch arm64 kernels without sframe. This is because we do not need
-> arch_stack_walk_reliable() to get reliable stack trace in all scenarios.
-> Instead, we only need arch_stack_walk_reliable() to detect when the
-> stack trace is not reliable, then the livepatch logic can retry the patch
-> transition at a later time.
+>>> [ ... ]
+>>>>>> +static int __init nxp_stm_timer_probe(struct platform_device *pdev)
+>>>>>> +{
+>>>>>> +    struct device *dev = &pdev->dev;
+>>>>>> +    struct device_node *np = dev->of_node;
+>>>>>> +    struct stm_instances *stm_instances;
+>>>>>> +    const char *name = of_node_full_name(np);
+>>>>>> +    void __iomem *base;
+>>>>>> +    int irq, ret;
+>>>>>> +    struct clk *clk;
+>>>>>> +
+>>>>>> +    stm_instances =
+>>>>>> (typeof(stm_instances))of_device_get_match_data(dev);
+>>>>>> +    if (!stm_instances) {
+>>>>>> +        dev_err(dev, "No STM instances associated with a cpu");
+>>>>>> +        return -EINVAL;
+>>>>>> +    }
+>>>>>> +
+>>>>>> +    base = devm_of_iomap(dev, np, 0, NULL);
+>>>>>> +    if (IS_ERR(base)) {
+>>>>>> +        dev_err(dev, "Failed to iomap %pOFn\n", np);
+>>>>>> +        return PTR_ERR(base);
+>>>>>> +    }
+>>>>>> +
+>>>>>> +    irq = irq_of_parse_and_map(np, 0);
+>>>>>> +    if (irq <= 0) {
+>>>>>> +        dev_err(dev, "Failed to parse and map IRQ: %d\n", irq);
+>>>>>> +        return -EINVAL;
+>>>>>> +    }
+>>>>>
+>>>>>    From commit description:
+>>>>>
+>>>>>> The first probed STM is used as a clocksource, the second will be the
+>>>>>> broadcast timer and the rest are used as a clockevent with the
+>>>>>> affinity set to a CPU.
+>>>>>
+>>>>> Why is the interrupt mandatory when the node is probed as a
+>>>>> clocksource?
+>>>>
+>>>> It relies on the DT description and it does not hurt to have a
+>>>> consistent code path for clockevent / clocksource even if the interrupt
+>>>> is not requested for the clocksource later.
+>>>>
+>>>
+>>> If so, in my opinion, it would make sense to use the same STM instance
+>>> for both the clocksource and broadcast clockevent, as both functions can
+>>> be accommodated within a single STM instance, which will help reduce the
+>>> number of STM instances used.
+>>
+>> The broadcast timer is stopped when it is unused which is the case for
+>> the s32 because there are no idle state powering down the local timers.
+>> They have to have be separated.
+>>
 > 
-> Given the increasing need of livepatching, and relatively long time before
-> sframe is fully ready (for both gcc and clang), we would like to enable
-> livepatch without sframe.
-> 
-> Thanks!
-> 
-> [1] https://lore.kernel.org/live-patching/20250127213310.2496133-1-wnliu@google.com/
-> [2] https://lore.kernel.org/live-patching/20250129232936.1795412-1-song@kernel.org/
-> [3] https://sourceware.org/bugzilla/show_bug.cgi?id=32589
-> [4] https://lore.kernel.org/linux-arm-kernel/20241017092538.1859841-1-mark.rutland@arm.com/
+> This wouldn't be the case if the STM is kept running/counting during the
+> clock event setup, with only the clock event interrupt being disabled
+> (CCR.CEN).
 
-Hi, I am sorry but I haven't found time to look at this in time before
-the merge window. Is it acceptable to postpone this change to 6.16,
-please?
+Are you asking to use two different channels for the same STM instance, 
+one for the clocksource and one for the clockevent ?
 
-Best Regards,
-Petr
+
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
