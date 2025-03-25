@@ -4,101 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93364C35FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5222CC35FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Mar 2025 12:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARk/2qD3B4yeKBJrJ3RO2HvqNw7n1OqVVP/7taXakjQ=; b=OR3laclk2DkRLFoZ2gRsJLS4Rl
-	n5x6DkqEvs/Xzo0wuOcjAqKE8aoFcMuTCMw0SryNEb1BAau0mocBblVJR+QdJhvsoPVlW8VsKNGrL
-	8+JH9KaW70yqMnFjPjQs6PuIupKA9xzngSlpRkdqi2gCMx1UBDqR4IBzSdrsxVn3lDkAVcslfjf7O
-	IykU3EVc2Pv9uEeroAJyRMSij/j+YSb4jVMxgIx1aYJWpNhT7/HcO86NUDP8tcAO/etNwvYTyYKOb
-	3NFJdARf3CQRSPBQMDsPODxb1GFk30cNAqVRiie7Zht3VeEuMV/P79hjcco1uTzDOxteuQvi6CGJu
-	Gx1RWc3g==;
+	bh=81BiD7/M/sylbKzVRltByAQQHCeMSq/bso4i+wtJyXk=; b=HkdckB+lD12WBRtVXCBCBR2s57
+	eDE6hIzEy9l5+R22Uqm45V7utM83ARo957mzoAHmYvK46a10bPR/OvpWWaybXsE30LgXKjDpDHMB3
+	IR0Nmq0QzpIaiHRSndIO0PlHBRbreFh1/7XWufSNIDQvHD1nkL1Qd7D7+0lY4f5NqNiHSXqikzfPw
+	2QCWT5T9BAokFIz78W8dSr/veBflAJSiB6IdYgzq/GwwE6P1gUot8ekFT0mFkB2RqtzCb4TbN3Isl
+	SMLw1FJoYGbHDdtnnkrZoowbJqh4CyXcM+tgGFR7ISGkoOMzEYQTV/vMwozN61Zoc/ps1AmkYeIKv
+	zznxKnPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Pq-00000005pRn-3uUj;
-	Tue, 25 Mar 2025 12:29:58 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tx3RX-00000005pjJ-2Yny;
+	Tue, 25 Mar 2025 12:31:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx363-00000005klT-0oWp
+	id 1tx37m-00000005l2r-1QQP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Mar 2025 12:09:32 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso38326625e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Mar 2025 05:09:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742904569; x=1743509369; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ARk/2qD3B4yeKBJrJ3RO2HvqNw7n1OqVVP/7taXakjQ=;
-        b=FhZnkKB3PXGnj1RnTHpYzMZg4SNizQrk6c4bLpAzx/64CXGssdBYRZ/APrul2TsvxL
-         LCDFVHj2Umj7cI2d6vtIiN3Z6aw3QRkYpa2kAgDz9KKgHOq5xWPiZh+Hx/66EkbxZsVO
-         X1WftdH1LvkjeOjs14+lnykQO/rH4iBa41PeAM2mUzTv9pbo9MskIPpLHhDOY6eRVJif
-         urvnqax3mNqpfbwRH6v3GSSpGSUeKDr9EVghncupQkWLsf73NBDi38uyqv5/Ihq0JYTu
-         /CzraGwB8TsVCUAMy33hYUOa8gXlUUeNgZw1kCEt8a6DdPUuE7n3UXCsf5Qq+pGq9lNw
-         EqjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742904569; x=1743509369;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ARk/2qD3B4yeKBJrJ3RO2HvqNw7n1OqVVP/7taXakjQ=;
-        b=RH7mhOkrpvaYHejbsgFK65XzswnDP8AzPhLK0X0LWDuIjvg8XMfeUjVXKAuueCfBwp
-         Z0MTvSfuXMV7RBogZha3Ogaf2a6y5zdnqq6kTlWgbweQ40s0k39XoKf0qJiOzyLz6aFV
-         C1GldWq8LD3M0r4NOJGEocQeKOybNNhVTKJZg46Q/fu+8EHkw+b1b0bbH1K724eJNWWm
-         6nRjZHRcNWkX+4Jic/sfxT1MNMVZhoprI0cLr1k3I9+5ii/mOXnmm01mUYNDNMViRAUX
-         aeBkRuwj9WEjmRuWvl/1LRdc5NZ4UjIwMHIjgApW9IrFOz8o9pEcZZZZcFCN1dgPYHls
-         f4qw==
-X-Forwarded-Encrypted: i=1; AJvYcCWQsH2QwAMXDK2cX7f8hoW6cTFNkkgsa/wczzZlOjiVuINAM3sTDIFs+dSZ13TjFZP8ciywagcoPYyuxjqOF0+A@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPrDMCLVRlj67YH9eEat9FsITEnVg5EQr/xlQXqRZPLW3ihhzK
-	JjsCINV6PzxDzFqY1J1BoyfyV1xuR4yYGR7QzSDC4GXZjGmHNK45tvpRqUmoduUM4T4WipMXEC5
-	K
-X-Gm-Gg: ASbGncupY8FqHFK5jmm0b3Lrh+Vdkt6VVJAO0oElm1EIXAFIrW3Hy3eYyymnlBno32w
-	EG81kaQxzagwjOkbQCn/a/sONi+62sJHo9tD7w2EohzxJQrxTNGGwQpty/1mmkMdZ0SAgaYIzWl
-	WgCNexvfIivGm4f424d+2VxO0UBPcLkyuqTaywoNw5g+eKTkLiU+kKVlj8XyUN6JPRtD+BSA5V3
-	obxT+6MGHHchNbXDeGYIxBA1oapo53xI1dNKNEOQDTXDMen6hshA6ppDqAoodPnk+ihtKrXojyH
-	WhwXFy4jhhOJEcar04n/sAcbBkoW5sF+XHjb34sTeLee2w7Bd9yRJzqJPiPTxbvHBNXF9QC4mK7
-	Nl0zPecLj
-X-Google-Smtp-Source: AGHT+IFBskiUUo+unot0SkV98dwQ4vT5wISCZj5gpa4ljqIKxNqSBAYOzS1BvS0WNWyEBmzZqIRDIw==
-X-Received: by 2002:a05:6000:178c:b0:391:2ab1:d4b8 with SMTP id ffacd0b85a97d-3997f900c60mr12951478f8f.1.1742904569413;
-        Tue, 25 Mar 2025 05:09:29 -0700 (PDT)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39abdaf0c0bsm9161805f8f.63.2025.03.25.05.09.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Mar 2025 05:09:28 -0700 (PDT)
-Message-ID: <098c5de8-9291-4f3e-a276-500825cac7c5@linaro.org>
-Date: Tue, 25 Mar 2025 13:09:28 +0100
+	Tue, 25 Mar 2025 12:11:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 917F7438C6;
+	Tue, 25 Mar 2025 12:11:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B4D5C4CEE9;
+	Tue, 25 Mar 2025 12:11:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742904677;
+	bh=F0z0c6WZj/o0tegCTUsKybVHmRaIhLDfeoY1o6O62+I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P1r9+IolbYEIJ7O+E0xKa1EwqwWKZ8U0JzaqWWdgyBXPpJXfOjBN57eeJUGZabxHk
+	 XA/4C3VYKncDCAWdJeF3P0WkNiDc6xpaqriRhBvfYHSnvVWq6AqhAQqTLKvxMlnXb4
+	 m5m67lkEFEzOa6cNTvk9xEKg/QGsbmAxGXRCnoCdzuBRlr23WkE3WFLJpOMylKW0eG
+	 7Tp1/IYeoRy0J/teP3I8zFVHL+aB8hpvtE+FTXMfbXVLJcu8kao3b/Lu/spHgeeb8R
+	 t0d1Mh8KNBxfIZd1/bKmAKuu7VvIoB4KMyVsEb1tEsAr35H/quaXDo4ABWJTp7fUkm
+	 aHl0SGNvR/Fdg==
+Message-ID: <32d93a90-3601-4094-8054-2737a57acbc7@kernel.org>
+Date: Tue, 25 Mar 2025 13:11:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
- Module for the s32g platform
-To: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, tglx@linutronix.de
-Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
- Larisa Grigore <Larisa.Grigore@nxp.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>
-References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
- <20250324100008.346009-2-daniel.lezcano@linaro.org>
- <d60fca36-0beb-2574-cb82-3969bbfb58a9@oss.nxp.com>
- <8c208e8c-2e1e-430c-916a-dbc6732881b0@linaro.org>
- <065d6f32-3161-8316-bbbd-4da18eef839b@oss.nxp.com>
+Subject: Re: [PATCH 5/5] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
+ Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ davem@davemloft.net, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>,
+ netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>
+References: <20250325115736.1732721-1-lukma@denx.de>
+ <20250325115736.1732721-6-lukma@denx.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <065d6f32-3161-8316-bbbd-4da18eef839b@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250325115736.1732721-6-lukma@denx.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_050931_235965_FCB73630 
-X-CRM114-Status: GOOD (  33.24  )
+X-CRM114-CacheID: sfid-20250325_051118_435323_C1322ED7 
+X-CRM114-Status: GOOD (  36.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,146 +125,412 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/03/2025 12:40, Ghennadi Procopciuc wrote:
-> On 3/25/2025 12:53 PM, Daniel Lezcano wrote:
-> [ ... ]
->>>> +static int __init nxp_stm_clocksource_init(struct device *dev, const
->>>> char *name,
->>>> +                       void __iomem *base, struct clk *clk)
->>>> +{
->>>> +    struct stm_timer *stm_timer;
->>>> +    int ret;
->>>> +
->>>> +    stm_timer = devm_kzalloc(dev, sizeof(*stm_timer), GFP_KERNEL);
->>>> +    if (!stm_timer)
->>>> +        return -ENOMEM;
->>>> +
->>>> +    stm_timer->base = base;
->>>> +    stm_timer->rate = clk_get_rate(clk);
->>>> +
->>>> +    stm_timer->scs.cs.name = name;
->>>> +    stm_timer->scs.cs.rating = 460;
->>>> +    stm_timer->scs.cs.read = nxp_stm_clocksource_read;
->>>> +    stm_timer->scs.cs.enable = nxp_stm_clocksource_enable;
->>>> +    stm_timer->scs.cs.disable = nxp_stm_clocksource_disable;
->>>> +    stm_timer->scs.cs.suspend = nxp_stm_clocksource_suspend;
->>>> +    stm_timer->scs.cs.resume = nxp_stm_clocksource_resume;
->>>> +    stm_timer->scs.cs.mask = CLOCKSOURCE_MASK(32);
->>>> +    stm_timer->scs.cs.flags = CLOCK_SOURCE_IS_CONTINUOUS;
->>>> +
->>>> +    ret = clocksource_register_hz(&stm_timer->scs.cs, stm_timer->rate);
->>>> +    if (ret)
->>>> +        return ret;
->>>
->>> clocksource_unregister during remove callback for cleanup?
->>
->> Sorry I don't get it :/
->>
->> There is no cleanup after the clocksource_register_hz() is successful
->>
+On 25/03/2025 12:57, Lukasz Majewski wrote:
+> This patch series provides support for More Than IP L2 switch embedded
+> in the imx287 SoC.
 > 
-> I noticed that other drivers, such as
-> drivers/clocksource/timer-tegra186.c and
-> drivers/clocksource/timer-sun5i.c, perform clocksource_unregister during
-> their platform_driver.remove callback. Shouldn't this apply here as well?
-
-The tegra186 registers with one probe several timers and clocksources. 
-The timer-nxp probes for each node.
-
-The timer-sun5i.c has the remove callback but it is pointless as it can 
-not be compiled as module. So it should not have it.
-
-> [ ... ]
->>
->>>> +static int nxp_stm_clockevent_set_next_event(unsigned long delta,
->>>> struct clock_event_device *ced)
->>>> +{
->>>> +    struct stm_timer *stm_timer = ced_to_stm(ced);
->>>> +    u32 val;
->>>> +
->>>> +    nxp_stm_clockevent_disable(stm_timer);
->>>
->>> While examining the code base, I came across the
->>> drivers/clocksource/timer-imx-gpt.c file, specifically the
->>> mx1_2_set_next_event function, which includes a protection against
->>> missing events. Using a similar approach would allow us to keep the STM
->>> module enabled while only altering the channel's register state. This
->>> risk can also be mitigated by adjusting min_delta_ns based on tick
->>> frequency.
->>
->> How would you validate that ?
->>
+> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
+> which can be used for offloading the network traffic.
 > 
-> How would I validate that this works?
+> It can be used interchangeable with current FEC driver - to be more
+> specific: one can use either of it, depending on the requirements.
 > 
-> If this is the question, I see that the core performs an auto adjustment
-> of the minimum delta as part of the clockevents_program_min_delta
-> function when CONFIG_GENERIC_CLOCKEVENTS_MIN_ADJUST is enabled.
-> Initially, I would examine how many times dev->set_next_event() returns
-> -ETIME. At the end of the function, min_delta_ns should reflect the
-> actual minimum delta the device can handle.
-
-That is an area of optimization and I would prefer to keep that as a 
-separate change focused on validating this approach.
-
-> [ ... ]
->>>> +static int __init nxp_stm_timer_probe(struct platform_device *pdev)
->>>> +{
->>>> +    struct device *dev = &pdev->dev;
->>>> +    struct device_node *np = dev->of_node;
->>>> +    struct stm_instances *stm_instances;
->>>> +    const char *name = of_node_full_name(np);
->>>> +    void __iomem *base;
->>>> +    int irq, ret;
->>>> +    struct clk *clk;
->>>> +
->>>> +    stm_instances =
->>>> (typeof(stm_instances))of_device_get_match_data(dev);
->>>> +    if (!stm_instances) {
->>>> +        dev_err(dev, "No STM instances associated with a cpu");
->>>> +        return -EINVAL;
->>>> +    }
->>>> +
->>>> +    base = devm_of_iomap(dev, np, 0, NULL);
->>>> +    if (IS_ERR(base)) {
->>>> +        dev_err(dev, "Failed to iomap %pOFn\n", np);
->>>> +        return PTR_ERR(base);
->>>> +    }
->>>> +
->>>> +    irq = irq_of_parse_and_map(np, 0);
->>>> +    if (irq <= 0) {
->>>> +        dev_err(dev, "Failed to parse and map IRQ: %d\n", irq);
->>>> +        return -EINVAL;
->>>> +    }
->>>
->>>   From commit description:
->>>
->>>> The first probed STM is used as a clocksource, the second will be the
->>>> broadcast timer and the rest are used as a clockevent with the
->>>> affinity set to a CPU.
->>>
->>> Why is the interrupt mandatory when the node is probed as a clocksource?
->>
->> It relies on the DT description and it does not hurt to have a
->> consistent code path for clockevent / clocksource even if the interrupt
->> is not requested for the clocksource later.
->>
+> The biggest difference is the usage of DMA - when FEC is used, separate
+> DMAs are available for each ENET-MAC block.
+> However, with switch enabled - only the DMA0 is used to send/receive data.
 > 
-> If so, in my opinion, it would make sense to use the same STM instance
-> for both the clocksource and broadcast clockevent, as both functions can
-> be accommodated within a single STM instance, which will help reduce the
-> number of STM instances used.
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> ---
+>  drivers/net/ethernet/freescale/Kconfig        |    1 +
+>  drivers/net/ethernet/freescale/Makefile       |    1 +
+>  drivers/net/ethernet/freescale/mtipsw/Kconfig |   10 +
+>  .../net/ethernet/freescale/mtipsw/Makefile    |    6 +
+>  .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 2108 +++++++++++++++++
+>  .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  784 ++++++
+>  .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  113 +
+>  .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  434 ++++
+>  8 files changed, 3457 insertions(+)
+>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+>  create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+> 
+> diff --git a/drivers/net/ethernet/freescale/Kconfig b/drivers/net/ethernet/freescale/Kconfig
+> index a2d7300925a8..056a11c3a74e 100644
+> --- a/drivers/net/ethernet/freescale/Kconfig
+> +++ b/drivers/net/ethernet/freescale/Kconfig
+> @@ -60,6 +60,7 @@ config FEC_MPC52xx_MDIO
+>  
+>  source "drivers/net/ethernet/freescale/fs_enet/Kconfig"
+>  source "drivers/net/ethernet/freescale/fman/Kconfig"
+> +source "drivers/net/ethernet/freescale/mtipsw/Kconfig"
+>  
+>  config FSL_PQ_MDIO
+>  	tristate "Freescale PQ MDIO"
+> diff --git a/drivers/net/ethernet/freescale/Makefile b/drivers/net/ethernet/freescale/Makefile
+> index de7b31842233..0e6cacb0948a 100644
+> --- a/drivers/net/ethernet/freescale/Makefile
+> +++ b/drivers/net/ethernet/freescale/Makefile
+> @@ -25,3 +25,4 @@ obj-$(CONFIG_FSL_DPAA_ETH) += dpaa/
+>  obj-$(CONFIG_FSL_DPAA2_ETH) += dpaa2/
+>  
+>  obj-y += enetc/
+> +obj-y += mtipsw/
+> diff --git a/drivers/net/ethernet/freescale/mtipsw/Kconfig b/drivers/net/ethernet/freescale/mtipsw/Kconfig
+> new file mode 100644
+> index 000000000000..5cc9b758bad4
+> --- /dev/null
+> +++ b/drivers/net/ethernet/freescale/mtipsw/Kconfig
+> @@ -0,0 +1,10 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +config FEC_MTIP_L2SW
+> +	tristate "MoreThanIP L2 switch support to FEC driver"
+> +	depends on OF
+> +	depends on NET_SWITCHDEV
+> +	depends on BRIDGE
+> +	depends on ARCH_MXS || ARCH_MXC
 
-The broadcast timer is stopped when it is unused which is the case for 
-the s32 because there are no idle state powering down the local timers. 
-They have to have be separated.
+Missing compile test
+
+> +	help
+> +		This enables support for the MoreThan IP L2 switch on i.MX
+> +		SoCs (e.g. iMX28, vf610).
+
+Wrong indentation. Look at other Kconfig files.
+
+> diff --git a/drivers/net/ethernet/freescale/mtipsw/Makefile b/drivers/net/ethernet/freescale/mtipsw/Makefile
+> new file mode 100644
+> index 000000000000..e87e06d6870a
+> --- /dev/null
+> +++ b/drivers/net/ethernet/freescale/mtipsw/Makefile
+> @@ -0,0 +1,6 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +#
+> +# Makefile for the L2 switch from MTIP embedded in NXP SoCs
+
+Drop, obvious.
 
 
+...
 
--- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+> +
+> +static int mtip_parse_of(struct switch_enet_private *fep,
+> +			 struct device_node *np)
+> +{
+> +	struct device_node *port, *p;
+> +	unsigned int port_num;
+> +	int ret;
+> +
+> +	p = of_find_node_by_name(np, "ethernet-ports");
+> +
+> +	for_each_available_child_of_node(p, port) {
+> +		if (of_property_read_u32(port, "reg", &port_num))
+> +			continue;
+> +
+> +		fep->n_ports = port_num;
+> +		of_get_mac_address(port, &fep->mac[port_num - 1][0]);
+> +
+> +		ret = of_property_read_string(port, "label",
+> +					      &fep->ndev_name[port_num - 1]);
+> +		if (ret < 0) {
+> +			pr_err("%s: Cannot get ethernet port name (%d)!\n",
+> +			       __func__, ret);
+> +			goto of_get_err;
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Just use scoped loop.
+
+> +		}
+> +
+> +		ret = of_get_phy_mode(port, &fep->phy_interface[port_num - 1]);
+> +		if (ret < 0) {
+> +			pr_err("%s: Cannot get PHY mode (%d)!\n", __func__,
+> +			       ret);
+
+No, drivers do not use pr_xxx. From where did you get this code?
+
+> +			goto of_get_err;
+> +		}
+> +
+> +		fep->phy_np[port_num - 1] = of_parse_phandle(port,
+> +							     "phy-handle", 0);
+> +	}
+> +
+> + of_get_err:
+> +	of_node_put(p);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtip_sw_learning(void *arg)
+> +{
+> +	struct switch_enet_private *fep = arg;
+> +
+> +	while (!kthread_should_stop()) {
+> +		set_current_state(TASK_INTERRUPTIBLE);
+> +		/* check learning record valid */
+> +		mtip_atable_dynamicms_learn_migration(fep, fep->curr_time,
+> +						      NULL, NULL);
+> +		schedule_timeout(HZ / 100);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void mtip_mii_unregister(struct switch_enet_private *fep)
+> +{
+> +	mdiobus_unregister(fep->mii_bus);
+> +	mdiobus_free(fep->mii_bus);
+> +}
+> +
+> +static const struct fec_devinfo fec_imx28_l2switch_info = {
+> +	.quirks = FEC_QUIRK_BUG_CAPTURE | FEC_QUIRK_SINGLE_MDIO,
+> +};
+> +
+> +static struct platform_device_id pdev_id = {
+> +	.name = "imx28-l2switch",
+> +	.driver_data = (kernel_ulong_t)&fec_imx28_l2switch_info,
+> +};
+> +
+> +static int __init mtip_sw_probe(struct platform_device *pdev)
+> +{
+> +	struct device_node *np = pdev->dev.of_node;
+> +	struct switch_enet_private *fep;
+> +	struct fec_devinfo *dev_info;
+> +	struct switch_t *fecp;
+> +	struct resource *r;
+> +	int err, ret;
+> +	u32 rev;
+> +
+> +	pr_info("Ethernet Switch Version %s\n", VERSION);
+
+Drivers use dev, not pr. Anyway drop. Drivers do not have versions and
+should be silent on success.
+
+> +
+> +	fep = kzalloc(sizeof(*fep), GFP_KERNEL);
+
+Why not devm? See last comment here (at the end).
+
+> +	if (!fep)
+> +		return -ENOMEM;
+> +
+> +	pdev->id_entry = &pdev_id;
+> +
+> +	dev_info = (struct fec_devinfo *)pdev->id_entry->driver_data;
+> +	if (dev_info)
+> +		fep->quirks = dev_info->quirks;
+> +
+> +	fep->pdev = pdev;
+> +	platform_set_drvdata(pdev, fep);
+> +
+> +	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	fep->enet_addr = devm_ioremap_resource(&pdev->dev, r);
+
+Use proper wrapper.
+
+> +	if (IS_ERR(fep->enet_addr)) {
+> +		ret = PTR_ERR(fep->enet_addr);
+> +		goto failed_ioremap;
+> +	}
+> +
+> +	fep->irq = platform_get_irq(pdev, 0);
+> +
+> +	ret = mtip_parse_of(fep, np);
+> +	if (ret < 0) {
+> +		pr_err("%s: OF parse error (%d)!\n", __func__, ret);
+> +		goto failed_parse_of;
+> +	}
+> +
+> +	/* Create an Ethernet device instance.
+> +	 * The switch lookup address memory starts 0x800FC000
+> +	 */
+> +	fep->hwp_enet = fep->enet_addr;
+> +	fecp = (struct switch_t *)(fep->enet_addr + ENET_SWI_PHYS_ADDR_OFFSET);
+> +
+> +	fep->hwp = fecp;
+> +	fep->hwentry = (struct mtip_addr_table_t *)
+> +		((unsigned long)fecp + MCF_ESW_LOOKUP_MEM_OFFSET);
+> +
+> +	rev = readl(&fecp->ESW_REVISION);
+> +	pr_info("Ethernet Switch HW rev 0x%x:0x%x\n",
+> +		MCF_MTIP_REVISION_CUSTOMER_REVISION(rev),
+> +		MCF_MTIP_REVISION_CORE_REVISION(rev));
+
+Drop
+
+> +
+> +	fep->reg_phy = devm_regulator_get(&pdev->dev, "phy");
+> +	if (!IS_ERR(fep->reg_phy)) {
+> +		ret = regulator_enable(fep->reg_phy);
+> +		if (ret) {
+> +			dev_err(&pdev->dev,
+> +				"Failed to enable phy regulator: %d\n", ret);
+> +			goto failed_regulator;
+> +		}
+> +	} else {
+> +		if (PTR_ERR(fep->reg_phy) == -EPROBE_DEFER) {
+> +			ret = -EPROBE_DEFER;
+> +			goto failed_regulator;
+> +		}
+> +		fep->reg_phy = NULL;
+
+I don't understand this code. Do you want to re-implement get_optional?
+But why?
+
+> +	}
+> +
+> +	fep->clk_ipg = devm_clk_get(&pdev->dev, "ipg");
+> +	if (IS_ERR(fep->clk_ipg))
+> +		fep->clk_ipg = NULL;
+
+Why?
+
+> +
+> +	fep->clk_ahb = devm_clk_get(&pdev->dev, "ahb");
+> +	if (IS_ERR(fep->clk_ahb))
+> +		fep->clk_ahb = NULL;
+> +
+> +	fep->clk_enet_out = devm_clk_get(&pdev->dev, "enet_out");
+> +	if (IS_ERR(fep->clk_enet_out))
+> +		fep->clk_enet_out = NULL;
+> +
+> +	ret = clk_prepare_enable(fep->clk_ipg);
+> +	if (ret) {
+> +		pr_err("%s: clock ipg cannot be enabled\n", __func__);
+> +		goto failed_clk_ipg;
+> +	}
+> +
+> +	ret = clk_prepare_enable(fep->clk_ahb);
+> +	if (ret) {
+> +		pr_err("%s: clock ahb cannot be enabled\n", __func__);
+> +		goto failed_clk_ahb;
+> +	}
+> +
+> +	ret = clk_prepare_enable(fep->clk_enet_out);
+> +	if (ret)
+> +		pr_err("%s: clock clk_enet_out cannot be enabled\n", __func__);
+> +
+> +	spin_lock_init(&fep->learn_lock);
+> +
+> +	ret = mtip_reset_phy(pdev);
+> +	if (ret < 0) {
+> +		pr_err("%s: GPIO PHY RST error (%d)!\n", __func__, ret);
+> +		goto get_phy_mode_err;
+> +	}
+> +
+> +	ret = request_irq(fep->irq, mtip_interrupt, 0, "mtip_l2sw", fep);
+> +	if (ret) {
+> +		pr_err("MTIP_L2: Could not alloc IRQ(%d)!\n", fep->irq);
+> +		goto request_irq_err;
+> +	}
+> +
+> +	spin_lock_init(&fep->hw_lock);
+> +	spin_lock_init(&fep->mii_lock);
+> +
+> +	ret = mtip_register_notifiers(fep);
+> +	if (ret)
+> +		goto clean_unregister_netdev;
+> +
+> +	ret = mtip_ndev_init(fep);
+> +	if (ret) {
+> +		pr_err("%s: Failed to create virtual ndev (%d)\n",
+> +		       __func__, ret);
+> +		goto mtip_ndev_init_err;
+> +	}
+> +
+> +	err = mtip_switch_dma_init(fep);
+> +	if (err) {
+> +		pr_err("%s: ethernet switch init fail (%d)!\n", __func__, err);
+> +		goto mtip_switch_dma_init_err;
+> +	}
+> +
+> +	err = mtip_mii_init(fep, pdev);
+> +	if (err)
+> +		pr_err("%s: Cannot init phy bus (%d)!\n", __func__, err);
+> +
+> +	/* setup timer for learning aging function */
+> +	timer_setup(&fep->timer_aging, mtip_aging_timer, 0);
+> +	mod_timer(&fep->timer_aging,
+> +		  jiffies + msecs_to_jiffies(LEARNING_AGING_INTERVAL));
+> +
+> +	fep->task = kthread_run(mtip_sw_learning, fep, "mtip_l2sw_learning");
+> +	if (IS_ERR(fep->task)) {
+> +		ret = PTR_ERR(fep->task);
+> +		pr_err("%s: learning kthread_run error (%d)!\n", __func__, ret);
+> +		goto fail_task_learning;
+> +	}
+> +
+> +	/* setup MII interface for external switch ports*/
+> +	mtip_enet_init(fep, 1);
+> +	mtip_enet_init(fep, 2);
+> +
+> +	return 0;
+> +
+> + fail_task_learning:
+> +	mtip_mii_unregister(fep);
+> +	del_timer(&fep->timer_aging);
+> + mtip_switch_dma_init_err:
+> +	mtip_ndev_cleanup(fep);
+> + mtip_ndev_init_err:
+> +	mtip_unregister_notifiers(fep);
+> + clean_unregister_netdev:
+> +	free_irq(fep->irq, NULL);
+> + request_irq_err:
+> +	platform_set_drvdata(pdev, NULL);
+> + get_phy_mode_err:
+> +	if (fep->clk_enet_out)
+> +		clk_disable_unprepare(fep->clk_enet_out);
+> +	clk_disable_unprepare(fep->clk_ahb);
+> + failed_clk_ahb:
+> +	clk_disable_unprepare(fep->clk_ipg);
+> + failed_clk_ipg:
+> +	if (fep->reg_phy) {
+> +		regulator_disable(fep->reg_phy);
+> +		devm_regulator_put(fep->reg_phy);
+> +	}
+> + failed_regulator:
+> + failed_parse_of:
+> +	devm_ioremap_release(&pdev->dev, r);
+> + failed_ioremap:
+> +	kfree(fep);
+> +	return err;
+> +}
+> +
+> +static void mtip_sw_remove(struct platform_device *pdev)
+> +{
+> +	struct switch_enet_private *fep = platform_get_drvdata(pdev);
+> +
+> +	mtip_unregister_notifiers(fep);
+> +	mtip_ndev_cleanup(fep);
+> +
+> +	mtip_mii_remove(fep);
+> +
+> +	kthread_stop(fep->task);
+> +	del_timer(&fep->timer_aging);
+> +	platform_set_drvdata(pdev, NULL);
+> +
+> +	kfree(fep);
+> +}
+> +
+> +static const struct of_device_id mtipl2_of_match[] = {
+> +	{ .compatible = "fsl,imx287-mtip-switch", },
+> +	{ /* sentinel */ }
+> +};
+> +
+> +static struct platform_driver mtipl2plat_driver = {
+> +	.probe          = mtip_sw_probe,
+> +	.remove         = mtip_sw_remove,
+> +	.driver         = {
+> +		.name   = "mtipl2sw",
+> +		.owner  = THIS_MODULE,
+
+Oh no, please do not send us 10-12 year old code. This is long, looong
+time gone. If you copied this pattern, then for sure you copied all
+other issues we fixed during last 10 years, so basically you ask us to
+re-review the same code we already fixed.
+
+Best regards,
+Krzysztof
 
