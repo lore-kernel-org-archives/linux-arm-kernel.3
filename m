@@ -4,82 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181BAC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC41C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B31+gj3MwqN7LoN9ERg8P/Z27YfrdG3tWO6mWfVZyCw=; b=nUAgEwh/UtuIFBRgUXqG9pdoyB
-	hm73oBpNP0jvzrKCtysNjGjpuDhMNOneBmo9NcKDBy9lTzjLKCRVxOkAN9ltxIuHlBuy12l1va9aH
-	nHLQSK4jYpsv9sk7Cw27zZiEWmjaAe9IUXP35uUWoneCq2DbshF4L5b2KX+Qh6hmVABumgQfZEF3r
-	ToLIKLurWd8rgQC8mWpar/L4an6tlvarphAq6ikVieAkll4W62/ahJL2MoiRZuuG8OVudwQgR/fh7
-	okpbHSpIiVVpnOwpEFCl2hRTsbmvjT/vuJEkR8VxsktoDBvOhP/c9CGWbgEVLcgTu1xbNLFyj9bs7
-	aILa9sdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tDE3zVFRSLAN99xJjekhsGpfAAKaRAK0u4DIl3aZ4mo=; b=MurXrb1wwvA1AhUICRIDLsXZCD
+	zHSyhdwsbKXwr2SRQoQ1LcXt11FtOf/ODKnELliRpca/Od0OdDiKAW7wXgxH+nGvybRtk1rVN6yOr
+	I+9Tv4nJNZFgG2BXqQGyvUaYo6h1ZoCBOBmgJCoWbtgtNiCtvZnlhqEGmFTUU3dxexpXrjHPUJAjQ
+	2PJIEubYdP3d+KjN1e9Q3arJ6JcYJ5oAkBEGbv9MVs0uVazNA29goT1pM9HZLxFX8WRAHflJVhl8a
+	RPzpy5UgA5sfNbSmlXV6CwQFAeVo0JE2J+1PYtFUewsw+zmimaEKYz3nvVNKfMaX91MRyA2Xlsu0W
+	pToGxZag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txKnS-00000007jCA-2sAe;
-	Wed, 26 Mar 2025 07:03:30 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1txKpA-00000007jnE-1pWs;
+	Wed, 26 Mar 2025 07:05:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txKlh-00000007izs-3O1y
+	id 1txKnF-00000007j9Q-1nHL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 07:01:43 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52Q71Q0l1465705
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 26 Mar 2025 02:01:26 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1742972486;
-	bh=B31+gj3MwqN7LoN9ERg8P/Z27YfrdG3tWO6mWfVZyCw=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=wHjLVFPiQphWSE+jvlERGE9uinhReD6JvrZE6zL0ZfQrHAS6J5/GK3yiGGcN3K8nO
-	 A0p4Bl5wEL8Y5A+wYypOy2nkLzACUuZDc6v1sSNGBjlKdPFdQIJKQYQsvayHAZ1UMt
-	 8ns/kaYVdziTLdYb6RWPsllxR6U+7EJGJiUCPrXo=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52Q71QKW081781
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 26 Mar 2025 02:01:26 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
- Mar 2025 02:01:26 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 26 Mar 2025 02:01:26 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52Q71P7s002368;
-	Wed, 26 Mar 2025 02:01:25 -0500
-Date: Wed, 26 Mar 2025 12:31:24 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>,
-        Bjorn Helgaas
-	<helgaas@kernel.org>, <lpieralisi@kernel.org>,
-        <vigneshr@ti.com>, <manivannan.sadhasivam@linaro.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <rogerq@kernel.org>,
-        <linux-omap@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
- J784S4
-Message-ID: <20250326070124.boluxjcid4ouszqk@uda0492258>
-References: <20250313055519.j3bpvsm6govd5ytk@uda0492258>
- <20250313160215.GA736346@bhelgaas>
- <20250314041705.v5j2fjulol5ywvyq@uda0492258>
- <20250326065447.GC2822343@rocinante>
+	Wed, 26 Mar 2025 07:03:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA5415C06C7;
+	Wed, 26 Mar 2025 07:00:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F2FBC4CEE2;
+	Wed, 26 Mar 2025 07:03:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742972596;
+	bh=/fi76B5UtUwuwMA1yexCDk8ZTpcHFFnF0aLg1Y/cQUg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GfzrFpVUxkChqlw79NMqvwzC4dVc5hJYOr/oeX7CD4pEWYqs8qVivKvvANfKrbtz3
+	 6XiA0M/wWJ8T8c/F1zEIu+NIKBY2X5FfYJJjVxfF4opH44do+Wn0zzg/I/HQDymLBB
+	 5JCo47b22IFmtyyGdY48HWCkhMNZS+2x8sNT68J8Uf8R77M/roVZNg6jXRDztl397Q
+	 319AZfKFr6K5lJBS20WN/Y0uBDDdUi9VKk557hJevSnaplWTGA8vRX53Uygdh8RsGc
+	 bPo/eqQAKrPwL0FO5L/ZZFiB45FuiRzVD5x8fu65ECgLQqm479w/sFgZNcFgTIx2/V
+	 ojcwzAZo5nPQw==
+Message-ID: <f1e24507-7cf3-4e0d-8989-05ef3aaa2708@kernel.org>
+Date: Wed, 26 Mar 2025 08:03:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/34] firmware: exynos-acpm: export
+ devm_acpm_get_by_phandle()
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
+ <20250323-s2mpg10-v1-3-d08943702707@linaro.org>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250323-s2mpg10-v1-3-d08943702707@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250326065447.GC2822343@rocinante>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_000142_126018_FA5034F0 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20250326_000317_575602_1D5F366F 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +130,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 03:54:47PM +0900, Krzysztof Wilczyński wrote:
-> Hello,
+On 23/03/2025 23:39, André Draszik wrote:
+> The upcoming Samsung S2MPG10 PMIC driver will need this symbol to
+> communicate with the IC.
 > 
-> [...]
-> > > So I guess without this patch, we incorrectly ignore link-down
-> > > interrupts on J784S4.  It's good to have a one-sentence motivation
-> > > like that somewhere in the commit log that we can pull out and include
-> > > in the merge commit log and the pull request.
-> > 
-> > Yes, we can prepend the following to the existing commit message:
-> > "Link down interrupts on J784S4 SoC are missed because..."
-> > 
-> > resulting in the following updated paragraph in the commit message:
-> > Link down interrupts on J784S4 SoC are missed because commit under Fixes
-> > assigned the value of 'linkdown_irq_regfield' for the....
+> Export it.
 > 
-> How does this look like?
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+>  drivers/firmware/samsung/exynos-acpm.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
->   https://web.git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/j721e&id=b97b5b8cb603a4ba6b3f7f1b6065fa76e69bdb56
-> 
-> Let me know if you want any changes.
+> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+> index a85b2dbdd9f0d7b1f327f54a0a283e4f32587a98..7525bee4c6715edb964fc770ac9d8b3dd2be2172 100644
+> --- a/drivers/firmware/samsung/exynos-acpm.c
+> +++ b/drivers/firmware/samsung/exynos-acpm.c
+> @@ -741,6 +741,7 @@ const struct acpm_handle *devm_acpm_get_by_phandle(struct device *dev,
+>  
+>  	return handle;
+>  }
+> +EXPORT_SYMBOL_GPL(devm_acpm_get_by_phandle);
 
-I will suggest minor changes to the first paragraph of the commit
-message resulting in the following paragraph:
+If binding changes to parent-child relationship, this might not be needed.
 
-Commit under Fixes assigned the value of .linkdown_irq_regfield for the
-J784S4 SoC as the "LINK_DOWN" macro corresponding to BIT(1), and as a
-result, the Link Down interrupts on J784S4 SoC are missed.
-
-Regards,
-Siddharth.
+Best regards,
+Krzysztof
 
