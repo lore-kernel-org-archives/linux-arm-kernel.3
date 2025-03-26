@@ -4,91 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6297DC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96ECC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIONhgKygIJfrRbEsZfUKmIHxiah0KpnWCpr3sd5zNk=; b=gweyLf+6pFmF04eBsrDWJG9sA/
-	fRlFHeiqk+6rsluk0CJayZlNM9MYGTnMA01DbCs4lMdEJeHk0TfYRVnzcHuPsFfZLNeEGlHFa1HfS
-	TXEGAiMRwR2Iu6McEnzbai9AhOkv5xzGoXKEl4xTJEsRpxMPEVHO1bfRd03yaD1mHGEDHgKyhR65E
-	RhpL31nP1bcHT7Ifvh8KSQKG/wHBS4vgA5FtxNPHHH7+LcI/rp722vGgQTcJFXAQuRM9aRrGJupn9
-	nJljnU/pvQzrjdJNpP0QSF05oNo1qCpFip/N7IO9+ofNmfcDfxSqXG3/MM7MH5v085h7Y66OS3JmG
-	EdYJaE7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pskYsEv645Ou0RGXqLcUbubmRS3Yl8UufdOO4iflIAc=; b=3Ud0tZ1M2pR5gi3/LH8W01ykyh
+	5Dx2EOwZ9H9wXa9ythSVFHiLQcIm/WT3devz35O84G1uvbqN8FFIgbpHwaMeEMLK7leyIXtGfjavd
+	MOAbQ1WvzRvwPrskIYnFpM6Ibtw+OWpCty1Gy2hwW7lnpmowKtyjetpHzVO0o+0V9VaCLlsQppJ/E
+	IeJAanQsudXCO3UULElK2E2AmdGGvPnUSOGmJvFt9J8sA7UoKiqARnoQNfqJWHTSByHIFDJHT+aSB
+	XL5SL83tjVJH27ALhZ3nKM0FaxdXSbO5pXmGH3sKWHmfb90AWL2MnLH6niYWpVGlivAXPC6218fPP
+	33mCRa/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTxU-0000000940A-3Hpq;
-	Wed, 26 Mar 2025 16:50:28 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1txTzB-000000094Ja-1oDL;
+	Wed, 26 Mar 2025 16:52:13 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTvj-000000093RZ-1BXi
+	id 1txTw6-000000093Vh-0z1S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 16:48:40 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ab7430e27b2so2712166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:48:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743007717; x=1743612517; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xIONhgKygIJfrRbEsZfUKmIHxiah0KpnWCpr3sd5zNk=;
-        b=3dMio+6dZyF9vyXZZ+o7mH2cELi4HwTW8TZoaCRXDqIVaxVe3iaB9uZg4AxA3g1P4E
-         GKTz50gEnVPgM96pkLk4TTJp6Qm6cpm77Svn5kIYgrai3UI4X9ipQViW54zbe8z44jqO
-         O2CMpbDmg7h2mhhW6O2LC9z0fbHIwLP764vTnSE78g4qUd6aJj2nnhF4pKMYccgMPjxt
-         v/ePTYnY8OEiC8hM1U3rv4HniYEdc/3mIHeu27MPx/BX6A9UunmBduCoF6fty40DgJve
-         +rz2MbyIuV4n4mXXiiIL66OOt4KadhhuRGKbVh2uf75q7uA/xXJN4wF09Rjjg6UpLtUT
-         sGzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743007717; x=1743612517;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xIONhgKygIJfrRbEsZfUKmIHxiah0KpnWCpr3sd5zNk=;
-        b=a7dmUTS7nYjvh47ub1rGm5DdzqX9R0gsS/cJGJOm/gMX0BJndVrV1tHQ90RdrjqN1j
-         I4ESY58xGeoBZ+w3e1X2VRWeiBGgZUXmnFeb8PzvFkwBU8FRVoXMstDPR7LxhxO19hea
-         K7DIUMDlE798W9jqoX7dxsdU7IMroKL88dicA78r8iaFU5Bo8PMmlep1Hu1biDlOYCzT
-         dC7liYDTM/x0xMIOYEQ0bhtoFHNW5Y47pFjY21lm3tUMNMlMtoIP+qyLluWavq1WIlhv
-         F0AFHaoQRSZpEWeC3XBHcPiL59rXGy7KrulTPTqGVKhpPI2ApPKg+Ipay/onlAWGQDb2
-         4X6A==
-X-Forwarded-Encrypted: i=1; AJvYcCWn4WZoCDMc9SLf4Hq+J4odC2UfHnta5JhfX38Izs/YEILRmYUKew6tQRq02ZZZa+dueQH6Hnvn4jmGts6LvJaF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBWPrBBjAk9aMH5fpJQbM2haCVgk09wGfPpm5Omfgbrj6vc3DC
-	83kdjZmpQmHLgUWGQvxi5SEwNBPcCGzrzWyltZIk05oeiLqRY5kZXVg3rGCglA==
-X-Gm-Gg: ASbGncs2x0gNnPg/Pb6hdvshoh2KgSz+5zz7Dvr+HvbXNRYwluM4EMcyPkeuYL2JReb
-	e0Ld5frVST+T8FNy77h0jNVqBi81L7UuFcmUsimAY2Y48DTrfUCtiBQCFQw/CBZmVMBA0NWuRFN
-	IccQ/acxJrmCpOrp4RCQ+GkdMYuazCvJvVynQc+luIAuMzQs9rg5o7Hrp+r0428JGqyUCwPRIil
-	ZlbLUHlBHm/N+mph+MEH3JAA0KsETLaEoVuM9Eu/Hv0hwi6q+uUdUsiLZNgpBR7qTT62ZDyEeqj
-	FYbWQgQC/YnKQ9GOyaTM1Umo355R/fwpfKIKdyzZwBAahsHNhyElK1ZhQC5UzCwbNlVgQQtNaNF
-	jVTk=
-X-Google-Smtp-Source: AGHT+IELoh1UdGLEoChuBbrPrSJlW3iazs22Tqnm/p66h/kdfAKvlGAngZOzasm3FVG0orud4x07LQ==
-X-Received: by 2002:a17:907:7f86:b0:ac1:e881:89a7 with SMTP id a640c23a62f3a-ac6fae48539mr15547466b.6.1743007717280;
-        Wed, 26 Mar 2025 09:48:37 -0700 (PDT)
-Received: from google.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac404959f47sm907950666b.170.2025.03.26.09.48.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 09:48:36 -0700 (PDT)
-Date: Wed, 26 Mar 2025 16:48:33 +0000
-From: Quentin Perret <qperret@google.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, snehalreddy@google.com,
-	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
-	will@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, Andrei Homescu <ahomescu@google.com>
-Subject: Re: [PATCH v4 3/3] KVM: arm64: Release the ownership of the hyp rx
- buffer to Trustzone
-Message-ID: <Z-Qv4b0vgVql2yOb@google.com>
-References: <20250326113901.3308804-1-sebastianene@google.com>
- <20250326113901.3308804-4-sebastianene@google.com>
+	Wed, 26 Mar 2025 16:49:03 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52QBt2Sa012691;
+	Wed, 26 Mar 2025 16:48:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=p
+	skYsEv645Ou0RGXqLcUbubmRS3Yl8UufdOO4iflIAc=; b=KAZadBf5utNmU4cyT
+	j8ioyL88z4TWWxlRpD7ZGXu/7xRDTTPh+woQXw1L4QlRZAbefGUvNITpd3Bhy2Kb
+	TsSi974NdoHX0TdTHE4TKQ2fqLTtOXzizjq7B1zKIXQxVhPwTpxRnGztJigESVjQ
+	fVzA8QbF+0jxBkVGnbrxSqCaRXrqk2U7Lzcs9090CfEBDxScJDu/lqgk66/R1dhq
+	2dew/ufsuWhAHAnULO6CGlUWX3tPoRI7tY414mxvL68ANV8Dy9aGBl1NiDqWICMM
+	UuR7AbJ/LtcIHLRhZfxSoNMSKPgpoXu1CiZdyLFEVKxs3CPvz9qbQ+xAUAp+Wamh
+	v1zfA==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 45kbmy9d6d-3
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Wed, 26 Mar 2025 16:48:42 +0000 (GMT)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 26 Mar 2025 16:48:40 +0000
+From: Matt Coster <matt.coster@imgtec.com>
+Date: Wed, 26 Mar 2025 16:48:22 +0000
+Subject: [PATCH v5 02/18] dt-bindings: gpu: img: Add BXS-4-64 devicetree
+ bindings
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250326113901.3308804-4-sebastianene@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250326-sets-bxs-4-64-patch-v1-v5-2-e4c46e8280a9@imgtec.com>
+References: <20250326-sets-bxs-4-64-patch-v1-v5-0-e4c46e8280a9@imgtec.com>
+In-Reply-To: <20250326-sets-bxs-4-64-patch-v1-v5-0-e4c46e8280a9@imgtec.com>
+To: Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>,
+        David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
+        "Michal
+ Wilczynski" <m.wilczynski@samsung.com>,
+        Alessio Belle
+	<alessio.belle@imgtec.com>,
+        Alexandru Dadu <alexandru.dadu@imgtec.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2985;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=JEYWkidvDSgrYrpTmclJfmN36IZj/Cm5OXUDkiVwvjk=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaQ/0X+ybWLc68rK6GMCCnqqq9NnREwoC+qbKPAr/VEuP
+ 9/hx9ujO0pZGMQ4GGTFFFl2rLBcofZHTUvixq9imDmsTCBDGLg4BWAiM/sZ/tkd2xziNeXJPpHD
+ u/emb5vyUfWd/Ky90m+rHnyut37fFjyNkWGymcQ25icWhSoZGyQq5877UPhR09Z5rrTLI0uL0KJ
+ bnNwA
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.0.133]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Proofpoint-ORIG-GUID: ZuxPteISf1dga-yqxDqb3KCEmF6OwxmH
+X-Authority-Analysis: v=2.4 cv=L+sdQ/T8 c=1 sm=1 tr=0 ts=67e42fea cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=UnZxrO27XcT1wZtnOysA:9
+ a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: ZuxPteISf1dga-yqxDqb3KCEmF6OwxmH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_094839_318957_81C0756B 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250326_094902_591719_018EA917 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +113,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday 26 Mar 2025 at 11:39:01 (+0000), Sebastian Ene wrote:
-> Introduce the release FF-A call to notify Trustzone that the hypervisor
-> has finished copying the data from the buffer shared with Trustzone to
-> the non-secure partition.
->
-> Reported-by: Andrei Homescu <ahomescu@google.com>
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 6df6131f1107..ac898ea6274a 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -749,6 +749,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
->  	DECLARE_REG(u32, uuid3, ctxt, 4);
->  	DECLARE_REG(u32, flags, ctxt, 5);
->  	u32 count, partition_sz, copy_sz;
-> +	struct arm_smccc_res _res;
->  
->  	hyp_spin_lock(&host_buffers.lock);
->  	if (!host_buffers.rx) {
-> @@ -765,11 +766,11 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
->  
->  	count = res->a2;
->  	if (!count)
-> -		goto out_unlock;
-> +		goto release_rx;
->  
->  	if (hyp_ffa_version > FFA_VERSION_1_0) {
->  		/* Get the number of partitions deployed in the system */
-> -		if (flags & 0x1)
-> +		if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
->  			goto out_unlock;
->  
->  		partition_sz  = res->a3;
-> @@ -781,10 +782,12 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
->  	copy_sz = partition_sz * count;
->  	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
->  		ffa_to_smccc_res(res, FFA_RET_ABORTED);
-> -		goto out_unlock;
-> +		goto release_rx;
->  	}
->  
->  	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
-> +release_rx:
-> +	ffa_rx_release(&_res);
+Unlike AXE-1-16M, BXS-4-64 uses two power domains.
 
-I'm a bit confused about this release call here. In the pKVM FF-A proxy
-model, the hypervisor is essentially 'transparent', so do we not expect
-EL1 to issue that instead? How is EL1 supposed to know that the
-hypervisor has already sent the release call? And isn't EL1 going to be
-confused if the content of the buffer is overridden before is has issued
-the release call itself? What would otherwise prevent that from
-happening?
+Like the existing AXE-1-16M integration, BXS-4-64 uses the single clock
+integration in the TI k3-j721s2.
 
-Thanks,
-Quentin
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+---
+Changes in v5:
+- Replace anyOf/const with enum
+- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-2-d987cf4ca439@imgtec.com
+Changes in v4:
+- Add minItems: 1 to power-domain-names so we don't break single domain
+  bindings
+- Add back power-domains to conditional constraints to match
+  power-domain-names
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-2-143b3dbef02f@imgtec.com
+Changes in v3:
+- Include adding the second power domain so it's in context
+- Remove unnecessary example
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-8-3fd45d9fb0cf@imgtec.com
+Changes in v2:
+- Use normal reg syntax for 64-bit values
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-8-4ed30e865892@imgtec.com
+---
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 38 ++++++++++++++++++++--
+ 1 file changed, 36 insertions(+), 2 deletions(-)
 
->  out_unlock:
->  	hyp_spin_unlock(&host_buffers.lock);
->  }
-> -- 
-> 2.49.0.395.g12beb8f557-goog
-> 
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index e1056bf2af84c3eb43733bdc91124a66aaf51d35..0fb2cd939aa45b48b0a6a95ed7f01e0c6f64a4f3 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -21,6 +21,11 @@ properties:
+           # work with newer dts.
+           - const: img,img-axe
+           - const: img,img-rogue
++      - items:
++          - enum:
++              - ti,j721s2-gpu
++          - const: img,img-bxs-4-64
++          - const: img,img-rogue
+ 
+       # This legacy combination of compatible strings was introduced early on
+       # before the more specific GPU identifiers were used.
+@@ -48,11 +53,14 @@ properties:
+     maxItems: 1
+ 
+   power-domains:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 2
+ 
+   power-domain-names:
+     items:
+       - const: a
++      - const: b
++    minItems: 1
+ 
+   dma-coherent: true
+ 
+@@ -82,7 +90,33 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: ti,am62-gpu
++            const: img,img-axe-1-16m
++    then:
++      properties:
++        power-domains:
++          maxItems: 1
++        power-domain-names:
++          maxItems: 1
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: img,img-bxs-4-64
++    then:
++      properties:
++        power-domains:
++          minItems: 2
++        power-domain-names:
++          minItems: 2
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - ti,am62-gpu
++              - ti,j721s2-gpu
+     then:
+       properties:
+         clocks:
+
+-- 
+2.49.0
+
 
