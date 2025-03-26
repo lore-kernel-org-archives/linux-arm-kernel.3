@@ -4,75 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B84EC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 10:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EABC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 10:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1QVCisI/d8NqetqifMLvPQh9vXBS9XvEmStDv3l2zII=; b=dqTNAU97St/KJfgss1RbAcwFv0
-	GSAor3/5hJ4mP3GoCWzAZPBrOolzsmZwsExskSife0dlUq5J4zO3V1lZvidhNL05wBjjJoA3C1kr9
-	EjkyHxI1X7WZGTXPYXhxNVgVrJ/bcSvFQaQU4At6mS1Dd5PGpxrHetRrJsniOiCkGbjIrqhp0CMLh
-	KJojmE1m/+YGVnK4xpZ/knw6K+nKtHVAZjVvwibL0N09jcoHUK6vKe3R71mu/K4HxEoQblRK8KcQF
-	OrbzknnueDs+svuwqetENgMmrIjjqhASGiYvibqQ13wtrprcRjfsLtp2vb/VMUA8B8J+Q1q9Tq9kF
-	BNN5RJ8w==;
+	bh=UdR2AL1VYT1iY+aI9KIhbaxP4Szy4x5EVQ+K7pV/1UQ=; b=ueMESmwEDJBke5xSUpCGdFlI2p
+	2004Fn8uoUnhVoYWVGq5oQvC4MBFfCHOcx3rMn7CDQbHwVneu50AbTIvzuH1H+6Nxw6OIVgJ3kEPI
+	rEk1y1ZMDTkoEDloQVRdqEFCiGc4Z/fNJRWKUOvasnsKhdp88XO2n8KoKgGJjia81SY2mPAjLW8PT
+	9dR8N7s8DNclx/hcczTxzMyiOLrmMPDlo+cWv1iCzguHOEaNLaXwK0Eb0OkyDn0nsD/9AZmQ1qDE4
+	skGoQfuPSsazlZxHhWH+z5j6ALf7sXFj+K/8sceieMmflmpC2J44AaON5MAUKAYgEmozgqNsjEhLP
+	nAdpp/MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txNym-00000008BdV-2USY;
-	Wed, 26 Mar 2025 10:27:24 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txNx1-00000008BLZ-3GpK
+	id 1txO0V-00000008Bz9-15xy;
+	Wed, 26 Mar 2025 10:29:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1txNyL-00000008BXj-0whe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 10:25:37 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1txNwp-0008Ep-B0; Wed, 26 Mar 2025 11:25:23 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1txNwo-001jOU-1d;
-	Wed, 26 Mar 2025 11:25:22 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1txNwo-000552-2V;
-	Wed, 26 Mar 2025 11:25:22 +0100
-Date: Wed, 26 Mar 2025 11:25:22 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.li@nxp.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: bus: add documentation for the IMX
- AIPSTZ bridge
-Message-ID: <20250326102522.rtsffb37wvolhwd4@pengutronix.de>
-References: <20250324162556.30972-1-laurentiumihalcea111@gmail.com>
- <20250324162556.30972-2-laurentiumihalcea111@gmail.com>
- <20250325032303.GA1624882-robh@kernel.org>
+	Wed, 26 Mar 2025 10:26:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDE88106F;
+	Wed, 26 Mar 2025 03:26:59 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EBC63F58B;
+	Wed, 26 Mar 2025 03:26:52 -0700 (PDT)
+Date: Wed, 26 Mar 2025 10:26:47 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Keir Fraser <keirf@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Kristina Martsenko <kristina.martsenko@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: mops: Do not dereference src reg for a set
+ operation
+Message-ID: <Z-PWZ98oNna6nVu1@J2N7QTR9R3>
+References: <20250326070255.2567981-1-keirf@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250325032303.GA1624882-robh@kernel.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250326070255.2567981-1-keirf@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_032535_823410_B27E2452 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20250326_032657_310106_98844D1E 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,163 +66,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurentiu,
+On Wed, Mar 26, 2025 at 07:02:55AM +0000, Keir Fraser wrote:
+> The register is not defined and reading it can result in a UBSAN
+> out-of-bounds array access error, specifically when the srcreg field
+> value is 31.
 
-On 25-03-24, Rob Herring wrote:
-> On Mon, Mar 24, 2025 at 12:25:52PM -0400, Laurentiu Mihalcea wrote:
-> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > 
-> > Add documentation for IMX AIPSTZ bridge.
-> > 
-> > Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> > Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > ---
-> >  .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 107 ++++++++++++++++++
-> >  1 file changed, 107 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml b/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
-> > new file mode 100644
-> > index 000000000000..c0427dfcdaca
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
-> > @@ -0,0 +1,107 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/bus/fsl,imx8mp-aipstz.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Secure AHB to IP Slave bus (AIPSTZ) bridge
-> > +
-> > +description:
-> > +  The secure AIPS bridge (AIPSTZ) acts as a bridge for AHB masters
-> > +  issuing transactions to IP Slave peripherals. Additionally, this module
-> > +  offers access control configurations meant to restrict which peripherals
-> > +  a master can access.
-> 
-> Wrap at 80 chars.
-> 
-> > +
-> > +maintainers:
-> > +  - Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: fsl,imx8mp-aipstz
-> > +
-> > +  reg:
-> > +    maxItems: 2
-> > +
-> > +  reg-names:
-> > +    items:
-> > +      - const: bus
-> > +      - const: ac
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +  "#address-cells":
-> > +    const: 1
-> > +
-> > +  "#size-cells":
-> > +    const: 1
-> > +
-> > +  "#access-controller-cells":
-> > +    const: 0
-> 
-> With 0 cells, how do you identify which device it is?
-> 
-> > +
-> > +  ranges: true
-> > +
-> > +# borrowed from simple-bus.yaml, no additional requirements for children
-> > +patternProperties:
-> > +  "@(0|[1-9a-f][0-9a-f]*)$":
-> > +    type: object
-> > +    additionalProperties: true
-> > +    properties:
-> > +      reg:
-> > +        items:
-> > +          minItems: 2
-> > +          maxItems: 4
-> > +        minItems: 1
-> > +        maxItems: 1024
-> > +      ranges:
-> > +        oneOf:
-> > +          - items:
-> > +              minItems: 3
-> > +              maxItems: 7
-> > +            minItems: 1
-> > +            maxItems: 1024
-> > +          - $ref: /schemas/types.yaml#/definitions/flag
-> > +    anyOf:
-> > +      - required:
-> > +          - reg
-> > +      - required:
-> > +          - ranges
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - reg-names
-> > +  - power-domains
-> > +  - "#address-cells"
-> > +  - "#size-cells"
-> > +  - "#access-controller-cells"
-> > +  - ranges
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/imx8mp-clock.h>
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +
-> > +    bus@30c00000 {
-> > +        compatible = "fsl,imx8mp-aipstz";
-> > +        reg = <0x30c00000 0x400000>, <0x30df0000 0x10000>;
-> 
-> It doesn't look like you have any registers in the 1st entry, but they 
-> are child devices? Then you should use ranges and drop it here:
-> 
-> ranges = <0x0 0x30c00000 0x400000>;
-> 
-> 
-> > +        reg-names = "bus", "ac";
+I'm assuming this is for a MOPS exception taken from a SET* sequence
+with XZR as the source?
 
-Thanks for picking up my suggestion :) IMHO it does look more logical
-now. I wasn't aware of the 'ranges' property else I would have suggested
-you to use this property instead of having two regs, sorry. Once you
-changed it to ranges we can drop the 'reg-names' as well since you only
-need to supply the 'ac' register space.
+It'd be nice to say that explicitly, as this is the only case where any
+of the src/dst/size fields in the ESR can be reported as 31. In all
+other cases where a CPY* or SET* instruction takes register 31 as an
+argument, the behaviour is CONSTRAINED UNPREDICTABLE and cannot generate
+a MOPS exception.
 
-Regards,
-  Marco
+Note that in ARM DDI 0487 L.a there's a bug where:
 
-> > +        power-domains = <&pgc_audio>;
-> > +        #address-cells = <1>;
-> > +        #size-cells = <1>;
-> > +        #access-controller-cells = <0>;
-> > +        ranges;
-> > +
-> > +        dma-controller@30e00000 {
-> > +            compatible = "fsl,imx8mp-sdma", "fsl,imx8mq-sdma";
-> > +            reg = <0x30e00000 0x10000>;
-> > +            #dma-cells = <3>;
-> > +            clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_SDMA3_ROOT>,
-> > +                     <&clk IMX8MP_CLK_AUDIO_ROOT>;
-> > +            clock-names = "ipg", "ahb";
-> > +            interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
-> > +            fsl,sdma-ram-script-name = "imx/sdma/sdma-imx7d.bin";
+* The prose says that SET* taking XZR as a src is CONSTRAINED
+  UNPREDICTABLE, per K1.2.17.1.1 linked from C6.2.332.
+
+  The title for the K1.2.17.1.1 is "Memory Copy and Memory Set CPY*",
+  which looks like an editing error.
+
+* The pseudocode is explicit that the CONSTRAINED UNPREDICTABLE
+  behaviours differ for CPY* and SET* per J1.1.3.121
+  CheckCPYConstrainedUnpredictable() and J1.1.3.125
+  CheckSETConstrainedUnpredictable().
+
+... and I'll go file a ticket about that soon if someone doesn't beat me
+to it.
+
+> Cc: Kristina Martsenko <kristina.martsenko@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
+
+Looks like this should have:
+
+Fixes: 2de451a329cf662b ("KVM: arm64: Add handler for MOPS exceptions")
+
+Prior to that, the code in do_el0_mops() was benign as the use of
+pt_regs_read_reg() prevented the out-of-bounds access. It'd also be nice
+to note that in the commit message.
+
+Mark.
+
+> Signed-off-by: Keir Fraser <keirf@google.com>
+> ---
+>  arch/arm64/include/asm/traps.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> No 'access-controllers' here?
-> 
-> > +        };
-> > +    };
-> > -- 
-> > 2.34.1
-> > 
+> diff --git a/arch/arm64/include/asm/traps.h b/arch/arm64/include/asm/traps.h
+> index d780d1bd2eac..82cf1f879c61 100644
+> --- a/arch/arm64/include/asm/traps.h
+> +++ b/arch/arm64/include/asm/traps.h
+> @@ -109,10 +109,9 @@ static inline void arm64_mops_reset_regs(struct user_pt_regs *regs, unsigned lon
+>  	int dstreg = ESR_ELx_MOPS_ISS_DESTREG(esr);
+>  	int srcreg = ESR_ELx_MOPS_ISS_SRCREG(esr);
+>  	int sizereg = ESR_ELx_MOPS_ISS_SIZEREG(esr);
+> -	unsigned long dst, src, size;
+> +	unsigned long dst, size;
+>  
+>  	dst = regs->regs[dstreg];
+> -	src = regs->regs[srcreg];
+>  	size = regs->regs[sizereg];
+>  
+>  	/*
+> @@ -129,6 +128,7 @@ static inline void arm64_mops_reset_regs(struct user_pt_regs *regs, unsigned lon
+>  		}
+>  	} else {
+>  		/* CPY* instruction */
+> +		unsigned long src = regs->regs[srcreg];
+>  		if (!(option_a ^ wrong_option)) {
+>  			/* Format is from Option B */
+>  			if (regs->pstate & PSR_N_BIT) {
+> -- 
+> 2.49.0.395.g12beb8f557-goog
 > 
 
