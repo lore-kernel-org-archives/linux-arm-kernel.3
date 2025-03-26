@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB6CC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03C7C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tnbOoNf/PP6x6QMLq2pwD4WmS4hbOd+l73hGwmxBZqI=; b=aeKMEEOr+3nc1mDl7G/S1IOeBO
-	d0i1Ar/xE/Jk8mHTwneANtA4oY+QMpKYeCORWGWqKpvk/8oS/uCldBQ+2U1pmlBtz42gD3jvdIv30
-	r4+KJ2b+c+3GqQtsVEgcSe8+vpu+Qqv3iVLWCz4W+cnobnchmh0H9iCr6Q1SvZE78ffdjDKFBRpph
-	Z52HMGAXb5pA/d6rPlSw14/xmYoEzoPeZ1VBhl6sGVt8RShljPE+SLVHjOf4M0qRnuh9L3fRuyrv6
-	F1cIpIJuxjPzZJsIFENqWhUfAYhVwVyKCAs5M76j/DMXyEzvQO5ahzynEOOq6KOWAI1gBSVRBHlKO
-	Tz4Ttlng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xs4Fos6G4Lac0pmwn9hsltCdyR2yI1I/1l6/YH8nCK8=; b=2nbmbRSB9mPuE8fmDcDec0heZT
+	NNPx4Xj82djzhOH/1k+tT9XNKUkWvnhBDj2Jc3BR/ercjZBfKsPxnYIqzv2fmKVGlZqFXVZypyl1o
+	NRT52CkTPtoW/6vekjg/co6vx5145uTZj39uxakkzIxr+uk5s3vAxg0OY/zkhmDHrfY/BC6mxr6ff
+	D6cfJVlA2Uwg0mVWLUW5F8M1EBseuJ0Tv4wd4BlHGStwkmzfIfp1uvXelv2IOxKym9zCKf6+oYW0M
+	92Re6AAKn4jLAY+/CnDx2MZ+yvQ1e42Y6MJQbqb4R2j+SIV/ZIT0xYD9NIuycc9o03IIJO3lMP5IB
+	glSMXR4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLdY-00000007q8q-0hoY;
-	Wed, 26 Mar 2025 07:57:20 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1txLfE-00000007qNz-3cpg;
+	Wed, 26 Mar 2025 07:59:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLaj-00000007ppX-2Pjq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 07:54:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E679A20483;
-	Wed, 26 Mar 2025 07:54:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742975663;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tnbOoNf/PP6x6QMLq2pwD4WmS4hbOd+l73hGwmxBZqI=;
-	b=MpFfP+OobExwhhTIzHvwhtfo5/6x8Z7HPjdFgnjeCVTztenYAjAgxb8pHBBXcsMRnyB1sH
-	0HtU2CdT+oh2C7LQUNp5erdzSc1o3z6sLKYM49yfNsC+oLTZaltzdjgIea34REJsBXyk/v
-	2YztJD4pobsFNgi8V6mlHS4mMVnzu3bsdXbc5atWNoF5rZaWmCREW26S8NqH3wPFmAoVp+
-	w+O4ilYRy796echBqe9mlF8xyasWzGRPUahGE55aYPlHfuUKV475S69p+gAed2Fb7WQHPI
-	g9exBCLnL5ythPqxh50GOspqtFVJRAYXeGueMJgok/NKlULDXEMA6RiCwTCOpQ==
-Date: Wed, 26 Mar 2025 08:54:22 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>, Piergiorgio Beruto
- <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net-next v4 3/8] net: ethtool: netlink: Rename
- ethnl_default_dump_one
-Message-ID: <20250326085422.3596589c@fedora.home>
-In-Reply-To: <20250325141605.684fc691@kernel.org>
-References: <20250324104012.367366-1-maxime.chevallier@bootlin.com>
-	<20250324104012.367366-4-maxime.chevallier@bootlin.com>
-	<20250325141605.684fc691@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1txLcn-00000007q2W-1wST;
+	Wed, 26 Mar 2025 07:56:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2CA106112F;
+	Wed, 26 Mar 2025 07:56:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90007C4CEE2;
+	Wed, 26 Mar 2025 07:56:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742975792;
+	bh=93M97Q5kVlONcYkIQD1oTLgBJrmsEdqoHZ4roV1qLOc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=atJQTBWaSaSbmkMwadDwCo4Hfkoqb5TImfMBBTK35qPENk6X8U/WCXyE/HKpiXmwG
+	 o7g/Tfy6tsesiE5L2JKbHnB8Tw9tXZoFn9sLsPtgekTVx559DoTXQCVAFc6a35lLrp
+	 4JfBdjXxmFSm0DiPAa+8woSlls3S6SutNrTv/GAQ+ngqtklHo9Via3liBfIehZyyNo
+	 O0BXr1H29a26C9U9Cluz6PXekohLGCrRauJ37s92HgoeGwfhJC29yf50IxBuA6OEvE
+	 pLB02aG1Eh7Uo5H2P4e2R8h+llNlXwi6+QuFINzBcY7pjB6k94B09v0DSqKdMX2y1g
+	 0LLbw4peq9NKw==
+Date: Wed, 26 Mar 2025 08:56:27 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Crystal Guo <crystal.guo@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [v3,1/2] dt-bindings: memory-controllers: Add MediaTek DRAM
+ controller interface
+Message-ID: <20250326-courageous-cobra-of-promise-2c839e@krzk-bin>
+References: <20250326063041.7126-1-crystal.guo@mediatek.com>
+ <20250326063041.7126-2-crystal.guo@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduieegleekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepvgguu
- hhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_005425_746447_AE12AC9D 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250326063041.7126-2-crystal.guo@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,17 +72,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Mar 2025 14:16:05 -0700
-Jakub Kicinski <kuba@kernel.org> wrote:
-
-> On Mon, 24 Mar 2025 11:40:05 +0100 Maxime Chevallier wrote:
-> > As we work on getting more objects out of a per-netdev DUMP, rename
-> > ethnl_default_dump_one() into ethnl_default_dump_one_dev(), making it
-> > explicit that this dumps everything for one netdev.  
+On Wed, Mar 26, 2025 at 02:30:31PM +0800, Crystal Guo wrote:
+> A MediaTek DRAM controller interface to provide the current DDR
+> data rate.
 > 
-> Maybe ethnl_default_dump_dev() ?
+> Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
+> ---
+>  .../memory-controllers/mediatek,dramc.yaml    | 44 +++++++++++++++++++
+>  1 file changed, 44 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/memory-controllers/mediatek,dramc.yaml
 
-Sure, that's better indeed :)
+Where is the rest of the patchset in DT patchwork? Where is any
+changelog? Cover letter? What changed here?
 
-Maxime
+I receive dozen or hundreds of emails, so if you want to make
+it difficult for me to review, I will just ignore the patch.
+
+I mark it as changes requested.
+
+Best regards,
+Krzysztof
+
 
