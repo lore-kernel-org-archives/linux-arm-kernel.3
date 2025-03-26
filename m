@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC47C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 05:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB8ACC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 06:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0iIsGD8TwFf5ldLOXJZLqytj0LiI4ZaC6DHMz0gEKZc=; b=MnMAGhVmgdz6gTNHOKbESaImcQ
-	I8iO8u/olXVMRxyST9FgjDL81H1AoigAbgGuNuaq/R93CM9FS/WeE0pREvC6UQ+S0kwDK7dDwhnag
-	Iu8du2ept/V7rKIpbY/hgcBbJbAxem9lNaORR29Nf7dGAB9OmWZYSQr8G/8886uKJ3tfrVlAuvyim
-	vdmvZAeBcWElAJeuWiq0WftemTRSzRkIXgCIswiZy7uPFZkfbfDO4a1qOXulaMV0XYk8yED5MaWnq
-	ezcCNpzC4VMwwOmscjyFodKuDV8PPi/7hQalHvf4AYWWMtNxkvCVsiDUdCR3DHAuuhr4vww8FzMQ/
-	LA8+u0Kw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=slCF2xs2ElnaTVorgRjJtJXFeYpLhzlPphzcbXRpqBA=; b=icv/QaVf2IRj3MLfe2gWK21m0C
+	CBNTG0Qo8Od4Z9COpDGOFfHu1+5hiXbebwJIE1LfSGESjavutnZvMV3YQink0t3ySxCapUcHZBWz5
+	lBYVX0fDczS40XiFT/l0y7cvXgBfU4YJAl6r8dqLmw8zrOB5U3Qq7b76GvNc7s9Cd8hs5VGXLdNDB
+	b7ksv1jEafJAg301ACzcRxfgjI9EgfPoSmqxTlZU1MovJxS2wXcYrLqZLAPyy9UyYYZtFj3Z9yIvJ
+	L30tpmVSYni4x+KAIgBN9AEnAmbkx5qCoKw2wxfQR7JHIb6yb8kUcuPp03RL3eRB4QO7XhGRjbZmM
+	U9HQJ5MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txJAU-00000007ad0-421W;
-	Wed, 26 Mar 2025 05:19:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1txK4L-00000007eAb-41um;
+	Wed, 26 Mar 2025 06:16:53 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txJ8m-00000007aVC-1icx;
-	Wed, 26 Mar 2025 05:17:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EE9B6112F;
-	Wed, 26 Mar 2025 05:17:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4BD7AC4CEE2;
-	Wed, 26 Mar 2025 05:17:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742966243;
-	bh=ButHpYnOi30uTPKUbQYml9fS8YtmCtfmAvQ1YRC9dGc=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=RmbfcyPlxUcupUBgbsyNT4fJVBJOAiXykRKvoeJyiWhGHOHAzTo5W6nf2LG3jvv5n
-	 Yzh0HRPL5JSJIYLwpYt2ulFSYmHsmE+hrsbdV40RsJenOoA6ylghhrKiZ36Uptf9Ol
-	 BmJkFYPMN5oJXtGmbpHP5PozJjtjS8RlNCkPjCShtMREB3RgAHVLUVmerMZJ6BX+9/
-	 0aVlAc7VX3VWflIDCkbyzQX+21DKYg5SmV5G01YOfqUEvdH65ryvkZIdY7K4G5bpmY
-	 oyeQlHBgjLvLq7v/9mNn40456vQYPoAZsRZChE2NVEBbaRzRCAHiyXbnGd8+QzSZ78
-	 +bFvz4IVmHxPw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3514FC28B30;
-	Wed, 26 Mar 2025 05:17:23 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 26 Mar 2025 13:17:16 +0800
-Subject: [PATCH] arm64: dts: amlogic: a4: add pinctrl node
+	id 1txK2b-00000007e0X-2jd2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Mar 2025 06:15:07 +0000
+Date: Tue, 25 Mar 2025 23:14:40 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1742969702;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=slCF2xs2ElnaTVorgRjJtJXFeYpLhzlPphzcbXRpqBA=;
+	b=OuiqmHTL8r1gLM/KKEIjqAjSmMsNYpkvBf0rF1fapMbUROPNKPJrNCuIniEZweIt2hcbQL
+	zVCmBXHOplOtEyzKqjZRA+blDaXiM047RrfHp6qItXfsJFcV6cpMoOiCI/Y01E5Hi1/f8w
+	jCLrNhkoLu/Hgj/xfyHkzQiqiV4nuHw=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: "Emi Kisanuki (Fujitsu)" <fj0570is@fujitsu.com>
+Cc: 'Steven Price' <steven.price@arm.com>,
+	"'kvm@vger.kernel.org'" <kvm@vger.kernel.org>,
+	"'kvmarm@lists.linux.dev'" <kvmarm@lists.linux.dev>,
+	'Catalin Marinas' <catalin.marinas@arm.com>,
+	'Marc Zyngier' <maz@kernel.org>, 'Will Deacon' <will@kernel.org>,
+	'James Morse' <james.morse@arm.com>,
+	'Suzuki K Poulose' <suzuki.poulose@arm.com>,
+	'Zenghui Yu' <yuzenghui@huawei.com>,
+	"'linux-arm-kernel@lists.infradead.org'" <linux-arm-kernel@lists.infradead.org>,
+	"'linux-kernel@vger.kernel.org'" <linux-kernel@vger.kernel.org>,
+	'Joey Gouly' <joey.gouly@arm.com>,
+	'Alexandru Elisei' <alexandru.elisei@arm.com>,
+	'Christoffer Dall' <christoffer.dall@arm.com>,
+	'Fuad Tabba' <tabba@google.com>,
+	"'linux-coco@lists.linux.dev'" <linux-coco@lists.linux.dev>,
+	'Ganapatrao Kulkarni' <gankulkarni@os.amperecomputing.com>,
+	'Gavin Shan' <gshan@redhat.com>,
+	'Shanker Donthineni' <sdonthineni@nvidia.com>,
+	'Alper Gun' <alpergun@google.com>,
+	"'Aneesh Kumar K . V'" <aneesh.kumar@kernel.org>
+Subject: Re: [PATCH v7 00/45] arm64: Support for Arm CCA in KVM
+Message-ID: <Z-ObUJQn2dGsgSsO@linux.dev>
+References: <20250213161426.102987-1-steven.price@arm.com>
+ <TYCPR01MB11463C8CCEFEDAF79868E9BBCC3A62@TYCPR01MB11463.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250326-pinctrl-node-a4-v1-1-8c30639480f6@amlogic.com>
-X-B4-Tracking: v=1; b=H4sIANuN42cC/x2MQQqAIBAAvxJ7TjBLi74SHUy3WggVjQjEvyfBX
- OYwkyFhJEwwNxkiPpTIuypd24A5tTuQka0OggvJeyFZIGfueDHnLTI9VJQarUQzmQ1qFSLu9P7
- HZS3lA03gC7thAAAA
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742966241; l=5053;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=71qIP+ef+rZamoMp2uHsnRGLP/3xxQGVfKdovCE34Gg=;
- b=VtxrAX3CV74cDeafGJLPn8y7m2o7qUtmyDz70JtDk8R1Zwv5Kpd1CE8gJAHcAZ8ZRpSSIPEkb
- CTZNM18bRQcDo6ArOAFQk1qsKOX7m1daledgaQMtNgWGbZK92ilb2VF
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <TYCPR01MB11463C8CCEFEDAF79868E9BBCC3A62@TYCPR01MB11463.jpnprd01.prod.outlook.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250325_231506_264136_D8339B1E 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,184 +83,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Hi Emi,
 
-Add pinctrl device to support Amlogic A4 and add uart pinconf.
+On Wed, Mar 26, 2025 at 02:14:35AM +0000, Emi Kisanuki (Fujitsu) wrote:
+> Hi all,
+> 
+> I tested Linux-cca cca-host/v7 patch with our Internal simulator based on QEMU (with CCA and MPAM support).
+> A panic occurred when starting Realm, but I don't think this is a problem with the cca-host/v7 patch.
+> The location of the panic is [1].
+> 
+> [1]https://lore.kernel.org/linux-arm-kernel/20241030160317.2528209-4-joey.gouly@arm.com
+> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+> index 44718d0482b3..46ba30d42b9b 100644
+> --- a/arch/arm64/kernel/cpuinfo.c
+> +++ b/arch/arm64/kernel/cpuinfo.c
+> @@ -478,6 +478,9 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+>  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+>  		__cpuinfo_store_cpu_32bit(&info->aarch32);
+>  
+> +	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
+> +		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1); /////// panic occurred here. 
+> +
+>  	cpuinfo_detect_icache_policy(info);
+>  }
+> 
+> There was no problem with the cca-host/v5 patch (based on v6.12).
+> This panic is caused by accessing MPAMIDR_EL1 when the chip supports MPAM.
+> This functionality was enabled when the cca host patch base version was rebased from v6.12 to v6.13.
+> 
+> I am not familiar with TF-A, but I think this maybe a TF-A's bug.
+> Because It seems TF-A sets MPAM3_EL3.TRAPLOWER to 0 during normal guest boot in manage_extensions_nonsecure_per_world function[2].
+> However, TF-A does not set it to 0 during Realm guest boot in manage_extensions_secure_per_world function.
+> Therefore, a trap occurs against EL3 (TF-A), and it is likely being processed as an invalid instruction (Undef).
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
-This commit is based on the Neil's suggestion, rebase the commit on top of
-https://web.git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=for-next 
-which merges this commit:
-https://lore.kernel.org/all/20250212-amlogic-pinctrl-v5-4-282bc2516804@amlogic.com/
-with another one:
-https://lore.kernel.org/all/20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com/
----
- arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 125 ++++++++++++++++++++++++++++
- 1 file changed, 125 insertions(+)
+Your instinct is correct that this is *not* a kernel bug. It is the
+responsibility of the RMM to provide a consistent feature set to the
+Realm.
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-index a06838552f21..c02fa5ee9fd2 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-@@ -5,6 +5,7 @@
- 
- #include "amlogic-a4-common.dtsi"
- #include <dt-bindings/power/amlogic,a4-pwrc.h>
-+#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
- / {
- 	cpus {
- 		#address-cells = <2>;
-@@ -50,6 +51,107 @@ pwrc: power-controller {
- };
- 
- &apb {
-+	periphs_pinctrl: pinctrl@4000 {
-+		compatible = "amlogic,pinctrl-a4";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges = <0x0 0x0 0x0 0x4000 0x0 0x280>;
-+
-+		gpiox: gpio@100 {
-+			reg = <0 0x100 0 0x40>, <0 0xc 0 0xc>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 18>;
-+		};
-+
-+		gpiot: gpio@140 {
-+			reg = <0 0x140 0 0x40>, <0 0x2c 0 0xc>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_T<<8) 23>;
-+		};
-+
-+		gpiod: gpio@180 {
-+			reg = <0 0x180 0 0x40>, <0 0x40 0 0x8>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 16>;
-+		};
-+
-+		gpioe: gpio@1c0 {
-+			reg = <0 0x1c0 0 0x40>, <0 0x48 0 0x4>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
-+		};
-+
-+		gpiob: gpio@240 {
-+			reg = <0 0x240 0 0x40>, <0 0 0 0x8>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
-+		};
-+
-+		func-uart-a {
-+			uart_a_default: group-uart-a-pins1 {
-+				pinmux = <AML_PINMUX(AMLOGIC_GPIO_X, 11, 1)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_X, 12, 1)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_X, 13, 1)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_X, 14, 1)>;
-+			};
-+
-+			group-uart-a-pins2 {
-+				pinmux = <AML_PINMUX(AMLOGIC_GPIO_D, 2, 3)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_D, 3, 3)>;
-+				bias-pull-up;
-+				drive-strength-microamp = <4000>;
-+			};
-+		};
-+
-+		func-uart-b {
-+			uart_b_default: group-uart-b-pins {
-+				pinmux = <AML_PINMUX(AMLOGIC_GPIO_E, 0, 3)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_E, 1, 3)>;
-+				bias-pull-up;
-+				drive-strength-microamp = <4000>;
-+			};
-+		};
-+
-+		func-uart-d {
-+			uart_d_default: group-uart-d-pins1 {
-+				pinmux = <AML_PINMUX(AMLOGIC_GPIO_T, 18, 4)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_T, 19, 4)>;
-+				bias-pull-up;
-+				drive-strength-microamp = <4000>;
-+			};
-+
-+			group-uart-d-pins2 {
-+				pinmux = <AML_PINMUX(AMLOGIC_GPIO_T, 7, 2)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_T, 8, 2)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_T, 9, 2)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_T, 10, 2)>;
-+				bias-pull-up;
-+				drive-strength-microamp = <4000>;
-+			};
-+		};
-+
-+		func-uart-e {
-+			uart_e_default: group-uart-e-pins {
-+				pinmux = <AML_PINMUX(AMLOGIC_GPIO_T, 14, 3)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_T, 15, 3)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_T, 16, 3)>,
-+					 <AML_PINMUX(AMLOGIC_GPIO_T, 17, 3)>;
-+				bias-pull-up;
-+				drive-strength-microamp = <4000>;
-+			};
-+		};
-+	};
-+
- 	gpio_intc: interrupt-controller@4080 {
- 		compatible = "amlogic,a4-gpio-intc",
- 			     "amlogic,meson-gpio-intc";
-@@ -60,6 +162,29 @@ gpio_intc: interrupt-controller@4080 {
- 			<10 11 12 13 14 15 16 17 18 19 20 21>;
- 	};
- 
-+	ao_pinctrl: pinctrl@8e700 {
-+		compatible = "amlogic,pinctrl-a4";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges = <0x0 0x0 0x0 0x8e700 0x0 0x80>;
-+
-+		gpioao: gpio@4 {
-+			reg = <0 0x4 0 0x16>, <0 0 0 0x4>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
-+		};
-+
-+		test_n: gpio@44 {
-+			reg = <0 0x44 0 0x20>;
-+			reg-names = "gpio";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
-+		};
-+	};
-+
- 	gpio_ao_intc: interrupt-controller@8e72c {
- 		compatible = "amlogic,a4-gpio-ao-intc",
- 			     "amlogic,meson-gpio-intc";
+Looks like this was addressed recently in TF-RMM by hiding FEAT_MPAM:
 
----
-base-commit: 23a708916ec7ab21c8c81d61bdb7cb933f6867d5
-change-id: 20250325-pinctrl-node-a4-a4667d5ec8cb
+https://github.com/TF-RMM/tf-rmm/commit/7b0874403726d215c40054abfd5d8704049f8dac
 
-Best regards,
--- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
-
-
+Thanks,
+Oliver
 
