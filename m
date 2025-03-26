@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F819C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 15:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2E5C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 15:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r/lomG6J/G1Z46g4mIoWdtRmMOjFhTy33WeBBrymFoI=; b=CAbqYewL0Unpf0YVOFZ466nsEE
-	W+rYtYmc72TEri1AJKIjR7+VepMYzxKimdC1yu/ZBYkP48RrFbxDFS/c7oCqz5/phQHTsSNQjrROx
-	RW2lUGHTYWBj/YgpIRYxsye6Hn3nyeuo3ypJcJk6IEHyIms6gShfFenwvfxlV7/meW3UYTOTufz84
-	F69icqU4pPef/ekMtcIOt76CFrVFZvQ9OxxVdJfXRonFRAt35ZU29OqDMBLuAcf6Ir+caR1Wx8oU4
-	m6tYVb/bZEtV1ZUYhVy1DD8DdJ6oVEM9WdvR3UOHdUxjyHorcJm2sfMQFN+ntXNh/r3m/+U4WxhHG
-	wwC4a7tA==;
+	bh=C6hfLsSuXXkQW+oQprMpqK3KHzdpSf8DxnzIWa6RWKI=; b=3PamV6//OjnlUNkslOAeo4z+LD
+	yX0PwurK95hFjjY2Df0eww9icOiLo0E3+z3vyZPUd7LbrmQqAMTA2w5VfRKGf8a9aMhIQl8kg1oFK
+	vDy0r/IdWPyeUUBtCFVFCSGMNGK8sC9ZYT6Q6roE+RIDqe9dXnA4J/5jAIDyPolm08g7FOi8lttXO
+	HoiZQeXXHKgeIskPyd1t5MHBnq6RpP7n38Ihk6R3JpqUxoghIT3e+AfxrnzCHPZih5KbkvafWM3e5
+	8rvtHFrgrWwBuSR9JHhW8gom2UdmH2OwZ3PdC5LrO5G4bHJ75YN63fHj3i1wg4UgymBTbXY23IXyP
+	/TZO41og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txSJ3-00000008n1A-13gU;
-	Wed, 26 Mar 2025 15:04:37 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1txSKl-00000008nIr-01NC;
+	Wed, 26 Mar 2025 15:06:23 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txRvR-00000008iWq-10I7
+	id 1txRvS-00000008iXH-2bmp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 14:40:14 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso6714105e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:40:12 -0700 (PDT)
+	Wed, 26 Mar 2025 14:40:15 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-391342fc0b5so5290904f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:40:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743000011; x=1743604811; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743000013; x=1743604813; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=r/lomG6J/G1Z46g4mIoWdtRmMOjFhTy33WeBBrymFoI=;
-        b=JWzhAQbZhjMJI+/5rkggtElhFEdJj90RYSjM9AEUgTx7PNpXOz8+YTplz3MAtbqJq1
-         RdlmIabS5J95VSmdqkXbYory5FOw4y7StaLmZ8QcQ8AXPzDLhN7IfBR+uCPkWvAtB9TW
-         otdX7CpuX24zT+SVL6X+YBnjwXpunPe2mG2Cae3JxyEz/mM1IfMX9ycorQXnQRFHz+NQ
-         k5WY+drbh9/+I6FTaOwvtood8nUtHqAjgKQETEjXWRd+N6RNyuZeAnzWLTk8UuaHjcVV
-         FLTItZTHnJk5/jZwFdUVDAqA/LolfrXLtYgJCSctKF6864Vsw9R41xUMlMJElZ/iDNXl
-         8Eeg==
+        bh=C6hfLsSuXXkQW+oQprMpqK3KHzdpSf8DxnzIWa6RWKI=;
+        b=AmNkgYzGLeE8ZeXTuGi3te0ef2zwzsc6H/EksGunXXUUTa98vq7Nnz9wsF/on16CjS
+         XgzPrsy47uRxV5ih9V/S8fqKSSmfbya1IEcA+5oj9GH/48ggIMU0ADqma9/G5Ye1N+Bq
+         azNxPC0heiz7ux8ShFa9fW9wYoMGvFljip2CXFoAI0jZGC6DG55llImNdp+/xrMbYH4I
+         wb8UHWPNIHcETT2t8l1hi2UvcHzOs4smob8ajlHZrYfQrBko6vcW9fb3IGNc5j824caD
+         v6YaiMbcxobfQbKSJ1UVv6/hnjrHLNMkpmKfhuDmAmHMJRemCgq/W1ioIFffN/hYxMkY
+         8UzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743000011; x=1743604811;
+        d=1e100.net; s=20230601; t=1743000013; x=1743604813;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=r/lomG6J/G1Z46g4mIoWdtRmMOjFhTy33WeBBrymFoI=;
-        b=hlJWgYf9moBCfWKiYwirQ2gYw1fX0r+XKhJpjf66qhbKlSYTQPaXwQkeZfqbifS9y7
-         gVZKfoM4P3/y1b0oHluVxvd/8w1lKALivaCS/dirrA0DpYMFB548H/fuSKgPDUtbHQY9
-         qkanGU+V+COne9Q792EaR7hry4g7JXMUaKxhd8TZO0sjrsmDUqjkEjEdG2pT5j1E3U8f
-         pQaO5iNBM+JbGLoIWH8pJ/slloxGaLY2NgKEoM8ylNBlg8pwrY8g5u8dwsQIF9inGI2V
-         //kw+M3O8jJcH0elzoRvkRRF+dhd/8GsvtYEWQg+r1DEPMvcPDS7SdCGgnDI3UUrd47S
-         o55g==
-X-Forwarded-Encrypted: i=1; AJvYcCXcqlD63ajCq/koWs4Zth0AZy8wGR7Irrf75eICeNNq5Bio0FsLWQIrTfpMsxSsiGuwTw4x11MrDchQAeeJ8LRf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEpXC1xOrxyxXcCgqrLCKTOsnESexA26EPDwA6E6CRh1XAB7zY
-	bdNYjLUWcb0T6/2oo5VlVtkrskEwFw7z/+zcjqHCc+PhmLfjmiqS
-X-Gm-Gg: ASbGncuEjoXKjRu7GzNLVeKxcJ0+P67sKEJUKgAjqiG6ITtke1+wuLMQ6fXO1fzENcI
-	HUDi88SgM42h9mb3daelcaDkeQhCVXuJwcz8ynbmT3xRPeykE+ed0UWOmvGJHRH3s1wMfAOnAKa
-	VKlEMaursdNWqDyzzNmC0/DYcJhjN+owKOOC9niB1+9V+DwdWs0svuADwLoW5IlbgdgsTm+DqPE
-	AmxjVnEQzDhmlXL9ytTwLwE+qDiVKYNrBcoPEhbF2ahpHSYPHn1mgXEWCfuxUOZs1kUAQl4RVMf
-	Tsq0UIQaGyPP+IWMF4taQzrUuoGNqAMBHRUh4lgAPtCpASvHNpoE40vRj7B9zqKG038nBobOrqb
-	K8VM=
-X-Google-Smtp-Source: AGHT+IEIcUFLZuJ+CZrWTt/yKGPAxWem+MKUwzWCtkifX+BMYe55mgN/WTi1vPZkmR0ezxHKuAOQsg==
-X-Received: by 2002:a05:600c:1c07:b0:43c:f3e1:a729 with SMTP id 5b1f17b1804b1-43d77643440mr34306375e9.12.1743000011301;
-        Wed, 26 Mar 2025 07:40:11 -0700 (PDT)
+        bh=C6hfLsSuXXkQW+oQprMpqK3KHzdpSf8DxnzIWa6RWKI=;
+        b=xIV9jSLtjD32OChVLDp/zh2brsIMQ7Hvt08s63oZ63Yj985LGc/Z+ROxO+YYA75mlm
+         IoAdklC5U5eLo5JQ++tu97SboO2BKRPlrGfuZkDesAOb0JBE4mKqixdhceO6gZMXhfro
+         KGz8EzwgeLCHk4w3DKwcfo0ySLnnm1EkhdqSu6KrT+CvBXhEo5nkYBVWl8nlBmWTySey
+         eSjCVkx2Cnl0OkQGLWjv6OJxvsP8jQ75G83gerbNGGNGWuK7+wskInRIn2XXPLaScpL+
+         eRJqrCAbgO8c7WPCVvJw08uPsAWKjqvkVIsU8Mb2ZNf7xCxOK99q7Lri8G5C82VENZ6v
+         H10A==
+X-Forwarded-Encrypted: i=1; AJvYcCWvjWW3XhyhG/QWmPEgGm68cx8HmupHG1/AL54K9PvWcFjXvH0IHZK6hdOmvMMZJz9kuUXvipjl6VE/Hsirzv4w@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaDh5Oyf1RWf8LGJY1YFMAK7FzfH5vnmBdL2R3o8gnEN4MIeyf
+	vqSJhDIVQnSU/bQPRPkZlDXKAiA9JiVxL9ED/pVqEPxCpC+Hs/FA
+X-Gm-Gg: ASbGnctRB/SYBKmCbY065G24BMis/IkQBZHgj1NazCvPMSQ7aRGBAVYKLQMeIbvquXX
+	uvyJ4rH2Y/l1Hr92eKUKqEo2u2kIygTVTEfnUe4zix0Qv9h5KCF47WSWLViaV5dvGk7k1XyoKSf
+	2dgVgK1z3iOVn0UT5O2J8phZl5JxNOpDykbGo2JnUR7lfdZX+zX0v8PPEAD8AQRWSLXSNIdC0ly
+	7pFho/TGZ9TI3CqK7rXslaB9yw4mq8FuJZq2+h3FdDDDEifaGhHBPkzyrFqiyIA3MgqVrrzrfb4
+	q+k3e7YzQxcN2l+wQC4o03B91nbcNNMpTeTWzuvzT9bXY0SMf7WWqzZrs7uDbzZjgwZK
+X-Google-Smtp-Source: AGHT+IE4qtcNDA9+68gnJpQW7sH+JjJZJUZhlD6D7jXeTF/bWc027ggNQ2cK9NDwA9P5cuQE+xB1mA==
+X-Received: by 2002:a05:6000:2cd:b0:390:fc5a:91c8 with SMTP id ffacd0b85a97d-3997f940ec2mr19210115f8f.53.1743000012657;
+        Wed, 26 Mar 2025 07:40:12 -0700 (PDT)
 Received: from iku.Home ([2a06:5906:61b:2d00:e63e:b0d:9aa3:d18d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efe9b4sm3891885e9.20.2025.03.26.07.40.10
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efe9b4sm3891885e9.20.2025.03.26.07.40.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 07:40:10 -0700 (PDT)
+        Wed, 26 Mar 2025 07:40:11 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -97,17 +96,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH 11/15] dt-bindings: pinctrl: renesas: Document RZ/V2N SoC
-Date: Wed, 26 Mar 2025 14:39:41 +0000
-Message-ID: <20250326143945.82142-12-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH 12/15] pinctrl: renesas: rzg2l: Add support for RZ/V2N SoC
+Date: Wed, 26 Mar 2025 14:39:42 +0000
+Message-ID: <20250326143945.82142-13-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_074013_283054_3B887C88 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20250326_074014_673297_B459223E 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,80 +123,100 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add documentation for the pin controller found on the Renesas RZ/V2N
-(R9A09G056) SoC. The RZ/V2N PFC differs slightly from the RZ/G2L family
-and is almost identical to the RZ/V2H(P) SoC, except that the RZ/V2H(P) SoC
-has an additional dedicated pin.
+Add pinctrl support for the Renesas RZ/V2N SoC by reusing the existing
+RZ/V2H(P) pin configuration data. The PFC block is nearly identical, with
+the only difference being the absence of `PCIE1_RSTOUTB` on RZ/V2N.
 
-To account for this, a SoC-specific compatible string,
-'renesas,r9a09g056-pinctrl', is introduced for the RZ/V2N SoC.
-
-Also add `renesas,r9a09g056-pinctrl.h` header file which define pins
-that will be used by the driver and board DTS files.
+To accommodate this, move the `PCIE1_RSTOUTB` entry to the end of the
+`rzv2h_dedicated_pins` array and set `.n_dedicated_pins` to
+`ARRAY_SIZE(rzv2h_dedicated_pins) - 1` in the RZ/V2N OF data.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- .../pinctrl/renesas,rzg2l-pinctrl.yaml        |  2 ++
- .../pinctrl/renesas,r9a09g056-pinctrl.h       | 30 +++++++++++++++++++
- 2 files changed, 32 insertions(+)
- create mode 100644 include/dt-bindings/pinctrl/renesas,r9a09g056-pinctrl.h
+ drivers/pinctrl/renesas/Kconfig         |  1 +
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c | 36 ++++++++++++++++++++++++-
+ 2 files changed, 36 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-index 768bb3c2b456..5156d54b240b 100644
---- a/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-@@ -27,6 +27,7 @@ properties:
-               - renesas,r9a07g044-pinctrl # RZ/G2{L,LC}
-               - renesas,r9a08g045-pinctrl # RZ/G3S
-               - renesas,r9a09g047-pinctrl # RZ/G3E
-+              - renesas,r9a09g056-pinctrl # RZ/V2N
-               - renesas,r9a09g057-pinctrl # RZ/V2H(P)
+diff --git a/drivers/pinctrl/renesas/Kconfig b/drivers/pinctrl/renesas/Kconfig
+index 3c18d908b21e..e16034fc1bbf 100644
+--- a/drivers/pinctrl/renesas/Kconfig
++++ b/drivers/pinctrl/renesas/Kconfig
+@@ -42,6 +42,7 @@ config PINCTRL_RENESAS
+ 	select PINCTRL_RZG2L if ARCH_RZG2L
+ 	select PINCTRL_RZV2M if ARCH_R9A09G011
+ 	select PINCTRL_RZG2L if ARCH_R9A09G047
++	select PINCTRL_RZG2L if ARCH_R9A09G056
+ 	select PINCTRL_RZG2L if ARCH_R9A09G057
+ 	select PINCTRL_PFC_SH7203 if CPU_SUBTYPE_SH7203
+ 	select PINCTRL_PFC_SH7264 if CPU_SUBTYPE_SH7264
+diff --git a/drivers/pinctrl/renesas/pinctrl-rzg2l.c b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+index c72e250f4a15..ae5e040f3276 100644
+--- a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
++++ b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+@@ -2304,7 +2304,6 @@ static struct rzg2l_dedicated_configs rzv2h_dedicated_pins[] = {
+ 	{ "SD1DAT3", RZG2L_SINGLE_PIN_PACK(0xc, 3, (PIN_CFG_IOLH_RZV2H | PIN_CFG_SR |
+ 						    PIN_CFG_IEN | PIN_CFG_PUPD)) },
+ 	{ "PCIE0_RSTOUTB", RZG2L_SINGLE_PIN_PACK(0xe, 0, (PIN_CFG_IOLH_RZV2H | PIN_CFG_SR)) },
+-	{ "PCIE1_RSTOUTB", RZG2L_SINGLE_PIN_PACK(0xe, 1, (PIN_CFG_IOLH_RZV2H | PIN_CFG_SR)) },
+ 	{ "ET0_MDIO", RZG2L_SINGLE_PIN_PACK(0xf, 0, (PIN_CFG_IOLH_RZV2H | PIN_CFG_SR |
+ 						     PIN_CFG_IEN | PIN_CFG_PUPD)) },
+ 	{ "ET0_MDC", RZG2L_SINGLE_PIN_PACK(0xf, 1, (PIN_CFG_IOLH_RZV2H | PIN_CFG_SR |
+@@ -2359,6 +2358,14 @@ static struct rzg2l_dedicated_configs rzv2h_dedicated_pins[] = {
+ 	{ "ET1_RXD1", RZG2L_SINGLE_PIN_PACK(0x14, 5, (PIN_CFG_PUPD)) },
+ 	{ "ET1_RXD2", RZG2L_SINGLE_PIN_PACK(0x14, 6, (PIN_CFG_PUPD)) },
+ 	{ "ET1_RXD3", RZG2L_SINGLE_PIN_PACK(0x14, 7, (PIN_CFG_PUPD)) },
++
++	/*
++	 * This pin is only available on the RZ/V2H(P) SoC and not on the RZ/V2N.
++	 * Since this array is shared with the RZ/V2N SoC, this entry should be placed
++	 * at the end. This ensures that on the RZ/V2N, we can set
++	 * `.n_dedicated_pins = ARRAY_SIZE(rzv2h_dedicated_pins) - 1,`.
++	 */
++	{ "PCIE1_RSTOUTB", RZG2L_SINGLE_PIN_PACK(0xe, 1, (PIN_CFG_IOLH_RZV2H | PIN_CFG_SR)) },
+ };
  
-       - items:
-@@ -145,6 +146,7 @@ allOf:
-           contains:
-             enum:
-               - renesas,r9a09g047-pinctrl
-+              - renesas,r9a09g056-pinctrl
-               - renesas,r9a09g057-pinctrl
-     then:
-       properties:
-diff --git a/include/dt-bindings/pinctrl/renesas,r9a09g056-pinctrl.h b/include/dt-bindings/pinctrl/renesas,r9a09g056-pinctrl.h
-new file mode 100644
-index 000000000000..206bba07c288
---- /dev/null
-+++ b/include/dt-bindings/pinctrl/renesas,r9a09g056-pinctrl.h
-@@ -0,0 +1,30 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * This header provides constants for Renesas RZ/V2N SoC pinctrl bindings.
-+ *
-+ * Copyright (C) 2025 Renesas Electronics Corp.
-+ */
+ static struct rzg2l_dedicated_configs rzg3e_dedicated_pins[] = {
+@@ -3349,6 +3356,29 @@ static struct rzg2l_pinctrl_data r9a09g047_data = {
+ 	.bias_param_to_hw = &rzv2h_bias_param_to_hw,
+ };
+ 
++static struct rzg2l_pinctrl_data r9a09g056_data = {
++	.port_pins = rzv2h_gpio_names,
++	.port_pin_configs = r9a09g057_gpio_configs,
++	.n_ports = ARRAY_SIZE(r9a09g057_gpio_configs),
++	.dedicated_pins = rzv2h_dedicated_pins,
++	.n_port_pins = ARRAY_SIZE(r9a09g057_gpio_configs) * RZG2L_PINS_PER_PORT,
++	.n_dedicated_pins = ARRAY_SIZE(rzv2h_dedicated_pins) - 1,
++	.hwcfg = &rzv2h_hwcfg,
++	.variable_pin_cfg = r9a09g057_variable_pin_cfg,
++	.n_variable_pin_cfg = ARRAY_SIZE(r9a09g057_variable_pin_cfg),
++	.num_custom_params = ARRAY_SIZE(renesas_rzv2h_custom_bindings),
++	.custom_params = renesas_rzv2h_custom_bindings,
++#ifdef CONFIG_DEBUG_FS
++	.custom_conf_items = renesas_rzv2h_conf_items,
++#endif
++	.pwpr_pfc_lock_unlock = &rzv2h_pwpr_pfc_lock_unlock,
++	.pmc_writeb = &rzv2h_pmc_writeb,
++	.oen_read = &rzv2h_oen_read,
++	.oen_write = &rzv2h_oen_write,
++	.hw_to_bias_param = &rzv2h_hw_to_bias_param,
++	.bias_param_to_hw = &rzv2h_bias_param_to_hw,
++};
 +
-+#ifndef __DT_BINDINGS_PINCTRL_RENESAS_R9A09G056_PINCTRL_H__
-+#define __DT_BINDINGS_PINCTRL_RENESAS_R9A09G056_PINCTRL_H__
-+
-+#include <dt-bindings/pinctrl/rzg2l-pinctrl.h>
-+
-+/* RZV2N_Px = Offset address of PFC_P_mn  - 0x20 */
-+#define RZV2N_P0	0
-+#define RZV2N_P1	1
-+#define RZV2N_P2	2
-+#define RZV2N_P3	3
-+#define RZV2N_P4	4
-+#define RZV2N_P5	5
-+#define RZV2N_P6	6
-+#define RZV2N_P7	7
-+#define RZV2N_P8	8
-+#define RZV2N_P9	9
-+#define RZV2N_PA	10
-+#define RZV2N_PB	11
-+
-+#define RZV2N_PORT_PINMUX(b, p, f)	RZG2L_PORT_PINMUX(RZV2N_P##b, p, f)
-+#define RZV2N_GPIO(port, pin)		RZG2L_GPIO(RZV2N_P##port, pin)
-+
-+#endif /* __DT_BINDINGS_PINCTRL_RENESAS_R9A09G056_PINCTRL_H__ */
+ static struct rzg2l_pinctrl_data r9a09g057_data = {
+ 	.port_pins = rzv2h_gpio_names,
+ 	.port_pin_configs = r9a09g057_gpio_configs,
+@@ -3389,6 +3419,10 @@ static const struct of_device_id rzg2l_pinctrl_of_table[] = {
+ 		.compatible = "renesas,r9a09g047-pinctrl",
+ 		.data = &r9a09g047_data,
+ 	},
++	{
++		.compatible = "renesas,r9a09g056-pinctrl",
++		.data = &r9a09g056_data,
++	},
+ 	{
+ 		.compatible = "renesas,r9a09g057-pinctrl",
+ 		.data = &r9a09g057_data,
 -- 
 2.49.0
 
