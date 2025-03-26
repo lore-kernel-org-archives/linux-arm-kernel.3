@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C655C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B70A9C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5dEhZXpJIQDYjKp44/xRbSpFUSHWMuuE2+/dnL6k/lU=; b=n4HuRaY1BuYXiGeXvCme6H4nrn
-	yrPHfZoDE/n1RzfZjuUdh1a73hRZjGLNpnaaDJ7PnbWtqNqWTcWG18WxCAi6kDG9kAc0NNcZF+NU3
-	dHR/anrHpM8Dqnl9pDItTZaaEj/CMJa9zxrX6kcCTl4bRUsG1kC1EjU/FWZe2g8F50C8RlS7G1KJP
-	CcsYj+BzXYFuh0FvV7LhTCYpVv8HysjUEeCpUDfmZ3kDRXF5vQ/nZPVL1/CMGFAEI0SjBeRuE3gX9
-	OvlfAMZkMHYHe5P9XU748bz4sYm2B9aCugjSFf95VOMwLy/Dd8h+4nWec8X07/FgPDzs0RWpOCJdH
-	bL0tldvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zahSKBXddKLBmeInYtmH27DWFhtGn9K88ZeCCjgkweU=; b=b/75tntjDaToeeDS9aBDwEqm5J
+	gqSciLWhaO756WNstMO+wItcjTUbTs4JQx1vSeMk5nmzysVytiwveC+R3w5R8gKO3u2yN2gauFMv4
+	2skicFxKCrRLJN8HFDZhJ8P95s68O5t9IK9LSfG7xLQ/aw8RaAIbBLvL/4nGg526WF1uL9mLhLO+C
+	ak+ttzA3m07VvcLF0tBMYJ1d8VQbh8Ys5esDKFO0LZajFrLkVlDyHE8hK8+NT2B7oJu5HCCKq4Z+9
+	isGy+feNbqMOP4Ekfe6VqbgaPhZY0Bvgf4eCMpkeE/rOb63qMajMgG7o/O9dcBdmGm+rrIJC4/K1k
+	uVv7EvJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTCs-00000008wCM-1CBN;
-	Wed, 26 Mar 2025 16:02:18 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txSkR-00000008s5o-4AyZ
+	id 1txTCw-00000008wGc-2t1i;
+	Wed, 26 Mar 2025 16:02:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1txSnv-00000008sev-37ve
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 15:32:57 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id A914B210C320;
-	Wed, 26 Mar 2025 08:32:53 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A914B210C320
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1743003174;
-	bh=5dEhZXpJIQDYjKp44/xRbSpFUSHWMuuE2+/dnL6k/lU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h9CXDAO1ZrAH2QmyDPeZh9D575YKdAtnwcuvQxr+2h+cWYYQEZjW0lE1GdOfjm8h0
-	 WTL8D4VFuAxQbfVPl4CANyl7MImvzKVJrV1UkEJ6ZDQRtMcF1/oXVnUIM04GP/33qq
-	 SoTHHkrgirDlGx5JlRlVXulkrfzJWIihHsu4hJNE=
-Message-ID: <f8ccc874-e153-4b78-8159-9923dfa77fc3@linux.microsoft.com>
-Date: Wed, 26 Mar 2025 08:32:53 -0700
+	Wed, 26 Mar 2025 15:36:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1743003391; x=1774539391;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=336TRgbLvYKh+AeFJ4NUZBlcZovnPjauRJIcAFMcWLk=;
+  b=lTd3K4gDh4lBsdv2UyADPFIoCt5LRKehgViHBgVkpE+sXx+erfKXTFj4
+   jNniFMopNXFdNb0ZQfqi9sE37HKTmRqPNxP/zcwFEg26pUhF9fWOUBEa+
+   lORKLwGDlZwg/ZNZeMG7AMNIUss3ESodB3PTEtcBTLqGBbbMBmW6EcQi4
+   dNLyQ1wsmZPwo26pC0SKcxWQohGEye9jIwz6gY9gD64ZUjJR8hMZjivRP
+   R2kQ4iOrq47bDwmGwd5H+HGWX2Kr65o7vfPU9Fwqj0CWoML+vkyIf5tjT
+   jajXOvWgrR9vq7WNRZ4o00g7syOoQe7VPfTCLlctxdcFv6GWJ4CijQtMv
+   A==;
+X-CSE-ConnectionGUID: NRxSiTFnT3ucBnaYj7CaZg==
+X-CSE-MsgGUID: vHwFJPuuR/W4/UZnO2jmAw==
+X-IronPort-AV: E=Sophos;i="6.14,278,1736838000"; 
+   d="scan'208";a="44096094"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Mar 2025 08:36:28 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 26 Mar 2025 08:35:50 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Wed, 26 Mar 2025 08:35:50 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>, <sre@kernel.org>,
+	<p.zabel@pengutronix.de>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+	<linux-rtc@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
+Subject: [PATCH v4 00/11] Enable Power Modes Support for SAMA7D65 SoC
+Date: Wed, 26 Mar 2025 08:35:33 -0700
+Message-ID: <cover.1742936082.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v6 10/11] ACPI: irq: Introduce
- acpi_get_gsi_dispatcher()
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
- catalin.marinas@arm.com, conor+dt@kernel.org, dan.carpenter@linaro.org,
- dave.hansen@linux.intel.com, decui@microsoft.com, haiyangz@microsoft.com,
- hpa@zytor.com, joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com,
- kys@microsoft.com, lenb@kernel.org, lpieralisi@kernel.org,
- manivannan.sadhasivam@linaro.org, mark.rutland@arm.com, maz@kernel.org,
- mingo@redhat.com, oliver.upton@linux.dev, robh@kernel.org,
- ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
- tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
- yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
- apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com
-References: <20250315001931.631210-1-romank@linux.microsoft.com>
- <20250315001931.631210-11-romank@linux.microsoft.com>
- <CAJZ5v0g1bX_3zRUUf-=euuvhm1dPB6bjEXPH9O-kMGcZjRspcw@mail.gmail.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <CAJZ5v0g1bX_3zRUUf-=euuvhm1dPB6bjEXPH9O-kMGcZjRspcw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_083256_097562_5493F6AB 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20250326_083631_866466_D888ECC1 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,107 +86,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
+This patch set adds support for low power modes for the SAMA7D65 SoC and
+the required components and changes for low power modes.
 
-On 3/26/2025 7:55 AM, Rafael J. Wysocki wrote:
-> On Sat, Mar 15, 2025 at 1:19 AM Roman Kisel <romank@linux.microsoft.com> wrote:
-[...]
-> 
-> This basically looks OK to me except for a couple of coding style
-> related nits below.
-> 
+The series includes changes in the asm code to account for the addtional
+clocks that are in this SoC.
 
-Appreciate taking time to review this very much! Will squash the nits in
-the next version.
+The Device tree additions are to enable all the components needed to
+keep the SoC in low power mode.
 
->> ---
->>   drivers/acpi/irq.c   | 15 +++++++++++++--
->>   include/linux/acpi.h |  5 ++++-
->>   2 files changed, 17 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
->> index 1687483ff319..8eb09e45e5c5 100644
->> --- a/drivers/acpi/irq.c
->> +++ b/drivers/acpi/irq.c
->> @@ -12,7 +12,7 @@
->>
->>   enum acpi_irq_model_id acpi_irq_model;
->>
->> -static struct fwnode_handle *(*acpi_get_gsi_domain_id)(u32 gsi);
->> +static acpi_gsi_domain_disp_fn acpi_get_gsi_domain_id;
->>   static u32 (*acpi_gsi_to_irq_fallback)(u32 gsi);
->>
->>   /**
->> @@ -307,12 +307,23 @@ EXPORT_SYMBOL_GPL(acpi_irq_get);
->>    *     for a given GSI
->>    */
->>   void __init acpi_set_irq_model(enum acpi_irq_model_id model,
->> -                              struct fwnode_handle *(*fn)(u32))
-> 
-> Please retain the indentation here and analogously below.
-> 
->> +       acpi_gsi_domain_disp_fn fn)
->>   {
->>          acpi_irq_model = model;
->>          acpi_get_gsi_domain_id = fn;
->>   }
->>
->> +/**
->> + * acpi_get_gsi_dispatcher - Returns dispatcher function that
->> + *                           computes the domain fwnode for a
->> + *                           given GSI.
->> + */
-> 
-> I would format this kerneldoc comment a bit differently:
-> 
-> /*
->   * acpi_get_gsi_dispatcher() - Get the GSI dispatcher function
->   *
->   * Return the dispatcher function that computes the domain fwnode for
-> a given GSI.
->   */
-> 
->> +acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void)
->> +{
->> +       return acpi_get_gsi_domain_id;
->> +}
->> +EXPORT_SYMBOL_GPL(acpi_get_gsi_dispatcher);
->> +
->>   /**
->>    * acpi_set_gsi_to_irq_fallback - Register a GSI transfer
->>    * callback to fallback to arch specified implementation.
->> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
->> index 4e495b29c640..abc51288e867 100644
->> --- a/include/linux/acpi.h
->> +++ b/include/linux/acpi.h
->> @@ -336,8 +336,11 @@ int acpi_register_gsi (struct device *dev, u32 gsi, int triggering, int polarity
->>   int acpi_gsi_to_irq (u32 gsi, unsigned int *irq);
->>   int acpi_isa_irq_to_gsi (unsigned isa_irq, u32 *gsi);
->>
->> +typedef struct fwnode_handle *(*acpi_gsi_domain_disp_fn)(u32);
->> +
->>   void acpi_set_irq_model(enum acpi_irq_model_id model,
->> -                       struct fwnode_handle *(*)(u32));
->> +       acpi_gsi_domain_disp_fn fn);
->> +acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void);
->>   void acpi_set_gsi_to_irq_fallback(u32 (*)(u32));
->>
->>   struct irq_domain *acpi_irq_create_hierarchy(unsigned int flags,
->> --
-> 
-> With the above addressed, please feel free to add
-> 
-> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> 
-> to the patch and route it along with the rest of the series.
-> 
+There are some DTB check warnings but that is due to the dt-binding not
+in the correct .yaml file format.
 
-Will do, thanks!
+Changes v1 -> v2:
+- Add missing compatible for ddr3phy, it is now in both syscon sets.
+- Fix alphabetical ordering for sama7d65.
+- Remove the incorrect reorganizing patch.
+- Remove sama7g5-rtt as a compatible for sama7d65-rtt and add
+  sama7d65-rtt as a compatible wake up source in the pm driver.
 
-> Thanks!
+Changes from v2 -> v3:
+- Correct mistake in v2 sfrbu dt-binding patch.
+- Correct incorrect dt-binding addition and formatting for rtc and rtt bindings.
+- Add missing SoB tag.
+- Cleaned up commit message for Backup mode to describe SHDWC is status
+  register is cleared for this SoC.
+- Cleaned up variable naming and usage for mcks. Changed the mcks number
+  to the correct number of clocks needed to be saved and corrected the
+  ASM code accordingly.
+- Removed the SHDWC from ULP0 wake-up source as it is not configured as
+  a valid wake-up source for ULP0.
+- Separated all the DTSI and DTS changes into individual patches.
+
+Changes from v3 -> v4:
+- Add sama7d65-gpbr to the dt-binding.
+- Converted the sama5d2-secumod binding into yaml format.
+- Add sama7d65-secumod to the new dt binding.
+- Collect and remove applied and accpeted pathces from the set.
+
+v1) https://lore.kernel.org/linux-arm-kernel/cover.1738257860.git.Ryan.Wanner@microchip.com/
+v2) https://lore.kernel.org/linux-arm-kernel/cover.1739221064.git.Ryan.Wanner@microchip.com/
+v3) https://lore.kernel.org/linux-arm-kernel/cover.1740671156.git.Ryan.Wanner@microchip.com/T/#m576233e7af84d68559afb286884c2b9294e7bc1d 
+
+Ryan Wanner (11):
+  dt-bindings: sram: Add microchip,sama7d65-sram
+  dt-bindings: power: reset: atmel,sama5d2-shdwc: Add
+    microchip,sama7d65-shdwc
+  dt-bindings: reset: atmel,at91sam9260-reset: add
+    microchip,sama7d65-rstc
+  dt-bindings: rtc: at91rm9200: add microchip,sama7d65-rtc
+  dt-bindings: at91rm9260-rtt: add microchip,sama7d65-rtt
+  dt-bindings: mfd: atmel: Add microchip,sama7d65-gpbr
+  dt-bindings: mfd: syscon: atmel,sama5d2-secumod: convert to yaml
+  dt-bindings: mfd: syscon: add microchip,sama7d65-secumod
+  ARM: dts: microchip: sama7d65: Add SRAM and DRAM components support
+  ARM: dts: microchip: sama7d65: Add RTT and GPBR Support for sama7d65
+    SoC
+  ARM: dts: microchip: sama7d65: Add RTT timer to curiosity board
+
+ .../bindings/arm/atmel,sama5d2-secumod.yaml   | 49 +++++++++++++++++++
+ .../devicetree/bindings/arm/atmel-sysregs.txt | 25 ----------
+ .../bindings/mfd/atmel,at91sam9260-gpbr.yaml  |  1 +
+ .../power/reset/atmel,sama5d2-shdwc.yaml      |  5 ++
+ .../reset/atmel,at91sam9260-reset.yaml        |  3 ++
+ .../bindings/rtc/atmel,at91rm9200-rtc.yaml    |  4 +-
+ .../bindings/rtc/atmel,at91sam9260-rtt.yaml   |  1 +
+ .../devicetree/bindings/sram/sram.yaml        |  1 +
+ .../dts/microchip/at91-sama7d65_curiosity.dts |  4 ++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     | 47 ++++++++++++++++++
+ 10 files changed, 114 insertions(+), 26 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/atmel,sama5d2-secumod.yaml
 
 -- 
-Thank you,
-Roman
+2.43.0
 
 
