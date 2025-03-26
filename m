@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47410C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 10:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D76AC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 10:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sj9IC/ITgYzbYCPda8r17Blt5shGufVre2k2P1fl+Zg=; b=jaRcAQyd/qARUJ7m0u99oTdEC0
-	uh34B6r0ULaDItgnRVxoTOueOkzcPCs2MhyHURFVYpsU8JhoadiVyJeHfA2pnHqu7Pv3wjAKhGlTX
-	iEcexct7z5eDGxIkBd2y31B9DjUcVehexX1wsV/RCNaz35NLUACpjj7MK1mUpwiOcRY21XlLrI1O0
-	Lpu/qpi8KUp4KantIMV6XiOvlN+09wjomPs8nJFG8BdD8FgbbOGlH2nYx/jsIEHS3cFHkB9uw9uVn
-	KZ4R0adfBFaesMvFWRNlWKtaFolCDqyVN+GxkBUdJeLb9GihTYokXaOR0wi5NjWOoX2V52OPTcvON
-	P7gD25lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5+5GHuIzTPyTZ2uB1s3xkoFmmaBjSze2gDJ2FB0UHFE=; b=mZA1UhaP+AdHajSfxqMJJobuEA
+	HuJG8C1YMW3wnI2iwAneC00jmQYcXrwWa3ZYttaRs0p4umap9jXv5OmlwaRDjbGT4st02FXE1h09g
+	PXiw2ayxl7+9OBLdfhCj67qOfXtIVgbcfhp/NZjjnptO843PAbvkAdEyq7O98QTeyouzANEOSlcLI
+	ahP3ZI2HVsVOgjhyRAqXRJnWTCMrfTjdGg1o6HmRQJSZjgUcHaqULOiieTOFvW/qK48rQW0qsP+LV
+	EYf5hIwsb5U5Iie7rLtCF2/AvOBPvD33xkz2BYIE5VJ1gscM7UrI9RjjobLoUL6nsO3HCtcqhCnU4
+	a/al3J5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txOHy-00000008GtZ-3UEj;
-	Wed, 26 Mar 2025 10:47:14 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1txOMf-00000008HL7-2v7I;
+	Wed, 26 Mar 2025 10:52:05 +0000
+Received: from 004.mia.mailroute.net ([199.89.3.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txOGF-00000008Gb9-3iGU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 10:45:29 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43bb6b0b898so64407585e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 03:45:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742985926; x=1743590726; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Sj9IC/ITgYzbYCPda8r17Blt5shGufVre2k2P1fl+Zg=;
-        b=1uNT5AR20kg1rEua8UO/GQ13gmJTbCJSSSPMERIuRFeYTi9qTmwluChq98KQBea2SS
-         5KsIVqxLRf7Uyx2ua6PEhZOOWLWDUlIgbm+JDVP49NZG4+dpu9uE8mfBQ3ySjCBrgzbZ
-         j6Cjt7cgMwpzcKDI1C3jHXxmR494p+EGwmkLnF8ssTlddJ4DqjNtrzusXeJA6W26pqBH
-         aS7UdaD+BJpY5XHEa79NuYXL1sOdP71jc/6IKYdTqG2VlT2ou1ANKD3DqodSPSAgw1lc
-         VyPJk2IXuolzWEIG51vI6XJ3W1fwhpFBM/NRAaj/55+dXnyjFYJQv6Dhtc59d6LhPLUw
-         ujwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742985926; x=1743590726;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Sj9IC/ITgYzbYCPda8r17Blt5shGufVre2k2P1fl+Zg=;
-        b=hrHzf4bq45IAIOabrEzV8g9MTUaTOCfSbUhgsdRjfH0Xy1j22XAICjlNf5Zokn7MFz
-         J1QruoFrtvcWRVylotW6A2h+Zy1j6v0mDmvsHiYmRYjqppRsfntwBCkKV33capSjOlJD
-         Oblvie2QAXipOqQkrJvrdrO/qaU+p69UayEICCSbUjeXiCpY1G6pe6eAQHQ5yhHazL/k
-         vm8N4Jo7U3KZ4hzM2v08xGw8UN5k4ubOuxK+BgRPDMANYphwfOrVuR1tUP63v0KIj3u9
-         DuujbwMngGdO0brIB86rD1pGyLNkdgQ+cRQjhe2t9fK5voWEKTeeaFCxj+EfmBiIyy9D
-         Uduw==
-X-Gm-Message-State: AOJu0Yx3N6zW2w0scaXIEmMg1xLYsAV3OvFLM5pyT6tdz7y1ECdeTeZW
-	1bpAOzzWm1lUexhFC9RNuvl29epdNzr4j/fI0fq9KCbyr2V5ohZhl/nOkCEDPFdXbRbcghmshw7
-	2sw==
-X-Gm-Gg: ASbGnctMyJz1zYtzirIr/SuO5WwbSliOBZKa3JwesxFKX8uLiTmnvsuWftH+nnUZA5a
-	GAmgZ1nep4MgBxHJwD2LoqnBZ0sa19iv1f+sw6/cyQpUlV67RVXyHWEDJH7ki8HV3kLCJXnbVXv
-	0WLwuHvW12nOvxJewxm96Focmqi+2dBcY4ZU8T9yxMC3Z5SMNtzprMURWnz8ArppYF/wWNfie0H
-	XebY43FhNtLk7eOpMHjhpd/7Iy/rs+r4XQmyi6WcK/byZXgFkX8ND8jPl8uhxaG1bxRbjVzJuOb
-	TzBpQ32GN6eJldIrV8rHTqxZMmbhaLtWqeIqNHultYdyHDZl9R4db92OQcQWHEzGhYMSaW0Qy7b
-	+4PM=
-X-Google-Smtp-Source: AGHT+IFBLSf5Cc3mFyYZdvuynNJIpSKOy4KRKa6vJr8hwGbWkLycXjgd1M0s6yReqROa/HVWBrx5NA==
-X-Received: by 2002:a05:600c:34cc:b0:439:9b2a:1b2f with SMTP id 5b1f17b1804b1-43d5f8b9236mr144487305e9.3.1742985925530;
-        Wed, 26 Mar 2025 03:45:25 -0700 (PDT)
-Received: from google.com (158.100.79.34.bc.googleusercontent.com. [34.79.100.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f995611sm16697147f8f.15.2025.03.26.03.45.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 03:45:24 -0700 (PDT)
-Date: Wed, 26 Mar 2025 10:45:20 +0000
-From: Keir Fraser <keirf@google.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Kristina Martsenko <kristina.martsenko@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: mops: Do not dereference src reg for a set
- operation
-Message-ID: <Z-PawJpGJRcSTMnc@google.com>
-References: <20250326070255.2567981-1-keirf@google.com>
- <Z-PWZ98oNna6nVu1@J2N7QTR9R3>
+	id 1txOKv-00000008H8L-3zck;
+	Wed, 26 Mar 2025 10:50:19 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 004.mia.mailroute.net (Postfix) with ESMTP id 4ZN3TR5RTnzm1Hcf;
+	Wed, 26 Mar 2025 10:50:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1742986200; x=1745578201; bh=5+5GHuIzTPyTZ2uB1s3xkoFm
+	maBjSze2gDJ2FB0UHFE=; b=HievZawn2d6jsnrVOsia7WD6sGZyUjHmr8S4WY6Z
+	TwsnilVL6ShQXcK7AgonBwUePRPKn+LWasFjh6Hp3M4nWoNsw0NSyGP/jld+GKXp
+	eHa/q6Bj/ky6J5scjMn1U7cRelzxrOPARMgqARwG/q/8dwjGj2CBIvfD2YuONKv6
+	zVzxFUwPm3RJJ9cPhJ3wkDS0YsE3VHC2s+fjS1PBiDul2knJL07CM4m4PgvqkZRt
+	TAdBWfPSfoP/u3BfHpx6aegF7hwOf0Hi8yema1WKprKalWts0fHVuynWfYWF3CKj
+	QPVb7FQUFcVP28LFJeuSdBJ6YKMK0mflJv924VYFjryoTQ==
+X-Virus-Scanned: by MailRoute
+Received: from 004.mia.mailroute.net ([127.0.0.1])
+ by localhost (004.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id kw46iLVboy79; Wed, 26 Mar 2025 10:50:00 +0000 (UTC)
+Received: from [172.22.32.156] (unknown [99.209.85.25])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 004.mia.mailroute.net (Postfix) with ESMTPSA id 4ZN3T5620nzm1Hc8;
+	Wed, 26 Mar 2025 10:49:44 +0000 (UTC)
+Message-ID: <0a68d437-5d6a-42aa-ae4e-6f5d89cfcaf3@acm.org>
+Date: Wed, 26 Mar 2025 06:49:43 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z-PWZ98oNna6nVu1@J2N7QTR9R3>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/1] scsi: ufs: core: add device level exception
+ support
+To: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
+ Arthur Simchaev <Arthur.Simchaev@sandisk.com>,
+ "quic_cang@quicinc.com" <quic_cang@quicinc.com>,
+ "quic_nitirawa@quicinc.com" <quic_nitirawa@quicinc.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "peter.wang@mediatek.com" <peter.wang@mediatek.com>,
+ "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+ "minwoo.im@samsung.com" <minwoo.im@samsung.com>,
+ "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Bean Huo <beanhuo@micron.com>, Keoseong Park <keosung.park@samsung.com>,
+ Ziqi Chen <quic_ziqichen@quicinc.com>, Al Viro <viro@zeniv.linux.org.uk>,
+ Gwendal Grignou <gwendal@chromium.org>, Eric Biggers <ebiggers@google.com>,
+ open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+References: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
+ <SA2PR16MB4251229744D717821D3D8353F4A72@SA2PR16MB4251.namprd16.prod.outlook.com>
+ <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_034527_944146_D90A1854 
-X-CRM114-Status: GOOD (  32.22  )
+X-CRM114-CacheID: sfid-20250326_035018_059190_D9DA9123 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,92 +105,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 10:26:47AM +0000, Mark Rutland wrote:
-> On Wed, Mar 26, 2025 at 07:02:55AM +0000, Keir Fraser wrote:
-> > The register is not defined and reading it can result in a UBSAN
-> > out-of-bounds array access error, specifically when the srcreg field
-> > value is 31.
-> 
-> I'm assuming this is for a MOPS exception taken from a SET* sequence
-> with XZR as the source?
+On 3/25/25 6:15 PM, Bao D. Nguyen wrote:
+> The existing "struct utp_upiu_query_v4_0" probably has a bug in it. It=20
+> does not use the=C2=A0 __attribute__((__packed__)) attribute. The compi=
+ler is=20
+> free to add padding in this structure, resulting in the read attribute=20
+> value being incorrect. I plan to provide a separate patch to fix this=20
+> issue.
 
-Yes.
+Adding __attribute__((__packed__)) or __packed to data structures that
+don't need it is not an improvement but is a change that makes
+processing slower on architectures that do not support unaligned
+accesses. Instead of adding __packed to data structures in their
+entirety, only add it to those members that need it and check the
+structure size as follows:
 
-> It'd be nice to say that explicitly, as this is the only case where any
-> of the src/dst/size fields in the ESR can be reported as 31. In all
-> other cases where a CPY* or SET* instruction takes register 31 as an
-> argument, the behaviour is CONSTRAINED UNPREDICTABLE and cannot generate
-> a MOPS exception.
+static_assert(sizeof(...) =3D=3D ...);
 
-Okay, will do.
+Thanks,
 
-> Note that in ARM DDI 0487 L.a there's a bug where:
-> 
-> * The prose says that SET* taking XZR as a src is CONSTRAINED
->   UNPREDICTABLE, per K1.2.17.1.1 linked from C6.2.332.
-> 
->   The title for the K1.2.17.1.1 is "Memory Copy and Memory Set CPY*",
->   which looks like an editing error.
-> 
-> * The pseudocode is explicit that the CONSTRAINED UNPREDICTABLE
->   behaviours differ for CPY* and SET* per J1.1.3.121
->   CheckCPYConstrainedUnpredictable() and J1.1.3.125
->   CheckSETConstrainedUnpredictable().
-> 
-> ... and I'll go file a ticket about that soon if someone doesn't beat me
-> to it.
-> 
-> > Cc: Kristina Martsenko <kristina.martsenko@arm.com>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Cc: stable@vger.kernel.org
-> 
-> Looks like this should have:
-> 
-> Fixes: 2de451a329cf662b ("KVM: arm64: Add handler for MOPS exceptions")
-> 
-> Prior to that, the code in do_el0_mops() was benign as the use of
-> pt_regs_read_reg() prevented the out-of-bounds access. It'd also be nice
-> to note that in the commit message.
-
-I will add this too. And Marc's reviewed-by. And re-send as v2. Thanks!
-
- Keir
-
-> Mark.
-> 
-> > Signed-off-by: Keir Fraser <keirf@google.com>
-> > ---
-> >  arch/arm64/include/asm/traps.h | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/traps.h b/arch/arm64/include/asm/traps.h
-> > index d780d1bd2eac..82cf1f879c61 100644
-> > --- a/arch/arm64/include/asm/traps.h
-> > +++ b/arch/arm64/include/asm/traps.h
-> > @@ -109,10 +109,9 @@ static inline void arm64_mops_reset_regs(struct user_pt_regs *regs, unsigned lon
-> >  	int dstreg = ESR_ELx_MOPS_ISS_DESTREG(esr);
-> >  	int srcreg = ESR_ELx_MOPS_ISS_SRCREG(esr);
-> >  	int sizereg = ESR_ELx_MOPS_ISS_SIZEREG(esr);
-> > -	unsigned long dst, src, size;
-> > +	unsigned long dst, size;
-> >  
-> >  	dst = regs->regs[dstreg];
-> > -	src = regs->regs[srcreg];
-> >  	size = regs->regs[sizereg];
-> >  
-> >  	/*
-> > @@ -129,6 +128,7 @@ static inline void arm64_mops_reset_regs(struct user_pt_regs *regs, unsigned lon
-> >  		}
-> >  	} else {
-> >  		/* CPY* instruction */
-> > +		unsigned long src = regs->regs[srcreg];
-> >  		if (!(option_a ^ wrong_option)) {
-> >  			/* Format is from Option B */
-> >  			if (regs->pstate & PSR_N_BIT) {
-> > -- 
-> > 2.49.0.395.g12beb8f557-goog
-> > 
+Bart.
 
