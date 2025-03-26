@@ -4,94 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6498AC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 09:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D72C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 09:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PGrNWkh1QXuXQWPK2K0KVRZ8pYT9f5CV/Ls4UTTqLvo=; b=pyQd6xc6TtuiRwwfAP70Ipm3UL
-	cAVIHWWCt82tWRSXrjLLmoXRATc6Twpx8nPbwtZdPE1pw08VoRYRYYfjFcZaX9M/2W2/wzeNlQCcm
-	XtR3xEDacMVBDGX5fW7iDV6uWI33UPLysmD3djPzyd+QOW3uGvp9aBdtechRHhPqRGDbgVCMWQRzS
-	PGqSODPA6ZO8absRMUgv6SmKP0Lz3NlX+G6oukMeyaavRtQsN3sISzpOxQhzTg6VNupxvk1pV+XeL
-	/Fmwc4s6sxWo8OYo75ATz3q4xTY3uYiHGJUyHkU+OmL1nDuubDsGkk1kjeUbj+mRmu2ZauUvjCkcH
-	Ap10sJHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2lUFK7rQaLUJE1yFyO/j7KykDoa74+4nuUL4KWL7gVQ=; b=z4vy1SjEzIZ1djv0C9EwxAWJFu
+	pBvHyk0UUd90J8YDj23u6OZVH/4YajGhyqQBj67jWRf+TEv6HaedI/jN3P1Ie1g5R+kxL3uOpbPUz
+	rGZMzAZbyIB59jbQH4hUZQHfOI/oTRhKj1YJkRLyYU8c2dRV/aOFCez53NgciWkh4MsPGTlnBVcwV
+	0Fhg24EK+5wr+7sHWAvOuiKrvvPhlvxzVp7pteShm6ivjOI10y/frJTMoNSucKZQ6uH2UazTu0+YP
+	bkCVMRpYRoW67XoFAAA4ecvdsUZTFQyrcRsyxefTbqwjHVJtKt/M4V8qpf63swbR1zUWLVC5ndp61
+	uOzhaJhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txNMs-000000084bD-0F0r;
-	Wed, 26 Mar 2025 09:48:14 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1txNXm-000000085yf-0klc;
+	Wed, 26 Mar 2025 09:59:30 +0000
+Received: from mail-am6eur05on20622.outbound.protection.outlook.com ([2a01:111:f403:2612::622] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txNJQ-0000000842j-1rV7
+	id 1txNW3-000000085nL-0qev
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 09:44:41 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e6c18e2c7dso11929565a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 02:44:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742982279; x=1743587079; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PGrNWkh1QXuXQWPK2K0KVRZ8pYT9f5CV/Ls4UTTqLvo=;
-        b=RTwEeO1t+8XI3wmMXGH01uoGJdVZM+eDgkrRV0nmdFGKhAQ68Stp8TOVdSUxWTGazK
-         FIn0Q8mOMP4Y1HThDAVjRaQ1Asg/TGKiz7PNmsuqd9SD7HuU3V2SztNiT3T5chffOra4
-         Dm0pmp1gYA6xQCnzcjn7q51tkwwViq51faFB1CNpniMYabfWRurB1LdSmpVmET3GxP8t
-         heesfr6jAWmH2JQ0sR0gPHXEWQelyPr12ndc3K41nUqCUZmln0WU5WH2ISVk1LZPb/Dj
-         TqE3Er8+KGVs8xytgo5Z0IFU821kpmi53S2EYVwEqhtfUwkHCtL164W/VAY1QWSPX+8M
-         Kq1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742982279; x=1743587079;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PGrNWkh1QXuXQWPK2K0KVRZ8pYT9f5CV/Ls4UTTqLvo=;
-        b=toFWUeKobbVU8XsZbGyFn8oBON1XE8a2PPfQkBE701FwoQ6UJti2p658PSZkXIfame
-         qg1gkabRw0oWSmeirD0l4YKrqeoFnCMHNdFW+Oi+iJALGfpVFmuE1GwzM+Fx835OChgi
-         wSS4jcwcLPvAMtchjgCNtPbQQoYDrHVvIQRsjPoJnsK/VWtBOvKj4g9wV7N8EN42FRXQ
-         gyw/RsP6B4ITLZGo1SG90scLzm1N5rLJ769XqVmkj/QYF+EaOJGuMSDw8gAHb06z8YwK
-         Ss1nh3edLyI/yojWDYKCUYtvaESv8BULn5YqVrn2gHhD6FesZp7DHXmrUhmRXNwb42/Q
-         1nBw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLmokYz9uZ5tfx+jqbwzWinSXXMStmlPodf/37peIev49sPQte55yCz6XiKnIHO7qyyZpR1Zazgsv9H9fOGrUi@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf6kuLrFDQ18N/JOI8j57EhI6grbavOFZYNlEponWUiWLtPS38
-	cCul9X4VE8A1dlBNdQtfheAjb8MmBQ5igXHBWj3aPgelBa2OdvL2
-X-Gm-Gg: ASbGncuhtIJalWzD/KEnYaa+PQ6CkQGv3hETrPst5XzV2NW1vWb4hDbYGHdVmW5x3Ay
-	SiifrjF/GchpGY+9uljoIpmIx8wcv7fCXzuioiPFk8uDxg/Qn+LJrlVZ4WaKR4up87pkqNkbFSF
-	E7l/FlguylLVupkI0C8ZhazLqlfQhpo5aEoBtYSKRJ5wdD2iVXBxHDlnKFx4XfNV3EF5UnB3H32
-	nzXfQtKA/mVspjspLKJm903RiEQeRfPJBUZZuLg1FDHOt8zLvBvONH+sKAHcjj3rvrVj8xrgEpC
-	6l/LlfFLHu/16ZV+Zo+4/y7CStrUGiHfNTfBvcioUsFFiTGJe0QTN1s2IXc=
-X-Google-Smtp-Source: AGHT+IF6wChhW2gt9yT8Xuh1EgziL7ctk02tuIAXpw/fuSvEFW6bXncUSdBpnGDXklviSFWn27eo0Q==
-X-Received: by 2002:a05:6402:2399:b0:5ec:cd7c:a187 with SMTP id 4fb4d7f45d1cf-5eccd7ca22amr5476553a12.26.1742982278252;
-        Wed, 26 Mar 2025 02:44:38 -0700 (PDT)
-Received: from wslxew242.. ([188.193.103.108])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ebccf84600sm9120488a12.19.2025.03.26.02.44.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 02:44:37 -0700 (PDT)
-From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
-	=?UTF-8?q?B=C3=B6rge=20Str=C3=BCmpfel?= <boerge.struempfel@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 3/3] ARM: dts: stm32: add initial support for stm32mp157-ultra-fly-sbc board
-Date: Wed, 26 Mar 2025 10:44:27 +0100
-Message-ID: <20250326094429.2397365-4-goran.radni@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250326094429.2397365-1-goran.radni@gmail.com>
-References: <20250326094429.2397365-1-goran.radni@gmail.com>
-MIME-Version: 1.0
+	Wed, 26 Mar 2025 09:57:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RIb1da1vvggSJdAoqySEPVYGMwdrE4vs+eMneQEnemwNNljd8Ha3xe9OhFGZtfnrxOtfTdgMx5GTdbBgtgfL3EGWOa1Vha0zrfgW79IwDiqQhoR44Mvou0ZcEi9tlLKrnwF7Olmpb73UTpvSvZYmnKMh+uhIeeSpelLkUUATLaHheJ7Y+oe+Mw5fEPaNiHttfWZjJ6d3Cv55m39UU6XcLtzn3GHArrgwiYlzbK7n0Cl+xDUnSnUhPsJllyQWORgJbvuaiXlTJODvUrKSsFkw8dcHu5BIIocORhQgrq9ekWsZPNd2Ae86U91edwm+CdQba+btGmGeqw0FBGyGHj4ZOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2lUFK7rQaLUJE1yFyO/j7KykDoa74+4nuUL4KWL7gVQ=;
+ b=IhcV2NGL/XQtBVntlULKHEYZDoyU6uBtWyM2d9xgCV+WMW0FmwvCO6HVHeMVSBE1DWNTQOcNGEYq4E+37s2BnEXTP5pMYhTTCrGEsoL8CFIs799GEgNir8HZA6Kj42fk5mWRGbThMGWl+RTuID9IouH7nq6b4U39G0d8tX9IBOe6zXFoGTUf666jrP+wkDqNpspfYTJC5pKdcR01ZUviHHbp3T30BR3ENjGQFicP/7nGj3k7JnzKxEK2OzdTRoQWblmJGp5OvpiZozRiyVhMjwwsI7DgCLzlbVLyo/61MvKVGgmyyGoz8WMKgQpE4lYXs0hZk3Xa3QI5KVgtj9oUww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2lUFK7rQaLUJE1yFyO/j7KykDoa74+4nuUL4KWL7gVQ=;
+ b=SPNffz9t36LIV+x/fewKia7PqiT7JvVLdQUGrTfi3AyjCs5xCFXyVpFwpgiLL7QNxVMxoCWLk+zkWupEyd4Tobc68CHbAoX988EouCYYMxmbbQeMDsy5OuhDn/rSfWgV3AxFVWTjsMpp6acKjGfWDLZU2R+4+nWBRVRHczqZ5WsK5hKeeHU39jUhtHZ1XbY14N6yocaTZUTffF9cayOdxPSQzkdERBCiKlq1Tkv2kIdfKoxEAyhB2FIMKhNjmn57Dp7mEyifuYTF6VF5gpvF4RGpeEoRfNu7z/0UkYjvZgNl6FG83VTTcJnk+ZRdcbLisAkqDNI7fABJTOxDpmyWAg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU2PR04MB8582.eurprd04.prod.outlook.com (2603:10a6:10:2d9::24)
+ by PA3PR04MB11228.eurprd04.prod.outlook.com (2603:10a6:102:4b0::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Wed, 26 Mar
+ 2025 09:57:37 +0000
+Received: from DU2PR04MB8582.eurprd04.prod.outlook.com
+ ([fe80::c96e:12f1:67b7:ed74]) by DU2PR04MB8582.eurprd04.prod.outlook.com
+ ([fe80::c96e:12f1:67b7:ed74%5]) with mapi id 15.20.8534.043; Wed, 26 Mar 2025
+ 09:57:37 +0000
+Message-ID: <2d7b18bf-31ed-abfc-20db-7f5b54c812af@oss.nxp.com>
+Date: Wed, 26 Mar 2025 11:57:32 +0200
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH 2/2] clocksource/drivers/nxp-timer: Add the System Timer
+ Module for the s32g platform
+Content-Language: en-US
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, Thomas Fossati <thomas.fossati@linaro.org>,
+ Larisa Grigore <Larisa.Grigore@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, NXP S32 Linux Team <s32@nxp.com>
+References: <20250324100008.346009-1-daniel.lezcano@linaro.org>
+ <20250324100008.346009-2-daniel.lezcano@linaro.org>
+ <d60fca36-0beb-2574-cb82-3969bbfb58a9@oss.nxp.com>
+ <8c208e8c-2e1e-430c-916a-dbc6732881b0@linaro.org>
+ <065d6f32-3161-8316-bbbd-4da18eef839b@oss.nxp.com>
+ <098c5de8-9291-4f3e-a276-500825cac7c5@linaro.org>
+ <068713cb-47ca-ae26-e113-9f5026be9196@oss.nxp.com>
+ <cc2dd75c-e279-4e55-ab88-75498e93146a@linaro.org>
+ <50d2c651-746e-4ddd-4036-f72742a622f8@oss.nxp.com>
+ <e8054f85-2a23-4ceb-8e1c-7cdfe7c87628@linaro.org>
+ <a31a575b-8f6d-6317-f172-b4f8b1a5cda7@oss.nxp.com>
+ <f1268261-c900-4adc-aefe-795f23faba59@linaro.org>
+From: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+In-Reply-To: <f1268261-c900-4adc-aefe-795f23faba59@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4P190CA0001.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5de::7) To DU2PR04MB8582.eurprd04.prod.outlook.com
+ (2603:10a6:10:2d9::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8582:EE_|PA3PR04MB11228:EE_
+X-MS-Office365-Filtering-Correlation-Id: e084fed7-943e-4a39-c099-08dd6c4ca33e
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Qzh3WFplbkZ2SmZMWGtoQTFRQVB0Rk5VUTlpSStqSkw5Rjk1WUpJcE5IdVVY?=
+ =?utf-8?B?Rk9zZ2F4aXpvZlVoZDNQK3RWR0hSWlNqUG5NRnROUzhnTnlPSjM2cllmZGVr?=
+ =?utf-8?B?VGw5clJzaWhCZDhLVi9OcFZCNGZ4QS9qaTNhMXY0eWJmL002VXZOWTZYZFdj?=
+ =?utf-8?B?SUJ4cXN6TmxoVGJvY0RxR3dmK2IwSFpFaDdRT29Ca3Y3Zm54YURYbUx0RG5o?=
+ =?utf-8?B?d0dNZGxJc3dXTWVtM0k0eTBMOUdqWnN5WUpyNUx4UXJJNFQrcjlBTDBRaC84?=
+ =?utf-8?B?UkRUMGFRMFZNZG1aK0pIU2d1Qm54V0g5QUZ6VTJRMGhZL2laZXB5OXNqRUl5?=
+ =?utf-8?B?RmpIUktheTZKQ3IvVHZOQkoraXVBQTdNUmJiKzJUQUN3eVdpS2k4QkV6eWEw?=
+ =?utf-8?B?S21Qa0VKRFQ0RkFucHd1YjJRQXVLWTBQQjRkbFFtSFE1TG9YbjlEWTBOdTBJ?=
+ =?utf-8?B?MjFTaFBkNU5BQkN2bUpoUnVHT0xCRll0REpIZnhwb0hUZUE5eXlrOVlNMThm?=
+ =?utf-8?B?OGV2azgzNjAySWIzNHZpTElwQzZlQytYaE9RQ3lWVzBnUERNYTIzLzJIWXBH?=
+ =?utf-8?B?enllRTRGV2hkSU1DUnYzQkZtc0FxOGFXSFBhTFIxRGVtWGdFbHFNNzYwbExv?=
+ =?utf-8?B?RDBtRDFsb3lFYUNuckVVdGxiVUI3RFJuY2pSNjVwU05XY1BYMEZqSUh3dmY5?=
+ =?utf-8?B?OTlJaUgwVTBNTTh2NEZ3eE9oM1RSQXhpNFM2czNENExoSXBjSThVdGNSM3hO?=
+ =?utf-8?B?c3lCSDFvWks4eFdIQ09jdkM4a2QyOG13czUxdHkzNklFRWMrbzU2SEZaYU1Q?=
+ =?utf-8?B?M2t6dzFBQkZlNy8zNk9STVJ2bjRQNnUyY004VGRMV09ZbU5KSVJudzJQS0ZE?=
+ =?utf-8?B?clVVWGdCSC91Snp0ajg3VnlFZktBSnRHaVhSUi85QnFnZTNLTTkxczZkVW8r?=
+ =?utf-8?B?ZzNaYnBNT0xFZllZbXl3ZEJueSsrNmwxT0dMRi9yb1d0Z2ZCLzlqYjVMZXpW?=
+ =?utf-8?B?TlN4MS96WkpIRlZiQ0gzTnptZkR2S2QyM0gyd3N0YUhFM1VlNjEralpZZm9F?=
+ =?utf-8?B?SE9YeVErNkYvckk1YTBkOXpIcFBXR3FSbEswaytwWk5tMWN5bjQrcVNkZjdI?=
+ =?utf-8?B?dW5pOGNQajA5SFJES2dFYTBEbVROdE10TVlwSWV4aGZYUmJhWFhBaHh5NkZh?=
+ =?utf-8?B?aGFuck5aMnFDUjdiNXAxUkdYRStZTlFPRVN4eXNQTkxRSTJqeDE1Nyswa0lt?=
+ =?utf-8?B?aHBpNGc2dDdmdkhEM2FibWJ2aHpaUUZCM0xGcFRCaEZDdkJtRFNYVVRwTCtK?=
+ =?utf-8?B?L01wR0VGa0dLdEY1KzNVbzNMSy9sNkVDZEFYUlByZjJ6Y2ZlQ3hrN0o5Y243?=
+ =?utf-8?B?dmliaXkrTFlSL1BSNjZ6S0hrMzIrMzZRa3Y3VnlGZlBMY3NNa0o1MERHM1pm?=
+ =?utf-8?B?STdWRFlqMUJ5YWVhUG0yWll6TTBOc3dTeTBSWC85bzh0aDg5NzRoeTlDRlVq?=
+ =?utf-8?B?cWhIMGNXaVBlU1dkQ3owTkdna0M2d0d2U1A3K1NrY0JUUlcrWmlZdHQvbUJ3?=
+ =?utf-8?B?THRYdzAyMFpFUy9VNytjZENDRlAzMEhXNS9PK2x3MzYwcWRoSkZvckhudlF0?=
+ =?utf-8?B?QUloSE5lWU9CZHJvUVY3blBsa04raXpZY3EwRUJIemNGY3NDdUViVTV6MEk0?=
+ =?utf-8?B?Z2F2d0lDdXpFWGN0UDkrdjNzVlFIaEhjQUFNSmFyL2phaEJpNDRPMGFxaFZE?=
+ =?utf-8?B?V1pOQ0tLTUc0RE5RSlZreEw3MnQ0eVRxSE1QdWRIOVZRKzlYMWV3TFBiclJR?=
+ =?utf-8?B?dEtUanJKN1MrMXYxYXNodFBrU213UEs4TmEyczBqeDFjd1EyQlFwYU03TTZF?=
+ =?utf-8?Q?548oW9ZPBuvmG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8582.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WDdrWWhiSHNOWGlxMncrWXQzSEN5ejBROTA0aEliQ0NHRXpnRjRWUGtLVU0x?=
+ =?utf-8?B?K1AzOG1kYWc5Y0hjZVJ5RWxPaldGYktDd2FBYVpBenBxSWxuMFRCTENiMnhw?=
+ =?utf-8?B?VkQ3MkJBYks4blJlSzUxc0pvZmJSSEdZdjUvSVdDQmI3bExremFVTjJTWkp1?=
+ =?utf-8?B?USs2T3MzU3dlVzdnWldHZWY0SU9LUkIzMlVSVlhDQ2VpK2dGQXhmNEJmTGJP?=
+ =?utf-8?B?WGd4UXpGaUdLblBSOHNJa2sxQ2Q5b1JlZG9CcmpBbWlKYnZsVWlhOTg2VWdP?=
+ =?utf-8?B?eEtiam80WThBVXNWeVNITTVzRkpzYmVvNlUvQmpjRWJpWDYwY2FjRkNSNmcx?=
+ =?utf-8?B?bVJhOUVpeDR3aXNKbFhWSVRzOHJMSFhtU1pyam5hcXVPajc2c3hCNi9mcEgz?=
+ =?utf-8?B?MEtBOThSdzJZRUk2SERQLy9uMnNaMzJXdlkrV3ZCN1Jpc1RtRzVMejF4U01t?=
+ =?utf-8?B?RFJ4U2FBckNrbFYwZlFsc2tJS3JMREp5UWY5UkFsMFZTaHoyUXRjVmp1ZDdJ?=
+ =?utf-8?B?eHFlMFJpTkp3d0JSbUxoSC95N3pKZXRlZnNFRjl0a2d1ZVdSU1Fmak9JSCtO?=
+ =?utf-8?B?K2VuQWZCNVNsUzlURjd6M0Z0WFljcmYrZG1YakN4MGJvTTE1UjJMMjY0V3px?=
+ =?utf-8?B?aUhBU3dGZ01tRnJDY0V5UDFOZkJYeUNLWVRUTHdDVjUyemZaMXptRU9XWVhq?=
+ =?utf-8?B?dkpKT0FUVzhROG9jc1AxdUFmQVUzd2Y5elJtcEZkWDhIc1RsdHhYQTZGSU96?=
+ =?utf-8?B?bzU3WWdPQWQ3REFyMVFWdXFrc1VnWWhNUGJ2YWdrMjVvdDVFR1JtYi9SdEhh?=
+ =?utf-8?B?Y2JNUC9mUGNsYlk4cmRXcWdHTkFKOWxWcFZHZTJ5TkR3ZjZWWHdhd0NCKzN2?=
+ =?utf-8?B?L0RMckhrQ0Zua21zVFA5VUw5bm1LSGd2N0R2NytGN3RWMDdkRUxVWXhjeElM?=
+ =?utf-8?B?SnRhUm9zdnJqeTU1ZlV4UExibWhtUDlWUGNxYVhPc3VkZDJnVDdrMGRZSDdI?=
+ =?utf-8?B?MFdDK20wNHJycGVJb1FyQVZ6dWxGd3VjNkU2N2tBSGlWdzFONVZFSDVKNUpB?=
+ =?utf-8?B?NytYWG1kN2U4Q0FKVEhUa0dBTXlwUngyNGIzd2YzbWNBRmt6czZEUkk2dEJp?=
+ =?utf-8?B?TVlBUWQ4Z3BkRU9HbG4rd3JhSUpPa1RUR0NhSVV6YWNadWZVTytya1FaaGt4?=
+ =?utf-8?B?WXBiK1BVMVJhSVhCSFZxREZlVmQyRVpIZW9PM2dZcjVZL1IwdFg3TDV1d2JG?=
+ =?utf-8?B?Y1FsRGxvd3NiclVtbm54eElzaXhnOUNEZXNRQlRKU1BoWTZZR3lNMTd4Z1dN?=
+ =?utf-8?B?RlFFdlo3TklscVZoR09DMTBKN1dxWTBPOGplNzY5UXNWT2hXT2lsVGdab0py?=
+ =?utf-8?B?UlFqV0ZDUUdwTzRJSlN2R0VPcHhyVmdxNUR5ajJ2TEVlbDZvVm52aVQrLzM1?=
+ =?utf-8?B?UVV1VTFPVDdOMUx2ZFk5MUdXaXczSmFXLzFiYWxyeTRMVEdSZi85RnFHSy9C?=
+ =?utf-8?B?d3M5Q1RhVGFvWitieDh4T1BjQlBnWDRMZEhiU3Nzd3JoY1BRcThrRy9mczhp?=
+ =?utf-8?B?SXRXL3Q1VUR6U3IyUEtNQUdhL1hpcmlMWkZ3ZnhkUzhHSGxxN0pYR0FocDFv?=
+ =?utf-8?B?bTVOeEhGUElIcWNOSnJjcnRyRFdVVm9PQi92Yno4SWJBeXE0OG9HR0VWZGly?=
+ =?utf-8?B?eFczN2RyY1dpL29FN0lkbHNtSExiWUVBYnhMV1d3clRYY0wxVWhhNTIwYnEw?=
+ =?utf-8?B?bTlpQi80VG1RMUFmVHZqb3pTbktuQ2dRTDJNdG0vM3pBbXR3SzNyNnYwZFJI?=
+ =?utf-8?B?ZkVuSkFrcWRJQlZ3b2psSDZrRHFoUHltQWYvNXNKZHlsYUJWOTV5Y04yMDU3?=
+ =?utf-8?B?MWo2SWd1SThvZ29hbUxMaktNaGprL1RNb21vRy9TT09FUllySG5PRDVYaWo2?=
+ =?utf-8?B?NXREVlRrWXAybktyK2hzVXl2S3lRazdGRzRvMGlHNDU2c05jMzd1Q1NwaWhF?=
+ =?utf-8?B?RDBxWFhKcllER054Z2dscjJRUVNnbHJFSnJ1bFJrejNUMkl1ZGJ2aVM5ZGNl?=
+ =?utf-8?B?L3AxU09Lc0Y1c1haSTdGSE5IaDg4RUtnajg3NDR4UC81Mnh3a3d0dGQ1T0RJ?=
+ =?utf-8?B?VHpZa1Vrem15OGYzNG5xSGs2TzFsYm43MVo0WVNDcFVZOENrOXRsdm5BTW1i?=
+ =?utf-8?Q?BweWTcxY7jgMktO43lECRMk=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e084fed7-943e-4a39-c099-08dd6c4ca33e
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8582.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2025 09:57:37.4081
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y18GUsjNKwNp4/dSo73i6whJ+8TsVcG3DNSY7bX6ovsoVFqjkdqya0plXCMlSVss/qB2C9N+SE76oOk5TmFKcxKEWwHcbJrRxJBwKIKH+iU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11228
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_024440_497207_A6EB13F2 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20250326_025743_402882_CCD1AD40 
+X-CRM114-Status: GOOD (  29.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,1214 +197,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Ultratronik's stm32mp157c fly board. This board embeds
-a STM32MP157c SOC and 1GB of DDR3. Several connections are available on
-this boards: 2*USB2.0, 1*USB2.0 MiniUSB, Debug UART, 1*UART, 1*USART,
-SDcard, RJ45, ...
+On 3/26/2025 11:19 AM, Daniel Lezcano wrote:
+> On 26/03/2025 08:44, Ghennadi Procopciuc wrote:
+>> On 3/25/2025 3:54 PM, Daniel Lezcano wrote:
+>>> On 25/03/2025 14:21, Ghennadi Procopciuc wrote:
+>>>> On 3/25/2025 2:51 PM, Daniel Lezcano wrote:
+>>>> [ ... ]
+>>>>>>>>>>> +static int __init nxp_stm_timer_probe(struct platform_device
+>>>>>>>>>>> *pdev)
+>>>>>>>>>>> +{
+>>>>>>>>>>> +    struct device *dev = &pdev->dev;
+>>>>>>>>>>> +    struct device_node *np = dev->of_node;
+>>>>>>>>>>> +    struct stm_instances *stm_instances;
+>>>>>>>>>>> +    const char *name = of_node_full_name(np);
+>>>>>>>>>>> +    void __iomem *base;
+>>>>>>>>>>> +    int irq, ret;
+>>>>>>>>>>> +    struct clk *clk;
+>>>>>>>>>>> +
+>>>>>>>>>>> +    stm_instances =
+>>>>>>>>>>> (typeof(stm_instances))of_device_get_match_data(dev);
+>>>>>>>>>>> +    if (!stm_instances) {
+>>>>>>>>>>> +        dev_err(dev, "No STM instances associated with a cpu");
+>>>>>>>>>>> +        return -EINVAL;
+>>>>>>>>>>> +    }
+>>>>>>>>>>> +
+>>>>>>>>>>> +    base = devm_of_iomap(dev, np, 0, NULL);
+>>>>>>>>>>> +    if (IS_ERR(base)) {
+>>>>>>>>>>> +        dev_err(dev, "Failed to iomap %pOFn\n", np);
+>>>>>>>>>>> +        return PTR_ERR(base);
+>>>>>>>>>>> +    }
+>>>>>>>>>>> +
+>>>>>>>>>>> +    irq = irq_of_parse_and_map(np, 0);
+>>>>>>>>>>> +    if (irq <= 0) {
+>>>>>>>>>>> +        dev_err(dev, "Failed to parse and map IRQ: %d\n", irq);
+>>>>>>>>>>> +        return -EINVAL;
+>>>>>>>>>>> +    }
+>>>>>>>>>>
+>>>>>>>>>>      From commit description:
+>>>>>>>>>>
+>>>>>>>>>>> The first probed STM is used as a clocksource, the second
+>>>>>>>>>>> will be
+>>>>>>>>>>> the
+>>>>>>>>>>> broadcast timer and the rest are used as a clockevent with the
+>>>>>>>>>>> affinity set to a CPU.
+>>>>>>>>>>
+>>>>>>>>>> Why is the interrupt mandatory when the node is probed as a
+>>>>>>>>>> clocksource?
+>>>>>>>>>
+>>>>>>>>> It relies on the DT description and it does not hurt to have a
+>>>>>>>>> consistent code path for clockevent / clocksource even if the
+>>>>>>>>> interrupt
+>>>>>>>>> is not requested for the clocksource later.
+>>>>>>>>>
+>>>>>>>>
+>>>>>>>> If so, in my opinion, it would make sense to use the same STM
+>>>>>>>> instance
+>>>>>>>> for both the clocksource and broadcast clockevent, as both
+>>>>>>>> functions
+>>>>>>>> can
+>>>>>>>> be accommodated within a single STM instance, which will help
+>>>>>>>> reduce
+>>>>>>>> the
+>>>>>>>> number of STM instances used.
+>>>>>>>
+>>>>>>> The broadcast timer is stopped when it is unused which is the
+>>>>>>> case for
+>>>>>>> the s32 because there are no idle state powering down the local
+>>>>>>> timers.
+>>>>>>> They have to have be separated.
+>>>>>>>
+>>>>>>
+>>>>>> This wouldn't be the case if the STM is kept running/counting during
+>>>>>> the
+>>>>>> clock event setup, with only the clock event interrupt being disabled
+>>>>>> (CCR.CEN).
+>>>>>
+>>>>> Are you asking to use two different channels for the same STM
+>>>>> instance,
+>>>>> one for the clocksource and one for the clockevent ?
+>>>>>
+>>>>
+>>>> I suggested using the CNT register to obtain the count for the clock
+>>>> source, while using one of the STM channels for the clock event.
+>>>
+>>> Ah, ok.
+>>>
+>>> I think it is preferable to keep them separated to keep the code
+>>> modular. Given the number of STM on the platform, it does not hurt
+>>>
+>>
+>> The S32G2 and S32G3 are SoCs featuring a diverse set of cores. Linux is
+>> expected to run on Cortex-A53 cores, while other software stacks will
+>> operate on Cortex-M cores. The number of STM instances has been sized to
+>> include at most one instance per core. Allocating six instances (1 clock
+>> source, 1 broadcast clock event, and 4 clock events for all A53 cores)
+>> to Linux on the S32G2 leaves the M7 software stacks without adequate STM
+>> coverage.
+> 
+> Given this description I'm wondering why one STM has to be used as a
+> clocksource if the STM_07 is already a TS one. And also, we can get rid
+> of the broadcast timer as there is no idle state forcing a switch to an
+> always-on timer.
 
-This patch enables basic support for a kernel boot - SD-card or eMMC.
+Indeed, STM_07 can be used as a system clock source, but Linux should
+not assume ownership of it.
 
-Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
----
- MAINTAINERS                                   |    6 +
- arch/arm/boot/dts/st/Makefile                 |    3 +-
- .../boot/dts/st/stm32mp157c-ultra-fly-sbc.dts | 1155 +++++++++++++++++
- 3 files changed, 1163 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
+> 
+> IIUC, on the S32g2 there are 4 x Cortex-A53 and 3 x Cortex-M3, that
+> means we need 7 timers.
+> 
+> The system has 7 timers + a special one for timestamp.
+> 
+> So if I follow the reasoning, the broadcast timer should not be used
+> otherwise one cortex-M3 will end up without a timer.
+> 
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3b5fa8436987..11fa9f2f9f55 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -24341,6 +24341,12 @@ S:	Maintained
- F:	drivers/usb/common/ulpi.c
- F:	include/linux/ulpi/
- 
-+ULTRATRONIK BOARD SUPPORT
-+M:	Goran Rađenović <goran.radni@gmail.com>
-+M:	Börge Strümpfel <boerge.struempfel@gmail.com>
-+S:	Maintained
-+F:	arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
-+
- UNICODE SUBSYSTEM
- M:	Gabriel Krisman Bertazi <krisman@kernel.org>
- L:	linux-fsdevel@vger.kernel.org
-diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
-index b7d5d305cbbe..270d1c699e1a 100644
---- a/arch/arm/boot/dts/st/Makefile
-+++ b/arch/arm/boot/dts/st/Makefile
-@@ -66,7 +66,8 @@ dtb-$(CONFIG_ARCH_STM32) += \
- 	stm32mp157c-lxa-tac-gen2.dtb \
- 	stm32mp157c-odyssey.dtb \
- 	stm32mp157c-osd32mp1-red.dtb \
--	stm32mp157c-phycore-stm32mp1-3.dtb
-+	stm32mp157c-phycore-stm32mp1-3.dtb \
-+	stm32mp157c-ultra-fly-sbc.dtb
- dtb-$(CONFIG_ARCH_U8500) += \
- 	ste-snowball.dtb \
- 	ste-hrefprev60-stuib.dtb \
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts b/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
-new file mode 100644
-index 000000000000..1778f5a527ba
---- /dev/null
-+++ b/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
-@@ -0,0 +1,1155 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-+/*
-+ * Copyright (C) Ultratronik GmbH 2024-2025 - All Rights Reserved
-+ */
-+
-+/dts-v1/;
-+#include "stm32mp157.dtsi"
-+#include "stm32mp15xc.dtsi"
-+#include "stm32mp15-pinctrl.dtsi"
-+#include "stm32mp15xxac-pinctrl.dtsi"
-+#include <dt-bindings/pinctrl/stm32-pinfunc.h>
-+#include <dt-bindings/mfd/st,stpmic1.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	model = "STM STM32MP15x Ultratronik MMI_A7 board";
-+	compatible = "ultratronik,stm32mp157c-ultra-fly-sbc", "st,stm32mp157";
-+
-+	aliases {
-+		ethernet0 = &ethernet0;
-+		serial0 = &uart4;
-+		serial1 = &uart5;
-+		serial2 = &uart7;
-+		serial3 = &usart1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@c0000000 {
-+		device_type = "memory";
-+		reg = <0xC0000000 0x40000000>;
-+	};
-+
-+	usb_otg_vbus: regulator-0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "usb_otg_vbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpioh 3 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		retram: retram@38000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x38000000 0x10000>;
-+			no-map;
-+		};
-+
-+		mcuram: mcuram@30000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x30000000 0x40000>;
-+			no-map;
-+		};
-+
-+		mcuram2: mcuram2@10000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x10000000 0x40000>;
-+			no-map;
-+		};
-+
-+		vdev0vring0: vdev0vring0@10040000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x10040000 0x2000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: vdev0vring1@10042000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x10042000 0x2000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: vdev0buffer@10044000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x10044000 0x4000>;
-+			no-map;
-+		};
-+
-+		gpu_reserved: gpu@f8000000 {
-+			reg = <0xf8000000 0x8000000>;
-+			no-map;
-+		};
-+	};
-+
-+	leds: leds {
-+		compatible = "gpio-leds";
-+
-+		led0{
-+			label = "buzzer";
-+			gpios = <&gpiof 2 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+			linux,default-trigger = "none";
-+		};
-+
-+		led1 {
-+			label = "led1";
-+			gpios = <&gpioa 12 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+
-+		led2 {
-+			label = "led2";
-+			gpios = <&gpioa 13 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+
-+		led3 {
-+			label = "led3";
-+			gpios = <&gpioa 14 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+	};
-+
-+	gpio_keys: gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		key-1 {
-+			label = "KEY1";
-+			gpios = <&gpiod 1 GPIO_ACTIVE_HIGH>;
-+			wakeup-source;
-+			linux,code = <2>;
-+		};
-+
-+		key-2 {
-+			label = "KEY2";
-+			gpios = <&gpiod 7 GPIO_ACTIVE_HIGH>;
-+			wakeup-source;
-+			linux,code = <3>;
-+		};
-+	};
-+};
-+
-+&adc {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&adc1_ux_ain_pins_a>;
-+	vdd-supply = <&vdd>;
-+	vdda-supply = <&vdd>;
-+	vref-supply = <&vrefbuf>;
-+	status = "okay";
-+
-+	adc1: adc@0 {
-+		st,min-sample-time-nsecs = <5000>;
-+		st,adc-channels = <0 1 6 13>; /* ANA0 ANA1 PF12 PC3 */
-+		status = "okay";
-+	};
-+
-+	adc2: adc@100 {
-+		st,adc-channels = <0 1 12>; /* ANA0 ANA1 INT_TEMP*/
-+		st,min-sample-time-nsecs = <10000>;
-+		status = "okay";
-+
-+		channel@12 {
-+			reg = <12>;  /* Channel 12 = internal temperature sensor */
-+			label = "internal_temp";
-+		};
-+	};
-+};
-+
-+&dac {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&dac_ux_ch1_pins_a &dac_ux_ch2_pins_a>;
-+	vref-supply = <&vrefbuf>;
-+	status = "okay";
-+
-+	dac1: dac@1 {
-+		status = "okay";
-+	};
-+
-+	dac2: dac@2 {
-+		status = "okay";
-+	};
-+};
-+
-+&dts {
-+	compatible = "st,stm32-thermal";
-+	status = "okay";
-+};
-+
-+&ethernet0 {
-+	status = "okay";
-+	pinctrl-0 = <&ethernet0_ux_rgmii_pins_a>;
-+	pinctrl-1 = <&ethernet0_ux_rgmii_pins_sleep_a>;
-+	pinctrl-names = "default", "sleep";
-+	phy-mode = "rgmii-id";
-+	max-speed = <1000>;
-+	phy-handle = <&phy1>;
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "snps,dwmac-mdio";
-+		phy1: ethernet-phy@1 {
-+			reg = <1>;
-+			interrupt-parent = <&gpiod>;
-+			interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
-+		};
-+	};
-+};
-+
-+&gpioa {
-+	gpio-line-names =
-+	"#PMIC_IRQ", "", "", "", "DAC1", "DAC2", "", "",
-+	"", "", "OTG_ID", "TIM1_4", "#LED1", "#LED2", "#LED3", "";
-+};
-+
-+&gpiob {
-+	gpio-line-names =
-+	"", "", "", "", "", "", "", "",
-+	"", "", "", "", "", "", "", "";
-+};
-+
-+&gpioc {
-+	gpio-line-names =
-+	"#AMP_SD", "", "", "ANA5", "", "", "", "",
-+	"", "", "", "", "", "PMIC_WAKEUP", "", "";
-+};
-+
-+&gpiod {
-+	gpio-line-names =
-+	"#G_INT", "#TASTER1", "", "", "GPIO1", "GPIO2", "", "#TASTER2",
-+	"", "", "", "", "", "", "TIM4_3", "TIM4_4";
-+};
-+
-+&gpioe {
-+	gpio-line-names =
-+	"", "", "", "", "", "", "", "",
-+	"", "", "PWM2", "", "", "", "", "";
-+};
-+
-+&gpiof {
-+	gpio-line-names =
-+	"#SD1_CD", "SD1_WP", "BUZZER", "#DISP_POW", "BKL_POW", "#CAM_RES", "", "",
-+	"", "TIM17_1N", "", "CAM_PWDN", "ANA6", "ENA_USB", "", "";
-+};
-+
-+&gpiog {
-+	gpio-line-names =
-+	"#ESP_RES", "#ESP_BOOT", "GPIO3", "GPIO4", "", "", "", "",
-+	"", "#TOUCH_IRQ", "", "", "", "", "", "#PCAP_RES";
-+};
-+
-+&gpioh {
-+	gpio-line-names =
-+	"", "CAM_LED", "", "USB_OTG_PWR", "", "USB_OTG_OC", "", "",
-+	"", "", "", "", "", "", "", "";
-+};
-+
-+&gpioi {
-+	gpio-line-names =
-+	"BKL_PWM", "", "", "", "", "", "", "",
-+	"#SPI_CS0", "", "", "#SPI_CS1", "", "", "", "";
-+};
-+
-+&gpioj {
-+	gpio-line-names =
-+	"", "", "", "", "", "", "", "",
-+	"", "", "", "", "", "", "", "";
-+};
-+
-+&gpiok {
-+	gpio-line-names =
-+	"", "", "", "", "", "", "", "",
-+	"", "", "", "", "", "", "", "";
-+};
-+
-+&gpioz {
-+	gpio-line-names =
-+	"", "", "", "#SPI_CS2", "", "", "", "",
-+	"", "", "", "", "", "", "", "";
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&i2c1_ux_pins_a>;
-+	pinctrl-1 = <&i2c1_ux_pins_sleep_a>;
-+	i2c-scl-rising-time-ns = <100>;
-+	i2c-scl-falling-time-ns = <7>;
-+	status = "okay";
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
-+
-+	rtc@32 {
-+		compatible = "epson,rx8900";
-+		reg = <0x32>;
-+		epson,vdet-disable;
-+		trickle-diode-disable;
-+	};
-+};
-+
-+&i2c4 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&i2c4_ux_pins_a>;
-+	pinctrl-1 = <&i2c4_ux_pins_sleep_a>;
-+	i2c-scl-rising-time-ns = <185>;
-+	i2c-scl-falling-time-ns = <20>;
-+	status = "okay";
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
-+
-+	pmic: pmic@33 {
-+		compatible = "st,stpmic1";
-+		reg = <0x33>;
-+		interrupts-extended = <&exti 0 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+
-+		regulators {
-+			compatible = "st,stpmic1-regulators";
-+
-+			ldo1-supply = <&v3v3>;
-+			ldo3-supply = <&vdd_ddr>;
-+			ldo6-supply = <&v3v3>;
-+			pwr_sw1-supply = <&bst_out>;
-+			pwr_sw2-supply = <&bst_out>;
-+
-+			vddcore: buck1 {
-+				regulator-name = "vddcore";
-+				regulator-min-microvolt = <1250000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-initial-mode = <0>;
-+				regulator-over-current-protection;
-+			};
-+
-+			vdd_ddr: buck2 {
-+				regulator-name = "vdd_ddr";
-+				regulator-min-microvolt = <1350000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-initial-mode = <0>;
-+				regulator-over-current-protection;
-+			};
-+
-+			vdd: buck3 {
-+				regulator-name = "vdd";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				st,mask-reset;
-+				regulator-initial-mode = <0>;
-+				regulator-over-current-protection;
-+			};
-+
-+			v3v3: buck4 {
-+				regulator-name = "v3v3";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				regulator-over-current-protection;
-+				regulator-initial-mode = <0>;
-+			};
-+
-+			vtt_ddr: ldo3 {
-+				regulator-name = "vtt_ddr";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-always-on;
-+				regulator-over-current-protection;
-+			};
-+
-+			vdd_usb: ldo4 {
-+				regulator-name = "vdd_usb";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				interrupts = <IT_CURLIM_LDO4 0>;
-+			};
-+
-+			v1v8: ldo6 {
-+				regulator-name = "v1v8";
-+				regulator-min-microvolt = <1600000>;/* offset +200 mv ??? */
-+				regulator-max-microvolt = <1600000>;/* real 1800000 */
-+				regulator-always-on;
-+				interrupts = <IT_CURLIM_LDO6 0>;
-+			};
-+
-+			vref_ddr: vref_ddr {
-+				regulator-name = "vref_ddr";
-+				regulator-always-on;
-+			};
-+
-+			bst_out: boost {
-+				regulator-name = "bst_out";
-+				interrupts = <IT_OCP_BOOST 0>;
-+			};
-+
-+			vbus_otg: pwr_sw1 {
-+				regulator-name = "vbus_otg";
-+				interrupts = <IT_OCP_OTG 0>;
-+				regulator-active-discharge = <1>;
-+			 };
-+
-+			 vbus_sw: pwr_sw2 {
-+				regulator-name = "vbus_sw";
-+				interrupts = <IT_OCP_SWOUT 0>;
-+				regulator-active-discharge = <1>;
-+			 };
-+		};
-+	};
-+};
-+
-+&iwdg2 {
-+	timeout-sec = <32>;
-+	status = "okay";
-+};
-+
-+&m_can2 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&m_can2_ux_pins_a>;
-+	pinctrl-1 = <&m_can2_ux_sleep_pins_a>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+
-+	adc1_ux_ain_pins_a: adc1-ux-ain-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('F',12, ANALOG)>, /* ADC1 in6 */
-+				 <STM32_PINMUX('C', 3, ANALOG)>; /* ADC2 in13 */
-+		};
-+	};
-+
-+	dac_ux_ch1_pins_a: dac-ux-ch1-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A', 4, ANALOG)>;
-+		};
-+	};
-+
-+	dac_ux_ch2_pins_a: dac-ux-ch2-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A', 5, ANALOG)>;
-+		};
-+	};
-+
-+	ethernet0_ux_rgmii_pins_a: rgmii-ux-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 5, AF11)>, /* ETH_RGMII_CLK125 */
-+				 <STM32_PINMUX('G', 4, AF11)>, /* ETH_RGMII_GTX_CLK */
-+				 <STM32_PINMUX('G', 13, AF11)>, /* ETH_RGMII_TXD0 */
-+				 <STM32_PINMUX('G', 14, AF11)>, /* ETH_RGMII_TXD1 */
-+				 <STM32_PINMUX('C', 2, AF11)>, /* ETH_RGMII_TXD2 */
-+				 <STM32_PINMUX('E', 2, AF11)>, /* ETH_RGMII_TXD3 */
-+				 <STM32_PINMUX('B', 11, AF11)>; /* ETH_RGMII_TX_CTL */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <2>;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('C', 4, AF11)>, /* ETH_RGMII_RXD0 */
-+				 <STM32_PINMUX('C', 5, AF11)>, /* ETH_RGMII_RXD1 */
-+				 <STM32_PINMUX('B', 0, AF11)>, /* ETH_RGMII_RXD2 */
-+				 <STM32_PINMUX('H', 7, AF11)>, /* ETH_RGMII_RXD3 */
-+				 <STM32_PINMUX('A', 1, AF11)>, /* ETH_RGMII_RX_CLK */
-+				 <STM32_PINMUX('A', 7, AF11)>; /* ETH_RGMII_RX_CTL */
-+			bias-disable;
-+		};
-+		pins3 {
-+			pinmux = <STM32_PINMUX('C', 1, AF11)>; /* ETH_MDC */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+		pins4 {
-+			pinmux = <STM32_PINMUX('A', 2, AF11)>; /* ETH_MDIO */
-+			bias-disable;
-+			drive-open-drain;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	ethernet0_ux_rgmii_pins_sleep_a: rgmii-ux-sleep-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 5, ANALOG)>, /* ETH_RGMII_CLK125 */
-+				 <STM32_PINMUX('G', 4, ANALOG)>, /* ETH_RGMII_GTX_CLK */
-+				 <STM32_PINMUX('G', 13, ANALOG)>, /* ETH_RGMII_TXD0 */
-+				 <STM32_PINMUX('G', 14, ANALOG)>, /* ETH_RGMII_TXD1 */
-+				 <STM32_PINMUX('C', 2, ANALOG)>, /* ETH_RGMII_TXD2 */
-+				 <STM32_PINMUX('E', 2, ANALOG)>, /* ETH_RGMII_TXD3 */
-+				 <STM32_PINMUX('B', 11, ANALOG)>, /* ETH_RGMII_TX_CTL */
-+				 <STM32_PINMUX('A', 2, ANALOG)>, /* ETH_MDIO */
-+				 <STM32_PINMUX('C', 1, ANALOG)>, /* ETH_MDC */
-+				 <STM32_PINMUX('C', 4, ANALOG)>, /* ETH_RGMII_RXD0 */
-+				 <STM32_PINMUX('C', 5, ANALOG)>, /* ETH_RGMII_RXD1 */
-+				 <STM32_PINMUX('B', 0, ANALOG)>, /* ETH_RGMII_RXD2 */
-+				 <STM32_PINMUX('B', 1, ANALOG)>, /* ETH_RGMII_RXD3 */
-+				 <STM32_PINMUX('A', 1, ANALOG)>, /* ETH_RGMII_RX_CLK */
-+				 <STM32_PINMUX('A', 7, ANALOG)>; /* ETH_RGMII_RX_CTL */
-+		};
-+	};
-+
-+	i2c1_ux_pins_a: i2c1-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('F', 14, AF5)>, /* I2C1_SCL */
-+				 <STM32_PINMUX('F', 15, AF5)>; /* I2C1_SDA */
-+			bias-disable;
-+			drive-open-drain;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	i2c1_ux_pins_sleep_a: i2c1-1 {
-+		pins {
-+			pinmux = <STM32_PINMUX('F', 14, ANALOG)>, /* I2C1_SCL */
-+				 <STM32_PINMUX('F', 15, ANALOG)>; /* I2C1_SDA */
-+		};
-+	};
-+
-+	m_can2_ux_pins_a: m-can2-ux-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('B', 6, AF9)>; /* CAN1_TX */
-+			slew-rate = <0>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+
-+		pins2 {
-+			pinmux = <STM32_PINMUX('B', 5, AF9)>; /* CAN1_RX */
-+			bias-disable;
-+		};
-+	};
-+
-+	m_can2_ux_sleep_pins_a: m-can2-ux-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('B', 6, ANALOG)>, /* CAN1_TX */
-+				 <STM32_PINMUX('B', 5, ANALOG)>; /* CAN1_RX */
-+		};
-+	};
-+	pwm1_ux_pins_a: pwm1-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A',11, AF1)>, /* TIM1_CH4 */
-+				 <STM32_PINMUX('E',10, AF1)>; /* TIM1_CH2N */
-+			bias-pull-down;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	pwm1_ux_sleep_pins_a: pwm1-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A',11, ANALOG)>, /* TIM1_CH4 */
-+				 <STM32_PINMUX('E',10, ANALOG)>; /* TIM1_CH2N */
-+		};
-+	};
-+
-+	pwm4_ux_pins_a: pwm4-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('D', 14, AF2)>, /* TIM4_CH3 */
-+				 <STM32_PINMUX('D', 15, AF2)>; /* TIM4_CH4 */
-+			bias-disable;
-+		};
-+	};
-+
-+	pwm4_ux_sleep_pins_a: pwm4-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('D', 14, ANALOG)>, /* TIM4_CH3 */
-+				 <STM32_PINMUX('D', 15, ANALOG)>; /* TIM4_CH4 */
-+		};
-+	};
-+
-+	pwm5_ux_pins_a: pwm5-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('I', 0, AF2)>; /* TIM5_CH4 */
-+			bias-pull-down;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	pwm5_ux_sleep_pins_a: pwm5-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('I', 0, ANALOG)>; /* TIM5_CH4 */
-+		};
-+	};
-+
-+	pwm17_ux_pins_a: pwm17-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('F', 9, AF1)>; /* TIM17_CH1N */
-+			bias-pull-down;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	pwm17_ux_sleep_pins_a: pwm17-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('F', 9, ANALOG)>; /* TIM17_CH1N */
-+		};
-+	};
-+
-+	qspi_bk1_ux_pins_a: qspi-bk1-ux-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('F', 8, AF10)>, /* QSPI_BK1_IO0 */
-+				 <STM32_PINMUX('D',12, AF9)>, /* QSPI_BK1_IO1 */
-+				 <STM32_PINMUX('F', 7, AF9)>, /* QSPI_BK1_IO2 */
-+				 <STM32_PINMUX('F', 6, AF9)>; /* QSPI_BK1_IO3 */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <1>;
-+		};
-+
-+		pins2 {
-+			pinmux = <STM32_PINMUX('B',10, AF9)>; /* QSPI_BK1_NCS */
-+			bias-pull-up;
-+			drive-push-pull;
-+			slew-rate = <1>;
-+		};
-+	};
-+
-+	qspi_bk1_ux_sleep_pins_a: qspi-bk1-ux-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('F', 8, ANALOG)>, /* QSPI_BK1_IO0 */
-+				 <STM32_PINMUX('D',12, ANALOG)>, /* QSPI_BK1_IO1 */
-+				 <STM32_PINMUX('F', 7, ANALOG)>, /* QSPI_BK1_IO2 */
-+				 <STM32_PINMUX('F', 6, ANALOG)>, /* QSPI_BK1_IO3 */
-+				 <STM32_PINMUX('B',10, ANALOG)>; /* QSPI_BK1_NCS */
-+		};
-+	};
-+
-+	qspi_clk_ux_pins_a: qspi-clk_ux-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('G', 7, AF9)>; /* QSPI_CLK */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <3>;
-+		};
-+	};
-+
-+	qspi_clk_ux_sleep_pins_a: qspi-clk-ux-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('G', 7, ANALOG)>; /* QSPI_CLK */
-+		};
-+	};
-+
-+	sai2a_ux_pins_a: sai2a-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('I', 5, AF10)>, /* SAI2_SCK_A */
-+				 <STM32_PINMUX('D',11, AF10)>, /* SAI2_SD_A */
-+				 <STM32_PINMUX('I', 7, AF10)>, /* SAI2_FS_A */
-+				 <STM32_PINMUX('E', 0, AF10)>; /* SAI2_MCLK_A */
-+			slew-rate = <0>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+	};
-+
-+	sai2a_ux_sleep_pins_a: sai2a-1 {
-+		pins {
-+			pinmux = <STM32_PINMUX('I', 5, ANALOG)>, /* SAI2_SCK_A */
-+				 <STM32_PINMUX('D',11, ANALOG)>, /* SAI2_SD_A */
-+				 <STM32_PINMUX('I', 7, ANALOG)>, /* SAI2_FS_A */
-+				 <STM32_PINMUX('E', 0, ANALOG)>; /* SAI2_MCLK_A */
-+		};
-+	};
-+
-+	sdmmc1_ux_b4_pins_a: sdmmc1-ux-b4-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('C', 8, AF12)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, AF12)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C',10, AF12)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C',11, AF12)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('D', 2, AF12)>; /* SDMMC1_CMD */
-+			slew-rate = <1>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('C', 12, AF12)>; /* SDMMC1_CK */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+	};
-+
-+	sdmmc1_ux_b4_od_pins_a: sdmmc1-b4-od-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('C', 8, AF12)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, AF12)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, AF12)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, AF12)>; /* SDMMC1_D3 */
-+			slew-rate = <1>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('C', 12, AF12)>; /* SDMMC1_CK */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+		pins3 {
-+			pinmux = <STM32_PINMUX('D', 2, AF12)>; /* SDMMC1_CMD */
-+			slew-rate = <1>;
-+			drive-open-drain;
-+			bias-disable;
-+		};
-+	};
-+
-+	sdmmc1_ux_b4_sleep_pins_a: sdmmc1-b4-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('C', 8, ANALOG)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, ANALOG)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, ANALOG)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, ANALOG)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('C', 12, ANALOG)>, /* SDMMC1_CK */
-+				 <STM32_PINMUX('D', 2, ANALOG)>; /* SDMMC1_CMD */
-+		};
-+	};
-+
-+	sdmmc2_ux_b4_pins_a: sdmmc2-ux-b4-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('B', 14, AF9)>, /* SDMMC2_D0 */
-+				<STM32_PINMUX('B', 15, AF9)>, /* SDMMC2_D1 */
-+				<STM32_PINMUX('B', 3, AF9)>, /* SDMMC2_D2 */
-+				<STM32_PINMUX('B', 4, AF9)>, /* SDMMC2_D3 */
-+				<STM32_PINMUX('G', 6, AF10)>; /* SDMMC2_CMD */
-+			slew-rate = <1>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('E', 3, AF9)>; /* SDMMC2_CK */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	sdmmc2_ux_b4_od_pins_a: sdmmc2-ux-b4-od-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('B', 14, AF9)>, /* SDMMC2_D0 */
-+				<STM32_PINMUX('B', 15, AF9)>, /* SDMMC2_D1 */
-+				<STM32_PINMUX('B', 3, AF9)>, /* SDMMC2_D2 */
-+				<STM32_PINMUX('B', 4, AF9)>; /* SDMMC2_D3 */
-+			slew-rate = <1>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('E', 3, AF9)>; /* SDMMC2_CK */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+		pins3 {
-+			pinmux = <STM32_PINMUX('G', 6, AF10)>; /* SDMMC2_CMD */
-+			slew-rate = <1>;
-+			drive-open-drain;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	sdmmc2_ux_b4_sleep_pins_a: sdmmc2-ux-b4-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('B', 14, ANALOG)>, /* SDMMC2_D0 */
-+				<STM32_PINMUX('B', 15, ANALOG)>, /* SDMMC2_D1 */
-+				<STM32_PINMUX('B', 3, ANALOG)>, /* SDMMC2_D2 */
-+				<STM32_PINMUX('B', 4, ANALOG)>, /* SDMMC2_D3 */
-+				<STM32_PINMUX('E', 3, ANALOG)>, /* SDMMC2_CK */
-+				<STM32_PINMUX('G', 6, ANALOG)>; /* SDMMC2_CMD */
-+		};
-+	};
-+
-+	sdmmc2_ux_d47_pins_a: sdmmc2-ux-d47-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A', 8, AF9)>, /* SDMMC2_D4 */
-+				<STM32_PINMUX('A', 9, AF10)>, /* SDMMC2_D5 */
-+				<STM32_PINMUX('E', 5, AF9)>, /* SDMMC2_D6 */
-+				<STM32_PINMUX('D', 3, AF9)>; /* SDMMC2_D7 */
-+			slew-rate = <1>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	sdmmc2_ux_d47_sleep_pins_a: sdmmc2-ux-d47-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('A', 8, ANALOG)>, /* SDMMC2_D4 */
-+				<STM32_PINMUX('A', 9, ANALOG)>, /* SDMMC2_D5 */
-+				<STM32_PINMUX('E', 5, ANALOG)>, /* SDMMC2_D6 */
-+				<STM32_PINMUX('D', 3, ANALOG)>; /* SDMMC2_D7 */
-+		};
-+	};
-+
-+	uart4_ux_pins_a: uart4-ux-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 11, AF6)>; /* UART4_TX */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('B', 2, AF8)>; /* UART4_RX */
-+			bias-disable;
-+		};
-+	};
-+
-+	uart4_ux_idle_pins_a: uart4-ux-idle-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 11, ANALOG)>; /* UART4_TX */
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('B', 2, AF8)>; /* UART4_RX */
-+			bias-disable;
-+		};
-+		};
-+
-+	uart4_ux_sleep_pins_a: uart4-ux-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('G', 11, ANALOG)>, /* UART4_TX */
-+				<STM32_PINMUX('B', 2, ANALOG)>; /* UART4_RX */
-+		};
-+	};
-+
-+	uart5_ux_pins_a: uart5-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('B', 13, AF14)>; /* UART5_TX */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('B', 12, AF14)>; /* UART5_RX */
-+			bias-disable;
-+		};
-+	};
-+
-+	uart5_ux_idle_pins_a: uart5-idle-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('B', 13, ANALOG)>; /* UART5_TX */
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('B', 12, AF14)>; /* UART5_RX*/
-+			bias-disable;
-+		};
-+	};
-+
-+	uart5_ux_sleep_pins_a: uart5-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('B', 13, ANALOG)>, /* UART5_TX */
-+				 <STM32_PINMUX('B', 12, ANALOG)>; /* UART5_RX */
-+		};
-+	};
-+
-+	uart7_ux_pins_a: uart7-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('E', 8, AF7)>; /* USART7_TX */
-+			bias-pull-up;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+
-+		pins2 {
-+			pinmux = <STM32_PINMUX('E', 7, AF7)>; /* USART7_RX */
-+			bias-pull-up;
-+		};
-+		pins3 {
-+			pinmux = <STM32_PINMUX('E', 9, AF7)>; /* USART7_RTS/DE */
-+		};
-+	};
-+
-+	uart7_ux_idle_pins_a: uart7-idle-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('E', 8, ANALOG)>, /* USART7_TX */
-+				 <STM32_PINMUX('E', 9, AF7)>; /* USART7_RTS/DE */
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('E', 7, AF7)>; /* USART7_RX */
-+			bias-disable;
-+		};
-+	};
-+
-+	uart7_ux_sleep_pins_a: uart7-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('E', 8, ANALOG)>, /* USART7_TX */
-+				 <STM32_PINMUX('E', 9, AF7)>, /* USART7_RTS/DE */
-+				 <STM32_PINMUX('E', 7, ANALOG)>; /* USART7_RX */
-+		};
-+	};
-+};
-+
-+&pinctrl_z {
-+
-+	i2c4_ux_pins_a: i2c4-ux-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('Z', 4, AF6)>, /* I2C4_SCL */
-+				<STM32_PINMUX('Z', 5, AF6)>; /* I2C4_SDA */
-+			bias-disable;
-+			drive-open-drain;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	i2c4_ux_pins_sleep_a: i2c4-1 {
-+		pins {
-+			pinmux = <STM32_PINMUX('Z', 4, ANALOG)>, /* I2C4_SCL */
-+				<STM32_PINMUX('Z', 5, ANALOG)>; /* I2C4_SDA */
-+		};
-+	};
-+
-+	spi1_ux_pins_a: spi1-ux-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('Z', 0, AF5)>, /* SPI1_SCK */
-+				<STM32_PINMUX('Z', 2, AF5)>; /* SPI1_MOSI */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <1>;
-+		};
-+
-+		pins2 {
-+			pinmux = <STM32_PINMUX('Z', 1, AF5)>; /* SPI1_MISO */
-+			bias-disable;
-+		};
-+	};
-+
-+	spi1_ux_sleep_pins_a: spi1-ux-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('Z', 0, ANALOG)>, /* SPI1_SCK */
-+				<STM32_PINMUX('Z', 1, ANALOG)>, /* SPI1_MISO */
-+				<STM32_PINMUX('Z', 2, ANALOG)>; /* SPI1_MOSI */
-+		};
-+	};
-+};
-+
-+&pwr_regulators {
-+	vdd-supply = <&vdd>;
-+	vdd_3v3_usbfs-supply = <&vdd_usb>;
-+};
-+
-+&qspi {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&qspi_clk_ux_pins_a &qspi_bk1_ux_pins_a>;
-+	pinctrl-1 = <&qspi_clk_ux_sleep_pins_a &qspi_bk1_ux_sleep_pins_a>;
-+	reg = <0x58003000 0x1000>, <0x70000000 0x1000000>;
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	flash0: flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-rx-bus-width = <4>;
-+		spi-max-frequency = <133000000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+	};
-+};
-+
-+&sdmmc1 {
-+	pinctrl-names = "default", "opendrain", "sleep";
-+	pinctrl-0 = <&sdmmc1_ux_b4_pins_a>;
-+	pinctrl-1 = <&sdmmc1_ux_b4_od_pins_a>;
-+	pinctrl-2 = <&sdmmc1_ux_b4_sleep_pins_a>;
-+	broken-cd;
-+	st,neg-edge;
-+	bus-width = <4>;
-+	vmmc-supply = <&v3v3>;
-+	no-1-8-v;
-+	status = "okay";
-+};
-+
-+&sdmmc2 {
-+	pinctrl-names = "default", "opendrain", "sleep";
-+	pinctrl-0 = <&sdmmc2_ux_b4_pins_a &sdmmc2_ux_d47_pins_a>;
-+	pinctrl-1 = <&sdmmc2_ux_b4_od_pins_a &sdmmc2_ux_d47_pins_a>;
-+	pinctrl-2 = <&sdmmc2_ux_b4_sleep_pins_a &sdmmc2_ux_d47_sleep_pins_a>;
-+	non-removable;
-+	no-sd;
-+	no-sdio;
-+	st,neg-edge;
-+	bus-width = <8>;
-+	vmmc-supply = <&v3v3>;
-+	vqmmc-supply = <&v3v3>;
-+	mmc-ddr-3_3v;
-+	status = "okay";
-+};
-+
-+&spi1 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&spi1_ux_pins_a>;
-+	pinctrl-1 = <&spi1_ux_sleep_pins_a>;
-+	status = "okay";
-+	cs-gpios = <&gpioi 8 0>, <&gpioi 11 0>, <&gpioz 3 0>;
-+
-+	flash: flash@0 {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		compatible = "jedec,spi-nor";
-+		spi-max-frequency = <20000000>;
-+		reg = <0>;
-+	};
-+};
-+
-+&timers1 {
-+	/* spare dmas for other usage */
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
-+	status = "okay";
-+
-+	pwm {
-+		pinctrl-0 = <&pwm1_ux_pins_a>;
-+		pinctrl-1 = <&pwm1_ux_sleep_pins_a>;
-+		pinctrl-names = "default", "sleep";
-+		status = "okay";
-+	};
-+
-+	timer@0 {
-+		status = "okay";
-+	};
-+};
-+
-+&timers4 {
-+	dmas = <&dmamux1 31 0x400 0x5>;
-+	dma-names = "ch3";
-+	status = "okay";
-+
-+	pwm4_4: pwm {
-+		pinctrl-0 = <&pwm4_ux_pins_a>;
-+		pinctrl-1 = <&pwm4_ux_sleep_pins_a>;
-+		pinctrl-names = "default", "sleep";
-+		status = "okay";
-+	};
-+};
-+
-+&timers5 {
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
-+	status = "okay";
-+
-+	pwm5_4: pwm {
-+		pinctrl-0 = <&pwm5_ux_pins_a>;
-+		pinctrl-1 = <&pwm5_ux_sleep_pins_a>;
-+		pinctrl-names = "default", "sleep";
-+		status = "okay";
-+	};
-+
-+	timer@4 {
-+		status = "okay";
-+	};
-+};
-+
-+&timers17 {
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
-+	status = "okay";
-+
-+	pwm17_4: pwm {
-+		pinctrl-0 = <&pwm17_ux_pins_a>;
-+		pinctrl-1 = <&pwm17_ux_sleep_pins_a>;
-+		pinctrl-names = "default", "sleep";
-+		status = "okay";
-+	};
-+
-+	timer@16 {
-+		status = "okay";
-+	};
-+};
-+
-+&uart4 {
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
-+	pinctrl-names = "default", "sleep", "idle", "no_console_suspend";
-+	pinctrl-0 = <&uart4_ux_pins_a>;
-+	pinctrl-1 = <&uart4_ux_sleep_pins_a>;
-+	pinctrl-2 = <&uart4_ux_idle_pins_a>;
-+	pinctrl-3 = <&uart4_ux_pins_a>;
-+	status = "okay";
-+};
-+
-+&uart5 {
-+	pinctrl-names = "default", "sleep", "idle";
-+	pinctrl-0 = <&uart5_ux_pins_a>;
-+	pinctrl-1 = <&uart5_ux_sleep_pins_a>;
-+	pinctrl-2 = <&uart5_ux_idle_pins_a>;
-+	status = "okay";
-+};
-+
-+&uart7 {
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
-+	pinctrl-names = "default", "sleep", "idle";
-+	pinctrl-0 = <&uart7_ux_pins_a>;
-+	pinctrl-1 = <&uart7_ux_sleep_pins_a>;
-+	pinctrl-2 = <&uart7_ux_idle_pins_a>;
-+	status = "okay";
-+};
-+
-+&usart1 {
-+	/*Muxing happens in uboot*/
-+	status = "okay";
-+};
-+
-+&usbh_ehci {
-+	phys = <&usbphyc_port0>;
-+	phy-names = "usb";
-+	status = "okay";
-+};
-+
-+&usbh_ohci {
-+	phys = <&usbphyc_port0>;
-+	phy-names = "usb";
-+	status = "okay";
-+};
-+
-+&usbotg_hs {
-+	phys = <&usbphyc_port1 0>;
-+	phy-names = "usb2-phy";
-+	vbus-supply = <&usb_otg_vbus>;
-+	status = "okay";
-+};
-+
-+&usbphyc {
-+	status = "okay";
-+};
-+
-+&usbphyc_port0 {
-+	phy-supply = <&vdd_usb>;
-+	st,tune-hs-dc-level = <2>;
-+	st,enable-fs-rftime-tuning;
-+	st,enable-hs-rftime-reduction;
-+	st,trim-hs-current = <15>;
-+	st,trim-hs-impedance = <1>;
-+	st,tune-squelch-level = <3>;
-+	st,tune-hs-rx-offset = <2>;
-+	st,no-lsfs-sc;
-+};
-+
-+&usbphyc_port1 {
-+	phy-supply = <&vdd_usb>;
-+	st,tune-hs-dc-level = <2>;
-+	st,enable-fs-rftime-tuning;
-+	st,enable-hs-rftime-reduction;
-+	st,trim-hs-current = <15>;
-+	st,trim-hs-impedance = <1>;
-+	st,tune-squelch-level = <3>;
-+	st,tune-hs-rx-offset = <2>;
-+	st,no-lsfs-sc;
-+};
-+
-+&vrefbuf {
-+	regulator-min-microvolt = <2500000>;
-+	regulator-max-microvolt = <2500000>;
-+	vdda-supply = <&vdd>;
-+	status = "okay";
-+};
+On the S32G2, there are eight STM timers and STM_TS. Therefore, there
+should be enough instances to accommodate 4xA53 and 3xM7 cores.
+
+> That leads us to one clocksource for the first per CPU timer initialized
+> or alternatively one STM instance == 1 clocksource and 1 clockevent
+> which makes things simpler
+>
+I'm not sure I understood the entire description. As I see it, two STM
+instances should be used to accommodate one clock source, a broadcast
+clock event, and four clock events—one per core.
+
+E.g.
+STM_0
+	- clocksource (based on CNT)
+	- broadcast clock event (channel 0)
+
+STM_1
+	- Cortex-A53 0 (channel 0)
+	- Cortex-A53 1 (channel 1)
+	- Cortex-A53 2 (channel 2)
+	- Cortex-A53 3 (channel 3)
+
 -- 
-2.43.0
+Regards,
+Ghennadi
 
 
