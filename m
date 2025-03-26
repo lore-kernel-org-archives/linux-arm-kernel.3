@@ -4,128 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5836DC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 23:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 723C8C3600E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 23:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ps0LOA1rZ7tVmufDCYSMrXairdaApv+By0nwQ7sMedY=; b=0OVixZFDLrbJJ3aeP+9m+5C5pK
-	OuiCGnVpSD4+AddANSelaJSLd9Gc/L9nXHbiVcoDb0kFbWqtyqIQloSsSSk87P/9V24VS5N3iO+H3
-	3hoCF2isTJdv0WscAY5qv4D2nbMXOi+6o/h14EEqd3hURE/+F3ApzziBe7moOlyag7PMjryeLWLnT
-	f0dsp51ycSdaDmJS8WDRVnh61HFl5ZLH8k9d2pSish6lP2zAO81xZHVGwdN3KKWnaZ71k35hc4yrG
-	o+EdWItKQncGcyHP4RyVudTOl2OBMPaNrRfl4iwYp7Tl9pPQIGGNakYQJ+5V6hiInDKX0dHtD2g2B
-	tOSk+TWA==;
+	bh=uA4AdssvpPqQ86j2mMIE0l6Ccwq4JMgcJayRJEXySK0=; b=qBQQDIELl5EG+YO8mOWdsAXLiv
+	RKHJmzSW8VjRYc3WxsvITeyr+Z7aZmzRObjxievjJJ2c4tIJEOTLFhBMKEHPOzkHI0WNQGs0Rfvwi
+	kVUhr6CPJcMDTbG4/o+R4Fb0DzIFgRFR5QKnPMxprBm6+L5Ud2Z6ADjMpIIBUP2UhU05facI0Dx8r
+	Ntc0rv1+awBn/IIOn5QbbTQ+8o18qQM508E/BMGW9TXrgse2EJC+9YasC26gCdLJGU+8mEPKx8iAe
+	ms5F0v9iB1xbElKVcmzjXCbv+oL5YOWB4EILGQtDJeDBhBok+C2Iw0Ti75uzj8ybxey1Ft6dq4Jq+
+	VXyP6ijw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txaUv-00000009pC6-0BXa;
-	Wed, 26 Mar 2025 23:49:25 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1txaYu-00000009pqg-1Ixs;
+	Wed, 26 Mar 2025 23:53:32 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txaT9-00000009p3r-1oTc;
-	Wed, 26 Mar 2025 23:47:36 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52QEZeif009175;
-	Wed, 26 Mar 2025 23:47:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ps0LOA1rZ7tVmufDCYSMrXairdaApv+By0nwQ7sMedY=; b=i6MOTzSTNCE6kcq0
-	z3QjdhhefkggMJ+PAHxy99c8+2a0G3wM8j57GTjBOQcdR/Qj0Jn+5GF4zrMljEpd
-	Ppz+oATOeUIvdGozA6Glvc2zaSOHb1KpfFYmAONa4G9QdX0fIKDaX6wVBNA24iXc
-	jBa1hf/jNmeCiJ2/U1IuWLFz8I/LQoQl6j+6MwVK93ZNBYVirQpuAJFYTYhBb30L
-	vduzbLgmjjs0GwfBQY860Yq2Xfhfzhx3AbXg8aAk1RdQd3XAiUXxHmrip3nczYsE
-	Qf35K1azRml8QrvE2B1PSRwgEAQKcMwnU1I9K79tDq4Ylq3pJrBZuFSiC2bZlDZC
-	gxFuig==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45kmd4pqje-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Mar 2025 23:47:16 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52QNlF9w002413
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Mar 2025 23:47:15 GMT
-Received: from [10.46.162.103] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 26 Mar
- 2025 16:47:15 -0700
-Message-ID: <ad246ef4-7429-63bb-0279-90738736f6e3@quicinc.com>
-Date: Wed, 26 Mar 2025 16:47:14 -0700
+	id 1txaX8-00000009paY-3y4E
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Mar 2025 23:51:44 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5499c5d9691so387982e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 16:51:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743033101; x=1743637901; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uA4AdssvpPqQ86j2mMIE0l6Ccwq4JMgcJayRJEXySK0=;
+        b=YElJtSwYw57AI0spcgeqOwqUpvWGGtVK7+ayWapCmk4EzhM1qbPljfyp+FNjCvP3hK
+         DOSMBKdGfOYF1mybK6p0mCYiv/mFMfB2CNF595PWi8lV7gL6Qm8ixHJh/ddIYHDk5XGf
+         RFxX/Rgkydb81FJGihrRykoqvQDXWL0EjZmxtPQYZFumZCM5zNkoWc0EADNiqfXQ/Od1
+         FZ+m+5gVt6aWz7QVPQi4TXwClzEmkRM9qHunWbB6a0UbsQceAZtPC7X8nTAnI7MRcf18
+         1yTEfIMMIMWtKBgY64AiOqfLqOqW4v6Z7kCIuYsG4IStQOGjEmASYBzUeKsw1lIsrnhD
+         FPaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743033101; x=1743637901;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uA4AdssvpPqQ86j2mMIE0l6Ccwq4JMgcJayRJEXySK0=;
+        b=R6jTal20O/xjOcyqPeoiBUFMgqct3G4kMvr+/m7O3s4NVZKS2RpDWUWQxVWF3jpjh/
+         lWnK3Dp9zC38RluhprJZhfZs8G7AnKZcUVH0RXd+fsz4DKpeDPAIJKQSJ1cXD67dPYEm
+         Kl9ZtERtbQe3kMyl8mRbhe6TJ0vXmU12Gu6OoXRO/rdeBdqwOODDICLcSfcMQ3XHLwX+
+         5FMewUg0xtTw/POKCFtNBjTWkRIpRFEckadKWGgV7tLsPDMSLL6QCfrF/Nx/NleiP1PU
+         WT1WOu6yN66c3IFsXTR7PZgHQl6j2PlLWc2iXgsNmAVKIAV5RJDFHpos52CUQydArLeF
+         U2MA==
+X-Gm-Message-State: AOJu0Yxsfag730yGo0W71B8fp+6LDVP/oFrIEzk+5KQXMovU85ymzT5c
+	FhHHo3hy9ikOU5Ll6Llf3sqH6Pc8P53WDYyfsfOBtAGrXehJ6VoV6r4E4IQE/+ZIwIX7vNz9PBT
+	nVQSXnv/MLra4ZhMUcKexdSVaiwQ=
+X-Gm-Gg: ASbGnctUSakC6URW7qpnjUlIfadPOv9ZszVyuAYIbZNj1OcwiW96+t2hvSavePfsPj6
+	SEbDCrLEWhU8qQkXtkBABx4qPLCxNTWMq2hJh67meifb/8MXeYxhIr2qP+ExRPecULCdpzXo8io
+	hOWRW8dvgX8Iu6Goe+QPv2wAG5WtA9CUs6RQybdM9+gnCVRcc1HagGzvJi1A==
+X-Google-Smtp-Source: AGHT+IFYELfgiO+wxoWio008fIXIKA1kkoHvCfFRSp46GuCuNDakMgDbEsBHq6K37MFmmLbGrQDsEYkZtP/RiQvI5A4=
+X-Received: by 2002:a05:6512:108d:b0:549:8f4a:6ba7 with SMTP id
+ 2adb3069b0e04-54b012201fbmr462220e87.36.1743033100314; Wed, 26 Mar 2025
+ 16:51:40 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v4 1/1] scsi: ufs: core: add device level exception
- support
-Content-Language: en-US
-To: Bart Van Assche <bvanassche@acm.org>,
-        Arthur Simchaev
-	<Arthur.Simchaev@sandisk.com>,
-        "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>,
-        "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>,
-        "avri.altman@wdc.com" <avri.altman@wdc.com>,
-        "peter.wang@mediatek.com" <peter.wang@mediatek.com>,
-        "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-        "minwoo.im@samsung.com" <minwoo.im@samsung.com>,
-        "adrian.hunter@intel.com"
-	<adrian.hunter@intel.com>,
-        "martin.petersen@oracle.com"
-	<martin.petersen@oracle.com>
-CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
-        Alim Akhtar
-	<alim.akhtar@samsung.com>,
-        "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>,
-        Matthias Brugger
-	<matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Bean Huo <beanhuo@micron.com>,
-        Keoseong Park <keosung.park@samsung.com>,
-        Ziqi Chen
-	<quic_ziqichen@quicinc.com>,
-        Al Viro <viro@zeniv.linux.org.uk>,
-        "Gwendal
- Grignou" <gwendal@chromium.org>,
-        Eric Biggers <ebiggers@google.com>,
-        open
- list <linux-kernel@vger.kernel.org>,
-        "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
-        "moderated
- list:ARM/Mediatek SoC support:Keyword:mediatek"
-	<linux-mediatek@lists.infradead.org>
-References: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
- <SA2PR16MB4251229744D717821D3D8353F4A72@SA2PR16MB4251.namprd16.prod.outlook.com>
- <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
- <0a68d437-5d6a-42aa-ae4e-6f5d89cfcaf3@acm.org>
-From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
-In-Reply-To: <0a68d437-5d6a-42aa-ae4e-6f5d89cfcaf3@acm.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: jOzoVN6oCqhmK4G6Uxv_ULe-2YdiwsRn
-X-Proofpoint-GUID: jOzoVN6oCqhmK4G6Uxv_ULe-2YdiwsRn
-X-Authority-Analysis: v=2.4 cv=QLZoRhLL c=1 sm=1 tr=0 ts=67e49204 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=PtWNw9R7xlkL8hu1AuQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-26_09,2025-03-26_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 adultscore=0 malwarescore=0 phishscore=0
- mlxlogscore=999 mlxscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0
- bulkscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503260148
+References: <20250326223841.193234-1-marex@denx.de> <20250326223841.193234-2-marex@denx.de>
+In-Reply-To: <20250326223841.193234-2-marex@denx.de>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 26 Mar 2025 20:51:29 -0300
+X-Gm-Features: AQ5f1Jr4DbKXNs0s_yqnIidvZAgpTckMlWcRo8PQ0KBPDukXSJkiLvMa4vA1eSg
+Message-ID: <CAOMZO5A0HKUNrYmdVrSZp6zcmVcdS0TRTiz_7py73c3b+ng3Bg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add initial support for
+ i.MX 95 Verdin Evaluation Kit (EVK)
+To: Marek Vasut <marex@denx.de>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	=?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, 
+	Frieder Schrempf <frieder.schrempf@kontron.de>, Hiago De Franco <hiago.franco@toradex.com>, 
+	Joao Goncalves <jpaulo.silvagoncalves@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Max Merchel <Max.Merchel@ew.tq-group.com>, Michael Walle <mwalle@kernel.org>, 
+	Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Tim Harvey <tharvey@gateworks.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_164735_479064_DFAD192F 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250326_165142_981366_7C3266F3 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,29 +103,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/26/2025 3:49 AM, Bart Van Assche wrote:
-> On 3/25/25 6:15 PM, Bao D. Nguyen wrote:
->> The existing "struct utp_upiu_query_v4_0" probably has a bug in it. It 
->> does not use the  __attribute__((__packed__)) attribute. The compiler 
->> is free to add padding in this structure, resulting in the read 
->> attribute value being incorrect. I plan to provide a separate patch to 
->> fix this issue.
-> 
-> Adding __attribute__((__packed__)) or __packed to data structures that
-> don't need it is not an improvement but is a change that makes
-> processing slower on architectures that do not support unaligned
-> accesses. Instead of adding __packed to data structures in their
-> entirety, only add it to those members that need it and check the
-> structure size as follows:
-> 
-> static_assert(sizeof(...) == ...);
-> 
-Thank you for the info on this, Bart.
-IMO, this response upiu data should be __packed because the data coming 
-from the hardware follows a strict format as defined by the spec. If we 
-support __pack each individual field which data may be read by the 
-driver (the attribute read commands) and check the validity of their 
-sizes, it may add some complexity?
+On Wed, Mar 26, 2025 at 7:39=E2=80=AFPM Marek Vasut <marex@denx.de> wrote:
+>
+> Add initial support for i.MX 95 Verdin Evaluation Kit (EVK), which
+> used to be the Titan EVK. Currently supported is lpuart1 as console,
+> SDHC1/2/3 as storage, WM8904 Audio, USB3.0 and ENETC ethernet RGMII
+> Gigabit port.
+>
+> Note that the SoM used in this EVK is a derivative SoM from Verdin
+> line of SoMs, an actual i.MX95 Verdin SoM is under development.
+>
+> [1] https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx=
+95-evaluation-kit
+>
+> Reviewed-by: Jo=C3=A3o Paulo Gon=C3=A7alves <joao.goncalves@toradex.com>
+> Tested-by: Jo=C3=A3o Paulo Gon=C3=A7alves <joao.goncalves@toradex.com> # =
+i.MX95 Verdin EVK
+> Signed-off-by: Marek Vasut <marex@denx.de>
 
-Thanks, Bao
+Reviewed-by: Fabio Estevam <festevam@gmail.com>
 
