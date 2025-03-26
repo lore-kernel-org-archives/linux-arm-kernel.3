@@ -4,100 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C31C3600E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 18:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546ADC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 18:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQSyQdOtaRXXJqY6mJYGU96ThIlQP1CEWPFYxr/eyuc=; b=K0xGC0UdWXA/9aS+FXf0ZonpHx
-	LDZLpYaWL2n/4KtGIX2icxt4oH5OvRYCyBDd2VZ+Li5HRdviMlWhLJy3jqzbm+/Nsdwi2A+KjjznF
-	7jqDr3pZWLo9KOIkzYwpn0M+51mEFa0lEZs2e6ioMTlGk/7A62/fbjA6hqq4AoyBU7+yb55E4m8Ua
-	4Ugq1rPekdN9lpmftYufhBFA2Rz5zwDZ3OqmDDA/nlH3dXEhGAaqUNccH2m9M1ts9v52L15TTo5Jc
-	NFQtFPAeH8sXe1C/nxQ+bFmZAANv6wZv0CwEdC048Fvzusy3ITg5JPtMRnc2M0iJ3DQznsceKOSmF
-	E5WFz8Wg==;
+	bh=L+KNP8OqTYw9MQ+DgCBgwcxKuJJoj51nlpNspN6AiT4=; b=zGKhLa1JdzDbQfvLVtFdbBgmMy
+	eJq/GKktSO8gUP5PxDQtDeWGkeRLMPU/KzVTUBR2lNf7dBgSrGAYTW1K8HFBVmX1FftRMdmuVgv5v
+	P8uFaGbWmutpEtObQIoAGUXPfeH2UWibM8FXXa4bHliU05WcBcWuc0ALRL1Zplo7EOsiQyNRuhu6c
+	0YS5OG16bnapCkDubCZVXrRS/nATr7J1uxPXwsvdttHsI51b6BbBiBg7IVJBROcOcKlSgrf/ywbLQ
+	lP/87pdi0Uxfy+Va6l2/OWzMWbIwUphpU/VuIhNJ5Aq3CRYioLvry04KGe3HC7Gmk820pm07F5fcS
+	wzSXhiRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txVSJ-00000009Li1-0ciR;
-	Wed, 26 Mar 2025 18:26:23 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1txVsn-00000009OPY-3vRu;
+	Wed, 26 Mar 2025 18:53:45 +0000
+Received: from mail-vi1eur03on20608.outbound.protection.outlook.com ([2a01:111:f403:260c::608] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txVQZ-00000009LY8-1ejF
+	id 1txVr4-00000009OBS-0ho1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 18:24:36 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-224347aef79so4173835ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 11:24:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743013474; x=1743618274; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQSyQdOtaRXXJqY6mJYGU96ThIlQP1CEWPFYxr/eyuc=;
-        b=ObCtXP/BIsxg8omLbvdf+BZlSTL0R9NnqIJN3njfy6w77ISSgiouz8+uZ0HB08zGjX
-         edK5JOcWCFw9CPF29ZFPzyjlSCEYM00C2HHb4xIWDU4MwhMojOzoeWDhGXngQB6rDEb2
-         i66em0YCrtNAbTw/kTPHbeQvnDtOI5+Zo2B2WA+KV5G8/7ibyGCaxwrDAbsPAk+RhMLu
-         3ORc8vfbf4SeFFY+ooy63yRPlwltZepWrOUyCQlFr89Zrqw0QG6oA6jGHuLTesBXvEzq
-         zL/bONWN3g90pNWjhu/Kx/+1qfjFUR6sEL5fVz9rrp+KKSGhEwrPzlekg62dyvcc8gxR
-         avsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743013474; x=1743618274;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQSyQdOtaRXXJqY6mJYGU96ThIlQP1CEWPFYxr/eyuc=;
-        b=HkUfL4zEBj+aHxA0g7iN+Jo/Ez2Pj7JhCXLCNmeFkTjPrnc22OPoZfbxaVDygktZTa
-         dm7oA1tGZGkBAPa2hLOE8MfRExPR7apiAR8L0mMaAgTYFuzMPfJCrvhxaElYJtBkmHJx
-         w28ky2zm++RT+AskdFYSnjezP8+it/k+1t/dYuGmNf7EfZnnBJvt4HSXpKNnPRasER5N
-         NCdZOsnjIjSynXzE3EFG4cIUgErFEybJWJ+d/I5pwxlJWcG9R5Xq8hLWsmWn55EqnBfa
-         BVySM2X8B3HvHcSq4+NAqmSY+CEbGj1HGezr4XKY40PmaDYtLPWG5dWPzmWjetNLai+F
-         wsPA==
-X-Forwarded-Encrypted: i=1; AJvYcCVaJUEqbB4K8Itmk/yax4QVGvP1p5kIWbP2POUlt0SO2fndsxWf9CDXvvhvCRTfKhHkw5vPXCR0az3+QKnl/sgM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjD3USvbDPf5TgQOu8H9IbNaiIlpFeT+oNC5MOSg5ToPr3tBB3
-	KF4Zs2PamM2jpblvuMR3kD2fQ2rMuML+Wr2V45TAEWTuFLRrxIArtbRPdV1OwdoZyV6r/8nCnjR
-	zfA==
-X-Google-Smtp-Source: AGHT+IH9At4P504/E7QC1PFAI9YXhOi0kk7VTZY2FxHfytUMmysBWuzG1WMVt3IjO8CPrl186Ota31MBAcw=
-X-Received: from pfbck7.prod.google.com ([2002:a05:6a00:3287:b0:736:ae72:7543])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d4c5:b0:215:94eb:adb6
- with SMTP id d9443c01a7336-2280495a14dmr8796425ad.40.1743013473742; Wed, 26
- Mar 2025 11:24:33 -0700 (PDT)
-Date: Wed, 26 Mar 2025 11:24:32 -0700
-In-Reply-To: <86wmcbllg2.wl-maz@kernel.org>
-Mime-Version: 1.0
-References: <Z9pryQwy2iwa2bpJ@linux.dev> <20250319170429.GK9311@nvidia.com>
- <Z9sItt8BIgvbBY8M@arm.com> <20250319192246.GQ9311@nvidia.com>
- <Z9s7r2JocpoM_t-m@arm.com> <SA1PR12MB7199C7BD48EB39F536DD34DBB0A62@SA1PR12MB7199.namprd12.prod.outlook.com>
- <Z-QU7qJOf8sEA5R8@google.com> <86y0wrlrxt.wl-maz@kernel.org>
- <Z-QnBcE1TKPChQay@google.com> <86wmcbllg2.wl-maz@kernel.org>
-Message-ID: <Z-RGYO3QVj5JNjRB@google.com>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Ankit Agrawal <ankita@nvidia.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Jason Gunthorpe <jgg@nvidia.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	"joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, 
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "will@kernel.org" <will@kernel.org>, 
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com" <david@redhat.com>, 
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, 
-	Kirti Wankhede <kwankhede@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, 
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, 
-	Alistair Popple <apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, 
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke <udhoke@nvidia.com>, 
-	Dheeraj Nigam <dnigam@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>, 
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>, 
-	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com" <coltonlewis@google.com>, 
-	"kevin.tian@intel.com" <kevin.tian@intel.com>, "yi.l.liu@intel.com" <yi.l.liu@intel.com>, 
-	"ardb@kernel.org" <ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, 
-	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
-	"ddutile@redhat.com" <ddutile@redhat.com>, "tabba@google.com" <tabba@google.com>, 
-	"qperret@google.com" <qperret@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 26 Mar 2025 18:51:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NfwJCq/t9ducNRaLx2qQjDtCyCvFWODqXz84Ti4FbsQnLgbERsnL6/2VtPFLEfleaECP68ZhtINOLAhVxd0PPSBjRlKhi2/q3itTLblON5xgtoitacyDAld0O8AOrPS2OxY0O5UwpAlfM+1SA9r41AjButBw1oumqU/yJ3RlGcAyVoYASd8iRoq2dQ13StRLcoSXLG8OlFJr3Il1Mt8r++DReLQoPJfeEqHbFlVGyWuQ4Hlf4jVMvph2UnRSO0HWMv7+RinpEbX5DYQL3jhR2oYkNtsUNhSuBKU9SwQBTWaEbAjMUTsygQbNurEAUuX8gQae4Gl5odbabIiDgiDVMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L+KNP8OqTYw9MQ+DgCBgwcxKuJJoj51nlpNspN6AiT4=;
+ b=SqXhH+vMa6uz/GQz4v2fVNlLoyRDc1W7/wjlI6ZwrEA0FMIm7W/CNsfNufOdlT/w5xzJt+PnbdAgmKaovcMXTWeXWoB4K8rmZKXUzg1OesqN5WvXLWCIdc/REwHQ9UMFV3T9yFR/kQ+P64Rv4Ac119/x/arRqAk7i0eZ55jomAWR9JMFMVFlMBzldnr2X6ED/NpKOP7vuWLHufWXAH2vuNQ/frv4wrEWDYOgxIkCc021HNYIDWKi0zcK/p75l0KNykFGG4+Y+BKJTF3m4TQmH/NwhpInEHwQdoAK7n5KT7mQjXDueX/rk7ka6emEGxZmIPtJ2pfQL/xUVNbUsZ2Pvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L+KNP8OqTYw9MQ+DgCBgwcxKuJJoj51nlpNspN6AiT4=;
+ b=L4p0HXMB1Zu3McFI4RPAivOhoKPj+eJNwommEjEyWOMSNEBkI9dMj2EjpeUwg+82tO7sa29sYjP4skT/sCyViMAqSw/d3+r3d/amaMaGPQP48VcqDm26uowT9zTi/d+EaVh1IASZrcEImcTfgBLef8FYZ6+hkAGdKQ16WeS+nJeQ6KvcENBTwBwFOES1uIDymYssaS4p9swvxfE7QAszWeCQByD+JrrByWrQ23NFNn5bkGvzRapgR17gNzHQqCxnREtIl8TEtJqRp/vlTFxfFayUMspHU/AGiW1CXqz0rCy0LgDi+Ev7dE6p2EPFW7yGBg48SfxaFIDPxnUoSA4Asg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB9704.eurprd04.prod.outlook.com (2603:10a6:10:303::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.43; Wed, 26 Mar
+ 2025 18:51:51 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Wed, 26 Mar 2025
+ 18:51:50 +0000
+Date: Wed, 26 Mar 2025 14:51:06 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] ARM: dts: mxs: Add support for second revision of
+ the XEA board (imx287)
+Message-ID: <Z+RMmm7YKN1IjsCC@lizhi-Precision-Tower-5810>
+References: <20250326173400.2697684-1-lukma@denx.de>
+ <20250326173400.2697684-2-lukma@denx.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250326173400.2697684-2-lukma@denx.de>
+X-ClientProxiedBy: PH8PR22CA0004.namprd22.prod.outlook.com
+ (2603:10b6:510:2d1::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9704:EE_
+X-MS-Office365-Filtering-Correlation-Id: b48cc5b8-9991-482c-587c-08dd6c9744cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|366016|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zPFjsABfJ/HuuJPT4MHM1vSlKQLKhlkqowKiWqqTLpBNM9qpWQVw8JpOA6Yk?=
+ =?us-ascii?Q?GxVaHRL2Vcx2pCS3BT64514MTPUaAC+Bj02/goAck75H5hb2MZTeAnHInFoJ?=
+ =?us-ascii?Q?w/XRHwZ9W3XXwOYnFd7qNgfLsYl/GNmVf6KiMwNib/oEY7/JNvPZNjTOMSFc?=
+ =?us-ascii?Q?zyADl5FZ0jDgL/0SGTkzSXxQ8QOAqWIWPqt2QV2+58RwNlaZ0ndPnPUAo/oc?=
+ =?us-ascii?Q?f3US5yFFJc1zgyKBQRKZY6ykrzUTMSKKOUCa/Z+hz7Vs1I5/JE8PQfoU9ebu?=
+ =?us-ascii?Q?R3CPbJ+Ed1b5o32EhpKj8aeUX0/61svwo/Mt6fw3eTPffolTFs46rYaYWZ94?=
+ =?us-ascii?Q?YCO1D1K+cMYLX/xTYrOfllwoEJcaRemRvh974tOrYV9+hAm0oFvTLHnlVIvc?=
+ =?us-ascii?Q?Uj9SZSAGtuM8rHysSPsCGY7U5sLxKSFjkkKmh0GDglc4DG4rdfZnbJAxmSws?=
+ =?us-ascii?Q?ZFig+khRQxO7cFUn7nmxQkMRBLQXBAVPT0bTTpDMun42q601T7iFpV0m+wSt?=
+ =?us-ascii?Q?6XkdwHkT9M//3ajCOlAbhXIw1zFZCmHKhiCincMFM/xU4+8+qcHN7K/Wt2ii?=
+ =?us-ascii?Q?aBeBv7FuCMsJZi0j+RQVHue430/NKo77DrpjQ4kfpq5FDG+xtH+oEDUX0xc6?=
+ =?us-ascii?Q?PP5u/T3BxPMf6ep0x5SwFzDGVKwoK+aLzh7cpYj+XKj1q9cQPeEsqdZicP1I?=
+ =?us-ascii?Q?XPIUlbfCd5rr4N+t8jVje3rI38k8nZg9wcRGglj8gkeDNQiv09MnKRg7aFMK?=
+ =?us-ascii?Q?OOt4z+0oMA4qKXgYn6qGKxUv7FUt5iqxEGEx6O/9D9pAjpxCx2OKNu3WploG?=
+ =?us-ascii?Q?EnnB/Z7ZoLJkuFCmpTIgwe2laaBmbYwHU1GVRpfajkgBoLusfSU6p3qO27D2?=
+ =?us-ascii?Q?lO3iU9Ys4ypQQHVFzXFuMb0p7DdVP6BjQ8xdKL2x5oKky8m5Y/7f7ukGVjEE?=
+ =?us-ascii?Q?hlt2VlypqvWIgxQPatzOI+LdSxwkOKDSKyuL73Vqr35QpxnpfxRpfjiY0XGD?=
+ =?us-ascii?Q?EwsQZIGzuu2VvVgEH2grhP0xnr6zCFqoGGmJbNv0PnysqU9gppwHcWigeB03?=
+ =?us-ascii?Q?XPYGALp+wIL29PThY7j9PlG/aZCBN/v/SWxoeOdVKvMg7++S8F4egu2QiU4A?=
+ =?us-ascii?Q?c612splZ8k70ADVNoOdtEE709SJHzOL5ayOuQFwLNzbP1kyqUWzNEwjPhEb2?=
+ =?us-ascii?Q?CD/Ba7nbs4DO5Mc4e8V1+dTGh0cjDq1mlzJOyEgLTQGmO9Iqx6/gKDxYp0Uu?=
+ =?us-ascii?Q?vgtoe1pa43drUq7g/nUZNjkvTRHs1P7oS5yd94Z9OTkwEZylOosSKbL7H2/8?=
+ =?us-ascii?Q?frqjQWtNoYtZ6A3YXvF/Rt8re4aKvOyaUjrQQc2SJoUyCOhWpAH1BUJvUVsE?=
+ =?us-ascii?Q?mWKjpjUDsDcHo8UBp0YUTLrcxJisbggGJ7cmMUw2zafmlY/gYZPy3AajTtCl?=
+ =?us-ascii?Q?F+ca3sY8v9dhL74M4DZ3TN/fNa25kzzl?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(366016)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9KhalWrZeg9CJM8rzwu6NBO+oy6y/p3IuejBBJtlUkNIiUAdKlbiPVekrUXb?=
+ =?us-ascii?Q?QuPZVGqmMRMQRL4gxiWLiadwzdQu5lIr5qKL5G5vJ4j6mVhBaHdt7NiY18Xe?=
+ =?us-ascii?Q?cadpNcp/Elp67FfzNy3Axqnk2s42m0wLNQ5igBcfmNZ3z6HsfKlIrXHxVgk6?=
+ =?us-ascii?Q?729wNZLk7ccl1d/GrHg20dNF6u/E/lNsfBCkXhD3/KF4xzuiH2iA//IPG6G6?=
+ =?us-ascii?Q?AQAxXyHLTiYdYmkvIg34C72b7+GFqqmop0y2tjOFlTWTUE0f+hkq1pPn5Loq?=
+ =?us-ascii?Q?QC4TIusDOsVw+Yga4FynpPhK5gfk2+QU6PTDak2X86w/diTf8z/c3J+9H0iF?=
+ =?us-ascii?Q?uA1JAzvULwG/1CaOieZqD3kccOZHdMep88KluGLiHRl/QIcs1pnIWibFs43G?=
+ =?us-ascii?Q?pqkoDMX0+zl4OtQEkSVUf25aPi/XBVCrvNxPWd0pmZIbEsgM8X7BQCmjytB3?=
+ =?us-ascii?Q?A7EUEjrf9Q0thfQPk8/VDFVHe4YyVosIrbRzc6T3OBwrOOZVivYjSZFkQ0jL?=
+ =?us-ascii?Q?nUdxkCkpTYOtvN5ZtG/z3t4ltfERImaU2g/WKv4NxsWvcsCCCnlswxD/qg0A?=
+ =?us-ascii?Q?geGGYxWj9jJkAzSE00DT5Ryquf1QDAORWHX/gtSUjoQGU57e6kGHvNMFTjo4?=
+ =?us-ascii?Q?RnLqqFIl7lo6my9JICTUyqZqb8MbTzjBAuFpYsAFVAnPYoY7/HNqO1fSwowA?=
+ =?us-ascii?Q?xaaVBuOPsGxNbHOVszXE0Ki2PkZrsLcUQrYkRzoC6D+XnDCR2DfO0ZgcIFzg?=
+ =?us-ascii?Q?Opjw+JjnGvtqRbxdcOK85hsSHI3urwv75muZZ0FWQJS6kpXs8xxZhFmkJHIp?=
+ =?us-ascii?Q?GY+Nb0Enm9ZKPZ/R2yS7k8Uo4kxZeRy7tiJh/M6Vq6OP7jcmJ4gcfZO4Ouy+?=
+ =?us-ascii?Q?PpSzPgzzCE9o1/WGHWW0RRNL0gbbVMx3hjUxhLgDR5EV6kvr1lE2AaVmgnVD?=
+ =?us-ascii?Q?JpC5P3PnwyBjkd4sFUfvSzBLAQW24xyYMqjJXtSnQodoEc4J7GTnrBoxUH24?=
+ =?us-ascii?Q?Ob497OdZNWK3nsnewKRM26P5IGXMu5NlhEHH+KlTcga7T4Fgos2BC7KDFs9b?=
+ =?us-ascii?Q?H680YXfz2ujrMKq+BUHb/QJS1HobCOUjE+ztjpUHJsdD641iu3ICnBhwCjoF?=
+ =?us-ascii?Q?twbrP4/iSAWj/0Uqck2Jfoy/SqJIA/5w1Ir9nq0refTt/1rjzqekyFpzNQnR?=
+ =?us-ascii?Q?qXkU45etH69CrFBOjA75E7I5qub04n9F14+bs4o2SDQsD4neGzFS5tbaKyWa?=
+ =?us-ascii?Q?azl9qddgiJFjySviVx5LAD/Yzq15VFLSu4n6lQtkx/U8L00Wl4Eyi5HDxRX9?=
+ =?us-ascii?Q?6/qzZV03RWscGR5Sq8qfqVtRcl5vB/PE/gEJEEchSkZnswHkrAta2puoRBPh?=
+ =?us-ascii?Q?UoFIihgkucJlFEGd9Qa+aAamIfQNJAHycsKPy7q1Qs9Ck5PyR7SVjHPPB7Xc?=
+ =?us-ascii?Q?tGvcuy8OdjkekgglWfMpH2UfRDDPNWmtjCfIGKF6PVgWYc+OBP2+7Bz962kN?=
+ =?us-ascii?Q?zZGMAqz3gtK4DcfkEYRfgBJMABnmlCluVY7rK7E4khsUWMBojz2cT4YFGSuc?=
+ =?us-ascii?Q?RgjzDHO1T/8xDScJB1VFiPsgNgCAiP+PMUHvJ8pJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b48cc5b8-9991-482c-587c-08dd6c9744cc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2025 18:51:50.8478
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z/dsdsgg5ldR1KvRNHb1jpZZKNYgJyhpwkwYp0kC6ch1uHbhTpAgbCLN5hOpesrjjL3RUenOyUNrPlG6rOr2fg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9704
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_112435_459761_C56698C9 
-X-CRM114-Status: GOOD (  59.35  )
+X-CRM114-CacheID: sfid-20250326_115158_405282_D5712CFC 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,163 +162,458 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025, Marc Zyngier wrote:
-> On Wed, 26 Mar 2025 16:10:45 +0000,
-> Sean Christopherson <seanjc@google.com> wrote:
-> > 
-> > On Wed, Mar 26, 2025, Marc Zyngier wrote:
-> > > On Wed, 26 Mar 2025 14:53:34 +0000,
-> > > Sean Christopherson <seanjc@google.com> wrote:
-> > > > 
-> > > > On Wed, Mar 26, 2025, Ankit Agrawal wrote:
-> > > > > > On Wed, Mar 19, 2025 at 04:22:46PM -0300, Jason Gunthorpe wrote:
-> > > > > > > On Wed, Mar 19, 2025 at 06:11:02PM +0000, Catalin Marinas wrote:
-> > > > > > > > On Wed, Mar 19, 2025 at 02:04:29PM -0300, Jason Gunthorpe wrote:
-> > > > > > > > > On Wed, Mar 19, 2025 at 12:01:29AM -0700, Oliver Upton wrote:
-> > > > > > > > > > You have a very good point that KVM is broken for cacheable PFNMAP'd
-> > > > > > > > > > crap since we demote to something non-cacheable, and maybe that
-> > > > > > > > > > deserves fixing first. Hopefully nobody notices that we've taken away
-> > > > > > > > > > the toys...
-> > > > > > > > >
-> > > > > > > > > Fixing it is either faulting all access attempts or mapping it
-> > > > > > > > > cachable to the S2 (as this series is trying to do)..
-> > > > > > > >
-> > > > > > > > As I replied earlier, it might be worth doing both - fault on !FWB
-> > > > > > > > hardware (or rather reject the memslot creation), cacheable S2
-> > > > > > > > otherwise.
-> > > > > > >
-> > > > > > > I have no objection, Ankit are you able to make a failure patch?
-> > > > > >
-> > > > > > I'd wait until the KVM maintainers have their say.
-> > > > > > 
-> > > > > 
-> > > > > Maz, Oliver any thoughts on this? Can we conclude to create this failure
-> > > > > patch in memslot creation?
-> > > > 
-> > > > That's not sufficient.  As pointed out multiple times in this thread, any checks
-> > > > done at memslot creation are best effort "courtesies" provided to userspace to
-> > > > avoid terminating running VMs when the memory is faulted in.
-> > > > 
-> > > > I.e. checking at memslot creation is optional, checking at fault-in/mapping is
-> > > > not.
-> > > > 
-> > > > With that in place, I don't see any need for a memslot flag.  IIUC, without FWB,
-> > > > cacheable pfn-mapped memory is broken and needs to be disallowed.  But with FWB,
-> > > > KVM can simply honor the cacheability based on the VMA.  Neither of those requires
-> > > 
-> > > Remind me how this work with stuff such as guestmemfd, which, by
-> > > definition, doesn't have a userspace mapping?
-> > 
-> > Definitely not through a memslot flag.  The cacheability would be a property of
-> > the guest_memfd inode, similar to how it's a property of the underlying device
-> > in this case.
-> 
-> It's *not* a property of the device. It's a property of the mapping.
+On Wed, Mar 26, 2025 at 06:34:00PM +0100, Lukasz Majewski wrote:
+> Up till now the XEA had only single revision supported in Linux kernel.
+>
+> As some in-HW adjustments were made - it has been required to extend
+> the support with second version.
+>
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> ---
+>  arch/arm/boot/dts/nxp/mxs/Makefile        |   3 +-
+>  arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dts |  29 ++++
+>  arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dts |  66 ++++++++
+>  arch/arm/boot/dts/nxp/mxs/imx28-xea.dts   | 100 -----------
+>  arch/arm/boot/dts/nxp/mxs/imx28-xea.dtsi  | 191 ++++++++++++++++++++++
+>  5 files changed, 288 insertions(+), 101 deletions(-)
+>  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dts
+>  delete mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-xea.dtsi
+>
+> diff --git a/arch/arm/boot/dts/nxp/mxs/Makefile b/arch/arm/boot/dts/nxp/mxs/Makefile
+> index 96dd31ea19ba..de4cafd820c2 100644
+> --- a/arch/arm/boot/dts/nxp/mxs/Makefile
+> +++ b/arch/arm/boot/dts/nxp/mxs/Makefile
+> @@ -31,4 +31,5 @@ dtb-$(CONFIG_ARCH_MXS) += \
+>  	imx28-sps1.dtb \
+>  	imx28-ts4600.dtb \
+>  	imx28-tx28.dtb \
+> -	imx28-xea.dtb
+> +	imx28-xea-1.dtb \
+> +	imx28-xea-2.dtb
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dts b/arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dts
+> new file mode 100644
+> index 000000000000..a56c9930752a
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dts
+> @@ -0,0 +1,29 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> +/*
+> + * Copyright 2025
+> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> + */
+> +
+> +/dts-v1/;
+> +#include "imx28-xea.dtsi"
+> +
+> +/ {
+> +	model = "XEA v1";
+> +};
+> +
+> +&pinctrl {
+> +	pinctrl-0 = <&hog_pins_a &hog_pins_tiva &hog_pins_rev1>;
+> +
+> +	hog_pins_rev1: hog@3 {
+> +		reg = <3>;
+> +		fsl,pinmux-ids = <
+> +			MX28_PAD_SSP1_SCK__GPIO_2_12
+> +			MX28_PAD_SSP1_SCK__GPIO_2_12
+> +			MX28_PAD_SSP2_SS1__GPIO_2_20
+> +			MX28_PAD_SSP2_SS2__GPIO_2_21
+> +		>;
+> +		fsl,drive-strength = <MXS_DRIVE_4mA>;
+> +		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up = <MXS_PULL_DISABLE>;
+> +	};
+> +};
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dts b/arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dts
+> new file mode 100644
+> index 000000000000..498905def9c1
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dts
+> @@ -0,0 +1,66 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> +/*
+> + * Copyright 2025
+> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> + */
+> +
+> +/dts-v1/;
+> +#include "imx28-xea.dtsi"
+> +
+> +/ {
+> +	model = "XEA v2";
+> +};
+> +
+> +&pinctrl {
+> +	pinctrl-0 = <&hog_pins_a &hog_pins_tiva &hog_pins_rev1>;
+> +
+> +	hog_pins_rev1: hog@3 {
+> +		reg = <3>;
+> +		fsl,pinmux-ids = <
+> +			MX28_PAD_SAIF0_LRCLK__GPIO_3_21
+> +		>;
+> +		fsl,drive-strength = <MXS_DRIVE_4mA>;
+> +		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up = <MXS_PULL_DISABLE>;
+> +	};
+> +
+> +	spi1_pins_a: spi1@0 {
+> +		reg = <0>;
+> +		fsl,pinmux-ids = <
+> +			MX28_PAD_SSP1_SCK__SSP1_SCK
+> +			MX28_PAD_SSP1_CMD__SSP1_CMD
+> +			MX28_PAD_SSP1_DATA0__SSP1_D0
+> +			MX28_PAD_SSP1_DATA3__GPIO_2_15
+> +		>;
+> +		fsl,drive-strength = <MXS_DRIVE_8mA>;
+> +		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up = <MXS_PULL_ENABLE>;
+> +	};
+> +};
+> +
+> +&ssp1 {
+> +	compatible = "fsl,imx28-spi";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&spi1_pins_a>;
+> +	status = "okay";
+> +
+> +	spidev0@0 {
+> +		compatible = "lwn,btt";
+> +		spi-max-frequency = <100000000>;
+> +		reg = <0>;
 
-Sorry, bad phrasing.  I was trying to say that the entity that controls the
-cacheability is ultimately whatever kernel subsystem/driver controls the mapping.
+reg should after compatible.
 
-> > I don't entirely see what guest_memfd has to do with this.
-> 
-> You were the one mentioning sampling the cacheability via the VMA. As
-> far as I understand guestmemfd, there is no VMA to speak of.
-> 
-> > One of the big
-> > advantages of guest_memfd is that KVM has complete control over the lifecycle of
-> > the memory.  IIUC, the issue with !FWB hosts is that KVM can't guarantee there
-> > are valid host mappings when memory is unmapped from the guest, and so can't do
-> > the necessary maintenance.  I agree with Jason's earlier statement that that's a
-> > solvable kernel flaw.
-> >
-> > For guest_memfd, KVM already does maintenance operations when memory is reclaimed,
-> > for both SNP and TDX.  I don't think ARM's cacheability stuff would require any
-> > new functionality in guest_memfd.
-> 
-> I don't know how you reconcile the lack of host mapping and cache
-> maintenance. The latter cannot take place without the former.
+> +	};
+> +
+> +	spidev2@2 {
+> +		compatible = "lwn,btt";
+> +		spi-max-frequency = <100000000>;
+> +		reg = <2>;
+> +	};
+> +};
+> +
+> +&ssp3 {
+> +	spidev1@1 {
+> +		compatible = "lwn,btt";
+> +		spi-max-frequency = <100000000>;
+> +		reg = <1>;
+> +	};
+> +};
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
+> deleted file mode 100644
+> index 6c5e6856648a..000000000000
+> --- a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
+> +++ /dev/null
+> @@ -1,100 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> -/*
+> - * Copyright 2021
+> - * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> - */
+> -
+> -/dts-v1/;
+> -#include "imx28-lwe.dtsi"
+> -
+> -/ {
+> -	model = "Liebherr XEA board";
+> -	compatible = "lwn,imx28-xea", "fsl,imx28";
+> -};
+> -
+> -&can0 {
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&can1_pins_a>;
+> -	status = "okay";
+> -};
+> -
+> -&i2c1 {
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&i2c1_pins_b>;
+> -	status = "okay";
+> -};
+> -
+> -&pinctrl {
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&hog_pins_a &hog_pins_tiva>;
+> -
+> -	hog_pins_a: hog@0 {
+> -		reg = <0>;
+> -		fsl,pinmux-ids = <
+> -			MX28_PAD_GPMI_D00__GPIO_0_0
+> -			MX28_PAD_GPMI_D02__GPIO_0_2
+> -			MX28_PAD_GPMI_D05__GPIO_0_5
+> -			MX28_PAD_GPMI_CE1N__GPIO_0_17
+> -			MX28_PAD_GPMI_RDY0__GPIO_0_20
+> -			MX28_PAD_GPMI_RDY1__GPIO_0_21
+> -			MX28_PAD_GPMI_RDY2__GPIO_0_22
+> -			MX28_PAD_GPMI_RDN__GPIO_0_24
+> -			MX28_PAD_GPMI_CLE__GPIO_0_27
+> -			MX28_PAD_LCD_VSYNC__GPIO_1_28
+> -			MX28_PAD_SSP1_SCK__GPIO_2_12
+> -			MX28_PAD_SSP1_CMD__GPIO_2_13
+> -			MX28_PAD_SSP2_SS1__GPIO_2_20
+> -			MX28_PAD_SSP2_SS2__GPIO_2_21
+> -			MX28_PAD_LCD_D00__GPIO_1_0
+> -			MX28_PAD_LCD_D01__GPIO_1_1
+> -			MX28_PAD_LCD_D02__GPIO_1_2
+> -			MX28_PAD_LCD_D03__GPIO_1_3
+> -			MX28_PAD_LCD_D04__GPIO_1_4
+> -			MX28_PAD_LCD_D05__GPIO_1_5
+> -			MX28_PAD_LCD_D06__GPIO_1_6
+> -		>;
+> -		fsl,drive-strength = <MXS_DRIVE_4mA>;
+> -		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> -		fsl,pull-up = <MXS_PULL_DISABLE>;
+> -	};
+> -
+> -	hog_pins_tiva: hog@1 {
+> -		reg = <1>;
+> -		fsl,pinmux-ids = <
+> -			MX28_PAD_GPMI_RDY3__GPIO_0_23
+> -			MX28_PAD_GPMI_WRN__GPIO_0_25
+> -		>;
+> -		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> -		fsl,pull-up = <MXS_PULL_DISABLE>;
+> -	};
+> -
+> -	hog_pins_coding: hog@2 {
+> -		reg = <2>;
+> -		fsl,pinmux-ids = <
+> -			MX28_PAD_GPMI_D01__GPIO_0_1
+> -			MX28_PAD_GPMI_D03__GPIO_0_3
+> -			MX28_PAD_GPMI_D04__GPIO_0_4
+> -			MX28_PAD_GPMI_D06__GPIO_0_6
+> -			MX28_PAD_GPMI_D07__GPIO_0_7
+> -		>;
+> -		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> -		fsl,pull-up = <MXS_PULL_DISABLE>;
+> -	};
+> -};
+> -
+> -&reg_fec_3v3 {
+> -	gpio = <&gpio0 0 0>;
+> -};
+> -
+> -&reg_usb_5v {
+> -	gpio = <&gpio0 2 0>;
+> -};
+> -
+> -&spi2_pins_a {
+> -	fsl,pinmux-ids = <
+> -		MX28_PAD_SSP2_SCK__SSP2_SCK
+> -		MX28_PAD_SSP2_MOSI__SSP2_CMD
+> -		MX28_PAD_SSP2_MISO__SSP2_D0
+> -		MX28_PAD_SSP2_SS0__GPIO_2_19
+> -	>;
+> -};
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dtsi b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dtsi
+> new file mode 100644
+> index 000000000000..adbdc3871045
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dtsi
+> @@ -0,0 +1,191 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> +/*
+> + * Copyright 2025
+> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
+> + */
+> +
+> +/dts-v1/;
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include "imx28-lwe.dtsi"
+> +
+> +/ {
+> +	compatible = "lwn,imx28-xea", "fsl,imx28";
+> +
+> +	reg_standby: regulator-standby {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpio0 20 GPIO_ACTIVE_LOW>;
+> +		regulator-name = "enable-standby";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +	};
+> +};
+> +
+> +&can1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&can1_pins_a>;
+> +	xceiver-supply = <&reg_usb_5v>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c1_pins_b>;
+> +	status = "okay";
+> +};
+> +
+> +&eth_switch {
 
-I assume cache maintenance only requires _a_ mapping to the physical memory.
-With guest_memfd, KVM has the pfn (which happens to always be struct page memory
-today), and so can establish a VA=>PA mapping as needed.
 
-> > > > a memslot flag.  A KVM capability to enumerate FWB support would be nice though,
-> > > > e.g. so userspace can assert and bail early without ever hitting an
-> > > > ioctl error.
-> > > 
-> > > It's not "nice". It's mandatory. And FWB is definitely *not* something
-> > > we want to expose as such.
-> > 
-> > I agree a capability is mandatory if we're adding a memslot flag, but I don't
-> > think it's mandatory if this is all handled through kernel plumbing.
-> 
-> It is mandatory, full stop. Otherwise, userspace is able to migrate a
-> VM from an FWB host to a non-FWB one, start the VM, blow up on the
-> first page fault. That's not an acceptable outcome.
-> 
-> > 
-> > > > If we want to support existing setups that happen to work by dumb luck or careful
-> > > > configuration, then that should probably be an admin decision to support the
-> > > > "unsafe" behavior, i.e. an off-by-default KVM module param, not a memslot flag.
-> > > 
-> > > No. That's not how we handle an ABI issue. VM migration, with and
-> > > without FWB, can happen in both direction, and must have clear
-> > > semantics. So NAK to a kernel parameter.
-> > > 
-> > > If I have a VM with a device mapped as *device* on FWB host, I must be
-> > > able to migrate it to non-FWB host, and back. A device mapped as
-> > > *cacheable* can only be migrated between FWB-capable hosts.
-> > 
-> > But I thought the whole problem is that mapping this fancy memory as device is
-> > unsafe on non-FWB hosts?  If it's safe, then why does KVM needs to reject anything
-> > in the first place?
-> 
-> I don't know where you got that idea. This is all about what memory
-> type is exposed to a guest:
-> 
-> - with FWB, no need for CMOs, so cacheable memory is allowed if the
->   device supports it (i.e. it actually exposes memory), and device
->   otherwise.
-> 
-> - without FWB, CMOs are required, and we don't have a host mapping for
->   these pages. As a fallback, the mapping is device only, as this
->   doesn't require any CMO by definition.
-> 
-> There is no notion of "safety" here.
+This is new file, suggest order by name
 
-Ah, the safety I'm talking about is the CMO requirement.  IIUC, not doing CMOs
-if the memory is cacheable could result in data corruption, i.e. would be a safety
-issue for the host.  But I missed that you were proposing that the !FWB behavior
-would be to force device mappings.
+You can use https://github.com/lznuaa/dt-format to order it.
 
-> > > Importantly, it is *userspace* that is in charge of deciding how the
-> > > device is mapped at S2. And the memslot flag is the correct
-> > > abstraction for that.
-> >  
-> > I strongly disagree.  Whatever owns the underlying physical memory is in charge,
-> > not userspace.  For memory that's backed by a VMA, userspace can influence the
-> > behavior through mmap(), mprotect(), etc., but ultimately KVM needs to pull state
-> > from mm/, via the VMA.  Or in the guest_memfd case, from guest_memfd.
-> 
-> I don't buy that. Userspace needs to know the semantics of the memory
-> it gives to the guest. Or at least discover that the same device
-> plugged into to different hosts will have different behaviours. Just
-> letting things rip is not an acceptable outcome.
+Frank
 
-Agreed, but that doesn't require a memslot flag.  A capability to enumerate that
-KVM can do cacheable mappings for PFNMAP memory would suffice.  And if we want to
-have KVM reject memslots that are cachaeable in the VMA, but would get device in
-stage-2, then we can provide that functionality through the capability, i.e. let
-userspace decide if it wants "fallback to device" vs. "error on creation" on a
-per-VM basis.
-
-What I object to is adding a memslot flag.
-
-> > I have no objection to adding KVM uAPI to let userspace add _restrictions_, e.g.
-> > to disallow mapping memory as writable even if the VMA is writable.  But IMO,
-> > adding a memslot flag to control cacheability isn't purely substractive.
-> 
-> I don't see how that solves the problem at hand: given the presence or
-> absence of FWB, allow userspace to discover as early as possible what
-> behaviour a piece of memory provided by a device will have, and
-> control it to handle migration.
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
+> +	phy-supply = <&reg_fec_3v3>;
+> +	phy-reset-duration = <25>;
+> +	phy-reset-post-delay = <10>;
+> +	status = "okay";
+> +
+> +	ethernet-ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		mtip_port1: port@1 {
+> +			reg = <1>;
+> +			label = "lan0";
+> +			local-mac-address = [ 00 00 00 00 00 00 ];
+> +			phy-mode = "rmii";
+> +			phy-handle = <&ethphy0>;
+> +		};
+> +
+> +		mtip_port2: port@2 {
+> +			reg = <2>;
+> +			label = "lan1";
+> +			local-mac-address = [ 00 00 00 00 00 00 ];
+> +			phy-mode = "rmii";
+> +			phy-handle = <&ethphy1>;
+> +		};
+> +	};
+> +
+> +	mdio {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		ethphy0: ethernet-phy@0 {
+> +			reg = <0>;
+> +			smsc,disable-energy-detect;
+> +			/* Both PHYs (i.e. 0,1) have the same, single GPIO, */
+> +			/* line to handle both, their interrupts (AND'ed) */
+> +			interrupt-parent = <&gpio4>;
+> +			interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
+> +		};
+> +
+> +		ethphy1: ethernet-phy@1 {
+> +			reg = <1>;
+> +			smsc,disable-energy-detect;
+> +			interrupt-parent = <&gpio4>;
+> +			interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
+> +		};
+> +	};
+> +};
+> +
+> +&mac0 {
+> +	phy-mode = "rmii";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mac0_pins_a>;
+> +	phy-supply = <&reg_fec_3v3>;
+> +	phy-reset-duration = <100>;
+> +	local-mac-address = [ 00 11 B8 00 BF 8A ];
+> +	status = "okay";
+> +};
+> +
+> +&mac1 {
+> +	phy-mode = "rmii";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mac1_pins_a>;
+> +	status = "okay";
+> +};
+> +
+> +&pinctrl {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&hog_pins_a &hog_pins_tiva>;
+> +
+> +	hog_pins_a: hog@0 {
+> +		reg = <0>;
+> +		fsl,pinmux-ids = <
+> +			MX28_PAD_GPMI_D00__GPIO_0_0
+> +			MX28_PAD_GPMI_D02__GPIO_0_2
+> +			MX28_PAD_GPMI_D05__GPIO_0_5
+> +			MX28_PAD_GPMI_CE1N__GPIO_0_17
+> +			MX28_PAD_GPMI_RDY0__GPIO_0_20
+> +			MX28_PAD_GPMI_RDY1__GPIO_0_21
+> +			MX28_PAD_GPMI_RDY2__GPIO_0_22
+> +			MX28_PAD_GPMI_RDN__GPIO_0_24
+> +			MX28_PAD_GPMI_CLE__GPIO_0_27
+> +			MX28_PAD_LCD_VSYNC__GPIO_1_28
+> +			MX28_PAD_LCD_D00__GPIO_1_0
+> +			MX28_PAD_LCD_D01__GPIO_1_1
+> +			MX28_PAD_LCD_D02__GPIO_1_2
+> +			MX28_PAD_LCD_D03__GPIO_1_3
+> +			MX28_PAD_LCD_D04__GPIO_1_4
+> +			MX28_PAD_LCD_D05__GPIO_1_5
+> +			MX28_PAD_LCD_D06__GPIO_1_6
+> +			MX28_PAD_LCD_D15__GPIO_1_15
+> +			MX28_PAD_LCD_D16__GPIO_1_16
+> +			MX28_PAD_LCD_D17__GPIO_1_17
+> +			MX28_PAD_LCD_D18__GPIO_1_18
+> +		>;
+> +		fsl,drive-strength = <MXS_DRIVE_4mA>;
+> +		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up = <MXS_PULL_DISABLE>;
+> +	};
+> +
+> +	hog_pins_tiva: hog@1 {
+> +		reg = <1>;
+> +		fsl,pinmux-ids = <
+> +			MX28_PAD_GPMI_RDY3__GPIO_0_23
+> +			MX28_PAD_GPMI_WRN__GPIO_0_25
+> +		>;
+> +		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up = <MXS_PULL_DISABLE>;
+> +	};
+> +
+> +	hog_pins_coding: hog@2 {
+> +		reg = <2>;
+> +		fsl,pinmux-ids = <
+> +			MX28_PAD_GPMI_D01__GPIO_0_1
+> +			MX28_PAD_GPMI_D03__GPIO_0_3
+> +			MX28_PAD_GPMI_D04__GPIO_0_4
+> +			MX28_PAD_GPMI_D06__GPIO_0_6
+> +			MX28_PAD_GPMI_D07__GPIO_0_7
+> +		>;
+> +		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> +		fsl,pull-up = <MXS_PULL_DISABLE>;
+> +	};
+> +};
+> +
+> +&reg_fec_3v3 {
+> +	gpio = <&gpio0 0 0>;
+> +};
+> +
+> +&reg_usb_5v {
+> +	gpio = <&gpio0 2 0>;
+> +};
+> +
+> +&ssp2 {
+> +	spidev1@1 {
+> +		compatible = "lwn,btt";
+> +		spi-max-frequency = <100000000>;
+> +		reg = <1>;
+> +	};
+> +
+> +	spidev2@2 {
+> +		compatible = "lwn,btt";
+> +		spi-max-frequency = <100000000>;
+> +		reg = <2>;
+> +	};
+> +};
+> +
+> +&spi2_pins_a {
+> +	fsl,pinmux-ids = <
+> +		MX28_PAD_SSP2_SCK__SSP2_SCK
+> +		MX28_PAD_SSP2_MOSI__SSP2_CMD
+> +		MX28_PAD_SSP2_MISO__SSP2_D0
+> +		MX28_PAD_SSP2_SS0__GPIO_2_19
+> +	>;
+> +};
+> --
+> 2.39.5
+>
 
