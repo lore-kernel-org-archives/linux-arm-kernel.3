@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B15F7C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC91C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CkJn3M6AEzDyH3TUwTLWdOI1DwiYlnpY0XHSuR65Eto=; b=2sOUwFmvJrLUPw+YPOuHrSSvxm
-	XNbqfjyDi2hhmOa+78SRgMHqTLPmNnKjoDJWlDdLVTElCCZ3jTLGVyvihmIiz7LDrhLxryeQ2FtH/
-	soHDOcGiZmxJVx9bE83NP5lTTb8MlO4hBC+6Ge6cFZbql4hDRWdFDLiNwzymCVhEIjDpoNKlINz8t
-	1acWJ2X3IGpDr4YqoC20PFAHAOExKrBMfASuDfHdy8nkByTogMoI3iDFTbb7GzKvX2JOIAdVcTe4V
-	cvusQNNDootWd8Wa5NMXTheXJK2GvTzHauLXNSBYdTFmYhT50zYaVPTkiZzYNKEGVSyv/1kkuJdEl
-	tKC7JTTw==;
+	bh=M5q4xQnttosc9AG/lkT7XAIOi0eCHqzk3GmT1WNalk4=; b=mvNl8r8Ncx9C6VThG+mfLN/rsU
+	MFklDM//TF/QHE/UkIXNlfMFyHtpAtRlI6zoV7+7QdLUJnm8j29hG5hLBg7JeISK1RbNy1aqahPn1
+	CZ7p5brBjaXq3MFFA5uIVkL0HopjR4Go6pGxQf2RUm5m3PI8DA42ME2JrroTg3NvV3Z2Y/jhDQHnY
+	x6qfjcNGWfSmg4O9gl5aIITyYL7KJsbKox0YjaO3CEEeiYA/BQGTbanOsSmBDK6TCP4baUWpNhMGz
+	NBH3uSGRpV3FMz0DWkTw9yDn/fSdiltdUlKsY4/jwZyZZPB7OhNcPlUOPQL1PUwvm2WsDgy50Sq7X
+	bzIh8hRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txKvw-00000007khm-10zB;
-	Wed, 26 Mar 2025 07:12:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1txKxc-00000007kpa-48oj;
+	Wed, 26 Mar 2025 07:14:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txKq7-00000007jz9-2s6R
+	id 1txKqs-00000007k4s-1Esh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 07:06:16 +0000
+	Wed, 26 Mar 2025 07:07:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1419F435FE;
-	Wed, 26 Mar 2025 07:06:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94A90C4CEE2;
-	Wed, 26 Mar 2025 07:06:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 903E3A40B5A;
+	Wed, 26 Mar 2025 07:01:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1333EC4CEE2;
+	Wed, 26 Mar 2025 07:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742972775;
-	bh=y5ZL2NkvMiXZc4EUBjH27cSIyJItHG6f0AS5/17uehQ=;
+	s=k20201202; t=1742972821;
+	bh=DQSksbNd3/Q+zlJhSPULUC+Oc8sDej4F0+fpwmMZY5A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OZ1SStT4b/I7CevnR0TUZukUTRRlTxzmh9WiNghS6rs2qP4zRuqtDZT2KuFjf8VUq
-	 VECdCuTnQYtM7sKAkXZbjOBpwiR0Z+mkjQIG7QAU1+IKq7I6RDofOxHEfXLf4GWvKh
-	 ifQNV9aDMauQIABw0cRWHe0VuxkvHyY8gdJLz6TRfh6g1E1CbJsZ/2rkvr/BGhFRkP
-	 qSQSDYD/viR3dvHz6MQr15is0egbQf1uh92Ru13oNgUDVn4j7DwaZYrl7kQhLs2AeZ
-	 k5Qs/1P91KeOP8WkByEc/8fOtVW8m8STAtwnp0E7k1MqqT05j9eGckLVxRAUkeEUr4
-	 ZKoxVo1In44Ew==
-Message-ID: <e91b214f-3198-403a-be61-fcfe5645be61@kernel.org>
-Date: Wed, 26 Mar 2025 08:06:03 +0100
+	b=FAdnDQztQFuGxvzDnWpD143+KfMigy4Qxwucp80zqMNK5oer+yZm4SFxjX6IyP7dZ
+	 fLKHcvBbleyNWKKGkf9b8tOfI9MEakpcW3jJvTzTi2FqyZjjyowzTy+9sTHcfJuyCS
+	 sv9xcVXAErpDw6CilKm12Y8D3jzqbrWX36xmMtQFM0RUNeFXQKRWKm/WPFYS1KrwtR
+	 Qkpqb2ZLLsKILNZy6O34mEQuhg/kS0cbPmCcnQNqySunJvyDBHN+jDcZH9z+EY7Djf
+	 njtyTCiPbGyTfa14sPHm6mDRByFrxf5B2cw/q2zLQ0vaqWaCpk2MVAsB58ao5f99xh
+	 kzG7XZB64lxiw==
+Message-ID: <dff94c54-2bb8-4eea-b8bf-deacd6197007@kernel.org>
+Date: Wed, 26 Mar 2025 08:06:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/34] mfd: sec: fix open parenthesis alignment
- (of_property_read_bool)
+Subject: Re: [PATCH 09/34] mfd: sec: slightly rework runtime platform data
+ allocation
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -64,7 +64,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
- <20250323-s2mpg10-v1-8-d08943702707@linaro.org>
+ <20250323-s2mpg10-v1-9-d08943702707@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250323-s2mpg10-v1-8-d08943702707@linaro.org>
+In-Reply-To: <20250323-s2mpg10-v1-9-d08943702707@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_000615_764023_9E0C7D1F 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20250326_000702_463253_9DBD2317 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,34 +136,19 @@ On 23/03/2025 23:39, André Draszik wrote:
 > (move) all I2C-specific driver code into its own kernel module, and
 > create a (common) core transport-agnostic kernel module.
 > 
-> That move of code would highlight some unexpected alignment which
-> checkpatch would complain about. To avoid that, address the error now,
-> before the split, to keep the amount of unrelated changes to a minimum
-> when actually doing the split.
+> Transport drivers will have to do device tree parsing, and the core
+> driver will allocate its own additional memory as needed.
+> 
+> In preparation for that change, separate out runtime platform data
+> allocation from device tree parsing.
+> 
+> Having this change will create less churn in the upcoming split of the
+> transport-specific parts.
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
->  drivers/mfd/sec-core.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/mfd/sec-core.c b/drivers/mfd/sec-core.c
-> index 83693686567df61b5e09f7129dc6b01d69156ff3..b931f66f366571d93ce59c301265fe1c9550b37d 100644
-> --- a/drivers/mfd/sec-core.c
-> +++ b/drivers/mfd/sec-core.c
-> @@ -276,10 +276,12 @@ sec_pmic_i2c_parse_dt_pdata(struct device *dev)
->  	if (!pd)
->  		return ERR_PTR(-ENOMEM);
->  
-> -	pd->manual_poweroff = of_property_read_bool(dev->of_node,
-> -						"samsung,s2mps11-acokb-ground");
-> -	pd->disable_wrstbi = of_property_read_bool(dev->of_node,
-> -						"samsung,s2mps11-wrstbi-ground");
-> +	pd->manual_poweroff =
-> +		of_property_read_bool(dev->of_node,
-> +				      "samsung,s2mps11-acokb-ground");
 
-I don't think this code more readable. The continued line should be
-re-aligned.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
