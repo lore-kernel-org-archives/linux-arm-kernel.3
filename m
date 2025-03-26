@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA4FC3601B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3CEEC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j99x+HHnRvJvE8UMWDBgH5i9h2yDF4jNwaGyZxSsSko=; b=SAZhxfGi27fkwm8XEf6/RBzv3S
-	YrdaqadQJ6yoTo4deY+qx97vR1xNDIPgWd8/qA71ggLGyxT19EzPr+JRURT4ywcoCRcrDViREmHRR
-	Orzwe1UVwRCp+uoVTpSc6tmCFOqQpmxH0Ct7tcq3NuC9dmdqVpynhKlyFouKN4PaMNBIOzkB0OEOo
-	fspcrMgrxu+aQd2Hd54ifpanEHrayAuugJTPKfKZWrKpmDuB34KxWACyWOc/MY44joV0w5qyOVMEl
-	kl5of+9gwIo5dCwgn8k6dTQvWZVFse4cJ4jtBEIv3slr/S+py+3aIR2d6ZbwRqgdBEGYtpSbFg4sh
-	sR11wnQQ==;
+	bh=7dmFB76YnpMfJqA5Zs1zWgJHzMCeCVLrre2rzYv3SAY=; b=n4HvRCfXOlAODGlCWvR3eZhirb
+	1nZdfiScRMneiCKoShNMK9u/Phmwb8VE4OEdE9kg9fycvLG+lFl8ke8LuUoAlIpaXZUpIBkInN8ae
+	4P7Eta0pyqD2wSAdFUYlCfaaD2fveq7Jih+wcwF/hFRPi940FP3LgXieEeEzZS57bGxaAE9wbhl+g
+	cTrDDgj1+MnadVaNIdwrWtO+UeFZARJYJocjG3s+SMIX0I7p0GOwLTG2Wm8BaiWUKvsxCaPsutIZs
+	LAmS+H7aEEBwJTHRLiq/3/wg2/muQyvI5i0TeMh0z+069GMitgifO6r4Mfr0QOGKjqJ10gfA07uzy
+	o+8L+o7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTCz-00000008wJg-1lc8;
-	Wed, 26 Mar 2025 16:02:25 +0000
+	id 1txTCy-00000008wIX-2Hld;
+	Wed, 26 Mar 2025 16:02:24 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txSny-00000008sfh-2OCX
+	id 1txSnx-00000008sev-2gki
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 26 Mar 2025 15:36:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1743003394; x=1774539394;
+  t=1743003393; x=1774539393;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=P0+FQOoZAZDGBeJjjiJS1++QSiAMr7ZQoLAUMUlSI2E=;
-  b=173oHqiimRahCfXuPT1xk/dpusBGh3/MYBVIkaaSQ1eZ/HwsylX9r1tT
-   2J4K/M7M6hSHDAbh+XKXt9Z9OLl+R75QimPViXCmgps8DT2KAjTDoJROa
-   NVr6ZpfbhcBzGSpMG4tC9Qo4kvh55DWg9qKCXygSU+H4rRnJCXGCoSzZU
-   4v4U4gi3kRIcycuOug/IZva6BcXA5k4yCPGAkKdMu6DiiWI8MlEkdkudk
-   CAfJWKdBJa5u7qDO23DQ/hosOSnrVW3/FkGsUNn2MgdIqYSPZ3iYMyGw5
-   /RsP5USZy7DBICa4xbEIIgK2ybc8B16hcX3WznMBB170ziow3yiIB6mDg
-   Q==;
+  bh=QtZL9N8JnzdiSxrQgqOdrgyJiMS1ffqau28eqfXsCas=;
+  b=eM0P7cHsgIpZtaFS7bY/8DhFe/SMrLZocaNazzqLIaIqDTsZuJl+atG7
+   5rmpJLPMjTgrf0noYbrfGDaXfv93PrJ09gWoEIN785PBTVeTEgHxfN9qF
+   zetWT/7hRMtutKf5zvIvLHwGSj5g6vYGva9kgYFGoSfDDmicRjOuTmo52
+   dxEgdVX7M32v5c/8WpXNGbEgRvy3qm8ziO2vvMAmuWRZm3XiEPFsBX4G1
+   UgDmh6oUJgyNzalWrcsZqUs23InVuD4AVVrvXmRVIjvwSK0pvaDDXLALP
+   yMePD/Y7AaDXGfh44w0ETJ/n6OppXZXmuZGh4aQBz2JTztMMmMn7AvIrm
+   A==;
 X-CSE-ConnectionGUID: NRxSiTFnT3ucBnaYj7CaZg==
-X-CSE-MsgGUID: 2WjqQwB5TPyGcK53n9hLgg==
+X-CSE-MsgGUID: /LP9pAixTZGnJFSg9ej2iQ==
 X-IronPort-AV: E=Sophos;i="6.14,278,1736838000"; 
-   d="scan'208";a="44096103"
+   d="scan'208";a="44096100"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Mar 2025 08:36:30 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Mar 2025 08:36:29 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -61,10 +61,11 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<p.zabel@pengutronix.de>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-	<linux-rtc@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH v4 05/11] dt-bindings: at91rm9260-rtt: add microchip,sama7d65-rtt
-Date: Wed, 26 Mar 2025 08:35:38 -0700
-Message-ID: <183474a65377f4030360166a5f2659af7323e82b.1742936082.git.Ryan.Wanner@microchip.com>
+	<linux-rtc@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 03/11] dt-bindings: reset: atmel,at91sam9260-reset: add microchip,sama7d65-rstc
+Date: Wed, 26 Mar 2025 08:35:36 -0700
+Message-ID: <b2bf907cebc2e251f6d8bebade864372e3dbc1eb.1742936082.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1742936082.git.Ryan.Wanner@microchip.com>
 References: <cover.1742936082.git.Ryan.Wanner@microchip.com>
@@ -72,8 +73,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_083634_627283_AFFC19E2 
-X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-CacheID: sfid-20250326_083633_708733_13E1E350 
+X-CRM114-Status: UNSURE (   8.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,26 +92,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add SAMA7D65 RTT compatible to DT bindings documentation.
+Add SAMA7D65 RSTC compatible to DT bindings documentation. The
+sama7d65-rstc is compatible with the sama7g5-rstc.
 
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- Documentation/devicetree/bindings/rtc/atmel,at91sam9260-rtt.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../devicetree/bindings/reset/atmel,at91sam9260-reset.yaml     | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/rtc/atmel,at91sam9260-rtt.yaml b/Documentation/devicetree/bindings/rtc/atmel,at91sam9260-rtt.yaml
-index a7f6c1d1a08a..9c9b981fe38b 100644
---- a/Documentation/devicetree/bindings/rtc/atmel,at91sam9260-rtt.yaml
-+++ b/Documentation/devicetree/bindings/rtc/atmel,at91sam9260-rtt.yaml
-@@ -22,6 +22,7 @@ properties:
-           - enum:
-               - microchip,sam9x60-rtt
-               - microchip,sam9x7-rtt
-+              - microchip,sama7d65-rtt
-           - const: atmel,at91sam9260-rtt
+diff --git a/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml b/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml
+index 98465d26949e..a2ab7f8a11f8 100644
+--- a/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml
++++ b/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml
+@@ -23,6 +23,9 @@ properties:
+               - atmel,sama5d3-rstc
+               - microchip,sam9x60-rstc
+               - microchip,sama7g5-rstc
++      - items:
++          - const: microchip,sama7d65-rstc
++          - const: microchip,sama7g5-rstc
        - items:
-           - const: microchip,sama7g5-rtt
+           - const: atmel,sama5d3-rstc
+           - const: atmel,at91sam9g45-rstc
 -- 
 2.43.0
 
