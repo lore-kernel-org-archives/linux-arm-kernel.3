@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76254C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA13C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9tCKOxWlZzVo+LW0OfZaKnD5ARH/KKbqzp36dlNLJM=; b=u4gejEeELNBCYLjHC9uLfLIowM
-	DtyKUUNT6WAZ8nQtSimmDC14B/WvN2TxuvM6YdcUwjGVe4FKya01vsbHCvtE3A2Fehq/k+ACCrHkT
-	BjTkYlTSrRmLT7E+2z0qwnm5UD9y4mQIqF7jx5yZDISbAYCXk/7J/JYjx/eP9tvGVaEKJ2zkpcJs6
-	dIVmlvruU0k2HQNyvHdjQQRImp208EuXb8fKxscwVkcfFlPxI4IF4PmLRNnKwOyi0j+2rehFxeIww
-	ZOuPihVrpjhV/FCXmr6XZe0ZVC2rlFMP5icdVc8C/RWSx9HHP7qVODiWohrBkM/BM9kVzpO4f+M8i
-	5kkz0GOw==;
+	bh=gDeO2nIfMOICmbdN4iB492bLj9a77KMSQWKqvg2E0aY=; b=fsHhBjWnWSkJaWoAOGDfArEovN
+	yjMbEfbjDuMgzr8tA400SIwYSpLgYCjkIsaR5O5MQr53fecc2XkxcZT7D5VgLkA20n8KmvVeNVEkj
+	TGkUmdjyV3vU+TL8MGtnVN81QHNsMdZwCv+1O7TQLr8L1t4Xvjoq8/UTR8qPGy2bTXhmAeD3GC09q
+	Oj6wDo9OGjsoaq3O+cEWknGF8v5j97cdJLv4PQx0KrZI9WueQptky1U8A+HdMmPATZPKp1qLpI6q1
+	CSDvHuePrp3S+rJuQyiQHgd4zv9J2/Ea9fVkmDZMQixoROsSEZloj3R+LFRC+GUhF32N6ewyHszcQ
+	zjsRm72g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTct-000000091V1-3Xoc;
-	Wed, 26 Mar 2025 16:29:11 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1txTed-000000091gc-0r6q;
+	Wed, 26 Mar 2025 16:30:59 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTXk-000000090Kk-06kh
+	id 1txTXm-000000090Lq-06WF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 16:23:54 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ac29fd22163so1187293166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:23:51 -0700 (PDT)
+	Wed, 26 Mar 2025 16:23:55 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e677f59438so10678882a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:23:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1743006230; x=1743611030; darn=lists.infradead.org;
+        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1743006232; x=1743611032; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=G9tCKOxWlZzVo+LW0OfZaKnD5ARH/KKbqzp36dlNLJM=;
-        b=eS9D9kxjo4hHCY3SBangGByZ/jQTeu0wXkMDgPgUwFdRi7rNJiZKZiMbYjwk+Ya1fx
-         xgexYI1tXDflknq3NhE4t9lNbWdDTqaUqsTNzuiX0dYKBawX5Wfmx2K9eCrzzVdn59gM
-         ir4q/xaR8Y7+gfiJDKj+29/7WXteFLvOc4GzlzCeclsYvACNL5NFPs1EgRd+6W8d09s8
-         bwpmeZSXG8wA5XilnsI+uXZpXZRGclUm4rk7KuHW3iOK2zG3Djv50xx1s/P5dULeYLVL
-         Qu+Hy51VlLLlKl6ocEIToMN0JHYBnhuQkgUgTtSFLKteGaYNWgZkKz/IfNZy/SsC4qDg
-         R9eA==
+        bh=gDeO2nIfMOICmbdN4iB492bLj9a77KMSQWKqvg2E0aY=;
+        b=sButZP//yVhaU93N/FM2Q7yOZltx9tFWZ/rnt1q1VhUBzvISFweID8PbbglB/OgJhX
+         dvjzXSku0WGD76rNaaXnDbLyujkhtsjRlFdewxFOGKpquBJT2C0bHGsQOCtCMEYGKmNi
+         is/31tTiC2psJsM+nnC0Q/DVah+advDDhKFnzS5/LNYWrtibSIIuCHXbf+vBV6fptDyu
+         9VkMopHkZlVA+y1ia1Bl8TlRrwbb3JyswRLkxzqh9vRf/1iYbs3ZIs4MuM1tdHgqTe2+
+         q/4E8n7VltsXgaIfArGawJx1l+WJl5+XYtc78bCZgBZSLxrPnVAw3jYX2E3duf3nmiCI
+         J8bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743006230; x=1743611030;
+        d=1e100.net; s=20230601; t=1743006232; x=1743611032;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=G9tCKOxWlZzVo+LW0OfZaKnD5ARH/KKbqzp36dlNLJM=;
-        b=tyfs0JUJQep5zmiJbW5YozR+S0/YF3q8zlg/Gsq/K1HaOldx7VHJalXIJxHKZLYI7A
-         Jcm3WGWLpfA+mn9UeiqOGNZxX2JdAqei1PNQFPTJj43jNeAy+9jjuzAddn4h25xqOz81
-         09zOs8WIPTB8Z9ii89H61EJbQfQLWdk1QsE9H0GmvQAdPCpbJn4qdYiMz6d5/vovwBwk
-         W+BkN0nxSxtJc/Sm2oUpYULPSddWpWjhFTOpzrV+z/RPsYvNmWVDR+BWifLhzfimGHVY
-         nw+2BOOYbaaPchjhb+8R3L7JvjGnef7aBu1uGLD8jMQdVolYWgwcvC23EGVKer3TOjfc
-         i6lA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtUoj/DluKLD3N/sNa6rGsGU6lqRbz3guZOueORv0BVGP9gQfDS+LHM3uaCmpZpj1BBZpAVqREhEZImpzwCNTF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxoFb6LTk/hv6d/bND5bQ8hOGhpiRxgo2TcxrDhLBc5vfp7m6E
-	Xpw6alAgnNXENKoVsfad40QyNzGr38dU6mRX2GDMQ3feY8yps9E8/Lh1agXUss4=
-X-Gm-Gg: ASbGnctxleiayxjYxWVdNe2GSOAfKqrPgtziPxdcaAqxYMKOH2cuURpIXGi+rPGb9c9
-	XZTU+yU4ADTmPBtMvsIbumkrdvAYTa21amJIofG31y5UrpgDAIbWZXcA+PMtyHpOAi8o6n17VP5
-	hU8zUGWkslaV8pCfdOPw80djgrkmhkVyDHvAA77k8s0QkU2vDb0X9VNDSNhKGTcoZs+E0Hzba8M
-	nC55iZO6nJzH9AYJCL23DOc5/Xr0UfMd4X+OdueCxRvtg/V09zouiTthgWnip2QkRUKIxH36rLo
-	Am0hBlFua9NzEORhqPQhGfP3ttsFU23HF72zCKKKsA8Wu3bQtbKjNdt2mw==
-X-Google-Smtp-Source: AGHT+IFR7MKgek1aYBM8pLPyUk2XklCCGA9XeiQoGfN17QwCt+mtrdcAqb3TA1eUWqsMBXRD9Qv/5A==
-X-Received: by 2002:a17:906:794a:b0:ac2:dfcf:3e09 with SMTP id a640c23a62f3a-ac6fb100848mr1832966b.43.1743006230250;
-        Wed, 26 Mar 2025 09:23:50 -0700 (PDT)
+        bh=gDeO2nIfMOICmbdN4iB492bLj9a77KMSQWKqvg2E0aY=;
+        b=XdgGdlplhOSLnnhWDll23g3diNrvP1mge4kXA9yBlIcYDgKuDeJ7K3JxTJkxpHordT
+         4WRFQe4B2EcA9zDJ9+2FTF858tNsYhv4Y5xdKf0n3niAtBVdXQtFpb5GUyacVff4gase
+         OUJbnUkHnC5C+maIm3GHnt4b3B04GBin2HMCdois0/53WT6Wd7wc78oqqKIPnBga5k4J
+         DlP+XO02ZTqe0jfILnL8YcTVN0hWIq1GPh7LoIQkm+5rgCKZ/PY4h2QBrbwUhC0F+HNi
+         AnSRALBqhKCu4XIB4SRgrgD9mHCfF/wIKHNH4CuS9plyFd0GCLkZSabks8/+P3YR6AyX
+         qfJw==
+X-Forwarded-Encrypted: i=1; AJvYcCUx++1b0Bh4smicUGlSPiRyzSED9MTWG4J8ICNLkK54M+exvCFa6WdRMhwRUfqZhRWMQyWPK7lZgJrsSsUCgfoh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzq+sXkwsHridiJOBB6rj21kI8M+VaMcAvztBja6+rI6ON2dux7
+	8erCBoldX3J+J4+fZe5+lWo/YaUIZ5gVxtL9CY0xtiUBhkSA+dNWcaLlOcBo2pw=
+X-Gm-Gg: ASbGnctEFwQRWGPwcuKUHuuSDym63i8rSj3gtxcWC7Yr1ZW8q4E2gm9JPTbKo98R/Cn
+	H0nKt7G1WgNRVh1TU+cFTXGrtm+J8+IiIdmKpUnUO7O95CVcG4vNh7owqQZDLR3qgJaLxKfOCKp
+	li8A4xhOR5mq4JNk/kndpK9THhB+vMpgoi9yGwNWjQqHapuGXgAupuANc/5IrQKeLwblnLI9q43
+	0fGB7vFb/apUdWR+A/9qHa7+sNRsOWF/9FPXlJfIJv/Fcmm2L6/MKhDxB7UIt37T7VQ925X8KBi
+	j0WNPiJ2tU6CGbf+l20/3Jn6CmKz9kpvMS8RHv+UPsG/q3XV3ZWt1n9xjQ==
+X-Google-Smtp-Source: AGHT+IEc7BN+I9AuEBYkJp/jaWFUpD0J6wfKpFX9npNAzocR2TXh01hPKMJxC/w2Hwxq2f61h0F3IQ==
+X-Received: by 2002:a17:906:6a04:b0:ac0:6e7d:cd0b with SMTP id a640c23a62f3a-ac6faf0b809mr4040966b.34.1743006232177;
+        Wed, 26 Mar 2025 09:23:52 -0700 (PDT)
 Received: from [127.0.1.1] ([91.90.172.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac6f0f498ecsm76678866b.135.2025.03.26.09.23.49
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac6f0f498ecsm76678866b.135.2025.03.26.09.23.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 09:23:50 -0700 (PDT)
+        Wed, 26 Mar 2025 09:23:51 -0700 (PDT)
 From: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-Date: Wed, 26 Mar 2025 17:22:56 +0100
-Subject: [PATCH 1/5] usb: misc: onboard_usb_dev: fix support for Cypress
- HX3 hubs
+Date: Wed, 26 Mar 2025 17:22:58 +0100
+Subject: [PATCH 3/5] arm64: dts: rockchip: fix internal USB hub instability
+ on RK3399 Puma
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250326-onboard_usb_dev-v1-1-a4b0a5d1b32c@thaumatec.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250326-onboard_usb_dev-v1-3-a4b0a5d1b32c@thaumatec.com>
 References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
 In-Reply-To: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
 To: Matthias Kaehlcke <mka@chromium.org>, 
@@ -91,8 +91,8 @@ Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
  quentin.schulz@cherry.de, stable@vger.kernel.org
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_092352_136078_57A6C0A1 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20250326_092354_057162_E49C8FD3 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,71 +107,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Cypress HX3 USB3.0 hubs use different PID values depending
-on the product variant. The comment in compatibles table is
-misleading, as the currently used PIDs (0x6504 and 0x6506 for
-USB 3.0 and USB 2.0, respectively) are defaults for the CYUSB331x,
-while CYUSB330x and CYUSB332x variants use different values.
-Based on the datasheet [1], update the compatible usb devices table
-to handle different types of the hub.
-The change also includes vendor mode PIDs, which are used by the
-hub in I2C Master boot mode, if connected EEPROM contains invalid
-signature or is blank. This allows to correctly boot the hub even
-if the EEPROM will have broken content.
-Number of vcc supplies and timing requirements are the same for all
-HX variants, so reuse existing onboard_hub_pdata.
+Currently, the onboard Cypress CYUSB3304 USB hub is not defined in
+the device tree, and hub reset pin is provided as vcc5v0_host
+regulator to usb phy. This causes instability issues, as a result
+of improper reset duration.
 
-[1] https://www.infineon.com/dgdl/Infineon-HX3_USB_3_0_Hub_Consumer_Industrial-DataSheet-v22_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ecb53f644b8
-    Table 9. PID Values
+The fixed regulator device requests the GPIO during probe in its
+inactive state (except if regulator-boot-on property is set, in
+which case it is requested in the active state). Considering gpio
+is GPIO_ACTIVE_LOW for Puma, it means it’s driving it high. Then
+the regulator gets enabled (because regulator-always-on property),
+which drives it to its active state, meaning driving it low.
 
-Fixes: b43cd82a1a40 ("usb: misc: onboard-hub: add support for Cypress HX3 USB 3.0 family")
-Cc: stable@vger.kernel.org
+The Cypress CYUSB3304 USB hub actually requires the reset to be
+asserted for at least 5 ms, which we cannot guarantee right now
+since there's no delay in the current config, meaning the hub may
+sometimes work or not. We could add delay as offered by
+fixed-regulator but let's rather fix this by using the proper way
+to model onboard USB hubs.
+
+Define hub_2_0 and hub_3_0 nodes, as the onboard Cypress hub
+consist of two 'logical' hubs, for USB2.0 and USB3.0.
+Use the 'reset-gpios' property of hub to assign reset pin instead
+of using regulator. Rename the vcc5v0_host regulator to
+cy3304_reset to be more meaningful.
+The vdd-supply and vdd2-supply properties in hub nodes were
+skipped, because hub power supplies are always enabled based
+on HW design.
+
+Fixes: 2c66fc34e945 ("arm64: dts: rockchip: add RK3399-Q7 (Puma) SoM")
+Cc: stable@vger.kernel.org # 6.6
+Cc: stable@vger.kernel.org # Backport of the patch in this series fixing product ID in onboard_dev_id_table and onboard_dev_match in drivers/usb/misc/onboard_usb_dev.{c,h} driver
 Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
 ---
- drivers/usb/misc/onboard_usb_dev.c | 10 ++++++++--
- drivers/usb/misc/onboard_usb_dev.h |  6 ++++++
- 2 files changed, 14 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi | 33 ++++++++++++++++-----------
+ 1 file changed, 20 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/usb/misc/onboard_usb_dev.c b/drivers/usb/misc/onboard_usb_dev.c
-index 75ac3c6aa92d..f5372dfa241a 100644
---- a/drivers/usb/misc/onboard_usb_dev.c
-+++ b/drivers/usb/misc/onboard_usb_dev.c
-@@ -569,8 +569,14 @@ static void onboard_dev_usbdev_disconnect(struct usb_device *udev)
- }
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+index 995b30a7aae0..3a9049372e12 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+@@ -60,16 +60,6 @@ vcc3v3_sys: regulator-vcc3v3-sys {
+ 		vin-supply = <&vcc5v0_sys>;
+ 	};
  
- static const struct usb_device_id onboard_dev_id_table[] = {
--	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6504) }, /* CYUSB33{0,1,2}x/CYUSB230x 3.0 HUB */
--	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6506) }, /* CYUSB33{0,1,2}x/CYUSB230x 2.0 HUB */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6500) }, /* CYUSB330x 3.0 HUB */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6502) }, /* CYUSB330x 2.0 HUB */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6503) }, /* CYUSB33{0,1}x 2.0 HUB, Vendor Mode */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6504) }, /* CYUSB331x 3.0 HUB */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6506) }, /* CYUSB331x 2.0 HUB */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6507) }, /* CYUSB332x 2.0 HUB, Vendor Mode */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6508) }, /* CYUSB332x 3.0 HUB */
-+	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x650a) }, /* CYUSB332x 2.0 HUB */
- 	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6570) }, /* CY7C6563x 2.0 HUB */
- 	{ USB_DEVICE(VENDOR_ID_GENESYS, 0x0608) }, /* Genesys Logic GL850G USB 2.0 HUB */
- 	{ USB_DEVICE(VENDOR_ID_GENESYS, 0x0610) }, /* Genesys Logic GL852G USB 2.0 HUB */
-diff --git a/drivers/usb/misc/onboard_usb_dev.h b/drivers/usb/misc/onboard_usb_dev.h
-index 317b3eb99c02..17696f7c5e43 100644
---- a/drivers/usb/misc/onboard_usb_dev.h
-+++ b/drivers/usb/misc/onboard_usb_dev.h
-@@ -104,8 +104,14 @@ static const struct of_device_id onboard_dev_match[] = {
- 	{ .compatible = "usb451,8027", .data = &ti_tusb8020b_data, },
- 	{ .compatible = "usb451,8140", .data = &ti_tusb8041_data, },
- 	{ .compatible = "usb451,8142", .data = &ti_tusb8041_data, },
-+	{ .compatible = "usb4b4,6500", .data = &cypress_hx3_data, },
-+	{ .compatible = "usb4b4,6502", .data = &cypress_hx3_data, },
-+	{ .compatible = "usb4b4,6503", .data = &cypress_hx3_data, },
- 	{ .compatible = "usb4b4,6504", .data = &cypress_hx3_data, },
- 	{ .compatible = "usb4b4,6506", .data = &cypress_hx3_data, },
-+	{ .compatible = "usb4b4,6507", .data = &cypress_hx3_data, },
-+	{ .compatible = "usb4b4,6508", .data = &cypress_hx3_data, },
-+	{ .compatible = "usb4b4,650a", .data = &cypress_hx3_data, },
- 	{ .compatible = "usb4b4,6570", .data = &cypress_hx2vl_data, },
- 	{ .compatible = "usb5e3,608", .data = &genesys_gl850g_data, },
- 	{ .compatible = "usb5e3,610", .data = &genesys_gl852g_data, },
+-	vcc5v0_host: regulator-vcc5v0-host {
+-		compatible = "regulator-fixed";
+-		gpio = <&gpio4 RK_PA3 GPIO_ACTIVE_LOW>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&vcc5v0_host_en>;
+-		regulator-name = "vcc5v0_host";
+-		regulator-always-on;
+-		vin-supply = <&vcc5v0_sys>;
+-	};
+-
+ 	vcc5v0_sys: regulator-vcc5v0-sys {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc5v0_sys";
+@@ -521,8 +511,8 @@ pmic_int_l: pmic-int-l {
+ 		};
+ 	};
+ 
+-	usb2 {
+-		vcc5v0_host_en: vcc5v0-host-en {
++	usb {
++		cy3304_reset: cy3304-reset {
+ 			rockchip,pins =
+ 			  <4 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+@@ -591,7 +581,6 @@ u2phy1_otg: otg-port {
+ 	};
+ 
+ 	u2phy1_host: host-port {
+-		phy-supply = <&vcc5v0_host>;
+ 		status = "okay";
+ 	};
+ };
+@@ -603,6 +592,24 @@ &usbdrd3_1 {
+ &usbdrd_dwc3_1 {
+ 	status = "okay";
+ 	dr_mode = "host";
++	pinctrl-names = "default";
++	pinctrl-0 = <&cy3304_reset>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	hub_2_0: hub@1 {
++		compatible = "usb4b4,6502";
++		reg = <1>;
++		peer-hub = <&hub_3_0>;
++		reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
++	};
++
++	hub_3_0: hub@2 {
++		compatible = "usb4b4,6500";
++		reg = <2>;
++		peer-hub = <&hub_2_0>;
++		reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
++	};
+ };
+ 
+ &usb_host1_ehci {
 
 -- 
 2.43.0
