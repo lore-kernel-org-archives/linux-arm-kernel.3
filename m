@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8E1C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6082C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BA6lX+1sFFD8xi/+cCgAaNtCjBvFZA/Hy20NxmLZz6g=; b=pcaNPdjAU/Ta0U1fAqkSgkjQO8
-	TxhszyWIeIxJ7baJdjx4LaE67mFIg8wiv/ctdG8jw81ImNtrVQ5ecRgtR3FFNoJZwwSzmviobZaJS
-	LHThVnl2ZVJijNwV/JbGXYFyLrkjoLSw6XVyWJVXQZoBTrRlG9Kr9zIZASXfZkou/vgZODnxgkcTW
-	VKFivq77AmJ9eThNYhjEMNAggifKMk+t8yXhwGJG+W4+FzVkBdWV4fc8hdh2aeVN9rtK8PF2SEZ5z
-	rVAiDU2qIWEcR8ohVaPLAhyG4cGrwQONjGrLzUbv/psKuA674Q9whVu5jQuwPGgpgwYJ/nXNcuEAu
-	OxPXHKUA==;
+	bh=5aKug5QSc2drC1RSveDEzOQVoZ7oTNVWG7mwuN3JioA=; b=XOIDKo2r/9w5Jktr1azIPb6AQr
+	8N1UGrMSi8+pcmgGtBG4tT7NZfQru+wxQYz//BJOd7AaEgwoK833GpNPqi5oIMTgRlJ5irYKoldvq
+	cU8dSGrvd3Cf/yT/UGW/fLI+iGw0I3p69ZAteyQ+5ivsYwwdExjahm7qK5Qm7gv8HOvyq2gD0eTIW
+	RywgP5iSs+1TtqNUrv4iELLBP0l3jRRHbq90wPTUDYg78u5kRjchiJ+amMKKhG2pmLaDq6XPx/FuB
+	vfcg7wQmmpNLnUWXeCK/OLH95Mq7C8nxjOfvaRbgAKrA4s37rzMTYLYjuZwdbJeYMFqsOoJGctFtR
+	swuGzIYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLOJ-00000007oLo-0wwL;
-	Wed, 26 Mar 2025 07:41:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1txLPz-00000007och-3oBZ;
+	Wed, 26 Mar 2025 07:43:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLBw-00000007mZw-1yRh
+	id 1txLCg-00000007mhm-2FjO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 07:28:49 +0000
+	Wed, 26 Mar 2025 07:29:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AF7DFA4094A;
-	Wed, 26 Mar 2025 07:23:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F1BC4CEE2;
-	Wed, 26 Mar 2025 07:28:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E8786112F;
+	Wed, 26 Mar 2025 07:29:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6799C4CEEE;
+	Wed, 26 Mar 2025 07:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742974127;
-	bh=iAuFANLunmhmcETucong3/qkBaLsbLIIh3af0TrbsqA=;
+	s=k20201202; t=1742974173;
+	bh=sSAYOt4oOEs05VG0Azcz9ADOJWD935RnsQzzpkBB8hs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eX4kP/4pCiUNiSvBVEDIYv2WU4K1DfNBKUW7NLfH6DxofHeaqJLEFc+LFj0ZP7RdV
-	 /o00PKDl9iyDCbQmwsl1x57iiR/teQc3oqcvVoO+UBoohKoO3dt2L+az+rovPfdBtp
-	 ufkO5JAiOpm5uz+3lttbpBBxHk+qy/dEb7wyVQAVil8gqB6I2SNWVkokmVDRbkEfUx
-	 ucv4oFKA5jQmds+tZu/sWDuUGsFqTLuKy7llQy7olFkOp9E7bMduihyqEovh1n8Ust
-	 Wbvg3geWH0f2yDQJU/B3ZaBib6XRgFWb+vOjpUJJtFaFErBYGB76vLEdjP5YXqYHVp
-	 4cotzdXXAVlaw==
-Message-ID: <68496580-8d63-4f11-8754-7b7b16d147b0@kernel.org>
-Date: Wed, 26 Mar 2025 08:28:35 +0100
+	b=M9LAQRfdx9zqk9XRIcjWhwxMDDaZ010DRUrJMjCdUW9eRJ2h+AKx+qzL1VXpSKj64
+	 uzSijs3Z2MltoFNobanxEwkM31WG6s46W6g+mtPkLCQebHJCTDuU8HAgDfx1CFaSkJ
+	 sQ7nBdIVhLISE9DbNqTFD6jDw8iXJm+vR5ucfhe3K2/yMexXzZEgnWMEpXVdA3cyVE
+	 OxpLrG2BlkGOo9hHPWcW4qYECuQzMgq3JS8ZWXIwqLPwmPQuzcuzMPeAY6dYEEK3co
+	 Bw/gFutionvHh07WdCKJefBy/psSoN9/LE+CeFfPaOLt1bpDYDUEPZ0+yvF8dPc9T+
+	 +bhn74javsZSQ==
+Message-ID: <06f2a1e4-0bcc-4046-89cd-1170bebdd217@kernel.org>
+Date: Wed, 26 Mar 2025 08:29:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 18/34] mfd: sec: s2dos05: doesn't support interrupts (it
- seems)
+Subject: Re: [PATCH 19/34] mfd: sec: don't ignore errors from sec_irq_init()
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -64,7 +63,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
- <20250323-s2mpg10-v1-18-d08943702707@linaro.org>
+ <20250323-s2mpg10-v1-19-d08943702707@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +109,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250323-s2mpg10-v1-18-d08943702707@linaro.org>
+In-Reply-To: <20250323-s2mpg10-v1-19-d08943702707@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_002848_635678_5CF3C262 
-X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,26 +127,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/03/2025 23:39, André Draszik wrote:
-> The commit bf231e5febcf ("mfd: sec-core: Add support for the Samsung
-> s2dos05") adding s2dos05 support didn't add anything related to IRQ
-> support, so I assume this works without IRQs.
-> 
-> Rather than printing a warning message in sec_irq_init() due to the
-> missing IRQ number, or returning an error due to a missing irq chip
-> regmap, just return early explicitly.
-> 
-> This will become particularly important once errors from sec_irq_init()
-> aren't ignored anymore in an upcoming patch and helps the reader of
-> this code while reasoning about what the intention might be here.
+> sec_irq_init() can fail, we shouldn't continue and ignore the error in
+> that case, but actually error out.
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
 > ---
->  drivers/mfd/sec-irq.c | 14 ++++++++------
->  1 file changed, 8 insertions(+), 6 deletions(-)
-
-I am pretty sure s2dos05 wanted interrupts, but that's on them.
+>  drivers/mfd/sec-common.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+That's a big patchset, I finished here. I will go over the rest some
+other day or when you send v2.
 
 Best regards,
 Krzysztof
