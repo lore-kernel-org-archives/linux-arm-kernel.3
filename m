@@ -4,124 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83264C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CE8C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oAnsNYobYXGQyVT8GaIUO6lv6WY6ogscB1FdUtiA198=; b=vgvmb+3aF80FU2ME6//Oga1h9A
-	giC4JFlmPovWXZLqBABeEuksPIysWe85ptyO2Lic7/IIhDS1hBMSaz/8l1t+QekYLo4tnieNC1o8L
-	ouzSXYKwLOwGajlYPh8NfGoNkGJaf50s/qILdJRYfPy+4AmGYnKm7nzoW2PkxVx9Japx4C16xes+8
-	ekOceDT8+XIzrGNtV3G4Tsh0pWn3THgWjerGyZurVx07xuY1W4yN/hKhmezh1FLzKRoSJL60VoLvJ
-	AdnUFmhmV4Q0gCGuQmn3rb4wrQKIkDhkAsosvqlrMp2soLZVkSsmy/mFQp9iJKCzW8H4N3JRmOtP5
-	Lb87vWJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CpgOCEZuVIUWNep2gTFj8ylP6/HyHac52qszIRih0MA=; b=wS2GgaCxVQJ0Vcnzv/hyH6bv/B
+	5meSAPvMt5qLybZTq8RVXatXZ7XlX6Lv7t5jtt22ofSqz5soJuADnhAO3PSSTfdL8whf0PAgsMW6Q
+	FXeeVbKevvDOaNSLoTy+wnyz8fJsnmZqrAWznRBgmJo6pl7oEPvwbx6K0gvwEzjQUdQ+ZBWgnwqO2
+	D8vYRLNCcfr/gNFCcE/VLEc/67XAOaYqSfo9mkRgw2Fu9uyKHhf0nNWjpGbZFdkGjIqxtixSkFmqA
+	IvzfUes5joS2hCdWUwMMeuOgOAs74RJ4u1e2ZxsZZ92IRFX3K4QKKg7YO2v8xiF6c91BsDQ9vxXar
+	dma9bz/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txRMO-00000008dYd-412P;
-	Wed, 26 Mar 2025 14:04:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1txRO6-00000008doD-3uYv;
+	Wed, 26 Mar 2025 14:05:46 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txR6r-00000008bIi-1rOf
+	id 1txR7E-00000008bMM-3750
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 13:47:58 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52QA1o4i025450
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 13:47:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	oAnsNYobYXGQyVT8GaIUO6lv6WY6ogscB1FdUtiA198=; b=AGfyAtIdcyTF6b44
-	fjEmGfNn4kKFyBMbqgA1Khyhcjr7fUj8R8/6dxgDuD+5RcZEcrHwtEJW5J61YmSE
-	PaUNe4URcczVGRQAwdomQ/nXXdV1uPu+PKvTXm88dj9f6rGrZ3hUHguZqC37ThNp
-	4aPim4Oq9nN3EQdlO9/Qaj4hFCE8JpEDfYpR+yLRe+Hep7772WkfeFtNc2t673+l
-	02+t91hPhUWLi9I8Dne7YcpqCzjzoQCz6IIxqeakDtx/wWd15kX+NbiMyAaxpPX7
-	sqplzw+F5gdIs5ywuegZUjzR++Nkv7zAlE8f6JJQ4vNHNMwwT2DUeXSfNdT8/7gT
-	YjG2IA==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45mffcgkuy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 13:47:55 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6e8fb83e15fso13678796d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 06:47:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742996875; x=1743601675;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oAnsNYobYXGQyVT8GaIUO6lv6WY6ogscB1FdUtiA198=;
-        b=wZBGV6SwV4aK8/jDe0Vew4YLckoCdvMbw/MnJNM+QQtG/tr+079JKjzGA2SD0ypDec
-         /Ueiq6n6LNvP6KJ1+NAfUw/7ARLrCOg7OPGeELd8A5nWCYmhOArsEhzgEgr8C9Jhhbo+
-         oiWZtMSEx70VyNXDXcZTw0sRyAuufgnPhtEqTyYqXnKlmOG9kTXOEjklIrJZrQH4PG1W
-         fFAXmPgTC///BAfDNaQYeAg8489/VZpeKkklK2BO/VGwzgP5toSMc+hezIaidQoqTkTK
-         iWK/sA4zLwzHQzaFrCPBz7lhYZNgAvQbHKZra7OPjC2rbmCCnFKxQs95p2Trwdu7xj+T
-         Aklg==
-X-Forwarded-Encrypted: i=1; AJvYcCVqBTgoZiawy/+K+QOmR4Xy67QJbPrBvMTysRIdyf65MwUEIDTbaOl4w7gsuIiN+2cr0iFAXu5v6NE3koMmtmU0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTzdY1W1EwMfAAmrpOEDxqP9OTFNK9hn/MQjVO5eVtxYJ4suCm
-	c/t9dOOkXP631T6dJZGHH3WfsTphkQSwDDnqH44s6WagnA3yRqBhkVs7q6pNNBMEBfYSXC1HDBs
-	5KG64xKbNROeHnXcImo9hpLZzuvVMmdiHH+YsG5tfoObRrhxS5mRQQ1UALNRgO8Xei709k0rnZw
-	==
-X-Gm-Gg: ASbGncsK7hp2JrzWVoXwncojx4L82WAWeMQ9x/PyTC21QJguZdNrAh97aAo8E8xjGNb
-	WvIVG1i6ygN3njwYzUSmhSCZUMNlGRg5UDEhjoPwzCtvjbCkh/ttDlhAmk9Wa6VLPTdmNdtck9i
-	7+3wJ8IfOzMC7byCtlzIqEZYlZc3tuzPE7PuW0qGzCEubDCGKEHQG50ji5WLBXksX77x7HeFNU/
-	YEmx6f0nce2/sUqZth2JyXunVt0j20V9MFFZorulvEZ6NRumSreBLZh4oBisVNUolbw7teHRhnv
-	7Gjww+/5wPZTds8c9d4RJ8sHPDSGNgqFNDNDnxJVYjs9JtyDH8A8xaHF8I7wFP3CJ/qPfQ==
-X-Received: by 2002:a05:6214:e6d:b0:6e8:98ce:dd75 with SMTP id 6a1803df08f44-6eb3f31f775mr103660516d6.9.1742996874788;
-        Wed, 26 Mar 2025 06:47:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHFd5B6zyRzYrno4RuXc9G89CRxgNBc2jAwg6fxiQ+Jm/et41PRpGY6sCmOIsIZwNP0HOEUxA==
-X-Received: by 2002:a05:6214:e6d:b0:6e8:98ce:dd75 with SMTP id 6a1803df08f44-6eb3f31f775mr103660306d6.9.1742996874282;
-        Wed, 26 Mar 2025 06:47:54 -0700 (PDT)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3ef8e5128sm1034146766b.59.2025.03.26.06.47.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Mar 2025 06:47:53 -0700 (PDT)
-Message-ID: <8b7151d6-e2e0-4561-954d-4a74126b4265@oss.qualcomm.com>
-Date: Wed, 26 Mar 2025 14:47:50 +0100
+	Wed, 26 Mar 2025 13:48:22 +0000
+Received: from pobox.suse.cz (unknown [10.100.2.14])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 7921B21179;
+	Wed, 26 Mar 2025 13:48:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1742996897; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CpgOCEZuVIUWNep2gTFj8ylP6/HyHac52qszIRih0MA=;
+	b=ncox97gATOX1alCd8mq6tMQ+oN4cqL7jSUyXj457qSKzkZ0wwVDb6s22LmHLmdDrIbEv7m
+	tj3S82ZSwDi6rr+7+VSppcricoX2dq5P1xkjwCeILRV/CCugFh0R8HvF244ewHqntUeqIi
+	qL4FhvAbn/7+FK07EUFQosNn6jztpWs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1742996897;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CpgOCEZuVIUWNep2gTFj8ylP6/HyHac52qszIRih0MA=;
+	b=K/zATkkHnM9kjBG8iYRQBG1YwQdnPko+sQoF0gFiV6R2inYPMAgxuA+dkiqlZ7RKLx7Nqa
+	i9I2r+OSAeN/C6Dg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1742996897; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CpgOCEZuVIUWNep2gTFj8ylP6/HyHac52qszIRih0MA=;
+	b=ncox97gATOX1alCd8mq6tMQ+oN4cqL7jSUyXj457qSKzkZ0wwVDb6s22LmHLmdDrIbEv7m
+	tj3S82ZSwDi6rr+7+VSppcricoX2dq5P1xkjwCeILRV/CCugFh0R8HvF244ewHqntUeqIi
+	qL4FhvAbn/7+FK07EUFQosNn6jztpWs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1742996897;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CpgOCEZuVIUWNep2gTFj8ylP6/HyHac52qszIRih0MA=;
+	b=K/zATkkHnM9kjBG8iYRQBG1YwQdnPko+sQoF0gFiV6R2inYPMAgxuA+dkiqlZ7RKLx7Nqa
+	i9I2r+OSAeN/C6Dg==
+Date: Wed, 26 Mar 2025 14:48:17 +0100 (CET)
+From: Miroslav Benes <mbenes@suse.cz>
+To: Song Liu <song@kernel.org>
+cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
+    indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com, 
+    irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org, 
+    mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev, 
+    rostedt@goodmis.org, will@kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH v3 1/2] arm64: Implement arch_stack_walk_reliable
+In-Reply-To: <20250320171559.3423224-2-song@kernel.org>
+Message-ID: <alpine.LSU.2.21.2503261447500.4152@pobox.suse.cz>
+References: <20250320171559.3423224-1-song@kernel.org> <20250320171559.3423224-2-song@kernel.org>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/10] arm64: dts: qcom: sm8750: Add USB support to
- SM8750 SoCs
-To: Melody Olvera <quic_molvera@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Wesley Cheng <quic_wcheng@quicinc.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250324-sm8750_usb_master-v3-0-13e096dc88fd@quicinc.com>
- <20250324-sm8750_usb_master-v3-7-13e096dc88fd@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250324-sm8750_usb_master-v3-7-13e096dc88fd@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=CdgI5Krl c=1 sm=1 tr=0 ts=67e4058b cx=c_pps a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=x9b32qiywL4GtknhJMwA:9 a=QEXdDO2ut3YA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 5i8N0SvVdptiSU3mj4fffLUkGBQOBA8c
-X-Proofpoint-ORIG-GUID: 5i8N0SvVdptiSU3mj4fffLUkGBQOBA8c
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-26_06,2025-03-26_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 mlxscore=0
- spamscore=0 mlxlogscore=850 lowpriorityscore=0 suspectscore=0 phishscore=0
- clxscore=1015 bulkscore=0 impostorscore=0 adultscore=0 priorityscore=1501
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503260084
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	RCVD_COUNT_ZERO(0.00)[0];
+	MID_RHS_MATCH_FROMTLD(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_064757_607541_8265B4EC 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20250326_064820_953368_75807505 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,40 +117,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/24/25 9:18 PM, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
+On Thu, 20 Mar 2025, Song Liu wrote:
+
+> With proper exception boundary detection, it is possible to implment
+> arch_stack_walk_reliable without sframe.
 > 
-> Add the base USB devicetree definitions for SM8750 platforms.  The overall
-> chipset contains a single DWC3 USB3 controller (rev. 200a), SS QMP PHY
-> (rev. v8) and M31 eUSB2 PHY.  The major difference for SM8750 is the
-> transition to using the M31 eUSB2 PHY compared to previous SoCs.
+> Note that, arch_stack_walk_reliable does not guarantee getting reliable
+> stack in all scenarios. Instead, it can reliably detect when the stack
+> trace is not reliable, which is enough to provide reliable livepatching.
 > 
-> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
-> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
-> 
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
+> Signed-off-by: Song Liu <song@kernel.org>
 
-[...]
+Looks good to me.
 
-> +		usb_1: usb@a6f8800 {
-> +			compatible = "qcom,sm8750-dwc3", "qcom,dwc3";
-> +			reg = <0x0 0x0a6f8800 0x0 0x400>;
-> +
-> +			clocks = <&gcc GCC_CFG_NOC_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MASTER_CLK>,
-> +				 <&gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_SLEEP_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
-> +				 <&tcsrcc TCSR_USB3_CLKREF_EN>;
+Reviewed-by: Miroslav Benes <mbenes@suse.cz>
 
-I believe this belongs to the PHY, but the documentation doesn't make that
-very clear..
-
-With that squared out whichever way is correct:
-
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-
-Konrad
+M
 
