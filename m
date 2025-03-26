@@ -4,105 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D53DC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6133C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6EuDjXKidQBl0tqYxtEZ2ruC/3IuVI6jN86tCBBzL/s=; b=3X1ciTjkFK5mzXWazdaQRmh3Xm
-	b9SLl001y0I2xxNsqZhWvTCfsNPLry71S76vCODvYYQdVzX5wPG/QLJUIabhp17WdQAYbrp2UaLRj
-	FTd3vk4mD/6kuedCXeX4MnCWTnkZXWHXr6PLiEQd/CpXDcARr+lFgSrY/3JW2IWZgzC/KEqaP5xe3
-	jv+Y106SuZ1oO2UVa6s+TbRJ4zWZ+hJsdZS8P2OUu+F22EErk6SFM9+5CUMq03hfs+LY7iPsYK/lL
-	QNg1ozHoinOdEeW4aNC0CzNfi9MtEhgNxQS3SHqr35Xj/mt9QiOabasxzlqN7dJs2Dauz4CmGCEfU
-	Y+1J4wFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4lXjgaJ30mX5cDcOLM5e2+yWI/YHl60h4te+LJZ26is=; b=iH0c0UUGA6MkosA026Rn46fZTB
+	ACzcaA2zdBpoJn6ZWwoTlwBGCqc7WwfFBKtIGhHvPWV0N17QHErMNuO64cmSVaa5kakMecKfzPhU2
+	XOpqf6T5HFM2Nujd4yliXH1rwdp7DD/83hGrooLUR6POeyar98W94y/LRK+NiB5jLhqEDndLk30VO
+	ZeonSUDPl4rO0o9s8d5Kl0cvfXgGs6CLqz7fgQfVK3TigBswxuxQk4zjH+MPT2HV6GzTUirBI++CE
+	yY61hwM/ULN9TwsF12LV/24M6eP5pxUWhXQffZ8THrF8nAl/C2BgC0FwiQGJckO5xp86muZd5x2ap
+	xwi4mOoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txSAU-00000008lU1-47fv;
-	Wed, 26 Mar 2025 14:55:46 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1txSCC-00000008lkH-37AX;
+	Wed, 26 Mar 2025 14:57:32 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txRvL-00000008iTe-26Os
+	id 1txRvM-00000008iU0-08vB
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 26 Mar 2025 14:40:09 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-30db2c2c609so19762031fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:40:06 -0700 (PDT)
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3912c09be7dso4615243f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:40:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743000005; x=1743604805; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6EuDjXKidQBl0tqYxtEZ2ruC/3IuVI6jN86tCBBzL/s=;
-        b=GLPgejKfQaoaHOA1KiVIO4TPK3y9XfOUYJKdwdTL2NTz3uKbD8QxdEzs5RPUmKWaRU
-         pI+nFf1eFIf1atDvTDRNXadX01MdYJAFSJHH1Tq7vzquZ1ClxbPs0En5QF4fslvXwfrE
-         Xm5tv5ijuNozqHfiGj2LViob+aKLASbbVcYnkPsSOG5S9qkNIWjXyDmBOSSVzrepY8hz
-         if5qok5vEF0NM8PdLUYYDEVWajGmQVTei7JSLxwO0uvWT8IjSAlGXz/WIX5Xr9eHhVjA
-         qTGX5BFw7IRCtzGXIfUdwU65kW5TZrUVyfV1ahQyzaqSNkP9GMqNCiGZdPeKd1z7h8Iy
-         knUw==
+        d=gmail.com; s=20230601; t=1743000006; x=1743604806; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4lXjgaJ30mX5cDcOLM5e2+yWI/YHl60h4te+LJZ26is=;
+        b=kR8qqyatoaOqHMEGZhd4AZs79FbM6oYEYVN87B2oY3SAW18FuqLASmk089jhv2Zdor
+         4YDkM3FKtJwkSzQW10I1Fz2d3rqWJLIKpcBMDeHVHxX9x60po2aGvtfLjtm/zTZw4dnp
+         P0sx7SjBHDPgg+g86f8XcrvENQ2RMedeYW8XfBNn9PIxGu5zJPajXwyJKqQ2MkFxLcKW
+         8epYPYuhFFkewMvSb4KOmHUVawpiCmmiPLn35HskxPC0Dqbji64h9IG6JhbkEzYzVQtF
+         p/aqpB48lXX2/qYSmDxqMRlKd07RJCzS/OASwJWHCw1vmVO7Chc6rYljgsNcfCAJyHXg
+         4LZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743000005; x=1743604805;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6EuDjXKidQBl0tqYxtEZ2ruC/3IuVI6jN86tCBBzL/s=;
-        b=uO6a9oLGa6byvyE4qfVyNMItz9reShuK4DWN9QuDMiwzaSkZBqkhZh20g0gDh3U6wZ
-         +2u44KOW3G5nehApE8sFHb8t9EYlBD/bHnPUei/14ONXQ2OtiOAfMXcLUZ3u3LFulqOS
-         AST/Z0w4X1zx7wgjHWTP+o7AxCXwLo3Pg/CiXZDdvfVsSm/PlLQ0uS4xs1oMcUJ+zDV9
-         Ihv58PGxlognZjOlIa/tohh4ADLW+m4RL8+ACPWdvcgC3O32iFM0oAfX8d67kB/HS5ou
-         25X4P6mNOKukFNZkUIxzN7x374BhdLyOTF7U72+f6op+QSTwH8UeyisLOZ6fQ85jnO7S
-         I2+w==
-X-Gm-Message-State: AOJu0YyyL5FIBfTZgi3F6mscQeb/yMUtUAnfRqLXs1UTAux28iHXlgcj
-	fav234RqZWFyk2jJP5H2qk2aRT3KrSmbgyTQns3lJKY0QsXGXuHZ
-X-Gm-Gg: ASbGnctWNpQeNmtNT4KPj+ToWaLgI2heSSaMf8WLw4PPFJAzMLNezicVZQjdpLu8wDp
-	D3TnvXYrdBEdXxDgSO/IYrLJFe5t54TqEcYyEOrPeldjvpYiT9WMuuF+lXsC4TtFRkjrT6gL/1y
-	YNDTMk+EBk+eRdWcyByXLPr1nI6rjBScZfAdViWhyyb8aXHgdV4QA0wpbfL+BnPuK2DXTqS6zZy
-	yHFghLLwUMMiyOX3EpDZFcX2+V7/VBV0NRxuJMKIcpNeuyCUaqEM48i+3or+TieK2R7ZpneBQ08
-	RQpHhNq1AESjqerahauooK8zUyBgs7B2uQMHEc3neKF6ceiyewt5UjuwEglfkQYCEzHXREApKW3
-	zLLdSZuVTqu744BUH+zqKcx8=
-X-Google-Smtp-Source: AGHT+IGGn5bSE4gjHMGAHWfQJJacrQvAex99kJygteLoNoccgFY1I0pKwaSx1wgBttcnB2NtTW5XBQ==
-X-Received: by 2002:a05:651c:c9:b0:30b:ef98:4653 with SMTP id 38308e7fff4ca-30dc5f50f0fmr19151fa.36.1743000004960;
-        Wed, 26 Mar 2025 07:40:04 -0700 (PDT)
-Received: from [192.168.1.11] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30d7d7e05f8sm21595771fa.32.2025.03.26.07.40.03
+        d=1e100.net; s=20230601; t=1743000006; x=1743604806;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4lXjgaJ30mX5cDcOLM5e2+yWI/YHl60h4te+LJZ26is=;
+        b=XdL0p3N55OXAp/RsNWaOZkcGsN/12TRRu3x4HSSWp0Cy7ZhZt+yX8jnJpilTgKMnCs
+         zKUDKQsLlu71PYNSGhx9vzECr4l+WS4d0rcj1w6xW9jnvLqFjmznzCgx11o6bAHhcoid
+         HLrXhBh+yRriolMC8naf7TUWJNR1ycITV79zlWlAe2VMRglGfobdH9Ctsna2jEwh3Mvj
+         PaNV5yY2k3YXp6rqRJ6tGBPosoFcCm3ZjgMVQY7fQDQjrhlFRO5sPJeUKLwoMLDKcVyQ
+         KFilYdDZZlU1jWWfwWHLnSk+AhnWPe0uuV0Q4i1D9a+sxuWtRtbsp+YJY0uqbmQSx6IK
+         WQ1w==
+X-Forwarded-Encrypted: i=1; AJvYcCXmuCPVmQxfgYNPEfDcHUIaby/sbbU5nQPxbPWS8bifmMYENPiP84WekZa9d6x244ZVHvB3rXboEG9+k3wdHLji@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4/mhA20U+YV50AENmJmKoZx4YkJEniPbOYQQUHyqwfcEjJrO1
+	5lOFkZC/opzfzxfX+JLEg7CcJY0o+5eazdZJ3z4T2qvN701FrW8L
+X-Gm-Gg: ASbGncvEOPWvztBVqGnpTcfGXFAwrh7nnNDfMhmhmDzBrXZe6Uv+Chxo0Wg5dZid8A/
+	RtYhMFyQfduBTnbqWkHkvupSxSC+N0DTbIhZyGKjoCdAL1Vvrsm+6kOxyfYGJb5FCwH4/22DEXf
+	6HOTLLZimJMu4iEmxAJvm6EQXwzgFk1xXkPK6+BABoYSurPi2vL05wJSVSxU5QVx3Qfgu5kOKyH
+	GnEB4tfkPvA+0NpM51o/enHwY+lrLpJ/MvIGsmadXYaRoWuxMtaAXFrq701f56bYS/TGhmJ4Xuo
+	A/6mQ0BOziPHBiTHgeM7uMNNJ++ctNrKPEMcLa+x8hO6LUXvsaPdlAj/z6rPH3TJavIx
+X-Google-Smtp-Source: AGHT+IH46KfQuYDthexFM9JOF37fPKyd4C3Ozaj4K3acaAOPvFJgrgx3LcP7JO5sXYRF9Zdn87Jt9Q==
+X-Received: by 2002:a05:6000:2b08:b0:38f:2678:d790 with SMTP id ffacd0b85a97d-3997f9104acmr15697964f8f.33.1743000006086;
+        Wed, 26 Mar 2025 07:40:06 -0700 (PDT)
+Received: from iku.Home ([2a06:5906:61b:2d00:e63e:b0d:9aa3:d18d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efe9b4sm3891885e9.20.2025.03.26.07.40.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 07:40:04 -0700 (PDT)
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Wed, 26 Mar 2025 15:39:47 +0100
-Subject: [PATCH] i2c: davinci: add I2C_FUNC_PROTOCOL_MANGLING to feature
- list
+        Wed, 26 Mar 2025 07:40:05 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH 07/15] dt-bindings: mmc: renesas,sdhi: Document RZ/V2N support
+Date: Wed, 26 Mar 2025 14:39:37 +0000
+Message-ID: <20250326143945.82142-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250326-i2c-v1-1-82409ebe9f2b@gmail.com>
-X-B4-Tracking: v=1; b=H4sIALIR5GcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDYyMz3UyjZF1TUzPDpDQLU+M0ixQloMqCotS0zAqwKdGxtbUA+hD6FVU
- AAAA=
-X-Change-ID: 20250326-i2c-5561bf853f8d
-To: Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Marcus Folkesson <marcus.folkesson@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1325;
- i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=Im/ujHBZDbDagi4RGHUSi6sQR6/F1nq9HzO7V8ZfdGk=;
- b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBn5BG9NAOxehASk4e1pFtaO3cbQpTn2CrmEBGM2
- YmGZqjRpYmJAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZ+QRvQAKCRCIgE5vWV1S
- MpMqD/0ZBxXUzH+XujR8gYWy6eMIbJDaF2Aov8H/slrc+vlPbqozidmexoUC7AoEB4s9tdotYmx
- hF2ko8DQXK4XFcyqI37/JoB+OEb+cce00U0sHGA3jJypk4Dj5KkwL4IgAKkuObZ9YmiX0xZ3F1H
- tSOgVQNmhI88KbUNV57wDPmMr2z8KYHK+D/7pi56iCRVr4VvCS84tyBcN8gZSAi3ayYObAkgTx1
- M7gG60WyPOZmobjQPacpz+lFslnBHj5UExruDrGvPTffQQZsc3wykz5zutpLVrqlbbrV/XfybmC
- KWzxI9dFp9Zb+nTiMT+ge3qbwYbvU5Lh5urpn0ImO2aUVdo1hvMqi5ezjnPEBA7y1WMU5vW/Dwy
- V0R8fYx5vPVhTmNSQDm9dega5t2AR2uO+bSq1cyowU5GWcrZ0nl/bdj4cuIQw68XCoHOWQjsXI/
- UqyrXLxz4773FZzS3kAEZaQbiOnJUcOcI7W89rjY9dXoKkdULqbuY91I0vKcCe5dHwLHixUm39m
- w+yMLA04IukrY6rNCXMhWwsR9qLbclRWpCKCTabz1U2eAgJZeHdD46UYu7yO9Na+46I2ulrC4gk
- vs10XGNbwEjp7/mxQ6zR22GSRa4qYcyGjWQ8BLRAUT/DzpZS6sziUQoFPwkAG7l/2LqPLzVk8bL
- kdabjV5sNdNojog==
-X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
- fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_074007_549585_D2A49D66 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250326_074008_077654_E9846C85 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,42 +121,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver do support I2C_M_IGNORE_NAK, so add
-I2C_FUNC_PROTOCOL_MANGLING to the feature list.
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+Add SDHI bindings for the Renesas RZ/V2N (a.k.a R9A09G056) SoC. Use
+`renesas,sdhi-r9a09g057` as a fallback since the SD/MMC block on
+RZ/V2N is identical to the one on RZ/V2H(P), allowing reuse of the
+existing driver without modifications.
+
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
-The driver do support I2C_M_IGNORE_NAK, so the
-I2C_FUNC_PROTOCOL_MANGLING bit should be set.
+ Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-I2C_M_IGNORE_NAK is the only supported "mangling-feature" though, but
-other i2c bus drivers also seems to support only a subset of available
-mangling-features, so I guess this is ok.
----
- drivers/i2c/busses/i2c-davinci.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
-index 6a909d339681214ed4f382b62f8cd924f4295e69..6a3d4e9e07f45ecc228943e877cde1fd9d72e8cb 100644
---- a/drivers/i2c/busses/i2c-davinci.c
-+++ b/drivers/i2c/busses/i2c-davinci.c
-@@ -551,7 +551,8 @@ i2c_davinci_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[], int num)
+diff --git a/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml b/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
+index 773baa6c2656..7563623876fc 100644
+--- a/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
++++ b/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
+@@ -69,7 +69,9 @@ properties:
+               - renesas,sdhi-r9a09g011 # RZ/V2M
+           - const: renesas,rzg2l-sdhi
+       - items:
+-          - const: renesas,sdhi-r9a09g047 # RZ/G3E
++          - enum:
++              - renesas,sdhi-r9a09g047 # RZ/G3E
++              - renesas,sdhi-r9a09g056 # RZ/V2N
+           - const: renesas,sdhi-r9a09g057 # RZ/V2H(P)
  
- static u32 i2c_davinci_func(struct i2c_adapter *adap)
- {
--	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL;
-+	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL |
-+		I2C_FUNC_PROTOCOL_MANGLING;
- }
- 
- static void terminate_read(struct davinci_i2c_dev *dev)
-
----
-base-commit: 1e26c5e28ca5821a824e90dd359556f5e9e7b89f
-change-id: 20250326-i2c-5561bf853f8d
-
-Best regards,
+   reg:
 -- 
-Marcus Folkesson <marcus.folkesson@gmail.com>
+2.49.0
 
 
