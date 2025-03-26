@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C822C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 11:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B250AC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 12:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GHf91QhT51iYy83lJisFmODA+pFXdAkAB/GuCBpC2zk=; b=vKfVeH68qP7Qpie2/MoxJsXTvl
-	bS6UbANxzGXxPe5P68+TJ8zL6DhJnNMT4Ei1dKlMtc+YCspoPUU6IkiUfMWeT61e1spYw7r1axjUD
-	3R99sbJUYAK+nd4gCFvzTlXJ5UAllNdEBBnM5+LbuvvmmSKnn8dRbW4V3Ql6Pfadm/T3WpuFMaBGC
-	rXnaIr7o0lFl+mPafTPNvck6okPgDyYNsb3phPQo0HXqYMLlLBErsCMv59R0kaNSCYK7BLM8LTaZ4
-	JAlMn4parGW4FY+a4sZ9nUmpLVVDLydJHpya6Fl4Fy4ckz1ELntukChuBA5+nKTfGXS/lVWngbouD
-	xwV69KcA==;
+	bh=Oa6CEdQgzAg5lBq2N6XQeKHkfOX+obSEnZeTTxS3+iE=; b=dBYx0w02dd/HcV4532zCM935eo
+	p4ZBEYJxwSwkfJA2UAKdIsZYSUIeGHhtV7uL6YNvPMVHB3l2acZR4MgrRmzDi2s7k4A3Y1lXOpEPH
+	I/JvQINNO7z4TtP4BdRFskEK4gjcB2ih4hm3oJ1nR9zqhf0y5wAP67+vNCt+tcgNMXaVUd8jG5RrM
+	ch9WKi2Nvk9Lqkfv6a3VQUIvOPDatU8SfTc2l+oWmfWTBRLbSDdE0KijxY0ifG9u7AAfveaBoG8JG
+	aM3bKAegh+sFAH0ZiD8wjbtZHG+FDMCtBBGCtB3tLHarzxNrFmtD9fKz8PukWJMDebLCmVNNTIpS0
+	NRrDnWZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txPD0-00000008OdA-1at9;
-	Wed, 26 Mar 2025 11:46:10 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1txPRt-00000008PoS-28FP;
+	Wed, 26 Mar 2025 12:01:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txP6H-00000008Ngg-1SZF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 11:39:14 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d5ca7c86aso24393245e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 04:39:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742989151; x=1743593951; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GHf91QhT51iYy83lJisFmODA+pFXdAkAB/GuCBpC2zk=;
-        b=sbk0bLAdaRP9sM77T/hO3ZaARWmWJhVnTK/cZaUYgB1+hgu9jGeOCJxuyD9q+q9IEi
-         dCdvZ5vw/SkVIGyLPB7ZB1B9X1YLRWcCwM+h19DvEGJtOa5zsTK5jKAKrJaIhmkHhsEL
-         iedGdYLL6DsnHu2jzc7rZvtN49y0UrOgfSJWSVdBiXg0MXQBcJGQRDWG1qwSVxWpTkGv
-         SV7/blOavQLvVC4/KdcRJw7eDhy4uAOzmF9WMgKSm+5ZZXnsAdcfqK12DskN6moh19Sb
-         LJSHE9BtJ+biyI68fclI/BeZDoLjaq0lrtys9TPs7o8YRTeb3Nnx/70lUQPHR5Cs7jOG
-         JR8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742989151; x=1743593951;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GHf91QhT51iYy83lJisFmODA+pFXdAkAB/GuCBpC2zk=;
-        b=PvBkigUrY1UHdLi9CQCoWHEA1w0P6O3zQfs4a4OFa452+sRVYPZNH7Dkf7OurWxKOJ
-         34Ky30C75HWQGaFtqd7HJeukw9IGMS+y8k0Ojgz6K3lIo5Gw0ZFF3Vz28NX5BU7SXZ+h
-         MakxfEycuHbuTT14cTEAznHJ0ZZuxHOkbfZAaAKEEQwdxtuiot/WG6ZyBxshRjHl6toN
-         gAAkf5QUVRhrQ66inor9Tph4xcKoh9hwSI1RilHvJ2fJpElaGD9TI/tppat0Iqq5ojyO
-         8nPTEbgpNQR2YZyQfv1yoV3HUBkT0L9ap0NO2xU5k/xOWwez3p0B4TBCoH06HKK9pmW6
-         aE4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXngxdfypU4BxjalWQNqjXtMP+gPmxXAIhyOdt1UK0l0TSjgbH3EIR+PYjIUXsVnysmCVnoxT9ro5/VPZ3ranqd@lists.infradead.org
-X-Gm-Message-State: AOJu0YysZQ7EwQBpBuhmBEa0CJtJBO5otqA4ktkXueppZOwus9XGrzS6
-	kIpdi4tvluXnXPWM0CQ2HVFawFjZuRySbs4hy2qCD3Z3Eq3AIaTK0FXjN8z4pHEru94jfiwKUSE
-	FaKIw8bl9o2/sn7gCqrcBdMunHA==
-X-Google-Smtp-Source: AGHT+IHs0QnGDLw9n/4cRwsa7oyAsEcllQx68V0oWKnfOqB/3TAlLPJ14NKv8m2ojEKJA3YBjubucjAO0uNkMu+4Lz4=
-X-Received: from wrck14.prod.google.com ([2002:a5d:524e:0:b0:390:e325:456e])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:6c61:0:b0:390:f902:f973 with SMTP id ffacd0b85a97d-3997f8f5c08mr18860296f8f.8.1742989151526;
- Wed, 26 Mar 2025 04:39:11 -0700 (PDT)
-Date: Wed, 26 Mar 2025 11:39:01 +0000
-In-Reply-To: <20250326113901.3308804-1-sebastianene@google.com>
-Mime-Version: 1.0
-References: <20250326113901.3308804-1-sebastianene@google.com>
-X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
-Message-ID: <20250326113901.3308804-4-sebastianene@google.com>
-Subject: [PATCH v4 3/3] KVM: arm64: Release the ownership of the hyp rx buffer
- to Trustzone
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org, 
-	oliver.upton@linux.dev, sebastianene@google.com, snehalreddy@google.com, 
-	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
-	will@kernel.org, yuzenghui@huawei.com, qperret@google.com
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Andrei Homescu <ahomescu@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_043913_384136_2BEC2EA0 
-X-CRM114-Status: GOOD (  12.45  )
+	id 1txPQB-00000008Pco-0izc;
+	Wed, 26 Mar 2025 11:59:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BEDE6112F;
+	Wed, 26 Mar 2025 11:59:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E8AEC4CEE2;
+	Wed, 26 Mar 2025 11:59:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742990385;
+	bh=cjxrsIzX/WPyXr7qdJpErRGIpF/kZxl22HylGb7mEwc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LhPUdmq1h7gvCSyDJ4n5B+4eRaGO5moH9CfG7jg7AQW5aPyeCDq2hBlFxoYjjVSlZ
+	 VC/V+Bixj8HZzyowNqA066Z5Np/7rN3pTPMilK3q5mgy0LnHOq+14v86HCYR2l+yn6
+	 e6g8oVWNq4Oy9Ij3p/6BCYiNZnS5659ckKwyTePqMI8tZZz0VPq9KTqvsWWEwQ9zsJ
+	 f/61VbQQ9B4OxQWSMiWDMS+ss5uyO8eyB1ZikVuHGAoUaYZ7BLWyzPftmXh+1uIeY+
+	 ru6EG6DyITSaRWZbJTdd9xC6DquohsYrSIlfLjsLjC60xDWGZmxOIvftTBoNzZfTMB
+	 7ZVrb394mhsAg==
+Date: Wed, 26 Mar 2025 07:59:40 -0400
+From: Mike Rapoport <rppt@kernel.org>
+To: Frank van der Linden <fvdl@google.com>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
+	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
+	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
+	robh@kernel.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
+	tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 07/16] kexec: add Kexec HandOver (KHO) generation
+ helpers
+Message-ID: <Z-PsLDv-DkxitRv1@kernel.org>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-8-changyuanl@google.com>
+ <CAPTztWbFXajArSN8yKu32eSoR=xsk1CHM_4V7MJ0eQxydFqPUQ@mail.gmail.com>
+ <Z-MB0Cj4tM6QgOAg@kernel.org>
+ <CAPTztWbDtDhKZS89-aEBaZoPW2jZM2CAWW1Y_m3OnNE26=d9UQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAPTztWbDtDhKZS89-aEBaZoPW2jZM2CAWW1Y_m3OnNE26=d9UQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,57 +87,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the release FF-A call to notify Trustzone that the hypervisor
-has finished copying the data from the buffer shared with Trustzone to
-the non-secure partition.
+On Tue, Mar 25, 2025 at 02:56:52PM -0700, Frank van der Linden wrote:
+> On Tue, Mar 25, 2025 at 12:19 PM Mike Rapoport <rppt@kernel.org> wrote:
+> >
+> > On Mon, Mar 24, 2025 at 11:40:43AM -0700, Frank van der Linden wrote:
+> [...]
+> > > Thanks for the work on this.
+> > >
+> > > Obviously it needs to happen while memblock is still active - but why
+> > > as close as possible to buddy initialization?
+> >
+> > One reason is to have all memblock allocations done to autoscale the
+> > scratch area. Another reason is to keep memblock structures small as long
+> > as possible as memblock_reserve()ing the preserved memory would quite
+> > inflate them.
+> >
+> > And it's overall simpler if memblock only allocates from scratch rather
+> > than doing some of early allocations from scratch and some elsewhere and
+> > still making sure they avoid the preserved ranges.
+> 
+> Ah, thanks, I see the argument for the scratch area sizing.
+> 
+> >
+> > > Ordering is always a sticky issue when it comes to doing things during
+> > > boot, of course. In this case, I can see scenarios where code that
+> > > runs a little earlier may want to use some preserved memory. The
+> >
+> > Can you elaborate about such scenarios?
+> 
+> There has, for example, been some talk about making hugetlbfs
+> persistent. You could have hugetlb_cma active. The hugetlb CMA areas
+> are set up quite early, quite some time before KHO restores memory. So
+> that would have to be changed somehow if the location of the KHO init
+> call would remain as close as possible to buddy init as possible. I
+> suspect there may be other uses.
 
-Reported-by: Andrei Homescu <ahomescu@google.com>
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+I think we can address this when/if implementing preservation for hugetlbfs
+and it will be tricky. 
+If hugetlb in the first kernel uses a lot of memory, we just won't have
+enough scratch space for early hugetlb reservations in the second kernel
+regardless of hugetlb_cma. On the other hand, we already have the preserved
+hugetlbfs memory, so we'd probably need to reserve less memory in the
+second kernel.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 6df6131f1107..ac898ea6274a 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -749,6 +749,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 	DECLARE_REG(u32, uuid3, ctxt, 4);
- 	DECLARE_REG(u32, flags, ctxt, 5);
- 	u32 count, partition_sz, copy_sz;
-+	struct arm_smccc_res _res;
+But anyway, it's completely different discussion about how to preserve
+hugetlbfs.
  
- 	hyp_spin_lock(&host_buffers.lock);
- 	if (!host_buffers.rx) {
-@@ -765,11 +766,11 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+> > > current requirement in the patch set seems to be "after sparse/page
+> > > init", but I'm not sure why it needs to be as close as possibly to
+> > > buddy init.
+> >
+> > Why would you say that sparse/page init would be a requirement here?
+> 
+> At least in its current form, the KHO code expects vmemmap to be
+> initialized, as it does its restore base on page structures, as
+> deserialize_bitmap expects them. I think the use of the page->private
+> field was discussed in a separate thread, I think. If that is done
+> differently, it wouldn't rely on vmemmap being initialized.
+
+In the current form KHO does relies on vmemmap being allocated, but it does
+not rely on it being initialized. Marking memblock ranges NOINT ensures
+nothing touches the corresponding struct pages and KHO can use their fields
+up to the point the memory is returned to KHO callers.
  
- 	count = res->a2;
- 	if (!count)
--		goto out_unlock;
-+		goto release_rx;
+> A few more things I've noticed (not sure if these were discussed before):
+> 
+> * Should KHO depend on CONFIG_DEFERRED_STRUCT_PAGE_INIT? Essentially,
+> marking memblock ranges as NOINIT doesn't work without
+> DEFERRED_STRUCT_PAGE_INIT. Although, if the page->private use
+> disappears, this wouldn't be an issue anymore.
+
+It does. 
+memmap_init_reserved_pages() is called always, no matter of
+CONFIG_DEFERRED_STRUCT_PAGE_INIT is set or not and it skips initialization
+of NOINIT regions.
+
+> * As a future extension, it could be nice to store vmemmap init
+> information in the KHO FDT. Then you can use that to init ranges in an
+> optimized way (HVO hugetlb or DAX-style persisted ranges) straight
+> away.
  
- 	if (hyp_ffa_version > FFA_VERSION_1_0) {
- 		/* Get the number of partitions deployed in the system */
--		if (flags & 0x1)
-+		if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
- 			goto out_unlock;
- 
- 		partition_sz  = res->a3;
-@@ -781,10 +782,12 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 	copy_sz = partition_sz * count;
- 	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
- 		ffa_to_smccc_res(res, FFA_RET_ABORTED);
--		goto out_unlock;
-+		goto release_rx;
- 	}
- 
- 	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
-+release_rx:
-+	ffa_rx_release(&_res);
- out_unlock:
- 	hyp_spin_unlock(&host_buffers.lock);
- }
+These days memmap contents is unstable because of the folio/memdesc
+project, but in general carrying memory map data from kernel to kernel is
+indeed something to consider.
+
+> - Frank
+
 -- 
-2.49.0.395.g12beb8f557-goog
-
+Sincerely yours,
+Mike.
 
