@@ -4,82 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A14C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 23:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC4BC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 23:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wc3YVGgFFPukQsTfiZoZotgv1qZ6Vpg2i6m4XEs2Ox0=; b=FJpo9VhCJw0cA3PsOXT0AgbtX3
-	4b9HTpnYo/aFjOGeU0C8z/16SM0rumjrEcnZlI9mRu0PpMS0qELlorcbBcWR07TmafB4LcXIc9zG5
-	OB4v8aSnQtEc9/XJyZ/4JXdFmV4ZQ0a/xxi40X+opMx0J8cSrkXZh2VSovKbKPeOMsNLreFPGlLdE
-	95Br+2lt+GAdF2yBd6uXIueCw/M5ofZKxixP5EgJlRwxiyiOqqjQgQwsJovMgXViXbVWhrn4X9tY2
-	MfASGppvZy7lai7ZiOUGYSGNmRt4tZEMpGUcxVaHoj51MJeh7TTITyM9Dl1gv7oIuCLKBhSIJccDU
-	AEN7lSeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QqLfVZDYycYImiptPEGj6Hth7FILNcm9IYSk00GmEbU=; b=ujfmx0KUs2vOGRxzvPcY2j/tiO
+	lORveEM/u31GC7T2oe2PBTAZXLEjwV8mctQK7tbty8bn/j8Vtsn2DVah3M6tAl+ra6ICWVCP8tOP7
+	wUo+tzCpLpxAHUsfK2NhvNmc4M3T+UTTvg/uckuWmOA+pvkMnjqURqHRj7plL3VV0C8t7BFMIRVJp
+	9sVhHTpzOgpIeCREpLnz0A7v9u/Um91hDaCj3Qr+HtE1xn1C/C00inQY1UtIAt/0whG5F8kbYQujx
+	t+v6PHhb2yIjlIHWXcSgIH3Uc1jSVSGUSLvBywsxRgpFm3bndhJ9H+fi9/fXausoTcnrFpnRVk88p
+	sFsKdzXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txZun-00000009lOl-2k29;
-	Wed, 26 Mar 2025 23:12:05 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1txaCL-00000009mMf-25l6;
+	Wed, 26 Mar 2025 23:30:13 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txZt4-00000009lKS-3wIW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 23:10:20 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5e5cbd8b19bso2051a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 16:10:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743030616; x=1743635416; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=wc3YVGgFFPukQsTfiZoZotgv1qZ6Vpg2i6m4XEs2Ox0=;
-        b=L+5kcX2nt4mN3MWFYSosCp4hbsKmjgsvvdE1B2bC8hW4RLLNgx0zS9Tf9xPO1K+XyF
-         d9dt3BjzAnLxOrEaH/7poUqg07ecKyK/r+5YVM3c7zgvESa+rCaGuoLOxbtpVPgfcyn7
-         GFi2XwtR3cyNhxREWIYVSw24j8ghitx9RQhVjAS4uHQ6Y9iICX8aa3K5rqUJ/6VuhEOp
-         PvnBIlVajfhoEIL8A3W/0udFTB7yCkwn4TpNp3pHskvctgPSnhfPbW+MU/ylS878UE2x
-         RiDRntIZCkdVAgnJVOkQyEr8NuZgGinwWJcSMEG6T4rNTJ9ekJlfHPlsOgCLRYJZdSPJ
-         H4Qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743030616; x=1743635416;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wc3YVGgFFPukQsTfiZoZotgv1qZ6Vpg2i6m4XEs2Ox0=;
-        b=peT5v7RBfdFKQSCsy3NafvX2H/qlv4cEYGCvMG0U7a9Vcu6tNvpj+xgIHqcT/u580f
-         NEZpSM0QH0Ss5Az26xxIiXWsfoZ5bBZlmPA8bK7RfNZ473A9ChyWE9eurdygyIUHQYJn
-         VFDiWRtzoxjUGw6nK7bWbj5IhaT+in5p1Je8cQ45RVkhB7qX1ecoeqxQmp5dbLEqNH7U
-         Jf1LrIY3i2xqC5QdmMwe0UldX6mPUuToezPvjbpP1Pq06Rpob9XihJZdVMMCAoWO56xm
-         ndPAQm1SubK8PFXzicfgPloxWcVQ+Hj9xs+1u6zaFXgE4Qq9vF2JBb1ZQN7I/jkYGVH5
-         jNzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUIxkO8AhUVDlINNChpLBe30h1IY7jjPKbnDap4UcxXKqjLo3dSXtb8S64u6xQAEUGOeoIkL/B0/WWp9whpfg7M@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaQZwUtEMoNpOdoKRIW7Zg4iZnh0gV1RAvcpH45oG+WSB3ve1V
-	1NRiIZkZ4Iq1H1RsyjKwXAKIsAGLsGDksy/dQ5ZUV0y9OamypVp910bJIuhvlHwbnna0L+UuqaF
-	Ngk9LQI6dQc+vNIMar0yjtcfGSZqxe6YIlOP4
-X-Gm-Gg: ASbGncv0jZudk8trYEfwpJIb7ikDeeFtzxBpt8/VEmZvzzdrcqCFmjGARAlG3fwwgSG
-	sKGbIfbOMPQj8B6wLffi0JN4cSMGXn8D28rgZN79eW0gDdlmuFNjTYx6/Puulk4dLtk9YzqWsLE
-	ESgFsqrFZt20+2V+kcRxTC3HbAjdkWhsnCMCNYDXa2O/0SOwcrNpEzwjoNMUqSXKIYmQ==
-X-Google-Smtp-Source: AGHT+IFXisS9wWdRUt0uNNuJQt+0RNkIIqbbbT66/cypXTYdXu3uR8mrjkMlVz/TrIZZwushzUnqd5yPMxkuIjOcxew=
-X-Received: by 2002:aa7:c954:0:b0:5dc:ccb4:cb11 with SMTP id
- 4fb4d7f45d1cf-5edaae205aamr22369a12.4.1743030616016; Wed, 26 Mar 2025
- 16:10:16 -0700 (PDT)
+	id 1txaAb-00000009mHi-2MTo;
+	Wed, 26 Mar 2025 23:28:26 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52QG9fEU011712;
+	Wed, 26 Mar 2025 23:28:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	QqLfVZDYycYImiptPEGj6Hth7FILNcm9IYSk00GmEbU=; b=GwxvVGlYXGDnXoij
+	UABE0PEpFwLJLveE6w+p7wVBKKX1znMI1b04NOywySBERwEcJ1qT0IKQxaZerlL1
+	Plm+0sC6fbj3BxspejMzW7ZWhwUb92jyRjU3FxdeHT/4cknv/Uubrqw5PRDzT5Np
+	wECWlcajwm2rvQ07qIYNEPl6tY5OybQAkGFpuFBxFBl7pTJdMrbHvbt52TRDLBiB
+	8b0iRJoiROX/Uq8B8IMHNuusGR/fjPrpspzWmAEtjMpVdy9toggvZyEpqMhdk17a
+	pn3GbWtVoYbDLydjX/FG8hBdGvs7RVwP6ERkfxCjuCm1CkY/yx0j6cT9XIiqi/E2
+	7kgJZw==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45mmuth2g8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Mar 2025 23:28:04 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52QNS3AR000933
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Mar 2025 23:28:03 GMT
+Received: from [10.46.162.103] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 26 Mar
+ 2025 16:28:02 -0700
+Message-ID: <d1989803-9573-0458-c9e3-93d04846f664@quicinc.com>
+Date: Wed, 26 Mar 2025 16:28:02 -0700
 MIME-Version: 1.0
-From: Jann Horn <jannh@google.com>
-Date: Thu, 27 Mar 2025 00:09:40 +0100
-X-Gm-Features: AQ5f1JqVjr6tTcBF7w0LwsC86zQrBaocMPZS2--LfQfER88FYjnvupdq9_ZCZqQ
-Message-ID: <CAG48ez2jj8KxxYG8-chkkzxiw-CLLK6MoSR6ajfCE6PyYyEZ=A@mail.gmail.com>
-Subject: does software KASAN not instrument READ_ONCE() on arm64 with LTO?
-To: Will Deacon <will@kernel.org>, kasan-dev <kasan-dev@googlegroups.com>, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: kernel list <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Alexander Potapenko <glider@google.com>, 
-	Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v4 1/1] scsi: ufs: core: add device level exception
+ support
+Content-Language: en-US
+To: Arthur Simchaev <Arthur.Simchaev@sandisk.com>,
+        "quic_cang@quicinc.com"
+	<quic_cang@quicinc.com>,
+        "quic_nitirawa@quicinc.com"
+	<quic_nitirawa@quicinc.com>,
+        "bvanassche@acm.org" <bvanassche@acm.org>,
+        "avri.altman@wdc.com" <avri.altman@wdc.com>,
+        "peter.wang@mediatek.com"
+	<peter.wang@mediatek.com>,
+        "manivannan.sadhasivam@linaro.org"
+	<manivannan.sadhasivam@linaro.org>,
+        "minwoo.im@samsung.com"
+	<minwoo.im@samsung.com>,
+        "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
+        "martin.petersen@oracle.com" <martin.petersen@oracle.com>
+CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+        Alim Akhtar
+	<alim.akhtar@samsung.com>,
+        "James E.J. Bottomley"
+	<James.Bottomley@HansenPartnership.com>,
+        Matthias Brugger
+	<matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        Bean Huo <beanhuo@micron.com>,
+        Keoseong Park <keosung.park@samsung.com>,
+        Ziqi Chen
+	<quic_ziqichen@quicinc.com>,
+        Al Viro <viro@zeniv.linux.org.uk>,
+        "Gwendal
+ Grignou" <gwendal@chromium.org>,
+        Eric Biggers <ebiggers@google.com>,
+        open
+ list <linux-kernel@vger.kernel.org>,
+        "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
+        "moderated
+ list:ARM/Mediatek SoC support:Keyword:mediatek"
+	<linux-mediatek@lists.infradead.org>
+References: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
+ <SA2PR16MB4251229744D717821D3D8353F4A72@SA2PR16MB4251.namprd16.prod.outlook.com>
+ <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
+ <SA2PR16MB4251343F5F595B101950F5E8F4A62@SA2PR16MB4251.namprd16.prod.outlook.com>
+From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
+In-Reply-To: <SA2PR16MB4251343F5F595B101950F5E8F4A62@SA2PR16MB4251.namprd16.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 7myU5PI7XWG_bYd2tH5vAl8y2P9nS6g6
+X-Authority-Analysis: v=2.4 cv=MqlS63ae c=1 sm=1 tr=0 ts=67e48d84 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=Njdu76sE2klYb9CA2QUA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: 7myU5PI7XWG_bYd2tH5vAl8y2P9nS6g6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-26_09,2025-03-26_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0
+ priorityscore=1501 mlxlogscore=999 mlxscore=0 bulkscore=0 adultscore=0
+ malwarescore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015
+ phishscore=0 impostorscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502280000 definitions=main-2503260146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_161018_978215_C01710CD 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250326_162825_704836_D9B4AE9C 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,18 +140,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+On 3/26/2025 12:30 AM, Arthur Simchaev wrote:
+>> Hi Arthur,
+>> This is not a flags attribute. This is for a Query Read 64-bit Attribute data. In
+>> the existing code, we do not have a read 64-bit attribute, so adding this new
+>> code would also allow future re-use.
+>>
+>> The new "struct utp_upiu_query_response_v4_0" would improve readability
+>> because it is formatted exactly as how the jedec standard defines for Attribute
+>> Read. We won't need to use type cast to get the 64-bit value.
+>> There would be no issue with efficiency because the same machine code
+>> would be generated.
+>>
+>> The existing "struct utp_upiu_query_v4_0" probably has a bug in it. It does
+>> not use the  __attribute__((__packed__)) attribute. The compiler is free to add
+>> padding in this structure, resulting in the read attribute value being incorrect. I
+>> plan to provide a separate patch to fix this issue.
+> 
+> Hi Bao
+> 
+> Upiu_query can be used for all device management command (descriptions, attributes, flags)
+> See section 10.7.9 UPIU QUERY RESPONSE in the UFS 4.1 specification.
+> If "struct utp_upiu_query" was properly defined, according to the UFS specification  (by OSF's),
+> we would not need to add additional "struct utp_upiu_query_v4_0" structures.
+Section 10.7.9 of the device spec v4.0 and v4.1 define the QUERY 
+RESPONSE mostly as OSFs (Opcode Specific Field). If the driver used OSFs 
+as defined by section 10.7.9, it would not be very readable. Instead, 
+the driver tries its best to map these OSFs to meaningful names 
+depending on the type of the QUERY command. In my opinion, there is a 
+good reason to introduce "struct utp_upiu_query_v4_0". For example, in 
+the spec v4.0, Write Attribute only supports up to 32-bit attribute 
+size. However, v4.1 supports up to  64-bit attribute size. The "struct 
+utp_upiu_query_v4_0" renamed the "__be16 reserved_osf" to "__u8 osf3" 
+and "__u8 osf4" which would be better for code readability.
 
-I just realized - arm64 redefines __READ_ONCE() to use inline assembly
-instead of a volatile load, and ASAN is designed to not instrument asm
-statement operands (not even memory operands).
-(I think I may have a years-old LLVM patch somewhere that changes
-that, but I vaguely recall being told once that that's an intentional
-design decision. I might be misremembering that though...)
+> If you think the structure should be packaged, you can fix "struct utp_upiu_query" and
+> "struct utp_upiu_query_v4_0".
+That's a fair request. I would like to fix it in a separate patch if 
+that works.
 
-So because __READ_ONCE() does not call anything like
-instrument_read(), I think instrumentation-based KASAN in LTO arm64
-builds probably doesn't cover READ_ONCE() accesses?
-
-A quick test seems to confirm this: https://godbolt.org/z/8oYfaExYf
+Thanks, Bao
 
