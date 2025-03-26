@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E934C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B62FC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 17:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Th5/N5p9YQP1/vp05NOMfgIfYGVnLTQqXGx9RGMExTA=; b=bnJN+izLo1xKsjuhnPGl8wWoCG
-	X1JPEOC26Qd76eJaO9MO9WupxUxRD3eUPv4sWlWznpq5ab5Ox8vWrsgT9OB2S/SP9IJHQ9MnYoLIQ
-	RVwF1TId1evaK92gNxkDhVOHNQ5vRpAnUPD5An0SHClczf8jXN/hy2snNjUouhTNKuyn0X61t+a+j
-	xIZ4cIF1JMGLBF6uitZywZOd9TxUmgHMWX/lh63H99Tc+iUVQFVqstcudoCuwIHyy093F8kN4BBrj
-	upVngQpun38g+TKRSaV2JVccq0SnFYLlaQaxIHjIchhO4OfQFy4Vtp0n0+xDceKplQq7o4ma9RXXF
-	3dIdNXUQ==;
+	bh=ZGXJ8vAVm5GpKFPjMgJKp9B5XEamiML4z9GNBKepyk0=; b=tjkviY6IVy/zjgdox01yTw347E
+	P/fS1QcW3fcCT4/GHCELQz7QZn4X9mf0QLffu6g22BO5ilLXGm7NXNT7XF5Y+C4ThWFiGRvZ1IIIo
+	R8veF+9L61/cs69s73TgkwDEUc9ofI5Yx1aaYk2q4ygJl5onRkghM/UnVHBlu9hn8lSvOcrVndkqe
+	hqYtmDPPbAAdnmwPty2wZtkDFD5EJs4iuDVRflhMzaURFZKWAFCSIi9D1uaCD6690BC9Q2C3AxDrH
+	IgD3B3oeTwxAiWy7qebvHdiVACDxMXN0g1FLZ+AtLr2FIEcBPJPx+AY2ywCKUpdDP6Eh65BvBdb/X
+	m6qb1PgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txU60-000000095vK-1YEH;
-	Wed, 26 Mar 2025 16:59:16 +0000
+	id 1txU7i-0000000968i-0I7W;
+	Wed, 26 Mar 2025 17:01:02 +0000
 Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTw8-000000093YD-3WCw
+	id 1txTw9-000000093YW-43vQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 16:49:06 +0000
+	Wed, 26 Mar 2025 16:49:07 +0000
 Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52QBt2Sb012691;
-	Wed, 26 Mar 2025 16:48:55 GMT
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52QBt2Se012691;
+	Wed, 26 Mar 2025 16:48:56 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=T
-	h5/N5p9YQP1/vp05NOMfgIfYGVnLTQqXGx9RGMExTA=; b=HIXHV+w0b0y44jMBs
-	W67vEKP6MX6ql93HaR798eGqePkC8WXwrYuXvlRKuEdWUIZG1Fm/u/EkAAQJ5lnz
-	ViWEjoDCTT8nQ5pvTwHzKKoihqNgdlYLy0U2r78uzMiO+XslIw6MP/azS/bCACNA
-	+k1zgCDPHuS31zuDdmiYtqylmFKNlCNYQKr4oINee3o5CrgpuI+Vs6BW7SpsT5Ah
-	xABjxbYeAtMHLlZRygpapxlegqQV661tnlc0DmEs4VJEarFIF4pI/aNLqIloeFF/
-	05zjK/PjqYmpapWAs/pGT48wxmkAdE6h3zEjDUYKa1RskQDpOqApdvsQLyJtNF59
-	cDGRA==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=Z
+	GXJ8vAVm5GpKFPjMgJKp9B5XEamiML4z9GNBKepyk0=; b=mjtWe4+NzfNvEPzfr
+	Uslb7uRxFW50pIX8t+RsawoMFTXuuw0E4qDxyvgYdyzNeOt1414lufU5yU8JuoiS
+	CIuoWhfegfc1PVobEoSgScODdAAVCM6LkeRmnbv7EHbJm4FLopNkJ3PpGLq6xdxf
+	gCr8mq8WlKIalGVML4PM4EKa3nQ+ZMDHSU0hkzrRYfe4grY8mHOUTiKXe341CHef
+	1J6WxI7x58sv8Pmt8ZCyWezPtUR2RZelJntELABqv7MfVKG+j67jaRaXtFqSJ+LL
+	yYHeceiZ0WqXt9eFd6QO7Bx0mzwCAqKvJBq6mLu1S8hvul+qVVoIMCgkl4Ng0R2N
+	AnUiw==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 45kbmy9d6d-4
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 45kbmy9d6d-7
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Wed, 26 Mar 2025 16:48:54 +0000 (GMT)
+	Wed, 26 Mar 2025 16:48:56 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.0.133) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 26 Mar 2025 16:48:41 +0000
+ 15.1.2507.44; Wed, 26 Mar 2025 16:48:44 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Wed, 26 Mar 2025 16:48:23 +0000
-Subject: [PATCH v5 03/18] drm/imagination: Update register defs for newer
- GPUs
+Date: Wed, 26 Mar 2025 16:48:26 +0000
+Subject: [PATCH v5 06/18] drm/imagination: Mask GPU IRQs in threaded
+ handler
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250326-sets-bxs-4-64-patch-v1-v5-3-e4c46e8280a9@imgtec.com>
+Message-ID: <20250326-sets-bxs-4-64-patch-v1-v5-6-e4c46e8280a9@imgtec.com>
 References: <20250326-sets-bxs-4-64-patch-v1-v5-0-e4c46e8280a9@imgtec.com>
 In-Reply-To: <20250326-sets-bxs-4-64-patch-v1-v5-0-e4c46e8280a9@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -81,25 +81,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10939;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2425;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=7UZjX1KztdeoZ2y/6Je0m9d/Nq6pGMo6cRsrvuv9yKU=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaQ/0X9y5Mlkj6K8v4vXBll6qh27eyXK4ZVD5atv4jOO2
- Pvknf8h3FHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQAT2RnKyHDgwaSqOUuuVdcz
- fA2Y+1/QNE44uGiPXnuWs2SaudRHXSZGhv99h5tEpQLTrh9Ul1we1CD/8NuapC9yD3+IzrRV8/T
- kZwUA
+ bh=+56HizUNukrV1UPbwW3RErbxjFb9fVb+4F+2bHgS3B4=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaQ/0X/yxuXB7F9H5c/s8Ip7e0nq3W3x47NUbqyNTuEon
+ lf9fHv2zI4SFgYxDgZZMUWWHSssV6j9UdOSuPGrGGYOKxPIEAYuTgGYCIszI8OSY+tZNu4/maP6
+ nymKOddE+o0Fy9KmNjurwNJF8bkTfrkzfHf5yTG9fNeBgKK1d/91PWKQ5XBIOLrBR03Xw9Mt5OJ
+ fLgA=
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-ORIG-GUID: yo1Vz4MvjEZtKoX6AgJ14K0Up13-7bgW
-X-Authority-Analysis: v=2.4 cv=L+sdQ/T8 c=1 sm=1 tr=0 ts=67e42ff6 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=cj9k-Jd43VawDxvwHVkA:9
+X-Proofpoint-ORIG-GUID: 1o7_5ICtEc8rfmKRAzjciJK_fah1gZLT
+X-Authority-Analysis: v=2.4 cv=L+sdQ/T8 c=1 sm=1 tr=0 ts=67e42ff8 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=MXbv0OSQah28ATDbmwsA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: yo1Vz4MvjEZtKoX6AgJ14K0Up13-7bgW
+X-Proofpoint-GUID: 1o7_5ICtEc8rfmKRAzjciJK_fah1gZLT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_094905_176227_FA14F7DA 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250326_094906_305993_7D1A0351 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,202 +115,71 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alessio Belle <alessio.belle@imgtec.com>
 
-Update the register define header to a newer version that covers more
-recent GPUs, including BXS-4-64.
+Pass IRQF_ONESHOT flag to request_threaded_irq(), so that interrupts will
+be masked by the kernel until the end of the threaded IRQ handler. Since
+the calls to pvr_fw_irq_enable() and pvr_fw_irq_disable() are now
+redundant, remove them.
+
+Interrupts to the host from the soon-to-be-added RISC-V firmware
+processors cannot be masked in hardware. This change allows us to continue
+using the threaded handler in GPUs with a RISC-V firmware.
+
+For simplicity, the same approach is taken for all firmware processors.
 
 Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v5:
 - None
-- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-3-d987cf4ca439@imgtec.com
+- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-6-d987cf4ca439@imgtec.com
 Changes in v4:
 - None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-3-143b3dbef02f@imgtec.com
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-6-143b3dbef02f@imgtec.com
 Changes in v3:
 - Added
 ---
- drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h | 153 +++++++++++++++++++++---
- 1 file changed, 134 insertions(+), 19 deletions(-)
+ drivers/gpu/drm/imagination/pvr_device.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
-index 2a90d02796d3e071b18e18dead105e29798bcddc..790c97f80a2ac03ac76b933d009a2f9cfc6003f7 100644
---- a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
-+++ b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
-@@ -827,6 +827,120 @@
- #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
- #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_EN 0x00000001U
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 1704c0268589bdeb65fa6535f9ec63182b0a3e94..b6ce936f07c8bb26d240e50b72a1d991dbe4b045 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -169,8 +169,6 @@ static irqreturn_t pvr_device_irq_thread_handler(int irq, void *data)
+ 		ret = IRQ_HANDLED;
+ 	}
  
-+/* Register ROGUE_CR_EVENT_CLEAR */
-+#define ROGUE_CR_EVENT_CLEAR 0x0138U
-+#define ROGUE_CR_EVENT_CLEAR__ROGUEXE__MASKFULL 0x00000000E01DFFFFULL
-+#define ROGUE_CR_EVENT_CLEAR__SIGNALS__MASKFULL 0x00000000E007FFFFULL
-+#define ROGUE_CR_EVENT_CLEAR_MASKFULL 0x00000000FFFFFFFFULL
-+#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_SHIFT 31U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_CLRMSK 0x7FFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_EN 0x80000000U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_SHIFT 30U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_CLRMSK 0xBFFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_EN 0x40000000U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_SHIFT 29U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_CLRMSK 0xDFFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_EN 0x20000000U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_SHIFT 28U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_CLRMSK 0xEFFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_EN 0x10000000U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_SHIFT 27U
-+#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_CLRMSK 0xF7FFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_EN 0x08000000U
-+#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_SHIFT 26U
-+#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_CLRMSK 0xFBFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_EN 0x04000000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_SHIFT 25U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_CLRMSK 0xFDFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_EN 0x02000000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_SHIFT 24U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_CLRMSK 0xFEFFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_EN 0x01000000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_SHIFT 23U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_CLRMSK 0xFF7FFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_EN 0x00800000U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_SHIFT 22U
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_CLRMSK 0xFFBFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_EN 0x00400000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_SHIFT 21U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_CLRMSK 0xFFDFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_EN 0x00200000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_SHIFT 20U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_CLRMSK 0xFFEFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_EN 0x00100000U
-+#define ROGUE_CR_EVENT_CLEAR_SAFETY_SHIFT 20U
-+#define ROGUE_CR_EVENT_CLEAR_SAFETY_CLRMSK 0xFFEFFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SAFETY_EN 0x00100000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_SHIFT 19U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_CLRMSK 0xFFF7FFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_EN 0x00080000U
-+#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_SHIFT 19U
-+#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_CLRMSK 0xFFF7FFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_EN 0x00080000U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_SHIFT 18U
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_CLRMSK 0xFFFBFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_EN 0x00040000U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_SHIFT 18U
-+#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_CLRMSK 0xFFFBFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_EN 0x00040000U
-+#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_SHIFT 17U
-+#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_CLRMSK 0xFFFDFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_EN 0x00020000U
-+#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_SHIFT 17U
-+#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_CLRMSK 0xFFFDFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_EN 0x00020000U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_SHIFT 16U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_CLRMSK 0xFFFEFFFFU
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_EN 0x00010000U
-+#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_SHIFT 15U
-+#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_CLRMSK 0xFFFF7FFFU
-+#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_EN 0x00008000U
-+#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_SHIFT 14U
-+#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_CLRMSK 0xFFFFBFFFU
-+#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_EN 0x00004000U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_SHIFT 13U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_CLRMSK 0xFFFFDFFFU
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_EN 0x00002000U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_SHIFT 12U
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_CLRMSK 0xFFFFEFFFU
-+#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_EN 0x00001000U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_SHIFT 11U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_CLRMSK 0xFFFFF7FFU
-+#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_EN 0x00000800U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_SHIFT 10U
-+#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_CLRMSK 0xFFFFFBFFU
-+#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_EN 0x00000400U
-+#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_SHIFT 9U
-+#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_CLRMSK 0xFFFFFDFFU
-+#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_EN 0x00000200U
-+#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_SHIFT 8U
-+#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_CLRMSK 0xFFFFFEFFU
-+#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_EN 0x00000100U
-+#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_SHIFT 7U
-+#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_CLRMSK 0xFFFFFF7FU
-+#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_EN 0x00000080U
-+#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_SHIFT 6U
-+#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_CLRMSK 0xFFFFFFBFU
-+#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_EN 0x00000040U
-+#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_SHIFT 5U
-+#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_CLRMSK 0xFFFFFFDFU
-+#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_EN 0x00000020U
-+#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_SHIFT 4U
-+#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_CLRMSK 0xFFFFFFEFU
-+#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_EN 0x00000010U
-+#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_SHIFT 3U
-+#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_CLRMSK 0xFFFFFFF7U
-+#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_EN 0x00000008U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_SHIFT 2U
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_CLRMSK 0xFFFFFFFBU
-+#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_EN 0x00000004U
-+#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_SHIFT 1U
-+#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_CLRMSK 0xFFFFFFFDU
-+#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_EN 0x00000002U
-+#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_SHIFT 0U
-+#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
-+#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_EN 0x00000001U
-+
- /* Register ROGUE_CR_TIMER */
- #define ROGUE_CR_TIMER 0x0160U
- #define ROGUE_CR_TIMER_MASKFULL 0x8000FFFFFFFFFFFFULL
-@@ -6031,25 +6145,6 @@
- #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_SHIFT 0U
- #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_CLRMSK 0xFFFFFF00U
+-	/* Unmask FW irqs before returning, so new interrupts can be received. */
+-	pvr_fw_irq_enable(pvr_dev);
+ 	return ret;
+ }
  
--/* Register ROGUE_CR_ECC_RAM_ERR_INJ */
--#define ROGUE_CR_ECC_RAM_ERR_INJ 0xF340U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MASKFULL 0x000000000000001FULL
--#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_SHIFT 4U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_CLRMSK 0xFFFFFFEFU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_EN 0x00000010U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_SHIFT 3U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_CLRMSK 0xFFFFFFF7U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_EN 0x00000008U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_SHIFT 2U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_CLRMSK 0xFFFFFFFBU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_EN 0x00000004U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_SHIFT 1U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_CLRMSK 0xFFFFFFFDU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_EN 0x00000002U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_SHIFT 0U
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_CLRMSK 0xFFFFFFFEU
--#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_EN 0x00000001U
--
- /* Register ROGUE_CR_ECC_RAM_INIT_KICK */
- #define ROGUE_CR_ECC_RAM_INIT_KICK 0xF348U
- #define ROGUE_CR_ECC_RAM_INIT_KICK_MASKFULL 0x000000000000001FULL
-@@ -6163,6 +6258,26 @@
- #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_CLRMSK 0xFFFFFFFEU
- #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_EN 0x00000001U
+@@ -181,10 +179,6 @@ static irqreturn_t pvr_device_irq_handler(int irq, void *data)
+ 	if (!pvr_fw_irq_pending(pvr_dev))
+ 		return IRQ_NONE; /* Spurious IRQ - ignore. */
  
-+/* Register ROGUE_CR_FAULT_FW_STATUS */
-+#define ROGUE_CR_FAULT_FW_STATUS 0xF3B0U
-+#define ROGUE_CR_FAULT_FW_STATUS_MASKFULL 0x0000000000010001ULL
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_SHIFT 16U
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_EN 0x00010000U
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_SHIFT 0U
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_CLRMSK 0xFFFFFFFEU
-+#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_EN 0x00000001U
-+
-+/* Register ROGUE_CR_FAULT_FW_CLEAR */
-+#define ROGUE_CR_FAULT_FW_CLEAR 0xF3B8U
-+#define ROGUE_CR_FAULT_FW_CLEAR_MASKFULL 0x0000000000010001ULL
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_SHIFT 16U
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_EN 0x00010000U
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_SHIFT 0U
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_CLRMSK 0xFFFFFFFEU
-+#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_EN 0x00000001U
-+
- /* Register ROGUE_CR_MTS_SAFETY_EVENT_ENABLE */
- #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE 0xF3D8U
- #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE__MASKFULL 0x000000000000007FULL
+-	/* Mask the FW interrupts before waking up the thread. Will be unmasked
+-	 * when the thread handler is done processing events.
+-	 */
+-	pvr_fw_irq_disable(pvr_dev);
+ 	return IRQ_WAKE_THREAD;
+ }
+ 
+@@ -213,9 +207,13 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
+ 	pvr_fw_irq_clear(pvr_dev);
+ 	pvr_fw_irq_enable(pvr_dev);
+ 
++	/*
++	 * The ONESHOT flag ensures IRQs are masked while the thread handler is
++	 * running.
++	 */
+ 	return request_threaded_irq(pvr_dev->irq, pvr_device_irq_handler,
+ 				    pvr_device_irq_thread_handler,
+-				    IRQF_SHARED, "gpu", pvr_dev);
++				    IRQF_SHARED | IRQF_ONESHOT, "gpu", pvr_dev);
+ }
+ 
+ /**
 
 -- 
 2.49.0
