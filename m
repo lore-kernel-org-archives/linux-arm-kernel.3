@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2050CC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 11:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE10C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 11:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q7gIiSkBn+7zXAPWwwqnDBEsrDXMe6gcX/DYFPbvGnw=; b=xwc2EQWg88oAUphb38Ugi65NS4
-	+fhoDq9t7ZWOXvg8YTWHroImsBv9oGzqbEU3Tk1tcSvwIg06r1y1uv3/Qq/19mzkWWhd16wBcWTCJ
-	4yXqdGy1V6bjulT8OUjQLH6+txvYzCZ0cz0xCtRxleuwDPhrfz4aYV/VbNvQL7RCKO+NAfF+ueWoj
-	BA+YcxLCSxC5evfDxoJ4BcSucKDaW54I/CdCNYVXSvSpF/E5RwxG/TOgwS2zIFGibUMv59XxyJEIT
-	QLHVQII8Rzd1sl6qLzUpvLWQMTH2dugzdvVA8g6Gouhn5DJPrdhqdBhE68qDIXSFfKdYjv4t1YWPf
-	/PybAUUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ezxUjNxGNqxEEIkwffC6gu9wA/qNKXnWxmZorcahfW0=; b=EC5V2X3vfwr5gBJMWUQijT3M0k
+	3dlri4/V/9E9fUANqGG4vxn/loFkpn9VAHJu/RpChbdKe3gsODMVgNpWZMIRkGvfXyNtFcazFtQg6
+	Zy6/W75tJfvmErqNf/s0tPg+n45wE9i7BUJgattgWDgokyTKBV8pkElMcJIoqiHj8wweMI0YEADK4
+	xZo1G+du2gyvvBlMN2X6Y0wKthib1xD4tCxE2fmytreLgzfZeSAnTXgjGMDQ5jIeJ8ijfvTPYWVtv
+	6Q1dUZzdcw59TEtVNA3/LVlLA+fUqdo6i/r1TYYUmohOVtAdB9yrcWo0MHjk0sEU4soauPVO7Y2xH
+	ab5Sz7TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txOy8-00000008Mfu-3N3F;
-	Wed, 26 Mar 2025 11:30:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1txP5K-00000008NZH-0poe;
+	Wed, 26 Mar 2025 11:38:14 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txOwN-00000008MTB-2YOB;
-	Wed, 26 Mar 2025 11:29:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5CFFBA41083;
-	Wed, 26 Mar 2025 11:23:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D4CC4CEEA;
-	Wed, 26 Mar 2025 11:28:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742988538;
-	bh=4Sh1ikImfk7eyob7pJYLP87Gp+VBMFoDyKt80LgWr+w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dO+wudTy752jbZBiKbEzH/y7kZltbC12thCjkIvnZenkEwF5D2goiKObY33+DZByK
-	 62goXNL37ZMBjPsOFTzt1itoLJjbfI4q2kHo+gcavcD8Ed+ocOY+Elo0yUuq/RzkD4
-	 FOqbHWsKAMpikkVh2I3TcWSLtiluyof3uUc5RxuLdFK2gbkm+vCt964jw4Ou0EI2Iy
-	 SJHfXybHBPCt7535DKZ9pCxr1axSlbqbsF7nsodCCYZDBGsbw1rDAozoM+sEo3H3k5
-	 40tkPnOq6VoCDvDqRAzPP/4s0qs6uIS8Ba3o5wFBmsURz9VrW0qQnuUQ5iLdNYoEuu
-	 YHaiM9Fkt9Z/A==
-Date: Wed, 26 Mar 2025 07:28:52 -0400
-From: Mike Rapoport <rppt@kernel.org>
-To: Dave Young <dyoung@redhat.com>
-Cc: Baoquan He <bhe@redhat.com>, Changyuan Lyu <changyuanl@google.com>,
-	linux-kernel@vger.kernel.org, graf@amazon.com,
-	akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, ptyadav@amazon.de, robh+dt@kernel.org,
-	robh@kernel.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
-	tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 11/16] kexec: add config option for KHO
-Message-ID: <Z-Pk9Bnr0lDVopKj@kernel.org>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-12-changyuanl@google.com>
- <CALu+AoS01QJ-H5Vpr378rbx==iRQLG0HajtMCUzDXRO75biCag@mail.gmail.com>
- <Z+JT7kx+sfPqfWFA@MiWiFi-R3L-srv>
- <CALu+AoQj+mHECTvbuK8CpUTmOYgx6n2oMFm5kQXtSigL+5Ks2w@mail.gmail.com>
- <CALu+AoRdfjNcjweq_ipxCC6UGBzM-a5ma417RBr-C3EQ=Em9OQ@mail.gmail.com>
+	id 1txP3a-00000008NNz-2Cgz;
+	Wed, 26 Mar 2025 11:36:28 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 71A1525D79;
+	Wed, 26 Mar 2025 12:36:15 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id L35YDY5GWVHS; Wed, 26 Mar 2025 12:36:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1742988974; bh=i+1SA1AXJQX4Q9Crpe7MCE2kgK7BHEod+Flw4MdzIdE=;
+	h=From:To:Cc:Subject:Date;
+	b=JEusnVnxCcLq5kc8e3+v66/68lTz7j7OUh6mkbl8CT8T6tvtQr6jw62C5VsbJJMMd
+	 I/9VWOZurlvmrOOz89NfCPM0m9w0/wjtP82BQEmIhmj2QanHt5Dsmrrrhkepagpot7
+	 /n65OZMjdQTl5zs1iigHL9VbA4kN4ArY4Dg5BcuQyKOoXaBMS6qMf57MA10GnpjY4S
+	 e5PnPIwdRNE7UMT0lAmKQ0JoQYpIvVvdJalwgHFF54CrfM4y8XERNLfkQuDCJoqyfP
+	 WYYfXvHrDFOR+K5pXM27DwyDTTKlzypWZs52SPIDMHYnaadwHO6yWlIs0Q0Ee6e6Ot
+	 qZw7plq3SOHhQ==
+From: Yao Zi <ziyao@disroot.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH] clk: rockchip: Drop empty init callback for rk3588 PLL type
+Date: Wed, 26 Mar 2025 11:35:56 +0000
+Message-ID: <20250326113556.21039-1-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALu+AoRdfjNcjweq_ipxCC6UGBzM-a5ma417RBr-C3EQ=Em9OQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_042859_769820_C9D51E55 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20250326_043626_968440_FF8B08D9 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,47 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+Unlike PLLs in previous geneation of SoCs, PLLs in RK3588 type don't
+require any platform-specific initialization. Drop callback
+rockchip_rk3588_pll_init() that does nothing in fact to clean the
+driver up.
 
-On Wed, Mar 26, 2025 at 05:17:16PM +0800, Dave Young wrote:
-> On Tue, 25 Mar 2025 at 16:36, Dave Young <dyoung@redhat.com> wrote:
-> >
-> > > >
-> > > > Have you tested kdump?  In my mind there are two issues,  one is with
-> > > > CMA enabled, it could cause kdump crashkernel memory reservation
-> > > > failures more often due to the fragmented low memory.  Secondly,  in
-> > >
-> > > kho scracth memorys are reserved much later than crashkernel, we may not
-> > > need to worry about it.
-> > > ====================
-> > > start_kernel()
-> > >   ......
-> > >   -->setup_arch(&command_line);
-> > >      -->arch_reserve_crashkernel();
-> > >   ......
-> > >   -->mm_core_init();
-> > >      -->kho_memory_init();
-> > >
-> > > > kdump kernel dump the crazy scratch memory in vmcore is not very
-> > > > meaningful.  Otherwise I suspect this is not tested under kdump.  If
-> > > > so please disable this option for kdump.
-> >
-> > Ok,  it is fine if this is the case, thanks Baoquan for clearing this worry.
-> >
-> > But the other concerns are still need to address, eg. KHO use cases
-> > are not good for kdump.
-> > There could be more to think about.
-> > eg. the issues talked in thread:
-> > https://lore.kernel.org/lkml/Z7dc9Cd8KX3b_brB@dwarf.suse.cz/T/
-> 
-> Rethink about this,  other than previous concerns.  Transferring the
-> old kernel state to kdump kernel makes no sense since the old state is
-> not stable as the kernel has crashed.
+Signed-off-by: Yao Zi <ziyao@disroot.org>
+---
+ drivers/clk/rockchip/clk-pll.c | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
+index fe76756e592e..a2a57d47bbf8 100644
+--- a/drivers/clk/rockchip/clk-pll.c
++++ b/drivers/clk/rockchip/clk-pll.c
+@@ -1025,16 +1025,6 @@ static int rockchip_rk3588_pll_is_enabled(struct clk_hw *hw)
+ 	return !(pllcon & RK3588_PLLCON1_PWRDOWN);
+ }
  
-KHO won't be active for kdump case. The KHO segments are only added to
-kexec_image and never to kexec_crash_image. 
-
+-static int rockchip_rk3588_pll_init(struct clk_hw *hw)
+-{
+-	struct rockchip_clk_pll *pll = to_rockchip_clk_pll(hw);
+-
+-	if (!(pll->flags & ROCKCHIP_PLL_SYNC_RATE))
+-		return 0;
+-
+-	return 0;
+-}
+-
+ static const struct clk_ops rockchip_rk3588_pll_clk_norate_ops = {
+ 	.recalc_rate = rockchip_rk3588_pll_recalc_rate,
+ 	.enable = rockchip_rk3588_pll_enable,
+@@ -1049,7 +1039,6 @@ static const struct clk_ops rockchip_rk3588_pll_clk_ops = {
+ 	.enable = rockchip_rk3588_pll_enable,
+ 	.disable = rockchip_rk3588_pll_disable,
+ 	.is_enabled = rockchip_rk3588_pll_is_enabled,
+-	.init = rockchip_rk3588_pll_init,
+ };
+ 
+ /*
 -- 
-Sincerely yours,
-Mike.
+2.49.0
+
 
