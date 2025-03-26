@@ -4,96 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F434C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:36:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCDEC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3WjwjGLl32A3KiDt34QpamT6Oni1xHmFU/Px0IbQnoY=; b=0qXM95xZ33dL86+psA5vCF+fdr
-	L7MsEeyfwB407wkp1ultc/lD3R2EbxoalMByg2wFuCQDg6iPQyGR0w2u0edWy8okZ7Gbi+s2c/IMm
-	xoM/HBSCoWkFrDGUsy02suVnqxY9gK9SgOT5xxH5R8B0GYeK+zvnYjHiY3ubEn+hHLR0mFRLj+k05
-	uALFxfbq8nksesVVcEkue1qlhEJhih0rX3vVf/8gGGQuq+Ar2w8nPBfNNFy/qzoKBSCNlVDOaVRFz
-	u8+olcVcV4htJnCvcF8Ix2mYKEKceCnFPeUYFNt+WD5DfVtsto4zFy0U2kMIYw/PFYeP9Qx03B+C2
-	QPPshVhg==;
+	bh=ZHXTIQ/u5H7wXzOfWTMbb9L4jQnMixjfVSqKwaexcQQ=; b=GlWsfR/XUhQS3aNCZys1Q9xNMv
+	VSPd2o2BKMS/ErYL5dh+dzpexqLxyZS/8im6dOWXgSa4iOY0Mes2VhWXoqFQi8/5l6hHvi9BpCovI
+	ktnoFy/YoCCFTpzFBuWYGhiuA47s8Jni3dIYOLKvU/BuWnC5RS6vzveMtkDb0MhY2nt+mRwXrghWH
+	ooLdDT3gkFzI1J62reP81IY+EsWnHjaogeIObT94xrL1IWOVRRuw/LBPrZYeiuws/HHMDRIQC+QAM
+	otNGLGhnMEvoZZGAhbf4bG+gQAtNBVGj1PSw0eH8dpV9FBfHnlbD3gQNn+CioO7gSmKOqYMIJ5SUk
+	774FQAgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLJE-00000007nyh-3xFc;
-	Wed, 26 Mar 2025 07:36:20 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1txLKv-00000007o8u-3RH8;
+	Wed, 26 Mar 2025 07:38:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txL7j-00000007lpi-0oP9
+	id 1txL7z-00000007lso-0tGh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 07:24:28 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so44832735e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 00:24:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742973865; x=1743578665; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3WjwjGLl32A3KiDt34QpamT6Oni1xHmFU/Px0IbQnoY=;
-        b=r81xO4jjYCq/USmWJyRdIB+D0TgoPcLHMa2pxfvsoSkNuudjfQ0NQhVgaRAZNiRdwg
-         Is/XUaHcW8CKxDHqJgd1ykxK8CutOQCcrBD0R1VWqAbOEJb3yZmskqkNMMioB8neAYFS
-         HXdhf5S9/deTWSYmHhR711sYiUH6WTOAx2wwCZ7W3UjXAxhW15RMEzisnpZKnb2wIcqY
-         1tcFIpkLcfvDx7Jy5nejZm47uE7xQsUu71HtB7pLZnue62Km8FApQoOIKFddyaBLYPZA
-         4zr7yYVxupisrOYCLbQHFIUWiiIYD7sPKyvq+X/ymkrw+0XonJG4Djh19XqZRuBgBkdE
-         TJFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742973865; x=1743578665;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3WjwjGLl32A3KiDt34QpamT6Oni1xHmFU/Px0IbQnoY=;
-        b=oK9OlhuuAHIAFJwZK3pLWfjzFhjOiUcWx0V1zOxuBqXHQqFDJy842+VBXQgBZaOFuF
-         7vqvIxQj03WiComDP6Z1WOalx+z8tNACP/Sv4fX/NIOFxE7JShAYgw04hzsFc0mUiRnE
-         i1jX07kMNEE158iVWrxaAVELXacRo1fPlTHl22OrDKbsVeYrTZ0f53BAyaZ8lRhURo81
-         KRn7d2nyjm5U8d/fuO28tz/Ra0xwlwty/4EgpnSSs4ms9us78Wx1QoRwiWq6HslboGfz
-         hgbE70lM4fu08+PK6MVaAGAY/lFraJLOG7uzgK0C17yRn3s6BZovK4N+YfN2Cij5n5Sp
-         EY0A==
-X-Forwarded-Encrypted: i=1; AJvYcCWlvj4mxMa++26+NmccYxDeJXFzmL4/0hbDSdrhqxV8vlEej9NDs2ci2mOAphcRSxwAiqK91hdoazsev1j06Epz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzl7VUdmbZq5NDoo29yath8y0iRLmNk5zBLY//yBXgECK5envFV
-	GYRLjuTHl1WBlMOXdQmkjwpJhJVeX0Izw5KVEDFYZ6diyriYxGfrTPIqCUN+GJc=
-X-Gm-Gg: ASbGncuFqvmv5Uulv7hMa555iQC0a1TF7cd3uPQU8Azk2Ei9srpfgPt0WTfP4aWzjSZ
-	Gh87GjJ+sXtFYG7dv0UfcaSU0761k0hljgpbk18yK0Nvp04KSLi60mSGS1TRQINd72NPr/5zr2W
-	R1qP3XtYReIbP0ZThyfvg1ELoFchXTYSw8+aC6uP+FkPd1dtJ+ByweHj/xlQ/dDLiAsjeX5HDtX
-	ZDKCnSLLFbwn5s6t0Kx7G43zxfMH4+Yk7X2Cy7Ym3bRiYntpZkvqePwM+EJdAeuU8d3CL41M4z0
-	pJVvAnwtgLdFz2MefzyrnanLAGJGn74lHWFS+pu528fjP3AwBQPnQKU=
-X-Google-Smtp-Source: AGHT+IFV7fd+M/H9BFgJClv0I0A4YnOUCaUBe1bBC0ZrrT9wb1YxMcUrftw6F8ycCV7VPua/wYkfPw==
-X-Received: by 2002:a05:600c:4747:b0:43d:2313:7b4a with SMTP id 5b1f17b1804b1-43d509e43e3mr184235705e9.3.1742973864876;
-        Wed, 26 Mar 2025 00:24:24 -0700 (PDT)
-Received: from [192.168.0.251] ([79.115.63.206])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f33242sm225247215e9.5.2025.03.26.00.24.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Mar 2025 00:24:23 -0700 (PDT)
-Message-ID: <42905f72-100b-432a-becb-7e1f835e518e@linaro.org>
-Date: Wed, 26 Mar 2025 07:24:22 +0000
+	Wed, 26 Mar 2025 07:24:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9E7935C4D1A;
+	Wed, 26 Mar 2025 07:22:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0E11C4CEE2;
+	Wed, 26 Mar 2025 07:24:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742973882;
+	bh=vBPa+PfaBJFraxGm6Tyeais+n0mMhPTmkO+23plxVc0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OCUF72CtvPwfx71JJtUeh03uXsprTiSyoLugGtZvZ5aOtnyDn1x1YsLDviOIb18Kb
+	 arynQfObXWinc10CrTpLLb/ptcCaebKzlm/std/+SA7IW4EdBtfxoWo5x2C6YxyGn8
+	 LemycJ3x8pE9yMz0mqeQLcP0dntDFf72oPQguQ6N7a7N/wzHR+s97p3sUtlf1NIy5d
+	 OZ09SAw5T/B37HUlyDEVQmtLV0JHCvkWxjYX3qG3J3QEb7mIBv1u6HjJ1HxM+3lKo5
+	 Wrt1D8AOgMX3F80EuMgFP4lWiqISGOXrzLMQbzb1fvHCC9WMRtXhNIJRJ0L9A+Cpee
+	 C98r+xVJZa3cA==
+Message-ID: <e3dee29a-dcee-40b5-8bf4-22a6a8a7993a@kernel.org>
+Date: Wed, 26 Mar 2025 08:24:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] firmware: exynos-acpm: allow use during system
- shutdown
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
+Subject: Re: [PATCH 15/34] mfd: sec: use dev_err_probe() where appropriate
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
  Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
  linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org>
- <20250324-acpm-atomic-v2-2-7d87746e1765@linaro.org>
- <be580155-372f-445b-b9d1-2dc4fbf1c3a1@kernel.org>
- <974ddabee5a2a43b9d32f382ec4b13afab066f1a.camel@linaro.org>
- <60732c52-7774-48c6-8ec8-44ae82d86267@kernel.org>
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
+ <20250323-s2mpg10-v1-15-d08943702707@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <60732c52-7774-48c6-8ec8-44ae82d86267@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250323-s2mpg10-v1-15-d08943702707@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_002427_249298_B1655FEA 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20250326_002443_333913_8B03AACF 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,63 +130,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/25/25 8:07 AM, Krzysztof Kozlowski wrote:
-> On 25/03/2025 09:01, André Draszik wrote:
->> Hi Krzysztof,
->>
->> On Tue, 2025-03-25 at 08:57 +0100, Krzysztof Kozlowski wrote:
->>> On 24/03/2025 16:34, André Draszik wrote:
->>>> +static bool acpm_may_sleep(void)
->>>> +{
->>>> +	return system_state <= SYSTEM_RUNNING ||
->>>> +		(IS_ENABLED(CONFIG_PREEMPT_COUNT) ? preemptible() : !irqs_disabled());
->>>> +}
->>>> +
->>>>  /**
->>>>   * acpm_dequeue_by_polling() - RX dequeue by polling.
->>>>   * @achan:	ACPM channel info.
->>>> @@ -300,7 +314,10 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
->>>>  			return 0;
->>>>  
->>>>  		/* Determined experimentally. */
->>>> -		usleep_range(20, 30);
->>>> +		if (!acpm_may_sleep())
->>>> +			udelay(10);
->>>> +		else
->>>
->>> ... and what do you do if IRQs get disabled exactly in this moment? This
->>> is just racy. You cannot check for a condition and assume it will be
->>> valid for whatever time you want it to be valid.
->>>
->>> What happens if system_state is changed to shutdown in this particular
->>> moment? How did you prevent this from happening?
->>
->> Yes, and that's also what the I2C subsystem is doing, AFAICS, see
->> i2c_in_atomic_xfer_mode() and its use. This is to make a very
->> specific corner case work, similar to I2C which has to deal with
->> the same issue during shutdown.
+On 23/03/2025 23:39, André Draszik wrote:
+> dev_err_probe() exists to simplify code and harmonise error messages,
+> there's no reason not to use it here.
 > 
-> But they don't have a choice so they try to do the best to avoid
-> sleeping. And it is a subsystem, not a driver, which means their
-> patterns are sometimes special. Drivers should not replicate subsystem
-> workarounds.
+> While at it, harmonise some error messages.
 > 
->>
->> Would you have a better suggestion?
-> 
-> Yes, you have a choice, you can always use udelay. Driver code is
-> supposed to be always correct.
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+Maybe such cleanups should be before you start moving the code and
+splitting modules into i2c/core/acpm.
 
-Using udelay() is good enough for now. I see that downstream uses a
-usleep_range(50, 100) and I'm concerned that we're going to waste lots
-of cpu cyles once more and more clients get added.
+Anyway:
 
-If there's no concurrency on the ACPM queue mutexes at late system
-shutdown, would it work to pass the don't sleep requirement from the
-client to ACPM and use udelay only then?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Cheers,
-ta
+Best regards,
+Krzysztof
 
