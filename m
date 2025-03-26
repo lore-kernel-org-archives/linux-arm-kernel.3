@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 551EEC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517E7C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZgKr8WeaIqNAyhHfwBo2WBjweELzKC+hTbO0GVd8se4=; b=gHpTEmLabWiCYYavqcjN+WVn21
-	pxRMAbZCMceXIlM0wQJDvZnEzbd6BdwHLn/EI6sQ+mKgT3NKmfOE7UnJYXjG5TlcUWwMfRWPdWmLy
-	u3umWyOH7TRX9+bYO/aK2+L4t6loYFZMJoo6iUXJ3YUcNEXBK7H9uhakMVVYS0GItEX1RJrIDEyIq
-	hEPk2/ltsz3zFiBSiH7eayI658xJRTlrVS90LgbW1YL4RvyeNEusqVeNleDIoGH6LT0r0fpbUtBib
-	CDuP73EYoIMQUqpT3xAOkZDN4uDqpDOKpqbWQ3N42C5D8X+1iHx9AKnBh0HyvUsHQRcvKK/WL6oH/
-	3/9IZr4Q==;
+	bh=HN7vFYTzHsgH/KZfoHfS0axJs1Nn3A8N8ksHmw9QeuA=; b=Fm+jxRIUGJRYmGE+i3RfkfSYSt
+	SbnFIQyECaIdGqEYrZaJSea5+B3clAGaG2LiZ8luPCpjxkz2Ql6Ayf2vUNd8Qj+CQB/Z+XQAdmvab
+	0CUF8XgPJEiF4moH66sTiVTJiSlmVNEySKDKAffxuzfftCwJt06JspQ2k9WgzwThrXYc4PpHoT1D4
+	c7hTLgHuVQZDAhJUH0srkaxkBLEV9TY+mcPvJM2p2aS54YJrYhPaFTN1QezoAKpV12S8Wna7vixjd
+	CqAgB1/nxjLPWAnqZTfMKFFP/35T9R8MqezIZTPZYrUBWZOCxkJH4imybIEJRl6miSq6aXVOgHZwp
+	9hPLGCoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txL2i-00000007lFg-42MF;
-	Wed, 26 Mar 2025 07:19:16 +0000
+	id 1txL7J-00000007liK-3XLa;
+	Wed, 26 Mar 2025 07:24:01 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txKzx-00000007l3W-12Pf
+	id 1txL5c-00000007lOY-0KeR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 07:16:25 +0000
+	Wed, 26 Mar 2025 07:22:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F37CA6112F;
-	Wed, 26 Mar 2025 07:16:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B19AC4CEE2;
-	Wed, 26 Mar 2025 07:16:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9785F6112F;
+	Wed, 26 Mar 2025 07:22:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62051C4CEE2;
+	Wed, 26 Mar 2025 07:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742973384;
-	bh=+ewMMo/IRoCGx4xjn+HDjRp0hvPMRyGs8cHwt+8dVnI=;
+	s=k20201202; t=1742973734;
+	bh=HZFgVVhOB0KsBzRUopCtdPMyvfeGgA3jzblRuvQ6lvo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SiM/K+MY+w+aS+dpTaviuUXsQZdjFiFU/mYCMBJOFdAA2unZ6WbK2vF++2zBXfJ+n
-	 etYDTSHlfiiN9RzRDeH7HNfAGPvIYMe+BBbkz6DtvbqH8vS1qA86F9zEahZ3gqDIyL
-	 NjCsC3OpbZJ+32aCnmMJd7LeidTyiQC4aYMHOpSfHWYO0pJz8H6MWGlWpahmVw0hYq
-	 fnI5kFW472t/F2PvrU/Dsn3QM1mi1h6lg92gFwDBmXCv06r2nbNF/gxcrjdki5nEdb
-	 sbptbr/FPnn8s/O4iXuqZkRZCEUmSY4TsDtFkUsQNUTRgqzlPTZ1nXNXRTuI9o3GQR
-	 Bbg2vnMmIVRtg==
-Message-ID: <b733eff2-171e-4ab6-8546-565d87d5ba84@kernel.org>
-Date: Wed, 26 Mar 2025 08:16:12 +0100
+	b=eNvUaRf70xCrqQsDGWgOlEVT43drKQhg/+5ON60uUncPJf1bD3Nir63qxm28auAiF
+	 7NrXzQn/25vg3D3VtfiI/e7FD6aPjNsfoPvLiS7Zx7jUcNOMDwNRXGEYLrUfuofxPL
+	 h1J5XAeon+VCOOuGR8BwGnEKid/xEftBZ9hspvQh4trafehX63PTMH2NJ1+pc7DGhC
+	 betn7lBK4iSsEEC+WHtwSxq5oBi803NewNPBPaqtvw6YwVb2lMOh+1fnNC3aBV/uqd
+	 +za3vtwAnmaAMdKyuhZN6ULvMGWJVPRmlQcKr3UJfyjCcBq1/88F1Q9V6B3D5KoeE4
+	 NUINpeyKKDWfw==
+Message-ID: <6bd3c029-807b-457c-8ada-2d895a96bc84@kernel.org>
+Date: Wed, 26 Mar 2025 08:22:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/34] defconfigs: rename CONFIG_MFD_SEC_CORE to
- CONFIG_MFD_SEC_I2C
+Subject: Re: [PATCH 13/34] mfd: sec: merge separate core and irq modules
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -64,7 +63,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
- <20250323-s2mpg10-v1-11-d08943702707@linaro.org>
+ <20250323-s2mpg10-v1-13-d08943702707@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250323-s2mpg10-v1-11-d08943702707@linaro.org>
+In-Reply-To: <20250323-s2mpg10-v1-13-d08943702707@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,19 +127,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/03/2025 23:39, André Draszik wrote:
-> We are adding support for Samsung PMICs that aren't using I2C and
-> therefore had to rename the Kconfig symbol.
+> There is no reason to have these two kernel modules separate. Having
+> them merged into one kernel module also slightly reduces memory
+> consumption and module load times a little.
+> 
+> mapped size (lsmod):
+>          before:             after:
+>     sec_core   20480    sec_core   24576
+>     sec_irq    16384
+>     ----------------
+>     total      36864
+> 
+> Section sizes (size -A):
+>          before:             after:
+>     sec_core    6780    sec_core   13239
+>     sec_irq     8046
+>     ----------------
+>     Total      14826
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> 
 > ---
->  arch/arm/configs/exynos_defconfig   | 2 +-
->  arch/arm/configs/multi_v7_defconfig | 2 +-
->  arch/arm/configs/pxa_defconfig      | 2 +-
->  arch/arm64/configs/defconfig        | 2 +-
->  4 files changed, 4 insertions(+), 4 deletions(-)
-defconfigs go separate tree, so this must not be in the middle of the
-patchset. Bisectability, as for defconfig, is anyway broken in previous
-change, so no benefit of putting this in the middle anyway.
+
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
