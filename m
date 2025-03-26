@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BA8C3600D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8E1C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RV39siZpMAya9RaeA0IkhZmwFBnctMCuds+zGfZ/94=; b=oXNjWdZ6w5QiVlm1yYlM1CfytK
-	vjL94IvQ6eRbx89XuYpHio00bopfB65rkmf9XuwKWF30cE00U1LxvWX7wq7IfRAlSH3gB52IP6H2l
-	ZpK8NFD9iX76nuvbBzWSJQl8FH8P6/uRFO9f5EY8hrmBxcD6hq3a0+U7WBd9Q5YKGksdhF0h4Riwp
-	LIGsVcRzx2XUqOmbzAaSPfA4Cu9YUstU0ut1F12pXztzNtikKtXeqQnzDnhHrm+MINCqeCgF+5KFE
-	RGjGfDRlE0UQekdfVfwP894d+Xst4pA1JLmhnIn8NVlb0g8qMHtLIs1eDAYOu4LXALCWNf+lZg4GL
-	Cd1Er1Og==;
+	bh=BA6lX+1sFFD8xi/+cCgAaNtCjBvFZA/Hy20NxmLZz6g=; b=pcaNPdjAU/Ta0U1fAqkSgkjQO8
+	TxhszyWIeIxJ7baJdjx4LaE67mFIg8wiv/ctdG8jw81ImNtrVQ5ecRgtR3FFNoJZwwSzmviobZaJS
+	LHThVnl2ZVJijNwV/JbGXYFyLrkjoLSw6XVyWJVXQZoBTrRlG9Kr9zIZASXfZkou/vgZODnxgkcTW
+	VKFivq77AmJ9eThNYhjEMNAggifKMk+t8yXhwGJG+W4+FzVkBdWV4fc8hdh2aeVN9rtK8PF2SEZ5z
+	rVAiDU2qIWEcR8ohVaPLAhyG4cGrwQONjGrLzUbv/psKuA674Q9whVu5jQuwPGgpgwYJ/nXNcuEAu
+	OxPXHKUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLMc-00000007oF8-216p;
-	Wed, 26 Mar 2025 07:39:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1txLOJ-00000007oLo-0wwL;
+	Wed, 26 Mar 2025 07:41:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLB3-00000007mMJ-0qTl
+	id 1txLBw-00000007mZw-1yRh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 07:27:54 +0000
+	Wed, 26 Mar 2025 07:28:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 812CD5C4A9D;
-	Wed, 26 Mar 2025 07:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E09D9C4CEE2;
-	Wed, 26 Mar 2025 07:27:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF7DFA4094A;
+	Wed, 26 Mar 2025 07:23:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F1BC4CEE2;
+	Wed, 26 Mar 2025 07:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742974072;
-	bh=4L6O5vWMe19NsMKIgFl5zY9mQkMQ9bNd9WXnG7IJLP8=;
+	s=k20201202; t=1742974127;
+	bh=iAuFANLunmhmcETucong3/qkBaLsbLIIh3af0TrbsqA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mQ6R2H5R95ZeFueZHxdOU+2a+D18JdANexcqH4x7vXGSaXyNX2LSIDOIVVhB68lnD
-	 QusPlA6fD2uEl6PpNxKod5+JOd+Q7zWhoTserC3WTuu2OWaSLqR7K9Qm+zMK9CX0gx
-	 kql9+AXbOQBnAiWKskPC8PBNZB0tmfUDpxXYnoALuvdJKDWgCmFbXPIrHhNRKf4HvT
-	 0WuV0Cj633puSg18j0HQle1iEaSbGRtO8VFnoDEOPZxJ9FVNZarHR/L9t5iek/z7oj
-	 jW2A8bdTrCYitTGJzl9f7r2Enk3CGzlCNsatpNwGSgcn3rBU51uPb0Cm5bm4ZeqIIo
-	 evpEJPBv0GJ7g==
-Message-ID: <60b2341d-4277-42ce-8682-9f41efd50f32@kernel.org>
-Date: Wed, 26 Mar 2025 08:27:40 +0100
+	b=eX4kP/4pCiUNiSvBVEDIYv2WU4K1DfNBKUW7NLfH6DxofHeaqJLEFc+LFj0ZP7RdV
+	 /o00PKDl9iyDCbQmwsl1x57iiR/teQc3oqcvVoO+UBoohKoO3dt2L+az+rovPfdBtp
+	 ufkO5JAiOpm5uz+3lttbpBBxHk+qy/dEb7wyVQAVil8gqB6I2SNWVkokmVDRbkEfUx
+	 ucv4oFKA5jQmds+tZu/sWDuUGsFqTLuKy7llQy7olFkOp9E7bMduihyqEovh1n8Ust
+	 Wbvg3geWH0f2yDQJU/B3ZaBib6XRgFWb+vOjpUJJtFaFErBYGB76vLEdjP5YXqYHVp
+	 4cotzdXXAVlaw==
+Message-ID: <68496580-8d63-4f11-8754-7b7b16d147b0@kernel.org>
+Date: Wed, 26 Mar 2025 08:28:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/34] mfd: sec: drop generic regmap config
+Subject: Re: [PATCH 18/34] mfd: sec: s2dos05: doesn't support interrupts (it
+ seems)
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -63,7 +64,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
- <20250323-s2mpg10-v1-17-d08943702707@linaro.org>
+ <20250323-s2mpg10-v1-18-d08943702707@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250323-s2mpg10-v1-17-d08943702707@linaro.org>
+In-Reply-To: <20250323-s2mpg10-v1-18-d08943702707@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_002753_356065_EDA8D0A8 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250326_002848_635678_5CF3C262 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,27 +131,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/03/2025 23:39, André Draszik wrote:
-> When support for PMICs without compatibles was removed in
-> commit f736d2c0caa8 ("mfd: sec: Remove PMICs without compatibles"),
-> sec_regmap_config effectively became an orphan, because S5M8763X was
-> the only user left of it before removal, using the default: case of the
-> switch statement.
+> The commit bf231e5febcf ("mfd: sec-core: Add support for the Samsung
+> s2dos05") adding s2dos05 support didn't add anything related to IRQ
+> support, so I assume this works without IRQs.
 > 
-> Subsequently, the accidental new users have been updated, so
-> sec_regmap_config is an orphan again, and can and should be removed
-> from the code. Doing so will also ensure future additions to support
-> new devices in this driver don't forget to add a regmap config.
+> Rather than printing a warning message in sec_irq_init() due to the
+> missing IRQ number, or returning an error due to a missing irq chip
+> regmap, just return early explicitly.
 > 
-> Drop this fallback regmap config.
+> This will become particularly important once errors from sec_irq_init()
+> aren't ignored anymore in an upcoming patch and helps the reader of
+> this code while reasoning about what the intention might be here.
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
 > ---
+>  drivers/mfd/sec-irq.c | 14 ++++++++------
+>  1 file changed, 8 insertions(+), 6 deletions(-)
 
-Please squash it with previous patch. Logically you want to get rid of
-default regmap config - that's the change you are making. Your previous
-patch - adding regmap_configs for these variants - makes no sense on its
-own, because they were using the same regmap config already - the
-default one.
+I am pretty sure s2dos05 wanted interrupts, but that's on them.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
