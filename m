@@ -4,55 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E64DC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 22:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA788C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 22:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0JXlYSci0PBdC2H0zJnDExHP8ogwtP2mDptfTEHu4Zc=; b=lpnh29Uwhq3sB0ucgEUwuiSFqk
-	6zoeExFHXr3FmVYVDPQzZCAksY7frZQ8Ye1ZV3Oe36hQyZ21zk+apD/0XwDUyQHpFQJz6o8qbCLwk
-	RoPJMP72JXtYJTiBDfeJ90hrte9XoQr5sQ0HGak3/nWvkBQez3Zq+pWY3CtuxAC3fC0quZFLBhzoO
-	VDb2OqtTPDi5MxDX5sSlFJi/LvswQMx3K0AQQN/Jwq5gjyTZcqfqiP7JvI/ySU7vUBZaYQjaBSMhs
-	9iScUqAszfNR5Ju+jEXzgdCr+35LYLZm44xHtQc4CtkLka3R8RbQ578AcV2iVYhq5y4e3/Qa+2dHp
-	wEZZOjvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y14VXvwtwtg3Y4vvRgIeuvAFRuMj7c4tcDMazFQblQg=; b=PIHvqPmM+M/xhJatGaVLZWqZDy
+	NF/99iz/2QevehLDr3sO8prSD5oYgodQvoQr5rcvyYx91d1r9vJSZDaPBZCB9yJSvmihFkJNbkkVH
+	iLmstZrKcoXmOfY3jfJK2Qmx3gkMxd8gkz9tZArIHQF5/THfPRdFDijSxy/vLFUXvn6TGOjHiE/Jy
+	hJi1vf8o5T8Oo6APobAwTYve4xJLmYRQNIbYC5ie6RqXPsPFER/GkU1B4nHXNB+oNlGWquKIMk6YQ
+	v1UWggtarrDhyZpt/v+5dXGmD7AtzIrUocjPakro0a5QoZ5olXowI0z/Fn/rGToeqxs+elif3BtL+
+	+lZ7Vv6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txZWS-00000009jg1-0mc4;
-	Wed, 26 Mar 2025 22:46:56 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
+	id 1txZhN-00000009kWY-0SdF;
+	Wed, 26 Mar 2025 22:58:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txZUj-00000009jYh-0YCO
+	id 1txZfe-00000009kRI-0qbi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 22:45:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=201702; t=1743029105;
-	bh=0JXlYSci0PBdC2H0zJnDExHP8ogwtP2mDptfTEHu4Zc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NqYOkDVfqmMxRxGKkcTgNXTqRTTB8q0/IkvENLocSL+jQOiMOuxuFokvs6Mikd4W/
-	 UA3a0dBGg1KCRXPpse2eqhrecDBc3idkKI+xo7PFcnHPpwKNSHAyeFwQMQ2ub2Qv1c
-	 m6G0zxEJXVeq0YfE9gOogkxATqxC0R+2zPsIGz3IM94eK6Ar9SvYzEZo2UD6gYlsZt
-	 3rpxlHxEofHxTwTgquTqM9svUDw0Ct/VUQq+lbtM+At1Qn69rKjjzGbfcvPS4tAcYY
-	 cpwdu0lu6rXU2xy2KrAPozHyK8ZM71QobQMBd3U6pmzvIKH9gtNxPpdIGaly3/dYsp
-	 iwhx5B2esGrdg==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4ZNMLS0770z4wbx;
-	Thu, 27 Mar 2025 09:45:03 +1100 (AEDT)
-Date: Thu, 27 Mar 2025 09:45:02 +1100
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Steven Rostedt
- <rostedt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Konstantin Ryabitsev <mricon@kernel.org>
+	Wed, 26 Mar 2025 22:56:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6965EA4113F;
+	Wed, 26 Mar 2025 22:50:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 328A1C4CEE2;
+	Wed, 26 Mar 2025 22:56:24 +0000 (UTC)
+Date: Wed, 26 Mar 2025 18:57:10 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Stephen Rothwell <sfr@canb.auug.org.au>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Konstantin Ryabitsev <mricon@kernel.org>
 Subject: Re: [GIT PULL] arm64 updates 6.15-rc1
-Message-ID: <20250327094502.6ae56227@canb.auug.org.au>
-In-Reply-To: <CAHk-=wiXEvC2r=Sa_tpYjd=g+AxZDxxjSdq1WADTvZYZ9oUi_g@mail.gmail.com>
+Message-ID: <20250326185710.5ad0f9ad@gandalf.local.home>
+In-Reply-To: <20250327094502.6ae56227@canb.auug.org.au>
 References: <20250325195322.3243734-1-catalin.marinas@arm.com>
 	<CAADWXX-0hMgpyeQw_7Ko14hNMciqSnKJAROEWS5vwAdMKUt_zw@mail.gmail.com>
 	<Z-NHugcLdLqkEHFR@arm.com>
@@ -61,12 +50,14 @@ References: <20250325195322.3243734-1-catalin.marinas@arm.com>
 	<CAHk-=whwmmU+hv1SyMoyr8yAGP2JiAAP+g5BZaMajzAukzrM9w@mail.gmail.com>
 	<20250326131200.1c86c657@gandalf.local.home>
 	<CAHk-=wiXEvC2r=Sa_tpYjd=g+AxZDxxjSdq1WADTvZYZ9oUi_g@mail.gmail.com>
+	<20250327094502.6ae56227@canb.auug.org.au>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/I/36lLAiTRXRUsoZiXLI4d=";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_154509_587139_2EEC96CB 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250326_155626_308593_5708AB63 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,87 +72,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/I/36lLAiTRXRUsoZiXLI4d=
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Thu, 27 Mar 2025 09:45:02 +1100
+Stephen Rothwell <sfr@canb.auug.org.au> wrote:
 
-Hi Linus,
+> My understanding is this:
+> 
+> for normal SPF checks (i.e. not DMARC's SPF checks) the test is done on
+> the envelope sender and in Steve's case, goodmis.org DNS SPF record
+> says that anything from goodmis.org can come from the kernel.org
+> servers.  DMARC applies the SPF check to the From: header address.
 
-On Wed, 26 Mar 2025 10:25:22 -0700 Linus Torvalds <torvalds@linux-foundatio=
-n.org> wrote:
->
-> On Wed, 26 Mar 2025 at 10:11, Steven Rostedt <rostedt@goodmis.org> wrote:
-> >
-> > So it definitely goes through kernel.org.
-> >
-> > But it has no DKIM headers. =20
->=20
-> Funky.
->=20
-> There's definitely something strange going on, because your *previous*
-> email to me did have the DKIM signature:
->=20
->   Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF624C4CEE2...
->   DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3Drelaxed/simple; d=3Dkernel.o=
-rg;[..]
->   [...]
->   Date: Wed, 26 Mar 2025 12:40:25 -0400
->   Subject: Re: [GIT PULL] arm64 updates 6.15-rc1
->   Message-ID: <20250326124025.1966bf8a@gandalf.local.home>
->=20
-> and gmail was explicitly happy with it:
->=20
->   ARC-Authentication-Results: i=3D1; mx.google.com;
->        dkim=3Dpass [...]
->=20
-> but then this later one didn't:
->=20
->   Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CDA5C4CEE2...
->   [...]
->   Date: Wed, 26 Mar 2025 13:12:00 -0400
->   Message-ID: <20250326131200.1c86c657@gandalf.local.home>
->=20
-> and for some reason gmail also didn't actually react to the lack of
-> DKIM on that second one and only talks about how spf was fine.
->=20
-> Konstantin? Can you tell what's going on?
+Ah right. Thanks for looking into this. This brings back a memory where I added:
 
-My understanding is this:
+ "v=spf1 include:kernel.org"
 
-for normal SPF checks (i.e. not DMARC's SPF checks) the test is done on
-the envelope sender and in Steve's case, goodmis.org DNS SPF record
-says that anything from goodmis.org can come from the kernel.org
-servers.  DMARC applies the SPF check to the From: header address.
+to the DNS TXT record for goodmis.org.
 
-for DKIM checks, the test is against the From: header address.  The
-kernel.org servers can only sign emails that have a From header using a
-kernel.org email address (or any other domain they have access to the
-private DKIM keys for).  So they cannot sign emails that have a From:
-header using a goodmis.org email address (presumably).
-
-Presumably the SPF check passing is sufficient for the GMail servers.
-
-DMARC requires that its SPF check or its DKIM check to pass.  (But
-goodmis.org has no DMARC DNS record, while kernel.org does)
---=20
-Cheers,
-Stephen Rothwell
-
---Sig_/I/36lLAiTRXRUsoZiXLI4d=
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmfkg24ACgkQAVBC80lX
-0GwmmAf/VYJKpukOi/5sN/6Sycd2bzfHpS+AiWJld30LN9ZdTOQva6vhAtO79tHw
-+U4f/xMgKjvOlnP1t+900xg2yt4YckB7uZllB61eP10cj1ORSShtowN6loKErkWa
-pL5XlgPH2Sk3BZvepM7A2YVDNNEgmWix0oZ4xC8IZ0K5xYlrVaw4yEhaMUTC6/XQ
-CeFIzVcNzrEipaBgv3szSbHCYn4fz+SN4SGYJ0UClh5amP2FlUs/svtuUnumhIIO
-12DkqB3Auv8QVwD+aqY6TJ8/a441IxvFvuO2EwrhtRxsch2CUqke1CvKcVfu412x
-feCSlum+x2a40XC7YRpi59StWyjrPg==
-=ow6i
------END PGP SIGNATURE-----
-
---Sig_/I/36lLAiTRXRUsoZiXLI4d=--
+-- Steve
 
