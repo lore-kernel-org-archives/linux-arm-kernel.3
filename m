@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4085CC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 09:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6D8C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 09:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JOCWVpfHgHX+2wwGNlNrcqvYs1el1Exay17xFn2o6sQ=; b=GLMr2YlXYu1A5opHkWtcFg/lBj
-	Y7/1j9FucziO18x/qFlWZIlbmdyJPC0QFgLi/8VQdGAKH/Eqq9Edzvdx4/52JRINoOsDupIjzXEgX
-	s6AW/pxonqbzoRZLbc4JCQxub+c3ArZBg9UMron6i8SEhXyF9Dvwbt3vt87SK5YdQki37bczLU5lx
-	uyAlvXUu+Dy1snNII0vayAe8++Vrw4AkTd9mZCW1++829vXPW6ku6PlPvCYWaRM/Dv9Ebu5J4En8C
-	2dDrpv7U4p/fjXAdu3kx9eJmYQ6NQT6zOq2i596JitTvogzxxAA/tVp1xpXD03QJNykHUCRZxFb9Z
-	lvFfwbmw==;
+	bh=BvUs9M0NfiRe+VuLU02CEA5G9rv30LFGHZ/0m4kb5Ic=; b=o2a+e1MCizveioCjuhEjtWGgIp
+	wEsmjH5aXAfymZXGiLLuIBYRieD5ltdO9dYgnYTrUexse+8MLNNFpon+y6gfcZqESin+etTjTXQWy
+	JMpqPSuzXWX5XaVTL6DMjMpzpNiP41/TbfhMv6ABswHvcKdF5TXHXACvcDWkT8WQRXdgnIO0tYIqw
+	jHJID90CeLpNxwE7mWZoukUndyNn3vKeDcTkCGZ9P5fqa/NN7bHIoYnynZmWmLqdGhzQY3IlJnOq2
+	tRFQAtfzce0w/25jI72NQQkN+fsPA4sHTs93yXs6mUBImksUTPnV9XSSDOf4+Vz1VIdalaMWD4mDW
+	sbv56keA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txMd3-00000007zB6-2sez;
-	Wed, 26 Mar 2025 09:00:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1txMqW-0000000808Q-47Mo;
+	Wed, 26 Mar 2025 09:14:48 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txMbK-00000007yyE-1PDG
+	id 1txMoo-0000000802K-2xEL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 08:59:07 +0000
+	Wed, 26 Mar 2025 09:13:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7A0D40BF0;
-	Wed, 26 Mar 2025 08:59:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7173C4CEE2;
-	Wed, 26 Mar 2025 08:59:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 02F80A40E28;
+	Wed, 26 Mar 2025 09:07:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A119EC4CEE2;
+	Wed, 26 Mar 2025 09:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742979545;
-	bh=FdsJiAbVWh4zlGzzu5hykozqWOHEFR+0JZ6czLPTNlY=;
+	s=k20201202; t=1742980381;
+	bh=aN+g0071I7Vt/PENJP2xKw1ev/MOlfvCtYEPMiSMFoo=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mc4mL7AHlA+W62MdbSABDrCa62oQwnlMkklcTzJtGgQvAA2TI3V/6g0F+0acT9ffp
-	 QyI6c7bi261DOnwOHOe3uQ27s2HqUkvQvVaP3KqeefOCoRTI0ekVNxJhqVpK9DpeZV
-	 mP3jrrkGwYspWw7VqrdfG1RMxivRS/gEW4+HyNDm6BpABQShW8BvS0THY3vJnrBcgu
-	 8sd5ftOv87zMV8xTtMok2ZUZQDxnATJi87fGaICmHRXe7BqjCM1MBNA71mURG7aYJ6
-	 tblU4kcC4WF1eu+lKBq7tPpcVlDzJKj2oVDFfJVc9frsYwFjdKNxAlK4udy4sdBBR4
-	 PyjTHNymuWekg==
+	b=KO4GxINV6olNF2UQXuKkU8PE7klKPjHGZdg2MCcNmhwRPQWiGhojXXelfplsWVCi+
+	 AM9jbm6mLHrSoRMiDVMT7lMk/u4nAD0eRkb32dhblMEll6b/F0/n1KumF+aeY3y0s3
+	 OneulYbDcLOrIjrwP+JJRIpN7Sn7xkLXqM/3DvbVzq4hEe0XgcesrU3psE3OUe6wBP
+	 pm/l64u3LGqEdzkZ0p0+LieV00X7THRVODBGW+vRK6jzmvs/sonuyGcUgEjsQBParA
+	 d7RxtjIu8b5r9gvi+O4JYO7lDvRoLkNFN4HJMXm05vh42ep74Rj00961kpa78jfY14
+	 ExyrBH2W51E/g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1txMbH-00HE1j-6p;
-	Wed, 26 Mar 2025 08:59:03 +0000
-Date: Wed, 26 Mar 2025 08:59:02 +0000
-Message-ID: <8634f0mall.wl-maz@kernel.org>
+	id 1txMol-00HEBK-5u;
+	Wed, 26 Mar 2025 09:12:59 +0000
+Date: Wed, 26 Mar 2025 09:12:58 +0000
+Message-ID: <861pukm9yd.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Youngmin Nam <youngmin.nam@samsung.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Ulf Hansson
-	<ulf.hansson@linaro.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: soc@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	arnd@arndb.de,
 	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	kernel-team@android.com,
-	hajun.sung@samsung.com,
-	d7271.choe@samsung.com,
-	joonki.min@samsung.com
-Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in GICv3 ITS driver
-In-Reply-To: <Z+Nv8U/4P3taDpUq@perf>
-References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
-	<Z+Nv8U/4P3taDpUq@perf>
+	cix-kernel-upstream@cixtech.com,
+	marcin@juszkiewicz.com.pl,
+	kajetan.puchalski@arm.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
+In-Reply-To: <Z-Nz0DU441Wwj1i4@nchen-desktop>
+References: <20250324062420.360289-1-peter.chen@cixtech.com>
+	<20250324062420.360289-6-peter.chen@cixtech.com>
+	<865xjxmlgl.wl-maz@kernel.org>
+	<Z-Nz0DU441Wwj1i4@nchen-desktop>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: youngmin.nam@samsung.com, tglx@linutronix.de, saravanak@google.com, ulf.hansson@linaro.org, vincent.guittot@linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com, hajun.sung@samsung.com, d7271.choe@samsung.com, joonki.min@samsung.com
+X-SA-Exim-Rcpt-To: peter.chen@cixtech.com, soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, marcin@juszkiewicz.com.pl, kajetan.puchalski@arm.com, krzysztof.kozlowski@linaro.org, fugang.duan@cixtech.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_015906_414538_4470228F 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20250326_021302_881442_1E45A9A8 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,61 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Mar 2025 03:09:37 +0000,
-Youngmin Nam <youngmin.nam@samsung.com> wrote:
+On Wed, 26 Mar 2025 03:26:08 +0000,
+Peter Chen <peter.chen@cixtech.com> wrote:
 > 
-> Hi.
+> On 25-03-25 10:52:10, Marc Zyngier wrote:
+> > > +     timer {
+> > > +             compatible = "arm,armv8-timer";
+> > > +             interrupt-names = "sec-phys", "phys", "virt", "hyp-phys", "hyp-virt";
+> > > +             interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+> > > +                          <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+> > > +                          <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+> > > +                          <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
+> > > +                          <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+> > > +     };
+> > > +};
+> > 
+> > I don't think there is anything wrong here, but it is also a pretty
+> > useless DT. There isn't even a UART to interact with the machine and
+> > find out whether it has actually booted.
+> > 
 > 
-> On our SoC, we are using S2IDLE instead of S2R as a system suspend mode.
-> However, when I try to enable ARM GICv3 ITS driver (drivers/irqchip/irq-gic-v3-its.c),
-> I noticed that there is no proper way to invoke suspend/resume callback,
-> because it only uses syscore_ops, which is not called in an s2idle scenario.
+> UEFI uses the same UART, so we could see all kernel boot logs until
+> switch to use kernel UART driver for printk. If you would like boot
+> to the console at initramfs, just add uart node like patchset v1.
 
-This is *by design*.
+What's the point in upstreaming something that requires extra changes
+just to boot it? It only outlines these patches are not useful as they
+stand.
 
-> Please refer to the codes below.
+>
+> > I reckon this should be part of the initial DT, as this otherwise
+> > serves little purpose.
+> > 
 > 
-> <drivers/irqchip/irq-gic-v3-its.c>
-> 5028 static struct syscore_ops its_syscore_ops = {
-> 5029         .suspend = its_save_disable,
-> 5030         .resume = its_restore_enable,
-> 5031 };
-> ...
-> 5803         register_syscore_ops(&its_syscore_ops);
-> 
-> <kernel/power/suspend.c>
-> 444         if (state == PM_SUSPEND_TO_IDLE) {
-> 445                 s2idle_loop();
-> 446                 goto Platform_wake;
-> 447         }
-> 448
-> 449         error = pm_sleep_disable_secondary_cpus();
-> 450         if (error || suspend_test(TEST_CPUS)) {
-> 451                 log_suspend_abort_reason("Disabling non-boot cpus failed");
-> 452                 goto Enable_cpus;
-> 453         }
-> 454
-> 455         arch_suspend_disable_irqs();
-> 456         BUG_ON(!irqs_disabled());
-> 457
-> 458         system_state = SYSTEM_SUSPEND;
-> 459
-> 460         error = syscore_suspend();
-> 
-> How should we handle this situation ?
+> Without this initial support, we can't add some base drivers, like
+> mailbox. The dt_binding_check will report warnings/errors [1].
 
-By implementing anything related to GIC power-management in your EL3
-firmware. Only your firmware knows whether you are going into a state
-where the GIC (and the ITS) is going to lose its state (because power
-is going to be removed) or if the sleep period is short enough that
-you can come back from idle without loss of context.
+Of course you can. You just add additional patches to this series,
+making it something that is actually useful. So far, this series only
+serves as marketing material.
 
-Furthermore, there is a lot of things that non-secure cannot do when
-it comes to GIC power management (most the controls are secure only),
-so it is pretty clear that the kernel is the wrong place for this.
+> Full UART support depends on clock, clock control needs mailbox
+> to talk with FW using SCMI protocol.
 
-I'd suggest you look at what TF-A provides, because this is not
-exactly a new problem (it has been solved several years ago).
+Then do it. You obviously have existing DT support for it already.
+
+> There is no any support for CIX SoC, so we had to add one small step by
+> step.
+
+No, you are deliberately choosing to make this platform useless.
+
+That's a bit sad, and a waste of everybody's time.
 
 	M.
 
