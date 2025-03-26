@@ -4,205 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A15C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED91FC3600D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzzloNMkLrZ5oRB1q5WdllCtUbZ6R+qLMav/U92Qo1Y=; b=IWKw7ZAHqr0oz1HQZH3AUaEc3P
-	dVn4qHO8tGRogQi5iDTzhE46NqaFXoOCkSo6N0S6kNPanYRHOstG/qO+zxmsQZeUtGrADnGHNOVVH
-	2IVEMvfOA/CWaYt8PJVqyYtbQdmmYxfzDvQNCF+FbYv6DvpKbcyJcyPcPEMUr9GsAowpAbxRRLH0q
-	1VGjZbWKBIrfIvzhiOejgzS4LKXPhKd8SSuVAMSKfs0ros0Cv6bpR/s1oKqnRHo6f9qTYgGMJxv7Y
-	WBuSiBT4VqpMBU9aG6TBSAvthxk9e4G8E7BO8LA0EWxI4ue6dtk8r6O03NUP9MOtNQ890m0sjmR0v
-	Ydm5C0hw==;
+	bh=1Smo1yMClG7Apyr2ivxqXNn2f/uPP4ibWkB5ZBKy+5o=; b=BCw0WQ/MBV+/qXQpqlbWMM2hlJ
+	gMltgzcCogZNWWxGdszpgWeuMfuDbDq4tmp5pC82iRH0/mNfEKpZZGl39ZRZpSY3wwdZwzdTYceeb
+	khJx9fViAVFNdk/yRggBPtZdTIwM93r/6cjWo+bv+w5voKL4phiSGopUB20onJ2K/e013Ow+orfEC
+	ORvofLy5ciL4a4OolMckJ1d4nM414cQ2/zA1mftY3EGxJN1mZ0s5VxVBByx4+1E9PosxVBzXzQiPC
+	nIp17kxsu/sok7DwPtXGdfBRGGKtGCt8KzlEPE44k2sfjIqnVLYeaZD+bWGMHLv2O5d4N4Efv1S+m
+	DLa2OGsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLRg-00000007omc-2Stb;
-	Wed, 26 Mar 2025 07:45:04 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1txLTO-00000007p2D-0EHe;
+	Wed, 26 Mar 2025 07:46:50 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLDW-00000007mrp-0pit;
-	Wed, 26 Mar 2025 07:30:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=sandisk.com; i=@sandisk.com; q=dns/txt;
-  s=dkim.sandisk.com; t=1742974225; x=1774510225;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=wzzloNMkLrZ5oRB1q5WdllCtUbZ6R+qLMav/U92Qo1Y=;
-  b=Fu0YSEleyr9UMb2cPSDqB5wqxW1CL/CXqXupIdvAkl5p+zQfDR7SooBS
-   biyMnv0Z8gidFj5vulCVShPiTYL1VvSQREcf0rQ/I3KjvbFZNsEKQRHzw
-   uq84bcoQ4nOTWK4gUrUHbKV4Gyt08tJDbUnG8dod3ni9uuDpDKhjahhUD
-   HiwQawCi3a0mBAfE1Fs4/M9Hs4UociAedGbbgKYRtnHKND1pry10x9I9k
-   6F8iXGL0bd50z9A/EMDE1Tx73bVEQxC8usPrmRYAr9UCuJmu7VApaljOC
-   0N9BXdsssYjyBInBHAUALyAbhSraCI4CFLkZ/xJ8kte8PalQG/LZ7vaZO
-   g==;
-X-CSE-ConnectionGUID: sr8PhD6iSf2bfpK8RQiNYA==
-X-CSE-MsgGUID: V8JqzWsXSnGTvQQeXSfMCA==
-X-IronPort-AV: E=Sophos;i="6.14,277,1736784000"; 
-   d="scan'208";a="63312068"
-Received: from mail-mw2nam10lp2049.outbound.protection.outlook.com (HELO NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.49])
-  by ob1.hgst.iphmx.com with ESMTP; 26 Mar 2025 15:30:19 +0800
+	id 1txLI4-00000007nhw-1HTF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Mar 2025 07:35:10 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=YOAT4sLsF9Osvhz0CXfzUp5DlgkUKW23ftiZlvzDZgTPTrJMtNt34WyVTfMo898mgfpR4sc/0mQFcA2RThqKcFRHcXysAGKkEldY1ZCJ/qO34XgxRxONpqENc2x/Y1940ZFJJFqOLeUo4xL2LMZtpPNZiFiPekICHcsPwHYFDyp0+0RW3tc1/jFIBc+TOMkWd+cdfp/KwRW2ZlmfNeGhXk6smZEaSkOEsNBwe6nDuhFK/t+1lEIhSUuLaNK4oFPoZrtYV1m8u1F3dYysV2t2o88kxaCqaCaL/DZs4fySSKhYWMxpaqHPDCfmA9dAHi6SAlXr81YQ/8zBKKFVKix4dw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1Smo1yMClG7Apyr2ivxqXNn2f/uPP4ibWkB5ZBKy+5o=;
+ b=qW0tIQq8bAS+BLoZmz0oHveu6Z2nd5P8cL+u2bSRzdrzRwEz6BWfbPFpzGqi+0/qJXKFgLoCxWXr+siranWrz3AkumcfeG68TxcTFU+JxbVlOZqAek3kSio7p3CQl3SJgqgEREPBJv1dupfLqnNaLeJbLoBUSJ/8d22317A6ogcHT5jgLwXF2YF0CM6R7xBkFKH+o+Pfaap66W2r4DQjJo6tMF1oHOedCUZOCHYvkhg90xdoSiwWQwRodDQFQiUjcKNoZgEDRLG5AfN0CDvwfxF5SM6138+6YhXn8sxjvDxMYdmG/tS69PF5PErbfq8Zwcvo9I3yuWqF8Nwh11IkEQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1Smo1yMClG7Apyr2ivxqXNn2f/uPP4ibWkB5ZBKy+5o=;
+ b=lwyNyr6upHgUI88v9PgCqZtnvd2qZwCqbjGKb+0THUPkKPBATUuBakSC2RbGNJmKU5hEDtIHMzDN7MOw2891Tg2bYI8AFEurJhsjnSAkIgzR2NCPZL/WC5C3Yu4Lb5cenyoqdLp5af6slq0pLAQqpYG3ipcqvDj1KobT0GLiHs0=
+Received: from AS8PR04CA0121.eurprd04.prod.outlook.com (2603:10a6:20b:127::6)
+ by GV2PR08MB8342.eurprd08.prod.outlook.com (2603:10a6:150:bf::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Wed, 26 Mar
+ 2025 07:35:01 +0000
+Received: from AM1PEPF000252DB.eurprd07.prod.outlook.com
+ (2603:10a6:20b:127:cafe::7e) by AS8PR04CA0121.outlook.office365.com
+ (2603:10a6:20b:127::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.43 via Frontend Transport; Wed,
+ 26 Mar 2025 07:35:01 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Fail (protection.outlook.com: domain of arm.com does not
+ designate 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com;
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM1PEPF000252DB.mail.protection.outlook.com (10.167.16.53) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.20
+ via Frontend Transport; Wed, 26 Mar 2025 07:35:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=il9HS/rpK7h/gzHCH/+HX5HlR84IGzfJiB8NvRZFn8Pw44thvBjfSKZke1mJmORCD+ENJsC28fBguCF+CnQRdIlVMeqULpablXm+B499ErjgKsJ9KB5mYJCo0BauhEzLncg/mALaGHzD3fmFsALPidKTDLFW5AKbbRYFalAJXtmWr4d5ArIS+k71tPYSrCcyMqyJStAqI1OG7XOnZaFXdt5HbwrOTrnyOGe7K1W04Iqj4mHSSFY8Ac87zHLYWn9u0k0gl6K3EiAorR4OStkn2DO/OZI6Z2JTZq7vE/pyuAhOXGWz3GtkgIB4nZmqlSqNktqxM5itu4/WEIfkDIreqw==
+ b=jUunF5QkcLZn8qfi4Gr+Yl+HcgW1EQIrMdAPDmgZT+VpPAGjYTc09hVxO/abr63jHvu13BuKjVtHOVVnpfj95PggwjW0rqHtSxE2D+TW7kk+YwUd4He5DU1wyhgb//Mx4D3qRBNku/YLJ8HTZ4MFjmx2lZrYxuGbC5/jYcp3ruj3WFe4QPXcegjMX6KENfDnuTwMjgA2LPY4H2YXS7wAplpupfqAaClpcFA/mspEb6UaflRguO+XRx5YkDpLwmCKkNRsfqjoi0aFSLdfeX2TeFHhX4gmlxXimXp0T7omB8Bx4NG7gc995UvuYlzDU5DjCL7AVWNY6Bhg2q9/iID8WA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wzzloNMkLrZ5oRB1q5WdllCtUbZ6R+qLMav/U92Qo1Y=;
- b=G400ceWQLYa43dva1V7WeV5WWyKIZGd26unGFgqGiHACArKaULnd1F37nX6H22CoGMYEiVQ10+uqd2MgKpWG6HZZk8rAPAnkj4SZ90W8siNgACFcSBaFcTeRvbvhAfOiwVScNsHTKRF21QP15RijaDOSPDFRXIzv6bWRSvh/YmQd495BxEggSQaq0FijXS3cvNpb9xNRaO5Pqs3mlHiE1NKpd/3o5Lu8y30bZABbbm1Od6oUc2PAspl4p9hP+kPIun8h0p0TfBNYBirNZ00e3JEGbljC5gp5JvwbElvnJCh3SbMMbcJfEwRGSWd1Oh1i1Rpb/6VYEUdsdKhfAy424Q==
+ bh=1Smo1yMClG7Apyr2ivxqXNn2f/uPP4ibWkB5ZBKy+5o=;
+ b=xbobiEumr+qKDKWHVss7eQiHArBg2HXUMQ3K6KUDVhr+SlZmkKHExwhfSIbWIxa88ob/a3ec4IKH7OeTwqdHQlwepaW7NFl5NvbAIKTUauAjVcM89gMTI7bnjJvDw/C4DjrWi3XBRW/Mhrevb/s2rCSMm3LBXSUdaHk5ahovStLLe79kDAhOkmt10gR5Wzs/hF41AmxDzyWPl2Wyo/2wLsJCiJ4IisU0YhKvZ79DM7XkA4ArtrVSS9fAezPO4OgkccmVxh6qhwM7HZ6m4kOhR4bOWXE5SmpXeBEEtNTEQ3Rh0aOr7/+y33ZEvs5PqqtxWNxWNApR8AkLqxXjBPlYHA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=sandisk.com; dmarc=pass action=none header.from=sandisk.com;
- dkim=pass header.d=sandisk.com; arc=none
-Received: from SA2PR16MB4251.namprd16.prod.outlook.com (2603:10b6:806:136::8)
- by LV3PR16MB6210.namprd16.prod.outlook.com (2603:10b6:408:1da::22) with
- Microsoft SMTP Server (version=TLS1_2,
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1Smo1yMClG7Apyr2ivxqXNn2f/uPP4ibWkB5ZBKy+5o=;
+ b=lwyNyr6upHgUI88v9PgCqZtnvd2qZwCqbjGKb+0THUPkKPBATUuBakSC2RbGNJmKU5hEDtIHMzDN7MOw2891Tg2bYI8AFEurJhsjnSAkIgzR2NCPZL/WC5C3Yu4Lb5cenyoqdLp5af6slq0pLAQqpYG3ipcqvDj1KobT0GLiHs0=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by GV1PR08MB10953.eurprd08.prod.outlook.com
+ (2603:10a6:150:1f5::17) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.42; Wed, 26 Mar
- 2025 07:30:17 +0000
-Received: from SA2PR16MB4251.namprd16.prod.outlook.com
- ([fe80::3415:d4b3:ef92:16a2]) by SA2PR16MB4251.namprd16.prod.outlook.com
- ([fe80::3415:d4b3:ef92:16a2%5]) with mapi id 15.20.8534.043; Wed, 26 Mar 2025
- 07:30:17 +0000
-From: Arthur Simchaev <Arthur.Simchaev@sandisk.com>
-To: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>, "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>, "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>, "bvanassche@acm.org" <bvanassche@acm.org>,
-	"avri.altman@wdc.com" <avri.altman@wdc.com>, "peter.wang@mediatek.com"
-	<peter.wang@mediatek.com>, "manivannan.sadhasivam@linaro.org"
-	<manivannan.sadhasivam@linaro.org>, "minwoo.im@samsung.com"
-	<minwoo.im@samsung.com>, "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-	"martin.petersen@oracle.com" <martin.petersen@oracle.com>
-CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>, "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bean Huo <beanhuo@micron.com>,
-	Keoseong Park <keosung.park@samsung.com>, Ziqi Chen
-	<quic_ziqichen@quicinc.com>, Al Viro <viro@zeniv.linux.org.uk>, Gwendal
- Grignou <gwendal@chromium.org>, Eric Biggers <ebiggers@google.com>, open list
-	<linux-kernel@vger.kernel.org>, "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>, "moderated
- list:ARM/Mediatek SoC support:Keyword:mediatek"
-	<linux-mediatek@lists.infradead.org>
-Subject: RE: [PATCH v4 1/1] scsi: ufs: core: add device level exception
- support
-Thread-Topic: [PATCH v4 1/1] scsi: ufs: core: add device level exception
- support
-Thread-Index: AQHbmhAfUxUsnAjyAUq7uGmV7Mzy/bOEEBbAgABitICAAI4w0A==
-Date: Wed, 26 Mar 2025 07:30:17 +0000
-Message-ID: <SA2PR16MB4251343F5F595B101950F5E8F4A62@SA2PR16MB4251.namprd16.prod.outlook.com>
-References: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
- <SA2PR16MB4251229744D717821D3D8353F4A72@SA2PR16MB4251.namprd16.prod.outlook.com>
- <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
-In-Reply-To: <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=sandisk.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA2PR16MB4251:EE_|LV3PR16MB6210:EE_
-x-ms-office365-filtering-correlation-id: bb0976b8-f332-4922-c387-08dd6c380e96
-wdcipoutbound: EOP-TRUE
-wdcip_bypass_spam_filter_specific_domain_inbound: TRUE
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|10070799003|366016|1800799024|376014|38070700018|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?L3NieXdKeEsvMkNCSnJWT0tteGlLSFEwYlFzYXQwQ1FIRk82VHFnRXVZSUZy?=
- =?utf-8?B?UDk4dktSeFExa0kxMkM3ZERxTnhoREJ1cllBSmJUakJMR1pzV0NndG5Bd0ln?=
- =?utf-8?B?NzVPNWN3cEY3U1graFh1aVl5YmpuSFdMZmREdWE0YmxGZFQxWGMvZFh4S09V?=
- =?utf-8?B?R2dwNEhuenlNVWRuQ3diSkhBenhKRjN0UXd0dzFUY3RxaDlDUEJZZGJCS0NH?=
- =?utf-8?B?VzNzMlV0OVFuTUJ3enh3clE2UEJtSEVycy85TmRIU0Z6R0lRUzdENnJTV2t4?=
- =?utf-8?B?WnZTTVArVi9XVG9GWjdBdlNRdDJQb2dhNWw1ZE9UMzhqN0FqQjlZbHlNWmhO?=
- =?utf-8?B?OTYyelV1dFpWZkpDZ0xkL3FtWnVKbWhyTWwrRlZDQkhRL3FnZTNXVFhvQmNO?=
- =?utf-8?B?OTUzc2RMMzliTW41VlF0ZERGcVNZVllsY2VFUWsyak5BdjBiM25aQ2ZCUWpa?=
- =?utf-8?B?YklCUWRnU1pnVk9wTkQvZmRFZ29ENFp3RjlFSmFGbkRYRG0rb2M3L0xBb3Q1?=
- =?utf-8?B?SmoyTyt5QXA5YWVSdUFkcUpHWEdqT1luWW54aW5SR2hOblVzeHpwYU5QQ1pU?=
- =?utf-8?B?c3BOc2FxMEdVVEE4dUVvYkFVNGlhNFJXQWFvQ2ZWNVp1MFk0eUV5Z2psbkVx?=
- =?utf-8?B?Y0JyZVBYK090d001UFFMaWdBakl6eFU3LzRXcmU5WEdrUDZGS3cxYkRHKzg1?=
- =?utf-8?B?MmpDalA0VDVIQ21YaUNpTTJvUmlNWFc1RHU0UlNQc2JiWE9hYytYb0g2a3FX?=
- =?utf-8?B?Zm5CQklvS0hWWTdqZmNzeGhiRDR5VVF2eFNMY1gzSkw1cStSV0J6ejdIV1V1?=
- =?utf-8?B?c04ycDhXZ1J6RVdTZkMzZG5od0dEVWJ3QmM1UTgzSTd5TFdhSHZYeGZhWHdC?=
- =?utf-8?B?VU1tOXZDNk5jUEtyZHRsWHpmNnJQZXRnNzFLTHQybkdkY1hSSTE3Q3lBUklm?=
- =?utf-8?B?MExQZkMxYlJUVFFQYk15aUd1M0t3MXNQQ3Y1ZWxUWmg3RXg5MEFhR3BHN1lL?=
- =?utf-8?B?LzAzejhMSk1lU3A4bUFLNlI3Lzh5SG4vQ0RuaW9RTUdLZU9xcXVYMlVhL2l1?=
- =?utf-8?B?ZjBvYVZJY1VzSmFPSkVXWjl1OEVWM241ZlJQeFZzbzBNSmV1VGYyMXRwWnRv?=
- =?utf-8?B?b0ZFZHp0aCtFZnNCbDlzYVlnWlVRQzAxVkpNQmt0cFYwYUhhRmRIYnplTTJU?=
- =?utf-8?B?OFUzWk1rMTY2Yi9ucEloYVhhTDZQRnBMRlN4cVNXTUx6ajBxQnhMU3RMNG5I?=
- =?utf-8?B?clYvS2k5VVhqeGdIbS9iWXdodXpBVkxYT20rWkVrbnlDWUV0WXdRcnVXVWs3?=
- =?utf-8?B?SVFmSVVQODFCMDV2UVVYTGhyZ2gyb2xSTnhlNHE4TjRGOUk3K3VCZFREdGVs?=
- =?utf-8?B?bGdvMjdvSkJScXZPOUtWMkVFSzlSM2R2eEFkc3BwNzRNbGMvS01oN3J1cjZ4?=
- =?utf-8?B?bGR6eXFiSStrejdLRmY4SzhsSE9hdFVucWtYdXlnd29CR2ptWkNLRlBrYWZn?=
- =?utf-8?B?VzdEc1JUQ25CSnRLSFFKQkFUZVZNVXlzZ1AxOEZWREswQTNmeCthN3VHMy9u?=
- =?utf-8?B?Q01DUGk5UjZDZ0t6dGFKWWZIVUdiWSsxNGNHMFdaWUREby9tZXVLSnRiWG1E?=
- =?utf-8?B?Z2FWdmJ0QWZvYXlZRFpSYlBJczluTWg0cld1YVRjSEd4MFEzUmR0Y05hMXlM?=
- =?utf-8?B?ekxvdVFIMm5pYXc2L0JrbG9Fem9JdXhQZ3pKbTFjQkhRZDZBeDkwODlIZlps?=
- =?utf-8?B?YzlwMzBNTXNKZXIySXZCb2hZVUVxQmthRE10VnBEcDhtcnNacTlCdzNtRUll?=
- =?utf-8?B?ellGcm94cGFGdXlFdk01dE5icFhWUkw5WGwyeHZUUHVvSE5QRnRqTVpyTVIw?=
- =?utf-8?B?WERFeERRdWYwbzQ1SUNPOVM5YzlsOUwzZHlKWHdLWFNoUDR6aFZjNCs1Ujhn?=
- =?utf-8?B?b0Rtc2xRZWM2SldvTDBDUmJ4MHFRN2o3SWY1TEJkNWV1TnlNdXZUTmEvNWVz?=
- =?utf-8?B?dEsrUjRMODFRPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA2PR16MB4251.namprd16.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(10070799003)(366016)(1800799024)(376014)(38070700018)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TEp2RnRTK2ZkKzdrMlFKUUtCU1Jpclp0NmxyaER5bzJBN3hFZ0RjcURlQzR1?=
- =?utf-8?B?ZlBlb3VxRXM4RVJGM1R0SWtPalZNZVEwMDFBNUdvUjJxMngrL3Z2U2txM3RS?=
- =?utf-8?B?VGJUS25xUE5IYzY3UWwwcXVqVFZNdTAzN05qSER3QnFCSXVTdXJpZGZ3bllU?=
- =?utf-8?B?NnRrWUNZSlpkN3VYK1gxbnp5dnJzTHFubTkzalkzbW5PUlBqYUFheEFFOTlv?=
- =?utf-8?B?M2QvQ0lsWVh5WUEzRElZQTFyS2I5bUVERGNyV20zKytWVFk3SWJzdXd0dDFU?=
- =?utf-8?B?ZUhCem9KNHBscDZQay9HdE84SU9UTzB5NDRmZHRwRlQwY3gwK3p0bEZNM3Nh?=
- =?utf-8?B?UmNJajRVU2N1dnVoOEREeTJMV0RkU013NWwxNzRueW4xcVByRklpNVZjNFVk?=
- =?utf-8?B?aGtiSEE4Tm92ZzBueXJXcEIrYm93RWtlN2tUSlhDeldENGJyMWsyaEdITlBs?=
- =?utf-8?B?UitWVk56SGxleGdsOEVvWXRSRzhnTUNydXNLcE1LL2o2WE5ZejM0TEo2bWdM?=
- =?utf-8?B?NEFEdVFCSHJocHo2M005cjA2SGRNNkZBV3l0Vyt3SmFDOFpGaXY3YTlNd2xG?=
- =?utf-8?B?Y2NHTTVQY1Y1WmJTNk9KUDJvbmhOc2RLQmxpcGd0aHcwQlRCY1RjSTJZcitF?=
- =?utf-8?B?ZVhqRXNRY2dNeDRwOC9PZ2JsQ0dBYnBHNitMWXRCQjQvU3FnZUQ2djZMNkp2?=
- =?utf-8?B?NmZDK09ZK0VxRlRORzRyTUgzeTNRZGdWNnBZMWU1cEw5M216UTR1Q1o4ejlF?=
- =?utf-8?B?M0dkOTJITTBJRlBERU5HTnh4bEt2U09lNkI5MFZ1Ty9Fb2NOc1VCbGgyQzE1?=
- =?utf-8?B?dEFyZG01Y0Evc1lPN3l4RVBGelF2WnJESU50aXV0UlJCNk1pMEk2WFo2TnBp?=
- =?utf-8?B?ekJhR3gxajNFM21Ldlp1VzlGNGVuc3pWdGNwZmJER0l5aVI2MkNUV05NY1M0?=
- =?utf-8?B?T1RTWkFET1c5a1dscks1SHQwOTV4R1JKWmV3a0twcng2eVQzaytpbnA4VzJo?=
- =?utf-8?B?M21UL0NXV2RPbGExUlRXL1l3eEtQWW1VeUFhOTVqejRDUmlRUDVpbUZ5MktF?=
- =?utf-8?B?MkcremVlUGNNZzlySEMwMVRoL3pIbUZKb0J1VFpmdm5nMGdxTFF4WHJTZDFp?=
- =?utf-8?B?aFpkOUdNRDlFK1NyMXZYR0tQWWpkUWE5b2xvbHcwbVpyclBqUW1TQmhuL0JK?=
- =?utf-8?B?SWZqK3dSL0J6K0hIWkZLY3B4WEZvaG16bDlWWU9qdGFKZWpzV01ZT3lnU0Jm?=
- =?utf-8?B?K0Z3aUJ5akZtekpWRi96QU5mOStrRjZ1cG4zMEZOL1BHT3N5Ri9iY04xbTZs?=
- =?utf-8?B?amdrZHkwRHRzSWRRNktOU2VGeitkVm5wLzVuYTVPV2RXbzNtZEFTWVhJS3RQ?=
- =?utf-8?B?TG1sZFdtMmJZd1dEM05zZnZtRktabkZ4dVVYYnhEM3k2MnR1ZXUyMXh6b1pK?=
- =?utf-8?B?K2xubitaVVY2OUdyUkRrUnh6SHlja0Z1bGRMbHVVbW9KbHcwUjkwZlJUU0tQ?=
- =?utf-8?B?K2o2TDQwczRhY0gweU95UXp1d2RNWGdUYlh1QjVGR3hlNHJtdkxNMzk5WUdC?=
- =?utf-8?B?NHU0STJ4OWNRM2g0b1lsY3kybDVTMkpIaFYwYUd1cHRnR2hEdktpRFQyRGpD?=
- =?utf-8?B?SXhobkZ5Q1EzWU0wSWJtTFFmelZPczlaVWppTm1CVHl6eno4dTlmR0RZVlFP?=
- =?utf-8?B?OTltWmpXSER0b1FxZHExQUFNanBrT0ZQRU1Ndnh2Y09WY1lrMERvVC9rdWUy?=
- =?utf-8?B?YTRnUEt5V0VHSXdZTkRnNC9HdnZoOUlMd1NEMURsR01MNUJ6TFdWTjZYNTIw?=
- =?utf-8?B?czdvSml3blZEbjBzenpvNTV2dDZFTTM4WElyMTdySytqWU85VEVHZG1XejFo?=
- =?utf-8?B?MW1GUTBlNnptaGd6L0FDNlNGODdvSUY1TEdDcU1ZeVUrN3JpRENNRWtkWjhX?=
- =?utf-8?B?TkcwUU1yWUNGVnpHeS9EVGFUQXhSRUsvd0VwMzc2VUN4L21IMnpiK25xNU0z?=
- =?utf-8?B?SnJUeDJvNk1reHFOSlJXL0NIbk84anliK2N6bW8ySHdGT1JRY0F0K3luV295?=
- =?utf-8?B?ckdTaEd4VVgzWUFVakVTVTljckFZcVJYeEdhaTRvRDZXTjY0aGZNUWpwYVhx?=
- =?utf-8?B?OWJBV2w1ODNibmxlUnE5RmtxTGUrcnhDdU8zM3d6a3d4amFjQnBsVUNPdmYx?=
- =?utf-8?B?TFVKTE1NSU9RV251THZMQVhJMmJONFdtTk1qcEM1QWZleUs2c0pDVVc1Zmhr?=
- =?utf-8?B?c0lQRTF2VDVnWlJReEoweEcvL3Z3PT0=?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ 2025 07:34:28 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%6]) with mapi id 15.20.8534.040; Wed, 26 Mar 2025
+ 07:34:28 +0000
+Date: Wed, 26 Mar 2025 07:34:25 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: suzuki.poulose@arm.com, mike.leach@linaro.org, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] coresight: prevent deactivate active config while
+ enabling the config
+Message-ID: <Z+OuATAe31GbcKZ2@e129823.arm.com>
+References: <20250324191740.64964-1-yeoreum.yun@arm.com>
+ <20250325151803.GD604566@e132581.arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250325151803.GD604566@e132581.arm.com>
+X-ClientProxiedBy: LO4P302CA0034.GBRP302.PROD.OUTLOOK.COM
+ (2603:10a6:600:317::17) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: MZp+9uz65tV+E35Ju+e+K6efI7A0GYcULRglgRq7K9zc86aUA14tyUsoftVROFKJPtVMzZreBfoeplBTywmtzNMwZ7N8FaV9Ej8m5JFFE8f1oWgVLWLwLu9DM8oJhSY49Mw2GyI++1UfJKM/5tLb5Jq4uHJ+dXCM2Q87eSpiN3szxP3fmOdjJx3wbG3kKKZaaX2BJ47s1BUVadrLfUzqU9qtt+yi7+4wj/jQG94xx9YmBn1EEO2ytCl2NvSxwzQlUqQCA0fmPxngNZvn+NJqDG2GEvM9Ozcjn/w4UkARc/5dpfGwysh24ShZf0UtomKp5oHo70XQY8dMrKM9fQXCYSACyAbehEhz14Si83XXfdfo1LlJSDuW9vDmBODfmJNcGo/X2ACWKquPkR4Ieakmrvk4pcjSkF/M/QWR+uJEbOiH9l1mnS3uoIcboXn0FKdqcz61p4pSz2PGUblXYasByWyDDijUH77qoY02x5EaDhs3/h45mMRwNmoMddkVR7Nq0EAgxoz/DKnPt8a4uNkxwq4OTam/f85OXJuG8xZ4Db9E7OJzgkOSMdPvPfEDcASOTSoOGtiSs80rUhgtFctN2umB4atmExMYbQ4GyFBFuRpzMKzNpotxgS+Q3CH0q3Q0V1IQd3eR1Kav3I7rJT/7Sw==
-X-OriginatorOrg: sandisk.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA2PR16MB4251.namprd16.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb0976b8-f332-4922-c387-08dd6c380e96
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Mar 2025 07:30:17.4970
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV1PR08MB10953:EE_|AM1PEPF000252DB:EE_|GV2PR08MB8342:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa7e3e03-2b9e-45d0-d146-08dd6c38b764
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?xGY2+yYXBeBL8ZwwTr1BBdr6DjbgTHa/X6zf8EUwe2nC707waiNGgqDWrTig?=
+ =?us-ascii?Q?xfMrNteHmfqa0skDgGjlhTXwvkvgS/olyDFjv/0j8EAKejjTv88hgptS4ntZ?=
+ =?us-ascii?Q?w1Qud8sMMBk6EoBBNUIVi6RrC/YqMeRtzNp5kO7BFTLrHzo3dcSBU/PHdBd3?=
+ =?us-ascii?Q?IHfYz3JO+LwNqg4byqeuuzf0V301bshcpWx+hgng8z+y/R0qIj7L88PaarbC?=
+ =?us-ascii?Q?Jvs/xWOHfWqLZXrciCruQ+2bLwfjTzTsCHIKZcUd3ClirmMM/e6Rsxt4mCSh?=
+ =?us-ascii?Q?h7ve9ZgHpNKEt/jOR815ll7WwctOGzOpxoJAcooLERgEL/XhtUCzpqT/U3l7?=
+ =?us-ascii?Q?ukqBGNQIQ4PU5U/3hNbwaFbglAEl+6/R36nXFvG4xfNanI5QhcH5Ycfg/X1g?=
+ =?us-ascii?Q?sxPzFNLxXOfdV2V+egwco9GV+nKTQ5zmF9mI9BqDuV8zhxnpol/06WjiAMtM?=
+ =?us-ascii?Q?gQdCIABEXgpwUinJCV03KbDpH2eGAtNQH+/+gaU1ff8g7FSjgI7wlQXXEzeM?=
+ =?us-ascii?Q?BLGls6WcpO7ytorUK2mMeRuwWPX2daXdq5vNpmygiSY/4l4zFHhXhDuhZMNp?=
+ =?us-ascii?Q?eTdeFwR0OV6XT4J1nz+qFJkO4wvaRGk+o+z0QKZplzDeTn0l/kKz+9EZg8YK?=
+ =?us-ascii?Q?luTEdSoguJvoUratthHckpPBF5zXyt4Tj06W4bjsfCxvpT93VFYpxsx/fjC2?=
+ =?us-ascii?Q?q9qwE3MGldQdvSkgaJi6mhkap+RZdi3R3ud1o7GADapDlWbJAZdm3wFpv0Pm?=
+ =?us-ascii?Q?nCNYMA9iXbeRqDhjKCa17COPhCtU77Jym49ET+N0tlZwWAOQe8OWckLTzxq4?=
+ =?us-ascii?Q?yLoA/Rgn3yTuNxA7bVHWVH9KwtQIE00TBN1zZU2SN02uRN5qPZGzBxfOItSp?=
+ =?us-ascii?Q?b6W0xHScUye+lftUXpqZJBusPo2ZtQE4o54OEJ0I3BQZrg5cmpQc9qsgKD2T?=
+ =?us-ascii?Q?flF/0CnFnMxLWhcjBkfgMdcsr4rjjH6fcHsIKn9FjVfpNneCi1dDBwyhWejH?=
+ =?us-ascii?Q?jFq9F4wTuRR0ST3qlXsTOh3259ks/mpXmVwM57FtNxS5gYLVbT7w5rmU9uBw?=
+ =?us-ascii?Q?q74xDv9Ozu67MjOKR+ktWtwxXHGLsIPukzvxwlPt+offy4k7oHQAeThq1yi3?=
+ =?us-ascii?Q?h2HRqlkA1gNV59GWoyud3OcwZlO75w1nfYxMkRAvYmFFDXd78GJeie0rWJiE?=
+ =?us-ascii?Q?BMP833YQOCtOJwYsk07okvHA47xoTaRFp4898H6C0PqNw5jag3WrUssZ8/vt?=
+ =?us-ascii?Q?JrnnCZN/oN3fixZgr9fU7BHityYzxDIkqsfAF6temM+2QlbtD5kIwEOIrGSs?=
+ =?us-ascii?Q?YoOdiTpgUiZe4zjrPz2PU7maOZ23ILTeAp3bkBsoQxHEZY59E2c7kG0azOar?=
+ =?us-ascii?Q?NTVsjVRiSw6bo60c0+zJYxAsmxwZ?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB10953
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM1PEPF000252DB.eurprd07.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b8ebcc5c-eb50-49ae-1b8c-08dd6c38a410
+NoDisclaimer: true
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|35042699022|14060799003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0oQP7B2lyOHSr7AeCFC05m+xbVCqCEu3S0psgCYy9brl6rfTuQPkmLWyhYl2?=
+ =?us-ascii?Q?14in5U4c82D1LT+Z5J4UshSSp4yv6vSQLEkUqWDqbZbQIBQSuPONjCv3idzm?=
+ =?us-ascii?Q?hpVh2JrS/pJWqI8CcSXgkuob5Ij/aVJvWoEVPvgeNY7LuPxDj/DA8qm7k9SE?=
+ =?us-ascii?Q?z3apWooxpPllkqPYha7bqjCLcGfTR+FJl3XWnOm1w3vSKFbmQaYkVnaNRiJr?=
+ =?us-ascii?Q?tvdUcYLnRhf32jV/6t6YX5MhOOopkp41Z8MrmZ0UxHRXQFO+14c1HIkzrhgM?=
+ =?us-ascii?Q?s3QrnEPDx/G8mBgCNu5yiKXuZs35GFb6Df9sfzpMU3s/u2WwWbQhYimDnhha?=
+ =?us-ascii?Q?GZ9CRcbr1wBWaBI1aBDJGIKZOluBSQKZhnJKU8V8PrkQ08euEcl0xWvaARFL?=
+ =?us-ascii?Q?DBVsDczUVTi9/JNEj4s+bAK/EtQlD6Hhn+hDUYsGWc6K4V6y+Pg5c70y4uJ/?=
+ =?us-ascii?Q?KX1JXszs4uCgppi8shkUnEaQP20eMI2XwymspJ11k6DJFVRrLZ9GMJRs7iyY?=
+ =?us-ascii?Q?2zGdYcwRAAKmaXP/JQHD7kcXLEWl+sVV1inSsPjoKQ0Oy9N47zpKiny7qbIY?=
+ =?us-ascii?Q?JZO97hSAlXK0tJN4hWD5vISU0TxACDQ56EI+5vRFREhYgPk+D5y3lC8hmkGk?=
+ =?us-ascii?Q?WHu94PVvGdm9+qL355Sxvn8TFm0KGbzapzJ+HYcpZZrgo7MQy4SgW1Q1AGZa?=
+ =?us-ascii?Q?U/3VaVdqhKHiITlIMHgJtZ1BtJ+bVPyNy5q7WVqVyxgRuWDRWMalAbsqQhQf?=
+ =?us-ascii?Q?HEBPiUUd2cWNYgsJBO5QT0whhUwqHzZPe7n51qiDKCqs2d8NVffkSZu86PmX?=
+ =?us-ascii?Q?E8PplEb4SfJYAZdMbA9QR/1LVC5mxYeqL2G/GcbnS1x9zynCg/DrjjZ69NrP?=
+ =?us-ascii?Q?S/DEqHUYouiaBf5dd4/5ksQfvdw9xiDrM/Du2uxpBuc18Lt5sdWJKnz0SFt+?=
+ =?us-ascii?Q?L1+TZK4oagLd8zSJnMWDuAc8w4FFYbxg+6y/JM4k1ho8/PdsX59CBFUsr8rf?=
+ =?us-ascii?Q?beFOsditaNFTVQY5ZAFzfnjAOj+9xG5NFOfnB7xvrrPpFnRll3hVMdgP5Ybm?=
+ =?us-ascii?Q?2POJXEUgaAeCMmDbh4RP+gmgs7aSJ9skLE/AH+CxTpPZmviFhN9fo/4UBlCV?=
+ =?us-ascii?Q?T6R0hYMpbyyzObDbiWSjvPjO+ObnmY54ZqxKfP6NFN8RaJkCbmf/yLCJuq64?=
+ =?us-ascii?Q?uVTgk0VfCr5AKZ8XbaBB4+A9r8/2eQuGYSA057y9efh+mrHOjCrrJSIRGZ5T?=
+ =?us-ascii?Q?dc70yyycjcqnthkSMzV6aNio5/+k7OpqvGmyCy1+s9obuK71cLcJSk59rIag?=
+ =?us-ascii?Q?pDSWiOrk+d8UUL8aGWz5S1BT/ZqiVbi7NhrV6PvpgQT+m0cNCaKR3GjZZLrG?=
+ =?us-ascii?Q?h9ymFTrNbMH5R3FqeQJN8CRVkjwbgpCKFUG5Dkka3JOL9Dwy1pH5xyY4ObB6?=
+ =?us-ascii?Q?/eGnZWkm/v5a9j4CdK1aHfpO0+x85d76Z4FX24TUzlk84eBGNJaFfJQG3M1C?=
+ =?us-ascii?Q?p/U3MHT3VPczjDg=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(35042699022)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2025 07:35:00.5878
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 7ffe0ff2-35d0-407e-a107-79fc32e84ec4
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Fg3Io8jpRnKUmnyUAXBIEHBXj2WMR3sPNPpVJcQfIn4pBannNZiynqXUoCzZypoZFtEVzBjGJC+u2ofS9opLZY16ovoNXIvpvCdto4NEtbQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR16MB6210
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa7e3e03-2b9e-45d0-d146-08dd6c38b764
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DB.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8342
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_003026_349796_28BED195 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20250326_003508_608064_35A76BC1 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -217,69 +200,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBIaSBBcnRodXIsDQo+IFRoaXMgaXMgbm90IGEgZmxhZ3MgYXR0cmlidXRlLiBUaGlzIGlzIGZv
-ciBhIFF1ZXJ5IFJlYWQgNjQtYml0IEF0dHJpYnV0ZSBkYXRhLiBJbg0KPiB0aGUgZXhpc3Rpbmcg
-Y29kZSwgd2UgZG8gbm90IGhhdmUgYSByZWFkIDY0LWJpdCBhdHRyaWJ1dGUsIHNvIGFkZGluZyB0
-aGlzIG5ldw0KPiBjb2RlIHdvdWxkIGFsc28gYWxsb3cgZnV0dXJlIHJlLXVzZS4NCj4gDQo+IFRo
-ZSBuZXcgInN0cnVjdCB1dHBfdXBpdV9xdWVyeV9yZXNwb25zZV92NF8wIiB3b3VsZCBpbXByb3Zl
-IHJlYWRhYmlsaXR5DQo+IGJlY2F1c2UgaXQgaXMgZm9ybWF0dGVkIGV4YWN0bHkgYXMgaG93IHRo
-ZSBqZWRlYyBzdGFuZGFyZCBkZWZpbmVzIGZvciBBdHRyaWJ1dGUNCj4gUmVhZC4gV2Ugd29uJ3Qg
-bmVlZCB0byB1c2UgdHlwZSBjYXN0IHRvIGdldCB0aGUgNjQtYml0IHZhbHVlLg0KPiBUaGVyZSB3
-b3VsZCBiZSBubyBpc3N1ZSB3aXRoIGVmZmljaWVuY3kgYmVjYXVzZSB0aGUgc2FtZSBtYWNoaW5l
-IGNvZGUNCj4gd291bGQgYmUgZ2VuZXJhdGVkLg0KPiANCj4gVGhlIGV4aXN0aW5nICJzdHJ1Y3Qg
-dXRwX3VwaXVfcXVlcnlfdjRfMCIgcHJvYmFibHkgaGFzIGEgYnVnIGluIGl0LiBJdCBkb2VzDQo+
-IG5vdCB1c2UgdGhlICBfX2F0dHJpYnV0ZV9fKChfX3BhY2tlZF9fKSkgYXR0cmlidXRlLiBUaGUg
-Y29tcGlsZXIgaXMgZnJlZSB0byBhZGQNCj4gcGFkZGluZyBpbiB0aGlzIHN0cnVjdHVyZSwgcmVz
-dWx0aW5nIGluIHRoZSByZWFkIGF0dHJpYnV0ZSB2YWx1ZSBiZWluZyBpbmNvcnJlY3QuIEkNCj4g
-cGxhbiB0byBwcm92aWRlIGEgc2VwYXJhdGUgcGF0Y2ggdG8gZml4IHRoaXMgaXNzdWUuDQoNCkhp
-IEJhbyANCg0KVXBpdV9xdWVyeSBjYW4gYmUgdXNlZCBmb3IgYWxsIGRldmljZSBtYW5hZ2VtZW50
-IGNvbW1hbmQgKGRlc2NyaXB0aW9ucywgYXR0cmlidXRlcywgZmxhZ3MpDQpTZWUgc2VjdGlvbiAx
-MC43LjkgVVBJVSBRVUVSWSBSRVNQT05TRSBpbiB0aGUgVUZTIDQuMSBzcGVjaWZpY2F0aW9uLg0K
-SWYgInN0cnVjdCB1dHBfdXBpdV9xdWVyeSIgd2FzIHByb3Blcmx5IGRlZmluZWQsIGFjY29yZGlu
-ZyB0byB0aGUgVUZTIHNwZWNpZmljYXRpb24gIChieSBPU0YncyksDQp3ZSB3b3VsZCBub3QgbmVl
-ZCB0byBhZGQgYWRkaXRpb25hbCAic3RydWN0IHV0cF91cGl1X3F1ZXJ5X3Y0XzAiIHN0cnVjdHVy
-ZXMuDQpJZiB5b3UgdGhpbmsgdGhlIHN0cnVjdHVyZSBzaG91bGQgYmUgcGFja2FnZWQsIHlvdSBj
-YW4gZml4ICJzdHJ1Y3QgdXRwX3VwaXVfcXVlcnkiIGFuZCANCiJzdHJ1Y3QgdXRwX3VwaXVfcXVl
-cnlfdjRfMCIuDQoNClJlZ2FyZHMNCkFydGh1cg0KDQo+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0t
-LS0tDQo+IEZyb206IEJhbyBELiBOZ3V5ZW4gPHF1aWNfbmd1eWVuYkBxdWljaW5jLmNvbT4NCj4g
-U2VudDogV2VkbmVzZGF5LCBNYXJjaCAyNiwgMjAyNSAxMjoxNiBBTQ0KPiBUbzogQXJ0aHVyIFNp
-bWNoYWV2IDxBcnRodXIuU2ltY2hhZXZAc2FuZGlzay5jb20+Ow0KPiBxdWljX2NhbmdAcXVpY2lu
-Yy5jb207IHF1aWNfbml0aXJhd2FAcXVpY2luYy5jb207IGJ2YW5hc3NjaGVAYWNtLm9yZzsNCj4g
-YXZyaS5hbHRtYW5Ad2RjLmNvbTsgcGV0ZXIud2FuZ0BtZWRpYXRlay5jb207DQo+IG1hbml2YW5u
-YW4uc2FkaGFzaXZhbUBsaW5hcm8ub3JnOyBtaW53b28uaW1Ac2Ftc3VuZy5jb207DQo+IGFkcmlh
-bi5odW50ZXJAaW50ZWwuY29tOyBtYXJ0aW4ucGV0ZXJzZW5Ab3JhY2xlLmNvbQ0KPiBDYzogbGlu
-dXgtc2NzaUB2Z2VyLmtlcm5lbC5vcmc7IEFsaW0gQWtodGFyIDxhbGltLmFraHRhckBzYW1zdW5n
-LmNvbT47DQo+IEphbWVzIEUuSi4gQm90dG9tbGV5IDxKYW1lcy5Cb3R0b21sZXlASGFuc2VuUGFy
-dG5lcnNoaXAuY29tPjsgTWF0dGhpYXMNCj4gQnJ1Z2dlciA8bWF0dGhpYXMuYmdnQGdtYWlsLmNv
-bT47IEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJlZ25vDQo+IDxhbmdlbG9naW9hY2NoaW5vLmRlbHJl
-Z25vQGNvbGxhYm9yYS5jb20+OyBCZWFuIEh1bw0KPiA8YmVhbmh1b0BtaWNyb24uY29tPjsgS2Vv
-c2VvbmcgUGFyayA8a2Vvc3VuZy5wYXJrQHNhbXN1bmcuY29tPjsNCj4gWmlxaSBDaGVuIDxxdWlj
-X3ppcWljaGVuQHF1aWNpbmMuY29tPjsgQWwgVmlybyA8dmlyb0B6ZW5pdi5saW51eC5vcmcudWs+
-Ow0KPiBHd2VuZGFsIEdyaWdub3UgPGd3ZW5kYWxAY2hyb21pdW0ub3JnPjsgRXJpYyBCaWdnZXJz
-DQo+IDxlYmlnZ2Vyc0Bnb29nbGUuY29tPjsgb3BlbiBsaXN0IDxsaW51eC1rZXJuZWxAdmdlci5r
-ZXJuZWwub3JnPjsgbW9kZXJhdGVkDQo+IGxpc3Q6QVJNL01lZGlhdGVrIFNvQyBzdXBwb3J0Oktl
-eXdvcmQ6bWVkaWF0ZWsgPGxpbnV4LWFybS0NCj4ga2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc+
-OyBtb2RlcmF0ZWQgbGlzdDpBUk0vTWVkaWF0ZWsgU29DDQo+IHN1cHBvcnQ6S2V5d29yZDptZWRp
-YXRlayA8bGludXgtbWVkaWF0ZWtAbGlzdHMuaW5mcmFkZWFkLm9yZz4NCj4gU3ViamVjdDogUmU6
-IFtQQVRDSCB2NCAxLzFdIHNjc2k6IHVmczogY29yZTogYWRkIGRldmljZSBsZXZlbCBleGNlcHRp
-b24gc3VwcG9ydA0KPiANCj4gT24gMy8yNS8yMDI1IDk6MzMgQU0sIEFydGh1ciBTaW1jaGFldiB3
-cm90ZToNCj4gPiBIaSBCYW8NCj4gPg0KPiA+IEkgdGhpbmsgYWRkaW5nICJzdHJ1Y3QgdXRwX3Vw
-aXVfcXVlcnlfcmVzcG9uc2VfdjRfMCIgaXMgcmVkdW5kYW50IGFuZCBub3QNCj4gY29ycmVjdCBm
-b3IgZmxhZ3MgdXBpdSByZXNwb25zZSAuDQo+ID4gWW91IGNhbiB1c2UgInN0cnVjdCB1dHBfdXBp
-dV9xdWVyeV92NF8wIg0KPiA+DQo+IEhpIEFydGh1ciwNCj4gVGhpcyBpcyBub3QgYSBmbGFncyBh
-dHRyaWJ1dGUuIFRoaXMgaXMgZm9yIGEgUXVlcnkgUmVhZCA2NC1iaXQgQXR0cmlidXRlIGRhdGEu
-IEluDQo+IHRoZSBleGlzdGluZyBjb2RlLCB3ZSBkbyBub3QgaGF2ZSBhIHJlYWQgNjQtYml0IGF0
-dHJpYnV0ZSwgc28gYWRkaW5nIHRoaXMgbmV3DQo+IGNvZGUgd291bGQgYWxzbyBhbGxvdyBmdXR1
-cmUgcmUtdXNlLg0KPiANCj4gVGhlIG5ldyAic3RydWN0IHV0cF91cGl1X3F1ZXJ5X3Jlc3BvbnNl
-X3Y0XzAiIHdvdWxkIGltcHJvdmUgcmVhZGFiaWxpdHkNCj4gYmVjYXVzZSBpdCBpcyBmb3JtYXR0
-ZWQgZXhhY3RseSBhcyBob3cgdGhlIGplZGVjIHN0YW5kYXJkIGRlZmluZXMgZm9yIEF0dHJpYnV0
-ZQ0KPiBSZWFkLiBXZSB3b24ndCBuZWVkIHRvIHVzZSB0eXBlIGNhc3QgdG8gZ2V0IHRoZSA2NC1i
-aXQgdmFsdWUuDQo+IFRoZXJlIHdvdWxkIGJlIG5vIGlzc3VlIHdpdGggZWZmaWNpZW5jeSBiZWNh
-dXNlIHRoZSBzYW1lIG1hY2hpbmUgY29kZQ0KPiB3b3VsZCBiZSBnZW5lcmF0ZWQuDQo+IA0KPiBU
-aGUgZXhpc3RpbmcgInN0cnVjdCB1dHBfdXBpdV9xdWVyeV92NF8wIiBwcm9iYWJseSBoYXMgYSBi
-dWcgaW4gaXQuIEl0IGRvZXMNCj4gbm90IHVzZSB0aGUgIF9fYXR0cmlidXRlX18oKF9fcGFja2Vk
-X18pKSBhdHRyaWJ1dGUuIFRoZSBjb21waWxlciBpcyBmcmVlIHRvIGFkZA0KPiBwYWRkaW5nIGlu
-IHRoaXMgc3RydWN0dXJlLCByZXN1bHRpbmcgaW4gdGhlIHJlYWQgYXR0cmlidXRlIHZhbHVlIGJl
-aW5nIGluY29ycmVjdC4gSQ0KPiBwbGFuIHRvIHByb3ZpZGUgYSBzZXBhcmF0ZSBwYXRjaCB0byBm
-aXggdGhpcyBpc3N1ZS4NCj4gDQo+IFRoYW5rcywgQmFvDQo=
+Hi Leo,
+
+> > While enable active config via cscfg_csdev_enable_active_config(),
+> > active config could be deactivated via configfs' sysfs interface.
+> > This could make UAF issue in below scenario:
+> >
+> > CPU0                                          CPU1
+> > (sysfs enable)                                load module
+> >                                               cscfg_load_config_sets()
+> >                                               activate config. // sysfs
+> >                                               (sys_active_cnt == 1)
+> > ...
+> > cscfg_csdev_enable_active_config()
+> >   lock(csdev->cscfg_csdev_lock)
+> >   // here load config activate by CPU1
+> >   unlock(csdev->cscfg_csdev_lock)
+> >
+> >                                               deactivate config // sysfs
+> >                                               (sys_activec_cnt == 0)
+> >                                               cscfg_unload_config_sets()
+> >                                               unload module
+> >
+> >   // access to config_desc which freed
+> >   // while unloading module.
+> >   cfs_csdev_enable_config
+>
+> I am not sure if this flow can happen.  CoreSight configfs feature is
+> integrated into the CoreSight core layer, and the other CoreSight
+> modules are dependent on it.
+>
+> For example, if the ETM4x module is not removed, the kernel module
+> management will natually prevent the CoreSight core module from being
+> removed.
+>
+
+No. Suppose some user writes custom config module for etm4x using
+cscfg_load_config_sets() cscfg_unload_config_sets() in init/exit of
+module function.
+
+Although it's rare case but it can happen while  above 2 interfaces are
+EXPORTED.
+
+> > To address this, use cscfg_config_desc's active_cnt as a reference count
+> > which will be holded when
+> >     - activate the config.
+> >     - enable the activated config.
+> > and put the module reference when config_active_cnt == 0.
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> > Since v3:
+> >   - Remove enable arguments in cscfg_config_desc_get() (from Mike).
+> >   - https://lore.kernel.org/all/20250109171956.3535294-1-yeoreum.yun@arm.com/
+> > ---
+> >  .../hwtracing/coresight/coresight-config.h    |  2 +-
+> >  .../coresight/coresight-etm4x-core.c          |  3 ++
+> >  .../hwtracing/coresight/coresight-syscfg.c    | 52 +++++++++++++------
+> >  3 files changed, 41 insertions(+), 16 deletions(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+> > index b9ebc9fcfb7f..90fd937d3bd8 100644
+> > --- a/drivers/hwtracing/coresight/coresight-config.h
+> > +++ b/drivers/hwtracing/coresight/coresight-config.h
+> > @@ -228,7 +228,7 @@ struct cscfg_feature_csdev {
+> >   * @feats_csdev:references to the device features to enable.
+> >   */
+> >  struct cscfg_config_csdev {
+> > -	const struct cscfg_config_desc *config_desc;
+> > +	struct cscfg_config_desc *config_desc;
+> >  	struct coresight_device *csdev;
+> >  	bool enabled;
+> >  	struct list_head node;
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index e5972f16abff..ef96028fa56b 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -1020,6 +1020,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+> >  	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+> >
+> >  	raw_spin_unlock(&drvdata->spinlock);
+> > +
+> > +	cscfg_csdev_disable_active_config(csdev);
+> > +
+>
+> In general, we need to split changes into several patches if each
+> addresses a different issue.  From my understanding, the change above is
+> to fix missing to disable config when disable Sysfs mode.
+>
+> If so, could we use a seperate patch for this change?
+>
+
+It's not a differnt issue. Without this line, the active count wouldn't
+decrese and it raise another issue -- unloadable moudle for active_cnt :(
+So I think it should be included in this patch.
+
+> >  	cpus_read_unlock();
+> >
+> >  	/*
+> > diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+> > index a70c1454b410..6d8c212ad434 100644
+> > --- a/drivers/hwtracing/coresight/coresight-syscfg.c
+> > +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+> > @@ -391,14 +391,17 @@ static void cscfg_owner_put(struct cscfg_load_owner_info *owner_info)
+> >  static void cscfg_remove_owned_csdev_configs(struct coresight_device *csdev, void *load_owner)
+> >  {
+> >  	struct cscfg_config_csdev *config_csdev, *tmp;
+> > +	unsigned long flags;
+> >
+> >  	if (list_empty(&csdev->config_csdev_list))
+> >  		return;
+> >
+> > +	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+>
+> I think we should use spinlock to guard the condition checking
+> list_empty().
+>
+> Here the race condition is the 'config_csdev_list' list and
+> configurations on the list.  For atomicity, we should use lock to
+> protect any operations on the list (read, add, delete, etc).
+
+Interesting... Would you let me know which race it is?
+here to check list_empty(), it already guarded with "cscfg_mutex".
+However list_del() is special case because iterating config_csdev_list
+can be done without cscfg_mutex -- see
+cscfg_csdev_enable_active_config().
+This gurad with spinlock purpose to guard race unloading and
+get the config in cscfg_csdev_enable_active_config()
+(Please see my response below...).
+
+the emptiness of config_csdev_list is guarded with cscfg_mutex.
+therefore, It seems enough to guard iterating part with spinlock :)
+
+> A side topic, as here it adds locks for protecting 'config_csdev_list',
+> I am wandering why we do not do the same thing for
+> 'feature_csdev_list' (See cscfg_remove_owned_csdev_features() and
+> cscfg_get_feat_csdev()).
+
+In case of feature, It's okay since it couldn't be accessed when it
+gets failed to get related config.
+
+When we see cscfg_csdev_enable_active_config(), the config could be
+accessed without cscfg_mutex lock. so the config need to be guarded with
+spin_lock otherwise it could be acquired while unload module
+(after get active_cnt in search logic cscfg_csdev_enable_active_config()
+and other running unloading process)
+
+But feature list is depends on config, If config is safe from
+load/unload, this is not an issue so we don't need it.
+
+Thanks for your review!
+
+> >  	list_for_each_entry_safe(config_csdev, tmp, &csdev->config_csdev_list, node) {
+> >  		if (config_csdev->config_desc->load_owner == load_owner)
+> >  			list_del(&config_csdev->node);
+> >  	}
+> > +	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+> >  }
+> >
+> >  static void cscfg_remove_owned_csdev_features(struct coresight_device *csdev, void *load_owner)
+> > @@ -867,6 +870,25 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
+> >  }
+> >  EXPORT_SYMBOL_GPL(cscfg_csdev_reset_feats);
+> >
+> > +static bool cscfg_config_desc_get(struct cscfg_config_desc *config_desc)
+> > +{
+> > +	if (!atomic_fetch_inc(&config_desc->active_cnt)) {
+> > +		/* must ensure that config cannot be unloaded in use */
+> > +		if (unlikely(cscfg_owner_get(config_desc->load_owner))) {
+> > +			atomic_dec(&config_desc->active_cnt);
+> > +			return false;
+> > +		}
+> > +	}
+> > +
+> > +	return true;
+> > +}
+> > +
+> > +static void cscfg_config_desc_put(struct cscfg_config_desc *config_desc)
+> > +{
+> > +	if (!atomic_dec_return(&config_desc->active_cnt))
+> > +		cscfg_owner_put(config_desc->load_owner);
+> > +}
+> > +
+> >  /*
+> >   * This activate configuration for either perf or sysfs. Perf can have multiple
+> >   * active configs, selected per event, sysfs is limited to one.
+> > @@ -890,22 +912,17 @@ static int _cscfg_activate_config(unsigned long cfg_hash)
+> >  			if (config_desc->available == false)
+> >  				return -EBUSY;
+> >
+> > -			/* must ensure that config cannot be unloaded in use */
+> > -			err = cscfg_owner_get(config_desc->load_owner);
+> > -			if (err)
+> > +			if (!cscfg_config_desc_get(config_desc)) {
+> > +				err = -EINVAL;
+> >  				break;
+> > +			}
+> > +
+> >  			/*
+> >  			 * increment the global active count - control changes to
+> >  			 * active configurations
+> >  			 */
+> >  			atomic_inc(&cscfg_mgr->sys_active_cnt);
+>
+> Seems to me, it is more reasonable to use 'sys_active_cnt' to acquire
+> the module reference instead of 'config_desc->active_cnt'.  The reason
+> is 'sys_active_cnt' is a global counter.
+>
+> > -			/*
+> > -			 * mark the descriptor as active so enable config on a
+> > -			 * device instance will use it
+> > -			 */
+> > -			atomic_inc(&config_desc->active_cnt);
+> > -
+> >  			err = 0;
+> >  			dev_dbg(cscfg_device(), "Activate config %s.\n", config_desc->name);
+> >  			break;
+> > @@ -920,9 +937,8 @@ static void _cscfg_deactivate_config(unsigned long cfg_hash)
+> >
+> >  	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
+> >  		if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
+> > -			atomic_dec(&config_desc->active_cnt);
+> >  			atomic_dec(&cscfg_mgr->sys_active_cnt);
+> > -			cscfg_owner_put(config_desc->load_owner);
+> > +			cscfg_config_desc_put(config_desc);
+> >  			dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
+> >  			break;
+> >  		}
+> > @@ -1047,7 +1063,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> >  				     unsigned long cfg_hash, int preset)
+> >  {
+> >  	struct cscfg_config_csdev *config_csdev_active = NULL, *config_csdev_item;
+> > -	const struct cscfg_config_desc *config_desc;
+> > +	struct cscfg_config_desc *config_desc;
+> >  	unsigned long flags;
+> >  	int err = 0;
+> >
+> > @@ -1062,8 +1078,8 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> >  	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+> >  	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
+> >  		config_desc = config_csdev_item->config_desc;
+> > -		if ((atomic_read(&config_desc->active_cnt)) &&
+> > -		    ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
+> > +		if (((unsigned long)config_desc->event_ea->var == cfg_hash) &&
+> > +				cscfg_config_desc_get(config_desc)) {
+>
+> This seems to me not right.  Why a config descriptor is get in multiple
+> places?  One time getting a config descriptor is in
+> _cscfg_activate_config(), another is at here.
+>
+> To be honest, I am not clear what is the difference between 'activate'
+> config and 'enable active' config.  Literally, I think we only need to
+> acquire the config at its creating phase (maybe match to activate
+> config?).
+>
+> >  			config_csdev_active = config_csdev_item;
+> >  			csdev->active_cscfg_ctxt = (void *)config_csdev_active;
+> >  			break;
+> > @@ -1097,7 +1113,11 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> >  				err = -EBUSY;
+> >  			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+> >  		}
+> > +
+> > +		if (err)
+> > +			cscfg_config_desc_put(config_desc);
+> >  	}
+> > +
+> >  	return err;
+> >  }
+> >  EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
+> > @@ -1136,8 +1156,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+> >  	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+> >
+> >  	/* true if there was an enabled active config */
+> > -	if (config_csdev)
+> > +	if (config_csdev) {
+> >  		cscfg_csdev_disable_config(config_csdev);
+> > +		cscfg_config_desc_put(config_csdev->config_desc);
+> > +	}
+> >  }
+> >  EXPORT_SYMBOL_GPL(cscfg_csdev_disable_active_config);
+> >
+> > --
+> > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> >
 
