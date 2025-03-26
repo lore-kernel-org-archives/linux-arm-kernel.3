@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE10C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 11:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B85C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 11:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ezxUjNxGNqxEEIkwffC6gu9wA/qNKXnWxmZorcahfW0=; b=EC5V2X3vfwr5gBJMWUQijT3M0k
-	3dlri4/V/9E9fUANqGG4vxn/loFkpn9VAHJu/RpChbdKe3gsODMVgNpWZMIRkGvfXyNtFcazFtQg6
-	Zy6/W75tJfvmErqNf/s0tPg+n45wE9i7BUJgattgWDgokyTKBV8pkElMcJIoqiHj8wweMI0YEADK4
-	xZo1G+du2gyvvBlMN2X6Y0wKthib1xD4tCxE2fmytreLgzfZeSAnTXgjGMDQ5jIeJ8ijfvTPYWVtv
-	6Q1dUZzdcw59TEtVNA3/LVlLA+fUqdo6i/r1TYYUmohOVtAdB9yrcWo0MHjk0sEU4soauPVO7Y2xH
-	ab5Sz7TA==;
+	bh=fAUrsz9OdOg3wQLEmYa5D4cgvz4ST0mmGNxgNjOcyeU=; b=V7qlhIPu/dbO8iOleP0B57DMyp
+	d4ZlIW7M4mSKH5z96Auvp/CM6dx13FkAt6E3ckPBRnGxV7dwk+8rfX+bMnVGkPB7xItugzZhOqSJF
+	RzvgazLOZWtu976rxYVe2u1Czod6hGXeWC4N2jlcuy3jriCNaNfld1BVcaSuqYUgbX41Swv7RSI0h
+	j66ib9tLPoNBBS7GRH9rWDRGSfC8XKK69h7ICwWQMvD7+0ZUTlvPJIDtI4wOfwE/LtMeqcC4bAA4h
+	sxOku1E/Lj080hchpil4/J8LYU6njXnBrPFKQ8qGrUNNyNdPKw+SwetTfRYGjlEQU9tkvPrTa2gDh
+	NlPFX5GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txP5K-00000008NZH-0poe;
-	Wed, 26 Mar 2025 11:38:14 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1txP7u-00000008Nqp-1Bd9;
+	Wed, 26 Mar 2025 11:40:54 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txP3a-00000008NNz-2Cgz;
-	Wed, 26 Mar 2025 11:36:28 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 71A1525D79;
-	Wed, 26 Mar 2025 12:36:15 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id L35YDY5GWVHS; Wed, 26 Mar 2025 12:36:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1742988974; bh=i+1SA1AXJQX4Q9Crpe7MCE2kgK7BHEod+Flw4MdzIdE=;
-	h=From:To:Cc:Subject:Date;
-	b=JEusnVnxCcLq5kc8e3+v66/68lTz7j7OUh6mkbl8CT8T6tvtQr6jw62C5VsbJJMMd
-	 I/9VWOZurlvmrOOz89NfCPM0m9w0/wjtP82BQEmIhmj2QanHt5Dsmrrrhkepagpot7
-	 /n65OZMjdQTl5zs1iigHL9VbA4kN4ArY4Dg5BcuQyKOoXaBMS6qMf57MA10GnpjY4S
-	 e5PnPIwdRNE7UMT0lAmKQ0JoQYpIvVvdJalwgHFF54CrfM4y8XERNLfkQuDCJoqyfP
-	 WYYfXvHrDFOR+K5pXM27DwyDTTKlzypWZs52SPIDMHYnaadwHO6yWlIs0Q0Ee6e6Ot
-	 qZw7plq3SOHhQ==
-From: Yao Zi <ziyao@disroot.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH] clk: rockchip: Drop empty init callback for rk3588 PLL type
-Date: Wed, 26 Mar 2025 11:35:56 +0000
-Message-ID: <20250326113556.21039-1-ziyao@disroot.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1txP6A-00000008Nf1-49JE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Mar 2025 11:39:08 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43935e09897so42385155e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 04:39:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1742989145; x=1743593945; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fAUrsz9OdOg3wQLEmYa5D4cgvz4ST0mmGNxgNjOcyeU=;
+        b=rJMj5ky8thjMTseH9+M7NH2cWYNd272+6RltbS5qpmPXrupIK6mCPWDKlFUY/odqGR
+         yDiM3M8m9lX1ZdxVcKjMOlRnPhmkScb5wn0m2MISEPP0cSQuocoA/RSuw/8/ILtbsY1N
+         b3o8398LmdvmVEqACMWSr3OgjymLDOMh5eyLzeF/ff6OpLMRCOxBakoaW7vQFJbJhXmI
+         yeBj9jeQ5Kw+Ktn0yRIPaZoFsXMc6p5PyPCUKPPfMR8FOr5P1fyFmryDqCxdPQykbClT
+         u+c3dN5w3+QNhRvtBK0JkiuzaWwtDq5wJt27063DCkQPapQ7XAOEyE1NskUOfKNLDg0E
+         0ISQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742989145; x=1743593945;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fAUrsz9OdOg3wQLEmYa5D4cgvz4ST0mmGNxgNjOcyeU=;
+        b=AumOpUKeXeiWYinApkGl7K87o9maUy94jmlJ4E5lZhPM3xLbJ1jLxvRaJ9NKtOIJuo
+         WKSkOKW+sitSURmZz9L9FiElqInpa0BalFS/LnsZaN4uAT/gC6SRTeq+anh3gxx2IYyo
+         SsffBDXsqrVAN5kQUj0NcPtHFjhdtLm+mExNRXj+lMhCZAt01EHVVdpDGzCL/Jm21smO
+         gU8Bfk58JHT4ho+zMLwm0pI/S2J/R7Sb9K7kvHGS4VQ+eNhou6y3C6Dh/f4KYF5Gxld/
+         t9Obtlhoe30JKZgnpnSJJW2WYQoNDyXxHsfMekIq6JrqxwUyqww6OCoAK3Rq/smV4t4V
+         wtGg==
+X-Forwarded-Encrypted: i=1; AJvYcCVN56S3Zv4XKgCtE2w35p47ZHESl/JCeYYjUboG4/tDY2uyWm07L+MSRJPuyrnBblAM7KjaJVy2TagFDDwxV0Hw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9yEnXWr3Gv1wCumZkJQKR409ivAOncEZZr6xM3Kjg1FK3VhNL
+	c6iHLgn5h5MyxrzV5cLeDUvjjiPoyQIkrsvrK1t8fp+F5QjhXPbIAif2XyIf69E1T+RPatWf2ll
+	hcGcIAZ3XeueDzlw+BaJS3agOQQ==
+X-Google-Smtp-Source: AGHT+IGHwZHepscP8ejJ/xKjHvWMmfkRYj/uDkAFERn0R3gk+2OvGbhbfX9XWEWX38kk7ftW0gGcZ4p7ZxAAjcKTqDs=
+X-Received: from wmpz15.prod.google.com ([2002:a05:600c:a0f:b0:43c:ef1f:48d8])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:5021:b0:43c:ea1a:720c with SMTP id 5b1f17b1804b1-43d509f6307mr221896365e9.18.1742989144752;
+ Wed, 26 Mar 2025 04:39:04 -0700 (PDT)
+Date: Wed, 26 Mar 2025 11:38:58 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
+Message-ID: <20250326113901.3308804-1-sebastianene@google.com>
+Subject: [PATCH v4 0/3] KVM: arm64: Separate the hyp FF-A buffers init from
+ the host
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org, 
+	oliver.upton@linux.dev, sebastianene@google.com, snehalreddy@google.com, 
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	will@kernel.org, yuzenghui@huawei.com, qperret@google.com
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_043626_968440_FF8B08D9 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250326_043907_031394_D2E070E0 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +91,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike PLLs in previous geneation of SoCs, PLLs in RK3588 type don't
-require any platform-specific initialization. Drop callback
-rockchip_rk3588_pll_init() that does nothing in fact to clean the
-driver up.
+Hello,
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
- drivers/clk/rockchip/clk-pll.c | 11 -----------
- 1 file changed, 11 deletions(-)
+This moves the initialization of the hypervisor FF-A buffers
+away from the host FF-A map calling path. If the hypervisor
+cannot map the buffers with Trustzone, it rejects any FF-A call
+when it runs under protected mode. 
+Other than that it moves the definitions of the ffa_to_linux_err
+map from the arm_ffa driver to the ffa header so that the hyp code
+can make use of it.
 
-diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
-index fe76756e592e..a2a57d47bbf8 100644
---- a/drivers/clk/rockchip/clk-pll.c
-+++ b/drivers/clk/rockchip/clk-pll.c
-@@ -1025,16 +1025,6 @@ static int rockchip_rk3588_pll_is_enabled(struct clk_hw *hw)
- 	return !(pllcon & RK3588_PLLCON1_PWRDOWN);
- }
- 
--static int rockchip_rk3588_pll_init(struct clk_hw *hw)
--{
--	struct rockchip_clk_pll *pll = to_rockchip_clk_pll(hw);
--
--	if (!(pll->flags & ROCKCHIP_PLL_SYNC_RATE))
--		return 0;
--
--	return 0;
--}
--
- static const struct clk_ops rockchip_rk3588_pll_clk_norate_ops = {
- 	.recalc_rate = rockchip_rk3588_pll_recalc_rate,
- 	.enable = rockchip_rk3588_pll_enable,
-@@ -1049,7 +1039,6 @@ static const struct clk_ops rockchip_rk3588_pll_clk_ops = {
- 	.enable = rockchip_rk3588_pll_enable,
- 	.disable = rockchip_rk3588_pll_disable,
- 	.is_enabled = rockchip_rk3588_pll_is_enabled,
--	.init = rockchip_rk3588_pll_init,
- };
- 
- /*
+*** Changelog ***
+
+v3 -> this version:
+
+- moved the definition of PARTITION_INFO_GET_RETURN_COUNT_ONLY from
+  the driver code to the arm_ffa header and dropped the definition
+  from the last patch. 
+
+v2 -> v3:
+
+- dropped the "Map the hypervisor FF-A buffers on ffa init" patch
+- added ack & reviewed-by tags
+- don't release the ownership of the RX buffer if the flag from
+ FFA_GET_PARTITION is (1)
+
+v1 -> v2:
+
+Split the patch that maps the ff-a buffers of ffa init and introduce
+"Move the ffa_to_linux definition to the ffa header".
+
+Thanks,
+
+Sebastian Ene (3):
+  KVM: arm64: Use the static initializer for the version lock
+  firmware: arm_ffa: Move the ffa_to_linux definition to the ffa header
+  KVM: arm64: Release the ownership of the hyp rx buffer to Trustzone
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c     | 12 +++++++-----
+ drivers/firmware/arm_ffa/driver.c | 26 --------------------------
+ include/linux/arm_ffa.h           | 27 +++++++++++++++++++++++++++
+ 3 files changed, 34 insertions(+), 31 deletions(-)
+
 -- 
-2.49.0
+2.49.0.395.g12beb8f557-goog
 
 
