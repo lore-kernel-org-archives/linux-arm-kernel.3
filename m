@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2845C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:45:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BD9C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qo8yUbF4wUa+z6nQkW7SJ0WhcUVRPGZ8Y1rGgvU8CHY=; b=1Ekl32ZLRJStejAPnyrAeFPbR5
-	aEvGcerFbRzcnJA/SHb9Lr90o+MCM0Uz9ZuJ0y0oWRqV3c6RiD15B0QehnmcxQY6CO6zveHG09qA2
-	CzyCmMqnsC6S0jtmppvedcQ+djOexEVUKXpCaCGcmXLsPKPBJlcTOthUTyRE802pFGjwryVHGOs3c
-	BLu+JB/7dlyXb5cNycRcHXi6o129rc5zSW7/R3joSj7fEBTW9b3bkC0RQpiieUxkgfvM0cLHop81g
-	5wqH3maw/5kaVMQ8RhRwnRmuHlQY2THLgqD4oxYhPG8OQf0TcXOLNUb1UCK7JLJHFqj1vHlFxVk3V
-	eSag0llw==;
+	bh=PmNfwSAKSGPZhhRnskxRS7VGBq4lfQUQS0GhmNutj3I=; b=2//UgsVE5i8mC0mPT01e0KpqLs
+	yAYy3TfgGKP5LXw55n1u+XidYMSWmPQt6SI5dg09vSnO829hYRaBexFNWv9PkYhE15EKdnQVhFysC
+	U554aa+3c0Hr1pNBiZFcIKj242+mdqYnQgDzswKCDigMFvgsIT9Bumy0ty/kzMsl8e3E0snph+FOO
+	OdVH2abZXp/kHYSKGA9WjsO8VhZtET0+7An3tiwfPIxY8uCuCT6428IBRAdG+U6G8Qmx7g6IlCSXM
+	ze2iifWU8K+yRJC9qfmns8dvvEYU4xj1aHupeEsskk8NM5goyiZokq9irXZ1o+APGesbq15vaTigg
+	I9ZcwiGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txS0E-00000008jTV-2pLQ;
-	Wed, 26 Mar 2025 14:45:10 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1txS1w-00000008jm6-1reh;
+	Wed, 26 Mar 2025 14:46:56 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txRvE-00000008iQX-2LYs
+	id 1txRvF-00000008iRO-3FO5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 14:40:01 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-39ac8e7688aso1730512f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:40:00 -0700 (PDT)
+	Wed, 26 Mar 2025 14:40:02 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4393dc02b78so50710705e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:40:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742999999; x=1743604799; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743000000; x=1743604800; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Qo8yUbF4wUa+z6nQkW7SJ0WhcUVRPGZ8Y1rGgvU8CHY=;
-        b=WMJ/12Al9T/9Z4YtOTHXJRBLZyYUQChoIAwF9jFuVoEjgp0eIVtKbtKYeslwN9Kb6y
-         ncKrfBM0QULpbs4AYNcTqn8db4tpLZBsqDi0gPf4eWvGvgTnANlRcMbHiRDPzyShS4CA
-         dWLb4TpFUd74ELt28uY20/+jCwMPhuUAGqm1C5r/ibwpVhCMQw4bx250H0E2sCFv8Dtu
-         gw78GXrhr7LHFvr0qqRoBzZNLzLb9SgWdQ0uCeFpNtLkB+eGIRgyNoQUbMFHHwvg43vw
-         5H9amCziPGn/5aRtfAIrki/8wT0fBcFHcI9Sw/c1VOGh6jmK6aIHZDzgwX9FExuTCjfJ
-         WfuA==
+        bh=PmNfwSAKSGPZhhRnskxRS7VGBq4lfQUQS0GhmNutj3I=;
+        b=BE1QdX3aeynhqxQRQscgLwMrB2m5w5VrCSEF1md7hbO4Mm930Y/Zn0tnczgewvX7t3
+         ZeXRZ5yjRbuTkwZ71juoprk6UI34wTMDQMkIAzeXptW+XJHTDltuzvozOliF6W5rf3BQ
+         opMUdt870s4tmJVMScIA+xkQnvAfjWQBiIK2tVzlEYQmUdx8TRAJJV9RMl2N7vYQ2DyR
+         qtdV9TDhxGwcrI/AaaxIKRh+ma/DEKECWMxhdL/7T7850GkhX7j0vK/gYaMkxHqE5f2V
+         dSPptyf+O/EwOcEKOV5jRfH7hJNjzsbQQZjNtq+qfriDLKAphvjtWARZ/JISGYfo2OLo
+         kiCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742999999; x=1743604799;
+        d=1e100.net; s=20230601; t=1743000000; x=1743604800;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Qo8yUbF4wUa+z6nQkW7SJ0WhcUVRPGZ8Y1rGgvU8CHY=;
-        b=RqdiR6qRdc7qD135kXHaDS2Fv5TgjSkLBVn7mfm/FynH4rV+8rN1J0ZspTV9YOXIuY
-         qo8WWDjFkIK7K+JyF72rasb3bXkTpwql/LIGGH330I2tPxCDIkkGMj2Bn5gq49/voqiJ
-         0hpcaQru8Pd1X2HULF3D0+WooL0iFl95NgLJ7SMf4/W3D8B9HJW/APut0UN2r8IhMSGY
-         ho0RNA/SvqeoeDk5IxQz/DnVnYuwWsn6zK0h6NNAHgUVkmeq4SQXnFBBLOd6Lcdj+IaN
-         Ap9UHF++xQDSukbVy0jI7AI6wEl8gLWiUWGq3vd6ErMyYfUYSaapl6Qb+Ci1PpWLqysQ
-         SI8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVBokBYNaSpY50352aH7dROYYWpW5uZuQxeU2M4NeKu+uXZC4JTwfdpJyZfdaShdq1lTlchaSdvQq+AHNadYoLu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYeO07d4iyTl0FJq/ytRtl+xPfiEmAM5g/uuuu0G2lwqooHI/V
-	97Z37nY/ClhEMXvRpU+7BezneQf72/ZQkaBf9DhFyxLN0GN3hJpH
-X-Gm-Gg: ASbGncuDhqaQ/i4bdbXIRc1zsW3T4630VKHBnn4u5NHaR2cRpN6g6UWJuzMvIPtWYKF
-	6Usz5/b3nTT2R+8zUezBVAr85MyRlZRRVUKw8J5iNBSrjuxFY+p2v6Q8g24p1nPjfzdiCgL19J4
-	2oz6SyjUKrvApBrAO/kVebg4ZIlnG/l+F2rwpwj7BGRbe8WLAVs1xGLA3tYChWO+cik14Ylv25y
-	GVs3u9jJaV2ybR1t72ncvp7mYCaUMrOMPtbRNaW/u6VLw9yuAZjOQL2/ZPRkZj6JwlQay2Dn6B+
-	SXIaTp2yoszMPSvdxdKkccQ7JPSojPZu+i2ZClN6QaR80oC2ZgHmzYXzTRGqjrsPsTH2iqFQiKk
-	4dxc=
-X-Google-Smtp-Source: AGHT+IE6Rp51RN1LfJrB6Bp9z+UyJ9P34RFiyRNq4eRxazayC6Uni7bHPn19MEPTytWoioXjDEuABQ==
-X-Received: by 2002:a05:6000:2d08:b0:391:306f:57e4 with SMTP id ffacd0b85a97d-3997f92dcf5mr11606091f8f.34.1742999998593;
-        Wed, 26 Mar 2025 07:39:58 -0700 (PDT)
+        bh=PmNfwSAKSGPZhhRnskxRS7VGBq4lfQUQS0GhmNutj3I=;
+        b=vP8C37izTsZD13AShAgUv9PizZOxjRH4M9yFeVtI0w+ZBhzx/+e5mCkBbcmk93jaVl
+         hqDtmfNL4Sn4bIEOLhy4ZEH6Jj3TUD5uKhSMyT20+Eu8zki6Qim2XYge71ELcO6TERmv
+         1o6Q5MFf8SoDKU6v3vXLCgIwyQJHKsmUo/DLNINrg7kpDkAFnSz3rFvcxcE97cMKp/ho
+         clRI9hImWRuKNlSPId8gnGK9lAKdDWEdjYosoJXm4nueE8CjUO2pqXfBeBAn+Co+y3dT
+         ffgPslpyHGLuI4a2symfINVFFo2W+w3z/XSUO3yeu2A9Jv47c2oE5v5G4AILLXTmF4qD
+         3Tcw==
+X-Forwarded-Encrypted: i=1; AJvYcCVwn3/NiVy3O+ZcPttU58Q1IZ5hSf681Kk4H8Jw1R8Az1u8AvHRHps0BjkTtjK0ZgrDAfPkFDT7ukMh6wF0HBP4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTseT71XEhEiJaqSubvdB6wB0IM3Swas9v1HUPi5zY1uSTvDHe
+	ptdGVFRI3iU4FZNlF+E7G99Y0hax9bCFtr09oOpL6EusvovOuhJ9
+X-Gm-Gg: ASbGncu0GNPHk7vBmLneHGrWN/5yHmaTbjuUJZWysqVMLP9v6oaz6yirH97nJ4yyQNL
+	7vEkeuY0QurPSoUz1V4Ln7IzDeS4ooqKlP3rIX/xw83GAnhXyIveaK3XASDb7X3TsnGE2iD7ckb
+	mp6ZOCjRMDZkLisvL+TPTqhxlGMKD5YyyBph9/LpSbTBpoGcZmdLXRGEKbd9lByJW5qjVy9OW+b
+	H2xUhA9EaG8gvljXwf3wxWhUxOVItlLzp2ylqjn28TqiyTqBjqbbN9gWmkSIcJts7Qcw0aAR1qM
+	IWbUFsrbf+rPHG3WxuvPcDKJfDDxWRPLMgvagy8dNmb/UWeN4rtBUiOd2Cs5brsxE1LC
+X-Google-Smtp-Source: AGHT+IFW4brLWtC9uniriyV99C+jcMPdP/8oJA+VeJMpM/RrrFNh6VS98vM0nsOkR0ZMiWAoC4oFKA==
+X-Received: by 2002:a05:600c:3c9a:b0:43c:f4b3:b094 with SMTP id 5b1f17b1804b1-43d509e189bmr202063825e9.6.1742999999885;
+        Wed, 26 Mar 2025 07:39:59 -0700 (PDT)
 Received: from iku.Home ([2a06:5906:61b:2d00:e63e:b0d:9aa3:d18d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efe9b4sm3891885e9.20.2025.03.26.07.39.57
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efe9b4sm3891885e9.20.2025.03.26.07.39.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 07:39:57 -0700 (PDT)
+        Wed, 26 Mar 2025 07:39:59 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -97,17 +96,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH 01/15] dt-bindings: soc: renesas: Document Renesas RZ/V2N SoC variants
-Date: Wed, 26 Mar 2025 14:39:31 +0000
-Message-ID: <20250326143945.82142-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH 02/15] dt-bindings: soc: renesas: Document RZ/V2N EVK board
+Date: Wed, 26 Mar 2025 14:39:32 +0000
+Message-ID: <20250326143945.82142-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_074000_602982_364827BA 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250326_074001_818642_2104E324 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,41 +123,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Document Renesas RZ/V2N (R9A09G056) SoC variants.
-
-Add compatible strings for different RZ/V2N variants, distinguishing
-between configurations with and without specific hardware features
-such as GPU, ISP, and cryptographic extensions.
+Add "renesas,rzv2n-evk" which targets the Renesas RZ/V2N ("R9A09G056")
+EVK board.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- .../devicetree/bindings/soc/renesas/renesas.yaml    | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ Documentation/devicetree/bindings/soc/renesas/renesas.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/soc/renesas/renesas.yaml b/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
-index 51a4c48eea6d..3e61ce372a57 100644
+index 3e61ce372a57..3e3987c9a82e 100644
 --- a/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
 +++ b/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
-@@ -551,6 +551,19 @@ properties:
-               - renesas,r9a09g047e58 # Quad Cortex-A55 + Cortex-M33 + Ethos-U55 (21mm BGA)
-           - const: renesas,r9a09g047
+@@ -553,6 +553,8 @@ properties:
  
-+      - description: RZ/V2N (R9A09G056)
-+        items:
-+          - enum:
-+              - renesas,r9a09g056n41 # RZ/V2N
-+              - renesas,r9a09g056n42 # RZ/V2N with Mali-G31 support
-+              - renesas,r9a09g056n43 # RZ/V2N with Mali-C55 support
-+              - renesas,r9a09g056n44 # RZ/V2N with Mali-G31 + Mali-C55 support
-+              - renesas,r9a09g056n45 # RZ/V2N with cryptographic extension support
-+              - renesas,r9a09g056n46 # RZ/V2N with Mali-G31 + cryptographic extension support
-+              - renesas,r9a09g056n47 # RZ/V2N with Mali-C55 + cryptographic extension support
-+              - renesas,r9a09g056n48 # RZ/V2N with Mali-G31 + Mali-C55 + cryptographic extension support
-+          - const: renesas,r9a09g056
-+
-       - description: RZ/V2H(P) (R9A09G057)
+       - description: RZ/V2N (R9A09G056)
          items:
++          - enum:
++              - renesas,rzv2n-evk # RZ/V2N EVK
            - enum:
+               - renesas,r9a09g056n41 # RZ/V2N
+               - renesas,r9a09g056n42 # RZ/V2N with Mali-G31 support
 -- 
 2.49.0
 
