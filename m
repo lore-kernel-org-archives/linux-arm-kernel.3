@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D892C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 13:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E479C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 13:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RT7Nq605PxZzjLdpPGb1nOxowo5/PdFqJp0c2whstw8=; b=SrzG2vY359IaypF6u58wjjvdBO
-	fp+yHyCa5N5oSTpkIb8T9P6m1bItd0yyKOzXHR+z8rB7aBJnvyQw+V35xFcwFnW5NR613RlkwSti/
-	Uk76wWeinegK6bY2UceT3n0+6bXDy4fQ4fZLjRzQM8YmAyptuUIa9HMtXYPgO78iQSe+U+vcklyjQ
-	lrHfiAaeNGqLG2/gEWtFB/dQub+YWucn3IOfVnexuMsQzRN5SgA38i8F9Ur3advjPfB4zY4MMINh4
-	xUHl3ZwWZbQXf29kvcYNE1lzKlgwGH6vdErYAE5C3p+OUi7170Ywqq/bu/G+vFX0BectF91yYmoF8
-	NJX2tsqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tmOEoyHY2Ks0gUuytaK4wjrwLTqw4vCXipxUeutcC98=; b=FzMLkbghnbWYfF3nLfFKFQEcCn
+	fFXbrWwiuw5Ld/aF3kqvQrGRXd+I5G9mgNeCtvZUTFr1KL5i1+Vd/j1z7940lNTcZu6QYsjaXHqyC
+	Nk4w+1W/35VBo9vzOcll9+k4+701kfnbaeKG+Ma7ZYMDRM5pDlQMop0be6VoZ3JenWAvuvZF59cTn
+	6+NKD+dSm3LDDv48mGKmJKVzEf2FAAhbeK+7/3OUHl3ZLkoFK+KDJvNTI3cRtM9bFyRpjDjmJBrst
+	lhPfOUoOhpZ7vfju43zl6MZCIBccSPlzAQjt7oz2Oyrp8Ba2Zguq/YHS2fZMygKuHLRPP1/Fi6JML
+	Tl0A/6hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txR3c-00000008b0l-1BS2;
-	Wed, 26 Mar 2025 13:44:36 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1txR5K-00000008b9Q-0Fxz;
+	Wed, 26 Mar 2025 13:46:22 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txQjA-00000008YD9-0QKF
+	id 1txQmZ-00000008Yxb-32zX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 13:23:30 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9AE2E1963;
-	Wed, 26 Mar 2025 14:21:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1742995299;
-	bh=slBT5ASGlHlLYRfFHdYzBrpOFjHVj6vIx9ezqvhm0zk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=EfwIHjRQVLubJCVoeMMp3KoFoKUUhiKhawQtKOditfHbhDXfv0f7z+Y8C4fzubz3s
-	 5R+7hWkPYIh5iDBk4aZbqPBZjlZg9ffj6hmiPzEhfg4vMX7lcn9Txh59KBmO0moakN
-	 a3XsJQlLP1fpQ3lZ3bj39MLg3m0hRL6vW8Gz81RU=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 26 Mar 2025 15:22:54 +0200
-Subject: [PATCH v4 11/11] drm: xlnx: zynqmp: Add support for XVUY2101010
+	Wed, 26 Mar 2025 13:27:01 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-52403e39a23so6279167e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 06:26:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742995617; x=1743600417;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tmOEoyHY2Ks0gUuytaK4wjrwLTqw4vCXipxUeutcC98=;
+        b=ma4vua2DHjRslsG8UpmDh1yP0RdE0AnAAgcTEurEa/VEWcNDjmK+9/4HSH3s0OYybl
+         e2ZX1Ki1RfVW9zbVAJZvv/XZQ/xdda9yqXyMINh5TjLPYVaoZSHuduvurTaicZfJ7g8i
+         2W6K5eZdArImLKOA7JwEHnB7/H75myUrytMP4oLqTXPoc+TDQSZmvPi4UrGCujz3aos+
+         6VIddVCR31fAw0DxOX7TH5DHEYsnoY2BiQ9DrHWiJBM9KvqXHFy8uqnkmng4We6J9oUy
+         w0eotqrWqb2aDUckfIZJUUdM62LgvGl5zMl2VOe1EndJQslIHDDXgDQxN23DIk0+B6Oi
+         R16Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVtLhSC2snwVLzUB1AdlMH/q5d5ZIRx95V5Cw7Iwz8Lov87xwNrI1xumxREy6w/aglZphBK2LBwPlPFnaywMJRN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS4VPtvToecnGX53Re5aLEro51MignCsJsR5vrUpovLFxbuBTP
+	1IX+16zhqVidJRHeXyGCt9h5Vv6JSnFKAsS5qvxhfeCfl6q14hJWqXYAqn2Jpho=
+X-Gm-Gg: ASbGncsiQ1jqnllPPZKBL7XcXeoz/pA/hHMEfwdnmhF2jLHVC8Tl+DPtzZ6gbZPDecv
+	112EiwaUl5CBA0ADm5YAxKIacxHC9Wa3ig73EYAB7chBO0B5d2V/IEkxMs45+2Z6Q0907PESchg
+	QR8zP9UG4KvobvmIqrP16zJVAmaInHWn9BPNVwfYMJLbuNxPP8RjPpGlucfiwYZk3tZ4mdVCASi
+	gQbUPwyhe8mYfbpyLAh6fDb9BgR3b6jx3tAMbIH8cR5WTvrKrIL0oHludwpUsjbteEZy2NUGyCb
+	No2bZfFZBn/jeoEQz6LnMASrR3x4AoLgo1lLJX2adlcoMc0rKL2YKt1H3o8rEPZr/Habd9NZY6N
+	/9GoJooQYpsYXXEizU3Hf1A==
+X-Google-Smtp-Source: AGHT+IFHcgRf8ucZvjDwQ3w7HBu17oRojkEbUXhYorY1PJYMRVqny62dzqi09FVv9bvvTHiosZuzyQ==
+X-Received: by 2002:a05:6122:d95:b0:520:63e6:79d1 with SMTP id 71dfb90a1353d-525a85412bcmr13127426e0c.10.1742995616732;
+        Wed, 26 Mar 2025 06:26:56 -0700 (PDT)
+Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com. [209.85.221.176])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-525a766e5f2sm2222013e0c.40.2025.03.26.06.26.55
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Mar 2025 06:26:55 -0700 (PDT)
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-520847ad493so6523261e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 06:26:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUKlMLrDoZMOC8dnTR1IG9O2JYSXaJT9wA+SSnQ5oKWKkEmXDTCc9PGjyQkYYUMBdI9qv99nCGkCitt/Y727tTn@lists.infradead.org
+X-Received: by 2002:a05:6122:251b:b0:520:61ee:c7f9 with SMTP id
+ 71dfb90a1353d-525a84c5e96mr16364284e0c.7.1742995615066; Wed, 26 Mar 2025
+ 06:26:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250326-xilinx-formats-v4-11-322a300c6d72@ideasonboard.com>
-References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
-In-Reply-To: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
-To: Vishal Sagar <vishal.sagar@amd.com>, 
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=781;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=slBT5ASGlHlLYRfFHdYzBrpOFjHVj6vIx9ezqvhm0zk=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBn4//DsRCMB1WLCta1estzXkjXoSWER8pSvhQMe
- KB37gD3tzOJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZ+P/wwAKCRD6PaqMvJYe
- 9YjgD/4176gMq72C0vNw+apzQNHJlqYV3VbqPh3TMJ/E+F3SJ8igO26yenPGmMC6YL1NwmI8sD1
- VCRJ7Bzr/G0MG+FbqmU0eUeUGlJCwoixtjCTtiRW+fyoNYRJs+cVKJLrK4WAiylri44RPu138eD
- jh4ZFaS8Is9jAU3Qj1n5TwZsAhVof+4jWjqpX72+98iTUTklWo+Xwnz9b74qdwQ3rApzKAhX4aM
- hk3T/wJ4sDRFMrVimMG6TBrMvKQ0BRIQ+/cql6IxNwx9liLQbAtTL05IDTnydTNFqTad6YKKBhf
- RVRtykBfQzVP6z0gF/klnlVyGASfx1mIG8DoCfNINcCSC9k0PTGg7C6KI04V6y2W8/FxW4lOQWm
- LC9yedg2gVmS3AJPvkWtzdBog5DHf0GUZOW+A93385F/T9C7PvrjJRIcdw2dJe8WSL+eufWCul8
- kQYYvNeerHKWd+eUja/xUTQlbQ5AH4gs80zzdbfQ7xOIG3i0k68taatYwl1/MWrnyloAvSzs/yO
- lYCha1+wkeM7CnR6bM3dFzwkA2XE1n73A0/s1/dmZOfo1gb4HY2tDv0kStCfk0XrWM+ZvT3vAsx
- nsyBMKs5r1FoP5nPUPqpBcl8uqABtsYKzFu9wSDluGctgS9gSB56vV72Fgyw/MtJq9CknEbXLMI
- nQ0kBNBUuV7BMSw==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+References: <20250324135701.179827-1-claudiu.beznea.uj@bp.renesas.com> <20250324135701.179827-3-claudiu.beznea.uj@bp.renesas.com>
+In-Reply-To: <20250324135701.179827-3-claudiu.beznea.uj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 26 Mar 2025 14:26:43 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUUNFo4pqbXh1xMatsv7T7cnq0SmDxM_o9em0=gpurdCA@mail.gmail.com>
+X-Gm-Features: AQ5f1Jo5c_rzCtK6r04J2m-KHiI22CUo11JxOin2-O__Lj4JFrTCJtdIWo19EQs
+Message-ID: <CAMuHMdUUNFo4pqbXh1xMatsv7T7cnq0SmDxM_o9em0=gpurdCA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] thermal: renesas: rzg3s: Add thermal driver for
+ the Renesas RZ/G3S SoC
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	geert+renesas@glider.be, magnus.damm@gmail.com, p.zabel@pengutronix.de, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_062328_289918_CD269AC3 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250326_062659_780675_1524713E 
+X-CRM114-Status: GOOD (  32.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,31 +100,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for XVUY2101010 format.
+Hi Claudiu,
 
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
- 1 file changed, 5 insertions(+)
+On Mon, 24 Mar 2025 at 14:57, Claudiu <claudiu.beznea@tuxon.dev> wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>
+> The Renesas RZ/G3S SoC features a Thermal Sensor Unit (TSU) that reports
+> the junction temperature. The temperature is reported through a dedicated
+> ADC channel. Add a driver for the Renesas RZ/G3S TSU.
+>
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> ---
+>
+> Changes in v3:
+> - drop the runtime resume/suspend from rzg3s_thermal_get_temp(); this
+>   is not needed as the temperature is read with ADC
+> - opened the devres group id in rzg3s_thermal_probe() and rename
+>   previsouly rzg3s_thermal_probe() to rzg3s_thermal_probe_helper(), to
+>   have simpler code; this approach was suggested by Jonathan in [1];
+>   as there is no positive feedback for the generic solution [2] this
+>   looks currently the best approach
 
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-index ce685dfbf31f..79f58e06f38f 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-@@ -322,6 +322,11 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
- 		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV24_10,
- 		.swap		= false,
- 		.sf		= scaling_factors_101010,
-+	}, {
-+		.drm_fmt	= DRM_FORMAT_XVUY2101010,
-+		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YUV444_10,
-+		.swap		= false,
-+		.sf		= scaling_factors_101010,
- 	},
- };
- 
+Thanks for the update!
 
--- 
-2.43.0
+> --- /dev/null
+> +++ b/drivers/thermal/renesas/rzg3s_thermal.c
 
+> +static int rzg3s_thermal_get_temp(struct thermal_zone_device *tz, int *temp)
+> +{
+> +       struct rzg3s_thermal_priv *priv = thermal_zone_device_priv(tz);
+> +       int ts_code_ave = 0;
+> +       int ret, val;
+> +
+> +       if (priv->mode != THERMAL_DEVICE_ENABLED)
+> +               return -EAGAIN;
+> +
+> +       for (u8 i = 0; i < TSU_READ_STEPS; i++) {
+> +               ret = iio_read_channel_raw(priv->channel, &val);
+> +               if (ret < 0)
+> +                       return ret;
+> +
+> +               ts_code_ave += val;
+> +               /*
+> +                * According to the HW manual (section 40.4.4 Procedure for Measuring the
+> +                * Temperature) we need to wait here at leat 3us.
+> +                */
+> +               usleep_range(5, 10);
+> +       }
+> +
+> +       ret = 0;
+> +       ts_code_ave = DIV_ROUND_CLOSEST(MCELSIUS(ts_code_ave), TSU_READ_STEPS);
+> +
+> +       /*
+> +        * According to the HW manual (section 40.4.4 Procedure for Measuring the Temperature)
+> +        * the computation formula is as follows:
+> +        *
+> +        * Tj = (ts_code_ave - priv->calib1) * 165 / (priv->calib0 - priv->calib1) - 40
+> +        *
+> +        * Convert everything to mili Celsius before applying the formula to avoid
+
+milli
+
+> +        * losing precision.
+> +        */
+> +
+> +       *temp = DIV_ROUND_CLOSEST((s64)(ts_code_ave - MCELSIUS(priv->calib1)) * MCELSIUS(165),
+> +                                 MCELSIUS(priv->calib0 - priv->calib1)) - MCELSIUS(40);
+
+This is a 64-by-32 division. When compile-testing on arm32:
+
+rzg3s_thermal.c:(.text+0x330): undefined reference to `__aeabi_ldivmod'
+
+> +
+> +       /* Report it in mili degrees Celsius and round it up to 0.5 degrees Celsius. */
+
+milli
+
+
+> +       *temp = roundup(*temp, 500);
+> +
+> +       return ret;
+> +}
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
