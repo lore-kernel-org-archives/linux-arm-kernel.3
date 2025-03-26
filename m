@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D613DC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 09:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E23C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 09:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mO7U4m0oTja17D3RFzqvynDUKnVhiYqxVxjxnWasqbo=; b=2V9ct9gmQueGR9EeETHp7la2VI
-	pDWf6O+ne7jX0K3L9tjK+E3wywnBhCKirC6nTpKA8mjEzAxpUcJTaK1VEcR5xRMeK4GL9OwdV9zvu
-	ZHJfD8KXPTwYGyXKUoAOJSHULqeJH0S1cOUXAt8q7ylOat6UgFvkojXN/0CKS9bimNkpFKOneNQvQ
-	h2tFF/YfCUJh9eHl1NcM6gdPUHBqa6gKymQz+LDWSGkpSrrc5Nml6Op+yGmLEwFUE5d86A+hv2pJk
-	R8qiBzoMM5YvjU66V5J3SsLfXq9ZWYqq+27lBcalGDMD0VkXixlic5WO+UXfjWWWxTSMf7rPuY6EA
-	k9wUINDA==;
+	bh=LWxx/jrpY6V+1XndVGlGtsX2gJfwN+bcofRIBcLEqv8=; b=QsbTTN5PBJaUEvvWXM3t+axjHJ
+	/IqLQZOYYsB/B9KdcOsSaMOMUCk5jSYkF7/iU9vBfZRIqL4J3VD3hTsdsM80rOJ/b7zg7XmJQLtuX
+	EL79bKj3Fw9/6EqHoMvBmAcd8av/HOLQxDVCk+IKbaSfOZY5N+ehCd024+y/9JDTyNNH3AYKbGMNI
+	7ligOZdxaKXxfRrfryMm+Rou5rxHSqZ/+UZVizBw0KJPEWHyEZOAM03K7ucl1b2YRjZoPJkMOyQhd
+	THy8zKO77s5nVpowBXhBvdpbZGamRm7oCBLLRQ1U9la1lgPlaCx8+ArhoDUagKyhQK8CERX4zc7yY
+	oxv5nb+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txNCY-000000083DU-1GMH;
-	Wed, 26 Mar 2025 09:37:34 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1txNG5-000000083aM-0iHf;
+	Wed, 26 Mar 2025 09:41:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txNAP-000000082vB-2Ves
+	id 1txNEL-000000083QM-3sGx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 09:35:22 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so63290435e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 02:35:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742981720; x=1743586520; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=mO7U4m0oTja17D3RFzqvynDUKnVhiYqxVxjxnWasqbo=;
-        b=orO5A2GZDez43dqTyI6+gWphaDc1VqHpqPDRUayisjysGfUs6G5t3Va2RoQU9Z9rND
-         zXxOqFg7svj/OmzYy0xiXuU4rxHgNUnEDCjP8T0b7QaDZ/lE6tsui5JHaqOgAwI9jhbz
-         LRNKozWNWY7CeTtkr2tBqidpnrHFeLz8/kl8DnCKK0Kf2fGB+X0tnSuKhh1AhQs3IIix
-         AFtT6SfJiWHGz9+r9VPFtniU6rXuUwoW6G6RlSqWWqKlL+kIqRPbhvDjLX/YL6Ql/sWw
-         W4BKAme3zyNmQk2GZx7J0kRTILZjGb7YQqq2QmurNL7/cLyYc+RF53FhV4O1W2EGaUrd
-         SESg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742981720; x=1743586520;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mO7U4m0oTja17D3RFzqvynDUKnVhiYqxVxjxnWasqbo=;
-        b=gPMLAqQ4Qyhkrd4iMqeQYeEQR4HNGIAF6xYj1o/1goCKwRWYVop0eIosCEl+9aBonL
-         SUR7tqtQNAnB0ViwSvhxpBE23LSdxRf5wkheSoT5nwlBSZA3w4bIZqo95QmuMJj5vJdM
-         1Arev8y3z204pPOz+nBK9sZkRrL7/hvTFsIhAQYXcB9aKrveRyBCdiWwYxJ9IDx4iIVS
-         qsNfjXESlvJ9oxS3w4i1p2eCSTP4sXbNmgKbC66bGBXX8lMerNygvdq+c23v8KtNEEtg
-         4hRW/YMHNSrUSqjB19b3rgXJtKmt0FZAYfjRUI4aTLukzSPfaUZJMHTKI7x0vVOQUBA9
-         DHzA==
-X-Forwarded-Encrypted: i=1; AJvYcCVmvvQUZQ/WH2FQ5qbLdXS6rd5ERqIOu/zgshUghwxDtmevo6UYnblRUyEJJXlHyNViBBll3dE04ORPJ6U1gRff@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDeOEwu8UowoBGv0+GDqGdJihsSS7yW8KTzzqS+fa06+4NGKeJ
-	D6qm4BHyYW496mrlOXcq7908HgAoRhce/Yt2e23KonrvnLu7JZ6HpWzghbwLG+I=
-X-Gm-Gg: ASbGncsqu5yJeCRh1RbQd8sCptmeP0r0pdeFbNa0A+2DpQ2frUu4VAru0hbwBC0vHY/
-	wgEqMEeLGnYAIQk1VQB4WJCcckhRFw7TXxnFojqLJierAdJTXu1b2aNz9UIjqKwd9RFWkR3M9GZ
-	H1Y2bWi4VQ2tZZGkFmc6autdYN1cjHUFjJoxxwIaXwB/VD5PXAbQX9+40ZAIkPaaJNeLfd+SuKu
-	85XQdavGOUOp0F6iOxSMHYl/zEs0jwNmnTt6vAeVCoid1fK8YmXGpCAzvCyp1XIx3LDvOw/Giwu
-	yQqtayEcg8+SOHLAww/VGXZskM/e4tdk0njGrjl7RGa/cQEipA==
-X-Google-Smtp-Source: AGHT+IGcfQ6I4FNrJirurd36EI4HsUJuWVwi1KHS1E2yEYqjMI56gm6awQtr8PEUURenI12KJk6YUQ==
-X-Received: by 2002:a05:600c:c0d:b0:43d:738:4a9 with SMTP id 5b1f17b1804b1-43d50a33d03mr152636725e9.27.1742981719714;
-        Wed, 26 Mar 2025 02:35:19 -0700 (PDT)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d43f32fcdsm232615235e9.7.2025.03.26.02.35.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 02:35:19 -0700 (PDT)
-Message-ID: <40a8d82aab764669cf755adbabac80a5c0044a5e.camel@linaro.org>
-Subject: Re: [PATCH 12/34] mfd: sec: add support for S2MPG10 PMIC
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sylwester
- Nawrocki	 <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
- Alim Akhtar	 <alim.akhtar@samsung.com>, Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Alexandre Belloni	 <alexandre.belloni@bootlin.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org
-Date: Wed, 26 Mar 2025 09:35:18 +0000
-In-Reply-To: <25eb9c47-96ba-4037-b320-af16e0226f4c@kernel.org>
-References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
-	 <20250323-s2mpg10-v1-12-d08943702707@linaro.org>
-	 <25eb9c47-96ba-4037-b320-af16e0226f4c@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.53.2-1 
-MIME-Version: 1.0
+	Wed, 26 Mar 2025 09:39:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 27BB043860;
+	Wed, 26 Mar 2025 09:39:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58BCFC4CEEA;
+	Wed, 26 Mar 2025 09:39:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742981965;
+	bh=Mp7PS2Hsz1Y1++3pUe2iXl59mJgfLQOY3hRaKyxKOI4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ApaHC+Uf5A1ua9ePUD6nc+4eNxhxdmJH86reahFps3SZnbjkkcaDbtuuLG46Q2vwn
+	 9p5C9lhcUgbVIhErca64F5Klq1j3vBjf3203GoyfTL/1Ro3RxORx4H5PUAFgz0CJXC
+	 wxcnse2vbdu3drRJT+Z0zstzCF+lYGNA9ZRRB9WCR7RMeTFQa0zpLwVoa5pGPS4v0O
+	 qDEgtHVffgkTlaXwitLFukstMZB7CmXrI4VU6YUTefSWl8J3+KbKaqMRbMeHp67iK6
+	 D9VB2WjE1p5cAafC/2mhoTnozJlOzRP8luEoYrO4R4rHj9gFFHz8lVA3PTc1+23VCy
+	 3TmocOn5qRnXw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1txNEJ-00HEb9-0v;
+	Wed, 26 Mar 2025 09:39:23 +0000
+Date: Wed, 26 Mar 2025 09:39:22 +0000
+Message-ID: <86zfh8ku5x.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Keir Fraser <keirf@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kristina Martsenko <kristina.martsenko@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: mops: Do not dereference src reg for a set operation
+In-Reply-To: <20250326070255.2567981-1-keirf@google.com>
+References: <20250326070255.2567981-1-keirf@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: keirf@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kristina.martsenko@arm.com, catalin.marinas@arm.com, mark.rutland@arm.com, will@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_023521_642658_367F8E2D 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20250326_023925_999613_13F8B0DC 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,33 +88,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-03-26 at 08:22 +0100, Krzysztof Kozlowski wrote:
-> On 23/03/2025 23:39, Andr=C3=A9 Draszik wrote:
-> > Add support for Samsung's S2MPG10 PMIC, which is a Power Management IC
-> > for mobile applications with buck converters, various LDOs, power
-> > meters, RTC, clock outputs, and additional GPIOs interfaces.
-> >=20
-> > Contrary to existing Samsung S2M series PMICs supported, communication
-> > is not via I2C, but via the Samsung ACPM firmware.
-> >=20
-> > This commit adds the core driver.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> >=20
-> > ---
-> > Checkpatch suggests to update MAINTAINERS, but the new file is covered
-> > already due to using a wildcard.
-> > ---
->=20
-> I did a quick look and seems fine, but I suspect small rework when PMIC
-> becames child of ACPM, so full review later.
+On Wed, 26 Mar 2025 07:02:55 +0000,
+Keir Fraser <keirf@google.com> wrote:
+> 
+> The register is not defined and reading it can result in a UBSAN
+> out-of-bounds array access error, specifically when the srcreg field
+> value is 31.
 
-Thanks Krzysztof! And yes, there'll be a small change to support that appro=
-ach
-instead.
+Gah, XZR/SP encoding strikes back...
 
+> 
+> Cc: Kristina Martsenko <kristina.martsenko@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Keir Fraser <keirf@google.com>
+> ---
+>  arch/arm64/include/asm/traps.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/traps.h b/arch/arm64/include/asm/traps.h
+> index d780d1bd2eac..82cf1f879c61 100644
+> --- a/arch/arm64/include/asm/traps.h
+> +++ b/arch/arm64/include/asm/traps.h
+> @@ -109,10 +109,9 @@ static inline void arm64_mops_reset_regs(struct user_pt_regs *regs, unsigned lon
+>  	int dstreg = ESR_ELx_MOPS_ISS_DESTREG(esr);
+>  	int srcreg = ESR_ELx_MOPS_ISS_SRCREG(esr);
+>  	int sizereg = ESR_ELx_MOPS_ISS_SIZEREG(esr);
+> -	unsigned long dst, src, size;
+> +	unsigned long dst, size;
+>  
+>  	dst = regs->regs[dstreg];
+> -	src = regs->regs[srcreg];
+>  	size = regs->regs[sizereg];
+>  
+>  	/*
+> @@ -129,6 +128,7 @@ static inline void arm64_mops_reset_regs(struct user_pt_regs *regs, unsigned lon
+>  		}
+>  	} else {
+>  		/* CPY* instruction */
+> +		unsigned long src = regs->regs[srcreg];
+>  		if (!(option_a ^ wrong_option)) {
+>  			/* Format is from Option B */
+>  			if (regs->pstate & PSR_N_BIT) {
 
-Cheers,
-Andre'
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
