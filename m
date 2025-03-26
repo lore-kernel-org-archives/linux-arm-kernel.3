@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2428CC36017
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 970DAC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D15NreMI6+h9vGKq5BYX5zq8vLplidhcd0ZnFulD/4o=; b=wSb0dpsPxeWjPiF8wdfEDKNQ8Q
-	GKLGkNftN6O+oDyj9prX1PaZNulGPvrmudrDxcmb/uT8Rfn7h08u8N+submC2dr0l2reVWX5+XUmg
-	NV1/TahPeRiPMRPoVCXQL4ZjkW6wHWXC8sBqcNnNiqX5GnALrgc5TyL2VnIQJqyzF/PotfKj1Bflf
-	IT2yXTY9BtHRPGaGVO2FmdNzOgKARauciu3ozVOCUA1EQTMlz+toXJ9/XTWq+KvW8NDYEiXKeP5PX
-	skKPwFC+4/MR/H4aBa65L+0YUNvBsElL2ao/JQUP+fPBlQL83+1GpQZHMzqUOmdcNWsyn2VAxSTO1
-	x6OEsE7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WjzFIgjV9jVjkAChBrIFVJQnAYd6k3ZAKIpA/MaT4yo=; b=SeKSiD7k6C1ZWgiqX3njNHIvJy
+	TPHEyBG6G36F6r/QSZOqM9YwzHgaik7Wp4E/FAKQq9vjopyPU+niSuDbgcTXSfmUDG6ztv3oCigMN
+	10foRJ2hEZ7T1zNGjEC0zmiSa/uMDg6kmfeMkPhzzegmr9rqMMtQUYjYS1fDNYZOBJ8TtpjdYMIQw
+	K1AyroZGk4KKCAogu+bcqjuvlVdOKs3cl1Lck3NyHDr0cThmwmpMGfbIErq4BGeUnYiu6MMMW3VqO
+	D9CHJvjlYQEsfBKrrXEUlU/jMi5/YoF+7q6NTO0ukXsqjOyf1hC9CAbPV2SizBRnuSlJCa5pJDG9e
+	HqaylWJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTD3-00000008wQX-4Bfb;
-	Wed, 26 Mar 2025 16:02:30 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txSo1-00000008sev-0HXn
+	id 1txTD7-00000008wUx-09AQ;
+	Wed, 26 Mar 2025 16:02:33 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1txSos-00000008su8-245U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 15:36:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1743003396; x=1774539396;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=cp3KlP5kz8uShLGylSzqchQUQS7t4AEaR6YGK7e5dDw=;
-  b=d0cugnONVkoPhLLk84PGlGX8tcqjah9tnxgqmBUmt6+UvIukZOQSlBaf
-   CjT7Q/qnJ8p0YG2/B1u2pRrQcmjtZcwA5gQEgl6HF8H7m7Zx2K2CWy6gM
-   dKB0HPm8lYA6ekX8i14I7tz4DEc/QHIvwKoZSu4GLsQyOpYuyFbLkWUVG
-   56bGg87LgeFMt4U2ghXfnvqTrO6S7RG0bRxEp+l/WY/RBDfWKCGXAhAn8
-   MCmJFp67u6S9w2EQLeZhlY6gY5DMjui6zVl2F46uuuUM0F5h68NxzEqZi
-   59d2IxWZYAgBPbMcgc852XPvvpnzLmSR3e2V1pDa27WZW2RJEi0MlyIpx
-   Q==;
-X-CSE-ConnectionGUID: NRxSiTFnT3ucBnaYj7CaZg==
-X-CSE-MsgGUID: yVJD9QDcSWChedzT1e/Itg==
-X-IronPort-AV: E=Sophos;i="6.14,278,1736838000"; 
-   d="scan'208";a="44096117"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Mar 2025 08:36:33 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 26 Mar 2025 08:35:52 -0700
-Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Wed, 26 Mar 2025 08:35:52 -0700
-From: <Ryan.Wanner@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>, <sre@kernel.org>,
-	<p.zabel@pengutronix.de>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-	<linux-rtc@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH v4 11/11] ARM: dts: microchip: sama7d65: Add RTT timer to curiosity board
-Date: Wed, 26 Mar 2025 08:35:44 -0700
-Message-ID: <314561e3237b84d3764bd1dc9967f852ee452c30.1742936082.git.Ryan.Wanner@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1742936082.git.Ryan.Wanner@microchip.com>
-References: <cover.1742936082.git.Ryan.Wanner@microchip.com>
+	Wed, 26 Mar 2025 15:37:31 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 204B22036597;
+	Wed, 26 Mar 2025 08:37:29 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 204B22036597
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1743003449;
+	bh=WjzFIgjV9jVjkAChBrIFVJQnAYd6k3ZAKIpA/MaT4yo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QCZ/1a3p+ZIUFWcAhkJvic5IwY8U0ufXEKXOuGNNCfYPOL2C8wZRVb0oHeZ26p7MN
+	 55ghDNm1zZbkc7h9pH8j0WaY5qfjqpwdKTYWPi2UX1+7ck4WlgOZl7f4IIiSvY3N3U
+	 3LSW1a2/cC6In4mf7262M02Vm2HMR/pY2ogrm5bY=
+Message-ID: <83b983a4-064e-4a81-9c58-239b630eb299@linux.microsoft.com>
+Date: Wed, 26 Mar 2025 08:37:28 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v6 11/11] PCI: hv: Get vPCI MSI IRQ domain
+ from DeviceTree
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dan.carpenter@linaro.org,
+ dave.hansen@linux.intel.com, decui@microsoft.com, haiyangz@microsoft.com,
+ hpa@zytor.com, joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com,
+ kys@microsoft.com, lenb@kernel.org, lpieralisi@kernel.org,
+ manivannan.sadhasivam@linaro.org, mark.rutland@arm.com, maz@kernel.org,
+ mingo@redhat.com, oliver.upton@linux.dev, robh@kernel.org,
+ ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
+ tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
+ yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250315001931.631210-1-romank@linux.microsoft.com>
+ <20250315001931.631210-12-romank@linux.microsoft.com>
+ <CAJZ5v0jNEO2VcwmMXLZaS+Kqg3iBgHcWb65f90HKUADtPuvgqA@mail.gmail.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <CAJZ5v0jNEO2VcwmMXLZaS+Kqg3iBgHcWb65f90HKUADtPuvgqA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_083637_159760_497F3A75 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250326_083730_552229_CFF0BFB3 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +85,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add RTT timer with backup register for SAMA7D65_Curiosity board.
 
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
----
- arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+On 3/26/2025 7:56 AM, Rafael J. Wysocki wrote:
+> On Sat, Mar 15, 2025 at 1:19 AM Roman Kisel <romank@linux.microsoft.com> wrote:
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-index 30fdc4f55a3b..3105fe1766c3 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-@@ -141,6 +141,10 @@ pinctrl_uart6_default: uart6-default {
- 	};
- };
- 
-+&rtt {
-+	atmel,rtt-rtc-time-reg = <&gpbr 0x0>;
-+};
-+
- &sdmmc1 {
- 	bus-width = <4>;
- 	pinctrl-names = "default";
+[...]
+
+>> -                                                         chip_data);
+>> +#ifdef CONFIG_ACPI
+>> +       if (!acpi_disabled)
+>> +               irq_domain_parent = hv_pci_acpi_irq_domain_parent();
+>> +#endif
+>> +#if defined(CONFIG_OF)
+> 
+> Why don't you do
+> 
+> #ifdef CONFIG_OF
+> 
+> here for consistency?
+> 
+
+Agree, that'd be easier on the eyes :) Will fix in the next version,
+thanks for the suggestion!
+
+>> +       if (!irq_domain_parent)
+>> +               irq_domain_parent = hv_pci_of_irq_domain_parent();
+>> +#endif
+>> +       if (!irq_domain_parent) {
+>> +               WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
+>> +               ret = -EINVAL;
+>> +               goto free_chip;
+>> +       }
+>> +
+>> +       hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
+>> +               irq_domain_parent, 0, HV_PCI_MSI_SPI_NR,
+>> +               fn, &hv_pci_domain_ops,
+>> +               chip_data);
+>>
+>>          if (!hv_msi_gic_irq_domain) {
+>>                  pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
+>> --
+
 -- 
-2.43.0
+Thank you,
+Roman
 
 
