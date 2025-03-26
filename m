@@ -4,150 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1BCC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 15:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64ADC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 15:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mRb9PuZVQ0f1EmxNlnR9V97fyjZSK7TBvnWMESH4ZY=; b=13rUjGio4hXwmMt9GOaXqkIWoi
-	fVwRedPeFmolfGavvl8T9xtq7XG5Xg0W+zJFllybDR9kU0UghX+hR5lw5P4cTG6R+gPaHuXOtKVyy
-	nLmtSwDmzHgiSYSjtmMtka63YEV5/qBg2D8MG6XDh8o/GLIVU/wxNoHgo7cwX43zsGXHVdDBnBwOm
-	daoVf1HZWJLPyglqHtmTkSdNF759DVuQ/W1ZTv6liJRRyTsgbiz4Ct3xRCa7QxLnoRGBMSFCgcqTa
-	ZlCsksKzBhz9t9LVDynwcIiu+6mCnrnnNfZCbflHBPJy3mKV0PZxi9ej7wjvfknBjrpgvk6ENnaRY
-	RPAPqidA==;
+	bh=s4L90UXo/Eloa6bFLe63wlh9gsUHXreX60bjxNb5DKY=; b=IxegebznXj9DBRD44X/gUnsvhG
+	HwHpMWr/f5QttqJUuE1evCr7UeNl8DP3b0Q5QBg7O0alH8uHz4DYPqtjSTc50cvajHuXmG1KxQIyd
+	brOboRtRPG44qfsBv2u51KKM74CjZw7L+EtX7AEnYzwf40GeaIoz2TfWx/rxwWU2NSaHAv+urw0Oo
+	E+XL0oT+dw106fgjbDWWmuJwmIfkn6UnEGxW8fCu8488f+7t7Um0vPMlmUM9JSlZxZ0OSpLQHP26V
+	PyXyhFr2galx92l/fUXaehrgqatxzXTJqMhpoorsgDPVuMxTDIsTuvjdOehTWFIOBV7I3s1+AAZXu
+	95JjDsdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txSRf-00000008oek-43dq;
-	Wed, 26 Mar 2025 15:13:31 +0000
-Received: from mail-vi1eur05on20623.outbound.protection.outlook.com ([2a01:111:f403:2613::623] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1txSTQ-00000008oyY-14E4;
+	Wed, 26 Mar 2025 15:15:20 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txRxi-00000008izK-32XS
+	id 1txS3j-00000008k76-0HQk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 14:42:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bln8zahea3S/t1ax4VpXWbxJoDGKL3y9o+4h8JklEtf+eZjos/1WPWuTUaBRSFMriFx2TT7JVdES7S9Du1n6wS8XOUwoFzACu+q2+4/AmCwB5RcKCf3eyt1GZMoosPfZOjGd6YQXc9UpvmlpmsLUuZs9GY2RT5v5yF+XiAtKZLk0GOkG8o2rZ5nIDCN9m9WzIc++Q4Zt9sLw0J1HPb75sNKciyaY05R2XJHWcEYiJSZKSqSR2lkm5/oXS/40ZOuuWTWeffBAFKK1hKqMyxWm+aPTXUk8DYSVN9x1gCzDfjyqvupd5Lw97P7Ur63ZP36jdfhRyUdPZfrzgQT/JyQUDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+mRb9PuZVQ0f1EmxNlnR9V97fyjZSK7TBvnWMESH4ZY=;
- b=mjo3NVrCHt8KdJhTGfuxY39aUecWK2Zh8QLn7+/9LWJt6ADyiwzqPq8FCTz2m2u8nD6o1Xll7RXw9hT/VmEqN2okxYY/W2Scx1D8dfd74PNQGjZOJwiJvsl1qgOYTdmayTG1eC3RgU30ss7UiBny9vVIAvta+kxXCJ/kKBeJhSFiqrJi9cTD9U/LcYjI4CuQXpA7HbahEl7Diguvlr1wjrtxI7ua5+7QnTpVGko2Dyqs1F955eoap78UIAg+tuOdiRgQbEZRyUTMLJC1++E7A+m9Ujz2izvhEh7L/Yxr/D+6DJjOWoG6o9JAmpDxu2Kqow9XqS4qD8d0l+XO3iOMmA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+mRb9PuZVQ0f1EmxNlnR9V97fyjZSK7TBvnWMESH4ZY=;
- b=i6s9FL3M/cdFAcOWfcYfV9ANbSL5p/GyUT8NhK+7qn1lTOYcTAaIRoGvgLc8glPKM7qlRzVeRWCnU9uiP1FsUVINNz/Zrog22ZcpbFGylK4yJRzaJ1Fhp9nkeulITS4byYicNzRCddNEOYwceG5mbIINmP6GYvw7BtEHnocNVDjDJiblYH6+qx/juPjtZzrwadf3g5yWq0vc708Ou0TB3ZgFFO9Lq2SgD/1pP2+BBDa3CuszWtXgEhU//9c7mHo10o84Xmt58YWRxYF38t2TpTVOcybNf8rdbdq0BvbY46EIHcrxYf4KA9L6yTKI5WXpiAld5e7Lz9JEH/yJ2FUeDw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8457.eurprd04.prod.outlook.com (2603:10a6:102:1d8::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Wed, 26 Mar
- 2025 14:42:30 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Wed, 26 Mar 2025
- 14:42:30 +0000
-Date: Wed, 26 Mar 2025 10:42:22 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] PCI: imx6: Add PLL clock lock check for i.MX95
- PCIe
-Message-ID: <Z+QSTkC8c5J93R5P@lizhi-Precision-Tower-5810>
-References: <20250326075915.4073725-1-hongxing.zhu@nxp.com>
- <20250326075915.4073725-6-hongxing.zhu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250326075915.4073725-6-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: BY3PR04CA0016.namprd04.prod.outlook.com
- (2603:10b6:a03:217::21) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 26 Mar 2025 14:48:48 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-477282401b3so52776161cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:48:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=soleen-com.20230601.gappssmtp.com; s=20230601; t=1743000525; x=1743605325; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=s4L90UXo/Eloa6bFLe63wlh9gsUHXreX60bjxNb5DKY=;
+        b=NepE+aMX+mdxXvAb4BdyGTYeCBQfNIhiIpNfYmDEMkcXG9qGxReL8k4O8az39xx+mq
+         xdLjue4jcurkdmvK7HtSl+pZ4Qdw1rfYRFJJd6ArkQznqdGHKvk86v6g81z10zcYK4R/
+         X61FhIuQjADpXMkLKwB2pZ1/HLWqqTAt30pCqCQzxwfld4VEUt6gGT6GOGF9LKxYAp4D
+         1ZcJkcBYzwiebSKeP/Muw8cGxKymYIL0p02qBn0casK4n5Ba+NTMlkc2coTprUqB0ms2
+         TIEojNbw7X9gwJE4V/+45bM+BtnlmYuh6A1y8JwID/hgBp9Ivcq9c5qyPp2nwcudEY99
+         aHjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743000525; x=1743605325;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=s4L90UXo/Eloa6bFLe63wlh9gsUHXreX60bjxNb5DKY=;
+        b=jYy/bys7F8eezwuuES0oW/zp1NTlRrbC7XaaJ7oiFxp1c68LKVibNbinMNNFSkH4qG
+         F6cPjQsURhGcE307lrzG2jgnHW3Jm2mM7EwDJ486a5LIrcZtcNoNshVaA8LBjQ1l2/Wc
+         AznKWr+IUHpaWxtjyrp122Fehr6yDoR1mOb18ZozNmKBZe88sT9ckj4R/RbxmDtH2Hzr
+         R1nNfZ831yrs/XWdAr+cybwSTrs8C79WO9lmagydRyT7UyfOC4M43QAK6yaoznjTHZ3U
+         zWepYK5gpmA9UtfmwWso4PDu3fayDXjXYL9wVqpX3z5AzAqpjNdx0jbR3yBT3vKCdc+L
+         v9zw==
+X-Forwarded-Encrypted: i=1; AJvYcCWItNJwTYg2DYCnE1rmX7B8S07KIaWDHTp4gj3fhAIb8ALThoaTa+f6sYAllNu5VzdPUSxWr6dcakzgeTBqa9EP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR750sr8OvMWuPAH49IHwJa9IonqQVpbqDtTIhLq4rHGgl96cu
+	dAvv38eygek69RHEa39XXDpX+OsoPZzJCAlae6PZU1/5jfk5T6jKfthumAMsU3D3xOnydttYWlR
+	UbbatiAFM6BTrP8QU82VyjKIcZrLFpfmm1djkMw==
+X-Gm-Gg: ASbGncvU6xW/UqUm8Dfd7+78QjOioVp++BQQAQWXVq79kYR51/ItBnSILVUIDMMglj4
+	UaO/prdYES90kgC7K2QBUYlCEsTWbdoTjmcsIuYMBMMe21WUThexLRz83pDSqiBszgyxF4yUktW
+	V8/ph9y0J7gLuwUCElpnf1TAPLLHwreYvNDJo=
+X-Google-Smtp-Source: AGHT+IE/in8kAs9sUqWx2S+TIM+LTl3sNiBhEhAtSNAuElUMT/X5dBkUTEwjbBFN/tuBh1MnZZanWSfFlEopABMrt2Y=
+X-Received: by 2002:a05:622a:260f:b0:476:91d8:230e with SMTP id
+ d75a77b69052e-4771de62880mr403362231cf.52.1743000525452; Wed, 26 Mar 2025
+ 07:48:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8457:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6dbbc6dd-0d4d-447a-d4bf-08dd6c746fa0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WBvG/ZCXqRrgPhaRRTjUjt32z94c/PJToV09NxUU0+eZbqvjGsj8/b5a+lUG?=
- =?us-ascii?Q?iMAbk99ijFDWFLykisZaxIsYZgAHCd4wQ7MTGhKe1nv3RoW2RP0GxQ9iv9ur?=
- =?us-ascii?Q?aNdE5995otHlPIDdyIkmbl2DYlrEghrT6ENf3CqRV2bxxDDJg4vBXOF/bMG7?=
- =?us-ascii?Q?b7liq89opgvyO0sEfisbRBxhcRlaAHKoRn1BJqLlwW+LNjS0XHC1S6ncwRpK?=
- =?us-ascii?Q?Xcme9J7glVbcXkN76pL4c3sNWM5fHMu/tH1X1hIk2+qctRFFl3Xlcz1wvBgU?=
- =?us-ascii?Q?Rs3MIFBCwNLghouw0UXobsFttLH3zIO2oSVhXtew7zGsI1ddYt8yXG2En92U?=
- =?us-ascii?Q?57h/PrV1J/hKbMLGezohFyKF64cuvSrtk8itW2kd7/Ckp8tiuAYSffUoyc+b?=
- =?us-ascii?Q?Zj+47S6VM2qCTR7gC4IZWqV4UVCK+fGEgO3tqfRo6lfg9KIpso355qNDRrtI?=
- =?us-ascii?Q?2fKK4JK8jyWsqvA6RVkrJqW38aOZ5/rVZzK9NGo9og3VNiPRfnGrTh/XejQF?=
- =?us-ascii?Q?3VK2IP2urwTRZIIAgYKrW9BRy8jU/jTnUYoDXmBfPPbbDdk6CcyFmr/HAAPg?=
- =?us-ascii?Q?7RKSkTrkw5dXVJXUTy4bxZZNCx2/395XWYCnAwo7ZeK4pQ7kikAVILQ6HLDF?=
- =?us-ascii?Q?2d286Dk1hmOG/OT2ojNvUlUwgXcKZ4yA0bixLJ1l+hNc//TUAh7w0EOkIZfI?=
- =?us-ascii?Q?wXbN7Y1uRLCF8rb7kqSxNT99c1w5OXToHNpwoUYmxG4+lGPl3W06wkYGVegM?=
- =?us-ascii?Q?SMFanVcEILa7+gLU4nppvWNVfWs0Of5uTBKunhW1FEESKgmeJRSuf/0Vy4MS?=
- =?us-ascii?Q?4a8yO0bDX1AYHIpuNCmD8wxIuZDYQ1Xg5RTtKkKkIeXakhx4jGIeZKNP38z9?=
- =?us-ascii?Q?/zEa9HYo7Zjk6qfHlsAyvMDtbti3Fwi308EPhxx+MAwmpW7dRnF47UzKdw9Q?=
- =?us-ascii?Q?bEqZjmSnfRvsuz+or0nZLE4u5b6y031ulKDIG9XLNcEo6hVVx6PAMbDTSvgx?=
- =?us-ascii?Q?EQFKJCnM29qM9Eb/Jw4mUlnRx0vViGK5Vq531XIJrURRa2JWcrtUyfpt/qnG?=
- =?us-ascii?Q?Sf4JeyAEgc9T90TBYUnXoxv0sM1vsot//ThEydpOIg+yjEcitf4W60vuOZTy?=
- =?us-ascii?Q?UFxpC/tAOJvsi7Za5xa/lLSxtiYAQaaluUZL/hUwViULi8Mp72jTutZ2REeN?=
- =?us-ascii?Q?mzng42jB5+6RHtx2iPubWs5eUD0z+kSESABGsFIUYWevb30mb0RDXbWwE4BE?=
- =?us-ascii?Q?w1YgFQWMbQQAg3Hpubg58QJdh5Mpt47nAAt3RwZ8VrgyPtdw4mkwBanNlrjm?=
- =?us-ascii?Q?ZgHLzIAF/YDqGK0a1RavQzgr+4JkcwA9PEHsHyUpyBpV+FNR/+D2ir2Du286?=
- =?us-ascii?Q?DG537X3vuYXnVESl3VWeaLHaFRN6X+haj/qfJ/7YhIiONNUH3jKWFuiY4wIC?=
- =?us-ascii?Q?RYrXfCK7oLe2ws79KZpa+ikuvtqVN/39oHoUKbWs20ednJHWy5jDvlnAWwE9?=
- =?us-ascii?Q?I7aHC9LvYAoxq0Y=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dteJ8x9h1iiUp3XDlVnQEDrzj0+Ci4n0h/giVgYtrQh/bSyS8zaQX7E42b1a?=
- =?us-ascii?Q?nBlz3L1ACi3hutD++3LHwgWHgrXTgb7Jlsm0AloUkS1Wsjs6mO2aXAjQs6Cg?=
- =?us-ascii?Q?oqu0JnHpa8bSFjZCei/BUNVHDgKBn2x9fpMqu+uJ5IMDfzbUOJrfSUrsfnUo?=
- =?us-ascii?Q?uoYwWi/MrCVH9ZAej2xSYYkelrCh3zyWK0TCl8QVSBew35FzqmqGSPHhUbEF?=
- =?us-ascii?Q?YMXnxpIz8TJGP7FPAFVdNWSG+eoeYtN2d00y40QcZOq5SMFb8j13t3CZpAqT?=
- =?us-ascii?Q?34JOyFTBhI/4zuSzyxtSqRs1UxCPn+XnGhsKU1rSKWyDwEpeN8R1GvoZL5Ob?=
- =?us-ascii?Q?lsfctwaQPwaadEbwoUbNNZoVOJqpQ2Ppthijk77Tv5aVBTBxpwLRO6wJHYGN?=
- =?us-ascii?Q?gE1JFbW2nojHlm6MlRkEOGD5BOAqFoNWsnXW7QDf51ilM+SOXtzWhs9tU6YJ?=
- =?us-ascii?Q?hSQpkK8ArJ1qLHf4aAbGq12CWUppA+9dVzp1CfO+eMKVRwjvjOLE4HhM46Pr?=
- =?us-ascii?Q?J3V6DfSyKgOoq+u/iwVL94hjRZZy/PEuArDYQqrZyQKNU6WdK/U2E6tL5Smt?=
- =?us-ascii?Q?1yot1+f4BIZK075frv5Yobkkjtpmkx42uCBbW9CCTzI77ZXyGueuKjAK7FO6?=
- =?us-ascii?Q?2QXr49PbbFfNQ83QuX+gr92CKNAB8JH8n2rkX6rl3Bz6sIP1Mg+2njls1IXc?=
- =?us-ascii?Q?P3cSy790PSQ6Z2luofC3lBFhBxNdwKFUFdWIC13n6aM6yGb4slwNthJeRmJ2?=
- =?us-ascii?Q?pz3F0U99YmDsjWwJL+/GxvbDbrQBqWx/n/+DqmrXVzChYkkUevuEKMOZIZtT?=
- =?us-ascii?Q?E2wlhCxjBo7rKunK4azfK5keB1ehfiworIHvyc6CMZ7271Mc1BUwEEEmjKiD?=
- =?us-ascii?Q?nYbOPhI6DQHyDFgQDQnaMagMML14YwJWyx93dk9aT1ESlMidIrFriyhcB8nr?=
- =?us-ascii?Q?J4XS5J8EFKPVNQbVjaKIPISd7ZE8gwsKkzFGx+59LqFI8ZI+Yy+ElBCKvfHA?=
- =?us-ascii?Q?bfdjFSvf//dhiH556E0/VpcS4BnH1oRO7XC04qQBt41DtNaKHE/DC+0fydTb?=
- =?us-ascii?Q?2ewSBduxpeQgT1OUABmXe+uUpWPCmgwbLxZ2o7GQNBgxLj1M56K9myBhyq1/?=
- =?us-ascii?Q?0By1CEH6iBgQp84mYUSt/xKN64u7s4amkJrRQOQ4/AljkAxW4c6KeE/KxTSP?=
- =?us-ascii?Q?G0iNKxksX5bsk0iHdNpH7WsRq7aMldYZmurBIul+8RCsomipDlmQBg64mYvJ?=
- =?us-ascii?Q?WTHgqh58PWJeQZbQMC4+1ujd5ac3vYGu2r2s2XosSMKOH2q5XI+3BuzUimHY?=
- =?us-ascii?Q?Oxxg1pg4m0M5WnpB2XIs9tXgbVzclgKujkKAdg3PVeDYQwrrbvK3jpdbUJNR?=
- =?us-ascii?Q?Y9uO5/gPNstlc4cV6Z9NHmHBC1iN5N5ojEadTaIovxiyz6R9RoBoY34UXQxe?=
- =?us-ascii?Q?M6xNruZw2RIJUB7KfE4HrqG/IamFsPPtG223Ifk6b9n4cEyztGT+5tbdaISv?=
- =?us-ascii?Q?eCK09oUlPGYRUHlOPRrk8BkB5jzdASeyQTFEtYGpO0T2vaX16uCBL9Ubedfp?=
- =?us-ascii?Q?9BS4DVtwIhkGVay/t5Zlwnlya4dqCUxS25P3u/XS?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6dbbc6dd-0d4d-447a-d4bf-08dd6c746fa0
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2025 14:42:30.4984
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rQB+ZOmsPmQsUrUntStrLT8TlP8k1gOv4+WAcPv7DBn7CWjeXpet06bLqh1fz5a9mlP5EfI9NgroQK0KLMVfrw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8457
+References: <20250304150444.3788920-1-ryan.roberts@arm.com> <20250304150444.3788920-4-ryan.roberts@arm.com>
+In-Reply-To: <20250304150444.3788920-4-ryan.roberts@arm.com>
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+Date: Wed, 26 Mar 2025 10:48:08 -0400
+X-Gm-Features: AQ5f1JqVDILCP1zyFTP-RFlE3wANS6rYR-F_g2XERE3hhejEgMHeH_4cyMuLPCw
+Message-ID: <CA+CK2bA3ctd6+G9DrJZ3RvnehPCrf7hEJ3boFJ5pkMTZyVmDSQ@mail.gmail.com>
+Subject: Re: [PATCH v3 03/11] mm/page_table_check: Batch-check pmds/puds just
+ like ptes
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Uladzislau Rezki <urezki@gmail.com>, 
+	Christoph Hellwig <hch@infradead.org>, David Hildenbrand <david@redhat.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_074234_764820_7CD7ED8E 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20250326_074847_356256_1F67E7C7 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,89 +99,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 03:59:14PM +0800, Richard Zhu wrote:
-> Add PLL clock lock check for i.MX95 PCIe.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
->  drivers/pci/controller/dwc/pci-imx6.c | 28 +++++++++++++++++++++++++--
->  1 file changed, 26 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 42683d6be9f2..1c8834fbcfd5 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -45,6 +45,9 @@
->  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
->  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
->
-> +#define IMX95_PCIE_PHY_MPLLA_CTRL		0x10
-> +#define IMX95_PCIE_PHY_MPLL_STATE		BIT(30)
-> +
->  #define IMX95_PCIE_SS_RW_REG_0			0xf0
->  #define IMX95_PCIE_REF_CLKEN			BIT(23)
->  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
-> @@ -478,6 +481,23 @@ static void imx7d_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
->  		dev_err(dev, "PCIe PLL lock timeout\n");
->  }
->
-> +static int imx95_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
-> +{
-> +	u32 val;
-> +	struct device *dev = imx_pcie->pci->dev;
-> +
-> +	if (regmap_read_poll_timeout(imx_pcie->iomuxc_gpr,
-> +				     IMX95_PCIE_PHY_MPLLA_CTRL, val,
-> +				     val & IMX95_PCIE_PHY_MPLL_STATE,
-> +				     PHY_PLL_LOCK_WAIT_USLEEP_MAX,
-> +				     PHY_PLL_LOCK_WAIT_TIMEOUT)) {
-> +		dev_err(dev, "PCIe PLL lock timeout\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int imx_setup_phy_mpll(struct imx_pcie *imx_pcie)
+> -void __page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp, pud_t pud)
+> +void __page_table_check_puds_set(struct mm_struct *mm, pud_t *pudp, pud_t pud,
+> +               unsigned int nr)
 >  {
->  	unsigned long phy_rate = 0;
-> @@ -821,6 +841,8 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
->  		regmap_clear_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
->  				  IMX95_PCIE_COLD_RST);
->  		udelay(10);
-> +	} else {
-> +		return imx95_pcie_wait_for_phy_pll_lock(imx_pcie);
->  	}
->
->  	return 0;
-> @@ -840,11 +862,13 @@ static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
->
->  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
->  {
-> +	int ret = 0;
-> +
->  	reset_control_deassert(imx_pcie->pciephy_reset);
->  	reset_control_deassert(imx_pcie->apps_reset);
->
->  	if (imx_pcie->drvdata->core_reset)
-> -		imx_pcie->drvdata->core_reset(imx_pcie, false);
-> +		ret = imx_pcie->drvdata->core_reset(imx_pcie, false);
->
->  	/* Some boards don't have PCIe reset GPIO. */
->  	if (imx_pcie->reset_gpiod) {
-> @@ -854,7 +878,7 @@ static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
->  		msleep(100);
->  	}
->
-> -	return 0;
-> +	return ret;
->  }
->
->  static int imx_pcie_wait_for_speed_change(struct imx_pcie *imx_pcie)
-> --
-> 2.37.1
->
+> +       unsigned int i;
+> +       unsigned long stride = PUD_SIZE >> PAGE_SHIFT;
+
+nit: please order declarations from longest to shortest, it usually
+helps with readability. (here and in pmd)
+
+Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+
+Pasha
 
