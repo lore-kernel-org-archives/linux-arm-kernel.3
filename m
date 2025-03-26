@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F5BC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76308C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:46:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0eTXk0HkigRR1TxyAk+Gm60cvzBNZ+Zkqmh0DH4Knz4=; b=HajOwypze0f9TzjQLYpJXXpXSl
-	mk7FtoVaAmRTRweeYQToeMiJPGzRtAq7DEFcJP4KC/x7NnX6u3h1JR6f0eyAwLziKz+SYVwgdfql/
-	HXxSnP+p9EQP3+nJGOXzFG9g5MvnXrKC/2YBpIkbrPz6rCDdTCryAz9CU4hz5Y98u0MRlE7qjRHsR
-	wQU+UIEPc8yrbpLuCwYjXvBj/8nnnwD5+H0pbAMEXao2+vocUdo3CSVrIgx/oSCjgbsOUDEdrqmtO
-	Ir/tFYvXBfHfsbWgFwQkCBCtA/zqre8QjekkcyzwVfD90n9/Z4F+Uyx3nKOg7QCgmlGYLmEt/WGKH
-	+jMxUevA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5FLbYc6DJ86SQdhqAmrNYoz6E78qOWd9IB6ZElcruN4=; b=UmU178DVvHHBOrE/i27PavpBO0
+	pdBCwgfM+vWei86W8/M2slLy05oiUiEiqeHPW96ZwsmlWFzrwhWzZ78mHpKVAgoPs9/h8MI6K76Tz
+	rKy8QLamV4sPJb8Ul/RKjWCJRqdy8IioBxL/l51Y+qunG7jow+dFesYvyCtbXZQOgB7HBFTCSKxWq
+	IFXPvW7rr9d5uWsgN76vZOBmRZiePUBnWMDhP7xyeb4WznPl3Xe0uX0kFYQ53/MFqn1ywuAwrTCcl
+	vkZ5OzqdCgZD8kOIwylzFbtvcmNIYTb+bKSLnGTD+BQbQT6pqwSNWcXn6fY6Ce3feSCKrvvOmSAlH
+	LrGcHdkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTom-000000092Sl-2Zqu;
-	Wed, 26 Mar 2025 16:41:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1txTtX-0000000936h-2AFk;
+	Wed, 26 Mar 2025 16:46:23 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTn3-000000092Jv-149X
+	id 1txTrn-000000092pk-23Jt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 16:39:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1AF9F5C6725;
-	Wed, 26 Mar 2025 16:37:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF624C4CEE2;
-	Wed, 26 Mar 2025 16:39:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743007179;
-	bh=RvjxL5DyvBDKCYG+UYSNeb2jpoQwYz2f1DmVuSY3uyQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=USV4xrsQk+Ul6Q7diqx19+Jg4TVC7aqBGeIc7vuB8DQR+IoXEk/Mo6Nn25KTWrRM5
-	 wYfQ0+IqZcSJ04eX3LAMo/ILkcY8Trmp6/aqPBqPOU0bQ6uzf+G4fAagGAMfu3QjJI
-	 A1tRYi8+VL/tn9EhF10S7eL7I1PuH/wB2K6YSWz3emaXfswXRN0sAB+Up1+oswFj5c
-	 n+9l3qCDW2YJkuAlXB0xFYkyPLsDQDSwFV5M5RASRxppAIfde8bj3l5zhaxZEzZl85
-	 w/UVx7s5pghDCM5DhTsid+OvibxYIU5/rkSX0583Qdd/lNt9q7o79AR9FcFQxmKfdG
-	 IJIkk9j3OzPeQ==
-Date: Wed, 26 Mar 2025 12:40:25 -0400
-From: Steven Rostedt <rostedt@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Konstantin  Ryabitsev <mricon@kernel.org>
-Subject: Re: [GIT PULL] arm64 updates 6.15-rc1
-Message-ID: <20250326124025.1966bf8a@gandalf.local.home>
-In-Reply-To: <CAHk-=wg_HipugbtswxFnekQy2g_ksKKXj+yht8naj2FEMtRMgA@mail.gmail.com>
-References: <20250325195322.3243734-1-catalin.marinas@arm.com>
-	<CAADWXX-0hMgpyeQw_7Ko14hNMciqSnKJAROEWS5vwAdMKUt_zw@mail.gmail.com>
-	<Z-NHugcLdLqkEHFR@arm.com>
-	<CAHk-=wg_HipugbtswxFnekQy2g_ksKKXj+yht8naj2FEMtRMgA@mail.gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 26 Mar 2025 16:44:36 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ac25d2b2354so3573666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:44:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1743007473; x=1743612273; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5FLbYc6DJ86SQdhqAmrNYoz6E78qOWd9IB6ZElcruN4=;
+        b=E1X0XOTOJmBTLlqj2/c+kU/CGSA4FaHNjg6vqlvWdSv+GbPp84jU/AnjUSMurIuWBm
+         7d45lK2RXtWxiVoNUFBNBwyF7BZO+OVRP9pcwu1r4TFgeI1vQ6GUu9/vsSS07v9EZ0UZ
+         uQaVjZPGpEDuvBM8X1dmT/bsvueXpUwjbm3L8QcNICbvgU0f8qP8SeUBNLdqePTe6X6/
+         awOnfjj4VSy7N+kxxrxvUxbHhpoUp7YH3ZGr2aPggGz44SGzbZXwqWKGc4pu3Im6+xyX
+         i0JXDQ4Gv45lRa0WT8Nu+hCEGG/RjzLSjs/FbbIBLbu3GPwfC1jlmft53rIa9mi2iavp
+         jw7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743007473; x=1743612273;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5FLbYc6DJ86SQdhqAmrNYoz6E78qOWd9IB6ZElcruN4=;
+        b=UM586CPpuPe83e85Gzo9tjINtoffkBRzvfRqDDCtkL6XuuUdFyS4ajPL3LETaOGA9z
+         uUN8tL3PJg9uO1Nah6o0lqA5VzRMmZFvIf7lShXcmMlovdakszic5kUcbpgKiHBAsLZv
+         +1cjox8iHFSTyDlHDxirLOZcI7+vE58cX5IYCS53t/dqbussu6MeOaxWVEKEBKI4FDeG
+         15N4Oc7wjB/hTHWmM7xNW3J1A6iW/J1MHuilg4KN0WhNo1Gmbw5MoOmtePTHF7LciHze
+         +EfwZBvd9curu+k5Elrf3Ktk+uzzdsIlX4r5C1VvAKCRAMpvPA2/yM1CWKcu7GpWorT6
+         fZZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXdRejoG1zFtR+cxC+IJEBIZwtF7ua7Fagm1jc/InqbhcgSFZcc2qLzLf3wPPVTGxdO3yFyy4G3kG5nGw0yltqv@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywlv418U9drmoJPCe3GXftwfM4yvrl1iMdPbKt90kgX8jcRK/wc
+	yxdnOD1z+WCyDZ+xmPqu5cS0tafdBou9gfhpv3tCuWuaYmRzrQZ6YDEWMy8i3Q==
+X-Gm-Gg: ASbGncs7Yhy8r85rqkbfAJfQ83ejeeRLPV8QPHH/NWu2o2UrYYvSAGgbyDwlykpU6Xq
+	7gi/8cPeW2W0aWpXMx9v1soxiTjA5nha1cSQPDlmj+lVBVMFpvPwe2CLcSjh7/L1tKfaomvuuCS
+	Bs2f9n+MB6b6jDx7sEuOryR5eX/DNrPxU/ywCXwKHCqgkJquQgZNSe5SpAaKJVY45K2TiF47oFE
+	PIV4/xB47C65CxEzVt9QdNo8UKpMxD8fLeDu27qL5/csRWvb6BiWBewbS+ygaOWUzpnSjKdg1zF
+	wfcgO0DG6k5UtQ74xf7obZHoDFotQz3hjbv9t7gsBTvMybk141ckPbzUkznlKOvghNcXwHqqyc4
+	++AA=
+X-Google-Smtp-Source: AGHT+IElc209Ee2L3zjrpSie3PIBXbdLz1F9LHwLhTXBJRf87bcz8LqAbv5vE8ZPP/e4GdP9Kaf4Lg==
+X-Received: by 2002:a17:907:7f25:b0:ac3:b126:58a9 with SMTP id a640c23a62f3a-ac6fb107f18mr8924066b.40.1743007472752;
+        Wed, 26 Mar 2025 09:44:32 -0700 (PDT)
+Received: from google.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3efb6588esm1066894166b.90.2025.03.26.09.44.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Mar 2025 09:44:32 -0700 (PDT)
+Date: Wed, 26 Mar 2025 16:44:28 +0000
+From: Quentin Perret <qperret@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, snehalreddy@google.com,
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	will@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v4 1/3] KVM: arm64: Use the static initializer for the
+ version lock
+Message-ID: <Z-Qu7NSg96-1uimk@google.com>
+References: <20250326113901.3308804-1-sebastianene@google.com>
+ <20250326113901.3308804-2-sebastianene@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250326113901.3308804-2-sebastianene@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_093941_342867_9D84AA11 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250326_094435_525239_886EB0A9 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,49 +103,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Mar 2025 17:48:12 -0700
-Linus Torvalds <torvalds@linux-foundation.org> wrote:
-
-> > This header left my machine but seems to have disappeared in the
-> > lore archive. Not sure how much difference it would have made, IIUC
-> > that's more for SPF than DKIM.  
+On Wednesday 26 Mar 2025 at 11:38:59 (+0000), Sebastian Ene wrote:
+> Replace the definition of the hypervisor version lock
+> with a static initializer.
 > 
-> I do see the
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> Acked-by: Will Deacon <will@kernel.org>
+
+Reviewed-by: Quentin Perret <qperret@google.com>
+
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 > 
->    Return-Path: <cmarinas@kernel.org>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index e433dfab882a..6df6131f1107 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -69,7 +69,7 @@ static struct kvm_ffa_buffers hyp_buffers;
+>  static struct kvm_ffa_buffers host_buffers;
+>  static u32 hyp_ffa_version;
+>  static bool has_version_negotiated;
+> -static hyp_spinlock_t version_lock;
+> +static DEFINE_HYP_SPINLOCK(version_lock);
+>  
+>  static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
+>  {
+> @@ -911,6 +911,5 @@ int hyp_ffa_init(void *pages)
+>  		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
+>  	};
+>  
+> -	version_lock = __HYP_SPIN_LOCK_UNLOCKED;
+>  	return 0;
+>  }
+> -- 
+> 2.49.0.395.g12beb8f557-goog
 > 
-> but no, that shouldn't make any difference at all, because that's not
-> what dkim matches.
-
-Now I wonder if you see any of my emails that I have been sending?
-
-I have my own email server which is on a dynamic IP which most ISPs will
-simply drop because of that, so I route my email through kernel.org.
-
-I just sent myself a few test emails and there's no DKIM signature, unless
-I manually edit the From to use my kernel.org email (which I have never
-used before).
-
-> 
-> The spf is fine, but honestly, spf on its own is kind of useless.
-> 
-> > If the envelope sender doesn't work, I may have to switch to using
-> > cmarinas@kernel.org, at least for pull requests.  
-> 
-> That's fine, and is probably the easiest thing to do.
-
-I may have to do the same if you can see this email (which I manually
-updated the From address to be kernel.org), but not my previous pull
-requests.
-
-I wonder if there's a way I can work with Konstantin to allow kernel.org to
-have a signature for goodmis.org ? Not sure if that's even possible.
-
-In case you missed my previous pull requests, they are here:
-
-  https://lore.kernel.org/all/20250325180527.5fc0a1fa@gandalf.local.home/
-  https://lore.kernel.org/all/20250325193935.66020aa3@gandalf.local.home/
-  https://lore.kernel.org/all/20250326115109.32b69701@gandalf.local.home/
-
--- Steve
 
