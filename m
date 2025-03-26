@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4CEC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF7AC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 16:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDm6vwX/7MhCy38Oh0zCGpwppmmiRhE1IJH2tHqDN4w=; b=SidtxJHaNHCGCnwljLVX/cByD9
-	0L+9O+qbcs3ivrbAzOQfawadrQ1XsfLIOw/i9cYBZ+Fj/WXK5I6rwFPBf1MnpRfTiSZrTfypLDBqw
-	E32iDgClda3Ch0uEo6oqjYsDxiqEMalwThXrED8wWbjKElaUiP9IHn8EdjTDPrBXHut2f3ycDXJOf
-	3xD/alFhgbwV3g3WFa0mux8Tocq04W9J0xm4j+o8InAX9FAUbl4z3lfxZnqLXQb1Vz6OIFOsix2hI
-	byj50tm53/hfVc6it6+2NNgmzFXELKlDP0TbzSsinhYtV+Wea64M0EuOMoj992nxpEZCn/gVy00/K
-	Med5bn5g==;
+	bh=TP3pQO3RlTwxLWj//K05AHCYcZl/96NtoRgWC1Sg7VM=; b=EfRuJzfa/29/SbiXQIXVl/ScjI
+	KSIQ5XAt10sLZHoUOOnm55tNxIVJEpisBEPndZ9zwxmPHlBe4AmIJNqQJzTZgHLouTPdA8EVIIDCs
+	uuRdjDuOeheA+lPCKp1kScUg90esACcX+dBsoJFFTOY3gNrBIt90hn0aT6O1t8h5DQz5s2yVJx6yT
+	LApzBaIKSogMDr2UycS736nTNNICzgNEjjk9zNC0CQ/09UrO3S0RmpnGZk+B9zXkdLPiSqpdU8n3P
+	iLm5b3H2BBSMmCNaHwAAKbgiiwhgPumcuesDNUsQHQ2jg2edQtmcbr9dQ4qO2PrfrFfm+HaI9g7zU
+	k9hoCy2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTi0-000000091y5-0jdy;
-	Wed, 26 Mar 2025 16:34:28 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1txTjg-0000000924C-3nWa;
+	Wed, 26 Mar 2025 16:36:12 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTXn-000000090No-38Oc
+	id 1txTa0-000000090li-3d6d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 16:23:57 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ac3b12e8518so1834166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:23:55 -0700 (PDT)
+	Wed, 26 Mar 2025 16:26:14 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4774611d40bso323501cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:26:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1743006234; x=1743611034; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wDm6vwX/7MhCy38Oh0zCGpwppmmiRhE1IJH2tHqDN4w=;
-        b=f0IJO8GMajodl+UHSZfX3eBUjbIOwLOSzvd8cDAxRxIYjdWgg/TNc8MeRMNr06Pdjo
-         tijYWdiYTdw+SLJ3XySY4ODONHztT6+Ty8jFUlqE08QAbuF+I5XTlC4qZK0Q6Ij0e/Ry
-         9+7QVca2eVEsuPsTpYQgT40kZ+qjNMkJoYE6ZY4G5xBIO8vQ5myx6CMTeDhrma/PdO96
-         4p8FR/RhtvHUpvVejWC3idvM4s7AgQXVxiMttO8aN91jTqwPYEugAdwzFdAPusn6CELw
-         5jcGTEbq0xiQ5rmaGG6wPPCGjd+F8nObjZtJ5hWvME9cpm49loMUszJi0acjWrUksnjf
-         B6EA==
+        d=google.com; s=20230601; t=1743006371; x=1743611171; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TP3pQO3RlTwxLWj//K05AHCYcZl/96NtoRgWC1Sg7VM=;
+        b=D7ZeMDrLted6Ru8qg5xxnKKQzlm6GRmQh6iCPxCfQ/rZz0lwh4gTlGd+QPy3p7xTVT
+         SiviPh8EOOeEPw73QhW7+IIukGVHunXaChoPOaOKkgEDlUWB3aSplHDyLkJwmcjSqsQx
+         bwUR2wZrDhqNrKjVvVU5YPP/FIxc6WybW55amz5DhyfQ62vQ/Ith0VGA8rUHxIXRq6BE
+         kb+MCkUSy+pa/B/mlp6h3eQyeQqeeLiJVAMD+fhL/teV0HBALYzCHQeUlqwV2Yk8aDcP
+         USiXHly2H4qTgcybWkJrgLkm+loR62xO9/FP/pX/03cp/8cCDgsUnsgozGoLYIH03Bjn
+         A8kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743006234; x=1743611034;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1743006371; x=1743611171;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wDm6vwX/7MhCy38Oh0zCGpwppmmiRhE1IJH2tHqDN4w=;
-        b=dztly7zvHEnDtF/ki2bISnbMn46EVBOwHhbfpKV4LLto+8370uUhuiUA3TWqxYZlAH
-         1sVZ4By5igrEinsQftGGZFfjzruUrLsug9WjoymPe0PQvTzNlMIrWorsVOvR9aQdTkiL
-         lZ5RjQsIqDdEhvTcwTf3GxXUJtqtEi2uXRo3PZ7D7QzpWfqhaKOnz91f1M6XWPZ/+ax+
-         SoCCB9rVHxKC+49ET1AacmS7nRJMp7APD4OAoVb/+lbOfsaocJFDo88UF/CHBgqrXMUL
-         rXqvmQG6lAoKY1dMPBkSyOxEVdaTJ0J+yvictFZeSzwwjcN9ERdnvg49NkB3SrxqpgFP
-         03Eg==
-X-Forwarded-Encrypted: i=1; AJvYcCX3BFmMO73u8F0Zovo+pkiUOAnLXN2Ek2CDsL06DkKzaT3D4cJbP+YlmXObZXKRJ3aXF9RyfGfYf1K6ovqVE3p5@lists.infradead.org
-X-Gm-Message-State: AOJu0YweJx8oG7rPxDCpIo4LcJCHLX7QZ2i4ogNE8vqQZ56CmDgT0n3e
-	PakYqmz9sTvP2Mk1ZmrVEulkax0WGEjQalLmyK+wcvGcRmY+WcZIzN66Sm3/rcw=
-X-Gm-Gg: ASbGncsSIi7eMKpfAvHdIpRO9PTYLUn2lzGogtEQjHr322DbBK3GvalLbbkFf7MJODg
-	IiTzw5s3Z0VwSAxgYqgp8/kcGy1pP4Jo+SIwi4dZnF8io84Vu8ohz1wGf+So9ZFFM+DHTqJpF8r
-	GR5yucJLzbNYeFaR/i7KwtGPj5bY7oqJZBx/1yZKd41ylbCcy0D1lZMx/jW1wAnCzvH0vJhTwDS
-	J0ZwLyWEgEaqHP7hWnQRzE+fFhjlQJLBf1jtuMwlSrwfEek4Zl1LBJet1AsgZD21mRl2aITO7W4
-	y763tMjQOpxI+ZJq5kJyKl//NUTsqR2B86T180Yp+gFhl71IED69bTuxpA==
-X-Google-Smtp-Source: AGHT+IGQDtjWme6NCVpAtHSgi92qK4szwj72LFKXUSvl2zwfLCr6eOS0xs1KhoWnEmaFlvUG1YBTXQ==
-X-Received: by 2002:a17:907:2ce6:b0:ac3:446f:20cb with SMTP id a640c23a62f3a-ac6fb14f3f5mr1655966b.43.1743006233972;
-        Wed, 26 Mar 2025 09:23:53 -0700 (PDT)
-Received: from [127.0.1.1] ([91.90.172.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac6f0f498ecsm76678866b.135.2025.03.26.09.23.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 09:23:53 -0700 (PDT)
-From: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-Date: Wed, 26 Mar 2025 17:23:00 +0100
-Subject: [PATCH 5/5] arm64: dts: rockchip: disable unrouted USB controllers
- and PHY on RK3399 Puma with Haikou
+        bh=TP3pQO3RlTwxLWj//K05AHCYcZl/96NtoRgWC1Sg7VM=;
+        b=qR3yJJCOb656MJVEmvJY122FyXNh+hllnNa28NFGP9C52Bv0j/75Bkm3QVbrAiUhR0
+         rXxIucK7AIafE3plUFDujA2MpryeOo6ubUISaXMai0z23ZsPYLjEuN7BbpvqhjQ+9kwM
+         qR2jiFDx/Q6ExY7cWS9itQI2KIaGz68VdpTsAsBhZvsimVTUBhqOey8Q1HO4WinSMnIn
+         FGJJrgdNpmxx2khk8EArCWcIU9pGHPyys4v11I5C2HvXHOian6Ifv0H+jbuWoQk5hUoa
+         5mWcuxd3Pda8XHJzHiN/KbUW55gsDqq9k6iG/Wi68YM19pyijeBH5IPy/8JTn4/yxgdQ
+         olew==
+X-Forwarded-Encrypted: i=1; AJvYcCXDkHficL+oWNzZwbHkwgTeX0YUDiFzWWWvczd5bPYxjGyj4F6k78Vy//6BwbeB83j9iu4/+QWfxs+ahCqxXSZn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCM7WcKiCtv6oQSrpti33X3IKCf/lnzHe45hz7M2hcFNLMfQ6J
+	jgPj+7jK8kO5MKQ/vnGCBj0H41iK1zvwC4rIc/q8Z2lhWZ/zIF5QlEOduG/zRYwq04uDdFYzpM/
+	iAIaiifXXTxsu7q+bCxfZB+qyu7eD6QjEwXrWOB+p3cEbJzFzvO4g7Fg=
+X-Gm-Gg: ASbGncsZOnznCJCX7cFOow3We5sXlUuAJgpjyT5qUiQGa6KglesqnGg8Z49Qjb76eXS
+	WiGepi+0S30kiTkd/6TLqeWNByjHyu68YwDHOR2raTbFGgzORALbY79ELmuviOmKa6UAZmTMHVS
+	Y7kw5fwX2VWKo7NBCmTDID3KGSGWZPlIHtmA==
+X-Google-Smtp-Source: AGHT+IFOa5U4EkoXfdO0+LtQUSzYhAnBQIC8ww9fg/mAwgTBmcE9rzJd63FTHpnj7/g5eVnvx4SFKaBHLQRjG62h4KA=
+X-Received: by 2002:a05:622a:2515:b0:477:2c1e:d252 with SMTP id
+ d75a77b69052e-47762eb2ac5mr4836571cf.20.1743006371331; Wed, 26 Mar 2025
+ 09:26:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250326-onboard_usb_dev-v1-5-a4b0a5d1b32c@thaumatec.com>
-References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
-In-Reply-To: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
-To: Matthias Kaehlcke <mka@chromium.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Benjamin Bara <benjamin.bara@skidata.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Klaus Goger <klaus.goger@theobroma-systems.com>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, 
- quentin.schulz@cherry.de
-X-Mailer: b4 0.13.0
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-8-changyuanl@google.com> <CAPTztWbFXajArSN8yKu32eSoR=xsk1CHM_4V7MJ0eQxydFqPUQ@mail.gmail.com>
+ <Z-MB0Cj4tM6QgOAg@kernel.org> <CAPTztWbDtDhKZS89-aEBaZoPW2jZM2CAWW1Y_m3OnNE26=d9UQ@mail.gmail.com>
+ <Z-PsLDv-DkxitRv1@kernel.org>
+In-Reply-To: <Z-PsLDv-DkxitRv1@kernel.org>
+From: Frank van der Linden <fvdl@google.com>
+Date: Wed, 26 Mar 2025 09:25:59 -0700
+X-Gm-Features: AQ5f1JqROvSmDfkTDrNCkDrxnAL_58GWFP96LlXcUaVtPVLlGbzUuTMgIm7BDUs
+Message-ID: <CAPTztWazH=bJHTvpLfqHK3cYRnO=TXcLWEUJKYsxW1WV8XifrA@mail.gmail.com>
+Subject: Re: [PATCH v5 07/16] kexec: add Kexec HandOver (KHO) generation helpers
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org, graf@amazon.com, 
+	akpm@linux-foundation.org, luto@kernel.org, anthony.yznaga@oracle.com, 
+	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
+	catalin.marinas@arm.com, dave.hansen@linux.intel.com, dwmw2@infradead.org, 
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com, corbet@lwn.net, 
+	krzk@kernel.org, mark.rutland@arm.com, pbonzini@redhat.com, 
+	pasha.tatashin@soleen.com, hpa@zytor.com, peterz@infradead.org, 
+	ptyadav@amazon.de, robh+dt@kernel.org, robh@kernel.org, saravanak@google.com, 
+	skinsburskii@linux.microsoft.com, rostedt@goodmis.org, tglx@linutronix.de, 
+	thomas.lendacky@amd.com, usama.arif@bytedance.com, will@kernel.org, 
+	devicetree@vger.kernel.org, kexec@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-mm@kvack.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_092355_780793_8A38B21E 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250326_092612_989159_353DD5A0 
+X-CRM114-Status: GOOD (  35.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +108,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+On Wed, Mar 26, 2025 at 4:59=E2=80=AFAM Mike Rapoport <rppt@kernel.org> wro=
+te:
+[...]
+> > There has, for example, been some talk about making hugetlbfs
+> > persistent. You could have hugetlb_cma active. The hugetlb CMA areas
+> > are set up quite early, quite some time before KHO restores memory. So
+> > that would have to be changed somehow if the location of the KHO init
+> > call would remain as close as possible to buddy init as possible. I
+> > suspect there may be other uses.
+>
+> I think we can address this when/if implementing preservation for hugetlb=
+fs
+> and it will be tricky.
+> If hugetlb in the first kernel uses a lot of memory, we just won't have
+> enough scratch space for early hugetlb reservations in the second kernel
+> regardless of hugetlb_cma. On the other hand, we already have the preserv=
+ed
+> hugetlbfs memory, so we'd probably need to reserve less memory in the
+> second kernel.
+>
+> But anyway, it's completely different discussion about how to preserve
+> hugetlbfs.
 
-The u2phy0_host port is the part of the USB PHY0 (namely the
-HOST0_DP/DM lanes) which routes directly to the USB2.0 HOST
-controller[1]. The other lanes of the PHY are routed to the USB3.0 OTG
-controller (dwc3), which we do use.
+Right, there would have to be a KHO interface way to carry over the
+early reserved memory and reinit it early too.
 
-The HOST0_DP/DM lanes aren't routed on RK3399 Puma so let's simply
-disable the USB2.0 controllers.
+>
+> > > > current requirement in the patch set seems to be "after sparse/page
+> > > > init", but I'm not sure why it needs to be as close as possibly to
+> > > > buddy init.
+> > >
+> > > Why would you say that sparse/page init would be a requirement here?
+> >
+> > At least in its current form, the KHO code expects vmemmap to be
+> > initialized, as it does its restore base on page structures, as
+> > deserialize_bitmap expects them. I think the use of the page->private
+> > field was discussed in a separate thread, I think. If that is done
+> > differently, it wouldn't rely on vmemmap being initialized.
+>
+> In the current form KHO does relies on vmemmap being allocated, but it do=
+es
+> not rely on it being initialized. Marking memblock ranges NOINT ensures
+> nothing touches the corresponding struct pages and KHO can use their fiel=
+ds
+> up to the point the memory is returned to KHO callers.
+>
+> > A few more things I've noticed (not sure if these were discussed before=
+):
+> >
+> > * Should KHO depend on CONFIG_DEFERRED_STRUCT_PAGE_INIT? Essentially,
+> > marking memblock ranges as NOINIT doesn't work without
+> > DEFERRED_STRUCT_PAGE_INIT. Although, if the page->private use
+> > disappears, this wouldn't be an issue anymore.
+>
+> It does.
+> memmap_init_reserved_pages() is called always, no matter of
+> CONFIG_DEFERRED_STRUCT_PAGE_INIT is set or not and it skips initializatio=
+n
+> of NOINIT regions.
 
-USB3 OTG has been known to be unstable on RK3399 Puma Haikou for a
-while, one of the recurring issues being that only USB2 is detected and
-not USB3 in host mode. Reading the justification above and seeing that
-we are keeping u2phy0_host in the Haikou carrierboard DTS probably may
-have bothered you since it should be changed to u2phy0_otg. The issue is
-that if it's switched to that, USB OTG on Haikou is entirely broken. I
-have checked the routing in the Gerber file, the lanes are going to the
-expected ball pins (that is, NOT HOST0_DP/DM).
-u2phy0_host is for sure the wrong part of the PHY to use, but it's the
-only one that works at the moment for that board so keep it until we
-figure out what exactly is broken.
+Yeah, I see - the ordering makes this work out.
 
-No intended functional change.
+MEMBLOCK_RSRV_NOINIT is a bit confusing in the sense that if you do a
+memblock allocation in the !CONFIG_DEFERRED_STRUCT_PAGE_INIT case, and
+that allocation is done before free_area_init(), the pages will always
+get initialized regardless, since memmap_init_range() will do it. But
+this is done before the KHO deserialize, so it works out.
 
-[1] https://rockchip.fr/Rockchip%20RK3399%20TRM%20V1.3%20Part2.pdf
-    Chapter 2 USB2.0 PHY
-Fixes: 2c66fc34e945 ("arm64: dts: rockchip: add RK3399-Q7 (Puma) SoM")
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
----
- arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts | 8 --------
- 1 file changed, 8 deletions(-)
+>
+> > * As a future extension, it could be nice to store vmemmap init
+> > information in the KHO FDT. Then you can use that to init ranges in an
+> > optimized way (HVO hugetlb or DAX-style persisted ranges) straight
+> > away.
+>
+> These days memmap contents is unstable because of the folio/memdesc
+> project, but in general carrying memory map data from kernel to kernel is
+> indeed something to consider.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
-index 947bbd62a6b0..93cefacc7a01 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
-@@ -292,14 +292,6 @@ &uart2 {
- 	status = "okay";
- };
- 
--&usb_host0_ehci {
--	status = "okay";
--};
--
--&usb_host0_ohci {
--	status = "okay";
--};
--
- &vopb {
- 	status = "okay";
- };
+Yes, I think we might have a need for that, but we'll see.
 
--- 
-2.43.0
+Thanks,
 
+- Frank
 
