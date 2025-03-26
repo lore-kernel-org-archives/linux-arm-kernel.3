@@ -4,148 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E76C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AF6C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 14:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6lBtZCRLN3GuVWwNtx9yxfFsMzYr2zJPwCQ7C9PLA8=; b=T0X/0OuIXbk01qzlHgIuv19c1K
-	ILPOPGRgNwa0VziTQsTUstaFqgGTOODI8aerIv0nGU+li1W04BV72cBeM1an+Wylp68fqnwD2ikL/
-	EHwX+y50HyGmpLrFy2jxmoqN/ncftxWywbpHy/x4vLS5McZxtka+r6P0TJStXd9Zk2QeI8KYFlE/L
-	nyFYIuuEzvlWbnDFCQ6lvXKakfgiIC8IIXHtqQwIoSHdLJ8VLUwtkcfDVrnvxskdAjuWaaEAb/O98
-	yQJjmQW/tE8a7Gf998Z3UWmN5p1ANbXpL1uOngOmjFxqqmC4kkU/s3voHmWV1dvD3sr1H5gIB+ffW
-	4Ywa8V8Q==;
+	bh=tUXcc9qJZqsmIvOAzGoEtIPJh1UpfQKPa2r/d+C7UBE=; b=UyHl97AFZ29qDGRxskNPamaGBu
+	XwatAa/ukO7at6stgV2KhTbGdV84rkZ61EpL87UjWVcHxGp8ECj4CTdysueKm0gE74umW7U2/Bgs+
+	2u76YCzIKBWKFHs4IEOJIGXKSy32Hiel3RlJ5VFxJT+AsGRW+gzVXwfwZjv/kNYdjLnvr0O3A2FCf
+	dC3ITFAzIcVCzj1ijmwIiBzlYJ2JZORyxdKsfUO154lEvkpA3lHoh+covYzRvwmQNnKMg8HiHj7tr
+	R/sUkOnSahS7PQ2Aa9ibJmg46d2ec2Gp0K99bYDfpjIyT3vh+Ch4sR58D3BBdiIka2UaUQ+1uW5v9
+	hs/mhxKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txRoo-00000008hMf-1NQI;
-	Wed, 26 Mar 2025 14:33:22 +0000
-Received: from mail-db8eur05on20615.outbound.protection.outlook.com ([2a01:111:f403:2614::615] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1txRr0-00000008hgf-0ZOP;
+	Wed, 26 Mar 2025 14:35:38 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txRn4-00000008hCs-2ERl
+	id 1txRpG-00000008hR0-00Fw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 14:31:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GCMPqMVXDjsebB3IM0gONC5KzmGs1oW3Bqe7AI6d1wLptTzkWJb1ZYpg4DSqGLfZRS6uEi7P78nl9Jr1bqJgPzPKrTLeOxDYGF4Q3giwBDAILi1r8D16a5PI3TIpThlW+rYFTiV6THtvlvlrlhDd/VI/qzE+hKDOqseBYSeo3P/sey5b/1d4XYA16Y7/eMuSAGR2IwFqPIURqaEhIh1Z7X9vbjDlM9JVBA/w7fY4hA7lDq7vVYMKd7zWZZNwXTClhNUcbIPFQxcfdZZzmxQSCdkn2whZyM4VgzNdsKliLC0/ydsQmpkQunTziBmKXSIIMf695ii3l/mIztECDu5SpQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R6lBtZCRLN3GuVWwNtx9yxfFsMzYr2zJPwCQ7C9PLA8=;
- b=Q1uopvADxC8uyA0tDIgBCR8YkVVou4nvAD6xDxqnfJNPpm+Keh3ykmXrmzMpH3RHAXeLSrhaXrkAChvnmLlACiD/Qqx/doPVgw3eLsjjcnFo9OD0Nm2d6tDL0p4iVyhy4dOXPOF+DQ4pM1aZD4I+H1ImPdM9bDXXSsG9+HjQ7Dquae9UHgaGt56EyT14C1OaH0fJO5towByIxmdV/4VoRevxWGqXNoreBRD2mYKL+7u5h8ZaHTO/KjmLUG9Gr+fPsMtEfHJxeM7rJkZ7XjumsWIv9YKuNCD0zrj13EqrhzRkKYOcZjWR6ruyISjbnyl3AJ0mOTbry3DMPUmHG68L1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R6lBtZCRLN3GuVWwNtx9yxfFsMzYr2zJPwCQ7C9PLA8=;
- b=Sg4N00aZQbz6abWFKfZ4bq8IoIxRRyUOaUEWjUPopvJCuFipxELUggFsbk1dmBpSAx/Oeyt8INQXRgOJSIwk2ZY85KhK0xiCBvx8q5qdhWQqXD3SK4Qu397D93N4CZlf39pjsjKwtGoe/F5xvKJqsdyAS0z0cZmrczxor5q1dSOCG1ApnLcteWxqLpVFzMc++LAv5xYxXavu4yJ9rLUzZdsHDtzCTzLeCcp5K3dbOVDU6aVrEHZrZvF5KqBVfVJs43kTkfa64behJr98JZutULqk5/vdhruCbUt7HYy020LwQhjJqT7RMl2NxH+KyxfR1deXoN4s59WxOO9JByq62g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM0PR04MB7043.eurprd04.prod.outlook.com (2603:10a6:208:19b::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Wed, 26 Mar
- 2025 14:31:30 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Wed, 26 Mar 2025
- 14:31:30 +0000
-Date: Wed, 26 Mar 2025 10:31:22 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/6] PCI: imx6: Toggle the cold reset for i.MX95 PCIe
-Message-ID: <Z+QPukWbfYfHKrg9@lizhi-Precision-Tower-5810>
-References: <20250326075915.4073725-1-hongxing.zhu@nxp.com>
- <20250326075915.4073725-3-hongxing.zhu@nxp.com>
+	Wed, 26 Mar 2025 14:33:51 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52Q739M0014431
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 14:33:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=tUXcc9qJZqsmIvOAzGoEtIPJ
+	h1UpfQKPa2r/d+C7UBE=; b=Uj+Ehe9blRTXJYuLPHz3ulJS20fXnxUrGZpVXK1N
+	wn9BfLi1qbmUAcyDQvFD0rvuyLYxn8o4j3wMwJQS1oZb4gJeAaQv+/UrOGBNhMQ4
+	YX+GxYOO8purBmP/pBlNRDI/gZ76pfFtisMfPP+avEd3AQq1xwIJXJ3tANTVIgYN
+	r6sQE4vsFeR0PZmrNZf3G1h4jkz9WwX2MRWz2aVupi5bx37SSIos8ah9f2R62qk/
+	Td21LOslx44MWUAK4GEdEMjFqKqOex/vlH87uM4VMzqDQTR77o8t5FXf5+wigmLr
+	S0Jo+gs7PWPwFURf9MNl0/H15e3QS4dkbyTb6VS4u4FhxQ==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45mb9mshs2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 14:33:48 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7c3c5e92d41so1136994985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 07:33:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742999627; x=1743604427;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tUXcc9qJZqsmIvOAzGoEtIPJh1UpfQKPa2r/d+C7UBE=;
+        b=s/ZOSwtWxmCh5AhTl4T5sBwiHmpaUVaIjzo1vpFvDcZR1jZgptV+e1IawKk83kqaPL
+         Nt5A2VA1hWGyzaWWOhv/yDB+TsGatG8oKRNqLb7yCv8cWWb4EehZE4yFDCpb9BTepkYW
+         JT1WxnAaBWV+dBjTBRbhT5R0IXrYLocmIpbpgSdtKIYL4H4d94sU4MZNSnxvZ+bqBkWw
+         eBTRM7oXp2ZmVqdF8DpfH1RGS2hBnp+ayiLMlMcWP9BN9y0k+JzAGe1AeqNE8qgrwiPB
+         OpgfqYU9HcVYsqyhMP5jMzDfnARZx8aJ6uPPyyE/oSPDzgT/CAi0owO+QZTJvEJV3xJE
+         5hSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhIxGJWj6090sz8OO8jRFti3+Zn4qhhVpALFAnt0hyY50+6Xzu16JUUGR4Azgxoh8ly31q9fNRTzt7riC/j52u@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlwiFTSEo3C0alAeF+DZfHeffqKw3HCIaU2YqWVXQQnS6Jp8Rk
+	9Itk12pfeDMxadykY9KF4LEtGazU37MqqQbuDN8VpPJeQ70ltlS3AL0dbW+bbxaqzsP+HOX7Ied
+	gZbe8ycKVMLv0+SyQHmSM2OEUF2c0DOe1wPgUp0Y/ZeZcgG3F8I1SX23IXVZIrB2PqUZMhGKr1g
+	==
+X-Gm-Gg: ASbGncs+zZ/NL8FyTtoBoTatVvuZucy3xlW1ub9m52E7CU9umWmQUTpEHjn8XywAnnD
+	vlXkfvRDzoaAm4UNjTgTrijV4F+4UlTXNNnBS2kRujy5DrgTMeK2fUoY5CjlzPt+9/l8VfXf3zy
+	N8C9PND3EJqvJRTsSJlGX5PwPUH+QCC75R78gOSfoZ/Nj9XdYKNu+i4qXREGRSqEceXgU/Hrhsl
+	WfnHVh1ISXsHmInNSTi63QTq8ksEHpCEKKO0srvxloB98GsO8UPnW6JYIaJRVsfLpzx3X7SpF7J
+	7KV7QemwlI+gtRolv/5pkr+i4xmtJrVhwKMV/PsvLxyxABmm39DypnQci/svQXRCapIAu+LIeXY
+	zuLs=
+X-Received: by 2002:a05:620a:28c5:b0:7c5:49d6:733a with SMTP id af79cd13be357-7c5ba1840admr3151005285a.21.1742999627378;
+        Wed, 26 Mar 2025 07:33:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGndOOn6U/1aw7mrOjmDUl3e1WTG0S7x6kf/+r0QpQQBN2oiHm1XOwh+ra3+MmbmVhqaUwq4w==
+X-Received: by 2002:a05:620a:28c5:b0:7c5:49d6:733a with SMTP id af79cd13be357-7c5ba1840admr3150997285a.21.1742999626823;
+        Wed, 26 Mar 2025 07:33:46 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad650927esm1804627e87.195.2025.03.26.07.33.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Mar 2025 07:33:44 -0700 (PDT)
+Date: Wed, 26 Mar 2025 16:33:41 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Melody Olvera <quic_molvera@quicinc.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
+Message-ID: <kj5dyy7bclmkft7x4hdpzpo7n35cu5nkpksj47phb7jt5lceab@7fb5i6gluqwz>
+References: <20250324-sm8750_usb_master-v3-0-13e096dc88fd@quicinc.com>
+ <20250324-sm8750_usb_master-v3-6-13e096dc88fd@quicinc.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250326075915.4073725-3-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0223.namprd03.prod.outlook.com
- (2603:10b6:a03:39f::18) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM0PR04MB7043:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77e859c4-6695-4dea-3872-08dd6c72e67a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OYN6fHfTroOPkbX3ef7Kiln0vlszvMAOs/5PIyHTg1ZCpBrYhNFCf8r20rAK?=
- =?us-ascii?Q?xGPi1HvKHXIc7CrVS/8gzROH3AhkBEcoBBZx0Stuw4cgFD9vGe26dTF+n77V?=
- =?us-ascii?Q?iWP5gzW8K7/3lXS9TTBrG2wswFL2mjFn3b61dfdEEOhT9zv2/e0p5WVOshvO?=
- =?us-ascii?Q?q5ZYyBMsgQuiZlpRzo5Cw3WYFDPZvPJrpGHGB93ylXNvA/QH8HsmBlp42M6f?=
- =?us-ascii?Q?YgzesrGpoujSjx2egMj1oYm5hmJgsjHxFwbkgGPQM0OsSBcHGnywFUww35zl?=
- =?us-ascii?Q?ZeP3+fYHPjfn24zv5Zn3w1by0I2KCW/QDdYWOVhfPJZ2Cm2RbjI4z0Rk+U6N?=
- =?us-ascii?Q?z9kSN9kOYCbQt8yEbAIjwv6qMbptJqHhB3a8lDSzxYqUqGLB0L/CO5QnpH5K?=
- =?us-ascii?Q?tdtowFFSZH1NJzCYtf3aoyBSm7bObtLKwkdDpHJsYcmi0t0IsFx9Snz1BlKK?=
- =?us-ascii?Q?qHvQ8RcbJ6CSPRIxW3SzqWcZbuMXaiMa8bhHyjCkwd0R/Eldo96+MxcPF0cs?=
- =?us-ascii?Q?z9ukeFG1F2MpKykQRAevHW6Lv/LEuXlYXQ3xr2kYB1mVfIzXWKjH9/fOZ4hU?=
- =?us-ascii?Q?fC8iUoCvmsKYTLh2EXa/8IXLXXJEbdYoINF9MWCMNj7KYODC7MDr0ycIl383?=
- =?us-ascii?Q?M3eRhH8FE1W82qxaedXowm4byDr8KgR0uOt1Pn/0i5lRxrjvuw6ANIUfYgBg?=
- =?us-ascii?Q?l03jBzvvIgCqfA7VihKCHWrlmobiNVnroFV2LQ449cMFi18EWkW/exvFBtZJ?=
- =?us-ascii?Q?lMvK/egTsYtGimOjTSSpwmZH0otb2tdn0pFrkNVhDPS4gNV0gDnexJYKUytR?=
- =?us-ascii?Q?kTg03X+BfoYq1z5X4TYqDjakEPUFbDGe43TTvLWxilCTXJMtWUCv8dkD9QTX?=
- =?us-ascii?Q?4BUC5kLHuTW8oj+pvM175Y5sq/URHjHbatBTAPpbtn6DkJGbTkwFm6e+Rt4I?=
- =?us-ascii?Q?W6FQb59a4FPy4jpi6tKxgKAB4bjy7uYPz1nlTSfROJjr3mDXqyuQAWEVpOD9?=
- =?us-ascii?Q?OWhG3mc6Z8YRxkuUf3lJ2PPnydKDdWyoCVHHlNV1FSfuiJDTn1Kdqb92qlIr?=
- =?us-ascii?Q?923UOfXZezOJ9jWF8XxC/Pqfhnyxy4j9bqYU5qcYyFJpzvjMAyYAx8ucExH4?=
- =?us-ascii?Q?LwKsV77u5IxZKw7QZcT1zPIfoiDG76k6eBt+01vd9QDoTAiD63a/zhPtvbZl?=
- =?us-ascii?Q?2rGibLCylxEEm2mMVZKxbjjgZz+QuOTiIczlIyfNDyS8U31I+YTcKxpVPeDw?=
- =?us-ascii?Q?zK1hHBvXec5D0qi2Qh8rH57lQ07cM1qF/7fFuBsAIZSdJwd8HKRUCRhxvdFv?=
- =?us-ascii?Q?Arwn8GPV7vTZVV/dwD8aUfR2NsgNxdK/5qNpkZAhpX5XEBf/gvr8F+vMjul1?=
- =?us-ascii?Q?V/jG6OBoB6szBLFoO4PTrVX0isRKTZA0eg/1A0uM+Kjx84evLuYJqDD47ogA?=
- =?us-ascii?Q?zyai6llLthLMlwXHOqh6XUj1F/j/1pZt?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GdjjrbFkwqSJgxI/R0kWEGv5EC6IrdAXpaBjrZdoJ8W9wIgh/qmkj85cxuMt?=
- =?us-ascii?Q?dGclWI3qKvdC5X8u9AsCFIQTw9i92xNb/NdisixEAzBXpCVxS5eNAvM+SeHR?=
- =?us-ascii?Q?M80YuEnBHYqHhfHaPYaZBSSFcyQHLmOz5FbLdZRtcfDKLuD9nQ2lguKx+d06?=
- =?us-ascii?Q?e+zMBhzBGEAOZ3PSnotcIQdMGFkDp3O4mFUphLHOvcyH0pVjLIaPGHQ1XnHK?=
- =?us-ascii?Q?KPHhvyCBbaO7ygH2SHmuPpIkHPykrilh6uC9GeL49MtpBJEiYGGbmKS8fb9F?=
- =?us-ascii?Q?yvnLMJrgMh90KWbTAmJC+C8Xwok0BNwyIGfEL2+/AX20JdL0kbAy/o7SeEkb?=
- =?us-ascii?Q?oBc0dYRxssktTsOaezXflQZqnN3SMwm5uaRRPxo38W/AoyzloqB8CmLz8g+u?=
- =?us-ascii?Q?sfeihTgn4LBq+sz5Nfq2R4Vwe0VhwwRXs7mNYJZgG5B9OGOpUiroeNKBSR3J?=
- =?us-ascii?Q?zUbqxfBkPBzgPEs5eDFwBnslbbctcxYPP8fC4gRRcvhF3EI5Rjml3biECg96?=
- =?us-ascii?Q?PcT0tuUgKeYS6CQ853H/KXyTGz8aDKxZ8JMhLb9Et/DVLr2uymxD4n4Q0KM9?=
- =?us-ascii?Q?GxikrWemAxfR9D6E5Pd4AA4dvLzAcoiIcxVAM3xv0C5i3nnG4gvlzVEGm9U1?=
- =?us-ascii?Q?V95mzG5Ba3fmhtIKmeiPU0UXlwSkCpzVIQLs964jc2gGiOsfc8AwG7e8keAq?=
- =?us-ascii?Q?3Xp1AJ+sjiucu3mmu5OP3eSxiGrxtGiYV/rZcGzMvGQy8VNsQcUnmhOmmW4z?=
- =?us-ascii?Q?Jo76uSRm7U+XAFFnMylgPSj6uRCQ2JYvqBI8R3BFO177UAyHb8L4554XCQel?=
- =?us-ascii?Q?UvwyreioUbfgkgEbHSnnWJOovMVkTXiSM7y8bZzL8fX+nkX0TnVMiSL7DAa9?=
- =?us-ascii?Q?5RnwEMg2w7k2TQFx8YZmtT4ulP/+DTRAqXx2iksBkBcB/V5PigfqdM9ILOI8?=
- =?us-ascii?Q?fz852+LQTVastz/0m05ahYaGm3Kjftn1fqYqZ8Lyx95Z3xoEQYBpiyFSgXrC?=
- =?us-ascii?Q?OWMhhR5MgG9JwV/B+766hQNEMMXffrHzYjaBYUKgIJ8d3NdZeqZrfd22OcKf?=
- =?us-ascii?Q?1amQgnZNGU3UdSFCGNVy55Ib+/2qzW8IfmxS5gyIrNu44TjEgdLlscFo7tN5?=
- =?us-ascii?Q?4ixF8CLrr4E4N32GkgP5kbEu5kgP53gCS5Y6KEAbboTIMzBHf6KMDZwSMlRd?=
- =?us-ascii?Q?H1f4G/cyPDGoGIjcm0LL2OpSYWvTYvR05Ao39UGQYcj9WDmnzkqHbUxJeUaw?=
- =?us-ascii?Q?Ni0EzD4QHcr4roOGXtxHG9XO4O60usVSli5vNXGEn062/VplZ5e92JKpCY0x?=
- =?us-ascii?Q?IiDlTSSOgnV82/RoOTP7vvsSylBij5icDtwaMfRZQq7DTiwe8/bFyQBr2UM6?=
- =?us-ascii?Q?TcPz5vVjNLC/0AQuguPS5BHG4EXZTzpLK1urecMPaw3ivKYm6KzuYsF8z+Uw?=
- =?us-ascii?Q?vl55urrynLf1DWGuxF5FmA1Pw97i1F8kTIfd3qDLteyuDpZvD+XzjVqcuA62?=
- =?us-ascii?Q?iw61dp5BcvnSx9eCJC4mPWZkTOfpiILj3/+G8QU70T6CGWIXEf1cgel2dqEJ?=
- =?us-ascii?Q?1XTTkUCgfQx8BvZBuWaquxxIER/sfXp11D8dRpkb?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77e859c4-6695-4dea-3872-08dd6c72e67a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2025 14:31:30.7154
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: inSfNBtalxbYOleMhAFb+y0llsmWakVId22hRO8comNn2woOydUM1OJHfwXw5Cv+Hy9LyXSdvgk4VdECxh099w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7043
+In-Reply-To: <20250324-sm8750_usb_master-v3-6-13e096dc88fd@quicinc.com>
+X-Authority-Analysis: v=2.4 cv=cs+bk04i c=1 sm=1 tr=0 ts=67e4104c cx=c_pps a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=4xIHL2cNR3voeXxo6gIA:9 a=CjuIK1q_8ugA:10 a=RVmHIydaz68A:10
+ a=PEH46H7Ffwr30OY-TuGO:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: VwiXtGydDlyI8c9xslNDjcTbyj705NtR
+X-Proofpoint-ORIG-GUID: VwiXtGydDlyI8c9xslNDjcTbyj705NtR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-26_07,2025-03-26_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 spamscore=0
+ bulkscore=0 mlxlogscore=999 malwarescore=0 lowpriorityscore=0
+ clxscore=1015 adultscore=0 priorityscore=1501 phishscore=0 suspectscore=0
+ mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503260088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_073134_576192_08E4E42E 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20250326_073350_164371_882570AF 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,91 +132,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 03:59:11PM +0800, Richard Zhu wrote:
-> Add the code reset toggle for i.MX95 PCIe to align PHY's power on sequency.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+On Mon, Mar 24, 2025 at 01:18:34PM -0700, Melody Olvera wrote:
+> From: Wesley Cheng <quic_wcheng@quicinc.com>
+> 
+> SM8750 utilizes an eUSB2 PHY from M31.  Add the initialization
+> sequences to bring it out of reset and into an operational state.  This
+> differs to the M31 USB driver, in that the M31 eUSB2 driver will
+> require a connection to an eUSB2 repeater.  This PHY driver will handle
+> the initialization of the associated eUSB2 repeater when required.
+> 
+> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
 > ---
->  drivers/pci/controller/dwc/pci-imx6.c | 40 +++++++++++++++++++++++++++
->  1 file changed, 40 insertions(+)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 57aa777231ae..13e53311cc0e 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -71,6 +71,9 @@
->  #define IMX95_SID_MASK				GENMASK(5, 0)
->  #define IMX95_MAX_LUT				32
->
-> +#define IMX95_PCIE_RST_CTRL			0x3010
-> +#define IMX95_PCIE_COLD_RST			BIT(0)
-> +
->  #define to_imx_pcie(x)	dev_get_drvdata((x)->dev)
->
->  enum imx_pcie_variants {
-> @@ -773,6 +776,41 @@ static int imx7d_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
->  	return 0;
->  }
->
-> +static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
-> +{
-> +	u32 val;
-> +
-> +	if (assert) {
-> +		/*
-> +		 * From i.MX95 PCIe PHY perspective, the COLD reset toggle
-> +		 * should be complete after power-up by the following sequence.
-> +		 *                 > 10us(at power-up)
-> +		 *                 > 10ns(warm reset)
-> +		 *               |<------------>|
-> +		 *                ______________
-> +		 * phy_reset ____/              \________________
-> +		 *                                   ____________
-> +		 * ref_clk_en_______________________/
-> +		 * Toggle COLD reset aligned with this sequence for i.MX95 PCIe.
-> +		 */
-> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
-> +				IMX95_PCIE_COLD_RST);
-> +		/*
-> +		 * To make sure delay enough time, do regmap_read_bypassed
-> +		 * before udelay(). Since udelay() might not use MMIO, and cause
-> +		 * delay time less than setting value.
-> +		 */
-> +		regmap_read_bypassed(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
-> +				     &val);
-> +		udelay(15);
-> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
-> +				  IMX95_PCIE_COLD_RST);
-> +		udelay(10);
+>  drivers/phy/qualcomm/Kconfig              |  10 +
+>  drivers/phy/qualcomm/Makefile             |   1 +
+>  drivers/phy/qualcomm/phy-qcom-m31-eusb2.c | 297 ++++++++++++++++++++++++++++++
+>  3 files changed, 308 insertions(+)
+> 
+> diff --git a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..b18aab968122683e2e87287a4b570321d376870a
+> --- /dev/null
+> +++ b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
+> @@ -0,0 +1,297 @@
+> +// SPDX-License-Identifier: GPL-2.0+
 
-Is This 10us critial? if yes, also need read register before it.
+GPL-2.0-only
 
-Frank
-> +	}
+> +/*
+> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
 > +
-> +	return 0;
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +#include <linux/slab.h>
+> +
+> +#include <linux/regulator/consumer.h>
+> +
+> +#define USB_PHY_UTMI_CTRL0		(0x3c)
+> +
+> +#define USB_PHY_UTMI_CTRL5		(0x50)
+> +
+> +#define USB_PHY_HS_PHY_CTRL_COMMON0	(0x54)
+> +#define FSEL				GENMASK(6, 4)
+> +#define FSEL_38_4_MHZ_VAL		(0x6)
+> +
+> +#define USB_PHY_HS_PHY_CTRL2		(0x64)
+> +
+> +#define USB_PHY_CFG0			(0x94)
+> +#define USB_PHY_CFG1			(0x154)
+> +
+> +#define USB_PHY_FSEL_SEL		(0xb8)
+> +
+> +#define USB_PHY_XCFGI_39_32		(0x16c)
+> +#define USB_PHY_XCFGI_71_64		(0x17c)
+> +#define USB_PHY_XCFGI_31_24		(0x168)
+> +#define USB_PHY_XCFGI_7_0		(0x15c)
+> +
+> +#define M31_EUSB_PHY_INIT_CFG(o, b, v)	\
+> +{				\
+> +	.off = o,		\
+> +	.mask = b,		\
+> +	.val = v,		\
 > +}
 > +
->  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
->  {
->  	reset_control_assert(imx_pcie->pciephy_reset);
-> @@ -1762,6 +1800,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
->  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
->  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
-> +		.core_reset = imx95_pcie_core_reset,
->  		.init_phy = imx95_pcie_init_phy,
->  	},
->  	[IMX8MQ_EP] = {
-> @@ -1815,6 +1854,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
->  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
->  		.init_phy = imx95_pcie_init_phy,
-> +		.core_reset = imx95_pcie_core_reset,
->  		.epc_features = &imx95_pcie_epc_features,
->  		.mode = DW_PCIE_EP_TYPE,
->  	},
-> --
-> 2.37.1
->
+> +struct m31_phy_tbl_entry {
+> +	u32 off;
+> +	u32 mask;
+> +	u32 val;
+> +};
+> +
+> +struct m31_eusb2_priv_data {
+> +	const struct m31_phy_tbl_entry	*setup_seq;
+> +	unsigned int			setup_seq_nregs;
+> +	const struct m31_phy_tbl_entry	*override_seq;
+> +	unsigned int			override_seq_nregs;
+> +	const struct m31_phy_tbl_entry	*reset_seq;
+> +	unsigned int			reset_seq_nregs;
+> +	unsigned int			fsel;
+> +};
+> +
+> +static const struct m31_phy_tbl_entry m31_eusb2_setup_tbl[] = {
+> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, BIT(1), 1),
+> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, BIT(1), 1),
+> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG1, BIT(0), 1),
+> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_FSEL_SEL, BIT(0), 1),
+
+I suppose, we can not expect to have #defines for all used bitfields?
+
+> +};
+> +
+
+[...]
+
+> +
+> +static const struct phy_ops m31eusb2_phy_gen_ops = {
+> +	.init	= m31eusb2_phy_init,
+> +	.exit	= m31eusb2_phy_exit,
+
+I think, you have a missing .set_mode callback here.
+
+> +	.owner	= THIS_MODULE,
+> +};
+> +
+> +static int m31eusb2_phy_probe(struct platform_device *pdev)
+> +{
+> +	struct phy_provider *phy_provider;
+> +	const struct m31_eusb2_priv_data *data;
+> +	struct device *dev = &pdev->dev;
+> +	struct m31eusb2_phy *phy;
+> +	int ret;
+> +
+> +	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
+> +	if (!phy)
+> +		return -ENOMEM;
+> +
+> +	data = of_device_get_match_data(dev);
+
+device_get_match_data()
+
+> +	if (IS_ERR(data))
+> +		return -EINVAL;
+> +	phy->data = data;
+> +
+
+-- 
+With best wishes
+Dmitry
 
