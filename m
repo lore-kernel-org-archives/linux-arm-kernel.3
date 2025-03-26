@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03C7C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 07:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC79EC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 08:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xs4Fos6G4Lac0pmwn9hsltCdyR2yI1I/1l6/YH8nCK8=; b=2nbmbRSB9mPuE8fmDcDec0heZT
-	NNPx4Xj82djzhOH/1k+tT9XNKUkWvnhBDj2Jc3BR/ercjZBfKsPxnYIqzv2fmKVGlZqFXVZypyl1o
-	NRT52CkTPtoW/6vekjg/co6vx5145uTZj39uxakkzIxr+uk5s3vAxg0OY/zkhmDHrfY/BC6mxr6ff
-	D6cfJVlA2Uwg0mVWLUW5F8M1EBseuJ0Tv4wd4BlHGStwkmzfIfp1uvXelv2IOxKym9zCKf6+oYW0M
-	92Re6AAKn4jLAY+/CnDx2MZ+yvQ1e42Y6MJQbqb4R2j+SIV/ZIT0xYD9NIuycc9o03IIJO3lMP5IB
-	glSMXR4Q==;
+	bh=LEj9vLTGFHgb8vvs2kbTxuc47+Hc8umbJs7qvDEFDCU=; b=OA8GrgD2juoQc5oQvkNrMJElOe
+	j9G7G2VBqSaeMJkfBAN6gCW0/bdJ7Y0I3gu9rjLBiQ+HMBneDuav0bDgwgHVnmCFyJVGuPhzGa4x3
+	0qVxFspaRRxZ+sbn8UaNVyowthdCMcJom+IlI7bgNvggPzjd4bvkiLkSJWVBtqK7x1XmNtAuUAN74
+	O+JcV19AXoOuN3ynmJbOxAvVlAh/YTFmo+F2175dVsGi4c7flXrrTEKUN2q8AoC4Cx1KMz+QyxzOt
+	1mAprDS66eiHCuFXfmiPPmHmxS3ALDUGp5kOADWaOIEluD3usBszlAaVmASOM7S2ks/8kUVRX9yFk
+	R9Ox2bkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLfE-00000007qNz-3cpg;
-	Wed, 26 Mar 2025 07:59:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1txLiP-00000007rTj-1DHF;
+	Wed, 26 Mar 2025 08:02:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txLcn-00000007q2W-1wST;
-	Wed, 26 Mar 2025 07:56:33 +0000
+	id 1txLff-00000007qWE-27jp;
+	Wed, 26 Mar 2025 07:59:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CA106112F;
-	Wed, 26 Mar 2025 07:56:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90007C4CEE2;
-	Wed, 26 Mar 2025 07:56:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B01365C1B99;
+	Wed, 26 Mar 2025 07:57:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE02C4CEE2;
+	Wed, 26 Mar 2025 07:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742975792;
-	bh=93M97Q5kVlONcYkIQD1oTLgBJrmsEdqoHZ4roV1qLOc=;
+	s=k20201202; t=1742975970;
+	bh=GI0HQEGuZP8iCCZJg2AMr3qkP7ZGL5n1MxX6572zavY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=atJQTBWaSaSbmkMwadDwCo4Hfkoqb5TImfMBBTK35qPENk6X8U/WCXyE/HKpiXmwG
-	 o7g/Tfy6tsesiE5L2JKbHnB8Tw9tXZoFn9sLsPtgekTVx559DoTXQCVAFc6a35lLrp
-	 4JfBdjXxmFSm0DiPAa+8woSlls3S6SutNrTv/GAQ+ngqtklHo9Via3liBfIehZyyNo
-	 O0BXr1H29a26C9U9Cluz6PXekohLGCrRauJ37s92HgoeGwfhJC29yf50IxBuA6OEvE
-	 pLB02aG1Eh7Uo5H2P4e2R8h+llNlXwi6+QuFINzBcY7pjB6k94B09v0DSqKdMX2y1g
-	 0LLbw4peq9NKw==
-Date: Wed, 26 Mar 2025 08:56:27 +0100
+	b=mii7FSDEvFTIAGrC0zIiB8VfHJ0LAz2AuvEB6RwVbZDHtcEvmv3k0ttHgz/3ZDgH9
+	 MmZiI/HbumLEAUeKQWpPVH/EnqYeit9AxUYuN2d0DaCAKn0SpLAGm6lTffw6m5kyhn
+	 lTPXuo+luSJM1lqdiVIoxyFORwBKXAWltA3XaDs0/iQts31mlWzW+lK2k3fkTeiMzG
+	 bHC2I9xdZZhP3bXGV/vvZ2z90C15VvvyruQdTL0Iih5JxI5SgRmZMaU3F9Ox4V+4w3
+	 BwooPt8PPOJBzBeLa2aIpIyf1On/i5cSZQc8fjJXEdWY1zNhaGvns+YBklFSJAq0mF
+	 OzPng0TxkXGyw==
+Date: Wed, 26 Mar 2025 08:59:25 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Crystal Guo <crystal.guo@mediatek.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [v3,1/2] dt-bindings: memory-controllers: Add MediaTek DRAM
- controller interface
-Message-ID: <20250326-courageous-cobra-of-promise-2c839e@krzk-bin>
-References: <20250326063041.7126-1-crystal.guo@mediatek.com>
- <20250326063041.7126-2-crystal.guo@mediatek.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, conor+dt@kernel.org, krzk+dt@kernel.org, 
+	robh@kernel.org, hjc@rock-chips.com, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v2 2/6] dt-bindings: display: rockchip,inno-hdmi:
+ Document GRF for RK3036 HDMI
+Message-ID: <20250326-poetic-happy-peacock-a79d29@krzk-bin>
+References: <20250325132944.171111-1-andyshrk@163.com>
+ <20250325132944.171111-3-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250326063041.7126-2-crystal.guo@mediatek.com>
+In-Reply-To: <20250325132944.171111-3-andyshrk@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250326_005931_597579_230B6762 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,23 +75,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 02:30:31PM +0800, Crystal Guo wrote:
-> A MediaTek DRAM controller interface to provide the current DDR
-> data rate.
+On Tue, Mar 25, 2025 at 09:29:36PM +0800, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
 > 
-> Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
+> HDMI on RK3036 use GRF control the HSYNC/VSYNC polarity, but this part
+> is missing when it first landing upstream.
+> 
+> Document that it is mandatory for RK3036 HDMI.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 > ---
->  .../memory-controllers/mediatek,dramc.yaml    | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/memory-controllers/mediatek,dramc.yaml
+> 
+> (no changes since v1)
 
-Where is the rest of the patchset in DT patchwork? Where is any
-changelog? Cover letter? What changed here?
+Where was v1? I cannot find it.
 
-I receive dozen or hundreds of emails, so if you want to make
-it difficult for me to review, I will just ignore the patch.
-
-I mark it as changes requested.
+b4 diff '20250325132944.171111-3-andyshrk@163.com'
+Checking for older revisions
+Grabbing search results from lore.kernel.org
+Nothing matching that query.
+---
+Analyzing 7 messages in the thread
+Could not find lower series to compare against.
 
 Best regards,
 Krzysztof
