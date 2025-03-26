@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB96C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 11:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B439DC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 11:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m8s0QIY71zWKro6xSXQRXZSeXe5WAyMtXk+LtoR8l9A=; b=q8ccxULURQbnDfn2heP7sCyWG8
-	f51Aw0Cck1CDbzSmFNV3ZZB1ofN8SdNmhogFPuBKumtXAQun27gXwmvRa9T0OKZflMwSk9AuEP0qb
-	MyHVCw1F0xjHH/aAIqn1TAc1elo114PsueBVqTA8xv5VmdaLxZHoWXeZv24L27g5uAxEimsd3u/TA
-	zklA0/uLlnvl9n9KQiFMGIBI4eThglEFKgmUvCRFuj4CWAFujcJdgTPHFy2rmEROpsH2G1A8lP3fl
-	5fBb9y50loI4CO1N+fhuQF50XUGyHWiSzxVFw0kyqRIlK0pYFurs38cOdys3prYnzbCESwBPWYSY7
-	H3b5WWxw==;
+	bh=m8s0QIY71zWKro6xSXQRXZSeXe5WAyMtXk+LtoR8l9A=; b=dddlwLMGTze35Of1g2T+a9BXvu
+	Sv5ID9+0Y1T6TVN602CjeawK3WER/mE8zv5dkXl7VldjnRQRGxKnOyTrDHtTR5ESffACWjd7inleU
+	OutVDe4VOgE+ugwP9AnZQkjpP9Emjxh7CxCOdt7f8HZiOhCI9KXHV7BtZ4yj4C30PzqQPOr1nKqxE
+	Jjxc4oDG/VV0Mio0OREKBMNGB/6JObqvSHk2uwYvcVyuteYf+4WN1dyeRHuz7QYsSO5VigI6yL5a0
+	+MV0BvI1bNQw+PQ43okgDbIbdwyqWCtzXE8FDi15R25uvV2+6Yuon+mT8m3yUG9aynYj/NJ6eZ3uZ
+	9SVVadLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txOXd-00000008IgL-3iQK;
-	Wed, 26 Mar 2025 11:03:25 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1txOao-00000008JNt-34HC;
+	Wed, 26 Mar 2025 11:06:42 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txOVt-00000008IPx-3krk
+	id 1txOZ5-00000008J4Q-0b81
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 11:01:39 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43ce245c5acso81572255e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 04:01:37 -0700 (PDT)
+	Wed, 26 Mar 2025 11:04:56 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d0a037f97so36296305e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 04:04:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742986896; x=1743591696; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742987093; x=1743591893; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
          :date:message-id:reply-to;
         bh=m8s0QIY71zWKro6xSXQRXZSeXe5WAyMtXk+LtoR8l9A=;
-        b=HGCm5ATviek/pRfTD1/E5flHkFsKkFakjQg2lNLu2v1jkqEMBklZIGDhS+gnzCY/e5
-         9Q1h0q9F60OWvrl+0yWq6iu1ofwT8nVV/SJyYqf4FnqflH0adBqAFakX1wuK5jjOiNft
-         qwXX2Ow0vyOz1W8BwIzCjf4ApVeUX91JZJoyLrUniI7l8ufjGWkwto9S/KM+Nlc2sHJG
-         CdbgbCaqQbACQUWlg67l2kIQTighhdyEnAIO0DusRT9T6ehHzLGp0g/CH6WhuZkM31kG
-         PZWxXA9WT1NLHhVGAm+HoOqfzxnkMLPMXDKubpxr+p9k0mn+muTBUz+rNP27Fz9NHyQU
-         PPkQ==
+        b=mWfsEWV7rzrQ2Dn+3ZkENOTc/OilIZMh/nAadacxX/mSnAvRdKRKpthUdIMIcMn50C
+         ymqndw9p4rnb+F+EkdwfPh1NSnohAfsxODPf+mQmkU+IrS1fL9P4+X5TXFJQNFzVvPHo
+         vdYixh0vvB0nR2smcFj7epqwQgqyEUxrjufwrZ3U0BWcpUEIwT2QowNwANV3wtpvjtI4
+         MxccQdyOkQTpaiDiFdIi99HtIpJMzoTPms2WIVIYZt+vtiESxWEXh4WkxzgFjXahoEmE
+         CvLr4aT3sAGbD8OVDimj28+ZudAMkNWXhsC9V9TgAMVtqr0aXjOTPWzrbe8/nXaGSfqj
+         vrYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742986896; x=1743591696;
+        d=1e100.net; s=20230601; t=1742987093; x=1743591893;
         h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
         bh=m8s0QIY71zWKro6xSXQRXZSeXe5WAyMtXk+LtoR8l9A=;
-        b=cXuGHWxbODHOj//4q1K4Cj9RnPvf1AIAqKTQBrwHfjDFd3goOOWiKd7KxjfX6yMLz9
-         ZfLOP6tefvyrQgHna+aK0UujoVN/bwdYNLXFgrtjxIorxvmonxAuBHJtYgH+ff6gxmwz
-         TMf1KYHq3TopdZdZiX0KYQ7iOMRpNbY52DpIIlway8GCIVhNRTC8c+1wuTXB7Mv4eR/v
-         tE/aj3rbM5lEyi0/cx70xRw2OEp351iQDTtof8Fkenmo+NgG022P3Y/+dmlE8lnf5Hry
-         n6ro6QWNYr9xlEbPrjBOEt0pkhZ63kGMFUUbnwRGLytkZHNFsGhg2ur6Q1qdW44267AJ
-         nBnA==
-X-Gm-Message-State: AOJu0YzUkdccaEhxGnHqyCRx0dj8qZGuiNTRaW7Tavf/jrInYUEduNiH
-	AOchW12Kyn7ZDeJGCjVRfcVF9TxXWB7cnNT/t0t2KVdOpDbGF9zTNjnpMoNjcH6815EyW3bCeIc
-	lDZ2uTClrv3SQtLwaoSwcCxzLn0L8Gtivu3aRhJjfytHXcEpaE+FlH8Lj/MVhSjqf5asJMTiYP/
-	N/TakGKSQ6n/lGXy0d8gS9ryzRRWdV2kEQMqB+tkjgvRh/kA==
-X-Google-Smtp-Source: AGHT+IGBA2oNDwoX3vAaJuxLHM6l0qsvxKSEmFmpM5Wmf4mD/taDlkLFT9vj4nHDL4Q52ah1LmKUKhke0w==
-X-Received: from wrqb8.prod.google.com ([2002:a5d:40c8:0:b0:391:3d79:3021])
- (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:5885:0:b0:390:f4f9:8396
- with SMTP id ffacd0b85a97d-3997f912d09mr21778026f8f.28.1742986895818; Wed, 26
- Mar 2025 04:01:35 -0700 (PDT)
-Date: Wed, 26 Mar 2025 11:00:58 +0000
+        b=QP5xAtJ/ftNKnN21KiuFE58qROqpW2W95WdJ4JEhUKFEdqnFoYSIVXoYCyD7EtKyFF
+         bme7Ov2YpFexxWcRdl6m1sTYSoN08YNigtesZ1mYUq8/1FcnCcGlvBi9IthvyzPK0JGg
+         0QBwaPjJ6NXI33ITUlRzFSfQOGBWokbZ3F8oaWvtRr/jyOQQfLoS6ly70rsvbbyA1c8u
+         zPz/w6/4J72m43cdtsNcneTiUGsSKhc/3TFZRcG1aMiOIZ47x3lIfybiQwvpIUsXp9OW
+         FZjfB2iIwAmrAlH2nxm5OmggGUmIQmRelxNiXEYdRvOvXAXbZM+Fjlwi5vVGudTezWif
+         K0Bw==
+X-Gm-Message-State: AOJu0YxVHRyc9vYcTlMWcEj4iyHCkxcnjhUqMm0hyndadRpPwZzqGwO9
+	ZTEkhyflVi627ybsIPCeaMTMqlRjxixciG4IrHTSmSMKLeq9jvTPvEfK4uJDWKFwMAUjqvD2nDV
+	vIT2YhdBR73WGP7PNI5i3Acy2KIgMw/WLbQ/GLDiGCQfqDHHBqDA9I/Ja/3jdkBezAbT9bTc7/r
+	hQaoQIasot4u8wjzJ3eT70bqAguSi21qZjeftO9XNWNr19Sg==
+X-Google-Smtp-Source: AGHT+IFE7QB78vQyOL/wlLJW8RVd/ZNnGkr6KLJbVri+z1rNmymt2uSjxG1NGSBhHuOotLBvKBi8D1fjsw==
+X-Received: from wmcq22.prod.google.com ([2002:a05:600c:c116:b0:43d:b30:d2df])
+ (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:cc6:b0:43d:16a0:d82c
+ with SMTP id 5b1f17b1804b1-43d509e6539mr206451605e9.2.1742987093272; Wed, 26
+ Mar 2025 04:04:53 -0700 (PDT)
+Date: Wed, 26 Mar 2025 11:04:47 +0000
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.49.0.395.g12beb8f557-goog
-Message-ID: <20250326110059.3773318-1-keirf@google.com>
-Subject: [PATCH] arm64: mops: Do not dereference src reg for a set operation
+Message-ID: <20250326110448.3792396-1-keirf@google.com>
+Subject: [PATCH v2] arm64: mops: Do not dereference src reg for a set operation
 From: Keir Fraser <keirf@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Cc: Keir Fraser <keirf@google.com>, Kristina Martsenko <kristina.martsenko@arm.com>, 
@@ -72,8 +72,8 @@ Cc: Keir Fraser <keirf@google.com>, Kristina Martsenko <kristina.martsenko@arm.c
 	Will Deacon <will@kernel.org>, stable@vger.kernel.org, Marc Zyngier <maz@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_040137_933433_FD09494B 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250326_040455_178141_D3368FF9 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
