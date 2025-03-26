@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DB3C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 19:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF54AC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 19:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UOS4KdAPvi0833zMfNh3LkXtMGpVwfyjX04bEiIIlI=; b=1ucWTXFTEIJYkX5bKDIdZtQYJD
-	8En9hMKlE4EahFuIiekOT895Xcg9ULBjIrFYXXQWBaz574Z6Wez7EgRIIuw3Wk6nmzcN0k8g1udRD
-	Hx8pRV0opkJScctflI9IbWnnQ7am8zDQzMtgDIJEyqudzNbG4flQmYvtBvrhBcV1NJBGJ1WazkJOo
-	qHHqfXCLeP1GB6CHy2WBa6XxIM1UFE1R1ERaMqeIJyIdyoooN2mKYa+05v3rBFMDvemkCDhC8Qyxi
-	Bp5fxNxr53yQacZd5/jJmFsBFivrz3WHSqABXNKvB0LRHrNydeD3bmuMDTsrMhyOwnN6RLn0j+YhX
-	8CluFoEw==;
+	bh=G2/Y0ey40cX1kpkIbyt6pJMxZ1YhyMpToEuYX5UUKl4=; b=41N0iod2oitLNY//tvlYQZAKKA
+	isbHWDZKQW2OpTuCdAJFyYQ0OQBIeY6lihUDsGRhitxwYTWi1joO+3HvFsZiKNglTSXVSaSB17Zqj
+	FVNGc7CTik5bEMTJ+PJAUVZJHK40gabiQr/BGpqWFtdpK8QJwRJt1rnsdv4kbN6fWAMq0v5pUsUeZ
+	nD9Vld1HQ8I6FVyRZGqf9RGilWqTLQHZjrABta3B0EZGHNKGtl+A00r6DVu0ZDNFbn/ixG5Cc2E0U
+	bqz/eIDSfZqhWG0Amxiy3G65CU01DcLi7zCWi8PFBVF+gFn62QCiWskh4PeuST3oO6VVqOJgfVSHo
+	+quVjqKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txWFF-00000009Qam-0dGd;
-	Wed, 26 Mar 2025 19:16:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1txWGv-00000009QlC-3pAa;
+	Wed, 26 Mar 2025 19:18:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txWAA-00000009PzC-1L6D
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 19:11:43 +0000
+	id 1txWAB-00000009PzY-1J5o;
+	Wed, 26 Mar 2025 19:11:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B2A3CA41728;
-	Wed, 26 Mar 2025 19:06:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BA41C4CEE2;
-	Wed, 26 Mar 2025 19:11:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9FD2D44138;
+	Wed, 26 Mar 2025 19:11:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FB9BC4AF09;
+	Wed, 26 Mar 2025 19:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743016301;
-	bh=tiIHJY8jNW8iHHlx7HjUM7neSuSrJDoWYqoOqUsSgQI=;
+	s=k20201202; t=1743016302;
+	bh=FjoBf5oIKnt+BxBL5ikSxff8xK7Z5Im1gcOrV8814C0=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=shmojelXhieqvx6v56JlmhIbQ10KhC8Qo7WbeRMLiz3PNR1FYZ0hJFniTyUqEucDC
-	 ZfGKVQsxd+W9RyRZtboSTkdY64U3e3jH/fx4DWRqRQE6i7d1eNt4ikNFM/Qd3RjIFX
-	 LkY2xyn6z4tZscvrfaYagaY+/Wp1YLD9QcN4xKHkP5SDFOV4Fo9+bGg6OeoiAlIOLo
-	 uEniG8xzsOsTPZFQXZ270yXsJZUa70gvHwLrTY5Zb7oBaWXBaqSoBtGcZb35I++s2Z
-	 nhJoOSAMkjKkMkGos+W1DDh7BXq71T+f+rxsHTZNGbbU/nwIqAlzN30zDGi27t30s7
-	 NfGbQNH1POCHQ==
-Date: Wed, 26 Mar 2025 14:11:40 -0500
+	b=X8VJHKQoKx8TN6Nrrw4iVI4qoPraLVsFZAWJKgnItF1dK/53F9EYLQB5pYJXgibly
+	 xiyu5iNkZYozvEXYu2kxBf/yCi3qNE7VeRLZh+Zr8/Icir0WpkkciAGz7BM/oPuODG
+	 IeAjHVVGKEHMlh7XxXHwTk4UK/Bgpu2lXiTWZCtVJmaOrxOEcmCYgWELL9BTadg6+2
+	 gC9KMPu1s7yo0EQ5CFyxfQjDEa9j3SMZvAMh+xsgoK9S2ZFDTN3ym5Fn7x5vcMBb0L
+	 kghNDPFmQLQwX46UOq63Q10fyvnULTyKmrj1ZCSpHiFYppVXLGEcqp3wT6IjZ9+o+B
+	 sOa2/athzo7lQ==
+Date: Wed, 26 Mar 2025 14:11:41 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Shawn Guo <shawnguo@kernel.org>, 
- Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor+dt@kernel.org>, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Sascha Hauer <s.hauer@pengutronix.de>
-To: Lukasz Majewski <lukma@denx.de>
-In-Reply-To: <20250326173400.2697684-1-lukma@denx.de>
-References: <20250326173400.2697684-1-lukma@denx.de>
-Message-Id: <174301524047.2716455.5622365569020191274.robh@kernel.org>
-Subject: Re: [PATCH 1/2] ARM: dts: Update common LWE file for XEA and BTT3
- boards
+Cc: linux-rockchip@lists.infradead.org, quentin.schulz@cherry.de, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Benjamin Bara <benjamin.bara@skidata.com>, 
+ Matthias Kaehlcke <mka@chromium.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Klaus Goger <klaus.goger@theobroma-systems.com>, 
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+ linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+In-Reply-To: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
+References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
+Message-Id: <174301524097.2716484.8735882534615031646.robh@kernel.org>
+Subject: Re: [PATCH 0/5] Fix onboard USB hub instability on RK3399 Puma SoM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_121142_484359_185988FA 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20250326_121143_390907_CA6092CD 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,17 +78,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 26 Mar 2025 18:33:59 +0100, Lukasz Majewski wrote:
-> During development it has turned out that the spidev node needs to be
-> defined.
+On Wed, 26 Mar 2025 17:22:55 +0100, Lukasz Czechowski wrote:
+> The RK3399 Puma SoM contains the internal Cypress CYUSB3304 USB
+> hub, that shows instability due to improper reset pin configuration.
+> Currently reset pin is modeled as a vcc5v0_host regulator, that
+> might result in too short reset pulse duration.
+> Starting with the v6.6, the Onboard USB hub driver (later renamed
+> to Onboard USB dev) contains support for Cypress HX3 hub family.
+> It can be now used to correctly model the RK3399 Puma SoM hardware.
 > 
-> Moreover, some crucial for the systems operation, regulator properties
-> were missing.
+> The first commits in this series fix the onboard USB dev driver to
+> support all HX3 hub variants, including the CYUSB3304 found in
+> the RK3399 Puma SoM.
+> This allows to introduce fix for internal USB hub instability on
+> RK3399 Puma, by replacing the vcc5v0_host regulator with
+> cy3304_reset, used inside the hub node.
+> Please be aware that the patch that fixes USB hub instability in
+> arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi can me merged only
+> after updating the Onboard USB dev driver, otherwise the hub
+> will not work.
 > 
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> Two last commits in the series disable unrouted USB controllers
+> and PHYs on RK3399 Puma SOM and Haikou carrier board, with no
+> intended functional changes.
+> 
+> Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
 > ---
->  arch/arm/boot/dts/nxp/mxs/imx28-lwe.dtsi | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+> Lukasz Czechowski (3):
+>       usb: misc: onboard_usb_dev: fix support for Cypress HX3 hubs
+>       dt-bindings: usb: cypress,hx3: Add support for all variants
+>       arm64: dts: rockchip: fix internal USB hub instability on RK3399 Puma
+> 
+> Quentin Schulz (2):
+>       arm64: dts: rockchip: disable unrouted USB controllers and PHY on RK3399 Puma
+>       arm64: dts: rockchip: disable unrouted USB controllers and PHY on RK3399 Puma with Haikou
+> 
+>  .../devicetree/bindings/usb/cypress,hx3.yaml       |  6 +++
+>  .../arm64/boot/dts/rockchip/rk3399-puma-haikou.dts |  8 ----
+>  arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi      | 43 ++++++++++------------
+>  drivers/usb/misc/onboard_usb_dev.c                 | 10 ++++-
+>  drivers/usb/misc/onboard_usb_dev.h                 |  6 +++
+>  5 files changed, 39 insertions(+), 34 deletions(-)
+> ---
+> base-commit: 1e26c5e28ca5821a824e90dd359556f5e9e7b89f
+> change-id: 20250326-onboard_usb_dev-a7c063a8a515
+> 
+> Best regards,
+> --
+> Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+> 
+> 
 > 
 
 
@@ -106,74 +146,25 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
+ Base: base-commit 1e26c5e28ca5821a824e90dd359556f5e9e7b89f not known, ignoring
  Base: attempting to guess base-commit...
- Base: tags/next-20250326 (exact match)
+ Base: tags/next-20250326 (best guess, 2/5 blobs matched)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20250326173400.2697684-1-lukma@denx.de:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com:
 
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/interrupt-controller@80000000: failed to match any schema with compatible: ['fsl,imx28-icoll', 'fsl,icoll']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/interrupt-controller@80000000: failed to match any schema with compatible: ['fsl,imx28-icoll', 'fsl,icoll']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: nand-controller@8000c000: #size-cells: 0 was expected
-	from schema $id: http://devicetree.org/schemas/mtd/gpmi-nand.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: nand-controller@8000c000: #size-cells: 0 was expected
-	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: spi@80010000: $nodename:0: 'spi@80010000' does not match '^mmc(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/mmc/mxs-mmc.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: spi@80010000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'bus-width', 'clocks', 'non-removable', 'vmmc-supply' were unexpected)
-	from schema $id: http://devicetree.org/schemas/mmc/mxs-mmc.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: spi@80012000: Unevaluated properties are not allowed ('clocks' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spi/mxs-spi.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/spi@80012000/spidev0@0: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/spi@80012000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: spi@80014000: Unevaluated properties are not allowed ('clocks' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spi/mxs-spi.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbh-bus@80000000/interrupt-controller@80000000: failed to match any schema with compatible: ['fsl,imx28-icoll', 'fsl,icoll']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbh-bus@80000000/interrupt-controller@80000000: failed to match any schema with compatible: ['fsl,imx28-icoll', 'fsl,icoll']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/spi@80014000/spidev1@1: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: nand-controller@8000c000: #size-cells: 0 was expected
-	from schema $id: http://devicetree.org/schemas/mtd/gpmi-nand.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/spi@80014000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: spi@80016000: Unevaluated properties are not allowed ('clocks' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spi/mxs-spi.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: nand-controller@8000c000: #size-cells: 0 was expected
-	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: spi@80010000: $nodename:0: 'spi@80010000' does not match '^mmc(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/mmc/mxs-mmc.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: spi@80010000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'bus-width', 'clocks', 'non-removable', 'vmmc-supply' were unexpected)
-	from schema $id: http://devicetree.org/schemas/mmc/mxs-mmc.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: spi@80014000: Unevaluated properties are not allowed ('clocks' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spi/mxs-spi.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbh-bus@80000000/spi@80014000/spidev1@1: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbh-bus@80000000/spi@80014000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: spi@80016000: Unevaluated properties are not allowed ('clocks' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spi/mxs-spi.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/spi@80016000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/spi@80016000/spidev1@1: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: pinctrl@80018000: compatible: ['fsl,imx28-pinctrl', 'simple-bus'] is too long
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mxs.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: pinctrl@80018000: 'auart0-2pins@0', 'auart0@0', 'auart1-2pins@0', 'auart1@0', 'auart2-2pins@0', 'auart2-2pins@1', 'auart2-pins@0', 'auart3-2pins@0', 'auart3-2pins@1', 'auart3@0', 'auart4@0', 'auart4@1', 'can0@0', 'can1@0', 'duart-4pins@0', 'duart@0', 'duart@1', 'gpmi-nand@0', 'gpmi-status-cfg@0', 'hog@0', 'hog@1', 'hog@2', 'hog@3', 'i2c0@0', 'i2c0@1', 'i2c1@0', 'i2c1@1', 'lcdif-16bit@0', 'lcdif-18bit@0', 'lcdif-24bit@0', 'lcdif-sync@0', 'mac0@0', 'mac0@1', 'mac1@0', 'mmc0-4bit@0', 'mmc0-8bit@0', 'mmc0-cd-cfg@0', 'mmc0-sck-cfg@0', 'mmc1-4bit@0', 'mmc1-cd-cfg@0', 'mmc1-sck-cfg@0', 'mmc2-4bit@0', 'mmc2-4bit@1', 'mmc2-cd-cfg@0', 'mmc2-sck-cfg@0', 'mmc2-sck-cfg@1', 'pwm0@0', 'pwm2@0', 'pwm3@0', 'pwm3@1', 'pwm4@0', 'saif0@0', 'saif0@1', 'saif1@0', 'spi1@0', 'spi2@0', 'spi3@0', 'spi3@1', 'usb0@0', 'usb0@1', 'usb0id1@0', 'usb0id@0', 'usb1@0', 'usb1@1' do not match any of the regexes: 'gpio@[0-9]+$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mxs.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dtb: /apb@80000000/apbh-bus@80000000/spi@80016000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dtb: /apb@80000000/apbh-bus@80000000/spi@80016000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dtb: /apb@80000000/apbh-bus@80000000/spi@80016000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbh-bus@80000000/spi@80016000/spidev2@2: failed to match any schema with compatible: ['lwn,btt']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: pinctrl@80018000: compatible: ['fsl,imx28-pinctrl', 'simple-bus'] is too long
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mxs.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: pinctrl@80018000: 'auart0-2pins@0', 'auart0@0', 'auart1-2pins@0', 'auart1@0', 'auart2-2pins@0', 'auart2-2pins@1', 'auart2-pins@0', 'auart3-2pins@0', 'auart3-2pins@1', 'auart3@0', 'auart4@0', 'auart4@1', 'can0@0', 'can1@0', 'duart-4pins@0', 'duart@0', 'duart@1', 'gpmi-nand@0', 'gpmi-status-cfg@0', 'hog@0', 'hog@1', 'hog@2', 'hog@3', 'i2c0@0', 'i2c0@1', 'i2c1@0', 'i2c1@1', 'lcdif-16bit@0', 'lcdif-18bit@0', 'lcdif-24bit@0', 'lcdif-sync@0', 'mac0@0', 'mac0@1', 'mac1@0', 'mmc0-4bit@0', 'mmc0-8bit@0', 'mmc0-cd-cfg@0', 'mmc0-sck-cfg@0', 'mmc1-4bit@0', 'mmc1-cd-cfg@0', 'mmc1-sck-cfg@0', 'mmc2-4bit@0', 'mmc2-4bit@1', 'mmc2-cd-cfg@0', 'mmc2-sck-cfg@0', 'mmc2-sck-cfg@1', 'pwm0@0', 'pwm2@0', 'pwm3@0', 'pwm3@1', 'pwm4@0', 'saif0@0', 'saif0@1', 'saif1@0', 'spi2@0', 'spi3@0', 'spi3@1', 'usb0@0', 'usb0@1', 'usb0id1@0', 'usb0id@0', 'usb1@0', 'usb1@1' do not match any of the regexes: 'gpio@[0-9]+$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mxs.yaml#
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/digctl@8001c000: failed to match any schema with compatible: ['fsl,imx28-digctl', 'fsl,imx23-digctl']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbh-bus@80000000/digctl@8001c000: failed to match any schema with compatible: ['fsl,imx28-digctl', 'fsl,imx23-digctl']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbh-bus@80000000/digctl@8001c000: failed to match any schema with compatible: ['fsl,imx28-digctl', 'fsl,imx23-digctl']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbh-bus@80000000/digctl@8001c000: failed to match any schema with compatible: ['fsl,imx28-digctl', 'fsl,imx23-digctl']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbx-bus@80040000/lradc@80050000: failed to match any schema with compatible: ['fsl,imx28-lradc']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbx-bus@80040000/lradc@80050000: failed to match any schema with compatible: ['fsl,imx28-lradc']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbx-bus@80040000/timrot@80068000: failed to match any schema with compatible: ['fsl,imx28-timrot', 'fsl,timrot']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-2.dtb: /apb@80000000/apbx-bus@80040000/timrot@80068000: failed to match any schema with compatible: ['fsl,imx28-timrot', 'fsl,timrot']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbx-bus@80040000/timrot@80068000: failed to match any schema with compatible: ['fsl,imx28-timrot', 'fsl,timrot']
-arch/arm/boot/dts/nxp/mxs/imx28-xea-1.dtb: /apb@80000000/apbx-bus@80040000/timrot@80068000: failed to match any schema with compatible: ['fsl,imx28-timrot', 'fsl,timrot']
+arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1: 'vdd-supply' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1: 'vdd2-supply' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2: 'vdd-supply' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2: 'vdd2-supply' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: pinctrl: gpios: {'bios-disable-override-hog-pin': {'rockchip,pins': [[3, 29, 0, 190]], 'phandle': 185}, 'q7-thermal-pin': {'rockchip,pins': [[0, 3, 0, 189]], 'phandle': 184}} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
 
 
 
