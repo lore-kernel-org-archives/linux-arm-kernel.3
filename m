@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D89C3600E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 18:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37196C3600E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 18:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSshJQs9r4m1RulgZtk+BVpimPAXm4vtzmVudgOOHPM=; b=byCvh3i8ME/ma2qtZEkM/OSGJy
-	wL1O4WZpLpqjlKDMxYJrWQIi3b7lFc/Japtb3QwG5pvx2h7dywJeI4OFtBWMCphekqKqQmigjCM7w
-	Eg+Hbx1+AxMv11BFFowqTGiKySSvGnUguc1DNj+Yyu6ew+GAiLSDxCRFyJLRj8Q90lo+y5alGeJA1
-	/5j8z4Y30MMT1a23+CeoAb0XPR1bnqguUDaZ93kM3VFSphElrSJo/OMyiZPHxcPPMF1Sl+TyKucL3
-	QT3g3FGYdUkrfwMfBvTWDKx6WuiuJXB7ggsCHYqBqmMWSwrT8P+dJXGGED+B1xA8hrDSYuYQKS152
-	Em2sc7qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ltIzvHSyMn+yXF6CvBuG7zxq8JNQIhr9+oOqa5LLrpc=; b=iI0T19xf5O/AsF/+x9emXddmw3
+	iHj9RIgpm7iJ39bJATips/Evxz0N0TtgsbL9SEGj5jHs6SIV3y/ynGaKZ5xOMyypz25gTFoD6jKVd
+	Iw3azEYExWq5aZ0QI7qyjGHIGwGzG9kaYsFMd+LEj+L1SCQwSfI6vYJLWtgUNQY/m93IiAli0HOfu
+	VJCJDfnvQrOUZCNPuUpdVyNgKlUMZaEaFWX66B3BQP2653g77ClZ14jowVEMb+IXVcP86Maqw4//c
+	XE/3vBSf+8nAIgu9LGs0Qma9IRd1qeqcX6pIUh9cLnNvE9+GUtLXxFbjX8x1dvBhnmoQj7q+Inffr
+	OYvyvnFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txVuV-00000009OWJ-2c6h;
-	Wed, 26 Mar 2025 18:55:31 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1txVwC-00000009Of7-1Vaz;
+	Wed, 26 Mar 2025 18:57:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txVrh-00000009OHw-1TXP
+	id 1txVs7-00000009OML-1sZ4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 18:52:38 +0000
-Date: Wed, 26 Mar 2025 11:51:57 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1743015153;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FSshJQs9r4m1RulgZtk+BVpimPAXm4vtzmVudgOOHPM=;
-	b=LShVKNPZ6tCQ+oRaWLBf37sMD9m9kLZ1yV8CQVogM0OEPbYG6Zx/v0bZJqxgtmr5Tfs8lv
-	GXloeObhq8Mw9QPkel4lZfRvub7HRjUx/bgqZ08AFXisEvRmgzxz2ZRuxTRd0Ac8ppKgZq
-	o9ote564OApjCSKkwU5wEfzbIGHon1M=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Ankit Agrawal <ankita@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com" <david@redhat.com>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	Krishnakant Jaju <kjaju@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <Z-RMzYHOzc36H7yR@linux.dev>
-References: <20250319170429.GK9311@nvidia.com>
- <Z9sItt8BIgvbBY8M@arm.com>
- <20250319192246.GQ9311@nvidia.com>
- <Z9s7r2JocpoM_t-m@arm.com>
- <SA1PR12MB7199C7BD48EB39F536DD34DBB0A62@SA1PR12MB7199.namprd12.prod.outlook.com>
- <Z-QU7qJOf8sEA5R8@google.com>
- <86y0wrlrxt.wl-maz@kernel.org>
- <Z-QnBcE1TKPChQay@google.com>
- <86wmcbllg2.wl-maz@kernel.org>
- <Z-RGYO3QVj5JNjRB@google.com>
+	Wed, 26 Mar 2025 18:53:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 62387A40EF6
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 18:47:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AF4AC4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 18:53:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743015182;
+	bh=7tnbCUTKMpPo8aoqQiYW410Hhe5LPNkwVR28/52KUGY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=snLlwT1ByOOZ8VDdLTGeiVAiEWrHtg3EvWVkctlzQIGFZzDT7XBzN2DIIFpHVRuA4
+	 QWSXjBNoMYxPNGrYI7EhmcSj0AeKKRNkXc7ncCYbP0fslp4P4+jMIkZIAktw92xzl9
+	 f/6pVTEXC4NSXGu4xof5rtvBej+C0GDqtW1wkGhV6Wi2YRwu2jpb0Lyghf8UlzytoG
+	 WwQ6DMNodUQHQk2VpoXa2/y89pLaPCLpwF+ISbR4hp6cRaabZWfTVWMtcr/ZSfSmh8
+	 jwKqvjyFp2FKpKOIs73vDRG4Rw8NplM2rXgHf/zkk7H07J9bPh8EYwSA5OcJVoLYAh
+	 Co5wZxznPQ7aQ==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-ac2a089fbbdso32945066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 11:53:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW5nM7AzXK5h3akOu5Aq+kYyww+hAPbJidu+n522Zh95McHAZ5rrk30syV4Gq4iPDYsL7CxWQP86ZlWMrKJplIJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxueJyumpfJqkzDWo7IdshGfuyAf6tz1c9hiGNC4hXDucYzAphs
+	VV5lJMEOixqYNIFC66HcfG0DHyjbpLgeppdnIxJrzQsTXmhSef5O4BtyLnliZsOInWuByBd0M9o
+	L5BkA5h/HYqoo82O8K7h2QtbkNA==
+X-Google-Smtp-Source: AGHT+IEi/FLkb6+pDXS2OgDct0wDDLVjgAusO19cQUp3SH7xeV/KwpO2rct7/toV7PxXM7MD6oHfl5OWID6sUvuLyTI=
+X-Received: by 2002:a17:907:7295:b0:ac2:26a6:febf with SMTP id
+ a640c23a62f3a-ac6e0d3384emr557164766b.20.1743015180452; Wed, 26 Mar 2025
+ 11:53:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z-RGYO3QVj5JNjRB@google.com>
-X-Migadu-Flow: FLOW_OUT
+References: <20250317232426.952188-1-robh@kernel.org> <20250317232426.952188-3-robh@kernel.org>
+ <CAGb2v65djD5DLQnjQrp9kSHTQYVd9p_vP9WySj2Cx81rHmh5Mw@mail.gmail.com>
+In-Reply-To: <CAGb2v65djD5DLQnjQrp9kSHTQYVd9p_vP9WySj2Cx81rHmh5Mw@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 26 Mar 2025 13:52:49 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqLoJAwPeWjXyQYK1rvVzn6Meapz3iS9gW+QqYpYKuJkBQ@mail.gmail.com>
+X-Gm-Features: AQ5f1Jqmc05lmNw-rFmLFhT71JwYvVm4xio8OJGuHie4RorDqomqBJbJolJsSNo
+Message-ID: <CAL_JsqLoJAwPeWjXyQYK1rvVzn6Meapz3iS9gW+QqYpYKuJkBQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] of: Simplify of_dma_set_restricted_buffer() to use of_for_each_phandle()
+To: wens@kernel.org
+Cc: Saravana Kannan <saravanak@google.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_115237_669641_98F7AEEE 
-X-CRM114-Status: GOOD (  34.71  )
+X-CRM114-CacheID: sfid-20250326_115303_610019_F10B5007 
+X-CRM114-Status: GOOD (  28.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,82 +91,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 11:24:32AM -0700, Sean Christopherson wrote:
-> > > But I thought the whole problem is that mapping this fancy memory as device is
-> > > unsafe on non-FWB hosts?  If it's safe, then why does KVM needs to reject anything
-> > > in the first place?
-> > 
-> > I don't know where you got that idea. This is all about what memory
-> > type is exposed to a guest:
-> > 
-> > - with FWB, no need for CMOs, so cacheable memory is allowed if the
-> >   device supports it (i.e. it actually exposes memory), and device
-> >   otherwise.
-> > 
-> > - without FWB, CMOs are required, and we don't have a host mapping for
-> >   these pages. As a fallback, the mapping is device only, as this
-> >   doesn't require any CMO by definition.
-> > 
-> > There is no notion of "safety" here.
-> 
-> Ah, the safety I'm talking about is the CMO requirement.  IIUC, not doing CMOs
-> if the memory is cacheable could result in data corruption, i.e. would be a safety
-> issue for the host.  But I missed that you were proposing that the !FWB behavior
-> would be to force device mappings.
+On Wed, Mar 26, 2025 at 1:44=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrot=
+e:
+>
+> Hi,
+>
+> On Tue, Mar 18, 2025 at 7:29=E2=80=AFAM Rob Herring (Arm) <robh@kernel.or=
+g> wrote:
+> >
+> > Simplify of_dma_set_restricted_buffer() by using of_property_present()
+> > and of_for_each_phandle() iterator.
+> >
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> >  drivers/of/device.c | 34 +++++++++++++---------------------
+> >  1 file changed, 13 insertions(+), 21 deletions(-)
+> >
+> > diff --git a/drivers/of/device.c b/drivers/of/device.c
+> > index edf3be197265..bb4a47d58249 100644
+> > --- a/drivers/of/device.c
+> > +++ b/drivers/of/device.c
+> > @@ -35,44 +35,36 @@ EXPORT_SYMBOL(of_match_device);
+> >  static void
+> >  of_dma_set_restricted_buffer(struct device *dev, struct device_node *n=
+p)
+> >  {
+> > -       struct device_node *node, *of_node =3D dev->of_node;
+> > -       int count, i;
+> > +       struct device_node *of_node =3D dev->of_node;
+> > +       struct of_phandle_iterator it;
+> > +       int rc, i =3D 0;
+> >
+> >         if (!IS_ENABLED(CONFIG_DMA_RESTRICTED_POOL))
+> >                 return;
+> >
+> > -       count =3D of_property_count_elems_of_size(of_node, "memory-regi=
+on",
+> > -                                               sizeof(u32));
+> >         /*
+> >          * If dev->of_node doesn't exist or doesn't contain memory-regi=
+on, try
+> >          * the OF node having DMA configuration.
+> >          */
+> > -       if (count <=3D 0) {
+> > +       if (!of_property_present(of_node, "memory-region"))
+> >                 of_node =3D np;
+> > -               count =3D of_property_count_elems_of_size(
+> > -                       of_node, "memory-region", sizeof(u32));
+> > -       }
+> >
+> > -       for (i =3D 0; i < count; i++) {
+> > -               node =3D of_parse_phandle(of_node, "memory-region", i);
+> > +       of_for_each_phandle(&it, rc, of_node, "memory-region", NULL, 0)=
+ {
+> >                 /*
+> >                  * There might be multiple memory regions, but only one
+> >                  * restricted-dma-pool region is allowed.
+> >                  */
+> > -               if (of_device_is_compatible(node, "restricted-dma-pool"=
+) &&
+> > -                   of_device_is_available(node)) {
+> > -                       of_node_put(node);
+> > -                       break;
+> > +               if (of_device_is_compatible(it.node, "restricted-dma-po=
+ol") &&
+> > +                   of_device_is_available(it.node)) {
+> > +                       if (!of_reserved_mem_device_init_by_idx(dev, of=
+_node, i)) {
+> > +                               of_node_put(it.node);
+> > +                               return;
+> > +                       }
+> >                 }
+> > -               of_node_put(node);
+> > +               i++;
+> >         }
+> >
+> > -       /*
+> > -        * Attempt to initialize a restricted-dma-pool region if one wa=
+s found.
+> > -        * Note that count can hold a negative error code.
+> > -        */
+> > -       if (i < count && of_reserved_mem_device_init_by_idx(dev, of_nod=
+e, i))
+> > -               dev_warn(dev, "failed to initialise \"restricted-dma-po=
+ol\" memory node\n");
+> > +       dev_warn(dev, "failed to initialise \"restricted-dma-pool\" mem=
+ory node\n");
+>
+> This changes the behavior. Before this patch, it was:
+>
+>     if a restricted dma pool was found, but initializing it failed, print
+>     a warning.
+>
+> Whereas now it has become:
+>
+>      print a warning unless a restricted dma pool was found and successfu=
+lly
+>      initialized.
+>
+> This change causes the kernel to print out the warning for devices that
+> don't even do DMA:
 
-To Jason's earlier point, you wind up with a security issue the other
-way around.
+Thanks. I fixed it up to only warn if i is non-zero.
 
-Supposing the host is using a cacheable mapping to, say, zero the $THING
-at the other end of the mapping. Without a way to CMO the $THING we
-cannot make the zeroing visible to a guest with a stage-2 Device-* mapping.
-
-Marc, I understand that your proposed fallback is aligned to what we
-do today, but I'm actually unconvinced that it provides any reliable/correct
-behavior. We should then wind up with stage-2 memory attribute rules
-like so:
-
- 1) If struct page memory, use a cacheable mapping. CMO for non-FWB.
-
- 2) If cacheable PFNMAP:
-   a) With FWB, use a cacheable mapping
-   b) Without FWB, fail.
-
- 3) If VM_ALLOW_ANY_UNCACHED, use Normal Non-Cacheable mapping
-
- 4) Otherwise, Device-nGnRE
-
-I understand 2b breaks ABI, but the 'typical' VFIO usages fall into (3)
-and (4).
-
-> > > > Importantly, it is *userspace* that is in charge of deciding how the
-> > > > device is mapped at S2. And the memslot flag is the correct
-> > > > abstraction for that.
-> > >  
-> > > I strongly disagree.  Whatever owns the underlying physical memory is in charge,
-> > > not userspace.  For memory that's backed by a VMA, userspace can influence the
-> > > behavior through mmap(), mprotect(), etc., but ultimately KVM needs to pull state
-> > > from mm/, via the VMA.  Or in the guest_memfd case, from guest_memfd.
-> > 
-> > I don't buy that. Userspace needs to know the semantics of the memory
-> > it gives to the guest. Or at least discover that the same device
-> > plugged into to different hosts will have different behaviours. Just
-> > letting things rip is not an acceptable outcome.
-> 
-> Agreed, but that doesn't require a memslot flag.  A capability to enumerate that
-> KVM can do cacheable mappings for PFNMAP memory would suffice.  And if we want to
-> have KVM reject memslots that are cachaeable in the VMA, but would get device in
-> stage-2, then we can provide that functionality through the capability, i.e. let
-> userspace decide if it wants "fallback to device" vs. "error on creation" on a
-> per-VM basis.
-> 
-> What I object to is adding a memslot flag.
-
-A capability that says "I can force cacheable things to be cacheable" is
-useful beyond even PFNMAP stuff. A pedantic but correct live migration /
-snapshotting implementation on non-FWB would need to do CMOs in case the
-VM used a non-WB mapping for memory.
-
-Thanks,
-Oliver
+Rob
 
