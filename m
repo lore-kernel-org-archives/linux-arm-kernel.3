@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F381FC3600E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 20:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B770C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 20:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xizmRrUy/BwEbc5ygOnCziYgTJp+/wXS4T9DQi0oG8o=; b=ZhzuX5z7nxHjdFyZQJuLF1gz0q
-	m+YbSSqPRuak94NrCaQwDJQrxi4NPp6REsKCC2EPGgRV46S2SQsAjrw35AVum5acHHnaOuzjYz0mc
-	RezOCmlYBKT3V3xB3GqdvyTtfWxe6mdwpkzT8nVh1hj2vypEyM7dojChb+0LanCLgy2o6bsP6tkMi
-	toNMMZM5FccNFC3xcHdM2CLh3+7zc/f9VUltGLwvaFH9yRyQaekgz17yzn6MRRwqFVoLDnrriCcgS
-	3s2/a1fIfwmfFBOl/PtxqBKrt3tLTcEWNYk/fni6y31fHsp1LzV0tPpbU8Qcsvi5TFHPl79izxT/6
-	2ZgCHx0Q==;
+	bh=5W7eit3LvJ+Cj4I9mmTKcAopJ4/V9ebVZTl7mNDE+uo=; b=mQegvyf7DqHHguBPHQKv5HX4Hw
+	ZEsGA0YdKsPyIfsx/z/qZNkjZ14CClfhsiDbBvJA/3GvVMgpxTd0PLLnhNkFyLu2djjAwbfmznvhd
+	9lcCMKYeYgs+XfNKzoVna8oLqf5RJ7B06oWXyU5gfpPyYZYrICRq78f0RM2RPq9eTRwchxuOkU/aU
+	yv7Om4zRjKVDSakiQ+nLijtKr4mpiVEbrFjzem7SV45soMvXowFHnd8yceVveCiA9U+6CDLy3w2vy
+	tlFe48soK29eSQQ5xPI6zh8lwl6KDIrjbzqrPvfNB8E5MeViUwZhcKDxdg8P57E5Acid9Cg/kMABY
+	eBm5HdWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txXhA-00000009adr-1iVt;
-	Wed, 26 Mar 2025 20:49:52 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1txXoJ-00000009bDc-0dp8;
+	Wed, 26 Mar 2025 20:57:15 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txXfR-00000009aMx-0UYP
+	id 1txXma-00000009b5y-1gmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 20:48:06 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7c546334bdeso24845285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 13:48:04 -0700 (PDT)
+	Wed, 26 Mar 2025 20:55:29 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6e8fce04655so1926206d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 13:55:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1743022083; x=1743626883; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1743022527; x=1743627327; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=xizmRrUy/BwEbc5ygOnCziYgTJp+/wXS4T9DQi0oG8o=;
-        b=QM5Zy4uCUdsXo7Aszgjzn2B1Cd57ivWdhIwfBV3fStVDIyhbimrwm5VVsIvv5iIza8
-         VuFSAXiPQh03+LjSD6zRYXehWX6bzBtrqQsxdqeWSJQ1qsW5paMtN7JluUAS4cVbN+3o
-         rlrKGgklebifPFAcUW4rvtQY3SFKC2ZDyBTiAuKtKD+K5sjU1Nhv51Ms2NViGuE539k6
-         xbtjcbC5qViux0OvJopuwDyhqe2e8RRk4/RZe6m+EkW5GatQaWVdWAwpDzWbjf1NisU+
-         N3Dmt0jeq1V9E/djnLa7VE2rTEDLOyVnZDTyN5/WCsmJFJXxQW5Gd3lMVAqamt3D42eU
-         k5jw==
+        bh=5W7eit3LvJ+Cj4I9mmTKcAopJ4/V9ebVZTl7mNDE+uo=;
+        b=kKacjFwsjQRExlBWHZPfOJvuvxDGuM1YrevRcjLnxvTys7sHCXLhOUgfoWX5GoIkJm
+         iNz0KSCWXhgb7jSf2q0KT/GjzUk96bTciwNVoZiquJ3he0SXw7c+0BNH498ZUoKjAKkn
+         opy8Cx0tzzFldy/3J2IxBrxACzqeNqd2Ll/oOn01rcE6AP4V6ehcnsJFPDI5+a+q5TUG
+         5p7lYkivdiHXrWgr0AJnGprebq/yvDegZ3Oy7IOKETREVDxVSJf8G2xkT3FDdak4PWTU
+         paqnFzAit6q8D0CrdwcZhtKrLOeA5YyQSmLttBnnuwi5pf4b1D3gD2MpoxkmzZZ7yred
+         OS6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743022083; x=1743626883;
+        d=1e100.net; s=20230601; t=1743022527; x=1743627327;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=xizmRrUy/BwEbc5ygOnCziYgTJp+/wXS4T9DQi0oG8o=;
-        b=ZqB/nfRTaoFxiDbJWbKMPoGT1sTReKZIAhZ7gqShMhbGWZ4UdYfeuPNYTku+yUT7iI
-         ySpppp6rK5/9FiQ0eSa1VVq33YpTmV4awlLF5Vws9eBmCJljDtouCgCg8ymoHWFbNx29
-         cF54SMI471fx3KZI4EjE1Fs2pHaNc/KISuuTmFAK4nbTyOD11Wjum1ZRxlFemhT8xqIP
-         IVn1JngluujfEROi16+5boqOxghWPLb+UTVf/9WMCWQdLNoDhuhesMiiQD8rIKF7v1N1
-         54joRjXb40Z8afT4cHv2PJNkqi0XRiJVcdrW/wxZhiBb1oUPUavwVEH9nNToDN1Zq9Hy
-         bqOw==
-X-Forwarded-Encrypted: i=1; AJvYcCXm/EYDJx+qN+qjMb0QyuYvPQ1Y/mGjWjlYwpnjrt0l5y45vms23fjpZ+up7Ld/pexwX3upiEDFns3fGvksfduu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHasgRgRjKNQzHVZUN4N6i2Vm9yvh8O7IMQB6224jdOj9elQKR
-	0ist4oel0dMDEImf+4wXHVDa9UlkmZzjpEqIiwQHnTLcovpOGYpJj1w4/mZ+aTM=
-X-Gm-Gg: ASbGncsqfLBWag4dtTdmvFbvAkudzm401pqKg8Ot1Bpquzdc6OwSUJkF1/sXPOcwyXl
-	WDIpOmPuLRDA2qU1sPDfH4YHIm0RwZRgQiKCC2Vwg2DpR0FIcahGPXsXbqiIOKBRUG4jEZiePOz
-	FtmFuQBeFpPoTgJNJfL+eZZuiBMOb2+V8JE9xoKZ9+P+2PMXjnhZSvvgEAnnQIpMIPjmgCubKPE
-	E6QrbXLczrWeXTWOGQq8YKz/PGKSQqNIABmOQCc8xvUor8strC6R8ElmaEx3h6Sr0730r1ur7hn
-	B5Ln+PSl7EsvshbDIHPxxgyu8Q6cRlZ/kom5NrCh9IvlZ58OdQ==
-X-Google-Smtp-Source: AGHT+IGMCWLDibsmVi5EcOxTULZGbG+WtX8/19nsRNAN+Bh0W6Son3SwU9gdOK6uViYv86bCBZjgzw==
-X-Received: by 2002:a05:620a:4247:b0:7c5:6396:f161 with SMTP id af79cd13be357-7c5eda82f01mr176278785a.49.1743022083288;
-        Wed, 26 Mar 2025 13:48:03 -0700 (PDT)
+        bh=5W7eit3LvJ+Cj4I9mmTKcAopJ4/V9ebVZTl7mNDE+uo=;
+        b=PoVCmMAkiUEaWYohGi8rgaeH+jYco0+fuFJKenF2C5swmnsP5THqskQIcPdZymVTKQ
+         s1fKrcw+QkFUKBDhom1bKE+0A9qxxGL0BEQ36Ls21oMFlm2bPTsPfKfxKZIQM14lMnzR
+         KhN/mQgI8Y6P6CQFjEd18S7zw6z/BCFAMJcrYjRpOwWirFnHEDXuJnjifU/REZi5FQ0n
+         Abcb5LUpyQu8GpEHn9CsUCqhsQOtVVbj/Ykoimn7qcOdFibQ18zO4jsjg3+1dqCMWvOL
+         IuOiiy46sme8inA9T4ZiK1aDlpHAhfNl9llFtZY8U6iyjVSEI1oVaIC3Hp1AilIAQCCJ
+         Z2jQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVbNEjkMGYZ6LjkaWwtWlU4ae8J6/WedYiUYcWKVAglBqeW7dUpXDIEP/Gc40yA5UUBKm3X4UmRRl4jldSMMGf9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8RLgrxL6xvAgJ6xJjpoD9kQYC8ed95klkOrkLbdEiTmTizEU1
+	9VAf566V8pNBiMhuDPDSLupAzDZjE5SG77LDIeL0/LTMYE5/5yRblGZ0iqrOc9E=
+X-Gm-Gg: ASbGncv3Nwi6dOGa5Jqcs3Alq25g/P6wIABBQKNpKCUjQjjqdw/aRnxCsbLyVyBicOh
+	cj+KOA9BWqO1wmfVTLHRFYCxH2Sg8ogujBMS0lpJip03z9t67XawwEiK2A+TshAgC6MUA3ygC4H
+	uSH0EgKZANDeAegTySb0jyvuuVwEsJJ28lJvObJf1JS8HhaF7eAOXQRwFL06GEoYMnNHRMOHhT0
+	qSFrZgakWOp8N/pIlR0ojOPArqHOtWR41r49bllKls+0f/Gw97dJCmXRz/JIijEcy/vKidNe5kn
+	YrFwFTndzSHWZHZ9mX0WDW1FQxaJVyVzXvOHlEkAFhd699AiyA==
+X-Google-Smtp-Source: AGHT+IHbfejsmynMze516eRewXRtjx57eaFY2IsodhkGJRNoTFNQq3NQr/NHsm2iVzU1A+1ZgZFRqw==
+X-Received: by 2002:a05:6214:cc1:b0:6eb:2fd4:30a7 with SMTP id 6a1803df08f44-6ed23934b0dmr10501496d6.33.1743022526776;
+        Wed, 26 Mar 2025 13:55:26 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:11:e976::5ac? ([2606:6d00:11:e976::5ac])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c5b9348e23sm806915085a.78.2025.03.26.13.48.02
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6eb3efda74esm70987466d6.102.2025.03.26.13.55.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Mar 2025 13:48:02 -0700 (PDT)
-Message-ID: <c61a522d82bd9375e73d6f9c57f8ca4b0de258e0.camel@ndufresne.ca>
-Subject: Re: [PATCH v3 1/2] media: amphion: Reduce decoding latency for HEVC
+        Wed, 26 Mar 2025 13:55:26 -0700 (PDT)
+Message-ID: <927a67500f3e4495e7efe03f3d3c8250a393192d.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 2/2] media: amphion: Add a frame flush mode for
  decoder
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: ming.qian@oss.nxp.com, mchehab@kernel.org, hverkuil-cisco@xs4all.nl
@@ -78,16 +78,17 @@ Cc: sebastian.fricke@collabora.com, shawnguo@kernel.org,
  linux-imx@nxp.com, xiahong.bao@nxp.com, 	eagle.zhou@nxp.com,
  imx@lists.linux.dev, linux-media@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Wed, 26 Mar 2025 16:48:01 -0400
-In-Reply-To: <20250305062630.2329032-1-ming.qian@oss.nxp.com>
+Date: Wed, 26 Mar 2025 16:55:25 -0400
+In-Reply-To: <20250305062630.2329032-2-ming.qian@oss.nxp.com>
 References: <20250305062630.2329032-1-ming.qian@oss.nxp.com>
+	 <20250305062630.2329032-2-ming.qian@oss.nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_134805_285995_6B11DD8C 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20250326_135528_445734_586DF0D8 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,129 +103,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
 Le mercredi 05 mars 2025 =C3=A0 14:26 +0800, ming.qian@oss.nxp.com a =C3=A9=
 crit=C2=A0:
 > From: Ming Qian <ming.qian@oss.nxp.com>
 >=20
-> The amphion decoder firmware supports a low latency flush mode for the
-> HEVC format since v1.9.0. This feature, which is enabled when the
-> display delay is set to 0, can help to reduce the decoding latency by
-> appending some padding data to every frame.
+> By default the amphion decoder will pre-parse 3 frames before starting
+> to decode the first frame. Alternatively, a block of flush padding data
+> can be appended to the frame, which will ensure that the decoder can
+> start decoding immediately after parsing the flush padding data, thus
+> potentially reducing decoding latency.
+>=20
+> This mode was previously only enabled, when the display delay was set to
+> 0. Allow the user to manually toggle the use of that mode via a module
+> parameter called frame_flush_mode, which enables the mode without
+> changing the display order.
 
-Just curiosity, does it stay spec compliant or not ? Perhaps share some
-compliance (fluster) results ?
+Ok, so in short the DISPLAY_DELAY breaks the reodering like intended,
+while this module parameter only reduce the delay. Perhaps I'll ask
+again, is is compliant or does it break some test vectors ?=20
 
 >=20
 > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 > ---
 > v3
 > - Improve commit message as recommended
-> v2
-> - Improve commit message
-> - Add firmware version check
+> - Add some comments to avoid code looks cryptic
 >=20
-> =C2=A0drivers/media/platform/amphion/vpu_malone.c | 22 ++++++++++++++++++=
----
-> =C2=A01 file changed, 19 insertions(+), 3 deletions(-)
+> =C2=A0drivers/media/platform/amphion/vpu_malone.c | 14 +++++++++++++-
+> =C2=A01 file changed, 13 insertions(+), 1 deletion(-)
 >=20
 > diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/=
 platform/amphion/vpu_malone.c
-> index 5c6b2a841b6f..1d9e10d9bec1 100644
+> index 1d9e10d9bec1..4ef9810d8142 100644
 > --- a/drivers/media/platform/amphion/vpu_malone.c
 > +++ b/drivers/media/platform/amphion/vpu_malone.c
-> @@ -68,6 +68,9 @@
+> @@ -25,6 +25,10 @@
+> =C2=A0#include "vpu_imx8q.h"
+> =C2=A0#include "vpu_malone.h"
 > =C2=A0
-> =C2=A0#define MALONE_DEC_FMT_RV_MASK			BIT(21)
-> =C2=A0
-> +#define MALONE_VERSION_MASK			0xFFFFF
-> +#define MALONE_MIN_VERSION_HEVC_BUFFLUSH	(((1 << 16) | (9 << 8) | 0) & M=
-ALONE_VERSION_MASK)
+> +static bool frame_flush_mode;
+> +module_param(frame_flush_mode, bool, 0644);
+> +MODULE_PARM_DESC(frame_flush_mode, "Set low latency flush mode: 0 (disab=
+le) or 1 (enable)");
 
-Just a suggestion, could also use an inline function.
-
-#define MALONE_VERSION(maj, min, inc)   (((maj) << 16) | ((min) << 16) | (i=
-nc)) & MALONE_VERSION_MASK)
-#define CHECK_VERSION(iface, maj, min)	((iface->fw_version & MALONE_VERSION=
-_MASK) >=3D MALONE_VERSION(maj, min, 0))
+Depending on the explanation, I may come back and suggest a different
+name for it. Meanwhile, have you consider simply "low_latency" ?
 
 > +
-> =C2=A0enum vpu_malone_stream_input_mode {
-> =C2=A0	INVALID_MODE =3D 0,
-> =C2=A0	FRAME_LVL,
-> @@ -332,6 +335,8 @@ struct vpu_dec_ctrl {
-> =C2=A0	u32 buf_addr[VID_API_NUM_STREAMS];
-> =C2=A0};
+> =C2=A0#define CMD_SIZE			25600
+> =C2=A0#define MSG_SIZE			25600
+> =C2=A0#define CODEC_SIZE			0x1000
+> @@ -1579,7 +1583,15 @@ static int vpu_malone_input_frame_data(struct vpu_=
+malone_str_buffer __iomem *str
 > =C2=A0
-> +static const struct malone_padding_scode *get_padding_scode(u32 type, u3=
-2 fmt);
-> +
-> =C2=A0u32 vpu_malone_get_data_size(void)
-> =C2=A0{
-> =C2=A0	return sizeof(struct vpu_dec_ctrl);
-> @@ -654,9 +659,16 @@ static int vpu_malone_set_params(struct vpu_shared_a=
-ddr *shared,
-> =C2=A0		hc->jpg[instance].jpg_mjpeg_interlaced =3D 0;
-> =C2=A0	}
+> =C2=A0	vpu_malone_update_wptr(str_buf, wptr);
 > =C2=A0
-> -	hc->codec_param[instance].disp_imm =3D params->display_delay_enable ? 1=
- : 0;
-> -	if (malone_format !=3D MALONE_FMT_AVC)
-> +	if (params->display_delay_enable &&
-> +	=C2=A0=C2=A0=C2=A0 get_padding_scode(SCODE_PADDING_BUFFLUSH, params->co=
-dec_format))
-> +		hc->codec_param[instance].disp_imm =3D 1;
-> +	else
-> =C2=A0		hc->codec_param[instance].disp_imm =3D 0;
-> +
-> +	if (params->codec_format =3D=3D V4L2_PIX_FMT_HEVC &&
-> +	=C2=A0=C2=A0=C2=A0 (iface->fw_version & MALONE_VERSION_MASK) < MALONE_M=
-IN_VERSION_HEVC_BUFFLUSH)
+> -	if (disp_imm && !vpu_vb_is_codecconfig(vbuf)) {
+> +	/*
+> +	 * Enable the low latency flush mode if display delay is set to 0
+> +	 * or parameter frame_flush_mode is set to 1.
+> +	 * The low latency flush mode requires some padding data to be appended=
+ after each frame,
+> +	 * but don't put it in between the sequence header and frame.
+> +	 * Only H264 and HEVC decoder support this module yet,
+> +	 * for other formats, vpu_malone_add_scode() will return 0.
+> +	 */
+> +	if ((disp_imm || frame_flush_mode) && !vpu_vb_is_codecconfig(vbuf)) {
+> =C2=A0		ret =3D vpu_malone_add_scode(inst->core->iface,
+> =C2=A0					=C2=A0=C2=A0 inst->id,
+> =C2=A0					=C2=A0=C2=A0 &inst->stream_buffer,
 
-So if could be:
-	    !CHECK_VERSION(iface, 1, 9)
+In principle I'm fine with adding a module parameters, I just want to
+know more about it, perhaps we should add small hints in the
+description (or a comment in the code).
 
-There might be even better ways, this is not a hard request from me
-though.
-
-> +		hc->codec_param[instance].disp_imm =3D 0;
-> +
-> =C2=A0	hc->codec_param[instance].dbglog_enable =3D 0;
-> =C2=A0	iface->dbglog_desc.level =3D 0;
-> =C2=A0
-> @@ -1024,6 +1036,7 @@ static const struct malone_padding_scode padding_sc=
-odes[] =3D {
-> =C2=A0	{SCODE_PADDING_EOS,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_PIX_FMT_JPE=
-G,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 {0x0, 0x0}},
-> =C2=A0	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264,=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 {0x15010000, 0x0}},
-> =C2=A0	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264_MVC,=C2=A0=C2=A0=C2=A0 =
-{0x15010000, 0x0}},
-> +	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_HEVC,=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 {0x3e010000, 0x20}},
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct malone_padding_scode padding_scode_dft =3D {0x0=
-, 0x0};
-> @@ -1058,8 +1071,11 @@ static int vpu_malone_add_padding_scode(struct vpu=
-_buffer *stream_buffer,
-> =C2=A0	int ret;
-> =C2=A0
-> =C2=A0	ps =3D get_padding_scode(scode_type, pixelformat);
-> -	if (!ps)
-> +	if (!ps) {
-> +		if (scode_type =3D=3D SCODE_PADDING_BUFFLUSH)
-> +			return 0;
-> =C2=A0		return -EINVAL;
-> +	}
-> =C2=A0
-> =C2=A0	wptr =3D readl(&str_buf->wptr);
-> =C2=A0	if (wptr < stream_buffer->phys || wptr > stream_buffer->phys + str=
-eam_buffer->length)
-
-With or without the adjustments.
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
 
