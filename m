@@ -4,95 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24678C36011
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 17:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99644C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Mar 2025 17:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YlX138X0XD6VY0/PSMsdwRSoZx6II/giCuqBLoh1aW4=; b=pXGLJpA+YD1cF14hYLBTbkI97j
-	F1YPLDWZI4DGMHIN+uLiIJkyLYa8a2N2QfQV6Mug7PbekHTU0xma3A6vPCpjnZ66MDJVsxKs+lr+w
-	X/EPF7fCKNyu4urOyL857EECeV54aZBiXdVspEIvhRI11Vc5D2DGQ7a9FE/mt/uJIFu2m0dhKNCTF
-	qKrUbmwlaIQN1IUVebhNTDhpFKqwNfCudNCz6bPgL6XsFXRdaFN+p6KsKhaGxurZJl2+93CpfH81O
-	H+6Wzxl6E17iefEmPygmiRDIWzvyUxcG7gptgo5S+i9JzDWg5zIykZs/27PuBdXbDjbCqGJVDnLhi
-	AaDQ+ZUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kN4eEWfq6WjOZLuUP1/ARr19GgVdcIcs0TXSNJQgbD8=; b=B0yq/9lqmdiqCq55SyQp9OnbRd
+	fQn0SetPyjwL7QBRKKdfptelMKq42QkR36UNzAaNNoeAPNSgcX6llhNrwKUOh/P7rsYtoNLNyyLcZ
+	Q+ETpcxNOQ/YFdkLrX5CIK+jP65YBKpbGFihwLfma2eBucuMgVwaCxE8wF2FomnOTkNXL9fYADEXh
+	h95F1005HlV7PR8kb3/l1GWqvF/7SUwBorVHvL29Rx7Ya8xwZxYaIAGX/SSMumGd922He2OHFcPGC
+	XgDwXd6GU3yFs40QmTXz5bvBooIPpG4uOf5jSSr0KJcv2GgcOgjMUXTPNzo30mrTXdc8Sq1DGA57Q
+	FzeWHKrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txUVb-00000009ARR-48F4;
-	Wed, 26 Mar 2025 17:25:43 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1txUXO-00000009BMh-069y;
+	Wed, 26 Mar 2025 17:27:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txTyR-0000000949U-1EkM
+	id 1txUHc-000000097PO-1Otp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Mar 2025 16:51:28 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5e673822f76so13199a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:51:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1743007885; x=1743612685; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=YlX138X0XD6VY0/PSMsdwRSoZx6II/giCuqBLoh1aW4=;
-        b=gLtWBb0nY5k4lONk+m2nQDwqFyyhA9SYbv/zetmSTayjL+rccKiR9a7nqee91NZHJ7
-         BYEx14f1kl0MM8ozL9PLrWOOk8fE0qMVlStjEb632wMKVC3AqtsX/50CBWUMAlgB57VN
-         w0vqxueZ9IT++GsmAzT5Z9ZptCc17208YFEXQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743007885; x=1743612685;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YlX138X0XD6VY0/PSMsdwRSoZx6II/giCuqBLoh1aW4=;
-        b=ZtZ0PZfrPkXhi5kOx4thHVdOjYyoid/PpmVVnvmMUEdEPRkJDVRiGxxn7QIT77am5T
-         rmsymENFd+UHZPUSCVQsh7N2zS2u11hzel76lsADpMlF6PxUTzPHMzZVqm2+idD8bCAO
-         igdEZEiXoMsaYXimxEzV7MXeFgYdx9Kre0kInEzJlyp73YxBBdo8WEkdm5uZzKpSkPUa
-         GqTx9TrnzOxX7e04hIQmpBzAhAiuk3li+aRWDS+S1G9Kymg3mk4cq0L2m1kquJQmz6EV
-         /K7BZZQyXzuhTuzpNZuJrSsFlxFNkoWDGUJM9nFxsla/LBdJXERkuY8sxu/4Tw9W/Wlz
-         bwlg==
-X-Forwarded-Encrypted: i=1; AJvYcCWnMmAhw2d1egI1t0lulsFNZc0hX+z5wP9J0ttZIc4rOajDInMFX9q5QnZVPM8vNnfFhzz9rl9kkGb3fG0PRs6w@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQ23a23K/LK9Ys8fQHJG2WaS0AohnkZ2mz1kAq2bt2yPYrh4S3
-	GQL6jvi0tVzr5jDU/c8OSp/lqzl4AUta+jV562tfwOf4xlYmC7DkJ9oaCA0YfGCyD9bTpBL7gOf
-	o/piytw==
-X-Gm-Gg: ASbGncuB5mBPyUzncH7OucM3gt9sxim+09/sRG3NUNtJ1bBzMWl9URW2jd2cNQMMRLh
-	JU6hEkUM1K2ZcSgaNn+sxQtvZwHUzukmacGSTB9Ta38aLsdEOAfmBjunOQjoZlC3xdU/Y7IwIQ5
-	kvHH/eTjEK/cANE8WkosfJw2Lx77hPFKlh97jD5U/GQwlxfKTvhWUh4LaWVdCi9D6DwzVWe7s5I
-	xyf5+rvouxfNmgz7dzRFjNUfbihRYoJU8+MQbOKHAGJDtzBfd4mDGelX2dkIpJLsBBoYEupic0Q
-	/7s1uSvXGUeEDYpADQGiTQEeFfH3eHLVzSxvPN/nAYazKcM2g137eNTxp/EvZeapswEOiY9xIjj
-	OYFop8zne54eQShHzLoQ=
-X-Google-Smtp-Source: AGHT+IFKofa3XwBcFkhEzS399E6FZoqZSEKP10K7Ewv7qDTkM5DmWYg7YzDe14c6/53Fdq5tlCdxYA==
-X-Received: by 2002:a05:6402:3506:b0:5e5:c5f5:f5b with SMTP id 4fb4d7f45d1cf-5ed8f01bf3emr205713a12.26.1743007884732;
-        Wed, 26 Mar 2025 09:51:24 -0700 (PDT)
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com. [209.85.208.45])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ebccf84c22sm9471507a12.18.2025.03.26.09.51.24
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Mar 2025 09:51:24 -0700 (PDT)
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-5e5bc066283so49903a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 09:51:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVWAX+9WoWq0m4+rr0E4dWHHISyghYbJhxTI9t35xiGvtZpSjonfkDRrCscasycCKpw2nd0j5cXkApHJCu/6HFl@lists.infradead.org
-X-Received: by 2002:a17:906:6a2a:b0:ac3:f35c:755a with SMTP id
- a640c23a62f3a-ac6faea0d57mr13698466b.15.1743007883744; Wed, 26 Mar 2025
- 09:51:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250325195322.3243734-1-catalin.marinas@arm.com>
- <CAADWXX-0hMgpyeQw_7Ko14hNMciqSnKJAROEWS5vwAdMKUt_zw@mail.gmail.com>
- <Z-NHugcLdLqkEHFR@arm.com> <CAHk-=wg_HipugbtswxFnekQy2g_ksKKXj+yht8naj2FEMtRMgA@mail.gmail.com>
- <20250326124025.1966bf8a@gandalf.local.home>
-In-Reply-To: <20250326124025.1966bf8a@gandalf.local.home>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 26 Mar 2025 09:51:06 -0700
-X-Gmail-Original-Message-ID: <CAHk-=whwmmU+hv1SyMoyr8yAGP2JiAAP+g5BZaMajzAukzrM9w@mail.gmail.com>
-X-Gm-Features: AQ5f1JrHB7Lot0cInBUrRaxXLA6wQWz74bylkRNtBdz9wX2p3sbslySwH8F-I1o
-Message-ID: <CAHk-=whwmmU+hv1SyMoyr8yAGP2JiAAP+g5BZaMajzAukzrM9w@mail.gmail.com>
+	Wed, 26 Mar 2025 17:11:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 75ADC5C580D;
+	Wed, 26 Mar 2025 17:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CDA5C4CEE2;
+	Wed, 26 Mar 2025 17:11:14 +0000 (UTC)
+Date: Wed, 26 Mar 2025 13:12:00 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Steven Rostedt <rostedt@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Konstantin Ryabitsev <mricon@kernel.org>
 Subject: Re: [GIT PULL] arm64 updates 6.15-rc1
-To: Steven Rostedt <rostedt@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Konstantin Ryabitsev <mricon@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Message-ID: <20250326131200.1c86c657@gandalf.local.home>
+In-Reply-To: <CAHk-=whwmmU+hv1SyMoyr8yAGP2JiAAP+g5BZaMajzAukzrM9w@mail.gmail.com>
+References: <20250325195322.3243734-1-catalin.marinas@arm.com>
+	<CAADWXX-0hMgpyeQw_7Ko14hNMciqSnKJAROEWS5vwAdMKUt_zw@mail.gmail.com>
+	<Z-NHugcLdLqkEHFR@arm.com>
+	<CAHk-=wg_HipugbtswxFnekQy2g_ksKKXj+yht8naj2FEMtRMgA@mail.gmail.com>
+	<20250326124025.1966bf8a@gandalf.local.home>
+	<CAHk-=whwmmU+hv1SyMoyr8yAGP2JiAAP+g5BZaMajzAukzrM9w@mail.gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_095127_356305_618A07AD 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20250326_101116_422194_D056FA0E 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +70,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Mar 2025 at 09:39, Steven Rostedt <rostedt@kernel.org> wrote:
->
-> Now I wonder if you see any of my emails that I have been sending?
+On Wed, 26 Mar 2025 09:51:06 -0700
+Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-Your emails are fine. You're using a kernel.org address, and you're
-going through smtp.kernel.org, so they have a perfectly proper DKIM
-signature:
+> If you don't see a DKIM signature, it's probably because when you send
+> emails to yourself, they never actually go outside your own little
+> smtp setup, and never go through kernel.org at all.
 
-   Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF624C4CEE2;
-Wed, 26 Mar 2025 16:39:38 +0000 (UTC)
-   DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-s=k20201202; t=1743007179; [...]
+Using claws-mail it just uses kernel.org directly, where as my sendmail
+scripts use my own server which goes through kernel.org.
 
-> I have my own email server which is on a dynamic IP which most ISPs will
-> simply drop because of that, so I route my email through kernel.org.
->
-> I just sent myself a few test emails and there's no DKIM signature, unless
-> I manually edit the From to use my kernel.org email (which I have never
-> used before).
+When sending to another email of mine (rostedt@kihontech.com) the headers are:
 
-If you don't see a DKIM signature, it's probably because when you send
-emails to yourself, they never actually go outside your own little
-smtp setup, and never go through kernel.org at all.
+Return-Path: <SRS0=fOit=WN=goodmis.org=rostedt@kernel.org>
+X-Spam-Checker-Version: SpamAssassin 4.0.0 (2022-12-13) on mailmammoth
+X-Spam-Level: 
+X-Spam-Status: No, score=-4.6 required=5.0 tests=BAYES_00,DMARC_MISSING,
+ HEADER_FROM_DIFFERENT_DOMAINS,RCVD_IN_VALIDITY_CERTIFIED,
+ RCVD_IN_VALIDITY_RPBL,RCVD_IN_VALIDITY_SAFE,SPF_HELO_NONE,SPF_PASS
+ autolearn=ham autolearn_force=no version=4.0.0
+X-Original-To: rostedt@kihontech.com
+Delivered-To: catchall@goodmis.org
+Received: from rostedt.homelinux.com [172.100.189.27]
+ by mailmammoth with IMAP (fetchmail-6.4.37)
+ for <rostedt@localhost> (single-drop); Wed, 26 Mar 2025 12:13:10 -0400 (EDT)
+Received: from sea.source.kernel.org (sea.source.kernel.org [172.234.252.31])
+ by mailmammoth.local.home (Postfix) with ESMTP id 8EE602014D
+ for <rostedt@kihontech.com>; Wed, 26 Mar 2025 12:13:09 -0400 (EDT)
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+ by sea.source.kernel.org (Postfix) with ESMTP id 60B5A439EF
+ for <rostedt@kihontech.com>; Wed, 26 Mar 2025 16:13:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5492CC4CEE2
+ for <rostedt@kihontech.com>; Wed, 26 Mar 2025 16:13:08 +0000 (UTC)
 
-               Linus
+So it definitely goes through kernel.org.
+
+But it has no DKIM headers.
+
+-- Steve
 
