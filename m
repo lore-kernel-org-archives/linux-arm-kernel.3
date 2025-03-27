@@ -4,93 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B614C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 17:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D12C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 18:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xSuF/YbxgWCWLj2Pm2m2fnuZ8qcDIDPazYI7pzm5ruM=; b=gnGUB40HI1VynbtqGb2vkFjVaQ
-	skrI2SzIDnDIhif/jalpYx7v09kmgPcz+qsr5ig1nuaQed6BalDeTxTTs+e4pgsCN/r/trroq2j2m
-	MEM9ZcdvFJ2YOv+CAw7RrDop0OHT9Sb/42+HvjbNMpVsFaAa0UtgoeKt9mVsylgzaKli2KVy8wUw8
-	v5DK+ECeq/7H7WkI2kCZTWyYFOqH5tT5T/iCGvsC3L+OXjdmOydZYeiLPSzlncmvsn7jtokcHw8FX
-	BYJnGg8FxxOkKtRb8yzOIW40oX1MZf4zucp6i88PS2DjdTZ4w3AGBRJjlxQpvhFmqbJrwa16kc3FZ
-	eEeoMl1w==;
+	bh=Y42thsRJL5Id4F+wzG/Zk574KysDPxvMrEO3PSfCsTo=; b=y5gvTHfjGlvVrC9o2I7LSFBr3d
+	DVueiw84o0Tm5NDTndo86p5Nr5w69BYCPRtvWgnBLGeX2Qnd6ip5IP2lZjULwhRQ1ofsUBzfFXUrX
+	my0vovUqWCtfZj4BJDhIw13kSyOdi8ej1oNwG8zZOujXFlZz/LUSNwDLsA6X3fOMarN/tS0Qt+PYq
+	aCgoWPHLCF/eTUu3TBwmK7a6r/OKZUYUoEEK5y6RvScwNfsSNIkx7EjaXVAcgsDESWErS1EsD/emT
+	c/7SvBbNKCA6fSoDr74/fkHxJ0wohWouM05hhHiJU88xolRSutOvnJluTk99GH+izeiJkg/MePwwv
+	+y3LUCxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txr3p-0000000BfFL-2Z9R;
-	Thu, 27 Mar 2025 17:30:33 +0000
-Received: from smtp-fw-80006.amazon.com ([99.78.197.217])
+	id 1txsFV-0000000Bl1B-1Z7w;
+	Thu, 27 Mar 2025 18:46:41 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txr25-0000000BexZ-1h8P;
-	Thu, 27 Mar 2025 17:28:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1743096526; x=1774632526;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=xSuF/YbxgWCWLj2Pm2m2fnuZ8qcDIDPazYI7pzm5ruM=;
-  b=ujqbbeaFdbH+I9wysye93Vv/2iM3dOaCe1NzWwbhEKGwnP3nerNDwFoX
-   Obw+fGpBxUlndqE0fxt72tQqmvv1/oT2RUYQcGG+JwniMHwzdSuqQM715
-   dT4crGhfacHOp5mT5i7ZOzAG7Na7kXDYer9tgf41vf7yW5MJGKpc2WylM
-   A=;
-X-IronPort-AV: E=Sophos;i="6.14,281,1736812800"; 
-   d="scan'208";a="35764312"
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-80006.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Mar 2025 17:28:43 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [10.0.38.20:63978]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.62.254:2525] with esmtp (Farcaster)
- id 5fc1b816-d2cf-4e8d-a1ff-9170cc525ffa; Thu, 27 Mar 2025 17:28:42 +0000 (UTC)
-X-Farcaster-Flow-ID: 5fc1b816-d2cf-4e8d-a1ff-9170cc525ffa
-Received: from EX19D020UWC001.ant.amazon.com (10.13.138.157) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Thu, 27 Mar 2025 17:28:41 +0000
-Received: from EX19MTAUWA002.ant.amazon.com (10.250.64.202) by
- EX19D020UWC001.ant.amazon.com (10.13.138.157) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Thu, 27 Mar 2025 17:28:41 +0000
-Received: from email-imr-corp-prod-pdx-all-2c-c4413280.us-west-2.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.203) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1544.14 via Frontend Transport; Thu, 27 Mar 2025 17:28:41 +0000
-Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
-	by email-imr-corp-prod-pdx-all-2c-c4413280.us-west-2.amazon.com (Postfix) with ESMTP id 3538AA04D5;
-	Thu, 27 Mar 2025 17:28:41 +0000 (UTC)
-Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
-	id BF36651B7; Thu, 27 Mar 2025 17:28:40 +0000 (UTC)
-From: Pratyush Yadav <ptyadav@amazon.de>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Changyuan Lyu <changyuanl@google.com>, <linux-kernel@vger.kernel.org>,
-	<graf@amazon.com>, <akpm@linux-foundation.org>, <luto@kernel.org>,
-	<anthony.yznaga@oracle.com>, <arnd@arndb.de>, <ashish.kalra@amd.com>,
-	<benh@kernel.crashing.org>, <bp@alien8.de>, <catalin.marinas@arm.com>,
-	<dave.hansen@linux.intel.com>, <dwmw2@infradead.org>,
-	<ebiederm@xmission.com>, <mingo@redhat.com>, <jgowans@amazon.com>,
-	<corbet@lwn.net>, <krzk@kernel.org>, <rppt@kernel.org>,
-	<mark.rutland@arm.com>, <pbonzini@redhat.com>, <pasha.tatashin@soleen.com>,
-	<hpa@zytor.com>, <peterz@infradead.org>, <robh+dt@kernel.org>,
-	<robh@kernel.org>, <saravanak@google.com>,
-	<skinsburskii@linux.microsoft.com>, <rostedt@goodmis.org>,
-	<tglx@linutronix.de>, <thomas.lendacky@amd.com>, <usama.arif@bytedance.com>,
-	<will@kernel.org>, <devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
-In-Reply-To: <Z+VTHs0lp4TSA9L9@nvidia.com>
-References: <20250320015551.2157511-1-changyuanl@google.com>
-	<20250320015551.2157511-10-changyuanl@google.com>
-	<mafs0y0wqrdsq.fsf@amazon.de> <Z+VTHs0lp4TSA9L9@nvidia.com>
-Date: Thu, 27 Mar 2025 17:28:40 +0000
-Message-ID: <mafs0tt7eqt6f.fsf@amazon.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1txsDl-0000000Bktd-20bd
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Mar 2025 18:44:55 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 86313F6;
+	Thu, 27 Mar 2025 19:42:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1743100979;
+	bh=pXUIm6nWnAiapPhAoHswMtXLIViBhZ7ZAd3Lbpjo7xw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tYG9mACBY3ADn8xf8BAp4rvGTUig2Ub9OwTOGcYXs7m0wfTboN/gUbqk8+wZxuQEr
+	 jzKsTEQDbnexPVO83zdmMzRTbieG8k+RnIJG6S+XXbeTOro0xUaeAlGhB1XAnmTp7V
+	 DT5jS0qBeICGqbnY67zMyf+kPnyb/njiK32QVMTM=
+Date: Thu, 27 Mar 2025 20:44:25 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	Robert Chiras <robert.chiras@nxp.com>,
+	"Guoniu.zhou" <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v3 03/12] media: dt-bindings: Add binding doc for
+ i.MX8QXP and i.MX8QM ISI
+Message-ID: <20250327184425.GE4861@pendragon.ideasonboard.com>
+References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
+ <20250210-8qxp_camera-v3-3-324f5105accc@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250210-8qxp_camera-v3-3-324f5105accc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_102845_496841_DFF9D4D0 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20250327_114453_659363_E9B53CFC 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +82,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27 2025, Jason Gunthorpe wrote:
+Hi Frank,
 
-> On Thu, Mar 27, 2025 at 10:03:17AM +0000, Pratyush Yadav wrote:
->
->> Of course, with the current linked list structure, this cannot work. But
->> I don't see why we need to have it. I think having a page-table like
->> structure would be better -- only instead of having PTEs at the lowest
->> levels, you have the bitmap.
->
-> Yes, but there is a trade off here of what I could write in 30 mins
-> and what is maximally possible :) The xarray is providing a page table
-> implementation in a library form.
->
-> I think this whole thing can be optimized, especially the
-> memblock_reserve side, but the idea here is to get started and once we
-> have some data on what the actual preservation workload is then
-> someone can optimize this.
->
-> Otherwise we are going to be spending months just polishing this one
-> patch without any actual data on where the performance issues and hot
-> spots actually are.
+Thank you for the patch.
 
-The memblock_reserve side we can optimize later, I agree. But the memory
-preservation format is ABI and I think that is worth spending a little
-more time on. And I don't think it should be that much more complex than
-the current format.
+On Mon, Feb 10, 2025 at 03:59:22PM -0500, Frank Li wrote:
+> Add binding documentation for i.MX8QXP and i.MX8QM ISI. The clock-names,
+> power-domains, and ports differ significantly from the existing
+> nxp,imx8-isi.yaml. Create a new file to avoid complex if-else branches.
 
-I want to hack around with it, so I'll give it a try over the next few
-days and see what I can come up with.
+Mixed feelings about having different bindings files for what is
+essentially the same IP, but I won't object.
+
+> Add new file to MAINTAINERS.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change from v2 to v3
+> - none
+> change from v1 to v2
+> - create new file for 8qm and 8qxp accroding rob's suggestion.
+> ---
+>  .../devicetree/bindings/media/fsl,imx8qm-isi.yaml  | 117 +++++++++++++++++++++
+>  .../devicetree/bindings/media/fsl,imx8qxp-isi.yaml | 103 ++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  3 files changed, 221 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/fsl,imx8qm-isi.yaml b/Documentation/devicetree/bindings/media/fsl,imx8qm-isi.yaml
+> new file mode 100644
+> index 0000000000000..61c551673e2a4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/fsl,imx8qm-isi.yaml
+> @@ -0,0 +1,117 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/fsl,imx8qm-isi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: i.MX8QM Image Sensing Interface
+> +
+> +maintainers:
+> +  - Frank Li <Frank.Li@nxp.com>
+> +
+> +description:
+> +  The Image Sensing Interface (ISI) combines image processing pipelines with
+> +  DMA engines to process and capture frames originating from a variety of
+> +  sources. The inputs to the ISI go through Pixel Link interfaces, and their
+> +  number and nature is SoC-dependent. They cover both capture interfaces (MIPI
+> +  CSI-2 RX, HDMI RX, ...) and display engine outputs for writeback support.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - fsl,imx8qm-isi
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 8
+> +
+> +  clock-names:
+> +    items:
+> +      - const: per0
+> +      - const: per1
+> +      - const: per2
+> +      - const: per3
+> +      - const: per4
+> +      - const: per5
+> +      - const: per6
+> +      - const: per7
+> +
+> +  interrupts:
+> +    maxItems: 8
+> +
+> +  power-domains:
+> +    maxItems: 8
+
+This surprises me. The reference manual does list 8 clocks and
+interrupts, but only 6 channels in the ISI section (for instance in
+15.6.1.1.4). Which one is wrong ?
+
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +    properties:
+> +      port@2:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: MIPI CSI-2 RX 0
+> +      port@3:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: MIPI CSI-2 RX 1
+> +      port@4:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: HDMI RX
+
+Figure 15-59 in the reference manual list MIPI CSI-2 RX 0 and RX 1 as
+connected to inputs 0 and 1 respectively.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - power-domains
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/clock/imx8-clock.h>
+> +    #include <dt-bindings/clock/imx8-lpcg.h>
+> +    #include <dt-bindings/firmware/imx/rsrc.h>
+> +
+> +    image-controller@58100000 {
+> +        compatible = "fsl,imx8qm-isi";
+> +        reg = <0x58100000 0x90000>;
+
+The memory map in the reference manual lists the "Pixel DMA" region as
+ending at 0x5817ffff. Shouldn't the length of the region be 0x80000 ?
+
+> +        interrupts = <GIC_SPI 297 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 304 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&pdma0_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma1_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma2_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma3_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma4_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma5_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma6_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma7_lpcg IMX_LPCG_CLK_0>;
+> +        clock-names = "per0", "per1", "per2", "per3",
+> +                      "per4", "per5", "per6", "per7";
+> +        power-domains = <&pd IMX_SC_R_ISI_CH0>, <&pd IMX_SC_R_ISI_CH1>,
+> +                        <&pd IMX_SC_R_ISI_CH2>, <&pd IMX_SC_R_ISI_CH3>,
+> +                        <&pd IMX_SC_R_ISI_CH4>, <&pd IMX_SC_R_ISI_CH5>,
+> +                        <&pd IMX_SC_R_ISI_CH6>, <&pd IMX_SC_R_ISI_CH7>;
+> +
+> +        ports {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +
+> +            port@2 {
+> +                reg = <2>;
+> +                endpoint {
+> +                    remote-endpoint = <&mipi_csi0_out>;
+> +                };
+> +            };
+> +        };
+> +    };
+> +...
+> diff --git a/Documentation/devicetree/bindings/media/fsl,imx8qxp-isi.yaml b/Documentation/devicetree/bindings/media/fsl,imx8qxp-isi.yaml
+> new file mode 100644
+> index 0000000000000..818fea0e4679f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/fsl,imx8qxp-isi.yaml
+> @@ -0,0 +1,103 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/fsl,imx8qxp-isi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: i.MX8QXP Image Sensing Interface
+> +
+> +maintainers:
+> +  - Frank Li <Frank.Li@nxp.com>
+> +
+> +description:
+> +  The Image Sensing Interface (ISI) combines image processing pipelines with
+> +  DMA engines to process and capture frames originating from a variety of
+> +  sources. The inputs to the ISI go through Pixel Link interfaces, and their
+> +  number and nature is SoC-dependent. They cover both capture interfaces (MIPI
+> +  CSI-2 RX, HDMI RX, ...) and display engine outputs for writeback support.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - fsl,imx8qxp-isi
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 5
+> +
+> +  clock-names:
+> +    items:
+> +      - const: per0
+> +      - const: per4
+> +      - const: per5
+> +      - const: per6
+> +      - const: per7
+> +
+> +  interrupts:
+> +    maxItems: 5
+> +
+> +  power-domains:
+> +    maxItems: 5
+
+Here you have 5 channels, while the reference manual lists 8 interrupts
+and 6 channels in the ISI documentation.
+
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +    properties:
+> +      port@2:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: MIPI CSI-2 RX 0
+> +      port@6:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: CSI-2 Parallel RX
+
+Table 15-6 in the reference manual lists the parallel port as input 4.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - power-domains
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/clock/imx8-clock.h>
+> +    #include <dt-bindings/clock/imx8-lpcg.h>
+> +    #include <dt-bindings/firmware/imx/rsrc.h>
+> +
+> +    image-controller@58100000 {
+> +        compatible = "fsl,imx8qxp-isi";
+> +        reg = <0x58100000 0x90000>;
+
+Same comment here about the registers range.
+
+> +        interrupts = <GIC_SPI 297 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 304 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&pdma0_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma4_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma5_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma6_lpcg IMX_LPCG_CLK_0>,
+> +                 <&pdma7_lpcg IMX_LPCG_CLK_0>;
+> +        clock-names = "per0", "per4", "per5", "per6", "per7";
+> +        power-domains = <&pd IMX_SC_R_ISI_CH0>, <&pd IMX_SC_R_ISI_CH4>,
+> +                        <&pd IMX_SC_R_ISI_CH5>, <&pd IMX_SC_R_ISI_CH6>,
+> +                        <&pd IMX_SC_R_ISI_CH7>;
+> +
+> +        ports {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +
+> +            port@2 {
+> +                reg = <2>;
+> +                endpoint {
+> +                    remote-endpoint = <&mipi_csi0_out>;
+> +                };
+> +            };
+> +        };
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 40d1b7ec30fde..f243257ef7653 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -17000,6 +17000,7 @@ NXP i.MX 8M ISI DRIVER
+>  M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+> +F:	Documentation/devicetree/bindings/media/fsl,imx8*-isi.yaml
+>  F:	Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+
+Should nxp,imx8-isi.yaml be renamed to fsl,imx8-isi.yaml ?
+
+>  F:	drivers/media/platform/nxp/imx8-isi/
+>  
 
 -- 
 Regards,
-Pratyush Yadav
+
+Laurent Pinchart
 
