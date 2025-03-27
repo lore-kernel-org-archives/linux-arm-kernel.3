@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32477C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 23:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCC3C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 23:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqjSlG7nisHdrXyYdz9Us4ThHd3/fiw0wF9sILQDoDU=; b=AaEbPhUvo8y7Y80gJlbOsqkSNc
-	rqvEckNPSfhru6R2J704f1JWMJcAJFRNq3SHMQSKZDr+afxu+XwDXkNHCexDQN04XpDRL5/2TWDRU
-	Zr1wvRnte7yPxDmzqYVLyJ7bx0jh2Ho0/xLs9U9PxeC0PyzkZqNCuroZz7/hTXtLle8wHnZB8mskm
-	aL1ZxGYrYfdbE3FYGvngi8GBEm4ICCEVZPlJITwGPSuw6BuwFplK+2wrTIl5pxtPUv2M3bLyzVnIg
-	oHLKdQfK06uURd9VR+Fj+DP35ZjhCixqU1cFu8ERJoTmdwzMnyEcKMycixMqt922w6eW4iXpqhsv0
-	xNfQaGjw==;
+	bh=pEfl3VJ/DtcWEDIwYsyjhicp7MdVD+Mf2L03Z1x7uYc=; b=xasQ9OsJmpCv0NN/bzeGNZ7ScG
+	IDemQuPyEe91VgIXdH/ueBJEgs0qhZrpmMwPHGuhkSYwfi4mZ9ic5YOPBPe7YmLxZnKnxw56THHEG
+	fnfFr1xRbMsc7xKV8NGvEgpzzDvXyyDMm7z6avRhfmJRlVofwpT9Rv95ygRPq/dQvrgzVj91zj77h
+	ylHFcxL1P5p8f/162fHkL4K+BQG2rNY49Blf1/6+1b1UmWE+/cXnQMSrvsYwi4+kaViscXXGQQTZt
+	228Htlpjt6jMd7QJHCMQRs5FdbpWGbXgh/eUZPzxFSpiyYCxcyczfkBR9wtQKs3KRBahnr/i075Xk
+	ECSV61UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txwKt-0000000CCiH-3IQX;
-	Thu, 27 Mar 2025 23:08:31 +0000
+	id 1txwMb-0000000CCpn-1rf8;
+	Thu, 27 Mar 2025 23:10:17 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txwJA-0000000CCXt-3py5
+	id 1txwK4-0000000CCdb-3Cq3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 23:06:46 +0000
+	Thu, 27 Mar 2025 23:07:42 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 57E5D3DA;
-	Fri, 28 Mar 2025 00:04:54 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C7B873DA;
+	Fri, 28 Mar 2025 00:05:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1743116694;
-	bh=Jg0lay9DQTanzPgGVu0GDPUwJJjKFNGOTQpAD6wb1LU=;
+	s=mail; t=1743116751;
+	bh=CAfB333k6yq4QzaN/HakF7NHaUX45kEF0papiauE75w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FLbtod8/qhWpgj251QPTnmeCPBgmLYhkvNKL3C8DvdM9NmjpjMCJGIDAJCw9AhQnl
-	 Nx2RAVQ37idvF4rViSSvA7i3IlltNWvibGwdyJb06oSoXyr41UGNRJcQNiPpmGy18D
-	 pNp3d6ht1KaEwOedYgcULuxNsBgppRE5MNDpLCYI=
-Date: Fri, 28 Mar 2025 01:06:19 +0200
+	b=WI/Zj2Id1WyTAx5VFjIm/0/6bpLBczldsZYX508ciHKynMmsof3l/V20nhbvdN5bu
+	 X6Lkn65r4NO34I0qBfjYahU0zeWC1YbYE87h+wv05n4/99MBkbxCm57cfqFbKi7LHe
+	 eGyQcE1PhtRFVgVvgNlJkM006nNy74iIRGnO1T6k=
+Date: Fri, 28 Mar 2025 01:07:15 +0200
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 Cc: Vishal Sagar <vishal.sagar@amd.com>,
@@ -51,17 +51,17 @@ Cc: Vishal Sagar <vishal.sagar@amd.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Geert Uytterhoeven <geert@linux-m68k.org>,
 	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v4 11/11] drm: xlnx: zynqmp: Add support for XVUY2101010
-Message-ID: <20250327230619.GF16629@pendragon.ideasonboard.com>
+Subject: Re: [PATCH v4 06/11] drm/fourcc: Add DRM_FORMAT_XVUY2101010
+Message-ID: <20250327230715.GG16629@pendragon.ideasonboard.com>
 References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
- <20250326-xilinx-formats-v4-11-322a300c6d72@ideasonboard.com>
+ <20250326-xilinx-formats-v4-6-322a300c6d72@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250326-xilinx-formats-v4-11-322a300c6d72@ideasonboard.com>
+In-Reply-To: <20250326-xilinx-formats-v4-6-322a300c6d72@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_160645_091672_DBFEA530 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20250327_160740_942901_07DEA625 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +80,43 @@ Hi Tomi,
 
 Thank you for the patch.
 
-On Wed, Mar 26, 2025 at 03:22:54PM +0200, Tomi Valkeinen wrote:
-> Add support for XVUY2101010 format.
+On Wed, Mar 26, 2025 at 03:22:49PM +0200, Tomi Valkeinen wrote:
+> Add XVUY2101010, a 10 bits per component YCbCr format in a 32 bit
+> container.
 > 
 > Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->  drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> index ce685dfbf31f..79f58e06f38f 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> @@ -322,6 +322,11 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
->  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV24_10,
->  		.swap		= false,
->  		.sf		= scaling_factors_101010,
-> +	}, {
-> +		.drm_fmt	= DRM_FORMAT_XVUY2101010,
-> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YUV444_10,
-> +		.swap		= false,
-> +		.sf		= scaling_factors_101010,
-
-I'll have to trust your word on this, the documentation is just too
-wrong in too many places to trust it. Assuming you've tested this
-format,
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
->  	},
->  };
+> ---
+>  drivers/gpu/drm/drm_fourcc.c  | 1 +
+>  include/uapi/drm/drm_fourcc.h | 1 +
+>  2 files changed, 2 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
+> index 60684f99f4a7..81e5fcdcc234 100644
+> --- a/drivers/gpu/drm/drm_fourcc.c
+> +++ b/drivers/gpu/drm/drm_fourcc.c
+> @@ -280,6 +280,7 @@ const struct drm_format_info *__drm_format_info(u32 format)
+>  		{ .format = DRM_FORMAT_VYUY,		.depth = 0,  .num_planes = 1, .cpp = { 2, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_XYUV8888,	.depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_VUY888,          .depth = 0,  .num_planes = 1, .cpp = { 3, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+> +		{ .format = DRM_FORMAT_XVUY2101010,     .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_AYUV,		.depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .has_alpha = true, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_Y210,            .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_Y212,            .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
+> index 10d77f6f6e95..552438128f51 100644
+> --- a/include/uapi/drm/drm_fourcc.h
+> +++ b/include/uapi/drm/drm_fourcc.h
+> @@ -246,6 +246,7 @@ extern "C" {
+>  #define DRM_FORMAT_XVUY8888	fourcc_code('X', 'V', 'U', 'Y') /* [31:0] X:Cr:Cb:Y 8:8:8:8 little endian */
+>  #define DRM_FORMAT_VUY888	fourcc_code('V', 'U', '2', '4') /* [23:0] Cr:Cb:Y 8:8:8 little endian */
+>  #define DRM_FORMAT_VUY101010	fourcc_code('V', 'U', '3', '0') /* Y followed by U then V, 10:10:10. Non-linear modifier only */
+> +#define DRM_FORMAT_XVUY2101010	fourcc_code('X', 'Y', '3', '0') /* [31:0] x:Cr:Cb:Y 2:10:10:10 little endian */
 >  
+>  /*
+>   * packed Y2xx indicate for each component, xx valid data occupy msb
 
 -- 
 Regards,
