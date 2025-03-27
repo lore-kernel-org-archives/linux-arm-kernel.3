@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71889C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 13:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FE1C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 13:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXUGkIG9qSC7lef7+AoZ7FyBZ5mgWE2JuikfNIBpo2Y=; b=egaOja17bapQ5kHkgUv2gP92wD
-	1rEmWfko6p8iSkwj6xAl9Iz3yNzh9ATAdcYGxMIDpPODEcDCGpOg5152YRlCc9lJBd//t8GKj3Bk5
-	C3gRMPRE7BhyiqbUAKcKgHUP3siqgfrgh9FaP9e8g1EWD9M6aLdSt+qMZiYQcfGD/592HLUcrUHWg
-	lSc4BR6Dm+qC45hqk5druARn5NgKn+MyB7AopFeI0/s8QEnojp7ANMbV1R9PbLG8BfXDM0Bna3BwN
-	Hd2JH4G4T3rzLLNHCFXqzcvRNDrO8g1Dho17L9NnbsYJRFfm4BjlsRXaoeZaDwSJ2Cqck+kIzTMsp
-	6tv+s9Kg==;
+	bh=y7LpNHnJQKnpbcCKx4tRkiCp2RK7r/SykfSI2xLMzv0=; b=hlmOUHJJ2wgVfEr+ztxgyc9WMx
+	vpsZUvN9/9CSSKy5Lj/s3K7+4o3WwI5FDbhjz1SIJAG1H/PtGfwIXOwxL/z3XoLjCksZPYJjHzWLX
+	wC/QcHSdckTtmoRy8VYTK6xohdhoSBcJYqvLNZGqN6qhr8xp0iUrHtNKM6E8gibDuNrdvy9YTkMLj
+	HBCL6Jixc9WliDX1UeGavp5itZKdCzAy0QMTzsmTW238h6Q3LXvK9zwU6Otp1WeZobgVaWMhK82ag
+	wst5xaQTjPPhN4D1mJb2e2sgOq2yxksV+bnMhViHZ6Bmt0fKqOEDvHMr+euA4jwHY0OxYbeHntghB
+	x1ci/11g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txnao-0000000B7Mz-0DJ1;
-	Thu, 27 Mar 2025 13:48:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txnZ5-0000000B75z-13Tz
+	id 1txncV-0000000B7Zm-32v3;
+	Thu, 27 Mar 2025 13:50:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1txnZC-0000000B771-3NnC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 13:46:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44C1F614B1;
-	Thu, 27 Mar 2025 13:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A2B5C4CEDD;
-	Thu, 27 Mar 2025 13:46:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743083194;
-	bh=fr5eXsH4ELM22q1VLft6cUDbRKWKY32EKB07b+nOwck=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=fPkC2YPUg6U1AWk9VoIftitF2W8fruvym/IKkmjX44261oCL16avJfPPvNR+jI5Tb
-	 UsL2oVSbef3S+bgau3fT50BH6OGqrb5X6T/WYREVoCsx07BeG5G2xpqzjTbs5APdbZ
-	 H9wMIkF+Fln42CnAhH4aP0Cb29myQ7YecUgJMKUMSz5HWB4SPP/8WBOMhfR3B3lAyn
-	 VXzFJ1XllztFp7fpDSIpHm88cB2DdTHrgZadIz67ZmEsjW0PJ0h0IcWlDEhGWujPMU
-	 np0GeMOYWCBV4qZDS3XQzG24ZbafxAmmjZeY6ETvZM/PBYbtHx9O6I3ZCoXAoj7pDM
-	 6gVvqZ/3LM6zQ==
-Message-ID: <cdf2955f1b9143566ba4eb7b87551441@kernel.org>
-Date: Thu, 27 Mar 2025 13:46:31 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v9 3/5] drm/bridge: make devm_drm_bridge_alloc()
- mandatory for bridge allocation
-In-Reply-To: <20250326-drm-bridge-refcount-v9-3-5e0661fe1f84@bootlin.com>
-References: <20250326-drm-bridge-refcount-v9-3-5e0661fe1f84@bootlin.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa" <asrivats@redhat.com>, "David
- Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>, "Fabio
- Estevam" <festevam@gmail.com>, =?utf-8?b?SGVydsOpIENvZGluYQ==?= <herve.codina@bootlin.com>, "Hui
- Pu" <Hui.Pu@gehealthcare.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan
- Teki" <jagan@amarulasolutions.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Marek
- Vasut" <marex@denx.de>, "Maxime Ripard" <mripard@kernel.org>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Robert Foss" <rfoss@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Stefan Agner" <stefan@agner.ch>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+	Thu, 27 Mar 2025 13:46:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40BA91063;
+	Thu, 27 Mar 2025 06:46:47 -0700 (PDT)
+Received: from [10.57.86.146] (unknown [10.57.86.146])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D86D3F63F;
+	Thu, 27 Mar 2025 06:46:37 -0700 (PDT)
+Message-ID: <5582c321-9297-4d92-9e1f-497afa17f8be@arm.com>
+Date: Thu, 27 Mar 2025 09:46:35 -0400
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/11] Perf improvements for hugetlb and vmalloc on
+ arm64
+Content-Language: en-GB
+To: Uladzislau Rezki <urezki@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Christoph Hellwig <hch@infradead.org>, David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20250304150444.3788920-1-ryan.roberts@arm.com>
+ <Z-VBgcl9LJGlEzy2@pc636>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <Z-VBgcl9LJGlEzy2@pc636>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250327_064642_907924_80D37F3F 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,17 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Mar 2025 18:47:37 +0100, Luca Ceresoli wrote:
-> All DRM bridges are now supposed to be allocated using
-> devm_drm_bridge_alloc(), which is cleaner and necessary to support
-> refcounting.
-> 
-> In the absence of a drm_bridge_init() or such initialization function,
-> 
-> [ ... ]
+On 27/03/2025 08:16, Uladzislau Rezki wrote:
+> On Tue, Mar 04, 2025 at 03:04:30PM +0000, Ryan Roberts wrote:
+>> Hi All,
+>>
+>> This is v3 of a series to improve performance for hugetlb and vmalloc on arm64.
+>> Although some of these patches are core-mm, advice from Andrew was to go via the
+>> arm64 tree. Hopefully I can get some ACKs from mm folks.
+>>
+>> The 2 key performance improvements are 1) enabling the use of contpte-mapped
+>> blocks in the vmalloc space when appropriate (which reduces TLB pressure). There
+>> were already hooks for this (used by powerpc) but they required some tidying and
+>> extending for arm64. And 2) batching up barriers when modifying the vmalloc
+>> address space for upto 30% reduction in time taken in vmalloc().
+>>
+>> vmalloc() performance was measured using the test_vmalloc.ko module. Tested on
+>> Apple M2 and Ampere Altra. Each test had loop count set to 500000 and the whole
+>> test was repeated 10 times.
+>>
+> I will have a look and review just give me some time :)
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Thanks for the reviews - appreciate it!
 
-Thanks!
-Maxime
+> 
+> --
+> Uladzislau Rezki
+
 
