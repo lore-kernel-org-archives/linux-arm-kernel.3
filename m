@@ -4,54 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B0DC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 09:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EA3C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 09:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=COht1CALZmZz8MRkow5xVDQUyVzx29Nu6ozA/Y0jgb4=; b=bFHFr8N1Ol27XptIZmiqn3AbWL
-	H2rVVXaWSg10jJXqlCq4bYozWFBgEbih4XnfglfhjsmMuseJz1f3B1gn4PGPcY03oiKYJl9z9JE18
-	ogsE5kB1Ls1h4RloAtmzsDHkw6MT05f77uVK8TxgZHdNKDf8SHRogV082jKuZL2snvi/ZH/u1pL0h
-	Z6AF5IZScgUmp1D+4IVGEaPnRTj/s0cjqq6oNqHEXR079baY4fgeVYOyWHifkKhfVWhYBd4/bqawC
-	OituAXSieelzhODuC+Qixg3hR3AygoW1u/0vQfzZVIPg7Z3Vq655DveHQKmVQTb+BFKxQtCwuYqmM
-	X1qTsfbw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AdqOBa0Y+4+hMz6T43UiEMBnLkl2i23ABjw2IJz/f/k=; b=csitkpDEtyXXwWsRdgC0420dWV
+	Tbt5TLyeOwkLZBPhMH2fRJRzeZ7wi/lTpSB8dmpw2LOeJpOVBiNyWnys4DRXb+22O7lozfd63Cn/5
+	H9GRshLsSgEunkUvVo9Tomn7M6T7YciqxwDA1ln8OZJ/EEZXcsXOyYP8HbA1BwrD61eOnB6lJ3vzk
+	ur7eUXUhob0Pf2AtpgbsctbMgMV9gFiS+RsstlP1Zx8PlMyQnLIag6XdZ53I07nBQJ+nkTMagHW2E
+	ELpv0cmdhIc0PrJjyoN25TRi0eA8ztxLL2s3rZLHRHrVNfLj7TMIvT7NOpBiCwxPmGq5fdAxEI8eg
+	I1uKB2gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txjHm-0000000AXay-0lHv;
-	Thu, 27 Mar 2025 09:12:26 +0000
-Received: from mail.commetro.pl ([217.61.16.142])
+	id 1txjP3-0000000AYQk-38QK;
+	Thu, 27 Mar 2025 09:19:57 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txjG3-0000000AXIM-1aVa
+	id 1txjNK-0000000AYHp-2Ctf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 09:10:40 +0000
-Received: by mail.commetro.pl (Postfix, from userid 1002)
-	id 18F2383507; Thu, 27 Mar 2025 10:10:33 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=commetro.pl; s=mail;
-	t=1743066638; bh=COht1CALZmZz8MRkow5xVDQUyVzx29Nu6ozA/Y0jgb4=;
-	h=Date:From:To:Subject:From;
-	b=to3uH9lt5LCh4CWs1Jd9bL6kr1qS0EeSIWX01aKOL5RS0q1RmiAuxjm1tyr9Ydz41
-	 YDlTjnvIJCvDPaVa8crCpje4T9BCT1zyWS+l3io+RUGkFkg4FsCk2bSQsplvLUFPcv
-	 YtJGadxqffbc2H+vqFEV52P5hexELrk+Idq12ILyoye7jPPq6fOZfog/kG5pPls2Eb
-	 ueQajmjTa3jzx4NdSjWtOQdRdYXE3SKTaRRJt+owC19bIoo/oE1d0qz0VDIdmnPzBD
-	 ZixGugEGqA8f99A37IiaUXtv55FCVffbrnJ6sMFYxNAV1omdD9jU/p1gdtqIuveRQa
-	 iIuRNira2A3Ig==
-Received: by mail.commetro.pl for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 09:10:31 GMT
-Message-ID: <20250327084500-0.1.1n.jf8y.0.pjyb6fiktm@commetro.pl>
-Date: Thu, 27 Mar 2025 09:10:31 GMT
-From: =?UTF-8?Q?"Jaros=C5=82aw_Kownacki"?= <jaroslaw.kownacki@commetro.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Pytanie_o_ofert=C4=99?=
-X-Mailer: mail.commetro.pl
+	Thu, 27 Mar 2025 09:18:11 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3912baafc58so514587f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 02:18:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743067088; x=1743671888; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AdqOBa0Y+4+hMz6T43UiEMBnLkl2i23ABjw2IJz/f/k=;
+        b=CsGEsp6ZQ3Ea43UqO/tcJZQ85HtqTBF1Ag9w3lQ5sc1BnMQeIQRvP+r4Iiyrlzf/JU
+         9T3d5J9vFIMBCGSF7Oeu+/RRy3Vv3wt+FPUz9/ausprz3xvyW3pbZQxDBmxS4wtf+jrZ
+         GMNaSvvYI19EoZPR9Y8OiHwLCFUi4m7KjUt+VTIKKelEDmJpnXLA+r/gfjibYliBJbud
+         94wTz3XPIyLgE7Z1L/M7WR+XJuoI12rejsDvaxlITt2WSZlc1XmHel63Q7cMh8QdK+Ir
+         pTcOb94M6L0mHo4Gz2aHU6NNRuHW/GAXqP3Q+0egqFqJU36hPybJJIe08j3kYW+3T2iD
+         g+dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743067088; x=1743671888;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AdqOBa0Y+4+hMz6T43UiEMBnLkl2i23ABjw2IJz/f/k=;
+        b=S9WJlmFONDs02qIBHXG4gJ1RFTWucaa3LJVWF+XdCb4b6ENVbBuA/SkDMLmTgfD/m8
+         PQCeyXyTXEYS866DQdhQNGrGKYg/0diU+uUZZvGGFOf6m7B9efbNb4snCoMv932hbVAE
+         RR/C9rjAmBcUhKlg5+cOoJRDB2PcZCLkSqjAnFOnfo6n1FCgbGM18U4K93KIOCrwUcBO
+         bjU+iYkhgiI/UCmfVcem70hgnNl7hO7ELU+u0/+clcJCM1GU/ffHDeRv7ter1aLM3fi4
+         PDV5dND+phHApt2YRv4wXINqiIB3WaU4eje8s9JV2fiU+enEBEJwDZWCDlrJ2gW8xWmT
+         hZzA==
+X-Forwarded-Encrypted: i=1; AJvYcCWQ9GLD8nxs9wMI+G9ApA6p7zZtF71IhdsFqG3c2WJZSS29vL9CEp3G+qxz/3Zh5n56tid4sEIdB9cI7iNKd7xk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFgDbnTqufIhQVAHJEklfVvSvsJj4R3YY11HjzBsxvpHybPMF/
+	xoFMWgfrSHBUrKrg9yR16Y4ORIrtaTLR1dUgW7eL31KOHRg4V73mlMeqey/kDWI=
+X-Gm-Gg: ASbGnctT1M1Jwv4bandn/QJqgREaQ8kF2UV4qpKsv08cW+mt7eJ5osmZ3HG2CGClSUZ
+	pOe7Ydhw9XS4awyJ+kuEtPju7PUHjc3XXJzq9avR5eAXTl8X+TDQpaWA6+hbQ9tUNjJPycwQNBc
+	I+deQt5CCCzyA2Gz8fZwGMYmKwgmDhMiQjnSmKKmMFgM4RGAfg0601y1myR0IIv2BnG50GchYGe
+	W32ryANs6w2Y+P3sXbPTg4gm8lqddimqbxm2ImaDaICpMVoWmVJwBB5LlT1X1hlzYSzLEechvTr
+	W+whFp71TTbt7xHluKg3mla1I9hL5emJ9LSjMX7wETmyJo3Nig==
+X-Google-Smtp-Source: AGHT+IF9q6whwwkhqGN2Pk+AEph3LrTbbtoFFPYNJTAshCFIqJMIeQt7KSSkyJwJU5Ap2Rh/HnzcAg==
+X-Received: by 2002:a05:6000:2cb:b0:39a:c8a8:4fdc with SMTP id ffacd0b85a97d-39ad175c052mr2069156f8f.16.1743067088494;
+        Thu, 27 Mar 2025 02:18:08 -0700 (PDT)
+Received: from [192.168.1.247] ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d7ae6a319sm30665955e9.0.2025.03.27.02.18.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Mar 2025 02:18:07 -0700 (PDT)
+Message-ID: <ba2c38f1-d686-45dc-ae47-924cc11d15f6@linaro.org>
+Date: Thu, 27 Mar 2025 09:18:06 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 5/8] KVM: arm64: Introduce module param to
+ partition the PMU
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Colton Lewis <coltonlewis@google.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>, kvm@vger.kernel.org,
+ robh@kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com,
+ will@kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, mark.rutland@arm.com, pbonzini@redhat.com,
+ shuah@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <gsnt1pulnepv.fsf@coltonlewis-kvm.c.googlers.com>
+ <f7d543f6-2660-460f-88ac-741dd47ed440@linaro.org>
+ <Z-RmMLkTuwsea7Uk@linux.dev>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <Z-RmMLkTuwsea7Uk@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_021039_536894_439B313C 
-X-CRM114-Status: UNSURE (   2.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250327_021810_588567_9D0B25C7 
+X-CRM114-Status: GOOD (  28.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,16 +108,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
-
-Czy potrzebuj=C4=85 Pa=C5=84stwo aktualnie nowych klient=C3=B3w ?
-
-Skutecznie pomagamy rozpoczyna=C4=87 rozmowy handlowe z klientami zainter=
-esowanymi Pa=C5=84stwa ofert=C4=85.
-
-Zapraszam do kontaktu zwrotnego.
 
 
-Pozdrawiam serdecznie
-Jaros=C5=82aw Kownacki
+On 26/03/2025 8:40 pm, Oliver Upton wrote:
+> On Wed, Mar 26, 2025 at 05:38:34PM +0000, James Clark wrote:
+>> On 25/03/2025 6:32 pm, Colton Lewis wrote:
+>>>> I don't know if this is a stupid idea, but instead of having a fixed
+>>>> number for the partition, wouldn't it be nice if we could trap and
+>>>> increment HPMN on the first guest use of a counter, then decrement it on
+>>>> guest exit depending on what's still in use? The host would always
+>>>> assign its counters from the top down, and guests go bottom up if they
+>>>> want PMU passthrough. Maybe it's too complicated or won't work for
+>>>> various reasons, but because of BRBE the counter partitioning changes go
+>>>> from an optimization to almost a necessity.
+>>>
+>>> This is a cool idea that would enable useful things. I can think of a
+>>> few potential problems.
+>>>
+>>> 1. Partitioning will give guests direct access to some PMU counter
+>>> registers. There is no reliable way for KVM to determine what is in use
+>>> from that state. A counter that is disabled guest at exit might only be
+>>> so temporarily, which could lead to a lot of thrashing allocating and
+>>> deallocating counters.
+> 
+> KVM must always have a reliable way to determine if the PMU is in use.
+> If there's any counter in the vPMU for which kvm_pmu_counter_is_enabled()
+> is true would do the trick...
+> 
+> Generally speaking, I would like to see the guest/host context switch in
+> KVM modeled in a way similar to the debug registers, where the vPMU
+> registers are loaded onto hardware lazily if either:
+> 
+>    1) The above definition of an in-use PMU is satisfied
+> 
+>    2) The guest accessed a PMU register since the last vcpu_load()
+> 
+>>> 2. HPMN affects reads of PMCR_EL0.N, which is the standard way to
+>>> determine how many counters there are. If HPMN starts as a low number,
+>>> guests have no way of knowing there are more counters
+>>> available. Dynamically changing the counters available could be
+>>> confusing for guests.
+>>>
+>>
+>> Yes I was expecting that PMCR would have to be trapped and N reported to be
+>> the number of physical counters rather than how many are in the guest
+>> partition.
+> 
+> I'm not sure this is aligned with the spirit of the feature.
+> 
+> Colton's aim is to minimize the overheads of trapping the PMU *and*
+> relying on the perf subsystem for event scheduling. To do dynamic
+> partitioning as you've described, KVM would need to unconditionally trap
+> the PMU registers so it can pack the guest counters into the guest
+> partition. We cannot assume the VM will allocate counters sequentially.
+
+Yeah I agree, requiring cooperation from the guest probably makes it a 
+non starter.
+
+> 
+> Dynamic counter allocation can be had with the existing PMU
+> implementation. The partitioned PMU is an alternative userspace can
+> select, not a replacement for what we already have.
+> 
+> Thanks,
+> Oliver
+
+
+It's just a shame that it doesn't look like there's a way to make BRBE 
+work properly in guests with the existing implementation. Maybe we're 
+stuck with only allowing it in a partition for now.
+
+Thanks
+James
+
 
