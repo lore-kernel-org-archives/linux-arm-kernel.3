@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617F1C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4F6C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJzZfJUFPJ1Y3yBLOaWks4yx/dujJmv1abzUaDLMqqA=; b=v1D6VQLXQ699jOdgio2WD3cJW0
-	ssN8Q8nnDsL6piCkLgWaU0sXB0Fcd3tiWrOxQ0nM+iQV5jjK5G0/lnPfQlZq/EgA+0dFCGe3KQKwz
-	F1oBoVZ/g9Vx9HeILZRYf0yJuVRX6Fx3xOS/zP45YvD3gT9L5w2sizkG3qNdK7EHDjiLU4pGfXJES
-	F90j0bTP/iFSyYYc8ntzpQwF2Ex3Iosftk1kkMPwQTewZ2/kQA3MOj1AkAuE9cVVL/yIV6aQsSW6g
-	NJEtEEvl5lsJhELBRou9TuYw8Fr+E1ny0xfWDtc8HaQacYPZfjwbUGKL2Iz6UdgNAhGv+3TNxmPoA
-	80KLVszw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z51hX2ubcFhMKJ5by2u7YjCKZ3Nzr1b3Lq1PylQ9GKA=; b=xHXy0Q1mQ6GHTKeLf7dQJ62qHu
+	mwor2oXUB3WmlhNk9ru9d2v+FSSF46i10ZG1PUkDTWnEiHSDMUkMV2l4xBaQR4CemozOfCnL9pbui
+	iklF0TmMnrm1e0n7LVxSJ/5GXl4rSU4ABrPhP+84Vt53laf1wRoRzEPpQboq5UKVakKjrL84dG3OL
+	hfmvzBVdffpWXqWtOQIcDiC/D/pjxZD9RnA+AGQFLLv5ZWOxxspyrgAgMuec3k9j2l5YWxmnorNEu
+	Fe1x2cOr/ZO20mVntZRr8bpKLIqpcTiOWXeFRKcEnykJTg3Q4QVNt+BdUSJ1xKxrdkW+Mh1CZtLiv
+	RcEGKmRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqI5-0000000BXw7-0Mbe;
-	Thu, 27 Mar 2025 16:41:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1txqJn-0000000BYIw-3VsY;
+	Thu, 27 Mar 2025 16:42:59 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqEA-0000000BXAC-3XEn;
-	Thu, 27 Mar 2025 16:37:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D61C43D60;
-	Thu, 27 Mar 2025 16:37:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C60CAC4CEDD;
-	Thu, 27 Mar 2025 16:37:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743093430;
-	bh=7ZK9arp7BfLf5qjglWhRdpg667PLJGkQX32ma3/m/Jk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b5Coy4zzx92cLI+R/jdLE8fnj0SVv07G2XFhp35wDT+wYpLKiLuB/Op9Jn9ZYHyPO
-	 WEqoOA7lJI2qvfk/0k1UT6NmV1YP+BDOyau6AlfPnDZpZiiO8hG3D/Jrgva6Pl6kQc
-	 Y8nOgmW7lsutCwkYmePzrUGBedMM0rs4HpKwCaUXs52znXzyFfg5E22vh6mimMKPvR
-	 XfRRV7Qjedk2Y285OOn+xx7w/6o2lYy4pW86RrD8ObYeytJTgz3pX0KNUr9uM1swH7
-	 cHeU3lC9jtCtuHritB7qEGjhYa/uDnUsdHNxIbh9IVpzn/uSPnK1aK3i08/iB/hTgD
-	 7nweqKtiM5l1A==
-Date: Thu, 27 Mar 2025 16:37:05 +0000
-From: Conor Dooley <conor@kernel.org>
-To: xianwei.zhao@amlogic.com
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
- compatible string for A5
-Message-ID: <20250327-juicy-relieve-a9c5f89cb4e0@spud>
-References: <20250327-a5-pinctrl-v1-0-49320349c463@amlogic.com>
- <20250327-a5-pinctrl-v1-1-49320349c463@amlogic.com>
+	id 1txqF5-0000000BXLi-3N8s
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Mar 2025 16:38:09 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1743093482;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Z51hX2ubcFhMKJ5by2u7YjCKZ3Nzr1b3Lq1PylQ9GKA=;
+	b=gOi6g9wKrGSV5UH/x54wg6WFP3jRV9kCC53qdcKuyEwOYsTNbTvmY/kgEf70GSTgtes9jT
+	RMIMsSF91b+mRVbfbms+jIBn14Dhmv3Skw6Jkb1GSznvz7Zm9v/3dJkyHjEwThs4pylu3s
+	DUepdIINJzrmUGd3pr5cqru3B+DW/LM=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Subject: [PATCH] smccc: kvm_guest: Align with DISCOVER_IMPL_CPUS ABI
+Date: Thu, 27 Mar 2025 09:36:15 -0700
+Message-Id: <20250327163613.2516073-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fAwn1XnIQAAgXUg9"
-Content-Disposition: inline
-In-Reply-To: <20250327-a5-pinctrl-v1-1-49320349c463@amlogic.com>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_093710_899536_5141BE4D 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20250327_093808_534869_6216EB05 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,70 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The ABI of the hypercall requires that R2 and R3 are 0. Explicitly pass
+0 for these parameters.
 
---fAwn1XnIQAAgXUg9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on implementation CPUs")
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+---
+ drivers/firmware/smccc/kvm_guest.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Thu, Mar 27, 2025 at 05:26:35PM +0800, Xianwei Zhao via B4 Relay wrote:
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->=20
-> Amlogic A5 SoCs uses the same pintrl controller as A4 SoCs. There is
-> no need for an extra compatible line in the driver, but add A5
-> compatible line for documentation.
->=20
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->  .../devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml          | 9 +++=
-++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4=
-=2Eyaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-> index 8eb50cad61d5..a94f4dfb9a7f 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-> @@ -14,8 +14,13 @@ allOf:
-> =20
->  properties:
->    compatible:
-> -    const: amlogic,pinctrl-a4
-> -
-> +    oneOf:
+diff --git a/drivers/firmware/smccc/kvm_guest.c b/drivers/firmware/smccc/kvm_guest.c
+index 5767aed25cdc..ac2d3cf8a776 100644
+--- a/drivers/firmware/smccc/kvm_guest.c
++++ b/drivers/firmware/smccc/kvm_guest.c
+@@ -95,7 +95,7 @@ void  __init kvm_arm_target_impl_cpu_init(void)
+ 
+ 	for (i = 0; i < max_cpus; i++) {
+ 		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID,
+-				     i, &res);
++				     i, 0, 0, &res);
+ 		if (res.a0 != SMCCC_RET_SUCCESS) {
+ 			pr_warn("Discovering target implementation CPUs failed\n");
+ 			goto mem_free;
 
-> +      - enum:
-> +          - amlogic,pinctrl-a4
+base-commit: 369c0122682c4468a69f2454614eded71c5348f3
+-- 
+2.39.5
 
-This one here only has a single entry, so could just be
-- const: amlogic,pinctrl-a4.
-
-With that,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-> +      - items:
-> +          - enum:
-> +              - amlogic,pinctrl-a5
-> +          - const: amlogic,pinctrl-a4
->    "#address-cells":
->      const: 2
-> =20
->=20
-> --=20
-> 2.37.1
->=20
->=20
-
---fAwn1XnIQAAgXUg9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ+V+sQAKCRB4tDGHoIJi
-0lebAP9IKStu0S+/c9r0UyNUXENvJGtGJQJUfYxnwEVlRQIKgwD/Zb+0TeVHBQ36
-m/oSQf6LHtuk/wQRhnkpFZgEpYTnpAc=
-=KQTF
------END PGP SIGNATURE-----
-
---fAwn1XnIQAAgXUg9--
 
