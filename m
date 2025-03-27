@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91429C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 19:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE82DC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 19:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
 	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VtPQl+eLuO2Ac2Lg/3UnOZvCGFX/eXnKWsBH6KzlMBA=; b=xnXLJmlYGmPh1re67m1bDlixk3
-	iB4bUL1IlvNItH3TlKTnIpJZuRfiypkyNytJkuQ0vbQVHXiE3B2z49YXGOP+OJlXMnzTyqt/wHFfC
-	MyIzF55WFWcZTXubUthxrfNljtjaTy/vGKlJCNhViwgnHO61i4Xe6o1FG7AWY21GnffrmV7L45mHb
-	sDQkeJUPDthVky0/JXpq4u1nsyi29OAf6exQCs5047AIu3K9D40lY4xWyriHBthuh1oJ8LOUd173q
-	3flXemPSg89m7nesaTylNLHzCk8GHcR4aXmYi5eonnHs9Ca5e0lc5lK+H5BAC67cbkNdEiD1tCwtp
-	xIF0ihNQ==;
+	bh=aUlCPsdl2P2cUYSGZEMFCFZUbdr/V5ylnRW5oNz4Peo=; b=DoFtR3U4k0L78yNgkWD2lu6aBB
+	KrxMmR1JQuJonhFGsua/kU2mv2/+XJFZg+Aa1FaWCMccbCuZgIX/6OfxGDHh9uGtqbsl+UmSzj9xd
+	IlEAeqbeko7bdgGUpSoPH43BZCuOqwjZ7ierNi6SBpNX7cDU47w/mxQKaMBTcr5Y2FmY4YWmX+IlZ
+	wRzfIzgH5qTPe9sCocsN3dAPum886HggD2afmX0aLhr/aBZKSYJpHZDHuN8W+OSpOMLhb88CovxWU
+	nL97HHIUiYOyvE7DYu0O1lmjRBxmrZK80bH8STjd2XiwWSiAw1Qc4l4rDOrbsZ7cFP3PWOEMcaBAU
+	1E/FpPbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txsjd-0000000BoKy-3TrY;
-	Thu, 27 Mar 2025 19:17:49 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1txslL-0000000BoR3-3Ae6;
+	Thu, 27 Mar 2025 19:19:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txscH-0000000BnT0-3DRq
+	id 1txscJ-0000000BnTR-1SxY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 19:10:15 +0000
+	Thu, 27 Mar 2025 19:10:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 06D3AA42E52;
-	Thu, 27 Mar 2025 19:04:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91FF3C4CEDD;
-	Thu, 27 Mar 2025 19:10:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C36AC5C626B;
+	Thu, 27 Mar 2025 19:07:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9540FC4CEEA;
+	Thu, 27 Mar 2025 19:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743102612;
-	bh=oIkeI2nu+rYMrOqcqasUHBP1QTKIQUNmf2tbBOB+x7g=;
+	s=k20201202; t=1743102614;
+	bh=b2oXZnPzsIum4K6TXMGqWU1F5vMP9hIiJKyV23xpD4A=;
 	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=bzyxDvVe9/r2ZRAJhdCqhrIkO3mBSeW26HnKOUvCNy7wL34cSMe9IgaYWO6L120sL
-	 GGCZg1GYeaR9q2VUMZWQ0eF0EUgj4i+km5BPsGQlNdfDL+YV8+qgZG3WXUtJM7RSJn
-	 Qdn2AWeKV5D/QWRz5HUt+mZok7tL38S7O+tQnwgxjOSjhc+L3qP8E5j3MSqzuKa3G/
-	 OdlQ+j58Rd0/mOyvRm4kzeCxr8Mna4mTUA4SwvZpB2kkE91MM2djE3qtIdqttP8Z3j
-	 SlyKQp2n2LfA4aW8iEisejEjJVZ9xJtqrEpp55TqjzpaeCm50nKUprADXbUdgbaX30
-	 IOltKf3DyH47w==
+	b=q11eVxxlT2mMfu/SemfDhLr8oPIVcypJuO+4feKNi05V8rjEQDbQl5IPsOrvuv6xG
+	 WTtI4B83NLp1fIt3AiOPOx/L18hZyR7GxTpiCbdI2cpWBHTzuRypHpuMTenjxdp7bu
+	 mWB9R2zrckjkcfejlvitfp03T7mg/wwFotMZVb/yaOInQI0EyZ7r/5Ha2CsQ/qKnI3
+	 9adMWrbQIvInxYa93IAbCsiUfClT/VkO7R8+8RT8yk9x/tkrDZzNiI9qQIX7FBWqvy
+	 Q4MBiJ6H6ONnLgfrddKXwNA6EIHDfkZi/eAI2G8LvejLyMOSIyvsyCBMwQMktkfsu0
+	 ys1GVUPdnYxIw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34A75380AAFD;
-	Thu, 27 Mar 2025 19:10:50 +0000 (UTC)
-Subject: Re: [GIT PULL 3/4] soc: defconfig updates for 6.15
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33F1F380AAFD;
+	Thu, 27 Mar 2025 19:10:52 +0000 (UTC)
+Subject: Re: [GIT PULL 4/4] soc: arm platform changes for 6.15
 From: pr-tracker-bot@kernel.org
-In-Reply-To: <9a65c188-56a7-4e0a-ad3f-350d67d854b9@app.fastmail.com>
-References: <1ef00af5-0196-46c4-95f3-7c6b90f3e293@app.fastmail.com> <9a65c188-56a7-4e0a-ad3f-350d67d854b9@app.fastmail.com>
+In-Reply-To: <ba5bc4de-e264-41f4-81b2-757ed275fa53@app.fastmail.com>
+References: <1ef00af5-0196-46c4-95f3-7c6b90f3e293@app.fastmail.com> <ba5bc4de-e264-41f4-81b2-757ed275fa53@app.fastmail.com>
 X-PR-Tracked-List-Id: <soc.lists.linux.dev>
-X-PR-Tracked-Message-Id: <9a65c188-56a7-4e0a-ad3f-350d67d854b9@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-defconfig-6.15
-X-PR-Tracked-Commit-Id: 8ce2a15b1e6464a8681fb2f787602fc78f8e2f39
+X-PR-Tracked-Message-Id: <ba5bc4de-e264-41f4-81b2-757ed275fa53@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-6.15
+X-PR-Tracked-Commit-Id: 46367f09b2203f7c63f89293aea9279b875d0ff2
 X-PR-Merge-Tree: torvalds/linux.git
 X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 3bb3396d778816ac7618c522c4cd180273edeeaf
-Message-Id: <174310264866.2176831.12484995763614596622.pr-tracker-bot@kernel.org>
-Date: Thu, 27 Mar 2025 19:10:48 +0000
+X-PR-Merge-Commit-Id: 3536cb1e5753a832f88c268e328c644f6e367980
+Message-Id: <174310265091.2176831.2744875539352981808.pr-tracker-bot@kernel.org>
+Date: Thu, 27 Mar 2025 19:10:50 +0000
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_121013_865187_868262BA 
-X-CRM114-Status: UNSURE (   4.64  )
+X-CRM114-CacheID: sfid-20250327_121015_441146_AB8B7B6F 
+X-CRM114-Status: UNSURE (   4.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,12 +78,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Wed, 26 Mar 2025 19:03:04 +0100:
+The pull request you sent on Wed, 26 Mar 2025 19:03:55 +0100:
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-defconfig-6.15
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-6.15
 
 has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/3bb3396d778816ac7618c522c4cd180273edeeaf
+https://git.kernel.org/torvalds/c/3536cb1e5753a832f88c268e328c644f6e367980
 
 Thank you!
 
