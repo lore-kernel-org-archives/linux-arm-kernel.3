@@ -4,123 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F71C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 14:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB994C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 14:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ADWcN4WWmuHcbdEo+oNTkisfNoQj3VuExogLFser5qA=; b=JqM5uwvxw199QQQtbEeDZ5rQHH
-	sq3H3PSfWzAZaNylHTKuQ/cDZlm4TIZYtmn59n1G63XbBuYzGefCiqKZQAANPP2QZLTzIFzvK7cp1
-	fnUxV2cDbEv5oDxMG4J4HAQBl2iFMQIKY9CpI6MPBxQ8bYcb4gyftdIwxrRBVpihpLPib0G2pp0nc
-	MRKvmuNqML6JFtTvh7dtNYDNEFSGVWnqGtUJigeIXknqKXDdkp5buxbiWWmFrWrCVzzgHpYjj7BOF
-	uqhfz+2ZMnCPZt4DuEMsKD7i29a7tmgX4jI0+PGf02s8lx2o+2aorBCcFedRcahIrInDV18Jru+tK
-	ErvJEG6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BRtZO6wuLOPQctwr1yKCbUFg+imQsaO3YOeOPkk65Go=; b=rSZGsd566fFvzZv+TNz5Fk6BAn
+	jdP9uGtCRVjyi3WVXLFjmMGSSZrSt6JUi7HEzADrwhUQ/W8mL34Sgk98eLNWePQczpjLJ6s/jq1gq
+	EEJ5hFFZXnZrv5u1151sAxKyo8pDWGOlzLmIz+2iYdg/jQdubnFOlglWlVGReZBFHdzLJNF+HHJhv
+	DFqO2P76Y7wXP5yOihXsf1mxrffAN3avTmm2RJ/ZOD57T3hsuBMNnbYxrz33Y6SRxXVORGF5KRq8+
+	Fl4E/IlW+1UmLYwgnq5SVyq4VBZVwCByLvQQoDCqKZ8C+sSiTweET5FSMIBwdhi7jfME9PweLXb2e
+	bZ7z5mjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txnoL-0000000B8wt-3JMb;
-	Thu, 27 Mar 2025 14:02:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1txnr9-0000000B9Ny-2Lhr;
+	Thu, 27 Mar 2025 14:05:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txnmb-0000000B8ez-11nO
+	id 1txnpR-0000000B99z-2f5m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 14:00:34 +0000
+	Thu, 27 Mar 2025 14:03:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 81E855C69AF;
-	Thu, 27 Mar 2025 13:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26C71C4CEDD;
-	Thu, 27 Mar 2025 14:00:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BBFB8614B1;
+	Thu, 27 Mar 2025 14:03:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A695C4CEDD;
+	Thu, 27 Mar 2025 14:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743084032;
-	bh=0DEjehgeaLwlV0hjwbCmSOv1Dk9R6yQTEMo9pEXA26w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mknVJBFKoZVBjuvI19ERWu32hcx03AjNMF93ym/TxTM9XgCpsZQRE2bbCQW0IynZS
-	 9F6/rt36BwesC1Z2JktL17lDtApoiDmYSoL3kzE9ly6evoPNHn5vH01yOHaN/UE1Dm
-	 E80A13M6jmXhL9l4YV8XXUc9p5yvI9/4OqheI/GZ1+7neTREP95tJj3eDxOlg5uvLD
-	 U2MXR5gUPK0HW88d2EMyowhY9znHS16TRJ3hdYzHOhD4WkjG6cjrNruCNSpCA/t9xg
-	 PxZ1v6T8u7ClepyZkcG8WtVJ/bWAOmFao7MXVmy7rTi11PqpXN89QQv+xfA1FLj+sY
-	 ZscSRTrQq0Jng==
-Message-ID: <01d8b588-528f-4b50-a4ec-35645bb5f3cd@kernel.org>
-Date: Thu, 27 Mar 2025 15:00:20 +0100
+	s=k20201202; t=1743084208;
+	bh=r2nebabuKIAEpNzA037xHqghzQDApSKNTfnGOqwEwN8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=munLR9BXsDWJrcnjMNzaDqeLN+axN0GePf7D1fsqRI2yT+YQ343M7qm0RSjtDUKcm
+	 K/GOsPxuGqTy6zorIYUUtuGiTVin6EAzVxItq7XwQqC+2KDFaeCasiV9G9uKbyhaUY
+	 SGx3TGMUsqd+3B7AS4tqoDiUqg6CQDb0Ct6QRnGCmkSEOBi3XuuTPAuXRKqvvEPinr
+	 86IjOI1vMPaWGSKRBlVKXWbzGjXReY7Bdz1zc/8hPkpZpVYG9aSjsIHDX5RTa9acGq
+	 QHa9Sn1RHgqwrfOnnqX3r9XJsIXLNJieyjGF8yHOkU5h4ta2+HSExFnOrRzSBR7CQ8
+	 ZfX9USQFBYs8Q==
+Date: Thu, 27 Mar 2025 09:03:27 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/15] arm64: defconfig: Enable Renesas RZ/V2N SoC
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Prabhakar <prabhakar.csengg@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250326143945.82142-16-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <41c6f512-47a5-4723-bbdc-64ed85ae8391@kernel.org>
- <CAMuHMdVKfL-FRhDaFfOACV8R=ziqXdhmeW7Xd4WYXqHnSbR0ZA@mail.gmail.com>
- <CAMuHMdU5HSt5cRN8WFB5DrOZjo+Fc55X5bB6V6GzFT_Akiqdrw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CAMuHMdU5HSt5cRN8WFB5DrOZjo+Fc55X5bB6V6GzFT_Akiqdrw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_070033_372304_9C029270 
-X-CRM114-Status: GOOD (  15.76  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+ kernel@collabora.com, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Martyn Welch <martyn.welch@collabora.com>
+In-Reply-To: <20250327123907.542132-1-martyn.welch@collabora.com>
+References: <20250327123907.542132-1-martyn.welch@collabora.com>
+Message-Id: <174308402878.604918.5811022747265232650.robh@kernel.org>
+Subject: Re: [PATCH v2] arm64: dts: imx8mp: Add device tree for Nitrogen8M
+ Plus ENC Carrier Board
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,45 +73,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/03/2025 10:08, Geert Uytterhoeven wrote:
-> On Thu, 27 Mar 2025 at 09:55, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->> On Thu, 27 Mar 2025 at 08:43, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>> On 26/03/2025 15:39, Prabhakar wrote:
->>>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->>>>
->>>> Enable support for the Renesas RZ/V2N (R9A09G056) SoC in the ARM64
->>>> defconfig.
->>>>
->>>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->>>> ---
->>>>  arch/arm64/configs/defconfig | 1 +
->>>>  1 file changed, 1 insertion(+)
->>>>
->>>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->>>> index 11e7d0ad8656..c7b41f86c128 100644
->>>> --- a/arch/arm64/configs/defconfig
->>>> +++ b/arch/arm64/configs/defconfig
->>>> @@ -1483,6 +1483,7 @@ CONFIG_ARCH_R9A07G054=y
->>>>  CONFIG_ARCH_R9A08G045=y
->>>>  CONFIG_ARCH_R9A09G011=y
->>>>  CONFIG_ARCH_R9A09G047=y
->>>> +CONFIG_ARCH_R9A09G056=y
->>>
->>> So the pattern will keep growing and none of you will ever bother to fix
->>> it, because you have your patchset to throw over the wall.
->>
->> Yes, the pattern will keep on growing.
->> Just like the minimum kernel size will keep on growing, especially if
->> you can no longer compile a kernel without support for SoCs you do not
->> intend to run the kernel on.  Not everyone has GiBs of RAM to spare...
-> 
-> <pling! :->
-> 
-> /me remembers
-> https://lore.kernel.org/all/6323eb7a-03e9-4678-ac4f-f90052d0aace@kernel.org/
 
-Exactly that discussion and that outcome.
+On Thu, 27 Mar 2025 12:39:02 +0000, Martyn Welch wrote:
+> Add support for Boundary Devices/Ezurio Nitrogen8M Plus ENC Carrier
+> Board and it's SOM. Supported interfaces:
+> 
+>  - Serial Console
+>  - EQoS Ethernet
+>  - USB
+>  - eMMC
+>  - HDMI
+> 
+> Signed-off-by: Martyn Welch <martyn.welch@collabora.com>
+> ---
+> 
+> Changes in v2:
+>  - Add missing entries to binding documents.
+> 
+>  .../devicetree/bindings/arm/fsl.yaml          |   6 +
+>  arch/arm64/boot/dts/freescale/Makefile        |   1 +
+>  .../imx8mp-nitrogen-enc-carrier-board.dts     | 478 ++++++++++++++++++
+>  .../dts/freescale/imx8mp-nitrogen-som.dtsi    | 415 +++++++++++++++
+>  4 files changed, 900 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-nitrogen-som.dtsi
+> 
 
-Best regards,
-Krzysztof
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: failed to guess base
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250327123907.542132-1-martyn.welch@collabora.com:
+
+arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dtb: pinctrl@30330000: 'usdhc1grp-100mhz', 'usdhc1grp-200mhz', 'usdhc1grp-gpio' do not match any of the regexes: 'grp$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/pinctrl/fsl,imx8m-pinctrl.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dtb: pinctrl@30330000: usdhc1grp-gpio: {'fsl,pins': [[184, 792, 0, 5, 0, 452]], 'phandle': 71} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dtb: pmic@25: regulators:BUCK2: Unevaluated properties are not allowed ('regulator-limit-microvolt' was unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/nxp,pca9450-regulator.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dtb: i2cmux9546@70: Unevaluated properties are not allowed ('i2c2@0', 'i2c2@1', 'i2c2@2', 'i2c2@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dtb: usb-phy@381f0040: Unevaluated properties are not allowed ('fsl,phy-tx-preemp-amp-tune' was unexpected)
+	from schema $id: http://devicetree.org/schemas/phy/fsl,imx8mq-usb-phy.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dtb: usb-phy@382f0040: Unevaluated properties are not allowed ('fsl,phy-tx-preemp-amp-tune' was unexpected)
+	from schema $id: http://devicetree.org/schemas/phy/fsl,imx8mq-usb-phy.yaml#
+
+
+
+
+
 
