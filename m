@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47806C3600E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 11:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27740C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 12:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LW1DPaAe0hjqoHGmNxMZCZwBddjuiwd4qsPqFFubmoI=; b=BFun8shFVeFhEf4K9YiRz/Ylxx
-	mpA5y3hMpgx5qSM92DnGsGlGKSYqY2NSul38fubVoRSkQX/y7s18QdBDXNKh4ZrHumiqeC/wU12ol
-	gUZBxgoE0RE0fXavQv2erdbmBrWjUZVGmDbyi9hAb9L6gOirmtmYeF3tq965V4yJpLxiCyiOxPrMF
-	SUUqAH+bMQLE6rVadnAD+uaRsSjiXAbcpURFjREgdSg6UIn6CGqLDXnEnW59bCzjVwBQmPVn+rfPz
-	Vg+/E9qVobTZ8kOWp4h11kbARCjf1hR1ymXUfpCevR31l6BDx5qqrlXca+pc0DrJLgdsA1bg5CwzN
-	KHq/uedQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LrnXQlZdlr9rxoSIrwchAq8vgNd6FAZDP7q8JrZUi/E=; b=Lw+wm0W6JID6qC44KE1+tav9lb
+	RoyclMW0Q7y69O5MYgc/A7GVO/2sigKpIqdJGoKz8OJAcoGYBExQsIvmzRuZV8VBumKnJmeq8J4Aj
+	GaUe+Q+c58L16pzjZk+DOd3uQyTmuC0TORo9VcLqqBYBsEgcEwbYdX1DWzSBfdecZ7oDd4lUIOlNN
+	xxl60g0+mdeTiCZZ0yFiheNjWa2P5UB7aQWxRGoKhAmPexym/nVPClt0/jS/JTZ8jRPeZ7g7Bh+l3
+	haMwBBKF5B++k/K17+olSdORsx8KHnuTAf/ZGYFBD754T5+gJQ9GOZoumbt8LO6WT/wCb1BqoGV83
+	SMDkcTuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txlr9-0000000AtNA-28bW;
-	Thu, 27 Mar 2025 11:57:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txlZJ-0000000AqKP-2Ru1
+	id 1txm4V-0000000AuuZ-3YWl;
+	Thu, 27 Mar 2025 12:10:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1txm2m-0000000Aujn-0GVn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 11:38:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 615CF1762;
-	Thu, 27 Mar 2025 04:38:46 -0700 (PDT)
-Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 45C4A3F58B;
-	Thu, 27 Mar 2025 04:38:39 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	coresight@lists.linaro.org,
+	Thu, 27 Mar 2025 12:09:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1743077345;
+	bh=bFWO0Ujod2J1/sQILCVIcp7VRqYjCtT9sVBh0aFkeuE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SUwCCXnzluwzfyoZmX/XrEUagHmUtXg8GSVXODCJkzin645FwSCFSYOPeFOf/SI1B
+	 dCVgxY/8Y31MMuT3lq2ngRqNDnYwJlnYRsfASW/cssSlE7hxgTkd/iSZNpzWxFVlWD
+	 /Po6x+jrwUt0HOb6VpQe+QWCHIvPqfCaTrgeuBPFNFdb5JpnrBBKPNFXvJA3wtlDMF
+	 +Hz+urVpwWTQuW70zdUIpvPvret1wtV09ZovJXTRgs64p8LfecYYWjVJ+9/rl0pHN2
+	 7jF3MMGJmwDLuKb3r6tWhUAwXpju6fRLTbCkdia2laDlgOxti2G7Y6OTEYzIl+y47H
+	 4idVcSYLaSFMQ==
+Received: from pan.localdomain (unknown [IPv6:2a00:23c6:c338:be00:61ad:9488:9583:2010])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: martyn)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 57DE917E0657;
+	Thu, 27 Mar 2025 13:09:05 +0100 (CET)
+From: Martyn Welch <martyn.welch@collabora.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com,
+	Martyn Welch <martyn.welch@collabora.com>,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v1 9/9] coresight: Consolidate clock enabling
-Date: Thu, 27 Mar 2025 11:38:03 +0000
-Message-Id: <20250327113803.1452108-10-leo.yan@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250327113803.1452108-1-leo.yan@arm.com>
-References: <20250327113803.1452108-1-leo.yan@arm.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8mp: Add device tree for Nitrogen8M Plus ENC Carrier Board
+Date: Thu, 27 Mar 2025 12:08:54 +0000
+Message-ID: <20250327120857.539155-1-martyn.welch@collabora.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_043842_130220_F5E4A671 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20250327_050908_448700_06833D2A 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,456 +81,942 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CoreSight drivers enable pclk and atclk conditionally.  For example,
-pclk is only enabled in the static probe, while atclk is an optional
-clock that it is enabled for both dynamic and static probes, if it is
-present.  In the current CoreSight drivers, these two clocks are
-initialized separately.  This causes complex and duplicate codes.
+Add support for Boundary Devices/Ezurio Nitrogen8M Plus ENC Carrier
+Board and it's SOM. Supported interfaces:
 
-This patch consolidates clock enabling into a central place.  It renames
-coresight_get_enable_apb_pclk() to coresight_get_enable_clocks() and
-encapsulates clock initialization logic:
+ - Serial Console
+ - EQoS Ethernet
+ - USB
+ - eMMC
+ - HDMI
 
- - If a clock is initialized successfully, its clock pointer is assigned
-   to the double pointer passed as an argument.
- - If pclk is skipped for an AMBA device, or if atclk is not found, the
-   corresponding double pointer is set to NULL.  The function returns
-   Success (0) to guide callers can proceed with no error.
- - Otherwise, an error number is returned for failures.
-
-CoreSight drivers are refined so that clocks are initialized in one go.
-As a result, driver data no longer needs to be allocated separately in
-the static and dynamic probes.  Moved the allocation into a low-level
-function to avoid code duplication.
-
-Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Martyn Welch <martyn.welch@collabora.com>
 ---
- drivers/hwtracing/coresight/coresight-catu.c       | 30 ++++++++++--------------------
- drivers/hwtracing/coresight/coresight-cpu-debug.c  | 29 +++++++++++------------------
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++++----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++-------
- drivers/hwtracing/coresight/coresight-funnel.c     | 11 ++++-------
- drivers/hwtracing/coresight/coresight-replicator.c | 11 ++++-------
- drivers/hwtracing/coresight/coresight-stm.c        |  9 +++------
- drivers/hwtracing/coresight/coresight-tmc-core.c   | 30 ++++++++++--------------------
- drivers/hwtracing/coresight/coresight-tpiu.c       | 10 ++++------
- include/linux/coresight.h                          | 38 +++++++++++++++++++++++++++-----------
- 10 files changed, 81 insertions(+), 106 deletions(-)
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../imx8mp-nitrogen-enc-carrier-board.dts     | 478 ++++++++++++++++++
+ .../dts/freescale/imx8mp-nitrogen-som.dtsi    | 415 +++++++++++++++
+ 3 files changed, 894 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-nitrogen-som.dtsi
 
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index c0a51ab0312c..c63dee1ac997 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -508,14 +508,20 @@ static int __catu_probe(struct device *dev, struct resource *res)
- {
- 	int ret = 0;
- 	u32 dma_mask;
--	struct catu_drvdata *drvdata = dev_get_drvdata(dev);
-+	struct catu_drvdata *drvdata;
- 	struct coresight_desc catu_desc;
- 	struct coresight_platform_data *pdata = NULL;
- 	void __iomem *base;
- 
--	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
--	if (IS_ERR(drvdata->atclk))
--		return PTR_ERR(drvdata->atclk);
-+	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-+	if (!drvdata)
-+		return -ENOMEM;
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 42e6482a31cb..58b33708e4ee 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -184,6 +184,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-kontron-dl.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-kontron-smarc-eval-carrier.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-msc-sm2s-ep1.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-navqp.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-enc-carrier-board.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-smarc-universal-board.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk.dtb
+ imx8mp-phyboard-pollux-rdk-no-eth-dtbs += imx8mp-phyboard-pollux-rdk.dtb imx8mp-phycore-no-eth.dtbo
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dts b/arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dts
+new file mode 100644
+index 000000000000..323e10b3bc58
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-nitrogen-enc-carrier-board.dts
+@@ -0,0 +1,478 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2020 Boundary Devices
++ * Copyright 2025 Collabora Ltd.
++ */
 +
-+	dev_set_drvdata(dev, drvdata);
++/dts-v1/;
 +
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
-+	if (ret)
-+		return ret;
- 
- 	catu_desc.name = coresight_alloc_device_name(&catu_devs, dev);
- 	if (!catu_desc.name)
-@@ -571,14 +577,8 @@ static int __catu_probe(struct device *dev, struct resource *res)
- 
- static int catu_probe(struct amba_device *adev, const struct amba_id *id)
- {
--	struct catu_drvdata *drvdata;
- 	int ret;
- 
--	drvdata = devm_kzalloc(&adev->dev, sizeof(*drvdata), GFP_KERNEL);
--	if (!drvdata)
--		return -ENOMEM;
--
--	amba_set_drvdata(adev, drvdata);
- 	ret = __catu_probe(&adev->dev, &adev->res);
- 	if (!ret)
- 		pm_runtime_put(&adev->dev);
-@@ -618,22 +618,12 @@ static struct amba_driver catu_driver = {
- static int catu_platform_probe(struct platform_device *pdev)
- {
- 	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	struct catu_drvdata *drvdata;
- 	int ret = 0;
- 
--	drvdata = devm_kzalloc(&pdev->dev, sizeof(*drvdata), GFP_KERNEL);
--	if (!drvdata)
--		return -ENOMEM;
--
--	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
--
- 	pm_runtime_get_noresume(&pdev->dev);
- 	pm_runtime_set_active(&pdev->dev);
- 	pm_runtime_enable(&pdev->dev);
- 
--	dev_set_drvdata(&pdev->dev, drvdata);
- 	ret = __catu_probe(&pdev->dev, res);
- 	pm_runtime_put(&pdev->dev);
- 	if (ret)
-diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-index 5f90351778ee..dff663ac7805 100644
---- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-+++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-@@ -562,10 +562,20 @@ static void debug_func_exit(void)
- 
- static int __debug_probe(struct device *dev, struct resource *res)
- {
--	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
-+	struct debug_drvdata *drvdata;
- 	void __iomem *base;
- 	int ret;
- 
-+	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-+	if (!drvdata)
-+		return -ENOMEM;
++#include "imx8mp-nitrogen-som.dtsi"
 +
-+	dev_set_drvdata(dev, drvdata);
++/ {
++	model = "Boundary Devices Nitrogen8M Plus ENC Carrier Board";
++	compatible = "boundary,imx8mp-nitrogen-enc-carrier-board",
++			"boundary,imx8mp-nitrogen-som", "fsl,imx8mp";
 +
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, NULL);
-+	if (ret)
-+		return ret;
++	chosen {
++		stdout-path = &uart2;
++	};
 +
- 	drvdata->cpu = coresight_get_cpu(dev);
- 	if (drvdata->cpu < 0)
- 		return drvdata->cpu;
-@@ -625,13 +635,6 @@ static int __debug_probe(struct device *dev, struct resource *res)
- 
- static int debug_probe(struct amba_device *adev, const struct amba_id *id)
- {
--	struct debug_drvdata *drvdata;
--
--	drvdata = devm_kzalloc(&adev->dev, sizeof(*drvdata), GFP_KERNEL);
--	if (!drvdata)
--		return -ENOMEM;
--
--	amba_set_drvdata(adev, drvdata);
- 	return __debug_probe(&adev->dev, &adev->res);
- }
- 
-@@ -690,18 +693,8 @@ static struct amba_driver debug_driver = {
- static int debug_platform_probe(struct platform_device *pdev)
- {
- 	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	struct debug_drvdata *drvdata;
- 	int ret = 0;
- 
--	drvdata = devm_kzalloc(&pdev->dev, sizeof(*drvdata), GFP_KERNEL);
--	if (!drvdata)
--		return -ENOMEM;
--
--	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
--
--	dev_set_drvdata(&pdev->dev, drvdata);
- 	pm_runtime_get_noresume(&pdev->dev);
- 	pm_runtime_set_active(&pdev->dev);
- 	pm_runtime_enable(&pdev->dev);
-diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-index edd93ff2d3c5..c586495e9a08 100644
---- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-+++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-@@ -188,7 +188,7 @@ static int ctcu_probe(struct platform_device *pdev)
- 	const struct ctcu_config *cfgs;
- 	struct ctcu_drvdata *drvdata;
- 	void __iomem *base;
--	int i;
-+	int i, ret;
- 
- 	desc.name = coresight_alloc_device_name(&ctcu_devs, dev);
- 	if (!desc.name)
-@@ -207,9 +207,9 @@ static int ctcu_probe(struct platform_device *pdev)
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
--	drvdata->apb_clk = coresight_get_enable_apb_pclk(dev);
--	if (IS_ERR(drvdata->apb_clk))
--		return PTR_ERR(drvdata->apb_clk);
-+	ret = coresight_get_enable_clocks(dev, &drvdata->apb_clk, NULL);
-+	if (ret)
-+		return ret;
- 
- 	cfgs = of_device_get_match_data(dev);
- 	if (cfgs) {
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index ff4ac4b686c4..ba5d1a015140 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -2145,13 +2145,14 @@ static int etm4_probe(struct device *dev)
- 	struct csdev_access access = { 0 };
- 	struct etm4_init_arg init_arg = { 0 };
- 	struct etm4_init_arg *delayed;
-+	int ret;
- 
- 	if (WARN_ON(!drvdata))
- 		return -ENOMEM;
- 
--	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
--	if (IS_ERR(drvdata->atclk))
--		return PTR_ERR(drvdata->atclk);
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
-+	if (ret)
-+		return ret;
- 
- 	if (pm_save_enable == PARAM_PM_SAVE_FIRMWARE)
- 		pm_save_enable = coresight_loses_context_with_cpu(dev) ?
-@@ -2235,10 +2236,6 @@ static int etm4_probe_platform_dev(struct platform_device *pdev)
- 	if (!drvdata)
- 		return -ENOMEM;
- 
--	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
--
- 	if (res) {
- 		drvdata->base = devm_ioremap_resource(&pdev->dev, res);
- 		if (IS_ERR(drvdata->base))
-diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-index fd60491c9a19..6494a3b5d18e 100644
---- a/drivers/hwtracing/coresight/coresight-funnel.c
-+++ b/drivers/hwtracing/coresight/coresight-funnel.c
-@@ -217,6 +217,7 @@ static int funnel_probe(struct device *dev, struct resource *res)
- 	struct coresight_platform_data *pdata = NULL;
- 	struct funnel_drvdata *drvdata;
- 	struct coresight_desc desc = { 0 };
-+	int ret;
- 
- 	if (is_of_node(dev_fwnode(dev)) &&
- 	    of_device_is_compatible(dev->of_node, "arm,coresight-funnel"))
-@@ -230,13 +231,9 @@ static int funnel_probe(struct device *dev, struct resource *res)
- 	if (!drvdata)
- 		return -ENOMEM;
- 
--	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
--	if (IS_ERR(drvdata->atclk))
--		return PTR_ERR(drvdata->atclk);
--
--	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
-+	if (ret)
-+		return ret;
- 
- 	/*
- 	 * Map the device base for dynamic-funnel, which has been
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index aeb2b3d8e210..8595dc104795 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -223,6 +223,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 	struct replicator_drvdata *drvdata;
- 	struct coresight_desc desc = { 0 };
- 	void __iomem *base;
-+	int ret;
- 
- 	if (is_of_node(dev_fwnode(dev)) &&
- 	    of_device_is_compatible(dev->of_node, "arm,coresight-replicator"))
-@@ -237,13 +238,9 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 	if (!drvdata)
- 		return -ENOMEM;
- 
--	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
--	if (IS_ERR(drvdata->atclk))
--		return PTR_ERR(drvdata->atclk);
--
--	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
-+	if (ret)
-+		return ret;
- 
- 	/*
- 	 * Map the device base for dynamic-replicator, which has been
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index d589fc61a00e..f859ab932d22 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -842,13 +842,10 @@ static int __stm_probe(struct device *dev, struct resource *res)
- 	if (!drvdata)
- 		return -ENOMEM;
- 
--	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
--	if (IS_ERR(drvdata->atclk))
--		return PTR_ERR(drvdata->atclk);
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
-+	if (ret)
-+		return ret;
- 
--	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
- 	dev_set_drvdata(dev, drvdata);
- 
- 	base = devm_ioremap_resource(dev, res);
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 86ea3fea7abb..745d33d0646f 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -785,13 +785,19 @@ static int __tmc_probe(struct device *dev, struct resource *res)
- 	u32 devid;
- 	void __iomem *base;
- 	struct coresight_platform_data *pdata = NULL;
--	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
-+	struct tmc_drvdata *drvdata;
- 	struct coresight_desc desc = { 0 };
- 	struct coresight_dev_list *dev_list = NULL;
- 
--	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
--	if (IS_ERR(drvdata->atclk))
--		return PTR_ERR(drvdata->atclk);
-+	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-+	if (!drvdata)
-+		return -ENOMEM;
++	connector {
++		compatible = "usb-c-connector";
++		label = "USB-C";
++		data-role = "dual";
 +
-+	dev_set_drvdata(dev, drvdata);
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
-+	if (ret)
-+		return ret;
- 
- 	ret = -ENOMEM;
- 
-@@ -897,14 +903,8 @@ static int __tmc_probe(struct device *dev, struct resource *res)
- 
- static int tmc_probe(struct amba_device *adev, const struct amba_id *id)
- {
--	struct tmc_drvdata *drvdata;
- 	int ret;
- 
--	drvdata = devm_kzalloc(&adev->dev, sizeof(*drvdata), GFP_KERNEL);
--	if (!drvdata)
--		return -ENOMEM;
--
--	amba_set_drvdata(adev, drvdata);
- 	ret = __tmc_probe(&adev->dev, &adev->res);
- 	if (!ret)
- 		pm_runtime_put(&adev->dev);
-@@ -981,18 +981,8 @@ static struct amba_driver tmc_driver = {
- static int tmc_platform_probe(struct platform_device *pdev)
- {
- 	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	struct tmc_drvdata *drvdata;
- 	int ret = 0;
- 
--	drvdata = devm_kzalloc(&pdev->dev, sizeof(*drvdata), GFP_KERNEL);
--	if (!drvdata)
--		return -ENOMEM;
--
--	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
--
--	dev_set_drvdata(&pdev->dev, drvdata);
- 	pm_runtime_get_noresume(&pdev->dev);
- 	pm_runtime_set_active(&pdev->dev);
- 	pm_runtime_enable(&pdev->dev);
-diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-index 5821ae73a34a..a68ed6b97bf7 100644
---- a/drivers/hwtracing/coresight/coresight-tpiu.c
-+++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-@@ -132,6 +132,7 @@ static int __tpiu_probe(struct device *dev, struct resource *res)
- 	struct coresight_platform_data *pdata = NULL;
- 	struct tpiu_drvdata *drvdata;
- 	struct coresight_desc desc = { 0 };
-+	int ret;
- 
- 	desc.name = coresight_alloc_device_name(&tpiu_devs, dev);
- 	if (!desc.name)
-@@ -143,13 +144,10 @@ static int __tpiu_probe(struct device *dev, struct resource *res)
- 
- 	spin_lock_init(&drvdata->spinlock);
- 
--	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
--	if (IS_ERR(drvdata->atclk))
--		return PTR_ERR(drvdata->atclk);
-+	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
-+	if (ret)
-+		return ret;
- 
--	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
--	if (IS_ERR(drvdata->pclk))
--		return PTR_ERR(drvdata->pclk);
- 	dev_set_drvdata(dev, drvdata);
- 
- 	/* Validity for the resource is already checked by the AMBA core */
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 26eb4a61b992..cf3fbbc0076a 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -471,25 +471,41 @@ static inline bool is_coresight_device(void __iomem *base)
- }
- 
- /*
-- * Attempt to find and enable "APB clock" for the given device
-+ * Attempt to find and enable programming clock (pclk) and trace clock (atclk)
-+ * for the given device.
-  *
-- * Returns:
-+ * The AMBA bus driver will cover the pclk, to avoid duplicate operations,
-+ * skip to get and enable the pclk for an AMBA device.
-  *
-- * clk   - Clock is found and enabled
-- * NULL  - Clock is not needed as it is managed by the AMBA bus driver
-- * ERROR - Clock is found but failed to enable
-+ * atclk is an optional clock, it will be only enabled when it is existed.
-+ * Otherwise, a NULL pointer will be returned to caller.
-+ *
-+ * Returns: '0' on Success; Error code otherwise.
-  */
--static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
-+static inline int coresight_get_enable_clocks(struct device *dev,
-+					      struct clk **pclk,
-+					      struct clk **atclk)
- {
--	struct clk *pclk = NULL;
-+	WARN_ON(!pclk);
- 
- 	if (!dev_is_amba(dev)) {
--		pclk = devm_clk_get_enabled(dev, "apb_pclk");
--		if (IS_ERR(pclk))
--			pclk = devm_clk_get_enabled(dev, "apb");
-+		*pclk = devm_clk_get_enabled(dev, "apb_pclk");
-+		if (IS_ERR(*pclk))
-+			*pclk = devm_clk_get_enabled(dev, "apb");
-+		if (IS_ERR(*pclk))
-+			return PTR_ERR(*pclk);
-+	} else {
-+		/* Don't enable pclk for an AMBA device */
-+		*pclk = NULL;
- 	}
- 
--	return pclk;
-+	if (atclk) {
-+		*atclk = devm_clk_get_optional_enabled(dev, "atclk");
-+		if (IS_ERR(*atclk))
-+			return PTR_ERR(*atclk);
-+	}
++			port@0 {
++				reg = <0>;
++				hs_ep: endpoint {
++					remote-endpoint = <&usb3_hs_ep>;
++				};
++			};
 +
-+	return 0;
- }
- 
- #define CORESIGHT_PIDRn(i)	(0xFE0 + ((i) * 4))
++			port@1 {
++				reg = <1>;
++				ss_ep: endpoint {
++					remote-endpoint = <&hd3ss3220_in_ep>;
++				};
++			};
++		};
++	};
++
++
++	hdmi-connector {
++		compatible = "hdmi-connector";
++		label = "hdmi";
++		type = "a";
++
++		port {
++			hdmi_connector_in: endpoint {
++				remote-endpoint = <&hdmi_tx_out>;
++			};
++		};
++	};
++
++	reg_usb_otg_vbus: regulator-usb-otg-vbus {
++		compatible = "regulator-fixed";
++		regulator-name = "usb_otg_vbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_reg_usbotg_vbus>;
++		gpio = <&gpio1 12 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	reg_usb1_vbus: regulator-usb1-vbus {
++		compatible = "regulator-fixed";
++		regulator-name = "usb_host_vbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_reg_usb1_vbus>;
++		gpio = <&gpio1 6 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	reg_vcc_3v3_sw: regulator-vcc-3v3-sw {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC_3V3_SW";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++	};
++};
++
++&ecspi2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_ecspi2>;
++	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
++	status = "okay";
++};
++
++&hdmi_pvi {
++	status = "okay";
++};
++
++&hdmi_tx {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_hdmi>;
++	status = "okay";
++
++	ports {
++		port@1 {
++			hdmi_tx_out: endpoint {
++				remote-endpoint = <&hdmi_connector_in>;
++			};
++		};
++	};
++};
++
++&hdmi_tx_phy {
++	status = "okay";
++};
++
++&i2c2 {
++	pca9546: i2cmux9546@70 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x70>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_i2c2_pca9546>;
++		reset-gpios = <&gpio1 5 GPIO_ACTIVE_LOW>;
++
++		i2c2a: i2c2@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++			clock-frequency = <100000>;
++		};
++
++		i2c2b: i2c2@1 {
++			/* J9  - camera*/
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++			clock-frequency = <100000>;
++		};
++
++		i2c2c: i2c2@2 {
++			/* J10 - camera */
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++			clock-frequency = <100000>;
++		};
++
++		i2c2d: i2c2@3 {
++			/* rtc, J11 mipi */
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++			clock-frequency = <100000>;
++
++			rtc@52 {
++				compatible = "microcrystal,rv3028";
++				reg = <0x52>;
++				pinctrl-names = "default";
++				pinctrl-0 = <&pinctrl_rv3028>;
++				interrupts-extended = <&gpio1 4 IRQ_TYPE_LEVEL_LOW>;
++				wakeup-source;
++			};
++		};
++	};
++};
++
++&i2c4 {
++	usb_mux: hd3ss3220@47 {
++		compatible = "ti,hd3ss3220";
++		reg = <0x47>;
++		interrupts-extended = <&gpio1 8 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_i2c4_hd3ss3220>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				hd3ss3220_in_ep: endpoint {
++					remote-endpoint = <&ss_ep>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++				hd3ss3220_out_ep: endpoint {
++					remote-endpoint = <&usb3_role_switch>;
++				};
++			};
++		};
++	};
++};
++
++&isp_0 {
++	status = "okay";
++};
++
++&lcdif3 {
++	status = "okay";
++};
++
++&pwm1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_pwm1>;
++	status = "okay";
++};
++
++&pwm2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_pwm2>;
++	status = "okay";
++};
++
++&pwm4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_pwm4>;
++	status = "okay";
++};
++
++&snvs_pwrkey {
++	status = "okay";
++};
++
++&uart2 {
++	/* console */
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart2>;
++	status = "okay";
++};
++
++&uart3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart3>;
++	assigned-clocks = <&clk IMX8MP_CLK_UART3>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
++	status = "okay";
++};
++
++&uart4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart4>;
++	assigned-clocks = <&clk IMX8MP_CLK_UART4>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
++	status = "okay";
++};
++
++&usb3_0 {
++	fsl,over-current-active-low;
++	status = "okay";
++};
++
++&usb3_1 {
++	status = "okay";
++};
++
++&usb_dwc3_0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usb3_0>;
++	dr_mode = "otg";
++	usb-role-switch;
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			usb3_hs_ep: endpoint {
++				remote-endpoint = <&hs_ep>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++			usb3_role_switch: endpoint {
++				remote-endpoint = <&hd3ss3220_out_ep>;
++			};
++		};
++	};
++};
++
++&usb_dwc3_1 {
++	dr_mode = "host";
++	status = "okay";
++};
++
++&usb3_phy0 {
++	fsl,phy-tx-preemp-amp-tune = <2>;
++	status = "okay";
++	vbus-supply = <&reg_usb_otg_vbus>;
++};
++
++&usb3_phy1 {
++	fsl,phy-tx-preemp-amp-tune = <2>;
++	status = "okay";
++	vbus-supply = <&reg_usb1_vbus>;
++};
++
++&usdhc1 {
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_usdhc1_gpio>;
++	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_usdhc1_gpio>;
++	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_usdhc1_gpio>;
++	cd-gpios = <&gpio2 11 GPIO_ACTIVE_LOW>;
++	bus-width = <4>;
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_hog>;
++
++	pinctrl_ecspi2: ecspi2grp {
++		fsl,pins = <
++			/* J23 */
++			MX8MP_IOMUXC_ECSPI2_MISO__ECSPI2_MISO		0x82
++			MX8MP_IOMUXC_ECSPI2_MOSI__ECSPI2_MOSI		0x82
++			MX8MP_IOMUXC_ECSPI2_SCLK__ECSPI2_SCLK		0x82
++			MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13		0x143
++		>;
++	};
++
++	pinctrl_hdmi: hdmigrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC		0x40000019
++			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL	0x400001c3
++			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA	0x400001c3
++			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD		0x40000019
++		>;
++	};
++
++	pinctrl_hog: hoggrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_NAND_DATA01__GPIO3_IO07		0x119
++			MX8MP_IOMUXC_SAI1_MCLK__GPIO4_IO20		0x16
++			MX8MP_IOMUXC_SAI1_TXD7__GPIO4_IO19		0x1c4
++			MX8MP_IOMUXC_SD1_DATA4__GPIO2_IO06		0x41
++			MX8MP_IOMUXC_SD1_DATA5__GPIO2_IO07		0x41
++			MX8MP_IOMUXC_SD1_DATA6__GPIO2_IO08		0x41
++			MX8MP_IOMUXC_SD1_RESET_B__GPIO2_IO10		0x41
++			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05		0x41
++			MX8MP_IOMUXC_SPDIF_RX__GPIO5_IO04		0x41
++			MX8MP_IOMUXC_SPDIF_TX__GPIO5_IO03		0x41
++		>;
++	};
++
++	pinctrl_i2c2_pca9546: i2c2-pca9546grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO05__GPIO1_IO05		0x100
++		>;
++	};
++
++	pinctrl_rv3028: rv3028grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04		0x1c0
++		>;
++	};
++
++	pinctrl_i2c4_hd3ss3220: i2c4-hd3ss3220grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO08__GPIO1_IO08		0x16
++			MX8MP_IOMUXC_SAI1_RXD0__GPIO4_IO02		0x03
++		>;
++	};
++
++	pinctrl_pwm1: pwm1grp {
++		fsl,pins = <
++			/* J11 mipi display */
++			MX8MP_IOMUXC_GPIO1_IO01__PWM1_OUT		0x100
++		>;
++	};
++
++	pinctrl_pwm2: pwm2grp {
++		fsl,pins = <
++			/* J28 pin 20 LVDS display */
++			MX8MP_IOMUXC_GPIO1_IO09__PWM2_OUT		0xd6
++			/* J27 pin 20 LVDS2 display */
++			MX8MP_IOMUXC_SAI5_RXD0__PWM2_OUT		0xd6
++		>;
++	};
++
++	pinctrl_pwm4: pwm4grp {
++		fsl,pins = <
++			/* J31, pin 36 */
++		MX8MP_IOMUXC_SAI5_RXFS__PWM4_OUT			0x116
++		>;
++	};
++
++	pinctrl_reg_usbotg_vbus: reg-usbotg-vbusgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO12__GPIO1_IO12		0x100
++		>;
++	};
++
++	pinctrl_reg_usb1_vbus: reg-usb1_vbusgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06		0x100
++		>;
++	};
++
++	pinctrl_uart2: uart2grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX		0x140
++			MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX		0x140
++		>;
++	};
++
++	pinctrl_uart3: uart3grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_ECSPI1_MOSI__UART3_DCE_TX		0x140
++			MX8MP_IOMUXC_ECSPI1_SCLK__UART3_DCE_RX		0x140
++		>;
++	};
++
++	pinctrl_uart4: uart4grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX		0x140
++			MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX		0x140
++		>;
++	};
++
++	pinctrl_usb3_0: usb3-0grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO13__USB1_OTG_OC		0x1c0
++		>;
++	};
++
++	pinctrl_usb3_1: usb3-1grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06		0x16
++		>;
++	};
++
++	pinctrl_usdhc1: usdhc1grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO03__USDHC1_VSELECT		0x116
++			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK		0x190
++			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD		0x1d0
++			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0		0x1d0
++			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1		0x1d0
++			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2		0x1d0
++			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3		0x1d0
++		>;
++	};
++
++	pinctrl_usdhc1_100mhz: usdhc1grp-100mhz {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK		0x194
++			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD		0x1d4
++			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0		0x1d4
++			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1		0x1d4
++			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2		0x1d4
++			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3		0x1d4
++		>;
++	};
++
++	pinctrl_usdhc1_200mhz: usdhc1grp-200mhz {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK		0x196
++			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD		0x1d6
++			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0		0x1d6
++			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1		0x1d6
++			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2		0x1d6
++			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3		0x1d6
++		>;
++	};
++
++	pinctrl_usdhc1_gpio: usdhc1grp-gpio {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11		0x1c4
++		>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nitrogen-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nitrogen-som.dtsi
+new file mode 100644
+index 000000000000..b784b5d936b8
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-nitrogen-som.dtsi
+@@ -0,0 +1,415 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2020 Boundary Devices
++ * Copyright 2025 Collabora Ltd.
++ */
++
++#include "imx8mp.dtsi"
++
++/ {
++	model = "Boundary Devices Nitrogen8M Plus Som";
++	compatible = "boundary,imx8mp-nitrogen-som", "fsl,imx8mp";
++
++	rfkill-bt {
++		compatible = "rfkill-gpio";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_rfkill_bt>;
++		label = "rfkill-bluetooth";
++		radio-type = "bluetooth";
++		shutdown-gpios = <&gpio3 9 GPIO_ACTIVE_LOW>;
++	};
++
++	rfkill-wlan {
++		compatible = "rfkill-gpio";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_rfkill_wlan>;
++		label = "rfkill-wlan";
++		radio-type = "wlan";
++		shutdown-gpios = <&gpio2 19 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&A53_0 {
++	cpu-supply = <&buck2>;
++};
++
++&A53_1 {
++	cpu-supply = <&buck2>;
++};
++
++&A53_2 {
++	cpu-supply = <&buck2>;
++};
++
++&A53_3 {
++	cpu-supply = <&buck2>;
++};
++
++&eqos {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_eqos>;
++	phy-handle = <&ethphy0>;
++	phy-mode = "rgmii-id";
++	status = "okay";
++
++	mdio {
++		compatible = "snps,dwmac-mdio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		ethphy0: ethernet-phy@4 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <4>;
++			eee-broken-1000t;
++#if 0
++			interrupts-extended = <&gpio3 2 IRQ_TYPE_LEVEL_LOW>;
++			reset-gpios = <&gpio3 16 GPIO_ACTIVE_LOW>;
++#endif
++			reg-mask = <0x90>;
++		};
++	};
++};
++
++&i2c1 {
++	clock-frequency = <400000>;
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&pinctrl_i2c1>;
++	pinctrl-1 = <&pinctrl_i2c1_gpio>;
++	scl-gpios = <&gpio5 14 GPIO_OPEN_DRAIN>;
++	sda-gpios = <&gpio5 15 GPIO_OPEN_DRAIN>;
++	status = "okay";
++
++	pmic: pmic@25 {
++		compatible = "nxp,pca9450c";
++		reg = <0x25>;
++		pinctrl-0 = <&pinctrl_pmic>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
++
++		regulators {
++			buck1: BUCK1 {
++				regulator-name = "VDD_SOC (BUCK1)";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <2187500>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck2: BUCK2 {
++				regulator-name = "VDD_ARM (BUCK2)";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <2187500>;
++				regulator-limit-microvolt = <1025000>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck4: BUCK4 {
++				regulator-name = "VDD_3P3V (BUCK4)";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck5: BUCK5 {
++				regulator-name = "VDD_1P8V (BUCK5)";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck6: BUCK6 {
++				regulator-name = "NVCC_DRAM_1P1V (BUCK6)";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo1: LDO1 {
++				regulator-name = "NVCC_SNVS_1V8 (LDO1)";
++				regulator-min-microvolt = <1600000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo3: LDO3 {
++				regulator-name = "VDDA_1V8 (LDO3)";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo5: LDO5 {
++				regulator-name = "NVCC_SD1 (LDO5)";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++			};
++		};
++	};
++};
++
++&i2c2 {
++	clock-frequency = <100000>;
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&pinctrl_i2c2>;
++	pinctrl-1 = <&pinctrl_i2c2_gpio>;
++	scl-gpios = <&gpio5 16 GPIO_OPEN_DRAIN>;
++	sda-gpios = <&gpio5 17 GPIO_OPEN_DRAIN>;
++	status = "okay";
++};
++
++&i2c3 {
++	clock-frequency = <100000>;
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&pinctrl_i2c3>;
++	pinctrl-1 = <&pinctrl_i2c3_gpio>;
++	scl-gpios = <&gpio5 18 GPIO_OPEN_DRAIN>;
++	sda-gpios = <&gpio5 19 GPIO_OPEN_DRAIN>;
++	status = "okay";
++};
++
++&i2c4 {
++	clock-frequency = <100000>;
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&pinctrl_i2c4>;
++	pinctrl-1 = <&pinctrl_i2c4_gpio>;
++	scl-gpios = <&gpio5 20 GPIO_OPEN_DRAIN>;
++	sda-gpios = <&gpio5 21 GPIO_OPEN_DRAIN>;
++	status = "okay";
++};
++
++&uart1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart1>;
++	status = "okay";
++};
++
++&usdhc2 {
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc2>;
++	pinctrl-1 = <&pinctrl_usdhc2_100mhz>;
++	pinctrl-2 = <&pinctrl_usdhc2_200mhz>;
++	bus-width = <4>;
++	non-removable;
++	keep-power-in-suspend;
++	status = "okay";
++};
++
++&usdhc3 {
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc3>;
++	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
++	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
++	bus-width = <8>;
++	non-removable;
++	no-mmc-hs400;
++	status = "okay";
++};
++
++&wdog1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_wdog>;
++	fsl,ext-reset-output;
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_eqos: eqosgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC				0x20
++			MX8MP_IOMUXC_ENET_MDIO__ENET_QOS_MDIO				0xa0
++			MX8MP_IOMUXC_ENET_RD0__ENET_QOS_RGMII_RD0			0x91
++			MX8MP_IOMUXC_ENET_RD1__ENET_QOS_RGMII_RD1			0x91
++			MX8MP_IOMUXC_ENET_RD2__ENET_QOS_RGMII_RD2			0x91
++			MX8MP_IOMUXC_ENET_RD3__ENET_QOS_RGMII_RD3			0x91
++			MX8MP_IOMUXC_ENET_RX_CTL__ENET_QOS_RGMII_RX_CTL			0x91
++			MX8MP_IOMUXC_ENET_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK	0x91
++			MX8MP_IOMUXC_ENET_TD0__ENET_QOS_RGMII_TD0			0x1f
++			MX8MP_IOMUXC_ENET_TD1__ENET_QOS_RGMII_TD1			0x1f
++			MX8MP_IOMUXC_ENET_TD2__ENET_QOS_RGMII_TD2			0x1f
++			MX8MP_IOMUXC_ENET_TD3__ENET_QOS_RGMII_TD3			0x1f
++			MX8MP_IOMUXC_ENET_TX_CTL__ENET_QOS_RGMII_TX_CTL			0x1f
++			MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x1f
++
++			MX8MP_IOMUXC_NAND_CE1_B__GPIO3_IO02				0x10
++			MX8MP_IOMUXC_NAND_READY_B__GPIO3_IO16				0x100
++		>;
++	};
++
++	pinctrl_i2c1: i2c1grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL		0x400001c3
++			MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA		0x400001c3
++		>;
++	};
++
++	pinctrl_i2c1_gpio: i2c1gpiogrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C1_SCL__GPIO5_IO14	0x1c3
++			MX8MP_IOMUXC_I2C1_SDA__GPIO5_IO15	0x1c3
++		>;
++	};
++
++	pinctrl_i2c2: i2c2grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL		0x400001c3
++			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA		0x400001c3
++		>;
++	};
++
++
++	pinctrl_i2c2_gpio: i2c2gpiogrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C2_SCL__GPIO5_IO16	0x1c3
++			MX8MP_IOMUXC_I2C2_SDA__GPIO5_IO17	0x1c3
++		>;
++	};
++
++	pinctrl_i2c3: i2c3grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL		0x400001c3
++			MX8MP_IOMUXC_I2C3_SDA__I2C3_SDA		0x400001c3
++		>;
++	};
++
++	pinctrl_i2c3_gpio: i2c3gpiogrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C3_SCL__GPIO5_IO18	0x1c3
++			MX8MP_IOMUXC_I2C3_SDA__GPIO5_IO19	0x1c3
++		>;
++	};
++
++	pinctrl_i2c4: i2c4grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C4_SCL__I2C4_SCL		0x400001c3
++			MX8MP_IOMUXC_I2C4_SDA__I2C4_SDA		0x400001c3
++		>;
++	};
++
++	pinctrl_i2c4_gpio: i2c4gpiogrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C4_SCL__GPIO5_IO20	0x1c3
++			MX8MP_IOMUXC_I2C4_SDA__GPIO5_IO21	0x1c3
++		>;
++	};
++
++	pinctrl_pmic: pmicirqgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_NAND_ALE__GPIO3_IO00	0x41
++		>;
++	};
++
++	pinctrl_rfkill_bt: rfkill-btgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_NAND_DATA03__GPIO3_IO09	0x119
++		>;
++	};
++
++	pinctrl_rfkill_wlan: rfkill-wlangrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD2_RESET_B__GPIO2_IO19	0x16
++		>;
++	};
++
++	pinctrl_uart1: uart1grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_UART1_RXD__UART1_DCE_RX	0x140
++			MX8MP_IOMUXC_UART1_TXD__UART1_DCE_TX	0x140
++			MX8MP_IOMUXC_UART3_RXD__UART1_DCE_CTS	0x140
++			MX8MP_IOMUXC_UART3_TXD__UART1_DCE_RTS	0x140
++		>;
++	};
++
++	pinctrl_usdhc2: usdhc2grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x190
++			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d0
++			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d0
++			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d0
++			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d0
++			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d0
++		>;
++	};
++
++	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x194
++			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d4
++			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d4
++			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d4
++			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d4
++			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4
++		>;
++	};
++
++	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x196
++			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d6
++			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d6
++			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d6
++			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d6
++			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d6
++		>;
++	};
++
++	pinctrl_usdhc3: usdhc3grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x10
++			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x150
++			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x150
++			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x150
++			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x150
++			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x150
++			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x150
++			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x150
++			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x150
++			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x150
++			MX8MP_IOMUXC_NAND_CE0_B__GPIO3_IO01	0x140
++
++		>;
++	};
++
++	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x14
++			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x154
++			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x154
++			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x154
++			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x154
++			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x154
++			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x154
++			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x154
++			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x154
++			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x154
++		>;
++	};
++
++	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x12
++			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x152
++			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x152
++			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x152
++			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x152
++			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x152
++			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x152
++			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x152
++			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x152
++			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x152
++		>;
++	};
++
++	pinctrl_wdog: wdoggrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO02__WDOG1_WDOG_B	0xc6
++		>;
++	};
++};
 -- 
-2.34.1
+2.47.2
 
 
