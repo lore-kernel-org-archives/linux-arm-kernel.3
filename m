@@ -4,99 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD91C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC0EC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 09:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIYwhtEw1euleTwTcbZCNX9K84qUUjXQZZcm3DuTqE0=; b=R/ZpfhWpkxZEMu3eg34WZ9a+WR
-	Edgu4mFd7r6shbGi/ufIbFycyANossWBV4bM6mEf4of0US5xwUhrEfGcNEKpti10skNiAyrCIavOx
-	/8cmn+15WTMWKWAZns5XF1stVmCqnC6YkHL2/oIxufkP/HLmkGI+sBXgIBrhFfel6oUZlQfIIvdhH
-	NN8lFAVgEh5yktyzsmPnTvjnCJu8jq71iQc6/eRxHFWIUk8QYd1WzKaYEohlWvy/6pbB/nn1EsHt6
-	Iclwgd8hZF0pjFkG77UjdVxHaqiXsZP52YbwWDl790Xk8Vd0KaDOLC6rbQCVh1y6sGL+D3weERWyR
-	DfShlAGA==;
+	bh=kk50b7VQtCoi6qqeYirs2opyA8yqIK4cNax+DA6HcVk=; b=CvRR1rFRA51me7RvYRjOSTXQrj
+	s3YfYXkY29HE57Kdx9Z0d8FEzpv5fkUZmDLGuEAcSP8bXNfMFTLyIx81je/NJzvQGej+uNyg6yuGA
+	GBr39kDvrMNg6IvzJUw1fEKd//vZol1eV0byE7Amv9CHthIER/WKw1LmUPLvQNNE3PavPQuI9yUU6
+	/G0emZwOo+KbQEYhXHVfXIpyt/7uf4g44BLNg2goegM7cqFDigzFRp9dNK0l8qY2plV0prVooYzA1
+	Q0q66cw58JiVdLZ5NaChAcyAA/x0wGNZnP6TYUfpLpnMIvIA1vv8++twhmTXinzS7XBdNBGigGZhR
+	vo1DtRyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txj4u-0000000AViD-0v1I;
-	Thu, 27 Mar 2025 08:59:08 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1txj6b-0000000AW2W-3q6b;
+	Thu, 27 Mar 2025 09:00:53 +0000
+Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txj2b-0000000AVLW-3dbp
+	id 1txj4D-0000000AVbG-0mo0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 08:56:47 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-39149bccb69so581725f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 01:56:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743065804; x=1743670604; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=FIYwhtEw1euleTwTcbZCNX9K84qUUjXQZZcm3DuTqE0=;
-        b=XDqYIfsQLL7wpFZExAh1qoam+4gyR6CsbI36WOJDSYIk4KgiyjMZdtqlyeZxnBMO/l
-         YRgR0jkwsWCd8tjOouKyoaQjpc/PY02TXzVLMNSczR9STxa1RF4qvndux6h3WTqYy4iI
-         xnnguIhBAGs1U0cCCr7JFvDBim+4juAfzxZGv/T1I64EIMAN8yOoCqqldjzmoKjNolV4
-         16HP0HdVFyo+wsGUAxEOlO58hCWAys5FaENv4iq4S9lu8hD1ifFTZbBf1I0F3/BIW8us
-         7EYe6CnWQDv7Z7jbAORIEpTcH11wd7MSsAgeppPdWMmDIKkFUjTUXQvt6tuk4qRk0nkF
-         978g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743065804; x=1743670604;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FIYwhtEw1euleTwTcbZCNX9K84qUUjXQZZcm3DuTqE0=;
-        b=vrJZPE3dWTCiAxUKw2mGmQmxbVIzPozfbGDrUIxVQL0zcN7zOxJC+/sXSJssW9paWf
-         HDCCmfhcFqM7I6riMdJBOO1KM4wGj8+caIs4bxwCCt1aYoSG2wofn6+3phGcS/PnA9+1
-         UfRO/lgeggZEhDlB46e6sNPo48nXV9hFHiJGovDJ2Ev62DlxoMB65rR+76+UO2bZ7BdG
-         4JTT6SOxV45bE3NKDalaM/ceZcgPHPlD7ozYMGmih+CKioBu4GGL3qsVKyozyyA/9y49
-         TtIyDQ0N6P+bj4ydgkKF8IcWDvV1WuCEoDKTOBVhMeIvSlk2DXcNz31mkReLJjJDGK+t
-         3eNw==
-X-Forwarded-Encrypted: i=1; AJvYcCVDEjCot5wENjnXT0GR6mVcjoXRLKWArvo18WNbkVZI5OEFe0jUbVU+oKGYxzuzhPt+1yAb0yIgmplEcEdVJDUt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0Bzd1UysXwOOoJ6vr7/Pd/DQo4fpxD2rr+Qk+H8oSaucuRbdy
-	zzT6WlXZn4Nr8samnwrncoatYdo507EiXniAMKIjwCyclmPWd/Kd30nzI5sptQ4=
-X-Gm-Gg: ASbGncuQ68EQqPCwIPKjEw7W4dhsZrGkor2PYJE3yDEXe27WfWtcwUnVJPsKq56Mqxb
-	uCPVJQXggTgHYpZ9BvkxIfriLdrBFWrN8fVcEmP/ewp2fCQNkZKebK+3orHYoN9SVXCtXGGj0KJ
-	9X1OmrMbTshCdJjlMvCTtdKJvLE0MhRqucjecssA7u7eRvyGy0GNcZXyeh0trF3FOpxCqT+q1Np
-	yVHSj5npK9lIR8vMGKfRR0QIlJ8ya/xi22I/bcz0awVqHpNvO6JaIYZP5X70lXUMSAR26cwHWOg
-	vjTZ1UafcR6r28XeZ1Kvrl3BLxzdnpaGdXC+m5/WIQb9aX7l3g==
-X-Google-Smtp-Source: AGHT+IFYnqDl6ib4NKqjPWss5rPeynt8Vendp/W2yLiXx4uK7gmEAWHDdxKjvkNq1tkjNGSpWl64yQ==
-X-Received: by 2002:a5d:59a7:0:b0:38d:eb33:79c2 with SMTP id ffacd0b85a97d-39ad174e4famr1984580f8f.32.1743065803956;
-        Thu, 27 Mar 2025 01:56:43 -0700 (PDT)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82f1bb80sm30629875e9.28.2025.03.27.01.56.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 01:56:43 -0700 (PDT)
-Message-ID: <62bf00c37566964d6be794ed12a34cd057d9bb1d.camel@linaro.org>
-Subject: Re: [PATCH 11/34] defconfigs: rename CONFIG_MFD_SEC_CORE to
- CONFIG_MFD_SEC_I2C
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sylwester
- Nawrocki	 <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
- Alim Akhtar	 <alim.akhtar@samsung.com>, Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Alexandre Belloni	 <alexandre.belloni@bootlin.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org
-Date: Thu, 27 Mar 2025 08:56:41 +0000
-In-Reply-To: <b733eff2-171e-4ab6-8546-565d87d5ba84@kernel.org>
-References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
-	 <20250323-s2mpg10-v1-11-d08943702707@linaro.org>
-	 <b733eff2-171e-4ab6-8546-565d87d5ba84@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2-1 
+	Thu, 27 Mar 2025 08:58:27 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D8ADB11400AF;
+	Thu, 27 Mar 2025 04:58:21 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Thu, 27 Mar 2025 04:58:21 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1743065901; x=1743152301; bh=kk50b7VQtC
+	oi6qqeYirs2opyA8yqIK4cNax+DA6HcVk=; b=SDStPgrprdwR4zU/vpSycIzboL
+	BckAU7v7+qBwG8T2n+RKeKBdcKTyR7J453IDULDyOAuY5egBXoOn/r4UtapRipen
+	FHGlr0FRDAxX1G2oD8cwg0B3SaMl4hkN3xuIihof8V47vokjd69mA6m0yqpbZ0aT
+	+AXhl9GgGwDOTjvtiX7r2GYGqa5rrKR7rCd62uXg4wQJBABE4QLx6xjjbFg24UC4
+	wZwWCK8BA7Vci7Th1Xt33UjHRD49aasLZ890SEoVZ5dKgfT83hi/Az6EtUIHwHdP
+	Focp4h93tEsihHbeouGmMrLDnFNTiXLRtlgV+jwCexfE+/EHoofL7u2TNRGQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1743065901; x=1743152301; bh=kk50b7VQtCoi6qqeYirs2opyA8yqIK4cNax
+	+DA6HcVk=; b=GD4orJ9C4CVwvieaU8+w9R65kDp4fev0YJ/aQe0Grxsv84MkqWK
+	fulQ5b7PLsUxgTXBos3mGEABasQAXrqNYTzGCIWEe25H2qoOkthlp76NuB4bWvmR
+	FS9ej14XAvzh2Zjv8oFMYSM6xB/Xcb07+0VdzlNnZmw3Lrve3On/+MZfUFKtf5zq
+	iLm5ejVZ8TDzdV7lxhCQvR9gvmyqYPVgzylrqR/vFBBjmQKs94PVo888vjY6VHpx
+	kSLqSaSmZm3k88X3LBb8UPqsPTK2fmx7ZCZ+38Z5j0zVSvqippjz9RvyvLm/Syl7
+	5TXAZlfNqhd7nPeSKu12BsAEvcixttRtvNQ==
+X-ME-Sender: <xms:LBPlZ9-tuEFAOM2UFp5LzNOUAvcmYKEqVu62dce2vVQaEu7hAm7EXw>
+    <xme:LBPlZxt-YtvoZjIipyWScSrwNTfF4_ZtOPIIR_1LgzRdphb9ALYfuybn_GHpp4jp6
+    TX2qMTfINyxsmFDLHw>
+X-ME-Received: <xmr:LBPlZ7BLgIikfi0Gw1mLxIyPhx8NjGa1e6OKyDqeKs2wiuEOAM2IJtjXVXfjUzeWxe5Tl08qycEGV5kvO2NsUDUjeDYdIBusKA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduieejleelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddt
+    jeenucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqe
+    enucggtffrrghtthgvrhhnpedtgedvfeevteeltdegjeegvdeugeefheevhffhveelgeej
+    geejieejhffhkeektdenucffohhmrghinhepghhithhhuhgsrdgtohhmpdhfrhgvvgguvg
+    hskhhtohhprdhorhhgpdhkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedt
+    necurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtg
+    hpthhtohepvdekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrlhihshhsrges
+    rhhoshgvnhiifigvihhgrdhiohdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrd
+    gtohhmpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehm
+    rggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtg
+    hpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthiiihhm
+    mhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopehojhgvuggrsehkvghrnhgvlh
+    drohhrghdprhgtphhtthhopegrlhgvgidrghgrhihnohhrsehgmhgrihhlrdgtohhmpdhr
+    tghpthhtohepsghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:LBPlZxfGww1FiQO3h-LVVP5BVt47aMjxmO2cPlRoG13crGVqXaFMIw>
+    <xmx:LBPlZyPGy4vBVbqGcrRx5fZZXCdnItH_5auozgxJ2dHVkdoORVSMOA>
+    <xmx:LBPlZzlr8Rzp-yzf_bIxeDLMAnlR4OiPS9ddmMLSLaXgkZ3_f2A2Gw>
+    <xmx:LBPlZ8tuSfISNq9YrpiAa1v2hsNmm3Vmlu2CoxBkUmTjoJoeeoYOUg>
+    <xmx:LRPlZ3YZpTDLeE7EZ8niGwFbP0ssZi7F_sRe5DQ6GpBtPyroG5zTzs_1>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 27 Mar 2025 04:58:19 -0400 (EDT)
+Date: Thu, 27 Mar 2025 09:58:17 +0100
+From: Janne Grunau <j@jannau.net>
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,	Boqun Feng <boqun.feng@gmail.com>,
+ Gary Guo <gary@garyguo.net>,
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Faith Ekstrand <faith.ekstrand@collabora.com>,
+	Sven Peter <sven@svenpeter.dev>, Jonathan Corbet <corbet@lwn.net>,
+	Sergio Lopez Pascual <slp@sinrega.org>,
+	Ryan Houdek <sonicadvance1@gmail.com>, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, Asahi Lina <lina@asahilina.net>,
+	Simona Vetter <simona.vetter@ffwll.ch>
+Subject: Re: [PATCH v5] drm: Add UAPI for the Asahi driver
+Message-ID: <20250327085817.GA341311@robin.jannau.net>
+References: <20250326-agx-uapi-v5-1-04fccfc9e631@rosenzweig.io>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250326-agx-uapi-v5-1-04fccfc9e631@rosenzweig.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_015645_911923_DE2665DD 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250327_015825_714893_EC49E060 
+X-CRM114-Status: GOOD (  42.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,29 +128,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-03-26 at 08:16 +0100, Krzysztof Kozlowski wrote:
-> On 23/03/2025 23:39, Andr=C3=A9 Draszik wrote:
-> > We are adding support for Samsung PMICs that aren't using I2C and
-> > therefore had to rename the Kconfig symbol.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > ---
-> > =C2=A0arch/arm/configs/exynos_defconfig=C2=A0=C2=A0 | 2 +-
-> > =C2=A0arch/arm/configs/multi_v7_defconfig | 2 +-
-> > =C2=A0arch/arm/configs/pxa_defconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 2 =
-+-
-> > =C2=A0arch/arm64/configs/defconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | 2 +-
-> > =C2=A04 files changed, 4 insertions(+), 4 deletions(-)
-> defconfigs go separate tree, so this must not be in the middle of the
-> patchset. Bisectability, as for defconfig, is anyway broken in previous
-> change, so no benefit of putting this in the middle anyway.
+On Wed, Mar 26, 2025 at 02:16:38PM -0400, Alyssa Rosenzweig wrote:
+> This adds the UAPI for the Asahi driver targeting the GPU in the Apple
+> M1 and M2 series systems on chip. The UAPI design is based on other
+> modern Vulkan-capable drivers, including Xe and Panthor. Memory
+> management is based on explicit VM management. Synchronization is
+> exclusively explicit sync.
+> 
+> This UAPI is validated against our open source Mesa stack, which is
+> fully conformant to the OpenGL 4.6, OpenGL ES 3.2, OpenCL 3.0, and
+> Vulkan 1.4 standards. The Vulkan driver supports sparse, exercising the
+> VM_BIND mechanism.
+> 
+> This patch adds the standalone UAPI header. It is implemented by an open
+> source DRM driver written in Rust. We fully intend to upstream this
+> driver when possible. However, as a production graphics driver, it
+> depends on a significant number of Rust abstractions that will take a
+> long time to upstream. In the mean time, our userspace is upstream in
+> Mesa but is not allowed to probe with upstream Mesa as the UAPI is not
+> yet reviewed and merged in the upstream kernel. Although we ship a
+> patched Mesa in Fedora Asahi Remix, any containers shipping upstream
+> Mesa builds are broken for our users, including upstream Flatpak and
+> Waydroid runtimes. Additionally, it forces us to maintain forks of Mesa
+> and virglrenderer, which complicates bisects.
+> 
+> The intention in sending out this patch is for this UAPI to be
+> thoroughly reviewed. Once we as the DRM community are satisfied with the
+> UAPI, this header lands signifying that the UAPI is stable and must only
+> be evolved in backwards-compatible ways; it will be the UAPI implemented
+> in the DRM driver that eventually lands upstream. That promise lets us
+> enable upstream Mesa, solving all these issues while the upstream Rust
+> abstractions are developed.
+> 
+> https://github.com/alyssarosenzweig/linux/commits/agx-uapi-v5 contains
+> the DRM driver implementing this proposed UAPI.
+> 
+> https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/33984 contains
+> the Mesa patches to implement this proposed UAPI.
+> 
+> That Linux and Mesa branch together give a complete graphics/compute
+> stack on top of this UAPI.
+> 
+> Co-developed-by: Asahi Lina <lina@asahilina.net>
+> Signed-off-by: Asahi Lina <lina@asahilina.net>
+> Acked-by: Simona Vetter <simona.vetter@ffwll.ch>
+> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> ---
+> Changes in v5:
+> - Rename GEM_BIND to VM_BIND and make it take an array of bind ops. This
+>   significantly decreases the # of kernel<-->user roundtrips with Vulkan
+>   sparse binding. The uAPI here is lifted directly from Xe.
+> - Merge in_syncs and out_syncs arrays, but leave
+>   in_sync_count/out_sync_count alone, requiring waits to precede
+>   signals. This simplifies both kernel & userspace, compared to either
+>   fully merged or fully separate arrays, so it seems like a Good idea.
+> - Drop queue caps, make all caps render + compute. Even GLES2 uses
+>   compute to accelerate blits, and even compute workloads use render for
+>   a few fallback blits. This lets us drop a bunch of crud in both kernel
+>   & userspace and should slightly improve submit overhead.
+> - Reorder ioctl IDs to group a little more logically (bikeshed...).
+> - Improve some comments.
+> - Link to v4: https://lore.kernel.org/r/20250323-agx-uapi-v4-1-12ed2db96737@rosenzweig.io
 
-OK. Should it still be part of this series, e.g. at the start, after
-the binding changes, or a completely separate stand-alone patch with
-a reference to this series?
+...
 
-Cheers,
-Andre'
+> diff --git a/include/uapi/drm/asahi_drm.h b/include/uapi/drm/asahi_drm.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a9465cb89ebde6f6768fbd5ba0fa4d753e2a7e32
+> --- /dev/null
+> +++ b/include/uapi/drm/asahi_drm.h
+> @@ -0,0 +1,1211 @@
 
+...
+
+> +/**
+> + * struct drm_asahi_params_global - Global parameters.
+> + *
+> + * This struct may be queried by drm_asahi_get_params.
+> + */
+> +struct drm_asahi_params_global {
+> +	/** @features: Feature bits from drm_asahi_feature */
+> +	__u64 features;
+> +
+> +	/** @gpu_generation: GPU generation, e.g. 13 for G13G */
+> +	__u32 gpu_generation;
+> +
+> +	/** @gpu_variant: GPU variant as a character, e.g. 'G' for G13G */
+> +	__u32 gpu_variant;
+
+nit: the example can avoid the duplication of 'G' with "e.g. 'C' for
+G13C"
+
+...
+
+> +/**
+> + * struct drm_asahi_get_params - Arguments passed to DRM_IOCTL_ASAHI_GET_PARAMS
+> + */
+> +struct drm_asahi_get_params {
+> +	/** @param_group: Parameter group to fetch (MBZ) */
+> +	__u32 param_group;
+> +
+> +	/** @pad: MBZ */
+> +	__u32 pad;
+> +
+> +	/** @pointer: User pointer to write parameter struct */
+> +	__u64 pointer;
+> +
+> +	/** @size: Size of user buffer, max size supported on return */
+> +	__u64 size;
+
+The comment is misleading in the case of newer / extended kernel which
+supports a larger size than supplied. You could change it to "size
+written on return" or clarify that the value on return will not exceed
+the input value.
+
+> +};
+> +
+> +/**
+> + * struct drm_asahi_vm_create - Arguments passed to DRM_IOCTL_ASAHI_VM_CREATE
+> + */
+> +struct drm_asahi_vm_create {
+> +	/**
+> +	 * @kernel_start: Start of the kernel-reserved address range. See
+> +	 * drm_asahi_params_global::vm_kernel_min_size.
+> +	 *
+> +	 * Both @kernel_start and @kernel_end must be within the range of
+> +	 * valid VAs given by drm_asahi_params_global::vm_user_start and
+> +	 * drm_asahi_params_global::vm_user_end. The size of the kernel range
+
+This reads a little strange. Would it make sense to rename drm_asahi_params_global's
+vm_user_start and vm_user_end to vm_start/vm_end?
+
+> +	 * (@kernel_end - @kernel_start) must be at least
+> +	 * drm_asahi_params_global::vm_kernel_min_size.
+> +	 *
+> +	 * Userspace must not bind any memory on this VM into this reserved
+> +	 * range, it is for kernel use only.
+> +	 */
+> +	__u64 kernel_start;
+> +
+> +	/**
+> +	 * @kernel_end: End of the kernel-reserved address range. See
+> +	 * @kernel_start.
+> +	 */
+> +	__u64 kernel_end;
+
+...
+
+> +/**
+> + * struct drm_asahi_vm_bind - Arguments passed to
+> + * DRM_IOCTL_ASAHI_VM_BIND
+> + */
+> +struct drm_asahi_vm_bind {
+> +	/** @vm_id: The ID of the VM to bind to */
+> +	__u32 vm_id;
+> +
+> +	/** @num_binds: number of binds in this IOCTL. Must be non-zero. */
+> +	__u32 num_binds;
+> +
+> +	/**
+> +	 * @stride: If num_binds > 1, stride in bytes between consecutive binds.
+> +	 * This allows extensibility of drm_asahi_gem_bind_op.
+> +	 *
+> +	 * If num_binds == 1, MBZ. Extensibility in that case is handled at the
+> +	 * ioctl level instead.
+> +	 */
+> +	__u32 stride;
+> +
+> +	/** @pad: MBZ */
+> +	__u32 pad;
+> +
+> +	/**
+> +	 * @bind: Union holding the bind request.
+> +	 *
+> +	 * This union is named to make the Rust bindings nicer to work with.
+> +	 */
+
+This comment could use a short justification why this union does not
+defeat extensibility after the initial statement that "structures should
+not contain unions"
+
+> +	union {
+> +		/** @bind.b: If num_binds == 1, the bind */
+> +		struct drm_asahi_gem_bind_op b;
+> +
+> +		/**
+> +		 * @bind.userptr: If num_binds > 1, user pointer to an array of
+> +		 * @num_binds structures of type @drm_asahi_gem_bind_op and size
+> +		 * @stride bytes.
+> +		 */
+> +		__u64 userptr;
+> +	} bind;
+> +};
+
+...
+
+> +/**
+> + * struct drm_asahi_submit - Arguments passed to DRM_IOCTL_ASAHI_SUBMIT
+> + */
+> +struct drm_asahi_submit {
+> +	/**
+> +	 * @syncs: An optional array of drm_asahi_sync. First @in_sync_count
+> +	 * in-syncs then @out_sync_count out-syncs.
+> +	 */
+> +     __u64 syncs;
+
+Would it make sense to explictly state that this is a pointer?
+
+Reviewed-by: Janne Grunau <j@jannau.net>
+
+ciao
+Janne
 
