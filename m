@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13C9C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 14:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95047C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 14:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YNfkmjBEpl78C8o+VXKeiiZ5HsFlTCVKYcfoP2BLoQ=; b=SDKkuVbuS+97FInddOzfoBIPJV
-	VPX75TAAxBAuS5jhjeXFrGEC2hq+ib7QSIHAd3j4YfURX0NEk1OJIbvnXW8mPjdBvaXjmQ/R+Labb
-	VBU3hQJukXXuMYGn2owMtOQUanf8F7sXDOAhWeUE9kHdoWNDzM295HQa33HN2j9XKa1nDohTs4mfI
-	HkwFOP8TSNwGLyo0s7kslter7HrLq7Xxc1YivEDR11rqGAxS/fntNButrQzLmmk27VMyhX/YBCAqw
-	ZhoQEL3nL+463HXK+/6I0EogFkGwCb72smmdAz1PMFfgfmux17/OnPQ9xmCGOvrgg7skQKGNdTBLK
-	gJ6YMdww==;
+	bh=srwM4VsZ3yBl7ZsVSs0wHvvduH05/skwoi+WfoH3Tmo=; b=ip0Tl2vQg1210Z/i2wLaGdKwQ6
+	wB8x2DZf9m4CxhE/rqiTHa3c8zPBRrEr6YTBqW/3XVtUkZM+AL0ZLnr4gcczKeeuIJxftog1dJ8Iw
+	dXfE0LgdhULti7FNE2WLrgKXWtnamF1vj78g0fWmlPaj1oy/I9tbbH3spcTIZu7e+rQz7ic4RGCL/
+	D39ZsgP+hLAaYSkhpHQn9RgnAe8HbmMUGzxPMvZ2cDKzK7Ep3i7+NUI0WnQQUwuqZKkCxRD+pLZCF
+	F+ikwaWtemiK5h/81CqnJueiHYGGASTy1bTojRJtYwL4UekxnyiZv4PGosU/xys8s5EeeVwfQLOMR
+	pnLYsJOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txodr-0000000BGyF-2IGh;
-	Thu, 27 Mar 2025 14:55:35 +0000
+	id 1txofZ-0000000BHNv-1F3p;
+	Thu, 27 Mar 2025 14:57:21 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txoQx-0000000BErS-2zFA
+	id 1txoR2-0000000BErS-3WHf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 14:42:17 +0000
+	Thu, 27 Mar 2025 14:42:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1743086536; x=1774622536;
+  t=1743086541; x=1774622541;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=6YNfkmjBEpl78C8o+VXKeiiZ5HsFlTCVKYcfoP2BLoQ=;
-  b=byGMFyXlHntb+TOYw1Uys4g0oxuVUf2RvPb5CKF2VWkhPiBv+gbVywoV
-   TL8yY3VloyHBvTfdhc95EceAOIq6mozYM9BpH6R0r9G4Hcp8xs5+r89N6
-   +f+eQlzqMDGOa94rmDJ6sJweGZ/b3jtNRXTH9pM01WEnneAmBCLFslwrT
-   XTWygHmKyIgNJwvWrhwrPaDza5HNd+oWHi+ZIGR4Th9xeC9Qivj3YjluC
-   CbOJsh1oif6rtX1PjFcGkbzLvWv4rMleaw8PUxIzdsFiD3PJq0VRlSULr
-   qw5R+VPYCRme8KN2BapM4Yf7TJ8lDUhxc6fr1qOeQt0rzkMjLRedZPZPX
+  bh=srwM4VsZ3yBl7ZsVSs0wHvvduH05/skwoi+WfoH3Tmo=;
+  b=aui0HEVKp5NeKdJxzHC3T9sGq4vah9aq1GHnmTpKB/soX01vgN+o/5qM
+   ikdmxUHn7Rk7Zbvxcm4HZEicZxg7RmrQsJeBfUOD96wZMtsL7fOSULdlU
+   krBczcRRMRLQ9wAuSuLI55VJbKNqed0VqbwZ9IS5l3J3bVWY3mN8P7rGc
+   hrlTDur0q7Oq23sH0py7q7klIo6DtICSRsaULkMTiXavP7XnRabpyqd4t
+   kXEFpDWF/WdvwjspleAI/ErykHktdd9ilUUBAMxhrc7ok1cPJd1cnCuGe
+   bvMpiR7Wg1XfH13jZTN2MIMhnFhwirwD2PldiXhDcR6uQBXSX1KN91B93
    g==;
-X-CSE-ConnectionGUID: Br8qnwf0Qq60ESe56KU3NQ==
-X-CSE-MsgGUID: BLyB5sCWQPKYXU1SEfhd7w==
+X-CSE-ConnectionGUID: pS1I6QmnQoO+BIuMOgiltg==
+X-CSE-MsgGUID: iFM4zChRT5e9kvjR21TWOA==
 X-IronPort-AV: E=Sophos;i="6.14,280,1736809200"; 
-   d="scan'208";a="43199529"
+   d="scan'208";a="43199531"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 27 Mar 2025 15:42:14 +0100
-X-CheckPoint: {67E563C5-2A-2417938-F0170C2B}
-X-MAIL-CPID: 75030C97507DB47327ED4CC8C6056591_2
-X-Control-Analysis: str=0001.0A006378.67E563BF.0005,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B671E16C181;
-	Thu, 27 Mar 2025 15:42:07 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 27 Mar 2025 15:42:20 +0100
+X-CheckPoint: {67E563CB-1D-903EAEAC-E04C76C8}
+X-MAIL-CPID: 94219BFC4AF9ED8D941571B08335DEB8_5
+X-Control-Analysis: str=0001.0A006396.67E563C4.0009,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 69A4E16C181;
+	Thu, 27 Mar 2025 15:42:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1743086529;
+	s=dkim; t=1743086535;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=6YNfkmjBEpl78C8o+VXKeiiZ5HsFlTCVKYcfoP2BLoQ=;
-	b=Kv7Xr2NNYpuS7yGBvdEV7vx+l+Oz1rICsQjR1xUZSTZBoprZZWoXuH2ToqgyP9K6LxPv7o
-	nyzwSiSxb9fceQXmxwFSGz1lDCzK2mcqkoxgPrY4X156MGYmGQSeOMZiohmC5Iknng7UH/
-	tjN6uf35QC4YSk8Y+oNJcanzxvk5VwpDAeVt7cNz0CIh8jwHlTLxF2EufXqOPcxto0rks6
-	3SIe8ddk98a7KHJ1Kvr8rejmjHt11gbqAUWdwZvreye/kQCG4zPFJrDt2Jq5j3VQy9//av
-	dHl5gb71ZXYPvAEuaJq3/kodRPrv6Av9aK+N8XO1w0EcNtkoVH4weOU+7J0L1w==
+	bh=srwM4VsZ3yBl7ZsVSs0wHvvduH05/skwoi+WfoH3Tmo=;
+	b=iaBD9b9vTEq2NAOOIK5ytG3gc3B/jeqSt17kFp2XUUAvYSbfRn+rdT8CfiweucE6GH+cCY
+	SXEbXx0GJih0T20HHB/TRe4CanZwQfcaFHDW+YXFAA1tVBCqbda+090dI+KbWLb3hqRc5M
+	iWJQk/lb8uoYx77p696vrjzIgTrxqhhwjEls/mVR/B95LWi8sRmblnA/J5MCP9Xr/PFbpz
+	5RTh5xaVZz3wtqvUzTlRYPtLZDf0IxZ+1S0Iq4H1nHS6BrPAt3MjJ5biYltytMiNPf/x2B
+	n4JSyFNYRpcVojUcLNpQWdwMDrOd/qsoDHeWCtD57xTnWEgGQeCdP7YNNRI8Hg==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Shawn Guo <shawnguo@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -72,9 +72,9 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/7] ARM: dts: ls1021a-tqmals1021a: Add overlay for CDTech DC44 RGB display
-Date: Thu, 27 Mar 2025 15:41:12 +0100
-Message-ID: <20250327144118.504260-7-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 7/7] ARM: dts: ls1021a-tqmals1021a: change sound card model name
+Date: Thu, 27 Mar 2025 15:41:13 +0100
+Message-ID: <20250327144118.504260-8-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250327144118.504260-1-alexander.stein@ew.tq-group.com>
 References: <20250327144118.504260-1-alexander.stein@ew.tq-group.com>
@@ -82,8 +82,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_074216_043694_B7FCA306 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250327_074221_187095_8CBF7F21 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,91 +98,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds an overlay for the supported RGB display CDTech DC44.
-DCU graphics chain is configured accordingly.
+The card name for ALSA is generated from the model name string and
+is limited to 16 characters. Use a shorter name to prevent cutting the
+name.
+MBLS1021A uses the same audio codec as most i.MX based starter kits
+by TQ-Systems. Adjust the sound card model to i.MX based platforms,
+as done by commit e6303798b6ac4 ("arm64: dts: imx8mp-tqma8mpql-mba8mpxl:
+change sound card model name"). This allows sharing a default asound.conf
+in BSP over all the kits.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm/boot/dts/nxp/ls/Makefile             |  2 +
- ...-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso | 55 +++++++++++++++++++
- 2 files changed, 57 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
+ arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/nxp/ls/Makefile b/arch/arm/boot/dts/nxp/ls/Makefile
-index 7b97b718ebc16..53240b04c9688 100644
---- a/arch/arm/boot/dts/nxp/ls/Makefile
-+++ b/arch/arm/boot/dts/nxp/ls/Makefile
-@@ -9,7 +9,9 @@ dtb-$(CONFIG_SOC_LS1021A) += \
+diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
+index 80dae0c09542d..5606585dd5607 100644
+--- a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
++++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
+@@ -157,7 +157,7 @@ port {
  
- ls1021a-tqmls1021a-mbls1021a-hdmi-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-hdmi.dtbo
- ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtbo
-+ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtbo
- ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtbo
- dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-hdmi.dtb
- dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtb
-+dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtb
- dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtb
-diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
-new file mode 100644
-index 0000000000000..146d45601f693
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright 2013-2014 Freescale Semiconductor, Inc.
-+ * Copyright 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Alexander Stein
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&backlight_dcu {
-+	status = "okay";
-+};
-+
-+&dcu {
-+	status = "okay";
-+
-+	port {
-+		dcu_out: endpoint {
-+			remote-endpoint = <&panel_in>;
-+		};
-+	};
-+};
-+
-+&display {
-+	compatible = "cdtech,s070swv29hg-dc44";
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	polytouch: touchscreen@38 {
-+		compatible = "edt,edt-ft5406", "edt,edt-ft5x06";
-+		reg = <0x38>;
-+		interrupt-parent = <&pca9554_0>;
-+		interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
-+		/* LCD_PWR_EN -> TSC_WAKE */
-+		wake-gpios = <&pca9554_1 4 GPIO_ACTIVE_HIGH>;
-+		iovcc-supply = <&reg_3p3v>;
-+		vcc-supply = <&reg_3p3v>;
-+		gain = <20>;
-+		touchscreen-size-x = <800>;
-+		touchscreen-size-y = <480>;
-+	};
-+};
-+
-+&panel_in {
-+	remote-endpoint = <&dcu_out>;
-+};
+ 	sound {
+ 		compatible = "fsl,imx-audio-tlv320aic32x4";
+-		model = "ls1021a-mbls1021a-tlv320aic32";
++		model = "tqm-tlv320aic32";
+ 		ssi-controller = <&sai1>;
+ 		audio-codec = <&tlv320aic32x4>;
+ 	};
 -- 
 2.43.0
 
