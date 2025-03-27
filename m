@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA66C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 11:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2C2C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 11:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rw2C5p+NCRxOPYhwPDmfw0m5OTOV/6uLW/Te+FXI22w=; b=qu6ojPCzQTwsqHShiKY6ML4Xuo
-	urxCMlh66tA/XpvvwaPW8VAAI6AQrTzgxsg3F5HZXGtAJjYpj5A2ysapyr3mnaRtLAVw7+3wFDj+b
-	/cm29nhNKM989QFXYQWmzTFjRtotfcPxOLKjkyDbBBv5hg7jlLrAIOSXP8yk/QzpP6iT2pYg2X3WG
-	Mgmg1g+pnK+aWdHUTi55VNhF1wn9HyHGFYvKElbRlebpfhYs/Gkj4LOyum+jPkb540I8IqK8SOqSm
-	thjaBYHHnlsUClgxtj2BU3z6ZUe/LhDGZW9U28mTan/OLydN+TICLLwCFNu5kVDXEj/0p/Go3oSHl
-	abKGMOWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kKioJc/LT31Rrdp+xV9eQMVSniWLhoF/+IM7ONWRAbQ=; b=SGrA7VVjxqmVJOt9U4cumbFWM7
+	Rme/Td/2Tt2NGpHUHf8lplL24kFJii7Rzw8jnw+i2dvYVjKf9N8//oIICzJBzIWmYV7q7xfQ3yEg+
+	hiidfu7d7uNYZQ/CRcBx35LpR3IgPOA02p7T7KJ1wiLggWQya77894pYA+EW3WHvVob1lSTGAePJE
+	RF3Xw89I3vsOidX2YZYAl7nImz5wNZSXBCqfqD467jV9TDw+aVtqKQGbUQuo+TsaXNFJqyAJPO7Jz
+	J3Cx4xuSLI/BDxEllOA11P4djQjkstMewXsOOhFpFsaIFInae6mlbh/KTMkZvkW37O6lwqQDF7/5b
+	/gd+GKmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txl8B-0000000AnIo-3X1O;
-	Thu, 27 Mar 2025 11:10:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1txlBe-0000000AniT-2i7K;
+	Thu, 27 Mar 2025 11:14:14 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txl6R-0000000An1b-41kR
+	id 1txl9v-0000000AnXF-0j4z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 11:08:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1D5844B2D
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 11:08:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F126AC4CEF5
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 11:08:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743073731;
-	bh=T/C1IUzTPhJ0AN1d10OTPlRbro4QgLVWrO1x971kKwc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GUmR/9NbSTYfO4AGJOaL2UTxlU5xFskKoFxRXOGoJ1n1d1wTswADCVBpv2Yk3VMjE
-	 WtXe0j6ec08dEEaM8eMRA+nSjmYoaNN40G0NMxpzR0pp6ma5tgxf/gJ0f8fjyr+eWH
-	 bVaOgFN3/lvetm84KkYjC/avYN65uEpJyLYpuWQhzXjefQEsLUCUx1sgik33aRX0Rx
-	 YC6uxoS55b9uYsmTojKQouGQ+cAnyyz4XXbM/8lcr9oszIEZ3a4Xanpbp5sRicAlUK
-	 4LygiR3HAy41A+dxUF2A1KoT7UyliQv3/BwQdPjOK7Je+xTohyqjm9kdAWv/XKjF9X
-	 T2yRpxIMT+L/w==
-Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-602513d2201so454871eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 04:08:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUjX1l0Cp3bZS0KDIh4VfNp1GOVnUGAf1lAGFn1CwrmK17ee3rNPY2XbPj6q7Z5EDPQyBRgXsrIQLvVlZzIBfDr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvbz12H1HL6Sx9laUFVxZ96CnR0si4Da3UD2sbppLp3vTLWPz1
-	C/S5kYAP/xiesXlcGOIo6bhRWC94Ii1bW8lUlFVBfJShQS08gRu5Ev+w2Buz+aMDu7kom7bWQS8
-	SGQCfA6Wh1Pp3QMUd513CT/j7wCc=
-X-Google-Smtp-Source: AGHT+IEzurn8PX84DTZbLqJSvwaaZ/eB8XCLr0efqELPQTTYzC0Yup16jliPriSvS/8iQ71yl9XaN5ogWrNYP+wzo1I=
-X-Received: by 2002:a05:6870:391e:b0:29e:6394:fd4a with SMTP id
- 586e51a60fabf-2c847f04c10mr1532382fac.2.1743073730142; Thu, 27 Mar 2025
- 04:08:50 -0700 (PDT)
+	Thu, 27 Mar 2025 11:12:28 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52R75sHR013524;
+	Thu, 27 Mar 2025 04:12:09 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=kKioJc/LT31Rrdp+xV9eQMV
+	SniWLhoF/+IM7ONWRAbQ=; b=fGjMVt5hFBcrccIe/ucR88sX2QaOo5HSq+ADd/Q
+	pNZsInDY1hZ+dgyDOtjBgWxLix7Dc8HnLosAA0l8drh7IlIz0k/3fkBlIEUwLYco
+	/2C1uZB/fMuNJIdApn7ujwLUOYO4YmMOIJaLI4TpZ+2ZtxOnOytLXEFaIieI4fEf
+	HtNIW+Pcsk0FdLKu3GDxA3howbaitryW9SGF5opCeUbCrL3KWpVIe580EXA/9nug
+	QBc0czWvGpCqdr+Wq5/Cd3G8nihFgFNQB3A6+ap+arzNYND83pXqOUYEYHI7kJQ9
+	a+lnC2lEqH8+g29tWiBC55CuDG7NBceHzEi5n5zncZRCNVQ==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 45n1yv8gd0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Mar 2025 04:12:09 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Thu, 27 Mar 2025 04:12:08 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Thu, 27 Mar 2025 04:12:08 -0700
+Received: from optiplex.marvell.com (unknown [10.28.34.253])
+	by maili.marvell.com (Postfix) with ESMTP id A98FB5E6867;
+	Thu, 27 Mar 2025 04:12:03 -0700 (PDT)
+From: Tanmay Jagdale <tanmay@marvell.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
+        <james.clark@linaro.org>, <john.g.garry@oracle.com>,
+        <leo.yan@linux.dev>, <will@kernel.org>, <acme@kernel.org>,
+        <adrian.hunter@intel.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-kernel@vger.kernel.org>,
+        <sgoutham@marvell.com>, <gcherian@marvell.com>, <lcherian@marvell.com>,
+        Tanmay Jagdale
+	<tanmay@marvell.com>
+Subject: [PATCH V3 0/2] Fix Coresight instruction synthesis logic
+Date: Thu, 27 Mar 2025 16:41:47 +0530
+Message-ID: <20250327111149.461012-1-tanmay@marvell.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250317093445.361821-1-csokas.bence@prolan.hu>
- <20250317093445.361821-2-csokas.bence@prolan.hu> <CAJZ5v0hJZBxU6SSq9C8gp2peETFWu0jbhrM82B5GvQkVXPR+9Q@mail.gmail.com>
- <3e6d7071-1ba9-484c-9dcb-c5da6ad1ffe3@prolan.hu>
-In-Reply-To: <3e6d7071-1ba9-484c-9dcb-c5da6ad1ffe3@prolan.hu>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 27 Mar 2025 12:08:39 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jka2r9PaKsF0FE2qJaFfnVNGd8sZRE6Aay-Ugpzot44w@mail.gmail.com>
-X-Gm-Features: AQ5f1JpUPqZNN73veAwvZFBlgl93lXp6y3hqKwdnBmubsLfvOeNP8EFhQHFKtCM
-Message-ID: <CAJZ5v0jka2r9PaKsF0FE2qJaFfnVNGd8sZRE6Aay-Ugpzot44w@mail.gmail.com>
-Subject: Re: [PATCH v5 1/2] pm: runtime: Add new devm functions
-To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Varshini Rajendran <varshini.rajendran@microchip.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Len Brown <len.brown@intel.com>, 
-	Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Pavel Machek <pavel@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-ORIG-GUID: Te0e9O-PCUOm0cDuoHHQhGq7ENOtphTZ
+X-Authority-Analysis: v=2.4 cv=dKCmmPZb c=1 sm=1 tr=0 ts=67e53289 cx=c_pps a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17 a=Vs1iUdzkB0EA:10 a=D19gQVrFAAAA:8 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=b8-QEG12Fff0ABwj1n4A:9 a=W4TVW4IDbPiebHqcZpNg:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: Te0e9O-PCUOm0cDuoHHQhGq7ENOtphTZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-27_01,2025-03-26_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_040852_039710_3AED85B6 
-X-CRM114-Status: GOOD (  27.42  )
+X-CRM114-CacheID: sfid-20250327_041227_219198_A454D642 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +94,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 10:02=E2=80=AFAM Cs=C3=B3k=C3=A1s Bence <csokas.ben=
-ce@prolan.hu> wrote:
->
-> Hi,
->
-> On 2025. 03. 26. 18:38, Rafael J. Wysocki wrote:
-> > I said I didn't like it and I'm still not liking it.
->
-> You didn't really elaborate further, but now I'm glad I could understand
-> your dislike.
->
-> > The problem is that the primary role of pm_runtime_set_active() is to
-> > prepare the device for enabling runtime PM, so in the majority of
-> > cases it should be followed by pm_runtime_enable().  It is also not
-> > always necessary to call pm_runtime_set_suspended() after disabling
-> > runtime PM for a device, like when the device has been
-> > runtime-suspended before disabling runtime PM for it.  This is not
-> > like releasing a resource that has been allocated and using devm for
-> > it in the above way is at least questionable.
-> >
-> > Now, there is a reason why calling pm_runtime_set_suspended() on a
-> > device after disabling runtime PM for it is a good idea at all.
-> > Namely, disabling runtime PM alone does not release the device's
-> > suppliers or its parent, so if you want to release them after
-> > disabling runtime PM for the device, you need to do something more.
-> > I'm thinking that this is a  mistake in the design of the runtime PM
-> > core.
->
-> Well, this is the order in which the original driver worked before
-> anyways. As a quick fix, would it work if we created a devm function
-> that would pm_runtime_set_active(), immediately followed by
-> pm_runtime_enable(), and on cleanup it would pm_runtime_set_suspended()
-> followed by pm_runtime_disable_action() (i.e.
-> pm_runtime_dont_use_autosuspend() and pm_runtime_disable())?
+When we use perf to catpure Coresight trace and generate instruction
+trace using 'perf script', we get the following output:
 
-On cleanup you'd need to ensure that pm_runtime_disable() is followed
-by pm_runtime_set_suspended() (not the other way around).  Also
-pm_runtime_dont_use_autosuspend() needs to be called when runtime PM
-is still enabled.
+# perf record -e cs_etm/@tmc_etr0/ -C 9 taskset -c 9 sleep 1
+# perf script --itrace=i1ns --ns -Fcomm,tid,pid,time,cpu,event,ip,sym,addr,symoff,flags,callindent
+..
+ perf  9024/9024  [009]  2690.650470551:      instructions:   call                                 0 ffffb305591aed54 coresight_timeout+0x28
+ perf  9024/9024  [009]  2690.650470551:      instructions:   call                                 0 ffffb305591aed58 coresight_timeout+0x2c
+ perf  9024/9024  [009]  2690.650470551:      instructions:   call                                 0 ffffb305591aed5c coresight_timeout+0x30
+ perf  9024/9024  [009]  2690.650470551:      instructions:   call                                 0 ffffb305591aed60 coresight_timeout+0x34
+ perf  9024/9024  [009]  2690.650470551:      instructions:   jmp                                  0 ffffb305591aed7c coresight_timeout+0x50
+ perf  9024/9024  [009]  2690.650470551:      instructions:   jmp                                  0 ffffb305591aed80 coresight_timeout+0x54
+ perf  9024/9024  [009]  2690.650470551:      instructions:   jmp                                  0 ffffb305591aed84 coresight_timeout+0x58
+ perf  9024/9024  [009]  2690.650470552:      instructions:   jcc                                  0 ffffb305591aede4 coresight_timeout+0xb8
+ perf  9024/9024  [009]  2690.650470552:      instructions:   jcc                                  0 ffffb305591aede8 coresight_timeout+0xbc
+ perf  9024/9024  [009]  2690.650470552:      instructions:   jcc                                  0 ffffb305591aedec coresight_timeout+0xc0
+ perf  9024/9024  [009]  2690.650470552:      instructions:   jcc                                  0 ffffb305591aedf0 coresight_timeout+0xc4
+ perf  9024/9024  [009]  2690.650470557:      instructions:   call                                 0 ffffb305591bccec ete_sysreg_read+0x0
+ perf  9024/9024  [009]  2690.650470557:      instructions:   call                                 0 ffffb305591bccf0 ete_sysreg_read+0x4
+ perf  9024/9024  [009]  2690.650470557:      instructions:   call                                 0 ffffb305591bccf4 ete_sysreg_read+0x8
+ perf  9024/9024  [009]  2690.650470557:      instructions:   call                                 0 ffffb305591bccf8 ete_sysreg_read+0xc
+ perf  9024/9024  [009]  2690.650470557:      instructions:   call                                 0 ffffb305591bccfc ete_sysreg_read+0x10
+ perf  9024/9024  [009]  2690.650470557:      instructions:   call                                 0 ffffb305591bcd00 ete_sysreg_read+0x14
 
-With the above taken into account, it would work.
+This output has the following issues:
+1. Non-branch instructions have mnemonics of branch instructions (Column 6)
+2. Branch target address is missing (Column 7)
+
+This patch fixes these issues by changing the logic of instruction syntehsis
+for the Coresight trace queues.
+
+Output after applying the patch:
+ ...
+ perf  6111/6111  [008]   457.332794461:      instructions:                                        0 ffffb305591aed54 coresight_timeout+0x28
+ perf  6111/6111  [008]   457.332794461:      instructions:                                        0 ffffb305591aed58 coresight_timeout+0x2c
+ perf  6111/6111  [008]   457.332794461:      instructions:                                        0 ffffb305591aed5c coresight_timeout+0x30
+ perf  6111/6111  [008]   457.332794461:      instructions:   jmp                   ffffb305591aed7c ffffb305591aed60 coresight_timeout+0x34
+ perf  6111/6111  [008]   457.332794461:      instructions:                                        0 ffffb305591aed7c coresight_timeout+0x50
+ perf  6111/6111  [008]   457.332794461:      instructions:                                        0 ffffb305591aed80 coresight_timeout+0x54
+ perf  6111/6111  [008]   457.332794461:      instructions:   jcc                   ffffb305591aede4 ffffb305591aed84 coresight_timeout+0x58
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591aede4 coresight_timeout+0xb8
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591aede8 coresight_timeout+0xbc
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591aedec coresight_timeout+0xc0
+ perf  6111/6111  [008]   457.332794462:      instructions:   call                  ffffb305591bccec ffffb305591aedf0 coresight_timeout+0xc4
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591bccec ete_sysreg_read+0x0
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591bccf0 ete_sysreg_read+0x4
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591bccf4 ete_sysreg_read+0x8
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591bccf8 ete_sysreg_read+0xc
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591bccfc ete_sysreg_read+0x10
+ perf  6111/6111  [008]   457.332794462:      instructions:                                        0 ffffb305591bcd00 ete_sysreg_read+0x14
+
+Changes in V3
+  - Rebased to latest coresight-next branch
+  - Added Reviewed-by tags from V2 [2]
+
+Changes in V2
+  - Updated commit message of Patch 1
+  - As discussed in the previous version [1], there were differences in instruction
+    trace output before and after the patch. The timestamps for the instructions
+    were not in sync. Added a patch 2 which fixes this issue.
+
+Changes in V1
+  - https://lkml.org/lkml/2023/6/23/912
+
+[1] https://lkml.org/lkml/2023/6/28/506
+[2] https://lore.kernel.org/lkml/b2c02eb9-0940-4770-a4b7-22d2af8078db@arm.com/
+
+Tanmay Jagdale (2):
+  perf: cs-etm: Fixes in instruction sample synthesis
+  perf: cs-etm: Store previous timestamp in packet queue
+
+ tools/perf/util/cs-etm.c | 49 +++++++++++++++++++++++++++++++---------
+ tools/perf/util/cs-etm.h |  1 +
+ 2 files changed, 39 insertions(+), 11 deletions(-)
+
+-- 
+2.43.0
+
 
