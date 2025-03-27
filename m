@@ -4,115 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9561EC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 21:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F34C4C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 21:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fU6+swbjNie6iv0e0xu8zQCGmiznni+/eNGoYv30rIw=; b=2Arq4/by8HN31Xx/VV/QAnqQAE
-	UMgOGqp1T1BOynpe4OSIBDLPkXNM0WRDLuuS0Xy3ANhynMnxqRhZU8MVV5mMvEGAckLt6zKZcZrVU
-	TaX6I3EenPMFZN8Roobk7IatqYWTtIpoExUevuP+2AGwGetk+taeKUgInLWLJd+D15+vUYHFvFgmp
-	+3qFy6AoKlmI4ONpa3e55CQTxFNnbi7CJQBJCJXLZJfYJ5I2+NoSfBSPrqjQDv+uBl9xE5y25mOOx
-	xGR1Jzvg2DPxKFxcSmtII61qGWyTly18L3FFlTAAIsR35sF/kGP/4GNS8yKC0J/5PBVZZ2g54t4Xb
-	aZVUS5zg==;
+	bh=7e4dqky0AuSmxMqVM2ZY11VJxm663vAkjBFGDuOW3XA=; b=YXt7a/EvaFdIVFJOXXNnzcGTiB
+	0m1xuy277IlHNXg2aKe3uvyHPiEgy4rSqepB/bZ3uC8CiZ/XHNekWTflPo1+CIa2KEpH46iKLigRS
+	Fefj9Q4azvi+3Tp+3w2+2tYpdQKqUhdGoeJx3KdVQ2HF+wJ9Sf8A8QYc52RR3GDwxhv+byCloRJAT
+	9L9frgUeLxVvBdL5XUsrkRk98nOdCzrGCCEtyybLXcPq22KY2Jt5pZVvaKbZqAMPPtUiwc3pJcQIz
+	NCjU9ABEAaYV32ylmFFHuIBEJa9QzolezRvIk0iXUY4LTcEaXIrwh/qmUQEbjypXnYXAVTnFpGCHh
+	xkrYb3NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txuTA-0000000C2Q7-2POn;
-	Thu, 27 Mar 2025 21:08:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1txuwC-0000000C5Mv-2k3x;
+	Thu, 27 Mar 2025 21:38:56 +0000
+Received: from mail-am0eur02on20615.outbound.protection.outlook.com ([2a01:111:f403:2606::615] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txt1k-0000000Bphs-2oBG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 27 Mar 2025 19:36:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=fU6+swbjNie6iv0e0xu8zQCGmiznni+/eNGoYv30rIw=; b=R2TtaZp8auJcsi/gbGWQoBd90a
-	EO41+HFCKfVE5AJVyngJQssakOs/urbvhgdObUTrn595jYXbdLVDSnqp5MvEJr1dvAvkNVhgiCxUU
-	LosDXr2v3r+liziqTk35vxCJQf3PAgMmWK7VNnDdPJ0S+qVWN0mwJQW8vlkWSyvbqpCmKPUofskQ1
-	W+e+vTvrKAfZNlUxqPzqyJyMy01CxNILpN4WA14+N/eMD6lWokurO3nQmLboqUEPDwdsr+S374/3Y
-	FmwTGjZlYbh6hBKfGyNad8CJUjkwNPBz5Kz3VIJmS8hQn8diCt6GU8NZZF54EY27A/Emt+/DzHjX2
-	/EavJa9w==;
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txt1h-000000061aI-1X12
+	id 1txtw5-0000000ByTc-1qMY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 19:36:31 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-30384072398so1844992a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:36:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104186; x=1743708986; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fU6+swbjNie6iv0e0xu8zQCGmiznni+/eNGoYv30rIw=;
-        b=ve/ve+TQyaOHZstd+j3+yFbVcWijJ0F4vw05Bat+mtEbVFSu1BGBKMF6r1zSmtFxvU
-         oNeLGN9GQ6se8KniSpJKurYDHyjT/AEMGt3o5YPe7dEuQEj2jr3E9JtWg3Y1yZpWU2G1
-         VYzmQli+gChYqKbuA5Pexrg49nQv9tzZYpQiVufNU7ucMm946Ci6C8fqp+i9VRkS0i3g
-         4eI5txGfhTr+is/RXemNcf3hnKgaFeebtPNC1zF4tayoFAF8GYO2wfW0l5enve+eSxUM
-         HMN9Pz+JDgd/0tzplw7FctuYahkFS60vv5FOQS5olSW6V0hXRkS2x9EsDoA1aJNH+mhe
-         jR1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743104186; x=1743708986;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fU6+swbjNie6iv0e0xu8zQCGmiznni+/eNGoYv30rIw=;
-        b=snUAIO7UPLEHQ5S6jvcIk096AliDtluvlrXv21gIvdWYNyJ3KnwJjx8wNX09WY2ZBw
-         Jpg8GZK82MmzgyR4oUH0VB5o7rqo/JMsigzscel/t7nwH8ofzxA2pYuJlx3Tcy7U913U
-         lzGn1mXCO5te/IpsG137tLNRm9GkoS4aVyYILMkFrZ8EyHsmb3R1gxsrihxZ3epsHN/G
-         GetIwwl77iBA4zv9xwEVGn87hens9EvYTzUfvNw+aKgE5TxGbhhvH0Mvhlw1r3HCx9iB
-         WHy5eySGNG8TQT9FK2/3QLHgpaaV0bPlmcTAiMbhXyMQVgwd4NDQKEK+iMm6kwXjkIiZ
-         jPWg==
-X-Forwarded-Encrypted: i=1; AJvYcCWY9zUjEeGFDCgI8oWJpS8+nFrRzrM6CF7EkthaxKOFzJqsTB/vc3PCQXDK6nKUORGeAxeGogQQ+9F5qU5EvAVH@lists.infradead.org
-X-Gm-Message-State: AOJu0YznCmGnHddXVqxNKnoIk6MYttMYpmoEfyq/YPW3ML9KDdcIyVB1
-	vhemlcdJ4NBMBU0oRZ0+8b+uAmq9zHuggnUKAAn8iaITmzgv0EG323vdSMjAqrY=
-X-Gm-Gg: ASbGncuNwvBPNKEE1H0cywtwThnk9XZRRaLHE8nv+usmR2HeiGLANaf5sboFttonDWa
-	VdY4FfeoTks6GCPIVRF7plGbcEHZDP/LLL8X8DCppZRkNSanKwk5DfLeH7DZQkAlEvsWcUSbKJh
-	tacb7GSuKF9N78bTiR6oEPgXCINxQN1WwBgsjBcO1s3Og+GviyBYp9nWMEHFJ4jX5llicnfc3WJ
-	VF0nlH+udtUUtWVw2OW0pEqvhHGMrAJU48NmH4qU0HX6VLvWX5w0SjlM1HhtcF4IZ0UuKy+B4Cl
-	O69U0n1vZ5APzlrf7sHDidB93hBTo04z0RcXTPEsjrQH4ZgSusJVAFTp5g==
-X-Google-Smtp-Source: AGHT+IG6W5JCnq2W/DPMkiUqQh7RSB5vMs9zmrYMV01msf9VIMSJa0JuflPjxBxsdjfYbz9YgA1nag==
-X-Received: by 2002:a17:90b:2ed0:b0:2fe:861b:1ae3 with SMTP id 98e67ed59e1d1-303a7d66291mr7527766a91.8.1743104186345;
-        Thu, 27 Mar 2025 12:36:26 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 12:36:26 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Thu, 27 Mar 2025 12:35:50 -0700
-Subject: [PATCH v5 09/21] RISC-V: Add Ssccfg/Smcdeleg ISA extension
- definition and parsing
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Thu, 27 Mar 2025 20:34:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V4WHiBaReMnAZsrutBW9Khl3hPQrTIMu/Wfmg6b6qGI+bNwwsMO6YvG/EtGWUoMWUkCgLXcEEvriE2LUeuVzFV2kIjne5GbGX4qZ1HUQQRctgvadKCV36Pdqa7OZzeFLcMsW/+4JGYRGCwD7zuWSbQZL+arkAHQdSn+9pvtyryaRCp28gwGlAAOaIayBQo4C/HGV7PPjFM9dBvxiYEXxeAfI46jIM8o4ECvsHgdfKfrSux5zhZLeqsKVIh7BlEqOl+DypOAv8ub3MkWPFIQYuxcHRXoNEV37YUFBjpKhrLbKEMXf+FCTgCsop9iO/YMBh0gTHx40MFnFwBxNZrDtSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7e4dqky0AuSmxMqVM2ZY11VJxm663vAkjBFGDuOW3XA=;
+ b=TBGrAmCCvQDurtrUIMKUQ1XeLX/I7YgIIwge5tMo3zhs2mbCfFT6/9U1ptvZhRMsmYLucRjWAc2sufLy8bhcOZ2w3CGD0Y6ujQN9qoyGZesJRhiuOfkJW3hlt5Y9R/j1JDQyui8uMo0A+h1STb2OxGjDiee4E5ALvYzOyKmPQCg8BuoAVBe4aonlc/pbB7IB9ioUSCSxuIaoTPGZ1CwXas/fKwGPpRgxb1s7nIdDL9LGfvjbHi56SK6V2p3z9PuBFs/fgMCADeTzvcWHf+Cj7q4odIGiF/FaxgBg24D5An5WLWz13iPKx0N0O9BLUb0yzGbuQsG9rv7B7z1DWTtjyg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7e4dqky0AuSmxMqVM2ZY11VJxm663vAkjBFGDuOW3XA=;
+ b=nczhwZUNOFCJSz3iT0YX/PeggjWNMQWwKOZDPr1tbThpFfEx/uX586TG6alFWFursNIokCP2EaoM6W10ms/ON2BFvkQVIfGYbP0sM7N2I3pwt8FZBumXcmai725SaOUuvj51/N7lEN83wo7mIxrWP0eXw0gRtoO3ISaSiR1ADSGdS7EJi1+0le9t/U34Mqp+SmNcOuR35hAIbcpCZyQAtd8ezwwWL24OVcUcfujqMFqr41FdsAjXWVOHyQPYVmIdhAoOtuJSU5AOFqpWcTs2P0LWZO7X6ahm3UsEh7w272qJZXqZwGNg5GnGt85/wwwnDKKAXwwGaJipAwj4O78NSA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DBBPR04MB8059.eurprd04.prod.outlook.com (2603:10a6:10:1e9::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 27 Mar
+ 2025 20:34:41 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Thu, 27 Mar 2025
+ 20:34:40 +0000
+Date: Thu, 27 Mar 2025 16:34:32 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Adam Ford <aford173@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	Robert Chiras <robert.chiras@nxp.com>,
+	"Guoniu.zhou" <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v3 04/12] media: nxp: imx8-isi: Allow num_sources to be
+ greater than num_sink
+Message-ID: <Z+W2WAVEdlh2Ufhk@lizhi-Precision-Tower-5810>
+References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
+ <20250210-8qxp_camera-v3-4-324f5105accc@nxp.com>
+ <CAHCN7x+6_xxkx-Fft6WnfsVyqy_v3c732uKuEanrP64jv3Kj1g@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250327-counter_delegation-v5-9-1ee538468d1b@rivosinc.com>
-References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
-In-Reply-To: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-42535
+In-Reply-To: <CAHCN7x+6_xxkx-Fft6WnfsVyqy_v3c732uKuEanrP64jv3Kj1g@mail.gmail.com>
+X-ClientProxiedBy: PH7PR13CA0001.namprd13.prod.outlook.com
+ (2603:10b6:510:174::7) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB8059:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58ce7d86-7be7-47fa-d463-08dd6d6eccc2
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZysyeFIyK0pYOW9Cc2F2OHlQR1MwclNodnFuSDRVY2MzeEROVTVkUHEzOCsy?=
+ =?utf-8?B?NE5iRTFYd1A1T0YwL1p2cGJSbmppdjBPNWcxQzhVVTRkVzRDMkZIdUEwcWhi?=
+ =?utf-8?B?VEtZZWZFSS9KU1Mvbmk1ZnhES3JLcE83dW1tUG5ac3BKMnovR2UzOW1ycVNp?=
+ =?utf-8?B?V1huVUVOYUtIZlByaVpIaEkwRkFWbDNDNm0xblhZRy9sMWZ0TStyNng2L25u?=
+ =?utf-8?B?T1pXNS9ncVJ5bUR1blJIQUJ0WVRvR0JVMXhyMHdnMlVKQVlqU01IM0UyN2M2?=
+ =?utf-8?B?YSszQVN1U283T0FBb3U0dFVNMFphU0I5SFVjZFZxbEF4cEI4UmxSQ2U2bGpB?=
+ =?utf-8?B?OHVRUkl0MXJ4RVB5Mld1WVE5eW8vTjhJVHRzZzR2U2thZEZWTkhlcFYwbHMr?=
+ =?utf-8?B?WlRoc2plRG9yWjNXVEZabW41ZW1Lbm92ZFZCeFhqK2cxWE5NVEpJbnEwVVdr?=
+ =?utf-8?B?Z2VrZjBNWmtIQ1RiaGxXbHJKcnZGVklKT3lIaUlKYzZSUWU3ZDdLdTdMQldv?=
+ =?utf-8?B?akJoMDFOKy80b3QzMkJ0MFFDc1JRRUtULzNQVmNXblY0emZocWNjNEJqOGd5?=
+ =?utf-8?B?cU1KdGlRdTBzMDVLTWFjNDZ3a2RjLzNtNjl5VTQyNTVOVlZHRFFKbHFJNmRO?=
+ =?utf-8?B?QVhzOVNwQkJlN0Irdk1FTU9rTmEyNVRSK2FBMTNDRzRDOGp5NHRZRE1LUEla?=
+ =?utf-8?B?WUV5WDE1YTlIcHIxcm9LRXovZVlDdC9qRFgzMXNERkoxdDNEdmtYUDdiOGtE?=
+ =?utf-8?B?Y3BsTjNCUEdBZU5jY0NuUlNFNTVxQUhMbWxUUE85Z05XaHc3OU9hS0RNTkpH?=
+ =?utf-8?B?c04yK2xiY0FnRHBWa1NUWEJ3QkFZQjd1Q1FEa2lpYzBBRUxjajhpbWZXMGNB?=
+ =?utf-8?B?a1BrUm84ZGl3OFZlRENEQTJLT3ZVc2IrdXpGbkhpSmJ1dFpTZENScTFieVRX?=
+ =?utf-8?B?VEdzZk5Gbk41VHJwejJUUHdqOTN1eGczUnlhMHV0SElxZEtTY1pDYzdYTEJU?=
+ =?utf-8?B?TGtkakNpQXZIL0lQSFpOTFd4TVBrWGlUWmhRbkp3U0hCdXVQSmRkRnAxQnZ1?=
+ =?utf-8?B?aXNlWXowSDZvMlMrcndtQVd5cEpXcEJUVUczdjJjTU9acFRKcnpQVnUzdE9S?=
+ =?utf-8?B?NWJ2cDVsQjY0WlVoYXh1eEZ5dDAwTEpIL3poV2lVdU1JM0lxWXZPM0RleENR?=
+ =?utf-8?B?K282T0phdEZ0cmYvMC9XMHpCcEZNMkdiUE81QmF3dktMMnNldTA2VXB1UnJY?=
+ =?utf-8?B?d3pEa1JyUmVUc0tvbTNLMmJHdDJSZW5YNFZDT1ZUVENHOXY0cmdQdTJUT1l4?=
+ =?utf-8?B?UDJSV1B6ZkxZelNKakp5czdVemlPN2lSZGdmcUhST3BoTEpqN2hidHhkaW8w?=
+ =?utf-8?B?N3c3ZlVvNTRrOVMydlFQQjhQUnJHMGUxcHFZb3Z1U1B2QTlzcXNiVlZsUTBN?=
+ =?utf-8?B?WWgxQkZ5RnJDS20zVll5Wkw1OUo0Wkl6cGJHWU5QR2JBNW9Gb3lHZXZsQ3BY?=
+ =?utf-8?B?cFZvVVduekFESGpjc3lrb3QzaVRMYjQ2aURvSWdkaXZmSVVrNm0wak1DdjEw?=
+ =?utf-8?B?UngzVUczLzR4eUF1YXJFdnZqU0F4VDUvcDNBZkk5cHQ5cnNZRFhYMTFjdUY5?=
+ =?utf-8?B?OFJWOXVWbUhWaDZjOWVIdG5NeUpFa3c5d1NJOXNHMU1ERnF4S3hrWkE5N3ky?=
+ =?utf-8?B?NXhCUlphdDAyZ0NIMXY5WXlOVk9MMTBHczJlU2tNdGU3UHNvN1FBQUhiL05R?=
+ =?utf-8?B?MkMyZkpBSzF3eGltT0JjcnFqY1RmWnZlVEtrRGwxM0Z1RWgvVitRd2lOMWRV?=
+ =?utf-8?B?OVV4Mlh6aTF4QmEwWU9nUURIZUhSMFZpOUFLcEtROHRCb3NLN3ljbjlUT2JF?=
+ =?utf-8?B?TElqSDBMQ3N5cDJFR1FDODVkRXVnYldPNmJtY1YydTNSeU1SQzBCNTd5NkZY?=
+ =?utf-8?Q?O173zNnAm+ZP8h5ynt5TB9pCSGEgYmj8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NnU0L0FMcjRTZ2xlR1cyVkF6WnZTZFY4WHZZVGlnTndtcmgwNVZBY3h1eW10?=
+ =?utf-8?B?VCs1dTJkQlNRNlZKdy90bC8wQUVuZ3B6NC9XcmFudWZKT2lCelJXWmdWT2tX?=
+ =?utf-8?B?ekFyanBBWVJPV2I3S1IrMmdXTHRmcGpjaG00Q2Jqam4xcm5CdUpTbTE5ODA2?=
+ =?utf-8?B?Qm00RnhocjVYSitzTURvajY2YUFtaEFkaDB0RzVLZjZyQkVka0RxeWJUclBY?=
+ =?utf-8?B?ZU15NUxFZEJPVTU5aFJxS2hjN3Jwc2lYUlBleUJkbzU3UkxuZ294QzZkWkRC?=
+ =?utf-8?B?ZTFEUHlQQ3NpeERuRSs5QjFycDVFZU56OWpDWG5TenIrK1U2ZjlXaFZRVjZw?=
+ =?utf-8?B?RFZCMDBzRUhyT1hyTTB3OCtkZ2FUWjZDdkZxenhMN3kxZUhBV2tRbzd5U2Vx?=
+ =?utf-8?B?MkVNMVBZUUFNOVhrK29Uc25hR3d0MGE5Q2FJRDI5bC8vaXZETkhnMmlKSVJx?=
+ =?utf-8?B?WGNlb05LTjlNdG9kb3g2MDJvSWNPSTZYV2NTbm14c2pxbHVqcU1vVDg3QWdr?=
+ =?utf-8?B?U3NSeFFYVDRJQitNblVua3NHQm5HZTY0UXNVaTRLdyt6ZmtZNFM0bU5LdTlq?=
+ =?utf-8?B?SkVEc3VPcjN3TC83V0tUMVZIVmlMWUNKN3NIdng0cXlRcGI1S1VPNEZVeHhp?=
+ =?utf-8?B?MnJ6UUYwK2FQcFRCT2FYajFMK1FWU2pJWW5Dc0pRbkpYbXoya09Da3l6T2dX?=
+ =?utf-8?B?MTd6S1pPb3d4RU5mSjVRdTJrVmpLUlZpYk4vRUd4V1h1WjA1UWJacUZqdnlw?=
+ =?utf-8?B?K1MwV2J3dEdQbGY3UWg1TVI1WFN6MEgvTFJvWklpNWNXZ0tCcXdkTVQzNDFx?=
+ =?utf-8?B?YTJaaCtmS1hNdVQxUFp6T1FtcFNwY0xvSVNYWjFMa3F0Z2VhQnNKYVFScmts?=
+ =?utf-8?B?WkIzWlJuTlZNZmZpTHZLQTh2bUtMcmovenRLdFgzeElmSm1sQ1Y5Wm9xY0Rv?=
+ =?utf-8?B?Tk1INjRXakRhOEFMNTlpT0V4eUJFRU5tT0Z4aEx3bGlZcUdldTZHb0dMY2M3?=
+ =?utf-8?B?NUhCSktQUnp2NFI1K3ZuaEhDajQwdjZEZUx5ZkVqN2JBcjhEbkZlS1hmT0RY?=
+ =?utf-8?B?VURQenpEYjR3eVNOTkt3NXJGOGNDRExjL3p3RTlQb3RzL3NlSFhxRkxnVENw?=
+ =?utf-8?B?Vy9BMGlPRHF6KzBVNmdDRjRvQmpBeWtEVVRLS01UUXpMSVRyVG9CQ0pDVG15?=
+ =?utf-8?B?Z1J0RDhJNEgyMFlXOERxT1pMUzlSR3EyWUtNSGFEc1dvVUJFNnk5V3BvbURv?=
+ =?utf-8?B?SmF4SElYZ1R4aUJ5NkRsZFpnbTA0Wk1WRnFvY0tjcTN5bCtZRnZhbUkrQW5F?=
+ =?utf-8?B?MW0zRzBCRzRnbXRlVHE0aksrdVE3Y2hWYWhFajNmaFhVTEd4NWpkVDBRbmlp?=
+ =?utf-8?B?YlVTSUhzYkx5M05vRlFPUEdqQkFxNWVsU1diTzJnaXZkTHYvRU4rSlJLc1oy?=
+ =?utf-8?B?Sm5CZkptbnhDOVhXc3J5SExBdCt6YmZyVWR0ZkFKc2FUS0F2RmFQaHNMWXFW?=
+ =?utf-8?B?TmZtTnp0Z0dhVUFoSTN1Ui8wRXFmeTc5SmgzMUNJYms4bkw5MWJucEhzRkhs?=
+ =?utf-8?B?WitNWXdLMXdkKzh0OHVRb29FRzZhalpPSWF1aVoxYXlFMUovNGpTWUJiVEU4?=
+ =?utf-8?B?Tm05amF1bEw2aXFtaDNlMG5lN2V4YzBiTWxwZzFnY1h6YjhoemY2NnpkeGZZ?=
+ =?utf-8?B?Qko1cFhGMVBnYTJQQ0I4MHRzMkt0NEVOMXJLczlOdENyVVlHY1BXRlBVUWxt?=
+ =?utf-8?B?anAxME95Z1JYZzVkR0o4UUJscWp5U0czaWlzbHMxVTY3Q0d6UjFkaE5ZaERm?=
+ =?utf-8?B?MjB1TTl5SS9ubzhpSzl0QzhMSk5PQ2ZBeVpaRTJ1b1FLUEtyY2hna29RdXdI?=
+ =?utf-8?B?UitjZFhBZXAwcWJPY3YzVW5RUmdqci9vSmwxQTJBVHFJOUp0d3ZSZlN1SENV?=
+ =?utf-8?B?ME9vY0xCMW1Jc3Z2dXlrK0ZDUjRIemRac3drSkNFMTdYNS8zRTl5NWVMcGJM?=
+ =?utf-8?B?aHBZMkt6QnlMYVcvVFdjb0FMemNiU2JnTzdZWjVUSnJqNFdSNTFpcnd4eGRu?=
+ =?utf-8?B?R2YrZkpIY1ZVUGwwMG52VG5TVUVPN3ZKQ2tHRFAzVm03MUMwQnYyeGtRWWw4?=
+ =?utf-8?Q?+tBniC6dZE6sRssENMoYTZtHE?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58ce7d86-7be7-47fa-d463-08dd6d6eccc2
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 20:34:40.8067
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: weHsgyXEnuU0DikAMGp6KpAosY4c8FwxwHBxy2Z51gG8yCzwoSxyjnb5SY3+8PpO9VXG9OfdGF3vPreXMvO1xg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_193629_653240_5B79B008 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20250327_133445_490222_96FC19FF 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,85 +192,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Smcdeleg extension allows the M-mode to delegate selected counters
-to S-mode so that it can access those counters and correpsonding
-hpmevent CSRs without M-mode.
+On Thu, Mar 27, 2025 at 03:02:29PM -0500, Adam Ford wrote:
+> On Mon, Feb 10, 2025 at 3:01 PM Frank Li <Frank.Li@nxp.com> wrote:
+> >
+> > Allow num_sources (drvdata: num_channels) to be greater than num_sink
+> > (drvdata: num_ports + 1).
+> >
+> > ISI support stream multiplexing, such as differentiates multiple cameras
+> > from a single 2-lane MIPI input, or duplicates input stream into multiple
+> > outputs. So num_channels may be greater than num_ports at some platform.
+>
+> Can you tell me which platforms support this?
 
-Ssccfg (‘Ss’ for Privileged architecture and Supervisor-level
-extension, ‘ccfg’ for Counter Configuration) provides access to
-delegated counters and new supervisor-level state.
+iMX8QM.
 
-This patch just enables these definitions and enable parsing.
+>  Is this through
+> virtual channels, or do you physically connect lanes 1 and 2 to one
+> camera and lanes 3 and 4 to another?
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/hwcap.h |  2 ++
- arch/riscv/kernel/cpufeature.c | 24 ++++++++++++++++++++++++
- 2 files changed, 26 insertions(+)
+Not like that.  for example, camera 0 as input0
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index b4eddcb57842..fa5e01bcb990 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -103,6 +103,8 @@
- #define RISCV_ISA_EXT_SSCSRIND		94
- #define RISCV_ISA_EXT_SMCSRIND		95
- #define RISCV_ISA_EXT_SMCNTRPMF         96
-+#define RISCV_ISA_EXT_SSCCFG            97
-+#define RISCV_ISA_EXT_SMCDELEG          98
- 
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index e3e40cfe7967..f72552adb257 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -150,6 +150,27 @@ static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
- 	return 0;
- }
- 
-+static int riscv_ext_smcdeleg_validate(const struct riscv_isa_ext_data *data,
-+				       const unsigned long *isa_bitmap)
-+{
-+	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SSCSRIND) &&
-+	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZIHPM) &&
-+	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZICNTR))
-+		return 0;
-+
-+	return -EPROBE_DEFER;
-+}
-+
-+static int riscv_ext_ssccfg_validate(const struct riscv_isa_ext_data *data,
-+				     const unsigned long *isa_bitmap)
-+{
-+	if (!riscv_ext_smcdeleg_validate(data, isa_bitmap) &&
-+	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SMCDELEG))
-+		return 0;
-+
-+	return -EPROBE_DEFER;
-+}
-+
- static const unsigned int riscv_zk_bundled_exts[] = {
- 	RISCV_ISA_EXT_ZBKB,
- 	RISCV_ISA_EXT_ZBKC,
-@@ -394,12 +415,15 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_BUNDLE(zvksg, riscv_zvksg_bundled_exts),
- 	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-+	__RISCV_ISA_EXT_DATA_VALIDATE(smcdeleg, RISCV_ISA_EXT_SMCDELEG,
-+				      riscv_ext_smcdeleg_validate),
- 	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
- 	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
- 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
- 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-+	__RISCV_ISA_EXT_DATA_VALIDATE(ssccfg, RISCV_ISA_EXT_SSCCFG, riscv_ext_ssccfg_validate),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
- 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
+channels 0 can covert input0 to RGB format to memory 1
+channels 1 can scale down input0 to to memory 2
 
--- 
-2.43.0
+I think it most likely use for channel0 to preview image, channel1 to save
+input to file on storage.
 
+Frank
+>
+> adam
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > change from v1 to v3
+> > - none
+> > ---
+> >  drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 8 ++++----
+> >  1 file changed, 4 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> > index 93a55c97cd173..ba5b2d3617a23 100644
+> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> > @@ -188,11 +188,11 @@ static int mxc_isi_crossbar_init_state(struct v4l2_subdev *sd,
+> >          * Create a 1:1 mapping between pixel link inputs and outputs to
+> >          * pipelines by default.
+> >          */
+> > -       routes = kcalloc(xbar->num_sources, sizeof(*routes), GFP_KERNEL);
+> > +       routes = kcalloc(xbar->num_sinks - 1, sizeof(*routes), GFP_KERNEL);
+> >         if (!routes)
+> >                 return -ENOMEM;
+> >
+> > -       for (i = 0; i < xbar->num_sources; ++i) {
+> > +       for (i = 0; i < xbar->num_sinks - 1; ++i) {
+> >                 struct v4l2_subdev_route *route = &routes[i];
+> >
+> >                 route->sink_pad = i;
+> > @@ -200,7 +200,7 @@ static int mxc_isi_crossbar_init_state(struct v4l2_subdev *sd,
+> >                 route->flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE;
+> >         }
+> >
+> > -       routing.num_routes = xbar->num_sources;
+> > +       routing.num_routes = xbar->num_sinks - 1;
+> >         routing.routes = routes;
+> >
+> >         ret = __mxc_isi_crossbar_set_routing(sd, state, &routing);
+> > @@ -453,7 +453,7 @@ int mxc_isi_crossbar_init(struct mxc_isi_dev *isi)
+> >          * the memory input.
+> >          */
+> >         xbar->num_sinks = isi->pdata->num_ports + 1;
+> > -       xbar->num_sources = isi->pdata->num_ports;
+> > +       xbar->num_sources = isi->pdata->num_channels;
+> >         num_pads = xbar->num_sinks + xbar->num_sources;
+> >
+> >         xbar->pads = kcalloc(num_pads, sizeof(*xbar->pads), GFP_KERNEL);
+> >
+> > --
+> > 2.34.1
+> >
+> >
 
