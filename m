@@ -4,116 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194B9C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54DEC36012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ce/nqRTCaUwz4MHePfu9cmeB1+yywCLgdAQeEQefRec=; b=rmA55F3miOyN66e0DzU9hoxVJZ
-	GZz3pTTfEo/nIcX7ZTbHw/lFva7dBatfKqn+22f1CTBcjwWXWZ0YmA55Vc/64pmyPP4ihi2aCe043
-	+3BCHDUUz25jgSgnUWlv+BOdr24XD4iUr1gR2wrwHueexNKfiz+GqgQbfw5hdhh0ZMrcoeO9m3Vwm
-	SMjCmfXLo5Ci+YI0Jh76LjCZhnHn3XTJMxCddg4YzAq4uEonFslBdIMur2XTGoo3s2e8yMvhfJs8x
-	W6ZQoR39xcWAdjxTw6x/fGk3J+vBk334ybkV/qWBti5dWDFke7wqFodFIPUohJra6oCii8JVSP0LZ
-	Q3Un75ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P8VdYWjuYWa7YIVquN+OvDXAuE0xN2bOP7ibbd8y3pg=; b=IH7nrS2lnt6o2kyVQEubpX9s2A
+	OFRzflH4HyhgxzrgXG1Y25IzY85lukLm8jc0o3OSC8/9OAmayNfQoaQbi5zbuVNguNzre2TEW58UI
+	meVS5XLLbJg7luMqCzwsXuF2jlykLrjIMMAwNhti3afbne2pYWPgTNKV0Ny3pbqpKECOwMygy2MYZ
+	9R3AwXE/bgcrRqTHf3fw43vffyn5V4sgMY6MA66OjLiGchV6LuN32G8f8I/Bd95PJvW2xaueCoFC5
+	nJRVnmOtKmilVoyTvH5esezlp9BFKUCMLMPRDEOniZrz1nK8rXrfjHhTLlFrtmC8m1/QHGY/CROyM
+	prehLn6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txioR-0000000ATpf-34be;
-	Thu, 27 Mar 2025 08:42:07 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1txiqu-0000000AU9r-2DaN;
+	Thu, 27 Mar 2025 08:44:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tximh-0000000ATcl-3jOn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 08:40:21 +0000
+	id 1txipB-0000000AU13-2LzN;
+	Thu, 27 Mar 2025 08:42:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3AB46A40BC2;
-	Thu, 27 Mar 2025 08:34:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD14C4CEE5;
-	Thu, 27 Mar 2025 08:40:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F2DF0A41DF1;
+	Thu, 27 Mar 2025 08:37:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10F1FC4CEDD;
+	Thu, 27 Mar 2025 08:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743064818;
-	bh=M7YLTOwmxz8VNCLJQrpSFgrai1rDE44BnsnAtSQ+8g8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Bdf6RvOvjEYGXlZr9JhtetcwgGmZLV4uKQvjuyvEWbnJDYHu1tbclQY2tjfznu1FQ
-	 zbi/zRNqFeRhmiWVpaxPSug73eKw25hU31ypTmaQdw5i+07Mrz9mUdnaYloqrCOOEk
-	 XfkG/SAOQm6ZDkq/7ym88pdQ6V0qQdDpkqqWkA3daJmzv1NzZCxCFJhvi1nIiRye/o
-	 CeqnIvKDHUSDBA2gq11N2l8n3Qj1bSrH/qNyrw5S1OF4nLwiGyGxUCRdyRd6KIzI4Q
-	 EQnfw5OfTtxqYFyHJXw3aPv6KurYyzCbqi0oUtmQX+D5/BBRr2R6QURTVmZ1FU/lJb
-	 AOQyB4RR4EBDw==
-Message-ID: <b2e1da92-0dfe-42c6-9f36-32486b768220@kernel.org>
-Date: Thu, 27 Mar 2025 09:40:10 +0100
+	s=k20201202; t=1743064972;
+	bh=YD48CO4FsnwCglT67h5qBvSC1Oj4vkTc/ynkSqfBkbU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nOnUw5CiiGx9MW6mTLS3QpYBwCi1ecL7NIZ54rPiNogF5wqbYofbS7ZsUmJuRxOEK
+	 VmjINAOiHZG5fr2UqaSFPFa0RR7aoWNBY3rd6ldXeDEwC+r6h8zCfOBjuI1A7p8E1q
+	 HFPn5tXVTytEjQ+XcTNZ8fxwCSkLnnVis6YszVKWXfuNWunvmnzxF5pnASBCr3NHIR
+	 Z6JeGIbiyq05a9lLiEV9gTwA7OszwjPB4CXTD/6QsVB674OCI73mGO/M00/RC9/vhi
+	 CfJuG9imQVqlDaHgG9M8gB/2mzm1d9SekbfhqlLWkHgNnzAWHhs9VecB0F5JLILSNV
+	 U5ExS4PeES/YQ==
+Date: Thu, 27 Mar 2025 09:42:49 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Aleksandr Shubin <privatesub2@gmail.com>
+Cc: linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+Message-ID: <t3zbutuclculgqchj2byhjqbebdyrs3sslt65faph5tljppljk@lr5pbdovyuxv>
+References: <20250213094018.134081-1-privatesub2@gmail.com>
+ <20250213094018.134081-2-privatesub2@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts
- support
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: Marc Zyngier <maz@kernel.org>, soc@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com,
- will@kernel.org, arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- cix-kernel-upstream@cixtech.com, marcin@juszkiewicz.com.pl,
- kajetan.puchalski@arm.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Fugang Duan <fugang.duan@cixtech.com>
-References: <20250324062420.360289-1-peter.chen@cixtech.com>
- <20250324062420.360289-6-peter.chen@cixtech.com>
- <865xjxmlgl.wl-maz@kernel.org> <Z-Nz0DU441Wwj1i4@nchen-desktop>
- <861pukm9yd.wl-maz@kernel.org> <Z-Tz1moMNozx23k6@nchen-desktop>
- <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
- <Z-UNufwSNmZreKya@nchen-desktop>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Z-UNufwSNmZreKya@nchen-desktop>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="chw7rzoep466ms63"
+Content-Disposition: inline
+In-Reply-To: <20250213094018.134081-2-privatesub2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_014020_063530_C1B18DFF 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20250327_014253_722319_0C0926D6 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,71 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/03/2025 09:35, Peter Chen wrote:
-> On 25-03-27 08:16:33, Krzysztof Kozlowski wrote:
->>>>
->>>> No, you are deliberately choosing to make this platform useless.
->>>>
->>>> That's a bit sad, and a waste of everybody's time.
->>>>
->>>
->>> Hi Marc,
->>>
->>> Thanks for your interesting of our platform, and your comments
->>> help us a lot. But I don't think it wastes reviewers and maintainers
->>> time, a clean patch set saves everyone's time during upstream process.
->>>
->>> For how to organize the patch set for SoC, Krzysztof gave good summary
->>> at [1]. We are going on upstream [2], this patch set is just a start
->>> and base but not like you said for marketing purpose.
->>
->>
->> I do not think I suggested in [1] to ever send new SoC containing only
->> CPUs and interrupt controller, without even serial. My instruction [1]
->> was how to organize it. The DTS can be even fully complete, see the
->> upstreaming example I have been using all the time - Qualcomm SM8650:
->>
->> https://lore.kernel.org/all/20231124-topic-sm8650-upstream-dt-v4-0-e402e73cc5f0@linaro.org/
->>
->> Entire SoC sent to mailing list on the day one of public release of that
->> flagship Qualcomm SoC. The SoC DTSI and board DTS have almost complete
->> picture, except few trickier pieces... but it even has full display and
->> GPU! Plus, as I explained on my email on samsung-soc, that DTS/DTSI
->> patchset references all other bindings with their state, so SoC
->> maintainers can understand what is the overall progress and what will be
->> the result in DT schema checks, if they apply the patchset.
->>
-> 
-> Hi Krzysztof,
-> 
-> Like I said in this thread before, without this initial support,
-> we can't even add mailbox binding that the dt_binding_check will
-> report warnings/errors [1], the reason is "cix" has not existed
-> at vendor-prefixes binding. How we handle this dependency?
 
-Not different than all other SoCs. There is no dependency, you just send
-your patch and tell where the bindings are. Just like I asked in the [1]
-you linked on samsung-soc. Just like all Qualcomm upstreaming goes, e.g.
-SM8650 I linked here.
+--chw7rzoep466ms63
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v11 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+MIME-Version: 1.0
 
-Just like maintainer-soc profiles are explaining. I told you to read
-them on IRC.
+Hello,
 
-Your way is contradictory to three sources describing process and two of
-these sources - my samsung-soc posting and maintainers-soc-clean-dts
-profile - are known to you.
+On Thu, Feb 13, 2025 at 12:40:12PM +0300, Aleksandr Shubin wrote:
+> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
+> controller witch is different from the previous pwm-sun4i.
+>=20
+> The D1 and T113 are identical in terms of peripherals,
+> they differ only in the architecture of the CPU core, and
+> even share the majority of their DT. Because of that,
+> using the same compatible makes sense.
+> The R329 is a different SoC though, and should have
+> a different compatible string added, especially as there
+> is a difference in the number of channels.
+>=20
+> D1 and T113s SoCs have one PWM controller with 8 channels.
+> R329 SoC has two PWM controllers in both power domains, one of
+> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
+>=20
+> Add a device tree binding for them.
+>=20
+> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-> 
-> I thought we need to move one step and step before, and keep clean
-> and avoid warning and error for every submission, but it seems not
-> the way you prefer. 
+nitpick: Put your S-o-b last.
 
-No, from where did you get such impression? Maintainers-soc-clean-dts
-explicitly covers this case and I WROTE IT, so how can I prefer
-something else?
+> +  allwinner,npwms:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: The number of PWM channels configured for this instance
+> +    enum: [6, 9]
 
-Follow SM8650 style or what's written in maintainer soc profiles.
+Maybe mention the default that is assumed if this property isn't
+provided? Reading the commit log makes me wonder if the default is 8. If
+so I suggest to also allow that value explicitly.
 
-Best regards,
-Krzysztof
+Best regards
+Uwe
+
+--chw7rzoep466ms63
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmflD4YACgkQj4D7WH0S
+/k4zPwf/YgFEiTFLIAzGN93hGhAtrlBkY9Wk7sGF/1me7yiQulyYfZVNVE6VYT+d
+ePJ4J6WFE+mBBUN7AUaq2L3TqRbq0Fe5fRURdVxpk+RHdtcMhn5FKUTpUWSfB9eM
+v1qDWxVJfZEFhhs5w6pdVeOP3EUjqNxD6oKqTXROCLJQIe4WA/TtPOMK3oJccVCv
+nSnAtTGktNW1RdDOZH6iltBKmY01oZJO1AkRjE7sOcWkjDVk6f68cgig337GWs7p
+b/2z0uKOyAlDQZFi8TaMA323lLDgPyoKAbNx+xdcLdlCKNMXUADk+3vF5caqPwQL
+9InY8wuNgSZh208F1a8d2YBqGxJlhA==
+=gz3O
+-----END PGP SIGNATURE-----
+
+--chw7rzoep466ms63--
 
