@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FF1C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7807C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cfcxu0sFDt25T4HE+Z+CQUKV/MoRpGB/hgvYzRHCAGI=; b=0DCfUiW+a2ZZW9zOIrARsvq+i/
-	wRYpFe2rHoJDUSN5J8MOXiCFR7VEQQ0iyQTKdJfdOc4sTRURQA16ZjCJZYoppyo3qODpZpYe7pe8x
-	eLHlKglpGtLChmHyYYGcezk0+bkc/rhRBbTBDmqzS1u7gBNDx4EgufScVqrgeAMG6JFjFGRLf/LGB
-	gGYCx4om/lAv3waImzHiM2nOa7hPemUMp9aeA7+XlDnwAU9CLMuwVKkvvoPZHHZrQn/BC/tgkVOge
-	MeiBnPxyI9izdnSA7xL3kOmFHPogFJxM61W2Mdo1IjWTevfP2z5p5h5ZB+DfK2ACAdfIM4pfyficS
-	64QiY4lQ==;
+	bh=PBjMIPbm34YhMtcHEbuTRJblo1v587ku20drBHEc6xE=; b=jyWfrLk101o6F7iQPQ7sirAqZv
+	I38sVoU+vzkHRsB5gxLMU9mm1JoE0HXkyUF5A77lqLP4iK35lTsAtjWi5nHZenZpq4GrHEXxQvCLB
+	39SV9XIyNBFmGPjRxHotcFLWz2wPCT8KML77yGE1YISH774WlAZs4mAG7pjEzqMieI2Sz91kU8Hto
+	+qHtRN2jn87e4efxsy6dJA47q32jK9ajKhe4Jv81KUVIK2gLRgBmp2w38W9csl0QmA7qHfTpd4leQ
+	49w2s2kdNQeheLTU73VvZ4SCOqKV3a9MsXKkIcYpdVS8kxgRDJ3fYNQ8VieP9ZlUCuc/1xhNqpLZe
+	YaQHmJZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txpux-0000000BUIg-2l3P;
-	Thu, 27 Mar 2025 16:17:19 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1txpwf-0000000BUdS-1Pne;
+	Thu, 27 Mar 2025 16:19:05 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txppO-0000000BTHr-3Ipu
+	id 1txpsw-0000000BTqm-05Tq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 16:11:36 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 364C4A0BF9;
-	Thu, 27 Mar 2025 17:11:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=Cfcxu0sFDt25T4HE+Z+C
-	QUKV/MoRpGB/hgvYzRHCAGI=; b=gF+WV++Z6x+CTx8iHxNPG6AW8cN06hUy3NXR
-	A5rWWYT1XYCcytzTkQvRJLRAs9AoiFvMROELzM7ICCBy7Ep+GvIE/TpO3mIsdYlR
-	WDWT9Bdewa7JwON1oT34SkEaiU5Pc08DIxMtrfPzDO/HI7ZhRcggRbOw0sh19Q33
-	KEtIZEPYEJlNCb3BYYBaSVrD3+FvOhqfmDRWdVrbLT0oes5a7nLyUM++Amnewh5y
-	6iDiP7uhhF0EEZpqLhN1kyzX99LIOMbJV33D4GeT+MR0QHFo4fDsHixRZLwpsLNh
-	gw459/KQV+V8l/Rq+yfaUFF4RMmnXGY6bf7TUWmDkn6kpWxwE/BLlesksxh8fxEr
-	tOnF2EX+oirKYTfHure+/+quqUP9GmTVDBh5Pp0s76jr8y0oC16G7menfczU8kvA
-	YZ26mnlkle4XkE3TbiCrHiq+sQJMtqc4YAKjnRI0JdLqnZG0yBirktXNy2phjt4Y
-	Ak/OtR1AudC1GHpuvQMWyc+apm2F6HXjHA3z+rSB7RBK8N+3t7ysFuNYyFVnzR1/
-	eOjGxWrf8qnBojyZA6DBcwA/n+RDN5lOV+Mi3rpDGb+IEuD6DZsAZk+XhD3HyjWM
-	GCBrcwFhh0PJWFFjxsY5W0WPQ9DAsOC9ep1CFjSEeaZG6Xg/RuZOItOLpD6Hrio6
-	kO8psU4=
-Message-ID: <bcf363db-8fff-4fb1-b29e-300f7b8bc090@prolan.hu>
-Date: Thu, 27 Mar 2025 17:11:29 +0100
+	Thu, 27 Mar 2025 16:15:15 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3011737dda0so1521078a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 09:15:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743092113; x=1743696913; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PBjMIPbm34YhMtcHEbuTRJblo1v587ku20drBHEc6xE=;
+        b=L/TvWxs+BVAp+vHe5QtEEebnSdKvHd0qiaz/m012UzY/6OyW0BdPdCR8wrwUq1OFjX
+         fSmBkYmLZZ4Cu1SlJV0qYaTHYa49+2K7qeoN9nUjLPGWUrd1uTZZRKviCF4CJCd0D3vm
+         iTErHFmXst//wJiETmjIhYU7/dMZ0kUHhTvJ7L9s5g9PqXiisLSJME4zw9fZ5DKeuHRZ
+         vnkkva1IsuSDH+rOg2hxjAJblbyai+/Om+4CKU9H0xaPU712XX6TdhNkmIAi5LuRsVoG
+         gTm4uyZEIgPI09UD29GgzLWphbehp78ws3Nr1v4tXZsmef+GIJHg84cR4Fg+pMORr5Y1
+         sM6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743092113; x=1743696913;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PBjMIPbm34YhMtcHEbuTRJblo1v587ku20drBHEc6xE=;
+        b=qQXtVHg5QYJjlGMpL1fYGsB2h72P7cwavYf6sqKLpEie1C+Qb1T429cbfiXWmMOiQt
+         dZtQzri51iGHvJF12egJahVyeireT8Q42i3vUWBBChk5+/opiY8ZEz6Qnx0qH4Y+GKkh
+         c63qhBsW/QYFSxCL6XRFoR6xi7a7StaVLGB6bs94TZz+oFQnkQBlM8ITUjfExK7AmzDS
+         RFh/EFQ2YfFUpkJs6HgpDTnq2awOws4fLnulXalrmyeSFcx4ep3VajXD02CSmr2tcIHv
+         NSf3sp8HvUskA95jy31lFalw1HEUj021wMYa0MNL0v+3f/gZQAZW+f8HBgo4MtnGZNET
+         lKHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXf9HDqqWE7vE2BWxcAoz3+angU34843BtEurZ/PW9JT3kqTltLD7B9AtqyM20WUDrQ+6CMbc9T7ZlLlBtqxg99@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+zcmwn9enkSIwaDwJqU1GIZICAl1yyozmKnih3Prg69A8U0/5
+	KEbIORw+px5ktyZHaXPVHLKg3ORYLJ0SIScqYWevXnlwmO33QtEB67NxSv6j3XUfEFWh/vlla4o
+	4SDlfya/sTzCSmuZF4reDqDzZOJYeSCxB4gg=
+X-Gm-Gg: ASbGncuIkIg/ZmNGAc7Vi27UeD2qZqvH5MlXha483YfLmZJ6atgta+V5hs1ZXa5pQ4o
+	3aVzLbadl+SenNQU2r8JtP75gvfaS+i/eMA1Fbwfdro5wtIMaKApw/LNKcr+mNDTKZtSaCVLtjq
+	Gk/N3SkW9siGy479rEKJOZ91I=
+X-Google-Smtp-Source: AGHT+IGxfLnA21DnRIbYYx8S6PoJ4aTz0uiokeIMBWjywJxr9DzgkdlxVh3T7ZtOpKy2EtNnbCJT4rNDAaVAjO4mHv8=
+X-Received: by 2002:a17:90b:4c05:b0:2ee:9b09:7d3d with SMTP id
+ 98e67ed59e1d1-303a81651bcmr5489458a91.19.1743092113156; Thu, 27 Mar 2025
+ 09:15:13 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] pm: runtime: Add new devm functions
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Varshini
- Rajendran" <varshini.rajendran@microchip.com>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Len
- Brown" <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, "Alexander
- Dahl" <ada@thorsis.com>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Pavel Machek <pavel@kernel.org>
-References: <20250317093445.361821-1-csokas.bence@prolan.hu>
- <20250317093445.361821-2-csokas.bence@prolan.hu>
- <CAJZ5v0hJZBxU6SSq9C8gp2peETFWu0jbhrM82B5GvQkVXPR+9Q@mail.gmail.com>
- <3e6d7071-1ba9-484c-9dcb-c5da6ad1ffe3@prolan.hu>
- <CAJZ5v0jka2r9PaKsF0FE2qJaFfnVNGd8sZRE6Aay-Ugpzot44w@mail.gmail.com>
- <d926d2c2-8cc9-4a71-b8ca-b5f03ac9afb8@prolan.hu>
- <CAJZ5v0iS20uPhqNOnkj36rTBGQF3fecF6Hq4JU4=wz4pSzrFyg@mail.gmail.com>
-Content-Language: en-US, hu-HU
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <CAJZ5v0iS20uPhqNOnkj36rTBGQF3fecF6Hq4JU4=wz4pSzrFyg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D948526C7764
+References: <20250326215214.1706887-1-Frank.Li@nxp.com>
+In-Reply-To: <20250326215214.1706887-1-Frank.Li@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 27 Mar 2025 18:16:41 +0200
+X-Gm-Features: AQ5f1JqSne5RAICGf_1pTfxM4Me80uo-4iPsnpzylek8szz9S9jRRSHS2H44qaY
+Message-ID: <CAEnQRZD+OUSuysUBmReO0kwdZ61oDucXF7nNAuCYArxk0sRUwg@mail.gmail.com>
+Subject: Re: [PATCH 1/1] arm64: dts: imx8qm-mek: consolidate reserved-memory
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_091135_298123_E5E43C79 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250327_091514_055590_884166DD 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,45 +101,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Mar 26, 2025 at 11:52=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+>
+> Move dsp_vdev* to under existed reserved-memory node to consolidate all
+> reserved-memory together.
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-On 2025. 03. 27. 15:14, Rafael J. Wysocki wrote:
-> /-- devm_pm_runtime_get_noresume()
-> |   /-- devm_{pm_runtime_set_active() + pm_runtime_enable() (in this order)}
-> |   |   pm_runtime_use_autosuspend()
-> |   |
-> |   |   Note that the device cannot be suspended here unless its
-> runtime PM usage
-> |   |   counter is dropped, in which it would need to be bumped up
-> again later to
-> |   |   retain the balance.
-> |   |
-> |   \-> pm_runtime_disable() + pm_runtime_set_suspended() (in this order)
-> \-> pm_runtime_put_noidle()
-
-Ah, so basically what I've done originally, just calling 
-`devm_pm_runtime_get_noresume()` _first_ instead of _last_, right?
-
-> And pm_runtime_dont_use_autosuspend() is not really necessary after
-> disabling runtime PM.
-
-It was done this way in devm_pm_runtime_enable() already, see commit 
-b4060db9251f ("PM: runtime: Have devm_pm_runtime_enable() handle 
-pm_runtime_dont_use_autosuspend()"). I didn't change anything 
-behaviourally there.
-
-> Also, I think that the driver could be fixed without introducing the
-> new devm_ stuff which would be way simpler, so why don't you do that
-> and then think about devm_?
-
-Sure, I could quick-fix this, go through all the possible error paths 
-and whatnot and ref-count in my head, but it doesn't fix the underlying 
-problem: in order to properly use PM, you have to do a bunch of calls in 
-some set order, then undo them in reverse order on error and remove -- 
-exactly the thing devm was designed for, and exactly the thing where 
-it's easy for a human to forget one case by accident. Thus I prefer to 
-use the *real* solution, devm.
-
-Bence
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
