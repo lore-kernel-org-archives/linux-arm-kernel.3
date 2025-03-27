@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6275DC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DCAC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=29QXDhidZ4PVOYXAvqKDIutplSGkI5NqY4TxF7CkPec=; b=o5LTK8jrPKC0nzd4nL+DOsCu7M
-	6FGTx0s+3T4eZ/d4uTTUAn+6C38sVcEytWV2WLOVsE476NOoHqrVLt83QK0S1+U2m89hblkMH8auk
-	+G3p+cCuUCrzXWXUxw0M18sSEFyB8escoitWDS10mYi/qcnVpEXOVVfa+UkfBuOBOZPxSd2LeVgo6
-	bVrCCWIrwhoz8v3KtCdPvMMCXe7QBCfkimZMt3Eeokn1jv6vi0hZcisQqs3e/2aKpb1EN3KdVx/mf
-	8EOZLxeKe7DWwefXwH42GJXZmv+k3QKEcZS3V8QRomuFALww5WujHUVKopy6z5SpkmosFQzhiVcu4
-	PdYskRxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ofQxIAh6uo77nriH6JFKUEy3Ocq6GWrpqaZ0aFSJAUs=; b=wTOUTkjQ1VJ0FNHgZRtHo/KFVY
+	An5Rvb837QOAyP8/t8t+JzWvLozBy4+QLCO9XHRkdx1qiSSjSuykjLa4ZW5vG1fCoftgOb7TPmhax
+	AEgbsiP0vUattStbtpC5KyH9x4TTV7qSpFuP0hO2hs1Bavt8jgI6Sp2xqoQ8puEypy3lXVB+0Lndr
+	UONqrVbYcsILw/e31JL1sjJmcQ50XxfL4lMx6gJyot96NT0KkP6YlVze2I4dQmhme2VnYIF0lksSp
+	0SXB5lHlOW8NDMmniB8QGlQdQUD4fzM+yaTzK78Y08TFewhZeSP5F8PxtJkm8oYg131M4L8DQsYiZ
+	p19pIYBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqXS-0000000Bagf-2PwT;
-	Thu, 27 Mar 2025 16:57:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1txqZA-0000000Bb2B-1L7Y;
+	Thu, 27 Mar 2025 16:58:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqMN-0000000BYgQ-2WSS
+	id 1txqSj-0000000Ba1R-01D1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 16:45:40 +0000
+	Thu, 27 Mar 2025 16:52:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A968944696
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 16:45:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E62E9C4CEEA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 16:45:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 00817614AF;
+	Thu, 27 Mar 2025 16:52:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02E64C4CEE5;
+	Thu, 27 Mar 2025 16:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743093938;
-	bh=wF9ipZcNB/0eHsPWmPL1B2OKg5FK6fHZ9xznjO7EbCk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WVuSy4pKVl72ZFebxsmUTMq6wLMOKaEVPncUPbMxg72hU2WizApwScuKQhGsn+X2B
-	 48yjZdBK/jzjI29x3+htNNhForhzjM0n57X0l0nJtPFE2HBlT0D2lbHPXBq2WXx0V/
-	 p2lXAX9YGwkQ3pH6iZU3rhWEOvP7kPyAEw8xgY4REFZ/QyJMFSjDFfnWvYtsTqlb8+
-	 S7w93u1XY4Jzi1yWxn3vVPMwpbtXMdqcNk3A3oO8FMpmkbAbW5OUE8XjW9LFbZjd7M
-	 VuROKfpIXhOmgiuAw+KJiOac2V0KNhL7t8nxBorz1CVdDp/uJKybOG41atMcvVSnER
-	 ZPkrcXvxYSA6Q==
-Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-2c6f6f75a81so582276fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 09:45:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUa0YiwtG4MJ0BpYP6CCTIdJvYWiC72U5rSjwCOh6ayVvpttavVOQ2BWbisQdwrHnOzwzEQjQ9c4mNcZ+cNTw5o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxccf+frrDPJKIfuF5pwYuYrJyg6Dqy8bLt0ptGZZsYy6sGvLOG
-	9NhkEfOzslwmlJTVTnSK3jO8J3a9/Hwac5nzN91VsSvjS1MBEI/IJqqy0flMc4XT9Iznkz6Cws8
-	5AB/jlOZRlpaf0Ux4x3I5iRvlKEo=
-X-Google-Smtp-Source: AGHT+IEdHzMes6epfYuSawV3mY3iFmhRhmu87zpi8OHs6t+XHe19Js4YCvurVJX69p7//O4r9UNp+Qm5gzHXegJPAmE=
-X-Received: by 2002:a05:6870:218f:b0:2c3:f8e3:bdb9 with SMTP id
- 586e51a60fabf-2c84818f575mr2572277fac.28.1743093938185; Thu, 27 Mar 2025
- 09:45:38 -0700 (PDT)
+	s=k20201202; t=1743094331;
+	bh=Q6l0WxcvGA33qOdr8wp9swxuv9Bj+Qu0ZUvn1W+I7YY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uE1ia/7EcYXSQKPYqeHjXJ92g8XJaSXmJKG7Nm5xJg7UTxZu/e1bohqfu/55LCnuN
+	 /N/9mSlT4h5YH748aokVV5f7NUQEhCPC3G8wJkIh/IwyoW4L+iZG1/2ivh6+KuQqO6
+	 Ows792/CLe26HSPWU1jIqtbMOFUqpFHciMtiwicDVIRrmAYcm8rsKIBNK+ibfnxK1V
+	 UeMGkeJa3C0ZhzDKdUH6kECN+KWfGOg1KDsbRjLCNx2RWLMl1x6SIadt/1DvVX2IYR
+	 d5YZjc+LYt3GT1scHaCn6HJATCC3B9ECch8wkbmlUv6CTq370urK3SRvKXaKreAzEZ
+	 fZuUwdSg0NcrQ==
+Date: Thu, 27 Mar 2025 16:52:06 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	James Cowgill <james.cowgill@blaize.com>,
+	Matt Redfearn <matthew.redfearn@blaize.com>,
+	Neil Jones <neil.jones@blaize.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: Document Blaize BLZP1600 GPIO driver
+Message-ID: <20250327-scribble-boogeyman-22788dda387f@spud>
+References: <20250327-kernel-upstreaming-add_gpio_support-v2-0-bbe51f8d66da@blaize.com>
+ <20250327-kernel-upstreaming-add_gpio_support-v2-1-bbe51f8d66da@blaize.com>
 MIME-Version: 1.0
-References: <20250317093445.361821-1-csokas.bence@prolan.hu>
- <20250317093445.361821-2-csokas.bence@prolan.hu> <CAJZ5v0hJZBxU6SSq9C8gp2peETFWu0jbhrM82B5GvQkVXPR+9Q@mail.gmail.com>
- <3e6d7071-1ba9-484c-9dcb-c5da6ad1ffe3@prolan.hu> <CAJZ5v0jka2r9PaKsF0FE2qJaFfnVNGd8sZRE6Aay-Ugpzot44w@mail.gmail.com>
- <d926d2c2-8cc9-4a71-b8ca-b5f03ac9afb8@prolan.hu> <CAJZ5v0iS20uPhqNOnkj36rTBGQF3fecF6Hq4JU4=wz4pSzrFyg@mail.gmail.com>
- <bcf363db-8fff-4fb1-b29e-300f7b8bc090@prolan.hu>
-In-Reply-To: <bcf363db-8fff-4fb1-b29e-300f7b8bc090@prolan.hu>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 27 Mar 2025 17:45:26 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0g2cjZwJYjd7Jt-dDDaxjCPwmkAzRZM1HDT4tod7RiUUw@mail.gmail.com>
-X-Gm-Features: AQ5f1JpMAgH4hDdx8tpla6GgEclU1a-D6wPVXKpe8AogK9pUv3F-grNrK0it6P8
-Message-ID: <CAJZ5v0g2cjZwJYjd7Jt-dDDaxjCPwmkAzRZM1HDT4tod7RiUUw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/2] pm: runtime: Add new devm functions
-To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Varshini Rajendran <varshini.rajendran@microchip.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Len Brown <len.brown@intel.com>, 
-	Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Pavel Machek <pavel@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_094539_678458_117326D0 
-X-CRM114-Status: GOOD (  28.87  )
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="KHT+zneIcFZM3R2g"
+Content-Disposition: inline
+In-Reply-To: <20250327-kernel-upstreaming-add_gpio_support-v2-1-bbe51f8d66da@blaize.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,75 +81,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 5:11=E2=80=AFPM Cs=C3=B3k=C3=A1s Bence <csokas.benc=
-e@prolan.hu> wrote:
->
-> Hi,
->
-> On 2025. 03. 27. 15:14, Rafael J. Wysocki wrote:
-> > /-- devm_pm_runtime_get_noresume()
-> > |   /-- devm_{pm_runtime_set_active() + pm_runtime_enable() (in this or=
-der)}
-> > |   |   pm_runtime_use_autosuspend()
-> > |   |
-> > |   |   Note that the device cannot be suspended here unless its
-> > runtime PM usage
-> > |   |   counter is dropped, in which it would need to be bumped up
-> > again later to
-> > |   |   retain the balance.
-> > |   |
-> > |   \-> pm_runtime_disable() + pm_runtime_set_suspended() (in this orde=
-r)
-> > \-> pm_runtime_put_noidle()
->
-> Ah, so basically what I've done originally, just calling
-> `devm_pm_runtime_get_noresume()` _first_ instead of _last_, right?
 
-Right.
+--KHT+zneIcFZM3R2g
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-If you want to use pm_runtime_get_noresume() to prevent the device
-from suspending and you do that after enabling runtime PM for it, the
-device may suspend between the "enable" and the "get_noresume".  Doing
-the latter before the former prevents this race from occurring.
+On Thu, Mar 27, 2025 at 11:27:04AM +0000, Nikolaos Pasaloukos wrote:
+> This is a custom silicon GPIO driver provided by VeriSilicon
+> Microelectronics. It has 32 input/output ports which can be
+> configured as edge or level triggered interrupts. It also provides
+> a de-bounce feature.
+> This controller is used on the Blaize BLZP1600 SoC.
+>=20
+> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+> ---
+>  .../bindings/gpio/blaize,blzp1600-gpio.yaml        | 77 ++++++++++++++++=
+++++++
+>  1 file changed, 77 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/gpio/blaize,blzp1600-gpio.=
+yaml b/Documentation/devicetree/bindings/gpio/blaize,blzp1600-gpio.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..8b7842331a22b7b9fbfa42b9c=
+711da99227de2e4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpio/blaize,blzp1600-gpio.yaml
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpio/blaize,blzp1600-gpio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Blaize BLZP1600 GPIO controller
+> +
+> +description:
+> +  Blaize BLZP1600 GPIO controller is a design of VeriSilicon APB GPIO v0=
+=2E2
+> +  IP block. It has 32 ports each of which are intended to be represented
+> +  as child noeds with the generic GPIO-controller properties as described
+> +  in this binding's file.
+> +
+> +maintainers:
+> +  - Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+> +  - James Cowgill <james.cowgill@blaize.com>
+> +  - Matt Redfearn <matt.redfearn@blaize.com>
+> +  - Neil Jones <neil.jones@blaize.com>
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^gpio@[0-9a-f]+$"
+> +
+> +  compatible:
+> +    enum:
+> +      - blaize,blzp1600-gpio
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  gpio-controller: true
+> +
+> +  '#gpio-cells':
+> +    const: 2
+> +
+> +  ngpios:
+> +    default: 32
+> +    minimum: 1
+> +    maximum: 32
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  gpio-line-names: true
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 2
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - gpio-controller
+> +  - '#gpio-cells'
+> +
+> +dependencies:
+> +  interrupt-controller: [ interrupts ]
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    gpio: gpio@4c0000 {
 
-> > And pm_runtime_dont_use_autosuspend() is not really necessary after
-> > disabling runtime PM.
->
-> It was done this way in devm_pm_runtime_enable() already, see commit
-> b4060db9251f ("PM: runtime: Have devm_pm_runtime_enable() handle
-> pm_runtime_dont_use_autosuspend()"). I didn't change anything
-> behaviourally there.
+Label is unused, please drop it if you respin.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Yes, this is fine, although not really necessary.
+> +      compatible =3D "blaize,blzp1600-gpio";
+> +      reg =3D <0x004c0000 0x1000>;
+> +      gpio-controller;
+> +      #gpio-cells =3D <2>;
+> +      ngpios =3D <32>;
+> +      interrupt-controller;
+> +      #interrupt-cells =3D <2>;
+> +      interrupts =3D <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+> +    };
+> +...
+>=20
+> --=20
+> 2.43.0
+>=20
 
-> > Also, I think that the driver could be fixed without introducing the
-> > new devm_ stuff which would be way simpler, so why don't you do that
-> > and then think about devm_?
->
-> Sure, I could quick-fix this, go through all the possible error paths
-> and whatnot and ref-count in my head, but it doesn't fix the underlying
-> problem: in order to properly use PM, you have to do a bunch of calls in
-> some set order, then undo them in reverse order on error and remove --
-> exactly the thing devm was designed for, and exactly the thing where
-> it's easy for a human to forget one case by accident. Thus I prefer to
-> use the *real* solution, devm.
+--KHT+zneIcFZM3R2g
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Except that you need to enforce the proper initial ordering or you may
-get undesirable results on the way out.
+-----BEGIN PGP SIGNATURE-----
 
-Say you call devm_pm_runtime_set_active() after
-devm_pm_runtime_enable() by mistake.  It doesn't do anything, but
-runtime PM may still work because the device gets resumed at one point
-and if it has never been in a low-power state in the first place, the
-"transition" may just be transparent.  On the way out, the cleanup
-action for devm_pm_runtime_set_active() will run before the cleanup
-action for devm_pm_runtime_enable() AFAICS and so it won't do anything
-again, so the device's parent and suppliers (if any) may remain
-reference-counted.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ+WCNgAKCRB4tDGHoIJi
+0l1GAP432iQj+leyJvycy9SxPrvJzxLLNYJJwPTn6loEoxhTKAD+Jwg9EBUrtu+9
+xCJkgglUDVinhTMxrhKB0CyuJghf0Qo=
+=QRox
+-----END PGP SIGNATURE-----
 
-That's why I'm saying that it is better to combine
-pm_runtime_set_active() with pm_runtime_enable() (in the right order)
-in one devm_ call and define the cleanup action for it to run
-pm_runtime_disable() before pm_runtime_set_suspended().  Then, the
-mistake described above cannot be made.
+--KHT+zneIcFZM3R2g--
 
