@@ -4,128 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62269C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 03:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76933C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 04:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRX/mZlyH+iFulPSJq57+3ZhcRchtRZKVdIoGV0Vxlk=; b=cPoA4Cz+rsOA8udmr/BbK5PEf1
-	DrJazRDsAM9l5qgXkJ87+ggogvvNanJXKbTtWBZ5izrJSN/KsJuy6MkrQR1AroMVPg6mVpQ8TRIES
-	YdD/+T+XJnmreV2+VjJ06PZWo2EV9bZmgGN9iLgl0RJXUrEnj+fbBbOGKDuXPnKOZcQgCIfPjyNpI
-	Z5x2OKJRmuzvz1o2eNKWjs+CgRnbtH3vJotWe6XNWTMoVykFdZsIU3mNEvprKnmQGFBRmQHEk7vl2
-	xEO+v59iZ6/jN5iMudW/tGdoAysQK52q9OaDGA0dnVnf70tMn0LFoQnfsEKaNvcln+xWkuZmp/1kr
-	mvnRJhoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QTcUvUKbScEe+aC02fC8wk+Yibgrocm6jZqJKvio2YM=; b=2k6F+NTAMobF9/PxMrmXiP7CVh
+	MXZvUsFAxQ2lzqiOXLVwxw9KpjDtYyjW+mzOWYv+d/z+3GODkd9p562w31abUmHbvRa+3AaJlIr7I
+	S6EN6mDGjov+8QZ0yicuX3bhUIH1gHvKAioFb4FTI1zvfwL1YQ+fw4Qxfqyyw+F4C/gdD+pn4zz7I
+	I+xQ/vwOCB62h55mXhNtqodo78yvEt85A8snpX8vcIX50O4c8vT1Qdhv13GXNMXmFhn3CT0fzmUGt
+	tgYeGjf31l0WdpjOgaqP5YOsQFrjNi/ufONLbEL8vx+ZiD7XqRAd1wHxi/8pRFIe5zlSPWY5uxYCC
+	XaX7LwIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdmp-0000000A3lP-3tJH;
-	Thu, 27 Mar 2025 03:20:07 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1txedZ-0000000A7nL-3mPm;
+	Thu, 27 Mar 2025 04:14:37 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdl2-0000000A3eE-0AZE
+	id 1txebp-0000000A7in-3eJb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 03:18:20 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250327031809epoutp047acb4a8cbea531f78a809d45b3927622~wiqNBAYe02445924459epoutp04Z
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 03:18:09 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250327031809epoutp047acb4a8cbea531f78a809d45b3927622~wiqNBAYe02445924459epoutp04Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1743045489;
-	bh=bRX/mZlyH+iFulPSJq57+3ZhcRchtRZKVdIoGV0Vxlk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=b3iu1jEZgy0XHTWTnH6yV4lopHc/D10Y9/EleB6cRz6CKlpby6O+a+CABg1lp61U/
-	 CUH4Ekz/al3BEBTmuUr9jtXty20ELNt+woTlChto6XpD23P1eZtg466IPKxeQj9eK8
-	 ntZ5Bj6Q7/1fSH99xnTnhN9GFG28MxjscRMIiBNw=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250327031809epcas2p40c601881c8fe791fc56ebffc892e9b18~wiqMj3VjW0672406724epcas2p4a;
-	Thu, 27 Mar 2025 03:18:09 +0000 (GMT)
-Received: from epsmges2p4.samsung.com (unknown [182.195.36.70]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZNTPX37q4z6B9m4; Thu, 27 Mar
-	2025 03:18:08 +0000 (GMT)
-Received: from epcas2p2.samsung.com ( [182.195.41.54]) by
-	epsmges2p4.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A1.9A.09871.073C4E76; Thu, 27 Mar 2025 12:18:08 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250327031807epcas2p2bef23593c044ed18b100b2b4f0fed43c~wiqLg6PS_2870328703epcas2p2W;
-	Thu, 27 Mar 2025 03:18:07 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250327031807epsmtrp296d824e6664ba2f696aa05e49b66aef9~wiqLgF4ca3014530145epsmtrp2h;
-	Thu, 27 Mar 2025 03:18:07 +0000 (GMT)
-X-AuditID: b6c32a48-b95f07000000268f-44-67e4c370bd89
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	56.60.08805.F63C4E76; Thu, 27 Mar 2025 12:18:07 +0900 (KST)
-Received: from perf (unknown [10.229.95.91]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250327031806epsmtip104bc1a6c480789f06e411bf1819f0539~wiqJxQSVF2007220072epsmtip1d;
-	Thu, 27 Mar 2025 03:18:06 +0000 (GMT)
-Date: Thu, 27 Mar 2025 12:22:19 +0900
-From: Youngmin Nam <youngmin.nam@samsung.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Saravana Kannan
-	<saravanak@google.com>, Ulf Hansson <ulf.hansson@linaro.org>, Vincent
-	Guittot <vincent.guittot@linaro.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com,
-	hajun.sung@samsung.com, d7271.choe@samsung.com, joonki.min@samsung.com,
-	Youngmin Nam <youngmin.nam@samsung.com>
-Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in
- GICv3 ITS driver
-Message-ID: <Z+TEa8CVAYnbD/Tu@perf>
+	Thu, 27 Mar 2025 04:12:51 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52R4CgO72377169
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 26 Mar 2025 23:12:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1743048762;
+	bh=QTcUvUKbScEe+aC02fC8wk+Yibgrocm6jZqJKvio2YM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=o5W243hy9wtXdmPurOWIA15/QglK5GrnUCVZ43J+FL+RcULEpBWXXXckZfDfl6cs9
+	 9Z0B2cd3CjqNfyAhXIIgFvEbpWjw35HZMFHMEasivGG5WU8dzPrxFDhduDWp+qvSpb
+	 tY16gxj1F9yvWYHhuJD/ggqG4iW2ioFEQY4EpprQ=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52R4CgUQ033117
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 26 Mar 2025 23:12:42 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
+ Mar 2025 23:12:42 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 26 Mar 2025 23:12:41 -0500
+Received: from [10.24.69.37] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52R4CcVx045056;
+	Wed, 26 Mar 2025 23:12:39 -0500
+Message-ID: <bd7bee62-38fd-412b-a2d4-611890238e9e@ti.com>
+Date: Thu, 27 Mar 2025 09:42:38 +0530
 MIME-Version: 1.0
-In-Reply-To: <8634f0mall.wl-maz@kernel.org>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrJJsWRmVeSWpSXmKPExsWy7bCmmW7B4SfpBleWiVpc2zuR3aJp/yVm
-	i6u73zFb7NguYrHp8TVWi8u75rBZ7JxzktWi69BfNovNm6YyWxxfG27RceQbs8XiA5/YHXg8
-	tu3exuqxYFOpx6ZVnWwed67tYfN4d+4cu8fmJfUefVtWMXp83iQXwBGVbZORmpiSWqSQmpec
-	n5KZl26r5B0c7xxvamZgqGtoaWGupJCXmJtqq+TiE6DrlpkDdKqSQlliTilQKCCxuFhJ386m
-	KL+0JFUhI7+4xFYptSAlp8C8QK84Mbe4NC9dLy+1xMrQwMDIFKgwITvj36rbLAWLpCrWvtjC
-	0sA4U6SLkZNDQsBE4vCU66xdjFwcQgI7GCVOzz7BAuF8YpSY1HqfDcL5xijx/N4FVpiWS2vn
-	Q7XsZZT4/PclVNVDRokv996wg1SxCKhKvL67gRHEZhPQldh24h+YLSKgKPHpwklGkAZmgT9M
-	Eu/ObgRq4OAQFoiSeNweB1LDK6AscWjrDBYIW1Di5MwnLCAlnALaEhPma4O0Sghs4ZA4tfc4
-	I8RFLhIrzvQzQ9jCEq+Ob2GHsKUkPr/bywZhF0s03L/FDNHcwihx6voLqAZjiVnP2hlBFjAL
-	ZEjsuF8IYkoA3XDkFtgJzAJ8Eh2H/7JDhHklOtqEIBrVJH5N2QB1gYzE7sUroAZ6SLR+bWGC
-	BMk0Rom58z6yTGCUm4Xkm1kIyyBMTYn1u/RngS2Tl2jeOpsZIiwtsfwfB5KKBYxsqxjFUguK
-	c9NTi40KTOBRnZyfu4kRnIa1PHYwzn77Qe8QIxMH4yFGCQ5mJRHeY6wP04V4UxIrq1KL8uOL
-	SnNSiw8xmgIjaSKzlGhyPjAT5JXEG5pYGpiYmRmaG5kamCuJ81bvaEkXEkhPLEnNTk0tSC2C
-	6WPi4JRqYHKbMV320U3lRx6/Uub8sFx55cIVroMreC/YB5hNZHe/KJyst9YvIn3PKm3m7sbT
-	L7v3cv6YO23zzhdpQp3KyxaKlF6zat79upZj852VbxVzDocp7xJecszjx4KalffZGyyaMz5L
-	Gsw6vt35/s3ZyY5Tfp4Ke/Z8RUnjvvyb1RfP8htPkfjy+HeX8PHPx/z1jgn8T+45Oyuo0G6V
-	3M3KvXoGWsfU6+5fuueob7KI5enKw3WG+27Ua0e/viIgNO2hW+W3OIZlwQ6e29ra6vUYDqs9
-	8H/q95R5so3kxtmHaqY22ERaMRyZ/7+0Y2Xm34e8y9xv9OydOuP+1g8f3WU3PL/YyVTAMH9t
-	qCB3im2zqvA1JZbijERDLeai4kQAtr0t3UwEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFuplkeLIzCtJLcpLzFFi42LZdlhJTjf/8JN0g6O7TCyu7Z3IbtG0/xKz
-	xdXd75gtdmwXsdj0+BqrxeVdc9gsds45yWrRdegvm8XmTVOZLY6vDbfoOPKN2WLxgU/sDjwe
-	23ZvY/VYsKnUY9OqTjaPO9f2sHm8O3eO3WPzknqPvi2rGD0+b5IL4IjisklJzcksSy3St0vg
-	ytg0fyV7wRHxipbZOg2M1wW7GDk5JARMJC6tnc/axcjFISSwm1Fi3/R1LBAJGYnbKy+zQtjC
-	EvdbjkAV3WeU6N2yjQkkwSKgKvH67gZGEJtNQFdi24l/YLaIgKLEpwsnGUEamAUamCWm/Z4K
-	NlVYIEpiz9tpYM28AsoSh7bOYIGYOoNR4s+1HhaIhKDEyZlPwGxmAXWJP/MuMXcxcgDZ0hLL
-	/3FAhOUlmrfOBgtzCmhLTJivPYFRcBaS5llImmchNM9C0ryAkWUVo2RqQXFuem6xYYFRXmq5
-	XnFibnFpXrpecn7uJkZwjGlp7WDcs+qD3iFGJg7GQ4wSHMxKIrzHWB+mC/GmJFZWpRblxxeV
-	5qQWH2KU5mBREuf99ro3RUggPbEkNTs1tSC1CCbLxMEp1cDkYWr3Zr1a1p/wzgfnHz/eKf/L
-	cl5S/t07VqlV0daS9785/LS22/Rqmg5LXvOa1+8+n7/guuecSnyx+gRer1+LZfr5nzmmaz1m
-	mlMRfebzz0fr2w8rsIhWd6nITKxqalCf/mHVjIiDHzdriUtpRB0+Wx8U0PfHTPP7xcKzZ996
-	bFf8u/EE24+v35na6vsen+S2Zvjv3DBvW8q8B+s12JYanFn75aKZ16eFTXJu1prJJ6wr2Avn
-	77Fvlt9wvfsQo1v/rbWM/KyHPnYdllpU/tj6yRuuUIsawaV1zVptm4N/rC7fyefSmraKcbag
-	+xx5c9fWuw3XL8a77ZnvKZ7/UU+nONimeHqP/rHKvTsblJuUWIozEg21mIuKEwGBFiobIAMA
-	AA==
-X-CMS-MailID: 20250327031807epcas2p2bef23593c044ed18b100b2b4f0fed43c
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_33869_"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5
-References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
-	<Z+Nv8U/4P3taDpUq@perf> <8634f0mall.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
+ K3 devices
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20241128140825.263216-1-n-francis@ti.com>
+ <20241128140825.263216-2-n-francis@ti.com>
+ <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
+ <837d329b-bcdd-4c3b-b508-e916b110ce25@ti.com>
+ <e57dfc3e-b702-4803-b776-20c6dbd98fef@kernel.org>
+ <8e58b093-1c64-45b9-a9d3-9835a3bbc4fd@ti.com>
+ <1da4e402-62f3-4bad-9129-1f5a08148987@kernel.org>
+ <f39d80fc-3600-4c2c-b09c-980288f86fa2@ti.com>
+ <a2397c92-2884-4f4d-b036-808208892af5@kernel.org>
+Content-Language: en-US
+From: Neha Malcom Francis <n-francis@ti.com>
+In-Reply-To: <a2397c92-2884-4f4d-b036-808208892af5@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_201817_520305_F7AA4FBE 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20250326_211250_173016_8656AF1E 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,93 +96,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_33869_
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Content-Disposition: inline
-
-On Wed, Mar 26, 2025 at 08:59:02AM +0000, Marc Zyngier wrote:
-> On Wed, 26 Mar 2025 03:09:37 +0000,
-> Youngmin Nam <youngmin.nam@samsung.com> wrote:
-> > 
-> > Hi.
-> > 
-> > On our SoC, we are using S2IDLE instead of S2R as a system suspend mode.
-> > However, when I try to enable ARM GICv3 ITS driver (drivers/irqchip/irq-gic-v3-its.c),
-> > I noticed that there is no proper way to invoke suspend/resume callback,
-> > because it only uses syscore_ops, which is not called in an s2idle scenario.
+On 24/03/25 12:53, Krzysztof Kozlowski wrote:
+> On 19/03/2025 10:02, Neha Malcom Francis wrote:
+>> Hi Krzysztof,
+>>
+>> On 19/03/25 13:16, Krzysztof Kozlowski wrote:
+>>> On 13/03/2025 12:14, Neha Malcom Francis wrote:
+>>>> Hi Krzysztof
+>>>>
+>>>> On 29/11/24 14:45, Krzysztof Kozlowski wrote:
+>>>>> On 29/11/2024 08:43, Neha Malcom Francis wrote:
+>>>>>>>> +
+>>>>>>>> +  power-domains:
+>>>>>>>> +    maxItems: 1
+>>>>>>>> +
+>>>>>>>> +  ti,bist-instance:
+>>>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>>>> +    description:
+>>>>>>>> +      the BIST instance in the SoC represented as an integer
+>>>>>>>
+>>>>>>> No instance indices are allowed. Drop.
+>>>>>>>
+>>>>>>
+>>>>>> Question on this, this is not a property that is driven by software but rather 
+>>>>>> indicates which register sequences have to be picked up for triggering this test 
+>>>>>> from this instance. So I don't see how I can workaround this without getting 
+>>>>>> this number. Or maybe call it ID rather than instance?
+>>>>>
+>>>>> I don't understand how the device operates, so what is exactly behind
+>>>>> some sequences of registers for triggering this test. You described
+>>>>> property as index or ID of one instance of the block. That's not what we
+>>>>> want in the binding. That's said maybe other, different hardware
+>>>>> characteristic is behind, who knows. Or maybe it's about callers... or
+>>>>> maybe that's not hardware property at all, but runtime OS, who knows.
+>>>>>
+>>>>
+>>>> Sorry for such a late reply, but I was hoping to get more details on
+>>>> this "ID" and never got back to the thread...
+>>>>
+>>>> The best way I can describe is this device (BIST) runs a safety
+>>>> diagnostic test on a bunch of processors/blocks (let's call them
+>>>> targets). There's a mapping between the instance of this device and the
+>>>> targets it will run the test. This ID was essentially letting the BIST
+>>>> driver know which are these targets.
+>>>
+>>>
+>>> So you want to configure some target? Then this is your property. If you
+>>> want to configure 'foo' difference in DT, you do not write 'bar'...
+>>>
+>>
+>> So the difficulty in doing this is, what I mentioned in the earlier
+>> email just copying it over again:
+>>
+>> "Yet another way would be the BIST points out the targets it controls via
+>> their phandles in its node... but this approach would trigger the probe
 > 
-> This is *by design*.
+> No, it would not. Which part of OF kernel code causes probe ordering
+> (device links) if some random phandle appears?
+
+Going through device links now, I realize I may have come to the wrong
+conclusion while writing the driver. Let me try to respin the driver
+using this approach then post which I will resume this series.
+
 > 
-> > Please refer to the codes below.
-> > 
-> > <drivers/irqchip/irq-gic-v3-its.c>
-> > 5028 static struct syscore_ops its_syscore_ops = {
-> > 5029         .suspend = its_save_disable,
-> > 5030         .resume = its_restore_enable,
-> > 5031 };
-> > ...
-> > 5803         register_syscore_ops(&its_syscore_ops);
-> > 
-> > <kernel/power/suspend.c>
-> > 444         if (state == PM_SUSPEND_TO_IDLE) {
-> > 445                 s2idle_loop();
-> > 446                 goto Platform_wake;
-> > 447         }
-> > 448
-> > 449         error = pm_sleep_disable_secondary_cpus();
-> > 450         if (error || suspend_test(TEST_CPUS)) {
-> > 451                 log_suspend_abort_reason("Disabling non-boot cpus failed");
-> > 452                 goto Enable_cpus;
-> > 453         }
-> > 454
-> > 455         arch_suspend_disable_irqs();
-> > 456         BUG_ON(!irqs_disabled());
-> > 457
-> > 458         system_state = SYSTEM_SUSPEND;
-> > 459
-> > 460         error = syscore_suspend();
-> > 
-> > How should we handle this situation ?
+>> of these targets before the test runs on them. And in hardware, the test
+>> must run only one before the device is used, else we see indefinite
+>> behavior."
+>>
+>> Property that has a list of strings (targets) instead of phandles maybe?
+>> Would that be acceptable?
 > 
-> By implementing anything related to GIC power-management in your EL3
-> firmware. Only your firmware knows whether you are going into a state
-> where the GIC (and the ITS) is going to lose its state (because power
-> is going to be removed) or if the sleep period is short enough that
-> you can come back from idle without loss of context.
 > 
-> Furthermore, there is a lot of things that non-secure cannot do when
-> it comes to GIC power management (most the controls are secure only),
-> so it is pretty clear that the kernel is the wrong place for this.
 > 
-> I'd suggest you look at what TF-A provides, because this is not
-> exactly a new problem (it has been solved several years ago).
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
-> 
+> Best regards,
+> Krzysztof
 
-Hi Marc,
-
-First of all, I’d like to distinguish between the GICv3 driver (irq-gic-v3.c)
-and the ITS driver (irq-gic-v3-its.c).
-
-I now understand why the GICv3 driver doesn’t implement suspend and resume functions.
-However, unlike the GICv3 driver, the ITS driver currently provides
-suspend and resume functions via syscore_ops in the kernel.
-And AFAIK, LPIs are always treated as non-secure. (Please correct me If I'm wrong).
-
-The problem is that syscore_ops is not invoked during the S2IDLE scenario,
-so we cannot rely on it in that context.
-We would like to use these suspend/resume functions during S2IDLE as well.
-
-Thanks.
-
-------rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_33869_
-Content-Type: text/plain; charset="utf-8"
-
-
-------rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_33869_--
+-- 
+Thanking You
+Neha Malcom Francis
 
