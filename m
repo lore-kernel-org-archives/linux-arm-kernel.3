@@ -4,67 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54DEC36012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 941D0C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8VdYWjuYWa7YIVquN+OvDXAuE0xN2bOP7ibbd8y3pg=; b=IH7nrS2lnt6o2kyVQEubpX9s2A
-	OFRzflH4HyhgxzrgXG1Y25IzY85lukLm8jc0o3OSC8/9OAmayNfQoaQbi5zbuVNguNzre2TEW58UI
-	meVS5XLLbJg7luMqCzwsXuF2jlykLrjIMMAwNhti3afbne2pYWPgTNKV0Ny3pbqpKECOwMygy2MYZ
-	9R3AwXE/bgcrRqTHf3fw43vffyn5V4sgMY6MA66OjLiGchV6LuN32G8f8I/Bd95PJvW2xaueCoFC5
-	nJRVnmOtKmilVoyTvH5esezlp9BFKUCMLMPRDEOniZrz1nK8rXrfjHhTLlFrtmC8m1/QHGY/CROyM
-	prehLn6g==;
+	bh=wK9lKk51F8Ig4IUd/YTVgiulwDpAR89rwMrTX7A/kVQ=; b=Z3VQDcYO1EzVtla4JhUhpJMKMG
+	kv/m8GVjWhtKltqpBr4rHI2JQVDtBEnA67S2CVabv+tPEePy6rzQa1/pZkQNgQCt1LpDCLSEdRkYR
+	pguCPX4SZgjGgeEjfrGq3MbSAob2/Of5FSnEls1+7nK9VeBNpZe23YaNzIXpbVNQBxlmx+yFyFsQ7
+	aDwUa5ry/BDWHoBUk4VRML8Y1luSF+ykHxua0IX1JV33isJiwLpg9WPYBQ3QVtjaNTJTDu+J/OFz8
+	EBDZOcyvoTHbOqa+h+Su0h5ANb72KLJj03cBqhz+TAOrVlGlSNcNEIUMFXQrTUBzObDKmigE923MR
+	elFWapkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txiqu-0000000AU9r-2DaN;
-	Thu, 27 Mar 2025 08:44:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1txj3D-0000000AVQ4-2Nbl;
+	Thu, 27 Mar 2025 08:57:23 +0000
+Received: from mail-ua1-f51.google.com ([209.85.222.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txipB-0000000AU13-2LzN;
-	Thu, 27 Mar 2025 08:42:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F2DF0A41DF1;
-	Thu, 27 Mar 2025 08:37:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10F1FC4CEDD;
-	Thu, 27 Mar 2025 08:42:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743064972;
-	bh=YD48CO4FsnwCglT67h5qBvSC1Oj4vkTc/ynkSqfBkbU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nOnUw5CiiGx9MW6mTLS3QpYBwCi1ecL7NIZ54rPiNogF5wqbYofbS7ZsUmJuRxOEK
-	 VmjINAOiHZG5fr2UqaSFPFa0RR7aoWNBY3rd6ldXeDEwC+r6h8zCfOBjuI1A7p8E1q
-	 HFPn5tXVTytEjQ+XcTNZ8fxwCSkLnnVis6YszVKWXfuNWunvmnzxF5pnASBCr3NHIR
-	 Z6JeGIbiyq05a9lLiEV9gTwA7OszwjPB4CXTD/6QsVB674OCI73mGO/M00/RC9/vhi
-	 CfJuG9imQVqlDaHgG9M8gB/2mzm1d9SekbfhqlLWkHgNnzAWHhs9VecB0F5JLILSNV
-	 U5ExS4PeES/YQ==
-Date: Thu, 27 Mar 2025 09:42:49 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Cc: linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v11 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <t3zbutuclculgqchj2byhjqbebdyrs3sslt65faph5tljppljk@lr5pbdovyuxv>
-References: <20250213094018.134081-1-privatesub2@gmail.com>
- <20250213094018.134081-2-privatesub2@gmail.com>
+	id 1txj1T-0000000AVC9-34rG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Mar 2025 08:55:36 +0000
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-86715793b1fso330777241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 01:55:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743065732; x=1743670532;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wK9lKk51F8Ig4IUd/YTVgiulwDpAR89rwMrTX7A/kVQ=;
+        b=A1RtxsSPmzmJkhHxDwuOZrajccFASA//RaJg7tKJIYEBZy5iE6uP6YxtX1byTlQKxf
+         hKpSB0/EInOO3aMqAeHuCvtr9REDlgoib1/7kpPJ1jwcX7nA7euqwFPGTsAHjB4SWpTX
+         oFJrDGqohAnePh08VtqFGxuEQAIIe557qk4pV8o1TLJoHR8VXKa92US4VyBrGmq+c5NR
+         jQGw+OCuQ6IrI/Rs9JVRe8dr/P2DbcD+u+JucLxaK2eopTMs0OE52szP1yTp74ZOp3xu
+         NsthE5fDqzzSsVUcukEj36e8d57U8uVDBrHYqUUgoW2++wTIgAcSbBvoiuduMoluzsLu
+         zdew==
+X-Forwarded-Encrypted: i=1; AJvYcCVK/In+bRrKEx65zpbWGnUFTi3M0MojHpmSYtNN8qsDUpGczwA6WAiCIbIHdJEkP6brrBa6gS7ZkLaa+wEqU1EA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcuSzLvO5LiE2Cba22/0Q/fRRBA0WgvnIa9j/WVb/buZ3t3qVc
+	EbP7JtcPYuaV2hjDGs/2ut/0u9f91q0qcFoarHaTqBATifD95u66WLLz4igVw0s=
+X-Gm-Gg: ASbGnctO1q5TeItZmisFZ5DL2VgO7wtobx1PrnYoRnAHY68Jrm1wj7ktuf3OAdEFdoU
+	epuLRV2awbM3Gm1RoxcA+S49qE7PwIvUPu8J3bjWs+xMLbikFX9g3s6MNrxVs+8GQnIWWaPHTZQ
+	f1TFPkZ3VOfbwc0B7WsE1Cx7h1OXROY1NmHBXxpwrNXcPcSG5MPG/loAVfNzn0/J0pSaztb6zvf
+	IjFvB95aPFB1TH+xD+KdcOuqzFe71pd4pcD4CEv+bHLMYrp2Qtfm4P9lBlJplKOqTBs8DEvUHHp
+	15+AhCksA64q+WTMhaWjVl4iDqmv7p7FCvzMyMIsqzWGzxyZ+ECfX/PobACgfP261TVNYTn0tY5
+	AbrLu2rY=
+X-Google-Smtp-Source: AGHT+IE0VsZgbTE/wLieMKfS5pgVUrfyS2/SZyNZd5g+LiMetoHPf8AHbBQ1gJUOPlkpdxPZz0GHng==
+X-Received: by 2002:a05:6102:800e:b0:4bb:e8c5:b172 with SMTP id ada2fe7eead31-4c586f7ac54mr2538189137.8.1743065732395;
+        Thu, 27 Mar 2025 01:55:32 -0700 (PDT)
+Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com. [209.85.222.41])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4c50bdbe1ebsm2740409137.29.2025.03.27.01.55.29
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Mar 2025 01:55:29 -0700 (PDT)
+Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-86feb84877aso307306241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 01:55:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVoBVuefmbh2bEfNclhrc2bkkrtNP9HWGMxRsgaUC/KjfPuKNO80Q+mpsbP/sp10eFxbkingOgB60CIrvOfQrru@lists.infradead.org
+X-Received: by 2002:a05:6102:50a5:b0:4ba:971a:41fd with SMTP id
+ ada2fe7eead31-4c587074bf4mr2444666137.19.1743065729369; Thu, 27 Mar 2025
+ 01:55:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="chw7rzoep466ms63"
-Content-Disposition: inline
-In-Reply-To: <20250213094018.134081-2-privatesub2@gmail.com>
+References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250326143945.82142-16-prabhakar.mahadev-lad.rj@bp.renesas.com> <41c6f512-47a5-4723-bbdc-64ed85ae8391@kernel.org>
+In-Reply-To: <41c6f512-47a5-4723-bbdc-64ed85ae8391@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 27 Mar 2025 09:55:17 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVKfL-FRhDaFfOACV8R=ziqXdhmeW7Xd4WYXqHnSbR0ZA@mail.gmail.com>
+X-Gm-Features: AQ5f1Jp1SYp8iWPpWJ6Tj5rp6ScglN-F4PfZy1-_zatQI8UsxeHgk8YvFPlKy5w
+Message-ID: <CAMuHMdVKfL-FRhDaFfOACV8R=ziqXdhmeW7Xd4WYXqHnSbR0ZA@mail.gmail.com>
+Subject: Re: [PATCH 15/15] arm64: defconfig: Enable Renesas RZ/V2N SoC
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Prabhakar <prabhakar.csengg@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_014253_722319_0C0926D6 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250327_015535_772096_C1391DB1 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,66 +107,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
---chw7rzoep466ms63
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v11 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-MIME-Version: 1.0
+On Thu, 27 Mar 2025 at 08:43, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On 26/03/2025 15:39, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Enable support for the Renesas RZ/V2N (R9A09G056) SoC in the ARM64
+> > defconfig.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> >  arch/arm64/configs/defconfig | 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> > index 11e7d0ad8656..c7b41f86c128 100644
+> > --- a/arch/arm64/configs/defconfig
+> > +++ b/arch/arm64/configs/defconfig
+> > @@ -1483,6 +1483,7 @@ CONFIG_ARCH_R9A07G054=y
+> >  CONFIG_ARCH_R9A08G045=y
+> >  CONFIG_ARCH_R9A09G011=y
+> >  CONFIG_ARCH_R9A09G047=y
+> > +CONFIG_ARCH_R9A09G056=y
+>
+> So the pattern will keep growing and none of you will ever bother to fix
+> it, because you have your patchset to throw over the wall.
 
-Hello,
+Yes, the pattern will keep on growing.
+Just like the minimum kernel size will keep on growing, especially if
+you can no longer compile a kernel without support for SoCs you do not
+intend to run the kernel on.  Not everyone has GiBs of RAM to spare...
 
-On Thu, Feb 13, 2025 at 12:40:12PM +0300, Aleksandr Shubin wrote:
-> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> controller witch is different from the previous pwm-sun4i.
->=20
-> The D1 and T113 are identical in terms of peripherals,
-> they differ only in the architecture of the CPU core, and
-> even share the majority of their DT. Because of that,
-> using the same compatible makes sense.
-> The R329 is a different SoC though, and should have
-> a different compatible string added, especially as there
-> is a difference in the number of channels.
->=20
-> D1 and T113s SoCs have one PWM controller with 8 channels.
-> R329 SoC has two PWM controllers in both power domains, one of
-> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
->=20
-> Add a device tree binding for them.
->=20
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Gr{oetje,eeting}s,
 
-nitpick: Put your S-o-b last.
+                        Geert
 
-> +  allwinner,npwms:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: The number of PWM channels configured for this instance
-> +    enum: [6, 9]
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Maybe mention the default that is assumed if this property isn't
-provided? Reading the commit log makes me wonder if the default is 8. If
-so I suggest to also allow that value explicitly.
-
-Best regards
-Uwe
-
---chw7rzoep466ms63
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmflD4YACgkQj4D7WH0S
-/k4zPwf/YgFEiTFLIAzGN93hGhAtrlBkY9Wk7sGF/1me7yiQulyYfZVNVE6VYT+d
-ePJ4J6WFE+mBBUN7AUaq2L3TqRbq0Fe5fRURdVxpk+RHdtcMhn5FKUTpUWSfB9eM
-v1qDWxVJfZEFhhs5w6pdVeOP3EUjqNxD6oKqTXROCLJQIe4WA/TtPOMK3oJccVCv
-nSnAtTGktNW1RdDOZH6iltBKmY01oZJO1AkRjE7sOcWkjDVk6f68cgig337GWs7p
-b/2z0uKOyAlDQZFi8TaMA323lLDgPyoKAbNx+xdcLdlCKNMXUADk+3vF5caqPwQL
-9InY8wuNgSZh208F1a8d2YBqGxJlhA==
-=gz3O
------END PGP SIGNATURE-----
-
---chw7rzoep466ms63--
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
