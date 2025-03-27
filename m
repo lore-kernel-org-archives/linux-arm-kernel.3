@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B7EC36011
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D22EC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KssINcBHG6V5nsmKK6p0ubimcU1BXEQtWDJ9ECnykV0=; b=b+1S5Sw0ZbZicwLZ6/0N0yzZly
-	aErhiMTzrJdzus4osqSgxc8aPYKURQ04PyCQJKnvVLwzYCnymaXxVjAJ3A7VjpQkuPenGtj8meqvw
-	/ac//pMJmaPR6gKgFRDruK5NLrPFysF/L2mERCLK/epCIIIxU5pe5maqTXM82v/EgXBvR7qbhULBK
-	GOgS37sA41Cyr4fTmXfrbG3lEYgr7TyZsRoKrwYkaXQ4BjPg8qA7e2LJ1qYYRj8yl3S/KhEQBss0R
-	Llkynok7El1lk4JF4Qskx5QKTNNRQHpfU86MUN9BO6V+Ee7rlC4WA9KhMruQiU0qrpfOEJAV9d/FJ
-	cuN7TmOQ==;
+	bh=nKAfCqQ7Qjy4MJYkAdCHV9zfU4kl+sMGOwwGVOQa3Ms=; b=wDS9c/GUBrFaTpxmM8nlN1IiGp
+	UTUCvVNX3zONTNjeLxCTOCZ69JCDQ3Ju2V5cpdModZ03oUnZuy0UV9H0EbGhZ8PrETWP1MTaAkcyN
+	Xqdf//GPg17jLXqasokUDL1EkIMcFYIdTh96cYtQ91odSt/LvkNEcDWMZUYkMXuPPElo7MyNsnILI
+	mFF0vJvUzzhg2xjZC6IvTdHH91/wWqKN1g+NJ2pxlSVWSpn9u5R3KZ+P8399TMzMhVhdu4hhl8NUY
+	ZVeSytLDG0gIgK2agrDhpPuHoIDxlztEkq9lYPFm5zz1fVmAy1fIfB9U9bPBK14zMkK/CZspf5O1x
+	MB/P6lWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtUw-0000000BviA-2tlq;
-	Thu, 27 Mar 2025 20:06:42 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1txtWd-0000000Bvut-3LsS;
+	Thu, 27 Mar 2025 20:08:27 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txt1s-0000000Bpq6-1C97
+	id 1txt1t-0000000BpsF-3vsn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 19:36:41 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-303a66af07eso1936855a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:36:40 -0700 (PDT)
+	Thu, 27 Mar 2025 19:36:43 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ff85fec403so5156708a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:36:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104200; x=1743709000; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104201; x=1743709001; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=KssINcBHG6V5nsmKK6p0ubimcU1BXEQtWDJ9ECnykV0=;
-        b=Xsxcli3p4QXHyg5kFipIgiMBFC+oT6GdpgdSKOEsgcolkgu6hmUNqf9zQ10fyrmILn
-         GNlDU7IyuohAhb5qpAhFCoIjzWiCuy8ZdIzMNvS3A3+1V7JoBlnBX+PFSWA8MGfR7eSd
-         TiCTGm0S7Zr8plYOZxDYFXfPmIfHuGLXjy105ctW3OnLOHmm1zfFDeZxxDY0LzMOJyx6
-         MKnihl9Q+4Pt+KjfOwXxlGnKrbK2gQvS0MJKtRbpbXHkgFMtmTiabQJ3vW2CNh+Qyuzj
-         FOV+aviRuo4yOBmq9PCEcc/KDRdgL7AOfvzjmoce8annOifBwk20VnSlSQWyEYEzR1Sb
-         9XRg==
+        bh=nKAfCqQ7Qjy4MJYkAdCHV9zfU4kl+sMGOwwGVOQa3Ms=;
+        b=ql+sORbg4ad08+K0hcP/WFo7pRjpRK8oLdsgEfyntrSkxgiVN6htInp8/DY5MRzTCj
+         pnThLm6a1x1XHjTEFL624QEoHtaPj2yOGPGDrswlTzaE+S4hg8akF5CVnZvOHyqkDRQk
+         DU+YRD7INeKacKR17m3Ap1eppa2dN1esnQ+GtCjMzY/1nnH17nFKy+NDZhFxbiKngStz
+         43mzoQu4smxV2McRYTcN/dWnBmmWjLWrjBEMpLl58tPBLINK137GGw8zup3HK0PQMT4R
+         0FAuAMARTsP5Fyg/pyZX3p4E3voNN3z8imJ5mtuGkjr6vkYRChrKS++JG6ler8za1c3W
+         a0Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743104200; x=1743709000;
+        d=1e100.net; s=20230601; t=1743104201; x=1743709001;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KssINcBHG6V5nsmKK6p0ubimcU1BXEQtWDJ9ECnykV0=;
-        b=IqWive7RA75f8PbdiU4izqrS0hxC2u9V6wozlbhIHqsp3uELwYyHy8ysRxbLDrKtsI
-         0fL5fC8GylZe1kQUWTeYTkZLg5Spv4EJDcaM7/4dueB4PPg4G//w3psb46NaorF/A6AG
-         oCvfwfmavyXTlQJdYuHnK2KD1c9yQoqJsbqk3M/o5WyBiUvoqa4CHZbJ8JSwA/QiVDCC
-         xliDtzn+w2wHsd9wZkfsBIul4UuLaLwgrQuNNt+pFRl7LDqju4xE+EbRfr1GLCYcFHU4
-         3taH2P9yzC388YAZ1sVXQG9A2PZLA/pIvWDRdTy68L9GeSUOM+sgWCHEcca62uIdG7jk
-         AP+g==
-X-Forwarded-Encrypted: i=1; AJvYcCU1+qX+lJQKx83C7VGItJtFkFeE5RVEle582pfCMMf7CliR4v1E0e4Fkj8P99sNffjS/MquoRgYDNGzB+RhkCC+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkxgVOpTlnmjDSj5SCtn0Z25dR/XEvGAjaQ05/G2nUOoe46XGG
-	OTYnaNlr4n2noq0e6rW1HCXi6Kd90F8qoxUQMFV6+kiq38vrsbkWyNATCOEsibQ=
-X-Gm-Gg: ASbGncsr9M6ynikNzbyUm9A6ax9/UWhgug7W5q4xhnk7EH9wMLtaLFfbW8uykSQLKB6
-	dgGOGIaujdmQfkSwBRSmLqFpbAB3ZecQEjSggvGkdsIqaLD87lUdnCcu7rBMBx81Jge06smbggs
-	4S8/tSexSpRwJZ+Vc/QoaXm62ai4TbaVNf5FAI0c/YpdYC/4gkisBUtSD4CLu+IzMSo5zV1xmqj
-	do01nOadYW7WAmHoxL6mpOmlA3j/AXSZnkrGOzbNU4KTHE4Bb5IESy1xM9KFR1pBp5S6RSOgdv0
-	3EWAPxKHjZ26jwxDajNc8buy+JyysBSFF/nmkfai7JfM26rGZF6XLpu/ew==
-X-Google-Smtp-Source: AGHT+IE2krN6Iazwz2/u7kYznnPmcB0AT0QBtnSPpGlLXmbNzMbs0M2bltPDrqZDoRjoQ9cuAJeaHg==
-X-Received: by 2002:a17:90b:278c:b0:2fe:b77a:2eab with SMTP id 98e67ed59e1d1-303a8e7653bmr6347831a91.32.1743104199626;
-        Thu, 27 Mar 2025 12:36:39 -0700 (PDT)
+        bh=nKAfCqQ7Qjy4MJYkAdCHV9zfU4kl+sMGOwwGVOQa3Ms=;
+        b=Goj8PVgJsYjiuUQ83K+x6UitAGjND8fvlkELYalje8N/MBXXeJCLq1Tww2NRZq5p6i
+         PIinNR22m7XaMIyjQZ1YTT664D3hiakD3sNkfogv8A5SRNmr+QpigIWuxcCQw2IfBnn8
+         RWmf3bBchvfqoRB5yQlXn2Zzqwm1a8f0iiGMCPSc/e+/6ntHEtykVje44vTbgIVWEFiy
+         jUonet3MCpuJMHfDT9yFFURQTSKxNj9cBlhBm3qfuqRStauXEKHoJPuDtiVhl+iTtvme
+         3ZwTo4U6ZWJhkztvn9UfNMqbCDUlMk3Xknmi8XGGTedyo3fz/gtKWsfNcAZbyo/yXeHU
+         iU3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWe0ir4NuQUTG38mIEqNucajBjODkbFF3EqD8Wy/3HdgrZz2w73j4u+Hsab4hTs/kVnIRmY4skDOym99ldRg8q7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQH0c/ImRrOAjN3qmz/KdO3bM9py2TxktaZK7SBmIhOuWYy69O
+	U0N2YsF6S+4KxZIbU/ZLVNRGt9AX3cEsPP3qLQ1ilf6lUQD3iAkJsVtMxhRDiCg=
+X-Gm-Gg: ASbGncvJua2+eiFSuIyOVBs6dabFtq2Nj9n4WMSXpKJ2aoJ69m825E16kNA0hMQFnF/
+	nmmf6wk0dMvlRnu4JkhuipLj2Ul0GqZsgeINgg5wSrjUXeqe+ciq8lXyaQY3/p7SW2ezejIkKiW
+	F7bLSPIAG8B1Q/h0TE1WCHrxrqUNfUGLmsDmDyvxGpP6Ic6z9l2CDJAqpZWCA/zCf6/nW4W16iU
+	5fnCStiqBtZnjisrolHwrZrTR1G7um1WkJRK0LeYcfbfa2v7ZHHtW/oeKgob4BZsOh0QxtMSQum
+	kwWQuoPDilFZjxNS9ix82+5/TiQ+rwTPKEZd2RiRvHlrzFODetBKKe9cAg==
+X-Google-Smtp-Source: AGHT+IHMf2f5UBv5DVE142wh0oBPFx9moUIGj7INCFxWN59jTOUXk2pfw5aEvm/YJFqWLspysjUW3w==
+X-Received: by 2002:a17:90a:dfc7:b0:2fa:42f3:e3e4 with SMTP id 98e67ed59e1d1-3051c85e607mr159363a91.3.1743104201222;
+        Thu, 27 Mar 2025 12:36:41 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.38
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 12:36:39 -0700 (PDT)
+        Thu, 27 Mar 2025 12:36:40 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Thu, 27 Mar 2025 12:35:58 -0700
-Subject: [PATCH v5 17/21] RISC-V: perf: Add legacy event encodings via
- sysfs
+Date: Thu, 27 Mar 2025 12:35:59 -0700
+Subject: [PATCH v5 18/21] RISC-V: perf: Add Qemu virt machine events
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250327-counter_delegation-v5-17-1ee538468d1b@rivosinc.com>
+Message-Id: <20250327-counter_delegation-v5-18-1ee538468d1b@rivosinc.com>
 References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 In-Reply-To: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -96,8 +95,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_123640_370469_C7D3DA67 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250327_123642_058531_9C8701CA 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,68 +111,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define sysfs details for the legacy events so that any tool can
-parse these to understand the minimum set of legacy events
-supported by the platform. The sysfs entry will describe both event
-encoding and corresponding counter map so that an perf event can be
-programmed accordingly.
+Qemu virt machine supports a very minimal set of legacy perf events.
+Add them to the vendor table so that users can use them when
+counter delegation is enabled.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/perf/riscv_pmu_dev.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/vendorid_list.h |  4 ++++
+ drivers/perf/riscv_pmu_dev.c           | 36 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 40 insertions(+)
 
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index a5150cdf34d8..0eefc844923e 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -10,4 +10,8 @@
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
+ 
++#define QEMU_VIRT_VENDOR_ID		0x000
++#define QEMU_VIRT_IMPL_ID		0x000
++#define QEMU_VIRT_ARCH_ID		0x000
++
+ #endif
 diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-index 92ff42aca44b..8a079949e3a4 100644
+index 8a079949e3a4..cd2ac4cf34f1 100644
 --- a/drivers/perf/riscv_pmu_dev.c
 +++ b/drivers/perf/riscv_pmu_dev.c
-@@ -129,7 +129,20 @@ static struct attribute_group riscv_cdeleg_pmu_format_group = {
- 	.attrs = riscv_cdeleg_pmu_formats_attr,
- };
+@@ -26,6 +26,7 @@
+ #include <asm/sbi.h>
+ #include <asm/cpufeature.h>
+ #include <asm/vendor_extensions.h>
++#include <asm/vendorid_list.h>
+ #include <asm/vendor_extensions/andes.h>
+ #include <asm/hwcap.h>
+ #include <asm/csr_ind.h>
+@@ -391,7 +392,42 @@ struct riscv_vendor_pmu_events {
+ 	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map, \
+ 	  .attrs_events = _attrs },
  
-+#define RVPMU_EVENT_ATTR_RESOLVE(m) #m
-+#define RVPMU_EVENT_CMASK_ATTR(_name, _var, config, mask) \
-+	PMU_EVENT_ATTR_STRING(_name, rvpmu_event_attr_##_var, \
-+			      "event=" RVPMU_EVENT_ATTR_RESOLVE(config) \
-+			      ",counterid_mask=" RVPMU_EVENT_ATTR_RESOLVE(mask) "\n")
-+
-+#define RVPMU_EVENT_ATTR_PTR(name) (&rvpmu_event_attr_##name.attr.attr)
-+
-+static struct attribute_group riscv_cdeleg_pmu_event_group __ro_after_init = {
-+	.name = "events",
++/* QEMU virt PMU events */
++static const struct riscv_pmu_event qemu_virt_hw_event_map[PERF_COUNT_HW_MAX] = {
++	PERF_MAP_ALL_UNSUPPORTED,
++	[PERF_COUNT_HW_CPU_CYCLES]		= {0x01, 0xFFFFFFF8},
++	[PERF_COUNT_HW_INSTRUCTIONS]		= {0x02, 0xFFFFFFF8}
 +};
 +
- static const struct attribute_group *riscv_cdeleg_pmu_attr_groups[] = {
-+	&riscv_cdeleg_pmu_event_group,
- 	&riscv_cdeleg_pmu_format_group,
- 	NULL,
- };
-@@ -369,11 +382,14 @@ struct riscv_vendor_pmu_events {
- 	const struct riscv_pmu_event *hw_event_map;
- 	const struct riscv_pmu_event (*cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
- 						       [PERF_COUNT_HW_CACHE_RESULT_MAX];
-+	struct attribute **attrs_events;
- };
- 
--#define RISCV_VENDOR_PMU_EVENTS(_vendorid, _archid, _implid, _hw_event_map, _cache_event_map) \
-+#define RISCV_VENDOR_PMU_EVENTS(_vendorid, _archid, _implid, _hw_event_map, \
-+				_cache_event_map, _attrs) \
- 	{ .vendorid = _vendorid, .archid = _archid, .implid = _implid, \
--	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map },
-+	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map, \
-+	  .attrs_events = _attrs },
- 
++static const struct riscv_pmu_event qemu_virt_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
++						[PERF_COUNT_HW_CACHE_OP_MAX]
++						[PERF_COUNT_HW_CACHE_RESULT_MAX] = {
++	PERF_CACHE_MAP_ALL_UNSUPPORTED,
++	[C(DTLB)][C(OP_READ)][C(RESULT_MISS)]	= {0x10019, 0xFFFFFFF8},
++	[C(DTLB)][C(OP_WRITE)][C(RESULT_MISS)]	= {0x1001B, 0xFFFFFFF8},
++
++	[C(ITLB)][C(OP_READ)][C(RESULT_MISS)]	= {0x10021, 0xFFFFFFF8},
++};
++
++RVPMU_EVENT_CMASK_ATTR(cycles, cycles, 0x01, 0xFFFFFFF8);
++RVPMU_EVENT_CMASK_ATTR(instructions, instructions, 0x02, 0xFFFFFFF8);
++RVPMU_EVENT_CMASK_ATTR(dTLB-load-misses, dTLB_load_miss, 0x10019, 0xFFFFFFF8);
++RVPMU_EVENT_CMASK_ATTR(dTLB-store-misses, dTLB_store_miss, 0x1001B, 0xFFFFFFF8);
++RVPMU_EVENT_CMASK_ATTR(iTLB-load-misses, iTLB_load_miss, 0x10021, 0xFFFFFFF8);
++
++static struct attribute *qemu_virt_event_group[] = {
++	RVPMU_EVENT_ATTR_PTR(cycles),
++	RVPMU_EVENT_ATTR_PTR(instructions),
++	RVPMU_EVENT_ATTR_PTR(dTLB_load_miss),
++	RVPMU_EVENT_ATTR_PTR(dTLB_store_miss),
++	RVPMU_EVENT_ATTR_PTR(iTLB_load_miss),
++	NULL,
++};
++
  static struct riscv_vendor_pmu_events pmu_vendor_events_table[] = {
++	RISCV_VENDOR_PMU_EVENTS(QEMU_VIRT_VENDOR_ID, QEMU_VIRT_ARCH_ID, QEMU_VIRT_IMPL_ID,
++				qemu_virt_hw_event_map, qemu_virt_cache_event_map,
++				qemu_virt_event_group)
  };
-@@ -395,6 +411,8 @@ static void rvpmu_vendor_register_events(void)
- 		    pmu_vendor_events_table[i].archid == arch_id) {
- 			current_pmu_hw_event_map = pmu_vendor_events_table[i].hw_event_map;
- 			current_pmu_cache_event_map = pmu_vendor_events_table[i].cache_event_map;
-+			riscv_cdeleg_pmu_event_group.attrs =
-+							pmu_vendor_events_table[i].attrs_events;
- 			break;
- 		}
- 	}
+ 
+ const struct riscv_pmu_event *current_pmu_hw_event_map;
 
 -- 
 2.43.0
