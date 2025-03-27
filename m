@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B1EC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F1D6C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=leD3w7vHUiylwNRlqMApuWsrdfm+oNme652viFrOnhU=; b=DmHHNYzkPC8hgUxJIaTFXE62g5
-	M6MFdJKMA51tPdzxhiZlhb4zmEZS40sajTv2KtaUh8TYPsQJwe+ELRti7HfdWRbR0/F1jhKyz8QRl
-	Vs5gSTRTKdFZHMEispunuV8b5zTPHOsX7VfWfGcVGapXdz9VDaUVB2ayGLUw2nQ64aZgy3pnVlarg
-	UKR0OmLpliMlvB6YXBdKN6t/q0w1FneASoU9fRhWSumEtVpqGVVkQH2m2mxZpe1ix6DPD/81JX5Bi
-	f+1w6Xl9zlGmi62EyZPPbuSnIZZ0rDE1vOm7q2TLDtoXmnuaRplK3WdrbdAnBcrYYuM06kzfknw/C
-	QJLJekTA==;
+	bh=iJJ/xOiKOsAfM23bG3je3fBqNrbCc/xMCDBl0aHmxqI=; b=FA2CUsC8hKjx/sv7Lyuc1C/iRX
+	p3GDmKO2x1MUU6p205G558Gk2Uh4NEVbbD43I1SV8wO+0cHITQWoiMZamKrJDuhYZXJJ577SM3V5F
+	/MLQKTG9np7T0rpGx2teXfcO67k4MD6qOyUnjZK4GlX2um1asitShDgMC5GSmVWkuov/5Br93LSqO
+	Fkh0K4v1jpJNS/qtN0gXubg5uSqO9JNQbHIuGf1ky2Yy9V/xNi8jRRshSZUUVbgDtv9CvWtenuWUy
+	2QeZ4rRJH97AZmCP4mGIJ5YjIlRj6Qj5+p3b4EeKvrQMmlfUUr0A/38Vmx+nI/guE1CJdvAk6dc2a
+	dOEGnDWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txpaW-0000000BQwC-3aKJ;
-	Thu, 27 Mar 2025 15:56:12 +0000
+	id 1txpcE-0000000BR93-2KYd;
+	Thu, 27 Mar 2025 15:57:58 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txpX6-0000000BQD4-0lwa
+	id 1txpX6-0000000BQD5-1SDo
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 27 Mar 2025 15:52:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B082614C1;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EC7E614C5;
 	Thu, 27 Mar 2025 15:52:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0E59CC4CEE5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 26219C4CEEE;
 	Thu, 27 Mar 2025 15:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1743090759;
-	bh=PzRZADRzEuijueVkCqt3ZlpSUYrgKBPKl6nIf/RYyME=;
+	bh=92utogQMcwhyWlhaiUB3hy+r80GTGj6Hs9VRyEAjh0I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=bzXYDf5W0vuDYoXNM2nDvVThJh2vj/61892S+bDRQc1Ck0FJGXiBZgpAyQxm1M23e
-	 kcwT5DU1LOnkRe2f94HmvzXHL9w3sREdMu9H6aZKTrUYYdkdBtrTaM3hUBDdFu6mkS
-	 7+TU/EkanYnBQtLX4p/NSpvfF/xmH/x33xkXbU/6pfAnncOp5wXvJlhQxMXloyMddp
-	 MyxF+PTLjZoUH/ynYWehpIB/zFoB6QFzjfV8f8k8ihBIk7zQx/bRaBsNwWQCqoD6Pp
-	 UZrZxce2HD0WB8gFtYdsj4k/KEyvpkzE1eBjtRi9zE3iD8VZPfmMe+qqtol46nEyvo
-	 FtkRdOqp6sBMw==
+	b=XCpSSHb3NdcgaiFzTSYONFfwnr4wvcqNw2EgU5/lLW1d8sMWo8LFjHQq+j5mTklcT
+	 eGqFy+02XgezExvtefCnk42WN5NS0XzAh9L3wOanBTgQRvXPM7s3BflyxHsuQ1Vj8P
+	 V4C2ucDMbMfFjls4+AksTu/0loCn4MLlT6jJYK1eoIM24ZRRzvs9GB0pBPR3o2XjHz
+	 fWAj02nz3Vrp7QPLBka3jIC4n/R7kjiFxYYXna+0YgoOCVk5lSJP+hl4hS6bCeoi2n
+	 8ty5Jm29454FbypCwoeh1jv2632c/wSnKahd+DbZMOnWy2Nm2/dizAondPyjaqdPHH
+	 6WapKyQZ4IBjg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F3EDAC36013;
-	Thu, 27 Mar 2025 15:52:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 16F32C36011;
+	Thu, 27 Mar 2025 15:52:39 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Thu, 27 Mar 2025 16:52:37 +0100
-Subject: [PATCH v3 2/8] arm64: dts: imx8mp: Add pinctrl config definitions
+Date: Thu, 27 Mar 2025 16:52:38 +0100
+Subject: [PATCH v3 3/8] MAINTAINERS: add maintainer for the Ka-Ro tx8p-ml81
+ COM module
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250327-initial_display-v3-2-4e89ea1676ab@gocontroll.com>
+Message-Id: <20250327-initial_display-v3-3-4e89ea1676ab@gocontroll.com>
 References: <20250327-initial_display-v3-0-4e89ea1676ab@gocontroll.com>
 In-Reply-To: <20250327-initial_display-v3-0-4e89ea1676ab@gocontroll.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,11 +64,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1743090757; l=1855;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1743090757; l=938;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=z8kax1Z8Rt5R5zrqgQhjYmqWGcylyxJuzA+qptS0r3Y=;
- b=MFpf0P1ysKsaRzFGmcUSr1ybUT56O1owbtlTS0l5JTJH+iNElla6j8L0WeAbV3oNF5nlGGkbz
- 3GQKUKXpLwDByV4VwrV/LUIIoj4a2wAbtYmHSvNKftHKcM/Yo+yx3FY
+ bh=KWBmWJYZAEU0seHj0jSXyh4vIhNFeNg5DppjC874JB8=;
+ b=q/UBBL+LYJA5pcGDSuTQs40AloieOXHbAumcVf25yCzVjg/H2s2t+1xoMynKT5f2gRuEDJ5Xy
+ n1+YUlByj8yCbS1MwzsKrs77zpdgVDBOHmJgkbaqCwiUoY7+lAGBD7+
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
@@ -90,61 +91,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-Currently to configure each IOMUXC_SW_PAD_CTL_PAD the raw value of this
-register is written in the dts, these values are not obvious. Add defines
-which describe the fields of this register which can be or-ed together to
-produce readable settings.
+Add GOcontroll as unofficial maintainers of the Ka-Ro tx8p-ml81 COM
+module bindings.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+This support is not officially done by Ka-Ro electronics, if they at
+some point will supporting mainline, this should be changed to them.
+
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
-This patch has already been sent in a different group of patches: [1]
-It was requested there to submit it along with a user, this series also
-includes some users for it.
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-[1]: https://lore.kernel.org/all/20250218-pinctrl_defines-v2-2-c554cad0e1d2@gocontroll.com/
----
- arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h | 27 ++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-index 0fef066471ba607be02d0ab15da5a048a8a213a7..34a6d3090926b8d9d7c96d1b0b01be0ed05cbd27 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-@@ -6,6 +6,33 @@
- #ifndef __DTS_IMX8MP_PINFUNC_H
- #define __DTS_IMX8MP_PINFUNC_H
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 322ee00547f6e494a96d2495092f72148da22bd0..f8ad2c1023016d7f72cccff880e3753d71d635b2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -12752,6 +12752,12 @@ S:	Maintained
+ F:	Documentation/hwmon/k8temp.rst
+ F:	drivers/hwmon/k8temp.c
  
-+/* Drive Strength */
-+#define MX8MP_DSE_X1 0x0
-+#define MX8MP_DSE_X2 0x4
-+#define MX8MP_DSE_X4 0x2
-+#define MX8MP_DSE_X6 0x6
++KA-RO TX8P COM MODULE
++M:	Maud Spierings <maudspierings@gocontroll.com>
++L:	devicetree@vger.kernel.org
++S:	Maintained
++F:	arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
 +
-+/* Slew Rate */
-+#define MX8MP_FSEL_FAST 0x10
-+#define MX8MP_FSEL_SLOW 0x0
-+
-+/* Open Drain */
-+#define MX8MP_ODE_ENABLE 0x20
-+#define MX8MP_ODE_DISABLE 0x0
-+
-+#define MX8MP_PULL_DOWN 0x0
-+#define MX8MP_PULL_UP 0x40
-+
-+/* Hysteresis */
-+#define MX8MP_HYS_CMOS 0x0
-+#define MX8MP_HYS_SCHMITT 0x80
-+
-+#define MX8MP_PULL_ENABLE 0x100
-+#define MX8MP_PULL_DISABLE 0x0
-+
-+/* SION force input mode */
-+#define MX8MP_SION 0x40000000
-+
- /*
-  * The pin function ID is a tuple of
-  * <mux_reg conf_reg input_reg mux_mode input_val>
+ KASAN
+ M:	Andrey Ryabinin <ryabinin.a.a@gmail.com>
+ R:	Alexander Potapenko <glider@google.com>
 
 -- 
 2.49.0
