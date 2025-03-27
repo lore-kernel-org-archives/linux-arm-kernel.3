@@ -4,116 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62616C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200AFC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCYSiAlHYmuAWqIvVZL2TaKjPyrpu3Ki0Js5DQS4y+c=; b=rAv8QU+uKM/fm37G8dsx8yAZJt
-	SjbXuWZb8Zsd3lBPgqh3UdrSAazBG2oi5N/EeHIHGLpPBNRdp/RhTOtiu0YtQ4huyteKO9NIdv4mT
-	a7/JAxAQ0uJQsCLngLNmdN5ywxJerBt7q0aV742lmzIM++cQ7xJ7g9YraqRwjRa0KbE4POFO2nd1o
-	6/sA0B+6UFtNL/QkCC4QwAw6rug9lgqTZxUIk58wxskUDGsQy1CcxLb6/WEsrUGpD9pHw7tH5tlJz
-	1B+wPPgLjH/847OMvIV8/kIo9//mEsuyV8ZxKWegpy789dfRye3JBubrm6wvFRg13SCi6j7SNvaB7
-	N8Tz5qyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pIPxUyLc45kQVvGbhMuo6ziuca4QGqW5iCEakcqCHD0=; b=D2UJrb1PsjTJqAUzsiqxs22TMg
+	MM+SPRyrMGe14sl8OLXjq5ASBlyayS5G184Bk8ofSNGHD5rLVhttSzYSultbwiAbMELcqha2+L7Ow
+	TcPHUqnePYg5fpcv1MheDaLblX4iY6rjq3wSZYbwZvBflEZldLha8ObT1cuoo5ZyUet3hNHqzxRcV
+	T/nK3yK1yZ4vQ99EciXmSFl8ndLBAfhv05utj1uwdQeLr4FeQM2pfXQ+C+IN7urQt6OnrmES00tRf
+	OPqe960hGAMan7pb9v4Kwy/5PfuCUxq73LCe5zhtnLITlx6mLXtApKqpTebBQdrxCZkFhBUfOXnGZ
+	2o7D41MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txkWS-0000000Ahxs-3Pfi;
-	Thu, 27 Mar 2025 10:31:40 +0000
-Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
+	id 1txkmm-0000000AkTa-2RAL;
+	Thu, 27 Mar 2025 10:48:32 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txkUi-0000000AhaS-2XuS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 10:29:54 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 7425D25400D3;
-	Thu, 27 Mar 2025 06:29:50 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Thu, 27 Mar 2025 06:29:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1743071390;
-	 x=1743157790; bh=WCYSiAlHYmuAWqIvVZL2TaKjPyrpu3Ki0Js5DQS4y+c=; b=
-	Z2LPBBtwgvqY916TkNWLepTOHcGJi3/GjR2ONLaHPmEIBDXGJVgG6Ok4flCMkX1A
-	fXgqMl6iOTNpx8bCdTCprFF79ZhqcL+Z2ibfZyN/nZUqa1f57/EqVsqjXPBI7bNr
-	gnewlMJO5unwvk03/2xr11N1G//bZfWP22M4WgaliAohJvUE4E8/p9NsfQp717BT
-	CY28j+1wa7EbM4PyYxBy1BIMdp6XlgSUjsCLS6/qq+4FQnT6r8JCpH9LmdZkhPhe
-	UGa/S8GbcqPN7xBm2eir1h93URnJOOvWVOYVupsWZlx+ncXoIiim/QMcv925b5zQ
-	9AYuxAP7C3Tx/IonPR0IlA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1743071390; x=
-	1743157790; bh=WCYSiAlHYmuAWqIvVZL2TaKjPyrpu3Ki0Js5DQS4y+c=; b=q
-	DyZKNeEnrpXWTsRqV8cS3EEn3CFbnRcNoREdLY8gMEgzNP8+b7DLMdThv0TBO7ci
-	UjGm6K5bkdw5Ib8fYPnc02muoglW+89rGGXb4J9OWM8duk8a4J8yyNFM7BOVe30A
-	Md064ZkvWKAd0thNBap7O7PJdoGNVU2GUYUSu2T8eT/LxZCvcS9v2gHZDkWN8W1K
-	EQGrQtVr0X9KYDUXbLvxHaSI7aNaVYB4sfWUO0kU9F0pu6gYJj8SkSMVckHRrJ0N
-	s38b4sEw9u9xYnDYqz8fziRFu4yrLuEoUPqiM9GKnPLumF2LgwXq3DcV0dKooN+e
-	LAtzjQi0m/0s8r6FjxWeg==
-X-ME-Sender: <xms:nSjlZ6Ntn3ZrEP__L_P38ib6QYxJPiPheSUGqKUdHVCsJ13H3sa9Vg>
-    <xme:nSjlZ488nHLynJXkGSzu5noU8FbL-AErNr4d-CoAY4Y0qXm6sGI9wNxQOaFnLRM6r
-    i_90HDBNUo0ix7qcMw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduieekudejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    udejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrih
-    hnrghssegrrhhmrdgtohhmpdhrtghpthhtohepkhgrjhgvthgrnhdrphhutghhrghlshhk
-    ihesrghrmhdrtghomhdprhgtphhtthhopegtihigqdhkvghrnhgvlhdquhhpshhtrhgvrg
-    hmsegtihigthgvtghhrdgtohhmpdhrtghpthhtohepfhhughgrnhhgrdguuhgrnhestghi
-    gihtvggthhdrtghomhdprhgtphhtthhopehpvghtvghrrdgthhgvnhestghigihtvggthh
-    drtghomhdprhgtphhtthhopehmrghrtghinhesjhhushiikhhivgifihgtiidrtghomhdr
-    phhlpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikheskhgv
-    rhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:nSjlZxSbIviS_Apya2mpp532w2c02lRAbr-qj_JHqxC14OUGrIi2ag>
-    <xmx:nSjlZ6trY1HGlLIW7Yyb-Ynb8su7b6kjvnDwiiLjubZPf7WBa_gRRQ>
-    <xmx:nSjlZyc--MHa5Si5SUQnXPJDhJ4brXful4daztRkuv1ppZVdsyBw6Q>
-    <xmx:nSjlZ-0cZD3fZ5QAEUs4juFCcv4UNAcgDEfq52dQTbBC3yg5K3I-Vg>
-    <xmx:nijlZ1vSr25BqfA7nB64LzY0gceua2vzYocA9yM9nl1JrS9yAvj4Dbso>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CE7BE2220073; Thu, 27 Mar 2025 06:29:49 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1txkl2-0000000AkAv-1R57;
+	Thu, 27 Mar 2025 10:46:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1743072401;
+	bh=hMw3hqQE1XrDpDoIXek4LVH+9E2vH8dMzgzQrD3U+lE=;
+	h=From:Date:Subject:To:Cc:From;
+	b=JVH5GTDsIhvObaV3xoi5iYimQoq+bgWLU/E+sY5UGQhB8ayHVoarlGJr5cSP/Lzs7
+	 xC6xsO7UirUw9tNl3xd9ltkDVVUjE0U7EEC/VXgMNmbfMr0TiLdswC2Gb24DCmSX1u
+	 caIyk95yGYAbSkG/wgQoUZLVmvTh049ZoEvLUTCEgY2DF1w2ckcJ02V9z5KrfJ1bgP
+	 c35AdjPJNfN2v1v4WVsa0gMR14Wp2f0C7rnJqC3gNzKP3X8ZYQjqd+kYARD1YvR5u3
+	 dV+X2HEFQMrAquQxUqmBrruG1O65iDHPODOI0L0HBVZysyIKutBY02y7rHP3RyUUGy
+	 3bUtPf62jBXiw==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C264517E0C38;
+	Thu, 27 Mar 2025 11:46:40 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 27 Mar 2025 11:46:31 +0100
+Subject: [PATCH] iommu/mediatek: Fix NULL pointer deference in
+ mtk_iommu_device_group
 MIME-Version: 1.0
-X-ThreadId: T24bcb56938053d3a
-Date: Thu, 27 Mar 2025 11:29:19 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Peter Chen" <peter.chen@cixtech.com>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Marc Zyngier" <maz@kernel.org>,
- soc@kernel.org, "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- marcin@juszkiewicz.com.pl, kajetan.puchalski@arm.com,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
- "Fugang . duan" <fugang.duan@cixtech.com>
-Message-Id: <faa1d8e7-e882-40ea-b64d-2e139121bc38@app.fastmail.com>
-In-Reply-To: <Z-Ua7MK-Kv033uDu@nchen-desktop>
-References: <20250324062420.360289-1-peter.chen@cixtech.com>
- <20250324062420.360289-6-peter.chen@cixtech.com>
- <865xjxmlgl.wl-maz@kernel.org> <Z-Nz0DU441Wwj1i4@nchen-desktop>
- <861pukm9yd.wl-maz@kernel.org> <Z-Tz1moMNozx23k6@nchen-desktop>
- <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
- <422deb4d-db29-48c1-b0c9-7915951df500@app.fastmail.com>
- <Z-Ua7MK-Kv033uDu@nchen-desktop>
-Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250327-fix-mtk-iommu-error-v1-1-df969158e752@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAIYs5WcC/zWNwQrCMBBEfyXs2YXYWgP9FekhpltdJIlu0lIo/
+ XcXi8c3zLzZoJAwFejNBkILF85J4XwyEJ4+PQh5VIbGNp1tG4cTrxjrCznHOCOJZEE/XSm0Fzf
+ azoEu30Ja+1lvw8FCn1nl9Qjh7gthUAXX3iRaK/4PYNj3L51K/RWWAAAA
+X-Change-ID: 20250327-fix-mtk-iommu-error-af6ec347d057
+To: Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>, 
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ "Rob Herring (Arm)" <robh@kernel.org>
+Cc: kernel@collabora.com, Joerg Roedel <jroedel@suse.de>, 
+ Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1743072400; l=6201;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=hMw3hqQE1XrDpDoIXek4LVH+9E2vH8dMzgzQrD3U+lE=;
+ b=DlrHfp8zu4lrYICv3I0TS2Ag/mIvGdJKnpbKGW3BPQlv1Ub+psQcU9cxq+8xSsXzEbED3Vs0d
+ F5Sd1kjZPB8D2mFEgUQNvGRjqssYtiBmGDChnKX/gMwwXZZIhjjYPc/
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_032953_179795_BF588774 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250327_034644_683531_C1CA4163 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,28 +92,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025, at 10:31, Peter Chen wrote:
-> On 25-03-27 09:18:42, Arnd Bergmann wrote:
->> Agreed. The usual arrangement for a new SoC family is to have
->> the minimum set of drivers (uart, clk, pinctrl, regulator,
->> iommu, irqchip) along with the DT bindings and the dts files
->> in one branch and have that go through the SoC tree as part of
->> the soc/newsoc branch. It sounds like in this case we only need
->> uart and a mailbox since the rest are shared with existing
->> firmware based drivers, so this isn't even the worst case
->> but still requires some coordination between subsystem maintainers
->> to ensure that all patches have been properly reviewed before
->> I merge them.
->
-> So, in this case, we should add mailbox driver support in this
-> series, and once the mailbox maintainer has reviewed mailbox
-> driver, all the patches could go your tree?
+Currently, mtk_iommu calls during probe iommu_device_register before
+the hw_list from driver data is initialized. Since iommu probing issue
+fix, it leads to NULL pointer dereference in mtk_iommu_device_group when
+hw_list is accessed with list_first_entry (not null safe).
 
-Yes, exactly. Just make sure you describe this in the submission
-for the mailbox driver to make sure everyone understands the
-plan. I don't think we've had a mailbox driver as the critical
-path for a new platform before, so they would usually go through
-the mailbox subsystem tree.
+So, change the call order to ensure iommu_device_register is called
+after the driver data are initialized.
 
-     Arnd
+Fixes: 9e3a2a643653 ("iommu/mediatek: Adapt sharing and non-sharing pgtable case")
+Fixes: bcb81ac6ae3c ("iommu: Get DT/ACPI parsing into the proper probe path")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+This patch fixes a NULL pointer dereference that occurs during the
+mtk_iommu driver probe and observed at least on several Mediatek Genio boards:
+```
+Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+Mem abort info:
+  ESR = 0x0000000096000004
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x04: level 0 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+  CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+user pgtable: 4k pages, 48-bit VAs, pgdp=0000000101380000
+[0000000000000000] pgd=0000000000000000, p4d=0000000000000000
+Internal error: Oops: 0000000096000004 [#1]  SMP
+Modules linked in: btusb btrtl mt6315_regulator btintel mtk_vcodec_dec
+  btmtk v4l2_vp9 btbcm mtk_vcodec_enc v4l2_h264 mtk_vcodec_dbgfs 
+  bluetooth mtk_jpeg ecdh_generic mtk_vcodec_common mtk_jpeg_enc_hw 
+  mtk_jpeg_dec_hw ecc v4l2_mem2mem rfkill videobuf2_dma_contig 
+  videobuf2_memops videobuf2_v4l2 videodev videobuf2_common mc 
+  mt6360_charger mcp251xfd it5205 goodix_ts can_dev panfrost 
+  drm_shmem_helper gpu_sched lvts_thermal mtk_svs mtk_adsp_mailbox
+  snd_soc_dmic mtk_scp mtk_rpmsg mtk_scp_ipi mtk_cmdq_mailbox 
+  mediatek_cpufreq_hw spmi_mtk_pmif fuse dm_mod ip_tables x_tables 
+  ipv6 mediatek_drm tcpci_mt6360 drm_display_helper drm_client_lib 
+  tcpci drm_dma_helper drm_kms_helper tcpm drm mtk_mutex mtk_mmsys 
+  typec rtc_mt6397 mtk_cmdq_helper phy_mtk_pcie pcie_mediatek_gen3 
+  dwmac_mediatek stmmac_platform stmmac pwm_mtk_disp pcs_xpcs pwm_bl
+  backlight
+CPU: 5 UID: 0 PID: 12 Comm: kworker/u32:0 Not tainted 6.14.0-next-20250326 #4 PREEMPT 
+Hardware name: MediaTek Genio 1200 EVK-P1V2-EMMC (DT)
+Workqueue: events_unbound deferred_probe_work_func
+pstate: 80400009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : mtk_iommu_device_group+0x2c/0xe0
+lr : __iommu_probe_device+0x130/0x490
+sp : ffff8000827b3970
+x29: ffff8000827b3970 x28: ffff0000c0028000 x27: ffff80008164f2b8
+x26: ffff0000cbc47130 x25: ffff80008096a9f0 x24: ffff80008164f5a8
+x23: ffff800082684b60 x22: ffff8000827b3a80 x21: ffff0000cbc47130
+x20: ffffffffffffffed x19: ffff0000c117c010 x18: 0000000000000000
+x17: 6f702d616d642d64 x16: 6574636972747365 x15: 0000000000000002
+x14: 0000000000000000 x13: 0000000000128d55 x12: 6f632d616d642e30
+x11: 0000000000000100 x10: 0000000000000001 x9 : 0000000000000220
+x8 : 0101010101010101 x7 : ffff0000c117c010 x6 : 306c766f2c727461
+x5 : 0000000000000000 x4 : ffff0000c10a2de8 x3 : ffff0000c10a2e70
+x2 : ffff0000c01a4600 x1 : 0000000000000000 x0 : ffff0000c65470c0
+Call trace:
+ mtk_iommu_device_group+0x2c/0xe0 (P)
+ __iommu_probe_device+0x130/0x490
+ probe_iommu_group+0x3c/0x70
+ bus_for_each_dev+0x7c/0xe0
+ iommu_device_register+0xd8/0x22c
+ mtk_iommu_probe+0x270/0x53c
+ platform_probe+0x68/0xd8
+ really_probe+0xbc/0x2c0
+ __driver_probe_device+0x78/0x120
+ driver_probe_device+0x3c/0x154
+ __device_attach_driver+0xb8/0x140
+ bus_for_each_drv+0x88/0xe8
+ __device_attach+0xa0/0x190
+ device_initial_probe+0x14/0x20
+ bus_probe_device+0xb4/0xc0
+ deferred_probe_work_func+0x90/0xc8
+ process_one_work+0x148/0x284
+ worker_thread+0x2cc/0x3cc
+ kthread+0x12c/0x204
+ ret_from_fork+0x10/0x20
+Code: b4000500 f9401c01 92800254 f9409821 (f9400035) 
+---[ end trace 0000000000000000 ]---
+```
+
+I've tested this patch on Mediatek Genio 510-EVK and 1200-EVK boards
+with a kernel based on linux-next (tag: next-20250327).
+---
+ drivers/iommu/mtk_iommu.c | 25 +++++++++++++------------
+ 1 file changed, 13 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
+index 034b0e670384a24df10130cbbff95ce8e0bc092d..14adb96a37bb0d84b631188e48dd8b936821a717 100644
+--- a/drivers/iommu/mtk_iommu.c
++++ b/drivers/iommu/mtk_iommu.c
+@@ -1372,15 +1372,6 @@ static int mtk_iommu_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, data);
+ 	mutex_init(&data->mutex);
+ 
+-	ret = iommu_device_sysfs_add(&data->iommu, dev, NULL,
+-				     "mtk-iommu.%pa", &ioaddr);
+-	if (ret)
+-		goto out_link_remove;
+-
+-	ret = iommu_device_register(&data->iommu, &mtk_iommu_ops, dev);
+-	if (ret)
+-		goto out_sysfs_remove;
+-
+ 	if (MTK_IOMMU_HAS_FLAG(data->plat_data, SHARE_PGTABLE)) {
+ 		list_add_tail(&data->list, data->plat_data->hw_list);
+ 		data->hw_list = data->plat_data->hw_list;
+@@ -1390,18 +1381,28 @@ static int mtk_iommu_probe(struct platform_device *pdev)
+ 		data->hw_list = &data->hw_list_head;
+ 	}
+ 
++	ret = iommu_device_sysfs_add(&data->iommu, dev, NULL,
++				     "mtk-iommu.%pa", &ioaddr);
++	if (ret)
++		goto out_list_del;
++
++	ret = iommu_device_register(&data->iommu, &mtk_iommu_ops, dev);
++	if (ret)
++		goto out_link_remove;
++
+ 	if (MTK_IOMMU_IS_TYPE(data->plat_data, MTK_IOMMU_TYPE_MM)) {
+ 		ret = component_master_add_with_match(dev, &mtk_iommu_com_ops, match);
+ 		if (ret)
+-			goto out_list_del;
++			goto out_device_unregister;
+ 	}
+ 	return ret;
+ 
+-out_list_del:
+-	list_del(&data->list);
++out_device_unregister:
+ 	iommu_device_unregister(&data->iommu);
+ out_sysfs_remove:
+ 	iommu_device_sysfs_remove(&data->iommu);
++out_list_del:
++	list_del(&data->list);
+ out_link_remove:
+ 	if (MTK_IOMMU_IS_TYPE(data->plat_data, MTK_IOMMU_TYPE_MM))
+ 		device_link_remove(data->smicomm_dev, dev);
+
+---
+base-commit: bc960e3e32c8b940c10b14557271355f66ae4db1
+change-id: 20250327-fix-mtk-iommu-error-af6ec347d057
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
