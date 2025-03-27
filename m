@@ -4,139 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CF6C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 09:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7717C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 09:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SV9LP68hf6K2CE8y+aCr/2IhFIriqYosoWyBNsTOUYM=; b=MdpGXyf52NM6jgotABy/PGrjdc
-	sL+2oi1TGigA017oQqeKZIuh7MMhO0l3L2ZeLynnKsgkWe9YHu4QFdNGLGGYhSJY1lw4qU3pEicBq
-	U1Ff/bpWVcBSKYpQ2FzoCu5XeR0xTjXKmNWz/7eADAQpS8352rr5XIyFWsondH6DbAeCNPyqzlW1A
-	6J07/IP7+4M4PoYFv6AQXGHO38ivYN0n1PcPPSf66tR8oaSI1YtNFi2YLkIQm73m1boUawzuAGYyr
-	PKMnjBDPKGxpkwjI30t6aIRp4SQK94SPWAl9P1NI5EGbpgP4fjKlXBPHRN6ilzCzewp9U5n8MQ4xl
-	RLUXNAwA==;
+	bh=UIotJVVBD3/NnOnKPh1r2ow/aFL293MuBe0NVckPSv8=; b=Y2tdkU3EXh6zjBVC2xChKT4byO
+	2HGGBhY979Iwy1G+dzWJmdFkUznK9J0UZLNG9IX/skJi0XFjpPqRp+Z4bsQN1TY/qNwgmkpr3koqI
+	bFKh2LHP9wMUhhTD31/aIvS/aFvAGfftqO2SodkAd2aeqohXSjFsRIVOllixQXMaABxs7RA2lqrwH
+	u5uB+DzdK/139KinhZtSQ8aInyp4jd6OCnDoSirycZ0eZ8xKiU5K5yqtwx1tCf0X8lIQJKPJ6OCmR
+	wu3jrRvUa6+0cU/miTqDj+u4jxBJ/rX1TQIT9S7tAvT1TBt87LO6vt0HDTichJM/NUvf/eOVJgBNf
+	Pi8NceaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txjcO-0000000AaPY-1lbp;
-	Thu, 27 Mar 2025 09:33:44 +0000
-Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
+	id 1txjhx-0000000Ab5H-0Zdr;
+	Thu, 27 Mar 2025 09:39:29 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txjaL-0000000Aa2T-2Tmy
+	id 1txjgE-0000000Aavn-0mSu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 09:31:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qpEYhQQ4JGgIyyHP6oleno36rnGq0LNT0VZ24jB23msj1zs0L4SEyJeUzpCok1zTTb/tXsqcgKjtB1/g1VgB7Pe96fkvAeWGDEB81FGQ9mrxWAkaeeDWW4tkYbDwWBqm+STegh2k3v0THsRGPwQ672Bd61GrUgyMCyywCS4lpdTTuDZRJilKwTYxeltm624BAJSnMfV2LNrKEalvPWk9KUgaqz0kqveMpUSNIol3gCjb5nWDruRl5MLVz6C/8MzFPqxxE5THfaL7/zDdMT07JFtUXh/4h0tkJ/clgaRUX59WsVrXkbdoZJJGft80n5HqCOr3VjaO/REqCzFx+mxZPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SV9LP68hf6K2CE8y+aCr/2IhFIriqYosoWyBNsTOUYM=;
- b=gjxyGcadIDsPrYJ9egJQF6ZDQHPpvXPh9EY8ro7AyBD/oliFttNvPaa/Zgy8lcl99h5PsjxfCzxQXnf4ApWvOi5q4bMG+KHkKMt18zA9w3pyeTSdr4vhmXExdTCEeMA34MxBmHj7tUcJtSDTuLEXUFmlmDegYqg7i1g1wKLj8i7YinbMs/xnfu/DaC5e70vT9xMEfyJch+uVsJ+mIW5zm7exeCj1p7Q9Tn6nXyHaDWEFrgXofpzu9xzdYr0P5wxAeASF/qoCr2UJQq5pYl2qYIYlnAMYdHf1YBUw60y1eeQWzLtL8VGomwKJK4Ca2AyP5L7r0H2lt8ofyS2dgTiyKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from TYCPR01CA0181.jpnprd01.prod.outlook.com (2603:1096:400:2b0::10)
- by SEYPR06MB5986.apcprd06.prod.outlook.com (2603:1096:101:df::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 27 Mar
- 2025 09:31:27 +0000
-Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
- (2603:1096:400:2b0:cafe::1b) by TYCPR01CA0181.outlook.office365.com
- (2603:1096:400:2b0::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.43 via Frontend Transport; Thu,
- 27 Mar 2025 09:31:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.20 via Frontend Transport; Thu, 27 Mar 2025 09:31:26 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 22C5841604EB;
-	Thu, 27 Mar 2025 17:31:25 +0800 (CST)
-Date: Thu, 27 Mar 2025 17:31:24 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Marc Zyngier" <maz@kernel.org>, soc@kernel.org,
-	"Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
-	marcin@juszkiewicz.com.pl, kajetan.puchalski@arm.com,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
-	"Fugang . duan" <fugang.duan@cixtech.com>
-Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts
- support
-Message-ID: <Z-Ua7MK-Kv033uDu@nchen-desktop>
-References: <20250324062420.360289-1-peter.chen@cixtech.com>
- <20250324062420.360289-6-peter.chen@cixtech.com>
- <865xjxmlgl.wl-maz@kernel.org>
- <Z-Nz0DU441Wwj1i4@nchen-desktop>
- <861pukm9yd.wl-maz@kernel.org>
- <Z-Tz1moMNozx23k6@nchen-desktop>
- <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
- <422deb4d-db29-48c1-b0c9-7915951df500@app.fastmail.com>
+	Thu, 27 Mar 2025 09:37:43 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2240aad70f2so184235ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 02:37:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1743068260; x=1743673060; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UIotJVVBD3/NnOnKPh1r2ow/aFL293MuBe0NVckPSv8=;
+        b=0FwHNUxh2frZauR9+i9e+WCfWEL6Oi89ANi9FT1ag5taFvXzyNdZCmO8Exm1wiaAkS
+         pVKsN2fzzjjKM4/bhstMt5BFcDnZHli38MjJ3/8ZuYNrfQ+/MZ30lcB+9oo3liHaAerY
+         L+cbONGxa0zoxbgpQy7CYvqbjiY0Y791Bjk8AFSPd4aSwiGUDC+XXfwT9uenDRRnczFH
+         3U+rJX/PALNTNstWwxjd+NLQZGkeZAvaMiBNm1iqXq8GN5eV76r9jQNKW8zfdCMeAb2k
+         oiW+KnQGbiAhFhtTdCis+ADs9o7fc+JleQN5LaSI3F3gqK7tF1Ei3tdVbt45idURGsdc
+         EL8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743068260; x=1743673060;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UIotJVVBD3/NnOnKPh1r2ow/aFL293MuBe0NVckPSv8=;
+        b=YKJ1zOFnXfikpP4ivR9+g0oT0mHbTjMz9LvQfxejhaul1VviRwbAikiqvlJjd6qOnk
+         ZpxVuIAoAZKp8zJwyHj+gi3fXyQaZrjGcmLqQ6guZafEBEMrvVh149nTZgc8anSLwdks
+         uuTiGjLkvcs9QE9oua3C9HPlOVW+99Qahqwl1/N7B8etEv+EEXX0d92TE/xwVmJ4RnA6
+         2Drl3IhegS7lLCCxmndYYKvsskTtPg6dw9k5CptqxF4/aHLPnPpLjHD3Y7T0naOeVglw
+         uKJbYoEf6lILas+6AlRUHg7NF7fFGop0JRmAKlZ/UBcnei/14GZvh42sDvX+B6Y9rfAD
+         f8vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUeMUGxJX7xOwXYnhHjt8D2GmVtocQ9Vp43S6bZ+gLMqrEw5Twsx6hNU2vIopA9010BLgKnzQnWw6CfFh/QBOMC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtRhFfmot211IeBykECsTtZmfYwgjkIWsoHDtwaO0TkagNO6hT
+	3AtYTMt+S83tpSq42jC9gMJ28NbDHM3avCu741/n+3UwNmuwXSKKwdQozo2TJA==
+X-Gm-Gg: ASbGncsle0Dnwxhmy/Eg4vP4zBWCO5qRocwNqmwlxKd5IbYQE+7/4gzop0nYczDy1nQ
+	56Gh4Wo0Q8R93WZJgrAnmOjSousbQI28cc1kaNqgRmgWeXCadomvJ7sDHRgtOStbHEcbIY587lU
+	kyr0ujEM0B/MSQSQLihFIIbr0gBT9izhlWoY9kfVXIVZelpqG2OyhrlWc2xScAf9YLU5aq1uoIB
+	WLdHMdeUNGIfnR/JmkiYq+PTRfysqhawlEnVWay5WBZ6BayXJamgKfZ8wucHm0TfAy/b322CCDQ
+	Rt7e36ugTgsiHIyZmeO25srJAwfeJ7zD6NU15jGZxkdFY3cnMCVcfPoZPSUre1JkEwgG+au8LoF
+	TJHddZPXI7kjeBjIZ+l2J
+X-Google-Smtp-Source: AGHT+IGB0Vi5pWlDgQqZ4uKyMwBPu6nja3HHv+BqBDGefnFIarUTyd7UM+7yrEZbE7LmEsV4/0FJxQ==
+X-Received: by 2002:a17:902:f645:b0:223:f479:3860 with SMTP id d9443c01a7336-22806dd46f8mr2324225ad.18.1743068260152;
+        Thu, 27 Mar 2025 02:37:40 -0700 (PDT)
+Received: from google.com (28.140.38.34.bc.googleusercontent.com. [34.38.140.28])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73907b36bfasm13626302b3a.2.2025.03.27.02.37.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Mar 2025 02:37:39 -0700 (PDT)
+Date: Thu, 27 Mar 2025 09:37:31 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Quentin Perret <qperret@google.com>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, snehalreddy@google.com,
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	will@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com, Andrei Homescu <ahomescu@google.com>
+Subject: Re: [PATCH v4 3/3] KVM: arm64: Release the ownership of the hyp rx
+ buffer to Trustzone
+Message-ID: <Z-UcW32Hk6f_cuxc@google.com>
+References: <20250326113901.3308804-1-sebastianene@google.com>
+ <20250326113901.3308804-4-sebastianene@google.com>
+ <Z-Qv4b0vgVql2yOb@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <422deb4d-db29-48c1-b0c9-7915951df500@app.fastmail.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|SEYPR06MB5986:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ac0e4e0-db5d-40c4-1faf-08dd6d122589
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xghCp3v/qoHCy1aiDnm2ZwVF6gh8+5W1MwQeaQSbGhu67R4LuJ2qmJRSXthe?=
- =?us-ascii?Q?+QhiLM76wLhcLVKQdw7oY3UyZUl6qbu5vWmO8qgZ0T5354hKrtlNVoD4/ZTJ?=
- =?us-ascii?Q?xA2JAEUxwKna6V1jsfPuAk0MYUQmj+k0kitrlt54zsgp3PyAuy3Z64uPOD/N?=
- =?us-ascii?Q?MUyicJFXnGMDd+8iGb4bZZ7zoJrYh0GISu+weCcZw+tpSspzj3ZLfzbC/zrx?=
- =?us-ascii?Q?+RD0ttgruohh05gntpyrpRCuhjEX4qXDUuimNb4J/zNFpQTxm5dy2pJiB7RB?=
- =?us-ascii?Q?wjlqgmAfBzarSk5LMgq6yXVNVe8MYRwtPgwALsSu1BHA0GysygO9bQXFMymD?=
- =?us-ascii?Q?6o420o/PE8kE50EGXDj26mVyS8FrsRSl39WlCav2jtUNHY+D4rqAdG8+e60j?=
- =?us-ascii?Q?B71vpWCYsRn3lEvk1lpwvSJ1SQAJmyH0EvnM798GnP4UMev5Q7tdSc+CnWgx?=
- =?us-ascii?Q?rkSoW1NmudRDnMwlZNKb2pJhXEUQ4xfM9M2g67Bz/+KF2/lkphboYYkb+wK2?=
- =?us-ascii?Q?phtvkf4bfZuh7qq6k0IJ0ybScLp7z11YX/isFGt4Ng5Vpt3f8pbGqaiL1O8C?=
- =?us-ascii?Q?uTzvVtF9hFjUawdBf4DkQxUxqDYOUTlhpNMeN7KUiCkqrcGil1mq7ygy63Nb?=
- =?us-ascii?Q?Tic1iKgcuUZjGhx1R4QcZGprVzlTjybkXkrkIlcCvp6QA7GMQFw7Jnk652cy?=
- =?us-ascii?Q?W9+fCHg3v94wIn7MsgLrE7HGxWTZhuGe8V37PPpCwh8NsC+DcUsbJTfW0q4+?=
- =?us-ascii?Q?yEr+ig48jcqPK+XH5qvp486fWnuW8NEOE2XTFeyUJqFpG+RF5g7RU7RjDwNU?=
- =?us-ascii?Q?yxnAfx3UHy/uCU3FPXQlcvO7vmRZwZKN2CIYt/x3tQJqnQKJgv39Mg9pxef4?=
- =?us-ascii?Q?OyogI/00Ips1gyYhByDbIuKgtoHXfk+M60IkOV37DpVWlstNRz9CrSs4WmVv?=
- =?us-ascii?Q?ZQVpzekjaIWM9m0qn9nyYVkBWuSLed6vojxlrMxJ4SaNtxWP2u2Z09OeP4W+?=
- =?us-ascii?Q?xQj376VYP8f3kozZYfnDYMAYPD0aXxO/psMyKQoxsMkq687NkeWWedzzxiTC?=
- =?us-ascii?Q?YjIyT9opAoYWsyjH0UnwMJxEap8Ls2Tfh8dqYud/iKaIJYWtXOFmeIpkDL/l?=
- =?us-ascii?Q?tE/GoGwKBA5+0wHTAw4BA8/HXox9iJUsbqsAL3QipqpY6ymJBmxs932H7GZW?=
- =?us-ascii?Q?8y+hE7FTsx7mrAJLk6nA/WfMYEfrxcQ4uq8EGdRfse2DUAvG1A59HIElGhRV?=
- =?us-ascii?Q?sSF3/dk0K57qaLGwj2zM8vETXZJ74Ro10vM7Yb6Os6uc4zNLjNNqbwnU6h57?=
- =?us-ascii?Q?auoQT+JHLdmtPehsyZWzBLhNYcWVNZlPGEKu3q3E4DcI38ZYTrdqeRIvABeT?=
- =?us-ascii?Q?6vY2xVW7FXtdue2XnqjQM45Is+UjpMOAqGQING/cTQ31q8778mZ3eoTl77De?=
- =?us-ascii?Q?95YLv+B31Vqiu2NEKBGe8HNRqJKK/NgnAgJ1An80EjPSQBo1d92uJ2peam5D?=
- =?us-ascii?Q?z6CFH6uQFzLbvF8=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7416014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 09:31:26.0716
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ac0e4e0-db5d-40c4-1faf-08dd6d122589
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB83.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5986
+In-Reply-To: <Z-Qv4b0vgVql2yOb@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_023137_629694_119BEFC4 
-X-CRM114-Status: GOOD (  33.09  )
+X-CRM114-CacheID: sfid-20250327_023742_230158_C17B83C6 
+X-CRM114-Status: GOOD (  29.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,70 +104,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-03-27 09:18:42, Arnd Bergmann wrote:
-> 
-> On Thu, Mar 27, 2025, at 08:16, Krzysztof Kozlowski wrote:
-> > On 27/03/2025 07:44, Peter Chen wrote:
-> >>>> On 25-03-25 10:52:10, Marc Zyngier wrote:
-> >>
-> >> Thanks for your interesting of our platform, and your comments
-> >> help us a lot. But I don't think it wastes reviewers and maintainers
-> >> time, a clean patch set saves everyone's time during upstream process.
-> >>
-> >> For how to organize the patch set for SoC, Krzysztof gave good summary
-> >> at [1]. We are going on upstream [2], this patch set is just a start
-> >> and base but not like you said for marketing purpose.
+On Wed, Mar 26, 2025 at 04:48:33PM +0000, Quentin Perret wrote:
+> On Wednesday 26 Mar 2025 at 11:39:01 (+0000), Sebastian Ene wrote:
+> > Introduce the release FF-A call to notify Trustzone that the hypervisor
+> > has finished copying the data from the buffer shared with Trustzone to
+> > the non-secure partition.
 > >
-> >
-> > I do not think I suggested in [1] to ever send new SoC containing only
-> > CPUs and interrupt controller, without even serial. My instruction [1]
-> > was how to organize it. The DTS can be even fully complete, see the
-> > upstreaming example I have been using all the time - Qualcomm SM8650:
-> >
-> > https://lore.kernel.org/all/20231124-topic-sm8650-upstream-dt-v4-0-e402e73cc5f0@linaro.org/
-> 
-> It is easier if there are other SoCs in the same family that are
-> already supported than an entire new platform, but we have certainly
-> done it for new SoC families as well.
-> 
-> > Entire SoC sent to mailing list on the day one of public release of that
-> > flagship Qualcomm SoC. The SoC DTSI and board DTS have almost complete
-> > picture, except few trickier pieces... but it even has full display and
-> > GPU! Plus, as I explained on my email on samsung-soc, that DTS/DTSI
-> > patchset references all other bindings with their state, so SoC
-> > maintainers can understand what is the overall progress and what will be
-> > the result in DT schema checks, if they apply the patchset.
-> >
-> > The minimum, absolute minimum submission is with the serial nodes. I
-> > would prefer to have some storage or any other interface as well, but
-> > that's fine.
-> 
-> Agreed. The usual arrangement for a new SoC family is to have
-> the minimum set of drivers (uart, clk, pinctrl, regulator,
-> iommu, irqchip) along with the DT bindings and the dts files
-> in one branch and have that go through the SoC tree as part of
-> the soc/newsoc branch. It sounds like in this case we only need
-> uart and a mailbox since the rest are shared with existing
-> firmware based drivers, so this isn't even the worst case
-> but still requires some coordination between subsystem maintainers
-> to ensure that all patches have been properly reviewed before
-> I merge them.
+> > Reported-by: Andrei Homescu <ahomescu@google.com>
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 9 ++++++---
+> >  1 file changed, 6 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > index 6df6131f1107..ac898ea6274a 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > @@ -749,6 +749,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+> >  	DECLARE_REG(u32, uuid3, ctxt, 4);
+> >  	DECLARE_REG(u32, flags, ctxt, 5);
+> >  	u32 count, partition_sz, copy_sz;
+> > +	struct arm_smccc_res _res;
+> >  
+> >  	hyp_spin_lock(&host_buffers.lock);
+> >  	if (!host_buffers.rx) {
+> > @@ -765,11 +766,11 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+> >  
+> >  	count = res->a2;
+> >  	if (!count)
+> > -		goto out_unlock;
+> > +		goto release_rx;
+> >  
+> >  	if (hyp_ffa_version > FFA_VERSION_1_0) {
+> >  		/* Get the number of partitions deployed in the system */
+> > -		if (flags & 0x1)
+> > +		if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
+> >  			goto out_unlock;
+> >  
+> >  		partition_sz  = res->a3;
+> > @@ -781,10 +782,12 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+> >  	copy_sz = partition_sz * count;
+> >  	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+> >  		ffa_to_smccc_res(res, FFA_RET_ABORTED);
+> > -		goto out_unlock;
+> > +		goto release_rx;
+> >  	}
+> >  
+> >  	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
+> > +release_rx:
+> > +	ffa_rx_release(&_res);
 
-So, in this case, we should add mailbox driver support in this
-series, and once the mailbox maintainer has reviewed mailbox
-driver, all the patches could go your tree?
+Hi,
 
 > 
-> Any peripheral drivers that are not essential for booting
-> (typically mmc, ufs, spi, i2c, gpu, sound, pci) can get
-> submitted at the same time, as there is no dependency on
-> the platform being merged first.
+> I'm a bit confused about this release call here. In the pKVM FF-A proxy
+> model, the hypervisor is essentially 'transparent', so do we not expect
+> EL1 to issue that instead?
+
+I think the EL1 should also issue this call irrespective of what the
+hypervisor is doing. Sudeep can correct me here if I am wrong, but this
+is my take on this.
+
+I am looking at this as a way of signaling the availability of the rx
+buffer across partitions. There are some calls that when invoked, they
+place the buffer in a 'locked state'.
+
+
+> How is EL1 supposed to know that the
+> hypervisor has already sent the release call?
+
+It doesn't need to know, it issues the call as there is no hypervisor
+in-between, why would it need to know ?
+
+> And isn't EL1 going to be
+> confused if the content of the buffer is overridden before is has issued
+> the release call itself?
+
+The hypervisor should prevent changes to the buffer mapped between the
+host and itself until the release_rx call is issued from the host.
+If another call that wants to make use of the rx buffer sneaks in, we
+would have to revoke it with BUSY until rx_release is sent.
+
+>What would otherwise prevent that from
+> happening?
+
 > 
+> Thanks,
+> Quentin
+>
 
-Thanks for telling us this.
+Thanks,
+Sebastian
 
--- 
-
-Best regards,
-Peter
+> >  out_unlock:
+> >  	hyp_spin_unlock(&host_buffers.lock);
+> >  }
+> > -- 
+> > 2.49.0.395.g12beb8f557-goog
+> > 
 
