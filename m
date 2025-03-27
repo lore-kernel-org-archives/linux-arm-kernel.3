@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A577CC36011
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 19:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D7BC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 19:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZHzShkVWYCElLbYIuxl2mu1d5Dwj3bbR8it0YY9hs8=; b=WMz/yOh2fJnZRmk49gdbdBATaJ
-	tuay01mGwYP0jMzKhhui+YjeYNAtzEX1FH0sZNmzjDRh2sPVoVgFkqDe9yohRnTsSen4h/zrHyV5Z
-	S5kHk1OiH7iGXIXwvv6GmwzRpkHnMdNWes+fhHAHy29nhg7WkO9fu46tWF8Txb/2WW0kKxoOSkapp
-	9yMuwCBOGpgqtH1TgdtD/noPezIeTuUg+C4z4Khq3jg3rZqzGCuPwhrT82o8sd+J/dC1yeX7cMIyU
-	GfQ4ZRtR+V7lp/8zsomzDkhShulfLeTrQ1dKnQel0+JxHhvYLNbmod8H6tjcCHezBa/d2ZIsWvac5
-	DPUtGmVA==;
+	bh=+uGGyRkYKjdJ+vw9b2EYMQ7VNOlGqoQjZ03lOaE3eUo=; b=Xu/VEkTknc81I8gE4tKAQhjzQ/
+	pInIDE2PYnTVpOwotRnyA7Fz9AY8amVJRGzNDr/1dm5mWvhQHPGph+YA7IewtT27FuKZY7VqnQdGt
+	pCpI9fOvP3+lnFzgB700U8Ifnz1OOkynVyAtUsUWENc4s57L3G6NCqYfHFxXOUuK5LGxQ+CbMGjvw
+	lGtrMC3OivJ7LSTASzYnlflMmllC1xKE6zd074Y2t6w91Gi26VHsCdHDBM1hZ2OdzxxqWxIlWnLZY
+	tOFD+xDFltwkBM9MmxGrIMaxrSnzR+Od9Cfl7ikEKU6v/G1AzGzu5F4srASPicfulMnqmisTdlSr8
+	5TflSs4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtMM-0000000BuGm-0hF3;
-	Thu, 27 Mar 2025 19:57:50 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1txtO4-0000000BuZK-1ZYB;
+	Thu, 27 Mar 2025 19:59:36 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txt1k-0000000Bphv-0TNk
+	id 1txt1l-0000000Bpjc-34Zo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 19:36:33 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-30332dfc821so2017989a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:36:32 -0700 (PDT)
+	Thu, 27 Mar 2025 19:36:35 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2279915e06eso32473045ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:36:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104191; x=1743708991; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104193; x=1743708993; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lZHzShkVWYCElLbYIuxl2mu1d5Dwj3bbR8it0YY9hs8=;
-        b=wP/l8q7qzeXJncnrjbywJZvAbMn/lkbRsdmNngZo1K0E1bri+PlXh/gFYqnzA9BIBq
-         SPY3JqMGeimcoM7mG8GlXdeT2qItgKJ45HJSseEdzAL3lP2zbN1u4tx25YCclYeZuOAJ
-         eFZtDqCtTRnBAtqv1MYHdzznuRtdruoreRgLENE1GOSaCJDrjs69baDQ7irVZpCNoN4C
-         rTpB5VJv89QWB/YijJYn2J/OTjZm6YbqkFP05L3n8DidmYpaYlSJwtljo5tVcNdj3c54
-         oDS6jnM5UbuStVYLHvX+ESIUuJ+gz08vykGqkM+jXGkQ9d45x6Qq/Riun/epIfWYz/oX
-         8fbw==
+        bh=+uGGyRkYKjdJ+vw9b2EYMQ7VNOlGqoQjZ03lOaE3eUo=;
+        b=DLOAhRga55uX4gCqLWIVPqZRVpfaxK+XClj1hdSQLbhDEHu0/T5CJ2q7AW2kT82Kx0
+         eYRRde/GJ8Iu29varc+T11VMbOqDuShpCfWMHae3aUJ4bm6HTLfZPYoIa3YqoisIdhKH
+         gSn13fJ+L4TC68TiS4aGQ2r+ZZdBul4UTudM1ZIla7ScCCWELsHvCX6gzJvOyWSD1xpI
+         n8imme3tzDaweu1HCx81B5YyZeUklTdH1F/6C6Db4nBMZOoINYEBn7WGGohaSUkTzDu7
+         vH8V/q7xMaaxDni2wP7ZeQUvziPQxXPxNrZSfkx+VTntvW5wDZ8KOPNhMLvnDEUYkmRB
+         hL1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743104191; x=1743708991;
+        d=1e100.net; s=20230601; t=1743104193; x=1743708993;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lZHzShkVWYCElLbYIuxl2mu1d5Dwj3bbR8it0YY9hs8=;
-        b=dNFz+teeV/fN/NadIBQOD3NTiJC5eu2ZFh3bALYNXxfJuRsLAoTpAJF+vZpJygLgFj
-         o8OlDiv8PZxCo0m8ver6ho7M3uNbLafXIc08Z8TKjJTKwVdKuFNbfqW2fCBJB3e2y/zS
-         x4+cZ6X3PHcMPSFaTrMof7bWhnR2nwri9ND3Bgy/Yu5xpgir0ho4K17LjWuXEusb9XaG
-         Ei7HplS3Bm3JvVQEkndXhGMlHSSYi5/+FSMq33Er/ETb8m91dtWi+xDW8ACgtnXv6MdY
-         v/Y+fXOloWptCJgpWAH4SQRRSZz8YI0AF037LGthTso+UoYed2TPKRpMpkJpXMAxXnbO
-         SLWg==
-X-Forwarded-Encrypted: i=1; AJvYcCUuoxUMObKeltTqmL1qlHzhSfMDndlAOprCxXdoYarU2clKI3J5t4Z5zDwHLiQYdDr12zGlXzSpl82Wp0P6cPZM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRoRsxQrOgGXno5rNcKrwl330bbEt3o6+hXU6zENMMkh2t6DYJ
-	zQ8P/2IcPaRlHoH4KGw2i7aio35sCikR9t9d7ZgIHaMgErmLcA5ShsL+uvUYxjE=
-X-Gm-Gg: ASbGnctrNw8SUUweJ9l4F8or7bSUTy2ekW/IM8ngSyqVOES9tCczu9hIlVxfoTAS3Ho
-	1YP6Tjejy3KXKnIE+VjBcnpqdjYi9s1zczY5kGnh9Iz+x/dV6Skrs54lFuUDVbf3HruEbTtoidh
-	FzK/Ox0ScHSLpP5tc83MwBSP0by6b+j1Zyi2NockYwaWkdXT1vSnXe+SPpMhxdZKb99lpU/ubLP
-	aoUXmHzOoq5p48IGbUc/IuTtcjwXGLyCTyzKyX+wpZHU5whVOmBTzJfC75k3WKUGloR75tJA9Rw
-	P1aE9kdUGUjOR7ULWw8RAXSyuhZ9EwHaES3Kx1lwn9Co0HFnWLSsDpK8vA==
-X-Google-Smtp-Source: AGHT+IHryvstoDG5DrSeDXDSapLeAgCYTwHsrcOUlvaO1B8etrboSauEluFhB4Sgyta7kM0W+4VnLA==
-X-Received: by 2002:a17:90b:2650:b0:2fe:afbc:cd53 with SMTP id 98e67ed59e1d1-303a87b2f9dmr7620322a91.28.1743104191392;
-        Thu, 27 Mar 2025 12:36:31 -0700 (PDT)
+        bh=+uGGyRkYKjdJ+vw9b2EYMQ7VNOlGqoQjZ03lOaE3eUo=;
+        b=bmpePejTaVIzyY6+r8X3hsiwkfMXWhfgKfrgS4imiDPWQS1//YcgprScysvQF2Hx2D
+         8dNzZmAA3OlgP8EPmO7IYLoFiYJA4/GnAdVY7C36VEFpbyesaod4UuMxi6abeCeNxF6U
+         HyGpqLU7k6nGMG1FpVdbMhf41rMvbOqCfIjB3V3PV0IcX7ayNDuLRTLsGPYco+nVYiKm
+         837oW8IMhSPqbUICD7p1UFyojZdWraMfyMoWHRb9Q9idORAcSmOMkU03Qq/E2zXEfcLz
+         ZhB6wBgXJgWDGw2R1Z2ixRfZuxiU4yd56GxK+G5QO+N9V9C8NMblOYdzAFh2jmVUplWg
+         9Nbg==
+X-Forwarded-Encrypted: i=1; AJvYcCVTyyUfHWSTWMjbZOrdDTcyUaDkX7ihxjogPxRF1QehpJq8XRKNjmN05+QI81HY8Wn8er3acFkPQEaaNAPI7yzF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyegR4mknP458LAEIyzSIcIowVRjXc0xTYolIM+bsWUDGZsYGdn
+	cS/bEVfLw7JJGjVE7mRPLqDieEvx9wKexeNrlwfme4aWuJ42ZjTCyYChEiFhCzg=
+X-Gm-Gg: ASbGnculrEpz3GC90wfUMnfwPxl8D6W1JemDCuAJ2oEPmPe0l4fT831im4c/vJ5SkUk
+	DXayXbXOMq9tBQoyTdNnUCTkFLy/f3epF01tIXKZayWehHybkZUHtMesgW55H88+nxTG4uq2U6x
+	iCE+iElLqTLMi75rLJTXuc846Tq2KL8oye+NxxtL/eSpXGupGBVl10M0qd2jI81sgE11aeW3Ykm
+	O1kfGpc2ZPCxHLvr62LXhV6NOaB+YCntrdjtlJZdf7Eoa6VBn79DLjxtqJcByRNgIQ71helbtLI
+	Sl1u7ntkrxHZ4QtvELtALzDt9bfWktCkAY7y7OHtUHH4vctQ3HgG7/ZFkA==
+X-Google-Smtp-Source: AGHT+IENDTi2wmd5guSAtbCl7ZVpJGH3loOpoV0kcjkWU+S0QZ+aC84U+Dd29pEp73mrXKIMPYoAPg==
+X-Received: by 2002:a17:90b:2d46:b0:2fa:1e3e:9be5 with SMTP id 98e67ed59e1d1-303a6c35c4dmr8832996a91.0.1743104193005;
+        Thu, 27 Mar 2025 12:36:33 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.29
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 12:36:31 -0700 (PDT)
+        Thu, 27 Mar 2025 12:36:32 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Thu, 27 Mar 2025 12:35:53 -0700
-Subject: [PATCH v5 12/21] RISC-V: perf: Modify the counter discovery
- mechanism
+Date: Thu, 27 Mar 2025 12:35:54 -0700
+Subject: [PATCH v5 13/21] RISC-V: perf: Add a mechanism to defined legacy
+ event encoding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250327-counter_delegation-v5-12-1ee538468d1b@rivosinc.com>
+Message-Id: <20250327-counter_delegation-v5-13-1ee538468d1b@rivosinc.com>
 References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 In-Reply-To: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -96,8 +96,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_123632_200001_BA39BF8C 
-X-CRM114-Status: GOOD (  29.08  )
+X-CRM114-CacheID: sfid-20250327_123633_827946_C7928D61 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,231 +112,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If both counter delegation and SBI PMU is present, the counter
-delegation will be used for hardware pmu counters while the SBI PMU
-will be used for firmware counters. Thus, the driver has to probe
-the counters info via SBI PMU to distinguish the firmware counters.
+RISC-V ISA doesn't define any standard event encodings or specify
+any event to counter mapping. Thus, event encoding information
+and corresponding counter mapping fot those events needs to be
+provided in the driver for each vendor.
 
-The hybrid scheme also requires improvements of the informational
-logging messages to indicate the user about underlying interface
-used for each use case.
+Add a framework to support that. The individual platform events
+will be added later.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/perf/riscv_pmu_dev.c | 130 ++++++++++++++++++++++++++++++++-----------
- 1 file changed, 96 insertions(+), 34 deletions(-)
+ drivers/perf/riscv_pmu_dev.c   | 54 +++++++++++++++++++++++++++++++++++++++++-
+ include/linux/perf/riscv_pmu.h | 13 ++++++++++
+ 2 files changed, 66 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-index 6cebbc16bfe4..c0397bd68b91 100644
+index c0397bd68b91..6f64404a6e3d 100644
 --- a/drivers/perf/riscv_pmu_dev.c
 +++ b/drivers/perf/riscv_pmu_dev.c
-@@ -66,6 +66,20 @@ static bool sbi_v2_available;
- static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
- #define sbi_pmu_snapshot_available() \
- 	static_branch_unlikely(&sbi_pmu_snapshot_available)
-+static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
-+static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
+@@ -317,6 +317,56 @@ static struct sbi_pmu_event_data pmu_cache_event_sbi_map[PERF_COUNT_HW_CACHE_MAX
+ 	},
+ };
+ 
++/*
++ * Vendor specific PMU events.
++ */
++struct riscv_pmu_event {
++	u64 event_id;
++	u32 counter_mask;
++};
 +
-+/* Avoid unnecessary code patching in the one time booting path*/
-+#define riscv_pmu_cdeleg_available_boot() \
-+	static_key_enabled(&riscv_pmu_cdeleg_available)
-+#define riscv_pmu_sbi_available_boot() \
-+	static_key_enabled(&riscv_pmu_sbi_available)
++struct riscv_vendor_pmu_events {
++	unsigned long vendorid;
++	unsigned long archid;
++	unsigned long implid;
++	const struct riscv_pmu_event *hw_event_map;
++	const struct riscv_pmu_event (*cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
++						       [PERF_COUNT_HW_CACHE_RESULT_MAX];
++};
 +
-+/* Perform a runtime code patching with static key */
-+#define riscv_pmu_cdeleg_available() \
-+	static_branch_unlikely(&riscv_pmu_cdeleg_available)
-+#define riscv_pmu_sbi_available() \
-+		static_branch_likely(&riscv_pmu_sbi_available)
- 
- static struct attribute *riscv_arch_formats_attr[] = {
- 	&format_attr_event.attr,
-@@ -88,7 +102,8 @@ static int sysctl_perf_user_access __read_mostly = SYSCTL_USER_ACCESS;
- 
- /*
-  * This structure is SBI specific but counter delegation also require counter
-- * width, csr mapping. Reuse it for now.
-+ * width, csr mapping. Reuse it for now we can have firmware counters for
-+ * platfroms with counter delegation support.
-  * RISC-V doesn't have heterogeneous harts yet. This need to be part of
-  * per_cpu in case of harts with different pmu counters
-  */
-@@ -100,6 +115,8 @@ static unsigned int riscv_pmu_irq;
- 
- /* Cache the available counters in a bitmask */
- static unsigned long cmask;
-+/* Cache the available firmware counters in another bitmask */
-+static unsigned long firmware_cmask;
- 
- struct sbi_pmu_event_data {
- 	union {
-@@ -780,34 +797,38 @@ static int rvpmu_sbi_find_num_ctrs(void)
- 		return sbi_err_map_linux_errno(ret.error);
- }
- 
--static int rvpmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
-+static u32 rvpmu_deleg_find_ctrs(void)
++#define RISCV_VENDOR_PMU_EVENTS(_vendorid, _archid, _implid, _hw_event_map, _cache_event_map) \
++	{ .vendorid = _vendorid, .archid = _archid, .implid = _implid, \
++	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map },
++
++static struct riscv_vendor_pmu_events pmu_vendor_events_table[] = {
++};
++
++const struct riscv_pmu_event *current_pmu_hw_event_map;
++const struct riscv_pmu_event (*current_pmu_cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
++							   [PERF_COUNT_HW_CACHE_RESULT_MAX];
++
++static void rvpmu_vendor_register_events(void)
 +{
-+	/* TODO */
-+	return 0;
++	int cpu = raw_smp_processor_id();
++	unsigned long vendor_id = riscv_cached_mvendorid(cpu);
++	unsigned long impl_id = riscv_cached_mimpid(cpu);
++	unsigned long arch_id = riscv_cached_marchid(cpu);
++
++	for (int i = 0; i < ARRAY_SIZE(pmu_vendor_events_table); i++) {
++		if (pmu_vendor_events_table[i].vendorid == vendor_id &&
++		    pmu_vendor_events_table[i].implid == impl_id &&
++		    pmu_vendor_events_table[i].archid == arch_id) {
++			current_pmu_hw_event_map = pmu_vendor_events_table[i].hw_event_map;
++			current_pmu_cache_event_map = pmu_vendor_events_table[i].cache_event_map;
++			break;
++		}
++	}
++
++	if (!current_pmu_hw_event_map || !current_pmu_cache_event_map) {
++		pr_info("No default PMU events found\n");
++	}
 +}
 +
-+static int rvpmu_sbi_get_ctrinfo(u32 nsbi_ctr, u32 *num_fw_ctr, u32 *num_hw_ctr)
+ static void rvpmu_sbi_check_event(struct sbi_pmu_event_data *edata)
  {
  	struct sbiret ret;
--	int i, num_hw_ctr = 0, num_fw_ctr = 0;
-+	int i;
- 	union sbi_pmu_ctr_info cinfo;
- 
--	pmu_ctr_list = kcalloc(nctr, sizeof(*pmu_ctr_list), GFP_KERNEL);
--	if (!pmu_ctr_list)
--		return -ENOMEM;
--
--	for (i = 0; i < nctr; i++) {
-+	for (i = 0; i < nsbi_ctr; i++) {
- 		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
- 		if (ret.error)
- 			/* The logical counter ids are not expected to be contiguous */
- 			continue;
- 
--		*mask |= BIT(i);
--
- 		cinfo.value = ret.value;
--		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
--			num_fw_ctr++;
--		else
--			num_hw_ctr++;
--		pmu_ctr_list[i].value = cinfo.value;
-+		if (cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-+			/* Track firmware counters in a different mask */
-+			firmware_cmask |= BIT(i);
-+			pmu_ctr_list[i].value = cinfo.value;
-+			*num_fw_ctr = *num_fw_ctr + 1;
-+		} else if (cinfo.type == SBI_PMU_CTR_TYPE_HW &&
-+			   !riscv_pmu_cdeleg_available_boot()) {
-+			*num_hw_ctr = *num_hw_ctr + 1;
-+			cmask |= BIT(i);
-+			pmu_ctr_list[i].value = cinfo.value;
-+		}
- 	}
- 
--	pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
--
- 	return 0;
- }
- 
-@@ -1069,16 +1090,41 @@ static void rvpmu_ctr_stop(struct perf_event *event, unsigned long flag)
- 	/* TODO: Counter delegation implementation */
- }
- 
--static int rvpmu_find_num_ctrs(void)
-+static int rvpmu_find_ctrs(void)
- {
--	return rvpmu_sbi_find_num_ctrs();
--	/* TODO: Counter delegation implementation */
--}
-+	u32 num_sbi_counters = 0, num_deleg_counters = 0;
-+	u32 num_hw_ctr = 0, num_fw_ctr = 0, num_ctr = 0;
-+	/*
-+	 * We don't know how many firmware counters are available. Just allocate
-+	 * for maximum counters the driver can support. The default is 64 anyways.
-+	 */
-+	pmu_ctr_list = kcalloc(RISCV_MAX_COUNTERS, sizeof(*pmu_ctr_list),
-+			       GFP_KERNEL);
-+	if (!pmu_ctr_list)
-+		return -ENOMEM;
- 
--static int rvpmu_get_ctrinfo(int nctr, unsigned long *mask)
--{
--	return rvpmu_sbi_get_ctrinfo(nctr, mask);
--	/* TODO: Counter delegation implementation */
-+	if (riscv_pmu_cdeleg_available_boot())
-+		num_deleg_counters = rvpmu_deleg_find_ctrs();
-+
-+	/* This is required for firmware counters even if the above is true */
-+	if (riscv_pmu_sbi_available_boot()) {
-+		num_sbi_counters = rvpmu_sbi_find_num_ctrs();
-+		/* cache all the information about counters now */
-+		rvpmu_sbi_get_ctrinfo(num_sbi_counters, &num_hw_ctr, &num_fw_ctr);
+@@ -1552,8 +1602,10 @@ static int __init rvpmu_devinit(void)
+ 	 */
+ 	if (riscv_isa_extension_available(NULL, SSCCFG) &&
+ 	    riscv_isa_extension_available(NULL, SMCDELEG) &&
+-	    riscv_isa_extension_available(NULL, SSCSRIND))
++	    riscv_isa_extension_available(NULL, SSCSRIND)) {
+ 		static_branch_enable(&riscv_pmu_cdeleg_available);
++		rvpmu_vendor_register_events();
 +	}
+ 
+ 	if (!(riscv_pmu_sbi_available_boot() || riscv_pmu_cdeleg_available_boot()))
+ 		return 0;
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index 525acd6d96d0..a3e1fdd5084a 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -28,6 +28,19 @@
+ 
+ #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
+ 
++#define HW_OP_UNSUPPORTED		0xFFFF
++#define CACHE_OP_UNSUPPORTED		0xFFFF
 +
-+	if (num_sbi_counters > RISCV_MAX_COUNTERS || num_deleg_counters > RISCV_MAX_COUNTERS)
-+		return -ENOSPC;
++#define PERF_MAP_ALL_UNSUPPORTED					\
++	[0 ... PERF_COUNT_HW_MAX - 1] = {HW_OP_UNSUPPORTED, 0x0}
 +
-+	if (riscv_pmu_cdeleg_available_boot()) {
-+		pr_info("%u firmware and %u hardware counters\n", num_fw_ctr, num_deleg_counters);
-+		num_ctr = num_fw_ctr + num_deleg_counters;
-+	} else {
-+		pr_info("%u firmware and %u hardware counters\n", num_fw_ctr, num_hw_ctr);
-+		num_ctr = num_sbi_counters;
-+	}
++#define PERF_CACHE_MAP_ALL_UNSUPPORTED					\
++[0 ... C(MAX) - 1] = {							\
++	[0 ... C(OP_MAX) - 1] = {					\
++		[0 ... C(RESULT_MAX) - 1] = {CACHE_OP_UNSUPPORTED, 0x0}	\
++	},								\
++}
 +
-+	return num_ctr;
- }
- 
- static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
-@@ -1379,12 +1425,21 @@ static int rvpmu_device_probe(struct platform_device *pdev)
- 	int ret = -ENODEV;
- 	int num_counters;
- 
--	pr_info("SBI PMU extension is available\n");
-+	if (riscv_pmu_cdeleg_available_boot()) {
-+		pr_info("hpmcounters will use the counter delegation ISA extension\n");
-+		if (riscv_pmu_sbi_available_boot())
-+			pr_info("Firmware counters will use SBI PMU extension\n");
-+		else
-+			pr_info("Firmware counters will not be available as SBI PMU extension is not present\n");
-+	} else if (riscv_pmu_sbi_available_boot()) {
-+		pr_info("Both hpmcounters and firmware counters will use SBI PMU extension\n");
-+	}
-+
- 	pmu = riscv_pmu_alloc();
- 	if (!pmu)
- 		return -ENOMEM;
- 
--	num_counters = rvpmu_find_num_ctrs();
-+	num_counters = rvpmu_find_ctrs();
- 	if (num_counters < 0) {
- 		pr_err("SBI PMU extension doesn't provide any counters\n");
- 		goto out_free;
-@@ -1396,9 +1451,6 @@ static int rvpmu_device_probe(struct platform_device *pdev)
- 		pr_info("SBI returned more than maximum number of counters. Limiting the number of counters to %d\n", num_counters);
- 	}
- 
--	/* cache all the information about counters now */
--	if (rvpmu_get_ctrinfo(num_counters, &cmask))
--		goto out_free;
- 
- 	ret = rvpmu_setup_irqs(pmu, pdev);
- 	if (ret < 0) {
-@@ -1488,13 +1540,23 @@ static int __init rvpmu_devinit(void)
- 	int ret;
- 	struct platform_device *pdev;
- 
--	if (sbi_spec_version < sbi_mk_version(0, 3) ||
--	    !sbi_probe_extension(SBI_EXT_PMU)) {
--		return 0;
--	}
-+	if (sbi_spec_version >= sbi_mk_version(0, 3) &&
-+	    sbi_probe_extension(SBI_EXT_PMU))
-+		static_branch_enable(&riscv_pmu_sbi_available);
- 
- 	if (sbi_spec_version >= sbi_mk_version(2, 0))
- 		sbi_v2_available = true;
-+	/*
-+	 * We need all three extensions to be present to access the counters
-+	 * in S-mode via Supervisor Counter delegation.
-+	 */
-+	if (riscv_isa_extension_available(NULL, SSCCFG) &&
-+	    riscv_isa_extension_available(NULL, SMCDELEG) &&
-+	    riscv_isa_extension_available(NULL, SSCSRIND))
-+		static_branch_enable(&riscv_pmu_cdeleg_available);
-+
-+	if (!(riscv_pmu_sbi_available_boot() || riscv_pmu_cdeleg_available_boot()))
-+		return 0;
- 
- 	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
- 				      "perf/riscv/pmu:starting",
+ struct cpu_hw_events {
+ 	/* currently enabled events */
+ 	int			n_events;
 
 -- 
 2.43.0
