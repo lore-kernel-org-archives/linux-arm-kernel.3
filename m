@@ -4,93 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53045C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C45CC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2DA/Y2SrhYvb8JIGN8I8VFPVZFKVt4XN6zoT9arPV9I=; b=jvTgTwJpG1SsGvyydPZQ9ngjFE
-	/1aUqcFOHl1ukvKU7FUzil2RsqRXbcbrJhc/zNdpGokXqH6C1pSL0zBeJosZ+CDIC+nHAc6OtIC38
-	v6bSVa9p/oAa6CwLLl7mpmiPY9F5YeRuRT4MCWiJEup6dooDe9OpGsreQPTk0jvBuMq0PuHr3gRjd
-	g1SQts/ekUo33KIRQJaY4h1xbdoUbJqHjr5JfzgS3wMiXHyQwHcyE+lyMp/bLOvGFz7DzlPyNaZHQ
-	vJuROHaVro3cAltxjRFMfSNd8SwpA+PSebpbv5kLyVssXscyOCagixMA2r/cVnQW+UdReiiGeqK7d
-	XbJ5FHQw==;
+	bh=5dVK4MEqf6X0TMeYGVfQUWRHq14IdZfNCfWTmHkdE5g=; b=SzlnGSk1BV0efv6csqGr6FgVAJ
+	lZeC+No1/Junxc9ull9r8afjxvpzXAyEDlqZbThCLboUQPfqRkSQbJufWbnRHgj8QEN1WZejxpE9H
+	njkwLzgvBuQXTh7XtjXjav2VElYZ4MLRgwM66wForinirmpqtKwltCP8h+ulrcelEfsPKYLzsLBFe
+	ky2uSDQd/J+ARqKajpXgoguGob9iwQml4onaRRyUmIG4cesRv+aJZjWle5uieG/n0UJOhEhvw19mw
+	hzX1pL7QTTDCElzw9f2DJUJiqiKI7ABPfqA2f/3v0tSIPMh4NesSSFiLu2kodQLUJmlnTejAktVup
+	nPMjDmtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txkBE-0000000AfNw-1qMY;
-	Thu, 27 Mar 2025 10:09:44 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1txkDZ-0000000AfmG-2LXo;
+	Thu, 27 Mar 2025 10:12:09 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txk9T-0000000Af2K-1S8h
+	id 1txkBo-0000000AfV9-3mkv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 10:07:58 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43d0618746bso5140845e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 03:07:54 -0700 (PDT)
+	Thu, 27 Mar 2025 10:10:22 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso7853345e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 03:10:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743070073; x=1743674873; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2DA/Y2SrhYvb8JIGN8I8VFPVZFKVt4XN6zoT9arPV9I=;
-        b=tV/F8UAVy2/eEEk2/sFZoYt0XQ8HMqDSDuyBgBIdVXvRM/S/7MlAQwEznrQR0OKpgy
-         NEeP+VmWKxl/Es2CE/jij9Z6mm9Q38lftpQwPqWKQ5IePQuDD2wBqA6/Tlxb+plSbeOM
-         OvwcR86+6Ug2DVWgdM9+TB4Ugz8X0VjHm7P+mvnNTMvXHZhBH3WLdwX+FoUxyJuNjuIS
-         WebSCwWBb6Gc9qAOLaW0Lkn5h9jyKsypOgDX5zpuiOMq1Hy23vKEtPa1UrR+4vlS5QiB
-         M+d1vqGAi2ZivyAcZC0BfBA6qoc5RQLANWsmEeA7g1vpwDC9olRlluTxVEvV2xkEgMw1
-         C6Ig==
+        d=linaro.org; s=google; t=1743070219; x=1743675019; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5dVK4MEqf6X0TMeYGVfQUWRHq14IdZfNCfWTmHkdE5g=;
+        b=Z14sqz1JFHCAQKa39ZdWJBbxXu+W3e7YWq3/D4uGv1muGSl9wrdM/26Dn/EcXUtTEw
+         au4RrdWSHN+QzG79MWYyoz0diIk8IY4J47rPJkjBMzupT0+8NguNHtmHyIEd09nnj0f0
+         OyRRpK74MAMFOHK2iialwqWwoq/aWXemJoUqk740Dgm0p2ckQTR/kfF/+hYsx4nuCjOP
+         zeLiiR13c1gVNf2EiMgDdwPxOnsJyf2zAm8lZfSXcsN5IjG9dWjOtSxWbNdbWLAV6d+3
+         K2WfpY5oWfme1m0FoN2+Y3689CFCO1PoLwSEtfnW8dXH1NlBBBLS2Xyjcv7aHW6z5Q6u
+         TZYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743070073; x=1743674873;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2DA/Y2SrhYvb8JIGN8I8VFPVZFKVt4XN6zoT9arPV9I=;
-        b=GhKUjqSpcjV6kUtETAbASTulHhPxWm7UVamq5woRcajgLQZg2wSphX9+HQNwRsxmE3
-         +7kV3MKKw3Ce5583bdb7RFT3WeIYhAhsGurhMgTmZIg+p+EpHWYvMkQ1MsQCz9kxutLA
-         6TBlXstY6dDQEBe03MJvvPrTpbivQxcfJb1PCoCn7KzXDhbA4xt3T3Z7c3VUUXSAM3Iz
-         JIYlhIi88d7t6HGVj4e1pUiL3PHruEBJtVA6luSDtZeRt0RuMuBLoHjPOBlA6iPap8We
-         DcVF3mIhWfnmUNgqSFH+AdIQCKALvPgdCdXLTATHUIYzSInS4cmQz9GE0Qbf/pz1j1/k
-         ZgRw==
-X-Forwarded-Encrypted: i=1; AJvYcCUTwDFFS7VTvUQTh5UP4IBNcvGPo6qXBfo71e6yWCSRdMwlWtiGw+tRHTeBRm1PjoUdGBFAS0J7dxH4F2pkR/Id@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8cEBViFFXF/tf4zxGpnWfzysveI9TxomtPgbBPlt2puJUKFLP
-	oGJt1DGg7FUuAAJJVt8uG0fJOYrXyP50+JUnMFOLzyCmKTTAUF/t8gEy2mj7Eeo=
-X-Gm-Gg: ASbGnctzKHknYTww4ajHJDUsEv40hYXrMUqZQe3nNfT5LiylQS+WINY2K/ZRGrhwg7q
-	Gun0q54flA1NGXviryDFzZSY3/uz5PJqscOAK/p1YFH5tO3fU8d32Di33O9wfv/5d+sfA5w82Q5
-	FmGzC0JcJU19Hgjf81goMN3Pfl8CdYXhgsW1dn7pN9XL/UbAxUQzqYIPpnVYaWryEUWaOwDTKDW
-	axO34mSCz39gO9j/JFsNQWJujOJIoIyDon5UVzl3DAvwEWXYydOHir/mMcg69XpUSt0B+cxSFzz
-	lf92KoPba2wIBdu7T5R9oM1bSOeTNdRlmWGPhDtZGljvLtP3bVIjiSo=
-X-Google-Smtp-Source: AGHT+IFSA/Q3nPbkXJU+wAh3bQb1BmYag2bXoUf1GCR7HVRK1VC002s/eBPHjEc50vV5ysPbU7o5kA==
-X-Received: by 2002:a05:600c:198b:b0:43d:47e:3205 with SMTP id 5b1f17b1804b1-43d850a78d6mr28318015e9.11.1743070073134;
-        Thu, 27 Mar 2025 03:07:53 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:e348:e265:be1a:2d30])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d830f5f56sm32976245e9.26.2025.03.27.03.07.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 03:07:52 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  Michael Turquette
- <mturquette@baylibre.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] clk: add a clk_hw helpers to get the clock
- device or device_node
-In-Reply-To: <4db0bf5937c6c2a480b89b11e841782c@kernel.org> (Stephen Boyd's
-	message of "Tue, 25 Mar 2025 14:57:01 -0700")
-References: <20250120-amlogic-clk-drop-clk-regmap-tables-v3-0-126244146947@baylibre.com>
-	<20250120-amlogic-clk-drop-clk-regmap-tables-v3-1-126244146947@baylibre.com>
-	<508a5ee6c6b365e8d9cdefd5a9eec769.sboyd@kernel.org>
-	<1jv7s21d8y.fsf@starbuckisacylon.baylibre.com>
-	<4db0bf5937c6c2a480b89b11e841782c@kernel.org>
-User-Agent: mu4e 1.12.8; emacs 29.4
-Date: Thu, 27 Mar 2025 11:07:51 +0100
-Message-ID: <1jpli223d4.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20230601; t=1743070219; x=1743675019;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5dVK4MEqf6X0TMeYGVfQUWRHq14IdZfNCfWTmHkdE5g=;
+        b=oxbw36KKEEheAL+zFmT/Zheu5H4PkkTL+1t0lJtbXcE+c1rVPy8GcPKRNsQ+tZHDAj
+         uq+xovplJZuQtfTrb3QK+Qs4y8TfM0tRmGB/B1vcoqZT1rBh9FXcE5gWssop5hyJKRuU
+         QS2pTsAqYb61T+65ai0Ka+Hxpad0F282gg5sEj3RAXgbrS1pvllaxhuwXQb1gwDYDqSX
+         tnSiG6echPVJp7A4mFBRfGm2PrV3g7qUL7YMD2hd5ZtSibivJWrPa7ozC5Gz31/FiaWd
+         oQvZ10ucVhcq63vbo5ZEONndgD6aMyjHTNQ2/vi0GDRFAVFIDGNLK7bkOM42+UR4ws44
+         CbtA==
+X-Gm-Message-State: AOJu0Yw15Nxx7Cs6IRQl1ay2PXZJlQj3OrOQqPlPMCeL+utdVT1YcGVS
+	EqLfC4mGF+AZKeDjEi5k3J9U0b0dP7Q8XypR62jg11iX5kpuxepSR40Fh6uCrM8=
+X-Gm-Gg: ASbGncst87W+gsBfAQSDCL10uVU3hMBe/O2R/C9fqBftKnEs6QjIfBl+lW2AGiE3osr
+	qHxvSEm/To8BFVSBywEHQxKJF4q8q0IdtiaBiK6LQsi1ay/dinMe91oElRyRxCcm+b/WNg6pdtz
+	yxzLFqWrQyiDVp7op75qjbvtn7z30ELGOtDc+XdC3gFIcU+7/QFuwvBfe9TzImJG4iMNkfk1VZS
+	JSfb7Pp5QiQDbQZg48VjBCt9F5R8knt5RzTWE/+nePdtMoiyKMk0bAPL3EcGitZ98oYZ675W0id
+	maLeK28GixmzedpdB/+t9YIttFKrVciEUT6fULKQKgidMyVet7OqrqHux5BRtdqiTCcwswhqh6w
+	oln9XCkeM0PkrYPrihvwKQA==
+X-Google-Smtp-Source: AGHT+IFdm/AJweeb4Ls+JsWWO80Odn3wmJFBflJjpJ8ov4hI0GxODhTug3GPSfXEWpEi5SzYYyG8Fw==
+X-Received: by 2002:a05:600c:4fd4:b0:43c:fceb:91f with SMTP id 5b1f17b1804b1-43d84f8b8a2mr35592795e9.11.1743070218550;
+        Thu, 27 Mar 2025 03:10:18 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:f1b8:272a:1fa5:f554? ([2a01:e0a:3d9:2080:f1b8:272a:1fa5:f554])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9b5939sm19851219f8f.60.2025.03.27.03.10.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Mar 2025 03:10:18 -0700 (PDT)
+Message-ID: <d83eede1-2bf9-4ec1-ac8a-a55328324613@linaro.org>
+Date: Thu, 27 Mar 2025 11:10:17 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH] arm64: dts: amlogic: a4: add pinctrl node
+To: xianwei.zhao@amlogic.com, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250326-pinctrl-node-a4-v1-1-8c30639480f6@amlogic.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250326-pinctrl-node-a4-v1-1-8c30639480f6@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_030755_591567_38C5E993 
-X-CRM114-Status: GOOD (  36.36  )
+X-CRM114-CacheID: sfid-20250327_031020_954908_036E0941 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,90 +127,183 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 25 Mar 2025 at 14:57, Stephen Boyd <sboyd@kernel.org> wrote:
+On 26/03/2025 06:17, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> 
+> Add pinctrl device to support Amlogic A4 and add uart pinconf.
+> 
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+> This commit is based on the Neil's suggestion, rebase the commit on top of
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=for-next
+> which merges this commit:
+> https://lore.kernel.org/all/20250212-amlogic-pinctrl-v5-4-282bc2516804@amlogic.com/
+> with another one:
+> https://lore.kernel.org/all/20250321-fix-a4-pinctrl-node-v1-1-5719f9f09932@amlogic.com/
+> ---
+>   arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 125 ++++++++++++++++++++++++++++
+>   1 file changed, 125 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+> index a06838552f21..c02fa5ee9fd2 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+> @@ -5,6 +5,7 @@
+>   
+>   #include "amlogic-a4-common.dtsi"
+>   #include <dt-bindings/power/amlogic,a4-pwrc.h>
+> +#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+>   / {
+>   	cpus {
+>   		#address-cells = <2>;
+> @@ -50,6 +51,107 @@ pwrc: power-controller {
+>   };
+>   
+>   &apb {
+> +	periphs_pinctrl: pinctrl@4000 {
+> +		compatible = "amlogic,pinctrl-a4";
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges = <0x0 0x0 0x0 0x4000 0x0 0x280>;
+> +
+> +		gpiox: gpio@100 {
+> +			reg = <0 0x100 0 0x40>, <0 0xc 0 0xc>;
+> +			reg-names = "gpio", "mux";
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 18>;
+> +		};
+> +
+> +		gpiot: gpio@140 {
+> +			reg = <0 0x140 0 0x40>, <0 0x2c 0 0xc>;
+> +			reg-names = "gpio", "mux";
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_T<<8) 23>;
+> +		};
+> +
+> +		gpiod: gpio@180 {
+> +			reg = <0 0x180 0 0x40>, <0 0x40 0 0x8>;
+> +			reg-names = "gpio", "mux";
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 16>;
+> +		};
+> +
+> +		gpioe: gpio@1c0 {
+> +			reg = <0 0x1c0 0 0x40>, <0 0x48 0 0x4>;
+> +			reg-names = "gpio", "mux";
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
+> +		};
+> +
+> +		gpiob: gpio@240 {
+> +			reg = <0 0x240 0 0x40>, <0 0 0 0x8>;
+> +			reg-names = "gpio", "mux";
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
+> +		};
+> +
+> +		func-uart-a {
+> +			uart_a_default: group-uart-a-pins1 {
+> +				pinmux = <AML_PINMUX(AMLOGIC_GPIO_X, 11, 1)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_X, 12, 1)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_X, 13, 1)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_X, 14, 1)>;
+> +			};
+> +
+> +			group-uart-a-pins2 {
+> +				pinmux = <AML_PINMUX(AMLOGIC_GPIO_D, 2, 3)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_D, 3, 3)>;
+> +				bias-pull-up;
+> +				drive-strength-microamp = <4000>;
+> +			};
+> +		};
+> +
+> +		func-uart-b {
+> +			uart_b_default: group-uart-b-pins {
+> +				pinmux = <AML_PINMUX(AMLOGIC_GPIO_E, 0, 3)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_E, 1, 3)>;
+> +				bias-pull-up;
+> +				drive-strength-microamp = <4000>;
+> +			};
+> +		};
+> +
+> +		func-uart-d {
+> +			uart_d_default: group-uart-d-pins1 {
+> +				pinmux = <AML_PINMUX(AMLOGIC_GPIO_T, 18, 4)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_T, 19, 4)>;
+> +				bias-pull-up;
+> +				drive-strength-microamp = <4000>;
+> +			};
+> +
+> +			group-uart-d-pins2 {
+> +				pinmux = <AML_PINMUX(AMLOGIC_GPIO_T, 7, 2)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_T, 8, 2)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_T, 9, 2)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_T, 10, 2)>;
+> +				bias-pull-up;
+> +				drive-strength-microamp = <4000>;
+> +			};
+> +		};
+> +
+> +		func-uart-e {
+> +			uart_e_default: group-uart-e-pins {
+> +				pinmux = <AML_PINMUX(AMLOGIC_GPIO_T, 14, 3)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_T, 15, 3)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_T, 16, 3)>,
+> +					 <AML_PINMUX(AMLOGIC_GPIO_T, 17, 3)>;
+> +				bias-pull-up;
+> +				drive-strength-microamp = <4000>;
+> +			};
+> +		};
+> +	};
+> +
+>   	gpio_intc: interrupt-controller@4080 {
+>   		compatible = "amlogic,a4-gpio-intc",
+>   			     "amlogic,meson-gpio-intc";
+> @@ -60,6 +162,29 @@ gpio_intc: interrupt-controller@4080 {
+>   			<10 11 12 13 14 15 16 17 18 19 20 21>;
+>   	};
+>   
+> +	ao_pinctrl: pinctrl@8e700 {
+> +		compatible = "amlogic,pinctrl-a4";
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges = <0x0 0x0 0x0 0x8e700 0x0 0x80>;
+> +
+> +		gpioao: gpio@4 {
+> +			reg = <0 0x4 0 0x16>, <0 0 0 0x4>;
+> +			reg-names = "gpio", "mux";
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
+> +		};
+> +
+> +		test_n: gpio@44 {
+> +			reg = <0 0x44 0 0x20>;
+> +			reg-names = "gpio";
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
+> +		};
+> +	};
+> +
+>   	gpio_ao_intc: interrupt-controller@8e72c {
+>   		compatible = "amlogic,a4-gpio-ao-intc",
+>   			     "amlogic,meson-gpio-intc";
+> 
+> ---
+> base-commit: 23a708916ec7ab21c8c81d61bdb7cb933f6867d5
+> change-id: 20250325-pinctrl-node-a4-a4667d5ec8cb
+> 
+> Best regards,
 
-> Quoting Jerome Brunet (2025-03-21 10:53:49)
->> On Wed 26 Feb 2025 at 17:01, Stephen Boyd <sboyd@kernel.org> wrote:
->> 
->> 
->> >> +static void clk_hw_get_of_node_test(struct kunit *test)
->> >> +{
->> >> +       struct device_node *np;
->> >> +       struct clk_hw *hw;
->> >> +
->> >> +       hw = kunit_kzalloc(test, sizeof(*hw), GFP_KERNEL);
->> >> +       KUNIT_ASSERT_NOT_ERR_OR_NULL(test, hw);
->> >> +
->> >> +       np = of_find_compatible_node(NULL, NULL, "test,clk-dummy-device");
->> >> +       hw->init = CLK_HW_INIT_NO_PARENT("test_get_of_node",
->> >> +                                        &clk_dummy_rate_ops, 0);
->> >> +       of_node_put_kunit(test, np);
->> >> +
->> >> +       KUNIT_ASSERT_EQ(test, 0, of_clk_hw_register_kunit(test, np, hw));
->> >
->> > The stuff before the expectation should likely go to the init function.
->> > Or it can use the genparams stuff so we can set some struct members to
->> > indicate if the pointer should be NULL or not and then twist through the
->> > code a couple times.
->> >
->> 
->> I'm trying to address all your comments but I'm starting to wonder if
->> this isn't going a bit too far ? The functions tested are one line
->> returns. Is it really worth all this ?
->> 
->> I do understand the idea for things that actually do something, such as
->> reparenting, setting rates or what not ... But this ? It feels like a
->> lot of test code for very little added value, don't you think ?
->> 
->
-> Just so I understand, you're saying that this is always going to be a
-> simple "getter" API that doesn't do much else? We're not _only_ testing
-> the getter API, we're also testing the registration path that actually
-> sets the device or of_node pointers for a clk. I'm not really thinking
-> about the one line return functions here.
-
-Oh, that was not clear to me. I assumed the registration path was
-already tested to an appropriate level, so I did not consider this.
-Makes sense.
-
->
-> Writing tests is definitely a balancing act.
-
-That's where my question came from actually. We are aligned on this :)
-
-> I'd say we want to test the
-> behavior of the API in relation to how a clk is registered and writing
-> tests to show the intended usage is helpful to understand if we've
-> thought of corner cases like the clk was registered with a device
-> pointer that also has an of_node associated with it. (Did we remember to
-> stash that of_node pointer too?) We have a bunch of clk registration
-> APIs, and we want to make sure this getter API works with all of them.
-> Note that we don't care about the clk flags or parent relation chains
-> here, just that the device or of_node passed in to registration comes
-> out the other side with the getter API.
->
-> A little code duplication is OK, as long as the test is easy to
-> understand. Maybe genparams stuff is going too far, I don't know, but at
-> the least we want to make sure the clk registration APIs behave as
-> expected when the getter API is used to get the device or of_node
-> later.
-
-Now that the goal is more clear (to me), I'll try to find a good balance.
-I'll also split the helper from the tests, so I can progress on the driver
-front while we refine the tests, if that's OK with you ? It is not overly
-critical for both to land at the same time, is it ?
-
->
-> I've found this google chapter[1] useful for unit testing best
-> practices. I recommend reading it if you haven't already.
->
-> [1] https://abseil.io/resources/swe-book/html/ch12.html
-
-I will, thanks
-
--- 
-Jerome
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
