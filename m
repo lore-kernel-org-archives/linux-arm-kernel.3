@@ -4,76 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6B3C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7818AC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcvekZQH+j+p97YeB4/yEpAZzvs9KIEsKULl/WK/9vQ=; b=AsUFO3uXdPY1hklkxMGZDVUMql
-	VndFHGgKDQ132dmVuLmRIeYYws/uxfG/KTsSdrawGRvAX0E+oljIONmQrmDwWhfjvFVjAV+ZPEiyz
-	/af57PEXgrHF00UztZhVxQ1Lfy7Je2Ncs7cWWm0nyjonqwWdPnwLWbJZTtLftr4SUZGqyeA/46RfT
-	hq1G1+JdLuYKiRSFmD9ttuIUr/XA9cSx+ik4lEbzvl7V+1+D5+M+uSuiNzJlY0TCHQbZl2HRwNxlP
-	LBs/9fPsLSDSiljOpmD0WSjwBVH3QopHuZUbOrnotZ6Ag8XMUtTbKCnBR0t/TmsCVBKvs2rmALF7J
-	J42QKJ3w==;
+	bh=4g3oe3yXXKzhICfOIMNmQuHz2bFDI2b/+aExE9/4v4A=; b=4xeUvSTer2Q5L5YnfjpXfFKGV1
+	rTwNsu1kk90EOcuE2wsdXzXSM7Pc491NkuVDkdU3zGV5LlTeciO7xP0uQRV8Edj05YEB97C5eopE0
+	IpfdSwv6TnFD7LjijDFjpgKTZMQPcdZwEZkFeS7FwISNwWHmwFD8l7s8kWMGAf49qrYiFJwolHikq
+	uW8ncLsq+Oqs0G/QUxrocuuHP+7qnE2hM60MD4QIDkXTkVLckjDrw51PX+cbQ8jgjgR2+i8y2KGml
+	Cchmmhg21LupsLQsKrScNDWI5gdkz7CXY3NNgp5OvAAtPmqp6b87W/B2WZzH3zc5jJNjplGWDlXpY
+	l4Y7g+nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txouv-0000000BKbt-33U2;
-	Thu, 27 Mar 2025 15:13:13 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1txowc-0000000BKli-29gf;
+	Thu, 27 Mar 2025 15:14:58 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txojU-0000000BIQ7-2RIb
+	id 1txokp-0000000BIhx-3JQu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 15:01:26 +0000
-Date: Thu, 27 Mar 2025 11:01:15 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1743087681;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IcvekZQH+j+p97YeB4/yEpAZzvs9KIEsKULl/WK/9vQ=;
-	b=PBKCEw+kRjk95sKh2ZN02rlprYFY1nx3B1WFeMmw7eLoMLXmyGrSSLAxXkStIsfagZ8zmt
-	T0udX4ZTrsEPWsOGQl/xc4tctgdpgepLyZMh4KsRJGGfbfNGtotW+VZAuorJzQRKIjTMky
-	GQ4SPU30Sh6aswM8Z8+OQya2j/4jo57b6G1LEc/9Ay2kuP0t0c9lluUYtYgCAvhMalgSUI
-	HHvev9srG7jpm8+sI+1kgVsJ96knrCfxNuQyGHO3kTVcCGx9BJt0XOPYxUr8EERyuaen9S
-	hKKn/BEI08vUpHLo7MJAJJmATNahJhpRf5mDypvOmC/qWx+5yc61WPwQX31eLw==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: Neal Gompa <neal@gompa.dev>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Faith Ekstrand <faith.ekstrand@collabora.com>,
-	Janne Grunau <j@jannau.net>, Sven Peter <sven@svenpeter.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Sergio Lopez Pascual <slp@sinrega.org>,
-	Ryan Houdek <sonicadvance1@gmail.com>, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, Asahi Lina <lina@asahilina.net>,
-	Simona Vetter <simona.vetter@ffwll.ch>
-Subject: Re: [PATCH v5] drm: Add UAPI for the Asahi driver
-Message-ID: <Z-VoO7l5xzuN5RUX@blossom>
-References: <20250326-agx-uapi-v5-1-04fccfc9e631@rosenzweig.io>
- <CAEg-Je9G23mXWTHbnuozsrRY8+03tfq7uT=St+KgLvq1RggzmA@mail.gmail.com>
-MIME-Version: 1.0
+	Thu, 27 Mar 2025 15:02:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LZcryus+KfLefkprki9CGdn922SW7HSix9VXfdzSmzumpQ64gfVfZd2l2aWnHg+1VBloUonEWbHlAIN33vNU2BtU4cx5553nPx9elXc4DFJj3V/EaU97GWvzXcalLle/I/Hl3ISt6t8p0tDgibxOxMPml70Q2rU2YHGghITe/9iKQsPrBaSHgY2BNDm4r+qJ5+cQxAzVrEvEPLWuR4FXRNvFbZOVu7CM6PeQdnN1OMr9N0jGwzte7ZzRp0xbGIfhSuG3MNLmhCp9W7F4s57bLI/wcAC6hqQonauDI1/WghsECvLHuiFcv1qawKL4FCvn3Yp/Q4vlmoTMoO54niD2UQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4g3oe3yXXKzhICfOIMNmQuHz2bFDI2b/+aExE9/4v4A=;
+ b=GiJYO71Inhd2ZFsIDZIfmIPCFk6HVT3Zd0v4svgMMXUOi8H5n5YBQAYAu09WA628Axv1vZseWyvF6grsGfP98BniAcSKXiTdGWwkAZIB9csttZK3NVpmGLbEwlDVorjO9KWTqCiSJHXnaoRkame5pFjki3YNMPT3anFnlilrn/3aP0CJOUedMUECx7tU9I8HQ40p1xS+tmWsVMFYfwE5PREedjAmZbvaEJkh2GoSUNisoa9BHzOAdKmPxVS/bUNxSU9ZzmzYafUx50bQIFeaXaBmyoJJ9W75n11iDDYvOyjmpA56PzTqqvESH2iA7BYGlwTuFl8TUMehJhPpi9Gmxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4g3oe3yXXKzhICfOIMNmQuHz2bFDI2b/+aExE9/4v4A=;
+ b=iHoq+SIcypJRKyW+xba1+HTKv3/Yoq2LtQaXQWOP9mHauONFVdHEI6khosqWvU2Zj1cLP7qr9iys0bGBLjxdGXqYiOGaMFSShbNSxkHll2yWzOQUe6gfnfQVZ65NldVDZPQ8NkCj1gLigok4IKH+IEU3DDiuc8w5JRxEE5gfKYXG9rhSi7BLsCIxAHFiJT1K4b1bqQWly+zv+bY1AttvlWUOl08ugIN0eusekFz0nFFRGBLS22IdWMD8x4igaNIjgacYFPbLukH5V7+pJK73DMyfMCsQItGav969h+EhyH4sNtP0oaUlFqXPCKF3MMd+mJqiH6JD2WVRE+A3/eYGeA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS1PR04MB9285.eurprd04.prod.outlook.com (2603:10a6:20b:4df::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 27 Mar
+ 2025 15:02:44 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Thu, 27 Mar 2025
+ 15:02:44 +0000
+Date: Thu, 27 Mar 2025 11:02:37 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/7] ARM: dts: ls1021a-tqmals1021a: Add overlay for
+ CDTech FC21 RGB display
+Message-ID: <Z+VojbGBQ29j5H/o@lizhi-Precision-Tower-5810>
+References: <20250327144118.504260-1-alexander.stein@ew.tq-group.com>
+ <20250327144118.504260-6-alexander.stein@ew.tq-group.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAEg-Je9G23mXWTHbnuozsrRY8+03tfq7uT=St+KgLvq1RggzmA@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250327144118.504260-6-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: BYAPR07CA0025.namprd07.prod.outlook.com
+ (2603:10b6:a02:bc::38) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9285:EE_
+X-MS-Office365-Filtering-Correlation-Id: 726c59eb-f760-4550-89a4-08dd6d406d9f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ePEX06M70UUQ3q6sdbCCxcOHLmGupPTEhmoGS8YMyXqgTqMCNrLBNH2fbDD0?=
+ =?us-ascii?Q?bxd4JCV0iEripTG7VrB7IMHJFJsC1tPTOqwUCc1m29vHK79OcxQ/6F9yOpJ/?=
+ =?us-ascii?Q?8OmQtRP8MxHYXofqp3euooclYopT0dc4WJbL7NeD0oZu81Yd46Clc57Bxqcg?=
+ =?us-ascii?Q?Avz4Mf+ZYBht+b+cCRysJNyjK6KsZ7Mx809441B8+NqMQff1bOGXYx5ZjndF?=
+ =?us-ascii?Q?7liRtlA7KbZkSE2JqAogiqcTr4GkO+0We/Q+o9JP4JNhlQHpuYun3rAF85xn?=
+ =?us-ascii?Q?sHnUCD+996EXoQQfeaNvpUN2zcVQgETa1MeSHrIxPZjpNM0dbcwkvH2dBzwe?=
+ =?us-ascii?Q?NvglLvUuapL5ZKkhTL+ZMRhvmz7dI6CJ1uAEdD3p9ssw2D4hwBr245o/AIFy?=
+ =?us-ascii?Q?RMi3tr5n7AdhBrWIRqC2MOWR+msQO4C2tyfDE/l/rckr4r6kN/IGdM2nidY8?=
+ =?us-ascii?Q?k3f8GN/a6n5TcER15bJCPEJq81dqQGLIHkhcFOSyBrlzBngtCIFqWcob2Mvd?=
+ =?us-ascii?Q?EX/dBdprjJlx6RclMaI4AgE8R9p6d1hdmCLnXScubMoLhaLJ6Q3RtpCDvxCK?=
+ =?us-ascii?Q?JRh/GIwVsznDMuau3mWDr5V8i/x8icA3IG1Tx8ODgxHkBsrcwxRBiS+snGgJ?=
+ =?us-ascii?Q?uB41d3Ruwv850VrWLUfIY0364ntcpxqOLCzeS7ZpaTGgJgOANkaJkidqn5mi?=
+ =?us-ascii?Q?Bn0paijCj1w82P76Ck+Q2gMHpod+zawa5FqeXx2+DBaTkGORpCzDeQoTS99V?=
+ =?us-ascii?Q?D3YkBymekyReM6XilEKYwvXfJNPHE+61epVtF0kwZkVTMZCcVJ9RsfKlXE5v?=
+ =?us-ascii?Q?/LwI68UtRWHxvegS9nO5lICsPKZN37GyrGT8Kb0NbNUg0G0oYA//fuMBYXmU?=
+ =?us-ascii?Q?ZGkFQ2HRA8p8i3t/RxLLC06un1FAKwrF3D45iEH4S8sS5NPHTntdB3ZIwMfU?=
+ =?us-ascii?Q?qWaeXCg+kIMAI8yXWquYVzog70LZzhdLXLsWMq/pq33Ja9kC4tsjRGtB1/JL?=
+ =?us-ascii?Q?5jlZzWpiwdRyBGUAEjpHfLKl1teWvU1hDaeYLTpKuahrN0UECObS2cCM66sW?=
+ =?us-ascii?Q?MA10VnSYPxnaWiNs0/uEPpiJz1OYnFJ5LcWEs58bm7n+qsi6jTGEmwXly2Jj?=
+ =?us-ascii?Q?tB+3h4XNGQJY437xZgXkfYneodhc9lNfaRJJZCuIZZHsKndaU/LoLgVrm2X7?=
+ =?us-ascii?Q?Ae/Pz36gtwW16u2mzeqHfcvRPXmJlGBWUqeIMxOgFiPrbmDHYTaec+3Lgn8D?=
+ =?us-ascii?Q?ulP6KcqYDFFHP5eiLrT/nzjMVmVutEplSz/WtjVrOIbVKi6X7wHS1qsOM7Aw?=
+ =?us-ascii?Q?V3rcZuYxEm+HVsXkDXjnk7xWkL+WzwezyyygXO/BjmERBd9n9cOF9ASR+CA3?=
+ =?us-ascii?Q?1vn0O2p/bOCud7kk784FXxx8gpz6SAzoZTibgjsMkLHp9AAr30pKOPxmBSFx?=
+ =?us-ascii?Q?U54E+h8RTvCbp16bvaHHm4kuiMevYYOZ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MZHVuk7yd+fAgcg76OSieBNTSZksNlOL61jRbxFguvGu8NhrHpNZGaMbVez1?=
+ =?us-ascii?Q?VepNCfaCneWUSvOpc8bgRaULzyW1cxROUvJIdrWznMjTG8SF8rd48ttJhg05?=
+ =?us-ascii?Q?OXtY3lWLgZbX9tt9JX8Y9aC6s6izPtDX8jcZFWx3fAqQce5XTIBhn7Uz5gSa?=
+ =?us-ascii?Q?KgaeFC77dSDclFhMbB9nfChT495FMdwgGoOHWk9SO5UVUgDd/jcF+fU2VIS7?=
+ =?us-ascii?Q?BUWXP6Qw3Z+r2wE2FsG5x26va+L83x0qoOq6knpgt8aaRted4/paCpmnjUpt?=
+ =?us-ascii?Q?fTTXa9GhvEDxJI564QQFf5ZiREhYdpZsQ9oUht77wnEYck4tkoPY7GbOjG9o?=
+ =?us-ascii?Q?vHNH1wi1agL7uQbgs66w9GzZEaDXoP9UnyJF3EzQ7kzsZOFB/ZGf7PBX2J+t?=
+ =?us-ascii?Q?ehDct5/GvCqRzLZN4qFpTFPQvc1b3qjgUUHIONyQYPy6PsrImsAmE3xUIeUU?=
+ =?us-ascii?Q?/AY0X0D+0jQLhNBHT/GNs1VDb7urhoUjkvgpi42HiEWfuPaJLFU5RYN5P6qV?=
+ =?us-ascii?Q?GXgCiC8H1JCja91Tp4n5KogRtIhgEQraQXJNy6gUM4BlZhSN0wSelM6IY+Ex?=
+ =?us-ascii?Q?4tRLC9tLQzeo/OfRrpKdBU+RzLESHWu0MXAL5mw/llRE1uXpsdgIllztyIH6?=
+ =?us-ascii?Q?ZGI6Sz5v/l9+ZwlIhRIWU+0PgbXTtdVc1VkuBlQ3zRUOjHthu/wHg8U0faaN?=
+ =?us-ascii?Q?yDLTz80YqfbvrzBvljVh79V267io0zIu6LFn2cEul1A4BXXEn5/Rm1zVb0BO?=
+ =?us-ascii?Q?VtRnXVHRBTF4TMHAkk73G6JaaD12gX1Xoi3Gzn+LrV6x2IX3XaFU3LS1lBfx?=
+ =?us-ascii?Q?A4Q4EP9LlXhO/Ajm1zdD9UJI79qpcxNUezBXrtAalf/rPr/xVvP0Cpbme6b6?=
+ =?us-ascii?Q?vEKqVaO0FkM1DpgTQ6ObcLDIFBV1WBTy/n44NcppLeTU0x6u2gbl2zKJPhrY?=
+ =?us-ascii?Q?VYKtRQs90oPX/TjJP4f0cgMuz3r1MFlu7iIp0+79xTCJLXNq8FHZ1FAUzRdY?=
+ =?us-ascii?Q?Kwvh5TPQ9RAtfw9gyGZQKU7FTwgbMQD0Ayk4JuB4VmWlGfkwuhrFvPuP2m1y?=
+ =?us-ascii?Q?XvDsrhVxq27eIfB4ovZkFIIfZHL1IZLs6xdUsnetRKhNGAoLWnGjB70Dyel/?=
+ =?us-ascii?Q?Hzo79CqXa1bNph22TpEr1wxgksZUXlVB1EznitrWKmeeagXIPOhorWfGLF/V?=
+ =?us-ascii?Q?TACuzaAAXQhtJxywboa00AdVq/+5T4mCjmA+4kpSyGuUrlxIbwhAVAE8JMwD?=
+ =?us-ascii?Q?LyqhuuOcjeC1eOz2RQO62Q3VHTayDeUeoUAEEPtZ/vAD1ZLZ6o8Jgvm9xOcl?=
+ =?us-ascii?Q?ql7u6QKex+qCks8vWbYnRzVm96igjwbh/lXcfZUliGM4sI7Muw/Z+yCj2jhQ?=
+ =?us-ascii?Q?+Nz8vpdYJR1OUud2UuQns0vpXyimX3V8pRpcJoLqs/YY6bCRpjm/mLVWl74k?=
+ =?us-ascii?Q?y6qBpNApNwCX8WKWv0MbncIER0auchn4TFYjzM5eFSs9hah8wnqDArZscOjQ?=
+ =?us-ascii?Q?L90EfjdwBumiNxmCASJ2d9UBFCexFGMmOJchnAs0hpqsaOOltkS7H4zTTzKD?=
+ =?us-ascii?Q?5HS7iHqtFfoeOV0v0+RG2G8gwtHcBP+xYE20sqza?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 726c59eb-f760-4550-89a4-08dd6d406d9f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 15:02:44.2722
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: znPGijH1eczyyiIKNo81XPwLzS6UKR/Mlt83REgHf7M0FsCNDXt+P3sn+HJ7LvIqTyNJyZkAiu1VRazxMDU06Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9285
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_080124_756890_9ACA5D44 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250327_080247_828861_52374A4F 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,25 +160,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > https://github.com/alyssarosenzweig/linux/commits/agx-uapi-v5 contains
-> > the DRM driver implementing this proposed UAPI.
-> >
-> > https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/33984 contains
-> > the Mesa patches to implement this proposed UAPI.
-> >
-> > That Linux and Mesa branch together give a complete graphics/compute
-> > stack on top of this UAPI.
-> 
-> Do we want these links to be present in the commit message? I doubt
-> they'll stick around permanently...
+On Thu, Mar 27, 2025 at 03:41:11PM +0100, Alexander Stein wrote:
+> This adds an overlay for the supported RGB display CDTech FC21.
+> DCU graphics chain is configured accordingly.
+>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Permanently, no. But by the time they go dark, the relevant code will
-hopefully be upstream in both kernel & Mesa. So I'm not worried. Not
-really weirder than any other links in commit messages we have.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> This looks good to me, and the referenced integration code also looks good.
-> 
-> Reviewed-by: Neal Gompa <neal@gompa.dev>
-
-Thanks!
+> ---
+>  arch/arm/boot/dts/nxp/ls/Makefile             |  2 +
+>  ...-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso | 56 +++++++++++++++++++
+>  2 files changed, 58 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
+>
+> diff --git a/arch/arm/boot/dts/nxp/ls/Makefile b/arch/arm/boot/dts/nxp/ls/Makefile
+> index 7f96de6f80224..7b97b718ebc16 100644
+> --- a/arch/arm/boot/dts/nxp/ls/Makefile
+> +++ b/arch/arm/boot/dts/nxp/ls/Makefile
+> @@ -9,5 +9,7 @@ dtb-$(CONFIG_SOC_LS1021A) += \
+>
+>  ls1021a-tqmls1021a-mbls1021a-hdmi-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-hdmi.dtbo
+>  ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtbo
+> +ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtbo
+>  dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-hdmi.dtb
+>  dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtb
+> +dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtb
+> diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
+> new file mode 100644
+> index 0000000000000..31494d9d09f8f
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
+> @@ -0,0 +1,56 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright 2013-2014 Freescale Semiconductor, Inc.
+> + * Copyright 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Alexander Stein
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&backlight_dcu {
+> +	status = "okay";
+> +};
+> +
+> +&dcu {
+> +	status = "okay";
+> +
+> +	port {
+> +		dcu_out: endpoint {
+> +			remote-endpoint = <&panel_in>;
+> +		};
+> +	};
+> +};
+> +
+> +&display {
+> +	compatible = "cdtech,s070pws19hp-fc21";
+> +	status = "okay";
+> +};
+> +
+> +&i2c0 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	polytouch: touchscreen@38 {
+> +		compatible = "edt,edt-ft5406", "edt,edt-ft5x06";
+> +		reg = <0x38>;
+> +		interrupt-parent = <&pca9554_0>;
+> +		interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
+> +		/* LCD_PWR_EN -> TSC_WAKE */
+> +		wake-gpios = <&pca9554_1 4 GPIO_ACTIVE_HIGH>;
+> +		iovcc-supply = <&reg_3p3v>;
+> +		vcc-supply = <&reg_3p3v>;
+> +		gain = <20>;
+> +		touchscreen-size-x = <800>;
+> +		touchscreen-size-y = <480>;
+> +	};
+> +};
+> +
+> +&panel_in {
+> +	remote-endpoint = <&dcu_out>;
+> +};
+> +
+> --
+> 2.43.0
+>
 
