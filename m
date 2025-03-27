@@ -4,135 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82834C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194B9C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDlVt4FSUTGLCu2124JJ/IMoAeK/iPh22axagZc1h1I=; b=BwU7NCSI//gRFuYEvl9dGmNwYu
-	0J5TUmRF1tqjDqptgIdWtUEHMeu9ZGdLAwAEQ2jcZXD/Op2/agMDEAjKKZD5pPaSeks+4ZXH7G5O/
-	BmsGFjlF7vPisLMDXGlJOnMq94wBkjcF1K8BSnATWzFVVdIoVq0x70KXW5vdCWer03S0WBVufr8kj
-	UHhkQVxWUZu/ozxppSxNeKRu8tZe6wB9Z+9bqgaUfZF0Gfp+x62MFgAm2aBP7ronNHZ7q8Ib1h7eW
-	UUcubqoRxzqoD+UetTlrjF1vwDsBmx3GFMg7nyrqLDNq8gg8PnH7ySDi8PZWv3SlT44k88kL9EF9k
-	p/i2d6JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ce/nqRTCaUwz4MHePfu9cmeB1+yywCLgdAQeEQefRec=; b=rmA55F3miOyN66e0DzU9hoxVJZ
+	GZz3pTTfEo/nIcX7ZTbHw/lFva7dBatfKqn+22f1CTBcjwWXWZ0YmA55Vc/64pmyPP4ihi2aCe043
+	+3BCHDUUz25jgSgnUWlv+BOdr24XD4iUr1gR2wrwHueexNKfiz+GqgQbfw5hdhh0ZMrcoeO9m3Vwm
+	SMjCmfXLo5Ci+YI0Jh76LjCZhnHn3XTJMxCddg4YzAq4uEonFslBdIMur2XTGoo3s2e8yMvhfJs8x
+	W6ZQoR39xcWAdjxTw6x/fGk3J+vBk334ybkV/qWBti5dWDFke7wqFodFIPUohJra6oCii8JVSP0LZ
+	Q3Un75ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txikO-0000000ATMF-3f1m;
-	Thu, 27 Mar 2025 08:37:56 +0000
-Received: from mail-psaapc01on20715.outbound.protection.outlook.com ([2a01:111:f403:200e::715] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1txioR-0000000ATpf-34be;
+	Thu, 27 Mar 2025 08:42:07 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txihw-0000000AT4o-3rZT
+	id 1tximh-0000000ATcl-3jOn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 08:35:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jWV0JZMLcpiPo8h2S67v7OBbRj+RijLbVPuxhIK3RSs65foFxXxwPvzGPFrEr8rUjLhWe75jZOrrRp7ewQHqERfz7ewoJEg83FNC48rR3LHSATY3Yx348XW8d+2kvN9l2yu8xvDOK4ly64cVrCGbzfDJU0YL6SCqgiVedy56ANSRMrZpZpCnOXqAEi7Eo4ltJCNfPQuXKAaFL6HfRtsXBgRZoegSoPWFjtcA14ZuGoMCH8IFIplKZidSDjjuF4zkp8Ial63dzJ8EMEy28YzRDKh7yBMp3gBpzx6yefQmdz4AiKRTGLSXYSjSWpgVogxN9KqzYfK6gs4n4iIOvSOFsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wDlVt4FSUTGLCu2124JJ/IMoAeK/iPh22axagZc1h1I=;
- b=X6hVvf4tTU6MyIuZsoxUD8hDpoAIgjrspW1ZSrO2gpUX1I1It7fSw+/38zhfyYPx54yZxHsSGV5aWi1/LGeqcek6XXZvb/FDj87yTJToCuImZIX799/HUwA0KM9guRYM3kTmwnsOZrqyIkAdhqy9vk9zOUejBJDE72WRYZa9C2IybQpw3Lesgi7ZockstxdZWi2vLyCJsT+3p3fylBAVNLqsaXLcn/ojzf5t82+j9YsESqc6+5IJfQCDte+BIReh7OvmLCvJ3k4796i5gPu3chrAr8Qqd6INdz4TO/QNSlM7z+xmDKeCod6FwPeZ5FERsViYabQkLZk6k8Eh/izTpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SE2P216CA0044.KORP216.PROD.OUTLOOK.COM (2603:1096:101:116::11)
- by KL1PR06MB7330.apcprd06.prod.outlook.com (2603:1096:820:146::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 27 Mar
- 2025 08:35:09 +0000
-Received: from HK3PEPF0000021A.apcprd03.prod.outlook.com
- (2603:1096:101:116:cafe::ea) by SE2P216CA0044.outlook.office365.com
- (2603:1096:101:116::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.34 via Frontend Transport; Thu,
- 27 Mar 2025 08:35:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF0000021A.mail.protection.outlook.com (10.167.8.36) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.20 via Frontend Transport; Thu, 27 Mar 2025 08:35:07 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 909B54160CA0;
-	Thu, 27 Mar 2025 16:35:06 +0800 (CST)
-Date: Thu, 27 Mar 2025 16:35:05 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, soc@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com,
-	will@kernel.org, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
-	marcin@juszkiewicz.com.pl, kajetan.puchalski@arm.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Fugang Duan <fugang.duan@cixtech.com>
+	Thu, 27 Mar 2025 08:40:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3AB46A40BC2;
+	Thu, 27 Mar 2025 08:34:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD14C4CEE5;
+	Thu, 27 Mar 2025 08:40:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743064818;
+	bh=M7YLTOwmxz8VNCLJQrpSFgrai1rDE44BnsnAtSQ+8g8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Bdf6RvOvjEYGXlZr9JhtetcwgGmZLV4uKQvjuyvEWbnJDYHu1tbclQY2tjfznu1FQ
+	 zbi/zRNqFeRhmiWVpaxPSug73eKw25hU31ypTmaQdw5i+07Mrz9mUdnaYloqrCOOEk
+	 XfkG/SAOQm6ZDkq/7ym88pdQ6V0qQdDpkqqWkA3daJmzv1NzZCxCFJhvi1nIiRye/o
+	 CeqnIvKDHUSDBA2gq11N2l8n3Qj1bSrH/qNyrw5S1OF4nLwiGyGxUCRdyRd6KIzI4Q
+	 EQnfw5OfTtxqYFyHJXw3aPv6KurYyzCbqi0oUtmQX+D5/BBRr2R6QURTVmZ1FU/lJb
+	 AOQyB4RR4EBDw==
+Message-ID: <b2e1da92-0dfe-42c6-9f36-32486b768220@kernel.org>
+Date: Thu, 27 Mar 2025 09:40:10 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts
  support
-Message-ID: <Z-UNufwSNmZreKya@nchen-desktop>
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: Marc Zyngier <maz@kernel.org>, soc@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ cix-kernel-upstream@cixtech.com, marcin@juszkiewicz.com.pl,
+ kajetan.puchalski@arm.com,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Fugang Duan <fugang.duan@cixtech.com>
 References: <20250324062420.360289-1-peter.chen@cixtech.com>
  <20250324062420.360289-6-peter.chen@cixtech.com>
- <865xjxmlgl.wl-maz@kernel.org>
- <Z-Nz0DU441Wwj1i4@nchen-desktop>
- <861pukm9yd.wl-maz@kernel.org>
- <Z-Tz1moMNozx23k6@nchen-desktop>
+ <865xjxmlgl.wl-maz@kernel.org> <Z-Nz0DU441Wwj1i4@nchen-desktop>
+ <861pukm9yd.wl-maz@kernel.org> <Z-Tz1moMNozx23k6@nchen-desktop>
  <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF0000021A:EE_|KL1PR06MB7330:EE_
-X-MS-Office365-Filtering-Correlation-Id: df5e7c3a-2079-4d9c-b3df-08dd6d0a47bf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nnN/LT2Erm1Ksw+IexTKsvBIuvdlv2EXm+EB4oJ7wj7zpNHqePi8RLTb+fPi?=
- =?us-ascii?Q?08MpcYoPiaC/V33YFEbcFasmcym+Mu73NuEKfN9sujMt5FHOv1BIajqK9VRN?=
- =?us-ascii?Q?ZJ0yw7mCBhtYCYX369oXElq3WmPlClrNW4r8iU+YN05KegJmhJjPlXLVhFWo?=
- =?us-ascii?Q?esdtWMqMVRNE2QCKA6BGaxNj51W1M+FuXbqwjVoFJ5gxGq6s5pTVAo1Pkglv?=
- =?us-ascii?Q?2L/DuwiD93M3xhRJ+Pu2PVmcpngwCi8IOOwqy8cJNJvnB5fTugZx0QmCBHEn?=
- =?us-ascii?Q?refZVM61MorOAldrvI26QccGVZHkGXewg/d8GwmA4EmQ/mV9oOMFdnNjaank?=
- =?us-ascii?Q?T6eWSKsnNmb7p15qpH5evW0JM+eEvHe04Xh0qXaik/Nt1yXdskeVQhSeYb6A?=
- =?us-ascii?Q?UMJXJMnbb+nhH9DrIkpD8V8x4KIiELKZKpIffQOB09UQ8wunI3u2jHK5GMlR?=
- =?us-ascii?Q?3wsI5FZncYcUXZJEHLyF39ofs/9JvK3isgeHLCRJUzrjhC2i8x9Tec9pI6ke?=
- =?us-ascii?Q?2wF0srLzuOafpwpOpMefNHZxMu/dJG0d7D9gIMJR8G/nOwgq0MKeZrdMrTjn?=
- =?us-ascii?Q?/zVvCOa8DlkkuCcQjVzzTnKngOqtePmlqEPY4rOdmzeggvlARs8KQS3h9es8?=
- =?us-ascii?Q?55KvVu80ngDKUxiZQLHOwmIl2voi8Vnfa0vzoW4KipHyREijq54lgMg/fCo+?=
- =?us-ascii?Q?HlZ1SrzAbMjC/JPnfSVCarz3Va/+jXkKEG5XHBIxNI8XAziZ2+5/wiw85ULu?=
- =?us-ascii?Q?iRSB61Bn0eN6OXo0HcCXblqk34hggS+RxrLcmBcejszbeNnwbkUPwFt1kMEO?=
- =?us-ascii?Q?r8QTQ1STiwb/CWy8RlwC4S30abaZ+iYHRhh0tKwpkWcIzjsQC6dN4x3xWFVp?=
- =?us-ascii?Q?tMWEVguU5NanF+2RhXjS88YsxY0MvwuvkOqsXYVUe8IeElnqXZVRoDFO8QNy?=
- =?us-ascii?Q?be90XaC0YiWUHYd3hQJX8ymN9R/RCI7fbL8ioz8kCf4E9ePlWIFVDxfRdgBM?=
- =?us-ascii?Q?svePYy/1rC2n728rPcRH44HNmMiYRNRPgJPBTjmsTsIIvVHqGKJ/gV5i2ikl?=
- =?us-ascii?Q?DXI69lIVdhOotRp7ooolCcznVNFg26pY5WMp4/yybmyC1mIW684MvA6DYQgu?=
- =?us-ascii?Q?5h+8+rISRFMOTGYkrNaQRJweAHjtTATwrBVmZQNPqRpTJwRFNrPS1kn9EiNp?=
- =?us-ascii?Q?0PtVV1nhFKMT//3g8nl6k6d/QJrX1WhSBuY8Ms2OTGap0gE0UgiIr/JnJ0CJ?=
- =?us-ascii?Q?MIP1oXl6C5r+Y2uHT+9TAo0IZtEnfxd2g6CnRmqyhApxIsHhh9ZSPVxXAxjM?=
- =?us-ascii?Q?1eEc7qZc3tl8WGMDX37gzxQV2+61RSgFirLzJuUyT2GMhMReeCLMM2GkZJKY?=
- =?us-ascii?Q?yrWR9GbSsKIVFQhb1AJ3QFgk81xXaMcxBV4qxUvIdCTRGymyFb07oVM83ItB?=
- =?us-ascii?Q?tOSjsRsDzrtJP0FAlMlbYa6veq74pFT79Bh7FMUKxvgeCetouq2NEkdQHlA0?=
- =?us-ascii?Q?85GHjJWcSNToYtA=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 08:35:07.4980
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: df5e7c3a-2079-4d9c-b3df-08dd6d0a47bf
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF0000021A.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB7330
+ <Z-UNufwSNmZreKya@nchen-desktop>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Z-UNufwSNmZreKya@nchen-desktop>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_013524_962545_1E45B0CB 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250327_014020_063530_C1B18DFF 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,64 +128,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-03-27 08:16:33, Krzysztof Kozlowski wrote:
-> >>
-> >> No, you are deliberately choosing to make this platform useless.
-> >>
-> >> That's a bit sad, and a waste of everybody's time.
-> >>
-> >
-> > Hi Marc,
-> >
-> > Thanks for your interesting of our platform, and your comments
-> > help us a lot. But I don't think it wastes reviewers and maintainers
-> > time, a clean patch set saves everyone's time during upstream process.
-> >
-> > For how to organize the patch set for SoC, Krzysztof gave good summary
-> > at [1]. We are going on upstream [2], this patch set is just a start
-> > and base but not like you said for marketing purpose.
+On 27/03/2025 09:35, Peter Chen wrote:
+> On 25-03-27 08:16:33, Krzysztof Kozlowski wrote:
+>>>>
+>>>> No, you are deliberately choosing to make this platform useless.
+>>>>
+>>>> That's a bit sad, and a waste of everybody's time.
+>>>>
+>>>
+>>> Hi Marc,
+>>>
+>>> Thanks for your interesting of our platform, and your comments
+>>> help us a lot. But I don't think it wastes reviewers and maintainers
+>>> time, a clean patch set saves everyone's time during upstream process.
+>>>
+>>> For how to organize the patch set for SoC, Krzysztof gave good summary
+>>> at [1]. We are going on upstream [2], this patch set is just a start
+>>> and base but not like you said for marketing purpose.
+>>
+>>
+>> I do not think I suggested in [1] to ever send new SoC containing only
+>> CPUs and interrupt controller, without even serial. My instruction [1]
+>> was how to organize it. The DTS can be even fully complete, see the
+>> upstreaming example I have been using all the time - Qualcomm SM8650:
+>>
+>> https://lore.kernel.org/all/20231124-topic-sm8650-upstream-dt-v4-0-e402e73cc5f0@linaro.org/
+>>
+>> Entire SoC sent to mailing list on the day one of public release of that
+>> flagship Qualcomm SoC. The SoC DTSI and board DTS have almost complete
+>> picture, except few trickier pieces... but it even has full display and
+>> GPU! Plus, as I explained on my email on samsung-soc, that DTS/DTSI
+>> patchset references all other bindings with their state, so SoC
+>> maintainers can understand what is the overall progress and what will be
+>> the result in DT schema checks, if they apply the patchset.
+>>
 > 
+> Hi Krzysztof,
 > 
-> I do not think I suggested in [1] to ever send new SoC containing only
-> CPUs and interrupt controller, without even serial. My instruction [1]
-> was how to organize it. The DTS can be even fully complete, see the
-> upstreaming example I have been using all the time - Qualcomm SM8650:
+> Like I said in this thread before, without this initial support,
+> we can't even add mailbox binding that the dt_binding_check will
+> report warnings/errors [1], the reason is "cix" has not existed
+> at vendor-prefixes binding. How we handle this dependency?
+
+Not different than all other SoCs. There is no dependency, you just send
+your patch and tell where the bindings are. Just like I asked in the [1]
+you linked on samsung-soc. Just like all Qualcomm upstreaming goes, e.g.
+SM8650 I linked here.
+
+Just like maintainer-soc profiles are explaining. I told you to read
+them on IRC.
+
+Your way is contradictory to three sources describing process and two of
+these sources - my samsung-soc posting and maintainers-soc-clean-dts
+profile - are known to you.
+
 > 
-> https://lore.kernel.org/all/20231124-topic-sm8650-upstream-dt-v4-0-e402e73cc5f0@linaro.org/
-> 
-> Entire SoC sent to mailing list on the day one of public release of that
-> flagship Qualcomm SoC. The SoC DTSI and board DTS have almost complete
-> picture, except few trickier pieces... but it even has full display and
-> GPU! Plus, as I explained on my email on samsung-soc, that DTS/DTSI
-> patchset references all other bindings with their state, so SoC
-> maintainers can understand what is the overall progress and what will be
-> the result in DT schema checks, if they apply the patchset.
-> 
+> I thought we need to move one step and step before, and keep clean
+> and avoid warning and error for every submission, but it seems not
+> the way you prefer. 
 
-Hi Krzysztof,
+No, from where did you get such impression? Maintainers-soc-clean-dts
+explicitly covers this case and I WROTE IT, so how can I prefer
+something else?
 
-Like I said in this thread before, without this initial support,
-we can't even add mailbox binding that the dt_binding_check will
-report warnings/errors [1], the reason is "cix" has not existed
-at vendor-prefixes binding. How we handle this dependency?
-
-I thought we need to move one step and step before, and keep clean
-and avoid warning and error for every submission, but it seems not
-the way you prefer. 
-
-If we follow the example you said at [2], we just send dt-binding
-patch but without considering its warning, and go on reference the
-submission at this patchset cover letter. If it is the prefer way,
-we will add serial node, clock node, mailbox node and necessary
-header files to satisfy the minimum submission requirement.
-
-> The minimum, absolute minimum submission is with the serial nodes. I
-> would prefer to have some storage or any other interface as well, but
-> that's fine.
-> 
-
--- 
+Follow SM8650 style or what's written in maintainer soc profiles.
 
 Best regards,
-Peter
+Krzysztof
 
