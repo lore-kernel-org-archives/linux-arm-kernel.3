@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8362C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:48:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB197C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S2QaKUVgXkIdAEjugTud0F4/C6uqfNCTUMyQiGHLmiY=; b=gn1bg3QnkdZc2wGPJYS2agUxR/
-	vFUYunn9D4DU7Jbh1mosyp+70BBwdPwejmc/wFN8/jmtbE2G0/ktmmL2e3lXGsxOvF/FC9FksB49I
-	QANF5EmN/4qGs//JYP8EV9FCN5YyDwGS/qgu9h8NJ1+xNVkQk/mLM5rEB/vkptR45bK12SzjR9PcA
-	IRIyhtOWods6QVL+/QezTnK5DoyjitgRkxSKICBLnTcLeDvsHH34OIFDcHa+gbX0eKhblYgsOXtFj
-	LuAPxU1oMypRoZyVF1HmqowNN+QAg+xFqWbwM1e0Cvg5Uzq63Y2cYc0y7TuPBv8P72FneC9kQrGkq
-	XLJkLVEw==;
+	bh=kB8KVWR95tdYCqRM6F+RnHZdlpglpzMAxs6qp/amWbM=; b=a1fQ0DuP9W87d248m9uRAVbtKo
+	tn9H8quGf6a5fjqVm7ZIU1YuPslORZAwRN4WBkQGJO/+EKZeuqPkV7ueLy15O8RHb9++gRau4XuzG
+	21QkG2o/nzzCQoRLss73rP/Rex9s7GtFDWZO8pLKYTKMYErjJBwd3xugY4ph7VKy40looQClmxBvN
+	gmvcrJCYosghzUEZEuezd4oYlsxH0Xwa+w1qMxe1sa8Gv1peiBoO2eHsu6tZpcAWKVGjYWiAgu9kz
+	7eMn9UXWREeDmeYEMnCO176CehV7Ki4lTyZyUb/XhgTSASwK3yygLOHklsDWkBJGH3shNsxzWyyLB
+	wVJXpqmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqOy-0000000BZJ0-18s9;
-	Thu, 27 Mar 2025 16:48:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1txqQe-0000000BZmY-1Zja;
+	Thu, 27 Mar 2025 16:50:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqI0-0000000BXvZ-194O
+	id 1txqIl-0000000BY6G-2bsk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 16:41:09 +0000
+	Thu, 27 Mar 2025 16:41:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E5844371C;
-	Thu, 27 Mar 2025 16:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1214C4CEDD;
-	Thu, 27 Mar 2025 16:41:07 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00038A42D5C;
+	Thu, 27 Mar 2025 16:36:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 609EBC4CEDD;
+	Thu, 27 Mar 2025 16:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743093667;
-	bh=f+qtwl3UQE1TexghPgxTSWj87ZJ3sAnv422eko/TQcE=;
+	s=k20201202; t=1743093714;
+	bh=cgDvoTMdFl8uJCZb28WudBmYP1cge1/0I+1+v6MpP9E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NKtv7GniKPdzWtcfkk/ebCw4lt/02NVKmw79SymGNcHew9ZzwcizWlMOKmirOargR
-	 e8Bq3dDcJpkK1LLQkHGW8T9b5Wgnkb74xSCmi7s17Ua7O4QPgIx5g6BY+dQyO2ecuB
-	 vykCFqPM6f+OELCrasNbJXmrsPgzBiMXAx7tmPbIcxbBFBFeJUh6LkahXB6FscXFmA
-	 43IsZn8mxQRfo1vTDSJkeqc9sFbnQLgYc31KBr5gGBTh9LhuVeJe8wTRG6/5lkRnxy
-	 lv+oDoHFiIqiZ1QPdryBPOOLF5axtw4VCZA2bWyKea11aRXNQOCxbFWs2RxXsqUYCa
-	 bKWZWJvoxyTFw==
-Date: Thu, 27 Mar 2025 09:41:06 -0700
+	b=gl1VHmPArr+Oc1d64A5bGcyj8lgREvZPSDTk3D/n0Bo1JqkK0pB6dtHmX4+2V4PuL
+	 2HDKE4IrSaqHzobn6atrf8G3IVE6Hk5ZybBurAtmZu2ECnvTi8vgVWuCGKBskXN18n
+	 BPSZJ2u23RK1MJJ+i86DWhz8OVQNV7uRZkTx7EA0dLLQyGclYgqF/h7VSWKl08RVea
+	 c3LDx0b3F1FBPSZ8YaB1esfGOwuiIHilQwAVhtPUTbj/liVjJ1g4NSxLtIDAnCzt0+
+	 Pt6g6rtRmttd8PEdH6ZuE7Nc24EtIG3pz5AfOMeLP28TuuaRBJ8aN80hBOWIEsisX7
+	 Ntj08FKtZQnRg==
+Date: Thu, 27 Mar 2025 09:41:52 -0700
 From: Eric Biggers <ebiggers@kernel.org>
-To: David Binderman <dcb314@hotmail.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
+	stable@vger.kernel.org, David Binderman <dcb314@hotmail.com>
 Subject: Re: [PATCH] arm64/crc-t10dif: fix use of out-of-scope array in
  crc_t10dif_arch()
-Message-ID: <20250327164106.GB1425@sol.localdomain>
+Message-ID: <20250327164152.GC1425@sol.localdomain>
 References: <20250326200918.125743-1-ebiggers@kernel.org>
- <AS8PR02MB10217FDBBC9DBA3A5B3C5F27B9CA12@AS8PR02MB10217.eurprd02.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <AS8PR02MB10217FDBBC9DBA3A5B3C5F27B9CA12@AS8PR02MB10217.eurprd02.prod.outlook.com>
+In-Reply-To: <20250326200918.125743-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_094108_330162_06280309 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250327_094155_724196_BD22C2BC 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,24 +72,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 07:58:51AM +0000, David Binderman wrote:
-> Hello there Eric,
+On Wed, Mar 26, 2025 at 01:09:18PM -0700, Eric Biggers wrote:
+> From: Eric Biggers <ebiggers@google.com>
 > 
-> >Fix a silly bug where an array was used outside of its scope.
+> Fix a silly bug where an array was used outside of its scope.
 > 
-> I am surprised your C compiler doesn't find this bug.
-> gcc 14.2 onwards should be able to, but clang not.
-> 
-> I will make an enhancement request in clang.
-> 
-> Regards
-> 
-> David Binderman
-> 
+> Fixes: 2051da858534 ("arm64/crc-t10dif: expose CRC-T10DIF function through lib")
+> Cc: stable@vger.kernel.org
+> Reported-by: David Binderman <dcb314@hotmail.com>
+> Closes: https://lore.kernel.org/r/AS8PR02MB102170568EAE7FFDF93C8D1ED9CA62@AS8PR02MB10217.eurprd02.prod.outlook.com
+> Signed-off-by: Eric Biggers <ebiggers@google.com>
+> ---
+>  arch/arm64/lib/crc-t10dif-glue.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
 
-Neither gcc 14.2.0 nor clang 19.1.7 found it, unfortunately.  And the code still
-passed crc_kunit (even when run with have_pmull disabled so that the code is
-reached).
+Applied to https://web.git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
 
 - Eric
 
