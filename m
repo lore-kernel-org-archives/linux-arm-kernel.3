@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C09C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 04:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06E5C3600E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 04:38:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6YNq+8wh69g7XR7Gyfb7FRWotpm5rpCwtlLupRMF0+0=; b=jHR/xKdw9Nv+S1
-	UCTh0JZRzuHU87yPVWKCTCkx0kSVdoSXsrgZLFnu7svR3MimRMf92O7QHJeNxMz4h4TyxZ7jkCvHU
-	zHFjWdJb//yRz6wSrfmvfsC2kezsweQGuq7EUmW0u09j+hhbfDTGM39jnrML7f3N36dKgislcQqd5
-	qWEQdxKvsK+10y73CEwyB1pRBnNu3F+2FeBRluzlEdtocVlTv8YxId7MNeIE34cYM3KCoczyc1il/
-	IHM5Ke4CfG75DVhBNbsPkc1sXG9thziaLRJz+2DpqwomTjf6vNxyQL2TCNtqu6RHI5gSbyne8wBR+
-	O4j9bIV9f6rmGzRe0sNQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nbHOE3LAzwUNXQohBY3f+MJtijH6oB+n40/Np3jImiY=; b=frzlp4mxnG0A+bSttrpsjN2ttq
+	FikBxXHsIVqlyi91Y22Ct2ifYWCHDUIBdkLkv2R1VxTC6GMhxZQDMmtdG+gsh4cIITjEtg7Gjkj7N
+	rp2Pw2vC2IsCEoaFVfdZnEU4hbjBhDevyK3FPJ1C6C6Cq0Rdfl0BMeei8rUbqiijJWzEVByw2TGQD
+	mzvGPKKRhc1f/YHVLZDaUnbf1NegeWAjeDU69o+YvaZiRUtYq6EdLj2K0DQK5/DB0tBcnilbx0woQ
+	iDVbrxC6Tqjg9PDaRT9YAz0YAn85TvCTcdTvV4hyv1sgVv9yb5F4ncPRYhyeWmAYs1oER2S/HDqTW
+	VRPT7hBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txewq-0000000A9i6-21uJ;
-	Thu, 27 Mar 2025 04:34:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1txf11-0000000A9sO-1SiP;
+	Thu, 27 Mar 2025 04:38:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txev2-0000000A9Xa-1beU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 04:32:41 +0000
+	id 1txdqr-0000000A4Gy-0MIv;
+	Thu, 27 Mar 2025 03:24:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2BF345C5CB7
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 04:30:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB650C4CEEA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 04:32:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C66C6116B;
+	Thu, 27 Mar 2025 03:24:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE74C4CEDD;
+	Thu, 27 Mar 2025 03:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743049958;
-	bh=vkEar+Bp4mb9U1ErBYXk0ufSXnmYuVhKsrxGSFbrQIw=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=RjNLK19Ua83WOdqGeiIkiXP+kkZ6tB9H3gdBqX+f434sWgg8md3d4JywjLxUNK+S/
-	 YNzS+8eiLPRabeg5zQLw1mKp2jm9t2r4A+4zrn2vrweZtSVuIU8MlforeKvegAfg0J
-	 MSixpKgXXITUUiiXkMSeNmKKUNZsjW8e2k6aFadcwj7t2Yq2pCqXI6cSzzeIWxBXoc
-	 /mUgYaPW2dbLJySsKGmTszOYvNNJvcUElMVKdwXyXEtpMG+DlCPbIhK4t1XSgDSH0j
-	 zP0CVsusc1EtWTkUyN67HZlKQx5o5e7steT7i9jDQVISB/tQaWrQEQpUkbsAaHc3KB
-	 QGWSTihjCYYvg==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30c0517142bso6240731fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Mar 2025 21:32:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU9gkcbNEYueCCuN89fer8xqrsXtpIMHPo5f4Y1fFuuy2crcJ1EBXi85yLfVQUIk3r7ceUReYAaCkccBxOj5lRf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDgbV7awXer10tefRUlhKVZbSRcg4Wmmb6wjN3S0AWBUTTWAdS
-	8zN9feZOO7L0LOVATwut4DrB48YlU/n/Ltv5WISiCsYKIPMhES+k0IVjoHcN+pfl9P9sYDwXDEl
-	bhgQxEnO5jWNmMYFnT/qKAOPlXQs=
-X-Google-Smtp-Source: AGHT+IF6fAB138KxHWy/pT7d/+7sa0DqbsRN8WZ3PB5VKFSTgeIGYi9SJIdz25/4ZRPKiUb58v/Gi3ZiI0Z3sR4FiZc=
-X-Received: by 2002:a05:651c:1a0b:b0:30b:b7c3:ea71 with SMTP id
- 38308e7fff4ca-30dc5e31b95mr9042391fa.15.1743049957271; Wed, 26 Mar 2025
- 21:32:37 -0700 (PDT)
+	s=k20201202; t=1743045856;
+	bh=pfieFhDpfQvLevcNm0LMhPf+5kEs/vR8/60fuGlDo/s=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=UQJgvNz2l0z8fqtCdNnyUvqSjVoXL9wFCHHbvvPzybzC9+Gmf923AguCn+7ATs1dB
+	 /l2CeBHujWK+xvCJN0M2aMdsKhViozJInjMMHMHuTHdemgu0HYqp/81iWGeZDsLvzd
+	 rbyEySOqo0DaqGftGgf/4lE5qQCtgsvJfySatQPTo3xdKaI0+H3NF/GPTdd12tdB4i
+	 IkHxpZ5h25C8oY/cPYvhAaPf+y26NAdF9cjddpEqLLo0nWxloMQ5npTdW/W8dkCepw
+	 Jeb7lHih+Mj6k6AsS5KBshhrXBx4thVfrpsR6pUdWrEOLVPz8IvjinOfuk6M3fNFAf
+	 cIwI8TWsAgfcQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFB4380AAFD;
+	Thu, 27 Mar 2025 03:24:53 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20250317232426.952188-1-robh@kernel.org> <20250317232426.952188-3-robh@kernel.org>
- <CAGb2v65djD5DLQnjQrp9kSHTQYVd9p_vP9WySj2Cx81rHmh5Mw@mail.gmail.com> <CAL_JsqLoJAwPeWjXyQYK1rvVzn6Meapz3iS9gW+QqYpYKuJkBQ@mail.gmail.com>
-In-Reply-To: <CAL_JsqLoJAwPeWjXyQYK1rvVzn6Meapz3iS9gW+QqYpYKuJkBQ@mail.gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Thu, 27 Mar 2025 12:32:25 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65nG82vDvTHMW0GQFHed5L4pQFMDggtTpuLqfm=woKm=w@mail.gmail.com>
-X-Gm-Features: AQ5f1JqdFE0VpmnOb9GgVtgJfb7ntGDb2tyu8gNbju_XzgxeziYqnhZQK0zKPKw
-Message-ID: <CAGb2v65nG82vDvTHMW0GQFHed5L4pQFMDggtTpuLqfm=woKm=w@mail.gmail.com>
-Subject: Re: [PATCH 2/3] of: Simplify of_dma_set_restricted_buffer() to use of_for_each_phandle()
-To: Rob Herring <robh@kernel.org>
-Cc: Saravana Kannan <saravanak@google.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_213240_508293_B5C55CD6 
-X-CRM114-Status: GOOD (  32.25  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 0/7] KVM: x86: nVMX IRQ fix and VM teardown cleanups
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <174304589224.1549280.1623157194395422949.git-patchwork-notify@kernel.org>
+Date: Thu, 27 Mar 2025 03:24:52 +0000
+References: <20250224235542.2562848-1-seanjc@google.com>
+In-Reply-To: <20250224235542.2562848-1-seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: linux-riscv@lists.infradead.org, maz@kernel.org, oliver.upton@linux.dev,
+ zhaotianrui@loongson.cn, maobibo@loongson.cn, chenhuacai@kernel.org,
+ maddy@linux.ibm.com, anup@brainfault.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, borntraeger@linux.ibm.com,
+ frankja@linux.ibm.com, imbrenda@linux.ibm.com, pbonzini@redhat.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, aaronlewis@google.com, jmattson@google.com,
+ yan.y.zhao@intel.com, rick.p.edgecombe@intel.com, kai.huang@intel.com,
+ isaku.yamahata@intel.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,128 +76,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 2:53=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Wed, Mar 26, 2025 at 1:44=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wr=
-ote:
-> >
-> > Hi,
-> >
-> > On Tue, Mar 18, 2025 at 7:29=E2=80=AFAM Rob Herring (Arm) <robh@kernel.=
-org> wrote:
-> > >
-> > > Simplify of_dma_set_restricted_buffer() by using of_property_present(=
-)
-> > > and of_for_each_phandle() iterator.
-> > >
-> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > > ---
-> > >  drivers/of/device.c | 34 +++++++++++++---------------------
-> > >  1 file changed, 13 insertions(+), 21 deletions(-)
-> > >
-> > > diff --git a/drivers/of/device.c b/drivers/of/device.c
-> > > index edf3be197265..bb4a47d58249 100644
-> > > --- a/drivers/of/device.c
-> > > +++ b/drivers/of/device.c
-> > > @@ -35,44 +35,36 @@ EXPORT_SYMBOL(of_match_device);
-> > >  static void
-> > >  of_dma_set_restricted_buffer(struct device *dev, struct device_node =
-*np)
-> > >  {
-> > > -       struct device_node *node, *of_node =3D dev->of_node;
-> > > -       int count, i;
-> > > +       struct device_node *of_node =3D dev->of_node;
-> > > +       struct of_phandle_iterator it;
-> > > +       int rc, i =3D 0;
-> > >
-> > >         if (!IS_ENABLED(CONFIG_DMA_RESTRICTED_POOL))
-> > >                 return;
-> > >
-> > > -       count =3D of_property_count_elems_of_size(of_node, "memory-re=
-gion",
-> > > -                                               sizeof(u32));
-> > >         /*
-> > >          * If dev->of_node doesn't exist or doesn't contain memory-re=
-gion, try
-> > >          * the OF node having DMA configuration.
-> > >          */
-> > > -       if (count <=3D 0) {
-> > > +       if (!of_property_present(of_node, "memory-region"))
-> > >                 of_node =3D np;
-> > > -               count =3D of_property_count_elems_of_size(
-> > > -                       of_node, "memory-region", sizeof(u32));
-> > > -       }
-> > >
-> > > -       for (i =3D 0; i < count; i++) {
-> > > -               node =3D of_parse_phandle(of_node, "memory-region", i=
-);
-> > > +       of_for_each_phandle(&it, rc, of_node, "memory-region", NULL, =
-0) {
-> > >                 /*
-> > >                  * There might be multiple memory regions, but only o=
-ne
-> > >                  * restricted-dma-pool region is allowed.
-> > >                  */
-> > > -               if (of_device_is_compatible(node, "restricted-dma-poo=
-l") &&
-> > > -                   of_device_is_available(node)) {
-> > > -                       of_node_put(node);
-> > > -                       break;
-> > > +               if (of_device_is_compatible(it.node, "restricted-dma-=
-pool") &&
-> > > +                   of_device_is_available(it.node)) {
-> > > +                       if (!of_reserved_mem_device_init_by_idx(dev, =
-of_node, i)) {
-> > > +                               of_node_put(it.node);
-> > > +                               return;
-> > > +                       }
-> > >                 }
-> > > -               of_node_put(node);
-> > > +               i++;
-> > >         }
-> > >
-> > > -       /*
-> > > -        * Attempt to initialize a restricted-dma-pool region if one =
-was found.
-> > > -        * Note that count can hold a negative error code.
-> > > -        */
-> > > -       if (i < count && of_reserved_mem_device_init_by_idx(dev, of_n=
-ode, i))
-> > > -               dev_warn(dev, "failed to initialise \"restricted-dma-=
-pool\" memory node\n");
-> > > +       dev_warn(dev, "failed to initialise \"restricted-dma-pool\" m=
-emory node\n");
-> >
-> > This changes the behavior. Before this patch, it was:
-> >
-> >     if a restricted dma pool was found, but initializing it failed, pri=
-nt
-> >     a warning.
-> >
-> > Whereas now it has become:
-> >
-> >      print a warning unless a restricted dma pool was found and success=
-fully
-> >      initialized.
-> >
-> > This change causes the kernel to print out the warning for devices that
-> > don't even do DMA:
->
-> Thanks. I fixed it up to only warn if i is non-zero.
+Hello:
 
-Not sure if that matches the old behavior though? A node could have
-memory-regions for shared dma pools but not restricted dma pools,
-and i would be non-zero.
+This series was applied to riscv/linux.git (for-next)
+by Paolo Bonzini <pbonzini@redhat.com>:
 
-IMO the warning should be in the "else" branch of
+On Mon, 24 Feb 2025 15:55:35 -0800 you wrote:
+> This was _supposed_ to be a tiny one-off patch to fix a nVMX bug where KVM
+> fails to detect that, after nested VM-Exit, L1 has a pending IRQ (or NMI).
+> But because x86's nested teardown flows are garbage (KVM simply forces a
+> nested VM-Exit to put the vCPU back into L1), that simple fix snowballed.
+> 
+> The immediate issue is that checking for a pending interrupt accesses the
+> legacy PIC, and x86's kvm_arch_destroy_vm() currently frees the PIC before
+> destroying vCPUs, i.e. checking for IRQs during the forced nested VM-Exit
+> results in a NULL pointer deref (or use-after-free if KVM didn't nullify
+> the PIC pointer).  That's patch 1.
+> 
+> [...]
 
-    if (!of_reserved_mem_device_init_by_idx(dev, of_node, i))
+Here is the summary with links:
+  - [1/7] KVM: x86: Free vCPUs before freeing VM state
+    https://git.kernel.org/riscv/c/17bcd7144263
+  - [2/7] KVM: nVMX: Process events on nested VM-Exit if injectable IRQ or NMI is pending
+    https://git.kernel.org/riscv/c/982caaa11504
+  - [3/7] KVM: Assert that a destroyed/freed vCPU is no longer visible
+    (no matching commit)
+  - [4/7] KVM: x86: Don't load/put vCPU when unloading its MMU during teardown
+    (no matching commit)
+  - [5/7] KVM: x86: Unload MMUs during vCPU destruction, not before
+    (no matching commit)
+  - [6/7] KVM: x86: Fold guts of kvm_arch_sync_events() into kvm_arch_pre_destroy_vm()
+    (no matching commit)
+  - [7/7] KVM: Drop kvm_arch_sync_events() now that all implementations are nops
+    (no matching commit)
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-ChenYu
 
