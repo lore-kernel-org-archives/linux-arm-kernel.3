@@ -4,82 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1819EC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 14:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94973C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 14:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZToPlI/FynJ7ZUERMGG6lDk/FwjdT7zxTA5PIM/zCg=; b=IrfDBkaLoghATkHnV40UF605T1
-	5+KE0b71enPhK2fCGB2Ha9Aal7Go69yc0BX//QMvVOL62NnXd6qcfa0rKldxfGOQAAHEVHZKu8IiH
-	VwHR521cww1PPJSL4Hv/wE3vWmM8qoaL6y5S+WlXYtU+ZFPfWbQyO1Y06kBmvtzdKBqxOWvowGGKC
-	VB4lYOOtVX46wXm4wvkcbht5PszwLc/FoCSCOqznnbMVgLqwbjOMcBS17zbWeX4C/zCbRDI2JTzsW
-	XfYM/BZggltH9xM5IcxC3mct8ilyTv4Xvd1hpt1Ju47mjedheLZ6TwZvI0C+B/7wL57s33NVneZGa
-	/KaWuYmA==;
+	bh=6a1HjNrR4WoIUnxNUCJ6dc0gJ6zYITs3El8FdsVp2A0=; b=hsifF9whV/Tga2kJXXDeMzTlDa
+	HK++AVOaz7EAVe1taKGTaznplj6ndNeXvNHftoCPe9I1NYAv+jNS3h7hggIX+8SUsLPaCJsGflsyS
+	T8Z1t/PTaUeqHd0sXnD+9roVofxzEwoqkO/4D6LyoKWfBfSEHM7cxH7CwP1hVeYsnNczWogsu1cr+
+	bmObjFmWUWI36KZKT8nVTmUt/P8C4EyD6qWiAyJmjqfCb5lqqDK88+RgMSNEADA8bzVkd+0mhnbdY
+	nlDT/U9Em6GhVKHTzn9vNaPZxKAgI9lTIC0ZzDw90oRgd8cBIfmJM/H0Bgxv3t9qlE5OZnn3FlF9t
+	Bj3q08Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txo1w-0000000BB6k-0CdM;
-	Thu, 27 Mar 2025 14:16:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1txo8Y-0000000BCEH-12Xm;
+	Thu, 27 Mar 2025 14:23:14 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txo0B-0000000BAnb-3sge
+	id 1txo6n-0000000BBuh-1cKX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 14:14:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 55A29A42A91
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 14:09:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCBE7C4CEEA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 14:14:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743084874;
-	bh=w4Ot+NJ1fIKId9/UtayH+CL2iXIxeOMvWpD9ZyZebd8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qPBGvvbOGqHHShLX8F9C4g/cKbUmTbutuWRAWAUycsmrAfTWEZi0ts/CoaFtJRFeQ
-	 rBMNVZmn6ZTRyxeNQj+56TgLPjKt01Qw5jvnEMPiXxFAI2MyKlEz/2UloLoTq1Snur
-	 7zkuQ1xSoH+igpsP0lbuq2F4SoF7xxs7XchKHntF4WhME1jiljar0hauKLsU6rcynL
-	 EdtJyk//oD9vLvxdOxNCz1U+oxUQBu1MQoXq2wgz1GHrdO2Qs0Fl6TtYCjWdDqwRY5
-	 SnnK9wpGL3yUnxuywctYmnnZH/anK/U1lzEreY2qX4c28uMVRGnCBrcq93qW9nastT
-	 oAVr9QRmWTxwg==
-Received: by mail-oa1-f47.google.com with SMTP id 586e51a60fabf-2c77f0136e9so293432fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 07:14:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVZSwY3nz2zMgFKJsLmp8ZZazu0gQBByBvB4XgNXAmKKShvpWfh871zRPJ7zbef2eF8evdunP7YiL3KEJmM4G1e@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9XaIQi9b0KnN3DXblu10ELH71bNu0SDveSAiFtHki+rgB6uSS
-	N1cGGGjs6FAwppcWDNhnr4Vr/pYXY3px4VzSicsjEnxbr5O94R7o9/gFB7yXV5pLtr3GBx1R1oj
-	Qgu8vjEj+e0s69HM6O3geoRoBYH8=
-X-Google-Smtp-Source: AGHT+IH2NiX8CmCRjkXpYJdSzQ4DKgyG9QmT+eImwWOwgFfr6VV2oODH1uFOd2mQAceOPDnob8QqR5e86hHjoIxI1Co=
-X-Received: by 2002:a05:6870:aa91:b0:29e:2caf:8cc with SMTP id
- 586e51a60fabf-2c84823c035mr2075911fac.37.1743084874119; Thu, 27 Mar 2025
- 07:14:34 -0700 (PDT)
+	Thu, 27 Mar 2025 14:21:26 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AEACA446;
+	Thu, 27 Mar 2025 15:19:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1743085172;
+	bh=aCijh6dK23ppJuTHRJqIOMUqMd5KE+ya18KSNMKNiI4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nxJFq5BjGzTg/4YWYiD9K3sn9VQwy8bC6yEpJEFG7Pv2RX4fDhu3dLbuRqxVSf+IC
+	 akkktswnmMgNtt9nPyPLeyhkCKmiOMYm0yV7VGzbTNJdVHetIaziByuOZ80tsFxsps
+	 NR37qDtLiYBXTJfBLcS6446F/7EOA9viB/zQ0tHY=
+Message-ID: <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
+Date: Thu, 27 Mar 2025 16:21:16 +0200
 MIME-Version: 1.0
-References: <20250317093445.361821-1-csokas.bence@prolan.hu>
- <20250317093445.361821-2-csokas.bence@prolan.hu> <CAJZ5v0hJZBxU6SSq9C8gp2peETFWu0jbhrM82B5GvQkVXPR+9Q@mail.gmail.com>
- <3e6d7071-1ba9-484c-9dcb-c5da6ad1ffe3@prolan.hu> <CAJZ5v0jka2r9PaKsF0FE2qJaFfnVNGd8sZRE6Aay-Ugpzot44w@mail.gmail.com>
- <d926d2c2-8cc9-4a71-b8ca-b5f03ac9afb8@prolan.hu>
-In-Reply-To: <d926d2c2-8cc9-4a71-b8ca-b5f03ac9afb8@prolan.hu>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 27 Mar 2025 15:14:22 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0iS20uPhqNOnkj36rTBGQF3fecF6Hq4JU4=wz4pSzrFyg@mail.gmail.com>
-X-Gm-Features: AQ5f1Jrkvob9yUT0LQxY3y65ur_Gm5qICTEtJi93M14j4zS-Z_SGAwa0jOwyHms
-Message-ID: <CAJZ5v0iS20uPhqNOnkj36rTBGQF3fecF6Hq4JU4=wz4pSzrFyg@mail.gmail.com>
-Subject: Re: [PATCH v5 1/2] pm: runtime: Add new devm functions
-To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Varshini Rajendran <varshini.rajendran@microchip.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Len Brown <len.brown@intel.com>, 
-	Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Pavel Machek <pavel@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+To: Pekka Paalanen <pekka.paalanen@haloniitty.fi>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
+ <20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
+ <CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
+ <b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
+ <20250327112009.6b4dc430@eldfell>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20250327112009.6b4dc430@eldfell>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_071436_091388_2C568B24 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20250327_072125_746841_3392C883 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,82 +124,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 2:24=E2=80=AFPM Cs=C3=B3k=C3=A1s Bence <csokas.benc=
-e@prolan.hu> wrote:
->
-> Hi,
->
-> On 2025. 03. 27. 12:08, Rafael J. Wysocki wrote:
-> >>> Now, there is a reason why calling pm_runtime_set_suspended() on a
-> >>> device after disabling runtime PM for it is a good idea at all.
-> >>> Namely, disabling runtime PM alone does not release the device's
-> >>> suppliers or its parent, so if you want to release them after
-> >>> disabling runtime PM for the device, you need to do something more.
-> >>> I'm thinking that this is a  mistake in the design of the runtime PM
-> >>> core.
-> >>
-> >> Well, this is the order in which the original driver worked before
-> >> anyways. As a quick fix, would it work if we created a devm function
-> >> that would pm_runtime_set_active(), immediately followed by
-> >> pm_runtime_enable(), and on cleanup it would pm_runtime_set_suspended(=
-)
-> >> followed by pm_runtime_disable_action() (i.e.
-> >> pm_runtime_dont_use_autosuspend() and pm_runtime_disable())?
-> >
-> > On cleanup you'd need to ensure that pm_runtime_disable() is followed
-> > by pm_runtime_set_suspended() (not the other way around).  Also
-> > pm_runtime_dont_use_autosuspend() needs to be called when runtime PM
-> > is still enabled.
-> >
-> > With the above taken into account, it would work.
->
-> Ok, so which is the correct order then?
->
-> 1. the way it is done now in [PATCH v5 2/2] (which is the same order the
-> driver has been using before anyways):
->
->      pm_runtime_use_autosuspend()
-> /-- devm_pm_runtime_set_active()
-> |   /-- devm_pm_runtime_enable()
-> |   |   /-- devm_pm_runtime_get_noresume()
-> |   |   |
-> |   |   \-> pm_runtime_put_noidle()
-> |   \-> pm_runtime_dont_use_autosuspend() &&
-> |       pm_runtime_disable()
-> \-> pm_runtime_set_suspended()
->
-> or,
-> 2. swapped set_suspended() and runtime_disable()
->
->      pm_runtime_use_autosuspend()
-> /-- devm_pm_runtime_set_active_enabled() [new fn]
-> |    =3D=3D pm_runtime_set_active() &&
-> |       pm_runtime_enable()
-> |   /-- devm_pm_runtime_get_noresume()
-> |   |
-> |   \-> pm_runtime_put_noidle()
-> \--> pm_runtime_set_suspended()
->       pm_runtime_dont_use_autosuspend()
->       pm_runtime_disable()
+Hi,
 
-/-- devm_pm_runtime_get_noresume()
-|   /-- devm_{pm_runtime_set_active() + pm_runtime_enable() (in this order)=
-}
-|   |   pm_runtime_use_autosuspend()
-|   |
-|   |   Note that the device cannot be suspended here unless its
-runtime PM usage
-|   |   counter is dropped, in which it would need to be bumped up
-again later to
-|   |   retain the balance.
-|   |
-|   \-> pm_runtime_disable() + pm_runtime_set_suspended() (in this order)
-\-> pm_runtime_put_noidle()
+On 27/03/2025 11:20, Pekka Paalanen wrote:
+> On Wed, 26 Mar 2025 15:55:18 +0200
+> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
+> 
+>> Hi,
+>>
+>> On 26/03/2025 15:52, Geert Uytterhoeven wrote:
+>>> Hi Tomi,
+>>>
+>>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen
+>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>> Add greyscale Y8 format.
+>>>>
+>>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+>>>
+>>> Thanks for your patch!
+>>>    
+>>>> --- a/include/uapi/drm/drm_fourcc.h
+>>>> +++ b/include/uapi/drm/drm_fourcc.h
+>>>> @@ -405,6 +405,9 @@ extern "C" {
+>>>>    #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
+>>>>    #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
+>>>>
+>>>> +/* Greyscale formats */
+>>>> +
+>>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
+>>>
+>>> This format differs from e.g. DRM_FORMAT_R8, which encodes
+>>> the number of bits in the FOURCC format. What do you envision
+>>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?
+>>
+>> I wanted to use the same fourcc as on V4L2 side. Strictly speaking it's
+>> not required, but different fourccs for the same formats do confuse.
+>>
+>> So, generally speaking, I'd pick an existing fourcc from v4l2 side if
+>> possible, and if not, invent a new one.
+> 
+> Hi Tomi,
+> 
+> what's the actual difference between DRM_FORMAT_R8 and DRM_FORMAT_Y8?
+> 
+> Is the difference that when R8 gets expanded to RGB, it becomes (R, 0,
+> 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c3 are
+> defined by MatrixCoefficients (H.273 terminology)?
+> 
+> That would be my intuitive assumption following how YCbCr is handled.
+> Is it obvious enough, or should there be a comment to that effect?
 
-And pm_runtime_dont_use_autosuspend() is not really necessary after
-disabling runtime PM.
+You raise an interesting point. Is it defined how a display driver, that 
+supports R8 as a format, shows R8 on screen? I came into this in the 
+context of grayscale formats, so I thought R8 would be handled as (R, R, 
+R) in RGB. But you say (R, 0, 0), which... also makes sense.
 
-Also, I think that the driver could be fixed without introducing the
-new devm_ stuff which would be way simpler, so why don't you do that
-and then think about devm_?
+I think that's a new argument in favor of Y8: Y8 means Y-only, so the 
+meaning is more explicit.
+
+How I see that the display controller would deal with Y8 (depending on 
+the HW):
+
+- Take the Y value as a greyscale value, if the HW supports greyscale 
+format directly.
+- Use the Y as YCbCr (Y, Cb-neutral, Cr-neutral), and use that if the HW 
+supports YCbCr directly.
+- Use the Y as YCbCr as above, and convert to RGB in the usual way.
+
+And as it's an YUV format, the limited/full range applies, which I 
+believe is not usually applied to RGB formats.
+
+Does this make sense?
+
+  Tomi
+
 
