@@ -4,147 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E84C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499A4C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcoPhU1CQH03PKYyXWeOHvAAHeOmOAIZ2DAwVBsKj7Q=; b=I9cC40erh+9RiV41k6xAWHwCW0
-	3JOJpEAQVinZpRRxcDG7CmbpbI2WwrPU0fzbKUowVkOyJ1bW9oca28BRAQ+p22lmp99vHpHjwgrij
-	B6GRGYVesIW8Sv4QFclPPMrXCI+DZB4OnZuwGYPlGQ79DZet9gRC4aiQoJaRKAhiMuNufraNar2ed
-	1+wTkZrVpJkSsYtJ2FWDhyINpqa8MmOTSsXHMcq99Xyni4DtO/UYToIpGxQzBLbS/ratRJ+OYKvyM
-	mVoHgngvIFs9s19XoxVvr5BHbgTUF1dBaWCW9lMmh5xRphTDw8kxzt62H16aqiQkEAdLZPKHN2quL
-	KDUh9uUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TNVbMfqdt8EdvBi+KpRpHsganvJdTbu15oD4Zjjm9EA=; b=LUrKe5F6LCkYfm9JAlW43fcJ8j
+	FxNPXpSDuoMWMtPf6R1PY0LhJ+vypmT3IYyv9FP5xGe2SA+Dx85QBKRrLOp6MDgiM/DrklS7xE9aV
+	rYLiqOCXQrgSIcl9zl8b/1Y9aOvMuNxAzarHleKAhIfDMvQk/WP90FCWdnP6A9q1wVq3l3KhF4oIQ
+	qJ35ssJmucNF8M8qrtYd/K3rBBtJP11xGLLF1OoZIcKSpmMI7HOdYk7EYvCnBj89Weo3VzGy+Z0Y3
+	pRdXVaw8UYd7XyzGoaifTNXAf4mgctEX3eQoq5Urafcu1tf8GxAraP9rJHrtVCvTWvS0xrXY1n7gd
+	PC89HcSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txopo-0000000BJn8-3GjD;
-	Thu, 27 Mar 2025 15:07:56 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1txorW-0000000BK8H-1TrL;
+	Thu, 27 Mar 2025 15:09:42 +0000
+Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txoh6-0000000BHgq-1sJ3
+	id 1txoid-0000000BIGw-0qL9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 14:58:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m3iezoRcTjeRYCZ8idzU4kkLL1+iZH6J/4baow5tB6MdMk72VYRi6jj1KrPNhzNqeInCx9rgUx5MJ9/6HMQMbeW80jDf14GqBOn2jOnvQsv/vEdrqcB69aQhpqk3i35MuPwrVceEafQad4OvBuuQgdlzFnGjZdavW1cWq/urqNQxnGRAIqkK7mKrLwgNWqqRrajWRYA0zsc3udZa9+MPZrU/EiMGiwZuwA+qcr8wFQ9ac4DXxxW1Iwg94QGF/aherwmGT05eGLHzrneBV8tSRLH9iHp17pozfMVZ1Iopv2PGhUnAOkYo5ABcrF1Lj3ljf1+6Kzh8TC5pamzqx+PkjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IcoPhU1CQH03PKYyXWeOHvAAHeOmOAIZ2DAwVBsKj7Q=;
- b=l3HoL8buPGndo+/O4V41yeZCOuk+E2g/CwYQo57ZzmZQECl+n/5KJwEiq5VysXQYBNQGVhYUuikUbsBKbLZzMTi5KqPmv9iORRVtmoAumUDrd/55G8zj+xrgmL8rEec+IN6w75tms8ZVjuNFZFpHjnsHjgI5qwwfoTUoYmfajLv+5b1hFff26nVK23doYNHnQZ5S6FqY8hD80krktbQtMNEnsV/RkkoYNM/sGfXGcczJegRnWMHhAiWiZbcttE6lydAqxjjjWV4Oko2GqLm0AiX5wXz8HmhcuCmFs54QazmEhleKMwk6Hw7Ql6w7s8ufUIZNM0b2iyoqNcJwcJm74A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IcoPhU1CQH03PKYyXWeOHvAAHeOmOAIZ2DAwVBsKj7Q=;
- b=SS19nXBS3utb8E48B1Q9KRO/qk9T2x8ijm0iKp58AsuV1SfqqM4Nu0SmoMlaHK7WqYEljlviW6OdAjIl4hBFzgsRB53ZT4IY3Pgj9a+U3ILaXc5sf4Pxxw5zlhDWuLUxV1zpGdBhwNrqgfrsXcfRZxRSsFVNjzUuOjQO9aaE6N5+YoKnDL/srt+zLklXSye787NwyhQlWB2+c/UA6Dygef2iglKEJydlW5DPkI6bwEOtbgM85BIMEpsCl85Z/zFcfWbA/ixXTwdIRylepJI4DbeGO2RyFE3ucGns/Gz/j2Nmucij50glTbQvzxnOE8jCHMArY5wH3UM/S5oCWjpk+Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU6PR04MB11133.eurprd04.prod.outlook.com (2603:10a6:10:5c4::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 27 Mar
- 2025 14:58:51 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Thu, 27 Mar 2025
- 14:58:51 +0000
-Date: Thu, 27 Mar 2025 10:58:34 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/7] ARM: dts: ls1021a-tqmals1021a: Add HDMI overlay
-Message-ID: <Z+VnmkgpWhlLm/W9@lizhi-Precision-Tower-5810>
-References: <20250327144118.504260-1-alexander.stein@ew.tq-group.com>
- <20250327144118.504260-4-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250327144118.504260-4-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: BYAPR07CA0098.namprd07.prod.outlook.com
- (2603:10b6:a03:12b::39) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 27 Mar 2025 15:00:34 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1743087627;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=TNVbMfqdt8EdvBi+KpRpHsganvJdTbu15oD4Zjjm9EA=;
+	b=wC3Lhzukc3AlblmvhgI0X3n1jGsUeAFACqgooSgkS/VPENiuzZ1t2HsaKoAnbr6JLV/RHP
+	Eox3pS0tg1e/YQuzn8QMpszuUy1Z4BgmfDPUu7XjGoiE02HRXnFUUgj3SK5kn85vt+y/TB
+	4kscEGrdEbbYVMiyXFdo/VDcC/C0sSv/2dVsHbXTAPwBFjT4eKv5OuiX49k1kZXpnrU+jT
+	mbrblOem+cC1HsyrLyqXtotHH//U4mucoF+nUw4gXJwAk7NF1t7rHh5/Opw8thQDcVdOTR
+	uXT28J7/x3LEpYq3fWzK5HgP9LqK8XEsjGSQzvKE0nPsEe/20D0yRqAbYN1Nig==
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Date: Thu, 27 Mar 2025 11:00:07 -0400
+Subject: [PATCH v6] drm: Add UAPI for the Asahi driver
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU6PR04MB11133:EE_
-X-MS-Office365-Filtering-Correlation-Id: e58b4326-9028-4b34-5ca5-08dd6d3fe232
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+kmNiPOIRm6sXJ7IOnP73sfiNGvptHEcmrnA3Ae0emD33X+YEiYlWn58YfAt?=
- =?us-ascii?Q?BsvtI47+r9mT9nZEw15e0LZHWhx/s+ZYSo4+s9QNm9hLcZVQ5Ogv6B7InfMu?=
- =?us-ascii?Q?MyR42JxiuBgFEuy/XdgwL/lJekX/ZvzwzyXVcFWVNRgGI8liK1j/SvQ04B6w?=
- =?us-ascii?Q?bDF7rieYAsg/gUjPSqqeYIrclwlDcqr1nKpuRJwZXxHGIaiteBT0eB3P/vjY?=
- =?us-ascii?Q?muyciWyO8KEYTtQAEci0P7MbBsvC7GpDQNdoIIw294ejq4x15YObpdU88WuM?=
- =?us-ascii?Q?MIILaoKJa4+rwON0V5ayTZmqycjP66krYQ59x4d/H/8YWYFOji65gji633Fo?=
- =?us-ascii?Q?DNu1n6uGyOxoDw+ynZVsTQ1oGXd5iR49byjJzTFWApbDOTy7+O0Awu28jsOC?=
- =?us-ascii?Q?gM9CTRKsrUmVyFwCX1giyMiDrzLM8B9e45EJgVFtIu1nZXSV5MmCC4sToD4k?=
- =?us-ascii?Q?EdCKCaDXlzsS5U90PP0G81XJKjbYWKi0ytq4MIR38loSsR6V5XrkWfOpwhMd?=
- =?us-ascii?Q?qyRQyc9niV7YHovAGo9W3pdLU66btL7XA07LwY1hrq6qQQakVa9Mtcl3uhTS?=
- =?us-ascii?Q?CJDv0X9p4zb1ewsLBhSl697NQ7+nRbbfi/gFA6f+DO5rISlCJOLfc8jU64YH?=
- =?us-ascii?Q?QkZWYEd9i/U6FPAZ39T2qXsEd1uAY/ERmLOT5/N/UAkBdZssQAO/Qm+r+ehP?=
- =?us-ascii?Q?t8hi9PvnYUdRNSCJgdJmrB1+spR6YKZjrepyK2qhC/SHgdB0u4dimtJ0agdU?=
- =?us-ascii?Q?NFyYUP3kjdlSGH5patXgvCGZwv6VqWhx59OS8QpKDzzI7DNVAs8Dr7vd8AdA?=
- =?us-ascii?Q?MSiXFtIunEdvHIhNkWtmQfeifgw1CTQWTiIMwboQuAwHQYQDbT3lXr8fymMi?=
- =?us-ascii?Q?Z0D5+dF6mzMqMweZmH/QatyiRZi1MzGOkwlGp6QO8knAYSh4lXs9YvOb4ZZS?=
- =?us-ascii?Q?yox8FAY2cY7vKXWYb0iq9SGkb40lBjlT+NWuIvy2Ib8dqbP9zXZqoTFovnxJ?=
- =?us-ascii?Q?L6ak3Nq4UdQY8S28VP6djxsQTjCTVIOwPom56dtliHmy6FdQzS6dbRrpi5Ea?=
- =?us-ascii?Q?W8cuNtVB+zMLG2c4DntMgH69ED4IBb9ddJkw77jBy2lYrAVX4m7og5OHt1XX?=
- =?us-ascii?Q?4yrqrcA455ClOvl5eB7mkgZcbx/yMhsazzJ/25LKHtHkA5sqTNioSFMssb27?=
- =?us-ascii?Q?dCFx9Jod1e6RjJ9y/OVpsg8Fe06P0oWQxV3Mu1h3CmEDaaXWYgE4LXdyxOn2?=
- =?us-ascii?Q?NghFkdJfdG+QwpBzGvg+8BTuAYqU7vnKdgivDqVKqobelYitpTGkIRtTOOmI?=
- =?us-ascii?Q?8ANHFmjpzWg8CchP0r3lzMiQqcni6+426JQdWje6DMMphAUWHP5o2s2yYWGg?=
- =?us-ascii?Q?oxiaaMlD2lpv4xwt4W3jqD61nisIi86316msIGouce6S0bjAZ+eNqzo1se9C?=
- =?us-ascii?Q?Vg5SQxyd9Wsf4P4E//mnKcVi/4Kd8/+dTpkwhJXEiHAKK6imzWX3JQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vAYoi4/V3TWEwOcKAH0CekzjgPIW8d5SHRTWUFK7MdNti5YykloY75c44DcH?=
- =?us-ascii?Q?0tw4KCGj4XB++RuTznLFJNB54ujSkOBDHPgDSyiQTAlz6wAUkrGleKVJ6Q1+?=
- =?us-ascii?Q?2l3+VDUldCqat7zctrTZPUFO8t1R6aMSAKAeQEZQKiGl7a8XH7yF7KTWWzbZ?=
- =?us-ascii?Q?k1Om6P+6AkeECLeg3AR7oS27gyivtXvGPmmEERD8v+ZbMxhLB83qKDXnWiZB?=
- =?us-ascii?Q?JHjodf+DWHKp9cXOBCyS3WAy4CEl/Hyxyl/X0gqC6NtlySttYDOSQRavNpz5?=
- =?us-ascii?Q?gfg2ZwuP0wKG+S+Rx/hDxz/M9nTPzaDxsJPmqyTv1YjzM0XCLxhrP4RVSP5k?=
- =?us-ascii?Q?UiPgEFVb+mbB8cpmDa6yBu00VwYUruzcMq1q2fCbVYvIB8OMOPFqKNfDa+Qm?=
- =?us-ascii?Q?Iytrf/CoVHdBIbBpZjBJMKYUiLO6g56SJFYYr+iLHVQMArBwJoYe238o+GXY?=
- =?us-ascii?Q?1p2Pue+6MzTd+hpSZmgP6tD8BQy6Svg8wBqBWMz8AQOkpdaLovE/9A9iecyo?=
- =?us-ascii?Q?4Gak8NXAjwvkezjz3pxX2CX5jerUpkJ7KXmWsHbIrgcCS3O0i+NJxlCKVBUV?=
- =?us-ascii?Q?jAvRT/Hjqi2KApvYOQ7O0Mpkf4mobBzJOQOrj4tLUUrJY5Nf+OLqk6bYfi6P?=
- =?us-ascii?Q?Kc5A1ywzt2TQoWydTyVK0n+2q5Q6apU5K6ARB+rKHm1G12w28XplAhA1q58K?=
- =?us-ascii?Q?yGndcvrkuLbmn829CUAEqOlWEqSUQ2RyPlSllrQxg951V0yYuwdOjlep3FSH?=
- =?us-ascii?Q?gaiYkoyb8lBWSbnjGJIvtOrbMruZziF7Re+x0indm9V3TyqXHsF1rj8uODsO?=
- =?us-ascii?Q?ScQRWiZ2KKqU0IDSZZxQGnCct5+wu3lw2MQlWgGIdZj/93Q2FTBDIJrR8Kh/?=
- =?us-ascii?Q?EczyacLTlgYJSLXbqChrwysCE4DV/Ob/wGVYmFCeg4Be6WCRFjLxb4mIw02I?=
- =?us-ascii?Q?aHglH+ga3Sqb9K8FxkeU9t1mbpaK879sQ8uUIgwhWvKXBt2pQASh8eXmDIVH?=
- =?us-ascii?Q?dqy0JR4RG3UWF68jur8Z3FpjpW+TZbaDJ5NnkpFK+Z6qgcMOCATMPPxdayRx?=
- =?us-ascii?Q?6TF23YVtAys/VasQEh25kMnobFP3io5aZteJpSq6+Zquk/DopbBVwBC3xQ1x?=
- =?us-ascii?Q?x2TrAg9jbc4AecIki4mJD5bvHmt69aVHMnQt94Q1huTsO/Oxf/vldn4g2dIC?=
- =?us-ascii?Q?m2ywjUnbPApUG9Pl52PKmUdf6D4KPMje70sYqo1/xYKcc47j8iCPkRYkaE21?=
- =?us-ascii?Q?RI0duxe8hAm5zS/e9ZvK3ypgaIaKDhhC/uwz6lYpMWKtzv0/Ioas5e/+mGUZ?=
- =?us-ascii?Q?P/vUmnxoNUBKZKpzYtyf8BF2Js5I3zzsC4fkwCCcOccbdi12ham/zxpw4NV1?=
- =?us-ascii?Q?HkVeFhb+FLGkkvwwh53A1AGuEj5ur3bPK7rCwX/Uuh19v6J8Frl7rc/8CW3V?=
- =?us-ascii?Q?Gl3Nb4x1RjoYPyBVYI5hS3adVx+4bA1/rdzLbFbVRbQQP2OczObQaOl6CPMV?=
- =?us-ascii?Q?IaMX+Unkjj8XpzLHu+tyQa69b4u6EUQJySaHwLd2a6nz35WZzhSW+BkWdC0/?=
- =?us-ascii?Q?G5OOTPnG3OHJ4L6ort8uF1dhLaL9mDn9W9WrOT8q?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e58b4326-9028-4b34-5ca5-08dd6d3fe232
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 14:58:50.6248
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 81GU/Rriw1iTGtzqf5V1IZ8Pntff9JIqDKIq5smODd0nYclNtAieAUa+wcv20dhLm0c3LPznES7p28WFJdCwlQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11133
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250327-agx-uapi-v6-1-df6b878a61b2@rosenzweig.io>
+X-B4-Tracking: v=1; b=H4sIAPZn5WcC/23NTW7DIBCG4atErEs1MPyErHqPqAuCB2c2dgStm
+ zTy3UuiSkWVl9+I5+UuKhWmKg67uyi0cOV5asO97EQ6x2kkyUPbQoO2gOBlHK/yM15YBgTrg0G
+ fVRDt+aVQ5uszdXxv+8z1Yy63Z3lRj+tvRMFfZFFSyb1LewhgAQy9lbnS9P1FPL7yLB6hRfcYO
+ 6wbtiEli9EGiriFscemw9gwxlP25A1Fnbew6bDufzYNK02DHk7BefRb2PbYddg2DCanlFMgh+o
+ /Xtf1B9/t7+aYAQAA
+X-Change-ID: 20250307-agx-uapi-930579437f19
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <benno.lossin@proton.me>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, 
+ Faith Ekstrand <faith.ekstrand@collabora.com>, Janne Grunau <j@jannau.net>, 
+ Sven Peter <sven@svenpeter.dev>, Jonathan Corbet <corbet@lwn.net>, 
+ Sergio Lopez Pascual <slp@sinrega.org>, 
+ Ryan Houdek <sonicadvance1@gmail.com>
+Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ rust-for-linux@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Asahi Lina <lina@asahilina.net>, Simona Vetter <simona.vetter@ffwll.ch>, 
+ Neal Gompa <neal@gompa.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=46545; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=fXbzw/dtw4aipjsRf0Vsd7mwmx4kOjtLktL0/0L+iow=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBn5WgGcXL1tkvzRPtn96e+Xi82Ewa4kAsEV7eT1
+ LpLNBxfvcqJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ+VoBgAKCRD+/lBaCvVY
+ DVS0EACtUUua7tefK0LshIDPBKvBYnBvlgKP8gp15fj5Pbk0tTYTmuQZIaIJWAKd4N3uqLOmpOq
+ ycAdzmauEL+L/jCm2ZMCuXylhLpcsGgzMiEPo3EnaL68SNN9zLFHtwBx1IE5ctmv94ZO78ysmAl
+ Fgpj6UIPkkXIrmnpnTPQeaxsFKdZVoQC+nrNXaitabRmwsawLCJVypn/tu6wctQRRe6XqGFyavF
+ BdFkeac9mNwHTblFyaC++QoZYFeFSquExWZ5pkjfoTZaOh0JFYucRIK2i12Dc8djO9yzzFB1ewt
+ cgzkVfa18ZLnFrnNYKZqzxYc7UZpqp9bgrcfLxamuNkDsVfc4Bzv5gfDVKzlkJsirFTfAnKwOOy
+ q3PWTbecazMouDHlUucBTa8VyZS71QNANNI09Kva/zq4nZbT5ZdS8IHjP1+K1Xmq2YAE7t39uiT
+ fvcU5qcZp3m5tH7RS4b7YjKmdyaoUdyKC0vcEC9Sjp/ejH002eyZEisZCsM8sbGHaWMFb+ASrhW
+ tkRF0DqeHmYW4k9yJIveGu5ZtJ+8doygGjiUmlJFZa4WwaU0VoBBpJLFNMAKmQhzEZRdbK09J3d
+ 4K65zVORibnWwOHEb+Ro1Wzf0nvkn2Qzd3VOiw/WpUiIrDIS6UpjshPxP4S7iRBmxQWuh3MAtTb
+ G9KPG03o+XM5Xcg==
+X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
+ fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_075856_486961_D3BC3F07 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20250327_080031_918000_8BC1819F 
+X-CRM114-Status: GOOD (  38.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,71 +104,1378 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 03:41:09PM +0100, Alexander Stein wrote:
-> This add an overlay for using the RGB-to-HDMI bridge.
-> Note: As DDC is directly connected to general I2C bus, there might be I2C
-> address conflicts. Hence not all displays might work.
->
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
+This adds the UAPI for the Asahi driver targeting the GPU in the Apple
+M1 and M2 series systems on chip. The UAPI design is based on other
+modern Vulkan-capable drivers, including Xe and Panthor. Memory
+management is based on explicit VM management. Synchronization is
+exclusively explicit sync.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This UAPI is validated against our open source Mesa stack, which is
+fully conformant to the OpenGL 4.6, OpenGL ES 3.2, OpenCL 3.0, and
+Vulkan 1.4 standards. The Vulkan driver supports sparse, exercising the
+VM_BIND mechanism.
 
->  arch/arm/boot/dts/nxp/ls/Makefile             |  3 ++
->  .../ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso | 32 +++++++++++++++++++
->  2 files changed, 35 insertions(+)
->  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso
->
-> diff --git a/arch/arm/boot/dts/nxp/ls/Makefile b/arch/arm/boot/dts/nxp/ls/Makefile
-> index 14759331dba24..225a7665b8ad1 100644
-> --- a/arch/arm/boot/dts/nxp/ls/Makefile
-> +++ b/arch/arm/boot/dts/nxp/ls/Makefile
-> @@ -6,3 +6,6 @@ dtb-$(CONFIG_SOC_LS1021A) += \
->  	ls1021a-tqmls1021a-mbls1021a.dtb \
->  	ls1021a-tsn.dtb \
->  	ls1021a-twr.dtb
-> +
-> +ls1021a-tqmls1021a-mbls1021a-hdmi-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-hdmi.dtbo
-> +dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-hdmi.dtb
-> diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso
-> new file mode 100644
-> index 0000000000000..e713a2ecbfc25
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso
-> @@ -0,0 +1,32 @@
-> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> +/*
-> + * Copyright 2013-2014 Freescale Semiconductor, Inc.
-> + * Copyright 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> + * D-82229 Seefeld, Germany.
-> + * Author: Alexander Stein
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&dcu {
-> +	status = "okay";
-> +
-> +	port {
-> +		dcu_out: endpoint {
-> +			remote-endpoint = <&sii9022a_in>;
-> +		};
-> +	};
-> +};
-> +
-> +&hdmi_out {
-> +	status = "okay";
-> +};
-> +
-> +&sii9022a {
-> +	status = "okay";
-> +};
-> +
-> +&sii9022a_in {
-> +	remote-endpoint = <&dcu_out>;
-> +};
-> --
-> 2.43.0
->
+This patch adds the standalone UAPI header. It is implemented by an open
+source DRM driver written in Rust. We fully intend to upstream this
+driver when possible. However, as a production graphics driver, it
+depends on a significant number of Rust abstractions that will take a
+long time to upstream. In the mean time, our userspace is upstream in
+Mesa but is not allowed to probe with upstream Mesa as the UAPI is not
+yet reviewed and merged in the upstream kernel. Although we ship a
+patched Mesa in Fedora Asahi Remix, any containers shipping upstream
+Mesa builds are broken for our users, including upstream Flatpak and
+Waydroid runtimes. Additionally, it forces us to maintain forks of Mesa
+and virglrenderer, which complicates bisects.
+
+The intention in sending out this patch is for this UAPI to be
+thoroughly reviewed. Once we as the DRM community are satisfied with the
+UAPI, this header lands signifying that the UAPI is stable and must only
+be evolved in backwards-compatible ways; it will be the UAPI implemented
+in the DRM driver that eventually lands upstream. That promise lets us
+enable upstream Mesa, solving all these issues while the upstream Rust
+abstractions are developed.
+
+https://github.com/alyssarosenzweig/linux/commits/agx-uapi-v6 contains
+the DRM driver implementing this proposed UAPI.
+
+https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/33984 contains
+the Mesa patches to implement this proposed UAPI.
+
+That Linux and Mesa branch together give a complete graphics/compute
+stack on top of this UAPI.
+
+Co-developed-by: Asahi Lina <lina@asahilina.net>
+Signed-off-by: Asahi Lina <lina@asahilina.net>
+Acked-by: Simona Vetter <simona.vetter@ffwll.ch>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Reviewed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+---
+Changes in v6:
+- Rename vm_user_* to vm_* for clarity (Janne).
+- Improve lots of comments.
+- Drop a few unused global params that are unlikely to ever be used by
+  userspace. We can always add more params but we can never remove them.
+- Make GET_PARAMS ioctl W instead of WR, to match the actual behaviour
+  of the kernel driver. We don't need a special versioning mechanism
+  here, I don't think.
+- Link to v5: https://lore.kernel.org/r/20250326-agx-uapi-v5-1-04fccfc9e631@rosenzweig.io
+
+Changes in v5:
+- Rename GEM_BIND to VM_BIND and make it take an array of bind ops. This
+  significantly decreases the # of kernel<-->user roundtrips with Vulkan
+  sparse binding. The uAPI here is lifted directly from Xe.
+- Merge in_syncs and out_syncs arrays, but leave
+  in_sync_count/out_sync_count alone, requiring waits to precede
+  signals. This simplifies both kernel & userspace, compared to either
+  fully merged or fully separate arrays, so it seems like a Good idea.
+- Drop queue caps, make all caps render + compute. Even GLES2 uses
+  compute to accelerate blits, and even compute workloads use render for
+  a few fallback blits. This lets us drop a bunch of crud in both kernel
+  & userspace and should slightly improve submit overhead.
+- Reorder ioctl IDs to group a little more logically (bikeshed...).
+- Improve some comments.
+- Link to v4: https://lore.kernel.org/r/20250323-agx-uapi-v4-1-12ed2db96737@rosenzweig.io
+
+Changes in v4:
+- get_time now returns time in nanoseconds, timer_frequency_hz dropped.
+  This hides an extra time domain from userspace for no real downside.
+- Added lots more comments answering questions Faith raised in v3
+  review.
+- Drop firmware_version per discussion.
+- Drop UNBIND_ALL, it is unused.
+- Switch priority to an enum per discussion.
+- Drop drm_asahi_subqueue and instead make barriers separate fields to
+  make obvious the extensability situation resolving discusison on v3.
+
+Changes in v3:
+- Merge load/store/partial fields for depth/stencil as discussed with
+  Faith. This shrinks the submit a lot with little loss of
+  functionality. There's maaaybe a use case for splitting out depth load
+  base (only) later. But it's easier to add uAPI than remove it!
+- Make usc_exec_base per-queue instead of per-command. No use case for
+  doing it finer grained, and this shrinks the submits and simplifies
+  userspace handling.
+- Improve descriptions.
+- Reorder/shrink fields to remove padding.
+- Use full names for vdm/cdm_ctrl_stream_base
+- Link to v2: https://lore.kernel.org/r/20250313-agx-uapi-v2-1-59cc53a59ea3@rosenzweig.io
+
+Changes in v2:
+- Flatten submits. Previously, the submit ioctl pointed to an array of
+  command structures, which each pointed to separate payload structures,
+  which pointed to attachment structures. This is a lot of indirection,
+  which complicates greatly virtgpu. In the new approach, the submit
+  ioctl points to a single contiguous blob of plain-old-data, no CPU
+  pointers, copied from userspace in one go and suitable as virtgpu wire
+  protocol.
+- Remove vm_page_size, userspace has to hardcode it anyway.
+- Turn random #defines into enums for better kernel doc, etc.
+- Improve comments, particularly around barriers[].
+- Rename various flags/fields to better match canonical names when known
+  (a lot of the names are pulled from the drivers/gpu/drm/imagination,
+  naturally).
+- Drop unnecessary encoder_id, cmd_id handles.
+- Fix padding in submit ioctl (thanks Ryan).
+- Link to v1: https://lore.kernel.org/r/20250310-agx-uapi-v1-1-86c80905004e@rosenzweig.io
+---
+ Documentation/gpu/driver-uapi.rst |    5 +
+ MAINTAINERS                       |    1 +
+ include/uapi/drm/asahi_drm.h      | 1214 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 1220 insertions(+)
+
+diff --git a/Documentation/gpu/driver-uapi.rst b/Documentation/gpu/driver-uapi.rst
+index 971cdb4816fc98d80a64d93637481d10c2e79718..1f15a8ca126516c23bd7374cc4aead0dfbbccf67 100644
+--- a/Documentation/gpu/driver-uapi.rst
++++ b/Documentation/gpu/driver-uapi.rst
+@@ -27,3 +27,8 @@ drm/xe uAPI
+ ===========
+ 
+ .. kernel-doc:: include/uapi/drm/xe_drm.h
++
++drm/asahi uAPI
++================
++
++.. kernel-doc:: include/uapi/drm/asahi_drm.h
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d1050702f681fbd0e4e2d0457b2ba569a64070d9..7f692a935808d4ec82ee741324f8043302dae491 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2256,6 +2256,7 @@ F:	drivers/watchdog/apple_wdt.c
+ F:	include/dt-bindings/interrupt-controller/apple-aic.h
+ F:	include/dt-bindings/pinctrl/apple.h
+ F:	include/linux/soc/apple/*
++F:	include/uapi/drm/asahi_drm.h
+ 
+ ARM/ARTPEC MACHINE SUPPORT
+ M:	Jesper Nilsson <jesper.nilsson@axis.com>
+diff --git a/include/uapi/drm/asahi_drm.h b/include/uapi/drm/asahi_drm.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..e25123e1a12e4802d4e9b8df5ec223012b034ec3
+--- /dev/null
++++ b/include/uapi/drm/asahi_drm.h
+@@ -0,0 +1,1214 @@
++/* SPDX-License-Identifier: MIT */
++/*
++ * Copyright (C) The Asahi Linux Contributors
++ * Copyright (C) 2018-2023 Collabora Ltd.
++ * Copyright (C) 2014-2018 Broadcom
++ */
++#ifndef _ASAHI_DRM_H_
++#define _ASAHI_DRM_H_
++
++#include "drm.h"
++
++#if defined(__cplusplus)
++extern "C" {
++#endif
++
++/**
++ * DOC: Introduction to the Asahi UAPI
++ *
++ * This documentation describes the Asahi IOCTLs.
++ *
++ * Just a few generic rules about the data passed to the Asahi IOCTLs (cribbed
++ * from Panthor):
++ *
++ * - Structures must be aligned on 64-bit/8-byte. If the object is not
++ *   naturally aligned, a padding field must be added.
++ * - Fields must be explicitly aligned to their natural type alignment with
++ *   pad[0..N] fields.
++ * - All padding fields will be checked by the driver to make sure they are
++ *   zeroed.
++ * - Flags can be added, but not removed/replaced.
++ * - New fields can be added to the main structures (the structures
++ *   directly passed to the ioctl). Those fields can be added at the end of
++ *   the structure, or replace existing padding fields. Any new field being
++ *   added must preserve the behavior that existed before those fields were
++ *   added when a value of zero is passed.
++ * - New fields can be added to indirect objects (objects pointed by the
++ *   main structure), iff those objects are passed a size to reflect the
++ *   size known by the userspace driver (see
++ *   drm_asahi_command::cmd_buffer_size).
++ * - If the kernel driver is too old to know some fields, those will be
++ *   ignored if zero, and otherwise rejected (and so will be zero on output).
++ * - If userspace is too old to know some fields, those will be zeroed
++ *   (input) before the structure is parsed by the kernel driver.
++ * - Each new flag/field addition must come with a driver version update so
++ *   the userspace driver doesn't have to guess which flags are supported.
++ * - Structures should not contain unions, as this would defeat the
++ *   extensibility of such structures.
++ * - IOCTLs can't be removed or replaced. New IOCTL IDs should be placed
++ *   at the end of the drm_asahi_ioctl_id enum.
++ */
++
++/**
++ * enum drm_asahi_ioctl_id - IOCTL IDs
++ *
++ * Place new ioctls at the end, don't re-order, don't replace or remove entries.
++ *
++ * These IDs are not meant to be used directly. Use the DRM_IOCTL_ASAHI_xxx
++ * definitions instead.
++ */
++enum drm_asahi_ioctl_id {
++	/** @DRM_ASAHI_GET_PARAMS: Query device properties. */
++	DRM_ASAHI_GET_PARAMS = 0,
++
++	/** @DRM_ASAHI_GET_TIME: Query device time. */
++	DRM_ASAHI_GET_TIME,
++
++	/** @DRM_ASAHI_VM_CREATE: Create a GPU VM address space. */
++	DRM_ASAHI_VM_CREATE,
++
++	/** @DRM_ASAHI_VM_DESTROY: Destroy a VM. */
++	DRM_ASAHI_VM_DESTROY,
++
++	/** @DRM_ASAHI_VM_BIND: Bind/unbind memory to a VM. */
++	DRM_ASAHI_VM_BIND,
++
++	/** @DRM_ASAHI_GEM_CREATE: Create a buffer object. */
++	DRM_ASAHI_GEM_CREATE,
++
++	/**
++	 * @DRM_ASAHI_GEM_MMAP_OFFSET: Get offset to pass to mmap() to map a
++	 * given GEM handle.
++	 */
++	DRM_ASAHI_GEM_MMAP_OFFSET,
++
++	/** @DRM_ASAHI_GEM_BIND_OBJECT: Bind memory as a special object */
++	DRM_ASAHI_GEM_BIND_OBJECT,
++
++	/** @DRM_ASAHI_QUEUE_CREATE: Create a scheduling queue. */
++	DRM_ASAHI_QUEUE_CREATE,
++
++	/** @DRM_ASAHI_QUEUE_DESTROY: Destroy a scheduling queue. */
++	DRM_ASAHI_QUEUE_DESTROY,
++
++	/** @DRM_ASAHI_SUBMIT: Submit commands to a queue. */
++	DRM_ASAHI_SUBMIT,
++};
++
++#define DRM_ASAHI_MAX_CLUSTERS	64
++
++/**
++ * struct drm_asahi_params_global - Global parameters.
++ *
++ * This struct may be queried by drm_asahi_get_params.
++ */
++struct drm_asahi_params_global {
++	/** @features: Feature bits from drm_asahi_feature */
++	__u64 features;
++
++	/** @gpu_generation: GPU generation, e.g. 13 for G13G */
++	__u32 gpu_generation;
++
++	/** @gpu_variant: GPU variant as a character, e.g. 'C' for G13C */
++	__u32 gpu_variant;
++
++	/**
++	 * @gpu_revision: GPU revision in BCD, e.g. 0x00 for 'A0' or
++	 * 0x21 for 'C1'
++	 */
++	__u32 gpu_revision;
++
++	/** @chip_id: Chip ID in BCD, e.g. 0x8103 for T8103 */
++	__u32 chip_id;
++
++	/** @num_dies: Number of dies in the SoC */
++	__u32 num_dies;
++
++	/** @num_clusters_total: Number of GPU clusters (across all dies) */
++	__u32 num_clusters_total;
++
++	/**
++	 * @num_cores_per_cluster: Number of logical cores per cluster
++	 * (including inactive/nonexistent)
++	 */
++	__u32 num_cores_per_cluster;
++
++	/** @max_frequency_khz: Maximum GPU core clock frequency */
++	__u32 max_frequency_khz;
++
++	/** @core_masks: Bitmask of present/enabled cores per cluster */
++	__u64 core_masks[DRM_ASAHI_MAX_CLUSTERS];
++
++	/**
++	 * @vm_start: VM range start VMA. Together with @vm_end, this defines
++	 * the window of valid GPU VAs. Userspace is expected to subdivide VAs
++	 * out of this window.
++	 *
++	 * This window contains all virtual addresses that userspace needs to
++	 * know about. There may be kernel-internal GPU VAs outside this range,
++	 * but that detail is not relevant here.
++	 */
++	__u64 vm_start;
++
++	/** @vm_end: VM range end VMA */
++	__u64 vm_end;
++
++	/**
++	 * @vm_kernel_min_size: Minimum kernel VMA window size.
++	 *
++	 * When creating a VM, userspace is required to carve out a section of
++	 * virtual addresses (within the range given by @vm_start and
++	 * @vm_end). The kernel will allocate various internal structures
++	 * within the specified VA range.
++	 *
++	 * Allowing userspace to choose the VA range for the kernel, rather than
++	 * the kernel reserving VAs and requiring userspace to cope, can assist
++	 * in implementing SVM.
++	 */
++	__u64 vm_kernel_min_size;
++
++	/**
++	 * @max_commands_per_submission: Maximum number of supported commands
++	 * per submission. This mirrors firmware limits. Userspace must split up
++	 * larger command buffers, which may require inserting additional
++	 * synchronization.
++	 */
++	__u32 max_commands_per_submission;
++
++	/**
++	 * @max_attachments: Maximum number of drm_asahi_attachment's per
++	 * command
++	 */
++	__u32 max_attachments;
++
++	/**
++	 * @command_timestamp_frequency_hz: Timebase frequency for timestamps
++	 * written during command exeuction, specified via drm_asahi_timestamp
++	 * structures. As this rate is controlled by the firmware, it is a
++	 * queryable parameter.
++	 *
++	 * Userspace must divide by this frequency to convert timestamps to
++	 * seconds, rather than hardcoding a particular firmware's rate.
++	 */
++	__u64 command_timestamp_frequency_hz;
++};
++
++/**
++ * enum drm_asahi_feature - Feature bits
++ *
++ * This covers only features that userspace cannot infer from the architecture
++ * version. Most features don't need to be here.
++ */
++enum drm_asahi_feature {
++	/**
++	 * @DRM_ASAHI_FEATURE_SOFT_FAULTS: GPU has "soft fault" enabled. Shader
++	 * loads of unmapped memory will return zero. Shader stores to unmapped
++	 * memory will be silently discarded. Note that only shader load/store
++	 * is affected. Other hardware units are not affected, notably including
++	 * texture sampling.
++	 *
++	 * Soft fault is set when initializing the GPU and cannot be runtime
++	 * toggled. Therefore, it is exposed as a feature bit and not a
++	 * userspace-settable flag on the VM. When soft fault is enabled,
++	 * userspace can speculate memory accesses more aggressively.
++	 */
++	DRM_ASAHI_FEATURE_SOFT_FAULTS = (1UL) << 0,
++};
++
++/**
++ * struct drm_asahi_get_params - Arguments passed to DRM_IOCTL_ASAHI_GET_PARAMS
++ */
++struct drm_asahi_get_params {
++	/** @param_group: Parameter group to fetch (MBZ) */
++	__u32 param_group;
++
++	/** @pad: MBZ */
++	__u32 pad;
++
++	/** @pointer: User pointer to write parameter struct */
++	__u64 pointer;
++
++	/**
++	 * @size: Size of the user buffer. In case of older userspace, this may
++	 * be less than sizeof(struct drm_asahi_params_global). The kernel will
++	 * not write past the length specified here, allowing extensibility.
++	 */
++	__u64 size;
++};
++
++/**
++ * struct drm_asahi_vm_create - Arguments passed to DRM_IOCTL_ASAHI_VM_CREATE
++ */
++struct drm_asahi_vm_create {
++	/**
++	 * @kernel_start: Start of the kernel-reserved address range. See
++	 * drm_asahi_params_global::vm_kernel_min_size.
++	 *
++	 * Both @kernel_start and @kernel_end must be within the range of
++	 * valid VAs given by drm_asahi_params_global::vm_start and
++	 * drm_asahi_params_global::vm_end. The size of the kernel range
++	 * (@kernel_end - @kernel_start) must be at least
++	 * drm_asahi_params_global::vm_kernel_min_size.
++	 *
++	 * Userspace must not bind any memory on this VM into this reserved
++	 * range, it is for kernel use only.
++	 */
++	__u64 kernel_start;
++
++	/**
++	 * @kernel_end: End of the kernel-reserved address range. See
++	 * @kernel_start.
++	 */
++	__u64 kernel_end;
++
++	/** @vm_id: Returned VM ID */
++	__u32 vm_id;
++
++	/** @pad: MBZ */
++	__u32 pad;
++};
++
++/**
++ * struct drm_asahi_vm_destroy - Arguments passed to DRM_IOCTL_ASAHI_VM_DESTROY
++ */
++struct drm_asahi_vm_destroy {
++	/** @vm_id: VM ID to be destroyed */
++	__u32 vm_id;
++
++	/** @pad: MBZ */
++	__u32 pad;
++};
++
++/**
++ * enum drm_asahi_gem_flags - Flags for GEM creation
++ */
++enum drm_asahi_gem_flags {
++	/**
++	 * @DRM_ASAHI_GEM_WRITEBACK: BO should be CPU-mapped as writeback.
++	 *
++	 * Map as writeback instead of write-combine. This optimizes for CPU
++	 * reads.
++	 */
++	DRM_ASAHI_GEM_WRITEBACK = (1L << 0),
++
++	/**
++	 * @DRM_ASAHI_GEM_VM_PRIVATE: BO is private to this GPU VM (no exports).
++	 */
++	DRM_ASAHI_GEM_VM_PRIVATE = (1L << 1),
++};
++
++/**
++ * struct drm_asahi_gem_create - Arguments passed to DRM_IOCTL_ASAHI_GEM_CREATE
++ */
++struct drm_asahi_gem_create {
++	/** @size: Size of the BO */
++	__u64 size;
++
++	/** @flags: Combination of drm_asahi_gem_flags flags. */
++	__u32 flags;
++
++	/**
++	 * @vm_id: VM ID to assign to the BO, if DRM_ASAHI_GEM_VM_PRIVATE is set
++	 */
++	__u32 vm_id;
++
++	/** @handle: Returned GEM handle for the BO */
++	__u32 handle;
++
++	/** @pad: MBZ */
++	__u32 pad;
++};
++
++/**
++ * struct drm_asahi_gem_mmap_offset - Arguments passed to
++ * DRM_IOCTL_ASAHI_GEM_MMAP_OFFSET
++ */
++struct drm_asahi_gem_mmap_offset {
++	/** @handle: Handle for the object being mapped. */
++	__u32 handle;
++
++	/** @flags: Must be zero */
++	__u32 flags;
++
++	/** @offset: The fake offset to use for subsequent mmap call */
++	__u64 offset;
++};
++
++/**
++ * enum drm_asahi_bind_flags - Flags for GEM binding
++ */
++enum drm_asahi_bind_flags {
++	/**
++	 * @DRM_ASAHI_BIND_UNBIND: Instead of binding a GEM object to the range,
++	 * simply unbind the GPU VMA range.
++	 */
++	DRM_ASAHI_BIND_UNBIND = (1L << 0),
++
++	/** @DRM_ASAHI_BIND_READ: Map BO with GPU read permission */
++	DRM_ASAHI_BIND_READ = (1L << 1),
++
++	/** @DRM_ASAHI_BIND_WRITE: Map BO with GPU write permission */
++	DRM_ASAHI_BIND_WRITE = (1L << 2),
++
++	/**
++	 * @DRM_ASAHI_BIND_SINGLE_PAGE: Map a single page of the BO repeatedly
++	 * across the VA range.
++	 *
++	 * This is useful to fill a VA range with scratch pages or zero pages.
++	 * It is intended as a mechanism to accelerate sparse.
++	 */
++	DRM_ASAHI_BIND_SINGLE_PAGE = (1L << 3),
++};
++
++/**
++ * struct drm_asahi_gem_bind_op - Description of a single GEM bind operation.
++ */
++struct drm_asahi_gem_bind_op {
++	/** @flags: Combination of drm_asahi_bind_flags flags. */
++	__u32 flags;
++
++	/** @handle: GEM object to bind (except for UNBIND) */
++	__u32 handle;
++
++	/**
++	 * @offset: Offset into the object (except for UNBIND).
++	 *
++	 * For a regular bind, this is the beginning of the region of the GEM
++	 * object to bind.
++	 *
++	 * For a single-page bind, this is the offset to the single page that
++	 * will be repeatedly bound.
++	 *
++	 * Must be page-size aligned.
++	 */
++	__u64 offset;
++
++	/**
++	 * @range: Number of bytes to bind/unbind to @addr.
++	 *
++	 * Must be page-size aligned.
++	 */
++	__u64 range;
++
++	/**
++	 * @addr: Address to bind to.
++	 *
++	 * Must be page-size aligned.
++	 */
++	__u64 addr;
++};
++
++/**
++ * struct drm_asahi_vm_bind - Arguments passed to
++ * DRM_IOCTL_ASAHI_VM_BIND
++ */
++struct drm_asahi_vm_bind {
++	/** @vm_id: The ID of the VM to bind to */
++	__u32 vm_id;
++
++	/** @num_binds: number of binds in this IOCTL. Must be non-zero. */
++	__u32 num_binds;
++
++	/**
++	 * @stride: If num_binds > 1, stride in bytes between consecutive binds.
++	 * This allows extensibility of drm_asahi_gem_bind_op.
++	 *
++	 * If num_binds == 1, MBZ. Extensibility in that case is handled at the
++	 * ioctl level instead.
++	 */
++	__u32 stride;
++
++	/** @pad: MBZ */
++	__u32 pad;
++
++	/**
++	 * @bind: Union holding the bind request.
++	 *
++	 * This union must be at the end of the ioctl. That way, extending
++	 * drm_asahi_gem_bind_op has the effect of extending the ioctl. We
++	 * usually avoid unions to preserve extensibility, but because this is
++	 * at the end, that is not an issue here. Note that means
++	 * drm_asahi_vm_bind itself cannot be extended.
++	 *
++	 * This union is named to make the Rust bindings nicer to work with.
++	 */
++	union {
++		/** @bind.b: If num_binds == 1, the bind */
++		struct drm_asahi_gem_bind_op b;
++
++		/**
++		 * @bind.userptr: If num_binds > 1, user pointer to an array of
++		 * @num_binds structures of type @drm_asahi_gem_bind_op and size
++		 * @stride bytes.
++		 */
++		__u64 userptr;
++	} bind;
++};
++
++/**
++ * enum drm_asahi_bind_object_op - Special object bind operation
++ */
++enum drm_asahi_bind_object_op {
++	/** @DRM_ASAHI_BIND_OBJECT_OP_BIND: Bind a BO as a special GPU object */
++	DRM_ASAHI_BIND_OBJECT_OP_BIND = 0,
++
++	/** @DRM_ASAHI_BIND_OBJECT_OP_UNBIND: Unbind a special GPU object */
++	DRM_ASAHI_BIND_OBJECT_OP_UNBIND = 1,
++};
++
++/**
++ * enum drm_asahi_bind_object_flags - Special object bind flags
++ */
++enum drm_asahi_bind_object_flags {
++	/**
++	 * @DRM_ASAHI_BIND_OBJECT_USAGE_TIMESTAMPS: Map a BO as a timestamp
++	 * buffer.
++	 */
++	DRM_ASAHI_BIND_OBJECT_USAGE_TIMESTAMPS = (1L << 0),
++};
++
++/**
++ * struct drm_asahi_gem_bind_object - Arguments passed to
++ * DRM_IOCTL_ASAHI_GEM_BIND_OBJECT
++ */
++struct drm_asahi_gem_bind_object {
++	/** @op: Bind operation (enum drm_asahi_bind_object_op) */
++	__u32 op;
++
++	/** @flags: Combination of drm_asahi_bind_object_flags flags. */
++	__u32 flags;
++
++	/** @handle: GEM object to bind/unbind (BIND) */
++	__u32 handle;
++
++	/** @vm_id: The ID of the VM to operate on (MBZ currently) */
++	__u32 vm_id;
++
++	/** @offset: Offset into the object (BIND only) */
++	__u64 offset;
++
++	/** @range: Number of bytes to bind/unbind (BIND only) */
++	__u64 range;
++
++	/** @object_handle: Object handle (out for BIND, in for UNBIND) */
++	__u32 object_handle;
++
++	/** @pad: MBZ */
++	__u32 pad;
++};
++
++/**
++ * enum drm_asahi_cmd_type - Command type
++ */
++enum drm_asahi_cmd_type {
++	/**
++	 * @DRM_ASAHI_CMD_RENDER: Render command, executing on the render
++	 * subqueue. Combined vertex and fragment operation.
++	 *
++	 * Followed by a @drm_asahi_cmd_render payload.
++	 */
++	DRM_ASAHI_CMD_RENDER = 0,
++
++	/**
++	 * @DRM_ASAHI_CMD_COMPUTE: Compute command on the compute subqueue.
++	 *
++	 * Followed by a @drm_asahi_cmd_compute payload.
++	 */
++	DRM_ASAHI_CMD_COMPUTE = 1,
++
++	/**
++	 * @DRM_ASAHI_SET_VERTEX_ATTACHMENTS: Software command to set
++	 * attachments for subsequent vertex shaders in the same submit.
++	 *
++	 * Followed by (possibly multiple) @drm_asahi_attachment payloads.
++	 */
++	DRM_ASAHI_SET_VERTEX_ATTACHMENTS = 2,
++
++	/**
++	 * @DRM_ASAHI_SET_FRAGMENT_ATTACHMENTS: Software command to set
++	 * attachments for subsequent fragment shaders in the same submit.
++	 *
++	 * Followed by (possibly multiple) @drm_asahi_attachment payloads.
++	 */
++	DRM_ASAHI_SET_FRAGMENT_ATTACHMENTS = 3,
++
++	/**
++	 * @DRM_ASAHI_SET_COMPUTE_ATTACHMENTS: Software command to set
++	 * attachments for subsequent compute shaders in the same submit.
++	 *
++	 * Followed by (possibly multiple) @drm_asahi_attachment payloads.
++	 */
++	DRM_ASAHI_SET_COMPUTE_ATTACHMENTS = 4,
++};
++
++/**
++ * enum drm_asahi_priority - Scheduling queue priority.
++ *
++ * These priorities are forwarded to the firmware to influence firmware
++ * scheduling. The exact policy is ultimately decided by firmware, but
++ * these enums allow userspace to communicate the intentions.
++ */
++enum drm_asahi_priority {
++	/** @DRM_ASAHI_PRIORITY_LOW: Low priority queue. */
++	DRM_ASAHI_PRIORITY_LOW = 0,
++
++	/** @DRM_ASAHI_PRIORITY_MEDIUM: Medium priority queue. */
++	DRM_ASAHI_PRIORITY_MEDIUM = 1,
++
++	/**
++	 * @DRM_ASAHI_PRIORITY_HIGH: High priority queue.
++	 *
++	 * Reserved for future extension.
++	 */
++	DRM_ASAHI_PRIORITY_HIGH = 2,
++
++	/**
++	 * @DRM_ASAHI_PRIORITY_REALTIME: Real-time priority queue.
++	 *
++	 * Reserved for future extension.
++	 */
++	DRM_ASAHI_PRIORITY_REALTIME = 3,
++};
++
++/**
++ * struct drm_asahi_queue_create - Arguments passed to
++ * DRM_IOCTL_ASAHI_QUEUE_CREATE
++ */
++struct drm_asahi_queue_create {
++	/** @flags: MBZ */
++	__u32 flags;
++
++	/** @vm_id: The ID of the VM this queue is bound to */
++	__u32 vm_id;
++
++	/** @priority: One of drm_asahi_priority */
++	__u32 priority;
++
++	/** @queue_id: The returned queue ID */
++	__u32 queue_id;
++
++	/**
++	 * @usc_exec_base: GPU base address for all USC binaries (shaders) on
++	 * this queue. USC addresses are 32-bit relative to this 64-bit base.
++	 *
++	 * This sets the following registers on all queue commands:
++	 *
++	 *	USC_EXEC_BASE_TA  (vertex)
++	 *	USC_EXEC_BASE_ISP (fragment)
++	 *	USC_EXEC_BASE_CP  (compute)
++	 *
++	 * While the hardware lets us configure these independently per command,
++	 * we do not have a use case for this. Instead, we expect userspace to
++	 * fix a 4GiB VA carveout for USC memory and pass its base address here.
++	 */
++	__u64 usc_exec_base;
++};
++
++/**
++ * struct drm_asahi_queue_destroy - Arguments passed to
++ * DRM_IOCTL_ASAHI_QUEUE_DESTROY
++ */
++struct drm_asahi_queue_destroy {
++	/** @queue_id: The queue ID to be destroyed */
++	__u32 queue_id;
++
++	/** @pad: MBZ */
++	__u32 pad;
++};
++
++/**
++ * enum drm_asahi_sync_type - Sync item type
++ */
++enum drm_asahi_sync_type {
++	/** @DRM_ASAHI_SYNC_SYNCOBJ: Binary sync object */
++	DRM_ASAHI_SYNC_SYNCOBJ = 0,
++
++	/** @DRM_ASAHI_SYNC_TIMELINE_SYNCOBJ: Timeline sync object */
++	DRM_ASAHI_SYNC_TIMELINE_SYNCOBJ = 1,
++};
++
++/**
++ * struct drm_asahi_sync - Sync item
++ */
++struct drm_asahi_sync {
++	/** @sync_type: One of drm_asahi_sync_type */
++	__u32 sync_type;
++
++	/** @handle: The sync object handle */
++	__u32 handle;
++
++	/** @timeline_value: Timeline value for timeline sync objects */
++	__u64 timeline_value;
++};
++
++/**
++ * define DRM_ASAHI_BARRIER_NONE - Command index for no barrier
++ *
++ * This special value may be passed in to drm_asahi_command::vdm_barrier or
++ * drm_asahi_command::cdm_barrier to indicate that the respective subqueue
++ * should not wait on any previous work.
++ */
++#define DRM_ASAHI_BARRIER_NONE (0xFFFFu)
++
++/**
++ * struct drm_asahi_cmd_header - Top level command structure
++ *
++ * This struct is core to the command buffer definition and therefore is not
++ * extensible.
++ */
++struct drm_asahi_cmd_header {
++	/** @cmd_type: One of drm_asahi_cmd_type */
++	__u16 cmd_type;
++
++	/**
++	 * @size: Size of this command, not including this header.
++	 *
++	 * For hardware commands, this enables extensibility of commands without
++	 * requiring extra command types. Passing a command that is shorter
++	 * than expected is explicitly allowed for backwards-compatibility.
++	 * Truncated fields will be zeroed.
++	 *
++	 * For the synthetic attachment setting commands, this implicitly
++	 * encodes the number of attachments. These commands take multiple
++	 * fixed-size @drm_asahi_attachment structures as their payload, so size
++	 * equals number of attachments * sizeof(struct drm_asahi_attachment).
++	 */
++	__u16 size;
++
++	/**
++	 * @vdm_barrier: VDM (render) command index to wait on.
++	 *
++	 * Barriers are indices relative to the beginning of a given submit. A
++	 * barrier of 0 waits on commands submitted to the respective subqueue
++	 * in previous submit ioctls. A barrier of N waits on N previous
++	 * commands on the subqueue within the current submit ioctl. As a
++	 * special case, passing @DRM_ASAHI_BARRIER_NONE avoids waiting on any
++	 * commands in the subqueue.
++	 *
++	 * Examples:
++	 *
++	 *   0: This waits on all previous work.
++	 *
++	 *   NONE: This does not wait for anything on this subqueue.
++	 *
++	 *   1: This waits on the first render command in the submit.
++	 *   This is valid only if there are multiple render commands in the
++	 *   same submit.
++	 *
++	 * Barriers are valid only for hardware commands. Synthetic software
++	 * commands to set attachments must pass NONE here.
++	 */
++	__u16 vdm_barrier;
++
++	/**
++	 * @cdm_barrier: CDM (compute) command index to wait on.
++	 *
++	 * See @vdm_barrier, and substitute VDM/render for CDM/compute.
++	 */
++	__u16 cdm_barrier;
++};
++
++/**
++ * struct drm_asahi_submit - Arguments passed to DRM_IOCTL_ASAHI_SUBMIT
++ */
++struct drm_asahi_submit {
++	/**
++	 * @syncs: An optional pointer to an array of drm_asahi_sync. The first
++	 * @in_sync_count elements are in-syncs, then the remaining
++	 * @out_sync_count elements are out-syncs. Using a single array with
++	 * explicit partitioning simplifies handling.
++	 */
++	__u64 syncs;
++
++	/**
++	 * @cmdbuf: Pointer to the command buffer to submit.
++	 *
++	 * This is a flat command buffer. By design, it contains no CPU
++	 * pointers, which makes it suitable for a virtgpu wire protocol without
++	 * requiring any serializing/deserializing step.
++	 *
++	 * It consists of a series of commands. Each command begins with a
++	 * fixed-size @drm_asahi_cmd_header header and is followed by a
++	 * variable-length payload according to the type and size in the header.
++	 *
++	 * The combined count of "real" hardware commands must be nonzero and at
++	 * most drm_asahi_params_global::max_commands_per_submission.
++	 */
++	__u64 cmdbuf;
++
++	/** @flags: Flags for command submission (MBZ) */
++	__u32 flags;
++
++	/** @queue_id: The queue ID to be submitted to */
++	__u32 queue_id;
++
++	/**
++	 * @in_sync_count: Number of sync objects to wait on before starting
++	 * this job.
++	 */
++	__u32 in_sync_count;
++
++	/**
++	 * @out_sync_count: Number of sync objects to signal upon completion of
++	 * this job.
++	 */
++	__u32 out_sync_count;
++
++	/** @cmdbuf_size: Command buffer size in bytes */
++	__u32 cmdbuf_size;
++
++	/** @pad: MBZ */
++	__u32 pad;
++};
++
++/**
++ * struct drm_asahi_attachment - Describe an "attachment".
++ *
++ * Attachments are any memory written by shaders, notably including render
++ * target attachments written by the end-of-tile program. This is purely a hint
++ * about the accessed memory regions. It is optional to specify, which is
++ * fortunate as it cannot be specified precisely with bindless access anyway.
++ * But where possible, it's probably a good idea for userspace to include these
++ * hints, forwarded to the firmware.
++ *
++ * This struct is implicitly sized and therefore is not extensible.
++ */
++struct drm_asahi_attachment {
++	/** @pointer: Base address of the attachment */
++	__u64 pointer;
++
++	/** @size: Size of the attachment in bytes */
++	__u64 size;
++
++	/** @pad: MBZ */
++	__u32 pad;
++
++	/** @flags: MBZ */
++	__u32 flags;
++};
++
++enum drm_asahi_render_flags {
++	/**
++	 * @DRM_ASAHI_RENDER_VERTEX_SCRATCH: A vertex stage shader uses scratch
++	 * memory.
++	 */
++	DRM_ASAHI_RENDER_VERTEX_SCRATCH = (1U << 0),
++
++	/**
++	 * @DRM_ASAHI_RENDER_PROCESS_EMPTY_TILES: Process even empty tiles.
++	 * This must be set when clearing render targets.
++	 */
++	DRM_ASAHI_RENDER_PROCESS_EMPTY_TILES = (1U << 1),
++
++	/**
++	 * @DRM_ASAHI_RENDER_NO_VERTEX_CLUSTERING: Run vertex stage on a single
++	 * cluster (on multi-cluster GPUs)
++	 *
++	 * This harms performance but can workaround certain sync/coherency
++	 * bugs, and therefore is useful for debugging.
++	 */
++	DRM_ASAHI_RENDER_NO_VERTEX_CLUSTERING = (1U << 2),
++
++	/**
++	 * @DRM_ASAHI_RENDER_DBIAS_IS_INT: Use integer depth bias formula.
++	 *
++	 * Graphics specifications contain two alternate formulas for depth
++	 * bias, a float formula used with floating-point depth buffers and an
++	 * integer formula using with unorm depth buffers. This flag specifies
++	 * that the integer formula should be used. If omitted, the float
++	 * formula is used instead.
++	 *
++	 * This corresponds to bit 18 of the relevant hardware control register,
++	 * so we match that here for efficiency.
++	 */
++	DRM_ASAHI_RENDER_DBIAS_IS_INT = (1U << 18),
++};
++
++/**
++ * struct drm_asahi_zls_buffer - Describe a depth or stencil buffer.
++ *
++ * These fields correspond to hardware registers in the ZLS (Z Load/Store) unit.
++ * There are three hardware registers for each field respectively for loads,
++ * stores, and partial renders. In practice, it makes sense to set all to the
++ * same values, except in exceptional cases not yet implemented in userspace, so
++ * we do not duplicate here for simplicity/efficiency.
++ *
++ * This struct is embedded in other structs and therefore is not extensible.
++ */
++struct drm_asahi_zls_buffer {
++	/** @base: Base address of the buffer */
++	__u64 base;
++
++	/**
++	 * @comp_base: If the load buffer is compressed, address of the
++	 * compression metadata section.
++	 */
++	__u64 comp_base;
++
++	/**
++	 * @stride: If layered rendering is enabled, the number of bytes
++	 * between each layer of the buffer.
++	 */
++	__u32 stride;
++
++	/**
++	 * @comp_stride: If layered rendering is enabled, the number of bytes
++	 * between each layer of the compression metadata.
++	 */
++	__u32 comp_stride;
++};
++
++/**
++ * struct drm_asahi_timestamp - Describe a timestamp write.
++ *
++ * The firmware can optionally write the GPU timestamp at render pass
++ * granularities, but it needs to be mapped specially via
++ * DRM_IOCTL_ASAHI_GEM_BIND_OBJECT. This structure therefore describes where to
++ * write as a handle-offset pair, rather than a GPU address like normal.
++ *
++ * This struct is embedded in other structs and therefore is not extensible.
++ */
++struct drm_asahi_timestamp {
++	/**
++	 * @handle: Handle of the timestamp buffer, or 0 to skip this
++	 * timestamp. If nonzero, this must equal the value returned in
++	 * drm_asahi_gem_bind_object::object_handle.
++	 */
++	__u32 handle;
++
++	/** @offset: Offset to write into the timestamp buffer */
++	__u32 offset;
++};
++
++/**
++ * struct drm_asahi_timestamps - Describe timestamp writes.
++ *
++ * Each operation that can be timestamped, can be timestamped at the start and
++ * end. Therefore, drm_asahi_timestamp structs always come in pairs, bundled
++ * together into drm_asahi_timestamps.
++ *
++ * This struct is embedded in other structs and therefore is not extensible.
++ */
++struct drm_asahi_timestamps {
++	/** @start: Timestamp recorded at the start of the operation */
++	struct drm_asahi_timestamp start;
++
++	/** @end: Timestamp recorded at the end of the operation */
++	struct drm_asahi_timestamp end;
++};
++
++/**
++ * struct drm_asahi_helper_program - Describe helper program configuration.
++ *
++ * The helper program is a compute-like kernel required for various hardware
++ * functionality. Its most important role is dynamically allocating
++ * scratch/stack memory for individual subgroups, by partitioning a static
++ * allocation shared for the whole device. It is supplied by userspace via
++ * drm_asahi_helper_program and internally dispatched by the hardware as needed.
++ *
++ * This struct is embedded in other structs and therefore is not extensible.
++ */
++struct drm_asahi_helper_program {
++	/**
++	 * @binary: USC address to the helper program binary. This is a tagged
++	 * pointer with configuration in the bottom bits.
++	 */
++	__u32 binary;
++
++	/** @cfg: Additional configuration bits for the helper program. */
++	__u32 cfg;
++
++	/**
++	 * @data: Data passed to the helper program. This value is not
++	 * interpreted by the kernel, firmware, or hardware in any way. It is
++	 * simply a sideband for userspace, set with the submit ioctl and read
++	 * via special registers inside the helper program.
++	 *
++	 * In practice, userspace will pass a 64-bit GPU VA here pointing to the
++	 * actual arguments, which presumably don't fit in 64-bits.
++	 */
++	__u64 data;
++};
++
++/**
++ * struct drm_asahi_bg_eot - Describe a background or end-of-tile program.
++ *
++ * The background and end-of-tile programs are dispatched by the hardware at the
++ * beginning and end of rendering. As the hardware "tilebuffer" is simply local
++ * memory, these programs are necessary to implement API-level render targets.
++ * The fragment-like background program is responsible for loading either the
++ * clear colour or the existing render target contents, while the compute-like
++ * end-of-tile program stores the tilebuffer contents to memory.
++ *
++ * This struct is embedded in other structs and therefore is not extensible.
++ */
++struct drm_asahi_bg_eot {
++	/**
++	 * @usc: USC address of the hardware USC words binding resources
++	 * (including images and uniforms) and the program itself. Note this is
++	 * an additional layer of indirection compared to the helper program,
++	 * avoiding the need for a sideband for data. This is a tagged pointer
++	 * with additional configuration in the bottom bits.
++	 */
++	__u32 usc;
++
++	/**
++	 * @rsrc_spec: Resource specifier for the program. This is a packed
++	 * hardware data structure describing the required number of registers,
++	 * uniforms, bound textures, and bound samplers.
++	 */
++	__u32 rsrc_spec;
++};
++
++/**
++ * struct drm_asahi_cmd_render - Command to submit 3D
++ *
++ * This command submits a single render pass. The hardware control stream may
++ * include many draws and subpasses, but within the command, the framebuffer
++ * dimensions and attachments are fixed.
++ *
++ * The hardware requires the firmware to set a large number of Control Registers
++ * setting up state at render pass granularity before each command rendering 3D.
++ * The firmware bundles this state into data structures. Unfortunately, we
++ * cannot expose either any of that directly to userspace, because the
++ * kernel-firmware ABI is not stable. Although we can guarantee the firmware
++ * updates in tandem with the kernel, we cannot break old userspace when
++ * upgrading the firmware and kernel. Therefore, we need to abstract well the
++ * data structures to avoid tying our hands with future firmwares.
++ *
++ * The bulk of drm_asahi_cmd_render therefore consists of values of hardware
++ * control registers, marshalled via the firmware interface.
++ *
++ * The framebuffer/tilebuffer dimensions are also specified here. In addition to
++ * being passed to the firmware/hardware, the kernel requires these dimensions
++ * to calculate various essential tiling-related data structures. It is
++ * unfortunate that our submits are heavier than on vendors with saner
++ * hardware-software interfaces. The upshot is all of this information is
++ * readily available to userspace with all current APIs.
++ *
++ * It looks odd - but it's not overly burdensome and it ensures we can remain
++ * compatible with old userspace.
++ */
++struct drm_asahi_cmd_render {
++	/** @flags: Combination of drm_asahi_render_flags flags. */
++	__u32 flags;
++
++	/**
++	 * @isp_zls_pixels: ISP_ZLS_PIXELS register value. This contains the
++	 * depth/stencil width/height, which may differ from the framebuffer
++	 * width/height.
++	 */
++	__u32 isp_zls_pixels;
++
++	/**
++	 * @vdm_ctrl_stream_base: VDM_CTRL_STREAM_BASE register value. GPU
++	 * address to the beginning of the VDM control stream.
++	 */
++	__u64 vdm_ctrl_stream_base;
++
++	/** @vertex_helper: Helper program used for the vertex shader */
++	struct drm_asahi_helper_program vertex_helper;
++
++	/** @fragment_helper: Helper program used for the fragment shader */
++	struct drm_asahi_helper_program fragment_helper;
++
++	/**
++	 * @isp_scissor_base: ISP_SCISSOR_BASE register value. GPU address of an
++	 * array of scissor descriptors indexed in the render pass.
++	 */
++	__u64 isp_scissor_base;
++
++	/**
++	 * @isp_dbias_base: ISP_DBIAS_BASE register value. GPU address of an
++	 * array of depth bias values indexed in the render pass.
++	 */
++	__u64 isp_dbias_base;
++
++	/**
++	 * @isp_oclqry_base: ISP_OCLQRY_BASE register value. GPU address of an
++	 * array of occlusion query results written by the render pass.
++	 */
++	__u64 isp_oclqry_base;
++
++	/** @depth: Depth buffer */
++	struct drm_asahi_zls_buffer depth;
++
++	/** @stencil: Stencil buffer */
++	struct drm_asahi_zls_buffer stencil;
++
++	/** @zls_ctrl: ZLS_CTRL register value */
++	__u64 zls_ctrl;
++
++	/** @ppp_multisamplectl: PPP_MULTISAMPLECTL register value */
++	__u64 ppp_multisamplectl;
++
++	/**
++	 * @sampler_heap: Base address of the sampler heap. This heap is used
++	 * for both vertex shaders and fragment shaders. The registers are
++	 * per-stage, but there is no known use case for separate heaps.
++	 */
++	__u64 sampler_heap;
++
++	/** @ppp_ctrl: PPP_CTRL register value */
++	__u32 ppp_ctrl;
++
++	/** @width_px: Framebuffer width in pixels */
++	__u16 width_px;
++
++	/** @height_px: Framebuffer height in pixels */
++	__u16 height_px;
++
++	/** @layers: Number of layers in the framebuffer */
++	__u16 layers;
++
++	/** @sampler_count: Number of samplers in the sampler heap. */
++	__u16 sampler_count;
++
++	/** @utile_width_px: Width of a logical tilebuffer tile in pixels */
++	__u8 utile_width_px;
++
++	/** @utile_height_px: Height of a logical tilebuffer tile in pixels */
++	__u8 utile_height_px;
++
++	/** @samples: # of samples in the framebuffer. Must be 1, 2, or 4. */
++	__u8 samples;
++
++	/** @sample_size_B: # of bytes in the tilebuffer required per sample. */
++	__u8 sample_size_B;
++
++	/**
++	 * @isp_merge_upper_x: 32-bit float used in the hardware triangle
++	 * merging. Calculate as: tan(60 deg) * width.
++	 *
++	 * Making these values UAPI avoids requiring floating-point calculations
++	 * in the kernel in the hot path.
++	 */
++	__u32 isp_merge_upper_x;
++
++	/**
++	 * @isp_merge_upper_y: 32-bit float. Calculate as: tan(60 deg) * height.
++	 * See @isp_merge_upper_x.
++	 */
++	__u32 isp_merge_upper_y;
++
++	/** @bg: Background program run for each tile at the start */
++	struct drm_asahi_bg_eot bg;
++
++	/** @eot: End-of-tile program ran for each tile at the end */
++	struct drm_asahi_bg_eot eot;
++
++	/**
++	 * @partial_bg: Background program ran at the start of each tile when
++	 * resuming the render pass during a partial render.
++	 */
++	struct drm_asahi_bg_eot partial_bg;
++
++	/**
++	 * @partial_eot: End-of-tile program ran at the end of each tile when
++	 * pausing the render pass during a partial render.
++	 */
++	struct drm_asahi_bg_eot partial_eot;
++
++	/**
++	 * @isp_bgobjdepth: ISP_BGOBJDEPTH register value. This is the depth
++	 * buffer clear value, encoded in the depth buffer's format: either a
++	 * 32-bit float or a 16-bit unorm (with upper bits zeroed).
++	 */
++	__u32 isp_bgobjdepth;
++
++	/**
++	 * @isp_bgobjvals: ISP_BGOBJVALS register value. The bottom 8-bits
++	 * contain the stencil buffer clear value.
++	 */
++	__u32 isp_bgobjvals;
++
++	/** @ts_vtx: Timestamps for the vertex portion of the render */
++	struct drm_asahi_timestamps ts_vtx;
++
++	/** @ts_frag: Timestamps for the fragment portion of the render */
++	struct drm_asahi_timestamps ts_frag;
++};
++
++/**
++ * struct drm_asahi_cmd_compute - Command to submit compute
++ *
++ * This command submits a control stream consisting of compute dispatches. There
++ * is essentially no limit on how many compute dispatches may be included in a
++ * single compute command, although timestamps are at command granularity.
++ */
++struct drm_asahi_cmd_compute {
++	/** @flags: MBZ */
++	__u32 flags;
++
++	/** @sampler_count: Number of samplers in the sampler heap. */
++	__u32 sampler_count;
++
++	/**
++	 * @cdm_ctrl_stream_base: CDM_CTRL_STREAM_BASE register value. GPU
++	 * address to the beginning of the CDM control stream.
++	 */
++	__u64 cdm_ctrl_stream_base;
++
++	/**
++	 * @cdm_ctrl_stream_end: GPU base address to the end of the hardware
++	 * control stream. Note this only considers the first contiguous segment
++	 * of the control stream, as the stream might jump elsewhere.
++	 */
++	__u64 cdm_ctrl_stream_end;
++
++	/** @sampler_heap: Base address of the sampler heap. */
++	__u64 sampler_heap;
++
++	/** @helper: Helper program used for this compute command */
++	struct drm_asahi_helper_program helper;
++
++	/** @ts: Timestamps for the compute command */
++	struct drm_asahi_timestamps ts;
++};
++
++/**
++ * struct drm_asahi_get_time - Arguments passed to DRM_IOCTL_ASAHI_GET_TIME
++ */
++struct drm_asahi_get_time {
++	/** @flags: MBZ. */
++	__u64 flags;
++
++	/** @gpu_timestamp: On return, the GPU timestamp in nanoseconds. */
++	__u64 gpu_timestamp;
++};
++
++/**
++ * DRM_IOCTL_ASAHI() - Build an Asahi IOCTL number
++ * @__access: Access type. Must be R, W or RW.
++ * @__id: One of the DRM_ASAHI_xxx id.
++ * @__type: Suffix of the type being passed to the IOCTL.
++ *
++ * Don't use this macro directly, use the DRM_IOCTL_ASAHI_xxx
++ * values instead.
++ *
++ * Return: An IOCTL number to be passed to ioctl() from userspace.
++ */
++#define DRM_IOCTL_ASAHI(__access, __id, __type) \
++	DRM_IO ## __access(DRM_COMMAND_BASE + DRM_ASAHI_ ## __id, \
++			   struct drm_asahi_ ## __type)
++
++/* Note: this is an enum so that it can be resolved by Rust bindgen. */
++enum {
++	DRM_IOCTL_ASAHI_GET_PARAMS       = DRM_IOCTL_ASAHI(W, GET_PARAMS, get_params),
++	DRM_IOCTL_ASAHI_GET_TIME         = DRM_IOCTL_ASAHI(WR, GET_TIME, get_time),
++	DRM_IOCTL_ASAHI_VM_CREATE        = DRM_IOCTL_ASAHI(WR, VM_CREATE, vm_create),
++	DRM_IOCTL_ASAHI_VM_DESTROY       = DRM_IOCTL_ASAHI(W, VM_DESTROY, vm_destroy),
++	DRM_IOCTL_ASAHI_VM_BIND          = DRM_IOCTL_ASAHI(W, VM_BIND, vm_bind),
++	DRM_IOCTL_ASAHI_GEM_CREATE       = DRM_IOCTL_ASAHI(WR, GEM_CREATE, gem_create),
++	DRM_IOCTL_ASAHI_GEM_MMAP_OFFSET  = DRM_IOCTL_ASAHI(WR, GEM_MMAP_OFFSET, gem_mmap_offset),
++	DRM_IOCTL_ASAHI_GEM_BIND_OBJECT  = DRM_IOCTL_ASAHI(WR, GEM_BIND_OBJECT, gem_bind_object),
++	DRM_IOCTL_ASAHI_QUEUE_CREATE     = DRM_IOCTL_ASAHI(WR, QUEUE_CREATE, queue_create),
++	DRM_IOCTL_ASAHI_QUEUE_DESTROY    = DRM_IOCTL_ASAHI(W, QUEUE_DESTROY, queue_destroy),
++	DRM_IOCTL_ASAHI_SUBMIT           = DRM_IOCTL_ASAHI(W, SUBMIT, submit),
++};
++
++#if defined(__cplusplus)
++}
++#endif
++
++#endif /* _ASAHI_DRM_H_ */
+
+---
+base-commit: 0ed1356af8f629ae807963b7db4e501e3b580bc2
+change-id: 20250307-agx-uapi-930579437f19
+
+Best regards,
+-- 
+Alyssa Rosenzweig <alyssa@rosenzweig.io>
+
 
