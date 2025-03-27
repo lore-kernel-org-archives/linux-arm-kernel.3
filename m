@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60BBC36011
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC4FC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJwNDXXlYjKjGqwwgKGhwlhZINc8dMq3L7uwB92VzFc=; b=gtbIHPpk1X70ISp3YI7sW0wlu0
-	MEy+wEQhQocWe1q6Q+LPXeHVo1KyyIAXRWiFuHMZPNQTZEqgfOwUE6kWODQueZjXFfUOObwNJtr45
-	aH3noVj4/UXBT1YtEkXHk1Udb+Y5KYBS3RT93OLHPW85pzjyirWPGNGpPAFUnUTm8ZFd9U7bzCXuv
-	jgRn9A+P3LhJtE4uDrVJijV5uZARszMxGgBen128d5nZXOsTlVAA2mYEo0gX8f2iGo31M8G5lO3xb
-	K8gUBUr+8cnEKF7JX1hsiJFwWCsVj13Z/R3DJvZrx9WDpGXXYD9RlZVW+nD/qKdPRlcIfiJAbcRo6
-	F4Chg4NA==;
+	bh=prlp5XqgI/Khif6kUiv5FMK3OMCI6nzVA7nLGH/Y3s4=; b=PHTL7EvJotzJyjX3ObAAIY3eBP
+	/o3WUvom2NJYgnxff2SiUB0xD5wcjCO9TGt8OzjYqsYE3TWvAjFpZEBEHAyiybr4m8utk46a92Nkt
+	UlW+qdBm8aA9tUxm8clTzur065OZjvlGLNUjVD01ZMLZYO8GPwpPUWR+D1KgI3ZGlBnnx5bwNivRW
+	Fz+gKXQ38R4HfiL9fKGEMXyYUWbY2B6okixBytzbcdDYVTdaBTQratf5ZvvBw70xb5tanLrGtwJX9
+	Hz9R//oAVCqTyJngCRNHrxW1KexTofUGw14xFlQua5GyOC57tn0Bfz6MXKWuK3WMh0bBHhIH4yhfB
+	lt6XZ9Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtYM-0000000BwAV-1buw;
-	Thu, 27 Mar 2025 20:10:14 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1txta4-0000000BwNB-3HnY;
+	Thu, 27 Mar 2025 20:12:00 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txt1v-0000000Bpto-3Yfl
+	id 1txt1x-0000000Bpvn-0Un8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 19:36:45 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2ff6a98c638so2798568a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:36:43 -0700 (PDT)
+	Thu, 27 Mar 2025 19:36:48 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-301c4850194so1889164a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:36:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104203; x=1743709003; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104204; x=1743709004; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=KJwNDXXlYjKjGqwwgKGhwlhZINc8dMq3L7uwB92VzFc=;
-        b=sQgCXLjTEAE2+6HEm+4A28fu/v2yXiOunANhBXneopH/0tTx8gbKQDDdXbyDET5wZs
-         KRWB6jwXgnpPjx1KYWGxaO4oU6bkCHKaCRGcjjKy4oyCJf0kTj0hBimzf4wWKLBbUqLs
-         D+DR4uaB9lK97OhqZWPoXFKxzZORgKEGAQS+ZyfnKf7meHlen+Fb7yioSWtUQi8H3mn2
-         amDWnmb0o9MVcG3nW99tJXgqGW4oU5xHi+wfLiR7kfk4nkMYAFBSRRxap46T+pnTHx0M
-         DCMfDA76tE83M7pofxDdK8AuinpHWnMNqV4ciXLc4FFbhuwU14VwuNlGoCXeYOsMDS5t
-         ERug==
+        bh=prlp5XqgI/Khif6kUiv5FMK3OMCI6nzVA7nLGH/Y3s4=;
+        b=WmT5DqthND+pjKic26cmthSC3RR9tqQHHwX1OQ+ci6w4D5MYoW2aYccRDknpClMV8R
+         AON28wGSOdyADemHRVeM1jnaRjukuRyJDQ9RCe/SvInFiiKqAGZmgCtGYSDyM45jSlZ7
+         dWpTCcl2vzq+A0tyBICfyadWhCF0L4sYsqjE7XkqzbbeDBEMjy3ctSr7D8Sfdni5UQ7A
+         EhAXIL4kVDHAfyKTEN1Shr083uLOJKuiSTMCmxcvmXgQ/kVt3iKdjM+qSA7z6YI70quY
+         Oua+HtTEmcAZ/t/KGQtC67ptUsnnQfFpuXGH/AA+Fq3zlOyZdfPgTO3sybWOMsMEzJk7
+         ZxlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743104203; x=1743709003;
+        d=1e100.net; s=20230601; t=1743104204; x=1743709004;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KJwNDXXlYjKjGqwwgKGhwlhZINc8dMq3L7uwB92VzFc=;
-        b=ZTSEZhiLlGYWSOBnhUIOsvH/Z3oAD4trgORQS9qd0Evx9eKbeG6vqMV65hp0um+L06
-         +a2TyXWFV4xIcOA/M4O+4W+k/S0I4E4lYbsrl2eFZQcgBh+aVNIs81mp6PAwNGts4kAu
-         CGmGd60EA55/7b1h8nQsAmqfSkAF7RGR/IovBI3M7sgIz7kb2CFn5boNizO+QpkHvA6w
-         Z0i+4ilhSCYrHdKAN7heeMfw/ktIdobXKE65qR6ArudHVQFGIxq2Dig9tjK435jMg8pq
-         HKDSD0RE6FGdiZ607F+yG0gXW4dch+RfM14TZsL1ZKiwyqrRZpFqdQkJ/WwtH5yeK0Ri
-         Qc8w==
-X-Forwarded-Encrypted: i=1; AJvYcCW0bTv/ZTjmUTJw2OUEjteSmhJEUFL7kSiukyuCbQHibGpeX83e7zdGW7PGrs8y8sjDYA6PuBickBJ5bAKzzdjp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yws14dXyh0RK3tD8wKL9pi7dMgs3JDRyCF6uBco3oNT56hGBVeM
-	i3J6KUd8/fbyxaEkmFzTVP8mZqJ5apiM//1yW5o3Yxr8LvUT0DFrUSr4jH6kKms=
-X-Gm-Gg: ASbGncsJhdqDV0NniosiAU3EuBrrKZp5Nh0aj+XQKos/TBUTM7VptOsfsTNJd9rJJaH
-	fLeOjHgfklEvv8sZN2mxsrE8Rf0VGasjRC5VC71T8BAz6UgWTN1m/HRpJ7qQBVeWjWkRmRRwQO/
-	hinG3SP71lwAZKY2KuahArHHzHCwk6oGILG4L3efmvDBvJZ7bqE08JzoyplAvM+p6YujpiCmxqe
-	mg/KM+nQ9yY9xE8zNJ2RzbfnYojbHN58vkxVFI84uCoy8Y5hN8/JkvqOPR5nmbOoq/GzvEuj9/x
-	Cw6wgV/C4ZF5eAVwJgl035m+IwC9x0NZ+uhFHGKVUhFRyZG+vd5PczbqjA==
-X-Google-Smtp-Source: AGHT+IHr9lkacen5G6bNal8x27vd0zlzKk1gXvQpJoZ6ZU4fSbwcKifIx6nJFU8JTt0ZbyyT81dbnQ==
-X-Received: by 2002:a17:90b:4d05:b0:2ee:b8ac:73b0 with SMTP id 98e67ed59e1d1-303a7c5b9eemr7219789a91.2.1743104202835;
-        Thu, 27 Mar 2025 12:36:42 -0700 (PDT)
+        bh=prlp5XqgI/Khif6kUiv5FMK3OMCI6nzVA7nLGH/Y3s4=;
+        b=j6rrx50WxqOvqv/PiU6jS8m3cMQCXjl8Q/E4LyPkHV6r9ZoT3MKiUiNfaYI4dkeyv/
+         AZajItld1BjX2TuQIkUpyX7sHhHNmwJ5Mqcc1eGRFR7hz+ky9zjKuJUP+5cQzGwFDrHO
+         /AQWSp2zNjwDOHMtKAsZLpIcbeB9LxKV2u+qlRrG8VtofF/MgSB7ZjwJPyrfVb66J9+2
+         qFWqtf5SM37YN/gU7ypbMJ+21t+CPdbv5XPE1/DxvoY4tS+vnH7IkkKDgNCNCdnv/tsP
+         wrveIOAmP8tAaXUUaodCg5fcDjQSiW/q8HwakoHO2QY4ilEZxmc6wfzE6R8JXNfioXUN
+         n8DQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVhcqxWskytZsA09tr0A6hgcWEpLSQzX066iVAqm/4wdt8n54lGkz3x9EJTq8NC1KfPVSwOKb55KiqcLBKLohx+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUnNrJj9CjYtJ5v3rDIHxs10+tf3Spr0ZiSAW4Jh6Jgjk3+QG+
+	tAFLZryUgRW74Forgvx4Tmk7U6UoimGQjJXGHjbTOCVH4dDvLfwSZ84Q8VG2oJQ=
+X-Gm-Gg: ASbGncuolhtMdzGpgwOhHTJUlcC86XqfKnSrhzFGJmi3tHisvUcZjvKs5Kix+y9rdvo
+	hORlD5MWYadeHYg/dLu2b+0gZTGDybzgzEo4g1HjiI287IJP5UDMUBaWdGRGyE/QY49u3d/DFLQ
+	Zq6KQYPxrhnE+fXdsXzUIPOD4mKBAUzwl0TQ4b40jgYOPbjp4XrP8ZKzeMPZCOYuANUhUx6BxcY
+	YRU6IPO+W5fV3Ez25lSrPP7uhGmjs8gVUMC6qWUVES6ErJAEztPF6RNWKwthZZo/Dc9PY4fxStM
+	uVIb9idQFUhIz7LBNfILnEVnNjRGGqATBpp1V1JI1QD6a3Qj7qWhKSRAmru+zB84TXnw
+X-Google-Smtp-Source: AGHT+IE9RAtJmcVuiq+zzbza3XZnuj5S63rmVXq5BX9kQPkvxkIEVWCCAKOhZGnJte5v86VybNNn7Q==
+X-Received: by 2002:a17:90b:2dd2:b0:2f6:d266:f45e with SMTP id 98e67ed59e1d1-303a7d5b6b6mr8384578a91.2.1743104204412;
+        Thu, 27 Mar 2025 12:36:44 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.41
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 12:36:42 -0700 (PDT)
+        Thu, 27 Mar 2025 12:36:44 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Thu, 27 Mar 2025 12:36:00 -0700
-Subject: [PATCH v5 19/21] tools/perf: Support event code for arch standard
- events
+Date: Thu, 27 Mar 2025 12:36:01 -0700
+Subject: [PATCH v5 20/21] tools/perf: Pass the Counter constraint values in
+ the pmu events
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250327-counter_delegation-v5-19-1ee538468d1b@rivosinc.com>
+Message-Id: <20250327-counter_delegation-v5-20-1ee538468d1b@rivosinc.com>
 References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 In-Reply-To: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -96,8 +96,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_123643_906851_7E2D866F 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20250327_123645_332234_B11309B4 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +112,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RISC-V relies on the event encoding from the json file. That includes
-arch standard events. If event code is present, event is already updated
-with correct encoding. No need to update it again which results in losing
-the event encoding.
+RISC-V doesn't have any standard event to counter mapping discovery
+mechanism in the ISA. The ISA defines 29 programmable counters and
+platforms can choose to implement any number of them and map any
+events to any counters. Thus, the perf tool need to inform the driver
+about the counter mapping of each events.
+
+The current perf infrastructure only parses the 'Counter' constraints
+in metrics. This patch extends that to pass in the pmu events so that
+any driver can retrieve those values via perf attributes if defined
+accordingly.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- tools/perf/pmu-events/arch/riscv/arch-standard.json | 10 ++++++++++
- tools/perf/pmu-events/jevents.py                    |  4 +++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
+ tools/perf/pmu-events/jevents.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/tools/perf/pmu-events/arch/riscv/arch-standard.json b/tools/perf/pmu-events/arch/riscv/arch-standard.json
-new file mode 100644
-index 000000000000..96e21f088558
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/arch-standard.json
-@@ -0,0 +1,10 @@
-+[
-+  {
-+    "EventName": "cycles",
-+    "BriefDescription": "cycle executed"
-+  },
-+  {
-+    "EventName": "instructions",
-+    "BriefDescription": "instruction retired"
-+  }
-+]
 diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index fa7c466a5ef3..fdb7ddf093d2 100755
+index fdb7ddf093d2..f9f274678a32 100755
 --- a/tools/perf/pmu-events/jevents.py
 +++ b/tools/perf/pmu-events/jevents.py
-@@ -417,7 +417,9 @@ class JsonEvent:
-       self.long_desc += extra_desc
-     if arch_std:
-       if arch_std.lower() in _arch_std_events:
--        event = _arch_std_events[arch_std.lower()].event
-+        # No need to replace as evencode would have updated the event before
-+        if not eventcode:
-+          event = _arch_std_events[arch_std.lower()].event
-         # Copy from the architecture standard event to self for undefined fields.
-         for attr, value in _arch_std_events[arch_std.lower()].__dict__.items():
-           if hasattr(self, attr) and not getattr(self, attr):
+@@ -274,6 +274,11 @@ class JsonEvent:
+         return fixed[name.lower()]
+       return event
+ 
++    def counter_list_to_bitmask(counterlist):
++      counter_ids = list(map(int, counterlist.split(',')))
++      bitmask = sum(1 << pos for pos in counter_ids)
++      return bitmask
++
+     def unit_to_pmu(unit: str) -> Optional[str]:
+       """Convert a JSON Unit to Linux PMU name."""
+       if not unit or unit == "core":
+@@ -427,6 +432,10 @@ class JsonEvent:
+       else:
+         raise argparse.ArgumentTypeError('Cannot find arch std event:', arch_std)
+ 
++    if self.counters['list']:
++      bitmask = counter_list_to_bitmask(self.counters['list'])
++      event += f',counterid_mask={bitmask:#x}'
++
+     self.event = real_event(self.name, event)
+ 
+   def __repr__(self) -> str:
 
 -- 
 2.43.0
