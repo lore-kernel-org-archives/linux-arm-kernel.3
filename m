@@ -4,69 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C104DC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 19:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C05DC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 19:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5p5X5RWy4xzhwyE3k98EJjc2avxT6nHq/ST+gps8UT4=; b=PdyqIzch1rNtDLHioMAa2ysYa8
-	ltZ8AuYCwoTxUokaAN6gmagYtHWlX4kVj6Uo7witQf73DIfi4UCy9m3Q6Tw6dWlfImbyWs1liQP2f
-	sY2vOQ24RNExZLD73BET/UsoagZZlnrSH2HUhCMcZx7KayBJsb8PaSF2xnHLkRinYqQelI95oYsmK
-	tT6/sinPthrgYfgnYHXuWI+q95r/7iXJA3YApaXzLOUlO3ghEldsyZT13fjT+PSKExwuqD1RIN0wa
-	TWtILv5KqaPCueZGPuR5I66IovaN+jt16/umtVyVZCLaYzm/0V8z9IbsskN8L0XPSmJSqcvgtsTW1
-	FCK+t4SA==;
+	bh=zd5BXmlZnu1j0K9/QsEF8vrUJXh1mHUAcZQsH3zURHw=; b=M6MtSSob9d8/VCj6o/3jTGw/LU
+	uX+w9oq1eR6K7By0shKCYk+bp0GfzYik4v6jTHk1MdjxVaVeyiCGFOmuGD1gFXVDRY8fkT3FZrlUr
+	UFJ3T/MGhwfN97nj7jPcQ1y3/mOvdiyQgryqGocNcLH7o+IbDIHwVQoxLZDjt5AFn2InJbJGWprhL
+	ROk3cowU20VcMTdAydYOttzOBt+sf3vxWnQAOJYw8eDmH6oOJOc/aWCKVpzJIyy3UqFapSz5rG0SW
+	oAjMAKcm4F72ukWpV4KS6O9H/iygIYTixL+V1P3ORt1glvg5xe96OfgV8F42rZUf0/Ad+MwlU18pR
+	ttTs3BIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txsXj-0000000Bn0m-239I;
-	Thu, 27 Mar 2025 19:05:31 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1txsZQ-0000000BnCB-0gYe;
+	Thu, 27 Mar 2025 19:07:16 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txsR3-0000000Bm0b-2MDH
+	id 1txsSr-0000000BmKh-3rQe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 18:58:38 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 628C2F6;
-	Thu, 27 Mar 2025 19:56:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1743101807;
-	bh=R/uKdU7aA4BfJOc345ybd2WNSZ2vLTa39onAL07P+ZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WckAHETZwTaOAbY4L/obIAwGhwkgdpF6a73wdM6Hqlh/t8yyP+Tk+idQZPHBVpE1x
-	 p6oBcYz8mdBa/nMBEEWnn362SP4cj0kZs63Xv9MnEVZJZEJ7HHpDoF52eafEk4k/e/
-	 34I3l52duhq21Z+bslz0UIIU/0G8+fg63Qqcpt7Y=
-Date: Thu, 27 Mar 2025 20:58:13 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-	Robert Chiras <robert.chiras@nxp.com>,
-	"Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v3 10/12] arm64: dts: imx8qm: add 24MHz clock-xtal24m
-Message-ID: <20250327185813.GA22659@pendragon.ideasonboard.com>
-References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
- <20250210-8qxp_camera-v3-10-324f5105accc@nxp.com>
+	Thu, 27 Mar 2025 19:00:31 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43948f77f1aso10657165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 12:00:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743102028; x=1743706828; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=zd5BXmlZnu1j0K9/QsEF8vrUJXh1mHUAcZQsH3zURHw=;
+        b=Bucbe+BQqMRblAFHlgPtcXqt0MJD7dFl9g2KkY4NqqQQAYeRtj18Dqy35Tt7Gq3vIZ
+         3zHjKBJTB161rD/AwPaBBgyySQkfjmabsOHgoM4ybH76dYjpYYT5MNlfiO1d3O2OiSC+
+         29PbuoFoSMkHaEC56kZzcIwHKZdEmWO3oaDOSm0rFteVDSekiSWwdPoifA/Mfv8QgXmX
+         azTAzTI3G0EayRehujmUS1L6pEvgu3zrSWQVFb4vLuPNFRGbzO51+C6TBDBXxPUmTJ/7
+         33dw/aH5wmx7v4OTjT/HiJLrzeu56+4jNEPPss51YNYBJwVcza71U80uLojHYLpnp32o
+         IRIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743102028; x=1743706828;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zd5BXmlZnu1j0K9/QsEF8vrUJXh1mHUAcZQsH3zURHw=;
+        b=UHc/OEZ3SU7a6UT9qvGHfEiejyvE4ZAA/kckMZvNC/mL4WWkhPhgZ912Z80zg/OAYv
+         X6ctsCVTRDMTpiDHLdyRXJNzrFE3nsObyXp/JJobvrMYHpTiRinLsPnQpV9Th376eF7F
+         vnjwqxXsXF55wRhlhUVMdpidsiLp3ua95DPMpxiqzbgYNkzhiRM3ccoFVUSKQhw4dD38
+         PWBCEJfgD9abFLKoK4EJ5eKVYsIdliGwHmSy1GXgxGrFnNft+vZCTzZdb5ZvD8I5Kufo
+         z9+qXhExhWC9uSw9n6Ftx5TT6k9UhshiGCVsZxBOUmZui0A8aKw1sBVPM0c77ZasSSF0
+         M2VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUfpZL9RJ+Pr1DfVgbRfv1XvHjIbZfpI4E72JOneF2RKi4UQdS6migricFdx/lLqQMI0WWkSyjSkI1YlU6KL5ny@lists.infradead.org
+X-Gm-Message-State: AOJu0YyypV+iry+Vjlt33kC+ZrYeXUNo0dX58WYtVh9jQ3TLwnWV4bkj
+	ccd8MjsVl165j1V3H2jN/K0lgz4xsD6cOY2FFJOZWCvCBNOIvYOiF1F4J/5xkt4=
+X-Gm-Gg: ASbGnctAyFd9w1sdnqc+PiKOiVZYetQMS1fWMPcGGlNkYT32W4UUurwZTu1GO4gqzHl
+	jqLN0KaJXeg+OkD3nSkAE70RkoCXD+xYHQSOq9nHbnotAyvdexDYs7gEf5qVtEQyK8jOy45E1Uo
+	EY80ffWMRNAzTUPYz41v9mFDzuDX3ydqfddmJXxuRlPiVSshZeAb0Gb3dZKWpQXmNpaLSB4vTgg
+	8L6inLMBDplq8motyct/83NNOdtcLfYr2QGa1kRnmhXoMoV1e8iCbMYsQ8QlimVYQrPRqocfaCZ
+	4G5PXUBIgKEv/4VFaKI3+W86gCEkMlK9AfVUhRIXTNkYJQ5BAg==
+X-Google-Smtp-Source: AGHT+IGnQpe3KSpRW8OcMy9ZOhvZKg6FTDTo/56rh7+F2u2OEQyun5MJVX1ptbNmngH24DTaiRQADw==
+X-Received: by 2002:a5d:47a4:0:b0:390:e853:85bd with SMTP id ffacd0b85a97d-39ad178a45amr4737166f8f.48.1743102028193;
+        Thu, 27 Mar 2025 12:00:28 -0700 (PDT)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d8f404ac3sm4134315e9.0.2025.03.27.12.00.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Mar 2025 12:00:27 -0700 (PDT)
+Message-ID: <c7169df63dfad34ecbda3554ec51631e5cc6a2ee.camel@linaro.org>
+Subject: Re: [PATCH 11/34] defconfigs: rename CONFIG_MFD_SEC_CORE to
+ CONFIG_MFD_SEC_I2C
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sylwester
+ Nawrocki	 <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
+ Alim Akhtar	 <alim.akhtar@samsung.com>, Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Alexandre Belloni	 <alexandre.belloni@bootlin.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org
+Date: Thu, 27 Mar 2025 19:00:26 +0000
+In-Reply-To: <fdb8ef9b-3053-4dbd-b3f0-e2fd512de770@kernel.org>
+References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
+	 <20250323-s2mpg10-v1-11-d08943702707@linaro.org>
+	 <b733eff2-171e-4ab6-8546-565d87d5ba84@kernel.org>
+	 <62bf00c37566964d6be794ed12a34cd057d9bb1d.camel@linaro.org>
+	 <fdb8ef9b-3053-4dbd-b3f0-e2fd512de770@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2-1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250210-8qxp_camera-v3-10-324f5105accc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_115837_735877_970E6FB2 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250327_120029_979120_94B986C3 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +113,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Thu, 2025-03-27 at 17:57 +0100, Krzysztof Kozlowski wrote:
+> On 27/03/2025 09:56, Andr=C3=A9 Draszik wrote:
+> > On Wed, 2025-03-26 at 08:16 +0100, Krzysztof Kozlowski wrote:
+> > > On 23/03/2025 23:39, Andr=C3=A9 Draszik wrote:
+> > > > We are adding support for Samsung PMICs that aren't using I2C and
+> > > > therefore had to rename the Kconfig symbol.
+> > > >=20
+> > > > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > > > ---
+> > > > =C2=A0arch/arm/configs/exynos_defconfig=C2=A0=C2=A0 | 2 +-
+> > > > =C2=A0arch/arm/configs/multi_v7_defconfig | 2 +-
+> > > > =C2=A0arch/arm/configs/pxa_defconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
+| 2 +-
+> > > > =C2=A0arch/arm64/configs/defconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 2 +-
+> > > > =C2=A04 files changed, 4 insertions(+), 4 deletions(-)
+> > > defconfigs go separate tree, so this must not be in the middle of the
+> > > patchset. Bisectability, as for defconfig, is anyway broken in previo=
+us
+> > > change, so no benefit of putting this in the middle anyway.
+> >=20
+> > OK. Should it still be part of this series, e.g. at the start, after
+> > the binding changes, or a completely separate stand-alone patch with
+> > a reference to this series?
+> Hm, now as I am thinking, maybe we should just squash it with previous
+> patch and take everything via MFD? defconfig could be mixed with the
+> drivers, it's a kernel thing, not like DTS.
 
-Thank you for the patch.
+Happy to do that, and it would also ensure bisectability :-)
 
-On Mon, Feb 10, 2025 at 03:59:29PM -0500, Frank Li wrote:
-> Add fixed clock node clock-xtal24m to prepare to add camera support.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change from v1 to v3
-> - none
-> ---
->  arch/arm64/boot/dts/freescale/imx8qm.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8qm.dtsi b/arch/arm64/boot/dts/freescale/imx8qm.dtsi
-> index c6a17a0d739c5..40cd45cd9f88f 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8qm.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8qm.dtsi
-> @@ -590,6 +590,13 @@ mipi_pll_div2_clk: clock-controller-mipi-div2-pll {
->  		clock-output-names = "mipi_pll_div2_clk";
->  	};
->  
-> +	xtal24m: clock-xtal24m {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <24000000>;
-> +		clock-output-names = "xtal_24MHz";
-> +	};
+Cheers,
+Andre'
 
-This is a clock oscillator mounted on the PCB, isn't it ? It shouldn't
-be in imx8qm.dtsi, but in board-specific DT sources.
-
-> +
->  	vpu_subsys_dsp: bus@55000000 {
->  		compatible = "simple-bus";
->  		#address-cells = <1>;
-
--- 
-Regards,
-
-Laurent Pinchart
 
