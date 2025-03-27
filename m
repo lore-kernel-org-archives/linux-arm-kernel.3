@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A2CC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53045C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1AYkt3UZmdT/puNZc9A2b9Jl693S9yxUDwwUM5aOO5U=; b=qeiB9Kf6IeTJZSXJSiszq+KBTZ
-	t33UnEEJ//Jr3TOmVes+yQU80BOHI5GO+yNaQmdteIU3D5tIgtjlkgLyJJUvTOGSIJyYIurQLff59
-	FYuoirmIwgeE6rfEGat2WYx2sYCtkj5tzbYq8xeqpxMS3gQgTjA2voaNQOpy9yMb7Uv4HOkvtAiR7
-	vZweAYjytqEXGzluaB/rMscQVv8FAGykDM/zBIh5cIthBi9d3BdscYgG8gfZG7xW6EhwHrPRxrOB6
-	8+g3KMfI45IXggujhjxEkvO1usvUt0lxRrTyYEVcLhg+u6Mf9IpY1J4x5+SPkkHnhbhiT/NEAgnme
-	HcXkJslw==;
+	bh=2DA/Y2SrhYvb8JIGN8I8VFPVZFKVt4XN6zoT9arPV9I=; b=jvTgTwJpG1SsGvyydPZQ9ngjFE
+	/1aUqcFOHl1ukvKU7FUzil2RsqRXbcbrJhc/zNdpGokXqH6C1pSL0zBeJosZ+CDIC+nHAc6OtIC38
+	v6bSVa9p/oAa6CwLLl7mpmiPY9F5YeRuRT4MCWiJEup6dooDe9OpGsreQPTk0jvBuMq0PuHr3gRjd
+	g1SQts/ekUo33KIRQJaY4h1xbdoUbJqHjr5JfzgS3wMiXHyQwHcyE+lyMp/bLOvGFz7DzlPyNaZHQ
+	vJuROHaVro3cAltxjRFMfSNd8SwpA+PSebpbv5kLyVssXscyOCagixMA2r/cVnQW+UdReiiGeqK7d
+	XbJ5FHQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txk71-0000000AedC-1zve;
-	Thu, 27 Mar 2025 10:05:23 +0000
-Received: from smtp-fw-2101.amazon.com ([72.21.196.25])
+	id 1txkBE-0000000AfNw-1qMY;
+	Thu, 27 Mar 2025 10:09:44 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txk5H-0000000AeMO-1crI;
-	Thu, 27 Mar 2025 10:03:36 +0000
+	id 1txk9T-0000000Af2K-1S8h
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Mar 2025 10:07:58 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43d0618746bso5140845e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 03:07:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1743069815; x=1774605815;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=1AYkt3UZmdT/puNZc9A2b9Jl693S9yxUDwwUM5aOO5U=;
-  b=s0h4PbvR80dJ3wuah7dIgkJVCYgkCORaVa/DtROc1RZmyryIQMtTiV4W
-   1/UlyTu3DG7MT1QCxYf+u4esUIaUo0GcOE+LJKLOo7+WL7LiH9NWvY0+A
-   alHxhWY/0SNHEUdl1UJOwGqXaCp61AaFkNhB2ACIFRJh7dqCjF/oW6xWL
-   A=;
-X-IronPort-AV: E=Sophos;i="6.14,280,1736812800"; 
-   d="scan'208";a="478704841"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
-  by smtp-border-fw-2101.iad2.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Mar 2025 10:03:26 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.7.35:25558]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.26.232:2525] with esmtp (Farcaster)
- id a4642778-ac88-44ce-8afd-012d72d51f0e; Thu, 27 Mar 2025 10:03:25 +0000 (UTC)
-X-Farcaster-Flow-ID: a4642778-ac88-44ce-8afd-012d72d51f0e
-Received: from EX19D020UWA002.ant.amazon.com (10.13.138.222) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Thu, 27 Mar 2025 10:03:18 +0000
-Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
- EX19D020UWA002.ant.amazon.com (10.13.138.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Thu, 27 Mar 2025 10:03:18 +0000
-Received: from email-imr-corp-prod-iad-all-1b-af42e9ba.us-east-1.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1544.14 via Frontend Transport; Thu, 27 Mar 2025 10:03:18 +0000
-Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
-	by email-imr-corp-prod-iad-all-1b-af42e9ba.us-east-1.amazon.com (Postfix) with ESMTP id BE3CE40570;
-	Thu, 27 Mar 2025 10:03:17 +0000 (UTC)
-Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
-	id 7A8925228; Thu, 27 Mar 2025 10:03:17 +0000 (UTC)
-From: Pratyush Yadav <ptyadav@amazon.de>
-To: Changyuan Lyu <changyuanl@google.com>
-CC: <linux-kernel@vger.kernel.org>, <graf@amazon.com>,
-	<akpm@linux-foundation.org>, <luto@kernel.org>, <anthony.yznaga@oracle.com>,
-	<arnd@arndb.de>, <ashish.kalra@amd.com>, <benh@kernel.crashing.org>,
-	<bp@alien8.de>, <catalin.marinas@arm.com>, <dave.hansen@linux.intel.com>,
-	<dwmw2@infradead.org>, <ebiederm@xmission.com>, <mingo@redhat.com>,
-	<jgowans@amazon.com>, <corbet@lwn.net>, <krzk@kernel.org>, <rppt@kernel.org>,
-	<mark.rutland@arm.com>, <pbonzini@redhat.com>, <pasha.tatashin@soleen.com>,
-	<hpa@zytor.com>, <peterz@infradead.org>, <robh+dt@kernel.org>,
-	<robh@kernel.org>, <saravanak@google.com>,
-	<skinsburskii@linux.microsoft.com>, <rostedt@goodmis.org>,
-	<tglx@linutronix.de>, <thomas.lendacky@amd.com>, <usama.arif@bytedance.com>,
-	<will@kernel.org>, <devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-mm@kvack.org>, <x86@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
-In-Reply-To: <20250320015551.2157511-10-changyuanl@google.com>
-References: <20250320015551.2157511-1-changyuanl@google.com>
-	<20250320015551.2157511-10-changyuanl@google.com>
-Date: Thu, 27 Mar 2025 10:03:17 +0000
-Message-ID: <mafs0y0wqrdsq.fsf@amazon.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743070073; x=1743674873; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2DA/Y2SrhYvb8JIGN8I8VFPVZFKVt4XN6zoT9arPV9I=;
+        b=tV/F8UAVy2/eEEk2/sFZoYt0XQ8HMqDSDuyBgBIdVXvRM/S/7MlAQwEznrQR0OKpgy
+         NEeP+VmWKxl/Es2CE/jij9Z6mm9Q38lftpQwPqWKQ5IePQuDD2wBqA6/Tlxb+plSbeOM
+         OvwcR86+6Ug2DVWgdM9+TB4Ugz8X0VjHm7P+mvnNTMvXHZhBH3WLdwX+FoUxyJuNjuIS
+         WebSCwWBb6Gc9qAOLaW0Lkn5h9jyKsypOgDX5zpuiOMq1Hy23vKEtPa1UrR+4vlS5QiB
+         M+d1vqGAi2ZivyAcZC0BfBA6qoc5RQLANWsmEeA7g1vpwDC9olRlluTxVEvV2xkEgMw1
+         C6Ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743070073; x=1743674873;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2DA/Y2SrhYvb8JIGN8I8VFPVZFKVt4XN6zoT9arPV9I=;
+        b=GhKUjqSpcjV6kUtETAbASTulHhPxWm7UVamq5woRcajgLQZg2wSphX9+HQNwRsxmE3
+         +7kV3MKKw3Ce5583bdb7RFT3WeIYhAhsGurhMgTmZIg+p+EpHWYvMkQ1MsQCz9kxutLA
+         6TBlXstY6dDQEBe03MJvvPrTpbivQxcfJb1PCoCn7KzXDhbA4xt3T3Z7c3VUUXSAM3Iz
+         JIYlhIi88d7t6HGVj4e1pUiL3PHruEBJtVA6luSDtZeRt0RuMuBLoHjPOBlA6iPap8We
+         DcVF3mIhWfnmUNgqSFH+AdIQCKALvPgdCdXLTATHUIYzSInS4cmQz9GE0Qbf/pz1j1/k
+         ZgRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUTwDFFS7VTvUQTh5UP4IBNcvGPo6qXBfo71e6yWCSRdMwlWtiGw+tRHTeBRm1PjoUdGBFAS0J7dxH4F2pkR/Id@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8cEBViFFXF/tf4zxGpnWfzysveI9TxomtPgbBPlt2puJUKFLP
+	oGJt1DGg7FUuAAJJVt8uG0fJOYrXyP50+JUnMFOLzyCmKTTAUF/t8gEy2mj7Eeo=
+X-Gm-Gg: ASbGnctzKHknYTww4ajHJDUsEv40hYXrMUqZQe3nNfT5LiylQS+WINY2K/ZRGrhwg7q
+	Gun0q54flA1NGXviryDFzZSY3/uz5PJqscOAK/p1YFH5tO3fU8d32Di33O9wfv/5d+sfA5w82Q5
+	FmGzC0JcJU19Hgjf81goMN3Pfl8CdYXhgsW1dn7pN9XL/UbAxUQzqYIPpnVYaWryEUWaOwDTKDW
+	axO34mSCz39gO9j/JFsNQWJujOJIoIyDon5UVzl3DAvwEWXYydOHir/mMcg69XpUSt0B+cxSFzz
+	lf92KoPba2wIBdu7T5R9oM1bSOeTNdRlmWGPhDtZGljvLtP3bVIjiSo=
+X-Google-Smtp-Source: AGHT+IFSA/Q3nPbkXJU+wAh3bQb1BmYag2bXoUf1GCR7HVRK1VC002s/eBPHjEc50vV5ysPbU7o5kA==
+X-Received: by 2002:a05:600c:198b:b0:43d:47e:3205 with SMTP id 5b1f17b1804b1-43d850a78d6mr28318015e9.11.1743070073134;
+        Thu, 27 Mar 2025 03:07:53 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:e348:e265:be1a:2d30])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d830f5f56sm32976245e9.26.2025.03.27.03.07.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Mar 2025 03:07:52 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Michael Turquette
+ <mturquette@baylibre.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] clk: add a clk_hw helpers to get the clock
+ device or device_node
+In-Reply-To: <4db0bf5937c6c2a480b89b11e841782c@kernel.org> (Stephen Boyd's
+	message of "Tue, 25 Mar 2025 14:57:01 -0700")
+References: <20250120-amlogic-clk-drop-clk-regmap-tables-v3-0-126244146947@baylibre.com>
+	<20250120-amlogic-clk-drop-clk-regmap-tables-v3-1-126244146947@baylibre.com>
+	<508a5ee6c6b365e8d9cdefd5a9eec769.sboyd@kernel.org>
+	<1jv7s21d8y.fsf@starbuckisacylon.baylibre.com>
+	<4db0bf5937c6c2a480b89b11e841782c@kernel.org>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Thu, 27 Mar 2025 11:07:51 +0100
+Message-ID: <1jpli223d4.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_030335_572741_FCDB0A46 
-X-CRM114-Status: GOOD (  31.79  )
+X-CRM114-CacheID: sfid-20250327_030755_591567_38C5E993 
+X-CRM114-Status: GOOD (  36.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,136 +105,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Changyuan,
+On Tue 25 Mar 2025 at 14:57, Stephen Boyd <sboyd@kernel.org> wrote:
 
-On Wed, Mar 19 2025, Changyuan Lyu wrote:
-
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> Quoting Jerome Brunet (2025-03-21 10:53:49)
+>> On Wed 26 Feb 2025 at 17:01, Stephen Boyd <sboyd@kernel.org> wrote:
+>> 
+>> 
+>> >> +static void clk_hw_get_of_node_test(struct kunit *test)
+>> >> +{
+>> >> +       struct device_node *np;
+>> >> +       struct clk_hw *hw;
+>> >> +
+>> >> +       hw = kunit_kzalloc(test, sizeof(*hw), GFP_KERNEL);
+>> >> +       KUNIT_ASSERT_NOT_ERR_OR_NULL(test, hw);
+>> >> +
+>> >> +       np = of_find_compatible_node(NULL, NULL, "test,clk-dummy-device");
+>> >> +       hw->init = CLK_HW_INIT_NO_PARENT("test_get_of_node",
+>> >> +                                        &clk_dummy_rate_ops, 0);
+>> >> +       of_node_put_kunit(test, np);
+>> >> +
+>> >> +       KUNIT_ASSERT_EQ(test, 0, of_clk_hw_register_kunit(test, np, hw));
+>> >
+>> > The stuff before the expectation should likely go to the init function.
+>> > Or it can use the genparams stuff so we can set some struct members to
+>> > indicate if the pointer should be NULL or not and then twist through the
+>> > code a couple times.
+>> >
+>> 
+>> I'm trying to address all your comments but I'm starting to wonder if
+>> this isn't going a bit too far ? The functions tested are one line
+>> returns. Is it really worth all this ?
+>> 
+>> I do understand the idea for things that actually do something, such as
+>> reparenting, setting rates or what not ... But this ? It feels like a
+>> lot of test code for very little added value, don't you think ?
+>> 
 >
-> Introduce APIs allowing KHO users to preserve memory across kexec and
-> get access to that memory after boot of the kexeced kernel
->
-> kho_preserve_folio() - record a folio to be preserved over kexec
-> kho_restore_folio() - recreates the folio from the preserved memory
-> kho_preserve_phys() - record physically contiguous range to be
-> preserved over kexec.
-> kho_restore_phys() - recreates order-0 pages corresponding to the
-> preserved physical range
->
-> The memory preservations are tracked by two levels of xarrays to manage
-> chunks of per-order 512 byte bitmaps. For instance the entire 1G order
-> of a 1TB x86 system would fit inside a single 512 byte bitmap. For
-> order 0 allocations each bitmap will cover 16M of address space. Thus,
-> for 16G of memory at most 512K of bitmap memory will be needed for order 0.
->
-> At serialization time all bitmaps are recorded in a linked list of pages
-> for the next kernel to process and the physical address of the list is
-> recorded in KHO FDT.
+> Just so I understand, you're saying that this is always going to be a
+> simple "getter" API that doesn't do much else? We're not _only_ testing
+> the getter API, we're also testing the registration path that actually
+> sets the device or of_node pointers for a clk. I'm not really thinking
+> about the one line return functions here.
 
-Why build the xarray only to transform it down to bitmaps when you can
-build the bitmaps from the get go? This would end up wasting both time
-and memory. At least from this patch, I don't really see much else being
-done with the xarray apart from setting bits in the bitmap.
-
-Of course, with the current linked list structure, this cannot work. But
-I don't see why we need to have it. I think having a page-table like
-structure would be better -- only instead of having PTEs at the lowest
-levels, you have the bitmap.
-
-Just like page tables, each table is page-size. So each page at the
-lowest level can have 4k * 8 == 32768 bits. This maps to 128 MiB of 4k
-pages. The next level will be pointers to the level 1 table, just like
-in page tables. So we get 4096 / 8 == 512 pointers. Each level 2 table
-maps to 64 GiB of memory. Similarly, level 3 table maps to 32 TiB and
-level 4 to 16 PiB.
-
-Now, __kho_preserve() can just find or allocate the table entry for the
-PFN and set its bit. Similar work has to be done when doing the xarray
-access as well, so this should have roughly the same performance. When
-doing KHO, we just need to record the base address of the table and we
-are done. This saves us from doing the expensive copying/transformation
-of data in the critical path.
-
-I don't see any obvious downsides compared to the current format. The
-serialized state might end up taking slightly more memory due to upper
-level tables, but it should still be much less than having two
-representations of the same information exist simultaneously.
+Oh, that was not clear to me. I assumed the registration path was
+already tested to an appropriate level, so I did not consider this.
+Makes sense.
 
 >
-> The next kernel then processes that list, reserves the memory ranges and
-> later, when a user requests a folio or a physical range, KHO restores
-> corresponding memory map entries.
+> Writing tests is definitely a balancing act.
+
+That's where my question came from actually. We are aligned on this :)
+
+> I'd say we want to test the
+> behavior of the API in relation to how a clk is registered and writing
+> tests to show the intended usage is helpful to understand if we've
+> thought of corner cases like the clk was registered with a device
+> pointer that also has an of_node associated with it. (Did we remember to
+> stash that of_node pointer too?) We have a bunch of clk registration
+> APIs, and we want to make sure this getter API works with all of them.
+> Note that we don't care about the clk flags or parent relation chains
+> here, just that the device or of_node passed in to registration comes
+> out the other side with the getter API.
 >
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-[...]
-> +static void deserialize_bitmap(unsigned int order,
-> +			       struct khoser_mem_bitmap_ptr *elm)
-> +{
-> +	struct kho_mem_phys_bits *bitmap = KHOSER_LOAD_PTR(elm->bitmap);
-> +	unsigned long bit;
-> +
-> +	for_each_set_bit(bit, bitmap->preserve, PRESERVE_BITS) {
-> +		int sz = 1 << (order + PAGE_SHIFT);
-> +		phys_addr_t phys =
-> +			elm->phys_start + (bit << (order + PAGE_SHIFT));
-> +		struct page *page = phys_to_page(phys);
-> +
-> +		memblock_reserve(phys, sz);
-> +		memblock_reserved_mark_noinit(phys, sz);
+> A little code duplication is OK, as long as the test is easy to
+> understand. Maybe genparams stuff is going too far, I don't know, but at
+> the least we want to make sure the clk registration APIs behave as
+> expected when the getter API is used to get the device or of_node
+> later.
 
-Why waste time and memory building the reserved ranges? We already have
-all the information in the serialized bitmaps, and memblock is already
-only allocating from scratch. So we should not need this at all, and
-instead simply skip these pages in memblock_free_pages(). With the
-page-table like format I mentioned above, this should be very easy since
-you can find out whether a page is reserved or not in O(1) time.
+Now that the goal is more clear (to me), I'll try to find a good balance.
+I'll also split the helper from the tests, so I can progress on the driver
+front while we refine the tests, if that's OK with you ? It is not overly
+critical for both to land at the same time, is it ?
 
-> +		page->private = order;
-> +	}
-> +}
-> +
-> +static void __init kho_mem_deserialize(void)
-> +{
-> +	struct khoser_mem_chunk *chunk;
-> +	struct kho_in_node preserved_mem;
-> +	const phys_addr_t *mem;
-> +	int err;
-> +	u32 len;
-> +
-> +	err = kho_get_node(NULL, "preserved-memory", &preserved_mem);
-> +	if (err) {
-> +		pr_err("no preserved-memory node: %d\n", err);
-> +		return;
-> +	}
-> +
-> +	mem = kho_get_prop(&preserved_mem, "metadata", &len);
-> +	if (!mem || len != sizeof(*mem)) {
-> +		pr_err("failed to get preserved memory bitmaps\n");
-> +		return;
-> +	}
-> +
-> +	chunk = *mem ? phys_to_virt(*mem) : NULL;
-> +	while (chunk) {
-> +		unsigned int i;
-> +
-> +		memblock_reserve(virt_to_phys(chunk), sizeof(*chunk));
-> +
-> +		for (i = 0; i != chunk->hdr.num_elms; i++)
-> +			deserialize_bitmap(chunk->hdr.order,
-> +					   &chunk->bitmaps[i]);
-> +		chunk = KHOSER_LOAD_PTR(chunk->hdr.next);
-> +	}
-> +}
-> +
->  /* Helper functions for KHO state tree */
->  
->  struct kho_prop {
-[...]
+>
+> I've found this google chapter[1] useful for unit testing best
+> practices. I recommend reading it if you haven't already.
+>
+> [1] https://abseil.io/resources/swe-book/html/ch12.html
+
+I will, thanks
 
 -- 
-Regards,
-Pratyush Yadav
+Jerome
 
