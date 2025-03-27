@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F9EC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23EBC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xVx+TY9BCk0ixjsFvhvKmsCWnJJ+1rxeCnOag5mM3OM=; b=vy5Jb0DAhGeo5DHFagdbedDxpU
-	puPciKTKNJBwIZXL8ekhEay3P73HLwZn8kynZ0gxtj+eP7T+GkavDXlTOt3r3g9VG0o1+NmWTP8Ec
-	asIti0+THAwhOpsoHgnX1dt7rL9izALN/wj0Cb/dlYIhGMQDrArlhI4Zw6Dgf8yVjyQA7HPaR30F8
-	TImUueY07qnAOrFlMlRRmAJS9xC2ZZfTPHAaS2eraXwAZma/kNtorrcCvL3AnoARftXYWO/5rm1p2
-	7UdQP6qWCoJ3HB4TYJer/m/98mnZrm3FF4ZvDOZry0ly6/JBabCGbOvGDY1fmWeGj7DjkJ5NSp3v6
-	LbhQeSQA==;
+	bh=9PgcpZ/esO8INWaHTNIYzHKUcxhITaDwP+ZHht7YxcM=; b=TfGN+1sL6uLodzRM1dRE5usRnS
+	7FUvXBq7rmGbWa6/5ic9gUXd1eZZjmetWXadKOgUPjN5i+MVeCURXVhHwx+gDLq94tkenRJk3KQd6
+	ISBqm4570OaahIqPLYtkzlx+t63yB6aWjj2mzdZvjwAi9fTov+gE1y272mLzWh3t1fP3za5bah2He
+	khFOm/VCe+7iSa1JKEjZM/kUnpxHPBEqRsET+6OhbIjqwhHyIXpLFnTpi4351HKgD5ATrKXSExUrH
+	1WuFcvHLiNvkzdLNIGazdiUyON93NaIZ64im8D8JAdrM+As/zMIufxckxqOl3FF1kdYeDmVnHvRoY
+	352xzHKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txiQG-0000000AQii-2oZS;
-	Thu, 27 Mar 2025 08:17:08 +0000
+	id 1txiRy-0000000AR6R-08D4;
+	Thu, 27 Mar 2025 08:18:54 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txiKe-0000000APus-2X2A
+	id 1txiOZ-0000000AQPH-1wRu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 08:11:21 +0000
+	Thu, 27 Mar 2025 08:15:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 07FDC5C6893;
-	Thu, 27 Mar 2025 08:09:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE544C4CEDD;
-	Thu, 27 Mar 2025 08:11:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5322F5C681C
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 08:13:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116A3C4CEDD
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 08:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743063079;
-	bh=bmXqFqU22qluSfxAA/IxXQn2uRD9aGuQ4sNUF6q33mk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IQitGDUyAlG1CIo/auYlxpRBRrN95Gymr8nzmSj2Bn7K8PkVAvTCgSFJDhY/nVWs1
-	 yWlVnM9QbuxeYrNtbL+kLC0j9R1bhISfo1VVxfGZtmOO4U3UqG+lEODshvmvzc3xGi
-	 GWBjUxVZwdeG59X+9ZY9FU7w3j0NZBlzXlPD3UikmIHyc1uyBC/6k4NQRoE6/HtoCl
-	 ONEpliDvX6/jIddCO2AUdsR1E+lZTOLoWwii+++23Ceezs8IGTdvazTujhORk6Yh7f
-	 ZprQka3sxc4n1k/olZnuIBeD6LTx6lfwUpJFi97h8wl/DLsX3Cup/reseKhJHIsrlL
-	 cn57K0VDwuogA==
-Date: Thu, 27 Mar 2025 09:11:16 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan.Wanner@microchip.com
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, 
-	lee@kernel.org, sre@kernel.org, p.zabel@pengutronix.de, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH v4 08/11] dt-bindings: mfd: syscon: add
- microchip,sama7d65-secumod
-Message-ID: <20250327-nocturnal-fulmar-of-holiness-6b6ac5@krzk-bin>
-References: <cover.1742936082.git.Ryan.Wanner@microchip.com>
- <7248bb9d4ed491b178072b09830d6d68fde7b872.1742936082.git.Ryan.Wanner@microchip.com>
+	s=k20201202; t=1743063322;
+	bh=9PgcpZ/esO8INWaHTNIYzHKUcxhITaDwP+ZHht7YxcM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kN80WkkYt4/TjO/Zu1shRNEzCG0QNS7grNgvpXUv+HxUXqD6UK97w9H6EWT2DCgTG
+	 cs9XKSW20hQGZydiUIsxe844jcUKkAPBfvKnVt+HAjlzUgsdvaLF8/KiYeypC9dBjJ
+	 hrs3VWO4pejTqeZweR1qBlzT3qG7B14b38rFngUwdmvFTLhNjfY+179AA2vsZ2CRXw
+	 L036VSY0TMHyWUs0A96rpXhdMrW3GzGdSKk7Hjkm2sa2Rrj+zwZi+1Guyy9RpsyShX
+	 jXuHnNm/w6wFLZTr+yxOwKs6C+Y7m4okQwsb2TVTIiKccIeZBuS5iktMf6dRR5YTPA
+	 u3M9LRVCdhqRw==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-30613802a59so8091971fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 01:15:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWWyfaArQzu9/yIvGaJJ3Ozu5zUsuW9n+rllZXuquccXQYCpt76uyschxMxrpODSGC5JKKa+AKpWyQL3KdbyI7D@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywogr9RB3RoeFY8OmQVAMUQg2X0HAIjMX01gMMmm6M9ONP8niXL
+	HPMG/EsgfXmP0I/WeXfah3ithjDUaptuveSMl/O4OSG2HvnvvyCJZ1DpI5Qh8lSjG27hYTBhcXQ
+	vJaF0YE+3qT32KqzF3yoEPaRs3Qo=
+X-Google-Smtp-Source: AGHT+IGkw8DaYd4Eu5NEbusC5ONevkWWyvGlPYa9uF267c64a1SDfB9oFxUUIQo+/5FzHdRWEcPrx38Io9KtoibvkTU=
+X-Received: by 2002:a05:651c:388:b0:30b:f15f:1c02 with SMTP id
+ 38308e7fff4ca-30dc5decb2fmr9982021fa.18.1743063320450; Thu, 27 Mar 2025
+ 01:15:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <7248bb9d4ed491b178072b09830d6d68fde7b872.1742936082.git.Ryan.Wanner@microchip.com>
+References: <20250326200918.125743-1-ebiggers@kernel.org>
+In-Reply-To: <20250326200918.125743-1-ebiggers@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 27 Mar 2025 09:15:09 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHCJQ4-KAPpWFA-rqjogbebUP8Y=NKrdEB1ZmSbKG3bdg@mail.gmail.com>
+X-Gm-Features: AQ5f1JrIWn7OOFzH7s-batV_zW2_biAisG1z_ayEXTgeejni4X1t4_knp6dOK9A
+Message-ID: <CAMj1kXHCJQ4-KAPpWFA-rqjogbebUP8Y=NKrdEB1ZmSbKG3bdg@mail.gmail.com>
+Subject: Re: [PATCH] arm64/crc-t10dif: fix use of out-of-scope array in crc_t10dif_arch()
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	stable@vger.kernel.org, David Binderman <dcb314@hotmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_011120_685570_093D284E 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250327_011523_544653_3146B44B 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 08:35:41AM -0700, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
-> 
-> Add SAMA7D65 SECUMOD compatible string to DT bindings documentation.
-> 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> ---
->  Documentation/devicetree/bindings/arm/atmel,sama5d2-secumod.yaml | 1 +
->  1 file changed, 1 insertion(+)
+On Wed, 26 Mar 2025 at 21:09, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> From: Eric Biggers <ebiggers@google.com>
+>
+> Fix a silly bug where an array was used outside of its scope.
+>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Yeah - mea culpa.
 
-Best regards,
-Krzysztof
-
+And the fact that we exit with a tail call means buf[] may be
+deallocated by the time crc_t10dif_generic() refers to it - I'm
+surprised this didn't already break in testing, but I suppose no tail
+call is issued for other reasons.
 
