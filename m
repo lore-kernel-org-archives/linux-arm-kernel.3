@@ -4,57 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3682DC36011
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26AEC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3C6o/ZRIAelj13b/m5b+voYBX7+x+R9ZNeX7UK/FfKY=; b=MD5UD9pTTGHDRVRjPNG7JzskTz
-	APoafB+qCOS8FYwiVD1NLTSQpBwdL24FY9Vpt9T7L/OCkznge2XxKzoZ/XLFE2O+HY9Tv8gSQkPQU
-	maI0GRNH3v7tqhnR9UJXmpdL20B2Avc1f+cw3e3WpTQzOWOiDL8jTrKVWw52J4hP1mcbFaecOrJCw
-	bPAGcL1Ejqk+J7BLRGRBMjcZY7EhHMVhkaFxIFoZ7N50TDrxXcGQC7N3BvZLRhvLxnCJ+Cz0xV1XN
-	SSI4XKCL5XO98vV69wcjUVlNbvRUPkq4RDwqfpyt+bcz5mgv60CspA5hUlPSEEDtlAyMs7qzne0Aq
-	5O3HlD6g==;
+	bh=lWLZfCoOJzGSsb8SiRUBkqf1IfOvmaQOYIXtPY+9o/o=; b=N5d2FAzvyM2CAbRXeMMXFP5hnm
+	9kPY270egLMHufsvBC3uj8V4XS6stXeUkLqfegnr+qxiwvc3McY8Gd4bdMVEqLCirBtRCXsC5WEVR
+	C4Tg2WoZPHa6n9FeOYLDz/eUH7kEyMlBcAm66ZAFHJoe8dIF666XusYYViECs87tCq2yn9vUMeDI/
+	AaS0HG0lXLdioJEU9AP517e+mTj+dM0oJW3Ve8juQerqQvQfU/z/fR3vEeh9lMftk626RPfaZul78
+	Oa6ip8RNkE2j3VgZN0JNDjfPeMzCvIflzs9YwzNLT1NcIaah8P69Ovq+mXk9RNHMQLteIkgNl86Ch
+	pwVtslxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtwO-0000000ByXV-3JLM;
-	Thu, 27 Mar 2025 20:35:04 +0000
-Received: from mail-db8eur05on20610.outbound.protection.outlook.com ([2a01:111:f403:2614::610] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1txtzt-0000000Bynu-0MOB;
+	Thu, 27 Mar 2025 20:38:41 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtp8-0000000Bxi4-0Maa
+	id 1txtwi-0000000ByaI-39aA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 20:27:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eTgtFqUwB3+raVLJEQXSgd/OjHchrwCcthhXAhnfgmHfy9aQCrUpBcvMQgczSy0rAlSB8enVx5+5NU/pI26urv7vtlJrEV2zBofrQmjHAD3vYI7k1IB7jLTEalYQ7JZe3vbRq4cA7qqjmEyd1B97It2iOkmYvqSEfZcC4Jzt9Ha/4qzr13woxyZ6N9Fqtz4qEj4gH2OLLQ0qaia4AOq9TY04Gr8Bzw6fsI41XoFjI73lDc2sisdGj/TVBbLjBGM2YqtTL1UMqGQU58uXQXW3pP7kXWYazb1Ao2nwOl/fOScRDnxp+mogK/DN8z9CeBPW0mkFqdVHxES5kzMlTm9rNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3C6o/ZRIAelj13b/m5b+voYBX7+x+R9ZNeX7UK/FfKY=;
- b=xsUJt1lketq3AbCqVF9VwXJkHsij4FdSyRvQEAphSaRy9rTC/f6TJqQ5ZJX/FkGKEkROk6t81Kf9IXR0WcRShvAwzcAeEeKaF1+rhk5/a7Pi6cuuDyDT7bMW+sagqgFEzjgymwaEaBgYaGK7vSTxq32OW7KPyWnySa8ljLiBsTBLEoJeYJ1XJxmNDmu5rHPQcYR3u/zgmRasR1s0f4RTviM7rM6vvZMYvQSNsXKdZLX/hGC4HH3k8YnxDjJu/7h3fnNC/8P79MjanuKJ6qgM639vis9vPea/9DCi7+imuVE1Mdx3/uImTQwOIu+O+Xo3kXUsYw0SpWSV2DcYhaQgTw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3C6o/ZRIAelj13b/m5b+voYBX7+x+R9ZNeX7UK/FfKY=;
- b=RjF3Y/7tgu1nZqAO0+yY4vXIQWiu6+bS7AA5SC6L/El1ycEhEPOaNb4PuEhJsY6bAM7cB4VQ99W8Ww8wHu5QsYp4tlhc9wYtEogI2oSXXDGfY7jyeOyYXxdbm1hNHicVcYG/MKvmFo1ykAhcUEJtmMl4tf7xtsBRZ9n3geIsRuUAW/wYGAOPBiJ0A0pFVULXBHXDNozfnVqynbQE0pkjDQDQYnBkHxaacAdeq6Mwh2FN2GjdJWZkDRqwCFhpmNMLYzKWY/GJ8xt3J/ERost/TiTCSfIOMOuUK1jy5pVEK0aujrB0mhWdCdhYaXt/XEeGd9edluFNzqucWdfL/DjWig==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GVXPR04MB10452.eurprd04.prod.outlook.com (2603:10a6:150:1e7::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 27 Mar
- 2025 20:27:27 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Thu, 27 Mar 2025
- 20:27:27 +0000
-Date: Thu, 27 Mar 2025 16:27:18 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+	Thu, 27 Mar 2025 20:35:26 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 74245F6;
+	Thu, 27 Mar 2025 21:33:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1743107614;
+	bh=oXpKT4jJpLKNDLdSgu1uRFyYL3EMihV4EY2S2QT7arY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o44mcIH/PkqBwDieLfyJZ62DrMPgsWyIQQgZbTPdIovg+qBeZRHXdkajHaHirvwnm
+	 yw9sdc4pFhr2kVjOsVI8NgZ9FeePUWx0w/FGmvf8f1EImd7a5xNk7paHzgoWcv/KoF
+	 3ymTLdwsVphpGmf+u+o18Iwbs0wPhNjk9tw4ST/A=
+Date: Thu, 27 Mar 2025 22:35:00 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Dong Aisheng <aisheng.dong@nxp.com>,
@@ -71,94 +56,18 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
 	Robert Chiras <robert.chiras@nxp.com>,
 	"Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v3 11/12] arm64: dts: imx8q: add linux,cma node for
- imx8qm-mek and imx8qxp-mek
-Message-ID: <Z+W0psOVpyXMa8pD@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v3 07/12] media: imx8mq-mipi-csi2: Add imx8mq_plat_data
+ for different compatible strings
+Message-ID: <20250327203500.GJ4861@pendragon.ideasonboard.com>
 References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
- <20250210-8qxp_camera-v3-11-324f5105accc@nxp.com>
- <20250327190037.GB22659@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250327190037.GB22659@pendragon.ideasonboard.com>
-X-ClientProxiedBy: PH8PR22CA0002.namprd22.prod.outlook.com
- (2603:10b6:510:2d1::26) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+ <20250210-8qxp_camera-v3-7-324f5105accc@nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GVXPR04MB10452:EE_
-X-MS-Office365-Filtering-Correlation-Id: 659cd664-51b0-4a64-c1b6-08dd6d6dcab5
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gYoIOL4uygL3G47C0ETzBSXtHTMyYZELEB/mfgtzckE/eI+8yKvrOjQWLQPd?=
- =?us-ascii?Q?wcBA1re0TMZO61VDCKu2/qLbKn4k40A71ECx4mKuja3CeqoIKs0YsCGk4iNn?=
- =?us-ascii?Q?b+M8lTPng9534UzpOKr3GpYjhgMxUkobwTqhTlYgF1RsILa+XoEMddqZoZzl?=
- =?us-ascii?Q?5lRWQXrySKe3j5RZOMi62MPerHQKxWCkYdW65ye33eKM6as0sUaVraaphqHd?=
- =?us-ascii?Q?SL//rlcxSdStGQMeaZH5XllongdExDJBT4pFvJbWSOdVNjglllt0nbU0za9U?=
- =?us-ascii?Q?pumhHVt/zKQxTtuptdwmVMQp/0X9PI0SKsMG2qxOlieU6TMHOyl+0iL9UBZo?=
- =?us-ascii?Q?NK5xSrQ4PxOAAc/Xmms67xXFFyJyrr/mM5/zaqRvji2j2jrYPdsuYRlWdqN1?=
- =?us-ascii?Q?r8PWYgfVdYP4afiOClyBYhEzyJOj3EFVw46n87N+CmtvqbFAUSkmiShfRGb9?=
- =?us-ascii?Q?0QJh7pOOgZjCibtJKhwG6iTqx5X9ftCrP9UVI1ovOQ7+KopCr5LTAjRm2fff?=
- =?us-ascii?Q?zaHkNstBfP1Yto95qNF59JJsDiqApGWB9IXyOMqEWIxn2rDnNOmMP6p2DzWF?=
- =?us-ascii?Q?p15mPhcyXXJXizFgFYNtNihfwultggedeMGdOSzXE5k3X52mGVe/itwTAtp4?=
- =?us-ascii?Q?iHv0Ka8uCdotZhF0RJmv2ZQCEZLiFKZhPHeKte8XrtyGQIAYgrmP/JdcD1Ik?=
- =?us-ascii?Q?YT/Wj7XhaoxSnk9C84t7LR+H0LQW35oXzornkuGn6bR8PIsZwOKegj2/LuOo?=
- =?us-ascii?Q?22XlNAZ+i8ZNr3YT0IsEmd1AVaiRxHm9uoCxz9AnUdYf29zDcq4+ngvV1dGz?=
- =?us-ascii?Q?U2rmRtbLo8Dmsp/0K/BaLXJeyQHA4haqeJFyornbL6yFZgKt8b+sSwDabb3z?=
- =?us-ascii?Q?kqJqm1mxxQZMKmRoCv7vrSjYtXktbb+ymy9WUWTmnogyKmnWCoSGMT/NpIcC?=
- =?us-ascii?Q?nKW6/bOfyr839e7uZoVR84Hoy1jTZUVq3g4yBDyEb/h/i277pAY0HsOEeXpK?=
- =?us-ascii?Q?Ptcu6zkH6nd5GXl6lWv1BH0vaPS80t2B2P4f+Or+krTn4pGtWKgkpgT8voPH?=
- =?us-ascii?Q?vTM8VCXWwMKeAJSevEDX0hNfG4d6CcehjI8AFu2f4dlBA4nUtQuK18aMxMv9?=
- =?us-ascii?Q?uGb6YV33DDbOXVe2g5H1TPo0gV/rPUcZypgxqSteYEi5lvY9C73ZIzZA0ecV?=
- =?us-ascii?Q?zas69CYKM3aCYpwNCKzcpkcx40FgIYqvtULXj75FXYdyQqWaDzWtJNL2+pfH?=
- =?us-ascii?Q?3jZZD2+gXxxJA+BVKHhSUZD4ugxiAuONTqQdvmbiwWVfr7mVEbhFGHRy55df?=
- =?us-ascii?Q?N34cFLdXKr6OX0FnDr0VFjvIYSOhQHg3v9IWJFsufSrfLZWqpOskBqcU+ywY?=
- =?us-ascii?Q?wbVvQqeBRFksyoJN46z+tQz5PCLOHABuKWBCxTkgHCU63eaoAyE714AMewXP?=
- =?us-ascii?Q?vaFE6egNKHhGZa5+pd8Nrt7t7flRRE9S?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sq07NS7KN36sS99UharBKs0WJxOh6g6iXe5rsRpGG9142PavZo3kULmzahLY?=
- =?us-ascii?Q?wPXO/dpa9F5sr9+rC7oJJPrYYb6M0ET2dq7i9BIrWhpmhkDbG1DgJ6rPator?=
- =?us-ascii?Q?6vpayb4dk5Q3BWf1DRO1ouRYb+WrnVkkre3w8Nryq9WR2WXWA6wwKPi5D8Ql?=
- =?us-ascii?Q?sk6CZtYJBqMLeZw3wpqfigi+c3kKhWkj5MUrY3dor/2K19Bnzwy7GiMIXTMQ?=
- =?us-ascii?Q?bftvLjCJjBiZSrZupKNVBxzd5cDhGV8EGTJGfqKXZuizDHzgkNAbd7UnodcL?=
- =?us-ascii?Q?mjNXZh52R/4T5nNtS95IlLugQndlHiHhI3HCmgdZN3fkxaXLR+6LtUD6N+Qa?=
- =?us-ascii?Q?7DlV1AfoKLMH3rtdUPREJ1x3LplBiYQJKKwbsE7XwX4nubKZRUb+sqI6V9lY?=
- =?us-ascii?Q?gGIXoiP0thxt3OacFPbyUjHMQfjPMFLfdk+8la4LONprDunr85aaVHzfsPVR?=
- =?us-ascii?Q?B6TELt4a9EnkYMxaENK8Vm4iPxj598FJF8s6DO+OkWzjE8dTECd4iYij2w1W?=
- =?us-ascii?Q?rDVRqvuxt93uOaGX5VrFIwuAj+X9n5DDGoKyUG4LD7yrxI6WVaZZyDoVsz9N?=
- =?us-ascii?Q?oMx0t9CYkn+VbKQYVb4HBSAnt1s8NoHlwXuVvID+94HB43jtPduAbNlCOHOd?=
- =?us-ascii?Q?lub61Oa2MI95/fCZMBlSu2o7AmGMfQlPy3qvX27lCbDBtuCu+xBYXxiYfYql?=
- =?us-ascii?Q?cPti0dGTwWyjitv9tCF6CvrNAkVgiq/1emH6BuNavurqibIcoue92qHrP5gy?=
- =?us-ascii?Q?VSP+v/iD4EGLQZpu0vP0MGRoltOirqJegAvpzIRj7vg2dNq4dK51Wws43SCJ?=
- =?us-ascii?Q?zPwCTHwh3psJShPEHOZzFTHU9sVe2B4DmLkxgwbb6Rry5du2dJlv7QTTM/gi?=
- =?us-ascii?Q?RcLJsb+4ZmojYjIZy5RwGhp3z2riaDIL0pHRA1iwhmriTzHryWrrSK1skQYd?=
- =?us-ascii?Q?CaKxp9UniorJUke2ZdEDIry50ZeIjKUjAsb/DALjQHSLiQo8djvlGv4SWBZG?=
- =?us-ascii?Q?UwTRQvDCBM34pO7vWiZVbRQvfiKAucfss2pEKcQZ/QmyYWFU4Mhe+SZfxf39?=
- =?us-ascii?Q?4It1+7zLZ2GVUGCJ3QK4RH2mSaMlYeHHQ12xBv+k5HpW1HjiJCiTfx6LZH9v?=
- =?us-ascii?Q?/Y9Ke0FFOwtINsVmXySKF7Qzgy0u3AICdL1YDvL7VdZqSJoBB9OhQGbh9Cv7?=
- =?us-ascii?Q?tqhpwrrVFjfzjlenMUxt5W2KLLHkX7js2gkdn5sxpcaVO+jEw41S25Fau+LH?=
- =?us-ascii?Q?6SDTpZ8i1glcMCRmE3j5OgpKuuodVJnQosfOM47AyfMTRxscbyYFh3HnkJns?=
- =?us-ascii?Q?Epvq6cYblIOdHwYUpvCaGQ7vagkOSyNofhxJS1D6PFyjTx4XgubN8oDrRAuL?=
- =?us-ascii?Q?jjvx/ANjQVerL4Zcd0ZuH2g6QvNq/Dd95KpJnmwToLA1OHWUFLSdtN7Dt2qc?=
- =?us-ascii?Q?tXTfGV6sD+qVvylaKzLUZlnbyCXRfjtnj5PPaK/qKROxAhdV35X9+l6hiQ1I?=
- =?us-ascii?Q?71yV1BE2U/LApaZNaGNvGzBgs/D9xcdmKSMvcWxeyEDrHq69mcUzLClwzjAw?=
- =?us-ascii?Q?MGS9Dp9tLwRSdr5VinMLqo8XIGBgAONDIWS8a7Vr?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 659cd664-51b0-4a64-c1b6-08dd6d6dcab5
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 20:27:27.7978
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1iv0dOv6hJfsYp4/BGMhJ05ollnvdbAcO63ma3KEXlQGfkx4mXNs6w3hV2OfAzgODxnjIawjDuGXkyGAx67Rtw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10452
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250210-8qxp_camera-v3-7-324f5105accc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_132734_124820_7BA29801 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20250327_133524_944152_E4C6B63D 
+X-CRM114-Status: GOOD (  27.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,81 +82,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 09:00:37PM +0200, Laurent Pinchart wrote:
-> Hi Frank,
->
-> Thank you for the patch.
->
-> On Mon, Feb 10, 2025 at 03:59:30PM -0500, Frank Li wrote:
-> > Add linux,cma node because some devices, such as camera, need big continue
-> > physical memory.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > change from v1 to v3
-> > - none
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8qm-mek.dts  | 9 +++++++++
-> >  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 8 ++++++++
-> >  2 files changed, 17 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> > index 50fd3370f7dce..61ef00f4259e1 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> > @@ -113,6 +113,15 @@ dsp_vdev0buffer: memory@94300000 {
-> >  			reg = <0 0x94300000 0 0x100000>;
-> >  			no-map;
-> >  		};
-> > +
-> > +		/* global autoconfigured region for contiguous allocations */
-> > +		linux,cma {
-> > +			compatible = "shared-dma-pool";
-> > +			alloc-ranges = <0 0xc0000000 0 0x3c000000>;
-> > +			size = <0 0x3c000000>;
-> > +			linux,cma-default;
-> > +			reusable;
-> > +		};
->
-> This is system memory. Why is it reserved here, hardcoding a specific
-> use case in a board DT, instead of specifying an overall CMA size in the
-> kernel configuration or through the kernel command line ?
+On Mon, Feb 10, 2025 at 03:59:26PM -0500, Frank Li wrote:
+> From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
+> 
+> Introduce `imx8mq_plat_data` along with enable/disable callback operations
+> to facilitate support for new chips. No functional changes.
+> 
+> Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Change from v2 to v3
+> - none
+> change from v1 to v2
+> - remove internal review tags
+> ---
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 60 ++++++++++++++++++++-------
+>  1 file changed, 46 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> index 1f2657cf6e824..b5eae56d92f49 100644
+> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> @@ -62,6 +62,8 @@
+>  #define CSI2RX_CFG_VID_P_FIFO_SEND_LEVEL	0x188
+>  #define CSI2RX_CFG_DISABLE_PAYLOAD_1		0x130
+>  
+> +struct csi_state;
+> +
+>  enum {
+>  	ST_POWERED	= 1,
+>  	ST_STREAMING	= 2,
+> @@ -83,11 +85,11 @@ static const char * const imx8mq_mipi_csi_clk_id[CSI2_NUM_CLKS] = {
+>  
+>  #define CSI2_NUM_CLKS	ARRAY_SIZE(imx8mq_mipi_csi_clk_id)
+>  
+> -#define	GPR_CSI2_1_RX_ENABLE		BIT(13)
+> -#define	GPR_CSI2_1_VID_INTFC_ENB	BIT(12)
+> -#define	GPR_CSI2_1_HSEL			BIT(10)
+> -#define	GPR_CSI2_1_CONT_CLK_MODE	BIT(8)
+> -#define	GPR_CSI2_1_S_PRG_RXHS_SETTLE(x)	(((x) & 0x3f) << 2)
+> +struct imx8mq_plat_data {
+> +	const char *name;
 
-Other imx boards dts also have linux,cma, which provide a default CMA size.
-Generally we use one linux kernel image for difference boards. DTS should
-provide default cma value for specific board.
+The name is not used, drop it.
 
-kernel command line is more like debug methods. we don't want to depend on
-uboot too much.
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-Frank
 
->
-> >  	};
-> >
-> >  	lvds_backlight0: backlight-lvds0 {
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> > index be79c793213a5..89c6516c5ba90 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> > @@ -56,6 +56,14 @@ dsp_vdev0buffer: memory@94300000 {
-> >  			reg = <0 0x94300000 0 0x100000>;
-> >  			no-map;
-> >  		};
-> > +
-> > +		linux,cma {
-> > +			compatible = "shared-dma-pool";
-> > +			alloc-ranges = <0 0xc0000000 0 0x3c000000>;
-> > +			size = <0 0x3c000000>;
-> > +			linux,cma-default;
-> > +			reusable;
-> > +		};
-> >  	};
-> >
-> >  	reg_usdhc2_vmmc: usdhc2-vmmc {
->
-> --
-> Regards,
->
-> Laurent Pinchart
+> +	int (*enable)(struct csi_state *state, u32 hs_settle);
+> +	void (*disable)(struct csi_state *state);
+> +};
+>  
+>  /*
+>   * The send level configures the number of entries that must accumulate in
+> @@ -106,6 +108,7 @@ static const char * const imx8mq_mipi_csi_clk_id[CSI2_NUM_CLKS] = {
+>  
+>  struct csi_state {
+>  	struct device *dev;
+> +	const struct imx8mq_plat_data *pdata;
+>  	void __iomem *regs;
+>  	struct clk_bulk_data clks[CSI2_NUM_CLKS];
+>  	struct reset_control *rst;
+> @@ -137,6 +140,35 @@ struct csi2_pix_format {
+>  	u8 width;
+>  };
+>  
+> +/* -----------------------------------------------------------------------------
+> + * i.MX8MQ GPR
+> + */
+> +
+> +#define	GPR_CSI2_1_RX_ENABLE		BIT(13)
+> +#define	GPR_CSI2_1_VID_INTFC_ENB	BIT(12)
+> +#define	GPR_CSI2_1_HSEL			BIT(10)
+> +#define	GPR_CSI2_1_CONT_CLK_MODE	BIT(8)
+> +#define	GPR_CSI2_1_S_PRG_RXHS_SETTLE(x)	(((x) & 0x3f) << 2)
+> +
+> +static int imx8mq_gpr_enable(struct csi_state *state, u32 hs_settle)
+> +{
+> +	regmap_update_bits(state->phy_gpr,
+> +			   state->phy_gpr_reg,
+> +			   0x3fff,
+> +			   GPR_CSI2_1_RX_ENABLE |
+> +			   GPR_CSI2_1_VID_INTFC_ENB |
+> +			   GPR_CSI2_1_HSEL |
+> +			   GPR_CSI2_1_CONT_CLK_MODE |
+> +			   GPR_CSI2_1_S_PRG_RXHS_SETTLE(hs_settle));
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct imx8mq_plat_data imx8mq_data = {
+> +	.name = "i.MX8MQ",
+> +	.enable = imx8mq_gpr_enable,
+> +};
+> +
+>  static const struct csi2_pix_format imx8mq_mipi_csi_formats[] = {
+>  	/* RAW (Bayer and greyscale) formats. */
+>  	{
+> @@ -364,14 +396,9 @@ static int imx8mq_mipi_csi_start_stream(struct csi_state *state,
+>  	if (ret)
+>  		return ret;
+>  
+> -	regmap_update_bits(state->phy_gpr,
+> -			   state->phy_gpr_reg,
+> -			   0x3fff,
+> -			   GPR_CSI2_1_RX_ENABLE |
+> -			   GPR_CSI2_1_VID_INTFC_ENB |
+> -			   GPR_CSI2_1_HSEL |
+> -			   GPR_CSI2_1_CONT_CLK_MODE |
+> -			   GPR_CSI2_1_S_PRG_RXHS_SETTLE(hs_settle));
+> +	ret = state->pdata->enable(state, hs_settle);
+> +	if (ret)
+> +		return ret;
+>  
+>  	return 0;
+>  }
+> @@ -379,6 +406,9 @@ static int imx8mq_mipi_csi_start_stream(struct csi_state *state,
+>  static void imx8mq_mipi_csi_stop_stream(struct csi_state *state)
+>  {
+>  	imx8mq_mipi_csi_write(state, CSI2RX_CFG_DISABLE_DATA_LANES, 0xf);
+> +
+> +	if (state->pdata->disable)
+> +		state->pdata->disable(state);
+>  }
+>  
+>  /* -----------------------------------------------------------------------------
+> @@ -869,6 +899,8 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
+>  
+>  	state->dev = dev;
+>  
+> +	state->pdata = of_device_get_match_data(dev);
+> +
+>  	ret = imx8mq_mipi_csi_parse_dt(state);
+>  	if (ret < 0) {
+>  		dev_err(dev, "Failed to parse device tree: %d\n", ret);
+> @@ -946,7 +978,7 @@ static void imx8mq_mipi_csi_remove(struct platform_device *pdev)
+>  }
+>  
+>  static const struct of_device_id imx8mq_mipi_csi_of_match[] = {
+> -	{ .compatible = "fsl,imx8mq-mipi-csi2", },
+> +	{ .compatible = "fsl,imx8mq-mipi-csi2", .data = &imx8mq_data },
+>  	{ /* sentinel */ },
+>  };
+>  MODULE_DEVICE_TABLE(of, imx8mq_mipi_csi_of_match);
+
+-- 
+Regards,
+
+Laurent Pinchart
 
