@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FE4C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5112C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 20:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=at+hNP+zJasqRLUlhhQ8KK364acevQO5hKQ1zN6QvNA=; b=z9MB7Ef48Gir1anvpXCVkUcyVg
-	IwCtnuM1wr1K7HyBpuQksTqPN/QiDzRKMNY9zVk9c+QTV6XTncPNLTPn84WhA1PDrAXKJ6vFOrSYR
-	9J7+KthNrz0fRtoxw0qc4Ro10LDJaRkHivrcylpk/emGaY7FjhIUC8OKzN1hLMqSz6xBUg+I1pjRQ
-	+sV/mS379CwJI8Gk22KyyBTambPiEQrvuVNUuX2njtxR81qw0PNhsr6cPlBYywy0Cx6/2m7IoIFML
-	OjuOkwusXJGggaTDv+u6BlRqScM0n3KDHnsJy3A3fF3OM2LqwI5AYKp41hGk4xrd8wZG5fpfN6iD7
-	ZHksQO8A==;
+	bh=wuAJatc2JmXf0iY6WMCrv4PggaSVzunJXyftBhSJxQY=; b=LwkQm6q1jLGZVo2OnhP7NiQgnr
+	YBLmlpv0rE5r7PLjA47Z0JEYQwyocfZQHlK4irx05mRk5McOWvAJ7YkJCOU+13QwncpoGsmJrFZ+d
+	tzYJXO4Q7JhprVaZ4te5/zxsIChlbjw/pTVHqiA4D6838Uk5S4cLtJ9aWJslDVB8VY+ZOx9fpxXp4
+	wPtdYcrDHxsuPFhKYpqfBADKaOfWQJQ5GiKevqjjxvS0qTUo5m8C/Srxp1OVZhfGzms+v5a8Eus4D
+	u1hHN5S9psuMmXsb9RduHcw0G0ZAPyYC3yXmqmeweZa5qno+ZZzOA5eH8sjNdTeWxmoAFWZ9sIhDa
+	G1EIZHQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtnh-0000000Bxbt-1Gkz;
-	Thu, 27 Mar 2025 20:26:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1txtpQ-0000000BxlO-0EUO;
+	Thu, 27 Mar 2025 20:27:52 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtOP-0000000BudT-2OTM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 27 Mar 2025 19:59:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=at+hNP+zJasqRLUlhhQ8KK364acevQO5hKQ1zN6QvNA=; b=YI8ukzN05II4RcXVQhn/ScuSaD
-	m8rQrEaaff1hGAwjHYhLAYFguH+lo/paYQ5qh7SKxBrAbQUn6S8X9B5InC6QRvlkCr2uLzJB8p31V
-	blwMjHzQOkisfh7ZkReYRzB8z6DwTsVPEYIYOMFsMFD8Hcf5c8eQcWzdIJRqCvQ227C++BCkplTUa
-	m4prnBlyxjex3BvdHtrGIOctcABV0UuS9+75fl12y2kzLXP519shxd37l0kNXwswCxymNRV+9yhq0
-	fuQW+yiBKCJF/SmgNYAvGkVeO/Iit9qFCMrNPAo9u9CrxSy0RArOoTgadr+MsirlhazpeL6RMDtWm
-	hLOqTDAQ==;
-Received: from fw2.prolan.hu ([193.68.50.107])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtOM-000000061sk-1Tn8
+	id 1txtR4-0000000Bv7m-1AQJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 19:59:56 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 2B198A0796;
-	Thu, 27 Mar 2025 20:59:45 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=at+hNP+zJasqRLUlhhQ8
-	KK364acevQO5hKQ1zN6QvNA=; b=lj+EgHPOyKfKZVPYf+z9mdJsS28/nWckJgC2
-	A+Pt9LrM4ID7jPKtYvpO+DDx2pLi//FzizvT5aVChU6f8/YTosj/aP29DbQkpIwV
-	14UtSrdRMyeww4P5EJAZo6TFsoKXnhkKuoP+kkyAKHgJDA09ij3OT+nTcEKD0z/h
-	QikfCFuaBd2gIgH2KWSlC52xy5G7Us0Ms3NwaIcOkFeNKUeZAExZwUzaJXt/7FN4
-	1ANGvSDSvTenWPCsDZrrj+7cv9Ohkebpf14bncWH4VwuJs+VWQsFzc3OwALu2LNU
-	6YjiU/hl4CT15mhBciSPWhkewIEwZ3g8VgvHalNSCJB4bzocYbue7vL8qXlt/mMP
-	AcB74PPmSsiUqOLO7vBdZ0yobJ5feMChB+aosxHOlOOKD333wOycH5U5lZ3IXFnK
-	8nwpK3IzPKDvVSCRfMM0TRAe3bWRty8ueTZnLAu8nVVSMNooVk6rewh0Ve4mpG9F
-	HUX92NS6XKvczdQ4ExYhSv/Ygh8dr+QwRyOuUFtjDBa4POcgN1yYgcUTM0gzIgPC
-	Q+A63JyURGcmlPPf/bFyqOJZLSFgef8DGrBwx5AhDnoSmrniJRSiGts9eWWnokNV
-	57AmMKascKHPsI05TeKInSPh+TzhpKYDRihRQQ1XqGkfNw87VYFi5LAoW/LmN/W3
-	HPIY+uk=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, "Varshini
- Rajendran" <varshini.rajendran@microchip.com>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <len.brown@intel.com>,
-	Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>,
-	"Nicolas Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Pavel Machek <pavel@kernel.org>
-Subject: [PATCH v6 1/2] pm: runtime: Add new devm functions
-Date: Thu, 27 Mar 2025 20:59:26 +0100
-Message-ID: <20250327195928.680771-3-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250327195928.680771-2-csokas.bence@prolan.hu>
-References: <20250327195928.680771-2-csokas.bence@prolan.hu>
+	Thu, 27 Mar 2025 20:02:43 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ff6e91cff5so2568259a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 13:02:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743105761; x=1743710561; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wuAJatc2JmXf0iY6WMCrv4PggaSVzunJXyftBhSJxQY=;
+        b=GJn0sXnUsQT7/IhHmmhAIlkgsXNCyBFhcNhjrpYR/gQlfClo3teM5qPxCnScHnasMQ
+         h5etuGeF0n1dzaZ7+7m3WvADpTE75iSX7H31BT6nYvqoJ/vZJQIAVeYJpu8yhw9zJoKq
+         cyxeGaSR4mrwSt5ddTOQl2FHfKCRVF0fVjAQ8H0JpAA0iMGIKga4tYAoaBNr/iLoCEi3
+         WSKMljG3Wtkhc1QGJqc/Jht/0FoqOen7v9RRxlGwTlUZfTz6uUC394I9jmKw4A56P89m
+         8VQdm2zvpWc0XFo5IAt4x6HGnWtdY5OCG5gAGE9qaGeC6YpGIBeNDmThDPJ9ALx6rVHh
+         Tjow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743105761; x=1743710561;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wuAJatc2JmXf0iY6WMCrv4PggaSVzunJXyftBhSJxQY=;
+        b=HEckYiTcQiVOvGy9MbKX9wJIv0J8/A/wakZrZYBKRsyWSJKisnvNz+Ogmyr5BUrHiD
+         bsZQELR0cUilzUfX0ctdgFkeHvl/O0WPptGqqClHBlRbo4rb4zo2gy4PTWDlIu4lfZjv
+         8Vkl5eJGztrAg3L7ZwFc/4sj1D6FyDr/JQB1vlIVnKnC1sm7PK2y0IaqSBj+H15HSBBe
+         YsTKCa1R4coFdDm8RSw97yAv6HMgjfk+L24ZF8R9fEov1xCEdbShybZKJcrzRdyCAhBy
+         N+Wa0Mf652HQ8A601nY4dVCot64Hwy6h9QsiRYlCKxON5SLVbXvOIJuNXDup+PeOtvz2
+         4e8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWD2QB3VtGIIHiIp0u+zfD9nDj+YM27IM9RxX02ITL2saCOy1FtYeD92blAu6bZm9cW2HBSXt+23JNOCx8EBOmG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/cBFk3P9TpnLlfcgIbi1wWOMQEfM4Pyc4EE9jcKQo7KWZJflX
+	qRmvQbMO05njUHbghaKpWB7v3p6z845npTdY4JnW/4RrT7awmh6w2b9ca4c4n8MBFUYbDvNEj9M
+	MjFklIkbJJBURPNMaM8Z76QPt8d8=
+X-Gm-Gg: ASbGnct402dufkVii8RAHTvOTK2Qf0BbhLdX5K/5EN8RBEtYm3V3Gp3i+ZbeKPF/ek2
+	h7EsZMxBEtkp4tP8d8sgN6Ihb1tKxo4I2A7thByDQ0m1b7ydL/xAUaQwzSX5NZ/6GfE/oU5lAAt
+	kgyoNqshdKLqD5XXjSxCZarO4YGg==
+X-Google-Smtp-Source: AGHT+IFauHqFGz+l5KSmNKiQ87uiI0RmmUS7PE3RtYqUxj+Ju364KNFhZ3pFAY9xmj01bZt3AIVOI+wHC5S3cDOhqvE=
+X-Received: by 2002:a17:90b:5686:b0:2fa:15ab:4dff with SMTP id
+ 98e67ed59e1d1-303a906ebc2mr6863917a91.31.1743105760980; Thu, 27 Mar 2025
+ 13:02:40 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com> <20250210-8qxp_camera-v3-4-324f5105accc@nxp.com>
+In-Reply-To: <20250210-8qxp_camera-v3-4-324f5105accc@nxp.com>
+From: Adam Ford <aford173@gmail.com>
+Date: Thu, 27 Mar 2025 15:02:29 -0500
+X-Gm-Features: AQ5f1JpXPfB7WcMK1DcTCK1yjsON2ZzVKgj_sI1ozYwDfWnEj3NMxxnXx4v7m90
+Message-ID: <CAHCN7x+6_xxkx-Fft6WnfsVyqy_v3c732uKuEanrP64jv3Kj1g@mail.gmail.com>
+Subject: Re: [PATCH v3 04/12] media: nxp: imx8-isi: Allow num_sources to be
+ greater than num_sink
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rui Miguel Silva <rmfrfs@gmail.com>, 
+	Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+	Robert Chiras <robert.chiras@nxp.com>, "Guoniu.zhou" <guoniu.zhou@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1743105584;VERSION=7987;MC=800905746;ID=112015;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D948526C776A
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_195954_767209_86BC1038 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20250327_130242_318918_40E958E1 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,103 +103,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add `devm_pm_runtime_set_active_enabled()` and
-`devm_pm_runtime_get_noresume()` for simplifying common cases in drivers.
+On Mon, Feb 10, 2025 at 3:01=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+>
+> Allow num_sources (drvdata: num_channels) to be greater than num_sink
+> (drvdata: num_ports + 1).
+>
+> ISI support stream multiplexing, such as differentiates multiple cameras
+> from a single 2-lane MIPI input, or duplicates input stream into multiple
+> outputs. So num_channels may be greater than num_ports at some platform.
 
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
- drivers/base/power/runtime.c | 44 ++++++++++++++++++++++++++++++++++++
- include/linux/pm_runtime.h   |  4 ++++
- 2 files changed, 48 insertions(+)
+Can you tell me which platforms support this?   Is this through
+virtual channels, or do you physically connect lanes 1 and 2 to one
+camera and lanes 3 and 4 to another?
 
-diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
-index 0e127b0329c0..205a4f8828b0 100644
---- a/drivers/base/power/runtime.c
-+++ b/drivers/base/power/runtime.c
-@@ -1568,6 +1568,32 @@ void pm_runtime_enable(struct device *dev)
- }
- EXPORT_SYMBOL_GPL(pm_runtime_enable);
- 
-+static void pm_runtime_set_suspended_action(void *data)
-+{
-+	pm_runtime_set_suspended(data);
-+}
-+
-+/**
-+ * devm_pm_runtime_set_active_enabled - set_active version of devm_pm_runtime_enable.
-+ *
-+ * @dev: Device to handle.
-+ */
-+int devm_pm_runtime_set_active_enabled(struct device *dev)
-+{
-+	int err;
-+
-+	err = pm_runtime_set_active(dev);
-+	if (err)
-+		return err;
-+
-+	err = devm_add_action_or_reset(dev, pm_runtime_set_suspended_action, dev);
-+	if (err)
-+		return err;
-+
-+	return devm_pm_runtime_enable(dev);
-+}
-+EXPORT_SYMBOL_GPL(devm_pm_runtime_set_active_enabled);
-+
- static void pm_runtime_disable_action(void *data)
- {
- 	pm_runtime_dont_use_autosuspend(data);
-@@ -1590,6 +1616,24 @@ int devm_pm_runtime_enable(struct device *dev)
- }
- EXPORT_SYMBOL_GPL(devm_pm_runtime_enable);
- 
-+static void pm_runtime_put_noidle_action(void *data)
-+{
-+	pm_runtime_put_noidle(data);
-+}
-+
-+/**
-+ * devm_pm_runtime_get_noresume - devres-enabled version of pm_runtime_get_noresume.
-+ *
-+ * @dev: Device to handle.
-+ */
-+int devm_pm_runtime_get_noresume(struct device *dev)
-+{
-+	pm_runtime_get_noresume(dev);
-+
-+	return devm_add_action_or_reset(dev, pm_runtime_put_noidle_action, dev);
-+}
-+EXPORT_SYMBOL_GPL(devm_pm_runtime_get_noresume);
-+
- /**
-  * pm_runtime_forbid - Block runtime PM of a device.
-  * @dev: Device to handle.
-diff --git a/include/linux/pm_runtime.h b/include/linux/pm_runtime.h
-index 7fb5a459847e..756b842dcd30 100644
---- a/include/linux/pm_runtime.h
-+++ b/include/linux/pm_runtime.h
-@@ -96,7 +96,9 @@ extern void pm_runtime_new_link(struct device *dev);
- extern void pm_runtime_drop_link(struct device_link *link);
- extern void pm_runtime_release_supplier(struct device_link *link);
- 
-+int devm_pm_runtime_set_active_enabled(struct device *dev);
- extern int devm_pm_runtime_enable(struct device *dev);
-+int devm_pm_runtime_get_noresume(struct device *dev);
- 
- /**
-  * pm_suspend_ignore_children - Set runtime PM behavior regarding children.
-@@ -294,7 +296,9 @@ static inline bool pm_runtime_blocked(struct device *dev) { return true; }
- static inline void pm_runtime_allow(struct device *dev) {}
- static inline void pm_runtime_forbid(struct device *dev) {}
- 
-+static inline int devm_pm_runtime_set_active_enabled(struct device *dev) { return 0; }
- static inline int devm_pm_runtime_enable(struct device *dev) { return 0; }
-+static inline int devm_pm_runtime_get_noresume(struct device *dev) { return 0; }
- 
- static inline void pm_suspend_ignore_children(struct device *dev, bool enable) {}
- static inline void pm_runtime_get_noresume(struct device *dev) {}
--- 
-2.49.0
-
-
+adam
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change from v1 to v3
+> - none
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/dr=
+ivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> index 93a55c97cd173..ba5b2d3617a23 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> @@ -188,11 +188,11 @@ static int mxc_isi_crossbar_init_state(struct v4l2_=
+subdev *sd,
+>          * Create a 1:1 mapping between pixel link inputs and outputs to
+>          * pipelines by default.
+>          */
+> -       routes =3D kcalloc(xbar->num_sources, sizeof(*routes), GFP_KERNEL=
+);
+> +       routes =3D kcalloc(xbar->num_sinks - 1, sizeof(*routes), GFP_KERN=
+EL);
+>         if (!routes)
+>                 return -ENOMEM;
+>
+> -       for (i =3D 0; i < xbar->num_sources; ++i) {
+> +       for (i =3D 0; i < xbar->num_sinks - 1; ++i) {
+>                 struct v4l2_subdev_route *route =3D &routes[i];
+>
+>                 route->sink_pad =3D i;
+> @@ -200,7 +200,7 @@ static int mxc_isi_crossbar_init_state(struct v4l2_su=
+bdev *sd,
+>                 route->flags =3D V4L2_SUBDEV_ROUTE_FL_ACTIVE;
+>         }
+>
+> -       routing.num_routes =3D xbar->num_sources;
+> +       routing.num_routes =3D xbar->num_sinks - 1;
+>         routing.routes =3D routes;
+>
+>         ret =3D __mxc_isi_crossbar_set_routing(sd, state, &routing);
+> @@ -453,7 +453,7 @@ int mxc_isi_crossbar_init(struct mxc_isi_dev *isi)
+>          * the memory input.
+>          */
+>         xbar->num_sinks =3D isi->pdata->num_ports + 1;
+> -       xbar->num_sources =3D isi->pdata->num_ports;
+> +       xbar->num_sources =3D isi->pdata->num_channels;
+>         num_pads =3D xbar->num_sinks + xbar->num_sources;
+>
+>         xbar->pads =3D kcalloc(num_pads, sizeof(*xbar->pads), GFP_KERNEL)=
+;
+>
+> --
+> 2.34.1
+>
+>
 
