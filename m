@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BEAC3600E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 07:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5640C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 07:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZQZFBWBRBofyZHPXMVwH3eOq9VmJx4/1HevTUVntZk=; b=DcNvga5vm3aGYy1b/V4ONS7I2D
-	y0bUgnLrZtOC3fTsD9UsW2tOhDzTp6T+SaYRZMT4PtdVAsgPLfobs7bCJguRNVOENnEsuRP7BYSUP
-	SAlK3F9GfhO9uSPE7gZHp3uM4uLXri5oOjs+4QGLHaWn6aHdZq2EY0ORQgd/MTCLpp/Y7UA0WbUHU
-	XNwEkSP2RUT1WY3mpx/xxP0uRCYrit2+nC9vRDol4CpDaa7fbbNrAqp+hP8FnnKP0i6D0KFNQzBzx
-	28WzOjkwTYidTQWBisEiVEueUaUuGDbSzHnpXuw66Gm0aBZKDQI+4gHUgAObc9rIwydD4JjM1YvrS
-	NTUJGtsg==;
+	bh=71m4WMdpPk9ID2AOE5vKRbtmLa8ZGTtI3yUeNUg/rHA=; b=aJn+d6HsN8K83VchUiu+Lh8oIV
+	RjNlA2hWyPQtNkU4qoQQN8PlwUHXCN+hnty7mNucoQ5rblRVv01iUHLxvJCubC4jMSDO/i9ehluxw
+	6fBHTus8kc2DqDkifUYRMg0S2M2lcT85crFNy8oOCgyGg156gusYqf6B4U85YntESX7WB/46JQhbQ
+	6yVxmVPMh2fHR6rk2r4o3nhCuBlxR9e6lkCLDW9+6Vux7q/S7fjUKo9yDWKSTEl0WehbTPrxrjVjp
+	YI6qFhXXpwLjfDH/ZtLB+H4WzEnOz5DlH5ZGW79iFJuqXdI8B/xD/pVVNE/mFf/IzOCcLCNAtOXx3
+	CEcZi0lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txhxG-0000000AMyq-1i2G;
-	Thu, 27 Mar 2025 07:47:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1txhyz-0000000ANFc-2hpI;
+	Thu, 27 Mar 2025 07:48:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txhti-0000000AMIN-23hz
+	id 1txhuM-0000000AMUn-13Nc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 07:43:31 +0000
+	Thu, 27 Mar 2025 07:44:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 58B4B5C6830;
-	Thu, 27 Mar 2025 07:41:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3690FC4CEDD;
-	Thu, 27 Mar 2025 07:43:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 95DCE40C37;
+	Thu, 27 Mar 2025 07:44:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A90ACC4CEE5;
+	Thu, 27 Mar 2025 07:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743061409;
-	bh=fk7AOpk0VvMGYt6VzHrHLD09g5SsvkwwjT6ts+Df2TQ=;
+	s=k20201202; t=1743061449;
+	bh=D4zjTIHcLq8iQiP0/yjuFO9hy9HuuiEq1/XitREfj68=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UIU4Yw+0rSVQZqN4kvxJRh/X+KE/mcmDKZIZX5VSRO+pNntIjW4eee3VTqXgC4Zz4
-	 6aPoCZhFNEKWfZQDJgLA1bVk8T8PRiViaKrhwPmff+MHzeRlu8uPTmZeKIdJTqCRyd
-	 uM6CNTz1dy68R+uhvqVIFq++b/6lwoHL7pBXU2Btfi4WU9L3nAtcJ2ewfmqUQPy1i0
-	 wy/vANge24lEAUw3nF5wG462r4QGd288nCfgXeDMv/XXF/9dbtEvULB9Y0Fnfa6wru
-	 UX6OY7ZpoWU2tdQmeTwn7pzAAIWllmdfByOeN8auTAFVqX3ykgPHD67hFNYtmUHJ1A
-	 KY0Wps3G7h7Rw==
-Message-ID: <41c6f512-47a5-4723-bbdc-64ed85ae8391@kernel.org>
-Date: Thu, 27 Mar 2025 08:43:17 +0100
+	b=L6rgApyMKYPx/FOT+K6ftJmeoRtKsu4gXYjgCICT+kIkK8N13tzdsQ2X6IPae4ErB
+	 SJQLEu48GAGnCdfW/GhZA/H+uPIXandYdKH41dVY0Gop0D/2o/zPXlRuD6cIbn0z2k
+	 NwVLEtbDNstbNrr4Nbc+cO7HSIObGoFWzJcthaD+abymtCVw5soMCl0oEo+T2G5Ps+
+	 AgHw9BNYwUeVgGCXX55TsXHhBiuMMW2j+nLw4JvHFw2zWKowozVKjNLU/LqtRzpxpr
+	 Oipj8U6fAgyRtlKqLbBiLkwMkgFIJJDHccLUcQ9/UH1Fl2zsZ5PaOBdm2ytO/oXmyl
+	 C4pf9y2940U9g==
+Message-ID: <dab9b294-b635-4bd4-986d-0c0671eae6a2@kernel.org>
+Date: Thu, 27 Mar 2025 08:43:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/15] arm64: defconfig: Enable Renesas RZ/V2N SoC
+Subject: Re: [PATCH 14/15] arm64: dts: renesas: Add initial device tree for
+ RZ/V2N EVK
 To: Prabhakar <prabhakar.csengg@gmail.com>,
  Geert Uytterhoeven <geert+renesas@glider.be>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
@@ -66,7 +67,7 @@ Cc: linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
  Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250326143945.82142-16-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250326143945.82142-15-prabhakar.mahadev-lad.rj@bp.renesas.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -112,12 +113,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250326143945.82142-16-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20250326143945.82142-15-prabhakar.mahadev-lad.rj@bp.renesas.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_004330_644957_F447CBB8 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250327_004410_344275_F3361ECB 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,32 +135,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 26/03/2025 15:39, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Enable support for the Renesas RZ/V2N (R9A09G056) SoC in the ARM64
-> defconfig.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 11e7d0ad8656..c7b41f86c128 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1483,6 +1483,7 @@ CONFIG_ARCH_R9A07G054=y
->  CONFIG_ARCH_R9A08G045=y
->  CONFIG_ARCH_R9A09G011=y
->  CONFIG_ARCH_R9A09G047=y
-> +CONFIG_ARCH_R9A09G056=y
-
-So the pattern will keep growing and none of you will ever bother to fix
-it, because you have your patchset to throw over the wall.
-
-My previous comments stand.
-
-NAK
+> +
+> +	sd1-pwr-en-hog {
+> +		gpio-hog;
+> +		gpios = <RZV2N_GPIO(A, 3) GPIO_ACTIVE_HIGH>;
+> +		output-high;
+> +		line-name = "sd1_pwr_en";
+> +	};
+> +
+> +	sdhi1_pins: sd1 {
+> +		sd1_dat_cmd {
+Follow DTS coding style.
 
 Best regards,
 Krzysztof
