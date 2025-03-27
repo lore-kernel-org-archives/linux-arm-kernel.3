@@ -4,89 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872F6C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62616C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xo7iAv+9nI2kaufsKds/53FFNGXfbLXPYtYZ+pjxKuE=; b=3Ca+871kDJeIUmki/HS+SeCLfK
-	sEqbsbElrXiST+zrzr59LyILB/RPIHRNLHQ8Jc1tKrtNyh7SS0pONE9EIXoP6gR5vMWgsQSNqC7CS
-	82KAIOkrQcpfrbhlBZj2jnWsLqxXTj/CTsdRJ9E1qDsJxcqa6o8af/sJ13WoZgn3NIFOaGNnMfMs6
-	6miJZ/PcmkHoYW6vydssagOR+t9I8uAAHKIi5FaW+AmSQHKMBoWOH4xvZPBMBxzn8t3jkoCTG62Ej
-	Tu42gDoqCGmAOhRfPqXMYaOFWPYkckazGQv5QL8J+l5kDyMMC+OYrM9o2iZsdmsbMt0PJTQhqQGRe
-	YYRRXk0Q==;
+	bh=WCYSiAlHYmuAWqIvVZL2TaKjPyrpu3Ki0Js5DQS4y+c=; b=rAv8QU+uKM/fm37G8dsx8yAZJt
+	SjbXuWZb8Zsd3lBPgqh3UdrSAazBG2oi5N/EeHIHGLpPBNRdp/RhTOtiu0YtQ4huyteKO9NIdv4mT
+	a7/JAxAQ0uJQsCLngLNmdN5ywxJerBt7q0aV742lmzIM++cQ7xJ7g9YraqRwjRa0KbE4POFO2nd1o
+	6/sA0B+6UFtNL/QkCC4QwAw6rug9lgqTZxUIk58wxskUDGsQy1CcxLb6/WEsrUGpD9pHw7tH5tlJz
+	1B+wPPgLjH/847OMvIV8/kIo9//mEsuyV8ZxKWegpy789dfRye3JBubrm6wvFRg13SCi6j7SNvaB7
+	N8Tz5qyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txkGI-0000000Ag8H-1a2t;
-	Thu, 27 Mar 2025 10:14:58 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1txkWS-0000000Ahxs-3Pfi;
+	Thu, 27 Mar 2025 10:31:40 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txkEY-0000000Afwl-2jKn
+	id 1txkUi-0000000AhaS-2XuS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 10:13:12 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfa7e7f54so4724975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 03:13:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743070389; x=1743675189; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xo7iAv+9nI2kaufsKds/53FFNGXfbLXPYtYZ+pjxKuE=;
-        b=tAny2RE8Gu5E4fu4y87bv1UyvQoJwE3XM2jZOGyTt7Vt+xHPQH8TQSzl4qOOoEhNrk
-         CR+XlHVDxnxjT4hXM92mquK6QsOa/9xHvmfAH0ANueBG9NQi+u8WWEb9OjqQ+1ed5Ncz
-         xtenA0iDxSbiUK+fzuumdmpWVfCReuf9LM21dzMQY4ms0uUWC3Lf49HYT1UmrIRVjPva
-         /Il1buIHr3CCjUcG1GfYFM7wvRI/s5/nWc7fAukbNDeIkSjQqhNIFT5hNqfzLH0XQTT7
-         7UAO9qGDQJKwHSvxltpEYX4BvVAq2brQpphXB68jQi8RN7wA9govPrbSDqpWoxf15tYR
-         zo1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743070389; x=1743675189;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Xo7iAv+9nI2kaufsKds/53FFNGXfbLXPYtYZ+pjxKuE=;
-        b=nagxaAjZxPC39Gc73WXqDeksK4DTYgrytgM5qY0TaYfjKV/TGoAuuiZLpn1nmcCq/u
-         P6j6uxLhGPPJHKGKFVXmQHrscnjIQjCEbWqE7RCH3MnBSYX+kXnVZSXD7BaVxfdNzNwP
-         IwYr7JHjxV/qSaTwkULpjW9SWWxQm3RHtOwrg62dF8VFLba3EEUKJzI7ECpKIMebPY3p
-         qMvmL31gSU2T9PKtfAIPqL9JWUlA8rOECleN+JC5kHdo8njRvPZ22GieGALP6azBhjRW
-         VPaQK75FnE3JfqIY/BO700F+kgAjueOXdkW+z+7UNrdO19ONZG6FB8MxcH463uBc57Gn
-         6Lbw==
-X-Gm-Message-State: AOJu0YyroMEXqBLumfja8N/jf65xbMfdedNg1yYLIP3O0wfKnhJq2Ftq
-	LAgEZ85bdleTNbNsrfWZnkX4nmQjPmOIjYGa/qF8LaODhv4nZhcF5LzsOhnwwXU=
-X-Gm-Gg: ASbGncth6pq4C6qfe8uMA3sWMU1XDdSSFpaiCxlcIp1O9i9lba3Q5toyjleWyMPiVbw
-	4W1XR7diljc/Wu/1kLMOhOpl140gnTZrxtQzNAGC9mZfkaf32BalD9TFV/H742tzItbBhGdme7/
-	RmOKB4WdtggHq2sOG/ruw5mn8Ljk9TQps2C+TvxJEqHecxi/RX1u/44oB+5fR7RNzE9XzYiq6Ic
-	TwvhhmAR9NmGLB/Q/3c01CIlWoJcdqg43XWAMF9MpY9lNJkcQBrSLOx53l9lQRwzbYDjVfli5wm
-	eKZIIeS4a4o8izcE3OTLWOk2anuq1qxFhK1JqIaSNtN6GBb4VlNw/4oIRchldvtNtQ==
-X-Google-Smtp-Source: AGHT+IFz+YPLrvTgN7jlfBOiq8HZmmXGzvYjXvGO0VPFIOTzfMvVnsPizrlTsSXhwRlZyW4HwIgm6A==
-X-Received: by 2002:a05:600c:4f0e:b0:43d:1bf6:15e1 with SMTP id 5b1f17b1804b1-43d8465f999mr27131955e9.1.1743070388941;
-        Thu, 27 Mar 2025 03:13:08 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efebc2sm32345205e9.21.2025.03.27.03.13.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 03:13:08 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250326-pinctrl-node-a4-v1-1-8c30639480f6@amlogic.com>
-References: <20250326-pinctrl-node-a4-v1-1-8c30639480f6@amlogic.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: a4: add pinctrl node
-Message-Id: <174307038828.3221991.15446720184220513001.b4-ty@linaro.org>
-Date: Thu, 27 Mar 2025 11:13:08 +0100
+	Thu, 27 Mar 2025 10:29:54 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 7425D25400D3;
+	Thu, 27 Mar 2025 06:29:50 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-07.internal (MEProxy); Thu, 27 Mar 2025 06:29:50 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1743071390;
+	 x=1743157790; bh=WCYSiAlHYmuAWqIvVZL2TaKjPyrpu3Ki0Js5DQS4y+c=; b=
+	Z2LPBBtwgvqY916TkNWLepTOHcGJi3/GjR2ONLaHPmEIBDXGJVgG6Ok4flCMkX1A
+	fXgqMl6iOTNpx8bCdTCprFF79ZhqcL+Z2ibfZyN/nZUqa1f57/EqVsqjXPBI7bNr
+	gnewlMJO5unwvk03/2xr11N1G//bZfWP22M4WgaliAohJvUE4E8/p9NsfQp717BT
+	CY28j+1wa7EbM4PyYxBy1BIMdp6XlgSUjsCLS6/qq+4FQnT6r8JCpH9LmdZkhPhe
+	UGa/S8GbcqPN7xBm2eir1h93URnJOOvWVOYVupsWZlx+ncXoIiim/QMcv925b5zQ
+	9AYuxAP7C3Tx/IonPR0IlA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1743071390; x=
+	1743157790; bh=WCYSiAlHYmuAWqIvVZL2TaKjPyrpu3Ki0Js5DQS4y+c=; b=q
+	DyZKNeEnrpXWTsRqV8cS3EEn3CFbnRcNoREdLY8gMEgzNP8+b7DLMdThv0TBO7ci
+	UjGm6K5bkdw5Ib8fYPnc02muoglW+89rGGXb4J9OWM8duk8a4J8yyNFM7BOVe30A
+	Md064ZkvWKAd0thNBap7O7PJdoGNVU2GUYUSu2T8eT/LxZCvcS9v2gHZDkWN8W1K
+	EQGrQtVr0X9KYDUXbLvxHaSI7aNaVYB4sfWUO0kU9F0pu6gYJj8SkSMVckHRrJ0N
+	s38b4sEw9u9xYnDYqz8fziRFu4yrLuEoUPqiM9GKnPLumF2LgwXq3DcV0dKooN+e
+	LAtzjQi0m/0s8r6FjxWeg==
+X-ME-Sender: <xms:nSjlZ6Ntn3ZrEP__L_P38ib6QYxJPiPheSUGqKUdHVCsJ13H3sa9Vg>
+    <xme:nSjlZ488nHLynJXkGSzu5noU8FbL-AErNr4d-CoAY4Y0qXm6sGI9wNxQOaFnLRM6r
+    i_90HDBNUo0ix7qcMw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduieekudejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    udejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrih
+    hnrghssegrrhhmrdgtohhmpdhrtghpthhtohepkhgrjhgvthgrnhdrphhutghhrghlshhk
+    ihesrghrmhdrtghomhdprhgtphhtthhopegtihigqdhkvghrnhgvlhdquhhpshhtrhgvrg
+    hmsegtihigthgvtghhrdgtohhmpdhrtghpthhtohepfhhughgrnhhgrdguuhgrnhestghi
+    gihtvggthhdrtghomhdprhgtphhtthhopehpvghtvghrrdgthhgvnhestghigihtvggthh
+    drtghomhdprhgtphhtthhopehmrghrtghinhesjhhushiikhhivgifihgtiidrtghomhdr
+    phhlpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtth
+    hopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikheskhgv
+    rhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:nSjlZxSbIviS_Apya2mpp532w2c02lRAbr-qj_JHqxC14OUGrIi2ag>
+    <xmx:nSjlZ6trY1HGlLIW7Yyb-Ynb8su7b6kjvnDwiiLjubZPf7WBa_gRRQ>
+    <xmx:nSjlZyc--MHa5Si5SUQnXPJDhJ4brXful4daztRkuv1ppZVdsyBw6Q>
+    <xmx:nSjlZ-0cZD3fZ5QAEUs4juFCcv4UNAcgDEfq52dQTbBC3yg5K3I-Vg>
+    <xmx:nijlZ1vSr25BqfA7nB64LzY0gceua2vzYocA9yM9nl1JrS9yAvj4Dbso>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id CE7BE2220073; Thu, 27 Mar 2025 06:29:49 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+X-ThreadId: T24bcb56938053d3a
+Date: Thu, 27 Mar 2025 11:29:19 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Peter Chen" <peter.chen@cixtech.com>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Marc Zyngier" <maz@kernel.org>,
+ soc@kernel.org, "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ marcin@juszkiewicz.com.pl, kajetan.puchalski@arm.com,
+ "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
+ "Fugang . duan" <fugang.duan@cixtech.com>
+Message-Id: <faa1d8e7-e882-40ea-b64d-2e139121bc38@app.fastmail.com>
+In-Reply-To: <Z-Ua7MK-Kv033uDu@nchen-desktop>
+References: <20250324062420.360289-1-peter.chen@cixtech.com>
+ <20250324062420.360289-6-peter.chen@cixtech.com>
+ <865xjxmlgl.wl-maz@kernel.org> <Z-Nz0DU441Wwj1i4@nchen-desktop>
+ <861pukm9yd.wl-maz@kernel.org> <Z-Tz1moMNozx23k6@nchen-desktop>
+ <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
+ <422deb4d-db29-48c1-b0c9-7915951df500@app.fastmail.com>
+ <Z-Ua7MK-Kv033uDu@nchen-desktop>
+Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_031310_697036_B488FE9B 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250327_032953_179795_BF588774 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +128,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Mar 27, 2025, at 10:31, Peter Chen wrote:
+> On 25-03-27 09:18:42, Arnd Bergmann wrote:
+>> Agreed. The usual arrangement for a new SoC family is to have
+>> the minimum set of drivers (uart, clk, pinctrl, regulator,
+>> iommu, irqchip) along with the DT bindings and the dts files
+>> in one branch and have that go through the SoC tree as part of
+>> the soc/newsoc branch. It sounds like in this case we only need
+>> uart and a mailbox since the rest are shared with existing
+>> firmware based drivers, so this isn't even the worst case
+>> but still requires some coordination between subsystem maintainers
+>> to ensure that all patches have been properly reviewed before
+>> I merge them.
+>
+> So, in this case, we should add mailbox driver support in this
+> series, and once the mailbox maintainer has reviewed mailbox
+> driver, all the patches could go your tree?
 
-On Wed, 26 Mar 2025 13:17:16 +0800, Xianwei Zhao wrote:
-> Add pinctrl device to support Amlogic A4 and add uart pinconf.
-> 
-> 
+Yes, exactly. Just make sure you describe this in the submission
+for the mailbox driver to make sure everyone understands the
+plan. I don't think we've had a mailbox driver as the critical
+path for a new platform before, so they would usually go through
+the mailbox subsystem tree.
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.16/arm64-dt)
-
-[1/1] arm64: dts: amlogic: a4: add pinctrl node
-      https://git.kernel.org/amlogic/c/77fd52e77d325aac301601a18f7cf06de1565a72
-
-These changes has been applied on the intermediate git tree [1].
-
-The v6.16/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
-
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
-
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-
--- 
-Neil
-
+     Arnd
 
