@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4F6C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030DEC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 16:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z51hX2ubcFhMKJ5by2u7YjCKZ3Nzr1b3Lq1PylQ9GKA=; b=xHXy0Q1mQ6GHTKeLf7dQJ62qHu
-	mwor2oXUB3WmlhNk9ru9d2v+FSSF46i10ZG1PUkDTWnEiHSDMUkMV2l4xBaQR4CemozOfCnL9pbui
-	iklF0TmMnrm1e0n7LVxSJ/5GXl4rSU4ABrPhP+84Vt53laf1wRoRzEPpQboq5UKVakKjrL84dG3OL
-	hfmvzBVdffpWXqWtOQIcDiC/D/pjxZD9RnA+AGQFLLv5ZWOxxspyrgAgMuec3k9j2l5YWxmnorNEu
-	Fe1x2cOr/ZO20mVntZRr8bpKLIqpcTiOWXeFRKcEnykJTg3Q4QVNt+BdUSJ1xKxrdkW+Mh1CZtLiv
-	RcEGKmRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NvC16u1aqR/2KG04a8f4N6Xoq/iI1HOtNPpUepOa0Ms=; b=o30jCWoawLMmjmdoGrqtTSD8xC
+	gjmjrGB79j2juNMu8X/sTnhQk0N/4RF/KKU6+PIXfZFWkx40p+mwZ0qNbcoQxYqETdBj+cV3jFxuU
+	6Yb/87DAab8jXuhhlyuTGLxCSLI+ns1yFL6htolTCM7lPilRZ0scO5i0mtjlLoAaLYvTOw2FD2fHu
+	RjIsrOv+SCPbxRwcmKxIw6xxwA8TtApmaUIpof/HtN4IadDoi/HxhrMXCj/zN2MnQYtJh2oDOxp+8
+	hDOEx6du+9NW9xYlS8FdyUuxM7GEZiHOw33clr5zyTjf2ZbnJ5e/YFAH2kxa/fhvXeq8/XwfzoLuQ
+	76cgbnpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqJn-0000000BYIw-3VsY;
-	Thu, 27 Mar 2025 16:42:59 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1txqLV-0000000BYXN-2CDa;
+	Thu, 27 Mar 2025 16:44:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqF5-0000000BXLi-3N8s
+	id 1txqFF-0000000BXPa-3AkU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 16:38:09 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1743093482;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Z51hX2ubcFhMKJ5by2u7YjCKZ3Nzr1b3Lq1PylQ9GKA=;
-	b=gOi6g9wKrGSV5UH/x54wg6WFP3jRV9kCC53qdcKuyEwOYsTNbTvmY/kgEf70GSTgtes9jT
-	RMIMsSF91b+mRVbfbms+jIBn14Dhmv3Skw6Jkb1GSznvz7Zm9v/3dJkyHjEwThs4pylu3s
-	DUepdIINJzrmUGd3pr5cqru3B+DW/LM=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Subject: [PATCH] smccc: kvm_guest: Align with DISCOVER_IMPL_CPUS ABI
-Date: Thu, 27 Mar 2025 09:36:15 -0700
-Message-Id: <20250327163613.2516073-1-oliver.upton@linux.dev>
+	Thu, 27 Mar 2025 16:38:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AD8CA5C35A5;
+	Thu, 27 Mar 2025 16:35:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15777C4CEE8;
+	Thu, 27 Mar 2025 16:38:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743093496;
+	bh=NvC16u1aqR/2KG04a8f4N6Xoq/iI1HOtNPpUepOa0Ms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o3ztZUCEsTgAufZFIr54bxgGmr3liOeSSxSNHer94WsXcmqD6VkiFMJpgxN4qBDpI
+	 BtOIwp8CLI6Ri4PDU0wPxHZv5eCUfsEgY7UXGM0/Ipj1Quhx6WA8bn+cnuw5/RSjpN
+	 bGulEuC72O8WOwISAx5IXkbmdCIw4BWmhGMyjjoQINgPphdojzU37IE9tM1hJf4cHc
+	 O4CLk/OaeYXzHinKCDM+z/NZ/ltVO6XamoCGyi9f6WXu+dYHBuxHbEWcS2uYtUzd9Q
+	 XeWV1DkJRBHxTNFVnGvmccUeI6FFgZYGXMTEfcfvg4P/nF4X5H6d7Hs+9tSjt4MFvc
+	 v8so7ojzrKQSA==
+Date: Thu, 27 Mar 2025 16:38:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: remoteproc: stm32-rproc: Add
+ firmware-name property
+Message-ID: <20250327-defiant-quicksand-83cfdd8cf8d8@spud>
+References: <20250327082721.641278-1-arnaud.pouliquen@foss.st.com>
+ <20250327082721.641278-2-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ytieV3SLIaVgIcdG"
+Content-Disposition: inline
+In-Reply-To: <20250327082721.641278-2-arnaud.pouliquen@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_093808_534869_6216EB05 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20250327_093817_848851_7ECE0173 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,32 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ABI of the hypercall requires that R2 and R3 are 0. Explicitly pass
-0 for these parameters.
 
-Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on implementation CPUs")
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
----
- drivers/firmware/smccc/kvm_guest.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--ytieV3SLIaVgIcdG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/firmware/smccc/kvm_guest.c b/drivers/firmware/smccc/kvm_guest.c
-index 5767aed25cdc..ac2d3cf8a776 100644
---- a/drivers/firmware/smccc/kvm_guest.c
-+++ b/drivers/firmware/smccc/kvm_guest.c
-@@ -95,7 +95,7 @@ void  __init kvm_arm_target_impl_cpu_init(void)
- 
- 	for (i = 0; i < max_cpus; i++) {
- 		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID,
--				     i, &res);
-+				     i, 0, 0, &res);
- 		if (res.a0 != SMCCC_RET_SUCCESS) {
- 			pr_warn("Discovering target implementation CPUs failed\n");
- 			goto mem_free;
+On Thu, Mar 27, 2025 at 09:27:20AM +0100, Arnaud Pouliquen wrote:
+> Add the 'firmware-name' property to the remote processor binding
+> to allow specifying the default firmware name in the device tree.
+>=20
+> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 
-base-commit: 369c0122682c4468a69f2454614eded71c5348f3
--- 
-2.39.5
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
+--ytieV3SLIaVgIcdG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ+V+8wAKCRB4tDGHoIJi
+0rA7AP9JyUbjLOakoM+hJBNcmQksv1MkDD5pE8noBMWu3qQ68AEAsjA4jPrHo7Co
+a14daJ3eTuSb4JbviHqOsCWo9L2j0As=
+=9SvW
+-----END PGP SIGNATURE-----
+
+--ytieV3SLIaVgIcdG--
 
