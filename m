@@ -4,87 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90266C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C739AC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 15:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5N17KOsgfd5tU8QCiBgB2dYYl62hiU+7Jh0VcyVGqQ=; b=xDW2P7aIiPFBw+GC43m4uJBYmW
-	4q5ux/wKvtmk0XZ9GWxB/YtH8eUYFyO8RpGfEBzFAyuCilKF1ULhCq9W5tNmeken0CR5qNA1mLEtx
-	YrrbxsRqNX3L1YCzlthKNWF9uidhLUxudQtNpwkxH3aM6LN7jKUrAyqpM6Hvg2X+geFK4RLK5Nqph
-	KwX3jrZzhlrUWEYVxbSQl/1czn/dRPnovSNvUmmHVhmDyVYq4wl8vksumTaSEpSGoyFXEqCdFmAC4
-	dw3a/ZueawX/Z+TZovVLlBjMfC/Vtajp+MM1gK7sCERqufa0QXogp0gr3GhyTZR2w8vGZQ/JX23DM
-	9RHx57qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HnwW6+pHzpze3DSYNpgUxI8ADy7KCyCdoycj40LqASE=; b=bp/XdRyEiq05wLaIzBMR4Xcep+
+	jg5VwjT7Mci7Fvu3CkVXges5LHBBoxDd17c5fc3r/2fwbJUkveZ+RefV5X9Y26qoL5dayTr4ZMJJW
+	D57bIJ2QU/SydZxL4Gb09OjPn24vkcX6yVUXfM2EtgaG5BYAxGQvq94zEGNqVQ1K6eIx0Knnbih3f
+	/2WQ1gudgUhKQcK6C7hc5PRuwmW9YB8lPflJky3lR0Vg5GDBmS6/VFBNyuvDskN1KDwrNJzoJf7js
+	JHRTtCuUre91TPS+ys25XAgfsGKq284vESPvUCT8hhA7DWBjpt43nCY2/5ujZGE7OfLQbtZb995Ym
+	FINV3A/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txp3Q-0000000BLbR-3Jf3;
-	Thu, 27 Mar 2025 15:22:00 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1txp58-0000000BLrJ-25gX;
+	Thu, 27 Mar 2025 15:23:46 +0000
+Received: from mail-am0eur02on2061d.outbound.protection.outlook.com ([2a01:111:f403:2606::61d] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txoyu-0000000BL4k-1z8i
+	id 1txp35-0000000BLX2-3sVF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 15:17:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1743088640; x=1774624640;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Q5N17KOsgfd5tU8QCiBgB2dYYl62hiU+7Jh0VcyVGqQ=;
-  b=qkoqU/acPs9wmKi4KFbIdsyxZNpwyAhXtsCL+bZtrt7LhZG2JsI5U7h+
-   DNYeLfh6KZbLdtqXePtRW1You4xLrTok7voRDwmatukSuolDMnAg/K73S
-   TbokSgFMqlrklvIDWTtDiIgxMYV/KZUw+ltB+WHgnHzQ7IyX6IHuJQ6h6
-   t5gabzzvACHIM+BoICS+RkWz1pbFOQI88WtPlQsYlqKjgK3CQDei4ix3J
-   dQbpNMB8+/pchcsSh/GXLTZmDaf8ts8msd//MRYSrwHbdil2fLrdiLuTu
-   WlQ2AS4yysWhPDy1DD6q7gdWP1EYPYyRSeh1huR8bBfW83+mmUejY4l+Q
-   w==;
-X-CSE-ConnectionGUID: zFpRplEPRlihr1sVJCWn0w==
-X-CSE-MsgGUID: VhuchQarTSmZCCqKjJv0nQ==
-X-IronPort-AV: E=Sophos;i="6.14,280,1736809200"; 
-   d="scan'208";a="43200592"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 27 Mar 2025 16:17:18 +0100
-X-CheckPoint: {67E56BFE-25-2417938-F0170C2B}
-X-MAIL-CPID: 9D2C94109F316BB6688BAB2DCFEC054B_2
-X-Control-Analysis: str=0001.0A006378.67E56BF7.006E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA52416C5D9;
-	Thu, 27 Mar 2025 16:17:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1743088634;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q5N17KOsgfd5tU8QCiBgB2dYYl62hiU+7Jh0VcyVGqQ=;
-	b=gazNy7g5HlLQhl60V7ofVmlS/b8twdF3ZC9kSnv5Wz7NV3mgX/0oINBbyGumnGGYfqE8sR
-	RWOZbtNhO+a1OL30b6x3ZdfojCxQpv1vENTaIoxIooUn86g9uqO08Ph4azErd6VOhj5BE5
-	fxDq9slGOJTnHprTsSav7tmW2sl9N7XAZTaIGxkbtLHgWL8NvqCTCSngkOJ6Ati8/OnnOV
-	nX4sNGntFocf4mDFyWfhHv4ekGPo0/OfTeenaso+O+ixdUMJMAw7hMzYTVhBpKjys2ayUt
-	EwieziGJ+xpKb/6wYjj7s0mWGo6uhIxHTUAz31JADuhe1ABKrPmrktTidGUb8A==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
+	Thu, 27 Mar 2025 15:21:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zVQcgGzkfHTcsAgVXuA+Al+fJ0/l/Wu7HKCDE3FlgVqfdM9Y4Rfi11AIVfhqHX8IA6H76vPAOXZYxRqSjOLxSc2G8BNYV1tI4WAdtuyOYfbPiC+CXMcAuyhPeOpsEdAuFGHMXbgeEtR30gwJ4cJNdT2eKXvoIbSIEqscERDaNqyTtPVfF6S648idPkRvuwmGrOjfNWBAYLy3ZcoxMraEZ/oVVwEvpZ/eKaYUk6lB/HbMCagQNOkD31/AEQankEX5ZrZjPpD6OEVBh/sn/3Apb1gE2XuVmkXgFz1qCUKGrRgEdAe0PpkzXvhdyKyXqBxcyDD1hU3pfMM0r5qr5noHWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9hLclD9DLP6KWsSe5bMaW+OXEPHj1lWFPbKX8/K76Dk=;
+ b=IaFtGtneuWKIlLs1Za1BNyp3l9R2eG84KlvHyUxwk6MWdMqj30XYhK09b0sPMudbsppxXpfsaR+qQvh+GioDSBc0WAwSMwKcd1pMT1ZCGyEkxq9SD16ARyGoQHRD80XjZj+I84yhBz4uvMze6oTZq452aUgLjUdH6YAVHkvyTa2C7vveCP9GmsVS5g+EM5muUAk47nNNLAFNxToys95lMQnn1oDzOPCtj7xQfiplkLtFplcz7BTjvh6BJJy678u/7wzIl88HC6L4uuJ4vsnx/LffPxenN23lEbP3VSWLY7eAD18VisHWMWxcpudTcQBThEfFToFY/+lXmz+Y7vWM6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9hLclD9DLP6KWsSe5bMaW+OXEPHj1lWFPbKX8/K76Dk=;
+ b=cTee4ugP+hcxd8aYZZ6WjmhihGyRzF9Y8GHi3XInmAvApYrSJsrI+togxfQvVXn0PIlofMHZ4dTUx77r3oO9BLw1LxXaB+Qolb5+QDRsAh/1F6jRdxiwsYCi/3+CYvvOsG8dGDJgengpcyiNDoYg4SmOCmUki9/FzrTmbuzxRVnaRQUMXeNPR3dGomiD3O9mmQdWnPNxgJo5YZqd8g6c03OPwhIECFTqRivf5OtSwLP8uGe/7Q6lXob1WfJ/osP1eox47l+LBrgnfK1pbzfBjAgssENTHCWsWo1UCIyiN26bsIAY63Iqa4Dru1sokjP4GuXA5LayU5VqAi07F2CxVg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS5PR04MB9896.eurprd04.prod.outlook.com (2603:10a6:20b:67d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 27 Mar
+ 2025 15:21:37 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8534.040; Thu, 27 Mar 2025
+ 15:21:36 +0000
+Date: Thu, 27 Mar 2025 11:21:30 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
 Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/7] ARM: dts: ls1021a-tqmals1021a: Add LVDS overlay for Tianma
- TM070JVGH33
-Date: Thu, 27 Mar 2025 16:17:09 +0100
-Message-ID: <3347513.aeNJFYEL58@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Z+VoEI9Ep3izRKBJ@lizhi-Precision-Tower-5810>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] TQMLS102xA: New display overlays and small fixes
+Message-ID: <Z+Vs+pHZs2fMP/p3@lizhi-Precision-Tower-5810>
 References: <20250327144118.504260-1-alexander.stein@ew.tq-group.com>
- <20250327144118.504260-5-alexander.stein@ew.tq-group.com>
- <Z+VoEI9Ep3izRKBJ@lizhi-Precision-Tower-5810>
+ <Z+VmonrbclCB3zVh@lizhi-Precision-Tower-5810>
+ <2223114.irdbgypaU6@steina-w>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2223114.irdbgypaU6@steina-w>
+X-ClientProxiedBy: PH7PR03CA0014.namprd03.prod.outlook.com
+ (2603:10b6:510:339::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS5PR04MB9896:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d704a6c-e97b-4d01-4bae-08dd6d431098
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?UEp0+xj12DruOYIOQ0zVb+rxWGP7Sn+fDmcLqfqcne2NvAGIRn4arFxvFw?=
+ =?iso-8859-1?Q?JXqUasUKhAoGut4LxISIGmyiVANRmDxmNwHOy11V9vyIKANCdiOow4Ij8N?=
+ =?iso-8859-1?Q?4tGl8Eyu0xY9xu3rWnaiOZ73Wi1AFkrcKXDmNy6LPG+u3vwdjDmMeRwlzt?=
+ =?iso-8859-1?Q?03vTjMLW5i3K/CQw31TZGXWMg5lPd3pmBLMpZ/e3BeMJcQmDgbb1bfqxOj?=
+ =?iso-8859-1?Q?RxoiHTCCHOFHWuAy8JTwPZJoselWyJYqnVjIdyc+tjWny1wZkBcIqyvUj0?=
+ =?iso-8859-1?Q?fLefsnvBcJMpVsuluShEjDbPnXPDuCp6bZd4+W2r62diTqf18HBWJwtB0l?=
+ =?iso-8859-1?Q?dHki9JBWYwwN0bqIf7CNMAwfUtdgV5nKZwbL8owc4wLQ2pSvVNKDNJMd0U?=
+ =?iso-8859-1?Q?XkfMWrrrLtB+D6Lm1I945kbQKp9zOXNJRRf4WbGENumK4LpHrJBrYtZuGi?=
+ =?iso-8859-1?Q?ipbx2ptYos3Y9YEtnRm539YU7Y1Mf9RQyTFmBawll+KxSl93nvt8HDQ4lA?=
+ =?iso-8859-1?Q?R5VGtDVMi3Txr+beH+Mi4+BWAlqJ355Ce5U2j6bZtIW4zSKYFpcmi9vemZ?=
+ =?iso-8859-1?Q?8YRM8OnasFZ/y20t5I/6915J6Ouy7+AdwZjHJxY3N6tcOKh6mFS/J/Mn+E?=
+ =?iso-8859-1?Q?UFy7VCB+gEyzl/7tt1Y1+syW6RUlz5NNnljFR8QQNCF/csr3PajQW/pyPS?=
+ =?iso-8859-1?Q?3IrceNYsQN1xD+/7k8qDwWVg++cf6TMpsrFOgRadY+bmii/DHr6q6zFzLK?=
+ =?iso-8859-1?Q?5G/0F+0VFK4rNKRs0zUNKrpz2bH3TRxOaxLE6IeiuHv01PD35/7oaI+5B7?=
+ =?iso-8859-1?Q?zeP6G/phKqpGnHGalsQCyrGfngNf67iEa7E9epF1GA/sjkSZ3x0pVXwB6g?=
+ =?iso-8859-1?Q?flTufl0ODX0VwLSD07LYgWWoka2zIwW/iExWTxjuTgZgG5KJ4RyeZx4ocI?=
+ =?iso-8859-1?Q?2xzaooBuGXvuXYlwwJfRaf0XK3ZYd7dBc9SkAEJ12UEdSRZulPkMToKtyj?=
+ =?iso-8859-1?Q?G6Uc1ynbE9lb6gPyb8zQuNrQ/F/GSgzocA1BcQlPuUISqSn738NLs6R/a7?=
+ =?iso-8859-1?Q?GUz4EhfLU7rlFYoYD34GjxgrCqnqhMEIcrnyzI7mIDlrVGq/UVwZ8WXU6M?=
+ =?iso-8859-1?Q?4iEs1qX+tTxsVHcg1/b6G6JQwQ6ZNnY8XGyM1gL2rNULVYUUzepilU0MNh?=
+ =?iso-8859-1?Q?kCMCMfEqcRKI30o9XljbcJthIDnvwM8ElG7SHI6v1ras7eTEZ013jjsipc?=
+ =?iso-8859-1?Q?IL385g6oZUNfQ3LyzJXVlDbVTiZe/1x8TWhXh/Bff9zK2GDcMrUp2m3nLY?=
+ =?iso-8859-1?Q?XaQLM3vDFI0tSItdfmFuBEOzlLqQinwoog5JG38p+VXuGGgyMjb8CMeOdS?=
+ =?iso-8859-1?Q?tCNnG9R/6xbnP4j6561XqcGkCtN7n3YCOFmxaHJgrk6vATtWG03Il4FE/5?=
+ =?iso-8859-1?Q?gurSkwjFs56j4ZvH?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?weoQb5xdoNtQ0dIVjacl19MKHflYbT4tyYpJYXHqqFEyO2uYkT+D3fmePM?=
+ =?iso-8859-1?Q?GaclUuYCumNGhwsyoioHlICDbz0I0BQ44hNQgQRb151zNCIf98hiJ6wYv4?=
+ =?iso-8859-1?Q?YwQuCjWtASTDEucYs8p6FoTc5/FeUMKkRi+V4MeQd4UFsLuhI/aDI4uPY/?=
+ =?iso-8859-1?Q?TQzi0q3oJUmy9fAo6UlATf9/6gCCPMGNr34kwGLwr5SExoRfHj5678pZX6?=
+ =?iso-8859-1?Q?7FBYy7BoUzzsZUNywGtttO4MUS1AaDubLvIoeZWbYxM81hYGnGYdLKX4RS?=
+ =?iso-8859-1?Q?3JEdtJ50jdFDjDS3Es/Y+2MS/9U5eQpGqOQ2Yx44grfN3mO+TNbteRHduc?=
+ =?iso-8859-1?Q?y3vVd/R4gEHoWy8pXsGUUBzZllLiRQ58p7VoSs9kBQujOA6pfylaArLWSi?=
+ =?iso-8859-1?Q?IXYP3H6FAj6vs41ARJaQMfsGuWPak23+S3xz0N/fALRpZBIKzk3ktNKMTV?=
+ =?iso-8859-1?Q?CX8j1SxSTupnkaM5E53AjvlpQxOORY/tKdINnYTXkykZ6Vk0XM758LL8Dw?=
+ =?iso-8859-1?Q?B+hgw2YSdvj7ciGzLvG6NuBfxSHxknkoGYpXazVlw6PjeTayZWTvS/m9pl?=
+ =?iso-8859-1?Q?0+CnWLIxDWITowJ9BPGuCfK+n/4RHwHGrLdvTfPiTeMHVJZoTxfl9VIzZ/?=
+ =?iso-8859-1?Q?BfFNEtuJ536bI8EHoaDEtQQCnt2/40RMLPwpkUwRFpqA39rrelphYAsM5t?=
+ =?iso-8859-1?Q?9HeJh5OEZ3A4a3L+z8P600rE/sBeCOfsElcFF6lKq4GoKhODLEn86Mvl4E?=
+ =?iso-8859-1?Q?t90QyfAUWrgXTVl93YEPutePRvkViWbayBnkv6yVDSDY30Mc/wfH38O+LD?=
+ =?iso-8859-1?Q?3PlMsSZGbOpk2T3d70wkDsK9AwE+mvLUorolf1n/PCRmwUks0SB7QNEU53?=
+ =?iso-8859-1?Q?5ZMGyW7e6YaVpwUEq4hGK3f1g/Wgjn8Fq8K7Cyyed5o8Y/dwaeM0q3uQPL?=
+ =?iso-8859-1?Q?lXENH7cGXxZH8d2FvW+DRKglDhtQRbkhuAhrKpe8JpqAbYNbQly0HUoQoj?=
+ =?iso-8859-1?Q?i8VHqLiIxI84DuTyE7Kiu42V9hAaHJwp6N/Ud3/5/+dHwxUBfQ+2M0VAoS?=
+ =?iso-8859-1?Q?epI9DKzVwY7tCmg7tQYQuqZK600jUFJCvPpp5mEZnb7HgfVkHzjZAX235F?=
+ =?iso-8859-1?Q?UYuMygHKKabH1cQBwcmGM2HO1iqIyZfBpBAW/CGw3lS16t8BkU1ErUp8z1?=
+ =?iso-8859-1?Q?2Ic7jWOa8PfdUsc4JZVh7kOETajj1AEhI20EfIjXmNTx8GuoT2MPoYEkFz?=
+ =?iso-8859-1?Q?duxlG0iETJlWxMbHc47SCz9YbaXMgXf5EbNTtVHo1RNh8pjM89YeFZjNF9?=
+ =?iso-8859-1?Q?tJehQIhXRL/eKTcfhU6Vo0n7H6EJM0dKzUtO+VdQXjt7orF1LKNIIPjFAZ?=
+ =?iso-8859-1?Q?8yy14QXFWHDpmn1o8LwpKEUcSqTtieZkbZH6sF7JDhpejrHBHZjHLzDxBX?=
+ =?iso-8859-1?Q?xSYOOnF+SEJilNJAOvwm5o1uf0lQMKge8zMgVj9Zr+bg3ZQ7PnHgePjSlD?=
+ =?iso-8859-1?Q?R4ZIRzi5bI2yRxYne1C+C5iP1L/kgIrfVdZ2M0vT0sYKfMdSG4gx0Hzds6?=
+ =?iso-8859-1?Q?fI8x9JvlMKgmZ+94M2f2VS4EUD/bwT6LWgSA5Rvukq+HDqlwvqa5nhYiaF?=
+ =?iso-8859-1?Q?v63GD6xYVIcC5Go1iBOHUWGrjIvR0zZyWI?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d704a6c-e97b-4d01-4bae-08dd6d431098
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 15:21:36.7163
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tsHuufpAyCGpQJaSu6loDQ/MgC6tqCUM0e4AzR0rZ7B0fdFwp6aQf44daRsieLZSj9CAOlJhJs+k7UJL8LzSXg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9896
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_081720_811196_0633B36E 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20250327_082139_962011_C774BB9B 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,130 +162,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-Am Donnerstag, 27. M=E4rz 2025, 16:00:32 CET schrieb Frank Li:
-> On Thu, Mar 27, 2025 at 03:41:10PM +0100, Alexander Stein wrote:
-> > This adds an overlay for the supported LVDS display tianma tm070jvhg33.
-> > The on-board RGB-to-LVDS encoder and DCU graphics chain are configured
-> > accordingly. Add the missing power supply as well.
->=20
-> 		      ^^^ missed?
-
-Thanks for the comment. We are touching English grammar here and I might
-be completely wrong.
-IMHO this gerund is describing the power supply is missing the whole time.
-In contrast to 'missed' which indicates it had been missed (just) once.
-Anyway I don't have hard feelings.
-
-Best regards,
-Alexander
-
+On Thu, Mar 27, 2025 at 04:14:53PM +0100, Alexander Stein wrote:
+> Hi Frank,
+>
+> thanks for the review.
+>
+> Am Donnerstag, 27. März 2025, 15:54:26 CET schrieb Frank Li:
+> > On Thu, Mar 27, 2025 at 03:41:06PM +0100, Alexander Stein wrote:
+> > > Hi,
+> > >
+> > > this series adds several display overlays for HDMI, LVDS and RGB displays.
+> > > Additionally it fixes the license header and updates the sound card model
+> > > name similar to i.MX based platforms by TQ.
 > >
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  arch/arm/boot/dts/nxp/ls/Makefile             |  2 +
-> >  ...tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso | 47 +++++++++++++++++++
-> >  .../nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts   |  1 +
-> >  3 files changed, 50 insertions(+)
-> >  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls102=
-1a-lvds-tm070jvhg33.dtso
-> >
-> > diff --git a/arch/arm/boot/dts/nxp/ls/Makefile b/arch/arm/boot/dts/nxp/=
-ls/Makefile
-> > index 225a7665b8ad1..7f96de6f80224 100644
-> > --- a/arch/arm/boot/dts/nxp/ls/Makefile
-> > +++ b/arch/arm/boot/dts/nxp/ls/Makefile
-> > @@ -8,4 +8,6 @@ dtb-$(CONFIG_SOC_LS1021A) +=3D \
-> >  	ls1021a-twr.dtb
-> >
-> >  ls1021a-tqmls1021a-mbls1021a-hdmi-dtbs +=3D ls1021a-tqmls1021a-mbls102=
-1a.dtb ls1021a-tqmls1021a-mbls1021a-hdmi.dtbo
-> > +ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33-dtbs +=3D ls1021a-tqmls1=
-021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtbo
-> >  dtb-$(CONFIG_SOC_LS1021A) +=3D ls1021a-tqmls1021a-mbls1021a-hdmi.dtb
-> > +dtb-$(CONFIG_SOC_LS1021A) +=3D ls1021a-tqmls1021a-mbls1021a-lvds-tm070=
-jvhg33.dtb
-> > diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds=
-=2Dtm070jvhg33.dtso b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a=
-=2Dlvds-tm070jvhg33.dtso
-> > new file mode 100644
-> > index 0000000000000..e9708f3c67403
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds-tm070j=
-vhg33.dtso
-> > @@ -0,0 +1,47 @@
-> > +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> > +/*
-> > + * Copyright 2013-2014 Freescale Semiconductor, Inc.
-> > + * Copyright 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> > + * D-82229 Seefeld, Germany.
-> > + * Author: Alexander Stein
-> > + */
-> > +
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +
-> > +/dts-v1/;
-> > +/plugin/;
-> > +
-> > +&backlight_dcu {
-> > +	status =3D "okay";
-> > +};
-> > +
-> > +&dcu {
-> > +	status =3D "okay";
-> > +
-> > +	port {
-> > +		dcu_out: endpoint {
-> > +			remote-endpoint =3D <&lvds_encoder_in>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +&display {
-> > +	compatible =3D "tianma,tm070jvhg33";
-> > +	status =3D "okay";
-> > +};
-> > +
-> > +&lvds_encoder {
-> > +	status =3D "okay";
-> > +};
-> > +
-> > +&lvds_encoder_in {
-> > +	remote-endpoint =3D <&dcu_out>;
-> > +};
-> > +
-> > +&lvds_encoder_out {
-> > +	remote-endpoint =3D <&panel_in>;
-> > +};
-> > +
-> > +&panel_in {
-> > +	remote-endpoint =3D <&lvds_encoder_out>;
-> > +};
-> > diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts =
-b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
-> > index 27a55fa638128..80dae0c09542d 100644
-> > --- a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
-> > +++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
-> > @@ -147,6 +147,7 @@ hdmi_in: endpoint {
-> >  	display: panel {
-> >  		backlight =3D <&backlight_dcu>;
-> >  		enable-gpios =3D <&pca9554_1 3 GPIO_ACTIVE_HIGH>;
-> > +		power-supply =3D <&reg_3p3v>;
-> >  		status =3D "disabled";
-> >
-> >  		port {
-> > --
-> > 2.43.0
-> >
->=20
+> > Next time please cc imx@lists.linux.dev for layerscape platform change.
+>
+> I only followed the entries from get_maintainer.pl. Would you mind adding
+> arch/arm/boot/dts/nxp/ls to MAINTAINERS?
 
+I think all under arch/arm/boot/dts/nxp/ should include imx@lists.linux.dev
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+Now imx team maintain layerscape platform also.
 
+Frank
 
+>
+> Thanks and best regards,
+> Alexander
+>
+> > Frank
+> > >
+> > > Best regards,
+> > > Alexander
+> > >
+> > > Alexander Stein (7):
+> > >   ARM: dts: ls1021a-tqmals1021a: Fix license
+> > >   ARM: dts: ls1021a-tqmals1021a: Add vcc-supply for spi-nor
+> > >   ARM: dts: ls1021a-tqmals1021a: Add HDMI overlay
+> > >   ARM: dts: ls1021a-tqmals1021a: Add LVDS overlay for Tianma TM070JVGH33
+> > >   ARM: dts: ls1021a-tqmals1021a: Add overlay for CDTech FC21 RGB display
+> > >   ARM: dts: ls1021a-tqmals1021a: Add overlay for CDTech DC44 RGB display
+> > >   ARM: dts: ls1021a-tqmals1021a: change sound card model name
+> > >
+> > >  arch/arm/boot/dts/nxp/ls/Makefile             |  9 +++
+> > >  .../ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso | 32 +++++++++++
+> > >  ...tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso | 47 ++++++++++++++++
+> > >  ...-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso | 55 ++++++++++++++++++
+> > >  ...-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso | 56 +++++++++++++++++++
+> > >  .../nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts   |  5 +-
+> > >  .../boot/dts/nxp/ls/ls1021a-tqmls1021a.dtsi   |  3 +-
+> > >  7 files changed, 204 insertions(+), 3 deletions(-)
+> > >  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso
+> > >  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso
+> > >  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
+> > >  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
+> > >
+> > > --
+> > > 2.43.0
+> > >
+> >
+>
+>
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+>
+>
 
