@@ -4,59 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94D2C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 09:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A2CC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 10:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEv6N2P8XnLBZx9dtfdOOZ6YFm5pY9GRPAplPISA/6U=; b=oNHbtVpmHDkXkM1ztXeOEsmvul
-	Mgklu4WAb0MORBB0gsfQHYEQkI4ziIfZ6qgtiNRsRJpsd/vCnXQUkrZ8f9OYgagx96g2DDd+woNUa
-	N3iQ7XCV2TivWQLkS1SSAVZqEki0PApHHBLeAp6E+2houf22gT/MrB0d+IaUu4LZSg5dlkU/Zx6hX
-	ml+v6cWnUs0HkGEsoNiiEZd7g6b8Z2Hlka7odISh8Phslr1LuUwlPJdhzFDGCHHP21MTD/VEY4lDW
-	ndWjrwyp6Rp8PpmIkycj4Hxai3J1bQpKSsKPo9u7FGgV3hljnIJsF6o3V0MFjPs7QyeYpol3fi109
-	I0QfByaQ==;
+	bh=1AYkt3UZmdT/puNZc9A2b9Jl693S9yxUDwwUM5aOO5U=; b=qeiB9Kf6IeTJZSXJSiszq+KBTZ
+	t33UnEEJ//Jr3TOmVes+yQU80BOHI5GO+yNaQmdteIU3D5tIgtjlkgLyJJUvTOGSIJyYIurQLff59
+	FYuoirmIwgeE6rfEGat2WYx2sYCtkj5tzbYq8xeqpxMS3gQgTjA2voaNQOpy9yMb7Uv4HOkvtAiR7
+	vZweAYjytqEXGzluaB/rMscQVv8FAGykDM/zBIh5cIthBi9d3BdscYgG8gfZG7xW6EhwHrPRxrOB6
+	8+g3KMfI45IXggujhjxEkvO1usvUt0lxRrTyYEVcLhg+u6Mf9IpY1J4x5+SPkkHnhbhiT/NEAgnme
+	HcXkJslw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txjuV-0000000AcHW-1fJ0;
-	Thu, 27 Mar 2025 09:52:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txjr4-0000000Abp5-1duv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 09:48:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65F99106F;
-	Thu, 27 Mar 2025 02:48:58 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DE9A3F63F;
-	Thu, 27 Mar 2025 02:48:50 -0700 (PDT)
-Date: Thu, 27 Mar 2025 09:48:47 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: Quentin Perret <qperret@google.com>, catalin.marinas@arm.com,
-	Sudeep Holla <sudeep.holla@arm.com>, joey.gouly@arm.com,
-	maz@kernel.org, oliver.upton@linux.dev, snehalreddy@google.com,
-	suzuki.poulose@arm.com, vdonnefort@google.com, will@kernel.org,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, Andrei Homescu <ahomescu@google.com>
-Subject: Re: [PATCH v4 3/3] KVM: arm64: Release the ownership of the hyp rx
- buffer to Trustzone
-Message-ID: <20250327-greedy-hopeful-rook-56c6a1@sudeepholla>
-References: <20250326113901.3308804-1-sebastianene@google.com>
- <20250326113901.3308804-4-sebastianene@google.com>
- <Z-Qv4b0vgVql2yOb@google.com>
- <Z-UcW32Hk6f_cuxc@google.com>
+	id 1txk71-0000000AedC-1zve;
+	Thu, 27 Mar 2025 10:05:23 +0000
+Received: from smtp-fw-2101.amazon.com ([72.21.196.25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1txk5H-0000000AeMO-1crI;
+	Thu, 27 Mar 2025 10:03:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
+  t=1743069815; x=1774605815;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=1AYkt3UZmdT/puNZc9A2b9Jl693S9yxUDwwUM5aOO5U=;
+  b=s0h4PbvR80dJ3wuah7dIgkJVCYgkCORaVa/DtROc1RZmyryIQMtTiV4W
+   1/UlyTu3DG7MT1QCxYf+u4esUIaUo0GcOE+LJKLOo7+WL7LiH9NWvY0+A
+   alHxhWY/0SNHEUdl1UJOwGqXaCp61AaFkNhB2ACIFRJh7dqCjF/oW6xWL
+   A=;
+X-IronPort-AV: E=Sophos;i="6.14,280,1736812800"; 
+   d="scan'208";a="478704841"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
+  by smtp-border-fw-2101.iad2.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Mar 2025 10:03:26 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [10.0.7.35:25558]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.26.232:2525] with esmtp (Farcaster)
+ id a4642778-ac88-44ce-8afd-012d72d51f0e; Thu, 27 Mar 2025 10:03:25 +0000 (UTC)
+X-Farcaster-Flow-ID: a4642778-ac88-44ce-8afd-012d72d51f0e
+Received: from EX19D020UWA002.ant.amazon.com (10.13.138.222) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Thu, 27 Mar 2025 10:03:18 +0000
+Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
+ EX19D020UWA002.ant.amazon.com (10.13.138.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Thu, 27 Mar 2025 10:03:18 +0000
+Received: from email-imr-corp-prod-iad-all-1b-af42e9ba.us-east-1.amazon.com
+ (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1544.14 via Frontend Transport; Thu, 27 Mar 2025 10:03:18 +0000
+Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
+	by email-imr-corp-prod-iad-all-1b-af42e9ba.us-east-1.amazon.com (Postfix) with ESMTP id BE3CE40570;
+	Thu, 27 Mar 2025 10:03:17 +0000 (UTC)
+Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
+	id 7A8925228; Thu, 27 Mar 2025 10:03:17 +0000 (UTC)
+From: Pratyush Yadav <ptyadav@amazon.de>
+To: Changyuan Lyu <changyuanl@google.com>
+CC: <linux-kernel@vger.kernel.org>, <graf@amazon.com>,
+	<akpm@linux-foundation.org>, <luto@kernel.org>, <anthony.yznaga@oracle.com>,
+	<arnd@arndb.de>, <ashish.kalra@amd.com>, <benh@kernel.crashing.org>,
+	<bp@alien8.de>, <catalin.marinas@arm.com>, <dave.hansen@linux.intel.com>,
+	<dwmw2@infradead.org>, <ebiederm@xmission.com>, <mingo@redhat.com>,
+	<jgowans@amazon.com>, <corbet@lwn.net>, <krzk@kernel.org>, <rppt@kernel.org>,
+	<mark.rutland@arm.com>, <pbonzini@redhat.com>, <pasha.tatashin@soleen.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <robh+dt@kernel.org>,
+	<robh@kernel.org>, <saravanak@google.com>,
+	<skinsburskii@linux.microsoft.com>, <rostedt@goodmis.org>,
+	<tglx@linutronix.de>, <thomas.lendacky@amd.com>, <usama.arif@bytedance.com>,
+	<will@kernel.org>, <devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-mm@kvack.org>, <x86@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
+In-Reply-To: <20250320015551.2157511-10-changyuanl@google.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+	<20250320015551.2157511-10-changyuanl@google.com>
+Date: Thu, 27 Mar 2025 10:03:17 +0000
+Message-ID: <mafs0y0wqrdsq.fsf@amazon.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z-UcW32Hk6f_cuxc@google.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_024854_517400_5B29BED4 
-X-CRM114-Status: GOOD (  35.91  )
+X-CRM114-CacheID: sfid-20250327_030335_572741_FCDB0A46 
+X-CRM114-Status: GOOD (  31.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,107 +103,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 09:37:31AM +0000, Sebastian Ene wrote:
-> On Wed, Mar 26, 2025 at 04:48:33PM +0000, Quentin Perret wrote:
-> > On Wednesday 26 Mar 2025 at 11:39:01 (+0000), Sebastian Ene wrote:
-> > > Introduce the release FF-A call to notify Trustzone that the hypervisor
-> > > has finished copying the data from the buffer shared with Trustzone to
-> > > the non-secure partition.
-> > >
-> > > Reported-by: Andrei Homescu <ahomescu@google.com>
-> > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > > ---
-> > >  arch/arm64/kvm/hyp/nvhe/ffa.c | 9 ++++++---
-> > >  1 file changed, 6 insertions(+), 3 deletions(-)
-> > > 
-> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > index 6df6131f1107..ac898ea6274a 100644
-> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > @@ -749,6 +749,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
-> > >  	DECLARE_REG(u32, uuid3, ctxt, 4);
-> > >  	DECLARE_REG(u32, flags, ctxt, 5);
-> > >  	u32 count, partition_sz, copy_sz;
-> > > +	struct arm_smccc_res _res;
-> > >  
-> > >  	hyp_spin_lock(&host_buffers.lock);
-> > >  	if (!host_buffers.rx) {
-> > > @@ -765,11 +766,11 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
-> > >  
-> > >  	count = res->a2;
-> > >  	if (!count)
-> > > -		goto out_unlock;
-> > > +		goto release_rx;
-> > >  
-> > >  	if (hyp_ffa_version > FFA_VERSION_1_0) {
-> > >  		/* Get the number of partitions deployed in the system */
-> > > -		if (flags & 0x1)
-> > > +		if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
-> > >  			goto out_unlock;
-> > >  
-> > >  		partition_sz  = res->a3;
-> > > @@ -781,10 +782,12 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
-> > >  	copy_sz = partition_sz * count;
-> > >  	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
-> > >  		ffa_to_smccc_res(res, FFA_RET_ABORTED);
-> > > -		goto out_unlock;
-> > > +		goto release_rx;
-> > >  	}
-> > >  
-> > >  	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
-> > > +release_rx:
-> > > +	ffa_rx_release(&_res);
-> 
-> Hi,
-> 
-> > 
-> > I'm a bit confused about this release call here. In the pKVM FF-A proxy
-> > model, the hypervisor is essentially 'transparent', so do we not expect
-> > EL1 to issue that instead?
-> 
-> I think the EL1 should also issue this call irrespective of what the
-> hypervisor is doing. Sudeep can correct me here if I am wrong, but this
-> is my take on this.
+Hi Changyuan,
+
+On Wed, Mar 19 2025, Changyuan Lyu wrote:
+
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 >
-
-Indeed, the driver will not know if it is running in EL1 with or without
-FF-A proxy or even at EL2.
-
-> I am looking at this as a way of signaling the availability of the rx
-> buffer across partitions. There are some calls that when invoked, they
-> place the buffer in a 'locked state'.
-> 
-> 
-> > How is EL1 supposed to know that the
-> > hypervisor has already sent the release call?
-> 
-> It doesn't need to know, it issues the call as there is no hypervisor
-> in-between, why would it need to know ?
-> 
-
-Exactly.
-
-> > And isn't EL1 going to be
-> > confused if the content of the buffer is overridden before is has issued
-> > the release call itself?
-> 
-
-Yes good point. I need to recall the details, but I am assuming FF-A proxy
-in pKVM maps the Tx/Rx buffers with the host in EL2 and maintains another
-Tx/Rx pair with SPMC on the secure side right ?
-
-> The hypervisor should prevent changes to the buffer mapped between the
-> host and itself until the release_rx call is issued from the host.
-
-OK, this sounds like my understand above is indeed correct ?
-
-> If another call that wants to make use of the rx buffer sneaks in, we
-> would have to revoke it with BUSY until rx_release is sent.
+> Introduce APIs allowing KHO users to preserve memory across kexec and
+> get access to that memory after boot of the kexeced kernel
 >
+> kho_preserve_folio() - record a folio to be preserved over kexec
+> kho_restore_folio() - recreates the folio from the preserved memory
+> kho_preserve_phys() - record physically contiguous range to be
+> preserved over kexec.
+> kho_restore_phys() - recreates order-0 pages corresponding to the
+> preserved physical range
+>
+> The memory preservations are tracked by two levels of xarrays to manage
+> chunks of per-order 512 byte bitmaps. For instance the entire 1G order
+> of a 1TB x86 system would fit inside a single 512 byte bitmap. For
+> order 0 allocations each bitmap will cover 16M of address space. Thus,
+> for 16G of memory at most 512K of bitmap memory will be needed for order 0.
+>
+> At serialization time all bitmaps are recorded in a linked list of pages
+> for the next kernel to process and the physical address of the list is
+> recorded in KHO FDT.
 
-Sounds good to me.
+Why build the xarray only to transform it down to bitmaps when you can
+build the bitmaps from the get go? This would end up wasting both time
+and memory. At least from this patch, I don't really see much else being
+done with the xarray apart from setting bits in the bitmap.
+
+Of course, with the current linked list structure, this cannot work. But
+I don't see why we need to have it. I think having a page-table like
+structure would be better -- only instead of having PTEs at the lowest
+levels, you have the bitmap.
+
+Just like page tables, each table is page-size. So each page at the
+lowest level can have 4k * 8 == 32768 bits. This maps to 128 MiB of 4k
+pages. The next level will be pointers to the level 1 table, just like
+in page tables. So we get 4096 / 8 == 512 pointers. Each level 2 table
+maps to 64 GiB of memory. Similarly, level 3 table maps to 32 TiB and
+level 4 to 16 PiB.
+
+Now, __kho_preserve() can just find or allocate the table entry for the
+PFN and set its bit. Similar work has to be done when doing the xarray
+access as well, so this should have roughly the same performance. When
+doing KHO, we just need to record the base address of the table and we
+are done. This saves us from doing the expensive copying/transformation
+of data in the critical path.
+
+I don't see any obvious downsides compared to the current format. The
+serialized state might end up taking slightly more memory due to upper
+level tables, but it should still be much less than having two
+representations of the same information exist simultaneously.
+
+>
+> The next kernel then processes that list, reserves the memory ranges and
+> later, when a user requests a folio or a physical range, KHO restores
+> corresponding memory map entries.
+>
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+[...]
+> +static void deserialize_bitmap(unsigned int order,
+> +			       struct khoser_mem_bitmap_ptr *elm)
+> +{
+> +	struct kho_mem_phys_bits *bitmap = KHOSER_LOAD_PTR(elm->bitmap);
+> +	unsigned long bit;
+> +
+> +	for_each_set_bit(bit, bitmap->preserve, PRESERVE_BITS) {
+> +		int sz = 1 << (order + PAGE_SHIFT);
+> +		phys_addr_t phys =
+> +			elm->phys_start + (bit << (order + PAGE_SHIFT));
+> +		struct page *page = phys_to_page(phys);
+> +
+> +		memblock_reserve(phys, sz);
+> +		memblock_reserved_mark_noinit(phys, sz);
+
+Why waste time and memory building the reserved ranges? We already have
+all the information in the serialized bitmaps, and memblock is already
+only allocating from scratch. So we should not need this at all, and
+instead simply skip these pages in memblock_free_pages(). With the
+page-table like format I mentioned above, this should be very easy since
+you can find out whether a page is reserved or not in O(1) time.
+
+> +		page->private = order;
+> +	}
+> +}
+> +
+> +static void __init kho_mem_deserialize(void)
+> +{
+> +	struct khoser_mem_chunk *chunk;
+> +	struct kho_in_node preserved_mem;
+> +	const phys_addr_t *mem;
+> +	int err;
+> +	u32 len;
+> +
+> +	err = kho_get_node(NULL, "preserved-memory", &preserved_mem);
+> +	if (err) {
+> +		pr_err("no preserved-memory node: %d\n", err);
+> +		return;
+> +	}
+> +
+> +	mem = kho_get_prop(&preserved_mem, "metadata", &len);
+> +	if (!mem || len != sizeof(*mem)) {
+> +		pr_err("failed to get preserved memory bitmaps\n");
+> +		return;
+> +	}
+> +
+> +	chunk = *mem ? phys_to_virt(*mem) : NULL;
+> +	while (chunk) {
+> +		unsigned int i;
+> +
+> +		memblock_reserve(virt_to_phys(chunk), sizeof(*chunk));
+> +
+> +		for (i = 0; i != chunk->hdr.num_elms; i++)
+> +			deserialize_bitmap(chunk->hdr.order,
+> +					   &chunk->bitmaps[i]);
+> +		chunk = KHOSER_LOAD_PTR(chunk->hdr.next);
+> +	}
+> +}
+> +
+>  /* Helper functions for KHO state tree */
+>  
+>  struct kho_prop {
+[...]
 
 -- 
 Regards,
-Sudeep
+Pratyush Yadav
 
