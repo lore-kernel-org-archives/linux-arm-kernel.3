@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DAEFC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A202C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/KjbeBkX0TUviFp654wJl78xlNao9GXDXJZEcc3NUTk=; b=gdBIk1G7i9gp0YMFsGUtM0GJcm
-	yM7ldcNHNk0n21Czyx/OwW2yO5IwDd1kiVKo8ryQq8n5e2KkoiqY7BdXQbN0caqsjWllpAcnb4IEl
-	Us6A6wwpYpFq8Nc5Nu+kgvnJA0Yl5mM0vSzTW/3QziXSczs8i2H0MOTMkG/egn5H0kfUwRG6xMh51
-	HzoiZ6c4ku9vhDlC+wjg+/iu/Id2GqXfnjR2INpFInaBx+8R70h6SToJzW+Ls/82u67m7l+qeL7NT
-	y7ZFOXKtpAkxMzExFQNHJyAPl5zoRoEyO0kOoN626eSgxIj/5x1HJPfUMCd66iODfujvCNT99BeQ8
-	eS2aIRqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RwQA9b/mWaVp+3r4CodO9CjopcR6rVnhFumfJnY0gE0=; b=GUpu6VroCPxcS4WEQd/ZtlNTau
+	ubXBdUAsTbkLax57eaZSevCH4eA1C1y5VIcjWJZBwHkO+RrypZF8q1up5OteD9xSilItHLkCCRqKF
+	BTl8pDMKJp9mZGM0++yQ0osJHqhb/MpYp9GSAaw/Kdazc7EBlyVqgEdXaaCtQLoz1PgnHgKZIqGQx
+	QxlCBK4lOrDHJfAXpqAyAE2mF5q8zzLpwwDhd9+a+H2+YBTqlWFAVtb490pfi4qtQbJextb8up84L
+	B7z6Jv6fWo1U5PKgdMPRlUOR3hiKN83vj8bO+CWXB+POMHRd4Ay6b/9T5IwKnU0LnojYXQ9EnXw0Q
+	rPaBntJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txidc-0000000ASdw-468F;
-	Thu, 27 Mar 2025 08:30:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1txifJ-0000000ASrU-2zu7;
+	Thu, 27 Mar 2025 08:32:41 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txibp-0000000ASK3-0u8N
+	id 1txid2-0000000ASWM-2hYC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 08:29:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 73F055C679A
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 08:26:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29332C4CEDD
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 08:29:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743064144;
-	bh=/KjbeBkX0TUviFp654wJl78xlNao9GXDXJZEcc3NUTk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rwog2qQjARFqB191XG5XnEPAhbZjGosUXmz76mUkNJYsCN8qTXy4M+slR2Z7Gn9sF
-	 S04skBrh1C3X/+v0Xei69RUHKZOPXYguZRYzf9ibV9RVF1F35wjuBEmVSnd8xAvg1T
-	 bs1z3hUKg12hJAjcTjfOnkCkEtvgPvgHz7548qgga4mGNHUvjT1LzALqPr4V6/8443
-	 UIp21EQblZ5yUuIQDRA7tgzW4HJfs7TB99flTPeG/dNSwfTo8I9BHvNrE/0/7Zg4Ij
-	 YynuIcEnwiHdTh+JTAOi2vGxpmfXmoGLoBJLhlEs9NqysdSZknDWPVYl2AlSPBB+ZV
-	 /fwg9/PqhQFgw==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-54993c68ba0so723881e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 01:29:04 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXg3L6/X2maKx8Os5CUP5Asj0q0u9GPVMP3uLoicl+dIuqrUb9neAOJmajbCWxzy5XmAUrRMw0lf0b0fKnziyAe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzeu+kbyWIOfvE0xcbPIBBdXaeovQ1yzAiyOckP+QB5NGI7CDnp
-	vYjdBn1D40WPKyCqGyIHrmlI4LyOMvO73zLI8b9hJlxzP+A40XYS+Ary2/x3ZEbzla29k51pczI
-	cE6HWLCRbj+Rg/KispWJsIbTKCyo=
-X-Google-Smtp-Source: AGHT+IEEGieGBG8VFA8rb+y0tpCAmH/6HNPAEzzY/KEP4vlPOJPWtbUXUOj6CLdTYNNWvePwtsUVJkNrLekrEIj/18k=
-X-Received: by 2002:a05:6512:2354:b0:549:91ab:54cd with SMTP id
- 2adb3069b0e04-54b011ce529mr996187e87.4.1743064142537; Thu, 27 Mar 2025
- 01:29:02 -0700 (PDT)
+	Thu, 27 Mar 2025 08:30:22 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52R5oYpX010674;
+	Thu, 27 Mar 2025 09:30:05 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=RwQA9b/mWaVp+3r4CodO9C
+	jopcR6rVnhFumfJnY0gE0=; b=h33hU/l4STScdpRVI9zvhixwzWwfXEZJVEOENO
+	smat1YitnZ6UnS2mtrUyF5nL5sVArlpOIrWzRcZHSZksDK2dj8w4Mi5/U8ES9Mt3
+	qcQnIoFj6fj3oktYTwC92EKiPvft/BpMeiNtztYd1xcUIOCKnsNOaivtgmfWYdi9
+	RG4UrurOwopaOgOdKPPXdeFWfF9kuMQJfCrrRDMVDm7Z2A2aojsg1GV5ZJ/TgCC4
+	im0p22kz1d+1YI2YsdKSpekXg1u7sqf/5srwtsAV8eVZzZ6/+YS9brKPSbmY1iZf
+	0MR9GH3SCGmyBfVhCirUAKRbBG6A2ixlF22RUzPFLbXoCvEg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45mwrb2c4a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Mar 2025 09:30:05 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 012A640096;
+	Thu, 27 Mar 2025 09:28:58 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9D6A28329EE;
+	Thu, 27 Mar 2025 09:27:32 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 27 Mar
+ 2025 09:27:32 +0100
+Received: from localhost (10.252.3.68) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 27 Mar
+ 2025 09:27:32 +0100
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Rob Herring <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Arnaud Pouliquen
+	<arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v2 0/2] stm32-rproc: Add firmware-name DT property support
+Date: Thu, 27 Mar 2025 09:27:19 +0100
+Message-ID: <20250327082721.641278-1-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20250326200918.125743-1-ebiggers@kernel.org> <CAMj1kXHCJQ4-KAPpWFA-rqjogbebUP8Y=NKrdEB1ZmSbKG3bdg@mail.gmail.com>
-In-Reply-To: <CAMj1kXHCJQ4-KAPpWFA-rqjogbebUP8Y=NKrdEB1ZmSbKG3bdg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 27 Mar 2025 09:28:51 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHzonmwoji49sCSJ__0ZwhfqBDVxBPJsgywbTTZ2Q=hBw@mail.gmail.com>
-X-Gm-Features: AQ5f1Jq-0MlPxa7VBpHCtJoChVZeqv4ZnDpsM8XlJmsmdinC5Ej7iKCpZ3JGon8
-Message-ID: <CAMj1kXHzonmwoji49sCSJ__0ZwhfqBDVxBPJsgywbTTZ2Q=hBw@mail.gmail.com>
-Subject: Re: [PATCH] arm64/crc-t10dif: fix use of out-of-scope array in crc_t10dif_arch()
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	stable@vger.kernel.org, David Binderman <dcb314@hotmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.252.3.68]
+X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-26_09,2025-03-26_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_012905_306560_9A6B0CD9 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250327_013021_152462_45D63140 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +102,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Mar 2025 at 09:15, Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Wed, 26 Mar 2025 at 21:09, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > From: Eric Biggers <ebiggers@google.com>
-> >
-> > Fix a silly bug where an array was used outside of its scope.
-> >
->
-> Yeah - mea culpa.
->
+Add flexibility by supporting the optional "firmware-name" property.
 
-Ehmm - tua culpa, actually :-)
+This allows specifying in the device tree the firmware that needs to
+be loaded on boot, if the "st,auto-boot" DT property is set.
+
+Arnaud Pouliquen (2):
+  dt-bindings: remoteproc: stm32-rproc: Add firmware-name property
+  drivers: remoteproc: stm32_rproc: Allow to specify firmware default
+    name
+
+ .../devicetree/bindings/remoteproc/st,stm32-rproc.yaml    | 4 ++++
+ drivers/remoteproc/stm32_rproc.c                          | 8 +++++++-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+
+
+base-commit: 38fec10eb60d687e30c8c6b5420d86e8149f7557
+-- 
+2.25.1
+
 
