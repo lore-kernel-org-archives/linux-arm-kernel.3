@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CC6C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 22:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B15B0C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 22:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6r4HU5dbcNJSaycsB6SDI18ar30oyP2SUkFbj0opyJ8=; b=Sl2UouI8svIr4iROYE9bd0okX6
-	/Nl0yTDCQzUS6RoksTj8WPRQYyo0BtZIjGaWOVgb+15csMg5LP2w2QYSqdzGqwXRKxPFgsBVqsQX5
-	AFjQOhS+ix2zHS5gIrDs9XuDJaUyQhYGUsFwjimgRdHKP0O3sYyUJA1Pw97dTnCGrKt/f1iR2fhJY
-	Ll8baDTiM4zY24n29b9SuoDtJZt9QFJmWjLeI6ia9mEr7er5wud8pDOYvVMyQej50b8sIGf4zoRyb
-	3zi0phs9SYFwRURE6xf9RdAd/+IPVRnMuqFpmLqcngAPkJxrpK6ujdCOEjrugIJdzXbhdgKIU70fj
-	hhMsSiRQ==;
+	bh=nFW+fheQRqhJgUnjb6b3XmpXwLi7fBGMrB/KUQTUDC0=; b=XCij3n+XIhdI6e3xMXzfJqlj0C
+	sguHRTo2HZE81nSWbWXWoc1Rk+PRG6vhtAR8ORelQcALlWuNCFoeksqqfKzRptJh+liNIcUIcO4MA
+	nNe32cVSKoM9/yx9xyES63Igx8o+ELqH39lnnl/zsUKEH09YHl2Gp73tHVc+i1amA4xPBoUHzsJFe
+	OMt4LT5D5OJJxTHIH2rZNY6iinKF8k8/wguwUjdtyiGkAyl6b4JKUX8TbPeBWlOUQayfgzi5ZIwdI
+	zHn26jsKe3eYHdAvjsuwmNGCRR4Z7ITyO6lFMMewFZzt/TVXIRR4vCXeQMVDlb9eeohiOfcZv059k
+	Pn7CUSag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txvsA-0000000CA9D-0ClF;
-	Thu, 27 Mar 2025 22:38:50 +0000
+	id 1txw7E-0000000CBQb-1oBz;
+	Thu, 27 Mar 2025 22:54:24 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txvpC-0000000C9sO-00pO
+	id 1txw5U-0000000CBBv-0vaV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 22:35:47 +0000
+	Thu, 27 Mar 2025 22:52:37 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0B558446;
-	Thu, 27 Mar 2025 23:33:55 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BC509446;
+	Thu, 27 Mar 2025 23:50:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1743114836;
-	bh=QmwuXzQJBsO5fkqALvnpXDy+SIH97mFToLVea4wUuHM=;
+	s=mail; t=1743115845;
+	bh=04MuPzuXvPrWYZpyfrG/qxOsUxH6sKfHzhd+lnURa04=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T5VYShcviVcf4kS9Gke22a5TZlCibgjOir429AAFhV/KnNaAMOR4GK6/Tw4YeEJ/T
-	 vzf6rVLbSsfGeA5iZeajGSK4DKmDgkeMkVc4JbWz9ovmbYtvAAFAJnPrcwBNZFzA8d
-	 O0JsD6TWjfnKegIJbd5QxoaOABQ7MsfZIgWuxbWs=
-Date: Fri, 28 Mar 2025 00:35:20 +0200
+	b=N8Qs+4qJ/w31JqrublP+vX9igLskTPOvYYYH0hRLBZiGDKCJFOScz1C6gSOSiEaeQ
+	 JOb9I7pHgSh1vhwWW+WQnWmJceRYCLwc3QPg+Fz9PYQs+SRrQ+E2PE9Kx5OqAM+U/3
+	 kdeWvISioZ3MswcRgNteAYnwdB50LOgAJD3v5rCs=
+Date: Fri, 28 Mar 2025 00:52:09 +0200
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 Cc: Vishal Sagar <vishal.sagar@amd.com>,
@@ -51,17 +51,18 @@ Cc: Vishal Sagar <vishal.sagar@amd.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Geert Uytterhoeven <geert@linux-m68k.org>,
 	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v4 08/11] drm: xlnx: zynqmp: Add support for XV15 & XV20
-Message-ID: <20250327223520.GA11049@pendragon.ideasonboard.com>
+Subject: Re: [PATCH v4 09/11] drm: xlnx: zynqmp: Add support for Y8 and
+ Y10_P32
+Message-ID: <20250327225209.GB16629@pendragon.ideasonboard.com>
 References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
- <20250326-xilinx-formats-v4-8-322a300c6d72@ideasonboard.com>
+ <20250326-xilinx-formats-v4-9-322a300c6d72@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250326-xilinx-formats-v4-8-322a300c6d72@ideasonboard.com>
+In-Reply-To: <20250326-xilinx-formats-v4-9-322a300c6d72@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_153546_177860_416B5EB2 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250327_155236_403651_FB937E50 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +81,81 @@ Hi Tomi,
 
 Thank you for the patch.
 
-On Wed, Mar 26, 2025 at 03:22:51PM +0200, Tomi Valkeinen wrote:
-> Add support for XV15 & XV20 formats.
+On Wed, Mar 26, 2025 at 03:22:52PM +0200, Tomi Valkeinen wrote:
+> Add support for Y8 and Y10_P32 formats. We also need to add new csc
+> matrices for the y-only formats.
 > 
 > Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
 > ---
->  drivers/gpu/drm/xlnx/zynqmp_disp.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 26 +++++++++++++++++++++++++-
+>  1 file changed, 25 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> index b9883ea2d03e..1dc77f2e4262 100644
+> index 1dc77f2e4262..ae8b4073edf6 100644
 > --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
 > +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> @@ -297,6 +297,16 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
->  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_420,
->  		.swap		= true,
->  		.sf		= scaling_factors_888,
+> @@ -307,6 +307,16 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
+>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_10,
+>  		.swap		= false,
+>  		.sf		= scaling_factors_101010,
 > +	}, {
-> +		.drm_fmt	= DRM_FORMAT_XV15,
-> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_420_10,
+> +		.drm_fmt	= DRM_FORMAT_Y8,
+> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_MONO,
+> +		.swap		= false,
+> +		.sf		= scaling_factors_888,
+> +	}, {
+> +		.drm_fmt	= DRM_FORMAT_Y10_P32,
+> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YONLY_10,
 > +		.swap		= false,
 > +		.sf		= scaling_factors_101010,
-> +	}, {
-> +		.drm_fmt	= DRM_FORMAT_XV20,
-> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_10,
-> +		.swap		= false,
-> +		.sf		= scaling_factors_101010,
+
+Assuming the DRM format definitions get approved, this looks good to me.
+
 >  	},
 >  };
 >  
+> @@ -697,6 +707,16 @@ static const u32 csc_sdtv_to_rgb_offsets[] = {
+>  	0x0, 0x1800, 0x1800
+>  };
+>  
+> +static const u16 csc_sdtv_to_rgb_yonly_matrix[] = {
+
+TODO: Add support for colorspaces to the driver.
+
+> +	0x0, 0x0, 0x1000,
+> +	0x0, 0x0, 0x1000,
+> +	0x0, 0x0, 0x1000,
+
+This surprises me a bit, I was expecting 0x1000 to be in the first
+column. What am I missing ?
+
+> +};
+> +
+> +static const u32 csc_sdtv_to_rgb_yonly_offsets[] = {
+> +	0x1800, 0x1800, 0x0
+
+Why do you need offsets ? Those values correspond to -128 in a 8-bit
+range, and that's what would need to be applied to the chroma values.
+There's no chroma here. I think you could use csc_zero_offsets.
+
+> +};
+> +
+>  /**
+>   * zynqmp_disp_blend_set_output_format - Set the output format of the blender
+>   * @disp: Display controller
+> @@ -846,7 +866,11 @@ static void zynqmp_disp_blend_layer_enable(struct zynqmp_disp *disp,
+>  				ZYNQMP_DISP_V_BLEND_LAYER_CONTROL(layer->id),
+>  				val);
+>  
+> -	if (layer->drm_fmt->is_yuv) {
+> +	if (layer->drm_fmt->format == DRM_FORMAT_Y8 ||
+> +	    layer->drm_fmt->format == DRM_FORMAT_Y10_P32) {
+> +		coeffs = csc_sdtv_to_rgb_yonly_matrix;
+> +		offsets = csc_sdtv_to_rgb_yonly_offsets;
+> +	} else if (layer->drm_fmt->is_yuv) {
+>  		coeffs = csc_sdtv_to_rgb_matrix;
+>  		offsets = csc_sdtv_to_rgb_offsets;
+>  	} else {
 
 -- 
 Regards,
