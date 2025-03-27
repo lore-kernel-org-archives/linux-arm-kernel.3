@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5BAC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F9EC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Ch8j7lconE7Q+17xeJwcn9PR4XpssZ/Vb4GmgUL3Ds=; b=Cc7utLq8foRS42y++MGMRkNRj2
-	nX7AB1LXXsceAmYTwIIeseVVv2RyGbFBQlWvKe3dJFyoR2oFhKpYEOx6N0P6ZM3fXERYZ5gq/MzzW
-	4ILcT61r0n3wgo/ZLjzeFtZnAJfeqmOtAn5LkpKZVbWhc38LB899E83aaONNzKzremhi2bzyylQzH
-	K4+5jWK809//Rs/z7JpIRa3mkw2NCMEEvAMHEzSv0d0jLkqPrEzowxyWnMYgMFjmJmhwbq2f5PxEa
-	NrUGXRkCFDGi4sJ26bhV04Kg7jkV0GXrdCG+FmJ6DuTf3PCerHobRN3x/hBI3qR2nnLJsxb6rhXaq
-	W9aA0Dpg==;
+	bh=xVx+TY9BCk0ixjsFvhvKmsCWnJJ+1rxeCnOag5mM3OM=; b=vy5Jb0DAhGeo5DHFagdbedDxpU
+	puPciKTKNJBwIZXL8ekhEay3P73HLwZn8kynZ0gxtj+eP7T+GkavDXlTOt3r3g9VG0o1+NmWTP8Ec
+	asIti0+THAwhOpsoHgnX1dt7rL9izALN/wj0Cb/dlYIhGMQDrArlhI4Zw6Dgf8yVjyQA7HPaR30F8
+	TImUueY07qnAOrFlMlRRmAJS9xC2ZZfTPHAaS2eraXwAZma/kNtorrcCvL3AnoARftXYWO/5rm1p2
+	7UdQP6qWCoJ3HB4TYJer/m/98mnZrm3FF4ZvDOZry0ly6/JBabCGbOvGDY1fmWeGj7DjkJ5NSp3v6
+	LbhQeSQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txiOY-0000000AQPI-3jMg;
-	Thu, 27 Mar 2025 08:15:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1txiQG-0000000AQii-2oZS;
+	Thu, 27 Mar 2025 08:17:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txiKG-0000000APph-2rAq
+	id 1txiKe-0000000APus-2X2A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 08:10:57 +0000
+	Thu, 27 Mar 2025 08:11:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 026ABA41D83;
-	Thu, 27 Mar 2025 08:05:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0274DC4CEDD;
-	Thu, 27 Mar 2025 08:10:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 07FDC5C6893;
+	Thu, 27 Mar 2025 08:09:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE544C4CEDD;
+	Thu, 27 Mar 2025 08:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743063055;
-	bh=Baey/hKY5HeNZzCvhgM16Y64uCaysLM93MUTBAsSK/U=;
+	s=k20201202; t=1743063079;
+	bh=bmXqFqU22qluSfxAA/IxXQn2uRD9aGuQ4sNUF6q33mk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W2BXzZvCAjK77VxMI8ldwW7U8QzkapYQy+l+RKYxMuIQVQqhs442AMGE/sADpcZHg
-	 8F4D/VGF1S7By4eTe7SE+tep1iG3EAX80qTm4uyZFNMNYEHmz8l5HTMO3TLmztP3H1
-	 EOCl9y9bK8U4CUmKWc3JmUbYyG5zZIEBQ5Io07GUK6Lwzl7pGZSHxA6l1Nwxv1bDJg
-	 Slr6jkQI0h5uMOOb0k7uX5G32VHj8EKF9uysbmhH/1po0KnePVjD5ZgJJWqpUGwUSL
-	 QGuNF1WXIY6z70rQUuuX6WGNULZ1M7woMG+mA+SWxL6plj4gAC5PklwJ01MaL3BbuS
-	 g4/NbmDN0LkNA==
-Date: Thu, 27 Mar 2025 09:10:52 +0100
+	b=IQitGDUyAlG1CIo/auYlxpRBRrN95Gymr8nzmSj2Bn7K8PkVAvTCgSFJDhY/nVWs1
+	 yWlVnM9QbuxeYrNtbL+kLC0j9R1bhISfo1VVxfGZtmOO4U3UqG+lEODshvmvzc3xGi
+	 GWBjUxVZwdeG59X+9ZY9FU7w3j0NZBlzXlPD3UikmIHyc1uyBC/6k4NQRoE6/HtoCl
+	 ONEpliDvX6/jIddCO2AUdsR1E+lZTOLoWwii+++23Ceezs8IGTdvazTujhORk6Yh7f
+	 ZprQka3sxc4n1k/olZnuIBeD6LTx6lfwUpJFi97h8wl/DLsX3Cup/reseKhJHIsrlL
+	 cn57K0VDwuogA==
+Date: Thu, 27 Mar 2025 09:11:16 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan.Wanner@microchip.com
 Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
@@ -50,18 +50,18 @@ Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
 	lee@kernel.org, sre@kernel.org, p.zabel@pengutronix.de, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH v4 07/11] dt-bindings: mfd: syscon:
- atmel,sama5d2-secumod: convert to yaml
-Message-ID: <20250327-skilled-beluga-from-mars-b7fda7@krzk-bin>
+Subject: Re: [PATCH v4 08/11] dt-bindings: mfd: syscon: add
+ microchip,sama7d65-secumod
+Message-ID: <20250327-nocturnal-fulmar-of-holiness-6b6ac5@krzk-bin>
 References: <cover.1742936082.git.Ryan.Wanner@microchip.com>
- <271b23440f79bfad3e902689a9f4b240ab43eb28.1742936082.git.Ryan.Wanner@microchip.com>
+ <7248bb9d4ed491b178072b09830d6d68fde7b872.1742936082.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <271b23440f79bfad3e902689a9f4b240ab43eb28.1742936082.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <7248bb9d4ed491b178072b09830d6d68fde7b872.1742936082.git.Ryan.Wanner@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_011056_780421_03DE814C 
-X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-CacheID: sfid-20250327_011120_685570_093D284E 
+X-CRM114-Status: UNSURE (   8.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,15 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 08:35:40AM -0700, Ryan.Wanner@microchip.com wrote:
-> +
-> +examples:
-> +  - |
-> +    secumod@fc040000 {
+On Wed, Mar 26, 2025 at 08:35:41AM -0700, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Add SAMA7D65 SECUMOD compatible string to DT bindings documentation.
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  Documentation/devicetree/bindings/arm/atmel,sama5d2-secumod.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Use generic names, probably tamper-protection@ or security-module@
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
