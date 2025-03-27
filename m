@@ -4,220 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CED5C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 13:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8575C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 13:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6Ac04rSjkpN8RhF7hJx+uGP3dvg2Lws38ZM8Tvr/hk=; b=ZlPWW6d2nJgRCYvOY0ofyCZdNG
-	dxM33NQKD6lVY+rH7MvYRMrdKyVGehYFjiwK64J+BG1vs724a9kufhUYoQdkv7ljPIjeRNS0GE1x9
-	8APgZaVpQguqgGkkO8GOFewbX3ULZLLW90GENxpaqL+DPrqPKHTg0GlwKsOMPhaGu070G3+QTI7i5
-	tf1pV+z2rCoiYjPUb+8W6uasnhiUkzZSR5dSON1Ty5xpe//UNxEES8ZlOzTtk8JYu1SfGki7PD5l3
-	NNnqDEcSBqrP4HwU5v47+AK10GSmYjkL41G3GiYuR7FgnprTbMveHpgMRKQPQ+B8iFqm2KaIME8Xy
-	gNwmHUog==;
+	bh=JGH+RDQqvizTR7M2TT7xmX5Ot4Go2YXyV6Szdxe1HRI=; b=NZqGUKEhsNwXhj6UOPogBBAPlm
+	bATC/q3+TeCMD2GkFExz4KME+rJ0bPmhrg/UEJIq9uECwkMF5EgIDauq0GPF9Txzcgp4X7HbCOZI0
+	LvSeicBJmWDEMEsnt+IfsXH7c7Z95RxpmQkOtpMxH2dPoajSoEmU7THNqIE3HpzyggiaE6ZBCdmWm
+	41EcPnfPJSeo0439+G7IbrWwV/0r51criuJhYZi0mfb8dIhwz5ZBYXnJCSYugRuBAJCZlVip5hc54
+	8BEt4OF/3L1HdL1Yeb5PPgovBP6jcYkWNn4YD5GESteXpRyF0lpNVu4k1IROGpxyylB7Dn6WVMLn5
+	C1HWVNJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txn8Z-0000000B36J-25oa;
-	Thu, 27 Mar 2025 13:19:11 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1txnAI-0000000B3OR-1CGA;
+	Thu, 27 Mar 2025 13:20:58 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txmva-0000000B1Ej-3KeP
+	id 1txmvh-0000000B1Fk-3sIG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 13:05:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1743080747; x=1774616747;
-  h=message-id:date:subject:to:references:from:in-reply-to:
-   content-transfer-encoding:mime-version;
-  bh=ud8yfP1PQG0s2OaO0hrG3ukPKpeEq3JGF8z5IIM8cNM=;
-  b=kUEcPMFPJqIaUBwwT2/P2cMsVVnK4WFkvWcD55/ygmyfSVQ0T0jH/Zqc
-   X5VFyX782fBptgQ/AF+hVFsiH05AZ3d8KmpeQI2t5KKdOg/l+lPcVUqSN
-   pFlRATucKZpuhZ0Yv+DF5wvJEy0G6GRapW0Yzsa6YRLbvRGPbpshhq6za
-   MuKbzw0KwS8gpDf4gu/FIAuha+EIIFRTiW7+4VsUlOjrScaNoC732Nw1I
-   0voi9ZsmBfE22qwgXVW35hSugE0QmtC+8OkU1YX0ylZlCSII4ylTEH8Fy
-   8ntnQmVS+LJV/J9EWO+eDAXGtbfq5jgoz7wnuueepRoqWBJuVDym/DfOo
-   A==;
-X-CSE-ConnectionGUID: UvEt9pGPRSK6Me5oDB7H/Q==
-X-CSE-MsgGUID: zea6BhpOQmuJAHTV9T7R/A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11385"; a="55067004"
-X-IronPort-AV: E=Sophos;i="6.14,280,1736841600"; 
-   d="scan'208";a="55067004"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Mar 2025 06:05:23 -0700
-X-CSE-ConnectionGUID: +qvcG+8ITz2geNr6rbcPsQ==
-X-CSE-MsgGUID: iqiYC0DVRjKgmeOQgRXwWQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,280,1736841600"; 
-   d="scan'208";a="125582693"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Mar 2025 06:05:23 -0700
-Received: from orsmsx603.amr.corp.intel.com (10.22.229.16) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.1544.14; Thu, 27 Mar 2025 06:05:21 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Thu, 27 Mar 2025 06:05:21 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.172)
- by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Thu, 27 Mar 2025 06:05:21 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AZXZDgfx+eJdaydzFbwhqt4m2XpRkkiQVK2i+0KVshhDxp/n1FxXFwMSAPOlGN/o/LRaEPIqAm/d80WMU9v9isxKwe9m1ceLswJOW+5OSbE8N9KfpADSxOBpPlOn0cxk1b5Fe2/P8eHz76SaAfk2qDlpPJnH467Wqg+rdZouJNzbnt4+11omHnkRgjhrCoL6c1ITc6cyMAIlwSgGNQXhv/q7ds8X92JIs6CtOwQTM3d48PQLy78GjPrHdiTvjx8EF8ss9IJ6q56/1SjgEwTNXugYZFvUj11i05msrQvkFQyMb7nS30+tJv1d8MtOQGOoE4NjgK8CTlwBpujotMriqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U6Ac04rSjkpN8RhF7hJx+uGP3dvg2Lws38ZM8Tvr/hk=;
- b=BNTkmswxWOUlmtIx9JL8Kju7SjHtFd53WEToP0NdHJFgVNbjKWCUOxM4j6LlWkFTXsb6Cub2hQqjsLGLMqvoESaO4VLFayL9Tu1jgWHFVggndqeObA3Wb2t3gadv0eysoTTO73vX+A/0OSmlwY1g/xe30lY6iCVilELnHmzn8TkxF2dC57FgvvfZY8BEZ6XTaxS7mWKiw4q0sQD4ciO53WjZwgDa+TX7xhh/aRVCwlryz7AZQrtywT6Mg0Dv+8o/PHjN/N1X2F6wuAf686lMq6IVFSVGwkmyzLPDM4tNY1on9WNgKcunnUF29JRicPGd8PII20jyW9wdmY8rmjf0iA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DM4PR11MB6310.namprd11.prod.outlook.com (2603:10b6:8:a7::12) by
- CH0PR11MB5217.namprd11.prod.outlook.com (2603:10b6:610:e0::23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.44; Thu, 27 Mar 2025 13:05:08 +0000
-Received: from DM4PR11MB6310.namprd11.prod.outlook.com
- ([fe80::c07c:bc6f:3a1c:b018]) by DM4PR11MB6310.namprd11.prod.outlook.com
- ([fe80::c07c:bc6f:3a1c:b018%3]) with mapi id 15.20.8534.043; Thu, 27 Mar 2025
- 13:05:08 +0000
-Message-ID: <48e29601-0b32-4a3f-9040-629e701fb735@intel.com>
-Date: Thu, 27 Mar 2025 15:04:58 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Intel-wired-lan] [PATCH iwl-next v10 13/14] igc: add support to
- get MAC Merge data via ethtool
-To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>, Tony Nguyen
-	<anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>, Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
-	<hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Furong Xu
-	<0x1207@gmail.com>, Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>, Hariprasad Kelam
-	<hkelam@marvell.com>, Xiaolei Wang <xiaolei.wang@windriver.com>, "Suraj
- Jaiswal" <quic_jsuraj@quicinc.com>, Kory Maincent
-	<kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>, Jesper Nilsson
-	<jesper.nilsson@axis.com>, <linux-arm-kernel@lists.infradead.org>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<bpf@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, Chwee-Lin Choong
-	<chwee.lin.choong@intel.com>, Vinicius Costa Gomes
-	<vinicius.gomes@intel.com>, Kunihiko Hayashi
-	<hayashi.kunihiko@socionext.com>, Serge Semin <fancer.lancer@gmail.com>
-References: <20250318030742.2567080-1-faizal.abdul.rahim@linux.intel.com>
- <20250318030742.2567080-14-faizal.abdul.rahim@linux.intel.com>
-Content-Language: en-US
-From: Mor Bar-Gabay <morx.bar.gabay@intel.com>
-In-Reply-To: <20250318030742.2567080-14-faizal.abdul.rahim@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL2P290CA0001.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::19) To CY5PR11MB6307.namprd11.prod.outlook.com
- (2603:10b6:930:21::20)
+	Thu, 27 Mar 2025 13:05:55 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-54954fa61c8so1039975e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 06:05:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743080752; x=1743685552; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JGH+RDQqvizTR7M2TT7xmX5Ot4Go2YXyV6Szdxe1HRI=;
+        b=EK1LO2XV9sJKRt5rH+CSAtFeWsCCRmJzqoyCsZ3qAQRlTw+5xct+1Wi+atzg/icCRN
+         gOrGT6l6+mmLP3e3Q5LbR50jcDyO/YZa5X9RLCn1r0e+x/YSt8I90RlYWMt8Ysqbgy2C
+         myHrH7P20p++dcMKt8LJi57v/PdMAN0cLlAKljeMQBpttpQVOvBDiCcA9n9Kato6dd9c
+         oF8mClbPtXnfirLvbWC6Rh8LT3M64NG/Z6t0jrYw8iNdIDFn5AXhe3XgYbYr2x8nVqB6
+         wstYyZt7ODOBHQmFmwGzT9+jn/d35JW7BueIEscQpYra7nMCI6eaFbDcuxi5DBOnJelR
+         E5kw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743080752; x=1743685552;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JGH+RDQqvizTR7M2TT7xmX5Ot4Go2YXyV6Szdxe1HRI=;
+        b=aH3ccaZHxcXtVda5m8r66A9AB7mb6GiM7oYKT77PSHjAcW+BgYDjXc4LyHV0pf7fm2
+         3w0tdje68hd67LQMV0/pz8Kr96deWQeRGVVUDMYN219spAHGqS7T3szbpcQ/EAC9cIqO
+         GWdisDbRbgAuUl5RZpamZCcKnPJiQG/pjiTXdxOG6hGwkXVzCMPfZbJtvnfm6qJ9IVq2
+         Xkaq9QQaAs8Dq2G1NB1v0LHpqGcwEb19KCh3gbA2d268b4saNEnwsV3RY5Yk/8EE0tex
+         xQk7Ehc8BNytmsKvnytytLuZXF9p8GvK/YlcjuoSvWNg/cOcNQrMcOXfisxyXCMp8lwT
+         WuqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWmt6Q36w4rU6iXy9R1emT4L+8VO/P8beutfbQM0FXJd9jdhQ5DDSbzNxjqt+pAIWbW9uS1QQe0MMDvizBxvDbJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzve2kOPm2FYSMhEoeuDpKSguG2GLaGFBWI6aUjVwmDJOqWPDWj
+	fHpc0q6KdzOzmeY8ifhWPuhbCUKIQ0u7yXF8jKK9qkf1Xf0m5lNR8gQ4kg==
+X-Gm-Gg: ASbGnctAYd7ENSbOfn1uLaALlnkKhvzx/JAKn5v3PYIU03axM69WkrVkPGlTa/77FU/
+	pRD3vQ/3MgIZ6o6oH+ju3h/FBKInFFv8tF8cB8ksFh9XNeZJ9dkzg+b3pAG2fex/PjM9Pkxx/dv
+	bmL1qAUoHLb+cT4KzvbjS9O86ReCR4g8zCkuDsIaLBHkmDcHDlCPllbO34CrMsFRW6DlRwmCuVA
+	x4+wpJZLF2PmGOeeu/JwWCqXuI4m3QtNC11LRBwgN6EEIAdB6iEytqvCz08C6SJRZS3+e4qigtF
+	UPhXauJoDIOevAGSS7ExNijbJ0tx1FyBY70XspDLn6xv8c13VJh2rV52RtGhrxRiESPmXbi8Hqa
+	0ZDFIvD937w==
+X-Google-Smtp-Source: AGHT+IF1ll9cFaCAoJWAxGR51kEPmHYKRptVRMXGOLv6BMKpLV+455ArQUeHscuizCmY6sFulZkafQ==
+X-Received: by 2002:a05:6512:3512:b0:545:2d80:a47d with SMTP id 2adb3069b0e04-54b01263b2amr1059877e87.44.1743080751766;
+        Thu, 27 Mar 2025 06:05:51 -0700 (PDT)
+Received: from pc636 (host-90-233-221-122.mobileonline.telia.com. [90.233.221.122])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ad64689eesm2075567e87.24.2025.03.27.06.05.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Mar 2025 06:05:51 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
+Date: Thu, 27 Mar 2025 14:05:48 +0100
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 07/11] mm/vmalloc: Warn on improper use of
+ vunmap_range()
+Message-ID: <Z-VNLBWc_LThvu9k@pc636>
+References: <20250304150444.3788920-1-ryan.roberts@arm.com>
+ <20250304150444.3788920-8-ryan.roberts@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR11MB6310:EE_|CH0PR11MB5217:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7581a03b-30d7-4402-3d37-08dd6d2fffde
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RkFvZC9DRDBZaWVTcWhiTHdyc295TklRcmk0T2J2ZlF1YllvdjBud1dpOW5r?=
- =?utf-8?B?VGlocjVMeUl3WkFQaitHRjEwNUFGSEtiRUlCaldHZDBGa0Y2eU9IcjJxM3pS?=
- =?utf-8?B?bXpXWnRNM0lxUHF1Q0FIWWtkZE1BRnltY2FRWVpMVkFOYWsrVDVTZFp1T0V0?=
- =?utf-8?B?eFFMUTFkWjIzaXBjRWROK3lVWG5hc1lMbGxxUlY2ZWQ1Y3lYRVV1UGtzM3lF?=
- =?utf-8?B?a1hNekVIMXZUNWlJd0hhSm1tUkgzRjBURFpTNSsrTkYyaDlHMTh4eW9aN0Y5?=
- =?utf-8?B?TGR5MFBvc05OYUJ0NkdMNUY0bGVTNTlKYnZNQ09nOVZ0MVRPUDg3dHNQVFVx?=
- =?utf-8?B?SmZsQVlEalA0VUR1YjViYVNRV0RUMjFGUU1LbjJaYUFabHpseDQvZWlkMkhI?=
- =?utf-8?B?TjNla0NNait0SzV5RFdibVlVc2lKSVhGRWZWOW9UVmxJRmllMzFyKzA0elZj?=
- =?utf-8?B?Qm1KWC9VNWhmQ0x5N0hMZ3Z2VnU5UjlmaDVnSzJXbGNjTEMxSFM0SmI0MUZD?=
- =?utf-8?B?M0l3b3g5U3BvY2x3NVVrNnN4VGVwRXpHVEZPY0dSQ2c3QmllbWRLMjZNUE12?=
- =?utf-8?B?YUVJT1RTa1E3UWJPSEhicmNOdUUzRDZGdjFtSXZJU2RRZTBZbFRiMmhzTjA2?=
- =?utf-8?B?NzZVYkl6WEJGSWpzazVwVElmbklSaXVON0Q1T21UUkVJN09zcDVncGRyUnM0?=
- =?utf-8?B?Z3FHTHAvQ0oxdkJ4T1dhYytkd2tGMTJ2M3N5c1VROGd0YVNmMjFJY2JVMm5Y?=
- =?utf-8?B?dmRDY0dSRTIzQ2ovTGxyc2x2VG9VOHhlVTA1eWx5RnhBczZNenF3eEgwSlFj?=
- =?utf-8?B?MW1zalEzRHl2QU5STkp6OFdzaE5ibk13QWdIWDU2ZXgzdDBjMHdkbElBTVZa?=
- =?utf-8?B?aEhLOVZuVWhRdFdiZm9yZnZyNldHQVRYa2xkdFZtREtJZDI2aURJcXhXZGM2?=
- =?utf-8?B?NU9QZWRQdDYwbnQ4Qzg4V2h1Uk5YSm40dVpRakgzYWpORGRLR3FneDNmei9R?=
- =?utf-8?B?OHpLaURGTXMyUFdyQlZHZXBNYVpDK0VEZFBNaFZQZWt4TXo0SXlzUDdCVEhw?=
- =?utf-8?B?TVNmOGh3MXJPdFpDbVJqTFB6cXRJVEdlWFB6MVRBUEdzdlRrbEZ4OGFubitH?=
- =?utf-8?B?ZEVPSFlIbng4Yi9kZGFYSUhmdVpkWlhDSXMvclhHZnZMZlI2TUhMUnU5UU5U?=
- =?utf-8?B?QWZScXltdEx5dUt2cjhkRW1sQWErQVZ4ZytVSmtDOGhocWJPK2hHUi9UQXFX?=
- =?utf-8?B?Y282TGVFKy9zZUpKVDhDdEJaWWU5dWZVanVsU1ZJZjljSkFJVmJWMHR4a2hR?=
- =?utf-8?B?aFFkZ3FoUXMycXVuY3hMMGxibzc1cGE3clJSN1VxektjeGJEeVBwc094Umgx?=
- =?utf-8?B?Q1NDdDVmZkJSbFhnWEhhTVVMbkM0SlJMZzV0OHQ5TzcvYkVzRUNzcVBIWThX?=
- =?utf-8?B?OHkvZDZOdk16c2NTeGM3TzBQNU1Oc3VUM0Q3d2hqVXNadVk2dllqdzhKVUFO?=
- =?utf-8?B?SzhBL01UVUY3Zll3akc4amtzeUxXcVN1d2c1djUzOHhwUFpYeVZEcktSZkRT?=
- =?utf-8?B?WVBoUkk5S3BRY2p0RjB0SDlqcGREQnlxaXo2bzJ0b055TSt2WnpuTERFdG5k?=
- =?utf-8?B?MzJUNGxRNUx1dWduU0VYcEMvTFVTTFNKLzJtOEIzQ1JpTE1taFcyTkJ4UmNT?=
- =?utf-8?B?OXJXTktZN3ZsaTRrekJsMVBNb1VQeGFEaGY0U2RvTzhxbkNvU3hVNmgvWmYx?=
- =?utf-8?B?WGk2QThRRldtbkx1SHg5OXVTUEZBWHBmZFRQSXNQOTVvcURyejJIZmVqcXcz?=
- =?utf-8?B?RHZ6VmxLOGU0V0s2eGtzcTVvSURwdFVrTWxzbGFvTmF3NWU3UzA1dXdaTW01?=
- =?utf-8?B?SUtpeDBvWUs3Z29SdWdqVnJWQVFHelVzamF1T2NFMmk4OFpnaEp2NURZZEY4?=
- =?utf-8?Q?MTZNFzjrIwo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6310.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L1NqMWF5Q1dvcldGb3NUY1lCUjVsejFZeXluZnhlT09IOUF1em1FR1pvOXkz?=
- =?utf-8?B?TlQzWkkrRC9RMDdBazNaTWszSmNNOTJuc3lFb04zcFJCb0N6L3lONEJOZ1Fy?=
- =?utf-8?B?T3Y0VlJzK3daRkIxbll3dmttbFhhT1FCNE13ZjFoM2NVSU9xd3E3azNZTExX?=
- =?utf-8?B?dXVrYkpRRHVteWIwc0xoMlhiUS9ia1Ywbkt4d3lsbmlNc2dPRUxobmFINlpu?=
- =?utf-8?B?YUIxTTBKdnJ4MXQ4SFZJRVZObTNWL0xDcUwycjVvQzRCak5IU1NTY1NydlNv?=
- =?utf-8?B?ZUtjVmxpNXdTV2lWcjhIYzJNcDZGRXoxK2hTZGs0cW1XNVBOTE5nejJrOTVB?=
- =?utf-8?B?WE9QaDYydHB1aGZ1YXZRT24vdi9NdExMZEFyTzcyV3RlV0FyOEdDR1gzenZN?=
- =?utf-8?B?Mi9FMTJwajdsTEdjYXRGME92WU5iYldOMlFrQURTMlhsdFBIZVk4eUxXYzFD?=
- =?utf-8?B?Qm5qYjM4aDE2T3dxQ0w2OW0yU1FMT0czay83RUlDd2xBeUFGZ0RqZVd2KzRN?=
- =?utf-8?B?eFB3Q0UzSDJNa2dPYUZGWGJSZTNodXI0bXNHR1lHYnBxSTlSTGs0cEorU0Js?=
- =?utf-8?B?QXhSYVVTZWM0eXRhNG9yeFBiczlYc1RnTEJpaTdPWUFRbnhrc0xOZVV6UWIr?=
- =?utf-8?B?M2wyWWl6a2laWDN0TkExSys0anQxNEtEdnFpVGhmNjJ1SFBxZmtkK1d6SU5S?=
- =?utf-8?B?VDNIaExmWEZUckcrRmlxY2pOUEVpTzlrczEyeDEvMkFTLytjbzR1aTBkdmR0?=
- =?utf-8?B?cTRuRkVFUXlBdFNCQ2FVb3ZJakg5VW9kQlQwd3IzcWtBSm1HZXZUN3BRWlg2?=
- =?utf-8?B?bE5QWUxLVGNuUWJ2R2pvK0toU0ZEckI2d2RSRGdDMDk1dWhwQTRkUUljUTdT?=
- =?utf-8?B?M3JyYnVDaUQ1OGtvZG9CdmhTMzVxOERYaUloaGJmU2VvMytvODFkUnh2ZmQ4?=
- =?utf-8?B?UDBXYlZzalBnZ0FmNzROVXVTaEo5TjJpQkpNNWpHejMreWx6YXM4Z2ttUFVr?=
- =?utf-8?B?MTRwbmZ5QTZ4eXJJMU5XMHd0VWxHam9jd0xxWnZjWnd3cFJ4OFpiNEdOQStt?=
- =?utf-8?B?cnM2WUVEQ1JVbzFxY0JGajhOdVRDcUtBekFubkc0OW1TNnhYOWE3NWxsbWEw?=
- =?utf-8?B?dzBpbC80RXU4N2oxSUhIdjc1cCsrLzl4Qk9WZnl6UlNDd0o0ZW8xQ1QzNFp4?=
- =?utf-8?B?SmVWOXh5cVU0Sld1NGhBYjJYT2JxQ0pOVFl2SmVTS2tDWWVOUjkzNFc2REFx?=
- =?utf-8?B?OTc0RFkySTEzVWZEN0VBQy9RYS9DTWZlcW9ZRHlUcU9oWFZvRm9FcitQQ1ha?=
- =?utf-8?B?WkUwMlRBZGQwcDlCaXQ1VU1qTnZlNkx0SkMvb1Fqd09kanAzUE12V2dPTlg0?=
- =?utf-8?B?OTBQTmpRLzlsK0E3U2xEYXl1enBrdGc1Vll1dHhXc01wZmMxdkw0MW1HMnJT?=
- =?utf-8?B?Z3ZiWTBPNXlVWVFOdmoyZWZIdU1UbHBYR0h3MHZtZkhKcExWTm9QNms1T3Q2?=
- =?utf-8?B?RkdXWmVuWnRoNVZVaE1SN0xFZ1dYOVR3Z0tMa0pQQVFtYWpBYjBBcXJHdjlO?=
- =?utf-8?B?OW4vcHZURWxHbCs5QmUzVXBUbU5KbWwySno2djY4MFFEcGZjL2ZLK0hoeWR4?=
- =?utf-8?B?OTAvRXRLQTB2Z2VvUi96RlFsTXdrT1pIN1FvMDJKZnN0ZGFCN2h6NUJYYlVV?=
- =?utf-8?B?T0tVeTRTSlFGVlUxYWxOTUN0aFZKZmxlV0tJcU83WXRIMEo4SGhQa1J2b25Q?=
- =?utf-8?B?MU1zeGV6cEhqcVdpcVArTGZOWEx0eUluRmxqZWcwaWZ5TnIrN1dhZUpNcmtV?=
- =?utf-8?B?S0VVTHdCMy9wd0FQSkl1NVB0RjN3OFErZmhkUjdkTk9sT0FwaFlLWVFtQllW?=
- =?utf-8?B?ODY0aFBxejhCQnJCcGRiOEt4NldzQWNzamZQUitUbGtNTHJmbnBBbHE5NTJo?=
- =?utf-8?B?ckxtZG4rN1NMZXZoNzl6S3h2dXovbG5oZ0J2cmdIZTlLeHZmOEtYRFBxS0x1?=
- =?utf-8?B?dURmdmd4VlpxdVp1anA5eXNQRlhXZTl6eFo1b3U5RWcwQXRRQTJRY0wxb3F1?=
- =?utf-8?B?eXYwRlAyUkoxZnEvVDM2dVRTSzg1ZmFxVFNjL2ZlbmhWRHE5ZGcwMy9OdWpZ?=
- =?utf-8?B?eXBZUVdJOCtUY0poN3Jpd1dJQ2EyYmQ0QUM2UHRwTk1UUTNpcXpDS0I3ZjVk?=
- =?utf-8?B?M3c9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7581a03b-30d7-4402-3d37-08dd6d2fffde
-X-MS-Exchange-CrossTenant-AuthSource: CY5PR11MB6307.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2025 13:05:08.6258
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aLmYVdZzB7r/8XK5i+wF0brx+QIgWgZVWL40MsYiHlQM02zEXLGiyLH6cY9VFMq4gn5rxd1s2Ms2/khz9FLX2sk63rvzrZE/s30GnaG1nP4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5217
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304150444.3788920-8-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_060546_857991_69D6AFC7 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250327_060553_965257_26E7D32A 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -232,30 +112,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2025 5:07, Faizal Rahim wrote:
-> Implement "ethtool --show-mm" callback for IGC.
+On Tue, Mar 04, 2025 at 03:04:37PM +0000, Ryan Roberts wrote:
+> A call to vmalloc_huge() may cause memory blocks to be mapped at pmd or
+> pud level. But it is possible to subsequently call vunmap_range() on a
+> sub-range of the mapped memory, which partially overlaps a pmd or pud.
+> In this case, vmalloc unmaps the entire pmd or pud so that the
+> no-overlapping portion is also unmapped. Clearly that would have a bad
+> outcome, but it's not something that any callers do today as far as I
+> can tell. So I guess it's just expected that callers will not do this.
 > 
-> Tested with command:
-> $ ethtool --show-mm enp1s0.
->    MAC Merge layer state for enp1s0:
->    pMAC enabled: on
->    TX enabled: on
->    TX active: on
->    TX minimum fragment size: 64
->    RX minimum fragment size: 60
->    Verify enabled: on
->    Verify time: 128
->    Max verify time: 128
->    Verification status: SUCCEEDED
+> However, it would be useful to know if this happened in future; let's
+> add a warning to cover the eventuality.
 > 
-> Verified that the fields value are retrieved correctly.
-> 
-> Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 > ---
->   drivers/net/ethernet/intel/igc/igc_ethtool.c | 14 ++++++++++++++
->   drivers/net/ethernet/intel/igc/igc_tsn.h     |  1 +
->   2 files changed, 15 insertions(+)
+>  mm/vmalloc.c | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
 > 
-Tested-by: Mor Bar-Gabay <morx.bar.gabay@intel.com>
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index a6e7acebe9ad..fcdf67d5177a 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -374,8 +374,10 @@ static void vunmap_pmd_range(pud_t *pud, unsigned long addr, unsigned long end,
+>  		if (cleared || pmd_bad(*pmd))
+>  			*mask |= PGTBL_PMD_MODIFIED;
+>  
+> -		if (cleared)
+> +		if (cleared) {
+> +			WARN_ON(next - addr < PMD_SIZE);
+>  			continue;
+> +		}
+>  		if (pmd_none_or_clear_bad(pmd))
+>  			continue;
+>  		vunmap_pte_range(pmd, addr, next, mask);
+> @@ -399,8 +401,10 @@ static void vunmap_pud_range(p4d_t *p4d, unsigned long addr, unsigned long end,
+>  		if (cleared || pud_bad(*pud))
+>  			*mask |= PGTBL_PUD_MODIFIED;
+>  
+> -		if (cleared)
+> +		if (cleared) {
+> +			WARN_ON(next - addr < PUD_SIZE);
+>  			continue;
+> +		}
+>  		if (pud_none_or_clear_bad(pud))
+>  			continue;
+>  		vunmap_pmd_range(pud, addr, next, mask);
+> -- 
+> 2.43.0
+> 
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+
+--
+Uladzislau Rezki
 
