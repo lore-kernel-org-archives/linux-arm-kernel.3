@@ -4,114 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC61C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F0CC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Mar 2025 08:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CynTm7hEp1Sfyl9DtODjpswo0hQrqnUILQztZwn5tU=; b=J8aB51gMxgzuyHIAl6aP5xM5cP
-	jpzv2yJ8sJoO24W5oiEg4DltQg1kfTHQ5HS0xPOSYRk+qZT7GVB1pkeL8sbXN5O+Ddwj1R0/M5iiV
-	zqotXp4ArOSDPuhoqGe35QQZqsy9P07IyKtsTjBFiN2DytIeapuKQjTCZnMAjxCysZunSB0EjIbWf
-	3Ez0ytgxTiyHAYjZlPWJo8xByV7joDRi++QrMs2pfFdNiS2eHk4+r8Fx6f68QH8WWQJwvhceN/w19
-	10jSK50lggTy0HRSU3eITSDrdG3RsOg9R1YKrzSm3W2OCXkwA/Tp2zRu8v+3MpRvWbDXxdP/6vf3k
-	jxPuP2WA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iogEySHit4w1IqLZ1lM/pLRLDDACf9uvRRBhipFJCHE=; b=18cmvzanwJaSUAozJ13sqXGd2n
+	P4kMFUG6nsWNV6p1QgmvDkLkjhbM87xVPEV5OJnhGiy7nI4ICKpIxFO05sWmxfDlskETCtyayfXxw
+	tPznHy9bXv6BEptzEo697mwMt0cKIdRckbjexnNjeUOY4rBTqyoeCk4WUeOGc+YdBkDPAsk7brpfs
+	6Wq+RFyjz+cr70ajU27XYzFCjV57qYN3cZITRntApz//R/l1jsA7K1ExLPN662NPL60Q7Lj/GoK7N
+	lfCdcqSyQBFdAC0ea310JFCGoig2LBfBwWZ97nd/ncFfUkGKLSeYxu9Ovl3S6NZUaeeOWtld+QBtY
+	W3MpS2eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txiUW-0000000ARP9-13gL;
-	Thu, 27 Mar 2025 08:21:32 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1txiZu-0000000AS2e-18Uj;
+	Thu, 27 Mar 2025 08:27:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txiSA-0000000AR97-0ZY6
+	id 1txiYA-0000000ARmq-3Rov
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Mar 2025 08:19:07 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfout.stl.internal (Postfix) with ESMTP id 14711114010C;
-	Thu, 27 Mar 2025 04:19:04 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Thu, 27 Mar 2025 04:19:04 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1743063543;
-	 x=1743149943; bh=9CynTm7hEp1Sfyl9DtODjpswo0hQrqnUILQztZwn5tU=; b=
-	Rwlc+XKizpvtB2gg5LBo4xpET6CBjMmd5x6igfpbBF82pkYTeo9t6mdsx1ouqG2Q
-	cKigO+SPb7GiYEu3Njt20InVl6mIyJVRZVhAQH7/MCCu5C0prN2J+MkBycXFqQUV
-	BZl2gxqSJIfFNa4Yx3YPzyZ1wvO1kgRX4cQSZA+r2Qvp3ZCH0HSeev6D55Er6imI
-	7qmlvcEEI2JRkY8TueyXIhsBdfMg5zd9PZqS5i5iRemIcoBQ0ytp7hsuIw3zztgP
-	ieLTeTiYBcfmscCoQAafQyu4QrV3kChHfeHTLV6SsKnqeQ8mAUwk8hfqOChQtc+J
-	/eHxXi4uiFMhqxFIt8B/IA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1743063543; x=
-	1743149943; bh=9CynTm7hEp1Sfyl9DtODjpswo0hQrqnUILQztZwn5tU=; b=q
-	VWwO4V0EnTZmRZY3r939TQclGvc6Mw9DGKO/CdZP8hSYgXZJUOm4qd6shgByn29a
-	UNezciFeqk1M60E6zMJCaD1KDkSltlzyezr8JP4EhbEkYEAVcvcw84mgRRV7Gaok
-	yzq8z5Waw1tknHsgiYuKfPPZe9vBGA5BhigoS6DoU38jCGlLJX5YMpuArSNnJ6UK
-	N5L27AQhTNCi77H8tWkXq8jHvIZtiNDCht+jbUgvCVkIUmmzr+P3QSIzj/bqyYBK
-	oA32ffJ2+goe8pXu89jcTQEGwH5RKus0+30Jv6fsc2kTMR+8q3t2/wF2MMzouyOj
-	UbUEml98pJIt1xra1uZHw==
-X-ME-Sender: <xms:9wnlZ7GYFqNl-VXkOIIxhgBpZHLoYL__WEALLu--ESHHaqC4L2AzAA>
-    <xme:9wnlZ4Ul8EausyYLZI9-F3FuiIa1pt6KxQkoGNtxDMfTUlRX5kkgK1gxlq5kMguNd
-    CXwilcelZeCWjTeDLA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduieejleduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhepfefhheetffduvdfgieeghfejtedvkeetkeej
-    feekkeelffejteevvdeghffhiefhnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnuges
-    rghrnhgusgdruggvpdhnsggprhgtphhtthhopedujedpmhhouggvpehsmhhtphhouhhtpd
-    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
-    thhopehkrghjvghtrghnrdhpuhgthhgrlhhskhhisegrrhhmrdgtohhmpdhrtghpthhtoh
-    eptghigidqkhgvrhhnvghlqdhuphhsthhrvggrmhestghigihtvggthhdrtghomhdprhgt
-    phhtthhopehfuhhgrghnghdrughurghnsegtihigthgvtghhrdgtohhmpdhrtghpthhtoh
-    epphgvthgvrhdrtghhvghnsegtihigthgvtghhrdgtohhmpdhrtghpthhtohepmhgrrhgt
-    ihhnsehjuhhsiihkihgvfihitgiirdgtohhmrdhplhdprhgtphhtthhopegtohhnohhrod
-    gutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghl
-    rdhorhhgpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:9wnlZ9LP8dmJIVo3AvCyikQqbOhgmJKbQZUiPgbJvWb4Zfmao3La0Q>
-    <xmx:9wnlZ5GUJwPkXDjtYRhY1AniLv0vNlvXinHvW02A-wjsCow0OxtQXQ>
-    <xmx:9wnlZxVMRNdwZvTuCMEbINhEbyxZSupnOIW6lERPVNSoDwPXUK1QaQ>
-    <xmx:9wnlZ0Pfsd7x_8j3b7QcWs1HyyTioCqYvW5dzr47bw-QEePbT594MQ>
-    <xmx:9wnlZ1k8xkWClOaeTCGYWJHwrI_5DGo3jOuLm6ZGZ76xeBgXpBMQ6_0E>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1170B2220072; Thu, 27 Mar 2025 04:19:03 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: T24bcb56938053d3a
-Date: Thu, 27 Mar 2025 09:18:42 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Peter Chen" <peter.chen@cixtech.com>, "Marc Zyngier" <maz@kernel.org>
-Cc: soc@kernel.org, "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- marcin@juszkiewicz.com.pl, kajetan.puchalski@arm.com,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
- "Fugang . duan" <fugang.duan@cixtech.com>
-Message-Id: <422deb4d-db29-48c1-b0c9-7915951df500@app.fastmail.com>
-In-Reply-To: <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
-References: <20250324062420.360289-1-peter.chen@cixtech.com>
- <20250324062420.360289-6-peter.chen@cixtech.com>
- <865xjxmlgl.wl-maz@kernel.org> <Z-Nz0DU441Wwj1i4@nchen-desktop>
- <861pukm9yd.wl-maz@kernel.org> <Z-Tz1moMNozx23k6@nchen-desktop>
- <e43b1a00-b221-413b-a36a-3a65e17f800f@kernel.org>
-Subject: Re: [PATCH v5 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+	Thu, 27 Mar 2025 08:25:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 16781A41DA9;
+	Thu, 27 Mar 2025 08:19:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBA68C4CEDD;
+	Thu, 27 Mar 2025 08:25:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743063917;
+	bh=E7zPgzfPfjWChkoZxx0xsF7whNgUH9/RUX/J5vZ4fls=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=puwLlFwBVOi6sLqNrSD827/Ir7tJsswtweFGXkgdN8in4W92OBkuvqNT2c9FyI0DL
+	 Ld1X0btkcwWR5zM6TvAeLMwhdMl2YloTw2OUzJYLOgWes+8GovnVY5+SLijsIqlSm8
+	 vvF4HJO8hgvxFUF8JpjKylQvKNFBKkXNSrSy2xVhDloMlC5XpojjmYUzlKRB+zD9Ii
+	 E0L4M4aeezLKj+zRFGGS3sgs9iXGtYWi11RImE71/nP7MAJ8t2H6C8H03+SWVhV++d
+	 9Nxpwu0ht1dM/JeMXUoUDEqlng7pNOsXcqohVKa/CqyevAyeaii3O4w5s+o9jB7aaP
+	 SvoWDYXk0Zc8g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1txiY7-00HYK5-5k;
+	Thu, 27 Mar 2025 08:25:15 +0000
+Date: Thu, 27 Mar 2025 08:25:14 +0000
+Message-ID: <86v7rulw2d.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Youngmin Nam <youngmin.nam@samsung.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Saravana Kannan
+	<saravanak@google.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Vincent
+	Guittot <vincent.guittot@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@android.com,
+	hajun.sung@samsung.com,
+	d7271.choe@samsung.com,
+	joonki.min@samsung.com
+Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in GICv3 ITS driver
+In-Reply-To: <Z+TEa8CVAYnbD/Tu@perf>
+References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
+	<Z+Nv8U/4P3taDpUq@perf>
+	<8634f0mall.wl-maz@kernel.org>
+	<Z+TEa8CVAYnbD/Tu@perf>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: youngmin.nam@samsung.com, tglx@linutronix.de, saravanak@google.com, ulf.hansson@linaro.org, vincent.guittot@linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com, hajun.sung@samsung.com, d7271.choe@samsung.com, joonki.min@samsung.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_011906_252203_1A3AFCC7 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20250327_012518_991172_89C2E416 
+X-CRM114-Status: GOOD (  36.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,57 +97,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025, at 08:16, Krzysztof Kozlowski wrote:
-> On 27/03/2025 07:44, Peter Chen wrote:
->>>> On 25-03-25 10:52:10, Marc Zyngier wrote:
->> 
->> Thanks for your interesting of our platform, and your comments
->> help us a lot. But I don't think it wastes reviewers and maintainers
->> time, a clean patch set saves everyone's time during upstream process.
->> 
->> For how to organize the patch set for SoC, Krzysztof gave good summary
->> at [1]. We are going on upstream [2], this patch set is just a start
->> and base but not like you said for marketing purpose.
->
->
-> I do not think I suggested in [1] to ever send new SoC containing only
-> CPUs and interrupt controller, without even serial. My instruction [1]
-> was how to organize it. The DTS can be even fully complete, see the
-> upstreaming example I have been using all the time - Qualcomm SM8650:
->
-> https://lore.kernel.org/all/20231124-topic-sm8650-upstream-dt-v4-0-e402e73cc5f0@linaro.org/
+On Thu, 27 Mar 2025 03:22:19 +0000,
+Youngmin Nam <youngmin.nam@samsung.com> wrote:
+>=20
+> [1  <text/plain; utf-8 (8bit)>]
+> On Wed, Mar 26, 2025 at 08:59:02AM +0000, Marc Zyngier wrote:
+> > On Wed, 26 Mar 2025 03:09:37 +0000,
+> > Youngmin Nam <youngmin.nam@samsung.com> wrote:
+> > >=20
+> > > Hi.
+> > >=20
+> > > On our SoC, we are using S2IDLE instead of S2R as a system suspend mo=
+de.
+> > > However, when I try to enable ARM GICv3 ITS driver (drivers/irqchip/i=
+rq-gic-v3-its.c),
+> > > I noticed that there is no proper way to invoke suspend/resume callba=
+ck,
+> > > because it only uses syscore_ops, which is not called in an s2idle sc=
+enario.
+> >=20
+> > This is *by design*.
 
-It is easier if there are other SoCs in the same family that are
-already supported than an entire new platform, but we have certainly
-done it for new SoC families as well.
+[...]
 
-> Entire SoC sent to mailing list on the day one of public release of that
-> flagship Qualcomm SoC. The SoC DTSI and board DTS have almost complete
-> picture, except few trickier pieces... but it even has full display and
-> GPU! Plus, as I explained on my email on samsung-soc, that DTS/DTSI
-> patchset references all other bindings with their state, so SoC
-> maintainers can understand what is the overall progress and what will be
-> the result in DT schema checks, if they apply the patchset.
->
-> The minimum, absolute minimum submission is with the serial nodes. I
-> would prefer to have some storage or any other interface as well, but
-> that's fine.
+> > > How should we handle this situation ?
+> >=20
+> > By implementing anything related to GIC power-management in your EL3
+> > firmware. Only your firmware knows whether you are going into a state
+> > where the GIC (and the ITS) is going to lose its state (because power
+> > is going to be removed) or if the sleep period is short enough that
+> > you can come back from idle without loss of context.
+> >=20
+> > Furthermore, there is a lot of things that non-secure cannot do when
+> > it comes to GIC power management (most the controls are secure only),
+> > so it is pretty clear that the kernel is the wrong place for this.
+> >=20
+> > I'd suggest you look at what TF-A provides, because this is not
+> > exactly a new problem (it has been solved several years ago).
+> >=20
+> > 	M.
+> >=20
+> > --=20
+> > Without deviation from the norm, progress is not possible.
+> >=20
+>=20
+> Hi Marc,
+>=20
+> First of all, I=E2=80=99d like to distinguish between the GICv3 driver (i=
+rq-gic-v3.c)
+> and the ITS driver (irq-gic-v3-its.c).
+>=20
+> I now understand why the GICv3 driver doesn=E2=80=99t implement suspend a=
+nd resume functions.
+> However, unlike the GICv3 driver, the ITS driver currently provides
+> suspend and resume functions via syscore_ops in the kernel.
 
-Agreed. The usual arrangement for a new SoC family is to have
-the minimum set of drivers (uart, clk, pinctrl, regulator,
-iommu, irqchip) along with the DT bindings and the dts files
-in one branch and have that go through the SoC tree as part of
-the soc/newsoc branch. It sounds like in this case we only need
-uart and a mailbox since the rest are shared with existing
-firmware based drivers, so this isn't even the worst case
-but still requires some coordination between subsystem maintainers
-to ensure that all patches have been properly reviewed before
-I merge them.
+For *suspend*. The real suspend. Not a glorified WFI. And that's only
+for situations where we know for sure that we are going to suspend.
 
-Any peripheral drivers that are not essential for booting
-(typically mmc, ufs, spi, i2c, gpu, sound, pci) can get
-submitted at the same time, as there is no dependency on
-the platform being merged first.
+> And AFAIK, LPIs are always treated as non-secure. (Please correct me If I=
+'m wrong).
+>=20
+> The problem is that syscore_ops is not invoked during the S2IDLE scenario,
+> so we cannot rely on it in that context.
+> We would like to use these suspend/resume functions during S2IDLE as well.
 
-     Arnd
+Again, this is *by design*. There is no semantic difference between
+s2idle and normal idle. They are the same thing. Do you really want to
+save/restore the whole ITS state on each and every call into idle?
+Absolutely not.
+
+Only your firmware knows how deep you will be suspended, and how long
+you will be suspended for, and this is the right place for to perform
+save/restore of the ITS state. Not in generic code that runs on every
+arm64 platform on the planet.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
