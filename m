@@ -4,119 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959A8C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F1DC36013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BraP9gbbcBC9Rbnjp/s2THv2N7HD0F8919VepDWTSDo=; b=oYuyDxfza2R3K8S5Fxsa7iiFOU
-	A/DYxR7o5qjhrCs19PnTQEerU2PP+Avgm7c46E1Y0LoEkDnx98RZcXpExS8trjLV/lBuzrRh5hbN2
-	skHCPESBiG/KAFCyA1pPzuArTm/vnw/wcRAdBZ/M7w19pMnemfWY4DbtdaZa2Ddu7ggMvJNMkBjKJ
-	zl54hbzFnGlgyT/WHNhQfE/NGH2VrzR2Xmi9D+tGsZKW7Pz3JthBQgXVy2FvM2MgosMRBRrbx6t/R
-	BM5mTEXvwlGbTp1pT4PBgQNqimYSUYPcxsDlG6drozMOQDmdn8EBjbXB5ou/3OcUtYcIL78ujJ7vp
-	+f0BmlVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aSnI14BbYG44AW/1FazNe/GgOwu32Ov8br248K1Kr2c=; b=f5r3CXrbiYi5ue+J6no7sJbd74
+	7kbNDirIQiuZRt/OViyXahz54ohGP0XLsSjWB3jrhQeWUN9vZbYutSELlxnPU24zv/x1NDDUKolQn
+	+K1furrBIBlcloDN1UYJ7H9R1g0ulT3BHLwLCblq8ICTNsbu7C5cHrz79q1XgzKmtw2MBeL1ot1sg
+	VXJWgOffi1ZXL6a8mvv1kGYaqd7cfa/stx2RZPMNREECQ7FVNazj202cmPN4j+SkVY6gB+SX/9t8i
+	DTGu1gmwfbuV/RIq7HxxvphmWE0uBEE/2o+6IVFbBo4rjWkwn/x3fnXKObC6MQHxj1Pb+BoLh2Ep9
+	eU+a4gQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4lg-0000000CsQh-1NLb;
-	Fri, 28 Mar 2025 08:08:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ty4nO-0000000Csjt-2a3C;
+	Fri, 28 Mar 2025 08:10:30 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4OK-0000000Coru-0ZOZ
+	id 1ty4fL-0000000CrSL-0xnm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 07:44:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD767614B4;
-	Fri, 28 Mar 2025 07:44:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32566C4CEE4;
-	Fri, 28 Mar 2025 07:44:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743147874;
-	bh=DrhY9Gh1OreY+2yKI5o/Ho68C4hcLAcK8qj33JiXDdk=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=Lr7wUDwGlPHNPo3QKBOXasr59CeJwgZmw1U40lyquMd2yw7lWyVDHJBBgJg0ZJJok
-	 r2NPVj7PAQWQvcpAZTuyyVSO1vFCKdlM7CCrXmD8/LVPgNL7JUADqmjflCjdbMQxXo
-	 8o1+KoFE0j4kxdGGa/gqQe6g5s9ucXSLLOZFDNObP08S7FkOi8mFVIuVUngLKNUTlT
-	 Hz7O+UKmZyl8aVCWy/CEr5FP/RqNm0ws83VCHVybt01xESLq36X9cWVA+MQM+80IaL
-	 SLtqPcgY7fLyGklTOKwW2IrIJV4ky286gURtZDEqi/51+KO92vVy3XTgb/Y3Ietfpy
-	 Yc9ws2nCZ3tVg==
-Message-ID: <de0f7848-1fe7-451f-b48b-e20fbf3d0c2b@kernel.org>
-Date: Fri, 28 Mar 2025 08:44:23 +0100
+	Fri, 28 Mar 2025 08:02:12 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso1033770f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 01:02:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743148929; x=1743753729; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aSnI14BbYG44AW/1FazNe/GgOwu32Ov8br248K1Kr2c=;
+        b=XlCyOUkpV8q1rjU0xpQ1/lgmVJ+o5ZmEOxUL+2dvtBj60Ti5Uaot94hRFTqLvyucxJ
+         fEKkDvPh4EM3uRHJ+yET7qxoS5wOJFusSvvAqxiYnRWvMJ0rWk8FZ4aZLKxwaYyi5cfM
+         k1UK7OKqk//6kWYEg1tlsyGD6DZ9ybvjlewOhSM3MbOZF2I0f3a1ycj8KBUefYt4/b2o
+         9NrQr3Z1Pi6BakxTm58oZBfNE8O4QTT2b3D+oZfmO29Vjn8kUUrmWSyl+JO/J+ZVP+OW
+         gGdx1g6kP2NSWn+gtCvpVp0sOdnp66gwf5zOWii4NsiO33G4D9o2igoDS3oARlAwj8Fr
+         71dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743148929; x=1743753729;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aSnI14BbYG44AW/1FazNe/GgOwu32Ov8br248K1Kr2c=;
+        b=T8R2YnH5WnggwU54vUf5m6N4we45WksljMBqskbrAe1S8gI+KkuMQxdGZP3HWzDdTO
+         oN3sAlG/oIOxZsEhsjTIxxifDMWiNVOmK+aHiSguSYtrzAAg9v5I6fJb7aiPK45MO+Lp
+         MmXAz+lXjXPw9Z8ihYApzAPFsHrRZFR+XnaU95Epm3WdwkefNlFVXpKXyZGz13yoEV9W
+         d107rXtpQ7CJqOs+S+AWCcEyJupgttn97Ai0yr78eduvp1rUYs7CydfbA5qJRKoXaqyF
+         PCWe4UezW83ja3cpNYzvhDuLVjlqg9CN4vmXKAP3z1YeDm3e6D2xKoiOZXvk2pY/gpi9
+         hIQw==
+X-Forwarded-Encrypted: i=1; AJvYcCW3p6/ezS8wAjd4qRS4lFu+1Ef/S1HXgCK7AJ1J7RC3utYHR9sAu07RjN1mQl07O73fiN/YnaNxE/WnIorxf5NF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyK5gVn1Y5/z8UI/nhjUB+SJC/5Sp1VqrnQVXIoFEkVRUCkoZqc
+	exFdr2oeOP+2/uLqUfoVDx9ddkOkEwjUWVVjzbHvCem4lAba3l5VjdkdwCYR6UM=
+X-Gm-Gg: ASbGnctVdBJfPU6k7KZLl85qYry2HhUGYOJcp5pB2L+N7ulikdm+bO1EPd9+6YLU+57
+	gWZhfx/ovDpCrVUHOUGa1W8wFPY47WtVL/EU9Iyiu4alThZqFuW5C0JvHLNniMfPuQP09WT1JDs
+	+E5oBBEfY8yXqv07BCvcAPYX57AiRnNtidfQ0LsGS4kMRsMVrBH1MD17Y5zmSCznonMikeVRNuU
+	kNF2Um9Ck5XmjyfpTJAefBtBnh0sjaV1GYZyQ1q8VsrWiWuP1Ifb3eUqwnCCPcpIcyXDqDaNjrb
+	yc889KFSYrH2TmN66Ys2QuEDTeiO26xplzDk/N4s2XF8YEV3Lg==
+X-Google-Smtp-Source: AGHT+IFJDzuS2myCBT8Z8eorHzwkBKAKIK4T2dNn586UW/tt61K1e2XI3JFfo+oVpAzMnbvgnYtY2g==
+X-Received: by 2002:a5d:5885:0:b0:391:4999:778b with SMTP id ffacd0b85a97d-39ad17505d5mr5896059f8f.28.1743148928856;
+        Fri, 28 Mar 2025 01:02:08 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-39c0b7a4482sm1795937f8f.86.2025.03.28.01.02.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Mar 2025 01:02:08 -0700 (PDT)
+Date: Fri, 28 Mar 2025 11:02:05 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: "Malladi, Meghana" <m-malladi@ti.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, pabeni@redhat.com,
+	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kory.maincent@bootlin.com, javier.carrasco.cruz@gmail.com,
+	diogo.ivo@siemens.com, jacob.e.keller@intel.com, horms@kernel.org,
+	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
+	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
+Subject: Re: [PATCH net-next v2 3/3] net: ti: icss-iep: Fix possible NULL
+ pointer dereference for perout request
+Message-ID: <326ebaa2-7b8f-455c-bf22-12e95f32b71a@stanley.mountain>
+References: <20250321081313.37112-1-m-malladi@ti.com>
+ <20250321081313.37112-4-m-malladi@ti.com>
+ <20250325104801.632ff98d@kernel.org>
+ <0799d2f6-3777-45f6-a6b6-9ca3f145d611@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/15] arm64: defconfig: Enable Renesas RZ/V2N SoC
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Prabhakar <prabhakar.csengg@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250326143945.82142-16-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <41c6f512-47a5-4723-bbdc-64ed85ae8391@kernel.org> <Z-VETFWFT5NksD7J@ninjato>
- <6fa375d2-5ba8-4b2b-8a54-f28b3cbedcfb@kernel.org> <Z-WAZ_IlMBB3XbTN@ninjato>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <Z-WAZ_IlMBB3XbTN@ninjato>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0799d2f6-3777-45f6-a6b6-9ca3f145d611@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250328_010211_272639_F669AEBB 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,54 +107,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/03/2025 17:44, Wolfram Sang wrote:
+On Fri, Mar 28, 2025 at 11:46:49AM +0530, Malladi, Meghana wrote:
 > 
->> You did not object to last discussion about this (a month ago) - neither
->> to my comments nor to resolution - so this patchset repeating the same
 > 
-> Because I cannot follow every Renesas patch series there is. You are
-> long enough around to know that large companies have different entities,
-> groups whatsoever. It is quite a challenge to streamline this via one
-> group, we need to share work. We do try hard, though, and have a
-> ARM/RISC-V/RENESAS ARCHITECTURE maintainer. Geert does a *hell of a job*
-> getting all these submission into shape, and he surely does not accept
-> code thrown over the wall. And geez, the patch series was just sent
-> yesterday, you didn't give us even time to raise the issue internally.
+> On 3/25/2025 11:18 PM, Jakub Kicinski wrote:
+> > On Fri, 21 Mar 2025 13:43:13 +0530 Meghana Malladi wrote:
+> > > Whenever there is a perout request from the user application,
+> > > kernel receives req structure containing the configuration info
+> > > for that req.
+> > 
+> > This doesn't really explain the condition under which the bug triggers.
+> > Presumably when user request comes in req is never NULL?
+> > 
 > 
->> pattern from the same folks while ignoring previous talk is
->> contradicting "not too bad at fixing stuff".
+> You are right, I have looked into what would trigger this bug but seems like
+> user request can never be NULL, but the contents inside the req can be
+> invalid, but that is already being handled by the kernel. So this bug fix
+> makes no sense and I will be dropping this patch for v3. Thanks.
 > 
-> First, being a maintainer myself, I do understand the frustration of
-> patch review not being honored. I can also agree that this series did
-> not work out perfectly. But that does not mean that we don't care, in
-> general.  Despite all imperfection and possibly different opinions, we
-> try hard to be a good citizen and spend considerable time on doing
-> things right. Accusing us of throwing just "code over the wall" because
-> there is an issue somewhere which hasn't been worked on in one month is
-> plain unfair.
-We do not speak about same things. I speak of review being ignored for
-multiple revisions in one patchset and then another patchset sending
-exactly the same pattern.
 
-Previous patchset receive my review about this. Thierry ignored it and
-send v2 with same code. Then v3 with exactly the same code, but with a
-remark in cover letter "but such a change is out of
-scope for this patchset."
+I don't remember bug reports for more than a few hours so I had to dig
+this up on lore:
 
-And now Pabhakar sends the same pattern.
+https://lore.kernel.org/all/7b1c7c36-363a-4085-b26c-4f210bee1df6@stanley.mountain/
 
-Each of these contributors were not changing here anything, it's like
-not their job. It looks like this will never get fixed, because each
-person wants to just get their stuff merged, so let's ignore the
-reviewers comments.
+This is definitely still a real bug on today's linux-next but yes, the
+fix is bad.
 
-That's not how upstreaming works - you need to change some things, fix
-some stuff, add more code, if you want to add your independent features.
-That is how upstream was always. The easiest example is - one new driver
-for some completely new feature is fine. Second new driver for similar
-new feature receives feedback: please create subsystem to have common
-set/handling of that new thingies.
+drivers/net/ethernet/ti/icssg/icss_iep.c
+   814  int icss_iep_exit(struct icss_iep *iep)
+   815  {
+   816          if (iep->ptp_clock) {
+   817                  ptp_clock_unregister(iep->ptp_clock);
+   818                  iep->ptp_clock = NULL;
+   819          }
+   820          icss_iep_disable(iep);
+   821  
+   822          if (iep->pps_enabled)
+   823                  icss_iep_pps_enable(iep, false);
+   824          else if (iep->perout_enabled)
+   825                  icss_iep_perout_enable(iep, NULL, false);
+                                                    ^^^^
+A better fix probably to delete this function call instead of
+turning it into a no-op.
 
-Best regards,
-Krzysztof
+   826  
+   827          return 0;
+   828  }
+
+regards,
+dan carpenter
+
 
