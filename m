@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7795AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 07:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35458C36013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 07:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEirBUBZll/2CNmNMKcH5j/pk8NKD9yNsuFDYjiUshY=; b=ixph4Lieq342J1WWBfQWoc5TdY
-	rD37wz9sDy+VxVkwQl5DFMiBtbULye0pKgH3ONo54HKXZE7F6QZxIRcvJPbbndmtci3J068XN1FH7
-	eJwXIiBENkJ7kmXlKQ+Hun5+fK6TZK0ekgeuXgTHG1OKmAGMh3X5D9m32MfiBI6Cme+x8I8TT5AEb
-	IzLbOlSED+Y/jboTrtthS6cWl6YjUBani1zc0W5JPkLZanqJ/tugZlh7vsOQBL+3pcjWTAbjYlT5b
-	JOf9GbFAZG6Bm658xMsDJWc+lMgfL0WKcgx41iQICRkn/SvoiN6I8WQA/NvCW9g2TlT/v08d3/cP7
-	l2AIofhw==;
+	bh=YR4tw573chI/SmSNQiSCUnriSXeZaFDLdhuvK4Xv12c=; b=WvJIsYbC/1m62Lvast85lHuFBV
+	QxkwmJiQPAwMPnDqY7uToV09dZLM6kNsg1NojbWXtPbs9sBZuwdd13JXTIrzVa/RzPu+qjqeRTLHB
+	xCTyUdtvjBBs1JJdQLxCNZdCU64yJTBrphxfXq5YwjAhLE2ek5zAB6otROzVybJ1aCCX1ukUWHR48
+	dSPbSnA+EypymD7x2TIf9ExtRNJTz3UIJ8/oqiOz7Sv+LiONbjdEf9b8AsBPBtDkJp7vJIRDHuiEE
+	QxYV7Ie5LsmpnlyJmReQ2+0Gevmvoi2g4fCezDPCmP2uWEEN54SyaOdDF1LdjqIkbxGnUEZ673ffl
+	iEMfVkFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4Ug-0000000CqMh-45pF;
-	Fri, 28 Mar 2025 07:51:10 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1ty4WN-0000000CqW3-32CP;
+	Fri, 28 Mar 2025 07:52:55 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4Nt-0000000ColO-2OYu
+	id 1ty4Nw-0000000Com3-0pfX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 07:44:10 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5499c8fa0f3so1983932e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 00:44:09 -0700 (PDT)
+	Fri, 28 Mar 2025 07:44:13 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54afb5fcebaso2189540e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 00:44:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743147848; x=1743752648; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743147850; x=1743752650; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=XEirBUBZll/2CNmNMKcH5j/pk8NKD9yNsuFDYjiUshY=;
-        b=gIkEPdCkd1+vtr0yrfFAIJqTPZktTLdh1Tg/c0ZELWtZBsd4aV/SZEh/kyn36cD0in
-         DO8L7YXfmIMhxTs+uPU6//4rHNhn4eiUzonijCkHALlYCG1tNvNrzQV184Y7IhheRRUN
-         vtN4igl/QJoSVzY0Tb/84VDnSqfGS5ht7oeBCVsFViNiOo8wX+9KSFIQmCFwXTvPY+ZJ
-         VMEHaBAQntXGM9o18LzKstX6PdtGp0xwaAOnB45Jss+OVUoP5DY1ezSNeZtGlUYNNjom
-         s5pcROiTSNvPfusECGL49Gh1Y33rwtjCodSQr6qJshT9ZnaM/BXu8BThiGt3ZrnHh8br
-         D2uw==
+        bh=YR4tw573chI/SmSNQiSCUnriSXeZaFDLdhuvK4Xv12c=;
+        b=s0pwXQuDh5j1eIGUjK2efCFBWzrSSw2CBjhzZmSDL7PeJGBwgoYdA7hIGzCCiXbEAk
+         MRv8AWSySS8giF35QEIrayWALrm/PZ2xEI2bD9nVgc35RJcQq4oA9hwR+jkoE5aTaDx1
+         SZ52Ho1rMxxpaMB8mySow1N++KU/cf9Z0tHqKs+UHBVSjQsC3i20uMsZ5qse8EOZ5a/C
+         gMbxDXNWYOSu9/10sCiNJ6hMh1K6x6rdedbhl82+48KCSLHjYi9J1ZyonoEaufO99Aqd
+         Ea3npLSyjn7rWIaQ/BGv3UJYL1IuInLs3FdKTySxnvTWWx8FmYFU2vc/ub6/sqrQWWk/
+         BeLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743147848; x=1743752648;
+        d=1e100.net; s=20230601; t=1743147850; x=1743752650;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XEirBUBZll/2CNmNMKcH5j/pk8NKD9yNsuFDYjiUshY=;
-        b=NJPsn2uTn46NGAbUqk43bTleS3caXXIhGpPKgvA7iw+/Ufw5rInL9TVB9G6l7uWDVH
-         7cx/CTTGN1kD4B4efpXh18Snuorh5dhiQ5+a5ohdfInM+2Cs5tvdxmsTg/sQG6kSkkAq
-         sQyyLktpb8vFRQmHsK7omtF23UXget8Ket0BhdYuf1hQQHh9g3Tb+ApAsHGl6BhAVPwJ
-         MjnUxV+4Ao+hZubWLR2hJLpdzWxAoY1iN/fmGF/IcsFSNrdmNkSbpGb4jPg6Id5Jm8U/
-         HTS0A71fX6mX+2p1CC/7dx59OCYue1kaTUj+hFpfghmJJU4AkyS6C5UO4zt1YsMwadtc
-         u/PQ==
-X-Forwarded-Encrypted: i=1; AJvYcCULgG42hWJd93hDXx49E3FSrerAEIxA3GoRjtk0ujIHJoNX/jc9p3y53Gw1mC7KD4ycw01Te6Y+u63zhsa0yPSn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuOXCWG4vCs0LeHWD6wmqOQui8SnCIbJoVmkynZ/LbFR9tztj7
-	OsWL14WQxOLIaFJGEeC57oTeu2Pu+502JbVXIJMEuYVmLR20hyG1wdDPvJrYxCk=
-X-Gm-Gg: ASbGncudJbXJVVkc8A19ORKCw/cezpXTJcka3LHdzhRVebCEmqxR77PViKIH3NlkbCb
-	DrGOw1EYYUuey7+Frt5EjF20EZ04EcNmR+rmPDmGF3dAgej/8GVIHWzhfaXtdsgmrDRIvvmimjQ
-	xWsk5iOVBsUzqLoaNbJDk4Dx1HScfMXolxUrB+mp7NrCECWMb4xUDapAfPSoptQW4QsDRZXoEj0
-	fbB4ko+7JUJxge9Uy70fuGFUcZc2AJvG6NL4SSPS7LBc3WHuadCym6VkPozqcLXuYeojwz0qDZo
-	Mk6qMiA8D/eQyLxdYFkYJ1He09o0/SllmFWTcKgIvdNYD59qRYATylc=
-X-Google-Smtp-Source: AGHT+IGZ7IwtSD+rsiwYaWCAmSHkc24I3XE28ZvKsRaUNPPNFoNoNkWcCp9SfiyRprQhmO6Yvld/ow==
-X-Received: by 2002:ac2:4e05:0:b0:549:6cac:6717 with SMTP id 2adb3069b0e04-54b01273163mr2319734e87.53.1743147847926;
-        Fri, 28 Mar 2025 00:44:07 -0700 (PDT)
+        bh=YR4tw573chI/SmSNQiSCUnriSXeZaFDLdhuvK4Xv12c=;
+        b=dRSNqSpq2zsDuwlL11peV+Gj1dqdq4ds8CfX7zdbMtFHRxX2r1Ho9PK6Ofp9iQ3Fm+
+         6HL84yXD0JTvrfj1bmpysgWu9GFhBc622I7Y4RNkilQ5tpXAkGitJ/AJCaKt1BNTRlWB
+         QpNKiokvW7SITcWr94oHiLC+1X1rjjxPArjQtwkKLH52HGJJAFiNqd2jdIPvskhxuGiB
+         YJddStPuXQgqsQWTmea99uRJhbHZs4XRbQ/Uk/EUOv2bveuTQ48UnwjYkqsYbWmhUrSd
+         D2uInfmS8ZwzjeovVKA3LOtsjr2m+ATBxS697v2b8Rw7WITTLWn8pfS18hoqiRnVy6WQ
+         7OJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWY6alyiKPGc1p2MBEz/tkpwOoygn3NmuNrRhP5ruAsruP6l4I8kNpJePyFhoxg3yln9Q2kcvZNPVhKqrVg4wSC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaFqm5oCgEPhU8qOyFI2c0ZSbMr8XouZdR8rbEGFmHHzU9sHJh
+	igPBs9YeK26/ntyptZPIO1LNWB/rhX4Gzs5uDl+QYXmLAozDdxx0PSOe6SsM2kHFJH8DU7+2JkN
+	imrQ=
+X-Gm-Gg: ASbGncvOrOSGEjo48/B90E1Sp/XSeIQyYsREsqRTISJQ/a6e8nILpnxklSpVVHkZpOy
+	gG6qdIHHdyXM5ZcJ7fTjCbf+3zLSqGEFpYCR/bOXobcAptvUUmxiU2SGtbBfOYIwzB6F4epu/JQ
+	Kk1mihVqdz/u82X5n8ysKnZdtOg4ZvBTT0Le6IcUMTyKVKr/Fv9HAFaDI80m8bpGkD69PEVJHT3
+	X/4JkRW+H9s+Gj5v2OYKpsvvvKHGehYhO6MEulI4vZ4ocN+b1LpeOto/kccrjV1QR4zosoCSBXe
+	oS6Eedz3DK+AKn8YEzzTPcXIw79rE5unzS0dfsPlcmG52E0UlMGwjz8=
+X-Google-Smtp-Source: AGHT+IF/ArmOEOXgXQfLBNjjj8sVYQ+qLLQU2T2u/X0I6BLM6MCN9j17POGFH6OdY6C2kgn4C8GWFQ==
+X-Received: by 2002:a05:6512:3b9d:b0:54a:fa5a:e9b1 with SMTP id 2adb3069b0e04-54b011cd656mr2461814e87.10.1743147850260;
+        Fri, 28 Mar 2025 00:44:10 -0700 (PDT)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54b094bb32esm215589e87.26.2025.03.28.00.44.06
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54b094bb32esm215589e87.26.2025.03.28.00.44.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Mar 2025 00:44:06 -0700 (PDT)
+        Fri, 28 Mar 2025 00:44:08 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 28 Mar 2025 08:43:53 +0100
-Subject: [PATCH 03/12] ARM: dts: bcm6846: Add interrupt to RNG
+Date: Fri, 28 Mar 2025 08:43:54 +0100
+Subject: [PATCH 04/12] ARM: dts: bcm6855: Add BCMBCA peripherals
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250328-bcmbca-peripherals-arm-v1-3-e4e515dc9b8c@linaro.org>
+Message-Id: <20250328-bcmbca-peripherals-arm-v1-4-e4e515dc9b8c@linaro.org>
 References: <20250328-bcmbca-peripherals-arm-v1-0-e4e515dc9b8c@linaro.org>
 In-Reply-To: <20250328-bcmbca-peripherals-arm-v1-0-e4e515dc9b8c@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -92,8 +93,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-crypto@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_004409_618904_97A79D46 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20250328_004412_246838_5DA3963C 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,25 +109,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The r200 RNG has an interrupt so let's add it.
+All the BCMBCA SoCs share a set of peripherals at 0xff800000,
+albeit at slightly varying memory locations on the bus and
+with varying IRQ assignments.
+
+Add the first and second watchdog, GPIO, RNG, LED, DMA and
+second PL011 UART blocks for the BCM6855 based on the vendor
+files 6855_map_part.h and 6855_intr.h from the
+"bcmopen-consumer" code drop.
+
+This SoC has up to 256 possible GPIOs due to having 8
+registers with 32 GPIOs in each available.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/boot/dts/broadcom/bcm6846.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/broadcom/bcm6855.dtsi | 127 ++++++++++++++++++++++++++++++++
+ 1 file changed, 127 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm6846.dtsi b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-index e0e06af3fe891df3c3d8c2005cf1980d33a7762b..d36d0a791dbf4ca3442797691957c3247c7187e7 100644
---- a/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-@@ -196,6 +196,7 @@ uart0: serial@640 {
- 		rng@b80 {
- 			compatible = "brcm,iproc-rng200";
- 			reg = <0xb80 0x28>;
-+			interrupts = <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
+diff --git a/arch/arm/boot/dts/broadcom/bcm6855.dtsi b/arch/arm/boot/dts/broadcom/bcm6855.dtsi
+index 52915ec6f339335d87b4e50e1c03625fffb9a45d..a88c3f0fbcb037ee5c6b31933415f90cb51ded2a 100644
+--- a/arch/arm/boot/dts/broadcom/bcm6855.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm6855.dtsi
+@@ -116,6 +116,103 @@ bus@ff800000 {
+ 		#size-cells = <1>;
+ 		ranges = <0 0xff800000 0x800000>;
+ 
++		watchdog@480 {
++			compatible = "brcm,bcm6345-wdt";
++			reg = <0x480 0x10>;
++		};
++
++		watchdog@4c0 {
++			compatible = "brcm,bcm6345-wdt";
++			reg = <0x4c0 0x10>;
++			status = "disabled";
++		};
++
++		/* GPIOs 0 .. 31 */
++		gpio0: gpio@500 {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x500 0x04>, <0x520 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		/* GPIOs 32 .. 63 */
++		gpio1: gpio@504 {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x504 0x04>, <0x524 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		/* GPIOs 64 .. 95 */
++		gpio2: gpio@508 {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x508 0x04>, <0x528 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		/* GPIOs 96 .. 127 */
++		gpio3: gpio@50c {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x50c 0x04>, <0x52c 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		/* GPIOs 128 .. 159 */
++		gpio4: gpio@510 {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x510 0x04>, <0x530 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		/* GPIOs 160 .. 191 */
++		gpio5: gpio@514 {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x514 0x04>, <0x534 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		/* GPIOs 192 .. 223 */
++		gpio6: gpio@518 {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x518 0x04>, <0x538 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		/* GPIOs 224 .. 255 */
++		gpio7: gpio@51c {
++			compatible = "brcm,bcm6345-gpio";
++			reg = <0x51c 0x04>, <0x53c 0x04>;
++			reg-names = "dirout", "dat";
++			gpio-controller;
++			#gpio-cells = <2>;
++			status = "disabled";
++		};
++
++		rng@b80 {
++			compatible = "brcm,iproc-rng200";
++			reg = <0xb80 0x28>;
++			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
+ 		hsspi: spi@1000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+@@ -143,6 +240,27 @@ nandcs: nand@0 {
+ 			};
  		};
  
- 		leds: led-controller@800 {
++		leds: led-controller@3000 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			compatible = "brcm,bcm63138-leds";
++			reg = <0x3000 0xdc>;
++			status = "disabled";
++		};
++
++		pl081_dma: dma-controller@11000 {
++			compatible = "arm,pl081", "arm,primecell";
++			// The magic B105F00D info is missing
++			arm,primecell-periphid = <0x00041081>;
++			reg = <0x11000 0x1000>;
++			interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
++			memcpy-burst-size = <256>;
++			memcpy-bus-width = <32>;
++			clocks = <&periph_clk>;
++			clock-names = "apb_pclk";
++			#dma-cells = <2>;
++		};
++
+ 		uart0: serial@12000 {
+ 			compatible = "arm,pl011", "arm,primecell";
+ 			reg = <0x12000 0x1000>;
+@@ -151,5 +269,14 @@ uart0: serial@12000 {
+ 			clock-names = "uartclk", "apb_pclk";
+ 			status = "disabled";
+ 		};
++
++		uart1: serial@13000 {
++			compatible = "arm,pl011", "arm,primecell";
++			reg = <0x13000 0x1000>;
++			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&uart_clk>, <&uart_clk>;
++			clock-names = "uartclk", "apb_pclk";
++			status = "disabled";
++		};
+ 	};
+ };
 
 -- 
 2.48.1
