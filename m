@@ -4,95 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59B1C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 10:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E45DC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 11:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BsTjFY2jj2A4o4aQeM1yn18m5VjBspLLRgGpCLGwkew=; b=eTn9XjtEk7byLgkJkwy+n7GZiy
-	HrwSe18TIHxO1iO0VBNzzm1W+5EY54JZjbnWAVdnsEUok7E/hudhYTXJA2LT9xa7ObILCm1kUIVzV
-	157m4NLF477F1uM2OnnfEzDU6ez8whRNwIqnSb1DEdJOMeU8844ub4dNbrU+3HElZMxdfyu0GWOOL
-	acGYw/j4TCLlTp0ohRcV7gSLWV/lPF0AF6zqHsh+3NUUktITsA/5RnYlM/Cjdnd2h6tJ603201jfd
-	NSUB9fFUeHgu+17xcG/TNT0AOqO33TV9dzX+vKEpX4CgZ5pvDWRx4geCHIxmrKEIg2oX3tw3QjYNN
-	JwhbGO6w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AA2iifuZLLKE6Um4OIk38K43eNvXX7huxRWiSxa/7cw=; b=Q7Zcn8J5BsdIr2beKbKl2g61lr
+	4MBlbtZ24hpV+x7omQ5W99uUiNB3qFEKmaaSjbZFXx0OZrdm/ZkTnBvomW+kvYijqVTQfZ8CmxCR1
+	F0zmt2X/RI/uitE4UVpk7h6MglfA7Hrg8kG+5/H2eiuGuxOuZs5xl7Ry4QmMT0F9VYtDAyGUf4pC2
+	oW4kjFKECkN6PqYtrIgvUzq0UiWby3/dUhQG2cerBsP8nl4VwtOVDCD+KK+3GHjO4vWVN7E+Tmbxq
+	DYOvx3TXwBoxOTcPYkoCIy79AycCaX/b28w3h3RBovGHZSU4ueB6M2BrM+SpTRq61jtJhUmlt4d07
+	e562VsYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty7QP-0000000DBc4-2ose;
-	Fri, 28 Mar 2025 10:58:57 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1ty7S8-0000000DBvi-1T9G;
+	Fri, 28 Mar 2025 11:00:44 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty7Oe-0000000DBUn-0PBw
+	id 1ty7Of-0000000DBVc-0f2s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 10:57:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1743159403; x=1743764203; i=markus.elfring@web.de;
-	bh=BsTjFY2jj2A4o4aQeM1yn18m5VjBspLLRgGpCLGwkew=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=WpDGO+e8Pafgapt3mOamCiKLPrbULpkroAnOl9ooxFPHR/fNPkuOhNO9D+NtGlSc
-	 xwKVjPgp4XRZD4AwPykZImwZC2GGBlimJl1TBZHurMmiQ/5Qpeo7FwZW84LXuqYV5
-	 RXzHRoMTgT9gPICdplbHT/gZPUknsuCrQe1eQ0jsiNjiKL8Gh1C4Qcoh0Lh44EePv
-	 M1vZoKHqe/CTPjYmOv9mCUEpvI5z/+s0PXnQXuDfyC0HDAil/oRTCYT6BTzMa23hC
-	 WskAS67FlspXcYxb3ZBtukPpU5uvgs9985JRjjvOYQ7YRCUyepj1u/fOKDMwC0lZH
-	 ougAWFN2c0fEYLUkzg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.93.33]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MD5jv-1tpd3y19nd-008p2m; Fri, 28
- Mar 2025 11:56:43 +0100
-Message-ID: <4a17d0e2-bed9-43e5-a867-a501b991e6e7@web.de>
-Date: Fri, 28 Mar 2025 11:56:41 +0100
+	Fri, 28 Mar 2025 10:57:10 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5495c1e1b63so2308538e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 03:57:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743159426; x=1743764226; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AA2iifuZLLKE6Um4OIk38K43eNvXX7huxRWiSxa/7cw=;
+        b=LNXpEWtfJ9ScOws6NbvrH8jAn5DKcZfyQ1zKOKrNr0NurUSMPEZXYGfn8Gm4lbu74t
+         gv6SY0NPhmjFjnyucTmtb/FluGA5W96f+ijaxaSoiotut/JH/myiSb1zp4Xmo4JDLF5L
+         b3jYxLlE8BF5qsyB2ap8PQJYqwwHpbWQVzjSzviC93s+Kv0RC53gSG2NZuY4VgUV9di1
+         WCzuCj0I0zQsITGakmXNFc6N/fE1HPVL0GIST8vKTjEpMMLfKFme9Uik6rDQUyHcLQLa
+         zm+avD4+VGx4sa9fACufPSPuizGVEC0ctV/4S3qL+/MKPCUnW4amqQthqPlxnVDb5s40
+         Js/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743159426; x=1743764226;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AA2iifuZLLKE6Um4OIk38K43eNvXX7huxRWiSxa/7cw=;
+        b=dlowicYSWhQIbuip4knRMGp4oEeJPhHHc9oCMKlr0/NLTVmcaNbadItGbf0xxVB4Kg
+         iDcH/s77X82yvWOMSZ2dcOg19SQ5tTTiOAnHcThuEwbHsBHCObQkZ/GuOh4vgWR4bsxG
+         u2QserPpdcq3Wnf88Dkyp5AXhF86FKzSnsEJcf4LsZTthbrbGS2X+uhFydnXxKfGHVkJ
+         DDx8V1vRLeJt1S4mrZTgg3NV7g2pE4hXlthsiIAFWPfb2H5jMAA4+W3+gaBKzkavYfbN
+         X2wKbbXqp/6GPVC2IDqKUqg655UAGCwAYwFdGtlV1FzmWjlCaIBbrBMGJdDepNAGTzfk
+         hQuw==
+X-Gm-Message-State: AOJu0YyNw7ZNURZrpulfVd96HcNaqKB3DMJ9lP7hSIQRf/Yf2kaR9ep3
+	rXosIGGZUnG0roDso5W2JTklTv2hvD6+emEk6kPZL/Rn4tagYHd7YyX5qw==
+X-Gm-Gg: ASbGncvc9IUEEwXQ5/PPua7M/y1Rgr8OxGRFsGupFJ6yApMFvw7wng/JTcNroL8jbha
+	IN1YvPdQ7IbtN37vFrjsNnVRh2gt60L1PK8N08espGg8X9kmnYpD9jjvKpIDjPbGjZQTmQO3il0
+	K9b1F0RKXTyl5gJ/lfi4mfYCC/UWBwJDiGeVAB5uvkovnrHQTAzMLRMhL+yZPbghRHpDfX8s5xt
+	fScYnXFiZpeV8qaGUBOLLudvCiNJUHgr96Q/QjfaK+gg8H0+Blmn0B/xORAiI/mA3uYxoiAas2I
+	T2pTSz1Mpjf3HiTKZm6vZjnCzBiFG4uDs07A5cw7VRxezkIrk5hUckcR10ytNftWRSfARFCB7CI
+	r3w==
+X-Google-Smtp-Source: AGHT+IFWW/u8xH2nZ4zWp5g5cik5QWlDJZGM2o+7SInp+46pZ5yqn9v7XWiYq8ype7pBtrFZ2L04gQ==
+X-Received: by 2002:a05:6512:2508:b0:54b:e49:6274 with SMTP id 2adb3069b0e04-54b0e4964ebmr126267e87.1.1743159426305;
+        Fri, 28 Mar 2025 03:57:06 -0700 (PDT)
+Received: from localhost.localdomain ([188.243.23.53])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54b09580006sm264257e87.130.2025.03.28.03.57.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Mar 2025 03:57:04 -0700 (PDT)
+From: Alexander Shiyan <eagle.alexander923@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	dmaengine@vger.kernel.org,
+	Alexander Shiyan <eagle.alexander923@gmail.com>
+Subject: [PATCH] dmaengine: at_xdmac: Fixed printk format specifier when printing driver information.
+Date: Fri, 28 Mar 2025 13:56:54 +0300
+Message-Id: <20250328105654.143676-1-eagle.alexander923@gmail.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Qasim Ijaz <qasdev00@gmail.com>, linux-input@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Benjamin Tissoires <bentiss@kernel.org>, Jiri Kosina <jikos@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-References: <20250327231146.6388-1-qasdev00@gmail.com>
-Subject: Re: [PATCH] HID: thrustmaster: fix memory leak in
- thrustmaster_interrupts()
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250327231146.6388-1-qasdev00@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:8213H3JxfzTQowCs9fcHxElSgWiDoD0E+Gg1w0tPtaSuYYTPPy9
- Kja4WkXD0/LkPpj/SAN+o1cRvBrVIFNXeNoKNsCMK0WjzCgs3YKslikuiI0UZx13eRX9MH4
- jqCUzTqRMrmmV3twB+FRXb44dbQdb+GtVqlJTGwT8h6V67i1S3QRaZiQZPatWV3J3cC5g+f
- 8NkN62sPnQKhAE8Z1UPvQ==
-UI-OutboundReport: notjunk:1;M01:P0:+fwmZpPe2Zw=;w07p3cdLwi1BKzk99WXBuwFWIa5
- DCS74iZOzPB9xdCYFqGs0rThXtHxIFybDbMmhw/OG6CirzS79/QbgubWy8g75m5489HRYJW5O
- Ncjs/2cwJsldbhl4KkJElVIWNqN5EITI10GrD/eylok90s9KQC/VkFnmmacq21ErL1y2Kojo8
- +aiXIglCI0rFA4w+9LjIr7u7n7UmWk9O3TpxNippid/G+i+H9By1I7rG5AkzgP2Muxv32I+6v
- X9W6HTH+dRQrkVJW+f5YxZ/XW73Jf0yFxvIIbzA5VrwO43GFJhmPbxcFRQcYyT51dgwXLZWFw
- qA8ppHE6tPTiIE4T5+DhKeqhnvWzlIXFQkI6Md3vhLOea0/Z8fDwLY3t8eS9zBBomD2vOUTlI
- WgwP2DnbN8tkQFsvZDoB0D//ucMFswJ7c30GSlR4FrvTPCNDdHMnZxkransQC5jURDrRHdllM
- jTb8udFVCbhxNgNJf/ke/bRSjHfav4itVJuFUDBdeyUWhe47KPBYyPpx3K4M5xoD1/YSmjOIG
- 76bbnDhZlWNygnAXgPRhJAF5/Oa0y4B/gmORF3l6njcPUoxzUXApDPsdRa4KZ+O3EwFCNAGD3
- cTGsAqMv8ceJQbViT1clB3i0u8wYrd6zIVZ+KIYa38ZW49uqMcWJPZVYNodwhcqXbmqzqLw2m
- /37ayWoiMt1uzjORW+PEbeHl5g6M0H+3WMdDCih1HG9oPE9TucBVcCmseAXFsuG+iOWb2kPAQ
- o9AF9qRXBLvNvCP7bIOOnRgz5DgM4Iflb815VUMd0Cls0TGy5wFsAxPQEDI19gb54R1v6r9tD
- ngQmac0FpdZzYRcoAB5Zp9CuXE7oWOyr2i6Fy8lahJciqxGKW9jTyf3fzSHPoe1NK1OR9BPqz
- HW8DDJwQsPv+8UpmAG8emYw/80uBhnRo0/rWzPe4b5fDiBg9mU9fz0qeWBxJlOJgHcWhwDO76
- s/kgQlq41QPi9KUfG9rdrzFxxX56RQnYjRbS/VLgm8yMvrMSBggr8Cmu8JgiO9WR98Db2c3/2
- EFuBz8eO4h5mi0StywHTNPig6QgVg1mZFPlB4hIFBvsw+KstCM14rojQb1TFAJvVVQQIyChTt
- OHwuhS0NdOSM99lntvc2N05xI9AG+qOKKQUD50TNWylkXMcOk0l0xCrTkW1d4LceWQ+ers7c8
- WE9aVL7SvoX1oikayk23bOUHsA8ofxy96MHRyq0YQDrqXQ5WeSHLEElefy8Wn2jOLylRvBO+L
- jXLHR3gwXK4lyieiU96YfTyOmKtB3awooEhgN54U/3TJkjThRRXtogRVJT9vp6EcrPqdsAnLs
- dWNFJHDJq2lFv+eUjLEwKc/4f+vVSWAJu5piBgIb2X4q8xLfxLCujJ+gQYQFy9OHioyqxduzl
- LJq6au7bIavcDFGHr6ZhWrgCPcsPGdAkWgiBfbM10HeGrr36/fN6Egk3VjiqGSeNCvA+0SFm1
- xSgg9q/93WbnUMcBKUWZ32vRADVjKg/xxOCHJyCweia8Js6cteqAC/8hvsZgAnzZtKJ6grw==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_035708_442246_BB60F5CA 
-X-CRM114-Status: UNSURE (   7.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250328_035709_195126_51BA9D84 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> In thrustmaster_interrupts(), the allocated send_buf is not
-> freed if the usb_check_int_endpoints() check fails, leading
-> to a memory leak.
-=E2=80=A6
+Use the correct printk specifier to print the address, otherwise
+you get weird information:
+at_xdmac f0010000.dma-controller: 16 channels, mapped at 0x(ptrval)
+at_xdmac f0004000.dma-controller: 16 channels, mapped at 0x(ptrval)
 
-I imagine that word wrapping can occasionally become a bit nicer
-for text lines which may be longer than 59 characters.
+After the change, the information looks much more informative:
+at_xdmac f0010000.dma-controller: 16 channels, mapped at 0xc8892000
+at_xdmac f0004000.dma-controller: 16 channels, mapped at 0xc8894000
 
+Signed-off-by: Alexander Shiyan <eagle.alexander923@gmail.com>
+---
+ drivers/dma/at_xdmac.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-=E2=80=A6
-> +++ b/drivers/hid/hid-thrustmaster.c
-> @@ -174,6 +174,7 @@ static void thrustmaster_interrupts(struct hid_devic=
-e *hdev)
->  	u8 ep_addr[2] =3D {b_ep, 0};
->
->  	if (!usb_check_int_endpoints(usbif, ep_addr)) {
-> +		kfree(send_buf);
->  		hid_err(hdev, "Unexpected non-int endpoint\n");
->  		return;
->  	}
+diff --git a/drivers/dma/at_xdmac.c b/drivers/dma/at_xdmac.c
+index ba25c23164e7..a4188046804d 100644
+--- a/drivers/dma/at_xdmac.c
++++ b/drivers/dma/at_xdmac.c
+@@ -2409,7 +2409,7 @@ static int at_xdmac_probe(struct platform_device *pdev)
+ 		goto err_dma_unregister;
+ 	}
+ 
+-	dev_info(&pdev->dev, "%d channels, mapped at 0x%p\n",
++	dev_info(&pdev->dev, "%d channels, mapped at 0x%px\n",
+ 		 nr_channels, atxdmac->regs);
+ 
+ 	at_xdmac_axi_config(pdev);
+-- 
+2.39.1
 
-* You may avoid such repeated function calls by using another label instea=
-d.
-  https://wiki.sei.cmu.edu/confluence/display/c/MEM12-C.+Consider+using+a+=
-goto+chain+when+leaving+a+function+on+error+when+using+and+releasing+resou=
-rces#MEM12C.Considerusingagotochainwhenleavingafunctiononerrorwhenusingand=
-releasingresources-CompliantSolution(copy_process()fromLinuxkernel)
-
-* How do you think about to benefit any more from the application of the a=
-ttribute =E2=80=9C__free=E2=80=9D?
-  https://elixir.bootlin.com/linux/v6.14-rc6/source/include/linux/cleanup.=
-h#L144
-
-
-Regards,
-Markus
 
