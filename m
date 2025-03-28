@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE948C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 18:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE73C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 18:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGIl/D/IQlATv1YE3sYc45w/0v7KuPGnvUjACfzSOkA=; b=qJ6y7GaiEdhqKUIwOQOH4Fjpu3
-	26EfmEL6inVexn+hLNeq0ju594OVXhdnoS8hiF27zHOJ/w5Oas3LcxvxUZgH5TvnpoWLlSibgYJYT
-	in2P5R58vTd8GH3vR23ieZd+seCKEG85gVOMtHwRCtvYkULh1g0YHLFmqIJpysSk/9zcIGz9RTXyI
-	BH6cSJsGRkr5rBSAzwdOBgFvcWeg/GQJJojdawbd6VkTnQ+XTACY2pPVC+FHWHdtIl6S5HLfzy4mh
-	aPloSgNkeLY4TarUC0Oio6tnoHY4vw22HfAlvIgNfj9HocanA9TujTWt33Ue2pXe9rIaXdEOj3FsN
-	wre1rBjg==;
+	bh=RNrC5rlHKCOH5xusMQXkhUiFivWWVVsm7aCuKKAQMf0=; b=w4CSw2gbHEAfI9SDSSaOe5XQ9b
+	IY5fv02OViMRwYMBmlbIRCMHcez7Md8PMlUQMI+DsKNvUcEVr6mmY6+84LCM3ToAH/5EsKHy1GWGY
+	9Q0W4+Z5xS5xXrWwQy3rJqHkj/6fEX1dYrVhziJ1jyD2rnImBqDn3e8x+wFm1QcFRJJuevKrKPuUj
+	SOS+dYKiirXgyu5bZmcCpADpPYEFm2O6DVQRGHM02QzJus5Z8QjJ+P5lLiGSstWVcOYkSVznaaCZH
+	HCVOs7VWIOefr7dY8pJNOoZv2BARPibvyBn/orHXYvF2hyWcbf06Mvk9q/OdaetzkB7bJ7u2rd45G
+	w/JhUXew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyENc-0000000E6AJ-3oMT;
-	Fri, 28 Mar 2025 18:24:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyELt-0000000E63U-0EZj
+	id 1tyEPL-0000000E6Mk-2iqw;
+	Fri, 28 Mar 2025 18:26:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tyENP-0000000E67d-1N0X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 18:22:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE997FEC;
-	Fri, 28 Mar 2025 11:22:45 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 43F0D3F694;
-	Fri, 28 Mar 2025 11:22:39 -0700 (PDT)
-Date: Fri, 28 Mar 2025 18:22:36 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	james.morse@arm.com, conor@kernel.org,
-	Yicong Yang <yangyicong@huawei.com>, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linuxarm@huawei.com,
-	Yushan Wang <wangyushan12@huawei.com>, linux-mm@kvack.org,
-	gregkh@linuxfoundation.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Dan Williams <dan.j.williams@intel.com>
-Subject: Re: [RFC PATCH 2/6] arm64: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <Z-bo7AQ1h6VQr65V@arm.com>
-References: <20250320174118.39173-1-Jonathan.Cameron@huawei.com>
- <20250320174118.39173-3-Jonathan.Cameron@huawei.com>
+	Fri, 28 Mar 2025 18:24:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=RNrC5rlHKCOH5xusMQXkhUiFivWWVVsm7aCuKKAQMf0=; b=OzPQhm5AKHHFbL1GlosMauqtz2
+	3z0uXkAILxQYLzqyEiqX8zwyAUS/V5b5rE/mcuMowZWgSZv0na/yOy9FR8PwDajs+MZGBqxJcPN9V
+	xvNWYI1Ph7Kwx22NJPwyt2kryIe10BJuo3gc+NFeT/sDA0Ip2LDMsVKwSAQfg72D+8EI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tyEN0-007Ntl-B8; Fri, 28 Mar 2025 19:23:54 +0100
+Date: Fri, 28 Mar 2025 19:23:54 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
+Message-ID: <45c6cb9d-b329-4b4c-a480-08110a546fb6@lunn.ch>
+References: <20250328133544.4149716-1-lukma@denx.de>
+ <20250328133544.4149716-2-lukma@denx.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250320174118.39173-3-Jonathan.Cameron@huawei.com>
+In-Reply-To: <20250328133544.4149716-2-lukma@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_112245_136467_C9623A42 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20250328_112419_365467_D4897BE4 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,25 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 05:41:14PM +0000, Jonathan Cameron wrote:
-> +struct system_cache_flush_method {
-> +	int (*invalidate_memregion)(int res_desc,
-> +				    phys_addr_t start, size_t len);
-> +};
-[...]
-> +int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
-> +{
-> +	guard(spinlock_irqsave)(&scfm_lock);
-> +	if (!scfm_data)
-> +		return -EOPNOTSUPP;
-> +
-> +	return scfm_data->invalidate_memregion(res_desc, start, len);
-> +}
+> +                ethphy0: ethernet-phy@0 {
+> +                        reg = <0>;
+> +                        smsc,disable-energy-detect;
+> +                        /* Both PHYs (i.e. 0,1) have the same, single GPIO, */
+> +                        /* line to handle both, their interrupts (AND'ed) */
+> +                        interrupt-parent = <&gpio4>;
+> +                        interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
 
-WBINVD on x86 deals with the CPU caches as well. Even the API naming in
-Linux implies CPU caches. IIUC, devices registering to the above on Arm
-SoCs can only deal with system caches. Is it sufficient?
+Shared interrupts cannot be edge. They are level, so that either can
+hold the interrupt active until it is cleared.
 
--- 
-Catalin
+Also, PHY interrupts in general are level, because there are multiple
+interrupt sources within the PHY, and you need to clear them all
+before the interrupt is released.
+
+	Andrew
 
