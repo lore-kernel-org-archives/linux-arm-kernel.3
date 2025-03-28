@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D41BEC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 16:15:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EFCC36011
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 17:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xm+K+6QmdL1evz0mZ+yxfUZCcJu7K/29bMYYiqKxrYY=; b=z+4G0YeND3sYNRHWAeGatQ8yga
-	EwAlFuCZBsnvJWL8uuGzuj7aiam/HcLHt/jN+XEzpBI6khljMVlXaLqg7plr4FdnAnNrPfZcCDPWm
-	Ujw3MR8o7369axcfBFWA1OsqR+uFWrjTucPONoZP3DYzibMrWuUSuF+Mv4Hs19yu6VZrUbst5x03l
-	fl4IY2Nl8hGbt8FM3l/MPNriBAJm6KH3QtbrJllDRA4PaA+hVWR6ovaflpg7F6UXRUYWAb0SFDjMi
-	onrjUQ8YcHjhXHuwXUoyTs2YUznuJS0j8kjP5ryrccFiYp+Wn1cFE91+wEW4P06Q2RKHcCzEVZWNi
-	rpCTJ/Bw==;
+	bh=Co4RpiFV+ly6UFErhco3vS5kdG2BX+IOkv6UHpq96sI=; b=1MvN+HXBz31p8lpnutiKsqOsqj
+	23w0+nn0cIM2PzCKsqsaXORdCNgb8X54WX/PQtBqIeyRr+AOamiBTO6+xTef+S3ntt1jQr9f/q+CZ
+	Y3daA96VZB0pO3y8QO4kdwo9drlvJerNvwk9IiS39I0iwrKNrvD0KPjDsZGRXFonP7vne7YhFOgPd
+	Yfz34GHkTgAHHoolHyxSLaHbYPBk+KvBDj1zaYzaGOZ0LgFy9DHDsCtJIarkcOqLo5bTXTG10zivc
+	9jdpXvv/pu1aG75mly+6CIUU1yMc81pVLPDRRGyWJFlsAuJBDiEzN/cYeeoN9QMG4LMkMAo9uzWsL
+	iIyG6nnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyCMV-0000000DsCu-3GC9;
-	Fri, 28 Mar 2025 16:15:15 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tyD5C-0000000DwH4-2Q09;
+	Fri, 28 Mar 2025 17:01:26 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyCJq-0000000DruF-1VTO
+	id 1tyD3Q-0000000Dw1g-36Zy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 16:12:31 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52SGCOb82157906
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 28 Mar 2025 11:12:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1743178344;
-	bh=Xm+K+6QmdL1evz0mZ+yxfUZCcJu7K/29bMYYiqKxrYY=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=IRxQNM2GHazCM297qQAzmRK5Bwcmac90pPrtqSN8J3xne9c6/htIbghNikNm8f+g0
-	 bzl34txTmTuWk7dKIphRFvFDCToQzQRAvHfH6RYZ5h3FPRBpBEe1DZsHdTm29pamXa
-	 HmUZOHZ07kwXpAnw67iBsXRKWfyaB7gNwGCEOqIg=
-Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52SGCOmf128593
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 28 Mar 2025 11:12:24 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 28
- Mar 2025 11:12:24 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 28 Mar 2025 11:12:24 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52SGCKTc088176;
-	Fri, 28 Mar 2025 11:12:21 -0500
-Message-ID: <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
-Date: Fri, 28 Mar 2025 21:42:19 +0530
+	Fri, 28 Mar 2025 16:59:38 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-30185d00446so3374362a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 09:59:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1743181175; x=1743785975; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Co4RpiFV+ly6UFErhco3vS5kdG2BX+IOkv6UHpq96sI=;
+        b=OfVKoWUciRHmk7e7mO7temIT7U0nELxBkIlkTbl0AAunPm4A9Mm/Jq+S3tBlR1UPP0
+         fUKUa7cUtwTZaHgRHvSq4Z1hBKdO1yjRhnMOMigMrqng5kaNnEI6qBZ1nPUbuWtRzhK8
+         ip6UwLKuMWB2/wsYfbUufAOWuqAwu79ADbrC7V5ExHOsOmjQOGNjuV5Q6L+6MqBPQmGc
+         kE06XOjJteOhF0OOLBuQbOBDYOTLzdsCPj6wD43qWMgGBB9tLWVTTZOEPTDvUSHq5Odm
+         uL+6OxN1WXIQYZhQNUUk4OCW4N3dlvDds38deGTL+aiRZBu0xVUXhgE3bUvz+hCp+Aaj
+         Fq9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743181175; x=1743785975;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Co4RpiFV+ly6UFErhco3vS5kdG2BX+IOkv6UHpq96sI=;
+        b=oOXkIqcjTexnsob8Mgg5GuKLNsyG9CiTNp9nzaY77smlg3JjPrcoo61MakwpLUQlV0
+         VJ2HiVzbZj4tGI8dlI4EMXLZ8RaTfbtRIm1wNrh6u3mc5wbMV/Ti7GIlfpr401kNT3Gd
+         WPoQbZjdQLfZpujBD69IYLmK5sKBn1EOlQd3TDZQSlsNbW5PdH+pVg6cjyDu5WcxZEtg
+         DIWfGwLuQIyvAGSyMUkczSqvZEkiE/h83mWP8jD77lCLl8Ip1GSu7YWVtf59rQeADEpR
+         2ncG/vH8ahBYWXsZ/hCQ6JI0Y+xlGmdBJggQBhQTPwTgSXvTizdhWiqTwTymHei52C6a
+         9kDw==
+X-Forwarded-Encrypted: i=1; AJvYcCWHcA5/0op9HSpbQniSHMySe6Yfqf53iobGXDmc5ap0qAYdfDtEluwkBdNez6ZongA+VfQ6KZb4f7ERMhUC77ur@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHn2+XyKHp324bpqSa/goAT/lGgix0KboIy9sJGR9ndmoKdwXw
+	B9Ce7OgxtNFeusS8CyS9HR5DFeIg4y2kwspZ7KeFM0XMPxRRy/3tm92aHcU/v3ZR+rVwiq4gk9D
+	KAa45S5nQUilvqnSUFn8sHxtVsDo9bI1Teji7
+X-Gm-Gg: ASbGncsP/5ZT9F1A8PL1ADDP0kIAsKY8REUlzD3qVhi3ja5W1rkF8eaXRPx76ZGlkC8
+	3O5RAEU8sMZL9Otmeh1krGctnBG7T/ZSAJZxbzNN361xz8yglcCT5ntbO5cvegaZ79OBFB0EsE0
+	tgSBS+V0DRyuA6xYDYUGS8UDJjT8R0+O+RcT6zDGIEG+mh/Ll/QAwc9kv1AA==
+X-Google-Smtp-Source: AGHT+IFrUnI6CZJgKZQPMApvvIGJWKalCQQcAgrMhwe8ut9FGmt1jDNcMPB91mkenDBYrNRb8lEWvbPv7r67wkakJTc=
+X-Received: by 2002:a17:90b:42:b0:2fa:4926:d18d with SMTP id
+ 98e67ed59e1d1-3051c952251mr6075406a91.13.1743181175080; Fri, 28 Mar 2025
+ 09:59:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20250313144155.2382316-1-mwalle@kernel.org>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250313144155.2382316-1-mwalle@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <CAG48ez2jj8KxxYG8-chkkzxiw-CLLK6MoSR6ajfCE6PyYyEZ=A@mail.gmail.com>
+ <CAG_fn=UF1JmwMmPJd_CJQSzQAfA_z5fQ1MKaKXDv3N5+s3f6qg@mail.gmail.com> <CAG48ez1w3YO=dwuGqVF3PdHec6=vbYr3GmabY-qQHbZ0fko2JA@mail.gmail.com>
+In-Reply-To: <CAG48ez1w3YO=dwuGqVF3PdHec6=vbYr3GmabY-qQHbZ0fko2JA@mail.gmail.com>
+From: Marco Elver <elver@google.com>
+Date: Fri, 28 Mar 2025 17:58:57 +0100
+X-Gm-Features: AQ5f1Jo5avP8gathSpZrvGuQ9hpBAo8b9sd-f-ysvgj_1b3jBP--BO4MKJWn5D8
+Message-ID: <CANpmjNM_+gkQ2VwykXxu+7DL2ib2-4O-jDnn=+rXQn_e4=BnBA@mail.gmail.com>
+Subject: Re: does software KASAN not instrument READ_ONCE() on arm64 with LTO?
+To: Jann Horn <jannh@google.com>
+Cc: Alexander Potapenko <glider@google.com>, Will Deacon <will@kernel.org>, 
+	kasan-dev <kasan-dev@googlegroups.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	kernel list <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_091230_491983_E34DD08B 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20250328_095936_780962_E8D05931 
+X-CRM114-Status: GOOD (  28.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,66 +99,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Michael
-
-Thanks for patch
-
-On 3/13/2025 8:11 PM, Michael Walle wrote:
-> Add the node for the random number generator inside the crypto module.
+On Thu, 27 Mar 2025 at 20:10, 'Jann Horn' via kasan-dev
+<kasan-dev@googlegroups.com> wrote:
 >
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> ---
-> This was tested on a J722S/AM67A. Also, according to the TRM this is the
-
-Could you re-confirm please , after adding this node.  you selected trng 
-offered by Linux
-
-
-> MCU instance of the SA3UL. But it's defined in -main.dtsi. Is this
-> correct?
-
-Yes this is correct,
-
-please refer
-
-https://www.ti.com/lit/zip/sprujb3  SPRUJB3A.pdf
-
-table 2.1 Main Memory map, this node falls under main domain
-
-> ---
->   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 8 ++++++++
->   1 file changed, 8 insertions(+)
+> On Thu, Mar 27, 2025 at 8:29=E2=80=AFAM Alexander Potapenko <glider@googl=
+e.com> wrote:
+> > On Thu, Mar 27, 2025 at 12:10=E2=80=AFAM Jann Horn <jannh@google.com> w=
+rote:
+> > > Hi!
+> > >
+> > > I just realized - arm64 redefines __READ_ONCE() to use inline assembl=
+y
+> > > instead of a volatile load, and ASAN is designed to not instrument as=
+m
+> > > statement operands (not even memory operands).
+> >
+> > Nice catch!
+> >
+> > > (I think I may have a years-old LLVM patch somewhere that changes
+> > > that, but I vaguely recall being told once that that's an intentional
+> > > design decision. I might be misremembering that though...)
+> >
+> > We have some best-effort asm instrumentation in KMSAN (see
+> > https://llvm.org/doxygen/MemorySanitizer_8cpp_source.html#l04968) and
+> > could potentially do something similar for KASAN, but if I remember
+> > correctly there were some corner cases with unknown argument sizes and
+> > with percpu instrumentation (at least on x86 percpu accesses receive
+> > an offset of the variable in .data..percpu, not the actual address).
 >
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> index 6e3beb5c2e01..e868e006318e 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> @@ -227,9 +227,17 @@ crypto: crypto@40900000 {
->   		reg = <0x00 0x40900000 0x00 0x1200>;
->   		#address-cells = <2>;
->   		#size-cells = <2>;
-> +		ranges = <0x00 0x40900000 0x00 0x40900000 0x00 0x30000>;
-> +
->   		dmas = <&main_pktdma 0xf501 0>, <&main_pktdma 0x7506 0>,
->   		       <&main_pktdma 0x7507 0>;
->   		dma-names = "tx", "rx1", "rx2";
-> +
-> +		rng: rng@40910000 {
-> +			compatible = "inside-secure,safexcel-eip76";
-> +			reg = <0x00 0x40910000 0x0 0x7d>;
-> +			interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>;
+> Ah, I see. Annoying that memory operands are used for that...
+>
+> > > So because __READ_ONCE() does not call anything like
+> > > instrument_read(), I think instrumentation-based KASAN in LTO arm64
+> > > builds probably doesn't cover READ_ONCE() accesses?
+> > >
+> > > A quick test seems to confirm this: https://godbolt.org/z/8oYfaExYf
+> >
+> > So should it be enough to call instrument_read()?
+>
+> Sort of, I think; but I'm not sure whether instrument_read() is
+> available in this header or whether that would create an include
+> dependency loop because READ_ONCE is so fundamental
+> (linux/instrumented.h depends on linux/compiler.h, which pulls in
+> asm/rwonce.h). So instrument_read() might maybe need to be open-coded
+> if we want to use it here? IDK...
+>
+> And also I think this would probably cause ASAN false-positives in
+> __read_once_word_nocheck(), because I think disabling ASAN
+> instrumentation per-function with __no_sanitize_or_inline probably
+> does not disable explicit instrumentation through instrument_read()?
 
-For completeness , this is ok to add this node but should be kept disabled
+Correct, the attribute doesn't kill explicit instrumentation.
 
-similar to
+Easiest way to "fix" this is to disable the promotion to acquire by
+arm64 when built with a *compiler-based* (i.e. not KASAN_HWTAGS)
+sanitizer + LTO. This promotion was only made because of fear of
+overaggressive compiler optimizations with LTO. If there's a bug due
+to the compiler breaking dependency ordering [1], it'd actually be
+very nice to see a sanitizer splat, but I doubt we'd ever be so lucky.
 
-https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi#L662 
-
-
-
-
-> +		};
->   	};
->   
->   	secure_proxy_sa3: mailbox@43600000 {
+[1] https://lpc.events/event/16/contributions/1174/attachments/1108/2121/St=
+atus%20Report%20-%20Broken%20Dependency%20Orderings%20in%20the%20Linux%20Ke=
+rnel.pdf
 
