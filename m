@@ -4,84 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43F1C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 10:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D234C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 10:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVEU9Z9Cc8B9W4xNNyEcyh6tlvqC6ybG2jaMWegweJs=; b=3SAwQop3K0JYq0NFD6mH66cTei
-	w3EZ+20nJvyyU/k7jf1Gr5phJ9x5QQQ8ySMgBuKwlriSDSmO1QNB/euDq4+RfTJ4jSYSqlkipKC0j
-	bk4SkK989AT4Em7F0vfRTqxnP1J4SnKBKrtF6E+1EfLtpZokfVbz3QgOdNKyDkLgWz2VOLQj/6iDd
-	8BpVK7tEa9sTJxKsNLnuQsggQ9/w0dSuvf9+RpToRen3PCDDrIvGRhh5iUQDTuGH7qaKbrawGZmJZ
-	KBd6xzcWYjDkizuqMl+gm5D8UZ2k5xKtoiqkX/osL0rkDjvTHVIfN7bHCkGDXy1FfHmFIIlpH7u+V
-	oGSzQHTQ==;
+	bh=J44WYwbQmwUxJSoY1CFYPYmUkjVg/QF5th50I1dm/fA=; b=JEaNxafnW69fJtPc3KcAaC3RfJ
+	/Z7Z7JNWfaj5yTHrZcoM/kiDiMvCjjVKcHhpKLeS2zWDxScie5YIPL6iEWIojmORbPX6I7WRY/i2y
+	H9MxHuNCbnWERILO/ytAb8bnlPjDK/ylfIZlsyqiWhoPZvOOAB5Mel9O4BX5d+iR5bN0OxNv7/FXf
+	xIjQDoPPkwEiKPqPjYQPsN7X+eBEBCZtZgrLMqvNeshi7j6TB5eZJa7w1qhgCI2TcHKG5haw7Ub0m
+	AUed2Wd/XV4Hv7yM1iLhwfqfcVHTNhTB70QkpHbhIAwEtXU553/whrFz0nVcY0BHSvvVt3RQQzVrF
+	qNjs3Oog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty6bL-0000000D5V1-1tNo;
-	Fri, 28 Mar 2025 10:06:11 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1ty6d4-0000000D5yT-1sYM;
+	Fri, 28 Mar 2025 10:07:58 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty6Za-0000000D57K-2kJP
+	id 1ty6ax-0000000D5Pe-3lIC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 10:04:23 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-54993c68ba0so2060483e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 03:04:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1743156260; x=1743761060; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yVEU9Z9Cc8B9W4xNNyEcyh6tlvqC6ybG2jaMWegweJs=;
-        b=QLvAVmqKeIiJSbaffybLYGdlOA9eQu9T6BTThwWOuPiOHl7Av1aUMP9CZicPvjmvbI
-         nHy3OXXdS4XtG91RGXBokAKZqck8rcN8vubyS9UKpxl1HYcgY2NZoCjD6QrQI5V8Kzev
-         5sJhb2mmQOLFYBthDzVgV6JuS7yVQIObENv5w=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743156260; x=1743761060;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yVEU9Z9Cc8B9W4xNNyEcyh6tlvqC6ybG2jaMWegweJs=;
-        b=O4fjRae4+2A1pkwbxyCoHlweujqTyrYNxLDDKqHz0fMeFmtcSMkkPJWqO/6QaVI5Uj
-         x9jH9zWQcKTnXxfuCNKPuP0sjTHT43h2NrNCadSbVRJsdKk4zP3uplGddWHb8XL46kN6
-         PODvCtcGtGMar/mTkx1MrSz8nR4bHR+25TryeG1Sw2E6AQ6Y1IkL1PD9pUpgCpRu57TI
-         rLuLV9uuXz1n1yZydPd+Pey/diyN0K73cTTbF9ISdD5+ojCSJdyUbQ7jttpD2E3V5SSp
-         oCEesoWzGY8ww+ZpzOERCPP2s0NfPqw3hGl/KmrcppMnKDGDb8wPgZXXKeEBwBX75Ps2
-         2qRA==
-X-Forwarded-Encrypted: i=1; AJvYcCUpaAs+EQX0G4nKzZqXCoDHU/B1Cjw/Kqm6ccg9q+77ekX/CeDXbap92B77wM9rwmwZGQXvZ1fWBAibMqY4CgRG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxvYWY9qdO8jn4YXg7OKozMeeaRnh03QCFt7J4PRxxaiMHZar1
-	ZiN8fpdjARVqaUoI0kI7511m5f/23A0tV4q4074NcQez7AjMkSNSIDNuE7I+mCRi/F+xkga5lBm
-	fao54vdOUpZQ6GyOVly7sGvAUDT/AK6eg/t+H
-X-Gm-Gg: ASbGnct8UB5xdb02OII3nYjKMUbZBszpO5LTU7bGf4gkZ63THgSnKfefuAqZIM94HhQ
-	BDURcztj+XuxGlYIL8ANpbcnrLwhrRV6iXUpMdcGpLBvBcQ0LE1f3eGjfwTmBqTfeo8fQYQvHnw
-	gBLeDYARnl41CHSSR2fWrtGy2m9UAPnthsfSdE2t85k2LKBO8S70OoYw==
-X-Google-Smtp-Source: AGHT+IHePVtXJ1qJQdbP4+JraAsng3JxPcp8ln2qAoF7z/+m2DWfYuVxIC5W1TfslB1L3LezP+QcBUJ4Mmt/gRVxkjw=
-X-Received: by 2002:ac2:4e16:0:b0:549:7145:5d2f with SMTP id
- 2adb3069b0e04-54b01221f44mr2788893e87.33.1743156260501; Fri, 28 Mar 2025
- 03:04:20 -0700 (PDT)
+	Fri, 28 Mar 2025 10:05:49 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 72179752;
+	Fri, 28 Mar 2025 11:03:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1743156235;
+	bh=Q0o2ssfPoSfk2eKGd9eiql4gPDexAE3aFwWQnyBXpoc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mX1QPbBLJEwxALUPzb156MKV7SX+inreNYBm1ScvPWaks58uWu+fV/tcaklVvTsIA
+	 QsMAdJlOTcp43Stn5phQRP81RA6BYehj+ymIfGqdx8MPUTI+sHkXBIq2xHfYbcYmmH
+	 LyDXuwvul+c+1V32lfPmjo2JJLj0GTUU4SBuiiws=
+Message-ID: <5282b9f9-edef-45fd-8228-16096981a11a@ideasonboard.com>
+Date: Fri, 28 Mar 2025 12:05:40 +0200
 MIME-Version: 1.0
-References: <20250327-fix-mtk-iommu-error-v1-1-df969158e752@collabora.com>
-In-Reply-To: <20250327-fix-mtk-iommu-error-v1-1-df969158e752@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 28 Mar 2025 18:04:09 +0800
-X-Gm-Features: AQ5f1JruRldxLi3oN3F4vGRjnP_jRoig-8O423pVAOXUeHgChYU13ECJHzNzG14
-Message-ID: <CAGXv+5HAa0-AXg6=htNappreR5-9sPHNp7L9ByEBq4XZxADBXw@mail.gmail.com>
-Subject: Re: [PATCH] iommu/mediatek: Fix NULL pointer deference in mtk_iommu_device_group
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	"Rob Herring (Arm)" <robh@kernel.org>, kernel@collabora.com, Joerg Roedel <jroedel@suse.de>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
+ <20250326-xilinx-formats-v4-2-322a300c6d72@ideasonboard.com>
+ <20250327223449.GA16629@pendragon.ideasonboard.com>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20250327223449.GA16629@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_030422_716910_9D1636F8 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250328_030548_083203_84C2AE27 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,23 +121,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 6:48=E2=80=AFPM Louis-Alexis Eyraud
-<louisalexis.eyraud@collabora.com> wrote:
->
-> Currently, mtk_iommu calls during probe iommu_device_register before
-> the hw_list from driver data is initialized. Since iommu probing issue
-> fix, it leads to NULL pointer dereference in mtk_iommu_device_group when
-> hw_list is accessed with list_first_entry (not null safe).
->
-> So, change the call order to ensure iommu_device_register is called
-> after the driver data are initialized.
->
-> Fixes: 9e3a2a643653 ("iommu/mediatek: Adapt sharing and non-sharing pgtab=
-le case")
-> Fixes: bcb81ac6ae3c ("iommu: Get DT/ACPI parsing into the proper probe pa=
-th")
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Hi,
 
-Tested-by: Chen-Yu Tsai <wenst@chromium.org> # MT8183 Juniper, MT8186 Tenta=
-cruel
+On 28/03/2025 00:34, Laurent Pinchart wrote:
+> Hi Tomi,
+> 
+> Thank you for the patch.
+> 
+> On Wed, Mar 26, 2025 at 03:22:45PM +0200, Tomi Valkeinen wrote:
+>> Add two new pixel formats:
+>>
+>> DRM_FORMAT_XV15 ("XV15")
+>> DRM_FORMAT_XV20 ("XV20")
+>>
+>> The formats are 2 plane 10 bit per component YCbCr, with the XV15 2x2
+>> subsampled whereas XV20 is 2x1 subsampled.
+>>
+>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+>> ---
+>>   drivers/gpu/drm/drm_fourcc.c  | 6 ++++++
+>>   include/uapi/drm/drm_fourcc.h | 8 ++++++++
+>>   2 files changed, 14 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
+>> index 2f5781f5dcda..e101d1b99aeb 100644
+>> --- a/drivers/gpu/drm/drm_fourcc.c
+>> +++ b/drivers/gpu/drm/drm_fourcc.c
+>> @@ -346,6 +346,12 @@ const struct drm_format_info *__drm_format_info(u32 format)
+>>   		{ .format = DRM_FORMAT_P030,            .depth = 0,  .num_planes = 2,
+>>   		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
+>>   		  .hsub = 2, .vsub = 2, .is_yuv = true},
+>> +		{ .format = DRM_FORMAT_XV15,		.depth = 0,  .num_planes = 2,
+>> +		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
+>> +		  .hsub = 2, .vsub = 2, .is_yuv = true },
+>> +		{ .format = DRM_FORMAT_XV20,		.depth = 0,  .num_planes = 2,
+>> +		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
+>> +		  .hsub = 2, .vsub = 1, .is_yuv = true },
+> 
+> It appears we can never have too much (or enough) documentation, as
+> reading the format info documentation leaves me with unanswered
+> questions.
+> 
+> Looking at drm_format_info_min_pitch():
+> 
+> uint64_t drm_format_info_min_pitch(const struct drm_format_info *info,
+> 				   int plane, unsigned int buffer_width)
+> {
+> 	if (!info || plane < 0 || plane >= info->num_planes)
+> 		return 0;
+> 
+> 	return DIV_ROUND_UP_ULL((u64)buffer_width * info->char_per_block[plane],
+> 			    drm_format_info_block_width(info, plane) *
+> 			    drm_format_info_block_height(info, plane));
+> }
+> 
+> For the first plane, the function will return `buffer_width * 4 / 3`
+> (rouding up), which I think is right. For the second plane, it will
+> return `buffer_width * 8 / 3`, which I believe is wrong as the format is
+> subsampled by a factor 2 horizontally. It seems that either
+> char_per_block and block_w need to take horizontal subsampling into
+> account (and therefore be 8 and 6 for the second plane), or
+> drm_format_info_min_pitch() should consider .hsub. Or there's something
+> else I'm missing :-)
+
+The buffer_width is already divided by the hsub, in 
+drm_format_info_plane_width().
+
+>>   	};
+>>   
+>>   	unsigned int i;
+>> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
+>> index 81202a50dc9e..1247b814bd66 100644
+>> --- a/include/uapi/drm/drm_fourcc.h
+>> +++ b/include/uapi/drm/drm_fourcc.h
+>> @@ -304,6 +304,14 @@ extern "C" {
+>>   #define DRM_FORMAT_RGB565_A8	fourcc_code('R', '5', 'A', '8')
+>>   #define DRM_FORMAT_BGR565_A8	fourcc_code('B', '5', 'A', '8')
+>>   
+>> +/*
+>> + * 2 plane 10 bit per component YCrCb
+>> + * index 0 = Y plane, [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian
+>> + * index 1 = Cb:Cr plane, [63:0] x:Cr2:Cb2:Cr1:x:Cb1:Cr0:Cb0 2:10:10:10:2:10:10:10 little endian
+> 
+> I believe this is right, but I have a hard time validating it, as I
+> think the corresponding figures in UG1085 are incorrect (they show a
+> 8bpp format as far as I can tell). Do I assume correctly that you've
+> tested the formats ?
+
+Yes. kms++'s master branch has support for all the formats in this series.
+
+  Tomi
+
 
