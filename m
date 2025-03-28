@@ -4,104 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFBBC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 11:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E6AC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 11:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QO5L8F6Tv6G7jsBGSkmzV4B+MnJEKpypQ7BBXhNe5uo=; b=pW68Nl41W2JvTm1TcPljrCpu2S
-	oOUsS4XoQIlU4XnADZTSvoVzREl2048WXvljX8NaKCbUCG4ZcC30P56lYVTFYq+PaQQkhZbcDcR9g
-	CmZD9QtuSuClHiCdnFNrf1NzvPFB9dJhcuxk3uR7UKvHzfCKgHJl4t8KSQDGaF+N5B323MkmpBcOt
-	qYSsHZZNAwNAowDBL/d7jZWxowkY+7MUT8ky/DPTXwRlIilBqBtNRq4fjRloAbtY9wM3RkNz3ASck
-	/HmLU7oxSbT8TBy97+Sv2cqT1BftFeT8J7nsoLqyAwBUut1QzEYcfrfWvjZqH/nGINyP9sHfA99rL
-	I8WTOKEg==;
+	bh=KQBUB18mwX4A4xTotkHj/u2lOJW8/CY/92F1uJiGKg4=; b=HTWhdvoT1RBb7GK92u3+fHGA98
+	K/ExZRC14TaAz/v5LVvpdXZ+f5Wt5aTxCwGs10c3oyy89K1bULDIV6WPRW4DS41dGyrWxBYWHsj1Z
+	dVV9DQEi+QiLKcY2P02YRKWhmETi8WYLaRus8L2rKMwcU6eUJt3kGSqlgaSNi8q0JI9lDnm0T0YgU
+	dsQvVpbyggpQrz9Ai+I7i3mlj8tPVSFU9dPFM9anFzQAmF9Uj5uwxPP6z1MGFysA24ehH8bHwNAw0
+	QwrP3/ZAJbLu4QSa6b9GP9Z7Aw9k2/C5w1k1H6Yjqx6RXCaI2KE18A0geSKtY5TAsHjH37Lb3NxLU
+	oCBtTNNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty82p-0000000DFKr-2tUX;
-	Fri, 28 Mar 2025 11:38:39 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1ty85k-0000000DFgF-1sSM;
+	Fri, 28 Mar 2025 11:41:40 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty814-0000000DFEd-3Abm
+	id 1ty840-0000000DFV1-1jL7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 11:36:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=QO5L
-	8F6Tv6G7jsBGSkmzV4B+MnJEKpypQ7BBXhNe5uo=; b=BMvwXtjrsCO2KFxfDJQj
-	RssVT0PKDnfrEWRxUThKN2A5e9tmgp14gHgIbXgzLpQa4sLafXKdFWGT3OgWNwAd
-	YoCaa5HUgn4TrQ81GK96sGwiia2TCba53RH8wYqXhkr4A5HMjTlAm+DN87GW4ZKG
-	P9Uye3Qd6jJTTfS0qnIlMO3cKq9qe/81rz/X8TjNP8uxRL5ox7HyLl3w46oCIyR9
-	tIgss4JKiwHLUoxVe0Rh6Dh1qWLNWYNOgq8arHYHtT6qJxPuftkftONH1Xy4XUdZ
-	mYIjCFKzz7iC2STfyvVvDYIdO4Yf4awtdQV93K5p9dqx77oraWQvbZlRuHZUoJtm
-	Vw==
-Received: (qmail 226379 invoked from network); 28 Mar 2025 12:36:44 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 28 Mar 2025 12:36:44 +0100
-X-UD-Smtp-Session: l3s3148p1@vogefGUx3T1tKjIj
-Date: Fri, 28 Mar 2025 12:36:43 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Prabhakar <prabhakar.csengg@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-renesas-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH 15/15] arm64: defconfig: Enable Renesas RZ/V2N SoC
-Message-ID: <Z-aJy23ZyXq9lTrV@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-renesas-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250326143945.82142-16-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <41c6f512-47a5-4723-bbdc-64ed85ae8391@kernel.org>
- <Z-VETFWFT5NksD7J@ninjato>
- <6fa375d2-5ba8-4b2b-8a54-f28b3cbedcfb@kernel.org>
- <Z-WAZ_IlMBB3XbTN@ninjato>
- <de0f7848-1fe7-451f-b48b-e20fbf3d0c2b@kernel.org>
+	Fri, 28 Mar 2025 11:39:53 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e5dce099f4so2810373a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 04:39:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1743161990; x=1743766790; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KQBUB18mwX4A4xTotkHj/u2lOJW8/CY/92F1uJiGKg4=;
+        b=mX415jFBcJS4Uitiur3Y4P8I7Wf3w6TTBkE4IChmBwnIMZuXtOEA5hTJ+1n+rruPVy
+         wP+4Uv2olP32TB4alev30X0NojZOI6woiEevy+oyq3WsTglGyCapV16yOvNKzx0gGkqa
+         8gaNcmbcQ8VaaH7vQrngg+jh0a3hg2Z21MjRFedzz7EKEVJKToa7FHvjZ9I4zoDDDPeF
+         rg99iDQNLOHptoLsWp9rDWNScH1YKMXYyLXdnmDk05TbSJQEK98z7wBfEAHjBOuaWFFB
+         BFiVAAFCNK92QnIezXL9KvqGjX4CqnnFwNRVTP1+40ciiAR5GnUKz9QBtV2+pBCpwfDW
+         xZEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743161990; x=1743766790;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KQBUB18mwX4A4xTotkHj/u2lOJW8/CY/92F1uJiGKg4=;
+        b=h1awiX22/4eSn+Oo3SyBSxRwfOCXiwuh1eud5ixu05Fcd3yRbMw2lEqIODhwneTDE7
+         0NJzjnW2PN9v40pR546SFnDXImv/T6xoiFwG1P8lFZbtJnwh7ft+WV+pBfEbdm9p2gnq
+         +UNl+AK9pu4aefpd+D4tNWV4ImydFa9tCMrGGg04fb8UucVLOovQmjGpvuBOnbBRsJlK
+         ROW99GPwdbFYMYhV/jyYf+4v6cIuuLUj9AM3K/6l90ew0HSmQ/+ztjP6/XAz5iOX6FGp
+         X3O2HvXWFN8NTMYx24UG3OnUIlWhhgvIoFsVl4VfAb0Jikx3HEHRsHIoOlfKfq66zWzb
+         6t+A==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ41+EfMB+quw5B1kaWZTPmmP0gWZDay30AB+i8Xlq831QOi8ZheZKmFRsAABWPHTPc97+W6/E53nsZiGereFf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXvKJzRzxkuF7tYxMiJ9M9GlHa36373kbJG4pRmwgaD5DTBtV7
+	T4NQZcz/DEi2NlVHhOxeDIVkpOqLYrVc1+ks7VtdXgyu8bSaxlslDkbyP9waEA==
+X-Gm-Gg: ASbGncsTpsZfr9MYIdsc/yARqogOOSoPfKnjCo/gEQnbLT4k7sxMpuwiyuQElpRZllE
+	sLu6OL7yyw6oZE+Fuh5gJimSvdsxFPeEfrPSVEyzmq0DNYtDjoZpJRJsaVhAQSJRu6GQqf6nGdH
+	6VQ6Eh6pgdDhlD498yicAGX7u70chXz4XAdjkOS7dWIv9QkkH5MiUgGz1vafiYbWsQYfYSWeWtG
+	KGJgOl38aUpOxMc/WtDQcbkE3U+NLICven6jMygq1sA4lnUEBSBH34bpKCyBXPaagquLt4fx5QP
+	W8fAOrup0A/OnhqEfDuS086kINA/aQt/fx9dz7xheEGnKTL/hj17uHYUeOK+qkUPvZlE30CMpUt
+	ynPc=
+X-Google-Smtp-Source: AGHT+IGeYnm3vDHFpDSraEUf3HzDe65CWmKu1pd5dHmjPuvRy1baA8IV5n1Oel5kP1U7FdthFEYd6A==
+X-Received: by 2002:a17:906:6a09:b0:abf:6f87:c720 with SMTP id a640c23a62f3a-ac6faf0959fmr756376266b.29.1743161989773;
+        Fri, 28 Mar 2025 04:39:49 -0700 (PDT)
+Received: from google.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac719621b73sm145729266b.120.2025.03.28.04.39.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Mar 2025 04:39:49 -0700 (PDT)
+Date: Fri, 28 Mar 2025 11:39:45 +0000
+From: Quentin Perret <qperret@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, snehalreddy@google.com,
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	will@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com, Andrei Homescu <ahomescu@google.com>
+Subject: Re: [PATCH v4 3/3] KVM: arm64: Release the ownership of the hyp rx
+ buffer to Trustzone
+Message-ID: <Z-aKgXVjp4nNJcLd@google.com>
+References: <20250326113901.3308804-1-sebastianene@google.com>
+ <20250326113901.3308804-4-sebastianene@google.com>
+ <Z-Qv4b0vgVql2yOb@google.com>
+ <Z-UcW32Hk6f_cuxc@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rbVViYxK8BFEIzsn"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <de0f7848-1fe7-451f-b48b-e20fbf3d0c2b@kernel.org>
+In-Reply-To: <Z-UcW32Hk6f_cuxc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_043651_662593_C158570A 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250328_043952_470203_676BE3C3 
+X-CRM114-Status: GOOD (  45.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,66 +105,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thursday 27 Mar 2025 at 09:37:31 (+0000), Sebastian Ene wrote:
+> On Wed, Mar 26, 2025 at 04:48:33PM +0000, Quentin Perret wrote:
+> > On Wednesday 26 Mar 2025 at 11:39:01 (+0000), Sebastian Ene wrote:
+> > > Introduce the release FF-A call to notify Trustzone that the hypervisor
+> > > has finished copying the data from the buffer shared with Trustzone to
+> > > the non-secure partition.
+> > >
+> > > Reported-by: Andrei Homescu <ahomescu@google.com>
+> > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/ffa.c | 9 ++++++---
+> > >  1 file changed, 6 insertions(+), 3 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > index 6df6131f1107..ac898ea6274a 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > @@ -749,6 +749,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+> > >  	DECLARE_REG(u32, uuid3, ctxt, 4);
+> > >  	DECLARE_REG(u32, flags, ctxt, 5);
+> > >  	u32 count, partition_sz, copy_sz;
+> > > +	struct arm_smccc_res _res;
+> > >  
+> > >  	hyp_spin_lock(&host_buffers.lock);
+> > >  	if (!host_buffers.rx) {
+> > > @@ -765,11 +766,11 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+> > >  
+> > >  	count = res->a2;
+> > >  	if (!count)
+> > > -		goto out_unlock;
+> > > +		goto release_rx;
+> > >  
+> > >  	if (hyp_ffa_version > FFA_VERSION_1_0) {
+> > >  		/* Get the number of partitions deployed in the system */
+> > > -		if (flags & 0x1)
+> > > +		if (flags & PARTITION_INFO_GET_RETURN_COUNT_ONLY)
+> > >  			goto out_unlock;
+> > >  
+> > >  		partition_sz  = res->a3;
+> > > @@ -781,10 +782,12 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+> > >  	copy_sz = partition_sz * count;
+> > >  	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+> > >  		ffa_to_smccc_res(res, FFA_RET_ABORTED);
+> > > -		goto out_unlock;
+> > > +		goto release_rx;
+> > >  	}
+> > >  
+> > >  	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
+> > > +release_rx:
+> > > +	ffa_rx_release(&_res);
+> 
+> Hi,
+> 
+> > 
+> > I'm a bit confused about this release call here. In the pKVM FF-A proxy
+> > model, the hypervisor is essentially 'transparent', so do we not expect
+> > EL1 to issue that instead?
+> 
+> I think the EL1 should also issue this call irrespective of what the
+> hypervisor is doing. Sudeep can correct me here if I am wrong, but this
+> is my take on this.
 
---rbVViYxK8BFEIzsn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Agreed, but with the code as it is implemented in this patch, I think
+that from the host perspective there is a difference in semantic for
+the release call. W/o pKVM the buffer is essentially 'locked' until
+the host issues the release call. With pKVM, the buffer is effectively
+unlocked immediately upon return from the PARTITION_INFO_GET call
+because the hypervisor happened to have issued the release call
+behind our back. And there is no way the host to know the difference.
 
-Hi Krzysztof,
+I understand that we can argue the hypervisor-issued call is for the
+EL2-TZ buffers while the EL1-issued call is for the EL1-EL2 buffers,
+but that's not quite working that way since pKVM just blindly forwards
+the release calls coming from EL1 w/o implementing the expected
+semantic.
 
-> We do not speak about same things. I speak of review being ignored for
-> multiple revisions in one patchset and then another patchset sending
-> exactly the same pattern.
+> I am looking at this as a way of signaling the availability of the rx
+> buffer across partitions. There are some calls that when invoked, they
+> place the buffer in a 'locked state'.
+> 
+> 
+> > How is EL1 supposed to know that the
+> > hypervisor has already sent the release call?
+> 
+> It doesn't need to know, it issues the call as there is no hypervisor
+> in-between, why would it need to know ?
 
-True, we are talking about two different things...
+As per the comment above, there is a host-visible difference in semantic
+with or without pKVM which IMO is problematic.
 
-> Each of these contributors were not changing here anything, it's like
-> not their job. It looks like this will never get fixed, because each
-> person wants to just get their stuff merged, so let's ignore the
-> reviewers comments.
+For example, if the host issues two PARTITION_INFO_GET calls back to
+back w/o a release call in between, IIUC the expectation from the
+FF-A spec is for the second one to fail. With this patch applied, the
+second call would succeed thanks to the implicit release-call issued by
+pKVM. But it would fail as it is supposed to do w/o pKVM.
 
-... this is the technical part where you are correct. I am not arguing
-against it and the issue is currently being worked on as I write this
-mail.
+I'm not entirely sure if that's gonna cause real-world problem, but it
+does feel unecessary at best. Are we trying to fix an EL1 bug in the
+hypervisor here?
 
-Then, there is the communicative part which got me. A response like
-"NAK, I am not applying this until you finally fix the issue. And I am
-getting angry for being ignored the n-th time" is totally fine and clear
-enough. We can escalate that internally. But generalizing Renesas and
-ignoring that there are individual people there, trying to fix way more
-issues than this particular one, is what I percieved from your responses
-and what I considered above the line. And yes, I am aware that you are
-also doing a hell of a job going through all these DT and binding
-patches which I think are difficult to review.
+> > And isn't EL1 going to be
+> > confused if the content of the buffer is overridden before is has issued
+> > the release call itself?
+> 
+> The hypervisor should prevent changes to the buffer mapped between the
+> host and itself until the release_rx call is issued from the host.
+> If another call that wants to make use of the rx buffer sneaks in, we
+> would have to revoke it with BUSY until rx_release is sent.
 
-For me, we are entering the space where we can leave it like this and
-maybe discuss details over a drink at the next conference. You are
-invited then!
+Right, exactly, but that's not implemented at the moment. IMO it is much
+simpler to rely on the host to issue the release call and just not do it
+from the PARTITION_INFO_GET path in pKVM. And if we're scared about a
+release call racing with PARTITION_INFO_GET at pKVM level, all we should
+need to do is forward the release call with the host_buffers.lock held I
+think. Wdyt?
 
-Happy hacking,
-
-   Wolfram
-
-
---rbVViYxK8BFEIzsn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIyBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmfmiccACgkQFA3kzBSg
-KbZDvQ/3XUkMk0S3lualMv9+xB2AAfnJrhcA40zPXXl0VsEhKi2c8C+VsIllpelq
-mKMzoYZIki4mrXjJNSrEyQ/DqMTYeTlW2khVn+2qhGFZlAfbQh4zenvd+XkSGF/u
-JuKaG+IO0lj/rxnodhEPpjgOVODZXj2UhAOWTAGvGLozTkxoOLhCEYbGfhjEwL4N
-6f/G59wpFBYYhTUnYMMNqXZwZC71HZohhoY3hV8EBTKaZCcHV20S3DjEKxhJv0bu
-APNVjQLYlUg2LP+fyzhGqx9cAy6f5cRz4929/assP5Ga819bVxyxt/LOS7H2nn3v
-ma61v1RwaHwCjLx5xPvy+ZQS5FrtaljioWowZ7XNCytGvOtAxsRLQbcOZSc9kkqb
-LNlPqsy8aqdIBoVzwflVAESfYEMyC9Rn2BlJM0hKp1JS6nHqxkwUjanBzRHrXgDw
-Ya+b9vFJs0nImFcwYO3BbZwghcC4s0bs6ATdoUW7qfaeIWrwMb6JpZ05MejO6jIf
-h3xaaDzsw3OeiEYvxV8K4b+Ogor2dKIisgga4jY4D9hR8c10tr5K+khz9DfvXXKg
-zHD/o+2qIk4JRGwYUL/ZG94Et7tGbBn8OMEeTvvgKm2q8idTHkI3e1rowq2tkC9F
-6bJ/F2IIBC7AJy+Gw2WVFwnlD2BLE/HtfixdAHvi9rE5Thnj5A==
-=7p2i
------END PGP SIGNATURE-----
-
---rbVViYxK8BFEIzsn--
+Thanks,
+Quentin
 
